@@ -1,0 +1,45 @@
+{
+ "E10_link_dimension": 27,
+ "E10_casimirs_diagonal": true,
+ "E10_weak_casimir_values": [
+  0.0,
+  0.75
+ ],
+ "E10_colour_casimir_values": [
+  0.0,
+  1.333333333333
+ ],
+ "E10_comm_C_weak_O": 0.5303300858899106,
+ "E10_comm_C_Y_O": 0.10606601717798214,
+ "E10_comm_C_colour_O": 0.0,
+ "E10_O_on_trivial_sector": {
+  "('+', 2, 1, 1)": 0.7071067811865475,
+  "('-', 2, 1, 1)": 0.7071067811865475
+ },
+ "E10_Q_annihilates_beta": 0.0,
+ "E10_max_comm_left_stabilizer_O": 0.0,
+ "E10_max_comm_right_stabilizer_O": 0.0,
+ "E10_comm_left_T1_O": 0.35355339059327373,
+ "E10_comm_left_T2_O": 0.35355339059327373,
+ "E10_comm_left_z_O": 0.49601484813358326,
+ "E10_comm_left_T3_O": 0.35355339059327373,
+ "E10_comm_left_Y_O": 0.35355339059327373,
+ "E10_pass": true,
+ "E11_stationary_space_dimension": {
+  "j=1/2": {
+   "T1,T2,T3": 1,
+   "T1,T2,Q": 1,
+   "T1,T2": 1,
+   "Q": 2,
+   "z,Q": 2
+  },
+  "j=1": {
+   "T1,T2,T3": 1,
+   "T1,T2,Q": 1,
+   "T1,T2": 1,
+   "Q": 3,
+   "z,Q": 3
+  }
+ },
+ "E11_pass": true
+}

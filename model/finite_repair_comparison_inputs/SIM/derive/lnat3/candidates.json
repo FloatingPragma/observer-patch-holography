@@ -1,0 +1,35 @@
+{
+ "written": "2026-11-10, before any value of lane LNAT3 was computed",
+ "rule": "campaign rule: the candidate list is on record before evaluation; no measured mass enters before t3_assemble.py, last block",
+ "task1_source_records": {
+  "S1_partner_load": "the other load of the two-load matching code; fraction of active pairs whose partner fixes the source L-independently (LNAT2 says 1/3: to verify on all 30 seams, both colorings)",
+  "S2_twist_register": "committed rule register (oph_defects DATASET.md section 1): delta = j mod 6 on the two faces of the seam; which active events it records; what it records when coupled to the coherent event",
+  "S3_tape_end_tape_pos": "observer tape fields (DATASET.md section 7, universe.py _tape_rows): do they depend on the loads at all",
+  "S4_consensus_slice_order": "causal depth and consistent cuts (DATASET.md section 1): do they depend on the loads",
+  "S5_address_orientation": "the walk's oriented address register: correlation with the source endpoint",
+  "S6_committed_coin_current": "the committed record (coin, current) of model/observer/native.py: control, classical",
+  "S7_coherent_record_conjugate_basis": "the owned parity record of the coherent event read in the basis (|0> +- |1>)/sqrt2 (hypothesis: the event is a SWAP of the port qubit in the p/m basis with the record)",
+  "S8_endpoint_occupation_read": "a detector of the occupation of one or both seam endpoints before the coherent event (apparatus class: owned-register detector)",
+  "compositions": {
+   "C1_two_reads_fresh_record": "the same seam event twice with a fresh second record",
+   "C2_two_reads_reused_record": "the same seam event twice on the same record (U^2)",
+   "C3_previous_tick_record": "the walk's record after tick t, as information on the endpoint at tick t+1",
+   "C4_partner_controlled_correction": "any unitary on the record controlled by the partner position (bound on the tracial polarization)",
+   "C5_record_preserving_correction": "any isometry controlled by the record value 0/1 acting on everything else (Procrustes bound ||M||_1/6)",
+   "C6_controlled_half_turn": "apply gC when the load sits on the second endpoint (injectivity test)"
+  },
+  "readout_at_fraction_f": "A-clock energies E_k = a^2 + 4 b^2 cos^2(theta_k) + 4 f a b cos(theta_k), a = 1/sqrt6, b = 1/sqrt12, theta = 2/9: report Q, effective |b|/a, effective delta and the two ratios for f = 1/3 (and f = 0, 1 as controls)"
+ },
+ "task2_analyzers": {
+  "A1_third_turn": "Pi(g), g = gE gC, on the family register and on the records",
+  "A2_modular_flow": "rho^{it}, rho = [(5/4) I + (W + W*)/2]/524, one object and two objects",
+  "A3_CF1_alternating_order": "S_fwd = (Q3 R)(Q2 R)(Q1 R), S_rev reversed (candidates/CF1.md section 8)",
+  "A4_consensus_average": "A* and R = 2 A A* - I of the coherent walk; product over objects",
+  "A5_heralded_filter": "(2 I + W)/3, the one native linear combination of unitaries (added by this lane)",
+  "test": "unitary; native (in the declared grammar); maps the three flags (E hold, C rot+, C rot-) to the Fourier vector (equal moduli in the flag-zero row); Schmidt rank across the two objects"
+ },
+ "task3_readings": {
+  "R1": "both pieces native: assemble C(theta), theta = 2/9, Q, |b|/a, ratios",
+  "R2": "piece missing: obstruction theorem; conditional numbers with the missing piece declared (f = 1/3 and f = 1), and the separable native readout (K6 structure, theta = 1/4)"
+ }
+}

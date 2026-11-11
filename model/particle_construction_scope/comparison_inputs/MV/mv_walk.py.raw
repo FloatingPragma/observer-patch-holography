@@ -1,0 +1,170 @@
+"""Compiled family walk on a federation of twelve-port carriers (numba).
+
+State of one quantum of one type (one internal level): psi[x, r, k], x = 12 c + p the port, r the parity record,
+k the address in the register of carrier c: k < 60 the oriented internal seams (TA60[k] -> TB60[k]), then for the
+glue seam in slot s of the carrier the outgoing orientation at 60 + 2 s and the incoming one at 60 + 2 s + 1.
+
+One step W = Q R: R reflects the address register of every (port, record) about its uniform superposition;
+Q applies the public seam involution on the addressed seam with the link of that seam.
+
+Federation description (dict `fed`): ncar, S (register size), ga, gb (global ports of every glue seam), sa, sb
+(slot of the seam in the carrier of ga, of gb), gz (complex link from ga to gb for the type), and optional static Z2
+signs: sgn[c, e] for internal seam e of carrier c, gsg[s] for glue seam s (used for charged types only).
+"""
+import numpy as np
+import numba as nb
+
+import mv_lib as M
+
+TA60 = M.TA60.copy(); TB60 = M.TB60.copy()
+
+
+@nb.njit(cache=True)
+def reflect(psi):
+    n, _, S = psi.shape
+    f = 2.0 / S
+    for x in range(n):
+        for r in range(2):
+            s = 0j
+            for k in range(S):
+                s += psi[x, r, k]
+            s *= f
+            for k in range(S):
+                psi[x, r, k] = s - psi[x, r, k]
+
+
+@nb.njit(cache=True)
+def _pair(psi, a, ka, b, kb, g):
+    gc = np.conj(g)
+    cc = 0.5 * ((psi[a, 0, ka] - gc * psi[b, 0, kb]) - (psi[a, 1, ka] + gc * psi[b, 1, kb]))
+    psi[a, 0, ka] -= cc
+    psi[b, 0, kb] += g * cc
+    psi[a, 1, ka] += cc
+    psi[b, 1, kb] += g * cc
+
+
+@nb.njit(cache=True)
+def seam(psi, TA, TB, z60, sgn, ga, gb, sa, sb, gz, gsg, charged):
+    ncar = psi.shape[0] // 12
+    for c in range(ncar):
+        o = 12 * c
+        for k in range(60):
+            g = z60[k]
+            if charged:
+                g = g * sgn[c, k % 30]
+            _pair(psi, o + TA[k], k, o + TB[k], k, g)
+    for s in range(ga.size):
+        g = gz[s]
+        if charged:
+            g = g * gsg[s]
+        a = ga[s]; b = gb[s]
+        _pair(psi, a, 60 + 2 * sa[s], b, 60 + 2 * sb[s] + 1, g)                 # orientation a -> b
+        _pair(psi, b, 60 + 2 * sb[s], a, 60 + 2 * sa[s] + 1, np.conj(g))        # orientation b -> a
+
+
+@nb.njit(cache=True)
+def carrier_prob(psi, out):
+    ncar = psi.shape[0] // 12
+    S = psi.shape[2]
+    for c in range(ncar):
+        t = 0.0
+        for x in range(12 * c, 12 * c + 12):
+            for r in range(2):
+                for k in range(S):
+                    v = psi[x, r, k]
+                    t += v.real * v.real + v.imag * v.imag
+        out[c] = t
+
+
+@nb.njit(cache=True)
+def port_prob(psi, out):
+    n, _, S = psi.shape
+    for x in range(n):
+        t = 0.0
+        for r in range(2):
+            for k in range(S):
+                v = psi[x, r, k]
+                t += v.real * v.real + v.imag * v.imag
+        out[x] = t
+
+
+@nb.njit(cache=True)
+def record_prob(psi):
+    """Probability of the blank record (parity 0)."""
+    n, _, S = psi.shape
+    t = 0.0
+    for x in range(n):
+        for k in range(S):
+            v = psi[x, 0, k]
+            t += v.real * v.real + v.imag * v.imag
+    return t
+
+
+@nb.njit(cache=True)
+def committed_step(p, out, TA, TB, ga, gb, S):
+    """One application of the kernel 1 - L/S (the blank-record discriminant; the committed rule's one-quantum mean
+    map in the clock in which every carrier draws one of its S addresses per step)."""
+    ncar = p.size // 12
+    for x in range(p.size):
+        out[x] = p[x]
+    f = 1.0 / S
+    for c in range(ncar):
+        o = 12 * c
+        for k in range(30):
+            a = o + TA[k]; b = o + TB[k]
+            d = f * (p[a] - p[b])
+            out[a] -= d; out[b] += d
+    for s in range(ga.size):
+        a = ga[s]; b = gb[s]
+        d = f * (p[a] - p[b])
+        out[a] -= d; out[b] += d
+
+
+def step(psi, fed, z60, charged=False):
+    reflect(psi)
+    seam(psi, TA60, TB60, z60, fed['sgn'], fed['ga'], fed['gb'], fed['sa'], fed['sb'], fed['gz'], fed['gsg'], charged)
+
+
+def unstep(psi, fed, z60, charged=False):
+    seam(psi, TA60, TB60, z60, fed['sgn'], fed['ga'], fed['gb'], fed['sa'], fed['sb'], fed['gz'], fed['gsg'], charged)
+    reflect(psi)
+
+
+def one_carrier():
+    """An isolated carrier with the glue addresses removed: the public walk (register of sixty addresses)."""
+    e = np.zeros(0, np.int64)
+    return dict(ncar=1, S=60, ga=e, gb=e, sa=e, sb=e, gz=np.zeros(0, complex), gsg=np.zeros(0),
+                sgn=np.ones((1, 30)), gluing='none')
+
+
+def from_fedgeom(level, gluing='face_axis'):
+    """The sphere federation of `oph_defects.fedgeom` with the bridge gluing: three glue seams per carrier."""
+    from oph_defects import fedgeom as FG
+    assert [tuple(x) for x in FG.TEMPLATE_SEAMS.tolist()] == M.SEAMS
+    assert tuple(FG._control_ports()) == M.P and tuple(FG.CONTROL_FACE) == M.TOP
+    g = FG.build(level, gluing=gluing)
+    ga = g.glue_a.astype(np.int64); gb = g.glue_b.astype(np.int64)
+    slot = {p: k for k, p in enumerate(M.P)}
+    sa = np.array([slot[int(x) % 12] for x in ga], dtype=np.int64)
+    sb = np.array([slot[int(x) % 12] for x in gb], dtype=np.int64)
+    n = g.carriers
+    used = np.zeros((n, 3), int)
+    np.add.at(used, (ga // 12, sa), 1); np.add.at(used, (gb // 12, sb), 1)
+    assert (used == 1).all(), 'every carrier has one glue seam on each bridge port'
+    return dict(ncar=n, S=66, ga=ga, gb=gb, sa=sa, sb=sb, gz=np.ones(ga.size, complex), gsg=np.ones(ga.size),
+                sgn=np.ones((n, 30)), gluing='bridge', level=level, carrier_xyz=np.asarray(g.carrier_xyz, float),
+                mesh_xyz=np.asarray(g.mesh_xyz, float), tri=np.asarray(g.tri, np.int64),
+                glue_fp=np.asarray(g.glue_fp, np.int64), glue_fm=np.asarray(g.glue_fm, np.int64), vertices=int(g.vertices))
+
+
+def new_state(fed):
+    return np.zeros((12 * fed['ncar'], 2, fed['S']), complex)
+
+
+def embed(psi, x, amp=1.0):
+    """Add amp * A|x>: blank record, uniform over the register."""
+    psi[x, 0, :] += amp / np.sqrt(psi.shape[2])
+
+
+def embedded_overlap(psi, x):
+    return psi[x, 0, :].sum() / np.sqrt(psi.shape[2])

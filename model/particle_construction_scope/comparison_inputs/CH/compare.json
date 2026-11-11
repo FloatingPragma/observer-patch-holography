@@ -1,0 +1,639 @@
+{
+ "reference": {
+  "v": 246.22,
+  "m_Z": 91.188,
+  "m_W": 80.37,
+  "inv_alpha_2": 29.58,
+  "alpha_s": 0.118,
+  "sin2": 0.23122,
+  "inv_alpha_em": 127.95
+ },
+ "reference_thomson": 137.035999,
+ "rows": {
+  "V0": {
+   "variant": "declared chain",
+   "status": "declared (gate)",
+   "percent": {
+    "v": 0.15300666103372773,
+    "m_Z": 0.43900428494465515,
+    "m_W": -0.049710407617820085,
+    "inv_alpha_2": 0.08529879928238504,
+    "alpha_s": 0.2846286283150645,
+    "sin2": -0.20967914545253485,
+    "inv_alpha_em": 0.2800065497446935
+   },
+   "passes_registered_rule": true,
+   "carries_weight": true
+  },
+  "V1": {
+   "variant": "two doublets, trace N1 to N4",
+   "status": "source content with a second doublet; source trace",
+   "percent": {
+    "v": -0.14510332748481902,
+    "m_Z": -1.324901401499079,
+    "m_W": -0.355155999306056,
+    "inv_alpha_2": 0.10124761880343502,
+    "alpha_s": 0.36256178044280496,
+    "sin2": -10.106984307441525,
+    "inv_alpha_em": 11.338668369397986
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V2": {
+   "variant": "one doublet, trace N1 to N4, prefactor 1",
+   "status": "source as built, law for v with unit prefactor",
+   "percent": {
+    "v": -63.027757856617995,
+    "m_Z": -63.48301443540727,
+    "m_W": -63.032071334871006,
+    "inv_alpha_2": -0.2961880743536649,
+    "alpha_s": -1.4796013187154955,
+    "sin2": -11.819810039455113,
+    "inv_alpha_em": 13.050689460988373
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V3": {
+   "variant": "three doublets, trace N1 to N4",
+   "status": "one doublet per copy",
+   "percent": {
+    "v": 157.1168473609627,
+    "m_Z": 154.25288196963112,
+    "m_W": 156.12637283152017,
+    "inv_alpha_2": 0.4529951929142406,
+    "alpha_s": 2.1801774528549256,
+    "sin2": -8.44049530226114,
+    "inv_alpha_em": 9.696289702338845
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V4": {
+   "variant": "two doublets, doublet-block normalisation",
+   "status": "trace N5 (no colour stiffness of its own)",
+   "percent": {
+    "v": 0.20443840142265746,
+    "m_Z": 0.7451616799702077,
+    "m_W": 0.0029873728728979643,
+    "inv_alpha_2": 0.08255627909949936,
+    "alpha_s": 0.2712637074802293,
+    "sin2": 1.4605544379935775,
+    "inv_alpha_em": -1.3734955920677971
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V5": {
+   "variant": "one doublet, doublet-block normalisation, prefactor 1",
+   "status": "trace N5",
+   "percent": {
+    "v": -62.86035452690434,
+    "m_Z": -62.686699762783384,
+    "m_W": -62.86107507234328,
+    "inv_alpha_2": -0.3155832969146011,
+    "alpha_s": -1.5645584705691884,
+    "sin2": -0.3384140747222264,
+    "inv_alpha_em": 0.007359491156311293
+   },
+   "passes_registered_rule": true,
+   "carries_weight": true
+  },
+  "V6": {
+   "variant": "three doublets, doublet-block normalisation",
+   "status": "trace N5",
+   "percent": {
+    "v": 157.76458391195004,
+    "m_Z": 159.38536351310253,
+    "m_W": 156.79457187994893,
+    "inv_alpha_2": 0.43503476855062395,
+    "alpha_s": 2.0824419602075928,
+    "sin2": 3.206604237600863,
+    "inv_alpha_em": -2.70058526516076
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V7": {
+   "variant": "two doublets, port metric",
+   "status": "form N8 (no invariant colour action)",
+   "percent": {
+    "v": 0.6817627901074985,
+    "m_Z": 3.612441705137215,
+    "m_W": 0.49206830030159576,
+    "inv_alpha_2": 0.05722921636528433,
+    "alpha_s": 0.14833793031261422,
+    "sin2": 16.459557350279972,
+    "inv_alpha_em": -14.097496722727499
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V8": {
+   "variant": "two doublets, class-0 charged singlets absent",
+   "status": "no source statement removes them",
+   "percent": {
+    "v": 0.3334113876481304,
+    "m_Z": 1.5152829082062835,
+    "m_W": 0.13513575905772512,
+    "inv_alpha_2": 0.07569062928869386,
+    "alpha_s": 0.23785228880124354,
+    "sin2": 5.601815572130953,
+    "inv_alpha_em": -5.2477146624187565
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V9": {
+   "variant": "two doublets, hypercharge stiffness zero at E_cell",
+   "status": "functional N7 with induced coupling",
+   "percent": {
+    "v": 0.5214802305423483,
+    "m_Z": 2.64439905378806,
+    "m_W": 0.32783657882018424,
+    "inv_alpha_2": 0.06570876385367797,
+    "alpha_s": 0.18939387496770266,
+    "sin2": 11.522161561792998,
+    "inv_alpha_em": -10.286752069985393
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V10": {
+   "variant": "two doublets, hypercharge at the SU(5) value at E_cell",
+   "status": "5-trace at the cell for U(1) only",
+   "percent": {
+    "v": -0.36382019958893785,
+    "m_Z": -2.60752119974732,
+    "m_W": -0.5792520753646113,
+    "inv_alpha_2": 0.11300648425409676,
+    "alpha_s": 0.42025287026257185,
+    "sin2": -17.610058931990636,
+    "inv_alpha_em": 21.492311281140488
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V11": {
+   "variant": "two doublets, block relation at E_cell",
+   "status": "U(3) x U(2) block traces at the cell",
+   "percent": {
+    "v": -0.37818105521372214,
+    "m_Z": -2.691397328721945,
+    "m_W": -0.5939660481805831,
+    "inv_alpha_2": 0.11378028617270441,
+    "alpha_s": 0.42405622353167693,
+    "sin2": -18.110062935972458,
+    "inv_alpha_em": 22.235064450054676
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "V12 CEN-8": {
+   "variant": "census CEN-8 with one doublet",
+   "status": "other census",
+   "result": "no root"
+  },
+  "V12 CEN-5": {
+   "variant": "census CEN-5 with one doublet",
+   "status": "other census",
+   "result": "no root"
+  },
+  "V12 CEN-3": {
+   "variant": "census CEN-3 with one doublet",
+   "status": "other census",
+   "percent": {
+    "v": 7537126199913.747,
+    "m_Z": 9685387511528.645,
+    "m_W": 9260492790041.404,
+    "inv_alpha_2": -33.968099281317635,
+    "alpha_s": -42.30871129034617,
+    "sin2": 25.359167144047625,
+    "inv_alpha_em": -47.334018406093016
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "P1": {
+   "variant": "two doublets, c_1 = 2/3",
+   "status": "post hoc",
+   "percent": {
+    "v": 0.13887840084039205,
+    "m_Z": 0.35499790769180084,
+    "m_W": -0.06418642407445274,
+    "inv_alpha_2": 0.08605263241536765,
+    "alpha_s": 0.2883040870767628,
+    "sin2": -0.6703851602909983,
+    "inv_alpha_em": 0.7458794302038996
+   },
+   "passes_registered_rule": false,
+   "carries_weight": false
+  },
+  "P2a": {
+   "variant": "two doublets, c_Y = 13/12",
+   "status": "post hoc (coordinator look)",
+   "percent": {
+    "v": 0.15495799948794797,
+    "m_Z": 0.4506101192135237,
+    "m_W": -0.04771103765734974,
+    "inv_alpha_2": 0.08519469864509688,
+    "alpha_s": 0.28412112863283046,
+    "sin2": -0.14611261145318633,
+    "inv_alpha_em": 0.21606451345308475
+   },
+   "passes_registered_rule": true,
+   "carries_weight": false
+  },
+  "P2b": {
+   "variant": "two doublets, c_Y = 16/15",
+   "status": "post hoc (coordinator look)",
+   "percent": {
+    "v": 0.16470356559843413,
+    "m_Z": 0.508584785237387,
+    "m_W": -0.03772558493329026,
+    "inv_alpha_2": 0.08467484625964694,
+    "alpha_s": 0.2815870318317204,
+    "sin2": 0.17112422284735196,
+    "inv_alpha_em": -0.10183352809003399
+   },
+   "passes_registered_rule": true,
+   "carries_weight": false
+  },
+  "P3": {
+   "variant": "two doublets, 1/alpha_1(M_U) = cut value",
+   "status": "post hoc, retired premise",
+   "percent": {
+    "v": 0.1375308728683189,
+    "m_Z": 0.3469876652014703,
+    "m_W": -0.06556711987361075,
+    "inv_alpha_2": 0.08612454213881016,
+    "alpha_s": 0.28865473871779734,
+    "sin2": -0.7143692614263175,
+    "inv_alpha_em": 0.7905828457062336
+   },
+   "passes_registered_rule": false,
+   "carries_weight": false
+  },
+  "P4": {
+   "variant": "two doublets, SU(5) value one modular period below M_U",
+   "status": "post hoc",
+   "percent": {
+    "v": 0.1426080943236263,
+    "m_Z": 0.37717062780713295,
+    "m_W": -0.0603649280542462,
+    "inv_alpha_2": 0.08585360990307489,
+    "alpha_s": 0.2873336364980439,
+    "sin2": -0.5486846620655128,
+    "inv_alpha_em": 0.6223946594247298
+   },
+   "passes_registered_rule": false,
+   "carries_weight": false
+  },
+  "P5": {
+   "variant": "c_Y = 1 with b_1 = 42/5",
+   "status": "post hoc; needs a charged scalar singlet",
+   "percent": {
+    "v": 0.1612861272133781,
+    "m_Z": 0.48825282894653377,
+    "m_W": -0.04122714394987348,
+    "inv_alpha_2": 0.08485712994266148,
+    "alpha_s": 0.28247555699620897,
+    "sin2": 0.05992431949981558,
+    "inv_alpha_em": 0.009368754608063412
+   },
+   "passes_registered_rule": true,
+   "carries_weight": false
+  },
+  "F1": {
+   "variant": "two doublets, c_Y fitted on the declared 1/alpha_1(m_Z)",
+   "status": "fit",
+   "percent": {
+    "v": 0.15300666103514882,
+    "m_Z": 0.43900428494605404,
+    "m_W": -0.04971040761635459,
+    "inv_alpha_2": 0.08529879928236284,
+    "alpha_s": 0.28462862831510893,
+    "sin2": -0.20967914545293453,
+    "inv_alpha_em": 0.2800065497450488
+   },
+   "passes_registered_rule": true,
+   "carries_weight": false
+  },
+  "SD": {
+   "variant": "declared slopes, prefactor 1",
+   "status": "declared (gate)",
+   "percent": {
+    "v": 0.15300666103372773,
+    "m_Z": 0.43900428494465515,
+    "m_W": -0.049710407617820085,
+    "inv_alpha_2": 0.08529879928238504,
+    "alpha_s": 0.2846286283150645,
+    "sin2": -0.20967914545253485,
+    "inv_alpha_em": 0.2800065497446935
+   },
+   "passes_registered_rule": true,
+   "carries_weight": true
+  },
+  "SA 5/3": {
+   "variant": "one doublet, m = 2; trace normalisation 5/3",
+   "status": "source trace N1 to N4",
+   "percent": {
+    "v": -9.487936726417633,
+    "m_Z": -10.128400771055935,
+    "m_W": -9.115334155604282,
+    "inv_alpha_2": -1.1351024286350375,
+    "alpha_s": -4.813750838241859,
+    "sin2": -11.087958823976152,
+    "inv_alpha_em": 11.176762413724584
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SA 1": {
+   "variant": "one doublet, m = 2; doublet-block normalisation 1",
+   "status": "trace N5",
+   "percent": {
+    "v": -8.98818109412437,
+    "m_Z": -8.038610557432236,
+    "m_W": -8.603278914622924,
+    "inv_alpha_2": -1.1572596418239822,
+    "alpha_s": -4.8935481360591115,
+    "sin2": 0.64196319373091,
+    "inv_alpha_em": -1.8030135039909467
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SA 1/3": {
+   "variant": "one doublet, m = 2; port metric 1/3",
+   "status": "form N8",
+   "percent": {
+    "v": -8.300991836150084,
+    "m_Z": -5.115344008701528,
+    "m_W": -7.899102841045802,
+    "inv_alpha_2": -1.1874799330855335,
+    "alpha_s": -5.0017876677315165,
+    "sin2": 15.952688204365128,
+    "inv_alpha_em": -14.79528336669864
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SA zero at cell": {
+   "variant": "one doublet, m = 2; hypercharge stiffness zero at E_cell",
+   "status": "functional N7 with induced coupling",
+   "percent": {
+    "v": -8.513474982068969,
+    "m_Z": -6.025406990198379,
+    "m_W": -8.116847575812336,
+    "inv_alpha_2": -1.1781658894491343,
+    "alpha_s": -4.96850060256121,
+    "sin2": 11.316280584955685,
+    "inv_alpha_em": -11.238076326524894
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "P6 SA": {
+   "variant": "one doublet, m = 2; hypercharge stiffness zero at E_cell exp(2 pi)",
+   "status": "post hoc",
+   "percent": {
+    "v": -9.03921786944759,
+    "m_Z": -8.253418279538128,
+    "m_W": -8.655573856004716,
+    "inv_alpha_2": -1.1550038553242103,
+    "alpha_s": -4.88544110514696,
+    "sin2": -0.5323512301222744,
+    "inv_alpha_em": -0.6414330038657545
+   },
+   "passes_registered_rule": false,
+   "carries_weight": false
+  },
+  "FA": {
+   "variant": "one doublet, m = 2; c_Y fitted on the declared sin^2 theta_W",
+   "status": "fit",
+   "percent": {
+    "v": -9.02521707484485,
+    "m_Z": -8.194522157798112,
+    "m_W": -8.641227958981846,
+    "inv_alpha_2": -1.1556228371929933,
+    "alpha_s": -4.887666035354532,
+    "sin2": -0.20967914545254596,
+    "inv_alpha_em": -0.9633291981260284
+   },
+   "passes_registered_rule": false,
+   "carries_weight": false
+  },
+  "SA' 5/3": {
+   "variant": "one doublet, m = 2, theta_0 = g/(2 sqrt2); trace normalisation 5/3",
+   "status": "source trace N1 to N4",
+   "percent": {
+    "v": -6.897524341994343,
+    "m_Z": -7.540411601300267,
+    "m_W": -6.501314876230135,
+    "inv_alpha_2": -1.162472614001897,
+    "alpha_s": -4.912268267115582,
+    "sin2": -11.064863371711464,
+    "inv_alpha_em": 11.117120399660596
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SA' 1": {
+   "variant": "one doublet, m = 2, theta_0 = g/(2 sqrt2); doublet-block normalisation 1",
+   "status": "trace N5",
+   "percent": {
+    "v": -6.380194715843501,
+    "m_Z": -5.385852224009402,
+    "m_W": -5.971200533411225,
+    "inv_alpha_2": -1.1847201372299332,
+    "alpha_s": -4.99193129527562,
+    "sin2": 0.6729564644050834,
+    "inv_alpha_em": -1.8605172134824155
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SB 5/3": {
+   "variant": "two doublets, m = 1; trace normalisation 5/3",
+   "status": "source trace N1 to N4",
+   "percent": {
+    "v": -0.14510332748481902,
+    "m_Z": -1.324901401499079,
+    "m_W": -0.355155999306056,
+    "inv_alpha_2": 0.10124761880343502,
+    "alpha_s": 0.36256178044280496,
+    "sin2": -10.106984307441525,
+    "inv_alpha_em": 11.338668369397986
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SB 1": {
+   "variant": "two doublets, m = 1; doublet-block normalisation 1",
+   "status": "trace N5",
+   "percent": {
+    "v": 0.20443840142265746,
+    "m_Z": 0.7451616799702077,
+    "m_W": 0.0029873728728979643,
+    "inv_alpha_2": 0.08255627909949936,
+    "alpha_s": 0.2712637074802293,
+    "sin2": 1.4605544379935775,
+    "inv_alpha_em": -1.3734955920677971
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SB 1/3": {
+   "variant": "two doublets, m = 1; port metric 1/3",
+   "status": "form N8",
+   "percent": {
+    "v": 0.6817627901074985,
+    "m_Z": 3.612441705137215,
+    "m_W": 0.49206830030159576,
+    "inv_alpha_2": 0.05722921636528433,
+    "alpha_s": 0.14833793031261422,
+    "sin2": 16.459557350279972,
+    "inv_alpha_em": -14.097496722727499
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "SB zero at cell": {
+   "variant": "two doublets, m = 1; hypercharge stiffness zero at E_cell",
+   "status": "functional N7 with induced coupling",
+   "percent": {
+    "v": 0.5214802305423483,
+    "m_Z": 2.64439905378806,
+    "m_W": 0.32783657882018424,
+    "inv_alpha_2": 0.06570876385367797,
+    "alpha_s": 0.18939387496770266,
+    "sin2": 11.522161561792998,
+    "inv_alpha_em": -10.286752069985393
+   },
+   "passes_registered_rule": false,
+   "carries_weight": true
+  },
+  "P6 SB": {
+   "variant": "two doublets, m = 1; hypercharge stiffness zero at E_cell exp(2 pi)",
+   "status": "post hoc",
+   "percent": {
+    "v": 0.14824355446423354,
+    "m_Z": 0.4106783747755749,
+    "m_W": -0.054590755545358416,
+    "inv_alpha_2": 0.08555291910135043,
+    "alpha_s": 0.2858675488374818,
+    "sin2": -0.36490698781543873,
+    "inv_alpha_em": 0.43649415475439657
+   },
+   "passes_registered_rule": true,
+   "carries_weight": false
+  },
+  "FB": {
+   "variant": "two doublets, m = 1; c_Y fitted on the declared sin^2 theta_W",
+   "status": "fit",
+   "percent": {
+    "v": 0.15300666103443827,
+    "m_Z": 0.4390042849453879,
+    "m_W": -0.04971040761708734,
+    "inv_alpha_2": 0.08529879928238504,
+    "alpha_s": 0.2846286283150645,
+    "sin2": -0.20967914545251265,
+    "inv_alpha_em": 0.2800065497446491
+   },
+   "passes_registered_rule": true,
+   "carries_weight": false
+  }
+ },
+ "passing_rows_with_weight": [
+  "V0",
+  "V5",
+  "SD"
+ ],
+ "passing_rows_without_weight": [
+  "P2a",
+  "P2b",
+  "P5",
+  "F1",
+  "P6 SB",
+  "FB"
+ ],
+ "fits_on_measured_sin2": {
+  "F2 two doublets, prefactor 1 (closure_check)": {
+   "c_Y": 1.075643840043399,
+   "c_1": 0.6453863040260394,
+   "inv_alpha_em": 128.03879330274825,
+   "v": 246.612585771058,
+   "ln_pole_over_E_cell": 6.067987057026492,
+   "inv_alpha_Y_at_E_cell": 13.19858517482659,
+   "b_Y": 13.666666666666666
+  },
+  "GA one doublet, m = 2 (lv_chain)": {
+   "c_Y": 1.03242890748404,
+   "c_1": 0.619457344490424,
+   "inv_alpha_em": 126.45120527497622,
+   "v": 224.02053444259684,
+   "ln_pole_over_E_cell": 5.968791721926351,
+   "inv_alpha_Y_at_E_cell": 12.82449654221262,
+   "b_Y": 13.5
+  },
+  "GB two doublets, m = 1 (lv_chain)": {
+   "c_Y": 1.075643840043399,
+   "c_1": 0.6453863040260394,
+   "inv_alpha_em": 128.03879330274825,
+   "v": 246.612585771058,
+   "ln_pole_over_E_cell": 6.067987057026492,
+   "inv_alpha_Y_at_E_cell": 13.19858517482659,
+   "b_Y": 13.666666666666666
+  }
+ },
+ "outer": {
+  "O-SD declared, 5/3": {
+   "inv_alpha_0": 136.99483517741294,
+   "percent_inv_alpha_0": -0.030038692670142364,
+   "v": 246.59675497392996,
+   "percent_v": 0.15301558522051728,
+   "sin2": 0.23073517991130937,
+   "percent_sin2": -0.2096791318617064
+  },
+  "O-SA one doublet m = 2, 5/3": {
+   "inv_alpha_0": 150.85077633766602,
+   "percent_inv_alpha_0": 10.081130096089574,
+   "v": 228.61012461710368,
+   "percent_v": -7.1520897501812675,
+   "sin2": 0.20559298450393318,
+   "percent_sin2": -11.083390492200863
+  },
+  "O-SA one doublet m = 2, 1": {
+   "inv_alpha_0": 134.38761031453922,
+   "percent_inv_alpha_0": -1.9326225990155987,
+   "v": 222.88707898272781,
+   "percent_v": -9.476452366693277,
+   "sin2": 0.23270135101704395,
+   "percent_sin2": 0.6406673371870619
+  },
+  "O-SB two doublets m = 1, 5/3": {
+   "inv_alpha_0": 151.01989743586344,
+   "percent_inv_alpha_0": 10.204543724210335,
+   "v": 252.30445361037846,
+   "percent_v": 2.4711451589547906,
+   "sin2": 0.20786012909623694,
+   "percent_sin2": -10.102876439651876
+  },
+  "O-SB two doublets m = 1, 1": {
+   "inv_alpha_0": 134.89828393736266,
+   "percent_inv_alpha_0": -1.559966051429551,
+   "v": 245.65823719080583,
+   "percent_v": -0.22815482462601455,
+   "sin2": 0.23459495137617725,
+   "percent_sin2": 1.459627790060214
+  }
+ },
+ "count": {
+  "comparison_runs": 1,
+  "rows_compared": 37,
+  "rows_with_weight": 24,
+  "passing_with_weight": 3
+ }
+}

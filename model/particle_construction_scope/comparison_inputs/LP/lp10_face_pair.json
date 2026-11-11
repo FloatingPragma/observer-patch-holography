@@ -1,0 +1,83 @@
+{
+ "task": "LP addendum 5: pair on a port of the defect face",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "K5_face_register (six addresses, DECLARED register)": {
+  "face in outward order": [
+   4,
+   5,
+   11
+  ],
+  "flat": {
+   "tick-1 weights of one quantum": {
+    "R+ (record 1, address x0 -> x1)": "1/12",
+    "R- (record 1, address x1 -> x0)": "1/12",
+    "H (record 0, address on the seam {x2, x0})": "1/6",
+    "repair on the seam {x2, x0}": "1/6",
+    "agreement on the seam {x0, x1}": "1/6",
+    "address on the opposite seam": "1/3"
+   },
+   "P(R+ of quantum a xor H of quantum b)": "2/9",
+   "inverse tick restores the state": true
+  },
+  "class-3 holonomy on the face": {
+   "tick-1 weights of one quantum": {
+    "R+ (record 1, address x0 -> x1)": "1/12",
+    "R- (record 1, address x1 -> x0)": "1/12",
+    "H (record 0, address on the seam {x2, x0})": "1/6",
+    "repair on the seam {x2, x0}": "1/6",
+    "agreement on the seam {x0, x1}": "1/6",
+    "address on the opposite seam": "1/3"
+   },
+   "P(R+ of quantum a xor H of quantum b)": "2/9",
+   "inverse tick restores the state": true
+  }
+ },
+ "K5b_other_registers": {
+  "public Observer, sixty addresses, port": 4,
+  "record 1 at one oriented address at the port": [
+   "1/120"
+  ],
+  "record 0 with the address on one seam at the port": [
+   "1/60"
+  ],
+  "total record 1 weight": "1/12",
+  "count with sixty addresses": "89/3600",
+  "ten addresses of the five seams at the port: P(R+), P(H), count": [
+   "1/20",
+   "1/10",
+   "7/50"
+  ]
+ },
+ "K5c_charges": {
+  "{s1, s2} (both spinor levels on one port)": {
+   "6Y": 6,
+   "class": 0,
+   "weak": "singlet"
+  },
+  "{s_k} (one spinor quantum)": {
+   "6Y": 3,
+   "class": 3,
+   "weak": "doublet"
+  },
+  "{v1 v2 v3} (right-handed charged lepton)": {
+   "6Y": -6,
+   "class": 0,
+   "weak": "singlet"
+  },
+  "{v1 v2 v3, s2} (left-handed charged lepton)": {
+   "6Y": -3,
+   "class": 3,
+   "weak": "doublet"
+  },
+  "complement of {v1 v2 v3}": "{s1, s2}",
+  "reading": "one emission from the doubly occupied port is the vertex 0 -> 3 + 3 of the charged lepton (conjugate form)"
+ },
+ "seconds": 1.46
+}

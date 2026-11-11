@@ -1,0 +1,27 @@
+{
+ "inputs": {
+  "P_fwd": 1.6309720958588974,
+  "P_over_4": 0.40774302396472434,
+  "cells_in_anchor_collar": 1.089497619040006e+34,
+  "measured_values_read": "none"
+ },
+ "fused_total_constant_c_by_N": {
+  "8": 0.8821544932715486,
+  "16": 0.8616344337800836,
+  "32": 0.8504970418443298
+ },
+ "c_used": 0.8821544932715486,
+ "anchor_collar": {
+  "hidden_index_nats": 4.442350537897393e+33,
+  "record_bound_su2_nats": 40.06895941918569,
+  "record_bound_G_nats": 160.27583767674275,
+  "fraction_su2": 9.019765342099885e-33,
+  "fraction_G": 3.607906136839954e-32
+ },
+ "dyadic_ladder_below_anchor": {
+  "fraction_su2": 1.2095701179086966e-32,
+  "fraction_G": 4.8382804716347865e-32
+ },
+ "collar_cells_where_G_bound_equals_hidden_index": 24.304348469616986,
+ "collar_side_in_cells_there": 4.929944063538347
+}

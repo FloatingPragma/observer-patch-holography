@@ -1,0 +1,128 @@
+"""Worker UH, comparison (NOT BLIND), run once after the rows are on file. The only script of this worker that reads
+measured values: LEW's stored compare-only references (the file HT's part3b_not_blind_gf.py reads).
+
+1. Every SMDR row (two loops, G_F attachment) and the D11 rows against the references.
+2. The relation m_H(m_t) of each quartic law: quadratic interpolation through the rows at y_t(E_cell) = r y_ref,
+   r in {0.94, 0.96, 0.98}, read at the reference m_t.
+3. The pair (lambda, y_t)(E_cell) that the reference pair (m_H, m_t) implies on the chart: interpolation in r as in 2
+   and linear interpolation in lambda between the laws 'zero' and B4.
+Writes not_blind.json."""
+import glob
+import json
+
+import numpy as np
+
+LEW = "WORKSPACE/repair-law/work/SIM/derive/lew/"
+refs = json.load(open(LEW + "t1_chain.json"))["references_compare_only_GeV"]
+out = {"references_GeV": refs, "smdr_rows": {}}
+rows = {}
+for f in sorted(glob.glob("smdr_*.json")):
+    r = json.load(open(f))
+    if "label" not in r:
+        continue
+    o = r["GF"]["outputs_GeV"]
+    rows[r["label"]] = r
+    out["smdr_rows"][r["label"]] = {
+        "quartic": r["quartic"], "yukawa": r["yukawa"], "loops": r["loops"],
+        "lambda_E_cell": r["boundary"]["lambda"], "y_t_E_cell": r["boundary"]["yt"],
+        "y_over_y_ref": r["boundary"]["yt"] / r["y_crit_1loop_at_boundary"],
+        "y_over_g2": r["boundary"]["yt"] / r["boundary"]["g2"],
+        "GeV": {k: o[k] for k in ("W", "Z", "H", "t")},
+        "percent": {k: 100 * (o[k] / refs[k] - 1) for k in ("W", "Z", "H", "t")}}
+for k, v in out["smdr_rows"].items():
+    print("%-16s lam=%+.3e y=%.5f (%.4f y_ref)" % (k, v["lambda_E_cell"], v["y_t_E_cell"], v["y_over_y_ref"]),
+          {kk: "%.4f (%+.3f%%)" % (v["GeV"][kk], v["percent"][kk]) for kk in ("H", "t", "W", "Z")})
+
+
+def curve(law):
+    pts = []
+    for tag in ("r094", "r096", "r098"):
+        r = rows[f"{law}_{tag}"]
+        o = r["GF"]["outputs_GeV"]
+        pts.append((r["boundary"]["yt"] / r["y_crit_1loop_at_boundary"], o["t"], o["H"], r["boundary"]["lambda"],
+                    r["boundary"]["yt"], r["boundary"]["g2"]))
+    return np.array(pts)
+
+
+def at_mt(pts, mt):
+    ct = np.polyfit(pts[:, 0], pts[:, 1], 2)
+    roots = np.roots(ct - np.array([0, 0, mt]))
+    rr = [x.real for x in roots if abs(x.imag) < 1e-12 and 0.85 < x.real < 1.1][0]
+    val = lambda col: float(np.polyval(np.polyfit(pts[:, 0], pts[:, col], 2), rr))
+    return {"y_over_y_ref": rr, "m_H": val(2), "lambda_E_cell": val(3), "y_t_E_cell": val(4),
+            "y_over_g2": val(4) / val(5)}
+
+
+rel = {}
+for law in ("zero", "B4"):
+    pts = curve(law)
+    a = at_mt(pts, refs["t"])
+    a["m_H_percent"] = 100 * (a["m_H"] / refs["H"] - 1)
+    a["dmH_dmt"] = float((pts[2, 2] - pts[0, 2]) / (pts[2, 1] - pts[0, 1]))
+    rel[law] = a
+    print("relation m_H(m_t), law %-5s at m_t = %.2f: m_H = %.4f (%+.3f%%), y/y_ref = %.5f, y/g2 = %.5f, lambda = %+.3e,"
+          " dm_H/dm_t = %.3f" % (law, refs["t"], a["m_H"], a["m_H_percent"], a["y_over_y_ref"], a["y_over_g2"],
+                                 a["lambda_E_cell"], a["dmH_dmt"]))
+out["relation_mH_of_mt_at_reference_mt"] = rel
+# other laws at r = 0.96 relative to 'zero' at r = 0.96 (the shift of m_H at fixed Yukawa)
+shift = {}
+for law in ("B1", "B4", "B6t"):
+    a, b = rows[f"{law}_r096"], rows["zero_r096"]
+    shift[law] = {"lambda_E_cell": a["boundary"]["lambda"],
+                  "dH_GeV": a["GF"]["outputs_GeV"]["H"] - b["GF"]["outputs_GeV"]["H"],
+                  "dt_GeV": a["GF"]["outputs_GeV"]["t"] - b["GF"]["outputs_GeV"]["t"]}
+    shift[law]["m_H_at_reference_mt_estimate"] = rel["zero"]["m_H"] + shift[law]["dH_GeV"] \
+        - rel["zero"]["dmH_dmt"] * shift[law]["dt_GeV"]
+    shift[law]["percent"] = 100 * (shift[law]["m_H_at_reference_mt_estimate"] / refs["H"] - 1)
+out["law_shift_at_fixed_yukawa_r096"] = shift
+print("shift of m_H at fixed Yukawa (r = 0.96):", json.dumps(shift))
+# three-loop step
+if "B4_r096_3loop" in rows:
+    a, b = rows["B4_r096_3loop"]["GF"]["outputs_GeV"], rows["B4_r096"]["GF"]["outputs_GeV"]
+    out["three_loop_step_B4_r096"] = {k: a[k] - b[k] for k in ("H", "t", "W", "Z")}
+    print("three-loop step (B4, r = 0.96):", out["three_loop_step_B4_r096"])
+# implied boundary pair for the reference (m_H, m_t)
+z, b4 = rel["zero"], rel["B4"]
+s = (refs["H"] - z["m_H"]) / (b4["m_H"] - z["m_H"])           # fraction of the B4 quartic
+out["implied_by_reference_pair"] = {
+    "lambda_E_cell": s * b4["lambda_E_cell"] + (1 - s) * z["lambda_E_cell"],
+    "y_over_y_ref": s * b4["y_over_y_ref"] + (1 - s) * z["y_over_y_ref"],
+    "y_t_E_cell": s * b4["y_t_E_cell"] + (1 - s) * z["y_t_E_cell"],
+    "y_over_g2": s * b4["y_over_g2"] + (1 - s) * z["y_over_g2"],
+    "fraction_of_B4_quartic": s}
+print("implied by the reference pair:", out["implied_by_reference_pair"])
+# D11 rows
+d11 = json.load(open("flows_d11.json"))
+drows = {}
+for name, r in d11["regulators"].items():
+    for yk in ("Y1", "Y2"):
+        if yk in r and "mh_tree" in r[yk]:
+            drows[f"{name}_{yk}"] = {"lambda_E_cell": r[yk]["lambda_E_cell"], "y_t_E_cell": r[yk]["y_t_E_cell"],
+                                     "H": r[yk]["mh_tree"], "t": r[yk]["mt_pole"],
+                                     "H_percent": 100 * (r[yk]["mh_tree"] / refs["H"] - 1),
+                                     "t_percent": 100 * (r[yk]["mt_pole"] / refs["t"] - 1)}
+for c in d11["C1_compositeness"]:
+    if "mh_tree" in c:
+        drows[f"C1_y{c['y_t_E_cell']:.0f}"] = {"H": c["mh_tree"], "t": c["mt_pole"],
+                                             "H_percent": 100 * (c["mh_tree"] / refs["H"] - 1),
+                                             "t_percent": 100 * (c["mt_pole"] / refs["t"] - 1)}
+y3 = json.load(open("y3_d11.json"))
+for r in y3["top_leg_only"]:
+    drows[f"Y3 {r['yukawa']} {r['quartic']}"] = {"H": r["mh_tree"], "t": r["mt_pole"],
+                                                 "H_percent": 100 * (r["mh_tree"] / refs["H"] - 1),
+                                                 "t_percent": 100 * (r["mt_pole"] / refs["t"] - 1)}
+out["d11_rows"] = drows
+for k, v in drows.items():
+    print("D11 %-28s H=%.3f (%+.2f%%) t=%.3f (%+.2f%%)" % (k, v["H"], v["H_percent"], v["t"], v["t_percent"]))
+# D11 curves at the reference m_t
+dc = {}
+for name, cur in (("zero", d11["tree_level_lambda_zero_curve"]), ("B4", d11["regulators"]["B4"]["Y4_curve"]),
+                  ("B1", d11["regulators"]["B1"]["Y4_curve"]), ("B6t", d11["regulators"]["B6t"]["Y4_curve"])):
+    t = np.array([c["mt_pole"] for c in cur]); h = np.array([c["mh_tree"] for c in cur])
+    rr = np.array([c["y_over_y_crit"] for c in cur])
+    mh = float(np.interp(refs["t"], t, h))
+    dc[name] = {"m_H_at_reference_mt": mh, "percent": 100 * (mh / refs["H"] - 1),
+                "y_over_y_crit_2loop": float(np.interp(refs["t"], t, rr))}
+out["d11_curves_at_reference_mt"] = dc
+print("D11 curves at the reference m_t:", json.dumps(dc))
+json.dump(out, open("not_blind.json", "w"), indent=1)

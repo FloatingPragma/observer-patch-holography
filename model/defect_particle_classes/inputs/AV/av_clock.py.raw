@@ -1,0 +1,65 @@
+"""Lane AV: the Gaussian coefficient c as a function of the electric step a (a = 1: one step per tick; a -> 0: continuous
+time). Cartan circle, EXACT per transverse mode of spatial frequency w:
+  electric-step reading  c = w / sqrt(a^2 w^2 + 4)          (kinetic estimator of the discrete-time oscillator)
+  face-step reading      c = w sqrt(a^2 w^2 + 4) / 4        (Gaussian ground state of exp(-aV/2) K_a exp(-aV/2))
+  continuous time        c = w / 2
+The link's c is the average over modes weighted by the mode's weight on the link. Written after the comparison of
+av_compare.py; reads no measured value. Writes clock.json.
+"""
+import json
+import math
+
+import numpy as np
+
+import av_complex as C
+
+pi = math.pi
+out = {"note": "c = g^2 <E^2> of the seam link; <A> = 2 exp(-c S) on the Cartan circle. a = 1/(electric steps per tick)."}
+steps = [1, 2, 3, 4, 8, 1e9]
+
+
+def table(w, wt):
+    rows = []
+    for n in steps:
+        a = 1.0 / n
+        rows.append({"electric_steps_per_tick": n if n < 1e8 else "continuous", "a": a,
+                     "c_electric_step": float((wt * w / np.sqrt(a * a * w * w + 4)).sum()),
+                     "c_face_step": float((wt * w * np.sqrt(a * a * w * w + 4) / 4).sum())})
+    return rows
+
+
+def crossing(w, wt):
+    """a at which the face-step coefficient equals 1 (bisection), if any"""
+    f = lambda a: float((wt * w * np.sqrt(a * a * w * w + 4) / 4).sum()) - 1.0
+    if f(0.0) * f(1.0) > 0:
+        return None
+    lo, hi = 0.0, 1.0
+    for _ in range(80):
+        mid = 0.5 * (lo + hi)
+        if f(mid) * f(lo) > 0:
+            lo = mid
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+# cubic space of ds dimensions: ds - 1 transverse modes per wave vector out of ds links
+for ds, L in ((3, 48), (2, 256)):
+    k = 2 * np.sin(pi * np.arange(L) / L)
+    g = np.meshgrid(*([k] * ds), indexing="ij")
+    w = np.sqrt(sum(x ** 2 for x in g)).ravel()
+    wt = np.full(w.size, (ds - 1) / ds / w.size)
+    out["cubic_space_%dd" % ds] = {"rows": table(w, wt), "a_where_face_step_c_is_1": crossing(w, wt)}
+# icosahedral space: 19 transverse modes, eigenvalues of the face Laplacian, each with weight 1/30 on a seam
+D = C.coboundary(C.ico2())
+lam = np.linalg.eigvalsh(D @ D.T)
+lam = lam[lam > 1e-9]
+w = np.sqrt(lam)
+wt = np.full(w.size, 1 / 30)
+out["icosahedral_space"] = {"rows": table(w, wt), "a_where_face_step_c_is_1": crossing(w, wt)}
+json.dump(out, open("clock.json", "w"), indent=1)
+for k_, v in out.items():
+    if isinstance(v, dict):
+        print(k_, "face-step c = 1 at a =", v["a_where_face_step_c_is_1"])
+        for r in v["rows"]:
+            print("   steps per tick %-10s c electric %.6f   c face %.6f" % (r["electric_steps_per_tick"], r["c_electric_step"], r["c_face_step"]))

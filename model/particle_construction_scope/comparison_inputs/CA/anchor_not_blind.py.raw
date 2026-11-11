@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling item A): the single NOT BLIND comparison, run once after anchor_chain.json was written
+(hashes of the source-side outputs: anchor_ROWS_BEFORE_COMPARISON.sha256).
+
+Measured values (read here only; the same as work/DC/dc_scale_not_blind.py): v = (sqrt2 G_F)^(-1/2) with
+G_F = 1.1663788e-5 GeV^-2; E* = 1.220890e19 GeV; sin^2 theta_W(m_Z) MSbar = 0.23122; alpha_em^-1(m_Z) MSbar =
+127.951; alpha^-1(0) = 137.035999177. Writes anchor_not_blind.json.
+"""
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+src = json.loads((HERE / "anchor_chain.json").read_text())["rows"]
+v_meas = (2 ** 0.5 * 1.1663788e-5) ** -0.5
+meas = {"v": v_meas / 1.220890e19, "sin2w_mZ": 0.23122, "alpha_em_inv_mZ": 127.951, "A_T": 137.035999177}
+out = {"label": "NOT BLIND", "measured": {**meas, "v_GeV": v_meas}, "rows": {}}
+print(f"{'row':5} {'reading':58} " + " ".join(f"{k:>16}" for k in meas) + f" {'A_T - measured':>15} {'v_GeV':>9}")
+for r, e in src.items():
+    f = e.get("fixed_point")
+    if not f:
+        continue
+    out["rows"][r] = {"reading": e["reading"],
+                      **{k: {"source": f[k], "ratio_source_over_measured": f[k] / m} for k, m in meas.items()},
+                      "A_T_minus_measured": f["A_T"] - meas["A_T"], "v_GeV": f["v_GeV"]}
+    print(f"{r:5} {e['reading'][:58]:58} " + " ".join(f"{f[k] / m:16.6f}" for k, m in meas.items())
+          + f" {f['A_T'] - meas['A_T']:15.4f} {f['v_GeV']:9.3f}")
+(HERE / "anchor_not_blind.json").write_text(json.dumps(out, indent=1) + "\n")

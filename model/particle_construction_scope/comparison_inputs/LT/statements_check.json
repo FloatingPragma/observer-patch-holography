@@ -1,0 +1,428 @@
+{
+ "checkout": "WORKSPACE/reverse-engineering-reality",
+ "head": "3ee5e0652 2026-11-11 08:18:23 +0700",
+ "sections": {
+  "U1": {
+   "summary": "The tick and its edge gate. One seven-layer cycle (one onsite U in every cell, one root-SWAP on every edge) is the clock tick; the edge gate is E = a I + b S with a = (1 - i)/2, b = (1 + i)/2.",
+   "rows": [
+    {
+     "file": "model/coherent_defect_wave/spatial/PROOF.md",
+     "line": 19,
+     "phrase": "One complete seven-layer cycle is the clock tick.",
+     "status": "declared"
+    },
+    {
+     "file": "model/coherent_defect_wave/spatial/PROOF.md",
+     "line": 62,
+     "phrase": "The coefficients specify an exact square-root SWAP gate.",
+     "status": "model, exact"
+    },
+    {
+     "file": "model/coherent_defect_wave/mobile_flux/PROOF.md",
+     "line": 53,
+     "phrase": "Onsite U_F at both cells followed by E is one declared clock tick.",
+     "status": "declared"
+    },
+    {
+     "file": "model/coherent_defect_wave/spatial/family.py",
+     "line": 16,
+     "phrase": "A = (1-s.I)/2",
+     "status": "code"
+    },
+    {
+     "file": "model/coherent_defect_wave/spatial/family.py",
+     "line": 80,
+     "phrase": "def exchange(state, inverse=False):",
+     "status": "code"
+    },
+    {
+     "file": "model/coherent_defect_wave/PREPARATION.md",
+     "line": 8,
+     "phrase": "One autonomous clock tick is one complete `U`.",
+     "status": "declared"
+    }
+   ]
+  },
+  "U2": {
+   "summary": "The declared positive clock. One generator, one dimensionless t; onsite coefficient one, hopping coefficient pi/4; at unit t the hopping term is the edge gate of the tick; the onsite term is a replacement clock and exp(-i A) = U is not asserted; a change of a coefficient is a different architecture.",
+   "rows": [
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 17,
+     "phrase": "The continuous evolution is `exp(-it H_Lambda)`. These formulas, coefficient",
+     "status": "declared"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 18,
+     "phrase": "one and coefficient `pi/4`, and dimensionless t define the architecture.",
+     "status": "declared"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 19,
+     "phrase": "The edge choice reproduces the existing root-SWAP:",
+     "status": "model, exact"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 20,
+     "phrase": "`exp[-i(pi/4)(I-S)]=(1-i)I/2+(1+i)S/2`, and exterior lifting preserves the",
+     "status": "model, exact"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 21,
+     "phrase": "identity. The onsite positive functional is a declared replacement clock;",
+     "status": "declared"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 22,
+     "phrase": "`exp(-i A_x)=U_F,x` is not asserted.",
+     "status": "refused"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 62,
+     "phrase": "fixed circuit cone; the strict cone of a finite gate cycle is not assigned",
+     "status": "refused"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 68,
+     "phrase": "\\le\\frac{t^2}{2n}\\sum_{r<s}\\|[H_r,H_s]\\|",
+     "status": "model, exact"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 312,
+     "phrase": "At fixed spacing, these energy laws are defined without an energy-logarithm",
+     "status": "model"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/PROOF.md",
+     "line": 313,
+     "phrase": "ambiguity. A change in the functional or coefficients is a different",
+     "status": "model"
+    },
+    {
+     "file": "model/coherent_defect_wave/energy/model.py",
+     "line": 4,
+     "phrase": "This is a specified continuous clock, not a logarithm of the discrete tick.",
+     "status": "code"
+    }
+   ]
+  },
+  "U3": {
+   "summary": "Units of the stack. One time convention exp(-itH) with hbar = 1; a phase per tick theta is the energy (hbar/tau) theta; \"unit time\" is one tick; seconds per source time unit are a comparison input.",
+   "rows": [
+    {
+     "file": "model/coherent_defect_wave/spectroscopy/PROOF.md",
+     "line": 180,
+     "phrase": "`H_n=(hbar/tau) sum_a (theta_a+2 pi n_a) P_a`",
+     "status": "model"
+    },
+    {
+     "file": "model/coherent_defect_wave/spectroscopy/PROOF.md",
+     "line": 189,
+     "phrase": "both exponentiate to `diag(1,-i)` at unit time, yet their positive gaps",
+     "status": "model"
+    },
+    {
+     "file": "model/coherent_defect_wave/spectroscopy/PROOF.md",
+     "line": 208,
+     "phrase": "continuous-clock or refinement condition may exclude them; positivity,",
+     "status": "model"
+    },
+    {
+     "file": "model/particle_common_contract/PROOF.md",
+     "line": 90,
+     "phrase": "The sole source time convention is",
+     "status": "declared"
+    },
+    {
+     "file": "model/particle_primary_mass_readout/PROOF.md",
+     "line": 204,
+     "phrase": "The primary clock is `exp(-itH)` in source action units with hbar=1",
+     "status": "declared"
+    },
+    {
+     "file": "model/particle_primary_mass_readout/PROOF.md",
+     "line": 212,
+     "phrase": "GeV per source energy =hbar_GeV_s/T.",
+     "status": "declared dictionary"
+    },
+    {
+     "file": "model/clock_defect_energy/SI_UNITS.md",
+     "line": 7,
+     "phrase": "seconds per unit of one specified model clock",
+     "status": "declared dictionary"
+    },
+    {
+     "file": "paper/executable_observer_construction.tex",
+     "line": 4420,
+     "phrase": "For a coherent rest angular frequency",
+     "status": "conditional"
+    }
+   ]
+  },
+  "U4": {
+   "summary": "Rate statements. The generator I - P belongs to the unit-rate attempt clock; the port chain obeys E[K_12^N] = exp(-tL) for N ~ Poisson(60 t); the value of I - Re U on a coherent mode is the recorded quadratic variation per event; the stack subdivides a trigger by scaling both angles by 1/n; no action unit follows.",
+   "rows": [
+    {
+     "file": "model/native_modular_dynamics/PROOF.md",
+     "line": 177,
+     "phrase": "native attempts with a unit-rate total-attempt Poisson clock gives the distinct local generator J, while discrete",
+     "status": "model"
+    },
+    {
+     "file": "model/native_modular_dynamics/PROOF.md",
+     "line": 178,
+     "phrase": "attempt reconstruction gives H. Changing that clock changes the operator.",
+     "status": "model"
+    },
+    {
+     "file": "model/observer/coherent_continuation.py",
+     "line": 525,
+     "phrase": "E[K_12^N]=exp(-t*L), N~Poisson(60*t)",
+     "status": "code, identity"
+    },
+    {
+     "file": "model/observer/coherent_continuation.py",
+     "line": 526,
+     "phrase": "\"Poisson_parameter_is_a_physical_clock\": False,",
+     "status": "code, refused"
+    },
+    {
+     "file": "model/observer/COHERENT_CONTINUATION.md",
+     "line": 167,
+     "phrase": "`A_12` has uniform amplitudes and `A_12* S_12 A_12=K_12=I-L/60`.",
+     "status": "model, exact"
+    },
+    {
+     "file": "model/native_correlation_sectors/PROOF.md",
+     "line": 103,
+     "phrase": "operator I-P is the generator only after the specified Poissonization of",
+     "status": "model"
+    },
+    {
+     "file": "model/OBSERVER_RELATIVE_RECOVERY.md",
+     "line": 473,
+     "phrase": "Poissonization is a scheduler extension, not an inferred physical clock.",
+     "status": "declared"
+    },
+    {
+     "file": "model/clock_defect_energy/MODE_ENERGY.md",
+     "line": 43,
+     "phrase": "This is exactly `1-cos(theta)` for its existing coherent wave phase",
+     "status": "model, exact"
+    },
+    {
+     "file": "model/clock_defect_energy/MODE_ENERGY.md",
+     "line": 47,
+     "phrase": "evolution, determine an action unit, or undo the negative bare-activity",
+     "status": "refused"
+    },
+    {
+     "file": "model/clock_defect_energy/MODE_ENERGY.md",
+     "line": 87,
+     "phrase": "each trigger into n repeated pairs, scaling both angles by `1/n` and keeping",
+     "status": "model"
+    },
+    {
+     "file": "model/clock_defect_energy/MODE_ENERGY.md",
+     "line": 114,
+     "phrase": "Subdivision is a compiler/control refinement",
+     "status": "model"
+    },
+    {
+     "file": "model/clock_defect_energy/ENERGY.md",
+     "line": 83,
+     "phrase": "Action per event times events per time has energy",
+     "status": "hypothesis"
+    }
+   ]
+  },
+  "U5": {
+   "summary": "Lean. The step clock is exp(-i mass n stepDuration); the step duration is one declared positive real and is not forced; the committed instance has stepDuration 1; refinement invariance selects accrual by proper length; the SI calibration of the tick is an import.",
+   "rows": [
+    {
+     "file": "Lean/Geometry/CommonWorldInstrumentJoin.lean",
+     "line": 92,
+     "phrase": "Join 3, the declared step-to-clock dictionary.",
+     "status": "Lean, declared"
+    },
+    {
+     "file": "Lean/Geometry/CommonWorldInstrumentJoin.lean",
+     "line": 93,
+     "phrase": "carries one positive real `stepDuration` identifying evolution step `n`",
+     "status": "Lean, declared"
+    },
+    {
+     "file": "Lean/Geometry/CommonWorldInstrumentJoin.lean",
+     "line": 698,
+     "phrase": "theorem stepClock_eq_exp",
+     "status": "Lean"
+    },
+    {
+     "file": "Lean/Geometry/CommonWorldInstrumentJoin.lean",
+     "line": 874,
+     "phrase": "  stepDuration := 1",
+     "status": "Lean, instance"
+    },
+    {
+     "file": "Lean/Geometry/SourceClockRateAlongWorldlines.lean",
+     "line": 22,
+     "phrase": "forced, `joined_stepDuration_not_forced`",
+     "status": "Lean"
+    },
+    {
+     "file": "Lean/Geometry/SourceClockRateAlongWorldlines.lean",
+     "line": 62,
+     "phrase": "(`indexAccrual_not_refinementInvariant`, through",
+     "status": "Lean"
+    },
+    {
+     "file": "Lean/Geometry/ProperTimeInternalAction.lean",
+     "line": 270,
+     "phrase": "theorem refinementInvariant_iff_b_zero",
+     "status": "Lean, declared refinement"
+    },
+    {
+     "file": "Lean/Geometry/ProperTimeInternalAction.lean",
+     "line": 259,
+     "phrase": "theorem restPath_properLength",
+     "status": "Lean"
+    },
+    {
+     "file": "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
+     "line": 59,
+     "phrase": "to the laboratory frequency `m / (2 * pi * tau)` hertz exactly; the",
+     "status": "Lean, conditional on a declared tick"
+    },
+    {
+     "file": "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
+     "line": 80,
+     "phrase": "on a declared tick, and no theorem selects one.  No source-derived clock",
+     "status": "Lean module statement"
+    }
+   ]
+  },
+  "U6": {
+   "summary": "The lepton lane. The mass round has the weak-kick angle clock t = N h, with no equality to native-attempt time; its masses carry a common Higgs factor; the phase needs an angular unit and a control map as separate inputs; the papers declare the normalized current coupling and one unit of control time per tick; the public program has the inverse step and a quarter turn as its phase gate.",
+   "rows": [
+    {
+     "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+     "line": 78,
+     "phrase": "V_h=exp(-ih X tensor P_U).",
+     "status": "model"
+    },
+    {
+     "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+     "line": 100,
+     "phrase": "contraction telescoping gives",
+     "status": "model, exact"
+    },
+    {
+     "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+     "line": 144,
+     "phrase": "is asserted. The time `t=Nh` in (9) is the accumulated weak-kick angle.",
+     "status": "declared clock"
+    },
+    {
+     "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+     "line": 146,
+     "phrase": "and uncomputation. Their duration does not disappear when `h` shrinks.",
+     "status": "model"
+    },
+    {
+     "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+     "line": 147,
+     "phrase": "No equality between this angle clock and global native-attempt time or",
+     "status": "refused"
+    },
+    {
+     "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+     "line": 155,
+     "phrase": "Its quadratic action masses are a common Higgs factor times the singular",
+     "status": "model"
+    },
+    {
+     "file": "model/charged_lepton_response/PHASE_AND_PREMISES.md",
+     "line": 203,
+     "phrase": "one radian per selected event to turn an event frequency into the number",
+     "status": "separate input"
+    },
+    {
+     "file": "model/charged_lepton_response/PHASE_AND_PREMISES.md",
+     "line": 204,
+     "phrase": "2/9 as an angle. That angular unit and the event-to-coherent-control map",
+     "status": "separate input"
+    },
+    {
+     "file": "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex",
+     "line": 245,
+     "phrase": "physical energy. The construction additionally declares the normalized current",
+     "status": "declared"
+    },
+    {
+     "file": "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex",
+     "line": 246,
+     "phrase": "coupling $J\\otimes X$ and one unit of control time per tick. Its $N$ weak rounds",
+     "status": "declared"
+    },
+    {
+     "file": "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex",
+     "line": 251,
+     "phrase": "With that coupling and the chosen unit duration, the oriented current carries the phase",
+     "status": "declared"
+    },
+    {
+     "file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+     "line": 132,
+     "phrase": "Declared register and analyzer on the coherent law; energy clock with unit time per tick",
+     "status": "declared"
+    },
+    {
+     "file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+     "line": 4107,
+     "phrase": "setting a probability equal to an angle in radians is an additional rule",
+     "status": "paper"
+    },
+    {
+     "file": "paper/executable_observer_construction.tex",
+     "line": 1807,
+     "phrase": "so the energy clock reads read probabilities, and the read count becomes the phase",
+     "status": "paper"
+    },
+    {
+     "file": "extra/koide_identity_from_positive_c3_face_circulants.tex",
+     "line": 340,
+     "phrase": "at unit clock time per tick",
+     "status": "paper"
+    },
+    {
+     "file": "model/coherent_seam_repair/program.py",
+     "line": 115,
+     "phrase": "    def inverse_step(self, state):",
+     "status": "code"
+    },
+    {
+     "file": "model/coherent_seam_repair/program.py",
+     "line": 119,
+     "phrase": "Optional basis-selective apparatus phase; absent from idle evolution.",
+     "status": "code, apparatus"
+    },
+    {
+     "file": "paper/executable_observer_construction.tex",
+     "line": 1253,
+     "phrase": "it is not the walk quasienergy. Optional basis quarter-turns",
+     "status": "paper, apparatus"
+    }
+   ]
+  }
+ },
+ "entries": 65,
+ "unmatched": 0
+}

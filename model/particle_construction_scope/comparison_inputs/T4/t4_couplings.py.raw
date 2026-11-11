@@ -1,0 +1,560 @@
+"""T4 (steps D4, F4 of MASS_STEPS.md): gauge-coupling normalizations fixed by the carrier, the field step with a
+link phase, unit anchors, and a one-loop running check.  Output: couplings.json (first argument).
+
+Run from the public checkout RER (read only), with RL the repair-law directory:
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/FLUXPUMP:RL/work/T4 nice -n 10 \
+      /tmp/oph-completion-venv/bin/python RL/work/T4/t4_couplings.py RL/work/T4/couplings.json
+
+Tags: EXACT = rational or Q(sqrt5) arithmetic on the pinned carrier, or a closed formula; MEASURED = float64 with the
+printed defect; IMPORTED = taken from outside the candidate (stated with its source); NOT BLIND = a comparison with
+measured values, which enter nothing upstream of the comparison.
+
+Scope: representation level (level 1). The link variable is the declared extension of worker X5; no law of CF-1
+produces a kinetic term for it.
+"""
+import itertools, json, math, os, sys
+from fractions import Fraction as Fr
+import numpy as np
+import sympy as sp
+from model.common_source import slow_geometry
+
+RL = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+RER = os.getcwd()
+out = {'meta': {'worker': 'T4', 'steps': ['D4', 'F4'], 'level': 'representation level (level 1); link variable declared (worker X5)',
+                'run_from': RER, 'tags': 'EXACT / MEASURED / IMPORTED / NOT BLIND as marked per block'}}
+fs = lambda x: str(Fr(x))
+
+# ====================================================================================================================
+# A. What the carrier fixes: the Gram form of the twelve port responses, exactly
+# ====================================================================================================================
+c = slow_geometry.source()
+N = 12
+q5, add, sub, mul = c.q5, c.q5_add, c.q5_sub, c.q5_mul
+ONE = q5(1)
+gal = lambda x: (x[0], -x[1])
+scal = lambda f, x: (Fr(f) * x[0], Fr(f) * x[1])
+BAND = [c.band_projector_exact(i) for i in range(4)]      # 0: constant (1), 1: slow (3), 2: middle (5), 3: fast (3')
+anti = c.antipode()
+tr = lambda M: (sum(M[p][p][0] for p in range(N)), sum(M[p][p][1] for p in range(N)))
+cos_slow = [[scal(4, BAND[1][p][q]) for q in range(N)] for p in range(N)]      # n_p . n_q  (port frame)
+cos_fast = [[scal(4, BAND[3][p][q]) for q in range(N)] for p in range(N)]      # n'_p . n'_q (conjugate frame)
+
+def gram_entry(p, q):
+    """Tr(X_p X_q) for X_p = P_p/2 (+) (-Q_p/2): Tr(P_p P_q) = ((1 + n_p.n_q)/2)^2, Tr(Q_p Q_q) = (1 + n'_p.n'_q)/2."""
+    a = scal(Fr(1, 2), add(ONE, cos_slow[p][q]))
+    return add(scal(Fr(1, 4), mul(a, a)), scal(Fr(1, 8), add(ONE, cos_fast[p][q])))
+G = [[gram_entry(p, q) for q in range(N)] for p in range(N)]
+closed = lambda p, q: Fr(3, 10) * (p == q) + Fr(1, 5) - Fr(1, 5) * (anti[p] == q)
+spectral = lambda p, q: add(add(scal(Fr(5, 2), BAND[0][p][q]), scal(Fr(1, 2), add(BAND[1][p][q], BAND[3][p][q]))), scal(Fr(1, 10), BAND[2][p][q]))
+A = {
+    'tag': 'EXACT (Q(sqrt5) arithmetic of the pinned carrier module; Fractions)',
+    'conjugate_frame_is_the_Galois_conjugate_of_the_port_frame': all(gal(cos_slow[p][q]) == cos_fast[p][q] for p in range(N) for q in range(N)),
+    'band_multiplicities_(constant, slow 3, middle 5, fast 3prime)': [fs(tr(B)[0]) for B in BAND],
+    'gram_entries_rational': all(G[p][q][1] == 0 for p in range(N) for q in range(N)),
+    'gram_equals_(3/10)I+(1/5)J-(1/5)Antipode_on_all_144_entries': all(G[p][q] == (closed(p, q), Fr(0)) for p in range(N) for q in range(N)),
+    'gram_equals_(5/2)B_const+(1/2)(B_slow+B_fast)+(1/10)B_middle_on_all_144_entries': all(G[p][q] == spectral(p, q) for p in range(N) for q in range(N)),
+    'gram_entries': {'diagonal': '1/2', 'antipode': '0', 'other_ten': '1/5'},
+    'gram_eigenvalues': {'1 (constant weights): hypercharge': '5/2', "3' (fast band): weak isospin": '1/2',
+                         '3 (slow band): colour rotations so(3) in su(3)': '1/2', '5 (middle band): colour quadrupoles': '1/10'},
+    'share_of_one_port_response_by_squared_trace_norm': {'hypercharge': '5/12', 'weak isospin': '3/12', 'colour rotations': '3/12', 'colour quadrupoles': '1/12',
+                                                         'rule': 'eigenvalue x multiplicity / 12, divided by Tr X_p^2 = 1/2'},
+}
+assert all(v is True for k, v in A.items() if isinstance(v, bool)), A
+
+# --- the same objects as matrices on the carrier's own (float) port vectors: defects printed -------------------------
+seams = [tuple(int(v) for v in e) for e in c.seams()]
+Adj = np.zeros((N, N))
+for a, b in seams: Adj[a, b] = Adj[b, a] = 1
+w_, v_ = np.linalg.eigh(Adj)
+N1 = v_[:, np.abs(w_ - 5 ** .5) < 1e-9] * 2.0; N2 = v_[:, np.abs(w_ + 5 ** .5) < 1e-9] * 2.0
+SIG = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+cross = lambda u: np.array([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]])
+X = []
+for p in range(N):
+    P = (np.eye(3) - np.outer(N1[p], N1[p]) + 1j * cross(N1[p])) / 2
+    Q = (np.eye(2) + sum(N2[p][a] * SIG[a] for a in range(3))) / 2
+    Z = np.zeros((5, 5), complex); Z[:3, :3] = P / 2; Z[3:, 3:] = -Q / 2; X.append(Z)
+X = np.array(X)
+Gf = np.einsum('pij,qji->pq', X, X).real
+Gx = np.array([[float(G[p][q][0]) for q in range(N)] for p in range(N)])
+comb = lambda wts: np.tensordot(np.asarray(wts, dtype=float), X, axes=1)
+def blk(t=None, d=None):
+    Z = np.zeros((5, 5), complex)
+    if t is not None: Z[:3, :3] = t
+    if d is not None: Z[3:, 3:] = d
+    return Z
+E3 = np.eye(3)
+Sb = []                                                                      # symmetric traceless basis, Tr S_i S_j = delta/2
+for i, j in ((0, 1), (0, 2), (1, 2)):
+    S = np.zeros((3, 3)); S[i, j] = S[j, i] = 0.5; Sb.append(S)
+Sb += [np.diag([1.0, -1.0, 0.0]) / 2, np.diag([1.0, 1.0, -2.0]) / (2 * math.sqrt(3))]
+Cc = np.diag([2.0, 2.0, 2.0, -3.0, -3.0]).astype(complex)
+# trace-orthonormal Hermitian basis of the image algebra, Tr_5(T_a T_b) = delta_ab / 2, with its port weights
+T, W, kind = [Cc / math.sqrt(60)], [np.ones(N) / math.sqrt(60)], ['1']
+for a in range(3): T.append(blk(d=SIG[a] / 2)); W.append(-N2[:, a] / 2); kind.append("3'")
+for a in range(3): T.append(blk(t=1j * cross(E3[a]) / 2)); W.append(N1[:, a] / 2); kind.append('3')
+for S in Sb: T.append(blk(t=S)); W.append(-2.5 * np.einsum('pi,ij,pj->p', N1, S, N1)); kind.append('5')
+T = np.array(T); W = np.array(W)
+TrTT = np.einsum('aij,bji->ab', T, T).real
+fabc = 2 * np.einsum('abij,cji->abc', -1j * (np.einsum('aij,bjk->abik', T, T) - np.einsum('bij,ajk->abik', T, T)), T).real
+closure_defect = max(np.abs(-1j * (T[a] @ T[b] - T[b] @ T[a]) - np.tensordot(fabc[a, b], T, axes=1)).max() for a in range(12) for b in range(12))
+port_form = W @ W.T                                                         # K_port(T_a, T_b): the X_p orthonormal
+frame_form = np.einsum('ap,bp->ab', np.einsum('aij,pji->ap', T, X).real, np.einsum('aij,pji->ap', T, X).real)   # sum_p Tr(T_a X_p) Tr(T_b X_p)
+killing = np.einsum('acd,bcd->ab', fabc, fabc)                               # Tr(ad_a ad_b) for Hermitian generators
+idx = {k: [i for i, s in enumerate(kind) if s == k] for k in ('1', "3'", '3', '5')}
+def block_weights(K):
+    """weights of a form relative to Tr_5 on the four blocks, and its off-diagonal defect"""
+    rel = 2 * K
+    d = np.abs(rel - np.diag(np.diag(rel))).max()
+    return {k: float(np.mean(np.diag(rel)[idx[k]])) for k in idx}, float(max(d, max(np.ptp(np.diag(rel)[idx[k]]) for k in idx)))
+def ad_defect(K):
+    """max over the basis of |K(-i[T_a,T_b], T_c) + K(T_b, -i[T_a,T_c])|"""
+    return float(np.abs(np.einsum('abd,dc->abc', fabc, K) + np.einsum('acd,bd->abc', fabc, K)).max())
+A['float_checks_on_the_carrier_vectors'] = {
+    'tag': 'MEASURED (float64)',
+    'gram_from_matrices_against_exact': float(np.abs(Gf - Gx).max()),
+    'sum_of_responses_minus_diag(2,2,2,-3,-3)': float(np.abs(comb(np.ones(N)) - Cc).max()),
+    'generator_from_port_weights_defect (twelve generators)': float(max(np.abs(comb(W[a]) - T[a]).max() for a in range(12))),
+    'trace_orthonormality_defect': float(np.abs(TrTT - np.eye(12) / 2).max()),
+    'Lie_closure_defect_of_the_twelve_dimensional_span': float(closure_defect),
+    'port_weight_formulas': {'T_Y = C/sqrt(60)': 'w_p = 1/sqrt(60)', 'T_W,a = sigma_a/2': "w_p = -(1/2) n'_p.a",
+                             'T_rot,a = i[a]_x/2': 'w_p = (1/2) n_p.a', 'T_quad = S (Tr S^2 = 1/2)': 'w_p = -(5/2) n_p^T S n_p'},
+}
+
+# --- exact witness that the port-orthonormal form is not invariant on su(3) -----------------------------------------
+I = sp.I
+Zs = sp.diag(1, -1, 0); Xs = sp.Matrix([[0, -I, 0], [I, 0, 0], [0, 0, 0]]); Ys = sp.Matrix([[0, 1, 0], [1, 0, 0], [0, 0, 0]])
+comm = lambda a, b: a * b - b * a
+w1 = sp.simplify(-I * comm(Zs, Xs) + 2 * Ys) == sp.zeros(3); w2 = sp.simplify(-I * comm(Zs, Ys) - 2 * Xs) == sp.zeros(3)
+A['invariance_witness'] = {
+    'tag': 'EXACT (integer matrices)',
+    'Z': 'diag(1,-1,0) (quadrupole)', 'X': 'i[e3]_x (rotation)', 'Y': 'E12 + E21 (quadrupole)',
+    '-i[Z,X] = -2Y': bool(w1), '-i[Z,Y] = 2X': bool(w2), 'Tr X^2 = Tr Y^2 = 2': bool((Xs * Xs).trace() == 2 and (Ys * Ys).trace() == 2),
+    'consequence': 'for a form K = c_rot Tr on the rotations and c_quad Tr on the quadrupoles, K(-i[Z,X],Y) + K(X,-i[Z,Y]) = 4 (c_rot - c_quad): '
+                   'invariant under su(3) iff c_rot = c_quad',
+    'port_orthonormal_form (c_rot, c_quad) = (2, 10)': '4 (2 - 10) = -32', 'frame_form (1/2, 1/10)': '4 (1/2 - 1/10) = 8/5',
+}
+assert w1 and w2
+# how many weights each symmetry leaves: (a) the sixty rotations acting on the twelve ports (orbits on unordered pairs, integers);
+# (b) the gauge algebra itself (null space of the invariance equations on the 78 symmetric forms, float rank with its gap)
+rots = c.rotations()
+orbits = {frozenset(frozenset((g[p], g[q])) if p != q else frozenset((g[p],)) for g in rots) for p in range(N) for q in range(p, N)}
+sym = [(a, b) for a in range(12) for b in range(a, 12)]
+rows = []
+for (a, b) in sym:
+    K = np.zeros((12, 12)); K[a, b] = K[b, a] = 1
+    rows.append((np.einsum('xyd,dz->xyz', fabc, K) + np.einsum('xzd,yd->xyz', fabc, K)).ravel())
+sv = np.linalg.svd(np.array(rows).T, compute_uv=False)
+A['count_of_invariant_quadratic_forms'] = {
+    'under_the_sixty_carrier_rotations (orbits on port pairs; EXACT)': len(orbits),
+    'orbit_sizes': sorted(len(o) for o in orbits),
+    'under_the_gauge_algebra (null space dimension; MEASURED)': int(np.sum(sv < 1e-9)),
+    'smallest_nonzero_and_largest_zero_singular_value': [float(sv[sv > 1e-9].min()), float(sv[sv < 1e-9].max()) if np.any(sv < 1e-9) else None],
+    'under_every_unitary_of_the_five_levels': '1 (the trace form; standard)',
+    'reading': 'the carrier symmetry leaves four weights (1, 3prime, 3, 5); gauge invariance leaves three (u(1), su(2), su(3)); level democracy leaves one'}
+
+# --- family traces (exterior algebra of the five levels) -----------------------------------------------------------
+pat = list(itertools.product((0, 1), repeat=5))                              # (c1, c2, c3, s1, s2)
+Yv = lambda s: Fr(3 * (s[3] + s[4]) - 2 * (s[0] + s[1] + s[2]), 6)           # CF-1 convention 6Y = 3 n2 - 2 n3
+T3 = lambda s: Fr(s[3] - s[4], 2)
+Tc3 = lambda s: Fr(s[0] - s[1], 2)
+Tc8sq = lambda s: Fr((s[0] + s[1] - 2 * s[2]) ** 2, 12)
+def sums(sel):
+    return {'states': len(sel), 'sum_T3^2': fs(sum(T3(s) ** 2 for s in sel)), 'sum_Tc3^2': fs(sum(Tc3(s) ** 2 for s in sel)), 'sum_Tc8^2': fs(sum(Tc8sq(s) for s in sel)),
+            'sum_(3/5)Y^2': fs(Fr(3, 5) * sum(Yv(s) ** 2 for s in sel)), 'sum_Y^2': fs(sum(Yv(s) ** 2 for s in sel)), 'sum_Q^2': fs(sum((T3(s) + Yv(s)) ** 2 for s in sel)),
+            'sum_T3^2/sum_Q^2': fs(sum(T3(s) ** 2 for s in sel) / sum((T3(s) + Yv(s)) ** 2 for s in sel))}
+A['family_traces'] = {'tag': 'EXACT (integers)',
+                      'five_levels': {'Tr T3^2': '1/2', 'Tr Tc3^2': '1/2', 'Tr Y^2': '5/6', 'Tr (3/5) Y^2': '1/2', 'Tr C^2 (C = 6Y = sum of the twelve responses)': '30'},
+                      'odd_colour_occupation_16 (CF-1 chart)': sums([s for s in pat if (s[0] + s[1] + s[2]) % 2 == 1]),
+                      'odd_total_occupation_16 (FAMILY.md chart)': sums([s for s in pat if sum(s) % 2 == 1]),
+                      'all_32_patterns': sums(pat),
+                      'reading': 'every representation built from the five levels has the same three ratios as the levels themselves: (3/5) Y^2 : T3^2 : Tc^2 = 1 : 1 : 1'}
+
+# --- the covariant pump: level weights of its stationary state ------------------------------------------------------
+pump = {'tag': 'one-load levels recomputed here (MEASURED, float64) and read from worker CX (EXACT there); two-load level read from CX',
+        'rule': 'rho_k = (5 - A_k)^-1 / Tr (5 - A_k)^-1 (reports/CX.md result 3)'}
+try:
+    import cap
+    lev = {}
+    for k in (1, 2, 3, 7):
+        Ak = np.zeros((N, N), complex)
+        for a, b in cap.SEAMS:
+            Ak[b, a] = cap.link(a, b, flux=k); Ak[a, b] = np.conj(Ak[b, a])
+        ev = np.linalg.eigvalsh(Ak); wts = 1 / (5 - ev); wts /= wts.sum()
+        groups = {}
+        for e, wt in zip(ev, wts): groups.setdefault(round(float(e), 6), []).append(float(wt))
+        lev[k] = sorted(({'adjacency_eigenvalue': e, 'multiplicity': len(v), 'level': float(np.mean(v))} for e, v in groups.items()), key=lambda r: -r['level'])
+    pump['one_load_levels_recomputed'] = {f'flux_{k}': v for k, v in lev.items()}
+    cx1 = json.load(open(os.path.join(RL, 'work/CX/t2_oneload.json'))); cx2 = json.load(open(os.path.join(RL, 'work/CX/t2_twoload.json')))
+    pump['largest_difference_from_CX_levels'] = float(max(abs(r['level'] - s['float']) for k in (1, 2, 3, 7)
+                                                          for r, s in zip(lev[k], sorted(cx1[f'flux_{k}']['stationary_levels'], key=lambda t: -t['float']))))
+    p_d1 = lev[1][0]['level']; p_d7 = lev[7][0]['level']; p_t2 = lev[2][0]['level']; p_t11 = float(cx2['leading_level']['value'])
+    assert lev[1][0]['multiplicity'] == 2 and lev[7][0]['multiplicity'] == 2 and lev[2][0]['multiplicity'] == 3
+    assert cx2['levels'][0]['dimension'] == 3 and cx2['levels'][0]['value'] == cx2['leading_level']['value'] and cx2['flux'] == 1
+    pump['levels_used'] = {'doublet 2, one load, flux 1': p_d1, "doublet 2', one load, flux 7": p_d7, 'triplet 3, one load, flux 2 = (107 + 17 sqrt5)/732': p_t2,
+                           'triplet 3, two loads, flux 1 (CX t2_twoload.json)': p_t11}
+    pairings = [("2' (one load, flux 7) with 3 (two loads, flux 1): the injective pairing of candidates/CAP.md, (12,12,1)", p_d7, p_t11),
+                ("2' (one load, flux 7) with 3 (one load, flux 2): the injective pairing of lead L13", p_d7, p_t2),
+                ('2 (one load, flux 1) with 3 (two loads, flux 1): the leading levels of lead L20, span (9,12,1), not injective', p_d1, p_t11)]
+except Exception as exc:                                                     # the pump files are another worker's; absent files do not stop the rest
+    pump['error'] = repr(exc); pairings = []
+A['pump'] = pump
+
+# ====================================================================================================================
+# A'. Candidate normalizations.  A kinetic form K on the image algebra is given by its weights relative to Tr_5 on the
+#     four blocks (1, 3', 3, 5).  Convention: 1/g_i^2 is proportional to c_i for trace-normalized generators
+#     (Tr_5 T_a T_b = delta/2), g_1 in the unified normalization T_1 = sqrt(3/5) Y, g'^2 = (3/5) g_1^2.
+# ====================================================================================================================
+def derived(c1, c2, c3):
+    """ratios implied by (c1, c2, c3); Fractions where the inputs are Fractions"""
+    if c1 == 0: return {'g1^2:g2^2:g3^2': f'infinite : {1 / c2} : {1 / c3}', 'sin2_theta_W': '1 (no kinetic term for the hypercharge)', 'alpha3/alpha2': str(c2 / c3)}
+    s2 = 3 * c2 / (5 * c1 + 3 * c2); r32 = c2 / c3
+    m = lambda v: str(v) if isinstance(v, Fr) else round(float(v), 9)
+    return {'g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)': [m(1 / c1), m(1 / c2), m(1 / c3)], 'sin2_theta_W': m(s2), 'sin2_theta_W_float': float(s2),
+            'alpha3/alpha2': m(r32), 'alpha3/alpha2_float': float(r32), 'alpha1/alpha2': m(c2 / c1)}
+forms = []
+def add_form(name, definition, cw, K, status, declared, note=''):
+    bw, offdiag = block_weights(K) if K is not None else ({k: float(v) for k, v in cw.items()}, 0.0)
+    row = {'name': name, 'definition': definition, 'weights_relative_to_Tr5 (1, 3prime, 3, 5)': [str(cw[k]) for k in ('1', "3'", '3', '5')],
+           'weights_measured_on_the_carrier': [round(bw[k], 12) for k in ('1', "3'", '3', '5')], 'block_structure_defect': offdiag,
+           'ad_invariance_defect (float, trace-orthonormal basis)': ad_defect(K) if K is not None else None,
+           'invariant_under_the_gauge_algebra': cw['3'] == cw['5'], 'status': status, 'declared_inputs': declared}
+    if cw['3'] == cw['5']:
+        row['implied'] = derived(cw['1'], cw["3'"], cw['3'])
+    else:
+        mean_form = (3 * cw['3'] + 5 * cw['5']) / 8; mean_inverse = 8 / (3 / cw['3'] + 5 / cw['5'])
+        row['implied_per_block'] = {'g^2 on (1, 3prime, 3, 5) as 1/c': [str(1 / cw[k]) for k in ('1', "3'", '3', '5')],
+                                    'sin2_theta_W': str(3 * cw["3'"] / (5 * cw['1'] + 3 * cw["3'"])),
+                                    'sin2_theta_W_float': float(3 * cw["3'"] / (5 * cw['1'] + 3 * cw["3'"]))}
+        row['implied_if_the_colour_form_is_averaged_over_SU(3)'] = derived(cw['1'], cw["3'"], mean_form)
+        row['implied_if_the_inverse_colour_form_is_averaged'] = derived(cw['1'], cw["3'"], mean_inverse)
+        row['colour_weight_after_averaging (form, inverse form)'] = [str(mean_form), str(mean_inverse)]
+    if note: row['note'] = note
+    assert K is None or (offdiag < 1e-9 and all(abs(bw[k] - float(cw[k])) < 1e-9 for k in cw)), (name, bw, offdiag)
+    forms.append(row); return row
+F1 = Fr(1)
+add_form('trace form of the five levels', 'K(X,Y) = Tr_5(XY)', {'1': F1, "3'": F1, '3': F1, '5': F1}, TrTT,
+         'forced once the kinetic term is one class function on the five levels (invariant under every unitary of the levels); equal to the family trace and to the '
+         'form of a tracial reference', ['that the link is one variable on the five levels with one pair (eps, kappa)'])
+add_form('port-orthonormal form (inverse Gram)', 'the twelve responses X_p orthonormal: one unit link component per port', {'1': Fr(2, 5), "3'": Fr(2), '3': Fr(2), '5': Fr(10)}, port_form,
+         'excluded for a colour gauge field: invariant under the rotations so(3) only', ['one independent link component per port with a common (eps, kappa)'],
+         'couplings proportional to the Gram eigenvalues 5/2, 1/2, (1/2 | 1/10)')
+add_form('frame form (Gram)', 'K(X,Y) = sum_p Tr(X X_p) Tr(X_p Y): field energy as the sum over ports of the squared port readout', {'1': Fr(5, 2), "3'": Fr(1, 2), '3': Fr(1, 2), '5': Fr(1, 10)}, frame_form,
+         'excluded for a colour gauge field: invariant under the rotations so(3) only', ['port-local quadratic energy'])
+add_form('adjoint (Killing) form', 'K(X,Y) = Tr(ad_X ad_Y) on the algebra the twelve responses close on', {'1': Fr(0), "3'": Fr(4), '3': Fr(6), '5': Fr(6)}, killing,
+         'a choice; gives no hypercharge term', ['kinetic term from the adjoint representation only'])
+for label, p2, p3 in pairings:
+    x = p2 / p3
+    row = {'name': 'pump-weighted form', 'pairing': label, 'definition': 'K(X,Y) = Re Tr(rho XY), rho = p3 on each triplet level, p2 on each doublet level',
+           'p2': p2, 'p3': p3, 'x = p2/p3': x, 'weights_relative_to_Tr5 (1, 3prime, 3, 5), up to a common factor': [(2 + 3 * x) / 5, x, 1.0, 1.0],
+           'invariant_under_the_gauge_algebra': True, 'implied': derived((2 + 3 * x) / 5, x, 1.0),
+           'status': 'a choice: the relative weight of the two sectors (different load number or flux class) is not fixed by the pump; equal sector weights used here',
+           'declared_inputs': ['which two sectors form the code', 'their relative weight', 'that the reference weights the kinetic term']}
+    forms.append(row)
+forms.append({'name': 'general invariant form', 'definition': 'c1 Tr on u(1), c2 Tr on su(2), c3 Tr on su(3)', 'sin2_theta_W': '3 c2 / (5 c1 + 3 c2)', 'alpha3/alpha2': 'c2/c3',
+              'for the state-weighted form with x = p2/p3': {'c1:c2:c3': '(2 + 3x)/5 : x : 1', 'sin2_theta_W': '3x/(2 + 6x)', 'alpha3/alpha2': 'x'},
+              'status': 'three numbers, two ratios: what gauge invariance alone leaves free'})
+out['A_carrier'] = A
+out['A_normalizations'] = {'tag': 'EXACT weights (Fractions) with MEASURED confirmation on the carrier; pump rows MEASURED', 'convention': '1/g_i^2 proportional to c_i; g1 in the unified normalization, g_Y^2 = (3/5) g1^2; sin2 = g_Y^2/(g2^2 + g_Y^2)',
+                           'candidates': forms,
+                           'central_charge': {'C = sum_p X_p': 'diag(2,2,2,-3,-3) = 6Y', 'spectrum': 'integers; smallest nonzero pattern charge 1 (quark doublet)', 'Tr_5 C^2': 30, 'port weight norm': 12,
+                                              'Gram eigenvalue = 30/12': '5/2', 'unit generator of the trace form': 'C/sqrt(60) = sqrt(3/5) Y', 'k_Y = Tr Y^2 / Tr T3^2': '5/3 (forced by the level charges 2,2,2,-3,-3)',
+                                              'integer-charge coupling': 'alpha_C = alpha_1/60 = alpha_Y/36 for the link phase exp(i Q6 theta)',
+                                              'forced': 'charge quantization (Q6 integer, singlets of colour and isospin have Q6 = 0 mod 6) and, given c1 = c2, the factor 5/3',
+                                              'not fixed': 'the size of c1 relative to c2 and c3'}}
+
+# ====================================================================================================================
+# B. The field step with a link phase: speed, coupling, and the condition for the routing speed
+# ====================================================================================================================
+coul = []
+for L in (128, 192):
+    k = 2 * np.pi * np.fft.rfftfreq(L); kf = 2 * np.pi * np.fft.fftfreq(L)
+    s = (4 * np.sin(kf / 2) ** 2)[:, None, None] + (4 * np.sin(kf / 2) ** 2)[None, :, None] + (4 * np.sin(k / 2) ** 2)[None, None, :]; s[0, 0, 0] = np.inf
+    Gr = np.fft.irfftn(1 / s, s=(L, L, L))                                  # G(x) = (1/V) sum_k exp(i k x) / s(k), s = 4 sum sin^2(k_i/2)
+    for r1, r2 in ((4, 8), (6, 12), (8, 16)):
+        coul.append({'lattice': L, 'r1': r1, 'r2': r2, 'G(r1)-G(r2)': float(Gr[r1, 0, 0] - Gr[r2, 0, 0]), '(1/r1-1/r2)/(4 pi)': (1 / r1 - 1 / r2) / (4 * math.pi),
+                     'ratio': float((Gr[r1, 0, 0] - Gr[r2, 0, 0]) / ((1 / r1 - 1 / r2) / (4 * math.pi)))})
+    del Gr, s
+def omega_tick(kv, n):                                                       # n field steps per tick at eps kappa = 1/n^2
+    return 2 * n * math.asin(math.sqrt(sum(math.sin(x / 2) ** 2 for x in kv)) / n)
+iso = []
+for n in (2, 3):
+    for kk in (0.05, 0.2, 0.5):
+        dirs = {'axis': (kk, 0, 0), 'face diagonal': (kk / math.sqrt(2),) * 2 + (0,), 'body diagonal': (kk / math.sqrt(3),) * 3}
+        iso.append({'n': n, '|k|': kk, **{d: omega_tick(v, n) / kk for d, v in dirs.items()}})
+def eps_kappa(alpha, n): return {'eps': 4 * math.pi * alpha / n, 'kappa': 1 / (4 * math.pi * alpha * n)}
+B = {
+    'tag': 'EXACT relations (derivation in SCALE.md section 2; symbol and stability from worker X5, work/X5/field_symbol.json); Coulomb check MEASURED here',
+    'field_step': 'F = prod_links exp(-i eps E^2/2) . prod_plaquettes exp(-i kappa (1 - cos B)); pattern of integer link charge q routes with exp(i q theta)',
+    'symbol (X5)': 'cos(omega) = 1 - 2 eps kappa sum_i sin^2(k_i/2) per field step; two polarizations; stable for all k iff 3 eps kappa <= 1',
+    'speed': 'c_f = n sqrt(eps kappa) cells per tick for n field steps per tick',
+    'static_phase': 'two unit link charges at distance r: phase eps (G(0) - G(r)) per field step, G -> 1/(4 pi r)',
+    'coupling_referred_to_the_routing_cone (one cell per tick)': 'alpha_m = n eps / (4 pi)',
+    'coupling_referred_to_the_field_cone': 'alpha_f = sqrt(eps/kappa) / (4 pi)', 'relation': 'alpha_m = c_f alpha_f',
+    'condition_for_the_routing_speed': 'n^2 eps kappa = 1 with n >= 2 (n = 1 is unstable on 78.7 percent of the zone, X5); then alpha_m = alpha_f = alpha, eps = 4 pi alpha / n, kappa = 1/(4 pi alpha n)',
+    'one_number_left_per_link_variable': 'after the speed condition the pair (eps, kappa) holds exactly one free number, the coupling',
+    'several_factors': 'link exp(i theta^a T_a), Tr_5 T_a T_b = delta/2, kinetic (eps_i/2) sum_a E_a^2, plaquette term 2 kappa_i (d - Re Tr U): at linear order every component has the U(1) symbol; '
+                       'alpha_i = sqrt(eps_i/kappa_i)/(4 pi); with all speeds equal to the routing speed alpha_1 : alpha_2 : alpha_3 = eps_1 : eps_2 : eps_3',
+    'trace_form_in_these_variables': 'eps_1 = eps_2 = eps_3 for trace-normalized generators; for the compact hypercharge phase with integer charge Q6: eps_C = eps_1/60, kappa_C = 60 kappa_1; '
+                                     'for the photon phase with integer charge 3Q: alpha_link = alpha_em/9',
+    'lattice_Coulomb_check (128^3 repeats work/X5/coulomb_check.json; 192^3 added)': coul,
+    'isotropy_of_the_matched_field_cone (omega_tick/|k|)': iso,
+    'examples_n=2 (eps, kappa) for a given coupling of the unit link charge': {
+        'alpha = 1/137.035999177 (unit charge e; value IMPORTED from the checkout, illustration only)': eps_kappa(1 / 137.035999177, 2),
+        'alpha/9 (photon link, unit e/3)': eps_kappa(1 / 137.035999177 / 9, 2),
+        'alpha = 1/(4 pi) (eps = kappa = 1/2, the self-dual point)': eps_kappa(1 / (4 * math.pi), 2)},
+    'imported_not_checked': 'a compact U(1) link has a confining phase at strong coupling (Wilson action: below beta = 1/e^2 of about 1.01); the small-field symbol applies on the weak side',
+}
+out['B_field_step'] = B
+
+# ====================================================================================================================
+# C, D. Measured inputs (shipped tables of the public checkout), unit anchors, one-loop running.  NOT BLIND.
+# ====================================================================================================================
+def jl(rel): return json.load(open(os.path.join(RER, rel)))
+src = {}
+atlas = {r['target']: r for r in jl('model/particle_candidate_atlas/reference_values.json')['masses']}
+mass = {t: float(atlas[t]['value']) for t in ('electron', 'muon', 'tau', 'top', 'bottom', 'charm', 'Z', 'W_plus', 'Higgs')}
+src['masses_GeV'] = {'file': 'model/particle_candidate_atlas/reference_values.json', 'values': mass}
+ainv0 = float(jl('code/P_derivation/codata_2022_alpha_fixture.json')['inverse_fine_structure_constant']['value'])
+src['alpha_inverse_at_zero'] = {'file': 'code/P_derivation/codata_2022_alpha_fixture.json', 'value': ainv0}
+emp = jl('code/P_derivation/runtime/empirical_thomson_endpoint_current.json')['inputs']
+dhad, dhad_u = float(emp['delta_alpha_had_5_MZ']), float(emp['delta_alpha_had_5_MZ_uncertainty'])
+src['delta_alpha_had_5(MZ)'] = {'file': 'code/P_derivation/runtime/empirical_thomson_endpoint_current.json', 'value': dhad, 'uncertainty': dhad_u}
+GF = next(float(t['central']) for t in jl('code/particles/calibration/source_ew_comparison_targets.json')['targets'] if t['quantity'] == 'GF')
+src['G_F_GeV^-2'] = {'file': 'code/particles/calibration/source_ew_comparison_targets.json', 'value': GF}
+FZ = 'evidence/custody/falsification/frozen_targets/fz01_2026-07-17/fz01_freeze_registry_2026-07-17.json'
+fz = next(r for r in jl(FZ)['rows'] if r['id'] == 'FZ01-R04')['comparator']
+als, als_u = float(fz['value']), float(fz['uncertainty'])
+src['alpha_s(MZ)'] = {'file': FZ + ' (row FZ01-R04, comparator)', 'value': als, 'uncertainty': als_u}
+clk = jl('code/particles/runs/clock/clock_source_energy_closure_audit.json')
+si = {k: float(v) for k, v in clk['si_constants'].items() if k in ('GeV_J', 'c_m_s', 'h_J_s')}
+Estar = float(clk['clock_certificate_receipt']['candidate_E_star_GeV'])
+src['SI_constants_and_E_star'] = {'file': 'code/particles/runs/clock/clock_source_energy_closure_audit.json', 'si': si, 'E_star_GeV': Estar,
+                                  'status_in_the_checkout': 'E_star is the Planck energy from the measured G (epsilon_Cs is a calibration checksum, not source emitted); '
+                                                            + str(clk['verdict'])}
+d10 = jl('code/P_derivation/runtime/thomson_endpoint_package_current.json')['codata_mapped_endpoint_packet']['d10_source_point']
+d10 = {k: float(v) for k, v in d10.items()}
+src['public_D10_source_point (conditional values of the checkout, not measured)'] = {'file': 'code/P_derivation/runtime/thomson_endpoint_package_current.json', 'values_in_units_of_E_star': d10}
+with open(os.path.join(RER, 'pdg_data/particle_masses.csv')) as fh:
+    m_p = next(float(line.split(',')[2]) for line in fh if line.startswith('proton,'))
+src['proton_mass_GeV'] = {'file': 'pdg_data/particle_masses.csv', 'value': m_p}
+hbar_GeV_s = si['h_J_s'] / (2 * math.pi) / si['GeV_J']; hbarc = hbar_GeV_s * si['c_m_s']          # GeV s, GeV m
+MZ, MW, me = mass['Z'], mass['W_plus'], mass['electron']
+
+# ---- couplings at M_Z from the shipped values ----------------------------------------------------------------------
+dlep = sum((1 / ainv0) / (3 * math.pi) * (math.log(MZ ** 2 / mass[l] ** 2) - 5 / 3) for l in ('electron', 'muon', 'tau'))
+ainvZ = ainv0 * (1 - dlep - dhad)
+s2_os = 1 - MW ** 2 / MZ ** 2
+A0 = math.pi / (ainvZ * math.sqrt(2) * GF * MZ ** 2)
+s2_GF = (1 - math.sqrt(1 - 4 * A0)) / 2
+def couplings(s2): return [0.6 * (1 - s2) * ainvZ, s2 * ainvZ, 1 / als]            # inverse alpha_1 (unified normalization), alpha_2, alpha_3
+variants = {'G_F definition: sin2 cos2 = pi alpha(MZ)/(sqrt2 G_F MZ^2) (primary)': s2_GF, 'on-shell: 1 - MW^2/MZ^2': s2_os}
+B_SM = [Fr(41, 10), Fr(-19, 6), Fr(-7)]; B_MSSM = [Fr(33, 5), Fr(1), Fr(-3)]
+bf = lambda b: [float(x) for x in b]
+def b_general(ng, nH): return [Fr(4, 3) * ng + Fr(nH, 10), Fr(-22, 3) + Fr(4, 3) * ng + Fr(nH, 6), Fr(-11) + Fr(4, 3) * ng]
+assert b_general(3, 1) == B_SM
+def at(a, b, Lg): return [ai - bi * Lg / (2 * math.pi) for ai, bi in zip(a, bf(b))]            # inverse couplings at mu = MZ exp(Lg)
+def cross_L(a, b, i, j): b = bf(b); return 2 * math.pi * (a[i] - a[j]) / (b[i] - b[j])
+def sin2_of(a): return 3 * a[1] / (5 * a[0] + 3 * a[1])
+mu = lambda Lg: MZ * math.exp(Lg)
+def lam3(a3_mz):
+    """one-loop Lambda for three flavours from 1/alpha_3(MZ): thresholds at m_b and m_c (shipped masses), continuous matching"""
+    a = a3_mz - (23 / 3) / (2 * math.pi) * math.log(MZ / mass['bottom'])
+    a = a - (25 / 3) / (2 * math.pi) * math.log(mass['bottom'] / mass['charm'])
+    return mass['charm'] * math.exp(-2 * math.pi * a / 9) if a > 0 else float('nan')
+def unify(a, b, label):
+    L12, L23, L13 = cross_L(a, b, 0, 1), cross_L(a, b, 1, 2), cross_L(a, b, 0, 2)
+    aU = at(a, b, L12)[1]; a3_pred = aU + bf(b)[2] * L12 / (2 * math.pi)
+    return {'coefficients': label, 'b': [str(x) for x in b],
+            'scale_where_alpha1=alpha2_GeV (sin2 = 3/8)': mu(L12), 'ln(scale/MZ)': L12, 'inverse_alpha_U_there': aU,
+            'predicted_alpha_s(MZ)': 1 / a3_pred if a3_pred > 0 else None, 'measured_alpha_s(MZ)': als, 'predicted/measured': (1 / a3_pred) / als if a3_pred > 0 else None,
+            'pull_in_units_of_the_quoted_measurement_uncertainty (no theory error)': ((1 / a3_pred) - als) / als_u if a3_pred > 0 else None,
+            'one_loop_Lambda3_GeV: predicted, from measured alpha_s': [lam3(a3_pred), lam3(a[2])],
+            'scale_where_alpha2=alpha3_GeV': mu(L23), 'scale_where_alpha1=alpha3_GeV': mu(L13),
+            'sin2_at_the_alpha2=alpha3_scale': sin2_of(at(a, b, L23)), 'alpha3/alpha2_at_the_sin2=3/8_scale': at(a, b, L12)[1] / at(a, b, L12)[2],
+            'cell_m = hbar c / scale (alpha1=alpha2)': hbarc / mu(L12), 'tick_s': hbar_GeV_s / mu(L12), 'electron_rest_phase_per_tick = m_e/scale': me / mu(L12),
+            'eps_n=2 = 2 pi alpha_U (trace-normalized generators)': 2 * math.pi / aU, 'kappa_n=2': aU / (8 * math.pi)}
+def norm_scales(a, b, c1, c2, c3):
+    """scales (SM one loop) at which the measured couplings have the ratios of a normalization: alpha1/alpha2 = c2/c1 and alpha3/alpha2 = c2/c3"""
+    bb = bf(b); res = {}
+    den_w = c2 * bb[0] - c1 * bb[1]; den_s = c2 * bb[2] - c3 * bb[1]
+    Lw = 2 * math.pi * (c2 * a[0] - c1 * a[1]) / den_w if den_w else float('nan')
+    Ls = 2 * math.pi * (c2 * a[2] - c3 * a[1]) / den_s if den_s else float('nan')
+    LP = math.log(Estar / MZ)
+    def show(Lg): return None if not (Lg == Lg) or Lg < 0 else (mu(Lg) if Lg < 200 else float('inf'))
+    res['scale_from_the_weak_mixing_angle_GeV'] = show(Lw); res['scale_from_alpha3/alpha2_GeV'] = show(Ls)
+    res['ln_ratio_of_the_two_scales'] = (Ls - Lw) if Lw == Lw and Ls == Ls else None
+    res['weak_scale_is_below_E_star'] = bool(0 <= Lw <= LP) if Lw == Lw else False
+    res['strong_scale_is_below_E_star'] = bool(0 <= Ls <= LP) if Ls == Ls else False
+    return res
+D = {'tag': 'NOT BLIND. One-loop coefficients IMPORTED: Standard Model with three generations and one Higgs doublet b = (41/10, -19/6, -7) (unified normalization of U(1)); '
+            'general b = (4 ng/3 + nH/10, -22/3 + 4 ng/3 + nH/6, -11 + 4 ng/3); MSSM b = (33/5, 1, -3) as used by the public D10 lane; '
+            'leptonic running d_alpha_lep = sum_l (alpha/3 pi)(ln(MZ^2/m_l^2) - 5/3). No thresholds above MZ, no two-loop terms, no scheme conversion.',
+     'inputs': src,
+     'derived_at_MZ': {'d_alpha_lep (one loop)': dlep, 'alpha_inverse(MZ) = alpha_inverse(0)(1 - d_lep - d_had5)': ainvZ, 'sin2_on_shell': s2_os, 'sin2_GF': s2_GF,
+                       'omitted': 'top-quark term (about -6e-5 in d_alpha) and the conversion to the MS-bar scheme (about -1.0 in alpha_inverse(MZ), not shipped): the second shifts ln(scale) by about -0.2'},
+     'variants': {}}
+for name, s2 in variants.items():
+    a = couplings(s2)
+    V = {'sin2(MZ)': s2, 'inverse_couplings_at_MZ (alpha1 unified normalization, alpha2, alpha3)': a,
+         'equal_normalization_SM': unify(a, B_SM, 'Standard Model, three generations, one Higgs doublet'),
+         'equal_normalization_MSSM_proxy': unify(a, B_MSSM, 'MSSM one-loop set of the public D10 lane (content absent from CF-1)')}
+    # what the measured couplings require of a lattice normalization, scale by scale (SM)
+    req = []
+    for label, M in (('1e13 GeV', 1e13), ('1e15 GeV', 1e15), ('public M_U(P)', d10['M_U'] * Estar), ('1e17 GeV', 1e17), ('public E_cell = E_star/sqrt(P)', Estar / math.sqrt(d10['P'])), ('E_star', Estar)):
+        aa = at(a, B_SM, math.log(M / MZ))
+        req.append({'scale': label, 'GeV': M, 'inverse_couplings': aa, 'required_sin2': sin2_of(aa), 'required_alpha3/alpha2': aa[1] / aa[2],
+                    'required c1:c2:c3 (c2 = 1)': [aa[0] / aa[1], 1.0, aa[2] / aa[1]], 'cell_m': hbarc / M, 'electron_rest_phase_per_tick': me / M})
+    V['required_normalization_by_scale_SM'] = req
+    # each candidate normalization against the Standard Model running
+    cand = [('trace form', 1.0, 1.0, 1.0), ('port-orthonormal, colour form averaged', 0.4, 2.0, 7.0), ('port-orthonormal, inverse colour form averaged', 0.4, 2.0, 4.0),
+            ('frame form, colour form averaged', 2.5, 0.5, 0.25), ('frame form, inverse colour form averaged', 2.5, 0.5, 1 / 7)]
+    for label, p2, p3 in pairings:
+        x = p2 / p3; cand.append(('pump-weighted: ' + label.split(':')[0], (2 + 3 * x) / 5, x, 1.0))
+    V['candidates_against_SM_running'] = [{'normalization': nm, 'c1:c2:c3': [c1, c2, c3], 'sin2': 3 * c2 / (5 * c1 + 3 * c2), 'alpha3/alpha2': c2 / c3,
+                                           **norm_scales(a, B_SM, c1, c2, c3)} for nm, c1, c2, c3 in cand]
+    # what would close the triangle: reported as FITS
+    lo, hi = 20.0, 34.0
+    f = lambda Lg: sin2_of(at(a, B_SM, Lg)) - (lambda x: 3 * x / (2 + 6 * x))(at(a, B_SM, Lg)[1] / at(a, B_SM, Lg)[2])
+    for _ in range(80):
+        mid = (lo + hi) / 2
+        if f(lo) * f(mid) <= 0: hi = mid
+        else: lo = mid
+    aa = at(a, B_SM, lo)
+    r = (a[0] - a[1]) / (a[1] - a[2])
+    nH = (Fr(22, 3) - r * Fr(11, 3)) / (Fr(1, 15) + r * Fr(1, 6))
+    V['fits_not_derivations'] = {
+        'state-weighted form: x = p2/p3 that puts the measured couplings on one scale (SM one loop)': {'x': aa[1] / aa[2], 'scale_GeV': mu(lo), 'sin2': sin2_of(aa),
+                                                                                                        'pump pairings give x': [p2 / p3 for _, p2, p3 in pairings]},
+        'trace form: number of Higgs doublets that closes the triangle at one loop': {'nH': float(nH), 'scale_GeV_at_nH=7': mu(cross_L(a, b_general(3, 7), 0, 1)),
+                                                                                     'CF-1 has': 'one register of the toggle (worker R8); nothing supplies more'}}
+    D['variants'][name] = V
+# light copies of a family (step B2): complete families shift all three coefficients equally, so the crossing scales do not move;
+# the unified coupling does.  Largest number of light complete families for which the couplings stay finite up to the crossing scale.
+a = couplings(s2_GF); L12 = cross_L(a, B_SM, 0, 1)
+def copies_row(nf):
+    b = b_general(nf, 1); aa = at(a, b, L12)
+    poles = sorted((2 * math.pi * a[i] / float(b[i]), ('hypercharge', 'weak', 'colour')[i]) for i in range(3) if b[i] > 0)
+    return {'families': nf, 'b': [str(x) for x in b], 'scale_where_alpha1=alpha2_GeV': mu(cross_L(a, b, 0, 1)), 'inverse_couplings_at_that_scale': aa,
+            'finite_up_to_that_scale': bool(min(aa) > 0), 'first_divergence_GeV': mu(poles[0][0]) if poles[0][0] < 200 else None, 'first_divergence_factor': poles[0][1]}
+cop = [copies_row(nf) for nf in (1, 3, 4, 8, 9, 10, 11, 32, 64, 96)]
+nmax = max(nf for nf in range(1, 40) if copies_row(nf)['finite_up_to_that_scale'])
+D['light_copies_of_a_family'] = {'tag': 'NOT BLIND; coefficients IMPORTED; primary variant', 'rows': cop,
+                                 'largest_number_of_light_complete_families_with_finite_couplings_up_to_the_crossing_scale': nmax,
+                                 'reading': 'the crossing scales and the alpha_s mismatch do not depend on the number of complete families (they shift the three coefficients equally); '
+                                            'the couplings themselves do. If every zero-phase cone of a species (32 per arrow block, reports/R3.md) were a light fermion with the charges '
+                                            'of the species, it would count as a family: rows 32, 64, 96'}
+out['D_running'] = D
+
+# ---- C. unit anchors -----------------------------------------------------------------------------------------------
+P_C = d10['P']; lP = hbarc / Estar; a_pix = math.sqrt(P_C) * lP; E_cell = Estar / math.sqrt(P_C); M_U = Estar * math.exp(-2 * math.pi) * P_C ** (1 / 6)
+prim = D['variants']['G_F definition: sin2 cos2 = pi alpha(MZ)/(sqrt2 G_F MZ^2) (primary)']
+a_prim = prim['inverse_couplings_at_MZ (alpha1 unified normalization, alpha2, alpha3)']
+aE = at(a_prim, B_SM, math.log(E_cell / MZ))
+# trace form at the pixel scale, SM running down: one free number alpha_U fixed by alpha(MZ)
+Lc = math.log(E_cell / MZ); bS = bf(B_SM)
+aU_pix = (ainvZ - (bS[1] + 5 / 3 * bS[0]) * Lc / (2 * math.pi)) * 3 / 8
+a2_pix = aU_pix + bS[1] * Lc / (2 * math.pi); a3_pix = aU_pix + bS[2] * Lc / (2 * math.pi)
+C = {
+    'tag': 'anchors are measured values of the shipped tables (IMPORTED, NOT BLIND); every candidate number is stated as required, none is supplied',
+    'constants': {'hbar_GeV_s': hbar_GeV_s, 'hbar_c_GeV_m': hbarc},
+    'one_dimensionful_unknown': 'the tick tau; the cell is a = c tau once the routing cone is declared to be the light cone (and the field speed matched, block B)',
+    'measured_anchors': [
+        {'anchor': 'electron rest energy', 'value_GeV': me, 'candidate_number_needed': 'theta_e, rest phase per tick of the electron pattern pair',
+         'tick_s_per_unit_angle': hbar_GeV_s / me, 'cell_m_per_unit_angle': hbarc / me, 'then_predicted': 'every other rest phase as a mass; clock ceiling pi hbar/tick',
+         'state': 'theta_e is not an output: 0 under M3, declared under M2; M1 and H values retired (reports/R7.md)'},
+        {'anchor': 'Z mass (or W mass, or the Fermi constant)', 'value_GeV': MZ, 'candidate_number_needed': 'rest phase of the massive link wave: cos(omega_0) = 1 - eps rho q^2/2 per field step (worker X5): needs rho and eps',
+         'cell_m_per_unit_angle': hbarc / MZ, 'then_predicted': 'MW/MZ = cos(theta_W) at the scale; fermion masses in units of MZ', 'state': 'register stiffness rho declared; step E5 open'},
+        {'anchor': 'proton mass (the confinement scale)', 'value_GeV': m_p, 'candidate_number_needed': 'alpha_3 at the lattice scale (eps_3 at matched speed) and the running, or an executed confinement scale in cells',
+         'then_predicted': 'the lattice scale in GeV, hence every other scale the candidate outputs in cells', 'state': 'eps_3 declared; composites open (step F3)'},
+        {'anchor': 'Z mass together with the measured couplings (running route)', 'candidate_number_needed': 'the ratios c1:c2:c3 only',
+         'then_predicted': 'ln(lattice scale/MZ) from sin2, then alpha_s(MZ) and alpha_U', 'state': 'available for the trace form (block D); the prediction fails with Standard Model content'},
+        {'anchor': 'Newton constant (Planck length)', 'candidate_number_needed': 'the cell in Planck lengths: a gravity sector', 'state': 'none in CF-1; the public checkout supplies the pixel reading below'},
+        {'anchor': 'caesium hyperfine frequency (the SI second)', 'candidate_number_needed': 'the whole atomic chain (alpha, m_e, nuclear moment)', 'state': 'not admissible at this level; the checkout lists the missing components'}],
+    'source_derived_anchors_claimed_by_the_public_checkout': {
+        'pixel': {'definition': 'P = a_cell / l_star^2; outer equation P = phi + sqrt(pi) alpha (extra/fine_structure_constant_derivation.tex)', 'P_comparison': P_C,
+                  'ancestry': 'P_C is computed from the measured alpha(0); the two certified roots of the declared map give alpha_inverse 137.00099 (MSSM proxy) and 168.815 (minimal census)',
+                  'assumes': ['l_star identified with the Planck length: E_star is the Planck energy from the measured G (clock audit: epsilon_Cs not source emitted)',
+                              'M_U = E_star exp(-2 pi) P^(1/6) and E_cell = E_star/sqrt(P): declared forms', 'MSSM one-loop coefficients (33/5, 1, -3): superpartners absent from the carrier',
+                              'beta_EW = 4 in v = E_cell exp(-2 pi/(4 alpha_U))', 'heat-kernel closure lbar_SU(2) + lbar_SU(3) = P/4 without a hypercharge term: declared',
+                              'P/4 as an area reading of the cell: a premise (native regional entropy grows with enclosed ports)']},
+        'D10_lane': {'values_at_P_C': {'M_U_GeV': d10['M_U'] * Estar, 'alpha_U_inverse': 1 / d10['alpha_U'], 'sin2(mZ)': d10['sin2w_mz'], 'alpha3(mZ)': d10['alpha3_mz'],
+                                       'alpha_em_inverse(mZ)': d10['alpha_em_inv_mz'], 'mZ_GeV': d10['mZ_run'] * Estar, 'v_GeV': d10['v'] * Estar, 'v/E_star': d10['v']},
+                     'assumes': 'equal couplings alpha_U at M_U (the trace-form normalization), the MSSM proxy, the declared transmutation; W/Z chart conditional on the unemitted QT1-QT5 certificate (code/particles/README.md)',
+                     'same_point_run_down_with_SM_coefficients (inverse couplings at MZ)': at([1 / d10['alpha_U']] * 3, [-x for x in B_SM], math.log(d10['M_U'] * Estar / MZ)),
+                     'same_point_with_SM_coefficients: alpha3 diverges at GeV': d10['M_U'] * Estar * math.exp(-2 * math.pi / d10['alpha_U'] / 7),
+                     'same_point_with_the_MSSM_set (inverse couplings at MZ)': at([1 / d10['alpha_U']] * 3, [-x for x in B_MSSM], math.log(d10['M_U'] * Estar / MZ)),
+                     'eps_kappa_for_n=2_if_CF-1_adopted_alpha_U(P)': eps_kappa(d10['alpha_U'], 2)},
+        'what_none_of_them_fixes': 'a unit: E_star is externally normalized (docs/research/OPH_PARTICLE_MASS_RESPONSE.md; code/particles/runs/clock/clock_source_energy_closure_audit.json verdict NOT_FINAL_SOURCE_ONLY_PACKET)'},
+    'if_the_cell_is_the_public_pixel': {'declared': 'a^2 = P l_star^2 with l_star the Planck length', 'l_Planck_m': lP, 'cell_m': a_pix, 'tick_s': a_pix / si['c_m_s'], 'lattice_scale_GeV = E_star/sqrt(P)': E_cell,
+                                         'public_M_U_GeV': M_U, 'electron_rest_phase_per_tick_required': me / E_cell, 'top_rest_phase_required': mass['top'] / E_cell,
+                                         'Z_rest_phase_required': MZ / E_cell,
+                                         'couplings_required_at_this_scale (SM one loop, inverse)': aE, 'required_sin2': sin2_of(aE), 'required_alpha3/alpha2': aE[1] / aE[2],
+                                         'trace_form_at_this_scale_run_down (SM)': {'alpha_U_inverse from alpha(MZ)': aU_pix, 'sin2(MZ)': a2_pix / ainvZ, 'inverse_alpha3(MZ)': a3_pix,
+                                                                                    'alpha3 diverges at GeV': E_cell * math.exp(-2 * math.pi * aU_pix / (-bS[2]))}},
+    'scales_the_candidate_offers (reports/R7.md, electron anchor)': [
+        {'option': 'M1 (flux reading V)', 'cell_fm': [33.9, 66.1], 'lattice_scale_GeV = hbar c/cell': [hbarc / 66.1e-15, hbarc / 33.9e-15]},
+        {'option': 'H (background of the runs)', 'cell_fm': 3.09, 'lattice_scale_GeV': hbarc / 3.09e-15},
+        {'option': 'M2 (free angle), bound if the top shares the clock', 'cell_m_below': 3.59e-18, 'lattice_scale_GeV_above': hbarc / 3.59e-18},
+        {'option': 'M3 (internal walk)', 'statement': 'electron massless: no anchor'}],
+    'cheapest_anchor': {
+        'anchor': 'the electron rest energy',
+        'why': 'one elementary rest phase of one pattern pair; no composite, no gravity sector, no running needed to state it; the frozen protocol of worker R7 uses it',
+        'unit_then': 'tick = theta_e x %.6e s, cell = theta_e x %.10e m' % (hbar_GeV_s / me, hbarc / me),
+        'to_become_a_prediction_the_candidate_must_output': [
+            'theta_e as a number of the program (none is supplied)',
+            'at least one further number in the same clock: a second rest phase (first test: the ratios R7 lists), or the unified coupling alpha_U = n eps/(4 pi) at the lattice scale',
+            'with theta_e and alpha_U: ln(lattice scale/m_e) = ln(1/theta_e) fixes the running length, so alpha(0), sin2(MZ) and alpha_s(MZ) are three comparisons from two outputs'],
+        'value_theta_e_would_need_for_the_trace_form_to_meet_the_measured_weak_angle (SM one loop, NOT BLIND)': prim['equal_normalization_SM']['electron_rest_phase_per_tick = m_e/scale'],
+        'the_electron_mass_itself_is_predicted_only_with_a_second_unit': 'the only one in the checkout is E_star through the pixel: m_e = theta_e E_star/sqrt(P), theta_e = %.4e' % (me / E_cell)},
+}
+out['C_units'] = C
+
+pS = prim['equal_normalization_SM']; pM = prim['equal_normalization_MSSM_proxy']
+out['summary'] = {
+    'D4_ratios': 'gauge invariance leaves three weights; one class function on the five levels (equivalently the family trace or a tracial reference) gives g1^2:g2^2:g3^2 = 1:1:1 and sin2 = 3/8; '
+                 'the two port-democratic readings of the Gram form (sin2 = 3/4 and 3/28) are not invariant on su(3); pump-weighted forms need a declared sector weight',
+    'D4_magnitude': 'not fixed: after the speed condition n^2 eps kappa = 1 the field step holds one free number per link variable, alpha = n eps/(4 pi)',
+    'pump_pairings (sin2, alpha3/alpha2)': [[r['implied']['sin2_theta_W_float'], r['implied']['alpha3/alpha2_float']] for r in forms if r['name'] == 'pump-weighted form'],
+    'field_step': 'c_f = n sqrt(eps kappa); alpha_m = n eps/(4 pi); alpha_f = sqrt(eps/kappa)/(4 pi); routing speed iff n^2 eps kappa = 1, n >= 2',
+    'running_SM_primary (NOT BLIND)': {'scale_GeV': pS['scale_where_alpha1=alpha2_GeV (sin2 = 3/8)'], 'inverse_alpha_U': pS['inverse_alpha_U_there'], 'alpha_s_predicted': pS['predicted_alpha_s(MZ)'],
+                                       'alpha_s_measured': als, 'alpha2=alpha3_scale_GeV': pS['scale_where_alpha2=alpha3_GeV'], 'cell_m': pS['cell_m = hbar c / scale (alpha1=alpha2)'],
+                                       'electron_rest_phase_per_tick': pS['electron_rest_phase_per_tick = m_e/scale']},
+    'running_scheme_spread_of_the_scale_GeV': [V['equal_normalization_SM']['scale_where_alpha1=alpha2_GeV (sin2 = 3/8)'] for V in D['variants'].values()],
+    'running_MSSM_proxy_primary (NOT BLIND; content absent from CF-1)': {'scale_GeV': pM['scale_where_alpha1=alpha2_GeV (sin2 = 3/8)'], 'inverse_alpha_U': pM['inverse_alpha_U_there'],
+                                                                        'alpha_s_predicted': pM['predicted_alpha_s(MZ)'], 'public_M_U_GeV': M_U, 'public_inverse_alpha_U': 1 / d10['alpha_U']},
+    'pixel_scale_as_lattice_scale (trace form, SM, NOT BLIND)': C['if_the_cell_is_the_public_pixel']['trace_form_at_this_scale_run_down (SM)'],
+    'cheapest_anchor': 'electron rest energy; needs theta_e and one further output (a second rest phase, or alpha_U)',
+}
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'couplings.json', 'w'), indent=1, default=str)
+
+# ---- console summary ------------------------------------------------------------------------------------------------
+print('A. exact checks:', {k: v for k, v in A.items() if isinstance(v, bool)})
+print('A. float defects:', {k: (f'{v:.1e}' if isinstance(v, float) else '') for k, v in A['float_checks_on_the_carrier_vectors'].items() if isinstance(v, float)})
+print('A. pump:', pump.get('levels_used'), 'difference from CX', pump.get('largest_difference_from_CX_levels'), pump.get('error', ''))
+for r in forms:
+    imp = r.get('implied') or r.get('implied_per_block') or {}
+    print('N.', r['name'], '|', r.get('pairing', '')[:28], '| weights', r.get('weights_relative_to_Tr5 (1, 3prime, 3, 5)', r.get('weights_relative_to_Tr5 (1, 3prime, 3, 5), up to a common factor', '')),
+          '| invariant', r.get('invariant_under_the_gauge_algebra'), '| ad defect', r.get('ad_invariance_defect (float, trace-orthonormal basis)'),
+          '| sin2', imp.get('sin2_theta_W'), '| a3/a2', imp.get('alpha3/alpha2'))
+    for kx in ('implied_if_the_colour_form_is_averaged_over_SU(3)', 'implied_if_the_inverse_colour_form_is_averaged'):
+        if kx in r: print('     ', kx, r[kx])
+print('B. Coulomb ratios', [(r['lattice'], r['r1'], r['r2'], round(r['ratio'], 4)) for r in coul])
+print('B. isotropy', iso)
+print('D. alpha^-1(MZ)', ainvZ, 'd_lep', dlep, 'sin2 on-shell', s2_os, 'sin2 GF', s2_GF)
+for name, V in D['variants'].items():
+    print('D.', name, [round(x, 4) for x in V['inverse_couplings_at_MZ (alpha1 unified normalization, alpha2, alpha3)']])
+    for kx in ('equal_normalization_SM', 'equal_normalization_MSSM_proxy'):
+        u = V[kx]; print('   ', kx, {k2: (f'{v2:.5g}' if isinstance(v2, float) else v2) for k2, v2 in u.items() if k2 not in ('coefficients', 'b')})
+    for r in V['required_normalization_by_scale_SM']: print('    required at', r['scale'], f"{r['GeV']:.4g}", 'sin2', round(r['required_sin2'], 4), 'a3/a2', round(r['required_alpha3/alpha2'], 4), 'inv', [round(x, 2) for x in r['inverse_couplings']])
+    for r in V['candidates_against_SM_running']: print('    cand', r['normalization'][:60], 'sin2', round(r['sin2'], 4), 'a3/a2', round(r['alpha3/alpha2'], 4), 'mu_w', r['scale_from_the_weak_mixing_angle_GeV'], 'mu_s', r['scale_from_alpha3/alpha2_GeV'])
+    print('    fits', V['fits_not_derivations'])
+print('C. pixel', {k: v for k, v in C['if_the_cell_is_the_public_pixel'].items() if not isinstance(v, (list, dict))})
+print('C. pixel trace form run down', C['if_the_cell_is_the_public_pixel']['trace_form_at_this_scale_run_down (SM)'])
+print('C. required at pixel', C['if_the_cell_is_the_public_pixel']['couplings_required_at_this_scale (SM one loop, inverse)'])
+print('C. D10', C['source_derived_anchors_claimed_by_the_public_checkout']['D10_lane']['values_at_P_C'])
+print('C. D10 with SM', {k2: v2 for k2, v2 in C['source_derived_anchors_claimed_by_the_public_checkout']['D10_lane'].items() if k2.startswith('same') or k2.startswith('eps')})
+print('C. cheapest', C['cheapest_anchor']['unit_then'])
+print('A. invariant form counts', A['count_of_invariant_quadratic_forms'])
+for r in cop: print('D. copies', {k2: (f'{v2:.4g}' if isinstance(v2, float) else v2) for k2, v2 in r.items() if k2 != 'b'})
+print('SUMMARY', json.dumps(out['summary'], indent=1, default=str))

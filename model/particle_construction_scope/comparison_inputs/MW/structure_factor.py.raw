@@ -1,0 +1,910 @@
+"""Dynamic structure factor S(k, omega) of the coarse-grained load density: the black-box test for waves.
+
+Worker MW (simulation session), theory request P2. Reusable: see README_structure_factor.md.
+
+    python structure_factor.py sim  --geometry sphere:4 --rule ref --filling 1/3 --sweeps 200000 --seed 1 --out a.npz
+    python structure_factor.py fit  a.npz [b.npz ...] --out a_fit.json [--exact]
+    python structure_factor.py synth --geometry sphere:4 --kind diffusion --sweeps 100000 --out d.npz
+
+Pipeline
+  geometry   sphere:L[:gluing]  federation of oph_defects.fedgeom (gluing port_pair (default) | face_axis)
+             flat:n[:F|B]       periodic honeycomb patch of n x n rhombi, wiring F (face triple) or B (belt triple)
+             tri:n              periodic triangular lattice of n x n sites (lattice gas)
+  modes      sphere: real spherical harmonics Y_lm at the carrier positions, shells l, k = sqrt(l(l+1))/R with
+             R = 0.83022 * 2^L mesh edges (equal-area radius); flat and tri: plane waves, shells of equal |k|
+             (the two inequivalent orbits with |k|^2 = 49 (2 pi/n)^2 ... are kept apart for the isotropy test).
+             Every mode is a unit vector over carriers (sites).
+  rules      ref          the reference rule (law C of the simulation package: nearest agreement, fair coin)
+             engine       the same through oph_defects.universe.Engine (pinned kernel), sphere only
+             fcs          face-controlled swap: an internal seam with unequal ends is swapped when its control is on
+                          --control wing (one of the two wing ports, picked by the coin) | or | xor | and
+                          --glue coin (reference event on glue seams) | swap (always) | never
+             lg           lattice gas on tri:n, quanta on directed seams (six directions per site)
+                          --collide 0 (free streaming with exclusion) | 1 (head-on pairs) | 2 (pairs and triples)
+  schedule   iid (independent uniform seam draws, the reference scheduler) | round (fcs: the five matchings of
+             every carrier in turn, then the glue seams; lg: synchronous propagation then collision)
+  series     a_m(t) = sum_c n_c(t) phi_m(c), sampled every --every sweeps
+  spectrum   Welch (Hann, half overlap) per mode, averaged over the modes of a shell
+  fit        Whittle likelihood on every second bin against the exact expected Welch estimate of a model
+             autocovariance (window leakage and aliasing are in the model):
+               LOR  C(t) = A exp(-G t)                                   diffusive
+               DHO  C(t) = A (s+ exp(s- t) - s- exp(s+ t))/(s+ - s-),    s+- roots of s^2 + g s + w0^2  propagating
+               GDC  C(t) = A exp(-G t) (cos(W t) + b sin(W t))           general damped cosine
+             model comparison by AIC; propagating bound: largest weight w (95 percent) of an underdamped DHO
+             component (Q = w0/g >= 1) in the mixture (1 - w) LOR + w DHO over a scan of w0 and Q.
+"""
+from __future__ import annotations
+
+import argparse
+import ctypes
+import hashlib
+import json
+import math
+import os
+import subprocess
+import sys
+import time
+from fractions import Fraction
+
+import numpy as np
+import scipy.optimize as so
+import scipy.signal as ss
+import scipy.sparse as sp
+import scipy.special as sps
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+# ============================================================================================ C kernels
+C_SOURCE = r'''
+#include <stdint.h>
+#include <string.h>
+typedef unsigned __int128 u128;
+static inline uint64_t rotl(const uint64_t x, int k) { return (x << k) | (x >> (64 - k)); }
+static inline uint64_t rng_next(uint64_t *s) {            /* xoshiro256** */
+    const uint64_t result = rotl(s[1] * 5, 7) * 9, t = s[1] << 17;
+    s[2] ^= s[0]; s[3] ^= s[1]; s[1] ^= s[2]; s[0] ^= s[3]; s[2] ^= t; s[3] = rotl(s[3], 45);
+    return result;
+}
+typedef struct {
+    int64_t P, M, N, n_int;
+    const int32_t *A, *B, *W1, *W2;
+    int8_t *x;
+    int32_t rule, control, glue, nper;
+    uint64_t s[4];
+    int64_t moves, odd;
+} sf_ctx;
+
+static inline void sf_attempt(sf_ctx *c, int64_t e, int coin)
+{
+    const int32_t a = c->A[e], b = c->B[e];
+    const int xa = c->x[a], xb = c->x[b];
+    if (c->rule == 0 || (e >= c->n_int && c->glue == 0)) {
+        /* law C exactly as oph_defects.kernels: total, floor and ceiling, the coin gives the first end the ceiling */
+        const int tot = xa + xb, lo = (tot - (tot & 1)) / 2, hi = tot - lo;
+        const int ni = coin ? hi : lo;
+        c->odd += (tot & 1);
+        if (ni != xa) { c->x[a] = (int8_t)ni; c->x[b] = (int8_t)(tot - ni); c->moves++; }
+        return;
+    }
+    if (xa == xb) return;
+    c->odd++;
+    int on;
+    if (e >= c->n_int) on = (c->glue == 1);
+    else {
+        const int o1 = c->x[c->W1[e]] > 0, o2 = c->x[c->W2[e]] > 0;
+        switch (c->control) {
+            case 0: on = coin ? o2 : o1; break;
+            case 1: on = o1 | o2; break;
+            case 2: on = o1 ^ o2; break;
+            default: on = o1 & o2;
+        }
+    }
+    if (on) { c->x[a] = (int8_t)xb; c->x[b] = (int8_t)xa; c->moves++; }
+}
+
+static void sample(const int8_t *x, int64_t N, int nper, const double *modes, int64_t n_modes, double *out, double *work)
+{
+    for (int64_t cc = 0; cc < N; cc++) { int s = 0; for (int i = 0; i < nper; i++) s += x[nper * cc + i]; work[cc] = (double)s; }
+    for (int64_t m = 0; m < n_modes; m++) {
+        const double *row = modes + m * N; double acc = 0.0;
+        for (int64_t cc = 0; cc < N; cc++) acc += row[cc] * work[cc];
+        out[m] = acc;
+    }
+}
+
+/* order == NULL: M independent uniform draws per sweep. Otherwise the listed seams in order, once per sweep;
+   coins (same length) optional. */
+void sf_run(sf_ctx *c, int64_t n_samples, int64_t sweeps_per_sample, const int32_t *order, int64_t order_len,
+            const uint8_t *coins, const double *modes, int64_t n_modes, double *out, double *work)
+{
+    const uint64_t M = (uint64_t)c->M;
+    for (int64_t t = 0; t < n_samples; t++) {
+        for (int64_t sw = 0; sw < sweeps_per_sample; sw++) {
+            if (order) {
+                for (int64_t i = 0; i < order_len; i++) {
+                    const int coin = coins ? coins[i] : (int)(rng_next(c->s) >> 63);
+                    sf_attempt(c, order[i], coin);
+                }
+            } else {
+                for (uint64_t i = 0; i < M; i++) {
+                    const uint64_t r = rng_next(c->s);
+                    const int64_t e = (int64_t)(((u128)r * M) >> 64);
+                    sf_attempt(c, e, (int)(r & 1));
+                }
+            }
+        }
+        if (n_modes > 0) sample(c->x, c->N, c->nper, modes, n_modes, out + t * n_modes, work);
+    }
+}
+
+/* ---------------------------------------------------------------------------------------- lattice gas */
+typedef struct {
+    int64_t N;
+    const int32_t *nb;      /* [6 N] neighbour site in direction i */
+    int8_t *n;              /* [6 N] occupation of channel (site, direction) */
+    int8_t *tmp;            /* [6 N] */
+    int32_t collide;
+    uint64_t s[4];
+    int64_t moves, blocked, pair, triple;
+} lg_ctx;
+
+static inline void lg_collide(lg_ctx *c, int64_t y, int bit)
+{
+    int8_t *v = c->n + 6 * y;
+    const int cnt = v[0] + v[1] + v[2] + v[3] + v[4] + v[5];
+    if (cnt == 2 && c->collide >= 1) {
+        for (int i = 0; i < 3; i++) if (v[i] && v[i + 3]) {
+            const int d = bit ? 1 : 5;
+            v[i] = 0; v[i + 3] = 0; v[(i + d) % 6] = 1; v[(i + 3 + d) % 6] = 1; c->pair++;
+            break;
+        }
+    } else if (cnt == 3 && c->collide >= 2) {
+        if (v[0] && v[2] && v[4]) { v[0] = v[2] = v[4] = 0; v[1] = v[3] = v[5] = 1; c->triple++; }
+        else if (v[1] && v[3] && v[5]) { v[1] = v[3] = v[5] = 0; v[0] = v[2] = v[4] = 1; c->triple++; }
+    }
+}
+
+void lg_run(lg_ctx *c, int64_t n_samples, int64_t sweeps_per_sample, int sync, const double *modes, int64_t n_modes,
+            double *out, double *work)
+{
+    const uint64_t E = (uint64_t)(6 * c->N);
+    for (int64_t t = 0; t < n_samples; t++) {
+        for (int64_t sw = 0; sw < sweeps_per_sample; sw++) {
+            if (sync) {
+                for (uint64_t q = 0; q < E; q++) c->tmp[6 * c->nb[q] + (q % 6)] = c->n[q];
+                memcpy(c->n, c->tmp, E);
+                for (int64_t y = 0; y < c->N; y++) lg_collide(c, y, (int)(rng_next(c->s) >> 63));
+            } else {
+                for (uint64_t i = 0; i < E; i++) {
+                    const uint64_t r = rng_next(c->s);
+                    const uint64_t q = (uint64_t)(((u128)r * E) >> 64);
+                    const int d = (int)(q % 6);
+                    const int64_t y = c->nb[q];
+                    if (c->n[q]) {
+                        if (!c->n[6 * y + d]) { c->n[q] = 0; c->n[6 * y + d] = 1; c->moves++; } else c->blocked++;
+                    }
+                    lg_collide(c, y, (int)(r & 1));
+                }
+            }
+        }
+        if (n_modes > 0) sample(c->n, c->N, 6, modes, n_modes, out + t * n_modes, work);
+    }
+}
+'''
+
+
+class SfCtx(ctypes.Structure):
+    _fields_ = [('P', ctypes.c_int64), ('M', ctypes.c_int64), ('N', ctypes.c_int64), ('n_int', ctypes.c_int64),
+                ('A', ctypes.c_void_p), ('B', ctypes.c_void_p), ('W1', ctypes.c_void_p), ('W2', ctypes.c_void_p),
+                ('x', ctypes.c_void_p), ('rule', ctypes.c_int32), ('control', ctypes.c_int32), ('glue', ctypes.c_int32),
+                ('nper', ctypes.c_int32), ('s', ctypes.c_uint64 * 4), ('moves', ctypes.c_int64), ('odd', ctypes.c_int64)]
+
+
+class LgCtx(ctypes.Structure):
+    _fields_ = [('N', ctypes.c_int64), ('nb', ctypes.c_void_p), ('n', ctypes.c_void_p), ('tmp', ctypes.c_void_p),
+                ('collide', ctypes.c_int32), ('s', ctypes.c_uint64 * 4), ('moves', ctypes.c_int64),
+                ('blocked', ctypes.c_int64), ('pair', ctypes.c_int64), ('triple', ctypes.c_int64)]
+
+
+_LIB = {}
+
+
+def library():
+    if 'lib' in _LIB:
+        return _LIB['lib']
+    tag = hashlib.sha256(C_SOURCE.encode()).hexdigest()[:16]
+    d = os.environ.get('SF_KERNEL_DIR', os.path.join(os.path.expanduser('~'), '.cache', 'mw_sf_kernels'))
+    os.makedirs(d, exist_ok=True)
+    so_path = os.path.join(d, f'sf_{tag}.so')
+    if not os.path.exists(so_path):
+        src = os.path.join(d, f'sf_{tag}.c')
+        open(src, 'w').write(C_SOURCE)
+        tmp = os.path.join(d, f'sf_{tag}.{os.getpid()}.so')
+        subprocess.run(['cc', '-O3', '-shared', '-fPIC', '-o', tmp, src], check=True, capture_output=True)
+        os.replace(tmp, so_path)
+    lib = ctypes.CDLL(so_path)
+    vp, i64 = ctypes.c_void_p, ctypes.c_int64
+    lib.sf_run.argtypes = [ctypes.POINTER(SfCtx), i64, i64, vp, i64, vp, vp, i64, vp, vp]; lib.sf_run.restype = None
+    lib.lg_run.argtypes = [ctypes.POINTER(LgCtx), i64, i64, ctypes.c_int, vp, i64, vp, vp]; lib.lg_run.restype = None
+    _LIB['lib'] = lib
+    return lib
+
+
+def _seed_words(seed):
+    """Four state words from splitmix64."""
+    z = (int(seed) * 0x9E3779B97F4A7C15 + 0x1234567) & 0xFFFFFFFFFFFFFFFF
+    out = []
+    for _ in range(4):
+        z = (z + 0x9E3779B97F4A7C15) & 0xFFFFFFFFFFFFFFFF
+        x = z
+        x = ((x ^ (x >> 30)) * 0xBF58476D1CE4E5B9) & 0xFFFFFFFFFFFFFFFF
+        x = ((x ^ (x >> 27)) * 0x94D049BB133111EB) & 0xFFFFFFFFFFFFFFFF
+        out.append(x ^ (x >> 31))
+    return out
+
+
+# ============================================================================================ geometry
+def _template():
+    from oph_defects import fedgeom as FG
+    seams = np.asarray(FG.TEMPLATE_SEAMS, np.int64); faces = np.asarray(FG.TEMPLATE_FACES, np.int64)
+    third = lambda f, a, b: int([v for v in faces[f] if v != a and v != b][0])
+    w1 = np.array([third(FG.TEMPLATE_PLUS[k], a, b) for k, (a, b) in enumerate(seams)], np.int64)
+    w2 = np.array([third(FG.TEMPLATE_MINUS[k], a, b) for k, (a, b) in enumerate(seams)], np.int64)
+    # five perfect matchings: seams whose midpoints are parallel or perpendicular
+    mid = FG.PORT_UNIT[seams[:, 0]] + FG.PORT_UNIT[seams[:, 1]]; mid /= np.linalg.norm(mid, axis=1, keepdims=True)
+    cls = -np.ones(30, np.int64); n = 0
+    for k in range(30):
+        if cls[k] < 0:
+            d = np.abs(mid @ mid[k])
+            cls[(d < 1e-9) | (d > 1 - 1e-9)] = n; n += 1
+    assert n == 5 and all((cls == i).sum() == 6 for i in range(5))
+    for i in range(5):
+        assert len(set(seams[cls == i].ravel().tolist())) == 12
+    return FG, seams, faces, w1, w2, cls
+
+
+def geometry(spec):
+    """Dictionary with N, nper, P, M, n_int, A, B, W1, W2 (int32 arrays), positions, kind."""
+    parts = spec.split(':')
+    kind = parts[0]
+    if kind == 'tri':
+        n = int(parts[1]); N = n * n
+        a1 = np.array([1.0, 0.0]); a2 = np.array([0.5, math.sqrt(3) / 2])
+        steps = [(1, 0), (0, 1), (-1, 1), (-1, 0), (0, -1), (1, -1)]             # directions at 0, 60, ..., 300 degrees
+        ij = np.array([(i, j) for i in range(n) for j in range(n)])
+        nb = np.zeros((N, 6), np.int32)
+        for d, (di, dj) in enumerate(steps):
+            nb[:, d] = ((ij[:, 0] + di) % n) * n + (ij[:, 1] + dj) % n
+        xy = ij[:, :1] * a1 + ij[:, 1:] * a2
+        return {'kind': 'tri', 'spec': spec, 'n': n, 'N': N, 'nper': 6, 'nb': nb, 'xy': xy, 'a1': a1, 'a2': a2}
+    FG, seams, faces, tw1, tw2, tcls = _template()
+    if kind == 'sphere':
+        level = int(parts[1]); gluing = parts[2] if len(parts) > 2 else 'port_pair'
+        geo = FG.build(level, gluing=gluing)
+        N = geo.carriers
+        A, B = geo.all_seam_ends()
+        g = {'kind': 'sphere', 'spec': spec, 'level': level, 'gluing': gluing, 'xyz': np.asarray(geo.carrier_xyz, float),
+             'radius': 0.83022 * 2 ** level, 'fedgeom': geo}
+    elif kind == 'flat':
+        n = int(parts[1]); wiring = parts[2] if len(parts) > 2 else 'F'
+        trip = FG.CONTROL_FACE if wiring == 'F' else FG._control_ports()
+        N = 2 * n * n
+        up = lambda i, j: 2 * ((i % n) * n + (j % n))
+        a1 = np.array([1.0, 0.0]); a2 = np.array([0.5, math.sqrt(3) / 2])
+        xy = np.zeros((N, 2)); ga = []; gb = []
+        for i in range(n):
+            for j in range(n):
+                u = up(i, j)
+                xy[u] = (i + 1 / 3) * a1 + (j + 1 / 3) * a2; xy[u + 1] = (i + 2 / 3) * a1 + (j + 2 / 3) * a2
+                for k, d in enumerate((up(i, j - 1) + 1, up(i, j) + 1, up(i - 1, j) + 1)):   # edge classes 0, 1, 2
+                    ga.append(12 * u + trip[k]); gb.append(12 * d + trip[k])
+        base = (np.arange(N, dtype=np.int64) * 12)[:, None]
+        A = np.concatenate([(base + seams[None, :, 0]).ravel(), np.asarray(ga, np.int64)])
+        B = np.concatenate([(base + seams[None, :, 1]).ravel(), np.asarray(gb, np.int64)])
+        g = {'kind': 'flat', 'spec': spec, 'n': n, 'wiring': wiring, 'xy': xy, 'a1': a1, 'a2': a2}
+    else:
+        raise ValueError(spec)
+    n_int = 30 * N
+    base = (np.arange(N, dtype=np.int64) * 12)[:, None]
+    W1 = np.concatenate([(base + tw1[None, :]).ravel(), -np.ones(A.size - n_int, np.int64)])
+    W2 = np.concatenate([(base + tw2[None, :]).ravel(), -np.ones(A.size - n_int, np.int64)])
+    # round order: matching classes 0..4 over all carriers, then the glue seams
+    order = np.concatenate([np.concatenate([(30 * np.arange(N)[:, None] + np.flatnonzero(tcls == m)[None, :]).ravel() for m in range(5)]),
+                            np.arange(n_int, A.size)])
+    g.update({'N': N, 'nper': 12, 'P': 12 * N, 'M': int(A.size), 'n_int': n_int, 'A': A.astype(np.int32), 'B': B.astype(np.int32),
+              'W1': W1.astype(np.int32), 'W2': W2.astype(np.int32), 'round_order': order.astype(np.int32)})
+    return g
+
+
+def port_laplacian(g):
+    P = g['P']
+    A, B = g['A'].astype(np.int64), g['B'].astype(np.int64)
+    W = sp.coo_matrix((np.ones(A.size), (A, B)), shape=(P, P)); W = (W + W.T).tocsr()
+    return (sp.diags(np.asarray(W.sum(axis=1)).ravel()) - W).tocsr()
+
+
+# ============================================================================================ modes
+def real_sph_harm(l, xyz):
+    """Rows: the 2l+1 real spherical harmonics of degree l at the unit vectors xyz."""
+    th = np.arccos(np.clip(xyz[:, 2], -1, 1)); ph = np.arctan2(xyz[:, 1], xyz[:, 0])
+    rows = []
+    for m in range(0, l + 1):
+        if hasattr(sps, 'sph_harm_y'):
+            y = sps.sph_harm_y(l, m, th, ph)
+        else:
+            y = sps.sph_harm(m, l, ph, th)
+        if m == 0:
+            rows.append(y.real)
+        else:
+            rows.append(math.sqrt(2) * y.real); rows.append(math.sqrt(2) * y.imag)
+    return np.array(rows)
+
+
+def make_modes(g, shells=None):
+    """Returns modes [n_modes, N] (unit rows), shell index per mode, and per shell a dict with label and k
+    (rad per mesh edge)."""
+    info = []; rows = []; idx = []
+    if g['kind'] == 'sphere':
+        ls = shells or [1, 2, 3, 4, 6, 8, 12, 16]
+        for s, l in enumerate(ls):
+            Y = real_sph_harm(int(l), g['xyz'])
+            rows.append(Y); idx += [s] * Y.shape[0]
+            info.append({'label': f'l={l}', 'l': int(l), 'k': math.sqrt(l * (l + 1)) / g['radius']})
+    else:
+        n = g['n']; a1, a2 = g['a1'], g['a2']
+        area = a1[0] * a2[1] - a1[1] * a2[0]
+        b1 = 2 * math.pi * np.array([a2[1], -a2[0]]) / area; b2 = 2 * math.pi * np.array([-a1[1], a1[0]]) / area
+        reps = shells or [(1, 0), (1, 1), (2, 0), (2, 1), (3, 0), (2, 2), (4, 0), (7, 0), (5, 3)]
+        u1, u2 = b1, b1 + b2                                                   # 60 degrees apart: |p u1 + q u2|^2 = (p^2 + p q + q^2) |b|^2
+        Binv = np.linalg.inv(np.array([b1, b2]).T)
+        rot = lambda v, a: np.array([math.cos(a) * v[0] - math.sin(a) * v[1], math.sin(a) * v[0] + math.cos(a) * v[1]])
+        for s, (p, q) in enumerate(reps):
+            k0 = p * u1 + q * u2
+            orbit = set()
+            for refl in (False, True):
+                kk = np.array([k0[0], -k0[1]]) if refl else k0
+                for j in range(6):
+                    c = Binv @ rot(kk, j * math.pi / 3)
+                    ci = np.round(c).astype(int)
+                    assert np.allclose(c, ci, atol=1e-9)
+                    orbit.add((int(ci[0]), int(ci[1])))
+            half = sorted({min(w, (-w[0], -w[1])) for w in orbit})
+            R = []; dirs = []
+            for (m1, m2) in half:
+                kv = (m1 * b1 + m2 * b2) / n
+                ph = g['xy'] @ kv
+                R.append(np.cos(ph)); R.append(np.sin(ph)); dirs.append(math.degrees(math.atan2(kv[1], kv[0])) % 180)
+            R = np.array(R)
+            rows.append(R); idx += [s] * R.shape[0]
+            info.append({'label': f'({p},{q})', 'k': float(np.linalg.norm(k0) / n), 'norm': int(p * p + p * q + q * q), 'vectors': len(half),
+                         'directions_deg': [round(d, 2) for d in dirs]})
+    M = np.vstack(rows)
+    M = M - M.mean(axis=1, keepdims=True)              # orthogonal to the conserved total
+    M = M / np.linalg.norm(M, axis=1, keepdims=True)
+    return np.ascontiguousarray(M), np.array(idx), info
+
+
+# ============================================================================================ simulation
+def initial_loads(P, filling, seed):
+    num = Fraction(filling).limit_denominator(1000)
+    n = P * num.numerator // num.denominator
+    x = np.zeros(P, np.int8)
+    x[np.random.default_rng(seed).permutation(P)[:n]] = 1
+    return x
+
+
+CONTROL = {'wing': 0, 'or': 1, 'xor': 2, 'and': 3}
+GLUE = {'coin': 0, 'swap': 1, 'never': 2}
+
+
+def simulate(g, rule, filling, sweeps, seed, modes, every=1, control='wing', glue='coin', schedule='iid', collide=2,
+             x0=None, return_state=False):
+    """Mode amplitudes [sweeps // every, n_modes] of the carrier (site) loads, and run information."""
+    lib = library()
+    n_samp = int(sweeps) // int(every)
+    nm = modes.shape[0]
+    out = np.zeros((n_samp, nm)); work = np.zeros(g['N'])
+    info = {'rule': rule, 'filling': str(filling), 'sweeps': int(n_samp * every), 'every': int(every), 'seed': int(seed),
+            'schedule': schedule, 'geometry': g['spec']}
+    t0 = time.time()
+    if rule == 'lg':
+        E = 6 * g['N']
+        n = initial_loads(E, filling, seed) if x0 is None else np.ascontiguousarray(x0, np.int8).copy()
+        tmp = np.zeros(E, np.int8); nb = np.ascontiguousarray(g['nb'].ravel(), np.int32)
+        c = LgCtx(); c.N = g['N']; c.nb = nb.ctypes.data; c.n = n.ctypes.data; c.tmp = tmp.ctypes.data; c.collide = int(collide)
+        for i, w in enumerate(_seed_words(seed)):
+            c.s[i] = w
+        lib.lg_run(ctypes.byref(c), n_samp, every, int(schedule == 'round'), modes.ctypes.data, nm, out.ctypes.data, work.ctypes.data)
+        ev = n_samp * every * E
+        info.update({'collide': int(collide), 'moves_per_event': c.moves / ev, 'blocked_per_event': c.blocked / ev,
+                     'pair_collisions_per_event': c.pair / ev, 'triple_collisions_per_event': c.triple / ev,
+                     'channel_density': float(n.mean())})
+        state = n
+    elif rule == 'engine':
+        from oph_defects import universe as UV
+        geo = g['fedgeom']
+        num = Fraction(filling).limit_denominator(1000)
+        loads, prep = UV.prepare_loads(f'canonical:{num.numerator}/{num.denominator}:{seed}', g['level'], g['P'])
+        eng = UV.Engine(geo, loads, seed, np.zeros(6, np.int32), 0, False, backend='sequential', fast_rng=True,
+                        register=False, track=False)
+        t = 0; moves = 0
+        for i in range(n_samp):
+            for _ in range(every):
+                seq, coin = eng.draw()
+                n_done = eng.run_chunk(seq, coin, t, i)
+                moves += int(np.count_nonzero(eng.o_cur[:n_done])); t += n_done
+            out[i] = modes @ eng.x.reshape(g['N'], 12).sum(axis=1)
+        info.update({'moves_per_event': moves / t, 'preparation': prep['name'], 'kernel_sha256': UV.K.CORE_SHA256})
+        state = eng.x.copy()
+    else:
+        x = initial_loads(g['P'], filling, seed) if x0 is None else np.ascontiguousarray(x0, np.int8).copy()
+        c = SfCtx(); c.P = g['P']; c.M = g['M']; c.N = g['N']; c.n_int = g['n_int']
+        c.A = g['A'].ctypes.data; c.B = g['B'].ctypes.data; c.W1 = g['W1'].ctypes.data; c.W2 = g['W2'].ctypes.data
+        c.x = x.ctypes.data; c.rule = 0 if rule == 'ref' else 1; c.control = CONTROL[control]; c.glue = GLUE[glue]; c.nper = 12
+        for i, w in enumerate(_seed_words(seed)):
+            c.s[i] = w
+        order = g['round_order'] if schedule == 'round' else None
+        lib.sf_run(ctypes.byref(c), n_samp, every, None if order is None else order.ctypes.data, 0 if order is None else order.size,
+                   None, modes.ctypes.data, nm, out.ctypes.data, work.ctypes.data)
+        ev = n_samp * every * g['M']
+        info.update({'control': control, 'glue': glue, 'moves_per_event': c.moves / ev, 'unequal_seam_per_event': c.odd / ev,
+                     'loads_total': int(x.sum())})
+        state = x
+    info['seconds'] = round(time.time() - t0, 1)
+    return (out, info, state) if return_state else (out, info)
+
+
+def replay_check(level=3, sweeps=20, filling='1/3', seed=5):
+    """The own kernel (rule ref) against the pinned kernel of the simulation package on identical schedules."""
+    from oph_defects import universe as UV
+    g = geometry(f'sphere:{level}')
+    num = Fraction(filling)
+    loads, _ = UV.prepare_loads(f'canonical:{num.numerator}/{num.denominator}:{seed}', level, g['P'])
+    eng = UV.Engine(g['fedgeom'], loads, seed, np.zeros(6, np.int32), 0, False, backend='sequential', fast_rng=True,
+                    register=False, track=False)
+    lib = library()
+    x = loads.copy()
+    c = SfCtx(); c.P = g['P']; c.M = g['M']; c.N = g['N']; c.n_int = g['n_int']
+    c.A = g['A'].ctypes.data; c.B = g['B'].ctypes.data; c.W1 = g['W1'].ctypes.data; c.W2 = g['W2'].ctypes.data
+    c.x = x.ctypes.data; c.rule = 0; c.nper = 12
+    dummy = np.zeros(1); same = True; t = 0
+    for i in range(sweeps):
+        seq, coin = eng.draw()
+        eng.run_chunk(seq, coin, t, i); t += seq.size
+        lib.sf_run(ctypes.byref(c), 1, 1, seq.ctypes.data, seq.size, coin.ctypes.data, None, 0, dummy.ctypes.data, dummy.ctypes.data)
+        same = same and bool((x == eng.x).all())
+    return {'level': level, 'sweeps': sweeps, 'attempts': int(t), 'loads_identical_after_every_sweep': same,
+            'pinned_kernel_sha256': UV.K.CORE_SHA256}
+
+
+# ============================================================================================ synthetic controls
+def cell_graph(g):
+    """Carrier adjacency (unit weights) from the glue seams."""
+    N = g['N']
+    a = g['A'][g['n_int']:].astype(np.int64) // 12; b = g['B'][g['n_int']:].astype(np.int64) // 12
+    W = sp.coo_matrix((np.ones(a.size), (a, b)), shape=(N, N)); W = (W + W.T).tocsr()
+    return W, (sp.diags(np.asarray(W.sum(axis=1)).ravel()) - W).tocsr()
+
+
+def synth_diffusion(g, modes, sweeps, seed, hop=0.1, per_cell=4):
+    """Independent walkers on the carrier graph; each sweep a walker crosses each of its three bonds with
+    probability hop. Known answer: carrier-graph eigenmode lam relaxes with factor (1 - hop lam) per sweep;
+    long-wavelength D = hop / 4 mesh edge^2 per sweep."""
+    rng = np.random.default_rng(seed)
+    W, _ = cell_graph(g); N = g['N']
+    nbr = W.indices.reshape(N, 3)
+    pos = rng.integers(0, N, size=per_cell * N)
+    out = np.zeros((sweeps, modes.shape[0]))
+    for t in range(sweeps):
+        u = rng.random(pos.size)
+        k = np.minimum((u / hop).astype(np.int64), 3)
+        mv = k < 3
+        pos[mv] = nbr[pos[mv], k[mv]]
+        out[t] = modes @ np.bincount(pos, minlength=N)
+    return out, {'kind': 'diffusion', 'hop': hop, 'per_cell': per_cell, 'D_known': hop / 4, 'variance_known': per_cell}
+
+
+def synth_wave(g, modes, sweeps, seed, c=0.5, gamma=0.02, sub=8):
+    """Noise-driven damped wave on the carrier graph: u'' + gamma u' = -4 c^2 L_cell u + noise (4 L_cell -> q^2 in mesh
+    edges). Known answer: carrier-graph eigenmode lam is a damped oscillator with w0 = 2 c sqrt(lam), damping gamma;
+    long wavelength w0 = c k."""
+    rng = np.random.default_rng(seed)
+    _, L = cell_graph(g); N = g['N']
+    dt = 1.0 / sub
+    u = np.zeros(N); v = np.zeros(N)
+    K = (4 * c * c) * L
+    out = np.zeros((sweeps, modes.shape[0]))
+    burn = int(10 / gamma)
+    for t in range(-burn, sweeps):
+        for _ in range(sub):
+            xi = rng.normal(size=N); xi -= xi.mean()                    # no force on the uniform mode
+            v += dt * (-(K @ u) - gamma * v) + math.sqrt(dt) * xi
+            u += dt * v
+        if t >= 0:
+            out[t] = modes @ u
+    return out, {'kind': 'wave', 'c_known': c, 'gamma_known': gamma, 'substeps': sub}
+
+
+# ============================================================================================ exact SSEP spectrum
+def low_modes(g, k=240):
+    """Lowest k eigenpairs of the port Laplacian (cached next to this file)."""
+    import scipy.sparse.linalg as sla
+    path = os.path.join(HERE, 'eig_%s_%d.npz' % (g['spec'].replace(':', '_'), k))
+    if os.path.exists(path):
+        z = np.load(path)
+        return z['lam'], z['V']
+    L = port_laplacian(g).tocsc()
+    if g['P'] <= 7000:
+        lam, V = np.linalg.eigh(L.toarray())                              # every eigenpair
+    else:
+        lam, V = sla.eigsh(L, k=k, sigma=-1e-4, which='LM')
+    o = np.argsort(lam)
+    lam, V = lam[o], V[:, o]
+    np.savez(path, lam=lam, V=V.astype(np.float32))
+    return lam, V
+
+
+def ssep_exact_acov(g, modes, filling, lags, k=240):
+    """Exact stationary autocovariance of the mode amplitudes under the reference rule on the binary shell:
+    C(t) = f (1 - f) P/(P - 1) phi^T T^t phi, T = (1 - L/(2M))^M per sweep (the load mean map; phi = the mode spread
+    over the ports with its mean removed). The lowest k eigenpairs are used exactly; the remaining weight (reported)
+    is given one rate that matches phi^T L phi. Returns C [n_modes, len(lags)] and the largest remainder weight."""
+    P, M = g['P'], g['M']
+    L = port_laplacian(g)
+    fr = Fraction(filling).limit_denominator(1000)
+    f = (P * fr.numerator // fr.denominator) / P
+    lam, V = low_modes(g, k)
+    lags = np.asarray(lags, float)
+    out = np.zeros((modes.shape[0], lags.size)); worst = 0.0
+    fac = np.log1p(-np.clip(lam, 0, None) / (2 * M)) * M                 # log of the factor per sweep
+    for m in range(modes.shape[0]):
+        phi = np.repeat(modes[m], 12); phi = phi - phi.mean()
+        nrm2 = float(phi @ phi)
+        w = (V.T @ phi) ** 2 / nrm2
+        rest = max(1.0 - float(w.sum()), 0.0)
+        mean_rate = float(phi @ (L @ phi)) / nrm2
+        lam_rest = max((mean_rate - float(w @ lam)) / rest, lam[-1]) if rest > 1e-12 else lam[-1]
+        c = (w[None, :] * np.exp(lags[:, None] * fac[None, :])).sum(axis=1) + rest * np.exp(lags * math.log1p(-min(lam_rest / (2 * M), 0.5)) * M)
+        out[m] = f * (1 - f) * P / (P - 1) * nrm2 * c
+        worst = max(worst, rest)
+    return out, worst
+
+
+# ============================================================================================ spectra and fits
+class WelchModel:
+    """Expected Welch estimate (two-sided density, per unit frequency in cycles per sweep) of a stationary process
+    with autocovariance acov(t), for a periodic Hann window of nseg samples spaced dt."""
+    def __init__(self, nseg, dt):
+        self.nseg, self.dt = int(nseg), float(dt)
+        w = ss.get_window('hann', self.nseg)
+        r = ss.correlate(w, w, mode='full', method='fft')[self.nseg - 1:]
+        self.kern = r / (w * w).sum()
+        self.tau = np.arange(self.nseg) * self.dt
+        self.omega = 2 * math.pi * np.arange(self.nseg // 2 + 1) / (self.nseg * self.dt)
+
+    def expected(self, acov_values):
+        gk = acov_values * self.kern
+        return self.dt * (2 * np.fft.rfft(gk).real - gk[0])
+
+
+def acov_lor(tau, G):
+    return np.exp(-G * tau)
+
+
+def acov_dho(tau, w0, gam):
+    disc = complex(gam * gam / 4 - w0 * w0)
+    sq = np.sqrt(disc)
+    if abs(sq) < 1e-9 * max(gam, w0):
+        return (1 + gam / 2 * tau) * np.exp(-gam / 2 * tau)
+    sp_, sm = -gam / 2 + sq, -gam / 2 - sq
+    return ((sp_ * np.exp(sm * tau) - sm * np.exp(sp_ * tau)) / (sp_ - sm)).real
+
+
+def acov_gdc(tau, G, W, b):
+    return np.exp(-G * tau) * (np.cos(W * tau) + b * np.sin(W * tau))
+
+
+def welch_shell(series, nseg, dt):
+    """Welch estimate averaged over the columns of series: two-sided density at j = 0..nseg/2, and the number of
+    averaged periodograms (segments x modes, corrected for the half overlap of Hann windows)."""
+    f, Pxx = ss.welch(series, fs=1.0 / dt, window='hann', nperseg=nseg, noverlap=nseg // 2, detrend='constant',
+                      return_onesided=True, scaling='density', axis=0)
+    K = (series.shape[0] - nseg // 2) // (nseg - nseg // 2)
+    nu = K / (1 + 2 * (1 / 6) ** 2) * series.shape[1] if K > 1 else series.shape[1]
+    return Pxx.mean(axis=1) / 2, nu, K
+
+
+def choose_nseg(series, dt, min_segments=12):
+    """Segment length: about 12 times the lag after which the mean autocorrelation stays below 0.1."""
+    T = series.shape[0]
+    x = series[:, :: max(1, series.shape[1] // 8)]                      # a few columns suffice for the estimate
+    x = x - x.mean(axis=0)
+    nfft = 1 << int(math.ceil(math.log2(2 * T)))
+    F = np.fft.rfft(x, nfft, axis=0)
+    ac = np.fft.irfft((F * F.conj()).real.mean(axis=1), nfft)[:T // 4]
+    ac = ac / ac[0]
+    big = np.flatnonzero(np.abs(ac) >= 0.1)
+    tau10 = int(big[-1]) + 1 if big.size else 1
+    cap = 1 << int(math.floor(math.log2(max(64, 2 * T // (min_segments + 1)))))
+    nseg = 1 << int(math.ceil(math.log2(max(12 * tau10, 64))))
+    return int(min(nseg, cap)), tau10
+
+
+def _nll(Ph, E, nu):
+    return nu * float(np.sum(np.log(E) + Ph / E))
+
+
+def fit_shell(series, dt, nseg=None, bound=True, exact_acov=None, lor_only=False):
+    """Fit one shell (columns of series = modes of the shell). Returns a dictionary."""
+    if nseg is None:
+        nseg, tau10 = choose_nseg(series, dt)
+    else:
+        tau10 = None
+    Ph, nu, K = welch_shell(series, nseg, dt)
+    wm = WelchModel(nseg, dt)
+    var = float(series.var(axis=0).mean())
+    # fit range: every second bin from 2 up to twice the frequency that holds 98 percent of the power, at most 0.9 Nyquist
+    cum = np.cumsum(Ph[1:]) / Ph[1:].sum()
+    j98 = int(np.searchsorted(cum, 0.98)) + 1
+    jmax = int(min(0.9 * (nseg // 2), max(2 * j98, 16)))
+    bins = np.arange(2, jmax + 1, 2)
+    P = Ph[bins]; tau = wm.tau
+    res = {'nseg': int(nseg), 'segments': int(K), 'periodograms': float(nu), 'bins': int(bins.size), 'variance': var,
+           'omega_max': float(wm.omega[jmax]), 'tau10_samples': tau10}
+
+    def prof(shape):
+        e = wm.expected(shape)[bins]
+        if not np.all(np.isfinite(e)) or e.min() <= 0:
+            return 1e300, 0.0, e
+        A = float(np.mean(P / e))
+        return _nll(P, A * e, nu), A, e
+
+    def deviance(E):
+        r = P / E
+        return float(2 * nu * np.sum(r - 1 - np.log(r)))
+
+    # ---- Lorentzian
+    lg = np.linspace(math.log(wm.omega[1] / 30), math.log(wm.omega[-1]), 60)
+    vals = [prof(acov_lor(tau, math.exp(v)))[0] for v in lg]
+    i0 = int(np.argmin(vals))
+    o = so.minimize_scalar(lambda v: prof(acov_lor(tau, math.exp(v)))[0], bounds=(lg[max(i0 - 1, 0)], lg[min(i0 + 1, 59)]), method='bounded',
+                           options={'xatol': 1e-7})
+    G = math.exp(o.x); nll_l, A_l, e_l = prof(acov_lor(tau, G))
+    # error of G from the profile: 2 delta nll = 1
+    def half(sign):
+        f0 = lambda v: 2 * (prof(acov_lor(tau, math.exp(v)))[0] - nll_l) - 1
+        hi = o.x + sign * 1e-4
+        for _ in range(60):
+            if f0(hi) > 0:
+                break
+            hi = o.x + (hi - o.x) * 2
+        return abs(so.brentq(f0, o.x, hi) - o.x) if f0(hi) > 0 else float('nan')
+    sG = 0.5 * (half(1) + half(-1))
+    res['lor'] = {'G': G, 'G_rel_err': sG, 'A': A_l, 'nll': nll_l, 'aic': 2 * nll_l + 4, 'deviance_per_dof': deviance(A_l * e_l) / max(bins.size - 2, 1)}
+    if lor_only:
+        return res
+
+    # ---- damped oscillator
+    cands = []
+    for w0 in np.exp(np.linspace(math.log(wm.omega[1] / 2), math.log(wm.omega[jmax]), 16)):
+        for Q in (0.05, 0.15, 0.4, 1.0, 3.0, 10.0, 30.0):
+            cands.append((prof(acov_dho(tau, w0, w0 / Q))[0], math.log(w0), math.log(w0 / Q)))
+    for gg in (30.0, 100.0, 300.0):                                            # near the Lorentzian limit
+        cands.append((prof(acov_dho(tau, math.sqrt(G * gg * G), gg * G))[0], 0.5 * math.log(G * gg * G), math.log(gg * G)))
+    cands.sort()
+    best = None
+    for _, a, b in cands[:4]:
+        o2 = so.minimize(lambda p: prof(acov_dho(tau, math.exp(p[0]), math.exp(p[1])))[0], [a, b], method='Nelder-Mead',
+                         options={'xatol': 1e-6, 'fatol': 1e-6, 'maxiter': 600})
+        if best is None or o2.fun < best.fun:
+            best = o2
+    w0, gam = math.exp(best.x[0]), math.exp(best.x[1])
+    nll_d, A_d, e_d = prof(acov_dho(tau, w0, gam))
+    # errors from the numerical Hessian in log parameters
+    def hess(fn, x, h=2e-3):
+        n = len(x); Hm = np.zeros((n, n)); f0 = fn(x)
+        for i in range(n):
+            for j in range(i, n):
+                xi = np.array(x, float); xi[i] += h; xi[j] += h; fpp = fn(xi)
+                xi = np.array(x, float); xi[i] += h; xi[j] -= h; fpm = fn(xi)
+                xi = np.array(x, float); xi[i] -= h; xi[j] += h; fmp = fn(xi)
+                xi = np.array(x, float); xi[i] -= h; xi[j] -= h; fmm = fn(xi)
+                Hm[i, j] = Hm[j, i] = (fpp - fpm - fmp + fmm) / (4 * h * h)
+        return Hm
+    try:
+        cov = np.linalg.inv(hess(lambda p: prof(acov_dho(tau, math.exp(p[0]), math.exp(p[1])))[0], best.x))
+        sw0, sg = math.sqrt(abs(cov[0, 0])), math.sqrt(abs(cov[1, 1]))
+    except Exception:                                                          # noqa: BLE001
+        sw0 = sg = float('nan')
+    Q = w0 / gam
+    res['dho'] = {'w0': w0, 'w0_rel_err': sw0, 'gamma': gam, 'gamma_rel_err': sg, 'Q': Q, 'A': A_d, 'nll': nll_d, 'aic': 2 * nll_d + 6,
+                  'deviance_per_dof': deviance(A_d * e_d) / max(bins.size - 3, 1),
+                  'underdamped': bool(Q > 0.5), 'pole_frequency': math.sqrt(max(w0 * w0 - gam * gam / 4, 0.0)),
+                  'equivalent_relaxation_rate_w0sq_over_gamma': w0 * w0 / gam}
+    res['delta_aic_dho_minus_lor'] = res['dho']['aic'] - res['lor']['aic']
+
+    # ---- general damped cosine (start from both fits)
+    starts = [[math.log(gam / 2), math.log(max(res['dho']['pole_frequency'], wm.omega[1] / 4)), gam / (2 * max(res['dho']['pole_frequency'], 1e-12)) if Q > 0.5 else 0.0],
+              [math.log(G), math.log(wm.omega[1] / 4), 0.0]]
+    bestg = None
+    for s0 in starts:
+        s0[2] = float(np.clip(s0[2], -5, 5))
+        o3 = so.minimize(lambda p: prof(acov_gdc(tau, math.exp(p[0]), math.exp(p[1]), p[2]))[0], s0, method='Nelder-Mead',
+                         options={'xatol': 1e-6, 'fatol': 1e-6, 'maxiter': 900})
+        if bestg is None or o3.fun < bestg.fun:
+            bestg = o3
+    Gg, Wg, bg = math.exp(bestg.x[0]), math.exp(bestg.x[1]), float(bestg.x[2])
+    nll_g, A_g, e_g = prof(acov_gdc(tau, Gg, Wg, bg))
+    res['gdc'] = {'G': Gg, 'W': Wg, 'b': bg, 'Q': Wg / (2 * Gg), 'A': A_g, 'nll': nll_g, 'aic': 2 * nll_g + 8,
+                  'deviance_per_dof': deviance(A_g * e_g) / max(bins.size - 4, 1)}
+    res['delta_aic_gdc_minus_lor'] = res['gdc']['aic'] - res['lor']['aic']
+
+    # ---- exact prediction (no free parameter)
+    if exact_acov is not None:
+        E = wm.expected(exact_acov)[bins]
+        res['exact'] = {'deviance_per_bin': deviance(E) / bins.size, 'bins': int(bins.size), 'variance_exact': float(exact_acov[0]),
+                        'variance_ratio_measured_over_exact': var / float(exact_acov[0]),
+                        'nll_minus_lor': _nll(P, E, nu) - nll_l}
+
+    # ---- upper bound on a propagating component in a Lorentzian background
+    if bound:
+        worst = {}; best_w = (0.0, 0.0, None)
+        for w0s in np.exp(np.linspace(math.log(wm.omega[2]), math.log(wm.omega[jmax]), 14)):
+            for Qs in (1.0, 3.0, 10.0):
+                d_shape = wm.expected(acov_dho(tau, w0s, w0s / Qs))[bins]
+                def best_for(w):
+                    def fn(v):
+                        e = (1 - w) * wm.expected(acov_lor(tau, math.exp(v)))[bins] + w * d_shape
+                        A = float(np.mean(P / e))
+                        return _nll(P, A * e, nu)
+                    o4 = so.minimize_scalar(fn, bounds=(math.log(G) - 1.0, math.log(G) + 1.0), method='bounded', options={'xatol': 2e-3})
+                    return o4.fun
+                ws = [0.0, 1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 0.1, 0.3, 1.0]
+                nl = []
+                for w in ws:                                                   # stop once the weight is excluded
+                    nl.append(best_for(w))
+                    if 2 * (nl[-1] - min(nl)) > 2.71:
+                        break
+                imin = int(np.argmin(nl)); base = nl[imin]
+                w95 = 1.0
+                if 2 * (nl[-1] - base) > 2.71:
+                    lo, hi = ws[len(nl) - 2], ws[len(nl) - 1]
+                    for _ in range(12):
+                        mid = math.sqrt(lo * hi) if lo > 0 else hi / 4
+                        if 2 * (best_for(mid) - base) > 2.71:
+                            hi = mid
+                        else:
+                            lo = mid
+                        if lo > 0 and hi - lo < 0.05 * hi:
+                            break
+                    w95 = hi
+                key = 'Q=%g' % Qs
+                if key not in worst or w95 > worst[key]['w95']:
+                    worst[key] = {'w95': w95, 'w0': float(w0s)}
+                gain = 2 * (nl[0] - base)
+                if gain > best_w[1]:
+                    best_w = (ws[imin], gain, {'w0': float(w0s), 'Q': Qs})
+        res['propagating_bound'] = {'w95_max_over_w0': worst, 'w95_Q3': worst['Q=3']['w95'], 'w95_Q10': worst['Q=10']['w95'],
+                                    'largest_likelihood_gain_2dlnL': best_w[1], 'best_weight_on_grid': best_w[0], 'best_at': best_w[2],
+                                    'scan': 'w0 on 14 log-spaced values between bin 2 and the last fitted bin; Q = w0/gamma in 1, 3, 10; '
+                                            'w95: one-sided 95 percent (2 delta lnL = 2.71) with A and G profiled'}
+    return res
+
+
+def powerlaw(k, y, rel_err=None):
+    k = np.asarray(k, float); y = np.asarray(y, float)
+    ok = np.isfinite(y) & (y > 0)
+    if ok.sum() < 2:
+        return None
+    w = None if rel_err is None else 1.0 / np.maximum(np.asarray(rel_err, float)[ok], 1e-4)
+    cf, cov = (np.polyfit(np.log(k[ok]), np.log(y[ok]), 1, w=w, cov=True) if ok.sum() > 2 else (np.polyfit(np.log(k[ok]), np.log(y[ok]), 1), np.full((2, 2), np.nan)))
+    return {'exponent': float(cf[0]), 'exponent_err': float(math.sqrt(abs(cov[0, 0]))), 'prefactor': float(math.exp(cf[1]))}
+
+
+def analyse(files, exact=False, bound=True, per_mode=True):
+    """Fit every shell of one or several runs of the same configuration (the series are concatenated shell-wise
+    as extra modes, which is exact for independent runs)."""
+    raw = [np.load(f, allow_pickle=True) for f in files]
+    meta = json.loads(str(raw[0]['meta']))
+    shells = meta['shells']; idx = raw[0]['shell_index']; dt = float(meta['every'])
+    data = [{'series': np.asarray(d['series'], np.float64)} for d in raw]                 # decompress once
+    T = min(d['series'].shape[0] for d in data)
+    out = {'files': [os.path.basename(f) for f in files], 'meta': meta, 'samples_per_run': int(T), 'runs': len(files), 'shells': [],
+           'run_info': [{k: v for k, v in json.loads(str(d['meta'])).items() if k not in ('shells', 'shell_spec')} for d in raw]}
+    ex = None
+    if exact:
+        g = geometry(meta['geometry']); modes, _, _ = make_modes(g, meta.get('shell_spec'))
+    for s, sh in enumerate(shells):
+        cols = np.flatnonzero(idx == s)
+        series = np.concatenate([d['series'][:T, cols] for d in data], axis=1)
+        nseg, tau10 = choose_nseg(series, dt)
+        ea = None
+        if exact:
+            lags = np.arange(nseg) * dt
+            ea, rest = ssep_exact_acov(g, modes[cols], meta['filling'], lags)
+            ea = ea.mean(axis=0)
+        r = fit_shell(series, dt, nseg=nseg, bound=bound, exact_acov=ea)
+        r['tau10_samples'] = tau10
+        if exact:
+            r['exact']['weight_outside_lowest_eigenpairs'] = rest
+        r.update({'label': sh['label'], 'k': sh['k'], 'modes': int(series.shape[1])})
+        if per_mode and len(cols) > 1:
+            # isotropy: Lorentzian rate of every mode of the shell separately (runs pooled per mode)
+            gs = []
+            for cidx in cols:
+                one = np.concatenate([d['series'][:T, [cidx]] for d in data], axis=1)
+                rr = fit_shell(one, dt, nseg=nseg, bound=False, lor_only=True)
+                gs.append((rr['lor']['G'], rr['lor']['G_rel_err']))
+            gs = np.array(gs)
+            r['per_mode_lor_G'] = {'relative_spread_std': float(gs[:, 0].std(ddof=1) / gs[:, 0].mean()),
+                                   'mean_relative_statistical_error': float(np.nanmean(gs[:, 1])),
+                                   'min_over_mean': float(gs[:, 0].min() / gs[:, 0].mean()), 'max_over_mean': float(gs[:, 0].max() / gs[:, 0].mean())}
+        out['shells'].append(r)
+        print(json.dumps({'shell': sh['label'], 'k': round(sh['k'], 5), 'nseg': r['nseg'], 'nu': round(r['periodograms']), 'var': round(r['variance'], 4),
+                          'G': r['lor']['G'], 'G/k^2': r['lor']['G'] / sh['k'] ** 2, 'dev_lor': round(r['lor']['deviance_per_dof'], 3),
+                          'dAIC_dho': round(r['delta_aic_dho_minus_lor'], 1), 'Q': round(r['dho']['Q'], 4), 'w0/k': r['dho']['w0'] / sh['k'],
+                          'gamma': r['dho']['gamma'], 'dev_dho': round(r['dho']['deviance_per_dof'], 3),
+                          'w95_Q3': r.get('propagating_bound', {}).get('w95_Q3'), 'w95_Q10': r.get('propagating_bound', {}).get('w95_Q10'),
+                          'exact_dev': r.get('exact', {}).get('deviance_per_bin')}), flush=True)
+    ks = [r['k'] for r in out['shells']]
+    out['dispersion'] = {
+        'lor_G_vs_k': powerlaw(ks, [r['lor']['G'] for r in out['shells']], [r['lor']['G_rel_err'] for r in out['shells']]),
+        'lor_D_estimates_G_over_k2': [r['lor']['G'] / r['k'] ** 2 for r in out['shells']],
+        'dho_w0_vs_k': powerlaw(ks, [r['dho']['w0'] for r in out['shells']]),
+        'dho_gamma_vs_k': powerlaw(ks, [r['dho']['gamma'] for r in out['shells']]),
+        'dho_speed_estimates_w0_over_k': [r['dho']['w0'] / r['k'] for r in out['shells']],
+        'underdamped_shells': int(sum(r['dho']['underdamped'] and r['delta_aic_dho_minus_lor'] < -10 for r in out['shells'])),
+        'shells': len(out['shells'])}
+    n_prop = out['dispersion']['underdamped_shells']
+    out['verdict'] = 'propagating' if n_prop >= max(1, len(ks) // 2) else ('mixed' if n_prop else 'diffusive (no underdamped shell preferred)')
+    return out
+
+
+# ============================================================================================ command line
+def main(argv=None):
+    ap = argparse.ArgumentParser()
+    sub = ap.add_subparsers(dest='cmd', required=True)
+    a = sub.add_parser('sim')
+    a.add_argument('--geometry', required=True); a.add_argument('--rule', required=True); a.add_argument('--filling', default='1/3')
+    a.add_argument('--sweeps', type=float, default=1e5); a.add_argument('--seed', type=int, default=1); a.add_argument('--every', type=int, default=1)
+    a.add_argument('--control', default='wing'); a.add_argument('--glue', default='coin'); a.add_argument('--schedule', default='iid')
+    a.add_argument('--collide', type=int, default=2); a.add_argument('--shells', default=''); a.add_argument('--out', required=True)
+    a = sub.add_parser('synth')
+    a.add_argument('--geometry', required=True); a.add_argument('--kind', required=True); a.add_argument('--sweeps', type=float, default=1e5)
+    a.add_argument('--seed', type=int, default=1); a.add_argument('--shells', default=''); a.add_argument('--out', required=True)
+    a.add_argument('--hop', type=float, default=0.1); a.add_argument('--c', type=float, default=0.5); a.add_argument('--gamma', type=float, default=0.02)
+    a = sub.add_parser('fit')
+    a.add_argument('files', nargs='+'); a.add_argument('--out', required=True); a.add_argument('--exact', action='store_true')
+    a.add_argument('--nobound', action='store_true')
+    a = sub.add_parser('replay')
+    a.add_argument('--level', type=int, default=3); a.add_argument('--sweeps', type=int, default=20)
+    args = ap.parse_args(argv)
+    if args.cmd == 'replay':
+        print(json.dumps(replay_check(args.level, args.sweeps)))
+        return
+    if args.cmd in ('sim', 'synth'):
+        g = geometry(args.geometry)
+        spec = None
+        if args.shells:
+            spec = json.loads(args.shells)
+        modes, idx, info = make_modes(g, spec)
+        if args.cmd == 'sim':
+            series, meta = simulate(g, args.rule, args.filling, int(args.sweeps), args.seed, modes, every=args.every, control=args.control,
+                                    glue=args.glue, schedule=args.schedule, collide=args.collide)
+        else:
+            if args.kind == 'diffusion':
+                series, meta = synth_diffusion(g, modes, int(args.sweeps), args.seed, hop=args.hop)
+            else:
+                series, meta = synth_wave(g, modes, int(args.sweeps), args.seed, c=args.c, gamma=args.gamma)
+            meta.update({'geometry': g['spec'], 'every': 1, 'filling': 'n/a', 'rule': 'synthetic ' + args.kind, 'seed': args.seed})
+        meta['shells'] = info; meta['shell_spec'] = spec
+        np.savez_compressed(args.out, series=series.astype(np.float32), shell_index=idx, meta=json.dumps(meta))
+        print(json.dumps({k: v for k, v in meta.items() if k != 'shells'}), flush=True)
+        return
+    res = analyse(args.files, exact=args.exact, bound=not args.nobound)
+    json.dump(res, open(args.out, 'w'), indent=1)
+    print('verdict:', res['verdict'], '| G ~ k^', res['dispersion']['lor_G_vs_k'], flush=True)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,124 @@
+"""First census with the extended register on stored data: level 6 of the universe runs (read only, nothing simulated).
+
+    python census_L6.py register.json <run_dir L6> out.json
+
+Snapshots: cuts/end.npz (after sweep 500) and cuts/cut_00060.npz (causal depth 3200, sweeps 142 to 152; classes 1 and 5
+still present). Counts are exact counts of the stored snapshot; errors are sqrt(n) (carriers are not independent of
+their neighbours, so these errors are a lower bound). MEASURED, one seed, one level.
+"""
+import json, sys
+from collections import Counter, defaultdict
+import numpy as np
+from x3_register import Register, words_from_cut, handedness
+
+reg = Register(sys.argv[1])
+run = sys.argv[2]
+N = 20 * 4 ** 6
+out = {}
+
+
+def z(a, b):
+    return (a - b) / max((a + b) ** 0.5, 1.0)
+
+
+for label, path in (('end (sweep 500)', run + '/cuts/end.npz'), ('cut 60 (depth 3200, sweeps 142-152)', run + '/cuts/cut_00060.npz')):
+    W = words_from_cut(path, N)
+    assert int((W.astype(np.int64).sum(axis=1) % 6 != 0).sum()) == 0
+    has = np.nonzero((W != 0).any(axis=1))[0]
+    comp, shape, keys = reg.classify(W[has])
+    cc = Counter(comp)
+    res = {'carriers': N, 'carriers_with_defects': int(len(has)), 'compositions': dict(cc.most_common(14))}
+    print(f'\n=== {label}: {len(has)} carriers with defects; compositions: {dict(cc.most_common(10))}')
+    cnt = Counter(zip(comp, shape.tolist()))
+    # pairs
+    res['pairs'] = []
+    for name in ('{1,5}', '{2,4}', '{3,3}'):
+        rows = [p for p in reg.raw['pairs'] if '{%d,%d}' % tuple(p['classes']) == name]
+        tot = sum(cnt[(name, p['type'])] for p in rows)
+        tot_na = sum(cnt[(name, p['type'])] for p in rows if p['separation'] > 1)
+        print(f'{name}: {tot} one-pair carriers ({tot_na} at separation >= 2)')
+        for p in rows:
+            n = cnt[(name, p['type'])]
+            e_all = p['null'] * tot
+            e_na = p['null_non_adjacent'] * tot_na
+            res['pairs'].append({'type': p['type'], 'classes': p['classes'], 'separation': p['separation'], 'chirality': p['chirality'],
+                                 'carriers': n, 'null_all': e_all, 'null_non_adjacent': e_na})
+            print(f"  type {p['type']:2d} d={p['separation']} chi={p['chirality']:+d}: {n:6d}   uniform {e_all:8.1f}   uniform on non-adjacent {e_na:8.1f}"
+                  f"   ratio to non-adjacent null {n / e_na if e_na else float('nan'):.3f}")
+        # mirror and conjugation tests
+        for p in rows:
+            if p['mirror'] > p['type']:
+                a, b = cnt[(name, p['type'])], cnt[(name, p['mirror'])]
+                kind = 'mirror and conjugate' if p['conjugate'] == p['mirror'] else 'mirror'
+                print(f"  {kind} partners {p['type']} / {p['mirror']} (d={p['separation']}): {a} / {b}, z = {z(a, b):+.2f}")
+                res.setdefault('partner_tests', []).append({'types': [p['type'], p['mirror']], 'kind': kind, 'counts': [a, b], 'z': z(a, b)})
+    # triples
+    res['triples'] = {}
+    for name in ('{2,2,2}', '{4,4,4}', '{1,2,3}', '{3,4,5}'):
+        t = reg.raw['triples'][name]
+        tot = cc.get(name, 0)
+        obs = [cnt[(name, r['id'])] for r in t['shape_rows']]
+        tot_na = sum(o for o, r in zip(obs, t['shape_rows']) if r['non_adjacent'])
+        res['triples'][name] = {'carriers': tot, 'non_adjacent': tot_na, 'by_shape': obs}
+        print(f'{name}: {tot} carriers, {tot_na} pairwise non-adjacent, {sum(1 for o in obs if o)} of {t["shapes"]} shapes occupied')
+        if name in ('{2,2,2}', '{4,4,4}') and tot:
+            for r, o in zip(t['shape_rows'], obs):
+                if r['non_adjacent'] or o:
+                    e = r['multiplicity'] / t['placements_non_adjacent'] * tot_na if r['non_adjacent'] else 0.0
+                    print(f"  shape {r['id']:2d} sep {r['separations']} mult {r['multiplicity']:2d} mirror {r['mirror']:2d}: {o:5d}   uniform on non-adjacent {e:7.1f}")
+    # the two conjugate triples together, by shape (conjugation symmetry is exact for the ensemble)
+    a = np.array(res['triples']['{2,2,2}']['by_shape']); b = np.array(res['triples']['{4,4,4}']['by_shape'])
+    if a.sum() and b.sum():
+        chi2 = float((((a - b) ** 2) / np.maximum(a + b, 1)).sum()); dof = int(((a + b) > 0).sum())
+        print(f'  {{2,2,2}} against {{4,4,4}} by shape: chi2 = {chi2:.1f} on {dof} shapes')
+        res['triples']['conjugation_chi2'] = [chi2, dof]
+        rows = reg.raw['triples']['{2,2,2}']['shape_rows']
+        for r in rows:
+            if r['mirror'] > r['id']:
+                x, y = int(a[r['id']] + b[r['id']]), int(a[r['mirror']] + b[r['mirror']])
+                if x + y:
+                    print(f"  mirror shapes {r['id']} / {r['mirror']} sep {r['separations']} ({{2,2,2}} + {{4,4,4}}): {x} / {y}, z = {z(x, y):+.2f}")
+                    res['triples'].setdefault('mirror_tests', []).append({'shapes': [r['id'], r['mirror']], 'counts': [x, y], 'z': z(x, y)})
+    # quadruples
+    res['quadruples'] = {}
+    for name in ('{2,2,4,4}', '{2,3,3,4}'):
+        t = reg.raw['quadruples'][name]
+        ids = [s for (c, s) in cnt if c == name]
+        tot = cc.get(name, 0)
+        na = sum(cnt[(name, s)] for s in ids if reg.rows[(name, s)]['non_adjacent'])
+        print(f"{name}: {tot} carriers, {na} pairwise non-adjacent, {len(ids)} of {t['shapes']} shapes occupied ({t['shapes_non_adjacent']} non-adjacent shapes exist)")
+        res['quadruples'][name] = {'carriers': tot, 'non_adjacent': na, 'shapes_occupied': len(ids)}
+    # handedness sums of every carrier with defects: the mirror sends (h2, h3) to (-h2, -h3), conjugation to (-h2, h3)
+    h2, h3 = handedness(reg, W[has])
+    res['handedness'] = {}
+    comp_arr = np.array(comp)
+    for name in ('{2,4}', '{3,3}', '{1,5}', '{2,2,4,4}', '{2,3,3,4}', 'all compositions'):
+        sel = np.ones(len(has), bool) if name == 'all compositions' else comp_arr == name
+        if not sel.any():
+            continue
+        a2, b2 = int((h2[sel] > 0).sum()), int((h2[sel] < 0).sum())
+        a3, b3 = int((h3[sel] > 0).sum()), int((h3[sel] < 0).sum())
+        res['handedness'][name] = {'h2_positive': a2, 'h2_negative': b2, 'z_h2': z(a2, b2), 'h3_positive': a3, 'h3_negative': b3, 'z_h3': z(a3, b3),
+                                   'sum_h2': int(h2[sel].sum()), 'sum_h3': int(h3[sel].sum())}
+        print(f'  handedness {name}: h2 > 0 / < 0: {a2} / {b2} (z = {z(a2, b2):+.2f});  h3 > 0 / < 0: {a3} / {b3} (z = {z(a3, b3):+.2f})')
+    out[label] = res
+
+# position of the stationary defects against the three glue ports of their carrier (end of the run)
+g = np.load(run + '/geometry.npz')
+ports = np.concatenate([g['glue_a'], g['glue_b']]).astype(np.int64)
+glue = np.zeros((N, 12), bool); glue[ports // 12, ports % 12] = True
+assert (glue.sum(axis=1) == 3).all()
+m = glue[:, np.array(reg.raw['tables']['faces'])].sum(axis=2)            # glue ports on each face, [N, 20]
+W = words_from_cut(run + '/cuts/end.npz', N)
+gl = {}
+print('\n=== end (sweep 500): defect faces per face, by the number of glue ports on the face (0, 1, 2); error sqrt(n)')
+for k in (2, 3, 4):
+    row = []
+    for mm in range(3):
+        nf = int((m == mm).sum()); nd = int(((W == k) & (m == mm)).sum())
+        row.append({'glue_ports': mm, 'faces': nf, 'defects': nd, 'density': nd / nf, 'error': nd ** 0.5 / nf})
+    gl[str(k)] = row
+    print(f'  class {k}: ' + '; '.join(f"{r['glue_ports']}: {r['density']:.5f} +- {r['error']:.5f} ({r['defects']})" for r in row)
+          + f"; all faces {float((W == k).mean()):.5f}")
+out['glue_ports'] = gl
+json.dump(out, open(sys.argv[3], 'w'), indent=1)

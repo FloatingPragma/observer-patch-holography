@@ -1,0 +1,229 @@
+"""Item 1 of task KD: exact verification of lead L28 (five cubic frames, native Clifford coin).
+
+Arithmetic: integers for the combinatorics, Q(sqrt5) for the geometry, Q(sqrt5, i) for the lifts. No float.
+Run from the public checkout:
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_item1.py [out.json]
+"""
+import json
+import sys
+from collections import Counter
+from itertools import combinations, permutations
+
+from kdlib import (K, ZERO, ONE, I, PHI, F, mat, eye, mm, madd, msub, mscale, dag, transpose, kron, meq, anti, comm,
+                   is_hermitian, is_unitary, is_involution, SX, SY, SZ, E2, P0, P1, carrier, cover, frames, compose,
+                   IDP, rotation_matrix, vdot, vcross, doublet_response, triplet_response, dsum, trace)
+
+car = carrier()
+seams, V, rots = car['seams'], car['V'], car['rotations']
+out = {'arithmetic': 'integers, Q(sqrt5), Q(sqrt5, i); every listed identity is exact'}
+checks = {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+# --- rotations, half-turns, Klein groups --------------------------------------------------------------------
+quats, rotm = cover()                                    # asserts: 120 lifts, proper orthogonal, frame-preserving
+ok('60 rotations are proper orthogonal maps of the exact raw frame; 120 unit quaternions over Q(sqrt5)', len(quats) == 120)
+half = [p for p in rots if p != IDP and compose(p, p) == IDP]
+ok('15 half-turns', len(half) == 15)
+FR = frames()
+ok('5 Klein four-groups', len(FR) == 5)
+kleins = [frozenset(h['perm'] for h in fr['half_turns']) for fr in FR]
+
+
+def inverse(p):
+    q = [0] * 12
+    for i, x in enumerate(p):
+        q[x] = i
+    return tuple(q)
+
+
+def parity(perm):
+    seen, sgn = set(), 1
+    for i in range(len(perm)):
+        if i in seen:
+            continue
+        j, n = i, 0
+        while j not in seen:
+            seen.add(j); j = perm[j]; n += 1
+        if n % 2 == 0:
+            sgn = -sgn
+    return sgn
+
+
+action = set()
+for g in rots:
+    gi = inverse(g)
+    img = tuple(kleins.index(frozenset(compose(compose(g, h), gi) for h in kl)) for kl in kleins)
+    action.add(img)
+ok('rotation group permutes the five Klein groups as the alternating group A5 (60 distinct even permutations)',
+   len(action) == 60 and all(parity(a) == 1 for a in action))
+
+# --- perfect matchings --------------------------------------------------------------------------------------
+nbrs = {p: sorted({b if a == p else a for a, b in seams if p in (a, b)}) for p in range(12)}
+
+
+def matchings(free, chosen):
+    if not free:
+        yield tuple(sorted(chosen)); return
+    a = min(free)
+    for b in nbrs[a]:
+        if b in free:
+            yield from matchings(free - {a, b}, chosen + [(a, b) if a < b else (b, a)])
+
+
+ALL = list(matchings(frozenset(range(12)), []))
+
+
+def image(m, perm):
+    return tuple(sorted(tuple(sorted((perm[a], perm[b]))) for a, b in m))
+
+
+stab = {m: sum(1 for g in rots if image(m, g) == m) for m in ALL}
+hist = dict(sorted(Counter(stab.values()).items()))
+ok('125 perfect matchings', len(ALL) == 125)
+ok('stabilizer orders 2 (60), 4 (30), 6 (30), 12 (5)', hist == {2: 60, 4: 30, 6: 30, 12: 5})
+frame_matchings = [fr['matching'] for fr in FR]
+ok('each Klein group flips exactly six disjoint seams: a perfect matching',
+   all(len(m) == 6 and len({x for e in m for x in e}) == 12 for m in frame_matchings))
+ok('the five matchings with stabilizer of order 12 are the five Klein matchings',
+   sorted(m for m, s in stab.items() if s == 12) == sorted(frame_matchings))
+ok('the five frame matchings partition the thirty seams',
+   sorted(e for m in frame_matchings for e in m) == sorted(seams))
+out['perfect_matchings'] = {'total': 125, 'stabilizer_histogram': hist}
+
+# --- per frame: axes, lifts, covariance, Clifford -------------------------------------------------------------
+tz, tx, ty = SZ, SX, SY
+rows = []
+n_cov_d = n_cov_t = n_cliff = 0
+for f, fr in enumerate(FR):
+    H = fr['half_turns']
+    n = [h['axis'] for h in H]
+    # axes: unit, mutually perpendicular, right- or left-handed triple
+    for i in range(3):
+        for j in range(3):
+            assert vdot(n[i], n[j]) == (ONE if i == j else ZERO)
+    cr = vcross(n[0], n[1])
+    hand = 1 if all(a == b for a, b in zip(cr, n[2])) else -1
+    assert all(a == K(hand) * b for a, b in zip(cr, n[2]))
+    # sum of the two end points of a matching seam: +-2 phi n_i (midpoint at +-phi n_i), two seams per axis
+    per_axis = Counter()
+    for a, b in fr['matching']:
+        mid = tuple(x + y for x, y in zip(V[a], V[b]))
+        hit = [(i, s) for i in range(3) for s in (1, -1)
+               if all(m == K(2 * s) * PHI * c for m, c in zip(mid, n[i]))]
+        assert len(hit) == 1
+        per_axis[hit[0][0]] += 1
+        # the seam is parallel to another axis of the same frame
+        d = tuple(x - y for x, y in zip(V[a], V[b]))
+        par = [j for j in range(3) if all(c == K(2) * e or c == K(-2) * e for c, e in zip(d, n[j]))]
+        assert len(par) == 1 and par[0] != hit[0][0]
+    assert per_axis == Counter({0: 2, 1: 2, 2: 2})
+    # triplet: commuting reflections, product closes, diagonal in the frame
+    Rm = [h['R'] for h in H]
+    N = tuple(tuple(n[j][i] for j in range(3)) for i in range(3))            # columns = axes
+    for i in range(3):
+        assert is_involution(Rm[i])
+        D = mm(transpose(N), Rm[i], N)
+        assert meq(D, tuple(tuple((ONE if a == i else -ONE) if a == b else ZERO for b in range(3)) for a in range(3)))
+        for j in range(3):
+            assert meq(mm(Rm[i], Rm[j]), mm(Rm[j], Rm[i]))
+    assert meq(mm(Rm[0], Rm[1]), Rm[2])
+    # doublet: quaternion group
+    u = [h['u'] for h in H]
+    mI = mscale(-1, E2)
+    for i in range(3):
+        assert is_unitary(u[i]) and meq(mm(u[i], u[i]), mI)
+        for j in range(3):
+            if i != j:
+                assert meq(mm(u[i], u[j]), mscale(-1, mm(u[j], u[i])))
+    prod = mm(u[0], u[1])
+    sgn3 = 1 if meq(prod, u[2]) else -1
+    assert meq(prod, mscale(sgn3, u[2]))
+    grp = {E2}
+    grow = True
+    while grow:
+        grow = False
+        for g in list(grp):
+            for x in u:
+                h = mm(g, x)
+                if h not in grp:
+                    grp.add(h); grow = True
+    assert len(grp) == 8
+    # covariance with the code responses, all twelve ports
+    for h in H:
+        g, uu, R = h['perm'], h['u'], h['R']
+        for p in range(12):
+            assert meq(mm(uu, doublet_response(p), dag(uu)), doublet_response(g[p])); n_cov_d += 1
+            o, c = triplet_response(p)
+            o2, c2 = triplet_response(g[p])
+            assert meq(mm(R, o, transpose(R)), o2) and meq(mm(R, c, transpose(R)), c2); n_cov_t += 1
+    # spinor involutions and the sixteen relations with the record factor (convention of CLIFFORD.md)
+    a = [mscale(I, x) for x in u]
+    for i in range(3):
+        assert is_hermitian(a[i]) and is_involution(a[i])
+        for j in range(3):
+            assert meq(anti(a[i], a[j]), mscale(2 if i == j else 0, E2))
+    gens = [kron(tz, x) for x in a] + [kron(tx, E2)]
+    for i in range(4):
+        assert is_hermitian(gens[i])
+        for j in range(4):
+            assert meq(anti(gens[i], gens[j]), mscale(2 if i == j else 0, eye(4))); n_cliff += 1
+    # the dressed-flip representation: alpha_g = |1><0| x u_g + |0><1| x u_g^*, beta = bare flip
+    up = mat([[0, 0], [1, 0]]); dn = mat([[0, 1], [0, 0]])
+    dressed = [madd(kron(up, x), kron(dn, dag(x))) for x in u] + [kron(tx, E2)]
+    for i in range(4):
+        assert is_hermitian(dressed[i])
+        for j in range(4):
+            assert meq(anti(dressed[i], dressed[j]), mscale(2 if i == j else 0, eye(4)))
+    # ... equals C(u_i) beta C(u_i)^*, C(u) = |0><0| x 1 + |1><1| x u (record-controlled lift)
+    for i in range(3):
+        C = madd(kron(P0, E2), kron(P1, u[i]))
+        assert meq(mm(C, kron(tx, E2), dag(C)), dressed[i])
+        assert meq(dressed[i], kron(ty, mscale(-I, u[i])))                      # = tau_y x (-i u_i)
+    # ... and is the CLIFFORD.md set up to one record rotation about the flip axis, which fixes beta
+    half_ = K(F(1, 2))
+    Rx = kron(mat([[half_ * (ONE + I), half_ * (ONE - I)], [half_ * (ONE - I), half_ * (ONE + I)]]), E2)   # sqrt(tau_x)
+    assert is_unitary(Rx) and meq(mm(Rx, Rx), kron(tx, E2))
+    cands = [mm(X, dressed[3], dag(X)) for X in (Rx, dag(Rx))]
+    assert all(meq(c, gens[3]) for c in cands)
+    rel = [all(meq(mm(X, dressed[i], dag(X)), gens[i]) for i in range(3)) for X in (Rx, dag(Rx))]
+    rel_neg = [all(meq(mm(X, dressed[i], dag(X)), mscale(-1, gens[i])) for i in range(3)) for X in (Rx, dag(Rx))]
+    assert any(rel) or any(rel_neg)
+    # triplet: the same dressing gives commuting operators (no Clifford structure)
+    td = [kron(tx, R) for R in Rm] + [kron(tx, eye(3))]
+    for i in range(4):
+        for j in range(4):
+            assert meq(mm(td[i], td[j]), mm(td[j], td[i]))
+    coord = all(sum(1 for c in ax if not c.is_zero()) == 1 for ax in n)
+    rows.append({'frame': f, 'matching': [list(e) for e in fr['matching']],
+                 'half_turn_permutations': [list(h['perm']) for h in H],
+                 'axes_Qsqrt5': [[repr(c) for c in ax] for ax in n], 'handedness_of_listed_axes': hand,
+                 'u1u2_equals': f'{sgn3:+d} u3', 'axes_are_coordinate_axes_of_the_raw_frame': coord,
+                 'lifts': [[[repr(x) for x in r] for r in uu] for uu in u]})
+
+ok('per frame: three unit axes over Q(sqrt5), mutually perpendicular; six seam midpoints at +-phi on them, two per axis; '
+   'each frame seam is parallel to another axis of its frame', True)
+ok('per frame, triplet: three commuting reflections, R1 R2 = R3, diagonal in the frame', True)
+ok('per frame, doublet: u_i^2 = -1, u_i u_j = -u_j u_i, u1 u2 = +-u3, closure = quaternion group of order 8', True)
+ok('covariance u Q_p u^* = Q_(g p): 5 frames x 3 half-turns x 12 ports', n_cov_d == 180)
+ok('covariance R P_p R^T = P_(g p): 5 frames x 3 half-turns x 12 ports', n_cov_t == 180)
+ok('sixteen Clifford relations of (tau_z x i u_1, tau_z x i u_2, tau_z x i u_3, tau_x x 1), each frame', n_cliff == 80)
+ok('dressed flips alpha_i = C(u_i) beta C(u_i)^* = tau_y x (-i u_i) with beta = tau_x x 1: sixteen relations, each frame', True)
+ok('dressed set = CLIFFORD.md set (up to a common sign of the alpha_i) under the record rotation sqrt(tau_x)^(+-1), which fixes beta', True)
+ok('triplet: the dressed flips tau_x x R_i and tau_x x 1 commute pairwise', True)
+ok('exactly one frame has the coordinate axes of the raw frame as its axes',
+   sum(r['axes_are_coordinate_axes_of_the_raw_frame'] for r in rows) == 1)
+out['frames'] = rows
+out['checks'] = checks
+out['counts'] = {'doublet_covariance_identities': n_cov_d, 'triplet_covariance_identities': n_cov_t,
+                 'clifford_anticommutators': n_cliff}
+for k in checks:
+    print('EXACT ok:', k)
+print('matching stabilizer histogram:', hist)
+print('frame in raw-frame orientation:', [r['frame'] for r in rows if r['axes_are_coordinate_axes_of_the_raw_frame']])
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

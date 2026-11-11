@@ -1,0 +1,168 @@
+"""R2: the Gauss sector under the tick, executed with quantum link bits (float64, printed defects).
+
+Part 1  A ring of 10 carriers along axis 0, ten link bits (1024 link words), one Z2-charged quantum, one static
+        background charge at cell 0 (a single charged quantum on a closed lattice needs it: the product of all
+        G_x is (-1)^(number of charged quanta)). Joint state Psi[link word, x, 1, 1, record, spin].
+        - the batch engine r2lib.GenRouting against the reference engine, word by word
+        - the Gauss-projected packet: <G_x> at every tick; cell distribution against the single-word run
+        - the electric string: <X_l> = e (2 Prob(x <= l) - 1): the quantum is the end of the string
+        - the field step on the sector is the phase exp(-i eps e (L - 2 x)): a constant force on the quantum
+        - phase estimation of the gauge-covariant translation on the joint state against the single-word run
+Part 2  A 3 x 2 x 1 lattice with twelve link bits: [U, G_x] for the pointers of the candidates, U = F M S.
+"""
+import itertools, json, os, sys, time
+import numpy as np
+from routing import Routing
+from r2lib import GenRouting, SIG, cell_distribution, qpe
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TAB = json.load(open(os.path.join(HERE, 'carrier_tables.json')))
+out = {}
+rng = np.random.default_rng(3)
+t00 = time.time()
+
+# ---------------------------------------------------------------------------------------------------------------
+# Part 1: ring
+# ---------------------------------------------------------------------------------------------------------------
+L = 10
+NZ = 1 << L
+zs = np.arange(NZ)
+sign0 = np.array([[1.0 - 2.0 * ((z >> x) & 1) for x in range(L)] for z in zs]).reshape(NZ, L, 1, 1)   # link x -> x+1
+one = np.ones((1, 1, 1, 1))
+gen = GenRouting((L, 1, 1), SIG, [sign0, one, one])
+
+def gauss(Psi, x):
+    """G_x = X on the links (x-1 -> x) and (x -> x+1), times -1 on the quantum at x"""
+    m = (1 << x) | (1 << ((x - 1) % L))
+    o = np.empty_like(Psi); o[zs ^ m] = Psi
+    o[:, x] *= -1
+    return o
+def flip(Psi, l):
+    o = np.empty_like(Psi); o[zs ^ (1 << l)] = Psi
+    return o
+def field(Psi, eps):
+    for l in range(L):
+        Psi = np.cos(eps) * Psi - 1j * np.sin(eps) * flip(Psi, l)
+    return Psi
+def ev(Psi, op): return float(np.real(np.vdot(Psi, op(Psi))))
+
+# batch engine against the reference engine on single link words
+x = rng.normal(size=(NZ, L, 1, 1, 2, 2)) + 1j * rng.normal(size=(NZ, L, 1, 1, 2, 2)); x /= np.linalg.norm(x)
+y = gen.tick(x, 0.157935)
+worst = 0.0
+for z in rng.choice(NZ, size=6, replace=False):
+    ref = Routing((L, 1, 1), [sign0[z], np.ones((L, 1, 1)), np.ones((L, 1, 1))])
+    worst = max(worst, float(np.abs(ref.tick(x[z], 0.157935) - y[z]).max()))
+r1 = {'batch engine against the reference engine, 6 link words (max)': worst}
+
+# preparation: flat reference word, packet on cells 3..5 moving forward, projected on the Gauss sector
+gx = np.ones(L); gx[0] = -1                                     # background charge at cell 0
+coin = np.linalg.eigh(np.kron(SIG[0], SIG[0]))[1][:, -1].reshape(2, 2)      # alpha_1 = +1: moves forward
+env = np.zeros(L); env[[3, 4, 5]] = [1, 2, 1]; env /= np.linalg.norm(env)
+psi_ref = (env[:, None, None, None, None] * coin)                 # [x, 1, 1, record, spin]
+def prepare(e=None):
+    Psi = np.zeros((NZ, L, 1, 1, 2, 2), complex); Psi[0] = psi_ref
+    for xx in range(L):
+        Psi = (Psi + gx[xx] * gauss(Psi, xx)) / 2
+    if e is not None:
+        Psi = (Psi + e * flip(Psi, L - 1)) / 2                    # electric field e on the link 11 -> 0
+    return Psi / np.linalg.norm(Psi)
+ref_engine = Routing((L, 1, 1))
+T = 3                                                           # support stays inside cells 0..8: no wrap around the ring
+for eps in (0.0, 0.05):
+    for theta in (0.0, 0.157935):
+        Psi = prepare(e=+1)
+        single = psi_ref.copy()
+        dev = max(abs(ev(Psi, lambda P: gauss(P, xx)) - gx[xx]) for xx in range(L))
+        string_dev, cell_dev, force_dev = 0.0, 0.0, 0.0
+        for t in range(T):
+            Psi = gen.tick(Psi, theta, reverse=bool(t % 2))
+            if eps:
+                before = Psi
+                Psi = field(Psi, eps)
+                # the field step on this sector is a phase that depends on the position of the quantum only
+                ph = np.exp(-1j * eps * (L - 2 * np.arange(L))).reshape(1, L, 1, 1, 1, 1)
+                force_dev = max(force_dev, float(np.abs(Psi - ph * before).max()))
+            single = ref_engine.tick(single, theta, reverse=bool(t % 2))
+            dev = max(dev, max(abs(ev(Psi, lambda P: gauss(P, xx)) - gx[xx]) for xx in range(L)))
+            P = cell_distribution(Psi)[:, 0, 0]
+            cum = np.cumsum(P)
+            string_dev = max(string_dev, max(abs(ev(Psi, lambda Q: flip(Q, l)) - (2 * cum[l] - 1)) for l in range(L)))
+            if not eps:
+                cell_dev = max(cell_dev, float(np.abs(P - cell_distribution(single)[:, 0, 0]).max()))
+        row = {'eps': eps, 'theta': theta, 'ticks': T, 'norm_defect': float(abs(np.linalg.norm(Psi) - 1)),
+               'max |<G_x> - g_x| over cells and ticks': float(dev),
+               'string: max |<X_l> - (2 Prob(x <= l) - 1)|': float(string_dev),
+               'mean cell at the end': float(np.sum(np.arange(L) * cell_distribution(Psi)[:, 0, 0]))}
+        if eps: row['field step = phase exp(-i eps (L - 2x)) on the sector (max)'] = force_dev
+        else: row['cell distribution: joint run minus single-word reference run (max)'] = cell_dev
+        r1[f'eps={eps}, theta={theta}'] = row
+        print('ring:', row)
+# momentum readout on the joint state: holonomy-definite Gauss-projected state, covariant translation
+Psi = prepare(e=None)
+P_joint = qpe(Psi, 0, L, link=sign0)
+P_single = qpe(psi_ref, 0, L)
+r1['phase estimation (M = L) of the covariant translation, joint state minus single word (max)'] = float(np.abs(P_joint - P_single).max())
+r1['momentum outcome distribution (M = L)'] = [float(v) for v in P_single]
+Psi = gen.run(Psi, 4)
+r1['ring size'] = L
+r1['the same distribution after 4 ticks, eps = 0 (max change)'] = float(np.abs(qpe(Psi, 0, L, link=sign0) - P_single).max())
+out['ring_with_quantum_links'] = r1
+print('ring:', {k: v for k, v in r1.items() if not isinstance(v, (dict, list))})
+print('   elapsed', round(time.time() - t00, 1), 's')
+
+# ---------------------------------------------------------------------------------------------------------------
+# Part 2: 3 x 2 x 1 lattice, twelve link bits, the pointers of the candidates
+# ---------------------------------------------------------------------------------------------------------------
+shape = (3, 2, 1)
+cells = list(itertools.product(range(3), range(2), range(1)))
+links = [(c, i) for i in (0, 1) for c in cells]
+lid = {l: k for k, l in enumerate(links)}
+NL = len(links); NZ2 = 1 << NL; z2 = np.arange(NZ2)
+sg = [np.ones((NZ2,) + shape), np.ones((NZ2,) + shape), np.ones((1,) + shape)]
+for (c, i), k in lid.items():
+    sg[i][(slice(None),) + c] = 1.0 - 2.0 * ((z2 >> k) & 1)
+def star(c):
+    m = 0
+    for i in (0, 1):
+        m ^= 1 << lid[(c, i)]
+        b = list(c); b[i] = (b[i] - 1) % shape[i]
+        m ^= 1 << lid[(tuple(b), i)]
+    return m
+def plaquette(z, c):
+    c0 = list(c); c0[0] = (c0[0] + 1) % shape[0]; c1 = list(c); c1[1] = (c1[1] + 1) % shape[1]
+    bits = [lid[(c, 0)], lid[(tuple(c0), 1)], lid[(tuple(c1), 0)], lid[(c, 1)]]
+    return (-1) ** sum((z >> b) & 1 for b in bits)
+W = np.array([[plaquette(z, c) for c in cells] for z in range(NZ2)]).sum(axis=1)
+def field2(Psi, eps, kappa):
+    o = Psi * np.exp(-1j * kappa * W).reshape((NZ2,) + (1,) * 5)
+    for k in range(NL):
+        o = np.cos(eps) * o - 1j * np.sin(eps) * o[z2 ^ (1 << k)]
+    return o
+fo = TAB['frames'][0]['half_turns_on_pairs']
+seed = next(i for i in range(190) if len({i, fo[0][i], fo[1][i], fo[2][i]}) == 4)
+orb = [seed, fo[0][seed], fo[1][seed], fo[2][seed]]
+RHO = [np.array([[1.0 if orb.index(fo[i][orb[c]]) == r else 0.0 for c in range(4)] for r in range(4)]) for i in range(3)]
+r2 = {}
+for name, J, charged in (('charged quantum (sigma)', SIG, True),
+                         ('composite, label carried (sigma x 1)', [np.kron(SIG[i], np.eye(4)) for i in range(3)], True),
+                         ('composite, frame-turned (sigma x rho)', [np.kron(SIG[i], RHO[i]) for i in range(3)], True),
+                         ('flux pair alone (rho), neutral', RHO, False)):
+    g2 = GenRouting(shape, J, sg if charged else None)
+    d = g2.d
+    def gauss2(Psi, c):
+        o = np.empty_like(Psi); o[z2 ^ star(c)] = Psi
+        if charged: o[(slice(None),) + c] *= -1
+        return o
+    def tick2(Psi): return field2(g2.tick(Psi, 0.11), 0.3, 0.2)
+    Psi = rng.normal(size=(NZ2,) + shape + (2, d)) + 1j * rng.normal(size=(NZ2,) + shape + (2, d)); Psi /= np.linalg.norm(Psi)
+    row = {'dimension': int(Psi.size), 'unitarity': float(abs(np.linalg.norm(tick2(Psi)) - 1)),
+           '[U, G_x] (max over the six cells), eps 0.3, kappa 0.2, theta 0.11': float(max(
+               np.abs(tick2(gauss2(Psi, c)) - gauss2(tick2(Psi), c)).max() for c in cells))}
+    P = Psi.copy(); P[1:] = 0; P /= np.linalg.norm(P)
+    row['routing leaves the link word (weight moved to other words)'] = float(np.linalg.norm(g2.tick(P, 0.11)[1:]))
+    r2[name] = row
+    print('3x2x1:', name, row)
+out['lattice_3x2x1_twelve_link_bits'] = r2
+print('seconds', round(time.time() - t00, 1))
+json.dump(out, open(os.path.join(HERE, 'gauss.json'), 'w'), indent=1)

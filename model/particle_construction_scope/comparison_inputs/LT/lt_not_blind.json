@@ -1,0 +1,423 @@
+{
+ "label": "NOT BLIND",
+ "measured": {
+  "mu/e": "206.7682827(46)",
+  "tau/e": "3477.36526(0.176)"
+ },
+ "NB1 registered candidates": [
+  {
+   "id": "B1",
+   "kappa": "1",
+   "in positive chamber": true,
+   "mu/e": "206.770316",
+   "mu/e over measured": "1.0000098",
+   "mu/e deviation in measurement uncertainties": "442.016",
+   "tau/e": "3477.472837",
+   "tau/e over measured": "1.0000309",
+   "tau/e deviation in sigma": "0.610787",
+   "within 1 percent on both": true
+  },
+  {
+   "id": "B2",
+   "kappa": "pi/2",
+   "in positive chamber": false,
+   "mu/e": "81.92484735",
+   "mu/e over measured": "0.39621574",
+   "mu/e deviation in measurement uncertainties": "-2.71399e+7",
+   "tau/e": "780.7205206",
+   "tau/e over measured": "0.22451496",
+   "tau/e deviation in sigma": "-15310.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B3",
+   "kappa": "pi/4",
+   "in positive chamber": true,
+   "mu/e": "32.21892108",
+   "mu/e over measured": "0.15582139",
+   "mu/e deviation in measurement uncertainties": "-3.79455e+7",
+   "tau/e": "691.9519845",
+   "tau/e over measured": "0.19898743",
+   "tau/e deviation in sigma": "-15814.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B4",
+   "kappa": "2",
+   "in positive chamber": false,
+   "mu/e": "28.97614283",
+   "mu/e over measured": "0.14013824",
+   "mu/e deviation in measurement uncertainties": "-3.86505e+7",
+   "tau/e": "190.4149423",
+   "tau/e over measured": "0.054758396",
+   "tau/e deviation in sigma": "-18662.5",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B5",
+   "kappa": "pi",
+   "in positive chamber": false,
+   "mu/e": "14.33981847",
+   "mu/e over measured": "0.069352119",
+   "mu/e deviation in measurement uncertainties": "-4.18323e+7",
+   "tau/e": "40.1169698",
+   "tau/e over measured": "0.011536599",
+   "tau/e deviation in sigma": "-19515.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B6",
+   "kappa": "1/2",
+   "in positive chamber": true,
+   "mu/e": "7.194647641",
+   "mu/e over measured": "0.034795702",
+   "mu/e deviation in measurement uncertainties": "-4.33856e+7",
+   "tau/e": "221.9874914",
+   "tau/e over measured": "0.063837841",
+   "tau/e deviation in sigma": "-18483.3",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B7",
+   "kappa": "2 pi",
+   "in positive chamber": false,
+   "mu/e": "14.33981847",
+   "mu/e over measured": "0.069352119",
+   "mu/e deviation in measurement uncertainties": "-4.18323e+7",
+   "tau/e": "40.1169698",
+   "tau/e over measured": "0.011536599",
+   "tau/e deviation in sigma": "-19515.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B8",
+   "kappa": "1/(2 pi)",
+   "in positive chamber": true,
+   "mu/e": "1.812849291",
+   "mu/e over measured": "0.0087675405",
+   "mu/e deviation in measurement uncertainties": "-4.45555e+7",
+   "tau/e": "93.16567623",
+   "tau/e over measured": "0.026792031",
+   "tau/e deviation in sigma": "-19214.7",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B9",
+   "kappa": "2/pi",
+   "in positive chamber": true,
+   "mu/e": "13.79200914",
+   "mu/e over measured": "0.066702731",
+   "mu/e deviation in measurement uncertainties": "-4.19514e+7",
+   "tau/e": "355.6384941",
+   "tau/e over measured": "0.1022724",
+   "tau/e deviation in sigma": "-17724.4",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B10",
+   "kappa": "4/pi",
+   "in positive chamber": false,
+   "mu/e": "1004.423219",
+   "mu/e over measured": "4.8577239",
+   "mu/e deviation in measurement uncertainties": "1.73403e+8",
+   "tau/e": "12707.34386",
+   "tau/e over measured": "3.6543023",
+   "tau/e deviation in sigma": "52405.7",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B11",
+   "kappa": "P_pix^(1/2)",
+   "in positive chamber": false,
+   "mu/e": "931.8387461",
+   "mu/e over measured": "4.5066813",
+   "mu/e deviation in measurement uncertainties": "1.57624e+8",
+   "tau/e": "11743.93691",
+   "tau/e over measured": "3.3772515",
+   "tau/e deviation in sigma": "46935.7",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B12",
+   "kappa": "P_pix^(-1/2)",
+   "in positive chamber": true,
+   "mu/e": "31.73207698",
+   "mu/e over measured": "0.15346685",
+   "mu/e deviation in measurement uncertainties": "-3.80513e+7",
+   "tau/e": "683.4217841",
+   "tau/e over measured": "0.19653437",
+   "tau/e deviation in sigma": "-15863.4",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B13",
+   "kappa": "4/5",
+   "in positive chamber": true,
+   "mu/e": "35.44259482",
+   "mu/e over measured": "0.17141214",
+   "mu/e deviation in measurement uncertainties": "-3.72447e+7",
+   "tau/e": "748.1178672",
+   "tau/e over measured": "0.21513928",
+   "tau/e deviation in sigma": "-15496.0",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B14",
+   "kappa": "5",
+   "in positive chamber": false,
+   "mu/e": "15.6544111",
+   "mu/e over measured": "0.075709925",
+   "mu/e deviation in measurement uncertainties": "-4.15465e+7",
+   "tau/e": "18.80886153",
+   "tau/e over measured": "0.0054089404",
+   "tau/e deviation in sigma": "-19636.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B15",
+   "kappa": "-3",
+   "in positive chamber": false,
+   "mu/e": "14.733862",
+   "mu/e over measured": "0.071257844",
+   "mu/e deviation in measurement uncertainties": "-4.17466e+7",
+   "tau/e": "45.4898692",
+   "tau/e over measured": "0.013081706",
+   "tau/e deviation in sigma": "-19485.4",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B16",
+   "kappa": "9",
+   "in positive chamber": true,
+   "mu/e": "5.190952026",
+   "mu/e over measured": "0.025105166",
+   "mu/e deviation in measurement uncertainties": "-4.38212e+7",
+   "tau/e": "177.7599235",
+   "tau/e over measured": "0.051119141",
+   "tau/e deviation in sigma": "-18734.4",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B17",
+   "kappa": "-7",
+   "in positive chamber": false,
+   "mu/e": "18.83588468",
+   "mu/e over measured": "0.091096586",
+   "mu/e deviation in measurement uncertainties": "-4.08549e+7",
+   "tau/e": "88.46090331",
+   "tau/e over measured": "0.02543906",
+   "tau/e deviation in sigma": "-19241.4",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B18",
+   "kappa": "3",
+   "in positive chamber": false,
+   "mu/e": "14.733862",
+   "mu/e over measured": "0.071257844",
+   "mu/e deviation in measurement uncertainties": "-4.17466e+7",
+   "tau/e": "45.4898692",
+   "tau/e over measured": "0.013081706",
+   "tau/e deviation in sigma": "-19485.4",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B19",
+   "kappa": "1/3",
+   "in positive chamber": true,
+   "mu/e": "3.563695075",
+   "mu/e over measured": "0.017235211",
+   "mu/e deviation in measurement uncertainties": "-4.41749e+7",
+   "tau/e": "139.338688",
+   "tau/e over measured": "0.04007019",
+   "tau/e deviation in sigma": "-18952.5",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B20",
+   "kappa": "6",
+   "in positive chamber": false,
+   "mu/e": "13.95753892",
+   "mu/e over measured": "0.067503288",
+   "mu/e deviation in measurement uncertainties": "-4.19154e+7",
+   "tau/e": "32.19562471",
+   "tau/e over measured": "0.0092586261",
+   "tau/e deviation in sigma": "-19560.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B21",
+   "kappa": "1/6",
+   "in positive chamber": true,
+   "mu/e": "1.865107975",
+   "mu/e over measured": "0.0090202808",
+   "mu/e deviation in measurement uncertainties": "-4.45442e+7",
+   "tau/e": "94.66781549",
+   "tau/e over measured": "0.027224007",
+   "tau/e deviation in sigma": "-19206.2",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B22",
+   "kappa": "sin 1",
+   "in positive chamber": true,
+   "mu/e": "47.24244276",
+   "mu/e over measured": "0.22848012",
+   "mu/e deviation in measurement uncertainties": "-3.46795e+7",
+   "tau/e": "949.8735026",
+   "tau/e over measured": "0.27315897",
+   "tau/e deviation in sigma": "-14350.5",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B23",
+   "kappa": "(9/2) atan(2/7)",
+   "in positive chamber": false,
+   "mu/e": "1609.926958",
+   "mu/e over measured": "7.7861408",
+   "mu/e deviation in measurement uncertainties": "3.05034e+8",
+   "tau/e": "20797.13846",
+   "tau/e over measured": "5.9807173",
+   "tau/e deviation in sigma": "98337.6",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B24",
+   "kappa": "(9/2) arccos(7/9)",
+   "in positive chamber": false,
+   "mu/e": "14.55176969",
+   "mu/e over measured": "0.070377185",
+   "mu/e deviation in measurement uncertainties": "-4.17862e+7",
+   "tau/e": "43.12545568",
+   "tau/e over measured": "0.012401762",
+   "tau/e deviation in sigma": "-19498.8",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B25",
+   "kappa": "60",
+   "in positive chamber": false,
+   "mu/e": "13.94492462",
+   "mu/e over measured": "0.067442281",
+   "mu/e deviation in measurement uncertainties": "-4.19181e+7",
+   "tau/e": "31.59776776",
+   "tau/e over measured": "0.0090866979",
+   "tau/e deviation in sigma": "-19564.3",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B26",
+   "kappa": "30",
+   "in positive chamber": false,
+   "mu/e": "49.56379277",
+   "mu/e over measured": "0.23970694",
+   "mu/e deviation in measurement uncertainties": "-3.41749e+7",
+   "tau/e": "411.2156188",
+   "tau/e over measured": "0.11825494",
+   "tau/e deviation in sigma": "-17408.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B27",
+   "kappa": "12",
+   "in positive chamber": false,
+   "mu/e": "17.20192866",
+   "mu/e over measured": "0.083194233",
+   "mu/e deviation in measurement uncertainties": "-4.12101e+7",
+   "tau/e": "72.14849332",
+   "tau/e over measured": "0.020748034",
+   "tau/e deviation in sigma": "-19334.0",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B28",
+   "kappa": "1/60",
+   "in positive chamber": true,
+   "mu/e": "1.063911845",
+   "mu/e over measured": "0.0051454306",
+   "mu/e deviation in measurement uncertainties": "-4.47183e+7",
+   "tau/e": "70.09255036",
+   "tau/e over measured": "0.020156798",
+   "tau/e deviation in sigma": "-19345.7",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B29",
+   "kappa": "1/30",
+   "in positive chamber": true,
+   "mu/e": "1.131934138",
+   "mu/e over measured": "0.005474409",
+   "mu/e deviation in measurement uncertainties": "-4.47036e+7",
+   "tau/e": "72.34168725",
+   "tau/e over measured": "0.020803592",
+   "tau/e deviation in sigma": "-19332.9",
+   "within 1 percent on both": false
+  },
+  {
+   "id": "B30",
+   "kappa": "1/12",
+   "in positive chamber": true,
+   "mu/e": "1.363722849",
+   "mu/e over measured": "0.006595416",
+   "mu/e deviation in measurement uncertainties": "-4.46532e+7",
+   "tau/e": "79.73676577",
+   "tau/e over measured": "0.022930224",
+   "tau/e deviation in sigma": "-19290.9",
+   "within 1 percent on both": false
+  }
+ ],
+ "NB1 candidates within 1 percent on both ratios": [
+  "B1"
+ ],
+ "NB2 kappa from the measured mu/e": {
+  "kappa": "0.999999211828895",
+  "kappa - 1": "-7.881711e-7",
+  "half width from the uncertainty of mu/e": "1.783e-9",
+  "theta - 2/9": "-1.7514913e-7",
+  "tau/e at this kappa": "3477.44163628",
+  "tau/e deviation in sigma": "0.4336"
+ },
+ "NB3 kappa from the measured tau/e": {
+  "kappa": "0.999997282474",
+  "kappa - 1": "-2.71753e-6",
+  "one sigma interval of kappa - 1": [
+   "-7.16702e-6",
+   "1.73163e-6"
+  ],
+  "kappa = 1 in units of sigma": "0.6108"
+ },
+ "kappa outside the chambers with the measured mu/e (between the windows n = 0 and n = 1)": [
+  {
+   "kappa": "1.40383249",
+   "theta": "0.3119627755",
+   "tau/e": "2303.01994",
+   "tau/e deviation in sigma": "-6667.66"
+  },
+  {
+   "kappa": "8.020945471",
+   "theta": "1.782432327",
+   "tau/e": "2303.01994",
+   "tau/e deviation in sigma": "-6667.66"
+  }
+ ],
+ "symmetry class": {
+  "statement": "the spectrum is invariant under theta -> -theta and theta -> theta + 2 pi/3, so the measured ratios fix kappa only in the class +-kappa* + 3 pi Z",
+  "members next to kappa*": [
+   "-8.424778749",
+   "-10.42477717",
+   "0.9999992118",
+   "-0.9999992118",
+   "10.42477717",
+   "8.424778749"
+  ],
+  "members of the class in 1 + 4 Z with |n| <= 10^4 at kappa* = 1": [
+   1
+  ]
+ },
+ "count of comparisons": {
+  "NB1": "30 rows, one event",
+  "NB2": 1,
+  "NB3": 1,
+  "outside scan": 1
+ }
+}

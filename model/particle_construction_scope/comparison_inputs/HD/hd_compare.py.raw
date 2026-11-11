@@ -1,0 +1,161 @@
+#!/usr/bin/env python3
+"""HD comparison (NOT BLIND): hadron rows against measured masses, inversions for QM, closure check.
+
+Reads rows.json and lambda.json first, then the measured values: RER code/particles/data/particle_reference_values.json
+(PDG 2026 API) for p, n, pi0, rho(770)0; charged pion and kaons from PDG (IMPORTED, from memory).
+Run: /tmp/oph-completion-venv/bin/python hd_compare.py rows.json lambda.json compare.json
+"""
+
+from __future__ import annotations
+
+import json
+import math
+import sys
+from pathlib import Path
+
+RER_CANDIDATES = [Path("WORKSPACE/reverse-engineering-reality"),
+                  Path("WORKSPACE/repair-law/reverse-engineering-reality")]
+
+
+def rer_root() -> Path:
+    for p in RER_CANDIDATES:
+        if (p / "code/particles/data/particle_reference_values.json").exists():
+            return p
+    raise SystemExit("RER not found")
+
+
+def main(rows_p: Path, lam_p: Path, out: Path) -> None:
+    rows = json.loads(rows_p.read_text())
+    lam = json.loads(lam_p.read_text())
+    root = rer_root()
+    ref = json.loads((root / "code/particles/data/particle_reference_values.json").read_text())["entries"]
+
+    def pdg(key: str) -> float:
+        e = ref[key]
+        return float(e.get("raw_value", e.get("api_value"))) / 1000.0  # GeV
+
+    meas = {
+        "proton": pdg("proton"), "neutron": pdg("neutron"), "pi0": pdg("neutral_pion"), "rho770_0": pdg("rho_770_0"),
+        "pi_charged": 0.13957039, "K_charged": 0.493677, "K0": 0.497611,  # PDG, IMPORTED from memory
+    }
+    meas["nucleon_avg"] = 0.5 * (meas["proton"] + meas["neutron"])
+    meas["pi_avg"] = (2 * meas["pi_charged"] + meas["pi0"]) / 3
+    meas["K_avg"] = 0.5 * (meas["K_charged"] + meas["K0"])
+
+    L3 = rows["lambda3"]["GeV"]
+    E_STAR = lam["inputs"]["E_star_GeV"]
+    res: dict = {"artifact": "HD_compare", "label": "NOT BLIND", "measured_GeV": meas, "rer_root": str(root)}
+
+    # (c) the single source number every hadron row tests: Lambda^(3)(D10) against lattice Lambda^(3)
+    imp = rows["imports"]
+    lat = {}
+    for k in ("I1_ALPHA17_Lambda3", "I1c_FLAG24_Lambda3", "I1b_ALPHA22_Lambda3"):
+        v, e = imp[k]["value"] / 1000.0, math.sqrt(sum(x * x for x in imp[k]["err"])) / 1000.0
+        lat[k] = {"lattice_GeV": v, "err_GeV": e, "D10_over_lattice": L3 / v, "pull": (L3 - v) / e}
+    res["lambda3_D10_vs_lattice"] = lat
+
+    # (a), (b), (d): nucleon and rho for every ratio set
+    cmp_rows = {}
+    for name, r in rows["ratio_rows"].items():
+        mN = r["m_N_GeV"]
+        entry = {
+            "m_N_GeV": mN,
+            "vs_nucleon_avg_rel": mN / meas["nucleon_avg"] - 1, "vs_proton_rel": mN / meas["proton"] - 1,
+            "vs_neutron_rel": mN / meas["neutron"] - 1,
+        }
+        if "m_N_err_import_GeV" in r:
+            entry["pull_nucleon_avg_import_band"] = (mN - meas["nucleon_avg"]) / r["m_N_err_import_GeV"]
+            lo, hi = r["m_N_threshold_corner_range_GeV"]
+            entry["nucleon_avg_inside_corner_range"] = lo <= meas["nucleon_avg"] <= hi
+        if "m_rho_GeV" in r:
+            mr = r["m_rho_GeV"]
+            entry.update({"m_rho_GeV": mr, "vs_rho_rel": mr / meas["rho770_0"] - 1,
+                          "pull_rho_import_band": (mr - meas["rho770_0"]) / r["m_rho_err_import_GeV"]})
+            lo, hi = r["m_rho_threshold_corner_range_GeV"]
+            entry["rho_inside_corner_range"] = lo <= meas["rho770_0"] <= hi
+        cmp_rows[name] = entry
+    res["hadron_rows"] = cmp_rows
+
+    # c_N needed for the measured nucleon with the D10 Lambda (what the repository constant would have to be)
+    res["c_N_needed_with_D10_Lambda"] = {"proton": meas["proton"] / L3, "neutron": meas["neutron"] / L3,
+                                         "nucleon_avg": meas["nucleon_avg"] / L3}
+
+    # (e) inversion for QM: quark masses the source must supply (D10 unit for B; MSbar 2 GeV)
+    g = rows["gmor"]
+    B = g["B_in_D10_unit_GeV"]
+    f = g["f_over_Lambda3"]["value"] * L3
+    L3nlo = g["Lambda3NLO_over_Lambda3"]["value"] * L3
+
+    def chi_from_mpi(mpi: float) -> float:
+        # solve mpi^2 = chi (1 + chi/(16 pi^2 f^2) ln(chi/L3nlo^2)) by bisection
+        lo, hi = 0.5 * mpi * mpi, 1.5 * mpi * mpi
+        for _ in range(200):
+            mid = 0.5 * (lo + hi)
+            val = mid * (1 + mid / (16 * math.pi ** 2 * f * f) * math.log(mid / L3nlo ** 2)) - mpi * mpi
+            if val > 0:
+                hi = mid
+            else:
+                lo = mid
+        return 0.5 * (lo + hi)
+
+    inv = {}
+    for label, mpi, mk in (("pi0 and K average", meas["pi0"], meas["K_avg"]),
+                           ("isospin averages", meas["pi_avg"], meas["K_avg"])):
+        m_ud_LO = mpi * mpi / (2 * B)
+        m_ud_NLO = chi_from_mpi(mpi) / (2 * B)
+        m_s_LO = mk * mk / B - m_ud_LO
+        inv[label] = {"M_pi_GeV": mpi, "M_K_GeV": mk,
+                      "m_ud_LO_MeV": 1e3 * m_ud_LO, "m_ud_NLO_MeV": 1e3 * m_ud_NLO,
+                      "m_s_LO_MeV": 1e3 * m_s_LO, "ms_over_mud_LO": 2 * mk * mk / (mpi * mpi) - 1,
+                      "m_ud_NLO_over_Estar": m_ud_NLO / E_STAR, "m_s_LO_over_Estar": m_s_LO / E_STAR}
+    res["inversion_for_QM"] = inv
+
+    # (f) closure check of the import (circular): GMOR at FLAG quark masses with B in its own (f_pi) scale
+    B_own = imp["I4_BMW13_B_2GeV"]["value"] / 1000.0
+    f_own = imp["I4b_BMW13_f"]["value"] / 1000.0
+    L3nlo_own = imp["I4b_BMW13_Lambda3_NLO"]["value"] / 1000.0
+    m_ud = imp["I7_FLAG24_m_ud_2p1"]["value"] / 1000.0
+    m_s = imp["I7_FLAG24_m_s_2p1"]["value"] / 1000.0
+    chi = 2 * B_own * m_ud
+    mpi_nlo = math.sqrt(chi * (1 + chi / (16 * math.pi ** 2 * f_own ** 2) * math.log(chi / L3nlo_own ** 2)))
+    res["closure_check_circular"] = {
+        "M_pi_LO_GeV": math.sqrt(chi), "M_pi_NLO_GeV": mpi_nlo, "M_K_LO_GeV": math.sqrt(B_own * (m_s + m_ud)),
+        "M_pi_LO_vs_pi0": math.sqrt(chi) / meas["pi0"] - 1, "M_pi_NLO_vs_pi0": mpi_nlo / meas["pi0"] - 1,
+        "M_K_LO_vs_K_avg": math.sqrt(B_own * (m_s + m_ud)) / meas["K_avg"] - 1,
+        "MK_over_Mpi_LO_at_FLAG_ratio": math.sqrt((imp["I7_FLAG24_ms_over_mud_2p1p1"]["value"] + 1) / 2),
+        "MK_over_Mpi_measured_avg": meas["K_avg"] / meas["pi_avg"],
+        "note": "FLAG quark masses are fixed by the measured pion and kaon; this checks the import and the LO systematic only",
+    }
+
+    # (g) QM's furthest derivation in meson language
+    q = rows.get("qm_furthest_in_meson_language")
+    if q:
+        res["qm_furthest_meson_test"] = {
+            **q, "MK_over_Mpi_measured_avg": meas["K_avg"] / meas["pi_avg"],
+            "MK_over_Mpi_measured_pi0_Kavg": meas["K_avg"] / meas["pi0"],
+            "ratio_pred_over_meas": q["MK_over_Mpi_LO"] / (meas["K_avg"] / meas["pi_avg"]),
+            "verdict": "EXCLUDED (factor above 2 on M_K/M_pi; independent of B, Lambda and the sector normalization)",
+        }
+
+    # (h) QM's furthest derivation in nucleon language (appendix F, E2)
+    s = rows["np_splitting"].get("qm_furthest_mu_equals_md")
+    if s:
+        meas_split = 1e3 * (meas["neutron"] - meas["proton"])
+        res["qm_furthest_np_test"] = {**s, "measured_m_n_minus_m_p_MeV": meas_split,
+                                      "difference_in_sigma": (s["m_n_minus_m_p_MeV"] - meas_split) / s["err_MeV"],
+                                      "verdict": "EXCLUDED (wrong sign: proton heavier than neutron)"}
+        print(json.dumps(res["qm_furthest_np_test"], indent=1))
+
+    out.write_text(json.dumps(res, indent=1) + "\n")
+    print(json.dumps({"lambda3_D10_vs_lattice": lat}, indent=1))
+    for k, v in cmp_rows.items():
+        print(k)
+        print("   ", {kk: (round(vv, 5) if isinstance(vv, float) else vv) for kk, vv in v.items()})
+    print("c_N needed with D10 Lambda:", res["c_N_needed_with_D10_Lambda"])
+    print(json.dumps(inv, indent=1))
+    print(json.dumps(res["closure_check_circular"], indent=1))
+    print(json.dumps(res.get("qm_furthest_meson_test"), indent=1))
+
+
+if __name__ == "__main__":
+    main(Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3]))

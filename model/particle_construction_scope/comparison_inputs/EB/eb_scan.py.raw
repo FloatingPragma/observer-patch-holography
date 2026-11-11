@@ -1,0 +1,77 @@
+"""EB diagnostics B-scan and B-thr (CANDIDATES.md addendum 23:26).
+
+B-scan: Delta(b1 - b2) and Delta(b2 - b3) of the edge-sector shift over t in [0.2, 10] for X1, X2, X3, k = 1, L1 to L6.
+B-thr:  electric energy E_R = (g^2/2) C(R) of the low sectors in units of the scale where t is read, at the cell and
+        at M_U, against M_U/E_cell and m_Z/M_U of the D10 point (source-chain numbers).
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_scan.py [out.json]
+"""
+import json
+import math
+import sys
+from fractions import Fraction as Fr
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'eb_scan.json'
+menus = L.menus(2)
+M1 = sorted(menus[1], key=str)
+M2 = sorted(menus[2], key=str)
+ts = np.concatenate([np.linspace(0.2, 1.0, 41), np.linspace(1.0, 10.0, 181)[1:]])
+
+
+def shift(X, t, rule):
+    coeff = L.LOOP_RULES[rule]
+    if X == 'X1':
+        return np.array(L.delta_b('S3', t, k=1, normalized=True, umode='Ua', coeff=coeff))
+    return np.array(L.explicit_sum(M1 if X == 'X2' else M2, t, k=1, normalized=True, umode='Ua', coeff=coeff))
+
+
+scan = {}
+for X in ('X1', 'X2', 'X3'):
+    for rule in L.LOOP_RULES:
+        vals = np.array([shift(X, t, rule) for t in ts])
+        d12 = vals[:, 0] - vals[:, 1]
+        d23 = vals[:, 1] - vals[:, 2]
+        # the D10 need: Delta(b1 - b2) = -5/3, Delta(b2 - b3) = +1/6 together; distance in the plane
+        dist = np.hypot(d12 + 5 / 3, d23 - 1 / 6)
+        i = int(np.argmin(dist))
+        scan[f'{X} {rule}'] = dict(min_d12=float(d12.min()), max_d12=float(d12.max()), min_d23=float(d23.min()),
+                                   max_d23=float(d23.max()), t_closest_to_D10_need=float(ts[i]),
+                                   closest_point=[float(d12[i]), float(d23[i])], distance=float(dist[i]),
+                                   shift_at_that_t=vals[i].tolist())
+        print(f"{X} {rule}: d12 in [{d12.min():+.3f}, {d12.max():+.3f}], d23 in [{d23.min():+.3f}, {d23.max():+.3f}];"
+              f" closest to (-5/3, +1/6) at t={ts[i]:.2f}: ({d12[i]:+.3f}, {d23[i]:+.3f}) distance {dist[i]:.3f}")
+
+# B-thr
+alpha_cell = 1 / 16.24529803542159          # DC cut closure (Tc1)
+alpha_U = 0.04112424744181669               # D10 m_Z-chain point at P_fwd (declared slopes)
+P = 1.6309720958588974
+R = 2 * math.pi - (2 / 3) * math.log(P)     # ln(E_cell/M_U)
+lnMUmZ = 33.22973709530                     # ln(M_U/m_Z) at the D10 point (DC FORMS.md 2.6)
+low = [((0, 0), 0, 6), ((0, 0), 1, 3), ((1, 0), 0, -2), ((0, 1), 0, 2), ((1, 0), 0, 4), ((0, 0), 2, 0),
+       ((1, 0), 1, 1), ((1, 0), 1, -5), ((1, 1), 0, 0), ((0, 0), 0, 12)]
+names = ['(1,1)_1 = e^c', '(1,2)_1/2 = Lbar', '(3,1)_-1/3 = dbar^c', '(3b,1)_1/3 = d^c', '(3,1)_2/3 = ubar^c',
+         '(1,3)_0', '(3,2)_1/6 = Q', '(3,2)_-5/6', '(8,1)_0', '(1,1)_2']
+thr = []
+for R_, nm in zip(low, names):
+    s = L.sector_data(R_)
+    assert (R_[2] - (-2 * (R_[0][0] - R_[0][1]) - 3 * R_[1])) % 6 == 0, R_
+    thr.append(dict(sector=nm, C=s['C'], C_exact=str(Fr(s['C']).limit_denominator(1000)), odd=s['odd'],
+                    E_over_E_cell_at_cell=2 * math.pi * alpha_cell * s['C'],
+                    E_over_M_U_at_cell=2 * math.pi * alpha_cell * s['C'] * math.exp(R),
+                    E_over_M_U_read_at_M_U=2 * math.pi * alpha_U * s['C'],
+                    log10_E_over_mZ_read_at_M_U=math.log10(2 * math.pi * alpha_U * s['C']) + lnMUmZ / math.log(10)))
+out = dict(t_grid=[float(ts[0]), float(ts[-1]), len(ts)], scan=scan,
+           D10_need={'Delta(b1-b2)': '-5/3', 'Delta(b2-b3)': '+1/6'},
+           thresholds=dict(alpha_cell=alpha_cell, alpha_U=alpha_U, ln_E_cell_over_M_U=R, ln_M_U_over_m_Z=lnMUmZ,
+                           rows=thr))
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+for r in thr:
+    print(f"{r['sector']:22s} C={r['C_exact']:6s} E/E_cell={r['E_over_E_cell_at_cell']:.3f}  E/M_U={r['E_over_M_U_at_cell']:.1f}"
+          f"  (read at M_U: E/M_U={r['E_over_M_U_read_at_M_U']:.3f}, log10 E/m_Z={r['log10_E_over_mZ_read_at_M_U']:.2f})")

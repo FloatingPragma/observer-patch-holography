@@ -1,0 +1,171 @@
+"""Task CH, parts (b) and (c): lifetimes, pair fates and separations, and mobility of register defects from the
+identity catalogue of a run (`catalogue.npz`, one row per identity; DATASET.md section 6) and its end cut.
+
+    python catalogue.py <catalogue.npz> <end_cut.npz> <level> <end_sweep> <out.json>
+
+Conjugate pairs are the rows created by a birth event (parent1 = -1, birth_sweep >= 0): the tracker creates the two
+members consecutively (rows h, h + 1, kernels.oph_track), so the sibling of row h is h + 1. A pair ends mutually when
+both members end by annihilation with each other (cause 1, partner = sibling). Times are in causal depth (the clock
+of the cuts) and in sweeps. Screen distances are in mesh edges: angle / a with a = sqrt(8 pi / (sqrt(3) V)), V the
+number of screen plaquettes (equal-area hexagonal cells). Internal distances are dual-graph distances on the carrier.
+"""
+import json, sys
+import numpy as np
+from compose import DD
+
+CAUSES = ('alive', 'annihilation', 'fusion', 'split', 'exchange')
+PAIR = {1: '(1,5)', 2: '(2,4)', 3: '(3,3)'}
+
+
+def qs(x, ps=(0.1, 0.25, 0.5, 0.75, 0.9, 0.99)):
+    x = np.asarray(x)
+    return {str(p): (float(np.quantile(x, p)) if len(x) else None) for p in ps}
+
+
+def km(t, ended, grid):
+    """Kaplan-Meier survival on a grid; t durations, ended True where the event was observed"""
+    order = np.argsort(t)
+    t, e = t[order], ended[order]
+    n = len(t)
+    if n == 0:
+        return [None] * len(grid)
+    ut, idx = np.unique(t, return_index=True)
+    deaths = np.add.reduceat(e.astype(np.int64), idx)
+    at_risk = n - idx
+    s = np.cumprod(1 - deaths / at_risk)
+    out = []
+    for g in grid:
+        j = np.searchsorted(ut, g, side='right') - 1
+        out.append(float(s[j]) if j >= 0 else 1.0)
+    return out
+
+
+def main(cat_path, cut_path, level, end_sweep, out_path):
+    c = np.load(cat_path)
+    cat = {k: c[k] for k in c.files}
+    z = np.load(cut_path)
+    end_depth_cut = None
+    V = 10 * 4 ** level + 2
+    N = 20 * 4 ** level
+    a_edge = np.sqrt(8 * np.pi / (np.sqrt(3) * V))
+    n = len(cat['cls'])
+    alive = cat['cause'] == 0
+    # end depth: maximal depth recorded; for alive rows use the largest death/birth depth seen (end of run)
+    end_depth = int(max(cat['death_depth'].max(), cat['birth_depth'].max()))
+    life_d = np.where(alive, end_depth - cat['birth_depth'], cat['death_depth'] - cat['birth_depth']).astype(np.int64)
+    life_s = np.where(alive, end_sweep - cat['birth_sweep'], cat['death_sweep'] - cat['birth_sweep']).astype(np.int64)
+    # positions of alive screen identities from the end cut
+    pos = {}
+    if 'screen_id' in z.files:
+        pos = dict(zip(z['screen_id'].tolist(), range(len(z['screen_id']))))
+    xyz_end = z['screen_xyz'] if 'screen_xyz' in z.files else None
+    res = {'level': level, 'identities': int(n), 'end_depth': end_depth, 'end_sweep': end_sweep,
+           'edge_length_rad': float(a_edge), 'tiers': {}}
+    grid = [10, 30, 100, 300, 1000, 3000, 6000, 10000]
+    for tier, tname in ((1, 'screen'), (0, 'internal')):
+        T = cat['tier'] == tier
+        if not T.any():
+            continue
+        tr = {'identities': int(T.sum()), 'classes': {}, 'pairs': {}}
+        for k in range(1, 6):
+            m = T & (cat['cls'] == k)
+            if not m.any():
+                continue
+            ended = m & ~alive
+            origin = np.where(cat['parent1'] < 0, 0, np.where(cat['parent2'] < 0, 1, 2))
+            d = {'identities': int(m.sum()), 'alive_at_end': int((m & alive).sum()),
+                 'born_as': {'pair_birth': int((m & (origin == 0)).sum()), 'split_product': int((m & (origin == 1)).sum()),
+                             'fusion_or_exchange_product': int((m & (origin == 2)).sum())},
+                 'ended_by': {CAUSES[q]: int((m & (cat['cause'] == q)).sum()) for q in range(5)},
+                 'lifetime_depth_quantiles_ended': qs(life_d[ended]),
+                 'lifetime_sweeps_quantiles_ended': qs(life_s[ended]),
+                 'lifetime_depth_mean_ended': float(life_d[ended].mean()) if ended.any() else None,
+                 'survival_km_depth_grid': grid, 'survival_km': km(life_d[m], ~alive[m], grid),
+                 'hops_total': int(cat['hops'][m].sum()), 'alive_depth_total': int(life_d[m].sum()),
+                 'alive_sweeps_total': int(life_s[m].sum()),
+                 'hops_per_depth': float(cat['hops'][m].sum() / max(life_d[m].sum(), 1)),
+                 'hops_per_sweep_alive': float(cat['hops'][m].sum() / max(life_s[m].sum(), 1)),
+                 'moved_fraction': float((cat['hops'][m] > 0).mean())}
+            # balanced-regime mobility: identities alive at the end (they spent most of their life after balance)
+            ma = m & alive
+            if ma.any():
+                d['alive_at_end_hops_per_sweep'] = float(cat['hops'][ma].sum() / max(life_s[ma].sum(), 1))
+                d['alive_at_end_hops_per_depth'] = float(cat['hops'][ma].sum() / max(life_d[ma].sum(), 1))
+            # mean square displacement (screen, where birth and last xyz are stored)
+            if tier == 1 and 'birth_xyz' in cat:
+                bx = cat['birth_xyz'][m].astype(np.float64); lx = cat['last_xyz'][m].astype(np.float64)
+                ang = np.arccos(np.clip((bx * lx).sum(axis=1) / np.linalg.norm(bx, axis=1) / np.linalg.norm(lx, axis=1), -1, 1))
+                r2 = (ang / a_edge) ** 2
+                h = cat['hops'][m]
+                sel = h > 0
+                ld = life_d[m]
+                bins = [0, 30, 100, 300, 1000, 3000, 10000]
+                msd = []
+                for lo, hi in zip(bins[:-1], bins[1:]):
+                    s_ = (ld >= lo) & (ld < hi)
+                    if s_.sum() > 20:
+                        msd.append({'age_depth': [lo, hi], 'n': int(s_.sum()), 'mean_age_depth': float(ld[s_].mean()),
+                                    'msd_edges2': float(r2[s_].mean()), 'mean_hops': float(h[s_].mean())})
+                d['msd'] = {'per_hop_edges2': float(r2[sel].sum() / max(h[sel].sum(), 1)), 'by_age': msd}
+            tr['classes'][str(k)] = d
+        # conjugate pairs
+        pb = T & (cat['parent1'] < 0) & (cat['birth_sweep'] >= 0)
+        rows = np.nonzero(pb)[0]
+        first = rows[(rows + 1 < n)]
+        first = first[pb[first + 1] & (cat['birth_depth'][first + 1] == cat['birth_depth'][first]) &
+                      ((cat['cls'][first].astype(int) + cat['cls'][first + 1]) % 6 == 0)]
+        # rows come in consecutive pairs: keep every first member (h even within each run of pair rows)
+        isfirst = np.zeros(n, bool); used = np.zeros(n, bool)
+        for h in first.tolist():
+            if not used[h]:
+                isfirst[h] = True; used[h] = used[h + 1] = True
+        H = np.nonzero(isfirst)[0]; W = H + 1
+        kmin = np.minimum(cat['cls'][H], cat['cls'][W]).astype(int)
+        for k in (1, 2, 3):
+            s = kmin == k
+            h, w = H[s], W[s]
+            if len(h) == 0:
+                continue
+            mutual = (cat['cause'][h] == 1) & (cat['partner'][h] == w)
+            both_alive = alive[h] & alive[w]
+            # pair time: until the first member ends
+            dh = np.where(alive[h], end_depth, cat['death_depth'][h]); dw = np.where(alive[w], end_depth, cat['death_depth'][w])
+            tend = np.minimum(dh, dw) - cat['birth_depth'][h]
+            ended_any = ~(both_alive)
+            sw = np.minimum(np.where(alive[h], end_sweep, cat['death_sweep'][h]), np.where(alive[w], end_sweep, cat['death_sweep'][w])) - cat['birth_sweep'][h]
+            pr = {'pairs': int(len(h)), 'born_by_sweep': np.bincount(cat['birth_sweep'][h], minlength=1)[:30].tolist(),
+                  'last_birth_sweep': int(cat['birth_sweep'][h].max()),
+                  'mutual_annihilation': int(mutual.sum()), 'both_alive_at_end': int(both_alive.sum()),
+                  'mutual_time_depth_quantiles': qs(tend[mutual]),
+                  'pair_time_depth_quantiles_ended': qs(tend[ended_any]),
+                  'pair_time_sweeps_quantiles_ended': qs(sw[ended_any]),
+                  'pair_survival_km_depth_grid': grid, 'pair_survival_km': km(tend.astype(np.int64), ended_any, grid),
+                  'first_end_cause': {CAUSES[q]: int(np.sum(np.where((~alive[h]) & ((dh <= dw) | alive[w]), cat['cause'][h], np.where(~alive[w], cat['cause'][w], 0)) == q)) for q in range(5)}}
+            # separation of pairs alive at the end
+            hb, wb = h[both_alive], w[both_alive]
+            if tier == 0 and len(hb):
+                fh, fw = cat['last_face'][hb], cat['last_face'][wb]
+                same = (fh // 20) == (fw // 20)
+                dd = DD[fh[same] % 20, fw[same] % 20]
+                pr['end_separation_dual'] = {'same_carrier': int(same.sum()), 'other': int((~same).sum()),
+                                             'counts_d1_to_d5': [int((dd == q).sum()) for q in range(1, 6)]}
+                fb, fwb = cat['birth_face'][h], cat['birth_face'][w]
+                db = DD[fb % 20, fwb % 20]
+                pr['birth_separation_dual_counts_d0_to_d5'] = [int((db == q).sum()) for q in range(0, 6)]
+            if tier == 1 and len(hb) and xyz_end is not None:
+                ih = np.array([pos.get(int(x), -1) for x in hb]); iw = np.array([pos.get(int(x), -1) for x in wb])
+                ok = (ih >= 0) & (iw >= 0)
+                xa = xyz_end[ih[ok]].astype(np.float64); xb = xyz_end[iw[ok]].astype(np.float64)
+                ang = np.arccos(np.clip((xa * xb).sum(axis=1) / np.linalg.norm(xa, axis=1) / np.linalg.norm(xb, axis=1), -1, 1))
+                de = ang / a_edge
+                pr['end_separation_edges'] = {'pairs': int(ok.sum()), 'quantiles': qs(de),
+                                              'histogram_edges_0_1_2_4_8_16_32_64_inf': np.histogram(de, [0, 1.5, 2.5, 4.5, 8.5, 16.5, 32.5, 64.5, 1e9])[0].tolist(),
+                                              'mean': float(de.mean()) if len(de) else None}
+            tr['pairs'][PAIR[k]] = pr
+        res['tiers'][tname] = tr
+    json.dump(res, open(out_path, 'w'))
+    print('done', out_path)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5])

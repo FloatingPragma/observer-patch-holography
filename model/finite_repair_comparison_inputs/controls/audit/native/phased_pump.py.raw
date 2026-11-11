@@ -1,0 +1,73 @@
+"""Declared phase-addressed mixed pump: exact three-port diagnostic."""
+from pathlib import Path
+import json
+import sympy as s
+from pump import channel, require
+
+
+def H(K): return K.conjugate().T
+
+def run(reverse=s.Rational(3,4), setting_count=5):
+    n=3;edges=[(0,1),(1,2)];I=s.eye(n);base=channel(n,edges,reverse)
+    basis=[]
+    for i in range(n):
+        for j in range(n):
+            E=s.zeros(n);E[i,j]=1;basis.append(E)
+    allK=[];labelled=[]
+    for (a,b),Ks in zip(edges,base):
+        settings=[('none',I)] if setting_count in (3,5) else []
+        for port in (a,b):
+            for sign in ((1,-1) if setting_count==5 else (1,)):
+                V=s.eye(n);V[port,port]=sign*s.I
+                settings.append((f'{port}:{sign}',V))
+        for label,V in settings:
+            transformed=[s.simplify(K*V) for K in Ks]
+            require(s.simplify(sum((H(K)*K for K in transformed),s.zeros(n)))==I,'complete each setting')
+            for i,E in enumerate(basis):
+                Y=s.simplify(sum((K*E*H(K) for K in transformed),s.zeros(n)))
+                B=s.simplify(sum((K*E*H(K) for K in Ks),s.zeros(n)))
+                require([Y[j,j] for j in range(n)]==[B[j,j] for j in range(n)],'all-input population shadow')
+            labelled.append(((a,b),label,transformed));allK+=transformed
+        # Covariance of each retained branch under endpoint swap, up to record relabel and Kraus phase.
+        P=s.eye(n);P[a,a]=P[b,b]=0;P[a,b]=P[b,a]=1
+        local=[K for (_,_,lst) in labelled[-setting_count:] for K in lst]
+        def superop(K):return s.kronecker_product(K,K.conjugate())
+        rows=[superop(K) for K in local]
+        require(all(any(superop(P*K*P)==R for R in rows) for K in local),'retained local swap covariance')
+    L=s.Matrix.hstack(*(s.Matrix(list(s.simplify(sum((K*E*H(K) for K in allK),s.zeros(n))/(2*setting_count)))) for E in basis))
+    ns=(L-s.eye(9)).nullspace();require(len(ns)==1,'unique stationary density')
+    R=s.Matrix(n,n,list(ns[0]));R=s.simplify(R/s.trace(R))
+    require(R==H(R),'stationary Hermitian')
+    require(all(s.simplify(R[:k,:k].det())>0 for k in range(1,4)),'stationary faithful')
+    require(R!=I/3,'stationary nontracial')
+    history=[I];rank=1;rounds=0;grown=True
+    while grown:
+        grown=False;rounds+=1
+        for E in list(history):
+            for K in allK:
+                Y=s.simplify(H(K)*E*K)
+                nr=s.Matrix.hstack(*(s.Matrix(list(A)) for A in history+[Y])).rank()
+                if nr>rank:history.append(Y);rank=nr;grown=True
+                if rank==9:break
+            if rank==9:break
+        if rank==9:break
+    require(rank==9,'history effects span full Hermitian space')
+    effects=[s.simplify(H(K)*K) for K in allK]
+    require(any(s.simplify(R*E-E*R)!=s.zeros(3) for E in effects),'nontrivial modular effect orbit')
+    result={'status':'EXACT three-port one-load diagnostic, not an accepted carrier law',
+       'input_labels':{'seam_graph':'DECLARED path of three ports','scheduler':'DECLARED uniform two seams',
+                      'reverse_probability':'DECLARED '+str(reverse),'phase_settings':'DECLARED recorded endpoint quarter-turn settings: '+str(setting_count)},
+       'stationary_density':[[str(v) for v in row] for row in R.tolist()],
+       'stationary_dimension':1,'stationary_rank':3,'faithful_nontracial':True,
+       'retained_endpoint_swap_covariance':True,'global_load_phase_covariance':True,
+       'every_setting_preserves_population_lumping_for_all_inputs':True,
+       'native_coin_current_histories_preserved':False,'strict_diagonal_state_channel_shadow_preserved':False,
+       'native_history_effect_real_span_dimension':rank,'history_span_reached_with_at_most_events':rounds,
+       'full_tomography_does_not_implement_each_modular_rotated_effect':True,
+       'modular_flow_executed_by_source':False,'relativistic_transport_proved':False,
+       'gauge_algebra_selected':False,'protected_label_beyond_total_load_proved':False,
+       'complete_law_accepted':False}
+    return result
+
+if __name__=='__main__':
+    out=run();Path(__file__).with_name('phased_pump_results.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out,indent=2))

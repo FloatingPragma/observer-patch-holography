@@ -1,0 +1,296 @@
+#!/usr/bin/env python
+"""Worker R3, exact part: the two-tick symbol of the free CF-1 tick (candidates/CF1.md section 8).
+
+    E_i   = cos p_i - i sin p_i alpha_i,   alpha_i = X_r sigma_i
+    M     = exp(-i theta beta),            beta = Y_r (option M1) or Z_r (option M2)
+    D_fwd = M E3 E2 E1,  D_rev = M E1 E2 E3,  W2 = D_rev D_fwd,  What = M^(-1/2) W2 M^(1/2)
+
+Part A proves identities for ALL p and theta as polynomial identities in the ring
+    Q(i)[c_i, s_i, ch, sh] / (c_i^2 + s_i^2 - 1, ch^2 + sh^2 - 1),
+c_i = cos p_i, s_i = sin p_i, ch = cos(theta/2), sh = sin(theta/2). Normal form: every s to a power <= 1 (the
+monomials c^k and c^k s are a basis of the coordinate ring of the circle), so an identity holds for all angles
+exactly when the reduced polynomial is zero.
+Part B repeats the main statements at random rational points of the circles in Gaussian-rational arithmetic
+and evaluates the 64 special points of the zone exactly.
+
+    python r3_exact.py [out.json]
+"""
+import itertools, json, random, sys, time
+from fractions import Fraction as Fr
+import numpy as np
+import sympy as sp
+from sympy.polys.rings import ring
+from sympy.polys.domains import QQ_I
+
+t0 = time.time()
+R, c1, c2, c3, s1, s2, s3, ch, sh = ring('c1,c2,c3,s1,s2,s3,ch,sh', QQ_I)
+GENS = R.gens
+PAIRS = [(3, 0), (4, 1), (5, 2), (7, 6)]                # (index of s, index of c)
+CS = [(c1, s1), (c2, s2), (c3, s3)]
+IU = R.ground_new(QQ_I(0, 1))
+
+
+def red(p):
+    """normal form modulo c^2 + s^2 = 1"""
+    if not any(mon[si] >= 2 for mon in p.keys() for si, _ in PAIRS):
+        return p
+    out = R.zero
+    for mon, co in p.items():
+        m = list(mon); fac = None
+        for si, ci in PAIRS:
+            e = m[si]
+            if e >= 2:
+                m[si] = e % 2
+                f = (1 - GENS[ci] ** 2) ** (e // 2)
+                fac = f if fac is None else fac * f
+        t = R.from_dict({tuple(m): co})
+        out += t if fac is None else t * fac
+    return out
+
+
+class PM:
+    """square matrix over the ring, entries kept in normal form"""
+    def __init__(s, rows): s.r = rows; s.n = len(rows)
+    def __matmul__(a, b):
+        n = a.n
+        return PM([[red(sum((a.r[i][k] * b.r[k][j] for k in range(n)), R.zero)) for j in range(n)] for i in range(n)])
+    def __add__(a, b): return PM([[a.r[i][j] + b.r[i][j] for j in range(a.n)] for i in range(a.n)])
+    def __sub__(a, b): return PM([[a.r[i][j] - b.r[i][j] for j in range(a.n)] for i in range(a.n)])
+    def __rmul__(a, x): return PM([[red(x * a.r[i][j]) for j in range(a.n)] for i in range(a.n)])
+    def zero(a): return all(not red(x) for row in a.r for x in row)
+
+
+def const(m):
+    return PM([[R.ground_new(QQ_I.from_sympy(sp.nsimplify(x))) for x in row] for row in sp.Matrix(m).tolist()])
+
+
+def kronP(a, b):
+    n, m = a.n, b.n
+    return PM([[red(a.r[i // m][j // m] * b.r[i % m][j % m]) for j in range(n * m)] for i in range(n * m)])
+
+
+I_ = sp.I
+SXs = sp.Matrix([[0, 1], [1, 0]]); SYs = sp.Matrix([[0, -I_], [I_, 0]]); SZs = sp.Matrix([[1, 0], [0, -1]])
+SIGs = [SXs, SYs, SZs]
+kron = sp.kronecker_product
+ALPHAs = [kron(SXs, s) for s in SIGs]
+BETAs = {'Y': kron(SYs, sp.eye(2)), 'Z': kron(SZs, sp.eye(2))}
+I4 = const(sp.eye(4)); I2 = const(sp.eye(2))
+AL = [const(a) for a in ALPHAs]; SG = [const(s) for s in SIGs]
+one = R.one
+
+
+def E(i, cs=None, inv=False, base=None, unit=None):
+    c, s = CS[i] if cs is None else cs
+    base = AL[i] if base is None else base; unit = I4 if unit is None else unit
+    return c * unit + ((IU if inv else -IU) * s) * base
+
+
+def prod(ms):
+    out = ms[0]
+    for m in ms[1:]:
+        out = out @ m
+    return out
+
+
+ct = red(ch ** 2 - sh ** 2); st = 2 * ch * sh
+C = [c ** 2 - s ** 2 for c, s in CS]; S = [2 * c * s for c, s in CS]
+CCC = red(C[0] * C[1] * C[2])
+cosOmega = red(ct ** 2 * (1 + CCC) - 1)
+u0 = [red(S[0] * C[1] * C[2]), red(S[1] * C[2]), S[2]]
+
+
+def W2(B, cs=None, scheme='section8', inverse=False, m_inv_first=False):
+    cs = CS if cs is None else cs
+    Mh = ch * I4 + (-IU * sh) * B; Mhi = ch * I4 + (IU * sh) * B
+    M = Mh @ Mh; Mi = Mhi @ Mhi
+    e = [E(i, cs[i]) for i in range(3)]; ei = [E(i, cs[i], inv=True) for i in range(3)]
+    if scheme == 'section8' and not inverse:     # D_rev D_fwd, mass step last in both ticks
+        return prod([Mi if m_inv_first else M, e[0], e[1], e[2], M, e[2], e[1], e[0]])
+    if scheme == 'section8':
+        return prod([ei[0], ei[1], ei[2], Mi, ei[2], ei[1], ei[0], Mi])
+    return prod([e[0], e[1], e[2], M, M, e[2], e[1], e[0]])           # mirror variant (E1 E2 E3 M)(M E3 E2 E1)
+
+
+out = {'part_A_symbolic': {}, 'part_B_rational': {}}
+A = out['part_A_symbolic']
+for kind in ('Y', 'Z'):
+    B = const(BETAs[kind]); r = {}
+    Mh = ch * I4 + (-IU * sh) * B; Mhi = ch * I4 + (IU * sh) * B; M = Mh @ Mh; Mi = Mhi @ Mhi
+    W = W2(B); Wi = W2(B, inverse=True)
+    r['A1a W2 W2^-1 = 1'] = (W @ Wi - I4).zero()
+    r['A1b W2 + W2^-1 = 2 cosOmega, cosOmega = cos^2(theta) (1 + cos2p1 cos2p2 cos2p3) - 1'] = (W + Wi - (2 * cosOmega) * I4).zero()
+    What = prod([Mhi, W, Mh])
+    vec = u0[0] * AL[0] + u0[1] * AL[1] + u0[2] * AL[2]
+    closed = cosOmega * I4 - IU * (ct * vec + red(st * ct * (1 + CCC)) * B)
+    r['A2 What = cosOmega - i [cos(theta) (S1 C2 C3 a1 + S2 C3 a2 + S3 a3) + sin(2 theta) N_e beta], N_e = (1 + C1 C2 C3)/2'] = (What - closed).zero()
+    hel = kronP(I2, u0[0] * SG[0] + u0[1] * SG[1] + u0[2] * SG[2])
+    r['A3 [W2, 1 x sigma.u0] = 0, u0 = (S1 C2 C3, S2 C3, S3)'] = (W @ hel - hel @ W).zero()
+    ok = True
+    for i in range(3):
+        cs = list(CS); cs[i] = (-CS[i][0], -CS[i][1])
+        ok &= (W2(B, cs) - W).zero()
+    r['A5a W2(p + pi e_i) = W2(p)'] = bool(ok)
+    ok = True
+    for (i, j), flips in {(0, 1): (0,), (0, 2): (0, 1), (1, 2): (1,)}.items():
+        cs = list(CS)
+        for k in (i, j):
+            cs[k] = (-CS[k][1], CS[k][0])                       # p_k + pi/2
+        cs2 = list(CS)
+        for k in flips:
+            cs2[k] = (CS[k][0], -CS[k][1])                      # p_k -> -p_k
+        G = AL[i] @ AL[j]; Gi = AL[j] @ AL[i]                   # (a_i a_j)^-1 = a_j a_i
+        ok &= (W2(B, cs) - prod([G, W2(B, cs2), Gi])).zero()
+    r['A5b W2(p + (pi/2)(e_i + e_j)) = G W2(R p) G^-1, G = a_i a_j, R12 = diag(-,+,+), R13 = diag(-,-,+), R23 = diag(+,-,+)'] = bool(ok)
+    ok = True
+    for i in range(3):
+        cs = list(CS); cs[i] = (-CS[i][1], CS[i][0])
+        cs2 = [(c, -s) if j < i else (c, s) for j, (c, s) in enumerate(CS)]
+        inner = W2(B, cs2, m_inv_first=True)                    # M^-1 E1 E2 E3 M E3 E2 E1 at (-p_j for j < i)
+        ok &= (W2(B, cs) + prod([AL[i], inner, AL[i]])).zero()
+    r['A5c W2(p + (pi/2) e_i) = - a_i [M^-1 E1 E2 E3 M E3 E2 E1](p_j -> -p_j for j < i) a_i'] = bool(ok)
+    cs = [(c, -s) for c, s in CS]
+    r['A10a inversion: beta W2(p) beta = W2(-p)'] = (prod([B, W, B]) - W2(B, cs)).zero()
+    ok = True
+    for i in range(3):
+        j, k = [x for x in range(3) if x != i]
+        cs = list(CS); cs[j] = (CS[j][0], -CS[j][1]); cs[k] = (CS[k][0], -CS[k][1])
+        ok &= (prod([AL[j] @ AL[k], W, AL[k] @ AL[j]]) - W2(B, cs)).zero()
+    r['A10b half-turn about axis i: (a_j a_k) W2(p) (a_j a_k)^-1 = W2(p_i, -p_j, -p_k)'] = bool(ok)
+    c2t = red(ct ** 2 - st ** 2); s2t = red(2 * st * ct)
+    r['A6 mirror variant (E1 E2 E3 M)(M E3 E2 E1) = cos2theta C1 C2 C3 - i [cos2theta u0.alpha + sin2theta beta]'] = (
+        W2(B, scheme='mirror') - (red(c2t * CCC) * I4 - IU * (c2t * vec + s2t * B))).zero()
+    D = prod([M, E(2), E(1), E(0)]); Di = prod([E(0, inv=True), E(1, inv=True), E(2, inv=True), Mi])
+    cc = [c for c, _ in CS]; ss = [s for _, s in CS]
+    R2 = red((ss[0] * ss[1] * ss[2]) ** 2 + st ** 2 * ((cc[0] * ss[1] * ss[2]) ** 2 + (ss[0] * cc[1] * ss[2]) ** 2 + (ss[0] * ss[1] * cc[2]) ** 2))
+    K = (D + Di) - (2 * ct * cc[0] * cc[1] * cc[2]) * I4            # twice the traceless part
+    r['A7 ordered tick (KD item 3): ((D + D^-1)/2 - ct c1 c2 c3)^2 = (s1 s2 s3)^2 + st^2 (c1^2 s2^2 s3^2 + s1^2 c2^2 s3^2 + s1^2 s2^2 c3^2)'] = (
+        K @ K - (4 * R2) * I4).zero()
+    A[f'beta = {kind}_r'] = r
+
+# Weyl forms on the spin doublet (the coordinator's closed form) and the four-component massless tick
+r = {}
+cc = [c for c, _ in CS]; ss = [s for _, s in CS]
+
+
+def weyl(cs, order=(2, 1, 0)):
+    return prod([E(i, cs[i], base=SG[i], unit=I2) for i in order])
+
+
+fw = weyl(CS); rv = weyl(CS, order=(0, 1, 2))
+up = red(cc[0] * cc[1] * cc[2] + ss[0] * ss[1] * ss[2]); um = red(cc[0] * cc[1] * cc[2] - ss[0] * ss[1] * ss[2])
+n_p = [ss[0] * cc[1] * cc[2] - cc[0] * ss[1] * ss[2], cc[0] * ss[1] * cc[2] + ss[0] * cc[1] * ss[2], cc[0] * cc[1] * ss[2] - ss[0] * ss[1] * cc[2]]
+n_m = [ss[0] * cc[1] * cc[2] + cc[0] * ss[1] * ss[2], cc[0] * ss[1] * cc[2] - ss[0] * cc[1] * ss[2], cc[0] * cc[1] * ss[2] + ss[0] * ss[1] * cc[2]]
+sig = lambda n: n[0] * SG[0] + n[1] * SG[1] + n[2] * SG[2]
+r['A4a spin doublet, order 1,2,3: e^{-i p3 s3} e^{-i p2 s2} e^{-i p1 s1} = u+ - i sigma.n+'] = (fw - (up * I2 - IU * sig(n_p))).zero()
+r['A4b spin doublet, order 3,2,1: e^{-i p1 s1} e^{-i p2 s2} e^{-i p3 s3} = u- - i sigma.n-'] = (rv - (um * I2 - IU * sig(n_m))).zero()
+Pp = const((sp.eye(2) + SXs) / 2); Pm = const((sp.eye(2) - SXs) / 2)
+four = prod([E(2), E(1), E(0)])
+r['A4c four components, massless forward tick = P(X_r=+) x (u+ - i sigma.n+) + P(X_r=-) x (u- + i sigma.n-)'] = (
+    four - kronP(Pp, up * I2 - IU * sig(n_p)) - kronP(Pm, um * I2 + IU * sig(n_m))).zero()
+r['A4d u+ u- - n+.n- = cos2p1 cos2p2 cos2p3'] = not red(up * um - sum((a * b for a, b in zip(n_p, n_m)), R.zero) - CCC)
+r['A4e one Weyl block: A+(p + (pi/2)(1,1,1)) = A+(p1, -p2, p3)'] = (
+    weyl([(-s, c) for c, s in CS]) - weyl([CS[0], (c2, -s2), CS[2]])).zero()
+# third of a turn about (1,1,1): R p = (p3, p1, p2). A coin unitary acts on n+ by a fixed rotation, which the linear
+# term n+ = p + O(p^2) forces to be R; so coin covariance would need n+(R p) = R n+(p).
+cyc = [(c3, s3), (c1, s1), (c2, s2)]                              # cos, sin of (R p)_1, (R p)_2, (R p)_3
+cR = [a for a, _ in cyc]; sR = [b for _, b in cyc]
+nR = [sR[0] * cR[1] * cR[2] - cR[0] * sR[1] * sR[2], cR[0] * sR[1] * cR[2] + sR[0] * cR[1] * sR[2], cR[0] * cR[1] * sR[2] - sR[0] * sR[1] * cR[2]]
+Rn = [n_p[2], n_p[0], n_p[1]]
+uR = red(cR[0] * cR[1] * cR[2] + sR[0] * sR[1] * sR[2])
+r['A9a third-turn: u+(R p) = u+(p) (the spectrum is invariant)'] = not (uR - up)
+r['A9b third-turn: n+(R p) - R n+(p) (zero would mean coin covariance)'] = [str(red(a - b).as_expr()) for a, b in zip(nR, Rn)]
+VR = const((sp.eye(2) - I_ * (SXs + SYs + SZs)) / 2); VRi = const((sp.eye(2) + I_ * (SXs + SYs + SZs)) / 2)
+r['A9c V_R = exp(-i (pi/3) (s1+s2+s3)/sqrt3): V_R s1 V_R^-1 = s2, s2 -> s3, s3 -> s1'] = all(
+    (prod([VR, SG[i], VRi]) - SG[(i + 1) % 3]).zero() for i in range(3))
+E1p = c3 * I2 + (-IU * s3) * SG[0]; E1pi = c3 * I2 + (IU * s3) * SG[0]
+r['A9d V_R A+(p) V_R^-1 = E1(p3) A+(R p) E1(p3)^-1: the third-turn is a symmetry only together with one sub-step'] = (
+    prod([VR, fw, VRi]) - prod([E1p, weyl(cyc), E1pi])).zero()
+A['weyl blocks'] = r
+
+# ------------------------------------------------------------------------------------------------ Part B
+ONE = np.array([[Fr(1) if i == j else Fr(0) for j in range(4)] for i in range(4)], dtype=object)
+ZERO = np.array([[Fr(0)] * 4 for _ in range(4)], dtype=object)
+
+
+class CM:
+    """4 x 4 matrix over Q(i), exact"""
+    def __init__(s, re, im): s.re, s.im = re, im
+    def __matmul__(a, b): return CM(a.re.dot(b.re) - a.im.dot(b.im), a.re.dot(b.im) + a.im.dot(b.re))
+    def __add__(a, b): return CM(a.re + b.re, a.im + b.im)
+    def __sub__(a, b): return CM(a.re - b.re, a.im - b.im)
+    def scale(a, x, y=Fr(0)): return CM(a.re * x - a.im * y, a.re * y + a.im * x)
+    def dag(a): return CM(a.re.T.copy(), -a.im.T)
+    def zero(a): return not (a.re.any() or a.im.any())
+
+
+def cm(m):
+    rows = sp.Matrix(m).tolist()
+    return CM(np.array([[Fr(int(sp.re(x))) for x in row] for row in rows], dtype=object),
+              np.array([[Fr(int(sp.im(x))) for x in row] for row in rows], dtype=object))
+
+
+ID = CM(ONE, ZERO); ALq = [cm(a) for a in ALPHAs]; BEq = {k: cm(b) for k, b in BETAs.items()}
+
+
+def circle(t):
+    return (1 - t * t) / (1 + t * t), 2 * t / (1 + t * t)
+
+
+def Eq(i, c, s): return ID.scale(c) + ALq[i].scale(Fr(0), -s)
+def Mq(beta, c, s): return ID.scale(c) + beta.scale(Fr(0), -s)
+
+
+def W2q(beta, cs, cth, sth):
+    e = [Eq(i, *cs[i]) for i in range(3)]; M = Mq(beta, cth, sth)
+    return M @ e[0] @ e[1] @ e[2] @ M @ e[2] @ e[1] @ e[0]
+
+
+rng = random.Random(20261110)
+npts = 300; fails = 0; samples = []
+for trial in range(npts):
+    ts = [Fr(rng.randint(-40, 40), rng.randint(1, 12)) for _ in range(3)]
+    th4 = Fr(rng.randint(-12, 12), rng.randint(1, 12))
+    cs = [circle(t) for t in ts]; chq, shq = circle(th4)           # half angle of theta
+    cth, sth = chq * chq - shq * shq, 2 * chq * shq
+    Cq = [c * c - s * s for c, s in cs]; Sq = [2 * c * s for c, s in cs]
+    CC = Cq[0] * Cq[1] * Cq[2]; cosO = cth * cth * (1 + CC) - 1
+    for kind in ('Y', 'Z'):
+        beta = BEq[kind]
+        W = W2q(beta, cs, cth, sth)
+        ok = (W @ W.dag() - ID).zero() and (W + W.dag() - ID.scale(2 * cosO)).zero()
+        Mh = Mq(beta, chq, shq)
+        What = Mh.dag() @ W @ Mh
+        closed = ID.scale(cosO) + (ALq[0].scale(cth * Sq[0] * Cq[1] * Cq[2]) + ALq[1].scale(cth * Sq[1] * Cq[2]) + ALq[2].scale(cth * Sq[2])
+                                   + beta.scale(sth * cth * (1 + CC))).scale(Fr(0), Fr(-1))
+        ok = ok and (What - closed).zero()
+        if not ok: fails += 1
+    if trial < 3:
+        samples.append({'tan(p_i/2)': [str(t) for t in ts], 'tan(theta/4)': str(th4), 'cos Omega': str(cosO)})
+out['part_B_rational']['random points'] = {'points': npts, 'kinds': 2, 'failures': fails,
+    'checked': 'W2 W2^* = 1;  W2 + W2^* = 2 cosOmega;  What = closed form', 'samples': samples}
+
+# the 64 special points p in (pi/2) Z^3 mod 2 pi at a rational theta: exact values of W2
+QUARTER = [(Fr(1), Fr(0)), (Fr(0), Fr(1)), (Fr(-1), Fr(0)), (Fr(0), Fr(-1))]    # (cos, sin) at 0, pi/2, pi, 3pi/2
+chq, shq = circle(Fr(1, 7)); cth, sth = chq * chq - shq * shq, 2 * chq * shq
+count = {'W2 = -1 (Omega = pi at every theta)': 0, 'W2 = G M^2 G^-1 (Omega = 2 theta)': 0, 'other': 0}
+beta = BEq['Y']; M2 = Mq(beta, cth, sth) @ Mq(beta, cth, sth)
+for idx in itertools.product(range(4), repeat=3):
+    W = W2q(beta, [QUARTER[k] for k in idx], cth, sth)
+    odd = sum(k % 2 for k in idx)
+    G = ID
+    for k in range(3):
+        if idx[k] % 2: G = G @ ALq[k]
+    if (W + ID).zero() and odd % 2 == 1:
+        count['W2 = -1 (Omega = pi at every theta)'] += 1
+    elif (W @ G - G @ M2).zero() and odd % 2 == 0:
+        count['W2 = G M^2 G^-1 (Omega = 2 theta)'] += 1
+    else:
+        count['other'] += 1
+out['part_B_rational']['special points p in (pi/2) Z^3 mod 2 pi, tan(theta/4) = 1/7'] = count
+
+allA = all(v for blk in A.values() for k, v in blk.items() if isinstance(v, bool))
+out['summary'] = {'all symbolic identities hold': bool(allA), 'rational failures': fails, 'seconds': round(time.time() - t0, 2)}
+print(json.dumps(out, indent=1))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

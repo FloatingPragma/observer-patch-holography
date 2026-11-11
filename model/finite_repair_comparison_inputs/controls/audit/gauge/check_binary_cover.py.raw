@@ -1,0 +1,57 @@
+"""Exact mixed-spin cover audit; no source-history or physical spin claim."""
+from pathlib import Path
+import json
+import sympy as s
+
+sx=s.Matrix([[0,1],[1,0]])
+sy=s.Matrix([[0,-s.I],[s.I,0]])
+rx=s.diag(1,-1,-1)
+ry=s.diag(-1,1,-1)
+wx=s.diag(rx,s.I*sx)
+wy=s.diag(ry,s.I*sy)
+z=s.diag(1,1,1,-1,-1)
+q=s.diag(2,2,2,-3,-3)
+assert rx*ry==ry*rx
+assert wx*wy*wx.inv()*wy.inv()==z
+assert wx**2==wy**2==z
+assert z**2==s.eye(5)
+assert z!=z[0,0]*s.eye(5)
+assert wx.det()==wy.det()==z.det()==1
+assert s.exp(s.I*s.pi*q)==z
+# z centralizes every block response, while its projective class is nontrivial.
+for lo,hi in [(0,3),(3,5)]:
+ for a in range(lo,hi):
+  for b in range(lo,hi):
+   E=s.zeros(5);E[a,b]=1
+   assert z*E==E*z
+# The generated subgroup over the carrier Klein four is exactly Q8.
+group={tuple(s.eye(5)):s.eye(5)}
+queue=[s.eye(5)]
+for g in queue:
+ for h in [wx,wy]:
+  gh=g*h;key=tuple(gh)
+  if key not in group:group[key]=gh;queue.append(gh)
+assert len(group)==8
+projected={tuple(g[:3,:3]) for g in group.values()}
+assert len(projected)==4
+kernel=[g for g in group.values() if g[:3,:3]==s.eye(3)]
+assert len(kernel)==2 and all(g==s.eye(5) or g==z for g in kernel)
+out={
+ 'status':'EXACT finite mixed-spin obstruction and allowed cover witness',
+ 'carrier_Klein_four_commutes':True,
+ 'implementer_commutator':'diag(I3,-I2)',
+ 'implementer_commutator_is_scalar':False,
+ 'A5_to_PU5_mixed_spin_action_exists':False,
+ 'block_phase_choices_cannot_remove_commutator':True,
+ 'local_cover_order':8,
+ 'local_carrier_quotient_order':4,
+ 'cover_kernel':['I5','diag(I3,-I2)'],
+ 'kernel_centralizes_entire_3plus2_response_algebra':True,
+ 'kernel_element_in_response_connected_group':True,
+ 'kernel_equals_exp_i_pi_Q':True,
+ 'full_binary_icosahedral_source_history_constructed':False,
+ 'A2_requires_homomorphic_carrier_to_holonomy_section':False,
+ 'premise_evidence':'Lean/Screen/A2HolonomyBridge.lean lines 26-48, 71-81, 113-125; paper/tex_fragments/PREMISE_BASIS.tex lines 59-91',
+}
+Path(__file__).with_name('binary_cover_audit.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

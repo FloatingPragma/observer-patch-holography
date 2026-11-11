@@ -1,0 +1,137 @@
+{
+ "A_exact_moments": {
+  "norms": true,
+  "first_moments_vanish": true,
+  "second_moment_is_4_norm2_identity": true,
+  "mixed_second_moment_vanishes": true,
+  "fourth_moment_is_(4/5)_norm4_(dd+dd+dd)": true,
+  "third_moments_vanish": true,
+  "five_neighbours_each": true,
+  "port_vectors_have_adjacency_eigenvalue_sqrt5_conjugates_minus_sqrt5": true
+ },
+ "B_carrier": {
+  "defects": {
+   "sum = diag(2,2,2,-3,-3)": 8.881784197001252e-16,
+   "sum (n_conj.a) X = -a.sigma on the doublet": 6.661338147750939e-16,
+   "sum (n.a) X = i[a]x on the triplet": 9.992970910418892e-16,
+   "sum (n^T S n) X = -(2/5) S on the triplet": 1.3322676295501878e-15,
+   "the twelve weight vectors are mutually orthogonal": 4.9960036108132044e-15,
+   "photon weights give diag(-1/3,-1/3,-1/3,1,0)": 4.440892098500626e-16,
+   "T3 weights give diag(0,0,0,1/2,-1/2)": 3.3306690738754696e-16,
+   "sum_p w_p D_p is diagonal with the electric charge of every pattern": 6.661338147750939e-16,
+   "uniform weights give Q6/6 on every pattern": 3.3306690738754696e-16
+  },
+  "squared_norms_of_the_weight_vectors (1, 3 conj, 3, 5)": [
+   12.0,
+   4.0,
+   4.0,
+   4.0,
+   4.0,
+   4.0,
+   4.0,
+   3.2,
+   3.2,
+   3.2,
+   3.2,
+   9.6
+  ],
+  "photon_weights_w_p = -(1/6 + n_conj_p.a3 / 2)": [
+   -0.058329,
+   0.213119,
+   -0.546452,
+   -0.275005,
+   0.278193,
+   -0.511607,
+   0.178274,
+   -0.611527,
+   -0.169712,
+   -0.331385,
+   -0.001948,
+   -0.163621
+  ],
+  "Z_weights_at_sin2 = 3/8": [
+   0.130211,
+   0.299866,
+   -0.174866,
+   -0.005211,
+   0.340537,
+   -0.153088,
+   0.278088,
+   -0.215537,
+   0.060597,
+   -0.040449,
+   0.165449,
+   0.064403
+  ],
+  "family_half_states": 16,
+  "sum_T3^2": 2.000000000000002,
+  "sum_Q^2": 5.333333333333334,
+  "sum_T3^2_over_sum_Q^2": "3/8"
+ },
+ "C_coupling": {
+  "lattice": [
+   4,
+   3,
+   2
+  ],
+  "rows": [
+   {
+    "charge": 1,
+    "link": [
+     [
+      1,
+      2,
+      0
+     ],
+     0
+    ],
+    "i_<U psi| dU/dtheta psi>": -0.01730698243969477,
+    "charge_times_link_current": -0.017306982439040657,
+    "imaginary_part": 2.163767429119723e-12
+   },
+   {
+    "charge": -2,
+    "link": [
+     [
+      3,
+      0,
+      1
+     ],
+     1
+    ],
+    "i_<U psi| dU/dtheta psi>": 0.022424321050622423,
+    "charge_times_link_current": 0.02242432105236293,
+    "imaginary_part": -1.605399840842736e-14
+   },
+   {
+    "charge": 4,
+    "link": [
+     [
+      0,
+      1,
+      1
+     ],
+     2
+    ],
+    "i_<U psi| dU/dtheta psi>": -0.04270562074084583,
+    "charge_times_link_current": -0.04270562075230319,
+    "imaginary_part": -3.4292707562499913e-13
+   },
+   {
+    "charge": -6,
+    "link": [
+     [
+      2,
+      2,
+      0
+     ],
+     0
+    ],
+    "i_<U psi| dU/dtheta psi>": 0.12019580243980238,
+    "charge_times_link_current": 0.12019580251194417,
+    "imaginary_part": 3.512468094157839e-13
+   }
+  ],
+  "largest_defect": 7.214179253978159e-11
+ }
+}

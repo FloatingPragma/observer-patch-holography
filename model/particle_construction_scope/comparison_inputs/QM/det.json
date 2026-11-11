@@ -1,0 +1,1190 @@
+{
+ "NOT_BLIND": true,
+ "any_reading_passes": false,
+ "measured": {
+  "RER_MZ_yukawa": {
+   "R_d": 4.750758102360194,
+   "R_u": 1498.1142280812037,
+   "R_u_over_R_d": 315.34214030744585,
+   "scale_part_u_over_d": 209077.42466270685,
+   "shape_part_d_over_e": 1.0773074418022384,
+   "shape_part_u_over_d": 0.0015082553308477474,
+   "shape_part_u_over_e": 0.0016248546920601755
+  },
+  "S1_own": {
+   "R_d": 19.16033406727671,
+   "R_u": 4945.9895838004,
+   "R_u_over_R_d": 258.13691799077185,
+   "scale_part_u_over_d": 70215.38857060416,
+   "shape_part_d_over_e": 1.468758666016835,
+   "shape_part_u_over_d": 0.0036763581779684328,
+   "shape_part_u_over_e": 0.005399682933272998
+  },
+  "S2_MZ": {
+   "R_d": 5.281557307719176,
+   "R_u": 1546.5648359876259,
+   "R_u_over_R_d": 292.8236400516319,
+   "scale_part_u_over_d": 209709.1390189293,
+   "shape_part_d_over_e": 1.1651457745379281,
+   "shape_part_u_over_d": 0.0013963322791821693,
+   "shape_part_u_over_e": 0.0016269306549400188
+  },
+  "S3_2e16": {
+   "R_d": 0.3195392126803621,
+   "R_u": 106.34998867964589,
+   "R_u_over_R_d": 332.82296650717706,
+   "scale_part_u_over_d": 405224.0,
+   "shape_part_d_over_e": 1.5302848176054153,
+   "shape_part_u_over_d": 0.0008213308355555867,
+   "shape_part_u_over_e": 0.0012568701078818844
+  }
+ },
+ "measured_shapes_at_common_agree_weight": {
+  "R_d": 1.694778577862175,
+  "R_u": 0.00448458933267543,
+  "R_u_over_R_d": 0.00264612108699909,
+  "note": "every sector with agree weight 1/6 and its own measured (x, delta): the determinant split a shape law can produce when it reproduces both measured shapes exactly"
+ },
+ "readings": {
+  "B1-S1_own_quantum": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "B1-S2_vacuum": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "B1-S3_C_symmetric_mixture": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "B1-S4_maximally_mixed": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "F1": {
+   "P1": {
+    "R_d": 120.88056299682705,
+    "R_u": 120.88056299682705,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 25.44447862684761,
+      "passes_factor_3": false,
+      "u_factor": 12.393342576676508
+     },
+     "S1_own": {
+      "d_factor": 6.3088964196754205,
+      "passes_factor_3": false,
+      "u_factor": 40.91633477857169
+     },
+     "S2_MZ": {
+      "d_factor": 22.887295536897042,
+      "passes_factor_3": false,
+      "u_factor": 12.794156460275762
+     },
+     "S3_2e16": {
+      "d_factor": 378.29649132216196,
+      "passes_factor_3": false,
+      "u_factor": 1.1366297683486462
+     }
+    }
+   },
+   "P2": {
+    "R_d": 739.4431992903326,
+    "R_u": 739.4431992903326,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 155.64741107802865,
+      "passes_factor_3": false,
+      "u_factor": 2.026003118994119
+     },
+     "S1_own": {
+      "d_factor": 38.59239597253174,
+      "passes_factor_3": false,
+      "u_factor": 6.6888025862530425
+     },
+     "S2_MZ": {
+      "d_factor": 140.00476681557748,
+      "passes_factor_3": false,
+      "u_factor": 2.091526215227774
+     },
+     "S3_2e16": {
+      "d_factor": 2314.0921988501113,
+      "passes_factor_3": false,
+      "u_factor": 6.952922219086735
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "F2a": {
+   "P1": {
+    "R_d": 2.6447577877238873,
+    "R_u": 1.060596065110666,
+    "R_u_over_R_d": 0.4010182217946804,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 1.7962923200043805,
+      "passes_factor_3": false,
+      "u_factor": 1412.5210128182825
+     },
+     "S1_own": {
+      "d_factor": 7.244646052736021,
+      "passes_factor_3": false,
+      "u_factor": 4663.405557029219
+     },
+     "S2_MZ": {
+      "d_factor": 1.996990927575471,
+      "passes_factor_3": false,
+      "u_factor": 1458.203445084677
+     },
+     "S3_2e16": {
+      "d_factor": 8.276786330976728,
+      "passes_factor_3": false,
+      "u_factor": 100.273791482103
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.656681815259683,
+    "R_u": 0.6826332333243867,
+    "R_u_over_R_d": 0.412048485736161,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 2.867634604666388,
+      "passes_factor_3": false,
+      "u_factor": 2194.6107440235055
+     },
+     "S1_own": {
+      "d_factor": 11.565488249337337,
+      "passes_factor_3": false,
+      "u_factor": 7245.456772905262
+     },
+     "S2_MZ": {
+      "d_factor": 3.188033609755835,
+      "passes_factor_3": false,
+      "u_factor": 2265.586790223997
+     },
+     "S3_2e16": {
+      "d_factor": 5.184596285892699,
+      "passes_factor_3": false,
+      "u_factor": 155.7937461698535
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "F2b": {
+   "P1": {
+    "R_d": 97.98944694814092,
+    "R_u": 64.23634930314775,
+    "R_u_over_R_d": 0.6555435437567438,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 20.626065321966063,
+      "passes_factor_3": false,
+      "u_factor": 23.321907990306553
+     },
+     "S1_own": {
+      "d_factor": 5.114182592228066,
+      "passes_factor_3": false,
+      "u_factor": 76.99674152494269
+     },
+     "S2_MZ": {
+      "d_factor": 18.55313522868076,
+      "passes_factor_3": false,
+      "u_factor": 24.076163305747517
+     },
+     "S3_2e16": {
+      "d_factor": 306.65859794228345,
+      "passes_factor_3": false,
+      "u_factor": 1.6556044954820381
+     }
+    }
+   },
+   "P2": {
+    "R_d": 101.6058165954864,
+    "R_u": 67.7907362267098,
+    "R_u_over_R_d": 0.6671934589788163,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 21.387284809346166,
+      "passes_factor_3": false,
+      "u_factor": 22.099099544679984
+     },
+     "S1_own": {
+      "d_factor": 5.3029251076063195,
+      "passes_factor_3": false,
+      "u_factor": 72.95966763452356
+     },
+     "S2_MZ": {
+      "d_factor": 19.2378517690201,
+      "passes_factor_3": false,
+      "u_factor": 22.813807934103444
+     },
+     "S3_2e16": {
+      "d_factor": 317.9760497724065,
+      "passes_factor_3": false,
+      "u_factor": 1.5687982547347468
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "F2c": {
+   "P1": {
+    "R_d": 103.12927992026003,
+    "R_u": 59.09323444112877,
+    "R_u_over_R_d": 0.5730015228150521,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 21.70796274999248,
+      "passes_factor_3": false,
+      "u_factor": 25.351704679047305
+     },
+     "S1_own": {
+      "d_factor": 5.382436420896807,
+      "passes_factor_3": false,
+      "u_factor": 83.6980684942505
+     },
+     "S2_MZ": {
+      "d_factor": 19.526301412943695,
+      "passes_factor_3": false,
+      "u_factor": 26.171605778803336
+     },
+     "S3_2e16": {
+      "d_factor": 322.7437379443667,
+      "passes_factor_3": false,
+      "u_factor": 1.79969821732463
+     }
+    }
+   },
+   "P2": {
+    "R_d": 397.53468359034076,
+    "R_u": 138.3273535882056,
+    "R_u_over_R_d": 0.34796298108859314,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 83.67815725933174,
+      "passes_factor_3": false,
+      "u_factor": 10.83020956607775
+     },
+     "S1_own": {
+      "d_factor": 20.747795012054453,
+      "passes_factor_3": false,
+      "u_factor": 35.75568718334909
+     },
+     "S2_MZ": {
+      "d_factor": 75.26845974185119,
+      "passes_factor_3": false,
+      "u_factor": 11.180470065173667
+     },
+     "S3_2e16": {
+      "d_factor": 1244.0873226660863,
+      "passes_factor_3": false,
+      "u_factor": 1.3006804730829256
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "F3": {
+   "P1": {
+    "R_d": 0.01641420191487903,
+    "R_u": 0.016414201914848662,
+    "R_u_over_R_d": 0.9999999999981499,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 289.429734506541,
+      "passes_factor_3": false,
+      "u_factor": 91269.39194807738
+     },
+     "S1_own": {
+      "d_factor": 1167.3022037037563,
+      "passes_factor_3": false,
+      "u_factor": 301323.79322848126
+     },
+     "S2_MZ": {
+      "d_factor": 321.7675361317195,
+      "passes_factor_3": false,
+      "u_factor": 94221.14118070944
+     },
+     "S3_2e16": {
+      "d_factor": 19.467240279937613,
+      "passes_factor_3": false,
+      "u_factor": 6479.144659688829
+     }
+    }
+   },
+   "P2": {
+    "R_d": 0.0003441486937749592,
+    "R_u": 0.0003441486937704874,
+    "R_u_over_R_d": 0.9999999999870062,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 13804.376388151397,
+      "passes_factor_3": false,
+      "u_factor": 4353101.595905793
+     },
+     "S1_own": {
+      "d_factor": 55674.5802435204,
+      "passes_factor_3": false,
+      "u_factor": 14371664.554679032
+     },
+     "S2_MZ": {
+      "d_factor": 15346.730652340686,
+      "passes_factor_3": false,
+      "u_factor": 4493885.532568746
+     },
+     "S3_2e16": {
+      "d_factor": 928.4917201786925,
+      "passes_factor_3": false,
+      "u_factor": 309023.36869123986
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "F4a": {
+   "P1": {
+    "R_d": 0.006864700758396192,
+    "R_u": 0.04266566970565242,
+    "R_u_over_R_d": 6.215226447193373,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 692.0561098820741,
+      "passes_factor_3": false,
+      "u_factor": 35112.87267764909
+     },
+     "S1_own": {
+      "d_factor": 2791.139008330665,
+      "passes_factor_3": false,
+      "u_factor": 115924.3395901776
+     },
+     "S2_MZ": {
+      "d_factor": 769.3791023970448,
+      "passes_factor_3": false,
+      "u_factor": 36248.460334907955
+     },
+     "S3_2e16": {
+      "d_factor": 46.548163412590824,
+      "passes_factor_3": false,
+      "u_factor": 2492.636103296802
+     }
+    }
+   },
+   "P2": {
+    "R_d": 0.0026803370590618558,
+    "R_u": 0.02126508418606498,
+    "R_u_over_R_d": 7.933735092819993,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 1772.4480159308796,
+      "passes_factor_3": false,
+      "u_factor": 70449.48493845692
+     },
+     "S1_own": {
+      "d_factor": 7148.47933117151,
+      "passes_factor_3": false,
+      "u_factor": 232587.35025566057
+     },
+     "S2_MZ": {
+      "d_factor": 1970.4825144520348,
+      "passes_factor_3": false,
+      "u_factor": 72727.8962291196
+     },
+     "S3_2e16": {
+      "d_factor": 119.21605590611951,
+      "passes_factor_3": false,
+      "u_factor": 5001.15530929039
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "F4b": {
+   "P1": {
+    "R_d": 51.0313969288411,
+    "R_u": 60.10641202722264,
+    "R_u_over_R_d": 1.1778319945079276,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 10.741737598361091,
+      "passes_factor_3": false,
+      "u_factor": 24.92436626233315
+     },
+     "S1_own": {
+      "d_factor": 2.663387639780034,
+      "passes_factor_3": false,
+      "u_factor": 82.28722056409434
+     },
+     "S2_MZ": {
+      "d_factor": 9.662187486682571,
+      "passes_factor_3": false,
+      "u_factor": 25.730446783068256
+     },
+     "S3_2e16": {
+      "d_factor": 159.70308151158986,
+      "passes_factor_3": false,
+      "u_factor": 1.7693617884141744
+     }
+    }
+   },
+   "P2": {
+    "R_d": 54.356206356189766,
+    "R_u": 63.60491834704035,
+    "R_u_over_R_d": 1.170150064010076,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 11.441585781685115,
+      "passes_factor_3": false,
+      "u_factor": 23.553433712581967
+     },
+     "S1_own": {
+      "d_factor": 2.8369132899944005,
+      "passes_factor_3": false,
+      "u_factor": 77.76111835902617
+     },
+     "S2_MZ": {
+      "d_factor": 10.291700570350024,
+      "passes_factor_3": false,
+      "u_factor": 24.315176816190196
+     },
+     "S3_2e16": {
+      "d_factor": 170.10809377740668,
+      "passes_factor_3": false,
+      "u_factor": 1.6720403302678641
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "QM-1a": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 29.841932544173414,
+    "R_u_over_R_d": 29.841932544173414,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 50.20164916811689
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 165.73958728976808
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 51.825223909287004
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 3.5637768607050404
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 55.76844814563256,
+    "R_u_over_R_d": 55.76844814563256,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 26.863114859661497
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 88.68795435878984
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 27.731896572573778
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 1.9069920755536491
+     }
+    }
+   },
+   "reads_beyond_Z6": true
+  },
+  "QM-1b": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 0.9009149475043173,
+    "R_u_over_R_d": 0.9009149475043173,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1662.8808659809963
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 5489.962840001276
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1716.6602022442457
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 118.04664688298591
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 0.1836628407059922,
+    "R_u_over_R_d": 0.1836628407059922,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 8156.871702095614
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 26929.72386133322
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 8420.673610637266
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 579.0501130813452
+     }
+    }
+   },
+   "reads_beyond_Z6": true
+  },
+  "QM-3b-i": {
+   "P1": {
+    "R_d": 220.0171715231946,
+    "R_u": 220.0171715231946,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 46.3120131108947,
+      "passes_factor_3": false,
+      "u_factor": 6.809078662859139
+     },
+     "S1_own": {
+      "d_factor": 11.482950701728864,
+      "passes_factor_3": false,
+      "u_factor": 22.48001621672963
+     },
+     "S2_MZ": {
+      "d_factor": 41.65763215361349,
+      "passes_factor_3": false,
+      "u_factor": 7.02929151066095
+     },
+     "S3_2e16": {
+      "d_factor": 688.5451387253673,
+      "passes_factor_3": false,
+      "u_factor": 2.068802961380129
+     }
+    }
+   },
+   "P2": {
+    "R_d": 221.51124214864848,
+    "R_u": 221.51124214864848,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 46.626504102282304,
+      "passes_factor_3": false,
+      "u_factor": 6.763152125145284
+     },
+     "S1_own": {
+      "d_factor": 11.560927976039837,
+      "passes_factor_3": false,
+      "u_factor": 22.328390811340036
+     },
+     "S2_MZ": {
+      "d_factor": 41.940516639836936,
+      "passes_factor_3": false,
+      "u_factor": 6.981879659858438
+     },
+     "S3_2e16": {
+      "d_factor": 693.2208422577174,
+      "passes_factor_3": false,
+      "u_factor": 2.082851581826666
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "QM-3b-ii": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 1.0,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 1498.114228081203
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 4945.989583800403
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 1546.5648359876254
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 106.34998867964585
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "QM-3b-iii": {
+   "P1": {
+    "R_d": 0.0524879561866367,
+    "R_u": 0.0524879561866367,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 90.51139437526288,
+      "passes_factor_3": false,
+      "u_factor": 28542.0568245067
+     },
+     "S1_own": {
+      "d_factor": 365.04248706401125,
+      "passes_factor_3": false,
+      "u_factor": 94230.94254639007
+     },
+     "S2_MZ": {
+      "d_factor": 100.62417536203947,
+      "passes_factor_3": false,
+      "u_factor": 29465.137306706114
+     },
+     "S3_2e16": {
+      "d_factor": 6.087857784824854,
+      "passes_factor_3": false,
+      "u_factor": 2026.1788876192202
+     }
+    }
+   },
+   "P2": {
+    "R_d": 0.08970520849076252,
+    "R_u": 0.08970520849076252,
+    "R_u_over_R_d": 1.0,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 52.959668477326034,
+      "passes_factor_3": false,
+      "u_factor": 16700.415207612772
+     },
+     "S1_own": {
+      "d_factor": 213.59221375924633,
+      "passes_factor_3": false,
+      "u_factor": 55136.035766637986
+     },
+     "S2_MZ": {
+      "d_factor": 58.87681882220976,
+      "passes_factor_3": false,
+      "u_factor": 17240.524402179904
+     },
+     "S3_2e16": {
+      "d_factor": 3.5621032274092195,
+      "passes_factor_3": false,
+      "u_factor": 1185.5497631511257
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  },
+  "QM-3b-iv": {
+   "P1": {
+    "R_d": 3.1109405402815313,
+    "R_u": 0.46723314428170076,
+    "R_u_over_R_d": 0.15019031647561398,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 1.5271131160643348,
+      "passes_factor_3": false,
+      "u_factor": 3206.3526451752978
+     },
+     "S1_own": {
+      "d_factor": 6.159016483658911,
+      "passes_factor_3": false,
+      "u_factor": 10585.69933304732
+     },
+     "S2_MZ": {
+      "d_factor": 1.6977365010136805,
+      "passes_factor_3": false,
+      "u_factor": 3310.049500801642
+     },
+     "S3_2e16": {
+      "d_factor": 9.73570822243163,
+      "passes_factor_3": false,
+      "u_factor": 227.61653358976213
+     }
+    }
+   },
+   "P2": {
+    "R_d": 2.994022650643842,
+    "R_u": 0.9177756875728941,
+    "R_u_over_R_d": 0.30653598675198174,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 1.5867475489333989,
+      "passes_factor_3": false,
+      "u_factor": 1632.3315689948652
+     },
+     "S1_own": {
+      "d_factor": 6.399528762134255,
+      "passes_factor_3": false,
+      "u_factor": 5389.105040339795
+     },
+     "S2_MZ": {
+      "d_factor": 1.7640338514417775,
+      "passes_factor_3": false,
+      "u_factor": 1685.122908493684
+     },
+     "S3_2e16": {
+      "d_factor": 9.369812942609922,
+      "passes_factor_3": false,
+      "u_factor": 115.87797554421385
+     }
+    }
+   },
+   "reads_beyond_Z6": true
+  },
+  "QM-4": {
+   "P1": {
+    "R_d": 0.01301204895813446,
+    "R_u": 0.2851513840392975,
+    "R_u_over_R_d": 21.914410632541895,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 365.10453639127024,
+      "passes_factor_3": false,
+      "u_factor": 5253.750505642804
+     },
+     "S1_own": {
+      "d_factor": 1472.507068558074,
+      "passes_factor_3": false,
+      "u_factor": 17345.13616500202
+     },
+     "S2_MZ": {
+      "d_factor": 405.8974358851777,
+      "passes_factor_3": false,
+      "u_factor": 5423.662386202869
+     },
+     "S3_2e16": {
+      "d_factor": 24.557178789325317,
+      "passes_factor_3": false,
+      "u_factor": 372.95974921513783
+     }
+    }
+   },
+   "P2": {
+    "R_d": 6.198974022791015e-06,
+    "R_u": 0.22953330139847913,
+    "R_u_over_R_d": 37027.62756459084,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 766378.1272342266,
+      "passes_factor_3": false,
+      "u_factor": 6526.783778012304
+     },
+     "S1_own": {
+      "d_factor": 3090887.943203544,
+      "passes_factor_3": false,
+      "u_factor": 21548.026162939914
+     },
+     "S2_MZ": {
+      "d_factor": 852005.0718556185,
+      "passes_factor_3": false,
+      "u_factor": 6737.866908918481
+     },
+     "S3_2e16": {
+      "d_factor": 51547.112716644886,
+      "passes_factor_3": false,
+      "u_factor": 463.3314121815291
+     }
+    }
+   },
+   "reads_beyond_Z6": true
+  },
+  "QM-5": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 100.4216932724852,
+    "R_u_over_R_d": 100.4216932724852,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 14.918233095474758
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 49.25220261303406
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 15.400704624559177
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 1.0590340116161434
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 104.02181914208809,
+    "R_u_over_R_d": 104.02181914208809,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 14.401922985358123
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 47.54761668842235
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 14.867696496204351
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 1.0223815499167308
+     }
+    }
+   },
+   "reads_beyond_Z6": true
+  },
+  "QM-6": {
+   "P1": {
+    "R_d": 1.0,
+    "R_u": 59.09323444112877,
+    "R_u_over_R_d": 59.09323444112877,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 25.351704679047305
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 83.6980684942505
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 26.171605778803336
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 1.79969821732463
+     }
+    }
+   },
+   "P2": {
+    "R_d": 1.0,
+    "R_u": 138.3273535882056,
+    "R_u_over_R_d": 138.3273535882056,
+    "miss": {
+     "RER_MZ_yukawa": {
+      "d_factor": 4.750758102360194,
+      "passes_factor_3": false,
+      "u_factor": 10.83020956607775
+     },
+     "S1_own": {
+      "d_factor": 19.16033406727671,
+      "passes_factor_3": false,
+      "u_factor": 35.75568718334909
+     },
+     "S2_MZ": {
+      "d_factor": 5.281557307719176,
+      "passes_factor_3": false,
+      "u_factor": 11.180470065173667
+     },
+     "S3_2e16": {
+      "d_factor": 3.1295063651555926,
+      "passes_factor_3": false,
+      "u_factor": 1.3006804730829256
+     }
+    }
+   },
+   "reads_beyond_Z6": false
+  }
+ }
+}

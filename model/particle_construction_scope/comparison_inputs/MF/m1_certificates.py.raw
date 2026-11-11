@@ -1,0 +1,295 @@
+"""Block 1: exact certificates for results R2 to R4 of the brief (sections, local checks, port-projector pairs).
+
+Everything is exact arithmetic in K = Q(zeta_20). Ranks are ranks over K (Gaussian elimination without rounding);
+real spans of Hermitian matrices are ranks of their real coordinate vectors over the real subfield.
+Output: m1_certificates.json. Run: python m1_certificates.py
+"""
+import json, random, time
+from kfield import *
+from xcarrier import Carrier, dot3
+
+t0 = time.time()
+X = Carrier(); Xg = X.great()
+out = {'field': 'Q(zeta_20); s5 = sqrt5, c = 2cos(pi/10) = sqrt((5+sqrt5)/2), i = zeta^5',
+       'great_realization': 'entrywise image of the convex objects under zeta -> zeta^17'}
+seams = [list(e) for e in X.E]; faces = [list(f) for f in X.F]; rhombi = [list(r) for r in X.rhombi]
+stars = [[p] + X.nbr[p] for p in range(12)]
+
+
+def left_null(Ws):
+    """Rows r with r . Ws = 0 (a basis), Ws a |S| x d matrix."""
+    return [v for v in nullspace(transpose(Ws))]
+
+
+def check_rows(W, clusters):
+    rows, counts = [], []
+    for S in clusters:
+        Ws = [W[p] for p in S]
+        basis = left_null(Ws)
+        counts.append(len(basis))
+        for r in basis:
+            row = [K(0)] * 12
+            for p, x in zip(S, r):
+                row[p] = x
+            rows.append(row)
+    return rows, counts
+
+
+def kernel_certificate(W, clusters, d):
+    rows, counts = check_rows(W, clusters)
+    res = {'checks_per_cluster': sorted(set(counts)), 'checks': len(rows)}
+    if rows:
+        res['checks_annihilate_sections'] = is_zero_mat(mmul(rows, W))
+        res['rank_of_checks'] = rank(rows)
+        res['common_kernel_dimension'] = 12 - res['rank_of_checks']
+        res['kernel_equals_section_space'] = bool(res['checks_annihilate_sections'] and res['common_kernel_dimension'] == d)
+    else:
+        res['common_kernel_dimension'] = 12
+    return res, rows
+
+
+def band_projectors(A, lams):
+    out = []
+    for j, lj in enumerate(lams):
+        Pj = eye(12)
+        for i, li in enumerate(lams):
+            if i != j:
+                Pj = mscale((lj - li).inv(), mmul(Pj, msub(A, mscale(li, eye(12)))))
+        out.append(Pj)
+    return out
+
+
+# ------------------------------------------------------------------ (a), (b), (c): sections and checks
+sec = {}
+for real, Y in (('convex', X), ('great', Xg)):
+    for kind, d in (('spinor', 2), ('vector', 3), ('radial', 3)):
+        W = Y.sections(kind)
+        entry = {'section_rank': rank(W)}
+        for cname, cl in (('seam', seams), ('face', faces), ('rhombus', rhombi), ('star', stars)):
+            res, rows = kernel_certificate(W, cl, d)
+            entry[cname] = res
+        sec[f'{real}/{kind}'] = entry
+        print(f'{real:6s} {kind:6s}: rank {entry["section_rank"]};',
+              '; '.join(f'{c}: {entry[c]["checks"]} checks, kernel {entry[c]["common_kernel_dimension"]}' for c in ('seam', 'face', 'rhombus', 'star')), flush=True)
+out['sections_and_checks'] = sec
+a_ok = all(sec[f'{r}/spinor']['face']['kernel_equals_section_space'] and sec[f'{r}/spinor']['face']['checks'] == 20 for r in ('convex', 'great'))
+b_ok = all(sec[f'{r}/{k}']['rhombus']['kernel_equals_section_space'] and sec[f'{r}/{k}']['rhombus']['checks'] == 30 for r in ('convex', 'great') for k in ('vector', 'radial'))
+c_ok = all(sec[f'{r}/spinor']['seam']['checks'] == 0 and sec[f'{r}/{k}']['seam']['checks'] == 0 and sec[f'{r}/{k}']['face']['checks'] == 0
+           for r in ('convex', 'great') for k in ('vector', 'radial'))
+out['verdict_a_face_checks_kernel_is_spinor_doublet'] = a_ok
+out['verdict_b_rhombus_checks_kernel_is_vector_triplet'] = b_ok
+out['verdict_c_no_seam_check_for_spinors_no_seam_or_face_check_for_vectors'] = c_ok
+print('(a)', a_ok, '(b)', b_ok, '(c)', c_ok, flush=True)
+
+# scalar control (known answer): constants are the kernel of the 30 seam checks
+Wc = [[K(1)] for _ in range(12)]
+res, _ = kernel_certificate(Wc, seams, 1)
+out['control_scalar_seam_checks'] = res
+# negative controls: the convex face checks do not annihilate the great sections (the two doublets meet in zero), and
+# 19 of the 20 checks already fix the doublet while the 10 checks of the faces at ports 0 and its antipode do not
+rows_c, _ = check_rows(X.sections('spinor'), faces)
+Wg_ = Xg.sections('spinor')
+neg = {'rank_of_convex_checks_applied_to_great_sections': rank(mmul(rows_c, Wg_)),
+       'dimension_of_sum_of_convex_and_great_doublets': rank([list(a) + list(b) for a, b in zip(X.sections('spinor'), Wg_)])}
+sub = [f for f in faces if 0 in f or X.anti[0] in f]
+neg['kernel_of_the_10_checks_on_faces_at_one_axis'] = 12 - rank(check_rows(X.sections('spinor'), sub)[0])
+neg['kernel_of_19_checks'] = 12 - rank(check_rows(X.sections('spinor'), faces[1:])[0])
+out['negative_controls'] = neg
+print('control scalars:', res['common_kernel_dimension'], ' negative controls:', neg, flush=True)
+
+# parent operators: exact spectrum on the bands
+par = {}
+W = X.sections('spinor')
+rows, _ = check_rows(W, faces)
+Hc = zeros(12)
+for r in rows:
+    nrm = vdot(r, r)
+    Hc = madd(Hc, mscale(nrm.inv(), [[r[i].conj() * r[j] for j in range(12)] for i in range(12)]))
+A1 = X.adjacency(1)
+lams1 = [S5 * C10, (3 - S5) * C10 * HALF, -C10]
+assert is_zero_mat(polyval_mat(poly_from_roots([(l, 1) for l in lams1]), A1))
+Pi1 = band_projectors(A1, lams1)
+assert [trace(P) for P in Pi1] == [2, 4, 6] and meq(madd(madd(Pi1[0], Pi1[1]), Pi1[2]), eye(12))
+h = [trace(mmul(Hc, P)) * Kq(1, d) for P, d in zip(Pi1, (2, 4, 6))]
+assert meq(Hc, madd(mscale(h[1], Pi1[1]), mscale(h[2], Pi1[2]))) and h[0] == 0
+par['spinor_face_parent'] = {'bands': [2, 4, 6], 'flux1_adjacency_levels': [str(l) for l in lams1], 'levels': [str(x) for x in h], 'float': [float(x) for x in h]}
+W = X.sections('vector')
+rows, _ = check_rows(W, rhombi)
+Hr = zeros(12)
+for r in rows:
+    nrm = vdot(r, r)
+    Hr = madd(Hr, mscale(nrm.inv(), [[r[i].conj() * r[j] for j in range(12)] for i in range(12)]))
+A2 = X.adjacency(2)
+lams2 = [(5 + S5) * HALF, (S5 - 3) * HALF, -S5]
+assert is_zero_mat(polyval_mat(poly_from_roots([(l, 1) for l in lams2]), A2))
+Pi2 = band_projectors(A2, lams2)
+assert [trace(P) for P in Pi2] == [3, 5, 4]
+h2 = [trace(mmul(Hr, P)) * Kq(1, d) for P, d in zip(Pi2, (3, 5, 4))]
+assert meq(Hr, madd(mscale(h2[1], Pi2[1]), mscale(h2[2], Pi2[2]))) and h2[0] == 0
+par['vector_rhombus_parent'] = {'bands': [3, 5, 4], 'flux2_adjacency_levels': [str(l) for l in lams2], 'levels': [str(x) for x in h2], 'float': [float(x) for x in h2]}
+out['parent_operators'] = par
+print('parent operator of the 20 face checks: 0 on the doublet,', h[1], '=', float(h[1]), 'on the quartet,', h[2], '=', float(h[2]), 'on the sextet')
+print('parent operator of the 30 rhombus checks: 0 on the triplet,', h2[1], '=', float(h2[1]), 'on the quintet,', h2[2], '=', float(h2[2]), 'on the quartet', flush=True)
+
+# gauge independence: rephase the port frames by random twentieth roots of unity and by non-unit scalars
+random.seed(5)
+D = [ZETA ** random.randrange(20) for _ in range(12)]
+Dn = [K(random.randrange(1, 9)) + ZETA ** random.randrange(20) * random.randrange(1, 5) for _ in range(12)]
+gi = {}
+for nm, dd in (('unit_phases', D), ('nonunit_scalars', Dn)):
+    W = X.sections('spinor'); W2 = [[dd[p] * x for x in W[p]] for p in range(12)]
+    r2, rows2 = kernel_certificate(W2, faces, 2)
+    V3 = X.sections('vector'); V32 = [[dd[p] * x for x in V3[p]] for p in range(12)]
+    r3, _ = kernel_certificate(V32, rhombi, 3)
+    gi[nm] = {'spinor_face_kernel': r2['common_kernel_dimension'], 'equals_section_space': r2['kernel_equals_section_space'],
+              'vector_rhombus_kernel': r3['common_kernel_dimension'], 'vector_equals_section_space': r3['kernel_equals_section_space']}
+out['gauge_independence'] = gi
+out['gauge_independence']['statement'] = ('port projectors |chi_p><chi_p| do not depend on the phase of chi_p; under chi_p -> d_p chi_p the section space '
+                                          'and every check row are transported by the diagonal matrix (d_p); ranks, kernels and Gram entries are unchanged')
+print('gauge independence:', gi, flush=True)
+
+
+# ------------------------------------------------------------------ (d): port-projector pairs
+def real_rank(mats):
+    return rank([herm_real_coords(M) for M in mats]) if mats else 0
+
+
+class Span:
+    """Incremental real span of Hermitian matrices (exact)."""
+    def __init__(self):
+        self.rows = []; self.piv = []; self.mats = []
+    def add(self, H):
+        v = [x.p for x in herm_real_coords(H)]
+        for r, pc in zip(self.rows, self.piv):
+            f = v[pc]
+            if not f.is_zero():
+                v = [(a - f * b) % PHI for a, b in zip(v, r)]
+        pc = next((j for j, x in enumerate(v) if not x.is_zero()), None)
+        if pc is None:
+            return False
+        inv = K(v[pc]).inv().p
+        v = [(a * inv) % PHI for a in v]
+        for idx, r in enumerate(self.rows):
+            f = r[pc]
+            if not f.is_zero():
+                self.rows[idx] = [(a - f * b) % PHI for a, b in zip(r, v)]
+        self.rows.append(v); self.piv.append(pc); self.mats.append(H)
+        return True
+    def dim(self): return len(self.rows)
+
+
+def lie_closure(Xs, cap=40):
+    sp = Span()
+    for H in Xs:
+        sp.add(H)
+    span = sp.dim()
+    frontier = list(sp.mats)
+    while frontier and sp.dim() <= cap:
+        new = []
+        for A in frontier:
+            for B in list(sp.mats):
+                Cm = mscale(-I, comm(A, B))
+                if not is_zero_mat(Cm) and sp.add(Cm):
+                    new.append(Cm)
+        frontier = new
+    return span, sp
+
+
+def centre_dim(basis):
+    n = len(basis)
+    rows = []
+    for s in range(n):
+        cols = [herm_real_coords(mscale(-I, comm(basis[r], basis[s]))) for r in range(n)]
+        for k in range(len(cols[0])):
+            rows.append([cols[r][k] for r in range(n)])
+    return n - rank(rows)
+
+
+def gram_report(Xs):
+    G = [[trace(mmul(Xs[p], Xs[q])) for q in range(12)] for p in range(12)]
+    g = {}
+    for p in range(12):
+        for q in range(12):
+            d = X.dist[p][q]
+            if d not in g: g[d] = G[p][q]
+            assert G[p][q] == g[d]
+    g0, g1, g2, g3 = g[0], g[1], g[2], g[3]
+    eig = {'1': g0 + 5 * g1 + 5 * g2 + g3, '3': g0 + S5 * g1 - S5 * g2 - g3, "3'": g0 - S5 * g1 + S5 * g2 - g3, '5': g0 - g1 - g2 + g3}
+    cp = charpoly(G)
+    target = poly_from_roots([(eig['1'], 1), (eig['3'], 3), (eig["3'"], 3), (eig['5'], 5)])
+    assert all(a == b for a, b in zip(cp, target)), 'Gram spectrum mismatch'
+    return G, {k: str(v) for k, v in eig.items()}, {k: v.sign() for k, v in eig.items()}, eig
+
+
+def pair_report(name, blocks, weights, lifts):
+    Xs = [dsum(*[mscale(w, b[p]) for w, b in zip(weights, blocks)]) for p in range(12)]
+    G, eig, signs, eigv = gram_report(Xs)
+    span, sp = lie_closure(Xs)
+    cdim = centre_dim(sp.mats) if sp.dim() <= 30 else None
+    res = {'gram_eigenvalues_by_port_irreducible': eig, 'gram_eigenvalue_signs': signs, 'real_span': span, 'lie_closure': sp.dim(), 'centre': cdim,
+           'trace_form_positive_definite_on_port_space': all(s > 0 for s in signs.values())}
+    if span == 12 and sp.dim() == 12:
+        Ginv = inverse(G)
+        ok = True
+        for p in range(12):
+            for q in range(p + 1, 12):
+                Y = mscale(-I, comm(Xs[p], Xs[q]))
+                t = [[trace(mmul(Xs[r], Y))] for r in range(12)]
+                f = mmul(Ginv, t)
+                S = zeros(len(Y))
+                for r in range(12):
+                    S = madd(S, mscale(f[r][0], Xs[r]))
+                ok = ok and meq(S, Y) and all(x[0].is_real() for x in f)
+        res['all_66_brackets_in_the_real_span'] = ok
+        S = zeros(len(Xs[0]))
+        for p in range(12):
+            S = madd(S, Xs[p])
+        res['sum_of_responses'] = [str(S[i][i]) for i in range(len(S))]
+        res['centre_is_sum_of_responses'] = all(is_zero_mat(comm(S, Xs[p])) for p in range(12))
+    if lifts is not None:
+        ok = True
+        for gi in range(120):
+            U = dsum(*[lf[gi] for lf in lifts])
+            perm = X.group[gi][2]
+            Ud = dagger(U)
+            for p in range(12):
+                ok = ok and meq(mmulm(U, Xs[p], Ud), Xs[perm[p]])
+            ok = ok and meq(mmul(U, Ud), eye(len(U)))
+        res['covariance_under_the_120_lifts'] = ok
+    print(f'{name}: span {span}, closure {sp.dim()}, centre {cdim}; Gram eigenvalues on 1, 3, 3\', 5: {eig}', flush=True)
+    return res
+
+
+S2, S2g = X.Q, Xg.Q
+S3, S3g = X.P, Xg.P
+R3, R3g = X.P0, Xg.P0
+LR, LRg = [g[0] for g in X.group], [g[0] for g in Xg.group]
+LU, LUg = [g[1] for g in X.group], [g[1] for g in Xg.group]
+anti = X.anti
+S2gbar = [Xg.Q[anti[p]] for p in range(12)]      # opposite helicity of the great spinor
+S2bar = [X.Q[anti[p]] for p in range(12)]
+pairs = {}
+pairs['mixed: vector(convex) + spinor(great), unit projectors'] = pair_report('mixed vector(convex)+spinor(great), unit', [S3, S2g], [K(1), K(1)], [LR, LUg])
+pairs['mixed: vector(convex) + spinor(great), Naimark weights 1/4, 1/6'] = pair_report('mixed, weights 1/4 and 1/6 (audit template)', [S3, S2g], [Kq(1, 4), Kq(1, 6)], [LR, LUg])
+pairs['mixed: vector(convex) + spinor(great), charge weights 1/2, -1/2'] = pair_report('mixed, weights 1/2 and -1/2 (audit traceless form)', [S3, S2g], [Kq(1, 2), Kq(-1, 2)], [LR, LUg])
+pairs['mixed, opposite relative helicity: vector(convex) + conjugate spinor(great)'] = pair_report('mixed, opposite relative helicity', [S3, S2gbar], [K(1), K(1)], [LR, LUg])
+pairs['mixed reverse: vector(great) + spinor(convex)'] = pair_report('mixed reverse vector(great)+spinor(convex)', [S3g, S2], [K(1), K(1)], [LRg, LU])
+pairs['same realization: vector(convex) + spinor(convex)'] = pair_report('same realization (convex, convex)', [S3, S2], [K(1), K(1)], [LR, LU])
+pairs['same realization: vector(great) + spinor(great)'] = pair_report('same realization (great, great)', [S3g, S2g], [K(1), K(1)], [LRg, LUg])
+pairs['radial(convex) + spinor(great)'] = pair_report('radial vector(convex) + spinor(great)', [R3, S2g], [K(1), K(1)], [LR, LUg])
+pairs['radial(convex) + radial(great)'] = pair_report('radial(convex) + radial(great)', [R3, R3g], [K(1), K(1)], [LR, LRg])
+pairs['all four circular'] = pair_report('all four circular multiplets', [S2, S2g, S3, S3g], [K(1)] * 4, [LU, LUg, LR, LRg])
+# simpler members: one multiplet alone
+singles = {}
+singles['spinor (great) alone'] = pair_report('single spinor (great)', [S2g], [K(1)], [LUg])
+singles['vector (convex) alone'] = pair_report('single circular vector (convex)', [S3], [K(1)], [LR])
+singles['radial vector (convex) alone'] = pair_report('single radial vector (convex)', [R3], [K(1)], [LR])
+out['single_multiplets'] = singles
+out['pairs'] = pairs
+m = pairs['mixed: vector(convex) + spinor(great), Naimark weights 1/4, 1/6']
+out['audit_template_comparison'] = {'audit': {'1': '5/12', '3': '1/8', "3'": '1/18', '5': '1/40'}, 'exact_here': m['gram_eigenvalues_by_port_irreducible'],
+                                    'agree': m['gram_eigenvalues_by_port_irreducible'] == {'1': '5/12', '3': '1/8', "3'": '1/18', '5': '1/40'}}
+print('audit template (5/12, 1/8, 1/18, 1/40):', out['audit_template_comparison']['agree'])
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('m1_certificates.json', 'w'), indent=1)
+print('written m1_certificates.json in', out['seconds'], 's')

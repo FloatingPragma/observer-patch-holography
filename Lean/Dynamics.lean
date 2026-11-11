@@ -1,4 +1,5 @@
 import Dynamics.ProtectedCharge
+import Dynamics.ChargeConjugation
 import Dynamics.WardLimitManifest
 import Dynamics.ConditionalExpectationGenerator
 import Dynamics.PublicMarkov

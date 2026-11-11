@@ -1,0 +1,8 @@
+import numpy as np, json, sys
+R='USER_HOME/oph-physics-sim/runs/universe/L8/'
+for f in ['records/sweep_000298.npz','checkpoints/ckpt_000300.npz','checkpoints/aux_000300.npz','catalogue.npz','series/block_00100.npz']:
+    try:
+        z=np.load(R+f); print(f, {k:(z[k].shape,str(z[k].dtype)) for k in z.files})
+    except Exception as e: print(f, e)
+z=np.load('USER_HOME/cf1bg_data/L10/ckpt_000300.npz'); print('L10ckpt', {k:(z[k].shape,str(z[k].dtype)) for k in z.files})
+import os; print(sorted(os.listdir(R+'series'))[:3], len(os.listdir(R+'series')))

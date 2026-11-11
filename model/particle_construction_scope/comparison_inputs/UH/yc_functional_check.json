@@ -1,0 +1,109 @@
+{
+ "S1": {
+  "K_theta_squared_equals_norm_squared_defect": 9.140187594528613e-16,
+  "max_deviation_from_1_minus_n_dot_Un_prime_(80_random_plaquettes_amplitudes_up_to_3)": 6.661338147750939e-16,
+  "form": "cost = 1 - cos|t'| cos|t| - sin|t'| sin|t| Re<t^, U t'^>: chordal distance on a unit 4-sphere"
+ },
+ "S2": {
+  "max_cost_of_covariantly_constant_amplitudes_0.01_to_3": 0.0,
+  "statement": "GL's functional has no term without a difference of the register amplitude: no mass term and no quartic at tree level"
+ },
+ "S3": {
+  "hessian_rows": [
+   {
+    "base_amplitude": 0.001,
+    "H_radial": 0.999999993922529,
+    "H_angular": 0.9999996830600821,
+    "H_phase": 0.9999996608556216,
+    "sin2_over_a2": 0.999999666666711
+   },
+   {
+    "base_amplitude": 0.3,
+    "H_radial": 0.999999993922529,
+    "H_angular": 0.9703576830943916,
+    "H_phase": 0.9703577052988521,
+    "sin2_over_a2": 0.9703576949462316
+   },
+   {
+    "base_amplitude": 1.0,
+    "H_radial": 0.999999993922529,
+    "H_angular": 0.7080734221176499,
+    "H_phase": 0.7080734221176499,
+    "sin2_over_a2": 0.7080734182735712
+   }
+  ],
+  "H_gauge_family_half_min_max": [
+   0.12499999999999999,
+   0.12500000000000003
+  ],
+  "H_gauge_all_32_min_max": [
+   0.12499999999999999,
+   0.12500000000000003
+  ],
+  "y_over_g_at_small_amplitude": 0.5,
+  "statement": "the toggle amplitude g_t and the register amplitude beta enter only through theta = g_t beta; at small theta the functional is the kinetic term of a full linear doublet (radial mode included) with unit Hessian: y/g = sqrt(2 H_g) = 1/2 for every amplitude"
+ },
+ "S4": {
+  "rows": [
+   {
+    "f": {
+     "t": 1.0641375227951777,
+     "b": 0.6478957711340381,
+     "nu": 1.7576401834562234,
+     "tau": 0.5958808383951103
+    },
+    "H_f_finite_difference": 1.0126055771664255,
+    "H_f_trace": 1.012605722636071,
+    "sum_over_Dirac_species_colour_counted_of_y2_over_g2": 2.0
+   },
+   {
+    "f": {
+     "t": 1.3096985694976537,
+     "b": 0.18770570333720502,
+     "nu": 0.41737070932716874,
+     "tau": 1.3347630940229898
+    },
+    "H_f_finite_difference": 0.9009272883275798,
+    "H_f_trace": 0.9009277685248294,
+    "sum_over_Dirac_species_colour_counted_of_y2_over_g2": 2.0
+   },
+   {
+    "f": {
+     "t": 1.9913673722916947,
+     "b": 1.7761856708130281,
+     "nu": 1.9474088142760846,
+     "tau": 0.30811439387497086
+    },
+    "H_f_finite_difference": 3.1560567270716433,
+    "H_f_trace": 3.1560592769401863,
+    "sum_over_Dirac_species_colour_counted_of_y2_over_g2": 2.0000000000000004
+   },
+   {
+    "f": {
+     "t": 0.5509986118298729,
+     "b": 1.120613167371281,
+     "nu": 0.8943184856624841,
+     "tau": 0.17086574261466594
+    },
+    "H_f_finite_difference": 0.6883900560694656,
+    "H_f_trace": 0.6883900848962405,
+    "sum_over_Dirac_species_colour_counted_of_y2_over_g2": 2.0
+   },
+   {
+    "f": {
+     "t": 1.0862048214548234,
+     "b": 0.8488089352693192,
+     "nu": 0.17352456667379865,
+     "tau": 0.5983219697685646
+    },
+    "H_f_finite_difference": 0.7611313579403145,
+    "H_f_trace": 0.7611315653726607,
+    "sum_over_Dirac_species_colour_counted_of_y2_over_g2": 1.9999999999999998
+   }
+  ],
+  "statement": "sum over Dirac species (colour counted) of y^2 = 2 g^2 per family for every choice of the four leg amplitudes; equal amplitudes give y = g/2 on every leg"
+ },
+ "S5": {
+  "formula": "with a kinetic term of the register's own, Z_own |d theta|^2 beside the functional's Z_func = beta_lat H_theta/2: y^2 -> s y^2, s = Z_func/(Z_func + Z_own); the oscillator energy omega N of the audit's memory gives Z_own = 1/(2 omega g_t^2) per unit of theta and a mass term omega^2"
+ }
+}

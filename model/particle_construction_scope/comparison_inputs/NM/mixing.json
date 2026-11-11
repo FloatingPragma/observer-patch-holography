@@ -1,0 +1,2176 @@
+{
+ "TH_P": {
+  "statement": "f_0 = (1,1,1)/sqrt3 is a common eigenvector of the six position permutations, hence of every operator in their algebra and of Y Y^dag for every such Y; with tau on f_0 the tau row and one column of U_PMNS are unit vectors: two of the three angles are 0 or 90 degrees",
+  "holds": true
+ },
+ "TH_M": {
+  "statement": "for M_R = alpha + beta (S + S^-1) the light masses are lambda_0^2/abs(alpha + 2 beta) on f_0 and lambda_1 lambda_2/abs(alpha - beta) twice on (f_1, f_2): the electron and muon characters form a degenerate pair for every alpha, beta",
+  "holds": true
+ },
+ "M2_note": "pairing a copy with its half-turn image is the identity pairing of the characters: masses lambda_k^2, U a permutation",
+ "entries": [
+  {
+   "id": "C0",
+   "kind": "Dirac: source as it stands",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     1.0,
+     4.6276515204404455e-80,
+     9.7294145342357e-83
+    ],
+    [
+     5.181019638743451e-80,
+     1.0,
+     4.267236793312142e-82
+    ],
+    [
+     1.7570329905384204e-82,
+     5.4907280954325644e-83,
+     1.0
+    ]
+   ],
+   "J": -3.147306029264645e-82,
+   "sin2_theta12": 4.6276515204404455e-80,
+   "sin2_theta23": 4.267236793312142e-82,
+   "sin2_theta13": 9.7294145342357e-83,
+   "theta12_deg": 1.2325454878804026e-38,
+   "theta23_deg": 1.1835756013913454e-39,
+   "theta13_deg": 5.651529334161286e-40,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.05918939270185883,
+   "r_square": 0.003535401712130539
+  },
+  {
+   "id": "C0",
+   "kind": "Dirac: source as it stands",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     4.6276515204404455e-80,
+     9.7294145342357e-83,
+     1.0
+    ],
+    [
+     1.0,
+     4.267236793312142e-82,
+     5.181019638743451e-80
+    ],
+    [
+     5.4907280954325644e-83,
+     1.0,
+     1.7570329905384204e-82
+    ]
+   ],
+   "J": 1.589162571538672e-122,
+   "sin2_theta13": 1.0,
+   "sin2_theta12": null,
+   "sin2_theta23": null,
+   "theta13_deg": 90.0,
+   "theta12_deg": null,
+   "theta23_deg": null,
+   "delta_deg": null,
+   "note": "abs(U_e3) = 1: theta12 and theta23 undefined",
+   "r_linear": 15.894919078441486,
+   "r_square": 281.8532883742283
+  },
+  {
+   "id": "C0",
+   "kind": "Dirac: source as it stands",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     6.1710443139381e-80,
+     1.0,
+     1.0641014883350453e-82
+    ],
+    [
+     1.0,
+     5.572598644520499e-80,
+     3.2132282589965297e-82
+    ],
+    [
+     1.7570329905384204e-82,
+     5.4907280954325644e-83,
+     1.0
+    ]
+   ],
+   "J": -5.761957010516675e-82,
+   "sin2_theta12": 1.0,
+   "sin2_theta23": 3.2132282589965297e-82,
+   "sin2_theta13": 1.0641014883350453e-82,
+   "theta12_deg": 90.0,
+   "theta23_deg": 1.0270543380304174e-39,
+   "theta13_deg": 5.910363037042001e-40,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.05918939270185883,
+   "r_square": 0.003535401712130539
+  },
+  {
+   "id": "C0",
+   "kind": "Dirac: source as it stands",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     1.0,
+     1.0641014883350453e-82,
+     6.1710443139381e-80
+    ],
+    [
+     5.572598644520499e-80,
+     3.2132282589965297e-82,
+     1.0
+    ],
+    [
+     5.4907280954325644e-83,
+     1.0,
+     1.7570329905384204e-82
+    ]
+   ],
+   "J": -2.8033929854284707e-123,
+   "sin2_theta12": 1.0641014883350453e-82,
+   "sin2_theta23": 1.0,
+   "sin2_theta13": 6.1710443139381e-80,
+   "theta12_deg": 5.910363037042001e-40,
+   "theta23_deg": 90.0,
+   "theta13_deg": 1.4233180761867624e-38,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 15.894919078441486,
+   "r_square": 281.8532883742283
+  },
+  {
+   "id": "C1",
+   "kind": "Dirac: hold carries the half-turn",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1454426505964988,
+    0.7251753740933249,
+    1.0
+   ],
+   "masses_linear": [
+    0.14128321852844797,
+    0.7044364938983213,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.36969811616209286,
+     0.6303018838379072,
+     2.3455274541504334e-82
+    ],
+    [
+     0.6303018838379072,
+     0.36969811616209286,
+     9.192885877071703e-82
+    ],
+    [
+     5.820171781158518e-82,
+     4.392582476346051e-83,
+     1.0
+    ]
+   ],
+   "J": 2.053378345733365e-42,
+   "sin2_theta12": 0.6303018838379072,
+   "sin2_theta23": 9.192885877071703e-82,
+   "sin2_theta13": 2.3455274541504334e-82,
+   "theta12_deg": 52.552945294558064,
+   "theta23_deg": 1.737194984225555e-39,
+   "theta13_deg": 8.774914484262466e-40,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.515633239629737,
+   "r_square": 0.27622519266176954
+  },
+  {
+   "id": "C1",
+   "kind": "Dirac: hold carries the half-turn",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1454426505964988,
+    0.7251753740933249,
+    1.0
+   ],
+   "masses_linear": [
+    0.14128321852844797,
+    0.7044364938983213,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.6303018838379072,
+     2.3455274541504334e-82,
+     0.36969811616209286
+    ],
+    [
+     0.36969811616209286,
+     9.192885877071703e-82,
+     0.6303018838379072
+    ],
+    [
+     4.392582476346051e-83,
+     1.0,
+     5.820171781158518e-82
+    ]
+   ],
+   "J": 1.0394040409713647e-82,
+   "sin2_theta12": 3.721276287274473e-82,
+   "sin2_theta23": 1.0,
+   "sin2_theta13": 0.36969811616209286,
+   "theta12_deg": 1.1052705291471752e-39,
+   "theta23_deg": 90.0,
+   "theta13_deg": 37.447054705441936,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.9393629485912787,
+   "r_square": 2.62023460048582
+  },
+  {
+   "id": "C1",
+   "kind": "Dirac: hold carries the half-turn",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1454426505964988,
+    0.7251753740933249,
+    1.0
+   ],
+   "masses_linear": [
+    0.14128321852844797,
+    0.7044364938983213,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.6303018838379072,
+     0.36969811616209286,
+     5.796518788717264e-82
+    ],
+    [
+     0.36969811616209286,
+     0.6303018838379072,
+     8.785164952692102e-83
+    ],
+    [
+     5.820171781158518e-82,
+     4.392582476346051e-83,
+     1.0
+    ]
+   ],
+   "J": 2.2633406374340542e-42,
+   "sin2_theta12": 0.36969811616209286,
+   "sin2_theta23": 8.785164952692102e-83,
+   "sin2_theta13": 5.796518788717264e-82,
+   "theta12_deg": 37.447054705441936,
+   "theta23_deg": 5.3702881945569976e-40,
+   "theta13_deg": 1.3794509301734301e-39,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.515633239629737,
+   "r_square": 0.27622519266176954
+  },
+  {
+   "id": "C1",
+   "kind": "Dirac: hold carries the half-turn",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1454426505964988,
+    0.7251753740933249,
+    1.0
+   ],
+   "masses_linear": [
+    0.14128321852844797,
+    0.7044364938983213,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.36969811616209286,
+     5.796518788717264e-82,
+     0.6303018838379072
+    ],
+    [
+     0.6303018838379072,
+     8.785164952692102e-83,
+     0.36969811616209286
+    ],
+    [
+     4.392582476346051e-83,
+     1.0,
+     5.820171781158518e-82
+    ]
+   ],
+   "J": 8.689561808681708e-83,
+   "sin2_theta12": 1.5679059576748834e-81,
+   "sin2_theta23": 1.0,
+   "sin2_theta13": 0.6303018838379072,
+   "theta12_deg": 2.268729079038824e-39,
+   "theta23_deg": 90.0,
+   "theta13_deg": 52.552945294558064,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.9393629485912787,
+   "r_square": 2.62023460048582
+  },
+  {
+   "id": "C2",
+   "kind": "Dirac: repairs carry the half-turn",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": true,
+   "masses_linear_over_heaviest": [
+    0.15946544699365212,
+    1.0,
+    1.0
+   ],
+   "masses_linear": [
+    0.15490498490601037,
+    0.9714015658337364,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "note": "degenerate pair: the mixing inside the pair and the splitting ratio are undefined"
+  },
+  {
+   "id": "C2",
+   "kind": "Dirac: repairs carry the half-turn",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": true,
+   "masses_linear_over_heaviest": [
+    0.15946544699365212,
+    1.0,
+    1.0
+   ],
+   "masses_linear": [
+    0.15490498490601037,
+    0.9714015658337364,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "note": "degenerate pair: the mixing inside the pair and the splitting ratio are undefined"
+  },
+  {
+   "id": "C2",
+   "kind": "Dirac: repairs carry the half-turn",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": true,
+   "masses_linear_over_heaviest": [
+    0.15946544699365212,
+    1.0,
+    1.0
+   ],
+   "masses_linear": [
+    0.15490498490601037,
+    0.9714015658337364,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "note": "degenerate pair: the mixing inside the pair and the splitting ratio are undefined"
+  },
+  {
+   "id": "C2",
+   "kind": "Dirac: repairs carry the half-turn",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": true,
+   "masses_linear_over_heaviest": [
+    0.15946544699365212,
+    1.0,
+    1.0
+   ],
+   "masses_linear": [
+    0.15490498490601037,
+    0.9714015658337364,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "note": "degenerate pair: the mixing inside the pair and the splitting ratio are undefined"
+  },
+  {
+   "id": "C3",
+   "kind": "Dirac: hold at the E position",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.020795058968227764,
+    0.43403925338366367,
+    1.0
+   ],
+   "masses_linear": [
+    0.015572416728020505,
+    0.32503106340483373,
+    0.7488517705967173
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.1378792281482663,
+     0.8372852895367742,
+     0.024835482314959578
+    ],
+    [
+     0.8038570745646743,
+     0.15798649232906092,
+     0.03815643310626485
+    ],
+    [
+     0.05826369728705947,
+     0.004728218134164957,
+     0.9370080845787756
+    ]
+   ],
+   "J": -7.90746598025353e-42,
+   "sin2_theta12": 0.8586092647468551,
+   "sin2_theta23": 0.039128200846401846,
+   "sin2_theta13": 0.024835482314959578,
+   "theta12_deg": 67.91265599129956,
+   "theta23_deg": 11.408834982375971,
+   "theta13_deg": 9.06719971618781,
+   "sin_delta": -7.616180311799264e-40,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 3.4438311059246704e-39,
+   "r_linear": 0.18803895352697272,
+   "r_square": 0.03549063942214629
+  },
+  {
+   "id": "C3",
+   "kind": "Dirac: hold at the E position",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.020795058968227764,
+    0.43403925338366367,
+    1.0
+   ],
+   "masses_linear": [
+    0.015572416728020505,
+    0.32503106340483373,
+    0.7488517705967173
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.8372852895367742,
+     0.024835482314959578,
+     0.1378792281482663
+    ],
+    [
+     0.15798649232906092,
+     0.03815643310626485,
+     0.8038570745646743
+    ],
+    [
+     0.004728218134164957,
+     0.9370080845787756,
+     0.05826369728705947
+    ]
+   ],
+   "J": 3.3791803003906e-42,
+   "sin2_theta12": 0.028807428292924545,
+   "sin2_theta23": 0.9324181725004538,
+   "sin2_theta13": 0.1378792281482663,
+   "theta12_deg": 9.771976405647377,
+   "theta23_deg": 74.93201162191771,
+   "theta13_deg": 21.797105134540708,
+   "sin_delta": 2.51401915746137e-40,
+   "cos_delta": 1.0,
+   "delta_deg": 1.440426873375716e-38,
+   "unit_circle_defect": 2.2958874039497803e-40,
+   "r_linear": 4.318047038889513,
+   "r_square": 27.17644359982977
+  },
+  {
+   "id": "C3",
+   "kind": "Dirac: hold at the E position",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.020795058968227764,
+    0.43403925338366367,
+    1.0
+   ],
+   "masses_linear": [
+    0.015572416728020505,
+    0.32503106340483373,
+    0.7488517705967173
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.8038570745646743,
+     0.15798649232906092,
+     0.03815643310626485
+    ],
+    [
+     0.1378792281482663,
+     0.8372852895367742,
+     0.024835482314959578
+    ],
+    [
+     0.05826369728705947,
+     0.004728218134164957,
+     0.9370080845787756
+    ]
+   ],
+   "J": -8.690074303501705e-42,
+   "sin2_theta12": 0.1642538327092802,
+   "sin2_theta23": 0.02582070844967601,
+   "sin2_theta13": 0.03815643310626485,
+   "theta12_deg": 23.908825679020023,
+   "theta23_deg": 9.246846011873751,
+   "theta13_deg": 11.264394343197536,
+   "sin_delta": -7.871122722934303e-40,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 5.969307250269429e-40,
+   "r_linear": 0.18803895352697272,
+   "r_square": 0.03549063942214629
+  },
+  {
+   "id": "C3",
+   "kind": "Dirac: hold at the E position",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.020795058968227764,
+    0.43403925338366367,
+    1.0
+   ],
+   "masses_linear": [
+    0.015572416728020505,
+    0.32503106340483373,
+    0.7488517705967173
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.15798649232906092,
+     0.03815643310626485,
+     0.8038570745646743
+    ],
+    [
+     0.8372852895367742,
+     0.024835482314959578,
+     0.1378792281482663
+    ],
+    [
+     0.004728218134164957,
+     0.9370080845787756,
+     0.05826369728705947
+    ]
+   ],
+   "J": 3.3449999622447746e-42,
+   "sin2_theta12": 0.1945338228313831,
+   "sin2_theta23": 0.7029528485019422,
+   "sin2_theta13": 0.8038570745646743,
+   "theta12_deg": 26.17152558677201,
+   "theta23_deg": 56.97394761657993,
+   "theta13_deg": 63.712201977319964,
+   "sin_delta": 1.0515672238374907e-40,
+   "cos_delta": 1.0,
+   "delta_deg": 6.025036380017696e-39,
+   "unit_circle_defect": 4.5917748078995606e-40,
+   "r_linear": 4.318047038889513,
+   "r_square": 27.17644359982977
+  },
+  {
+   "id": "C4",
+   "kind": "Dirac: hold off the E position",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1838112732631658,
+    0.24778411479997878,
+    1.0
+   ],
+   "masses_linear": [
+    0.1603385914589885,
+    0.21614210732363345,
+    0.872300096792371
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.2190501495174164,
+     0.7680286577223195,
+     0.012921192760264055
+    ],
+    [
+     0.7740577818289273,
+     0.20250316587678416,
+     0.02343905229428855
+    ],
+    [
+     0.006892068653656324,
+     0.02946817640089628,
+     0.9636397549454474
+    ]
+   ],
+   "J": -2.065939624268591e-43,
+   "sin2_theta12": 0.7780824105321767,
+   "sin2_theta23": 0.023745877352826003,
+   "sin2_theta13": 0.012921192760264055,
+   "theta12_deg": 61.8954911465251,
+   "theta23_deg": 8.864427464183967,
+   "theta13_deg": 6.527000788163878,
+   "sin_delta": -2.9102498964256076e-41,
+   "cos_delta": 1.0,
+   "delta_deg": 360.0,
+   "unit_circle_defect": 1.6759978048833396e-39,
+   "r_linear": 0.02857586421019769,
+   "r_square": 0.0026310577935414773
+  },
+  {
+   "id": "C4",
+   "kind": "Dirac: hold off the E position",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1838112732631658,
+    0.24778411479997878,
+    1.0
+   ],
+   "masses_linear": [
+    0.1603385914589885,
+    0.21614210732363345,
+    0.872300096792371
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.7680286577223195,
+     0.012921192760264055,
+     0.2190501495174164
+    ],
+    [
+     0.20250316587678416,
+     0.02343905229428855,
+     0.7740577818289273
+    ],
+    [
+     0.02946817640089628,
+     0.9636397549454474,
+     0.006892068653656324
+    ]
+   ],
+   "J": -2.2887801471227572e-42,
+   "sin2_theta12": 0.016545483365262795,
+   "sin2_theta23": 0.991174761542758,
+   "sin2_theta13": 0.2190501495174164,
+   "theta12_deg": 7.390388966741327,
+   "theta23_deg": 84.6095288493465,
+   "theta13_deg": 27.906361602964093,
+   "sin_delta": -5.248726503742279e-40,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 4.454021563662574e-39,
+   "r_linear": 33.99456718593785,
+   "r_square": 379.07526951886985
+  },
+  {
+   "id": "C4",
+   "kind": "Dirac: hold off the E position",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1838112732631658,
+    0.24778411479997878,
+    1.0
+   ],
+   "masses_linear": [
+    0.1603385914589885,
+    0.21614210732363345,
+    0.872300096792371
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.7740577818289273,
+     0.20250316587678416,
+     0.02343905229428855
+    ],
+    [
+     0.2190501495174164,
+     0.7680286577223195,
+     0.012921192760264055
+    ],
+    [
+     0.006892068653656324,
+     0.02946817640089628,
+     0.9636397549454474
+    ]
+   ],
+   "J": 2.2498627959892582e-43,
+   "sin2_theta12": 0.20736357147245754,
+   "sin2_theta23": 0.013231322418350362,
+   "sin2_theta13": 0.02343905229428855,
+   "theta12_deg": 27.088865775018824,
+   "theta23_deg": 6.605210371719106,
+   "theta13_deg": 8.80651347201042,
+   "sin_delta": 3.2484344466850723e-41,
+   "cos_delta": 1.0,
+   "delta_deg": 1.8612158381996948e-39,
+   "unit_circle_defect": 4.3621860675045825e-40,
+   "r_linear": 0.02857586421019769,
+   "r_square": 0.0026310577935414773
+  },
+  {
+   "id": "C4",
+   "kind": "Dirac: hold off the E position",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1838112732631658,
+    0.24778411479997878,
+    1.0
+   ],
+   "masses_linear": [
+    0.1603385914589885,
+    0.21614210732363345,
+    0.872300096792371
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.20250316587678416,
+     0.02343905229428855,
+     0.7740577818289273
+    ],
+    [
+     0.7680286577223195,
+     0.012921192760264055,
+     0.2190501495174164
+    ],
+    [
+     0.02946817640089628,
+     0.9636397549454474,
+     0.006892068653656324
+    ]
+   ],
+   "J": -2.293789463960228e-42,
+   "sin2_theta12": 0.10373914394582784,
+   "sin2_theta23": 0.9694963220709908,
+   "sin2_theta13": 0.7740577818289273,
+   "theta12_deg": 18.78910108086328,
+   "theta23_deg": 79.94153325639758,
+   "theta13_deg": 61.61891428685438,
+   "sin_delta": -2.2005525497128415e-40,
+   "cos_delta": 1.0,
+   "delta_deg": 360.0,
+   "unit_circle_defect": 2.433640648186767e-39,
+   "r_linear": 33.99456718593785,
+   "r_square": 379.07526951886985
+  },
+  {
+   "id": "C5",
+   "kind": "Dirac: repair on the C link only",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1715728752538099,
+    0.585786437626905,
+    1.0
+   ],
+   "masses_linear": [
+    0.11957315586905014,
+    0.408248290463863,
+    0.6969234250586759
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.5595250291548304,
+     0.3333333333333333,
+     0.10714163751183628
+    ],
+    [
+     0.4322783326416521,
+     0.3333333333333333,
+     0.23438833402501455
+    ],
+    [
+     0.008196638203517492,
+     0.3333333333333333,
+     0.6584700284631492
+    ]
+   ],
+   "J": -4.329518078582167e-42,
+   "sin2_theta12": 0.37333282336564577,
+   "sin2_theta23": 0.2625145755165862,
+   "sin2_theta13": 0.10714163751183628,
+   "theta12_deg": 37.662544924275466,
+   "theta23_deg": 30.82127398773799,
+   "theta13_deg": 19.10649238439183,
+   "sin_delta": -6.960779140385971e-41,
+   "cos_delta": 1.0,
+   "delta_deg": 360.0,
+   "unit_circle_defect": 0.0,
+   "r_linear": 0.32322330470336313,
+   "r_square": 0.11698382685728675
+  },
+  {
+   "id": "C5",
+   "kind": "Dirac: repair on the C link only",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1715728752538099,
+    0.585786437626905,
+    1.0
+   ],
+   "masses_linear": [
+    0.11957315586905014,
+    0.408248290463863,
+    0.6969234250586759
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.3333333333333333,
+     0.10714163751183628,
+     0.5595250291548304
+    ],
+    [
+     0.3333333333333333,
+     0.23438833402501455,
+     0.4322783326416521
+    ],
+    [
+     0.3333333333333333,
+     0.6584700284631492,
+     0.008196638203517492
+    ]
+   ],
+   "J": -3.9586386451227014e-44,
+   "sin2_theta12": 0.24324114785967577,
+   "sin2_theta23": 0.9813913644450897,
+   "sin2_theta13": 0.5595250291548304,
+   "theta12_deg": 29.55078617432118,
+   "theta23_deg": 82.15963788644642,
+   "theta13_deg": 48.41864096429417,
+   "sin_delta": -2.0722359654010996e-42,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 3.857090838635631e-39,
+   "r_linear": 2.0938363213560542,
+   "r_square": 7.548190180339543
+  },
+  {
+   "id": "C5",
+   "kind": "Dirac: repair on the C link only",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1715728752538099,
+    0.585786437626905,
+    1.0
+   ],
+   "masses_linear": [
+    0.11957315586905014,
+    0.408248290463863,
+    0.6969234250586759
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.4322783326416521,
+     0.3333333333333333,
+     0.23438833402501455
+    ],
+    [
+     0.5595250291548304,
+     0.3333333333333333,
+     0.10714163751183628
+    ],
+    [
+     0.008196638203517492,
+     0.3333333333333333,
+     0.6584700284631492
+    ]
+   ],
+   "J": -2.019616418775651e-42,
+   "sin2_theta12": 0.4353817322112542,
+   "sin2_theta23": 0.1399425351955607,
+   "sin2_theta13": 0.23438833402501455,
+   "theta12_deg": 41.28726156661858,
+   "theta23_deg": 21.968014973149078,
+   "theta13_deg": 28.955926121381886,
+   "sin_delta": -3.167679154580173e-41,
+   "cos_delta": 1.0,
+   "delta_deg": 360.0,
+   "unit_circle_defect": 9.183549615799121e-41,
+   "r_linear": 0.32322330470336313,
+   "r_square": 0.11698382685728675
+  },
+  {
+   "id": "C5",
+   "kind": "Dirac: repair on the C link only",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.1715728752538099,
+    0.585786437626905,
+    1.0
+   ],
+   "masses_linear": [
+    0.11957315586905014,
+    0.408248290463863,
+    0.6969234250586759
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.3333333333333333,
+     0.23438833402501455,
+     0.4322783326416521
+    ],
+    [
+     0.3333333333333333,
+     0.10714163751183628,
+     0.5595250291548304
+    ],
+    [
+     0.3333333333333333,
+     0.6584700284631492,
+     0.008196638203517492
+    ]
+   ],
+   "J": 3.1914602041592618e-43,
+   "sin2_theta12": 0.4128578271737299,
+   "sin2_theta23": 0.9855622241059477,
+   "sin2_theta13": 0.4322783326416521,
+   "theta12_deg": 39.981492926317955,
+   "theta23_deg": 83.0988193112702,
+   "theta13_deg": 41.10787171985457,
+   "sin_delta": 1.4558215982071545e-41,
+   "cos_delta": 1.0,
+   "delta_deg": 8.341243330126025e-40,
+   "unit_circle_defect": 6.336649234901394e-39,
+   "r_linear": 2.0938363213560542,
+   "r_square": 7.548190180339543
+  },
+  {
+   "id": "C6",
+   "kind": "Dirac: hold and repair local",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0,
+    0.2679491924311227,
+    1.0
+   ],
+   "masses_linear": [
+    0.0,
+    0.14942924536134225,
+    0.5576775358252053
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.3333333333333333,
+     0.5180180796058299,
+     0.14864858706083678
+    ],
+    [
+     0.3333333333333333,
+     0.41412158696847184,
+     0.25254507969819484
+    ],
+    [
+     0.3333333333333333,
+     0.06786033342569826,
+     0.5988063332409684
+    ]
+   ],
+   "J": -0.05555555555555555,
+   "sin2_theta12": 0.6084656367896896,
+   "sin2_theta23": 0.29664023088458946,
+   "sin2_theta13": 0.14864858706083678,
+   "theta12_deg": 51.264427794480696,
+   "theta23_deg": 33.00053638893035,
+   "theta13_deg": 22.677871827470053,
+   "sin_delta": -0.7591567949027426,
+   "cos_delta": -0.6509077974283265,
+   "delta_deg": 229.38991907551565,
+   "unit_circle_defect": 3.4438311059246704e-41,
+   "r_linear": 0.07179676972449082,
+   "r_square": 0.0051547761428715625
+  },
+  {
+   "id": "C6",
+   "kind": "Dirac: hold and repair local",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0,
+    0.2679491924311227,
+    1.0
+   ],
+   "masses_linear": [
+    0.0,
+    0.14942924536134225,
+    0.5576775358252053
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.5180180796058299,
+     0.14864858706083678,
+     0.3333333333333333
+    ],
+    [
+     0.41412158696847184,
+     0.25254507969819484,
+     0.3333333333333333
+    ],
+    [
+     0.06786033342569826,
+     0.5988063332409684,
+     0.3333333333333333
+    ]
+   ],
+   "J": -0.05555555555555555,
+   "sin2_theta12": 0.22297288059125514,
+   "sin2_theta23": 0.5,
+   "sin2_theta13": 0.3333333333333333,
+   "theta12_deg": 28.1772011093877,
+   "theta23_deg": 45.0,
+   "theta13_deg": 35.264389682754654,
+   "sin_delta": -0.693530022886177,
+   "cos_delta": 0.7204277252823483,
+   "delta_deg": 316.08980552674,
+   "unit_circle_defect": 2.2958874039497803e-41,
+   "r_linear": 12.928203230275509,
+   "r_square": 192.99484522385714
+  },
+  {
+   "id": "C6",
+   "kind": "Dirac: hold and repair local",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0,
+    0.2679491924311227,
+    1.0
+   ],
+   "masses_linear": [
+    0.0,
+    0.14942924536134225,
+    0.5576775358252053
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.3333333333333333,
+     0.41412158696847184,
+     0.25254507969819484
+    ],
+    [
+     0.3333333333333333,
+     0.5180180796058299,
+     0.14864858706083678
+    ],
+    [
+     0.3333333333333333,
+     0.06786033342569826,
+     0.5988063332409684
+    ]
+   ],
+   "J": -0.05555555555555555,
+   "sin2_theta12": 0.5540422247822772,
+   "sin2_theta23": 0.1988729795247262,
+   "sin2_theta13": 0.25254507969819484,
+   "theta12_deg": 48.10245211331417,
+   "theta23_deg": 26.48424870925758,
+   "theta13_deg": 30.168097349427107,
+   "sin_delta": -0.7454459361132737,
+   "cos_delta": -0.6665660929961897,
+   "delta_deg": 228.197415771494,
+   "unit_circle_defect": 6.887662211849341e-41,
+   "r_linear": 0.07179676972449082,
+   "r_square": 0.0051547761428715625
+  },
+  {
+   "id": "C6",
+   "kind": "Dirac: hold and repair local",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0,
+    0.2679491924311227,
+    1.0
+   ],
+   "masses_linear": [
+    0.0,
+    0.14942924536134225,
+    0.5576775358252053
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.41412158696847184,
+     0.25254507969819484,
+     0.3333333333333333
+    ],
+    [
+     0.5180180796058299,
+     0.14864858706083678,
+     0.3333333333333333
+    ],
+    [
+     0.06786033342569826,
+     0.5988063332409684,
+     0.3333333333333333
+    ]
+   ],
+   "J": -0.05555555555555555,
+   "sin2_theta12": 0.37881761954729226,
+   "sin2_theta23": 0.5,
+   "sin2_theta13": 0.3333333333333333,
+   "theta12_deg": 37.98692369910703,
+   "theta23_deg": 45.0,
+   "theta13_deg": 35.264389682754654,
+   "sin_delta": -0.595092843176199,
+   "cos_delta": 0.8036569591563728,
+   "delta_deg": 323.48074903862243,
+   "unit_circle_defect": 4.591774807899561e-41,
+   "r_linear": 12.928203230275509,
+   "r_square": 192.99484522385714
+  },
+  {
+   "id": "C7",
+   "kind": "Dirac: frame sign of the distinguished axis",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.1111111111111111,
+     0.4444444444444444,
+     0.4444444444444444
+    ],
+    [
+     0.4444444444444444,
+     0.1111111111111111,
+     0.4444444444444444
+    ],
+    [
+     0.4444444444444444,
+     0.4444444444444444,
+     0.1111111111111111
+    ]
+   ],
+   "J": 2.398434552210214e-41,
+   "sin2_theta12": 0.8,
+   "sin2_theta23": 0.8,
+   "sin2_theta13": 0.4444444444444444,
+   "theta12_deg": 63.43494882292201,
+   "theta23_deg": 63.43494882292201,
+   "theta13_deg": 41.810314895778596,
+   "sin_delta": 4.0473583068547364e-40,
+   "cos_delta": 1.0,
+   "delta_deg": 2.3189654915999114e-38,
+   "unit_circle_defect": 1.9285454193178154e-39,
+   "r_linear": 0.05918939270185883,
+   "r_square": 0.003535401712130539
+  },
+  {
+   "id": "C7",
+   "kind": "Dirac: frame sign of the distinguished axis",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.4444444444444444,
+     0.4444444444444444,
+     0.1111111111111111
+    ],
+    [
+     0.1111111111111111,
+     0.4444444444444444,
+     0.4444444444444444
+    ],
+    [
+     0.4444444444444444,
+     0.1111111111111111,
+     0.4444444444444444
+    ]
+   ],
+   "J": 2.347751265555453e-41,
+   "sin2_theta12": 0.5,
+   "sin2_theta23": 0.5,
+   "sin2_theta13": 0.1111111111111111,
+   "theta12_deg": 45.0,
+   "theta23_deg": 45.0,
+   "theta13_deg": 19.47122063449069,
+   "sin_delta": 3.1694642084998613e-40,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 3.9030085867146265e-40,
+   "r_linear": 15.894919078441486,
+   "r_square": 281.8532883742283
+  },
+  {
+   "id": "C7",
+   "kind": "Dirac: frame sign of the distinguished axis",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.4444444444444444,
+     0.1111111111111111,
+     0.4444444444444444
+    ],
+    [
+     0.1111111111111111,
+     0.4444444444444444,
+     0.4444444444444444
+    ],
+    [
+     0.4444444444444444,
+     0.4444444444444444,
+     0.1111111111111111
+    ]
+   ],
+   "J": 2.40389455921819e-41,
+   "sin2_theta12": 0.2,
+   "sin2_theta23": 0.8,
+   "sin2_theta13": 0.4444444444444444,
+   "theta12_deg": 26.56505117707799,
+   "theta23_deg": 63.43494882292201,
+   "theta13_deg": 41.810314895778596,
+   "sin_delta": 4.056572068680696e-40,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 9.183549615799121e-41,
+   "r_linear": 0.05918939270185883,
+   "r_square": 0.003535401712130539
+  },
+  {
+   "id": "C7",
+   "kind": "Dirac: frame sign of the distinguished axis",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.016957746034439315,
+    0.2438440834750825,
+    1.0
+   ],
+   "masses_linear": [
+    0.016472781050865186,
+    0.23687052450698748,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.1111111111111111,
+     0.4444444444444444,
+     0.4444444444444444
+    ],
+    [
+     0.4444444444444444,
+     0.4444444444444444,
+     0.1111111111111111
+    ],
+    [
+     0.4444444444444444,
+     0.1111111111111111,
+     0.4444444444444444
+    ]
+   ],
+   "J": 2.127615690013919e-41,
+   "sin2_theta12": 0.8,
+   "sin2_theta23": 0.2,
+   "sin2_theta13": 0.4444444444444444,
+   "theta12_deg": 63.43494882292201,
+   "theta23_deg": 26.56505117707799,
+   "theta13_deg": 41.810314895778596,
+   "sin_delta": 3.590351476898488e-40,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 3.2142423655296924e-40,
+   "r_linear": 15.894919078441486,
+   "r_square": 281.8532883742283
+  },
+  {
+   "id": "C8",
+   "kind": "Dirac: hold on the half-turn-even half",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.15906739889459184,
+    0.31853284588824393,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.2624725490417115,
+     0.7375274509582884,
+     3.2952209302863052e-81
+    ],
+    [
+     0.7375274509582884,
+     0.2624725490417115,
+     1.8522369688303882e-81
+    ],
+    [
+     5.4907280954325644e-83,
+     1.7844866310155835e-82,
+     1.0
+    ]
+   ],
+   "J": -1.6662353193867255e-41,
+   "sin2_theta12": 0.7375274509582884,
+   "sin2_theta23": 1.8522369688303882e-81,
+   "sin2_theta13": 3.2952209302863052e-81,
+   "theta12_deg": 59.18146237308787,
+   "theta23_deg": 2.4658741417604635e-39,
+   "theta13_deg": 3.289007782696096e-39,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.07813781365649274,
+   "r_square": 0.009660747261143542
+  },
+  {
+   "id": "C8",
+   "kind": "Dirac: hold on the half-turn-even half",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.15906739889459184,
+    0.31853284588824393,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.7375274509582884,
+     3.2952209302863052e-81,
+     0.2624725490417115
+    ],
+    [
+     0.2624725490417115,
+     1.8522369688303882e-81,
+     0.7375274509582884
+    ],
+    [
+     1.7844866310155835e-82,
+     1.0,
+     5.4907280954325644e-83
+    ]
+   ],
+   "J": 4.825672120229719e-82,
+   "sin2_theta12": 4.46792987298946e-81,
+   "sin2_theta23": 1.0,
+   "sin2_theta13": 0.2624725490417115,
+   "theta12_deg": 3.829797456583959e-39,
+   "theta23_deg": 90.0,
+   "theta13_deg": 30.81853762691213,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 11.797900954794716,
+   "r_square": 102.51166146557799
+  },
+  {
+   "id": "C8",
+   "kind": "Dirac: hold on the half-turn-even half",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.15906739889459184,
+    0.31853284588824393,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.7375274509582884,
+     0.2624725490417115,
+     3.5243989374002064e-81
+    ],
+    [
+     0.2624725490417115,
+     0.7375274509582884,
+     1.6496326908456512e-81
+    ],
+    [
+     5.4907280954325644e-83,
+     1.7844866310155835e-82,
+     1.0
+    ]
+   ],
+   "J": -1.5505012380271085e-41,
+   "sin2_theta12": 0.2624725490417115,
+   "sin2_theta23": 1.6496326908456512e-81,
+   "sin2_theta13": 3.5243989374002064e-81,
+   "theta12_deg": 30.81853762691213,
+   "theta23_deg": 2.3271065022243963e-39,
+   "theta13_deg": 3.4014583948171465e-39,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.07813781365649274,
+   "r_square": 0.009660747261143542
+  },
+  {
+   "id": "C8",
+   "kind": "Dirac: hold on the half-turn-even half",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.15906739889459184,
+    0.31853284588824393,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.9714015658337364
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.2624725490417115,
+     3.5243989374002064e-81,
+     0.7375274509582884
+    ],
+    [
+     0.7375274509582884,
+     1.6496326908456512e-81,
+     0.2624725490417115
+    ],
+    [
+     1.7844866310155835e-82,
+     1.0,
+     5.4907280954325644e-83
+    ]
+   ],
+   "J": 4.7774723074451574e-82,
+   "sin2_theta12": 1.34276858675995e-80,
+   "sin2_theta23": 1.0,
+   "sin2_theta13": 0.7375274509582884,
+   "theta12_deg": 6.639314153744993e-39,
+   "theta23_deg": 90.0,
+   "theta13_deg": 59.18146237308787,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 11.797900954794716,
+   "r_square": 102.51166146557799
+  },
+  {
+   "id": "C9",
+   "kind": "Dirac: hold on the half-turn-odd half",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.27438057650969,
+    0.5494477592482976,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.5631532753698734
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.2624725490417115,
+     0.7375274509582884,
+     4.5984140212392893e-82
+    ],
+    [
+     0.7375274509582884,
+     0.2624725490417115,
+     2.5624075144691653e-84
+    ],
+    [
+     1.3726820238581411e-83,
+     1.0981456190865128e-83,
+     1.0
+    ]
+   ],
+   "J": 4.4603773422120115e-42,
+   "sin2_theta12": 0.7375274509582884,
+   "sin2_theta23": 2.5624075144691653e-84,
+   "sin2_theta13": 4.5984140212392893e-82,
+   "theta12_deg": 59.18146237308787,
+   "theta23_deg": 9.171634347169094e-41,
+   "theta13_deg": 1.2286457076353368e-39,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.24505719713391533,
+   "r_square": 0.08595869627005606
+  },
+  {
+   "id": "C9",
+   "kind": "Dirac: hold on the half-turn-odd half",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.27438057650969,
+    0.5494477592482976,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.5631532753698734
+   ],
+   "relative_phase": "theta_nu = +theta_e",
+   "abs_U_squared": [
+    [
+     0.7375274509582884,
+     4.5984140212392893e-82,
+     0.2624725490417115
+    ],
+    [
+     0.2624725490417115,
+     2.5624075144691653e-84,
+     0.7375274509582884
+    ],
+    [
+     1.0981456190865128e-83,
+     1.0,
+     1.3726820238581411e-83
+    ]
+   ],
+   "J": -5.276835312269341e-84,
+   "sin2_theta12": 6.234905582516896e-82,
+   "sin2_theta23": 1.0,
+   "sin2_theta13": 0.2624725490417115,
+   "theta12_deg": 1.4306637493838354e-39,
+   "theta23_deg": 90.0,
+   "theta13_deg": 30.81853762691213,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 3.0806799869400874,
+   "r_square": 10.63349426401611
+  },
+  {
+   "id": "C9",
+   "kind": "Dirac: hold on the half-turn-odd half",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.27438057650969,
+    0.5494477592482976,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.5631532753698734
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.7375274509582884,
+     0.2624725490417115,
+     5.637710193964601e-82
+    ],
+    [
+     0.2624725490417115,
+     0.7375274509582884,
+     2.021724142282955e-83
+    ],
+    [
+     1.3726820238581411e-83,
+     1.0981456190865128e-83,
+     1.0
+    ]
+   ],
+   "J": 6.547844500360622e-42,
+   "sin2_theta12": 0.2624725490417115,
+   "sin2_theta23": 2.021724142282955e-83,
+   "sin2_theta13": 5.637710193964601e-82,
+   "theta12_deg": 30.81853762691213,
+   "theta23_deg": 2.5762237581892088e-40,
+   "theta13_deg": 1.3604231262468648e-39,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.24505719713391533,
+   "r_square": 0.08595869627005606
+  },
+  {
+   "id": "C9",
+   "kind": "Dirac: hold on the half-turn-odd half",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.27438057650969,
+    0.5494477592482976,
+    1.0
+   ],
+   "masses_linear": [
+    0.15451832035930604,
+    0.3094233052653164,
+    0.5631532753698734
+   ],
+   "relative_phase": "theta_nu = -theta_e",
+   "abs_U_squared": [
+    [
+     0.2624725490417115,
+     5.637710193964601e-82,
+     0.7375274509582884
+    ],
+    [
+     0.7375274509582884,
+     2.021724142282955e-83,
+     0.2624725490417115
+    ],
+    [
+     1.0981456190865128e-83,
+     1.0,
+     1.3726820238581411e-83
+    ]
+   ],
+   "J": -9.16070526671014e-84,
+   "sin2_theta12": 2.1479237408056217e-81,
+   "sin2_theta23": 1.0,
+   "sin2_theta13": 0.7375274509582884,
+   "theta12_deg": 2.6554129049279087e-39,
+   "theta23_deg": 90.0,
+   "theta13_deg": 59.18146237308787,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 3.0806799869400874,
+   "r_square": 10.63349426401611
+  },
+  {
+   "id": "M1",
+   "kind": "Majorana seesaw: pairing at one position",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": true,
+   "masses_linear_over_heaviest": [
+    0.004135046039571069,
+    0.004135046039571069,
+    1.0
+   ],
+   "masses_linear": [
+    0.0039019162876072007,
+    0.0039019162876072007,
+    0.9436210021042349
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "note": "degenerate pair: the mixing inside the pair and the splitting ratio are undefined"
+  },
+  {
+   "id": "M1",
+   "kind": "Majorana seesaw: pairing at one position",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": true,
+   "masses_linear_over_heaviest": [
+    0.004135046039571069,
+    0.004135046039571069,
+    1.0
+   ],
+   "masses_linear": [
+    0.0039019162876072007,
+    0.0039019162876072007,
+    0.9436210021042349
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "note": "degenerate pair: the mixing inside the pair and the splitting ratio are undefined"
+  },
+  {
+   "id": "M2",
+   "kind": "Majorana seesaw: pairing with the half-turn image",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0002875651505685423,
+    0.059459937045803005,
+    1.0
+   ],
+   "masses_linear": [
+    0.00027135251554974313,
+    0.05610764538021535,
+    0.9436210021042349
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "abs_U_squared": [
+    [
+     1.0,
+     6.319884488211667e-78,
+     9.490108920345337e-82
+    ],
+    [
+     6.441765945251647e-78,
+     1.0,
+     2.275917114612289e-81
+    ],
+    [
+     3.733695104894144e-82,
+     5.710357219249866e-82,
+     1.0
+    ]
+   ],
+   "J": 1.3423558916824153e-81,
+   "sin2_theta12": 6.319884488211667e-78,
+   "sin2_theta23": 2.275917114612289e-81,
+   "sin2_theta13": 9.490108920345337e-82,
+   "theta12_deg": 1.4403803986878598e-37,
+   "theta23_deg": 2.73338529226116e-39,
+   "theta13_deg": 1.7650549517228286e-39,
+   "delta_deg": null,
+   "note": "one of the angles is 0 or 90 degrees: delta undefined",
+   "r_linear": 0.003535401712130539,
+   "r_square": 1.249964790990806e-05
+  },
+  {
+   "id": "M2",
+   "kind": "Majorana seesaw: pairing with the half-turn image",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": true,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0002875651505685423,
+    0.059459937045803005,
+    1.0
+   ],
+   "masses_linear": [
+    0.00027135251554974313,
+    0.05610764538021535,
+    0.9436210021042349
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "abs_U_squared": [
+    [
+     6.319884488211667e-78,
+     9.490108920345337e-82,
+     1.0
+    ],
+    [
+     1.0,
+     2.275917114612289e-81,
+     6.441765945251647e-78
+    ],
+    [
+     5.710357219249866e-82,
+     1.0,
+     3.733695104894144e-82
+    ]
+   ],
+   "J": 7.702219492238793e-121,
+   "sin2_theta13": 1.0,
+   "sin2_theta12": null,
+   "sin2_theta23": null,
+   "theta13_deg": 90.0,
+   "theta12_deg": null,
+   "theta23_deg": null,
+   "delta_deg": null,
+   "note": "abs(U_e3) = 1: theta12 and theta23 undefined",
+   "r_linear": 281.8532883742283,
+   "r_square": 80001.25344006153
+  },
+  {
+   "id": "M3",
+   "kind": "Majorana seesaw: pairing with the frame sign",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.001091625069477468,
+    0.2550213209870704,
+    1.0
+   ],
+   "masses_linear": [
+    0.0004064196225239102,
+    0.09494621542607713,
+    0.3723069704861693
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "abs_U_squared": [
+    [
+     0.9985012271962569,
+     0.00071287849336916,
+     0.0007858943103739626
+    ],
+    [
+     0.0012139658929937371,
+     0.8758840354696282,
+     0.12290199863737805
+    ],
+    [
+     0.0002848069107493854,
+     0.12340308603700263,
+     0.8763121070522479
+    ]
+   ],
+   "J": 1.1227638263583012e-43,
+   "sin2_theta12": 0.0007134391811624334,
+   "sin2_theta23": 0.12299866258648838,
+   "sin2_theta13": 0.0007858943103739626,
+   "theta12_deg": 1.5305684774434245,
+   "theta23_deg": 20.530849078155196,
+   "theta13_deg": 1.6064292605152768,
+   "sin_delta": 4.5706078298749374e-40,
+   "cos_delta": 1.0,
+   "delta_deg": 2.6187653846128206e-38,
+   "unit_circle_defect": 4.9591167925315254e-39,
+   "r_linear": 0.0650347600110637,
+   "r_square": 0.0042296649260799525
+  },
+  {
+   "id": "M3",
+   "kind": "Majorana seesaw: pairing with the frame sign",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.001091625069477468,
+    0.2550213209870704,
+    1.0
+   ],
+   "masses_linear": [
+    0.0004064196225239102,
+    0.09494621542607713,
+    0.3723069704861693
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "abs_U_squared": [
+    [
+     0.00071287849336916,
+     0.0007858943103739626,
+     0.9985012271962569
+    ],
+    [
+     0.8758840354696282,
+     0.12290199863737805,
+     0.0012139658929937371
+    ],
+    [
+     0.12340308603700263,
+     0.8763121070522479,
+     0.0002848069107493854
+    ]
+   ],
+   "J": 9.191274049367733e-44,
+   "sin2_theta12": 0.5243585341362108,
+   "sin2_theta23": 0.8099732594305875,
+   "sin2_theta13": 0.9985012271962569,
+   "theta12_deg": 46.396193849712475,
+   "theta23_deg": 64.15611455141885,
+   "theta13_deg": 87.78129746882009,
+   "sin_delta": 3.1323399166720033e-40,
+   "cos_delta": 1.0,
+   "delta_deg": 1.7946985722566575e-38,
+   "unit_circle_defect": 1.723752262885495e-37,
+   "r_linear": 14.376392560376638,
+   "r_square": 235.42534751016282
+  },
+  {
+   "id": "M4",
+   "kind": "Majorana seesaw: pairing doubled at the E position",
+   "labelling": "NO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0009627689968488609,
+    0.015236456193475783,
+    1.0
+   ],
+   "masses_linear": [
+    0.0007588592659145268,
+    0.012009449826451957,
+    0.7882049259981057
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "abs_U_squared": [
+    [
+     0.9362228030377406,
+     0.06376439754375914,
+     1.2799418500189646e-05
+    ],
+    [
+     0.06353417003639594,
+     0.9341577588625803,
+     0.002308071101023718
+    ],
+    [
+     0.00024302692586338891,
+     0.0020778435936605185,
+     0.9976791294804761
+    ]
+   ],
+   "J": 1.3381727886406107e-41,
+   "sin2_theta12": 0.06376521370141505,
+   "sin2_theta23": 0.002308100643369793,
+   "sin2_theta13": 1.2799418500189646e-05,
+   "theta12_deg": 14.62654977988039,
+   "theta23_deg": 2.753703717654511,
+   "theta13_deg": 0.20498339347081812,
+   "sin_delta": 3.1901620390846187e-37,
+   "cos_delta": -1.0,
+   "delta_deg": 180.0,
+   "unit_circle_defect": 4.3837674091017105e-37,
+   "r_linear": 0.00023122288752048964,
+   "r_square": 5.3892576354813276e-08
+  },
+  {
+   "id": "M4",
+   "kind": "Majorana seesaw: pairing doubled at the E position",
+   "labelling": "IO",
+   "tau_character_is_an_eigenvector": false,
+   "degenerate_pair": false,
+   "masses_linear_over_heaviest": [
+    0.0009627689968488609,
+    0.015236456193475783,
+    1.0
+   ],
+   "masses_linear": [
+    0.0007588592659145268,
+    0.012009449826451957,
+    0.7882049259981057
+   ],
+   "relative_phase": "Y = C_e(+2/9)",
+   "abs_U_squared": [
+    [
+     0.06376439754375914,
+     1.2799418500189646e-05,
+     0.9362228030377406
+    ],
+    [
+     0.9341577588625803,
+     0.002308071101023718,
+     0.06353417003639594
+    ],
+    [
+     0.0020778435936605185,
+     0.9976791294804761,
+     0.00024302692586338891
+    ]
+   ],
+   "J": 4.955384681045888e-42,
+   "sin2_theta12": 0.00020068957417121683,
+   "sin2_theta23": 0.9961894385855935,
+   "sin2_theta13": 0.9362228030377406,
+   "theta12_deg": 0.8117075127728213,
+   "theta23_deg": 86.46089604900692,
+   "theta13_deg": 75.37204525888906,
+   "sin_delta": 9.201064331441514e-38,
+   "cos_delta": 1.0,
+   "delta_deg": 5.271821532199592e-36,
+   "unit_circle_defect": 1.8339548582750845e-37,
+   "r_linear": 4323.831381198739,
+   "r_square": 18555430.33466633
+  }
+ ],
+ "count": {
+  "Dirac_tuples": 40,
+  "Majorana_tuples": 8
+ },
+ "conventions": {
+  "rows": "e = f_1, mu = f_2, tau = f_0 (theta_e = +2/9); theta_e = -2/9 with the opposite relative sign is the complex conjugate: same moduli, J reversed",
+  "masses": "linear reading: singular values of Y (Dirac) or of Y M_R^-1 Y^T (Majorana); square reading: their squares",
+  "a, b, theta": "6^(-1/2), 12^(-1/2), 2/9"
+ },
+ "checks": {
+  "TH-P every permutation of the three positions fixes f_0": true,
+  "tau on f_0, e on f_1, mu on f_2 at +2/9": true,
+  "C0 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C0 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "C0 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C0 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "C1 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C1 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "TH-P on C1 theta_nu = +theta_e": true,
+  "C1 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C1 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "TH-P on C1 theta_nu = -theta_e": true,
+  "TH-P on C2 theta_nu = +theta_e": true,
+  "TH-P on C2 theta_nu = -theta_e": true,
+  "C3 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C3 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "C3 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C3 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "C4 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C4 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "C4 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C4 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "C5 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C5 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "C5 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C5 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "C6 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C6 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "C6 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C6 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "C7 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C7 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "C7 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C7 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "C8 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C8 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "TH-P on C8 theta_nu = +theta_e": true,
+  "C8 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C8 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "TH-P on C8 theta_nu = -theta_e": true,
+  "C9 {'relative_phase': 'theta_nu = +theta_e'} NO unitary": true,
+  "C9 {'relative_phase': 'theta_nu = +theta_e'} IO unitary": true,
+  "TH-P on C9 theta_nu = +theta_e": true,
+  "C9 {'relative_phase': 'theta_nu = -theta_e'} NO unitary": true,
+  "C9 {'relative_phase': 'theta_nu = -theta_e'} IO unitary": true,
+  "TH-P on C9 theta_nu = -theta_e": true,
+  "M1 symmetric": true,
+  "M2 symmetric": true,
+  "M2 {'relative_phase': 'Y = C_e(+2/9)'} NO unitary": true,
+  "M2 {'relative_phase': 'Y = C_e(+2/9)'} IO unitary": true,
+  "M3 symmetric": true,
+  "M3 {'relative_phase': 'Y = C_e(+2/9)'} NO unitary": true,
+  "M3 {'relative_phase': 'Y = C_e(+2/9)'} IO unitary": true,
+  "M4 symmetric": true,
+  "M4 {'relative_phase': 'Y = C_e(+2/9)'} NO unitary": true,
+  "M4 {'relative_phase': 'Y = C_e(+2/9)'} IO unitary": true,
+  "TH-M degenerate pair with masses lambda_1 lambda_2 / abs(alpha - beta) and lambda_0^2 / abs(alpha + 2 beta)": true,
+  "M2 is diagonal in the charged basis with masses lambda_k^2": true
+ }
+}

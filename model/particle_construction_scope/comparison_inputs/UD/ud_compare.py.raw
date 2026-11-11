@@ -1,0 +1,136 @@
+"""UD: NOT BLIND comparison of every registered reading. The only UD script that reads measured values.
+
+Reads values.json, rge.json and the mass tables of worker LS (work/LS/ls2_compare.py, quoted there from memory:
+PDG 2024 own scales; Xing, Zhang, Zhou 2008 at M_Z and at 2e16 GeV). Writes compare.json.
+Run: cd RL/work/UD && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ud_compare.py
+
+Targets of the brief: y_t/y_b about 59 at M_Z; m_b/m_tau about 1.64 at M_Z; lepton/up trace ratio 0.0104 at Q0;
+abs(det Y_u)/abs(det Y_d) between 258 and 333; x_u = 0.832, x_d = 0.622.
+Pass rules (registered): m_b/m_tau within 5 percent; y_t/y_b, trace ratio, determinant ratio within a factor 1.2;
+x within 2 percent.
+"""
+import ast
+import json
+import math
+import os
+
+import ud_rge as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def ls_tables():
+    src = open(os.path.join(HERE, '..', 'LS', 'ls2_compare.py')).read()
+    a = src.index('SCALES = {')
+    b = src.index('\n}\n', a) + 2
+    return ast.literal_eval(src[a + len('SCALES = '):b])
+
+
+def within(v, target, factor):
+    return (v > 0) and (max(v / target, target / v) <= factor)
+
+
+def main():
+    T = ls_tables()
+    mz = T['S2_MZ']
+    tgt = {'y_t_over_y_b_MZ_brief': 59.0, 'y_t_over_y_b_MZ_table': mz['u'][2] / mz['d'][2],
+           'm_b_over_m_tau_MZ_brief': 1.64, 'm_b_over_m_tau_MZ_table': mz['d'][2] / mz['e'][2],
+           'trace_ratio_Q0_brief': 0.0104, 'trace_ratio_mu_c_brief': 0.0243,
+           'det_ratio_range_brief': [258.0, 333.0], 'x_u': 0.832, 'x_d': 0.622,
+           'R_u_MZ': math.prod(mz['u']) / math.prod(mz['e']), 'R_d_MZ': math.prod(mz['d']) / math.prod(mz['e'])}
+    tgt['det_ratio_MZ_table'] = tgt['R_u_MZ'] / tgt['R_d_MZ']
+    out = {'not_blind': True, 'targets': tgt}
+
+    # ---------------- what the measured table needs at the cell (two-loop SM engine, source gauge chart)
+    v_meas = 246.21965
+    yq = [mz[s][2] * math.sqrt(2) / v_meas for s in ('u', 'd', 'e')]
+    need = {}
+    for label, mu in (('2e16', 2e16), ('mu_c', R.MU_C), ('E_cell', R.E_CELL)):
+        for lp in (1, 2):
+            s = R.up(yq, lp, math.log(mu / R.Q0))
+            need[f'{label}|{lp}_loop'] = {'y_t': s[3], 'y_b': s[4], 'y_tau': s[5], 'y_t_over_y_b': s[3] / s[4],
+                                          'y_b_over_y_tau': s[4] / s[5], 'y_tau_over_y_b': s[5] / s[4], 'y_tau_over_y_t': s[5] / s[3]}
+    t2 = T['S3_2e16']
+    need['table_at_2e16'] = {'y_t_over_y_b': t2['u'][2] / t2['d'][2], 'y_b_over_y_tau': t2['d'][2] / t2['e'][2]}
+    need['engine_check_ratio_of_ratios_MZ_to_2e16'] = {
+        'engine_two_loop': (yq[1] / yq[2]) / need['2e16|2_loop']['y_b_over_y_tau'],
+        'table': (mz['d'][2] / mz['e'][2]) / (t2['d'][2] / t2['e'][2])}
+    out['needed_at_high_scales_from_MZ_table'] = need
+    c2 = need['E_cell|2_loop']
+    out['needed_at_cell_summary'] = {
+        'T_up_over_down': c2['y_t_over_y_b'], 'y_tau_over_y_b': c2['y_tau_over_y_b'], 'sqrt3': math.sqrt(3),
+        'y_tau_over_y_b_over_sqrt3_two_loop': c2['y_tau_over_y_b'] / math.sqrt(3),
+        'y_tau_over_y_b_over_sqrt3_one_loop': need['E_cell|1_loop']['y_tau_over_y_b'] / math.sqrt(3),
+        'y_t_over_y_tau': 1 / c2['y_tau_over_y_t']}
+
+    # ---------------- readings
+    vals = json.load(open(os.path.join(HERE, 'values.json')))['readings']
+    rows = {}
+    for name, r in vals.items():
+        q = r.get('Q0', {})
+        row = {'x_u': r['x']['u'], 'x_d': r['x']['d'], 'N_u_over_N_d_cell': r['N_u_over_N_d'], 'N_e_over_N_u_cell': r['N_e_over_N_u'],
+               'x_u_pass': abs(r['x']['u'] / tgt['x_u'] - 1) <= 0.02, 'x_d_pass': abs(r['x']['d'] / tgt['x_d'] - 1) <= 0.02,
+               'x_u_dev_percent': 100 * (r['x']['u'] / tgt['x_u'] - 1), 'x_d_dev_percent': 100 * (r['x']['d'] / tgt['x_d'] - 1)}
+        if 'y_t_over_y_b' in q:
+            tb, bt, tt = q['y_t_over_y_b'], q['y_b_over_y_tau'], q['y_tau_over_y_t']
+            row.update({'loops': q['loops'], 'y_t_over_y_b_Q0': tb, 'y_t_over_y_b_over_target': tb / tgt['y_t_over_y_b_MZ_brief'],
+                        'y_t_over_y_b_pass': within(tb, tgt['y_t_over_y_b_MZ_brief'], 1.2),
+                        'm_b_over_m_tau_Q0': bt, 'm_b_over_m_tau_dev_percent_brief': 100 * (bt / tgt['m_b_over_m_tau_MZ_brief'] - 1),
+                        'm_b_over_m_tau_pass': abs(bt / tgt['m_b_over_m_tau_MZ_brief'] - 1) <= 0.05,
+                        'trace_ratio_Q0': tt, 'trace_ratio_over_target': tt / tgt['trace_ratio_Q0_brief'],
+                        'trace_ratio_pass': within(tt, tgt['trace_ratio_Q0_brief'], 1.2),
+                        'det_ratio_Q0': q['R_u_over_R_d'], 'det_ratio_over_MZ_table': q['R_u_over_R_d'] / tgt['det_ratio_MZ_table'],
+                        'det_ratio_pass': within(q['R_u_over_R_d'], tgt['det_ratio_MZ_table'], 1.2),
+                        'R_u_over_table': q['R_u'] / tgt['R_u_MZ'], 'R_d_over_table': q['R_d'] / tgt['R_d_MZ'],
+                        'LS_factor_3_rule_pass': within(q['R_u'], tgt['R_u_MZ'], 3) and within(q['R_d'], tgt['R_d_MZ'], 3),
+                        'masses_over_MZ_table': {s: [q['masses_GeV'][s][k] / mz[s][k] for k in range(3)] for s in ('u', 'd', 'e')}})
+            row['passes_all'] = all(row[k] for k in ('y_t_over_y_b_pass', 'm_b_over_m_tau_pass', 'trace_ratio_pass', 'det_ratio_pass',
+                                                     'x_u_pass', 'x_d_pass'))
+        rows[name] = row
+    out['readings'] = rows
+
+    # ---------------- the check that does not depend on the up/down split: y_b = k y_tau at the cell, y_b small
+    rge = json.load(open(os.path.join(HERE, 'rge.json')))
+    chk = {}
+    for name in ('B2_F1_equal_per_colour', 'F2_amplitude_share', 'F3_weight_share'):
+        d = rge['B2_F'][name]
+        chk[name] = {}
+        for lp in ('1_loop', '2_loop'):
+            v = d[lp]['y_b_over_y_tau']
+            chk[name][lp] = {'m_b_over_m_tau_Q0': v, 'dev_percent_brief_1.64': 100 * (v / 1.64 - 1),
+                             'dev_percent_table': 100 * (v / tgt['m_b_over_m_tau_MZ_table'] - 1),
+                             'pass_5_percent_brief': abs(v / 1.64 - 1) <= 0.05}
+        chk[name]['vs_y_t_Q0_two_loop'] = d['m_b_over_m_tau_vs_y_t_Q0_two_loop']
+    run = rge['B2_F']['B2_running_of_the_ratio']
+    k = 1 / math.sqrt(3)
+    f2 = rge['B2_F']['F2_amplitude_share']['2_loop']['y_b_over_y_tau']
+    chk['F2_if_imposed_at_other_scales_two_loop'] = {
+        'E_cell': f2, 'mu_c': f2 / run['mu_c']['y_b_over_y_tau'], '2e16': f2 / run['2e16']['y_b_over_y_tau']}
+    chk['B3_two_doublet_one_loop'] = {'m_b_over_m_tau_Q0_small_y_b': rge['B3']['small_y_b']['m_b_over_m_tau_Q0'],
+                                      'with_F2': rge['B3']['small_y_b']['m_b_over_m_tau_Q0'] * k,
+                                      'SM_one_loop_counterpart': rge['B2_F']['B2_F1_equal_per_colour']['1_loop']['y_b_over_y_tau']}
+    out['down_lepton_check'] = chk
+
+    # ---------------- determinant of down against lepton under F2 (shape taken equal; light families with their factors)
+    f2row = vals['F2_class_event_amplitude']
+    out['looks_after_registration'] = ('one comparison run of 22 readings on six quantities; one validation look at the '
+                                       'imported table (ratio of ratios between M_Z and 2e16 GeV)')
+    with open(os.path.join(HERE, 'compare.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+
+    print('needed at the cell (two loops):', json.dumps(out['needed_at_cell_summary'], indent=1))
+    print('engine check, ratio of ratios M_Z to 2e16:', need['engine_check_ratio_of_ratios_MZ_to_2e16'])
+    hdr = f"{'reading':34s} {'t/b Q0':>9s} {'/59':>8s} {'b/tau':>8s} {'dev%':>7s} {'tau/t':>9s} {'/0.0104':>8s} {'det u/d':>10s} {'/293':>9s} {'x_u':>6s} {'x_d':>6s} pass"
+    print(hdr)
+    for name, r in rows.items():
+        if 'y_t_over_y_b_Q0' not in r:
+            print(f"{name:34s} (up/down only) N_u/N_d = {r['N_u_over_N_d_cell']:.5f}")
+            continue
+        print(f"{name:34s} {r['y_t_over_y_b_Q0']:9.4g} {r['y_t_over_y_b_over_target']:8.3g} {r['m_b_over_m_tau_Q0']:8.4g} "
+              f"{r['m_b_over_m_tau_dev_percent_brief']:7.1f} {r['trace_ratio_Q0']:9.4g} {r['trace_ratio_over_target']:8.3g} "
+              f"{r['det_ratio_Q0']:10.4g} {r['det_ratio_over_MZ_table']:9.3g} {r['x_u']:6.3f} {r['x_d']:6.3f} {r['passes_all']}")
+    print(json.dumps(chk, indent=1))
+
+
+if __name__ == '__main__':
+    main()

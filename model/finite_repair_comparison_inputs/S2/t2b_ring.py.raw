@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+"""S2 task 2(b), ring: one quantum under the unread unitary seam law with link registers.
+
+Seam event on a bond {X, X+1} of the cover (the line; port = X mod N, the link record is fixed by X):
+    V = exp(i chi) exp(-i pi/4 sigma_x) = [[v0, v1], [v1, v0]],  v0 = exp(i chi)/sqrt2,  v1 = -i exp(i chi)/sqrt2.
+chi = pi/4 is sqrt(SWAP) = P_sym + i P_anti (fixes the uniform amplitude);  chi = 0 is the plain beam splitter.
+
+Part 1  schedule (i): seam-averaged channel 1 + L(q)/N on rho_r(q) = sum_X exp(-iqX) rho(X, X+r)  (r = 0 density,
+        |r| = 1 bond coherence/current, |r| >= 2 higher moments).  Calibration against the brute-force superoperator
+        on a small ring; classical control; spectrum; amplitude (first-moment) map.
+Part 2  spreading on the line: (i) exact, (ii) Monte Carlo over permutations, (iii) exact Floquet brickwork.
+Part 3  ring of N = 8 ports with integer link registers: port populations for the three schedules.
+Part 4  schedule (ii) by exhaustive enumeration of all N! orders on small rings.
+"""
+import itertools, json, math, sys, time
+from pathlib import Path
+import numpy as np
+import scipy.linalg as sla
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import gates as G
+out = {}
+t00 = time.time()
+
+def v01(chi, sign=1):
+    return np.exp(1j * chi) / math.sqrt(2), -1j * sign * np.exp(1j * chi) / math.sqrt(2)
+
+# ------------------------------------------------------------------ Part 1
+def Lq(q, chi, R=None, periodic=None, dephase=False):
+    """Generator per sweep (sum over bonds of U rho U^dag - rho) in the basis |q; r>.
+    periodic = L gives r in Z_L (ring of L sites without registers); otherwise r in [-R, R] (line, truncated)."""
+    v0, v1 = v01(chi); w0 = v0 - 1
+    if periodic:
+        n = periodic; ix = lambda r: r % n
+    else:
+        n = 2 * R + 1; ix = lambda r: r + R
+    M = np.zeros((n, n), complex)
+    rs = range(n) if periodic else range(-R, R + 1)
+    def add(rt, rsrc, val):
+        if periodic or -R <= rt <= R: M[ix(rt), ix(rsrc)] += val
+    for r in rs:
+        add(r, r, 2 * w0 + 2 * np.conj(w0))
+        add(r - 1, r, v1 * np.exp(-1j * q) + np.conj(v1))
+        add(r + 1, r, v1 * np.exp(1j * q) + np.conj(v1))
+    a2, c = abs(w0) ** 2, w0 * np.conj(v1); cb = v1 * np.conj(w0); b2 = abs(v1) ** 2
+    add(0, 0, 2 * a2 + 2 * b2 * math.cos(q)); add(1, 0, c + cb * np.exp(1j * q)); add(-1, 0, cb * np.exp(-1j * q) + c)
+    add(1, 1, a2); add(0, 1, c + cb * np.exp(-1j * q)); add(-1, 1, b2 * np.exp(-1j * q))
+    add(-1, -1, a2); add(0, -1, c + cb * np.exp(1j * q)); add(1, -1, b2 * np.exp(1j * q))
+    return M
+
+def brute_ring(L, chi):
+    """sum_b (U_b (x) conj U_b - 1) on a ring of L sites (no link register)."""
+    v0, v1 = v01(chi)
+    S = np.zeros((L * L, L * L), complex)
+    for b in range(L):
+        U = np.eye(L, dtype=complex); c = (b + 1) % L
+        U[b, b] = v0; U[c, c] = v0; U[b, c] = v1; U[c, b] = v1
+        S += np.kron(U, U.conj()) - np.eye(L * L)
+    return S
+
+cal = {}
+for chi in (math.pi / 4, 0.0, 0.3):
+    L = 9
+    ev_b = np.linalg.eigvals(brute_ring(L, chi))
+    ev_f = np.concatenate([np.linalg.eigvals(Lq(2 * math.pi * m / L, chi, periodic=L)) for m in range(L)])
+    d = max(np.abs(ev_b - z).min() for z in ev_f), max(np.abs(ev_f - z).min() for z in ev_b)
+    cal[f'chi={chi:.4f}'] = {'ring_sites': L, 'max_spectrum_mismatch': float(max(d))}
+out['calibration_fourier_blocks_vs_brute_force'] = cal
+print('calibration (Fourier blocks vs brute-force superoperator):', cal)
+# classical control: the density element alone is the classical generator -(1 - cos q) for every chi
+out['classical_control_density_element'] = {f'chi={chi:.3f}': float(max(abs(Lq(q, chi, R=3)[3, 3] + (1 - math.cos(q))) for q in np.linspace(0, math.pi, 7)))
+                                           for chi in (math.pi / 4, 0.0, 0.3)}
+print('classical control |L_00 + (1 - cos q)|:', out['classical_control_density_element'])
+
+# central block for chi = pi/4 at two wavevectors (rows/cols r = -2..2)
+blk = {}
+for q in (0.0, 0.5):
+    M = Lq(q, math.pi / 4, R=2)
+    blk[f'q={q}'] = [[f'{z.real:+.4f}{z.imag:+.4f}j' for z in row] for row in M]
+out['central_block_chi_pi4_r_-2..2'] = blk
+
+# spectrum of the truncated line generator; slowest eigenvalue, quality factors
+spec = {}
+R = 300
+for name, chi in (('sqrt_swap_chi_pi4', math.pi / 4), ('beam_splitter_chi_0', 0.0), ('chi_pi8', math.pi / 8)):
+    rows = []
+    for q in (0.05, 0.1, 0.2, 0.4, 0.8, 1.6, math.pi):
+        ev = np.linalg.eigvals(Lq(q, chi, R=R))
+        slow = ev[np.argmax(ev.real)]
+        cx = ev[np.abs(ev.imag) > 1e-9]
+        Q = np.abs(cx.imag) / (2 * np.abs(cx.real)) if len(cx) else np.array([0.0])
+        # eigenvalues that are isolated from the free continuum (bound states): compare with the free ellipse/curve
+        v0, v1 = v01(chi)
+        ks = np.linspace(0, 2 * math.pi, 4001)
+        cont = (2 * (v0 - 1) + 2 * v1 * np.cos(ks)) + np.conj(2 * (v0 - 1) + 2 * v1 * np.cos(ks - q))
+        iso = [z for z in ev if np.abs(cont - z).min() > 0.02]
+        rows.append({'q': q, 'slowest_real_part': float(slow.real), 'slowest_imag_part': float(slow.imag),
+                     'slowest_rate_over_q2': float(-slow.real / q ** 2), 'max_quality_factor_|Im|/(2|Re|)': float(Q.max()),
+                     'continuum_max_real_part': float(cont.real.max()),
+                     'isolated_eigenvalues': [[float(z.real), float(z.imag)] for z in sorted(iso, key=lambda z: -z.real)[:4]]})
+    spec[name] = rows
+    print(name, [(r_['q'], round(r_['slowest_real_part'], 5), round(r_['slowest_rate_over_q2'], 4), round(r_['max_quality_factor_|Im|/(2|Re|)'], 3), r_['isolated_eigenvalues'][:2]) for r_ in rows])
+out['line_generator_spectrum'] = spec
+# first-moment (amplitude) map: kappa(k) = 2(v0 - 1) + 2 v1 cos k ; for chi = pi/4 kappa = -(1 - i)(1 - cos k)
+amp = {}
+for name, chi in (('sqrt_swap_chi_pi4', math.pi / 4), ('beam_splitter_chi_0', 0.0)):
+    v0, v1 = v01(chi)
+    ks = np.array([0.01, 0.1, 0.5, 1.0, math.pi])
+    kap = 2 * (v0 - 1) + 2 * v1 * np.cos(ks)
+    amp[name] = [{'k': float(k), 'rate_per_sweep': float(-z.real), 'frequency_per_sweep': float(z.imag),
+                  'Q': float(abs(z.imag) / (2 * abs(z.real)))} for k, z in zip(ks, kap)]
+out['amplitude_map_schedule_i'] = amp
+print('amplitude map (rate, frequency, Q):', {k: [(round(a['k'], 2), round(a['rate_per_sweep'], 5), round(a['frequency_per_sweep'], 5), round(a['Q'], 3)) for a in v] for k, v in amp.items()})
+
+# ------------------------------------------------------------------ Part 2: spreading on the line
+times = [1, 2, 4, 8, 16, 32, 64]
+def msd_schedule_i(chi, R=260, dq=2e-3):
+    M0 = Lq(0.0, chi, R=R); Mp = Lq(dq, chi, R=R); Mm = Lq(-dq, chi, R=R)
+    res = {}
+    for M, key in ((M0, 0), (Mp, 1), (Mm, -1)):
+        w, V = np.linalg.eig(M)
+        c = np.linalg.solve(V, np.eye(2 * R + 1)[:, R])
+        res[key] = [complex((V[R, :] * np.exp(w * t)) @ c) for t in times]
+    return [float(((2 * res[0][i] - res[1][i] - res[-1][i]) / dq ** 2).real) for i in range(len(times))], [abs(res[0][i] - 1) for i in range(len(times))]
+
+def line_gates(L, chi, sign=1):
+    a = np.arange(L - 1, dtype=np.int32); b = a + 1
+    u = np.tile(G.gate_matrix(chi, sign), (L - 1, 1)).astype(complex).ravel()
+    return a, b.astype(np.int32), u
+def msd_of(psi, L):
+    p = np.abs(psi) ** 2; x = np.arange(L) - L // 2
+    return float((p * x * x).sum() - ((p * x).sum()) ** 2), float((p * x).sum()), float(p.sum())
+def run_fixed(chi, L=1024):
+    a, b, u = line_gates(L, chi)
+    order = np.concatenate([np.arange(0, L - 1, 2), np.arange(1, L - 1, 2)]).astype(np.int32)   # even bonds, then odd bonds
+    psi = np.zeros(L, complex); psi[L // 2] = 1
+    res = []; done = 0
+    for t in times:
+        for _ in range(t - done): G.lib.apply_order(G.pc(psi), G.p32(a), G.p32(b), G.pc(u), G.p32(order), len(order))
+        done = t; res.append(msd_of(psi, L))
+    return res
+def run_perm(chi, L=600, samples=400, seed=5):
+    a, b, u = line_gates(L, chi)
+    work = np.zeros(L, np.int32); st = G.rng_state(seed)
+    acc = np.zeros((samples, len(times))); pops = np.zeros((len(times), L))
+    for s in range(samples):
+        psi = np.zeros(L, complex); psi[L // 2] = 1; done = 0
+        for i, t in enumerate(times):
+            G.lib.apply_permutations(G.pc(psi), G.p32(a), G.p32(b), G.pc(u), L - 1, t - done, G.p32(work), st); done = t
+            pops[i] += np.abs(psi) ** 2
+    pops /= samples
+    x = np.arange(L) - L // 2
+    return [float((p * x * x).sum() - (p * x).sum() ** 2) for p in pops], pops
+def run_uniform_mc(chi, L=600, samples=400, seed=9):
+    a, b, u = line_gates(L, chi)
+    st = G.rng_state(seed); pops = np.zeros((len(times), L))
+    for s in range(samples):
+        psi = np.zeros(L, complex); psi[L // 2] = 1; done = 0
+        for i, t in enumerate(times):
+            G.lib.apply_uniform(G.pc(psi), G.p32(a), G.p32(b), G.pc(u), L - 1, (t - done) * (L - 1), st); done = t
+            pops[i] += np.abs(psi) ** 2
+    pops /= samples
+    x = np.arange(L) - L // 2
+    return [float((p * x * x).sum() - (p * x).sum() ** 2) for p in pops]
+def exponent(ms, lo=4):
+    lt = np.log(np.array(times[lo:], float)); lm = np.log(np.array(ms[lo:]))
+    return float(np.polyfit(lt, lm, 1)[0])
+spread = {}
+for name, chi in (('sqrt_swap_chi_pi4', math.pi / 4), ('beam_splitter_chi_0', 0.0)):
+    m_i, tr_err = msd_schedule_i(chi)
+    m_i_mc = run_uniform_mc(chi)
+    m_ii, pops_ii = run_perm(chi)
+    fx = run_fixed(chi)
+    m_iii = [f[0] for f in fx]
+    spread[name] = {'times_sweeps': times,
+                    'i_uniform_draws_exact_msd': m_i, 'i_trace_error': float(max(tr_err)), 'i_exponent': exponent(m_i), 'i_D=msd/2t_last': m_i[-1] / (2 * times[-1]),
+                    'i_uniform_draws_monte_carlo_msd_400_samples': m_i_mc,
+                    'ii_permutation_msd_400_samples': m_ii, 'ii_exponent': exponent(m_ii), 'ii_D=msd/2t_last': m_ii[-1] / (2 * times[-1]),
+                    'iii_fixed_brickwork_msd': m_iii, 'iii_exponent': exponent(m_iii), 'iii_rms_speed_last': math.sqrt(m_iii[-1]) / times[-1],
+                    'iii_mean_drift_last': fx[-1][1], 'classical_msd': [float(t) for t in times]}
+    print(name, json.dumps({k: (v if not isinstance(v, list) else [round(x, 3) for x in v]) for k, v in spread[name].items()}))
+out['line_spreading'] = spread
+# Floquet dispersion of the brickwork (two-site cell, cell momentum kc): F(kc) = U_odd(kc) U_even
+disp = {}
+for name, chi in (('sqrt_swap_chi_pi4', math.pi / 4), ('beam_splitter_chi_0', 0.0)):
+    v0, v1 = v01(chi)
+    kc = np.linspace(-math.pi, math.pi, 2001)
+    om = np.zeros((len(kc), 2))
+    for i, k in enumerate(kc):
+        Ue = np.array([[v0, v1], [v1, v0]]); Uo = np.array([[v0, v1 * np.exp(-1j * k)], [v1 * np.exp(1j * k), v0]])
+        om[i] = np.sort(np.angle(np.linalg.eigvals(Uo @ Ue)))
+    vg = np.gradient(np.unwrap(om[:, 1]), kc)
+    closed = np.arcsin((1 - np.cos(kc)) / 2) if name.startswith('sqrt') else None
+    disp[name] = {'max_group_velocity_cells_per_sweep': float(np.abs(vg[5:-5]).max()), 'max_group_velocity_edges_per_sweep': float(2 * np.abs(vg[5:-5]).max()),
+                  'band_width': float(om[:, 1].max() - om[:, 1].min()),
+                  'small_k_curvature_omega/kc^2': float((om[1010, 1] - om[1000, 1]) / kc[1010] ** 2),
+                  'closed_form_sin_omega=(1-cos kc)/2_max_dev': (float(np.abs(np.sort(np.stack([closed, math.pi - closed], 1), axis=1) - om).max()) if closed is not None else None)}
+out['brickwork_dispersion'] = disp
+print('brickwork dispersion:', disp)
+print('elapsed', round(time.time() - t00, 1), flush=True)
+
+# ------------------------------------------------------------------ Part 3: ring of N = 8 ports, integer link registers
+N = 8; chi = math.pi / 4
+def ring_unitaries(theta, chi):
+    v0, v1 = v01(chi); Us = []
+    for e in range(N):
+        U = np.eye(N, dtype=complex); c = (e + 1) % N
+        ph = np.exp(1j * theta) if e == N - 1 else 1.0
+        U[e, e] = v0; U[c, c] = v0; U[c, e] = v1 * ph; U[e, c] = v1 * np.conj(ph)
+        Us.append(U)
+    return Us
+Kth = 64
+ptimes = [1, 2, 3, 4, 6, 8, 12, 16, 24]
+pop_i = np.zeros((len(ptimes), N)); pop_iii = np.zeros((len(ptimes), N))
+for th in 2 * math.pi * np.arange(Kth) / Kth:
+    Us = ring_unitaries(th, chi)
+    E = sum(np.kron(U, U.conj()) for U in Us) / N          # one attempt, schedule (i)
+    Es = np.linalg.matrix_power(E, N)                       # one sweep = N attempts
+    rho = np.zeros((N, N), complex); rho[0, 0] = 1; vec = rho.reshape(-1); done = 0
+    F = np.eye(N, dtype=complex)
+    for e in list(range(0, N, 2)) + list(range(1, N, 2)): F = Us[e] @ F
+    psi = np.zeros(N, complex); psi[0] = 1; done3 = 0
+    for i, t in enumerate(ptimes):
+        for _ in range(t - done): vec = Es @ vec
+        done = t; pop_i[i] += np.real(vec.reshape(N, N).diagonal()) / Kth
+        for _ in range(t - done3): psi = F @ psi
+        done3 = t; pop_iii[i] += np.abs(psi) ** 2 / Kth
+# schedule (ii) on the cover: line with N-periodic seams
+Wd = 40; Lc = N * (2 * Wd + 1); a = np.arange(Lc - 1, dtype=np.int32); b = (a + 1).astype(np.int32)
+order = np.argsort(a % N, kind='stable').astype(np.int32)
+a2, b2 = a[order].copy(), b[order].copy()
+u2 = np.tile(G.gate_matrix(chi), (Lc - 1, 1)).astype(complex).ravel()
+counts = np.bincount(a2 % N, minlength=N); grp = np.concatenate([[0], np.cumsum(counts)]).astype(np.int32)
+work = np.zeros(N, np.int32); st = G.rng_state(77); samples = 3000
+pop_ii = np.zeros((len(ptimes), N))
+for s in range(samples):
+    psi = np.zeros(Lc, complex); psi[N * Wd] = 1; done = 0
+    for i, t in enumerate(ptimes):
+        G.lib.apply_group_permutations(G.pc(psi), G.p32(a2), G.p32(b2), G.pc(u2), G.p32(grp), N, t - done, G.p32(work), st); done = t
+        pop_ii[i] += (np.abs(psi) ** 2).reshape(-1, N).sum(0) / samples
+# classical: (1 - L/(2N))^(N t)
+Lr = 2 * np.eye(N) - np.roll(np.eye(N), 1, 0) - np.roll(np.eye(N), -1, 0)
+Tc = np.linalg.matrix_power(np.eye(N) - Lr / (2 * N), N)
+pc_ = []; vcl = np.eye(N)[0]; done = 0
+for t in ptimes:
+    for _ in range(t - done): vcl = Tc @ vcl
+    done = t; pc_.append(vcl.copy())
+out['ring8_port_populations'] = {'times_sweeps': ptimes, 'ports_by_distance_0..4': True,
+                                 'i_uniform_exact': [[float(p[d]) for d in range(5)] for p in pop_i],
+                                 'ii_permutation_mc_3000': [[float(p[d]) for d in range(5)] for p in pop_ii],
+                                 'iii_brickwork_exact': [[float(p[d]) for d in range(5)] for p in pop_iii],
+                                 'iii_note': 'brickwork is not mirror symmetric about port 0; distances 1..4 listed are ports 1..4',
+                                 'classical': [[float(p[d]) for d in range(5)] for p in pc_],
+                                 'mc_standard_error_bound': float(0.5 / math.sqrt(samples))}
+for i, t in enumerate(ptimes):
+    print(f't={t:3d}  (i) {np.round(pop_i[i][:5], 4)}  (ii) {np.round(pop_ii[i][:5], 4)}  (iii) {np.round(pop_iii[i][:5], 4)}  classical {np.round(pc_[i][:5], 4)}')
+print('elapsed', round(time.time() - t00, 1), flush=True)
+
+# ------------------------------------------------------------------ Part 4: schedule (ii), all N! orders on small rings
+perm_exact = {}
+for Nn in (5, 6):
+    rows = []
+    for dth in (0.0, 0.05, 0.1, 0.2):
+        th, thp = 0.3, 0.3 + dth
+        def ringU(theta):
+            v0, v1 = v01(math.pi / 4); Us = []
+            for e in range(Nn):
+                U = np.eye(Nn, dtype=complex); c = (e + 1) % Nn
+                ph = np.exp(1j * theta) if e == Nn - 1 else 1.0
+                U[e, e] = v0; U[c, c] = v0; U[c, e] = v1 * ph; U[e, c] = v1 * np.conj(ph)
+                Us.append(U)
+            return Us
+        Ua, Ub = ringU(th), ringU(thp)
+        Eperm = np.zeros((Nn * Nn, Nn * Nn), complex); cnt = 0
+        for sigma in itertools.permutations(range(Nn)):
+            Fa = np.eye(Nn, dtype=complex); Fb = np.eye(Nn, dtype=complex)
+            for e in sigma: Fa = Ua[e] @ Fa; Fb = Ub[e] @ Fb
+            Eperm += np.kron(Fa, Fb.conj()); cnt += 1
+        Eperm /= cnt
+        Euni = np.linalg.matrix_power(sum(np.kron(x, y.conj()) for x, y in zip(Ua, Ub)) / Nn, Nn)
+        evp = np.linalg.eigvals(Eperm); evu = np.linalg.eigvals(Euni)
+        top_p = evp[np.argsort(-np.abs(evp))][:3]; top_u = evu[np.argsort(-np.abs(evu))][:3]
+        q = dth / Nn
+        rows.append({'dtheta': dth, 'q_line': q, 'orders': cnt,
+                     'perm_top_eigenvalues': [[float(z.real), float(z.imag)] for z in top_p],
+                     'uniform_top_eigenvalues_per_sweep': [[float(z.real), float(z.imag)] for z in top_u],
+                     'perm_D': (float(-math.log(abs(top_p[0])) / q ** 2) if dth else None),
+                     'uniform_D': (float(-math.log(abs(top_u[0])) / q ** 2) if dth else None),
+                     'perm_max_|Im|_among_|lambda|>0.9': float(max([abs(z.imag) for z in evp if abs(z) > 0.9] or [0.0]))})
+    perm_exact[f'N={Nn}'] = rows
+    print(f'N={Nn}', [(r_['dtheta'], r_['perm_D'], r_['uniform_D'], r_['perm_max_|Im|_among_|lambda|>0.9']) for r_ in rows])
+out['small_ring_exact_permutation_average'] = perm_exact
+Path(HERE / 't2b_ring.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't2b_ring.json', 'elapsed', round(time.time() - t00, 1))

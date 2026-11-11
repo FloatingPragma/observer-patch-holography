@@ -1,0 +1,41 @@
+"""Run E, addendum: survival probability of a state prepared inside the well (augments runs/E_resonance.json).
+
+Preparation: amplitude uniform over the 12 well cells (and, separately, the lowest sine sin(pi (x - a + 1)/13) over the
+well), coin = positive_coin((0,0,0), theta0) (positive branch at rest; record and spin as in the engine), on the line of
+512 cells with the two slabs of run E. Executed 400 ticks; probability inside the well every tick; decay rate from a
+linear fit of log P_in over ticks 20 to 120, compared with 2/tau of the lowest delay peak (Breit-Wigner, ARGUED).
+`python e_survival.py`
+"""
+import json, os
+import numpy as np
+from cq_common import EngineC, positive_coin
+from ce_line import lattice_profile, L, TH0, MID, RUNS
+
+f = os.path.join(RUNS, 'E_resonance.json')
+d = json.load(open(f))
+a1 = MID - 10; a2 = a1 + 16; slabs = [(a1, 4), (a2, 4)]; well = (a1 + 4, a2)
+th = lattice_profile(slabs).reshape(L, 1, 1)
+e = EngineC((L, 1, 1))
+coin = positive_coin((0.0, 0, 0), TH0).reshape(2, 2)
+out = []
+for shape in ('uniform', 'sine'):
+    psi = np.zeros((L, 1, 1, 2, 2), complex)
+    for x in range(*well):
+        amp = 1.0 if shape == 'uniform' else np.sin(np.pi * (x - well[0] + 1) / 13)
+        psi[x, 0, 0] = amp * coin
+    psi /= np.linalg.norm(psi)
+    P = []
+    for t in range(400):
+        psi = e.step(psi, th, 'Y', t)
+        P.append(float(np.sum(np.abs(psi[well[0]:well[1]]) ** 2)))
+    P = np.array(P); tt = np.arange(1, 401)
+    win = (tt >= 20) & (tt <= 120) & (P > 1e-14)
+    rate = float(-np.polyfit(tt[win], np.log(P[win]), 1)[0])
+    out.append({'shape': shape, 'decay_rate_fit_ticks_20_120': rate, 'P_in_at': {str(k): float(P[k - 1]) for k in (1, 10, 20, 40, 80, 120, 200, 400)},
+                'P_in_every_4_ticks': [round(x, 12) for x in P[::4]]})
+    print(shape, 'rate', rate, out[-1]['P_in_at'])
+low = [r for r in d['resonances_from_delay_peaks'] if r['model'] == 'lattice'][0]
+d['survival_prepared_in_well'] = {'well_cells': list(well), 'coin': 'positive_coin((0,0,0), theta0)', 'rows': out,
+                                  'lowest_delay_peak_lattice': low, 'breit_wigner_rate_2_over_tau': low['width_from_delay_2_over_tau']}
+json.dump(d, open(f, 'w'), indent=1)
+print('augmented', f, 'BW 2/tau', low['width_from_delay_2_over_tau'])

@@ -1,0 +1,136 @@
+"""Worker HR: deterministic gate G6. The local weights used by the updates against differences of the total action.
+
+For random configurations on a 4^4 lattice and random single-variable changes, the change of the total action
+(computed from the plaquette and hop sums over the whole lattice) equals the change of the local expression that
+the update samples from. Engines: hr_lib.Lattice, hr_u1.LatticeU1, hr_compact.Compact. Writes checks3.json.
+"""
+import json
+
+import numpy as np
+
+import hr_compact as HC
+import hr_lib as H
+import hr_u1 as HU
+from hr_lib import qc, qmul
+
+rng = np.random.default_rng(77)
+out = {}
+
+
+def total_su2(lat):
+    r2 = (lat.phi ** 2).sum(1)
+    return (lat.beta * 6 * lat.V * (1 - lat.plaquette()) + float((r2 + lat.lam * (r2 - 1) ** 2).sum())
+            - 2 * lat.kappa * lat.hop_sum())
+
+
+def total_u1(lat):
+    w, v, c2, c3 = lat.plaquettes()
+    r2 = (lat.phi ** 2).sum(1)
+    return (lat.beta * 6 * lat.V * (1 - w) + lat.beta_u1 * 6 * lat.V * (1 - c2) + float((r2 + lat.lam * (r2 - 1) ** 2).sum())
+            - 2 * lat.kappa * lat.hop_sum())
+
+
+def total_compact(lat):
+    m = lat.measure()
+    return (lat.beta * 6 * lat.V * (1 - m[0]) + lat.beta_h * 4 * lat.V * (1 - m[1]) - lat.h * lat.V * m[4])
+
+
+# ---------------------------------------------------------------- weak links and doublet
+lat = H.Lattice(4, 5.171, 0.131, 0.02, seed=5)
+lat.hot_links(); lat.phi = rng.normal(size=(lat.V, 4))
+worst_link = worst_phi = 0.0
+for _ in range(40):
+    m, x = int(rng.integers(4)), int(rng.integers(lat.V))
+    s = np.array([x])
+    W = lat.beta * lat.staple_sum(m, s) + 2 * lat.kappa * qmul(lat.phi[lat.up[m][s]], qc(lat.phi[s]))
+    Vold = lat.U[m][x].copy(); Vnew = H.random_su2(1, rng)[0]
+    S0 = total_su2(lat)
+    lat.U[m][x] = Vnew
+    dS = total_su2(lat) - S0
+    local = -float((Vnew * qc(W)[0]).sum()) + float((Vold * qc(W)[0]).sum())      # -(1/2) tr(V W) = -dot(V, conj W)
+    worst_link = max(worst_link, abs(dS - local))
+    b = lat.neighbour_sum(s)[0]
+    pold = lat.phi[x].copy(); pnew = rng.normal(size=4)
+    f = lambda p: float(p @ p + lat.lam * (p @ p - 1) ** 2 - 2 * lat.kappa * (p @ b))
+    S0 = total_su2(lat)
+    lat.phi[x] = pnew
+    dS = total_su2(lat) - S0
+    worst_phi = max(worst_phi, abs(dS - (f(pnew) - f(pold))))
+out["su2"] = {"max_defect_link": worst_link, "max_defect_doublet": worst_phi}
+print(out["su2"], flush=True)
+
+# ---------------------------------------------------------------- with the hypercharge angle
+lat = HU.LatticeU1(4, 5.171, 0.131, 0.02, seed=6)
+lat.hot_links(); lat.phi = rng.normal(size=(lat.V, 4)); lat.a = rng.uniform(-0.6, 0.6, size=(4, lat.V))
+wl = wa = wp = 0.0
+for _ in range(40):
+    m, x = int(rng.integers(4)), int(rng.integers(lat.V))
+    s = np.array([x]); xm = lat.up[m][s]
+    st, cs = lat.link_env(m, s)
+    a0 = lat.a[m][s]
+    W = np.zeros((1, 4))
+    for A, c in zip(st, cs):
+        W += (lat.beta * np.cos(3.0 * (a0 + c)))[:, None] * A
+    W += 2.0 * lat.kappa * qmul(HU.rot(lat.phi[xm], 3.0 * a0), qc(lat.phi[s]))
+    Vold = lat.U[m][x].copy(); Vnew = H.random_su2(1, rng)[0]
+    S0 = total_u1(lat)
+    lat.U[m][x] = Vnew
+    dS = total_u1(lat) - S0
+    wl = max(wl, abs(dS - (-float((Vnew * qc(W)[0]).sum()) + float((Vold * qc(W)[0]).sum()))))
+    # angle
+    Vn = lat.U[m][s]
+    t = [qmul(Vn, A)[:, 0] for A in st]
+    vp = qmul(Vn, lat.phi[xm])
+    hc = (lat.phi[s] * vp).sum(1); hs = (lat.phi[s] * qmul(vp, HU.K3)).sum(1)
+
+    def local(aa):
+        e = -2.0 * lat.kappa * (hc * np.cos(3.0 * aa) + hs * np.sin(3.0 * aa))
+        for tj, c in zip(t, cs):
+            e -= lat.beta_u1 * np.cos(2.0 * (aa + c)) + lat.beta * tj * np.cos(3.0 * (aa + c))
+        return float(e[0])
+
+    anew = a0 + rng.uniform(-1, 1, size=1)
+    S0 = total_u1(lat); e0 = local(a0)
+    lat.a[m][x] = anew[0]
+    dS = total_u1(lat) - S0
+    wa = max(wa, abs(dS - (local(anew) - e0)))
+    b = lat.neighbour_sum(s)[0]
+    pold = lat.phi[x].copy(); pnew = rng.normal(size=4)
+    f = lambda p: float(p @ p + lat.lam * (p @ p - 1) ** 2 - 2 * lat.kappa * (p @ b))
+    S0 = total_u1(lat)
+    lat.phi[x] = pnew
+    dS = total_u1(lat) - S0
+    wp = max(wp, abs(dS - (f(pnew) - f(pold))))
+out["u1"] = {"max_defect_weak_link": wl, "max_defect_angle": wa, "max_defect_doublet": wp}
+print(out["u1"], flush=True)
+
+# ---------------------------------------------------------------- compact form
+lat = HC.Compact(4, 5.171, 10.342, 1.3, seed=7)
+for m in range(4):
+    lat.U[m] = H.random_su2(lat.V, rng)
+lat.start_random()
+wl = wn = 0.0
+for _ in range(40):
+    m, x = int(rng.integers(4)), int(rng.integers(lat.V))
+    s = np.array([x])
+    W = lat.beta * lat.staple_sum(m, s) + lat.beta_h * qmul(lat.n[lat.up[m][s], 1:], qc(lat.n[s, 1:]))
+    Vold = lat.U[m][x].copy(); Vnew = H.random_su2(1, rng)[0]
+    S0 = total_compact(lat)
+    lat.U[m][x] = Vnew
+    dS = total_compact(lat) - S0
+    wl = max(wl, abs(dS - (-float((Vnew * qc(W)[0]).sum()) + float((Vold * qc(W)[0]).sum()))))
+    B = np.zeros(5)
+    for mu in range(4):
+        xu, xd = lat.up[mu][x], lat.dn[mu][x]
+        B[0] += lat.n[xu, 0] + lat.n[xd, 0]
+        B[1:] += qmul(lat.U[mu][x], lat.n[xu, 1:]) + qmul(qc(lat.U[mu][xd]), lat.n[xd, 1:])
+    nold = lat.n[x].copy()
+    v = rng.normal(size=5); nnew = v / np.linalg.norm(v)
+    f = lambda n: float(-lat.beta_h * (n @ B) - lat.h * (n[1:] @ n[1:]))
+    S0 = total_compact(lat)
+    lat.n[x] = nnew
+    dS = total_compact(lat) - S0
+    wn = max(wn, abs(dS - (f(nnew) - f(nold))))
+out["compact"] = {"max_defect_link": wl, "max_defect_sphere_field": wn}
+print(out["compact"], flush=True)
+json.dump(out, open("checks3.json", "w"), indent=1)

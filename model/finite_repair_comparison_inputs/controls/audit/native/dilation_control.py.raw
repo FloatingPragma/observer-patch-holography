@@ -1,0 +1,32 @@
+"""Exact small obstruction to treating the pump as a reversible quantum walk."""
+from pathlib import Path
+import json
+import sympy as s
+from pump import channel,require
+
+def run():
+    R=s.Matrix([[s.Rational(1,3),s.Rational(11,57)-2*s.I/57,s.Rational(1,19)],
+                [s.Rational(11,57)+2*s.I/57,s.Rational(1,3),s.Rational(11,57)+2*s.I/57],
+                [s.Rational(1,19),s.Rational(11,57)-2*s.I/57,s.Rational(1,3)]])
+    ops=[]
+    for edge,Ks in zip([(0,1),(1,2)],channel(3,[(0,1),(1,2)],0)):
+        for p in edge:
+            V=s.eye(3);V[p,p]=s.I;ops.extend(K*V for K in Ks)
+    def dual(X):return s.simplify(sum((K.conjugate().T*X*K for K in ops),s.zeros(3))/4)
+    A=s.diag(1,0,0);B=s.Matrix([[0,1,0],[1,0,0],[0,0,0]])
+    difference=s.simplify(s.trace(R*A*dual(B))-s.trace(R*dual(A).conjugate().T*B))
+    require(difference==s.I/57,'GNS asymmetry witness')
+    K=s.eye(12);K[0,0]=K[1,1]=K[0,1]=K[1,0]=s.Rational(1,2)
+    V=s.eye(12);V[0,0]=s.I;K=K*V
+    x=s.symbols('x');char=s.factor(K.charpoly(x).as_expr())
+    require(s.expand(char-x*(x-1)**10*(x-(1+s.I)/2))==0,'keep branch spectrum')
+    return {'status':'EXACT small GNS counterexample and actual-carrier keep-branch spectrum',
+       'A':'N0','B':'X01','rho':'minimal_phase_2_results.json',
+       'GNS_selfadjointness_difference':str(difference),
+       'keep_branch_eigenvalues':['1 multiplicity10','(1+i)/2','0'],
+       'keep_branch_rank':11,'one_load_coherent_global_record_dimension':120,
+       'one_load_source_times_record_dimension':1440,
+       'reversible_quantum_channel_transfer_valid':False,
+       'scope':'GNS detailed balance fails in the three-port control; this does not classify all other weighted adjoints or coherent dilations.'}
+if __name__=='__main__':
+    value=run();Path(__file__).with_name('detailed_balance_control.json').write_text(json.dumps(value,indent=2)+'\n');print(json.dumps(value,indent=2))

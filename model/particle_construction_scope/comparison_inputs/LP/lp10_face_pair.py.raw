@@ -1,0 +1,141 @@
+"""LP addendum 5 (items K5, K5b, K5c): two quanta on one port of the defect face, each with its own record and address
+(the arrangement of the public many-load construction), read with FR's round-1 flags. EXACT. Writes lp10_face_pair.json.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lp_common as L
+
+OUT = 'lp10_face_pair.json'
+
+
+class OneLoad:
+    """Public one-load law on a set of seams: state {(port, record, address): amplitude}, W = Q R."""
+    def __init__(self, seams, signs=None):
+        self.seams = [tuple(s) for s in seams]
+        self.addresses = [p for s in self.seams for p in (s, s[::-1])]
+        self.NA = len(self.addresses)
+        self.signs = signs or {}
+
+    def Q(self, st):
+        out = dict(st)
+        for k, (a, b) in enumerate(self.addresses):
+            link = self.signs.get(k // 2, 1)
+            sites = [(a, 0, k), (b, 0, k), (a, 1, k), (b, 1, k)]
+            sg = [1, -link, -1, -link]                       # the reflector of the public Observer.repair
+            coef = sum(s * st.get(x, 0) for s, x in zip(sg, sites)) / Fr(2)
+            if coef:
+                for s, x in zip(sg, sites):
+                    out[x] = out.get(x, 0) - s * coef
+        return {x: v for x, v in out.items() if v}
+
+    def R(self, st):
+        groups = {}
+        for (p, r, k), v in st.items():
+            groups.setdefault((p, r), {})[k] = v
+        out = {}
+        for (p, r), g in groups.items():
+            mean = sum(g.values(), Fr(0)) / self.NA
+            for k in range(self.NA):
+                v = 2 * mean - g.get(k, 0)
+                if v:
+                    out[(p, r, k)] = v
+        return out
+
+    def W(self, st):
+        return self.Q(self.R(st))
+
+    def Winv(self, st):
+        return self.R(self.Q(st))
+
+    def embed(self, port):
+        return {(port, 0, k): Fr(1) for k in range(self.NA)}
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP addendum 5: pair on a port of the defect face', 'provenance': L.FC.provenance()}
+    x0, x1, x2 = L.FC.outward(L.FACE_F)
+    seams = [(x0, x1), (x1, x2), (x2, x0)]
+    res = {}
+    for name, signs in (('flat', {}), ('class-3 holonomy on the face', {1: -1})):
+        m = OneLoad(seams, signs)
+        st = m.embed(x0)
+        n0 = sum(v * v for v in st.values())
+        w1 = m.W(st)
+        k_plus, k_minus = m.addresses.index((x0, x1)), m.addresses.index((x1, x0))
+        kE = [m.addresses.index((x2, x0)), m.addresses.index((x0, x2))]
+        kidle = [m.addresses.index((x1, x2)), m.addresses.index((x2, x1))]
+        wt = {'R+ (record 1, address x0 -> x1)': Fr(0), 'R- (record 1, address x1 -> x0)': Fr(0),
+              'H (record 0, address on the seam {x2, x0})': Fr(0), 'repair on the seam {x2, x0}': Fr(0),
+              'agreement on the seam {x0, x1}': Fr(0), 'address on the opposite seam': Fr(0)}
+        for (p, r, k), v in w1.items():
+            w = v * v / n0
+            if k == k_plus and r == 1:
+                wt['R+ (record 1, address x0 -> x1)'] += w
+            elif k == k_minus and r == 1:
+                wt['R- (record 1, address x1 -> x0)'] += w
+            elif k in (k_plus, k_minus):
+                wt['agreement on the seam {x0, x1}'] += w
+            elif k in kE and r == 0:
+                wt['H (record 0, address on the seam {x2, x0})'] += w
+            elif k in kE:
+                wt['repair on the seam {x2, x0}'] += w
+            else:
+                wt['address on the opposite seam'] += w
+        p, q = wt['R+ (record 1, address x0 -> x1)'], wt['H (record 0, address on the seam {x2, x0})']
+        res[name] = {'tick-1 weights of one quantum': {k: str(v) for k, v in wt.items()},
+                     'P(R+ of quantum a xor H of quantum b)': str(p + q - 2 * p * q),
+                     'inverse tick restores the state': m.Winv(w1) == st}
+    out['K5_face_register (six addresses, DECLARED register)'] = {'face in outward order': [x0, x1, x2], **res}
+
+    # K5b: public Observer with sixty addresses, and the ten addresses at the port
+    L.FC.rer_root()
+    from model.coherent_seam_repair.program import Observer
+    obs = Observer()
+    st = obs.step(obs.embedded_port(x0))
+    rec1 = {}
+    agree = {}
+    for address, (a, b) in enumerate(obs.addresses):
+        if x0 not in (a, b):
+            continue
+        w1 = sum(st.amplitudes[obs.index(p, 1, address)] ** 2 for p in range(12)) / st.norm_denominator
+        w0 = sum(st.amplitudes[obs.index(p, 0, address)] ** 2 for p in range(12)) / st.norm_denominator
+        rec1[(a, b)] = w1
+        agree[tuple(sorted((a, b)))] = agree.get(tuple(sorted((a, b))), Fr(0)) + w0
+    p60, q60 = next(iter(rec1.values())), next(iter(agree.values()))
+    star = [s for s in obs.seams if x0 in s]
+    m10 = OneLoad(star)
+    st10 = m10.embed(x0)
+    w10 = m10.W(st10)
+    p10 = sum(v * v for (p, r, k), v in w10.items() if r == 1 and k == 0) / Fr(len(st10))
+    q10 = sum(v * v for (p, r, k), v in w10.items() if r == 0 and k in (0, 1)) / Fr(len(st10))
+    out['K5b_other_registers'] = {
+        'public Observer, sixty addresses, port': x0,
+        'record 1 at one oriented address at the port': sorted({str(v) for v in rec1.values()}),
+        'record 0 with the address on one seam at the port': sorted({str(v) for v in agree.values()}),
+        'total record 1 weight': str(sum(rec1.values())),
+        'count with sixty addresses': str(p60 + q60 - 2 * p60 * q60),
+        'ten addresses of the five seams at the port: P(R+), P(H), count': [str(p10), str(q10), str(p10 + q10 - 2 * p10 * q10)]}
+
+    # K5c: charges
+    def charges(n3, n2):
+        y6 = 3 * n2 - 2 * n3
+        return {'6Y': y6, 'class': y6 % 6, 'weak': 'doublet' if n2 == 1 else 'singlet'}
+    out['K5c_charges'] = {'{s1, s2} (both spinor levels on one port)': charges(0, 2), '{s_k} (one spinor quantum)': charges(0, 1),
+                          '{v1 v2 v3} (right-handed charged lepton)': charges(3, 0),
+                          '{v1 v2 v3, s2} (left-handed charged lepton)': charges(3, 1),
+                          'complement of {v1 v2 v3}': '{s1, s2}',
+                          'reading': 'one emission from the doubly occupied port is the vertex 0 -> 3 + 3 of the charged lepton (conjugate form)'}
+    print(json.dumps(out, indent=1, default=str))
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

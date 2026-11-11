@@ -1,0 +1,99 @@
+"""Worker LS: the single NOT BLIND comparison, run after ls_candidates.py wrote candidates.json.
+
+Measured values:
+- pole masses: the witness triple of RER code/particles/runs/leptons/charged_trace_lift_theorem.json
+  (exact_ratio_regression.witness_masses_gev: CODATA e, mu; PDG tau 1776.93 MeV);
+- running MSbar masses at m_Z: Xing, Zhang, Zhou, Phys. Rev. D 77 (2008) 113016, table at M_Z
+  (IMPORTED, values quoted from memory: 0.486570161 MeV, 102.7181359 MeV, 1746.24 MeV);
+- the nucleon mass row PH6 uses the repository's conditional m_N display 0.9435601140610963 GeV
+  (code/particles/MASS_CANDIDATE_STATUS.md, external c_N), and PH5 the D11 pole top 172.6294 GeV at P_fwd.
+Pass rule of CANDIDATES.md: 5 percent on M in the scheme of the statement (v: pole; Q0 or run from above:
+running at m_Z).
+  cd RER && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B RL/work/LS/ls_compare.py
+"""
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RER = Path("WORKSPACE/reverse-engineering-reality")
+CAND = json.loads((HERE / "candidates.json").read_text())
+TL = json.loads((RER / "code/particles/runs/leptons/charged_trace_lift_theorem.json").read_text())
+
+POLE = [float(x) for x in TL["exact_ratio_regression"]["witness_masses_gev"]]
+RUN_MZ = [0.486570161e-3, 102.7181359e-3, 1746.24e-3]
+V = CAND["inputs"]["v_source_GeV"]
+E_CELL = CAND["inputs"]["E_cell_GeV"]
+ALPHA_U = CAND["inputs"]["alpha_U"]
+ALPHA_CUT = CAND["inputs"]["alpha_cut"]
+DOWN_CELL = CAND["running_one_loop"]["at_E_cell"]["yl_Q0_over_yl_E_cell"]
+YT_Q0 = CAND["inputs"]["yt_Q0_criticality"]
+LSQ = CAND["inputs"]["lambda_sq_e_mu_tau"]
+SQ2 = math.sqrt(2.0)
+M_POLE, M_RUN = sum(POLE), sum(RUN_MZ)
+
+
+def main():
+    need = {
+        "yJ_pole": SQ2 * M_POLE / V,
+        "yJ_run_mZ": SQ2 * M_RUN / V,
+        "M_over_v_pole": M_POLE / V,
+        "mu_pole": math.log(SQ2 * M_POLE / V) + math.log(LSQ[0] * LSQ[1] * LSQ[2]) / 3,
+        "ln_det_Ye_measured_pole": sum(math.log(SQ2 * m / V) for m in POLE),
+    }
+    yJ_cell_needed = need["yJ_run_mZ"] / DOWN_CELL
+    need["T_needed_b_alpha_U"] = 2 * math.pi / (ALPHA_U * -math.log(yJ_cell_needed))
+    need["T_needed_b_alpha_cut"] = 2 * math.pi / (ALPHA_CUT * -math.log(yJ_cell_needed))
+    need["N_needed_n_yJ"] = -math.log(need["yJ_pole"])
+    need["N_needed_n_M_over_v"] = -math.log(need["M_over_v_pole"])
+    need["class_ratio_needed_yJe_over_trYu_Q0_native_up"] = need["yJ_run_mZ"] / (YT_Q0 / LSQ[2])
+    yt_muc = CAND["inputs"]["yt_mu_c_criticality_two_loop"]
+    down_muc = CAND["running_one_loop"]["at_mu_c"]["yl_Q0_over_yl_mu_c"]
+    need["class_ratio_needed_at_mu_c"] = (need["yJ_run_mZ"] / down_muc) / (yt_muc / LSQ[2])
+    need["PH11_needed_b_for_M_eq_Ecell_exp(-2pi/(b alpha_U))"] = 2 * math.pi / (ALPHA_U * math.log(E_CELL / M_POLE))
+    need["Z6_exponent_n_with_det_Ye_eq_sqrt2_6^-n"] = (
+        (0.5 * math.log(2.0) - need["ln_det_Ye_measured_pole"]) / math.log(6.0))
+    need["ratios_native_vs_measured"] = {
+        "mu_e": [LSQ[1] / LSQ[0], POLE[1] / POLE[0]],
+        "tau_e": [LSQ[2] / LSQ[0], POLE[2] / POLE[0]],
+    }
+    rows = []
+    extra = [
+        {"id": "PH5", "statement_scale": "v", "weight": "post hoc coincidence",
+         "sum_GeV": V / SQ2 * (1 - SQ2 * 172.6294 / V), "note": "tr Y_e = 1 - y_t(pole, D11 at P_fwd)"},
+        {"id": "PH6", "statement_scale": "v", "weight": "post hoc coincidence, not source",
+         "sum_GeV": 2 * 0.9435601140610963, "note": "M = 2 m_N with the repository's external c_N"},
+    ]
+    for r in CAND["rows"] + extra:
+        scheme = "pole" if r["statement_scale"] == "v" else "running_mZ"
+        ref = M_POLE if scheme == "pole" else M_RUN
+        ratio = r["sum_GeV"] / ref
+        rows.append({
+            "id": r["id"], "weight": r["weight"], "scheme": scheme,
+            "M_GeV": r["sum_GeV"], "M_over_measured": ratio,
+            "M_over_pole": r["sum_GeV"] / M_POLE, "M_over_running_mZ": r["sum_GeV"] / M_RUN,
+            "pass_5_percent": abs(ratio - 1) <= 0.05,
+            "masses_GeV": r.get("masses_GeV_e_mu_tau"),
+            "note": r["note"],
+        })
+    out = {
+        "measured": {"pole_GeV": POLE, "running_mZ_GeV_IMPORTED": RUN_MZ, "M_pole": M_POLE, "M_run_mZ": M_RUN},
+        "needed_NOT_BLIND": need,
+        "rows": rows,
+        "passing": [r["id"] for r in rows if r["pass_5_percent"]],
+        "passing_structural": [r["id"] for r in rows if r["pass_5_percent"] and r["weight"] == "structural"],
+    }
+    (HERE / "compare.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps(need, indent=1))
+    for r in rows:
+        print(f"{r['id']:16s} {r['weight']:28s} {r['scheme']:10s} M={r['M_GeV']:.6g}  "
+              f"M/meas={r['M_over_measured']:.4f}  pole {r['M_over_pole']:.4f}  run {r['M_over_running_mZ']:.4f}"
+              f"{'  PASS' if r['pass_5_percent'] else ''}")
+    print("passing:", out["passing"])
+    print("passing structural:", out["passing_structural"])
+
+
+if __name__ == "__main__":
+    main()

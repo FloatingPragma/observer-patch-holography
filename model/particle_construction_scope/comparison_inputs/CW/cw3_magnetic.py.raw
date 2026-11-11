@@ -1,0 +1,171 @@
+"""CW task 2, glue rules (b) and (c): glue classes with a net flux through the screen.
+
+Gauge-invariant data of a translation-covariant glue rule on the flat lattice (flux k inside every carrier): one
+number, the flux mu per unit cell through the screen (units 2 pi / 20; magnetic translations T1 T2 = zeta^mu T2 T1).
+The flux through the non-carrier cell around a mesh vertex is  Phi_v = mu + E_int,  E_int the holonomy of the
+carrier seams on its boundary (computed below: 2 k SIGN for F, 8 k SIGN for B with the path through the top ports).
+  rule (a)  mu = 0                     (every translation-invariant one-cell rule; cw2_bloch.py)
+  rule (b)  Phi_v = 0, mu = -E_int     zero flux through every cell that is not a carrier face
+  rule (c)  Phi_v = -k SIGN (one carrier-face unit in the orientation of the screen), mu = -k SIGN - E_int
+The scan over all mu in Z_20 for k = 1, 2 covers every other reading of (b) and (c).
+
+Landau gauge: bond 1 of the up carrier in row j2 carries zeta^(mu j2); supercell of n = 20 / gcd(mu, 20) cells
+along A2. Reported per (wiring, k, mu): flat bands at the carrier level per cell, the lowest dispersive magnetic
+band (bottom, top, bands per cell, gap above), curvature at the bottom, both clock readings (kept apart).
+
+Run on box B: python cw3_magnetic.py [procs=12]  -> cw3_magnetic.json
+"""
+import json
+import math
+import multiprocessing as mp_
+import os
+import sys
+import time
+
+import numpy as np
+
+import cw_lib as C
+import cw_shell as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+PROCS = int(sys.argv[1]) if len(sys.argv) > 1 else 12
+M_EFF = 30.0
+WIR = {'F': (C.F_TRIPLE, C.F_TRIPLE), 'B': (C.B_TRIPLE, C.B_TRIPLE)}
+
+
+def magnetic_bloch(q, k, pu, pd, mu, n, gauge=1):
+    """24 n x 24 n. gauge = 1: phase zeta^(mu j) on bond 1, supercell along A2. gauge = 2: phase zeta^(-mu j) on
+    bond 2, supercell along A1 (independent check of the same flux)."""
+    q = np.asarray(q, float)
+    Lk = C.L_float(k)
+    H = np.zeros((24 * n, 24 * n), complex)
+    for j in range(n):
+        o = 24 * j
+        H[o:o + 12, o:o + 12] = Lk; H[o + 12:o + 24, o + 12:o + 24] = Lk
+    for j in range(n):
+        o = 24 * j
+        for b in range(3):
+            u = o + pu[b]
+            if gauge == 1:
+                jd = j + 1 if b == 2 else j
+                amp = C.ZETA ** ((mu * j) % 20) if b == 1 else 1.0
+                amp = amp * (np.exp(-1j * (q @ C.A1)) if b == 1 else 1.0)
+                if jd == n:
+                    jd = 0; amp = amp * np.exp(-1j * (q @ (n * C.A2)))
+            else:
+                jd = j + 1 if b == 1 else j
+                amp = C.ZETA ** ((-mu * j) % 20) if b == 2 else 1.0
+                amp = amp * (np.exp(-1j * (q @ C.A2)) if b == 2 else 1.0)
+                if jd == n:
+                    jd = 0; amp = amp * np.exp(-1j * (q @ (n * C.A1)))
+            d = 24 * jd + 12 + pd[b]
+            H[u, u] += 1; H[d, d] += 1
+            H[d, u] -= amp; H[u, d] -= np.conj(amp)
+    return H
+
+
+def recip(n, gauge=1):
+    return (C.B1, C.B2 / n) if gauge == 1 else (C.B1 / n, C.B2)
+
+
+def e_int(name, k):
+    """Exponent (mod 20) of the product of carrier-seam phases along the boundary of the vertex cell, in the loop
+    orientation in which bond phases enter as +mu. F: one top-face seam per carrier. B: two seams through the top
+    port between the two belt ports."""
+    pu, pd = WIR[name]
+
+    def path(tr, i, j):
+        if name == 'F':
+            return [(tr[i], tr[j])]
+        t = C.F_TRIPLE[3 - i - j]
+        return [(tr[i], t), (t, tr[j])]
+    tot = 0
+    # loop: up p0 | down p0 -> p1 | up p1 -> p2 | down p2 -> p0 | up p0 -> p1 | down p1 -> p2 | up p2 -> p0
+    for tr, (i, j) in ((pd, (0, 1)), (pu, (1, 2)), (pd, (2, 0)), (pu, (0, 1)), (pd, (1, 2)), (pu, (2, 0))):
+        for a, b in path(tr, i, j):
+            assert C.ADJ[a, b] == 1
+            tot += k * C.NTAB[(a, b)]
+    return tot % 20
+
+
+def job(args):
+    name, k, mu = args
+    pu, pd = WIR[name]
+    n = 20 // math.gcd(mu, 20) if mu % 20 else 1
+    b1, b2 = recip(n)
+    f = lambda q: np.linalg.eigvalsh(magnetic_bloch(q, k, pu, pd, mu, n))
+    wc = np.linalg.eigvalsh(C.L_float(k)); l0 = float(wc[0]); d = int(np.sum(np.abs(wc - l0) < 1e-8))
+    n1 = 8 if n <= 5 else 6
+    grid = np.array([(i / n1) * b1 + (j / n1) * b2 for i in range(n1) for j in range(n1)])
+    ev = np.array([f(q) for q in grid])
+    nflat = int(np.sum(np.abs(ev - l0).max(0) < 1e-8))
+    i0 = nflat
+    # cluster of bands starting at i0 (connected or overlapping)
+    top = float(ev[:, i0].max()); i1 = i0
+    while i1 + 1 < ev.shape[1] and ev[:, i1 + 1].min() <= top + 1e-7:
+        i1 += 1; top = float(ev[:, i1].max())
+    qmin, vmin = R.refine_min(lambda x: float(f(x)[i0]), grid[int(np.argmin(ev[:, i0]))], maxiter=260, xatol=1e-8, fatol=1e-13)
+    rd = R.quad_readout(f, i0, qmin, M_EFF)
+    deg = int(np.sum(np.abs(f(qmin) - vmin) < 1e-8))
+    row = {'wiring': name, 'k': k, 'mu': mu, 'Phi_v_units': (mu + e_int(name, k)) % 20, 'supercell': n, 'carrier_l0': l0, 'd': d,
+           'spectrum_min_minus_l0': float(ev.min() - l0), 'flat_bands_at_l0_per_cell': nflat / n,
+           'lowest_dispersive_bottom_minus_l0': float(vmin - l0), 'degeneracy_at_bottom': deg,
+           'lowest_dispersive_cluster_top_minus_l0': float(top - l0), 'cluster_bands_per_cell': (i1 - i0 + 1) / n,
+           'cluster_width': float(top - vmin),
+           'gap_above_cluster': float(ev[:, i1 + 1].min() - top) if i1 + 1 < ev.shape[1] else None,
+           'bottom_q': [float(x) for x in qmin], 'at_bottom': rd}
+    return row
+
+
+if __name__ == '__main__':
+    T0 = time.time()
+    out = {'M_eff': M_EFF, 'sign': C.SIGN}
+    # ---- checks of the construction
+    chk = {}
+    pu, pd = WIR['F']
+    g = C.zone_grid(6)
+    worst = 0.0
+    for q in g[::5]:
+        big = np.linalg.eigvalsh(magnetic_bloch(q, 1, pu, pd, 0, 3))
+        small = np.sort(np.concatenate([C.bands(q + m * C.B2 / 3, 1, pu, pd) for m in range(3)]))
+        worst = max(worst, float(np.abs(big - small).max()))
+    chk['mu0_supercell_equals_folded_single_cell'] = worst
+    # the same flux in two Landau gauges: band edges of the lowest dispersive cluster agree
+    for (k, mu) in ((1, 4), (2, 10), (1, 5)):
+        n = 20 // math.gcd(mu, 20)
+        edges = []
+        for gauge in (1, 2):
+            b1, b2 = recip(n, gauge)
+            ev = np.array([np.linalg.eigvalsh(magnetic_bloch((i / 8) * b1 + (j / 8) * b2, k, pu, pd, mu, n, gauge)) for i in range(8) for j in range(8)])
+            edges.append([float(ev[:, n].min()), float(ev[:, n].max()), float(ev.max())])
+        chk[f'two_gauges_k{k}_mu{mu}'] = {'edges_gauge1': edges[0], 'edges_gauge2': edges[1], 'max_diff': float(np.abs(np.array(edges[0]) - np.array(edges[1])).max())}
+    chk['E_int_units'] = {name: {str(k): e_int(name, k) for k in (1, 2, 7)} for name in WIR}
+    out['checks'] = chk
+    print(json.dumps(chk), flush=True)
+
+    rules = {}
+    jobs = set()
+    for name in WIR:
+        for k in range(1, 11):
+            ei = e_int(name, k)
+            mb = (-ei) % 20; mc = (-k * C.SIGN - ei) % 20
+            rules[f'{name},{k}'] = {'E_int': ei, 'mu_rule_a': 0, 'mu_rule_b': mb, 'mu_rule_c': mc}
+            jobs.add((name, k, mb)); jobs.add((name, k, mc))
+        for k in (1, 2):
+            for mu in range(0, 20):
+                jobs.add((name, k, mu))
+    out['rules'] = rules
+    jobs = sorted(jobs, key=lambda t: -(20 // math.gcd(t[2], 20) if t[2] else 1))
+    with mp_.Pool(PROCS) as pool:
+        rows = pool.map(job, jobs, chunksize=1)
+    rows.sort(key=lambda r: (r['wiring'], r['k'], r['mu']))
+    out['rows'] = rows
+    for r in rows:
+        a = r['at_bottom']; rc = a['recurrence_clock']; fo = a['first_order_clock']
+        print(f"{r['wiring']} k={r['k']:2d} mu={r['mu']:2d} Phi_v={r['Phi_v_units']:2d} n={r['supercell']:2d} flat/cell {r['flat_bands_at_l0_per_cell']:.2f} (d={r['d']}) "
+              f"disp bottom l0+{r['lowest_dispersive_bottom_minus_l0']:.6f} (deg {r['degeneracy_at_bottom']}) width {r['cluster_width']:.6f} bands/cell {r['cluster_bands_per_cell']:.2f} "
+              f"gap above {r['gap_above_cluster']:.6f} h {a['second_derivative_mean']:.2e} aniso {a['second_derivative_anisotropy']:.1e} quad {a['quadratic_point']} "
+              f"| REC omega0 {rc['omega0']:.6f} c {rc.get('c', float('nan')):.6f} Compton {rc.get('compton_length_edges') or float('nan'):.4f} | FIRST E0 {fo['E0']:.6f} m_kin {fo.get('kinetic_mass') or float('nan'):.0f}", flush=True)
+    out['seconds'] = time.time() - T0
+    json.dump(out, open(os.path.join(HERE, 'cw3_magnetic.json'), 'w'), indent=1)
+    print('written cw3_magnetic.json', round(time.time() - T0, 1), 's')

@@ -1,0 +1,48 @@
+"""Run H3 (theory session): a quantum and its conjugate moving side by side through the link-flux gas of run H2.
+
+    python cf1_h3.py N out.json
+
+A rigid pair at transverse separation s (along the second axis) is treated as one object: per step it reads the product of
+the link variable at x and the conjugate link variable at x + s e_2 on the parallel link. That product is the flux through
+the strip of plaquettes between the two links (up to the two short sides). Same background as H2 (same seed and placement),
+same gauge-invariant readout: the share found in the window where the free packet is. No rest angle.
+Prediction to test: mean free path proportional to 1/s for small s, no limit at s = 0, twice the single-quantum rate for
+large s (coherence lost in proportion to the area between the two paths).
+"""
+import json, sys, time
+import numpy as np
+from cf1_lib import Engine, positive_coin
+
+N = int(sys.argv[1]); outf = sys.argv[2]
+rng = np.random.default_rng(20261110); shape = (2 * N, N, N)
+q3 = 0.2676 / 12; q2 = 0.0409 / 12; w = np.exp(2j * np.pi / 3)
+u3 = [np.where(rng.random(shape) < q3, np.where(rng.random(shape) < 0.5, w, np.conj(w)), 1.0 + 0j) for _ in range(3)]
+u2 = [np.where(rng.random(shape) < q2, -1.0, 1.0) for _ in range(3)]
+p0 = 2 * np.pi * 8 / shape[0]; width = 5.0; start = (N // 3, N // 2, N // 2); coin = positive_coin((p0, 0, 0), 0.0); T = N
+grids = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij', sparse=True)
+def ballistic(links):
+    eng = Engine(shape, links); psi = eng.gaussian(start, width, (p0, 0, 0), coin); rows = []
+    for t in range(T):
+        psi = eng.step(psi, 0.0, 'Y', t)
+        if (t + 1) % 4 == 0:
+            rho = Engine.density(psi); xc = start[0] + (t + 1)
+            dx = ((grids[0] - xc + shape[0] / 2) % shape[0]) - shape[0] / 2; dy = grids[1] - start[1]; dz = grids[2] - start[2]
+            rows.append(float(rho[(np.abs(dx) <= 2.5 * width) & (np.sqrt(dy ** 2 + dz ** 2) <= 2.5 * width + 0 * dx)].sum()))
+    return np.array(rows)
+ts = np.arange(4, T + 1, 4); free = ballistic(None); t0 = time.time()
+out = {'run': 'H3', 'label': 'candidate CF-1, a rigid pair (quantum and conjugate) in the static link-flux gas of run H2, no rest angle', 'lattice': list(shape), 'seed': 20261110,
+       'effective_link': 'u(x, i) * conj(u(x + s e_2, i))', 'ticks': [int(t) for t in ts], 'free_ballistic': [float(x) for x in free], 'kinds': []}
+for name, u in (('colour-centre charge only (quark singlet and its conjugate)', u3), ('colour-centre and weak-centre charge (quark doublet and its conjugate)', [u3[i] * u2[i] for i in range(3)])):
+    rows = []
+    single = ballistic(u); rs = single / free; ok = rs > 1e-3
+    mfp1 = float(-1 / np.polyfit(ts[ok], np.log(rs[ok]), 1)[0])
+    for s in (0, 1, 2, 4, 8, 16):
+        links = None if s == 0 else [u[i] * np.conj(np.roll(u[i], -s, axis=1)) for i in range(3)]
+        b = ballistic(links); r = b / free; ok = r > 1e-3
+        slope = np.polyfit(ts[ok], np.log(r[ok]), 1)[0] if s else 0.0
+        rows.append({'separation': s, 'ballistic_share_relative_to_free': [float(x) for x in r], 'rate_per_tick': float(-slope), 'mean_free_path_cells': (float(-1 / slope) if slope < -1e-9 else None),
+                     'rate_over_single_quantum_rate': float(-slope * mfp1)})
+        print(name, 's =', s, 'rate per tick', round(float(-slope), 5), 'mean free path', rows[-1]['mean_free_path_cells'], 'rate / single', round(rows[-1]['rate_over_single_quantum_rate'], 3), f'{time.time() - t0:.0f}s', flush=True)
+    out['kinds'].append({'name': name, 'single_quantum_mean_free_path_cells': mfp1, 'pairs': rows})
+out['seconds'] = time.time() - t0
+json.dump(out, open(outf, 'w'), indent=1); print('written', outf)

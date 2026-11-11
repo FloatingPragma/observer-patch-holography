@@ -1,0 +1,205 @@
+"""T5, items 1 and 2: the family band as a space, the residual groups, and the invariant Hermitian operators.
+
+Exact over Q(sqrt5) (ranks, traces, identities). Output: spaces.json.
+
+  1. The band: the image of the raw port frame is the sqrt5 eigenband of the port adjacency (seam cost 5 - sqrt5),
+     its projector is the public one, 40 P3 = X + sqrt5 Y with the tables described in A5FamilyBand.lean.
+  2. The rotation group acts on it by the irreducible triplet (character norm one).
+  3. For each residual group: the dimension of the Hermitian operators that commute with it (= complex dimension of
+     the commutant), the dimension of the real symmetric ones, the eigenvalue pattern, the explicit general form in
+     the coordinates of the fixed cubic frame.
+"""
+import itertools
+import sys
+from fractions import Fraction as F
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, R5, PHI
+import t5lib as t
+from t5lib import E, EZ, EO, W, IDP, geometry, rot, kmat, kstr, kfl
+
+geo = geometry()
+V, seams, rots, faces, anti = geo['V'], geo['seams'], geo['rotations'], geo['faces'], geo['antipode']
+out = {'arithmetic': 'Q(sqrt5); every identity and rank below is exact'}
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. the band
+A = [[0] * 12 for _ in range(12)]
+for a, b in seams:
+    A[a][b] = A[b][a] = 1
+# graph distance two
+A2 = [[1 if (p != q and A[p][q] == 0 and q != anti[p]) else 0 for q in range(12)] for p in range(12)]
+checks = {}
+checks['A V = sqrt5 V (the band is the sqrt5 eigenband of the adjacency; seam cost 5 - sqrt5)'] = all(
+    sum((V[q][i] * K(A[p][q]) for q in range(12)), ZERO) == R5 * V[p][i] for p in range(12) for i in range(3))
+gram = [[sum((V[p][i] * V[p][j] for p in range(12)), ZERO) for j in range(3)] for i in range(3)]
+checks['V^T V = 4 (phi + 2) 1 (the three coordinate loads are orthogonal and of equal norm)'] = all(
+    gram[i][j] == (K(4) * W if i == j else ZERO) for i in range(3) for j in range(3))
+c4w = (K(4) * W).inv()
+P3 = [[kd.vdot(V[p], V[q]) * c4w for q in range(12)] for p in range(12)]
+checks['40 P3 = X + sqrt5 Y, X = 10 (1 - antipode), Y = 2 (adjacency - distance two) (tables of A5FamilyBand.lean)'] = all(
+    K(40) * P3[p][q] == K(10 * ((p == q) - (q == anti[p]))) + R5 * K(2 * (A[p][q] - A2[p][q]))
+    for p in range(12) for q in range(12))
+src = __import__('model.common_source.slow_geometry', fromlist=['x']).source()
+pub = src.slow_band_projector_exact()
+checks['P3 equals the exact slow-band projector of the public carrier module'] = all(
+    K.lift(pub[p][q]) == P3[p][q] for p in range(12) for q in range(12))
+checks['P3 is idempotent of trace 3'] = (
+    all(sum((P3[p][r] * P3[r][q] for r in range(12)), ZERO) == P3[p][q] for p in range(12) for q in range(12))
+    and sum((P3[p][p] for p in range(12)), ZERO) == K(3))
+cost = src.LAPLACIAN_BANDS[1]
+checks['public Laplacian band 1 is (5 - sqrt5, multiplicity 3)'] = (K.lift(cost[0]) == K(5) - R5 and cost[1] == 3)
+out['band'] = {'definition': 'loads f(p) = v_p . c, c in C^3; operator O on loads acts as V^T O V / (4 (phi + 2))',
+               'seam_cost': '5 - sqrt5', 'adjacency_eigenvalue': 'sqrt5', 'rank': 3,
+               'kernel_T_eigenvalue': '11/12 + (1/60)*sqrt5 (T = 1 - L/60)', 'checks': checks}
+for k, v in checks.items():
+    print('1.', v, k)
+    assert v
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. the representation
+R = {g: rot(g) for g in rots}
+chi = {g: t.etr(R[g]).real_K() for g in rots}
+classes = {}
+for g in rots:
+    classes.setdefault((t.order(g), kstr(chi[g])), 0)
+    classes[(t.order(g), kstr(chi[g]))] += 1
+norm = sum((chi[g] * chi[g] for g in rots), ZERO) * K(F(1, 60))
+out['representation'] = {'character_by_class (order, trace): count': {f'order {o}, trace {c}': n for (o, c), n in sorted(classes.items())},
+                         'character_norm': kstr(norm), 'irreducible': norm == ONE,
+                         'all_matrices_real_orthogonal_det_1': all(
+                             t.eeq(t.emm(R[g], t.edag(R[g])), t.eeye()) and t.edet3(R[g]) == EO for g in rots)}
+print('2. classes:', out['representation']['character_by_class (order, trace): count'], ' norm', kstr(norm))
+assert norm == ONE and out['representation']['all_matrices_real_orthogonal_det_1']
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. residual groups
+fr = next(f for f in geo['frames'] if f['coordinate_frame'])
+klein, stab = fr['klein'], fr['stabilizer']
+axes = fr['axes']
+# third-turn of the stabilizer acting as the pure cyclic permutation x -> y -> z -> x of the coordinate axes
+PC = t.emat([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+third = [g for g in stab if t.order(g) == 3]
+tcyc = next(g for g in third if t.eeq(R[g], PC))
+z3 = (IDP, tcyc, kd.compose(tcyc, tcyc))
+half = klein[1]
+z2 = (IDP, half)
+port = 0
+z5 = tuple(g for g in rots if g[port] == port)
+d5 = tuple(g for g in rots if g[port] in (port, anti[port]))
+face = next(f for f in faces if all(tcyc[p] in f for p in f))             # a face whose ports the third-turn permutes
+fset = frozenset(face)
+aset = frozenset(anti[p] for p in face)
+d3 = tuple(g for g in rots if frozenset(g[p] for p in face) in (fset, aset))
+assert len(z5) == 5 and len(d5) == 10 and len(d3) == 6 and len(third) == 8
+
+# the tick's group: the quaternion group of the three lifts; its image in the rotations is the Klein group
+us = [h['u'] for h in fr['half_turns']]
+grp = {kd.eye(2)}
+frontier = [kd.eye(2)]
+while frontier:
+    new = []
+    for g in frontier:
+        for u in us:
+            h = kd.mm(g, u)
+            if h not in grp:
+                grp.add(h)
+                new.append(h)
+    frontier = new
+centre = [g for g in grp if all(kd.meq(kd.mm(g, h), kd.mm(h, g)) for h in grp)]
+tick = {'order_of_the_group_generated_by_the_three_lifts': len(grp), 'centre_order': len(centre),
+        'centre_is_plus_minus_identity': sorted(str(g[0][0]) for g in centre) == ['-1', '1'],
+        'image_in_the_rotations': 'the Klein group of the frame (each lift u_i covers the half-turn about axis i; -1 acts as the identity on the band)'}
+assert len(grp) == 8 and len(centre) == 2
+
+PATTERN = {(1, 1): 'three equal',
+           (2, 2): 'two equal and one different',
+           (3, 3): 'free: three independent eigenvalues, eigenvectors fixed (real basis)',
+           (3, 2): 'free with fixed eigenvectors (one axial, two circular); the real symmetric members have two equal and one different',
+           (5, 4): 'free: one eigenvector fixed, the other two in a free 2 x 2 block',
+           (9, 6): 'no constraint'}
+groups = [
+    ('full rotation group', rots, 'space (a)'),
+    ('frame stabilizer (order 12)', stab, 'spaces (a), (b)'),
+    ('Klein group of the frame (three half-turns)', klein, 'spaces (a), (b)'),
+    ('third of a turn alone (in the frame stabilizer)', z3, 'spaces (a), (b)'),
+    ("the tick's group (quaternion group, acting through the Klein group)", klein, 'spaces (a), (b)'),
+    ('one half-turn alone', z2, 'spaces (a), (b)'),
+    ('fifth of a turn about a port', z5, 'space (a) only (not in a frame stabilizer)'),
+    ('stabilizer of a port axis (order 10)', d5, 'space (a) only'),
+    ('stabilizer of a face axis (order 6)', d3, 'space (a) only'),
+]
+rows = []
+for name, grp_, where in groups:
+    mats = [kmat(R[g]) for g in grp_ if g != IDP]
+    dh, ds = t.commutant_dims(mats)
+    by_char = sum((chi[g] * chi[g] for g in grp_), ZERO) * K(F(1, len(grp_)))
+    assert by_char.is_rational() and int(by_char.a) == dh, (name, dh, by_char)
+    rows.append({'group': name, 'order': len(grp_), 'available_in': where,
+                 'hermitian_invariant_operators_real_dimension': dh,
+                 'real_symmetric_invariant_operators_dimension': ds,
+                 'character_norm_check': kstr(by_char),
+                 'eigenvalue_pattern': PATTERN[(dh, ds)]})
+    print(f'3. {name:72s} order {len(grp_):2d}  Hermitian {dh}  real symmetric {ds}  : {PATTERN[(dh, ds)]}')
+
+# explicit general forms in the coordinates of the fixed frame -----------------------------------------------
+forms = {}
+# Klein group: sign matrices, commutant = diagonal
+signs = sorted(tuple(int(R[g][i][i].real_K().a) for i in range(3)) for g in klein)
+diag_ok = all(t.ezero(t.ecomm(R[g], t.emat([[1 if (i == j == k) else 0 for j in range(3)] for i in range(3)])))
+              for g in klein for k in range(3))
+forms['Klein group'] = {
+    'half_turn_matrices_diagonal_signs': signs,
+    'general_form': 'diag(m1, m2, m3) in the frame axes',
+    'eigenvalues': 'm1, m2, m3 (three free real numbers)', 'eigenvectors': 'the three frame axes',
+    'the_three_axes_carry_the_three_nontrivial_characters': signs == [(-1, -1, 1), (-1, 1, -1), (1, -1, -1), (1, 1, 1)],
+    'diagonal_units_commute': diag_ok}
+assert diag_ok and forms['Klein group']['the_three_axes_carry_the_three_nontrivial_characters']
+# third-turn: circulant
+P = R[tcyc]
+P2 = t.emm(P, P)
+assert t.eeq(t.emm(P2, P), t.eeye()) and t.etr(P) == EZ and t.eeq(P2, t.edag(P))
+import sympy as sp
+a_, mu = sp.symbols('a mu', real=True)
+b_, bb = sp.symbols('b bbar')
+Ps = sp.Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+Cs = b_ * Ps + bb * Ps ** 2
+charpoly = sp.expand((mu * sp.eye(3) - Cs).det())
+assert sp.expand(charpoly - (mu ** 3 - 3 * b_ * bb * mu - b_ ** 3 - bb ** 3)) == 0
+forms['third of a turn'] = {
+    'matrix_of_the_third_turn_in_the_frame_axes': 'the cyclic permutation P of the three axes (x -> y -> z -> x), trace 0, P^3 = 1',
+    'general_form': 'C = a 1 + b P + conj(b) P^2 (a real, b complex): 3 real parameters; the real symmetric members have b real',
+    'characteristic_polynomial_of_C_minus_a': 'mu^3 - 3 |b|^2 mu - (b^3 + conj(b)^3) (sympy, exact)',
+    'eigenvalues': 'a + 2 |b| cos(delta + 2 pi k / 3), k = 0, 1, 2, b = |b| exp(i delta) (triple-angle identity)',
+    'eigenvectors': 'the axis of the turn (1,1,1)/sqrt3 and the two circular states about it; independent of a, b',
+    'trace_identities': 'sum = 3 a, sum of squares = 3 a^2 + 6 |b|^2, so sum of squares / (sum)^2 = 1/3 + (2/3) |b|^2 / a^2',
+    'real_members': 'b real: eigenvalues a + 2 b, a - b, a - b (two equal and one different)',
+    'frame_independent_form': 'C = a 1 + b R + conj(b) R^-1 with R the third-turn on the band; any orthonormal triple that R permutes cyclically gives the same operator'}
+forms['frame stabilizer and full rotation group'] = {'general_form': 'm 1', 'eigenvalues': 'm, m, m'}
+forms['one half-turn (about frame axis 1)'] = {
+    'general_form': '[[m1, 0, 0], [0, x, z], [0, conj(z), y]]: 5 real parameters (4 when real)',
+    'eigenvalues': 'three free; eigenvector e_1 fixed; one free angle (and one phase) in the plane of e_2, e_3'}
+# port fifth-turn
+n_axis = V[port]
+outer, cross = t.unit_axis_data(n_axis)
+basis5 = [outer, t.esub(t.eeye(), outer), cross]
+z5_ok = all(t.ezero(t.ecomm(R[g], B)) for g in z5 for B in basis5)
+forms['fifth of a turn about a port'] = {
+    'general_form': 'x n n^T + y (1 - n n^T) + k i [n]_x (n the unit port axis): 3 real parameters; real members have k = 0',
+    'eigenvalues': 'x on the axial state, y + k and y - k on the two circular states',
+    'the_three_generators_commute_with_the_group': z5_ok}
+assert z5_ok
+out['residual_groups'] = {'frame': 'the cubic frame whose axes are the coordinate axes of the raw port frame',
+                          'table': rows, 'general_forms': forms, 'tick_group': tick,
+                          'counts': {'frames': len(geo['frames']), 'third_turn_axes_in_one_frame_stabilizer': len(third) // 2,
+                                     'frames_whose_stabilizer_contains_a_given_third_turn': sum(
+                                         1 for f in geo['frames'] if tcyc in f['stabilizer'])}}
+# irreducibility under the frame stabilizer: the statement that fixing a frame does not split the band
+out['fixing_a_frame_does_not_split_the_band'] = {
+    'statement': 'the stabilizer of a cubic frame (order 12) still acts irreducibly on the band: every Hermitian operator invariant under it is a multiple of the identity',
+    'character_norm_on_the_stabilizer': kstr(sum((chi[g] * chi[g] for g in stab), ZERO) * K(F(1, 12))),
+    'what_splits': 'giving up the third-turn (Klein group remains: diag(m1, m2, m3)) or giving up the half-turns (third-turn remains: circulant)'}
+print('3. counts:', out['residual_groups']['counts'])
+print("3. tick's group:", tick)
+if len(sys.argv) > 1:
+    t.dump(out, sys.argv[1])

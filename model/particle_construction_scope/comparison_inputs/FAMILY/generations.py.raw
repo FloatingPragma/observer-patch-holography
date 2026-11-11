@@ -1,0 +1,50 @@
+"""Residual-symmetry mismatch on a carrier triplet: a port (five-fold axis) against a cubic frame (Klein group).
+
+Pure group theory on the carrier: the eigenbasis of the fifth-turn about a port against the three axes of a frame.
+The squared overlaps are the pattern known in the flavour literature as golden-ratio mixing of A5.
+Nothing here says that the triplet is a generation space; that is a declared reading.
+"""
+import itertools, json, sys
+import numpy as np
+from model.common_source import slow_geometry
+
+seams = [tuple(sorted(int(v) for v in e)) for e in slow_geometry.source().seams()]
+n = 12
+A = np.zeros((n, n))
+for a, b in seams: A[a, b] = A[b, a] = 1
+w, v = np.linalg.eigh(A)
+out = {}
+for name, sel in (('port frame (3)', np.abs(w - 5 ** .5) < 1e-9), ('conjugate frame (3prime)', np.abs(w + 5 ** .5) < 1e-9)):
+    N = v[:, sel] * 2.0
+    # frames: triples of mutually perpendicular seam-midpoint axes
+    mids = {}
+    for a, b in seams:
+        m = N[a] + N[b]
+        if np.linalg.norm(m) < 1e-9: continue
+        m = m / np.linalg.norm(m)
+        k0 = next(i for i in range(3) if abs(m[i]) > 1e-6)
+        m = m if m[k0] > 0 else -m
+        if not any(np.allclose(m, x, atol=1e-7) for x in mids.values()): mids[len(mids)] = m
+    axes = list(mids.values())
+    frames = [t for t in itertools.combinations(range(len(axes)), 3)
+              if all(abs(axes[i] @ axes[j]) < 1e-9 for i, j in itertools.combinations(t, 2))]
+    patterns = set()
+    for t in frames:
+        F = np.array([axes[i] for i in t])
+        for p in range(n):
+            u = N[p]
+            e0 = u
+            a1 = np.cross(u, F[0] if abs(u @ F[0]) < 0.9 else F[1]); a1 /= np.linalg.norm(a1); b1 = np.cross(u, a1)
+            ep = (a1 + 1j * b1) / np.sqrt(2); em = ep.conj()
+            # fifth-turn about u: eigenvalues 1, exp(+-2 pi i/5) on e0, e+, e-
+            M = np.array([[abs(F[i] @ e) ** 2 for e in (e0, ep, em)] for i in range(3)])
+            patterns.add(tuple(sorted(np.round(M[:, 0], 6))) + tuple(sorted(np.round(M[:, 1], 6))))
+    out[name] = {'cubic_frames': len(frames), 'distinct_patterns_over_all_port_frame_pairs': len(patterns),
+                 'squared_overlaps_axis_state': sorted(patterns)[0][:3], 'squared_overlaps_circular_state': sorted(patterns)[0][3:]}
+    print(name, out[name])
+phi = (1 + 5 ** .5) / 2
+out['closed_forms'] = {'1/(1+phi^2)': 1 / (1 + phi ** 2), '(5-sqrt5)/10': (5 - 5 ** .5) / 10, 'phi^2/(1+phi^2)': phi ** 2 / (1 + phi ** 2)}
+out['as_mixing_angles'] = {'sin2_theta12': 1 / (1 + phi ** 2), 'sin2_theta23': 0.5, 'sin2_theta13': 0.0,
+                           'note': 'the golden-ratio pattern of A5 flavour models (literature); theta13 = 0 at this order'}
+print(out['closed_forms'])
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1, default=float)

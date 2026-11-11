@@ -1,0 +1,42 @@
+"""Item 1: cyclotron half-orbit at small momentum (p0 = 0.15), where the anisotropy of the tick's dispersion is about one percent.
+Measured mean position against (i) the relativistic orbit radius p0/B, angular frequency B/E, averaged over the packet's
+momenta, (ii) the semiclassical orbit of the tick's own dispersion (see item1_orbit_post.py)."""
+import json, sys, time
+import numpy as np
+from scipy.interpolate import RectBivariateSpline
+from r5lib import Routing, tick, positive_coin, ALPHA, BETA
+L, B, p0, th, T = 600, 0.001, 0.15, 0.05, 520
+c1, c2 = 270.0, 450.0; lB = 1 / np.sqrt(B); t0 = time.time()
+X1, X2 = np.meshgrid(np.arange(L), np.arange(L), indexing='ij')
+eng = Routing((L, L, 1), [np.ones((L, L, 1), complex), np.exp(-1j * B * (X1 - c1))[..., None], np.ones((L, L, 1), complex)])
+g = np.exp(-((X1 - c1) ** 2 + (X2 - c2) ** 2) / (4 * lB ** 2)) * np.exp(1j * p0 * (X1 - c1)) * np.exp(0.5j * B * (X1 - c1) * (X2 - c2))
+psi = g[..., None, None, None] * positive_coin((p0, 0.0, 0.0), th).reshape(2, 2); psi /= np.linalg.norm(psi)
+E0 = np.hypot(p0, th); rng = np.random.default_rng(0); n = 4000; sk = np.sqrt(B) / 2
+pi = np.stack([p0 + sk * rng.normal(size=n), sk * rng.normal(size=n)], axis=1); pi_start = pi.copy()
+pc = pi_start[:, 0] + 1j * pi_start[:, 1]; Es = np.sqrt(np.abs(pc) ** 2 + th ** 2)
+gr = np.linspace(-0.4, 0.4, 121); P1, P2 = np.meshgrid(gr, gr, indexing='ij'); I4 = np.eye(4)
+ex = lambda p, a: np.cos(p)[..., None, None] * I4 - 1j * np.sin(p)[..., None, None] * a
+M = np.cos(th) * I4 - 1j * np.sin(th) * BETA
+W = M @ ex(P1, ALPHA[0]) @ ex(P2, ALPHA[1]) @ M @ ex(P2, ALPHA[1]) @ ex(P1, ALPHA[0])
+spl = RectBivariateSpline(gr, gr, np.sort(-np.angle(np.linalg.eigvals(W)), axis=-1)[..., 2:].mean(axis=-1) / 2)
+def rhs(p):
+    return B * np.stack([spl.ev(p[:, 0], p[:, 1], dy=1), -spl.ev(p[:, 0], p[:, 1], dx=1)], axis=1)
+traj = []
+for t in range(T + 1):
+    if t % 8 == 0:
+        w = np.sum(np.abs(psi) ** 2, axis=(2, 3, 4)); zm = [float(np.sum(w * X1)), float(np.sum(w * X2))]
+        ens = complex(c1, c2) - 1j * np.mean(pc * (1 - np.exp(-1j * B * t / Es))) / B
+        dz = np.stack([-(pi[:, 1] - pi_start[:, 1]), pi[:, 0] - pi_start[:, 0]], axis=1).mean(axis=0) / B
+        traj.append(dict(t=t, measured=zm, relativistic=[ens.real, ens.imag], tick_dispersion=[c1 + dz[0], c2 + dz[1]]))
+    psi = tick(eng, psi, th, reverse=(t % 2 == 1))
+    k1 = rhs(pi); k2 = rhs(pi + 0.5 * k1); k3 = rhs(pi + 0.5 * k2); k4 = rhs(pi + k3); pi = pi + (k1 + 2 * k2 + 2 * k3 + k4) / 6
+dev = lambda key: max(float(np.hypot(r['measured'][0] - r[key][0], r['measured'][1] - r[key][1])) for r in traj)
+zmc = np.array([complex(*r['measured']) for r in traj]); tt = np.array([r['t'] for r in traj])
+vel = np.diff(zmc) / 8; omega = -np.polyfit(tt[:-1] + 4, np.unwrap(np.angle(vel)), 1)[0]
+out = dict(L=L, B=B, p0=p0, theta=th, ticks=T, n_star=p0 ** 2 / (2 * B), radius_relativistic=p0 / B, half_period_relativistic=np.pi * E0 / B,
+           omega_relativistic=B / E0, omega_measured=float(omega), mean_speed_measured=float(np.abs(vel).mean()), speed_relativistic=p0 / E0,
+           max_deviation_from_relativistic_orbit=dev('relativistic'), max_deviation_from_tick_dispersion_orbit=dev('tick_dispersion'),
+           max_distance_from_start_over_2=float(np.abs(zmc - zmc[0]).max() / 2), norm=float(np.linalg.norm(psi)), trajectory=traj, seconds=time.time() - t0)
+print({k: (round(v, 6) if isinstance(v, float) else v) for k, v in out.items() if k != 'trajectory'})
+for r in traj[::13]: print('  t=%3d measured (%.2f, %.2f) relativistic (%.2f, %.2f) tick dispersion (%.2f, %.2f)' % (r['t'], *r['measured'], *r['relativistic'], *r['tick_dispersion']))
+json.dump(out, open('item1_cyclo2.json', 'w'), indent=1)

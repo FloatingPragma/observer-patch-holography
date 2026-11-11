@@ -1,0 +1,17 @@
+"""Read-only reference dump of the simulation side's face_axis federation geometry (levels 0-2).
+Imports SIM modules only; writes into the S11 scratch directory only."""
+import os, sys
+from pathlib import Path
+HERE = Path(__file__).resolve().parent
+os.environ['OPH_UNIVERSE_CACHE'] = str(HERE / 'cache')
+SIM = 'WORKSPACE/oph-physics-sim'
+sys.path.insert(0, SIM)
+import numpy as np
+from oph_defects import fedgeom as FG
+for level in (0, 1, 2):
+    g = FG.build(level, cache=False, gluing='face_axis')
+    a, b = g.all_seam_ends()
+    np.savez(HERE / 'ref' / f'sim_face_axis_L{level}.npz', seam_a=a, seam_b=b, tri=g.tri, mesh_xyz=g.mesh_xyz,
+             carrier_xyz=g.carrier_xyz, control_ports=np.array(FG._control_ports()), template_seams=FG.TEMPLATE_SEAMS,
+             template_faces=FG.TEMPLATE_FACES, port_vectors=FG.PORT_VECTORS)
+    print(level, g.carriers, g.ports, g.seams, FG._control_ports())

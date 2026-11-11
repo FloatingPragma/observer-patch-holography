@@ -1,0 +1,105 @@
+"""LT (step L3): what unit clock time per tick implies for the scale (direction 4). Readings C1 to C5.
+
+Run from RL/work/LT:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lt_scale.py
+Part S is source only (no measured value). Part N uses the measured lepton masses and is NOT BLIND.
+Writes lt_scale.json.
+"""
+import json
+import os
+import sys
+
+sys.dont_write_bytecode = True
+import mpmath as mp  # noqa: E402
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+P = mp.mpf(2) / 9
+lam = [1 + mp.sqrt(2) * mp.cos(P + 2 * mp.pi * k / 3) for k in range(3)]
+Y = sorted(l * l / 27 for l in lam)                      # rates per unit clock time: electron, muon, tau
+OUT = {'rates at theta = 2/9 (electron, muon, tau)': [mp.nstr(v, 12) for v in Y], 'sum': mp.nstr(sum(Y), 15)}
+
+# ------------------------------------------------------------------ part S: source only
+# C4: zero-return operator of one mass round with kick h on an eigenvalue y of Y: 1 + (cos h - 1) y - i sin(h) y.
+def round_phase(h, y):
+    return mp.atan2(mp.sin(h) * y, 1 - (1 - mp.cos(h)) * y)
+
+
+def round_amp(h, y):
+    return abs(mp.mpc(1 - (1 - mp.cos(h)) * y, -mp.sin(h) * y))
+
+
+c4 = {}
+for name, h in (('1', mp.mpf(1)), ('pi/2', mp.pi / 2), ('1/10', mp.mpf(1) / 10), ('1/1000', mp.mpf(1) / 1000)):
+    ph = [round_phase(h, y) for y in Y]
+    c4[name] = {'phase ratios (muon/electron, tau/electron)': [mp.nstr(ph[1] / ph[0], 12), mp.nstr(ph[2] / ph[0], 12)],
+                'relative shift of tau/electron against the rate ratio': mp.nstr((ph[2] / ph[0]) / (Y[2] / Y[0]) - 1, 6),
+                'relative shift of muon/electron against the rate ratio': mp.nstr((ph[1] / ph[0]) / (Y[1] / Y[0]) - 1, 6),
+                'amplitude kept per round on the tau mode': mp.nstr(round_amp(h, Y[2]), 12)}
+OUT['S: C4 mass kick of angle h per round (ratios of the phases per round)'] = {
+    'rate ratios': [mp.nstr(Y[1] / Y[0], 12), mp.nstr(Y[2] / Y[0], 12)], 'rows': c4,
+    'leading relative shift of a ratio': '(1 - cos h)(y_k - y_e): first order in h^2',
+    'dilute rounds of angle h at a small rate': 'phase per round sin(h) y, loss per round (1 - cos h) y, loss over phase tan(h/2)',
+    'tan(1/2)': mp.nstr(mp.tan(mp.mpf(1) / 2), 10),
+}
+# C3: both couplings with the angle h per tick: theta = h P; light ratio minus one to first order in theta.
+coef = 4 * mp.sqrt(mp.mpf(3) / 2) / (1 - 1 / mp.sqrt(2))
+th = mp.mpf(10) ** -6
+lam_s = sorted((1 + mp.sqrt(2) * mp.cos(th + 2 * mp.pi * k / 3)) ** 2 for k in range(3))
+OUT['S: C3 both couplings with the angle h per tick'] = {
+    'theta': 'h P', 'ratio of the two light rates minus one': 'c theta + O(theta^2), c = 4 sqrt(3/2)/(1 - 1/sqrt2)',
+    'c': mp.nstr(coef, 12), 'check at theta = 1e-6: (ratio - 1)/theta': mp.nstr((lam_s[1] / lam_s[0] - 1) / th, 12),
+    'ratio largest/smallest at theta = 0': mp.nstr((1 + mp.sqrt(2)) ** 2 / (1 - 1 / mp.sqrt(2)) ** 2, 12),
+}
+# C6: the onsite rule on the mass round. X is a Pauli matrix, P_U a projector.
+import sympy as sy  # noqa: E402
+hh = sy.Symbol('h', real=True)
+Xp = sy.Matrix([[0, 1], [1, 0]])
+Pp = sy.diag(1, 0)
+G6 = sy.kronecker_product(Xp, Pp)
+V6 = sy.eye(4) + (sy.cos(hh) - 1) * G6 * G6 - sy.I * sy.sin(hh) * G6       # exp(-i h G), G^3 = G
+ok_exp = sy.simplify(V6 - sy.exp(-sy.I * hh * G6)) == sy.zeros(4, 4)
+F6 = sy.simplify(sy.eye(4) - (V6 + V6.H) / 2)
+OUT['S: C6 onsite rule on the mass round'] = {
+    'exp(-i h X (x) P) = I + (cos h - 1) I (x) P - i sin(h) X (x) P': bool(ok_exp),
+    'I - Re(exp(-i h X (x) P)) = (1 - cos h) I (x) P': bool(sy.simplify(F6 - (1 - sy.cos(hh)) * sy.kronecker_product(sy.eye(2), Pp)) == sy.zeros(4, 4)),
+    'reading': 'counted by the onsite rule the mass round has the rates (1 - cos h) y_k per tick, F = 1 - cos h; '
+               'on the weak-kick clock of the stack F = h',
+}
+OUT['S: C5 finite-round terms'] = (
+    'The terms 35/(2187 N^2) and 7/(81 N) belong to the phase clock: N is the number of fresh reads of the pair within one '
+    'tick (or the number of carriers in the read mean). The number of mass rounds per unit mass-clock time, 1/h, is a '
+    'different number; it enters the bound 9 t^2/(4 N) of the mass round.')
+
+# ------------------------------------------------------------------ part N: NOT BLIND
+E_STAR = mp.mpf('1.220890e19')                           # GeV, Planck energy
+E_CELL = mp.mpf('0.78303') * E_STAR                      # DC: E_cell = E* P_pix^(-1/2)
+M = [mp.mpf('0.00051099895069'), mp.mpf('0.1056583755'), mp.mpf('1.77693')]   # GeV, measured
+F = sum(M) / (sum(Y) * E_CELL)
+unit = F * E_CELL
+nb = {
+    'E_cell in GeV (DC)': mp.nstr(E_CELL, 6), 'sum of the measured masses in GeV': mp.nstr(sum(M), 8),
+    'F = sum m/(sum y E_cell)': mp.nstr(F, 6), 'unit of rate of the mass clock in GeV': mp.nstr(unit, 6),
+    'cell ticks per unit of mass-clock time, 1/F': mp.nstr(1 / F, 6),
+    'C1 one clock, one unit: m_tau = y_tau E_cell in GeV': mp.nstr(Y[2] * E_CELL, 6),
+    'C1 over the measured tau mass': mp.nstr(Y[2] * E_CELL / M[2], 6),
+    'C1 clock energy of the oriented current, (2/9) E_cell, in GeV': mp.nstr(P * E_CELL, 6),
+    'C2 weak-kick angle per tick of the mass round, h = F': mp.nstr(F, 6),
+    'C2 loss over phase, tan(h/2)': mp.nstr(mp.tan(F / 2), 6),
+    'C2 relative shift of tau/e from a kick of angle h = F': mp.nstr((round_phase(F, Y[2]) / round_phase(F, Y[0])) / (Y[2] / Y[0]) - 1, 6),
+    'C2 stack bound 9 t^2/(4 N) with N = t/h at t = 1/y_e (one radian on the electron)': mp.nstr(9 * (1 / Y[0]) * F / 4, 6),
+    'C3 both couplings h = F: theta': mp.nstr(F * P, 6), 'C3 muon/electron - 1': mp.nstr(coef * F * P, 6),
+    'electroweak dictionary: (9/2) sum m in GeV': mp.nstr(mp.mpf(9) / 2 * sum(M), 8),
+    'C6 kick angle under the onsite rule, h = arccos(1 - F)': mp.nstr(mp.sqrt(2 * F), 8),
+    'C6 h E_cell in GeV': mp.nstr(mp.sqrt(2 * F) * E_CELL, 6),
+    'look L1: colour pole of the source frame with census B (DC3), 1.066e-9 E*, in GeV': mp.nstr(mp.mpf('1.066e-9') * E_STAR, 6),
+    'look L1: ratio of h E_cell to that pole': mp.nstr(mp.sqrt(2 * F) * E_CELL / (mp.mpf('1.066e-9') * E_STAR), 5),
+    'look L1: mass-clock unit from the pole, pole^2/(2 E_cell), in GeV': mp.nstr((mp.mpf('1.066e-9') * E_STAR) ** 2 / (2 * E_CELL), 5),
+    'look L2: pole with the coupling of the cut-closure fixed point (DC2), E_cell exp(-2 pi 16.2735/5), in GeV':
+        mp.nstr(E_CELL * mp.exp(-2 * mp.pi * mp.mpf('16.2735') / 5), 6),
+    'look L2: ratio of h E_cell to that pole': mp.nstr(mp.sqrt(2 * F) / mp.exp(-2 * mp.pi * mp.mpf('16.2735') / 5), 5),
+    'look L2: mass-clock unit from that pole in GeV': mp.nstr(E_CELL * mp.exp(-4 * mp.pi * mp.mpf('16.2735') / 5) / 2, 5),
+    'looks L1 and L2: 1/alpha at the cell that gives the measured unit, (5/(4 pi)) ln(1/(2 F))': mp.nstr(5 / (4 * mp.pi) * mp.log(1 / (2 * F)), 7),
+}
+OUT['N: NOT BLIND'] = nb
+json.dump(OUT, open(os.path.join(HERE, 'lt_scale.json'), 'w'), indent=1)
+print(json.dumps(OUT, indent=1))

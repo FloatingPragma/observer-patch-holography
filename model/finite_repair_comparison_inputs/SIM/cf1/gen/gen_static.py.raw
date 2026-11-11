@@ -1,0 +1,237 @@
+"""Task GEN: static per-defect properties of the internal (carrier) tier and the screen tier at one checkpoint.
+
+    python gen_static.py --ckpt <ckpt_SSSSSS.npz> --level L --out out/static_L<L>_s<S> [--geometry]
+
+Reads only the member `classes` of the checkpoint (internal faces 20 c + f first, then the screen plaquettes). With
+--geometry the federation geometry of the level is loaded with oph_defects.fedgeom.build (cached on box A up to level 9).
+Writes <out>.npz (count tables, per-block tables for the dispersion factor) and <out>.json (summary). Nothing is
+simulated. Per-face labels come from out/geom_labels.json (gen_geom.py) and X3's register (read-only copy in x3/).
+"""
+import argparse
+import json
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE / 'x3'))
+from x3_register import Register  # noqa: E402
+
+NBLK_LEVEL = 4
+
+
+def comp_key(cnt):
+    """composition key of count vectors [n, 5] (classes 1..5), base 21"""
+    return cnt.astype(np.int64) @ (21 ** np.arange(5, dtype=np.int64))
+
+
+def decode_comp(key):
+    v = []
+    for _ in range(5):
+        v.append(int(key % 21)); key //= 21
+    ms = []
+    for k in range(5):
+        ms += [k + 1] * v[k]
+    return '{' + ','.join(map(str, ms)) + '}'
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--ckpt', required=True)
+    ap.add_argument('--level', type=int, required=True)
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--geometry', action='store_true')
+    a = ap.parse_args()
+    t0 = time.time()
+    L = a.level
+    N = 20 * 4 ** L
+    labels = json.load(open(HERE / 'out' / 'geom_labels.json'))
+    reg = Register(str(HERE / 'x3' / 'register.json'))
+    SEP = reg.sep
+    TF = np.array(labels['template_faces'], np.int64)
+    z = np.load(a.ckpt)
+    sweep = int(z['sweep'])
+    cls = np.asarray(z['classes'])
+    W = cls[:20 * N].reshape(N, 20).astype(np.int8)
+    S = cls[20 * N:].astype(np.int8)
+    del cls
+    out = {'level': L, 'carriers': N, 'sweep': sweep, 'checkpoint': a.ckpt}
+    arr = {}
+    # ---------------------------------------------------------------- checks
+    out['carriers_violating_sum_rule'] = int((W.astype(np.int64).sum(1) % 6 != 0).sum())
+    out['face_totals'] = [int((W == k).sum()) for k in range(6)]
+    out['screen_totals'] = [int((S == k).sum()) for k in range(6)]
+    print('loaded', time.time() - t0, out['face_totals'], flush=True)
+    # ---------------------------------------------------------------- blocks
+    NB = 20 * 4 ** min(NBLK_LEVEL, L)
+    per = N // NB
+    out['blocks'] = NB
+    # ---------------------------------------------------------------- face occupancy per class (P1)
+    nbf = np.zeros((NB, 6, 20), np.int32)
+    for k in range(1, 6):
+        nbf[:, k, :] = (W == k).reshape(NB, per, 20).sum(1)
+    arr['face_blocks'] = nbf
+    out['face_counts'] = nbf.sum(0).tolist()          # [6][20]
+    # ---------------------------------------------------------------- ancestor (P4.2)
+    anc_per = 4 ** L
+    nanc = np.zeros((20, 6), np.int64)
+    cntc = np.stack([(W == k).sum(1) for k in range(6)], 1).astype(np.int64)   # [N, 6] faces per class per carrier
+    nanc[:] = cntc.reshape(20, anc_per, 6).sum(1)
+    out['ancestor_counts'] = nanc.T.tolist()          # [6][20]
+    # per block: blocks are nested in the base faces (block b lies in base face b // (NB // 20))
+    arr['class_blocks'] = cntc.reshape(NB, per, 6).sum(1).astype(np.int32)   # [NB, 6]
+    print('faces/ancestor', time.time() - t0, flush=True)
+    # ---------------------------------------------------------------- defect carriers
+    nnz = (W != 0).sum(1)
+    rows = np.nonzero(nnz > 0)[0]
+    sub = W[rows]
+    cnt = cntc[rows, 1:]                               # [M, 5]
+    ckey = comp_key(cnt)
+    out['carriers_with_defects'] = int(len(rows))
+    # composition per class (faces of class k in carriers of each composition)
+    comp = {}
+    for k in range(1, 6):
+        sel = cnt[:, k - 1] > 0
+        u, inv = np.unique(ckey[sel], return_inverse=True)
+        w = np.bincount(inv, weights=cnt[sel, k - 1]).astype(np.int64)
+        order = np.argsort(-w)
+        comp[str(k)] = [[decode_comp(int(u[i])), int(w[i])] for i in order]
+    out['composition_by_class'] = comp
+    # one-pair carriers: pair type (d, chi)
+    pk, pd, pchi = reg.pair_labels(sub)
+    ptype = {}
+    for kk in (1, 2, 3):
+        sel = pk == kk
+        tab = {}
+        for d in range(1, 6):
+            for c in (-1, 0, 1):
+                n = int((sel & (pd == d) & (pchi == c)).sum())
+                if n:
+                    tab[f'{d},{c:+d}' if c else f'{d},0'] = n
+        ptype[str(kk)] = tab
+    out['pair_type_one_pair_carriers'] = ptype       # carriers; classes k and 6-k of a carrier share the type
+    # nearest other defect: distance and class (tie when the nearest faces carry different classes)
+    nz = sub != 0
+    dmin = np.zeros(sub.shape, np.int8)
+    pmin = np.zeros(sub.shape, np.int8)               # class of the nearest others; 9 = tie
+    SEP8 = SEP.astype(np.int8)
+    big = np.int8(99)
+    for f in range(20):
+        dist = np.where(nz, SEP8[f][None, :], big)
+        dist[:, f] = big
+        dm = dist.min(1)
+        cand = (dist == dm[:, None])
+        cmax = np.where(cand, sub, np.int8(0)).max(1)
+        cmin = np.where(cand, sub, np.int8(9)).min(1)
+        dmin[:, f] = np.where(nz[:, f], dm, np.int8(0))
+        pmin[:, f] = np.where(nz[:, f], np.where(cmin == cmax, cmax, np.int8(9)), np.int8(0))
+        del dist, cand
+    near_d = np.zeros((6, 6), np.int64)               # [class][distance]
+    near_c = np.zeros((6, 10), np.int64)              # [class][partner class, 9 = tie]
+    for k in range(1, 6):
+        m = sub == k
+        near_d[k] = np.bincount(dmin[m].astype(np.int64), minlength=6)[:6]
+        near_c[k] = np.bincount(pmin[m].astype(np.int64), minlength=10)[:10]
+    out['nearest_other_defect_distance'] = near_d.tolist()
+    out['nearest_other_defect_class'] = near_c.tolist()
+    # block tables for the type-B dispersion of the nearest distance and the pair separation
+    blk = (rows // per).astype(np.int64)
+    rr, ff = np.nonzero(nz)
+    idx = blk[rr] * 36 + sub[rr, ff].astype(np.int64) * 6 + dmin[rr, ff].astype(np.int64)
+    arr['nearest_distance_blocks'] = np.bincount(idx, minlength=NB * 36).reshape(NB, 6, 6).astype(np.int32)
+    del rr, ff, idx
+    sel = pk > 0
+    idx = blk[sel] * 24 + pk[sel] * 6 + pd[sel]
+    arr['pair_sep_blocks'] = np.bincount(idx, minlength=NB * 24).reshape(NB, 4, 6).astype(np.int32)
+    print('pairs/nearest', time.time() - t0, flush=True)
+    # shapes (X3 canonical keys), per class weighted by the faces of that class
+    keys = np.empty(len(rows), np.int64)
+    for i in range(0, len(rows), 1_000_000):
+        keys[i:i + 1_000_000] = reg.canonical_keys(sub[i:i + 1_000_000])
+    shp = {}
+    for k in range(1, 6):
+        sel = cnt[:, k - 1] > 0
+        u, inv = np.unique(keys[sel], return_inverse=True)
+        w = np.bincount(inv, weights=cnt[sel, k - 1]).astype(np.int64)
+        order = np.argsort(-w)
+        lst = []
+        for i in order:
+            kk = int(u[i])
+            name, sid = reg.shape.get(kk, (None, -1))
+            if name is None:
+                # composition without a table: multiset from the key word
+                word = [(kk // 6 ** (19 - j)) % 6 for j in range(20)]
+                name = '{' + ','.join(str(c) for c in sorted(c for c in word if c)) + '}'
+            lst.append([name, int(sid), str(kk), int(w[i])])
+        shp[str(k)] = lst
+    out['shape_by_class'] = shp
+    print('shapes', time.time() - t0, flush=True)
+    # ---------------------------------------------------------------- geometry-dependent (P1.7, P4.1, screen)
+    if a.geometry:
+        from oph_defects import fedgeom as FG
+        geo = FG.build(L)
+        assert geo.carriers == N
+        glued = np.zeros(12 * N, bool)
+        glued[geo.glue_a] = True
+        glued[geo.glue_b] = True
+        gl = glued.reshape(N, 12)
+        out['glued_ports_per_carrier'] = np.bincount(gl.sum(1), minlength=13).tolist()
+        fg = gl[:, TF].sum(2).astype(np.int8)       # [N, 20] glued ports on each face
+        # routing: which ports are glued, per port (geometry only)
+        out['glued_share_per_port'] = gl.mean(0).round(6).tolist()
+        out['glued_count_per_template_face'] = [np.bincount(fg[:, f], minlength=4).tolist() for f in range(20)]
+        expo = np.bincount(fg.ravel().astype(np.int64), minlength=4)
+        out['glue_exposure_face_slots'] = expo.tolist()
+        nbg = np.zeros((NB, 6, 4), np.int32)
+        for k in range(1, 6):
+            m = (W == k)
+            for gcount in range(4):
+                nbg[:, k, gcount] = (m & (fg == gcount)).reshape(NB, per, 20).sum((1, 2))
+        arr['glue_blocks'] = nbg
+        arr['glue_exposure_blocks'] = np.stack([(fg == gcount).reshape(NB, per, 20).sum((1, 2)) for gcount in range(4)], 1).astype(np.int32)
+        out['glue_counts'] = nbg.sum(0).tolist()
+        # glued ports per face, split by template face and class (for the cause of any face dependence)
+        # valence: carriers whose cell has a five-valent corner
+        deg = np.bincount(geo.tri.ravel().astype(np.int64), minlength=geo.vertices)
+        five = np.nonzero(deg == 5)[0]
+        out['five_valent_vertices'] = five.tolist()
+        pent = np.isin(geo.tri, five).any(1)
+        out['pentagonal_carriers'] = int(pent.sum())
+        out['valence_counts'] = {'pentagonal': cntc[pent].sum(0).tolist(), 'other': cntc[~pent].sum(0).tolist(),
+                                 'pentagonal_faces': int(20 * pent.sum()), 'other_faces': int(20 * (~pent).sum())}
+        # screen: valence and ancestor of the plaquette vertex
+        V = geo.vertices
+        assert len(S) == V
+        base = np.array(labels['face_centres'], float)                     # base face centres = template face centres
+        anc_v = np.argmax(geo.mesh_xyz @ base.T, axis=1)                   # nearest base face centre (first on ties)
+        out['screen_valence_counts'] = {'pentagonal': [int(((S == k) & (deg == 5)).sum()) for k in range(6)],
+                                        'other': [int(((S == k) & (deg == 6)).sum()) for k in range(6)],
+                                        'pentagonal_plaquettes': int((deg == 5).sum()), 'other_plaquettes': int((deg == 6).sum())}
+        out['screen_ancestor_counts'] = [np.bincount(anc_v[S == k], minlength=20).tolist() for k in range(6)]
+        out['screen_ancestor_exposure'] = np.bincount(anc_v, minlength=20).tolist()
+        # screen blocks: one carrier around each vertex
+        first_cell = np.full(V, -1, np.int64)
+        tri = geo.tri.astype(np.int64)
+        for j in range(3):
+            first_cell[tri[:, j]] = np.arange(N)
+        assert (first_cell >= 0).all()
+        sblk = first_cell // per
+        m = S != 0
+        idx = sblk[m] * 120 + S[m].astype(np.int64) * 20 + anc_v[m]
+        arr['screen_ancestor_blocks'] = np.bincount(idx, minlength=NB * 120).reshape(NB, 6, 20).astype(np.int32)
+        arr['screen_valence_blocks'] = np.bincount(sblk[m] * 12 + S[m].astype(np.int64) * 2 + (deg[m] == 5),
+                                                   minlength=NB * 12).reshape(NB, 6, 2).astype(np.int32)
+        arr['screen_ancestor_exposure_blocks'] = np.stack([np.bincount(sblk[anc_v == b], minlength=NB) for b in range(20)], 1).astype(np.int32)
+        np.save(a.out + '_screen_block_of_vertex.npy', sblk.astype(np.int32))
+        np.save(a.out + '_screen_ancestor_of_vertex.npy', anc_v.astype(np.int8))
+        print('geometry', time.time() - t0, flush=True)
+    np.savez_compressed(a.out + '.npz', **arr)
+    out['seconds'] = time.time() - t0
+    json.dump(out, open(a.out + '.json', 'w'))
+    print('done', out['seconds'], flush=True)
+
+
+if __name__ == '__main__':
+    main()

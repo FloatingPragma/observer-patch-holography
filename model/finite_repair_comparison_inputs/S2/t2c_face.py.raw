@@ -1,0 +1,264 @@
+#!/usr/bin/env python3
+"""S2 task 2(c): the face term U_F(w) = exp(-i w (Pi_F + Pi_F^dag)), Pi_F a unit shift of the link registers around a face.
+
+Part 1  which pulse areas w are compatible with the classical law when everything is read:
+        (A) joint law of loads and link record (the record is the accumulated current): P(record unchanged) must be 1;
+        (B) load law only.
+Part 2  exact compact instance (triangle, one quantum, Z_N link registers): commutation of the face pulse with the
+        seam events, read statistics, and the effect of a declared electric phase exp(-i g eps(E_e)).
+Part 3  weak-field (linear) seam-face sector on a periodic triangular lattice under schedule (i):
+        (a) kick events (face pulse w, electric phase g): schedule-averaged first-moment map and second-moment growth;
+        (b) rotation events of angle phi (the coordinator's model): schedule-averaged first-moment map, compared with
+            the independent event-driven simulation in SCR/light/maxwell_fit.json.
+"""
+import itertools, json, math, sys, time
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+from scipy.special import jv
+HERE = Path(__file__).resolve().parent
+SCR = HERE.parent.parent
+sys.path.insert(0, str(SCR / 'tw'))
+out = {}
+t00 = time.time()
+
+# ------------------------------------------------------------------ Part 1
+def p_unchanged_ZN(N, w):
+    k = np.arange(N)
+    return abs(np.exp(-2j * w * np.cos(2 * math.pi * k / N)).mean()) ** 2
+ws = np.linspace(0, 2 * math.pi, 20001)
+part1 = {'integer_register': {'P_unchanged': 'J_0(2w)^2', 'values': {f'{w:.3f}': float(jv(0, 2 * w) ** 2) for w in (0.0, 0.1, 0.5, 1.0, 1.2024, 2.0)},
+                              'max_J0^2_for_w_in_[0.05,50]': float((jv(0, 2 * np.linspace(0.05, 50, 200001)) ** 2).max()),
+                              'solutions': 'w = 0 only (|J_0(x)| < 1 for x != 0)'}}
+for N in (2, 3, 4, 5, 6, 7, 8):
+    p = np.array([p_unchanged_ZN(N, w) for w in ws])
+    sol = ws[p > 1 - 1e-9]
+    # at the solutions the face pulse is a scalar
+    scal = []
+    for w in sol[:8]:
+        ph = np.exp(-2j * w * np.cos(2 * math.pi * np.arange(N) / N))
+        scal.append(bool(np.allclose(ph, ph[0], atol=1e-3)))
+    part1[f'Z_{N}'] = {'w_with_P_unchanged_1_in_[0,2pi]': [float(round(x, 4)) for x in sol], 'pulse_is_scalar_there': all(scal)}
+out['face_pulse_vs_joint_classical_law'] = part1
+print('Part 1 (A): integer register J0(2w)^2 max over w in [0.05, 50]:', part1['integer_register']['max_J0^2_for_w_in_[0.05,50]'])
+for N in (2, 3, 4, 5, 6, 7, 8): print(f'   Z_{N}: w with P(unchanged)=1:', part1[f'Z_{N}']['w_with_P_unchanged_1_in_[0,2pi]'], 'scalar there:', part1[f'Z_{N}']['pulse_is_scalar_there'])
+
+# ------------------------------------------------------------------ Part 2: triangle, one quantum, Z_N registers
+N = 5
+seams = [(0, 1), (1, 2), (0, 2)]
+face_sign = [1, 1, -1]                       # cycle 0 -> 1 -> 2 -> 0 against the seam orientations
+links = list(itertools.product(range(N), repeat=3))
+basis = [(p, E) for p in range(3) for E in links]
+idx = {s: i for i, s in enumerate(basis)}
+dim = len(basis)
+def seam_unitary(e, g=0.0):
+    a, b = seams[e]
+    U = np.zeros((dim, dim), complex)
+    v0 = (1 + 1j) / 2; v1 = (1 - 1j) / 2
+    for (p, E), i in idx.items():
+        if p == a:
+            E2 = list(E); E2[e] = (E[e] + 1) % N
+            U[i, i] += v0; U[idx[(b, tuple(E2))], i] += v1
+        elif p == b:
+            E2 = list(E); E2[e] = (E[e] - 1) % N
+            U[i, i] += v0; U[idx[(a, tuple(E2))], i] += v1
+        else:
+            U[i, i] += 1
+    if g:
+        ph = np.array([np.exp(-1j * g * (1 - math.cos(2 * math.pi * E[e] / N))) for (p, E) in basis])
+        U = U @ np.diag(ph)                  # electric phase first, then the dressed hop
+    return U
+def face_unitary(w):
+    Pi = np.zeros((dim, dim))
+    for (p, E), i in idx.items():
+        E2 = tuple((E[k] + face_sign[k]) % N for k in range(3))
+        Pi[idx[(p, E2)], i] = 1
+    H = Pi + Pi.T
+    lam, V = np.linalg.eigh(H)
+    return (V * np.exp(-1j * w * lam)) @ V.T
+def gauss_ops():
+    ops = []
+    for p in range(3):
+        g_ = []
+        for (q, E) in basis:
+            val = int(q == p)
+            for k, (a, b) in enumerate(seams):
+                if p == a: val += E[k]
+                if p == b: val -= E[k]
+            g_.append(val % N)
+        ops.append(np.diag(np.exp(2j * math.pi * np.array(g_) / N)))
+    return ops
+Gops = gauss_ops()
+Us0 = [seam_unitary(e) for e in range(3)]
+res2 = {'N': N, 'dimension': dim}
+res2['seam_events_unitary_and_gauss_invariant'] = bool(all(np.allclose(U.conj().T @ U, np.eye(dim)) and all(np.allclose(U @ Gp, Gp @ U) for Gp in Gops) for U in Us0))
+comm0, commg, gauss_face = [], [], []
+for w in (0.3, 1.0, 2.2):
+    UF = face_unitary(w)
+    gauss_face.append(bool(all(np.allclose(UF @ Gp, Gp @ UF) for Gp in Gops)))
+    comm0.append(float(max(np.abs(UF @ U - U @ UF).max() for U in Us0)))
+    commg.append(float(max(np.abs(UF @ seam_unitary(e, 0.7) - seam_unitary(e, 0.7) @ UF).max() for e in range(3))))
+res2['face_pulse_gauss_invariant'] = all(gauss_face)
+res2['max_commutator_face_with_seam_no_electric_phase'] = max(comm0)
+res2['max_commutator_face_with_seam_electric_phase_g0.7'] = max(commg)
+# read statistics: load transition probabilities from every basis state, for the seam event with (g) and the face event
+def load_kernel(U):
+    P = np.zeros((3, 3, len(links)))
+    for (p, E), i in idx.items():
+        col = np.abs(U[:, i]) ** 2
+        for (q, E2), j in idx.items(): P[q, p, links.index(E)] += col[j]
+    return P
+native = {}
+for e, (a, b) in enumerate(seams):
+    T = np.eye(3); T[a, a] = T[b, b] = .5; T[a, b] = T[b, a] = .5; native[e] = T
+dev = 0.0
+for g in (0.0, 0.7, 2.0):
+    for e in range(3):
+        P = load_kernel(seam_unitary(e, g))
+        dev = max(dev, np.abs(P - native[e][:, :, None]).max())
+for w in (0.3, 1.0, 2.2):
+    P = load_kernel(face_unitary(w)); dev = max(dev, np.abs(P - np.eye(3)[:, :, None]).max())
+res2['read_after_each_event_load_law_deviation_from_native_all_g_w'] = float(dev)
+# unread: port populations after a fixed word of events
+word = [('s', 0), ('f', None), ('s', 1), ('s', 0), ('f', None), ('s', 2), ('s', 1), ('f', None), ('s', 0), ('s', 2)]
+def populations(g, w):
+    psi = np.zeros(dim, complex); psi[idx[(0, (0, 0, 0))]] = 1
+    UF = face_unitary(w); Us = [seam_unitary(e, g) for e in range(3)]
+    for kind, e in word: psi = (UF if kind == 'f' else Us[e]) @ psi
+    return [float(sum(abs(psi[idx[(p, E)]]) ** 2 for E in links)) for p in range(3)]
+pops = {f'g={g},w={w}': populations(g, w) for g in (0.0, 0.7) for w in (0.0, 0.5, 1.3)}
+res2['unread_port_populations_after_fixed_word'] = pops
+res2['w_changes_populations_without_electric_phase'] = bool(max(abs(np.array(pops['g=0.0,w=0.0']) - np.array(pops[f'g=0.0,w={w}'])).max() for w in (0.5, 1.3)) > 1e-12)
+res2['w_changes_populations_with_electric_phase'] = bool(max(abs(np.array(pops['g=0.7,w=0.0']) - np.array(pops[f'g=0.7,w={w}'])).max() for w in (0.5, 1.3)) > 1e-6)
+out['triangle_exact_instance'] = res2
+print('Part 2:', json.dumps({k: v for k, v in res2.items() if k != 'unread_port_populations_after_fixed_word'}))
+for k, v in pops.items(): print('   ', k, np.round(v, 6))
+
+# ------------------------------------------------------------------ Part 3: linear seam-face sector on the triangular torus
+import tw_lattice as tw
+def bloch_block(Nt, m, build):
+    """5x5 Bloch block (3 seams + 2 faces per cell) of a translation-invariant generator at wavevector m periods along u."""
+    lat = tw.Lattice(Nt)
+    Mx, F = lat.M, lat.F
+    C = sp.coo_matrix((np.r_[np.ones(Mx), -np.ones(Mx)], (np.r_[lat.fa, lat.fb], np.r_[np.arange(Mx), np.arange(Mx)])), shape=(F, Mx)).tocsr()
+    Gm = build(C, Mx, F)
+    cell = np.arange(Nt * Nt); ii = cell // Nt
+    ph = np.exp(2j * math.pi * m * ii / Nt) / Nt
+    P = np.zeros((Mx + F, 5), complex)
+    for s in range(3): P[3 * cell + s, s] = ph
+    for f in range(2): P[Mx + 2 * cell + f, 3 + f] = ph
+    GP = Gm @ P
+    blk = P.conj().T @ GP
+    leak = np.linalg.norm(GP - P @ blk)
+    return blk, leak, lat
+def wavevector(Nt, m): return 2 * math.pi * m / Nt * (2 / math.sqrt(3))
+
+# (b) rotation events
+def build_rot(phi):
+    def f(C, Mx, F):
+        top = sp.hstack([(math.cos(phi) - 1) * sp.identity(Mx), math.sin(phi) / math.sqrt(2) * C.T])
+        bot = sp.hstack([-math.sin(phi) / math.sqrt(2) * C, (math.cos(phi) - 1) * 0.5 * (C @ C.T)])
+        return sp.vstack([top, bot]).tocsr()
+    return f
+ref = json.load(open(SCR / 'light' / 'maxwell_fit.json'))
+rot_rows = []
+for phi in (0.1, 0.2, 0.4):
+    for m in (1, 2, 4, 8, 16):
+        blk, leak, lat = bloch_block(96, m, build_rot(phi))
+        ev = np.linalg.eigvals(blk)
+        k = wavevector(96, m)
+        # transverse (acoustic) pair: the two eigenvalues nearest the closed form
+        #   z = -a(1+eps)/2 +- sqrt(a^2 (1-eps)^2/4 - b^2),  a = 1 - cos phi, b = sin phi * c0 * k, eps = lambda_C(k)/2
+        a_ = 1 - math.cos(phi); c0 = 1 / (2 * math.sqrt(2)); lamC = 0.25 * k * k
+        # exact lambda_C and b from the Bloch blocks of C C^T and of the antisymmetric part at this wavevector
+        blkL, _, _ = bloch_block(96, m, lambda C, Mx, F: sp.vstack([sp.hstack([sp.csr_matrix((Mx, Mx)), sp.csr_matrix((Mx, F))]), sp.hstack([sp.csr_matrix((F, Mx)), C @ C.T])]).tocsr())
+        lamC = np.sort(np.linalg.eigvals(blkL).real); lamC = float(lamC[lamC > 1e-9].min())
+        b_ = math.sin(phi) * math.sqrt(lamC / 2); eps = lamC / 2
+        disc = a_ * a_ * (1 - eps) ** 2 / 4 - b_ * b_
+        pred = [-a_ * (1 + eps) / 2 + np.sqrt(complex(disc)), -a_ * (1 + eps) / 2 - np.sqrt(complex(disc))]
+        pair = [ev[np.argmin(np.abs(ev - z))] for z in pred]
+        row = {'phi': phi, 'm': m, 'k': k, 'bloch_leak': float(leak), 'lambda_C': lamC,
+               'closed_form_error': float(max(abs(x - y) for x, y in zip(pair, pred))),
+               'k_star_overdamped_below': float(math.tan(phi / 2) / (2 * c0)),
+               'eigenvalues_per_sweep': [[float(z.real), float(z.imag)] for z in sorted(ev, key=lambda z: -z.real)]}
+        if abs(pair[0].imag) > 1e-12:
+            z = pair[0] if pair[0].imag > 0 else pair[1]
+            row.update({'underdamped': True, 'omega': float(z.imag), 'gamma': float(-z.real), 'gamma_over_phi2': float(-z.real / phi ** 2),
+                        'speed': float(z.imag / k), 'Q': float(z.imag / (2 * -z.real))})
+        else:
+            slow = max(pair, key=lambda z: z.real)
+            row.update({'underdamped': False, 'slow_real_rate': float(-slow.real), 'slow_real_rate_over_k2': float(-slow.real / k ** 2),
+                        'fast_real_rate': float(-min(pair, key=lambda z: z.real).real)})
+        sim = [r for r in ref if r['schedule'] == 'poisson' and abs(r['phi'] - phi) < 1e-9 and r['m'] == m]
+        if sim: row['coordinator_simulation'] = {'omega': sim[0]['omega'], 'gamma': sim[0]['gamma']}
+        rot_rows.append(row)
+        print('rotation phi=%.1f m=%2d k=%.4f' % (phi, m, k), 'underdamped' if row['underdamped'] else 'OVERDAMPED',
+              {kk: round(v, 5) for kk, v in row.items() if kk in ('omega', 'gamma', 'gamma_over_phi2', 'speed', 'Q', 'slow_real_rate', 'slow_real_rate_over_k2', 'fast_real_rate', 'closed_form_error')},
+              'sim', row.get('coordinator_simulation'))
+out['rotation_events_first_moment_schedule_i'] = {'rows': rot_rows, 'long_wavelength_damping_of_complex_pair': '(1 - cos phi)/2 per sweep', 'closed_form': 'z = -a(1+eps)/2 +- sqrt(a^2(1-eps)^2/4 - b^2), a = 1-cos(phi), b = sin(phi) sqrt(lambda_C/2), eps = lambda_C/2; overdamped for k < tan(phi/2)/(2 c0), c0 = 1/(2 sqrt 2)',
+                                                 'values': {str(phi): (1 - math.cos(phi)) / 2 for phi in (0.1, 0.2, 0.4)}}
+# undamped reference speed: frequency of the antisymmetric part alone
+blk, leak, lat = bloch_block(96, 1, lambda C, Mx, F: sp.vstack([sp.hstack([sp.csr_matrix((Mx, Mx)), C.T / math.sqrt(2)]), sp.hstack([-C / math.sqrt(2), sp.csr_matrix((F, F))])]).tocsr())
+w0 = np.abs(np.linalg.eigvals(blk).imag); w0 = w0[w0 > 1e-9].min()
+out['rotation_events_reference_speed_per_unit_sin_phi'] = float(w0 / wavevector(96, 1))
+print('undamped speed per unit sin(phi):', out['rotation_events_reference_speed_per_unit_sin_phi'], 'mesh edges per sweep')
+
+# (a) kick events: variables (E on seams, A on seams); seam kick A_e += g E_e ; face kick E_e -= kap C_Fe (C A)_F, kap = 2|w|
+def kick_first_moment(Nt, g, kap):
+    lat = tw.Lattice(Nt); Mx, F = lat.M, lat.F
+    C = sp.coo_matrix((np.r_[np.ones(Mx), -np.ones(Mx)], (np.r_[lat.fa, lat.fb], np.r_[np.arange(Mx), np.arange(Mx)])), shape=(F, Mx)).toarray()
+    Ngen = np.block([[np.zeros((Mx, Mx)), -kap * C.T @ C], [g * np.eye(Mx), np.zeros((Mx, Mx))]])
+    return C, Ngen, Mx, F
+kick = {}
+for g, kap in ((0.2, 0.2), (0.5, 0.5), (0.1, 0.4)):
+    C, Ngen, Mx, F = kick_first_moment(6, g, kap)
+    ev = np.linalg.eigvals(Ngen)
+    lamC = np.linalg.eigvalsh(C.T @ C)
+    pred = np.sqrt(g * kap * lamC[lamC > 1e-9])
+    got = np.sort(np.abs(ev.imag)[np.abs(ev.imag) > 1e-9])
+    Mtot = Mx + F
+    # second-moment channel: Sigma -> (1/Mtot) sum_events R Sigma R^T ; spectral radius by power iteration
+    n = 2 * Mx
+    Rs = []
+    for e in range(Mx):
+        R = np.zeros((n, n)); R[Mx + e, e] = g; Rs.append(('s', e, None))
+    cF = [C[f] for f in range(F)]
+    def channel(S):
+        out_ = np.zeros_like(S)
+        # seam kicks: R = 1 + g |A_e><E_e|
+        SE = S[:Mx, :]                       # rows E
+        add = np.zeros_like(S)
+        add[Mx:, :] += g * SE                # N S
+        add[:, Mx:] += g * S[:, :Mx]         # S N^T
+        d = np.diag(S)[:Mx]
+        add[Mx + np.arange(Mx), Mx + np.arange(Mx)] += g * g * d      # N S N^T, summed over seams
+        # face kicks: R = 1 - kap |E: c_F><A: c_F|
+        CA = C @ S[Mx:, :]                   # (F, n): c_F . A-rows
+        add[:Mx, :] += -kap * C.T @ CA
+        add[:, :Mx] += -kap * (S[:, Mx:] @ C.T) @ C
+        q = np.einsum('fi,ij,fj->f', C, S[Mx:, Mx:], C)
+        add[:Mx, :Mx] += kap * kap * (C.T * q) @ C
+        return S + add / Mtot
+    S = np.eye(n)
+    lam = 1.0
+    for it in range(4000):
+        S2 = channel(S); lam_new = np.trace(S2) / np.trace(S); S = S2 / np.linalg.norm(S2)
+        if abs(lam_new - lam) < 1e-13: break
+        lam = lam_new
+    growth_per_sweep = Mtot * math.log(lam_new)
+    kick[f'g={g},kappa={kap}'] = {'torus': 6, 'first_moment_frequencies_match_sqrt(g*kappa*lambda_C)': bool(np.allclose(np.sort(np.repeat(pred, 2))[:len(got)], got[:len(np.repeat(pred, 2))], atol=1e-8)) if len(got) == 2 * len(pred) else None,
+                                  'first_moment_max_real_part_of_generator': float(np.abs(ev.real).max()),
+                                  'first_moment_modulus_per_attempt_minus_1_at_lowest_mode': float(abs(1 + 1j * pred.min() / Mtot) - 1),
+                                  'lowest_mode_frequency_per_sweep': float(pred.min()),
+                                  'second_moment_growth_rate_per_sweep': float(growth_per_sweep),
+                                  'estimate_2.5*g*kappa': 2.5 * g * kap, 'power_iterations': it + 1}
+    print('kick events g=%.2f kappa=%.2f: generator real parts %.1e, lowest mode frequency %.4f per sweep, second-moment growth %.4f per sweep (2.5 g kappa = %.4f)' % (
+        g, kap, np.abs(ev.real).max(), pred.min(), growth_per_sweep, 2.5 * g * kap))
+out['kick_events_schedule_i'] = kick
+# long-wavelength speed of the kick model: lambda_C(k) / k^2
+blk, leak, lat = bloch_block(96, 1, lambda C, Mx, F: sp.vstack([sp.hstack([sp.csr_matrix((Mx, Mx)), sp.csr_matrix((Mx, F))]), sp.hstack([sp.csr_matrix((F, Mx)), C @ C.T])]).tocsr())
+lc = np.sort(np.linalg.eigvals(blk).real); lc = lc[lc > 1e-9].min()
+out['dual_laplacian_small_k_coefficient_lambda/k^2'] = float(lc / wavevector(96, 1) ** 2)
+print('lambda_C / k^2 at long wavelength:', out['dual_laplacian_small_k_coefficient_lambda/k^2'], '-> speed = sqrt(g kappa * that) edges per sweep')
+Path(HERE / 't2c_face.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't2c_face.json', 'elapsed', round(time.time() - t00, 1))

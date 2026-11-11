@@ -1,0 +1,70 @@
+"""Block 3, fit of the measured cap flow of the spinor code against the candidate geometric flows (rms angular residual).
+
+Flow: images of the compressed port effects of a cap under the modular group of the tracial code state and of the
+Gaussian state, at t = 1. Candidates: identity; rotation about the cap axis (one parameter); boost along the cap axis
+(one parameter, does not preserve the cap); cap-preserving hyperbolic Moebius flow with two fixed points on the cap
+boundary (two parameters: framing azimuth and rapidity), the flow named in the cap theorem.
+Writes fit_candidates.json.
+"""
+import json
+import numpy as np
+from mu_lib import icosphere, sections, spinors, directions, cap_ports, cap_effect, axes_of_carrier, powm_pos, boost, rot, I2, vec
+
+ax = axes_of_carrier()
+out = {}
+
+
+def rms(P, Q):
+    return float(np.sqrt(np.mean(np.arccos(np.clip(np.sum(P * Q, axis=1), -1, 1)) ** 2)))
+
+
+def hyperbolic(n, alpha, psi0, s):
+    """Moebius map preserving the cap (n, alpha), fixed points on its boundary at azimuths psi0 and psi0 + pi."""
+    e1 = np.cross(n, [1.0, 0.3, 0.2]); e1 /= np.linalg.norm(e1); e2 = np.cross(n, e1)
+    ca, sa = np.cos(alpha), np.sin(alpha)
+    p_plus = ca * n + sa * (np.cos(psi0) * e1 + np.sin(psi0) * e2)
+    p_minus = ca * n - sa * (np.cos(psi0) * e1 + np.sin(psi0) * e2)
+    a, b = spinors(np.array([p_plus, p_minus]))
+    B = np.array([a, b]).T                      # columns: fixed spinors
+    return B @ np.diag([np.exp(s / 2), np.exp(-s / 2)]) @ np.linalg.inv(B)
+
+
+for L in (2, 3, 4):
+    U, F = icosphere(L)
+    N = len(U)
+    for name in ('port', 'generic'):
+        n = ax[name]
+        idx = cap_ports(U, n, 80.0)
+        UC = U[idx]
+        if len(UC) > 300:
+            UC = UC[np.random.default_rng(1).choice(len(UC), 300, replace=False)]
+        E, nC, m = cap_effect(U, idx)
+        Ec = N / 2 * I2 - E
+        chi = spinors(UC)
+        flows = {'tracial': powm_pos(E, 1j), 'gaussian': powm_pos(E, 1j) @ powm_pos(Ec, -1j)}
+        for fname, G in flows.items():
+            img = directions(chi @ G.T)
+            res = {'identity': rms(UC, img)}
+            angs = np.linspace(-np.pi, np.pi, 1441)
+            r = [rms(directions(chi @ rot(n, a).T), img) for a in angs]
+            res['rotation_about_cap_axis'] = {'residual': float(min(r)), 'angle': float(angs[int(np.argmin(r))])}
+            ss = np.linspace(-3, 3, 241)
+            r = [rms(directions(chi @ boost(n, s).T), img) for s in ss]
+            res['boost_along_cap_axis'] = {'residual': float(min(r)), 'rapidity': float(ss[int(np.argmin(r))])}
+            best = (9.0, 0, 0)
+            for psi0 in np.linspace(0, np.pi, 36, endpoint=False):
+                for s in np.linspace(-3, 3, 121):
+                    v = rms(directions(chi @ hyperbolic(n, np.radians(80.0), psi0, s).T), img)
+                    if v < best[0]:
+                        best = (v, psi0, s)
+            res['cap_preserving_hyperbolic'] = {'residual': best[0], 'framing_azimuth': best[1], 'rapidity': best[2]}
+            out[f'L{L}_{name}_{fname}'] = res
+            print(L, name, fname, {k: (round(v, 4) if isinstance(v, float) else {a: round(b, 4) for a, b in v.items()}) for k, v in res.items()}, flush=True)
+# check of the hyperbolic family: it preserves the cap boundary
+n = ax['port']; al = np.radians(80.0)
+e1 = np.cross(n, [1.0, 0.3, 0.2]); e1 /= np.linalg.norm(e1); e2 = np.cross(n, e1)
+bnd = np.array([np.cos(al) * n + np.sin(al) * (np.cos(a) * e1 + np.sin(a) * e2) for a in np.linspace(0, 2 * np.pi, 24, endpoint=False)])
+img = directions(spinors(bnd) @ hyperbolic(n, al, 0.7, 1.3).T)
+out['check_hyperbolic_family_preserves_boundary'] = float(np.abs(np.arccos(np.clip(img @ n, -1, 1)) - al).max())
+json.dump(out, open('fit_candidates.json', 'w'), indent=1)
+print(out['check_hyperbolic_family_preserves_boundary'])

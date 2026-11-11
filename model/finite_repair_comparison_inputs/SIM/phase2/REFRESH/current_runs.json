@@ -1,0 +1,301 @@
+{
+ "schema": "refresh.current_runs.v1",
+ "source": "oph-physics-sim/runs/universe/L3..L7: run.json and view/class_stats.json",
+ "runs": {
+  "L3": {
+   "level": 3,
+   "carriers": 1280,
+   "ports": 15360,
+   "seams": 40320,
+   "sweeps": 1000,
+   "seed": 912101,
+   "backend": "sequential",
+   "tiers_tracked": [
+    "internal",
+    "screen"
+   ],
+   "identities": 11905,
+   "cuts": 345,
+   "screen_identities": 722,
+   "class_shares": {
+    "1": 0.2188365650969529,
+    "2": 0.16620498614958448,
+    "3": 0.14127423822714683,
+    "4": 0.2188365650969529,
+    "5": 0.2548476454293629
+   },
+   "moved_fraction": {
+    "1": 0.6012658227848101,
+    "2": 0.05,
+    "3": 0.0,
+    "4": 0.02531645569620253,
+    "5": 0.6141304347826086
+   },
+   "alive_at_end_screen": {
+    "1": 0,
+    "2": 8,
+    "3": 12,
+    "4": 8,
+    "5": 0
+   },
+   "channel_events": 8344,
+   "class_violations": 0,
+   "tracker_totals": {
+    "births": 2407,
+    "moves": 81819,
+    "annihilations": 1367,
+    "fusions": 2049,
+    "splits": 757,
+    "exchanges": 1764
+   },
+   "end_counts_intra": [
+    0,
+    311,
+    114,
+    335,
+    0
+   ],
+   "pairs_2_4_per_carrier": 0.25234375,
+   "pairs_3_3_per_carrier": 0.04453125,
+   "balanced_after_sweeps": 32.22956349206349,
+   "depth_at_end": 21466
+  },
+  "L4": {
+   "level": 4,
+   "carriers": 5120,
+   "ports": 61440,
+   "seams": 161280,
+   "sweeps": 800,
+   "seed": 913101,
+   "backend": "sequential",
+   "tiers_tracked": [
+    "internal",
+    "screen"
+   ],
+   "identities": 49219,
+   "cuts": 281,
+   "screen_identities": 3416,
+   "class_shares": {
+    "1": 0.22833723653395785,
+    "2": 0.1864754098360656,
+    "3": 0.12090163934426229,
+    "4": 0.20608899297423888,
+    "5": 0.2581967213114754
+   },
+   "moved_fraction": {
+    "1": 0.5769230769230769,
+    "2": 0.02197802197802198,
+    "3": 0.0,
+    "4": 0.022727272727272728,
+    "5": 0.5827664399092971
+   },
+   "alive_at_end_screen": {
+    "1": 0,
+    "2": 47,
+    "3": 46,
+    "4": 38,
+    "5": 0
+   },
+   "channel_events": 34206,
+   "class_violations": 0,
+   "tracker_totals": {
+    "births": 9717,
+    "moves": 340544,
+    "annihilations": 5485,
+    "fusions": 8223,
+    "splits": 3059,
+    "exchanges": 7722
+   },
+   "end_counts_intra": [
+    1,
+    1350,
+    410,
+    1407,
+    1
+   ],
+   "pairs_2_4_per_carrier": 0.26923828125,
+   "pairs_3_3_per_carrier": 0.0400390625,
+   "balanced_after_sweeps": 43.139477926587304,
+   "depth_at_end": 17421
+  },
+  "L5": {
+   "level": 5,
+   "carriers": 20480,
+   "ports": 245760,
+   "seams": 645120,
+   "sweeps": 600,
+   "seed": 914101,
+   "backend": "sequential",
+   "tiers_tracked": [
+    "internal",
+    "screen"
+   ],
+   "identities": 197019,
+   "cuts": 214,
+   "screen_identities": 12974,
+   "class_shares": {
+    "1": 0.24441190072452598,
+    "2": 0.20456297209804225,
+    "3": 0.1260212733158625,
+    "4": 0.19192230615076306,
+    "5": 0.23308154771080622
+   },
+   "moved_fraction": {
+    "1": 0.5767896562598549,
+    "2": 0.024114544084400905,
+    "3": 0.0006116207951070336,
+    "4": 0.02289156626506024,
+    "5": 0.5879629629629629
+   },
+   "alive_at_end_screen": {
+    "1": 0,
+    "2": 165,
+    "3": 166,
+    "4": 171,
+    "5": 0
+   },
+   "channel_events": 137082,
+   "class_violations": 0,
+   "tracker_totals": {
+    "births": 39105,
+    "moves": 1325690,
+    "annihilations": 21876,
+    "fusions": 33393,
+    "splits": 12296,
+    "exchanges": 30412
+   },
+   "end_counts_intra": [
+    63,
+    5575,
+    1640,
+    5518,
+    63
+   ],
+   "pairs_2_4_per_carrier": 0.2708251953125,
+   "pairs_3_3_per_carrier": 0.0400390625,
+   "balanced_after_sweeps": 58.657414124503966,
+   "depth_at_end": 13111
+  },
+  "L6": {
+   "level": 6,
+   "carriers": 81920,
+   "ports": 983040,
+   "seams": 2580480,
+   "sweeps": 500,
+   "seed": 915101,
+   "backend": "sequential",
+   "tiers_tracked": [
+    "internal",
+    "screen"
+   ],
+   "identities": 786662,
+   "cuts": 180,
+   "screen_identities": 49712,
+   "class_shares": {
+    "1": 0.2384937238493724,
+    "2": 0.19542565175410365,
+    "3": 0.12854039266173156,
+    "4": 0.19653202446089477,
+    "5": 0.24100820727389766
+   },
+   "moved_fraction": {
+    "1": 0.5915148448043185,
+    "2": 0.02305712815234174,
+    "3": 0.0010954616588419405,
+    "4": 0.023132036847492324,
+    "5": 0.5842584091478173
+   },
+   "alive_at_end_screen": {
+    "1": 3,
+    "2": 624,
+    "3": 625,
+    "4": 633,
+    "5": 6
+   },
+   "channel_events": 547163,
+   "class_violations": 0,
+   "tracker_totals": {
+    "births": 156400,
+    "moves": 5352909,
+    "annihilations": 87419,
+    "fusions": 132826,
+    "splits": 48598,
+    "exchanges": 121920
+   },
+   "end_counts_intra": [
+    689,
+    21892,
+    6659,
+    21915,
+    688
+   ],
+   "pairs_2_4_per_carrier": 0.267376708984375,
+   "pairs_3_3_per_carrier": 0.040643310546875,
+   "balanced_after_sweeps": 57.067603701636905,
+   "depth_at_end": 10957
+  },
+  "L7": {
+   "level": 7,
+   "carriers": 327680,
+   "ports": 3932160,
+   "seams": 10321920,
+   "sweeps": 400,
+   "seed": 916101,
+   "backend": "sequential",
+   "tiers_tracked": [
+    "screen"
+   ],
+   "identities": 196252,
+   "cuts": 145,
+   "screen_identities": 196252,
+   "class_shares": {
+    "1": 0.24063449034914294,
+    "2": 0.1934706397896582,
+    "3": 0.12573120273933514,
+    "4": 0.19728716140472455,
+    "5": 0.2428765057171392
+   },
+   "moved_fraction": {
+    "1": 0.596569613552144,
+    "2": 0.021306855592720376,
+    "3": 0.0009321175278622087,
+    "4": 0.022186063329717443,
+    "5": 0.5887338718136997
+   },
+   "alive_at_end_screen": {
+    "1": 18,
+    "2": 2533,
+    "3": 2564,
+    "4": 2590,
+    "5": 12
+   },
+   "channel_events": 129616,
+   "class_violations": 0,
+   "tracker_totals": {
+    "births": 23338,
+    "moves": 477780,
+    "annihilations": 9665,
+    "fusions": 43650,
+    "splits": 24021,
+    "exchanges": 28942
+   },
+   "end_counts_intra": [
+    6474,
+    88184,
+    26805,
+    88062,
+    6463
+   ],
+   "pairs_2_4_per_carrier": 0.2689300537109375,
+   "pairs_3_3_per_carrier": 0.04090118408203125,
+   "balanced_after_sweeps": 69.21825987800719,
+   "depth_at_end": 8780
+  }
+ },
+ "all": {
+  "channel_events": 856411,
+  "class_violations": 0,
+  "fusions_and_splits": 308872,
+  "identities": 1241057
+ }
+}

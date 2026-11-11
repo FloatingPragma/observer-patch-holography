@@ -1,0 +1,1819 @@
+{
+ "schema": "s6.a.face_lattice.v1",
+ "modules": {
+  "ports (12)": "1 + 3 + 3' + 5",
+  "port axes (6)": "1 + 5",
+  "seams, unsigned (30)": "1 + 3 + 3' + 2*4 + 3*5",
+  "seams, oriented (30)": "2*3 + 2*3' + 2*4 + 2*5",
+  "antipodal seam pairs = twofold axes (15)": "1 + 4 + 2*5",
+  "faces (20)": "1 + 3 + 3' + 2*4 + 5",
+  "face pairs, antipodally even charges (10)": "1 + 4 + 5",
+  "antipodally odd face charges (10)": "3 + 3' + 4",
+  "triads (5)": "1 + 4",
+  "unordered pairs of triads (10)": "1 + 4 + 5",
+  "ordered pairs of triads (20)": "1 + 3 + 3' + 2*4 + 5",
+  "cycle space = zero-sum face charges (19)": "3 + 3' + 2*4 + 5",
+  "cut space = port gradients (11)": "3 + 3' + 5",
+  "weights of 5bar + 10 as a set (15 = triads + pairs)": "2*1 + 2*4 + 5",
+  "weights of the 16 as a set (1 + 10 + 5)": "3*1 + 2*4 + 5"
+ },
+ "multiplicity_of_4": {
+  "ports (12)": 0,
+  "port axes (6)": 0,
+  "seams, unsigned (30)": 2,
+  "seams, oriented (30)": 2,
+  "antipodal seam pairs = twofold axes (15)": 1,
+  "faces (20)": 2,
+  "face pairs, antipodally even charges (10)": 1,
+  "antipodally odd face charges (10)": 1,
+  "triads (5)": 1,
+  "unordered pairs of triads (10)": 1,
+  "ordered pairs of triads (20)": 2,
+  "cycle space = zero-sum face charges (19)": 2,
+  "cut space = port gradients (11)": 0,
+  "weights of 5bar + 10 as a set (15 = triads + pairs)": 2,
+  "weights of the 16 as a set (1 + 10 + 5)": 2
+ },
+ "charts": {
+  "stabilizer_orders": {
+   "face pair": 6,
+   "face": 3,
+   "port": 5,
+   "seam": 2,
+   "twofold axis": 4
+  },
+  "equivariant_maps_face_pairs_to_unordered_pairs": 1,
+  "equivariant_maps_faces_to_ordered_pairs": 2,
+  "equivariant_maps_faces_to_triads": 2,
+  "equivariant_maps_ports_to_triads": 0,
+  "equivariant_maps_ports_to_unordered_pairs": 0,
+  "equivariant_maps_ports_to_ordered_pairs": 0,
+  "equivariant_maps_seams_to_triads": 1,
+  "equivariant_maps_seams_to_unordered_pairs": 2,
+  "equivariant_maps_twofold_axes_to_triads": 1,
+  "equivariant_maps_twofold_axes_to_unordered_pairs": 0,
+  "face_chart": {
+   "0": {
+    "ports": [
+     0,
+     11,
+     5
+    ],
+    "ordered_triads": [
+     0,
+     2
+    ],
+    "antipodal_face": 13
+   },
+   "1": {
+    "ports": [
+     0,
+     5,
+     1
+    ],
+    "ordered_triads": [
+     4,
+     1
+    ],
+    "antipodal_face": 12
+   },
+   "2": {
+    "ports": [
+     0,
+     1,
+     7
+    ],
+    "ordered_triads": [
+     2,
+     3
+    ],
+    "antipodal_face": 11
+   },
+   "3": {
+    "ports": [
+     0,
+     7,
+     10
+    ],
+    "ordered_triads": [
+     1,
+     0
+    ],
+    "antipodal_face": 10
+   },
+   "4": {
+    "ports": [
+     0,
+     10,
+     11
+    ],
+    "ordered_triads": [
+     3,
+     4
+    ],
+    "antipodal_face": 14
+   },
+   "5": {
+    "ports": [
+     1,
+     5,
+     9
+    ],
+    "ordered_triads": [
+     3,
+     0
+    ],
+    "antipodal_face": 17
+   },
+   "6": {
+    "ports": [
+     5,
+     11,
+     4
+    ],
+    "ordered_triads": [
+     1,
+     3
+    ],
+    "antipodal_face": 18
+   },
+   "7": {
+    "ports": [
+     11,
+     10,
+     2
+    ],
+    "ordered_triads": [
+     2,
+     1
+    ],
+    "antipodal_face": 19
+   },
+   "8": {
+    "ports": [
+     10,
+     7,
+     6
+    ],
+    "ordered_triads": [
+     4,
+     2
+    ],
+    "antipodal_face": 15
+   },
+   "9": {
+    "ports": [
+     7,
+     1,
+     8
+    ],
+    "ordered_triads": [
+     0,
+     4
+    ],
+    "antipodal_face": 16
+   },
+   "10": {
+    "ports": [
+     3,
+     9,
+     4
+    ],
+    "ordered_triads": [
+     0,
+     1
+    ],
+    "antipodal_face": 3
+   },
+   "11": {
+    "ports": [
+     3,
+     4,
+     2
+    ],
+    "ordered_triads": [
+     3,
+     2
+    ],
+    "antipodal_face": 2
+   },
+   "12": {
+    "ports": [
+     3,
+     2,
+     6
+    ],
+    "ordered_triads": [
+     1,
+     4
+    ],
+    "antipodal_face": 1
+   },
+   "13": {
+    "ports": [
+     3,
+     6,
+     8
+    ],
+    "ordered_triads": [
+     2,
+     0
+    ],
+    "antipodal_face": 0
+   },
+   "14": {
+    "ports": [
+     3,
+     8,
+     9
+    ],
+    "ordered_triads": [
+     4,
+     3
+    ],
+    "antipodal_face": 4
+   },
+   "15": {
+    "ports": [
+     4,
+     9,
+     5
+    ],
+    "ordered_triads": [
+     2,
+     4
+    ],
+    "antipodal_face": 8
+   },
+   "16": {
+    "ports": [
+     2,
+     4,
+     11
+    ],
+    "ordered_triads": [
+     4,
+     0
+    ],
+    "antipodal_face": 9
+   },
+   "17": {
+    "ports": [
+     6,
+     2,
+     10
+    ],
+    "ordered_triads": [
+     0,
+     3
+    ],
+    "antipodal_face": 5
+   },
+   "18": {
+    "ports": [
+     8,
+     6,
+     7
+    ],
+    "ordered_triads": [
+     3,
+     1
+    ],
+    "antipodal_face": 6
+   },
+   "19": {
+    "ports": [
+     9,
+     8,
+     1
+    ],
+    "ordered_triads": [
+     1,
+     2
+    ],
+    "antipodal_face": 7
+   }
+  },
+  "dual_distance_by_relation": {
+   "same": [
+    0
+   ],
+   "disjoint": [
+    1,
+    4
+   ],
+   "first = my second": [
+    2
+   ],
+   "second = my first": [
+    2
+   ],
+   "same second": [
+    3
+   ],
+   "same first": [
+    3
+   ],
+   "reversed (antipode)": [
+    5
+   ]
+  },
+  "adjacent_faces_have_disjoint_pairs": true,
+  "graph_automorphisms": 120,
+  "image_of_graph_automorphisms_on_triads": 60,
+  "antipodal_map_acts_trivially_on_triads": true
+ },
+ "equivariant_maps": {
+  "dimension_of_Hom(faces, 4)": 2,
+  "family": "Phi_{x,y}(e_f) = x eps_i(f) + y eps_j(f) modulo (1,1,1,1,1); x = y: antipodally even, x = -y: odd",
+  "Hom(ports, 4)": 0,
+  "Hom(oriented seams, 4)": 2
+ },
+ "lattices": {
+  "(1,1)": {
+   "image_of_all_integer_charges": {
+    "index_in_weight_lattice": 1,
+    "lattice": "weight lattice A4*",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "image_of_zero_sum_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "five_ality_of_unit_charge": 2,
+   "five_ality_formula_checked": true
+  },
+  "(1,0)": {
+   "image_of_all_integer_charges": {
+    "index_in_weight_lattice": 1,
+    "lattice": "weight lattice A4*",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "image_of_zero_sum_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "five_ality_of_unit_charge": 1,
+   "five_ality_formula_checked": true
+  },
+  "(1,-1)": {
+   "image_of_all_integer_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "image_of_zero_sum_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "five_ality_of_unit_charge": 0,
+   "five_ality_formula_checked": true
+  },
+  "(2,1)": {
+   "image_of_all_integer_charges": {
+    "index_in_weight_lattice": 1,
+    "lattice": "weight lattice A4*",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   "image_of_zero_sum_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "five_ality_of_unit_charge": 3,
+   "five_ality_formula_checked": true
+  },
+  "(4,1)": {
+   "image_of_all_integer_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "image_of_zero_sum_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "five_ality_of_unit_charge": 0,
+   "five_ality_formula_checked": true
+  },
+  "(3,2)": {
+   "image_of_all_integer_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "image_of_zero_sum_charges": {
+    "index_in_weight_lattice": 5,
+    "lattice": "root lattice A4",
+    "quotient_invariants": [
+     1,
+     1,
+     1,
+     1,
+     5
+    ]
+   },
+   "five_ality_of_unit_charge": 0,
+   "five_ality_formula_checked": true
+  }
+ },
+ "invariant_sublattices": {
+  "dimensions_of_orbit_spans_mod_2": [
+   4
+  ],
+  "mod_3": [
+   4
+  ],
+  "mod_5": [
+   3,
+   4
+  ],
+  "reading": "mod 2 and 3 every nonzero orbit spans everything; mod 5 the only proper submodule has dimension 3 (the root lattice). Every rotation-invariant full-rank sublattice of A4* is therefore k A4* or k A4."
+ },
+ "weights": {
+  "even_unit_face_charge_is_weight_of_10": true,
+  "gram_of_ten_images_is_|p\u2229p'| - 4/5": true,
+  "faces_per_weight_of_10": 2,
+  "fundamental_unit_face_charge_is_weight_of_5 (x,y)=(1,0)": true,
+  "faces_per_weight_of_5": 4,
+  "odd_unit_face_charge_is_root (x,y)=(1,-1)": true,
+  "faces_per_root": 1
+ },
+ "marking": {
+  "marked_face": 0,
+  "marked_face_ports": [
+   0,
+   11,
+   5
+  ],
+  "weak_triads_(T3=+1/2,-1/2)": [
+   0,
+   2
+  ],
+  "colour_triads": [
+   1,
+   3,
+   4
+  ],
+  "hypercharge_generator_6Y_on_triads": [
+   "3",
+   "-2",
+   "3",
+   "-2",
+   "-2"
+  ],
+  "hypercharge_generator_is_image_of_marked_pair": true,
+  "T3_generator_is_half_image_of_marked_face_under_odd_map": true,
+  "Y_of_unit_pair_charge = (5 s - 4)/6 with s shared triads": true,
+  "table_of_fifteen": [
+   {
+    "object": "pair [0, 1]",
+    "weight_eps": [
+     1,
+     1,
+     0,
+     0,
+     0
+    ],
+    "state": "u_L",
+    "6Y": "1",
+    "T3": "1/2",
+    "Q": "2/3",
+    "colour_weight": [
+     1,
+     0
+    ],
+    "repository_occupation_mask": 9,
+    "faces": [
+     3,
+     10
+    ],
+    "triads_shared_with_marked_pair": 1
+   },
+   {
+    "object": "pair [0, 2]",
+    "weight_eps": [
+     1,
+     0,
+     1,
+     0,
+     0
+    ],
+    "state": "e^c",
+    "6Y": "6",
+    "T3": "0",
+    "Q": "1",
+    "colour_weight": [
+     0,
+     0
+    ],
+    "repository_occupation_mask": 24,
+    "faces": [
+     0,
+     13
+    ],
+    "triads_shared_with_marked_pair": 2
+   },
+   {
+    "object": "pair [0, 3]",
+    "weight_eps": [
+     1,
+     0,
+     0,
+     1,
+     0
+    ],
+    "state": "u_L",
+    "6Y": "1",
+    "T3": "1/2",
+    "Q": "2/3",
+    "colour_weight": [
+     -1,
+     1
+    ],
+    "repository_occupation_mask": 10,
+    "faces": [
+     5,
+     17
+    ],
+    "triads_shared_with_marked_pair": 1
+   },
+   {
+    "object": "pair [0, 4]",
+    "weight_eps": [
+     1,
+     0,
+     0,
+     0,
+     1
+    ],
+    "state": "u_L",
+    "6Y": "1",
+    "T3": "1/2",
+    "Q": "2/3",
+    "colour_weight": [
+     0,
+     -1
+    ],
+    "repository_occupation_mask": 12,
+    "faces": [
+     9,
+     16
+    ],
+    "triads_shared_with_marked_pair": 1
+   },
+   {
+    "object": "pair [1, 2]",
+    "weight_eps": [
+     0,
+     1,
+     1,
+     0,
+     0
+    ],
+    "state": "d_L",
+    "6Y": "1",
+    "T3": "-1/2",
+    "Q": "-1/3",
+    "colour_weight": [
+     1,
+     0
+    ],
+    "repository_occupation_mask": 17,
+    "faces": [
+     7,
+     19
+    ],
+    "triads_shared_with_marked_pair": 1
+   },
+   {
+    "object": "pair [1, 3]",
+    "weight_eps": [
+     0,
+     1,
+     0,
+     1,
+     0
+    ],
+    "state": "u^c",
+    "6Y": "-4",
+    "T3": "0",
+    "Q": "-2/3",
+    "colour_weight": [
+     0,
+     1
+    ],
+    "repository_occupation_mask": 3,
+    "faces": [
+     6,
+     18
+    ],
+    "triads_shared_with_marked_pair": 0
+   },
+   {
+    "object": "pair [1, 4]",
+    "weight_eps": [
+     0,
+     1,
+     0,
+     0,
+     1
+    ],
+    "state": "u^c",
+    "6Y": "-4",
+    "T3": "0",
+    "Q": "-2/3",
+    "colour_weight": [
+     1,
+     -1
+    ],
+    "repository_occupation_mask": 5,
+    "faces": [
+     1,
+     12
+    ],
+    "triads_shared_with_marked_pair": 0
+   },
+   {
+    "object": "pair [2, 3]",
+    "weight_eps": [
+     0,
+     0,
+     1,
+     1,
+     0
+    ],
+    "state": "d_L",
+    "6Y": "1",
+    "T3": "-1/2",
+    "Q": "-1/3",
+    "colour_weight": [
+     -1,
+     1
+    ],
+    "repository_occupation_mask": 18,
+    "faces": [
+     2,
+     11
+    ],
+    "triads_shared_with_marked_pair": 1
+   },
+   {
+    "object": "pair [2, 4]",
+    "weight_eps": [
+     0,
+     0,
+     1,
+     0,
+     1
+    ],
+    "state": "d_L",
+    "6Y": "1",
+    "T3": "-1/2",
+    "Q": "-1/3",
+    "colour_weight": [
+     0,
+     -1
+    ],
+    "repository_occupation_mask": 20,
+    "faces": [
+     8,
+     15
+    ],
+    "triads_shared_with_marked_pair": 1
+   },
+   {
+    "object": "pair [3, 4]",
+    "weight_eps": [
+     0,
+     0,
+     0,
+     1,
+     1
+    ],
+    "state": "u^c",
+    "6Y": "-4",
+    "T3": "0",
+    "Q": "-2/3",
+    "colour_weight": [
+     -1,
+     0
+    ],
+    "repository_occupation_mask": 6,
+    "faces": [
+     4,
+     14
+    ],
+    "triads_shared_with_marked_pair": 0
+   },
+   {
+    "object": "triad 0",
+    "weight_eps": [
+     -1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "state": "e_L",
+    "6Y": "-3",
+    "T3": "-1/2",
+    "Q": "-1",
+    "colour_weight": [
+     0,
+     0
+    ],
+    "repository_occupation_mask": 23,
+    "faces": [],
+    "triads_shared_with_marked_pair": null
+   },
+   {
+    "object": "triad 1",
+    "weight_eps": [
+     0,
+     -1,
+     0,
+     0,
+     0
+    ],
+    "state": "d^c",
+    "6Y": "2",
+    "T3": "0",
+    "Q": "1/3",
+    "colour_weight": [
+     -1,
+     0
+    ],
+    "repository_occupation_mask": 30,
+    "faces": [],
+    "triads_shared_with_marked_pair": null
+   },
+   {
+    "object": "triad 2",
+    "weight_eps": [
+     0,
+     0,
+     -1,
+     0,
+     0
+    ],
+    "state": "nu_L",
+    "6Y": "-3",
+    "T3": "1/2",
+    "Q": "0",
+    "colour_weight": [
+     0,
+     0
+    ],
+    "repository_occupation_mask": 15,
+    "faces": [],
+    "triads_shared_with_marked_pair": null
+   },
+   {
+    "object": "triad 3",
+    "weight_eps": [
+     0,
+     0,
+     0,
+     -1,
+     0
+    ],
+    "state": "d^c",
+    "6Y": "2",
+    "T3": "0",
+    "Q": "1/3",
+    "colour_weight": [
+     1,
+     -1
+    ],
+    "repository_occupation_mask": 29,
+    "faces": [],
+    "triads_shared_with_marked_pair": null
+   },
+   {
+    "object": "triad 4",
+    "weight_eps": [
+     0,
+     0,
+     0,
+     0,
+     -1
+    ],
+    "state": "d^c",
+    "6Y": "2",
+    "T3": "0",
+    "Q": "1/3",
+    "colour_weight": [
+     0,
+     1
+    ],
+    "repository_occupation_mask": 27,
+    "faces": [],
+    "triads_shared_with_marked_pair": null
+   }
+  ],
+  "equals_repository_committed_fifteen_weights": true,
+  "stabilizer_of_marked_pair": {
+   "order": 6,
+   "image_on_triads_is_even_part_of_S3xS2": true,
+   "order_of_S3xS2": 12,
+   "fixed_dimension_in_4": 1,
+   "orbits_on_fifteen": [
+    {
+     "size": 1,
+     "states": [
+      "e^c"
+     ],
+     "6Y": [
+      "6"
+     ]
+    },
+    {
+     "size": 2,
+     "states": [
+      "e_L",
+      "nu_L"
+     ],
+     "6Y": [
+      "-3"
+     ]
+    },
+    {
+     "size": 3,
+     "states": [
+      "u^c"
+     ],
+     "6Y": [
+      "-4"
+     ]
+    },
+    {
+     "size": 3,
+     "states": [
+      "d^c"
+     ],
+     "6Y": [
+      "2"
+     ]
+    },
+    {
+     "size": 6,
+     "states": [
+      "d_L",
+      "u_L"
+     ],
+     "6Y": [
+      "1"
+     ]
+    }
+   ]
+  },
+  "stabilizer_of_marked_face": {
+   "order": 3,
+   "fixed_dimension_in_4": 2,
+   "orbits_on_fifteen": [
+    {
+     "size": 1,
+     "states": [
+      "e^c"
+     ],
+     "6Y": [
+      "6"
+     ]
+    },
+    {
+     "size": 1,
+     "states": [
+      "e_L"
+     ],
+     "6Y": [
+      "-3"
+     ]
+    },
+    {
+     "size": 1,
+     "states": [
+      "nu_L"
+     ],
+     "6Y": [
+      "-3"
+     ]
+    },
+    {
+     "size": 3,
+     "states": [
+      "u_L"
+     ],
+     "6Y": [
+      "1"
+     ]
+    },
+    {
+     "size": 3,
+     "states": [
+      "d_L"
+     ],
+     "6Y": [
+      "1"
+     ]
+    },
+    {
+     "size": 3,
+     "states": [
+      "u^c"
+     ],
+     "6Y": [
+      "-4"
+     ]
+    },
+    {
+     "size": 3,
+     "states": [
+      "d^c"
+     ],
+     "6Y": [
+      "2"
+     ]
+    }
+   ]
+  },
+  "fixed_dimension_of_all_rotations_in_4": 0
+ },
+ "costs": {
+  "unit_pair_by_dual_distance": {
+   "1": [
+    "19/60"
+   ],
+   "2": [
+    "9/20"
+   ],
+   "3": [
+    "8/15"
+   ],
+   "4": [
+    "17/30"
+   ],
+   "5": [
+    "7/12"
+   ]
+  },
+  "calibration_equals_established": true,
+  "dual_laplacian_eigenvalue_even_4": "5",
+  "dual_laplacian_eigenvalue_odd_4": "3",
+  "root_pattern_inside_even_4": {
+   "charges": [
+    1,
+    -1,
+    0,
+    0,
+    0,
+    1,
+    -1,
+    -1,
+    0,
+    1,
+    0,
+    0,
+    -1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    -1,
+    -1
+   ],
+   "release": "6/5",
+   "faces_charged": 12
+  },
+  "root_pattern_inside_odd_4": {
+   "charges": [
+    1,
+    1,
+    0,
+    -2,
+    0,
+    -1,
+    -1,
+    1,
+    0,
+    1,
+    2,
+    0,
+    -1,
+    -1,
+    0,
+    0,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "release": "10/3",
+   "faces_charged": 14
+  },
+  "neutral_configurations_by_even_label": [
+   {
+    "total_absolute_charge": 2,
+    "even_label_type_eps": [
+     1,
+     1,
+     0,
+     -1,
+     -1
+    ],
+    "label_norm2": 4,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 120,
+    "min_release": "19/60",
+    "min_release_float": 0.31666666666666665,
+    "example": {
+     "0": 1,
+     "1": -1
+    },
+    "example_dual_distances": [
+     1
+    ],
+    "odd_label_types_at_min": [
+     [
+      1,
+      1,
+      0,
+      -1,
+      -1
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 2,
+    "even_label_type_eps": [
+     1,
+     0,
+     0,
+     0,
+     -1
+    ],
+    "label_norm2": 2,
+    "is_root": true,
+    "is_zero": false,
+    "configurations": 240,
+    "min_release": "9/20",
+    "min_release_float": 0.45,
+    "example": {
+     "0": 1,
+     "2": -1
+    },
+    "example_dual_distances": [
+     2
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      0,
+      0,
+      -1,
+      -1
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 2,
+    "even_label_type_eps": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "label_norm2": 0,
+    "is_root": false,
+    "is_zero": true,
+    "configurations": 20,
+    "min_release": "7/12",
+    "min_release_float": 0.5833333333333334,
+    "example": {
+     "0": 1,
+     "13": -1
+    },
+    "example_dual_distances": [
+     5
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      0,
+      0,
+      0,
+      -2
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     2,
+     1,
+     0,
+     -1,
+     -2
+    ],
+    "label_norm2": 10,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 4800,
+    "min_release": "1/2",
+    "min_release_float": 0.5,
+    "example": {
+     "0": 1,
+     "1": -1,
+     "2": 1,
+     "3": -1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     1,
+     2,
+     2,
+     2
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      0,
+      0,
+      -1,
+      -1
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     2,
+     2,
+     0,
+     -2,
+     -2
+    ],
+    "label_norm2": 16,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 270,
+    "min_release": "3/5",
+    "min_release_float": 0.6,
+    "example": {
+     "0": 1,
+     "1": -1,
+     "12": -1,
+     "13": 1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     4,
+     4,
+     5,
+     5
+    ],
+    "odd_label_types_at_min": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     2,
+     0,
+     0,
+     -1,
+     -1
+    ],
+    "label_norm2": 6,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 8880,
+    "min_release": "3/5",
+    "min_release_float": 0.6,
+    "example": {
+     "0": 1,
+     "1": -1,
+     "8": 1,
+     "17": -1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     3,
+     3,
+     3,
+     4
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      0,
+      0,
+      -1,
+      -1
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     1,
+     0,
+     0,
+     0,
+     -1
+    ],
+    "label_norm2": 2,
+    "is_root": true,
+    "is_zero": false,
+    "configurations": 8160,
+    "min_release": "37/60",
+    "min_release_float": 0.6166666666666667,
+    "example": {
+     "0": 1,
+     "1": -1,
+     "11": -1,
+     "12": 1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     3,
+     4,
+     4,
+     5
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      1,
+      0,
+      -1,
+      -2
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     2,
+     1,
+     -1,
+     -1,
+     -1
+    ],
+    "label_norm2": 8,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 3360,
+    "min_release": "19/30",
+    "min_release_float": 0.6333333333333333,
+    "example": {
+     "0": 1,
+     "1": -1,
+     "2": 1,
+     "7": -1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     2,
+     2,
+     3,
+     3
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      1,
+      -1,
+      -1,
+      -1
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     2,
+     0,
+     0,
+     0,
+     -2
+    ],
+    "label_norm2": 8,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 1500,
+    "min_release": "19/30",
+    "min_release_float": 0.6333333333333333,
+    "example": {
+     "0": 1,
+     "2": 1,
+     "3": -1,
+     "6": -1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     2,
+     2,
+     3,
+     3
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      0,
+      0,
+      0,
+      -2
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     2,
+     2,
+     -1,
+     -1,
+     -2
+    ],
+    "label_norm2": 14,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 720,
+    "min_release": "13/20",
+    "min_release_float": 0.65,
+    "example": {
+     "0": 1,
+     "6": -1,
+     "8": 1,
+     "18": -1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     3,
+     4,
+     4,
+     5
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      0,
+      0,
+      -1,
+      -1
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "label_norm2": 0,
+    "is_root": false,
+    "is_zero": true,
+    "configurations": 680,
+    "min_release": "2/3",
+    "min_release_float": 0.6666666666666666,
+    "example": {
+     "0": 1,
+     "1": -1,
+     "12": 1,
+     "13": -1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     4,
+     4,
+     5,
+     5
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      2,
+      0,
+      -2,
+      -2
+     ]
+    ]
+   },
+   {
+    "total_absolute_charge": 4,
+    "even_label_type_eps": [
+     1,
+     1,
+     0,
+     -1,
+     -1
+    ],
+    "label_norm2": 4,
+    "is_root": false,
+    "is_zero": false,
+    "configurations": 7920,
+    "min_release": "11/15",
+    "min_release_float": 0.7333333333333333,
+    "example": {
+     "0": 1,
+     "1": -1,
+     "2": 1,
+     "11": -1
+    },
+    "example_dual_distances": [
+     1,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "odd_label_types_at_min": [
+     [
+      2,
+      1,
+      -1,
+      -1,
+      -1
+     ],
+     [
+      3,
+      1,
+      0,
+      -1,
+      -3
+     ],
+     [
+      4,
+      -1,
+      -1,
+      -1,
+      -1
+     ]
+    ]
+   }
+  ],
+  "all_neutral_even_labels_have_zero_five_ality": true
+ },
+ "charged_patterns_for_the_fifteen": {
+  "pair [0, 1]": {
+   "state": "u_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      0,
+      1
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [0, 2]": {
+   "state": "e^c",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      0,
+      2
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [0, 3]": {
+   "state": "u_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      0,
+      3
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [0, 4]": {
+   "state": "u_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      0,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [1, 2]": {
+   "state": "d_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      1,
+      2
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [1, 3]": {
+   "state": "u^c",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      1,
+      3
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [1, 4]": {
+   "state": "u^c",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      1,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [2, 3]": {
+   "state": "d_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      2,
+      3
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [2, 4]": {
+   "state": "d_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      2,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "pair [3, 4]": {
+   "state": "u^c",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "1": 7
+   },
+   "smallest": [
+    [
+     [
+      3,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "triad 0": {
+   "state": "e_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "-3": 6,
+    "2": 3
+   },
+   "smallest": [
+    [
+     [
+      1,
+      2
+     ],
+     1
+    ],
+    [
+     [
+      3,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "triad 1": {
+   "state": "d^c",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "-3": 6,
+    "2": 3
+   },
+   "smallest": [
+    [
+     [
+      0,
+      2
+     ],
+     1
+    ],
+    [
+     [
+      3,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "triad 2": {
+   "state": "nu_L",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "-3": 6,
+    "2": 3
+   },
+   "smallest": [
+    [
+     [
+      0,
+      1
+     ],
+     1
+    ],
+    [
+     [
+      3,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "triad 3": {
+   "state": "d^c",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "-3": 6,
+    "2": 3
+   },
+   "smallest": [
+    [
+     [
+      0,
+      1
+     ],
+     1
+    ],
+    [
+     [
+      2,
+      4
+     ],
+     1
+    ]
+   ]
+  },
+  "triad 4": {
+   "state": "d^c",
+   "patterns_by_net_charge (pair charges in {-1,0,1}, at most 3 pairs)": {
+    "-3": 6,
+    "2": 3
+   },
+   "smallest": [
+    [
+     [
+      0,
+      1
+     ],
+     1
+    ],
+    [
+     [
+      2,
+      3
+     ],
+     1
+    ]
+   ]
+  }
+ },
+ "net_charge_rule": "five-ality of Phi_{1,1}(q) = 2 * (sum of face charges) mod 5; the 10 needs net charge 1 mod 5, the 5bar 2 mod 5; a closed carrier has net charge 0",
+ "seconds": 3.8
+}

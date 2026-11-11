@@ -1,0 +1,310 @@
+"""SS tests T2, T3, T4 and T6 (CANDIDATES.md): Z2 gradings of the source objects, which of them equal the 2 pi
+rotation (centre z of the cover), and the comparison with the Standard Model's statistics (T6, NOT BLIND).
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python ss_gradings.py [out.json]
+Reads (never writes): work/SIM/cf1/runs/X3_census.json (L10 compositions, for the per-carrier parity check).
+
+Objects (variables of the GF(2) systems):
+  q[a]   quantum with pattern a (32 patterns; a pointer doublet each)            CF-1 section 8
+  h[k]   register quantum of R8 with the charges of spinor level s_k (k = 1, 2)  reports/R8.md result 2
+  d[k]   pure flux defect of class k = 1..5 (class 0 = no defect)               runs' register
+  U[b]   link operator of the block b = (n3, n2) of the code (Peter-Weyl sector) chiral_source section 3, GL
+Vertices that every local Hamiltonian term must keep even:
+  currents   c*_{a'} c_a with a' = a moved inside the vector or the spinor levels (the twelve native currents)
+  toggle     c*_{a + s_k} c_a b_k (R8: V = sum_k a_k* b_k + h.c.)
+  hopping    c*_{x,a} U_ab c_{y,b} with a, b in one block (chiral source edge term), grading the same at x and y
+  Yukawa     c_Q c_{u^c} H, c_Q c_{d^c} H*, c_L c_{e^c} H*, c_L c_{nu^c} H (chiral source section 4)
+  channels   every fusion, split, pair birth and annihilation channel of the L10 catalogue (reports/CO.md)
+  CPT        q[a] = q[complement a]; d[k] = d[6 - k]
+Spin rules (eigenvalue of z, 1 = -1): SR1 pointer only; SR2 code only; SR3 pointer and code; SR4 the whole rotation
+(pointer, code, register, both link ends) read on the Gauss sector.
+"""
+import itertools
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+RL = Path('WORKSPACE/repair-law')
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('ss_gradings.json')
+out = {}
+
+# ------------------------------------------------------------------ patterns
+PATS = []
+for mask in range(32):
+    n3 = bin(mask & 0b00111).count('1')
+    n2 = bin(mask & 0b11000).count('1')
+    PATS.append(dict(mask=mask, n3=n3, n2=n2, deg=n3 + n2, q6=3 * n2 - 2 * n3, k=(3 * n2 - 2 * n3) % 6))
+S1, S2 = 3, 4
+BLOCKS = sorted({(p['n3'], p['n2']) for p in PATS})
+
+# variable index
+VARS = [('q', m) for m in range(32)] + [('h', 1), ('h', 2)] + [('d', k) for k in range(1, 6)] + [('U', b) for b in BLOCKS]
+IX = {v: i for i, v in enumerate(VARS)}
+NV = len(VARS)
+
+
+def row(*vs, rhs=0):
+    r = np.zeros(NV + 1, dtype=np.uint8)
+    for v in vs:
+        if v is None:
+            continue
+        r[IX[v]] ^= 1
+    r[NV] = rhs
+    return r
+
+
+def dvar(k):
+    return None if k % 6 == 0 else ('d', k % 6)
+
+
+def gf2_solve(rows):
+    """Return (consistent, particular solution, nullspace basis) of the GF(2) system rows = [A | b]."""
+    A = np.array(rows, dtype=np.uint8) % 2
+    m = A.shape[0]
+    piv, r = [], 0
+    for c in range(NV):
+        p = next((i for i in range(r, m) if A[i, c]), None)
+        if p is None:
+            continue
+        A[[r, p]] = A[[p, r]]
+        for i in range(m):
+            if i != r and A[i, c]:
+                A[i] ^= A[r]
+        piv.append(c)
+        r += 1
+        if r == m:
+            break
+    consistent = not any(A[i, NV] and not A[i, :NV].any() for i in range(m))
+    x = np.zeros(NV, dtype=np.uint8)
+    for i, c in enumerate(piv):
+        x[c] = A[i, NV]
+    free = [c for c in range(NV) if c not in piv]
+    basis = []
+    for f in free:
+        v = np.zeros(NV, dtype=np.uint8)
+        v[f] = 1
+        for i, c in enumerate(piv):
+            if A[i, f]:
+                v[c] = 1
+        basis.append(v)
+    return consistent, x, basis
+
+
+def describe(v):
+    """Name a grading vector by its values on the object types."""
+    q = {(p['n3'], p['n2']): int(v[IX[('q', p['mask'])]]) for p in PATS}
+    return dict(quanta_by_block={f'n3={a},n2={b}': q[(a, b)] for a, b in BLOCKS},
+                register=[int(v[IX[('h', 1)]]), int(v[IX[('h', 2)]])],
+                defects={k: int(v[IX[('d', k)]]) for k in range(1, 6)},
+                links=sorted({int(v[IX[('U', b)]]) for b in BLOCKS}))
+
+
+# ------------------------------------------------------------------ vertex constraints
+V_ROWS, LOG = [], {}
+# currents: move one occupied level to an empty level of the same block (vector to vector, spinor to spinor)
+n = 0
+for p in PATS:
+    a = p['mask']
+    for i, j in itertools.permutations(range(3), 2):
+        if a >> i & 1 and not a >> j & 1:
+            V_ROWS.append(row(('q', a), ('q', a ^ (1 << i) ^ (1 << j)))); n += 1
+    for i, j in ((S1, S2), (S2, S1)):
+        if a >> i & 1 and not a >> j & 1:
+            V_ROWS.append(row(('q', a), ('q', a ^ (1 << i) ^ (1 << j)))); n += 1
+LOG['currents'] = n
+# toggle with the R8 register
+n = 0
+for p in PATS:
+    a = p['mask']
+    for k, lev in ((1, S1), (2, S2)):
+        if not a >> lev & 1:
+            V_ROWS.append(row(('q', a | (1 << lev)), ('q', a), ('h', k))); n += 1
+LOG['toggle'] = n
+# hopping: c*_{x,a} U_ab c_{y,b}, a and b in one block, translation-invariant matter grading
+n = 0
+for p in PATS:
+    for p2 in PATS:
+        if (p['n3'], p['n2']) == (p2['n3'], p2['n2']):
+            V_ROWS.append(row(('q', p['mask']), ('q', p2['mask']), ('U', (p['n3'], p['n2'])))); n += 1
+LOG['hopping'] = n
+# Yukawa vertices of the chiral source (patterns of one family, register as H)
+FAM = {'Q': 0b01001, 'uc': 0b00110, 'dc': 0b11110, 'L': 0b01111, 'ec': 0b11000, 'nuc': 0b00000}
+for nm, mask in FAM.items():
+    assert any(p['mask'] == mask for p in PATS)
+YUK = [('Q', 'uc', 1), ('Q', 'dc', 2), ('L', 'ec', 2), ('L', 'nuc', 1)]
+for f1, f2, hk in YUK:
+    V_ROWS.append(row(('q', FAM[f1]), ('q', FAM[f2]), ('h', hk)))
+LOG['Yukawa'] = len(YUK)
+# CPT
+for p in PATS:
+    V_ROWS.append(row(('q', p['mask']), ('q', 31 ^ p['mask'])))
+for k in range(1, 6):
+    V_ROWS.append(row(dvar(k), dvar(6 - k)))
+LOG['CPT'] = 32 + 5
+# catalogue channels (L10 screen, reports/CO.md part (e)); class 0 = vacuum
+FUS = [(1, 1, 2), (5, 5, 4), (1, 4, 5), (2, 5, 1), (1, 2, 3), (4, 5, 3), (3, 5, 2), (1, 3, 4), (2, 2, 4), (4, 4, 2),
+       (2, 3, 5), (3, 4, 1)]
+SPL = [(2, 1, 1), (4, 5, 5), (3, 1, 2), (3, 4, 5), (1, 2, 5), (5, 1, 4), (4, 2, 2), (2, 4, 4), (4, 1, 3), (2, 3, 5),
+       (5, 2, 3), (1, 3, 4)]
+PAIRS = [(1, 5), (2, 4), (3, 3)]
+CH_ROWS = []
+for a, b, c in FUS:
+    assert (a + b - c) % 6 == 0
+    CH_ROWS.append(row(dvar(a), dvar(b), dvar(c)))
+for a, b, c in SPL:
+    assert (a - b - c) % 6 == 0
+    CH_ROWS.append(row(dvar(a), dvar(b), dvar(c)))
+for a, b in PAIRS:
+    CH_ROWS.append(row(dvar(a), dvar(b)))
+LOG['catalogue_channels'] = dict(fusion=len(FUS), split=len(SPL), pair_birth_and_annihilation=len(PAIRS))
+
+# ------------------------------------------------------------------ T2: class-only gradings of defects from the channels
+# the channel rows involve only the five defect variables: enumerate those 32 assignments directly
+DIDX = [IX[('d', k)] for k in range(1, 6)]
+defect_sols = []
+for bits in itertools.product((0, 1), repeat=5):
+    v = np.zeros(NV, dtype=np.uint8)
+    v[DIDX] = bits
+    if all(int((r[:NV] & v).sum() % 2) == int(r[NV]) for r in CH_ROWS):
+        defect_sols.append(tuple(int(b) for b in bits))
+defect_sols = sorted(defect_sols)
+out['T2_defect_class_gradings'] = {
+    'channels': LOG['catalogue_channels'], 'solutions_(classes_1_to_5)': [list(s) for s in defect_sols],
+    'statement': 'the class gradings conserved by every channel are the trivial one and k mod 2'}
+assert defect_sols == [(0, 0, 0, 0, 0), (1, 0, 1, 0, 1)]
+
+# per-carrier parity of odd-class defects on the L10 compositions (the class grading on closed carriers)
+x3 = json.loads((RL / 'work/SIM/cf1/runs/X3_census.json').read_text())
+comps = x3['levels']['10']['compositions']
+odd_counts = {c: sum(int(t) % 2 for t in c.strip('{}').split(',')) for c in comps}
+out['T2_odd_class_defects_per_carrier'] = {
+    'compositions_L10': len(comps), 'carriers': sum(comps.values()),
+    'compositions_with_an_odd_number_of_odd-class_defects': [c for c, v in odd_counts.items() if v % 2],
+    'reason': 'classes sum to 0 mod 6 on a carrier, so their sum is even and the odd classes come in even numbers',
+    'statement': 'the grading k mod 2 equals +1 on every closed carrier: it is invisible on carriers'}
+
+# ------------------------------------------------------------------ T3: all gradings of the vertex algebra
+ALL = V_ROWS + CH_ROWS
+ok, x, basis = gf2_solve(ALL)
+named = [describe(b) for b in basis]
+out['T3_vertex_gradings'] = {'vertex_rows': LOG, 'consistent': bool(ok), 'dimension': len(basis),
+                             'number_of_gradings': 2 ** len(basis), 'basis': named}
+
+# spin rules: eigenvalue bit s of z on every object
+def spin_bits(rule):
+    s = {}
+    for p in PATS:
+        pointer = 1 if rule in ('SR1', 'SR3', 'SR4') else 0
+        code = p['n2'] % 2 if rule in ('SR2', 'SR3') else 0
+        s[('q', p['mask'])] = (pointer + code) % 2
+    for k in (1, 2):
+        s[('h', k)] = 1 if rule in ('SR2', 'SR3') else 0          # register quantum is a weak doublet member
+    for k in range(1, 6):
+        s[('d', k)] = 0                                            # placements: integer irreps only (X3)
+    for b in BLOCKS:
+        s[('U', b)] = 0                                            # two-sided action on a whole link
+    return s
+
+
+SS = {}
+for rule in ('SR1', 'SR2', 'SR3', 'SR4'):
+    sb = spin_bits(rule)
+    rows = ALL + [row(v, rhs=sb[v]) for v in VARS]
+    ok_r, x_r, basis_r = gf2_solve(rows)
+    SS[rule] = dict(consistent=bool(ok_r), dimension=len(basis_r) if ok_r else None,
+                    solution=describe(x_r) if ok_r else None)
+# SR4 on the Gauss sector: the code, register and link-end factors multiply to prod_x G_x(z) = +1
+SS['SR4']['reading'] = ('z on a closed Gauss-invariant state = (-1)^(quanta) x (-1)^(sum n2 + register quanta) x '
+                        '(link ends: +1 per link); Gauss law prod_x G_x = (-1)^(sum n2 + register quanta) = +1')
+out['T3_spin_statistics'] = SS
+
+# visibility on physical states: which basis gradings act as the identity on Gauss-invariant closed carriers
+vis = []
+for b in basis:
+    d = describe(b)
+    qb = d['quanta_by_block']
+    # decompose quanta grading as alpha + beta n2 + delta [n3 in {1,2}]
+    alpha = qb['n3=0,n2=0']
+    beta = (qb['n3=0,n2=1'] + alpha) % 2
+    delta = (qb['n3=1,n2=0'] + alpha) % 2
+    lin = all(qb[f'n3={a},n2={c}'] == (alpha + beta * c + delta * (a in (1, 2))) % 2 for a, c in BLOCKS)
+    vis.append(dict(alpha_number=alpha, beta_weak_centre=beta, delta_colour=delta, linear=lin,
+                    register=d['register'], defects=d['defects'],
+                    trivial_on_physical_states=(alpha == 0 and delta == 0)))
+out['T3_physical_visibility'] = {
+    'basis_decomposition': vis,
+    'rule': 'beta (weak centre with odd register) is the Gauss charge, +1 on physical states; the defect grading '
+            'k mod 2 is +1 on every closed carrier; alpha = (-1)^(quanta) and delta = (-1)^(coloured quanta) remain',
+    'distinct_gradings_on_physical_states': 4}
+
+# ------------------------------------------------------------------ T4: statistics rules against the spin rules
+def g2_sigma(m, p, g):
+    gm = g[abs(m)] if m > 0 else (g[abs(m)] + 1) % 2
+    return (gm + p['deg']) % 2
+
+
+T4 = {}
+for rule in ('SR1', 'SR2', 'SR3', 'SR4'):
+    sb = spin_bits(rule)
+    res = {}
+    # ST0: quanta odd, register / defects / links even
+    st0 = {v: (1 if v[0] == 'q' else 0) for v in VARS}
+    res['ST0'] = all(st0[v] == sb[v] for v in VARS)
+    # ST1: chiral-source object = odd flux orbit + memory (pointer) + even cloud in R15 = Lambda^2 + Lambda^4
+    r15 = [p for p in PATS if p['deg'] in (2, 4)]
+    s_obj = [((1 if rule in ('SR1', 'SR3', 'SR4') else 0) + (p['n2'] % 2 if rule in ('SR2', 'SR3') else 0)) % 2 for p in r15]
+    res['ST1_object'] = all(s == 1 for s in s_obj)
+    res['ST1_flux_orbit_alone_odd_vs_spin'] = False          # flux placements carry z = +1 under every rule (X3)
+    # ST2: composites (m, cloud of class m mod 6) without a pointer; g(1) = g(2) = g(3) = 1 (DB3)
+    g = {1: 1, 2: 1, 3: 1}
+    ok2 = True
+    for p in PATS:
+        for m in (1, -1, 2, -2, 3, -3):
+            if m % 6 != p['k']:
+                continue
+            s = (p['n2'] % 2) if rule in ('SR2', 'SR3') else 0
+            ok2 &= (g2_sigma(m, p, g) == s)
+    res['ST2_all_choices_of_g'] = any(
+        all(g2_sigma(m, p, dict(zip((1, 2, 3), gg))) == ((p['n2'] % 2) if rule in ('SR2', 'SR3') else 0)
+            for p in PATS for m in (1, -1, 2, -2, 3, -3) if m % 6 == p['k'])
+        for gg in itertools.product((0, 1), repeat=3))
+    res['ST2_DB3_choice'] = ok2
+    # ST3: GL grading as statistics on matter: q = n2, register odd, defects k mod 2
+    st3 = {}
+    for v in VARS:
+        if v[0] == 'q':
+            st3[v] = PATS[v[1]]['n2'] % 2
+        elif v[0] == 'h':
+            st3[v] = 1
+        elif v[0] == 'd':
+            st3[v] = v[1] % 2
+        else:
+            st3[v] = 0
+    res['ST3'] = all(st3[v] == sb[v] for v in VARS)
+    # ST4: deg parity on quanta
+    res['ST4'] = all((PATS[v[1]]['deg'] % 2) == sb[v] for v in VARS if v[0] == 'q')
+    # ST5: defects by class, trivial or k mod 2
+    res['ST5_trivial'] = all(sb[('d', k)] == 0 for k in range(1, 6))
+    res['ST5_k_mod_2'] = all(sb[('d', k)] == k % 2 for k in range(1, 6))
+    T4[rule] = res
+out['T4_statistics_rule_equals_spin'] = T4
+# where ST2 fails without a pointer under the code rotation: classes with both degree parities at one n2
+fail_cls = sorted({p['k'] for p in PATS
+                   if any(q['k'] == p['k'] and q['n2'] % 2 == p['n2'] % 2 and q['deg'] % 2 != p['deg'] % 2 for q in PATS)})
+out['T4_ST2_obstruction'] = {
+    'classes_with_both_degree_parities_at_one_weak_charge': fail_cls,
+    'statement': 'in these classes g(m) + deg takes both values at one flux m while z takes one value, for every '
+                 'choice of g; class 0 has in addition no minimal flux object'}
+
+# ------------------------------------------------------------------ T6: comparison with the Standard Model (NOT BLIND)
+sm = {'quanta (all 32 patterns: one family and its conjugates)': 1, 'Higgs register quantum': 0,
+      'gauge link states': 0}
+sol = SS['SR4']['solution']
+match = (all(v == 1 for v in sol['quanta_by_block'].values()) and sol['register'] == [0, 0] and sol['links'] == [0])
+out['T6_NOT_BLIND'] = {'Standard_Model_statistics': sm, 'SR4_solution': sol, 'equal': match,
+                       'note': 'flux defects have no elementary counterpart in the Standard Model; the solution makes them bosons'}
+
+OUT.write_text(json.dumps(out, indent=1, default=str) + '\n')
+print(json.dumps(out, indent=1, default=str))

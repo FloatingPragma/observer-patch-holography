@@ -1,0 +1,281 @@
+"""Task X2, items 2 to 4: the universe runs against reading B (class k = multiplet of charge k mod 6).
+
+Inputs (read only): oph-physics-sim/runs/universe/L3..L10 (run.json, view/class_stats.json),
+repair-law/work/SIM/cf1/runs/H_background_from_runs.json and H2_coherence_48.json, and the census table of
+repair-law/reports/CH.md (typed in below; the checkpoint itself is on box A).
+Exact parts: counts of stored data, enumerations with Fractions. Everything else carries its error.
+
+Run:  cd RL/work/X2 && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python x2_runs.py runs.json
+"""
+import itertools, json, math, os, re, sys
+from fractions import Fraction as F
+from scipy.stats import chi2
+
+META = 'USER_HOME/Projects/oph-meta'
+RUNS = f'{META}/oph-physics-sim/runs/universe'
+out = {'schema': 'x2.runs.v1'}
+G = {1: 6, 2: 6, 3: 4, 4: 6, 5: 6}                 # states of the chart per charge class (x2_algebra.py); class 0 holds 4
+EXP = {k: F(G[k], 28) for k in G}                   # equal population per state among the 28 states with a defect class
+
+def mean_se(xs):
+    n = len(xs); m = sum(xs) / n
+    return m, (math.sqrt(sum((x - m) ** 2 for x in xs) / (n - 1) / n) if n > 1 else float('nan'))
+
+# ------------------------------------------------------------------ item 2a: produced shares (identities ever)
+stats = {L: json.load(open(f'{RUNS}/L{L}/view/class_stats.json')) for L in range(3, 11)}
+runj = {L: json.load(open(f'{RUNS}/L{L}/run.json')) for L in range(3, 11)}
+prod = {}
+for tier in ('screen', 'internal'):
+    per_level = {}
+    for L, cs in stats.items():
+        if tier not in cs['tiers']: continue
+        ever = {int(k): v['ever'] for k, v in cs['tiers'][tier]['classes'].items()}
+        born = {int(k): v['born']['conjugate_pair'] for k, v in cs['tiers'][tier]['classes'].items()}
+        N = sum(ever.values()); NB = sum(born.values())
+        x2 = sum((ever[k] - N * float(EXP[k])) ** 2 / (N * float(EXP[k])) for k in G)
+        per_level[L] = {'identities': N, 'share_percent': {k: 100 * ever[k] / N for k in G},
+                        'chi2_against_states_4dof': x2, 'p_naive_multinomial': chi2.sf(x2, 4),
+                        'pair_born_identities': born, 'pair_born_share_percent': {k: 100 * born[k] / NB for k in G}}
+    big = [L for L in per_level if per_level[L]['identities'] >= 40000]          # levels with small counting error
+    summ = {}
+    for k in G:
+        m, se = mean_se([per_level[L]['share_percent'][k] for L in big])
+        mb, seb = mean_se([per_level[L]['pair_born_share_percent'][k] for L in big])
+        summ[k] = {'expected_percent': 100 * float(EXP[k]), 'mean_percent': m, 'se_between_levels': se,
+                   'z': (m - 100 * float(EXP[k])) / se, 'ratio_to_expected': m / (100 * float(EXP[k])),
+                   'pair_born_mean_percent': mb, 'pair_born_se': seb, 'pair_born_z': (mb - 100 * float(EXP[k])) / seb}
+    rms = lambda ref: math.sqrt(sum((summ[k]['mean_percent'] - ref[k]) ** 2 for k in G) / 5)
+    prod[tier] = {'levels_in_summary': big, 'per_level': per_level, 'summary': summ,
+                  'min_abs_z': min(abs(summ[k]['z']) for k in G),
+                  'rms_deviation_points': {'from_state_counts_6_6_4_6_6': rms({k: 100 * float(EXP[k]) for k in G}), 'from_equal_shares': rms({k: 20.0 for k in G})}}
+out['item2_produced_shares'] = prod
+assert stats[10]['tiers']['screen']['classes']['1']['ever'] == 3053295
+assert sum(v['ever'] for v in stats[10]['tiers']['screen']['classes'].values()) == runj[10]['identities'] == 12679156
+
+# ------------------------------------------------------------------ item 2b: densities
+H = json.load(open(f'{META}/repair-law/work/SIM/cf1/runs/H_background_from_runs.json'))
+lim = H['part_a_densities']['limits_faces_per_carrier']
+c = {k: (lim[str(k)]['mean'], lim[str(k)]['se_between_levels']) for k in (2, 3, 4)}
+def ratio(a, b):
+    r = a[0] / b[0]; return r, r * math.hypot(a[1] / a[0], b[1] / b[0])
+c24 = ((c[2][0] + c[4][0]) / 2, math.hypot(c[2][1], c[4][1]) / 2)
+r32 = ratio(c[3], c24)
+floor = H['part_a_densities']['floor_classes_1_5']
+dens = {'internal_limit_faces_per_carrier': {str(k): {'value': c[k][0], 'se': c[k][1]} for k in c},
+        'internal_limit_classes_1_5': {'value': 0.0, 'fitted_floor': floor['mean'], 'fitted_floor_se': floor['se_between_levels'],
+                                       'note': 'CH: no floor resolved; L6 local rate leaves no room above about 0.001'},
+        'class3_over_class2and4': {'value': r32[0], 'se': r32[1], 'equal_per_state': 4 / 6, 'equal_per_class': 1.0,
+                                   'z_against_equal_per_state': (4 / 6 - r32[0]) / r32[1],
+                                   'z_against_equal_per_class': (1.0 - r32[0]) / r32[1]},
+        'density_per_state_class3_over_class2and4': {'value': 1.5 * r32[0], 'se': 1.5 * r32[1], 'expected': 1.0}}
+# end of L10 (300 sweeps): exact counts of run.json, block errors of CH
+N10 = 20 * 4 ** 10
+ci = runj[10]['end']['counts_intra']; csn = runj[10]['end']['counts_screen']
+assert ci == [404385350, 1053540, 5611452, 1715691, 5610820, 1053547] and sum(ci) == 20 * N10
+ch_err = {1: 0.00005, 2: 0.00011, 3: 0.00009, 4: 0.00011, 5: 0.00005}                # CH.md part (a), block standard errors
+d300 = {k: (ci[k] / N10, ch_err[k]) for k in G}
+r12 = ratio(((d300[1][0] + d300[5][0]) / 2, math.hypot(d300[1][1], d300[5][1]) / 2),
+            ((d300[2][0] + d300[4][0]) / 2, math.hypot(d300[2][1], d300[4][1]) / 2))
+dens['internal_L10_300_sweeps'] = {'faces_per_carrier': {str(k): d300[k][0] for k in G},
+                                   'share_of_defect_faces_percent': {str(k): 100 * ci[k] / sum(ci[1:]) for k in G},
+                                   'class1and5_over_class2and4': {'value': r12[0], 'se': r12[1], 'expected_equal_per_state': 1.0,
+                                                                  'z': (1 - r12[0]) / r12[1]}}
+lim_tot = c[2][0] + c[3][0] + c[4][0]
+dens['internal_limit_share_percent'] = {'1': 0.0, '2': 100 * c[2][0] / lim_tot, '3': 100 * c[3][0] / lim_tot, '4': 100 * c[4][0] / lim_tot, '5': 0.0}
+# screen tier at the end of each run: are the frozen classes 2, 3, 4 equally populated (one state per class)?
+scr = {}
+for L in range(6, 11):
+    n = runj[L]['end']['counts_screen']; a = [n[2], n[3], n[4]]; m = sum(a) / 3
+    x_eq = sum((v - m) ** 2 / m for v in a)
+    e = [sum(a) * w for w in (6 / 16, 4 / 16, 6 / 16)]
+    x_st = sum((v - w) ** 2 / w for v, w in zip(a, e))
+    scr[L] = {'sweeps': runj[L]['end']['sweep'], 'counts_1_to_5': n[1:], 'chi2_equal_per_class_2dof': x_eq, 'p_equal_per_class': chi2.sf(x_eq, 2),
+              'chi2_states_6_4_6_2dof': x_st, 'p_states_6_4_6': chi2.sf(x_st, 2), 'class3_over_mean_class2and4': 2 * n[3] / (n[2] + n[4])}
+dens['screen_end'] = scr
+xs = sum(v['chi2_equal_per_class_2dof'] for v in scr.values())
+dens['screen_end_combined'] = {'chi2_equal_per_class': xs, 'dof': 2 * len(scr), 'p': float(chi2.sf(xs, 2 * len(scr))),
+                               'largest_deviation_of_class3_from_mean_of_2_and_4': max(abs(v['class3_over_mean_class2and4'] - 1) for v in scr.values())}
+dens['note'] = 'CH (EXACT): in the balanced band every configuration of non-adjacent faces of classes 2, 3, 4 is absorbing; the stationary state is not unique and the densities are remnants of the quench'
+out['item2_densities'] = dens
+
+# ------------------------------------------------------------------ item 2c: first attempt on a blank register, by kappa (EXACT)
+COST = [0, 5, 8, 10, 8, 5]
+def first_attempt(kappa, cost=COST):
+    """one attempt of law C on a seam with independent loads uniform in 0..5 (preparation exact06), both faces flat"""
+    pr = {1: F(0), 2: F(0), 3: F(0)}
+    for xa, xb, coin in itertools.product(range(6), range(6), (0, 1)):
+        t = xa + xb; new = (t + 1) // 2 if coin else t // 2; j = xa - new; d = xa - xb
+        if j == 0: continue
+        delta = j % 6
+        if cost[delta] + cost[(-delta) % 6] <= kappa * j * (d - j):
+            pr[min(delta, 6 - delta)] += F(1, 72)
+    return pr
+kap = {}
+for kappa in (3, 4, F(49, 10), 5, 6, 8, 10, 16):
+    pr = first_attempt(kappa); tot = sum(pr.values())
+    ident = {1: pr[1], 5: pr[1], 2: pr[2], 4: pr[2], 3: 2 * pr[3]}; ti = sum(ident.values())
+    kap[str(kappa)] = {'pair_birth_probability': {f'({k},{6 - k})': str(pr[k]) for k in (1, 2, 3)},
+                       'identity_share_percent_classes_1_2_3_4_5': [round(100 * float(ident[k] / ti), 2) if ti else None for k in (1, 2, 3, 4, 5)]}
+assert first_attempt(5) == {1: F(1, 12), 2: F(5, 36), 3: F(1, 36)}
+assert first_attempt(F(49, 10))[1] == 0                      # (0,0) -> (1,5) costs 10 = kappa * 2 exactly at kappa = 5
+out['item2_first_attempt_by_kappa'] = {'rows': kap, 'cost_table': COST, 'threshold': 'the birth of a (1,5) pair costs 10 and is offered kappa * 2: it is allowed at kappa = 5 by equality',
+                                       'tag': 'EXACT enumeration of 72 cases; kappa, the cost table and the preparation are DECLARED'}
+
+# ------------------------------------------------------------------ item 3: channels
+def parse(s):
+    a, b = s.split('->')
+    f = lambda t: sorted(int(x) for x in t.split('+') if int(x) != 0)
+    return f(a), f(b)
+def analyse(ch):
+    tot = sum(ch.values()); viol = 0; kinds = {}; odd = 0; odd_one3 = 0; odd_no3 = 0
+    for s, n in ch.items():
+        i, o = parse(s)
+        if (sum(i) - sum(o)) % 6: viol += n
+        kind = {(0, 2): 'birth', (2, 0): 'annihilation', (2, 1): 'fusion', (1, 2): 'split', (2, 2): 'exchange'}[(len(i), len(o))]
+        kinds[kind] = kinds.get(kind, 0) + n
+        if (len(i) + len(o)) % 2:
+            odd += n; n3 = (i + o).count(3)
+            if n3 == 1: odd_one3 += n
+            if n3 == 0: odd_no3 += n
+    return tot, viol, kinds, odd, odd_one3, odd_no3
+allowed = set()                                               # all changes of two adjacent faces by a twist
+for a, b, dl in itertools.product(range(6), range(6), range(1, 6)):
+    i = sorted(x for x in (a, b) if x); o = sorted(x for x in ((a + dl) % 6, (b - dl) % 6) if x)
+    if len(i) + len(o): allowed.add((tuple(i), tuple(o)))      # includes swaps (a, b) -> (b, a) of two nonzero faces
+moves = {t for t in allowed if len(t[0]) == 1 and len(t[1]) == 1}   # one defect steps to a flat face: not in the channel table
+allowed -= moves
+fus = {}
+for tier, L in (('screen', 10), ('screen', 9), ('internal', 6)):
+    ch = stats[L]['tiers'][tier]['channels']
+    tot, viol, kinds, odd, odd_one3, odd_no3 = analyse(ch)
+    seen = {(tuple(parse(s)[0]), tuple(parse(s)[1])) for s in ch}
+    conj = lambda t: tuple(sorted((6 - x) % 6 for x in t))
+    x2c = 0.0; npairs = 0; done = set()
+    for s, n in ch.items():
+        i, o = parse(s); key = (tuple(i), tuple(o)); ck = (conj(key[0]), conj(key[1]))
+        if key == ck or key in done or ck in done: continue
+        m = next((v for t, v in ch.items() if (tuple(parse(t)[0]), tuple(parse(t)[1])) == ck), 0)
+        x2c += (n - m) ** 2 / (n + m); npairs += 1; done.add(key)
+    fus[f'{tier}_L{L}'] = {
+        'events_without_moves': tot, 'events_violating_the_sum_mod_6': viol, 'by_kind': kinds,
+        'distinct_channels_seen': len(seen), 'channels_allowed_by_the_sum_rule': len(allowed),
+        'allowed_never_seen': sorted(f'{list(i)} -> {list(o)}' for i, o in allowed - seen),
+        'seen_not_allowed': sorted(f'{list(i)} -> {list(o)}' for i, o in seen - allowed),
+        'three_body_events_2to1_and_1to2': odd, 'share_of_events_percent': 100 * odd / tot,
+        'three_body_with_exactly_one_class_3': odd_one3, 'three_body_without_class_3': odd_no3,
+        'share_without_class_3_percent': 100 * odd_no3 / tot,
+        'conjugation_symmetry': {'channel_pairs': npairs, 'chi2': x2c, 'p': chi2.sf(x2c, npairs)},
+        'top_channels': sorted(ch.items(), key=lambda t: -t[1])[:22]}
+    if tier == 'screen':
+        tt = runj[L]['tracker_totals']
+        assert tot == tt['births'] + tt['annihilations'] + tt['fusions'] + tt['splits'] + tt['exchanges']
+out['item3_channels'] = fus
+out['item3_reading'] = {
+    'sum_rule': 'every twist adds +delta to one face and -delta to its neighbour: the class sum is conserved mod 6 in every event by the rule of the register (EXACT). The match of fusion with addition mod 6 holds for any labels given to a Z6 register.',
+    'runs_only': 'events with three bodies (a + b -> c, c -> a + b). Three fermions cannot meet at a vertex; in reading B the classes 1, 2, 4, 5 (and 3 as the lepton doublet) are fermion multiplets',
+    'standard_model_only': 'every process of the four singlets of charge class 0 (right-handed electron and neutrino, their conjugates) and of the gauge fields (class 0): they have no defect; the mass operator, which shifts the class by 3 on one object',
+    'class_3': 'its own conjugate in the register. As a flux this is exact (the central -1 squares to 1). As a charge it joins the lepton doublet (Q6 = -3) with its antiparticle (Q6 = +3) and with the Higgs doublet (Q6 = +3)'}
+
+# ------------------------------------------------------------------ item 4: motion (class_stats of L10 screen and L6 internal; CH.md for rates)
+mot = {}
+for tier, L in (('screen', 10), ('internal', 6)):
+    cl = stats[L]['tiers'][tier]['classes']
+    mot[f'{tier}_L{L}'] = {k: {'ever': v['ever'], 'alive_at_end': v['alive_at_end'], 'hops_mean': v['hops_mean'],
+                               'moved_fraction': v['moved_fraction'], 'lifetime_depth_median': v['lifetime_depth_median'],
+                               'ended_by_annihilation_share': v['ended']['annihilation'] / v['ever']} for k, v in cl.items()}
+mot['from_CH'] = {'classes_2_3_4': 'an isolated face cannot move in the balanced band (EXACT); 0 hops per sweep',
+                  'classes_1_5': 'hop at zero cost; internal 0.335 hops per sweep, confined to the carrier; screen D = 0.15 edge^2 per sweep (diffusion); population decays as exp(-0.00920(4) sweeps), no floor',
+                  'mutual_annihilation': '(2,4): 33 of 69,723 pairs; (3,3): 0 of 9,616 (internal, L6)'}
+out['item4_motion'] = mot
+
+# ------------------------------------------------------------------ coordinator input 1: what a carrier holds (CH.md census, end of L10)
+CH_TABLE = {'none': 13753389, '{2,4}': 4991967, '{1,5}': 1041883, '{3,3}': 785555, '{2,2,4,4}': 139090, '{2,2,2}': 86788,
+            '{4,4,4}': 86476, '{2,3,3,4}': 55690, '{3,4,5}': 11177, '{1,2,3}': 11174, '{2,4,4,4,4}': 1680, '{2,2,2,2,4}': 1608}   # CH.md
+comp10 = H['part_a_densities']['checkpoint_composition']['L10_000300']
+CENSUS = {('{' + ','.join(str(x) for x in r['multiset']) + '}' if r['multiset'] else 'none'): r['carriers'] for r in comp10['all_configurations']}
+assert all(CENSUS[k] == v for k, v in CH_TABLE.items()) and sum(CENSUS.values()) == N10 and comp10['carriers_violating_sum_rule'] == 0
+assert len(CENSUS) == 31 and all(sum(r['multiset']) % 6 == 0 for r in comp10['all_configurations'])   # 30 with defects and the empty one
+with_def = N10 - CENSUS['none']
+MEMBERS = {1: [1], 5: [-1], 2: [-4, 2], 4: [-2, 4], 3: [-3, 3]}      # Q6 of the patterns in each charge class (x2_algebra.py)
+comp = {}
+for name, n in CENSUS.items():
+    if name == 'none': continue
+    cls = [int(x) for x in name.strip('{}').split(',')]
+    assert sum(cls) % 6 == 0
+    totals = sorted({sum(t) for t in itertools.product(*[MEMBERS[k] for k in cls])})
+    comp[name] = {'carriers': n, 'share_of_defect_carriers_percent': 100 * n / with_def, 'class_sum_mod_6': 0,
+                  'reading_A': {2: 'one flux line through the carrier (in at one face, out at another)',
+                                3: 'junction of three flux lines'}.get(len(cls), 'several flux lines or junctions'),
+                  'reading_B_total_Q6_of_possible_members': totals}
+zt = (CENSUS['{2,2,2}'] - CENSUS['{4,4,4}']) / math.sqrt(CENSUS['{2,2,2}'] + CENSUS['{4,4,4}'])
+zy = (CENSUS['{3,4,5}'] - CENSUS['{1,2,3}']) / math.sqrt(CENSUS['{3,4,5}'] + CENSUS['{1,2,3}'])
+sep = comp10['separation_one_pair_carriers']
+out['separation_fractions_one_pair_carriers_L10_end'] = {k: sep[k]['fraction'] for k in ('(1,5)', '(2,4)', '(3,3)')}
+out['composites'] = {'distinct_configurations_with_defects': len(CENSUS) - 1, 'carriers_violating_the_sum_rule': comp10['carriers_violating_sum_rule'],
+                     'share_exactly_one_conjugate_pair_among_defect_carriers': comp10['share_of_defect_carriers_exactly_one_conjugate_pair'],
+                     'carriers_with_defects': with_def, 'share_of_all_carriers': with_def / N10, 'rows': comp,
+                     'triples_222_against_444_z': zt, 'triples_345_against_123_z': zy,
+                     'discriminates_between_readings': False,
+                     'reason': 'the class sum of a carrier is zero mod 6 in every history (identity of the register, x2_algebra.py C4); both readings restate that identity. The equality of conjugate compositions is the conjugation symmetry of the rule.'}
+
+# ------------------------------------------------------------------ coordinator input 2: run H2 (mean free paths)
+H2 = json.load(open(f'{META}/repair-law/work/SIM/cf1/runs/H2_coherence_48.json'))
+mfp = {s['name']: s['mean_free_path_cells'] for s in H2['species']}
+rate = {k: (1 / v if v else 0.0) for k, v in mfp.items()}
+out['H2'] = {'mean_free_path_cells': mfp, 'scattering_rate_per_cell': rate,
+             'additivity': {'quark_doublets': rate['quark doublets'], 'quark_singlets_plus_lepton_doublets': rate['quark singlets'] + rate['lepton doublets'],
+                            'relative_difference': (rate['quark singlets'] + rate['lepton doublets']) / rate['quark doublets'] - 1},
+             'order_predicted_by_reading_A': 'patterns that see more classes scatter more: quark doublets (colour and weak centre) > quark singlets (colour centre) > lepton doublets (weak centre) > singlets (none)',
+             'order_holds': mfp['quark doublets'] < mfp['quark singlets'] < mfp['lepton doublets'] and mfp['lepton and neutrino singlets'] is None}
+
+# ------------------------------------------------------------------ item 4: how a defect answers a flow (rule: EXACT; records: worker CO)
+# A twist delta = j mod 6 on seam (a, b) adds +delta to the face that traverses a -> b (plus) and -delta to the other (minus).
+hop = {}
+for k in range(1, 6):
+    to_plus = [dl for dl in range(1, 6) if ((k - dl) % 6, (0 + dl) % 6) == (0, k)]      # lone class k on the minus face, plus face flat
+    to_minus = [dl for dl in range(1, 6) if ((0 - dl) % 6, (k + dl) % 6) == (k, 0)]     # lone class k on the plus face, minus face flat
+    assert to_plus == [k] and to_minus == [(6 - k) % 6]
+    hop[k] = {'steps_from_minus_face_to_plus_face_when_j_mod_6_is': k, 'and_back_when_j_mod_6_is': (6 - k) % 6}
+OBS = f'{META}/repair-law/work/SIM/cf1/observer/out'
+co = {'rule': hop,
+      'statement': 'a defect steps across the seam whose current moves it (sideways to the flow), to the side fixed by the sign of its class; a label on ports would be carried along the seam',
+      'tag': 'EXACT from the rule of the register (DATASET.md section 1)'}
+try:
+    hp = json.load(open(f'{OBS}/hops_L8_298.json'))['tiers']
+    tr = json.load(open(f'{OBS}/traj_L8.json'))['tiers']['screen']['classes']
+    co['recorded_hops_L8_sweeps_298_299'] = {t: {k: {'hops': hp[t]['hops'][k]['hops'], 'chi_plus': hp[t]['hops'][k]['handedness_chi_plus'],
+                                                    'chi_minus': hp[t]['hops'][k]['handedness_chi_minus']} for k in ('1', '5')} for t in ('carrier', 'screen')}
+    assert all(min(v['chi_plus'], v['chi_minus']) == 0 for t in co['recorded_hops_L8_sweeps_298_299'].values() for v in t.values())
+    co['drift_L8_balanced_edges_per_64_depth'] = {k: {'left_of_load_gradient': tr[k]['velocity']['balanced']['mean_drift_left_of_load_gradient_edges'],
+                                                     'along_load_gradient': tr[k]['velocity']['balanced']['mean_drift_along_load_gradient_edges'],
+                                                     'toward_nearest_conjugate': tr[k]['velocity']['balanced']['mean_drift_toward_nearest_conjugate_edges']} for k in ('1', '5')}
+    co['source'] = 'repair-law/reports/CO.md; work/SIM/cf1/observer/out/hops_L8_298.json, traj_L8.json (worker CO, read only)'
+    co['from_CO_text'] = {'no_ballistic_stretch': 'largest local exponent of the mean squared displacement 0.97 +- 0.01, no window above 1 (screen, classes 1 and 5)',
+                          'frozen': 'classes 2, 3, 4: zero displacement in the balanced regime; a frozen face changes class only when a mobile 1 or 5 reaches it'}
+except FileNotFoundError as err:
+    co['records'] = f'not found: {err}'
+out['item4_response_to_flow'] = co
+
+path = sys.argv[1] if len(sys.argv) > 1 else 'runs.json'
+json.dump(out, open(path, 'w'), indent=1, default=str)
+
+# ------------------------------------------------------------------ print
+for tier in ('screen', 'internal'):
+    print(tier, 'levels', prod[tier]['levels_in_summary'], 'min|z|', prod[tier]['min_abs_z'], 'rms', prod[tier]['rms_deviation_points'])
+    for k in G:
+        s = prod[tier]['summary'][k]
+        print(f"  class {k}: expected {s['expected_percent']:.2f}  produced {s['mean_percent']:.3f} +- {s['se_between_levels']:.3f}  z {s['z']:+.0f}  ratio {s['ratio_to_expected']:.3f} | pair-born {s['pair_born_mean_percent']:.3f} +- {s['pair_born_se']:.3f} z {s['pair_born_z']:+.0f}")
+    for L, v in prod[tier]['per_level'].items():
+        print(f"    L{L}: N {v['identities']}  chi2 {v['chi2_against_states_4dof']:.4g}  p {v['p_naive_multinomial']:.3g}  shares", {k: round(x, 2) for k, x in v['share_percent'].items()})
+print('densities', json.dumps({k: dens[k] for k in ('class3_over_class2and4', 'density_per_state_class3_over_class2and4', 'internal_limit_share_percent')}, indent=None))
+print('L10 300 sweeps', json.dumps(dens['internal_L10_300_sweeps'], indent=None))
+for L, v in scr.items(): print('screen end L', L, v)
+print('screen combined', dens['screen_end_combined'])
+for k, v in kap.items(): print('kappa', k, v)
+for k, v in fus.items():
+    print(k, {x: v[x] for x in ('events_without_moves', 'events_violating_the_sum_mod_6', 'by_kind', 'distinct_channels_seen', 'channels_allowed_by_the_sum_rule', 'allowed_never_seen', 'seen_not_allowed', 'three_body_events_2to1_and_1to2', 'share_of_events_percent', 'three_body_with_exactly_one_class_3', 'three_body_without_class_3', 'share_without_class_3_percent', 'conjugation_symmetry')})
+    print('   top', v['top_channels'])
+for k, v in mot.items(): print(k, json.dumps(v)[:900])
+print('composites', json.dumps(out['composites'], indent=None)[:2500])
+print('H2', json.dumps(out['H2'], indent=None))
+print('CO', json.dumps({k: v for k, v in co.items() if k != 'rule'}, indent=None))

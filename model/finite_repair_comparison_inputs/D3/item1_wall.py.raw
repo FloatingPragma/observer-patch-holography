@@ -1,0 +1,83 @@
+"""D3 item 1 (d) and item 5: the kink of item 1 as a wall in three dimensions.
+
+A line of carriers along axis 1 with the mass changing sign across two walls (kink at L/4, antikink at 3L/4); the
+transverse wave numbers (p2, p3) enter as the coin operators exp(-i p alpha) (equal to the engine on one-cell axes
+with link phases: check_lib.py). Period of two ticks in the symmetric frame.
+  1. bound modes at zero phase at the 16 transverse points (pi/2) Z^2;
+  2. the cone of the wall modes near zero transverse wave number;
+  3. orientation of the four cones of one parity class of cells, for the kink:
+     sin H = q2 h2 + q3 h3 on the two bound states, h2 h3 = i o v^2 (spin along the normal), o = +1 or -1.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python item1_wall.py item1_wall.json
+"""
+import json, sys
+import numpy as np
+import d3lib as d3
+
+L, th0 = 64, 0.3
+shape = (L, 1, 1)
+x = np.arange(L); th = np.where((x >= L // 4) & (x < 3 * L // 4), th0, -th0).astype(float)
+S1 = d3.shift_matrix(shape, 0).toarray()
+M = d3.mass_matrix(th, 0.0).toarray(); Mh = d3.mass_matrix(th, 0.0, 0.5).toarray()
+
+def period(p2, p3):
+    S2 = d3.shift_matrix(shape, 1, p=p2).toarray(); S3 = d3.shift_matrix(shape, 2, p=p3).toarray()
+    return Mh @ (S1 @ S2 @ S3) @ M @ (S3 @ S2 @ S1) @ Mh
+
+def ingap(U):
+    lam, vec = np.linalg.eig(U); E = -np.angle(lam)
+    sel = np.abs(E) < 2 * th0 * (1 - 1e-6)
+    return E[sel], vec[:, sel]
+
+out = {'engine_sha256': d3.ENGINE_SHA, 'cells': L, 'theta0': th0}
+# engine cross-check of the dense period at one transverse wave number
+p2, p3 = 0.21, -0.4
+lk = [np.ones(shape), np.exp(1j * p2) * np.ones(shape), np.exp(1j * p3) * np.ones(shape)]
+ew = d3.EngineWalk(shape, th.reshape(shape), 0.0, lk)
+rng = np.random.default_rng(3); psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2))
+out['period_against_engine'] = float(np.abs((period(p2, p3) @ psi.ravel()).reshape(psi.shape) - ew.sym(psi)).max())
+
+zone = []
+for a in range(4):
+    for b in range(4):
+        E, _ = ingap(period(a * np.pi / 2, b * np.pi / 2))
+        zone.append({'p2_over_pi/2': a, 'p3_over_pi/2': b, 'in_gap_states': int(len(E)), 'at_zero_phase(|E2|<1e-9)': int(np.sum(np.abs(E) < 1e-9))})
+out['zero_modes_over_the_transverse_zone'] = {'rows': zone, 'per_wall_at_each_point': sorted(set(z['at_zero_phase(|E2|<1e-9)'] // 2 for z in zone)),
+    'reading': '16 points x 4 states per wall = 8 parity classes of cells x 4 two-component cones per wall'}
+
+cone = []
+for q in (0.01, 0.02, 0.04, 0.08):
+    for direction, (a, b) in (('axis 2', (1, 0)), ('axis 3', (0, 1)), ('diagonal', (2 ** -0.5, 2 ** -0.5))):
+        E, _ = ingap(period(q * a, q * b)); E = np.sort(np.abs(E)) / 2
+        cone.append({'q': q, 'direction': direction, 'in_gap_states': int(len(E)), 'phase_per_tick_min': float(E.min()), 'phase_per_tick_max': float(E.max()),
+                     'phase_over_q': float(E.mean() / q), 'arcsin(cos(theta0) sin q)_over_q': float(np.arcsin(np.cos(th0) * np.sin(q)) / q)})
+out['cone_near_zero_transverse_wave_number'] = {'rows': cone, 'cos_theta0': float(np.cos(th0)),
+    'reading': 'eight states (two walls, two parity classes of x1, two components): one two-component cone per wall and class, speed cos(theta0)'}
+
+# orientation of the cones of the kink, cells with x1 even
+cells_even = (np.repeat(np.arange(L), 4) % 2 == 0)
+near_kink = np.abs(np.repeat(np.arange(L), 4) - (L // 4 - 0.5)) < L / 8
+S1op = np.kron(np.eye(L), d3.SPIN[0])
+def sinH(U): return 1j * (U - U.conj().T) / 2
+orient = []
+dq = 1e-4
+for name, (k2, k3) in (('(0, 0)', (0, 0)), ('(pi/2, pi/2)', (1, 1)), ('(pi/2, 0)', (1, 0)), ('(0, pi/2)', (0, 1))):
+    K2, K3 = k2 * np.pi / 2, k3 * np.pi / 2
+    E, vec = ingap(period(K2, K3)); Z = vec[:, np.abs(E) < 1e-9]
+    Q, _ = np.linalg.qr(Z)
+    Pk = np.diag((cells_even & near_kink).astype(float))
+    w, R = np.linalg.eigh(Q.conj().T @ Pk @ Q); B = Q @ R[:, w > 0.5]
+    B, _ = np.linalg.qr(Pk @ B)                                   # exactly supported on the class and the wall
+    h2 = B.conj().T @ (sinH(period(K2 + dq, K3)) - sinH(period(K2 - dq, K3))) @ B / (2 * dq)
+    h3 = B.conj().T @ (sinH(period(K2, K3 + dq)) - sinH(period(K2, K3 - dq))) @ B / (2 * dq)
+    tau = B.conj().T @ S1op @ B
+    v2 = float(np.real(np.trace(h2 @ h2)) / 2); v3 = float(np.real(np.trace(h3 @ h3)) / 2)
+    orient.append({'transverse_point_modulo_pi': name, 'bound_states_in_the_class': int(B.shape[1]),
+                   'speed_along_2_(two-tick)': float(np.sqrt(v2)), 'speed_along_3_(two-tick)': float(np.sqrt(v3)),
+                   'anticommutator_h2_h3': float(np.abs(h2 @ h3 + h3 @ h2).max()),
+                   'spin_along_normal_eigenvalues': [round(float(v), 6) for v in np.linalg.eigvalsh(tau)],
+                   'orientation': round(float(np.imag(np.trace(h2 @ h3 @ tau)) / (2 * np.sqrt(v2 * v3))), 6)})
+out['orientation_of_the_wall_cones_(kink,_x1_even)'] = {'rows': orient, 'sum': round(sum(r['orientation'] for r in orient), 6),
+    'reading': 'two cones of each orientation per wall and parity class: the wall carries no net two-dimensional handedness'}
+for k, v in out.items(): print(k, json.dumps(v)[:1500])
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

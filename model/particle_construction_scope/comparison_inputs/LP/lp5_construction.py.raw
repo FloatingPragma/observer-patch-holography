@@ -1,0 +1,248 @@
+"""LP construction K (CANDIDATES.md, K1 to K4): the standing pair derived as the blank-record part of the unique
+consensus state of two loads around a class-3 defect, and the rerun of FR's count on it. EXACT (Fractions); the phase
+of N weak rounds is evaluated with mpmath. Writes lp5_construction.json.
+
+Steps executed for each object (public law FP, hexagon, class-3 holonomy -1):
+  1. fixed vectors of the discriminant D on the sectors (the consensus states with the uniform address);
+  2. the blank-record part of the consensus state, normalized: the standing state;
+  3. one tick, FR's flags, the exclusive count of two independent objects;
+  4. CK2's round: tick, flag projector, inverse tick, overlap with the standing state.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+
+import lp_common as L
+import fr9_hexagon as X          # FR's own model, read only
+
+OUT = 'lp5_construction.json'
+mp.mp.dps = 30
+
+
+def classify(m, c, rec, k):
+    """FR's flags by emitter: valid for states one tick after a blank-record double load."""
+    cfg = m.cfg[c]
+    if m.is_double(cfg):
+        return 'double' if rec == 0 else 'other'
+    s = m.seam_of(cfg)
+    if s is None or rec not in (2, 3) or k // 2 != s:
+        return 'other'
+    if L.HEX_TYPES[s] == 'E':
+        return 'in-dimer'
+    a, b = m.pair_at(k)
+    emitter = a if rec == 2 else b
+    return 'forward' if emitter in L.ORBIT_A else 'backward'
+
+
+def tick_weights(m, amps):
+    st = m.embed(amps)
+    n0 = sum(a * a for a in st.values())
+    w1 = m.W(st)
+    wt = {}
+    for (c, rec, k), a in w1.items():
+        key = classify(m, c, rec, k)
+        wt[key] = wt.get(key, Fr(0)) + a * a / n0
+    return st, w1, wt, n0
+
+
+def count(wt):
+    p, q = wt.get('forward', Fr(0)), wt.get('in-dimer', Fr(0))
+    return p + q - 2 * p * q
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP construction: standing pair from the consensus state around a class-3 defect',
+           'provenance': L.FC.provenance()}
+
+    # ---------------- K1: derivation of the standing state, public law, holonomy -1
+    k1 = {}
+    for hol in (-1, 1):
+        m = L.hexagon('FP', hol)
+        D = m.D()
+        n = m.ncr
+        fixed = {}
+        for s in ('hard-core', 'cycle'):
+            idx = m.sector_index(s)
+            ns = L.nullspace(L.minus_identity(L.sub(D, idx)))
+            full = []
+            for v in ns:
+                w = [Fr(0)] * n
+                for t, i in enumerate(idx):
+                    w[i] = v[t]
+                full.append(w)
+            fixed[s] = full
+        row = {'consensus states (fixed vectors of D)': {s: len(v) for s, v in fixed.items()}}
+        # blank-record parts
+        blank_cols = [4 * c for c in range(len(m.cfg))]
+        parts = []
+        for s in ('hard-core', 'cycle'):
+            for v in fixed[s]:
+                b = {m.cfg[c]: v[4 * c] for c in range(len(m.cfg)) if v[4 * c]}
+                if b:
+                    parts.append((s, v, b))
+        row['consensus states with a blank-record part'] = [s for s, _, _ in parts]
+        for s, v, b in parts:
+            nv = sum(x * x for x in v)
+            nb = sum(x * x for x in b.values())
+            dbl = all(m.is_double(c) for c in b)
+            vals = set(b.values())
+            st, w1, wt, n0 = tick_weights(m, b)
+            row[f'{s}: blank-record part'] = {
+                'weight of the blank record in the consensus state': str(nb / nv),
+                'supported on double loads': dbl, 'configurations': len(b), 'all amplitudes equal': len(vals) == 1,
+                'tick-1 weights': {k: str(x) for k, x in sorted(wt.items())},
+                'X of two independent objects in this state': str(count(wt)),
+                'inverse tick restores the state': m.Winv(w1) == st}
+        k1[f'holonomy {hol:+d}'] = row
+    out['K1_derived_standing_state (FP)'] = k1
+    print(json.dumps(k1, indent=1))
+
+    # weight of the double load among the blank-record consensus states reached by the iterated filter (lp3, S8):
+    # kept weights (hard-core, cycle) times their blank-record weights
+    out['K1_double_load_weight_given_consensus_and_blank_record'] = {
+        'hexagon, holonomy +1': str((Fr(1, 3) * Fr(1, 3)) / (Fr(1) * 1 + Fr(1, 3) * Fr(1, 3))),
+        'hexagon, holonomy -1': '1',
+        'carrier, flat links': str((Fr(1, 6) * Fr(1, 6)) / (Fr(1) + Fr(1, 6) * Fr(1, 6))),
+        'carrier, class-3 flux': '1',
+        'inputs': 'limit weights kept by the filter (lp3_stationary.json S8, lp3b_carrier.json) and the blank weights 1, 1/3, 1/6'}
+
+    # ---------------- joint law of the two objects (product state), flags F on object A and I on object B
+    m = L.hexagon('FP', -1)
+    u6 = {m.cfg_of(p, p): Fr(1) for p in L.HEX}
+    st, w1, wt, n0 = tick_weights(m, u6)
+    p, q = wt['forward'], wt['in-dimer']
+    joint = {'F_A and I_B': p * q, 'F_A only': p * (1 - q), 'I_B only': (1 - p) * q, 'neither': (1 - p) * (1 - q)}
+    out['K1_joint_law_two_objects_in_U6'] = {**{k: str(v) for k, v in joint.items()},
+                                             'P(R+ xor H)': str(joint['F_A only'] + joint['I_B only']),
+                                             'P(R+ or H)': str(1 - joint['neither'])}
+
+    # ---------------- CK2's round on the derived state
+    def flag_back(m, w1, name):
+        part = {k: a for k, a in w1.items() if classify(m, *k) == name}
+        return m.Winv(part)
+    ck = {}
+    for frame in ('FP', 'FN'):
+        mm = L.hexagon(frame, -1)
+        st, w1, wt, n0 = tick_weights(mm, {mm.cfg_of(p_, p_): Fr(1) for p_ in L.HEX})
+        Fv, Iv = flag_back(mm, w1, 'forward'), flag_back(mm, w1, 'in-dimer')
+        sF = sum(a * st.get(k, 0) for k, a in Fv.items()) / n0
+        sI = sum(a * st.get(k, 0) for k, a in Iv.items()) / n0
+        P = sF * (1 - sI) + (1 - sF) * sI
+        def nonreturn(v, s):
+            perp = dict(v)
+            for k, a in st.items():
+                perp[k] = perp.get(k, 0) - s * a
+            perp = {k: a for k, a in perp.items() if a}
+            n2 = sum(a * a for a in perp.values()) / n0
+            blank = sum(a * a for (c, rec, k), a in perp.items() if rec == 0) / n0
+            dbl = sum(a * a for (c, rec, k), a in perp.items() if rec == 0 and mm.is_double(mm.cfg[c])) / n0
+            return {'norm^2': str(n2), 'part with a blank record': str(blank), 'part on blank double loads': str(dbl)}
+        rows = {}
+        Pm = mp.mpf(P.numerator) / P.denominator
+        for N in (1, 10, 100, 1000, 10 ** 6):
+            z = (1 - Pm * (1 - mp.exp(-1j / mp.mpf(N)))) ** N
+            rows[N] = mp.nstr(-mp.arg(z), 15)
+        ck[frame] = {'<Psi|W^-1 Pi_F W|Psi>': str(sF), '<Psi|W^-1 Pi_I W|Psi>': str(sI), 'P of the round': str(P),
+                     'non-return vector, object A': nonreturn(Fv, sF), 'non-return vector, object B': nonreturn(Iv, sI),
+                     'phase per unit clock time after N rounds': rows}
+    out['K1_round_of_CK2_on_U6'] = ck
+    print(json.dumps(out['K1_round_of_CK2_on_U6'], indent=1))
+
+    # ---------------- FR's own model: S and U6 through fr9_hexagon (frame FN), flags by record (2 = orbit-A emitter)
+    frm = {}
+    for name, ports in (('S', (2, 10)), ('U6', tuple(L.HEX))):
+        st = {(X.cfg_of(p_, p_), 0, k): {0: Fr(1)} for p_ in ports for k in range(12)}
+        nrm = Fr(12 * len(ports))
+        w = X.Qstep(X.Rstep(st), 'FN')
+        wt = {}
+        for (cfg, rec, k), poly in w.items():
+            a = poly.get(0, Fr(0))
+            pp = [X.H[i] for i in range(6) for _ in range(cfg[i])]
+            if pp[0] == pp[1]:
+                key = 'double'
+            else:
+                s = next(i for i, sm in enumerate(X.SEAMS) if set(sm) == set(pp))
+                key = 'in-dimer' if X.TYPES[s] == 'E' else ('forward' if rec == 2 else 'backward')
+            wt[key] = wt.get(key, Fr(0)) + a * a / nrm
+        frm[name] = {'tick-1 weights': {k: str(v) for k, v in sorted(wt.items())}, 'X': str(count(wt))}
+    out['rerun_with_FR_module (FN)'] = frm
+    print(json.dumps(frm, indent=1))
+
+    # ---------------- K2: unbalanced double loads
+    m = L.hexagon('FP', -1)
+    k2 = {}
+    for wA in (Fr(0), Fr(1, 4), Fr(1, 2), Fr(3, 4), Fr(1)):
+        # squared amplitudes wA/3 on orbit A and (1 - wA)/3 on orbit B: run the two orbits separately (no interference)
+        tot = {}
+        for orbit, wgt in ((L.ORBIT_A, wA), (L.ORBIT_B, 1 - wA)):
+            if wgt == 0:
+                continue
+            st, w1, wt, n0 = tick_weights(m, {m.cfg_of(p_, p_): Fr(1) for p_ in orbit})
+            for k, v in wt.items():
+                tot[k] = tot.get(k, Fr(0)) + wgt * v
+        k2[str(wA)] = {'tick-1 weights': {k: str(v) for k, v in sorted(tot.items())}, 'X': str(count(tot)),
+                       '1/6 + w_A/9': str(Fr(1, 6) + wA / 9)}
+    # interference check for the balanced case with a relative sign between the orbits
+    st, w1, wtm, n0 = tick_weights(m, {m.cfg_of(p_, p_): (Fr(1) if p_ in L.ORBIT_A else Fr(-1)) for p_ in L.HEX})
+    k2['balanced, relative sign -1 between the orbits'] = {'tick-1 weights': {k: str(v) for k, v in sorted(wtm.items())}, 'X': str(count(wtm))}
+    out['K2_unbalanced'] = k2
+
+    # ---------------- K3: the three characters Psi_k = sum_j omega^(jk) S_j / sqrt3 (real and imaginary parts run separately)
+    dimers = [(10, 2), (3, 9), (1, 0)]
+    k3 = {}
+    for kk in (0, 1, 2):
+        re = [Fr(1), Fr(-1, 2), Fr(-1, 2)] if kk else [Fr(1)] * 3
+        im = [Fr(0), Fr(1), Fr(-1)] if kk == 1 else [Fr(0), Fr(-1), Fr(1)] if kk == 2 else [Fr(0)] * 3   # times sqrt3/2
+        tot = {}
+        nrm = Fr(0)
+        for coef, scale in ((re, Fr(1)), (im, Fr(3, 4))):
+            amps = {m.cfg_of(p_, p_): coef[j] for j, d in enumerate(dimers) for p_ in d if coef[j]}
+            if not amps:
+                continue
+            st = m.embed(amps)
+            w1 = m.W(st)
+            nrm += scale * sum(a * a for a in st.values())
+            for (c, rec, k), a in w1.items():
+                key = classify(m, c, rec, k)
+                tot[key] = tot.get(key, Fr(0)) + scale * a * a
+        wt = {k: v / nrm for k, v in tot.items()}
+        k3[f'k = {kk}'] = {'tick-1 weights': {k: str(v) for k, v in sorted(wt.items())}, 'X': str(count(wt))}
+    out['K3_characters'] = k3
+
+    # ---------------- K4: record refresh of the cycle vacuum
+    D = m.D()
+    idx = m.sector_index('cycle')
+    v = L.nullspace(L.minus_identity(L.sub(D, idx)))[0]
+    full = {i: v[t] for t, i in enumerate(idx) if v[t]}
+    nv = sum(x * x for x in full.values())
+    by_rec = {}
+    for i, x in full.items():
+        by_rec.setdefault(i % 4, {})[m.cfg[i // 4]] = x
+    k4 = {'weight of each record value in the vacuum': {r: str(sum(x * x for x in d.values()) / nv) for r, d in sorted(by_rec.items())},
+          'record read with outcome blank': {'weight': str(sum(x * x for x in by_rec[0].values()) / nv),
+                                             'state left': 'uniform double load' if len(set(by_rec[0].values())) == 1 and all(m.is_double(c) for c in by_rec[0]) else 'other'}}
+    # replacement of the record by a blank one: the branches with records 2 and 3 become blank-record adjacent pairs
+    for r in (2, 3):
+        st, w1, wt, n0 = tick_weights(m, by_rec[r])
+        rec1 = sum(a * a for (c, rec, k), a in w1.items() if rec == 1) / n0
+        cyc = sum(a * a for (c, rec, k), a in w1.items() if m.sector(m.cfg[c], rec) == 'cycle') / n0
+        k4[f'record {r} replaced by a blank record'] = {
+            'weight of the branch': str(sum(x * x for x in by_rec[r].values()) / nv),
+            'sector of the state': sorted({m.sector(c, 0) for c in by_rec[r]}),
+            'weight in the cycle sector after one tick': str(cyc), 'record 1 written at the next tick (weight)': str(rec1)}
+    out['K4_record_refresh'] = k4
+    print(json.dumps({k: out[k] for k in ('K1_joint_law_two_objects_in_U6', 'K2_unbalanced', 'K3_characters', 'K4_record_refresh',
+                                         'K1_double_load_weight_given_consensus_and_blank_record')}, indent=1))
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

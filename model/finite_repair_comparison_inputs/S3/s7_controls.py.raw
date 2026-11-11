@@ -1,0 +1,122 @@
+"""S3 step 7: controls.
+
+fv     Known-answer control of the multiplet instrument.  Same cell-dual graph, two operators:
+         (i)  unit conductances, unit masses  (what any uniform wiring reduces to)   -> flat icosahedron
+         (ii) finite-volume conductances (edge length / centre distance) and cell areas as masses -> round sphere
+       The l = 1,2,3 spreads of (ii) must vanish with level and N*lambda must approach l(l+1) 4 pi; those of (i)
+       must not.  Also reports how non-uniform the masses and conductances of (ii) are.
+nearK  Sphere levels next to the flat crossing level lambda_K for F and B (calibration against the sim's shell
+       counts for B), and the rotation-covariant staggered wiring (up cells F, down cells B inside every base
+       face), which has two carrier classes: levels inside the flat gap window.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s7_controls.py fv|nearK [level]
+Merges into SCR/research/S3/s7_controls.json
+"""
+import json
+import math
+import os
+import sys
+import time
+
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as sla
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+WHICH = sys.argv[1]
+PATH = S.S3 + '/s7_controls.json'
+out = json.load(open(PATH)) if os.path.exists(PATH) else {}
+T0 = time.time()
+
+if WHICH == 'fv':
+    MAXL = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+    res = out.setdefault('fv', {})
+    for level in range(1, MAXL + 1):
+        if str(level) in res:
+            continue
+        m = S.build_mesh(level)
+        v, tri = m.verts, m.tri
+        a, b, c = v[tri[:, 0]], v[tri[:, 1]], v[tri[:, 2]]
+        cc = np.cross(b - a, c - a)
+        cc /= np.linalg.norm(cc, axis=1, keepdims=True)                 # circumcentre direction of each cell
+        # spherical area by the Van Oosterom-Strackee formula
+        num = np.abs(np.einsum('ij,ij->i', a, np.cross(b, c)))
+        den = 1 + np.einsum('ij,ij->i', a, b) + np.einsum('ij,ij->i', b, c) + np.einsum('ij,ij->i', c, a)
+        area = 2 * np.arctan2(num, den)
+        elen = np.arccos(np.clip(np.einsum('ij,ij->i', v[m.edge_lo], v[m.edge_hi]), -1, 1))
+        dcen = np.arccos(np.clip(np.einsum('ij,ij->i', cc[m.left], cc[m.right]), -1, 1))
+        w = elen / dcen
+        N = m.N
+        rows = {}
+        for name, weights, mass in (('unit', np.ones_like(w), np.ones(N)), ('finite_volume', w, area)):
+            L = S.laplacian(N, m.left, m.right, weights)
+            M = sp.diags(mass).tocsc()
+            if N <= 1500:
+                import scipy.linalg as la
+                vals = la.eigh(L.toarray(), M.toarray(), eigvals_only=True)[:16]
+            else:
+                vals = np.sort(sla.eigsh(L, k=16, M=M, sigma=-1e-3 * (4 * math.pi / N if name == 'unit' else 1.0), which='LM', tol=1e-13, return_eigenvectors=False))
+            scale = N if name == 'unit' else 1.0
+            rows[name] = {'levels_l1_l2_l3_means': [float(scale * vals[1:4].mean()), float(scale * vals[4:9].mean()), float(scale * vals[9:16].mean())],
+                          'spread_l1': S.spread(vals[1:4]), 'spread_l2': S.spread(vals[4:9]), 'spread_l3': S.spread(vals[9:16])}
+        rows['round_reference_unit'] = [l * (l + 1) * 4 * math.pi / math.sqrt(3) for l in (1, 2, 3)]
+        rows['round_reference_finite_volume'] = [2.0, 6.0, 12.0]
+        rows['finite_volume_mass_max_over_min'] = float(area.max() / area.min())
+        rows['finite_volume_conductance_max_over_min'] = float(w.max() / w.min())
+        rows['total_area_over_4pi'] = float(area.sum() / (4 * math.pi))
+        res[str(level)] = rows
+        print(level, json.dumps(rows), round(time.time() - T0, 1), flush=True)
+        json.dump(out, open(PATH, 'w'), indent=1)
+
+if WHICH == 'nearK':
+    level = int(sys.argv[2]) if len(sys.argv) > 2 else 3
+    res = out.setdefault('nearK', {}).setdefault(str(level), {})
+    mesh = S.build_mesh(level)
+    F, B = S.FACE_TRIPLE, S.BELT_TRIPLE
+    # orientation of a cell inside its base face: parity of the number of central-child steps in its address
+    cidx = np.arange(mesh.N)
+    par = np.zeros(mesh.N, dtype=int)
+    x = cidx.copy()
+    for _ in range(level):
+        par += (x % 4 == 3)
+        x //= 4
+    up = (par % 2 == 0)
+    WF = S.uniform_wiring_mesh_order(mesh, F); WB = S.uniform_wiring_mesh_order(mesh, B)
+    Wst = np.where(up[:, None], WF, WB)
+    cases = {'F': (WF, 0.17603491419128936, None), 'B': (WB, 0.18300468924737912, None),
+             'FB_staggered_in_face': (Wst, 0.5 * (0.16961303410167172 + 0.19060178417474383), (0.16961303410167172, 0.19060178417474383))}
+    for name, (W, lamK, window) in cases.items():
+        if name in res:
+            continue
+        L = S.port_laplacian(mesh, W)
+        k = 120 if 12 * mesh.N > 2000 else None
+        if k is None:
+            vals = np.linalg.eigvalsh(L.toarray())
+        else:
+            vals = np.sort(sla.eigsh(L, k=k, sigma=lamK, which='LM', tol=1e-12, return_eigenvectors=False))
+        mult = S.multiplets(vals, tol=1e-7)
+        near = sorted(mult, key=lambda t: abs(t[0] - lamK))[:14]
+        near.sort()
+        row = {'lambda_K_flat': lamK, 'carrier_classes': len(S.type_census(W)[1]), 'up_cells': int(up.sum()), 'down_cells': int((~up).sum()),
+               'levels_nearest_lambda_K': [[float(x), int(n)] for x, n in near],
+               'count_within_1pct_of_lambda_K': int(np.sum(np.abs(vals - lamK) < 0.01 * lamK)),
+               'count_within_half_flat_gap_0.010494_of_lambda_K': int(np.sum(np.abs(vals - lamK) < 0.010494)),
+               'computed_range': [float(vals.min()), float(vals.max())],
+               'gap_around_lambda_K': [float(vals[vals < lamK].max()), float(vals[vals > lamK].min())]}
+        if window is not None:
+            row['flat_gap_window'] = list(window)
+            row['levels_inside_flat_gap_window'] = int(np.sum((vals > window[0]) & (vals < window[1])))
+            row['ports'] = 12 * mesh.N
+            low = S.low_spectrum(L, k=16)
+            row['spread_l1'] = S.spread(low[1:4]); row['spread_l2'] = S.spread(low[4:9]); row['spread_l3'] = S.spread(low[9:16])
+            row['N_lambda2'] = float(mesh.N * low[1])
+            # frustrated dual edges: both cells of the same class
+            row['dual_edges_same_class'] = int(np.sum(up[mesh.left] == up[mesh.right])); row['dual_edges'] = int(mesh.left.size)
+        res[name] = row
+        print(name, level, json.dumps(row), round(time.time() - T0, 1), flush=True)
+        json.dump(out, open(PATH, 'w'), indent=1)
+print('done', WHICH, round(time.time() - T0, 1))

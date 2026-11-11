@@ -1,0 +1,91 @@
+"""LW part (b): SMDR rows for the attachment candidates of CANDIDATES.md at P_fwd.
+
+usage: lw_b_attach.py LB4 | LB3 | LB7 | LB8 | LB1
+LB1 v(Q0) = v_source (rerun of LEW A1 as the gate);
+LB4 G_F(v(Q0)) = 1/(sqrt2 v_source^2) (zero-momentum record; v does not run there);
+LB3 v(mu) = v_source at mu = M_t (pole), fixed point;
+LB7 v(mu) = v_source at mu = M_H (pole), fixed point;
+LB8 v(mu) = v_source at mu = M_W (real part of the complex pole), fixed point.
+r(mu) = v(mu)/v(Q0) from five-loop SMDR running of the P_fwd packet (linear in v). Writes lw_b_<id>.json.
+Measured values are read only in lw_b_compare.py.
+"""
+from __future__ import annotations
+
+import json
+import math
+import sys
+from pathlib import Path
+
+import lwlib as L
+
+HERE = Path(__file__).resolve().parent
+PK = json.loads((HERE.parent / "SIM" / "derive" / "lew" / "t1_chain.json").read_text())["pixels"]["P_fwd"]["packet_Q0"]
+VS = PK["v"]
+
+
+def ratio(mu: float) -> float:
+    return L.rg_to(PK, mu, 5)["v"] / PK["v"]
+
+
+def readout_at(vq0: float) -> dict:
+    pk = dict(PK)
+    pk["v"] = vq0
+    return L.readout(pk)
+
+
+def fermi() -> dict:
+    target = 1.0 / (math.sqrt(2.0) * VS * VS)
+    x0, x1 = 248.70, 248.80
+    o0, o1 = readout_at(x0), readout_at(x1)
+    f0, f1 = o0["GF_local"] / target - 1, o1["GF_local"] / target - 1
+    hist = [(x0, f0), (x1, f1)]
+    for _ in range(6):
+        x2 = x1 - f1 * (x1 - x0) / (f1 - f0)
+        o2 = readout_at(x2)
+        f2 = o2["GF_local"] / target - 1
+        hist.append((x2, f2))
+        x0, f0, x1, f1, o1 = x1, f1, x2, f2, o2
+        if abs(f2) < 1e-11:
+            break
+    return {"v_Q0_GeV": x1, "outputs_GeV": o1, "GF_target_GeVm2": target, "history": hist,
+            "equivalent_MSbar_ratio_vQ0_over_vsource": x1 / VS}
+
+
+def fixed_point(key: str) -> dict:
+    mu = {"t": 171.74, "H": 125.3, "W_pole_real": 79.7}[key]
+    hist = []
+    for _ in range(4):
+        r = ratio(mu)
+        vq0 = VS / r
+        out = readout_at(vq0)
+        new_mu = out[key]
+        hist.append({"mu": mu, "r": r, "v_Q0": vq0, "M": new_mu})
+        if abs(new_mu - mu) < 1e-4:
+            mu = new_mu
+            break
+        mu = new_mu
+    return {"attachment_scale_GeV": mu, "r_v(mu)_over_v(Q0)": r, "v_Q0_GeV": vq0, "outputs_GeV": out,
+            "fixed_point_residual_GeV": out[key] - hist[-1]["mu"], "history": hist}
+
+
+def main():
+    cid = sys.argv[1]
+    if cid == "LB1":
+        res = {"v_Q0_GeV": VS, "outputs_GeV": readout_at(VS)}
+    elif cid == "LB4":
+        res = fermi()
+    elif cid == "LB3":
+        res = fixed_point("t")
+    elif cid == "LB7":
+        res = fixed_point("H")
+    elif cid == "LB8":
+        res = fixed_point("W_pole_real")
+    else:
+        raise SystemExit("unknown candidate")
+    res = {"schema": "lw.b_attach.v1", "candidate": cid, "v_source_GeV": VS, "Q0_GeV": PK["Q0"], **res}
+    (HERE / f"lw_b_{cid}.json").write_text(json.dumps(res, indent=2) + "\n")
+    print(json.dumps({k: res[k] for k in res if k != "history"}, indent=1))
+
+
+if __name__ == "__main__":
+    main()

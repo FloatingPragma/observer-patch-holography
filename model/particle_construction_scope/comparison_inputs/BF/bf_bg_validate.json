@@ -1,0 +1,118 @@
+{
+ "V1_free_direction_integral": {
+  "max_relative_deviation_from_elliptic_form (xi = inf)": 1.9984014443252818e-15,
+  "max_relative_deviation_from_adaptive_quadrature (xi = 1, 2)": 1.3322676295501878e-15
+ },
+ "V2_finite_difference_check": {
+  "lattice": [
+   8,
+   4
+  ],
+  "flux_per_plaquette": 1.5707963267948966,
+  "real_variables": 128,
+  "max_abs_difference_of_sorted_spectra": 1.935135103714458e-06,
+  "control_with_the_sign_of_S_reversed": 1.5731552124703312,
+  "lowest_eigenvalues_finite_difference": [
+   -1.766551,
+   -1.766551,
+   -1.766551,
+   -1.766551,
+   -1.766551,
+   -1.766551
+  ],
+  "lowest_eigenvalues_bloch": [
+   -1.766551,
+   -1.766551,
+   -1.766551,
+   -1.766551,
+   -1.766551,
+   -1.766551
+  ],
+  "zero_modes_in_finite_difference_spectrum (abs < 1e-4)": 64,
+  "sites_times_two": 64
+ },
+ "V3_gauge_zero_modes_and_banded_solver": {
+  "max_relative_defect": 2.631073042410027e-15
+ },
+ "V4_three_dimensional_separation": {
+  "lattice": [
+   6,
+   3,
+   4
+  ],
+  "zero_modes": 72,
+  "sites": 72,
+  "max_abs_K_times_gauge_direction": 8.005932084973443e-16,
+  "nonzero_modes": 144,
+  "predicted_modes": 144,
+  "max_abs_difference_nonzero_spectrum_vs_2d_plus_kz": 2.1316282072803006e-14,
+  "negative_modes (Nielsen-Olesen)": 3
+ },
+ "V5_MSbar_constant": {
+  "S(0) (must be -11/6)": -1.8333333333333333,
+  "S_prime(0)": -0.06687343945241324,
+  "c_numeric": 1.0364764215194981,
+  "c_closed_form": 1.0364764215194981
+ },
+ "V6_references": {
+  "1.0": {
+   "magnetic": 3.999415289034625,
+   "electric": 3.999415289034625,
+   "J": 1.9997076445173125,
+   "w_sigma": 0.5,
+   "w_tau": 0.5
+  },
+  "2.0": {
+   "magnetic": 4.501970928161173,
+   "electric": 10.047148372640734,
+   "J": 2.5117870931601836,
+   "w_sigma": 0.6730945377784839,
+   "w_tau": 0.331726365555379
+  },
+  "4.0": {
+   "magnetic": 4.697656590994026,
+   "electric": 26.878366368912275,
+   "J": 3.3597957961140343,
+   "w_sigma": 0.7583181541664381,
+   "w_tau": 0.20260511536459763
+  },
+  "8.0": {
+   "magnetic": 4.755092074327416,
+   "electric": 71.29722140808217,
+   "J": 4.456076338005135,
+   "w_sigma": 0.7858961363487659,
+   "w_tau": 0.11272037286955053
+  },
+  "16.0": {
+   "magnetic": 4.770127952576563,
+   "electric": 182.21580617592255,
+   "J": 5.69424394299758,
+   "w_sigma": 0.7933346032444625,
+   "w_tau": 0.05940103670607632
+  },
+  "inf": {
+   "magnetic": 4.775204485719181,
+   "electric": null,
+   "w_sigma": 0.7958674142865302,
+   "w_tau": 0.0
+  }
+ },
+ "V6_mean_lattice_frequency": 2.3876022428595904,
+ "V6_reference_check": {
+  "inf": {
+   "two_dimensional_quadrature": 4.775204485719182,
+   "reference": 4.775204485719181,
+   "difference": 8.881784197001252e-16
+  },
+  "1.0": {
+   "two_dimensional_quadrature": 3.999415289034626,
+   "reference": 3.999415289034625,
+   "difference": 8.881784197001252e-16
+  },
+  "2.0": {
+   "two_dimensional_quadrature": 4.501970928161174,
+   "reference": 4.501970928161173,
+   "difference": 8.881784197001252e-16
+  }
+ }
+}

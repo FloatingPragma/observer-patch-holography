@@ -1,0 +1,202 @@
+"""FR round 4 (ROUND4_REGISTER.md): phase count of double-load objects, source of the double load, Gauss-neutral
+carrier, spectral projector of the period-six cycle. EXACT (Fractions, sympy). Writes fr10_round4.json. Runs in seconds.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+import fr_common as FC
+import fr9_hexagon as X
+
+OUT = 'fr10_round4.json'
+n84 = len(X.CFG) * 4
+
+
+def Dmat(frame):
+    D = [[Fr(0)] * n84 for _ in range(n84)]
+    for ci, cfg in enumerate(X.CFG):
+        for rec in range(4):
+            for k in range(12):
+                s, o = divmod(k, 2)
+                a, b = X.ref_pair(frame, s, o)
+                for c2, r2, u in X.local(cfg, rec, a, b):
+                    D[X.CI[c2] * 4 + r2][ci * 4 + rec] += u / 12
+    return D
+
+
+def idx(ports, rec):
+    return X.CI[X.cfg_of(*ports)] * 4 + rec
+
+
+def const(poly):
+    assert set(poly) <= {0}
+    return poly.get(0, Fr(0))
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'FR round 4', 'provenance': FC.provenance()}
+    dbl2, dbl10 = X.cfg_of(2, 2), X.cfg_of(10, 10)
+    cI, cF, cB = X.cfg_of(2, 10), X.cfg_of(2, 3), X.cfg_of(10, 0)
+
+    # ---------------- item 1: occupation weights of S over the period and the exclusive counts
+    st = {}
+    for cfg in (dbl2, dbl10):
+        for k in range(12):
+            st[(cfg, 0, k)] = {0: Fr(1)}                  # true state = this / sqrt(24)
+    rows, ps = {}, []
+    for tick in range(1, 7):
+        st = X.Qstep(X.Rstep(st), 'FN')
+        w = {'I': Fr(0), 'F': Fr(0), 'B': Fr(0), 'double': Fr(0), 'other': Fr(0)}
+        for (cfg, rec, k), poly in st.items():
+            c = const(poly) ** 2 / 24
+            key = 'I' if cfg == cI and rec in (2, 3) else 'F' if cfg == cF and rec in (2, 3) else \
+                'B' if cfg == cB and rec in (2, 3) else 'double' if cfg in (dbl2, dbl10) and rec == 0 else 'other'
+            w[key] += c
+        p, q = w['F'], w['I']
+        rows[tick] = {**{k: str(v) for k, v in w.items()}, 'I:F:B = 2:1:1': (w['I'] == 2 * w['F'] and w['F'] == w['B']),
+                      'P1 two independent objects: X = p + q - 2pq': str(p + q - 2 * p * q),
+                      'P2 one object: P(F) + P(I)': str(p + q)}
+        ps.append(p + q - 2 * p * q)
+    w1 = rows[1]
+    a_idle, a_I, a_F = sp.sqrt(sp.Rational(2, 3)), sp.sqrt(sp.Rational(1, 6)), sp.sqrt(sp.Rational(1, 12))
+    yv = sp.Symbol('y')
+    lam = (a_I * a_idle + a_idle * a_F * (yv + 1 / yv)) / sp.sqrt(3)
+    target = sp.sqrt(2) / 3 * (sp.sqrt(sp.Rational(1, 6)) + sp.sqrt(sp.Rational(1, 12)) * (yv + 1 / yv))
+    out['item1_phase_count'] = {
+        'occupation_weights_of_S_per_tick (FN)': rows,
+        'P1_sum_of_X_over_the_period': str(sum(ps, Fr(0))), 'P1_mean_per_tick': str(sum(ps, Fr(0)) / 6),
+        'P1_ticks_with_X = 2/9': [i + 1 for i, v in enumerate(ps) if v == Fr(2, 9)],
+        'tick-1 object weights equal the round-1 object weights (2/3, 1/6, 1/12, 1/12)':
+            (w1['double'], w1['I'], w1['F'], w1['B']) == ('2/3', '1/6', '1/12', '1/12'),
+        'P1 tick-1 round-1 analyzer: lambda(y)': str(sp.nsimplify(sp.expand(lam))),
+        'equals (sqrt2/3) C(theta) in sector y': sp.simplify(lam - target) == 0,
+        'tr(M^dag M) at tick 1': str(sp.nsimplify(sp.Rational(2, 9) * (3 * sp.Rational(1, 6) + 6 * sp.Rational(1, 12)))),
+        'P3 double load with the round-1 E object as hold, tick 1': str(Fr(1, 12) + Fr(1, 6) - 2 * Fr(1, 12) * Fr(1, 6)),
+        'P4 both objects in the period-averaged state (p = 1/6, q = 1/3)': str(Fr(1, 6) + Fr(1, 3) - 2 * Fr(1, 6) * Fr(1, 3)),
+    }
+    print('item 1')
+    for t, r in rows.items():
+        print('  tick', t, r)
+    print('  ', {k: v for k, v in out['item1_phase_count'].items() if k != 'occupation_weights_of_S_per_tick (FN)'})
+
+    # ---------------- item 2: source of the double load
+    src = {}
+    from model.observer import native as nat
+    created = []
+    for na in range(3):
+        for nb in range(3 - na):
+            for coin in (0, 1):
+                loads = (na, nb) + (0,) * 10
+                o, rec = nat.native(loads, (0, 1), coin)
+                if max(o[:2]) == 2 and max(na, nb) < 2:
+                    created.append((na, nb, coin))
+    src['Q1_classical_rule_creates_a_double_from_none'] = created
+    src['Q1_classical_images'] = {f'({na},{nb}) coin {c}': str(nat.native((na, nb) + (0,) * 10, (0, 1), c)[0][:2])
+                                  for na in range(3) for nb in range(3 - na) for c in (0, 1)}
+    q2 = {}
+    for name, recs in (('record 2', {2: Fr(1)}), ('record 3', {3: Fr(1)}), ('record (2 + 3)/sqrt2 (times sqrt2)', {2: Fr(1), 3: Fr(1)}),
+                       ('blank record', {0: Fr(1)})):
+        s0 = {(cI, r, k): {0: c} for r, c in recs.items() for k in range(12)}
+        norm = 12 * len(recs)
+        s1 = X.Qstep(X.Rstep(s0), 'FN')
+        wd = {}
+        for (cfg, rec, k), poly in s1.items():
+            if max(cfg) == 2:
+                ports = tuple(X.H[i] for i in range(6) for _ in range(cfg[i]))
+                wd[f'double {list(ports)} rec {rec}'] = wd.get(f'double {list(ports)} rec {rec}', Fr(0)) + const(poly) ** 2 / norm
+        q2[name] = {k: str(v) for k, v in wd.items()} or 'no double load'
+    src['Q2_one_tick_from_the_E_kept_dimer (FN)'] = q2
+    states = nat.states()
+    src['Q3_native_total_two_states'] = {'states': len(states), 'with a doubly loaded port': sum(1 for s in states if max(s) == 2),
+                                         'share': str(Fr(sum(1 for s in states if max(s) == 2), len(states)))}
+    try:
+        from model.common_source import native_family_record_memory as nfm
+        arch = nfm.architecture()
+        w2 = sp.nsimplify(arch['stationary'][2])
+        src['Q4_reset_port'] = {'stationary weight of the native family memory at port 2': str(w2),
+                                'two independent memories at port 2': str(sp.nsimplify(w2 ** 2)),
+                                'float': float(w2), 'note': 'memory labels, not loads'}
+    except Exception as exc:  # noqa: BLE001
+        a_, b_ = Fr(5, 72), Fr(1, 72)
+        heavy = 1 / (1 + a_ + a_ * b_ / (1 - a_))
+        src['Q4_reset_port'] = {'from the formula of _memory (import failed: %s)' % type(exc).__name__: str(heavy),
+                                'two independent memories at port 2': str(heavy ** 2), 'note': 'memory labels, not loads'}
+    # Q5 gauge sign on the local unitary
+    U = X.U24
+    sgn = {'00': 1, '10': 1, '01': -1, '11': -1, '20': 1, '02': 1}
+    kept = all((sgn[X.NAMES[r // 4]] * U[r][4 * X.NAMES.index('11')] * sgn['11']) == (1 if r == 4 * X.NAMES.index('11') else 0)
+               for r in range(24))
+    src['Q5_link_sign: |11,0> kept under the gauge-conjugated local unitary'] = kept
+    out['item2_source'] = src
+    print('item 2', json.dumps(src, indent=1, default=str)[:2500])
+
+    # ---------------- item 3: Gauss-neutral carrier
+    neu = {}
+    one = X.local(dbl2, 0, 2, 3)
+    two_plain = X.local(one[0][0], one[0][1], 3, 2)
+    two_native = X.local(one[0][0], one[0][1], 2, 3)
+
+    def ports_of(cfg):
+        return [X.H[i] for i in range(6) for _ in range(cfg[i])]
+    neu['G1_seam_object'] = {
+        'tick 1 at (2,3)': [(ports_of(c), r, str(u)) for c, r, u in one],
+        'tick 2 at (3,2) (plain law)': [(ports_of(c), r, str(u)) for c, r, u in two_plain],
+        'tick 2 at (2,3) (native frame)': [(ports_of(c), r, str(u)) for c, r, u in two_native],
+        'pair crosses with amplitude one in the plain law': two_plain == [(X.cfg_of(3, 3), 0, Fr(1))],
+        'gauge sign (-1)^(n_3): pair amplitude': str(Fr((-1) ** one[0][0][X.H.index(3)] * 1) * Fr((-1) ** 1 * 1)),
+        'gauge sign: single-load crossing 2 -> 3': '-1 (one load ends on port 3)',
+    }
+    S = [(dbl2, dbl10), (X.cfg_of(3, 3), X.cfg_of(9, 9)), (X.cfg_of(1, 1), X.cfg_of(0, 0))]
+    for frame in ('FP', 'FN'):
+        D = Dmat(frame)
+
+        def apply(v):
+            return [sum(D[i][j] * v[j] for j in range(n84) if v[j]) for i in range(n84)]
+        e0 = [Fr(0)] * n84
+        for c in S[0]:
+            e0[X.CI[c] * 4] = Fr(1)
+        xp, x = e0, apply(e0)
+        rows = {}
+        sym = True
+        for step in range(1, 13):
+            r, tp, tm = (sum(x[X.CI[c] * 4] for c in S[j]) / 2 for j in range(3))
+            rows[step] = {'r (hold)': str(r), 't+ (to d1)': str(tp), 't- (to d2)': str(tm)}
+            sym &= tp == tm
+            xp, x = x, [2 * a - b for a, b in zip(apply(x), xp)]
+        neu[f'G2_dimer_transfer_of_the_double_load ({frame})'] = {'rows': rows, 't+ = t- at every tick': sym}
+        print('item 3', frame, {k: v for k, v in rows.items() if k in (1, 2, 3, 4, 6, 8, 12)}, 't+ = t-:', sym)
+    neu['G2_generations'] = 'M(n) = r 1 + t (R + R^-1) with real t: eigenvalues r + 2t, r - t, r - t; the w and w^2 generations do not split'
+    neu['G3'] = 'a double load at each end of one seam has seam total four; the local unitary is defined for total at most two'
+    out['item3_neutral_carrier'] = neu
+    print('item 3 G1', neu['G1_seam_object'])
+
+    # ---------------- item 4: spectral structure of the cycle
+    Bk = sp.Matrix([[sp.Rational(2, 3), sp.Rational(1, 6), sp.Rational(1, 6)], [sp.Rational(1, 6), sp.Rational(5, 6), 0],
+                    [sp.Rational(1, 6), 0, sp.Rational(5, 6)]])
+    evs = {str(k): [list(v) for v in vecs] for k, m, vecs in Bk.eigenvects()}
+    # period average of S: projector on the eigenvalue-1 vector, uniform over (dbl2, dbl10, F, I2, I3, B)
+    cI_flag, cF_flag = sp.sqrt(2) / sp.sqrt(6), 1 / sp.sqrt(6)       # coefficients on the normalized flags I, F (and B)
+    aI, aF = sp.sqrt(sp.Rational(1, 6)), sp.sqrt(sp.Rational(1, 12))  # one-tick flag amplitudes of S
+    ratio_matched = sp.nsimplify((cF_flag * aF) / (cI_flag * aI))
+    out['item4_cycle_projector'] = {
+        'eigenvectors of the block (double, forward, in-dimer)': evs,
+        'period average of S on the normalized flags (I, F, B)': 'coefficients (sqrt2, 1, 1)/sqrt6: the matched vector',
+        'family operator from the matched vector: b/a': str(ratio_matched),
+        'uniform Fourier zero (1,1,1)/sqrt3: b/a': str(sp.nsimplify(aF / aI)),
+        'reading': 'the spectral projector of the cycle sums the flags coherently with coefficients proportional to their '
+                   'amplitudes; it gives abs(b)/a = 1/2; the uniform Fourier zero is not a spectral projector of the cycle',
+    }
+    print('item 4', out['item4_cycle_projector'])
+    out['seconds'] = round(time.time() - t0, 2)
+    FC.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

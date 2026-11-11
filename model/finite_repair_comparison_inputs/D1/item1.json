@@ -1,0 +1,3514 @@
+{
+ "arithmetic": "integers and Q(sqrt5); every listed identity is exact",
+ "statement": {
+  "group": "rotation group of a cubic frame: order 12, simply transitive on the twelve ports (all five frames)",
+  "generators": "F = exchange of the two ports of each frame seam (right translation by the half-turn about the long axis of the base port); C+ and C- = thirds of a turn of every port inside its face of the first and of the second inscribed tetrahedron (right translations by the thirds of a turn about n+s+l and -n+s+l)",
+  "adjacency": "A = F + C+ + C+^-1 + C- + C-^-1; kernel = 1 - (5 - A)/60",
+  "port_space": "1 + 1' + 1'' + 3 x 3: three Klein-invariant functions (on the three golden rectangles) and nine matrix coefficients rho(g_p)_ij",
+  "second_action": "right translations = the centralizer of the frame rotations in the permutations of the ports (12 elements, canonical as a set). Canonical with names: F, P (antipode), F P, C+, C-. The labelling of the right translations by group elements depends on the base port through conjugation: R_(a p0)(k) = R_p0(a^-1 k a).",
+  "kernel_on_second_index": "singlets: 5, -1, -1 (A = 2J - 1 on the rectangles). Triplet: M3 = [[-1,0,0],[0,-1,2],[0,2,1]] in the body axes (normal, short, long) of the base port, for every frame and base port. In fixed frame coordinates M3 takes six values (base ports p and P p agree).",
+  "commuting_part": "of the twelve right translations only the identity and P commute with the kernel",
+  "M3_eigenvectors": "(0,1,phi): sqrt5, the port itself (slow band); (1,0,0): -1, the normal of the rectangle (triplet inside the quintet); (0,phi,-1): -sqrt5, the conjugate port (fast band)",
+  "mixing_angle": "tan = 1/phi between the slow eigenvector and the long axis; squared components (1/2+1/10*r5) and (1/2+-1/10*r5)",
+  "kernel_levels_triplet": {
+   "slow (second index along the port, (0,1,phi))": "11/12 + sqrt5/60",
+   "middle (second index along the normal of the rectangle)": "9/10",
+   "fast (second index along the conjugate port, (0,phi,-1))": "11/12 - sqrt5/60"
+  },
+  "kernel_levels_singlets": [
+   "1",
+   "9/10",
+   "9/10"
+  ]
+ },
+ "frames": [
+  {
+   "frame": 0,
+   "matching": [
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     10,
+     11
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "1",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "1"
+    ]
+   ],
+   "F": [
+    1,
+    0,
+    3,
+    2,
+    5,
+    4,
+    7,
+    6,
+    9,
+    8,
+    11,
+    10
+   ],
+   "P": [
+    3,
+    2,
+    1,
+    0,
+    7,
+    6,
+    5,
+    4,
+    11,
+    10,
+    9,
+    8
+   ],
+   "C_plus": [
+    7,
+    5,
+    4,
+    6,
+    11,
+    9,
+    8,
+    10,
+    3,
+    1,
+    0,
+    2
+   ],
+   "C_minus": [
+    11,
+    8,
+    10,
+    9,
+    3,
+    0,
+    2,
+    1,
+    7,
+    4,
+    6,
+    5
+   ],
+   "base_ports": [
+    {
+     "base_port": 0,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 1,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 2,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 3,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 4,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 5,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 6,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 7,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 8,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 9,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 10,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 11,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 1,
+   "matching": [
+    [
+     0,
+     11
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     6,
+     10
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "1/2",
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)"
+    ],
+    [
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)",
+     "-1/2"
+    ],
+    [
+     "(-1/4+-1/4*r5)",
+     "1/2",
+     "(-1/4+1/4*r5)"
+    ]
+   ],
+   "F": [
+    11,
+    7,
+    4,
+    8,
+    2,
+    9,
+    10,
+    1,
+    3,
+    5,
+    6,
+    0
+   ],
+   "P": [
+    3,
+    2,
+    1,
+    0,
+    7,
+    6,
+    5,
+    4,
+    11,
+    10,
+    9,
+    8
+   ],
+   "C_plus": [
+    5,
+    0,
+    11,
+    9,
+    3,
+    1,
+    7,
+    8,
+    6,
+    4,
+    2,
+    10
+   ],
+   "C_minus": [
+    7,
+    9,
+    6,
+    2,
+    5,
+    11,
+    3,
+    10,
+    1,
+    8,
+    0,
+    4
+   ],
+   "base_ports": [
+    {
+     "base_port": 0,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 1,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 2,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 3,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 4,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 5,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 6,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 7,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 8,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 9,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 10,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 11,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 2,
+   "matching": [
+    [
+     0,
+     10
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     8
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "-1/2",
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)"
+    ],
+    [
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)",
+     "1/2"
+    ],
+    [
+     "(-1/4+-1/4*r5)",
+     "1/2",
+     "(1/4+-1/4*r5)"
+    ]
+   ],
+   "F": [
+    10,
+    5,
+    6,
+    9,
+    11,
+    1,
+    2,
+    8,
+    7,
+    3,
+    0,
+    4
+   ],
+   "P": [
+    3,
+    2,
+    1,
+    0,
+    7,
+    6,
+    5,
+    4,
+    11,
+    10,
+    9,
+    8
+   ],
+   "C_plus": [
+    11,
+    9,
+    3,
+    4,
+    2,
+    0,
+    10,
+    6,
+    1,
+    8,
+    7,
+    5
+   ],
+   "C_minus": [
+    1,
+    7,
+    11,
+    6,
+    9,
+    4,
+    8,
+    0,
+    3,
+    5,
+    2,
+    10
+   ],
+   "base_ports": [
+    {
+     "base_port": 0,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 1,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 2,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 3,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 4,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 5,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 6,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 7,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 8,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 9,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 10,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 11,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 3,
+   "matching": [
+    [
+     0,
+     5
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     7,
+     10
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)",
+     "1/2"
+    ],
+    [
+     "(1/4+1/4*r5)",
+     "1/2",
+     "(1/4+-1/4*r5)"
+    ],
+    [
+     "-1/2",
+     "(-1/4+1/4*r5)",
+     "(-1/4+-1/4*r5)"
+    ]
+   ],
+   "F": [
+    5,
+    8,
+    11,
+    6,
+    9,
+    0,
+    3,
+    10,
+    1,
+    4,
+    7,
+    2
+   ],
+   "P": [
+    3,
+    2,
+    1,
+    0,
+    7,
+    6,
+    5,
+    4,
+    11,
+    10,
+    9,
+    8
+   ],
+   "C_plus": [
+    1,
+    7,
+    10,
+    8,
+    5,
+    11,
+    2,
+    0,
+    9,
+    3,
+    6,
+    4
+   ],
+   "C_minus": [
+    10,
+    5,
+    3,
+    4,
+    2,
+    9,
+    7,
+    8,
+    6,
+    1,
+    11,
+    0
+   ],
+   "base_ports": [
+    {
+     "base_port": 0,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 1,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 2,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 3,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 4,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 5,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 6,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 7,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 8,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 9,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 10,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 11,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 4,
+   "matching": [
+    [
+     0,
+     7
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     6,
+     8
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "(1/4+1/4*r5)",
+     "1/2",
+     "(-1/4+1/4*r5)"
+    ],
+    [
+     "-1/2",
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)"
+    ],
+    [
+     "(-1/4+1/4*r5)",
+     "(-1/4+-1/4*r5)",
+     "1/2"
+    ]
+   ],
+   "F": [
+    7,
+    9,
+    10,
+    4,
+    3,
+    11,
+    8,
+    0,
+    6,
+    1,
+    2,
+    5
+   ],
+   "P": [
+    3,
+    2,
+    1,
+    0,
+    7,
+    6,
+    5,
+    4,
+    11,
+    10,
+    9,
+    8
+   ],
+   "C_plus": [
+    10,
+    8,
+    6,
+    2,
+    9,
+    4,
+    3,
+    1,
+    7,
+    5,
+    11,
+    0
+   ],
+   "C_minus": [
+    5,
+    0,
+    4,
+    8,
+    11,
+    1,
+    10,
+    6,
+    9,
+    3,
+    7,
+    2
+   ],
+   "base_ports": [
+    {
+     "base_port": 0,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 1,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 2,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       -2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       -2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 3,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 4,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "1",
+      "(1/2+1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 5,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 6,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       2,
+       0
+      ],
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 7,
+     "frame_coordinates_of_base_port": [
+      "0",
+      "-1",
+      "(-1/2+-1/2*r5)"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      0,
+      -1
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       2
+      ],
+      [
+       0,
+       2,
+       1
+      ]
+     ]
+    },
+    {
+     "base_port": 8,
+     "frame_coordinates_of_base_port": [
+      "1",
+      "(-1/2+-1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       0,
+       -1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      -1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 9,
+     "frame_coordinates_of_base_port": [
+      "(1/2+1/2*r5)",
+      "0",
+      "1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       1
+      ],
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 10,
+     "frame_coordinates_of_base_port": [
+      "(-1/2+-1/2*r5)",
+      "0",
+      "-1"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      -1,
+      0,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       0,
+       -1,
+       0
+      ],
+      [
+       2,
+       0,
+       -1
+      ]
+     ]
+    },
+    {
+     "base_port": 11,
+     "frame_coordinates_of_base_port": [
+      "-1",
+      "(1/2+1/2*r5)",
+      "0"
+     ],
+     "body_axes_normal_short_long": [
+      [
+       0,
+       0,
+       -1
+      ],
+      [
+       -1,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       0
+      ]
+     ],
+     "half_turn_generator_axis_in_frame_coordinates": [
+      0,
+      1,
+      0
+     ],
+     "M3_in_frame_coordinates": [
+      [
+       -1,
+       -2,
+       0
+      ],
+      [
+       -2,
+       1,
+       0
+      ],
+      [
+       0,
+       0,
+       -1
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "M3_in_frame_coordinates_six_values": [
+  [
+   [
+    -1,
+    -2,
+    0
+   ],
+   [
+    -2,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  [
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    -2
+   ],
+   [
+    0,
+    -2,
+    1
+   ]
+  ],
+  [
+   [
+    -1,
+    0,
+    0
+   ],
+   [
+    0,
+    -1,
+    2
+   ],
+   [
+    0,
+    2,
+    1
+   ]
+  ],
+  [
+   [
+    -1,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    0,
+    0,
+    -1
+   ]
+  ],
+  [
+   [
+    1,
+    0,
+    -2
+   ],
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    -2,
+    0,
+    -1
+   ]
+  ],
+  [
+   [
+    1,
+    0,
+    2
+   ],
+   [
+    0,
+    -1,
+    0
+   ],
+   [
+    2,
+    0,
+    -1
+   ]
+  ]
+ ],
+ "checks": {
+  "order 12: identity, three half-turns, eight thirds of a turn": true,
+  "the three half-turns are the Klein group of the frame": true,
+  "closed under composition and inverse": true,
+  "free: no rotation of the frame group other than the identity fixes a port": true,
+  "transitive: the orbit of every port is all twelve ports": true,
+  "every pair (half-turn, third of a turn) generates the frame group": true,
+  "P is the antipodal map and commutes with the adjacency": true,
+  "F (frame-seam partner) is a fixed-point-free involution that does not commute with the adjacency": true,
+  "C+ and C- have order three and move every port to a neighbour": true,
+  "adjacency = F + C+ + C+^-1 + C- + C-^-1 (operators on port amplitudes)": true,
+  "C+ and C- each turn four faces; the eight faces are disjoint in seams and miss exactly the six frame seams": true,
+  "P exchanges the two tetrahedra: P C+ P = C-^-1": true,
+  "centralizer of the frame rotations in the permutations of the ports has exactly twelve elements": true,
+  "left action commutes with the adjacency": true,
+  "generators: the half-turn about the long axis of the base port and the thirds of a turn about n+s+l and -n+s+l with inverses": true,
+  "seam graph = Cayley graph: ports p, q adjacent iff g_p^-1 g_q is a generator": true,
+  "right translations are permutations and form the centralizer": true,
+  "left and right actions commute": true,
+  "right translations that commute with the adjacency: only the identity and the half-turn about the normal (the antipode)": true,
+  "conjugations that keep the generator set: only the identity and the half-turn about the normal": true,
+  "adjacency = sum of the right translations by the five generators": true,
+  "named right translations: R(h_long) = F, R(h_normal) = P, R(h_short) = F P, R(c+^-1) = C+, R(c-^-1) = C-": true,
+  "matrix coefficients are orthogonal: Phi^T Phi = 4": true,
+  "left action on the first index: L(k) Phi = Phi (rho(k) x 1)": true,
+  "right action on the second index: R(k) Phi = Phi (1 x rho(k))": true,
+  "M3 = sum of the generators in the body axes (normal, short, long) of the base port = [[-1,0,0],[0,-1,2],[0,2,1]]": true,
+  "adjacency on the triplet block acts on the second index only: A Phi = Phi (1 x M3)": true,
+  "the three Klein orbits are the three golden rectangles (four ports each)": true,
+  "adjacency on the Klein-invariant functions is 2J - 1: values 5, -1, -1": true,
+  "left third of a turn permutes the three rectangles cyclically; the right Klein group fixes them": true,
+  "completeness: 3 + 9 = 12, Gram = 4": true,
+  "M3 (0,1,phi) = sqrt5 (0,1,phi); M3 (1,0,0) = -(1,0,0); M3 (0,phi,-1) = -sqrt5 (0,phi,-1)": true,
+  "the set of right translations does not depend on the base port": true,
+  "six different matrices M3 in fixed frame coordinates over the twelve base ports (antipodal base ports agree)": true,
+  "the same six integer matrices M3 occur in the frame coordinates of all five frames": true,
+  "the copy with second index (0,1,phi) is the public slow band (exact projector of the pinned carrier)": true,
+  "squared components of the port direction on its short and long axes are (5 - sqrt5)/10 and (5 + sqrt5)/10": true
+ },
+ "counts": {
+  "base ports checked": 60,
+  "relabelling identities R_(a p0)(k) = R_p0(a^-1 k a)": 8640,
+  "port-wise identities for the three copies": 6480
+ }
+}

@@ -1,0 +1,106 @@
+#!/usr/bin/env python3
+"""Worker DC, round 3: the observer-relative area law P1' (rows O-E1 to O6 of CANDIDATES.md).
+
+No measured value is read. Units E* = 1. Writes dc_obs.json.
+"""
+from __future__ import annotations
+
+import json
+
+import numpy as np
+import sympy as sp
+
+import dc_lib as L
+
+out: dict = {"inputs": {"P_fwd": L.P_FWD, "measured_values_read": "none"}}
+P = L.P_FWD
+B4 = P / 4
+
+# O-E1 (EXACT): crossing-read coefficient of RER CROSSING_READ_AREA_LAW under blocking by b
+n, a, b, ell = sp.symbols("n a b ell", positive=True)
+coef = sp.pi / 4 * n ** 2 * a ** 4
+coef_b = coef.subs({n: n / b ** 3, a: a * b}, simultaneous=True)
+lP = 1 / (sp.sqrt(sp.pi) * n * a ** 2)
+lP_b = lP.subs({n: n / b ** 3, a: a * b}, simultaneous=True)
+out["O_E1"] = {
+    "coefficient_ratio_coarse_over_fine": str(sp.simplify(coef_b / coef)),
+    "reads_per_pixel_fine_minus_coarse": str(sp.simplify(coef * ell ** 2 - coef_b * (b * ell) ** 2)),
+    "planck_dictionary_length_ratio": str(sp.simplify(lP_b / lP)),
+    "pass": sp.simplify(coef_b / coef - b ** -2) == 0 and sp.simplify(coef * ell ** 2 - coef_b * (b * ell) ** 2) == 0
+    and sp.simplify(lP_b / lP - b) == 0,
+}
+
+# O-E2: monotonicity of the edge entropies in the heat time
+ts = np.geomspace(0.01, 50, 2000)
+e2 = np.array([L.TW.ell2(t) for t in ts])
+e3 = np.array([L.TW.ell3(t) for t in ts])
+out["O_E2"] = {
+    "SU2_argument": "d = n + 1 and C2 = n(n+2)/4 both increase strictly with n, so Cov_p(log d, C2) > 0 and "
+                    "d ellbar/dt = -Cov_p(log d, C2) < 0 for every t > 0 (EXACT)",
+    "SU2_strictly_decreasing_on_grid": bool(np.all(np.diff(e2) < 0)),
+    "SU3_strictly_decreasing_on_grid": bool(np.all(np.diff(e3) < 0)),
+    "grid": [0.01, 50, 2000],
+}
+
+# O1: source frame, GL's equal couplings at the cell, run down with census B and with SM
+aC = L.alpha_cut(P)
+EC = P ** -0.5
+o1 = {"alpha_cell_inv": 1 / aC, "v_over_Estar_D10_law_with_alpha_cell": L.vev(aC, P)}
+for name, bv in (("census_B", L.CENSUS_B), ("SM", L.SM)):
+    s_pole = 2 * np.pi / aC / abs(bv[2])
+    s = np.linspace(0.0, s_pole * (1 - 1e-9), 4001)
+    Fs = []
+    for si in s:
+        inv = [1 / aC + bi * si / (2 * np.pi) for bi in bv]
+        Fs.append(L.TW.F(1 / inv[1], 1 / inv[2]))
+    Fs = np.array(Fs)
+    roots_below_cell = int(np.sum(np.diff(np.sign(Fs[1:] - B4)) != 0))
+    o1[name] = {"slopes": bv, "F_at_cell_over_P4": Fs[0] / B4, "F_strictly_decreasing_downward": bool(np.all(np.diff(Fs) < 0)),
+                "roots_of_F_eq_P4_below_cell": roots_below_cell, "max_F_below_cell_over_P4": float(Fs[1:].max() / B4),
+                "colour_pole_ln_Ecell_over_mu": s_pole, "colour_pole_mu_over_Estar": EC * np.exp(-s_pole)}
+out["O1_source_frame"] = o1
+
+# O2, O3: D10 frame (MSSM) with mu_obs = m_W and m_Z; F profile from mu_obs up to the cell
+def profile(kind):
+    fp = L.outer_fixed_point(kind, L.MSSM, "exact")
+    Ps, aU = fp["P_star"], fp["alpha_U"]
+    MU, ECs = L.anchors(Ps)
+    mu_obs = L.tree_scale(aU, Ps, kind, L.MSSM)
+    mus = np.geomspace(mu_obs, MU, 2000)
+    Fv = []
+    for mu in mus:
+        a_ = L.run(aU, mu, MU, L.MSSM)
+        Fv.append(L.TW.F(a_[1], a_[2]))
+    Fv = np.array(Fv)
+    B4 = Ps / 4  # the row's own budget at its fixed point
+    F_above = L.TW.F(aU, aU)
+    total = np.log(ECs / mu_obs)
+    over = np.log(MU / mu_obs) * float(np.mean(Fv > B4 * (1 + 1e-12))) + np.log(ECs / MU) * float(F_above > B4)
+    return {"P_star": Ps, "alpha_U": aU, "mu_obs_over_Estar": mu_obs, "F_at_mu_obs_over_P4": Fv[0] / B4,
+            "F_at_MU_over_P4": Fv[-1] / B4, "F_at_cell_over_P4_no_running_above_MU": F_above / B4,
+            "F_increasing_upward_on_[mu_obs,M_U]": bool(np.all(np.diff(Fv) > 0)),
+            "share_of_ln_range_mu_obs_to_cell_with_F_above_P4": over / total,
+            "outputs": {k: fp[k] for k in ("v_over_Estar", "sin2w_mZ", "alpha_em_inv_mZ", "alpha3_mZ", "A")}}
+
+
+out["O2_D10_mu_obs_mW"] = profile("mW")
+out["O3_D10_mu_obs_mZ"] = profile("mZ")
+
+# O4: D10 frame with census B slopes
+out["O4_D10_with_census_B"] = {kind: {"roots_alpha_U_at_P_fwd": L.solve_aU(P, kind, L.CENSUS_B),
+                                      "roots_alpha_U_at_phi": L.solve_aU(L.PHI, kind, L.CENSUS_B)} for kind in ("mW", "mZ")}
+
+# O6: P1' as a bound at the cell in the D10 frame
+aU0 = L.solve_aU(P)[0]
+MU0, EC0 = L.anchors(P)
+R = np.log(EC0 / MU0)
+o6 = {"alpha_cut_inv": 1 / aC, "alpha_U_inv": 1 / aU0, "R": R,
+      "b_above_min_for_bound_with_unified_running": 2 * np.pi * (1 / aU0 - 1 / aC) / R,
+      "F_cell_over_P4_no_running_above_MU": L.TW.F(aU0, aU0) / B4}
+for name, bv in (("SM_above_MU", L.SM), ("census_B_above_MU", L.CENSUS_B)):
+    inv = [1 / aU0 - bi * R / (2 * np.pi) for bi in bv]
+    o6[name] = {"inv_alpha_at_cell": inv, "F_cell_over_P4": L.TW.F(1 / inv[1], 1 / inv[2]) / B4}
+out["O6_bound_at_cell"] = o6
+
+(L.HERE / "dc_obs.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps(out, indent=1, default=float))

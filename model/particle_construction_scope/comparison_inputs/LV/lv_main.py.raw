@@ -1,0 +1,272 @@
+"""Worker LV, main line: groups M4 to M7 and the table of group C (CANDIDATES.md, section 3 and Addendum 1).
+Reads lv_exact.json. No measured value is read; energies in GeV use E* as the unit of the chain. Writes lv_main.json.
+"""
+import json
+import math
+
+import numpy as np
+from scipy.optimize import minimize
+
+import lv_chain as C
+
+pi = math.pi
+out = {}
+EX = json.load(open("lv_exact.json"))
+A_MAIN, A_RET = 24.3166, 16.2453
+E_CELL = C.EP / math.sqrt(C.P_FWD)
+M_U = C.EP * math.exp(-2 * pi) * C.P_FWD ** (1 / 6)
+
+# ------------------------------------------------------------------------------------------------ gate
+r = C.solve()
+out["gate_chain"] = [{"1/alpha_U": x, "v_GeV": c["v"], "mZ": c["mz"], "1/alpha_2(mZ)": 1 / c["a2"], "alpha_s(mZ)": c["a3"]}
+                     for x, c in r]
+X0, C0 = r[0]
+
+# ------------------------------------------------------------------------------------------------ C8: Wilson form, d = 3
+Lc = 10
+rng = np.random.default_rng(11)
+
+
+def plaq(Af):
+    """fluxes eps[plane, x, y, z] for planes (0,1), (0,2), (1,2)"""
+    A = Af.reshape(3, Lc, Lc, Lc)
+    e = []
+    for (m, n) in ((0, 1), (0, 2), (1, 2)):
+        e.append(A[m] + np.roll(A[n], -1, axis=m) - np.roll(A[m], -1, axis=n) - A[n])
+    return np.array(e)
+
+
+def fun(Af, lam=2e3):
+    e = plaq(Af)
+    f = 4 * (1 - np.cos(e / 2))
+    tot = f.sum() - f[0, 0, 0, 0] + lam * (e[0, 0, 0, 0] - 2 * pi) ** 2
+    # gradient
+    dfe = 2 * np.sin(e / 2)
+    dfe[0, 0, 0, 0] = 2 * lam * (e[0, 0, 0, 0] - 2 * pi)
+    G = np.zeros((3, Lc, Lc, Lc))
+    for idx, (m, n) in enumerate(((0, 1), (0, 2), (1, 2))):
+        d = dfe[idx]
+        G[m] += d - np.roll(d, 1, axis=n)
+        G[n] += np.roll(d, 1, axis=m) - d
+    return tot, G.ravel()
+
+
+best = None
+starts = []
+a0 = np.zeros((3, Lc, Lc, Lc)); a0[0, 0, 0, 0] = 2 * pi          # thin loop: one link at 2 pi
+starts.append(("thin_loop", a0.ravel()))
+# Gaussian solution: minimise the quadratic form with the constraint (start from zero; penalty drives it)
+starts.append(("zero", np.zeros(3 * Lc ** 3)))
+for s in range(3):
+    starts.append(("random_%d" % s, rng.normal(scale=0.3, size=3 * Lc ** 3)))
+c8 = {}
+for name, x0 in starts:
+    res = minimize(fun, x0, jac=True, method="L-BFGS-B", options={"maxiter": 4000, "maxfun": 8000, "ftol": 1e-13, "gtol": 1e-9})
+    e = plaq(res.x)
+    f = 4 * (1 - np.cos(e / 2))
+    rest = float(f.sum() - f[0, 0, 0, 0])
+    c8[name] = {"flux_at_fixed_plaquette_over_2pi": float(e[0, 0, 0, 0] / (2 * pi)), "cost_of_the_rest_times_g2": rest,
+                "total_times_g2": 8 + rest, "largest_other_flux_over_2pi": float(np.sort(abs(e).ravel())[-2] / (2 * pi))}
+    if best is None or 8 + rest < best:
+        best = 8 + rest
+# the same construction with the Gaussian cost (gate: 3 pi^2 with the L^-3 correction)
+
+
+def fun_g(Af, lam=2e3):
+    e = plaq(Af)
+    f = e ** 2 / 2
+    tot = f.sum() - f[0, 0, 0, 0] + lam * (e[0, 0, 0, 0] - 2 * pi) ** 2
+    dfe = e.copy()
+    dfe[0, 0, 0, 0] = 2 * lam * (e[0, 0, 0, 0] - 2 * pi)
+    G = np.zeros((3, Lc, Lc, Lc))
+    for idx, (m, n) in enumerate(((0, 1), (0, 2), (1, 2))):
+        d = dfe[idx]
+        G[m] += d - np.roll(d, 1, axis=n)
+        G[n] += np.roll(d, 1, axis=m) - d
+    return tot, G.ravel()
+
+
+res = minimize(fun_g, np.zeros(3 * Lc ** 3), jac=True, method="L-BFGS-B", options={"maxiter": 4000, "maxfun": 8000, "ftol": 1e-14, "gtol": 1e-10})
+e = plaq(res.x)
+gauss_total = float((e ** 2 / 2).sum() - e[0, 0, 0, 0] ** 2 / 2 + (2 * pi) ** 2 / 2)
+out["C8_wilson_form_d3"] = {"L": Lc, "starts": c8, "minimum_total_times_g2": best,
+                            "gate_gaussian_total_times_g2": gauss_total,
+                            "gate_expected_3pi2_over_(1 - L^-3)": 3 * pi ** 2 / (1 - Lc ** -3)}
+K8 = best
+
+# ------------------------------------------------------------------------------------------------ group C table
+mk = EX["M2_link_vacuum"]
+laws = {
+    "C1_gaussian_isolated_plaquette": lambda a: (pi / 2) * a,
+    "C2_gaussian_3d_complex": lambda a: (3 * pi / 4) * a,
+    "C3_gaussian_4d_complex": lambda a: pi * a,
+    "C4_link_vacuum_continuous": lambda a: mk["exponent_times_alpha_continuous"] * a,
+    "C5_link_vacuum_two_steps": lambda a: mk["exponent_times_alpha_two_steps"] * a,
+    "C6_wilson_isolated": lambda a: (2 / pi) * a,
+    "C7a_wilson_one_link_3d": lambda a: (8 / pi) * a,
+    "C7b_wilson_one_link_4d": lambda a: (12 / pi) * a,
+    "C8_wilson_3d_relaxed": lambda a: K8 / (4 * pi) * a,
+    "C9a_heat_kernel_density_tau_g2/2": lambda a: (pi / 2) * a - math.log(2 * (pi * a - 1)),
+    "C9b_heat_kernel_density_tau_g2/3": lambda a: (3 * pi / 4) * a - math.log(2 * (1.5 * pi * a - 1)),
+    "C9c_heat_kernel_density_tau_g2/4": lambda a: pi * a - math.log(2 * (2 * pi * a - 1)),
+    "C10_full_closed_loop": lambda a: 2 * pi * a,
+    "C11_neutral_direction_unit_winding": lambda a: (5 * pi / 4) * a,
+}
+
+
+def idents(S, a):
+    g = math.sqrt(4 * pi / a)
+    w = math.exp(-S)
+    return {"I1_v/Ecell=w": w, "I2_theta0=w": 2 * math.sqrt(2) / g * w, "I3_v2/(2Ecell2)=w": math.sqrt(2 * w)}
+
+
+table = {}
+for name, f in laws.items():
+    row = {}
+    for lab, a in (("main_24.3166", A_MAIN), ("retired_16.2453", A_RET)):
+        S = f(a)
+        ids = idents(S, a)
+        row[lab] = {"S": S, "v_over_Ecell": ids, "v_GeV": {k: v * E_CELL for k, v in ids.items()}}
+    table[name] = row
+# C12: classes 1 and 2 in the forms C1, C2, C3
+for k, q in (("class1", 10 / 3), ("class2", 8 / 3)):
+    for d in (2, 3, 4):
+        row = {}
+        for lab, a in (("main_24.3166", A_MAIN), ("retired_16.2453", A_RET)):
+            S = q * pi ** 2 * (d / 2) / (4 * pi / a)
+            row[lab] = {"S": S, "v_over_Ecell": {"I1_v/Ecell=w": math.exp(-S)}, "v_GeV": {"I1_v/Ecell=w": math.exp(-S) * E_CELL}}
+        table["C12_%s_d%d" % (k, d)] = row
+out["group_C_table"] = table
+out["group_C_gate_C9a_against_exact_W3"] = {
+    "closed_form_main": math.exp(-laws["C9a_heat_kernel_density_tau_g2/2"](A_MAIN)),
+    "character_sum_main": EX["M3_heat_kernel_weights"]["g2_=_4pi/24.3166_(main)"]["3"]["W_k"]}
+
+# ------------------------------------------------------------------------------------------------ M4: register readings
+m4 = {}
+# two-state model: pattern handedness (2) x register (no pair, pair); step exp(-i t tau_x (x) A), A = pair flip
+tx = np.array([[0, 1], [1, 0]], complex); I2 = np.eye(2)
+A_op = np.array([[0, 1], [1, 0]], complex)
+t0 = 0.37
+K = np.kron(tx, A_op)
+w_, v_ = np.linalg.eigh(K)
+U = (v_ * np.exp(-1j * t0 * w_)) @ v_.conj().T
+rows = []
+for p in (0.5, 0.04, 1e-4, 1e-10):
+    psi = np.array([math.sqrt(1 - p), math.sqrt(p)], complex)
+    # effective pattern operator: <psi| U |psi> on the register
+    Ueff = np.einsum("a,iajb,b->ij", psi.conj(), U.reshape(2, 2, 2, 2), psi)
+    # Ueff = cos t - i sin t <A> tau_x ; angle of the pattern's rotation to first order
+    amp_flip = abs(Ueff[1, 0])
+    rows.append({"p": p, "coherence_sqrt(p(1-p))": math.sqrt(p * (1 - p)), "<A>": 2 * math.sqrt(p * (1 - p)),
+                 "|flip amplitude|/sin(t)": amp_flip / math.sin(t0)})
+m4["two_state_model"] = {"rows": rows, "statement": "the pattern's flip amplitude is sin(t) <A>, <A> = 2 Re(conj(alpha) beta) = "
+                                                    "2 sqrt(p(1-p)) for a real pure state; R8 quotes the coherence sqrt(p(1-p)); "
+                                                    "a state diagonal in the pair number gives 0"}
+Sm = laws["C1_gaussian_isolated_plaquette"](A_MAIN)
+m4["rows_at_24.3166"] = {
+    "M4a_pair_register_p=W3^2_amplitude_W3": {"v_over_Ecell": math.exp(-Sm), "v_GeV": math.exp(-Sm) * E_CELL},
+    "M4b_single_quantum_p=W3_amplitude_sqrt(W3)": {"v_over_Ecell": math.exp(-Sm / 2), "v_GeV": math.exp(-Sm / 2) * E_CELL},
+    "M4c_incoherent_density_W3_(angle_y/sqrt2_per_quantum)": {"v_over_Ecell": math.exp(-Sm), "v_GeV": math.exp(-Sm) * E_CELL,
+                                                               "note": "a state diagonal in flux has no rest phase in R8's exact model; L37's density law holds for option M1"},
+    "M4d_incoherent_density_W3^2": {"v_over_Ecell": math.exp(-2 * Sm), "v_GeV": math.exp(-2 * Sm) * E_CELL},
+}
+out["M4_register_readings"] = m4
+
+# ------------------------------------------------------------------------------------------------ M5: prefactors in the chain
+slopes = {"declared_(33/5,1,-3)": (33 / 5, 1.0, -3.0), "source_two_doublets_(41/5,1,-3)": (41 / 5, 1.0, -3.0),
+          "source_one_doublet_(81/10,5/6,-3)": (81 / 10, 5 / 6, -3.0), "source_three_doublets_(83/10,7/6,-3)": (83 / 10, 7 / 6, -3.0)}
+prefs = {"1": 1.0, "sqrt2": math.sqrt(2), "2": 2.0, "20_faces": 20.0, "30_seams": 30.0,
+         "nonabelian_2(2S-1)": (lambda x: 2 * (pi * x - 1)), "rest_phase_2sqrt2/g": (lambda x: 2 * math.sqrt(2) / math.sqrt(4 * pi / x))}
+m5 = {}
+for sn, b in slopes.items():
+    m5[sn] = {}
+    for pn, pf in prefs.items():
+        rr = C.solve(b=b, pref=pf)
+        m5[sn][pn] = [{"1/alpha_U": x, "v_GeV": c["v"], "mZ_GeV": c["mz"], "prefactor": c["pref"],
+                       "1/alpha_2(mZ)": 1 / c["a2"], "alpha_s(mZ)": c["a3"]} for x, c in rr]
+out["M5_prefactors_in_the_chain"] = m5
+# local sensitivity d ln v / d ln c on the declared slopes
+v1 = C.solve(pref=1.0)[0][1]["v"]; v2 = C.solve(pref=1.02)[0][1]["v"]
+out["M5_sensitivity_dlnv_dlnc_declared"] = math.log(v2 / v1) / math.log(1.02)
+
+# ------------------------------------------------------------------------------------------------ M6: scale rows
+m6 = {}
+a2_cell = 1.0 / (X0 + 1.0 / (2 * pi) * math.log(M_U / E_CELL))
+m6["chain_values"] = {"1/alpha_U": X0, "1/alpha_2(E_cell)_chain_slope": 1 / a2_cell, "1/alpha_2(mZ)": 1 / C0["a2"],
+                      "E_cell_GeV": E_CELL, "M_U_GeV": M_U, "ln(E_cell/M_U)": math.log(E_CELL / M_U)}
+m6["evaluations_at_the_chain_solution_GeV"] = {
+    "coupling_at_M_U_unit_E_cell_(working_law)": E_CELL * math.exp(-pi / 2 * X0),
+    "coupling_at_the_cell_unit_E_cell": E_CELL * math.exp(-pi / 2 / a2_cell),
+    "coupling_at_mZ_unit_E_cell": E_CELL * math.exp(-pi / 2 / C0["a2"]),
+    "coupling_at_M_U_unit_M_U": M_U * math.exp(-pi / 2 * X0),
+    "wilson_form_C6_coupling_at_M_U": E_CELL * math.exp(-(2 / pi) * X0),
+    "cubic_form_C2_coupling_at_M_U": E_CELL * math.exp(-(3 * pi / 4) * X0),
+    "four_dimensional_form_C3_coupling_at_M_U": E_CELL * math.exp(-pi * X0)}
+sc = {}
+for nm, kw in (("law_reads_alpha_2_at_the_cell", dict(law_scale="cell")), ("law_unit_M_U", dict(anchor="MU"))):
+    rr = C.solve(**kw)
+    sc[nm] = [{"1/alpha_U": x, "v_GeV": c["v"], "mZ_GeV": c["mz"], "1/alpha_law": 1 / c["a_law"]} for x, c in rr]
+m6["chain_solved_again"] = sc
+out["M6_scale_rows"] = m6
+
+# ------------------------------------------------------------------------------------------------ M7: doublet count
+nmax = 3
+dimo = nmax + 1
+a1 = np.diag(np.sqrt(np.arange(1, dimo)), 1)
+Id = np.eye(dimo)
+
+
+def mode(i):
+    ops = [Id] * 4
+    ops[i] = a1
+    o = ops[0]
+    for x in ops[1:]:
+        o = np.kron(o, x)
+    return o
+
+
+a = [mode(0), mode(1)]; b = [mode(2), mode(3)]
+ad = [x.T for x in a]; bd = [x.T for x in b]
+B = [a[k] + bd[k] for k in range(2)]
+Bd = [x.T for x in B]
+N = sum(ad[k] @ a[k] + bd[k] @ b[k] for k in range(2))
+low = np.diag((np.diag(N) <= nmax - 2).astype(float))          # states safely below the truncation edge
+com = lambda x, y: x @ y - y @ x
+m7 = {}
+m7["T1_B_normal_(max |[B_k, B_l^dag]| below the edge)"] = float(max(abs(com(B[k], Bd[l]) @ low).max() for k in range(2) for l in range(2)))
+m7["T1_single_orientation_not_normal_|[a_k, a_k^dag]|"] = float(abs(com(a[0], ad[0]) @ low).max())
+Phi = [B[k] / math.sqrt(2) for k in range(2)]
+Pi_ = [1j * (ad[k] - b[k]) / math.sqrt(2) for k in range(2)]
+m7["T1_canonical_pairs_[Phi_k, Pi_l] = i delta_kl (defect)"] = float(max(abs((com(Phi[k], Pi_[l]) - 1j * (k == l) * np.eye(dimo ** 4)) @ low).max()
+                                                                           for k in range(2) for l in range(2)))
+m7["T1_oscillators_per_cell"] = 4
+m7["T1_real_fields"] = "4 = one complex doublet (Phi_1, Phi_2); a second independent doublet needs 4 more oscillators"
+# one-quantum space: charges 6Y and T3
+t3 = np.diag([0.5, -0.5])
+Q3 = sum(t3[k, k] * (ad[k] @ a[k] - bd[k] @ b[k]) for k in range(2))
+QY = 3 * sum(ad[k] @ a[k] - bd[k] @ b[k] for k in range(2))
+vac = np.zeros(dimo ** 4); vac[0] = 1
+one = {"a1": ad[0] @ vac, "a2": ad[1] @ vac, "b1": bd[0] @ vac, "b2": bd[1] @ vac}
+m7["T1_one_quantum_states_(6Y, T3)"] = {k: [float(s @ QY @ s), float(s @ Q3 @ s)] for k, s in one.items()}
+m7["T1_audit_memory"] = "five states: vacuum, two states of orientation +3, two of orientation -3: the same one-quantum space"
+# T2: pair terms of the bilinear B^dag B
+pair = ad[0] @ bd[0] @ vac
+m7["T2_<pair| B_1^dag B_1 |0>"] = float(pair @ Bd[0] @ B[0] @ vac)
+m7["T2_<pair| N |0>_(number-conserving form)"] = float(pair @ N @ vac)
+m7["T2_statement"] = ("the transport B^dag U B creates and annihilates a (+3, -3) pair: the two orientations are quantum and "
+                      "antiquantum of one relativistic complex field; indices of the register: (1/10, 1/6) = one doublet")
+m7["T2_indices"] = {"one_complex_doublet": [1 / 10, 1 / 6], "two": [1 / 5, 1 / 3],
+                    "slopes_n_H": "(8 + n_H/10, 2/3 + n_H/6, -3)"}
+m7["T3_second_doublet"] = ("needs a second class-3 unit with its own conjugate (eight oscillators per cell; DB3's G3: fluxes "
+                           "+-3 and +-9); the Z6 register has no label for it. Read as two registers, a_k and b_k alone are "
+                           "oscillators bounded on one side: by R8's condition (common eigenvector of the lowering operator "
+                           "and its adjoint) and HT's C1 neither has a Higgs state with nonzero amplitude. Two independent "
+                           "doublets without a mixing term carry an unbroken relative phase (IMPORTED: a light pseudoscalar).")
+m7["T4_seam_flip"] = EX["M2_icosahedral_surface"]["one_seam_at_2pi_gives_face_fluxes"]
+m7["T4_statement"] = "one seam operation creates the two orientations together, one on each of its two faces"
+m7["beta_dependence"] = "none: beta_3 = 8 pi^2/tr H_3^2 = 4 is a property of the class; SC's N_c + 1 counts fermion doublets"
+out["M7_doublet_count"] = m7
+
+json.dump(out, open("lv_main.json", "w"), indent=1, default=float)
+for k, v in out.items():
+    print(k, json.dumps(v, default=float)[:2000])

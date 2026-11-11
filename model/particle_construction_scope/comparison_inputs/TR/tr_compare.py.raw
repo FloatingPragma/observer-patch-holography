@@ -1,0 +1,66 @@
+"""Worker TR: the NOT BLIND comparison, run after tr_candidates.py wrote tr_candidates.json.
+
+Needed ratios and measured masses come from work/LS/compare.json (LS's comparison: running masses at m_Z from
+Xing, Zhang, Zhou 2008 as imported there; class ratio needed at Q0 and at mu_c with the up sector on the native
+circulant and y_t from the criticality lane). Pass rule (CANDIDATES.md section 4): |r / r_needed(mu_c) - 1| <= 0.05;
+Q0 reported as the brief's reference value.
+  cd /tmp && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B \
+      WORKSPACE/repair-law/work/TR/tr_compare.py
+"""
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RL = Path("WORKSPACE/repair-law")
+CAND = json.loads((HERE / "tr_candidates.json").read_text())
+LSC = json.loads((RL / "work/LS/compare.json").read_text())
+
+NEED_MUC = LSC["needed_NOT_BLIND"]["class_ratio_needed_at_mu_c"]
+NEED_Q0 = LSC["needed_NOT_BLIND"]["class_ratio_needed_yJe_over_trYu_Q0_native_up"]
+RUN_MZ = LSC["measured"]["running_mZ_GeV_IMPORTED"]
+POLE = LSC["measured"]["pole_GeV"]
+
+
+def main():
+    rows = []
+    for r in CAND["rows"]:
+        x = r["r"]
+        a_muc, a_q0 = x / NEED_MUC, x / NEED_Q0
+        rows.append({
+            "id": r["id"], "weight": r["weight"], "estimated_before_listing": r["estimated_before_listing"],
+            "r": x, "r_over_needed_mu_c": a_muc, "r_over_needed_Q0": a_q0,
+            "excess_reads_ln": -math.log(x),
+            "pass_mu_c_5pct": abs(a_muc - 1) <= 0.05, "within_5pct_Q0": abs(a_q0 - 1) <= 0.05,
+            "masses_GeV_stated_at_mu_c": r["masses_GeV_stated_at_mu_c"],
+            "masses_over_running_mZ": [m / M for m, M in zip(r["masses_GeV_stated_at_mu_c"], RUN_MZ)],
+            "formula": r["formula"],
+        })
+    out = {
+        "needed_NOT_BLIND": {"r_mu_c": NEED_MUC, "r_Q0": NEED_Q0, "ln_needed_mu_c": -math.log(NEED_MUC),
+                             "ln_needed_Q0": -math.log(NEED_Q0)},
+        "measured_IMPORTED_via_LS": {"running_mZ_GeV": RUN_MZ, "pole_GeV": POLE},
+        "rows": rows,
+        "passing_mu_c": [r["id"] for r in rows if r["pass_mu_c_5pct"]],
+        "passing_mu_c_structural_unestimated": [r["id"] for r in rows if r["pass_mu_c_5pct"]
+                                                and r["weight"] == "structural"
+                                                and not r["estimated_before_listing"]],
+        "within_5pct_Q0": [r["id"] for r in rows if r["within_5pct_Q0"]],
+        "looks_in_this_comparison": 2 * len(rows),
+    }
+    (HERE / "tr_compare.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps(out["needed_NOT_BLIND"], indent=1))
+    for r in rows:
+        print(f"{r['id']:7s} {r['weight']:10s} est={str(r['estimated_before_listing']):5s} r={r['r']:.5g} "
+              f"r/need(mu_c)={r['r_over_needed_mu_c']:.4f} r/need(Q0)={r['r_over_needed_Q0']:.4f} "
+              f"-ln r={r['excess_reads_ln']:.4f}{'  PASS(mu_c)' if r['pass_mu_c_5pct'] else ''}"
+              f"{'  within5(Q0)' if r['within_5pct_Q0'] else ''}")
+    print("passing at mu_c:", out["passing_mu_c"])
+    print("passing at mu_c, structural and unestimated:", out["passing_mu_c_structural_unestimated"])
+    print("within 5 percent at Q0:", out["within_5pct_Q0"])
+
+
+if __name__ == "__main__":
+    main()

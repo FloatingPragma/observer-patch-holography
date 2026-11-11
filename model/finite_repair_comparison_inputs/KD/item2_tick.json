@@ -1,0 +1,12 @@
+{
+ "checks": {
+  "transported lifts: u_i(x) = s_i(x) u_i with s_i(x) = (-1)^(sum of x_m over the axes m whose seam direction is not i); path independent": true,
+  "torus L = 4, all 256 basis states: D_rad = Omega^* D_eta Omega (recharting by products of the radial links)": true,
+  "torus L = 4, all 256 basis states: D_eta = Sigma D_flat, Sigma = -(-1)^(x_2) (a position sign); Sigma D_flat Sigma = -D_flat, hence (D_eta)^2 = -(D_flat)^2 and (D_eta)^4 = (D_flat)^4": true,
+  "two ticks, sampled basis states: (D_eta)^2 = -(D_flat)^2": true,
+  "radial links with the untransported dressing C(u_i) Q_i(G_i) C(u_i)^*: symbol = -1 D_flat(k with k_1 reversed) beta": true,
+  "radial links, untransported dressing, theta = 0: the two-tick symbol is the identity for momentum along any one axis (no propagation along the axes); it is not the identity for two nonzero components": true
+ },
+ "transported_dressing_sign": "s_i(x) = (-1)^(sum of x_m, m with seam direction != i); seam directions {0: 2, 1: 0, 2: 1}",
+ "radial_constant_dressing_symbol": "-1 * D_flat(k_1 -> -k_1) * beta"
+}

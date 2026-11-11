@@ -1,0 +1,18 @@
+"""Item 5: eigenphases inside the gaps for ONE flipped link, direct diagonalization on small tori (one-body).
+forward-only tick against the alternating pair (phase per tick = half the phase of the two-tick operator)."""
+import json
+import numpy as np
+from r5lib import Routing, matrix_of
+TH = 0.157935; out = {}
+for shape in ((12, 12, 1), (6, 6, 6)):
+    links = [np.ones(shape, complex) for _ in range(3)]; links[0][(0, 0, 0)] = -1
+    eng = Routing(shape, links); flat = Routing(shape)
+    for name, e in (('flipped link', eng), ('flat', flat)):
+        F = matrix_of(lambda s: e.tick(s, TH), shape + (2, 2)); R = matrix_of(lambda s: e.tick(s, TH, reverse=True), shape + (2, 2))
+        pf = -np.angle(np.linalg.eigvals(F)); pw = -np.angle(np.linalg.eigvals(R @ F)) / 2
+        in_f = sorted(float(x) for x in pf if abs(x) < TH - 1e-6 or abs(abs(x) - np.pi) < TH - 1e-6)
+        in_w = sorted(float(x) for x in pw if abs(x) < TH - 1e-6 or abs(abs(x) - np.pi / 2) > np.pi / 2 - TH + 1e-6)
+        out[f'{shape} {name}'] = dict(forward_only_in_gap=in_f, alternating_pair_in_gap=in_w)
+        print(shape, name, ': forward-only tick, phases inside its gaps (|E| < theta or |E - pi| < theta):', len(in_f), sorted(set(round(x, 4) for x in in_f)),
+              '; alternating pair, phases per tick with |E| < theta:', len(in_w), sorted(set(round(x, 4) for x in in_w)))
+json.dump(out, open('bound_levels_alt.json', 'w'), indent=1)

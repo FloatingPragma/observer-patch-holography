@@ -1,0 +1,220 @@
+"""Worker UH, group B: the constants of the one-loop zero-point energy on the cell's own dispersions.
+
+For a dispersion omega(p; M) on a zone (tick units, M = rest phase per tick, light-cone speed c at the origin):
+
+  (1/2) int_zone d^3p/(2 pi)^3 omega(p; M) = A0 + A1 M + A2 M^2 + A3 M^3 + (M^4 / (64 pi^2 c^3)) (ln M^2 - c_cell) + ...
+
+A1 and A3 vanish when omega is even in M. With D(p) = d^2 omega / d(M^2)^2 at M = 0 (twice the M^4 Taylor
+coefficient), which behaves as -1/(4 c^3 p^3) at the origin, and a ball of radius R inside the zone,
+
+  Delta(R) = (1/2) int_zone [D(p) + 1_{|p|<R} / (4 c^3 p^3)] d^3p/(2 pi)^3   (finite),
+  c_cell   = 2 ln(2 c R) - 1/2 - 32 pi^2 c^3 Delta(R).
+
+Sharp cutoff at |p| = Lambda with continuum dispersion: Delta = 0, c_cell = ln(4 Lambda^2) - 1/2 (closed form, gate).
+MSbar: c = 3/2 for spin 0 and 1/2, 5/6 for a vector.
+
+Quadrature: the cube is cut into six pyramids over its faces; Gauss-Legendre in the two face coordinates and in the
+radius (two segments, [0, R] and [R, r_max]); every integrand is smooth on each piece.
+Writes constants.json. No measured value is read.
+"""
+import json
+import math
+
+import numpy as np
+
+out = {}
+NG_FACE, NG_RAD = 40, 48
+xg, wg = np.polynomial.legendre.leggauss(NG_FACE)
+xr, wr = np.polynomial.legendre.leggauss(NG_RAD)
+
+
+def pyramid_nodes(Lc):
+    """directions n (unit vectors), solid-angle weights, r_max, for the six faces of the cube |p_i| <= Lc"""
+    S, T = np.meshgrid(xg, xg, indexing="ij")
+    W = np.outer(wg, wg)
+    norm = np.sqrt(1 + S ** 2 + T ** 2)
+    dirs, wts, rmax = [], [], []
+    for axis in range(3):
+        for sign in (1.0, -1.0):
+            comp = [None, None, None]
+            comp[axis] = sign * np.ones_like(S) / norm
+            comp[(axis + 1) % 3] = S / norm
+            comp[(axis + 2) % 3] = T / norm
+            dirs.append(np.stack(comp, axis=-1).reshape(-1, 3))
+            wts.append((W / norm ** 3).ravel())
+            rmax.append((Lc * norm).ravel())
+    return np.concatenate(dirs), np.concatenate(wts), np.concatenate(rmax)
+
+
+def radial(f, n, w_ang, r0, r1):
+    """sum over directions of w_ang * int_{r0}^{r1} f(r n) r^2 dr; r0, r1 scalars or arrays over directions"""
+    r0 = np.broadcast_to(r0, w_ang.shape); r1 = np.broadcast_to(r1, w_ang.shape)
+    half = 0.5 * (r1 - r0); mid = 0.5 * (r1 + r0)
+    tot = 0.0
+    for x, w in zip(xr, wr):
+        r = mid + half * x
+        tot += np.sum(w_ang * half * w * r ** 2 * f(r[:, None] * n, r))
+    return tot
+
+
+def constants(D_fn, T2_fn, Lc, c=1.0, label=""):
+    n, w_ang, rmax = pyramid_nodes(Lc)
+    assert abs(w_ang.sum() - 4 * math.pi) < 1e-9
+    R = Lc
+    inner = radial(lambda p, r: D_fn(p) + 1.0 / (4 * c ** 3 * r ** 3), n, w_ang, 0.0, R)
+    outer = radial(lambda p, r: D_fn(p), n, w_ang, R, rmax)
+    delta = 0.5 * (inner + outer) / (2 * math.pi) ** 3
+    c_cell = 2 * math.log(2 * c * R) - 0.5 - 32 * math.pi ** 2 * c ** 3 * delta
+    A2 = 0.5 * radial(lambda p, r: T2_fn(p), n, w_ang, 0.0, rmax) / (2 * math.pi) ** 3
+    return {"label": label, "zone_half_width": Lc, "speed": c, "Delta": delta, "c_cell": c_cell, "A2": A2}
+
+
+# ------------------------------------------------------------------ B1, B2: sharp cutoffs (closed forms)
+out["B1_sharp_cutoff_1_per_cell"] = {"c_cell": math.log(4.0) - 0.5, "A2": 1.0 / (16 * math.pi ** 2)}
+out["B2_sharp_cutoff_pi_per_cell"] = {"c_cell": math.log(4 * math.pi ** 2) - 0.5, "A2": 1.0 / 16}
+
+# ------------------------------------------------------------------ B3: cubic zone, continuum dispersion
+cont_D = lambda p: -1.0 / (4 * np.linalg.norm(p, axis=-1) ** 3)
+cont_T2 = lambda p: 1.0 / (2 * np.linalg.norm(p, axis=-1))
+out["B3_cubic_zone_continuum"] = constants(cont_D, cont_T2, math.pi, label="cube |p_i| <= pi, omega = |p|")
+# gate of the quadrature: the cube minus the ball in closed form through the angular integral of ln(r_max/R)
+n_, w_, rm_ = pyramid_nodes(math.pi)
+I_c = float(np.sum(w_ * np.log(rm_ / math.pi)))
+out["B3_cubic_zone_continuum"]["closed_form_check_c"] = 2 * math.log(2 * math.pi) - 0.5 + I_c / (2 * math.pi)
+
+# ------------------------------------------------------------------ B4 fermions: CF-1 alternating tick, cone cell
+
+
+def cf1_sin2rho(p):
+    s2 = np.sin(p) ** 2
+    return (s2.sum(-1) - 2 * (s2[..., 0] * s2[..., 1] + s2[..., 0] * s2[..., 2] + s2[..., 1] * s2[..., 2])
+            + 4 * s2[..., 0] * s2[..., 1] * s2[..., 2])
+
+
+def cf1_cot(p):
+    x = np.clip(cf1_sin2rho(p), 1e-300, 1.0)
+    return np.sqrt(np.clip(1 - x, 0.0, None) / x)
+
+
+cf1_D = lambda p: -(cf1_cot(p) ** 3) / 4 - cf1_cot(p) / 12       # d^2 w / d(theta^2)^2 at theta = 0
+cf1_T2 = lambda p: cf1_cot(p) / 2                                # d w / d(theta^2) at theta = 0
+out["B4_fermion_CF1_cone_cell"] = constants(cf1_D, cf1_T2, math.pi / 4, label="cos w = cos(theta) cos(rho), |p_i| <= pi/4")
+
+# direct check of the expansion at finite theta on the same cell
+
+
+def cf1_F(theta, Lc=math.pi / 4):
+    n, w_ang, rmax = pyramid_nodes(Lc)
+
+    def w(p, r):
+        x = cf1_sin2rho(p)
+        cosw = math.cos(theta) * np.sqrt(np.clip(1 - x, 0.0, None))
+        return np.arccos(np.clip(cosw, -1.0, 1.0))
+    r_a = min(6 * theta, 0.5 * Lc)
+    tot = radial(w, n, w_ang, 0.0, r_a) + radial(w, n, w_ang, r_a, Lc) + radial(w, n, w_ang, Lc, rmax)
+    return 0.5 * tot / (2 * math.pi) ** 3
+
+
+b4 = out["B4_fermion_CF1_cone_cell"]
+F0 = cf1_F(0.0)
+chk = []
+for th in (0.2, 0.1, 0.05, 0.025):
+    F = cf1_F(th)
+    pred = F0 + b4["A2"] * th ** 2 + th ** 4 / (64 * math.pi ** 2) * (math.log(th ** 2) - b4["c_cell"])
+    chk.append({"theta": th, "F": F, "residual": F - pred, "residual_over_theta6": (F - pred) / th ** 6})
+out["B4_fermion_CF1_cone_cell"]["finite_theta_check"] = chk
+
+# ------------------------------------------------------------------ B4 vectors: GL's link waves, full zone
+khat = lambda p: np.sqrt((4 * np.sin(p / 2) ** 2).sum(-1))
+out["B4_vector_GL_links_full_zone"] = constants(lambda p: -1.0 / (4 * khat(p) ** 3), lambda p: 1.0 / (2 * khat(p)),
+                                                math.pi, label="omega^2 = khat^2 + M^2, |k_i| <= pi")
+
+# ------------------------------------------------------------------ B5: cones of the CF-1 alternating tick, full zone
+pts = [0.0, math.pi / 2, math.pi, 3 * math.pi / 2]
+zeros = [(a, b, c_) for a in pts for b in pts for c_ in pts
+         if abs(math.cos(2 * a) * math.cos(2 * b) * math.cos(2 * c_) - 1) < 1e-12]
+out["B5_CF1_full_zone"] = {"zero_phase_points_of_rho": len(zeros),
+                           "log_coefficient_relative_to_one_cone": len(zeros),
+                           "status": "the logarithm's coefficient is 32 times the one-cone value: this regulator "
+                                     "changes beta_lambda and is no threshold; no row"}
+
+# ------------------------------------------------------------------ B6: member B of T3 (phi = 5 pi/16)
+sig = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]], complex), np.array([[1, 0], [0, -1]], complex)]
+I2 = np.eye(2)
+ALPHA = [np.kron(sig[0], s_) for s_ in sig]
+BETA = np.kron(sig[2], I2)
+I4 = np.eye(4)
+
+
+def period_trace(p, theta, phi):
+    """Re tr P / 4 for P = M(theta/2) B1 B2 B3 M(theta) B3 B2 B1 M(theta/2); p array (..., 3)"""
+    cph, sph = math.cos(phi), math.sin(phi)
+
+    def Bi(i):
+        pi_ = p[..., i]
+        a_ = (cph ** 2 * np.cos(pi_) + sph ** 2)[..., None, None] * I4
+        b_ = (-1j * cph * np.sin(pi_))[..., None, None] * ALPHA[i]
+        c_ = (-1j * sph * cph * (1 - np.cos(pi_)))[..., None, None] * BETA
+        return a_ + b_ + c_
+    B1, B2, B3 = Bi(0), Bi(1), Bi(2)
+    Mh = math.cos(theta / 2) * I4 - 1j * math.sin(theta / 2) * BETA
+    Mf = math.cos(theta) * I4 - 1j * math.sin(theta) * BETA
+    P = Mh @ B1 @ B2 @ B3 @ Mf @ B3 @ B2 @ B1 @ Mh
+    return np.real(np.trace(P, axis1=-2, axis2=-1)) / 4
+
+
+def member_coeffs(p, phi):
+    """Taylor coefficients in theta of the phase per tick w = Omega/2, Omega = arccos(Re tr P/4), at theta = 0.
+    Re tr P/4 = u + v cos 2 theta + w sin 2 theta exactly (three evaluations)."""
+    f_0 = period_trace(p, 0.0, phi)
+    f_p = period_trace(p, math.pi / 4, phi)
+    f_m = period_trace(p, -math.pi / 4, phi)
+    wq = 0.5 * (f_p - f_m); u = 0.5 * (f_p + f_m); v = f_0 - u
+    f1, f2, f3, f4 = 2 * wq, -2 * v, -(4.0 / 3) * wq, (2.0 / 3) * v
+    c0 = np.clip(f_0, -1.0, 1.0); s0 = np.sqrt(np.clip(1 - c0 ** 2, 1e-300, None))
+    d1 = -f1 / s0
+    d2 = -(f2 + c0 * d1 ** 2 / 2) / s0
+    d3 = -(f3 + c0 * d1 * d2) / s0 + d1 ** 3 / 6
+    d4 = (c0 * (-(d2 ** 2 + 2 * d1 * d3) / 2 + d1 ** 4 / 24) - f4) / s0 + d1 ** 2 * d2 / 2
+    return np.arccos(c0) / 2, d1 / 2, d2 / 2, d3 / 2, d4 / 2
+
+
+rng = np.random.default_rng(5)
+ptest = rng.uniform(-1.0, 1.0, size=(6, 3))
+# gate 1: phi = 0 is the CF-1 alternating tick, cos w = cos(theta) cos(rho)
+th = 0.137
+g1 = float(np.abs(np.cos(np.arccos(period_trace(ptest, th, 0.0)) / 2)
+                  - math.cos(th) * np.sqrt(1 - cf1_sin2rho(ptest))).max())
+# gate 2: Taylor coefficients against finite differences
+PHI_B = 5 * math.pi / 16
+h = 1e-2
+wf = lambda t: np.arccos(period_trace(ptest, t, PHI_B)) / 2
+w0, t1, t2, t3, t4 = member_coeffs(ptest, PHI_B)
+fd1 = (wf(h) - wf(-h)) / (2 * h)
+fd2 = (wf(h) - 2 * wf(0.0) + wf(-h)) / (2 * h * h)
+fd4 = (wf(2 * h) - 4 * wf(h) + 6 * wf(0.0) - 4 * wf(-h) + wf(-2 * h)) / (24 * h ** 4)
+g2 = {"T1": float(np.abs(fd1 - t1).max()), "T2": float(np.abs(fd2 - t2).max()),
+      "T4_rel": float(np.abs(fd4 / t4 - 1).max())}
+odd = float(np.abs(wf(0.1) - wf(-0.1)).max())
+cB = math.cos(PHI_B)
+# speed at the origin
+eps = 1e-4
+speed = float(np.arccos(period_trace(np.array([[eps, 0, 0]]), 0.0, PHI_B))[0] / 2 / eps)
+mb = constants(lambda p: 2 * member_coeffs(p, PHI_B)[4], lambda p: member_coeffs(p, PHI_B)[2], math.pi, c=cB,
+               label="member B, phi = 5 pi/16, full zone, even part")
+n_, w_, rm_ = pyramid_nodes(math.pi)
+A1 = 0.5 * radial(lambda p, r: member_coeffs(p, PHI_B)[1], n_, w_, 0.0, rm_) / (2 * math.pi) ** 3
+A3 = None
+mb.update({"gate_phi0_equals_CF1_alternating_tick": g1, "gate_taylor_vs_finite_differences": g2,
+           "odd_part_max_at_theta_0.1_on_test_points": odd, "speed_at_origin": speed, "cos_phi": cB,
+           "A1_linear_term_(tadpole)": A1})
+# the same construction at phi = 0 restricted to the cone cell must reproduce B4 (gate 3)
+g3 = constants(lambda p: 2 * member_coeffs(p, 0.0)[4], lambda p: member_coeffs(p, 0.0)[2], math.pi / 4, c=1.0)
+mb["gate_phi0_cone_cell_c_equals_B4"] = [g3["c_cell"], b4["c_cell"]]
+out["B6_member_B"] = mb
+
+json.dump(out, open("constants.json", "w"), indent=1)
+for k, v in out.items():
+    print(k, json.dumps({a: b for a, b in v.items() if a != "finite_theta_check"}))
+for r in chk:
+    print("  B4 check theta=%.3f residual=%.3e residual/theta^6=%.4f" % (r["theta"], r["residual"], r["residual_over_theta6"]))

@@ -1,0 +1,148 @@
+"""R8 item 2: the toggle with a Higgs register; what the register must carry; comparison with the audit's memory.
+
+A. Register per cell = (empty, one quantum in h1, one quantum in h0), a doublet with the charges of the code's
+   doublet levels (s1, s2). Vertex V = sum_k a_k* b_k + b_k* a_k. Exact commutators with the twelve total charges and
+   the five diagonal phase charges N_j (their sum is the determinant character of U(3) x U(2)).
+B. Reflector identities for the neutral component, and the public reflector of walk.py with the two record states
+   of the routing in the place of two ports and the Higgs bit in the place of the repair record.
+C. Phase-charge bookkeeping of every toggle pair in the two presentations (pattern and partner; all-left masks).
+D. The audit's charged-memory control (physical_attachment/compensator.py), rebuilt from its own helper functions.
+All arithmetic exact (int64 or sympy rationals).
+"""
+import itertools, json, sys
+import numpy as np
+import sympy as s
+from r8_common import *
+from model.coherent_defect_wave.physical_attachment import compensator
+
+out = {}
+kron = np.kron
+# ---------------------------------------------------------------- A. doublet register
+R3 = np.eye(3, dtype=np.int64)                                        # basis (vac, h1, h0)
+def unit(i, j, n=3):
+    U = np.zeros((n, n), np.int64); U[i, j] = 1; return U
+b = {3: unit(0, 1), 4: unit(0, 2)}                                    # b_k lowers the register: |h_k> -> |vac>
+V = sum(kron(ad[k], b[k]) + kron(a[k], b[k].T) for k in (3, 4))
+V0 = kron(ad[4], b[4]) + kron(a[4], b[4].T)                           # neutral component alone
+reg = {name: np.zeros((3, 3), complex) for name in gens}
+reg['su2_T1'] = (unit(1, 2) + unit(2, 1)).astype(complex)
+reg['su2_T2'] = -1j * (unit(1, 2) - unit(2, 1))
+reg['su2_T3'] = (unit(1, 1) - unit(2, 2)).astype(complex)
+reg['u1_Y'] = 3 * (unit(1, 1) + unit(2, 2)).astype(complex)
+tot = {name: kron(gens[name], np.eye(3)) + kron(np.eye(32), reg[name]) for name in gens}
+phase = {}
+for j, lab in enumerate(('N_v1', 'N_v2', 'N_v3', 'N_s1', 'N_s2')):
+    r = np.zeros((3, 3)); r[1, 1] = (j == 3); r[2, 2] = (j == 4)
+    phase[lab] = kron(num[j].astype(float), np.eye(3)) + kron(np.eye(32), r)
+tot['Q_em'] = 3 * tot['su2_T3'] + tot['u1_Y']
+rowsA = []
+for name, T in {**tot, **phase}.items():
+    rowsA.append({'charge': name, 'full_doublet_vertex': comm0(V, T), 'neutral_component_only': comm0(V0, T),
+                  'no_register': comm0(G0, gens[name]) if name in gens else None})
+out['A_register'] = {'register': 'per cell: empty, or one quantum in h1 (charge of s1) or h0 (charge of s2)',
+                     'rows': rowsA,
+                     'determinant_character_total': comm0(V, sum(phase.values()))}
+assert all(r['full_doublet_vertex'] for r in rowsA)
+print('A. doublet vertex commutes with all', len(rowsA), 'total charges; neutral component alone fails for:',
+      [r['charge'] for r in rowsA if not r['neutral_component_only']], '; no register fails for:',
+      [r['charge'] for r in rowsA if r['no_register'] is False])
+
+# ---------------------------------------------------------------- B. reflector identities
+lo = unit(0, 1, 2)                                                    # two-level register (full = 1 -> empty = 0)
+K = kron(ad[4], lo) + kron(a[4], lo.T)                                # fill the level, take the quantum from the register
+I64 = np.eye(64, dtype=np.int64)
+QH = I64 - K @ K + K
+Kc = kron(G0, unit(0, 1, 2) + unit(1, 0, 2))                          # cyclic bit
+Z2tot = kron(np.diag([(-1) ** (st[3] + st[4]) for st in states]), np.diag([1, -1]))
+Ytot_bit = kron(gens['u1_Y'].real.astype(np.int64), np.eye(2, dtype=np.int64)) + 3 * kron(I32, np.diag([0, 1]))
+out['B_reflector'] = {
+    'K_cubed_equals_K': bool(np.array_equal(K @ K @ K, K)),
+    'rank_of_active_projector_K_squared': int(np.trace(K @ K)),
+    'exchange_reflector_QH_is_involution': bool(np.array_equal(QH @ QH, I64)),
+    'QH_minus_one_eigenspace_dimension': int((64 - np.trace(QH)) // 2),
+    'QH_commutes_with_hypercharge_of_pattern_plus_register': bool(np.array_equal(QH @ Ytot_bit, Ytot_bit @ QH)),
+    'mass_step': 'exp(-i theta K) = 1 + (cos theta - 1) K^2 - i sin theta K, from K^3 = K',
+    'cyclic_bit_Kc_is_involution': bool(np.array_equal(Kc @ Kc, np.eye(64, dtype=np.int64))),
+    'cyclic_bit_commutes_with_Z2_charge_of_pattern_plus_bit': bool(np.array_equal(Kc @ Z2tot, Z2tot @ Kc)),
+    'cyclic_bit_commutes_with_integer_hypercharge': bool(np.array_equal(Kc @ Ytot_bit, Ytot_bit @ Kc))}
+# the public reflector with (record written, record blank) of the routing as the two ports and the Higgs bit as record
+# One species: E = level empty, F = level filled; record of the routing defined by the flip X of the level
+# (blank = (E + F)/sqrt2, written = (-E + F)/sqrt2; this is G0 up to the sign p of the species, see r8_chart.py).
+# Higgs bit: h0 = quantum present in the register, h1 = quantum absorbed by the pattern.
+Evec, Fvec = s.Matrix([1, 0]), s.Matrix([0, 1])
+blank = (Evec + Fvec) / s.sqrt(2); written = (-Evec + Fvec) / s.sqrt(2)
+h0, h1 = s.Matrix([1, 0]), s.Matrix([0, 1])
+kp = lambda x, y: s.kronecker_product(x, y)
+A0, A1, B0, B1 = kp(written, h0), kp(written, h1), kp(blank, h0), kp(blank, h1)           # a = written, b = blank
+v = (A0 - B0 - A1 - B1) / s.sqrt(2)                                    # the vector of model/coherent_seam_repair/walk.py
+U = (s.eye(4) - v * v.T).applyfunc(s.simplify)
+K4 = kp(Fvec, h1) * kp(Evec, h0).T + kp(Evec, h0) * kp(Fvec, h1).T    # exchange (E, present) <-> (F, absorbed)
+Ych = s.diag(1, 0, 2, 1)                                               # units of the level's charge on (E0, E1, F0, F1): F counts 1, a present quantum counts 1
+th = s.symbols('theta', real=True)
+Mstep = s.eye(4) + (s.cos(th) - 1) * K4 ** 2 - s.I * s.sin(th) * K4
+out['B_public_reflector'] = {
+    'public_reflector_equals_1_minus_K2_minus_K': bool(U == s.eye(4) - K4 ** 2 - K4),
+    'public_reflector_conserves_charge_of_level_plus_register': bool(U * Ych == Ych * U),
+    'mass_step_is_exp_minus_i_theta_K': bool((Mstep - (-s.I * th * K4).exp()).applyfunc(s.simplify) == s.zeros(4)),
+    'mass_step_at_pi_over_2_on_active_pair_is_minus_i_times_exchange': bool(Mstep.subs(th, s.pi / 2) == s.eye(4) - K4 ** 2 - s.I * K4),
+    'public_reflector_matrix_basis_(E0,E1,F0,F1)': [[str(x) for x in U.row(i)] for i in range(4)]}
+print('B.', json.dumps(out['B_reflector'])); print('   public reflector:', {k: v for k, v in out['B_public_reflector'].items() if 'matrix' not in k})
+
+# ---------------------------------------------------------------- C. phase charges of every toggle pair
+rowsC = {}
+ones = np.ones(5, dtype=int)
+for st in states:
+    if st[4] == 0 and sum(st[:3]) % 2 == 1:
+        e_, f_ = np.array(st), np.array(st[:4] + (1,))
+        right, left = (e_, f_) if sum(e_) % 2 == 1 else (f_, e_)
+        lvl = np.array([0, 0, 0, 0, 1])
+        higgs = -lvl if left[4] == 1 else lvl                         # register quantum annihilated or created
+        dirac = left - right + higgs
+        all_left = (ones - right) + left + higgs
+        key = {(1, 0): 'down', (1, 1): 'up', (3, 0): 'charged lepton', (3, 1): 'neutrino'}[(sum(st[:3]), st[3])]
+        row = {'right': names[sector(tuple(right))], 'left': names[sector(tuple(left))],
+               'pattern_presentation_total_phase_charges': dirac.tolist(),
+               'all_left_presentation_total_phase_charges': all_left.tolist(),
+               'all_left_degrees_(conjugated right, left, Higgs)': [int(5 - right.sum()), int(left.sum()), int(higgs.sum())]}
+        assert key not in rowsC or rowsC[key] == row
+        rowsC[key] = row
+out['C_phase_charges'] = rowsC
+for k, v in rowsC.items(): print('C.', k, v)
+
+# ---------------------------------------------------------------- D. the audit's charged-memory control
+rowsD = []
+for degrees, hc in (((2, 2), 1), ((2, 4), -1), ((4, 2), -1)):
+    c0, c1 = compensator.fermion_creation(0), compensator.fermion_creation(1)
+    up = compensator.raising()
+    unb = s.kronecker_product(c0 * c1, up)                            # pair creation times Higgs transition (8-dim)
+    Kunb = unb + unb.H
+    Kaud = s.kronecker_product(unb, up) + s.kronecker_product(unb, up).H
+    n0, n1 = s.diag(0, 1, 0, 1), s.diag(0, 0, 1, 1)                   # mask bit 0, mask bit 1
+    nH, nX = s.diag(0, 1), s.diag(0, 1)
+    k3 = lambda x, y, z: s.kronecker_product(x, y, z)
+    D_aud8 = s.kronecker_product(degrees[0] * n0 + degrees[1] * n1, s.eye(2)) + hc * s.kronecker_product(s.eye(4), nH)
+    D_aud = s.kronecker_product(D_aud8, s.eye(2)) - 5 * k3(s.eye(4), s.eye(2), nX)
+    D_cf8 = s.kronecker_product(degrees[0] * n0 + (degrees[1] - 5) * n1, s.eye(2)) + hc * s.kronecker_product(s.eye(4), nH)
+    diff = k3(n1, s.eye(2), s.eye(2)) - k3(s.eye(4), s.eye(2), nX)    # n_1 - n_X
+    rowsD.append({'audit_degrees': list(degrees), 'Higgs_character': hc,
+                  'vertex_without_memory_commutes_with_audit_degree': bool(Kunb * D_aud8 == D_aud8 * Kunb),
+                  'vertex_without_memory_commutes_with_pattern_degree': bool(Kunb * D_cf8 == D_cf8 * Kunb),
+                  'pattern_degree_of_conjugated_mode': degrees[1] - 5,
+                  'audit_vertex_commutes_with_audit_total': bool(Kaud * D_aud == D_aud * Kaud),
+                  'audit_total_equals_pattern_degree_plus_5_(n1_minus_nX)': bool(D_aud == s.kronecker_product(D_cf8, s.eye(2)) + 5 * diff),
+                  'audit_vertex_conserves_n1_minus_nX': bool(Kaud * diff == diff * Kaud)})
+# ---------------------------------------------------------------- E. one amplitude per species is allowed
+# V_f = sum_k a_k* f(n3, n2) b_k + h.c., f a function of the sector before the level is filled: eight values on the
+# 32 patterns, four on the family half (down: (1,0), up: (1,1), charged lepton: (3,0), neutrino: (3,1)).
+fval = {(0, 0): 2, (0, 1): 3, (1, 0): 5, (1, 1): 7, (2, 0): 11, (2, 1): 13, (3, 0): 17, (3, 1): 19}
+Fd = np.diag([fval.get(sector(st), 0) for st in states]).astype(np.int64)
+Vf = sum(kron(ad[k] @ Fd, b[k]) + kron(Fd @ a[k], b[k].T) for k in (3, 4))
+out['E_amplitude_per_species'] = {
+    'test_amplitudes_(n3,n2_before)': {str(k): v for k, v in fval.items()},
+    'vertex_commutes_with_all_twelve_total_charges_and_five_phase_charges': bool(all(comm0(Vf, T) for T in {**tot, **phase}.values())),
+    'independent_amplitudes_on_the_family_half': 4,
+    'reason': 'one invariant line for each pair of sectors (n3, n2) -> (n3, n2 + 1) (Schur); linear in the level operators only when all are equal'}
+print('E.', out['E_amplitude_per_species'])
+out['D_audit_memory'] = rowsD
+for r in rowsD: print('D.', r)
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

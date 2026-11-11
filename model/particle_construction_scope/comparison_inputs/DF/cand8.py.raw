@@ -1,0 +1,63 @@
+"""DF-8 (appendix 1 of CANDIDATES.md): two-sided transport vertex. Reads no measured value; writes values8.json.
+
+Y_s = conj(W)^T T_(k_R)[f3, f3] diag(h_s) T_(k_Q)[f3, f1] U  (rows: right copies on f3, columns: left copies on f1)
+Run: cd RL/work/DF && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B cand8.py
+"""
+import json
+import math
+import os
+
+import numpy as np
+
+import dflib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SECT = {'up': (9, 7, 16), 'down': (9, 13, 2), 'charged_lepton_control': (13, 13, 6)}
+
+
+def evaluate(seam=(2, 3), root=0):
+    J = L.junction(seam)
+    f1, f3 = J['f1'], J['f3']
+    res = {}
+    for name, (kQ, kH, kR) in SECT.items():
+        AQ, AH, AR = (L.twisted_adjacency(k, root) for k in (kQ, kH, kR))
+        evH, VH = np.linalg.eigh(AH[np.ix_(f3, f3)])
+        h = VH[:, np.argmax(evH)]
+        _, U = np.linalg.eigh(AQ[np.ix_(f1, f1)])      # left copies on f1 (twisted characters, sector kQ)
+        _, Wr = np.linalg.eigh(AR[np.ix_(f3, f3)])     # right copies on f3 (sector kR)
+        M = L.kernel(AR)[np.ix_(f3, f3)] @ np.diag(h) @ L.kernel(AQ)[np.ix_(f3, f1)]
+        Y = Wr.conj().T @ M @ U                        # rows j (right), columns i (left)
+        Yl = Y.T                                       # Y_ij with i = left copy
+        Uu, s, Vh = np.linalg.svd(Yl)
+        idx = np.argsort(s)
+        res[name] = {'s': s[idx], 'UL': Uu[:, idx]}
+    return res
+
+
+base = evaluate()
+out = {'measured_values_read': False, 'DF-8': {}}
+for name, r in base.items():
+    y = np.sort(r['s'])
+    out['DF-8'][name] = {'singular_values': y.tolist(), 'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2],
+                         'sigma': 0.5 * math.log(y[2] / y[0]),
+                         'rho': math.log(y[1] / y[0]) / math.log(y[2] / y[1]),
+                         'koide_Q': y.sum() / np.sqrt(y).sum() ** 2}
+V = np.abs(base['up']['UL'].conj().T @ base['down']['UL'])
+out['DF-8']['V_CKM_abs'] = V.tolist()
+out['DF-8']['up_equals_down'] = bool(np.allclose(base['up']['s'], base['down']['s']))
+dev = 0.0
+for seam, root in (((0, 1), 0), ((5, 9), 3), ((6, 7), 11)):
+    o = evaluate(seam, root)
+    for name in SECT:
+        dev = max(dev, float(np.max(np.abs(np.sort(o[name]['s']) - np.sort(base[name]['s'])))))
+    Vo = np.abs(o['up']['UL'].conj().T @ o['down']['UL'])
+    dev = max(dev, float(np.max(np.abs(Vo - V))))
+out['DF-8']['max_change_over_seams_and_gauges'] = dev
+with open(os.path.join(HERE, 'values8.json'), 'w') as fh:
+    json.dump(out, fh, indent=1, sort_keys=True)
+for name in SECT:
+    r = out['DF-8'][name]
+    print(name, np.round(r['singular_values'], 6), 'y1/y3=%.3e y2/y3=%.4f rho=%.3f Q=%.4f' % (
+        r['y1_over_y3'], r['y2_over_y3'], r['rho'], r['koide_Q']))
+print('|V|', np.round(V, 4).tolist())
+print('up=down', out['DF-8']['up_equals_down'], 'covariance dev', dev)

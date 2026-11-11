@@ -1,0 +1,35 @@
+"""Reproduction attempt of the edge-sector beta shift of RER paper/tex_fragments/PARTICLE_TECHNICAL_SUPPLEMENT_PORT.tex
+(subsection "Peter--Weyl Multiplicity and Beta Shifts"): Delta b_a = sum_R p_R d_R T_a(R), p_R ~ d_R exp(-t C2(R)),
+quoted there as (2.49, 4.38, 3.97) at t_U ~ 1.64 and (2.50, 4.17, 3.97) with half-integer SU(2) sectors only.
+No producer exists in the repository. This script evaluates the stated formula with normalized and unnormalized
+p_R, standard Dynkin indices, and solves for the t that would return each quoted number.
+
+Run:
+    /tmp/oph-completion-venv/bin/python heat_kernel_check.py
+"""
+import numpy as np, itertools, math
+def su2(t, norm, half_only=False, cut=200):
+    num=0; Z=0
+    for n in range(cut+1):
+        j=n/2; d=n+1; c2=j*(j+1); T=j*(j+1)*(2*j+1)/3
+        w=d*math.exp(-t*c2)
+        Z+=w
+        if half_only and n%2==0: continue
+        num+=w*d*T
+    return num/Z if norm else num
+def su3(t, norm, cut=60):
+    num=0; Z=0
+    for p in range(cut+1):
+        for q in range(cut+1):
+            d=(p+1)*(q+1)*(p+q+2)//2; c2=(p*p+q*q+p*q+3*p+3*q)/3; T=d*c2/8
+            w=d*math.exp(-t*c2); Z+=w; num+=w*d*T
+    return num/Z if norm else num
+for t in [4*math.pi**2*0.0411242474, 1.64]:
+    for norm in (True, False):
+        print(f"t={t:.4f} norm={norm}: SU2={su2(t,norm):.3f} SU2half={su2(t,norm,True):.3f} SU3={su3(t,norm):.3f}")
+# what t reproduces 4.38 / 4.17 (half) for SU2 and 3.97 for SU3, unnormalized and normalized
+from scipy.optimize import brentq
+for norm in (True, False):
+    for target,f in [(4.38,lambda t: su2(t,norm)),(4.17,lambda t: su2(t,norm,True)),(3.97,lambda t: su3(t,norm))]:
+        try: print('norm',norm,'target',target,'t=',brentq(lambda t: f(t)-target, 0.05, 5))
+        except Exception as e: print('norm',norm,'target',target,'no root',e)

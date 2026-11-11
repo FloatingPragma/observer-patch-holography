@@ -1,0 +1,135 @@
+"""Exact one-loop slopes (b1, b2, b3) for the candidate state sets of CANDIDATES.md.
+
+Run:
+    /tmp/oph-completion-venv/bin/python b_coefficients.py [out.json]
+
+Convention of RER/code/P_derivation/paper_math.py (alpha_run_1loop):
+    1/alpha_i(mu) = 1/alpha_U + (b_i / (2 pi)) ln(M_U / mu),  i.e.  d g_i / d ln mu = b_i g_i^3 / (16 pi^2),
+hypercharge in GUT normalization alpha_1 = (5/3) alpha_Y.
+
+One-loop functional (IMPORTED, standard four-dimensional gauge theory, the same import as
+RER/code/P_derivation/source_rg_frontier):
+    b = -(11/3) C2(G) + (2/3) sum_Weyl T(R) + (1/3) sum_complex_scalar T(R)
+with the U(1)_Y index (3/5) Y^2 summed over components. All arithmetic is exact (fractions).
+"""
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('b_coefficients.json')
+
+SU3 = {'1': (1, F(0)), '3': (3, F(1, 2)), '3b': (3, F(1, 2)), '8': (8, F(3))}   # dim, Dynkin index
+SU2 = {'1': (1, F(0)), '2': (2, F(1, 2)), '3': (3, F(2))}
+C2_ADJ = {'3': F(3), '2': F(2)}
+
+WEYL, CSCALAR = 'weyl', 'complex_scalar'
+LOOP = {WEYL: F(2, 3), CSCALAR: F(1, 3)}
+
+
+def field(name, r3, r2, y, kind, n=1):
+    return dict(name=name, su3=r3, su2=r2, Y=F(y), kind=kind, n=n)
+
+
+MULTIPLETS = [('Q', '3', '2', F(1, 6)), ('U', '3b', '1', F(-2, 3)), ('D', '3b', '1', F(1, 3)),
+              ('L', '1', '2', F(-1, 2)), ('E', '1', '1', F(1)), ('N', '1', '1', F(0))]
+
+
+def family(n):
+    return [field(m, r3, r2, y, WEYL, n) for m, r3, r2, y in MULTIPLETS]
+
+
+def sfamily(n, with_e=True):
+    keep = ('Q', 'U', 'D', 'L', 'E', 'N') if with_e else ('Q', 'U', 'D', 'L')
+    return [field(m + '~', r3, r2, y, CSCALAR, n) for m, r3, r2, y in MULTIPLETS if m in keep]
+
+
+H = [field('H', '1', '2', F(1, 2), CSCALAR)]
+HD = [field('H_d', '1', '2', F(-1, 2), CSCALAR)]
+GAUGINOS = [field('gluino', '8', '1', 0, WEYL), field('wino', '1', '3', 0, WEYL), field('bino', '1', '1', 0, WEYL)]
+HIGGSINOS = [field('Hu~', '1', '2', F(1, 2), WEYL), field('Hd~', '1', '2', F(-1, 2), WEYL)]
+DIRAC5 = [field('5_t', '3', '1', F(-1, 3), WEYL), field('5b_t', '3b', '1', F(1, 3), WEYL),
+          field('5_d', '1', '2', F(1, 2), WEYL), field('5b_d', '1', '2', F(-1, 2), WEYL)]
+DIRAC_DOUBLET = [field('5_d', '1', '2', F(1, 2), WEYL), field('5b_d', '1', '2', F(-1, 2), WEYL)]
+
+SETS = {
+    'A': ('SM: three families, one Higgs doublet', family(3) + H),
+    'B': ('A + one complex scalar per Weyl multiplet, three families', family(3) + H + sfamily(3)),
+    'C': ('B + adjoint Weyl fermions', family(3) + H + sfamily(3) + GAUGINOS),
+    'D': ('C + second Higgs doublet + two Weyl doublets (MSSM content)',
+          family(3) + H + sfamily(3) + GAUGINOS + HD + HIGGSINOS),
+    'B0': ('A + Q, U, D, L scalars (no E scalar), three families', family(3) + H + sfamily(3, False)),
+    'D0': ('D without the E scalars', family(3) + H + sfamily(3, False) + GAUGINOS + HD + HIGGSINOS),
+    'B1': ('A + one generation-blind copy of the Q, U, D, L scalars', family(3) + H + sfamily(1, False)),
+    'D1': ('A + gauginos + second Higgs + Higgsinos + one copy of Q, U, D, L scalars',
+           family(3) + H + GAUGINOS + HD + HIGGSINOS + sfamily(1, False)),
+    'D1E': ('D1 + one E scalar',
+            family(3) + H + GAUGINOS + HD + HIGGSINOS + sfamily(1, False) + [field('E~', '1', '1', 1, CSCALAR)]),
+    'A2': ('A with two Higgs doublets, no partners', family(3) + H + HD),
+    'S': ('A + gauginos + second Higgs + Higgsinos, no sfermions', family(3) + H + GAUGINOS + HD + HIGGSINOS),
+    'A1': ('A with one family', family(1) + H),
+    'BnoH': ('B with the Higgs identified with one class-3 scalar doublet', family(3) + sfamily(3)),
+    'A5D': ('A + one Dirac fermion in the native five', family(3) + H + DIRAC5),
+    'AHD': ('A + one Dirac doublet (1,2)_{+-1/2}', family(3) + H + DIRAC_DOUBLET),
+    # two Dirac tastes per internal component = four Weyl copies of each multiplet (vectorlike)
+    'T2': ('three families as two Dirac tastes each (staggered source action) + one H', family(12) + H),
+    'T2_1': ('one family as two Dirac tastes + one H', family(4) + H),
+}
+
+
+def coefficients(fields):
+    b3 = -F(11, 3) * C2_ADJ['3']
+    b2 = -F(11, 3) * C2_ADJ['2']
+    by = F(0)
+    for f in fields:
+        d3, t3 = SU3[f['su3']]
+        d2, t2 = SU2[f['su2']]
+        w = LOOP[f['kind']] * f['n']
+        b3 += w * t3 * d2
+        b2 += w * t2 * d3
+        by += w * f['Y'] ** 2 * d3 * d2
+    return F(3, 5) * by, b2, b3, by
+
+
+# --- checks against the RER receipt (source_rg_frontier/outputs/rg_representation_frontier.json)
+fam = family(1)
+assert sum(SU3[f['su3']][1] * SU2[f['su2']][0] for f in fam) == 2          # sum_Weyl T_SU3
+assert sum(SU2[f['su2']][1] * SU3[f['su3']][0] for f in fam) == 2          # sum_Weyl T_SU2
+assert sum(SU3[f['su3']][0] * SU2[f['su2']][0] * f['Y'] ** 2 for f in fam) == F(10, 3)
+# anomaly-free family (sanity of the hypercharges): sum Y and sum Y^3 over Weyl components vanish
+assert sum(SU3[f['su3']][0] * SU2[f['su2']][0] * f['Y'] for f in fam) == 0
+assert sum(SU3[f['su3']][0] * SU2[f['su2']][0] * f['Y'] ** 3 for f in fam) == 0
+
+rows = {}
+for key, (desc, fields) in SETS.items():
+    b1, b2, b3, by = coefficients(fields)
+    rows[key] = dict(content=desc, b1=str(b1), b2=str(b2), b3=str(b3), bY=str(by),
+                     b1_minus_b2=str(b1 - b2), b2_minus_b3=str(b2 - b3),
+                     B_ratio=str((b2 - b3) / (b1 - b2)), float=[float(b1), float(b2), float(b3)])
+
+assert (rows['A']['b1'], rows['A']['b2'], rows['A']['b3']) == ('41/10', '-19/6', '-7')
+assert (rows['D']['b1'], rows['D']['b2'], rows['D']['b3']) == ('33/5', '1', '-3')
+
+# decomposition of D - A into parts (exact)
+parts = {
+    'sfermions (3 families)': sfamily(3), 'gauginos': GAUGINOS, 'second Higgs doublet': HD, 'Higgsinos': HIGGSINOS,
+}
+zero = coefficients([])
+decomp = {}
+for name, fl in parts.items():
+    c = coefficients(fl)
+    decomp[name] = [str(c[i] - zero[i]) for i in range(3)]
+total = [sum(F(decomp[n][i]) for n in decomp) for i in range(3)]
+assert total == [F(33, 5) - F(41, 10), 1 - F(-19, 6), -3 - F(-7)]
+
+out = dict(convention='1/alpha_i(mu) = 1/alpha_U + (b_i/(2 pi)) ln(M_U/mu); alpha_1 = (5/3) alpha_Y',
+           functional='IMPORTED: standard four-dimensional one-loop gauge beta function',
+           receipt_cross_check=dict(sum_weyl_T_SU3='2', sum_weyl_T_SU2='2', sum_weyl_dim_Y2='10/3'),
+           sets=rows, D_minus_A_by_part=decomp, D_minus_A=[str(x) for x in total])
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+w = max(len(k) for k in rows)
+print(f"{'set':<{w}}  {'b1':>7} {'b2':>7} {'b3':>7}   b1-b2   b2-b3   (b2-b3)/(b1-b2)")
+for k, r in rows.items():
+    print(f"{k:<{w}}  {r['b1']:>7} {r['b2']:>7} {r['b3']:>7}   {r['b1_minus_b2']:>6}  {r['b2_minus_b3']:>6}  "
+          f"{float(F(r['B_ratio'])):.4f}")
+print('D - A by part:', decomp)

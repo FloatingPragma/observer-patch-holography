@@ -1,0 +1,129 @@
+"""CW tables: reads cw2_bloch.json (rule a), cw3_magnetic.json (rules b, c) and prints / writes the species tables,
+one clock at a time. No new computation except closed-form conversions of stored levels and second derivatives.
+
+Run: python cw7_tables.py -> cw7_tables.json
+"""
+import json
+import math
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+d2 = json.load(open(os.path.join(HERE, 'cw2_bloch.json')))
+M = d2['M_eff']
+QK = d2['conventions']['zone_radius_Gamma_to_K']
+out = {'M_eff': M, 'zone_radius': QK}
+
+
+def is_cone(p):
+    return ('slope_v' in p and p['min_splitting_at'] in ('K', "K'", 'Gamma') and p['slope_anisotropy'] < 0.02
+            and not p['lower_is_flat'] and not p['upper_is_flat'] and p['mid_drift_over_splitting_change'] < 0.5)
+
+
+for name, rows in d2['wirings'].items():
+    rec, fo, cones, flats, skipped = [], [], [], [], []
+    for r in rows:
+        k = r['k']
+        for ci, cpx in enumerate(r['complexes']):
+            lev, d = cpx['carrier_level'], cpx['dim']
+            if not cpx['separated']:
+                skipped.append([k, d])                      # band indices of overlapping complexes are not assigned
+                continue
+            if cpx['flat_band']:
+                fb = cpx['flat_band']
+                flats.append({'k': k, 'multiplet_dim': d, 'multiplet_rank': ci, 'level': lev, 'lambda': 1 - lev / (2 * M), 'per_cell': fb['degeneracy_per_cell'],
+                              'omega0_recurrence': fb['recurrence_clock']['omega0'], 'E0_first_order': fb['first_order_clock']['E0']})
+            for b in cpx['dispersive_bands']:
+                a = b['at_minimum']; rc = a['recurrence_clock']
+                if not a['quadratic_point'] or 'c' not in rc:
+                    continue
+                lmin = a['level']; h = a['second_derivative_mean']
+                rec.append({'k': k, 'multiplet_dim': d, 'multiplet_rank': ci, 'band': b['band_index'], 'at': b['min_at'], 'touches_flat_band': bool(abs(b['min_minus_carrier_level']) < 1e-9),
+                            'gap_above_carrier_level': b['min_minus_carrier_level'], 'omega0': rc['omega0'], 'c': rc['c'], 'c_anisotropy': rc['c_anisotropy'],
+                            'm_omega0_over_c2': rc['mass_omega0_over_c2'], 'compton_edges': rc['compton_length_edges'],
+                            'compton_momentum_over_zone_radius': (rc['compton_momentum'] / QK) if rc['compton_momentum'] else 0.0,
+                            'dev_at_0.5': rc['shell_deviation_rel_to_c2q2_at_dq']['0.5'], 'dev_at_1.0': rc['shell_deviation_rel_to_c2q2_at_dq']['1.0'],
+                            'large_M_limit': {'omega0_sqrtM': math.sqrt(max(lmin, 0.0)), 'c_sqrtM': math.sqrt(h / 2), 'compton_edges': math.sqrt(h / (2 * lmin)) if lmin > 1e-12 else None}})
+                fo.append({'k': k, 'multiplet_dim': d, 'multiplet_rank': ci, 'band': b['band_index'], 'at': b['min_at'], 'E0': a['first_order_clock']['E0'],
+                           'kinetic_mass': a['first_order_clock'].get('kinetic_mass'), 'speed': None})
+            for p in cpx['pairs']:
+                if is_cone(p):
+                    cones.append({'k': k, 'multiplet_dim': d, 'multiplet_rank': ci, 'bands': p['bands'], 'at': p['min_splitting_at'], 'b': p['half_splitting_b'], 'v': p['slope_v'],
+                                  'two_band_residual': p['hyperbola_residual_rel_in_window'], 'mid_drift_ratio': p['mid_drift_over_splitting_change'],
+                                  'compton_edges_v_over_b': p['compton_length_v_over_b_edges'],
+                                  'first_order': {'rest': p['first_order_clock']['rest_energy'], 'speed': p['first_order_clock']['speed'], 'E_mid': p['first_order_clock']['E_mid']},
+                                  'recurrence': {'rest_about_mid': p['recurrence_clock']['rest_frequency_about_mid'], 'speed': p['recurrence_clock']['speed'], 'omega_mid': p['recurrence_clock']['omega_mid']}})
+    lead = [x for x in rec if x['multiplet_rank'] == 0]
+    lowest = {}
+    for x in lead:
+        if x['k'] not in lowest or x['omega0'] < lowest[x['k']]['omega0']:
+            lowest[x['k']] = x
+    cl = [lowest[k]['c'] for k in sorted(lowest) if k > 0]
+    call = [x['c'] for x in rec if x['k'] > 0]
+    sp = {'recurrence_clock': {'c_gapless_k0': lowest[0]['c'],
+                               'lowest_dispersive_band_of_leading_multiplet_c_by_k': {str(k): lowest[k]['c'] for k in sorted(lowest)},
+                               'spread_over_k_1_to_10': {'min': min(cl), 'max': max(cl), 'max_over_min': max(cl) / min(cl)},
+                               'all_dispersive_minima_all_multiplets_k_1_to_10': {'count': len(call), 'min': min(call), 'max': max(call), 'max_over_min': max(call) / min(call)},
+                               'largest_compton_length_edges_k_ge_1': max(x['compton_edges'] for x in rec if x['k'] > 0),
+                               'smallest_compton_momentum_over_zone_radius_k_ge_1': min(x['compton_momentum_over_zone_radius'] for x in rec if x['k'] > 0)},
+          'first_order_clock': {'quadratic_minima_have_no_speed': True,
+                                'kinetic_mass_min_max': [min(x['kinetic_mass'] for x in fo if x['kinetic_mass']), max(x['kinetic_mass'] for x in fo if x['kinetic_mass'])],
+                                'cones': len(cones)}}
+    if cones:
+        vs = [c['first_order']['speed'] for c in cones]
+        sp['first_order_clock']['cone_speed_min_max_ratio'] = [min(vs), max(vs), max(vs) / min(vs)]
+        vr = [c['recurrence']['speed'] for c in cones]
+        sp['recurrence_clock']['cone_speed_about_mid_min_max_ratio'] = [min(vr), max(vr), max(vr) / min(vr)]
+    out[name] = {'complexes_skipped_because_they_overlap_k_dim': skipped, 'flat_bands': flats, 'recurrence_clock_quadratic_minima': rec, 'first_order_clock_quadratic_minima': fo, 'cones': cones, 'species': sp}
+
+    print(f'\n================ wiring {name}, glue rule (a) ================')
+    print('RECURRENCE CLOCK (omega = arccos lambda, M_eff = %g). Leading multiplet of each k:' % M)
+    print(' k  d | flat: omega0   per cell | band  at      gap above flat  omega0     c         m=omega0/c^2  Compton(edges)  qC/qK   dev(0.5)            dev(1.0)')
+    for k in range(0, 11):
+        fl = [x for x in flats if x['k'] == k and x['multiplet_rank'] == 0]
+        first = True
+        for x in [y for y in rec if y['k'] == k and y['multiplet_rank'] == 0]:
+            ftxt = (f"{fl[0]['omega0_recurrence']:.6f}  {fl[0]['per_cell']:2d}" if fl else '   none     0') if first else ' ' * 12
+            cmp_ = f"{x['compton_edges']:.4f}" if x['compton_edges'] else '  inf '
+            print(f"{k:2d} {x['multiplet_dim']:2d} | {ftxt:>22} | {x['band']:3d}  {x['at']:7s} {x['gap_above_carrier_level']:+.6f}      {x['omega0']:.6f}  {x['c']:.6f}  {x['m_omega0_over_c2']:10.2f}   {cmp_:>8}      {x['compton_momentum_over_zone_radius']:6.2f}  "
+                  f"[{x['dev_at_0.5'][0]:+.3f},{x['dev_at_0.5'][1]:+.3f}]  [{x['dev_at_1.0'][0]:+.3f},{x['dev_at_1.0'][1]:+.3f}]")
+            first = False
+    print('species, recurrence clock:', json.dumps(sp['recurrence_clock']))
+    print('FIRST-ORDER CLOCK (E = -log lambda). Quadratic minima are rates with a kinetic mass and no speed. Cones (two-band form at K):')
+    print(' k  d  bands    b          v          resid   Compton v/b | rest      speed')
+    for c in cones:
+        print(f"{c['k']:2d} {c['multiplet_dim']:2d}  {str(c['bands']):8s} {c['b']:.6f}   {c['v']:.6f}   {c['two_band_residual']:.3f}   {c['compton_edges_v_over_b'] if c['compton_edges_v_over_b'] else float('inf'):8.3f}   | {c['first_order']['rest']:.6f}  {c['first_order']['speed']:.6f}")
+    print('species, first-order clock:', json.dumps(sp['first_order_clock']))
+
+p3 = os.path.join(HERE, 'cw3_magnetic.json')
+if os.path.exists(p3):
+    d3 = json.load(open(p3))
+    rows = {(r['wiring'], r['k'], r['mu']): r for r in d3['rows']}
+    tab = []
+    print('\n================ glue rules with a net flux through the screen ================')
+    print('wiring k | rule  mu  cells | flat/cell | lowest dispersive band: bottom-l0   width      bands/cell  gap above | REC omega0   c         Compton | FIRST E0    m_kin')
+    for key, ru in d3['rules'].items():
+        name, k = key.split(','); k = int(k)
+        for rule, mu in (('b', ru['mu_rule_b']), ('c', ru['mu_rule_c'])):
+            r = rows[(name, k, mu)]
+            a = r['at_bottom']; rc = a['recurrence_clock']; fo = a['first_order_clock']
+            tab.append({'wiring': name, 'k': k, 'rule': rule, 'mu': mu, 'supercell': r['supercell'], 'flat_per_cell': r['flat_bands_at_l0_per_cell'], 'd': r['d'],
+                        'bottom_minus_l0': r['lowest_dispersive_bottom_minus_l0'], 'width': r['cluster_width'], 'bands_per_cell': r['cluster_bands_per_cell'],
+                        'gap_above': r['gap_above_cluster'], 'second_derivative': a['second_derivative_mean'], 'anisotropy': a['second_derivative_anisotropy'], 'quadratic': a['quadratic_point'],
+                        'recurrence': {'omega0': rc['omega0'], 'c': rc.get('c'), 'compton_edges': rc.get('compton_length_edges')},
+                        'first_order': {'E0': fo['E0'], 'kinetic_mass': fo.get('kinetic_mass')}})
+            t = tab[-1]
+            print(f"{name:2s} {k:2d} | ({rule})  {mu:2d}  {t['supercell']:2d}   | {t['flat_per_cell']:.2f} (2d-3={max(0, 2 * t['d'] - 3)}) | {t['bottom_minus_l0']:+.6f}  {t['width']:.6f}  {t['bands_per_cell']:.2f}  {t['gap_above']:+.6f} | "
+                  f"{rc['omega0']:.6f}  {rc.get('c') or float('nan'):.6f}  {rc.get('compton_length_edges') or float('nan'):.4f} | {fo['E0']:.6f}  {fo.get('kinetic_mass') or float('nan'):.0f}")
+    out['net_flux_rules'] = tab
+    scan = {}
+    for (name, k, mu), r in sorted(rows.items()):
+        if k in (1, 2):
+            scan.setdefault(f'{name},{k}', []).append({'mu': mu, 'Phi_v': r['Phi_v_units'], 'flat_per_cell': r['flat_bands_at_l0_per_cell'], 'bottom_minus_l0': r['lowest_dispersive_bottom_minus_l0'],
+                                                       'width': r['cluster_width'], 'c_recurrence': r['at_bottom']['recurrence_clock'].get('c')})
+    out['net_flux_scan'] = scan
+    for key, lst in scan.items():
+        print(f'scan {key}: mu -> (bottom - l0, width): ' + ', '.join(f"{x['mu']}:({x['bottom_minus_l0']:.4f},{x['width']:.4f})" for x in lst))
+        cs = [x['c_recurrence'] for x in lst if x['c_recurrence'] and x['mu'] != 0]
+        print(f'   flat bands per cell for every mu: {sorted(set(x["flat_per_cell"] for x in lst))}; recurrence-clock c of the bottom for mu != 0: min {min(cs):.5f} max {max(cs):.5f}')
+json.dump(out, open(os.path.join(HERE, 'cw7_tables.json'), 'w'), indent=1)
+print('\nwritten cw7_tables.json')

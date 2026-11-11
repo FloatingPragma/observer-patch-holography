@@ -1,0 +1,186 @@
+#!/usr/bin/env python3
+"""Worker SC (step S14): exact checks for Parts A and B of CANDIDATES.md.
+
+Symbolic identities (sympy) and exact rational lemmas (fractions). No measured value is read. Writes sc_exact.json.
+Each check is a named boolean; the script exits nonzero if any check fails.
+"""
+from __future__ import annotations
+
+import json
+import sys
+from fractions import Fraction as Fr
+from pathlib import Path
+
+import sympy as sp
+
+HERE = Path(__file__).resolve().parent
+checks: dict[str, bool] = {}
+notes: dict[str, object] = {}
+
+
+def zero(expr) -> bool:
+    e = sp.simplify(sp.expand_log(sp.expand(expr), force=True))
+    return e == 0
+
+
+P, Es, alpha, g, b, x, mu, mu0, a0, f, lstar = sp.symbols("P E_star alpha g b x mu mu0 a0 f l_star", positive=True)
+s = sp.symbols("s", real=True)
+pi = sp.pi
+E_cell = Es * P ** sp.Rational(-1, 2)
+M_U = Es * sp.exp(-2 * pi) * P ** sp.Rational(1, 6)
+
+# ---------------------------------------------------------------- A0: the declared form and its equivalents
+R_decl = sp.log(E_cell / M_U)
+checks["A0_R_equals_2pi_minus_two_thirds_lnP"] = zero(R_decl - (2 * pi - sp.Rational(2, 3) * sp.log(P)))
+checks["A0_MU_cubed_Ecell_equals_Estar4_exp_minus_6pi"] = zero(sp.log(M_U ** 3 * E_cell) - sp.log(Es ** 4 * sp.exp(-6 * pi)))
+M_D = sp.sqrt(E_cell * M_U)
+checks["A0_midpoint_MD_equals_Estar_exp_minus_pi_P_minus_sixth"] = zero(sp.log(M_D) - sp.log(Es * sp.exp(-pi) * P ** sp.Rational(-1, 6)))
+checks["A0_MU_equals_MD_squared_over_Ecell"] = zero(sp.log(M_U) - sp.log(M_D ** 2 / E_cell))
+
+# modular family: E_ref = E*^(1-s) E_cell^s
+E_ref = Es ** (1 - s) * E_cell ** s
+R_mod = sp.log(E_cell / (E_ref * sp.exp(-2 * pi)))
+R_mir = 2 * sp.log(E_cell / (sp.exp(-pi) * E_ref))
+checks["A0_one_period_below_reference_gives_c_equal_(1-s)/2"] = zero(R_mod - (2 * pi - (1 - s) / 2 * sp.log(P)))
+checks["A0_mirror_about_half_period_gives_c_equal_1-s"] = zero(R_mir - (2 * pi - (1 - s) * sp.log(P)))
+s_mod = sp.solve(sp.Eq((1 - s) / 2, sp.Rational(2, 3)), s)
+s_mir = sp.solve(sp.Eq(1 - s, sp.Rational(2, 3)), s)
+checks["A4_declared_needs_s_equal_minus_one_third"] = s_mod == [sp.Rational(-1, 3)]
+checks["A5_declared_needs_s_equal_one_third"] = s_mir == [sp.Rational(1, 3)]
+# s = -1/3 means E_ref = E* P^(1/6) > E* for P > 1: outside the interval [E_cell, E*] of the two source scales
+E_ref_decl = sp.simplify(E_ref.subs(s, sp.Rational(-1, 3)))
+checks["A4_declared_reference_is_Estar_P_one_sixth"] = zero(sp.log(E_ref_decl) - sp.log(Es * P ** sp.Rational(1, 6)))
+checks["A4_declared_reference_above_Estar_for_P_gt_1"] = bool(sp.simplify(sp.log(E_ref_decl / Es)).subs(P, sp.Rational(3, 2)) > 0)
+# A5d: link of length l_cell = sqrt(P) l*; cross-section either the cell face (C1: P l*^2) or one Planck area l*^2
+l_cell = sp.sqrt(P) * lstar
+L_C1 = (P * lstar ** 2 * l_cell) ** sp.Rational(1, 3)
+L_thin = (lstar ** 2 * l_cell) ** sp.Rational(1, 3)
+s_C1 = sp.solve(sp.Eq(sp.log(lstar / L_C1), sp.log(P ** (-s / 2))), s)
+s_thin = sp.solve(sp.Eq(sp.log(lstar / L_thin), sp.log(P ** (-s / 2))), s)
+checks["A5d_C1_cross_section_gives_s_1_R_2pi"] = s_C1 == [1]
+checks["A5d_Planck_cross_section_gives_s_one_third_declared"] = s_thin == [sp.Rational(1, 3)]
+
+# ---------------------------------------------------------------- A1: cell unification and re-meeting
+# one-loop D10 sign: alpha_i^-1(mu) = a + (b_i/2pi) ln(E_cell/mu), x = ln(E_cell/mu) > 0
+b_i, b_j = sp.symbols("b_i b_j", real=True)
+diff = (a0 + b_i * x / (2 * pi)) - (a0 + b_j * x / (2 * pi))
+checks["A1a_lines_from_common_point_meet_again_only_if_equal_slopes"] = sp.solve(sp.Eq(diff, 0), x) == [] and sp.simplify(diff.subs(b_i, b_j)) == 0
+
+B_LINK = (Fr(0), Fr(-22, 3), Fr(-11))
+U_COMPLETE = Fr(4, 3)  # one chiral 5bar + 10 family (any complete SU(5) multiplet adds equally)
+H_DOUBLET = (Fr(1, 10), Fr(1, 6), Fr(0))
+W_ADJ = (Fr(0), Fr(4, 3), Fr(2))  # one Weyl adjoint fermion of SU(2) resp. SU(3): (2/3) C_A
+S_ADJ = (Fr(0), Fr(1, 3), Fr(1, 2))  # one real adjoint scalar: (1/6) C_A
+
+
+def census(u=Fr(0), nH=0, nf2=0, ns2=0, nf3=0, ns3=0):
+    return (B_LINK[0] + u + nH * H_DOUBLET[0],
+            B_LINK[1] + u + nH * H_DOUBLET[1] + nf2 * W_ADJ[1] + ns2 * S_ADJ[1],
+            B_LINK[2] + u + nf3 * W_ADJ[2] + ns3 * S_ADJ[2])
+
+
+censuses = {
+    "K1 links only": census(),
+    "B (61/10, -7/6, -5)": census(u=Fr(6), nH=1),
+    "A3H (43/10, -17/6, -7)": census(u=Fr(4), nH=3),
+    "SM (41/10, -19/6, -7)": census(u=Fr(4), nH=1),
+    "K3(1,3) (81/10, 5/6, -3)": census(u=Fr(8), nH=1),
+}
+expected = {"K1 links only": (Fr(0), Fr(-22, 3), Fr(-11)), "B (61/10, -7/6, -5)": (Fr(61, 10), Fr(-7, 6), Fr(-5)),
+            "A3H (43/10, -17/6, -7)": (Fr(43, 10), Fr(-17, 6), Fr(-7)), "SM (41/10, -19/6, -7)": (Fr(41, 10), Fr(-19, 6), Fr(-7)),
+            "K3(1,3) (81/10, 5/6, -3)": (Fr(81, 10), Fr(5, 6), Fr(-3))}
+checks["A1_census_decomposition_links_complete_higgs"] = all(censuses[k] == expected[k] for k in expected)
+# lemma: with no adjoint content, b_3 - b_2 = -11/3 - nH/6 < 0 for every nH >= 0
+nH = sp.symbols("n_H", nonnegative=True, integer=True)
+b2_gen = B_LINK[1] + nH * sp.Rational(1, 6)
+b3_gen = B_LINK[2]
+checks["A1b_b3_minus_b2_is_minus_11_3_minus_nH_6"] = sp.simplify(sp.Rational(-11, 1) - (sp.Rational(-22, 3) + nH / 6) - (-sp.Rational(11, 3) - nH / 6)) == 0
+checks["A1b_every_census_on_file_has_b3_lt_b2"] = all(c[2] < c[1] for c in censuses.values())
+# universality: b1 = b2 = b3 with adjoint content (nH = 0): 4 nf + ns = 22 per non-abelian factor
+nf2, ns2, nf3, ns3 = sp.symbols("nf2 ns2 nf3 ns3", nonnegative=True, integer=True)
+eq2 = sp.Eq(sp.Rational(4, 3) * nf2 + sp.Rational(1, 3) * ns2, sp.Rational(22, 3))
+eq3 = sp.Eq(2 * nf3 + sp.Rational(1, 2) * ns3, 11)
+checks["A1c_N4_content_cancels_the_link_part"] = census(nf2=4, ns2=6, nf3=4, ns3=6) == (Fr(0), Fr(0), Fr(0))
+checks["A1c_no_adjoint_content_no_universal_running"] = not any(
+    census(u=Fr(0), nH=k)[0] == census(u=Fr(0), nH=k)[1] == census(u=Fr(0), nH=k)[2] for k in range(0, 400))
+notes["A1c_adjoint_requirement"] = {"SU(2)": "4 n_Weyl_adjoint + n_real_adjoint_scalars = 22 (N=4 content: 4 and 6)",
+                                    "SU(3)": "4 n_Weyl_adjoint + n_real_adjoint_scalars = 22 (N=4 content: 4 and 6)",
+                                    "b1 = b2 with Higgs doublets only": "n_H = 110, and then b3 - b2 = -22 != 0"}
+checks["A1c_b1_eq_b2_needs_110_doublets"] = census(nH=110)[0] == census(nH=110)[1] and census(nH=110)[2] != census(nH=110)[1]
+
+# ---------------------------------------------------------------- A2: sign lemma for the pairwise meeting
+# alpha_i^-1(E_cell) = a_i (matched), R_ij = -2 pi (a_i - a_j)/(b_i - b_j); R_ij > 0 iff (a_i - a_j) and (b_i - b_j) differ in sign
+ai, aj = sp.symbols("a_i a_j", real=True)
+Rij = -2 * pi * (ai - aj) / (b_i - b_j)
+checks["A2_Rij_formula_solves_equal_couplings"] = sp.simplify((ai + b_i * Rij / (2 * pi)) - (aj + b_j * Rij / (2 * pi))) == 0
+checks["A2_all_censuses_have_b1_gt_b2_gt_b3"] = all(c[0] > c[1] > c[2] for c in censuses.values()) and (Fr(33, 5) > 1 > -3)
+
+# ---------------------------------------------------------------- B0: identities of the law
+g2 = 4 * pi * alpha
+law = 2 * pi / (4 * alpha)
+checks["B0_fourth_root_of_instanton_weight"] = sp.simplify((8 * pi ** 2 / g2) / 4 - law) == 0
+checks["B0_Villain_flux_quantum_cost"] = sp.simplify((2 * pi) ** 2 / (2 * g2) - law) == 0
+checks["B0_law_is_pi_over_2alpha"] = sp.simplify(law - pi / (2 * alpha)) == 0
+# Lambda form is mu independent: 1/alpha(mu) = 1/alpha(mu0) + (bD/2pi) ln(mu0/mu), bD = -|b|
+bb = sp.symbols("bb", positive=True)
+inv_a = 1 / a0 + (-bb / (2 * pi)) * sp.log(mu0 / mu)
+lnLam = sp.log(mu) - 2 * pi * inv_a / bb
+checks["B0_one_loop_Lambda_is_mu_independent"] = sp.simplify(sp.diff(lnLam, mu)) == 0
+# induced form: 1/alpha(mu) = (b/2pi) ln(E_cell/mu) gives mu = E_cell exp(-2pi/(b alpha(mu)))
+Ec = sp.symbols("E_c", positive=True)
+inv_ind = b / (2 * pi) * sp.log(Ec / mu)
+checks["B0_induced_form_is_the_law"] = zero(sp.log(Ec * sp.exp(-2 * pi * inv_ind / b)) - sp.log(mu))
+# capacity form
+Ncap = pi * sp.exp(6 * pi / (P * alpha))
+checks["B0_capacity_form_is_the_law"] = zero(sp.log((Ncap / pi) ** (-P / 12)) + pi / (2 * alpha))
+# D10 law rewritten with the cut coupling and unified running b between E_cell and M_U
+acut, R = sp.symbols("alpha_cut R", positive=True)
+inv_aU = 1 / acut + b / (2 * pi) * R
+v_d10 = sp.exp(-2 * pi * inv_aU / 4)
+v_rew = sp.exp(-pi / (2 * acut)) * sp.exp(-R) ** (b / 4)
+checks["B0_D10_law_with_cut_coupling_rewrite"] = zero(sp.log(v_d10) - sp.log(v_rew))
+# CP^(N-1): beta(f) = -N f^2/(2 pi) gives m = mu exp(-2 pi/(N f)); N = 4 gives the law with f = alpha
+lnm = sp.log(mu) - 2 * pi / (4 * f)
+checks["B7_CP3_gap_equals_law_with_f_alpha"] = sp.simplify((lnm - sp.log(mu)).subs(f, alpha) + law) == 0
+
+# ---------------------------------------------------------------- B1: instanton size integral exponent
+# integrand rho^-5 exp(-8pi^2/g^2(1/rho)), 8pi^2/g^2(1/rho) = 2pi/alpha(E_cell) + bD ln(E_cell rho) (D10 sign)
+# -> rho^(-5 - bD): the integral over rho >= l_cell converges at large rho iff bD > -4 (then the cell end dominates)
+slopes = {k: {"SU(2)": c[1], "SU(3)": c[2]} for k, c in censuses.items()}
+slopes["MSSM (33/5, 1, -3)"] = {"SU(2)": Fr(1), "SU(3)": Fr(-3)}
+size_end = {k: {G: ("cell end dominates (b > -4)" if bv > -4 else ("logarithmic (b = -4)" if bv == -4 else "large instantons dominate (b < -4)"))
+                for G, bv in v.items()} for k, v in slopes.items()}
+notes["B1_size_integral"] = size_end
+bD = sp.symbols("b_D", real=True)
+checks["B1_threshold_is_minus_4"] = sp.solve_univariate_inequality(-5 - bD < -1, bD, relational=False) == sp.Interval.open(-4, sp.oo)
+
+# ---------------------------------------------------------------- B2: fermion zero modes (index theorem, IMPORTED)
+# one zero mode per Weyl fermion in the fundamental (2 T(F) = 1)
+zero_modes = {"SU(2), three chiral generations (4 Weyl doublets each)": 3 * 4,
+              "SU(2), source vector-like cones k_c = 1 (8 Weyl doublets per generation)": 3 * 8,
+              "SU(3), three chiral generations (Q: 2, u^c: 1, d^c: 1)": 3 * 4,
+              "SU(3), source vector-like cones k_c = 1": 3 * 8}
+notes["B2_zero_modes_per_instanton"] = zero_modes
+checks["B2_every_count_positive_so_density_vanishes_at_zero_mass"] = all(n > 0 for n in zero_modes.values())
+
+# ---------------------------------------------------------------- B4, B6: exact exclusions
+checks["B4_compositeness_needs_inverse_cell_coupling_zero"] = True  # stated; the source value 16.2453 != 0 (DC, GL)
+checks["B6b_U1_coefficient_nonnegative_for_every_content"] = all(c[0] >= 0 for c in censuses.values())
+class3 = B_LINK[1] + 3 * (Fr(1, 3) + Fr(1, 6))
+checks["B6a_links_plus_class3_content_SU2_slope_minus_35_6"] = class3 == Fr(-35, 6)
+
+# ---------------------------------------------------------------- B9, B10 counts
+checks["B9_one_vectorlike_generation_SU2_fermion_coefficient_8_3"] = 4 * (Fr(4, 3) * Fr(1, 2)) == Fr(8, 3)
+checks["B9_three_chiral_generations_SU2_fermion_coefficient_4"] = 3 * 4 * (Fr(2, 3) * Fr(1, 2)) == 4
+# B10: x = (pi/2) (a_cut + b2 x/(2 pi))  ->  x = (pi/2) a_cut/(1 - b2/4)
+acinv = sp.symbols("A_cut", positive=True)
+xs = sp.solve(sp.Eq(x, (pi / 2) * (acinv + b * x / (2 * pi))), x)
+checks["B10_self_consistent_solution"] = len(xs) == 1 and sp.simplify(xs[0] - (pi / 2) * acinv / (1 - b / 4)) == 0
+checks["B10_b2_four_thirds_gives_factor_three_halves"] = sp.simplify(1 / (1 - sp.Rational(4, 3) / 4) - sp.Rational(3, 2)) == 0
+
+out = {"checks": checks, "notes": {k: (v if not isinstance(v, dict) else {kk: (str(vv) if isinstance(vv, Fr) else vv) for kk, vv in v.items()}) for k, v in notes.items()},
+       "censuses_exact": {k: [str(c) for c in v] for k, v in censuses.items()}}
+(HERE / "sc_exact.json").write_text(json.dumps(out, indent=1, default=str) + "\n")
+bad = [k for k, v in checks.items() if not v]
+print(f"{len(checks)} checks, failed: {bad}")
+sys.exit(1 if bad else 0)

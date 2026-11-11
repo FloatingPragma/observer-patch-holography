@@ -1,0 +1,1199 @@
+{
+ "arithmetic": "Q(sqrt5) and integers; every statement exact",
+ "canonical": {
+  "second_index_space": "the multiplicity space of the frame triplet in the port space; as a subspace of the port space the triplet-isotypic part (rank 9) of the frame group",
+  "kernel_copies": "slow = the sqrt5 eigenspace of the adjacency (the 3 of the sixty rotations); fast = the -sqrt5 eigenspace (the 3prime); middle = the 5 of the rotations intersected with the triplet-isotypic part of the frame group. Slow and fast do not depend on the frame; the middle copy depends on the frame and on nothing else",
+  "axis_lines_of_the_second_index": "the joint eigenspaces of the right Klein group {1, F, P, FP}: normal line = P-even = the middle copy; long line = F-even; short line = FP-even",
+  "mixing_angle_copies_vs_lines": "squared overlaps (5 + sqrt5)/10 and (5 - sqrt5)/10 in the P-odd plane; the middle copy is a line"
+ },
+ "base_port_dependent": {
+  "bijection_lines_to_frame_axes": "fixed by the golden rectangle of the base port (three cyclic choices per frame)",
+  "signs": "fixed by the base port inside its rectangle",
+  "group_labels_of_the_right_translations": "R_(a p0)(k) = R_p0(a^-1 k a)",
+  "matrix_M3_in_frame_coordinates": "six values; a coordinate expression of one canonical operator"
+ },
+ "frames": [
+  {
+   "frame": 0,
+   "base_ports": [
+    {
+     "base_port": 0,
+     "rectangle": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 1,
+     "rectangle": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 2,
+     "rectangle": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 3,
+     "rectangle": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 4,
+     "rectangle": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 5,
+     "rectangle": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 6,
+     "rectangle": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 7,
+     "rectangle": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 8,
+     "rectangle": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 9,
+     "rectangle": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 10,
+     "rectangle": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 11,
+     "rectangle": [
+      8,
+      9,
+      10,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 1,
+   "base_ports": [
+    {
+     "base_port": 0,
+     "rectangle": [
+      0,
+      3,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 1,
+     "rectangle": [
+      1,
+      2,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 2,
+     "rectangle": [
+      1,
+      2,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 3,
+     "rectangle": [
+      0,
+      3,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 4,
+     "rectangle": [
+      1,
+      2,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 5,
+     "rectangle": [
+      5,
+      6,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 6,
+     "rectangle": [
+      5,
+      6,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 7,
+     "rectangle": [
+      1,
+      2,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 8,
+     "rectangle": [
+      0,
+      3,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 9,
+     "rectangle": [
+      5,
+      6,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 10,
+     "rectangle": [
+      5,
+      6,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 11,
+     "rectangle": [
+      0,
+      3,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 2,
+   "base_ports": [
+    {
+     "base_port": 0,
+     "rectangle": [
+      0,
+      3,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 1,
+     "rectangle": [
+      1,
+      2,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 2,
+     "rectangle": [
+      1,
+      2,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 3,
+     "rectangle": [
+      0,
+      3,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 4,
+     "rectangle": [
+      4,
+      7,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 5,
+     "rectangle": [
+      1,
+      2,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 6,
+     "rectangle": [
+      1,
+      2,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 7,
+     "rectangle": [
+      4,
+      7,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 8,
+     "rectangle": [
+      4,
+      7,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 9,
+     "rectangle": [
+      0,
+      3,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 10,
+     "rectangle": [
+      0,
+      3,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 11,
+     "rectangle": [
+      4,
+      7,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 3,
+   "base_ports": [
+    {
+     "base_port": 0,
+     "rectangle": [
+      0,
+      3,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 1,
+     "rectangle": [
+      1,
+      2,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 2,
+     "rectangle": [
+      1,
+      2,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 3,
+     "rectangle": [
+      0,
+      3,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 4,
+     "rectangle": [
+      4,
+      7,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 5,
+     "rectangle": [
+      0,
+      3,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 6,
+     "rectangle": [
+      0,
+      3,
+      5,
+      6
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 7,
+     "rectangle": [
+      4,
+      7,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 8,
+     "rectangle": [
+      1,
+      2,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 9,
+     "rectangle": [
+      4,
+      7,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 10,
+     "rectangle": [
+      4,
+      7,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 11,
+     "rectangle": [
+      1,
+      2,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    }
+   ]
+  },
+  {
+   "frame": 4,
+   "base_ports": [
+    {
+     "base_port": 0,
+     "rectangle": [
+      0,
+      3,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 1,
+     "rectangle": [
+      1,
+      2,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 2,
+     "rectangle": [
+      1,
+      2,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 3,
+     "rectangle": [
+      0,
+      3,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    },
+    {
+     "base_port": 4,
+     "rectangle": [
+      0,
+      3,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 5,
+     "rectangle": [
+      5,
+      6,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 6,
+     "rectangle": [
+      5,
+      6,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 7,
+     "rectangle": [
+      0,
+      3,
+      4,
+      7
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 0,
+      "F-line (long)": 2,
+      "FP-line (short)": 1
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 8,
+     "rectangle": [
+      5,
+      6,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      1,
+      -1
+     ]
+    },
+    {
+     "base_port": 9,
+     "rectangle": [
+      1,
+      2,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      1,
+      1
+     ]
+    },
+    {
+     "base_port": 10,
+     "rectangle": [
+      1,
+      2,
+      9,
+      10
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 1,
+      "F-line (long)": 0,
+      "FP-line (short)": 2
+     },
+     "signs_normal_short_long": [
+      1,
+      -1,
+      -1
+     ]
+    },
+    {
+     "base_port": 11,
+     "rectangle": [
+      5,
+      6,
+      8,
+      11
+     ],
+     "line_to_frame_axis": {
+      "P-line (normal)": 2,
+      "F-line (long)": 1,
+      "FP-line (short)": 0
+     },
+     "signs_normal_short_long": [
+      -1,
+      -1,
+      1
+     ]
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "spectral projectors of A: idempotent, sum to one, ranks 1, 3, 5, 3": true,
+  "triplet-isotypic projector (characters) is idempotent of rank 9": true,
+  "(the 5 of the rotations) x (triplet-isotypic part of the frame group) is a projector of rank 3": true,
+  "(a) slow copy = sqrt5 eigenspace of A, for every frame and base port": true,
+  "(a) fast copy = -sqrt5 eigenspace of A, for every frame and base port": true,
+  "(a) middle copy = (-1 eigenspace of A) x (triplet-isotypic part of the frame), for every base port": true,
+  "(b) axis lines of the second index = joint eigenspaces of the canonical right Klein group {1, F, P, FP}": true,
+  "(b) the normal line is the middle copy": true,
+  "(c) squared overlaps copy/axis: slow-long = fast-short = (5+sqrt5)/10, slow-short = fast-long = (5-sqrt5)/10, middle-normal = 1, all others 0": true,
+  "(a) the middle copy differs between the five frames (five distinct subspaces)": true,
+  "(d) the bijection line -> frame axis is constant on each golden rectangle and takes three distinct values per frame": true,
+  "(d) the three bijections are cyclic shifts of one another": true
+ },
+ "counts": {
+  "(frame, base port) cases with all projectors compared exactly": 60
+ }
+}

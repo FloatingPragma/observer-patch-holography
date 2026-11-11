@@ -1,0 +1,41 @@
+"""Worker LD: unregistered combinations looked at after the table ran (CANDIDATES.md section 7). Zero weight, NOT BLIND.
+
+Run: /tmp/oph-completion-venv/bin/python -B ld_posthoc.py table.json posthoc.json
+"""
+import json
+import math
+import sys
+
+d = json.load(open(sys.argv[1]))
+a2 = d['inputs']['a2_P']
+a = math.sqrt(a2)
+need = d['fits_NOT_BLIND_zero_weight']['needed_coefficient_of_a2_alpha_P']
+sig = d['fits_NOT_BLIND_zero_weight']['sigma_of_needed_coefficient']
+rows = d['rows']
+lnmue = math.log(float(d['inputs']['register_mu_over_e']))
+c2_lep = rows['R2']['coefficient_of_a2_in_ln_mu_over_e_leptonic']
+c4_lep = rows['R4']['coefficient_of_a2_in_ln_mu_over_e_leptonic']
+rem = rows['R2']['coefficient_of_a2_in_ln_mu_over_e_total'] - c2_lep      # remainder of the heavier hadronic sectors, muon minus electron
+conv = 1 + 4.0 / 3.0 * a * lnmue                                           # abar(M_mu)^2 / a^2
+c3_species = d['three_loop']['species_coefficient_QED_one_massless_species']
+
+
+def rec(label, coeff):
+    return {'label': label, 'coefficient_of_a2': coeff, 'ln_mu_over_e_shift_ppm': coeff * a2 * 1e6,
+            'mu_over_e_residual_ppm': (coeff - need) * a2 * 1e6, 'residual_in_sigma_of_measurement': (coeff - need) / sig}
+
+
+out = {'needed_coefficient_alpha_P': need, 'hadronic_remainder_muon_minus_electron_IMPORTED': rem,
+       'abar_squared_over_a_squared_at_M_mu': conv,
+       'looks': [
+           rec('H15 R4 with the remainder of the heavier families added, two-loop order', c4_lep + rem),
+           rec('H15 the same with abar(M_mu)^2', (c4_lep + rem) * conv),
+           rec('H16 R2 with the lighter family decoupled at the own scale (minus 89/288), no hadronic remainder', c2_lep - 89.0 / 288.0 - rem * 0 ),
+           rec('H16 the same with the hadronic remainder', c2_lep - 89.0 / 288.0 + rem),
+           rec('H17 R2 with abar(M_mu)^2 and the three-loop species term, hadronic remainder included',
+               c2_lep * conv + a * (c3_species - (c2_lep)) + rem),
+           rec('H14 mean of the leptonic coefficients of R2 and R4, hadronic remainder, abar(M_mu)^2',
+               ((c2_lep + c4_lep) / 2 + rem) * conv),
+       ]}
+json.dump(out, open(sys.argv[2], 'w'), indent=1)
+print(json.dumps(out, indent=1))

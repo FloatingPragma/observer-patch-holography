@@ -1,0 +1,477 @@
+"""Exact arithmetic in K = Q(zeta), zeta = exp(2 pi i / 20), on python-flint (fmpq_poly modulo Phi_20).
+
+K has degree 8 and contains i = zeta^5, sqrt5, c = 2 cos(pi/10) = sqrt((5 + sqrt5)/2) and every entry of the port
+projectors of the icosahedral carrier (convex and great realization). Elements are class K; matrices are lists of
+rows of K. Linear algebra (rref, rank, nullspace, solve, inverse, determinant, characteristic polynomial) is exact.
+Numerical values are certified balls (flint acb). Galois automorphism sigma_k: zeta -> zeta^k, k coprime to 20.
+
+    from kfield import *
+"""
+from fractions import Fraction
+from flint import fmpq, fmpz, fmpq_poly, fmpz_poly, fmpq_mat, acb, arb, ctx
+
+PHI = fmpq_poly([1, 0, -1, 0, 1, 0, -1, 0, 1])           # x^8 - x^6 + x^4 - x^2 + 1
+_X = fmpq_poly([0, 1])
+_ZP = []
+_p = fmpq_poly([1])
+for _m in range(20):
+    _ZP.append(_p); _p = (_p * _X) % PHI
+assert _p == fmpq_poly([1])
+_ZERO = fmpq_poly([0])
+
+
+def _raw(v):
+    t = type(v)
+    if t is K:
+        return v.p
+    if t is fmpq_poly:
+        return v
+    if t is Fraction:
+        return fmpq_poly([fmpq(v.numerator, v.denominator)])
+    return fmpq_poly([v])
+
+
+class K:
+    __slots__ = ('p',)
+
+    def __init__(self, v=0):
+        self.p = _raw(v)
+
+    def __add__(self, o): return K(self.p + _raw(o))
+    __radd__ = __add__
+    def __sub__(self, o): return K(self.p - _raw(o))
+    def __rsub__(self, o): return K(_raw(o) - self.p)
+    def __neg__(self): return K(-self.p)
+    def __mul__(self, o): return K((self.p * _raw(o)) % PHI)
+    __rmul__ = __mul__
+    def inv(self):
+        g, s, t = self.p.xgcd(PHI)
+        if g.degree() != 0:
+            raise ZeroDivisionError('zero in K')
+        return K((s * (fmpq_poly([1]) / g)) % PHI) if g != fmpq_poly([1]) else K(s % PHI)
+    def __truediv__(self, o): return self * K(o).inv()
+    def __rtruediv__(self, o): return K(o) * self.inv()
+    def __pow__(self, n):
+        if n < 0:
+            return self.inv() ** (-n)
+        r, b = K(1), self
+        while n:
+            if n & 1: r = r * b
+            b = b * b; n >>= 1
+        return r
+    def __eq__(self, o): return self.p == _raw(o)
+    def __ne__(self, o): return not self.__eq__(o)
+    def __hash__(self): return hash(tuple(str(x) for x in self.coeffs()))
+    def __bool__(self): return not self.p.is_zero()
+    def is_zero(self): return self.p.is_zero()
+    def coeffs(self):
+        c = self.p.coeffs()
+        return c + [fmpq(0)] * (8 - len(c))
+    def galois(self, k):
+        c = self.p.coeffs()
+        out = _ZERO
+        for j, cj in enumerate(c):
+            if cj != 0:
+                out = out + cj * _ZP[(j * k) % 20]
+        return K(out)
+    def conj(self): return self.galois(19)
+    def re(self): return (self + self.conj()) * HALF
+    def im(self): return (self - self.conj()) * HALF * (-I)
+    def is_real(self): return self == self.conj()
+    def is_rational(self): return self.p.degree() <= 0
+    def rational(self):
+        assert self.is_rational(); return self.coeffs()[0]
+    def acb(self):
+        z = acb.exp_pi_i(acb(1) / 10)
+        out = acb(0)
+        for cj in reversed(self.coeffs()):
+            out = out * z + acb(arb(cj))
+        return out
+    def __complex__(self):
+        z = self.acb(); return complex(float(z.real), float(z.imag))
+    def __float__(self):
+        assert self.is_real(), 'not real'
+        return float(self.acb().real)
+    def sign(self):
+        """Certified sign of a real element."""
+        assert self.is_real(), 'not real'
+        if self.is_zero(): return 0
+        prec = ctx.prec
+        try:
+            while True:
+                r = self.acb().real
+                if r > 0: return 1
+                if r < 0: return -1
+                ctx.prec *= 2
+        finally:
+            ctx.prec = prec
+    def radical(self):
+        """Coordinates in the basis 1, sqrt5, c, sqrt5 c, i, i sqrt5, i c, i sqrt5 c (c = sqrt((5+sqrt5)/2))."""
+        v = fmpq_mat(8, 1, self.coeffs())
+        return [x for x in (_RADINV * v).entries()]
+    def __repr__(self):
+        return radstr(self)
+
+
+def Kq(n, d=1): return K(fmpq(n, d))
+
+
+ZETA = K(_X)
+I = ZETA ** 5
+HALF = Kq(1, 2)
+S5 = 1 + 2 * ZETA ** 4 - 2 * ZETA ** 6               # sqrt5
+C10 = ZETA + ZETA ** 19                               # c = 2 cos(pi/10) = sqrt((5 + sqrt5)/2)
+PHI_G = (1 + S5) * HALF                               # golden ratio
+assert I * I == -1 and S5 * S5 == 5 and C10 * C10 == (5 + S5) * HALF and S5.sign() == 1 and C10.sign() == 1
+_RADB = [K(1), S5, C10, S5 * C10, I, I * S5, I * C10, I * S5 * C10]
+_RADINV = fmpq_mat(8, 8, [_RADB[j].coeffs()[i] for i in range(8) for j in range(8)]).inv()
+
+
+def radstr(x):
+    r = x.radical()
+    names = ['', 's5', 'c', 's5*c', 'i', 'i*s5', 'i*c', 'i*s5*c']
+    terms = []
+    for v, nm in zip(r, names):
+        if v != 0:
+            terms.append(f'{v}' + (f'*{nm}' if nm else ''))
+    return ' + '.join(terms).replace('+ -', '- ') if terms else '0'
+
+
+def from_radical(r):
+    out = K(0)
+    for v, b in zip(r, _RADB):
+        if v != 0:
+            out = out + K(v) * b
+    return out
+
+
+# ---------------------------------------------------------------- matrices (lists of rows of K)
+def zeros(n, m=None):
+    m = n if m is None else m
+    return [[K(0) for _ in range(m)] for _ in range(n)]
+
+
+def eye(n):
+    return [[K(1) if i == j else K(0) for j in range(n)] for i in range(n)]
+
+
+def mat(rows):
+    return [[x if type(x) is K else K(x) for x in row] for row in rows]
+
+
+def shape(A): return len(A), (len(A[0]) if A else 0)
+
+
+def madd(A, B): return [[x + y for x, y in zip(ra, rb)] for ra, rb in zip(A, B)]
+def msub(A, B): return [[x - y for x, y in zip(ra, rb)] for ra, rb in zip(A, B)]
+def mscale(s, A):
+    s = _raw(s)
+    return [[K((x.p * s) % PHI) for x in row] for row in A]
+def mneg(A): return [[-x for x in row] for row in A]
+
+
+def mmul(A, B):
+    n, k = shape(A); k2, m = shape(B)
+    assert k == k2, (shape(A), shape(B))
+    Bc = [[B[t][j].p for t in range(k)] for j in range(m)]
+    out = []
+    for row in A:
+        r = [(t, x.p) for t, x in enumerate(row) if not x.p.is_zero()]
+        orow = []
+        for j in range(m):
+            col = Bc[j]; acc = _ZERO
+            for t, x in r:
+                y = col[t]
+                if not y.is_zero():
+                    acc = acc + x * y
+            orow.append(K(acc % PHI))
+        out.append(orow)
+    return out
+
+
+def mmulm(*Ms):
+    out = Ms[0]
+    for M in Ms[1:]:
+        out = mmul(out, M)
+    return out
+
+
+def transpose(A): return [list(r) for r in zip(*A)] if A else []
+def mconj(A): return [[x.conj() for x in row] for row in A]
+def dagger(A): return transpose(mconj(A))
+def mgalois(A, k): return [[x.galois(k) for x in row] for row in A]
+def trace(A):
+    t = K(0)
+    for i in range(len(A)):
+        t = t + A[i][i]
+    return t
+def meq(A, B): return shape(A) == shape(B) and all(x == y for ra, rb in zip(A, B) for x, y in zip(ra, rb))
+def is_zero_mat(A): return all(x.is_zero() for row in A for x in row)
+def comm(A, B): return msub(mmul(A, B), mmul(B, A))
+def is_hermitian(A): return meq(A, dagger(A))
+
+
+def kron(A, B):
+    n, m = shape(A); p, q = shape(B)
+    return [[A[i][j] * B[k][l] for j in range(m) for l in range(q)] for i in range(n) for k in range(p)]
+
+
+def dsum(*blocks):
+    n = sum(len(b) for b in blocks)
+    out = zeros(n)
+    o = 0
+    for b in blocks:
+        for i, row in enumerate(b):
+            for j, x in enumerate(row):
+                out[o + i][o + j] = x
+        o += len(b)
+    return out
+
+
+def outer(u, v):
+    """|u><v| for column vectors given as lists."""
+    return [[a * b.conj() for b in v] for a in u]
+
+
+def vdot(u, v):
+    """<u|v>."""
+    acc = _ZERO
+    for a, b in zip(u, v):
+        acc = acc + a.conj().p * b.p
+    return K(acc % PHI)
+
+
+def rref(A, ncols=None):
+    """Reduced row echelon form over K. Returns (R, pivot_columns)."""
+    R = [[x.p for x in row] for row in A]
+    n = len(R); m = len(R[0]) if n else 0
+    lim = m if ncols is None else ncols
+    piv = []; r = 0
+    one = fmpq_poly([1])
+    for cidx in range(lim):
+        if r == n: break
+        pr = None
+        for i in range(r, n):
+            if not R[i][cidx].is_zero():
+                pr = i; break
+        if pr is None: continue
+        R[r], R[pr] = R[pr], R[r]
+        pv = R[r][cidx]
+        if pv != one:
+            g, s, t = pv.xgcd(PHI)
+            inv = s if g == one else s * (one / g)
+            R[r] = [((x * inv) % PHI) if not x.is_zero() else x for x in R[r]]
+        prow = [(j, x) for j, x in enumerate(R[r]) if not x.is_zero()]
+        for i in range(n):
+            if i != r:
+                f = R[i][cidx]
+                if not f.is_zero():
+                    row = R[i]
+                    for j, x in prow:
+                        row[j] = (row[j] - f * x) % PHI
+        piv.append(cidx); r += 1
+    return [[K(x) for x in row] for row in R], piv
+
+
+def rank(A):
+    if not A or not A[0]: return 0
+    return len(rref(A)[1])
+
+
+def nullspace(A):
+    """Basis (list of column vectors as lists) of the right kernel {x: A x = 0}."""
+    n, m = shape(A)
+    R, piv = rref(A)
+    free = [j for j in range(m) if j not in piv]
+    out = []
+    for f in free:
+        v = [K(0)] * m
+        v[f] = K(1)
+        for r, pc in enumerate(piv):
+            v[pc] = -R[r][f]
+        out.append(v)
+    return out
+
+
+def solve(A, B):
+    """One solution X of A X = B (free variables zero). Raises ValueError if inconsistent."""
+    n, m = shape(A); n2, k = shape(B)
+    assert n == n2
+    aug = [list(ra) + list(rb) for ra, rb in zip(A, B)]
+    R, piv = rref(aug, ncols=m)
+    for r in range(len(piv), n):
+        if any(not x.is_zero() for x in R[r][m:]):
+            raise ValueError('inconsistent system')
+    X = zeros(m, k)
+    for r, pc in enumerate(piv):
+        for j in range(k):
+            X[pc][j] = R[r][m + j]
+    return X
+
+
+def inverse(A):
+    n = len(A)
+    X = solve(A, eye(n))
+    assert meq(mmul(A, X), eye(n))
+    return X
+
+
+def det(A):
+    R = [[x.p for x in row] for row in A]
+    n = len(R); d = K(1)
+    for cidx in range(n):
+        pr = None
+        for i in range(cidx, n):
+            if not R[i][cidx].is_zero():
+                pr = i; break
+        if pr is None: return K(0)
+        if pr != cidx:
+            R[cidx], R[pr] = R[pr], R[cidx]; d = -d
+        pv = K(R[cidx][cidx]); d = d * pv
+        inv = pv.inv().p
+        for i in range(cidx + 1, n):
+            f = R[i][cidx]
+            if not f.is_zero():
+                f = (f * inv) % PHI
+                for j in range(cidx, n):
+                    if not R[cidx][j].is_zero():
+                        R[i][j] = (R[i][j] - f * R[cidx][j]) % PHI
+    return d
+
+
+def charpoly(A):
+    """Coefficients [1, c_{n-1}, ..., c_0] of det(x - A), Faddeev-LeVerrier."""
+    n = len(A)
+    cs = [K(1)]
+    Mk = eye(n)
+    for k in range(1, n + 1):
+        AM = mmul(A, Mk)
+        ck = -trace(AM) * Kq(1, k)
+        cs.append(ck)
+        Mk = [[AM[i][j] + (ck if i == j else 0) for j in range(n)] for i in range(n)]
+    assert is_zero_mat(Mk) or n == 0
+    return cs
+
+
+def polyval_mat(cs, A):
+    """Evaluate a polynomial (descending coefficients) at a matrix."""
+    n = len(A)
+    out = zeros(n)
+    for c in cs:
+        out = mmul(out, A)
+        for i in range(n):
+            out[i][i] = out[i][i] + c
+    return out
+
+
+def poly_mul(a, b):
+    out = [K(0)] * (len(a) + len(b) - 1)
+    for i, x in enumerate(a):
+        for j, y in enumerate(b):
+            out[i + j] = out[i + j] + x * y
+    return out
+
+
+def poly_from_roots(roots_mult):
+    p = [K(1)]
+    for r, m in roots_mult:
+        for _ in range(m):
+            p = poly_mul(p, [K(1), -K(r)])
+    return p
+
+
+def poly_eval(cs, x):
+    out = K(0)
+    for c in cs:
+        out = out * x + c
+    return out
+
+
+def poly_norm_to_Q(cs):
+    """Product over the Galois group of the conjugates of a polynomial over K: a polynomial over Q (fmpq_poly)."""
+    out = [K(1)]
+    for k in (1, 3, 7, 9, 11, 13, 17, 19):
+        out = poly_mul(out, [x.galois(k) for x in cs])
+    assert all(x.is_rational() for x in out)
+    return fmpq_poly([x.rational() for x in reversed(out)])
+
+
+def poly_real_norm_to_Q(cs):
+    """For a polynomial with real coefficients (in the real subfield, degree 4): product over the four real
+    embeddings zeta -> zeta^k, k = 1, 3, 7, 9."""
+    assert all(x.is_real() for x in cs)
+    out = [K(1)]
+    for k in (1, 3, 7, 9):
+        out = poly_mul(out, [x.galois(k) for x in cs])
+    assert all(x.is_rational() for x in out)
+    return fmpq_poly([x.rational() for x in reversed(out)])
+
+
+def acb_roots(cs, prec=None):
+    """Certified enclosures of the complex roots of a squarefree polynomial over K (descending coefficients)."""
+    from flint import acb_poly
+    old = ctx.prec
+    if prec: ctx.prec = prec
+    try:
+        p = acb_poly([x.acb() for x in reversed(cs)])
+        try:
+            return p.roots(tol=1e-40)
+        except TypeError:
+            return p.roots()
+    finally:
+        ctx.prec = old
+
+
+def to_numpy(A):
+    import numpy as np
+    return np.array([[complex(x) for x in row] for row in A], dtype=complex)
+
+
+def col(v): return [[x] for x in v]
+def colvec(Mx, j): return [row[j] for row in Mx]
+
+
+def herm_real_coords(H):
+    """Real coordinates (elements of the real subfield) of a Hermitian matrix: diagonal, Re and Im of the upper part."""
+    n = len(H)
+    out = []
+    for i in range(n):
+        assert H[i][i].is_real()
+        out.append(H[i][i])
+    for i in range(n):
+        for j in range(i + 1, n):
+            out.append(H[i][j].re()); out.append(H[i][j].im())
+    return out
+
+
+def fstr(x, nd=12):
+    z = complex(x)
+    if abs(z.imag) < 1e-30 or x.is_real():
+        return f'{z.real:.{nd}g}'
+    return f'{z.real:.{nd}g}{z.imag:+.{nd}g}j'
+
+
+if __name__ == '__main__':
+    import time
+    a = 3 + 2 * ZETA - ZETA ** 3 * Kq(1, 7)
+    assert a * a.inv() == 1
+    assert (a * a.conj()).is_real() and (a * a.conj()).sign() == 1
+    assert S5.galois(3) == -S5 and S5.galois(9) == S5 and I.galois(3) == -I and I.galois(17) == I
+    assert C10.galois(9) == -C10
+    A = [[K(i * j + 1) + ZETA ** ((i * i + 2 * j + i * j * j) % 20) + (3 if i == j else 0) for j in range(6)] for i in range(6)]
+    cp = charpoly(A)
+    assert is_zero_mat(polyval_mat(cp, A))
+    assert det(A) == (cp[-1] if len(A) % 2 == 0 else -cp[-1])
+    Ainv = inverse(A)
+    B = mmul(A, [[K(1), K(2)]] * 6)
+    X = solve(A, B)
+    assert meq(mmul(A, X), B)
+    A2 = A[:4] + [[x + y for x, y in zip(A[0], A[1])]] + [[x - 2 * y for x, y in zip(A[2], A[3])]]
+    assert rank(A2) == 4 and len(nullspace(A2)) == 2
+    for v in nullspace(A2):
+        assert is_zero_mat(mmul(A2, col(v)))
+    t = time.time(); n = 40
+    Bm = [[K((i * 7 + j * 3) % 11 - 5) + (ZETA ** ((i + j) % 20) if (i + j) % 3 == 0 else 0) for j in range(n)] for i in range(n)]
+    r = rank(Bm)
+    print('self-test passed; rank of a 40 x 40 test matrix', r, 'in', round(time.time() - t, 2), 's')
+    print('sqrt5 =', S5, '  c =', C10, '  c as float', float(C10), ' i*zeta:', I * ZETA)

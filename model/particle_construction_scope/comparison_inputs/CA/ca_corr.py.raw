@@ -1,0 +1,165 @@
+"""Worker CA: ordered character-weighted correlations of closed native histories, and the reconstruction that uses
+nothing but those numbers.
+
+Conventions.  A history of L = r * lag complete attempts starts in the uniform law of a sector.  The event of a port
+word (p_1, ..., p_r) is: port p_1 occupied at attempt 0, p_2 at attempt lag, ..., p_r at attempt (r-1) lag, and the
+configuration at attempt r * lag equals the initial one.  Its area class a is the counter modulo 20.
+
+    C_k(p_1, ..., p_r; lag) = sum over such histories of omega^(k a)  /  sum over all closed histories of omega^(k a)
+
+By the Fourier-block theorem (t1_area_record.py) the numerator is (60^L / d) Tr(N_p1 X N_pr X ... N_p2 X) with
+X = P_k^lag.  Operator order: C_k(p_1, ..., p_r) -> tau(n_pr ... n_p2 n_p1), later insertions to the left, with
+n_p the occupation compressed to the leading multiplet and tau the normalized trace on it.
+
+Arrays returned in operator order: G[a, b] -> tau(n_a n_b), T3[a, b, c] -> tau(n_a n_b n_c),
+T4[a, b, c, e] -> tau(n_a n_b n_c n_e).
+"""
+import numpy as np
+import ca_core as c
+
+
+class Sector:
+    def __init__(self, name):
+        self.name = name
+        self.states = c.sector(name)
+        self.d = len(self.states)
+        self.load = int(sum(self.states[0]))
+        self.C = c.lifted_counts(self.states)
+        self.occ = np.array([c.occupation(self.states, p) for p in range(c.N)])      # 12 x d
+        self._P = {}
+
+    def P(self, k):
+        k %= 20
+        if k not in self._P:
+            self._P[k] = c.twisted(self.C, k)
+        return self._P[k]
+
+    def spectrum(self, k):
+        P = self.P(k)
+        ev = np.linalg.eigvalsh((P + P.conj().T) / 2)
+        lam, m, lam2, V, defect = c.leading(P)
+        return dict(lam1=lam, m=m, lam2=lam2, q=lam2 / lam, E0=-np.log(lam), gap=np.log(lam / lam2),
+                    rest=ev[:-m] / lam, V=V, defect=defect)
+
+
+def counts(sec, k, lag, orders=(2, 3)):
+    """Normalized character-weighted ordered counts at one lag (see the module text).  Float64."""
+    X = np.linalg.matrix_power(sec.P(k), lag)
+    Y = sec.occ[:, :, None] * X[None, :, :]                       # Y_a = N_a X
+    out = {'lag': lag, 'k': k, 'sector': sec.name}
+    X2 = X @ X
+    out['Z'] = {1: np.trace(X).real, 2: np.trace(X2).real, 3: np.trace(X2 @ X).real, 4: np.trace(X2 @ X2).real}
+    if 2 in orders:
+        out['G'] = np.einsum('aij,bji->ab', Y, Y) / out['Z'][2]
+    if 3 in orders or 4 in orders:
+        Zab = np.einsum('aij,bjk->abik', Y, Y)
+        if 3 in orders:
+            out['T3'] = np.einsum('abij,cji->abc', Zab, Y) / out['Z'][3]
+        if 4 in orders:
+            out['T4'] = np.einsum('abij,ceji->abce', Zab, Zab) / out['Z'][4]
+    return out
+
+
+def limits(sec, k, orders=(2, 3)):
+    """The same arrays for the compressed occupations on the leading multiplet (computed from the matrices; used
+    only as the comparison target, never by the reconstruction)."""
+    sp = sec.spectrum(k)
+    V, m = sp['V'], sp['m']
+    n = np.array(c.compressed(sec.states, V))                     # 12 x m x m
+    out = {'m': m, 'n': n}
+    if 2 in orders:
+        out['G'] = np.einsum('aij,bji->ab', n, n) / m
+    if 3 in orders or 4 in orders:
+        nn = np.einsum('aij,bjk->abik', n, n)
+        if 3 in orders:
+            out['T3'] = np.einsum('abij,cji->abc', nn, n) / m
+        if 4 in orders:
+            out['T4'] = np.einsum('abij,ceji->abce', nn, nn) / m
+    return out
+
+
+def error_bound(sec, k, lag, r, with_q_only=False):
+    """Proved bound on |C_k(word; lag) - tau(product)| for every port word of length r (see STATEMENTS.md, S6):
+        ((pi1 + rho)^r - pi1^r + pi1^r D / m) / m,
+    pi1 = load m / 12, rho = (load/12) sum_{i>m} (lambda_i/lambda_1)^lag, D = sum_{i>m} (lambda_i/lambda_1)^(r lag).
+    with_q_only replaces the sums by (d - m) q^lag and (d - m) q^(r lag), q = lambda_2 / lambda_1."""
+    sp = sec.spectrum(k)
+    m = sp['m']
+    pi1 = sec.load * m / 12.0
+    if with_q_only:
+        rho = sec.load / 12.0 * (sec.d - m) * sp['q'] ** lag
+        D = (sec.d - m) * sp['q'] ** (r * lag)
+    else:
+        rho = sec.load / 12.0 * float(np.sum(sp['rest'] ** lag))
+        D = float(np.sum(sp['rest'] ** (r * lag)))
+    return ((pi1 + rho) ** r - pi1 ** r + pi1 ** r * D / m) / m
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# reconstruction from the numbers G and T3 alone
+# ---------------------------------------------------------------------------------------------------------------
+def gns(G, T3, thresh=None, rank=None):
+    """GNS data of the twelve insertions from two- and three-point numbers.
+    Returns (r, eigenvalues of G, smallest kept / largest dropped eigenvalue, W, [L_s]) with L_s the r x r matrix of
+    left multiplication by n_s on span{n_p}.  The rank is the number of eigenvalues of G above `thresh` (the caller
+    passes a multiple of the proved error of the two-point numbers; never below the float64 floor 1e-11 w_max)."""
+    Gh = (G + G.conj().T) / 2
+    w, V = np.linalg.eigh(Gh)
+    w, V = w[::-1], V[:, ::-1]
+    floor = 1e-11 * w[0]
+    thresh = floor if thresh is None else max(thresh, floor)
+    if rank is None:
+        rank = int((w > thresh).sum())
+    W = V[:, :rank] / np.sqrt(w[:rank])
+    L = [W.conj().T @ T3[:, s, :] @ W for s in range(T3.shape[1])]
+    sep = float(w[rank - 1] / max(abs(w[rank]), 1e-300)) if rank < len(w) else float('inf')
+    return rank, w, sep, W, L
+
+
+def implementer_regular(G, W, perm):
+    """Matrix of |q> -> |perm(q)> on the GNS space (from the two-point numbers only)."""
+    Gp = G[:, list(perm)]
+    return W.conj().T @ Gp @ W
+
+
+def irreducible_from_regular(L, seed=1, tol=1e-6):
+    """Split the left regular representation: returns (m, [n_s] as m x m matrices, commutant dimension)."""
+    r = L[0].shape[0]
+    rows = []
+    eye = np.eye(r)
+    for Ls in L:
+        rows.append(np.kron(eye, Ls) - np.kron(Ls.T, eye))        # vec(Ls C - C Ls), column-major vec
+    K = np.concatenate(rows, axis=0)
+    u, s, vh = np.linalg.svd(K)
+    null = vh[(s < tol * s[0]).nonzero()[0][0]:] if (s < tol * s[0]).any() else vh[r * r:]
+    cdim = null.shape[0]
+    rng = np.random.default_rng(seed)
+    H = np.zeros((r, r), complex)
+    for v in null:
+        Cm = v.conj().reshape(r, r, order='F')
+        H += rng.normal() * (Cm + Cm.conj().T) + rng.normal() * 1j * (Cm - Cm.conj().T)
+    ev, vec = np.linalg.eigh(H)
+    # group eigenvalues
+    groups = [[0]]
+    for i in range(1, r):
+        if abs(ev[i] - ev[groups[-1][-1]]) < 1e-6 * max(1.0, np.abs(ev).max()):
+            groups[-1].append(i)
+        else:
+            groups.append([i])
+    g = groups[0]
+    B = vec[:, g]
+    return len(g), [B.conj().T @ Ls @ B for Ls in L], cdim, [len(x) for x in groups]
+
+
+def intertwiner(n, perm):
+    """Unitary u with u n_p u^* = n_perm(p) for all p, determinant one (unique up to an m-th root of unity)."""
+    m = n[0].shape[0]
+    rows = []
+    eye = np.eye(m)
+    for p in range(len(n)):
+        rows.append(np.kron(n[p].T, eye) - np.kron(eye, n[perm[p]]))   # vec(u n_p - n_perm(p) u)
+    K = np.concatenate(rows, axis=0)
+    u_, s, vh = np.linalg.svd(K)
+    u = vh[-1].conj().reshape(m, m, order='F')
+    u = u / np.linalg.det(u) ** (1.0 / m)
+    return u, float(s[-1] / s[0]), float(s[-2] / s[0])

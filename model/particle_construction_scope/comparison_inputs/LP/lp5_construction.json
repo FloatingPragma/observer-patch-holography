@@ -1,0 +1,268 @@
+{
+ "task": "LP construction: standing pair from the consensus state around a class-3 defect",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "K1_derived_standing_state (FP)": {
+  "holonomy -1": {
+   "consensus states (fixed vectors of D)": {
+    "hard-core": 0,
+    "cycle": 1
+   },
+   "consensus states with a blank-record part": [
+    "cycle"
+   ],
+   "cycle: blank-record part": {
+    "weight of the blank record in the consensus state": "1/3",
+    "supported on double loads": true,
+    "configurations": 6,
+    "all amplitudes equal": true,
+    "tick-1 weights": {
+     "backward": "1/12",
+     "double": "2/3",
+     "forward": "1/12",
+     "in-dimer": "1/6"
+    },
+    "X of two independent objects in this state": "2/9",
+    "inverse tick restores the state": true
+   }
+  },
+  "holonomy +1": {
+   "consensus states (fixed vectors of D)": {
+    "hard-core": 2,
+    "cycle": 1
+   },
+   "consensus states with a blank-record part": [
+    "hard-core",
+    "cycle"
+   ],
+   "hard-core: blank-record part": {
+    "weight of the blank record in the consensus state": "1",
+    "supported on double loads": false,
+    "configurations": 15,
+    "all amplitudes equal": true,
+    "tick-1 weights": {
+     "other": "1"
+    },
+    "X of two independent objects in this state": "0",
+    "inverse tick restores the state": true
+   },
+   "cycle: blank-record part": {
+    "weight of the blank record in the consensus state": "1/3",
+    "supported on double loads": true,
+    "configurations": 6,
+    "all amplitudes equal": true,
+    "tick-1 weights": {
+     "backward": "1/12",
+     "double": "2/3",
+     "forward": "1/12",
+     "in-dimer": "1/6"
+    },
+    "X of two independent objects in this state": "2/9",
+    "inverse tick restores the state": true
+   }
+  }
+ },
+ "K1_double_load_weight_given_consensus_and_blank_record": {
+  "hexagon, holonomy +1": "1/10",
+  "hexagon, holonomy -1": "1",
+  "carrier, flat links": "1/37",
+  "carrier, class-3 flux": "1",
+  "inputs": "limit weights kept by the filter (lp3_stationary.json S8, lp3b_carrier.json) and the blank weights 1, 1/3, 1/6"
+ },
+ "K1_joint_law_two_objects_in_U6": {
+  "F_A and I_B": "1/72",
+  "F_A only": "5/72",
+  "I_B only": "11/72",
+  "neither": "55/72",
+  "P(R+ xor H)": "2/9",
+  "P(R+ or H)": "17/72"
+ },
+ "K1_round_of_CK2_on_U6": {
+  "FP": {
+   "<Psi|W^-1 Pi_F W|Psi>": "1/12",
+   "<Psi|W^-1 Pi_I W|Psi>": "1/6",
+   "P of the round": "2/9",
+   "non-return vector, object A": {
+    "norm^2": "11/144",
+    "part with a blank record": "11/144",
+    "part on blank double loads": "11/144"
+   },
+   "non-return vector, object B": {
+    "norm^2": "5/36",
+    "part with a blank record": "5/36",
+    "part on blank double loads": "5/36"
+   },
+   "phase per unit clock time after N rounds": {
+    "1": "0.205334030970278",
+    "10": "0.222062099670503",
+    "100": "0.22222062184783",
+    "1000": "0.222222206218563",
+    "1000000": "0.222222222222206"
+   }
+  },
+  "FN": {
+   "<Psi|W^-1 Pi_F W|Psi>": "1/12",
+   "<Psi|W^-1 Pi_I W|Psi>": "1/6",
+   "P of the round": "2/9",
+   "non-return vector, object A": {
+    "norm^2": "11/144",
+    "part with a blank record": "11/144",
+    "part on blank double loads": "11/144"
+   },
+   "non-return vector, object B": {
+    "norm^2": "5/36",
+    "part with a blank record": "5/36",
+    "part on blank double loads": "5/36"
+   },
+   "phase per unit clock time after N rounds": {
+    "1": "0.205334030970278",
+    "10": "0.222062099670503",
+    "100": "0.22222062184783",
+    "1000": "0.222222206218563",
+    "1000000": "0.222222222222206"
+   }
+  }
+ },
+ "rerun_with_FR_module (FN)": {
+  "S": {
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  },
+  "U6": {
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  }
+ },
+ "K2_unbalanced": {
+  "0": {
+   "tick-1 weights": {
+    "backward": "1/6",
+    "double": "2/3",
+    "in-dimer": "1/6"
+   },
+   "X": "1/6",
+   "1/6 + w_A/9": "1/6"
+  },
+  "1/4": {
+   "tick-1 weights": {
+    "backward": "1/8",
+    "double": "2/3",
+    "forward": "1/24",
+    "in-dimer": "1/6"
+   },
+   "X": "7/36",
+   "1/6 + w_A/9": "7/36"
+  },
+  "1/2": {
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9",
+   "1/6 + w_A/9": "2/9"
+  },
+  "3/4": {
+   "tick-1 weights": {
+    "backward": "1/24",
+    "double": "2/3",
+    "forward": "1/8",
+    "in-dimer": "1/6"
+   },
+   "X": "1/4",
+   "1/6 + w_A/9": "1/4"
+  },
+  "1": {
+   "tick-1 weights": {
+    "double": "2/3",
+    "forward": "1/6",
+    "in-dimer": "1/6"
+   },
+   "X": "5/18",
+   "1/6 + w_A/9": "5/18"
+  },
+  "balanced, relative sign -1 between the orbits": {
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  }
+ },
+ "K3_characters": {
+  "k = 0": {
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  },
+  "k = 1": {
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  },
+  "k = 2": {
+   "tick-1 weights": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  }
+ },
+ "K4_record_refresh": {
+  "weight of each record value in the vacuum": {
+   "0": "1/3",
+   "2": "1/3",
+   "3": "1/3"
+  },
+  "record read with outcome blank": {
+   "weight": "1/3",
+   "state left": "uniform double load"
+  },
+  "record 2 replaced by a blank record": {
+   "weight of the branch": "1/3",
+   "sector of the state": [
+    "hard-core"
+   ],
+   "weight in the cycle sector after one tick": "0",
+   "record 1 written at the next tick (weight)": "1/6"
+  },
+  "record 3 replaced by a blank record": {
+   "weight of the branch": "1/3",
+   "sector of the state": [
+    "hard-core"
+   ],
+   "weight in the cycle sector after one tick": "0",
+   "record 1 written at the next tick (weight)": "1/6"
+  }
+ },
+ "seconds": 0.18
+}

@@ -1,0 +1,3065 @@
+{
+ "summary": {
+  "measured": {
+   "sin2_theta12": 0.3088,
+   "sin2_theta23": 0.47,
+   "sin2_theta13": 0.02248,
+   "delta_deg": 212.0,
+   "dm21": 7.537e-05,
+   "dm31": 0.002511,
+   "r": 0.030015929908403027
+  },
+  "one_sigma_widths": {
+   "sin2_theta12": [
+    0.0057,
+    0.0073
+   ],
+   "sin2_theta23": [
+    0.017,
+    0.013
+   ],
+   "sin2_theta13": [
+    0.00056,
+    0.00056
+   ],
+   "delta_deg": [
+    26.0,
+    41.0
+   ],
+   "r": [
+    0.00045578955072632767,
+    0.00045578955072632767
+   ]
+  },
+  "J_at_central_values": -0.017908569115563402,
+  "J_max_at_central_angles": 0.03379490108078476,
+  "count_of_looks": 108,
+  "looks_value_tuples": 96,
+  "looks_inverse_branches": 12,
+  "tuples_with_all_three_angles_within_3_sigma": [],
+  "tuples_with_ratio_within_3_sigma": [],
+  "best_largest_angle_pull_per_id": {
+   "B1": {
+    "id": "B1",
+    "orientation": "+2/9",
+    "labelling": "NO",
+    "reading": "linear",
+    "x": 0.0,
+    "values": {
+     "sin2_theta12": 7.035654378331827e-83,
+     "sin2_theta23": 2.1962912381730258e-82,
+     "sin2_theta13": 8.785164952692102e-83,
+     "delta_deg": null,
+     "J": 4.871797039578106e-125,
+     "r": 0.003535401712130539
+    },
+    "pulls": {
+     "sin2_theta12": -42.3,
+     "sin2_theta23": -36.15,
+     "sin2_theta13": -40.14,
+     "delta_deg": null,
+     "r": -58.1
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": true,
+    "largest_angle_pull": 42.3
+   },
+   "B2": {
+    "id": "B2",
+    "orientation": "+2/9",
+    "labelling": "NO",
+    "reading": "A-clock square",
+    "x": 0.0,
+    "values": {
+     "sin2_theta12": 7.035654378331827e-83,
+     "sin2_theta23": 2.1962912381730258e-82,
+     "sin2_theta13": 8.785164952692102e-83,
+     "delta_deg": null,
+     "J": 4.871797039578106e-125,
+     "r": 1.249964790990806e-05
+    },
+    "pulls": {
+     "sin2_theta12": -42.3,
+     "sin2_theta23": -36.15,
+     "sin2_theta13": -40.14,
+     "delta_deg": null,
+     "r": -65.83
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": true,
+    "largest_angle_pull": 42.3
+   },
+   "B3": {
+    "id": "B3",
+    "orientation": "+2/9",
+    "labelling": "NO",
+    "reading": "both (limit)",
+    "x": "x->+inf",
+    "values": {
+     "sin2_theta12": 7.035654378331827e-83,
+     "sin2_theta23": 2.1962912381730258e-82,
+     "sin2_theta13": 8.785164952692102e-83,
+     "delta_deg": null,
+     "J": 4.871797039578106e-125,
+     "r": 0.05918939270185883
+    },
+    "pulls": {
+     "sin2_theta12": -42.3,
+     "sin2_theta23": -36.15,
+     "sin2_theta13": -40.14,
+     "delta_deg": null,
+     "r": 64.01
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": true,
+    "largest_angle_pull": 42.3
+   },
+   "C1": {
+    "id": "C1",
+    "orientation": "+2/9",
+    "columns": "counter states (0, 1, 2)",
+    "values": {
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 0.5,
+     "sin2_theta13": 0.3333333333333333,
+     "delta_deg": 90.0,
+     "J": 0.09622504486493763,
+     "r": null
+    },
+    "pulls": {
+     "sin2_theta12": 33.54,
+     "sin2_theta23": 1.76,
+     "sin2_theta13": 555.1,
+     "delta_deg": -2.98,
+     "r": null
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": false,
+    "largest_angle_pull": 555.1
+   },
+   "C2": {
+    "id": "C2",
+    "orientation": "+2/9",
+    "columns": "('s', 'a', 'u')",
+    "fixed_counter_state": 0,
+    "values": {
+     "sin2_theta12": 0.5,
+     "sin2_theta23": 2.1962912381730258e-82,
+     "sin2_theta13": 8.785164952692102e-83,
+     "delta_deg": null,
+     "J": -4.082804496500105e-42,
+     "r": null
+    },
+    "pulls": {
+     "sin2_theta12": 33.54,
+     "sin2_theta23": -36.15,
+     "sin2_theta13": -40.14,
+     "delta_deg": null,
+     "r": null
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": true,
+    "largest_angle_pull": 40.1
+   },
+   "C3": {
+    "id": "C3",
+    "orientation": "+2/9",
+    "labelling": "IO",
+    "mass_reading": "a_rest_phase",
+    "values": {
+     "sin2_theta12": 0.5913719988157784,
+     "sin2_theta23": 0.22588400355266477,
+     "sin2_theta13": 0.18426213483334736,
+     "delta_deg": 216.7162682788949,
+     "J": -0.04303314829119352,
+     "r": 0.38694447268358406
+    },
+    "pulls": {
+     "sin2_theta12": 49.57,
+     "sin2_theta23": -18.78,
+     "sin2_theta13": 288.9,
+     "delta_deg": 0.18,
+     "r": 783.1
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": false,
+    "largest_angle_pull": 288.9
+   },
+   "C4": {
+    "id": "C4",
+    "orientation": "-2/9",
+    "labelling": "NO",
+    "flux": 2,
+    "values": {
+     "sin2_theta12": 0.14739193006369816,
+     "sin2_theta23": 0.752271773635649,
+     "sin2_theta13": 0.055608084041046654,
+     "delta_deg": 211.34936026400132,
+     "J": -0.017730632191248034,
+     "r": 0.6796218102087699
+    },
+    "pulls": {
+     "sin2_theta12": -22.11,
+     "sin2_theta23": 16.6,
+     "sin2_theta13": 59.16,
+     "delta_deg": -0.02,
+     "r": 1425.23
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": true,
+    "largest_angle_pull": 59.2
+   },
+   "D1": {
+    "id": "D1",
+    "orientation": "e=f0, mu=f1, tau=f2",
+    "labelling": "NO",
+    "mass_reading": "a_rest_phase",
+    "values": {
+     "sin2_theta12": 0.3454915028125263,
+     "sin2_theta23": 0.5,
+     "sin2_theta13": 0.03519093633336137,
+     "delta_deg": 270.0,
+     "J": -0.04303314829119352,
+     "r": 0.7210093984982042
+    },
+    "pulls": {
+     "sin2_theta12": 6.44,
+     "sin2_theta23": 1.76,
+     "sin2_theta13": 22.7,
+     "delta_deg": 2.23,
+     "r": 1516.04
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": false,
+    "largest_angle_pull": 22.7
+   },
+   "D2": {
+    "id": "D2",
+    "orientation": "e=f0, mu=f1, tau=f2",
+    "labelling": "IO",
+    "flux": 4,
+    "values": {
+     "sin2_theta12": 0.47285029720968147,
+     "sin2_theta23": 0.8236194911557827,
+     "sin2_theta13": 0.0848813358333567,
+     "delta_deg": 293.8010124092906,
+     "J": -0.046419397718710384,
+     "r": 0.216546288551028
+    },
+    "pulls": {
+     "sin2_theta12": 28.78,
+     "sin2_theta23": 20.8,
+     "sin2_theta13": 111.43,
+     "delta_deg": 3.15,
+     "r": 409.25
+    },
+    "angles_within_3_sigma": false,
+    "ratio_within_3_sigma": false,
+    "abs_J_le_Jmax_at_measured_angles": false,
+    "largest_angle_pull": 111.4
+   }
+  },
+  "inverse_reading_B5": [
+   {
+    "reading": "linear",
+    "labelling": "NO",
+    "x": -0.500784387448446,
+    "ascending_flavours": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "mass_state_flavour": {
+     "nu1": "tau",
+     "nu2": "mu",
+     "nu3": "e"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.09513304182646493,
+     "nu2": 0.09552834996563023,
+     "nu3": 0.10752346556522406
+    },
+    "sum_eV": 0.2981848573573192,
+    "PMNS": "permutation: nu1 = tau, nu2 = mu, nu3 = e"
+   },
+   {
+    "reading": "linear",
+    "labelling": "NO",
+    "x": -0.498975292893863,
+    "ascending_flavours": [
+     "mu",
+     "tau",
+     "e"
+    ],
+    "mass_state_flavour": {
+     "nu1": "mu",
+     "nu2": "tau",
+     "nu3": "e"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.0967859574838363,
+     "nu2": 0.0971745417589554,
+     "nu3": 0.1089886304440191
+    },
+    "sum_eV": 0.3029491296868108,
+    "PMNS": "permutation: nu1 = mu, nu2 = tau, nu3 = e"
+   },
+   {
+    "reading": "linear",
+    "labelling": "NO",
+    "x": -0.18053958154985247,
+    "ascending_flavours": [
+     "mu",
+     "e",
+     "tau"
+    ],
+    "mass_state_flavour": {
+     "nu1": "mu",
+     "nu2": "e",
+     "nu3": "tau"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.008282023975038346,
+     "nu2": 0.011998413275225602,
+     "nu3": 0.05078968321542388
+    },
+    "sum_eV": 0.07107012046568782,
+    "PMNS": "permutation: nu1 = mu, nu2 = e, nu3 = tau"
+   },
+   {
+    "reading": "linear",
+    "labelling": "NO",
+    "x": 0.42838192174365514,
+    "ascending_flavours": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "mass_state_flavour": {
+     "nu1": "e",
+     "nu2": "mu",
+     "nu3": "tau"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.016480779747430348,
+     "nu2": 0.018627562939990575,
+     "nu3": 0.052750508064693655
+    },
+    "sum_eV": 0.08785885075211458,
+    "PMNS": "permutation: nu1 = e, nu2 = mu, nu3 = tau"
+   },
+   {
+    "reading": "linear",
+    "labelling": "IO",
+    "x": -0.4727129142503846,
+    "ascending_flavours": [
+     "mu",
+     "tau",
+     "e"
+    ],
+    "mass_state_flavour": {
+     "nu3": "mu",
+     "nu1": "tau",
+     "nu2": "e"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu3": 0.09509320347103756,
+     "nu1": 0.10748821957025873,
+     "nu2": 0.10783824621341052
+    },
+    "sum_eV": 0.3104196692547068,
+    "PMNS": "permutation: nu3 = mu, nu1 = tau, nu2 = e"
+   },
+   {
+    "reading": "linear",
+    "labelling": "IO",
+    "x": -0.4711591864382861,
+    "ascending_flavours": [
+     "mu",
+     "e",
+     "tau"
+    ],
+    "mass_state_flavour": {
+     "nu3": "mu",
+     "nu1": "e",
+     "nu2": "tau"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu3": 0.09351151578528073,
+     "nu1": 0.10609148686139151,
+     "nu2": 0.10644610647863456
+    },
+    "sum_eV": 0.3060491091253068,
+    "PMNS": "permutation: nu3 = mu, nu1 = e, nu2 = tau"
+   },
+   {
+    "reading": "square",
+    "labelling": "NO",
+    "x": -0.5009123412641245,
+    "ascending_flavours": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "mass_state_flavour": {
+     "nu1": "tau",
+     "nu2": "mu",
+     "nu3": "e"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.06286189438075546,
+     "nu2": 0.06345855155246813,
+     "nu3": 0.080390408415042
+    },
+    "sum_eV": 0.20671085434826558,
+    "PMNS": "permutation: nu1 = tau, nu2 = mu, nu3 = e"
+   },
+   {
+    "reading": "square",
+    "labelling": "NO",
+    "x": -0.49886090957721657,
+    "ascending_flavours": [
+     "mu",
+     "tau",
+     "e"
+    ],
+    "mass_state_flavour": {
+     "nu1": "mu",
+     "nu2": "tau",
+     "nu3": "e"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.06425682020866841,
+     "nu2": 0.06484064268133943,
+     "nu3": 0.08148582050473038
+    },
+    "sum_eV": 0.21058328339473822,
+    "PMNS": "permutation: nu1 = mu, nu2 = tau, nu3 = e"
+   },
+   {
+    "reading": "square",
+    "labelling": "NO",
+    "x": -0.30608497450185584,
+    "ascending_flavours": [
+     "mu",
+     "e",
+     "tau"
+    ],
+    "mass_state_flavour": {
+     "nu1": "mu",
+     "nu2": "e",
+     "nu3": "tau"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.007796674013079887,
+     "nu2": 0.011668681402208017,
+     "nu3": 0.050712800412383414
+    },
+    "sum_eV": 0.07017815582767131,
+    "PMNS": "permutation: nu1 = mu, nu2 = e, nu3 = tau"
+   },
+   {
+    "reading": "square",
+    "labelling": "NO",
+    "x": 1.8426366991877834,
+    "ascending_flavours": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "mass_state_flavour": {
+     "nu1": "e",
+     "nu2": "mu",
+     "nu3": "tau"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu1": 0.02437921921784924,
+     "nu2": 0.02587887806053326,
+     "nu3": 0.05572563440349468
+    },
+    "sum_eV": 0.10598373168187718,
+    "PMNS": "permutation: nu1 = e, nu2 = mu, nu3 = tau"
+   },
+   {
+    "reading": "square",
+    "labelling": "IO",
+    "x": -0.4726294831369506,
+    "ascending_flavours": [
+     "mu",
+     "tau",
+     "e"
+    ],
+    "mass_state_flavour": {
+     "nu3": "mu",
+     "nu1": "tau",
+     "nu2": "e"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu3": 0.06288654756462864,
+     "nu1": 0.08040968762903075,
+     "nu2": 0.08087699218318088
+    },
+    "sum_eV": 0.22417322737684026,
+    "PMNS": "permutation: nu3 = mu, nu1 = tau, nu2 = e"
+   },
+   {
+    "reading": "square",
+    "labelling": "IO",
+    "x": -0.47124888298576745,
+    "ascending_flavours": [
+     "mu",
+     "e",
+     "tau"
+    ],
+    "mass_state_flavour": {
+     "nu3": "mu",
+     "nu1": "e",
+     "nu2": "tau"
+    },
+    "masses_eV_with_measured_dm31": {
+     "nu3": 0.06184056241972196,
+     "nu1": 0.07959431613116309,
+     "nu2": 0.08006637971325747
+    },
+    "sum_eV": 0.22150125826414252,
+    "PMNS": "permutation: nu3 = mu, nu1 = e, nu2 = tau"
+   }
+  ],
+  "C4_J_and_delta_values (post hoc reading, NOT BLIND)": [
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "+2/9",
+     "labelling": "NO",
+     "flux": 2
+    },
+    "J": 0.017730632191248034,
+    "delta_deg": 79.9580551985208,
+    "angles": [
+     0.9635941638174936,
+     0.1920429799923545,
+     0.7104393816256107
+    ]
+   },
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "+2/9",
+     "labelling": "IO",
+     "flux": 2
+    },
+    "J": 0.017730632191248034,
+    "delta_deg": 85.11132287784258,
+    "angles": [
+     0.7180084083054991,
+     0.8137747349535506,
+     0.010541696437443262
+    ]
+   },
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "-2/9",
+     "labelling": "NO",
+     "flux": 2
+    },
+    "J": -0.017730632191248034,
+    "delta_deg": 211.34936026400132,
+    "angles": [
+     0.14739193006369816,
+     0.752271773635649,
+     0.055608084041046654
+    ]
+   },
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "-2/9",
+     "labelling": "IO",
+     "flux": 2
+    },
+    "J": -0.017730632191248034,
+    "delta_deg": 263.0700913855333,
+    "angles": [
+     0.2854568294591066,
+     0.05411442048482909,
+     0.8051961687292094
+    ]
+   },
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "+2/9",
+     "labelling": "NO",
+     "flux": 4
+    },
+    "J": -0.046419397718710384,
+    "delta_deg": 292.34521311360464,
+    "angles": [
+     0.17960107723163976,
+     0.5289986715623418,
+     0.08128893443110927
+    ]
+   },
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "+2/9",
+     "labelling": "IO",
+     "flux": 4
+    },
+    "J": -0.046419397718710384,
+    "delta_deg": 256.27323877804145,
+    "angles": [
+     0.3300531569387444,
+     0.6553608058336698,
+     0.7537095685280903
+    ]
+   },
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "-2/9",
+     "labelling": "NO",
+     "flux": 4
+    },
+    "J": 0.046419397718710384,
+    "delta_deg": 49.902183612751195,
+    "angles": [
+     0.6859763957156962,
+     0.1581487342922097,
+     0.48599693323556675
+    ]
+   },
+   {
+    "tuple": {
+     "id": "C4",
+     "orientation": "-2/9",
+     "labelling": "IO",
+     "flux": 4
+    },
+    "J": 0.046419397718710384,
+    "delta_deg": 67.72676122195855,
+    "angles": [
+     0.5795399529233312,
+     0.8987809963214538,
+     0.16140909563855296
+    ]
+   }
+  ]
+ },
+ "rows": [
+  {
+   "id": "B1",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "reading": "linear",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": 7.035654378331827e-83,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": 4.871797039578106e-125,
+    "r": 0.003535401712130539
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": -58.1
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 42.3
+  },
+  {
+   "id": "B1",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "reading": "linear",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": 1.0590960089362647e-124,
+    "r": 281.8532883742283
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 618318.85
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B1",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "reading": "linear",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": 7.035654378331827e-83,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": -4.871797039578106e-125,
+    "r": 0.003535401712130539
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": -58.1
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 42.3
+  },
+  {
+   "id": "B1",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "reading": "linear",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": -1.0590960089362647e-124,
+    "r": 281.8532883742283
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 618318.85
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B2",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "reading": "A-clock square",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": 7.035654378331827e-83,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": 4.871797039578106e-125,
+    "r": 1.249964790990806e-05
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": -65.83
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 42.3
+  },
+  {
+   "id": "B2",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "reading": "A-clock square",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": 1.0590960089362647e-124,
+    "r": 80001.25344006153
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 175522285.0
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B2",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "reading": "A-clock square",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": 7.035654378331827e-83,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": -4.871797039578106e-125,
+    "r": 1.249964790990806e-05
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": -65.83
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 42.3
+  },
+  {
+   "id": "B2",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "reading": "A-clock square",
+   "x": 0.0,
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": -1.0590960089362647e-124,
+    "r": 80001.25344006153
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 175522285.0
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "reading": "both (limit)",
+   "x": "x->+inf",
+   "values": {
+    "sin2_theta12": 7.035654378331827e-83,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": 4.871797039578106e-125,
+    "r": 0.05918939270185883
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": 64.01
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 42.3
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "reading": "both (limit)",
+   "x": "x->+inf",
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": 1.0590960089362647e-124,
+    "r": 15.894919078441486
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 34807.52
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "reading": "both (limit)",
+   "x": "x->+inf",
+   "values": {
+    "sin2_theta12": 7.035654378331827e-83,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": -4.871797039578106e-125,
+    "r": 0.05918939270185883
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": 64.01
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 42.3
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "reading": "both (limit)",
+   "x": "x->+inf",
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": -1.0590960089362647e-124,
+    "r": 15.894919078441486
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 34807.52
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "reading": "both (limit)",
+   "x": "x->-inf",
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": -1.0590960089362647e-124,
+    "r": 0.9408106072981411
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 1998.28
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "reading": "both (limit)",
+   "x": "x->-inf",
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": 0.0,
+    "r": 0.06291318597251085
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": 72.18
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 121.3
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "reading": "both (limit)",
+   "x": "x->-inf",
+   "values": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1.0,
+    "delta_deg": null,
+    "J": 1.0590960089362647e-124,
+    "r": 0.9408106072981411
+   },
+   "pulls": {
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": 1745.57,
+    "delta_deg": null,
+    "r": 1998.28
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1745.6
+  },
+  {
+   "id": "B3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "reading": "both (limit)",
+   "x": "x->-inf",
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": 0.0,
+    "r": 0.06291318597251085
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": 72.18
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 121.3
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "columns": "counter states (0, 1, 2)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 90.0,
+    "J": 0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": -2.98,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "columns": "counter states (0, 2, 1)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 270.0,
+    "J": -0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": 2.23,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "columns": "counter states (1, 0, 2)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 270.0,
+    "J": -0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": 2.23,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "columns": "counter states (1, 2, 0)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 90.0,
+    "J": 0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": -2.98,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "columns": "counter states (2, 0, 1)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 90.0,
+    "J": 0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": -2.98,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "+2/9",
+   "columns": "counter states (2, 1, 0)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 270.0,
+    "J": -0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": 2.23,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('u', 's', 'a')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('u', 'a', 's')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('s', 'u', 'a')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 1.7570329905384204e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('s', 'a', 'u')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": -4.082804496500105e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('a', 'u', 's')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 1.7570329905384204e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('a', 's', 'u')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": 4.082804496500105e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('u', 's', 'a')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('u', 'a', 's')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('s', 'u', 'a')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 1.7570329905384204e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('s', 'a', 'u')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": 1.2136742257159107e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('a', 'u', 's')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 1.7570329905384204e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('a', 's', 'u')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": -9.417999875488526e-43,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('u', 's', 'a')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('u', 'a', 's')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('s', 'u', 'a')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 1.7570329905384204e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('s', 'a', 'u')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": 2.029296940217085e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('a', 'u', 's')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 1.7570329905384204e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "+2/9",
+   "columns": "('a', 's', 'u')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 2.1962912381730258e-82,
+    "sin2_theta13": 8.785164952692102e-83,
+    "delta_deg": null,
+    "J": -1.4855484638829686e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "columns": "counter states (0, 1, 2)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 270.0,
+    "J": -0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": 2.23,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "columns": "counter states (0, 2, 1)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 90.0,
+    "J": 0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": -2.98,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "columns": "counter states (1, 0, 2)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 90.0,
+    "J": 0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": -2.98,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "columns": "counter states (1, 2, 0)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 270.0,
+    "J": -0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": 2.23,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "columns": "counter states (2, 0, 1)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 270.0,
+    "J": -0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": 2.23,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C1",
+   "orientation": "-2/9",
+   "columns": "counter states (2, 1, 0)",
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.3333333333333333,
+    "delta_deg": 90.0,
+    "J": 0.09622504486493763,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 555.1,
+    "delta_deg": -2.98,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 555.1
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('u', 's', 'a')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('u', 'a', 's')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('s', 'u', 'a')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 4.3925824763460515e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('s', 'a', 'u')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": 4.082804496500105e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('a', 'u', 's')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 4.3925824763460515e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -6.588873714519077e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('a', 's', 'u')",
+   "fixed_counter_state": 0,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": -4.082804496500105e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('u', 's', 'a')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('u', 'a', 's')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('s', 'u', 'a')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 4.3925824763460515e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('s', 'a', 'u')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": -1.7574227020500267e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('a', 'u', 's')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 4.3925824763460515e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 1.3923928508925192e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('a', 's', 'u')",
+   "fixed_counter_state": 1,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": 0.0,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('u', 's', 'a')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('u', 'a', 's')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 1.0,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 121.26,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('s', 'u', 'a')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 4.3925824763460515e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": -5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('s', 'a', 'u')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": -2.301171178384143e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('a', 'u', 's')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 4.3925824763460515e-82,
+    "sin2_theta23": 1.0,
+    "sin2_theta13": 0.5,
+    "delta_deg": null,
+    "J": 5.196480863626558e-83,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": -42.3,
+    "sin2_theta23": 31.18,
+    "sin2_theta13": 852.71,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 852.7
+  },
+  {
+   "id": "C2",
+   "orientation": "-2/9",
+   "columns": "('a', 's', 'u')",
+   "fixed_counter_state": 2,
+   "values": {
+    "sin2_theta12": 0.5,
+    "sin2_theta23": 8.785164952692102e-83,
+    "sin2_theta13": 2.1962912381730258e-82,
+    "delta_deg": null,
+    "J": 2.301171178384143e-42,
+    "r": null
+   },
+   "pulls": {
+    "sin2_theta12": 33.54,
+    "sin2_theta23": -36.15,
+    "sin2_theta13": -40.14,
+    "delta_deg": null,
+    "r": null
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 40.1
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.6440035777631469,
+    "sin2_theta23": 0.9320107332894405,
+    "sin2_theta13": 0.4824045318333193,
+    "delta_deg": 263.28373172110514,
+    "J": -0.04303314829119352,
+    "r": 0.7210093984982042
+   },
+   "pulls": {
+    "sin2_theta12": 58.81,
+    "sin2_theta23": 27.18,
+    "sin2_theta13": 821.29,
+    "delta_deg": 1.97,
+    "r": 1516.04
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 821.3
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.5913719988157784,
+    "sin2_theta23": 0.22588400355266477,
+    "sin2_theta13": 0.18426213483334736,
+    "delta_deg": 216.7162682788949,
+    "J": -0.04303314829119352,
+    "r": 0.38694447268358406
+   },
+   "pulls": {
+    "sin2_theta12": 49.57,
+    "sin2_theta23": -18.78,
+    "sin2_theta13": 288.9,
+    "delta_deg": 0.18,
+    "r": 783.1
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 288.9
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.6440035777631469,
+    "sin2_theta23": 0.9320107332894405,
+    "sin2_theta13": 0.4824045318333193,
+    "delta_deg": 263.28373172110514,
+    "J": -0.04303314829119352,
+    "r": 0.6341640786499874
+   },
+   "pulls": {
+    "sin2_theta12": 58.81,
+    "sin2_theta23": 27.18,
+    "sin2_theta13": 821.29,
+    "delta_deg": 1.97,
+    "r": 1325.5
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 821.3
+  },
+  {
+   "id": "C3",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.5913719988157784,
+    "sin2_theta23": 0.22588400355266477,
+    "sin2_theta13": 0.18426213483334736,
+    "delta_deg": 216.7162682788949,
+    "J": -0.04303314829119352,
+    "r": 0.5768789713362613
+   },
+   "pulls": {
+    "sin2_theta12": 49.57,
+    "sin2_theta23": -18.78,
+    "sin2_theta13": 288.9,
+    "delta_deg": 0.18,
+    "r": 1199.81
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 288.9
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.6440035777631469,
+    "sin2_theta23": 0.9320107332894405,
+    "sin2_theta13": 0.4824045318333193,
+    "delta_deg": 96.71626827889489,
+    "J": 0.04303314829119352,
+    "r": 0.7210093984982042
+   },
+   "pulls": {
+    "sin2_theta12": 58.81,
+    "sin2_theta23": 27.18,
+    "sin2_theta13": 821.29,
+    "delta_deg": -2.81,
+    "r": 1516.04
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 821.3
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.5913719988157784,
+    "sin2_theta23": 0.22588400355266477,
+    "sin2_theta13": 0.18426213483334736,
+    "delta_deg": 143.2837317211051,
+    "J": 0.04303314829119352,
+    "r": 0.38694447268358406
+   },
+   "pulls": {
+    "sin2_theta12": 49.57,
+    "sin2_theta23": -18.78,
+    "sin2_theta13": 288.9,
+    "delta_deg": -1.68,
+    "r": 783.1
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 288.9
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.6440035777631469,
+    "sin2_theta23": 0.9320107332894405,
+    "sin2_theta13": 0.4824045318333193,
+    "delta_deg": 96.71626827889489,
+    "J": 0.04303314829119352,
+    "r": 0.6341640786499874
+   },
+   "pulls": {
+    "sin2_theta12": 58.81,
+    "sin2_theta23": 27.18,
+    "sin2_theta13": 821.29,
+    "delta_deg": -2.81,
+    "r": 1325.5
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 821.3
+  },
+  {
+   "id": "C3",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.5913719988157784,
+    "sin2_theta23": 0.22588400355266477,
+    "sin2_theta13": 0.18426213483334736,
+    "delta_deg": 143.2837317211051,
+    "J": 0.04303314829119352,
+    "r": 0.5768789713362613
+   },
+   "pulls": {
+    "sin2_theta12": 49.57,
+    "sin2_theta23": -18.78,
+    "sin2_theta13": 288.9,
+    "delta_deg": -1.68,
+    "r": 1199.81
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 288.9
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.9635941638174936,
+    "sin2_theta23": 0.1920429799923545,
+    "sin2_theta13": 0.7104393816256107,
+    "delta_deg": 79.9580551985208,
+    "J": 0.017730632191248034,
+    "r": 0.6796218102087699
+   },
+   "pulls": {
+    "sin2_theta12": 114.88,
+    "sin2_theta23": -21.38,
+    "sin2_theta13": 1228.5,
+    "delta_deg": -3.22,
+    "r": 1425.23
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1228.5
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.7180084083054991,
+    "sin2_theta23": 0.8137747349535506,
+    "sin2_theta13": 0.010541696437443262,
+    "delta_deg": 85.11132287784258,
+    "J": 0.017730632191248034,
+    "r": 0.47140657491968174
+   },
+   "pulls": {
+    "sin2_theta12": 71.79,
+    "sin2_theta23": 20.22,
+    "sin2_theta13": -21.32,
+    "delta_deg": -3.09,
+    "r": 968.41
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 71.8
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.14739193006369816,
+    "sin2_theta23": 0.752271773635649,
+    "sin2_theta13": 0.055608084041046654,
+    "delta_deg": 211.34936026400132,
+    "J": -0.017730632191248034,
+    "r": 0.6796218102087699
+   },
+   "pulls": {
+    "sin2_theta12": -22.11,
+    "sin2_theta23": 16.6,
+    "sin2_theta13": 59.16,
+    "delta_deg": -0.02,
+    "r": 1425.23
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 59.2
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.2854568294591066,
+    "sin2_theta23": 0.05411442048482909,
+    "sin2_theta13": 0.8051961687292094,
+    "delta_deg": 263.0700913855333,
+    "J": -0.017730632191248034,
+    "r": 0.47140657491968174
+   },
+   "pulls": {
+    "sin2_theta12": -3.2,
+    "sin2_theta23": -31.99,
+    "sin2_theta13": 1397.71,
+    "delta_deg": 1.96,
+    "r": 968.41
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 1397.7
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "NO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.17960107723163976,
+    "sin2_theta23": 0.5289986715623418,
+    "sin2_theta13": 0.08128893443110927,
+    "delta_deg": 292.34521311360464,
+    "J": -0.046419397718710384,
+    "r": 0.821999137567592
+   },
+   "pulls": {
+    "sin2_theta12": -17.7,
+    "sin2_theta23": 3.47,
+    "sin2_theta13": 105.02,
+    "delta_deg": 3.09,
+    "r": 1737.61
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 105.0
+  },
+  {
+   "id": "C4",
+   "orientation": "+2/9",
+   "labelling": "IO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.3300531569387444,
+    "sin2_theta23": 0.6553608058336698,
+    "sin2_theta13": 0.7537095685280903,
+    "delta_deg": 256.27323877804145,
+    "J": -0.046419397718710384,
+    "r": 0.216546288551028
+   },
+   "pulls": {
+    "sin2_theta12": 3.73,
+    "sin2_theta23": 10.9,
+    "sin2_theta13": 1305.77,
+    "delta_deg": 1.7,
+    "r": 409.25
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 1305.8
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "NO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.6859763957156962,
+    "sin2_theta23": 0.1581487342922097,
+    "sin2_theta13": 0.48599693323556675,
+    "delta_deg": 49.902183612751195,
+    "J": 0.046419397718710384,
+    "r": 0.821999137567592
+   },
+   "pulls": {
+    "sin2_theta12": 66.17,
+    "sin2_theta23": -23.99,
+    "sin2_theta13": 827.71,
+    "delta_deg": -3.95,
+    "r": 1737.61
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 827.7
+  },
+  {
+   "id": "C4",
+   "orientation": "-2/9",
+   "labelling": "IO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.5795399529233312,
+    "sin2_theta23": 0.8987809963214538,
+    "sin2_theta13": 0.16140909563855296,
+    "delta_deg": 67.72676122195855,
+    "J": 0.046419397718710384,
+    "r": 0.216546288551028
+   },
+   "pulls": {
+    "sin2_theta12": 47.5,
+    "sin2_theta23": 25.22,
+    "sin2_theta13": 248.09,
+    "delta_deg": -3.52,
+    "r": 409.25
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 248.1
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.3454915028125263,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.03519093633336137,
+    "delta_deg": 270.0,
+    "J": -0.04303314829119352,
+    "r": 0.7210093984982042
+   },
+   "pulls": {
+    "sin2_theta12": 6.44,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 22.7,
+    "delta_deg": 2.23,
+    "r": 1516.04
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 22.7
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.09549150281252629,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.6314757303333053,
+    "delta_deg": 270.0,
+    "J": -0.04303314829119352,
+    "r": 0.38694447268358406
+   },
+   "pulls": {
+    "sin2_theta12": -29.22,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 1087.49,
+    "delta_deg": 2.23,
+    "r": 783.1
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 1087.5
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.3454915028125263,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.03519093633336137,
+    "delta_deg": 270.0,
+    "J": -0.04303314829119352,
+    "r": 0.6341640786499874
+   },
+   "pulls": {
+    "sin2_theta12": 6.44,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 22.7,
+    "delta_deg": 2.23,
+    "r": 1325.5
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 22.7
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.09549150281252629,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.6314757303333053,
+    "delta_deg": 270.0,
+    "J": -0.04303314829119352,
+    "r": 0.5768789713362613
+   },
+   "pulls": {
+    "sin2_theta12": -29.22,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 1087.49,
+    "delta_deg": 2.23,
+    "r": 1199.81
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 1087.5
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.7594638151136077,
+    "sin2_theta23": 0.9274090881657661,
+    "sin2_theta13": 0.23395253433334268,
+    "delta_deg": 154.4369994004269,
+    "J": 0.017730632191248034,
+    "r": 0.6796218102087699
+   },
+   "pulls": {
+    "sin2_theta12": 79.06,
+    "sin2_theta23": 26.91,
+    "sin2_theta13": 377.63,
+    "delta_deg": -1.4,
+    "r": 1425.23
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 377.6
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.2867986694298504,
+    "sin2_theta23": 0.012922897032969808,
+    "sin2_theta13": 0.18426213483334736,
+    "delta_deg": 97.5630005995731,
+    "J": 0.017730632191248034,
+    "r": 0.47140657491968174
+   },
+   "pulls": {
+    "sin2_theta12": -3.01,
+    "sin2_theta23": -35.16,
+    "sin2_theta13": 288.9,
+    "delta_deg": -2.79,
+    "r": 968.41
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 288.9
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "NO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.8503729060226985,
+    "sin2_theta23": 0.14329448178475115,
+    "sin2_theta13": 0.432714132333324,
+    "delta_deg": 275.5536156829348,
+    "J": -0.046419397718710384,
+    "r": 0.821999137567592
+   },
+   "pulls": {
+    "sin2_theta12": 95.01,
+    "sin2_theta23": -25.13,
+    "sin2_theta13": 732.56,
+    "delta_deg": 2.44,
+    "r": 1737.61
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 732.6
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f1, tau=f2",
+   "labelling": "IO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.47285029720968147,
+    "sin2_theta23": 0.8236194911557827,
+    "sin2_theta13": 0.0848813358333567,
+    "delta_deg": 293.8010124092906,
+    "J": -0.046419397718710384,
+    "r": 0.216546288551028
+   },
+   "pulls": {
+    "sin2_theta12": 28.78,
+    "sin2_theta23": 20.8,
+    "sin2_theta13": 111.43,
+    "delta_deg": 3.15,
+    "r": 409.25
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 111.4
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.3454915028125263,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.03519093633336137,
+    "delta_deg": 90.0,
+    "J": 0.04303314829119352,
+    "r": 0.7210093984982042
+   },
+   "pulls": {
+    "sin2_theta12": 6.44,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 22.7,
+    "delta_deg": -2.98,
+    "r": 1516.04
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 22.7
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "mass_reading": "a_rest_phase",
+   "values": {
+    "sin2_theta12": 0.09549150281252629,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.6314757303333053,
+    "delta_deg": 90.0,
+    "J": 0.04303314829119352,
+    "r": 0.38694447268358406
+   },
+   "pulls": {
+    "sin2_theta12": -29.22,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 1087.49,
+    "delta_deg": -2.98,
+    "r": 783.1
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 1087.5
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.3454915028125263,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.03519093633336137,
+    "delta_deg": 90.0,
+    "J": 0.04303314829119352,
+    "r": 0.6341640786499874
+   },
+   "pulls": {
+    "sin2_theta12": 6.44,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 22.7,
+    "delta_deg": -2.98,
+    "r": 1325.5
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 22.7
+  },
+  {
+   "id": "D1",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "mass_reading": "b_correction_probability",
+   "values": {
+    "sin2_theta12": 0.09549150281252629,
+    "sin2_theta23": 0.5,
+    "sin2_theta13": 0.6314757303333053,
+    "delta_deg": 90.0,
+    "J": 0.04303314829119352,
+    "r": 0.5768789713362613
+   },
+   "pulls": {
+    "sin2_theta12": -29.22,
+    "sin2_theta23": 1.76,
+    "sin2_theta13": 1087.49,
+    "delta_deg": -2.98,
+    "r": 1199.81
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 1087.5
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.7594638151136077,
+    "sin2_theta23": 0.07259091183423391,
+    "sin2_theta13": 0.23395253433334268,
+    "delta_deg": 334.4369994004269,
+    "J": -0.017730632191248034,
+    "r": 0.6796218102087699
+   },
+   "pulls": {
+    "sin2_theta12": 79.06,
+    "sin2_theta23": -30.57,
+    "sin2_theta13": 377.63,
+    "delta_deg": 4.71,
+    "r": 1425.23
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 377.6
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "flux": 2,
+   "values": {
+    "sin2_theta12": 0.2867986694298504,
+    "sin2_theta23": 0.9870771029670302,
+    "sin2_theta13": 0.18426213483334736,
+    "delta_deg": 277.5630005995731,
+    "J": -0.017730632191248034,
+    "r": 0.47140657491968174
+   },
+   "pulls": {
+    "sin2_theta12": -3.01,
+    "sin2_theta23": 30.42,
+    "sin2_theta13": 288.9,
+    "delta_deg": 2.52,
+    "r": 968.41
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": true,
+   "largest_angle_pull": 288.9
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "NO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.8503729060226985,
+    "sin2_theta23": 0.8567055182152489,
+    "sin2_theta13": 0.432714132333324,
+    "delta_deg": 95.55361568293478,
+    "J": 0.046419397718710384,
+    "r": 0.821999137567592
+   },
+   "pulls": {
+    "sin2_theta12": 95.01,
+    "sin2_theta23": 22.75,
+    "sin2_theta13": 732.56,
+    "delta_deg": -2.84,
+    "r": 1737.61
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 732.6
+  },
+  {
+   "id": "D2",
+   "orientation": "e=f0, mu=f2, tau=f1",
+   "labelling": "IO",
+   "flux": 4,
+   "values": {
+    "sin2_theta12": 0.47285029720968147,
+    "sin2_theta23": 0.1763805088442173,
+    "sin2_theta13": 0.0848813358333567,
+    "delta_deg": 113.8010124092906,
+    "J": 0.046419397718710384,
+    "r": 0.216546288551028
+   },
+   "pulls": {
+    "sin2_theta12": 28.78,
+    "sin2_theta23": -22.59,
+    "sin2_theta13": 111.43,
+    "delta_deg": -2.4,
+    "r": 409.25
+   },
+   "angles_within_3_sigma": false,
+   "ratio_within_3_sigma": false,
+   "abs_J_le_Jmax_at_measured_angles": false,
+   "largest_angle_pull": 111.4
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+"""a01: the family on one carrier. T0 (exact shadow), T1 (covariances), population autonomy,
+one-quantum Liouville spectra and fixed points. Writes a01_family.json."""
+import json, os, sys, itertools
+import numpy as np
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import q2lib as q
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+MEMBERS = ('coin', 'parity', 'corrected', 'sqrtswap')
+out = {}
+
+# ---------------------------------------------------------------- T0: exact one-event shadow
+t0 = {}
+for sector in (1, 2, '2full'):
+    st = q.space(sector)
+    for mem in MEMBERS:
+        ok = all(q.shadow_exact(mem, st, e) for e in q.SEAMS)
+        t0[f'{mem}|{sector}'] = ok
+out['T0_one_event_shadow_exact'] = t0
+print('T0 one-event shadow (integer arithmetic), all 30 seams:', t0)
+
+# what a pure exchange law does on a double load (no split completion): counterexample
+st78 = q.space('2full')
+idx = q.index(st78)
+e = q.SEAMS[0]
+P = q.exchange(st78, e)
+x = [0] * 12; x[e[0]] = 2; x = tuple(x)
+y = tuple(int(v) for v in st78[int(np.argmax(P[:, idx[x]]))])
+ref = sorted({tuple(q.native.native(x, e, c)[0]) for c in (0, 1)})
+out['double_load_pure_exchange'] = {'state': x, 'seam': e, 'exchange_image': y, 'reference_image': ref}
+print('pure exchange on a double load:', x, '->', y, ' reference:', ref)
+
+# ---------------------------------------------------------------- population autonomy (multi-event shadow)
+auto = {}
+for sector in (1, 2):
+    st = q.space(sector)
+    n = len(st)
+    diag = np.array([i * n + i for i in range(n)])
+    off = np.array([k for k in range(n * n) if k // n != k % n])
+    for mem in MEMBERS:
+        S = q.seam_average(mem, st)
+        Sd = S[diag][:, off]
+        leak = float(abs(Sd).max()) if Sd.nnz else 0.0
+        # diagonal block equals the reference transition matrix?
+        Tref = sum(q.reference_counts(st, e) for e in q.SEAMS) / (2 * q.M)
+        dd = S[diag][:, diag].toarray()
+        auto[f'{mem}|{sector}'] = {'coherence_to_population_max': leak,
+                                   'diag_block_equals_reference': bool(np.allclose(dd, Tref))}
+out['population_autonomy'] = auto
+print('population autonomy:', json.dumps(auto, indent=1))
+
+# sqrt-swap: two events on one seam (exact counterexample to a multi-event shadow)
+st = q.space(1)
+U = q.instrument('sqrtswap', st, q.SEAMS[0])[0][1]
+U2 = U @ U
+p_stay = float(abs(U2[q.SEAMS[0][0], q.SEAMS[0][0]]) ** 2)
+out['sqrtswap_two_events_same_seam'] = {'prob_stay': p_stay, 'reference_prob_stay': 0.5}
+print('sqrt-swap twice on one seam: probability to stay', p_stay, '(reference 1/2)')
+
+# ---------------------------------------------------------------- T1 covariances
+t1 = {}
+for sector in (1, 2):
+    st = q.space(sector)
+    n = len(st)
+    Rm = [q.rotation_matrix(st, r) for r in q.ROTS]
+    seam_index = {e: i for i, e in enumerate(q.SEAMS)}
+    for mem in MEMBERS:
+        Ss = [q.superop([K for _, K in q.instrument(mem, st, e)]) for e in q.SEAMS]
+        rot_ok = True
+        for r, R in zip(q.ROTS[:60], Rm):
+            RR = q.sp.kron(q.sp.csr_matrix(R), q.sp.csr_matrix(R), format='csr')
+            for (a, b), S in zip(q.SEAMS, Ss):
+                e2 = tuple(sorted((r[a], r[b])))
+                D = RR @ S @ RR.T - Ss[seam_index[e2]]
+                if D.nnz and abs(D).max() > 1e-12:
+                    rot_ok = False
+        swap_ok = True
+        for e, S in zip(q.SEAMS, Ss):
+            Pe = q.sp.csr_matrix(q.exchange(st, e))
+            PP = q.sp.kron(Pe, Pe, format='csr')
+            D = PP @ S @ PP.T - S
+            if D.nnz and abs(D).max() > 1e-12:
+                swap_ok = False
+        # requirement 3: commutation of the channel with ad(N_p) for every port
+        req3 = 0.0
+        S0 = Ss[0]
+        for p in range(12):
+            Np = q.sp.csr_matrix(q.number(st, p).astype(float))
+            I = q.sp.identity(n, format='csr')
+            ad = q.sp.kron(Np, I) - q.sp.kron(I, Np)
+            D = S0 @ ad - ad @ S0
+            if D.nnz:
+                req3 = max(req3, float(abs(D).max()))
+        # Kraus operators inside span{1, P_e}?
+        e = q.SEAMS[0]
+        Pe = q.exchange(st, e).astype(float)
+        basis = np.array([np.eye(n).ravel(), Pe.ravel()]).T
+        resid = 0.0
+        for _, K in q.instrument(mem, st, e):
+            v = np.asarray(K, complex).ravel()
+            c, *_ = np.linalg.lstsq(basis.astype(complex), v, rcond=None)
+            resid = max(resid, float(np.linalg.norm(v - basis @ c)))
+        t1[f'{mem}|{sector}'] = {'rotations_60': rot_ok, 'endpoint_swap': swap_ok,
+                                 'requirement3_violation': req3, 'kraus_outside_exchange_algebra': resid}
+out['T1'] = t1
+print('T1:', json.dumps(t1, indent=1))
+
+# ---------------------------------------------------------------- one-quantum Liouville spectra
+spec = {}
+st = q.space(1)
+n = len(st)
+L = q.laplacian()
+lam = np.sort(np.linalg.eigvalsh(L))
+for mem in MEMBERS:
+    S = q.seam_average(mem, st).toarray()
+    w, V = np.linalg.eig(S)
+    order = np.argsort(-w.real)
+    w = w[order]
+    fixed = int((abs(w - 1) < 1e-9).sum())
+    ncomplex = int((abs(w.imag) > 1e-9).sum())
+    second = float(sorted(abs(w[abs(w - 1) > 1e-9]))[-1])
+    distinct = sorted({(round(float(z.real), 9), round(float(z.imag), 9)) for z in w}, reverse=True)
+    spec[mem] = {'fixed_points': fixed, 'complex_eigenvalues': ncomplex, 'second_modulus': second,
+                 'max_abs_imag': float(abs(w.imag).max()),
+                 'distinct_eigenvalues': distinct[:40], 'n_distinct': len(distinct),
+                 'min_real': float(w.real.min())}
+    print(f'{mem:10s} one quantum: fixed points {fixed}, complex eigenvalues {ncomplex}, second modulus {second:.9f},'
+          f' distinct {len(distinct)}, min real {w.real.min():.6f}')
+    print('    leading:', distinct[:8])
+out['one_quantum_spectrum'] = spec
+out['laplacian_levels'] = [float(v) for v in lam]
+out['reference_gap_factor'] = float(1 - (5 - 5 ** 0.5) / 60)
+
+with open(os.path.join(HERE, 'a01_family.json'), 'w') as f:
+    json.dump(out, f, indent=1, default=str)
+print('wrote a01_family.json')

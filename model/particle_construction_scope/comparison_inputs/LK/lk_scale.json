@@ -1,0 +1,70 @@
+{
+ "label": "every value in this file that uses F_NEEDED, Y_J, V_OVER_ECELL or Y_TAU_AT_CELL is NOT BLIND",
+ "F1 F2 F4 F5 by round duration": [
+  {
+   "round duration tau (cell ticks)": 1,
+   "kick angle per round h = F tau": 8.864e-19,
+   "rounds per unit clock time N = 1/h": 1.128158844765343e+18,
+   "F5 phase term 35/(2187 N^2)": 1.257415345221765e-38,
+   "F5 amplitude term 7/(81 N)": 7.660246913580247e-20,
+   "F4 non-return weight per cell tick (14/81) F^2 tau": 1.358008572839506e-37,
+   "F4 non-return weight per unit clock time (14/81) F tau": 1.5320493827160491e-19,
+   "F2 angle of the reflection product per application eta = h/2": 4.432e-19
+  },
+  {
+   "round duration tau (cell ticks)": 2,
+   "kick angle per round h = F tau": 1.7728e-18,
+   "rounds per unit clock time N = 1/h": 5.640794223826715e+17,
+   "F5 phase term 35/(2187 N^2)": 5.02966138088706e-38,
+   "F5 amplitude term 7/(81 N)": 1.5320493827160494e-19,
+   "F4 non-return weight per cell tick (14/81) F^2 tau": 2.716017145679012e-37,
+   "F4 non-return weight per unit clock time (14/81) F tau": 3.0640987654320983e-19,
+   "F2 angle of the reflection product per application eta = h/2": 8.864e-19
+  },
+  {
+   "round duration tau (cell ticks)": 4,
+   "kick angle per round h = F tau": 3.5456e-18,
+   "rounds per unit clock time N = 1/h": 2.8203971119133574e+17,
+   "F5 phase term 35/(2187 N^2)": 2.011864552354824e-37,
+   "F5 amplitude term 7/(81 N)": 3.0640987654320987e-19,
+   "F4 non-return weight per cell tick (14/81) F^2 tau": 5.432034291358024e-37,
+   "F4 non-return weight per unit clock time (14/81) F tau": 6.128197530864197e-19,
+   "F2 angle of the reflection product per application eta = h/2": 1.7728e-18
+  }
+ ],
+ "clock": {
+  "cell tick (s)": 6.885134330903042e-44,
+  "unit clock time = 1/F cell ticks": 1.128158844765343e+18,
+  "unit clock time (s)": 7.76752519280578e-26,
+  "F4 non-return events per second at tau = 2": 3944755.4908094057
+ },
+ "F3 electroweak dictionary (tau = 2)": {
+  "y_0 = (9/2) y_J": 0.048672,
+  "check: (y_0/sqrt2)(v/E_cell)": 8.863918387944943e-19,
+  "F needed": 8.864e-19,
+  "relative difference": -9.207136175180636e-06,
+  "g |beta| per cell tick": 8.864e-19
+ },
+ "looks (NOT BLIND, four comparisons; the first of each pair was estimated mentally before registration)": [
+  {
+   "candidate y_0": "g_2(E_cell)/2, declared chart",
+   "value": 0.2531,
+   "y_J = (2/9) y_0 (no running)": 0.05624444444444444,
+   "ratio to y_J = 0.010816": 5.200115055884287,
+   "y_tau at the cell = y_0 * 0.2096935560": 0.0530734390236,
+   "ratio to the measured y_tau at the cell 0.00919": 5.775129382328617
+  },
+  {
+   "candidate y_0": "source g/2",
+   "value": 0.4398,
+   "y_J = (2/9) y_0 (no running)": 0.09773333333333334,
+   "ratio to y_J = 0.010816": 9.035996055226825,
+   "y_tau at the cell = y_0 * 0.2096935560": 0.0922232259288,
+   "ratio to the measured y_tau at the cell 0.00919": 10.035171483003264
+  }
+ ],
+ "needed y_0 at the cell (NOT BLIND)": {
+  "y_tau(E_cell)/0.2096935560": 0.043825857958172065,
+  "over g_2(E_cell)": 0.08657814689484802
+ }
+}

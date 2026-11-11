@@ -1,0 +1,58 @@
+"""YC gates for the running library (no measured value read). Writes yc_gate.json.
+G1: the ported beta functions against SMDR's own evaluation (LEW's `heavy beta1|beta2` driver), all nine Yukawas nonzero.
+G2: the integrated two-loop trajectory against LEW's `rg` driver on HT's C4 row (packet P_fwd, criticality at E_cell).
+"""
+import json
+import math
+import sys
+import time
+
+import numpy as np
+
+import yc_rge as R
+
+t0 = time.time()
+pk = R.packet()
+out = {}
+
+# ---- G1
+test = dict(gp=pk["gY"], g=pk["g2"], g3=pk["g3"], yt=0.7, yb=0.6, ytau=0.5, yc=0.2, ys=0.15, ymu=0.1, yu=0.03, yd=0.02,
+            ye=0.01, k=0.2)
+x = R.vec(**test)
+order = ("gp", "g", "g3", "yu", "yc", "yt", "yd", "ys", "yb", "ye", "ymu", "ytau", "k")
+g1 = {}
+for loops in (1, 2):
+    ref = R.invoke("heavy", f"beta{loops}", pk["Q0"], pk["v"], test["gp"], test["g"], test["g3"], test["yu"], test["yc"],
+                   test["yt"], test["yd"], test["ys"], test["yb"], test["ye"], test["ymu"], test["ytau"], test["k"])
+    mine = R.betas(x, loops)
+    mine_row = [mine[R.IDX[n]] * (math.sqrt(5 / 3) if n == "gp" else 1.0) for n in order]
+    dev = [abs(a - b) / max(abs(b), 1e-300) for a, b in zip(mine_row, ref)]
+    g1[f"loops_{loops}"] = {"max_relative_deviation": max(dev), "per_coupling": dict(zip(order, dev))}
+out["G1_betas_against_SMDR"] = g1
+print("G1", {k: v["max_relative_deviation"] for k, v in g1.items()}, flush=True)
+
+# ---- G2
+R.SCRATCH.mkdir(parents=True, exist_ok=True)
+row = json.load(open("WORKSPACE/repair-law/work/HT/part2_gf_K1_2.json"))
+mu_c, yt0, lam0 = row["mu_c_GeV"], row["yt_Q0"], row["lambda_Q0"]
+names = {"Q": pk["Q0"], "v": pk["v"], "gp": pk["gY"], "g": pk["g2"], "g3": pk["g3"],
+         **{k: pk[k] for k in ("yu", "yc", "yd", "ys", "yb", "ye", "ymu", "ytau")}, "yt": yt0, "lambda": lam0,
+         "m2": -lam0 * pk["v"] ** 2, "Lambda": 0.0}
+(R.SCRATCH / "g.dat").write_text("\n".join(f"SMDR_{k}_in = {v!r};" for k, v in names.items()) + "\n")
+ref = R.invoke("rg", mu_c, 2, "g.dat", cwd=R.SCRATCH)
+x0 = R.vec(gp=pk["gY"], g=pk["g2"], g3=pk["g3"], yt=yt0, yb=pk["yb"], ytau=pk["ytau"], yc=pk["yc"], ys=pk["ys"],
+           ymu=pk["ymu"], yu=pk["yu"], yd=pk["yd"], ye=pk["ye"], k=lam0)
+sol = R.run(x0, math.log(pk["Q0"]), math.log(mu_c), loops=2, rtol=1e-12, atol=1e-15)
+xe = sol.y[:, -1]
+be = R.betas(xe, 2)
+cmp = {"yt": (xe[R.IDX["yt"]], ref["yt"]), "g3": (xe[R.IDX["g3"]], ref["g3"]), "g2": (xe[R.IDX["g"]], ref["g2"]),
+       "gY": (xe[R.IDX["gp"]], ref["gY"]), "lambda": (xe[R.IDX["k"]], ref["lambda"]),
+       "beta_lambda": (be[R.IDX["k"]], ref["beta_lambda"])}
+out["G2_trajectory_against_SMDR_rg"] = {
+    "mu_c_GeV": mu_c, "values (mine, SMDR)": {k: [float(a), float(b)] for k, (a, b) in cmp.items()},
+    "max_relative_deviation (yt, g3, g2, gY)": max(abs(a / b - 1) for k, (a, b) in cmp.items() if k in ("yt", "g3", "g2", "gY")),
+    "absolute deviation of lambda and beta_lambda": [abs(cmp["lambda"][0] - cmp["lambda"][1]),
+                                                     abs(cmp["beta_lambda"][0] - cmp["beta_lambda"][1])]}
+out["seconds"] = time.time() - t0
+print("G2", out["G2_trajectory_against_SMDR_rg"], flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else "yc_gate.json", "w"), indent=1)

@@ -1,0 +1,99 @@
+"""S3 step 1: baseline of the pinned routing with an independent builder, checked against the pinned builder.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s1_baseline.py [max_level=4]
+Writes SCR/research/S3/s1_baseline.json
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+MAXL = int(sys.argv[1]) if len(sys.argv) > 1 else 4
+out = {'max_level': MAXL, 'levels': {}}
+
+# ---- calibration of the carrier objects against the pinned carrier module
+sys.path.insert(0, S.ARCH)
+from oph_exact import carrier as PC  # noqa: E402
+from oph_exact import federation as PF  # noqa: E402
+out['carrier_checks'] = {
+    'seams_equal_pinned': tuple(map(tuple, PC.seams())) == S.SEAMS,
+    'rotations_equal_pinned_set': set(map(tuple, PC.rotations())) == set(S.ROT60),
+    'automorphisms_equal_pinned_set': set(map(tuple, PC.incidence_automorphisms())) == set(S.AUT120),
+    'antipode_equal_pinned': tuple(PC.antipode()) == S.ANTI,
+    'ordered_triple_types_under_60': len(S.REPS60), 'ordered_triple_types_under_120': len(S.REPS120),
+}
+print(out['carrier_checks'], flush=True)
+
+
+def mesh_rotation_action(mesh):
+    """For each of the 60 rotations: cell permutation and, per cell, the image index of each edge."""
+    key = {tuple(np.round(v, 8)): i for i, v in enumerate(mesh.verts)}
+    cell_of = {tuple(sorted(t)): c for c, t in enumerate(mesh.tri.tolist())}
+    acts = []
+    for M in S.ROT_MATS:
+        img = mesh.verts @ M.T
+        vp = np.array([key[tuple(np.round(p, 8) + 0.0)] for p in img])
+        gt = vp[mesh.tri]                                     # images of the vertices of each cell, in order
+        gc = np.array([cell_of[tuple(sorted(t))] for t in gt.tolist()])
+        kmap = (mesh.tri[gc][:, None, :] == gt[:, :, None]).argmax(axis=2)   # kmap[c,k] = index in g(c) of g(v_k)
+        acts.append((gc, kmap))
+    return acts
+
+
+def invariant_rotations(mesh, W, table):
+    typ = np.array([table[tuple(t)] for t in W.tolist()])
+    n = 0
+    for gc, kmap in mesh_rotation_action(mesh):
+        Wg = np.take_along_axis(W[gc], kmap, axis=1)          # ports of g(c) listed in the order of c's edges
+        tg = np.array([table[tuple(t)] for t in Wg.tolist()])
+        n += int((tg == typ).all())
+    return n
+
+
+claimed = {0: 0.882851, 1: 0.825266, 2: 0.817473, 3: 0.816553, 4: 0.815798}
+meshes, Ws = {}, {}
+for level in range(MAXL + 1):
+    t0 = time.time()
+    mesh = S.build_mesh(level)
+    W, repaired = S.pinned_wiring(mesh)
+    meshes[level], Ws[level] = mesh, W
+    a, b = S.port_seams(mesh, W)
+    fed = PF.build_federation(level, 'port_pair')
+    same = bool(np.array_equal(a, np.asarray(fed.seam_a)) and np.array_equal(b, np.asarray(fed.seam_b)))
+    L = S.laplacian(12 * mesh.N, a, b)
+    deg = np.asarray(L.diagonal()).astype(int)
+    vals = S.low_spectrum(L, k=16)
+    N = mesh.N
+    pat, t120, t60 = S.type_census(W)
+    usage = np.bincount(W.ravel(), minlength=12).tolist()
+    row = {
+        'carriers': N, 'ports': 12 * N, 'seams': int(a.size), 'glue_seams': int(mesh.left.size),
+        'seam_arrays_equal_pinned_builder': same,
+        'cells_repaired_by_assignment': repaired,
+        'degree_histogram': {int(k): int(v) for k, v in zip(*np.unique(deg, return_counts=True))},
+        'N_lambda2': float(N * vals[1]), 'N_lambda2_claimed': claimed.get(level),
+        'N_lambda_triplet': (N * vals[1:4]).tolist(),
+        'spread_l1': S.spread(vals[1:4]), 'spread_l2': S.spread(vals[4:9]), 'spread_l3': S.spread(vals[9:16]),
+        'N_lambda_first16': (N * vals).tolist(),
+        'carrier_classes_by_distance_pattern': {str(k): v for k, v in sorted(pat.items())},
+        'ordered_types_under_120': len(t120), 'ordered_types_under_60': len(t60),
+        'port_label_usage': usage,
+        'mesh_rotations_leaving_type_field_invariant_120': invariant_rotations(mesh, W, S.TYPE120),
+        'mesh_rotations_leaving_type_field_invariant_60': invariant_rotations(mesh, W, S.TYPE60),
+        'seconds': round(time.time() - t0, 1),
+    }
+    out['levels'][level] = row
+    print(level, json.dumps(row), flush=True)
+
+out['ancestry'] = {}
+for c, f in [(l, l + 1) for l in range(MAXL)]:
+    out['ancestry'][f'{c}->{f}'] = S.ancestry_count(meshes[c], Ws[c], meshes[f], Ws[f])
+    print('ancestry', c, f, out['ancestry'][f'{c}->{f}'], flush=True)
+json.dump(out, open(S.S3 + '/s1_baseline.json', 'w'), indent=1)
+print('written', S.S3 + '/s1_baseline.json')

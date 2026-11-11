@@ -1,0 +1,4032 @@
+{
+ "schema": "fz.registry.v1",
+ "note": "Written after the freeze of PROTOCOL.md. Names where each value is read, its reading, inputs and classes with quoted source text, and the lanes that can settle each item. It cannot change rows, references, conventions or criteria (PROTOCOL.md section 5). The coordinator may add lines; keep ids unique.",
+ "paths": {
+  "RL": "WORKSPACE/repair-law",
+  "RER": "WORKSPACE/reverse-engineering-reality",
+  "FZ": "WORKSPACE/repair-law/work/FZ",
+  "OM_MAP": "RL/work/OM/obstruction_map.json"
+ },
+ "rows": {
+  "L1": {
+   "status_from": "e, mu, tau (scale)",
+   "open_missing": "lepton Yukawa scale y_J (LS); lepton/quark junction weight ratio (TR)",
+   "lanes": [
+    "LS",
+    "TR",
+    "DR"
+   ]
+  },
+  "L2": {
+   "status_from": "e, mu, tau (scale)",
+   "open_missing": "lepton Yukawa scale y_J (LS); lepton/quark junction weight ratio (TR)",
+   "lanes": [
+    "LS",
+    "TR",
+    "DR"
+   ]
+  },
+  "L3": {
+   "status_from": "e, mu, tau (scale)",
+   "open_missing": "lepton Yukawa scale y_J (LS); lepton/quark junction weight ratio (TR)",
+   "lanes": [
+    "LS",
+    "TR",
+    "DR"
+   ]
+  },
+  "L4": {
+   "status_from": "e, mu, tau (ratios)",
+   "open_missing": "",
+   "lanes": [
+    "FR",
+    "CK",
+    "DR"
+   ]
+  },
+  "L5": {
+   "status_from": "e, mu, tau (ratios)",
+   "open_missing": "",
+   "lanes": [
+    "FR",
+    "CK",
+    "DR"
+   ]
+  },
+  "L6": {
+   "status_from": "e, mu, tau (ratios)",
+   "open_missing": "",
+   "lanes": [
+    "FR",
+    "CK",
+    "DR"
+   ]
+  },
+  "L7": {
+   "status_from": "e, mu, tau (ratios)",
+   "open_missing": "",
+   "lanes": [
+    "FR",
+    "CK",
+    "DR"
+   ]
+  },
+  "Q1": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "quark branch-magnitude law and an up/down register reaching observables (QM); per-sector junction normalization with T3 or 6Y (QM report section 4)",
+   "lanes": [
+    "QM",
+    "TR",
+    "LS"
+   ]
+  },
+  "Q2": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as Q1",
+   "lanes": [
+    "QM",
+    "TR",
+    "LS"
+   ]
+  },
+  "Q3": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as Q1",
+   "lanes": [
+    "QM",
+    "TR",
+    "LS"
+   ]
+  },
+  "Q4": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as Q1",
+   "lanes": [
+    "QM",
+    "TR",
+    "LS"
+   ]
+  },
+  "Q5": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as Q1",
+   "lanes": [
+    "QM",
+    "TR",
+    "LS"
+   ]
+  },
+  "Q6": {
+   "status_from": "Higgs, top",
+   "open_missing": "",
+   "lanes": [
+    "HT",
+    "LW",
+    "SC",
+    "EB"
+   ]
+  },
+  "Q6i": {
+   "status_from": "Higgs, top",
+   "open_missing": "",
+   "lanes": [
+    "HT",
+    "LW",
+    "SC",
+    "EB"
+   ],
+   "information_only": true
+  },
+  "Q7": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as Q1",
+   "lanes": [
+    "QM"
+   ]
+  },
+  "Q8": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as Q1",
+   "lanes": [
+    "QM"
+   ]
+  },
+  "C1": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "quark generation phases and the CKM matrix (CM, after QM)",
+   "lanes": [
+    "CM",
+    "QM"
+   ]
+  },
+  "C2": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as C1",
+   "lanes": [
+    "CM",
+    "QM"
+   ]
+  },
+  "C3": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as C1",
+   "lanes": [
+    "CM",
+    "QM"
+   ]
+  },
+  "C4": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as C1",
+   "lanes": [
+    "CM",
+    "QM"
+   ]
+  },
+  "C5": {
+   "status_from": "u, d, s, c, b",
+   "open_missing": "as C1",
+   "lanes": [
+    "CM",
+    "QM"
+   ]
+  },
+  "N1": {
+   "status_from": "neutrinos",
+   "open_missing": "neutrino suppression from the fifth-order neutral transfer (NU3) and the splitting pattern (PM)",
+   "lanes": [
+    "NU3",
+    "PM"
+   ]
+  },
+  "N2": {
+   "status_from": "neutrinos",
+   "open_missing": "as N1",
+   "lanes": [
+    "NU3",
+    "PM"
+   ]
+  },
+  "N3": {
+   "status_from": "neutrinos",
+   "open_missing": "splitting ratio (PM, after FR and NU3)",
+   "lanes": [
+    "PM",
+    "FR",
+    "NU3"
+   ]
+  },
+  "N4": {
+   "status_from": "neutrinos",
+   "open_missing": "neutrino mixing (PM, after FR and NU3)",
+   "lanes": [
+    "PM",
+    "FR",
+    "NU3"
+   ]
+  },
+  "N5": {
+   "status_from": "neutrinos",
+   "open_missing": "as N4",
+   "lanes": [
+    "PM",
+    "FR",
+    "NU3"
+   ]
+  },
+  "N6": {
+   "status_from": "neutrinos",
+   "open_missing": "as N4",
+   "lanes": [
+    "PM",
+    "FR",
+    "NU3"
+   ]
+  },
+  "N7": {
+   "status_from": "neutrinos",
+   "open_missing": "as N4",
+   "lanes": [
+    "PM",
+    "FR",
+    "NU3"
+   ]
+  },
+  "N8": {
+   "status_from": "neutrinos",
+   "open_missing": "absolute neutrino scale (NU3)",
+   "lanes": [
+    "NU3"
+   ]
+  },
+  "N9": {
+   "status_from": null,
+   "open_missing": "",
+   "lanes": [
+    "NU3"
+   ]
+  },
+  "E1": {
+   "status_from": "W, Z",
+   "open_missing": "",
+   "lanes": [
+    "EB",
+    "GL",
+    "SC",
+    "LW",
+    "SS"
+   ]
+  },
+  "E2": {
+   "status_from": "W, Z",
+   "open_missing": "",
+   "lanes": [
+    "EB",
+    "GL",
+    "SC",
+    "LW",
+    "SS"
+   ]
+  },
+  "E3": {
+   "status_from": "Higgs, top",
+   "open_missing": "",
+   "lanes": [
+    "HT",
+    "LW",
+    "SC",
+    "EB"
+   ]
+  },
+  "E4": {
+   "status_from": null,
+   "open_missing": "",
+   "lanes": [
+    "SC",
+    "EB",
+    "GL"
+   ]
+  },
+  "E5": {
+   "status_from": null,
+   "open_missing": "",
+   "lanes": [
+    "EB",
+    "GL",
+    "SC"
+   ]
+  },
+  "E5o": {
+   "status_from": "W, Z",
+   "open_missing": "",
+   "lanes": [
+    "EB",
+    "GL",
+    "SC",
+    "LW"
+   ]
+  },
+  "E6": {
+   "status_from": null,
+   "open_missing": "",
+   "lanes": [
+    "EB",
+    "GL",
+    "SC"
+   ]
+  },
+  "H0": {
+   "status_from": "proton, neutron, rho",
+   "open_missing": "",
+   "lanes": [
+    "HD",
+    "GL",
+    "EB",
+    "SC"
+   ]
+  },
+  "H1": {
+   "status_from": "proton, neutron, rho",
+   "open_missing": "isospin breaking: m_u, m_d and QED (HD after QM); the lane value is isospin symmetric (row H0)",
+   "lanes": [
+    "HD",
+    "QM"
+   ]
+  },
+  "H2": {
+   "status_from": "proton, neutron, rho",
+   "open_missing": "as H1",
+   "lanes": [
+    "HD",
+    "QM"
+   ]
+  },
+  "H3": {
+   "status_from": "proton, neutron, rho",
+   "open_missing": "as H1",
+   "lanes": [
+    "HD",
+    "QM"
+   ]
+  },
+  "H4": {
+   "status_from": "proton, neutron, rho",
+   "open_missing": "pion needs m_ud (QM, then HD)",
+   "lanes": [
+    "HD",
+    "QM"
+   ]
+  },
+  "H5": {
+   "status_from": "proton, neutron, rho",
+   "open_missing": "",
+   "lanes": [
+    "HD",
+    "QM"
+   ]
+  },
+  "G1": {
+   "status_from": "photon, gluon",
+   "open_missing": "",
+   "lanes": [
+    "GL"
+   ]
+  },
+  "G2": {
+   "status_from": "photon, gluon",
+   "open_missing": "",
+   "lanes": [
+    "GL"
+   ]
+  }
+ },
+ "lines": [
+  {
+   "id": "L4.spec",
+   "row": "L4",
+   "reading": "native circulant, Q = 2/3, delta = 2/9",
+   "reading_key": "lep.circ29",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "e, mu, tau (ratios)",
+     "column": "value",
+     "regex": "mu/e ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "pole ratio",
+   "inputs": [
+    {
+     "item": "branch weights 1/6 : 1/12 : 1/12 give abs(b)/a = 1/sqrt2 and Q = 2/3",
+     "class": "SOURCE",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "The branch weights are SOURCE"
+     },
+     "lanes": []
+    },
+    {
+     "item": "circulant operator form on the family register",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "The circulant operator form is CONDITIONAL on the family register"
+     },
+     "lanes": [
+      "FR"
+     ]
+    },
+    {
+     "item": "delta = 2/9: premise B (one nat per read gives one radian per read)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "delta = 2/9 CONDITIONAL on premise B"
+     },
+     "lanes": [
+      "CK"
+     ]
+    },
+    {
+     "item": "FR register: neutral register and coupling, oriented record, analyzer, preparation, clock coefficient (declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "Declared there: the neutral register and its coupling, the oriented record, the analyzer, the preparation, the clock coefficient"
+     },
+     "lanes": [
+      "FR",
+      "CK"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "the balance sqrt2 (Koide) and the phase 2/9 were found from the measured masses: target-informed ancestry",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "phase offset 2/9, amplitude sqrt(2) (Koide balance), determinant weight 1/(2 * 6^14) | TARGET-INFORMED"
+     }
+    }
+   ]
+  },
+  {
+   "id": "L4.file",
+   "row": "L4",
+   "reading": "native circulant, Q = 2/3, delta = 2/9 (full digits)",
+   "reading_key": "lep.circ29",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RL/work/MATCH/koide_balance.json",
+     "pointer": "/ratios_at_delta_2_9/mu_over_e"
+    }
+   },
+   "definition": "pole ratio",
+   "inherit_inputs": "L4.spec"
+  },
+  {
+   "id": "L4.mcpr",
+   "row": "L4",
+   "reading": "repository MCPR completed response at P_fwd",
+   "reading_key": "lep.mcpr",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "\"m_mu_over_m_e\": \"([0-9]+(?:\\.[0-9]+)?)\"",
+     "group": 1
+    }
+   },
+   "definition": "pole ratio",
+   "inputs": [
+    {
+     "item": "MCPR response architecture (three circulant coordinates)",
+     "class": "FIT",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "Historically target-informed architecture with three circulant coordinates"
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "L5.spec",
+   "row": "L5",
+   "reading": "native circulant, Q = 2/3, delta = 2/9",
+   "reading_key": "lep.circ29",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "e, mu, tau (ratios)",
+     "column": "value",
+     "regex": "tau/e ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "pole ratio",
+   "inherit_inputs": "L4.spec"
+  },
+  {
+   "id": "L5.file",
+   "row": "L5",
+   "reading": "native circulant, Q = 2/3, delta = 2/9 (full digits)",
+   "reading_key": "lep.circ29",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RL/work/MATCH/koide_balance.json",
+     "pointer": "/ratios_at_delta_2_9/tau_over_e"
+    }
+   },
+   "definition": "pole ratio",
+   "inherit_inputs": "L4.spec"
+  },
+  {
+   "id": "L5.mcpr",
+   "row": "L5",
+   "reading": "repository MCPR completed response at P_fwd",
+   "reading_key": "lep.mcpr",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "\"m_tau_over_m_e\": \"([0-9]+(?:\\.[0-9]+)?)\"",
+     "group": 1
+    }
+   },
+   "definition": "pole ratio",
+   "inherit_inputs": "L4.mcpr"
+  },
+  {
+   "id": "L6.spec",
+   "row": "L6",
+   "reading": "native circulant, Q = 2/3, delta = 2/9",
+   "reading_key": "lep.circ29",
+   "primary_candidate": true,
+   "value": {
+    "op": "div",
+    "args": [
+     {
+      "line": "L5.spec"
+     },
+     {
+      "line": "L4.spec"
+     }
+    ]
+   },
+   "definition": "pole ratio",
+   "inherit_inputs": "L4.spec"
+  },
+  {
+   "id": "L6.mcpr",
+   "row": "L6",
+   "reading": "repository MCPR completed response at P_fwd",
+   "reading_key": "lep.mcpr",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "\"m_tau_over_m_mu\": \"([0-9]+(?:\\.[0-9]+)?)\"",
+     "group": 1
+    }
+   },
+   "definition": "pole ratio",
+   "inherit_inputs": "L4.mcpr"
+  },
+  {
+   "id": "L7.spec",
+   "row": "L7",
+   "reading": "native circulant, Q = 2/3 for every phase",
+   "reading_key": "lep.circ29",
+   "primary_candidate": true,
+   "value": {
+    "const": "2/3",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "and Q = 2/3 with no coin"
+    }
+   },
+   "definition": "Koide Q",
+   "inputs": [
+    {
+     "item": "branch weights 1/6 : 1/12 : 1/12 give abs(b)/a = 1/sqrt2 and Q = 2/3",
+     "class": "SOURCE",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "The branch weights are SOURCE"
+     },
+     "lanes": []
+    },
+    {
+     "item": "circulant operator form on the family register",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "The circulant operator form is CONDITIONAL on the family register"
+     },
+     "lanes": [
+      "FR"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "the balance sqrt2 is Koide's relation, found from the measured masses: target-informed ancestry",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "phase offset 2/9, amplitude sqrt(2) (Koide balance), determinant weight 1/(2 * 6^14) | TARGET-INFORMED"
+     }
+    }
+   ]
+  },
+  {
+   "id": "L7.mcpr",
+   "row": "L7",
+   "reading": "repository MCPR completed response at P_fwd",
+   "reading_key": "lep.mcpr",
+   "primary_candidate": false,
+   "value": {
+    "op": "koide_from_ratios",
+    "args": [
+     {
+      "line": "L4.mcpr"
+     },
+     {
+      "line": "L5.mcpr"
+     }
+    ]
+   },
+   "definition": "Koide Q",
+   "inherit_inputs": "L4.mcpr"
+  },
+  {
+   "id": "L1.mcpr",
+   "row": "L1",
+   "reading": "repository MCPR completed response at P_fwd",
+   "reading_key": "lep.mcpr",
+   "primary_candidate": false,
+   "value": {
+    "op": "mul",
+    "args": [
+     {
+      "text": {
+       "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+       "regex": "masses_MeV_display: `\\[\"([0-9]+(?:\\.[0-9]+)?)\", \"([0-9]+(?:\\.[0-9]+)?)\", \"([0-9]+(?:\\.[0-9]+)?)\"\\]`",
+       "group": 1
+      }
+     },
+     {
+      "const": "0.001"
+     }
+    ]
+   },
+   "definition": "pole",
+   "inherit_inputs": "L4.mcpr"
+  },
+  {
+   "id": "L2.mcpr",
+   "row": "L2",
+   "reading": "repository MCPR completed response at P_fwd",
+   "reading_key": "lep.mcpr",
+   "primary_candidate": false,
+   "value": {
+    "op": "mul",
+    "args": [
+     {
+      "text": {
+       "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+       "regex": "masses_MeV_display: `\\[\"([0-9]+(?:\\.[0-9]+)?)\", \"([0-9]+(?:\\.[0-9]+)?)\", \"([0-9]+(?:\\.[0-9]+)?)\"\\]`",
+       "group": 2
+      }
+     },
+     {
+      "const": "0.001"
+     }
+    ]
+   },
+   "definition": "pole",
+   "inherit_inputs": "L4.mcpr"
+  },
+  {
+   "id": "L3.mcpr",
+   "row": "L3",
+   "reading": "repository MCPR completed response at P_fwd",
+   "reading_key": "lep.mcpr",
+   "primary_candidate": false,
+   "value": {
+    "op": "mul",
+    "args": [
+     {
+      "text": {
+       "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+       "regex": "masses_MeV_display: `\\[\"([0-9]+(?:\\.[0-9]+)?)\", \"([0-9]+(?:\\.[0-9]+)?)\", \"([0-9]+(?:\\.[0-9]+)?)\"\\]`",
+       "group": 3
+      }
+     },
+     {
+      "const": "0.001"
+     }
+    ]
+   },
+   "definition": "pole",
+   "inherit_inputs": "L4.mcpr"
+  },
+  {
+   "id": "L1.ls2",
+   "row": "L1",
+   "reading": "LS round 2, determinant-line basepoint D1 (excluded by the quark test)",
+   "reading_key": "lep.ls2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/LS2.md",
+     "regex": "Lepton readout \\(NOT BLIND\\):\\*\\* ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) and ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 1
+    }
+   },
+   "definition": "pole",
+   "inputs": [
+    {
+     "item": "determinant-line basepoint 6^-12 q p (twelve cone points, one agree and one repair weight)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LS2.md",
+      "text": "Still declared: that the basepoint contains exactly 12 cone sectors plus one agree and one repair event"
+     },
+     "lanes": [
+      "LS"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "D1 is the MCPR determinant law rewritten: target-informed history",
+     "quote": {
+      "file": "RL/reports/LS2.md",
+      "text": "so the lepton agreement inherits the MCPR's target-informed history and carries no weight as evidence"
+     }
+    }
+   ],
+   "excluded": {
+    "file": "RL/reports/LS2.md",
+    "text": "**D1 and D2 are excluded** at all three scales"
+   }
+  },
+  {
+   "id": "L2.ls2",
+   "row": "L2",
+   "reading": "LS round 2, determinant-line basepoint D1 (excluded by the quark test)",
+   "reading_key": "lep.ls2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/LS2.md",
+     "regex": "Lepton readout \\(NOT BLIND\\):\\*\\* ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) and ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 2
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "L1.ls2"
+  },
+  {
+   "id": "L3.ls2",
+   "row": "L3",
+   "reading": "LS round 2, determinant-line basepoint D1 (excluded by the quark test)",
+   "reading_key": "lep.ls2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/LS2.md",
+     "regex": "Lepton readout \\(NOT BLIND\\):\\*\\* ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) and ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 3
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "L1.ls2"
+  },
+  {
+   "id": "L3.dressed",
+   "row": "L3",
+   "reading": "dressing -0.79 ppm in delta (mu/e exact by construction; anchors m_e, m_mu)",
+   "reading_key": "lep.dressed",
+   "primary_candidate": false,
+   "value": {
+    "op": "mul",
+    "args": [
+     {
+      "spectrum": {
+       "particles": "e, mu, tau (ratios)",
+       "column": "status",
+       "regex": "tau to ([0-9]+(?:\\.[0-9]+)?) MeV",
+       "group": 1
+      }
+     },
+     {
+      "const": "0.001"
+     }
+    ]
+   },
+   "definition": "pole",
+   "inputs": [
+    {
+     "item": "dressing of delta chosen to make mu/e exact; measured m_e and m_mu as anchors",
+     "class": "FIT",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "Dressing -0.79 ppm in delta brings mu/e exact and tau to 1776.969 MeV (+0.43 sigma), not derived"
+     },
+     "lanes": [
+      "DR"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E1.spec",
+   "row": "E1",
+   "reading": "D10 strict branch, zero-selector law, at P_fwd",
+   "reading_key": "ew.zero",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "W, Z",
+     "column": "value",
+     "regex": "([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "slopes (33/5, 1, -3) from M_U to m_Z (MSSM-like census, declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "forms M_U (reduced to R(P)), E_cell, v transmutation, beta_EW = 4",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "M_U reduced to R(P) = 2 pi - (2/3) ln P"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "m_Z reading of the pixel closure (retired by DC2) and the fixed point P_fwd",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the m_Z reading of the pixel closure is retired"
+     },
+     "lanes": [
+      "SC",
+      "GL"
+     ]
+    },
+    {
+     "item": "zero-selector law, selected by LW (one premise argued)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the zero-selector law is selected"
+     },
+     "lanes": [
+      "LW"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "eta slice alphaY -> alphaY (1 - 2 eta), entered after the Z miss was seen",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "TARGET-INFORMED by timing. No repository text gives its origin."
+     }
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    },
+    {
+     "text": "LW: the law selection removes the eta slice that this line keeps",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the target-informed eta slice removed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E1.file",
+   "row": "E1",
+   "reading": "D10 strict branch, zero-selector law, at P_fwd (full digits)",
+   "reading_key": "ew.zero",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json",
+     "pointer": "/two_law_display/zero_selector_law/MW_GeV"
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E1.spec"
+  },
+  {
+   "id": "E1.carrier",
+   "row": "E1",
+   "reading": "D10 strict branch, nonzero carrier value law",
+   "reading_key": "ew.carrier",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json",
+     "pointer": "/two_law_display/nonzero_carrier_law/MW_GeV"
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E1.spec",
+   "extra_lowered_by": [
+    {
+     "to": "FIT",
+     "item": "carrier coefficients tau2, delta_n fitted to the PDG-API pair",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "TARGET-INFORMED (fitted on 2026-03-29 to the PDG-API pair 80.377 / 91.18797809193725"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E1.d10law",
+   "row": "E1",
+   "reading": "archived D10 value law (legacy P = 1.63094)",
+   "reading_key": "ew.d10law",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "MW_chart_GeV: ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "two coefficients fitted to the PDG-API W, Z pair; measured P",
+     "class": "FIT",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "fit to the PDG-API pair (80.377, 91.18798)"
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "E2.spec",
+   "row": "E2",
+   "reading": "D10 strict branch, zero-selector law, at P_fwd",
+   "reading_key": "ew.zero",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "W, Z",
+     "column": "value",
+     "regex": "([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 2
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E1.spec",
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    },
+    {
+     "text": "LW: the law selection removes the eta slice that this line keeps",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the target-informed eta slice removed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E2.file",
+   "row": "E2",
+   "reading": "D10 strict branch, zero-selector law, at P_fwd (full digits)",
+   "reading_key": "ew.zero",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json",
+     "pointer": "/two_law_display/zero_selector_law/MZ_GeV"
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E1.spec"
+  },
+  {
+   "id": "E2.carrier",
+   "row": "E2",
+   "reading": "D10 strict branch, nonzero carrier value law",
+   "reading_key": "ew.carrier",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json",
+     "pointer": "/two_law_display/nonzero_carrier_law/MZ_GeV"
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E1.carrier"
+  },
+  {
+   "id": "E2.d10law",
+   "row": "E2",
+   "reading": "archived D10 value law (legacy P = 1.63094)",
+   "reading_key": "ew.d10law",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "MZ_chart_GeV: ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E1.d10law"
+  },
+  {
+   "id": "E5o.spec",
+   "row": "E5o",
+   "reading": "1 - (M_W/M_Z)^2 of the zero-selector law",
+   "reading_key": "ew.zero",
+   "primary_candidate": true,
+   "value": {
+    "op": "onshell",
+    "args": [
+     {
+      "line": "E1.spec"
+     },
+     {
+      "line": "E2.spec"
+     }
+    ]
+   },
+   "definition": "onshell",
+   "inherit_inputs": "E1.spec"
+  },
+  {
+   "id": "E5o.carrier",
+   "row": "E5o",
+   "reading": "1 - (M_W/M_Z)^2 of the carrier value law",
+   "reading_key": "ew.carrier",
+   "primary_candidate": false,
+   "value": {
+    "op": "onshell",
+    "args": [
+     {
+      "line": "E1.carrier"
+     },
+     {
+      "line": "E2.carrier"
+     }
+    ]
+   },
+   "definition": "onshell",
+   "inherit_inputs": "E1.carrier"
+  },
+  {
+   "id": "E5.d10",
+   "row": "E5",
+   "reading": "D10 running couplings alpha2, alphaY at the chain's own m_Z (91.588 GeV), before the eta slice",
+   "reading_key": "ew.d10run",
+   "primary_candidate": true,
+   "value": {
+    "op": "sin2_from_couplings",
+    "args": [
+     {
+      "json": {
+       "file": "RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json",
+       "pointer": "/strict_branch_two_law_boundary/basis/alpha2_mz"
+      }
+     },
+     {
+      "json": {
+       "file": "RER/code/particles/runs/calibration/wzh_residual_elimination_boundary.json",
+       "pointer": "/strict_branch_two_law_boundary/basis/alphaY_mz"
+      }
+     }
+    ]
+   },
+   "definition": "msbar",
+   "scale": "chain m_Z = 91.588 GeV",
+   "inputs": [
+    {
+     "item": "slopes (33/5, 1, -3) from M_U to m_Z",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "forms M_U, E_cell, beta_EW = 4 and the fixed point P_fwd",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "M_U reduced to R(P) = 2 pi - (2/3) ln P"
+     },
+     "lanes": [
+      "SC"
+     ]
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "E5.gl",
+   "row": "E5",
+   "reading": "GL: equal bare couplings at E_cell from the plaquette action",
+   "reading_key": "ew.gl",
+   "primary_candidate": false,
+   "value": {
+    "const": "3/8",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "sin^2 theta_W = 3/8 at E_cell"
+    }
+   },
+   "definition": "msbar",
+   "scale": "E_cell",
+   "inputs": [
+    {
+     "item": "continuous port phases as a seam register (declared step)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/GL.md",
+      "text": "making them a seam register is a declared step"
+     },
+     "lanes": [
+      "GL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E6.d10",
+   "row": "E6",
+   "reading": "D10 alpha_3 at the chain's own m_Z (91.588 GeV)",
+   "reading_key": "ew.d10run",
+   "primary_candidate": true,
+   "value": {
+    "json": {
+     "file": "RER/code/particles/runs/qcd/lambda_qcd_source_transmutation.json",
+     "pointer": "/source_input/alpha_3_mz_run"
+    }
+   },
+   "definition": "msbar",
+   "scale": "chain m_Z = 91.588 GeV",
+   "inherit_inputs": "E5.d10",
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "E4.root",
+   "row": "E4",
+   "reading": "fixed point of the declared closure map (P_fwd), the P of every D10 row above",
+   "reading_key": "alpha.root",
+   "primary_candidate": true,
+   "value": {
+    "json": {
+     "file": "RER/code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+     "pointer": "/modes/thomson_structured_running/fixed_point_point_estimate_display_only/alpha_inv"
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inputs": [
+    {
+     "item": "closure premise P = phi + sqrt(pi) alpha and the declared map 2a-2g",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "| 2a | P = phi + sqrt(pi) alpha (outer closure premise) | DECLARED"
+     },
+     "lanes": [
+      "SC",
+      "EB"
+     ]
+    },
+    {
+     "item": "slopes (33/5, 1, -3)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL"
+     ]
+    },
+    {
+     "item": "Thomson transport on the Stage-5 continuation masses (a target-informed lepton premise, measured-derived input of another row)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "| 2h | Thomson transport A_T: exact one-loop fermion kernel"
+     },
+     "lanes": [
+      "SC"
+     ]
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "E4.gw",
+   "row": "E4",
+   "reading": "gauge-width map (alpha_U added to the inverse coupling)",
+   "reading_key": "alpha.gw",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RER/code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+     "pointer": "/modes/thomson_structured_running_plus_gauge_width/fixed_point_point_estimate_display_only/alpha_inv"
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inherit_inputs": "E4.root",
+   "extra_lowered_by": [
+    {
+     "to": "FIT",
+     "item": "the added term entered after the gap to CODATA was known and equals it to 1e-3",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "TARGET-INFORMED by timing and size"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E4.spectral",
+   "row": "E4",
+   "reading": "entangled-pair spectral scalar (external construction; feeds no mass row)",
+   "reading_key": "alpha.spectral",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RER/model/observer_particles/results/entangled_alpha.json",
+     "pointer": "/inverse_alpha"
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inputs": [
+    {
+     "item": "external construction: dimensions (3, 2, 3, 2), multiplicities 79, 48, 42, 3, normalisation 31104",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "an external construction (below); no measured input"
+     },
+     "lanes": []
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "construction choices made for a candidate whose purpose is to equal alpha",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "made for a candidate whose purpose is to equal alpha"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E4.knt19",
+   "row": "E4",
+   "reading": "empirical Thomson endpoint with the measured KNT19 hadronic payload",
+   "reading_key": "alpha.knt19",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RER/code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+     "pointer": "/endpoint/alpha_inv_central"
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inputs": [
+    {
+     "item": "measured hadronic payload (KNT19) and the source anchor",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "| KNT19 empirical Thomson endpoint |"
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "E3.spec",
+   "row": "E3",
+   "reading": "double criticality at E* exp(-pi) P^(-1/6), two loops",
+   "reading_key": "ht.crit",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "Higgs, top",
+     "column": "value",
+     "regex": "([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "criticality boundary scale E* exp(-pi) P^(-1/6)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "CONDITIONAL: boundary scale"
+     },
+     "lanes": [
+      "HT",
+      "LW",
+      "SC"
+     ]
+    },
+    {
+     "item": "P_fwd and the D10 couplings at the boundary",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "SC"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "boundary scale identified after the implied scale was computed",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "the candidate was identified after the implied scale was computed"
+     }
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "E3.file",
+   "row": "E3",
+   "reading": "double criticality at E* exp(-pi) P^(-1/6), two loops (full digits)",
+   "reading_key": "ht.crit",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "mH_tree_GeV_display: ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E3.spec"
+  },
+  {
+   "id": "E3.surface",
+   "row": "E3",
+   "reading": "repository declared calibration surface",
+   "reading_key": "ht.surface",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "\n  - mH_GeV: ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "pole",
+   "inputs": [
+    {
+     "item": "back-solved from the measured Higgs and top",
+     "class": "FIT",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "They validate the formula stack and carry zero predictive content."
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "E3.relation",
+   "row": "E3",
+   "reading": "m_t to m_H criticality relation at the measured top",
+   "reading_key": "ht.relation",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "mH_on_curve_at_measured_mt_GeV: ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "measured top mass as input (another row)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "The top datum is an input; no physical pole bridge or theory uncertainty is supplied."
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "Q6.spec",
+   "row": "Q6",
+   "reading": "double criticality at E* exp(-pi) P^(-1/6), two loops",
+   "reading_key": "ht.crit",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "Higgs, top",
+     "column": "value",
+     "regex": "([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 2
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "E3.spec",
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "Q6.file",
+   "row": "Q6",
+   "reading": "double criticality at E* exp(-pi) P^(-1/6), two loops (full digits)",
+   "reading_key": "ht.crit",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "mt_pole_GeV_display: ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "E3.spec"
+  },
+  {
+   "id": "Q6.surface",
+   "row": "Q6",
+   "reading": "repository declared calibration surface",
+   "reading_key": "ht.surface",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+     "regex": "\n  - mt_GeV: ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "E3.surface"
+  },
+  {
+   "id": "Q6.rscc",
+   "row": "Q6",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?), d ([0-9]+(?:\\.[0-9]+)?), s ([0-9]+(?:\\.[0-9]+)?), c ([0-9]+(?:\\.[0-9]+)?),\\s+b ([0-9]+(?:\\.[0-9]+)?), t ([0-9]+(?:\\.[0-9]+)?) GeV, all inside",
+     "group": 6
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "Q1.rscc"
+  },
+  {
+   "id": "Q1.rscc",
+   "row": "Q1",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?), d ([0-9]+(?:\\.[0-9]+)?), s ([0-9]+(?:\\.[0-9]+)?), c ([0-9]+(?:\\.[0-9]+)?),\\s+b ([0-9]+(?:\\.[0-9]+)?), t ([0-9]+(?:\\.[0-9]+)?) GeV, all inside",
+     "group": 1
+    }
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inputs": [
+    {
+     "item": "thirteen rational coefficients and about eight equation forms found with the spectrum known",
+     "class": "FIT",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "Classification: target-informed retrospective fit"
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "Q2.rscc",
+   "row": "Q2",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?), d ([0-9]+(?:\\.[0-9]+)?), s ([0-9]+(?:\\.[0-9]+)?), c ([0-9]+(?:\\.[0-9]+)?),\\s+b ([0-9]+(?:\\.[0-9]+)?), t ([0-9]+(?:\\.[0-9]+)?) GeV, all inside",
+     "group": 2
+    }
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.rscc"
+  },
+  {
+   "id": "Q3.rscc",
+   "row": "Q3",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?), d ([0-9]+(?:\\.[0-9]+)?), s ([0-9]+(?:\\.[0-9]+)?), c ([0-9]+(?:\\.[0-9]+)?),\\s+b ([0-9]+(?:\\.[0-9]+)?), t ([0-9]+(?:\\.[0-9]+)?) GeV, all inside",
+     "group": 3
+    }
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.rscc"
+  },
+  {
+   "id": "Q4.rscc",
+   "row": "Q4",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?), d ([0-9]+(?:\\.[0-9]+)?), s ([0-9]+(?:\\.[0-9]+)?), c ([0-9]+(?:\\.[0-9]+)?),\\s+b ([0-9]+(?:\\.[0-9]+)?), t ([0-9]+(?:\\.[0-9]+)?) GeV, all inside",
+     "group": 4
+    }
+   },
+   "definition": "msbar",
+   "scale": "m_c",
+   "inherit_inputs": "Q1.rscc"
+  },
+  {
+   "id": "Q5.rscc",
+   "row": "Q5",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?), d ([0-9]+(?:\\.[0-9]+)?), s ([0-9]+(?:\\.[0-9]+)?), c ([0-9]+(?:\\.[0-9]+)?),\\s+b ([0-9]+(?:\\.[0-9]+)?), t ([0-9]+(?:\\.[0-9]+)?) GeV, all inside",
+     "group": 5
+    }
+   },
+   "definition": "msbar",
+   "scale": "m_b",
+   "inherit_inputs": "Q1.rscc"
+  },
+  {
+   "id": "Q7.rscc",
+   "row": "Q7",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "op": "div",
+    "args": [
+     {
+      "line": "Q1.rscc"
+     },
+     {
+      "line": "Q2.rscc"
+     }
+    ]
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.rscc"
+  },
+  {
+   "id": "Q8.rscc",
+   "row": "Q8",
+   "reading": "repository RSCC quark replay",
+   "reading_key": "q.rscc",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "s/ud ([0-9]+(?:\\.[0-9]+)?), outside",
+     "group": 1
+    }
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.rscc"
+  },
+  {
+   "id": "Q1.texture",
+   "row": "Q1",
+   "reading": "repository paper six-power texture",
+   "reading_key": "q.texture",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?) \\(\\+209 %\\), d ([0-9]+(?:\\.[0-9]+)?) \\(\\+41\\.5 %\\), s ([0-9]+(?:\\.[0-9]+)?) \\(\\+158 %\\), c ([0-9]+(?:\\.[0-9]+)?) \\(\\+23\\.2 %\\), b ([0-9]+(?:\\.[0-9]+)?) \\(\\+57\\.4 %\\)",
+     "group": 1
+    }
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inputs": [
+    {
+     "item": "declared textures diag(6^-6, 6^-3, 1), diag(6^-6, 6^-4, 6^-2) and the SMDR packet",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "No proof here selects these values from finite repair"
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "Q2.texture",
+   "row": "Q2",
+   "reading": "repository paper six-power texture",
+   "reading_key": "q.texture",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?) \\(\\+209 %\\), d ([0-9]+(?:\\.[0-9]+)?) \\(\\+41\\.5 %\\), s ([0-9]+(?:\\.[0-9]+)?) \\(\\+158 %\\), c ([0-9]+(?:\\.[0-9]+)?) \\(\\+23\\.2 %\\), b ([0-9]+(?:\\.[0-9]+)?) \\(\\+57\\.4 %\\)",
+     "group": 2
+    }
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.texture"
+  },
+  {
+   "id": "Q3.texture",
+   "row": "Q3",
+   "reading": "repository paper six-power texture",
+   "reading_key": "q.texture",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?) \\(\\+209 %\\), d ([0-9]+(?:\\.[0-9]+)?) \\(\\+41\\.5 %\\), s ([0-9]+(?:\\.[0-9]+)?) \\(\\+158 %\\), c ([0-9]+(?:\\.[0-9]+)?) \\(\\+23\\.2 %\\), b ([0-9]+(?:\\.[0-9]+)?) \\(\\+57\\.4 %\\)",
+     "group": 3
+    }
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.texture"
+  },
+  {
+   "id": "Q4.texture",
+   "row": "Q4",
+   "reading": "repository paper six-power texture",
+   "reading_key": "q.texture",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?) \\(\\+209 %\\), d ([0-9]+(?:\\.[0-9]+)?) \\(\\+41\\.5 %\\), s ([0-9]+(?:\\.[0-9]+)?) \\(\\+158 %\\), c ([0-9]+(?:\\.[0-9]+)?) \\(\\+23\\.2 %\\), b ([0-9]+(?:\\.[0-9]+)?) \\(\\+57\\.4 %\\)",
+     "group": 4
+    }
+   },
+   "definition": "msbar",
+   "scale": "m_c",
+   "inherit_inputs": "Q1.texture"
+  },
+  {
+   "id": "Q5.texture",
+   "row": "Q5",
+   "reading": "repository paper six-power texture",
+   "reading_key": "q.texture",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "u ([0-9]+(?:\\.[0-9]+)?) \\(\\+209 %\\), d ([0-9]+(?:\\.[0-9]+)?) \\(\\+41\\.5 %\\), s ([0-9]+(?:\\.[0-9]+)?) \\(\\+158 %\\), c ([0-9]+(?:\\.[0-9]+)?) \\(\\+23\\.2 %\\), b ([0-9]+(?:\\.[0-9]+)?) \\(\\+57\\.4 %\\)",
+     "group": 5
+    }
+   },
+   "definition": "msbar",
+   "scale": "m_b",
+   "inherit_inputs": "Q1.texture"
+  },
+  {
+   "id": "Q7.texture",
+   "row": "Q7",
+   "reading": "repository paper six-power texture",
+   "reading_key": "q.texture",
+   "primary_candidate": false,
+   "value": {
+    "op": "div",
+    "args": [
+     {
+      "line": "Q1.texture"
+     },
+     {
+      "line": "Q2.texture"
+     }
+    ]
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.texture"
+  },
+  {
+   "id": "Q8.texture",
+   "row": "Q8",
+   "reading": "repository paper six-power texture",
+   "reading_key": "q.texture",
+   "primary_candidate": false,
+   "value": {
+    "op": "div",
+    "args": [
+     {
+      "line": "Q3.texture"
+     },
+     {
+      "op": "avg",
+      "args": [
+       {
+        "line": "Q1.texture"
+       },
+       {
+        "line": "Q2.texture"
+       }
+      ]
+     }
+    ]
+   },
+   "definition": "msbar",
+   "scale": "2 GeV",
+   "inherit_inputs": "Q1.texture"
+  },
+  {
+   "id": "C1.v1",
+   "row": "C1",
+   "reading": "lepton circulant moved to the junction: Y_u proportional to Y_d, V_CKM = 1",
+   "reading_key": "ckm.v1",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "V_CKM = 1"
+    }
+   },
+   "definition": "standard parametrization",
+   "scale": "low",
+   "inputs": [
+    {
+     "item": "the lepton circulant moved to the junction 1 + 3 -> 4 (Z6 blind to up and down)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the lepton circulant moved to the junction 1 + 3 -> 4"
+     },
+     "lanes": [
+      "QM",
+      "CM"
+     ]
+    }
+   ],
+   "excluded": {
+    "file": "RL/SPECTRUM.md",
+    "text": "EXCLUDED in all 30 readings tried"
+   }
+  },
+  {
+   "id": "C2.v1",
+   "row": "C2",
+   "reading": "V_CKM = 1",
+   "reading_key": "ckm.v1",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "V_CKM = 1"
+    }
+   },
+   "definition": "standard parametrization",
+   "scale": "low",
+   "inherit_inputs": "C1.v1"
+  },
+  {
+   "id": "C3.v1",
+   "row": "C3",
+   "reading": "V_CKM = 1",
+   "reading_key": "ckm.v1",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "V_CKM = 1"
+    }
+   },
+   "definition": "standard parametrization",
+   "scale": "low",
+   "inherit_inputs": "C1.v1"
+  },
+  {
+   "id": "C4.v1",
+   "row": "C4",
+   "reading": "V_CKM = 1",
+   "reading_key": "ckm.v1",
+   "primary_candidate": false,
+   "value": {
+    "none": true
+   },
+   "nc_reason": "CP phase undefined for V = 1",
+   "definition": "standard parametrization",
+   "scale": "low",
+   "inherit_inputs": "C1.v1"
+  },
+  {
+   "id": "C5.v1",
+   "row": "C5",
+   "reading": "V_CKM = 1",
+   "reading_key": "ckm.v1",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "V_CKM = 1"
+    }
+   },
+   "definition": "standard parametrization",
+   "scale": "low",
+   "inherit_inputs": "C1.v1"
+  },
+  {
+   "id": "C1.f2c",
+   "row": "C1",
+   "reading": "QM reading F2c: families 1 and 2 swapped",
+   "reading_key": "ckm.f2c",
+   "primary_candidate": false,
+   "value": {
+    "const": "1",
+    "quote": {
+     "file": "RL/reports/QM.md",
+     "text": "F2c swaps families 1 and 2"
+    }
+   },
+   "definition": "standard parametrization",
+   "scale": "low",
+   "inherit_inputs": "C1.v1",
+   "excluded": {
+    "file": "RL/reports/QM.md",
+    "text": "The measured quark spectra exclude this."
+   }
+  },
+  {
+   "id": "N8.me",
+   "row": "N8",
+   "reading": "Dirac with the common lepton amplitude: m_nu = m_e (value: the measured electron mass)",
+   "reading_key": "nu.me",
+   "primary_candidate": false,
+   "value": {
+    "const": "510998.95069",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "m_nu = m_e (excluded)"
+    }
+   },
+   "definition": "mass scale",
+   "inputs": [
+    {
+     "item": "y_nu/y_e = 1 (two adjoint halves of one vertex); the electron scale as measured",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "so y_nu/y_e = 1 in the source (excluded: m_nu = m_e)"
+     },
+     "lanes": [
+      "NU3"
+     ]
+    }
+   ],
+   "excluded": {
+    "file": "RL/SPECTRUM.md",
+    "text": "m_nu = m_e (excluded)"
+   }
+  },
+  {
+   "id": "N8.seesaw",
+   "row": "N8",
+   "reading": "declared seesaw at M_U with y = 1",
+   "reading_key": "nu.seesaw",
+   "primary_candidate": false,
+   "value": {
+    "op": "interval",
+    "args": [
+     {
+      "op": "mul",
+      "args": [
+       {
+        "spectrum": {
+         "particles": "neutrinos",
+         "column": "value",
+         "regex": "gives ([0-9]+(?:\\.[0-9]+)?) to ([0-9]+(?:\\.[0-9]+)?) meV",
+         "group": 1
+        }
+       },
+       {
+        "const": "0.001"
+       }
+      ]
+     },
+     {
+      "op": "mul",
+      "args": [
+       {
+        "spectrum": {
+         "particles": "neutrinos",
+         "column": "value",
+         "regex": "gives ([0-9]+(?:\\.[0-9]+)?) to ([0-9]+(?:\\.[0-9]+)?) meV",
+         "group": 2
+        }
+       },
+       {
+        "const": "0.001"
+       }
+      ]
+     }
+    ]
+   },
+   "definition": "mass scale",
+   "inputs": [
+    {
+     "item": "declared seesaw at M_U with y = 1 (Majorana pairing forbidden by B - L in the source)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "a declared seesaw at M_U with y = 1 gives 1.2 to 2.5 meV"
+     },
+     "lanes": [
+      "NU3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N2.seesaw",
+   "row": "N2",
+   "reading": "declared seesaw at M_U with y = 1: Delta m^2_31 <= m_3^2 for the stated scale",
+   "reading_key": "nu.seesaw",
+   "primary_candidate": false,
+   "value": {
+    "op": "interval",
+    "args": [
+     {
+      "const": "0"
+     },
+     {
+      "op": "square",
+      "args": [
+       {
+        "op": "mul",
+        "args": [
+         {
+          "spectrum": {
+           "particles": "neutrinos",
+           "column": "value",
+           "regex": "gives ([0-9]+(?:\\.[0-9]+)?) to ([0-9]+(?:\\.[0-9]+)?) meV",
+           "group": 2
+          }
+         },
+         {
+          "const": "0.001"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "definition": "low",
+   "scale": "low",
+   "inherit_inputs": "N8.seesaw"
+  },
+  {
+   "id": "N3.circ",
+   "row": "N3",
+   "reading": "common lepton circulant on the neutral sector",
+   "reading_key": "nu.circ",
+   "primary_candidate": false,
+   "value": {
+    "spectrum": {
+     "particles": "neutrinos",
+     "column": "status",
+     "regex": "circulant splitting ratio ([0-9]+(?:\\.[0-9]+)?) against",
+     "group": 1
+    }
+   },
+   "definition": "ratio",
+   "inputs": [
+    {
+     "item": "lepton circulant (Q = 2/3, delta = 2/9) applied to the neutral sector",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "circulant splitting ratio 0.0035 against 0.030"
+     },
+     "lanes": [
+      "PM",
+      "NU3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N4.golden",
+   "row": "N4",
+   "reading": "golden-ratio pattern (declared reading, lead L32)",
+   "reading_key": "nu.golden",
+   "primary_candidate": false,
+   "value": {
+    "op": "sin2deg",
+    "args": [
+     {
+      "text": {
+       "file": "RL/reports/R7.md",
+       "regex": "theta12 ([0-9]+(?:\\.[0-9]+)?) against 33\\.68",
+       "group": 1
+      }
+     }
+    ]
+   },
+   "definition": "low",
+   "inputs": [
+    {
+     "item": "golden-ratio pattern tan theta12 = 1/phi, theta23 = 45 deg, theta13 = 0 (declared reading)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/R7.md",
+      "text": "Golden-ratio pattern: theta12 31.72 against 33.68 degrees"
+     },
+     "lanes": [
+      "PM"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N5.golden",
+   "row": "N5",
+   "reading": "golden-ratio pattern (declared reading, lead L32)",
+   "reading_key": "nu.golden",
+   "primary_candidate": false,
+   "value": {
+    "op": "sin2deg",
+    "args": [
+     {
+      "text": {
+       "file": "RL/reports/R7.md",
+       "regex": "theta23 ([0-9]+(?:\\.[0-9]+)?) against 43\\.3",
+       "group": 1
+      }
+     }
+    ]
+   },
+   "definition": "low",
+   "inherit_inputs": "N4.golden"
+  },
+  {
+   "id": "N6.golden",
+   "row": "N6",
+   "reading": "golden-ratio pattern (declared reading, lead L32)",
+   "reading_key": "nu.golden",
+   "primary_candidate": false,
+   "value": {
+    "op": "sin2deg",
+    "args": [
+     {
+      "text": {
+       "file": "RL/reports/R7.md",
+       "regex": "theta13 ([0-9]+(?:\\.[0-9]+)?) against 8\\.56",
+       "group": 1
+      }
+     }
+    ]
+   },
+   "definition": "low",
+   "inherit_inputs": "N4.golden"
+  },
+  {
+   "id": "N3.repo",
+   "row": "N3",
+   "reading": "repository weighted-cycle candidate (rejected by the repository's joint test)",
+   "reading_key": "nu.repo",
+   "primary_candidate": false,
+   "value": {
+    "op": "q_over_1pq",
+    "args": [
+     {
+      "text": {
+       "file": "RL/reports/MAUD.md",
+       "regex": "Delta m21\\^2/Delta m32\\^2 = ([0-9]+(?:\\.[0-9]+)?) against",
+       "group": 1
+      }
+     }
+    ]
+   },
+   "definition": "ratio",
+   "notes": "stated as Delta m21^2/Delta m32^2 = q; Delta m21^2/Delta m31^2 = q/(1 + q) by Delta m31^2 = Delta m32^2 + Delta m21^2",
+   "inputs": [
+    {
+     "item": "exponent law ranked against the measured splitting ratio; hand-written family kernel",
+     "class": "FIT",
+     "quote": {
+      "file": "RL/reports/MAUD.md",
+      "text": "the exponent law p = 1 + gamma + eps/D_nu, TARGET-INFORMED"
+     },
+     "lanes": []
+    }
+   ],
+   "excluded": {
+    "file": "RL/reports/MAUD.md",
+    "text": "the repository rejects the candidate"
+   }
+  },
+  {
+   "id": "N4.repo",
+   "row": "N4",
+   "reading": "repository weighted-cycle candidate",
+   "reading_key": "nu.repo",
+   "primary_candidate": false,
+   "value": {
+    "op": "sin2deg",
+    "args": [
+     {
+      "text": {
+       "file": "RL/reports/MAUD.md",
+       "regex": "theta12 ([0-9]+(?:\\.[0-9]+)?) deg \\(\\+0\\.55 deg\\)",
+       "group": 1
+      }
+     }
+    ]
+   },
+   "definition": "low",
+   "inherit_inputs": "N3.repo"
+  },
+  {
+   "id": "N5.repo",
+   "row": "N5",
+   "reading": "repository weighted-cycle candidate",
+   "reading_key": "nu.repo",
+   "primary_candidate": false,
+   "value": {
+    "op": "sin2deg",
+    "args": [
+     {
+      "text": {
+       "file": "RL/reports/MAUD.md",
+       "regex": "theta23 ([0-9]+(?:\\.[0-9]+)?) deg and delta\\s+([0-9]+(?:\\.[0-9]+)?) deg fail jointly",
+       "group": 1
+      }
+     }
+    ]
+   },
+   "definition": "low",
+   "inherit_inputs": "N3.repo"
+  },
+  {
+   "id": "N6.repo",
+   "row": "N6",
+   "reading": "repository weighted-cycle candidate",
+   "reading_key": "nu.repo",
+   "primary_candidate": false,
+   "value": {
+    "op": "sin2deg",
+    "args": [
+     {
+      "text": {
+       "file": "RL/reports/MAUD.md",
+       "regex": "theta13 ([0-9]+(?:\\.[0-9]+)?) deg \\(\\+0\\.13 deg\\)",
+       "group": 1
+      }
+     }
+    ]
+   },
+   "definition": "low",
+   "inherit_inputs": "N3.repo"
+  },
+  {
+   "id": "N7.repo",
+   "row": "N7",
+   "reading": "repository weighted-cycle candidate",
+   "reading_key": "nu.repo",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/MAUD.md",
+     "regex": "theta23 ([0-9]+(?:\\.[0-9]+)?) deg and delta\\s+([0-9]+(?:\\.[0-9]+)?) deg fail jointly",
+     "group": 2
+    }
+   },
+   "definition": "low",
+   "inherit_inputs": "N3.repo"
+  },
+  {
+   "id": "N9.dirac",
+   "row": "N9",
+   "reading": "B - L conserved by every operation of the source: Dirac",
+   "reading_key": "nu.dirac",
+   "primary_candidate": true,
+   "value": {
+    "const": "Dirac",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "gives Dirac neutrinos and forbids the Majorana pairing (EXACT"
+    }
+   },
+   "definition": "mechanism",
+   "inputs": [
+    {
+     "item": "B - L = N - (2/3) n_v conserved by every operation of the source",
+     "class": "SOURCE",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "gives Dirac neutrinos and forbids the Majorana pairing (EXACT"
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "H0.spec",
+   "row": "H0",
+   "reading": "HD: m_N = c_N Lambda^(3), c_N = 2.745(137) imported from lattice QCD",
+   "reading_key": "had.hd",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "proton, neutron, rho",
+     "column": "value",
+     "regex": "nucleon ([0-9]+(?:\\.[0-9]+)?) \\+- ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 1
+    }
+   },
+   "sigma_th": {
+    "value_spec": {
+     "spectrum": {
+      "particles": "proton, neutron, rho",
+      "column": "value",
+      "regex": "nucleon ([0-9]+(?:\\.[0-9]+)?) \\+- ([0-9]+(?:\\.[0-9]+)?) GeV",
+      "group": 2
+     }
+    },
+    "origin": "lattice uncertainty of c_N = 2.745(137), propagated (HD)"
+   },
+   "definition": "isospin symmetric",
+   "inputs": [
+    {
+     "item": "Lambda^(3) = 0.3400 GeV from the D10 colour coupling (slopes, forms, P_fwd with the Stage-5 Thomson transport)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "Lambda^(3)/E* = 2.785e-20 (0.3400 GeV) from the D10 coupling"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "c_h imported from lattice QCD (BMW 08 Xi set / ALPHA 17)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "IMPORTED from lattice QCD with citations"
+     },
+     "lanes": [
+      "HD"
+     ]
+    },
+    {
+     "item": "the source's gauge sector below the cell is QCD (not shown)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/HD.md",
+      "text": "which has not been shown"
+     },
+     "lanes": [
+      "GL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "H0.file",
+   "row": "H0",
+   "reading": "HD primary set C-1 (full digits)",
+   "reading_key": "had.hd",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RL/work/HD/rows.json",
+     "pointer": "/ratio_rows/C-1 (primary): BMW 08 Xi set ~1 ALPHA 17/m_N_GeV"
+    }
+   },
+   "sigma_th": {
+    "value_spec": {
+     "json": {
+      "file": "RL/work/HD/rows.json",
+      "pointer": "/ratio_rows/C-1 (primary): BMW 08 Xi set ~1 ALPHA 17/m_N_err_import_GeV"
+     }
+    },
+    "origin": "lattice uncertainty of c_N, propagated (HD rows.json)"
+   },
+   "definition": "isospin symmetric",
+   "inherit_inputs": "H0.spec"
+  },
+  {
+   "id": "G1.spec",
+   "row": "G1",
+   "reading": "class 0, no defect",
+   "reading_key": "g.spec",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "photon, gluon",
+     "column": "value",
+     "regex": "^\\s*(0)\\s*$",
+     "group": 1
+    }
+   },
+   "definition": "mass",
+   "inputs": [
+    {
+     "item": "conditional classical carrier modes",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "conditional classical modes"
+     },
+     "lanes": [
+      "GL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "G2.spec",
+   "row": "G2",
+   "reading": "class 0, no defect",
+   "reading_key": "g.spec",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "photon, gluon",
+     "column": "value",
+     "regex": "^\\s*(0)\\s*$",
+     "group": 1
+    }
+   },
+   "definition": "mass",
+   "inherit_inputs": "G1.spec"
+  },
+  {
+   "id": "L7.records",
+   "row": "L7",
+   "reading": "the coherent law's own records alone (no family register)",
+   "reading_key": "lep.records",
+   "primary_candidate": false,
+   "value": {
+    "op": "interval",
+    "args": [
+     {
+      "spectrum": {
+       "particles": "e, mu, tau (ratios)",
+       "column": "status",
+       "regex": "the law's own records alone give Q = ([0-9]+(?:\\.[0-9]+)?) to ([0-9]+(?:\\.[0-9]+)?)",
+       "group": 1
+      }
+     },
+     {
+      "spectrum": {
+       "particles": "e, mu, tau (ratios)",
+       "column": "status",
+       "regex": "the law's own records alone give Q = ([0-9]+(?:\\.[0-9]+)?) to ([0-9]+(?:\\.[0-9]+)?)",
+       "group": 2
+      }
+     }
+    ]
+   },
+   "definition": "Koide Q",
+   "inputs": [
+    {
+     "item": "family operator read from the coherent law's own records",
+     "class": "SOURCE",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the law's own records alone give Q = 0.343 to 0.346"
+     },
+     "lanes": [
+      "FR"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "H0.de",
+   "row": "H0",
+   "reading": "DE: m_N = c_N Lambda^(3) with the repository's c_N = 2.775",
+   "reading_key": "had.de",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RL/work/DE/nucleon_compare.json",
+     "pointer": "/A1_provenance_of_2775/lane_value_gev"
+    }
+   },
+   "definition": "isospin symmetric",
+   "inputs": [
+    {
+     "item": "Lambda^(3) = 0.3400 GeV from the D10 colour coupling (slopes, forms, P_fwd with the Stage-5 Thomson transport)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "Lambda^(3)/E* = 2.785e-20 (0.3400 GeV) from the D10 coupling"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "c_N = 2.775",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "c_N is a number of SU(3) with three light quarks only"
+     },
+     "lanes": [
+      "HD"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "c_N = 2.775 equals 0.938/0.338: the measured proton mass over the world Lambda",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the repository's 2.775 equals 0.938/0.338 (the world Lambda)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "H5.spec",
+   "row": "H5",
+   "reading": "HD primary set C-1 (full digits)",
+   "reading_key": "had.hd",
+   "primary_candidate": false,
+   "value": {
+    "json": {
+     "file": "RL/work/HD/rows.json",
+     "pointer": "/ratio_rows/C-1 (primary): BMW 08 Xi set ~1 ALPHA 17/m_rho_GeV"
+    }
+   },
+   "sigma_th": {
+    "value_spec": {
+     "json": {
+      "file": "RL/work/HD/rows.json",
+      "pointer": "/ratio_rows/C-1 (primary): BMW 08 Xi set ~1 ALPHA 17/m_rho_err_import_GeV"
+     }
+    },
+    "origin": "lattice uncertainty of c_rho = 2.273(123), propagated (HD rows.json)"
+   },
+   "definition": "mass",
+   "inherit_inputs": "H5.specval"
+  },
+  {
+   "id": "H5.specval",
+   "row": "H5",
+   "reading": "HD: m_rho as stated in SPECTRUM.md",
+   "reading_key": "had.hd",
+   "primary_candidate": true,
+   "value": {
+    "spectrum": {
+     "particles": "proton, neutron, rho",
+     "column": "value",
+     "regex": "rho ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 1
+    }
+   },
+   "definition": "mass",
+   "sigma_th": {
+    "value_spec": {
+     "json": {
+      "file": "RL/work/HD/rows.json",
+      "pointer": "/ratio_rows/C-1 (primary): BMW 08 Xi set ~1 ALPHA 17/m_rho_err_import_GeV"
+     }
+    },
+    "origin": "lattice uncertainty of c_rho = 2.273(123), propagated (HD rows.json)"
+   },
+   "inputs": [
+    {
+     "item": "Lambda^(3) = 0.3400 GeV from the D10 colour coupling (slopes, forms, P_fwd with the Stage-5 Thomson transport)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "Lambda^(3)/E* = 2.785e-20 (0.3400 GeV) from the D10 coupling"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "c_rho imported from lattice QCD (BMW 08 Xi set / ALPHA 17)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "c_rho = 2.273(123) IMPORTED from lattice QCD"
+     },
+     "lanes": [
+      "HD"
+     ]
+    },
+    {
+     "item": "the source's gauge sector below the cell is QCD (not shown)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/HD.md",
+      "text": "which has not been shown"
+     },
+     "lanes": [
+      "GL"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E1.lw",
+   "row": "E1",
+   "reading": "LW: zero-selector law, eta slice removed (unsliced tree chart)",
+   "reading_key": "ew.lw",
+   "primary_candidate": false,
+   "value": {
+    "spectrum": {
+     "particles": "W, Z",
+     "column": "status",
+     "regex": "unsliced tree chart W ([0-9]+(?:\\.[0-9]+)?), Z ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "slopes (33/5, 1, -3) from M_U to m_Z",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "forms M_U (R(P)), E_cell, v transmutation, beta_EW = 4; fixed point P_fwd",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "M_U reduced to R(P) = 2 pi - (2/3) ln P"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "zero-selector law selected by the source (one premise argued, LW)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the zero-selector law is selected"
+     },
+     "lanes": [
+      "LW"
+     ]
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "E2.lw",
+   "row": "E2",
+   "reading": "LW: zero-selector law, eta slice removed (unsliced tree chart)",
+   "reading_key": "ew.lw",
+   "primary_candidate": false,
+   "value": {
+    "spectrum": {
+     "particles": "W, Z",
+     "column": "status",
+     "regex": "unsliced tree chart W ([0-9]+(?:\\.[0-9]+)?), Z ([0-9]+(?:\\.[0-9]+)?) GeV",
+     "group": 2
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E1.lw"
+  },
+  {
+   "id": "E5o.lw",
+   "row": "E5o",
+   "reading": "LW unsliced tree chart: 1 - (M_W/M_Z)^2",
+   "reading_key": "ew.lw",
+   "primary_candidate": false,
+   "value": {
+    "op": "onshell",
+    "args": [
+     {
+      "line": "E1.lw"
+     },
+     {
+      "line": "E2.lw"
+     }
+    ]
+   },
+   "definition": "onshell",
+   "inherit_inputs": "E1.lw"
+  },
+  {
+   "id": "E1.lwsmdr",
+   "row": "E1",
+   "reading": "LW derived configuration: unsliced couplings, G_F attachment, SMDR",
+   "reading_key": "ew.lwsmdr",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/LW.md",
+     "regex": "\\| Value \\(GeV\\) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 1
+    }
+   },
+   "definition": "",
+   "inputs": [
+    {
+     "item": "slopes (33/5, 1, -3) from M_U to m_Z",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "forms M_U (R(P)), E_cell, v transmutation, beta_EW = 4; fixed point P_fwd",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "M_U reduced to R(P) = 2 pi - (2/3) ln P"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "zero-selector law selected by the source (one premise argued, LW)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the zero-selector law is selected, the carrier value law excluded"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "v_source attached at zero momentum through G_F (derived by LW, one premise argued)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "v is attached at zero momentum transfer"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "SMDR radiative corrections (IMPORTED engine)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "evaluated with SMDR"
+     },
+     "lanes": []
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "E2.lwsmdr",
+   "row": "E2",
+   "reading": "LW derived configuration: unsliced couplings, G_F attachment, SMDR",
+   "reading_key": "ew.lwsmdr",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/LW.md",
+     "regex": "\\| Value \\(GeV\\) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 2
+    }
+   },
+   "definition": "",
+   "inputs": [
+    {
+     "item": "slopes (33/5, 1, -3) from M_U to m_Z",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "forms M_U (R(P)), E_cell, v transmutation, beta_EW = 4; fixed point P_fwd",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "M_U reduced to R(P) = 2 pi - (2/3) ln P"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "zero-selector law selected by the source (one premise argued, LW)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the zero-selector law is selected, the carrier value law excluded"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "v_source attached at zero momentum through G_F (derived by LW, one premise argued)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "v is attached at zero momentum transfer"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "SMDR radiative corrections (IMPORTED engine)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "evaluated with SMDR"
+     },
+     "lanes": []
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ]
+  },
+  {
+   "id": "E3.lwsmdr",
+   "row": "E3",
+   "reading": "LW derived configuration: unsliced couplings, G_F attachment, SMDR",
+   "reading_key": "ew.lwsmdr",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/LW.md",
+     "regex": "\\| Value \\(GeV\\) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 3
+    }
+   },
+   "definition": "",
+   "inputs": [
+    {
+     "item": "slopes (33/5, 1, -3) from M_U to m_Z",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "forms M_U (R(P)), E_cell, v transmutation, beta_EW = 4; fixed point P_fwd",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "M_U reduced to R(P) = 2 pi - (2/3) ln P"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "zero-selector law selected by the source (one premise argued, LW)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the zero-selector law is selected, the carrier value law excluded"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "v_source attached at zero momentum through G_F (derived by LW, one premise argued)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "v is attached at zero momentum transfer"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "SMDR radiative corrections (IMPORTED engine)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "evaluated with SMDR"
+     },
+     "lanes": []
+    },
+    {
+     "item": "criticality boundary scale E* exp(-pi) P^(-1/6) (declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "declared criticality scale"
+     },
+     "lanes": [
+      "HT"
+     ]
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "boundary scale identified after the implied scale was computed",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "the candidate was identified after the implied scale was computed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "Q6.lwsmdr",
+   "row": "Q6",
+   "reading": "LW derived configuration: unsliced couplings, G_F attachment, SMDR",
+   "reading_key": "ew.lwsmdr",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/LW.md",
+     "regex": "\\| Value \\(GeV\\) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 4
+    }
+   },
+   "definition": "pole",
+   "inputs": [
+    {
+     "item": "slopes (33/5, 1, -3) from M_U to m_Z",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "slopes (33/5, 1, -3) are not yet the source's"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    },
+    {
+     "item": "forms M_U (R(P)), E_cell, v transmutation, beta_EW = 4; fixed point P_fwd",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "M_U reduced to R(P) = 2 pi - (2/3) ln P"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "zero-selector law selected by the source (one premise argued, LW)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the zero-selector law is selected, the carrier value law excluded"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "v_source attached at zero momentum through G_F (derived by LW, one premise argued)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "v is attached at zero momentum transfer"
+     },
+     "lanes": [
+      "LW"
+     ]
+    },
+    {
+     "item": "SMDR radiative corrections (IMPORTED engine)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "evaluated with SMDR"
+     },
+     "lanes": []
+    },
+    {
+     "item": "criticality boundary scale E* exp(-pi) P^(-1/6) (declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/LW.md",
+      "text": "declared criticality scale"
+     },
+     "lanes": [
+      "HT"
+     ]
+    }
+   ],
+   "notes_quoted": [
+    {
+     "text": "SC: R(P) is excluded as a source scale (derived R = 0); this line keeps the declared R(P)",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "excluded as a source scale. The derived value is R = 0."
+     }
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "boundary scale identified after the implied scale was computed",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "the candidate was identified after the implied scale was computed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "E5o.lwsmdr",
+   "row": "E5o",
+   "reading": "LW derived configuration: 1 - (M_W/M_Z)^2",
+   "reading_key": "ew.lwsmdr",
+   "primary_candidate": false,
+   "value": {
+    "op": "onshell",
+    "args": [
+     {
+      "line": "E1.lwsmdr"
+     },
+     {
+      "line": "E2.lwsmdr"
+     }
+    ]
+   },
+   "definition": "onshell",
+   "inherit_inputs": "E1.lwsmdr"
+  },
+  {
+   "id": "E2.ebf2",
+   "row": "E2",
+   "reading": "EB F2: best derived row (census B, rule L5)",
+   "reading_key": "ew.ebf2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "best derived row, B \\+ L5 \\| m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "census B with rule L5 in the DC2 cut chain, v fixed by the declared b_above",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/EB.md",
+      "text": "F2, DC2 cut chain (v = 246.60 GeV fixed by the declared b_above)"
+     },
+     "lanes": [
+      "EB",
+      "GL",
+      "SC"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E1.ebf2",
+   "row": "E1",
+   "reading": "EB F2: best derived row (census B, rule L5)",
+   "reading_key": "ew.ebf2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "best derived row, B \\+ L5 \\| m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 2
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E2.ebf2"
+  },
+  {
+   "id": "E5.ebf2",
+   "row": "E5",
+   "reading": "EB F2: best derived row (census B, rule L5)",
+   "reading_key": "ew.ebf2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "best derived row, B \\+ L5 \\| m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 3
+    }
+   },
+   "definition": "msbar",
+   "scale": "chain m_Z = 88.63 GeV",
+   "inherit_inputs": "E2.ebf2"
+  },
+  {
+   "id": "E6.ebf2",
+   "row": "E6",
+   "reading": "EB F2: best derived row (census B, rule L5)",
+   "reading_key": "ew.ebf2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "best derived row, B \\+ L5 \\| m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 4
+    }
+   },
+   "definition": "msbar",
+   "scale": "chain m_Z = 88.63 GeV",
+   "inherit_inputs": "E2.ebf2"
+  },
+  {
+   "id": "E4.ebf2",
+   "row": "E4",
+   "reading": "EB F2: best derived row (census B, rule L5)",
+   "reading_key": "ew.ebf2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "best derived row, B \\+ L5 \\| m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 5
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inherit_inputs": "E2.ebf2"
+  },
+  {
+   "id": "E2.ebfit",
+   "row": "E2",
+   "reading": "EB FIT-1: two-hop menu M2, rule L4, t fitted",
+   "reading_key": "ew.ebfit",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "With SM slopes, F1 gives P = [0-9.]+, v = [0-9.]+, m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "t fitted to land the slope shift on the target",
+     "class": "FIT",
+     "quote": {
+      "file": "RL/reports/EB.md",
+      "text": "**FIT-1 (a fit, derives nothing).**"
+     },
+     "lanes": []
+    }
+   ]
+  },
+  {
+   "id": "E1.ebfit",
+   "row": "E1",
+   "reading": "EB FIT-1: two-hop menu M2, rule L4, t fitted",
+   "reading_key": "ew.ebfit",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "With SM slopes, F1 gives P = [0-9.]+, v = [0-9.]+, m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 2
+    }
+   },
+   "definition": "tree",
+   "inherit_inputs": "E2.ebfit"
+  },
+  {
+   "id": "E5.ebfit",
+   "row": "E5",
+   "reading": "EB FIT-1: two-hop menu M2, rule L4, t fitted",
+   "reading_key": "ew.ebfit",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "With SM slopes, F1 gives P = [0-9.]+, v = [0-9.]+, m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 3
+    }
+   },
+   "definition": "msbar",
+   "scale": "chain m_Z = 88.93 GeV",
+   "inherit_inputs": "E2.ebfit"
+  },
+  {
+   "id": "E6.ebfit",
+   "row": "E6",
+   "reading": "EB FIT-1: two-hop menu M2, rule L4, t fitted",
+   "reading_key": "ew.ebfit",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "With SM slopes, F1 gives P = [0-9.]+, v = [0-9.]+, m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 4
+    }
+   },
+   "definition": "msbar",
+   "scale": "chain m_Z = 88.93 GeV",
+   "inherit_inputs": "E2.ebfit"
+  },
+  {
+   "id": "E4.ebfit",
+   "row": "E4",
+   "reading": "EB FIT-1: two-hop menu M2, rule L4, t fitted",
+   "reading_key": "ew.ebfit",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/EB.md",
+     "regex": "With SM slopes, F1 gives P = [0-9.]+, v = [0-9.]+, m_Z = ([0-9]+(?:\\.[0-9]+)?), m_W = ([0-9]+(?:\\.[0-9]+)?) GeV, sin²θ_W = ([0-9]+(?:\\.[0-9]+)?), α_s = ([0-9]+(?:\\.[0-9]+)?), α⁻¹\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 5
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inherit_inputs": "E2.ebfit"
+  },
+  {
+   "id": "E4.scmssm",
+   "row": "E4",
+   "reading": "SC derived content, MSSM slopes",
+   "reading_key": "alpha.scmssm",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/SC.md",
+     "regex": "MSSM slopes: v 3\\.2e5 high, alpha\\^-1\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inputs": [
+    {
+     "item": "R = 0 (derived) with the cell coupling 1/alpha = 16.2453 in the transmutation law (declared law)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "the law stays declared"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "MSSM slopes (declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "MSSM slopes: v 3.2e5 high"
+     },
+     "lanes": [
+      "EB"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E4.sck3",
+   "row": "E4",
+   "reading": "SC derived content, census K3(1,3)",
+   "reading_key": "alpha.sck3",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/SC.md",
+     "regex": "K3\\(1,3\\): alpha\\^-1\\(0\\) = ([0-9]+(?:\\.[0-9]+)?)",
+     "group": 1
+    }
+   },
+   "definition": "thomson",
+   "scale": "q2=0",
+   "inputs": [
+    {
+     "item": "R = 0 (derived) with the cell coupling 1/alpha = 16.2453 in the transmutation law (declared law)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "the law stays declared"
+     },
+     "lanes": [
+      "SC"
+     ]
+    },
+    {
+     "item": "census K3(1,3)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/SC.md",
+      "text": "K3(1,3): alpha^-1(0)"
+     },
+     "lanes": [
+      "GL",
+      "DB"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N1.massless",
+   "row": "N1",
+   "reading": "NU3: composite without a mass term (massless)",
+   "reading_key": "nu.massless",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/reports/NU3.md",
+     "text": "The massless option fails the two measured mass splittings."
+    }
+   },
+   "definition": "low",
+   "scale": "low",
+   "inputs": [
+    {
+     "item": "the neutral composite of the audit's fifth-order transfer has no mass term at any order",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "the composite has no mass term at any order"
+     },
+     "lanes": [
+      "NU3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N2.massless",
+   "row": "N2",
+   "reading": "NU3: composite without a mass term (massless)",
+   "reading_key": "nu.massless",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/reports/NU3.md",
+     "text": "The massless option fails the two measured mass splittings."
+    }
+   },
+   "definition": "low",
+   "scale": "low",
+   "inherit_inputs": "N1.massless"
+  },
+  {
+   "id": "N8.massless",
+   "row": "N8",
+   "reading": "NU3: composite without a mass term (massless)",
+   "reading_key": "nu.massless",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/reports/NU3.md",
+     "text": "The massless option fails the two measured mass splittings."
+    }
+   },
+   "definition": "low",
+   "scale": "low",
+   "inherit_inputs": "N1.massless"
+  },
+  {
+   "id": "E3.htk1",
+   "row": "E3",
+   "reading": "HT: double criticality at E_cell (K1), D11 two loops",
+   "reading_key": "ht.k1",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/HT.md",
+     "regex": "\\| K1 = E_cell \\(C2a after GL, C2d\\) \\| [0-9.e]+ \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 1
+    }
+   },
+   "definition": "tree",
+   "inputs": [
+    {
+     "item": "double criticality imposed at E_cell (scale derived by DC; the criticality condition declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "criticality at E_cell gives H +5.3 %, t +2.1 %"
+     },
+     "lanes": [
+      "HT"
+     ]
+    },
+    {
+     "item": "D11 chart: Standard Model running above Q0 from the declared D10 packet",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/HT.md",
+      "text": "The flows use the D11 chart"
+     },
+     "lanes": [
+      "EB",
+      "SC"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "Q6.htk1",
+   "row": "Q6",
+   "reading": "HT: double criticality at E_cell (K1), D11 two loops",
+   "reading_key": "ht.k1",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/HT.md",
+     "regex": "\\| K1 = E_cell \\(C2a after GL, C2d\\) \\| [0-9.e]+ \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 2
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "E3.htk1"
+  },
+  {
+   "id": "E3.k4a1",
+   "row": "E3",
+   "reading": "LEW SMDR at the K4 midpoint, v attached at Q0 (A1)",
+   "reading_key": "ht.k4a1",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/HT.md",
+     "regex": "\\| K4 midpoint \\(reference\\) \\| [0-9.e]+ \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 3
+    }
+   },
+   "definition": "pole",
+   "inputs": [
+    {
+     "item": "criticality boundary scale E* exp(-pi) P^(-1/6) (K4 midpoint, declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "CONDITIONAL: boundary scale"
+     },
+     "lanes": [
+      "HT",
+      "LW"
+     ]
+    },
+    {
+     "item": "SMDR two loops, v attached at Q0 (A1) (LEW)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/HT.md",
+      "text": "SMDR is at two loops, under attachments A1 and A2"
+     },
+     "lanes": [
+      "LW"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "boundary scale identified after the implied scale was computed",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "the candidate was identified after the implied scale was computed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "Q6.k4a1",
+   "row": "Q6",
+   "reading": "LEW SMDR at the K4 midpoint, v attached at Q0 (A1)",
+   "reading_key": "ht.k4a1",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/HT.md",
+     "regex": "\\| K4 midpoint \\(reference\\) \\| [0-9.e]+ \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 4
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "E3.k4a1"
+  },
+  {
+   "id": "E3.k4a2",
+   "row": "E3",
+   "reading": "LEW SMDR at the K4 midpoint, v attached at the D11 top readout (A2)",
+   "reading_key": "ht.k4a2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/HT.md",
+     "regex": "\\| K4 midpoint \\(reference\\) \\| [0-9.e]+ \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 5
+    }
+   },
+   "definition": "pole",
+   "inputs": [
+    {
+     "item": "criticality boundary scale E* exp(-pi) P^(-1/6) (K4 midpoint, declared)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "CONDITIONAL: boundary scale"
+     },
+     "lanes": [
+      "HT",
+      "LW"
+     ]
+    },
+    {
+     "item": "SMDR two loops, v attached at the D11 top readout (A2) (LEW)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/HT.md",
+      "text": "SMDR is at two loops, under attachments A1 and A2"
+     },
+     "lanes": [
+      "LW"
+     ]
+    }
+   ],
+   "lowered_by": [
+    {
+     "to": "FIT",
+     "item": "boundary scale identified after the implied scale was computed",
+     "quote": {
+      "file": "FZ/lane_copies/rer_MASS_CANDIDATE_STATUS.md",
+      "text": "the candidate was identified after the implied scale was computed"
+     }
+    }
+   ]
+  },
+  {
+   "id": "Q6.k4a2",
+   "row": "Q6",
+   "reading": "LEW SMDR at the K4 midpoint, v attached at the D11 top readout (A2)",
+   "reading_key": "ht.k4a2",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/HT.md",
+     "regex": "\\| K4 midpoint \\(reference\\) \\| [0-9.e]+ \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\| ([0-9]+(?:\\.[0-9]+)?), ([0-9]+(?:\\.[0-9]+)?) \\|",
+     "group": 6
+    }
+   },
+   "definition": "pole",
+   "inherit_inputs": "E3.k4a2"
+  },
+  {
+   "id": "N4.pm",
+   "row": "N4",
+   "reading": "PM: U_PMNS a permutation (normal-ordering labelling)",
+   "reading_key": "nu.pm",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "so U_PMNS is a permutation (all angles 0, J = 0; excluded)"
+    }
+   },
+   "definition": "low",
+   "excluded": {
+    "file": "RL/SPECTRUM.md",
+    "text": "so U_PMNS is a permutation (all angles 0, J = 0; excluded)"
+   },
+   "inputs": [
+    {
+     "item": "FR generation register (declared items) and NU3's fifth-order transfer: T commutes with Y_e Y_e^dag",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/SPECTRUM.md",
+      "text": "commutes with Y_e Y_e^dag to all orders, so U_PMNS is a permutation"
+     },
+     "lanes": [
+      "PM",
+      "FR",
+      "NU3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N5.pm",
+   "row": "N5",
+   "reading": "PM: U_PMNS a permutation (normal-ordering labelling)",
+   "reading_key": "nu.pm",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "so U_PMNS is a permutation (all angles 0, J = 0; excluded)"
+    }
+   },
+   "definition": "low",
+   "excluded": {
+    "file": "RL/SPECTRUM.md",
+    "text": "so U_PMNS is a permutation (all angles 0, J = 0; excluded)"
+   },
+   "inherit_inputs": "N4.pm"
+  },
+  {
+   "id": "N6.pm",
+   "row": "N6",
+   "reading": "PM: U_PMNS a permutation (normal-ordering labelling)",
+   "reading_key": "nu.pm",
+   "primary_candidate": false,
+   "value": {
+    "const": "0",
+    "quote": {
+     "file": "RL/SPECTRUM.md",
+     "text": "so U_PMNS is a permutation (all angles 0, J = 0; excluded)"
+    }
+   },
+   "definition": "low",
+   "excluded": {
+    "file": "RL/SPECTRUM.md",
+    "text": "so U_PMNS is a permutation (all angles 0, J = 0; excluded)"
+   },
+   "inherit_inputs": "N4.pm"
+  },
+  {
+   "id": "N7.pm",
+   "row": "N7",
+   "reading": "PM: U_PMNS a permutation",
+   "reading_key": "nu.pm",
+   "primary_candidate": false,
+   "value": {
+    "none": true
+   },
+   "nc_reason": "CP phase undefined for a permutation matrix",
+   "definition": "low",
+   "inherit_inputs": "N4.pm"
+  },
+  {
+   "id": "N3.pmsq",
+   "row": "N3",
+   "reading": "PM: x = 0 with the A-clock square",
+   "reading_key": "nu.pmsq",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/PM.md",
+     "regex": "x = 0, A-clock square \\| ([0-9.]+e-[0-9]+) \\|",
+     "group": 1
+    }
+   },
+   "definition": "ratio",
+   "inputs": [
+    {
+     "item": "splitting ratio T_k proportional to x + lambda_k^2 at the limit x = 0 (x not computed)",
+     "class": "CONDITIONAL",
+     "quote": {
+      "file": "RL/reports/PM.md",
+      "text": "x from the source | not computed"
+     },
+     "lanes": [
+      "PM",
+      "NU3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "N3.pminf",
+   "row": "N3",
+   "reading": "PM: |x| to infinity, both readings",
+   "reading_key": "nu.pminf",
+   "primary_candidate": false,
+   "value": {
+    "text": {
+     "file": "RL/reports/PM.md",
+     "regex": "both readings \\| ([0-9]+(?:\\.[0-9]+)?) =",
+     "group": 1
+    }
+   },
+   "definition": "ratio",
+   "inherit_inputs": "N3.pmsq"
+  }
+ ],
+ "om_map": [
+  {
+   "row": "L1",
+   "target": "electron",
+   "kinds": [
+    "mass"
+   ]
+  },
+  {
+   "row": "L2",
+   "target": "muon",
+   "kinds": [
+    "mass"
+   ]
+  },
+  {
+   "row": "L3",
+   "target": "tau",
+   "kinds": [
+    "mass"
+   ]
+  },
+  {
+   "row": "L4",
+   "target": "electron",
+   "kinds": [
+    "mass_ratio"
+   ],
+   "row_unit": "1",
+   "value_regex": "^1 : ([0-9.]+) : ([0-9.]+)$",
+   "group": 1
+  },
+  {
+   "row": "L5",
+   "target": "electron",
+   "kinds": [
+    "mass_ratio"
+   ],
+   "row_unit": "1",
+   "value_regex": "^1 : ([0-9.]+) : ([0-9.]+)$",
+   "group": 2
+  },
+  {
+   "row": "L7",
+   "target": "electron",
+   "kinds": [
+    "structure"
+   ],
+   "row_unit": "1",
+   "value_regex": "Q = (2/3)",
+   "group": 1
+  },
+  {
+   "row": "L7",
+   "target": "electron",
+   "kinds": [
+    "mass_ratio"
+   ],
+   "row_unit": "1",
+   "value_regex": "Q in \\[([0-9.]+), ([0-9.]+)\\]",
+   "interval": true,
+   "groups": [
+    1,
+    2
+   ]
+  },
+  {
+   "row": "Q1",
+   "target": "up",
+   "kinds": [
+    "mass"
+   ],
+   "scale": "2 GeV",
+   "definition": "msbar"
+  },
+  {
+   "row": "Q2",
+   "target": "down",
+   "kinds": [
+    "mass"
+   ],
+   "scale": "2 GeV",
+   "definition": "msbar"
+  },
+  {
+   "row": "Q3",
+   "target": "strange",
+   "kinds": [
+    "mass"
+   ],
+   "scale": "2 GeV",
+   "definition": "msbar"
+  },
+  {
+   "row": "Q4",
+   "target": "charm",
+   "kinds": [
+    "mass"
+   ],
+   "scale": "m_c",
+   "definition": "msbar"
+  },
+  {
+   "row": "Q5",
+   "target": "bottom",
+   "kinds": [
+    "mass"
+   ],
+   "scale": "m_b",
+   "definition": "msbar"
+  },
+  {
+   "row": "Q6",
+   "target": "top",
+   "kinds": [
+    "mass"
+   ],
+   "definition": "pole"
+  },
+  {
+   "row": "N3",
+   "target": "electron_neutrino",
+   "kinds": [
+    "mass_ratio"
+   ],
+   "row_unit": "1",
+   "quantity_regex": "^splitting ratio with the lepton phase"
+  },
+  {
+   "row": "N9",
+   "target": "electron_neutrino",
+   "kinds": [
+    "structure"
+   ],
+   "row_unit": "1",
+   "value_regex": "^(Dirac|Majorana)$",
+   "group": 1,
+   "ignore_target_status": true,
+   "strings": true
+  },
+  {
+   "row": "E1",
+   "target": "W_plus",
+   "kinds": [
+    "mass"
+   ],
+   "definition": "tree"
+  },
+  {
+   "row": "E2",
+   "target": "Z",
+   "kinds": [
+    "mass"
+   ],
+   "definition": "tree"
+  },
+  {
+   "row": "E3",
+   "target": "Higgs",
+   "kinds": [
+    "mass"
+   ],
+   "definition": "tree"
+  },
+  {
+   "row": "E4",
+   "target": "photon",
+   "kinds": [
+    "coupling"
+   ],
+   "row_unit": "1",
+   "value_regex": "alpha\\^-1\\(0\\) = ([0-9.]+)",
+   "group": 1,
+   "scale": "q2=0",
+   "definition": "thomson"
+  },
+  {
+   "row": "H0",
+   "target": "proton",
+   "kinds": [
+    "mass"
+   ],
+   "definition": "isospin symmetric"
+  },
+  {
+   "row": "H4",
+   "target": "neutral_pion",
+   "kinds": [
+    "mass"
+   ]
+  },
+  {
+   "row": "H5",
+   "target": "rho_770_0",
+   "kinds": [
+    "mass"
+   ]
+  },
+  {
+   "row": "G1",
+   "target": "photon",
+   "kinds": [
+    "mass"
+   ]
+  },
+  {
+   "row": "G2",
+   "target": "gluon",
+   "kinds": [
+    "mass"
+   ]
+  }
+ ]
+}

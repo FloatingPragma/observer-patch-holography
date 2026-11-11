@@ -1,0 +1,60 @@
+{
+  "audit_source_sha256": {
+    "README.md": "801ba9a1552a5bd996d293a2654ebfc53540e63761555e147b132ff81df6c9b9",
+    "STATIC_AUDIT.md": "e7d80b3c822dbebd856089d3b35519691dfdb4913ab24cd9c9a4cdab1367613e",
+    "audit.py": "06d896c8a3de1b575ecf83d1c42f4f600f8731b138c93844b5626be4c3ccf4c5",
+    "test_audit.py": "1d43cb3ee6560b770966a7239257403a26e7cb9cf71ddb3ea1a3c13d9cbb6dea"
+  },
+  "candidate_sha256": {
+    "PROOF.md": "146c55af867de86014d6a784029ce46dd9a2cf7dab5b6faf607de7ed5f50ea0e",
+    "README.md": "9a34239bda8f32ce1b2d118dbdbf832c708c3f85ca6613a29dc09c5a31e0a23a",
+    "model.py": "a8eddbae9ab7f54bfaf7eb9fa3c5b69fda78cb4d7fe3725144ddbcff8016f767",
+    "results.json": "b79e2794b638772feb731e440d232c3369b1a381efbd52f8fd9972f389d6552e",
+    "test_source.py": "da0f9709c5ae0c631b1614640e8c64cf39fe421655e31f302988776353077a62"
+  },
+  "complete_records": {
+    "algebraic_coefficients_and_continuous_clock_are_parameters_not_carriers": true,
+    "complete_twelve_record_experiments_checked": 26,
+    "energy_lines_include_reference_cost": true,
+    "finite_pointer_dimension": 12,
+    "no_continuous_quantum_carrier": true,
+    "sequential_Kraus_identity_includes_failure_and_energy_complement": true
+  },
+  "cutoff_and_Weyl": {
+    "actual_boundary_coefficients_checked": 163680,
+    "actual_thirty_mode_photon_words_checked": 5456,
+    "collective_quadrature_norm_squared": "(3+sqrt(6))*sum_j(abs(w_j)**2)",
+    "cross_mode_unrestricted_CCR_false": true,
+    "finite_vacuum_Weyl_reduction": "exact four-level Jacobi exponential; not exp(-sum(abs(w_j)**2)/2)",
+    "frequency_one_finite_vacuum_q8": "81/16",
+    "frequency_one_unbounded_vacuum_q8": "105/16",
+    "full_cutoff_Heisenberg_equations": true,
+    "literal_multimode_total_cutoff_dimension": 20,
+    "vacuum_words_through_degree_six_exact": true
+  },
+  "gauss_and_energy": {
+    "all_invalid_creation_boundary_columns_zero": true,
+    "full_kinematic_dimension": 2563021733888,
+    "full_kinematic_unique_ground_gap": "26/217",
+    "full_longitudinal_bit_patterns_checked": 4096,
+    "physical_charge_reference_constraint": "R=N, ell_y=n_y for y!=1",
+    "physical_creation_columns_checked": 53248,
+    "physical_source_occupation_patterns_checked": 8192,
+    "physical_unique_ground_gap": "sqrt(4 - sqrt(5))",
+    "source_odd_reference_odd_joint_even": true,
+    "zero_Gauss_sector_dimension": 44695552
+  },
+  "geometry": {
+    "all_42_edge_and_50_face_projector_sum_rules": true,
+    "all_spatial_residues_nonnegative_exactly": true,
+    "checked_projector_edge_diagonals": 378,
+    "checked_projector_face_diagonals": 450,
+    "counting_metric_source_matches_candidate": true,
+    "full_stiffness_characteristic_polynomial": "x**12*(x - 7)**5*(x - 6)**4*(x - 4)**4*(x - 3)**5*(x**2 - 12*x + 31)**3*(x**2 - 8*x + 11)**3",
+    "independent_simplicial_chain_ranks": [
+      12,
+      30,
+      20
+    ]
+  }
+}

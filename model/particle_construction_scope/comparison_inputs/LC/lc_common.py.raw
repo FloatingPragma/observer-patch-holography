@@ -1,0 +1,296 @@
+"""Shared exact model for worker LC (step L4): loads on the full carrier with sixty ordered seam addresses.
+
+Port of FR's hexagon model (work/FR/fr9_hexagon.py) to the carrier: occupation numbers on the twelve ports, one or
+two register systems (four-valued record, sixty-address register), the repository's local unitary at the addressed
+seam, the reflection 2 A A^dag - 1 about the uniform address state. All amplitudes are Fractions; a state is a dict
+key -> amplitude with key = (cfg, regs), cfg a 12-tuple of occupations, regs a tuple of (record, address) pairs, one
+per register system. The repository and FR's directory are imported read only.
+
+Frames (ordered pair on which the local unitary acts at address k):
+  FP      the plain law: the address itself;
+  FS(f)   the screen frame of a face f: the screen orientation of the seam at both addresses; seams without a screen
+          orientation about the axis of f stay in the address frame;
+  FE      an echo frame: a reference orientation on every seam (lower port number to higher), used at both addresses.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+from fractions import Fraction as Fr
+from functools import lru_cache
+
+sys.dont_write_bytecode = True
+os.environ.setdefault('PYTHONDONTWRITEBYTECODE', '1')
+HERE = os.path.dirname(os.path.abspath(__file__))
+FR_DIR = os.path.normpath(os.path.join(HERE, '..', 'FR'))
+if FR_DIR not in sys.path:
+    sys.path.insert(0, FR_DIR)
+
+import sympy as sp  # noqa: E402
+
+import fr_common as FC  # noqa: E402
+
+CAR = FC.carrier()
+SEAMS = tuple(tuple(s) for s in CAR['seams'])
+ADJ = CAR['adj']
+ROTS = CAR['rotations']
+ADDR = tuple(pair for s in SEAMS for pair in (s, s[::-1]))     # the order of Observer.addresses
+NA = len(ADDR)
+NAMES = ['00', '10', '01', '11', '20', '02']
+FACES = FC.faces()
+F0 = (4, 5, 11)
+assert NA == 60 and F0 in FACES
+
+
+def provenance():
+    return FC.provenance()
+
+
+@lru_cache(maxsize=1)
+def U24():
+    FC.rer_root()
+    from model.coherent_seam_repair.common import local_repair_unitary
+    U = local_repair_unitary()
+    assert sp.simplify(U * U) == sp.eye(24)
+    out = []
+    for i in range(24):
+        row = []
+        for j in range(24):
+            x = sp.nsimplify(U[i, j])
+            row.append(Fr(int(x.p), int(x.q)))
+        out.append(row)
+    return out
+
+
+# ------------------------------------------------------------------ geometry
+def port_distance(a, b):
+    if a == b:
+        return 0
+    if b in ADJ[a]:
+        return 1
+    return 2 if ADJ[a] & ADJ[b] else 3
+
+
+def antipode(a):
+    return next(b for b in range(12) if port_distance(a, b) == 3)
+
+
+def antipodal_face(f):
+    return tuple(sorted(antipode(x) for x in f))
+
+
+@lru_cache(maxsize=None)
+def axes():
+    out = []
+    for f in FACES:
+        ax = tuple(sorted((f, antipodal_face(f))))
+        if ax not in out:
+            out.append(ax)
+    assert len(out) == 10
+    return tuple(out)
+
+
+def axis_of(f):
+    return tuple(sorted((f, antipodal_face(f))))
+
+
+def hexagon_ports(f):
+    return tuple(sorted(set(range(12)) - set(f) - set(antipodal_face(f))))
+
+
+def hexagon_seams(f):
+    hp = set(hexagon_ports(f))
+    return tuple(s for s in SEAMS if s[0] in hp and s[1] in hp)
+
+
+@lru_cache(maxsize=None)
+def seam_types(f):
+    """E-type and C-type seams of the hexagon of the axis of f, transported from the native seams of F0 by a rotation."""
+    rot = next(h for h in ROTS if tuple(sorted(h[i] for i in F0)) == tuple(sorted(f)))
+    hs0 = hexagon_seams(F0)
+    _, _, g = FC.native_rotations()
+    e0 = set()
+    s = (2, 10)
+    for _ in range(3):
+        e0.add(tuple(sorted(s)))
+        s = (g[s[0]], g[s[1]])
+    c0 = set(hs0) - e0
+    assert len(e0) == 3 and len(c0) == 3 and e0 <= set(hs0) and (2, 3) in c0
+    E = tuple(sorted(tuple(sorted((rot[a], rot[b]))) for a, b in e0))
+    C = tuple(sorted(tuple(sorted((rot[a], rot[b]))) for a, b in c0))
+    assert set(E) | set(C) == set(hexagon_seams(f))
+    return E, C
+
+
+def screen_sign(f, a, b):
+    return FC.screen_sign(f, a, b)
+
+
+def face_distance_table():
+    fadj = {i: {j for j in range(20) if i != j and len(set(FACES[i]) & set(FACES[j])) == 2} for i in range(20)}
+    dist = [[-1] * 20 for _ in range(20)]
+    for s in range(20):
+        dist[s][s] = 0
+        q = [s]
+        while q:
+            nq = []
+            for u in q:
+                for w in fadj[u]:
+                    if dist[s][w] < 0:
+                        dist[s][w] = dist[s][u] + 1
+                        nq.append(w)
+            q = nq
+    return dist
+
+
+# ------------------------------------------------------------------ frames
+def frame_plain():
+    return ADDR
+
+
+def frame_sorted():
+    """FE: an echo frame with a reference orientation on every seam (lower port number to higher, at both addresses)."""
+    return tuple((min(a, b), max(a, b)) for (a, b) in ADDR)
+
+
+@lru_cache(maxsize=None)
+def frame_screen(f):
+    out = []
+    for (a, b) in ADDR:
+        s = screen_sign(f, a, b)
+        out.append((a, b) if s >= 0 else (b, a))
+    return tuple(out)
+
+
+# ------------------------------------------------------------------ states
+def cfg_of(*ports):
+    c = [0] * 12
+    for p in ports:
+        c[p] += 1
+    return tuple(c)
+
+
+def ports_of(cfg):
+    return tuple(p for p in range(12) for _ in range(cfg[p]))
+
+
+class Undefined(Exception):
+    """An event on a seam with total load above two (outside the local completion)."""
+
+
+def local(cfg, rec, a, b):
+    """Images of (cfg, rec) under the local unitary on the ordered pair (a, b): list of (cfg', rec', amplitude)."""
+    if cfg[a] + cfg[b] > 2:
+        raise Undefined((cfg, a, b))
+    col = 4 * NAMES.index(f'{cfg[a]}{cfg[b]}') + rec
+    out = []
+    U = U24()
+    for row in range(24):
+        u = U[row][col]
+        if u:
+            s2, r2 = divmod(row, 4)
+            c2 = list(cfg)
+            c2[a], c2[b] = int(NAMES[s2][0]), int(NAMES[s2][1])
+            out.append((tuple(c2), r2, u))
+    return out
+
+
+def add(d, key, val):
+    v = d.get(key, 0) + val
+    if v:
+        d[key] = v
+    else:
+        d.pop(key, None)
+
+
+def Qstep(state, frame, reg=0, strict=True):
+    """The event of register system `reg`. With strict=False an undefined event is collected instead of raised."""
+    new, undefined = {}, Fr(0)
+    for (cfg, regs), amp in state.items():
+        rec, k = regs[reg]
+        a, b = frame[k]
+        try:
+            images = local(cfg, rec, a, b)
+        except Undefined:
+            if strict:
+                raise
+            undefined += amp * amp
+            continue
+        for c2, r2, u in images:
+            regs2 = regs[:reg] + ((r2, k),) + regs[reg + 1:]
+            add(new, (c2, regs2), amp * u)
+    return new if strict else (new, undefined)
+
+
+def Rstep(state, reg=0):
+    """Reflection 2 A A^dag - 1 on the address of register system `reg`."""
+    groups = {}
+    for (cfg, regs), amp in state.items():
+        rec, k = regs[reg]
+        rest = (cfg, regs[:reg], rec, regs[reg + 1:])
+        groups.setdefault(rest, {})[k] = amp
+    new = {}
+    for (cfg, pre, rec, post), g in groups.items():
+        mean = sum(g.values(), Fr(0)) / NA
+        for k in range(NA):
+            val = 2 * mean - g.get(k, 0)
+            if val:
+                new[(cfg, pre + ((rec, k),) + post)] = val
+    return new
+
+
+def W(state, frame, reg=0):
+    return Qstep(Rstep(state, reg), frame, reg)
+
+
+def Winv(state, frame, reg=0):
+    return Rstep(Qstep(state, frame, reg), reg)
+
+
+def uniform(cfgs, nreg=1):
+    """Equal amplitude one on the given configurations, blank records, every address of every register system.
+    Returns (state, norm squared)."""
+    st = {}
+    if nreg == 1:
+        for c in cfgs:
+            for k in range(NA):
+                st[(c, ((0, k),))] = Fr(1)
+        return st, Fr(len(cfgs) * NA)
+    for c in cfgs:
+        for k1 in range(NA):
+            for k2 in range(NA):
+                st[(c, ((0, k1), (0, k2)))] = Fr(1)
+    return st, Fr(len(cfgs) * NA * NA)
+
+
+def norm2(state):
+    return sum((v * v for v in state.values()), Fr(0))
+
+
+def dot(u, v):
+    if len(u) > len(v):
+        u, v = v, u
+    return sum((c * v[k] for k, c in u.items() if k in v), Fr(0))
+
+
+def weights(state, n2, classify):
+    """Total weight of each class; classify(cfg, regs) -> label."""
+    w = {}
+    for (cfg, regs), amp in state.items():
+        lab = classify(cfg, regs)
+        w[lab] = w.get(lab, Fr(0)) + amp * amp / n2
+    return w
+
+
+def restrict(state, pred):
+    return {k: v for k, v in state.items() if pred(*k)}
+
+
+def fs(x):
+    return str(x)
+
+
+def jdump(obj, name):
+    with open(os.path.join(HERE, name), 'w') as fh:
+        json.dump(obj, fh, indent=1, default=str)

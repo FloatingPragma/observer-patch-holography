@@ -1,0 +1,122 @@
+"""Task P: analysis of the preparation scan (outputs of prep_scan.py in pscan/) -> runs/P_preparation_scan.json.
+
+    /tmp/oph-completion-venv/bin/python prep_analyse.py
+"""
+import glob, json, os
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DEST = os.path.join(os.path.dirname(HERE), 'runs', 'P_preparation_scan.json')
+STORED = 'WORKSPACE/oph-physics-sim/runs/universe'
+
+
+def one(a):
+    N = a['carriers']
+    I = np.array(a['series']['intra'], float)
+    sw = np.arange(1, len(I) + 1)
+    n15 = (I[:, 1] + I[:, 5]) / 2 / N
+    n24 = (I[:, 2] + I[:, 4]) / 2 / N
+    n33 = I[:, 3] / 2 / N
+    out = {'n15_end': float(n15[-1]), 'n24_end': float(n24[-1]), 'n33_end': float(n33[-1]),
+           'n24_se_block': a['end_pairs_half_faces']['(2,4)'][1], 'n33_se_block': a['end_pairs_half_faces']['(3,3)'][1]}
+    def freeze(y, tol):
+        if y[-1] == 0:
+            nz = np.nonzero(y)[0]
+            return int(nz[-1] + 2) if len(nz) else 0
+        bad = np.nonzero(np.abs(y - y[-1]) > tol * y[-1])[0]
+        return int(bad[-1] + 2) if len(bad) else 1
+    out['freeze_sweep_24_1pct'] = freeze(n24, 0.01)
+    out['freeze_sweep_33_2pct'] = freeze(n33, 0.02)
+    # decay rate of classes 1, 5: log-linear fit where the summed count of classes 1 and 5 is at least 50,
+    # from 30 sweeps after the balanced class (or sweep 120 if later) on
+    cnt = I[:, 1] + I[:, 5]
+    s0 = max(120, (a['balanced_at_sweep'] or 0) + 30)
+    m = (sw >= s0) & (cnt >= 50)
+    if m.sum() >= 20:
+        p = np.polyfit(sw[m], np.log(cnt[m]), 1, w=np.sqrt(cnt[m]))
+        out['rate_15'] = float(-p[0]); out['rate_15_window'] = [int(sw[m][0]), int(sw[m][-1])]
+    else:
+        out['rate_15'] = None
+    # limit of (2,4) and (3,3) with the rate of 1, 5 (as in part A); only when a rate exists
+    if out['rate_15']:
+        mm = sw >= s0
+        X = np.stack([np.ones(mm.sum()), np.exp(-out['rate_15'] * sw[mm])], axis=1)
+        out['n24_limit'] = float(np.linalg.lstsq(X, n24[mm], rcond=None)[0][0])
+        out['n33_limit'] = float(np.linalg.lstsq(X, n33[mm], rcond=None)[0][0])
+    out['n15_at'] = {str(s): float(n15[s - 1]) for s in (100, 300, 500, 800) if s <= len(n15)}
+    out['n24_at'] = {str(s): float(n24[s - 1]) for s in (10, 50, 100, 300, 800) if s <= len(n24)}
+    out['n33_at'] = {str(s): float(n33[s - 1]) for s in (10, 50, 100, 300, 800) if s <= len(n33)}
+    out['screen_end_per_plaquette'] = [x / a['plaquettes'] for x in a['series']['screen'][-1]]
+    return out
+
+
+def main():
+    files = sorted(glob.glob(os.path.join(HERE, 'pscan', '*_L*_s*.json')))
+    groups = {}
+    for f in files:
+        a = json.load(open(f))
+        groups.setdefault((a['prep'], a['level']), []).append(a)
+    res = {'schema': 'cf1.preparation_scan.v1', 'rule': 'law C with the Z6 register of the universe runs (cost 0,5,8,10,8,5, kappa 5), '
+           'oph_defects.universe.Engine sequential backend, register blank at start, 800 sweeps',
+           'units': 'pairs per carrier, internal tier, half-face count: (c2 + c4)/2 and c3/2; rates per sweep',
+           'label': 'MEASURED; errors are standard errors over seeds (independent load and schedule seeds)', 'groups': {}}
+    rows = []
+    for (prep, L), runs in sorted(groups.items(), key=lambda t: (t[0][1], t[0][0])):
+        per = [one(a) for a in runs]
+        def ms(key):
+            v = np.array([p[key] for p in per if p.get(key) is not None], float)
+            if len(v) == 0:
+                return None
+            return {'mean': float(v.mean()), 'se': float(v.std(ddof=1) / np.sqrt(len(v))) if len(v) > 1 else None, 'n': int(len(v)), 'values': v.tolist()}
+        g = {'prep': prep, 'level': L, 'seeds': [a['seed_index'] for a in runs],
+             'initial_load_variance_per_port': ms_v(runs, 'initial_load_variance_per_port'),
+             'initial_excess_potential_per_port': ms_v(runs, 'initial_excess_potential_per_port'),
+             'filling_per_port': ms_v(runs, 'filling_per_port'), 'band': runs[0]['band'],
+             'balanced_at_sweep': [a['balanced_at_sweep'] for a in runs],
+             'share_one_pair_of_defect_carriers': [a['end_share_one_pair_of_defect_carriers'] for a in runs],
+             'share_decomposable_of_defect_carriers': [a['end_share_decomposable_of_defect_carriers'] for a in runs]}
+        for key in ('n24_end', 'n33_end', 'n15_end', 'n24_limit', 'n33_limit', 'rate_15', 'freeze_sweep_24_1pct', 'freeze_sweep_33_2pct'):
+            g[key] = ms(key)
+        g['per_seed'] = per
+        res['groups'][f'{prep}_L{L}'] = g
+        rows.append(g)
+    # control against the stored runs
+    ctrl = {}
+    for L in (5, 6):
+        z = np.load(f'{STORED}/L{L}/stats.npz')
+        a = next((a for a in groups.get(('exact06', L), []) if a['seed_index'] == 0), None)
+        if a is None:
+            continue
+        S = len(z['counts_intra'])
+        same = all(a['series']['intra'][s][1:] == z['counts_intra'][s].tolist()[1:] and
+                   a['series']['screen'][s][1:] == z['counts_screen'][s].tolist()[1:] and a['series']['V'][s] == int(z['V'][s]) for s in range(S))
+        ctrl[f'L{L}'] = {'stored_sweeps': S, 'identical_per_sweep_counts_and_V': bool(same)}
+    res['control_reproduces_stored_runs'] = ctrl
+    # functional dependence at the filling 2.5: frozen densities against the initial variance and the excess potential
+    fits = {}
+    for L in (5, 6):
+        sel = [g for g in rows if g['level'] == L and abs(g['filling_per_port']['mean'] - 2.5) < 0.01]
+        for xkey in ('initial_load_variance_per_port', 'initial_excess_potential_per_port'):
+            x = np.array([g[xkey]['mean'] for g in sel]);
+            for ykey in ('n24_end', 'n33_end'):
+                y = np.array([g[ykey]['mean'] for g in sel])
+                fits.setdefault(f'L{L}', {}).setdefault(xkey, {})[ykey] = {'x': x.tolist(), 'y': y.tolist(), 'preps': [g['prep'] for g in sel]}
+    res['dependence_data_at_filling_2_5'] = fits
+    json.dump(res, open(DEST, 'w'), indent=1)
+    print('wrote', DEST)
+    print('control', ctrl)
+    for g in rows:
+        f = lambda k, d=4: ('%.*f+-%.*f' % (d, g[k]['mean'], d, g[k]['se'] or 0)) if g[k] else '-'
+        print('%-9s L%d var %.3f exc %.3f fill %.3f bal %s | n24 %s n33 %s | lim24 %s lim33 %s | n15 %s r15 %s | frz %s %s' % (
+            g['prep'], g['level'], g['initial_load_variance_per_port']['mean'], g['initial_excess_potential_per_port']['mean'],
+            g['filling_per_port']['mean'], g['balanced_at_sweep'], f('n24_end', 5), f('n33_end', 5), f('n24_limit', 5), f('n33_limit', 5),
+            f('n15_end', 5), f('rate_15', 5), f('freeze_sweep_24_1pct', 0), f('freeze_sweep_33_2pct', 0)))
+
+
+def ms_v(runs, key):
+    v = np.array([a[key] for a in runs], float)
+    return {'mean': float(v.mean()), 'values': v.tolist()}
+
+
+if __name__ == '__main__':
+    main()

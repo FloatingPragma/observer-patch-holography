@@ -1,0 +1,148 @@
+"""S6 (c), step 2: what the wiring marks on each carrier, and its frame holonomy.
+
+Input: the glue data dumped by ``s6_c_dump_wiring.py`` (pinned gluing ``port_pair`` and the symmetric control
+``face_axis`` of the simulation repository). Exact combinatorics; the mesh coordinates are used only for the
+sign of the orientation of a cell.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S6/s6_c_wiring.py SCR/research/S6/wiring OUT.json
+"""
+import collections, json, sys, time
+import numpy as np
+
+from s6_common import *   # noqa: F401,F403
+
+T0 = time.time()
+wdir, outpath = sys.argv[1], sys.argv[2]
+out = {'schema': 's6.c.wiring.v1'}
+AUT = [tuple(int(v) for v in a) for a in SRC.incidence_automorphisms()]
+PDIST = [[None] * NPORT for _ in range(NPORT)]
+for a in range(NPORT):
+    seen, layer = {a: 0}, [a]
+    while layer:
+        nxt = []
+        for p in layer:
+            for r in ADJ[p]:
+                if r not in seen:
+                    seen[r] = seen[p] + 1; nxt.append(r)
+        layer = nxt
+    for b, d in seen.items():
+        PDIST[a][b] = d
+
+
+def triple_type(tr):
+    tr = tuple(sorted(tr))
+    shape = tuple(sorted(PDIST[a][b] for a in tr for b in tr if a < b))
+    rot = sum(1 for g in ROT if tuple(sorted(g[p] for p in tr)) == tr)
+    aut = sum(1 for g in AUT if tuple(sorted(g[p] for p in tr)) == tr)
+    return shape, rot, aut
+
+
+def analyse(level, gluing):
+    z = np.load(f'{wdir}/wiring_L{level}_{gluing}.npz')
+    assert tuple(map(tuple, z['seams'].tolist())) == tuple(SEAMS) and tuple(map(tuple, z['faces'].tolist())) == tuple(FACES)
+    ga, gb, tri, xyz = z['glue_a'].astype(int), z['glue_b'].astype(int), z['tri'].astype(int), z['mesh_xyz']
+    n = tri.shape[0]
+    glue = collections.defaultdict(dict)       # carrier -> {neighbour: own glue port}
+    for a, b in zip(ga, gb):
+        glue[a // 12][b // 12] = a % 12
+        glue[b // 12][a // 12] = b % 12
+    assert all(len(glue[c]) == 3 for c in range(n))
+    res = {'carriers': n}
+    # (1) what the three glue ports mark
+    types = collections.Counter(triple_type(glue[c].values()) for c in range(n))
+    distinct = len({tuple(sorted(glue[c].values())) for c in range(n)})
+    res['distinct_glue_port_triples'] = distinct
+    res['glue_triple_types'] = [{'pairwise_port_distances': list(s), 'stabilizer_in_rotations': r, 'stabilizer_in_automorphisms': a, 'carriers': k}
+                                for (s, r, a), k in sorted(types.items(), key=lambda kv: -kv[1])]
+    res['fraction_with_trivial_rotation_stabilizer'] = round(sum(k for (s, r, a), k in types.items() if r == 1) / n, 6)
+    if gluing != 'face_axis':
+        return res
+    # (2) frame holonomy of the symmetric wiring
+    ports = tuple(int(v) for v in z['control_ports'])
+    face = tuple(int(v) for v in z['control_face'])
+    assert face == FACES[0]
+    pos_of_port = {p: k for k, p in enumerate(ports)}
+    nb_of_pos = [dict() for _ in range(n)]     # cell -> {position k: neighbour across the edge opposite vertex k}
+    for c in range(n):
+        for other, p in glue[c].items():
+            k = pos_of_port[p]
+            shared = set(tri[c]) & set(tri[other])
+            assert len(shared) == 2 and tri[c][k] not in shared      # belt port k glues across the edge opposite cell vertex k
+            nb_of_pos[c][k] = other
+    sign = [1 if np.linalg.det(xyz[tri[c]]) > 0 else -1 for c in range(n)]
+    cells_of = collections.defaultdict(list)
+    for c in range(n):
+        for v in tri[c]:
+            cells_of[int(v)].append(c)
+
+    def transport(A, B, kind):
+        """Map of positions of cell A to positions of cell B. 'R': in-plane half turn about the edge midpoint; 'M': mirror in the edge."""
+        ta, tb = list(tri[A]), list(tri[B])
+        shared = [v for v in ta if v in tb]
+        a = next(v for v in ta if v not in shared); b = next(v for v in tb if v not in shared)
+        u, w = shared
+        m = {ta.index(a): tb.index(b)}
+        if kind == 'R':
+            m[ta.index(u)] = tb.index(w); m[ta.index(w)] = tb.index(u)
+        else:
+            m[ta.index(u)] = tb.index(u); m[ta.index(w)] = tb.index(w)
+        return m
+
+    hol = {'R': collections.Counter(), 'M': collections.Counter()}
+    for v, cs in cells_of.items():
+        c0 = cs[0]
+        t0 = list(tri[c0]); k = t0.index(v)
+        # walk counterclockwise (seen from outside) around v: leave through the edge {v, x} with x the vertex that follows v
+        # in the outward orientation of the cell
+        def step(c):
+            t = list(tri[c]); kv = t.index(v)
+            nxt = t[(kv + sign[c]) % 3]                 # the vertex after v counterclockwise
+            opp = next(i for i in range(3) if t[i] not in (v, nxt))
+            return nb_of_pos[c][opp]
+        for kind in ('R', 'M'):
+            perm, c = {0: 0, 1: 1, 2: 2}, c0
+            for _ in range(len(cs)):
+                d = step(c)
+                m = transport(c, d, kind)
+                perm = {i: m[perm[i]] for i in range(3)}
+                c = d
+            assert c == c0
+            p = (perm[0], perm[1], perm[2])
+            if p == (0, 1, 2):
+                name = 'identity'
+            elif sorted(p) == [0, 1, 2] and all(p[i] != i for i in range(3)):
+                shift = (p[0] - 0) % 3
+                name = 'rotation by %+d positions (counterclockwise from outside)' % (1 if (shift * sign[c0]) % 3 == 1 else -1)
+            else:
+                name = 'reflection fixing the position of the vertex' if p[k] == k else 'reflection (other)'
+            hol[kind][(len(cs), name)] += 1
+    res['holonomy_half_turn_transport'] = [{'vertex_degree': d, 'holonomy': nm, 'vertices': c} for (d, nm), c in sorted(hol['R'].items())]
+    res['holonomy_mirror_transport'] = [{'vertex_degree': d, 'holonomy': nm, 'vertices': c} for (d, nm), c in sorted(hol['M'].items())]
+    res['orientation_of_cell_vertex_order'] = dict(collections.Counter(sign))
+    return res
+
+
+for gluing in ('face_axis', 'port_pair'):
+    out[gluing] = {}
+    for level in (0, 1, 2, 3, 4):
+        out[gluing][f'L{level}'] = analyse(level, gluing)
+        print(gluing, level, json.dumps(out[gluing][f'L{level}'])[:900])
+
+# the rotation behind the cyclic holonomy and its action on the triads and on the fifteen weights
+g3 = next(g for g in STAB_FACE[0] if g != IDENT)
+i0, j0 = ORD[0]
+out['holonomy_element'] = {
+    'class': CLASS_OF[g3], 'port_permutation': list(g3), 'action_on_triads': list(RHO[g3]),
+    'fixes_the_two_triads_of_the_marked_face': RHO[g3][i0] == i0 and RHO[g3][j0] == j0,
+    'cycles_the_other_three': sorted(i for i in range(5) if RHO[g3][i] != i) == sorted(set(range(5)) - {i0, j0}),
+    'reading': 'on the symmetric wiring the frame of a carrier returns rotated by a third of a turn about its marked face after one circuit of a '
+               'five-valent mesh vertex. Labels that need only the marked face (Y, T3, Q) are global; the three other triads (colour index) are '
+               'defined only up to cyclic permutation.',
+}
+# mirror elements of the stabilizer of the marked face in the full automorphism group
+mirrors = [a for a in AUT if a not in ROTSET and frozenset(a[v] for v in FACES[0]) == frozenset(FACES[0])]
+out['holonomy_element']['mirror_automorphisms_fixing_marked_face'] = len(mirrors)
+print(out['holonomy_element'])
+out['seconds'] = round(time.time() - T0, 1)
+json.dump(out, open(outpath, 'w'), indent=1)
+print('written', outpath, out['seconds'])

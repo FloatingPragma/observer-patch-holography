@@ -1,0 +1,49 @@
+"""GL step 4: running of the three couplings from E_cell with the matching of s3_action.json and the contents of
+s5_links_couplings.json (one loop, no thresholds). Source-chain inputs only; the GeV conversion uses the declared
+unit E* = 1.22089e19 GeV of the public comparison branch. Writes s4_running.json.
+"""
+import json
+import sys
+from fractions import Fraction as Fr
+
+import numpy as np
+
+A = json.load(open('s3_action.json'))
+S5 = json.load(open('s5_links_couplings.json'))
+P = 1.63097209585889737696
+inv_a0 = 16.2453                      # B1 = DC's cut closure (reproduced in s5: 16.245298)
+inv_aU = 1 / 0.0411242474418166851
+R = 2 * np.pi - (2 / 3) * np.log(P)   # ln(E_cell / M_U)
+E_star = 1.22089e19
+E_cell = E_star / np.sqrt(P)
+out = {'inputs': {'inv_alpha_bare_cell': inv_a0, 'inv_alpha_U_D10': inv_aU, 'ln(E_cell/M_U)': R, 'E_cell_GeV': E_cell}}
+
+mt = A['one_loop_matching']
+cases = {}
+for label, cross in (('Euclidean isotropic reference', 'cross_terms_Euclidean'), ('Hamiltonian tadpoles', 'cross_terms_Hamiltonian')):
+    c = mt[cross]; w = mt['IMPORTED_Wilson_pure_gauge']
+    ms = np.array([inv_a0 + c['delta_inv_alpha1'], inv_a0 + w['delta_inv_alpha2'] + c['delta_inv_alpha2'],
+                   inv_a0 + w['delta_inv_alpha3'] + c['delta_inv_alpha3']])
+    cases[label] = ms
+out['MSbar_at_E_cell (1/alpha_1, 1/alpha_2, 1/alpha_3)'] = {k: v.tolist() for k, v in cases.items()}
+ms = cases['Euclidean isotropic reference']
+need = (inv_aU - ms) * 2 * np.pi / R
+out['coefficients_needed_per_factor_to_reach_alpha_U_at_M_U'] = need.tolist()
+out['coefficient_needed_without_matching (DC b_above)'] = (inv_aU - inv_a0) * 2 * np.pi / R
+
+rows = {}
+for name, v in S5['K_one_loop_coefficients']['rows'].items():
+    b = np.array(v['float'])
+    at_MU = ms + b * R / (2 * np.pi)
+    lnZ = np.log(9.56e18 / 91.1876)                     # ln(E_cell/m_Z) for the colour scale only (comparison)
+    lam3 = None
+    if b[2] < 0:
+        lam3 = float(E_cell * np.exp(-2 * np.pi * ms[2] / abs(b[2])))
+    rows[name] = {'1/alpha_i(M_U)': at_MU.round(4).tolist(), 'spread_at_M_U': float(at_MU.max() - at_MU.min()),
+                  'one_loop_colour_scale_GeV (b3 < 0)': lam3}
+out['running_from_E_cell'] = rows
+for k, v in rows.items():
+    print(k, v, flush=True)
+print('needed per factor', need, ' MS at E_cell', cases, flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's4_running.json', 'w'), indent=1,
+          default=lambda o: o.tolist() if hasattr(o, 'tolist') else str(o))

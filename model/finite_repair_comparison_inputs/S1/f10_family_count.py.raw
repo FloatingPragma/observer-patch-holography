@@ -1,0 +1,135 @@
+"""Counts of deterministic twist tables in the declared family after each constraint, and placement of the
+static law and of the simulation-side unit-twist rule.
+
+Family. One attempt on an oriented seam reads (d, u, v) = (contrast, charge of the left face, charge of the right face),
+applies a twist k in {-1, 0, 1} (d -> d - k, u -> u + k, v -> v - k) and a reference current, in one of three orders:
+  TC_excl  twist table reads clip(d); if k != 0 no current flows, else the reference current on d
+  TC_then  twist table reads clip(d); then the reference current on d - k
+  CT       reference current on d first; twist table reads the rest d - 2j in {-1, 0, 1}
+Alphabet: clip(d) in -4..4 (+-4 stands for |d| >= 4), u, v in -2..2. A deterministic table assigns k to each datum.
+Symmetries: S (d,u,v;k) -> (-d,v,u;-k); N (d,u,v;k) -> (-d,-u,-v;-k); SN (d,u,v;k) -> (d,-v,-u;k).
+"""
+import json, sys
+from math import log10
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S
+
+HERE = Path(__file__).resolve().parent
+
+
+def orbits(dvals):
+    data = [(d, u, v) for d in dvals for u in range(-2, 3) for v in range(-2, 3)]
+    seen, out = set(), []
+    for x in data:
+        if x in seen:
+            continue
+        d, u, v = x
+        orb = {(d, u, v): 1, (-d, v, u): -1, (-d, -u, -v): -1, (d, -v, -u): 1}   # image -> sign applied to k
+        # consistency: if an image coincides with the datum under a k-flipping element, k must be 0
+        forced_zero = ((-d, v, u) == x) or ((-d, -u, -v) == x)
+        seen |= set(orb)
+        out.append((x, orb, forced_zero))
+    return out
+
+
+def allowed(d, u, v, k, cons, T):
+    if k == 0:
+        return True
+    u2, v2 = u + k, v - k
+    if 'alphabet' in cons and (abs(u2) > 2 or abs(v2) > 2):
+        return False
+    if 'a' in cons and u == 0 and v == 0 and (T is None or abs(d) < T):
+        return False
+    if 'La' in cons and abs(u2) + abs(v2) > abs(u) + abs(v):
+        return False
+    if 'Lb' in cons and (d == 0 or k != (1 if d > 0 else -1)):
+        return False
+    return True
+
+
+def count(dvals, cons, T=None):
+    total_log, free, n = 0.0, 0, 1
+    for x, orb, forced in orbits(dvals):
+        d, u, v = x
+        opts = 0
+        for k in (-1, 0, 1):
+            if 'c' in cons and forced and k != 0:
+                continue
+            if all(allowed(dd, a, b, s * k, cons, T) for (dd, a, b), s in orb.items()):
+                opts += 1
+        if 'c' not in cons:
+            # without the symmetry requirement every datum of the orbit is free
+            o = 1
+            for (dd, a, b) in orb:
+                o *= sum(allowed(dd, a, b, k, cons, T) for k in (-1, 0, 1))
+            opts = o
+        n *= opts
+        free += opts > 1
+    return n, free
+
+
+def report(dvals):
+    rows = []
+    steps = [('raw (no constraint)', ()), ('+ alphabet closure |q| <= 2', ('alphabet',)),
+             ('+ (c) swap and sign covariance', ('alphabet', 'c')),
+             ('+ (a) no twist at zero charge (no creation)', ('alphabet', 'c', 'a')),
+             ('+ (La) sum|q| never increases', ('alphabet', 'c', 'a', 'La')),
+             ('+ (Lb) twist relaxes the seam (k = sign d)', ('alphabet', 'c', 'a', 'La', 'Lb'))]
+    for label, cons in steps:
+        n, free = count(dvals, cons)
+        rows.append(dict(constraint=label, laws=str(n), log10=round(log10(n), 2), free_entries=free))
+    for T in (2, 3, 4):
+        n, free = count(dvals, ('alphabet', 'c', 'a'), T=T)
+        rows.append(dict(constraint=f'(c) + creation allowed only at |d| >= {T}', laws=str(n), log10=round(log10(n), 2), free_entries=free))
+        n, free = count(dvals, ('alphabet', 'c', 'a', 'Lb'), T=T)
+        rows.append(dict(constraint=f'(c) + (Lb) + creation allowed only at |d| >= {T}', laws=str(n), log10=round(log10(n), 2), free_entries=free))
+    return rows
+
+
+out = {'TC_orders_dvals_-4..4': report(range(-4, 5)), 'CT_order_dvals_-1..1': report(range(-1, 2))}
+
+# processes allowed by (La) within |q| <= 2, representative frame k = -1
+procs = {}
+for u in range(-2, 3):
+    for v in range(-2, 3):
+        if abs(u - 1) <= 2 and abs(v + 1) <= 2 and abs(u - 1) + abs(v + 1) <= abs(u) + abs(v):
+            procs[f'({u},{v})->({u-1},{v+1})'] = S.process_type(u, v, -1)
+out['La_processes_k_minus_1'] = procs
+
+# placement of the named reference laws
+sim = S.sim_law()
+place = {}
+viol = dict(La=[], alphabet=[], creation_from_zero=[], symmetry=[], Lb=[])
+for d in range(-4, 5):
+    for u in range(-2, 3):
+        for v in range(-2, 3):
+            (k,) = [kk for kk, p in sim.tau(d, u, v).items() if p == 1]
+            # symmetry
+            (ks,) = [kk for kk, p in sim.tau(-d, v, u).items() if p == 1]
+            (kn,) = [kk for kk, p in sim.tau(-d, -u, -v).items() if p == 1]
+            if ks != -k or kn != -k:
+                viol['symmetry'].append((d, u, v))
+            if k:
+                if abs(u + k) > 2 or abs(v - k) > 2: viol['alphabet'].append((d, u, v, k))
+                if abs(u + k) + abs(v - k) > abs(u) + abs(v): viol['La'].append((d, u, v, k))
+                if u == 0 and v == 0: viol['creation_from_zero'].append((d, u, v, k))
+                if k != (1 if d > 0 else -1): viol['Lb'].append((d, u, v, k))
+nz = sum(1 for d in range(-4, 5) for u in range(-2, 3) for v in range(-2, 3) if sim.tau(d, u, v).get(0, 0) != 1)
+place['SIM_unit_twist'] = dict(order='TC_excl', nonzero_entries_in_alphabet=nz, symmetric=not viol['symmetry'],
+                               relaxing_Lb=not viol['Lb'],
+                               creation_from_zero_charge_at=sorted({abs(d) for d, u, v, k in viol['creation_from_zero']}),
+                               entries_increasing_abs_charge=len(viol['La']),
+                               entries_increasing_abs_charge_list=[list(v) for v in viol['La']],
+                               entries_leaving_alphabet=[list(v) for v in viol['alphabet']])
+place['S_static'] = dict(order='any', nonzero_entries_in_alphabet=0, symmetric=True, relaxing_Lb=True,
+                         creation_from_zero_charge_at=[], entries_increasing_abs_charge=0)
+out['placement'] = place
+Path(HERE / 'f10_family_count.json').write_text(json.dumps(out, indent=1))
+for k, rows in out.items():
+    if isinstance(rows, list):
+        print(k)
+        for r in rows:
+            print('   %-58s 10^%-7s free entries %s' % (r['constraint'], r['log10'], r['free_entries']))
+print(json.dumps(out['La_processes_k_minus_1']))
+print(json.dumps(place, indent=1))

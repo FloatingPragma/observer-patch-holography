@@ -1,0 +1,692 @@
+{
+ "input": "WORKSPACE/repair-law/work/SIM/cf1/runs/X3_census.json",
+ "input_sha256": "eba15b5699c4fff72772d476051cb59c02372abb81656929bedd89ca9c1b0018",
+ "carriers": 20971520,
+ "carriers_with_defects": 7218131,
+ "F1_H1_lifts": {
+  "twist_history_lift": "every accepted twist adds +j and -j to the two faces of one seam; the 30 own seams of a carrier border two faces of that carrier; the register starts at zero; so the integer total of every carrier is 0 at all times and no carrier holds a net flux 6",
+  "compositions": 30,
+  "per_composition": [
+   {
+    "composition": "{2,4}",
+    "carriers": 4991967,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{1,5}",
+    "carriers": 1041883,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{3,3}",
+    "carriers": 785555,
+    "class3_faces": 2,
+    "minimal_lift_totals": [
+     -6,
+     0,
+     6
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,4,4}",
+    "carriers": 139090,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,2}",
+    "carriers": 86788,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     6
+    ],
+    "zero_total_minimal_lift": false,
+    "smallest_bound_on_abs_m_for_zero_total": 4
+   },
+   {
+    "composition": "{4,4,4}",
+    "carriers": 86476,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     -6
+    ],
+    "zero_total_minimal_lift": false,
+    "smallest_bound_on_abs_m_for_zero_total": 4
+   },
+   {
+    "composition": "{2,3,3,4}",
+    "carriers": 55690,
+    "class3_faces": 2,
+    "minimal_lift_totals": [
+     -6,
+     0,
+     6
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{3,4,5}",
+    "carriers": 11177,
+    "class3_faces": 1,
+    "minimal_lift_totals": [
+     -6,
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{1,2,3}",
+    "carriers": 11174,
+    "class3_faces": 1,
+    "minimal_lift_totals": [
+     0,
+     6
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,4,4,4,4}",
+    "carriers": 1680,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     -6
+    ],
+    "zero_total_minimal_lift": false,
+    "smallest_bound_on_abs_m_for_zero_total": 4
+   },
+   {
+    "composition": "{2,2,2,2,4}",
+    "carriers": 1608,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     6
+    ],
+    "zero_total_minimal_lift": false,
+    "smallest_bound_on_abs_m_for_zero_total": 4
+   },
+   {
+    "composition": "{3,3,3,3}",
+    "carriers": 1290,
+    "class3_faces": 4,
+    "minimal_lift_totals": [
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{3,3,4,4,4}",
+    "carriers": 1174,
+    "class3_faces": 2,
+    "minimal_lift_totals": [
+     -12,
+     -6,
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,2,3,3}",
+    "carriers": 1153,
+    "class3_faces": 2,
+    "minimal_lift_totals": [
+     0,
+     6,
+     12
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,2,4,4,4}",
+    "carriers": 451,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,3,3,4,4}",
+    "carriers": 357,
+    "class3_faces": 2,
+    "minimal_lift_totals": [
+     -6,
+     0,
+     6
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,5,5}",
+    "carriers": 196,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{1,1,4}",
+    "carriers": 195,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,3,5}",
+    "carriers": 84,
+    "class3_faces": 1,
+    "minimal_lift_totals": [
+     0,
+     6
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{1,3,4,4}",
+    "carriers": 80,
+    "class3_faces": 1,
+    "minimal_lift_totals": [
+     -6,
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,3,3,3,3,4}",
+    "carriers": 36,
+    "class3_faces": 4,
+    "minimal_lift_totals": [
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{1,2,4,5}",
+    "carriers": 10,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,4,4,4,4,4}",
+    "carriers": 6,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     -6
+    ],
+    "zero_total_minimal_lift": false,
+    "smallest_bound_on_abs_m_for_zero_total": 4
+   },
+   {
+    "composition": "{1,2,2,3,4}",
+    "carriers": 3,
+    "class3_faces": 1,
+    "minimal_lift_totals": [
+     0,
+     6
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{4,4,4,4,4,4}",
+    "carriers": 3,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     -12
+    ],
+    "zero_total_minimal_lift": false,
+    "smallest_bound_on_abs_m_for_zero_total": 4
+   },
+   {
+    "composition": "{2,3,4,4,5}",
+    "carriers": 1,
+    "class3_faces": 1,
+    "minimal_lift_totals": [
+     -6,
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{3,3,3,3,3,3}",
+    "carriers": 1,
+    "class3_faces": 6,
+    "minimal_lift_totals": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,2,2,3,3,4}",
+    "carriers": 1,
+    "class3_faces": 2,
+    "minimal_lift_totals": [
+     0,
+     6,
+     12
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   },
+   {
+    "composition": "{2,2,2,2,2,4,4}",
+    "carriers": 1,
+    "class3_faces": 0,
+    "minimal_lift_totals": [
+     6
+    ],
+    "zero_total_minimal_lift": false,
+    "smallest_bound_on_abs_m_for_zero_total": 4
+   },
+   {
+    "composition": "{2,3,3,4,4,4,4}",
+    "carriers": 1,
+    "class3_faces": 2,
+    "minimal_lift_totals": [
+     -12,
+     -6,
+     0
+    ],
+    "zero_total_minimal_lift": true,
+    "smallest_bound_on_abs_m_for_zero_total": 3
+   }
+  ],
+  "compositions_without_zero_total_minimal_lift": [
+   [
+    "{2,2,2}",
+    86788,
+    [
+     6
+    ]
+   ],
+   [
+    "{4,4,4}",
+    86476,
+    [
+     -6
+    ]
+   ],
+   [
+    "{2,4,4,4,4}",
+    1680,
+    [
+     -6
+    ]
+   ],
+   [
+    "{2,2,2,2,4}",
+    1608,
+    [
+     6
+    ]
+   ],
+   [
+    "{2,2,4,4,4,4,4}",
+    6,
+    [
+     -6
+    ]
+   ],
+   [
+    "{4,4,4,4,4,4}",
+    3,
+    [
+     -12
+    ]
+   ],
+   [
+    "{2,2,2,2,2,4,4}",
+    1,
+    [
+     6
+    ]
+   ]
+  ],
+  "carriers_without_zero_total_minimal_lift": 176562,
+  "share_of_defect_carriers": 0.024460902690738088,
+  "any_of_them_with_a_class3_face": false,
+  "bound_needed_for_all": 4,
+  "statement": "under the minimal lift these carriers hold flux +-6 (a class-0 flux-6 object or a non-minimal face flux); under the twist-history lift at least one of their faces carries abs(m) >= 4; abs(m) <= 4 suffices for a zero-total lift of every L10 composition"
+ },
+ "H2_33_census": {
+  "carriers": 785555,
+  "non_adjacent": 785548,
+  "types": [
+   {
+    "type": 14,
+    "separation": 1,
+    "chirality": 0,
+    "count": 7,
+    "share": 8.910897391016543e-06
+   },
+   {
+    "type": 15,
+    "separation": 2,
+    "chirality": 0,
+    "count": 395030,
+    "share": 0.502867399481895
+   },
+   {
+    "type": 16,
+    "separation": 3,
+    "chirality": 1,
+    "count": 131873,
+    "share": 0.16787239594936065
+   },
+   {
+    "type": 17,
+    "separation": 3,
+    "chirality": -1,
+    "count": 132124,
+    "share": 0.16819191527009567
+   },
+   {
+    "type": 18,
+    "separation": 4,
+    "chirality": 0,
+    "count": 98431,
+    "share": 0.1253012201564499
+   },
+   {
+    "type": 19,
+    "separation": 5,
+    "chirality": 0,
+    "count": 28090,
+    "share": 0.03575815824480781
+   }
+  ],
+  "compare_24_types": [
+   {
+    "type": 7,
+    "separation": 1,
+    "chirality": 0,
+    "count": 51,
+    "share": 1.0216413690234731e-05
+   },
+   {
+    "type": 8,
+    "separation": 2,
+    "chirality": 1,
+    "count": 1107653,
+    "share": 0.2218870837888151
+   },
+   {
+    "type": 9,
+    "separation": 2,
+    "chirality": -1,
+    "count": 1109692,
+    "share": 0.22229554001458743
+   },
+   {
+    "type": 10,
+    "separation": 3,
+    "chirality": 1,
+    "count": 861343,
+    "share": 0.17254581210172262
+   },
+   {
+    "type": 11,
+    "separation": 3,
+    "chirality": -1,
+    "count": 861518,
+    "share": 0.17258086842320872
+   },
+   {
+    "type": 12,
+    "separation": 4,
+    "chirality": 0,
+    "count": 792175,
+    "share": 0.15868995127571958
+   },
+   {
+    "type": 13,
+    "separation": 5,
+    "chirality": 0,
+    "count": 259535,
+    "share": 0.05199052798225629
+   }
+  ],
+  "recorded_labels": "class word of the carrier (Z6), face positions, separation, chirality at d = 2, 3",
+  "not_recorded": [
+   "cloud or pattern (no degree: L and H are not separated)",
+   "integer flux (no orientation: +3 and -3 are one class)",
+   "copy (generation)",
+   "grading"
+  ],
+  "d2_type_count": 1,
+  "statement": "the (3,3) pair at d = 2 is one type because its two faces carry the same Z6 label; two distinguishable members (+3, -3) would give two chiral types as for (2,4)"
+ },
+ "H3_33_spin": {
+  "placement_irreps": {
+   "neutral pair (3, 3), separation 1, chi +0 (30)": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "4": 2,
+    "5": 3,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   },
+   "neutral pair (3, 3), separation 2, chi +0 (60)": {
+    "1": 1,
+    "3": 3,
+    "3'": 3,
+    "4": 4,
+    "5": 5,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   },
+   "neutral pair (3, 3), separation 3, chi +1 (30)": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "4": 2,
+    "5": 3,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   },
+   "neutral pair (3, 3), separation 3, chi -1 (30)": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "4": 2,
+    "5": 3,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   },
+   "neutral pair (3, 3), separation 4, chi +0 (30)": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "4": 2,
+    "5": 3,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   },
+   "neutral pair (3, 3), separation 5, chi +0 (10)": {
+    "1": 1,
+    "3": 0,
+    "3'": 0,
+    "4": 1,
+    "5": 1,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   },
+   "neutral pair, all separations (190)": {
+    "1": 6,
+    "3": 7,
+    "3'": 7,
+    "4": 13,
+    "5": 18,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   },
+   "neutral pair, separations 2..5 (160)": {
+    "1": 5,
+    "3": 6,
+    "3'": 6,
+    "4": 11,
+    "5": 15,
+    "2": 0,
+    "2'": 0,
+    "4'": 0,
+    "6": 0
+   }
+  },
+  "spinorial_multiplicity": {
+   "neutral pair (3, 3), separation 1, chi +0 (30)": 0,
+   "neutral pair (3, 3), separation 2, chi +0 (60)": 0,
+   "neutral pair (3, 3), separation 3, chi +1 (30)": 0,
+   "neutral pair (3, 3), separation 3, chi -1 (30)": 0,
+   "neutral pair (3, 3), separation 4, chi +0 (30)": 0,
+   "neutral pair (3, 3), separation 5, chi +0 (10)": 0,
+   "neutral pair, all separations (190)": 0,
+   "neutral pair, separations 2..5 (160)": 0
+  },
+  "z_on_every_33_placement": "+1",
+  "readings_under_spin_statistics": {
+   "lepton with antilepton (L Lbar)": "boson: allowed",
+   "Higgs pair (H Hbar)": "boson: allowed",
+   "lepton with Higgs (L Hbar, H Lbar)": "fermion: excluded for a carrier of two pure fluxes"
+  }
+ },
+ "H4_class3_faces": {
+  "class3_faces_L10": 1715691,
+  "by_composition": {
+   "{3,3}": {
+    "faces": 1571110,
+    "share": 0.9157301635317782
+   },
+   "{2,3,3,4}": {
+    "faces": 111380,
+    "share": 0.06491844976746979
+   },
+   "{3,4,5}": {
+    "faces": 11177,
+    "share": 0.006514576342709731
+   },
+   "{1,2,3}": {
+    "faces": 11174,
+    "share": 0.006512827776097211
+   },
+   "{3,3,3,3}": {
+    "faces": 5160,
+    "share": 0.003007534573533346
+   },
+   "{3,3,4,4,4}": {
+    "faces": 2348,
+    "share": 0.0013685448020651738
+   },
+   "{2,2,2,3,3}": {
+    "faces": 2306,
+    "share": 0.0013440648694899022
+   },
+   "{2,2,3,3,4,4}": {
+    "faces": 714,
+    "share": 0.00041615885377961414
+   },
+   "{2,3,3,3,3,4}": {
+    "faces": 144,
+    "share": 8.393119740093058e-05
+   },
+   "{2,2,3,5}": {
+    "faces": 84,
+    "share": 4.895986515054284e-05
+   },
+   "{1,3,4,4}": {
+    "faces": 80,
+    "share": 4.6628443000516995e-05
+   },
+   "{3,3,3,3,3,3}": {
+    "faces": 6,
+    "share": 3.4971332250387743e-06
+   },
+   "{1,2,2,3,4}": {
+    "faces": 3,
+    "share": 1.7485666125193871e-06
+   },
+   "{2,2,2,2,3,3,4}": {
+    "faces": 2,
+    "share": 1.1657110750129248e-06
+   },
+   "{2,3,3,4,4,4,4}": {
+    "faces": 2,
+    "share": 1.1657110750129248e-06
+   },
+   "{2,3,4,4,5}": {
+    "faces": 1,
+    "share": 5.828555375064624e-07
+   }
+  },
+  "reading_under_G2_with_spin_statistics": {
+   "{3,3}, {2,3,3,4}, {3,3,3,3}, ...": "the class-3 faces pair as (+3, -3); the pair content is L Lbar or H Hbar",
+   "{1,2,3}": "(+1, +2, -3) with the -3 member a boson: Hbar, the quark Yukawa composite Q dc Hbar",
+   "{3,4,5}": "(+3, -2, -1) with the +3 member a boson: H"
+  }
+ }
+}

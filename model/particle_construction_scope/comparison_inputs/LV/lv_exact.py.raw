@@ -1,0 +1,269 @@
+"""Worker LV, groups M1 to M3 and item C0 of CANDIDATES.md: exact statements about the flux quantum of class 3 in
+GL's action. No measured value is read. Writes lv_exact.json.
+
+M1  classes of G = S(U(3) x U(2)) in the 5-trace normalisation, plaquette costs, shortest geodesics, beta_k
+M2  Gaussian ensembles: icosahedral surface (two-dimensional carrier), cubic complexes d = 2, 3, 4, link vacuum
+M3  heat-kernel weights at the central elements from the character sum on G
+"""
+import itertools
+import json
+import math
+from fractions import Fraction as Fr
+
+import mpmath as mp
+import numpy as np
+
+out = {}
+pi = math.pi
+
+# ------------------------------------------------------------------------------------------------ M1
+# trace-orthonormal basis of the Lie algebra of S(U(3) x U(2)) in the 5: tr(T_a T_b) = delta_ab / 2
+gm = []
+l = np.zeros((8, 3, 3), complex)
+l[0][0, 1] = l[0][1, 0] = 1
+l[1][0, 1], l[1][1, 0] = -1j, 1j
+l[2][0, 0], l[2][1, 1] = 1, -1
+l[3][0, 2] = l[3][2, 0] = 1
+l[4][0, 2], l[4][2, 0] = -1j, 1j
+l[5][1, 2] = l[5][2, 1] = 1
+l[6][1, 2], l[6][2, 1] = -1j, 1j
+l[7] = np.diag([1, 1, -2]) / math.sqrt(3)
+T = []
+for a in range(8):
+    M = np.zeros((5, 5), complex); M[:3, :3] = l[a] / 2; T.append(M)
+sig = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]], complex), np.array([[1, 0], [0, -1]], complex)]
+for s in sig:
+    M = np.zeros((5, 5), complex); M[3:, 3:] = s / 2; T.append(M)
+TY = math.sqrt(3 / 5) * np.diag([-1 / 3, -1 / 3, -1 / 3, 1 / 2, 1 / 2]).astype(complex)
+T.append(TY)
+gram = np.array([[np.trace(a @ b).real for b in T] for a in T])
+out["M1_basis"] = {"number_of_generators": len(T), "max_defect_of_tr_TaTb_minus_delta_over_2": float(abs(gram - np.eye(12) / 2).max())}
+
+
+def expi(M, eps):
+    w, v = np.linalg.eigh(M)
+    return (v * np.exp(1j * eps * w)) @ v.conj().T
+
+
+# Hessian of GL's plaquette cost 1 - Re tr5(U)/5 along each direction: cost = eps^2/20 + O(eps^4)
+hess = []
+for M in T:
+    e = 1e-3
+    hess.append((1 - np.trace(expi(M, e)).real / 5) / e ** 2)
+out["M1_action"] = {
+    "cost_over_eps2_min_max_over_12_directions": [float(min(hess)), float(max(hess))],
+    "expected": 1 / 20,
+    "beta_5_times_g2": 10,
+    "Gaussian_form": "S = beta_5 (1 - Re tr5 U_P / 5) = sum_a eps_a^2 / (2 g^2) + O(eps^4), beta_5 = 10 / g^2",
+}
+
+# central elements z_k = diag(w^k, w^k, w^k, (-1)^k, (-1)^k), w = exp(2 pi i / 3)
+w3 = np.exp(2j * pi / 3)
+cls = []
+for k in range(6):
+    z = np.diag([w3 ** k] * 3 + [(-1) ** k] * 2)
+    central = max(float(abs(z @ M - M @ z).max()) for M in T)
+    cls.append({"k": k, "det_minus_1": float(abs(np.linalg.det(z) - 1)), "max_commutator_with_basis": central,
+                "wilson_cost_c_k": float(1 - np.trace(z).real / 5)})
+out["M1_classes_wilson_cost"] = cls
+out["M1_classes_wilson_cost_exact"] = ["0", "17/10", "9/10", "4/5", "9/10", "17/10"]
+
+# shortest geodesics: H = 2 pi (k/3 + n1, k/3 + n2, k/3 + n3, k/2 + n4, k/2 + n5), sum = 0, minimise tr H^2
+geo = []
+for k in range(6):
+    best = None
+    for n in itertools.product(range(-4, 5), repeat=5):
+        h = [Fr(k, 3) + n[0], Fr(k, 3) + n[1], Fr(k, 3) + n[2], Fr(k, 2) + n[3], Fr(k, 2) + n[4]]
+        if sum(h) != 0:
+            continue
+        q = sum(x * x for x in h) * 4          # tr H^2 / pi^2
+        if k == 0 and q == 0:
+            continue
+        if best is None or q < best[0]:
+            best = (q, h)
+    q, h = best
+    beta_k = Fr(8) / q
+    geo.append({"k": k, "trH2_over_pi2": str(q), "H_over_2pi": [str(x) for x in h], "beta_k_=_8pi2/trH2": str(beta_k),
+                "Gaussian_cost_times_g2_over_pi2": str(q),
+                "exponent_as_multiple_of_1/alpha": float(q) * pi / 4})
+out["M1_geodesics"] = geo
+out["M1_geodesics_note"] = ("k = 0 row: the shortest closed loop (tr H^2 = 8 pi^2, cost 8 pi^2/g^2 = 2 pi/alpha). "
+                            "Class 3: H = pi (0,0,0,1,-1), a half turn of the weak factor, eps = 2 pi along a "
+                            "trace-normalised weak generator; cost (2 pi)^2/(2 g^2) = 2 pi/(4 alpha).")
+# class 3 through the other factors, for the record
+alt = {}
+alt["class3_through_hypercharge_trH2_over_pi2"] = str(sum(x * x for x in [Fr(-1), Fr(-1), Fr(-1), Fr(3, 2), Fr(3, 2)]) * 4)
+out["M1_class3_alternatives"] = alt
+# SU(N) centre: cost of the generator relative to the full loop is (N-1)/(2N): beta = 2N/(N-1)
+out["M1_centre_rule"] = {"SU(2)": "beta = 2N/(N-1) = 4", "SU(3)": "beta = 3", "class 1 of G through hypercharge": "12/5"}
+# geodesic check: exp(i H_3) = z_3 and the register doublet picks up -1
+H3 = pi * np.diag([0, 0, 0, 1, -1]).astype(complex)
+out["M1_class3_check"] = {"exp(iH3)_minus_z3": float(abs(np.diag(np.exp(1j * np.diag(H3))) - np.diag([1, 1, 1, -1, -1])).max()),
+                          "trH3^2_over_pi2": float(np.trace(H3 @ H3).real / pi ** 2),
+                          "eps_along_T3": float(math.sqrt(2 * np.trace(H3 @ H3).real))}
+# Casimirs in the 5-trace normalisation
+C = sum(M @ M for M in T)
+out["M1_casimir"] = {"doublet_block": float(C[3, 3].real), "triplet_block": float(C[0, 0].real),
+                     "C_H_exact": "3/4 + 3/20 = 9/10",
+                     "sum_of_squared_charges_of_the_neutral_level_over_the_4_broken_directions": float(
+                         sum((M @ M)[4, 4].real for M in T[8:]))}
+
+# ------------------------------------------------------------------------------------------------ M2
+# (i), (ii) icosahedral surface
+phi = (1 + math.sqrt(5)) / 2
+V = []
+for s1 in (1, -1):
+    for s2 in (1, -1):
+        V += [(0, s1, s2 * phi), (s1, s2 * phi, 0), (s2 * phi, 0, s1)]
+V = np.array(V, float)
+E = [(i, j) for i in range(12) for j in range(i + 1, 12) if abs(np.linalg.norm(V[i] - V[j]) - 2) < 1e-9]
+F = [(i, j, k) for i in range(12) for j in range(i + 1, 12) for k in range(j + 1, 12)
+     if (i, j) in E and (j, k) in E and (i, k) in E]
+# orient faces outward
+Fo = []
+for (i, j, k) in F:
+    n = np.cross(V[j] - V[i], V[k] - V[i])
+    Fo.append((i, j, k) if n @ (V[i] + V[j] + V[k]) > 0 else (i, k, j))
+eidx = {e: n for n, e in enumerate(E)}
+D = np.zeros((len(Fo), len(E)))
+for f, (i, j, k) in enumerate(Fo):
+    for a, b in ((i, j), (j, k), (k, i)):
+        if (a, b) in eidx:
+            D[f, eidx[(a, b)]] += 1
+        else:
+            D[f, eidx[(b, a)]] -= 1
+rank = np.linalg.matrix_rank(D)
+cols = [int(np.count_nonzero(D[:, e])) for e in range(len(E))]
+colsum = [float(D[:, e].sum()) for e in range(len(E))]
+# Gaussian ensemble exp(-|D A|^2/(2 g^2)): covariance of the face fluxes = g^2 x projector onto range(D)
+U_, s_, Vt_ = np.linalg.svd(D, full_matrices=False)
+Pr = (U_[:, :rank]) @ (U_[:, :rank]).T
+var_face = float(Pr[0, 0])
+seam = 0
+eps = D[:, seam] * 2 * pi                      # one seam link set to 2 pi: +2 pi on one face, -2 pi on the other
+in_range = float(np.linalg.norm(Pr @ eps - eps))
+cost_pair_times_g2 = float(eps @ eps / 2)      # action of the pair in units 1/g^2
+out["M2_icosahedral_surface"] = {
+    "corners_seams_faces": [12, len(E), len(Fo)],
+    "rank_of_face_seam_incidence": int(rank),
+    "every_seam_in_two_faces": bool(all(c == 2 for c in cols)),
+    "with_opposite_orientation": bool(all(abs(c) < 1e-12 for c in colsum)),
+    "variance_of_one_face_flux_over_g2": var_face, "expected_1_minus_1_over_20": 19 / 20,
+    "max_deviation_of_all_diagonal_entries": float(abs(np.diag(Pr) - 19 / 20).max()),
+    "one_seam_at_2pi_gives_face_fluxes": sorted(set(np.round(eps / pi, 12).tolist())),
+    "pair_configuration_lies_in_the_range": in_range,
+    "action_of_the_conjugate_pair_times_g2": cost_pair_times_g2, "expected_2_x_(2pi)^2/2": 4 * pi ** 2,
+    "statement": "joint density of (+2 pi, -2 pi) on the two faces of one seam relative to the vacuum = "
+                 "exp(-4 pi^2/g^2) = (exp(-2 pi^2/g^2))^2; one face alone cannot carry the flux (class sum zero)",
+}
+
+# (iii) cubic complexes: single plaquette variance / g^2 = <(khat_i^2 + khat_j^2)/khat^2> = 2/d
+cub = {}
+for d, L in ((2, 64), (3, 24), (4, 12)):
+    ks = [2 * np.sin(pi * np.arange(L) / L)] * d
+    grids = np.meshgrid(*ks, indexing="ij")
+    k2 = sum(g ** 2 for g in grids)
+    num = grids[0] ** 2 + grids[1] ** 2
+    mask = k2 > 1e-14
+    cub[str(d)] = {"L": L, "variance_over_g2": float((num[mask] / k2[mask]).sum() / (L ** d)),
+                   "two_over_d_times_(1 - L^-d)": 2 / d * (1 - L ** (-d)),
+                   "plaquettes_per_link": 2 * (d - 1)}
+out["M2_cubic_plaquette_variance"] = cub
+out["M2_rule"] = ("single-plaquette flux variance per generator = 2 g^2/d; a full 2 pi flux on one plaquette has "
+                  "Gaussian weight exp(-(pi d/4)/alpha); d = 2 reproduces the action cost because the plaquettes of a "
+                  "two-dimensional complex are independent")
+
+# Hamiltonian link vacuum: sigma^2 = g^2 <khat>/3 (continuous time), g^2 <khat/sqrt(1 - khat^2/16)>/3 (two field steps)
+ng = 80
+x, wq = np.polynomial.legendre.leggauss(ng)
+kk = pi * x
+KX, KY, KZ = np.meshgrid(kk, kk, kk, indexing="ij")
+W3 = np.einsum("i,j,k->ijk", wq, wq, wq) / 8
+kh = np.sqrt(4 * (np.sin(KX / 2) ** 2 + np.sin(KY / 2) ** 2 + np.sin(KZ / 2) ** 2))
+mk = float((W3 * kh).sum())
+mk2 = float((W3 * kh / np.sqrt(1 - kh ** 2 / 16)).sum())
+out["M2_link_vacuum"] = {"mean_khat": mk, "plaquette_variance_over_g2_continuous_time": mk / 3,
+                         "plaquette_variance_over_g2_two_field_steps": mk2 / 3,
+                         "exponent_times_alpha_continuous": 3 * pi / (2 * mk), "exponent_times_alpha_two_steps": 3 * pi / (2 * mk2)}
+
+# ------------------------------------------------------------------------------------------------ M3
+mp.mp.dps = 80
+
+
+def S3(tau, j, N=70):
+    tot = mp.mpf(0)
+    for p in range(N + 1):
+        for q in range(N + 1):
+            d = mp.mpf((p + 1) * (q + 1) * (p + q + 2)) / 2
+            c = mp.mpf(p * p + q * q + p * q + 3 * p + 3 * q) / 3
+            ph = mp.expjpi(mp.mpf(2 * j * 2 * (p - q)) / 6)
+            tot += d * d * ph * mp.exp(-tau * c)
+    return tot
+
+
+def S2(tau, j, N=160):
+    tot = mp.mpf(0)
+    for n in range(1, N + 1):
+        tot += n * n * (-1) ** (j * (n - 1)) * mp.exp(-tau * mp.mpf(n * n - 1) / 4)
+    return tot
+
+
+def S1(tau, l, N=700):
+    tot = mp.mpf(0)
+    for m in range(-N, N + 1):
+        tot += mp.expjpi(mp.mpf(2 * l * m) / 6) * mp.exp(-tau * mp.mpf(m * m) / 60)
+    return tot
+
+
+def KG(tau, k):
+    """heat kernel of G at the central element z_k: sum over irreps (p, q, n, m) with m = -2(p-q) + 3(n-1) mod 6 of
+    d^2 exp(2 pi i k m/6) exp(-tau C)"""
+    return sum(S3(tau, j) * S2(tau, j) * S1(tau, k + j) for j in range(6)) / 6
+
+
+def weights(g2):
+    tau = mp.mpf(g2) / 2
+    k0 = KG(tau, 0)
+    res = {}
+    for k in range(1, 6):
+        wk = mp.re(KG(tau, k) / k0)
+        res[str(k)] = {"W_k": mp.nstr(wk, 12), "minus_ln_W_k": float(-mp.log(wk))}
+    # SU(2) factor alone and its closed form
+    su2 = S2(tau, 1) / S2(tau, 0)
+    S = mp.pi ** 2 / tau
+    res["SU2_factor_exact"] = mp.nstr(su2, 12)
+    res["SU2_closed_form_2(2S-1)exp(-S)"] = mp.nstr(2 * (2 * S - 1) * mp.exp(-S), 12)
+    res["S_=_pi^2/tau_=_2pi^2/g^2"] = float(S)
+    res["per_orientation_Cartan_weight_exp(-S)"] = mp.nstr(mp.exp(-S), 12)
+    # Cartan (abelian) form: charges n/2, C = n^2/4
+    num = sum((-1) ** n * mp.exp(-tau * mp.mpf(n * n) / 4) for n in range(-400, 401))
+    den = sum(mp.exp(-tau * mp.mpf(n * n) / 4) for n in range(-400, 401))
+    res["Cartan_form_ratio"] = mp.nstr(num / den, 12)
+    res["Cartan_form_over_exp(-S)"] = mp.nstr(num / den / mp.exp(-S), 12)
+    res["nonabelian_density_factor_W3_over_exp(-S)"] = mp.nstr(mp.re(KG(tau, 3) / k0) / mp.exp(-S), 12)
+    return res
+
+
+out["M3_heat_kernel_weights"] = {
+    "g2_=_4pi/24.3166_(main)": weights(4 * pi / 24.3166),
+    "g2_=_4pi/16.2453_(retired)": weights(4 * pi / 16.2453),
+}
+# electric side: lowest sectors of class 3 and the collar's heat time
+sect = []
+for p in range(3):
+    for q in range(3):
+        for n in range(1, 4):
+            for m in range(-9, 10):
+                if (m + 2 * (p - q) - 3 * (n - 1)) % 6 == 0:
+                    d = (p + 1) * (q + 1) * (p + q + 2) // 2 * n
+                    c = (p * p + q * q + p * q + 3 * p + 3 * q) / 3 + (n * n - 1) / 4 + m * m / 60
+                    sect.append((c, d, m % 6, (p, q), n, m))
+sect.sort()
+out["M3_lowest_sectors_(C, d, class, (p,q), n, 6Y)"] = [list(map(str, s)) for s in sect[:9]]
+out["M3_relation_to_the_closure"] = ("collar heat time t = 4 pi^2 alpha = 2 pi x (g^2/2): the collar's law is the "
+                                     "2 pi-fold convolution of the unit-face law; exponent of the unit face = "
+                                     "pi^2/(g^2/2) = 2 pi^3/t = 2 pi/(4 alpha)")
+
+json.dump(out, open("lv_exact.json", "w"), indent=1)
+for k, v in out.items():
+    print(k, json.dumps(v)[:1400])

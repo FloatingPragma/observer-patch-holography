@@ -1,0 +1,61 @@
+"""Control: the C chain builder reproduces the Python (Fraction) chain for every named law on the tetrahedron and octahedron
+subsets, and the C Monte Carlo reproduces the exact static release 1/4 (tetrahedron) and 19/60 (icosahedron)."""
+import json, sys, time
+from fractions import Fraction as Fr
+from pathlib import Path
+import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S, s1an as A, s1laws, s1c
+
+HERE = Path(__file__).resolve().parent
+out = {}
+tet = S.tetrahedron()
+init = A.pair_initial(tet)
+laws = s1laws.named()
+cmp = {}
+for name, law in laws.items():
+    py = S.Chain(tet, law, init, canon=True, stop=lambda d: max(abs(v) for v in d) > 12)
+    cc = s1c.build_chain(tet, law, init, cap=20000)
+    assert not cc['overflow']
+    ok = cc['n'] == py.n
+    # compare rows through the python canonical form
+    if ok:
+        cidx = [py.index[tet.canon(tuple(int(v) for v in row))] for row in cc['states']]
+        ok = len(set(cidx)) == py.n
+        W = cc['W'].tocsr()
+        for i in range(cc['n']):
+            row = {}
+            for jdx, wv in zip(W.indices[W.indptr[i]:W.indptr[i+1]], W.data[W.indptr[i]:W.indptr[i+1]]):
+                row[cidx[jdx]] = row.get(cidx[jdx], 0) + Fr(int(wv), 4 * tet.M)
+            if row != {k: v for k, v in py.rows[cidx[i]].items()}:
+                ok = False; break
+    cmp[name] = dict(states=py.n, equal=bool(ok))
+    assert ok, name
+out['chain_c_equals_python_tetrahedron'] = cmp
+
+# Monte Carlo control: static law
+def mc_static(C, f0, f1, base, sweeps, seed):
+    Aa = s1c.arrays(C)
+    mc = s1c.MC(Aa.sa, Aa.sb, Aa.L, Aa.R, S.static_law())
+    mc.seed(seed)
+    x = np.full(C.P, base, np.int32); off = np.array(C.string(f0, f1), np.int32)
+    q = np.array([sum(s * off[e] for e, s in C.fs[f]) for f in range(C.F)], np.int32)
+    mc.run(x, off, q, 200 * C.M, static=True)
+    batches = []
+    for b in range(40):
+        mc.cnt[:] = 0
+        mc.run(x, off, q, sweeps * C.M, static=True)
+        batches.append(mc.cnt[8] / sweeps)
+    return float(np.mean(batches)), float(np.std(batches) / np.sqrt(len(batches)))
+t0 = time.time()
+mt = mc_static(tet, 0, 1, 2, 20000, 11)
+ico = S.icosahedron()
+g1 = ico.ddist[0].index(1); g5 = ico.ddist[0].index(5)
+mi1 = mc_static(ico, 0, g1, 2, 20000, 12)
+mi5 = mc_static(ico, 0, g5, 2, 20000, 13)
+out['mc_static_release'] = dict(tetrahedron=dict(measured=mt, exact=0.25), icosahedron_d1=dict(measured=mi1, exact=19/60),
+                                icosahedron_d5=dict(measured=mi5, exact=7/12), seconds=round(time.time() - t0, 1))
+for m, ex in ((mt, 0.25), (mi1, 19/60), (mi5, 7/12)):
+    assert abs(m[0] - ex) < 5 * m[1], (m, ex)
+Path(HERE / 'c03_validate_c.json').write_text(json.dumps(out, indent=1))
+print(json.dumps(out, indent=1))

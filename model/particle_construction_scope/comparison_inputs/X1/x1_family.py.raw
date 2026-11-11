@@ -1,0 +1,99 @@
+"""Worker X1: labels of the routing tick of CF-1 on the cubic family (reference engine imported by path, not copied).
+
+Run from RER:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/DIRAC:RL/work/X1 python RL/work/X1/x1_family.py RL/work/X1/family_checks.json
+
+Executed here (float64, MEASURED with printed defects):
+  a. the arrow state of the record X_r commutes with the massless tick (with and without link signs); the two declared
+     mass steps do not commute with it (the counterexample that limits the label to option M0)
+  b. the four sublattice classes (x1 - x2 mod 2, x2 - x3 mod 2) are conserved by every tick of the engine
+  c. the three half-turns of the frame, lifted to the spin pointer, commute with the tick and generate the quaternion group
+  d. translations commute with the free tick
+Cited, not recomputed: Gauss constraint (work/DIRAC/interaction_check.json), gauge count (work/CUBIC/gauge_count.json),
+cones over the zone (work/R4/item6_chirality.json, CF1.md section 11), travel verdicts (reports/R2.md).
+"""
+import json, sys
+import numpy as np
+from routing import Routing, SIG
+
+OUT = sys.argv[1]
+RL = 'WORKSPACE/repair-law'
+rng = np.random.default_rng(20261110)
+shape = (6, 4, 4)
+def rand_state():
+    psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2))
+    return psi / np.linalg.norm(psi)
+psi = rand_state()
+links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+free, charged = Routing(shape), Routing(shape, links)
+THETA = 0.157935
+Xr = lambda f: f[..., ::-1, :]
+def comm(op, sym, f):                       # max |op(sym f) - sym(op f)|
+    return float(np.abs(op(sym(f)) - sym(op(f))).max())
+res = {'lattice': list(shape), 'tag': 'MEASURED (float64, random state, seed 20261110)'}
+
+# a. arrow state of the record
+res['arrow_state_X_r'] = {
+    'massless_forward': comm(lambda f: free.tick(f), Xr, psi),
+    'massless_reverse': comm(lambda f: free.tick(f, reverse=True), Xr, psi),
+    'massless_with_link_signs': comm(lambda f: charged.tick(f), Xr, psi),
+    'mass_step_Y_theta_0.157935': comm(lambda f: free.tick(f, THETA, 'Y'), Xr, psi),
+    'mass_step_Z_theta_0.157935': comm(lambda f: free.tick(f, THETA, 'Z'), Xr, psi),
+    'reading': 'conserved by M0 only; a mass step of either declared kind mixes the two arrow states'}
+
+# b. sublattice classes
+grid = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij')
+sub = {}
+for a in (0, 1):
+    for b in (0, 1):
+        mask = (((grid[0] - grid[1]) % 2 == a) & ((grid[1] - grid[2]) % 2 == b))[..., None, None]
+        P = lambda f, m=mask: f * m
+        sub[f'{a}{b}'] = max(comm(lambda f: free.tick(f, THETA, 'Y'), P, psi), comm(lambda f: charged.tick(f, THETA, 'Z'), P, psi),
+                             comm(lambda f: free.tick(f, reverse=True), P, psi))
+res['sublattice_classes'] = {'classes': 4, 'max_commutator_with_tick (mass Y, mass Z with links, reverse order)': sub,
+                             'reading': 'every axis step moves exactly one cell, so x1 - x2 and x2 - x3 keep their parity: four decoupled copies'}
+
+# c. half-turns of the frame on the spin pointer
+def half_turn(j):
+    def U(f):
+        g = f
+        for a in range(3):
+            if a != j: g = np.roll(np.flip(g, axis=a), 1, axis=a)       # x_a -> -x_a on the periodic lattice
+        return (-1j) * (g @ SIG[j].T)                                   # spin rotation by pi about axis j
+    return U
+U = [half_turn(j) for j in range(3)]
+ht = {}
+for j in range(3):
+    ht[f'axis_{j + 1}'] = max(comm(lambda f: free.tick(f), U[j], psi), comm(lambda f: free.tick(f, THETA, 'Y'), U[j], psi),
+                              comm(lambda f: free.tick(f, THETA, 'Z', reverse=True), U[j], psi))
+res['frame_half_turns_on_the_pointer'] = {
+    'max_commutator_with_tick': ht,
+    'U1_U2_plus_U2_U1': float(np.abs(U[0](U[1](psi)) + U[1](U[0](psi))).max()),
+    'U1_U2_minus_U3': float(np.abs(U[0](U[1](psi)) - U[2](psi)).max()),
+    'U1_squared_plus_identity': float(np.abs(U[0](U[0](psi)) + psi).max()),
+    'reading': 'the Klein group of the frame acts on the travelling quantum through the quaternion group: a full turn is -1'}
+
+# d. translations
+res['translations'] = {f'axis_{i + 1}': comm(lambda f: free.tick(f, THETA, 'Y'), lambda f, i=i: np.roll(f, 1, axis=i), psi) for i in range(3)}
+res['translations']['bare_shift_with_link_signs_axis_1'] = comm(lambda f: charged.tick(f), lambda f: np.roll(f, 1, axis=0), psi)
+res['translations']['reading'] = ('momentum is a label of the free tick; with link signs the bare shift is not a symmetry '
+                                  '(reports/R2.md, correction C2: the covariant translation is the readout)')
+
+# cited
+gc = json.load(open(RL + '/work/CUBIC/gauge_count.json'))
+res['cited'] = {
+    'gauss_constraint': json.load(open(RL + '/work/DIRAC/interaction_check.json')),
+    'gauge_count': [{'cells': g['cells'], 'gauge_invariant_bits': g['gauge_invariant_bits'], 'face_flux_bits': g['rank_face_flux'],
+                     'between_carriers': g['not_face_fluxes'], 'formula_19N_plus_2N_plus_1': 21 * g['cells'] + 1,
+                     'plaquette_fluxes_2N_minus_2': g['cubic_lattice_gauge_theory_would_give']['plaquette_fluxes'],
+                     'torus_holonomies': g['cubic_lattice_gauge_theory_would_give']['torus_holonomies']} for g in gc],
+    'weyl_points_over_the_zone': json.load(open(RL + '/work/R4/item6_chirality.json'))['weyl_points_over_the_zone']}
+for g in res['cited']['gauge_count']:
+    assert g['gauge_invariant_bits'] == g['formula_19N_plus_2N_plus_1'] and g['face_flux_bits'] == 19 * g['cells']
+    assert g['plaquette_fluxes_2N_minus_2'] == 2 * g['cells'] - 2 and g['between_carriers'] == 2 * g['cells'] + 1
+json.dump(res, open(OUT, 'w'), indent=1)
+for k in ('arrow_state_X_r', 'sublattice_classes', 'frame_half_turns_on_the_pointer', 'translations'):
+    print(k, json.dumps(res[k]))
+print('gauge count', res['cited']['gauge_count'])
+wp = res['cited']['weyl_points_over_the_zone']
+print('weyl points (R4):', {k: (v['points'], v['counts'], v['signed_sum']) for k, v in wp.items()})

@@ -1,0 +1,665 @@
+{
+ "arithmetic": "integers, Q(sqrt5), Q(sqrt5, i); every listed identity is exact",
+ "perfect_matchings": {
+  "total": 125,
+  "stabilizer_histogram": {
+   "2": 60,
+   "4": 30,
+   "6": 30,
+   "12": 5
+  }
+ },
+ "frames": [
+  {
+   "frame": 0,
+   "matching": [
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     6,
+     7
+    ],
+    [
+     8,
+     9
+    ],
+    [
+     10,
+     11
+    ]
+   ],
+   "half_turn_permutations": [
+    [
+     1,
+     0,
+     3,
+     2,
+     6,
+     7,
+     4,
+     5,
+     11,
+     10,
+     9,
+     8
+    ],
+    [
+     2,
+     3,
+     0,
+     1,
+     7,
+     6,
+     5,
+     4,
+     9,
+     8,
+     11,
+     10
+    ],
+    [
+     3,
+     2,
+     1,
+     0,
+     5,
+     4,
+     7,
+     6,
+     10,
+     11,
+     8,
+     9
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "0",
+     "1",
+     "0"
+    ],
+    [
+     "1",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "1"
+    ]
+   ],
+   "handedness_of_listed_axes": -1,
+   "u1u2_equals": "-1 u3",
+   "axes_are_coordinate_axes_of_the_raw_frame": true,
+   "lifts": [
+    [
+     [
+      "0",
+      "1"
+     ],
+     [
+      "-1",
+      "0"
+     ]
+    ],
+    [
+     [
+      "1*i",
+      "0"
+     ],
+     [
+      "0",
+      "-1*i"
+     ]
+    ],
+    [
+     [
+      "0",
+      "1*i"
+     ],
+     [
+      "1*i",
+      "0"
+     ]
+    ]
+   ]
+  },
+  {
+   "frame": 1,
+   "matching": [
+    [
+     0,
+     11
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     8
+    ],
+    [
+     5,
+     9
+    ],
+    [
+     6,
+     10
+    ]
+   ],
+   "half_turn_permutations": [
+    [
+     3,
+     4,
+     7,
+     0,
+     1,
+     9,
+     10,
+     2,
+     11,
+     5,
+     6,
+     8
+    ],
+    [
+     8,
+     7,
+     4,
+     11,
+     2,
+     6,
+     5,
+     1,
+     0,
+     10,
+     9,
+     3
+    ],
+    [
+     11,
+     2,
+     1,
+     8,
+     7,
+     10,
+     9,
+     4,
+     3,
+     6,
+     5,
+     0
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "1/2",
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)"
+    ],
+    [
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)",
+     "-1/2"
+    ],
+    [
+     "(-1/4+-1/4*r5)",
+     "1/2",
+     "(-1/4+1/4*r5)"
+    ]
+   ],
+   "handedness_of_listed_axes": 1,
+   "u1u2_equals": "+1 u3",
+   "axes_are_coordinate_axes_of_the_raw_frame": false,
+   "lifts": [
+    [
+     [
+      "1/2*i",
+      "(-1/4+-1/4*r5)+(1/4+-1/4*r5)*i"
+     ],
+     [
+      "(1/4+1/4*r5)+(1/4+-1/4*r5)*i",
+      "-1/2*i"
+     ]
+    ],
+    [
+     [
+      "(-1/4+-1/4*r5)*i",
+      "(1/4+-1/4*r5)+-1/2*i"
+     ],
+     [
+      "(-1/4+1/4*r5)+-1/2*i",
+      "(1/4+1/4*r5)*i"
+     ]
+    ],
+    [
+     [
+      "(-1/4+1/4*r5)*i",
+      "1/2+(-1/4+-1/4*r5)*i"
+     ],
+     [
+      "-1/2+(-1/4+-1/4*r5)*i",
+      "(1/4+-1/4*r5)*i"
+     ]
+    ]
+   ]
+  },
+  {
+   "frame": 2,
+   "matching": [
+    [
+     0,
+     10
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     11
+    ],
+    [
+     7,
+     8
+    ]
+   ],
+   "half_turn_permutations": [
+    [
+     3,
+     6,
+     5,
+     0,
+     11,
+     2,
+     1,
+     8,
+     7,
+     10,
+     9,
+     4
+    ],
+    [
+     9,
+     5,
+     6,
+     10,
+     7,
+     1,
+     2,
+     4,
+     11,
+     0,
+     3,
+     8
+    ],
+    [
+     10,
+     2,
+     1,
+     9,
+     8,
+     6,
+     5,
+     11,
+     4,
+     3,
+     0,
+     7
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "-1/2",
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)"
+    ],
+    [
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)",
+     "1/2"
+    ],
+    [
+     "(-1/4+-1/4*r5)",
+     "1/2",
+     "(1/4+-1/4*r5)"
+    ]
+   ],
+   "handedness_of_listed_axes": 1,
+   "u1u2_equals": "+1 u3",
+   "axes_are_coordinate_axes_of_the_raw_frame": false,
+   "lifts": [
+    [
+     [
+      "-1/2*i",
+      "(1/4+1/4*r5)+(1/4+-1/4*r5)*i"
+     ],
+     [
+      "(-1/4+-1/4*r5)+(1/4+-1/4*r5)*i",
+      "1/2*i"
+     ]
+    ],
+    [
+     [
+      "(-1/4+-1/4*r5)*i",
+      "(1/4+-1/4*r5)+1/2*i"
+     ],
+     [
+      "(-1/4+1/4*r5)+1/2*i",
+      "(1/4+1/4*r5)*i"
+     ]
+    ],
+    [
+     [
+      "(-1/4+1/4*r5)*i",
+      "1/2+(1/4+1/4*r5)*i"
+     ],
+     [
+      "-1/2+(1/4+1/4*r5)*i",
+      "(1/4+-1/4*r5)*i"
+     ]
+    ]
+   ]
+  },
+  {
+   "frame": 3,
+   "matching": [
+    [
+     0,
+     5
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     7,
+     10
+    ]
+   ],
+   "half_turn_permutations": [
+    [
+     3,
+     8,
+     11,
+     0,
+     10,
+     6,
+     5,
+     9,
+     1,
+     7,
+     4,
+     2
+    ],
+    [
+     5,
+     11,
+     8,
+     6,
+     7,
+     0,
+     3,
+     4,
+     2,
+     10,
+     9,
+     1
+    ],
+    [
+     6,
+     2,
+     1,
+     5,
+     9,
+     3,
+     0,
+     10,
+     11,
+     4,
+     7,
+     8
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "(1/4+1/4*r5)",
+     "1/2",
+     "(1/4+-1/4*r5)"
+    ],
+    [
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)",
+     "1/2"
+    ],
+    [
+     "1/2",
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)"
+    ]
+   ],
+   "handedness_of_listed_axes": 1,
+   "u1u2_equals": "+1 u3",
+   "axes_are_coordinate_axes_of_the_raw_frame": false,
+   "lifts": [
+    [
+     [
+      "(1/4+-1/4*r5)*i",
+      "1/2+(1/4+1/4*r5)*i"
+     ],
+     [
+      "-1/2+(1/4+1/4*r5)*i",
+      "(-1/4+1/4*r5)*i"
+     ]
+    ],
+    [
+     [
+      "(1/4+1/4*r5)*i",
+      "(1/4+-1/4*r5)+1/2*i"
+     ],
+     [
+      "(-1/4+1/4*r5)+1/2*i",
+      "(-1/4+-1/4*r5)*i"
+     ]
+    ],
+    [
+     [
+      "1/2*i",
+      "(1/4+1/4*r5)+(1/4+-1/4*r5)*i"
+     ],
+     [
+      "(-1/4+-1/4*r5)+(1/4+-1/4*r5)*i",
+      "-1/2*i"
+     ]
+    ]
+   ]
+  },
+  {
+   "frame": 4,
+   "matching": [
+    [
+     0,
+     7
+    ],
+    [
+     1,
+     9
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     5,
+     11
+    ],
+    [
+     6,
+     8
+    ]
+   ],
+   "half_turn_permutations": [
+    [
+     3,
+     9,
+     10,
+     0,
+     7,
+     8,
+     11,
+     4,
+     5,
+     1,
+     2,
+     6
+    ],
+    [
+     4,
+     2,
+     1,
+     7,
+     0,
+     11,
+     8,
+     3,
+     6,
+     10,
+     9,
+     5
+    ],
+    [
+     7,
+     10,
+     9,
+     4,
+     3,
+     6,
+     5,
+     0,
+     11,
+     2,
+     1,
+     8
+    ]
+   ],
+   "axes_Qsqrt5": [
+    [
+     "(1/4+1/4*r5)",
+     "1/2",
+     "(-1/4+1/4*r5)"
+    ],
+    [
+     "-1/2",
+     "(-1/4+1/4*r5)",
+     "(1/4+1/4*r5)"
+    ],
+    [
+     "(1/4+-1/4*r5)",
+     "(1/4+1/4*r5)",
+     "-1/2"
+    ]
+   ],
+   "handedness_of_listed_axes": -1,
+   "u1u2_equals": "-1 u3",
+   "axes_are_coordinate_axes_of_the_raw_frame": false,
+   "lifts": [
+    [
+     [
+      "(1/4+-1/4*r5)*i",
+      "1/2+(-1/4+-1/4*r5)*i"
+     ],
+     [
+      "-1/2+(-1/4+-1/4*r5)*i",
+      "(-1/4+1/4*r5)*i"
+     ]
+    ],
+    [
+     [
+      "-1/2*i",
+      "(-1/4+-1/4*r5)+(1/4+-1/4*r5)*i"
+     ],
+     [
+      "(1/4+1/4*r5)+(1/4+-1/4*r5)*i",
+      "1/2*i"
+     ]
+    ],
+    [
+     [
+      "(1/4+1/4*r5)*i",
+      "(1/4+-1/4*r5)+-1/2*i"
+     ],
+     [
+      "(-1/4+1/4*r5)+-1/2*i",
+      "(-1/4+-1/4*r5)*i"
+     ]
+    ]
+   ]
+  }
+ ],
+ "checks": {
+  "60 rotations are proper orthogonal maps of the exact raw frame; 120 unit quaternions over Q(sqrt5)": true,
+  "15 half-turns": true,
+  "5 Klein four-groups": true,
+  "rotation group permutes the five Klein groups as the alternating group A5 (60 distinct even permutations)": true,
+  "125 perfect matchings": true,
+  "stabilizer orders 2 (60), 4 (30), 6 (30), 12 (5)": true,
+  "each Klein group flips exactly six disjoint seams: a perfect matching": true,
+  "the five matchings with stabilizer of order 12 are the five Klein matchings": true,
+  "the five frame matchings partition the thirty seams": true,
+  "per frame: three unit axes over Q(sqrt5), mutually perpendicular; six seam midpoints at +-phi on them, two per axis; each frame seam is parallel to another axis of its frame": true,
+  "per frame, triplet: three commuting reflections, R1 R2 = R3, diagonal in the frame": true,
+  "per frame, doublet: u_i^2 = -1, u_i u_j = -u_j u_i, u1 u2 = +-u3, closure = quaternion group of order 8": true,
+  "covariance u Q_p u^* = Q_(g p): 5 frames x 3 half-turns x 12 ports": true,
+  "covariance R P_p R^T = P_(g p): 5 frames x 3 half-turns x 12 ports": true,
+  "sixteen Clifford relations of (tau_z x i u_1, tau_z x i u_2, tau_z x i u_3, tau_x x 1), each frame": true,
+  "dressed flips alpha_i = C(u_i) beta C(u_i)^* = tau_y x (-i u_i) with beta = tau_x x 1: sixteen relations, each frame": true,
+  "dressed set = CLIFFORD.md set (up to a common sign of the alpha_i) under the record rotation sqrt(tau_x)^(+-1), which fixes beta": true,
+  "triplet: the dressed flips tau_x x R_i and tau_x x 1 commute pairwise": true,
+  "exactly one frame has the coordinate axes of the raw frame as its axes": true
+ },
+ "counts": {
+  "doublet_covariance_identities": 180,
+  "triplet_covariance_identities": 180,
+  "clifford_anticommutators": 80
+ }
+}

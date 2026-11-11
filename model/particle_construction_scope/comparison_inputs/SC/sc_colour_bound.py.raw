@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+"""Worker SC: one-loop colour bound in the cell frame (EXACT formula, values from sc_numeric.json; no measured value).
+With 1/alpha_3(E_cell) = 1/alpha_cut, alpha_3 stays finite down to ln(E_cell/mu) = x iff |b_3| < 2 pi alpha_cut^-1/x.
+Writes sc_colour_bound.json."""
+import json
+import math
+
+num = json.load(open("sc_numeric.json"))
+ac = num["alpha_cut"]["P_fwd"]["inv_alpha"]
+x_v = num["B"]["reference_D10_law"]["exponent"]  # ln(E_cell/v) of the D10 chain (source value)
+res = {"x_v_D10": x_v, "inv_alpha_cut": ac, "colour_bound_abs_b3_lt": 2 * math.pi * ac / x_v,
+       "inv_alpha3_cell_needed_for_b3": {b: abs(b) * x_v / (2 * math.pi) for b in (-3, -5, -7)},
+       "colour_Landau_x_from_cut": {b: 2 * math.pi * ac / abs(b) for b in (-3, -5, -7, -11)}}
+json.dump(res, open("sc_colour_bound.json", "w"), indent=1)
+print(json.dumps(res, indent=1))

@@ -1,0 +1,169 @@
+"""LC checks: (A8) the model against the repository's own program on the one-load sector and against the classical
+native rule; (D1 to D4) the statements of the public repository used in the decision, matched by file and line.
+EXACT. Writes lc5_checks.json. Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc5_checks.py
+The repository is read only.
+"""
+from __future__ import annotations
+
+import os
+import random
+import subprocess
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lc_common as L
+import fr_common as FC
+
+OUT = 'lc5_checks.json'
+FP = L.frame_plain()
+Z = Fr(0)
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC checks against the repository', 'provenance': L.provenance()}
+    root = FC.rer_root()
+    from model.coherent_seam_repair.program import Observer, State
+    obs = Observer()
+    out['addresses of the model equal Observer.addresses'] = tuple(obs.addresses) == tuple(L.ADDR)
+
+    # ---------------- A8a: Observer.repair against the model's event on every one-load basis state
+    def decode(idx):
+        return idx // 120, (idx // 60) % 2, idx % 60
+    ok = True
+    for port in range(12):
+        for parity in (0, 1):
+            for k in range(60):
+                amps = obs.repair(obs.basis_state(port, parity, k)).amplitudes
+                got = {}
+                for i, zv in enumerate(amps):
+                    if zv != 0:
+                        p2, r2, k2 = decode(i)
+                        got[(L.cfg_of(p2), ((r2, k2),))] = Fr(zv)
+                mine = L.Qstep({(L.cfg_of(port), ((parity, k),)): Fr(1)}, FP)
+                ok &= got == mine
+    out['A8a Observer.repair equals the model event on the 1440 one-load basis states'] = ok
+    # reflection on a random one-load state
+    random.seed(11)
+    vec = [Fr(random.randint(-5, 5)) for _ in range(obs.dimension)]
+    refl = obs.reflect(State(tuple(vec))).amplitudes
+    mine = L.Rstep({(L.cfg_of(decode(i)[0]), ((decode(i)[1], decode(i)[2]),)): v for i, v in enumerate(vec) if v})
+    got = {(L.cfg_of(decode(i)[0]), ((decode(i)[1], decode(i)[2]),)): Fr(v) for i, v in enumerate(refl) if v != 0}
+    out['A8a Observer.reflect equals the model reflection on a random one-load state'] = got == mine
+    # one step from the embedded port: parity-1 weight (CK's energy-clock identity) on every port
+    w1 = set()
+    for port in range(12):
+        st = obs.step(obs.embedded_port(port))
+        w = sum((Fr(zv) ** 2 for i, zv in enumerate(st.amplitudes) if decode(i)[1] == 1), Z) / st.norm_denominator
+        w1.add(str(w))
+    out['A8a P(record 1) after Observer.step from an embedded port'] = sorted(w1)
+
+    # ---------------- A8b: classical native rule
+    from model.observer import native as nat
+    seams = [tuple(s) for s in L.SEAMS]
+    leave = set()
+    for a in range(12):
+        loads = tuple(2 if p == a else 0 for p in range(12))
+        moved = sum(1 for s in seams for coin in (0, 1) if nat.native(loads, s, coin)[0] != loads)
+        leave.add(str(Fr(moved, 60)))
+    out['A8b classical native rule: a double load leaves with probability'] = sorted(leave)
+    pair_move, pair_active = set(), set()
+    for a in range(12):
+        for b in range(a + 1, 12):
+            if L.port_distance(a, b) < 2:
+                continue
+            loads = tuple(1 if p in (a, b) else 0 for p in range(12))
+            moved = sum(1 for s in seams for coin in (0, 1) if nat.native(loads, s, coin)[0] != loads)
+            active = sum(1 for s in seams if (s[0] in (a, b)) != (s[1] in (a, b)))
+            pair_move.add(str(Fr(moved, 60)))
+            pair_active.add(str(Fr(active, 30)))
+    out['A8b classical native rule: non-adjacent pair, P(a load moves), P(seam active)'] = [sorted(pair_move), sorted(pair_active)]
+    states = nat.states()
+    out['A8b native state space'] = {'total-two configurations': len(states),
+                                    'with a doubly loaded port': sum(1 for s in states if max(s) == 2),
+                                    'binary pairs': len(nat.states(binary=True)),
+                                    'non-adjacent binary pairs': sum(1 for s in nat.states(binary=True)
+                                                                     if L.port_distance(*[p for p in range(12) if s[p]]) >= 2)}
+    print({k: v for k, v in out.items() if k.startswith('A8') or k.startswith('addresses')})
+
+    # ---------------- entries of the local unitary (arithmetic of one register)
+    ents = sorted({str(x) for rowU in L.U24() for x in rowU})
+    out['entries of the local unitary'] = ents
+    out['one register, definite configuration: every one-tick weight is a multiple of 1/240'] = set(ents) <= {'0', '1', '1/2', '-1/2'}
+    out['2/9 as a multiple of 1/240'] = str(Fr(2, 9) * 240)
+    print('local unitary entries', ents)
+
+    # ---------------- D1 to D4: statements of the repository, by file and line
+    wanted = {
+        'D1a one address register per program': ('model/coherent_seam_repair/program.py', [
+            'self.addresses = tuple(pair for edge in self.seams for pair in (edge, edge[::-1]))',
+            'self.dimension = 12 * fibre * 2 * self.address_count']),
+        'D1b the one-load state space': ('model/coherent_seam_repair/PROOF.md', [
+            'The scalar one-load state space is `C^12 tensor C^2 tensor C^60`: port, parity']),
+        'D1c every cell carries its own register and its own tick': ('model/coherent_defect_wave/spatial/PROOF.md', [
+            'Each cell carries the complete Hilbert space of the owning',
+            '`12 × 5 × 2 × 60` wave register. Its dimension is 72,000. Its unitary is',
+            'carrier forces three spatial dimensions. An onsite layer applies `U` in',
+            'The Hilbert space of a box is a finite tensor product. The propagator']),
+        'D1d the uniform reflection is a supplied operation': ('model/coherent_defect_wave/PROOF.md', [
+            'coherent reflection of all sixty addresses is an additional supplied']),
+        'D2a native load content: total two': ('model/observer/native.py', [
+            '"""All twelve-port nonnegative integer configurations of total two.',
+            '# Fixed controller data for uniform binary total-two preparation. These values']),
+        'D2b the matching code': ('model/common_source/native_code_transport.py', [
+            'A source-derived axis coloring gives a six-dimensional matching code carrying']),
+        'D2c caveat: the federation does not keep two loads per carrier': ('model/federated_observer/README.md', [
+            'can move between elementary carriers. Keeping exactly two particles in']),
+        'D3a the local completion': ('model/coherent_seam_repair/common.py', [
+            '"""Complete pump on (00,10,01,11,20,02), including both double loads."""',
+            '"""Reversible 24-dimensional completion on source times four record values."""']),
+        'D3b no many-load federation is claimed': ('model/coherent_seam_repair/PROOF.md', [
+            'one-load rule; the double-load result is the exact local completion, without a',
+            'claim of a complete many-load coherent federation.']),
+        'D4 closed-carrier neutrality': ('model/defect_particle_classes/PROOF.md', [
+            'the classes on a closed carrier add to 0 modulo 6. The contents']),
+        'D5 a cell meets one partner cell per edge layer; the exchange gate': ('model/coherent_defect_wave/spatial/PROOF.md', [
+            'Every layer is a matching. One complete seven-layer cycle is the clock tick.',
+            'E_{xy}=aI+bS_{xy},\\quad',
+            'a=\\frac{1-i}{2},\\quad b=\\frac{1+i}{2}.']),
+        'D6 the lepton mass vertex has two class-3 legs': ('model/defect_particle_classes/PROOF.md', [
+            '| `3+3→0` | Yukawa `L` with the Higgs into `e_R` or `nu_R`; also `L` anti-`L` and `H` anti-`H` gauge currents |']),
+        'D7 the native cycle: a rotation from the C record, then an E repair': ('model/common_source/native_code_transport.py', [
+            'The controller chooses an actual port rotation from a committed C record.',
+            'A following E repair and a transported quintet marker retain the same object']),
+        'D8 the native signed current of an ordered seam': ('model/observer/native.py', [
+            'current = (d - (2 * coin - 1) * (abs(d) % 2)) // 2']),
+        'D9 the consensus and the reflection of the program are over all sixty addresses': ('model/coherent_seam_repair/program.py', [
+            '"""A blank parity record and uniform coherent seam address."""',
+            '"""The declared address reflection R=2AA*−I."""']),
+    }
+    rules, missing = {}, 0
+    for name, (rel, needles) in wanted.items():
+        path = os.path.join(root, rel)
+        with open(path, encoding='utf-8') as fh:
+            lines = fh.read().split('\n')
+        rows = []
+        for needle in needles:
+            hit = [i + 1 for i, line in enumerate(lines) if needle in line]
+            if not hit:
+                missing += 1
+            rows.append({'text': needle, 'line': hit[0] if hit else None})
+        rules[name] = {'file': rel, 'statements': rows}
+    try:
+        commit = subprocess.run(['git', '-C', root, 'rev-parse', '--short', 'HEAD'], capture_output=True, text=True,
+                                timeout=20).stdout.strip()
+    except Exception:  # noqa: BLE001
+        commit = 'unknown'
+    out['source_rules'] = {'repository_commit (read only)': commit, 'unmatched statements': missing, 'rules': rules}
+    print('source rules: unmatched', missing, 'commit', commit)
+    for name, r in rules.items():
+        print('  ', name, r['file'], [(s['line']) for s in r['statements']])
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

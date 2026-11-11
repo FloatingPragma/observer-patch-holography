@@ -1,0 +1,152 @@
+{
+ "engine_against_exact_one_body_operators_max_abs": {
+  "3x2x1_no_links": {
+   "Q_0": 1.1102230246251565e-16,
+   "Q_1": 2.220446049250313e-16,
+   "Q_2": 0.0,
+   "tick_fwd": 1.6653346088479796e-16,
+   "tick_rev": 1.665427458304386e-16
+  },
+  "3x2x1_links": {
+   "Q_0": 1.1102230246251565e-16,
+   "Q_1": 2.220446049250313e-16,
+   "Q_2": 0.0,
+   "tick_fwd": 1.6653346088479796e-16,
+   "tick_rev": 1.665427458304386e-16
+  },
+  "2x2x2_links": {
+   "Q_0": 2.220446049250313e-16,
+   "Q_1": 2.220446049250313e-16,
+   "Q_2": 0.0,
+   "tick_fwd": 3.3306690738754696e-16,
+   "tick_rev": 3.3306690738754696e-16
+  }
+ },
+ "3x2x1_k2": {
+  "lattice": [
+   3,
+   2,
+   1
+  ],
+  "quanta": 2,
+  "modes": 24,
+  "sector_dimension": 276,
+  "columns_checked": 276,
+  "order": "forward",
+  "Z2_links": false,
+  "reflector_gates": 36,
+  "mass_gates": 12,
+  "reflectors_of_an_axis_mutually_orthogonal_exact": true,
+  "n_v_is_a_projector_on_the_sector_exact": true,
+  "circuit_equals_exterior_power_of_the_tick_exact": true,
+  "cpu_s": 0.18
+ },
+ "3x2x1_k2_links": {
+  "lattice": [
+   3,
+   2,
+   1
+  ],
+  "quanta": 2,
+  "modes": 24,
+  "sector_dimension": 276,
+  "columns_checked": 276,
+  "order": "forward",
+  "Z2_links": true,
+  "reflector_gates": 36,
+  "mass_gates": 12,
+  "reflectors_of_an_axis_mutually_orthogonal_exact": true,
+  "n_v_is_a_projector_on_the_sector_exact": true,
+  "circuit_equals_exterior_power_of_the_tick_exact": true,
+  "cpu_s": 0.18
+ },
+ "3x2x1_k3_links": {
+  "lattice": [
+   3,
+   2,
+   1
+  ],
+  "quanta": 3,
+  "modes": 24,
+  "sector_dimension": 2024,
+  "columns_checked": 2024,
+  "order": "forward",
+  "Z2_links": true,
+  "reflector_gates": 36,
+  "mass_gates": 12,
+  "reflectors_of_an_axis_mutually_orthogonal_exact": true,
+  "n_v_is_a_projector_on_the_sector_exact": true,
+  "circuit_equals_exterior_power_of_the_tick_exact": true,
+  "cpu_s": 7.15
+ },
+ "3x2x1_k3_links_reverse_order": {
+  "lattice": [
+   3,
+   2,
+   1
+  ],
+  "quanta": 3,
+  "modes": 24,
+  "sector_dimension": 2024,
+  "columns_checked": 300,
+  "order": "reverse",
+  "Z2_links": true,
+  "reflector_gates": 36,
+  "mass_gates": 12,
+  "reflectors_of_an_axis_mutually_orthogonal_exact": true,
+  "n_v_is_a_projector_on_the_sector_exact": true,
+  "circuit_equals_exterior_power_of_the_tick_exact": true,
+  "cpu_s": 1.3
+ },
+ "2x2x2_k2_links": {
+  "lattice": [
+   2,
+   2,
+   2
+  ],
+  "quanta": 2,
+  "modes": 32,
+  "sector_dimension": 496,
+  "columns_checked": 496,
+  "order": "forward",
+  "Z2_links": true,
+  "reflector_gates": 48,
+  "mass_gates": 16,
+  "reflectors_of_an_axis_mutually_orthogonal_exact": true,
+  "n_v_is_a_projector_on_the_sector_exact": true,
+  "circuit_equals_exterior_power_of_the_tick_exact": true,
+  "cpu_s": 0.62
+ },
+ "2x2x2_k3_links_sampled_columns": {
+  "lattice": [
+   2,
+   2,
+   2
+  ],
+  "quanta": 3,
+  "modes": 32,
+  "sector_dimension": 4960,
+  "columns_checked": 160,
+  "order": "forward",
+  "Z2_links": true,
+  "reflector_gates": 48,
+  "mass_gates": 16,
+  "reflectors_of_an_axis_mutually_orthogonal_exact": true,
+  "n_v_is_a_projector_on_the_sector_exact": true,
+  "circuit_equals_exterior_power_of_the_tick_exact": true,
+  "cpu_s": 2.38
+ },
+ "depth": {
+  "per_axis": "one layer Gamma(R) of single-mode signs, then 2N commuting reflector gates (N cells); each gate acts on the four modes (two neighbouring cells) x (two records) of one spin component along the axis",
+  "disjoint_support_layers_of_the_reflector_gates": {
+   "2": 2,
+   "3": 3,
+   "4": 2,
+   "5": 3,
+   "6": 2,
+   "8": 2
+  },
+  "tick_layers_even_L": "3 x (1 + 2) + 1 = 10 layers of gates with disjoint supports; 3 + 3 + 1 = 7 layers of mutually commuting gates",
+  "cone": "every gate touches at most two neighbouring cells of one axis: one cell per axis per tick"
+ }
+}

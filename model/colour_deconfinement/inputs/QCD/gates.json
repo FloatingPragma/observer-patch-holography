@@ -1,0 +1,115 @@
+{
+ "gauge_invariance": {
+  "ok": true,
+  "max_change": 2.220446049250313e-16,
+  "plaquette": 0.48053169433143433,
+  "polyakov": [
+   0.025512711138777636,
+   0.010358200175394634
+  ]
+ },
+ "wilson_1x1_equals_plaquette": {
+  "ok": true,
+  "diff": 2.3869795029440866e-15
+ },
+ "centre_transformation": {
+  "ok": true,
+  "max_plaquette_change_or_loop_mismatch": 1.1102230246251565e-16
+ },
+ "spatial_centre_transformation": {
+  "ok": true,
+  "max_change": 0.0
+ },
+ "overrelaxation_keeps_action": {
+  "ok": true,
+  "plaquette_change": 1.6653345369377348e-16,
+  "link_change": 1.6171760417022218
+ },
+ "unitarity_drift_200_sweeps": {
+  "ok": true,
+  "after_start": [
+   4.45829198214451e-15,
+   8.908848018021073e-16
+  ],
+  "after_sweeps": [
+   5.917488721252084e-14,
+   7.995143871273476e-14
+  ]
+ },
+ "su2_x0_generator": {
+  "ok": true,
+  "0.3": {
+   "mean": 0.07509797021143899,
+   "exact": 0.07472031994639106,
+   "err": 0.0011123581844883642
+  },
+  "1.0": {
+   "mean": 0.24083049870099546,
+   "exact": 0.24019371544434356,
+   "err": 0.0010517155362018808
+  },
+  "2.0": {
+   "mean": 0.43289921678674065,
+   "exact": 0.4331274118584463,
+   "err": 0.0009035117899779183
+  },
+  "8.0": {
+   "mean": 0.8192157812596356,
+   "exact": 0.8192493784559337,
+   "err": 0.0003289803933333247
+  }
+ },
+ "plaquette_beta_5.7": {
+  "ok": true,
+  "measured": 0.5488556771542944,
+  "err": 0.00028752475584208444,
+  "literature": 0.5492,
+  "lattice": "8^4",
+  "seconds": 55.70692467689514,
+  "sweeps": 900
+ },
+ "plaquette_beta_6.0": {
+  "ok": true,
+  "measured": 0.5941134818519612,
+  "err": 0.00012204867565936337,
+  "literature": 0.5937,
+  "lattice": "8^4",
+  "seconds": 55.63742280006409,
+  "sweeps": 900
+ },
+ "heatbath_alone_equals_with_overrelaxation": {
+  "ok": true,
+  "hb_only": 0.5493429933148302,
+  "hb_err": 0.0002206005204926227,
+  "with_or": 0.5488556771542944,
+  "or_err": 0.00028752475584208444
+ },
+ "strong_coupling_beta_1.0": {
+  "ok": true,
+  "measured": 0.06013516214542869,
+  "err": 8.967440947586346e-05,
+  "one_plaquette_exact": 0.06012655483356475,
+  "series_to_beta4": 0.06013160150891632,
+  "with_cube_term": 0.06012969817524912,
+  "lattice": "6^4"
+ },
+ "strong_coupling_beta_2.0": {
+  "ok": true,
+  "measured": 0.12889915058667764,
+  "err": 0.00013980837379291242,
+  "one_plaquette_exact": 0.1286277853220834,
+  "series_to_beta4": 0.12877229080932784,
+  "with_cube_term": 0.12876862789559915,
+  "lattice": "6^4"
+ },
+ "strong_coupling_beta_3.0": {
+  "ok": true,
+  "measured": 0.2049469454577698,
+  "err": 0.0001459100359160619,
+  "one_plaquette_exact": 0.2030750500302189,
+  "series_to_beta4": 0.20399305555555552,
+  "with_cube_term": 0.2044565244123504,
+  "lattice": "6^4"
+ },
+ "all_pass": true
+}

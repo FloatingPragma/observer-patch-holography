@@ -1,0 +1,170 @@
+"""NM step 2 library: the audit's periodic source with a second lepton doublet L' (spectator family).
+
+The audit packet `chiral_joint/peter_weyl_links` is imported read only (run from the RER root). The first family is
+the audit's 30 Fock modes per cell. The second lepton doublet L' has four modes per cell (two isospin components
+times two spins) at bit positions above every first-family mode; it has the hops and the link coordinates of the
+native L block (indices 10, 11) and no Yukawa term (Yukawa matrix diag(1, 0) on the lepton family index).
+H = H0 + V, H0 = Delta_s N_scalar + Delta_l N_link. Only V is built here (NU3's convention).
+"""
+from collections import defaultdict
+
+import sympy as s
+
+from model.coherent_defect_wave.chiral_source.model import PAULI
+from model.coherent_defect_wave.chiral_joint.model import clean, sequence
+from model.coherent_defect_wave.chiral_joint.periodic_family.model import (
+    Configuration, kinetic_terms, local_yukawa, yukawa_words, native_blocks)
+from model.coherent_defect_wave.chiral_joint.peter_weyl_links.model import hopping_column, path_transitions
+from model.coherent_defect_wave.chiral_joint.oriented_links.model import empty_key
+from model.coherent_defect_wave.chiral_joint.higgs_composites.model import neutral_composite, adjoint
+from model.coherent_defect_wave.physical_attachment.chiral import representation
+
+VOLUME = 8
+BASE = 30 * VOLUME
+LBLOCK = (10, 11)
+LOCAL = (1 << 30) - 1
+
+
+def lp(cell, spin, a):
+    """Bit position of the L' mode (cell, spin, native index a in the L block)."""
+    return BASE + 4 * cell + 2 * spin + (a - 10)
+
+
+def prime_hopping(key, terms):
+    """The audit's kinetic words (peter_weyl_links.hopping_column) applied to the L' modes."""
+    mask, links, scalars = key
+    out = defaultdict(lambda: s.Integer(0))
+    if not mask >> BASE:
+        return {}
+    for term in terms:
+        values = tuple(links[e] for e in term.path)
+        for adj in (False, True):
+            paths = path_transitions(values, adj)
+            for (u, v), spin_weight in PAULI[term.axis].todok().items():
+                weight = term.coefficient * spin_weight
+                if adj:
+                    weight = s.conjugate(weight)
+                for a, b, targets, factor in paths:
+                    if a not in LBLOCK or b not in LBLOCK:
+                        continue
+                    p, q = lp(term.left_cell, u, a), lp(term.right_cell, v, b)
+                    if adj:
+                        p, q = q, p
+                    step = sequence(mask, ((p, True), (q, False)))
+                    if step is None:
+                        continue
+                    target_links = list(links)
+                    for edge, target in zip(term.path, targets, strict=True):
+                        target_links[edge] = target
+                    out[step[0], tuple(target_links), scalars] += weight * factor * step[1]
+    return clean(out)
+
+
+def yukawa_site(key, site, config):
+    mask, links, scalars = key
+    offset = 30 * site
+    local = (mask >> offset) & LOCAL
+    out = {}
+    for (target, h), value in local_yukawa(local, scalars[site], (config.y_up, config.y_down, config.y_lepton)).items():
+        changed = list(scalars)
+        changed[site] = h
+        out[mask ^ ((local ^ target) << offset), links, tuple(changed)] = value
+    return out
+
+
+def hop_term(key, term):
+    out = defaultdict(lambda: s.Integer(0), hopping_column(key, (term,)))
+    for target, value in prime_hopping(key, (term,)).items():
+        out[target] += value
+    return clean(out)
+
+
+def summands(config):
+    rows = [((site,), (), (site,), (lambda key, site=site: yukawa_site(key, site, config)))
+            for site in range(config.side ** 3)]
+    rows.extend(((term.left_cell, term.right_cell), term.path, (), (lambda key, term=term: hop_term(key, term)))
+                for term in kinetic_terms(config))
+    return rows
+
+
+def vapply(state, config):
+    out = defaultdict(lambda: s.Integer(0))
+    rows = summands(config)
+    for key, coefficient in state.items():
+        for _, _, _, action in rows:
+            for target, value in action(key).items():
+                out[target] += coefficient * value
+    return clean(out)
+
+
+def spectator(key, sites, path, scal):
+    mask, links, scalars = key
+    for site in sites:
+        mask &= ~(LOCAL << (30 * site))
+        mask &= ~(0b1111 << (BASE + 4 * site))
+    return (mask, tuple(v for j, v in enumerate(links) if j not in path),
+            tuple(v for j, v in enumerate(scalars) if j not in scal))
+
+
+def bilinear(left, right, config):
+    """<left| V |right>, every summand of V, restricted to columns whose unchanged coordinates occur in left."""
+    total = s.Integer(0)
+    for sites, path, scal, action in summands(config):
+        left_spec = {spectator(key, sites, path, scal) for key in left}
+        for key, rv in right.items():
+            if spectator(key, sites, path, scal) not in left_spec:
+                continue
+            for target, amplitude in action(key).items():
+                lv = left.get(target)
+                if lv is not None:
+                    total += s.conjugate(lv) * amplitude * rv
+    return s.expand(total)
+
+
+def prime_preparation(cell, spin, config):
+    """The spectator composite (phi_0^dag c'^dag_11 - phi_1^dag c'^dag_10)/sqrt2 on the empty key."""
+    _, links, scalars = empty_key(config)
+    out = {}
+    for (word, row, col), coefficient in adjoint(neutral_composite(spin)).items():
+        if col != 0:
+            continue
+        (index, create), = word
+        assert create
+        sp_, a = divmod(index, 15)
+        assert sp_ == spin and a in LBLOCK
+        changed = list(scalars)
+        changed[cell] = row
+        out[1 << lp(cell, spin, a), links, tuple(changed)] = coefficient / s.sqrt(2)
+    assert s.simplify(sum(s.conjugate(v) * v for v in out.values())) == 1
+    return out
+
+
+def conservation_checks():
+    """S6: baryon and lepton number of every Yukawa word and every kinetic word of the audit's source."""
+    six_y = [int(6 * y) for y in representation()[2][-1].diagonal()]
+    name = {-4: 'u^c', 1: 'Q', 6: 'e^c', -3: 'L', 2: 'd^c'}
+    baryon = {'Q': s.Rational(1, 3), 'u^c': -s.Rational(1, 3), 'd^c': -s.Rational(1, 3), 'L': 0, 'e^c': 0}
+    lepton = {'Q': 0, 'u^c': 0, 'd^c': 0, 'L': 1, 'e^c': -1}
+    species = [name[y] for y in six_y]
+    words, bad = 0, 0
+    channels = defaultdict(set)
+    for channel, row, col, ops, coefficient in yukawa_words():
+        modes = [m % 15 for m, _ in ops]
+        sign = -1 if ops[0][1] is False else 1                 # annihilation words remove the pair
+        db = sign * sum(baryon[species[m]] for m in modes)
+        dl = sign * sum(lepton[species[m]] for m in modes)
+        channels[channel].add(tuple(sorted(species[m] for m in modes)))
+        words += 1
+        bad += int(db != 0 or dl != 0)
+    block_of = {i: block for block in native_blocks() for i in block}
+    kinetic_ok = all(len({species[i] for i in block}) == 1 for block in native_blocks())
+    link_pairs_ok = all(b in block_of[a] for a, b, _, _ in
+                        [c for v in range(1) for c in path_transitions((0,), False)])
+    return {'species_of_the_15_native_indices': species,
+            'yukawa_words': words, 'yukawa_words_changing_B_or_L': bad,
+            'fermion_pairs_per_channel': {k: sorted(map(list, v)) for k, v in channels.items()},
+            'kinetic_words_stay_inside_one_species_block': bool(kinetic_ok and link_pairs_ok),
+            'neutral_singlet_mode_in_the_module': 'none (15 states)',
+            'statement': 'every term of the audit Hamiltonian conserves baryon number and lepton number separately; '
+                         'an amplitude that changes B - L by two (pairing of two neutral composites, the dimension-five '
+                         'operator, a top-form step) vanishes at every order'}

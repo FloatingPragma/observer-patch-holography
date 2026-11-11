@@ -1,0 +1,3477 @@
+{
+ "schema": "x2.dictionary.v1",
+ "built": "2026-11-10",
+ "worker": "X2 (issue 2 of repair-law/MAP.md)",
+ "status": "Best guess with checked numbers. No particle is identified and no mass is derived.",
+ "reading_to_use": "A",
+ "readings": {
+  "A": "particles are quanta with a pattern of the five levels; a catalogued defect of class k is a flux of the centre, which a quantum of charge Q6 sees as the phase exp(2 pi i k Q6/6)",
+  "B": "a defect of class k is the multiplet of charge k modulo 6. Excluded for the catalogued defects; exact as the table of charge classes of quanta (key charge_classes)",
+  "C": "a quantum that carries a flux pair: the pattern gives the charges, the pair a conserved label and a rest phase (option M1, one declared gate; worker R2). Admissible for quark patterns with a colour-centre pair only"
+ },
+ "declared_inputs": [
+  "register rule of the runs (Z6 link per seam, cost 0,5,8,10,8,5, kappa 5)",
+  "a register class read as a centre flux",
+  "option M1 of CF-1 for rest phases",
+  "the carrying gate of reading C (R2)",
+  "antisymmetric occupations (CF-1 section 8a)",
+  "Z6 links in the working law (CF-1 section 8 lists them as open; the Z2 part, class 3, is defined)"
+ ],
+ "conventions": {
+  "Q6": "3 n2 - 2 n3",
+  "charge_class": "Q6 mod 6",
+  "phase": "flux class k on charge class q: exp(2 pi i k q/6); alpha is the phase in sixths folded to 0..3",
+  "names": "work/SIM/cf1/cf1_lib.NAMES (checked equal)"
+ },
+ "pairing_phase_sixths_flux_class_by_charge_class": [
+  [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  [
+   0,
+   2,
+   4,
+   0,
+   2,
+   4
+  ],
+  [
+   0,
+   3,
+   0,
+   3,
+   0,
+   3
+  ],
+  [
+   0,
+   4,
+   2,
+   0,
+   4,
+   2
+  ],
+  [
+   0,
+   5,
+   4,
+   3,
+   2,
+   1
+  ]
+ ],
+ "scores": {
+  "scale": "+1 holds, 0 no test or holds by declaration, -1 fails",
+  "rows": [
+   {
+    "item": "1 Algebra",
+    "A": 1,
+    "B": -1,
+    "C": 0,
+    "fact": "The flux of a carrier is a constant of the tick and the position of a quantum is not, so no symmetry of the tick exchanges the two labels. Four further exact mismatches (below). The label groups are dual in two ways, as for any Z6 register. C needs one declared gate and option M1."
+   },
+   {
+    "item": "2 Counting",
+    "A": 0,
+    "B": -1,
+    "C": 0,
+    "fact": "Equal population per state fails by at least 52 standard errors in every class (produced shares) and by 378 (stationary densities); 4 of the 32 states have no defect. The densities are remnants of the quench, so a count confirms no reading."
+   },
+   {
+    "item": "3 Fusion and conjugation",
+    "A": 1,
+    "B": -1,
+    "C": 1,
+    "fact": "Addition modulo 6 is the rule of the register and holds for any labels. 52.3 percent of the events join two defects into one or split one into two, which three fermions cannot do. Class 3 is its own conjugate; the lepton doublet is not."
+   },
+   {
+    "item": "4 Stability and motion",
+    "A": 1,
+    "B": -1,
+    "C": 0,
+    "fact": "Three classes cannot move; two diffuse with no ballistic stretch and die out. A defect answers a load flow sideways, with the sign of its class; no drift along the gradient or toward its conjugate is resolved. In A the quanta travel on the cone with mean free paths 10.4, 12.0, 123 carriers and none. In C the composite travels by one declared gate."
+   },
+   {
+    "item": "Carrier contents",
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "fact": "The classes of a carrier sum to zero modulo 6 in every history: an identity of the register. Flux conservation (A) and neutral composites (B) restate it. It does not discriminate."
+   }
+  ],
+  "totals": {
+   "A": 3,
+   "B": -4,
+   "C": 1
+  }
+ },
+ "map_rows": [
+  {
+   "sm": "Quark doublet, left-handed",
+   "use": "A; C optional",
+   "object": "quantum with pattern (1,1), 6 states, Q6 = 1",
+   "shared_label": "charge class 1; sees every class (1/6, 1/3, 1/2, 1/3, 1/6)",
+   "confidence": "high",
+   "confidence_option_C": "low",
+   "reason": "Charges exact at representation level. Mean free path 10.4 carriers in a link flux at the census densities (H2)."
+  },
+  {
+   "sm": "Up quark, right-handed",
+   "use": "A; C optional",
+   "object": "quantum with pattern (1,2), 3 states, Q6 = 4",
+   "shared_label": "charge class 4; sees 1, 2, 4, 5 at 1/3; blind to 3",
+   "confidence": "high",
+   "confidence_option_C": "low",
+   "reason": "Charges exact. Mean free path 12.0. Same phases as the down singlet at every class."
+  },
+  {
+   "sm": "Down quark, right-handed",
+   "use": "A; C optional",
+   "object": "quantum with pattern (1,0), 3 states, Q6 = -2",
+   "shared_label": "charge class 4; sees 1, 2, 4, 5 at 1/3; blind to 3",
+   "confidence": "high",
+   "confidence_option_C": "low",
+   "reason": "Charges exact. No flux reading separates it from the up singlet (issue 3)."
+  },
+  {
+   "sm": "Lepton doublet, left-handed",
+   "use": "A",
+   "object": "quantum with pattern (3,1), 2 states, Q6 = -3",
+   "shared_label": "charge class 3; sees 1, 3, 5 at 1/2; blind to 2 and 4",
+   "confidence": "high",
+   "reason": "Charges exact. Mean free path 123. Every class it sees is odd, and an odd class as cargo splits it from its right-handed partners."
+  },
+  {
+   "sm": "Electron, right-handed",
+   "use": "A",
+   "object": "quantum with pattern (3,0), 1 state, Q6 = -6",
+   "shared_label": "charge class 0; blind to every class",
+   "confidence": "high",
+   "reason": "Charged and paired trivially with all classes: no defect names it, scatters it or gives it a rest phase (EXACT)."
+  },
+  {
+   "sm": "Right-handed neutrino",
+   "use": "A",
+   "object": "quantum with pattern (3,2), 1 state, Q6 = 0",
+   "shared_label": "charge class 0; blind to every class",
+   "confidence": "medium",
+   "reason": "Exact neutral singlet of the chart; the Standard Model does not contain it."
+  },
+  {
+   "sm": "Antiparticles",
+   "use": "A",
+   "object": "the complementary patterns (3 - n3, 2 - n2)",
+   "shared_label": "charge class -q; the same folded phase at every class",
+   "confidence": "high",
+   "reason": "Exact: equal mean free path and equal cargo rest phase for a pattern and its conjugate."
+  },
+  {
+   "sm": "Gluons (8), W (3), B (1)",
+   "use": "A",
+   "object": "the twelve port responses",
+   "shared_label": "charge class 0; they annihilate a flux pair (R2, audit)",
+   "confidence": "medium",
+   "reason": "Algebra exact; they are operators. They carry no class and no class carries them."
+  },
+  {
+   "sm": "Photon and Z",
+   "use": "A",
+   "object": "combinations of the neutral weak response and the central charge",
+   "shared_label": "charge class 0",
+   "confidence": "low",
+   "reason": "Needs the state of the Higgs row. The flux register does not distinguish them."
+  },
+  {
+   "sm": "Higgs",
+   "use": "A",
+   "object": "the two spinor levels as a multiplet; the toggle of the neutral member",
+   "shared_label": "charge class 3 (Q6 = +-3); the toggle shifts the charge class of a pattern by 3",
+   "confidence": "low",
+   "reason": "Representation level. It shares charge class 3 with the lepton doublet, which is why class 3 of reading B could name either."
+  },
+  {
+   "sm": "(none)",
+   "use": "A",
+   "object": "defect class 3: flux of the weak centre, its own conjugate",
+   "shared_label": "seen by the patterns with one spinor level filled (charge classes 1, 3, 5) at phase 1/2",
+   "confidence": "high that it is no lepton doublet; medium that it is a vortex of the weak field",
+   "reason": "One state against four, own conjugate, frozen at 0.0806 faces per carrier. As cargo it gives doublets 0.0878 to 0.1712 and singlets nothing: not a Dirac mass."
+  },
+  {
+   "sm": "(none)",
+   "use": "A; C for the quark rows",
+   "object": "defect classes 2 and 4: flux of the colour centre, conjugate pair",
+   "shared_label": "seen by the patterns with one or two vector levels filled (charge classes 1, 2, 4, 5) at phase 1/3",
+   "confidence": "high that they are no quark singlets; medium as the medium of quark patterns; low as cargo",
+   "reason": "Frozen at 0.2678 faces per carrier each, 86.9 percent of the stationary pairs. The only classes that act alike on both handedness classes: as cargo one rest phase 0.0928 to 0.1169 (separations 2 to 5) for all quark patterns, none for leptons."
+  },
+  {
+   "sm": "(none)",
+   "use": "A",
+   "object": "defect classes 1 and 5: the generating flux, conjugate pair",
+   "shared_label": "seen by charge classes 1 to 5 at phases 1/6, 1/3, 1/2, 1/3, 1/6",
+   "confidence": "high that they are no quark doublet; medium that they are a transient of the quench",
+   "reason": "Mobile at zero cost, diffusive, annihilating; the population decays as exp(-0.00920(4) sweeps) with no floor (CH). As cargo it gives three different phases to doublet, singlets and leptons."
+  },
+  {
+   "sm": "Second and third generation",
+   "use": "none of A, B, C",
+   "object": "none",
+   "shared_label": "",
+   "confidence": "high that these readings supply none",
+   "reason": "Every flux reading depends on a pattern through Q6 modulo 6 alone. C gives five separation classes per pair class (0.0751 to 0.1169 for quarks), not three copies."
+  }
+ ],
+ "patterns": [
+  {
+   "n3": 0,
+   "n2": 0,
+   "name": "antineutrino singlet",
+   "states": 1,
+   "Q6": 0,
+   "charge_class": 0,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "alpha_sixths_folded": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "sees": [],
+   "sm_row": "Antiparticles (conjugate of Right-handed neutrino)",
+   "occupation_parity": 0,
+   "conjugate_pattern": [
+    3,
+    2
+   ],
+   "species_class": "lepton and neutrino singlets",
+   "mean_free_path_cells_H2": null,
+   "reading": "A",
+   "confidence": "medium",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0
+   }
+  },
+  {
+   "n3": 1,
+   "n2": 0,
+   "name": "down quark, right-handed",
+   "states": 3,
+   "Q6": -2,
+   "charge_class": 4,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 4,
+    "2": 2,
+    "3": 0,
+    "4": 4,
+    "5": 2
+   },
+   "alpha_sixths_folded": {
+    "1": 2,
+    "2": 2,
+    "3": 0,
+    "4": 2,
+    "5": 2
+   },
+   "sees": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "sm_row": "Down quark, right-handed",
+   "occupation_parity": 1,
+   "conjugate_pattern": [
+    2,
+    2
+   ],
+   "species_class": "quark singlets",
+   "mean_free_path_cells_H2": 11.98205289548797,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "2": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "3": 0.0,
+    "4": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "5": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    }
+   }
+  },
+  {
+   "n3": 2,
+   "n2": 0,
+   "name": "up antiquark",
+   "states": 3,
+   "Q6": -4,
+   "charge_class": 2,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 2,
+    "2": 4,
+    "3": 0,
+    "4": 2,
+    "5": 4
+   },
+   "alpha_sixths_folded": {
+    "1": 2,
+    "2": 2,
+    "3": 0,
+    "4": 2,
+    "5": 2
+   },
+   "sees": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "sm_row": "Antiparticles (conjugate of Up quark, right-handed)",
+   "occupation_parity": 0,
+   "conjugate_pattern": [
+    1,
+    2
+   ],
+   "species_class": "quark singlets",
+   "mean_free_path_cells_H2": 11.98205289548797,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "2": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "3": 0.0,
+    "4": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "5": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    }
+   }
+  },
+  {
+   "n3": 3,
+   "n2": 0,
+   "name": "electron, right-handed",
+   "states": 1,
+   "Q6": -6,
+   "charge_class": 0,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "alpha_sixths_folded": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "sees": [],
+   "sm_row": "Electron, right-handed",
+   "occupation_parity": 1,
+   "conjugate_pattern": [
+    0,
+    2
+   ],
+   "species_class": "lepton and neutrino singlets",
+   "mean_free_path_cells_H2": null,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0
+   }
+  },
+  {
+   "n3": 0,
+   "n2": 1,
+   "name": "antilepton doublet",
+   "states": 2,
+   "Q6": 3,
+   "charge_class": 3,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 3,
+    "2": 0,
+    "3": 3,
+    "4": 0,
+    "5": 3
+   },
+   "alpha_sixths_folded": {
+    "1": 3,
+    "2": 0,
+    "3": 3,
+    "4": 0,
+    "5": 3
+   },
+   "sees": [
+    1,
+    3,
+    5
+   ],
+   "sm_row": "Antiparticles (conjugate of Lepton doublet, left-handed)",
+   "occupation_parity": 1,
+   "conjugate_pattern": [
+    3,
+    1
+   ],
+   "species_class": "lepton doublets",
+   "mean_free_path_cells_H2": 122.8534315138004,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "2": 0.0,
+    "3": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "4": 0.0,
+    "5": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    }
+   }
+  },
+  {
+   "n3": 1,
+   "n2": 1,
+   "name": "quark doublet",
+   "states": 6,
+   "Q6": 1,
+   "charge_class": 1,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5
+   },
+   "alpha_sixths_folded": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 2,
+    "5": 1
+   },
+   "sees": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "sm_row": "Quark doublet, left-handed",
+   "occupation_parity": 0,
+   "conjugate_pattern": [
+    2,
+    1
+   ],
+   "species_class": "quark doublets",
+   "mean_free_path_cells_H2": 10.391816142923233,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.04238290659994328,
+     "2": 0.0510141492439352,
+     "3": 0.05620745593166906,
+     "4": 0.05827869031649382,
+     "5": 0.059321832970629824
+    },
+    "2": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "3": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "4": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "5": {
+     "1": 0.04238290659994328,
+     "2": 0.0510141492439352,
+     "3": 0.05620745593166906,
+     "4": 0.05827869031649382,
+     "5": 0.059321832970629824
+    }
+   }
+  },
+  {
+   "n3": 2,
+   "n2": 1,
+   "name": "antiquark doublet",
+   "states": 6,
+   "Q6": -1,
+   "charge_class": 5,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 5,
+    "2": 4,
+    "3": 3,
+    "4": 2,
+    "5": 1
+   },
+   "alpha_sixths_folded": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 2,
+    "5": 1
+   },
+   "sees": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "sm_row": "Antiparticles (conjugate of Quark doublet, left-handed)",
+   "occupation_parity": 1,
+   "conjugate_pattern": [
+    1,
+    1
+   ],
+   "species_class": "quark doublets",
+   "mean_free_path_cells_H2": 10.391816142923233,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.04238290659994328,
+     "2": 0.0510141492439352,
+     "3": 0.05620745593166906,
+     "4": 0.05827869031649382,
+     "5": 0.059321832970629824
+    },
+    "2": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "3": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "4": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "5": {
+     "1": 0.04238290659994328,
+     "2": 0.0510141492439352,
+     "3": 0.05620745593166906,
+     "4": 0.05827869031649382,
+     "5": 0.059321832970629824
+    }
+   }
+  },
+  {
+   "n3": 3,
+   "n2": 1,
+   "name": "lepton doublet",
+   "states": 2,
+   "Q6": -3,
+   "charge_class": 3,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 3,
+    "2": 0,
+    "3": 3,
+    "4": 0,
+    "5": 3
+   },
+   "alpha_sixths_folded": {
+    "1": 3,
+    "2": 0,
+    "3": 3,
+    "4": 0,
+    "5": 3
+   },
+   "sees": [
+    1,
+    3,
+    5
+   ],
+   "sm_row": "Lepton doublet, left-handed",
+   "occupation_parity": 0,
+   "conjugate_pattern": [
+    0,
+    1
+   ],
+   "species_class": "lepton doublets",
+   "mean_free_path_cells_H2": 122.8534315138004,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "2": 0.0,
+    "3": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "4": 0.0,
+    "5": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    }
+   }
+  },
+  {
+   "n3": 0,
+   "n2": 2,
+   "name": "positron",
+   "states": 1,
+   "Q6": 6,
+   "charge_class": 0,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "alpha_sixths_folded": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "sees": [],
+   "sm_row": "Antiparticles (conjugate of Electron, right-handed)",
+   "occupation_parity": 0,
+   "conjugate_pattern": [
+    3,
+    0
+   ],
+   "species_class": "lepton and neutrino singlets",
+   "mean_free_path_cells_H2": null,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0
+   }
+  },
+  {
+   "n3": 1,
+   "n2": 2,
+   "name": "up quark, right-handed",
+   "states": 3,
+   "Q6": 4,
+   "charge_class": 4,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 4,
+    "2": 2,
+    "3": 0,
+    "4": 4,
+    "5": 2
+   },
+   "alpha_sixths_folded": {
+    "1": 2,
+    "2": 2,
+    "3": 0,
+    "4": 2,
+    "5": 2
+   },
+   "sees": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "sm_row": "Up quark, right-handed",
+   "occupation_parity": 1,
+   "conjugate_pattern": [
+    2,
+    0
+   ],
+   "species_class": "quark singlets",
+   "mean_free_path_cells_H2": 11.98205289548797,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "2": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "3": 0.0,
+    "4": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "5": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    }
+   }
+  },
+  {
+   "n3": 2,
+   "n2": 2,
+   "name": "down antiquark",
+   "states": 3,
+   "Q6": 2,
+   "charge_class": 2,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 2,
+    "2": 4,
+    "3": 0,
+    "4": 2,
+    "5": 4
+   },
+   "alpha_sixths_folded": {
+    "1": 2,
+    "2": 2,
+    "3": 0,
+    "4": 2,
+    "5": 2
+   },
+   "sees": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "sm_row": "Antiparticles (conjugate of Down quark, right-handed)",
+   "occupation_parity": 0,
+   "conjugate_pattern": [
+    1,
+    0
+   ],
+   "species_class": "quark singlets",
+   "mean_free_path_cells_H2": 11.98205289548797,
+   "reading": "A",
+   "confidence": "high",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "2": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "3": 0.0,
+    "4": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "5": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    }
+   }
+  },
+  {
+   "n3": 3,
+   "n2": 2,
+   "name": "neutrino, right-handed",
+   "states": 1,
+   "Q6": 0,
+   "charge_class": 0,
+   "phase_sixths_by_flux_class": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "alpha_sixths_folded": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "sees": [],
+   "sm_row": "Right-handed neutrino",
+   "occupation_parity": 1,
+   "conjugate_pattern": [
+    0,
+    0
+   ],
+   "species_class": "lepton and neutrino singlets",
+   "mean_free_path_cells_H2": null,
+   "reading": "A",
+   "confidence": "medium",
+   "cargo_rest_phase_by_class_and_separation": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0
+   }
+  }
+ ],
+ "flux_classes": [
+  {
+   "class": 1,
+   "conjugate": 5,
+   "name": "generating flux",
+   "level_phases_in_turns": [
+    "2/3",
+    "2/3",
+    "2/3",
+    "1/2",
+    "1/2"
+   ],
+   "seen_by": [
+    "down quark, right-handed",
+    "up antiquark",
+    "antilepton doublet",
+    "quark doublet",
+    "antiquark doublet",
+    "lepton doublet",
+    "up quark, right-handed",
+    "down antiquark"
+   ],
+   "blind": [
+    "antineutrino singlet",
+    "electron, right-handed",
+    "positron",
+    "neutrino, right-handed"
+   ],
+   "standard_model_particle": null,
+   "reading_A": "flux of the centre of the gauge group through a face; a quantum of charge Q6 sees it as the phase exp(2 pi i k Q6/6)",
+   "reading_B_rejected": "quark doublet",
+   "reading_C_role": "cargo that splits the two handedness classes of every species it touches",
+   "acts_alike_on_both_handedness_classes": false,
+   "steps_across_a_seam_when_the_current_mod_6_is": {
+    "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 1,
+    "and_back_when_j_mod_6_is": 5
+   },
+   "runs": {
+    "produced_share_percent_screen": [
+     24.121329803309035,
+     0.0214063372614997
+    ],
+    "produced_share_percent_internal": [
+     25.987569082288953,
+     0.036119961901100735
+    ],
+    "faces_per_carrier_L10_300_sweeps": 0.05023670196533203,
+    "faces_per_carrier_limit": [
+     0.0,
+     null
+    ],
+    "hops_per_identity_screen_L10": 5.015823561103661,
+    "hops_per_identity_internal_L6": 13.66737858716772,
+    "state_in_the_balanced_band": "hops at zero cost, diffuses, annihilates; decays as exp(-0.00920(4) sweeps)"
+   },
+   "confidence_that_it_is_no_matter_multiplet": "high",
+   "confidence_reading_A": "medium"
+  },
+  {
+   "class": 2,
+   "conjugate": 4,
+   "name": "colour-centre flux",
+   "level_phases_in_turns": [
+    "1/3",
+    "1/3",
+    "1/3",
+    "0",
+    "0"
+   ],
+   "seen_by": [
+    "down quark, right-handed",
+    "up antiquark",
+    "quark doublet",
+    "antiquark doublet",
+    "up quark, right-handed",
+    "down antiquark"
+   ],
+   "blind": [
+    "antineutrino singlet",
+    "electron, right-handed",
+    "antilepton doublet",
+    "lepton doublet",
+    "positron",
+    "neutrino, right-handed"
+   ],
+   "standard_model_particle": null,
+   "reading_A": "flux of the centre of the gauge group through a face; a quantum of charge Q6 sees it as the phase exp(2 pi i k Q6/6)",
+   "reading_B_rejected": "antiquark singlets",
+   "reading_C_role": "cargo that acts alike on both handedness classes: one rest phase for the quark doublet and the up and down singlets; no lepton sees it",
+   "acts_alike_on_both_handedness_classes": true,
+   "steps_across_a_seam_when_the_current_mod_6_is": {
+    "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 2,
+    "and_back_when_j_mod_6_is": 4
+   },
+   "runs": {
+    "produced_share_percent_screen": [
+     19.597693232442843,
+     0.01181011185580296
+    ],
+    "produced_share_percent_internal": [
+     19.68159182885712,
+     0.03186186155756145
+    ],
+    "faces_per_carrier_L10_300_sweeps": 0.2675748825073242,
+    "faces_per_carrier_limit": [
+     0.2677976105309277,
+     0.00014007156210310196
+    ],
+    "hops_per_identity_screen_L10": 0.02168222254043696,
+    "hops_per_identity_internal_L6": 0.00981800104946284,
+    "state_in_the_balanced_band": "frozen (EXACT, CH)"
+   },
+   "confidence_that_it_is_no_matter_multiplet": "high",
+   "confidence_reading_A": "medium"
+  },
+  {
+   "class": 3,
+   "conjugate": 3,
+   "name": "weak-centre flux",
+   "level_phases_in_turns": [
+    "0",
+    "0",
+    "0",
+    "1/2",
+    "1/2"
+   ],
+   "seen_by": [
+    "antilepton doublet",
+    "quark doublet",
+    "antiquark doublet",
+    "lepton doublet"
+   ],
+   "blind": [
+    "antineutrino singlet",
+    "down quark, right-handed",
+    "up antiquark",
+    "electron, right-handed",
+    "positron",
+    "up quark, right-handed",
+    "down antiquark",
+    "neutrino, right-handed"
+   ],
+   "standard_model_particle": null,
+   "reading_A": "flux of the centre of the gauge group through a face; a quantum of charge Q6 sees it as the phase exp(2 pi i k Q6/6)",
+   "reading_B_rejected": "lepton doublet",
+   "reading_C_role": "cargo that splits the two handedness classes of every species it touches",
+   "acts_alike_on_both_handedness_classes": false,
+   "steps_across_a_seam_when_the_current_mod_6_is": {
+    "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 3,
+    "and_back_when_j_mod_6_is": 3
+   },
+   "runs": {
+    "produced_share_percent_screen": [
+     12.67834075778654,
+     0.02071279872323657
+    ],
+    "produced_share_percent_internal": [
+     8.561615424324748,
+     0.08958147598027451
+    ],
+    "faces_per_carrier_L10_300_sweeps": 0.08181052207946778,
+    "faces_per_carrier_limit": [
+     0.0805945813786035,
+     0.0002567683223577166
+    ],
+    "hops_per_identity_screen_L10": 0.001012557453928014,
+    "hops_per_identity_internal_L6": 0.0,
+    "state_in_the_balanced_band": "frozen (EXACT, CH)"
+   },
+   "confidence_that_it_is_no_matter_multiplet": "high",
+   "confidence_reading_A": "medium"
+  },
+  {
+   "class": 4,
+   "conjugate": 2,
+   "name": "colour-centre flux (conjugate of 2)",
+   "level_phases_in_turns": [
+    "2/3",
+    "2/3",
+    "2/3",
+    "0",
+    "0"
+   ],
+   "seen_by": [
+    "down quark, right-handed",
+    "up antiquark",
+    "quark doublet",
+    "antiquark doublet",
+    "up quark, right-handed",
+    "down antiquark"
+   ],
+   "blind": [
+    "antineutrino singlet",
+    "electron, right-handed",
+    "antilepton doublet",
+    "lepton doublet",
+    "positron",
+    "neutrino, right-handed"
+   ],
+   "standard_model_particle": null,
+   "reading_A": "flux of the centre of the gauge group through a face; a quantum of charge Q6 sees it as the phase exp(2 pi i k Q6/6)",
+   "reading_B_rejected": "quark singlets",
+   "reading_C_role": "cargo that acts alike on both handedness classes: one rest phase for the quark doublet and the up and down singlets; no lepton sees it",
+   "acts_alike_on_both_handedness_classes": true,
+   "steps_across_a_seam_when_the_current_mod_6_is": {
+    "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 4,
+    "and_back_when_j_mod_6_is": 2
+   },
+   "runs": {
+    "produced_share_percent_screen": [
+     19.592678787968985,
+     0.03518252811243767
+    ],
+    "produced_share_percent_internal": [
+     19.722838585957145,
+     0.0316322760614783
+    ],
+    "faces_per_carrier_L10_300_sweeps": 0.2675447463989258,
+    "faces_per_carrier_limit": [
+     0.2677632838068505,
+     0.00017693523369135075
+    ],
+    "hops_per_identity_screen_L10": 0.022006781857764758,
+    "hops_per_identity_internal_L6": 0.009410405101430134,
+    "state_in_the_balanced_band": "frozen (EXACT, CH)"
+   },
+   "confidence_that_it_is_no_matter_multiplet": "high",
+   "confidence_reading_A": "medium"
+  },
+  {
+   "class": 5,
+   "conjugate": 1,
+   "name": "generating flux (conjugate of 1)",
+   "level_phases_in_turns": [
+    "1/3",
+    "1/3",
+    "1/3",
+    "1/2",
+    "1/2"
+   ],
+   "seen_by": [
+    "down quark, right-handed",
+    "up antiquark",
+    "antilepton doublet",
+    "quark doublet",
+    "antiquark doublet",
+    "lepton doublet",
+    "up quark, right-handed",
+    "down antiquark"
+   ],
+   "blind": [
+    "antineutrino singlet",
+    "electron, right-handed",
+    "positron",
+    "neutrino, right-handed"
+   ],
+   "standard_model_particle": null,
+   "reading_A": "flux of the centre of the gauge group through a face; a quantum of charge Q6 sees it as the phase exp(2 pi i k Q6/6)",
+   "reading_B_rejected": "antiquark doublet",
+   "reading_C_role": "cargo that splits the two handedness classes of every species it touches",
+   "acts_alike_on_both_handedness_classes": false,
+   "steps_across_a_seam_when_the_current_mod_6_is": {
+    "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 5,
+    "and_back_when_j_mod_6_is": 1
+   },
+   "runs": {
+    "produced_share_percent_screen": [
+     24.009957418492597,
+     0.03160284083525388
+    ],
+    "produced_share_percent_internal": [
+     26.04638507857204,
+     0.05572423570400625
+    ],
+    "faces_per_carrier_L10_300_sweeps": 0.05023703575134277,
+    "faces_per_carrier_limit": [
+     0.0,
+     null
+    ],
+    "hops_per_identity_screen_L10": 5.017880551347868,
+    "hops_per_identity_internal_L6": 13.617045690550363,
+    "state_in_the_balanced_band": "hops at zero cost, diffuses, annihilates; decays as exp(-0.00920(4) sweeps)"
+   },
+   "confidence_that_it_is_no_matter_multiplet": "high",
+   "confidence_reading_A": "medium"
+  }
+ ],
+ "charge_classes": [
+  {
+   "charge_class": 0,
+   "patterns": [
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "states": 4,
+   "multiplet_dimensions": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "names": [
+    "antineutrino singlet",
+    "electron, right-handed",
+    "positron",
+    "neutrino, right-handed"
+   ],
+   "note": "the table of reading B, attached to quanta (label of the Gauss check of a cell) and not to faces"
+  },
+  {
+   "charge_class": 1,
+   "patterns": [
+    [
+     1,
+     1
+    ]
+   ],
+   "states": 6,
+   "multiplet_dimensions": [
+    6
+   ],
+   "names": [
+    "quark doublet"
+   ],
+   "note": "the table of reading B, attached to quanta (label of the Gauss check of a cell) and not to faces"
+  },
+  {
+   "charge_class": 2,
+   "patterns": [
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     2
+    ]
+   ],
+   "states": 6,
+   "multiplet_dimensions": [
+    3,
+    3
+   ],
+   "names": [
+    "up antiquark",
+    "down antiquark"
+   ],
+   "note": "the table of reading B, attached to quanta (label of the Gauss check of a cell) and not to faces"
+  },
+  {
+   "charge_class": 3,
+   "patterns": [
+    [
+     0,
+     1
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "states": 4,
+   "multiplet_dimensions": [
+    2,
+    2
+   ],
+   "names": [
+    "antilepton doublet",
+    "lepton doublet"
+   ],
+   "note": "the table of reading B, attached to quanta (label of the Gauss check of a cell) and not to faces"
+  },
+  {
+   "charge_class": 4,
+   "patterns": [
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "states": 6,
+   "multiplet_dimensions": [
+    3,
+    3
+   ],
+   "names": [
+    "down quark, right-handed",
+    "up quark, right-handed"
+   ],
+   "note": "the table of reading B, attached to quanta (label of the Gauss check of a cell) and not to faces"
+  },
+  {
+   "charge_class": 5,
+   "patterns": [
+    [
+     2,
+     1
+    ]
+   ],
+   "states": 6,
+   "multiplet_dimensions": [
+    6
+   ],
+   "names": [
+    "antiquark doublet"
+   ],
+   "note": "the table of reading B, attached to quanta (label of the Gauss check of a cell) and not to faces"
+  }
+ ],
+ "reading_C_cargo": {
+  "rows": [
+   {
+    "cargo_pair": "(2,4)",
+    "species_class": "quark doublets",
+    "alpha_sixths": 2,
+    "rest_phase_by_separation": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "rest_phase_census_weighted": 0.10196594443079313,
+    "acts_alike_on_both_handedness_classes": true
+   },
+   {
+    "cargo_pair": "(2,4)",
+    "species_class": "quark singlets",
+    "alpha_sixths": 2,
+    "rest_phase_by_separation": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "rest_phase_census_weighted": 0.10196594443079313,
+    "acts_alike_on_both_handedness_classes": true
+   },
+   {
+    "cargo_pair": "(2,4)",
+    "species_class": "lepton doublets",
+    "alpha_sixths": 0,
+    "rest_phase_by_separation": 0.0,
+    "rest_phase_census_weighted": 0.0,
+    "acts_alike_on_both_handedness_classes": true
+   },
+   {
+    "cargo_pair": "(2,4)",
+    "species_class": "lepton and neutrino singlets",
+    "alpha_sixths": 0,
+    "rest_phase_by_separation": 0.0,
+    "rest_phase_census_weighted": 0.0,
+    "acts_alike_on_both_handedness_classes": true
+   },
+   {
+    "cargo_pair": "(3,3)",
+    "species_class": "quark doublets",
+    "alpha_sixths": 3,
+    "rest_phase_by_separation": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "rest_phase_census_weighted": 0.12471821714145663,
+    "acts_alike_on_both_handedness_classes": false
+   },
+   {
+    "cargo_pair": "(3,3)",
+    "species_class": "quark singlets",
+    "alpha_sixths": 0,
+    "rest_phase_by_separation": 0.0,
+    "rest_phase_census_weighted": 0.0,
+    "acts_alike_on_both_handedness_classes": false
+   },
+   {
+    "cargo_pair": "(3,3)",
+    "species_class": "lepton doublets",
+    "alpha_sixths": 3,
+    "rest_phase_by_separation": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "rest_phase_census_weighted": 0.12471821714145663,
+    "acts_alike_on_both_handedness_classes": false
+   },
+   {
+    "cargo_pair": "(3,3)",
+    "species_class": "lepton and neutrino singlets",
+    "alpha_sixths": 0,
+    "rest_phase_by_separation": 0.0,
+    "rest_phase_census_weighted": 0.0,
+    "acts_alike_on_both_handedness_classes": false
+   },
+   {
+    "cargo_pair": "(1,5)",
+    "species_class": "quark doublets",
+    "alpha_sixths": 1,
+    "rest_phase_by_separation": {
+     "1": 0.04238290659994328,
+     "2": 0.0510141492439352,
+     "3": 0.05620745593166906,
+     "4": 0.05827869031649382,
+     "5": 0.059321832970629824
+    },
+    "rest_phase_census_weighted": 0.05362569723684557,
+    "acts_alike_on_both_handedness_classes": false
+   },
+   {
+    "cargo_pair": "(1,5)",
+    "species_class": "quark singlets",
+    "alpha_sixths": 2,
+    "rest_phase_by_separation": {
+     "1": 0.07511264564637833,
+     "2": 0.09278792133701261,
+     "3": 0.10641589806640475,
+     "4": 0.11308001197133695,
+     "5": 0.11692067157966698
+    },
+    "rest_phase_census_weighted": 0.10055368432669463,
+    "acts_alike_on_both_handedness_classes": false
+   },
+   {
+    "cargo_pair": "(1,5)",
+    "species_class": "lepton doublets",
+    "alpha_sixths": 3,
+    "rest_phase_by_separation": {
+     "1": 0.08784654696624196,
+     "2": 0.11055393734047589,
+     "3": 0.13236300227603684,
+     "4": 0.1477868288892269,
+     "5": 0.17123678913697477
+    },
+    "rest_phase_census_weighted": 0.12577813967111573,
+    "acts_alike_on_both_handedness_classes": false
+   },
+   {
+    "cargo_pair": "(1,5)",
+    "species_class": "lepton and neutrino singlets",
+    "alpha_sixths": 0,
+    "rest_phase_by_separation": 0.0,
+    "rest_phase_census_weighted": 0.0,
+    "acts_alike_on_both_handedness_classes": false
+   }
+  ],
+  "classes_that_act_alike_on_both_handedness_classes": [
+   2,
+   4
+  ],
+  "patterns_blind_to_every_class": [
+   "antineutrino singlet",
+   "electron, right-handed",
+   "positron",
+   "neutrino, right-handed"
+  ],
+  "stationary_pairs_per_carrier": {
+   "(2,4)": {
+    "value": 0.2677804471688891,
+    "se": 0.000112834081100765
+   },
+   "(3,3)": {
+    "value": 0.04029729068930175,
+    "se": 0.0001283841611788583
+   },
+   "definition": "internal register tier, limit of the committed runs when classes 1 and 5 are gone: (c2 + c4)/2 and c3/2 faces per carrier, c_k(inf) from c_k(s) = c_k(inf) + B exp(-r s) with r of classes 1 and 5, fitted per level (L6..L10, sweeps >= 120); error = standard error over the five levels (independent seeds). Level 10 at its stored end (300 sweeps): (2,4) 0.26756 +- 0.00010, (3,3) 0.04091 +- 0.00004 (block errors). On carriers whose classes decompose into conjugate pairs only: (2,4) 0.2543, (3,3) 0.0397 (limit x ratio at L10 end).",
+   "label": "MEASURED"
+  },
+  "share_of_stationary_pairs_in_classes_2_4": 0.8691976545612954,
+  "separation_fractions_one_pair_carriers_L10_end": {
+   "(1,5)": {
+    "1": 0.11131096293921679,
+    "2": 0.3078560644525345,
+    "3": 0.34281488420484835,
+    "4": 0.1777531642228542,
+    "5": 0.06026492418054619
+   },
+   "(2,4)": {
+    "1": 1.0216413690234731e-05,
+    "2": 0.44418262380340257,
+    "3": 0.34512668052493134,
+    "4": 0.15868995127571958,
+    "5": 0.05199052798225629
+   },
+   "(3,3)": {
+    "1": 8.910897391016543e-06,
+    "2": 0.502867399481895,
+    "3": 0.3360643112194563,
+    "4": 0.1253012201564499,
+    "5": 0.03575815824480781
+   }
+  },
+  "label_in_the_runs": "a face of class 2, 3 or 4 keeps its class and place in the balanced band unless a mobile 1 or 5 reaches it (CH, CO: EXACT); the label (class, separation) is constant once classes 1 and 5 are gone",
+  "travel": {
+   "source": "work/R2/item3.json (worker R2), line of 256 cells, phase 1/2",
+   "rows": [
+    {
+     "separation": 1,
+     "theta": 0.087847,
+     "p0": 0.2945243112740431,
+     "velocity_measured": 0.9532339385269355,
+     "velocity_predicted (dE/dp averaged over the packet)": 0.9532339489614033,
+     "velocity_dE_dp_at_p0": 0.9569249684749698
+    },
+    {
+     "separation": 5,
+     "theta": 0.171237,
+     "p0": 0.2945243112740431,
+     "velocity_measured": 0.8520420386727778,
+     "velocity_predicted (dE/dp averaged over the packet)": 0.8520420484001263,
+     "velocity_dE_dp_at_p0": 0.8591080627680951
+    }
+   ]
+  }
+ },
+ "neutral_composites": {
+  "rows": [
+   {
+    "content": "{2,4}",
+    "carriers": 4991967,
+    "share_of_defect_carriers_percent": 69.15871989577357,
+    "reading_A": "one flux line through the carrier (in at one face, out at another)",
+    "reading_B": "quark singlet with antiquark singlet: meson-like pair",
+    "total_Q6_possible_in_B": [
+     -6,
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{1,5}",
+    "carriers": 1041883,
+    "share_of_defect_carriers_percent": 14.434248976639521,
+    "reading_A": "one flux line through the carrier (in at one face, out at another)",
+    "reading_B": "quark doublet with its conjugate: meson-like pair",
+    "total_Q6_possible_in_B": [
+     0
+    ]
+   },
+   {
+    "content": "{3,3}",
+    "carriers": 785555,
+    "share_of_defect_carriers_percent": 10.883080398513133,
+    "reading_A": "one flux line through the carrier (in at one face, out at another)",
+    "reading_B": "two objects of charge class 3 (lepton doublet or Higgs type)",
+    "total_Q6_possible_in_B": [
+     -6,
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{2,2,4,4}",
+    "carriers": 139090,
+    "share_of_defect_carriers_percent": 1.9269531129318656,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "two pairs",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{2,2,2}",
+    "carriers": 86788,
+    "share_of_defect_carriers_percent": 1.2023611098219193,
+    "reading_A": "junction of three flux lines",
+    "reading_B": "three antiquark-type singlets: baryon-like triple",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{4,4,4}",
+    "carriers": 86476,
+    "share_of_defect_carriers_percent": 1.1980386612545546,
+    "reading_A": "junction of three flux lines",
+    "reading_B": "three quark-type singlets: baryon-like triple",
+    "total_Q6_possible_in_B": [
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{2,3,3,4}",
+    "carriers": 55690,
+    "share_of_defect_carriers_percent": 0.771529361270944,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "a singlet pair and a pair of class 3",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{3,4,5}",
+    "carriers": 11177,
+    "share_of_defect_carriers_percent": 0.15484617832510936,
+    "reading_A": "junction of three flux lines",
+    "reading_B": "charge content of a Yukawa vertex (conjugate)",
+    "total_Q6_possible_in_B": [
+     -6,
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{1,2,3}",
+    "carriers": 11174,
+    "share_of_defect_carriers_percent": 0.15480461631965395,
+    "reading_A": "junction of three flux lines",
+    "reading_B": "charge content of a Yukawa vertex",
+    "total_Q6_possible_in_B": [
+     -6,
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{2,4,4,4,4}",
+    "carriers": 1680,
+    "share_of_defect_carriers_percent": 0.023274723055040147,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{2,2,2,2,4}",
+    "carriers": 1608,
+    "share_of_defect_carriers_percent": 0.022277234924109855,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{3,3,3,3}",
+    "carriers": 1290,
+    "share_of_defect_carriers_percent": 0.0178716623458344,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{3,3,4,4,4}",
+    "carriers": 1174,
+    "share_of_defect_carriers_percent": 0.016264598134891152,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{2,2,2,3,3}",
+    "carriers": 1153,
+    "share_of_defect_carriers_percent": 0.01597366409670315,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{2,2,2,4,4,4}",
+    "carriers": 451,
+    "share_of_defect_carriers_percent": 0.006248154820132802,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{2,2,3,3,4,4}",
+    "carriers": 357,
+    "share_of_defect_carriers_percent": 0.004945878649196032,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{2,5,5}",
+    "carriers": 196,
+    "share_of_defect_carriers_percent": 0.0027153843564213507,
+    "reading_A": "junction of three flux lines",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -6,
+     0
+    ]
+   },
+   {
+    "content": "{1,1,4}",
+    "carriers": 195,
+    "share_of_defect_carriers_percent": 0.002701530354602874,
+    "reading_A": "junction of three flux lines",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{2,2,3,5}",
+    "carriers": 84,
+    "share_of_defect_carriers_percent": 0.0011637361527520075,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{1,3,4,4}",
+    "carriers": 80,
+    "share_of_defect_carriers_percent": 0.0011083201454781023,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{2,3,3,3,3,4}",
+    "carriers": 36,
+    "share_of_defect_carriers_percent": 0.0004987440654651461,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{1,2,4,5}",
+    "carriers": 10,
+    "share_of_defect_carriers_percent": 0.0001385400181847628,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -6,
+     0,
+     6
+    ]
+   },
+   {
+    "content": "{2,2,4,4,4,4,4}",
+    "carriers": 6,
+    "share_of_defect_carriers_percent": 8.312401091085767e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18,
+     24
+    ]
+   },
+   {
+    "content": "{4,4,4,4,4,4}",
+    "carriers": 3,
+    "share_of_defect_carriers_percent": 4.156200545542883e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18,
+     24
+    ]
+   },
+   {
+    "content": "{1,2,2,3,4}",
+    "carriers": 3,
+    "share_of_defect_carriers_percent": 4.156200545542883e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ]
+   },
+   {
+    "content": "{3,3,3,3,3,3}",
+    "carriers": 1,
+    "share_of_defect_carriers_percent": 1.385400181847628e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{2,2,2,2,3,3,4}",
+    "carriers": 1,
+    "share_of_defect_carriers_percent": 1.385400181847628e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -24,
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{2,2,2,2,2,4,4}",
+    "carriers": 1,
+    "share_of_defect_carriers_percent": 1.385400181847628e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -24,
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18
+    ]
+   },
+   {
+    "content": "{2,3,3,4,4,4,4}",
+    "carriers": 1,
+    "share_of_defect_carriers_percent": 1.385400181847628e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -18,
+     -12,
+     -6,
+     0,
+     6,
+     12,
+     18,
+     24
+    ]
+   },
+   {
+    "content": "{2,3,4,4,5}",
+    "carriers": 1,
+    "share_of_defect_carriers_percent": 1.385400181847628e-05,
+    "reading_A": "several flux lines or junctions",
+    "reading_B": "",
+    "total_Q6_possible_in_B": [
+     -12,
+     -6,
+     0,
+     6,
+     12
+    ]
+   }
+  ],
+  "summary": {
+   "distinct_configurations_with_defects": 30,
+   "carriers_violating_the_sum_rule": 0,
+   "share_exactly_one_conjugate_pair_among_defect_carriers": 0.9447604927092623,
+   "carriers_with_defects": 7218131,
+   "share_of_all_carriers": 0.3441873073577881,
+   "triples_222_against_444_z": 0.7495496847387482,
+   "triples_345_against_123_z": 0.02006655295156744,
+   "discriminates_between_readings": false,
+   "reason": "the class sum of a carrier is zero mod 6 in every history (identity of the register, x2_algebra.py C4); both readings restate that identity. The equality of conjugate compositions is the conjugation symmetry of the rule."
+  }
+ },
+ "best_guesses": [
+  {
+   "object": "defect classes 2 and 4 in reading A",
+   "guess": "the nearest Standard Model notion is a centre vortex of the colour field: a flux that only objects with colour see",
+   "confidence": "low",
+   "input": "IMPORTED notion (lattice gauge theory, from memory); the background of the runs is a remnant of the quench and no area law was tested"
+  },
+  {
+   "object": "quark quantum with a (2,4) pair as cargo (reading C)",
+   "guess": "the nearest Standard Model notion is a rest phase from the colour field that is equal for up and down and for both handedness classes (a constituent mass), not a Yukawa mass",
+   "confidence": "low",
+   "input": "IMPORTED notion; M1 and the carrying gate are DECLARED; the phases are lattice-scale numbers"
+  },
+  {
+   "object": "charge class of a quantum",
+   "guess": "the matter rows of a literal defect table are the Gauss labels of the working law; a run of the coherent law that records them gives the second half of the catalogue",
+   "confidence": "medium",
+   "input": "Z2 part executed by R2; Z6 links DECLARED"
+  }
+ ],
+ "tests": {
+  "algebra": {
+   "B_mutual_phases": {
+    "charge_flux_sixths": [
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     [
+      0,
+      2,
+      4,
+      0,
+      2,
+      4
+     ],
+     [
+      0,
+      3,
+      0,
+      3,
+      0,
+      3
+     ],
+     [
+      0,
+      4,
+      2,
+      0,
+      4,
+      2
+     ],
+     [
+      0,
+      5,
+      4,
+      3,
+      2,
+      1
+     ]
+    ],
+    "charge_flux": "exp(2 pi i k q / 6): group commutator of the hop factor Z^q with the twist X^k",
+    "flux_flux": "1 for all pairs (twists commute); exchange sign +1 (link registers are commuting tensor factors)",
+    "charge_charge": "mutual phase 1 (hop factors commute); exchange sign -1 for every pattern, DECLARED (antisymmetric occupations, CF-1 section 8a)",
+    "tag": "EXACT; the Z6 link is a declared extension (CF-1 section 8 lists Z6 links as open), the Z2 case k = 3 is the working law"
+   },
+   "C_obstructions": {
+    "C1_exchange_sign": {
+     "exchange_sign_single_quantum_by_charge_class": {
+      "0": -1,
+      "1": -1,
+      "2": -1,
+      "3": -1,
+      "4": -1,
+      "5": -1
+     },
+     "example_pattern_by_class": {
+      "0": "antineutrino singlet",
+      "1": "quark doublet",
+      "2": "up antiquark",
+      "3": "antilepton doublet",
+      "4": "down quark, right-handed",
+      "5": "antiquark doublet"
+     },
+     "exchange_sign_flux_by_class": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "5": 1
+     },
+     "labels_where_the_swap_fails": 6,
+     "depends_on": "the DECLARED antisymmetric occupations"
+    },
+    "C2_sector_dimensions": {
+     "states_per_charge_class": {
+      "0": 4,
+      "1": 6,
+      "2": 6,
+      "3": 4,
+      "4": 6,
+      "5": 6
+     },
+     "states_per_flux_class": {
+      "0": 1,
+      "1": 1,
+      "2": 1,
+      "3": 1,
+      "4": 1,
+      "5": 1
+     },
+     "irreducible_dimensions_on_the_charge_side": [
+      6,
+      3,
+      2,
+      1
+     ]
+    },
+    "C3_label_groups": {
+     "Q6_values_of_patterns": [
+      -6,
+      -4,
+      -3,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      6
+     ],
+     "charged_patterns_with_trivial_pairing": [
+      "electron, right-handed",
+      "positron"
+     ],
+     "statement": "the pairing has kernel 6Z on the charge side; the flux side has no kernel"
+    },
+    "C4_carrier_incidence": {
+     "ports": 12,
+     "seams": 30,
+     "faces": 20,
+     "ranks": {
+      "vertex_mod2": 11,
+      "vertex_mod3": 11,
+      "face_mod2": 19,
+      "face_mod3": 19
+     },
+     "independent_charge_labels": "Z6^11 (twelve port labels with total zero)",
+     "independent_flux_labels": "Z6^19 (twenty face classes with total zero)",
+     "statement": "the carrier is not self-dual (its dual has 20 ports): no map of the carrier exchanges port labels with face labels",
+     "class_sum_rule": "the columns of the face-seam incidence sum to zero: every twist adds +delta to one face and -delta to another face of the same carrier, so the twenty classes of a carrier sum to 0 mod 6 in every history"
+    },
+    "C5_tick": "Gamma(S) and Gamma(M) are diagonal in the link word (work/DIRAC/interaction_check.json: routing_leaves_the_link_word = 0.0); at eps = kappa = 0 every flux observable is a constant of motion while a packet of quanta moves (CF-1 section 4 item 5: velocity 1.000000). A symmetry of the tick that exchanged the labels would make the position of a quantum a constant of motion.",
+    "tag": "EXACT (C1 conditional on the declared occupations; C5 cites executed checks)"
+   },
+   "D_flux_attachment": {
+    "exchange_phase_sixths_of_composite_q_k": {
+     "0,0": 0,
+     "0,1": 0,
+     "0,2": 0,
+     "0,3": 0,
+     "0,4": 0,
+     "0,5": 0,
+     "1,0": 0,
+     "1,1": 1,
+     "1,2": 2,
+     "1,3": 3,
+     "1,4": 4,
+     "1,5": 5,
+     "2,0": 0,
+     "2,1": 2,
+     "2,2": 4,
+     "2,3": 0,
+     "2,4": 2,
+     "2,5": 4,
+     "3,0": 0,
+     "3,1": 3,
+     "3,2": 0,
+     "3,3": 3,
+     "3,4": 0,
+     "3,5": 3,
+     "4,0": 0,
+     "4,1": 4,
+     "4,2": 2,
+     "4,3": 0,
+     "4,4": 4,
+     "4,5": 2,
+     "5,0": 0,
+     "5,1": 5,
+     "5,2": 4,
+     "5,3": 3,
+     "5,4": 2,
+     "5,5": 1
+    },
+    "composites_with_sign_minus_one": [
+     [
+      1,
+      3
+     ],
+     [
+      3,
+      1
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      5,
+      3
+     ]
+    ],
+    "charge_classes_never_fermionized": [
+     0,
+     2,
+     4
+    ],
+    "patterns_never_fermionized": [
+     "antineutrino singlet",
+     "electron, right-handed",
+     "positron",
+     "neutrino, right-handed",
+     "up antiquark",
+     "down antiquark",
+     "down quark, right-handed",
+     "up quark, right-handed"
+    ],
+    "statement": "on a surface a charge q bound to a flux k gains the exchange phase exp(2 pi i q k/6); it is -1 only for odd q with flux 3 or q = 3 with odd flux. Quark singlets (classes 2, 4) and the four singlets of class 0 never get a sign this way. In three dimensions there is no such phase (CF-1 section 6).",
+    "tag": "EXACT for point objects on a surface; ARGUED for three dimensions"
+   },
+   "E_engine": {
+    "lattice": [
+     6,
+     1,
+     1
+    ],
+    "cases": 72,
+    "max_defect_lowest_phase_against_k_Q6_over_6": 4.884981308350689e-15,
+    "max_defect_gauge_invariance_of_spectrum": 1.9984014443252818e-15,
+    "statement": "a link holonomy of class k shifts the allowed momenta of pattern a by k Q6(a)/6 of a unit: the quantum reads the link word; the engine has no operation that changes the link word",
+    "tag": "MEASURED (float64); link phases beyond signs are a declared extension"
+   },
+   "F_cargo": {
+    "by_cargo_class": {
+     "1": {
+      "alpha_sixths_left_right": {
+       "up quark": [
+        1,
+        2
+       ],
+       "down quark": [
+        1,
+        2
+       ],
+       "charged lepton": [
+        3,
+        0
+       ],
+       "neutrino": [
+        3,
+        0
+       ]
+      },
+      "one_angle_for_both_handedness_classes": false,
+      "species_with_a_rest_phase": [],
+      "species_split": [
+       "up quark",
+       "down quark",
+       "charged lepton",
+       "neutrino"
+      ]
+     },
+     "2": {
+      "alpha_sixths_left_right": {
+       "up quark": [
+        2,
+        2
+       ],
+       "down quark": [
+        2,
+        2
+       ],
+       "charged lepton": [
+        0,
+        0
+       ],
+       "neutrino": [
+        0,
+        0
+       ]
+      },
+      "one_angle_for_both_handedness_classes": true,
+      "species_with_a_rest_phase": [
+       "up quark",
+       "down quark"
+      ],
+      "species_split": []
+     },
+     "3": {
+      "alpha_sixths_left_right": {
+       "up quark": [
+        3,
+        0
+       ],
+       "down quark": [
+        3,
+        0
+       ],
+       "charged lepton": [
+        3,
+        0
+       ],
+       "neutrino": [
+        3,
+        0
+       ]
+      },
+      "one_angle_for_both_handedness_classes": false,
+      "species_with_a_rest_phase": [],
+      "species_split": [
+       "up quark",
+       "down quark",
+       "charged lepton",
+       "neutrino"
+      ]
+     },
+     "4": {
+      "alpha_sixths_left_right": {
+       "up quark": [
+        2,
+        2
+       ],
+       "down quark": [
+        2,
+        2
+       ],
+       "charged lepton": [
+        0,
+        0
+       ],
+       "neutrino": [
+        0,
+        0
+       ]
+      },
+      "one_angle_for_both_handedness_classes": true,
+      "species_with_a_rest_phase": [
+       "up quark",
+       "down quark"
+      ],
+      "species_split": []
+     },
+     "5": {
+      "alpha_sixths_left_right": {
+       "up quark": [
+        1,
+        2
+       ],
+       "down quark": [
+        1,
+        2
+       ],
+       "charged lepton": [
+        3,
+        0
+       ],
+       "neutrino": [
+        3,
+        0
+       ]
+      },
+      "one_angle_for_both_handedness_classes": false,
+      "species_with_a_rest_phase": [],
+      "species_split": [
+       "up quark",
+       "down quark",
+       "charged lepton",
+       "neutrino"
+      ]
+     }
+    },
+    "classes_that_act_alike_on_both_handedness_classes": [
+     2,
+     4
+    ],
+    "reason": "a class k acts on a pattern as exp(2 pi i k (3 n2 - 2 n3)/6); for even k the factor of n2 is 1; the mass operator changes n2 by one and leaves n3",
+    "patterns_blind_to_every_class": [
+     "antineutrino singlet",
+     "electron, right-handed",
+     "positron",
+     "neutrino, right-handed"
+    ],
+    "net_flux_of_a_pair": "k + (-k) = 0: no exchange phase is added to the quantum",
+    "tag": "EXACT (representation level; M1 and the carrying gate are DECLARED)"
+   },
+   "verdict_item_1": {
+    "label_level": "exact and empty: flux classes and charge classes modulo 6 are dual groups, in two ways (k = q, k = -q)",
+    "as_a_symmetry_of_the_working_law": "excluded: exchange sign (declared occupations), sector dimensions 6, 3, 2, 1 against 1, charge group Z against flux group Z6, 11 against 19 independent labels on a carrier, and the tick (quantum routed, link word read)",
+    "approximate": "no: the obstructions are integers and a sign; no parameter of the law deforms them",
+    "reading_B": "excluded as a statement about the catalogued defects; its table is exact as the table of charge classes of quanta"
+   }
+  },
+  "produced_shares": {
+   "screen": {
+    "levels_in_summary": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "per_level": {
+     "3": {
+      "identities": 613,
+      "share_percent": {
+       "1": 24.95921696574225,
+       "2": 18.760195758564436,
+       "3": 12.398042414355627,
+       "4": 19.575856443719413,
+       "5": 24.306688417618272
+      },
+      "chi2_against_states_4dof": 10.483414899401849,
+      "p_naive_multinomial": 0.03302621380942163,
+      "pair_born_identities": {
+       "1": 48,
+       "2": 34,
+       "3": 4,
+       "4": 34,
+       "5": 48
+      },
+      "pair_born_share_percent": {
+       "1": 28.571428571428573,
+       "2": 20.238095238095237,
+       "3": 2.380952380952381,
+       "4": 20.238095238095237,
+       "5": 28.571428571428573
+      }
+     },
+     "4": {
+      "identities": 2854,
+      "share_percent": {
+       "1": 25.437981779957955,
+       "2": 20.042046250875963,
+       "3": 11.807988787666433,
+       "4": 18.57042747021724,
+       "5": 24.14155571128241
+      },
+      "chi2_against_states_4dof": 56.91836019621583,
+      "p_naive_multinomial": 1.2869325318724322e-11,
+      "pair_born_identities": {
+       "1": 174,
+       "2": 153,
+       "3": 38,
+       "4": 153,
+       "5": 174
+      },
+      "pair_born_share_percent": {
+       "1": 25.14450867052023,
+       "2": 22.109826589595375,
+       "3": 5.491329479768786,
+       "4": 22.109826589595375,
+       "5": 25.14450867052023
+      }
+     },
+     "5": {
+      "identities": 12330,
+      "share_percent": {
+       "1": 24.655312246553123,
+       "2": 20.048661800486617,
+       "3": 13.38199513381995,
+       "4": 18.961881589618816,
+       "5": 22.952149229521492
+      },
+      "chi2_against_states_4dof": 126.28256285482566,
+      "p_naive_multinomial": 2.4278817347592463e-26,
+      "pair_born_identities": {
+       "1": 756,
+       "2": 617,
+       "3": 186,
+       "4": 617,
+       "5": 756
+      },
+      "pair_born_share_percent": {
+       "1": 25.78444747612551,
+       "2": 21.043656207366986,
+       "3": 6.343792633015007,
+       "4": 21.043656207366986,
+       "5": 25.78444747612551
+      }
+     },
+     "6": {
+      "identities": 49832,
+      "share_percent": {
+       "1": 24.16920854069674,
+       "2": 19.597848771873494,
+       "3": 12.600337132766095,
+       "4": 19.72828704446942,
+       "5": 23.90431851019425
+      },
+      "chi2_against_states_4dof": 561.459483865789,
+      "p_naive_multinomial": 3.391992394930533e-120,
+      "pair_born_identities": {
+       "1": 2946,
+       "2": 2529,
+       "3": 718,
+       "4": 2529,
+       "5": 2946
+      },
+      "pair_born_share_percent": {
+       "1": 25.248543023654438,
+       "2": 21.67466575248543,
+       "3": 6.153582447720261,
+       "4": 21.67466575248543,
+       "5": 25.248543023654438
+      }
+     },
+     "7": {
+      "identities": 198563,
+      "share_percent": {
+       "1": 24.1736879479057,
+       "2": 19.588745133786254,
+       "3": 12.722410519583205,
+       "4": 19.53787966539587,
+       "5": 23.977276733328967
+      },
+      "chi2_against_states_4dof": 2284.795910282043,
+      "p_naive_multinomial": 0.0,
+      "pair_born_identities": {
+       "1": 11832,
+       "2": 10228,
+       "3": 2854,
+       "4": 10228,
+       "5": 11832
+      },
+      "pair_born_share_percent": {
+       "1": 25.188402094775835,
+       "2": 21.773747179290673,
+       "3": 6.0757014518669905,
+       "4": 21.773747179290673,
+       "5": 25.188402094775835
+      }
+     },
+     "8": {
+      "identities": 792902,
+      "share_percent": {
+       "1": 24.11016746079591,
+       "2": 19.63319552731611,
+       "3": 12.689083896875024,
+       "4": 19.53948911719229,
+       "5": 24.028063997820663
+      },
+      "chi2_against_states_4dof": 9089.256518460035,
+      "p_naive_multinomial": 0.0,
+      "pair_born_identities": {
+       "1": 47400,
+       "2": 40662,
+       "3": 11296,
+       "4": 40662,
+       "5": 47400
+      },
+      "pair_born_share_percent": {
+       "1": 25.290790737381283,
+       "2": 21.69565681357379,
+       "3": 6.027104898089852,
+       "4": 21.69565681357379,
+       "5": 25.290790737381283
+      }
+     },
+     "9": {
+      "identities": 3170656,
+      "share_percent": {
+       "1": 24.072368620247673,
+       "2": 19.560967824954837,
+       "3": 12.699138600970903,
+       "4": 19.58761846129003,
+       "5": 24.079906492536562
+      },
+      "chi2_against_states_4dof": 36505.85115677428,
+      "p_naive_multinomial": 0.0,
+      "pair_born_identities": {
+       "1": 189997,
+       "2": 161857,
+       "3": 45380,
+       "4": 161857,
+       "5": 189997
+      },
+      "pair_born_share_percent": {
+       "1": 25.363775684565766,
+       "2": 21.607207697893973,
+       "3": 6.058033235080525,
+       "4": 21.607207697893973,
+       "5": 25.363775684565766
+      }
+     },
+     "10": {
+      "identities": 12679156,
+      "share_percent": {
+       "1": 24.08121644689915,
+       "2": 19.607708904283534,
+       "3": 12.680733638737468,
+       "4": 19.570119651497308,
+       "5": 24.06022135858254
+      },
+      "chi2_against_states_4dof": 145529.697703538,
+      "p_naive_multinomial": 0.0,
+      "pair_born_identities": {
+       "1": 757258,
+       "2": 649302,
+       "3": 179818,
+       "4": 649302,
+       "5": 757258
+      },
+      "pair_born_share_percent": {
+       "1": 25.30149304796825,
+       "2": 21.69446877950696,
+       "3": 6.00807634504958,
+       "4": 21.69446877950696,
+       "5": 25.30149304796825
+      }
+     }
+    },
+    "summary": {
+     "1": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 24.121329803309035,
+      "se_between_levels": 0.0214063372614997,
+      "z": 125.79257917143347,
+      "ratio_to_expected": 1.125662057487755,
+      "pair_born_mean_percent": 25.278600917669117,
+      "pair_born_se": 0.02912617971351327,
+      "pair_born_z": 132.18449954531607
+     },
+     "2": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 19.597693232442843,
+      "se_between_levels": 0.01181011185580296,
+      "z": -155.02632138314357,
+      "ratio_to_expected": 0.9145590175139994,
+      "pair_born_mean_percent": 21.689149244550165,
+      "pair_born_se": 0.026600418304898173,
+      "pair_born_z": 9.796004445943463
+     },
+     "3": {
+      "expected_percent": 14.285714285714285,
+      "mean_percent": 12.67834075778654,
+      "se_between_levels": 0.02071279872323657,
+      "z": -77.6029135128185,
+      "ratio_to_expected": 0.8874838530450578,
+      "pair_born_mean_percent": 6.064499675561441,
+      "pair_born_se": 0.025184317092779594,
+      "pair_born_z": -326.44183202846847
+     },
+     "4": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 19.592678787968985,
+      "se_between_levels": 0.03518252811243767,
+      "z": -52.181941977996175,
+      "ratio_to_expected": 0.9143250101052194,
+      "pair_born_mean_percent": 21.689149244550165,
+      "pair_born_se": 0.026600418304898173,
+      "pair_born_z": 9.796004445943463
+     },
+     "5": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 24.009957418492597,
+      "se_between_levels": 0.03160284083525388,
+      "z": 81.68208685345652,
+      "ratio_to_expected": 1.1204646795296547,
+      "pair_born_mean_percent": 25.278600917669117,
+      "pair_born_se": 0.02912617971351327,
+      "pair_born_z": 132.18449954531607
+     }
+    },
+    "min_abs_z": 52.181941977996175,
+    "rms_deviation_points": {
+     "from_state_counts_6_6_4_6_6": 2.155029823869775,
+     "from_equal_shares": 4.171320491399566
+    }
+   },
+   "internal": {
+    "levels_in_summary": [
+     4,
+     5,
+     6
+    ],
+    "per_level": {
+     "3": {
+      "identities": 11517,
+      "share_percent": {
+       "1": 25.97898758357211,
+       "2": 19.736042372145523,
+       "3": 8.778327689502474,
+       "4": 19.649214205088132,
+       "5": 25.85742814969176
+      },
+      "chi2_against_states_4dof": 493.6504876848718,
+      "p_naive_multinomial": 1.5823558135226883e-105,
+      "pair_born_identities": {
+       "1": 1080,
+       "2": 1061,
+       "3": 348,
+       "4": 1061,
+       "5": 1080
+      },
+      "pair_born_share_percent": {
+       "1": 23.326133909287257,
+       "2": 22.915766738660906,
+       "3": 7.5161987041036715,
+       "4": 22.915766738660906,
+       "5": 23.326133909287257
+      }
+     },
+     "4": {
+      "identities": 45984,
+      "share_percent": {
+       "1": 25.94598121085595,
+       "2": 19.639439805149618,
+       "3": 8.70955114822547,
+       "4": 19.663361169102295,
+       "5": 26.041666666666668
+      },
+      "chi2_against_states_4dof": 2031.0057918696366,
+      "p_naive_multinomial": 0.0,
+      "pair_born_identities": {
+       "1": 4416,
+       "2": 4309,
+       "3": 1268,
+       "4": 4309,
+       "5": 4416
+      },
+      "pair_born_share_percent": {
+       "1": 23.592264130783203,
+       "2": 23.02062186130997,
+       "3": 6.774228015813655,
+       "4": 23.02062186130997,
+       "5": 23.592264130783203
+      }
+     },
+     "5": {
+      "identities": 183868,
+      "share_percent": {
+       "1": 25.9572084321361,
+       "2": 19.744055518089063,
+       "3": 8.575173494028325,
+       "4": 19.771248939456566,
+       "5": 25.952313616289945
+      },
+      "chi2_against_states_4dof": 8192.026147381093,
+      "p_naive_multinomial": 0.0,
+      "pair_born_identities": {
+       "1": 17446,
+       "2": 17498,
+       "3": 5028,
+       "4": 17498,
+       "5": 17446
+      },
+      "pair_born_share_percent": {
+       "1": 23.287415238400342,
+       "2": 23.35682631213626,
+       "3": 6.711516898926798,
+       "4": 23.35682631213626,
+       "5": 23.287415238400342
+      }
+     },
+     "6": {
+      "identities": 736656,
+      "share_percent": {
+       "1": 26.059517603874806,
+       "2": 19.66128016333268,
+       "3": 8.400121630720445,
+       "4": 19.733905649312568,
+       "5": 26.145174952759497
+      },
+      "chi2_against_states_4dof": 34943.65364747363,
+      "p_naive_multinomial": 0.0,
+      "pair_born_identities": {
+       "1": 71138,
+       "2": 69723,
+       "3": 19232,
+       "4": 69723,
+       "5": 71138
+      },
+      "pair_born_share_percent": {
+       "1": 23.637499418515787,
+       "2": 23.16732789728663,
+       "3": 6.39034536839517,
+       "4": 23.16732789728663,
+       "5": 23.637499418515787
+      }
+     }
+    },
+    "summary": {
+     "1": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 25.987569082288953,
+      "se_between_levels": 0.036119961901100735,
+      "z": 126.21822985861436,
+      "ratio_to_expected": 1.2127532238401513,
+      "pair_born_mean_percent": 23.505726262566444,
+      "pair_born_se": 0.10993382140846022,
+      "pair_born_z": 18.894593196004053
+     },
+     "2": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 19.68159182885712,
+      "se_between_levels": 0.03186186155756145,
+      "z": -54.82980322911219,
+      "ratio_to_expected": 0.9184742853466656,
+      "pair_born_mean_percent": 23.181592023577622,
+      "pair_born_se": 0.09731556429640958,
+      "pair_born_z": 18.013774134492397
+     },
+     "3": {
+      "expected_percent": 14.285714285714285,
+      "mean_percent": 8.561615424324748,
+      "se_between_levels": 0.08958147598027451,
+      "z": -63.898242340302154,
+      "ratio_to_expected": 0.5993130797027324,
+      "pair_born_mean_percent": 6.625363427711875,
+      "pair_born_se": 0.1188953141760175,
+      "pair_born_z": -64.42937563259821
+     },
+     "4": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 19.722838585957145,
+      "se_between_levels": 0.0316322760614783,
+      "z": -53.9238099496583,
+      "ratio_to_expected": 0.9203991340113336,
+      "pair_born_mean_percent": 23.181592023577622,
+      "pair_born_se": 0.09731556429640958,
+      "pair_born_z": 18.013774134492397
+     },
+     "5": {
+      "expected_percent": 21.428571428571427,
+      "mean_percent": 26.04638507857204,
+      "se_between_levels": 0.05572423570400625,
+      "z": 82.8690351991426,
+      "ratio_to_expected": 1.215497970333362,
+      "pair_born_mean_percent": 23.505726262566444,
+      "pair_born_se": 0.10993382140846022,
+      "pair_born_z": 18.894593196004053
+     }
+    },
+    "min_abs_z": 53.9238099496583,
+    "rms_deviation_points": {
+     "from_state_counts_6_6_4_6_6": 4.020831569212663,
+     "from_equal_shares": 6.378473170712432
+    }
+   }
+  },
+  "densities": {
+   "internal_limit_faces_per_carrier": {
+    "2": {
+     "value": 0.2677976105309277,
+     "se": 0.00014007156210310196
+    },
+    "3": {
+     "value": 0.0805945813786035,
+     "se": 0.0002567683223577166
+    },
+    "4": {
+     "value": 0.2677632838068505,
+     "se": 0.00017693523369135075
+    }
+   },
+   "internal_limit_classes_1_5": {
+    "value": 0.0,
+    "fitted_floor": 0.0024236164614571923,
+    "fitted_floor_se": 0.0005753014587743758,
+    "note": "CH: no floor resolved; L6 local rate leaves no room above about 0.001"
+   },
+   "class3_over_class2and4": {
+    "value": 0.3009726148069822,
+    "se": 0.0009672265018532024,
+    "equal_per_state": 0.6666666666666666,
+    "equal_per_class": 1.0,
+    "z_against_equal_per_state": 378.08522735782776,
+    "z_against_equal_per_class": 722.7132257580658
+   },
+   "density_per_state_class3_over_class2and4": {
+    "value": 0.45145892221047323,
+    "se": 0.0014508397527798035,
+    "expected": 1.0
+   },
+   "internal_L10_300_sweeps": {
+    "faces_per_carrier": {
+     "1": 0.05023670196533203,
+     "2": 0.2675748825073242,
+     "3": 0.08181052207946778,
+     "4": 0.2675447463989258,
+     "5": 0.05023703575134277
+    },
+    "share_of_defect_faces_percent": {
+     "1": 7.002568951249747,
+     "2": 37.29766268639852,
+     "3": 11.403690914952094,
+     "4": 37.29346196921911,
+     "5": 7.002615478180531
+    },
+    "class1and5_over_class2and4": {
+     "value": 0.18775939488902071,
+     "se": 0.000142969519887336,
+     "expected_equal_per_state": 1.0,
+     "z": 5681.215169156669
+    }
+   },
+   "internal_limit_share_percent": {
+    "1": 0.0,
+    "2": 43.462668285073526,
+    "3": 13.080234543870457,
+    "4": 43.457097171056034,
+    "5": 0.0
+   },
+   "screen_end": {
+    "6": {
+     "sweeps": 500,
+     "counts_1_to_5": [
+      5,
+      649,
+      662,
+      642,
+      1
+     ],
+     "chi2_equal_per_class_2dof": 0.3164362519201229,
+     "p_equal_per_class": 0.8536635554761961,
+     "chi2_states_6_4_6_2dof": 82.47499573306024,
+     "p_states_6_4_6": 1.2324866649496447e-18,
+     "class3_over_mean_class2and4": 1.0255615801704105
+    },
+    "7": {
+     "sweeps": 400,
+     "counts_1_to_5": [
+      19,
+      2511,
+      2544,
+      2646,
+      19
+     ],
+     "chi2_equal_per_class_2dof": 3.8589793533307364,
+     "p_equal_per_class": 0.14522228989997102,
+     "chi2_states_6_4_6_2dof": 268.29957148422284,
+     "p_states_6_4_6": 5.488937727480963e-59,
+     "class3_over_mean_class2and4": 0.9866201279813845
+    },
+    "8": {
+     "sweeps": 300,
+     "counts_1_to_5": [
+      202,
+      10255,
+      10473,
+      10167,
+      207
+     ],
+     "chi2_equal_per_class_2dof": 4.8196795597993205,
+     "p_equal_per_class": 0.08982968594061852,
+     "chi2_states_6_4_6_2dof": 1305.119328909748,
+     "p_states_6_4_6": 3.953107408898266e-284,
+     "class3_over_mean_class2and4": 1.0256586034668496
+    },
+    "9": {
+     "sweeps": 300,
+     "counts_1_to_5": [
+      836,
+      40593,
+      41471,
+      40880,
+      823
+     ],
+     "chi2_equal_per_class_2dof": 9.781152394586153,
+     "p_equal_per_class": 0.007517089900051937,
+     "chi2_states_6_4_6_2dof": 5000.035452455319,
+     "p_states_6_4_6": 0.0,
+     "class3_over_mean_class2and4": 1.0180305131761442
+    },
+    "10": {
+     "sweeps": 300,
+     "counts_1_to_5": [
+      3402,
+      163775,
+      163721,
+      163082,
+      3351
+     ],
+     "chi2_equal_per_class_2dof": 1.8172156109731787,
+     "p_equal_per_class": 0.4030850063182845,
+     "chi2_states_6_4_6_2dof": 18344.607539134107,
+     "p_states_6_4_6": 0.0,
+     "class3_over_mean_class2and4": 1.0017897735095165
+    }
+   },
+   "screen_end_combined": {
+    "chi2_equal_per_class": 20.59346317060951,
+    "dof": 10,
+    "p": 0.02411366686865281,
+    "largest_deviation_of_class3_from_mean_of_2_and_4": 0.02565860346684956
+   },
+   "note": "CH (EXACT): in the balanced band every configuration of non-adjacent faces of classes 2, 3, 4 is absorbing; the stationary state is not unique and the densities are remnants of the quench"
+  },
+  "first_attempt_by_kappa": {
+   "rows": {
+    "3": {
+     "pair_birth_probability": {
+      "(1,5)": "0",
+      "(2,4)": "1/36",
+      "(3,3)": "0"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      0.0,
+      50.0,
+      0.0,
+      50.0,
+      0.0
+     ]
+    },
+    "4": {
+     "pair_birth_probability": {
+      "(1,5)": "0",
+      "(2,4)": "5/36",
+      "(3,3)": "1/36"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      0.0,
+      41.67,
+      16.67,
+      41.67,
+      0.0
+     ]
+    },
+    "49/10": {
+     "pair_birth_probability": {
+      "(1,5)": "0",
+      "(2,4)": "5/36",
+      "(3,3)": "1/36"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      0.0,
+      41.67,
+      16.67,
+      41.67,
+      0.0
+     ]
+    },
+    "5": {
+     "pair_birth_probability": {
+      "(1,5)": "1/12",
+      "(2,4)": "5/36",
+      "(3,3)": "1/36"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      16.67,
+      27.78,
+      11.11,
+      27.78,
+      16.67
+     ]
+    },
+    "6": {
+     "pair_birth_probability": {
+      "(1,5)": "1/12",
+      "(2,4)": "5/36",
+      "(3,3)": "1/36"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      16.67,
+      27.78,
+      11.11,
+      27.78,
+      16.67
+     ]
+    },
+    "8": {
+     "pair_birth_probability": {
+      "(1,5)": "1/12",
+      "(2,4)": "2/9",
+      "(3,3)": "1/36"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      12.5,
+      33.33,
+      8.33,
+      33.33,
+      12.5
+     ]
+    },
+    "10": {
+     "pair_birth_probability": {
+      "(1,5)": "11/36",
+      "(2,4)": "2/9",
+      "(3,3)": "1/36"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      27.5,
+      20.0,
+      5.0,
+      20.0,
+      27.5
+     ]
+    },
+    "16": {
+     "pair_birth_probability": {
+      "(1,5)": "11/36",
+      "(2,4)": "2/9",
+      "(3,3)": "1/36"
+     },
+     "identity_share_percent_classes_1_2_3_4_5": [
+      27.5,
+      20.0,
+      5.0,
+      20.0,
+      27.5
+     ]
+    }
+   },
+   "cost_table": [
+    0,
+    5,
+    8,
+    10,
+    8,
+    5
+   ],
+   "threshold": "the birth of a (1,5) pair costs 10 and is offered kappa * 2: it is allowed at kappa = 5 by equality",
+   "tag": "EXACT enumeration of 72 cases; kappa, the cost table and the preparation are DECLARED"
+  },
+  "channels": {
+   "screen_L10": {
+    "events_without_moves": 8363181,
+    "events_violating_the_sum_mod_6": 0,
+    "by_kind": {
+     "birth": 1496469,
+     "annihilation": 613096,
+     "fusion": 2821014,
+     "split": 1551599,
+     "exchange": 1881003
+    },
+    "distinct_channels_seen": 64,
+    "channels_allowed_by_the_sum_rule": 64,
+    "allowed_never_seen": [],
+    "seen_not_allowed": [],
+    "three_body_events_2to1_and_1to2": 4372613,
+    "share_of_events_percent": 52.28408903263005,
+    "three_body_with_exactly_one_class_3": 1597182,
+    "three_body_without_class_3": 2775431,
+    "share_without_class_3_percent": 33.1863079371354,
+    "conjugation_symmetry": {
+     "channel_pairs": 25,
+     "chi2": 25.148856236252357,
+     "p": 0.4540564899986929
+    }
+   },
+   "screen_L9": {
+    "events_without_moves": 2091589,
+    "events_violating_the_sum_mod_6": 0,
+    "by_kind": {
+     "birth": 374544,
+     "annihilation": 153886,
+     "fusion": 704750,
+     "split": 388037,
+     "exchange": 470372
+    },
+    "distinct_channels_seen": 64,
+    "channels_allowed_by_the_sum_rule": 64,
+    "allowed_never_seen": [],
+    "seen_not_allowed": [],
+    "three_body_events_2to1_and_1to2": 1092787,
+    "share_of_events_percent": 52.2467368111039,
+    "three_body_with_exactly_one_class_3": 399795,
+    "three_body_without_class_3": 692992,
+    "share_without_class_3_percent": 33.132321885418214,
+    "conjugation_symmetry": {
+     "channel_pairs": 25,
+     "chi2": 12.365990765991855,
+     "p": 0.9833664976835377
+    }
+   },
+   "internal_L6": {
+    "events_without_moves": 514225,
+    "events_violating_the_sum_mod_6": 0,
+    "by_kind": {
+     "annihilation": 85171,
+     "birth": 150477,
+     "exchange": 114446,
+     "fusion": 121452,
+     "split": 42679
+    },
+    "distinct_channels_seen": 57,
+    "channels_allowed_by_the_sum_rule": 64,
+    "allowed_never_seen": [
+     "[1, 1] -> [4, 4]",
+     "[1, 4] -> [1, 4]",
+     "[2, 2] -> [5, 5]",
+     "[2, 5] -> [2, 5]",
+     "[3, 3] -> []",
+     "[4, 4] -> [1, 1]",
+     "[5, 5] -> [2, 2]"
+    ],
+    "seen_not_allowed": [],
+    "three_body_events_2to1_and_1to2": 164131,
+    "share_of_events_percent": 31.918129223588895,
+    "three_body_with_exactly_one_class_3": 37629,
+    "three_body_without_class_3": 126502,
+    "share_without_class_3_percent": 24.600515338616365,
+    "conjugation_symmetry": {
+     "channel_pairs": 22,
+     "chi2": 30.13306338359134,
+     "p": 0.11526595875920871
+    }
+   }
+  },
+  "channels_reading": {
+   "sum_rule": "every twist adds +delta to one face and -delta to its neighbour: the class sum is conserved mod 6 in every event by the rule of the register (EXACT). The match of fusion with addition mod 6 holds for any labels given to a Z6 register.",
+   "runs_only": "events with three bodies (a + b -> c, c -> a + b). Three fermions cannot meet at a vertex; in reading B the classes 1, 2, 4, 5 (and 3 as the lepton doublet) are fermion multiplets",
+   "standard_model_only": "every process of the four singlets of charge class 0 (right-handed electron and neutrino, their conjugates) and of the gauge fields (class 0): they have no defect; the mass operator, which shifts the class by 3 on one object",
+   "class_3": "its own conjugate in the register. As a flux this is exact (the central -1 squares to 1). As a charge it joins the lepton doublet (Q6 = -3) with its antiparticle (Q6 = +3) and with the Higgs doublet (Q6 = +3)"
+  },
+  "motion": {
+   "screen_L10": {
+    "1": {
+     "ever": 3053295,
+     "alive_at_end": 3402,
+     "hops_mean": 5.015823561103661,
+     "moved_fraction": 0.5914649583482762,
+     "lifetime_depth_median": 36.0,
+     "ended_by_annihilation_share": 0.19961844499139456
+    },
+    "2": {
+     "ever": 2486092,
+     "alive_at_end": 163775,
+     "hops_mean": 0.02168222254043696,
+     "moved_fraction": 0.02089102092762456,
+     "lifetime_depth_median": 25.0,
+     "ended_by_annihilation_share": 0.0014420222582269683
+    },
+    "3": {
+     "ever": 1607810,
+     "alive_at_end": 163721,
+     "hops_mean": 0.001012557453928014,
+     "moved_fraction": 0.0010075817416236993,
+     "lifetime_depth_median": 27.0,
+     "ended_by_annihilation_share": 2.11467772933369e-05
+    },
+    "4": {
+     "ever": 2481326,
+     "alive_at_end": 163082,
+     "hops_mean": 0.022006781857764758,
+     "moved_fraction": 0.021183834772214534,
+     "lifetime_depth_median": 24.0,
+     "ended_by_annihilation_share": 0.001444792018461097
+    },
+    "5": {
+     "ever": 3050633,
+     "alive_at_end": 3351,
+     "hops_mean": 5.017880551347868,
+     "moved_fraction": 0.5911936965213449,
+     "lifetime_depth_median": 36.0,
+     "ended_by_annihilation_share": 0.19979263320104385
+    }
+   },
+   "internal_L6": {
+    "1": {
+     "ever": 191969,
+     "alive_at_end": 693,
+     "hops_mean": 13.66737858716772,
+     "moved_fraction": 0.6964197344362892,
+     "lifetime_depth_median": 255.0,
+     "ended_by_annihilation_share": 0.4434726440206492
+    },
+    "2": {
+     "ever": 144836,
+     "alive_at_end": 21921,
+     "hops_mean": 0.00981800104946284,
+     "moved_fraction": 0.009721339998342954,
+     "lifetime_depth_median": 102.0,
+     "ended_by_annihilation_share": 0.0002623657101825513
+    },
+    "3": {
+     "ever": 61880,
+     "alive_at_end": 6576,
+     "hops_mean": 0.0,
+     "moved_fraction": 0.0,
+     "lifetime_depth_median": 61.0,
+     "ended_by_annihilation_share": 0.0
+    },
+    "4": {
+     "ever": 145371,
+     "alive_at_end": 21958,
+     "hops_mean": 0.009410405101430134,
+     "moved_fraction": 0.009348494541552304,
+     "lifetime_depth_median": 102.0,
+     "ended_by_annihilation_share": 0.0002614001417063926
+    },
+    "5": {
+     "ever": 192600,
+     "alive_at_end": 691,
+     "hops_mean": 13.617045690550363,
+     "moved_fraction": 0.6971599169262721,
+     "lifetime_depth_median": 253.0,
+     "ended_by_annihilation_share": 0.4420197300103842
+    }
+   },
+   "from_CH": {
+    "classes_2_3_4": "an isolated face cannot move in the balanced band (EXACT); 0 hops per sweep",
+    "classes_1_5": "hop at zero cost; internal 0.335 hops per sweep, confined to the carrier; screen D = 0.15 edge^2 per sweep (diffusion); population decays as exp(-0.00920(4) sweeps), no floor",
+    "mutual_annihilation": "(2,4): 33 of 69,723 pairs; (3,3): 0 of 9,616 (internal, L6)"
+   }
+  },
+  "response_to_flow": {
+   "rule": {
+    "1": {
+     "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 1,
+     "and_back_when_j_mod_6_is": 5
+    },
+    "2": {
+     "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 2,
+     "and_back_when_j_mod_6_is": 4
+    },
+    "3": {
+     "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 3,
+     "and_back_when_j_mod_6_is": 3
+    },
+    "4": {
+     "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 4,
+     "and_back_when_j_mod_6_is": 2
+    },
+    "5": {
+     "steps_from_minus_face_to_plus_face_when_j_mod_6_is": 5,
+     "and_back_when_j_mod_6_is": 1
+    }
+   },
+   "statement": "a defect steps across the seam whose current moves it (sideways to the flow), to the side fixed by the sign of its class; a label on ports would be carried along the seam",
+   "tag": "EXACT from the rule of the register (DATASET.md section 1)",
+   "recorded_hops_L8_sweeps_298_299": {
+    "carrier": {
+     "1": {
+      "hops": 47843,
+      "chi_plus": 0,
+      "chi_minus": 47843
+     },
+     "5": {
+      "hops": 47890,
+      "chi_plus": 47890,
+      "chi_minus": 0
+     }
+    },
+    "screen": {
+     "1": {
+      "hops": 365,
+      "chi_plus": 0,
+      "chi_minus": 365
+     },
+     "5": {
+      "hops": 361,
+      "chi_plus": 361,
+      "chi_minus": 0
+     }
+    }
+   },
+   "drift_L8_balanced_edges_per_64_depth": {
+    "1": {
+     "left_of_load_gradient": [
+      -0.031846191690618995,
+      0.0034998349550127324
+     ],
+     "along_load_gradient": [
+      0.0011792747421533237,
+      0.003916310800144874
+     ],
+     "toward_nearest_conjugate": [
+      -0.006010202219624889,
+      0.003132923434245038
+     ]
+    },
+    "5": {
+     "left_of_load_gradient": [
+      0.02533188130423567,
+      0.0033453769931233463
+     ],
+     "along_load_gradient": [
+      -0.004108022891374114,
+      0.0032084877787302546
+     ],
+     "toward_nearest_conjugate": [
+      0.00032356679871094944,
+      0.0031699121650468672
+     ]
+    }
+   },
+   "source": "repair-law/reports/CO.md; work/SIM/cf1/observer/out/hops_L8_298.json, traj_L8.json (worker CO, read only)",
+   "from_CO_text": {
+    "no_ballistic_stretch": "largest local exponent of the mean squared displacement 0.97 +- 0.01, no window above 1 (screen, classes 1 and 5)",
+    "frozen": "classes 2, 3, 4: zero displacement in the balanced regime; a frozen face changes class only when a mobile 1 or 5 reaches it"
+   }
+  },
+  "H2": {
+   "mean_free_path_cells": {
+    "quark doublets": 10.391816142923233,
+    "quark singlets": 11.98205289548797,
+    "lepton doublets": 122.8534315138004,
+    "lepton and neutrino singlets": null
+   },
+   "scattering_rate_per_cell": {
+    "quark doublets": 0.09622957010079458,
+    "quark singlets": 0.08345815268238098,
+    "lepton doublets": 0.008139780775172469,
+    "lepton and neutrino singlets": 0.0
+   },
+   "additivity": {
+    "quark_doublets": 0.09622957010079458,
+    "quark_singlets_plus_lepton_doublets": 0.09159793345755345,
+    "relative_difference": -0.04813111643738799
+   },
+   "order_predicted_by_reading_A": "patterns that see more classes scatter more: quark doublets (colour and weak centre) > quark singlets (colour centre) > lepton doublets (weak centre) > singlets (none)",
+   "order_holds": true
+  }
+ },
+ "sources": {
+  "chart": "repair-law/work/FAMILY, oph-physics-sim/oph_defects/particle_map.json",
+  "runs": "oph-physics-sim/runs/universe/L3..L10; repair-law/reports/CH.md, CO.md",
+  "working_law": "repair-law/candidates/CF1.md sections 8 to 12; repair-law/reports/R2.md",
+  "scripts": "repair-law/work/X2/x2_algebra.py, x2_runs.py, x2_build.py"
+ }
+}

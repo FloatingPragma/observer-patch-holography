@@ -1,0 +1,330 @@
+"""Q2 library: exchange-parity (swap-test) dilations of the reference rule.
+
+Exact representation of a Kraus operator: K = (A + i B) / den / sqrt(2)^s with integer matrices A, B.
+Squared amplitudes are then rational, so the classical shadow is checked in integer arithmetic.
+
+Members (one seam e = (a, b), P = exchange of the two ports on the sector):
+  coin      {1/sqrt2, P/sqrt2}                       record: the coin
+  parity    {P_+, P_-},  P_+- = (1 +- P)/2            record: agree / disagree
+  corrected {P_+, Z_b P_-}                           record: agree / disagree, then a sign flip on port b
+  sqrtswap  {(1 + i P)/sqrt2}                        no record, no coin
+Double loads (sector '2full', 78 states): the exchange part acts on states whose seam key is not (2,0)/(0,2);
+the split |2,0> -> |1,1>, |0,2> -> |1,1> is completed by two Kraus operators (record: split from a / from b).
+"""
+from fractions import Fraction
+import itertools
+import math
+import numpy as np
+import scipy.sparse as sp
+
+from model.transported_contrast import law
+from model.common_source import slow_geometry
+from model.observer import native
+
+SEAMS, FACES = law.carrier()
+SRC = slow_geometry.source()
+ROTS = tuple(tuple(int(v) for v in r) for r in SRC.rotations())
+NPORTS = 12
+M = len(SEAMS)
+R2 = math.sqrt(2.0)
+
+
+# ------------------------------------------------------------------ sectors
+def space(sector, nports=NPORTS):
+    """Basis states (load tuples). sector: 1, 2 (binary, 66), '2full' (78), or ('k', k) binary k quanta."""
+    if sector == 1:
+        return [tuple(int(p == a) for p in range(nports)) for a in range(nports)]
+    if sector == 2:
+        return binary_space(2, nports)
+    if sector == '2full':
+        out = []
+        for a, b in itertools.combinations_with_replacement(range(nports), 2):
+            x = [0] * nports
+            x[a] += 1
+            x[b] += 1
+            out.append(tuple(x))
+        return sorted(out)
+    if isinstance(sector, tuple) and sector[0] == 'k':
+        return binary_space(sector[1], nports)
+    raise ValueError(sector)
+
+
+def binary_space(k, nports=NPORTS):
+    out = []
+    for c in itertools.combinations(range(nports), k):
+        x = [0] * nports
+        for p in c:
+            x[p] = 1
+        out.append(tuple(x))
+    return sorted(out)
+
+
+def index(states):
+    return {s: i for i, s in enumerate(states)}
+
+
+def swap_state(x, a, b):
+    y = list(x)
+    y[a], y[b] = y[b], y[a]
+    return tuple(y)
+
+
+def exchange(states, seam):
+    """Integer permutation matrix of the port exchange on the sector."""
+    idx = index(states)
+    n = len(states)
+    P = np.zeros((n, n), dtype=np.int64)
+    a, b = seam
+    for i, x in enumerate(states):
+        P[idx[swap_state(x, a, b)], i] = 1
+    return P
+
+
+def number(states, p):
+    return np.diag(np.array([x[p] for x in states], dtype=np.int64))
+
+
+def rotation_matrix(states, rot):
+    """Permutation matrix of a port rotation: the load at port p goes to port rot[p]."""
+    idx = index(states)
+    n = len(states)
+    R = np.zeros((n, n), dtype=np.int64)
+    for i, x in enumerate(states):
+        y = [0] * len(x)
+        for p, v in enumerate(x):
+            y[rot[p]] = v
+        R[idx[tuple(y)], i] = 1
+    return R
+
+
+# ------------------------------------------------------------------ exact Kraus operators
+class Kraus:
+    __slots__ = ('label', 'A', 'B', 'den', 's')
+
+    def __init__(self, label, A, B=None, den=1, s=0):
+        self.label = label
+        self.A = np.asarray(A, dtype=np.int64)
+        self.B = np.zeros_like(self.A) if B is None else np.asarray(B, dtype=np.int64)
+        self.den = int(den)
+        self.s = int(s)
+
+    def dense(self):
+        K = (self.A + 1j * self.B) / self.den / (R2 ** self.s)
+        return K.real.copy() if not self.B.any() else K
+
+    def prob(self):
+        """Matrix of squared amplitudes as (integer numerator matrix, integer denominator)."""
+        return self.A * self.A + self.B * self.B, self.den * self.den * (2 ** self.s)
+
+    def is_real(self):
+        return not self.B.any()
+
+
+def double_key_mask(states, seam):
+    a, b = seam
+    return np.array([1 if (x[a], x[b]) in ((2, 0), (0, 2)) else 0 for x in states], dtype=np.int64)
+
+
+def split_kraus(states, seam):
+    """|..2_a..0_b..> -> |..1_a..1_b..> and the same from b: the reference split of a double load."""
+    idx = index(states)
+    n = len(states)
+    a, b = seam
+    out = []
+    for tag, (src_a, src_b) in (('split_a', (2, 0)), ('split_b', (0, 2))):
+        A = np.zeros((n, n), dtype=np.int64)
+        for i, x in enumerate(states):
+            if (x[a], x[b]) == (src_a, src_b):
+                y = list(x)
+                y[a], y[b] = 1, 1
+                A[idx[tuple(y)], i] = 1
+        if A.any():
+            out.append(Kraus(tag, A))
+    return out
+
+
+def instrument_exact(member, states, seam):
+    """List of exact Kraus operators of one seam event."""
+    n = len(states)
+    I = np.eye(n, dtype=np.int64)
+    P = exchange(states, seam)
+    mask = double_key_mask(states, seam)
+    keep = np.diag(1 - mask)          # projector on states where the exchange part acts
+    extra = split_kraus(states, seam) if mask.any() else []
+    a, b = seam
+    if member == 'coin':
+        ks = [Kraus('coin0', keep, s=1), Kraus('coin1', P @ keep, s=1)]
+    elif member == 'parity':
+        ks = [Kraus('agree', (I + P) @ keep, den=2), Kraus('disagree', (I - P) @ keep, den=2)]
+    elif member == 'corrected':
+        Zb = np.diag(np.array([(-1) ** x[b] for x in states], dtype=np.int64))
+        ks = [Kraus('agree', (I + P) @ keep, den=2), Kraus('disagree', Zb @ (I - P) @ keep, den=2)]
+    elif member == 'sqrtswap':
+        ks = [Kraus('u', keep, P @ keep, s=1)]
+    else:
+        raise ValueError(member)
+    return [k for k in ks if k.A.any() or k.B.any()] + extra
+
+
+def instrument(member, states, seam):
+    return [(k.label, k.dense()) for k in instrument_exact(member, states, seam)]
+
+
+# ------------------------------------------------------------------ reference rule
+def reference_counts(states, seam):
+    """Integer matrix C[y, x] = number of coins (0..2) that send x to y under the reference rule."""
+    idx = index(states)
+    n = len(states)
+    C = np.zeros((n, n), dtype=np.int64)
+    for i, x in enumerate(states):
+        for coin in (0, 1):
+            y, _ = native.native(x, seam, coin)
+            C[idx[tuple(y)], i] += 1
+    return C
+
+
+def shadow_exact(member, states, seam):
+    """True when sum_i |<y|K_i|x>|^2 equals the reference law for every x, y (integer arithmetic)."""
+    C = reference_counts(states, seam)
+    ks = instrument_exact(member, states, seam)
+    dens = [k.prob()[1] for k in ks]
+    common = math.lcm(*dens)
+    tot = sum(k.prob()[0] * (common // d) for k, d in zip(ks, dens))
+    return bool(np.array_equal(2 * tot, C * common))
+
+
+# ------------------------------------------------------------------ superoperators (row-major vec)
+def superop(kraus_dense):
+    """Sparse matrix of rho -> sum K rho K^dagger on vec(rho) (row-major)."""
+    out = None
+    for K in kraus_dense:
+        Ks = sp.csr_matrix(K)
+        term = sp.kron(Ks, Ks.conj(), format='csr')
+        out = term if out is None else out + term
+    return out
+
+
+def seam_average(member, states, seams=SEAMS):
+    out = None
+    for e in seams:
+        S = superop([K for _, K in instrument(member, states, e)])
+        out = S if out is None else out + S
+    return (out / len(seams)).tocsr()
+
+
+def laplacian(nports=NPORTS, seams=SEAMS):
+    L = np.zeros((nports, nports))
+    for a, b in seams:
+        L[a, a] += 1
+        L[b, b] += 1
+        L[a, b] -= 1
+        L[b, a] -= 1
+    return L
+
+
+def adjacency(nports=NPORTS, seams=SEAMS):
+    A = np.zeros((nports, nports))
+    for a, b in seams:
+        A[a, b] = A[b, a] = 1
+    return A
+
+
+def band_projectors():
+    """Projectors on the bands 1, 3, 5, 3' of the port space (adjacency eigenvalues 5, sqrt5, -1, -sqrt5)."""
+    A = adjacency()
+    w, v = np.linalg.eigh(A)
+    s5 = 5 ** 0.5
+    out = {}
+    for name, val in (('1', 5.0), ('3', s5), ('5', -1.0), ("3'", -s5)):
+        sel = np.abs(w - val) < 1e-9
+        out[name] = v[:, sel] @ v[:, sel].T
+    return out
+
+
+# ------------------------------------------------------------------ partial trace on occupation bases
+def reduced_state(rho, states, subset):
+    """Reduced density matrix on the ports of `subset` (all local load patterns that occur)."""
+    subset = tuple(subset)
+    rest = tuple(p for p in range(len(states[0])) if p not in subset)
+    keyA = [tuple(x[p] for p in subset) for x in states]
+    keyB = [tuple(x[p] for p in rest) for x in states]
+    labelsA = sorted(set(keyA))
+    ia = {k: i for i, k in enumerate(labelsA)}
+    groups = {}
+    for i, kb in enumerate(keyB):
+        groups.setdefault(kb, []).append(i)
+    out = np.zeros((len(labelsA), len(labelsA)), dtype=complex)
+    for members in groups.values():
+        rows = np.array([ia[keyA[i]] for i in members])
+        sub = rho[np.ix_(members, members)]
+        out[np.ix_(rows, rows)] += sub
+    return out, labelsA
+
+
+def entropy(p):
+    p = np.asarray(p, dtype=float)
+    p = p[p > 1e-14]
+    return float(-(p * np.log(p)).sum())
+
+
+def hypergeom(n, m, k):
+    """P(j quanta in a subset of m ports | k quanta on n ports), exact fractions."""
+    tot = math.comb(n, k)
+    return [Fraction(math.comb(m, j) * math.comb(n - m, k - j), tot) for j in range(0, min(m, k) + 1)]
+
+
+# ------------------------------------------------------------------ Lie closure
+def lie_closure(gens, tol=1e-9, cap=4000):
+    """Real Lie algebra generated by the given matrices (bracket new elements with generators only).
+
+    Returns (dimension, centre dimension, list of basis matrices)."""
+    gens = [np.asarray(G, dtype=complex) for G in gens]
+    n = gens[0].shape[0]
+    Q = np.zeros((0, 2 * n * n))
+    elems = []
+
+    def vec(X):
+        return np.concatenate([X.real.ravel(), X.imag.ravel()])
+
+    def add(X):
+        nonlocal Q
+        v = vec(X)
+        nv = np.linalg.norm(v)
+        if nv < tol:
+            return False
+        r = v - Q.T @ (Q @ v) if len(Q) else v
+        r = r - Q.T @ (Q @ r) if len(Q) else r
+        if np.linalg.norm(r) > tol * max(1.0, nv):
+            Q = np.vstack([Q, r / np.linalg.norm(r)])
+            elems.append(X)
+            return True
+        return False
+
+    frontier = []
+    for G in gens:
+        if add(G):
+            frontier.append(G)
+    while frontier and len(elems) < cap:
+        new = []
+        for X in frontier:
+            for G in gens:
+                Z = X @ G - G @ X
+                if add(Z):
+                    new.append(Z)
+        frontier = new
+    dim = len(elems)
+    # centre: c with sum_k c_k [E_k, G] = 0 for all generators G
+    rows = []
+    for G in gens:
+        rows.append(np.array([vec(E @ G - G @ E) for E in elems]).T)
+    Mx = np.vstack(rows)
+    sv = np.linalg.svd(Mx, compute_uv=False)
+    centre = dim - int((sv > 1e-7 * max(1.0, sv[0])).sum())
+    return dim, centre, elems
+
+
+def killing_signature(elems):
+    """Signature (pos, neg, zero) of the trace form Tr(X Y) on a real basis of matrices."""
+    G = np.array([[np.trace(X @ Y).real for Y in elems] for X in elems])
+    w = np.linalg.eigvalsh((G + G.T) / 2)
+    return int((w > 1e-9).sum()), int((w < -1e-9).sum()), int((np.abs(w) <= 1e-9).sum())

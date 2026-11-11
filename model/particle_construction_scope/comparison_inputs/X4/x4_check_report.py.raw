@@ -1,0 +1,86 @@
+"""X4: check that every decimal number of GENERATIONS_REPORT.md is a number of the result files, to its printed
+precision, and that the integer facts quoted there equal the stored values. Run after x4_table.py.
+
+  python RL/work/X4/x4_check_report.py [text file ...]      (default: GENERATIONS_REPORT.md)
+"""
+import json
+import os
+import re
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+files = ['generations.json', 'code.json', 'triplet.json', 'walk.json', 'z3.json', 'flux.json', 'routing.json']
+data = {f: json.load(open(os.path.join(HERE, f))) for f in files}
+num = re.compile(r'(?<![\w.])[-+]?\d+\.\d+(?:e-?\d+)?')
+
+pool = set()
+def walk(o):
+    if isinstance(o, bool):
+        return
+    if isinstance(o, (int, float)):
+        pool.add(float(o))
+    elif isinstance(o, str):
+        for m in num.findall(o):
+            pool.add(float(m))
+    elif isinstance(o, dict):
+        for k, v in o.items():
+            walk(k); walk(v)
+    elif isinstance(o, (list, tuple)):
+        for v in o:
+            walk(v)
+for d in data.values():
+    walk(d)
+pool_list = sorted(pool)
+
+def matches(tok):
+    x = float(tok)
+    body = tok.lstrip('+-')
+    if 'e' in body:
+        return any(p != 0 and abs(abs(p) - abs(x)) <= 0.06 * abs(x) for p in pool_list)
+    k = len(body.split('.')[1])
+    tol = 0.5 * 10 ** (-k) * (1 + 1e-9)
+    signed = tok[0] in '+-'
+    return any((abs(p - x) <= tol) if signed else (abs(abs(p) - x) <= tol) for p in pool_list)
+
+status = 0
+for path in (sys.argv[1:] or [os.path.join(HERE, 'GENERATIONS_REPORT.md')]):
+    text = open(path).read()
+    toks = num.findall(text)
+    bad = sorted({t for t in toks if not matches(t)})
+    print(f'{os.path.basename(path)}: {len(toks)} decimal numbers, {len(set(toks))} distinct, not found in the result files: {bad}')
+    status |= bool(bad)
+
+# integer facts quoted in the report
+g, c, t, w, z, fl, r = (data[f] for f in files)
+si = w['second_index_of_the_regular_representation']
+per = r['period_of_two_ticks']; osm = r['copies_with_an_ordered_source_of_mass']['reference_engine_runs']
+facts = {
+    'discriminant blocks: 288 entries equal': w['discriminant_blocks_on_the_public_executable']['all_288_entries_equal'] is True,
+    'second action: 2 of 12 translations commute, the other one is the antipodal map': (si['second_translations_commuting_with_the_adjacency'], si['of'],
+                                                                                 si['the_commuting_one_is_a_half_turn_whose_translation_is_the_antipodal_map']) == (2, 12, True),
+    'commutant of the responses on the code: dimension 2': c['commutant_of_the_twelve_responses_on_C5']['total'] == 2,
+    '12 sectors, 11 distinct multiplets, largest multiplicity 2': (c['gauge_multiplets_of_one_code']['sectors'], c['gauge_multiplets_of_one_code']['distinct'],
+                                                                   c['gauge_multiplets_of_one_code']['largest_multiplicity']) == (12, 11, 2),
+    'Z3 holonomy at 12 vertices, order 3, levels 0 to 4': all(l['vertices_with_nontrivial_holonomy'] == 12 and l['holonomy_group_order'] == 3 for l in z['levels']) and len(z['levels']) == 5,
+    'Z3 charge sectors of the code: 12, 10, 10': [c['candidate_c_on_the_code']['patterns_per_charge'][k] for k in '012'] == [12, 10, 10],
+    'walk sectors: multiplicities 3, 5, 3 and five distinct nonzero angles': (w['sectors_of_the_carrier_walk']['blank_multiplicities'], w['sectors_of_the_carrier_walk']['distinct_nonzero_angles_both_records']) == ([3, 5, 3], 5),
+    'face pairs at separation 2 to 5: 60, 60, 30, 10': [fl['separation_classes']['by_dual_distance'][str(d)]['pairs'] for d in (2, 3, 4, 5)] == [60, 60, 30, 10],
+    'period: 32 points with +1, 32 with -1': (per['points_with_W2_plus_one'], per['points_with_W2_minus_one']) == (32, 32),
+    'one source cell: 8 lifted, 120 at zero; 4 cells of a kind': (osm['one cell']['lifted'], osm['one cell']['rest_states_left_at_zero'], r['copies_with_an_ordered_source_of_mass']['cells_of_one_kind_on_this_lattice']) == (8, 120, 4),
+    'simulation session 8^3: 8 lifted': r['copies_with_an_ordered_source_of_mass']['simulation_session_8cubed']['1']['lifted'] == 8,
+    'five frames: orbits 3 + 1 + 1 under a face': t['five_frames_orbits']['orbits']['face third-turns'] == [3, 1, 1],
+    'conjugate code locked: 23 dimensions; code alone 12': (t['galois_conjugate_code']['code_and_conjugate_code_locked_port_by_port']['closure'],
+                                                           t['port_load_on_the_conjugate_triplet']['responses_on_the_code_alone']['closure']) == (23, 12),
+    'port load on the copies: 20 dimensions, cubic sum 16': (t['port_load_on_the_conjugate_triplet']['responses_plus_load_on_the_conjugate_triplet']['closure'],
+                                                             c['gauged_conjugate_triplet']['cubic_sum_if_the_copies_were_a_gauged_SU3_triplet']) == (20, 16),
+    'generator orders 2, 3, 3, 3, 3': si['generators_orders'] == [2, 3, 3, 3, 3],
+    'frame seams on the axes: 0, 2, 2': sorted(w['three_copies_in_one_klein_character']['characters'][0]['frame_seam_laplacian_in_the_rectangle_basis'][i][i] for i in range(3)) == ['0', '2', '2'],
+    'tick symmetry: 8 of 24 lifts': (r['rotation_symmetry_of_the_tick']['lifts_commuting_with_the_period'], r['rotation_symmetry_of_the_tick']['lifts_tested']) == (8, 24),
+    'golden pattern: 30 pairs': t['golden_pattern']['port_frame_pairs'] == 30,
+    'ranking: f first, ab second': [x['id'] for x in g['ranking'][:2]] == ['f', 'ab'],
+    'scores': {x['id']: x['score'] for x in g['ranking']} == {'f': 5.5, 'ab': 5.0, 'g': 4.0, 'c': 3.5, 'd': 3.5, 'i': 3.5, 'b': 2.5, 'h': 1.5, 'a': 1.0, 'e': 0.5, 'j': 0.0},
+}
+for k, v in facts.items():
+    print(('ok   ' if v else 'FAIL ') + k)
+    status |= (not v)
+sys.exit(status)

@@ -1,0 +1,192 @@
+"""Task 2, one load: exact stationary state, 3 x 3 orbital matrix, uniqueness data and exact spectrum of the
+unread CAP channel at flux k (default 1, 2, 3, 7).
+
+Structure used (proved in PROOFS.md, verified here on the actual rows):
+  Phi(X) = X - (L X + X L)/60 + (1/30) sum_p Tr(Lambda_p X) N_p,   L = 5 - A_k,  Lambda_p = sum_{e at p} pi_e^-.
+On the commutant of the cover action (functions of A_k):  Phi(X) = (1 - L/30) X + Tr(L X)/360.
+Every eigenvalue of Phi is a bare value tau_jj' = 1 - (l_j + l_j')/60 or a root of one of four secular polynomials
+S_rho, rho in {1, 3, 3', 5} (the port-function multiplets).
+"""
+import json, sys, time
+from fractions import Fraction as F
+import mpmath
+import numpy as np
+from cyc import Cyc, ZERO, ONE, Z, SQRT5, R18, q5, mat, eye, mmul, madd, mscale, dagger, mtrace, meq, mzero, to_numpy
+import carrier_exact as ce
+import oneload as ol
+
+N = 12
+fluxes = [int(x) for x in sys.argv[2:]] or [1, 2, 3, 7]
+out = {}
+
+# port-function multiplets: spectral projectors of the untwisted adjacency
+A0 = ce.twisted_adjacency(0)
+spec0 = ol.spectrum(A0)
+E0 = ol.projectors(A0, spec0)
+names0 = {5: '1', 1: None, 3: None}
+port_irreps = []
+for (a, m), E in zip(spec0, E0):
+    label = {q5(5): '1', SQRT5: '3', -SQRT5: "3'", q5(-1): '5'}[a]
+    port_irreps.append((label, m, E))
+
+for k in fluxes:
+    t0 = time.time()
+    A = ce.twisted_adjacency(k)
+    assert meq(A, dagger(A))
+    spec = ol.spectrum(A)
+    P = ol.projectors(A, spec)
+    L = madd(mscale(eye(N), Cyc.of(5)), A, -1)
+    ell = [Cyc.of(5) - a for a, _ in spec]
+    mult = [m for _, m in spec]
+    J = len(spec)
+    rows = ol.kraus_dense(k)
+
+    # --- channel on the commutant: exact matrix in the basis of isotypic projectors
+    Mx = [[None] * J for _ in range(J)]
+    for j in range(J):
+        img = ol.channel(rows, P[j])
+        # formula: (1 - L/30) P_j + Tr(L P_j)/360
+        formula = madd(mscale(P[j], ONE - ell[j] / 30), mscale(eye(N), ell[j] * mult[j] / 360))
+        assert meq(img, formula), 'commutant formula'
+        for i in range(J):
+            Mx[i][j] = (ONE - ell[j] / 30 if i == j else ZERO) + ell[j] * mult[j] / 360
+    # --- stationary state rho = L^-1 / Tr L^-1, verified on the actual rows
+    assert all(l.sign() > 0 for l in ell), 'L = 5 - A_k is not positive definite'
+    Zn = sum((Cyc.of(m) / l for m, l in zip(mult, ell)), ZERO)
+    levels = [(l * Zn).inv() for l in ell]
+    rho = mat(N, N)
+    for x, Pj in zip(levels, P):
+        rho = madd(rho, mscale(Pj, x))
+    assert meq(ol.channel(rows, rho), rho) and mtrace(rho) == 1
+    assert all(rho[p][p] == Cyc.of(F(1, 12)) for p in range(N))
+    assert meq(mmul(rho, L), mscale(eye(N), Zn.inv()))
+    lead = max(range(J), key=lambda j: levels[j].mp(40).real)
+    order = sorted(range(J), key=lambda j: -levels[j].mp(40).real)
+    gap = mpmath.log(levels[order[0]].mp(40).real / levels[order[1]].mp(40).real)
+
+    # --- secular polynomials
+    Lam0 = mat(N, N)
+    for q in ce.NBR[0]:
+        z = ce.link(0, q, k)
+        # pi^-_e for the oriented seam (0, q): (|0> - z|q>)(<0| - conj(z)<q|)/2
+        Lam0[0][0] = Lam0[0][0] + F(1, 2); Lam0[q][q] = Lam0[q][q] + F(1, 2)
+        Lam0[q][0] = Lam0[q][0] - z / 2; Lam0[0][q] = Lam0[0][q] - z.conj() / 2
+    tau = {}
+    for j in range(J):
+        for jp in range(J):
+            tau[(j, jp)] = ONE - (ell[j] + ell[jp]) / 60
+    taus = []
+    for v in tau.values():
+        if v not in taus:
+            taus.append(v)
+    taus.sort(key=lambda v: -v.mp(40).real)
+    Y = {(j, jp): mmul(mmul(P[jp], Lam0), P[j]) for j in range(J) for jp in range(J)}
+    secular = {}
+    for label, d, E in port_irreps:
+        C = {t: ZERO for t in taus}
+        for (j, jp), Yjj in Y.items():
+            c = ZERO
+            for q in range(N):
+                if not E[q][0].is_zero():
+                    c = c + E[q][0] * Yjj[q][q]
+            C[tau[(j, jp)]] = C[tau[(j, jp)]] + c * F(12, d)
+        active = [t for t in taus if not C[t].is_zero()]
+        # S(x) = prod_t (t - x) + (1/30) sum_t C_t prod_{t' != t} (t' - x), over the active bare values
+        S = [ZERO]
+        full = [ONE]
+        for t in active:
+            full = ol.poly_mul(full, [t, -ONE])
+        S = full
+        for t in active:
+            term = [C[t] / 30]
+            for t2 in active:
+                if t2 != t:
+                    term = ol.poly_mul(term, [t2, -ONE])
+            S = ol.poly_add(S, term)
+        lead_c = S[-1]
+        S = [c / lead_c for c in S]                    # monic
+        assert all(c.is_real() for c in S)
+        secular[label] = dict(poly=S, active=active, C=C)
+
+    # --- assemble the predicted spectrum and compare with the float superoperator (MEASURED cross-check)
+    Kf = [[to_numpy(K) for K in seam_rows] for seam_rows in rows]
+    Sup = sum(np.kron(K, K.conj()) for seam_rows in Kf for K in seam_rows) / len(Kf)
+    ev_float = np.linalg.eigvals(Sup)
+    Pf = [to_numpy(p) for p in P]
+    predicted = []
+    # multiplicity of each bare value = dim of sum of blocks P_j M P_j' with that tau, minus the secular roots that replace it
+    bare_dim = {t: 0 for t in taus}
+    for (j, jp), t in tau.items():
+        bare_dim[t] += mult[j] * mult[jp]
+    removed = {t: 0 for t in taus}
+    sec_roots = {}
+    for label, d, E in port_irreps:
+        S = secular[label]['poly']
+        roots = ol.poly_roots_mp(S, 40)
+        sec_roots[label] = roots
+        for t in secular[label]['active']:
+            removed[t] += d
+        predicted += [complex(r)] * d * 1 if False else []
+        for r in roots:
+            predicted += [complex(r)] * d
+    for t in taus:
+        predicted += [complex(t)] * (bare_dim[t] - removed[t])
+    assert len(predicted) == 144, len(predicted)
+    pred = np.array(predicted)
+    # greedy matching of the two multisets
+    remaining = list(ev_float); worst = 0.0
+    for v in pred:
+        i = int(np.argmin([abs(v - w) for w in remaining])); worst = max(worst, abs(v - remaining[i])); remaining.pop(i)
+    all_real = max(abs(complex(r).imag) for rs in sec_roots.values() for r in rs)
+    moduli = sorted((abs(v) for v in pred), reverse=True)
+    second = moduli[1]
+    # which object carries the second eigenvalue
+    where = None
+    for label, rs in sec_roots.items():
+        for r in rs:
+            if abs(abs(complex(r)) - second) < 1e-12:
+                where = ('secular', label, r)
+    for t in taus:
+        if bare_dim[t] - removed[t] > 0 and abs(abs(complex(t)) - second) < 1e-12:
+            where = ('bare', ol.show(t), t)
+
+    res = {
+        'flux': k,
+        'twisted_adjacency_eigenvalues': [{'value': ol.show(a), 'float': float(a.mp(30).real), 'multiplicity': m} for a, m in spec],
+        'commutant_matrix_M[i][j]_in_projector_basis': [[ol.show(x) for x in row] for row in Mx],
+        'commutant_matrix_rule': 'M_ij = delta_ij (1 - l_j/30) + l_j m_j / 360, l_j = 5 - a_j, m_j the multiplicity',
+        'stationary_density': 'rho = (5 - A_k)^(-1) / Tr (5 - A_k)^(-1); verified with the actual rows: Phi(rho) = rho, diagonal 1/12',
+        'normalisation_Tr_Linv': ol.show(Zn),
+        'stationary_levels': [{'multiplicity': mult[j], 'exact': ol.show(levels[j]), 'float': float(levels[j].mp(30).real),
+                               'weight_float': float((levels[j] * mult[j]).mp(30).real), 'weight_exact': ol.show(levels[j] * mult[j])} for j in order],
+        'modular_gap_leading_to_next_float': float(gap),
+        'modular_gap_exact': f'log(({ol.show(ell[order[1]])}) / ({ol.show(ell[order[0]])}))',
+        'bare_values': [{'tau': ol.show(t), 'float': float(t.mp(30).real), 'multiplicity_in_spectrum': bare_dim[t] - removed[t]} for t in taus],
+        'secular': {label: {'monic_polynomial_low_to_high': [ol.show(c) for c in secular[label]['poly']],
+                            'degree': len(secular[label]['poly']) - 1,
+                            'roots_float': sorted([float(complex(r).real) for r in sec_roots[label]], reverse=True),
+                            'max_imag_part': float(max(abs(complex(r).imag) for r in sec_roots[label])),
+                            'multiplicity_of_each_root': d}
+                    for (label, d, E) in port_irreps},
+        'spectrum_cross_check_float_superoperator_max_deviation': float(worst),
+        'second_eigenvalue_modulus_float': float(second),
+        'second_eigenvalue_source': [where[0], where[1], mpmath.nstr(where[2] if where[0] == 'secular' else where[2].mp(40).real, 30)],
+        'seconds': time.time() - t0,
+    }
+    out[f'flux_{k}'] = res
+    print(f'flux {k}: adjacency spectrum', ', '.join(f"{ol.show(a)} (x{m})" for a, m in spec))
+    print('   stationary levels:', '; '.join(f"{ol.show(levels[j])} = {float(levels[j].mp(30).real):.9f} (x{mult[j]})" for j in order))
+    print(f'   leading weight {float((levels[order[0]] * mult[order[0]]).mp(30).real):.9f}, modular gap {float(gap):.9f}')
+    print('   commutant matrix M:', [[ol.show(x) for x in row] for row in Mx])
+    for label, d, E in port_irreps:
+        print(f'   secular[{label}] degree {len(secular[label]["poly"]) - 1}: roots', [mpmath.nstr(r, 12) for r in sorted(sec_roots[label], key=lambda r: -complex(r).real)])
+    print(f'   predicted spectrum vs float superoperator: max deviation {worst:.2e}; second eigenvalue modulus {second:.12f} from {where[0]} {where[1]}; {time.time() - t0:.1f}s')
+    out[f'flux_{k}']['_secular_objects'] = None
+    # keep exact polynomial objects for the follow-up script
+    import pickle
+    pickle.dump({'spec': spec, 'secular': {lab: secular[lab]['poly'] for lab in secular}, 'taus': taus,
+                 'active': {lab: secular[lab]['active'] for lab in secular}, 'levels': levels, 'mult': mult},
+                open(sys.argv[1].replace('.json', f'_flux{k}.pkl'), 'wb'))
+for v in out.values():
+    v.pop('_secular_objects', None)
+json.dump(out, open(sys.argv[1], 'w'), indent=1)

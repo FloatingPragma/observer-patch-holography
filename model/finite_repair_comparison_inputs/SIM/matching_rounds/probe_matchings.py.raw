@@ -1,0 +1,58 @@
+import numpy as np
+import sys, pathlib; sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "lib"))
+from lie_tools import *
+V, E, F = icosahedron()
+cl = octahedral_classes(V, E)
+print('edges', len(E), 'faces', len(F), 'classes', [len(c) for c in cl])
+def perm(e_list):
+    S = np.zeros((12, 12))
+    for i in e_list:
+        a, b = E[i]; S[a, b] = S[b, a] = 1
+    return S
+S = [perm(c) for c in cl]
+print('each class is a perfect matching:', [bool(np.allclose(s.sum(0), 1)) for s in S])
+A = sum(S)
+anti = np.zeros((12, 12))
+for p in range(12):
+    q = int(np.argmin(np.linalg.norm(V + V[p], axis=1))); anti[p, q] = 1
+print('matchings commute with antipode:', [bool(np.allclose(s @ anti, anti @ s)) for s in S])
+w, U = np.linalg.eigh(anti)
+odd = U[:, w < 0]; even = U[:, w > 0]
+for name, P in (('full C^12', np.eye(12)), ('odd sector', odd), ('even sector', even)):
+    gens = [1j * (P.T @ s @ P) for s in S]
+    mats, dims = lie_closure(gens)
+    print(name, 'matchings: closure dims', dims, 'centre', centre_dim(mats), 'killing (neg,zero,pos)', killing_signature(mats))
+for name, P in (('full C^12', np.eye(12)), ('odd sector', odd), ('even sector', even)):
+    gens = []
+    for a, b in E:
+        T = np.zeros((12, 12)); T[a, b] = T[b, a] = 1
+        gens.append(1j * (P.T @ T @ P))
+    mats, dims = lie_closure(gens)
+    print(name, 'single seam hops: closure dims', dims, 'centre', centre_dim(mats))
+# port-indexed star operators
+for name, P in (('full C^12', np.eye(12)), ('odd sector', odd), ('even sector', even)):
+    gens = []
+    for p in range(12):
+        T = np.zeros((12, 12))
+        for a, b in E:
+            if p in (a, b):
+                T[a, b] = T[b, a] = 1
+        gens.append(1j * (P.T @ T @ P))
+    r = np.linalg.matrix_rank(np.array([np.concatenate([g.real.ravel(), g.imag.ravel()]) for g in gens]), tol=1e-9)
+    mats, dims = lie_closure(gens)
+    print(name, 'port stars: rank', r, 'closure dims', dims, 'centre', centre_dim(mats))
+# Floquet unitary of the five matchings at pulse pi/4, all 120 orders -> distinct spectra
+import itertools, scipy.linalg as sl
+phi = np.pi / 4
+Uk = [sl.expm(-1j * phi * s) for s in S]
+spectra = {}
+for order in itertools.permutations(range(5)):
+    U_ = np.eye(12, dtype=complex)
+    for k in order:
+        U_ = Uk[k] @ U_
+    ph = np.sort(np.angle(np.linalg.eigvals(U_)))
+    key = tuple(np.round(ph, 6))
+    spectra.setdefault(key, []).append(order)
+print('distinct Floquet spectra over the 120 orders:', len(spectra))
+for key, orders in list(spectra.items())[:6]:
+    print(len(orders), 'orders; eigenphases/pi:', np.round(np.array(key) / np.pi, 4))

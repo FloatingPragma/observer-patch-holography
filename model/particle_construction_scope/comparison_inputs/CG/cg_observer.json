@@ -1,0 +1,241 @@
+{
+ "source_edge_generator_audit": {
+  "proper_rotation_group_order": 60,
+  "conjugacy_class_sizes": [
+   1,
+   12,
+   12,
+   15,
+   20
+  ],
+  "inverse_symmetric_class": true,
+  "exact_generator": "L=6I-(1/2)sum_(g in C) U_g; K_12=I-L/60",
+  "ordered_pair_orbit_sizes": [
+   12,
+   12,
+   60,
+   60
+  ],
+  "commutant_dimension": 4,
+  "characteristic_polynomial": "x*(x-6)^5*(x^2-10*x+20)^3",
+  "irreducible_sector_ranks": [
+   1,
+   3,
+   5,
+   3
+  ],
+  "sector_eigenvalues": [
+   "0",
+   "5-sqrt(5)",
+   "6",
+   "5+sqrt(5)"
+  ],
+  "group_image_algebra_dimension": 44,
+  "full_regular_group_algebra_dimension": 60,
+  "opposite_class_control": {
+   "same_spectrum": true,
+   "tested_native_seam": [
+    0,
+    1
+   ],
+   "native_one_attempt_transition": "1/60",
+   "other_class_one_attempt_transition": "0"
+  },
+  "conditional_Gibbs_sector_law": "p_R=d_R*exp(-t*lambda_R)/Z if rho=exp(-t*L)/Z is assigned",
+  "density_representation_trace_sector_probabilities": [
+   "1/12",
+   "1/4",
+   "5/12",
+   "1/4"
+  ],
+  "Poissonized_native_density_identity": "E[K_12^N]=exp(-t*L), N~Poisson(60*t)",
+  "Poisson_parameter_is_a_physical_clock": false,
+  "nontracial_Gibbs_state_prepared_by_this_audit": false,
+  "complete_native_instrument_is_group_convolution": false,
+  "native_gauge_collar_or_full_group_sewing_identified": false,
+  "compact_group_refinement_or_worldsheet_limit_proved": false
+ },
+ "module": {
+  "seams": 30,
+  "projector_ranks": {
+   "0": "1",
+   "5 - sqrt(5)": "3",
+   "6": "5",
+   "sqrt(5) + 5": "3"
+  },
+  "projectors_idempotent": true,
+  "projectors_complete": true,
+  "diagonal_of_each_projector": {
+   "0": [
+    "1/12"
+   ],
+   "5 - sqrt(5)": [
+    "1/4"
+   ],
+   "6": [
+    "5/12"
+   ],
+   "sqrt(5) + 5": [
+    "1/4"
+   ]
+  }
+ },
+ "irrep_multiplicities_in_twelve_port_module": {
+  "1": "1",
+  "3": "1",
+  "3'": "1",
+  "4": "0",
+  "5": "1"
+ },
+ "irrep_multiplicities_in_regular_module": {
+  "1": "1",
+  "3": "3",
+  "3'": "3",
+  "4": "4",
+  "5": "5"
+ },
+ "tracial_sector_law": {
+  "twelve_port_module": {
+   "1": "1/12",
+   "3": "1/4",
+   "3'": "1/4",
+   "4": "0",
+   "5": "5/12"
+  },
+  "regular_module_of_the_rotation_group": {
+   "1": "1/60",
+   "3": "3/20",
+   "3'": "3/20",
+   "4": "4/15",
+   "5": "5/12"
+  },
+  "statement": "the twelve-port module holds each present irrep once (power 1); the regular module holds R d_R times (power 2) (EXACT)"
+ },
+ "repair_state": {
+  "K12_nonnegative": true,
+  "K12_doubly_stochastic": true,
+  "stationary_law": "uniform on the twelve ports",
+  "sector_law_of_an_arbitrary_classical_port_law": {
+   "0": "1/12",
+   "5 - sqrt(5)": "1/4",
+   "6": "5/12",
+   "sqrt(5) + 5": "1/4"
+  },
+  "statement": "native repair is doubly stochastic; every classical port law, the stationary one included, has p_R = d_R/12: weight power 1, exponent 0 (EXACT)"
+ },
+ "poissonized_semigroup": {
+  "eigenvalue_identity_E[(1-x/60)^N]": "exp(-t*x)",
+  "sector_law": "Tr(P_R exp(-tL)) = d_R exp(-t lambda_R): power 1, exponent t = mean attempts/60 (EXACT)"
+ },
+ "heralded_filter_of_S-f": {
+  "law": "p_R = d_R (1 - lambda_R/120)^(2n)/Z; n = 2 and t = 1/30 in the source receipt",
+  "per_sector_exponent_over_linear_Casimir_exponent": {
+   "5 - sqrt(5)": {
+    "exponent_ratio_exact": "-120*log(sqrt(5)/120 + 23/24)/(5 - sqrt(5))",
+    "value": 1.0116963317021594
+   },
+   "6": {
+    "exponent_ratio_exact": "-20*log(19/20)",
+    "value": 1.0258658877510107
+   },
+   "sqrt(5) + 5": {
+    "exponent_ratio_exact": "-120*log(23/24 - sqrt(5)/120)/(sqrt(5) + 5)",
+    "value": 1.0314199360729248
+   }
+  }
+ },
+ "source_prepared_receipt": {
+  "sector_law": "p_R=d_R*(1-t*lambda_R/(2n))^(2n)/sum_S d_S*(1-t*lambda_S/(2n))^(2n)",
+  "limit_sector_ratio": "(p_R/d_R)/(p_S/d_S)=exp[-t*(lambda_R-lambda_S)]",
+  "ideal_family": {
+   "preparation_parameter": "1/30",
+   "successful_heralds": 2,
+   "lazy_weight": "1/2",
+   "spectral_log_error_upper": "1/105",
+   "trace_distance_to_edge_Gibbs_upper": "1/105",
+   "relative_entropy_to_edge_Gibbs_upper": "1/105",
+   "free_entropy_deficit_upper": "1/105",
+   "all_success_probability_lower": "1/12",
+   "physical_seconds_or_modular_time": false
+  }
+ },
+ "native_collar_split": {
+  "rows": {
+   "one_port": {
+    "ports": 1,
+    "crossing_seams": 5,
+    "sectors_by_load_inside": {
+     "0": {
+      "intrinsic_dim": 1,
+      "exterior_multiplicity": 55,
+      "uniform_law": "5/6"
+     },
+     "1": {
+      "intrinsic_dim": 1,
+      "exterior_multiplicity": 11,
+      "uniform_law": "1/6"
+     }
+    }
+   },
+   "seam": {
+    "ports": 2,
+    "crossing_seams": 8,
+    "sectors_by_load_inside": {
+     "0": {
+      "intrinsic_dim": 1,
+      "exterior_multiplicity": 45,
+      "uniform_law": "15/22"
+     },
+     "1": {
+      "intrinsic_dim": 2,
+      "exterior_multiplicity": 10,
+      "uniform_law": "10/33"
+     },
+     "2": {
+      "intrinsic_dim": 1,
+      "exterior_multiplicity": 1,
+      "uniform_law": "1/66"
+     }
+    }
+   },
+   "hemisphere_six_ports": {
+    "ports": 6,
+    "crossing_seams": 10,
+    "sectors_by_load_inside": {
+     "0": {
+      "intrinsic_dim": 1,
+      "exterior_multiplicity": 15,
+      "uniform_law": "5/22"
+     },
+     "1": {
+      "intrinsic_dim": 6,
+      "exterior_multiplicity": 6,
+      "uniform_law": "6/11"
+     },
+     "2": {
+      "intrinsic_dim": 15,
+      "exterior_multiplicity": 1,
+      "uniform_law": "5/22"
+     }
+    }
+   },
+   "eleven_ports": {
+    "ports": 11,
+    "crossing_seams": 5,
+    "sectors_by_load_inside": {
+     "1": {
+      "intrinsic_dim": 11,
+      "exterior_multiplicity": 1,
+      "uniform_law": "1/6"
+     },
+     "2": {
+      "intrinsic_dim": 55,
+      "exterior_multiplicity": 1,
+      "uniform_law": "5/6"
+     }
+    }
+   }
+  },
+  "statement": "under the native uniform law on the 66 states (constant total two) a cap's side has the sector law (intrinsic dim) x (exterior multiplicity): one power of its own count, the exterior count acting as the Boltzmann factor of check C7 (EXACT)"
+ }
+}

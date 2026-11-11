@@ -1,0 +1,133 @@
+"""Native (i): the bare law. One quantum and two quanta on a ring, on the triangular torus and on one carrier.
+
+The chain is built with the reference function model.observer.native.native(loads, seam, coin). M = number of seams,
+E = M (1 - eigenvalue of the one-attempt matrix), unit 1 / sweep.
+"""
+import itertools, json, sys
+from pathlib import Path
+import numpy as np
+from model.observer import native
+from model.transported_contrast import law
+import readouts as R
+
+HERE = Path(__file__).resolve().parent
+out = {}
+
+
+def chain(ports, seams, starts):
+    M = len(seams)
+
+    def moves(x):
+        for seam in seams:
+            for coin in (0, 1):
+                yield 1.0 / (2 * M), native.native(x, seam, coin)[0]
+    return R.enumerate_chain(starts, moves)
+
+
+def unit(ports, where):
+    x = [0] * ports
+    for p in where:
+        x[p] += 1
+    return tuple(x)
+
+
+# ------------------------------------------------------------------ ring
+rows = []
+for L in (6, 8, 12, 16):
+    seams = [(i, (i + 1) % L) for i in range(L)]
+    shift = [(p + 1) % L for p in range(L)]
+    for quanta in (1, 2):
+        starts = [unit(L, c) for c in itertools.combinations(range(L), quanta)]
+        if quanta == 2:
+            starts += [unit(L, (p, p)) for p in range(L)]              # doubly loaded ports (transient)
+        states, index, T = chain(L, seams, starts)
+        tr = R.Translations(R.cyclic_group(R.port_perm_action(states, index, shift), L), (L,))
+        bd = R.bands(T, tr, lambda ev: L * (1 - ev))
+        ks = np.array([2 * np.pi * m / L for m in range(L)]); ks = (ks + np.pi) % (2 * np.pi) - np.pi
+        E = np.array([bd[(m,)][0].real for m in range(L)])
+        r2 = R.r2_kinetic(ks, E); sh = R.r1s_shape(ks, E)
+        row = {'L': L, 'quanta': quanta, 'states': len(states), 'max_imag': float(max(np.abs(b.imag).max() for b in bd.values())),
+               'R1_E0': float(E[np.argmin(np.abs(ks))]), 'R2_D': r2['D'], 'R2_m_kin': r2['m_kin'],
+               'largest_slope': R.largest_slope(ks, E), 'R1s_alpha': sh['alpha'], 'R1s_c2': sh['c2']}
+        if quanta == 1:
+            row['band_max_abs_error_vs_1_minus_cos_k'] = float(np.max(np.abs(E - (1 - np.cos(ks)))))
+        else:
+            cont = np.array([min((1 - np.cos(2 * np.pi * a / L)) + (1 - np.cos(2 * np.pi * (m - a) / L)) for a in range(L)) for m in range(L)])
+            row['lowest_band'] = [float(v) for v in E]
+            row['two_quanta_continuum_bottom'] = [float(v) for v in cont]
+            row['bethe_bound_state_half_(1-cos K)'] = [float(v) for v in 0.5 * (1 - np.cos(ks))]
+            row['lowest_is_below_continuum_bottom_by'] = [float(v) for v in cont - E]
+            # the doubly loaded port: flat level
+            flat = [float(min(bd[(m,)].real, key=lambda v: abs(v - 2.0))) for m in range(L)]
+            row['doubly_loaded_level_per_momentum'] = flat
+        rows.append(row)
+        print('RING', {k: (round(v, 6) if isinstance(v, float) else v) for k, v in row.items() if not isinstance(v, list)}, flush=True)
+        if quanta == 2:
+            print('     lowest', np.round(E, 5).tolist(), '\n     continuum bottom', np.round(cont, 5).tolist(),
+                  '\n     bound formula', np.round(0.5 * (1 - np.cos(ks)), 5).tolist(), '\n     level near 2:', np.round(flat, 6).tolist())
+out['ring'] = rows
+
+# ------------------------------------------------------------------ triangular torus
+rows = []
+for N in (3, 4, 6):
+    cx, shift = R.tri_torus(N)
+    seams = cx.seams
+    n = N * N
+    idx = lambda i, j: (i % N) * N + (j % N)
+    px = [idx(i + 1, j) for i in range(N) for j in range(N)]
+    py = [idx(i, j + 1) for i in range(N) for j in range(N)]
+    for quanta in (1, 2):
+        if quanta == 2 and N > 4:
+            continue
+        starts = [unit(n, c) for c in itertools.combinations(range(n), quanta)]
+        if quanta == 2:
+            starts += [unit(n, (p, p)) for p in range(n)]
+        states, index, T = chain(n, seams, starts)
+        ax, ay = R.port_perm_action(states, index, px), R.port_perm_action(states, index, py)
+        perms, cur_x = {}, np.arange(len(states))
+        for a in range(N):
+            cur = cur_x.copy()
+            for b in range(N):
+                perms[(a, b)] = cur.copy(); cur = ay[cur]
+            cur_x = ax[cur_x]
+        tr = R.Translations(perms, (N, N))
+        M = len(seams)
+        bd = R.bands(T, tr, lambda ev: M * (1 - ev))
+        worst, Ds = 0.0, []
+        for m in tr.momenta():
+            k1, k2 = [(2 * np.pi * v / N + np.pi) % (2 * np.pi) - np.pi for v in m]
+            if quanta == 1:
+                worst = max(worst, abs(bd[m][0].real - ((1 - np.cos(k1)) + (1 - np.cos(k2)) + (1 - np.cos(k1 + k2)))))
+            if m in ((1, 0), (0, 1), (N - 1, 1)):
+                Ds.append(bd[m][0].real / (4 / 3 * (k1 ** 2 + k1 * k2 + k2 ** 2)))
+        flat = sorted({round(float(min(bd[m].real, key=lambda v: abs(v - 6.0))), 9) for m in tr.momenta()}) if quanta == 2 else None
+        row = {'N': N, 'quanta': quanta, 'states': len(states), 'R1_E0': float(bd[(0, 0)][0].real),
+               'R2_D_at_smallest_k_three_directions': [float(v) for v in Ds], 'D_continuum_exact_one_quantum': 0.75,
+               'band_max_abs_error_one_quantum': float(worst) if quanta == 1 else None,
+               'doubly_loaded_levels_found_near_6': flat}
+        rows.append(row); print('TRI ', row, flush=True)
+out['triangular'] = rows
+
+# ------------------------------------------------------------------ one carrier
+seams, faces = law.carrier()
+res = {}
+for quanta in (1, 2):
+    starts = [unit(12, c) for c in itertools.combinations(range(12), quanta)]
+    if quanta == 2:
+        starts += [unit(12, (p, p)) for p in range(12)]
+    states, index, T = chain(12, seams, starts)
+    ev = np.sort((30 * (1 - np.linalg.eigvals(T.toarray()))).real)
+    vals, counts = np.unique(np.round(ev, 8), return_counts=True)
+    res[quanta] = {'states': len(states), 'levels_per_sweep': [float(v) for v in vals], 'multiplicities': [int(c) for c in counts]}
+    print('CARRIER', quanta, 'quanta:', ', '.join(f'{v:.6f} x{c}' for v, c in zip(vals, counts)), flush=True)
+E1 = (5 - 5 ** 0.5) / 2
+radius = np.sin(2 * np.pi / 5)                        # circumradius of the icosahedron with unit edge
+res['angular_readout'] = {'l=1 level': E1, 'l=2 level': 3.0, 'l=3 level': (5 + 5 ** 0.5) / 2,
+                          'D_from_l=1 (E = 2 D / r^2, unit edge)': E1 * radius ** 2 / 2,
+                          'D_from_l=2 (E = 6 D / r^2)': 3.0 * radius ** 2 / 6,
+                          'degree_over_8': 5 / 8,
+                          'statement': 'gap of the sector is zero (stationary state); the triplet gives D = 0.625 edge^2 per sweep = degree / 8; '
+                                       'the doubly loaded port is the level 5 (degree), twelve-fold, immobile'}
+out['carrier'] = res
+print(res['angular_readout'])
+(HERE / 'n_i_bare.json').write_text(json.dumps(out, indent=1))

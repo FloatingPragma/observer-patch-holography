@@ -1,0 +1,154 @@
+"""LP direction 3, item S9: the two-load walk on the twelve-port carrier (sixty addresses, public law) with flat links,
+with the public central link (0,1) and with a class-3 string between the faces f = (4,5,11) and f' = (6,7,8).
+EXACT for dimensions, fixed vectors and limits; spectra MEASURED (float64). Writes lp3b_carrier.json.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import lp_common as L
+from lp3_stationary import project_on, fl
+
+OUT = 'lp3b_carrier.json'
+SECTORS = ('hard-core', 'cycle', 'idle')
+
+
+def dual_path(faces, f_from, f_to):
+    def shared(x, y):
+        s = set(x) & set(y)
+        return tuple(sorted(s)) if len(s) == 2 else None
+    prev = {f_from: None}
+    queue = [f_from]
+    while queue:
+        nxt = []
+        for x in queue:
+            for y in faces:
+                if y not in prev and shared(x, y):
+                    prev[y] = x
+                    nxt.append(y)
+        queue = nxt
+    path = [f_to]
+    while prev[path[-1]] is not None:
+        path.append(prev[path[-1]])
+    path = list(reversed(path))
+    return path, [shared(path[i], path[i + 1]) for i in range(len(path) - 1)]
+
+
+def flux_faces(faces, seams, signs):
+    sidx = {frozenset(e): i for i, e in enumerate(seams)}
+    out = []
+    for f in faces:
+        s = 1
+        for e in ((f[0], f[1]), (f[0], f[2]), (f[1], f[2])):
+            s *= signs.get(sidx[frozenset(e)], 1)
+        if s == -1:
+            out.append(list(f))
+    return out
+
+
+def analyse(name, signs, seams_sorted, faces):
+    m = L.carrier_model(signs)
+    D = m.D()
+    n = m.ncr
+    idx = {s: m.sector_index(s) for s in SECTORS}
+    res = {'faces with class-3 flux': flux_faces(faces, seams_sorted, signs),
+           'sectors (states)': {s: len(idx[s]) for s in SECTORS},
+           'sectors closed': {s: L.closed(D, idx[s]) for s in SECTORS}}
+    fixed, spec = {}, {}
+    for s in ('hard-core', 'cycle'):
+        Ds = L.sub(D, idx[s])
+        ns = L.nullspace(L.minus_identity(Ds))
+        full = []
+        for v in ns:
+            w = [Fr(0)] * n
+            for t, i in enumerate(idx[s]):
+                w[i] = v[t]
+            full.append(w)
+        fixed[s] = full
+        ev = L.eigs(Ds)
+        spec[s] = {'largest': round(float(ev.max()), 12), 'second': round(float(sorted(ev)[-2]), 12),
+                   'smallest': round(float(ev.min()), 12)}
+    res['fixed vectors of D'] = {s: len(fixed[s]) for s in fixed}
+    res['spectrum of D (MEASURED)'] = spec
+    res['lowest value of A = 1 - lambda_max (MEASURED)'] = {s: round(1 - spec[s]['largest'], 12) for s in spec}
+    if len(fixed['cycle']) == 1:
+        v = fixed['cycle'][0]
+        nz = [x for x in v if x]
+        dbl = sum(1 for c in range(len(m.cfg)) if m.is_double(m.cfg[c]) and v[4 * c])
+        res['cycle vacuum'] = {'equal magnitude on its states': len({abs(x) for x in nz}) == 1, 'states': len(nz),
+                               'double-load weight': str(Fr(dbl, len(nz)))}
+    lim = {}
+    for s in ('hard-core', 'cycle'):
+        tot = Fr(0)
+        for c in range(len(m.cfg)):
+            if m.sector(m.cfg[c], 0) == s:
+                e = [Fr(0)] * n
+                e[4 * c] = Fr(1)
+                tot += project_on(fixed[s], e)
+        lim[s] = tot
+    total = lim['hard-core'] + lim['cycle']
+    res['iterated filter on the 78 blank preparations'] = {
+        'limit weight kept, hard-core': str(lim['hard-core']), 'limit weight kept, double loads': str(lim['cycle']),
+        'limit of the conditional weight of the cycle sector': str(lim['cycle'] / total)}
+    return res, m
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP direction 3, S9: carrier', 'provenance': L.FC.provenance()}
+    car = L.FC.carrier()
+    seams = [tuple(s) for s in car['seams']]
+    faces = list(L.FC.faces())
+    path, crossed = dual_path(faces, L.FACE_F, L.FACE_FP)
+    sidx = {frozenset(e): i for i, e in enumerate(seams)}
+    string = {sidx[frozenset(e)]: -1 for e in crossed}
+    out['string from f to f_prime'] = {'faces': [list(x) for x in path], 'seams crossed': [list(x) for x in crossed]}
+    cases = {'flat links': {}, 'public central link (0,1)': {sidx[frozenset((0, 1))]: -1},
+             'class-3 string between f and f_prime': string}
+    models = {}
+    for name, signs in cases.items():
+        res, m = analyse(name, signs, seams, faces)
+        out[name] = res
+        models[name] = m
+        print('=====', name)
+        print(json.dumps(res, indent=1))
+
+    # ---------------- one tick from the uniform bare double load of the carrier, read on the hexagon around the f axis
+    m = models['class-3 string between f and f_prime']
+    st = m.embed({m.cfg_of(p, p): 1 for p in range(12)})
+    w1 = m.W(st)
+    hexs = {frozenset(s): t for s, t in zip(L.HEX_SEAMS, L.HEX_TYPES)}
+    wt = {}
+    for (c, rec, k), a in w1.items():
+        cfg = m.cfg[c]
+        if m.is_double(cfg):
+            key = 'double'
+        else:
+            pp = frozenset(m.ports_of(cfg))
+            a_, b_ = m.pair_at(k)
+            emitter = a_ if rec == 2 else b_
+            if pp in hexs and hexs[pp] == 'E':
+                key = 'in-dimer (hexagon E seams)'
+            elif pp in hexs:
+                key = 'forward (hexagon C seams)' if emitter in L.ORBIT_A else 'backward (hexagon C seams)'
+            else:
+                key = 'emission across the other 24 seams'
+        wt[key] = wt.get(key, Fr(0)) + a * a / (12 * m.NA)
+    p, q = wt['forward (hexagon C seams)'], wt['in-dimer (hexagon E seams)']
+    out['one tick from the uniform double load of the carrier'] = {
+        'weights': {k: str(v) for k, v in sorted(wt.items())},
+        'X for two carriers with separate address registers': str(p + q - 2 * p * q),
+        'inverse tick restores the state': m.Winv(w1) == st}
+    print(json.dumps(out['one tick from the uniform double load of the carrier'], indent=1))
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

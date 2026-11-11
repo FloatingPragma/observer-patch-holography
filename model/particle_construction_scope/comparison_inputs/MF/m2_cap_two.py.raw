@@ -1,0 +1,282 @@
+"""Block 2b: two hard-core quanta in exact arithmetic.
+
+(A) Twisted transfer of flux k = 1..10 on the 66 pairs: isotypic blocks under the rotation group, exact
+    characteristic polynomials, certified leading eigenvalue and its irreducible type.
+(B) CAP at flux 1 (and 7, 2) on the binary shell: exact stationary density in the commutant of the rotation group,
+    exact levels by irreducible type, the type of the leading level.
+(C) The symmetric square of the spinor doublet (hard-core part): its type, its relation to the two-quanta face
+    checks, and its overlap with the leading triplets of (A) and (B) (floating point from the exact matrices).
+Output m2_cap_two.json. Run: python m2_cap_two.py
+"""
+import json, sys, time
+import numpy as np
+from kfield import *
+from capx import *
+
+t0 = time.time()
+ctx.prec = 300
+out = {}
+TYPES = ('1', '3', "3'", '4', '5')
+
+
+def H2(k):
+    H = zeros(66)
+    for (a, b) in X.E:
+        for (p, q) in PAIRS:
+            ina, inb = a in (p, q), b in (p, q)
+            if ina == inb: continue
+            i = pair_index(p, q)
+            src, dst = (a, b) if ina else (b, a)
+            o = q if p == src else p
+            d = pair_index(dst, o)
+            H[i][i] = H[i][i] + 1
+            H[d][i] = H[d][i] - (X.link[(src, dst)] ** k)
+    return H
+
+
+def iso_bases(k):
+    act = lambda g: action_two(g, k)
+    bases = {}
+    for chi in TYPES:
+        Mx, PC = averaged_vectors(act, chi, subgroup_for(chi))
+        cols = column_basis(Mx)
+        bases[chi] = (cols, PC)
+    assert sum(len(bases[c][0]) * DIM[c] for c in TYPES) == 66, [len(bases[c][0]) for c in TYPES]
+    return bases
+
+
+def block_of(Mop, cols):
+    m = len(cols)
+    if m == 0: return []
+    B = [[cols[c][r] for c in range(m)] for r in range(66)]
+    MB = mmul(Mop, B)
+    blk = solve(B, MB)
+    assert meq(mmul(B, blk), MB)
+    return blk
+
+
+def certified_roots(cp):
+    """Roots with multiplicities of a polynomial over K (descending coefficients) with real roots; squarefree split by gcd."""
+    def deriv(p):
+        n = len(p) - 1
+        return [p[i] * (n - i) for i in range(n)]
+    def divmod_(a, b):
+        a = list(a); q = []
+        binv = b[0].inv()
+        while len(a) >= len(b):
+            f = a[0] * binv; q.append(f)
+            for i in range(len(b)):
+                a[i] = a[i] - f * b[i]
+            a.pop(0)
+        while a and a[0].is_zero(): a.pop(0)
+        return q, a
+    def gcd(a, b):
+        while b:
+            _, r = divmod_(a, b)
+            a, b = b, r
+        inv = a[0].inv()
+        return [x * inv for x in a]
+    out = []
+    p = list(cp); mult = 1
+    while len(p) > 1:
+        g = gcd(p, deriv(p))
+        sqf, r = divmod_(p, g)
+        assert not r
+        roots = acb_roots(sqf, prec=400)
+        # roots of g (higher multiplicity) are a subset; count below
+        if len(g) > 1:
+            groots = acb_roots(divmod_(g, gcd(g, deriv(g)))[0], prec=400) if len(g) > 2 else acb_roots(g, prec=400)
+        else:
+            groots = []
+        for r_ in roots:
+            if not any(r_.overlaps(h) for h in groots):
+                out.append((r_, mult))
+        p = g; mult += 1
+        if len(g) > 1:
+            # remaining roots have multiplicity >= mult; continue the loop on g
+            pass
+    return out
+
+
+# ------------------------------------------------------------------ (A) twisted transfer
+resA = {}
+lead_cols = {}
+for k in range(0, 11):
+    Hk = H2(k)
+    assert is_hermitian(Hk)
+    T2 = msub(eye(66), mscale(Kq(1, 60), Hk))
+    bases = iso_bases(k)
+    perm, ph = action_two(ROT[7], k)
+    assert meq(conj_action(T2, perm, ph), T2)
+    spec = []
+    blocks = {}
+    for chi in TYPES:
+        cols, PC = bases[chi]
+        blk = block_of(T2, cols)
+        if not blk:
+            blocks[chi] = {'multiplicity': 0}; continue
+        cp = charpoly(blk)
+        roots = certified_roots(cp)
+        vals = sorted([(float(r.real), mu) for r, mu in roots], reverse=True)
+        blocks[chi] = {'multiplicity': len(cols), 'charpoly': [str(x) for x in cp], 'eigenvalues': vals}
+        for r, mu in roots:
+            spec.append((r.real, chi, mu))
+    spec.sort(key=lambda t: -float(t[0]))
+    top = spec[0]
+    ties = [s for s in spec if not (s[0] < top[0])]
+    nxt = max(float(s[0]) for s in spec if s[0] < top[0])
+    resA[k] = {'multiplicities': {c: blocks[c]['multiplicity'] for c in TYPES}, 'leading_factor': float(top[0]),
+               'leading_type': [t[1] for t in ties], 'leading_dimension': sum(DIM[t[1]] * t[2] for t in ties), 'next_factor': nxt,
+               'leading_enclosure': str(top[0]), 'blocks': blocks}
+    lead_cols[k] = (bases, ties)
+    print(f'k = {k:2d}: multiplicities {resA[k]["multiplicities"]}; leading factor {float(top[0]):.6f}, type {resA[k]["leading_type"]}, dimension {resA[k]["leading_dimension"]}; next {nxt:.6f}', flush=True)
+out['twisted_transfer_two_quanta'] = resA
+json.dump(out, open('m2_cap_two.json', 'w'), indent=1)
+
+# ------------------------------------------------------------------ (C1) the symmetric square of the doublet
+W = X.sections('spinor')
+Wg = X.great().sections('spinor')
+
+
+def sym2(Wm):
+    vs = []
+    for (al, be) in ((0, 0), (0, 1), (1, 1)):
+        vs.append([Wm[p][al] * Wm[q][be] + Wm[p][be] * Wm[q][al] for (p, q) in PAIRS])
+    return vs
+
+
+S = sym2(W)
+basesk1 = lead_cols[1][0]
+resC = {}
+Smat = [[S[c][r] for c in range(3)] for r in range(66)]
+for chi in TYPES:
+    PC = basesk1[chi][1]
+    img = mmul(PC, Smat)
+    if meq(img, Smat):
+        resC['type_of_symmetric_square_of_the_doublet'] = chi
+resC['rank'] = rank(Smat)
+# two-quanta face checks: for a face f and a port q off the face, the spinor check of f on the first slot
+rows = []
+Wf = W
+for f in X.F:
+    Ws = [Wf[p] for p in f]
+    r = nullspace(transpose(Ws))[0]
+    for q in range(12):
+        if q in f: continue
+        row = [K(0)] * 66
+        for p, x in zip(f, r):
+            row[pair_index(p, q)] = x
+        rows.append(row)
+rk = rank(rows)
+resC['two_quanta_face_checks'] = {'checks': len(rows), 'rank': rk, 'kernel_dimension': 66 - rk,
+                                  'checks_annihilate_symmetric_square': is_zero_mat(mmul(rows, Smat)),
+                                  'kernel_equals_symmetric_square_of_doublet': bool(66 - rk == 3 and is_zero_mat(mmul(rows, Smat)))}
+print('symmetric square of the doublet (hard-core part): rank', resC['rank'], ' type', resC.get('type_of_symmetric_square_of_the_doublet'),
+      '; two-quanta face checks:', resC['two_quanta_face_checks'], flush=True)
+
+
+def npmat(M): return to_numpy(M)
+
+
+def proj_overlap(Va, Vb):
+    """Largest and smallest squared cosines of the principal angles between the column spaces."""
+    Qa, _ = np.linalg.qr(Va); Qb, _ = np.linalg.qr(Vb)
+    s = np.linalg.svd(Qa.conj().T @ Qb, compute_uv=False)
+    return float(s.max() ** 2), float(s.min() ** 2)
+
+
+Snp = npmat(Smat)
+T2np = np.eye(66) - npmat(H2(1)) / 60
+w, v = np.linalg.eigh(T2np)
+lead = v[:, np.abs(w - w[-1]) < 1e-9]
+resC['overlap_sym2_with_leading_triplet_of_twisted_transfer_k1'] = proj_overlap(Snp, lead)
+resC['twisted_transfer_k1_expectation_on_sym2'] = float(np.real(np.trace(np.linalg.pinv(Snp) @ T2np @ Snp)) / 3)
+print('overlap (squared cosines, max and min) of Sym2(doublet) with the leading triplet of the k = 1 transfer:', resC['overlap_sym2_with_leading_triplet_of_twisted_transfer_k1'], flush=True)
+
+# ------------------------------------------------------------------ (B) CAP on the binary shell, exact stationary density
+resB = {}
+for k in (1, 7, 2):
+    krs = kraus_two(k)
+    acts = [action_two(g, k) for g in ROT]
+    # orbits of the rotation group on ordered pairs of configurations, with phases
+    orbit = {}; reps = []
+    for s in range(66):
+        for t in range(66):
+            if (s, t) in orbit: continue
+            members = {}
+            ok = True
+            for (perm, ph) in acts:
+                key = (perm[s], perm[t]); val = ph[s] * ph[t].conj()
+                if key in members:
+                    if members[key] != val: ok = False
+                else:
+                    members[key] = val
+            oid = len(reps) if ok else -1
+            for key, val in members.items():
+                orbit[key] = (oid, val)
+            if ok:
+                reps.append((s, t))
+    nc = len(reps)
+    # channel restricted to the commutant, on the orbit basis B_i (B_i[rep_i] = 1)
+    Cm = zeros(nc)
+    for j, (s, t) in enumerate(reps):
+        for (K0, K1) in krs:
+            for Ks in (K0, K1):
+                for (s1, v1) in Ks[s]:
+                    for (t1, v2) in Ks[t]:
+                        oid, phs = orbit[(s1, t1)]
+                        if oid >= 0:
+                            Cm[j][oid] = Cm[j][oid] + v1 * v2.conj() * phs
+    Cm = mscale(INV30, Cm)
+    ns = nullspace(msub(Cm, eye(nc)))
+    assert len(ns) == 1, len(ns)
+    r = ns[0]
+    rho = zeros(66)
+    for (key, (oid, phs)) in orbit.items():
+        if oid >= 0 and not r[oid].is_zero():
+            rho[key[0]][key[1]] = r[oid] * phs
+    tr = trace(rho)
+    rho = mscale(tr.inv(), rho)
+    assert is_hermitian(rho)
+    fixed = meq(channel(krs, rho), rho)
+    uniform = all(rho[i][i] == Kq(1, 66) for i in range(66))
+    bases = iso_bases(k)
+    spec = []
+    blocks = {}
+    for chi in TYPES:
+        cols, PC = bases[chi]
+        blk = block_of(rho, cols)
+        if not blk:
+            blocks[chi] = {'multiplicity': 0}; continue
+        cp = charpoly(blk)
+        roots = certified_roots(cp)
+        vals = sorted([(float(rt.real), mu) for rt, mu in roots], reverse=True)
+        blocks[chi] = {'multiplicity': len(cols), 'charpoly': [str(x) for x in cp], 'levels': vals}
+        for rt, mu in roots:
+            spec.append((rt.real, chi, mu))
+    spec.sort(key=lambda t: -float(t[0]))
+    top = spec[0]
+    positive = all(s[0] > 0 for s in spec)
+    resB[k] = {'commutant_dimension': nc, 'stationary_density_unique_in_commutant': True, 'exact_fixed_point': fixed, 'uniform_diagonal_1_over_66': uniform,
+               'faithful_on_the_binary_shell': bool(positive), 'levels': [[float(s[0]), s[1], DIM[s[1]] * s[2]] for s in spec[:10]],
+               'leading_level': float(top[0]), 'leading_type': top[1], 'leading_weight': float(top[0]) * DIM[top[1]] * top[2],
+               'leading_level_enclosure': str(top[0]), 'blocks': blocks}
+    print(f'CAP two loads, flux {k}: commutant dimension {nc}; exact fixed point {fixed}; uniform diagonal {uniform}; faithful {positive}')
+    print('   leading levels (value, type, dimension):', [(round(float(s[0]), 6), s[1], DIM[s[1]] * s[2]) for s in spec[:8]], flush=True)
+    if k == 1:
+        rnp = npmat(rho); rnp = (rnp + rnp.conj().T) / 2
+        w, v = np.linalg.eigh(rnp)
+        leadc = v[:, np.abs(w - w[-1]) < 1e-9]
+        resB[k]['overlap_leading_level_with_sym2_doublet'] = proj_overlap(Snp, leadc)
+        resB[k]['overlap_leading_level_with_leading_triplet_of_transfer'] = proj_overlap(lead, leadc)
+        resB[k]['weight_of_sym2_doublet_in_the_stationary_density'] = float(np.real(np.trace(np.linalg.qr(Snp)[0].conj().T @ rnp @ np.linalg.qr(Snp)[0])))
+        print('   overlap of the leading triplet level with Sym2(doublet):', resB[k]['overlap_leading_level_with_sym2_doublet'],
+              '; with the leading triplet of the k = 1 transfer:', resB[k]['overlap_leading_level_with_leading_triplet_of_transfer'],
+              '; weight of Sym2(doublet) in the stationary density:', resB[k]['weight_of_sym2_doublet_in_the_stationary_density'], flush=True)
+    out['cap_two_loads'] = resB
+    json.dump(out, open('m2_cap_two.json', 'w'), indent=1)
+out['symmetric_square'] = resC
+out['reference_float_values_of_the_theory_session'] = {'transfer_k1_leading': 0.975468, 'cap_levels': [0.140597, 0.031277, 0.024245, 0.023633]}
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('m2_cap_two.json', 'w'), indent=1)
+print('written m2_cap_two.json in', out['seconds'], 's')

@@ -1,0 +1,243 @@
+"""Worker LV, group B of CANDIDATES.md (direction 2, compatibility test): radiative symmetry breaking with no mass term
+at the boundary and the induced quartic as boundary value.
+
+Flow: YC's two-loop Standard Model equations (`work/YC/yc_rge.py`, imported read only). Induced quartic: UH's
+`uhlib.py` (imported read only). Charts:
+  BM  the D10 packet at Q0 run to E_cell with Standard Model equations (the chart of UH, HT, YC);
+  BU  gauge couplings along the corrected chain between M_U and Q0 (one loop, imposed), boundary at M_U;
+  BS  retired: g^2 = 0.77354 on the three factors at the cell.
+The only number of the comparison used here is the target ln(E_cell/v) = 38.1979 of row BC (marked NOT BLIND there).
+Writes lv_cw.json.
+"""
+import json
+import math
+import sys
+
+import numpy as np
+from scipy.optimize import brentq
+
+sys.path.insert(0, "WORKSPACE/repair-law/work/YC")
+sys.path.insert(0, "WORKSPACE/repair-law/work/UH")
+import yc_rge as R  # noqa: E402
+import uhlib  # noqa: E402
+import lv_chain as C  # noqa: E402
+
+pi = math.pi
+K16 = 16 * pi ** 2
+out = {}
+REGS = uhlib.regulators()
+E_CELL = C.EP / math.sqrt(C.P_FWD)
+M_U = C.EP * math.exp(-2 * pi) * C.P_FWD ** (1 / 6)
+pk = R.packet()
+Q0 = pk["Q0"]
+T_CELL, T_MU, T_Q0, T_LO = math.log(E_CELL), math.log(M_U), math.log(Q0), math.log(100.0)
+
+
+def lam_eff(x, gauge=None):
+    gp, g, g3 = (x[0], x[1], x[2]) if gauge is None else gauge
+    yt, k = x[R.IDX["yt"]], x[R.IDX["k"]]
+    kt, kw, kz = yt * yt / 2, g * g / 4, (g * g + gp * gp) / 4
+    s = 0.0
+    for n, kap, c in ((-12, kt, 1.5), (6, kw, 5 / 6), (3, kz, 5 / 6)):
+        if kap > 0:
+            s += n * kap * kap * (math.log(kap) - c)
+    return k + s / K16
+
+
+def stationary(sol, t_lo, t_hi, gauge_fn=None, n=1500):
+    """stationary points of V = lambda_eff(phi) phi^4/4 on [t_lo, t_hi]: zeros of s = 4 lambda_eff + d lambda_eff/dt"""
+    ts = np.linspace(t_lo, t_hi, n)
+    le = np.array([lam_eff(sol.sol(t), None if gauge_fn is None else gauge_fn(math.exp(t))) for t in ts])
+    dle = np.gradient(le, ts)
+    d2 = np.gradient(dle, ts)
+    s = 4 * le + dle
+    pts = []
+    for i in range(len(ts) - 1):
+        if s[i] * s[i + 1] < 0:
+            f = s[i] / (s[i] - s[i + 1])
+            t = ts[i] + f * (ts[i + 1] - ts[i])
+            curv = (dle[i] + d2[i] / 4) * (1 - f) + (dle[i + 1] + d2[i + 1] / 4) * f
+            pts.append({"scale_GeV": math.exp(t), "ln(E_cell/phi)": T_CELL - t, "type": "minimum" if curv > 0 else "maximum",
+                        "lambda_eff": float(le[i] * (1 - f) + le[i + 1] * f), "V''/phi^2": float(curv)})
+    zero = [math.exp(ts[i]) for i in range(len(ts) - 1) if le[i] * le[i + 1] < 0]
+    return pts, zero, float(le[-1]), float(s[-1]), float(le[0])
+
+
+# ------------------------------------------------------------------------------------------------ chart BM: run the packet up
+x0 = R.vec(gp=pk["gY"], g=pk["g2"], g3=pk["g3"], yt=pk["yt"], yb=pk["yb"], ytau=pk["ytau"], yc=pk["yc"], ys=pk["ys"],
+           ymu=pk["ymu"], yu=pk["yu"], yd=pk["yd"], ye=pk["ye"], k=pk["lambda"])
+up = R.run(x0, T_Q0, T_CELL, loops=2)
+xc = up.sol(T_CELL)
+gY_c, g2_c, g3_c = float(xc[0]), float(xc[1]), float(xc[2])
+ycrit = uhlib.y_crit_1loop(g2_c, gY_c)
+out["BM_chart_at_the_cell"] = {"gY": gY_c, "g2": g2_c, "g3": g3_c, "yt_packet": float(xc[R.IDX["yt"]]),
+                               "lambda_packet": float(xc[R.IDX["k"]]), "y_crit_one_loop": ycrit,
+                               "1/alpha_(Y,2,3)": [4 * pi / gY_c ** 2, 4 * pi / g2_c ** 2, 4 * pi / g3_c ** 2]}
+xm = up.sol(T_MU)
+out["BM_chart_at_M_U"] = {"gY": float(xm[0]), "g2": float(xm[1]), "g3": float(xm[2]), "yt_packet": float(xm[R.IDX["yt"]])}
+
+
+def bm_row(yt_c, lam_c):
+    x = xc.copy()
+    x[R.IDX["yt"]] = yt_c
+    x[R.IDX["k"]] = lam_c
+    dn = R.run(x, T_CELL, T_LO, loops=2)
+    if not dn.success or dn.t[-1] > T_LO + 1e-6:
+        return {"status": "flow stopped at %.3e GeV" % math.exp(dn.t[-1])}
+    pts, zero, le_cell, s_cell, le_lo = stationary(dn, T_LO, T_CELL)
+    xl = dn.sol(T_LO)
+    return {"stationary_points": pts, "zeros_of_lambda_eff_GeV": zero, "lambda_eff_at_the_cell": le_cell,
+            "4lambda+dlambda_at_the_cell": s_cell, "sign_of_V_just_below_the_cell": "negative" if le_cell < 0 else "positive",
+            "lambda_eff_at_100GeV": le_lo, "yt_at_100GeV": float(xl[R.IDX["yt"]])}
+
+
+bm = {}
+for yt_c in (0.30, 0.34, 0.36, 0.37368, ycrit, 0.40):
+    for lab in ("zero", "B1", "B4", "B4t", "B6t"):
+        lam_c = 0.0 if lab == "zero" else uhlib.lam_ind(yt_c, g2_c, gY_c, REGS[lab])
+        row = bm_row(yt_c, lam_c)
+        row["lambda_cell"] = lam_c
+        bm["yt=%.5f_%s" % (yt_c, lab)] = row
+out["BM_rows"] = bm
+
+# ------------------------------------------------------------------------------------------------ chart BU: the chain
+xs, cs = C.solve()[0]
+
+
+def chain_gauge(b):
+    def fn(mu):
+        L = math.log(M_U / mu)
+        a1, a2, a3 = [1.0 / (xs_b + bi / (2 * pi) * L) for bi in b]
+        return (math.sqrt(4 * pi * 0.6 * a1), math.sqrt(4 * pi * a2), math.sqrt(4 * pi * a3))
+    return fn
+
+
+bu = {}
+for sn, b in (("declared_(33/5,1,-3)", (33 / 5, 1.0, -3.0)), ("source_two_doublets_(41/5,1,-3)", (41 / 5, 1.0, -3.0))):
+    xs_b = C.solve(b=b)[0][0]
+    gf = chain_gauge(b)
+    gU = math.sqrt(4 * pi / xs_b)
+    gYU = math.sqrt(0.6) * gU
+    X = uhlib.X_of(gU, gYU)
+    for case, ys in (("top_only_g/2", dict(yt=gU / 2)), ("equal_legs_g/2", dict(yt=gU / 2, yb=gU / 2, ytau=gU / 2, ynu=gU / 2)),
+                     ("top_alone_sqrt(2/3)g", dict(yt=math.sqrt(2 / 3) * gU))):
+        S4f = 3 * ys["yt"] ** 4 + (3 * ys.get("yb", 0) ** 4 + ys.get("ytau", 0) ** 4 + ys.get("ynu", 0) ** 4)
+        for lab in ("zero", "B1", "B4", "B4t", "B6t"):
+            reg = REGS.get(lab)
+            lam_u = 0.0 if lab == "zero" else (-S4f * (1.5 - reg["c_f"]) + (3 / 16) * X * (5 / 6 - reg["c_V"])) / K16
+            x = R.vec(gp=gYU, g=gU, g3=gU, k=lam_u, **ys)
+            dn = R.run(x, T_MU, T_LO, loops=2, gauge_fn=gf)
+            key = "%s|%s|%s" % (sn, case, lab)
+            if not dn.success or dn.t[-1] > T_LO + 1e-6:
+                bu[key] = {"lambda_M_U": lam_u, "status": "flow stopped at %.3e GeV" % math.exp(dn.t[-1])}
+                continue
+            pts, zero, le_top, s_top, le_lo = stationary(dn, T_LO, T_MU, gauge_fn=gf)
+            xq = dn.sol(T_Q0)
+            v = cs["v"]
+            # running top mass at mu = m_t: solve mu = yt(mu) v / sqrt2
+            f = lambda t: dn.sol(t)[R.IDX["yt"]] * v / math.sqrt(2) - math.exp(t)
+            try:
+                tm = brentq(f, T_LO, math.log(400.0))
+                mt_run = math.exp(tm)
+                a_s = gf(mt_run)[2] ** 2 / (4 * pi)
+                mt_pole = R.top_pole_from_msbar(mt_run, a_s)
+            except ValueError:
+                mt_run = mt_pole = None
+            lamq = float(xq[R.IDX["k"]])
+            bu[key] = {"g_U": gU, "y_at_M_U": ys["yt"], "lambda_M_U": lam_u, "yt_Q0": float(xq[R.IDX["yt"]]),
+                       "yb_Q0": float(xq[R.IDX["yb"]]), "ytau_Q0": float(xq[R.IDX["ytau"]]), "lambda_Q0": lamq,
+                       "mt_running_GeV": mt_run, "mt_pole_GeV": mt_pole,
+                       "mH_tree_GeV": math.sqrt(2 * lamq) * v if lamq > 0 else None,
+                       "stationary_points": pts, "zeros_of_lambda_eff_GeV": zero,
+                       "lambda_eff_at_M_U": le_top, "4lambda+dlambda_at_M_U": s_top}
+out["BU_rows"] = bu
+
+# ------------------------------------------------------------------------------------------------ BS: retired cell values
+bs = {}
+gS = math.sqrt(0.77354)
+gYS = math.sqrt(0.6) * gS
+XS = uhlib.X_of(gS, gYS)
+for case, ys in (("top_only_g/2", dict(yt=gS / 2)), ("equal_legs_g/2", dict(yt=gS / 2, yb=gS / 2, ytau=gS / 2, ynu=gS / 2)),
+                 ("top_alone_sqrt(2/3)g", dict(yt=math.sqrt(2 / 3) * gS))):
+    S4f = 3 * ys["yt"] ** 4 + (3 * ys.get("yb", 0) ** 4 + ys.get("ytau", 0) ** 4 + ys.get("ynu", 0) ** 4)
+    for lab in ("zero", "B4"):
+        reg = REGS.get(lab)
+        lam_c = 0.0 if lab == "zero" else (-S4f * (1.5 - reg["c_f"]) + (3 / 16) * XS * (5 / 6 - reg["c_V"])) / K16
+        x = R.vec(gp=gYS, g=gS, g3=gS, k=lam_c, **ys)
+        dn = R.run(x, T_CELL, T_LO, loops=2, stop_g3=3.5)
+        t_end = dn.t[-1]
+        pts, zero, le_top, s_top, le_lo = stationary(dn, t_end + 1e-3, T_CELL)
+        bs["%s|%s" % (case, lab)] = {"lambda_cell": lam_c, "flow_ends_GeV": math.exp(t_end), "stationary_points": pts,
+                                     "lambda_eff_at_the_cell": le_top, "4lambda+dlambda_at_the_cell": s_top}
+out["BS_rows_retired"] = bs
+
+# ------------------------------------------------------------------------------------------------ BC: Coleman-Weinberg family
+TARGET = 38.1979                                   # NOT BLIND input of this row: ln(E_cell/v) of the measured hierarchy
+t_v = T_CELL - TARGET
+
+
+def s_at_target(yt_c, lam_c):
+    x = xc.copy(); x[R.IDX["yt"]] = yt_c; x[R.IDX["k"]] = lam_c
+    dn = R.run(x, T_CELL, t_v - 1.0, loops=2)
+    if not dn.success:
+        return None, None
+    h = 0.05
+    le = [lam_eff(dn.sol(t_v + j * h)) for j in (-2, -1, 0, 1, 2)]
+    d1 = (le[3] - le[1]) / (2 * h)
+    d2 = (le[3] - 2 * le[2] + le[1]) / (h * h)
+    return 4 * le[2] + d1, {"lambda_eff": le[2], "dlam": d1, "curv": d1 + d2 / 4, "yt_v": float(dn.sol(t_v)[R.IDX["yt"]]),
+                            "g2_v": float(dn.sol(t_v)[1]), "lam_v": float(dn.sol(t_v)[R.IDX["k"]])}
+
+
+bc = []
+for yt_c in (0.05, 0.10, 0.15, 0.20, 0.22, 0.24, 0.26, 0.28, 0.30, 0.34, 0.37368, 0.40):
+    f = lambda lc: s_at_target(yt_c, lc)[0]
+    lo, hi = -0.05, 0.2
+    flo, fhi = f(lo), f(hi)
+    if flo is None or fhi is None or flo * fhi > 0:
+        bc.append({"yt_cell": yt_c, "status": "no boundary quartic in [-0.05, 0.2] gives a stationary point at the target"})
+        continue
+    lc = brentq(f, lo, hi, xtol=1e-12)
+    _, info = s_at_target(yt_c, lc)
+    v = E_CELL * math.exp(-TARGET)
+    row = {"yt_cell": yt_c, "lambda_cell": lc, "type": "minimum" if info["curv"] > 0 else "maximum",
+           "yt_at_v": info["yt_v"], "mt_running_GeV": info["yt_v"] * v / math.sqrt(2),
+           "mH_GeV": math.sqrt(info["curv"]) * v if info["curv"] > 0 else None, "V''/v^2": info["curv"],
+           "lambda_eff_at_v": info["lambda_eff"]}
+    bc.append(row)
+out["BC_coleman_weinberg_family"] = {"target_ln(E_cell/v)_NOT_BLIND": TARGET, "rows": bc}
+
+# ------------------------------------------------------------------------------------------------ BF: closed form
+bl = (3 / 8) * uhlib.X_of(g2_c, gY_c) / K16
+out["BF_closed_form"] = {"formula": "ln(E_cell/v) = lambda(E_cell)/b_l + 1/4 for constant b_l > 0 and lambda(E_cell) > 0",
+                         "b_l_gauge_only_at_the_cell_chart_BM": bl,
+                         "lambda_cell_needed_for_38.1979_at_that_b_l": (TARGET - 0.25) * bl,
+                         "statement": "a minimum below the cell needs lambda(E_cell) > 0; the induced quartic is negative"}
+
+# ------------------------------------------------------------------------------------------------ BK: mass parameter
+ts = np.linspace(T_Q0, T_CELL, 4000)
+gm = []
+for t in ts:
+    x = up.sol(t)
+    gp, g, yt, yb, ytau, k = x[0], x[1], x[R.IDX["yt"]], x[R.IDX["yb"]], x[R.IDX["ytau"]], x[R.IDX["k"]]
+    gm.append((12 * k + 6 * yt * yt + 6 * yb * yb + 2 * ytau * ytau - 4.5 * g * g - 1.5 * gp * gp) / K16)
+gm = np.array(gm)
+lnR = float(np.trapz(gm, ts))
+i_mu = int(np.searchsorted(ts, T_MU))
+lnR_MU = float(np.trapz(gm[: i_mu + 1], ts[: i_mu + 1]))
+out["BK_mass_parameter_running_chart_BM"] = {"ln[m^2(E_cell)/m^2(Q0)]": lnR, "ln[m^2(M_U)/m^2(Q0)]": lnR_MU,
+                                             "gamma_m_at_Q0": float(gm[0]), "gamma_m_at_the_cell": float(gm[-1])}
+
+json.dump(out, open("lv_cw.json", "w"), indent=1, default=float)
+print(json.dumps(out["BM_chart_at_the_cell"]))
+for k, v in out["BM_rows"].items():
+    print(k, "lam=%.3e" % v["lambda_cell"], [(p["type"], "%.3e" % p["scale_GeV"]) for p in v.get("stationary_points", [])],
+          "zeros", ["%.2e" % z for z in v.get("zeros_of_lambda_eff_GeV", [])], "s_cell=%.2e" % v.get("4lambda+dlambda_at_the_cell", float("nan")))
+for k, v in out["BU_rows"].items():
+    print(k, {a: (round(b, 5) if isinstance(b, float) else b) for a, b in v.items() if a not in ("stationary_points",)},
+          [(p["type"], "%.3e" % p["scale_GeV"]) for p in v.get("stationary_points", [])])
+for k, v in out["BS_rows_retired"].items():
+    print(k, "ends %.2e" % v["flow_ends_GeV"], [(p["type"], "%.3e" % p["scale_GeV"]) for p in v["stationary_points"]], "s_cell=%.2e" % v["4lambda+dlambda_at_the_cell"])
+for r in bc:
+    print(r)
+print(out["BF_closed_form"]); print(out["BK_mass_parameter_running_chart_BM"])

@@ -1,0 +1,147 @@
+"""Candidate family SIGMA: consensus = spinor consistency on faces (triple overlaps).
+
+Ports carry the spin-1/2 coherent state of their direction. Two native direction frames exist: u (slow triplet band of
+the port adjacency, +sqrt5) and u' (fast triplet band, -sqrt5). A one-quantum amplitude psi is consistent on a face
+(a,b,c) when (psi_a, psi_b, psi_c) = (<u_a|chi>, <u_b|chi>, <u_c|chi>) for one spinor chi. This script computes, for
+both frames: the common kernel of the face constraints for one and for two hard-core quanta, its relation to the
+flux bands, the Lie closure of the port loads compressed to consensus, the face repair channel and its classical
+shadow.
+"""
+import itertools, json, sys
+import numpy as np
+from model.transported_contrast import law
+
+seams, faces = law.carrier()
+n = 12
+A0 = np.zeros((n, n))
+for a, b in seams: A0[a, b] = A0[b, a] = 1
+w, v = np.linalg.eigh(A0)
+rng = np.random.default_rng(7)
+def frame(eig):
+    U = v[:, np.abs(w - eig) < 1e-9] * np.sqrt(n / 3)
+    assert np.allclose(np.linalg.norm(U, axis=1), 1)
+    R = np.linalg.qr(rng.normal(size=(3, 3)))[0]
+    return U @ R.T
+def spinor(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+FR = {'u (slow band, +sqrt5)': frame(5 ** .5), "u' (fast band, -sqrt5)": frame(-5 ** .5)}
+out = {}
+
+def face_violation(chi, f):
+    W = np.array([chi[p].conj() for p in f])          # rows <u_p|
+    # null vector of W^dagger: orthogonal complement of range(W) in C^3
+    q, _ = np.linalg.qr(W, mode='complete')
+    return q[:, 2]
+
+def closure(herm, tol=1e-8):
+    basis, elems = [], []
+    def add(X):
+        vec = np.concatenate([X.real.ravel(), X.imag.ravel()])
+        if basis:
+            B = np.array(basis); vec = vec - B.T @ (B @ vec)
+        nv = np.linalg.norm(vec)
+        if nv > tol:
+            basis.append(vec / nv); return True
+        return False
+    for X in herm:
+        G = 1j * X
+        if add(G): elems.append(G)
+    span = len(elems); frontier = list(elems)
+    while frontier and len(elems) < 80:
+        new = []
+        for X in frontier:
+            for Y in list(elems):
+                Z = X @ Y - Y @ X
+                if add(Z): new.append(Z)
+        elems += new; frontier = new
+    m = len(elems)
+    Mx = np.concatenate([np.array([np.concatenate([(E @ Y - Y @ E).real.ravel(), (E @ Y - Y @ E).imag.ravel()]) for E in elems]).T for Y in elems], axis=0)
+    return span, m, m - np.linalg.matrix_rank(Mx, tol=1e-7)
+
+pairs = list(itertools.combinations(range(n), 2)); pidx = {c: i for i, c in enumerate(pairs)}
+results = {}
+for name, U in FR.items():
+    chi = [spinor(u) for u in U]
+    # --- one quantum
+    Pi = []
+    for f in faces:
+        vf = face_violation(chi, f)
+        full = np.zeros(n, complex); full[list(f)] = vf
+        Pi.append(np.outer(full, full.conj()))
+    Hpar = sum(Pi)
+    ev, evec = np.linalg.eigh(Hpar)
+    k1 = int(np.sum(ev < 1e-9)); D1 = evec[:, :k1]
+    # compare with the range of the coherent-state map
+    Wfull = np.array([c.conj() for c in chi])                      # 12 x 2
+    same = np.linalg.matrix_rank(np.hstack([D1, Wfull]), tol=1e-8)
+    # which flux band: phased adjacency with seam phases arg<u_a|u_b>
+    Ak = np.zeros((n, n), complex)
+    for a, b in seams:
+        z = np.vdot(chi[a], chi[b]); Ak[a, b] = z / abs(z); Ak[b, a] = np.conj(z) / abs(z)
+    flux = sorted(set(np.round([np.angle(Ak[a, b] * Ak[b, c] * Ak[c, a]) / (2 * np.pi) * 20 for a, b, c in faces], 6)))
+    ek = np.linalg.eigvalsh(Ak)
+    band = np.round(sorted(np.real(np.diag(D1.conj().T @ Ak @ D1))), 4)
+    # --- two hard-core quanta
+    P2 = np.zeros((66, 66), complex)
+    for f in faces:
+        vf = face_violation(chi, f)
+        for q in range(n):
+            if q in f: continue
+            full = np.zeros(66, complex)
+            for p, amp in zip(f, vf): full[pidx[tuple(sorted((p, q)))]] = amp
+            P2 += np.outer(full, full.conj())
+    ev2, evec2 = np.linalg.eigh(P2)
+    k2 = int(np.sum(ev2 < 1e-9)); D2 = evec2[:, :k2]
+    # port loads compressed
+    N1 = [D1.conj().T[:, [p]] @ D1[[p], :] for p in range(n)]
+    N2 = []
+    for p in range(n):
+        d = np.array([1.0 if p in c else 0.0 for c in pairs])
+        N2.append(D2.conj().T @ (d[:, None] * D2))
+    results[name] = dict(chi=chi, D1=D1, D2=D2, N1=N1, N2=N2, Pi=Pi)
+    c1 = closure(N1); c2 = closure(N2)
+    print(f'frame {name}')
+    print(f'  seam phases arg<u_a|u_b>: face flux (units 2 pi/20) {flux}')
+    print(f'  one quantum: face-constraint kernel dimension {k1}; equals the range of the coherent-state map: {same == k1 == 2}; gap of the parent operator {ev[k1]:.4f}; phased adjacency on it {band}; adjacency spectrum top {np.round(ek[-3:], 4)}')
+    print(f'  two hard-core quanta: kernel dimension {k2}; gap {ev2[k2]:.4f}')
+    print(f'  port loads at consensus: one quantum span/closure/centre {c1}; two quanta {c2}')
+print()
+keys = list(FR)
+def blockdiag(Xs):
+    size = sum(x.shape[0] for x in Xs); M = np.zeros((size, size), complex); o = 0
+    for x in Xs:
+        M[o:o + x.shape[0], o:o + x.shape[0]] = x; o += x.shape[0]
+    return M
+for (f1, f2) in itertools.product(keys, keys):
+    ops = [blockdiag([results[f1]['N1'][p], results[f2]['N2'][p]]) for p in range(n)]
+    print(f'total <= 2 carrier, one-quantum consensus in frame [{f1[:2].strip()}], two-quanta consensus in frame [{f2[:2].strip()}]: span/closure/centre {closure(ops)}')
+
+# --- face repair channel on one quantum (frame u): measure the violation; on violation reset to the maximally mixed
+# state of the consistent face space
+name = keys[0]; chi = results[name]['chi']; D1 = results[name]['D1']
+def face_channel_superop(f):
+    vf = face_violation(chi, f)
+    full = np.zeros(n, complex); full[list(f)] = vf
+    Pi = np.outer(full, full.conj()); K0 = np.eye(n) - Pi
+    Ef = np.zeros((n, n), complex)
+    for p in f: Ef[p, p] = 1
+    Ef = Ef - Pi                                          # projector on the consistent face space
+    S = np.kron(K0, K0.conj())                            # rho -> K0 rho K0^dagger (row-major vec)
+    S += np.outer((Ef / 2).reshape(-1), Pi.T.reshape(-1))  # Tr(Pi rho) * Ef/2
+    return S
+Phi = sum(face_channel_superop(f) for f in faces) / len(faces)
+ev = np.linalg.eigvals(Phi)
+fixed = int(np.sum(np.abs(ev - 1) < 1e-9))
+print(f'\nface repair channel, one quantum, frame u: trace preserving {np.allclose(np.eye(n).reshape(-1) @ Phi, np.eye(n).reshape(-1))}; fixed-point dimension {fixed} (4 = full matrix algebra on the doublet); second |eigenvalue| {sorted(np.abs(ev))[-fixed-1]:.5f}; complex eigenvalues {int(np.sum(np.abs(ev.imag) > 1e-9))}')
+PD = D1 @ D1.conj().T
+rho = np.zeros((n, n), complex); rho[0, 0] = 1
+x = rho.reshape(-1)
+for t in (1, 20, 100, 400):
+    y = np.linalg.matrix_power(Phi, t) @ x
+    r = y.reshape(n, n)
+    print(f'   after {t:4d} face events from a quantum at port 0: weight on the consensus doublet {np.real(np.trace(PD @ r)):.5f}, populations min/max {np.real(np.diag(r)).min():.4f}/{np.real(np.diag(r)).max():.4f}')
+f = faces[0]; S1 = face_channel_superop(f)
+rho = np.zeros((n, n), complex); rho[f[0], f[0]] = 1
+r = (S1 @ rho.reshape(-1)).reshape(n, n)
+print('   classical shadow of one face event on a quantum at a port of the face: populations on the face', np.round(np.real([r[p, p] for p in f]), 5), '(5/9, 2/9, 2/9 =', round(5 / 9, 5), round(2 / 9, 5), ')')

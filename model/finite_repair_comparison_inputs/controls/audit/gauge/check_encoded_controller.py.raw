@@ -1,0 +1,89 @@
+"""Declared finite encoded-controller option; complete shadow and reference readout.
+
+This is not a native derivation or an accepted all-premise repair law. Local
+control on a five-level carrier memory and its pulse clock are DECLARED.
+"""
+from pathlib import Path
+import json,itertools,math
+import numpy as np
+from scipy.linalg import expm
+from check_flux import X3,X2,E
+
+HERE=Path(__file__).resolve().parent
+X=[]
+for a,b in zip(X3,X2):
+ x=np.zeros((5,5),complex);x[:3,:3]=2*a;x[3:,3:]=-3*b;X.append(x)
+Q=np.diag([2,2,2,-3,-3]); P3=np.diag([1,1,1,0,0]); P2=np.eye(5)-P3
+assert np.linalg.norm(sum(X)-Q)<1e-13
+Hs=[X[a]+X[b] for a,b in E]
+assert np.linalg.norm(sum(Hs)/5-Q)<1e-13
+angle=0.2
+U=[expm(1j*angle*h) for h in Hs]
+unitarity=max(np.linalg.norm(u.conj().T@u-np.eye(5)) for u in U)
+sector=max(np.linalg.norm(u@P3-P3@u) for u in U)
+# Exact classical source inputs including the twelve double loads.
+states=[]
+for a,b in itertools.combinations_with_replacement(range(12),2):
+ x=[0]*12;x[a]+=1;x[b]+=1;states.append(tuple(x))
+index={x:i for i,x in enumerate(states)}
+assert len(states)==78
+balanced=sum(max(x)<=1 for x in states);assert balanced==66
+transitions=[]
+for ei,(a,b) in enumerate(E):
+ for xi,x in enumerate(states):
+  for coin in [0,1]:
+   difference=x[a]-x[b]
+   j=difference//2 if coin else -((-difference)//2)
+   y=list(x);y[a]-=j;y[b]+=j;yi=index[tuple(y)]
+   assert sum(y)==2 and min(y)>=0
+   transitions.append((ei,xi,coin,yi,j))
+assert len(transitions)==4680
+# Kraus row indexed by (coin,input x), K=sqrt(1/2)|f(x,c)><x| tensor U.
+# No full 390x390 matrix allocation is needed: each nonzero block is 5x5.
+# Sum K†K = I follows blockwise from U†U=I and two coin values per x.
+complete=0.;full_block_trace=0.
+for ei in range(30):
+ for xi in range(78):
+  effect=np.zeros((5,5),complex)
+  for _,_,c,yi,j in (z for z in transitions if z[0]==ei and z[1]==xi):
+   v=U[ei] if j else np.eye(5)
+   effect+=v.conj().T@v/2
+  complete=max(complete,np.linalg.norm(effect-np.eye(5)))
+# An auxiliary two-charge reference makes the centre observable without
+# violating the total-charge superselection rule.
+R=np.diag([0,5]);total=np.kron(Q,np.eye(2))+np.kron(np.eye(5),R)
+psi=np.zeros(10,complex);psi[0]=psi[7]=1/math.sqrt(2)
+M=np.outer(psi,psi.conj());assert np.linalg.norm(M@total-total@M)==0
+read=[]
+for t in [0.,math.pi/10,math.pi/5,.2]:
+ state=np.kron(expm(1j*t*Q),np.eye(2))@psi
+ probability=float(np.vdot(state,M@state).real)
+ assert abs(probability-math.cos(5*t/2)**2)<1e-14
+ read.append({'t':t,'probability':probability,'analytic':math.cos(5*t/2)**2})
+# Endpoint-sum gates can implement the centre with a controlled finite product.
+# H_e/5 have norm <=1/5. The Lie-product bound is t²/(2r) sum_e<f ||[h_e,h_f]||.
+h=[x/5 for x in Hs];pair_bound=sum(np.linalg.norm(x@y-y@x,2) for x,y in itertools.combinations(h,2))
+trotter=[]
+for steps in [1,2,4,8]:
+ one=np.eye(5,dtype=complex)
+ for he in h:one=expm(1j*angle*he/steps)@one
+ product=np.linalg.matrix_power(one,steps)
+ error=float(np.linalg.norm(product-expm(1j*angle*Q),2))
+ bound=angle**2*pair_bound/(2*steps)
+ assert error<=bound+1e-14
+ trotter.append({'rounds':steps,'actual_operator_error':error,'commutator_bound':bound,'coarse_exact_bound':87*angle**2/(5*steps)})
+out={'classification':'DECLARED encoded-controller candidate, not an accepted repair law',
+ 'added_state':'five-level carrier memory C3 direct_sum C2; optional two-charge comparison reference',
+ 'added_operations':'carrier-local encoded endpoint-sum phase pulses; reversible pulse control and a clock; reference preparation and complete readout',
+ 'source_input_cases':78,'balanced_inputs':66,'seams':30,'coins':2,'exact_classical_transition_rows':len(transitions),
+ 'complete_Kraus_effect_max_residual':complete,'unitarity_max_residual':unitarity,'protected_block_label_commutator_max_residual':sector,
+ 'native_load_and_coin_shadow':'exact by Kraus block formula for every source input, including double loads',
+ 'central_reference_total_charge':2,'central_reference_record':read,
+ 'central_controller':{'endpoint_sum_identity':'sum_edges(Xa+Xb)=5Q','pair_commutator_sum':float(pair_bound),'finite_products':trotter,
+ 'conditional_activity_history_compiler_proved':False},
+ 'acceptance':{'T0_diagonal_coin_shadow':True,'T2_local_encoded_algebra_template':True,'T3_local_encoded_centre':True,
+ 'T4_encoded_sector_label':True,'full_A1_A2_from_native_histories':False,'T5_faithful_nontracial_geometric_reference':False,
+ 'T6_transport':False,'T7_consensus':False,'T8_memory_federation':False,'T9_without_reference_readout':False,'T10_mass_hook':False},
+ 'no_native_band_selection_or_source_derivation_claim':True}
+(HERE/'encoded_controller.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

@@ -1,0 +1,311 @@
+"""DG round 2, item 1 (and item 3, F1 to F3): the neutrino junction L + Htilde -> nu_R against the charged-lepton
+junction L + H -> e_R, computed in the coherent program (R8's register) and in the audit's chiral sources.
+
+Candidates J1 to J9 and F1 to F3 of CANDIDATES.md (round 2). Exact unless a number carries a printed defect.
+The audit's Yukawa tensors are read from `model/coherent_defect_wave/physical_attachment/chiral.py` (imported read only,
+run from the RER root with -B). The neutrino tensor on the sixteenth state (the empty wedge, index 15) is fixed by the
+audit's own neutral contraction J_nu = phi_0 c_11 - phi_1 c_10 (`chiral_joint/higgs_composites/PROOF.md`) and checked
+against all twelve Ward identities here.
+
+    cd RER && python -B RL/work/DG/dg2_junction.py [out.json]
+"""
+import itertools, json, sys
+from fractions import Fraction as F
+import numpy as np
+import sympy as s
+
+from model.coherent_defect_wave.physical_attachment.chiral import representation
+
+out = {}
+
+# ------------------------------------------------------------------------------------------------ chart check
+# T6 chart: levels (v1, v2, v3, s1, s2); nu_L = 11110, N = 11111, e_L = 11101, e_R = 11100.
+pat = {'nu_L': (1, 1, 1, 1, 0), 'N': (1, 1, 1, 1, 1), 'e_L': (1, 1, 1, 0, 1), 'e_R': (1, 1, 1, 0, 0)}
+diff = lambda a, b: [i for i in range(5) if pat[a][i] != pat[b][i]]
+assert diff('nu_L', 'N') == [4] and diff('e_L', 'e_R') == [4]
+out['chart'] = {'nu junction 11110 <-> 11111 toggles level': 's2 (adds it, left to right)',
+                'e junction 11101 <-> 11100 toggles level': 's2 (removes it, left to right)',
+                'correction': 'both junctions toggle s2; the brief wrote s1 for the neutrino'}
+
+# ------------------------------------------------------------------------------------------------ J1 to J4: R8 register
+# One quantum on the four lepton patterns, register for the neutral component (charges of s2).
+# V0 = a*_s2 B + a_s2 B*: the pattern gains s2 while the register loses one (nu, left to right) or the pattern loses
+# s2 while the register gains one (e, left to right). Jordan-Wigner signs are kept (they do not change magnitudes).
+def toggles():
+    order = ['e_L', 'e_R', 'nu_L', 'N']
+    up = np.zeros((4, 4)); dn = np.zeros((4, 4))
+    for a in order:
+        p = pat[a]
+        if p[4] == 0:                        # a*_s2 acts
+            q = p[:4] + (1,)
+            b = [k for k in order if pat[k] == q][0]
+            up[order.index(b), order.index(a)] = (-1) ** sum(p[:4])
+    dn = up.T.copy()
+    return order, up, dn
+
+
+order, Aup, Adn = toggles()
+blocks = {'e': [0, 1], 'nu': [2, 3]}
+
+
+def rest_phases(B, label):
+    V = np.kron(Aup, B) + np.kron(Adn, B.conj().T)
+    assert np.allclose(V, V.conj().T)
+    res = {}
+    dr = B.shape[0]
+    for sp, idx in blocks.items():
+        sel = [i * dr + r for i in idx for r in range(dr)]
+        ev = np.linalg.eigvalsh(V[np.ix_(sel, sel)])
+        res[sp] = sorted(set(np.round(ev, 12).tolist()))
+    return res
+
+
+reg = {}
+# J1: Z2 bit (B = B* = X)
+X = np.array([[0., 1.], [1., 0.]])
+reg['J1 Z2 bit'] = rest_phases(X, 'Z2')
+# J2: cyclic counters Z_n, B = cyclic shift (unitary); in a phase state both blocks rotate by g
+for n in range(2, 7):
+    S = np.roll(np.eye(n), -1, axis=0)
+    reg[f'J2 cyclic counter Z_{n}'] = rest_phases(S, f'Z{n}')
+for k, v in reg.items():
+    assert v['e'] == v['nu'] == [-1.0, 1.0], (k, v)
+# J3: bounded two-level register, B = |0><1| (lowers the number of neutral quanta)
+B2 = np.array([[0., 1.], [0., 0.]])
+V2 = np.kron(Aup, B2) + np.kron(Adn, B2.T)
+active = {}
+for sp, idx in blocks.items():
+    left = idx[0]
+    for r in range(2):
+        col = V2[:, left * 2 + r]
+        active[(sp, r)] = bool(np.abs(col).max() > 0)
+assert active == {('e', 0): True, ('e', 1): False, ('nu', 0): False, ('nu', 1): True}
+j3 = []
+for alpha2 in (0.99, 0.9, 0.5, 0.1):
+    al, be = np.sqrt(alpha2), np.sqrt(1 - alpha2)
+    j3.append({'register_state': f'sqrt({alpha2})|0> + sqrt({1 - alpha2:.2f})|1>',
+               'mean_field_angle_over_g (both junctions)': float(al * be),
+               'weight_of_the_active_block_e': float(al ** 2), 'weight_of_the_active_block_nu': float(be ** 2)})
+# J4: oscillator number state |n>: block amplitudes sqrt(n+1) (e) and sqrt(n) (nu)
+nmax = 8
+a_osc = np.diag(np.sqrt(np.arange(1, nmax)), 1)
+V4 = np.kron(Aup, a_osc) + np.kron(Adn, a_osc.T)
+j4 = []
+for n in range(0, 5):
+    e_amp = abs(V4[1 * nmax + n + 1, 0 * nmax + n])            # e_L|n> -> e_R|n+1>
+    nu_amp = abs(V4[3 * nmax + n - 1, 2 * nmax + n]) if n > 0 else 0.0
+    assert abs(e_amp - np.sqrt(n + 1)) < 1e-12 and abs(nu_amp - np.sqrt(n)) < 1e-12
+    j4.append({'n': n, 'e_block_amplitude_over_g': float(e_amp), 'nu_block_amplitude_over_g': float(nu_amp)})
+out['J1_J4_coherent_program_register'] = {
+    'vertex': 'V0 = a*_s2 B + a_s2 B* (R8, neutral component); both junctions are adjoint pieces of one Hermitian vertex',
+    'J1_J2_rest_phases_over_g': reg,
+    'J3_bounded_register': {'active_blocks': {f'{k[0]}, register {k[1]}': v for k, v in active.items()}, 'states': j3},
+    'J4_number_states': j4,
+    'statement': 'Every register state with a common phase (Z2 bit, cyclic counter) gives both junctions the rest phase '
+                 'g exactly; a mean field gives g|<B>| to both, because |<B*>| = |<B>|. Asymmetry appears only in '
+                 'populations: the electron junction emits into the register (needs a vacancy, weight |alpha|^2), the '
+                 'neutrino junction absorbs from it (needs a quantum, weight |beta|^2); number states give amplitudes '
+                 'sqrt(n+1) and sqrt(n). R8: populations give conversion and no rest phase.'}
+
+# ------------------------------------------------------------------------------------------------ J5, J6, F1, F2: charges
+det = (1, 1, 1, 1, 1)
+s2 = (0, 0, 0, 0, 1)
+comp = lambda p: tuple(1 - x for x in p)
+left = {'Q_up': (1, 0, 0, 1, 0), 'u^c': comp((1, 0, 0, 1, 1)), 'Q_down': (1, 0, 0, 0, 1), 'd^c': comp((1, 0, 0, 0, 0)),
+        'nu_L': pat['nu_L'], 'N^c': comp(pat['N']), 'e_L': pat['e_L'], 'e^c': comp(pat['e_R'])}
+vadd = lambda *vs: tuple(sum(x) for x in zip(*vs))
+vneg = lambda v: tuple(-x for x in v)
+half = lambda v: tuple(F(x) - F(1, 2) for x in v)                  # odd counting per left field
+vert = {'up (Q u^c H)': ('Q_up', 'u^c', s2), 'down (Q d^c H*)': ('Q_down', 'd^c', vneg(s2)),
+        'lepton (L e^c H*)': ('e_L', 'e^c', vneg(s2)), 'neutrino (L N^c H)': ('nu_L', 'N^c', s2)}
+j5 = {}
+for nm, (a1, a2, h) in vert.items():
+    lab = vadd(left[a1], left[a2], h)
+    odd = vadd(half(left[a1]), half(left[a2]), h)
+    assert lab == det and all(x == 0 for x in odd), nm
+    j5[nm] = {'left_labelling': list(lab), 'odd_counting': [str(x) for x in odd]}
+pair_left = vadd(left['N^c'], left['N^c'])
+pair_odd = vadd(half(left['N^c']), half(left['N^c']))
+assert pair_left == (0, 0, 0, 0, 0) and pair_odd == tuple(F(-1) for _ in range(5))
+wein_left = vadd(left['nu_L'], left['nu_L'], s2, s2)
+wein_odd = vadd(half(left['nu_L']), half(left['nu_L']), s2, s2)
+assert wein_left == (2, 2, 2, 2, 2) and wein_odd == tuple(F(1) for _ in range(5))
+j5['singlet pairing N^c N^c'] = {'left_labelling': list(pair_left), 'odd_counting': [str(x) for x in pair_odd]}
+j5['dimension five L L H H'] = {'left_labelling': list(wein_left), 'odd_counting': [str(x) for x in wein_odd]}
+# J6: a level-number charge h on the memory (phi carries h, phi* carries -h) that makes every vertex neutral in the
+# left labelling: up and neutrino need h = -(pair), down and lepton need -h = -(pair)
+hs = s.symbols('h0:5')
+eqs = []
+for nm, (a1, a2, hh) in vert.items():
+    pair = vadd(left[a1], left[a2])
+    sign = 1 if hh == s2 else -1
+    eqs += [pair[j] + sign * hs[j] for j in range(5)]
+sol_left = s.solve(eqs, hs, dict=True)
+eqs_odd = []
+for nm, (a1, a2, hh) in vert.items():
+    pair = vadd(half(left[a1]), half(left[a2]))
+    sign = 1 if hh == s2 else -1
+    eqs_odd += [s.nsimplify(pair[j]) + sign * hs[j] for j in range(5)]
+sol_odd = s.solve(eqs_odd, hs, dict=True)
+print('J6 solutions', sol_left, sol_odd)
+assert sol_left == [] and sol_odd == [{hs[0]: 0, hs[1]: 0, hs[2]: 0, hs[3]: 0, hs[4]: 1}]
+out['J5_J6_level_number_charges'] = {
+    'per_vertex': j5,
+    'J6_memory_charge_left_labelling_solutions': 'none: up and neutrino need H to carry minus their pair, -(1,1,1,1,0); '
+                                                 'down and lepton need H* to carry minus their pair, that is H to carry '
+                                                 '+(1,1,1,1,2); no single assignment',
+    'J6_memory_charge_odd_counting': 'unique: H carries (0,0,0,0,1), the doublet level s2 only',
+    'statement': 'All four Dirac vertices carry the same charge: the determinant in the left labelling (the audit\'s '
+                 'yukawa_certificate states the same for up, down, lepton), zero in the odd counting. The neutrino '
+                 'vertex needs no extra determinant charge and no second step. The memory cannot carry a determinant '
+                 'charge consistently: in the odd counting its only charge is the doublet level.'}
+# F1, F2: X = 2 (odd degree) and Y of every monomial in the memory, against the pairing
+Yv = lambda q: F(3, 6) * (q[3] + q[4]) - F(2, 6) * (q[0] + q[1] + q[2])     # 6Y = 3 n2 - 2 n3 on charge vectors
+Xv = lambda q: 2 * sum(q)
+H_odd = s2
+monos = []
+for a_, b_ in itertools.product(range(0, 6), repeat=2):
+    q = tuple(a_ * x - b_ * x for x in H_odd)
+    monos.append((a_, b_, Xv(q), Yv(q)))
+assert all(X_ == 4 * Y_ for _, _, X_, Y_ in monos)
+pair_q = pair_odd
+assert Xv(pair_q) == -10 and Yv(pair_q) == 0
+out['F1_F2_memory_cannot_supply_the_pairing'] = {
+    'memory_monomials_H^a (H*)^b, a, b = 0..5': 'X = 4 Y in all 36 (B - L = 0)',
+    'singlet pairing (odd counting)': {'X': str(Xv(pair_q)), 'Y': str(Yv(pair_q)), 'B_minus_L': '2'},
+    'statement': 'No power of the Higgs memory carries the pairing\'s charge (X = -10 at Y = 0). A Majorana mass needs a '
+                 'separate register, a weak and colour singlet with B - L = -2 (odd charge +1 on every level), whose '
+                 'condensate sets M (F3). The determinant offset of the audit\'s left labelling is the counting shift '
+                 'between the labellings (J5), not a charge of the memory (J6).'}
+
+# ------------------------------------------------------------------------------------------------ J7, J8: audit memory
+subsets, canonical, currents, vertices = representation()
+assert tuple(subsets[9]) == (3, 4) and tuple(subsets[10]) == (0, 1, 2, 3) and tuple(subsets[11]) == (0, 1, 2, 4)
+C_e = [np.array(vertices['charged_lepton']['components'][k].tolist(), dtype=float) for k in range(2)]
+assert vertices['charged_lepton']['conjugate_Higgs'] is True
+# sixteen internal states: index 15 = the empty wedge N^c; neutrino tensor from J_nu = phi_0 c_11 - phi_1 c_10
+C16 = lambda C: np.pad(C, ((0, 1), (0, 1)))
+C_e16 = [C16(c) for c in C_e]
+C_nu16 = [np.zeros((16, 16)), np.zeros((16, 16))]
+C_nu16[0][15, 11] = C_nu16[0][11, 15] = 1.0
+C_nu16[1][15, 10] = C_nu16[1][10, 15] = -1.0
+# Ward identities on sixteen states (the empty wedge carries zero current), with the audit's own convention
+ward = 0
+for t, g in zip(currents, canonical):
+    T = np.array(s.N(t).tolist(), dtype=complex)
+    T16 = np.zeros((16, 16), dtype=complex); T16[:15, :15] = T
+    matter = -1j * T16
+    higgs = -1j * np.array(s.N(g[3:, 3:]).tolist(), dtype=complex)
+    for comps, conj in ((C_nu16, False), (C_e16, True)):
+        hh = -higgs.T if conj else higgs
+        for k in range(2):
+            res = matter.T @ comps[k] + comps[k] @ matter + sum(hh[j, k] * comps[j] for j in range(2))
+            assert np.abs(res).max() < 1e-12
+            ward += 1
+# Fock space: modes (spin, internal) in a chosen list; memory five states
+def fock_ops(nmodes):
+    dim = 2 ** nmodes
+    cs = []
+    for m in range(nmodes):
+        A = np.zeros((dim, dim))
+        for st in range(dim):
+            if (st >> m) & 1:
+                A[st ^ (1 << m), st] = (-1) ** bin(st & ((1 << m) - 1)).count('1')
+        cs.append(A)
+    return cs
+
+
+phi = []
+for k in range(2):
+    P = np.zeros((5, 5)); P[0, 1 + k] = 1; P[3 + k, 0] = 1
+    phi.append(P)
+NH = np.diag([0., 1, 1, 1, 1])
+CH = np.eye(5)[[0, 3, 4, 1, 2]]                                  # swaps particle and antiparticle states
+assert all(np.allclose(CH @ phi[k] @ CH.T, phi[k].T) for k in range(2))
+
+
+def onsite(internal, chans, omega=1.0):
+    modes = [(a, i) for a in (0, 1) for i in internal]
+    cs = fock_ops(len(modes))
+    idx = {m: n for n, m in enumerate(modes)}
+    dimf = cs[0].shape[0]
+    H = omega * np.kron(np.eye(dimf), NH)
+    for y, comps, conj in chans:
+        for k in range(2):
+            Phi = phi[k].T if conj else phi[k]
+            for i in internal:
+                for j in internal:
+                    cij = comps[k][i, j]
+                    if cij != 0:
+                        term = y * cij * np.kron(cs[idx[(0, i)]] @ cs[idx[(1, j)]], Phi)
+                        H = H + term + term.T
+    assert np.allclose(H, H.T)
+    return np.linalg.eigvalsh(H)
+
+
+ev_e = onsite([9, 10, 11], [(1.0, C_e16, True)])
+ev_nu = onsite([15, 10, 11], [(1.0, C_nu16, False)])
+gap = (5 - np.sqrt(21)) / 2
+assert abs(ev_e[0] + 2) < 1e-12 and abs(ev_e[1] + 2) < 1e-12 and abs(ev_e[2] - ev_e[0] - gap) < 1e-12
+spec_diff = float(np.abs(np.sort(ev_e) - np.sort(ev_nu)).max())
+assert spec_diff < 1e-12
+ev_12 = onsite([9, 15, 10, 11], [(1.0, C_e16, True), (2.0, C_nu16, False)])
+ev_21 = onsite([9, 15, 10, 11], [(2.0, C_e16, True), (1.0, C_nu16, False)])
+ev_11 = onsite([9, 15, 10, 11], [(1.0, C_e16, True), (1.0, C_nu16, False)])
+swap_diff = float(np.abs(np.sort(ev_12) - np.sort(ev_21)).max())
+assert swap_diff < 1e-10
+# background masses with H = (0, v): the neutral component k = 1
+yv = {'y_e': 1.0, 'y_nu': 1.0}
+for ye_, ynu_ in ((1.0, 1.0), (1.0, 0.25)):
+    M = ye_ * C_e16[1] + ynu_ * C_nu16[1]
+    sv = sorted(set(np.round(np.sqrt(np.abs(np.linalg.eigvalsh(M.T @ M))), 12).tolist()))
+    yv[f'background singular values at (y_e, y_nu) = ({ye_}, {ynu_})'] = sv
+out['J7_J8_audit_memory'] = {
+    'tensors': {'charged lepton (audit)': 'C^0: (9,10), C^1: (9,11); conjugate Higgs',
+                'neutrino (16th state)': 'C^0: (15,11) = 1, C^1: (15,10) = -1; Higgs, from J_nu = phi_0 c_11 - phi_1 c_10'},
+    'Ward_identities_checked': ward,
+    'memory_conjugation': 'C_H swaps |1+k> and |3+k>; C_H phi_k C_H = phi_k^dagger (EXACT)',
+    'e_only_spectrum_reproduces_the_audit': {'ground': float(ev_e[0]), 'multiplicity': 2, 'gap': float(ev_e[2] - ev_e[0]),
+                                             'gap_closed_form': '(5 - sqrt21)/2'},
+    'e_only_vs_nu_only_max_spectrum_difference': spec_diff,
+    'joint (y_e, y_nu) = (1, 2) vs (2, 1), max spectrum difference': swap_diff,
+    'joint (1, 1) ground energy': float(ev_11[0]),
+    'background': yv,
+    'statement': 'With the audit\'s memory the neutrino junction (phi) and the electron junction (phi^dagger) are '
+                 'exchanged by the memory\'s particle-antiparticle conjugation. Equal coefficients give equal onsite '
+                 'spectra (320 states, difference below 1e-12), the joint spectrum is symmetric under exchanging the two '
+                 'coefficients, and the background masses are |v y_e| and |v y_nu|. No suppression; the ratio is the '
+                 'ratio of the two declared coefficients.'}
+
+# ------------------------------------------------------------------------------------------------ J9: what separates nu from e
+states = list(itertools.product((0, 1), repeat=5))
+n3 = lambda p: sum(p[:3])
+fam = {'u': (1, 0, 0, 1, 0), 'd': (1, 0, 0, 0, 1), 'nu': (1, 1, 1, 1, 0), 'e': (1, 1, 1, 0, 1)}
+cands = {'n_s1 - 1/2': lambda p: F(p[3]) - F(1, 2), 'n3 - 3/2': lambda p: F(n3(p)) - F(3, 2),
+         '(n_s1 - 1/2)(n3 - 3/2)': lambda p: (F(p[3]) - F(1, 2)) * (F(n3(p)) - F(3, 2)),
+         '(n3 - 3/2)^2': lambda p: (F(n3(p)) - F(3, 2)) ** 2}
+j9 = {}
+for nm, f in cands.items():
+    even = all(f(comp(p)) == f(p) for p in states)
+    odd = all(f(comp(p)) == -f(p) for p in states)
+    vals = {sp: str(f(p)) for sp, p in fam.items()}
+    j9[nm] = {'under_the_complement': 'even (allowed)' if even else ('odd (forbidden: C H C^-1 = -H fails)' if odd else 'mixed'),
+              'value_on_species_blocks': vals}
+assert j9['n_s1 - 1/2']['under_the_complement'].startswith('odd') and j9['n3 - 3/2']['under_the_complement'].startswith('odd')
+assert j9['(n_s1 - 1/2)(n3 - 3/2)']['under_the_complement'].startswith('even')
+f = cands['(n_s1 - 1/2)(n3 - 3/2)']
+assert f(fam['nu']) - f(fam['e']) == 3 * (f(fam['d']) - f(fam['u']))
+out['J9_what_separates_nu_from_e'] = {
+    'class': 'generators f(levels other than s2) times the toggle; the one-family reading needs C H C^-1 = -H, so f must '
+             'be even under the complement',
+    'candidates': j9,
+    'statement': 'The linear class (f constant, lead L31) gives one amplitude: y_nu = y_e = y_u = y_d. The degree-three '
+                 'terms n_s1 T and n3 T are odd under the complement and are excluded in the one-family reading. The '
+                 'lowest even term that separates nu from e is (n_s1 - 1/2)(n3 - 3/2) T (degree five); it shifts the four '
+                 'amplitudes by (u, d, nu, e) = (-1/4, +1/4, +3/4, -3/4) times its coefficient, so for that term alone '
+                 'y_nu - y_e = 3 (y_d - y_u). A neutrino amplitude far below the electron\'s needs a declared operator '
+                 'that the source does not contain, and at lowest order it moves the quark pair as well.'}
+
+print(json.dumps(out, indent=1, default=str))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1, default=str)

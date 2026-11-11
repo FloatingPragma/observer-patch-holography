@@ -1,0 +1,44 @@
+"""Cross-check of kdlib against the public producer model/coherent_seam_repair/holonomy.py (exact).
+
+The 120 lifts of kdlib (quaternion -> port permutation) must coincide with the 120 rows of the public compiler,
+and the Klein lifts used by worker KD must be public cover values with public words.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_crosscheck.py [out.json]
+"""
+import json
+import sys
+from fractions import Fraction as F
+
+from kdlib import K, cover, frames, spinor_lift, meq, mscale, E2
+from model.coherent_seam_repair.holonomy import certificate
+
+cert = certificate()
+quats, rotm = cover()
+
+
+def parse(q):
+    return tuple(K(F(a), F(b)) for a, b in q)
+
+
+pub = {parse(row['quaternion']): row for row in cert['compiler']}
+assert len(pub) == 120 and set(pub) == set(quats)
+assert all(tuple(pub[q]['carrier_permutation']) == quats[q] for q in quats)
+print('EXACT ok: the 120 lifts of kdlib are the 120 rows of the public compiler, with the same port permutations')
+rows = []
+for f, fr in enumerate(frames()):
+    for h in fr['half_turns']:
+        for q in (h['q'], tuple(-x for x in h['q'])):
+            row = pub[q]
+            assert tuple(row['carrier_permutation']) == h['perm']
+            rows.append({'frame': f, 'quaternion': [repr(x) for x in q], 'public_word': row['word'],
+                         'central_bit': row['central_bit']})
+print('EXACT ok: the 30 Klein lifts (5 frames x 3 half-turns x 2 signs) are public cover values; word lengths:',
+      sorted({len(r['public_word']) for r in rows}))
+minus = tuple(-x for x in next(q for q in quats if meq(spinor_lift(q), E2)))
+assert pub[minus]['word'] == cert['central_word'] and meq(spinor_lift(minus), mscale(-1, E2))
+print('EXACT ok: the central element is the public central word', cert['central_word'])
+g0 = parse(cert['generators'][0])
+f0 = [r for r in rows if r['quaternion'] == [repr(x) for x in g0]]
+print('public generator 0 is a Klein lift of frame', f0[0]['frame'] if f0 else None)
+if len(sys.argv) > 1:
+    json.dump({'klein_lifts': rows, 'central_word': cert['central_word'],
+               'public_generator_0_in_frame': f0[0]['frame'] if f0 else None}, open(sys.argv[1], 'w'), indent=1)

@@ -1,0 +1,99 @@
+"""Systematic sub-family in the unit-pair sector: order x hop set x annihilation set.
+
+Cells of the contrast alphabet (as read by the twist table, representative frame k = -1, + unit leaves L for R):
+  TC orders: c-3 (d <= -3), c-2, c-1, c0, c1, c2, c3 (d >= 3);   CT order: c-1, c0, c1 (rest after the current).
+Usage: t30_subfamily.py carrier mode [chunk nchunks]
+  mode 'relax'  : hop cells within {c-3, c-2, c-1} (twist relaxes the seam), annihilation in {same as hop, c-1 only, all three, none}
+  mode 'full'   : every hop subset of the alphabet, annihilation = same cells as the hop (tetrahedron)
+Chains are built with a reflecting contrast cap (exact when no outcome is reflected).
+"""
+import itertools, json, sys, time
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S, s1can
+
+HERE = Path(__file__).resolve().parent
+which, mode = sys.argv[1], sys.argv[2]
+chunk, nchunks = (int(sys.argv[3]), int(sys.argv[4])) if len(sys.argv) > 4 else (0, 1)
+C = {'tetrahedron': S.tetrahedron, 'octahedron': S.octahedron}[which]()
+BIG = 12
+CELL = {-3: tuple(range(-BIG, -2)), -2: (-2,), -1: (-1,), 0: (0,), 1: (1,), 2: (2,), 3: tuple(range(3, BIG + 1))}
+
+
+def expand(cells):
+    return tuple(d for c in cells for d in CELL[c])
+
+
+def subsets(cells):
+    for r in range(len(cells) + 1):
+        for s in itertools.combinations(cells, r):
+            yield s
+
+
+specs = []
+if mode == 'relax':
+    for order in ('TC_excl', 'TC_then'):
+        for H in subsets((-3, -2, -1)):
+            if not H:
+                continue
+            for tag, Aset in (('same', H), ('c-1', (-1,)), ('all', (-3, -2, -1)), ('none', ())):
+                if tag != 'same' and Aset == H:
+                    continue
+                specs.append((order, H, Aset))
+    for H in ((-1,),):
+        for Aset in ((-1,), ()):
+            specs.append(('CT', H, Aset))
+else:
+    for order in ('TC_excl', 'TC_then'):
+        for H in subsets((-3, -2, -1, 0, 1, 2, 3)):
+            specs.append((order, H, H))
+    for H in subsets((-1, 0, 1)):
+        specs.append(('CT', H, H))
+specs = [s for i, s in enumerate(specs) if i % nchunks == chunk]
+groups = s1can.initial_groups(C); labels = s1can.initial_labels(C)
+rmax = max(C.ddist[0])
+path = HERE / f't30_{which}_{mode}.json'
+out = json.loads(path.read_text()) if path.exists() else {}
+budget = time.time() + 140
+done = 0
+for order, H, Aset in specs:
+    lid = f"{order}|hop{','.join(map(str, H)) or '-'}|ann{','.join(map(str, Aset)) or '-'}"
+    if lid in out:
+        continue
+    if time.time() > budget:
+        print('budget reached; rerun to continue'); break
+    law = S.table_law(lid, order, hop=expand(H), ann=expand(Aset))
+    t0 = time.time()
+    res, ch = s1can.analyse(C, law, groups, cap=300000, dcap=5, qcap=2, reflect=True, sweeps=(1, 2, 5, 10, 20), labels=labels)
+    if res.get('overflow'):
+        out[lid] = dict(order=order, hop_cells=list(H), ann_cells=list(Aset), overflow=True); continue
+    # nonzero table entries in the alphabet d in -4..4: 4 images per hop contrast, 2 per annihilation contrast
+    def ncontr(cells):
+        return sum({-3: 2, 3: 2}.get(c, 1) for c in cells) if order != 'CT' else len(cells)
+    st = res['starts']
+    cc = res['closed_charged_classes']
+    row = dict(order=order, hop_cells=list(H), ann_cells=list(Aset),
+               nonzero_entries=4 * ncontr(H) + 2 * ncontr(Aset),
+               lumped_states=res['lumped_states'], exact=res['states_with_reflected_outcome'] == 0,
+               max_abs_contrast=res['max_abs_contrast'], max_abs_contrast_at_uncharged_seam=res['max_abs_contrast_at_uncharged_seam'],
+               hop_reachable='hop' in res['event_types'], annihilation_reachable='annihilate' in res['event_types'],
+               closed_charged_classes=len(cc), closed_charged_sizes=sorted(c['size'] for c in cc),
+               closed_charged_hop_rates=[round(c['hop_rate_per_charge_per_sweep'], 6) for c in cc],
+               survival_decay_per_attempt=res.get('survival_decay_per_attempt'),
+               hop_rate_qsd=res.get('hop_rate_per_charge_per_sweep_qsd'),
+               reflected_per_sweep_qsd=res.get('reflected_outcomes_per_sweep_qsd'))
+    for key in (f'uniform_r{rmax}', f'balanced_r{rmax}', 'balanced_r1'):
+        o = st.get(key, {})
+        ab = o.get('absorbed', {})
+        row[key] = dict(time_with_charge_sweeps=o.get('mean_time_with_charge_sweeps'), hops=o.get('mean_hops'),
+                        p_annihilated=sum(v for k, v in ab.items() if k.startswith('vacuum')),
+                        p_trapped=ab.get('charged', 0.0),
+                        p_label_kept=o.get('p_final_label_equals_initial'))
+    row['numerical_notes'] = res.get('numerical_notes', [])
+    row['seconds'] = round(time.time() - t0, 2)
+    out[lid] = row
+    done += 1
+    print(lid, row['lumped_states'], row['seconds'], flush=True)
+    path.write_text(json.dumps(out, indent=1))
+path.write_text(json.dumps(out, indent=1))
+print('laws in file', len(out), 'done now', done, 'of chunk', len(specs))

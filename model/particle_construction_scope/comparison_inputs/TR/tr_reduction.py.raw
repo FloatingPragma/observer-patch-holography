@@ -1,0 +1,56 @@
+"""Worker TR: reduction of each direction to its one free number, with the value the measurement needs.
+NOT BLIND: written and run after tr_compare.py; no value here is a candidate or a test.
+
+- Direction A (one nat per read): the needed excess read count is -ln r_needed.
+- Direction C (coherent leakage, t3 = (2/9) tau^3 / eps^2 exactly): r(x) = sum_d w_d x^(d-1) with x = t3/tau;
+  the needed x, and tau/eps = sqrt(9 x / 2), against the A-clock reading tau = p, eps = 1/kappa (tau/eps = 5/12).
+- Direction B (barrier action): the cheapest-route action is S(d) = 3 (d - 1) cost units; the needed conversion
+  c (nats per cost unit) solves sum_d w_d exp(-c 3 (d - 1)) = r_needed; the declared kappa gives c = 1/5.
+  cd /tmp && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B \
+      WORKSPACE/repair-law/work/TR/tr_reduction.py
+"""
+from __future__ import annotations
+
+import json
+import math
+from fractions import Fraction
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+CMP = json.loads((HERE / "tr_compare.json").read_text())
+CAND = json.loads((HERE / "tr_candidates.json").read_text())
+W = {int(d): float(Fraction(x)) for d, x in CAND["structure_used"]["placement_weights"].items()}
+S_UNITS = {int(d): v["S_cost_units"] for d, v in CAND["structure_used"]["per_d"].items()}
+
+
+def solve(f, target, lo, hi):
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if (f(mid) - target) * (f(lo) - target) <= 0:
+            hi = mid
+        else:
+            lo = mid
+    return 0.5 * (lo + hi)
+
+
+def main():
+    out = {}
+    for scale, key in (("mu_c", "r_mu_c"), ("Q0", "r_Q0")):
+        r = CMP["needed_NOT_BLIND"][key]
+        rc = lambda x: sum(w * x ** (d - 1) for d, w in W.items())
+        x = solve(rc, r, 0.0, 1.0)
+        rb = lambda c: sum(w * math.exp(-c * S_UNITS[d]) for d, w in W.items())
+        c = solve(rb, r, 0.0, 10.0)
+        out[scale] = {"r_needed": r, "A_excess_nats": -math.log(r),
+                      "A_excess_nats_per_excess_vertex_read": -math.log(r) / 2,
+                      "C_needed_x": x, "C_needed_tau_over_eps": math.sqrt(4.5 * x),
+                      "B_needed_nats_per_cost_unit": c, "B_needed_cost_units_per_nat": 1 / c}
+    out["source_readings"] = {"C_tau_over_eps_A_clock": 5 / 12, "C_tau_over_eps_amplitude": math.sqrt(1 / 12) * 5,
+                              "B_nats_per_cost_unit_kappa": 1 / 5,
+                              "A_vertex_excess_reads": 2}
+    (HERE / "tr_reduction.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == "__main__":
+    main()

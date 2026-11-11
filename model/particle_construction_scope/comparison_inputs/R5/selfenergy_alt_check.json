@@ -1,0 +1,72 @@
+{
+ "gap": {
+  "alternating_pair_min_abs_phase_per_tick": 0.15793499999999994,
+  "forward_only_min_distance_from_0_or_pi": 0.0
+ },
+ "dense_against_kspace": [
+  {
+   "shape": [
+    4,
+    4,
+    1
+   ],
+   "kappa": -0.025,
+   "p1": 0.1,
+   "sigma_dense": 67.72545424377897,
+   "sigma_kspace": 67.72545424377898
+  },
+  {
+   "shape": [
+    4,
+    4,
+    1
+   ],
+   "kappa": -0.025,
+   "p1": 0.3,
+   "sigma_dense": 149.33982675307243,
+   "sigma_kspace": 149.33982675307197
+  },
+  {
+   "shape": [
+    3,
+    3,
+    3
+   ],
+   "kappa": 0.31,
+   "p1": 0.1,
+   "sigma_dense": -0.8577690883493772,
+   "sigma_kspace": -0.8577690883493747
+  },
+  {
+   "shape": [
+    3,
+    3,
+    3
+   ],
+   "kappa": 0.31,
+   "p1": 0.3,
+   "sigma_dense": -2.012870629209637,
+   "sigma_kspace": -2.01287062920964
+  }
+ ],
+ "bound_levels_2D_direction_1": {
+  "levels": [],
+  "antihermitian_part": 6.424224242309881e-15
+ },
+ "bound_levels_2D_direction_2": {
+  "levels": [],
+  "antihermitian_part": 6.511421081261607e-15
+ },
+ "bound_levels_3D_direction_1": {
+  "levels": [],
+  "antihermitian_part": 5.148706594395709e-15
+ },
+ "bound_levels_3D_direction_2": {
+  "levels": [],
+  "antihermitian_part": 5.1519632692364004e-15
+ },
+ "bound_levels_3D_direction_3": {
+  "levels": [],
+  "antihermitian_part": 5.444408374878166e-15
+ }
+}

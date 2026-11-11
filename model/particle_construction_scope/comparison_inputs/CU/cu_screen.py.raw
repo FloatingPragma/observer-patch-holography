@@ -1,0 +1,75 @@
+"""CU row A5 on the stack's reference carrier: nested geodesic icosahedral subdivisions of S^2 (20 4^m cells).
+
+For every level the true spherical areas of the triangular cells are computed (spherical excess). A cell of area A
+is the polar cap of a sphere of K = 4 pi/A equal cells; the dilation about its centre that carries its boundary
+circle to the boundary circle of the antipodal cell (same area by central symmetry) has rapidity ln(K - 1).
+One period is rapidity 2 pi. Writes cu_screen.json. No measured value.
+"""
+import json
+import os
+import time
+
+import numpy as np
+
+t0 = time.time()
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def icosahedron():
+    phi = (1 + np.sqrt(5)) / 2
+    v = np.array([[-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0], [0, -1, phi], [0, 1, phi], [0, -1, -phi],
+                  [0, 1, -phi], [phi, 0, -1], [phi, 0, 1], [-phi, 0, -1], [-phi, 0, 1]], float)
+    v /= np.linalg.norm(v, axis=1)[:, None]
+    f = np.array([[0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11], [1, 5, 9], [5, 11, 4], [11, 10, 2],
+                  [10, 7, 6], [7, 1, 8], [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9], [4, 9, 5], [2, 4, 11],
+                  [6, 2, 10], [8, 6, 7], [9, 8, 1]])
+    return v, f
+
+
+def subdivide(v, f):
+    e = np.sort(np.concatenate([f[:, [0, 1]], f[:, [1, 2]], f[:, [2, 0]]]), axis=1)
+    ue, inv = np.unique(e, axis=0, return_inverse=True)
+    mid = v[ue[:, 0]] + v[ue[:, 1]]
+    mid /= np.linalg.norm(mid, axis=1)[:, None]
+    n = len(v)
+    v2 = np.concatenate([v, mid])
+    m = len(f)
+    a, b, c = f[:, 0], f[:, 1], f[:, 2]
+    ab, bc, ca = n + inv[:m], n + inv[m:2 * m], n + inv[2 * m:]
+    f2 = np.concatenate([np.stack([a, ab, ca], 1), np.stack([b, bc, ab], 1), np.stack([c, ca, bc], 1), np.stack([ab, bc, ca], 1)])
+    return v2, f2
+
+
+def areas(v, f):
+    A, B, C = v[f[:, 0]], v[f[:, 1]], v[f[:, 2]]
+    num = np.abs(np.einsum('ij,ij->i', A, np.cross(B, C)))
+    den = 1 + np.einsum('ij,ij->i', A, B) + np.einsum('ij,ij->i', B, C) + np.einsum('ij,ij->i', C, A)
+    return 2 * np.arctan2(num, den)
+
+
+v, f = icosahedron()
+rows = {}
+for m in range(0, 8):
+    if m > 0:
+        v, f = subdivide(v, f)
+    ar = areas(v, f)
+    K_small, K_large, K_mean = 4 * np.pi / ar.max(), 4 * np.pi / ar.min(), 4 * np.pi / ar.mean()
+    rows[f'm={m}'] = {
+        'cells': int(len(f)), 'vertices': int(len(v)), 'area_sum_over_4pi': float(ar.sum() / (4 * np.pi)),
+        'largest_over_smallest_cell_area': float(ar.max() / ar.min()),
+        'rapidity_for_largest_cell': float(np.log(K_small - 1)), 'rapidity_for_smallest_cell': float(np.log(K_large - 1)),
+        'rapidity_equal_area': float(np.log(len(f) - 1)),
+        'periods (largest, equal, smallest)': [float(np.log(K_small - 1) / (2 * np.pi)), float(np.log(len(f) - 1) / (2 * np.pi)),
+                                               float(np.log(K_large - 1) / (2 * np.pi))],
+        'holds_one_period_for_every_cell': bool(np.log(K_small - 1) >= 2 * np.pi),
+        'holds_one_period_each_side_for_every_cell': bool(np.log(K_small - 1) >= 4 * np.pi),
+        'holds_one_period_each_side_for_some_cell': bool(np.log(K_large - 1) >= 4 * np.pi)}
+    print(f'm={m}', rows[f'm={m}'], round(time.time() - t0, 1), 's', flush=True)
+out = {'levels': rows,
+       'first_level_one_period_every_cell': min(int(k[2:]) for k, r in rows.items() if r['holds_one_period_for_every_cell']),
+       'first_level_one_period_each_side_some_cell': min([int(k[2:]) for k, r in rows.items() if r['holds_one_period_each_side_for_some_cell']] or [-1]),
+       'first_level_one_period_each_side_every_cell': min([int(k[2:]) for k, r in rows.items() if r['holds_one_period_each_side_for_every_cell']] or [-1]),
+       'K_one_period': float(np.exp(2 * np.pi) + 1), 'K_one_period_each_side': float(np.exp(4 * np.pi) + 1),
+       'seconds': round(time.time() - t0, 1)}
+json.dump(out, open(os.path.join(HERE, 'cu_screen.json'), 'w'), indent=1)
+print({k: v_ for k, v_ in out.items() if k != 'levels'})

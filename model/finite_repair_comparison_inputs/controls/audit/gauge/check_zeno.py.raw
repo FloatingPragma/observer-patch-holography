@@ -1,0 +1,19 @@
+"""Exact-rank-one formulas and numerical uniform bounds for retained Zeno records."""
+from fractions import Fraction
+import cmath,json
+from pathlib import Path
+out=[]
+for d in [3,2]:
+ p=Fraction(d,12);v=p*(1-p)
+ for t in [.2,1.,3.]:
+  for rounds in [1,2,4,16,64]:
+   k=(1-float(p)+float(p)*cmath.exp(1j*t/rounds))**rounds
+   error=abs(k-cmath.exp(1j*float(p)*t));loss=1-abs(k)**2
+   bound=float(v)*t*t/(2*rounds)
+   assert error<=bound+1e-13
+   assert loss<=2*bound+1e-13
+   out.append({'band_rank':d,'exact_p':str(p),'exact_leakage_squared':str(v),
+       'pulse_angle':t,'band_tests':rounds,'operator_error':error,'operator_bound':bound,
+       'failed_record_probability_max':max(0.,loss),'failure_bound':2*bound})
+p=Path(__file__).parent/'zeno_results.json';p.write_text(json.dumps({'status':'analytic bound with numerical checks','rows':out},indent=2)+'\n')
+print('PASS:',len(out),'rank-one gate/failure checks; the band measurement is DECLARED')

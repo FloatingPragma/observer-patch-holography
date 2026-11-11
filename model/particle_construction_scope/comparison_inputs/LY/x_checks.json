@@ -1,0 +1,196 @@
+{
+ "X3_identity": {
+  "instrument_complete": true,
+  "population_x_after": "a/2 + d/2",
+  "population_y_after": "a/2 + d/2",
+  "both_equal_half_the_pair_weight": true,
+  "state_after_is_p_with_weight": "a/2 + d/2"
+ },
+ "X3_flat_pairs_T0": {
+  "flat_edges": [
+   "((0, 1), (1, 0))",
+   "((3, 4), (4, 3))",
+   "((1, 2), (2, 1))",
+   "((4, 5), (5, 4))",
+   "((2, 3), (3, 2))",
+   "((5, 0), (0, 5))"
+  ],
+  "consecutive_flat_edges": 0,
+  "flat_edges_with_a_lower_neighbour_on_the_same_seam": [
+   "((3, 4), (4, 3))",
+   "((1, 2), (2, 1))",
+   "((4, 5), (5, 4))",
+   "((2, 3), (3, 2))"
+  ]
+ },
+ "X3_greedy_variant": [
+  {
+   "d": 2,
+   "faces": [
+    0,
+    2
+   ],
+   "K_vacuum": 0.0,
+   "states": 75,
+   "labels": [
+    "((2, 4), 2)",
+    "((3, 3), 2)"
+   ]
+  },
+  {
+   "d": 3,
+   "faces": [
+    0,
+    8
+   ],
+   "K_vacuum": 0.0,
+   "states": 75,
+   "labels": [
+    "((2, 4), 3)",
+    "((3, 3), 3)"
+   ]
+  },
+  {
+   "d": 3,
+   "faces": [
+    0,
+    9
+   ],
+   "K_vacuum": 0.0,
+   "states": 75,
+   "labels": [
+    "((2, 4), 3)",
+    "((3, 3), 3)"
+   ]
+  },
+  {
+   "d": 4,
+   "faces": [
+    0,
+    12
+   ],
+   "K_vacuum": 0.0,
+   "states": 75,
+   "labels": [
+    "((2, 4), 4)",
+    "((3, 3), 4)"
+   ]
+  },
+  {
+   "d": 5,
+   "faces": [
+    0,
+    13
+   ],
+   "K_vacuum": 0.0,
+   "states": 75,
+   "labels": [
+    "((2, 4), 5)",
+    "((3, 3), 5)"
+   ]
+  }
+ ],
+ "X5_work_rule": {
+  "kappa": 5,
+  "release": {
+   "tie_swap_contrast_1": 0,
+   "emission_contrast_2_j_1": 1,
+   "descent_contrast_3_j_1": 2,
+   "descent_contrast_4_j_2": 4
+  },
+  "isolated_class_rises": {
+   "1": [
+    0,
+    8
+   ],
+   "2": [
+    2,
+    7
+   ],
+   "3": [
+    3
+   ],
+   "4": [
+    2,
+    7
+   ],
+   "5": [
+    0,
+    8
+   ]
+  },
+  "pair_creation_rise": 10,
+  "paid_by_release": {
+   "0": {
+    "budget_cost_units": 0,
+    "splits_paid": {
+     "1": [],
+     "2": [],
+     "3": [],
+     "4": [],
+     "5": []
+    },
+    "pair_creation_paid": false
+   },
+   "1": {
+    "budget_cost_units": 5,
+    "splits_paid": {
+     "1": [],
+     "2": [
+      2
+     ],
+     "3": [
+      3
+     ],
+     "4": [
+      2
+     ],
+     "5": []
+    },
+    "pair_creation_paid": false
+   },
+   "2": {
+    "budget_cost_units": 10,
+    "splits_paid": {
+     "1": [
+      8
+     ],
+     "2": [
+      2,
+      7
+     ],
+     "3": [
+      3
+     ],
+     "4": [
+      2,
+      7
+     ],
+     "5": [
+      8
+     ]
+    },
+    "pair_creation_paid": true
+   }
+  }
+ },
+ "X4_public_program": {
+  "U_is_an_involution": true,
+  "blank_record_amplitudes_agree_to_disagree": [
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "blank_record_blocks_never_produce_the_disagreeing_state": true,
+  "block_record1_to_record0_equals_m_p": true,
+  "block_record2_to_record0_maps_11_to_20": "1",
+  "block_record3_to_record0_maps_11_to_02": "1",
+  "trace_W_on_record_0": "-638",
+  "trace_W_on_record_1": "-638",
+  "trace_W_total": "-1276",
+  "reference_weight_of_record_1": "1/2",
+  "reference_weight_of_record_0": "1/2"
+ },
+ "seconds": 20.0
+}

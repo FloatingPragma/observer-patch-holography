@@ -1,0 +1,200 @@
+"""T5, item 4: the Koide conditions of the public packet against circulant mass operators on the family band.
+
+Read-only sources: RER/model/standard_model_source_map/KOIDE_ATTACHMENT.md, KOIDE_SOURCE.md, koide_source.py,
+RER/model/common_source/native_mass_holonomy.py. Exact over Q(sqrt5) and its extension by sqrt(phi + 2) (t5lib);
+eigenvalues of circulants are printed as floats of exact closed forms. Output: koide.json.
+
+  1. The conditions, as the packet states them.
+  2. Form: on the band the third-turn R is a regular three-cycle and the Hermitian operators that commute with it are
+     exactly a 1 + b R + conj(b) R^-1. The packet's rotation (product of two seam half-turns) is such a third-turn.
+  3. Which of (a, |b|, delta) the carrier fixes, for each named operator that commutes with the third-turn.
+  4. Spectra and mass ratios for the fixed cases, under both attachments (mass = eigenvalue, mass = eigenvalue squared).
+"""
+import itertools
+import math
+import sys
+from fractions import Fraction as F
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, R5, PHI
+import t5lib as t
+from t5lib import E, EZ, EO, W, IDP, geometry, rot, kstr, kfl
+
+geo = geometry()
+V, seams, rots, faces, anti = geo['V'], geo['seams'], geo['rotations'], geo['faces'], geo['antipode']
+fr = next(f for f in geo['frames'] if f['coordinate_frame'])
+stab = fr['stabilizer']
+R = {g: rot(g) for g in rots}
+out = {'arithmetic': 'exact invariants (trace, trace of the square, determinant) in Q(sqrt5); eigenvalues from them'}
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. the conditions
+out['conditions_of_the_public_packet'] = {
+    'K1 form': 'C = a 1 + b R + conj(b) R^2 for a regular three-cycle R; eigenvalues a + 2 |b| cos(delta + 2 pi k/3)',
+    'K2 quotient': 'Q = sum of squares / (sum)^2 = 1/3 + (2/3) |b|^2 / a^2; Q = 2/3 exactly when |b|/a = 1/sqrt2 (balance)',
+    'K3 attachment': 'the eigenvalues are square roots of masses, m_k = s lambda_k^2 with one scale s, on the positive chamber (all lambda_k >= 0; for the balanced modulus |delta| <= pi/12 modulo 2 pi/3); C_mass = (Y^+ Y)^(1/4)',
+    'K4 phase': 'not selected by the identity; the packet\'s geometric connection gives loop phases in multiples of pi/10 (spin one half) and pi/5 (spin one), link phase one third of a loop: classes delta = 0, pi/30, pi/15',
+    'K5 balanced source': 'a configured coherent source with native record weights (10, 5, 5, 2, 50)/72: a = sqrt(10/72), |b| = sqrt(5/72), so |b|/a = 1/sqrt2; its phase is supplied, not selected',
+    'K6 native flavour action': 'the four duty policies give Q in [0.7675, 0.7677], [0.5797, 0.5799], [0.9502, 0.9503], [0.7754, 0.7755]: none is 2/3',
+    'K7 conditional third mass': 'sqrt(m3) = 2 (x + y) + sqrt(3 (x^2 + 4 x y + y^2)) from two masses under balance',
+    'sources': ['RER/model/standard_model_source_map/KOIDE_ATTACHMENT.md', 'RER/model/standard_model_source_map/KOIDE_SOURCE.md',
+                'RER/model/common_source/native_mass_holonomy.py', 'RER/Lean/ObserverPatchHolography/KoideCirculant.lean']}
+# replay of the packet's weights (cheap part of koide_source.py)
+from model.standard_model_source_map import koide_source as ks                   # noqa: E402
+rows = ks.native_partition()
+wts = [F(int(x.p), int(x.q)) for x in ks.WEIGHTS]
+bal = F(1, 3) + F(2, 3) * (wts[1] / wts[0])
+out['packet_weights_replayed'] = {'labels': len(rows), 'weights': [str(x) for x in wts], 'b2_over_a2': str(wts[1] / wts[0]),
+                                  'quotient': str(bal), 'tag': 'IMPORTED module, executed'}
+assert wts[:3] == [F(10, 72), F(5, 72), F(5, 72)] and bal == F(2, 3)
+print('1. packet weights', [str(x) for x in wts], 'quotient', bal)
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. form
+PC = t.emat([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+tcyc = next(g for g in stab if t.order(g) == 3 and t.eeq(R[g], PC))
+P, P2 = R[tcyc], t.emm(R[tcyc], R[tcyc])
+dh, ds = t.commutant_dims([t.kmat(P)])
+indep = kd.rank(tuple(tuple(x for r in t.kmat(M) for x in r) for M in (t.eeye(), P, P2)))
+# the packet's rotation: product of the two seam half-turns of native_family_record_memory.geometry()
+gc = (1, 0, 3, 2, 6, 7, 4, 5, 11, 10, 9, 8)
+ge = (3, 9, 10, 0, 7, 8, 11, 4, 5, 1, 2, 6)
+gp = tuple(ge[gc[j]] for j in range(12))
+assert gc in rots and ge in rots and gp in rots
+Rp = R[gp]
+audit_R = t.emat([[K(F(1, 4), F(-1, 4)), K(F(1, 4), F(1, 4)), K(F(-1, 2))],
+                  [K(F(-1, 4), F(-1, 4)), K(F(-1, 2)), K(F(1, 4), F(-1, 4))],
+                  [K(F(-1, 2)), K(F(-1, 4), F(1, 4)), K(F(1, 4), F(1, 4))]])
+frames_with = [i for i, f in enumerate(geo['frames']) if gp in f['stabilizer']]
+cyc = []
+for i in frames_with:
+    ax = geo['frames'][i]['axes']
+    img = [t.eapply(Rp, a) for a in ax]
+    perm = []
+    for im in img:
+        j = next(j for j in range(3) if not (t.edot(ax[j], im)).is_zero())
+        perm.append(j)
+    cyc.append(sorted(perm) == [0, 1, 2] and all(perm[k] != k for k in range(3)))
+half_pairs = sum(1 for h1 in rots for h2 in rots if t.order(h1) == 2 and t.order(h2) == 2 and kd.compose(h1, h2) == tcyc)
+out['form'] = {
+    'third_turn_on_the_band': {'order': t.order(tcyc), 'trace': kstr(t.etr(P)), 'is_the_cyclic_permutation_of_the_frame_axes': t.eeq(P, PC)},
+    'hermitian_operators_commuting_with_it': {'real_dimension': dh, 'real_symmetric_dimension': ds,
+                                              '1, R, R^2 independent and commuting': indep == 3,
+                                              'general_member': 'a 1 + b R + conj(b) R^-1: the form K1, with 3 real parameters a, |b|, delta'},
+    'packet_rotation (product of its two seam half-turns)': {
+        'is_a_rotation_of_the_carrier_of_order': t.order(gp), 'trace_on_the_band': kstr(t.etr(Rp)),
+        'equals_the_matrix_printed_by_koide_source._native_rotation': t.eeq(Rp, audit_R) or t.eeq(Rp, t.edag(audit_R)),
+        'frames_whose_stabilizer_contains_it': frames_with, 'permutes_the_three_axes_of_each_cyclically': cyc,
+        'its_two_half_turns_belong_to_different_frames': not any(gc in f['klein'] and ge in f['klein'] for f in geo['frames'])},
+    'every_third_turn_is_a_product_of_two_half_turns: ordered pairs for one third-turn': half_pairs,
+    'answer': 'yes: a Hermitian mass operator on the band that commutes with a third of a turn has exactly the packet\'s circulant form; in the axes of either cubic frame whose stabilizer contains the turn it is the circulant matrix; the symmetry fixes the eigenvectors and none of a, |b|, delta'}
+print('2.', out['form']['third_turn_on_the_band'], out['form']['packet_rotation (product of its two seam half-turns)'])
+assert dh == 3 and ds == 2 and indep == 3 and all(cyc) and len(frames_with) == 2
+assert out['form']['packet_rotation (product of its two seam half-turns)']['equals_the_matrix_printed_by_koide_source._native_rotation']
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. carrier-fixed parameters of the named operators that commute with the third-turn
+def orbits(group):
+    seen, res = set(), []
+    for p in range(12):
+        if p in seen:
+            continue
+        orb = sorted({g[p] for g in group})
+        seen.update(orb)
+        res.append(tuple(orb))
+    return res
+
+
+z3 = (IDP, tcyc, kd.compose(tcyc, tcyc))
+faxis = (ONE, ONE, ONE)
+dist = lambda p, q: 0 if p == q else (1 if tuple(sorted((p, q))) in seams else (3 if q == anti[p] else 2))
+orbs = orbits(z3)
+face_orbs = [o for o in orbs if all(dist(a, b) == 1 for a, b in itertools.combinations(o, 2))]
+belt_orbs = [o for o in orbs if o not in face_orbs]
+side = lambda o: kfl(sum((V[p][0] + V[p][1] + V[p][2] for p in o), ZERO)) > 0
+face_p = next(o for o in face_orbs if side(o))
+face_m = next(o for o in face_orbs if not side(o))
+belt_p = next(o for o in belt_orbs if side(o))
+L = [[(5 if p == q else 0) - (1 if tuple(sorted((p, q))) in seams else 0) for q in range(12)] for p in range(12)]
+T = t.band_compress([[F(int(p == q)) - F(L[p][q], 60) for q in range(12)] for p in range(12)])
+ff = t.escale(K(F(1, 3)), t.emat([[1, 1, 1]] * 3))
+named = [
+    ('the kernel T = 1 - L/60', T),
+    ('projector on the axis of the turn', ff),
+    ('sum of the load projectors of the three ports of a face', t.load_sum(face_p)),
+    ('sum of the responses of the three ports of a face', t.response_sum(face_p)),
+    ('the same for the opposite face (orientation reversed)', t.response_sum(face_m)),
+    ('sum of the responses of a belt triple (three ports at mutual distance two)', t.response_sum(belt_p)),
+    ('the turn itself, R + R^-1', t.eadd(P, P2)),
+]
+table = []
+for name, C in named:
+    assert t.eherm(C) and t.ezero(t.ecomm(C, P))
+    cp = t.circulant_parameters(C)
+    b_entry = C[1][0]                                             # C = a + b P + conj(b) P^2 with P the cyclic matrix
+    recon = t.eadd(t.escale(cp['a'], t.eeye()), t.escale(b_entry, P), t.escale(b_entry.conj(), P2))
+    assert t.eeq(recon, C) and (b_entry * b_entry.conj()).real_K() == cp['b2']
+    x, y, k2 = t.axial(C, faxis)
+    k = math.sqrt(max(kfl(k2), 0.0))
+    lam = sorted([kfl(x), kfl(y) + k, kfl(y) - k])
+    a, b2 = kfl(cp['a']), kfl(cp['b2'])
+    row = {'operator': name, 'a': kstr(cp['a']), 'b_modulus_squared': kstr(cp['b2']),
+           'b_modulus': kstr(cp['b']) if cp['b'] is not None else f'sqrt({kstr(cp["b2"])})',
+           'b_over_a': (math.sqrt(b2) / a) if a else None,
+           'cos_3_delta': kstr(cp['cos3delta']) if cp['cos3delta'] is not None else None,
+           'delta_in_[0, pi/3]': (math.acos(max(-1.0, min(1.0, kfl(cp['cos3delta'])))) / 3) if cp['cos3delta'] is not None else None,
+           'b_entry_in_the_frame_axes': [complex(b_entry).real, complex(b_entry).imag],
+           'eigenvalue_on_the_axis': kstr(x), 'eigenvalues_on_the_circular_states': f'{kstr(y)} +- sqrt({kstr(k2)})',
+           'eigenvalues_ascending': lam, 'all_nonnegative': lam[0] > -1e-12,
+           'quotient_sum_of_squares_over_square_of_sum': kstr(cp['Q']) if cp['Q'] is not None else None,
+           'quotient_value': kfl(cp['Q']) if cp['Q'] is not None else None}
+    table.append(row)
+    print(f"3. {name:70s} a={row['a']:>22s} |b|/a={row['b_over_a']} delta={row['delta_in_[0, pi/3]']} Q={row['quotient_value']} ev={[round(v, 6) for v in lam]}")
+gram_row = next(r for r in table if r['operator'] == 'sum of the responses of the three ports of a face')
+# exact statements for the face sum of responses
+cp = t.circulant_parameters(t.response_sum(face_p))
+assert cp['a'] == ONE and cp['b'] == K(F(1, 2), F(1, 10)) and cp['cos3delta'] == K(F(1, 4), F(1, 4)) and cp['Q'] == K(F(8, 15), F(1, 15))
+out['carrier_fixed_parameters'] = {
+    'table': table,
+    'face_sum_of_responses_exact': {
+        'a': '1', 'b_modulus': '(5 + sqrt5)/10 = phi/sqrt5 = (1 + cos gamma)/2 with cos gamma = 1/sqrt5 between adjacent ports',
+        'cos_3_delta': '(1 + sqrt5)/4 = cos(pi/5)', 'delta': 'pi/15 (one third of the spin-one loop phase pi/5 of a face: the class "pi/15" of the packet)',
+        'quotient': '(8 + sqrt5)/15', 'balance_would_need': '|b|/a = 1/sqrt2 = 0.707107; the carrier gives 0.723607',
+        'eigenvalues': '1 - 1/sqrt5 on the axis; 1 + 1/(2 sqrt5) +- (1/2) sqrt(3 + 6/sqrt5) on the circular states',
+        'general_rule': 'N ports on a cone of half-angle psi about the axis: (N/2) sin^2 psi on the axis, (N/4)(1 +- cos psi)^2 on the circular states'},
+    'summary': {
+        'symmetry_alone': 'fixes the eigenvectors; a, |b|, delta free',
+        'kernel': 'b = 0: three equal',
+        'real_operators (kernel, load projectors, exchanges)': 'delta = 0 or pi/3: two equal and one different',
+        'sum_of_the_three_port_responses_of_a_face': 'a, |b|, delta all fixed; unbalanced: Q = (8 + sqrt5)/15',
+        'packet_coherent_source': '|b|/a = 1/sqrt2 fixed by native record weights under a configured service; delta supplied',
+        'packet_connection': 'delta in {0, pi/30, pi/15} with the balance supplied'}}
+
+# ---------------------------------------------------------------------------------------------------------------
+# 4. spectra and mass ratios of the fixed cases
+def circ(rho, delta):
+    return sorted(1 + 2 * rho * math.cos(delta + 2 * math.pi * k / 3) for k in range(3))
+def ratios(lam):
+    return {'eigenvalues': lam, 'positive': lam[0] > 0,
+            'mass = eigenvalue': {'m1/m3': lam[0] / lam[2], 'm2/m3': lam[1] / lam[2], 'm2/m1': lam[1] / lam[0] if lam[0] > 0 else None, 'm3/m1': lam[2] / lam[0] if lam[0] > 0 else None},
+            'mass = eigenvalue squared': {'m1/m3': (lam[0] / lam[2]) ** 2, 'm2/m3': (lam[1] / lam[2]) ** 2,
+                                          'm2/m1': (lam[1] / lam[0]) ** 2 if lam[0] > 0 else None, 'm3/m1': (lam[2] / lam[0]) ** 2 if lam[0] > 0 else None}}
+rho_n = (5 + 5 ** 0.5) / 10
+cases = {'carrier: face sum of responses (|b|/a = phi/sqrt5, delta = pi/15)': ratios(circ(rho_n, math.pi / 15)),
+         'packet: balance with delta = 0': ratios(circ(2 ** -0.5, 0.0)),
+         'packet: balance with delta = pi/30': ratios(circ(2 ** -0.5, math.pi / 30)),
+         'packet: balance with delta = pi/15': ratios(circ(2 ** -0.5, math.pi / 15))}
+assert max(abs(a - b) for a, b in zip(cases['carrier: face sum of responses (|b|/a = phi/sqrt5, delta = pi/15)']['eigenvalues'],
+                                      gram_row['eigenvalues_ascending'])) < 1e-12
+quoted = {'packet: balance with delta = 0': (1.0, 67.9411), 'packet: balance with delta = pi/30': (6.33689, 203.37238),
+          'packet: balance with delta = pi/15': (109.88531, 1969.28464)}
+for name, (q1, q2) in quoted.items():
+    r = cases[name]['mass = eigenvalue squared']
+    cases[name]['packet_quotes (KOIDE_ATTACHMENT.md eq. 6)'] = [q1, q2]
+    cases[name]['difference_from_the_quoted_values'] = [abs(r['m2/m1'] - q1), abs(r['m3/m1'] - q2)]
+    assert abs(r['m2/m1'] - q1) < 1e-4 * q1 and abs(r['m3/m1'] - q2) < 1e-4 * q2
+out['fixed_cases'] = cases
+for name, c in cases.items():
+    print('4.', name, [round(v, 6) for v in c['eigenvalues']], 'm2/m1, m3/m1 (squared):', c['mass = eigenvalue squared']['m2/m1'], c['mass = eigenvalue squared']['m3/m1'])
+if len(sys.argv) > 1:
+    t.dump(out, sys.argv[1])

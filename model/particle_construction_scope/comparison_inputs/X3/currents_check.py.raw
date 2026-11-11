@@ -1,0 +1,59 @@
+"""The audit's native currents on empty-wave flux states at every separation (executed with the audit's own code).
+
+model/coherent_defect_wave/field_identity_audit/model.py: current_action(state, T) is dGamma of T on the native CAR
+modes; the link word is carried along unchanged. For each of the 190 unordered face pairs a thirty-bit link word with
+central flux on exactly those two faces is built (bits in the seam order of the carrier, as in the audit's star word
+6553634 of vertex 5), and the twelve currents of physical_attachment.chiral.representation() are applied to the
+empty-wave state on that word. Read only; nothing of the audit is modified.
+"""
+import json, sys, time
+from collections import Counter
+t0 = time.time()
+import x3lib as X
+from model.coherent_defect_wave.field_identity_audit.model import current_action
+from model.coherent_defect_wave.species.fock import FockState
+from model.coherent_defect_wave.physical_attachment.chiral import representation
+
+subsets, g5, currents, _ = representation()
+assert len(g5) == 12
+bit = {e: i for i, e in enumerate(X.SEAMS)}
+star5 = sum(1 << bit[e] for e in X.SEAMS if 5 in e)
+assert star5 == 6553634                      # the audit's vertex-5 star: same seam order
+
+
+def face_bits(word):
+    return [sum((word >> bit[e]) & 1 for e in X.FACE_EDGES[f]) % 2 for f in range(20)]
+
+
+def pair_word(f, g):
+    """XOR of the seams crossed by a shortest dual path from f to g"""
+    w, cur = 0, f
+    while cur != g:
+        nxt = next(v for v in X.NEIGHBOUR[cur] if X.SEP[v][g] == X.SEP[cur][g] - 1)
+        e = next(e for e in X.FACE_EDGES[cur] if e in X.FACE_EDGES[nxt])
+        w ^= 1 << bit[e]; cur = nxt
+    return w
+
+
+n = 0
+by_type = Counter()
+for f in range(20):
+    for g in range(f + 1, 20):
+        w = pair_word(f, g)
+        fb = face_bits(w)
+        assert sum(fb) == 2 and fb[f] == 1 and fb[g] == 1
+        vac = FockState({(w, ()): 1}, 1)
+        for T in g5:
+            assert current_action(vac, T).norm_squared() == 0
+            n += 1
+        by_type[(X.SEP[f][g], X.CHI[f][g] if X.SEP[f][g] == 3 else 0)] += 1
+# control: a one-wave state is not annihilated by every current
+from model.coherent_defect_wave.species.fock import mode
+one = FockState({(pair_word(0, 1), (mode(2, 0, 0, 0),)): 1}, 1)
+nonzero = sum(1 for T in g5 if current_action(one, T).norm_squared() != 0)
+assert nonzero > 0
+out = {'pairs': 190, 'currents': 12, 'checks': n, 'all_zero': True, 'pairs_by_separation_and_chirality': {f'{k[0]},{k[1]:+d}': v for k, v in sorted(by_type.items())},
+       'control_one_wave_state_currents_nonzero': nonzero, 'seconds': round(time.time() - t0, 2)}
+print(json.dumps(out))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

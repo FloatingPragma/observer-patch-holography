@@ -1,0 +1,59 @@
+"""NOT BLIND comparison (B1-B4), run after effective.json was written.
+
+Measured values are general knowledge, quoted for comparison only:
+KATRIN 2024 m_beta < 0.45 eV (90% CL); DESI DR2 + CMB sum < 0.064 eV (DR1: < 0.072 eV);
+NuFIT 6.0 normal ordering: dm2_21 = 7.49e-5 eV^2, dm2_31 = 2.513e-3 eV^2;
+time of flight: SN1987A |1 - v/c| below about 2e-9 (E about 10 MeV), MINOS (v - c)/c = (1.0 +- 1.1)e-6.
+The charged-lepton scale is the repository's declared MCPR value m_e = 0.51094 MeV.
+"""
+import json
+import math
+
+with open('effective.json') as handle:
+    eff = json.load(handle)
+
+M_E_DECLARED_EV = 0.51094e6
+KATRIN = 0.45
+COSMO_SUM = (0.064, 0.072)
+DM2_21, DM2_31 = 7.49e-5, 2.513e-3
+HEAVIEST_FLOOR = math.sqrt(DM2_31)
+TOF = {'SN1987A': 2e-9, 'MINOS': 2.2e-6}
+
+ratios = {}
+for point in eff['sample_points_unit_couplings_h_1_4']:
+    if isinstance(point['eps_K'], list):
+        tag = 'Ds=%s,Dl=%s' % (point['Delta_s'], point['Delta_l'])
+        ratios['eps_K ' + tag] = point['eps_K'][1]
+        ratios['eps_three_fermion ' + tag] = point['eps_three_fermion'][1]
+ratios['audit spectroscopy: neutral line 0.62436 / charged line 0.97010 (IMPORTED)'] = 0.6243631 / 0.9700961
+ratios['bare partner / charged vertex (x neighbour, unit couplings)'] = 3 * math.sqrt(3) / 4
+
+rows = []
+for name, eps in ratios.items():
+    m_nu = eps * M_E_DECLARED_EV
+    rows.append({'ratio': name, 'eps': eps, 'm_nu_eV': m_nu,
+                 'over_KATRIN': m_nu / KATRIN,
+                 'over_heaviest_floor': m_nu / HEAVIEST_FLOOR,
+                 'implied_velocity_over_c_if_kinetic_equals_mass_suppression': eps})
+
+window = (HEAVIEST_FLOOR / M_E_DECLARED_EV, KATRIN / M_E_DECLARED_EV)
+result = {
+    'NOT_BLIND': True,
+    'charged_lepton_scale_eV_declared': M_E_DECLARED_EV,
+    'rows': rows,
+    'eps_window_required_by_data': {'lower_from_heaviest_floor': window[0], 'upper_from_KATRIN': window[1]},
+    'velocity_in_that_window_under_the_hypothesis': {'v_over_c_max': window[1],
+        'one_minus_v_over_c': 1 - window[1], 'SN1987A_bound': TOF['SN1987A'], 'MINOS_scale': TOF['MINOS'],
+        'excluded': True},
+    'massless_option': {'reason': 'onsite doublet term proportional to identity at every order; '
+                                  'Majorana pairing zero (raw lepton number); B-L anomaly matching (argued)',
+                        'excluded_by': 'two nonzero splittings dm2_21 and dm2_31'},
+    'kappa_needed_for_eps_1e-7_fit': eff['kappa_for_eps_K_1e-7_at_Delta_l_2Delta_s'],
+    'cosmology_sum_bound_eV': COSMO_SUM,
+}
+with open('compare.json', 'w') as handle:
+    json.dump(result, handle, indent=1)
+for row in rows:
+    print('%-70s eps=%.4g  m_nu=%.4g eV  KATRIN x%.3g' % (row['ratio'], row['eps'], row['m_nu_eV'], row['over_KATRIN']))
+print('eps window required by data:', window)
+print('velocity in the window under equal suppression: v/c <=', window[1])

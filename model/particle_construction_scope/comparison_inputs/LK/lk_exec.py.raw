@@ -1,0 +1,179 @@
+"""Worker LK: the executable round. Source operations plus one named interaction (statements E1, R9, R13 to R15).
+
+Run from RL/work/LK:
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_exec.py
+Named interaction: the oriented toggle T(eta) = exp(+i eta J (x) Z_F(A) Z_I(B)), J = (V_- - V_+)/2.
+The clocked register enters through the eigenvalue j of J on its three flags (phi_H: 0, phi_+: +1, phi_-: -1).
+
+Variant 1 (native frame, as CK2): pair started in S (x) S.
+  T(eta)^-1, tick on A and B, T(eta), inverse tick, return test T_blk T_addr T_sym on each object, reset on "no".
+Variant 2 (plain law of the public program): pair started in D2 (x) D2, no superposition of locations.
+  T(eta)^-1, tick, T(eta), inverse tick, return detector of the public form on each object (projector on the blank
+  record with uniform address for the double at its current port), reset on "no", then the double of A crosses its
+  E seam by two ticks of the plain law on that seam.
+Complex floats. Writes lk_exec.json.
+"""
+from __future__ import annotations
+
+import cmath
+import json
+import math
+import os
+import time
+
+import lk_common as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T0 = time.time()
+OUT = {'provenance': L.provenance()}
+P = 2.0 / 9.0
+CA, CB = 5.0 / 18.0, 1.0 / 6.0                              # exact values in lk_echo_pulse.json
+FLAGS = (('phi_H', 0), ('phi_+', 1), ('phi_-', -1))
+
+
+def cst(st, n2):
+    return {k: complex(c) / math.sqrt(n2) for k, c in st.items()}
+
+
+def z_f(key):
+    return -1 if L.flag(key) == 'F' else 1
+
+
+def z_i(key):
+    return -1 if L.flag(key) == 'I' else 1
+
+
+def toggle(pair, angle):
+    """exp(+i angle Z_F(A) Z_I(B)) on the pair: the pair part of T for one eigenvalue of J."""
+    return {k: c * cmath.exp(1j * angle * z_f(k[0]) * z_i(k[1])) for k, c in pair.items()}
+
+
+def interact_and_tick(pair, j, eta):
+    pair = toggle(pair, -eta * j)                           # T(eta)^-1
+    pair = L.on_both(pair, L.step)                          # tick
+    pair = toggle(pair, +eta * j)                           # T(eta)
+    return L.on_both(pair, L.inverse_step)                  # inverse tick
+
+
+def detector(cfg):
+    """Return detector of the public form: projector on A|cfg> (blank record, uniform address)."""
+    def op(st):
+        tot = sum((c for (c2, rec, k), c in st.items() if c2 == cfg and rec == 0), 0)
+        return {(cfg, 0, k): tot / L.NA for k in range(L.NA)} if tot else {}
+    return op
+
+
+def run_variant1(N, t=1.0):
+    L.set_frame('FN')
+    S = cst(L.S_raw(), 24.0)
+    start = L.tensor(S, S)
+    eta = t / (2 * N)
+    amps, p_no = {}, {}
+    for name, j in FLAGS:
+        a, pn = 1.0 + 0j, 0.0
+        for _ in range(N):
+            pair = interact_and_tick(dict(start), j, eta)
+            yes = L.on_both(pair, L.return_yes)
+            pn += abs(a) ** 2 * L.norm2(L.axpy(pair, yes, -1))
+            a *= L.dot(start, yes)                           # zero return leaves S x S; a "no" is reset to S x S
+        amps[name], p_no[name] = a, pn
+    return amps, p_no
+
+
+def run_variant2(N, t=1.0):
+    L.set_frame('FP')
+    D2 = cst(L.uniform(L.DBL2), 12.0)
+    D10 = cst(L.uniform(L.DBL10), 12.0)
+    eta = t / (2 * N)
+    amps, p_no = {}, {}
+    for name, j in FLAGS:
+        a, pn, here = 1.0 + 0j, 0.0, L.DBL2
+        pair = L.tensor(D2, D2)
+        for _ in range(N):
+            ref = L.tensor(D2 if here == L.DBL2 else D10, D2)
+            pair = interact_and_tick(pair, j, eta)
+            yes = L.on_b(L.on_a(pair, detector(here)), detector(L.DBL2))
+            pn += abs(a) ** 2 * L.norm2(L.axpy(pair, yes, -1))
+            a *= L.dot(ref, yes)
+            pair = L.on_a(ref, L.cross_e)                    # reset state on either outcome, then the crossing
+            here = L.DBL10 if here == L.DBL2 else L.DBL2
+        amps[name], p_no[name] = a, pn
+    L.set_frame('FN')
+    return amps, p_no
+
+
+def report(amps, p_no, N, ck):
+    lim = {'phi_H': 1.0 + 0j, 'phi_+': cmath.exp(-1j * P), 'phi_-': cmath.exp(1j * P)}
+    return {
+        'N': N, 'eta': 1 / (2 * N),
+        'zero-return amplitudes (phi_H, phi_+, phi_-)': [[amps[k].real, amps[k].imag] for k, _ in FLAGS],
+        'largest difference to the kick of CK2 with h = 2 eta': max(abs(amps[k] - ck[k]) for k in amps),
+        'largest difference to exp(-i (2/9) J)': max(abs(amps[k] - lim[k]) for k in amps),
+        'phase of phi_+ per unit clock time': -cmath.phase(amps['phi_+']),
+        'probability of a recorded no within the unit clock time (phi_H, phi_+, phi_-)': [p_no[k] for k, _ in FLAGS],
+    }
+
+
+rows1, rows2 = [], []
+for N in (1, 10, 100):
+    amps, p_no = run_variant1(N)
+    ck = {'phi_H': 1.0 + 0j, 'phi_+': (1 - P + P * cmath.exp(-1j / N)) ** N, 'phi_-': (1 - P + P * cmath.exp(1j / N)) ** N}
+    rows1.append(report(amps, p_no, N, ck))
+    print('variant 1', rows1[-1], flush=True)
+for N in (2, 10, 100):
+    amps, p_no = run_variant2(N)
+    ck = {}
+    for name, j in FLAGS:
+        z = cmath.exp(-1j * j / N)
+        ck[name] = ((1 - CA * (1 - z)) * (1 - CB * (1 - z))) ** (N // 2)
+    rows2.append(report(amps, p_no, N, ck))
+    print('variant 2', rows2[-1], flush=True)
+OUT['variant 1: native frame, pair in S x S, return test with T_sym'] = rows1
+OUT['variant 2: plain law, pair in D2 x D2, public-form return detectors, crossing of A between rounds'] = rows2
+
+# exact checks of the crossing (plain law on the E seam, two ticks)
+d2, d10 = L.uniform(L.DBL2), L.uniform(L.DBL10)
+OUT['crossing'] = {
+    'two ticks of the plain law on the E seam map the blank double at port 2 to port 10': L.cross_e(d2) == d10,
+    'and back': L.cross_e(d10) == d2,
+    'equal to X_E on the blank doubles': L.cross_e(d2) == L.x_e(d2) and L.cross_e(d10) == L.x_e(d10),
+}
+
+
+# ------------------------------------------------------------------ R9: block families under Q and R (native frame)
+def family(start):
+    fam, todo = set(), [start]
+    while todo:
+        blk = todo.pop()
+        if blk in fam:
+            continue
+        fam.add(blk)
+        cfg, rec = blk
+        for k in range(12):
+            for c2, r2, u in L.local(cfg, rec, k):           # Q; R keeps the block
+                if (c2, r2) not in fam:
+                    todo.append((c2, r2))
+    return fam
+
+
+def names(fam):
+    def nm(cfg):
+        return [L.H[i] for i in range(6) for _ in range(cfg[i])]
+    return sorted(f'loads {nm(c)} record {r}' for c, r in fam)
+
+
+L.set_frame('FN')
+f2, f10 = family((L.DBL2, 0)), family((L.DBL10, 0))
+OUT['R9 block families (native frame)'] = {
+    'family of the blank double at port 2': names(f2), 'family of the blank double at port 10': names(f10),
+    'disjoint': not (f2 & f10),
+    'X_E maps the blank double at port 2 into the other family': all((k[0], k[1]) in f10 for k in L.x_e(d2)),
+    'reading': 'in the native frame Q and R, the register detectors, the quarter-turns and the address mean act inside '
+               'each family; T_sym connects the two families',
+}
+
+OUT['seconds'] = round(time.time() - T0, 2)
+with open(os.path.join(HERE, 'lk_exec.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print(json.dumps({k: OUT[k] for k in ('crossing', 'R9 block families (native frame)')}, indent=1))
+print('written lk_exec.json', OUT['seconds'], 's')

@@ -1,0 +1,62 @@
+{
+ "lattice_2x2x1_five_random_cases_max_abs_difference": {
+  "gauss": 0.0,
+  "route_fwd": 7.152448122690996e-18,
+  "route_rev": 7.410741937918042e-18,
+  "mass_lifted": 0.0,
+  "mass_plain": 0.0,
+  "field": 0.0,
+  "tick_end_R8_frame": 1.0444418402013022e-17,
+  "tick_half_step": 1.0631817190634495e-17,
+  "line_joint_counter_m3_vs_R8_Kstep": 1.159106867033638e-15,
+  "line_sector_average_vs_R8_phase_average": 4.996007354021629e-16,
+  "line_joint_reduced_vs_sector_average_m3_end": 1.0547120507038228e-15,
+  "packet_vs_R8": 0.0,
+  "line256_common_phase_end_frame_vs_R8_tick_after_V": 3.283644133223322e-15
+ },
+ "R8_frame_counter": {
+  "displacement": 16.461091245734597,
+  "standard_error": 0.29744652658244564,
+  "width": 37.807956693981886
+ },
+ "R8_frame_bit": {
+  "displacement": 15.05771043947075,
+  "standard_error": 0.40551582491330657,
+  "width": 37.49064033337829
+ },
+ "R8_frame_common_phase": {
+  "displacement": 52.14023736409998,
+  "width": 9.973322274893917
+ },
+ "R8_reference": {
+  "common": 52.14023736409772,
+  "common_width": 9.973322274899571,
+  "counter": 16.46109124573425,
+  "counter_width": 37.80795669398156,
+  "bit": 15.057710439470434,
+  "bit_width": 37.490640333377954
+ },
+ "differences_to_R8_line_numbers": {
+  "common_displacement": 2.2595258997171186e-12,
+  "common_width": 5.654143819810997e-12,
+  "counter_displacement": 3.481659405224491e-13,
+  "counter_width": 3.268496584496461e-13,
+  "bit_displacement": 3.161915174132446e-13,
+  "bit_width": 3.339550858072471e-13
+ },
+ "max_abs_differences": {
+  "gauss": 0.0,
+  "route_fwd": 7.152448122690996e-18,
+  "route_rev": 7.410741937918042e-18,
+  "mass_lifted": 0.0,
+  "mass_plain": 0.0,
+  "field": 0.0,
+  "tick_end_R8_frame": 1.0444418402013022e-17,
+  "tick_half_step": 1.0631817190634495e-17,
+  "line_joint_counter_m3_vs_R8_Kstep": 1.159106867033638e-15,
+  "line_sector_average_vs_R8_phase_average": 4.996007354021629e-16,
+  "line_joint_reduced_vs_sector_average_m3_end": 1.0547120507038228e-15,
+  "packet_vs_R8": 0.0,
+  "line256_common_phase_end_frame_vs_R8_tick_after_V": 3.283644133223322e-15
+ }
+}

@@ -1,0 +1,100 @@
+"""Scratch: cf1_register.py against R8's own code (r8_gauss.py executed up to its result block; r8_higgs_state.py
+sections B and C function blocks executed verbatim)."""
+import json, os, sys, time
+import numpy as np
+HERE = os.path.dirname(os.path.abspath(__file__)); SIM = os.path.dirname(HERE)
+RL = os.path.abspath(os.path.join(SIM, '..', '..', '..'))
+sys.path.insert(0, SIM); sys.path.insert(0, os.path.join(RL, 'work', 'DIRAC'))
+from cf1_register import RegisterLattice, RegisterLine, chart_rotation, sample_phases
+out = {}
+# ---------------- R8 gauss functions, verbatim
+src = open(os.path.join(RL, 'work', 'R8', 'r8_gauss.py')).read()
+ns = {}; exec(src[:src.index("res = {'lattice'")], ns)
+rl = RegisterLattice((2, 2, 1))
+assert rl.NZ == ns['NZ'] and rl.NH == ns['NH']
+rng = np.random.default_rng(101)
+worst = {}
+def upd(k, v): worst[k] = max(worst.get(k, 0.0), float(v))
+for case in range(5):
+    th = rng.uniform(0.02, 0.5); eps = rng.uniform(0, 0.5); kap = rng.uniform(0, 0.5)
+    rl.eps, rl.kappa = eps, kap
+    P = rl.random_state(rng)
+    for ci in range(4):
+        for ext in (False, True): upd('gauss', np.abs(rl.gauss(P, ci, ext) - ns['gauss'](P, ns['cells'][ci], ext)).max())
+    upd('route_fwd', np.abs(rl.route(P, 0) - ns['route'](P)).max())
+    upd('route_rev', np.abs(rl.route(P, 1) - ns['route'](P, reverse=True)).max())
+    upd('mass_lifted', np.abs(rl.mass(P, th) - ns['mass_lifted'](P, th)).max())
+    upd('mass_plain', np.abs(rl.mass(P, th, False) - ns['mass_plain'](P, th)).max())
+    upd('field', np.abs(rl.field(P) - ns['field'](P, eps, kap)).max())
+    for reg, mass in ((True, ns['mass_lifted']), (False, ns['mass_plain'])):
+        upd('tick_end_R8_frame', np.abs(rl.tick_end(P, th, reg) - ns['field'](mass(ns['route'](P), th), eps, kap)).max())
+        for t in (0, 1):
+            want = ns['field'](mass(ns['route'](mass(P, th / 2), reverse=bool(t)), th / 2), eps, kap)
+            upd('tick_half_step', np.abs(rl.tick(P, th, t, reg) - want).max())
+out['lattice_2x2x1_five_random_cases_max_abs_difference'] = worst
+print(worst)
+# ---------------- R8 line functions (sections B, C of r8_higgs_state.py), verbatim
+src = open(os.path.join(RL, 'work', 'R8', 'r8_higgs_state.py')).read()
+ns2 = {'np': np, 'itertools': __import__('itertools')}
+exec('from routing import Routing, branch_projected\n' + src[src.index('th = 0.157935\nL, m = 3, 3'):src.index('P = rng.normal(size=(m,) * L')], ns2)
+# B2-type check: R8's joint Kstep (end frame, m = 3 cyclic counter, L = 3, 4 ticks) against joint_run of this file
+line = RegisterLine(3); th = 0.157935
+w = ns2['w']
+for case in range(3):
+    psi0 = rng.normal(size=(3, 1, 1, 2, 2)) + 1j * rng.normal(size=(3, 1, 1, 2, 2)); psi0 /= np.linalg.norm(psi0)
+    J = np.zeros((3,) * 3 + (3, 1, 1, 2, 2), complex); J[(0,) * 3] = psi0
+    for _ in range(4): J = ns2['Kstep'](ns2['route'](J))
+    mine = line.joint_run(psi0, th, 4, m=3, frame='end')
+    d = 0.0
+    for k in np.ndindex(3, 3, 3):
+        d = max(d, np.abs(J[k] - mine.get(tuple(k), 0)).max())
+    upd('line_joint_counter_m3_vs_R8_Kstep', d)
+    # phase average of R8 (chiral phases 2 pi j/3 + pi/2) against sector_average of this file (register phases 2 pi j/3)
+    red_avg = np.zeros((12, 12), complex)
+    import itertools
+    for jj in itertools.product(range(3), repeat=3):
+        phi = 2 * np.pi * np.array(jj) / 3 + np.pi / 2; q = psi0.copy()
+        for _ in range(4): q = ns2['chiral_mass'](w.shift(q, 0), th, phi)
+        red_avg += np.outer(q.ravel(), q.ravel().conj()) / 27
+    upd('line_sector_average_vs_R8_phase_average', np.abs(line.sector_average(psi0, th, 4, m=3, frame='end') - red_avg).max())
+    upd('line_joint_reduced_vs_sector_average_m3_end', np.abs(line.reduced(mine) - red_avg).max())
+print(worst)
+# ---------------- line, 256 cells, R8 frame: common phase against R8's engine tick
+L = 256; lin = RegisterLine(L); V = chart_rotation()
+q0, pk = lin.packet_R8(th)
+pk_R8 = ns2['Routing']((L, 1, 1)).packet(12, 3.0, lambda p: ns2['branch_projected'](p, th))
+upd('packet_vs_R8', np.abs(pk - pk_R8).max())
+w2 = ns2['Routing']((L, 1, 1)); a = pk_R8.copy(); b = q0[:, :, :, None].copy(); zero = np.zeros((L, 1))
+for t in range(60):
+    a = w2.tick(a, th); b = lin.sector_tick(b, th, zero, t, 'end')
+upd('line256_common_phase_end_frame_vs_R8_tick_after_V', np.abs(np.einsum('rk,xyzks->xyzrs', V, a) - b[:, :, :, 0]).max())
+# number-state sampling as R8 (seed 21, 500 samples) in R8's frame
+xs = lin.xs
+def dens(q): return np.sum(np.abs(q) ** 2, axis=(1, 2, 3, 4))
+mu0 = float(np.sum(dens(pk_R8) * xs))
+for kind, key in (('counter', 'number_states_integer_counter'), ('bit', 'number_states_bit')):
+    r = np.random.default_rng(21); phis = sample_phases(kind, L, 500, r)
+    q = np.repeat(q0[:, :, :, None], 500, axis=3)
+    for t in range(60): q = lin.sector_tick(q, th, phis, t, 'end')
+    rho, mu, sd, right, rho_b = lin.observables(q)
+    disp = np.sum(rho_b * xs[:, None], axis=0) - mu0
+    out[f'R8_frame_{kind}'] = {'displacement': mu - mu0, 'standard_error': float(np.std(disp) / np.sqrt(500)), 'width': sd}
+    print(kind, out[f'R8_frame_{kind}'])
+qq = q0[:, :, :, None].copy()
+for t in range(60): qq = lin.sector_tick(qq, th, zero, t, 'end')
+rho, mu, sd, right, _ = lin.observables(qq)
+out['R8_frame_common_phase'] = {'displacement': mu - mu0, 'width': sd}
+R8 = json.load(open(os.path.join(RL, 'work', 'R8', 'higgs_state.json')))['C_line']
+out['R8_reference'] = {'common': R8['common_phase_state']['displacement'], 'common_width': R8['common_phase_state']['width'],
+                       'counter': R8['number_states_integer_counter']['displacement'], 'counter_width': R8['number_states_integer_counter']['width'],
+                       'bit': R8['number_states_bit']['displacement'], 'bit_width': R8['number_states_bit']['width']}
+out['differences_to_R8_line_numbers'] = {
+    'common_displacement': abs(out['R8_frame_common_phase']['displacement'] - R8['common_phase_state']['displacement']),
+    'common_width': abs(out['R8_frame_common_phase']['width'] - R8['common_phase_state']['width']),
+    'counter_displacement': abs(out['R8_frame_counter']['displacement'] - R8['number_states_integer_counter']['displacement']),
+    'counter_width': abs(out['R8_frame_counter']['width'] - R8['number_states_integer_counter']['width']),
+    'bit_displacement': abs(out['R8_frame_bit']['displacement'] - R8['number_states_bit']['displacement']),
+    'bit_width': abs(out['R8_frame_bit']['width'] - R8['number_states_bit']['width'])}
+out['max_abs_differences'] = worst
+print(json.dumps(out, indent=1))
+json.dump(out, open(os.path.join(HERE, 'compare_r8.json'), 'w'), indent=1)

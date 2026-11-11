@@ -1,0 +1,672 @@
+{
+ "arithmetic": "Gaussian integers over an integer denominator (int64, overflow guarded); sympy for the symbol",
+ "mass_point": {
+  "cos": "143/145",
+  "sin": "24/145"
+ },
+ "instances": [
+  {
+   "shape": [
+    4,
+    1,
+    1
+   ],
+   "links": 4,
+   "link_words": 16,
+   "axis_link_assignments_checked": 16,
+   "Q_involution": true,
+   "QR_equals_conditional_shift": true,
+   "S_unitary": true,
+   "S_gauge_covariant": true,
+   "S_translation_covariant": true,
+   "plaquettes": 0,
+   "plaquette_holonomies_invariant_under_every_star": true,
+   "product_of_all_stars_is_identity_on_links": true,
+   "every_star_has_an_even_number_of_links": true,
+   "inverse_routing_Sfwd_R_Srev_R_is_1_all_words": true,
+   "D_unitary_all_words_Y": true,
+   "inverse_tick_V_Drev_Vdag_Dfwd_is_1_all_words_Y": true,
+   "D_gauge_covariant_all_words_all_cells_Y": true,
+   "D_translation_covariant_all_words_Y": true,
+   "D_unitary_all_words_Z": true,
+   "inverse_tick_V_Drev_Vdag_Dfwd_is_1_all_words_Z": true,
+   "D_gauge_covariant_all_words_all_cells_Z": true,
+   "D_translation_covariant_all_words_Z": true
+  },
+  {
+   "shape": [
+    6,
+    1,
+    1
+   ],
+   "links": 6,
+   "link_words": 64,
+   "axis_link_assignments_checked": 64,
+   "Q_involution": true,
+   "QR_equals_conditional_shift": true,
+   "S_unitary": true,
+   "S_gauge_covariant": true,
+   "S_translation_covariant": true,
+   "plaquettes": 0,
+   "plaquette_holonomies_invariant_under_every_star": true,
+   "product_of_all_stars_is_identity_on_links": true,
+   "every_star_has_an_even_number_of_links": true,
+   "inverse_routing_Sfwd_R_Srev_R_is_1_all_words": true,
+   "D_unitary_all_words_Y": true,
+   "inverse_tick_V_Drev_Vdag_Dfwd_is_1_all_words_Y": true,
+   "D_gauge_covariant_all_words_all_cells_Y": true,
+   "D_translation_covariant_all_words_Y": true,
+   "D_unitary_all_words_Z": true,
+   "inverse_tick_V_Drev_Vdag_Dfwd_is_1_all_words_Z": true,
+   "D_gauge_covariant_all_words_all_cells_Z": true,
+   "D_translation_covariant_all_words_Z": true
+  },
+  {
+   "shape": [
+    2,
+    2,
+    1
+   ],
+   "links": 8,
+   "link_words": 256,
+   "axis_link_assignments_checked": 32,
+   "Q_involution": true,
+   "QR_equals_conditional_shift": true,
+   "S_unitary": true,
+   "S_gauge_covariant": true,
+   "S_translation_covariant": true,
+   "plaquettes": 4,
+   "plaquette_holonomies_invariant_under_every_star": true,
+   "product_of_all_stars_is_identity_on_links": true,
+   "every_star_has_an_even_number_of_links": true,
+   "inverse_routing_Sfwd_R_Srev_R_is_1_all_words": true,
+   "D_unitary_all_words_Y": true,
+   "inverse_tick_V_Drev_Vdag_Dfwd_is_1_all_words_Y": true,
+   "D_gauge_covariant_all_words_all_cells_Y": true,
+   "D_translation_covariant_all_words_Y": true,
+   "D_unitary_all_words_Z": true,
+   "inverse_tick_V_Drev_Vdag_Dfwd_is_1_all_words_Z": true,
+   "D_gauge_covariant_all_words_all_cells_Z": true,
+   "D_translation_covariant_all_words_Z": true
+  },
+  {
+   "shape": [
+    3,
+    2,
+    1
+   ],
+   "links": 12,
+   "link_words": 4096,
+   "axis_link_assignments_checked": 128,
+   "Q_involution": true,
+   "QR_equals_conditional_shift": true,
+   "S_unitary": true,
+   "S_gauge_covariant": true,
+   "S_translation_covariant": true,
+   "plaquettes": 6,
+   "plaquette_holonomies_invariant_under_every_star": true,
+   "product_of_all_stars_is_identity_on_links": true,
+   "every_star_has_an_even_number_of_links": true
+  },
+  {
+   "shape": [
+    2,
+    2,
+    2
+   ],
+   "links": 24,
+   "link_words": 16777216,
+   "axis_link_assignments_checked": 768,
+   "Q_involution": true,
+   "QR_equals_conditional_shift": true,
+   "S_unitary": true,
+   "S_gauge_covariant": true,
+   "S_translation_covariant": true,
+   "plaquettes": 24,
+   "plaquette_holonomies_invariant_under_every_star": true,
+   "product_of_all_stars_is_identity_on_links": true,
+   "every_star_has_an_even_number_of_links": true
+  }
+ ],
+ "rotations": {
+  "lattice": [
+   3,
+   3,
+   3
+  ],
+  "rotations": [
+   {
+    "axis_map": [
+     "+1",
+     "+2",
+     "+3"
+    ],
+    "lift_norm": 1,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": true,
+    "commutes_with_two_tick_product_M0": true,
+    "commutes_with_ordered_tick_M1": true,
+    "commutes_with_two_tick_product_M1": true,
+    "commutes_with_ordered_tick_M2": true,
+    "commutes_with_two_tick_product_M2": true
+   },
+   {
+    "axis_map": [
+     "+1",
+     "-2",
+     "-3"
+    ],
+    "lift_norm": 1,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": true,
+    "commutes_with_two_tick_product_M0": true,
+    "commutes_with_ordered_tick_M1": true,
+    "commutes_with_two_tick_product_M1": true,
+    "commutes_with_ordered_tick_M2": true,
+    "commutes_with_two_tick_product_M2": true
+   },
+   {
+    "axis_map": [
+     "-1",
+     "+2",
+     "-3"
+    ],
+    "lift_norm": 1,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": true,
+    "commutes_with_two_tick_product_M0": true,
+    "commutes_with_ordered_tick_M1": true,
+    "commutes_with_two_tick_product_M1": true,
+    "commutes_with_ordered_tick_M2": true,
+    "commutes_with_two_tick_product_M2": true
+   },
+   {
+    "axis_map": [
+     "-1",
+     "-2",
+     "+3"
+    ],
+    "lift_norm": 1,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": true,
+    "commutes_with_two_tick_product_M0": true,
+    "commutes_with_ordered_tick_M1": true,
+    "commutes_with_two_tick_product_M1": true,
+    "commutes_with_ordered_tick_M2": true,
+    "commutes_with_two_tick_product_M2": true
+   },
+   {
+    "axis_map": [
+     "+1",
+     "+3",
+     "-2"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+1",
+     "-3",
+     "+2"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-1",
+     "+3",
+     "+2"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-1",
+     "-3",
+     "-2"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+2",
+     "+1",
+     "-3"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+2",
+     "-1",
+     "+3"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-2",
+     "+1",
+     "+3"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-2",
+     "-1",
+     "-3"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+2",
+     "+3",
+     "+1"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+2",
+     "-3",
+     "-1"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-2",
+     "+3",
+     "-1"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-2",
+     "-3",
+     "+1"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+3",
+     "+1",
+     "+2"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+3",
+     "-1",
+     "-2"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-3",
+     "+1",
+     "-2"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-3",
+     "-1",
+     "+2"
+    ],
+    "lift_norm": 4,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": true,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+3",
+     "+2",
+     "-1"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "+3",
+     "-2",
+     "+1"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-3",
+     "+2",
+     "+1"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   },
+   {
+    "axis_map": [
+     "-3",
+     "-2",
+     "-1"
+    ],
+    "lift_norm": 2,
+    "even_axis_permutation_(carrier_rotation_of_the_frame)": false,
+    "maps_S_i_to_S_perm(i)": true,
+    "commutes_with_ordered_tick_M0": false,
+    "commutes_with_two_tick_product_M0": false,
+    "commutes_with_ordered_tick_M1": false,
+    "commutes_with_two_tick_product_M1": false,
+    "commutes_with_ordered_tick_M2": false,
+    "commutes_with_two_tick_product_M2": false
+   }
+  ],
+  "parity_commutes_with_two_tick_product": {
+   "M0_with_Z": true,
+   "M0_with_Y": true,
+   "M1_with_Y": true,
+   "M2_with_Z": true,
+   "M1_with_Z_(wrong_matrix)": false
+  },
+  "S_1_S_2_commute": false,
+  "commuting_with_two_tick_product": {
+   "M0": [
+    [
+     "+1",
+     "+2",
+     "+3"
+    ],
+    [
+     "+1",
+     "-2",
+     "-3"
+    ],
+    [
+     "-1",
+     "+2",
+     "-3"
+    ],
+    [
+     "-1",
+     "-2",
+     "+3"
+    ]
+   ],
+   "M1": [
+    [
+     "+1",
+     "+2",
+     "+3"
+    ],
+    [
+     "+1",
+     "-2",
+     "-3"
+    ],
+    [
+     "-1",
+     "+2",
+     "-3"
+    ],
+    [
+     "-1",
+     "-2",
+     "+3"
+    ]
+   ],
+   "M2": [
+    [
+     "+1",
+     "+2",
+     "+3"
+    ],
+    [
+     "+1",
+     "-2",
+     "-3"
+    ],
+    [
+     "-1",
+     "+2",
+     "-3"
+    ],
+    [
+     "-1",
+     "-2",
+     "+3"
+    ]
+   ]
+  },
+  "commuting_with_ordered_tick": {
+   "M0": [
+    [
+     "+1",
+     "+2",
+     "+3"
+    ],
+    [
+     "+1",
+     "-2",
+     "-3"
+    ],
+    [
+     "-1",
+     "+2",
+     "-3"
+    ],
+    [
+     "-1",
+     "-2",
+     "+3"
+    ]
+   ],
+   "M1": [
+    [
+     "+1",
+     "+2",
+     "+3"
+    ],
+    [
+     "+1",
+     "-2",
+     "-3"
+    ],
+    [
+     "-1",
+     "+2",
+     "-3"
+    ],
+    [
+     "-1",
+     "-2",
+     "+3"
+    ]
+   ],
+   "M2": [
+    [
+     "+1",
+     "+2",
+     "+3"
+    ],
+    [
+     "+1",
+     "-2",
+     "-3"
+    ],
+    [
+     "-1",
+     "+2",
+     "-3"
+    ],
+    [
+     "-1",
+     "-2",
+     "+3"
+    ]
+   ]
+  }
+ },
+ "symbol_identity_U2_plus_U2dagger": {
+  "Y": true,
+  "Z": true
+ }
+}

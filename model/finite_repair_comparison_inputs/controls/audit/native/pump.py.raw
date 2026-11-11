@@ -1,0 +1,123 @@
+"""Exact local parity pump and mixed reverse-pump controls on a finite path.
+
+This is a diagnostic declared instrument, not an accepted repair-law fix.
+"""
+from pathlib import Path
+import json
+import sympy as s
+
+
+def require(ok,msg):
+    if not bool(ok):raise ArithmeticError(msg)
+
+
+def channel(n,edges,r):
+    """One-load sector. Forward singlet->triplet rate1, reverse probability r.
+
+    The no-jump coefficient on the symmetric pair is sqrt(1-r); all
+    spectator basis vectors are untouched. Kraus records are parity events.
+    """
+    I=s.eye(n); out=[]
+    for a,b in edges:
+        plus=s.zeros(n,1);minus=s.zeros(n,1)
+        plus[a]=plus[b]=1/s.sqrt(2)
+        minus[a]=1/s.sqrt(2);minus[b]=-1/s.sqrt(2)
+        Qp=plus*plus.T;Qm=minus*minus.T;outside=I-Qp-Qm
+        out.append([outside+s.sqrt(1-r)*Qp,plus*minus.T,s.sqrt(r)*minus*plus.T])
+    return out
+
+
+def act(Ks,X):return sum((K*X*K.T for K in Ks),s.zeros(X.rows))
+def dual(Ks,X):return sum((K.T*X*K for K in Ks),s.zeros(X.rows))
+
+
+def run():
+    n=3;edges=[(0,1),(1,2)];I=s.eye(n);saved={}
+    # r=3/4 keeps all matrix entries rational: sqrt(1-r)=1/2.
+    for r in [s.Integer(0),s.Rational(3,4)]:
+        instruments=channel(n,edges,r)
+        for e,Ks in zip(edges,instruments):
+            require(s.simplify(sum((K.T*K for K in Ks),s.zeros(n)))==I,'complete instrument')
+            a,b=e
+            for i in range(n):
+                for j in range(n):
+                    E=s.zeros(n);E[i,j]=1;Y=s.simplify(act(Ks,E))
+                    expected=s.zeros(n,1)
+                    if i==j:
+                        if i in e:expected[a]=expected[b]=s.Rational(1,2)
+                        else:expected[i]=1
+                    require(s.Matrix([Y[k,k] for k in range(n)])==expected,'all-input population lumping')
+        # This independent matrix unit construction fixes row/column conventions.
+        basis=[]
+        for i in range(n):
+            for j in range(n):
+                E=s.zeros(n);E[i,j]=1;basis.append(E)
+        L=s.Matrix.hstack(*(s.Matrix(list(s.simplify(sum((act(Ks,E) for Ks in instruments),s.zeros(n))/len(edges)))) for E in basis))
+        fixed=(L-s.eye(n*n)).nullspace();require(len(fixed)==1,'unique stationary state')
+        R=s.Matrix(n,n,list(fixed[0]));R=s.simplify(R/s.trace(R));require(R==R.T,'Hermitian')
+        effects=[s.simplify(K.T*K) for Ks in instruments for K in Ks]
+        commutators=[s.simplify(R*E-E*R) for E in effects]
+        if r==0:
+            D=n*I-s.ones(n)
+            H=s.zeros(n)
+            for a,b in edges:
+                P=s.eye(n);P[a,a]=P[b,b]=0;P[a,b]=P[b,a]=1
+                H+=I-P
+            # In the one-load sector D=Jmax²-Jtotal²=nI-J.
+            actual=s.simplify(sum((dual(Ks,D) for Ks in instruments),s.zeros(n))/len(edges))
+            require(actual==D-H/len(edges),'exact Lyapunov drop')
+            require(R==s.ones(n)/n and R.rank()==1,'Dicke attracting density')
+        else:
+            require(all(R[:k,:k].det()>0 for k in range(1,n+1)),'faithfulness by Sylvester')
+            require(R!=I/n,'nontracial ambient state')
+            require(any(C!=s.zeros(n) for C in commutators),'accessible effect not fixed by modular flow')
+            # Three concrete available one-event effects suffice for a full
+            # associative algebra on the one-load path. Compute closure exactly.
+            generators=effects
+            mats=[I];rank=1;changed=True
+            while changed:
+                changed=False
+                for X in list(mats):
+                    for E in generators:
+                        Y=s.simplify(X*E);cols=s.Matrix.hstack(*(s.Matrix(list(A)) for A in mats+[Y]));nr=cols.rank()
+                        if nr>rank:mats.append(Y);rank=nr;changed=True
+                        if rank==n*n:break
+                    if rank==n*n:break
+                if rank==n*n:break
+            require(rank==n*n,'accessible effect-generated algebra full')
+            history=[I];hrank=1;grown=True;rounds=0
+            allK=[K for Ks in instruments for K in Ks]
+            while grown:
+                grown=False;rounds+=1
+                for E in list(history):
+                    for K in allK:
+                        Y=s.simplify(K.T*E*K)
+                        newrank=s.Matrix.hstack(*(s.Matrix(list(A)) for A in history+[Y])).rank()
+                        if newrank>hrank:history.append(Y);hrank=newrank;grown=True
+            require(hrank<=n*(n+1)//2,'all history effects real symmetric')
+
+        saved[str(r)]={'stationary_density':[[str(v) for v in row] for row in R.tolist()],
+                      'stationary_rank':int(R.rank()),'stationary_dimension':1,
+                      'population_shadow_for_all_inputs_and_seam_sequences':True,
+                      'strict_native_output_state_shadow':False,
+                      'original_coin_current_instrument_preserved':False,
+                      'has_noncommuting_native_effect':any(C!=s.zeros(n) for C in commutators),
+                      'effect_generated_algebra_dimension':rank if r else None,
+                      'real_linear_native_history_effect_span_dimension':hrank if r else None,
+                      'native_effect_span_includes_all_modular_rotates':False,
+                      'no_relativistic_or_gauge_claim':True}
+    # Local extension on endpoint totals0,1,2: pump binary pair and split doubles.
+    I6=s.eye(6);plus=s.Matrix([0,1,1,0,0,0])/s.sqrt(2);minus=s.Matrix([0,1,-1,0,0,0])/s.sqrt(2)
+    # basis00,10,01,11,20,02.
+    K0=s.diag(1,0,0,1,0,0)+plus*plus.T;K1=plus*minus.T
+    K2=s.zeros(6);K2[3,4]=1;K3=s.zeros(6);K3[3,5]=1
+    Ks=[K0,K1,K2,K3];require(sum((K.T*K for K in Ks),s.zeros(6))==I6,'full local pump completion')
+    shadow=[]
+    for i in range(6):
+        E=s.zeros(6);E[i,i]=1;Y=act(Ks,E);shadow.append([str(Y[j,j]) for j in range(6)])
+    require(shadow[4]==shadow[5]==['0','0','0','1','0','0'],'double loads split rather than hold')
+    saved['double_load_extension']={'complete':True,'basis':['00','10','01','11','20','02'],'basis_diagonal_outputs':shadow}
+    return saved
+
+if __name__=='__main__':
+    result=run();Path(__file__).with_name('pump_results.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))

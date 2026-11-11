@@ -1,0 +1,138 @@
+{
+ "E0_trace_orthonormal_basis": true,
+ "E1_rank": 3,
+ "E1_eigenvalues": {
+  "0": 9,
+  "b**2*g2**2/4": 2,
+  "b**2*(3*g1**2 + 5*g2**2)/20": 1
+ },
+ "E1_eigenvalues_are_0x9_mW2x2_mZ2x1": true,
+ "E1_ratio_neutral_over_charged": "3*g1**2/(5*g2**2) + 1",
+ "E1_ratio_at_equal_couplings": "8/5",
+ "E1_Q_annihilates_beta": true,
+ "E1_neutral_block": "Matrix([[b**2*g2**2/4, -sqrt(15)*b**2*g1*g2/20], [-sqrt(15)*b**2*g1*g2/20, 3*b**2*g1**2/20]])",
+ "E1_z_is_eigenvector_with_mZ2": true,
+ "E1_q_is_null_vector": true,
+ "E1_cross_term_W3_B": "-sqrt(15)*b**2*g1*g2/20",
+ "E1_SU2_block_is_isotropic": true,
+ "E7_eigenvalues_general_Y": {
+  "b**2*g2**2/4": 2,
+  "b**2*(4*Y**2*gY**2 + g2**2)/4": 1,
+  "0": 1
+ },
+ "E7_neutral_minus_charged": "Y**2*b**2*gY**2",
+ "E7_neutral_eigenvalue_present": true,
+ "E7_equal_at_Y0": true,
+ "E2_rank_of_action_on_beta": 3,
+ "E2_stabilizer_dimension": 9,
+ "E2_stabilizer_is_span_of_colour_and_Q": true,
+ "E2_closed": true,
+ "E2_Q_central_in_stabilizer": true,
+ "E2_derived_algebra_dimension": 8,
+ "E2_U3_element_has_det_one_and_fixes_beta": true,
+ "E3_live_between_span_dim": 11,
+ "E3_live_between_closure_dim": 12,
+ "E3_live_below_span_dim": 9,
+ "E3_live_below_closure_dim": 9,
+ "E3_commutator_T1_T2_is_iT3": true,
+ "E3_T3_outside_live_between": true,
+ "E4_edge_generator_without_z": {
+  "1/2": {
+   "casimir_scalar_with_all_three": true,
+   "live_generator_diagonal_in_m": true,
+   "eigenvalue_by_member": [
+    "Y**2*c_q + Y*c_q + c/2 + c_q/4",
+    "Y**2*c_q - Y*c_q + c/2 + c_q/4"
+   ],
+   "differences_between_neighbours": [
+    "2*Y*c_q"
+   ]
+  },
+  "1": {
+   "casimir_scalar_with_all_three": true,
+   "live_generator_diagonal_in_m": true,
+   "eigenvalue_by_member": [
+    "Y**2*c_q + 2*Y*c_q + c + c_q",
+    "Y**2*c_q + 2*c",
+    "Y**2*c_q - 2*Y*c_q + c + c_q"
+   ],
+   "differences_between_neighbours": [
+    "2*Y*c_q - c + c_q",
+    "2*Y*c_q + c - c_q"
+   ]
+  },
+  "3/2": {
+   "casimir_scalar_with_all_three": true,
+   "live_generator_diagonal_in_m": true,
+   "eigenvalue_by_member": [
+    "Y**2*c_q + 3*Y*c_q + 3*c/2 + 9*c_q/4",
+    "Y**2*c_q + Y*c_q + 7*c/2 + c_q/4",
+    "Y**2*c_q - Y*c_q + 7*c/2 + c_q/4",
+    "Y**2*c_q - 3*Y*c_q + 3*c/2 + 9*c_q/4"
+   ],
+   "differences_between_neighbours": [
+    "-2*(-Y*c_q + c - c_q)",
+    "2*Y*c_q",
+    "2*(Y*c_q + c - c_q)"
+   ]
+  }
+ },
+ "E4_doublet_splitting": "2*Y*c_q",
+ "E4_doublet_splitting_vanishes_at_Y0": true,
+ "E5_charges_distinct_within_every_multiplet": true,
+ "E6_V_squared_is_identity_level_s2": true,
+ "E6_trace_V": 0,
+ "E6_eigenvalues_plus_minus_one_counts": [
+  16,
+  16
+ ],
+ "E6_V_squared_is_norm_beta_squared_general_direction": true,
+ "E1p_port_metric_rank": 12,
+ "E1p_generalized_eigenvalues": [
+  -2.2469991980607294e-16,
+  -9.271820055843596e-17,
+  -4.0321319652235043e-17,
+  -1.6995996897016077e-17,
+  6.508051875910823e-18,
+  2.4952817735693074e-17,
+  3.43143147478406e-17,
+  5.777094950447018e-17,
+  1.2768959935781174e-16,
+  0.25000000000000006,
+  0.2500000000000001,
+  0.40000000000000013
+ ],
+ "E1p_number_of_nonzero": 3,
+ "E1p_ratios_to_smallest_nonzero": [
+  1.0,
+  1.0000000000000002,
+  1.6
+ ],
+ "E1p_ratio_defect_from_1_1_8over5": 2.220446049250313e-16,
+ "E8_antipodal_port": [
+  0,
+  3
+ ],
+ "E8_conjugate_directions_antipodal": true,
+ "E8_X_pbar_annihilates_beta": 1.3877787807814457e-17,
+ "E8_remainder_vanishes_on_doublet": 9.205483015737869e-17,
+ "E8_remainder_traceless_on_triplet": 0.0,
+ "E8_remainder_hermitian": 0.0,
+ "E8_Q_annihilates_beta": 1.4946834900704541e-16,
+ "E8_statement": "X_pbar = Q/2 + (colour generator): the phase of the port antipodal to the register direction is the unbroken neutral current up to colour",
+ "E8_norms_X_p_beta_squared": [
+  0.24999999999999997,
+  0.18090169943749473,
+  0.06909830056250524,
+  1.925929944387236e-34,
+  0.06909830056250525,
+  0.06909830056250525,
+  0.1809016994374948,
+  0.1809016994374948,
+  0.06909830056250525,
+  0.18090169943749476,
+  0.06909830056250525,
+  0.18090169943749476
+ ],
+ "all_boolean_checks_pass": true
+}

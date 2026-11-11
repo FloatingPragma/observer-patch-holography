@@ -1,0 +1,42 @@
+"""Gate: the private copy of the D11 engine reproduces the stored RER values (printed from RER at f21f461d5
+before its working tree disappeared). Writes gate_d11.json."""
+import json
+import sys
+import time
+
+sys.path.insert(0, ".")
+import d11_scan_copy as D  # noqa: E402
+
+STORED_2LOOP = {  # from RER code/particles/runs/calibration/d11_criticality_boundary_scan.json
+    "log_midpoint_half_turn": (125.77115226639518, 172.62935892273643),
+    "E_cell_pixel_energy": (131.80938727093422, 175.66412567505776),
+    "E_star": (132.29093055239247, 175.9047363846019),
+    "mu_U_gauge_unification": (119.37075206466659, 169.37032266864955),
+}
+STORED_1LOOP = {
+    "log_midpoint_half_turn": (121.63432000427385, 167.394214934821),
+    "E_cell_pixel_energy": (127.83227871460655, 170.44889767995056),
+}
+
+t0 = time.time()
+root = json.load(open("R_P_source_audit_pixel_certificate.json"))
+p, au = float(root["P_cand"]), float(root["alpha_U_P_cand"])
+sc = D.source_scales(p, au)
+v, mz = sc["v_transmutation_gev"], sc["mz_run_gev"]
+out = {"two_loop_available": D.TWO_LOOP_AVAILABLE, "scales": sc, "rows": {}}
+worst = 0.0
+for name, (mh, mt) in STORED_2LOOP.items():
+    r = D.run_boundary(sc[name], v, mz, loops=2)
+    d = max(abs(r["mh_tree_gev"] / mh - 1), abs(r["mt_pole_gev"] / mt - 1))
+    worst = max(worst, d)
+    out["rows"][name + "_2loop"] = {"mh": r["mh_tree_gev"], "mt": r["mt_pole_gev"], "rel_dev": d}
+for name, (mh, mt) in STORED_1LOOP.items():
+    r = D.run_boundary(sc[name], v, mz, loops=1)
+    d = max(abs(r["mh_tree_gev"] / mh - 1), abs(r["mt_pole_gev"] / mt - 1))
+    worst = max(worst, d)
+    out["rows"][name + "_1loop"] = {"mh": r["mh_tree_gev"], "mt": r["mt_pole_gev"], "rel_dev": d}
+out["worst_relative_deviation"] = worst
+out["gate_pass_1e-12"] = worst < 1e-12
+out["seconds"] = time.time() - t0
+json.dump(out, open("gate_d11.json", "w"), indent=1)
+print(json.dumps({k: out[k] for k in ("two_loop_available", "worst_relative_deviation", "gate_pass_1e-12", "seconds")}))

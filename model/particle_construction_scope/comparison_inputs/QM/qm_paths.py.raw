@@ -1,0 +1,7 @@
+"""Location of the RER checkout (read only). The campaign path moved at 23:18 into the repair-law directory; both are
+accepted, the original path first."""
+import os
+
+CANDIDATES = ('WORKSPACE/reverse-engineering-reality',
+              'WORKSPACE/repair-law/reverse-engineering-reality')
+RER = next(p for p in CANDIDATES if os.path.isdir(os.path.join(p, 'model')))

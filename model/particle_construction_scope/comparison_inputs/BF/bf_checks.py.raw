@@ -1,0 +1,85 @@
+"""BF checks: neutral tadpole formula (N1) and the class-function reduction against the audit's 119-state link (R3).
+
+N1  One real neutral link field with xy-plaquette stiffness s: vacuum energy per site eps(s) = int d^3k sum of the two
+    nonzero frequencies / 2. d eps/d s at s = 1 against w_H/2 (first-order formula used for the neutral fields and
+    for the factor cbar of the charged fields).
+R3  (run from RER with PYTHONPATH=.:<this dir>, argument 'audit') multiplication by the character of each native
+    block, sum_a U^r_aa of the audit's explicit 119 x 119 link coordinates, applied to the normalized characters of
+    the eleven sectors: result against the fusion rules of bf_lib (tensor) restricted to the menu M1.
+Writes bf_checks.json (N1) or bf_checks_audit.json (R3).
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+t0 = time.time()
+if len(sys.argv) > 1 and sys.argv[1] == 'audit':
+    import sympy as s
+    import bf_lib as L
+    from model.coherent_defect_wave.chiral_joint.peter_weyl_links.clebsch import irreps, native_charges, coordinate, carrier_index
+    reps = irreps()
+    sector = {0: L.VAC}
+    sector.update({q: L.FIELDS[q] for q in reps if q != 0})
+    assert all(reps[q]['dimension'] == L.dim(sector[q]) for q in reps)
+
+    def chi_vec(q):
+        d = reps[q]['dimension']
+        v = np.zeros(119)
+        for a in range(d):
+            v[carrier_index(q, a, a)] = 1 / np.sqrt(d)
+        return v
+
+    chars = {q: chi_vec(q) for q in reps}
+    worst, rows = 0.0, {}
+    for r in native_charges():
+        d = reps[r]['dimension']
+        X = np.zeros((119, 119), complex)
+        for a in range(d):
+            M = coordinate(r, a, a)
+            for (i, j), val in M.todok().items():
+                X[i, j] += complex(val)
+        got = {}
+        for q in reps:
+            img = X @ chars[q]
+            comp = {t: complex(np.vdot(chars[t], img)) for t in reps}
+            resid = img - sum(c * chars[t] for t, c in comp.items())
+            pred = {t for t in reps if sector[t] in L.tensor(sector[q], L.NATIVE[r])}
+            for t in reps:
+                want = 1.0 if t in pred else 0.0
+                worst = max(worst, abs(abs(comp[t]) - want))
+            worst = max(worst, float(np.max(np.abs(resid))))
+            got[q] = sorted(t for t in reps if abs(comp[t]) > 1e-9)
+        rows[r] = got
+    out = {'max_deviation_of_character_images_from_fusion_rules (absolute values of coefficients)': worst,
+           'channels_found': {str(r): {str(q): v for q, v in g.items() if v} for r, g in rows.items()},
+           'seconds': round(time.time() - t0, 1)}
+    json.dump(out, open(sys.argv[2], 'w'), indent=1)
+    print(out)
+else:
+    import bf_bg_lib as B
+    refs, om = B.references([np.inf])
+    N = 160
+    k = (np.arange(N) + 0.5) * 2 * np.pi / N
+    K1, K2, K3 = np.meshgrid(k, k, k, indexing='ij')
+    e = [1 - np.exp(1j * q) for q in (K1, K2, K3)]
+
+    def eps(sxy):
+        # curl rows: plaquettes (23), (31), (12) with stiffness 1, 1, sxy
+        M = np.zeros(K1.shape + (3, 3), complex)
+        rows = [(1.0, [0 * e[0], -e[2], e[1]]), (1.0, [e[2], 0 * e[0], -e[0]]), (sxy, [-e[1], e[0], 0 * e[0]])]
+        for st, c in rows:
+            for i in range(3):
+                for j in range(3):
+                    M[..., i, j] += st * np.conj(c[i]) * c[j]
+        w = np.linalg.eigvalsh(M.reshape(-1, 3, 3))
+        return float(np.mean(np.sum(np.sqrt(np.maximum(w, 0.0)), axis=1)) / 2)
+
+    h = 1e-3
+    der = (eps(1 + h) - eps(1 - h)) / (2 * h)
+    out = {'N1_neutral_tadpole': {'grid': N, 'eps(1)': eps(1.0), 'mean_frequency': om, 'd_eps/d_s numerical': der,
+                                  'w_H/2': refs[np.inf]['w_sigma'] / 2, 'difference': der - refs[np.inf]['w_sigma'] / 2},
+           'seconds': round(time.time() - t0, 1)}
+    json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_checks.json', 'w'), indent=1)
+    print(out)

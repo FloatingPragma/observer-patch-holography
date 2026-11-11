@@ -1,0 +1,55 @@
+{
+ "task": "LP addendum 3: return test on the consensus pair",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "return test on the consensus pair (FP)": {
+  "holonomy -1": {
+   "consensus state is fixed by the tick": true,
+   "T1 weight of the outcome yes": "1/3",
+   "weight of the failure branch": "2/3",
+   "T2 weight of yes after n ticks from the failure branch": {
+    "1": "1/18",
+    "2": "1/2",
+    "3": "8/9",
+    "4": "1/2",
+    "5": "1/18",
+    "6": "0"
+   },
+   "weight of the bare pair with one retry after three ticks": "25/27"
+  },
+  "holonomy +1": {
+   "consensus state is fixed by the tick": true,
+   "T1 weight of the outcome yes": "1/3",
+   "weight of the failure branch": "2/3",
+   "T2 weight of yes after n ticks from the failure branch": {
+    "1": "1/18",
+    "2": "1/2",
+    "3": "8/9",
+    "4": "1/2",
+    "5": "1/18",
+    "6": "0"
+   },
+   "weight of the bare pair with one retry after three ticks": "25/27"
+  }
+ },
+ "T3 heralded native preparation": {
+  "hexagon, uniform mixture of the 21 blank embedded preparations, iterated filter, class-3 defect": {
+   "weight kept in the limit": "1/63",
+   "share of the cycle sector in what is kept": "1",
+   "weight kept from one double-load preparation": "1/18"
+  },
+  "carrier, uniform mixture of the 78 blank embedded preparations, class-3 defect": {
+   "weight kept in the limit": "1/468",
+   "share of the cycle sector in what is kept": "1",
+   "weight kept from one double-load preparation": "1/72"
+  },
+  "inputs": "lp3_stationary.json (S8), lp3b_carrier.json"
+ },
+ "seconds": 0.08
+}

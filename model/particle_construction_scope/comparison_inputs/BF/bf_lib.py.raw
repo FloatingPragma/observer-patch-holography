@@ -1,0 +1,204 @@
+"""BF common library.
+
+Irreducible representations of G = S(U(3) x U(2)) as tuples ((p, q), n, m): SU(3) Dynkin labels, n = 2j, m = 6Y,
+with m = -2 (p - q) - 3 n mod 6 (GL `s5_links_couplings.py`). Fusion with the native link fields (all channels have
+multiplicity one), menus M_n, class-function operators, group matrices of the code 5 and the native 15.
+"""
+import itertools
+from fractions import Fraction as Fr
+
+import numpy as np
+
+G2 = 4 * np.pi / 16.2453                     # bare g^2 at the cell (DC cut closure, GL B1)
+INV_ALPHA_BARE = 16.2453
+VAC = ((0, 0), 0, 0)
+
+# native blocks (audit labels = 6Y): u^c, Q, e^c, L, d^c
+NATIVE = {-4: ((0, 1), 0, -4), 1: ((1, 0), 1, 1), 6: ((0, 0), 0, 6), -3: ((0, 0), 1, -3), 2: ((0, 1), 0, 2)}
+NAMES = {-4: 'u^c', 1: 'Q', 6: 'e^c', -3: 'L', 2: 'd^c'}
+
+
+def dual(r):
+    (p, q), n, m = r
+    return ((q, p), n, -m)
+
+
+FIELDS = {}
+for _lab, _r in NATIVE.items():
+    FIELDS[_lab] = _r
+    FIELDS[-_lab] = dual(_r)
+BLOCKS5 = [dual(NATIVE[2]), dual(NATIVE[-3])]            # (3,1)_{-1/3}, (1,2)_{1/2}: the code
+BLOCKS15 = [NATIVE[k] for k in (-4, 1, 6, -3, 2)]        # the five native blocks
+
+
+def z6_ok(r):
+    (p, q), n, m = r
+    return (-2 * (p - q) - 3 * n - m) % 6 == 0
+
+
+assert all(z6_ok(r) for r in FIELDS.values())
+
+
+def dim(r):
+    (p, q), n, m = r
+    return (p + 1) * (q + 1) * (p + q + 2) // 2 * (n + 1)
+
+
+def casimir_parts(r):
+    (p, q), n, m = r
+    return Fr(p * p + q * q + p * q + 3 * p + 3 * q, 3), Fr(n * (n + 2), 4), Fr(m * m, 60)
+
+
+def casimir(r):
+    return float(sum(casimir_parts(r)))
+
+
+def su3_times(p, q, f):
+    if f == (0, 0):
+        return [(p, q)]
+    if f == (1, 0):
+        return [(a, b) for a, b in ((p + 1, q), (p - 1, q + 1), (p, q - 1)) if a >= 0 and b >= 0]
+    if f == (0, 1):
+        return [(a, b) for a, b in ((p, q + 1), (p + 1, q - 1), (p - 1, q)) if a >= 0 and b >= 0]
+    raise ValueError(f)
+
+
+def su2_times(n, f):
+    return [n] if f == 0 else [k for k in (n - 1, n + 1) if k >= 0]
+
+
+def tensor(r, f):
+    """irreducible parts of f (x) r for a field f with SU(3) part 1, 3 or 3bar and SU(2) part 1 or 2."""
+    (p, q), n, m = r
+    fs, fn, fm = f
+    return [((a, b), k, m + fm) for a, b in su3_times(p, q, fs) for k in su2_times(n, fn)]
+
+
+def menus(nmax):
+    out = [{VAC}]
+    for _ in range(nmax):
+        new = set(out[-1])
+        for r in out[-1]:
+            for f in FIELDS.values():
+                new.update(tensor(r, f))
+        out.append(new)
+    return out
+
+
+def reference_menu(ccut):
+    """all irreducible representations of G with trace-form Casimir at most ccut."""
+    out = []
+    pmax = int(np.sqrt(3 * ccut)) + 2
+    for p in range(pmax + 1):
+        for q in range(pmax + 1):
+            c3 = (p * p + q * q + p * q + 3 * p + 3 * q) / 3
+            if c3 > ccut:
+                continue
+            n = 0
+            while n * (n + 2) / 4 + c3 <= ccut:
+                rest = ccut - c3 - n * (n + 2) / 4
+                mmax = int(np.sqrt(60 * rest))
+                m0 = (-2 * (p - q) - 3 * n) % 6
+                for m in range(-mmax - 6, mmax + 7):
+                    if (m - m0) % 6 == 0 and m * m / 60 <= rest:
+                        out.append(((p, q), n, m))
+                n += 1
+    return out
+
+
+def class_ops(sectors, blocks):
+    """sparse real matrices of multiplication by Re chi_B on the class functions of a sector list.
+
+    Returns (index, [A_B]) with A_B = (N_B + N_B^T)/2 in the orthonormal character basis."""
+    import scipy.sparse as sps
+    idx = {r: k for k, r in enumerate(sectors)}
+    ops = []
+    for B in blocks:
+        rows, cols = [], []
+        for r, k in idx.items():
+            for t in tensor(r, B):
+                j = idx.get(t)
+                if j is not None:
+                    rows.append(j); cols.append(k)
+        N = sps.csr_matrix((np.ones(len(rows)), (rows, cols)), shape=(len(sectors), len(sectors)))
+        ops.append(((N + N.T) / 2).tocsr())
+    return idx, ops
+
+
+def leak(sectors, blocks):
+    """per sector: share of F (x) R outside the sector set, F = sum of the blocks (weight d_B)."""
+    S = set(sectors)
+    dF = sum(dim(B) for B in blocks)
+    out = {}
+    for r in sectors:
+        kept = sum(dim(t) for B in blocks for t in tensor(r, B) if t in S)
+        out[r] = 1 - kept / (dF * dim(r))
+    return out
+
+
+# ------------------------------------------------------------------------------------ group matrices
+def gellmann():
+    L = []
+    for i, j in [(0, 1), (0, 2), (1, 2)]:
+        A = np.zeros((3, 3), complex); A[i, j] = A[j, i] = 1; L.append(A)
+        A = np.zeros((3, 3), complex); A[i, j] = -1j; A[j, i] = 1j; L.append(A)
+    L.append(np.diag([1, -1, 0]).astype(complex))
+    L.append(np.diag([1, 1, -2]).astype(complex) / np.sqrt(3))
+    return L
+
+
+SIG = np.array([[[0, 1], [1, 0]], [[0, -1j], [1j, 0]], [[1, 0], [0, -1]]], dtype=complex)
+
+
+def blk(t=None, d=None):
+    Z = np.zeros((5, 5), complex)
+    if t is not None:
+        Z[:3, :3] = t
+    if d is not None:
+        Z[3:, 3:] = d
+    return Z
+
+
+Y5 = np.diag([-1 / 3, -1 / 3, -1 / 3, 1 / 2, 1 / 2]).astype(complex)
+T5 = [blk(l / 2) for l in gellmann()] + [blk(d=s / 2) for s in SIG] + [np.sqrt(3 / 5) * Y5]
+GEN_NAMES = [f'gluon{a + 1}' for a in range(8)] + ['W1', 'W2', 'W3', 'B_GUT']
+# order of gellmann(): (01 sym, 01 asym, 02 sym, 02 asym, 12 sym, 12 asym, diag3, diag8)
+IDX_T3, IDX_T8, IDX_W3, IDX_B = 6, 7, 10, 11
+
+
+def rep15(T):
+    """generator on 5bar (+) Lambda^2(5) from its 5 x 5 matrix."""
+    pairs = list(itertools.combinations(range(5), 2))
+    W = np.zeros((25, 10))
+    for k, (i, j) in enumerate(pairs):
+        W[5 * i + j, k] = 1 / np.sqrt(2); W[5 * j + i, k] = -1 / np.sqrt(2)
+    T2 = np.kron(T, np.eye(5)) + np.kron(np.eye(5), T)
+    ten = W.T @ T2 @ W
+    out = np.zeros((15, 15), complex)
+    out[:5, :5] = -T.T
+    out[5:, 5:] = ten
+    return out
+
+
+T15 = [rep15(T) for T in T5]
+REPS = {'5': (T5, 0.5), '15': (T15, 2.0)}              # generators and kappa_F = tr_F(T_a T_a)
+for _T, _k in REPS.values():
+    _G = np.array([[np.trace(a @ b).real for b in _T] for a in _T])
+    assert np.allclose(_G, _k * np.eye(12)), 'trace orthonormality'
+C_A = {'SU3': 3.0, 'SU2': 2.0, 'U1': 0.0}
+
+
+def jsonable(o):
+    if isinstance(o, (np.integer,)):
+        return int(o)
+    if isinstance(o, (np.floating,)):
+        return float(o)
+    if isinstance(o, (np.bool_,)):
+        return bool(o)
+    if isinstance(o, np.ndarray):
+        return o.tolist()
+    if isinstance(o, Fr):
+        return str(o)
+    if isinstance(o, complex):
+        return [o.real, o.imag]
+    raise TypeError(type(o))

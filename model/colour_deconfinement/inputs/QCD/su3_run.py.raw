@@ -1,0 +1,52 @@
+"""One finite-temperature run of pure SU(3) gauge theory. Writes the time series of the plaquette and of the
+Polyakov loop (one entry per compound sweep, thermalisation included) to an npz file, rewritten every `save` sweeps.
+
+    python su3_run.py NS NT BETA NSWEEPS N_OR SEED START OUT [--wl RMAX EVERY NTHERM]
+
+START is 'cold' or 'hot'. With --wl the Wilson loops up to RMAX x RMAX are measured every EVERY sweeps after NTHERM.
+"""
+import os, sys, time, json
+import numpy as np
+import su3_lib as S
+
+
+def main():
+    a = sys.argv
+    ns, nt, beta, nsw, n_or, seed, start, out = int(a[1]), int(a[2]), float(a[3]), int(a[4]), int(a[5]), int(a[6]), a[7], a[8]
+    wl = None
+    if '--wl' in a:
+        k = a.index('--wl'); wl = (int(a[k + 1]), int(a[k + 2]), int(a[k + 3]))
+    save = 100
+    dims = (ns, ns, ns, nt)
+    up, dn = S.neighbours(*dims)
+    V = ns ** 3 * nt
+    S.seed_rng(seed)
+    U = S.cold_start(V) if start == 'cold' else S.hot_start(V)
+    ps = np.zeros(nsw); pt = np.zeros(nsw); L = np.zeros(nsw, np.complex128)
+    W_acc = []; t0 = time.time()
+
+    def dump(n):
+        meta = dict(ns=ns, nt=nt, beta=beta, nsweeps=nsw, done=n, n_or=n_or, seed=seed, start=start,
+                    seconds=time.time() - t0)
+        tmp = out + '.tmp.npz'
+        kw = dict(ps=ps[:n], pt=pt[:n], L=L[:n], meta=json.dumps(meta))
+        if wl is not None and W_acc:
+            kw['W'] = np.array(W_acc)
+        np.savez(tmp, **kw)
+        os.replace(tmp, out)
+
+    for n in range(nsw):
+        S.compound_sweeps(U, up, dn, beta, 1, n_or)
+        if (n + 1) % 50 == 0:
+            S.reunitarize(U)
+        ps[n], pt[n] = S.plaquette(U, up)
+        L[n] = S.polyakov(U, up, nt)
+        if wl is not None and n >= wl[2] and (n - wl[2]) % wl[1] == 0:
+            W_acc.append(S.wilson_loops(U, up, wl[0]))
+        if (n + 1) % save == 0 or n + 1 == nsw:
+            dump(n + 1)
+    print('done', out, time.time() - t0, flush=True)
+
+
+if __name__ == '__main__':
+    main()

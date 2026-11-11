@@ -1,0 +1,188 @@
+{
+  "bounds_exact": {
+    "code_energy_over_baseline_lower_in_m_units": "1/50000",
+    "counterterm_over_m": "1805606730333/18014398509481984",
+    "counterterm_quadratic_coefficient": "1805606730333/4398046511104",
+    "coupled_code_ground_sin_angle_to_free_vacuum_upper": "4010402717096673535619570684670044675103397853197011897255247604389/400000000000000000000000000000000000000000000000000000000000000000000",
+    "free_vacuum_shift_over_m_lower": "125288679767469823379962470168636572392629741894998639497563398443/1250000000000000000000000000000000000000000000000000000000000000000000",
+    "free_vacuum_shift_over_m_upper": "1002309438154072434086860199635678723279099325976482449133946865863/10000000000000000000000000000000000000000000000000000000000000000000000",
+    "g": "1/64",
+    "original_code_above_native_triplet_margin_lower": "27666265561155153049297985918530935739929760178849837133047354573/2000000000000000000000000000000000000000000000000000000000000000000000",
+    "repaired_full_physical_gap_lower": "2520786090799500180339402431633337015385197762503349880305337/10000000000000000000000000000000000000000000000000000000000000000000000",
+    "repaired_trial_below_complement_baseline_margin_over_m": "3644562848887859441559817811653193373818554767550866053134137/10000000000000000000000000000000000000000000000000000000000000000000000",
+    "same_code_internal_ground_gap_lower_over_m": "17170018198374345927565913139800364321276720900674023517550866053134137/10000000000000000000000000000000000000000000000000000000000000000000000",
+    "strict_Schur_margin": "34530097086454065366326832338366818322734741105563332576476726193/10000000000000000000000000000000000000000000000000000000000000000000000",
+    "vacuum_second_order_remainder_coefficient_upper": "51335299320493042141542670448067115142974587187259550615216801915547581/10000000000000000000000000000000000000000000000000000000000000000000000",
+    "weighted_Schur_term_upper": "95972417631663065209171616126340720102287899256803222925503807669/1250000000000000000000000000000000000000000000000000000000000000000000",
+    "whole_code_Peierls_norm_over_m_upper": "4635/16384"
+  },
+  "complete_native_complement": {
+    "Coulomb_and_extra_reference_cost_on_these_states": "0",
+    "active_complement_ground_multiplicity": 96,
+    "actual_neutral_triplet_gap_interval": [
+      "4918715917450529654794985007063549822651843806675192199552849776128935/5992891159381908574932794392184124397469507924425910615366245127643039475252967413745975296",
+      "1198201459674729517389739694982578817071115046973418189546397631421/1459379770266338518799451570206774846177394767749453310247344020888519073407877351735296"
+    ],
+    "all_added_Rloc_vacua_and_outer_charge_zero": true,
+    "common_photon_zero_point_over_m": "3+sqrt(6)",
+    "complete_charged_port_gap_lower": "144855983017581/3518437208883200",
+    "complete_old_dual_reference_gap_lower": "12069208469156468531631400952645460636513962326353/73287825008760668595250553296982590732615706214400",
+    "each_native_triplet_rank": 3,
+    "one_triplet_constituent_choices": 32,
+    "raw_energy_baseline": "32 Eg + m(3+sqrt(6))",
+    "retained_preparation_reference_spectators_multiply_degeneracy": true,
+    "source_hopping": "1/17179869184"
+  },
+  "complete_repaired_ground_preparation": {
+    "Cayley": "(I-i H_repaired/B)(I+i H_repaired/B)^-1, with raw source energy",
+    "actual_full_physical_gap_lower": "126039304539975009016970121581666850769259888125167/500000000000000000000000000000000000000000000000000000000000",
+    "actual_mixed_energy_amplitude_upper": "9698500000000000000000000000000000000000000000000000000000000000/9931264000000000028121764555582853523983512392279788639028306404951",
+    "all_filter_basis_outcomes_retained": true,
+    "all_partner_sources_retained": true,
+    "capacity_nats_formula": "4*(parent capacity-ln1161)+3*ln(157589952376326706)",
+    "capacity_nats_interval": [
+      "21003052090368932101860612751128992401729849762341255956463193967/500000000000000000000000000000000000000000000000000000000000",
+      "8401220836147572840744245100451596960691939904936502382585277587/200000000000000000000000000000000000000000000000000000000000"
+    ],
+    "complete_tree_success_lower": "99959432866601001626990327310286869706426996356712186054239/100000000000000000000000000000000000000000000000000000000000",
+    "conditional_main_ground_fidelity_lower": "999999999999979894966821470907478671431725098000028258721957/1000000000000000000000000000000000000000000000000000000000000",
+    "conditional_main_trace_distance_upper": "141792218328542601729342886517990643622146009555062993/1000000000000000000000000000000000000000000000000000000000000",
+    "conditional_retained_purification_vector_error_upper": "70896109164271479035749815297432159510648918185110910888863858926267/500000000000000000000000000000000000000000000000000000000000000000000000000",
+    "depth": 2,
+    "each_control_norm_upper": "543138/7",
+    "each_full_filter_program_duration_source_units": "1",
+    "each_pointer_dimension": 157589952376326706,
+    "efficient_native_C_E_compilation_claimed": false,
+    "failed_ancestor_slots": "declared no-op instrument with the same elapsed source time and retained earlier failure label",
+    "filter_pulse": "i Log(exp(-i H_copies) U_filter)-H_copies; keep the final common free factor",
+    "finite_filter_count": 3,
+    "full_service_H_norm_upper": "77588",
+    "full_source_trial_copies": 4,
+    "gross_all_pulse_switching_work_upper": "4345104/7",
+    "ground_energy_or_exact_ground_projector_used": false,
+    "initial_ground_probability_lower": "999898571975558177638896780576016255940036708079124658920101/1000000000000000000000000000000000000000000000000000000000000",
+    "initial_preparation_duration_source_units": "1",
+    "native_constituents": 128,
+    "net_bare_source_work_absolute_upper": "155176",
+    "onsite_completion_full_raw_norm_increment_upper": "959184363534294105073256577266512483667571129155383932329671140297446461687587774416246459836504238117810050182885128607051372418301419638146328769233775346384434802816003583226577508118335513949632545425735346038803215841610587596627/1729490185085352777552368965511024878734849195913544180797803103809831465054968160766500941186522491598832281671750343667624138464545975793849523075529850131582232480270247112452226184450569012000148761288323249306770591884649953566392320",
+    "optional_complete_count_readout_additional_capacity": "ln1161",
+    "raw_full_kinematic_source_norm_integer_upper": "19397",
+    "stages": [
+      {
+        "each_success_probability_lower": "249949288559690124362176961946760927220607471389143832472733/250000000000000000000000000000000000000000000000000000000000",
+        "input_ground_probability_lower": "999898571975558177638896780576016255940036708079124658920101/1000000000000000000000000000000000000000000000000000000000000",
+        "level": 1,
+        "number_of_filters": 2,
+        "output_ground_odds_upper": "131040119980326669714128526095713415262228443724363/12500000000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "each_success_probability_lower": "999999979033581132840778691019145260099174647745532070017349/1000000000000000000000000000000000000000000000000000000000000",
+        "input_ground_probability_lower": "999999989516790511471548755323096455767632235514896321406383/1000000000000000000000000000000000000000000000000000000000000",
+        "level": 2,
+        "number_of_filters": 1,
+        "output_ground_odds_upper": "5026258294632374183421919509663444556957275741/250000000000000000000000000000000000000000000000000000000000"
+      }
+    ],
+    "total_elapsed_time_all_branches": 4,
+    "total_pointer_dimension_formula": "157589952376326706^3"
+  },
+  "complete_stationary_ground_dressing_record": {
+    "actual_stationary_ground_target_amplitude_lower": "1190731558988311793127587728595144710980559740705917660611/1000000000000000000000000000000000000000000000000000000000000",
+    "actual_stationary_ground_target_probability_lower": "141784164557073544741793265813862338852429152482106259/100000000000000000000000000000000000000000000000000000000000",
+    "all_preparation_failure_records_and_partner_sources_retained": true,
+    "complete_count_pointer_labels": 1161,
+    "ground_emission_scattering_or_radiation": false,
+    "interpretation": "stationary interacting-ground occupation in the declared free quasiparticle/photon frame",
+    "physical_preparation_and_count_joint_probability_lower": "708464476000866600674925076729560876974632921176367889/500000000000000000000000000000000000000000000000000000000000",
+    "target": [
+      1,
+      1,
+      1
+    ]
+  },
+  "declared_onsite_completion": {
+    "actual_ground_radiation_or_SM_mass_claim": false,
+    "all_code_eigenvectors_absolute_energies_and_internal_differences_unchanged": true,
+    "c_of_g": "g\u00b2 times the displayed dyadic quadratic coefficient; c(0)=0",
+    "changed_H": "H_repaired=H_original+m c(g) sum_x(I-P_x), transported by Y and zero on the outer constraint complement",
+    "coefficient_ancestry": "source contractions plus declared48-bit dyadic ceiling; not primitive-repair uniqueness or empirical calibration",
+    "complete_pattern_preserving_count_laws_exactly_invariant": true,
+    "coupled_ground_is_free_vacuum": false,
+    "different_pattern_coherent_phases_and_energy_differences_changed": true,
+    "global_scalar_energy_subtraction": "none",
+    "old_source_receipt_or_H_mutated": false,
+    "q_defect_complement_energy_increment": "q m c(g), q=1,...,8",
+    "selected_active_coupled_ground_is_unique": true
+  },
+  "diagnostic_binary64": {
+    "code_energy_over_baseline_lower_in_m_units": 2e-05,
+    "counterterm_over_m": 0.00010023130827169213,
+    "counterterm_quadratic_coefficient": 0.410547438680851,
+    "coupled_code_ground_sin_angle_to_free_vacuum_upper": 0.010026006792741684,
+    "free_vacuum_shift_over_m_lower": 0.00010023094381397586,
+    "free_vacuum_shift_over_m_upper": 0.00010023094381540724,
+    "g": 0.015625,
+    "original_code_above_native_triplet_margin_lower": 1.3833132780577577e-05,
+    "repaired_full_physical_gap_lower": 2.5207860907995e-10,
+    "repaired_trial_below_complement_baseline_margin_over_m": 3.644562848887859e-10,
+    "same_code_internal_ground_gap_lower_over_m": 1.7170018198374346,
+    "strict_Schur_margin": 3.4530097086454064e-06,
+    "vacuum_second_order_remainder_coefficient_upper": 5.133529932049305,
+    "weighted_Schur_term_upper": 7.677793410533045e-05,
+    "whole_code_Peierls_norm_over_m_upper": 0.28289794921875
+  },
+  "exact_macrocell_and_Gauss_completion_control": {
+    "actual_81_state_native_selected_port_carrier_projector_rank": 16,
+    "coherent_FW_density_and_Gauss_intertwiner_control": true,
+    "counterterm_is_forced_by_primitive_repair_law": false,
+    "each_local_Px_reduces_all_full_source_terms": true,
+    "exact_native_projector_port_charge_commutation": true,
+    "full_other_native_sectors": "spectral invariance and fixed port charge; no truncated complement identification",
+    "onsite_means": "one declared macrovertex containing four complete native constituents",
+    "preexisting_global_kinetic_current_guard_removed": false
+  },
+  "exact_vacuum_contractions": {
+    "Coulomb_vacuum_coefficient_interval": [
+      "1571474365794933331842783973397498409287461356522514417634609029299139/10000000000000000000000000000000000000000000000000000000000000000000000",
+      "78573718289746666592139198669874920464373067826125720881730451464957/500000000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "all_eight_vacuum_charge_expectations_exactly_zero": true,
+    "complete_CRT_Coulomb_contraction_coefficients": [
+      [
+        "3/4",
+        "6",
+        "9/4"
+      ],
+      [
+        "6",
+        "65/6",
+        "27/2"
+      ],
+      [
+        "9/4",
+        "27/2",
+        "23/4"
+      ]
+    ],
+    "complete_CRT_hopping_contraction_coefficients": [
+      "-3",
+      "6",
+      "17"
+    ],
+    "exact_Coulomb_vacuum_coefficient": "-27*sqrt(91)/728 - sqrt(21)/14 - 3*sqrt(39)/208 + 4055/4368",
+    "exact_positive_diamagnetic_hopping_coefficient": "-sqrt(3) + 6*sqrt(7)/7 + 17*sqrt(13)/13",
+    "full_32_mode_filled_band_and_all_particle_hole_contractions": true,
+    "positive_diamagnetic_hopping_coefficient_interval": [
+      "13126719246002334017288894025709256742239264573386559786488889186225009/2500000000000000000000000000000000000000000000000000000000000000000000",
+      "52506876984009336069155576102837026968957058293546239145955556744900037/10000000000000000000000000000000000000000000000000000000000000000000000"
+    ]
+  },
+  "parent_sha256": "eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72",
+  "schema": "oph.same_native_wilson_ground_audit.v1",
+  "unchanged_source": {
+    "active_ground_multiplicity": 96,
+    "code_only_gap_does_not_select_full_ground": true,
+    "ground_in_code": false,
+    "old_finite_nonstationary_count_law_unchanged_by_this_audit": true
+  }
+}

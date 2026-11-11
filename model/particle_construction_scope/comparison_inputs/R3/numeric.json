@@ -1,0 +1,1204 @@
+{
+ "0 engine": {
+  "D_fwd of this file against Routing.symbol, 100 random points, both mass options": 2.289e-16,
+  "engine tick(reverse=True) on the 6x5x4 lattice against D_rev": 4.705e-16,
+  "engine: forward tick then reverse tick against W2 = D_rev D_fwd": 5.98e-16
+ },
+ "1 phases": {
+  "beta = Y_r: max | |eigenphase of W2| - 2 w | over 20000 random (p, theta), whole zone": 1.096e-12,
+  "beta = Y_r: max | cos(eigenphase) - (cos^2 theta (1 + C1 C2 C3) - 1) |": 7.772e-16,
+  "beta = Y_r: number of eigenvalues with positive phase per point (min, max)": [
+   2,
+   2
+  ],
+  "beta = Y_r: max | What - (cos 2w - i sin 2w (n_s.alpha + n_4 beta)) |": 1.066e-12,
+  "beta = Z_r: max | |eigenphase of W2| - 2 w | over 20000 random (p, theta), whole zone": 1.454e-12,
+  "beta = Z_r: max | cos(eigenphase) - (cos^2 theta (1 + C1 C2 C3) - 1) |": 7.772e-16,
+  "beta = Z_r: number of eigenvalues with positive phase per point (min, max)": [
+   2,
+   2
+  ],
+  "beta = Z_r: max | What - (cos 2w - i sin 2w (n_s.alpha + n_4 beta)) |": 9.959e-13,
+  "ordered tick: max | phases - KD closed form |": 1.11e-15,
+  "CF1 4.3: p = (0.1, 0.1, 0.1) massless: ordered phases, alternating phase per tick": [
+   0.167034,
+   0.178606,
+   0.172043
+  ],
+  "CF1 4.3: theta = 0.157935: ordered phases, alternating phase per tick, sqrt(p^2 + theta^2)": [
+   0.220876,
+   0.245779,
+   0.233014,
+   0.2344
+  ]
+ },
+ "2 phase bound": {
+  "ball E < pi/4, 400000 points: min (E - w) (must be >= 0)": 1.325e-06,
+  "ball E < pi/4: max (E^2 - w^2)/B (must be <= 1)": 0.9993642,
+  "ball E < pi/4: max of (E - w) - [E - sqrt(E^2 - B)] (must be <= 0)": -1.303e-09,
+  "shells: (E - w) in units of the leading term N/(6E), N = theta^2 |p|^2 + 4 sum p_i^2 p_j^2; and (E - w)/E^3 (leading sup 2/9 = 0.2222)": [
+   {
+    "E in": [
+     0.0,
+     0.05
+    ],
+    "min (E-w) 6E/N": 1.0001,
+    "max (E-w) 6E/N": 1.00064,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": 1.0077,
+    "max (E-w)/E^3": 0.19224
+   },
+   {
+    "E in": [
+     0.05,
+     0.1
+    ],
+    "min (E-w) 6E/N": 1.00001,
+    "max (E-w) 6E/N": 1.00294,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": 1.031,
+    "max (E-w)/E^3": 0.21867
+   },
+   {
+    "E in": [
+     0.1,
+     0.2
+    ],
+    "min (E-w) 6E/N": 0.99986,
+    "max (E-w) 6E/N": 1.01372,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": 1.124,
+    "max (E-w)/E^3": 0.22075
+   },
+   {
+    "E in": [
+     0.2,
+     0.3
+    ],
+    "min (E-w) 6E/N": 0.99946,
+    "max (E-w) 6E/N": 1.03062,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": 1.279,
+    "max (E-w)/E^3": 0.22379
+   },
+   {
+    "E in": [
+     0.3,
+     0.4
+    ],
+    "min (E-w) 6E/N": 0.99884,
+    "max (E-w) 6E/N": 1.0573,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": 1.496,
+    "max (E-w)/E^3": 0.22789
+   },
+   {
+    "E in": [
+     0.4,
+     0.5
+    ],
+    "min (E-w) 6E/N": 0.99754,
+    "max (E-w) 6E/N": 1.08973,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": 1.775,
+    "max (E-w)/E^3": 0.23206
+   },
+   {
+    "E in": [
+     0.5,
+     0.65
+    ],
+    "min (E-w) 6E/N": 0.99493,
+    "max (E-w) 6E/N": 1.15423,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": null,
+    "max (E-w)/E^3": 0.23761
+   },
+   {
+    "E in": [
+     0.65,
+     0.785
+    ],
+    "min (E-w) 6E/N": 0.99012,
+    "max (E-w) 6E/N": 1.22628,
+    "proved ceiling 1 + 3.1 E^2 at the upper end (E <= 1/2)": null,
+    "max (E-w)/E^3": 0.24322
+   }
+  ],
+  "E <= 1/2: max (E - w) / [(N/6E)(1 + 3.1 E^2)] (must be <= 1)": 0.9975397,
+  "E <= 1/2: max (E - w)/E^3 (corollary: <= 0.4)": 0.232057,
+  "boxes |p_i| <= P, |theta| <= T (21^3 grid x 5 angles, corners included)": [
+   {
+    "P": 0.01,
+    "T": 0.01,
+    "sup (E - w), alternating": 1.25e-06,
+    "K_box(P,T) (Theorem 2)": 1.252e-06,
+    "sup (E - w), mirror variant": 2e-06,
+    "ratio": 0.9988,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.0001008,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.0006,
+    "gain: ordered sup / alternating sup": 80.6,
+    "gain: ROUTE rate / K_box": 479.4
+   },
+   {
+    "P": 0.05,
+    "T": 0.05,
+    "sup (E - w), alternating": 0.0001564,
+    "K_box(P,T) (Theorem 2)": 0.0001611,
+    "sup (E - w), mirror variant": 0.0002503,
+    "ratio": 0.9707,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.002595,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.015,
+    "gain: ordered sup / alternating sup": 16.6,
+    "gain: ROUTE rate / K_box": 93.1
+   },
+   {
+    "P": 0.1,
+    "T": 0.0,
+    "sup (E - w), alternating": 0.001162,
+    "K_box(P,T) (Theorem 2)": 0.001262,
+    "sup (E - w), mirror variant": 0.001162,
+    "ratio": 0.9204,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.006171,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.03,
+    "gain: ordered sup / alternating sup": 5.3,
+    "gain: ROUTE rate / K_box": 23.8
+   },
+   {
+    "P": 0.1,
+    "T": 0.087847,
+    "sup (E - w), alternating": 0.001233,
+    "K_box(P,T) (Theorem 2)": 0.001372,
+    "sup (E - w), mirror variant": 0.001833,
+    "ratio": 0.8985,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.01007,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.05635,
+    "gain: ordered sup / alternating sup": 8.2,
+    "gain: ROUTE rate / K_box": 41.1
+   },
+   {
+    "P": 0.1,
+    "T": 0.157935,
+    "sup (E - w), alternating": 0.001386,
+    "K_box(P,T) (Theorem 2)": 0.001621,
+    "sup (E - w), mirror variant": 0.003005,
+    "ratio": 0.8551,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.01352,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.07738,
+    "gain: ordered sup / alternating sup": 9.8,
+    "gain: ROUTE rate / K_box": 47.7
+   },
+   {
+    "P": 0.2,
+    "T": 0.157935,
+    "sup (E - w), alternating": 0.009863,
+    "K_box(P,T) (Theorem 2)": 0.01408,
+    "sup (E - w), mirror variant": 0.01388,
+    "ratio": 0.7005,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.04086,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.2148,
+    "gain: ordered sup / alternating sup": 4.1,
+    "gain: ROUTE rate / K_box": 15.3
+   },
+   {
+    "P": 0.2,
+    "T": 0.215043,
+    "sup (E - w), alternating": 0.01022,
+    "K_box(P,T) (Theorem 2)": 0.01533,
+    "sup (E - w), mirror variant": 0.01724,
+    "ratio": 0.6666,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.04804,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.249,
+    "gain: ordered sup / alternating sup": 4.7,
+    "gain: ROUTE rate / K_box": 16.2
+   },
+   {
+    "P": 0.25,
+    "T": 0.25,
+    "sup (E - w), alternating": 0.01986,
+    "K_box(P,T) (Theorem 2)": 0.03467,
+    "sup (E - w), mirror variant": 0.03207,
+    "ratio": 0.5729,
+    "sup |w_ordered - E| (ordered tick, both helicities)": 0.07469,
+    "ROUTE.md rate 3 P^2 + 3 T P (operator bound per tick)": 0.375,
+    "gain: ordered sup / alternating sup": 3.8,
+    "gain: ROUTE rate / K_box": 10.8
+   }
+  ],
+  "whole zone (|p_i| <= pi/2, 0 <= theta <= pi/2), 1e6 points: min (E - w) (w <= E everywhere)": 1.279e-05,
+  "relative phase error on spheres of fixed E (300000 directions of (p, theta))": [
+   {
+    "E": 0.05,
+    "sup (E - w)/E on the sphere": 0.0005556,
+    "proved ceiling (2/9) E^2 (1 + 3.1 E^2)": 0.0005599
+   },
+   {
+    "E": 0.1,
+    "sup (E - w)/E on the sphere": 0.002226,
+    "proved ceiling (2/9) E^2 (1 + 3.1 E^2)": 0.002291
+   },
+   {
+    "E": 0.2,
+    "sup (E - w)/E on the sphere": 0.008956,
+    "proved ceiling (2/9) E^2 (1 + 3.1 E^2)": 0.009991
+   },
+   {
+    "E": 0.3,
+    "sup (E - w)/E on the sphere": 0.02035,
+    "proved ceiling (2/9) E^2 (1 + 3.1 E^2)": 0.02558
+   },
+   {
+    "E": 0.5,
+    "sup (E - w)/E on the sphere": 0.05813,
+    "proved ceiling (2/9) E^2 (1 + 3.1 E^2)": 0.09861
+   }
+  ]
+ },
+ "3 operator bound": {
+  "theta = T on a 9^3 grid of the box; errors are operator norms against exp(-i n H); 2 is the trivial ceiling": [
+   {
+    "P": 0.05,
+    "T": 0.05,
+    "n": 2,
+    "sup err, half-step frame": 0.0007769,
+    "bound n K_box + 2.1 Emax^2": 0.02132,
+    "sup err, tick frame": 0.009305,
+    "sup bound, tick frame": 0.04721,
+    "sup err, ordered tick": 0.01408,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 0.03
+   },
+   {
+    "P": 0.05,
+    "T": 0.05,
+    "n": 10,
+    "sup err, half-step frame": 0.003395,
+    "bound n K_box + 2.1 Emax^2": 0.02261,
+    "sup err, tick frame": 0.03943,
+    "sup bound, tick frame": 0.04846,
+    "sup err, ordered tick": 0.06242,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 0.15
+   },
+   {
+    "P": 0.05,
+    "T": 0.05,
+    "n": 100,
+    "sup err, half-step frame": 0.01576,
+    "bound n K_box + 2.1 Emax^2": 0.03711,
+    "sup err, tick frame": 0.04061,
+    "sup bound, tick frame": 0.06253,
+    "sup err, ordered tick": 0.2668,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 1.5
+   },
+   {
+    "P": 0.05,
+    "T": 0.05,
+    "n": 1000,
+    "sup err, half-step frame": 0.1562,
+    "bound n K_box + 2.1 Emax^2": 0.1821,
+    "sup err, tick frame": 0.1585,
+    "sup bound, tick frame": 0.2033,
+    "sup err, ordered tick": 1.926,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.05,
+    "T": 0.05,
+    "n": 10000,
+    "sup err, half-step frame": 1.409,
+    "bound n K_box + 2.1 Emax^2": 1.632,
+    "sup err, tick frame": 1.409,
+    "sup bound, tick frame": 1.611,
+    "sup err, ordered tick": 2.0,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.1,
+    "T": 0.087847,
+    "n": 2,
+    "sup err, half-step frame": 0.0061,
+    "bound n K_box + 2.1 Emax^2": 0.08195,
+    "sup err, tick frame": 0.03521,
+    "sup bound, tick frame": 0.09564,
+    "sup err, ordered tick": 0.05229,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 0.1127
+   },
+   {
+    "P": 0.1,
+    "T": 0.087847,
+    "n": 10,
+    "sup err, half-step frame": 0.01851,
+    "bound n K_box + 2.1 Emax^2": 0.09293,
+    "sup err, tick frame": 0.08776,
+    "sup bound, tick frame": 0.1055,
+    "sup err, ordered tick": 0.1671,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 0.5635
+   },
+   {
+    "P": 0.1,
+    "T": 0.087847,
+    "n": 100,
+    "sup err, half-step frame": 0.1234,
+    "bound n K_box + 2.1 Emax^2": 0.2164,
+    "sup err, tick frame": 0.1312,
+    "sup bound, tick frame": 0.2165,
+    "sup err, ordered tick": 0.9678,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.1,
+    "T": 0.087847,
+    "n": 1000,
+    "sup err, half-step frame": 1.156,
+    "bound n K_box + 2.1 Emax^2": 1.451,
+    "sup err, tick frame": 1.158,
+    "sup bound, tick frame": 1.326,
+    "sup err, ordered tick": 1.999,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.1,
+    "T": 0.087847,
+    "n": 10000,
+    "sup err, half-step frame": 1.993,
+    "bound n K_box + 2.1 Emax^2": 2.0,
+    "sup err, tick frame": 1.993,
+    "sup bound, tick frame": 2.0,
+    "sup err, ordered tick": 1.999,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.1,
+    "T": 0.157935,
+    "n": 2,
+    "sup err, half-step frame": 0.006362,
+    "bound n K_box + 2.1 Emax^2": 0.1186,
+    "sup err, tick frame": 0.05817,
+    "sup bound, tick frame": 0.1325,
+    "sup err, ordered tick": 0.07193,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 0.1548
+   },
+   {
+    "P": 0.1,
+    "T": 0.157935,
+    "n": 10,
+    "sup err, half-step frame": 0.01661,
+    "bound n K_box + 2.1 Emax^2": 0.1316,
+    "sup err, tick frame": 0.09731,
+    "sup bound, tick frame": 0.1435,
+    "sup err, ordered tick": 0.1861,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 0.7738
+   },
+   {
+    "P": 0.1,
+    "T": 0.157935,
+    "n": 100,
+    "sup err, half-step frame": 0.1391,
+    "bound n K_box + 2.1 Emax^2": 0.2775,
+    "sup err, tick frame": 0.1875,
+    "sup bound, tick frame": 0.2683,
+    "sup err, ordered tick": 1.262,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.1,
+    "T": 0.157935,
+    "n": 1000,
+    "sup err, half-step frame": 1.278,
+    "bound n K_box + 2.1 Emax^2": 1.737,
+    "sup err, tick frame": 1.281,
+    "sup bound, tick frame": 1.516,
+    "sup err, ordered tick": 1.997,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.1,
+    "T": 0.157935,
+    "n": 10000,
+    "sup err, half-step frame": 1.987,
+    "bound n K_box + 2.1 Emax^2": 2.0,
+    "sup err, tick frame": 1.986,
+    "sup bound, tick frame": 2.0,
+    "sup err, ordered tick": 1.998,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.2,
+    "T": 0.157935,
+    "n": 2,
+    "sup err, half-step frame": 0.04626,
+    "bound n K_box + 2.1 Emax^2": 0.3325,
+    "sup err, tick frame": 0.141,
+    "sup bound, tick frame": 0.2249,
+    "sup err, ordered tick": 0.1906,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 0.4295
+   },
+   {
+    "P": 0.2,
+    "T": 0.157935,
+    "n": 10,
+    "sup err, half-step frame": 0.1047,
+    "bound n K_box + 2.1 Emax^2": 0.4452,
+    "sup err, tick frame": 0.1536,
+    "sup bound, tick frame": 0.3038,
+    "sup err, ordered tick": 0.4399,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.2,
+    "T": 0.157935,
+    "n": 100,
+    "sup err, half-step frame": 0.9464,
+    "bound n K_box + 2.1 Emax^2": 1.712,
+    "sup err, tick frame": 0.9461,
+    "sup bound, tick frame": 1.192,
+    "sup err, ordered tick": 1.998,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.2,
+    "T": 0.157935,
+    "n": 1000,
+    "sup err, half-step frame": 1.999,
+    "bound n K_box + 2.1 Emax^2": 2.0,
+    "sup err, tick frame": 1.999,
+    "sup bound, tick frame": 2.0,
+    "sup err, ordered tick": 1.997,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   },
+   {
+    "P": 0.2,
+    "T": 0.157935,
+    "n": 10000,
+    "sup err, half-step frame": 2.0,
+    "bound n K_box + 2.1 Emax^2": 2.0,
+    "sup err, tick frame": 1.997,
+    "sup bound, tick frame": 2.0,
+    "sup err, ordered tick": 1.997,
+    "ROUTE.md bound n sum|h_r h_s| (sup)": 2.0
+   }
+  ],
+  "violations of any bound": 0,
+  "max | measured half-step error - exact formula 2 sqrt(cos^2(d/2) sin^2(n(E-w)/2) + sin^2(d/2) sin^2(n(E+w)/2)) |": 3.095e-12,
+  "max | ||W2^(n/2) - What^(n/2)|| - 2 |sin n w| sin(theta/2) sin(rho)/sin(w) |": 5.306e-13,
+  "ball E <= 1/2: sup of 2 sin(delta/2)/E^2 (proved <= 2.1)": 0.6034,
+  "ball E <= 0.05: sup of 2 sin(delta/2)/E^2": 0.5621
+ },
+ "4 isotropy and speed": {
+  "phase per tick along 100, 110, 111 (prediction for run A of the simulation session)": [
+   {
+    "theta": 0.0,
+    "|p|": 0.05,
+    "E": 0.05,
+    "w 100": 0.05,
+    "E - w 100": 0.0,
+    "leading 100": 0.0,
+    "|v| 100": 1.0,
+    "w 110": 0.049979,
+    "E - w 110": 2.085e-05,
+    "leading 110": 2.083e-05,
+    "|v| 110": 0.998748,
+    "w 111": 0.049972,
+    "E - w 111": 2.779e-05,
+    "leading 111": 2.778e-05,
+    "|v| 111": 0.998332,
+    "p/E": 1.0
+   },
+   {
+    "theta": 0.0,
+    "|p|": 0.1,
+    "E": 0.1,
+    "w 100": 0.1,
+    "E - w 100": 0.0,
+    "leading 100": 0.0,
+    "|v| 100": 1.0,
+    "w 110": 0.099833,
+    "E - w 110": 0.0001673,
+    "leading 110": 0.0001667,
+    "|v| 110": 0.994971,
+    "w 111": 0.099777,
+    "E - w 111": 0.0002227,
+    "leading 111": 0.0002222,
+    "|v| 111": 0.993311,
+    "p/E": 1.0
+   },
+   {
+    "theta": 0.0,
+    "|p|": 0.2,
+    "E": 0.2,
+    "w 100": 0.2,
+    "E - w 100": 0.0,
+    "leading 100": 0.0,
+    "|v| 100": 1.0,
+    "w 110": 0.198648,
+    "E - w 110": 0.001352,
+    "leading 110": 0.001333,
+    "|v| 110": 0.979529,
+    "w 111": 0.198208,
+    "E - w 111": 0.001792,
+    "leading 111": 0.001778,
+    "|v| 111": 0.972982,
+    "p/E": 1.0
+   },
+   {
+    "theta": 0.0,
+    "|p|": 0.3,
+    "E": 0.3,
+    "w 100": 0.3,
+    "E - w 100": 0.0,
+    "leading 100": 0.0,
+    "|v| 100": 1.0,
+    "w 110": 0.295356,
+    "E - w 110": 0.004644,
+    "leading 110": 0.0045,
+    "|v| 110": 0.952591,
+    "w 111": 0.293894,
+    "E - w 111": 0.006106,
+    "leading 111": 0.006,
+    "|v| 111": 0.938252,
+    "p/E": 1.0
+   },
+   {
+    "theta": 0.0,
+    "|p|": 0.4,
+    "E": 0.4,
+    "w 100": 0.4,
+    "E - w 100": 0.0,
+    "leading 100": 0.0,
+    "|v| 100": 1.0,
+    "w 110": 0.388721,
+    "E - w 110": 0.01128,
+    "leading 110": 0.01067,
+    "|v| 110": 0.912283,
+    "w 111": 0.38534,
+    "E - w 111": 0.01466,
+    "leading 111": 0.01422,
+    "|v| 111": 0.887963,
+    "p/E": 1.0
+   },
+   {
+    "theta": 0.0,
+    "|p|": 0.5,
+    "E": 0.5,
+    "w 100": 0.5,
+    "E - w 100": 0.0,
+    "leading 100": 0.0,
+    "|v| 100": 1.0,
+    "w 110": 0.477278,
+    "E - w 110": 0.02272,
+    "leading 110": 0.02083,
+    "|v| 110": 0.855892,
+    "w 111": 0.470924,
+    "E - w 111": 0.02908,
+    "leading 111": 0.02778,
+    "|v| 111": 0.820798,
+    "p/E": 1.0
+   },
+   {
+    "theta": 0.0,
+    "|p|": 0.6,
+    "E": 0.6,
+    "w 100": 0.6,
+    "E - w 100": 0.0,
+    "leading 100": 0.0,
+    "|v| 100": 1.0,
+    "w 110": 0.559247,
+    "E - w 110": 0.04075,
+    "leading 110": 0.036,
+    "|v| 110": 0.779903,
+    "w 111": 0.548902,
+    "E - w 111": 0.0511,
+    "leading 111": 0.048,
+    "|v| 111": 0.73575,
+    "p/E": 1.0
+   },
+   {
+    "theta": 0.087847,
+    "|p|": 0.05,
+    "E": 0.10108,
+    "w 100": 0.101048,
+    "E - w 100": 3.184e-05,
+    "leading 100": 3.181e-05,
+    "|v| 100": 0.493541,
+    "w 110": 0.101038,
+    "E - w 110": 4.213e-05,
+    "leading 110": 4.212e-05,
+    "|v| 110": 0.492768,
+    "w 111": 0.101034,
+    "E - w 111": 4.555e-05,
+    "leading 111": 4.555e-05,
+    "|v| 111": 0.492511,
+    "p/E": 0.494659
+   },
+   {
+    "theta": 0.087847,
+    "|p|": 0.1,
+    "E": 0.133106,
+    "w 100": 0.133009,
+    "E - w 100": 9.678e-05,
+    "leading 100": 9.663e-05,
+    "|v| 100": 0.749892,
+    "w 110": 0.132883,
+    "E - w 110": 0.0002222,
+    "leading 110": 0.0002218,
+    "|v| 110": 0.745576,
+    "w 111": 0.132842,
+    "E - w 111": 0.0002637,
+    "leading 111": 0.0002636,
+    "|v| 111": 0.744152,
+    "p/E": 0.751283
+   },
+   {
+    "theta": 0.087847,
+    "|p|": 0.2,
+    "E": 0.218442,
+    "w 100": 0.218206,
+    "E - w 100": 0.0002364,
+    "leading 100": 0.0002355,
+    "|v| 100": 0.914193,
+    "w 110": 0.216971,
+    "E - w 110": 0.001472,
+    "leading 110": 0.001456,
+    "|v| 110": 0.89449,
+    "w 111": 0.216569,
+    "E - w 111": 0.001873,
+    "leading 111": 0.001863,
+    "|v| 111": 0.888188,
+    "p/E": 0.915573
+   },
+   {
+    "theta": 0.087847,
+    "|p|": 0.3,
+    "E": 0.312597,
+    "w 100": 0.312224,
+    "E - w 100": 0.000373,
+    "leading 100": 0.0003703,
+    "|v| 100": 0.958345,
+    "w 110": 0.307777,
+    "E - w 110": 0.004821,
+    "leading 110": 0.004689,
+    "|v| 110": 0.911768,
+    "w 111": 0.306378,
+    "E - w 111": 0.00622,
+    "leading 111": 0.006129,
+    "|v| 111": 0.897679,
+    "p/E": 0.959701
+   },
+   {
+    "theta": 0.087847,
+    "|p|": 0.4,
+    "E": 0.409533,
+    "w 100": 0.409024,
+    "E - w 100": 0.0005085,
+    "leading 100": 0.0005025,
+    "|v| 100": 0.975365,
+    "w 110": 0.398031,
+    "E - w 110": 0.0115,
+    "leading 110": 0.01092,
+    "|v| 110": 0.888605,
+    "w 111": 0.394738,
+    "E - w 111": 0.01479,
+    "leading 111": 0.01439,
+    "|v| 111": 0.864547,
+    "p/E": 0.976723
+   },
+   {
+    "theta": 0.087847,
+    "|p|": 0.5,
+    "E": 0.507658,
+    "w 100": 0.507014,
+    "E - w 100": 0.0006449,
+    "leading 100": 0.0006334,
+    "|v| 100": 0.983541,
+    "w 110": 0.484681,
+    "E - w 110": 0.02298,
+    "leading 110": 0.02115,
+    "|v| 110": 0.840581,
+    "w 111": 0.478442,
+    "E - w 111": 0.02922,
+    "leading 111": 0.02799,
+    "|v| 111": 0.805757,
+    "p/E": 0.984914
+   },
+   {
+    "theta": 0.087847,
+    "|p|": 0.6,
+    "E": 0.606397,
+    "w 100": 0.605613,
+    "E - w 100": 0.0007834,
+    "leading 100": 0.0007636,
+    "|v| 100": 0.988052,
+    "w 110": 0.565378,
+    "E - w 110": 0.04102,
+    "leading 110": 0.03638,
+    "|v| 110": 0.769374,
+    "w 111": 0.555175,
+    "E - w 111": 0.05122,
+    "leading 111": 0.04826,
+    "|v| 111": 0.725486,
+    "p/E": 0.989451
+   },
+   {
+    "theta": 0.157935,
+    "|p|": 0.05,
+    "E": 0.165661,
+    "w 100": 0.165598,
+    "E - w 100": 6.286e-05,
+    "leading 100": 6.274e-05,
+    "|v| 100": 0.299421,
+    "w 110": 0.165592,
+    "E - w 110": 6.911e-05,
+    "leading 110": 6.903e-05,
+    "|v| 110": 0.298933,
+    "w 111": 0.16559,
+    "E - w 111": 7.118e-05,
+    "leading 111": 7.112e-05,
+    "|v| 111": 0.29877,
+    "p/E": 0.301822
+   },
+   {
+    "theta": 0.157935,
+    "|p|": 0.1,
+    "E": 0.186932,
+    "w 100": 0.186709,
+    "E - w 100": 0.000223,
+    "leading 100": 0.0002224,
+    "|v| 100": 0.531127,
+    "w 110": 0.18662,
+    "E - w 110": 0.0003118,
+    "leading 110": 0.0003116,
+    "|v| 110": 0.527823,
+    "w 111": 0.18659,
+    "E - w 111": 0.0003412,
+    "leading 111": 0.0003413,
+    "|v| 111": 0.526733,
+    "p/E": 0.534955
+   },
+   {
+    "theta": 0.157935,
+    "|p|": 0.2,
+    "E": 0.25484,
+    "w 100": 0.254184,
+    "E - w 100": 0.0006562,
+    "leading 100": 0.0006525,
+    "|v| 100": 0.780244,
+    "w 110": 0.25313,
+    "E - w 110": 0.00171,
+    "leading 110": 0.001699,
+    "|v| 110": 0.762265,
+    "w 111": 0.252788,
+    "E - w 111": 0.002052,
+    "leading 111": 0.002048,
+    "|v| 111": 0.756516,
+    "p/E": 0.784806
+   },
+   {
+    "theta": 0.157935,
+    "|p|": 0.3,
+    "E": 0.339033,
+    "w 100": 0.337919,
+    "E - w 100": 0.001114,
+    "leading 100": 0.001104,
+    "|v| 100": 0.880303,
+    "w 110": 0.333838,
+    "E - w 110": 0.005195,
+    "leading 110": 0.005085,
+    "|v| 110": 0.835683,
+    "w 111": 0.332556,
+    "E - w 111": 0.006477,
+    "leading 111": 0.006413,
+    "|v| 111": 0.822187,
+    "p/E": 0.884869
+   },
+   {
+    "theta": 0.157935,
+    "|p|": 0.4,
+    "E": 0.430051,
+    "w 100": 0.428482,
+    "E - w 100": 0.001569,
+    "leading 100": 0.001547,
+    "|v| 100": 0.925585,
+    "w 110": 0.418063,
+    "E - w 110": 0.01199,
+    "leading 110": 0.01147,
+    "|v| 110": 0.841046,
+    "w 111": 0.414948,
+    "E - w 111": 0.0151,
+    "leading 111": 0.01478,
+    "|v| 111": 0.817599,
+    "p/E": 0.930123
+   },
+   {
+    "theta": 0.157935,
+    "|p|": 0.5,
+    "E": 0.524351,
+    "w 100": 0.522328,
+    "E - w 100": 0.002023,
+    "leading 100": 0.001982,
+    "|v| 100": 0.949008,
+    "w 110": 0.50081,
+    "E - w 110": 0.02354,
+    "leading 110": 0.02185,
+    "|v| 110": 0.808669,
+    "w 111": 0.494811,
+    "E - w 111": 0.02954,
+    "leading 111": 0.02847,
+    "|v| 111": 0.774471,
+    "p/E": 0.953561
+   },
+   {
+    "theta": 0.157935,
+    "|p|": 0.6,
+    "E": 0.620438,
+    "w 100": 0.617957,
+    "E - w 100": 0.002481,
+    "leading 100": 0.002412,
+    "|v| 100": 0.962448,
+    "w 110": 0.578827,
+    "E - w 110": 0.04161,
+    "leading 110": 0.03723,
+    "|v| 110": 0.746974,
+    "w 111": 0.568926,
+    "E - w 111": 0.05151,
+    "leading 111": 0.04883,
+    "|v| 111": 0.703697,
+    "p/E": 0.967059
+   }
+  ],
+  "anisotropy: w = |p| - (|p|^3/3)(1 - sum n_i^4) + O(|p|^5); spread between an axis and a body diagonal": [
+   {
+    "|p|": 0.05,
+    "max w - min w over 20000 directions (massless)": 2.779e-05,
+    "(2/9) |p|^3": 2.778e-05,
+    "max w (axes: exactly |p|)": 0.05
+   },
+   {
+    "|p|": 0.1,
+    "max w - min w over 20000 directions (massless)": 0.0002226,
+    "(2/9) |p|^3": 0.0002222,
+    "max w (axes: exactly |p|)": 0.09999995
+   },
+   {
+    "|p|": 0.2,
+    "max w - min w over 20000 directions (massless)": 0.001792,
+    "(2/9) |p|^3": 0.001778,
+    "max w (axes: exactly |p|)": 0.2
+   },
+   {
+    "|p|": 0.4,
+    "max w - min w over 20000 directions (massless)": 0.01466,
+    "(2/9) |p|^3": 0.01422,
+    "max w (axes: exactly |p|)": 0.39999965
+   },
+   {
+    "|p|": 0.6,
+    "max w - min w over 20000 directions (massless)": 0.0511,
+    "(2/9) |p|^3": 0.048,
+    "max w (axes: exactly |p|)": 0.59999884
+   }
+  ],
+  "group velocity formula against central differences (2000 points, three angles)": 2.915e-09,
+  "largest speed": [
+   {
+    "theta": 0.0,
+    "sup |v| over 400000 points of the zone": 0.99999998,
+    "cos(theta) (proved ceiling)": 1.0
+   },
+   {
+    "theta": 0.087847,
+    "sup |v| over 400000 points of the zone": 0.99612377,
+    "cos(theta) (proved ceiling)": 0.99614393
+   },
+   {
+    "theta": 0.157935,
+    "sup |v| over 400000 points of the zone": 0.98749307,
+    "cos(theta) (proved ceiling)": 0.98755417
+   },
+   {
+    "theta": 0.6,
+    "sup |v| over 400000 points of the zone": 0.82529626,
+    "cos(theta) (proved ceiling)": 0.82533561
+   },
+   {
+    "theta": 0.0,
+    "|v| on the axis at p1 = 0.3 and 1.2": [
+     1.0,
+     1.0
+    ],
+    "cos(theta) sin(p)/sin(w)": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "theta": 0.157935,
+    "|v| on the axis at p1 = 0.3 and 1.2": [
+     0.88030303,
+     0.98571312
+    ],
+    "cos(theta) sin(p)/sin(w)": [
+     0.88030303,
+     0.98571312
+    ]
+   }
+  ],
+  "massless |v| on the body diagonal at |p| = 0.1, against 1 - (2/3)|p|^2": [
+   0.99331117,
+   0.99333333
+  ],
+  "rest phase against inertial mass: w = theta + |p|^2/(2 tan theta) + ...": [
+   {
+    "theta": 0.042383,
+    "inertial mass (1/curvature at p = 0)": 0.042414,
+    "tan(theta)": 0.042408,
+    "m_inertial/theta - 1": 0.0007384,
+    "theta^2/3": 0.0005988
+   },
+   {
+    "theta": 0.087847,
+    "inertial mass (1/curvature at p = 0)": 0.088077,
+    "tan(theta)": 0.088074,
+    "m_inertial/theta - 1": 0.002613,
+    "theta^2/3": 0.002572
+   },
+   {
+    "theta": 0.157935,
+    "inertial mass (1/curvature at p = 0)": 0.159263,
+    "tan(theta)": 0.159261,
+    "m_inertial/theta - 1": 0.008408,
+    "theta^2/3": 0.008314
+   },
+   {
+    "theta": 0.215043,
+    "inertial mass (1/curvature at p = 0)": 0.218421,
+    "tan(theta)": 0.21842,
+    "m_inertial/theta - 1": 0.01571,
+    "theta^2/3": 0.01541
+   }
+  ],
+  "exact shell: max | sin^2 w - sin^2 theta - |kappa|^2 |, kappa = cos(theta) u0/(2 cos rho) (100000 points)": 4.996e-16
+ },
+ "5 zone": {
+  "the eight points of the zone of the two-tick operator (q = 2p)": [
+   {
+    "p*": [
+     "0pi/2",
+     "0pi/2",
+     "0pi/2"
+    ],
+    "q = 2p*": [
+     "0pi",
+     "0pi",
+     "0pi"
+    ],
+    "two-tick phase at theta = 0": 0.0,
+    "two-tick phase at theta = 0.157935": 0.31587,
+    "det d h/d p (massless, X_r = +)": 8.0,
+    "chirality (-1)^[p2* = pi/2]": 1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": null
+   },
+   {
+    "p*": [
+     "0pi/2",
+     "0pi/2",
+     "1pi/2"
+    ],
+    "q = 2p*": [
+     "0pi",
+     "0pi",
+     "1pi"
+    ],
+    "two-tick phase at theta = 0": 3.141593,
+    "two-tick phase at theta = 0.157935": 3.141593,
+    "det d h/d p (massless, X_r = +)": 8.0,
+    "chirality (-1)^[p2* = pi/2]": 1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": 0.98755
+   },
+   {
+    "p*": [
+     "0pi/2",
+     "1pi/2",
+     "0pi/2"
+    ],
+    "q = 2p*": [
+     "0pi",
+     "1pi",
+     "0pi"
+    ],
+    "two-tick phase at theta = 0": 3.141593,
+    "two-tick phase at theta = 0.157935": 3.141593,
+    "det d h/d p (massless, X_r = +)": -8.0,
+    "chirality (-1)^[p2* = pi/2]": -1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": 0.98755
+   },
+   {
+    "p*": [
+     "0pi/2",
+     "1pi/2",
+     "1pi/2"
+    ],
+    "q = 2p*": [
+     "0pi",
+     "1pi",
+     "1pi"
+    ],
+    "two-tick phase at theta = 0": 0.0,
+    "two-tick phase at theta = 0.157935": 0.31587,
+    "det d h/d p (massless, X_r = +)": -8.0,
+    "chirality (-1)^[p2* = pi/2]": -1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": null
+   },
+   {
+    "p*": [
+     "1pi/2",
+     "0pi/2",
+     "0pi/2"
+    ],
+    "q = 2p*": [
+     "1pi",
+     "0pi",
+     "0pi"
+    ],
+    "two-tick phase at theta = 0": 3.141593,
+    "two-tick phase at theta = 0.157935": 3.141593,
+    "det d h/d p (massless, X_r = +)": 8.0,
+    "chirality (-1)^[p2* = pi/2]": 1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": 0.98755
+   },
+   {
+    "p*": [
+     "1pi/2",
+     "0pi/2",
+     "1pi/2"
+    ],
+    "q = 2p*": [
+     "1pi",
+     "0pi",
+     "1pi"
+    ],
+    "two-tick phase at theta = 0": 0.0,
+    "two-tick phase at theta = 0.157935": 0.31587,
+    "det d h/d p (massless, X_r = +)": 8.0,
+    "chirality (-1)^[p2* = pi/2]": 1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": null
+   },
+   {
+    "p*": [
+     "1pi/2",
+     "1pi/2",
+     "0pi/2"
+    ],
+    "q = 2p*": [
+     "1pi",
+     "1pi",
+     "0pi"
+    ],
+    "two-tick phase at theta = 0": 0.0,
+    "two-tick phase at theta = 0.157935": 0.31587,
+    "det d h/d p (massless, X_r = +)": -8.0,
+    "chirality (-1)^[p2* = pi/2]": -1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": null
+   },
+   {
+    "p*": [
+     "1pi/2",
+     "1pi/2",
+     "1pi/2"
+    ],
+    "q = 2p*": [
+     "1pi",
+     "1pi",
+     "1pi"
+    ],
+    "two-tick phase at theta = 0": 3.141593,
+    "two-tick phase at theta = 0.157935": 3.141593,
+    "det d h/d p (massless, X_r = +)": -8.0,
+    "chirality (-1)^[p2* = pi/2]": -1,
+    "cone slope (pi - Omega)/(2|dp|) at theta = 0.157935, against cos(theta) = 0.98755": 0.98755
+   }
+  ],
+  "theta = 0.087847: min and max two-tick phase over 2e6 random momenta (rest value 2 theta = 0.175694; pi only at the 32 odd points)": [
+   0.177814,
+   3.119788
+  ],
+  "theta = 0.157935: min and max two-tick phase over 2e6 random momenta (rest value 2 theta = 0.31587; pi only at the 32 odd points)": [
+   0.316417,
+   3.112483
+  ]
+ },
+ "6 symmetry among the 48 signed permutations of the axes": {
+  "one Weyl block of the ordered tick (2 x 2)": {
+   "coin covariance V U(p) V^-1 = U(g p), V independent of p": {
+    "order": 4,
+    "proper rotations": 4,
+    "contains the third-turn about (1,1,1)": false,
+    "contains the inversion": false,
+    "all diagonal (sign changes only)": true
+   },
+   "spectrum of U(g p) = spectrum of U(p)": {
+    "order": 24,
+    "proper rotations": 12,
+    "contains the third-turn about (1,1,1)": true,
+    "contains the inversion": false,
+    "all diagonal (sign changes only)": false
+   }
+  },
+  "ordered tick, four components, massless": {
+   "coin covariance V U(p) V^-1 = U(g p), V independent of p": {
+    "order": 8,
+    "proper rotations": 4,
+    "contains the third-turn about (1,1,1)": false,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": true
+   },
+   "spectrum of U(g p) = spectrum of U(p)": {
+    "order": 48,
+    "proper rotations": 24,
+    "contains the third-turn about (1,1,1)": true,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": false
+   }
+  },
+  "ordered tick, four components, theta = 0.157935": {
+   "coin covariance V U(p) V^-1 = U(g p), V independent of p": {
+    "order": 8,
+    "proper rotations": 4,
+    "contains the third-turn about (1,1,1)": false,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": true
+   },
+   "spectrum of U(g p) = spectrum of U(p)": {
+    "order": 48,
+    "proper rotations": 24,
+    "contains the third-turn about (1,1,1)": true,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": false
+   }
+  },
+  "alternating two ticks W2, massless": {
+   "coin covariance V U(p) V^-1 = U(g p), V independent of p": {
+    "order": 8,
+    "proper rotations": 4,
+    "contains the third-turn about (1,1,1)": false,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": true
+   },
+   "spectrum of U(g p) = spectrum of U(p)": {
+    "order": 48,
+    "proper rotations": 24,
+    "contains the third-turn about (1,1,1)": true,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": false
+   }
+  },
+  "alternating two ticks W2, theta = 0.157935": {
+   "coin covariance V U(p) V^-1 = U(g p), V independent of p": {
+    "order": 8,
+    "proper rotations": 4,
+    "contains the third-turn about (1,1,1)": false,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": true
+   },
+   "spectrum of U(g p) = spectrum of U(p)": {
+    "order": 48,
+    "proper rotations": 24,
+    "contains the third-turn about (1,1,1)": true,
+    "contains the inversion": true,
+    "all diagonal (sign changes only)": false
+   }
+  }
+ },
+ "seconds of the last call": 5.58
+}

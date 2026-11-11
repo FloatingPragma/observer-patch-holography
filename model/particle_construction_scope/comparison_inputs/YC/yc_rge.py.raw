@@ -1,0 +1,171 @@
+"""YC running library. Standard Model beta functions at one and two loops, ported term by term from the pinned
+SMDR library (/tmp/claude-501/lew_smdr/SMDR/src/betas.c, loopOrder 1 and 2), with all nine Yukawas, plus an optional
+one-loop Dirac neutrino Yukawa of the third family (variation N1; SMDR carries none). Reads no measured value.
+
+State x = (gp, g, g3, yt, yb, ytau, yc, ys, ymu, yu, yd, ye, k, ynu); t = ln(mu / GeV); k = lambda (m_h^2 = 2 k v^2).
+"""
+from __future__ import annotations
+
+import json
+import math
+import subprocess
+from pathlib import Path
+
+import numpy as np
+from scipy.integrate import solve_ivp
+
+KAPPA = 1.0 / (16.0 * math.pi ** 2)
+NAMES = ("gp", "g", "g3", "yt", "yb", "ytau", "yc", "ys", "ymu", "yu", "yd", "ye", "k", "ynu")
+IDX = {n: i for i, n in enumerate(NAMES)}
+BIN = Path("/tmp/claude-501/lew_smdr/bin")
+LEW = Path("WORKSPACE/repair-law/work/SIM/derive/lew")
+SCRATCH = Path("/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/yc_smdr")
+
+
+def betas(x, loops=2, gauge_override=None):
+    """d x / d ln mu. gauge_override: None, or a tuple (gp, g, g3) imposed from outside (their betas are then 0)."""
+    gp, g, g3, yt, yb, ytau, yc, ys, ymu, yu, yd, ye, k, ynu = x
+    if gauge_override is not None:
+        gp, g, g3 = gauge_override
+    g2, g32, gp2 = g * g, g3 * g3, gp * gp
+    g4, g34, gp4 = g2 * g2, g32 * g32, gp2 * gp2
+    g6, gp6 = g4 * g2, gp4 * gp2
+    yt2, yb2, ytau2 = yt * yt, yb * yb, ytau * ytau
+    yt4, yb4, ytau4 = yt2 * yt2, yb2 * yb2, ytau2 * ytau2
+    yt6, yb6, ytau6 = yt4 * yt2, yb4 * yb2, ytau4 * ytau2
+    k2 = k * k
+    k3 = k2 * k
+    ynu2 = ynu * ynu
+
+    Y2S = 3 * (yt2 + yb2 + yc * yc + ys * ys + yu * yu + yd * yd) + ytau2 + ymu * ymu + ye * ye
+    Y2N = Y2S + ynu2                                    # one-loop trace with the neutrino (N1)
+    Y4S = (yt2 * (8 * g32 + (9 * g2) / 4 + (17 * gp2) / 12) + yb2 * (8 * g32 + (9 * g2) / 4 + (5 * gp2) / 12)
+           + ytau2 * ((3 * g2) / 4 + (5 * gp2) / 4))
+    chi4S = (9.0 / 4.0) * (3 * yt4 + 3 * yb4 + ytau4 - (2 * yt2 * yb2) / 3)
+
+    bg3 = -7 * g3 * g32
+    bg = (-19 * g * g2) / 6
+    bgp = (41 * gp * gp2) / 6
+    byt = yt * (-8 * g32 - (9 * g2) / 4 - (17 * gp2) / 12 + 3.0 * (yt2 - yb2) / 2.0 + Y2N)
+    byb = yb * (-8 * g32 - (9 * g2) / 4 - (5 * gp2) / 12 + 3.0 * (yb2 - yt2) / 2.0 + Y2N)
+    bytau = ytau * (-(9 * g2) / 4 - (15 * gp2) / 4 + (3.0 * ytau2) / 2.0 - (3.0 * ynu2) / 2.0 + Y2N)
+    bynu = ynu * (-(9 * g2) / 4 - (3 * gp2) / 4 + 3.0 * (ynu2 - ytau2) / 2.0 + Y2N)
+    bk = ((9 * g4) / 8 + (3 * g2 * gp2) / 4 + (3 * gp4) / 8 - 9 * g2 * k - 3 * gp2 * k + 24 * k2 - 6 * yb4 - 6 * yt4
+          + 4 * k * Y2N - 2 * ytau4 - 2 * ynu2 * ynu2)
+    byc = yc * (-8 * g32 - (9 * g2) / 4 - (17 * gp2) / 12 + 3 * (yc * yc - ys * ys) / 2 + Y2N)
+    bys = ys * (-8 * g32 - (9 * g2) / 4 - (5 * gp2) / 12 + 3 * (ys * ys - yc * yc) / 2 + Y2N)
+    bymu = ymu * (-(9 * g2) / 4 - (15 * gp2) / 4 + (3 * ymu * ymu) / 2 + Y2N)
+    byu = yu * (-8 * g32 - (9 * g2) / 4 - (17 * gp2) / 12 + Y2N)
+    byd = yd * (-8 * g32 - (9 * g2) / 4 - (5 * gp2) / 12 + Y2N)
+    bye = ye * (-(9 * g2) / 4 - (15 * gp2) / 4 + Y2N)
+    out = [KAPPA * b for b in (bgp, bg, bg3, byt, byb, bytau, byc, bys, bymu, byu, byd, bye, bk, bynu)]
+
+    if loops > 1:
+        k22 = KAPPA * KAPPA
+        bg3_2 = g3 * g32 * ((9 * g2) / 2 - 26 * g32 + (11 * gp2) / 6 - 2 * yb2 - 2 * yt2)
+        bg_2 = g * g2 * ((35 * g2) / 6 + 12 * g32 + (3 * gp2) / 2 - (3 * yb2) / 2 - (3 * yt2) / 2 - ytau2 / 2)
+        bgp_2 = gp * gp2 * ((9 * g2) / 2 + (44 * g32) / 3 + (199 * gp2) / 18 - (5 * yb2) / 6 - (17 * yt2) / 6
+                            - (5 * ytau2) / 2)
+        byt_2 = yt * ((-23 * g4) / 4 + 9 * g2 * g32 - 108 * g34 - (3 * g2 * gp2) / 4 + (19 * g32 * gp2) / 9
+                      + (1187 * gp4) / 216 + 6 * k2 + (99 * g2 * yb2) / 16 + 4 * g32 * yb2 + (7 * gp2 * yb2) / 48
+                      - yb4 / 4 + (225 * g2 * yt2) / 16 + 36 * g32 * yt2 + (131 * gp2 * yt2) / 16 - 12 * k * yt2
+                      - (11 * yb2 * yt2) / 4 - 12 * yt4 + (15 * g2 * ytau2) / 8 + (25 * gp2 * ytau2) / 8
+                      + (5 * yb2 * ytau2) / 4 - (9 * yt2 * ytau2) / 4 - (9 * ytau4) / 4)
+        byb_2 = yb * ((-23 * g4) / 4 + 9 * g2 * g32 - 108 * g34 - (9 * g2 * gp2) / 4 + (31 * g32 * gp2) / 9
+                      - (127 * gp4) / 216 + 6 * k2 + (225 * g2 * yb2) / 16 + 36 * g32 * yb2 + (79 * gp2 * yb2) / 16
+                      - 12 * k * yb2 - 12 * yb4 + (99 * g2 * yt2) / 16 + 4 * g32 * yt2 + (91 * gp2 * yt2) / 48
+                      - (11 * yb2 * yt2) / 4 - yt4 / 4 + (15 * g2 * ytau2) / 8 + (25 * gp2 * ytau2) / 8
+                      - (9 * yb2 * ytau2) / 4 + (5 * yt2 * ytau2) / 4 - (9 * ytau4) / 4)
+        bytau_2 = ytau * ((-23 * g4) / 4 + (9 * g2 * gp2) / 4 + (457 * gp4) / 24 + 6 * k2 + (45 * g2 * yb2) / 8
+                          + 20 * g32 * yb2 + (25 * gp2 * yb2) / 24 - (27 * yb4) / 4 + (45 * g2 * yt2) / 8
+                          + 20 * g32 * yt2 + (85 * gp2 * yt2) / 24 + (3 * yb2 * yt2) / 2 - (27 * yt4) / 4
+                          + (165 * g2 * ytau2) / 16 + (179 * gp2 * ytau2) / 16 - 12 * k * ytau2
+                          - (27 * yb2 * ytau2) / 4 - (27 * yt2 * ytau2) / 4 - 3 * ytau4)
+        up_gauge = ((-23 * g4) / 4 + 9 * g2 * g32 - 108 * g34 - (3 * g2 * gp2) / 4 + (19 * g32 * gp2) / 9
+                    + (1187 * gp4) / 216 + 6 * k2 - chi4S + (5 * Y4S) / 2)
+        dn_gauge = ((-23 * g4) / 4 + 9 * g2 * g32 - 108 * g34 - (9 * g2 * gp2) / 4 + (31 * g32 * gp2) / 9
+                    - (127 * gp4) / 216 + 6 * k2 - chi4S + (5 * Y4S) / 2)
+        le_gauge = (-23 * g4) / 4 + (9 * g2 * gp2) / 4 + (457 * gp4) / 24 + 6 * k2 - chi4S + (5 * Y4S) / 2
+        bk_2 = ((305 * g6) / 16 - (289 * g4 * gp2) / 48 - (559 * g2 * gp4) / 48 - (379 * gp6) / 48 - (73 * g4 * k) / 8
+                + (39 * g2 * gp2 * k) / 4 + (629 * gp4 * k) / 24 + 108 * g2 * k2 + 36 * gp2 * k2 - 312 * k3
+                - (9 * g4 * yb2) / 4 + (9 * g2 * gp2 * yb2) / 2 + (5 * gp4 * yb2) / 4 + (45 * g2 * k * yb2) / 2
+                + 80 * g32 * k * yb2 + (25 * gp2 * k * yb2) / 6 - 144 * k2 * yb2 - 32 * g32 * yb4 + (4 * gp2 * yb4) / 3
+                - 3 * k * yb4 + 30 * yb6 - (9 * g4 * yt2) / 4 + (21 * g2 * gp2 * yt2) / 2 - (19 * gp4 * yt2) / 4
+                + (45 * g2 * k * yt2) / 2 + 80 * g32 * k * yt2 + (85 * gp2 * k * yt2) / 6 - 144 * k2 * yt2
+                - 42 * k * yb2 * yt2 - 6 * yb4 * yt2 - 32 * g32 * yt4 - (8 * gp2 * yt4) / 3 - 3 * k * yt4
+                - 6 * yb2 * yt4 + 30 * yt6 - (3 * g4 * ytau2) / 4 + (11 * g2 * gp2 * ytau2) / 2
+                - (25 * gp4 * ytau2) / 4 + (15 * g2 * k * ytau2) / 2 + (25 * gp2 * k * ytau2) / 2 - 48 * k2 * ytau2
+                - 4 * gp2 * ytau4 - k * ytau4 + 10 * ytau6)
+        two = (bgp_2, bg_2, bg3_2, byt_2, byb_2, bytau_2, yc * up_gauge, ys * dn_gauge, ymu * le_gauge,
+               yu * up_gauge, yd * dn_gauge, ye * le_gauge, bk_2, 0.0)
+        out = [o + k22 * b for o, b in zip(out, two)]
+    if gauge_override is not None:
+        out[0] = out[1] = out[2] = 0.0
+    return np.array(out)
+
+
+def run(x0, t0, t1, loops=2, gauge_fn=None, rtol=1e-10, atol=1e-13, stop_g3=None, dense=True):
+    """Integrate from ln mu = t0 to t1. gauge_fn(mu) -> (gp, g, g3) imposes an outside chart for the gauge couplings."""
+    def rhs(t, x):
+        go = gauge_fn(math.exp(t)) if gauge_fn is not None else None
+        return betas(x, loops, go)
+
+    events = None
+    if stop_g3 is not None:
+        def ev(t, x):
+            return x[2] - stop_g3
+        ev.terminal = True
+        events = [ev]
+    sol = solve_ivp(rhs, (t0, t1), np.array(x0, float), method="DOP853", rtol=rtol, atol=atol, dense_output=dense,
+                    events=events)
+    return sol
+
+
+def vec(**kw):
+    x = np.zeros(len(NAMES))
+    for n, v in kw.items():
+        x[IDX[n]] = v
+    return x
+
+
+def packet():
+    t1 = json.loads((LEW / "t1_chain.json").read_text())
+    return dict(t1["pixels"]["P_fwd"]["packet_Q0"])
+
+
+def invoke(name, *args, cwd=None):
+    argv = [format(a, ".18g") if isinstance(a, float) else str(a) for a in args]
+    done = subprocess.run([str(BIN / name), *argv], cwd=cwd, check=True, capture_output=True, text=True, timeout=170)
+    return json.loads(done.stdout.strip().splitlines()[-1])
+
+
+def top_pole_from_msbar(m, alpha_s, n_l=5):
+    """HT's D11 conversion (three-loop QCD)."""
+    a = alpha_s / math.pi
+    k2 = 13.4434 - 1.0414 * n_l
+    k3 = 190.595 - 26.655 * n_l + 0.653 * n_l ** 2
+    return m * (1.0 + (4.0 / 3.0) * a + k2 * a ** 2 + k3 * a ** 3)
+
+
+def self_consistent_mass(sol, name, v, t_lo, t_hi, gauge_fn=None):
+    """mu with mu = y(mu) v / sqrt2 on the dense trajectory; None when outside [t_lo, t_hi]."""
+    i = IDX[name]
+
+    def f(t):
+        return sol.sol(t)[i] * v / math.sqrt(2.0) - math.exp(t)
+
+    a, b = t_lo, t_hi
+    fa, fb = f(a), f(b)
+    if fa * fb > 0:
+        return None
+    for _ in range(200):
+        m = 0.5 * (a + b)
+        fm = f(m)
+        if fa * fm <= 0:
+            b, fb = m, fm
+        else:
+            a, fa = m, fm
+    t = 0.5 * (a + b)
+    x = sol.sol(t)
+    g3 = gauge_fn(math.exp(t))[2] if gauge_fn is not None else x[2]
+    return {"m_running_GeV": math.exp(t), "y_at_m": float(x[i]), "alpha_s_at_m": g3 * g3 / (4 * math.pi)}

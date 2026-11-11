@@ -1,0 +1,39 @@
+"""Full-source addition/composite weak-current records on the refined bin."""
+from pathlib import Path
+import json,sys
+from fractions import Fraction as F
+ROOT=Path('WORKSPACE/repair-law/reverse-engineering-reality');sys.path.insert(0,str(ROOT))
+from model.native_charge_resolution import bounds as resolution
+from model.native_higgs_filtered_state.model import preparation,filtered_bounds,root,rounded
+from model.native_weak_current_response.bounds import divide_positive,expand,probability,box,encode
+
+def calculate():
+ atomic=json.loads(Path(__file__).with_name('result.json').read_text())['complete_charged_contractions']
+ d=resolution.data();window=resolution.window(128);prep=preparation(3)
+ w0=d['weights'][0];w=tuple(map(F,window['unnormalized_bin_weight_interval']))
+ # All visible atomic states, the full interacting ground perturbation,
+ # both source-clock pulse durations, and the actual preparation remain.
+ delay=F(2)
+ error=rounded(root(w0[1],True)*d['v']/F(window['selected_atom_distance_to_bin_complement_lower'])+F(window['complete_other_atom_leakage_norm_upper'])+d['eta']+delay*d['v']*root(w0[1],True),True)
+ epsilon=F(prep['retained_purification_error_upper']);Q=F(prep['complete_preparation_success_lower'])
+ normsum=root(w[1],True)+root(w0[1],True)
+ atom_insert=tuple(map(F,atomic['atomic_unnormalized_charged_current_insertion_interval']))
+ exact_insert=expand(atom_insert,2*error*normsum)
+ exact_mean=divide_positive(exact_insert,w)
+ actual_mean=expand(exact_mean,3*epsilon/w[0])
+ filtered=filtered_bounds(window['source_excitation_interval_relative_actual_native_ground'],w,epsilon)
+ distance=F(filtered['actual_same_history_total_variation_upper'])
+ composite_mean=expand(actual_mean,4*distance)
+ assert composite_mean[1]<0
+ histogram=[]
+ for eig,row in atomic['charged_target_ground_current'].items():
+  if not eig.startswith('probability_'):continue
+  p=tuple(map(F,row['outward_interval']));joint=(w0[0]*p[0],w0[1]*p[1])
+  actualjoint=probability(expand(joint,error*normsum+epsilon))
+  conditional=probability(expand(divide_positive(probability(expand(joint,error*normsum)),w),epsilon/w[0]))
+  bconditional=probability(expand(conditional,distance))
+  histogram.append({'W_value':eig.removeprefix('probability_'),'atomic_addition_conditional_probability':encode(p),'actual_elementary_joint_bin_current_probability_interval':encode(actualjoint),'actual_elementary_bin_conditional_probability_interval':encode(conditional),'actual_composite_bin_conditional_probability_interval':encode(bconditional),'original_elementary_attempt_joint_probability_lower':str(Q*actualjoint[0])})
+ return {'source':'unchanged native h=H0+2^-34 T, addition branch A=c_ec^dagger and B=-epsilon phi^dagger L','radius_360lambda':128,'absolute_native_bin':[str(F(x)-4) for x in window['absolute_source_plus_reference_bin']],'full_atomic_packet_amplitude_error_after_two_source_units':str(error),'complete_conditional_preparation_purification_error':str(epsilon),'same_W_current_mean':{'elementary':encode(actual_mean),'Higgs_composite':encode(composite_mean)},'same_history_TV_upper':str(distance),'five_records':histogram,'all_original_preparation_flags_pump_failures_bin_rejections_and_current_outcomes_retained':True,'theta_reverses_time':True,'W_equals_Theta_W_Theta_inverse':False}
+if __name__=='__main__':
+ out=calculate();Path(__file__).with_name('bounds_result.json').write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+ print({name:list(map(lambda x:float(F(x)),value)) for name,value in out['same_W_current_mean'].items()});print('error',float(F(out['full_atomic_packet_amplitude_error_after_two_source_units'])))

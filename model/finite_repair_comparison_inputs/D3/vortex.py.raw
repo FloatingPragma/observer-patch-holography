@@ -1,0 +1,290 @@
+"""D3 items 2 to 4: modes bound to a point defect of the mass field on a transverse patch (free axis 3).
+
+Configuration (DECLARED): L x L torus, four cores in a checkerboard (winding +n at two, -n at two), harmonic phase
+field (d3lib.vortex_phase), modulus theta0 times tanh(r / xi_c)^|n| at every core (xi_c = 0: uniform modulus),
+optional U(1) link phases (a flux tube through each core) and an optional localized non-winding mass source.
+
+For every parity class of cells the spectral subspace of the two-tick period (symmetric frame) with two-tick phase
+|E2| < 2 theta0 * window is computed (Chebyshev-filtered subspace iteration, residuals reported), then per core:
+count, signed phases, handedness Gamma = alpha_3, the pairing by Theta, smooth against staggered envelopes, the
+angular content of the two components, and the overlap matrices of item 3.
+
+Usage:  python vortex.py <out.json> <processes> <config-set name>
+"""
+import json, sys, time
+import numpy as np
+import scipy.sparse as sp
+import d3lib as d3
+
+A_UP = np.array([1, 0, 1, 0]) / np.sqrt(2)      # |X_r = +1, spin up>   (index 2 r + s)
+A_DN = np.array([0, 1, 0, 1]) / np.sqrt(2)      # |X_r = +1, spin down>
+B_UP = np.array([1, 0, -1, 0]) / np.sqrt(2)     # |X_r = -1, spin up>
+B_DN = np.array([0, 1, 0, -1]) / np.sqrt(2)     # |X_r = -1, spin down>
+# Gamma = X_r sigma_3 = +1: A_UP, B_DN;  Gamma = -1: A_DN, B_UP
+
+
+def build(cfg):
+    L, n, th0 = cfg['L'], cfg['n'], cfg['theta0']
+    cores = d3.checkerboard_cores(L, cfg.get('centred', 'plaquette'))
+    kind = cfg.get('kind', 'vortex')
+    if kind == 'vortex':
+        phi = d3.vortex_phase(L, n, cores)
+    elif kind == 'clock3':                       # phase restricted to the three cube roots of unity (cyclic counter of three)
+        phi = d3.vortex_phase(L, n, cores); phi = np.round(phi / (2 * np.pi / 3)) * (2 * np.pi / 3)
+    elif kind == 'uniform':
+        phi = np.zeros((L, L))
+    theta = d3.vortex_modulus(L, th0, cores, cfg.get('xi_c', 0.0), n if kind != 'uniform' else cfg.get('core_power', 1))
+    if cfg.get('centred', 'plaquette') == 'cell' and kind != 'uniform':
+        for (c, sgn) in cores:                   # D3 continuation: the phase is undefined on a core cell; the mass vanishes there
+            theta[int(round(c[0])), int(round(c[1]))] = 0.0
+    links = None
+    if cfg.get('flux', 0.0):                     # link phases exp(i a), a = flux/(2 pi) times the gradient of the unit vortex phase:
+        a = cfg['flux'] / (2 * np.pi)            # holonomy `flux` around each +1 core, -flux around each -1 core, none elsewhere
+        v = d3.vortex_phase(L, 1, cores)
+        def wrap(d): return (d + np.pi) % (2 * np.pi) - np.pi
+        links = [np.exp(1j * a * wrap(np.roll(v, -1, axis=i) - v)) for i in (0, 1)]
+    src = cfg.get('source')
+    if src:                                      # localized mass source of fixed phase added to the complex mass field
+        c0 = cores[src.get('core', 0)][0]
+        r, d1, d2 = d3.core_distance(L, (c0[0] + src.get('dx', 0.0), c0[1] + src.get('dy', 0.0)))
+        h = src['amp'] * np.exp(-r ** 2 / (2 * src['w'] ** 2))
+        m = theta * np.exp(1j * phi) + h * np.exp(1j * src.get('phase', 0.0))
+        theta, phi = np.abs(m), np.angle(m)
+    return cores, theta, phi, links
+
+
+def analyse(cfg):
+    t0 = time.time()
+    L, n, th0 = cfg['L'], cfg['n'], cfg['theta0']
+    cores, theta, phi, links = build(cfg)
+    pt = d3.Patch((L, L), theta, phi, p3=cfg.get('p3', 0.0), links=links)
+    Us = pt.period_sym(); G = pt.gamma(); Th = pt.theta_op()
+    window = cfg.get('window', 0.4 if cfg.get('solver', 'robust') == 'robust' else 0.9); a = float(np.cos(2 * th0 * window))
+    out = {'config': cfg, 'classes': []}
+    dq = 1e-4
+    if cfg.get('velocity'):                      # D3 continuation: derivative at the configured p3 (was at p3 = 0 always)
+        p30 = cfg.get('p3', 0.0)
+        Up = d3.Patch((L, L), theta, phi, p3=p30 + dq, links=links).period_sym(); Um = d3.Patch((L, L), theta, phi, p3=p30 - dq, links=links).period_sym()
+    for (ca, cb) in cfg.get('classes', [(0, 0), (1, 1), (0, 1), (1, 0)]):
+        idx, cells = pt.class_index(ca, cb)
+        U = Us[idx][:, idx].tocsr(); Gc = G[idx][:, idx]; Tc = Th[idx][:, idx]
+        if cfg.get('solver', 'robust') == 'robust':   # D3 continuation: residual-filtered subspace (see d3lib)
+            k = cfg.get('block', 128)
+            V, w, res, n_above, n_kept = d3.ingap_subspace_robust(U, k, a, deg=cfg.get('deg', 60), sweeps=cfg.get('sweeps', 14),
+                                                                   seed=cfg.get('seed', 0), tol=cfg.get('tol', 1e-9))
+            row = {'class': [ca, cb], 'dimension': int(U.shape[0]), 'block': k, 'solver': 'robust',
+                   'ritz_values_in_window': n_above, 'states_in_window': n_kept,
+                   'largest_residual_in_window': float(res.max()) if n_kept else None, 'block_saturated': bool(n_above >= k)}
+        else:
+            k = cfg.get('block', 24 * abs(n) + 56)     # D3 continuation: was 8|n| + 40, saturated for n = 3
+            V, w, res = d3.ingap_subspace(U, k, a, deg=cfg.get('deg', 200), sweeps=cfg.get('sweeps', 3), seed=cfg.get('seed', 0))
+            keep = w > a
+            row = {'class': [ca, cb], 'dimension': int(U.shape[0]), 'block': k, 'states_in_window': int(keep.sum()),
+                   'largest_residual_in_window': float(res[keep].max()) if keep.any() else None, 'block_saturated': bool(keep.all())}
+            V = V[:, keep]
+        if V.shape[1] == 0:                       # D3 continuation: no state in the window (e.g. a flux tube without winding)
+            row['largest_ritz_value_of_cos_H'] = float(w.max()) if len(w) else None; row['window_edge_cos'] = a; row['cores'] = []
+            out['classes'].append(row); continue
+        E2, W, defect = d3.signed_phases(U, V)
+        row['unitarity_defect_of_the_compression'] = defect
+        row['phases_per_tick_all_cores'] = [float(e) / 2 for e in E2]
+        x1, x2 = pt.x1[cells], pt.x2[cells]
+        sinH = (1j * (U - U.conj().T) / 2).tocsr()
+        row['cores'] = []
+        for ci, (c, sgn) in enumerate(cores):
+            if ci not in cfg.get('cores', [0, 2]): continue
+            d1 = (x1 - c[0] + L / 2) % L - L / 2; d2 = (x2 - c[1] + L / 2) % L - L / 2; r = np.hypot(d1, d2)
+            near = np.repeat(r < L / 5.0, 4).astype(float)
+            if cfg.get('assign', 'cluster') == 'cluster':
+                # D3 continuation: core projection only inside clusters of (numerically) degenerate eigenphases, so that
+                # every vector kept is an exact eigenvector (mixing different energies made the old compression inexact)
+                order_e = np.argsort(E2); cols = []; wk, wd = [], []
+                start = 0
+                while start < len(order_e):
+                    stop = start + 1
+                    while stop < len(order_e) and E2[order_e[stop]] - E2[order_e[stop - 1]] < cfg.get('cluster_tol', 1e-6): stop += 1
+                    J = order_e[start:stop]; WJ = W[:, J]
+                    wts_c, Rc = np.linalg.eigh(WJ.conj().T @ (near[:, None] * WJ))
+                    for j in np.nonzero(wts_c > 0.5)[0]: cols.append(WJ @ Rc[:, j]); wk.append(float(wts_c[j]))
+                    wd += [float(x) for x in wts_c[wts_c <= 0.5]]
+                    start = stop
+                B = np.array(cols).T if cols else np.zeros((W.shape[0], 0), complex)
+                wts = np.array(wk + wd); keepmask = np.array([True] * len(wk) + [False] * len(wd))
+            else:
+                wts, R = np.linalg.eigh(W.conj().T @ (near[:, None] * W)); keepmask = wts > 0.5
+                B = W @ R[:, wts > 0.5]                                   # in-window states of this core
+            cr = {'core': ci, 'winding': sgn * n, 'states': int(B.shape[1]), 'smallest_core_weight_kept': float(wts[wts > 0.5].min()) if B.shape[1] else None,
+                  'largest_core_weight_dropped': float(wts[wts <= 0.5].max()) if (wts <= 0.5).any() else None}
+            if B.shape[1] == 0: row['cores'].append(cr); continue
+            hc = B.conj().T @ (sinH @ B); hc = (hc + hc.conj().T) / 2
+            ev, Rv = np.linalg.eigh(hc); Ec = np.arcsin(np.clip(ev, -1, 1)) / 2
+            cr['phases_per_tick'] = [float(e) for e in Ec]
+            # the group nearest zero phase: the 2|n| x (cones) states expected from the index count
+            order = np.argsort(np.abs(Ec)); m0 = cfg.get('group', 2 * abs(n))
+            m0 = min(m0, B.shape[1]); Zs = B @ Rv[:, order[:m0]]
+            UZ = U @ Zs; lamz = np.einsum('ij,ij->j', Zs.conj(), UZ)          # D3 continuation: residual of the group itself
+            cr['group_residual_of_U'] = float(np.linalg.norm(UZ - Zs * lamz[None, :], axis=0).max())
+            cr['near_zero_group'] = {'size': int(m0), 'phases_per_tick': sorted(float(e) for e in Ec[order[:m0]]),
+                                     'next_phase_per_tick': float(np.abs(Ec[order[m0]])) if B.shape[1] > m0 else None,
+                                     'over_theta0': sorted(float(e) / th0 for e in Ec[order[:m0]])}
+            g = Zs.conj().T @ (Gc @ Zs); g = (g + g.conj().T) / 2; gv, gR = np.linalg.eigh(g)
+            cr['near_zero_group']['Gamma_eigenvalues'] = [round(float(v), 8) for v in gv]
+            plus, minus = Zs @ gR[:, gv > 0], Zs @ gR[:, gv < 0]
+            cr['near_zero_group']['n_plus'] = int(plus.shape[1]); cr['near_zero_group']['n_minus'] = int(minus.shape[1])
+            # Theta maps the Gamma = + part onto the Gamma = - part (singular values of the overlap: all 1 if so)
+            if plus.shape[1] and minus.shape[1]:
+                cr['near_zero_group']['Theta_plus_onto_minus_singular_values'] = [round(float(s), 8) for s in np.linalg.svd(minus.conj().T @ (Tc @ plus), compute_uv=False)]
+                dmat = plus.conj().T @ (sinH @ minus)
+                cr['near_zero_group']['pair_phases_per_tick_from_the_off_diagonal_block'] = sorted(float(np.arcsin(min(s, 1.0))) / 2 for s in np.linalg.svd(dmat, compute_uv=False))
+            # envelopes: smooth (cone at 0) against staggered (cone at (pi/2, pi/2)); two-cell shift correlation
+            def shift2(vecs):
+                arr = np.zeros((L, L, 4, vecs.shape[1]), complex); arr[x1, x2] = vecs.reshape(len(cells), 4, -1)
+                acc = sum(np.roll(arr, s, axis=ax) for ax in (0, 1) for s in (2, -2)) / 4
+                return acc[x1, x2].reshape(vecs.shape)
+            def shift2ax(vecs, ax):                  # D3 continuation: one axis at a time (separates the p3 = pi/2 cones)
+                arr = np.zeros((L, L, 4, vecs.shape[1]), complex); arr[x1, x2] = vecs.reshape(len(cells), 4, -1)
+                acc = (np.roll(arr, 2, axis=ax) + np.roll(arr, -2, axis=ax)) / 2
+                return acc[x1, x2].reshape(vecs.shape)
+            for name, part in (('plus', plus), ('minus', minus)):
+                if part.shape[1] == 0: continue
+                sm = part.conj().T @ shift2(part); sm = (sm + sm.conj().T) / 2
+                sv, sR = np.linalg.eigh(sm)
+                cr['near_zero_group'][f'{name}_two_cell_shift_correlation'] = [round(float(v), 5) for v in sv]
+                cr['near_zero_group'][f'{name}_smooth'] = int(np.sum(sv > 0)); cr['near_zero_group'][f'{name}_staggered'] = int(np.sum(sv < 0))
+                for ax in (0, 1):
+                    sa = part.conj().T @ shift2ax(part, ax); sa = (sa + sa.conj().T) / 2
+                    cr['near_zero_group'][f'{name}_shift_correlation_axis{ax + 1}'] = [round(float(v), 5) for v in np.linalg.eigvalsh(sa)]
+            # velocity along the axis: d(sin H)/d p3 on the group
+            if cfg.get('velocity'):
+                dU = (Up[idx][:, idx] - Um[idx][:, idx]) / (2 * dq)
+                # d(sin H) = i (dU - dU^dagger)/2
+                K = Zs.conj().T @ ((1j * (dU - dU.conj().T) / 2) @ Zs); K = (K + K.conj().T) / 2
+                Kg = gR.conj().T @ K @ gR                                # in the Gamma eigenbasis (ascending: minus first)
+                nm = int(np.sum(gv < 0))
+                cr['near_zero_group']['dE_dp3_per_tick_on_Gamma_minus'] = [round(float(v) / 2, 6) for v in np.linalg.eigvalsh(Kg[:nm, :nm])]
+                cr['near_zero_group']['dE_dp3_per_tick_on_Gamma_plus'] = [round(float(v) / 2, 6) for v in np.linalg.eigvalsh(Kg[nm:, nm:])]
+                cr['near_zero_group']['dE_dp3_block_between_plus_and_minus'] = float(np.abs(Kg[:nm, nm:]).max()) if nm and nm < m0 else 0.0
+            # the smooth modes of the handedness that holds them: components, angular content, overlaps (item 3)
+            for name, part in (('plus', plus), ('minus', minus)):
+                if part.shape[1] == 0 or not cfg.get('overlaps', True): continue
+                sm = part.conj().T @ shift2(part); sm = (sm + sm.conj().T) / 2; sv, sR = np.linalg.eigh(sm)
+                if np.sum(sv > 0) == 0: continue
+                Sm = part @ sR[:, sv > 0]                                # smooth modes of this handedness
+                comp = Sm.reshape(len(cells), 4, -1)
+                ua = np.einsum('c,xcm->xm', (A_UP if name == 'plus' else A_DN).conj(), comp)     # right-handed component (X_r = +1)
+                vb = np.einsum('c,xcm->xm', (B_DN if name == 'plus' else B_UP).conj(), comp)     # left-handed component (X_r = -1)
+                ang = np.arctan2(d2, d1)
+                info = {'handedness': name, 'modes': int(Sm.shape[1]), 'weight_right_handed_component': float(np.sum(np.abs(ua) ** 2) / Sm.shape[1]),
+                        'weight_left_handed_component': float(np.sum(np.abs(vb) ** 2) / Sm.shape[1])}
+                # angular content, traced over the modes: rings of width 2 cells out to L/6
+                for lab, f in (('right', ua), ('left', vb)):
+                    wl = {}
+                    for l in range(-4, 5):
+                        tot = 0.0
+                        for r0 in np.arange(0.0, L / 6, 2.0):
+                            sel = (r >= r0) & (r < r0 + 2.0)
+                            if sel.sum() < 4: continue
+                            tot += float(np.sum(np.abs(np.exp(-1j * l * ang[sel]) @ f[sel]) ** 2) / sel.sum())
+                        wl[l] = tot
+                    s = sum(wl.values()) or 1.0
+                    info[f'angular_content_{lab}_component'] = {str(l): round(v / s, 4) for l, v in wl.items()}
+                # item 3: Gaussian sources of width w at the core and displaced along axis 1
+                ov = []
+                for wsrc in cfg.get('source_widths', [1.0, 2.0]):
+                    for dx in cfg.get('source_offsets', [0.0, 4.0]):
+                        rs = np.hypot((x1 - c[0] - dx + L / 2) % L - L / 2, d2); hh = np.exp(-rs ** 2 / (2 * wsrc ** 2))
+                        def mat(f1, f2): return f1.conj().T @ (hh[:, None] * f2)
+                        WR, WL = mat(ua, ua), mat(vb, vb)
+                        e = {'width': wsrc, 'offset': dx,
+                             'right_component_weights': sorted((float(v) for v in np.linalg.eigvalsh(WR)), reverse=True),
+                             'left_component_weights': sorted((float(v) for v in np.linalg.eigvalsh(WL)), reverse=True),
+                             'density_weights': sorted((float(v) for v in np.linalg.eigvalsh(WR + WL)), reverse=True)}
+                        # the candidate's mass operator: a toggle h(x) N_s, N_s = Z_r or Y_r, between these modes and their Theta partners
+                        Pt = Tc @ Sm
+                        for nm_, Nop in (('Z', d3.ZR), ('Y', d3.YR)):
+                            NS = (np.einsum('ab,xbm->xam', Nop, comp) * hh[:, None, None]).reshape(Sm.shape)
+                            e[f'toggle_{nm_}_singular_values'] = [float(s) for s in np.linalg.svd(Pt.conj().T @ NS, compute_uv=False)]
+                            e[f'toggle_{nm_}_within_same_handedness_(must_vanish)'] = float(np.abs(Sm.conj().T @ NS).max())
+                        ov.append(e)
+                info['overlaps'] = ov
+                # radial profiles of the modes ordered by their right-handed weight at the core (width-1 source)
+                rs = r; hh = np.exp(-rs ** 2 / 2.0)
+                wv, wR = np.linalg.eigh(ua.conj().T @ (hh[:, None] * ua)); ordr = np.argsort(-wv)
+                uo, vo = ua @ wR[:, ordr], vb @ wR[:, ordr]
+                prof = []
+                for j in range(uo.shape[1]):
+                    rows_ = []
+                    for r0 in np.arange(0.0, min(L / 6, 16.0), 2.0):
+                        sel = (r >= r0) & (r < r0 + 2.0)
+                        rows_.append([float(r0 + 1.0), float(np.mean(np.abs(uo[sel, j]) ** 2)), float(np.mean(np.abs(vo[sel, j]) ** 2))])
+                    prof.append(rows_)
+                info['radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight'] = prof
+                cr[f'smooth_modes_{name}'] = info
+            row['cores'].append(cr)
+        out['classes'].append(row)
+    out['seconds'] = round(time.time() - t0, 1)
+    return out
+
+
+def config_sets(name):
+    S = {}
+    S['local_test'] = [dict(L=32, n=nn, theta0=0.5, xi_c=0.0, classes=[(0, 0)], velocity=True) for nn in (1,)]
+    S['local_test2'] = [dict(L=32, n=1, theta0=0.5, xi_c=0.0, classes=[(0, 0)], velocity=True, centred='cell'),
+                        dict(L=32, n=1, theta0=0.5, xi_c=2.0, classes=[(0, 0)], velocity=True, p3=np.pi / 2, overlaps=False)]
+    base = dict(L=96, theta0=0.3, velocity=True)
+    S['item2'] = ([dict(base, n=nn, xi_c=x) for nn in (1, 2, 3) for x in (0.0, 2.0, 4.0)] +
+                  [dict(base, n=nn, xi_c=x, centred='cell') for nn in (1, 2, 3) for x in (0.0, 2.0)] +
+                  [dict(base, n=nn, xi_c=2.0, p3=np.pi / 2, overlaps=False) for nn in (1, 2, 3)])
+    S['item2b'] = ([dict(base, n=3, xi_c=x) for x in (0.0, 2.0, 4.0)] +
+                   [dict(base, n=3, xi_c=x, centred='cell') for x in (0.0, 2.0)] +
+                   [dict(base, n=3, xi_c=2.0, p3=np.pi / 2, overlaps=False)] +
+                   [dict(base, n=1, xi_c=x, classes=[(0, 0), (0, 1)], overlaps=False) for x in (1.0, 3.0, 5.0, 6.0)] +
+                   [dict(base, n=2, xi_c=4.0, classes=[(0, 0), (0, 1)])])
+    # final sets with the residual-filtered solver (window 0.9: every in-gap state up to 0.9 theta0 per tick)
+    c2 = [(0, 0), (0, 1)]; c4 = [(0, 0), (1, 1), (0, 1), (1, 0)]
+    def blk(nn): return 192 if abs(nn) == 3 else 128
+    S['r2'] = ([dict(base, n=nn, xi_c=x, window=0.9, block=blk(nn), classes=c2) for nn in (1, 2, 3) for x in (0.0, 2.0, 4.0)] +
+               [dict(base, n=nn, xi_c=x, window=0.9, block=blk(nn), classes=c4, centred='cell') for nn in (1, 2, 3) for x in (0.0, 2.0)] +
+               [dict(base, n=nn, xi_c=2.0, window=0.9, block=blk(nn), classes=c2, p3=np.pi / 2, overlaps=False) for nn in (1, 2, 3)] +
+               [dict(base, n=1, xi_c=x, window=0.9, classes=c2, overlaps=False) for x in (1.0, 3.0, 5.0, 6.0)])
+    S['r2c'] = ([dict(base, n=nn, xi_c=x, window=0.9, block=blk(nn), classes=c2) for nn in (2, 3) for x in (0.0, 2.0, 4.0)] +
+                [dict(base, n=nn, xi_c=x, window=0.9, block=blk(nn), classes=c4, centred='cell') for nn in (2, 3) for x in (0.0, 2.0)] +
+                [dict(base, n=nn, xi_c=2.0, window=0.9, block=blk(nn), classes=c2, p3=np.pi / 2, overlaps=False) for nn in (2, 3)] +
+                [dict(base, n=1, xi_c=x, window=0.9, classes=c2, overlaps=False) for x in (5.0, 6.0)])
+    S['r2size'] = [dict(L=LL, theta0=0.3, n=nn, xi_c=2.0, window=0.9, block=blk(nn), classes=[(0, 0)], cores=[0, 1, 2, 3], overlaps=False)
+                   for LL in (64, 96, 128) for nn in (1, 3)]
+    S['r2angle'] = [dict(L=128, theta0=0.157935, n=nn, xi_c=x, window=0.9, block=blk(nn), classes=c2, velocity=True)
+                    for nn in (1, 2, 3) for x in (0.0, 4.0)]
+    S['item2_size'] = [dict(L=LL, theta0=0.3, n=nn, xi_c=2.0, classes=[(0, 0)]) for LL in (64, 96, 128) for nn in (1, 3)]
+    S['item2_sample_angle'] = [dict(L=128, theta0=0.157935, n=nn, xi_c=x, classes=[(0, 0), (0, 1)], velocity=True) for nn in (1, 2, 3) for x in (0.0, 4.0)]
+    S['item3'] = [dict(L=96, theta0=0.3, n=3, xi_c=x, classes=[(0, 0), (0, 1)], cores=[0], source_widths=[0.75, 1.5, 3.0], source_offsets=[0.0, 2.0, 4.0, 8.0],
+                       window=0.6, block=160) for x in (0.0, 1.0, 2.0, 3.0, 4.0, 6.0, 8.0)]
+    # item 4: the register phase on a cyclic counter of three states (mass phase in the cube roots of unity), and the
+    # class-2/4 flux seen by triality as a link holonomy 2 pi/3 through each core (with and without a winding phase)
+    b4 = dict(L=96, theta0=0.3, velocity=True, classes=[(0, 0), (0, 1)])
+    S['item4'] = ([dict(b4, kind='clock3', n=nn, xi_c=x, window=0.4, block=160) for nn in (1, 3) for x in (0.0, 2.0)] +
+                  [dict(b4, kind='uniform', n=1, xi_c=0.0, flux=2 * np.pi / 3, overlaps=False, group=2, window=0.9),
+                   dict(b4, kind='vortex', n=1, xi_c=2.0, flux=2 * np.pi / 3, window=0.9),
+                   dict(b4, kind='vortex', n=3, xi_c=2.0, flux=2 * np.pi / 3, window=0.9, block=192)])
+    return S[name]
+
+
+if __name__ == '__main__':
+    outp, procs, name = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+    cfgs = config_sets(name)
+    if procs > 1:
+        import multiprocessing as mp
+        with mp.Pool(procs) as pool: res = pool.map(analyse, cfgs)
+    else:
+        res = [analyse(c) for c in cfgs]
+    json.dump({'engine_sha256': d3.ENGINE_SHA, 'set': name, 'results': res}, open(outp, 'w'), indent=1)
+    for r in res:
+        c = r['config']
+        for row in r['classes']:
+            for cr in row['cores']:
+                nz = cr.get('near_zero_group', {})
+                print(json.dumps({k: c[k] for k in ('L', 'n', 'theta0') if k in c}), c.get('kind', 'vortex'), 'p3', round(c.get('p3', 0.0), 4), 'flux', round(c.get('flux', 0.0), 4), 'xi_c', c.get('xi_c'), c.get('centred', 'plaquette'), 'class', row['class'], 'core', cr['core'], 'winding', cr['winding'],
+                      '| v+', nz.get('dE_dp3_per_tick_on_Gamma_plus'), 'v-', nz.get('dE_dp3_per_tick_on_Gamma_minus'),
+                      '| in-window', cr['states'], '| group', [round(e, 7) for e in nz.get('phases_per_tick', [])], '| n+ n-', nz.get('n_plus'), nz.get('n_minus'),
+                      '| smooth/stag +', nz.get('plus_smooth'), nz.get('plus_staggered'), '-', nz.get('minus_smooth'), nz.get('minus_staggered'),
+                      '| res', row['largest_residual_in_window'], '| sat', row['block_saturated'], '| s', r['seconds'])

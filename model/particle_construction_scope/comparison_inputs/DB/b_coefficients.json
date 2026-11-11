@@ -1,0 +1,293 @@
+{
+ "convention": "1/alpha_i(mu) = 1/alpha_U + (b_i/(2 pi)) ln(M_U/mu); alpha_1 = (5/3) alpha_Y",
+ "functional": "IMPORTED: standard four-dimensional one-loop gauge beta function",
+ "receipt_cross_check": {
+  "sum_weyl_T_SU3": "2",
+  "sum_weyl_T_SU2": "2",
+  "sum_weyl_dim_Y2": "10/3"
+ },
+ "sets": {
+  "A": {
+   "content": "SM: three families, one Higgs doublet",
+   "b1": "41/10",
+   "b2": "-19/6",
+   "b3": "-7",
+   "bY": "41/6",
+   "b1_minus_b2": "109/15",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "115/218",
+   "float": [
+    4.1,
+    -3.1666666666666665,
+    -7.0
+   ]
+  },
+  "B": {
+   "content": "A + one complex scalar per Weyl multiplet, three families",
+   "b1": "61/10",
+   "b2": "-7/6",
+   "b3": "-5",
+   "bY": "61/6",
+   "b1_minus_b2": "109/15",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "115/218",
+   "float": [
+    6.1,
+    -1.1666666666666667,
+    -5.0
+   ]
+  },
+  "C": {
+   "content": "B + adjoint Weyl fermions",
+   "b1": "61/10",
+   "b2": "1/6",
+   "b3": "-3",
+   "bY": "61/6",
+   "b1_minus_b2": "89/15",
+   "b2_minus_b3": "19/6",
+   "B_ratio": "95/178",
+   "float": [
+    6.1,
+    0.16666666666666666,
+    -3.0
+   ]
+  },
+  "D": {
+   "content": "C + second Higgs doublet + two Weyl doublets (MSSM content)",
+   "b1": "33/5",
+   "b2": "1",
+   "b3": "-3",
+   "bY": "11",
+   "b1_minus_b2": "28/5",
+   "b2_minus_b3": "4",
+   "B_ratio": "5/7",
+   "float": [
+    6.6,
+    1.0,
+    -3.0
+   ]
+  },
+  "B0": {
+   "content": "A + Q, U, D, L scalars (no E scalar), three families",
+   "b1": "11/2",
+   "b2": "-7/6",
+   "b3": "-5",
+   "bY": "55/6",
+   "b1_minus_b2": "20/3",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "23/40",
+   "float": [
+    5.5,
+    -1.1666666666666667,
+    -5.0
+   ]
+  },
+  "D0": {
+   "content": "D without the E scalars",
+   "b1": "6",
+   "b2": "1",
+   "b3": "-3",
+   "bY": "10",
+   "b1_minus_b2": "5",
+   "b2_minus_b3": "4",
+   "B_ratio": "4/5",
+   "float": [
+    6.0,
+    1.0,
+    -3.0
+   ]
+  },
+  "B1": {
+   "content": "A + one generation-blind copy of the Q, U, D, L scalars",
+   "b1": "137/30",
+   "b2": "-5/2",
+   "b3": "-19/3",
+   "bY": "137/18",
+   "b1_minus_b2": "106/15",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "115/212",
+   "float": [
+    4.566666666666666,
+    -2.5,
+    -6.333333333333333
+   ]
+  },
+  "D1": {
+   "content": "A + gauginos + second Higgs + Higgsinos + one copy of Q, U, D, L scalars",
+   "b1": "76/15",
+   "b2": "-1/3",
+   "b3": "-13/3",
+   "bY": "76/9",
+   "b1_minus_b2": "27/5",
+   "b2_minus_b3": "4",
+   "B_ratio": "20/27",
+   "float": [
+    5.066666666666666,
+    -0.3333333333333333,
+    -4.333333333333333
+   ]
+  },
+  "D1E": {
+   "content": "D1 + one E scalar",
+   "b1": "79/15",
+   "b2": "-1/3",
+   "b3": "-13/3",
+   "bY": "79/9",
+   "b1_minus_b2": "28/5",
+   "b2_minus_b3": "4",
+   "B_ratio": "5/7",
+   "float": [
+    5.266666666666667,
+    -0.3333333333333333,
+    -4.333333333333333
+   ]
+  },
+  "A2": {
+   "content": "A with two Higgs doublets, no partners",
+   "b1": "21/5",
+   "b2": "-3",
+   "b3": "-7",
+   "bY": "7",
+   "b1_minus_b2": "36/5",
+   "b2_minus_b3": "4",
+   "B_ratio": "5/9",
+   "float": [
+    4.2,
+    -3.0,
+    -7.0
+   ]
+  },
+  "S": {
+   "content": "A + gauginos + second Higgs + Higgsinos, no sfermions",
+   "b1": "23/5",
+   "b2": "-1",
+   "b3": "-5",
+   "bY": "23/3",
+   "b1_minus_b2": "28/5",
+   "b2_minus_b3": "4",
+   "B_ratio": "5/7",
+   "float": [
+    4.6,
+    -1.0,
+    -5.0
+   ]
+  },
+  "A1": {
+   "content": "A with one family",
+   "b1": "43/30",
+   "b2": "-35/6",
+   "b3": "-29/3",
+   "bY": "43/18",
+   "b1_minus_b2": "109/15",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "115/218",
+   "float": [
+    1.4333333333333333,
+    -5.833333333333333,
+    -9.666666666666666
+   ]
+  },
+  "BnoH": {
+   "content": "B with the Higgs identified with one class-3 scalar doublet",
+   "b1": "6",
+   "b2": "-4/3",
+   "b3": "-5",
+   "bY": "10",
+   "b1_minus_b2": "22/3",
+   "b2_minus_b3": "11/3",
+   "B_ratio": "1/2",
+   "float": [
+    6.0,
+    -1.3333333333333333,
+    -5.0
+   ]
+  },
+  "A5D": {
+   "content": "A + one Dirac fermion in the native five",
+   "b1": "143/30",
+   "b2": "-5/2",
+   "b3": "-19/3",
+   "bY": "143/18",
+   "b1_minus_b2": "109/15",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "115/218",
+   "float": [
+    4.766666666666667,
+    -2.5,
+    -6.333333333333333
+   ]
+  },
+  "AHD": {
+   "content": "A + one Dirac doublet (1,2)_{+-1/2}",
+   "b1": "9/2",
+   "b2": "-5/2",
+   "b3": "-7",
+   "bY": "15/2",
+   "b1_minus_b2": "7",
+   "b2_minus_b3": "9/2",
+   "B_ratio": "9/14",
+   "float": [
+    4.5,
+    -2.5,
+    -7.0
+   ]
+  },
+  "T2": {
+   "content": "three families as two Dirac tastes each (staggered source action) + one H",
+   "b1": "161/10",
+   "b2": "53/6",
+   "b3": "5",
+   "bY": "161/6",
+   "b1_minus_b2": "109/15",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "115/218",
+   "float": [
+    16.1,
+    8.833333333333334,
+    5.0
+   ]
+  },
+  "T2_1": {
+   "content": "one family as two Dirac tastes + one H",
+   "b1": "163/30",
+   "b2": "-11/6",
+   "b3": "-17/3",
+   "bY": "163/18",
+   "b1_minus_b2": "109/15",
+   "b2_minus_b3": "23/6",
+   "B_ratio": "115/218",
+   "float": [
+    5.433333333333334,
+    -1.8333333333333333,
+    -5.666666666666667
+   ]
+  }
+ },
+ "D_minus_A_by_part": {
+  "sfermions (3 families)": [
+   "2",
+   "2",
+   "2"
+  ],
+  "gauginos": [
+   "0",
+   "4/3",
+   "2"
+  ],
+  "second Higgs doublet": [
+   "1/10",
+   "1/6",
+   "0"
+  ],
+  "Higgsinos": [
+   "2/5",
+   "2/3",
+   "0"
+  ]
+ },
+ "D_minus_A": [
+  "5/2",
+  "25/6",
+  "4"
+ ]
+}

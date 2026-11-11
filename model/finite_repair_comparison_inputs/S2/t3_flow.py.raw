@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""S2 task 3: the declared flow family for hard-core loads,
+    G(Delta) = sum_seams [ -(1/2)(b_a^+ b_b + h.c.) + (Delta/2)(n_a(1-n_b) + n_b(1-n_a)) ].
+Delta = 1 is the stochastic law, T = 1 - G(1)/M.  Exact spectra for Delta in {1, 1/2, 0, -1/2}:
+  A. one carrier (12 ports): one quantum (12 states) and two quanta (66 states);
+  B. periodic triangular lattices (4x4 with 2, 4, 8 quanta; 6x6 with 2 and 3 quanta), momentum resolved.
+Comparison: linear spin-wave theory  omega = (1/2) sqrt(lambda ((1-u) lambda + z u)),  u = (1-Delta) 4 f (1-f).
+"""
+import itertools, json, math, sys, time
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+from model.common_source import slow_geometry
+from model.observer import native
+HERE = Path(__file__).resolve().parent
+t00 = time.time()
+out = {}
+DELTAS = (1.0, 0.5, 0.0, -0.5)
+
+def lswt(lam, z, u):
+    return 0.5 * math.sqrt(max(0.0, lam * ((1 - u) * lam + z * u)))
+
+def build_G(states, seams, delta):
+    idx = {s: i for i, s in enumerate(states)}
+    rows, cols, vals = [], [], []
+    for i, s in enumerate(states):
+        diag = 0.0
+        for a, b in seams:
+            if s[a] != s[b]:
+                diag += delta / 2
+                t = list(s); t[a], t[b] = t[b], t[a]
+                rows.append(idx[tuple(t)]); cols.append(i); vals.append(-0.5)
+        rows.append(i); cols.append(i); vals.append(diag)
+    n = len(states)
+    return sp.coo_matrix((vals, (rows, cols)), shape=(n, n)).tocsr()
+
+# ------------------------------------------------------------------ A. one carrier
+src = slow_geometry.source()
+SEAMS = [tuple(s) for s in src.seams()]
+M = len(SEAMS)
+Lap = np.zeros((12, 12))
+for a, b in SEAMS: Lap[a, a] += 1; Lap[b, b] += 1; Lap[a, b] -= 1; Lap[b, a] -= 1
+lamL = sorted(set(np.round(np.linalg.eigvalsh(Lap), 9)))
+st66 = list(native.states(binary=True)); st12 = [tuple(int(p == q) for p in range(12)) for q in range(12)]
+# calibration: T = 1 - G(1)/M equals the native chain on the binary shell
+idx66 = {s: i for i, s in enumerate(st66)}
+T = np.zeros((66, 66))
+for s in st66:
+    for seam in SEAMS:
+        for coin in (0, 1):
+            T[idx66[native.native(s, seam, coin)[0]], idx66[s]] += 1 / (2 * M)
+G1 = build_G(st66, SEAMS, 1.0).toarray()
+out['calibration_T_equals_1_minus_G1_over_M'] = bool(np.allclose(T, np.eye(66) - G1 / M))
+print('calibration: native T == 1 - G(1)/M on the 66-state shell:', out['calibration_T_equals_1_minus_G1_over_M'])
+carrier = {}
+f = 2 / 12; z = 5
+for d in DELTAS:
+    e1 = np.linalg.eigvalsh(build_G(st12, SEAMS, d).toarray())
+    e2 = np.linalg.eigvalsh(build_G(st66, SEAMS, d).toarray())
+    lev1 = [[float(v), int(c)] for v, c in zip(*np.unique(np.round(e1 - e1[0], 8), return_counts=True))]
+    lev2 = [[float(v), int(c)] for v, c in zip(*np.unique(np.round(e2 - e2[0], 8), return_counts=True))]
+    u = (1 - d) * 4 * f * (1 - f)
+    pred = {f'lambda={l:.6f}': lswt(l, z, u) for l in lamL if l > 1e-9}
+    # the first excited multiplets of the two-quanta spectrum with the degeneracies 3, 5, 3 of the density modes
+    def first_with(deg, skip=0):
+        hits = [v for v, c in lev2[1:] if c == deg]
+        return hits[skip] if len(hits) > skip else None
+    ed = {'triplet_slow': first_with(3), 'quintet': first_with(5), 'triplet_fast': first_with(3, 1)}
+    carrier[f'Delta={d}'] = {'one_quantum_levels_above_ground': lev1, 'one_quantum_ground_energy': float(e1[0]),
+                             'two_quanta_ground_energy': float(e2[0]), 'two_quanta_lowest_levels_above_ground': lev2[:9],
+                             'u': u, 'lswt_density_modes': pred, 'two_quanta_first_multiplets_by_degeneracy': ed,
+                             'one_quantum_gap_is_lambda/2': bool(np.allclose(sorted(v for v, c in lev1), [l / 2 for l in lamL]))}
+    print(f'carrier Delta={d}: 1 quantum levels', [(round(v, 5), c) for v, c in lev1], '| 2 quanta lowest', [(round(v, 5), c) for v, c in lev2[:6]],
+          '| LSWT', {k: round(v, 5) for k, v in pred.items()}, '| ED multiplets', {k: (round(v, 5) if v is not None else None) for k, v in ed.items()})
+out['one_carrier'] = carrier
+
+# ------------------------------------------------------------------ B. triangular torus, momentum resolved
+def tri(L):
+    idx = lambda i, j: (i % L) * L + (j % L)
+    seams = []
+    for i in range(L):
+        for j in range(L):
+            seams += [(idx(i, j), idx(i + 1, j)), (idx(i, j), idx(i, j + 1)), (idx(i, j), idx(i - 1, j + 1))]
+    t1 = [idx(i + 1, j) for i in range(L) for j in range(L)]         # site -> translated site
+    t2 = [idx(i, j + 1) for i in range(L) for j in range(L)]
+    return seams, t1, t2
+def lam_tri(k1, k2): return 6 - 2 * math.cos(k1) - 2 * math.cos(k2) - 2 * math.cos(k2 - k1)
+def kabs(k1, k2): return math.sqrt(k1 * k1 + (2 * k2 - k1) ** 2 / 3)
+
+def sector_spectra(L, Np, delta, nev=4):
+    """Lowest energies per momentum sector by projecting onto translation orbits (exact)."""
+    n = L * L
+    seams, t1, t2 = tri(L)
+    states = [tuple(1 if p in c else 0 for p in range(n)) for c in itertools.combinations(range(n), Np)]
+    code = lambda s: sum(1 << p for p in range(n) if s[p])
+    codes = np.array([code(s) for s in states], dtype=np.int64)
+    index = {int(c): i for i, c in enumerate(codes)}
+    def translate(c, t):
+        o = 0
+        for p in range(n):
+            if c >> p & 1: o |= 1 << t[p]
+        return o
+    # translation tables on basis indices
+    T1 = np.array([index[translate(int(c), t1)] for c in codes]); T2 = np.array([index[translate(int(c), t2)] for c in codes])
+    Gm = build_G(states, seams, delta)
+    dim = len(states)
+    # orbit representatives
+    seen = np.zeros(dim, bool); reps = []
+    pw1 = [np.arange(dim)]
+    for a in range(1, L): pw1.append(T1[pw1[-1]])
+    pw2 = [np.arange(dim)]
+    for b in range(1, L): pw2.append(T2[pw2[-1]])
+    img = np.array([[pw2[b][pw1[a]] for b in range(L)] for a in range(L)])       # img[a, b, i] = T2^b T1^a i
+    for i in range(dim):
+        if not seen[i]:
+            reps.append(i); seen[img[:, :, i].ravel()] = True
+    res = {}
+    for m1 in range(L):
+        for m2 in range(L):
+            k1, k2 = 2 * math.pi * m1 / L, 2 * math.pi * m2 / L
+            # projected basis vectors |r, k> = sum_{a,b} exp(-i(k1 a + k2 b)) T2^b T1^a |r>
+            cols = []
+            for r in reps:
+                v = {}
+                for a in range(L):
+                    for b in range(L):
+                        j = int(img[a, b, r]); v[j] = v.get(j, 0) + np.exp(-1j * (k1 * a + k2 * b))
+                nrm = math.sqrt(sum(abs(x) ** 2 for x in v.values()))
+                if nrm > 1e-9: cols.append((list(v.keys()), np.array(list(v.values())) / nrm))
+            if not cols: continue
+            P = sp.lil_matrix((dim, len(cols)), dtype=complex)
+            for c_, (rowsx, valsx) in enumerate(cols): P[rowsx, c_] = valsx
+            P = P.tocsr()
+            H = (P.conj().T @ (Gm @ P)).toarray()
+            ev = np.linalg.eigvalsh((H + H.conj().T) / 2)
+            res[(m1, m2)] = ev[:nev]
+    return res, dim
+
+lat_rows = []
+plan = [(4, 2), (4, 4), (4, 8), (6, 2), (6, 3)]
+for L, Np in plan:
+    f = Np / (L * L)
+    for d in DELTAS:
+        res, dim = sector_spectra(L, Np, d)
+        E0 = min(v[0] for v in res.values())
+        gs_sector = min(res, key=lambda k: res[k][0])
+        u = (1 - d) * 4 * f * (1 - f)
+        modes = []
+        for (m1, m2) in ((1, 0), (0, 1), (1, 1), (2, 0), (1, 2), (2, 1), (2, 2)):
+            if (m1, m2) not in res or m1 >= L or m2 >= L: continue
+            k1, k2 = 2 * math.pi * m1 / L, 2 * math.pi * m2 / L
+            lam = lam_tri(k1, k2); ka = kabs(((k1 + math.pi) % (2 * math.pi)) - math.pi, ((k2 + math.pi) % (2 * math.pi)) - math.pi)
+            om = float(res[(m1, m2)][0] - E0)
+            modes.append({'m': [m1, m2], 'lambda': lam, 'omega_ED': om, 'omega_LSWT': lswt(lam, 6, u), 'omega_free_lambda/2': lam / 2,
+                          'ratio_ED_over_LSWT': (om / lswt(lam, 6, u) if lswt(lam, 6, u) > 1e-12 else None)})
+        k1 = 2 * math.pi / L
+        row = {'L': L, 'quanta': Np, 'filling': f, 'Delta': d, 'dimension': dim, 'ground_state_momentum': list(gs_sector), 'u': u,
+               'modes': modes, 'c_ED_from_k_min': modes[0]['omega_ED'] / kabs(k1, 0.0), 'c_LSWT_at_k_min': modes[0]['omega_LSWT'] / kabs(k1, 0.0),
+               'c_LSWT_k_to_0': 1.5 * math.sqrt(max(0.0, u)),
+               'omega_over_lambda_at_k_min': modes[0]['omega_ED'] / modes[0]['lambda']}
+        lat_rows.append(row)
+        print(f'tri L={L} N={Np} f={f:.3f} Delta={d:+.1f} dim={dim}: gs k={gs_sector}; k_min: omega_ED={modes[0]["omega_ED"]:.5f} LSWT={modes[0]["omega_LSWT"]:.5f} lambda/2={modes[0]["lambda"] / 2:.5f}'
+              f' | c_ED={row["c_ED_from_k_min"]:.4f} c_LSWT(k_min)={row["c_LSWT_at_k_min"]:.4f} c_LSWT(0)={row["c_LSWT_k_to_0"]:.4f} | elapsed {time.time() - t00:.1f}', flush=True)
+out['triangular_lattice'] = lat_rows
+Path(HERE / 't3_flow.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't3_flow.json')

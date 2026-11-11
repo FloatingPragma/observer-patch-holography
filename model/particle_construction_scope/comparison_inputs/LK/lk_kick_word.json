@@ -1,0 +1,38 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "model/coherent_seam_repair/program.py sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/common.py sha256": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/common_source/slow_geometry.py sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "words": {
+  "h = 2 atan(1/64) (the finite control of KOIDE_SOURCE)": {
+   "kick exp(-i h J (x) Qx): native pulses": 40,
+   "kick: operator-norm distance to the ideal diagonal": 1.2577280070796085e-15,
+   "toggle T(h/2) = exp(+i (h/2) J (x) Z_F Z_I): native pulses": 32,
+   "toggle: distance": 1.0962730697194608e-15,
+   "oriented toggle exp(-i (h/2) Z0 Z1 Z2 Z3): native pulses": 19,
+   "oriented toggle: distance": 8.81185343425638e-16,
+   "pulse kinds used": [
+    "H",
+    "J",
+    "Z"
+   ]
+  },
+  "h = pi/2 (strong kick)": {
+   "kick exp(-i h J (x) Qx): native pulses": 40,
+   "kick: operator-norm distance to the ideal diagonal": 1.6762936305203948e-15,
+   "toggle T(h/2) = exp(+i (h/2) J (x) Z_F Z_I): native pulses": 32,
+   "toggle: distance": 1.5231444072102393e-15,
+   "oriented toggle exp(-i (h/2) Z0 Z1 Z2 Z3): native pulses": 19,
+   "oriented toggle: distance": 1.2484172587811383e-15,
+   "pulse kinds used": [
+    "H",
+    "J",
+    "Z"
+   ]
+  }
+ },
+ "reading": "the kick is a word of four tensor-Z rotations of the public source-control compiler on four encoded bits; the coherent load of the four bits into the processor code and the analogue angle are specified apparatus of that service, as for the kick of KOIDE_SOURCE",
+ "seconds": 291.86
+}

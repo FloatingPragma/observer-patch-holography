@@ -1,0 +1,104 @@
+{
+ "D1_B_normal_and_commuting_below_edge": true,
+ "D2_truncation_equals_audit_memory": true,
+ "D2_truncation_b0_equals_R8_register": true,
+ "D3_register_charges_transform_B_as_the_doublet_levels": true,
+ "D3_su2_algebra_of_register_charges": true,
+ "D6_parity_anticommutes_with_B": true,
+ "D4_V_squared_equals_BdagB_below_edge": true,
+ "D4_toggle_commutes_with_pattern_plus_register_charges": true,
+ "D4_consequence": "exp(-i g V) = cos(g |B|) - i sin(g |B|) V/|B| with |B|^2 = sum_k B_k^dag B_k: the mass angle of every pattern is the operator g |B|; on a Higgs state it is g |beta|",
+ "D5_gauss_two_cells_one_link": {
+  "dimension": 194400,
+  "register_truncation": 2,
+  "max_commutator_H_Gx_12_generators": 1.1102230246251565e-16,
+  "max_commutator_H_Gy_12_generators": 5.551115123125783e-17,
+  "max_commutator_BdagB_squared_Gx": 0.0,
+  "control_without_register_charge_max": 0.21920310216782973,
+  "control_without_register_charge_min": 0.0
+ },
+ "group_A": {
+  "A1_oscillator": {
+   "nbody_u0_to_u5": [
+    "0",
+    "omega",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "U2": "0",
+   "lambda_0": "0"
+  },
+  "A2_reflection_about_vacuum": {
+   "nbody_u0_to_u5": [
+    "0",
+    "omega",
+    "-omega",
+    "omega",
+    "-omega",
+    "omega"
+   ],
+   "U2": "-omega",
+   "coherent_state_symbol": "omega (1 - exp(-|alpha|^2)), |alpha|^2 the mean total occupation",
+   "energy_at_large_occupation": "omega for every N >= 1: no cost for a further quantum"
+  },
+  "A3_central_flux": {
+   "derived_cost_by_class_5trace": [
+    "0",
+    "17/10",
+    "9/10",
+    "4/5",
+    "9/10",
+    "17/10"
+   ],
+   "derived_cost_by_class_swap_test": [
+    "0",
+    "1/5",
+    "3/5",
+    "4/5",
+    "3/5",
+    "1/5"
+   ],
+   "declared_cost_table_of_the_runs_(not_used)": [
+    0,
+    5,
+    8,
+    10,
+    8,
+    5
+   ],
+   "c_3": "4/5",
+   "nbody_u0_to_u5": [
+    "0",
+    "c_3",
+    "-2*c_3",
+    "4*c_3",
+    "-8*c_3",
+    "16*c_3"
+   ],
+   "U2": "-2 c_3",
+   "operator": "(c_3/2)(1 - (-1)^(N_a+N_b))",
+   "coherent_state_symbol": "(c_3/2)(1 - exp(-2 |alpha|^2))",
+   "reading": "the cost depends on the occupation parity only: the Z2 bit of HT's C1 (bounded register)"
+  },
+  "A4_gauss_electric_energy": {
+   "charge_expectation_on_static_coherent_states": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "result": "normal-ordered Q^a Q^a vanishes at Pi = 0: no component in V(Phi); the ordering term is linear in the occupation (a mass-type term); the term is the Coulomb part of the gauge exchange"
+  },
+  "A5_swap_test": {
+   "normalized": "1 - |Phi_x^dag U Phi_y|^2/(|Phi_x|^2 |Phi_y|^2): homogeneous of degree zero, no modulus term",
+   "unnormalized": "|Phi_x^dag U Phi_y|^2 = |Phi|^4 at Phi_x = Phi_y, U = 1: lambda_0 of order one per link (three links per cell): HT's nonlinear end"
+  },
+  "A6_toggle_record_probability": {
+   "p(n)": "sin^2(g sqrt(n))",
+   "series_in_g": "2*g**6*n**3/45 - g**4*n**2/3 + g**2*n",
+   "n_squared_coefficient": "-g**4/3"
+  }
+ }
+}

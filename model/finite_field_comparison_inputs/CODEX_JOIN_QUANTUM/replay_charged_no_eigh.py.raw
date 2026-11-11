@@ -1,0 +1,53 @@
+"""Fresh full odd-channel receipt replay with eigen-solvers disabled."""
+import json
+from pathlib import Path
+import numpy.linalg
+import scipy.linalg
+import scipy.sparse.linalg
+import sympy as s
+from functools import lru_cache
+from sympy.matrices.matrixbase import MatrixBase
+
+
+def forbidden(*args,**kwargs):
+    raise AssertionError('eigensolver called during the interacting charged replay')
+
+
+for module in (numpy.linalg,scipy.linalg,scipy.sparse.linalg):
+    for name in ('eig','eigh','eigvals','eigvalsh','eigs','eigsh','lobpcg','schur'):
+        if hasattr(module,name):setattr(module,name,forbidden)
+for name in ('eigenvals','eigenvects','diagonalize','jordan_form'):
+    setattr(MatrixBase,name,forbidden)
+
+# The frozen lepton helper uses an exact SymPy eigenvals call. Rebuild its
+# seven integer spectra by direct characteristic-polynomial division,
+# keeping the parent source untouched and every eigensolver disabled.
+from model.coherent_defect_wave.chiral_joint.local_reference import algebra,reduction
+
+
+@lru_cache(maxsize=1)
+def exact_lepton_data():
+    matrices=tuple(algebra.one_body_fock(m.extract(algebra.LEPTONS,algebra.LEPTONS))
+        for m in algebra.transitions())
+    squared=s.ImmutableSparseMatrix(sum((m.T*m for m in matrices),s.zeros(64)))
+    rows=[];x=s.Symbol('x')
+    for n in range(7):
+        ids=[j for j in range(64) if j.bit_count()==n]
+        p=s.Poly(squared.extract(ids,ids).charpoly(x).as_expr(),x)
+        spectrum={}
+        for energy in range(7):
+            multiplicity=0
+            while p.degree()>0 and p.eval(energy)==0:
+                p=p.exquo(s.Poly(x-energy,x));multiplicity+=1
+            if multiplicity:spectrum[str(energy)]=multiplicity
+        assert p==s.Poly(1,x) and sum(spectrum.values())==len(ids)
+        rows.append({'transformed_number':n,'raw_L':n-2,'squared_transfer_spectrum':spectrum})
+    return matrices,squared,rows
+
+
+algebra.lepton_data=exact_lepton_data
+reduction.lepton_data=exact_lepton_data
+from model.coherent_defect_wave.chiral_joint.interacting_charged_response.certificate import certificate
+from model.coherent_defect_wave.chiral_joint.interacting_charged_response import __file__ as package_file
+assert certificate()==json.loads(Path(package_file).with_name('results.json').read_text())
+print('PASS: complete interacting odd ec/L records, exact positive local measures, full reference sectors, no eigensolver')

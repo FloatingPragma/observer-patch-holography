@@ -1,0 +1,50 @@
+"""Task KOI, part 2/9, addition: the third-turn combined with a staggered on-site phase exp(i K.x).
+
+Such an operation acts on the period symbol as p -> R p + K. Test, exactly at four rational momenta: is there a constant
+4 x 4 matrix V with V U2(p) = U2(Rp + K) V (unitary form) or V conj(U2(p)) = U2(-Rp + K) V (antiunitary form), for the
+eight shifts K in {0, pi/2}^3 (U2 is pi-periodic in every component) and for the turn R and its inverse?
+Output: koide.json key 'two_ninths_shift'.
+"""
+import itertools
+import sympy as sp
+from koide_lib import save, load
+
+I = sp.I
+S = [sp.Matrix([[0, 1], [1, 0]]), sp.Matrix([[0, -I], [I, 0]]), sp.Matrix([[1, 0], [0, -1]])]
+alpha = [sp.kronecker_product(S[0], s_) for s_ in S]
+
+
+def ex(i, t, k):
+    """exp(-i (p + k pi/2) alpha_i) with tan(p/2) = t"""
+    co, si = (1 - t ** 2) / (1 + t ** 2), 2 * t / (1 + t ** 2)
+    base = co * sp.eye(4) - I * si * alpha[i]
+    return base * (sp.eye(4) if k % 2 == 0 else -I * alpha[i]) * (1 if k % 4 in (0, 1) else -1)
+
+
+def U2(ts, ks=(0, 0, 0)):
+    fwd = ex(2, ts[2], ks[2]) * ex(1, ts[1], ks[1]) * ex(0, ts[0], ks[0])
+    rev = ex(0, ts[0], ks[0]) * ex(1, ts[1], ks[1]) * ex(2, ts[2], ks[2])
+    return rev * fwd
+
+
+pts = [(sp.Rational(1, 2), sp.Rational(1, 3), sp.Rational(1, 5)), (sp.Rational(2, 3), sp.Rational(-1, 4), sp.Rational(3, 7)),
+       (sp.Rational(-1, 3), sp.Rational(1, 6), sp.Rational(2, 5)), (sp.Rational(1, 7), sp.Rational(3, 5), sp.Rational(-2, 3))]
+Vs = sp.Matrix(4, 4, lambda i, j: sp.Symbol(f'v{i}{j}'))
+syms = [sp.Symbol(f'v{i}{j}') for i in range(4) for j in range(4)]
+rots = {'R': lambda t: (t[2], t[0], t[1]), 'R^-1': lambda t: (t[1], t[2], t[0])}
+res = {}
+for rname, rf in rots.items():
+    for K in itertools.product((0, 1), repeat=3):
+        for form in ('unitary', 'antiunitary'):
+            eqs = []
+            for ts in pts:
+                A = U2(ts)
+                if form == 'unitary':
+                    B = U2(rf(ts), K); eqs += list(Vs * A - B * Vs)
+                else:
+                    B = U2(tuple(-x for x in rf(ts)), K); eqs += list(Vs * A.conjugate() - B * Vs)
+            Mx = sp.Matrix([[sp.expand(e).coeff(v) for v in syms] for e in eqs])
+            res[f'{form}, {rname}, K = {K} (pi/2)'] = 16 - Mx.rank()
+nonzero = {k: v for k, v in res.items() if v}
+print('solutions with a nonzero V:', nonzero if nonzero else 'none', '| cases', len(res))
+save('two_ninths_shift', {'test': __doc__.split('\n\n')[1], 'solution_space_dimensions': res, 'nonzero': nonzero, 'label': 'EXACT'})

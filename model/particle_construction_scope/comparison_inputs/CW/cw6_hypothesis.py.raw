@@ -1,0 +1,180 @@
+"""CW addition 1: test of the simulation session's hypothesis on the Bloch matrices.
+
+Hypothesis (first-order perturbation theory, simulation session): glued port axes parallel after the frame transport
+-> the doublet band stays degenerate at q = 0 and disperses quadratically; not parallel -> splitting b sigma_n at
+q = 0 and a Rashba term, E = a +- sqrt(b^2 + v^2 q^2).
+
+What is computed, for flux k = 1 and 2, wirings F and B, and every one of the sixteen uniform chart-transport rules
+of the simulation session (work/MG/mg_lib.py: T = r^k' g r^-k, g = identity ('S') or one of the 15 half turns):
+  * the angle between the transported glue port axis and the axis of the port it is glued to (0 = parallel);
+  * the glue link of bond j, the phase of <chi_{p_j}| U(T_j) |chi_{p_j}>^k, for the covariant lift
+    U_j = U_r^j U_g U_r^-j and for the canonical lift of mg_lib (trace >= 0);
+  * the zone shift kappa that the three glue phases amount to (lemma: translation-invariant glue phases are a
+    gauge transformation composed with a shift of the zone origin), and the named point it lands on;
+  * at the rule's own q = 0: levels of the lowest complex relative to the carrier level, the splitting of the two
+    lowest levels, the gradient (linear coefficient) of the second band, and the two-band test for every
+    consecutive pair.
+Second part: the first-order model itself (glue projected on the leading doublet of both carriers) against the
+exact bands, k = 1.
+
+Run: python cw6_hypothesis.py  -> cw6_hypothesis.json   (reads ../MG/mg_lib.py, read-only)
+"""
+import json
+import math
+import os
+import sys
+
+import numpy as np
+
+import cw_lib as C
+import cw_shell as R
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(HERE, '..', 'MG'))
+import mg_lib as MG  # noqa: E402
+
+out = {'source_of_rules': 'repair-law/work/MG/mg_lib.py (RULES16, B2, ODD_LIFT, R3)', 'frames_json_present': sorted(f for f in os.listdir(os.path.join(HERE, '..', 'MG')) if f.startswith('frames_'))}
+CHI = [MG.spinor(u) for u in MG.PORT_UNIT]                       # template frame, the frame of MG.B2
+UR = MG.B2[MG.ODD_LIFT[MG.R3]]                                    # lift of order three of the third of a turn
+assert np.allclose(UR @ UR @ UR, np.eye(2))
+WIR = {'F': C.F_TRIPLE, 'B': C.B_TRIPLE}
+rows = []
+for name, base in WIR.items():
+    for k in (1, 2):
+        wc = np.linalg.eigvalsh(C.L_float(k)); l0 = float(wc[0]); d = int(np.sum(np.abs(wc - l0) < 1e-8))
+        ref = {nm: C.bands(p, k, base, base)[:2 * d] - l0 for nm, p in (('Gamma', np.zeros(2)), ('K', C.KPT), ("K'", -C.KPT), ('M', C.MPT))}
+        for g in MG.RULES16:
+            rname = MG.rule_name(g, base)
+            for lift in ('covariant', 'canonical'):
+                phases, angles, ok = [], [], True
+                for j in range(3):
+                    gj = int(MG.MUL[MG.RPOW[j], MG.MUL[g, MG.INV[MG.RPOW[j]]]])
+                    if lift == 'covariant':
+                        Uj = np.linalg.matrix_power(UR, j) @ MG.B2[2 * g] @ np.linalg.matrix_power(UR.conj().T, j)
+                    else:
+                        Uj = MG.B2[2 * gj]
+                    assert np.allclose(MG.so3_of(Uj), MG.ROT_MATS[gj], atol=1e-9)
+                    p = base[j]
+                    tp = MG.ROT60[gj][p]
+                    angles.append(math.degrees(math.acos(max(-1.0, min(1.0, float(MG.PORT_UNIT[tp] @ MG.PORT_UNIT[p]))))))
+                    z = np.vdot(CHI[p], Uj @ CHI[p])
+                    if abs(z) < 1e-9:
+                        ok = False; break
+                    phases.append((z / abs(z)) ** k)
+                row = {'wiring': name, 'k': k, 'rule': rname, 'g': int(g), 'lift': lift,
+                       'angle_between_transported_axis_and_glued_axis_deg': [round(a, 4) for a in angles]}
+                if not ok:
+                    row['defined'] = False
+                    row['note'] = 'transported port is antipodal to the glued port: the overlap vanishes, no phase'
+                    rows.append(row); continue
+                glue = np.array(phases)
+                al = np.array([np.angle(glue[1] / glue[0]), np.angle(glue[2] / glue[0])])
+                kap = np.linalg.solve(np.array([C.A1, C.A2]), al)
+                f = lambda q: C.bands(q, k, base, base, glue=glue)
+                e0 = f(np.zeros(2))[:2 * d] - l0
+                same = float(max(np.abs(f(q) - C.bands(q - kap, k, base, base)).max() for q in C.zone_grid(5)))
+                h = 1e-5
+                grad = max(abs(float(f(h * e)[1] - f(-h * e)[1])) / (2 * h) for e in R.DIRS12)
+                pairs = []
+                for lo in range(2 * d - 1):
+                    cr = R.cone_readout(f, lo, lo + 1, np.zeros(2))
+                    pairs.append({'bands': [lo, lo + 1], 'b': cr['half_splitting_b'], 'v': cr.get('slope_v'), 'residual': cr.get('hyperbola_residual_rel_in_window'),
+                                  'mid_drift_over_splitting_change': cr.get('mid_drift_over_splitting_change'), 'slope_anisotropy': cr.get('slope_anisotropy')})
+                row.update({'defined': True, 'glue_phases_units_of_2pi': [float(np.angle(x) / (2 * np.pi)) for x in glue],
+                            'zone_shift_kappa': kap.tolist(), 'q0_of_rule_is_point': C.name_point(-kap) if C.name_point(-kap) != 'generic' else C.name_point(kap),
+                            'bands_equal_rule_S_shifted_max_diff': same, 'levels_minus_l0_at_rule_q0': e0.tolist(),
+                            'splitting_of_two_lowest_at_q0': float(e0[1] - e0[0]), 'gradient_of_second_band_at_q0': grad, 'pairs_at_q0': pairs})
+                rows.append(row)
+        out[f'reference_levels_minus_l0_{name}_k{k}'] = {nm: v.tolist() for nm, v in ref.items()}
+out['rules'] = rows
+print('wiring k rule lift | parallel? | zone point of q=0 | splitting of two lowest | gradient | bands = rule S shifted')
+for r in rows:
+    if not r['defined']:
+        print(f"{r['wiring']} k={r['k']} {r['rule']:>4} {r['lift']:9s} | angles {r['angle_between_transported_axis_and_glued_axis_deg']} | undefined (antipodal)")
+        continue
+    print(f"{r['wiring']} k={r['k']} {r['rule']:>4} {r['lift']:9s} | angles {r['angle_between_transported_axis_and_glued_axis_deg']} | {r['q0_of_rule_is_point']:7s} | "
+          f"{r['splitting_of_two_lowest_at_q0']:.3e} | {r['gradient_of_second_band_at_q0']:.2e} | {r['bands_equal_rule_S_shifted_max_diff']:.1e}")
+summ = {}
+for r in rows:
+    if r['defined']:
+        key = (r['wiring'], r['k'], r['lift'])
+        s = summ.setdefault(key, {'rules': 0, 'parallel': 0, 'points': {}, 'max_splitting_at_Gamma_rules': 0.0, 'max_band_diff_after_shift': 0.0})
+        s['rules'] += 1
+        s['parallel'] += int(max(r['angle_between_transported_axis_and_glued_axis_deg']) < 1e-6)
+        s['points'][r['q0_of_rule_is_point']] = s['points'].get(r['q0_of_rule_is_point'], 0) + 1
+        s['max_band_diff_after_shift'] = max(s['max_band_diff_after_shift'], r['bands_equal_rule_S_shifted_max_diff'])
+        if r['q0_of_rule_is_point'] == 'Gamma':
+            s['max_splitting_at_Gamma_rules'] = max(s['max_splitting_at_Gamma_rules'], r['splitting_of_two_lowest_at_q0'])
+out['summary'] = {f'{a},{b},{c}': v for (a, b, c), v in summ.items()}
+print(json.dumps(out['summary'], indent=1))
+
+# ---------------------------------------------------------------- the first-order model against the exact bands (k = 1)
+fo = []
+for name, base in WIR.items():
+    k = 1
+    Lk = C.L_float(k)
+    w, V = np.linalg.eigh(Lk)
+    D = V[:, :2]; l0 = float(w[0])                                # the leading doublet (orthonormal columns)
+
+    def heff(q):
+        H = np.zeros((4, 4), complex)
+        for j in range(3):
+            row = D[base[j], :]                                   # amplitudes of the two doublet states on the glue port
+            Pj = np.outer(row.conj(), row)                        # 2 x 2: <s|p><p|s'>
+            ph = np.exp(-1j * (q @ C.DELTA[j]))
+            H[:2, :2] += Pj; H[2:, 2:] += Pj
+            H[2:, :2] -= ph * Pj; H[:2, 2:] -= np.conj(ph) * Pj
+        return H
+    for nm, p in (('Gamma', np.zeros(2)), ('K', C.KPT), ('M', C.MPT)):
+        ex = C.bands(p, k, base, base)[:4] - l0
+        ap = np.linalg.eigvalsh(heff(p))
+        fo.append({'wiring': name, 'point': nm, 'exact_minus_l0': ex.tolist(), 'first_order_minus_l0': ap.tolist()})
+        print(f'first-order doublet model, {name}, {nm}: exact {np.round(ex, 6)}  first order {np.round(ap, 6)}')
+    # curvature of the band that touches the flat band at Gamma
+    h = 4e-3
+    cex = np.mean([R.d2(lambda t, e=e: float(C.bands(t * e, k, base, base)[1]), h) for e in R.DIRS12])
+    cfo = np.mean([R.d2(lambda t, e=e: float(np.linalg.eigvalsh(heff(t * e))[1]), h) for e in R.DIRS12])
+    rank = [int(np.linalg.matrix_rank(heff(p), tol=1e-10)) for p in (np.zeros(2), C.KPT, np.array([0.31, -0.77]))]
+    fo.append({'wiring': name, 'second_derivative_of_touching_band_exact': float(cex), 'first_order': float(cfo), 'rank_of_first_order_matrix_at_Gamma_K_generic': rank})
+    print(f'   second derivative of the band touching the flat band at Gamma: exact {cex:.6f}, first order {cfo:.6f}; rank of the 4 x 4 first-order matrix at Gamma, K, generic: {rank}')
+out['first_order_model_k1'] = fo
+
+# ---------------------------------------------------------------- variant: the glue hop keeps the modulus of the overlap
+# This is NOT a recharting (the seam states (|a> +- g|b>)/sqrt2 need |g| = 1). It is the reading under which the
+# hypothesis has content: hop amplitude g = <chi_q| U_T |chi_p> with |g| = cos(angle/2) < 1, diagonal unchanged.
+var = []
+print('\nvariant (declared, not a recharting): glue hop amplitude = overlap with its modulus cos(angle/2)')
+print('wiring k rule | modulus | levels - l0 at q=0 (lowest 2d) | splitting of two lowest (first-order prediction) | gradient band0, band1 | flat bands at l0 | two-band test of the lowest pair: b, v, residual')
+for name, base in WIR.items():
+    for k in (1, 2):
+        Lk = C.L_float(k)
+        w, V = np.linalg.eigh(Lk); l0 = float(w[0]); d = int(np.sum(np.abs(w - l0) < 1e-8))
+        D = V[:, :d]
+        for g in MG.RULES16:
+            rname = MG.rule_name(g, base)
+            zs = []
+            for j in range(3):
+                Uj = np.linalg.matrix_power(UR, j) @ MG.B2[2 * g] @ np.linalg.matrix_power(UR.conj().T, j)
+                zs.append(np.vdot(CHI[base[j]], Uj @ CHI[base[j]]))
+            mod = float(abs(zs[0]))
+            if mod < 1e-9:
+                continue
+            glue = np.array([mod * (z / abs(z)) ** k for z in zs])
+            f = lambda q: C.bands(q, k, base, base, glue=glue)
+            e0 = f(np.zeros(2))[:2 * d] - l0
+            h = 1e-5
+            grads = [max(abs(float(f(h * e)[b] - f(-h * e)[b])) / (2 * h) for e in R.DIRS12) for b in (0, 1)]
+            Pi = sum(np.outer(D[base[j], :].conj(), D[base[j], :]) for j in range(3))
+            pred = np.linalg.eigvalsh((1 - mod) * Pi)
+            ev = np.array([f(q) for q in C.zone_grid(12)])
+            nflat = int(np.sum(np.abs(ev - l0).max(0) < 1e-8))
+            cr = R.cone_readout(f, 0, 1, np.zeros(2))
+            var.append({'wiring': name, 'k': k, 'rule': rname, 'modulus': mod, 'levels_minus_l0_at_q0': e0.tolist(), 'splitting_of_two_lowest': float(e0[1] - e0[0]),
+                        'first_order_levels_of_symmetric_block': pred.tolist(), 'gradient_band0_band1_at_q0': grads, 'flat_bands_at_l0': nflat,
+                        'spectrum_bottom_minus_l0': float(ev.min() - l0), 'lowest_pair_two_band': {'b': cr['half_splitting_b'], 'v': cr.get('slope_v'), 'residual': cr.get('hyperbola_residual_rel_in_window'),
+                                                                                                 'mid_drift_over_splitting_change': cr.get('mid_drift_over_splitting_change')}})
+            print(f"{name} k={k} {rname:>4} | {mod:.4f} | {np.round(e0, 6)} | {e0[1] - e0[0]:.6f} ({pred[1] - pred[0]:.6f}) | {grads[0]:.1e}, {grads[1]:.1e} | {nflat} | "
+                  f"b {cr['half_splitting_b']:.6f} v {cr.get('slope_v')} resid {cr.get('hyperbola_residual_rel_in_window')}")
+out['variant_modulus_kept'] = var
+json.dump(out, open(os.path.join(HERE, 'cw6_hypothesis.json'), 'w'), indent=1)
+print('written cw6_hypothesis.json')

@@ -1,0 +1,21 @@
+"""ctypes wrapper for gates.c (S2 scratch)."""
+import ctypes
+from pathlib import Path
+import numpy as np
+HERE = Path(__file__).resolve().parent
+lib = ctypes.CDLL(str(HERE / 'gates.dylib'))
+PC = ctypes.c_void_p; P32 = ctypes.POINTER(ctypes.c_int32); PU = ctypes.POINTER(ctypes.c_uint64)
+lib.seed.argtypes = [PU, ctypes.c_uint64]
+lib.apply_order.argtypes = [PC, P32, P32, PC, P32, ctypes.c_int64]
+lib.apply_uniform.argtypes = [PC, P32, P32, PC, ctypes.c_int64, ctypes.c_int64, PU]
+lib.apply_permutations.argtypes = [PC, P32, P32, PC, ctypes.c_int64, ctypes.c_int64, P32, PU]
+lib.apply_group_uniform.argtypes = [PC, P32, P32, PC, P32, ctypes.c_int64, ctypes.c_int64, PU]
+lib.apply_group_permutations.argtypes = [PC, P32, P32, PC, P32, ctypes.c_int64, ctypes.c_int64, P32, PU]
+p32 = lambda x: x.ctypes.data_as(P32)
+pc = lambda x: x.ctypes.data_as(PC)
+def rng_state(seed):
+    s = (ctypes.c_uint64 * 4)(); lib.seed(s, seed); return s
+def gate_matrix(chi=np.pi / 4, sign=1, theta=0.0):
+    """exp(i chi) exp(-i sign pi/4 sigma_x) with link phase theta on the hop a->b (entry [b,a] gets exp(+i theta))."""
+    v0 = np.exp(1j * chi) / np.sqrt(2); v1 = -1j * sign * np.exp(1j * chi) / np.sqrt(2)
+    return np.array([v0, v1 * np.exp(-1j * theta), v1 * np.exp(1j * theta), v0], complex)

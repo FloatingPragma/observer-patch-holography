@@ -1,0 +1,885 @@
+{
+ "inputs": {
+  "alpha_P": "0.0072995452617",
+  "a2_P": 5.398733207759144e-06,
+  "a2_CODATA": 5.395490263244675e-06,
+  "register_mu_over_e": "206.770315973",
+  "register_tau_over_e": "3477.472837",
+  "lepton_masses_GeV_electron_anchor": {
+   "e": 0.00051099895069,
+   "mu": 0.10565941449590446,
+   "tau": 1.776984970813427
+  },
+  "measured_NOT_BLIND": {
+   "mu_over_e": "206.7682827",
+   "m_tau_MeV": "1776.93",
+   "tau_over_e": "3477.365262",
+   "Q_minus_two_thirds": -2.2032640299637283e-06,
+   "sigma_ln_mu_e": 2.224712581607179e-08,
+   "sigma_ln_tau_e": 5.0649153314987085e-05
+  }
+ },
+ "hadronic_functionals_IMPORTED": {
+  "e": {
+   "uds": {
+    "degenerate_reference": 49.88744826989717,
+    "massless_reference": 53.71459250664473,
+    "decoupled_remainder_h": -1.4691138258714468e-05,
+    "ell": -25.793326786218085,
+    "P": 3.1472902871052514e-06,
+    "N": 2.0
+   },
+   "c": {
+    "degenerate_reference": 55.434986416023,
+    "massless_reference": 57.98641590673568,
+    "decoupled_remainder_h": -3.421173619856666e-07,
+    "ell": -22.871394735246454,
+    "P": 5.895659368096899e-08,
+    "N": 1.3333333333333333
+   },
+   "b": {
+    "degenerate_reference": 18.217852584500818,
+    "massless_reference": 18.855709958890078,
+    "decoupled_remainder_h": -7.807632567285394e-09,
+    "ell": -6.647802493497139,
+    "P": 1.1800914157537921e-09,
+    "N": 0.3333333333333333
+   }
+  },
+  "mu": {
+   "uds": {
+    "degenerate_reference": 0.7904419005822874,
+    "massless_reference": 4.618036804491765,
+    "decoupled_remainder_h": -0.15671705514034975,
+    "ell": -2.0280338579059927,
+    "P": 0.13139286452553608,
+    "N": 2.0
+   },
+   "c": {
+    "degenerate_reference": 7.671752754727283,
+    "massless_reference": 10.223482691111654,
+    "decoupled_remainder_h": -0.0056765580379502705,
+    "ell": -7.0278661170755035,
+    "P": 0.0025186588405762696,
+    "N": 1.3333333333333333
+   },
+   "b": {
+    "degenerate_reference": 3.799233874605573,
+    "massless_reference": 4.437166359095094,
+    "decoupled_remainder_h": -0.00015449892583829547,
+    "ell": -2.686920337707476,
+    "P": 5.045000786786187e-05,
+    "N": 0.3333333333333333
+   }
+  },
+  "tau": {
+   "uds": {
+    "degenerate_reference": -3.4245325896076118,
+    "massless_reference": 0.34961978184827935,
+    "decoupled_remainder_h": -4.13261793766098,
+    "ell": 10.546671215923325,
+    "P": 7.1516003211575905,
+    "N": 2.0
+   },
+   "c": {
+    "degenerate_reference": -0.9025376902828114,
+    "massless_reference": 1.6135638907232128,
+    "decoupled_remainder_h": -0.4106851388549908,
+    "ell": 1.355270598842309,
+    "P": 0.5889210035155457,
+    "N": 1.3333333333333333
+   },
+   "b": {
+    "degenerate_reference": 0.4272074074927467,
+    "massless_reference": 1.0562328028997408,
+    "decoupled_remainder_h": -0.017485264704725337,
+    "ell": -0.5911361586988166,
+    "P": 0.01399172302934977,
+    "N": 0.3333333333333333
+   }
+  }
+ },
+ "three_loop": {
+  "MvR_d3_4": 0.8416860853426403,
+  "MvR_d3_5": 2.4936372964417672,
+  "MvR_d3_8": -0.06673044649184431,
+  "MvR_d3_9": -0.19224135058829986,
+  "MvR_d3_10": -1.9580722472446312,
+  "species_coefficient_QED_one_massless_species": -1.9409841251210578,
+  "R4_three_loop_coefficient_at_fixed_abar": 1.3826287527983632,
+  "a3": 1.254405066196286e-08
+ },
+ "rows": {
+  "R0": {
+   "W_leptonic": {
+    "e": 0.0,
+    "mu": 0.0,
+    "tau": 0.0
+   },
+   "W_hadronic_IMPORTED": {
+    "e": 0.0,
+    "mu": 0.0,
+    "tau": 0.0
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": 0.0,
+   "coefficient_of_a2_in_ln_mu_over_e_total": 0.0,
+   "three_loop_band_T_ppm": 0.02434780319958421,
+   "leptonic_only": {
+    "label": "pole in the real vacuum (control) [leptonic terms only]",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": 0.0,
+     "tau": 0.0
+    },
+    "mu_over_e": "206.770315973",
+    "tau_over_e": "3477.472837",
+    "m_mu_MeV_electron_anchor": "105.6594145",
+    "m_tau_MeV_electron_anchor": "1776.98497",
+    "Q_minus_two_thirds": 1.1479437019748901e-41,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 9.833533004807178,
+     "mu_e_pull_sigma": 442.013637451685,
+     "tau_e_residual_ppm": 30.935356576046534,
+     "tau_e_pull_sigma": 0.6107773684519374,
+     "m_tau_minus_measured_MeV": 0.05497081342714778
+    }
+   },
+   "with_hadrons": {
+    "label": "pole in the real vacuum (control) [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": 0.0,
+     "tau": 0.0
+    },
+    "mu_over_e": "206.770315973",
+    "tau_over_e": "3477.472837",
+    "m_mu_MeV_electron_anchor": "105.6594145",
+    "m_tau_MeV_electron_anchor": "1776.98497",
+    "Q_minus_two_thirds": 1.1479437019748901e-41,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 9.833533004807178,
+     "mu_e_pull_sigma": 442.013637451685,
+     "tau_e_residual_ppm": 30.935356576046534,
+     "tau_e_pull_sigma": 0.6107773684519374,
+     "m_tau_minus_measured_MeV": 0.05497081342714778
+    }
+   },
+   "pass": false
+  },
+  "R1": {
+   "W_leptonic": {
+    "e": -1.969042867813591e-05,
+    "mu": 2.0024739137236036,
+    "tau": 4.336100047693534
+   },
+   "W_hadronic_IMPORTED": {
+    "e": -1.5041063253267421e-05,
+    "mu": -0.16254811210413833,
+    "tau": 0.3129057167481121
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": 2.002493604152282,
+   "coefficient_of_a2_in_ln_mu_over_e_total": 1.8399605331113966,
+   "three_loop_band_T_ppm": 0.17856894500799325,
+   "leptonic_only": {
+    "label": "short-distance mass at the own rest frequency, charge at zero momentum transfer (DA Z2, look 2) [leptonic terms only]",
+    "shift_ppm": {
+     "e": -0.00010630337117966533,
+     "mu": 10.810822415691039,
+     "tau": 23.40944731964909
+    },
+    "mu_over_e": "206.772551352",
+    "tau_over_e": "3477.554243",
+    "m_mu_MeV_electron_anchor": "105.66055677",
+    "m_tau_MeV_electron_anchor": "1777.02657",
+    "Q_minus_two_thirds": 1.3588106633392639e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 20.644403287349913,
+     "mu_e_pull_sigma": 927.9582206720818,
+     "tau_e_residual_ppm": 54.34463620223097,
+     "tau_e_pull_sigma": 1.0729623822981142,
+     "m_tau_minus_measured_MeV": 0.09656923839312787
+    }
+   },
+   "with_hadrons": {
+    "label": "short-distance mass at the own rest frequency, charge at zero momentum transfer (DA Z2, look 2) [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": -0.00018750605884508594,
+     "mu": 9.93326852501587,
+     "tau": 25.0987418035548
+    },
+    "mu_over_e": "206.772369917",
+    "tau_over_e": "3477.560118",
+    "m_mu_MeV_electron_anchor": "105.66046406",
+    "m_tau_MeV_electron_anchor": "1777.02957",
+    "Q_minus_two_thirds": 1.6085939083996757e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 19.766939701296817,
+     "mu_e_pull_sigma": 888.5165600590421,
+     "tau_e_residual_ppm": 56.033970917510324,
+     "tau_e_pull_sigma": 1.1063160438050181,
+     "m_tau_minus_measured_MeV": 0.09957123360220271
+    }
+   },
+   "pass": false
+  },
+  "R2": {
+   "W_leptonic": {
+    "e": -1.969042867813591e-05,
+    "mu": -1.5519318146415608,
+    "tau": -2.9815757075759666
+   },
+   "W_hadronic_IMPORTED": {
+    "e": -1.5041063253267421e-05,
+    "mu": -0.16254811210413833,
+    "tau": -3.2026513552263296
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": -1.5519121242128826,
+   "coefficient_of_a2_in_ln_mu_over_e_total": -1.7144451952537676,
+   "three_loop_band_T_ppm": 0.13838911155130665,
+   "leptonic_only": {
+    "label": "constant coupling abar(M_k), MSbar charge at the own rest frequency (DA Z3, look 3) [leptonic terms only]",
+    "shift_ppm": {
+     "e": -0.00010630337117966533,
+     "mu": -8.378465823883303,
+     "tau": -16.09673178393834
+    },
+    "mu_over_e": "206.768583577",
+    "tau_over_e": "3477.416862",
+    "m_mu_MeV_electron_anchor": "105.65852924",
+    "m_tau_MeV_electron_anchor": "1776.95637",
+    "Q_minus_two_thirds": -8.47890741737951e-07,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 1.4551383847542254,
+     "mu_e_pull_sigma": 65.40792715358327,
+     "tau_e_residual_ppm": 14.838601541702054,
+     "tau_e_pull_sigma": 0.2929684026388515,
+     "m_tau_minus_measured_MeV": 0.02636735186432684
+    }
+   },
+   "with_hadrons": {
+    "label": "constant coupling abar(M_k), MSbar charge at the own rest frequency (DA Z3, look 3) [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": -0.00018750605884508594,
+     "mu": -9.256019714558471,
+     "tau": -33.38699200827355
+    },
+    "mu_over_e": "206.768402141",
+    "tau_over_e": "3477.356735",
+    "m_mu_MeV_electron_anchor": "105.65843653",
+    "m_tau_MeV_electron_anchor": "1776.92564",
+    "Q_minus_two_thirds": -2.502111025541067e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 0.5776579590927565,
+     "mu_e_pull_sigma": 25.965509606433937,
+     "tau_e_residual_ppm": -2.452005284191542,
+     "tau_e_pull_sigma": -0.04841157499598307,
+     "m_tau_minus_measured_MeV": -0.004357036407898146
+    }
+   },
+   "pass": false
+  },
+  "R3": {
+   "W_leptonic": {
+    "e": -1.969042867813591e-05,
+    "mu": -1.0519318146415608,
+    "tau": -1.9815757075759668
+   },
+   "W_hadronic_IMPORTED": {
+    "e": -1.5041063253267421e-05,
+    "mu": -0.16254811210413833,
+    "tau": -2.20265135522633
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": -1.0519121242128826,
+   "coefficient_of_a2_in_ln_mu_over_e_total": -1.2144451952537676,
+   "three_loop_band_T_ppm": 0.09380246602152303,
+   "leptonic_only": {
+    "label": "short-distance mass at mu = e^(-2/3) M_k [leptonic terms only]",
+    "shift_ppm": {
+     "e": -0.00010630337117966533,
+     "mu": -5.679099220003731,
+     "tau": -10.697998576179195
+    },
+    "mu_over_e": "206.769141726",
+    "tau_over_e": "3477.435635",
+    "m_mu_MeV_electron_anchor": "105.65881446",
+    "m_tau_MeV_electron_anchor": "1776.96596",
+    "Q_minus_two_thirds": -5.533776924749871e-07,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 4.154523962029602,
+     "mu_e_pull_sigma": 186.7443011010567,
+     "tau_e_residual_ppm": 20.237407079243635,
+     "tau_e_pull_sigma": 0.3995606195702266,
+     "m_tau_minus_measured_MeV": 0.03596081963696602
+    }
+   },
+   "with_hadrons": {
+    "label": "short-distance mass at mu = e^(-2/3) M_k [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": -0.00018750605884508594,
+     "mu": -6.556653110678899,
+     "tau": -22.589525592755265
+    },
+    "mu_over_e": "206.76896029",
+    "tau_over_e": "3477.394283",
+    "m_mu_MeV_electron_anchor": "105.65872174",
+    "m_tau_MeV_electron_anchor": "1776.94483",
+    "Q_minus_two_thirds": -1.6659916317008033e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 3.2770459052431784,
+     "mu_e_pull_sigma": 147.3019900339563,
+     "tau_e_residual_ppm": 8.345763342174434,
+     "tau_e_pull_sigma": 0.16477596950677798,
+     "m_tau_minus_measured_MeV": 0.014829899138938242
+    }
+   },
+   "pass": false
+  },
+  "R4": {
+   "W_leptonic": {
+    "e": 0.0,
+    "mu": -1.7055028647768764,
+    "tau": -3.292277174605753
+   },
+   "W_hadronic_IMPORTED": {
+    "e": 0.0,
+    "mu": 0.0,
+    "tau": -3.4245325896076118
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": -1.7055028647768764,
+   "coefficient_of_a2_in_ln_mu_over_e_total": -1.7055028647768764,
+   "three_loop_band_T_ppm": 0.15208530336367415,
+   "leptonic_only": {
+    "label": "degenerate vacuum for the lighter families, parameters fixed above M_k [leptonic terms only]",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": -9.207554951999276,
+     "tau": -17.77412611169153
+    },
+    "mu_over_e": "206.768412124",
+    "tau_over_e": "3477.411028",
+    "m_mu_MeV_electron_anchor": "105.65844163",
+    "m_tau_MeV_electron_anchor": "1776.95339",
+    "Q_minus_two_thirds": -9.402772302040104e-07,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 0.6259356630136,
+     "mu_e_pull_sigma": 28.135574374349563,
+     "tau_e_residual_ppm": 13.161072502703732,
+     "tau_e_pull_sigma": 0.2598478284692149,
+     "m_tau_minus_measured_MeV": 0.02338645845732944
+    }
+   },
+   "with_hadrons": {
+    "label": "degenerate vacuum for the lighter families, parameters fixed above M_k [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": -9.207554951999276,
+     "tau": -36.262263924259564
+    },
+    "mu_over_e": "206.768412124",
+    "tau_over_e": "3477.346736",
+    "m_mu_MeV_electron_anchor": "105.65844163",
+    "m_tau_MeV_electron_anchor": "1776.92053",
+    "Q_minus_two_thirds": -2.7949967303830593e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 0.6259356630136,
+     "mu_e_pull_sigma": 28.135574374349563,
+     "tau_e_residual_ppm": -5.32756484000029,
+     "tau_e_pull_sigma": -0.10518566434601907,
+     "m_tau_minus_measured_MeV": -0.009466684573931381
+    }
+   },
+   "pass": false
+  },
+  "R5": {
+   "W_leptonic": {
+    "e": 62.3741913192433,
+    "mu": 5.487170507296487,
+    "tau": -3.292277174605753
+   },
+   "W_hadronic_IMPORTED": {
+    "e": 0.0,
+    "mu": 0.0,
+    "tau": 0.0
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": -56.88702081194682,
+   "coefficient_of_a2_in_ln_mu_over_e_total": -56.88702081194682,
+   "three_loop_band_T_ppm": 5.072802864375393,
+   "leptonic_only": {
+    "label": "degenerate vacuum for every family at fixed short-distance parameters [leptonic terms only]",
+    "shift_ppm": {
+     "e": 336.741617982321,
+     "mu": 29.623769634378135,
+     "tau": -17.77412611169153
+    },
+    "mu_over_e": "206.706834495",
+    "tau_over_e": "3476.240433",
+    "m_mu_MeV_electron_anchor": "105.62697553",
+    "m_tau_MeV_electron_anchor": "1776.35521",
+    "Q_minus_two_thirds": -7.4527630146812516e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": -297.2280693847421,
+     "mu_e_pull_sigma": -13360.290755852082,
+     "tau_e_residual_ppm": -323.5238607460255,
+     "tau_e_pull_sigma": -6.3875472652826115,
+     "m_tau_minus_measured_MeV": -0.5747862703253328
+    }
+   },
+   "with_hadrons": {
+    "label": "degenerate vacuum for every family at fixed short-distance parameters [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": 336.741617982321,
+     "mu": 29.623769634378135,
+     "tau": -17.77412611169153
+    },
+    "mu_over_e": "206.706834495",
+    "tau_over_e": "3476.240433",
+    "m_mu_MeV_electron_anchor": "105.62697553",
+    "m_tau_MeV_electron_anchor": "1776.35521",
+    "Q_minus_two_thirds": -7.4527630146812516e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": -297.2280693847421,
+     "mu_e_pull_sigma": -13360.290755852082,
+     "tau_e_residual_ppm": -323.5238607460255,
+     "tau_e_pull_sigma": -6.3875472652826115,
+     "m_tau_minus_measured_MeV": -0.5747862703253328
+    }
+   },
+   "pass": false
+  },
+  "R6": {
+   "W_leptonic": {
+    "e": 0.0,
+    "mu": 0.011898235495463257,
+    "tau": 0.14252502593892633
+   },
+   "W_hadronic_IMPORTED": {
+    "e": 0.0,
+    "mu": 0.0,
+    "tau": 0.34961978184827935
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": 0.011898235495463257,
+   "coefficient_of_a2_in_ln_mu_over_e_total": 0.011898235495463257,
+   "three_loop_band_T_ppm": 0.02434780319958421,
+   "leptonic_only": {
+    "label": "vacuum of massless pairs for the lighter families [leptonic terms only]",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": 0.06423539908309606,
+     "tau": 0.769454590473215
+    },
+    "mu_over_e": "206.770329255",
+    "tau_over_e": "3477.475513",
+    "m_mu_MeV_electron_anchor": "105.65942128",
+    "m_tau_MeV_electron_anchor": "1776.98634",
+    "Q_minus_two_thirds": 7.130953781560711e-08,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 9.89776840182718,
+     "mu_e_pull_sigma": 444.9009945669847,
+     "tau_e_residual_ppm": 31.70481087048972,
+     "tau_e_pull_sigma": 0.6259692175566588,
+     "m_tau_minus_measured_MeV": 0.05633812267014209
+    }
+   },
+   "with_hadrons": {
+    "label": "vacuum of massless pairs for the lighter families [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": 0.06423539908309606,
+     "tau": 2.6569585168270287
+    },
+    "mu_over_e": "206.770329255",
+    "tau_over_e": "3477.482077",
+    "m_mu_MeV_electron_anchor": "105.65942128",
+    "m_tau_MeV_electron_anchor": "1776.98969",
+    "Q_minus_two_thirds": 2.606572331997547e-07,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 9.89776840182718,
+     "mu_e_pull_sigma": 444.9009945669847,
+     "tau_e_residual_ppm": 33.59231156316554,
+     "tau_e_pull_sigma": 0.6632354020659527,
+     "m_tau_minus_measured_MeV": 0.05969218877962415
+    }
+   },
+   "pass": false
+  },
+  "R7": {
+   "W_leptonic": {
+    "e": -2.1255247304404384e-05,
+    "mu": -0.996658635865126,
+    "tau": -1.8773826940541725
+   },
+   "W_hadronic_IMPORTED": {
+    "e": -1.6110205577334747e-05,
+    "mu": -0.2072021032287984,
+    "tau": -2.2719319658193835
+   },
+   "coefficient_of_a2_in_ln_mu_over_e_leptonic": -0.9966373806178216,
+   "coefficient_of_a2_in_ln_mu_over_e_total": -1.2038233736410426,
+   "three_loop_band_T_ppm": 0.08887343522267771,
+   "leptonic_only": {
+    "label": "constant coupling equal to the physical charge at the own rest frequency [leptonic terms only]",
+    "shift_ppm": {
+     "e": -0.00011475140946142099,
+     "mu": -5.3806940742449845,
+     "tau": -10.135488294062586
+    },
+    "mu_over_e": "206.769203429",
+    "tau_over_e": "3477.437592",
+    "m_mu_MeV_electron_anchor": "105.65884599",
+    "m_tau_MeV_electron_anchor": "1776.96696",
+    "Q_minus_two_thirds": -5.242613146997149e-07,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 4.452939205985373,
+     "mu_e_pull_sigma": 200.1579549106733,
+     "tau_e_residual_ppm": 20.79993166898487,
+     "tau_e_pull_sigma": 0.4106669175618809,
+     "m_tau_minus_measured_MeV": 0.03696040696620642
+    }
+   },
+   "with_hadrons": {
+    "label": "constant coupling equal to the physical charge at the own rest frequency [with the imported hadronic terms]",
+    "shift_ppm": {
+     "e": -0.00020172611129560468,
+     "mu": -6.499322949663837,
+     "tau": -22.401042843701205
+    },
+    "mu_over_e": "206.768972147",
+    "tau_over_e": "3477.394939",
+    "m_mu_MeV_electron_anchor": "105.6587278",
+    "m_tau_MeV_electron_anchor": "1776.94516",
+    "Q_minus_two_thirds": -1.652330628041121e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": 3.3343906605637414,
+     "mu_e_pull_sigma": 149.87961537732247,
+     "tau_e_residual_ppm": 8.534264551349342,
+     "tau_e_pull_sigma": 0.16849767454699094,
+     "m_tau_minus_measured_MeV": 0.01516485541958116
+    }
+   },
+   "pass": false
+  },
+  "R8": {
+   "leptonic_only": {
+    "label": "short-distance masses at one common scale, first order (control)",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": -18347.192108284933,
+     "tau": -27923.185118180198
+    },
+    "mu_over_e": "202.976661263",
+    "tau_over_e": "3380.370719",
+    "m_mu_MeV_electron_anchor": "103.72086092",
+    "m_tau_MeV_electron_anchor": "1727.36589",
+    "Q_minus_two_thirds": -0.0011473607638073583,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": -18507.75572878286,
+     "mu_e_pull_sigma": -831916.710580765,
+     "tau_e_residual_ppm": -28289.51463144943,
+     "tau_e_pull_sigma": -558.538747045127,
+     "m_tau_minus_measured_MeV": -49.564109478820214
+    }
+   },
+   "pass": false,
+   "SM_Yukawa_running_ln_mu_over_e_from_cell_scale_ppm": -0.13710741970045015,
+   "SM_Yukawa_running_ln_tau_over_e_from_cell_scale_ppm": -38.7803806492213
+  }
+ },
+ "R4_next_order": {
+  "label": "R4 with abar(M_k)^2 and the three-loop difference (massless lighter species; the three-loop term of the hadronic sector is not included)",
+  "shift_ppm": {
+   "e": 0.0,
+   "mu": -9.342924505485701,
+   "tau": -38.076081559122855
+  },
+  "mu_over_e": "206.768384133",
+  "tau_over_e": "3477.340429",
+  "m_mu_MeV_electron_anchor": "105.65842733",
+  "m_tau_MeV_electron_anchor": "1776.91731",
+  "Q_minus_two_thirds": -2.964569194504463e-06,
+  "NOT_BLIND": {
+   "mu_e_residual_ppm": 0.4905648539304673,
+   "mu_e_pull_sigma": 22.05070704351719,
+   "tau_e_residual_ppm": -7.141449895471043,
+   "tau_e_pull_sigma": -0.14099840625288176,
+   "m_tau_minus_measured_MeV": -0.012689811250879812
+  },
+  "abar_over_a": {
+   "e": 1.0,
+   "mu": 1.008258723632741,
+   "tau": 1.0251712052046729
+  }
+ },
+ "R4_next_order_leptonic_only": {
+  "label": "R4 next order, leptonic terms only",
+  "shift_ppm": {
+   "e": 0.0,
+   "mu": -9.342924505485701,
+   "tau": -18.6454924337763
+  },
+  "mu_over_e": "206.768384133",
+  "tau_over_e": "3477.407998",
+  "m_mu_MeV_electron_anchor": "105.65842733",
+  "m_tau_MeV_electron_anchor": "1776.95184",
+  "Q_minus_two_thirds": -1.0153007937556526e-06,
+  "NOT_BLIND": {
+   "mu_e_residual_ppm": 0.4905648539304673,
+   "mu_e_pull_sigma": 22.05070704351719,
+   "tau_e_residual_ppm": 12.289690312915425,
+   "tau_e_pull_sigma": 0.24264354897476453,
+   "m_tau_minus_measured_MeV": 0.02183805359891183
+  }
+ },
+ "R4_charm_counted_as_lighter": {
+  "label": "R4, two-loop order, charm counted as lighter than the tau",
+  "shift_ppm": {
+   "e": 0.0,
+   "mu": -9.207554951999276,
+   "tau": -41.13482412404361
+  },
+  "mu_over_e": "206.768412124",
+  "tau_over_e": "3477.329792",
+  "m_mu_MeV_electron_anchor": "105.65844163",
+  "m_tau_MeV_electron_anchor": "1776.91187",
+  "Q_minus_two_thirds": -3.2838151507923666e-06,
+  "NOT_BLIND": {
+   "mu_e_residual_ppm": 0.6259356630136,
+   "mu_e_pull_sigma": 28.135574374349563,
+   "tau_e_residual_ppm": -10.200313608076701,
+   "tau_e_pull_sigma": -0.20139159177333035,
+   "m_tau_minus_measured_MeV": -0.01812515081833131
+  },
+  "W_hadronic_IMPORTED": {
+   "e": 0.0,
+   "mu": 0.0,
+   "tau": -4.327070279890423
+  }
+ },
+ "R4_CODATA_alpha_NOT_BLIND": {
+  "label": "R4 with the CODATA alpha",
+  "shift_ppm": {
+   "e": 0.0,
+   "mu": -9.202024100839536,
+   "tau": -36.24048168287997
+  },
+  "mu_over_e": "206.768413267",
+  "tau_over_e": "3477.346812",
+  "m_mu_MeV_electron_anchor": "105.65844222",
+  "m_tau_MeV_electron_anchor": "1776.92057",
+  "Q_minus_two_thirds": -2.7933177758411725e-06,
+  "NOT_BLIND": {
+   "mu_e_residual_ppm": 0.6314665650841297,
+   "mu_e_pull_sigma": 28.384186357589844,
+   "tau_e_residual_ppm": -5.3057818089559206,
+   "tau_e_pull_sigma": -0.10475558744208938,
+   "m_tau_minus_measured_MeV": -0.009427977858369218
+  }
+ },
+ "fits_NOT_BLIND_zero_weight": {
+  "needed_ln_mu_over_e_shift": -9.833533004807178e-06,
+  "needed_coefficient_of_a2_alpha_P": -1.8214519270324878,
+  "needed_coefficient_of_a2_alpha_CODATA": -1.8225467056803855,
+  "sigma_of_needed_coefficient": 0.0041208048184522015,
+  "F1_plane_A_B": {
+   "A=0.0": {
+    "B": -1.8333501625279511,
+    "leptonic_only": {
+     "label": "F1 line, leptonic",
+     "shift_ppm": {
+      "e": 0.0,
+      "mu": -9.833533004807178,
+      "tau": -19.026082217307334
+     },
+     "mu_over_e": "206.76828269",
+     "tau_over_e": "3477.406674",
+     "m_mu_MeV_electron_anchor": "105.65837549",
+     "m_tau_MeV_electron_anchor": "1776.95116",
+     "Q_minus_two_thirds": -1.0085747589092665e-06,
+     "NOT_BLIND": {
+      "mu_e_residual_ppm": -4.834950264286245e-05,
+      "mu_e_pull_sigma": -0.002173292093666039,
+      "tau_e_residual_ppm": 11.909093360541139,
+      "tau_e_pull_sigma": 0.2351291696127374,
+      "m_tau_minus_measured_MeV": 0.02116175127353205
+     }
+    },
+    "with_hadrons": {
+     "label": "F1 line, with hadrons",
+     "shift_ppm": {
+      "e": 0.0,
+      "mu": -9.833533004807178,
+      "tau": -36.93411509873407
+     },
+     "mu_over_e": "206.76828269",
+     "tau_over_e": "3477.3444",
+     "m_mu_MeV_electron_anchor": "105.65837549",
+     "m_tau_MeV_electron_anchor": "1776.91934",
+     "Q_minus_two_thirds": -2.8051002374717647e-06,
+     "NOT_BLIND": {
+      "mu_e_residual_ppm": -4.834950264286245e-05,
+      "mu_e_pull_sigma": -0.002173292093666039,
+      "tau_e_residual_ppm": -5.999440603911357,
+      "tau_e_pull_sigma": -0.1184509554700912,
+      "m_tau_minus_measured_MeV": -0.010660554013595927
+     }
+    }
+   },
+   "A=0.3333": {
+    "B": -3.6105530267105332,
+    "leptonic_only": {
+     "label": "F1 line, leptonic",
+     "shift_ppm": {
+      "e": 0.0,
+      "mu": -9.833533004807178,
+      "tau": -18.462280905087958
+     },
+     "mu_over_e": "206.76828269",
+     "tau_over_e": "3477.408635",
+     "m_mu_MeV_electron_anchor": "105.65837549",
+     "m_tau_MeV_electron_anchor": "1776.95216",
+     "Q_minus_two_thirds": -9.520150189831356e-07,
+     "NOT_BLIND": {
+      "mu_e_residual_ppm": -4.834950264286245e-05,
+      "mu_e_pull_sigma": -0.002173292093666039,
+      "tau_e_residual_ppm": 12.472905240952779,
+      "tau_e_pull_sigma": 0.24626088344229136,
+      "m_tau_minus_measured_MeV": 0.022163617731870765
+     }
+    },
+    "with_hadrons": {
+     "label": "F1 line, with hadrons",
+     "shift_ppm": {
+      "e": 0.0,
+      "mu": -9.833533004807178,
+      "tau": -46.069824671968576
+     },
+     "mu_over_e": "206.76828269",
+     "tau_over_e": "3477.312631",
+     "m_mu_MeV_electron_anchor": "105.65837549",
+     "m_tau_MeV_electron_anchor": "1776.90311",
+     "Q_minus_two_thirds": -3.7216032496538526e-06,
+     "NOT_BLIND": {
+      "mu_e_residual_ppm": -4.834950264286245e-05,
+      "mu_e_pull_sigma": -0.002173292093666039,
+      "tau_e_residual_ppm": -15.135529342889125,
+      "tau_e_pull_sigma": -0.29883084616955524,
+      "m_tau_minus_measured_MeV": -0.026894572622949996
+     }
+    }
+   },
+   "A=0.6667": {
+    "B": -5.387755890893115,
+    "leptonic_only": {
+     "label": "F1 line, leptonic",
+     "shift_ppm": {
+      "e": 0.0,
+      "mu": -9.833533004807178,
+      "tau": -17.898479592868586
+     },
+     "mu_over_e": "206.76828269",
+     "tau_over_e": "3477.410596",
+     "m_mu_MeV_electron_anchor": "105.65837549",
+     "m_tau_MeV_electron_anchor": "1776.95317",
+     "Q_minus_two_thirds": -8.954553122576898e-07,
+     "NOT_BLIND": {
+      "mu_e_residual_ppm": -4.834950264286245e-05,
+      "mu_e_pull_sigma": -0.002173292093666039,
+      "tau_e_residual_ppm": 13.036716803480763,
+      "tau_e_pull_sigma": 0.25739259099565637,
+      "m_tau_minus_measured_MeV": 0.02316548419020948
+     }
+    },
+    "with_hadrons": {
+     "label": "F1 line, with hadrons",
+     "shift_ppm": {
+      "e": 0.0,
+      "mu": -9.833533004807178,
+      "tau": -55.205534245203076
+     },
+     "mu_over_e": "206.76828269",
+     "tau_over_e": "3477.280861",
+     "m_mu_MeV_electron_anchor": "105.65837549",
+     "m_tau_MeV_electron_anchor": "1776.88687",
+     "Q_minus_two_thirds": -4.638114979525467e-06,
+     "NOT_BLIND": {
+      "mu_e_residual_ppm": -4.834950264286245e-05,
+      "mu_e_pull_sigma": -0.002173292093666039,
+      "tau_e_residual_ppm": -24.271701550746915,
+      "tau_e_pull_sigma": -0.4792123848507635,
+      "m_tau_minus_measured_MeV": -0.04312859123230406
+     }
+    }
+   }
+  },
+  "F2_kappa": {
+   "kappa": 1.091572464270246,
+   "2Delta(kappa)": 1.8333501625279511,
+   "leptonic_only": {
+    "label": "F2, leptonic",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": -9.833533004807178,
+     "tau": -19.026082217307334
+    },
+    "mu_over_e": "206.76828269",
+    "tau_over_e": "3477.406674",
+    "m_mu_MeV_electron_anchor": "105.65837549",
+    "m_tau_MeV_electron_anchor": "1776.95116",
+    "Q_minus_two_thirds": -1.0085747589092665e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": -4.834950264286245e-05,
+     "mu_e_pull_sigma": -0.002173292093666039,
+     "tau_e_residual_ppm": 11.909093360541139,
+     "tau_e_pull_sigma": 0.2351291696127374,
+     "m_tau_minus_measured_MeV": 0.02116175127353205
+    }
+   },
+   "with_hadrons": {
+    "label": "F2, with hadrons",
+    "shift_ppm": {
+     "e": 0.0,
+     "mu": -9.833533004807178,
+     "tau": -38.85714540036103
+    },
+    "mu_over_e": "206.76828269",
+    "tau_over_e": "3477.337712",
+    "m_mu_MeV_electron_anchor": "105.65837549",
+    "m_tau_MeV_electron_anchor": "1776.91592",
+    "Q_minus_two_thirds": -2.998019729069346e-06,
+    "NOT_BLIND": {
+     "mu_e_residual_ppm": -4.834950264286245e-05,
+     "mu_e_pull_sigma": -0.002173292093666039,
+     "tau_e_residual_ppm": -7.92254378274591,
+     "tau_e_pull_sigma": -0.15642006359860766,
+     "m_tau_minus_measured_MeV": -0.014077749958005854
+    }
+   }
+  },
+  "F3_read_scale": [
+   {
+    "ln_c": -0.812036953243295,
+    "c": 0.44395283341359354,
+    "first_order_coefficient_c1": -0.21805542986494242,
+    "prediction": {
+     "label": "F3",
+     "shift_ppm": {
+      "e": -0.00018750605884508594,
+      "mu": -9.833720510865987,
+      "tau": -31.71361303727778
+     },
+     "mu_over_e": "206.76828269",
+     "tau_over_e": "3477.362555",
+     "m_mu_MeV_electron_anchor": "105.65837549",
+     "m_tau_MeV_electron_anchor": "1776.92862",
+     "Q_minus_two_thirds": -2.2813596443484838e-06,
+     "NOT_BLIND": {
+      "mu_e_residual_ppm": -4.835134647225275e-05,
+      "mu_e_pull_sigma": -0.0021733749731087833,
+      "tau_e_residual_ppm": -0.7785718424305991,
+      "tau_e_pull_sigma": -0.015371862933002271,
+      "m_tau_minus_measured_MeV": -0.0013834671254058602
+     }
+    }
+   }
+  ]
+ }
+}

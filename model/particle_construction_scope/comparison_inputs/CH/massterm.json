@@ -1,0 +1,928 @@
+{
+ "MT1": {
+  "hop_invariants": 14,
+  "pairing_invariants": 14,
+  "hop_blocks": [
+   {
+    "to": [
+     0,
+     0
+    ],
+    "frm": [
+     0,
+     0
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     0,
+     0
+    ],
+    "frm": [
+     3,
+     2
+    ],
+    "dim": 1,
+    "same_multiplet": false,
+    "dN": 0,
+    "dn": -5,
+    "dBL": "2",
+    "dX": 10,
+    "dclass": 0
+   },
+   {
+    "to": [
+     0,
+     1
+    ],
+    "frm": [
+     0,
+     1
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     0,
+     2
+    ],
+    "frm": [
+     0,
+     2
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     1,
+     0
+    ],
+    "frm": [
+     1,
+     0
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     1,
+     1
+    ],
+    "frm": [
+     1,
+     1
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     1,
+     2
+    ],
+    "frm": [
+     1,
+     2
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     2,
+     0
+    ],
+    "frm": [
+     2,
+     0
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     2,
+     1
+    ],
+    "frm": [
+     2,
+     1
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     2,
+     2
+    ],
+    "frm": [
+     2,
+     2
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     3,
+     0
+    ],
+    "frm": [
+     3,
+     0
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     3,
+     1
+    ],
+    "frm": [
+     3,
+     1
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "to": [
+     3,
+     2
+    ],
+    "frm": [
+     0,
+     0
+    ],
+    "dim": 1,
+    "same_multiplet": false,
+    "dN": 0,
+    "dn": 5,
+    "dBL": "-2",
+    "dX": -10,
+    "dclass": 0
+   },
+   {
+    "to": [
+     3,
+     2
+    ],
+    "frm": [
+     3,
+     2
+    ],
+    "dim": 1,
+    "same_multiplet": true,
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   }
+  ],
+  "pairing_blocks": [
+   {
+    "a": [
+     0,
+     0
+    ],
+    "b": [
+     0,
+     0
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": 0,
+    "dBL": "-2",
+    "dX": -10,
+    "dclass": 0
+   },
+   {
+    "a": [
+     0,
+     0
+    ],
+    "b": [
+     3,
+     2
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     0,
+     1
+    ],
+    "b": [
+     3,
+     1
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     0,
+     2
+    ],
+    "b": [
+     3,
+     0
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     1,
+     0
+    ],
+    "b": [
+     2,
+     2
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     1,
+     1
+    ],
+    "b": [
+     2,
+     1
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     1,
+     2
+    ],
+    "b": [
+     2,
+     0
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     2,
+     0
+    ],
+    "b": [
+     1,
+     2
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     2,
+     1
+    ],
+    "b": [
+     1,
+     1
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     2,
+     2
+    ],
+    "b": [
+     1,
+     0
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     3,
+     0
+    ],
+    "b": [
+     0,
+     2
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     3,
+     1
+    ],
+    "b": [
+     0,
+     1
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     3,
+     2
+    ],
+    "b": [
+     0,
+     0
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -5,
+    "dBL": "0",
+    "dX": 0,
+    "dclass": 0
+   },
+   {
+    "a": [
+     3,
+     2
+    ],
+    "b": [
+     3,
+     2
+    ],
+    "dim": 1,
+    "dN": -2,
+    "dn": -10,
+    "dBL": "2",
+    "dX": 10,
+    "dclass": 0
+   }
+  ]
+ },
+ "MT2_MT3": {
+  "degree parity (complement = CPT partner; two families)": {
+   "admissible": [
+    {
+     "kind": "hop",
+     "fields": [
+      "nu_R",
+      "conj nu_R"
+     ],
+     "dN": 0,
+     "dn": -5,
+     "dBL": "2",
+     "dX": 10,
+     "conserves": {
+      "N": true,
+      "degree": false,
+      "B_minus_L": false,
+      "X": false
+     }
+    },
+    {
+     "kind": "hop",
+     "fields": [
+      "conj nu_R",
+      "nu_R"
+     ],
+     "dN": 0,
+     "dn": 5,
+     "dBL": "-2",
+     "dX": -10,
+     "conserves": {
+      "N": true,
+      "degree": false,
+      "B_minus_L": false,
+      "X": false
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "conj nu_R",
+      "conj nu_R"
+     ],
+     "dN": -2,
+     "dn": 0,
+     "dBL": "-2",
+     "dX": -10,
+     "conserves": {
+      "N": false,
+      "degree": true,
+      "B_minus_L": false,
+      "X": false
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "nu_R",
+      "nu_R"
+     ],
+     "dN": -2,
+     "dn": -10,
+     "dBL": "2",
+     "dX": 10,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": false,
+      "X": false
+     }
+    }
+   ],
+   "count": 4,
+   "conserving_B_minus_L": [],
+   "conserving_B_minus_L_and_N": [],
+   "conserving_all": []
+  },
+  "(-1)^n2 (complement = mirror partner; family and mirror family)": {
+   "admissible": [
+    {
+     "kind": "pairing",
+     "fields": [
+      "conj nu_R",
+      "conj nu_R"
+     ],
+     "dN": -2,
+     "dn": 0,
+     "dBL": "-2",
+     "dX": -10,
+     "conserves": {
+      "N": false,
+      "degree": true,
+      "B_minus_L": false,
+      "X": false
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "conj nu_R",
+      "nu_R"
+     ],
+     "dN": -2,
+     "dn": -5,
+     "dBL": "0",
+     "dX": 0,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": true,
+      "X": true
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "conj L_L",
+      "L_L"
+     ],
+     "dN": -2,
+     "dn": -5,
+     "dBL": "0",
+     "dX": 0,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": true,
+      "X": true
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "conj e_R",
+      "e_R"
+     ],
+     "dN": -2,
+     "dn": -5,
+     "dBL": "0",
+     "dX": 0,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": true,
+      "X": true
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "d_R",
+      "conj d_R"
+     ],
+     "dN": -2,
+     "dn": -5,
+     "dBL": "0",
+     "dX": 0,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": true,
+      "X": true
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "Q_L",
+      "conj Q_L"
+     ],
+     "dN": -2,
+     "dn": -5,
+     "dBL": "0",
+     "dX": 0,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": true,
+      "X": true
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "u_R",
+      "conj u_R"
+     ],
+     "dN": -2,
+     "dn": -5,
+     "dBL": "0",
+     "dX": 0,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": true,
+      "X": true
+     }
+    },
+    {
+     "kind": "pairing",
+     "fields": [
+      "nu_R",
+      "nu_R"
+     ],
+     "dN": -2,
+     "dn": -10,
+     "dBL": "2",
+     "dX": 10,
+     "conserves": {
+      "N": false,
+      "degree": false,
+      "B_minus_L": false,
+      "X": false
+     }
+    }
+   ],
+   "count": 8,
+   "conserving_B_minus_L": [
+    [
+     "conj nu_R",
+     "nu_R"
+    ],
+    [
+     "conj L_L",
+     "L_L"
+    ],
+    [
+     "conj e_R",
+     "e_R"
+    ],
+    [
+     "d_R",
+     "conj d_R"
+    ],
+    [
+     "Q_L",
+     "conj Q_L"
+    ],
+    [
+     "u_R",
+     "conj u_R"
+    ]
+   ],
+   "conserving_B_minus_L_and_N": [],
+   "conserving_all": []
+  }
+ },
+ "MT4": {
+  "dirac_masses_within_one_pattern_multiplet": 12,
+  "note": "each of the 12 multiplets admits its own mass angle; this is the mass step M1 of CF-1 section 9",
+  "rows": [
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "conj nu_R",
+     "conj nu_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "nu_R",
+     "conj nu_R"
+    ],
+    "dN": 0,
+    "dn": -5,
+    "dBL": "2",
+    "conserves_all": false
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "conj L_L",
+     "conj L_L"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "conj e_R",
+     "conj e_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "d_R",
+     "d_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "Q_L",
+     "Q_L"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "u_R",
+     "u_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "conj u_R",
+     "conj u_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "conj Q_L",
+     "conj Q_L"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "conj d_R",
+     "conj d_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "e_R",
+     "e_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "L_L",
+     "L_L"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "conj nu_R",
+     "nu_R"
+    ],
+    "dN": 0,
+    "dn": 5,
+    "dBL": "-2",
+    "conserves_all": false
+   },
+   {
+    "kind": "hop between the two handedness states",
+    "fields": [
+     "nu_R",
+     "nu_R"
+    ],
+    "dN": 0,
+    "dn": 0,
+    "dBL": "0",
+    "conserves_all": true
+   }
+  ]
+ },
+ "MT5": {
+  "E_cell_GeV": 9.559898264928756e+18,
+  "M_U_GeV": 2.473612029002955e+16,
+  "rows": [
+   {
+    "sector": "uniform load, blank record",
+    "kernel_eigenvalue": 1.0,
+    "rest_angle_per_tick": 0.0,
+    "rest_energy_GeV": 0.0,
+    "over_M_U": 0.0
+   },
+   {
+    "sector": "slow triplet",
+    "kernel_eigenvalue": 0.9539344662916631,
+    "rest_angle_per_tick": 0.3047084373702735,
+    "rest_energy_GeV": 2.91298166172523e+18,
+    "over_M_U": 117.76226940889241
+   },
+   {
+    "sector": "quintet, recorded",
+    "kernel_eigenvalue": 0.9333333333333333,
+    "rest_angle_per_tick": 0.3672080205578371,
+    "rest_energy_GeV": 3.5104713185987896e+18,
+    "over_M_U": 141.91681142550732
+   },
+   {
+    "sector": "quintet, blank",
+    "kernel_eigenvalue": 0.9,
+    "rest_angle_per_tick": 0.45102681179626236,
+    "rest_energy_GeV": 4.311770435527437e+18,
+    "over_M_U": 174.31069969632193
+   },
+   {
+    "sector": "fast triplet",
+    "kernel_eigenvalue": 0.8793988670416701,
+    "rest_angle_per_tick": 0.4961982595020731,
+    "rest_energy_GeV": 4.743604880074537e+18,
+    "over_M_U": 191.76834622633012
+   },
+   {
+    "sector": "uniform load, recorded",
+    "kernel_eigenvalue": 0.8333333333333334,
+    "rest_angle_per_tick": 0.5856855434571508,
+    "rest_energy_GeV": 5.599094210689872e+18,
+    "over_M_U": 226.35296663505926
+   }
+  ],
+  "statement": "a pattern block is massless (uniform load) or sits between 118 and 227 M_U; no rest angle on file lies between m_Z and M_U"
+ }
+}

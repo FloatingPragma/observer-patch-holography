@@ -1,0 +1,166 @@
+{
+ "question": "Q3",
+ "a_energy_clock_spectrum": {
+  "H": "I - Re W on one carrier (on-site term of the declared energy clock, coefficient one)",
+  "distinct_eigenvalues": [
+   "0",
+   "2",
+   "1/10",
+   "1/6",
+   "1/15",
+   "(5-sqrt5)/60",
+   "(5+sqrt5)/60"
+  ],
+  "minimal_polynomial_annihilates_random_integer_vectors": true,
+  "each_factor_needed": {
+   "0": true,
+   "2": true,
+   "1/10": true,
+   "1/6": true,
+   "1/15": true,
+   "quadratic": true
+  },
+  "max_oscillatory_energy": "1/6 (P_sign trivial mode); next 2 (W = -1)",
+  "two_ninths_is_eigenvalue": false,
+  "spectrum_in_ring": "(1/60) Z[sqrt5]; 2/9 = (40/3)/60 is not in it; no finite sum of on-site energies of any number of independent carriers equals 2/9 (denominator 9 does not divide 60)",
+  "no_pair_sums_to_4_9": true,
+  "xor_energy_check": "mu1 + mu2 - 2 mu1 mu2 = 2/9 with mu2 = 1/6 needs mu1 = 1/12, which is not an eigenvalue (1/12 is the mean of (5 +- sqrt5)/60, the expectation of a localised port)",
+  "pairs_summing_to_4_9": [],
+  "eigenvalue_pairs_with_xor_2_9": []
+ },
+ "a_walk_rest_phases": {
+  "11/12+sqrt5/60": "0.3047084373702733085305977795347271514031",
+  "11/12-sqrt5/60": "0.4961982595020729887957971516307012565475",
+  "9/10": "0.4510268117962624325446446357943518262034",
+  "5/6": "0.5856855434571509596177575384775177662004",
+  "14/15": "0.3672080205578371425054729137012253062472",
+  "also": "0 (W=+1), pi (W=-1)",
+  "arccos(7/9) (= arccos(1 - 2/9)), not a rest phase": "0.6796738189082438741927850267835281327765",
+  "two_ninths": "0.2222222222222222222222222222222222222222"
+ },
+ "a_branch_exactly_one_C_or_E": {
+  "walk": "one address per tick: the C-seam and E-seam repair branches are exclusive; from port 2 each has weight 1/60 (amplitudes +-1/sqrt120 on the two orientations); P(exactly one) = 1/30; phases 0 or pi",
+  "two independent seam events (C object and E object, one each per tick)": "P(C repair component from port 2 xor E agreeing half) = 1/12 + 1/6 - 2/72 = 2/9 (a probability; amplitudes real, phases 0 or pi)"
+ },
+ "b_energy_clock_circulant_embedded_orbits": {
+  "orbit of port 2": {
+   "c_d_exact": [
+    "1/12 + 5*exp(-I/10)/12 + exp(-I/12 - sqrt(5)*I/60)/4 + exp(-I/12 + sqrt(5)*I/60)/4",
+    "1/12 + sqrt(5)*exp(-I/12 - sqrt(5)*I/60)/20 - sqrt(5)*exp(-I/12 + sqrt(5)*I/60)/20 - exp(-I/10)/12",
+    "1/12 + sqrt(5)*exp(-I/12 - sqrt(5)*I/60)/20 - sqrt(5)*exp(-I/12 + sqrt(5)*I/60)/20 - exp(-I/10)/12"
+   ],
+   "c_d_numeric": [
+    "(0.9958373183088514-0.08318681667426964j)",
+    "(-0.00027716085428241383+1.69586828358235e-05j)",
+    "(-0.00027716085428241383+1.69586828358235e-05j)"
+   ],
+   "c1_equals_c2": true,
+   "abs_c1_over_abs_c0": 0.00027787210499599695,
+   "arg_c1_minus_arg_c0": -3.1193625641005176,
+   "eigenvalues": [
+    "(0.9952829966002865-0.08315289930859798j)",
+    "(0.9961144791631338-0.08320377535710545j)",
+    "(0.9961144791631338-0.08320377535710545j)"
+   ],
+   "abs_eigenvalues": [
+    0.9987505434216654,
+    0.9995833751279165,
+    0.9995833751279165
+   ]
+  },
+  "orbit of port 4": {
+   "c_d_exact": [
+    "1/12 + 5*exp(-I/10)/12 + exp(-I/12 - sqrt(5)*I/60)/4 + exp(-I/12 + sqrt(5)*I/60)/4",
+    "1/12 + sqrt(5)*exp(-I/12 + sqrt(5)*I/60)/20 - exp(-I/10)/12 - sqrt(5)*exp(-I/12 - sqrt(5)*I/60)/20",
+    "1/12 + sqrt(5)*exp(-I/12 + sqrt(5)*I/60)/20 - exp(-I/10)/12 - sqrt(5)*exp(-I/12 - sqrt(5)*I/60)/20"
+   ],
+   "c_d_numeric": [
+    "(0.9958373183088514-0.08318681667426964j)",
+    "(0.0011097999746114528+0.016621944091635536j)",
+    "(0.0011097999746114528+0.016621944091635536j)"
+   ],
+   "c1_equals_c2": true,
+   "abs_c1_over_abs_c0": 0.01667052525900675,
+   "arg_c1_minus_arg_c0": 1.5874691685307174,
+   "eigenvalues": [
+    "(0.9980569182580743-0.04994292849099857j)",
+    "(0.9947275183342399-0.09980876076590518j)",
+    "(0.9947275183342398-0.09980876076590517j)"
+   ],
+   "abs_eigenvalues": [
+    0.9993057130773652,
+    0.9997222736625514,
+    0.9997222736625513
+   ]
+  }
+ },
+ "b_energy_clock_general": "H = I - Re W is real symmetric, so exp(-iH) is complex symmetric; for every real seed v, c2 = <v|e^{-iH} Pi(g)^2|v> = <Pi(g) v|e^{-iH}|v> = <v|e^{-iH}|Pi(g) v> = c1. Families 1 and 2 are degenerate (lambda_1 = lambda_2 = c0 - c1). The Brannen phase (opposite phases on S and S^2) is zero.",
+ "b_holonomy": {
+  "scalar_walk": "Pi(g)^3 = I; on the Fourier mode of character w^k the 3-cycle holonomy is 1 and one step is w^k: phases 0, +-2pi/3 (EXACT)",
+  "quaternion_lift_canonical": [
+   "1/2",
+   "(-2 + 2*sqrt(5))/8",
+   "0",
+   "(-3*(1 + sqrt(5))**2 - 8*sqrt(5) + 4 + sqrt(5)*(1 + sqrt(5))**2)/32 - 1/8"
+  ],
+  "R(g)_trace": "-sqrt(5)/4 - 1/4 + (1 + sqrt(5))/4",
+  "spinor_U(Galois q)": [
+   [
+    "1/2 + I*(-sqrt(5)/4 - 1/4)",
+    "I*(-1/4 + sqrt(5)/4)"
+   ],
+   [
+    "I*(-1/4 + sqrt(5)/4)",
+    "1/2 - I*(-sqrt(5)/4 - 1/4)"
+   ]
+  ],
+  "det_U": "1",
+  "eigenvalues_U": [
+   "1/2 - sqrt(3)*I/2",
+   "1/2 + sqrt(3)*I/2"
+  ],
+  "U^3": [
+   [
+    "-1",
+    "0"
+   ],
+   [
+    "0",
+    "-1"
+   ]
+  ],
+  "R5(q)^3": "diag(I3, U^3) = diag(I3, -I2) = the central element Z",
+  "one_step_phases_on_doublet": "+-pi/3 (canonical lift, w = 1/2); +-2pi/3 for the other lift",
+  "loop_phase_on_doublet": "pi (canonical lift) or 0",
+  "all_rational_multiples_of_pi": true,
+  "relation_to_repository_no_go": "g is a carrier rotation, not a hypercharge phase: it generates the cyclic shift of the orbit basis, so it escapes the hypercharge clause of derive_charged_z3_phase_holonomy_no_go; it falls under the finite-geometry clause (C3 characters, binary lift): phases in (pi/3)Z, never 2/9 (section 0)."
+ },
+ "c_five_level_flat_link": {
+  "walk": "W x I5 (flat links), code transported by R5(q) with the carrier rotation g",
+  "seed": "A|4> x (first doublet state)",
+  "internal_factor_<u|U^d|u>": [
+   "1",
+   "1/2 - sqrt(5)*I/4 - I/4",
+   "-1/2 - sqrt(5)*I/4 - I/4"
+  ],
+  "c_d": [
+   "11/12",
+   "1/120 - sqrt(5)*I/240 - I/240",
+   "-1/120 - sqrt(5)*I/240 - I/240"
+  ],
+  "c_d_numeric": [
+   "(0.9166666666666666+0j)",
+   "(0.008333333333333333-0.01348361657291579j)",
+   "(-0.008333333333333333-0.01348361657291579j)"
+  ],
+  "arg_c1": -1.0172219678978514,
+  "arg_c2": -2.1243706856919418,
+  "wrap_sign": "R5(q)^3 = Z gives -1 on the doublet: the 3x3 compression is a skew (twisted) circulant; its modes have characters e^{i pi (2k+1)/3}, i.e. a Brannen-type phase shift of pi/3, never 2/9",
+  "arguments_are_arguments_of_algebraic_numbers": true
+ },
+ "c_declared_central_link": {
+  "program": "Observer(fibre=5, central_edge=(0,1)) of the repository",
+  "W_G Pi(g) == Pi(g) W_G on a basis state at port 0, internal 3, address (0,1)": false,
+  "reason": "g maps the central edge (0,1) to (9,3); the declared background is not g-invariant, so the compressions to g-orbits are not circulants"
+ }
+}

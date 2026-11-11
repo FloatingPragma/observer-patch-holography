@@ -1,0 +1,144 @@
+"""Control (b): the ground-state (Doob) Markov chain of the transverse-field Ising ring.
+
+H = - sum_i J_i s_i s_{i+1} - g sum_i sigma^x_i in the sigma^z basis (J_i = 1; one bond -1 on the twisted ring).
+The chain flips spin i at rate g psi0(s^i) / psi0(s); its generator is G = - psi0^{-1} (H - E0) psi0, so its
+relaxation rates are the excitation energies. Known answers (IMPORTED, free fermions):
+    eps(k) = 2 sqrt(1 + g^2 - 2 g cos k) = sqrt(E0^2 + c^2 khat^2),  E0 = 2 |1 - g|,  c = 2 sqrt(g),
+    m = E0 / c^2 = |1 - g| / (2 g),  largest group velocity 2 min(g, 1).
+The readouts are applied to the chain, never to H.
+
+usage: c_b_tfim.py PART NLIST GLIST     PART in {para, ord}; lists comma separated; output c_b_tfim_<PART>_<tag>.json
+"""
+import json, sys, time
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+import readouts as R
+
+HERE = Path(__file__).resolve().parent
+PART = sys.argv[1]
+NLIST = [int(v) for v in sys.argv[2].split(',')]
+GLIST = [float(v) for v in sys.argv[3].split(',')]
+TAG = sys.argv[4] if len(sys.argv) > 4 else 'a'
+
+
+def eps(k, g):
+    return 2 * np.sqrt(1 + g * g - 2 * g * np.cos(k))
+
+
+def doob_chain(N, g, twisted):
+    n = 1 << N
+    s = np.arange(n)
+    spin = 1 - 2 * ((s[:, None] >> np.arange(N)[None, :]) & 1)            # spin[s, i] = +-1
+    J = np.ones(N); J[N - 1] = -1 if twisted else 1
+    V = -(spin * np.roll(spin, -1, axis=1) * J[None, :]).sum(axis=1).astype(float)
+    rows = np.concatenate([s ^ (1 << i) for i in range(N)]); cols = np.tile(s, N)
+    Hm = sp.coo_matrix((np.full(N * n, -g), (rows, cols)), shape=(n, n)).tocsc() + sp.diags(V)
+    w, v = spla.eigsh(Hm, k=1, which='SA', tol=0, ncv=40, maxiter=100000)
+    psi = np.abs(v[:, 0]); E0 = w[0]
+    assert psi.min() > 0
+    rate = g * psi[rows] / psi[cols]
+    W = sp.coo_matrix((rate, (rows, cols)), shape=(n, n)).tocsc()
+    escape = np.asarray(W.sum(axis=0)).ravel()
+    G = W - sp.diags(escape)
+    checks = {'max_abs(escape - (V - E0))': float(np.max(np.abs(escape - (V - E0)))),
+              'detailed_balance_defect': float(np.max(np.abs(rate * psi[cols] ** 2 - (g * psi[cols] / psi[rows]) * psi[rows] ** 2)))}
+    # symmetry
+    shift = np.zeros(n, np.int64)
+    for i in range(N):
+        shift |= ((s >> i) & 1) << ((i + 1) % N)
+    flip = s ^ (n - 1)
+    if not twisted:
+        perms, cur = {}, np.arange(n)
+        for j in range(N):
+            perms[(j, 0)] = cur.copy(); perms[(j, 1)] = flip[cur]
+            cur = shift[cur]
+        tr = R.Translations(perms, (N, 2))
+    else:
+        tt = shift ^ 1                                                    # shift, then flip the spin now at site 0
+        tr = R.Translations(R.cyclic_group(tt, 2 * N), (2 * N,))
+    return G, tr, E0, checks
+
+
+def vacuum_shift(N, g):
+    """E_R,base - E_NS: (1/2) [sum_NS eps - sum_R eps_signed], eps_signed(0) = 2 (g - 1)."""
+    kN = 2 * np.pi * (np.arange(N) + 0.5) / N
+    kR = 2 * np.pi * np.arange(1, N) / N
+    return 0.5 * (eps(kN, g).sum() - eps(kR, g).sum() - 2 * (g - 1))
+
+
+def two_kink_bottom(N, g, mK):
+    """Lowest odd-sector level at total momentum 2 pi mK / N for g < 1, relative to the even-sector ground state."""
+    dN = vacuum_shift(N, g)
+    k = lambda m: 2 * np.pi * (m % N) / N
+    best = dN + eps(k(mK), g)                                             # one fermion at K, zero mode empty
+    for m1 in range(1, N):
+        m2 = (mK - m1) % N
+        if m2 != 0 and m2 != m1:
+            best = min(best, dN + 2 * (g - 1) + eps(k(m1), g) + eps(k(m2), g))
+    return float(best)
+
+
+out = {'paramagnet_periodic': [], 'ordered_periodic': [], 'ordered_twisted': []}
+t0 = time.time()
+for g in (GLIST if PART == 'para' else ()):
+    for N in NLIST:
+        G, tr, E0, checks = doob_chain(N, g, False)
+        ks, Es = [], []
+        for m in range(N):
+            B = tr.block(G, (m, 1))
+            ev = np.sort(-np.linalg.eigvals(B).real)
+            ks.append(2 * np.pi * m / N); Es.append(ev[0])
+        ks, Es = np.array(ks), np.array(Es)
+        ks = (ks + np.pi) % (2 * np.pi) - np.pi
+        dN = vacuum_shift(N, g)
+        r1 = R.r1_pole(ks, Es); r2 = R.r2_kinetic(ks, Es)
+        cls = R.largest_slope(ks, Es)
+        r2x = R.r2_extrapolated(ks, Es)
+        row = {'g': g, 'N': N, **checks,
+               'band_max_abs_error_vs_eps_plus_shift': float(np.max(np.abs(Es - eps(ks, g) - dN))), 'vacuum_shift': float(dN),
+               'R1_E0': r1['E0'], 'E0_exact': 2 * abs(1 - g), 'R1_c': float(np.sqrt(r1['c2_small_k'])), 'c_exact': 2 * np.sqrt(g),
+               'R1_m': r1['m_pole'], 'm_exact': abs(1 - g) / (2 * g),
+               'R2_m_kin': r2['m_kin'], 'R2_m_kin_extrapolated': r2x, 'shell_defect': R.shell_defect(ks, Es),
+               'largest_slope': cls, 'largest_group_velocity_exact': 2 * min(g, 1.0),
+               'R3_with_c_from_small_k': r1['E0'] / (r2['m_kin'] * r1['c2_small_k']),
+               'R3_with_c_from_small_k_and_extrapolated_m_kin': r1['E0'] / (r2x * r1['c2_small_k']),
+               'R3_with_c_from_largest_slope': r1['E0'] / (r2['m_kin'] * cls ** 2), 'R3_lattice_limit': g if g > 1 else 1 / g}
+        out['paramagnet_periodic'].append(row)
+        print('PARA', {k: (round(v, 6) if isinstance(v, float) else v) for k, v in row.items()}, f'{time.time()-t0:.0f}s', flush=True)
+
+for g in (GLIST if PART == 'ord' else ()):
+    for N in NLIST:
+        G, tr, E0, checks = doob_chain(N, g, False)
+        odd = [np.sort(-np.linalg.eigvals(tr.block(G, (m, 1))).real)[0] for m in range(N)]
+        even0 = np.sort(-np.linalg.eigvals(tr.block(G, (0, 0))).real)
+        thr = even0[1]
+        row = {'g': g, 'N': N, 'odd_sector_lowest_at_k0': float(odd[0]), 'odd_sector_lowest_at_k1': float(odd[1]),
+               'odd_k1_exact_two_kink_bottom': two_kink_bottom(N, g, 1),
+               'even_sector_gap_at_k0': float(thr), 'exact_2eps(pi/N)': float(2 * eps(np.pi / N, g)),
+               'half_threshold': float(thr / 2), 'E0_exact': 2 * abs(1 - g)}
+        out['ordered_periodic'].append(row)
+        print('ORD ', {k: (round(v, 6) if isinstance(v, float) else v) for k, v in row.items()}, f'{time.time()-t0:.0f}s', flush=True)
+        # twisted ring: one kink, band at momenta pi m / N of the twisted translation
+        G, tr, E0t, checks = doob_chain(N, g, True)
+        ks, Es = [], []
+        for m in range(2 * N):
+            ev = np.sort(-np.linalg.eigvals(tr.block(G, (m,))).real)
+            ks.append(np.pi * m / N); Es.append(ev[0])
+        ks, Es = np.array(ks), np.array(Es)
+        ks = (ks + np.pi) % (2 * np.pi) - np.pi
+        raw0 = float(Es[np.argmin(np.abs(ks))])
+        Es = Es - raw0
+        exact = eps(ks, g) - eps(0, g)
+        r2 = R.r2_kinetic(ks, Es); sh = R.r1s_shape(ks, Es)
+        row = {'g': g, 'N': N, **checks, 'R1_E0_in_own_sector': raw0,
+               'band_max_abs_error_vs_eps(k)-eps(0)': float(np.max(np.abs(Es - exact))),
+               'R2_m_kin': r2['m_kin'], 'R2_m_kin_extrapolated': R.r2_extrapolated(ks, Es), 'm_exact': abs(1 - g) / (2 * g),
+               'R1s_m': sh['m'], 'R1s_c': float(np.sqrt(sh['c2'])), 'c_exact': 2 * np.sqrt(g),
+               'R1s_E0': sh['E0'], 'E0_exact': 2 * abs(1 - g), 'R1s_fit_residual': sh['residual_rel'],
+               'largest_slope': R.largest_slope(ks, Es), 'largest_group_velocity_exact': 2 * min(g, 1.0)}
+        out['ordered_twisted'].append(row)
+        print('TWST', {k: (round(v, 6) if isinstance(v, float) else v) for k, v in row.items()}, f'{time.time()-t0:.0f}s', flush=True)
+
+(HERE / f'c_b_tfim_{PART}_{TAG}.json').write_text(json.dumps(out, indent=1, default=float))

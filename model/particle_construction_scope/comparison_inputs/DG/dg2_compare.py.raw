@@ -1,0 +1,54 @@
+"""DG round 2, comparison with measurement. NOT BLIND: measured values are read here only, after junction.json and
+circulant.json were written; nothing feeds back.
+
+Measured inputs (files of the public checkout): NuFIT 6.1 normal ordering
+(RER/model/common_source/calibrated_neutrino_parameters.json), KATRIN 0.45 eV and DESI DR2 0.0642 eV
+(RER/code/particles/neutrino/README.md). The packet carries central values only; deviations are reported as
+relative differences, without a likelihood.
+
+    python dg2_compare.py [out.json]
+"""
+import json, os, sys
+import mpmath as mp
+
+mp.mp.dps = 30
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/reverse-engineering-reality'
+circ = json.load(open(os.path.join(HERE, 'circulant.json')))
+nu = json.load(open(os.path.join(RER, 'model/common_source/calibrated_neutrino_parameters.json')))['oscillation_inputs']
+readme = open(os.path.join(RER, 'code/particles/neutrino/README.md')).read()
+assert "KATRIN's 0.45 eV upper limit" in readme and 'sum_i m_i < 0.0642 eV' in readme
+dm21, dm31 = mp.mpf(nu['delta_m21_squared_eV2']), mp.mpf(nu['delta_m31_squared_eV2'])
+meas = {'sin2_theta12': float(nu['sin2_theta12']), 'sin2_theta23': float(nu['sin2_theta23']),
+        'sin2_theta13': float(nu['sin2_theta13']), 'ratio_of_splittings': float(dm21 / dm31)}
+m3min = mp.sqrt(dm31)
+s = lambda x, n=6: mp.nstr(x, n)
+
+rows = {}
+for nm, r in circ['masses_and_splittings'].items():
+    ms = [mp.mpf(x) * mp.mpf(10) ** 6 for x in r['masses_MeV_ascending']]        # eV
+    R = float(mp.mpf(r['ratio_of_splittings (m2^2-m1^2)/(m3^2-m1^2)']))
+    # the y_nu/y_e that would put m3 at sqrt(dm31), and the solar splitting it then gives
+    rr = m3min / ms[2]
+    dm21_then = (rr * ms[1]) ** 2 - (rr * ms[0]) ** 2
+    rows[nm] = {'lightest_mass_eV_at_y_ratio_1': s(ms[0]), 'over_KATRIN': s(ms[0] / mp.mpf('0.45')),
+                'ratio_of_splittings': R, 'measured_ratio': meas['ratio_of_splittings'],
+                'relative_difference': R / meas['ratio_of_splittings'] - 1,
+                'y_nu_over_y_e_for_m3_at_sqrt_dm31': s(rr), 'dm21_then_eV2': s(dm21_then),
+                'dm21_then_over_measured': s(dm21_then / dm21)}
+f4 = float(circ['F4_seesaw_with_circulant_Dirac_masses']['ratio_of_splittings'])
+mixrows = {}
+for nm, v in circ['mixing'].items():
+    a = v.get('golden_ratio_reading', v)
+    got = {k: a[k] for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13')}
+    mixrows[nm] = {k: {'value': round(got[k], 6), 'measured': meas[k], 'difference': round(got[k] - meas[k], 6)}
+                   for k in got}
+    mixrows[nm]['theta13_within_a_factor_two'] = bool(0.5 * meas['sin2_theta13'] <= got['sin2_theta13'] <= 2 * meas['sin2_theta13'])
+out = {'exposure': 'NOT BLIND', 'measured': meas, 'measured_source': 'NuFIT 6.1 normal ordering (RER calibrated packet)',
+       'dirac_with_the_circulant': rows,
+       'F4_seesaw_with_circulant_Dirac_masses': {'ratio_of_splittings': f4, 'measured': meas['ratio_of_splittings']},
+       'mixing': mixrows,
+       'summary': {'any_mixing_try_with_theta13_within_a_factor_two': any(v['theta13_within_a_factor_two'] for v in mixrows.values())}}
+print(json.dumps(out, indent=1))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

@@ -1,0 +1,180 @@
+{
+ "commutant_of_the_twelve_responses_on_C5": {
+  "triplet_block": 1,
+  "doublet_block": 1,
+  "off_diagonal_block": 0,
+  "total": 2,
+  "tag": "EXACT",
+  "statement": "only a 1_3 + b 1_2 commutes with all twelve responses: no gauge-invariant label inside a multiplet of the code"
+ },
+ "gauge_multiplets_of_one_code": {
+  "distinct": 11,
+  "sectors": 12,
+  "repeated": {
+   "('1', '1', 0)": [
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ]
+  },
+  "largest_multiplicity": 2,
+  "tag": "EXACT",
+  "float64_commutant_dimension_on_32_patterns": 14,
+  "float64_singular_value_gap": [
+   0.9999999999999988,
+   9.927384750070934e-16
+  ]
+ },
+ "candidate_a_on_the_code_triplet": {
+  "half_turn_lifts_have_det_one_on_both_blocks": true,
+  "ports_whose_response_does_not_commute_with_the_axis_projector": [
+   8,
+   8,
+   8
+  ],
+  "tag": "EXACT",
+  "statement": "the Klein characters of a frame on the code triplet are values of gauge group elements (colour); the three axis states are three colours, not three copies"
+ },
+ "candidate_c_on_the_code": {
+  "lifts": [
+   {
+    "trace_on_triplet": "0",
+    "trace_on_doublet": "1",
+    "order_of_the_lift": 6
+   },
+   {
+    "trace_on_triplet": "0",
+    "trace_on_doublet": "-1",
+    "order_of_the_lift": 3
+   }
+  ],
+  "level_charges_mod_3": {
+   "triplet": [
+    0,
+    1,
+    2
+   ],
+   "doublet": [
+    1,
+    2
+   ]
+  },
+  "patterns_per_charge": {
+   "0": 12,
+   "1": 10,
+   "2": 10
+  },
+  "patterns_per_sector_and_charge": {
+   "(0, 0)": [
+    1,
+    0,
+    0
+   ],
+   "(0, 1)": [
+    0,
+    1,
+    1
+   ],
+   "(0, 2)": [
+    1,
+    0,
+    0
+   ],
+   "(1, 0)": [
+    1,
+    1,
+    1
+   ],
+   "(1, 1)": [
+    2,
+    2,
+    2
+   ],
+   "(1, 2)": [
+    1,
+    1,
+    1
+   ],
+   "(2, 0)": [
+    1,
+    1,
+    1
+   ],
+   "(2, 1)": [
+    2,
+    2,
+    2
+   ],
+   "(2, 2)": [
+    1,
+    1,
+    1
+   ],
+   "(3, 0)": [
+    1,
+    0,
+    0
+   ],
+   "(3, 1)": [
+    0,
+    1,
+    1
+   ],
+   "(3, 2)": [
+    1,
+    0,
+    0
+   ]
+  },
+  "tag": "EXACT",
+  "statement": "the three charge sectors hold 12, 10 and 10 patterns and split every colour triplet 1 + 1 + 1: the holonomy acts as a gauge rotation of the code, its sectors are not copies of the family"
+ },
+ "anomaly_sums_one_family": {
+  "states": "16",
+  "sum_Y": "0",
+  "sum_Y_cubed": "0",
+  "SU2_SU2_Y": "0",
+  "SU3_SU3_Y": "0",
+  "SU3_cubed": "0",
+  "number_of_SU2_doublets": "4",
+  "fundamental_index_sum_SU3": "4",
+  "fundamental_index_sum_SU2": "4"
+ },
+ "anomaly_sums_three_copies": {
+  "sum_Y": "0",
+  "sum_Y_cubed": "0",
+  "SU2_SU2_Y": "0",
+  "SU3_SU3_Y": "0",
+  "SU3_cubed": "0",
+  "number_of_SU2_doublets": "12",
+  "fundamental_index_sum_SU3": "12",
+  "fundamental_index_sum_SU2": "12"
+ },
+ "discrete_label_sums": {
+  "Klein half-turn on a triplet (charges 0,1,1 mod 2)": {
+   "with_SU3_squared": 0,
+   "with_SU2_squared": 0,
+   "with_gravity": 0
+  },
+  "third of a turn on a triplet (0,1,2 mod 3)": {
+   "with_SU3_squared": 0,
+   "with_SU2_squared": 0,
+   "with_gravity": 0
+  },
+  "fifth of a turn on a triplet (0,1,4 mod 5)": {
+   "with_SU3_squared": 0,
+   "with_SU2_squared": 0,
+   "with_gravity": 0
+  }
+ },
+ "gauged_conjugate_triplet": {
+  "cubic_sum_if_the_copies_were_a_gauged_SU3_triplet": 16,
+  "cubic_sum_for_a_real_SO3_triplet": 0,
+  "note": "sixteen left-handed states in one complex triplet give the cubic sum 16; the real rotation triplet has no cubic invariant"
+ }
+}

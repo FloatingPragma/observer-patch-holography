@@ -1,0 +1,85 @@
+{
+ "task": "QT exact supplements",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "E1_carrier_class_0": {
+  "uniform separated state: blank configurations": 220,
+  "fixed by D exactly": true,
+  "modular nullity of its component": 1,
+  "uniform double+single state: blank configurations": 132,
+  "its emission states (separated configurations with an adjacent pair, records 2 and 3)": 400,
+  "fixed by D exactly (double+single)": true,
+  "modular nullity of its component (double+single)": 1,
+  "weight of the blank record in the uniform double+single state": "33/133"
+ },
+ "E2_hexagon": {
+  "class 0": {
+   "fixed vectors of D in the components with a blank preparation": 17,
+   "with a blank-record part": 3,
+   "written-record vector of the double+single component (record 1 only)": [
+    {
+     "support": 30,
+     "content types": [
+      "double+single"
+     ],
+     "records": [
+      1
+     ],
+     "has a blank part": false,
+     "equal moduli": true,
+     "fixed by D exactly": true
+    }
+   ],
+   "antisymmetric shell vectors with record 2 or 3 in the triple component (support 2 each)": 12,
+   "every listed vector fixed by D exactly": true
+  },
+  "class 2": {
+   "fixed vectors of D in the components with a blank preparation": 14,
+   "with a blank-record part": 1,
+   "written-record vector of the double+single component (record 1 only)": [
+    {
+     "support": 30,
+     "content types": [
+      "double+single"
+     ],
+     "records": [
+      1
+     ],
+     "has a blank part": false,
+     "equal moduli": true,
+     "fixed by D exactly": true
+    }
+   ],
+   "antisymmetric shell vectors with record 2 or 3 in the triple component (support 2 each)": 12,
+   "every listed vector fixed by D exactly": true
+  },
+  "class 4": {
+   "fixed vectors of D in the components with a blank preparation": 14,
+   "with a blank-record part": 1,
+   "written-record vector of the double+single component (record 1 only)": [
+    {
+     "support": 30,
+     "content types": [
+      "double+single"
+     ],
+     "records": [
+      1
+     ],
+     "has a blank part": false,
+     "equal moduli": true,
+     "fixed by D exactly": true
+    }
+   ],
+   "antisymmetric shell vectors with record 2 or 3 in the triple component (support 2 each)": 12,
+   "every listed vector fixed by D exactly": true
+  }
+ },
+ "E2_reading": "on the hexagon the double+single configurations with the single-load moves (a hop of the single, the exchange of the double with an adjacent single) form one cycle of length 30 with total winding 3; a record-1 state that changes sign at every move closes when s^3 = 1, classes 0, 2, 4 (ARGUED)",
+ "seconds": 7.9
+}

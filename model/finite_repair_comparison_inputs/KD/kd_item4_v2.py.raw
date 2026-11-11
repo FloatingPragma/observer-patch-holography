@@ -1,0 +1,119 @@
+"""Item 4 (continued): the public walk tick as the mass step. Exact rational arithmetic on the public program.
+
+W = Q R on C^12 x C^2 x C^60 (model/coherent_seam_repair/program.py, class Observer, fibre 1), R the address
+reflection, Q the address-controlled seam involution. Facts checked here on the executable itself:
+  1. R W R W = 1 on a pseudo-random integer vector (so R conjugates W to its inverse);
+  2. for a rational eigenvector x of the native kernel with eigenvalue lam (lam = 9/10, the quintet), the plane
+     spanned by A x and W A x is invariant: W(W A x) = 2 lam W A x - A x, R(A x) = A x, R(W A x) = 2 lam A x - W A x,
+     <A x, W A x> = lam; so in an orthonormal basis W is the rotation by omega with cos(omega) = lam and R = diag(1, -1);
+  3. the set-record weight of W A x is 1 - lam (lead L30);
+  4. the same for a set-record embedded state (eigenvalue 14/15 of the second discriminant block).
+Consequence (algebra, see KD.md): with alpha_i = R x a_i on (walk register) x (doublet), the tick
+W prod_i (P+_i T_i + P-_i T_i^*) restricted to (plane) x (doublet) has the Dirac symbol with mass angle omega.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python RL/work/KD/kd_item4_v2.py [out.json]
+"""
+import json
+import random
+import sys
+from fractions import Fraction as F
+
+import sympy as s
+
+from model.coherent_seam_repair.program import Observer, State
+
+obs = Observer()
+n, D = 12, obs.address_count
+assert obs.dimension == 1440
+A = s.zeros(n)
+for a, b in obs.seams:
+    A[a, b] = A[b, a] = 1
+checks = {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+def embedded(x, parity=0):
+    amp = [F(0)] * obs.dimension
+    for p in range(n):
+        for k in range(D):
+            amp[obs.index(p, parity, k)] = F(int(x[p]))
+    return State(tuple(amp), D * sum(int(v) ** 2 for v in x))
+
+
+def inner(u, v):
+    assert u.norm_denominator == v.norm_denominator
+    return sum(a * b for a, b in zip(u.amplitudes, v.amplitudes)) / u.norm_denominator
+
+
+def lin(c1, u, c2, v):
+    return tuple(c1 * a + c2 * b for a, b in zip(u.amplitudes, v.amplitudes))
+
+
+def set_weight(u):
+    tot = F(0)
+    for p in range(n):
+        for k in range(D):
+            tot += u.amplitudes[obs.index(p, 1, k)] ** 2
+    return tot / u.norm_denominator
+
+
+# 1. R W R W = 1
+rng = random.Random(5)
+v = State(tuple(F(rng.randint(-3, 3)) for _ in range(obs.dimension)))
+w = obs.reflect(obs.step(obs.reflect(obs.step(v))))
+ok('R W R W = 1 on a pseudo-random integer vector of the 1440-dimensional public walk', w.amplitudes == v.amplitudes)
+
+rows = []
+for parity, mu, lam in ((0, -1, F(9, 10)), (1, -1, F(14, 15)), (0, 5, F(1)), (1, 5, F(5, 6))):
+    x = (A - mu * s.eye(n)).nullspace()[0]
+    x = x * s.ilcm(*[e.q for e in x])
+    e1 = embedded(list(x), parity)
+    assert e1.norm_squared() == 1
+    w1 = obs.step(e1)
+    w2 = obs.step(w1)
+    assert inner(e1, w1) == lam
+    assert w2.amplitudes == lin(2 * lam, w1, F(-1), e1)
+    assert obs.reflect(e1).amplitudes == e1.amplitudes
+    assert obs.reflect(w1).amplitudes == lin(2 * lam, e1, F(-1), w1)
+    sw0, sw1 = set_weight(e1), set_weight(w1)
+    if parity == 0:
+        assert sw0 == 0 and sw1 == 1 - lam                    # lead L30
+    rows.append({'embedded_record': parity, 'adjacency_eigenvalue': mu, 'cos_omega': str(lam),
+                 'set_record_weight_before': str(sw0), 'set_record_weight_after_one_tick': str(sw1)})
+ok('blank embedded eigenvector, kernel eigenvalue 9/10: invariant plane, <Ax, W Ax> = 9/10, W W Ax = 2 lam W Ax - Ax, '
+   'R Ax = Ax, R W Ax = 2 lam Ax - W Ax; set-record weight after one tick = 1/10 = 1 - lam', True)
+ok('same plane structure for the set-record embedded eigenvector (14/15) and the two end points (1 and 5/6)', True)
+
+# 2x2 algebra of the plane in the basis (A x, W A x), Gram [[1, lam], [lam, 1]]
+lam = s.Symbol('lambda', real=True)
+Gm = s.Matrix([[1, lam], [lam, 1]])
+Wm = s.Matrix([[0, -1], [1, 2 * lam]])
+Rm = s.Matrix([[1, 2 * lam], [0, -1]])
+assert (Rm * Rm).applyfunc(s.expand) == s.eye(2)
+assert (Rm * Wm * Rm * Wm).applyfunc(s.expand) == s.eye(2)
+assert (Wm.T * Gm * Wm - Gm).applyfunc(s.expand) == s.zeros(2) and (Rm.T * Gm * Rm - Gm).applyfunc(s.expand) == s.zeros(2)
+assert s.expand(Wm.trace() - 2 * lam) == 0 and s.expand(Wm.det() - 1) == 0
+ok('on the plane (symbolic in lam): W and R are isometries of the Gram form, R^2 = 1, R W R = W^-1, tr W = 2 lam, '
+   'det W = 1: W is the rotation by omega = arccos(lam) and R a reflection', True)
+
+# Dirac structure on (plane) x (doublet): generators Z x a_i and Y x 1 in an orthonormal basis of the plane
+sx = s.Matrix([[0, 1], [1, 0]]); sy = s.Matrix([[0, -s.I], [s.I, 0]]); sz = s.diag(1, -1)
+gens = [s.kronecker_product(sz, m) for m in (sx, sy, sz)] + [s.kronecker_product(sy, s.eye(2))]
+for i, gi in enumerate(gens):
+    for j, gj in enumerate(gens):
+        assert gi * gj + gj * gi == (2 * s.eye(4) if i == j else s.zeros(4))
+ok('with chirality R (= Z on the plane) and the walk rotation exp(-i omega Y): (Z x a_1, Z x a_2, Z x a_3, Y x 1) '
+   'satisfy the sixteen relations, so W prod_i exp(-i k_i R x a_i) is the Dirac symbol with mass angle omega', True)
+
+out = {'checks': checks, 'planes': rows,
+       'relation': 'mass angle of branch b = arccos(1 - p_b), p_b = set-record weight after one tick at rest = <x_b|L|x_b>/60',
+       'spectrum_of_W_from_the_public_proof': {'plus_one': 38, 'minus_one': 1356, 'oscillatory': 46}}
+for k in checks:
+    print('EXACT ok:', k)
+for r in rows:
+    print(r)
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

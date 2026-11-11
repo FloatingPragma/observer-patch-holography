@@ -1,0 +1,295 @@
+{
+ "task": "FR round 5",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "item2_entries": {
+  "N1_glue_seam_shared_occupations": {
+   "transitions from (no double, record 0 or 1) into a double or record 2, 3": [],
+   "weight_per_tick": "0"
+  },
+  "N2_detectors_and_quarter_turns": {
+   "program record": "record values 0 and 1 only (index rejects 2)",
+   "quarter-turn changes one diagonal amplitude only": true,
+   "weight_per_tick": "0 (diagonal operations conserve the weight of every record value)"
+  },
+  "N3_class_3_flux": {
+   "weight_per_tick": "0 (round 4 Q5: the both-ends-loaded seam is kept under the gauge sign)"
+  },
+  "N4_labelled_loads_read_jointly (DECLARED model)": {
+   "coincidence on one shared port": "1/144",
+   "on some port of a carrier": "1/12",
+   "on a hexagon (two uniform loads)": "1/6"
+  },
+  "occupation_of_the_cycle": {
+   "tracial, two loads on a carrier": "12/78 = 2/13",
+   "tracial, two loads on a hexagon": "2/7",
+   "period average inside the cycle (state S)": {
+    "double": "13/27",
+    "I": "7/27",
+    "F": "7/54",
+    "B": "7/54"
+   }
+  }
+ },
+ "item3_two_hexagons": {
+  "hexagon pairs: shared ports and seams by second axis": {
+   "((0, 1, 5), (2, 3, 6))": {
+    "shared_ports": 2,
+    "shared_seams": 0
+   },
+   "((0, 1, 7), (2, 3, 4))": {
+    "shared_ports": 2,
+    "shared_seams": 0
+   },
+   "((0, 5, 11), (3, 6, 8))": {
+    "shared_ports": 4,
+    "shared_seams": 2
+   },
+   "((0, 7, 10), (3, 4, 9))": {
+    "shared_ports": 2,
+    "shared_seams": 0
+   },
+   "((0, 10, 11), (3, 8, 9))": {
+    "shared_ports": 2,
+    "shared_seams": 0
+   },
+   "((1, 5, 9), (2, 6, 10))": {
+    "shared_ports": 2,
+    "shared_seams": 0
+   },
+   "((1, 7, 8), (2, 4, 11))": {
+    "shared_ports": 4,
+    "shared_seams": 2
+   },
+   "((1, 8, 9), (2, 10, 11))": {
+    "shared_ports": 2,
+    "shared_seams": 0
+   },
+   "((4, 5, 9), (6, 7, 10))": {
+    "shared_ports": 4,
+    "shared_seams": 2
+   }
+  },
+  "chosen second axis": "((0, 1, 7), (2, 3, 4))",
+  "hexagon 2": [
+   5,
+   6,
+   8,
+   9,
+   10,
+   11
+  ],
+  "dimer of B": [
+   8,
+   9
+  ],
+  "shared ports": [
+   9,
+   10
+  ],
+  "shared seams": [],
+  "J1_sixty_addresses_one_tick": {
+   "A backward (0,10)": "1/60",
+   "A forward (2,3)": "1/60",
+   "A in-dimer": "1/30",
+   "A other seam": "1/10",
+   "B C-type": "1/30",
+   "B in-dimer (hold)": "1/30",
+   "B other seam": "1/10",
+   "no event": "2/3"
+  },
+  "J1_count P(A forward) + P(B in-dimer) (exclusive reads)": "1/20",
+  "J1_ratio hold : forward : backward": "1/30 : 1/60 : 1/60",
+  "J2_union_addresses": 24,
+  "J2_union_one_tick": {
+   "A backward (0,10)": "1/24",
+   "A forward (2,3)": "1/24",
+   "A in-dimer": "1/12",
+   "A other seam": "1/12",
+   "B C-type": "1/12",
+   "B in-dimer (hold)": "1/12",
+   "B other seam": "1/12",
+   "no event": "1/2"
+  },
+  "J2_count": "1/8",
+  "separate instances (round 4)": "2/9",
+  "J3": "two address registers: independent reads at tick 1 give 2/9 when no seam joins the two dimers (stated)"
+ },
+ "item4_clock_on_pair_transport": {
+  "C1_dimer_circulant_rows (Laurent polynomials in z)": {
+   "1": {
+    "r": "2/3",
+    "t+ (to d1)": "0",
+    "t- (to d2)": "0"
+   },
+   "2": {
+    "r": "-5*y/72 + 1/9 - 5/(72*y)",
+    "t+ (to d1)": "y/72",
+    "t- (to d2)": "1/(72*y)"
+   },
+   "3": {
+    "r": "y**2/216 - 31*y/216 - 19/108 - 31/(216*y) + 1/(216*y**2)",
+    "t+ (to d1)": "y**2/216 + 11*y/216 + 1/216",
+    "t- (to d2)": "1/216 + 11/(216*y) + 1/(216*y**2)"
+   },
+   "4": {
+    "r": "-y**3/324 - 5*y**2/162 - y/162 - 1/6 - 1/(162*y) - 5/(162*y**2) - 1/(324*y**3)",
+    "t+ (to d1)": "-y**3/324 + 19*y**2/648 + 23*y/324 + 19/648 - 1/(324*y)",
+    "t- (to d2)": "-y/324 + 19/648 + 23/(324*y) + 19/(648*y**2) - 1/(324*y**3)"
+   },
+   "5": {
+    "r": "y**4/486 - y**3/1296 - 49*y**2/648 + 931*y/3888 + 25/972 + 931/(3888*y) - 49/(648*y**2) - 1/(1296*y**3) + 1/(486*y**4)",
+    "t+ (to d1)": "y**4/486 - 7*y**3/648 + 119*y**2/1944 + 49*y/972 + 119/1944 - 7/(648*y) + 1/(486*y**2)",
+    "t- (to d2)": "y**2/486 - 7*y/648 + 119/1944 + 49/(972*y) + 119/(1944*y**2) - 7/(648*y**3) + 1/(486*y**4)"
+   },
+   "6": {
+    "r": "-y**5/729 + 11*y**4/23328 + 13*y**3/11664 - 431*y**2/7776 + 4051*y/11664 + 643/3888 + 4051/(11664*y) - 431/(7776*y**2) + 13/(11664*y**3) + 11/(23328*y**4) - 1/(729*y**5)",
+    "t+ (to d1)": "-y**5/729 + 35*y**4/5832 - 85*y**3/11664 + 139*y**2/2916 + 205*y/5832 + 139/2916 - 85/(11664*y) + 47/(7776*y**2) - 1/(729*y**3)",
+    "t- (to d2)": "-y**3/729 + 47*y**2/7776 - 85*y/11664 + 139/2916 + 205/(5832*y) + 139/(2916*y**2) - 85/(11664*y**3) + 35/(5832*y**4) - 1/(729*y**5)"
+   },
+   "7": {
+    "r": "2*y**6/2187 - 13*y**5/139968 - 583*y**4/69984 + 833*y**3/23328 - 182*y**2/2187 + 37297*y/139968 + 3911/34992 + 37297/(139968*y) - 182/(2187*y**2) + 833/(23328*y**3) - 583/(69984*y**4) - 13/(139968*y**5) + 2/(2187*y**6)",
+    "t+ (to d1)": "2*y**6/2187 - 7*y**5/2187 + 265*y**4/69984 + 667*y**3/69984 + 139*y**2/69984 + 461*y/11664 + 139/69984 + 149/(15552*y) + 289/(69984*y**2) - 49/(15552*y**3) + 2/(2187*y**4)",
+    "t- (to d2)": "2*y**4/2187 - 49*y**3/15552 + 289*y**2/69984 + 149*y/15552 + 139/69984 + 461/(11664*y) + 139/(69984*y**2) + 667/(69984*y**3) + 265/(69984*y**4) - 7/(2187*y**5) + 2/(2187*y**6)"
+   },
+   "8": {
+    "r": "-4*y**7/6561 - 17*y**6/93312 + 637*y**5/139968 - 21143*y**4/839808 + 43823*y**3/419904 - 53615*y**2/279936 + 10523*y/209952 + 3113/419904 + 10523/(209952*y) - 53615/(279936*y**2) + 43823/(419904*y**3) - 21143/(839808*y**4) + 637/(139968*y**5) - 17/(93312*y**6) - 4/(6561*y**7)",
+    "t+ (to d1)": "-4*y**7/6561 + 7*y**6/4374 - 11*y**5/419904 - 1645*y**4/419904 + 209*y**3/23328 + 191*y**2/139968 + 2639*y/69984 + 379/279936 + 62/(6561*y) - 541/(209952*y**2) + 65/(139968*y**3) + 445/(279936*y**4) - 4/(6561*y**5)",
+    "t- (to d2)": "-4*y**5/6561 + 445*y**4/279936 + 65*y**3/139968 - 541*y**2/209952 + 62*y/6561 + 379/279936 + 2639/(69984*y) + 191/(139968*y**2) + 209/(23328*y**3) - 1645/(419904*y**4) - 11/(419904*y**5) + 7/(4374*y**6) - 4/(6561*y**7)"
+   }
+  },
+  "C1_evaluations": {
+   "theta = 2/9": {
+    "2": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "0.002732212735",
+      "0.04321181984",
+      "0.03260792847"
+     ],
+     "|lambda_1| / |lambda_2|": "1.325193653"
+    },
+    "4": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "9.257807682e-5",
+      "0.4056976497",
+      "0.3120839227"
+     ],
+     "|lambda_1| / |lambda_2|": "1.299963312"
+    },
+    "6": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "0.9833792721",
+      "0.5774484804",
+      "0.6710541074"
+     ],
+     "|lambda_1| / |lambda_2|": "0.8605095685"
+    },
+    "8": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "0.0001518816247",
+      "0.1746533535",
+      "0.1387346041"
+     ],
+     "|lambda_1| / |lambda_2|": "1.258902598"
+    }
+   },
+   "theta = 8/27": {
+    "2": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "0.004841727385",
+      "0.04203323637",
+      "0.02798534666"
+     ],
+     "|lambda_1| / |lambda_2|": "1.501973046"
+    },
+    "4": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "0.0002889430025",
+      "0.4118831422",
+      "0.2885330753"
+     ],
+     "|lambda_1| / |lambda_2|": "1.427507546"
+    },
+    "6": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "0.9703879443",
+      "0.5627037675",
+      "0.6847795675"
+     ],
+     "|lambda_1| / |lambda_2|": "0.8217297861"
+    },
+    "8": {
+     "|lambda_k|, k = 0, 1, 2": [
+      "0.0004885820956",
+      "0.1742668003",
+      "0.1273007933"
+     ],
+     "|lambda_1| / |lambda_2|": "1.368937269"
+    }
+   }
+  },
+  "C1_two_tick_prediction_ratio (1 - cos(theta + 2pi/3))/(1 - cos(theta + 4pi/3))": {
+   "theta = 2/9": "1.294362884",
+   "theta = 8/27": "1.412717952"
+  },
+  "C2_C(theta)_energy_reading": {
+   "theta = 2/9 (count at ticks 1 and 5)": {
+    "lambda_k": [
+     "0.971401565834",
+     "0.0164727810509",
+     "0.236870524507"
+    ],
+    "all_positive": true,
+    "m2/m1": "206.770315973",
+    "m3/m1": "3477.4728371",
+    "Q": "0.666666666667"
+   },
+   "theta = 8/27 (period average of the count)": {
+    "lambda_k": [
+     "0.960440206174",
+     "-0.0138376196772",
+     "0.278142284895"
+    ],
+    "all_positive": false,
+    "m2/m1": "404.027806812",
+    "m3/m1": "4817.45741883",
+    "Q": "0.637528985065"
+   },
+   "theta = 4/27 (period average, one step per two ticks)": {
+    "lambda_k": [
+     "0.979274333877",
+     "0.048931858892",
+     "0.196538678622"
+    ],
+    "all_positive": true,
+    "m2/m1": "16.1329071531",
+    "m3/m1": "400.521021246",
+    "Q": "0.666666666667"
+   }
+  },
+  "pi/12": "0.2617993878"
+ },
+ "NOT_BLIND": {
+  "measured m_mu/m_e": "206.768282708",
+  "measured m_tau/m_e": "3477.370086",
+  "C(2/9)": [
+   "206.770315973",
+   "3477.4728371"
+  ],
+  "C(8/27)": [
+   "404.027806812",
+   "4817.45741883"
+  ],
+  "C(4/27)": [
+   "16.1329071531",
+   "400.521021246"
+  ]
+ },
+ "seconds": 1.65
+}

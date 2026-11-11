@@ -1,0 +1,307 @@
+"""CW library: twisted (flux k) port operators on one carrier and on flat federations, exact and float.
+
+Run from the public checkout:
+  cd reverse-engineering-reality && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:../repair-law/work/CW \
+      /tmp/oph-completion-venv/bin/python ../repair-law/work/CW/<script>
+On box B: PYTHONPATH already has model.*; the S3 builder is copied next to this file as s0_lib.py.
+
+Conventions
+  * carrier: 12 ports, 30 seams, 20 oriented faces of model.common_source.slow_geometry (NATIVE).
+  * link z(a->b): amplitude of the hop a -> b. A_k[b, a] = z(a->b)^k. z(b->a) = conj z(a->b).
+  * unit connection (DECLARED recharting class): z(a->b) = phase of <chi_b|chi_a>, chi_p the spin-1/2 coherent state
+    of the port direction. Exact form: z(a->b) = zeta^{n(a->b)}, zeta = exp(2 pi i/20), n an integer seam table with
+    n(a->b)+n(b->c)+n(c->a) = SIGN (mod 20) on every oriented face. SIGN is read off the spinor connection.
+  * twisted carrier Laplacian L_k = 5 - A_k, twisted transfer T_k = 1 - L_k/60.
+  * flat federation: honeycomb of carriers, unit cell = one up and one down carrier (24 ports), mesh edge 1,
+    lattice vectors A1 = (1,0), A2 = (1/2, sqrt3/2). Bond j joins port pu[j] of the up carrier in cell R to port
+    pd[j] of the down carrier in cell R - DELTA[j], DELTA = (0, A1, A2)  (the convention of S3 s3_flat.bloch).
+"""
+from __future__ import annotations
+
+import math
+import os
+import sys
+from fractions import Fraction as Fr
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+HERE = os.path.dirname(os.path.abspath(__file__))
+for cand in (HERE, os.path.join(HERE, '..', 'S3')):
+    if os.path.exists(os.path.join(cand, 's0_lib.py')) and cand not in sys.path:
+        sys.path.insert(0, cand)
+import s0_lib as S  # noqa: E402  (read-only S3 builder)
+from model.common_source import slow_geometry  # noqa: E402
+
+_src = slow_geometry.source()
+SEAMS = tuple(tuple(int(v) for v in e) for e in _src.seams())
+FACES = tuple(tuple(int(v) for v in f) for f in _src.oriented_faces())
+assert SEAMS == S.SEAMS and FACES == S.BASE_FACES
+N, M = 12, 30
+PORT_UNIT = S.PORT_UNIT
+ADJ = S.ADJ.astype(float)
+F_TRIPLE, B_TRIPLE = tuple(S.FACE_TRIPLE), tuple(S.BELT_TRIPLE)
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, math.sqrt(3) / 2])
+DELTA = (np.zeros(2), A1, A2)
+B1 = 2 * math.pi * np.array([1.0, -1 / math.sqrt(3)]); B2 = 2 * math.pi * np.array([0.0, 2 / math.sqrt(3)])
+KPT = np.array([2 * math.pi / 3, 2 * math.pi / math.sqrt(3)])       # K; K' = -K
+MPT = B2 / 2
+ZETA = np.exp(2j * np.pi / 20)
+
+
+# ----------------------------------------------------------------------------- spinor connection (float)
+def spinor(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+
+
+def generic_rotation(seed=3):
+    R = np.linalg.qr(np.random.default_rng(seed).normal(size=(3, 3)))[0]
+    if np.linalg.det(R) < 0:
+        R[:, 0] *= -1
+    return R
+
+
+def spinor_links(frame=None):
+    """Unit connection from the port directions rotated by `frame` (default: a generic rotation, no port at a pole)."""
+    R = generic_rotation() if frame is None else np.asarray(frame, float)
+    U = PORT_UNIT @ R.T
+    chi = [spinor(u) for u in U]
+    link = {}
+    for a, b in SEAMS:
+        z = np.vdot(chi[b], chi[a]); z /= abs(z)
+        link[(a, b)] = z; link[(b, a)] = np.conj(z)
+    return link, chi
+
+
+def face_flux_units(link):
+    out = []
+    for a, b, c in FACES:
+        out.append(np.angle(link[(a, b)] * link[(b, c)] * link[(c, a)]) / (2 * np.pi) * 20)
+    return np.array(out)
+
+
+# ----------------------------------------------------------------------------- integer gauge (exact)
+def _tree():
+    parent = {0: None}; order = [0]
+    for p in order:
+        for q in range(N):
+            if ADJ[p, q] and q not in parent:
+                parent[q] = p; order.append(q)
+    return parent, order
+
+
+def integer_table():
+    """Integer seam table n(a->b) mod 20 gauge-equivalent to the spinor connection; checked exactly on the 20 faces."""
+    link, _ = spinor_links()
+    parent, order = _tree()
+    phi = {0: 1.0 + 0j}
+    for q in order[1:]:
+        p = parent[q]
+        phi[q] = phi[p] * link[(p, q)]            # gauge: z'(a->b) = conj(phi_b) z(a->b) phi_a, tree links become 1
+    n = {}
+    for a, b in SEAMS:
+        zp = np.conj(phi[b]) * link[(a, b)] * phi[a]
+        m = np.angle(zp) / (2 * np.pi) * 20
+        assert abs(m - round(m)) < 1e-8, m
+        n[(a, b)] = int(round(m)) % 20; n[(b, a)] = (-int(round(m))) % 20
+    sums = {(n[(a, b)] + n[(b, c)] + n[(c, a)]) % 20 for a, b, c in FACES}
+    assert len(sums) == 1, sums
+    sign = sums.pop()
+    assert sign in (1, 19)
+    return n, (1 if sign == 1 else -1)
+
+
+NTAB, SIGN = integer_table()
+
+
+def A_float(k, table=None):
+    t = NTAB if table is None else table
+    A = np.zeros((N, N), complex)
+    for (a, b), m in t.items():
+        A[b, a] = ZETA ** ((k * m) % 20)
+    return A
+
+
+def L_float(k):
+    return 5 * np.eye(N) - A_float(k)
+
+
+def T_float(k):
+    return np.eye(N) - L_float(k) / (2 * M)
+
+
+def multiplets(vals, tol=1e-8):
+    vals = np.sort(np.asarray(vals, float))
+    out = []; cur = [vals[0]]
+    for x in vals[1:]:
+        if abs(x - cur[-1]) <= tol:
+            cur.append(x)
+        else:
+            out.append((float(np.mean(cur)), len(cur))); cur = [x]
+    out.append((float(np.mean(cur)), len(cur)))
+    return out
+
+
+# ----------------------------------------------------------------------------- exact arithmetic in Q(zeta_20)
+# elements: tuples of 8 Fractions, coefficients of 1, x, ..., x^7 modulo Phi_20 = x^8 - x^6 + x^4 - x^2 + 1.
+def _reduce(c):
+    c = list(c)
+    for d in range(len(c) - 1, 7, -1):
+        t = c[d]
+        if t:
+            c[d] = 0
+            c[d - 2] += t; c[d - 4] -= t; c[d - 6] += t; c[d - 8] -= t     # x^8 = x^6 - x^4 + x^2 - 1
+    return tuple(c[:8]) + tuple([0] * max(0, 8 - len(c)))
+
+
+def cyc(*coeffs):
+    return _reduce([Fr(x) for x in coeffs] + [Fr(0)] * max(0, 8 - len(coeffs)))
+
+
+CZERO, CONE = cyc(0), cyc(1)
+
+
+def zpow(m):
+    m %= 20
+    c = [Fr(0)] * 20
+    c[m] = Fr(1)
+    return _reduce(c)
+
+
+def cadd(a, b): return tuple(x + y for x, y in zip(a, b))
+def csub(a, b): return tuple(x - y for x, y in zip(a, b))
+def cscale(a, r): return tuple(x * r for x in a)
+
+
+def cmul(a, b):
+    c = [Fr(0)] * 15
+    for i, x in enumerate(a):
+        if x:
+            for j, y in enumerate(b):
+                if y:
+                    c[i + j] += x * y
+    return _reduce(c)
+
+
+def cfloat(a):
+    return complex(sum(float(x) * ZETA ** i for i, x in enumerate(a)))
+
+
+def cconj(a):
+    out = CZERO
+    for i, x in enumerate(a):
+        if x:
+            out = cadd(out, cscale(zpow(-i), x))
+    return out
+
+
+SQRT5 = cadd(cyc(1), cscale(cadd(zpow(4), zpow(-4)), 2))        # 1 + 2 (zeta^4 + zeta^-4)
+C18 = cadd(zpow(1), zpow(-1))                                   # 2 cos(pi/10)
+assert abs(cfloat(SQRT5) - 5 ** 0.5) < 1e-12 and abs(cfloat(C18) - 2 * math.cos(math.pi / 10)) < 1e-12
+REAL_BASIS = (CONE, SQRT5, C18, cmul(SQRT5, C18))               # basis of the real subfield (degree 4)
+REAL_BASIS_NAMES = ('1', 'sqrt5', 'c', 'sqrt5*c')               # c = 2 cos(pi/10) = sqrt(10 + 2 sqrt5)/2
+
+
+def real_element(r):
+    out = CZERO
+    for coef, b in zip(r, REAL_BASIS):
+        out = cadd(out, cscale(b, Fr(coef)))
+    return out
+
+
+def A_exact(k):
+    """12 x 12 list-of-lists of Q(zeta_20) elements."""
+    A = [[CZERO] * N for _ in range(N)]
+    for (a, b), m in NTAB.items():
+        A[b][a] = zpow(k * m)
+    return A
+
+
+def mat_mul(X, Y):
+    n, m, p = len(X), len(Y), len(Y[0])
+    out = [[CZERO] * p for _ in range(n)]
+    for i in range(n):
+        for j in range(p):
+            acc = [Fr(0)] * 15
+            for l in range(m):
+                a, b = X[i][l], Y[l][j]
+                if any(a) and any(b):
+                    for u, x in enumerate(a):
+                        if x:
+                            for v, y in enumerate(b):
+                                if y:
+                                    acc[u + v] += x * y
+            out[i][j] = _reduce(acc)
+    return out
+
+
+def power_traces(A, upto):
+    n = len(A)
+    out = []; X = A
+    for j in range(1, upto + 1):
+        tr = CZERO
+        for i in range(n):
+            tr = cadd(tr, X[i][i])
+        out.append(tr)
+        if j < upto:
+            X = mat_mul(X, A)
+    return out
+
+
+# ----------------------------------------------------------------------------- flat federation (float)
+def bloch(q, k, pu, pd, glue=(1, 1, 1), site=(0.0, 0.0), Lc=None, Ld=None):
+    """Twisted port Laplacian of the flat honeycomb federation, 24 x 24. glue[j]: phase of the hop up -> down on
+    bond j. site: uniform site terms (up, down). Lc/Ld: override the internal twisted Laplacians (up, down)."""
+    q = np.asarray(q, float)
+    Lu = L_float(k) if Lc is None else Lc
+    Ldn = Lu if Ld is None else Ld
+    L = np.zeros((24, 24), complex)
+    L[:12, :12] = Lu + site[0] * np.eye(12); L[12:, 12:] = Ldn + site[1] * np.eye(12)
+    for j in range(3):
+        u, d = pu[j], 12 + pd[j]
+        L[u, u] += 1; L[d, d] += 1
+        ph = glue[j] * np.exp(-1j * (q @ DELTA[j]))
+        L[d, u] -= ph; L[u, d] -= np.conj(ph)                      # hop up -> down has amplitude ph
+    return L
+
+
+def bands(q, *a, **kw):
+    return np.linalg.eigvalsh(bloch(q, *a, **kw))
+
+
+def zone_grid(n):
+    s = (np.arange(n)) / n
+    g1, g2 = np.meshgrid(s, s, indexing='ij')
+    return g1.reshape(-1, 1) * B1 + g2.reshape(-1, 1) * B2
+
+
+def fold(q):
+    """Reduce q to fractional coordinates in [0,1)^2 of (B1, B2)."""
+    Binv = np.linalg.inv(np.array([B1, B2]).T)
+    f = Binv @ np.asarray(q, float)
+    return f - np.floor(f + 1e-12)
+
+
+def name_point(q, tol=1e-6):
+    f = fold(q)
+    def close(g):
+        d = f - np.asarray(g); d -= np.round(d)
+        return np.abs(d).max() < tol
+    if close((0, 0)): return 'Gamma'
+    if close(fold(KPT)): return 'K'
+    if close(fold(-KPT)): return "K'"
+    for nm, g in (('M', (0.5, 0)), ('M', (0, 0.5)), ('M', (0.5, 0.5))):
+        if close(g): return nm
+    return 'generic'
+
+
+# ----------------------------------------------------------------------------- clocks
+def omega_rec(l, M_eff=30.0):
+    """Recurrence clock: cos(omega) = lambda = 1 - l/(2 M_eff)."""
+    return float(np.arccos(np.clip(1 - l / (2 * M_eff), -1, 1)))
+
+
+def energy_first(l, M_eff=30.0):
+    """First-order clock: H = -log lambda."""
+    return float(-np.log(1 - l / (2 * M_eff)))

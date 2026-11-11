@@ -1,0 +1,411 @@
+{
+ "measured_values_read_in_construction": false,
+ "G1": {
+  "[N, twelve generators] max": 0.0,
+  "tr(T_13 T_13) on the code": 0.5,
+  "tr(T_13 T_a) max": 4.163336342344337e-17,
+  "hessians": {
+   "all patterns, 32": {
+    "H_gauge (first of the twelve)": 0.125,
+    "H_13 centred at 5/2": 0.125,
+    "H_13 uncentred": 0.75,
+    "mean degree on the carrier": 2.5,
+    "H_13 about the carrier mean (variance / 10)": 0.125,
+    "H_toggle": 1.0
+   },
+   "family half n3 odd, 16": {
+    "H_gauge (first of the twelve)": 0.125,
+    "H_13 centred at 5/2": 0.125,
+    "H_13 uncentred": 0.7499999999999999,
+    "mean degree on the carrier": 2.5,
+    "H_13 about the carrier mean (variance / 10)": 0.125,
+    "H_toggle": 1.0
+   },
+   "generated from the code (n3 at most 1), 16": {
+    "H_gauge (first of the twelve)": 0.125,
+    "H_13 centred at 5/2": 0.125,
+    "H_13 uncentred": 0.37499999999999994,
+    "mean degree on the carrier": 1.75,
+    "H_13 about the carrier mean (variance / 10)": 0.06875,
+    "H_toggle": 1.0
+   }
+  },
+  "covariance |Lam(e^{i phi}) K_theta Lam^dag - K_(e^{i phi} theta)|": 1.1443916996305594e-16,
+  "higgs_plaquette_with_thirteenth_link": [
+   {
+    "field scale": 0.08,
+    "largest relative deviation from (1/2) |e^{i phi} phi_prime - phi|^2": 0.01109426870899987
+   },
+   {
+    "field scale": 0.04,
+    "largest relative deviation from (1/2) |e^{i phi} phi_prime - phi|^2": 0.0006774581693740485
+   },
+   {
+    "field scale": 0.02,
+    "largest relative deviation from (1/2) |e^{i phi} phi_prime - phi|^2": 0.00047366288189505207
+   }
+  ],
+  "toggle_by_degree_transition": {
+   "0-1": {
+    "pairs": 1,
+    "sum |K|^2": 1.0,
+    "weight per pair": 1.0
+   },
+   "1-2": {
+    "pairs": 4,
+    "sum |K|^2": 4.0,
+    "weight per pair": 1.0
+   },
+   "2-3": {
+    "pairs": 6,
+    "sum |K|^2": 6.0,
+    "weight per pair": 1.0
+   },
+   "3-4": {
+    "pairs": 4,
+    "sum |K|^2": 4.0,
+    "weight per pair": 1.0
+   },
+   "4-5": {
+    "pairs": 1,
+    "sum |K|^2": 1.0,
+    "weight per pair": 1.0
+   }
+  },
+  "per_pair_weight_ratio (2-3 : 1-2 : 0-1)": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "phase of a toggle pair under the thirteenth link is degree independent": true
+ },
+ "G2": {
+  "Q": {
+   "degree N (family half, n3 odd)": 2,
+   "X = 5(B-L) - 4Y": "1",
+   "C twelve": "21/10",
+   "C thirteenth": "1/40",
+   "C thirteen currents": "17/8",
+   "C3 + C2 + T3R^2 + (3/8)(B-L)^2 (right-handed)": null
+  },
+  "u_R": {
+   "degree N (family half, n3 odd)": 3,
+   "X = 5(B-L) - 4Y": "-1",
+   "C twelve": "8/5",
+   "C thirteenth": "1/40",
+   "C thirteen currents": "13/8",
+   "C3 + C2 + T3R^2 + (3/8)(B-L)^2 (right-handed)": "13/8"
+  },
+  "d_R": {
+   "degree N (family half, n3 odd)": 1,
+   "X = 5(B-L) - 4Y": "3",
+   "C twelve": "7/5",
+   "C thirteenth": "9/40",
+   "C thirteen currents": "13/8",
+   "C3 + C2 + T3R^2 + (3/8)(B-L)^2 (right-handed)": "13/8"
+  },
+  "L": {
+   "degree N (family half, n3 odd)": 4,
+   "X = 5(B-L) - 4Y": "-3",
+   "C twelve": "9/10",
+   "C thirteenth": "9/40",
+   "C thirteen currents": "9/8",
+   "C3 + C2 + T3R^2 + (3/8)(B-L)^2 (right-handed)": null
+  },
+  "e_R": {
+   "degree N (family half, n3 odd)": 3,
+   "X = 5(B-L) - 4Y": "-1",
+   "C twelve": "3/5",
+   "C thirteenth": "1/40",
+   "C thirteen currents": "5/8",
+   "C3 + C2 + T3R^2 + (3/8)(B-L)^2 (right-handed)": "5/8"
+  },
+  "nu_R": {
+   "degree N (family half, n3 odd)": 5,
+   "X = 5(B-L) - 4Y": "-5",
+   "C twelve": "0",
+   "C thirteenth": "5/8",
+   "C thirteen currents": "5/8",
+   "C3 + C2 + T3R^2 + (3/8)(B-L)^2 (right-handed)": "5/8"
+  },
+  "H (degree charge 1)": {
+   "C twelve": "9/10",
+   "C thirteenth": "1/10",
+   "C thirteen currents": "1"
+  },
+  "cross term T3R (B-L) of the U(1) part": {
+   "twelve currents": "(3/5) T3R (B-L): +1/10 (u_R), -1/10 (d_R), +3/10 (e_R), -3/10 (nu_R)",
+   "thirteen currents": "0 (3/5 - 24/40 = 0)"
+  },
+  "C(u_R) - C(d_R)": {
+   "twelve": "1/5",
+   "thirteen": "0"
+  }
+ },
+ "G3": {
+  "theta = g/2": 0.43975528591628193,
+  "kappa = eps/10": 0.03867694229826217,
+  "kappa/theta": 0.08795105718325638,
+  "centred (q = N - 5/2)": {
+   "top": {
+    "N -> N+1": "2-3",
+    "Delta": 0.0,
+    "Delta/kappa": 0.0,
+    "mixing weight": 0.5,
+    "cone gap / (2 theta)": 1.0,
+    "rest energy at p = 0": 0.43975528591628193,
+    "(m) amplitude ratio to top": 1.0,
+    "(m) weight ratio to top": 1.0,
+    "(g) gap ratio to top": 1.0,
+    "(r) rest energy ratio to top": 1.0
+   },
+   "bottom": {
+    "N -> N+1": "1-2",
+    "Delta": -0.07735388459652434,
+    "Delta/kappa": -2.0,
+    "mixing weight": 0.4561935748757745,
+    "cone gap / (2 theta)": 1.0000000052283193,
+    "rest energy at p = 0": 0.44145284839590054,
+    "(m) amplitude ratio to top": 0.9551895883810444,
+    "(m) weight ratio to top": 0.912387149751549,
+    "(g) gap ratio to top": 1.0000000052283193,
+    "(r) rest energy ratio to top": 1.0038602434899253
+   },
+   "tau": {
+    "N -> N+1": "3-4",
+    "Delta": 0.07735388459652434,
+    "Delta/kappa": 2.0,
+    "mixing weight": 0.4561935748757745,
+    "cone gap / (2 theta)": 1.0000000052283193,
+    "rest energy at p = 0": 0.44145284839590054,
+    "(m) amplitude ratio to top": 0.9551895883810444,
+    "(m) weight ratio to top": 0.912387149751549,
+    "(g) gap ratio to top": 1.0000000052283193,
+    "(r) rest energy ratio to top": 1.0038602434899253
+   },
+   "neutrino": {
+    "N -> N+1": "4-5",
+    "Delta": 0.15470776919304868,
+    "Delta/kappa": 4.0,
+    "mixing weight": 0.4133788307701569,
+    "cone gap / (2 theta)": 1.0000000563380123,
+    "rest energy at p = 0": 0.446506814005658,
+    "(m) amplitude ratio to top": 0.9092621522643037,
+    "(m) weight ratio to top": 0.8267576615403138,
+    "(g) gap ratio to top": 1.0000000563380123,
+    "(r) rest energy ratio to top": 1.0153529208302943
+   },
+   "top (conjugate family)": {
+    "N -> N+1": "2-3",
+    "Delta": 0.0,
+    "Delta/kappa": 0.0,
+    "mixing weight": 0.5,
+    "cone gap / (2 theta)": 1.0,
+    "rest energy at p = 0": 0.43975528591628193,
+    "(m) amplitude ratio to top": 1.0,
+    "(m) weight ratio to top": 1.0,
+    "(g) gap ratio to top": 1.0,
+    "(r) rest energy ratio to top": 1.0
+   },
+   "bottom (conjugate family)": {
+    "N -> N+1": "3-4",
+    "Delta": 0.07735388459652434,
+    "Delta/kappa": 2.0,
+    "mixing weight": 0.4561935748757745,
+    "cone gap / (2 theta)": 1.0000000052283193,
+    "rest energy at p = 0": 0.44145284839590054,
+    "(m) amplitude ratio to top": 0.9551895883810444,
+    "(m) weight ratio to top": 0.912387149751549,
+    "(g) gap ratio to top": 1.0000000052283193,
+    "(r) rest energy ratio to top": 1.0038602434899253
+   },
+   "tau (conjugate family)": {
+    "N -> N+1": "1-2",
+    "Delta": -0.07735388459652434,
+    "Delta/kappa": -2.0,
+    "mixing weight": 0.4561935748757745,
+    "cone gap / (2 theta)": 1.0000000052283193,
+    "rest energy at p = 0": 0.44145284839590054,
+    "(m) amplitude ratio to top": 0.9551895883810444,
+    "(m) weight ratio to top": 0.912387149751549,
+    "(g) gap ratio to top": 1.0000000052283193,
+    "(r) rest energy ratio to top": 1.0038602434899253
+   },
+   "neutrino (conjugate family)": {
+    "N -> N+1": "0-1",
+    "Delta": -0.15470776919304868,
+    "Delta/kappa": -4.0,
+    "mixing weight": 0.4133788307701569,
+    "cone gap / (2 theta)": 1.0000000563380123,
+    "rest energy at p = 0": 0.446506814005658,
+    "(m) amplitude ratio to top": 0.9092621522643037,
+    "(m) weight ratio to top": 0.8267576615403138,
+    "(g) gap ratio to top": 1.0000000563380123,
+    "(r) rest energy ratio to top": 1.0153529208302943
+   }
+  },
+  "uncentred (q = N)": {
+   "top": {
+    "N -> N+1": "2-3",
+    "Delta": 0.19338471149131087,
+    "Delta/kappa": 5.0,
+    "mixing weight": 0.3926261021427939,
+    "cone gap / (2 theta)": 1.000000017479363,
+    "rest energy at p = 0": 0.45026006168763766,
+    "(m) amplitude ratio to top": 1.0,
+    "(m) weight ratio to top": 1.0,
+    "(g) gap ratio to top": 1.0,
+    "(r) rest energy ratio to top": 1.0
+   },
+   "bottom": {
+    "N -> N+1": "1-2",
+    "Delta": 0.11603082689478651,
+    "Delta/kappa": 3.0,
+    "mixing weight": 0.4346033541950899,
+    "cone gap / (2 theta)": 1.000000013157313,
+    "rest energy at p = 0": 0.44356566558829014,
+    "(m) amplitude ratio to top": 1.0520998353729563,
+    "(m) weight ratio to top": 1.1069140635918018,
+    "(g) gap ratio to top": 0.9999999956779501,
+    "(r) rest energy ratio to top": 0.9851321565713468
+   },
+   "tau": {
+    "N -> N+1": "3-4",
+    "Delta": 0.2707385960878352,
+    "Delta/kappa": 7.0,
+    "mixing weight": 0.35289753571988103,
+    "cone gap / (2 theta)": 1.0000000122174175,
+    "rest energy at p = 0": 0.4601190697463145,
+    "(m) amplitude ratio to top": 0.9480576099098634,
+    "(m) weight ratio to top": 0.8988132317080029,
+    "(g) gap ratio to top": 0.9999999947380546,
+    "(r) rest energy ratio to top": 1.021896252627257
+   },
+   "neutrino": {
+    "N -> N+1": "4-5",
+    "Delta": 0.34809248068435955,
+    "Delta/kappa": 9.0,
+    "mixing weight": 0.31599730876840293,
+    "cone gap / (2 theta)": 1.0000000061600396,
+    "rest energy at p = 0": 0.4729448226469539,
+    "(m) amplitude ratio to top": 0.897123240959735,
+    "(m) weight ratio to top": 0.8048301094700986,
+    "(g) gap ratio to top": 0.9999999886806767,
+    "(r) rest energy ratio to top": 1.050381463712972
+   },
+   "top (conjugate family)": {
+    "N -> N+1": "2-3",
+    "Delta": 0.19338471149131087,
+    "Delta/kappa": 5.0,
+    "mixing weight": 0.3926261021427939,
+    "cone gap / (2 theta)": 1.000000017479363,
+    "rest energy at p = 0": 0.45026006168763766,
+    "(m) amplitude ratio to top": 1.0,
+    "(m) weight ratio to top": 1.0,
+    "(g) gap ratio to top": 1.0,
+    "(r) rest energy ratio to top": 1.0
+   },
+   "bottom (conjugate family)": {
+    "N -> N+1": "3-4",
+    "Delta": 0.2707385960878352,
+    "Delta/kappa": 7.0,
+    "mixing weight": 0.35289753571988103,
+    "cone gap / (2 theta)": 1.0000000122174175,
+    "rest energy at p = 0": 0.4601190697463145,
+    "(m) amplitude ratio to top": 0.9480576099098634,
+    "(m) weight ratio to top": 0.8988132317080029,
+    "(g) gap ratio to top": 0.9999999947380546,
+    "(r) rest energy ratio to top": 1.021896252627257
+   },
+   "tau (conjugate family)": {
+    "N -> N+1": "1-2",
+    "Delta": 0.11603082689478651,
+    "Delta/kappa": 3.0,
+    "mixing weight": 0.4346033541950899,
+    "cone gap / (2 theta)": 1.000000013157313,
+    "rest energy at p = 0": 0.44356566558829014,
+    "(m) amplitude ratio to top": 1.0520998353729563,
+    "(m) weight ratio to top": 1.1069140635918018,
+    "(g) gap ratio to top": 0.9999999956779501,
+    "(r) rest energy ratio to top": 0.9851321565713468
+   },
+   "neutrino (conjugate family)": {
+    "N -> N+1": "0-1",
+    "Delta": 0.03867694229826217,
+    "Delta/kappa": 1.0,
+    "mixing weight": 0.47803346540516967,
+    "cone gap / (2 theta)": 1.000000049361251,
+    "rest energy at p = 0": 0.4401802902876237,
+    "(m) amplitude ratio to top": 1.1034167346599884,
+    "(m) weight ratio to top": 1.2175284903277113,
+    "(g) gap ratio to top": 1.0000000318818874,
+    "(r) rest energy ratio to top": 0.9776134455224974
+   }
+  },
+  "G3' register quantum carries the degree charge": "the on-site toggle conserves N + n_b: Delta = 0 on every pair, ratios 1 : 1 : 1",
+  "strong detuning limit of (m), centred": "weight ratio to top -> 2 theta^2/Delta^2: bottom, tau (theta/kappa)^2/2, neutrino (theta/kappa)^2/8; neutrino/bottom weight -> 1/4, amplitude -> 1/2"
+ },
+ "G4": {
+  "bottom (d_R, Q)": {
+   "steps to the nearer member": 0,
+   "steps until the pair has been toggled (reach both members)": 1,
+   "reachable": true
+  },
+  "tau (e_R, L)": {
+   "steps to the nearer member": 99,
+   "steps until the pair has been toggled (reach both members)": 99,
+   "reachable": false
+  },
+  "top (Q, u_R)": {
+   "steps to the nearer member": 2,
+   "steps until the pair has been toggled (reach both members)": 3,
+   "reachable": true
+  },
+  "neutrino (L, nu_R)": {
+   "steps to the nearer member": 99,
+   "steps until the pair has been toggled (reach both members)": 99,
+   "reachable": false
+  },
+  "tau conjugate family (s1, s1 s2)": {
+   "steps to the nearer member": 0,
+   "steps until the pair has been toggled (reach both members)": 1,
+   "reachable": true
+  },
+  "neutrino conjugate family (empty, s2)": {
+   "steps to the nearer member": 0,
+   "steps until the pair has been toggled (reach both members)": 1,
+   "reachable": true
+  },
+  "top conjugate family": {
+   "steps to the nearer member": 99,
+   "steps until the pair has been toggled (reach both members)": 99,
+   "reachable": false
+  },
+  "bottom conjugate family": {
+   "steps to the nearer member": 99,
+   "steps until the pair has been toggled (reach both members)": 99,
+   "reachable": false
+  }
+ },
+ "NOT_BLIND": {
+  "y_b/y_t": {
+   "kappa/theta needed in (m) amplitude reading": 51.23230297954714,
+   "over the source value": 582.509234343808,
+   "neutrino amplitude ratio at that kappa": 0.006900739234701116
+  },
+  "y_tau/y_t": {
+   "kappa/theta needed in (m) amplitude reading": 28.73113033176079,
+   "over the source value": 326.671801930659,
+   "neutrino amplitude ratio at that kappa": 0.012304188561279754
+  },
+  "source point, centred, (m) amplitude ratios": {
+   "bottom": 0.9551895883810444,
+   "tau": 0.9551895883810444,
+   "neutrino": 0.9092621522643037
+  },
+  "source point over needed": {
+   "bottom": 69.21663683920612,
+   "tau": 38.82884505614002
+  }
+ }
+}

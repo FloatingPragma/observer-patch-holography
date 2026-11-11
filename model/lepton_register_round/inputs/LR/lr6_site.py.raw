@@ -1,0 +1,304 @@
+"""LR task 6: site data. Builds viewer2/research/LR/lepton_run.json from the result files of this lane.
+
+Run from this directory at every milestone (missing result files leave their sections out and are named in "status"):
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr6_site.py
+The page fetches the file as '/rl/LR/lepton_run.json'. A copy is kept here as lepton_run.json.
+
+Layout notes for the reader of the page (`lepton_round.js`, parseRun): the one series under a key with "phase" is
+`phase_against_ticks`; the one group of three numbers keyed by lepton name outside a weight, ratio or mass path is
+`executed_rates`.
+"""
+import hashlib
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SITE_DIR = 'WORKSPACE/oph-physics-sim/oph_defects/viewer2/research/LR'
+NAMES = ('tau', 'muon', 'electron')
+
+
+def load(name):
+    path = os.path.join(HERE, name)
+    return json.load(open(path)) if os.path.exists(path) else None
+
+
+def rnd(x, n=12):
+    return None if x is None else float(f'{float(x):.{n}g}')
+
+
+FIELDS = {
+    'status': '"done", or "running: ..." with the parts that are still being computed.',
+    'phase_limit': 'Limit of the executed phase per unit clock time for many ticks per unit clock time: Richardson '
+                   'extrapolation (100 phase(1000) - phase(100))/99 of two executed values.',
+    'phase_against_ticks': 'One row per executed run. ticks_per_unit_clock_time: N, the number of rounds per unit of '
+                           'the declared clock; every round is one tick and one inverse tick of both cells, the kick '
+                           'exp(-i (1/N) J Qx) on the exclusive read of the record flags, the two return tests and '
+                           'the reset. phase_per_unit_clock_time: executed phase of the current j = +1 per unit '
+                           'clock time, all return tests yes; the complete record has the same phase. closed_form: '
+                           'N atan(P sin(1/N)/(1 - P + P cos(1/N))), P = 2/9. minus_2_9: phase - 2/9 (series '
+                           '-35/(2187 N^2)). executed_rounds: rounds of the run (at least 10^4). log_modulus: log of '
+                           'the kept modulus per unit clock time (series -7/(81 N)).',
+    'executed_rates': 'Rest rates per unit of the register clock of the three characters of the face third-turn, from '
+                      'the executed mass rounds of the register on sixty addresses with native pairs and the oriented '
+                      'record. executed: minus the phase per unit clock, limit of many mass rounds. formula: '
+                      '(1/27)(1 + sqrt2 cos(2/9 + 2 pi k/3))^2. one_round: abs(<Phi|U|D D v_k>)^2 of one executed tick.',
+    'gates': 'Reproduction of the numbers on file from the public package and from worker LC, exact arithmetic.',
+    'run_by_elapsed_rounds': 'Per N: the running value of the phase per unit clock time after n executed rounds. It '
+                             'is flat: every round reads the first-tick count.',
+    'limits': 'Richardson extrapolations of executed values at N and 10 N and their distance from 2/9.',
+    'public_walk_run': 'The same round through Walk.step and Walk.inverse_step of the public package only, 10^4 rounds.',
+    'complete_record': 'Every outcome of the return tests kept. outcome_weights: weights of the four test outcomes '
+                       'in the vector X of the round (exact). trajectories: sampled coherence of the clocked system '
+                       'between j = +1 and j = -1 after the given clock time, with standard error, and the exact '
+                       'value; resets per unit clock time.',
+    'orderings': 'Alternative orderings, id as in CANDIDATES.md. value: executed phase per unit clock time. limit: '
+                 'its limit for many rounds. agrees_with_2_9: whether that limit is 2/9.',
+    'forward_only': 'Control without the inverse tick, full two-load sector of a cell (18720 states). '
+                    'count_first_12[t-1]: exclusive count p + q - 2 p q at tick t.',
+    'no_return_test': 'Control with the inverse tick and no return test: the angle after t units stays bounded.',
+    'no_reset': 'Control with the return tests and no reset: mean count read by a round, every 100 rounds, exact '
+                'from the four test states, with a sampled check.',
+    'double_load_register': 'The same register with blank doubles and record flags: every rate is 5/4 of the formula '
+                            '(sum 5/18). Rows per lepton.',
+    'mass_rounds': 'Executed rates against the number of mass rounds per unit of the register clock.',
+    'with_executed_current': 'Ratios when the angle of the current inside the register tick is the one left by N_p '
+                             'executed rounds per unit clock time (2/9 - 35/(2187 N_p^2), modulus exp(-7/(81 N_p))).',
+    'separation': 'Phase estimation with a clock register of T levels on the executed amplitudes. T counts units of '
+                  'the register clock. p_all_three_identified, p_muon_from_electron, p_tau_from_muon: probabilities '
+                  'of a correct call, equal priors. thresholds: smallest T that reaches the confidence (first) and '
+                  'smallest T from which it holds for every larger scanned T.',
+    'circulation': 'A defect created at a definite position of the register, executed with the register explicit.',
+    'comparison_not_blind': 'Executed ratios against CODATA 2022 and PDG 2024, read after the numbers were hashed.',
+    'statements': 'Sentences for the page with label (EXACT, MEASURED, NOT BLIND, DECLARED) and status word.'}
+
+
+def main():
+    g1, r2, r2b, r3, r3b, r4, r5 = (load(n) for n in (
+        'lr1_gates.json', 'lr2_phase_run.json', 'lr2b_phase_curve.json', 'lr3_orderings.json',
+        'lr3b_no_reset_sample.json', 'lr4_characters.json', 'lr5_compare.json'))
+    missing = []
+    if r4 is None:
+        missing.append('the three characters (executed rest rates, separation times)')
+    if r3b is None:
+        missing.append('a second sample of the control without reset')
+    if r5 is None:
+        missing.append('the comparison with measurement')
+    status = 'done' if not missing else 'running: ' + '; '.join(missing) + \
+        '. The phase against ticks, the complete record and the orderings are final.'
+
+    site = dict(schema='oph.lr.lepton_run.v1', lane='LR', written='2026-11-11',
+                title='The two-cell lepton register on the sixty-address carrier, run over many rounds',
+                status=status,
+                map_into_this_step='The rest phase per tick is the expected number of exclusive reads per tick.',
+                fields=FIELDS)
+
+    # ---------------------------------------------------------------- the phase against ticks
+    best = next(r for r in r2['C_limit_by_Richardson'] if r['N'] == 100)
+    site['phase_limit'] = rnd(best['limit'], 15)
+    byN = {}
+    for src in ((r2b or {}).get('rows', []), r2['C_runs']):
+        for r in src:
+            byN[r['N']] = dict(ticks_per_unit_clock_time=r['N'],
+                               phase_per_unit_clock_time=rnd(r['phase_per_unit_clock_time'], 15),
+                               closed_form=rnd(r['closed_form_phase'], 15), minus_2_9=rnd(r['deviation_from_2_9'], 6),
+                               executed_rounds=r['rounds'], log_modulus=rnd(r['log_modulus_per_unit_clock_time'], 9))
+    site['phase_against_ticks'] = [byN[N] for N in sorted(byN)]
+
+    # ---------------------------------------------------------------- the three rates
+    if r4 is not None:
+        b = r4['B_one_round_compression']['NP']
+        c = r4['C_executed_rest_rates']['NP']
+        lim = c['limit_by_Richardson'][sorted(c['limit_by_Richardson'])[-1]]
+        ex = {n: dict(executed=rnd(lim[n], 13), formula=rnd(b['formula'][n], 13), one_round=rnd(b['one_round_weights_F1'][n], 13))
+              for n in NAMES}
+        ex['standing_object'] = 'native pairs on two non-adjacent ports of each cell, oriented record'
+        ex['character_of'] = 'tau: trivial character; electron: winding w; muon: winding w^2'
+        site['executed_rates'] = ex
+
+    # ---------------------------------------------------------------- statements
+    st = [
+        dict(label='EXACT', status='one premise',
+             text='On sixty addresses a blank double reads blank 5/6, record 2 with 1/12, record 3 with 1/12 at each of '
+                  'the twelve ports. Two cells with independent registers read the exclusive count 2/9.'),
+        dict(label='MEASURED', status='one premise',
+             text='Executed over at least ten thousand rounds, the phase per unit clock time is 0.205334 for one round '
+                  'per tick, 0.222062 for ten and 0.2222222062 for a thousand. The limit of the executed values is 2/9 '
+                  'within 1e-13. Every round reads the count 2/9 within 2e-16.'),
+        dict(label='EXACT', status='one premise',
+             text='With every outcome of the return tests kept and the address register reset after a "no", the phase '
+                  'per unit clock time is the same. A "no" occurs 14/(81 N) times per unit clock time on a current branch.'),
+        dict(label='MEASURED', status='declared',
+             text='Partners read one at a time with a shared kick give 2/9 for one, two, three and six partners. '
+                  'Partners read at once give 73/216 and 563/1296.'),
+        dict(label='MEASURED', status='declared',
+             text='Controls. Without the inverse tick the count leaves 2/9 after the first tick (0.486, 0.536, 0.467), '
+                  'has no period and averages 0.4033 over ten thousand ticks. Without the return test the angle stays '
+                  'below 0.2898 for all times. Without the reset the count read tends to 1/2.')]
+    if r4 is not None:
+        st.append(dict(label='MEASURED', status='one premise',
+                       text='The three characters of the face third-turn are the eigenvectors of the executed mass '
+                            'round. Their executed rest rates equal (1/27)(1 + sqrt2 cos(2/9 + 2 pi k/3))^2 within '
+                            '1e-12 for native pairs and 5/4 of it for double loads. Ratios 206.770316 and 3477.4728.'))
+        f0 = next(f for f in r4['F_readout'] if f['setting'].startswith('executed NP') and '1024' in f['setting'])
+        me, tm = f0['muon_from_electron'], f0['tau_from_muon']
+        st.append(dict(label='MEASURED', status='declared',
+                       text=f"A clock register separates tau from muon at 99 percent in {tm['0.99']['first']} units of "
+                            f"the register clock and muon from electron in {me['0.99']['first']} units (native pairs, "
+                            f"1024 mass rounds per unit)."))
+    if r5 is not None:
+        row = r5['rows'][2]
+        st.append(dict(label='NOT BLIND', status='declared',
+                       text=f"Compared after the numbers were fixed, with the angle 2/9: muon/electron "
+                            f"{row['muon_over_electron_deviation_ppm']:+.2f} ppm against CODATA 2022, tau/electron "
+                            f"{row['tau_over_electron_deviation_sigma']:+.2f} standard deviations against PDG 2024."))
+    st.append(dict(label='DECLARED', status='open',
+                   text='Open: what creates the pair on one port, the source event of the kick, the rule that reads '
+                        'one partner per unit clock time, the number of rounds per unit clock time, the lepton scale.'))
+    site['statements'] = st
+
+    # ---------------------------------------------------------------- the rest of the O1 run
+    site['public_package'] = dict(path='model/lepton_register_round', commit=g1['public repository commit'][:9], checks=80)
+    site['gates'] = dict(all_pass=g1['all gates pass'], list=g1['gates'])
+    site['run_by_elapsed_rounds'] = {str(r['N']): [dict(rounds=x['rounds'], value=rnd(x['phase_per_unit_clock_time'], 13))
+                                                   for x in r['rows']] for r in r2['C_runs']}
+    site['limits'] = [dict(N=r['N'], N2=r['N2'], value=rnd(r['limit'], 15), minus_2_9=rnd(r['limit_minus_2_9'], 3))
+                      for r in r2['C_limit_by_Richardson']]
+    e1 = r2.get('E_long_run_through_the_public_Walk')
+    if e1:
+        site['public_walk_run'] = dict(N=e1['N'], rounds=e1['rounds'], value=rnd(e1['phase_per_unit_clock_time'], 15),
+                                       minus_closed_form=rnd(e1['executed_minus_closed_form'], 3),
+                                       largest_change_of_the_round_amplitude=rnd(e1['max_change_of_the_round_amplitude_over_the_run'], 3))
+    ops = r2['D_outcome_operators'][1]
+    traj = []
+    for t in r2['D_trajectories']:
+        for x in t['rows']:
+            traj.append(dict(N=t['N'], trajectories=t['trajectories'], clock_time=x['clock_time'],
+                             coherence_plus_minus=[rnd(v, 6) for v in x['G_plus_minus']],
+                             standard_error=rnd(x['standard_error_plus_minus'], 3),
+                             exact=[rnd(v, 6) for v in x['exact_plus_minus']],
+                             resets_per_unit_clock_time=rnd(x['resets_per_unit_clock_time'], 6),
+                             resets_standard_error=rnd(x['resets_standard_error'], 3),
+                             resets_expected=rnd(t['expected_resets_per_unit_clock_time'], 6)))
+    site['complete_record'] = dict(
+        outcome_weights={'yes, yes': '4/81', 'X no, Y yes': '11/324', 'X yes, Y no': '125/1296', 'no, no': '55/1296'},
+        executed_weights={k: rnd(v, 13) for k, v in ops['weights_over_abs_1_minus_z_squared'].items()},
+        multiplier="1 - P + P exp(-i (j - j')/N) per round",
+        resets_per_unit_clock_time='N 4 sin^2(1/(2N)) 14/81 on a branch with abs(j) = 1', trajectories=traj)
+
+    # ---------------------------------------------------------------- orderings and controls
+    if r3 is not None:
+        orderings = []
+        for r in r3['O2_partners_in_turn']:
+            orderings.append(dict(id='O2', partners=r['n'], N=r['N'], text='partners in turn, every round complete',
+                                  value=rnd(r['phase_per_unit_clock_time'], 13), limit='2/9', agrees_with_2_9=True))
+        for r in r3['O3_O4_shared_kick']:
+            if 'O3_factorized' in r:
+                row = dict(id='O3', partners=r['n'], N=r['N'], text='partners in one round, kick shared',
+                           value=rnd(r['O3_factorized']['phase_per_unit_clock_time'], 13),
+                           closed_form=rnd(r['closed_form'], 13), limit='2/9', agrees_with_2_9=True)
+                if 'O4_brute' in r:
+                    row['O4_one_at_a_time'] = rnd(r['O4_brute']['phase_per_unit_clock_time'], 13)
+                    row['O4_minus_O3_round_amplitude'] = rnd(r['O4_minus_O3_round_amplitude'], 3)
+                orderings.append(row)
+        for r in r3['O5_X_ticked_again_for_each_partner']:
+            orderings.append(dict(id='O5', partners=r['n'], N=r['N_rounds_of_X'], text='X ticked again for each partner',
+                                  value=rnd(r['phase_per_unit_clock_time'], 13), limit='2/9', agrees_with_2_9=True))
+        for r in r3['O6_O7_controls']:
+            orderings.append(dict(id='O6', partners=r['n'], N=r['N'], text='control: partners read at once',
+                                  value=rnd(r['O6_at_once']['phase_per_unit_clock_time'], 10), limit=rnd(r['O6_limit'], 10),
+                                  agrees_with_2_9=False))
+            orderings.append(dict(id='O7', partners=r['n'], N=r['N'], text='control: full kick for every partner',
+                                  value=rnd(r['O7_full_kick']['phase_per_unit_clock_time'], 10), limit=rnd(r['O7_limit'], 10),
+                                  agrees_with_2_9=False))
+        site['orderings'] = orderings
+        f8 = r3['O8_forward_only']
+        site['forward_only'] = dict(
+            ticks=f8['ticks'], states=f8['dimension'], count_first_12=f8['counts_ticks_1_to_12'],
+            exact_first_4=f8['exact_counts_ticks_1_to_4'], mean=rnd(f8['mean_count'], 9), min=rnd(f8['min_count'], 9),
+            max=rnd(f8['max_count'], 9), standard_deviation=rnd(f8['standard_deviation_of_the_count'], 9),
+            mean_by_number_of_ticks=f8['mean_by_decade'],
+            ticks_within_0_001_of_2_9_after_the_first=f8['number_of_such_ticks'],
+            largest_return_amplitude_after_tick_1=f8['largest_return_amplitude_after_tick_1'])
+        site['no_return_test'] = [dict(N=r['N'], bound=rnd(r['bound_asin_2_7'], 9),
+                                       rows=[dict(clock_time=x['clock_time'], angle=rnd(x['phase'], 9),
+                                                  angle_per_unit_clock_time=rnd(x['phase_per_unit_clock_time'], 9),
+                                                  return_weight=rnd(x['return_weight'], 9)) for x in r['rows']])
+                                  for r in r3['O9_no_return_test']]
+        nr = []
+        for r in r3['O10_no_reset']:
+            row = dict(N=r['N'], rounds=r['rounds'], trajectories=r['trajectories'],
+                       counts_in_the_four_test_states=['2/9', '7/9', '7/9', '2/9'],
+                       mean_count_every_100_rounds=[rnd(v, 9) for v in r['exact_reduced_mean_count_by_round_sampled_every_100']],
+                       running_mean_exact=rnd(r['running_mean_count_exact_reduced'], 9),
+                       running_mean_sampled=rnd(r['running_mean_count_sampled'], 6),
+                       running_mean_standard_error=rnd(r['running_mean_standard_error'], 3), long_run_limit='1/2')
+            if r['N'] == 100 and r3b is not None:
+                row['second_sample'] = dict(trajectories=r3b['trajectories'], running_mean_sampled=rnd(r3b['running_mean_count_sampled'], 6),
+                                            standard_error=rnd(r3b['standard_error'], 3),
+                                            union_running_mean=rnd(r3b['union']['running_mean'], 6),
+                                            union_standard_error=rnd(r3b['union']['standard_error'], 3))
+            nr.append(row)
+        site['no_reset'] = nr
+
+    # ---------------------------------------------------------------- the register in detail
+    if r4 is not None:
+        bd = r4['B_one_round_compression']['DL']
+        cd = r4['C_executed_rest_rates']['DL']
+        limd = cd['limit_by_Richardson'][sorted(cd['limit_by_Richardson'])[-1]]
+        site['double_load_register'] = dict(
+            sum_of_one_round_values=rnd(bd['sum_of_weights'], 14), muon_over_electron=rnd(bd['muon_over_electron'], 12),
+            tau_over_electron=rnd(bd['tau_over_electron'], 12), koide_Q=rnd(bd['koide_Q'], 14),
+            rows=[dict(lepton=n, executed=rnd(limd[n], 13), five_quarters_of_the_formula=rnd(bd['formula'][n], 13),
+                       one_round=rnd(bd['one_round_weights_F1'][n], 13)) for n in NAMES])
+        bn = r4['B_one_round_compression']['NP']
+        site['native_pair_register'] = dict(
+            ports=bn['ports'], sum_of_one_round_values=rnd(bn['sum_of_weights'], 14),
+            muon_over_electron=rnd(bn['muon_over_electron'], 12), tau_over_electron=rnd(bn['tau_over_electron'], 12),
+            koide_Q=rnd(bn['koide_Q'], 14))
+        site['mass_rounds'] = {kind: [dict(lepton=n, **{f"N_m_{x['N_m']}": rnd(x['rates'][n], 12) for x in r4['C_executed_rest_rates'][k2]['rows']})
+                                      for n in NAMES]
+                               for kind, k2 in (('native_pairs', 'NP'), ('double_loads', 'DL'))}
+        wc = []
+        for r in r4['D_with_the_executed_phase']:
+            a = next(x for x in r4['A_executed_phase_of_the_current'] if x['N_p'] == r['N_p'])
+            wc.append(dict(N_p=r['N_p'], angle=rnd(a['phase'], 13), modulus=rnd(a['modulus'], 13),
+                           muon_over_electron=rnd(r['NP']['muon_over_electron'], 10),
+                           tau_over_electron=rnd(r['NP']['tau_over_electron'], 10), koide_Q=rnd(r['NP']['koide_Q'], 10),
+                           order_is_electron_muon_tau=r['NP']['order_is_electron_muon_tau']))
+        site['with_executed_current'] = wc
+        def thin(curve):
+            keep = [i for i, T in enumerate(curve['T']) if T <= 64 or (T <= 1024 and T % 16 == 0) or T % 128 == 0]
+            return {k: [v[i] for i in keep] for k, v in curve.items()}
+        with_curve = ('closed formula, rates y_k', 'executed NP register (round amplitude through the public Walk), 1024',
+                      'executed DL register, 1024')
+        sep = []
+        for f in r4['F_readout']:
+            row = dict(setting=f['setting'], scan_limit=f['scan_limit'], table=f['table'],
+                       thresholds=dict(muon_from_electron=f['muon_from_electron'], tau_from_muon=f['tau_from_muon'],
+                                       all_three=f['all_three']))
+            if f['setting'].startswith(with_curve):
+                row['curve'] = thin(f['curve'])
+            sep.append(row)
+        site['separation'] = sep
+        e = r4['E_definite_position']
+        site['circulation'] = dict(
+            standing_object='double loads', mass_rounds_per_unit=e['N_m'], executed_rounds=e['rounds'],
+            beat_periods={k: rnd(v, 6) for k, v in e['beat_periods'].items()},
+            rows=[dict(units=x['units'], position_probabilities=[rnd(v, 6) for v in x['position_probabilities']],
+                       character_weights={k: rnd(v, 6) for k, v in x['character_weights'].items()},
+                       closed_form_position_probabilities=[rnd(v, 6) for v in x['position_probabilities_of_exp_minus_itY']])
+                  for x in e['rows']])
+    if r5 is not None:
+        site['comparison_not_blind'] = dict(label='NOT BLIND', measured=r5['measured'], rule=r5['rule'], rows=r5['rows'])
+
+    text = json.dumps(site, indent=1)
+    open(os.path.join(HERE, 'lepton_run.json'), 'w').write(text)
+    os.makedirs(SITE_DIR, exist_ok=True)
+    open(os.path.join(SITE_DIR, 'lepton_run.json'), 'w').write(text)
+    print('written', os.path.join(SITE_DIR, 'lepton_run.json'), len(text), 'bytes, sha256',
+          hashlib.sha256(text.encode()).hexdigest())
+    print('status:', status)
+
+
+if __name__ == '__main__':
+    main()

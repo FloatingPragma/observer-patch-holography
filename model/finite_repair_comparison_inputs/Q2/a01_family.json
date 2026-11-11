@@ -1,0 +1,603 @@
+{
+ "T0_one_event_shadow_exact": {
+  "coin|1": true,
+  "parity|1": true,
+  "corrected|1": true,
+  "sqrtswap|1": true,
+  "coin|2": true,
+  "parity|2": true,
+  "corrected|2": true,
+  "sqrtswap|2": true,
+  "coin|2full": true,
+  "parity|2full": true,
+  "corrected|2full": true,
+  "sqrtswap|2full": true
+ },
+ "double_load_pure_exchange": {
+  "state": [
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "seam": [
+   0,
+   1
+  ],
+  "exchange_image": [
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "reference_image": [
+   [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  ]
+ },
+ "population_autonomy": {
+  "coin|1": {
+   "coherence_to_population_max": 0.0,
+   "diag_block_equals_reference": true
+  },
+  "parity|1": {
+   "coherence_to_population_max": 0.0,
+   "diag_block_equals_reference": true
+  },
+  "corrected|1": {
+   "coherence_to_population_max": 0.0,
+   "diag_block_equals_reference": true
+  },
+  "sqrtswap|1": {
+   "coherence_to_population_max": 0.016666666666666663,
+   "diag_block_equals_reference": true
+  },
+  "coin|2": {
+   "coherence_to_population_max": 0.0,
+   "diag_block_equals_reference": true
+  },
+  "parity|2": {
+   "coherence_to_population_max": 0.0,
+   "diag_block_equals_reference": true
+  },
+  "corrected|2": {
+   "coherence_to_population_max": 0.0,
+   "diag_block_equals_reference": true
+  },
+  "sqrtswap|2": {
+   "coherence_to_population_max": 0.016666666666666663,
+   "diag_block_equals_reference": true
+  }
+ },
+ "sqrtswap_two_events_same_seam": {
+  "prob_stay": 0.0,
+  "reference_prob_stay": 0.5
+ },
+ "T1": {
+  "coin|1": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 0.9999999999999998,
+   "kraus_outside_exchange_algebra": 1.750729364815554e-15
+  },
+  "parity|1": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 1.0,
+   "kraus_outside_exchange_algebra": 2.2093159237770886e-15
+  },
+  "corrected|1": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 0.5,
+   "kraus_outside_exchange_algebra": 1.0
+  },
+  "sqrtswap|1": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 0.9999999999999998,
+   "kraus_outside_exchange_algebra": 2.2950577340383978e-15
+  },
+  "coin|2": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 0.9999999999999998,
+   "kraus_outside_exchange_algebra": 5.02221387444283e-15
+  },
+  "parity|2": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 1.0,
+   "kraus_outside_exchange_algebra": 2.7058483469297603e-15
+  },
+  "corrected|2": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 0.5,
+   "kraus_outside_exchange_algebra": 3.1622776601683795
+  },
+  "sqrtswap|2": {
+   "rotations_60": true,
+   "endpoint_swap": true,
+   "requirement3_violation": 0.9999999999999998,
+   "kraus_outside_exchange_algebra": 5.709992089926049e-15
+  }
+ },
+ "one_quantum_spectrum": {
+  "coin": {
+   "fixed_points": 2,
+   "complex_eigenvalues": 0,
+   "second_modulus": 0.9539344662916674,
+   "max_abs_imag": 0.0,
+   "distinct_eigenvalues": [
+    [
+     1.0,
+     0.0
+    ],
+    [
+     0.953934466,
+     0.0
+    ],
+    [
+     0.916362121,
+     0.0
+    ],
+    [
+     0.907868933,
+     0.0
+    ],
+    [
+     0.9,
+     0.0
+    ],
+    [
+     0.89106836,
+     0.0
+    ],
+    [
+     0.886037961,
+     0.0
+    ],
+    [
+     0.879398867,
+     0.0
+    ],
+    [
+     0.866666667,
+     0.0
+    ],
+    [
+     0.856903559,
+     0.0
+    ],
+    [
+     0.853934466,
+     0.0
+    ],
+    [
+     0.833333333,
+     0.0
+    ],
+    [
+     0.811445986,
+     0.0
+    ],
+    [
+     0.809763107,
+     0.0
+    ],
+    [
+     0.8,
+     0.0
+    ],
+    [
+     0.780628706,
+     0.0
+    ],
+    [
+     0.779398867,
+     0.0
+    ],
+    [
+     0.775598306,
+     0.0
+    ],
+    [
+     0.772191894,
+     0.0
+    ],
+    [
+     0.758797734,
+     0.0
+    ]
+   ],
+   "n_distinct": 20,
+   "min_real": 0.758797734083339
+  },
+  "parity": {
+   "fixed_points": 2,
+   "complex_eigenvalues": 0,
+   "second_modulus": 0.953934466291665,
+   "max_abs_imag": 0.0,
+   "distinct_eigenvalues": [
+    [
+     1.0,
+     0.0
+    ],
+    [
+     0.953934466,
+     0.0
+    ],
+    [
+     0.916362121,
+     0.0
+    ],
+    [
+     0.907868933,
+     0.0
+    ],
+    [
+     0.9,
+     0.0
+    ],
+    [
+     0.89106836,
+     0.0
+    ],
+    [
+     0.886037961,
+     0.0
+    ],
+    [
+     0.879398867,
+     0.0
+    ],
+    [
+     0.866666667,
+     0.0
+    ],
+    [
+     0.856903559,
+     0.0
+    ],
+    [
+     0.853934466,
+     0.0
+    ],
+    [
+     0.833333333,
+     0.0
+    ],
+    [
+     0.811445986,
+     0.0
+    ],
+    [
+     0.809763107,
+     0.0
+    ],
+    [
+     0.8,
+     0.0
+    ],
+    [
+     0.780628706,
+     0.0
+    ],
+    [
+     0.779398867,
+     0.0
+    ],
+    [
+     0.775598306,
+     0.0
+    ],
+    [
+     0.772191894,
+     0.0
+    ],
+    [
+     0.758797734,
+     0.0
+    ]
+   ],
+   "n_distinct": 20,
+   "min_real": 0.7587977340833413
+  },
+  "corrected": {
+   "fixed_points": 1,
+   "complex_eigenvalues": 0,
+   "second_modulus": 0.9871311415966934,
+   "max_abs_imag": 0.0,
+   "distinct_eigenvalues": [
+    [
+     1.0,
+     0.0
+    ],
+    [
+     0.987131142,
+     0.0
+    ],
+    [
+     0.953934466,
+     0.0
+    ],
+    [
+     0.931876507,
+     0.0
+    ],
+    [
+     0.907868933,
+     0.0
+    ],
+    [
+     0.905325192,
+     0.0
+    ],
+    [
+     0.9,
+     0.0
+    ],
+    [
+     0.879398867,
+     0.0
+    ],
+    [
+     0.879311127,
+     0.0
+    ],
+    [
+     0.873635231,
+     0.0
+    ],
+    [
+     0.873229559,
+     0.0
+    ],
+    [
+     0.853934466,
+     0.0
+    ],
+    [
+     0.833333333,
+     0.0
+    ],
+    [
+     0.82205796,
+     0.0
+    ],
+    [
+     0.816936052,
+     0.0
+    ],
+    [
+     0.805763636,
+     0.0
+    ],
+    [
+     0.8,
+     0.0
+    ],
+    [
+     0.779398867,
+     0.0
+    ],
+    [
+     0.772972632,
+     0.0
+    ],
+    [
+     0.765094296,
+     0.0
+    ],
+    [
+     0.758797734,
+     0.0
+    ]
+   ],
+   "n_distinct": 21,
+   "min_real": 0.7587977340833393
+  },
+  "sqrtswap": {
+   "fixed_points": 2,
+   "complex_eigenvalues": 88,
+   "second_modulus": 0.9550460718598848,
+   "max_abs_imag": 0.12060113295833086,
+   "distinct_eigenvalues": [
+    [
+     1.0,
+     -0.0
+    ],
+    [
+     0.953934466,
+     0.046065534
+    ],
+    [
+     0.953934466,
+     -0.046065534
+    ],
+    [
+     0.940730959,
+     -0.0
+    ],
+    [
+     0.914675489,
+     0.0
+    ],
+    [
+     0.907868933,
+     0.0
+    ],
+    [
+     0.9,
+     0.1
+    ],
+    [
+     0.9,
+     -0.1
+    ],
+    [
+     0.89106836,
+     0.0
+    ],
+    [
+     0.879398867,
+     0.120601133
+    ],
+    [
+     0.879398867,
+     -0.120601133
+    ],
+    [
+     0.879179222,
+     0.0
+    ],
+    [
+     0.869916441,
+     0.051375092
+    ],
+    [
+     0.869916441,
+     -0.051375092
+    ],
+    [
+     0.859532255,
+     0.05272397
+    ],
+    [
+     0.859532255,
+     -0.05272397
+    ],
+    [
+     0.858163211,
+     0.048750752
+    ],
+    [
+     0.858163211,
+     -0.048750752
+    ],
+    [
+     0.848044519,
+     0.040069992
+    ],
+    [
+     0.848044519,
+     -0.040069992
+    ],
+    [
+     0.843392387,
+     -0.0
+    ],
+    [
+     0.842060787,
+     0.072308404
+    ],
+    [
+     0.842060787,
+     -0.072308404
+    ],
+    [
+     0.842000849,
+     0.064913129
+    ],
+    [
+     0.842000849,
+     -0.064913129
+    ],
+    [
+     0.816455294,
+     -0.0
+    ],
+    [
+     0.815878425,
+     0.0
+    ],
+    [
+     0.8,
+     0.0
+    ],
+    [
+     0.790467745,
+     0.017308403
+    ],
+    [
+     0.790467745,
+     -0.017308403
+    ],
+    [
+     0.786346724,
+     0.0
+    ],
+    [
+     0.783781135,
+     0.0
+    ],
+    [
+     0.780083559,
+     0.020575497
+    ],
+    [
+     0.780083559,
+     -0.020575497
+    ],
+    [
+     0.775598306,
+     -0.0
+    ],
+    [
+     0.772354964,
+     0.0
+    ],
+    [
+     0.758797734,
+     0.0
+    ]
+   ],
+   "n_distinct": 37,
+   "min_real": 0.7587977340833411
+  }
+ },
+ "laplacian_levels": [
+  1.1285785159810335e-15,
+  2.7639320225002075,
+  2.763932022500209,
+  2.7639320225002093,
+  5.999999999999997,
+  5.999999999999999,
+  6.0,
+  6.000000000000001,
+  6.000000000000002,
+  7.23606797749979,
+  7.236067977499792,
+  7.236067977499792
+ ],
+ "reference_gap_factor": 0.9539344662916631
+}

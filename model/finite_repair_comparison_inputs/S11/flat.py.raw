@@ -1,0 +1,91 @@
+"""Flat periodic honeycomb of carriers (N x N cells, two carriers per cell): exact real-space kernels from Bloch forms.
+
+Convention: psi(R, alpha) = exp(i q.R) u_alpha(q); a Bloch matrix A(q) has the real-space kernel
+A(dR)_{alpha beta} = (1/N^2) sum_q exp(i q.dR) A(q)_{alpha beta}, dR = R - R' (row cell minus column cell).
+Up carrier of cell R sits at R + (a1 + a2)/3, down carrier at R + 2 (a1 + a2)/3; mesh edge = 1.
+"""
+from __future__ import annotations
+
+import numpy as np
+
+import geom as G
+
+B1 = 2 * np.pi * np.array([1.0, -1 / 3 ** 0.5]); B2 = 2 * np.pi * np.array([0.0, 2 / 3 ** 0.5])
+CELL_AREA = 3 ** 0.5 / 2          # two carriers per cell, each cell of the mesh has area sqrt(3)/4
+
+
+class Torus:
+    def __init__(self, N: int, bloch, dim: int, shift=(0.0, 0.0)):
+        self.N, self.dim = N, dim
+        self.k = dim // 2                                           # orbitals per carrier
+        n = (np.arange(N)[:, None] + shift[0]) / N, (np.arange(N)[None, :] + shift[1]) / N
+        self.shift = shift
+        self.q = n[0][..., None] * B1 + n[1][..., None] * B2        # (N, N, 2)
+        H = np.empty((N, N, dim, dim), complex)
+        for i in range(N):
+            for j in range(N):
+                H[i, j] = bloch(self.q[i, j])
+        self.H = H
+        self.ev, self.U = np.linalg.eigh(H)
+
+    def real(self, Aq: np.ndarray) -> np.ndarray:
+        """Real-space kernel (N, N, dim, dim) of a Bloch matrix field; the twist phase of a shifted grid is kept."""
+        A = np.fft.ifft2(Aq, axes=(0, 1))
+        if self.shift != (0.0, 0.0):
+            m = np.arange(self.N)
+            m = np.where(m > self.N // 2, m - self.N, m)
+            ph = np.exp(2j * np.pi * (self.shift[0] * m[:, None] + self.shift[1] * m[None, :]) / self.N)
+            A = A * ph[:, :, None, None]
+        return A
+
+    def band_projector(self, bands) -> np.ndarray:
+        U = self.U[..., bands]
+        return U @ np.conj(np.swapaxes(U, -1, -2))
+
+    def function_of_H(self, f) -> np.ndarray:
+        return (self.U * f(self.ev)[..., None, :]) @ np.conj(np.swapaxes(self.U, -1, -2))
+
+
+def carrier_position(m1, m2, s):
+    base = np.asarray(m1)[..., None] * G.A1 + np.asarray(m2)[..., None] * G.A2
+    return base + np.where(np.asarray(s)[..., None] == 0, G.UP_POS, G.DOWN_POS)
+
+
+def disc(centre: np.ndarray, rho: float, window: int = 14):
+    """Carriers (m1, m2, s) whose centre lies within rho of `centre`; also their radii."""
+    m = np.arange(-window, window + 1)
+    m1, m2, s = np.meshgrid(m, m, np.array([0, 1]), indexing='ij')
+    pos = carrier_position(m1.ravel(), m2.ravel(), s.ravel())
+    r = np.linalg.norm(pos - centre, axis=1)
+    keep = r < rho
+    cells = np.stack([m1.ravel()[keep], m2.ravel()[keep], s.ravel()[keep]], axis=1)
+    return cells, r[keep], pos[keep]
+
+
+def gather(A: np.ndarray, cells: np.ndarray, k: int) -> np.ndarray:
+    """Region matrix (n k, n k) from a real-space kernel A(dR) (N, N, 2k, 2k); real part."""
+    N = A.shape[0]
+    m1, m2, s = cells.T
+    d1 = (m1[:, None] - m1[None, :]) % N
+    d2 = (m2[:, None] - m2[None, :]) % N
+    n = cells.shape[0]
+    ar = np.arange(k)
+    row = (s[:, None, None, None] * k + ar[None, None, :, None])
+    col = (s[None, :, None, None] * k + ar[None, None, None, :])
+    blk = A[d1[:, :, None, None], d2[:, :, None, None], row, col]
+    return np.ascontiguousarray(np.transpose(blk.real, (0, 2, 1, 3)).reshape(n * k, n * k))
+
+
+def cut_bonds(cells: np.ndarray) -> int:
+    """Number of glue seams between the region and its complement (each crosses one mesh edge)."""
+    inside = {tuple(c) for c in cells.tolist()}
+    cut = 0
+    for m1, m2, s in cells.tolist():
+        for d in ((0, 0), (1, 0), (0, 1)):
+            other = (m1 - d[0], m2 - d[1], 1) if s == 0 else (m1 + d[0], m2 + d[1], 0)
+            cut += other not in inside
+    return cut
+
+
+def area_radius(n_carriers: int) -> float:
+    return float(np.sqrt(n_carriers * (3 ** 0.5 / 4) / np.pi))

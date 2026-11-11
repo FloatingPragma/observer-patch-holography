@@ -1,0 +1,354 @@
+"""Lane EQUATIONS: check that every formula typeset on the site is the formula of its source.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B verify_equations.py
+Reads RER and SIM only. Writes verify_equations.json next to itself. About ten seconds.
+Register of the items: CANDIDATES.md (written before the first run).
+"""
+from __future__ import annotations
+
+import ast
+import itertools
+import json
+import math
+from fractions import Fraction as Fr
+from pathlib import Path
+
+import numpy as np
+from scipy.linalg import expm
+from scipy.optimize import brentq
+
+META = Path('USER_HOME/Projects/oph-meta')
+RER = META / 'reverse-engineering-reality'
+SIM = META / 'oph-physics-sim'
+OUT = Path(__file__).with_name('verify_equations.json')
+res: dict[str, dict] = {}
+pi = math.pi
+
+
+def record(key, ok, **info):
+    res[key] = {'pass': bool(ok), **info}
+    print(('PASS ' if ok else 'FAIL ') + key + '  ' + json.dumps(info, default=str)[:300])
+
+
+# ---------------------------------------------------------------- V1 law C: three forms of one rule
+def law_brief(xa, xb, c):
+    t = xa + xb
+    na = math.ceil(t / 2) if c == 1 else math.floor(t / 2)
+    return na, t - na, xa - na
+
+
+def law_paper(xa, xb, c):          # eq. (native) of the execution paper
+    d = xa - xb
+    j = Fr(d - (2 * c - 1) * (abs(d) % 2), 2)
+    assert j.denominator == 1
+    j = int(j)
+    return xa - j, xb + j, j
+
+
+src = (RER / 'model/observer/native.py').read_text()
+fn = next(n for n in ast.parse(src).body if isinstance(n, ast.FunctionDef) and n.name == 'native')
+ns: dict = {}
+exec(compile(ast.Module(body=[fn], type_ignores=[]), 'native', 'exec'), ns)   # the function body only, no import of RER
+bad = 0
+for xa, xb, c in itertools.product(range(8), range(8), (0, 1)):
+    a = law_brief(xa, xb, c); b = law_paper(xa, xb, c)
+    out, (coin, cur) = ns['native']((xa, xb), (0, 1), c)
+    bad += a != b or (out[0], out[1], cur) != a
+record('V1_lawC_three_forms_agree', bad == 0, cases=128)
+
+# ---------------------------------------------------------------- V2 descent functional
+bad = 0; worst = 0
+for xa, xb, c in itertools.product(range(12), range(12), (0, 1)):
+    na, nb, j = law_brief(xa, xb, c); d = xa - xb
+    dV = na * na + nb * nb - xa * xa - xb * xb
+    bad += dV != -2 * j * (d - j) or dV > 0
+    worst = max(worst, dV)
+record('V2_dV_equals_minus_2j_d_minus_j_and_never_positive', bad == 0, max_dV=worst)
+
+# ---------------------------------------------------------------- V3 the stored records of the level-3 run
+run = SIM / 'runs/universe/L3'
+man = json.loads((run / 'run.json').read_text())
+cost = man['layers']['register']['cost']; kappa = man['layers']['register']['kappa']
+record('V3a_cost_table_and_kappa', cost == [0, 5, 8, 10, 8, 5] and kappa == 5, cost=cost, kappa=kappa)
+n_att = n_law = n_reg = n_acc = n_blk = 0
+for f in sorted((run / 'records').glob('sweep_*.npz')):
+    z = np.load(f)
+    tot = z['total'].astype(int); con = z['contrast'].astype(int); coin = z['coin'].astype(int); cur = z['current'].astype(int)
+    tw = z['twist'].astype(int); en = z['energy'].astype(int)
+    xa = (tot + con) // 2
+    na = np.where(coin == 1, -((-tot) // 2), tot // 2)
+    n_att += len(tot); n_law += int(np.sum(cur != xa - na))
+    moved = cur != 0
+    delta = np.mod(cur, 6)
+    work = kappa * cur * (con - cur)
+    accepted = moved & (tw > 0); blocked = moved & (tw < 0)
+    n_acc += int(accepted.sum()); n_blk += int(blocked.sum())
+    n_reg += int(np.sum(accepted & ~(en <= work))) + int(np.sum(blocked & ~(en > work)))
+    n_reg += int(np.sum(accepted & (tw != delta))) + int(np.sum(blocked & (-tw != delta)))
+    n_reg += int(np.sum(moved & (tw == 0) & (delta != 0)))
+record('V3b_lawC_on_stored_records', n_law == 0, attempts=n_att, violations=n_law)
+record('V3c_register_rule_on_stored_records', n_reg == 0, accepted=n_acc, blocked=n_blk, violations=n_reg)
+
+# ---------------------------------------------------------------- V4 counts, levels 3 to 7
+ok = True; rows = []
+for L in range(3, 8):
+    g = json.loads((SIM / f'runs/universe/L{L}/run.json').read_text())['geometry']
+    N = 20 * 4 ** L
+    good = (g['carriers'] == N and g['ports'] == 12 * N and g['intra_seams'] == 30 * N and g['glue_seams'] == 3 * N // 2
+            and g['intra_faces'] == 20 * N and len(g['template_seams']) == 30 and len(g['template_faces']) == 20
+            and len(g['port_vectors']) == 12 and g['seams'] == 63 * N // 2)
+    ok &= good; rows.append((L, N, g['screen_plaquettes']))
+record('V4_counts_20x4L_12_30_20_and_glue', ok, level_carriers_plaquettes=rows)
+
+# ---------------------------------------------------------------- V5 classes sum to zero on closed surfaces (end cut, level 3)
+c = np.load(run / 'cuts/end.npz')
+N3 = 20 * 4 ** 3
+per = np.zeros(N3, int)
+np.add.at(per, c['intra_face'] // 20, c['intra_cls'].astype(int))
+record('V5_class_sum_zero_mod_6', int(np.sum(per % 6 != 0)) == 0 and int(c['screen_cls'].astype(int).sum()) % 6 == 0,
+       carriers_with_defects=int(np.sum(per != 0)), screen_defects=int(len(c['screen_cls'])))
+
+# ---------------------------------------------------------------- V6 the class rule on 32 patterns
+Y5 = [Fr(-1, 3)] * 3 + [Fr(1, 2)] * 2
+mult = [0] * 6; bad = 0; bl = set()
+for occ in itertools.product((0, 1), repeat=5):
+    n3, n2 = sum(occ[:3]), sum(occ[3:])
+    Y = sum(y for y, o in zip(Y5, occ) if o)
+    k = int(6 * Y) % 6
+    bad += 6 * Y != 3 * n2 - 2 * n3 or k != (3 * (n2 % 2) - 2 * (n3 % 3)) % 6 or k % 3 != n3 % 3 or k % 2 != n2 % 2
+    bad += (Fr(n3, 3) + Fr(n2, 2) + Y).denominator != 1          # the element (omega, -1, exp(2 pi i Y)) is the identity
+    mult[k] += 1
+    bl.add(1 - Fr(2, 3) * n3)                                   # B - L of one quantum, N = 1
+record('V6_class_rule_6Y_mod_6', bad == 0 and mult == [4, 6, 6, 4, 6, 6], multiplicities=mult,
+       B_minus_L_values=sorted(str(x) for x in bl))
+
+# ---------------------------------------------------------------- V7 flux costs 8 pi^2 / tr H_k^2
+betas = []
+for k in range(1, 6):
+    ph = [Fr(-2 * k, 3)] * 3 + [Fr(k)] * 2                     # eigenphases of exp(2 pi i k Y) in units of pi, mod 2
+    best = None
+    for sh in itertools.product(range(-3, 4), repeat=5):
+        x = [p + 2 * s for p, s in zip(ph, sh)]
+        if sum(x) == 0:
+            q = sum(v * v for v in x)
+            best = q if best is None or q < best else best
+    betas.append(Fr(8) / best)
+record('V7_flux_costs', betas == [Fr(12, 5), Fr(3), Fr(4), Fr(3), Fr(12, 5)], beta_k=[str(b) for b in betas])
+
+# ---------------------------------------------------------------- V8 routing tick, two ticks, dispersion
+X = np.array([[0, 1], [1, 0]], complex); Yp = np.array([[0, -1j], [1j, 0]]); Z = np.diag([1, -1]).astype(complex); I2 = np.eye(2)
+al = [np.kron(X, s) for s in (X, Yp, Z)]                          # record (x) spin, component index 2 * record + spin
+be = np.kron(Yp, I2)
+cl = max(np.abs(a @ b + b @ a - 2 * (i == j) * np.eye(4)).max() for i, a in enumerate(al + [be]) for j, b in enumerate(al + [be]))
+record('V8a_alpha_beta_are_Dirac_matrices', cl < 1e-14, max_residual=float(cl))
+
+
+def S(i, p):          # P+ T + P- T* on a plane wave
+    return math.cos(p) * np.eye(4) - 1j * math.sin(p) * al[i]
+
+
+def M(th):
+    return math.cos(th) * np.eye(4) - 1j * math.sin(th) * be
+
+
+def two_ticks(p, th):   # half-step frame, axis order alternating: tick 1 uses 1,2,3 and tick 2 uses 3,2,1
+    t1 = M(th / 2) @ S(2, p[2]) @ S(1, p[1]) @ S(0, p[0]) @ M(th / 2)
+    t2 = M(th / 2) @ S(0, p[0]) @ S(1, p[1]) @ S(2, p[2]) @ M(th / 2)
+    return t2 @ t1
+
+
+def target(p, th):
+    return expm(-2j * (sum(pi_ * a for pi_, a in zip(p, al)) + th * be))
+
+
+p0 = np.array([0.31, -0.22, 0.17]); th0 = 0.4
+errs = [float(np.abs(two_ticks(e * p0, e * th0) - target(e * p0, e * th0)).max()) for e in (0.2, 0.1, 0.05, 0.025)]
+orders = [math.log2(errs[i] / errs[i + 1]) for i in range(3)]
+errs_p = [float(np.abs(two_ticks(e * p0, th0) - target(e * p0, th0)).max()) for e in (0.2, 0.1, 0.05, 0.025)]
+orders_p = [math.log2(errs_p[i] / errs_p[i + 1]) for i in range(3)]
+record('V8b_two_ticks_third_order_in_p_and_theta_jointly', all(abs(o - 3) < 0.1 for o in orders), errors=errs, orders=orders)
+record('V8c_with_theta_fixed_the_error_is_first_order_in_p', all(abs(o - 1) < 0.1 for o in orders_p), errors=errs_p, orders=orders_p)
+th = 0.157935; ref = {0.0: 0.157935, 0.05: 0.165598, 0.1: 0.186709, 0.2: 0.254184, 0.4: 0.428482}
+worst = 0
+for p, E in ref.items():
+    ev = np.linalg.eigvals(M(th) @ S(0, p))
+    worst = max(worst, float(np.abs(np.abs(np.angle(ev)) - math.acos(math.cos(th) * math.cos(p))).max()), abs(math.acos(math.cos(th) * math.cos(p)) - E))
+record('V8d_axis_dispersion_cosE_equals_cos_theta_cos_p', worst < 6e-7, max_difference_to_CF1_numbers=worst)
+
+# ---------------------------------------------------------------- V9 the lepton register
+R = np.roll(np.eye(3), 1, axis=0).astype(complex)                # third-turn, R^3 = 1
+
+
+def Cth(t):
+    return np.eye(3) / math.sqrt(6) + (np.exp(1j * t) * R + np.exp(-1j * t) * R.conj().T) / math.sqrt(12)
+
+
+def yk(t, k):
+    return (1 + math.sqrt(2) * math.cos(t + 2 * pi * k / 3)) ** 2 / 27
+
+
+t = Fr(1, 12) + Fr(1, 6) - 2 * Fr(1, 12) * Fr(1, 6)
+C = Cth(float(t)); Yeff = (2 / 9) * C @ C
+ev = sorted(np.linalg.eigvalsh((Yeff + Yeff.conj().T) / 2))
+ys = sorted(yk(float(t), k) for k in range(3))
+ytau, ye, ymu = yk(float(t), 0), yk(float(t), 1), yk(float(t), 2)
+qs = []
+for tt in (0.0, 0.1, 2 / 9, 0.25, pi / 12 - 1e-6):
+    m = [yk(tt, k) for k in range(3)]
+    qs.append(sum(m) / sum(math.sqrt(x) for x in m) ** 2)
+record('V9a_phase_is_2_9', t == Fr(2, 9), theta=str(t))
+record('V9b_rates_are_eigenvalues_of_2_9_C_squared', max(abs(a - b) for a, b in zip(ev, ys)) < 1e-15 and abs(np.trace(C @ C).real - 1) < 1e-15
+       and abs(sum(ys) - 2 / 9) < 1e-15, y_tau=ytau, y_mu=ymu, y_e=ye)
+record('V9c_rates_match_LEPTON_STEPS', abs(ytau - 0.2096935560) < 6e-11 and abs(ymu - 0.0124683656) < 6e-11 and abs(ye - 0.0000603006) < 6e-11,
+       mu_over_e=ymu / ye, tau_over_e=ytau / ye)
+record('V9d_ratios_206_770316_and_3477_4728', abs(ymu / ye - 206.770316) < 6e-7 and abs(ytau / ye - 3477.4728) < 6e-5)
+record('V9e_koide_two_thirds_in_the_chamber', max(abs(q - 2 / 3) for q in qs) < 1e-12, Q=qs)
+
+# ---------------------------------------------------------------- V10 the coupling chain with the declared forms
+EP = 1.220890e19; P = 1.6309721
+
+
+def ell2(tt, N=120):
+    n = np.arange(N + 1); j = n / 2; d = 2 * j + 1
+    w = d * np.exp(-tt * j * (j + 1)); return float((w * np.log(d)).sum() / w.sum())
+
+
+def ell3(tt, N=90):
+    p, q = np.meshgrid(np.arange(N + 1), np.arange(N + 1))
+    d = (p + 1) * (q + 1) * (p + q + 2) / 2; C2 = (p * p + q * q + p * q + 3 * p + 3 * q) / 3
+    w = d * np.exp(-tt * C2); return float((w * np.log(d)).sum() / w.sum())
+
+
+def chain(inv_aU, b=(33 / 5, 1.0, -3.0)):
+    Ecell = EP / math.sqrt(P); MU = Ecell * math.exp(-2 * pi) * P ** (2 / 3)
+    v = Ecell * math.exp(-2 * pi * inv_aU / 4)
+    inv = lambda mu: [inv_aU + bi / (2 * pi) * math.log(MU / mu) for bi in b]
+    mz = lambda mu: Ecell * math.exp(-pi * inv_aU / 2) * math.sqrt(pi * (1 / inv(mu)[1] + 0.6 / inv(mu)[0]))
+    mu = mz(91.0)
+    for _ in range(500):                         # fixed point mu = m_Z(mu); the map contracts strongly (logarithmic dependence)
+        nxt = mz(mu)
+        if abs(nxt - mu) < 1e-13 * mu:
+            break
+        mu = nxt
+    i1, i2, i3 = inv(mu); a2 = 1 / i2; aY = 0.6 / i1
+    return dict(Ecell=Ecell, MU=MU, v=v, mZ=mu, mW=v * math.sqrt(pi * a2), inv_a2=i2, alpha_s=1 / i3, sin2=aY / (aY + a2),
+                inv_aem=1 / a2 + 1 / aY, lhs=ell2(4 * pi * pi * a2) + ell3(4 * pi * pi / i3))
+
+
+x = brentq(lambda u: chain(u)['lhs'] - P / 4, 18, 40, xtol=1e-12)
+c = chain(x)
+good = (abs(x - 24.3166) < 6e-5 and abs(c['v'] - 246.60) < 6e-3 and abs(c['mZ'] - 91.588) < 6e-4 and abs(c['mW'] - 80.330) < 6e-4
+        and abs(c['inv_a2'] - 29.605) < 6e-4 and abs(c['alpha_s'] - 0.11834) < 6e-6 and abs(c['sin2'] - 0.23074) < 6e-6
+        and abs(c['inv_aem'] - 128.308) < 6e-4 and abs(c['MU'] - 2.4736e16) < 6e11 and abs(c['Ecell'] - 9.5599e18) < 6e13)
+record('V10_coupling_chain_declared_forms', good, inv_alpha_U=x, **{k: (float(v)) for k, v in c.items()})
+MU_paper = EP * math.exp(-2 * pi) * P ** (1 / 6)
+record('V10b_MU_two_spellings_agree', abs(MU_paper / c['MU'] - 1) < 1e-14, MU_stack_form=c['Ecell'] * math.exp(-2 * pi))
+
+# ---------------------------------------------------------------- V11 plaquette action: 5-trace against SPEC section 6
+rng = np.random.default_rng(7); worst = 0
+for _ in range(200):
+    a = rng.uniform(-pi, pi); q = rng.normal(size=4); q /= np.linalg.norm(q)
+    V = q[0] * I2 + 1j * (q[1] * X + q[2] * Yp + q[3] * Z)
+    U = np.zeros((5, 5), complex); U[:3, :3] = np.exp(-2j * a) * np.eye(3); U[3:, 3:] = np.exp(3j * a) * V
+    g2 = 0.9
+    s5 = (10 / g2) * (1 - np.trace(U).real / 5)
+    bG = 4 / g2
+    s6 = bG * (1 - math.cos(3 * a) * np.trace(V).real / 2) + 1.5 * bG * (1 - math.cos(2 * a))
+    worst = max(worst, abs(s5 - s6))
+U3 = np.diag([1, 1, 1, -1, -1]).astype(complex)                   # class 3: V_P = -1
+cost3 = (10 / 0.9) * (1 - np.trace(U3).real / 5) / (4 / 0.9)
+record('V11_five_trace_equals_SPEC_form', worst < 1e-12 and abs(cost3 - 2) < 1e-14, max_difference=float(worst), class3_cost_in_beta_G=float(cost3))
+
+# ---------------------------------------------------------------- V12 units
+hbar = 6.582119569e-25       # GeV s
+coef = math.sqrt(90 / (32 * pi ** 3)) * hbar * EP / 1e-6           # seconds at T = 1 MeV, g* = 1
+tick = hbar / c['Ecell']
+record('V12_radiation_coefficient_and_tick', abs(coef - 2.42) < 5e-3 and abs(tick - 6.885e-44) < 5e-47, seconds_at_1MeV=coef, tick_seconds=tick,
+       ticks_per_second=1 / tick)
+
+# ---------------------------------------------------------------- V13 Lambda^(3) from the chain's alpha_s
+z3 = 1.2020569031595943
+
+
+def betas_nf(nf):
+    b0 = (11 - 2 * nf / 3) / 4
+    b1 = (102 - 38 * nf / 3) / 16
+    b2 = (2857 / 2 - 5033 * nf / 18 + 325 * nf ** 2 / 54) / 64
+    b3 = ((149753 / 6 + 3564 * z3) - (1078361 / 162 + 6508 * z3 / 27) * nf + (50065 / 162 + 6472 * z3 / 81) * nf ** 2 + 1093 * nf ** 3 / 729) / 256
+    return b0, b1, b2, b3
+
+
+def run_a(a, mu0, mu1, nf, steps=4000):          # a = alpha_s / pi, four loops, RK4 in ln mu^2
+    b = betas_nf(nf); f = lambda y: -(b[0] * y ** 2 + b[1] * y ** 3 + b[2] * y ** 4 + b[3] * y ** 5)
+    h = (2 * math.log(mu1 / mu0)) / steps
+    for _ in range(steps):
+        k1 = f(a); k2 = f(a + h * k1 / 2); k3 = f(a + h * k2 / 2); k4 = f(a + h * k3)
+        a += h * (k1 + 2 * k2 + 2 * k3 + k4) / 6
+    return a
+
+
+def decouple(a, nl):                             # at mu = m_h(m_h), three loops
+    return a * (1 + (11 / 72) * a ** 2 + (564731 / 124416 - 82043 / 27648 * z3 - 2633 / 31104 * nl) * a ** 3)
+
+
+def lam(a, mu, nf):                              # four-loop asymptotic expansion solved for Lambda
+    b0, b1, b2, b3 = betas_nf(nf); c1, c2, c3 = b1 / b0, b2 / b0, b3 / b0
+
+    def aexp(Lm):
+        L = 2 * math.log(mu / Lm); l = math.log(L); u = 1 / (b0 * L)
+        return (u - c1 * l * u ** 2 + u ** 3 * (c1 ** 2 * (l * l - l - 1) + c2)
+                + u ** 4 * (c1 ** 3 * (-l ** 3 + 2.5 * l * l + 2 * l - 0.5) - 3 * c1 * c2 * l + c3 / 2))
+    return brentq(lambda Lm: aexp(Lm) - a, 1e-3, mu / 3)
+
+
+a5 = c['alpha_s'] / pi
+a4 = decouple(run_a(a5, c['mZ'], 4.18, 5), 4)
+a3 = decouple(run_a(a4, 4.18, 1.27, 4), 3)
+lam3 = lam(run_a(a3, 1.27, 1e6, 3), 1e6, 3)
+record('V13_Lambda3_from_chain_alpha_s', 0.3251 < lam3 < 0.3547 and abs(lam3 - 0.3400) < 0.004, Lambda3_GeV=lam3, reference_HD=0.3400)
+
+# ---------------------------------------------------------------- V14 the record law as a quantum instrument (execution paper eq. (kraus))
+confs = []
+for a in range(12):
+    for b in range(a, 12):
+        x = [0] * 12; x[a] += 1; x[b] += 1; confs.append(tuple(x))
+index = {x: i for i, x in enumerate(confs)}
+worst = 0.0; labels = set()
+for seam in ((0, 1), (2, 3), (4, 5)):                             # three seams of the carrier (ports 0-1, 2-3, 4-5 are joined)
+    K = {}
+    for x in confs:
+        for cbit in (0, 1):
+            y, (coin, cur) = ns['native'](x, seam, cbit)
+            K.setdefault((coin, cur), np.zeros((78, 78)))[index[y], index[x]] += 1 / math.sqrt(2)
+    labels |= set(K)
+    worst = max(worst, float(np.abs(sum(k.T @ k for k in K.values()) - np.eye(78)).max()))
+record('V14_record_law_effects_sum_to_identity', worst < 1e-14 and len(confs) == 78 and labels == {(c_, j_) for c_ in (0, 1) for j_ in (-1, 0, 1)},
+       configurations=len(confs), labels=sorted(labels), max_residual=worst)
+
+# ---------------------------------------------------------------- V15 two paths with a record: V^2 + D^2 <= 1 (standard relation, not shown on the site)
+rng = np.random.default_rng(11); worst = -1.0; pure = 0.0
+for trial in range(400):
+    dim = 3
+    def rand_state(mixed):
+        if not mixed:
+            vct = rng.normal(size=dim) + 1j * rng.normal(size=dim); vct /= np.linalg.norm(vct); return np.outer(vct, vct.conj())
+        Am = rng.normal(size=(dim, dim)) + 1j * rng.normal(size=(dim, dim)); r = Am @ Am.conj().T; return r / np.trace(r).real
+    mixed = trial % 2 == 1
+    if mixed:
+        r1, r2 = rand_state(True), rand_state(True)
+        # visibility of equal-weight paths with record states r1, r2 after tracing the record: |tr(sqrt-free bound)| <= fidelity
+        w1, v1 = np.linalg.eigh(r1); s1 = (v1 * np.sqrt(np.clip(w1, 0, None))) @ v1.conj().T
+        w2, v2 = np.linalg.eigh(r2); s2 = (v2 * np.sqrt(np.clip(w2, 0, None))) @ v2.conj().T
+        V = float(np.linalg.svd(s1 @ s2, compute_uv=False).sum())          # the largest visibility any purification allows
+    else:
+        a1 = rng.normal(size=dim) + 1j * rng.normal(size=dim); a1 /= np.linalg.norm(a1)
+        a2 = rng.normal(size=dim) + 1j * rng.normal(size=dim); a2 /= np.linalg.norm(a2)
+        r1, r2 = np.outer(a1, a1.conj()), np.outer(a2, a2.conj()); V = abs(np.vdot(a1, a2))
+    D = 0.5 * float(np.abs(np.linalg.eigvalsh(r1 - r2)).sum())
+    worst = max(worst, V * V + D * D - 1)
+    if not mixed: pure = max(pure, abs(V * V + D * D - 1))
+record('V15_two_path_duality_V2_plus_D2_at_most_1', worst < 1e-10 and pure < 1e-10, max_excess=worst, max_deviation_for_pure_records=pure)
+
+res['_summary'] = {'checks': len(res), 'failed': [k for k, v in res.items() if not v['pass']]}
+OUT.write_text(json.dumps(res, indent=1, default=str))
+print('\n%d checks, %d failed' % (res['_summary']['checks'], len(res['_summary']['failed'])))

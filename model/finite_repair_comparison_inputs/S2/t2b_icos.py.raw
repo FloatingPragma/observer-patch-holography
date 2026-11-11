@@ -1,0 +1,236 @@
+#!/usr/bin/env python3
+"""S2 task 2(b), icosahedral carrier: one quantum, unread unitary seam law with integer link registers.
+
+The joint state lives on the cover (port, link record E in Z^30 with boundary(E) = port - start).  Fourier transform over
+the covering group: flux sector theta in T^30, where the dressed hop a -> b carries exp(i theta_e).  Port populations are
+the flux average of |psi_theta(port)|^2 (theta is conserved).  <E_e^2> = flux average of |d psi_theta / d theta_e|^2.
+
+Seam event (sqrt(SWAP) member, chi = pi/4):  U_e = 1 + (i - 1) P_e,  P_e the antisymmetric projector of the dressed pair.
+Schedules: (i) independent uniform draws, (ii) one random permutation of the 30 seams per sweep, (iii) fixed order:
+the five perfect matchings (edges of one inscribed octahedron frame) in a fixed sequence.
+"""
+import itertools, json, math, sys, time
+from pathlib import Path
+import numpy as np
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import gates as G
+from model.common_source import slow_geometry
+t00 = time.time()
+out = {}
+src = slow_geometry.source()
+SEAMS = [tuple(s) for s in src.seams()]
+M = 30
+phi_g = (1 + 5 ** .5) / 2
+frame = np.array([(-1, phi_g, 0), (1, phi_g, 0), (-1, -phi_g, 0), (1, -phi_g, 0), (0, -1, phi_g), (0, 1, phi_g), (0, -1, -phi_g), (0, 1, -phi_g),
+                  (phi_g, 0, -1), (phi_g, 0, 1), (-phi_g, 0, -1), (-phi_g, 0, 1)])
+assert sorted(SEAMS) == sorted((a, b) for a in range(12) for b in range(a + 1, 12) if abs(((frame[a] - frame[b]) ** 2).sum() - 4) < 1e-9)
+A = np.array([s[0] for s in SEAMS], np.int32); B = np.array([s[1] for s in SEAMS], np.int32)
+Lap = np.zeros((12, 12))
+for a, b in SEAMS: Lap[a, a] += 1; Lap[b, b] += 1; Lap[a, b] -= 1; Lap[b, a] -= 1
+# graph distance classes from port 0
+dist = np.full(12, -1); dist[0] = 0; fr = [0]
+while fr:
+    nx = []
+    for p in fr:
+        for a, b in SEAMS:
+            for u, v in ((a, b), (b, a)):
+                if u == p and dist[v] < 0: dist[v] = dist[p] + 1; nx.append(v)
+    fr = nx
+shell = [np.flatnonzero(dist == d) for d in range(4)]
+assert [len(s) for s in shell] == [1, 5, 5, 1]
+
+# five perfect matchings: edges with parallel or perpendicular directions
+dirs = np.array([frame[b] - frame[a] for a, b in SEAMS])
+cls = -np.ones(M, int); ncls = 0
+for e in range(M):
+    if cls[e] >= 0: continue
+    members = [f for f in range(M) if min(abs(abs(dirs[e] @ dirs[f]) - 4), abs(dirs[e] @ dirs[f])) < 1e-9]
+    assert all(cls[f] < 0 for f in members)
+    cls[members] = ncls; ncls += 1
+MATCH = [np.flatnonzero(cls == c) for c in range(ncls)]
+assert ncls == 5 and all(len(m) == 6 and len({p for e in m for p in SEAMS[e]}) == 12 for m in MATCH)
+out['perfect_matchings'] = [[list(SEAMS[e]) for e in m] for m in MATCH]
+
+def gates_for(theta, chi=math.pi / 4):
+    return np.concatenate([G.gate_matrix(chi, 1, th) for th in theta]).astype(complex)
+def dense_gate(e, theta_e, chi=math.pi / 4):
+    U = np.eye(12, dtype=complex); m = G.gate_matrix(chi, 1, theta_e)
+    a, b = SEAMS[e]; U[a, a] = m[0]; U[a, b] = m[1]; U[b, a] = m[2]; U[b, b] = m[3]
+    return U
+# sanity: chi = pi/4 gate at theta = 0 is 1 + (i-1) P_anti and fixes the uniform vector
+U0 = dense_gate(0, 0.0); Pm = np.zeros((12, 12)); a, b = SEAMS[0]; Pm[a, a] = Pm[b, b] = .5; Pm[a, b] = Pm[b, a] = -.5
+assert np.allclose(U0, np.eye(12) + (1j - 1) * Pm) and np.allclose(U0 @ np.ones(12), np.ones(12))
+
+# ------------------------------------------------------------------ fixed orders: two inequivalent classes?
+def floquet(order_of_classes, theta, chi=math.pi / 4):
+    F = np.eye(12, dtype=complex)
+    for c in order_of_classes:
+        for e in MATCH[c]: F = dense_gate(e, theta[e], chi) @ F
+    return F
+zero = np.zeros(M)
+sig = {}
+for perm in itertools.permutations(range(5)):
+    ph = np.sort(np.angle(np.linalg.eigvals(floquet(perm, zero))))
+    key = tuple(np.round(ph, 6))
+    sig.setdefault(key, []).append(perm)
+def parity(p):
+    return sum(1 for i in range(5) for j in range(i + 1, 5) if p[i] > p[j]) % 2
+out['fixed_order_classes'] = [{'orders': len(v), 'parities': sorted({parity(p) for p in v}), 'representative': list(v[0]),
+                               'eigenphases_theta0': [float(x) for x in k]} for k, v in sig.items()]
+print('fixed 5-matching orders: spectral classes at zero flux:', [(len(v), sorted({parity(p) for p in v})) for v in sig.values()])
+for c in out['fixed_order_classes']: print('   rep', c['representative'], 'eigenphases', np.round(c['eigenphases_theta0'], 4))
+REPS = [v[0] for v in sig.values()]
+
+# ------------------------------------------------------------------ spectra of the seam-averaged maps
+# amplitude (first-moment) map under (i) at zero flux: 1 + (i-1) L/(2M)
+Mi = sum(dense_gate(e, 0.0) for e in range(M)) / M
+out['amplitude_map_i_zero_flux'] = {'equals_1-(1-i)L/60': bool(np.allclose(Mi, np.eye(12) - (1 - 1j) * Lap / 60)),
+                                    'eigenvalues': [[float(z.real), float(z.imag)] for z in sorted(np.linalg.eigvals(Mi), key=lambda z: -z.real)],
+                                    'frequency_over_rate': 1.0, 'Q': 0.5}
+print('(i) amplitude map = 1 - (1-i)L/60:', out['amplitude_map_i_zero_flux']['equals_1-(1-i)L/60'])
+def channel_i(theta):
+    return sum(np.kron(dense_gate(e, theta[e]), dense_gate(e, theta[e]).conj()) for e in range(M)) / M
+rng = np.random.default_rng(11)
+spec_rows = []
+for name, theta in [('zero_flux_no_register_control', zero)] + [(f'random_flux_{i}', rng.uniform(0, 2 * math.pi, M)) for i in range(6)]:
+    ev = np.linalg.eigvals(channel_i(theta))
+    non1 = ev[np.abs(ev - 1) > 1e-9]
+    cx = ev[np.abs(ev.imag) > 1e-9]
+    spec_rows.append({'sector': name, 'unit_eigenvalues': int((np.abs(ev - 1) < 1e-9).sum()),
+                      'second_modulus_per_attempt': float(np.abs(non1).max()), 'second_modulus_per_sweep': float(np.abs(non1).max() ** M),
+                      'max_modulus_nonreal_per_attempt': float(np.abs(cx).max() if len(cx) else 0),
+                      'max_modulus_nonreal_per_sweep': float((np.abs(cx).max() if len(cx) else 0) ** M),
+                      'classical_second_per_sweep': float((1 - (5 - 5 ** .5) / 60) ** M)})
+    print('(i) channel', name, {k: (round(v, 5) if isinstance(v, float) else v) for k, v in spec_rows[-1].items() if k != 'sector'})
+out['channel_i_spectrum_by_flux_sector'] = spec_rows
+
+# ------------------------------------------------------------------ port populations, flux sampled
+ptimes = [1, 2, 3, 4, 6, 8, 12, 16, 24]
+def shells(p): return [float(p[s].sum()) for s in shell]
+# classical
+Tc = np.linalg.matrix_power(np.eye(12) - Lap / 60, M)
+v = np.eye(12)[0]; done = 0; classical = []
+for t in ptimes:
+    for _ in range(t - done): v = Tc @ v
+    done = t; classical.append(shells(v))
+S_i = 150
+acc_i = np.zeros((len(ptimes), 12))
+for s in range(S_i):
+    theta = rng.uniform(0, 2 * math.pi, M)
+    Es = np.linalg.matrix_power(channel_i(theta), M)
+    vec = np.zeros(144, complex); vec[0] = 1; done = 0
+    for i, t in enumerate(ptimes):
+        for _ in range(t - done): vec = Es @ vec
+        done = t; acc_i[i] += np.real(vec.reshape(12, 12).diagonal())
+acc_i /= S_i
+print('populations (i) done', round(time.time() - t00, 1), flush=True)
+S = 6000
+acc_ii = np.zeros((len(ptimes), 12)); acc_iii = [np.zeros((len(ptimes), 12)) for _ in REPS]; acc_iii0 = [np.zeros((len(ptimes), 12)) for _ in REPS]
+sq_iii = [np.zeros((len(ptimes), 12)) for _ in REPS]
+work = np.zeros(M, np.int32); st = G.rng_state(2024)
+orders = [np.concatenate([MATCH[c] for c in rep]).astype(np.int32) for rep in REPS]
+for s in range(S):
+    theta = rng.uniform(0, 2 * math.pi, M); u = gates_for(theta)
+    psi = np.zeros(12, complex); psi[0] = 1; done = 0
+    for i, t in enumerate(ptimes):
+        G.lib.apply_permutations(G.pc(psi), G.p32(A), G.p32(B), G.pc(u), M, t - done, G.p32(work), st); done = t
+        acc_ii[i] += np.abs(psi) ** 2
+    for r, order in enumerate(orders):
+        psi = np.zeros(12, complex); psi[0] = 1; done = 0
+        for i, t in enumerate(ptimes):
+            for _ in range(t - done): G.lib.apply_order(G.pc(psi), G.p32(A), G.p32(B), G.pc(u), G.p32(order), M)
+            done = t; pp = np.abs(psi) ** 2; acc_iii[r][i] += pp; sq_iii[r][i] += pp ** 2
+acc_ii /= S
+for r in range(len(REPS)): acc_iii[r] /= S; sq_iii[r] /= S
+# zero-flux (no register) control for the fixed orders
+u0 = gates_for(zero)
+for r, order in enumerate(orders):
+    psi = np.zeros(12, complex); psi[0] = 1; done = 0
+    for i, t in enumerate(ptimes):
+        for _ in range(t - done): G.lib.apply_order(G.pc(psi), G.p32(A), G.p32(B), G.pc(u0), G.p32(order), M)
+        done = t; acc_iii0[r][i] = np.abs(psi) ** 2
+out['port_populations_by_shell_(1,5,5,1)'] = {
+    'times_sweeps': ptimes, 'classical': classical,
+    'i_uniform_exact_per_sector_150_flux_samples': [shells(p) for p in acc_i],
+    'ii_permutation_6000_samples': [shells(p) for p in acc_ii],
+    'iii_fixed_order_6000_flux_samples': {str(list(REPS[r])): [shells(p) for p in acc_iii[r]] for r in range(len(REPS))},
+    'iii_fixed_order_zero_flux_control': {str(list(REPS[r])): [shells(p) for p in acc_iii0[r]] for r in range(len(REPS))},
+    'uniform_value': [1 / 12, 5 / 12, 5 / 12, 1 / 12], 'mc_standard_error_bound': 0.5 / math.sqrt(S)}
+for i, t in enumerate(ptimes):
+    print(f't={t:3d} classical {np.round(classical[i], 4)} (i) {np.round(shells(acc_i[i]), 4)} (ii) {np.round(shells(acc_ii[i]), 4)} (iii) {np.round(shells(acc_iii[0][i]), 4)} (iii, no register) {np.round(shells(acc_iii0[0][i]), 4)}')
+print('populations done', round(time.time() - t00, 1), flush=True)
+
+# ------------------------------------------------------------------ cover second moment <|E|^2>(t) by flux derivatives
+def dgate(e, theta_e, chi=math.pi / 4):
+    """d U_e / d theta_e (12x12, only the two hop entries)."""
+    D = np.zeros((12, 12), complex); m = G.gate_matrix(chi, 1, theta_e); a, b = SEAMS[e]
+    D[a, b] = -1j * m[1]; D[b, a] = 1j * m[2]
+    return D
+def cover_moment(schedule, sweeps, samples, seed, rep=0):
+    r = np.random.default_rng(seed)
+    acc = np.zeros(sweeps + 1)
+    for s in range(samples):
+        theta = r.uniform(0, 2 * math.pi, M)
+        Us = [dense_gate(e, theta[e]) for e in range(M)]; Ds = [dgate(e, theta[e]) for e in range(M)]
+        psi = np.zeros(12, complex); psi[0] = 1; J = np.zeros((12, M), complex)
+        for t in range(1, sweeps + 1):
+            if schedule == 'i': seq = r.integers(0, M, M)
+            elif schedule == 'ii': seq = r.permutation(M)
+            else: seq = orders[rep]
+            for e in seq:
+                J = Us[e] @ J; J[:, e] += Ds[e] @ psi; psi = Us[e] @ psi
+            acc[t] += (np.abs(J) ** 2).sum()
+    return acc / samples
+T2 = 16
+cm = {}
+for sched, smp in (('i', 60), ('ii', 60), ('iii', 60)):
+    cm[sched] = cover_moment(sched, T2, smp, 5)
+    print('cover <|E|^2>', sched, np.round(cm[sched][[1, 2, 4, 8, 16]], 3), flush=True)
+# classical record second moment under the native chain (Monte Carlo), same quantity sum_e R_e^2
+r = np.random.default_rng(3); accc = np.zeros(T2 + 1); smp = 4000
+for s in range(smp):
+    p = 0; R = np.zeros(M, int)
+    for t in range(1, T2 + 1):
+        for e in r.integers(0, M, M):
+            a, b = SEAMS[e]
+            if p == a and r.random() < .5: p = b; R[e] += 1
+            elif p == b and r.random() < .5: p = a; R[e] -= 1
+        accc[t] += (R * R).sum()
+accc /= smp
+def expo(y, lo=4, hi=16):
+    ts = np.arange(lo, hi + 1); return float(np.polyfit(np.log(ts), np.log(y[lo:hi + 1]), 1)[0])
+out['cover_second_moment_sum_E2'] = {'sweeps': list(range(T2 + 1)), 'classical_record_mc_4000': accc.tolist(),
+                                     'i_uniform_60_samples': cm['i'].tolist(), 'ii_permutation_60_samples': cm['ii'].tolist(),
+                                     'iii_fixed_60_flux_samples': cm['iii'].tolist(),
+                                     'growth_exponents_t4_16': {'classical': expo(accc), 'i': expo(cm['i']), 'ii': expo(cm['ii']), 'iii': expo(cm['iii'])}}
+print('cover growth exponents:', out['cover_second_moment_sum_E2']['growth_exponents_t4_16'])
+
+# ------------------------------------------------------------------ calibration of the flux instrument: direct cover simulation, two sweeps of the fixed order
+state = {(0, (0,) * M): 1.0 + 0j}
+v0g, v1g = G.gate_matrix()[0], G.gate_matrix()[1]
+direct = {}
+for t in (1, 2):
+    for e in orders[0]:
+        a, b = SEAMS[e]; new = {}
+        for (p, E), amp in state.items():
+            if p == a:
+                new[(a, E)] = new.get((a, E), 0) + v0g * amp
+                E2 = list(E); E2[e] += 1; new[(b, tuple(E2))] = new.get((b, tuple(E2)), 0) + v1g * amp
+            elif p == b:
+                new[(b, E)] = new.get((b, E), 0) + v0g * amp
+                E2 = list(E); E2[e] -= 1; new[(a, tuple(E2))] = new.get((a, tuple(E2)), 0) + v1g * amp
+            else:
+                new[(p, E)] = new.get((p, E), 0) + amp
+        state = new
+    pops = np.zeros(12); e2 = 0.0
+    for (p, E), amp in state.items():
+        pops[p] += abs(amp) ** 2; e2 += abs(amp) ** 2 * sum(x * x for x in E)
+    direct[t] = {'cover_nodes': len(state), 'shell_populations': shells(pops), 'sum_E2': e2, 'norm': float(pops.sum())}
+ix = {t: ptimes.index(t) for t in (1, 2)}
+out['calibration_direct_cover_vs_flux_sampling'] = {
+    str(t): {'direct': direct[t], 'flux_sampled_shells': shells(acc_iii[0][ix[t]]), 'flux_sampled_sum_E2_60_samples': float(cm['iii'][t]),
+             'max_shell_difference': float(np.abs(np.array(direct[t]['shell_populations']) - np.array(shells(acc_iii[0][ix[t]]))).max())} for t in (1, 2)}
+print('calibration direct cover vs flux sampling:', json.dumps(out['calibration_direct_cover_vs_flux_sampling']))
+Path(HERE / 't2b_icos.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't2b_icos.json', 'elapsed', round(time.time() - t00, 1))

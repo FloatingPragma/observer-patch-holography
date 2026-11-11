@@ -1,0 +1,88 @@
+"""Control (e): Kac's persistent walk on a ring (the lattice telegraph process). Readout R6 "reversal rate".
+
+One step: the walker moves one site in its direction, then reverses with probability p. States (site, direction).
+IMPORTED closed form: the two eigenvalues at momentum k solve  lam^2 - 2 (1 - p) cos k lam + (1 - 2 p) = 0.
+With E = 1 - lam (one step = unit time, speed c = 1, reversal rate a = p):
+    E^2 - 2 E [p + (1 - p) khat^2 / 2] + (1 - p) khat^2 = 0.
+Known answers: lower branch E(0) = 0 (walker conserved), D = (1 - p) / (2 p) (continuum: c^2 / (2 a)),
+small-E expansion khat^2 = [2 p E - (1 - 2 p) E^2] / (1 - p), so the shape readout has alpha = -(1 - 2p)/(1 - p),
+direction record E(0) = 2 p = 2 a, complex pair beyond the exceptional point with |d arg lam / dk| -> c = 1.
+Small k and p: (E - a)^2 = a^2 - c^2 k^2, an ellipse: the mass shell with the sign of k^2 reversed. Kac's
+continuation a -> i a turns it into (E - a)^2 = -(a^2 + c^2 k^2), the shell of a particle of rest energy a.
+
+R6 (reversal readout): a = reversal rate of the direction record (half its relaxation rate), c = speed between
+reversals, m = a / c^2. Compared here with R2 (m_kin = 1 / (2 D)) and with the shape readout R1s.
+"""
+import json
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+import readouts as R
+
+HERE = Path(__file__).resolve().parent
+rows = []
+for p in (0.02, 0.05, 0.1, 0.2, 0.5):
+    for L in (128, 512, 2048):
+        n = 2 * L
+        idx = lambda x, s: 2 * (x % L) + s                      # s = 0 moves right, s = 1 moves left
+        r_, c_, v_ = [], [], []
+        for x in range(L):
+            for s in (0, 1):
+                y = x + (1 if s == 0 else -1)
+                r_ += [idx(y, s), idx(y, 1 - s)]; c_ += [idx(x, s)] * 2; v_ += [1 - p, p]
+        T = sp.coo_matrix((v_, (r_, c_)), shape=(n, n)).tocsc()
+        shift = np.array([idx(x + 1, s) for x in range(L) for s in (0, 1)])
+        tr = R.Translations(R.cyclic_group(shift, L), (L,))
+        ks, lo, hi, worst = [], [], [], 0.0
+        for m in range(L):
+            k = 2 * np.pi * m / L
+            ev = np.linalg.eigvals(tr.block(T, (m,)))
+            E = 1 - ev
+            E = E[np.argsort(E.real + 1e-9 * E.imag)]
+            b = p + (1 - p) * R.khat(k) ** 2 / 2
+            disc = complex(b * b - (1 - p) * R.khat(k) ** 2)
+            exact = np.array([b - np.sqrt(disc), b + np.sqrt(disc)])
+            worst = max(worst, min(np.abs(E - exact).max(), np.abs(E - exact[::-1]).max()))
+            ks.append(k); lo.append(E[0]); hi.append(E[1])
+        ks = np.array(ks); lo = np.array(lo); hi = np.array(hi)
+        kc = (ks + np.pi) % (2 * np.pi) - np.pi
+        # R2 from the lower branch at the smallest momentum
+        D = lo[1].real / R.khat(ks[1]) ** 2
+        # direction record: upper branch at k = 0
+        dir_gap = hi[0].real
+        a = dir_gap / 2
+        # speed between reversals: slope of the phase of the complex pair where it exists
+        lam = 1 - lo
+        cplx = np.abs(lam.imag) > 1e-9
+        speed = None
+        if cplx.sum() > 3:
+            arg = np.abs(np.angle(lam))
+            i = int(np.argmin(np.abs(ks - np.pi / 2)))            # far from the exceptional point
+            if cplx[i - 1] and cplx[i + 1]:
+                speed = float(abs(arg[i + 1] - arg[i - 1]) / (ks[i + 1] - ks[i - 1]))
+        # shape readout from the two smallest nonzero momenta: khat^2 = alpha E^2 + beta E
+        k1, k2 = ks[1], ks[2]
+        if abs(lo[2].imag) < 1e-12:
+            A = np.array([[lo[1].real ** 2, lo[1].real], [lo[2].real ** 2, lo[2].real]])
+            alpha, beta = np.linalg.solve(A, R.khat(np.array([k1, k2])) ** 2)
+        else:
+            alpha = beta = float('nan')
+        row = {'p': p, 'L': L, 'max_abs_error_vs_closed_form': float(worst),
+               'R1_lowest_branch_at_k0': float(lo[0].real), 'direction_record_gap_at_k0': float(dir_gap), 'exact_2p': 2 * p,
+               'R2_D': float(D), 'D_exact_(1-p)/(2p)': (1 - p) / (2 * p), 'R2_m_kin': float(1 / (2 * D)),
+               'R6_a_half_direction_gap': float(a), 'R6_speed_from_phase_slope': speed,
+               'R6_m_reversal_a_over_c2_with_c_1': float(a), 'ratio_m_reversal_over_m_kin': float(a * 2 * D), 'ratio_exact_1_minus_p': 1 - p,
+               'smallest_k_over_exceptional_k': float(ks[1] / max(1e-12, np.arccos(min(1.0, np.sqrt(1 - 2 * p) / (1 - p))))) if p < 0.5 else None,
+               'R1s_alpha': float(alpha), 'R1s_alpha_lattice_exact_-(1-2p)/(1-p)': -(1 - 2 * p) / (1 - p),
+               'R1s_c2_lattice_exact_(1-p)/(1-2p)': ((1 - p) / (1 - 2 * p)) if p < 0.5 else None,
+               'R1s_abs_E0_lattice_exact_p/(1-2p)': (p / (1 - 2 * p)) if p < 0.5 else None, 'R1s_c2_as_-1/alpha': float(-1 / alpha) if alpha == alpha else None,
+               'R1s_abs_E0_as_beta/(2|alpha|)': float(beta / (2 * abs(alpha))) if alpha == alpha else None,
+               'R1s_m_as_beta/2': float(beta / 2) if beta == beta else None,
+               'exceptional_point_k_where_pair_turns_complex': float(np.arccos(min(1.0, np.sqrt(1 - 2 * p) / (1 - p)))) if p < 0.5 else 0.0}
+        rows.append(row)
+        print({k: (round(v, 6) if isinstance(v, float) else v) for k, v in row.items()}, flush=True)
+out = {'rows': rows,
+       'statement': 'The reversal readout equals the kinetic mass up to the lattice factor (1 - p). The pole readout of the walker sector is zero. '
+                    'The Markov bands form the ellipse (E - a)^2 = a^2 - c^2 k^2; the shape readout returns alpha = -1/c^2 < 0, |E0| = a and m = a/c^2. '
+                    'At p = 1/2 (no memory) the direction record relaxes in one step and the walk is plain diffusion.'}
+(HERE / 'c_e_telegraph.json').write_text(json.dumps(out, indent=1))

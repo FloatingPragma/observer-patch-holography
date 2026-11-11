@@ -1,0 +1,286 @@
+#!/usr/bin/env python
+"""QF block A. Smallest instance the earlier simulator supports: oph_fpe.small_universe
+(12 patches, icosahedral graph, one Z2 label per patch, one Z2 offset per edge, root pinned).
+
+Part 1 (CODE AS IS): the parent-copy repair of oph_fpe.small_universe.oph_repair, exact over all 2048 states.
+Part 2 (same state space, DECLARED variants): greedy single-site rule (accept if Phi does not increase,
+        unit weights) and Metropolis at inverse temperature beta (the cost of the consensus paper,
+        Phi_b(x) = sum_e 1[x_u + x_v != b_e]).  Exact enumeration, exact rational arithmetic.
+
+Run on a box: python small_universe_exact.py   -> small_universe_exact.json
+"""
+from __future__ import annotations
+
+import itertools
+import json
+from collections import deque
+from fractions import Fraction
+
+import networkx as nx
+
+from oph_fpe.small_universe.model import (
+    all_root_pinned_states,
+    build_icosa12_universe,
+    cycle_holonomies,
+    edge_key,
+    globally_consistent,
+    mismatch,
+    phi,
+)
+from oph_fpe.small_universe.oph_repair import apply_repair, enabled_repairs
+
+SEED = 20260620  # configs/sou_v1_icosa12.yml
+
+
+def faces_of(graph):
+    tri = set()
+    for a, b in graph.edges():
+        for c in set(graph.neighbors(a)) & set(graph.neighbors(b)):
+            tri.add(tuple(sorted((a, b, c))))
+    return sorted(tri)
+
+
+def face_flux(universe, faces):
+    out = []
+    for a, b, c in faces:
+        out.append(universe.offsets[edge_key(a, b)] ^ universe.offsets[edge_key(b, c)] ^ universe.offsets[edge_key(a, c)])
+    return out
+
+
+def part1(universe, label):
+    states = list(all_root_pinned_states(universe))
+    index = {s: i for i, s in enumerate(states)}
+    n = len(states)
+    succ = []
+    strict_descent = True
+    for s in states:
+        en = enabled_repairs(universe, s)
+        nxt = []
+        for node in en:
+            t = apply_repair(universe, s, node)
+            if not phi(universe, t) < phi(universe, s):
+                strict_descent = False
+            nxt.append(index[t])
+        succ.append(nxt)
+    terminal = [i for i in range(n) if not succ[i]]
+    # expected number of repairs to absorption under a uniform draw among enabled repairs,
+    # and min / max path length; the transition graph is acyclic (strict descent), so process by Phi order
+    order = sorted(range(n), key=lambda i: phi(universe, states[i]))
+    exp = [Fraction(0)] * n
+    lo = [0] * n
+    hi = [0] * n
+    reach = [None] * n
+    for i in order:
+        if not succ[i]:
+            reach[i] = frozenset([i])
+            continue
+        exp[i] = 1 + sum(exp[j] for j in succ[i]) / len(succ[i])
+        lo[i] = 1 + min(lo[j] for j in succ[i])
+        hi[i] = 1 + max(hi[j] for j in succ[i])
+        r = set()
+        for j in succ[i]:
+            r |= reach[j]
+        reach[i] = frozenset(r)
+    confluent = all(len(r) == 1 for r in reach)
+    mean_exp = sum(exp) / n
+    term_states = [states[i] for i in terminal]
+    return {
+        "branch": label,
+        "state_count": n,
+        "terminal_state_count": len(terminal),
+        "terminal_states": ["".join(map(str, s)) for s in term_states],
+        "terminal_phi": [phi(universe, s) for s in term_states],
+        "terminal_violated_edges": [
+            [list(e) for e in universe.offsets if mismatch(universe, s, e)] for s in term_states
+        ],
+        "terminal_is_globally_consistent": [bool(globally_consistent(universe, s)) for s in term_states],
+        "strict_descent_on_every_transition": strict_descent,
+        "every_state_reaches_one_terminal_state": confluent,
+        "mean_repairs_to_absorption_uniform_start": str(mean_exp),
+        "mean_repairs_to_absorption_uniform_start_float": float(mean_exp),
+        "max_repairs_to_absorption": max(hi),
+        "min_repairs_from_worst_state": max(lo),
+        "flipped_edge": list(universe.flipped_edge) if universe.flipped_edge else None,
+        "nonzero_cycle_holonomies_in_cycle_basis": sum(r["holonomy_z2"] for r in cycle_holonomies(universe)),
+        "weights": sorted(set(universe.weights.values())),
+    }
+
+
+def unit_phi(offsets, state):
+    return sum(1 for (a, b), o in offsets.items() if (state[a] ^ state[b]) != o)
+
+
+def part2(graph, offsets, label, a_values):
+    """One Z2 label per patch, root 0 pinned, unit weights, single-site flips of patches 1..11."""
+    states = [(0,) + t for t in itertools.product((0, 1), repeat=11)]
+    index = {s: i for i, s in enumerate(states)}
+    n = len(states)
+    ph = [unit_phi(offsets, s) for s in states]
+    nbr = []
+    for s in states:
+        row = []
+        for v in range(1, 12):
+            t = list(s)
+            t[v] ^= 1
+            row.append(index[tuple(t)])
+        nbr.append(row)
+    # Gibbs polynomial Z(a) = sum_x a^Phi(x)
+    zpoly = {}
+    for p in ph:
+        zpoly[p] = zpoly.get(p, 0) + 1
+    pmin = min(ph)
+    ground = [i for i in range(n) if ph[i] == pmin]
+    # greedy rule: uniform patch, flip accepted iff Phi does not increase (degree 5: no neutral flips)
+    neutral_moves = sum(1 for i in range(n) for j in nbr[i] if ph[j] == ph[i])
+    absorbing = [i for i in range(n) if all(ph[j] > ph[i] for j in nbr[i])]
+    absorbing_phi = {}
+    for i in absorbing:
+        absorbing_phi[ph[i]] = absorbing_phi.get(ph[i], 0) + 1
+    # closed classes of the greedy chain (with neutral moves accepted): strongly connected sinks
+    g = nx.DiGraph()
+    g.add_nodes_from(range(n))
+    for i in range(n):
+        for j in nbr[i]:
+            if ph[j] <= ph[i]:
+                g.add_edge(i, j)
+    cond = nx.condensation(g)
+    sinks = [c for c in cond.nodes if cond.out_degree(c) == 0]
+    sink_sizes = sorted(len(cond.nodes[c]["members"]) for c in sinks)
+    sink_phi = sorted(ph[next(iter(cond.nodes[c]["members"]))] for c in sinks)
+    # Metropolis: uniform patch among 11, accept with min(1, a^dPhi); check stationarity of Gibbs exactly
+    met = {}
+    for a in a_values:
+        w = [a ** p for p in ph]
+        z = sum(w)
+        pi = [x / z for x in w]
+        # detailed balance and stationarity
+        ok = True
+        out = [Fraction(0)] * n
+        for i in range(n):
+            stay = Fraction(1)
+            for j in nbr[i]:
+                d = ph[j] - ph[i]
+                acc = Fraction(1) if d <= 0 else a ** d
+                pij = acc / 11
+                stay -= pij
+                out[j] += pi[i] * pij
+                dj = ph[i] - ph[j]
+                accj = Fraction(1) if dj <= 0 else a ** dj
+                if pi[i] * pij != pi[j] * accj / 11:
+                    ok = False
+            out[i] += pi[i] * stay
+        met[str(a)] = {
+            "gibbs_is_stationary_exact": bool(out == pi),
+            "detailed_balance_exact": ok,
+            "max_over_min_stationary_probability": str(max(pi) / min(pi)),
+            "probability_of_ground_states": str(sum(pi[i] for i in ground)),
+            "probability_of_ground_states_float": float(sum(pi[i] for i in ground)),
+            "uniform_probability_would_be": str(Fraction(1, n)),
+            "Z": str(z),
+        }
+    return {
+        "branch": label,
+        "state_count": n,
+        "Z_polynomial_counts_by_Phi": {str(k): v for k, v in sorted(zpoly.items())},
+        "ground_Phi": pmin,
+        "ground_state_count": len(ground),
+        "greedy_neutral_move_count": neutral_moves,
+        "greedy_absorbing_state_count": len(absorbing),
+        "greedy_absorbing_states_by_Phi": {str(k): v for k, v in sorted(absorbing_phi.items())},
+        "greedy_closed_class_count": len(sinks),
+        "greedy_closed_class_sizes": sink_sizes,
+        "greedy_closed_class_Phi": sink_phi,
+        "metropolis": met,
+    }
+
+
+def dual_paths(graph, faces):
+    """Shortest dual path from face 0 to one face at each dual distance; returns crossed edges."""
+    fidx = {f: i for i, f in enumerate(faces)}
+    adj = {i: [] for i in range(len(faces))}
+    for i, f in enumerate(faces):
+        for j, h in enumerate(faces):
+            if i < j and len(set(f) & set(h)) == 2:
+                e = tuple(sorted(set(f) & set(h)))
+                adj[i].append((j, e))
+                adj[j].append((i, e))
+    dist = {0: 0}
+    par = {0: None}
+    q = deque([0])
+    while q:
+        u = q.popleft()
+        for v, e in adj[u]:
+            if v not in dist:
+                dist[v] = dist[u] + 1
+                par[v] = (u, e)
+                q.append(v)
+    out = {}
+    for d in range(1, max(dist.values()) + 1):
+        f = min(i for i in dist if dist[i] == d)
+        edges = []
+        cur = f
+        while par[cur] is not None:
+            cur, e = par[cur][0], par[cur][1]
+            edges.append(e)
+        out[d] = {"face": f, "crossed_edges": edges}
+    return out, max(dist.values())
+
+
+def main():
+    res = {"seed": SEED, "source": "oph_fpe.small_universe (model.py, oph_repair.py)"}
+    exact = build_icosa12_universe(SEED, frustrate=False)
+    frus = build_icosa12_universe(SEED, frustrate=True)
+    faces = faces_of(exact.graph)
+    res["face_count"] = len(faces)
+    res["part1_code_parent_copy"] = [part1(exact, "exact_consensus"), part1(frus, "frustrated_control")]
+    res["frustrated_control_flux_faces"] = [list(faces[i]) for i, f in enumerate(face_flux(frus, faces)) if f]
+
+    a_values = [Fraction(1, 2), Fraction(1, 10)]
+    zero = {e: 0 for e in exact.offsets}  # gauge-equivalent to the exact branch (offsets are a coboundary)
+    part2_rows = [part2(exact.graph, zero, "vacuum (all face fluxes zero)", a_values)]
+    # check gauge equivalence claim: the exact branch has the same Phi spectrum
+    chk = part2(exact.graph, dict(exact.offsets), "exact branch offsets (coboundary of target)", a_values)
+    res["gauge_equivalence_vacuum_same_Phi_spectrum"] = (
+        chk["Z_polynomial_counts_by_Phi"] == part2_rows[0]["Z_polynomial_counts_by_Phi"]
+    )
+    paths, diam = dual_paths(exact.graph, faces)
+    res["dual_diameter"] = diam
+    for d, row in paths.items():
+        off = dict(zero)
+        for e in row["crossed_edges"]:
+            off[e] ^= 1
+        r = part2(exact.graph, off, f"flux pair at dual distance {d}", a_values)
+        r["crossed_edges"] = [list(e) for e in row["crossed_edges"]]
+        part2_rows.append(r)
+    res["part2_single_label_per_patch_unit_weights"] = part2_rows
+    # free-energy cost of a flux pair relative to vacuum at a = 1/2 and 1/10
+    vac = part2_rows[0]
+    fe = {}
+    import math
+    for a in a_values:
+        zv = Fraction(vac["metropolis"][str(a)]["Z"])
+        row = {}
+        for r in part2_rows[1:]:
+            zd = Fraction(r["metropolis"][str(a)]["Z"])
+            row[r["branch"]] = {"Z_ratio": str(zd / zv), "minus_log_ratio_over_beta": -math.log(zd / zv) / (-math.log(a))}
+        fe[str(a)] = row
+    res["flux_pair_free_energy_in_units_of_one_violated_edge"] = fe
+    with open("small_universe_exact.json", "w") as fh:
+        json.dump(res, fh, indent=1)
+    # short print
+    for r in res["part1_code_parent_copy"]:
+        print("PART1", r["branch"], "terminal", r["terminal_state_count"], "phi", r["terminal_phi"],
+              "confluent", r["every_state_reaches_one_terminal_state"], "strict", r["strict_descent_on_every_transition"],
+              "mean steps", r["mean_repairs_to_absorption_uniform_start_float"], "max", r["max_repairs_to_absorption"])
+    print("frustrated flux faces", res["frustrated_control_flux_faces"])
+    for r in part2_rows:
+        print("PART2", r["branch"], "ground Phi", r["ground_Phi"], "ground states", r["ground_state_count"],
+              "greedy absorbing", r["greedy_absorbing_states_by_Phi"], "closed classes", r["greedy_closed_class_count"],
+              r["greedy_closed_class_sizes"][:6], "neutral", r["greedy_neutral_move_count"],
+              "gibbs ok", {k: v["gibbs_is_stationary_exact"] for k, v in r["metropolis"].items()},
+              "P(ground)", {k: round(v["probability_of_ground_states_float"], 6) for k, v in r["metropolis"].items()})
+    print("flux pair free energy", json.dumps(fe, indent=0)[:1500])
+
+
+if __name__ == "__main__":
+    main()

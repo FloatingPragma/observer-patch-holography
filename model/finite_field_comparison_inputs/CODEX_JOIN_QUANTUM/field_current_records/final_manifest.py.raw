@@ -1,0 +1,27 @@
+"""Write the exact owned commit inventory after current-custody closure."""
+from pathlib import Path
+import hashlib,json,subprocess
+ROOT=Path.cwd()
+read=lambda p:json.loads((ROOT/p).read_text())
+a=read('model/completion/field_current_records_custody_authority.json')
+paths=set(a['executed_live_receipts'])|set(a['integration_configurations'])|set(a['maintenance_input_scope_append'])
+paths.update(a['late_class_dependent_owners']);paths.update(a['late_internal_parent_closure'].values())
+paths.update(('claims/claim_registry.yaml','claims/assumption_dictionary.md','claims/completion_program.json','tracking/premise_register.json',
+'model/completion/component_interfaces.json','model/completion/finite_attachment_map.json','model/completion/program_class_v2.json','model/completion/program_class_v2_review.json',
+'model/completion/campaign.json','model/completion/theorem_navigation_current.json',
+'model/common_source/manifest.json','model/empirical_diagnostics/manifest.json',
+'model/verify_current.py','model/test_verify_current.py','model/test_verify_shards.py','pytest.ini','.github/workflows/observer-model.yml',
+'tools/check_retained_source_records_custody.py','tools/test_retained_source_records_custody.py',
+'model/particle_atlas_explainer/current_retained_source_equivalence.py',
+'model/particle_atlas_explainer/current_retained_source_authority.json',
+'model/particle_atlas_explainer/current_retained_source_navigation.json',
+'model/particle_atlas_explainer/test_current_retained_source_equivalence.py'))
+for pattern in ('model/completion/*field_current*','tools/*field_current*','model/protected_readout_numerics/*','model/field_current_late_custody/*','model/completion/historical/field_current_records_inputs/**/*'):
+ paths.update(str(p.relative_to(ROOT))for p in ROOT.glob(pattern)if p.is_file()and p.suffix in('.json','.py','.md','.yaml','.yml'))
+changed=set(subprocess.check_output(['git','diff','--name-only'],cwd=ROOT,text=True).splitlines())|set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],cwd=ROOT,text=True).splitlines())
+files=sorted(paths&changed)
+assert all((ROOT/p).is_file()for p in files)
+manifest={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in files}
+Path('/tmp/oph-field-current-final-files.json').write_text(json.dumps(manifest,indent=2)+'\n')
+Path('/tmp/oph-field-current-final-files.txt').write_text('\n'.join(files)+'\n')
+print(len(files),'owned changed files')

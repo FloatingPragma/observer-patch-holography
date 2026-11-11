@@ -1,0 +1,1109 @@
+{
+ "question": "Q1",
+ "labels": "EXACT unless stated",
+ "rotations": {
+  "gC": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    5,
+    7
+   ],
+   [
+    8,
+    11
+   ],
+   [
+    9,
+    10
+   ]
+  ],
+  "gE": [
+   [
+    0,
+    3
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    2,
+    10
+   ],
+   [
+    4,
+    7
+   ],
+   [
+    5,
+    8
+   ],
+   [
+    6,
+    11
+   ]
+  ],
+  "g=gE.gC": [
+   [
+    0,
+    9,
+    2
+   ],
+   [
+    1,
+    3,
+    10
+   ],
+   [
+    4,
+    11,
+    5
+   ],
+   [
+    6,
+    7,
+    8
+   ]
+  ]
+ },
+ "A_one_load": {
+  "formula": "K0 = I - |m><m|, K1 = |p><m|, m=(|a>-|b>)/sqrt2, p=(|a>+|b>)/sqrt2; reversed address: K1 -> -K1",
+  "K0|a>": "p/sqrt2",
+  "K1^(a,b)|a>": "+p/sqrt2",
+  "K1^(a,b)|b>": "-p/sqrt2",
+  "K1^(b,a)|a>": "-p/sqrt2",
+  "K1^(b,a)|b>": "+p/sqrt2",
+  "checked_seam": [
+   2,
+   3
+  ],
+  "K0|2>": [
+   "0",
+   "0",
+   "1/2",
+   "1/2",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "K1|2>": [
+   "0",
+   "0",
+   "1/2",
+   "1/2",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "K1|3>": [
+   "0",
+   "0",
+   "-1/2",
+   "-1/2",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0",
+   "0"
+  ],
+  "completeness": true,
+  "matches_exact_walk_columns_all_ports_all_addresses": true
+ },
+ "B_walk_tick": {
+  "branches": "K_{r,k} = K_r^(k)/sqrt60 for record r in {0,1} and oriented address k (60); sum K^dag K = I",
+  "record1_effect": "sum_k K_{1,k}^dag K_{1,k} = (1/60) sum_k |m_k><m_k| = L/60",
+  "record1_probability_localised_port": "1/12",
+  "per_seam_record1_probability_localised_endpoint": "1/60 (two orientations, 1/120 each)",
+  "C_seam_(2,3)_record1_from_port2": {
+   "address (2,3)": "+1/sqrt120",
+   "address (3,2)": "-1/sqrt120",
+   "weight": "1/60"
+  },
+  "E_seam_(2,10)_record1_from_port2": {
+   "address (2,10)": "+1/sqrt120",
+   "address (10,2)": "-1/sqrt120",
+   "weight": "1/60"
+  },
+  "consensus_over_address": "A^dag Q A = diag(P, P_sign): the parity-1 <- parity-0 block is (1/60) sum_k |p_k><m_k| = 0, because the two orientations of each seam enter with opposite signs",
+  "consensus_cross_parity_block_zero_checked": true
+ },
+ "C_native_code": {
+  "C": {
+   "seam": [
+    2,
+    3
+   ],
+   "coloring": 0,
+   "matchings": [
+    [
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      6,
+      11
+     ],
+     [
+      7,
+      9
+     ],
+     [
+      8,
+      10
+     ]
+    ],
+    [
+     [
+      0,
+      6
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      4,
+      8
+     ],
+     [
+      5,
+      10
+     ],
+     [
+      9,
+      11
+     ]
+    ],
+    [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      11
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      4,
+      7
+     ],
+     [
+      5,
+      8
+     ],
+     [
+      6,
+      9
+     ]
+    ],
+    [
+     [
+      0,
+      8
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      4,
+      10
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      7,
+      11
+     ]
+    ],
+    [
+     [
+      0,
+      9
+     ],
+     [
+      1,
+      10
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      8,
+      11
+     ]
+    ],
+    [
+     [
+      0,
+      4
+     ],
+     [
+      1,
+      6
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      5,
+      7
+     ],
+     [
+      9,
+      10
+     ]
+    ]
+   ],
+   "per_logical_state": [
+    {
+     "logical": 0,
+     "native_weights": {
+      "0,0": "5/12",
+      "0,1": "1/12",
+      "1,0": "5/12",
+      "1,2": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12",
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 1,
+     "native_weights": {
+      "0,0": "5/12",
+      "0,1": "1/12",
+      "1,0": "5/12",
+      "1,2": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 2,
+     "native_weights": {
+      "0,0": "5/12",
+      "0,1": "1/12",
+      "1,0": "5/12",
+      "1,2": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_inactive": "2/3",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 3,
+     "native_weights": {
+      "0,0": "5/12",
+      "0,1": "1/12",
+      "1,0": "5/12",
+      "1,2": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 4,
+     "native_weights": {
+      "0,0": "5/12",
+      "0,1": "1/12",
+      "1,0": "5/12",
+      "1,2": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 5,
+     "native_weights": {
+      "0,0": "5/12",
+      "0,1": "1/12",
+      "1,0": "5/12",
+      "1,2": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    }
+   ],
+   "coherent_record1_effect_on_code": [
+    [
+     "1/6",
+     "0",
+     "-1/12",
+     "0",
+     "-1/12",
+     "0"
+    ],
+    [
+     "0",
+     "1/6",
+     "0",
+     "-1/12",
+     "-1/12",
+     "0"
+    ],
+    [
+     "-1/12",
+     "0",
+     "1/6",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "-1/12",
+     "0",
+     "1/6",
+     "0",
+     "0"
+    ],
+    [
+     "-1/12",
+     "-1/12",
+     "0",
+     "0",
+     "1/6",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6"
+    ]
+   ],
+   "coherent_record1_effect_is_scalar_on_code": false,
+   "coherent_active_record0_effect_on_code": [
+    [
+     "1/6",
+     "0",
+     "1/12",
+     "0",
+     "1/12",
+     "0"
+    ],
+    [
+     "0",
+     "1/6",
+     "0",
+     "1/12",
+     "1/12",
+     "0"
+    ],
+    [
+     "1/12",
+     "0",
+     "1/6",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/12",
+     "0",
+     "1/6",
+     "0",
+     "0"
+    ],
+    [
+     "1/12",
+     "1/12",
+     "0",
+     "0",
+     "1/6",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6"
+    ]
+   ],
+   "coherent_active_record0_effect_is_scalar_on_code": false,
+   "native_(0,1)_effect_on_code": [
+    [
+     "1/12",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/12",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "1/12",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "1/12",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/12",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/12"
+    ]
+   ],
+   "native_(0,1)_effect_is_scalar": true,
+   "native_(1,2)_effect_on_code": [
+    [
+     "1/12",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/12",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "1/12",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "1/12",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/12",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/12"
+    ]
+   ],
+   "native_(1,2)_effect_is_scalar": true,
+   "native_current_both_effect_on_code": [
+    [
+     "1/6",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/6",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "1/6",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "1/6",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6"
+    ]
+   ],
+   "native_current_both_effect_is_scalar": true
+  },
+  "E": {
+   "seam": [
+    2,
+    10
+   ],
+   "coloring": 1,
+   "matchings": [
+    [
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      6
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      4,
+      10
+     ],
+     [
+      5,
+      8
+     ],
+     [
+      9,
+      11
+     ]
+    ],
+    [
+     [
+      0,
+      4
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      6,
+      9
+     ],
+     [
+      7,
+      11
+     ],
+     [
+      8,
+      10
+     ]
+    ],
+    [
+     [
+      0,
+      9
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      8
+     ],
+     [
+      4,
+      7
+     ],
+     [
+      5,
+      10
+     ],
+     [
+      6,
+      11
+     ]
+    ],
+    [
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      10
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      4,
+      8
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      7,
+      9
+     ]
+    ],
+    [
+     [
+      0,
+      6
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      2,
+      9
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      5,
+      7
+     ],
+     [
+      8,
+      11
+     ]
+    ],
+    [
+     [
+      0,
+      8
+     ],
+     [
+      1,
+      11
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      9,
+      10
+     ]
+    ]
+   ],
+   "per_logical_state": [
+    {
+     "logical": 0,
+     "native_weights": {
+      "0,0": "1/3",
+      "0,4": "1/12",
+      "0,5": "1/12",
+      "1,0": "1/3",
+      "1,4": "1/12",
+      "1,6": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 1,
+     "native_weights": {
+      "0,0": "1/3",
+      "0,4": "1/12",
+      "0,5": "1/12",
+      "1,0": "1/3",
+      "1,4": "1/12",
+      "1,6": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 2,
+     "native_weights": {
+      "0,0": "1/3",
+      "0,4": "1/12",
+      "0,5": "1/12",
+      "1,0": "1/3",
+      "1,4": "1/12",
+      "1,6": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 3,
+     "native_weights": {
+      "0,0": "1/3",
+      "0,4": "1/12",
+      "0,5": "1/12",
+      "1,0": "1/3",
+      "1,4": "1/12",
+      "1,6": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12",
+      "record0_inactive": "2/3"
+     }
+    },
+    {
+     "logical": 4,
+     "native_weights": {
+      "0,0": "1/3",
+      "0,4": "1/12",
+      "0,5": "1/12",
+      "1,0": "1/3",
+      "1,4": "1/12",
+      "1,6": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    },
+    {
+     "logical": 5,
+     "native_weights": {
+      "0,0": "1/3",
+      "0,4": "1/12",
+      "0,5": "1/12",
+      "1,0": "1/3",
+      "1,4": "1/12",
+      "1,6": "1/12"
+     },
+     "coherent_component_weights": {
+      "record0_inactive": "2/3",
+      "record0_from_first_endpoint": "1/12",
+      "record1_from_first_endpoint": "1/12",
+      "record0_from_second_endpoint": "1/12",
+      "record1_from_second_endpoint": "1/12"
+     }
+    }
+   ],
+   "coherent_record1_effect_on_code": [
+    [
+     "1/6",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/6",
+     "-1/12",
+     "-1/12",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "-1/12",
+     "1/6",
+     "0",
+     "0",
+     "-1/12"
+    ],
+    [
+     "0",
+     "-1/12",
+     "0",
+     "1/6",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6",
+     "-1/12"
+    ],
+    [
+     "0",
+     "0",
+     "-1/12",
+     "0",
+     "-1/12",
+     "1/6"
+    ]
+   ],
+   "coherent_record1_effect_is_scalar_on_code": false,
+   "coherent_active_record0_effect_on_code": [
+    [
+     "1/6",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/6",
+     "1/12",
+     "1/12",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/12",
+     "1/6",
+     "0",
+     "0",
+     "1/12"
+    ],
+    [
+     "0",
+     "1/12",
+     "0",
+     "1/6",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6",
+     "1/12"
+    ],
+    [
+     "0",
+     "0",
+     "1/12",
+     "0",
+     "1/12",
+     "1/6"
+    ]
+   ],
+   "coherent_active_record0_effect_is_scalar_on_code": false,
+   "native_E_effect_on_code": [
+    [
+     "1/6",
+     "0",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "1/6",
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "1/6",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "1/6",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0",
+     "0",
+     "1/6"
+    ]
+   ],
+   "native_E_effect_is_scalar": true
+  },
+  "repository_native_records": {
+   "P(coin0,raw1)": "1/12",
+   "P(coin1,raw2)": "1/12",
+   "P(coin1,raw1)": "0",
+   "P(E=(coin0,raw4|5))": "1/6",
+   "P(C current and E)": "1/72"
+  }
+ }
+}

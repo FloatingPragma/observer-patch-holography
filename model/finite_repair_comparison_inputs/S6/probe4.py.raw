@@ -1,0 +1,49 @@
+import itertools, sys
+import numpy as np
+from s6_common import *
+# triad classes of seams: seam -> the triad containing the twofold rotation that fixes the seam
+def seam_image(r, s):
+    a, b = SEAMS[s]; u, v = r[a], r[b]
+    return SEAM_INDEX[(min(u, v), max(u, v))]
+colour = []
+for s in range(NSEAM):
+    invs = [g for g in INVOLUTIONS if seam_image(g, s) == s]
+    assert len(invs) == 1
+    colour.append(next(i for i, K in enumerate(TRIADS) if invs[0] in K))
+classes = [[s for s in range(NSEAM) if colour[s] == i] for i in range(5)]
+print('class sizes', [len(c) for c in classes])
+for i, c in enumerate(classes):
+    ports = sorted(p for s in c for p in SEAMS[s])
+    print(' class', i, 'perfect matching:', ports == list(range(12)), [SEAMS[s] for s in c])
+print('five colours at every port:', all(len({colour[s] for s in range(NSEAM) if p in SEAMS[s]}) == 5 for p in range(12)))
+# rotations permute the classes as the triads
+print('equivariant:', all(colour[seam_image(g, s)] == RHO[g][colour[s]] for g in ROT for s in range(NSEAM)))
+def sector(n):
+    states = list(itertools.combinations(range(12), n)); index = {s: i for i, s in enumerate(states)}
+    Hs = []
+    for c in classes:
+        H = np.zeros((len(states), len(states)))
+        for i, s in enumerate(states):
+            ss = set(s)
+            for k in c:
+                a, b = SEAMS[k]
+                if (a in ss) != (b in ss):
+                    H[i, i] += 1; H[index[tuple(sorted(ss ^ {a, b}))], i] -= 1
+        Hs.append(H)
+    return states, Hs
+for n in (1, 2, 3, 4):
+    states, Hs = sector(n)
+    H = sum(Hs)
+    print('N', n, 'spectrum of one class operator H_i:', sorted(set(np.round(np.linalg.eigvalsh(Hs[0]), 8))))
+    w, V = np.linalg.eigh(H)
+    start = 0
+    while start < len(w):
+        end = start
+        while end + 1 < len(w) and w[end + 1] - w[start] < 1e-8: end += 1
+        E = V[:, start:end + 1]
+        if abs(w[start] - round(w[start])) < 1e-8 and end - start + 1 >= 5:
+            leak = max(np.linalg.norm(Hi @ E - E @ (E.T @ Hi @ E)) for Hi in Hs)
+            comm = max(np.linalg.norm((E.T @ Hs[i] @ E) @ (E.T @ Hs[j] @ E) - (E.T @ Hs[j] @ E) @ (E.T @ Hs[i] @ E)) for i in range(5) for j in range(i))
+            ev = sorted(set(np.round(np.linalg.eigvalsh(E.T @ Hs[0] @ E), 6)))
+            print('   level', round(w[start], 6), 'dim', end - start + 1, 'invariant under each H_i: leak', round(leak, 9), ' commutator of restrictions', round(comm, 9), ' spectrum of H_0 on it', ev)
+        start = end + 1

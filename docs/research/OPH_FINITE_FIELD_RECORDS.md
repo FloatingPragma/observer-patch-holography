@@ -26,6 +26,7 @@ would require a separate implementation proof.
 | Original interacting native charged source | Actual compensated preparation, retained partner and reference; one autonomous wait between two declared services | Positive quark-type arrival and active-source energy records | Not a momentum eigenstate, isolated colored particle or rest mass |
 | Completed beta-Wilson–Maxwell cube | Recorded code admission and finite energy-agreement filters; the same raw Hamiltonian at every photon cap | Controlled preparation and complete field/count histories | Fixed graph; control costs and unused branches remain |
 | Orthogonal-Wilson–Maxwell cube | Same native field/charge frame, changed regulator and vacuum, retained old scalar offset, declared complement coefficient `21/2` | Corrected free coefficient, positive full physical finite gap, prepared coupled response | Different Hamiltonian; no interacting Lorentz or weak-chiral identification |
+| Lowest charged orthogonal-cube cluster | Same `21/2` completion, coupling `1/64`, photon cap three, fixed compensated charge frame and reference cost four | Rank-two charged cluster gap above `0.17175185 m`; actual-neutral/reference-subtracted transition in `[1.11134603,1.12278560] m` | Finite fixed-charge spectral bounds; no physical spin or GeV assignment |
 | Charged orthogonal cube | Same physical fields and raw offset; complement coefficient `23/2`, cap three, five complete driven slots | Paired eight-state fixed-charge energy clusters and an accepted joint charged/neutral energy record | The rank is not a species count; fixed boundary reference and finite volume remain |
 | Growing orthogonal-Wilson–Maxwell family | Fresh algebraic sea preparation in the same charge frame; full original flags and actual coupled clock | Fixed-spacing complete record limit and nonzero current witness; the separate choice `c(V)=18V+1` selects the code ground | Coupled ground vector and its internal gap/dispersion remain open |
 | Growing beta-Wilson–Maxwell family | Independent full-box banks, complete code flags, first-success routing, actual coupled evolution | Positive-time local record limits at fixed spacing and a nonzero interaction witness | Nonstationary prepared state; not a growing interacting-ground or ultraviolet theorem |
@@ -34,6 +35,16 @@ Every finite member retains the native occupation complement, charge references
 and all preparation/detector outcomes. An unbounded oscillator or infinite box
 appears only as a mathematical comparison of finite records. It is never
 silently inserted into a finite source.
+
+The [charged-cluster min–max proof](../../model/native_charged_cluster_minmax/PROOF.md)
+uses the literal free rank-two projector and outward rational Schur bounds
+on the unchanged `21/2` cube. The quoted transition subtracts the actual
+neutral ground and the raw reference cost four before division by `m`.
+The corner antiunitary squares to `+I`, so the rank is not a Kramers or
+physical-spin claim. The separate self-energy coefficients have no proved
+matrix-transfer or interacting-remainder allowance and are excluded from
+these bounds. The `23/2` rank-eight apparatus and growing-family prepared
+energies retain their separate sources and meanings.
 
 ## What the calculations add
 
@@ -219,6 +230,32 @@ until this same source supplies that particular premise.
 
 ## Defect register, lepton ratios and lattice results
 
+The [complete lepton cycles](../../model/lepton_cycle/PROOF.md) implement all
+four return outcomes and a fresh-source SWAP reset with exported correlations.
+At declared time one, half-diamond errors are bounded by `14/(81N)` for the
+oriented-current cycle and `349/(1296N)` for the mass-read cycle, including
+arbitrary untouched references. Preparation and coherent services are
+declared; the estimates do not attach a physical mass or duration.
+
+The [bounded record observer](../../model/repair_sector_bridge/RECORD_OBSERVER.md)
+reconstructs native pair distance from a known preparation and complete
+addressed current records. Its exact quotient reaches 1% total-variation
+error after 39 attempts, using at most 311 logical bits including an incoming
+packet. The source halts at tape capacity, and missing or inconsistent records
+halt inference. This is an explicit admitted readout of the quotient under
+its own scheduler and preparation contract.
+
+The [closed-cell population law](../../model/native_abundance_epochs/PROOF.md)
+uses the same local repair on a declared three-port/two-face geometry.
+For independent uniform initial loads in `{0,...,5}` and initial flux zero,
+its persistent occupied-face share is exactly `1007/13824`; the finite
+128-attempt bracket has width below `5.86e-10`. The uniform nonterminal bound
+is `25^(-floor(n/32))`. The [conjugation theorem](../../model/charge_conjugation_dynamics/PROOF.md)
+and exhaustive native branch checks give zero mean odd class imbalance for
+symmetric preparation, fair coins and an equivariant scheduler. These are
+complete classical population records, with no thermal-history, baryon-number
+or physical species-abundance identification.
+
 These results belong to the defect register and the declared coupling chain;
 the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
 reproduces the stored class on every stored cut of the runs. The [lepton register](../../model/lepton_register_round/README.md)
@@ -279,6 +316,14 @@ runs with a declared Z6 register. The viewer uses a reduced level-6 copy.
 The full run archive is distinct from the reduced jackknife tables retained
 by the electroweak, colour and quenched-hadron packages; those tables do not
 constitute archived gauge configurations or an independent Monte Carlo rerun.
+
+Reusable measurement arrays, jackknife inputs and their producer sources are
+also retained with per-file checksums in the owning
+[colour](../../model/colour_deconfinement/inputs/README.md),
+[electroweak](../../model/electroweak_crossover/inputs/README.md) and
+[hadron](../../model/quenched_hadron_binding/inputs/README.md) input collections.
+Their source and review classifications distinguish retained inputs from
+the independently replayed canonical results.
 
 The [finite-record poster](OPH_FINITE_FIELD_RECORDS.svg) presents the five
 source branches from left to right, with a [PNG copy](OPH_FINITE_FIELD_RECORDS.png).

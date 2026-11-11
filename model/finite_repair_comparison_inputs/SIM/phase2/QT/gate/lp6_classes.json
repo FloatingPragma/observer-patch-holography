@@ -1,0 +1,339 @@
+{
+ "task": "LP addendum 1: Z6 classes",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "Z1_hexagon": {
+  "FP": {
+   "class 0": {
+    "fixed vectors (hard-core, cycle)": [
+     2,
+     1
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0,
+     0.0
+    ],
+    "hermitian defect": 0.0
+   },
+   "class 1": {
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9959549953,
+     0.9966268335
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0040450047,
+     0.0033731665
+    ],
+    "hermitian defect": 8.587604981527649e-18
+   },
+   "class 2": {
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9840219958,
+     0.9966268335
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0159780042,
+     0.0033731665
+    ],
+    "hermitian defect": 8.587604981527617e-18
+   },
+   "class 3": {
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     1
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9648350528,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0351649472,
+     0.0
+    ],
+    "hermitian defect": 0.0
+   },
+   "class 4": {
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9840219958,
+     0.9966268335
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0159780042,
+     0.0033731665
+    ],
+    "hermitian defect": 2.657014228061186e-18
+   },
+   "class 5": {
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9959549953,
+     0.9966268335
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0040450047,
+     0.0033731665
+    ],
+    "hermitian defect": 8.587604981527649e-18
+   }
+  },
+  "FN": {
+   "class 0": {
+    "fixed vectors (hard-core, cycle)": [
+     8,
+     6
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     -0.0,
+     0.0
+    ],
+    "hermitian defect": 0.0
+   },
+   "class 1": {
+    "fixed vectors (hard-core, cycle)": [
+     6,
+     6
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     -0.0,
+     0.0
+    ],
+    "hermitian defect": 8.587604981527649e-18
+   },
+   "class 2": {
+    "fixed vectors (hard-core, cycle)": [
+     6,
+     6
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     -0.0,
+     -0.0
+    ],
+    "hermitian defect": 8.587604981527617e-18
+   },
+   "class 3": {
+    "fixed vectors (hard-core, cycle)": [
+     6,
+     6
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     -0.0,
+     0.0
+    ],
+    "hermitian defect": 0.0
+   },
+   "class 4": {
+    "fixed vectors (hard-core, cycle)": [
+     6,
+     6
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     -0.0,
+     -0.0
+    ],
+    "hermitian defect": 2.657014228061186e-18
+   },
+   "class 5": {
+    "fixed vectors (hard-core, cycle)": [
+     6,
+     6
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     -0.0,
+     0.0
+    ],
+    "hermitian defect": 8.587604981527649e-18
+   }
+  }
+ },
+ "Z2_carrier (FP)": {
+  "string faces": [
+   [
+    4,
+    5,
+    11
+   ],
+   [
+    0,
+    5,
+    11
+   ],
+   [
+    0,
+    1,
+    5
+   ],
+   [
+    0,
+    1,
+    7
+   ],
+   [
+    1,
+    7,
+    8
+   ],
+   [
+    6,
+    7,
+    8
+   ]
+  ],
+  "rows": {
+   "class 0": {
+    "faces with flux (class)": {},
+    "fixed vectors (hard-core, cycle)": [
+     1,
+     1
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     1.0,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     -0.0,
+     -0.0
+    ]
+   },
+   "class 1": {
+    "faces with flux (class)": {
+     "[4, 5, 11]": 1,
+     "[6, 7, 8]": 5
+    },
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9968008368,
+     0.9988555447
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0031991632,
+     0.0011444553
+    ]
+   },
+   "class 2": {
+    "faces with flux (class)": {
+     "[4, 5, 11]": 2,
+     "[6, 7, 8]": 4
+    },
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9875712784,
+     0.9988555447
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0124287216,
+     0.0011444553
+    ]
+   },
+   "class 3": {
+    "faces with flux (class)": {
+     "[4, 5, 11]": 3,
+     "[6, 7, 8]": 3
+    },
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     1
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9733345004,
+     1.0
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0266654996,
+     -0.0
+    ]
+   },
+   "class 4": {
+    "faces with flux (class)": {
+     "[4, 5, 11]": 4,
+     "[6, 7, 8]": 2
+    },
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9875712784,
+     0.9988555447
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0124287216,
+     0.0011444553
+    ]
+   },
+   "class 5": {
+    "faces with flux (class)": {
+     "[4, 5, 11]": 5,
+     "[6, 7, 8]": 1
+    },
+    "fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "largest eigenvalue (hard-core, cycle)": [
+     0.9968008368,
+     0.9988555447
+    ],
+    "lowest A (hard-core, cycle)": [
+     0.0031991632,
+     0.0011444553
+    ]
+   }
+  }
+ },
+ "seconds": 4.13
+}

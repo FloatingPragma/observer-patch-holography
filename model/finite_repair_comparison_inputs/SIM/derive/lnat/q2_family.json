@@ -1,0 +1,738 @@
+{
+ "question": "Q2",
+ "symmetries": {
+  "W_commutes_with_all_60_rotations": true,
+  "g_order_3_no_fixed_basis_state": true,
+  "gC_g_gC_equals_g_inverse": true,
+  "gE_g_gE_equals_g_inverse": true,
+  "W_real_rational_entries_denominator_120": true
+ },
+ "sectors": {
+  "0": {
+   "dimension": 480,
+   "P_sector_eigenvalues": {
+    "1": [
+     "1",
+     1
+    ],
+    "3(geometric)": [
+     "sqrt(5)/60 + 11/12",
+     1
+    ],
+    "3'": [
+     "11/12 - sqrt(5)/60",
+     1
+    ],
+    "5": [
+     "9/10",
+     1
+    ]
+   },
+   "P_sign_sector_eigenvalues": {
+    "1": [
+     "5/6",
+     1
+    ],
+    "3(geometric)": [
+     "11/12 - sqrt(5)/60",
+     1
+    ],
+    "3'": [
+     "sqrt(5)/60 + 11/12",
+     1
+    ],
+    "5": [
+     "14/15",
+     1
+    ]
+   },
+   "charpoly_checks": [
+    true,
+    true
+   ],
+   "oscillatory_pairs": 7,
+   "trace_W_k": "-1276/3",
+   "mult_plus1": "14",
+   "mult_minus1": "452",
+   "rest_phases": [
+    "arccos(11/12 - sqrt(5)/60)",
+    "arccos(14/15)",
+    "arccos(5/6)",
+    "arccos(9/10)",
+    "arccos(sqrt(5)/60 + 11/12)"
+   ]
+  },
+  "1": {
+   "dimension": 480,
+   "P_sector_eigenvalues": {
+    "3(geometric)": [
+     "sqrt(5)/60 + 11/12",
+     1
+    ],
+    "3'": [
+     "11/12 - sqrt(5)/60",
+     1
+    ],
+    "5": [
+     "9/10",
+     2
+    ]
+   },
+   "P_sign_sector_eigenvalues": {
+    "3(geometric)": [
+     "11/12 - sqrt(5)/60",
+     1
+    ],
+    "3'": [
+     "sqrt(5)/60 + 11/12",
+     1
+    ],
+    "5": [
+     "14/15",
+     2
+    ]
+   },
+   "charpoly_checks": [
+    true,
+    true
+   ],
+   "oscillatory_pairs": 8,
+   "trace_W_k": "-1276/3",
+   "mult_plus1": "12",
+   "mult_minus1": "452",
+   "rest_phases": [
+    "arccos(11/12 - sqrt(5)/60)",
+    "arccos(14/15)",
+    "arccos(9/10)",
+    "arccos(sqrt(5)/60 + 11/12)"
+   ]
+  },
+  "2": {
+   "dimension": 480,
+   "P_sector_eigenvalues": {
+    "3(geometric)": [
+     "sqrt(5)/60 + 11/12",
+     1
+    ],
+    "3'": [
+     "11/12 - sqrt(5)/60",
+     1
+    ],
+    "5": [
+     "9/10",
+     2
+    ]
+   },
+   "P_sign_sector_eigenvalues": {
+    "3(geometric)": [
+     "11/12 - sqrt(5)/60",
+     1
+    ],
+    "3'": [
+     "sqrt(5)/60 + 11/12",
+     1
+    ],
+    "5": [
+     "14/15",
+     2
+    ]
+   },
+   "charpoly_checks": [
+    true,
+    true
+   ],
+   "oscillatory_pairs": 8,
+   "trace_W_k": "-1276/3",
+   "mult_plus1": "12",
+   "mult_minus1": "452",
+   "rest_phases": [
+    "arccos(11/12 - sqrt(5)/60)",
+    "arccos(14/15)",
+    "arccos(9/10)",
+    "arccos(sqrt(5)/60 + 11/12)"
+   ]
+  }
+ },
+ "traces": {
+  "trW": "-1276",
+  "trW_Pi(g)": "0",
+  "trW_Pi(g^2)": "0"
+ },
+ "sector_relations": {
+  "Pi(gC) maps sector 1 to sector 2": "from gC g gC = g^{-1}: Pi(gC) E_k Pi(gC) = E_{-k}",
+  "W_2 = Pi(gC) W_1 Pi(gC)": "EXACT (W commutes with Pi(gC)); spectra of sectors 1 and 2 coincide",
+  "W_2 = conj(W_1)": "EXACT (W and Pi(g) real, conj(E_1) = E_2); spectra complex conjugate",
+  "consequence": "every conjugation-invariant mass functional is equal on families 1 and 2"
+ },
+ "compressions": {
+  "A|2> (blank, uniform address, port 2: common port of C and E seams)": {
+   "orbit_gram_(unnormalised)": [
+    [
+     60,
+     0,
+     0
+    ],
+    [
+     0,
+     60,
+     0
+    ],
+    [
+     0,
+     0,
+     60
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "41/60",
+    "1/900",
+    "1/900"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1/12",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "11/12",
+    "11/12",
+    "11/12"
+   ],
+   "eigenvalues_numeric": [
+    "(0.9166666666666666+0j)",
+    "(0.9166666666666666+0j)",
+    "(0.9166666666666666+0j)"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "0"
+  },
+  "A|3> (other middle orbit)": {
+   "orbit_gram_(unnormalised)": [
+    [
+     60,
+     0,
+     0
+    ],
+    [
+     0,
+     60,
+     0
+    ],
+    [
+     0,
+     0,
+     60
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "41/60",
+    "1/900",
+    "1/900"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1/12",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "11/12",
+    "11/12",
+    "11/12"
+   ],
+   "eigenvalues_numeric": [
+    "(0.9166666666666666+0j)",
+    "(0.9166666666666666+0j)",
+    "(0.9166666666666666+0j)"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "0"
+  },
+  "A|4> (axis face orbit {4,11,5})": {
+   "orbit_gram_(unnormalised)": [
+    [
+     60,
+     0,
+     0
+    ],
+    [
+     0,
+     60,
+     0
+    ],
+    [
+     0,
+     0,
+     60
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "11/12",
+    "1/60",
+    "1/60"
+   ],
+   "c_W_inverse(=W^T)": [
+    "11/12",
+    "1/60",
+    "1/60"
+   ],
+   "c_ReW": [
+    "11/12",
+    "1/60",
+    "1/60"
+   ],
+   "c_W^2": [
+    "41/60",
+    "14/225",
+    "14/225"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1/12",
+    "-1/60",
+    "-1/60"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "19/20",
+    "9/10",
+    "9/10"
+   ],
+   "eigenvalues_numeric": [
+    "(0.95+0j)",
+    "(0.9+0j)",
+    "(0.9+0j)"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "1/55"
+  },
+  "C repair output |p_23,1,(2,3)>": {
+   "orbit_gram_(unnormalised)": [
+    [
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     2
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "14/15",
+    "0",
+    "0"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "0",
+    "0",
+    "0"
+   ],
+   "eigenvalues_numeric": [
+    "0j",
+    "0j",
+    "0j"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "c0=0"
+  },
+  "E repair output |p_2,10,1,(2,10)>": {
+   "orbit_gram_(unnormalised)": [
+    [
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     2
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "14/15",
+    "0",
+    "0"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "0",
+    "0",
+    "0"
+   ],
+   "eigenvalues_numeric": [
+    "0j",
+    "0j",
+    "0j"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "c0=0"
+  },
+  "C hold output |p_23,0,(2,3)>": {
+   "orbit_gram_(unnormalised)": [
+    [
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     2
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "-29/30",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "-29/30",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "-29/30",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "224/225",
+    "1/1800",
+    "1/1800"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "59/30",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "-29/30",
+    "-29/30",
+    "-29/30"
+   ],
+   "eigenvalues_numeric": [
+    "(-0.9666666666666667+0j)",
+    "(-0.9666666666666667+0j)",
+    "(-0.9666666666666667+0j)"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "0"
+  },
+  "W A|2> (all branches of one tick from port 2)": {
+   "orbit_gram_(unnormalised)": [
+    [
+     864000,
+     0,
+     0
+    ],
+    [
+     0,
+     864000,
+     0
+    ],
+    [
+     0,
+     0,
+     864000
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "11/12",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "41/60",
+    "1/900",
+    "1/900"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1/12",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "11/12",
+    "11/12",
+    "11/12"
+   ],
+   "eigenvalues_numeric": [
+    "(0.9166666666666666+0j)",
+    "(0.9166666666666666+0j)",
+    "(0.9166666666666666+0j)"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "0"
+  },
+  "record-1 part of W A|2> (repair branch, all addresses)": {
+   "orbit_gram_(unnormalised)": [
+    [
+     72000,
+     0,
+     0
+    ],
+    [
+     0,
+     72000,
+     0
+    ],
+    [
+     0,
+     0,
+     72000
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "4/5",
+    "-1/75",
+    "-1/75"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "0",
+    "0",
+    "0"
+   ],
+   "eigenvalues_numeric": [
+    "0j",
+    "0j",
+    "0j"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "c0=0"
+  },
+  "C and E record-1 branches from port 2 (4 addresses)": {
+   "orbit_gram_(unnormalised)": [
+    [
+     28800,
+     0,
+     0
+    ],
+    [
+     0,
+     28800,
+     0
+    ],
+    [
+     0,
+     0,
+     28800
+    ]
+   ],
+   "orbit_orthogonal": true,
+   "c_W": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W_inverse(=W^T)": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_ReW": [
+    "0",
+    "0",
+    "0"
+   ],
+   "c_W^2": [
+    "9/10",
+    "-1/60",
+    "-1/60"
+   ],
+   "c_onsite_energy_I-ReW": [
+    "1",
+    "0",
+    "0"
+   ],
+   "c1_equals_c2_for_W": true,
+   "c1_equals_c2_for_ReW": true,
+   "eigenvalues_W_compression": [
+    "0",
+    "0",
+    "0"
+   ],
+   "eigenvalues_numeric": [
+    "0j",
+    "0j",
+    "0j"
+   ],
+   "abs_lambda_1_equals_abs_lambda_2": true,
+   "hermitian_form": "real c1 = c2: arg b in {0, pi}",
+   "ratio_|c1|/c0": "c0=0"
+  }
+ },
+ "family_band": {
+  "frame": "raw_frame (12 x 3, Q(sqrt5)) = native geometric family triplet (native_repair_mass)",
+  "L B = (5 - sqrt5) B": true,
+  "L B' = (5 + sqrt5) B' (Galois conjugate, 3')": true,
+  "one-tick amplitude on all three Fourier modes of g": "11/12 + sqrt5/60 (geometric 3); 11/12 - sqrt5/60 (3')",
+  "rest phase on all three modes": "arccos(11/12 + sqrt5/60) = 0.304708437370",
+  "correction probability (energy of the declared clock) on all three modes": "1/12 - sqrt5/60 = 0.046065533708",
+  "circulant": "a = 11/12 + sqrt5/60, b = 0: scalar (Schur: W commutes with A5, the band is irreducible)",
+  "Koide_Q_if_masses_are_rest_phases": "1/3",
+  "R(g)_in_frame": [
+   [
+    "1/4 - sqrt(5)/4",
+    "1/4 + sqrt(5)/4",
+    "-1/2"
+   ],
+   [
+    "-sqrt(5)/4 - 1/4",
+    "-1/2",
+    "1/4 - sqrt(5)/4"
+   ],
+   [
+    "-1/2",
+    "-1/4 + sqrt(5)/4",
+    "1/4 + sqrt(5)/4"
+   ]
+  ],
+  "R(g)^3 = I": true,
+  "trace R(g)": "0"
+ }
+}

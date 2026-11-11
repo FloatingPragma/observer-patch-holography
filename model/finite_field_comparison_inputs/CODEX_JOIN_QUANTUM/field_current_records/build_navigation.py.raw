@@ -1,0 +1,117 @@
+"""Construct an exact reviewed ledger projection; does not apply it or replay owners."""
+from pathlib import Path
+import copy
+import hashlib
+import json
+import sys
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[2]/'reverse-engineering-reality'
+sys.path.insert(0, str(ROOT))
+from model.completion import field_navigation as base
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def main():
+    plan = json.loads((HERE/'scaffold.json').read_text())
+    release = plan['actual_release_identity_sha256']
+    assert set(release) == {'paper/release_info.tex', 'paper/paper_release_manifest.json'}
+    assert all(sha(ROOT/name) == expected for name, expected in release.items())
+    assert json.loads((ROOT/'paper/paper_release_manifest.json').read_text())['release_id'] == 'r2064'
+    additions = json.loads((HERE/'navigation_additions.json').read_text())
+    baseline = plan['baseline']
+    for name, row in baseline['baseline_files'].items():
+        assert sha(ROOT/row['retained_path']) == row['sha256']
+    documents = {name: json.loads((ROOT/baseline['baseline_files'][name]['retained_path']).read_text())
+                 for name in base.JSON_FILES}
+    definitions = plan['proposed_architecture_premises']
+    definition_sources = {
+        'declared_Wilson_Maxwell_onsite_complement_energy_completion': 'model/native_wilson_maxwell_ground/PROOF.md',
+        'declared_fixed_graph_photon_capacity_refinement': 'model/native_wilson_maxwell_refinement/PROOF.md',
+        'declared_local_gauge_invariant_current_pointer_coupling': 'model/native_local_current_readout/PROOF.md',
+        'declared_native_Wilson_Maxwell_cube_and_affine_Gauss_embedding': 'model/native_wilson_maxwell/PROOF.md',
+    }
+    packages = plan['frozen_package_receipts']
+    assert not plan['awaiting_owner_freeze']
+    assert 'native_quark_higgs_join' in packages, 'the exact added quark/Higgs claims require its separate freeze'
+    evidence = {}
+    science = []
+    for package, expected in sorted(packages.items()):
+        folder = ROOT/'model'/package
+        receipt = folder/'results.json'
+        assert sha(receipt) == expected, 'frozen package receipt differs: '+package
+        result = json.loads(receipt.read_text())
+        pins = result.get('input_sha256', result.get('source_bindings'))
+        assert isinstance(pins, dict)
+        for name, digest in pins.items():
+            assert sha(ROOT/name) == digest, 'source evidence changed: '+name
+        files = [p for p in sorted(folder.iterdir()) if p.is_file() and p.suffix in ('.py', '.md', '.json')]
+        for path in files:
+            name = path.relative_to(ROOT).as_posix()
+            if name == 'model/protected_readout_numerics/live_projection.json':
+                continue  # Execution custody output, bound by the separate current custody record.
+            assert path == receipt or name in pins, 'unbound package file: '+name
+            evidence[name] = sha(path)
+            if package != 'protected_readout_numerics':
+                science.append(name)
+    # The approved verifier routes are three exactly enumerated successors. Its producer tests
+    # and cold protected numerical replay have separate execution receipts.
+    for name in ('model/verify_current.py', 'model/test_verify_current.py',
+                 'model/completion/field_current_measurement.py',
+                 'model/completion/field_current_measurement_replay.json',
+                 'model/completion/test_field_current_measurement.py',
+                 'model/completion/test_field_current_measurement_consumers.py'):
+        evidence[name] = sha(ROOT/name)
+    rows = []
+    normalized = copy.deepcopy(documents)
+    keys = ('claim_statement_append', 'claim_delta_append', 'state_append', 'field_append')
+    for (name, path), key in zip(plan['permitted_ledger_fields'], keys, strict=True):
+        old = base.at(documents[name], path)
+        after = old+'\n\n'+additions[key]
+        rows.append(dict(file=name, json_path=path, before_value_sha256=base.digest(old),
+                         after=after, after_value_sha256=base.digest(after)))
+        base.at(normalized[name], path[:-1])[path[-1]] = '<REVIEWED_PROSE_FIELD>'
+    evidence_list = sorted(evidence)
+    # Explicit path lists are materialized in the authority and authenticated
+    # by the fixed validator digest. No directory scan occurs at validation.
+    appends = [dict(file=base.REGISTRY, json_path=['claims',326,'evidence'],items=evidence_list),
+               dict(file=base.REGISTRY, json_path=['claims',326,'assumptions'],items=list(definitions)),
+               dict(file=base.TRACKING,json_path=['model_supply','groups',8,'sources'],
+                    items=[dict(label='Finite current/source evidence: '+p, path=p) for p in sorted(science)]),
+               dict(file=base.TRACKING,json_path=['model_supply','groups',18,'sources'],
+                    items=[dict(label='Finite field/current or numerical custody evidence: '+p,path=p) for p in evidence_list])]
+    unions = []
+    for index in plan['binding_assumption_unions']:
+        path=['model_supply','contract_coverage','bindings',index,'assumptions']
+        before=base.at(documents[base.TRACKING],path)
+        unions.append(dict(file=base.TRACKING,json_path=path,before=before,
+                           after=sorted(set(before)|set(definitions))))
+    authority = dict(schema='oph.field_current_records_navigation_authority.v1',
+                     immutable_checkpoint=baseline['checkpoint'],
+                     role='EXACT_TYPED_LEDGER_PROJECTION_WITHOUT_PHYSICAL_STATUS_PROMOTION',
+                     baseline_files={k:v for k,v in baseline['baseline_files'].items()
+                                     if k in (*base.JSON_FILES,base.DICTIONARY)},
+                     prose_replacements=rows, ordered_appends=appends, assumption_unions=unions,
+                     normalized_predecessor_semantics_sha256={p:base.digest(v) for p,v in normalized.items()},
+                     dictionary_append='\n'+''.join('| `'+key+'` | '+value+' | `'+definition_sources[key]+'` |\n'
+                                                    for key,value in definitions.items()),
+                     new_assumption_definitions=definitions,new_evidence_sha256=evidence,
+                     package_receipt_sha256={'model/'+p+'/results.json':v for p,v in sorted(packages.items())},
+                     execution_only_output_bound_by_custody='model/protected_readout_numerics/live_projection.json',
+                     release_id_transition_included=True,
+                     release_identity_transition=dict(file=base.REGISTRY,json_path=['release_id'],before='r2063',after='r2064'),
+                     actual_release_identity_sha256=release, physical_status_changes=False)
+    for label,name in [('predecessor_custody_authority','model/completion/source_records_custody_authority.json'),
+                       ('predecessor_navigation_authority','model/completion/source_records_navigation_authority.json')]:
+        authority[label] = dict(path=name,sha256=sha(ROOT/name))
+    base.project(documents, authority)
+    destination=ROOT/'model/completion/field_current_records_navigation_authority.json'
+    destination.write_text(json.dumps(authority,sort_keys=True,indent=2)+'\n')
+    print(destination,sha(destination),len(evidence),'explicit evidence files')
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,201 @@
+"""Block 2: spectrum of the family walk on the flat federation (Bloch form).
+
+  python b2_bands.py                 -> b2_bands.json, b2_paths.json
+
+One clock: the walk step. Kernel K(q) = 1 - L_G(q)/S, S = 66 (bridge gluing) or 72 (shared-seam gluing); the walk
+frequencies are omega_j(q) = arccos(1 - l_j(q)/S), l_j the levels of the twisted port Laplacian L_G(q), q in radians
+per mesh edge. For every low branch near q = 0, along 24 directions:
+    omega^2(q) = omega_0^2 + a1 q + v2 q^2 + a3 q^3 + a4 q^4          (fit on 0 < q <= 0.24, degree 6)
+and the range of q on which omega^2 = omega_0^2 + v2 q^2 holds to 1 percent and to 10 percent of v2 q^2.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+from scipy.optimize import linear_sum_assignment
+
+import mv_lib as M
+
+T0 = time.time()
+B1 = 2 * np.pi * np.array([1.0, -1 / 3 ** 0.5]); B2 = 2 * np.pi * np.array([0.0, 2 / 3 ** 0.5])
+KPT = (2 * B1 + B2) / 3; MPT = B1 / 2
+THETAS = np.radians(np.arange(0, 360, 15))
+
+
+def log(*a):
+    print(f'[{time.time() - T0:7.1f}s]', *a, flush=True)
+
+
+def levels(q, links, vectors=False):
+    L, _, _ = M.kernel_L(np.asarray(q, float), links)
+    return np.linalg.eigh(L) if vectors else np.linalg.eigvalsh(L)
+
+
+def omega_of(l, S):
+    return np.arccos(np.clip(1 - np.asarray(l) / S, -1, 1))
+
+
+def track_ray(links, theta, nlow, smax, ds=0.01):
+    """Levels of the nlow lowest branches along the ray q = s (cos theta, sin theta), followed by continuity of the
+    eigenvectors (so that crossings do not exchange branches). Returns s, l[s, branch]; branch b starts at level b."""
+    e = np.array([np.cos(theta), np.sin(theta)])
+    ss = np.arange(ds, smax + 1e-12, ds)
+    out = np.zeros((ss.size, nlow))
+    w, V = levels(ss[0] * e, links, True)
+    cur = list(range(nlow)); out[0] = w[:nlow]; Vp = V[:, :nlow]
+    for i in range(1, ss.size):
+        w, V = levels(ss[i] * e, links, True)
+        ncand = min(24, nlow + 6)
+        ov = abs(Vp.conj().T @ V[:, :ncand]) ** 2
+        r, c = linear_sum_assignment(-ov)
+        out[i, r] = w[c]; Vp = V[:, c][:, np.argsort(r)]
+    return ss, out
+
+
+def analyse(gluing, rule, name, nlow=None, gauge='equivariant', rng=None, lift_signs=(1, 1, 1)):
+    links = M.flat_links(name, gluing, rule, gauge, rng, lift_signs)
+    S = M.register_size(gluing)
+    d = int(round(2 * M.TYPES[name]['j'] + 1))
+    nlow = nlow or (2 if d == 1 else 2 * d)
+    l0 = levels(np.zeros(2), links)
+    # whole zone
+    n = 36
+    grid = [(i / n) * B1 + (j / n) * B2 for i in range(n) for j in range(n)]
+    allv = np.array([levels(q, links) for q in grid])
+    width = allv.max(0) - allv.min(0)
+    rec = {'gluing': gluing, 'rule': rule, 'type': name, 'register': S, 'levels_q0': l0[:nlow + 2].tolist(),
+           'omega_q0': omega_of(l0[:nlow + 2], S).tolist(),
+           'band_minimum': allv.min(0).tolist(), 'band_maximum': allv.max(0).tolist(),
+           'flat_bands': [int(b) for b in np.flatnonzero(width < 1e-9)],
+           'spectrum_range_levels': [float(allv.min()), float(allv.max())],
+           'omega_range': omega_of([allv.min(), allv.max()], S).tolist(), 'branches': []}
+    rays = [track_ray(links, th, nlow, 3.6) for th in THETAS]
+    ss = rays[0][0]
+    lam = np.array([r[1] for r in rays])                       # [theta, s, branch]
+    om = omega_of(lam, S)
+    f = om ** 2
+    fit = ss <= 0.24 + 1e-9
+    X = np.vander(ss[fit], 7, increasing=True)[:, 1:]          # s .. s^6
+    for b in range(nlow):
+        f0 = float(omega_of(l0[b], S) ** 2)
+        coef = np.array([np.linalg.lstsq(X, f[t, fit, b] - f0, rcond=None)[0] for t in range(THETAS.size)])
+        lcoef = np.array([np.linalg.lstsq(X, lam[t, fit, b] - l0[b], rcond=None)[0] for t in range(THETAS.size)])
+        resid = max(float(abs(X @ coef[t] - (f[t, fit, b] - f0)).max()) for t in range(THETAS.size))
+        v2 = coef[:, 1]; a1 = coef[:, 0]; a3 = coef[:, 2]; a4 = coef[:, 3]
+        v2m = float(v2.mean())
+        bw = float(max(lam[:, :, b].max(), l0[b]) - min(lam[:, :, b].min(), l0[b]))
+        row = {'branch': b, 'level_0': float(l0[b]), 'omega_0': float(np.sqrt(f0)), 'flat': bool(bw < 1e-9),
+               'band_width_levels': bw,
+               'kernel_curvature_mean': float(lcoef[:, 1].mean()), 'kernel_linear_max': float(abs(lcoef[:, 0]).max()),
+               'v2_mean': v2m, 'v2_min': float(v2.min()), 'v2_max': float(v2.max()),
+               'v2_anisotropy': float((v2.max() - v2.min()) / abs(v2m)) if abs(v2m) > 1e-12 else None,
+               'a1_max_abs': float(abs(a1).max()), 'a3_max_abs': float(abs(a3).max()),
+               'a3_cos3theta_amplitude': float(abs(np.mean(a3 * np.exp(-3j * THETAS))) * 2),
+               'a4_mean': float(a4.mean()), 'a4_min': float(a4.min()), 'a4_max': float(a4.max()), 'fit_residual': resid}
+        if abs(v2m) > 1e-9:
+            row['speed'] = float(np.sqrt(abs(v2m))) * (1 if v2m > 0 else -1)
+            dev = abs(f[:, :, b] - f0 - v2m * ss[None, :] ** 2) / (abs(v2m) * ss[None, :] ** 2)
+            worst = dev.max(axis=0)
+            for tol, key in ((0.01, 'shell_q_1_percent'), (0.1, 'shell_q_10_percent')):
+                bad = np.flatnonzero(worst > tol)
+                row[key] = float(ss[bad[0] - 1]) if bad.size and bad[0] > 0 else (0.0 if bad.size else float(ss[-1]))
+            # deviation of omega itself from the shell at the 10 percent point, and the largest group speed on the rays
+            vg = np.gradient(om[:, :, b], ss, axis=1)
+            row['group_speed_max_on_rays'] = float(abs(vg).max())
+            row['omega_at_q_1'] = float(om[:, int(round(1.0 / 0.01)) - 1, b].mean())
+        rec['branches'].append(row)
+    return rec
+
+
+def path_bands(gluing, rule, name, npts=60):
+    links = M.flat_links(name, gluing, rule)
+    S = M.register_size(gluing)
+    pts = [np.zeros(2), KPT, MPT, np.zeros(2)]
+    qs = []
+    for a, b in zip(pts[:-1], pts[1:]):
+        qs += [a + (b - a) * t for t in np.linspace(0, 1, npts, endpoint=False)]
+    qs.append(pts[-1])
+    lv = np.array([levels(q, links) for q in qs])
+    return {'gluing': gluing, 'rule': rule, 'type': name, 'register': S, 'path': 'Gamma-K-M-Gamma',
+            'q': [list(map(float, q)) for q in qs], 'levels': np.round(lv, 9).tolist(), 'omega': np.round(omega_of(lv, S), 9).tolist()}
+
+
+def holonomies(gluing, rule, name, gauge='equivariant', rng=None, lift_signs=(1, 1, 1)):
+    """Gauge-invariant phases (degrees): internal face, bond quadrilateral and the loop of the six ports that meet at a
+    mesh vertex (shared-seam gluing)."""
+    zu, zd, glue = M.flat_links(name, gluing, rule, gauge, rng, lift_signs)
+    out = {'internal_face_degrees': float(np.degrees(M.face_flux(zu)).mean())}
+    if gluing != 'seam':
+        return out
+    G = {(k, a, b): g for k, a, b, g in glue}
+    T = M.TOP
+    zi = lambda z, a, b: z[M.addr_index(a, b)]
+    quad = []
+    for k in range(3):
+        a, b = T[(k + 1) % 3], T[(k + 2) % 3]
+        quad.append(np.angle(G[(k, a, b)] * zi(zd, b, a) * np.conj(G[(k, b, a)]) * zi(zu, b, a)))
+    hexa = []
+    for j in range(3):
+        t = lambda i: T[(j + i) % 3]
+        k0, k1, k2 = j % 3, (j + 1) % 3, (j + 2) % 3
+        h = (G[(k2, t(0), t(1))] * np.conj(G[(k0, t(2), t(1))]) * G[(k1, t(2), t(0))]
+             * np.conj(G[(k2, t(1), t(0))]) * G[(k0, t(1), t(2))] * np.conj(G[(k1, t(0), t(2))]))
+        hexa.append(np.angle(h))
+    out['bond_quadrilateral_degrees'] = np.degrees(quad).tolist()
+    out['vertex_hexagon_degrees'] = np.degrees(hexa).tolist()
+    return out
+
+
+if __name__ == '__main__':
+    out = {'units': {'q': 'radians per mesh edge', 'omega': 'radians per walk step', 'levels': 'eigenvalues of the twisted port Laplacian'},
+           'cases': [], 'holonomy': [], 'controls': {}}
+    cases = [('bridge', 'template', n) for n in ('scalar', 'spinor', 'spinor_g', 'vector', 'vector_g')]
+    cases += [('bridge', 'ambient', n) for n in ('spinor', 'vector')]
+    cases += [('seam', 'template', n) for n in ('scalar', 'spinor', 'spinor_g', 'vector', 'vector_g')]
+    cases += [('seam', 'ambient', n) for n in ('spinor', 'vector')]
+    cases += [('seam', 'halfturn', n) for n in ('spinor', 'spinor_g', 'vector', 'vector_g')]
+    for g, r, n in cases:
+        rec = analyse(g, r, n)
+        out['cases'].append(rec)
+        log(g, r, n, 'levels', np.round(rec['levels_q0'], 6), 'flat', rec['flat_bands'])
+        for b in rec['branches']:
+            log('    branch', b['branch'], f"l0 {b['level_0']:.6f} curv {b['kernel_curvature_mean']:+.5f} lin {b['kernel_linear_max']:.1e} | omega0 {b['omega_0']:.6f} v2 {b['v2_mean']:+.4e}"
+                f" aniso {b['v2_anisotropy'] if b['v2_anisotropy'] is None else round(b['v2_anisotropy'], 6)} a3 {b['a3_max_abs']:.2e} a4 {b['a4_mean']:+.3e}"
+                f" shell 1% q<={b.get('shell_q_1_percent')} 10% q<={b.get('shell_q_10_percent')} vg_max {b.get('group_speed_max_on_rays')}")
+        if n != 'scalar':
+            h = holonomies(g, r, n); h.update({'gluing': g, 'rule': r, 'type': n}); out['holonomy'].append(h)
+            log('    holonomy', h)
+    # controls
+    rng = np.random.default_rng(11)
+    ctl = {}
+    # (a) gauge independence of the covariant rules, gauge dependence of G = 1 between different template ports
+    for g, r in (('bridge', 'template'), ('seam', 'template'), ('seam', 'halfturn'), ('seam', 'one')):
+        for n in ('spinor', 'vector'):
+            ref = levels(np.array([0.3, 0.1]), M.flat_links(n, g, r))
+            alt = levels(np.array([0.3, 0.1]), M.flat_links(n, g, r, 'random', rng))
+            num = levels(np.array([0.3, 0.1]), M.flat_links(n, g, r, 'numpy'))
+            ctl[f'{g}|{r}|{n}'] = {'levels_change_under_random_rephasing': float(abs(ref - alt).max()),
+                                  'levels_change_equivariant_to_numpy_gauge': float(abs(ref - num).max())}
+    out['controls']['gauge'] = ctl
+    # (b) half-turn rule against the template rule on the shared seam: same levels at the same q (uniform phase on
+    #     all glue seams); a different lift sign on one bond is a shift of the zone origin by half a reciprocal vector
+    eq = {}
+    for n in ('spinor', 'spinor_g', 'vector', 'vector_g'):
+        qs = [np.array([0.3, 0.1]), np.array([1.1, -0.7]), np.zeros(2)]
+        d0 = max(float(abs(levels(q, M.flat_links(n, 'seam', 'template')) - levels(q, M.flat_links(n, 'seam', 'halfturn'))).max()) for q in qs)
+        zu, zd, gt = M.flat_links(n, 'seam', 'template'); _, _, gh = M.flat_links(n, 'seam', 'halfturn')
+        ratio = [complex(h[3] / t[3]) for t, h in zip(gt, gh)]
+        shifted = M.flat_links(n, 'seam', 'halfturn', lift_signs=(1, -1, 1))
+        # bond 1 flipped: q.delta_1 -> q.delta_1 + pi
+        Dm = np.array([M.FLAT_DEL[1], M.FLAT_DEL[2]])
+        shift = np.linalg.solve(Dm, np.array([np.pi, 0.0]))
+        d1 = max(float(abs(levels(q, M.flat_links(n, 'seam', 'template')) - levels(q - shift, shifted)).max()) for q in qs)
+        eq[n] = {'levels_halfturn_minus_template_max': d0, 'glue_link_ratio_halfturn_over_template': [[round(z.real, 9), round(z.imag, 9)] for z in ratio],
+                 'one_lift_sign_flipped_equals_zone_shift_defect': d1}
+    out['controls']['halfturn_equals_template'] = eq
+    log('controls', json.dumps(out['controls'])[:1500])
+    json.dump(out, open('b2_bands.json', 'w'), indent=1)
+    paths = [path_bands(g, r, n) for g, r, n in cases if r in ('template', 'ambient')]
+    json.dump(paths, open('b2_paths.json', 'w'))
+    log('done')

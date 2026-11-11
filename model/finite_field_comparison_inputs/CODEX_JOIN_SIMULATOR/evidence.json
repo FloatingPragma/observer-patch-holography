@@ -1,0 +1,5607 @@
+{
+  "schema": "oph.run_evidence.v1",
+  "title": "Executed register-defect census",
+  "scope": "Ordinary Law C load runs with the declared passive Z6 register; screen and internal tiers stay separate.",
+  "interpretation": {
+    "identity": "qL, qR and lepton are candidate centre-class names. These rows do not identify Standard Model species, generation, spin statistics, mass or measured interaction amplitudes.",
+    "birth": "Defects are zero in the preparation, then born when current-driven register twists are accepted. This is event-born structure during an iid-load quench, not a simulation of vacuum pair production or reheating.",
+    "freeze": "Once loads balance, moved unit currents release zero mismatch potential. Positive-cost register proposals are rejected. Surviving defects can therefore be pinned by the declared cost barrier; this is not cosmological thermal freeze-out.",
+    "clock": "Causal depth defines a consistent cut, incident ticks count all local seam attempts, sweeps count solver work. None is calibrated to cosmological seconds by these run files.",
+    "population": "GEN lifetime modes mix short reactions, later reactions and right-censored survivors. GEN does not establish three particle generations.",
+    "geometry": "Use stored cut screen_xyz for actual positions. Birth-to-last interpolation is not a trajectory; random placement is an illustration. Sample counts must not be presented as reconstructed whole-run histories."
+  },
+  "standard_cosmology": {
+    "status": "external_standard_cosmology_comparison_not_an_OPH_output",
+    "sources": [
+      {
+        "id": "pdg-bbang",
+        "title": "PDG 2025 Big-Bang Cosmology",
+        "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-cosmology.pdf",
+        "sections": "22.3.1-22.3.3: thermal distributions, relativistic degrees of freedom, equilibrium versus expansion"
+      },
+      {
+        "id": "pdg-inflation",
+        "title": "PDG 2025 Inflation",
+        "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-inflation.pdf",
+        "sections": "23.2.2 and 23.6: reheating and its model dependence"
+      },
+      {
+        "id": "nasa-cmb",
+        "title": "NASA LAMBDA: Cosmic Microwave Background",
+        "url": "https://lambda.gsfc.nasa.gov/resources/graphic_history/microwaves.html",
+        "sections": "CMB temperature anisotropies at about 380,000 years"
+      }
+    ],
+    "reheating": "In inflationary scenarios, field energy transfers to particles and thermalizes. Its duration, temperature and initial products depend on the reheating model; all Standard Model species need not be produced simultaneously.",
+    "uniformity": "Large-scale near homogeneity is part of the cosmological reconstruction. The observed anisotropy of order 1e-5 refers to CMB temperature at last scattering, not an instantaneous uniformity measurement at reheating.",
+    "hot_plasma": "For a thermalized Standard Model plasma well above the electroweak scale, all Standard Model degrees of freedom are approximately relativistic. The unbroken electroweak gauge basis is B and W^a; the low-temperature photon/Z basis is not used here.",
+    "thermal_weights": {
+      "scope": "Ideal relativistic equilibrium, common temperature, negligible chemical potentials; no right-handed neutrinos included.",
+      "fermion_number_weight": 0.75,
+      "fermion_energy_weight": 0.875,
+      "boson_weight": 1,
+      "fermion_degrees": 90,
+      "boson_degrees": 28,
+      "effective_number_degrees": 95.5,
+      "effective_energy_degrees": 106.75,
+      "groups": [
+        {
+          "id": "qL",
+          "label": "left chiral quark fields and their antiparticles",
+          "statistics": "fermion",
+          "degrees": 36,
+          "number_weight": 27,
+          "energy_weight": 31.5
+        },
+        {
+          "id": "qR",
+          "label": "right chiral quark fields and their antiparticles",
+          "statistics": "fermion",
+          "degrees": 36,
+          "number_weight": 27,
+          "energy_weight": 31.5
+        },
+        {
+          "id": "lep",
+          "label": "lepton fields and their antiparticles",
+          "statistics": "fermion",
+          "degrees": 18,
+          "number_weight": 13.5,
+          "energy_weight": 15.75
+        },
+        {
+          "id": "g",
+          "label": "gluons",
+          "statistics": "boson",
+          "degrees": 16,
+          "number_weight": 16,
+          "energy_weight": 16
+        },
+        {
+          "id": "W",
+          "label": "B and W^a gauge fields",
+          "statistics": "boson",
+          "degrees": 8,
+          "number_weight": 8,
+          "energy_weight": 8
+        },
+        {
+          "id": "H",
+          "label": "Higgs doublet",
+          "statistics": "boson",
+          "degrees": 4,
+          "number_weight": 4,
+          "energy_weight": 4
+        }
+      ]
+    },
+    "freeze_out": "Thermal freeze-out compares an interaction rate with the cosmic expansion rate. The passive register's zero-work cost barrier is a different mechanism."
+  },
+  "runs": [
+    {
+      "name": "L3",
+      "level": 3,
+      "sweeps": 1000,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": true,
+        "display_sample": 1,
+        "full_identity_count": 12130,
+        "analysed_catalogue_rows": 12130,
+        "catalogue_positions_available": true,
+        "run_counts_authority": "complete_catalogue_recomputed",
+        "missing_full_catalogue_counts_recomputed": true
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 13,
+            "whole_run_pair_births": 48,
+            "whole_run_annihilations": 33
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 10,
+            "whole_run_pair_births": 34,
+            "whole_run_annihilations": 1
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 0,
+            "whole_run_pair_births": 2,
+            "whole_run_annihilations": 0
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 153,
+            "alive_at_end": 0,
+            "lifetime_depth_median": 35.0,
+            "lifetime_depth_mean": 147.94771241830065,
+            "lifetime_depth_max": 2765,
+            "hops_mean": 5.091503267973856,
+            "hops_per_depth": 0.034414207457147905,
+            "moved_fraction": 0.6209150326797386,
+            "born": {
+              "conjugate_pair": 48,
+              "split_product": 42,
+              "fusion_or_exchange_product": 63
+            },
+            "ended": {
+              "alive": 0,
+              "annihilation": 33,
+              "fusion": 96,
+              "split": 6,
+              "exchange": 18
+            }
+          },
+          "2": {
+            "ever": 115,
+            "alive_at_end": 5,
+            "lifetime_depth_median": 25.0,
+            "lifetime_depth_mean": 1058.495652173913,
+            "lifetime_depth_max": 21437,
+            "hops_mean": 0.02608695652173913,
+            "hops_per_depth": 2.4645312872246915e-05,
+            "moved_fraction": 0.02608695652173913,
+            "born": {
+              "conjugate_pair": 34,
+              "split_product": 18,
+              "fusion_or_exchange_product": 63
+            },
+            "ended": {
+              "alive": 5,
+              "annihilation": 1,
+              "fusion": 41,
+              "split": 20,
+              "exchange": 48
+            }
+          },
+          "3": {
+            "ever": 76,
+            "alive_at_end": 8,
+            "lifetime_depth_median": 43.5,
+            "lifetime_depth_mean": 2225.8026315789475,
+            "lifetime_depth_max": 21297,
+            "hops_mean": 0.0,
+            "hops_per_depth": 0.0,
+            "moved_fraction": 0.0,
+            "born": {
+              "conjugate_pair": 4,
+              "split_product": 3,
+              "fusion_or_exchange_product": 69
+            },
+            "ended": {
+              "alive": 8,
+              "annihilation": 0,
+              "fusion": 21,
+              "split": 14,
+              "exchange": 33
+            }
+          },
+          "4": {
+            "ever": 120,
+            "alive_at_end": 8,
+            "lifetime_depth_median": 38.0,
+            "lifetime_depth_mean": 1537.1916666666666,
+            "lifetime_depth_max": 21323,
+            "hops_mean": 0.025,
+            "hops_per_depth": 1.626342410131029e-05,
+            "moved_fraction": 0.025,
+            "born": {
+              "conjugate_pair": 34,
+              "split_product": 19,
+              "fusion_or_exchange_product": 67
+            },
+            "ended": {
+              "alive": 8,
+              "annihilation": 1,
+              "fusion": 39,
+              "split": 19,
+              "exchange": 53
+            }
+          },
+          "5": {
+            "ever": 149,
+            "alive_at_end": 0,
+            "lifetime_depth_median": 54.0,
+            "lifetime_depth_mean": 217.53691275167785,
+            "lifetime_depth_max": 2556,
+            "hops_mean": 7.798657718120805,
+            "hops_per_depth": 0.03584981334649678,
+            "moved_fraction": 0.6241610738255033,
+            "born": {
+              "conjugate_pair": 48,
+              "split_product": 46,
+              "fusion_or_exchange_product": 55
+            },
+            "ended": {
+              "alive": 0,
+              "annihilation": 33,
+              "fusion": 89,
+              "split": 5,
+              "exchange": 22
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            13,
+            10,
+            0,
+            10,
+            13
+          ],
+          "incident_ticks_min": 1,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          0,
+          5,
+          8,
+          8,
+          0
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L3/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 46,
+            "full_summary_rows": 46,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              13,
+              10,
+              0,
+              10,
+              13
+            ]
+          },
+          {
+            "url": "/runs/L3/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 21,
+            "full_summary_rows": 21,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              0,
+              5,
+              8,
+              8,
+              0
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "complete_catalogue",
+        "rows": 12130,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 153,
+                "alive_at_end": 0,
+                "moved_identities": 95,
+                "total_hops": 779,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 48,
+                  "split_product": 42,
+                  "fusion_or_exchange_product": 63
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 33,
+                  "fusion": 96,
+                  "split": 6,
+                  "exchange": 18
+                }
+              },
+              "2": {
+                "ever": 115,
+                "alive_at_end": 5,
+                "moved_identities": 3,
+                "total_hops": 3,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 34,
+                  "split_product": 18,
+                  "fusion_or_exchange_product": 63
+                },
+                "ended": {
+                  "alive": 5,
+                  "annihilation": 1,
+                  "fusion": 41,
+                  "split": 20,
+                  "exchange": 48
+                }
+              },
+              "3": {
+                "ever": 76,
+                "alive_at_end": 8,
+                "moved_identities": 0,
+                "total_hops": 0,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 4,
+                  "split_product": 3,
+                  "fusion_or_exchange_product": 69
+                },
+                "ended": {
+                  "alive": 8,
+                  "annihilation": 0,
+                  "fusion": 21,
+                  "split": 14,
+                  "exchange": 33
+                }
+              },
+              "4": {
+                "ever": 120,
+                "alive_at_end": 8,
+                "moved_identities": 3,
+                "total_hops": 3,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 34,
+                  "split_product": 19,
+                  "fusion_or_exchange_product": 67
+                },
+                "ended": {
+                  "alive": 8,
+                  "annihilation": 1,
+                  "fusion": 39,
+                  "split": 19,
+                  "exchange": 53
+                }
+              },
+              "5": {
+                "ever": 149,
+                "alive_at_end": 0,
+                "moved_identities": 93,
+                "total_hops": 1162,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 48,
+                  "split_product": 46,
+                  "fusion_or_exchange_product": 55
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 33,
+                  "fusion": 89,
+                  "split": 5,
+                  "exchange": 22
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 48,
+              "0 -> 2 + 4": 34,
+              "0 -> 3 + 3": 2
+            }
+          },
+          "internal": {
+            "classes": {
+              "1": {
+                "ever": 2992,
+                "alive_at_end": 0,
+                "moved_identities": 2067,
+                "total_hops": 40164,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 1080,
+                  "split_product": 540,
+                  "fusion_or_exchange_product": 1372
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 1298,
+                  "fusion": 1355,
+                  "split": 50,
+                  "exchange": 289
+                }
+              },
+              "2": {
+                "ever": 2273,
+                "alive_at_end": 361,
+                "moved_identities": 30,
+                "total_hops": 32,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 1061,
+                  "split_product": 141,
+                  "fusion_or_exchange_product": 1071
+                },
+                "ended": {
+                  "alive": 361,
+                  "annihilation": 0,
+                  "fusion": 486,
+                  "split": 229,
+                  "exchange": 1197
+                }
+              },
+              "3": {
+                "ever": 1011,
+                "alive_at_end": 90,
+                "moved_identities": 0,
+                "total_hops": 0,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 348,
+                  "split_product": 39,
+                  "fusion_or_exchange_product": 624
+                },
+                "ended": {
+                  "alive": 90,
+                  "annihilation": 0,
+                  "fusion": 217,
+                  "split": 133,
+                  "exchange": 571
+                }
+              },
+              "4": {
+                "ever": 2263,
+                "alive_at_end": 346,
+                "moved_identities": 22,
+                "total_hops": 23,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 1061,
+                  "split_product": 150,
+                  "fusion_or_exchange_product": 1052
+                },
+                "ended": {
+                  "alive": 346,
+                  "annihilation": 0,
+                  "fusion": 471,
+                  "split": 226,
+                  "exchange": 1220
+                }
+              },
+              "5": {
+                "ever": 2978,
+                "alive_at_end": 0,
+                "moved_identities": 2019,
+                "total_hops": 39943,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 1080,
+                  "split_product": 514,
+                  "fusion_or_exchange_product": 1384
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 1298,
+                  "fusion": 1329,
+                  "split": 54,
+                  "exchange": 297
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 1080,
+              "0 -> 2 + 4": 1061,
+              "0 -> 3 + 3": 174
+            }
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 1242594,
+        "first_wholly_after_balance_sweep_index": 31,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 59499,
+        "tracked_tiers": [
+          "screen",
+          "internal"
+        ]
+      },
+      "observer": {
+        "carrier": 63,
+        "incident_ticks": 33000,
+        "hold_ticks": 24859,
+        "nonzero_current_ticks": 8141,
+        "load_rows_replayed": 33000,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "full catalogue row count",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L3/run.json",
+          "url": "/runs/L3/run.json",
+          "sha256": "8ccbba2229c5c5a1f93ab7e95c6fe4240eafc4e60bc93bb251bbaade6eb68ca8",
+          "bytes": 246345
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L3/view/class_stats.json",
+          "url": "/runs/L3/view/class_stats.json",
+          "sha256": "f1b4d7b363d43edd0c943208f8b9ef2cf94d9e6ea04fa8c78620de321e45ee31",
+          "bytes": 6029
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L3/stats.npz",
+          "url": "/runs/L3/stats.npz",
+          "sha256": "15391581e98053ac20d91965a6fc56c9a7f1a08d455adf8bd283a7489c73c757",
+          "bytes": 46139
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L3/catalogue.npz",
+          "url": "/runs/L3/catalogue.npz",
+          "sha256": "da50e942f65da67c2c26d023460e646ece0be42a47b188f7b808a49bbc940b53",
+          "bytes": 342293
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L3/cuts/cut_00001.npz",
+          "url": "/runs/L3/cuts/cut_00001.npz",
+          "sha256": "0053b78507f396b1fd5b918acb20e98dea96db03a2b5a368fc1203fd5da36645",
+          "bytes": 36535
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L3/cuts/end.npz",
+          "url": "/runs/L3/cuts/end.npz",
+          "sha256": "65def5d167ee8879a1e904b44fbd6ca6fbba2567b135541f338a3293973fbbcf",
+          "bytes": 22466
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L3/observers/obs_63.npz",
+          "url": "/runs/L3/observers/obs_63.npz",
+          "sha256": "4605ccd310f85cbe8fb3b7f806e31512e307210f40838184a2c51c08d7b7dbb5",
+          "bytes": 639512
+        }
+      ]
+    },
+    {
+      "name": "L4",
+      "level": 4,
+      "sweeps": 800,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": true,
+        "display_sample": 1,
+        "full_identity_count": 48838,
+        "analysed_catalogue_rows": 48838,
+        "catalogue_positions_available": true,
+        "run_counts_authority": "complete_catalogue_recomputed",
+        "missing_full_catalogue_counts_recomputed": true
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 30,
+            "whole_run_pair_births": 174,
+            "whole_run_annihilations": 155
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 49,
+            "whole_run_pair_births": 153,
+            "whole_run_annihilations": 0
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 13,
+            "whole_run_pair_births": 19,
+            "whole_run_annihilations": 0
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 726,
+            "alive_at_end": 0,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 141.6267217630854,
+            "lifetime_depth_max": 6722,
+            "hops_mean": 4.925619834710743,
+            "hops_per_depth": 0.03477888758133066,
+            "moved_fraction": 0.6005509641873278,
+            "born": {
+              "conjugate_pair": 174,
+              "split_product": 274,
+              "fusion_or_exchange_product": 278
+            },
+            "ended": {
+              "alive": 0,
+              "annihilation": 155,
+              "fusion": 446,
+              "split": 29,
+              "exchange": 96
+            }
+          },
+          "2": {
+            "ever": 572,
+            "alive_at_end": 42,
+            "lifetime_depth_median": 26.0,
+            "lifetime_depth_mean": 1305.118881118881,
+            "lifetime_depth_max": 17373,
+            "hops_mean": 0.026223776223776224,
+            "hops_per_depth": 2.0093017274636717e-05,
+            "moved_fraction": 0.026223776223776224,
+            "born": {
+              "conjugate_pair": 153,
+              "split_product": 94,
+              "fusion_or_exchange_product": 325
+            },
+            "ended": {
+              "alive": 42,
+              "annihilation": 0,
+              "fusion": 170,
+              "split": 119,
+              "exchange": 241
+            }
+          },
+          "3": {
+            "ever": 337,
+            "alive_at_end": 30,
+            "lifetime_depth_median": 27.0,
+            "lifetime_depth_mean": 1589.5311572700298,
+            "lifetime_depth_max": 17337,
+            "hops_mean": 0.0,
+            "hops_per_depth": 0.0,
+            "moved_fraction": 0.0,
+            "born": {
+              "conjugate_pair": 38,
+              "split_product": 25,
+              "fusion_or_exchange_product": 274
+            },
+            "ended": {
+              "alive": 30,
+              "annihilation": 0,
+              "fusion": 110,
+              "split": 79,
+              "exchange": 118
+            }
+          },
+          "4": {
+            "ever": 530,
+            "alive_at_end": 30,
+            "lifetime_depth_median": 23.0,
+            "lifetime_depth_mean": 1056.8584905660377,
+            "lifetime_depth_max": 17305,
+            "hops_mean": 0.022641509433962263,
+            "hops_per_depth": 2.142340685727548e-05,
+            "moved_fraction": 0.020754716981132074,
+            "born": {
+              "conjugate_pair": 153,
+              "split_product": 73,
+              "fusion_or_exchange_product": 304
+            },
+            "ended": {
+              "alive": 30,
+              "annihilation": 0,
+              "fusion": 143,
+              "split": 112,
+              "exchange": 245
+            }
+          },
+          "5": {
+            "ever": 689,
+            "alive_at_end": 0,
+            "lifetime_depth_median": 41.0,
+            "lifetime_depth_mean": 168.47750362844704,
+            "lifetime_depth_max": 3642,
+            "hops_mean": 5.786647314949202,
+            "hops_per_depth": 0.03434670617930583,
+            "moved_fraction": 0.6226415094339622,
+            "born": {
+              "conjugate_pair": 174,
+              "split_product": 262,
+              "fusion_or_exchange_product": 253
+            },
+            "ended": {
+              "alive": 0,
+              "annihilation": 155,
+              "fusion": 419,
+              "split": 25,
+              "exchange": 90
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            30,
+            49,
+            26,
+            49,
+            30
+          ],
+          "incident_ticks_min": 1,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          0,
+          42,
+          30,
+          30,
+          0
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L4/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 184,
+            "full_summary_rows": 184,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              30,
+              49,
+              26,
+              49,
+              30
+            ]
+          },
+          {
+            "url": "/runs/L4/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 102,
+            "full_summary_rows": 102,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              0,
+              42,
+              30,
+              30,
+              0
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "complete_catalogue",
+        "rows": 48838,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 726,
+                "alive_at_end": 0,
+                "moved_identities": 436,
+                "total_hops": 3576,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 174,
+                  "split_product": 274,
+                  "fusion_or_exchange_product": 278
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 155,
+                  "fusion": 446,
+                  "split": 29,
+                  "exchange": 96
+                }
+              },
+              "2": {
+                "ever": 572,
+                "alive_at_end": 42,
+                "moved_identities": 15,
+                "total_hops": 15,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 153,
+                  "split_product": 94,
+                  "fusion_or_exchange_product": 325
+                },
+                "ended": {
+                  "alive": 42,
+                  "annihilation": 0,
+                  "fusion": 170,
+                  "split": 119,
+                  "exchange": 241
+                }
+              },
+              "3": {
+                "ever": 337,
+                "alive_at_end": 30,
+                "moved_identities": 0,
+                "total_hops": 0,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 38,
+                  "split_product": 25,
+                  "fusion_or_exchange_product": 274
+                },
+                "ended": {
+                  "alive": 30,
+                  "annihilation": 0,
+                  "fusion": 110,
+                  "split": 79,
+                  "exchange": 118
+                }
+              },
+              "4": {
+                "ever": 530,
+                "alive_at_end": 30,
+                "moved_identities": 11,
+                "total_hops": 12,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 153,
+                  "split_product": 73,
+                  "fusion_or_exchange_product": 304
+                },
+                "ended": {
+                  "alive": 30,
+                  "annihilation": 0,
+                  "fusion": 143,
+                  "split": 112,
+                  "exchange": 245
+                }
+              },
+              "5": {
+                "ever": 689,
+                "alive_at_end": 0,
+                "moved_identities": 429,
+                "total_hops": 3987,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 174,
+                  "split_product": 262,
+                  "fusion_or_exchange_product": 253
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 155,
+                  "fusion": 419,
+                  "split": 25,
+                  "exchange": 90
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 174,
+              "0 -> 2 + 4": 153,
+              "0 -> 3 + 3": 19
+            }
+          },
+          "internal": {
+            "classes": {
+              "1": {
+                "ever": 11931,
+                "alive_at_end": 3,
+                "moved_identities": 8348,
+                "total_hops": 161336,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 4416,
+                  "split_product": 2084,
+                  "fusion_or_exchange_product": 5431
+                },
+                "ended": {
+                  "alive": 3,
+                  "annihilation": 5342,
+                  "fusion": 5316,
+                  "split": 192,
+                  "exchange": 1078
+                }
+              },
+              "2": {
+                "ever": 9031,
+                "alive_at_end": 1363,
+                "moved_identities": 71,
+                "total_hops": 73,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 4309,
+                  "split_product": 571,
+                  "fusion_or_exchange_product": 4151
+                },
+                "ended": {
+                  "alive": 1363,
+                  "annihilation": 2,
+                  "fusion": 1810,
+                  "split": 913,
+                  "exchange": 4943
+                }
+              },
+              "3": {
+                "ever": 4005,
+                "alive_at_end": 428,
+                "moved_identities": 0,
+                "total_hops": 0,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 1268,
+                  "split_product": 155,
+                  "fusion_or_exchange_product": 2582
+                },
+                "ended": {
+                  "alive": 428,
+                  "annihilation": 0,
+                  "fusion": 807,
+                  "split": 493,
+                  "exchange": 2277
+                }
+              },
+              "4": {
+                "ever": 9042,
+                "alive_at_end": 1348,
+                "moved_identities": 76,
+                "total_hops": 76,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 4309,
+                  "split_product": 601,
+                  "fusion_or_exchange_product": 4132
+                },
+                "ended": {
+                  "alive": 1348,
+                  "annihilation": 2,
+                  "fusion": 1907,
+                  "split": 872,
+                  "exchange": 4913
+                }
+              },
+              "5": {
+                "ever": 11975,
+                "alive_at_end": 3,
+                "moved_identities": 8370,
+                "total_hops": 163782,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 4416,
+                  "split_product": 1971,
+                  "fusion_or_exchange_product": 5588
+                },
+                "ended": {
+                  "alive": 3,
+                  "annihilation": 5342,
+                  "fusion": 5312,
+                  "split": 221,
+                  "exchange": 1097
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 4416,
+              "0 -> 2 + 4": 4309,
+              "0 -> 3 + 3": 634
+            }
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 6891527,
+        "first_wholly_after_balance_sweep_index": 43,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 215681,
+        "tracked_tiers": [
+          "screen",
+          "internal"
+        ]
+      },
+      "observer": {
+        "carrier": 255,
+        "incident_ticks": 26638,
+        "hold_ticks": 20290,
+        "nonzero_current_ticks": 6348,
+        "load_rows_replayed": 26638,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "full catalogue row count",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L4/run.json",
+          "url": "/runs/L4/run.json",
+          "sha256": "22c0834ecf1cb93a815a9e83d8c890ae42788c7fb6e3c5f88fea5d45594c7e61",
+          "bytes": 206061
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L4/view/class_stats.json",
+          "url": "/runs/L4/view/class_stats.json",
+          "sha256": "4177788959b99d48cea168629c9d69d7800cfb92f4a761fbf05407b0aac19440",
+          "bytes": 6229
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L4/stats.npz",
+          "url": "/runs/L4/stats.npz",
+          "sha256": "0e96f3489a85e4d43338ecb582ab1b7497c215ac720eb48cded1ccd838045f92",
+          "bytes": 44081
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L4/catalogue.npz",
+          "url": "/runs/L4/catalogue.npz",
+          "sha256": "378be9ea3617f0fdeb0a2f99a5e9a31f91c9b661bf9a123b32ae55e2a3d7167d",
+          "bytes": 1656615
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L4/cuts/cut_00001.npz",
+          "url": "/runs/L4/cuts/cut_00001.npz",
+          "sha256": "8945ec54d6db237d8a93655dc9e9195a9d5215fb7c3df6e9dccbff384069c15d",
+          "bytes": 142909
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L4/cuts/end.npz",
+          "url": "/runs/L4/cuts/end.npz",
+          "sha256": "a514c3bdec49865da1a82e88250ce0b8f27464efa46049c107dd7108fcc052b5",
+          "bytes": 78259
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L4/observers/obs_255.npz",
+          "url": "/runs/L4/observers/obs_255.npz",
+          "sha256": "793dd9331e5e6fdc9692eaaf2f96c4bd99f65eaeb66b520869f4d60793c56e86",
+          "bytes": 561844
+        }
+      ]
+    },
+    {
+      "name": "L5",
+      "level": 5,
+      "sweeps": 600,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": true,
+        "display_sample": 1,
+        "full_identity_count": 196198,
+        "analysed_catalogue_rows": 196198,
+        "catalogue_positions_available": true,
+        "run_counts_authority": "complete_catalogue_recomputed",
+        "missing_full_catalogue_counts_recomputed": true
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 127,
+            "whole_run_pair_births": 756,
+            "whole_run_annihilations": 567
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 195,
+            "whole_run_pair_births": 617,
+            "whole_run_annihilations": 3
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 49,
+            "whole_run_pair_births": 93,
+            "whole_run_annihilations": 0
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 3040,
+            "alive_at_end": 0,
+            "lifetime_depth_median": 38.0,
+            "lifetime_depth_mean": 152.7875,
+            "lifetime_depth_max": 6845,
+            "hops_mean": 5.31546052631579,
+            "hops_per_depth": 0.03478989136098038,
+            "moved_fraction": 0.6019736842105263,
+            "born": {
+              "conjugate_pair": 756,
+              "split_product": 1081,
+              "fusion_or_exchange_product": 1203
+            },
+            "ended": {
+              "alive": 0,
+              "annihilation": 567,
+              "fusion": 1923,
+              "split": 113,
+              "exchange": 437
+            }
+          },
+          "2": {
+            "ever": 2472,
+            "alive_at_end": 166,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 926.3175566343042,
+            "lifetime_depth_max": 13112,
+            "hops_mean": 0.021035598705501618,
+            "hops_per_depth": 2.2708841643823174e-05,
+            "moved_fraction": 0.020226537216828478,
+            "born": {
+              "conjugate_pair": 617,
+              "split_product": 445,
+              "fusion_or_exchange_product": 1410
+            },
+            "ended": {
+              "alive": 166,
+              "annihilation": 3,
+              "fusion": 703,
+              "split": 436,
+              "exchange": 1164
+            }
+          },
+          "3": {
+            "ever": 1650,
+            "alive_at_end": 168,
+            "lifetime_depth_median": 28.0,
+            "lifetime_depth_mean": 1369.0012121212121,
+            "lifetime_depth_max": 13113,
+            "hops_mean": 0.0012121212121212121,
+            "hops_per_depth": 8.854055068680905e-07,
+            "moved_fraction": 0.0012121212121212121,
+            "born": {
+              "conjugate_pair": 186,
+              "split_product": 119,
+              "fusion_or_exchange_product": 1345
+            },
+            "ended": {
+              "alive": 168,
+              "annihilation": 0,
+              "fusion": 510,
+              "split": 385,
+              "exchange": 587
+            }
+          },
+          "4": {
+            "ever": 2338,
+            "alive_at_end": 142,
+            "lifetime_depth_median": 26.0,
+            "lifetime_depth_mean": 846.8875106928999,
+            "lifetime_depth_max": 13113,
+            "hops_mean": 0.0213857998289136,
+            "hops_per_depth": 2.5252231918518117e-05,
+            "moved_fraction": 0.020958083832335328,
+            "born": {
+              "conjugate_pair": 617,
+              "split_product": 372,
+              "fusion_or_exchange_product": 1349
+            },
+            "ended": {
+              "alive": 142,
+              "annihilation": 3,
+              "fusion": 708,
+              "split": 417,
+              "exchange": 1068
+            }
+          },
+          "5": {
+            "ever": 2830,
+            "alive_at_end": 0,
+            "lifetime_depth_median": 39.0,
+            "lifetime_depth_mean": 152.84805653710248,
+            "lifetime_depth_max": 5007,
+            "hops_mean": 5.210600706713781,
+            "hops_per_depth": 0.03409006842981321,
+            "moved_fraction": 0.6081272084805653,
+            "born": {
+              "conjugate_pair": 756,
+              "split_product": 939,
+              "fusion_or_exchange_product": 1135
+            },
+            "ended": {
+              "alive": 0,
+              "annihilation": 567,
+              "fusion": 1744,
+              "split": 127,
+              "exchange": 392
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            127,
+            195,
+            98,
+            195,
+            127
+          ],
+          "incident_ticks_min": 0,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          0,
+          166,
+          168,
+          142,
+          0
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L5/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 742,
+            "full_summary_rows": 742,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              127,
+              195,
+              98,
+              195,
+              127
+            ]
+          },
+          {
+            "url": "/runs/L5/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 476,
+            "full_summary_rows": 476,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              0,
+              166,
+              168,
+              142,
+              0
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "complete_catalogue",
+        "rows": 196198,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 3040,
+                "alive_at_end": 0,
+                "moved_identities": 1830,
+                "total_hops": 16159,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 756,
+                  "split_product": 1081,
+                  "fusion_or_exchange_product": 1203
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 567,
+                  "fusion": 1923,
+                  "split": 113,
+                  "exchange": 437
+                }
+              },
+              "2": {
+                "ever": 2472,
+                "alive_at_end": 166,
+                "moved_identities": 50,
+                "total_hops": 52,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 617,
+                  "split_product": 445,
+                  "fusion_or_exchange_product": 1410
+                },
+                "ended": {
+                  "alive": 166,
+                  "annihilation": 3,
+                  "fusion": 703,
+                  "split": 436,
+                  "exchange": 1164
+                }
+              },
+              "3": {
+                "ever": 1650,
+                "alive_at_end": 168,
+                "moved_identities": 2,
+                "total_hops": 2,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 186,
+                  "split_product": 119,
+                  "fusion_or_exchange_product": 1345
+                },
+                "ended": {
+                  "alive": 168,
+                  "annihilation": 0,
+                  "fusion": 510,
+                  "split": 385,
+                  "exchange": 587
+                }
+              },
+              "4": {
+                "ever": 2338,
+                "alive_at_end": 142,
+                "moved_identities": 49,
+                "total_hops": 50,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 617,
+                  "split_product": 372,
+                  "fusion_or_exchange_product": 1349
+                },
+                "ended": {
+                  "alive": 142,
+                  "annihilation": 3,
+                  "fusion": 708,
+                  "split": 417,
+                  "exchange": 1068
+                }
+              },
+              "5": {
+                "ever": 2830,
+                "alive_at_end": 0,
+                "moved_identities": 1721,
+                "total_hops": 14746,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 756,
+                  "split_product": 939,
+                  "fusion_or_exchange_product": 1135
+                },
+                "ended": {
+                  "alive": 0,
+                  "annihilation": 567,
+                  "fusion": 1744,
+                  "split": 127,
+                  "exchange": 392
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 756,
+              "0 -> 2 + 4": 617,
+              "0 -> 3 + 3": 93
+            }
+          },
+          "internal": {
+            "classes": {
+              "1": {
+                "ever": 47727,
+                "alive_at_end": 57,
+                "moved_identities": 33176,
+                "total_hops": 641087,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 17446,
+                  "split_product": 8120,
+                  "fusion_or_exchange_product": 22161
+                },
+                "ended": {
+                  "alive": 57,
+                  "annihilation": 21344,
+                  "fusion": 21147,
+                  "split": 836,
+                  "exchange": 4343
+                }
+              },
+              "2": {
+                "ever": 36303,
+                "alive_at_end": 5526,
+                "moved_identities": 344,
+                "total_hops": 347,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 17498,
+                  "split_product": 2385,
+                  "fusion_or_exchange_product": 16420
+                },
+                "ended": {
+                  "alive": 5526,
+                  "annihilation": 17,
+                  "fusion": 7413,
+                  "split": 3597,
+                  "exchange": 19750
+                }
+              },
+              "3": {
+                "ever": 15767,
+                "alive_at_end": 1624,
+                "moved_identities": 0,
+                "total_hops": 0,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 5028,
+                  "split_product": 593,
+                  "fusion_or_exchange_product": 10146
+                },
+                "ended": {
+                  "alive": 1624,
+                  "annihilation": 0,
+                  "fusion": 3153,
+                  "split": 1903,
+                  "exchange": 9087
+                }
+              },
+              "4": {
+                "ever": 36353,
+                "alive_at_end": 5559,
+                "moved_identities": 361,
+                "total_hops": 363,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 17498,
+                  "split_product": 2279,
+                  "fusion_or_exchange_product": 16576
+                },
+                "ended": {
+                  "alive": 5559,
+                  "annihilation": 17,
+                  "fusion": 7353,
+                  "split": 3596,
+                  "exchange": 19828
+                }
+              },
+              "5": {
+                "ever": 47718,
+                "alive_at_end": 57,
+                "moved_identities": 33088,
+                "total_hops": 637278,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 17446,
+                  "split_product": 8081,
+                  "fusion_or_exchange_product": 22191
+                },
+                "ended": {
+                  "alive": 57,
+                  "annihilation": 21344,
+                  "fusion": 21134,
+                  "split": 797,
+                  "exchange": 4386
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 17446,
+              "0 -> 2 + 4": 17498,
+              "0 -> 3 + 3": 2514
+            }
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 33820528,
+        "first_wholly_after_balance_sweep_index": 53,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 756863,
+        "tracked_tiers": [
+          "screen",
+          "internal"
+        ]
+      },
+      "observer": {
+        "carrier": 1023,
+        "incident_ticks": 19460,
+        "hold_ticks": 14690,
+        "nonzero_current_ticks": 4770,
+        "load_rows_replayed": 19460,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "full catalogue row count",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L5/run.json",
+          "url": "/runs/L5/run.json",
+          "sha256": "08be3c7febbd852f15109c28e5c1b1bd6e9870a95a7d7888ba6bc4505c1195be",
+          "bytes": 161530
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L5/view/class_stats.json",
+          "url": "/runs/L5/view/class_stats.json",
+          "sha256": "98a767562c033118c2a31187add384fc4672c005b1ad436db31fc55616e7d0b6",
+          "bytes": 6783
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L5/stats.npz",
+          "url": "/runs/L5/stats.npz",
+          "sha256": "07ec93d2de855cc343a487f6fdc9fd0a6c9d1fd175a6aa461a9d9ce81f1cd916",
+          "bytes": 41191
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L5/catalogue.npz",
+          "url": "/runs/L5/catalogue.npz",
+          "sha256": "ed0b5c81c1e58d82286923caa5f6836a2d27d632640a3449b11e8b00b064c4e6",
+          "bytes": 7364302
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L5/cuts/cut_00001.npz",
+          "url": "/runs/L5/cuts/cut_00001.npz",
+          "sha256": "8a1bbf866e0bb52ff1321b44e682541ed8d346eabf6ce12ef455ff1a47082bb6",
+          "bytes": 576495
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L5/cuts/end.npz",
+          "url": "/runs/L5/cuts/end.npz",
+          "sha256": "84bd2c5a1886a9cf8b0d14aa82983be5af8aab37a6ac4025bc87e6e08d82fa01",
+          "bytes": 311438
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L5/observers/obs_1023.npz",
+          "url": "/runs/L5/observers/obs_1023.npz",
+          "sha256": "2bd7247d3c44b7e8bef728121a5fdd5ca72af105165d9584dee425c98660a51e",
+          "bytes": 448538
+        }
+      ]
+    },
+    {
+      "name": "L6",
+      "level": 6,
+      "sweeps": 500,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": true,
+        "display_sample": 1,
+        "full_identity_count": 786488,
+        "analysed_catalogue_rows": 786488,
+        "catalogue_positions_available": true,
+        "run_counts_authority": "complete_catalogue_recomputed",
+        "missing_full_catalogue_counts_recomputed": true
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 493,
+            "whole_run_pair_births": 2946,
+            "whole_run_annihilations": 2379
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 824,
+            "whole_run_pair_births": 2529,
+            "whole_run_annihilations": 18
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 155,
+            "whole_run_pair_births": 359,
+            "whole_run_annihilations": 0
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 12044,
+            "alive_at_end": 5,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 146.3260544669545,
+            "lifetime_depth_max": 9123,
+            "hops_mean": 5.008635004981734,
+            "hops_per_depth": 0.03422927668778807,
+            "moved_fraction": 0.586682165393557,
+            "born": {
+              "conjugate_pair": 2946,
+              "split_product": 4248,
+              "fusion_or_exchange_product": 4850
+            },
+            "ended": {
+              "alive": 5,
+              "annihilation": 2379,
+              "fusion": 7365,
+              "split": 479,
+              "exchange": 1816
+            }
+          },
+          "2": {
+            "ever": 9766,
+            "alive_at_end": 649,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 789.2774933442556,
+            "lifetime_depth_max": 10949,
+            "hops_mean": 0.022731927093999592,
+            "hops_per_depth": 2.8800931593376512e-05,
+            "moved_fraction": 0.022219946754044644,
+            "born": {
+              "conjugate_pair": 2529,
+              "split_product": 1635,
+              "fusion_or_exchange_product": 5602
+            },
+            "ended": {
+              "alive": 649,
+              "annihilation": 18,
+              "fusion": 2776,
+              "split": 1840,
+              "exchange": 4483
+            }
+          },
+          "3": {
+            "ever": 6279,
+            "alive_at_end": 662,
+            "lifetime_depth_median": 28.0,
+            "lifetime_depth_mean": 1174.5763656633221,
+            "lifetime_depth_max": 10947,
+            "hops_mean": 0.001433349259436216,
+            "hops_per_depth": 1.2203116811623876e-06,
+            "moved_fraction": 0.001433349259436216,
+            "born": {
+              "conjugate_pair": 718,
+              "split_product": 469,
+              "fusion_or_exchange_product": 5092
+            },
+            "ended": {
+              "alive": 662,
+              "annihilation": 0,
+              "fusion": 1800,
+              "split": 1467,
+              "exchange": 2350
+            }
+          },
+          "4": {
+            "ever": 9831,
+            "alive_at_end": 642,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 772.4376970806632,
+            "lifetime_depth_max": 10949,
+            "hops_mean": 0.02105584375953616,
+            "hops_per_depth": 2.7258954138455733e-05,
+            "moved_fraction": 0.019835215135794934,
+            "born": {
+              "conjugate_pair": 2529,
+              "split_product": 1767,
+              "fusion_or_exchange_product": 5535
+            },
+            "ended": {
+              "alive": 642,
+              "annihilation": 18,
+              "fusion": 2892,
+              "split": 1837,
+              "exchange": 4442
+            }
+          },
+          "5": {
+            "ever": 11912,
+            "alive_at_end": 1,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 146.98018804566823,
+            "lifetime_depth_max": 6367,
+            "hops_mean": 5.054314976494291,
+            "hops_per_depth": 0.03438772969132319,
+            "moved_fraction": 0.5913364674278039,
+            "born": {
+              "conjugate_pair": 2946,
+              "split_product": 4183,
+              "fusion_or_exchange_product": 4783
+            },
+            "ended": {
+              "alive": 1,
+              "annihilation": 2379,
+              "fusion": 7299,
+              "split": 528,
+              "exchange": 1705
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            493,
+            824,
+            310,
+            824,
+            493
+          ],
+          "incident_ticks_min": 0,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          5,
+          649,
+          662,
+          642,
+          1
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L6/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 2944,
+            "full_summary_rows": 2944,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              493,
+              824,
+              310,
+              824,
+              493
+            ]
+          },
+          {
+            "url": "/runs/L6/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 1959,
+            "full_summary_rows": 1959,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              5,
+              649,
+              662,
+              642,
+              1
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "complete_catalogue",
+        "rows": 786488,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 12044,
+                "alive_at_end": 5,
+                "moved_identities": 7066,
+                "total_hops": 60324,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 2946,
+                  "split_product": 4248,
+                  "fusion_or_exchange_product": 4850
+                },
+                "ended": {
+                  "alive": 5,
+                  "annihilation": 2379,
+                  "fusion": 7365,
+                  "split": 479,
+                  "exchange": 1816
+                }
+              },
+              "2": {
+                "ever": 9766,
+                "alive_at_end": 649,
+                "moved_identities": 217,
+                "total_hops": 222,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 2529,
+                  "split_product": 1635,
+                  "fusion_or_exchange_product": 5602
+                },
+                "ended": {
+                  "alive": 649,
+                  "annihilation": 18,
+                  "fusion": 2776,
+                  "split": 1840,
+                  "exchange": 4483
+                }
+              },
+              "3": {
+                "ever": 6279,
+                "alive_at_end": 662,
+                "moved_identities": 9,
+                "total_hops": 9,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 718,
+                  "split_product": 469,
+                  "fusion_or_exchange_product": 5092
+                },
+                "ended": {
+                  "alive": 662,
+                  "annihilation": 0,
+                  "fusion": 1800,
+                  "split": 1467,
+                  "exchange": 2350
+                }
+              },
+              "4": {
+                "ever": 9831,
+                "alive_at_end": 642,
+                "moved_identities": 195,
+                "total_hops": 207,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 2529,
+                  "split_product": 1767,
+                  "fusion_or_exchange_product": 5535
+                },
+                "ended": {
+                  "alive": 642,
+                  "annihilation": 18,
+                  "fusion": 2892,
+                  "split": 1837,
+                  "exchange": 4442
+                }
+              },
+              "5": {
+                "ever": 11912,
+                "alive_at_end": 1,
+                "moved_identities": 7044,
+                "total_hops": 60207,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 2946,
+                  "split_product": 4183,
+                  "fusion_or_exchange_product": 4783
+                },
+                "ended": {
+                  "alive": 1,
+                  "annihilation": 2379,
+                  "fusion": 7299,
+                  "split": 528,
+                  "exchange": 1705
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 2946,
+              "0 -> 2 + 4": 2529,
+              "0 -> 3 + 3": 359
+            }
+          },
+          "internal": {
+            "classes": {
+              "1": {
+                "ever": 191969,
+                "alive_at_end": 693,
+                "moved_identities": 133691,
+                "total_hops": 2623713,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 71138,
+                  "split_product": 32208,
+                  "fusion_or_exchange_product": 88623
+                },
+                "ended": {
+                  "alive": 693,
+                  "annihilation": 85133,
+                  "fusion": 85295,
+                  "split": 3330,
+                  "exchange": 17518
+                }
+              },
+              "2": {
+                "ever": 144836,
+                "alive_at_end": 21921,
+                "moved_identities": 1408,
+                "total_hops": 1422,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 69723,
+                  "split_product": 9411,
+                  "fusion_or_exchange_product": 65702
+                },
+                "ended": {
+                  "alive": 21921,
+                  "annihilation": 38,
+                  "fusion": 30060,
+                  "split": 14264,
+                  "exchange": 78553
+                }
+              },
+              "3": {
+                "ever": 61880,
+                "alive_at_end": 6576,
+                "moved_identities": 0,
+                "total_hops": 0,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 19232,
+                  "split_product": 2316,
+                  "fusion_or_exchange_product": 40332
+                },
+                "ended": {
+                  "alive": 6576,
+                  "annihilation": 0,
+                  "fusion": 12193,
+                  "split": 7402,
+                  "exchange": 35709
+                }
+              },
+              "4": {
+                "ever": 145371,
+                "alive_at_end": 21958,
+                "moved_identities": 1359,
+                "total_hops": 1368,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 69723,
+                  "split_product": 9240,
+                  "fusion_or_exchange_product": 66408
+                },
+                "ended": {
+                  "alive": 21958,
+                  "annihilation": 38,
+                  "fusion": 30056,
+                  "split": 14324,
+                  "exchange": 78995
+                }
+              },
+              "5": {
+                "ever": 192600,
+                "alive_at_end": 691,
+                "moved_identities": 134273,
+                "total_hops": 2622643,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 71138,
+                  "split_product": 32183,
+                  "fusion_or_exchange_product": 89279
+                },
+                "ended": {
+                  "alive": 691,
+                  "annihilation": 85133,
+                  "fusion": 85300,
+                  "split": 3359,
+                  "exchange": 18117
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 71138,
+              "0 -> 2 + 4": 69723,
+              "0 -> 3 + 3": 9616
+            }
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 157922110,
+        "first_wholly_after_balance_sweep_index": 62,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 2876998,
+        "tracked_tiers": [
+          "screen",
+          "internal"
+        ]
+      },
+      "observer": {
+        "carrier": 4095,
+        "incident_ticks": 16219,
+        "hold_ticks": 12266,
+        "nonzero_current_ticks": 3953,
+        "load_rows_replayed": 16219,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "full catalogue row count",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "internal class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "internal 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L6/run.json",
+          "url": "/runs/L6/run.json",
+          "sha256": "1bcfa0c249c4d4ed89840f66fa4e6d6a3e76f3ad0ead7c4d6b22b6803b64b1b7",
+          "bytes": 92129
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L6/view/class_stats.json",
+          "url": "/runs/L6/view/class_stats.json",
+          "sha256": "5c49f89b6aaf41dd6d3860cc04940fd06b7430d84755d32027f8285a1997683f",
+          "bytes": 7006
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L6/stats.npz",
+          "url": "/runs/L6/stats.npz",
+          "sha256": "4ec74f557caa2bd9adac3c6d2f6b07d6e836210531f01300ac91fddd5c55102c",
+          "bytes": 40745
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L6/catalogue.npz",
+          "url": "/runs/L6/catalogue.npz",
+          "sha256": "41b4b8e1aa1153cc1992a835a70f1336ca474f9445bb77995769cb732a3f01a8",
+          "bytes": 30996801
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L6/cuts/cut_00001.npz",
+          "url": "/runs/L6/cuts/cut_00001.npz",
+          "sha256": "824f38e4e98a199de4dc1219dddd6fbf5841a8b5e3d02965862fa8c009729c84",
+          "bytes": 2320921
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L6/cuts/end.npz",
+          "url": "/runs/L6/cuts/end.npz",
+          "sha256": "f6fa20a9c61b68ea128e0521b1696b7856bea99a62d9a44e2152d41e10103a91",
+          "bytes": 1260507
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L6/observers/obs_4095.npz",
+          "url": "/runs/L6/observers/obs_4095.npz",
+          "sha256": "b28d51ee673d4da43946ea48418ab712166b4652c0ed1c60dec863ad70cda2e0",
+          "bytes": 390001
+        }
+      ]
+    },
+    {
+      "name": "L7",
+      "level": 7,
+      "sweeps": 400,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": true,
+        "display_sample": 1,
+        "full_identity_count": 198563,
+        "analysed_catalogue_rows": 198563,
+        "catalogue_positions_available": true,
+        "run_counts_authority": "complete_catalogue_recomputed",
+        "missing_full_catalogue_counts_recomputed": true
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 1954,
+            "whole_run_pair_births": 11832,
+            "whole_run_annihilations": 9621
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 3196,
+            "whole_run_pair_births": 10228,
+            "whole_run_annihilations": 53
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 636,
+            "whole_run_pair_births": 1427,
+            "whole_run_annihilations": 0
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 48000,
+            "alive_at_end": 19,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 146.812,
+            "lifetime_depth_max": 8518,
+            "hops_mean": 5.0287291666666665,
+            "hops_per_depth": 0.03425284831394346,
+            "moved_fraction": 0.5896458333333333,
+            "born": {
+              "conjugate_pair": 11832,
+              "split_product": 17005,
+              "fusion_or_exchange_product": 19163
+            },
+            "ended": {
+              "alive": 19,
+              "annihilation": 9621,
+              "fusion": 29404,
+              "split": 1910,
+              "exchange": 7046
+            }
+          },
+          "2": {
+            "ever": 38896,
+            "alive_at_end": 2511,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 622.4385540929659,
+            "lifetime_depth_max": 8767,
+            "hops_mean": 0.02097902097902098,
+            "hops_per_depth": 3.370456544034643e-05,
+            "moved_fraction": 0.020310571781160018,
+            "born": {
+              "conjugate_pair": 10228,
+              "split_product": 6370,
+              "fusion_or_exchange_product": 22298
+            },
+            "ended": {
+              "alive": 2511,
+              "annihilation": 53,
+              "fusion": 11249,
+              "split": 7275,
+              "exchange": 17808
+            }
+          },
+          "3": {
+            "ever": 25262,
+            "alive_at_end": 2544,
+            "lifetime_depth_median": 26.0,
+            "lifetime_depth_mean": 905.0707386588552,
+            "lifetime_depth_max": 8767,
+            "hops_mean": 0.0007521178053994141,
+            "hops_per_depth": 8.310044433807588e-07,
+            "moved_fraction": 0.0007521178053994141,
+            "born": {
+              "conjugate_pair": 2854,
+              "split_product": 1973,
+              "fusion_or_exchange_product": 20435
+            },
+            "ended": {
+              "alive": 2544,
+              "annihilation": 0,
+              "fusion": 7537,
+              "split": 5751,
+              "exchange": 9430
+            }
+          },
+          "4": {
+            "ever": 38795,
+            "alive_at_end": 2646,
+            "lifetime_depth_median": 25.0,
+            "lifetime_depth_mean": 653.4914550844181,
+            "lifetime_depth_max": 8767,
+            "hops_mean": 0.022966877174893673,
+            "hops_per_depth": 3.514487755915157e-05,
+            "moved_fraction": 0.02214202861193453,
+            "born": {
+              "conjugate_pair": 10228,
+              "split_product": 6419,
+              "fusion_or_exchange_product": 22148
+            },
+            "ended": {
+              "alive": 2646,
+              "annihilation": 53,
+              "fusion": 11227,
+              "split": 7250,
+              "exchange": 17619
+            }
+          },
+          "5": {
+            "ever": 47610,
+            "alive_at_end": 19,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 146.80720436883007,
+            "lifetime_depth_max": 8597,
+            "hops_mean": 5.031568998109641,
+            "hops_per_depth": 0.034273311175305896,
+            "moved_fraction": 0.5922915353917244,
+            "born": {
+              "conjugate_pair": 11832,
+              "split_product": 16785,
+              "fusion_or_exchange_product": 18993
+            },
+            "ended": {
+              "alive": 19,
+              "annihilation": 9621,
+              "fusion": 28909,
+              "split": 2090,
+              "exchange": 6971
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            1954,
+            3196,
+            1272,
+            3196,
+            1954
+          ],
+          "incident_ticks_min": 0,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          19,
+          2511,
+          2544,
+          2646,
+          19
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L7/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 11572,
+            "full_summary_rows": 11572,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              1954,
+              3196,
+              1272,
+              3196,
+              1954
+            ]
+          },
+          {
+            "url": "/runs/L7/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 7739,
+            "full_summary_rows": 7739,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              19,
+              2511,
+              2544,
+              2646,
+              19
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "complete_catalogue",
+        "rows": 198563,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 48000,
+                "alive_at_end": 19,
+                "moved_identities": 28303,
+                "total_hops": 241379,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 11832,
+                  "split_product": 17005,
+                  "fusion_or_exchange_product": 19163
+                },
+                "ended": {
+                  "alive": 19,
+                  "annihilation": 9621,
+                  "fusion": 29404,
+                  "split": 1910,
+                  "exchange": 7046
+                }
+              },
+              "2": {
+                "ever": 38896,
+                "alive_at_end": 2511,
+                "moved_identities": 790,
+                "total_hops": 816,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 10228,
+                  "split_product": 6370,
+                  "fusion_or_exchange_product": 22298
+                },
+                "ended": {
+                  "alive": 2511,
+                  "annihilation": 53,
+                  "fusion": 11249,
+                  "split": 7275,
+                  "exchange": 17808
+                }
+              },
+              "3": {
+                "ever": 25262,
+                "alive_at_end": 2544,
+                "moved_identities": 19,
+                "total_hops": 19,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 2854,
+                  "split_product": 1973,
+                  "fusion_or_exchange_product": 20435
+                },
+                "ended": {
+                  "alive": 2544,
+                  "annihilation": 0,
+                  "fusion": 7537,
+                  "split": 5751,
+                  "exchange": 9430
+                }
+              },
+              "4": {
+                "ever": 38795,
+                "alive_at_end": 2646,
+                "moved_identities": 859,
+                "total_hops": 891,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 10228,
+                  "split_product": 6419,
+                  "fusion_or_exchange_product": 22148
+                },
+                "ended": {
+                  "alive": 2646,
+                  "annihilation": 53,
+                  "fusion": 11227,
+                  "split": 7250,
+                  "exchange": 17619
+                }
+              },
+              "5": {
+                "ever": 47610,
+                "alive_at_end": 19,
+                "moved_identities": 28199,
+                "total_hops": 239553,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 11832,
+                  "split_product": 16785,
+                  "fusion_or_exchange_product": 18993
+                },
+                "ended": {
+                  "alive": 19,
+                  "annihilation": 9621,
+                  "fusion": 28909,
+                  "split": 2090,
+                  "exchange": 6971
+                }
+              }
+            },
+            "pair_birth_events": {
+              "0 -> 1 + 5": 11832,
+              "0 -> 2 + 4": 10228,
+              "0 -> 3 + 3": 1427
+            }
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 882019731,
+        "first_wholly_after_balance_sweep_index": 86,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 80813,
+        "tracked_tiers": [
+          "screen"
+        ]
+      },
+      "observer": {
+        "carrier": 16383,
+        "incident_ticks": 13120,
+        "hold_ticks": 9878,
+        "nonzero_current_ticks": 3242,
+        "load_rows_replayed": 13120,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "full catalogue row count",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 1 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 2 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 3 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 4 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ever recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 alive_at_end recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 ended recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 moved fraction recomputed",
+          "passed": true
+        },
+        {
+          "check": "screen class 5 pair-born identities exclude preparation",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 1 + 5 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 2 + 4 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "screen 0 -> 3 + 3 recomputed from complete catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "screen summary pair totals == tracked birth events",
+          "passed": true
+        },
+        {
+          "check": "screen summary annihilations == tracked annihilation events",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L7/run.json",
+          "url": "/runs/L7/run.json",
+          "sha256": "bdb6db6165ebe76591afdcbebd153fe4c2167d358276d887e0cc17e609884005",
+          "bytes": 72807
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L7/view/class_stats.json",
+          "url": "/runs/L7/view/class_stats.json",
+          "sha256": "cd42dc4c1748d6591109c7b65cac828f65fe456f5c031a782f9f34171ea7f444",
+          "bytes": 3622
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L7/stats.npz",
+          "url": "/runs/L7/stats.npz",
+          "sha256": "d9632e3558e513ff7abbe7c1055a92f838caf081967726ccf908a05dcce11964",
+          "bytes": 37581
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L7/catalogue.npz",
+          "url": "/runs/L7/catalogue.npz",
+          "sha256": "7994044ac98b5e55463f0d84a1c10b0bf3e2965a2e4f64755aed019e6471df1d",
+          "bytes": 7521595
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L7/cuts/cut_00001.npz",
+          "url": "/runs/L7/cuts/cut_00001.npz",
+          "sha256": "3a493c93f6db6d5da10b93e2f5a979806636066104cd58836a22d3ac38e66c8d",
+          "bytes": 414163
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L7/cuts/end.npz",
+          "url": "/runs/L7/cuts/end.npz",
+          "sha256": "9fc7fb3cbf564a85e32ed3a6a63dba062562614911866fd616cd5e94e10478e6",
+          "bytes": 291670
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L7/observers/obs_16383.npz",
+          "url": "/runs/L7/observers/obs_16383.npz",
+          "sha256": "08cafdbad1d88caadee4e309b993e065c33c4387fee811667dc2a8b426e10032",
+          "bytes": 333236
+        }
+      ]
+    },
+    {
+      "name": "L8",
+      "level": 8,
+      "sweeps": 300,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": false,
+        "display_sample": 1,
+        "full_identity_count": 792902,
+        "analysed_catalogue_rows": 791298,
+        "catalogue_positions_available": true,
+        "run_counts_authority": "stored_full_run_summary_crosschecked_with_stats_and_sampled_cuts",
+        "missing_full_catalogue_counts_recomputed": false
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 7786,
+            "whole_run_pair_births": 47400,
+            "whole_run_annihilations": 38106
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 13135,
+            "whole_run_pair_births": 40662,
+            "whole_run_annihilations": 224
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 2622,
+            "whole_run_pair_births": 5648,
+            "whole_run_annihilations": 1
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 191170,
+            "alive_at_end": 202,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 145.6444264267406,
+            "lifetime_depth_max": 6613,
+            "hops_mean": 4.979766699795993,
+            "hops_per_depth": 0.034191261704757545,
+            "moved_fraction": 0.5911753936287074,
+            "born": {
+              "conjugate_pair": 47400,
+              "split_product": 67328,
+              "fusion_or_exchange_product": 76442
+            },
+            "ended": {
+              "alive": 202,
+              "annihilation": 38106,
+              "fusion": 116826,
+              "split": 8094,
+              "exchange": 27942
+            }
+          },
+          "2": {
+            "ever": 155672,
+            "alive_at_end": 10255,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 492.5845431419909,
+            "lifetime_depth_max": 6614,
+            "hops_mean": 0.02224549051852613,
+            "hops_per_depth": 4.5160756317344935e-05,
+            "moved_fraction": 0.02128834986381623,
+            "born": {
+              "conjugate_pair": 40662,
+              "split_product": 25966,
+              "fusion_or_exchange_product": 89044
+            },
+            "ended": {
+              "alive": 10255,
+              "annihilation": 224,
+              "fusion": 44861,
+              "split": 29214,
+              "exchange": 71118
+            }
+          },
+          "3": {
+            "ever": 100612,
+            "alive_at_end": 10473,
+            "lifetime_depth_median": 27.0,
+            "lifetime_depth_mean": 705.1989524112432,
+            "lifetime_depth_max": 6614,
+            "hops_mean": 0.0009541605375104361,
+            "hops_per_depth": 1.3530373722875423e-06,
+            "moved_fraction": 0.0009442213652447024,
+            "born": {
+              "conjugate_pair": 11296,
+              "split_product": 7742,
+              "fusion_or_exchange_product": 81574
+            },
+            "ended": {
+              "alive": 10473,
+              "annihilation": 2,
+              "fusion": 29990,
+              "split": 22827,
+              "exchange": 37320
+            }
+          },
+          "4": {
+            "ever": 154929,
+            "alive_at_end": 10167,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 490.93335011521407,
+            "lifetime_depth_max": 6614,
+            "hops_mean": 0.021409807072917272,
+            "hops_per_depth": 4.3610414871779926e-05,
+            "moved_fraction": 0.020770804691181123,
+            "born": {
+              "conjugate_pair": 40662,
+              "split_product": 25708,
+              "fusion_or_exchange_product": 88559
+            },
+            "ended": {
+              "alive": 10167,
+              "annihilation": 224,
+              "fusion": 44758,
+              "split": 28994,
+              "exchange": 70786
+            }
+          },
+          "5": {
+            "ever": 190519,
+            "alive_at_end": 207,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 145.66723528886882,
+            "lifetime_depth_max": 6614,
+            "hops_mean": 4.984563219416436,
+            "hops_per_depth": 0.03421883589354656,
+            "moved_fraction": 0.591568295025693,
+            "born": {
+              "conjugate_pair": 47400,
+              "split_product": 67220,
+              "fusion_or_exchange_product": 75899
+            },
+            "ended": {
+              "alive": 207,
+              "annihilation": 38106,
+              "fusion": 116437,
+              "split": 7853,
+              "exchange": 27916
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            7786,
+            13135,
+            5244,
+            13135,
+            7786
+          ],
+          "incident_ticks_min": 0,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          202,
+          10255,
+          10473,
+          10167,
+          207
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L8/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 47086,
+            "full_summary_rows": 47086,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              7786,
+              13135,
+              5244,
+              13135,
+              7786
+            ]
+          },
+          {
+            "url": "/runs/L8/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 31304,
+            "full_summary_rows": 31304,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              202,
+              10255,
+              10473,
+              10167,
+              207
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "supplied_view_rows_only",
+        "rows": 791298,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 190679,
+                "alive_at_end": 202,
+                "moved_identities": 112932,
+                "total_hops": 951878,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 47240,
+                  "split_product": 67189,
+                  "fusion_or_exchange_product": 76250
+                },
+                "ended": {
+                  "alive": 202,
+                  "annihilation": 37893,
+                  "fusion": 116697,
+                  "split": 8086,
+                  "exchange": 27801
+                }
+              },
+              "2": {
+                "ever": 155408,
+                "alive_at_end": 10255,
+                "moved_identities": 3313,
+                "total_hops": 3462,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 40648,
+                  "split_product": 25937,
+                  "fusion_or_exchange_product": 88823
+                },
+                "ended": {
+                  "alive": 10255,
+                  "annihilation": 223,
+                  "fusion": 44826,
+                  "split": 29186,
+                  "exchange": 70918
+                }
+              },
+              "3": {
+                "ever": 100481,
+                "alive_at_end": 10473,
+                "moved_identities": 95,
+                "total_hops": 96,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 11293,
+                  "split_product": 7742,
+                  "fusion_or_exchange_product": 81446
+                },
+                "ended": {
+                  "alive": 10473,
+                  "annihilation": 2,
+                  "fusion": 29974,
+                  "split": 22815,
+                  "exchange": 37217
+                }
+              },
+              "4": {
+                "ever": 154691,
+                "alive_at_end": 10167,
+                "moved_identities": 3218,
+                "total_hops": 3317,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 40654,
+                  "split_product": 25684,
+                  "fusion_or_exchange_product": 88353
+                },
+                "ended": {
+                  "alive": 10167,
+                  "annihilation": 222,
+                  "fusion": 44728,
+                  "split": 28971,
+                  "exchange": 70603
+                }
+              },
+              "5": {
+                "ever": 190039,
+                "alive_at_end": 207,
+                "moved_identities": 112619,
+                "total_hops": 949542,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 47229,
+                  "split_product": 67103,
+                  "fusion_or_exchange_product": 75707
+                },
+                "ended": {
+                  "alive": 207,
+                  "annihilation": 37877,
+                  "fusion": 116329,
+                  "split": 7841,
+                  "exchange": 27785
+                }
+              }
+            },
+            "pair_birth_events": null
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 3061770026,
+        "first_wholly_after_balance_sweep_index": 75,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 371395,
+        "tracked_tiers": [
+          "screen"
+        ]
+      },
+      "observer": {
+        "carrier": 65535,
+        "incident_ticks": 10064,
+        "hold_ticks": 7956,
+        "nonzero_current_ticks": 2108,
+        "load_rows_replayed": 10064,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "view IDs obey declared fixed sample",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz full class census",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "screen summary pair totals == tracked birth events",
+          "passed": true
+        },
+        {
+          "check": "screen summary annihilations == tracked annihilation events",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L8/run.json",
+          "url": "/runs/L8/run.json",
+          "sha256": "cf45abc8c153195baf71c4272f6aae386807c9e5202797ccb879e6a80668373f",
+          "bytes": 54559
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L8/view/class_stats.json",
+          "url": "/runs/L8/view/class_stats.json",
+          "sha256": "5552e4de8ecb76b1516e31f271f7a4717f2de533f20ac24f4de745574eff414e",
+          "bytes": 3742
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L8/stats.npz",
+          "url": "/runs/L8/stats.npz",
+          "sha256": "10d3de2acecd466eec434b835f39f17ffc19addf5516cac6000219a8db379810",
+          "bytes": 33655
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L8/view/catalogue.npz",
+          "url": "/runs/L8/view/catalogue.npz",
+          "sha256": "ef90c10b2c005191492b7860a3457c34774cabcd34b29caf4b541b57ed444236",
+          "bytes": 33730551
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L8/cuts/cut_00001.npz",
+          "url": "/runs/L8/cuts/cut_00001.npz",
+          "sha256": "8a241035063f508f1a7634c7d080834bb5d154b025a2a537dfc661286628e0c0",
+          "bytes": 998510
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L8/cuts/end.npz",
+          "url": "/runs/L8/cuts/end.npz",
+          "sha256": "d768369dab29eee5d2f909c845af0bd0d8c1793040d078a04cde04165a2ccb7d",
+          "bytes": 761875
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L8/observers/obs_65535.npz",
+          "url": "/runs/L8/observers/obs_65535.npz",
+          "sha256": "1f94c38f8d612b6ab32460b672a56d1cd9554aac98b1161a2a706706e3df3022",
+          "bytes": 272757
+        }
+      ]
+    },
+    {
+      "name": "L9",
+      "level": 9,
+      "sweeps": 300,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": false,
+        "display_sample": 2,
+        "full_identity_count": 3170656,
+        "analysed_catalogue_rows": 1582257,
+        "catalogue_positions_available": true,
+        "run_counts_authority": "stored_full_run_summary_crosschecked_with_stats_and_sampled_cuts",
+        "missing_full_catalogue_counts_recomputed": false
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 31236,
+            "whole_run_pair_births": 189997,
+            "whole_run_annihilations": 152990
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 51960,
+            "whole_run_pair_births": 161857,
+            "whole_run_annihilations": 893
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 10552,
+            "whole_run_pair_births": 22690,
+            "whole_run_annihilations": 3
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 763252,
+            "alive_at_end": 836,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 146.3587386603638,
+            "lifetime_depth_max": 6612,
+            "hops_mean": 5.011669802371956,
+            "hops_per_depth": 0.034242368089833726,
+            "moved_fraction": 0.5907590153710701,
+            "born": {
+              "conjugate_pair": 189997,
+              "split_product": 268777,
+              "fusion_or_exchange_product": 304478
+            },
+            "ended": {
+              "alive": 836,
+              "annihilation": 152990,
+              "fusion": 465568,
+              "split": 32017,
+              "exchange": 111841
+            }
+          },
+          "2": {
+            "ever": 620211,
+            "alive_at_end": 40593,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 489.5974450630511,
+            "lifetime_depth_max": 6612,
+            "hops_mean": 0.021815156454819407,
+            "hops_per_depth": 4.4557333120907155e-05,
+            "moved_fraction": 0.021002529784218595,
+            "born": {
+              "conjugate_pair": 161857,
+              "split_product": 103856,
+              "fusion_or_exchange_product": 354498
+            },
+            "ended": {
+              "alive": 40593,
+              "annihilation": 893,
+              "fusion": 178808,
+              "split": 116162,
+              "exchange": 283755
+            }
+          },
+          "3": {
+            "ever": 402646,
+            "alive_at_end": 41471,
+            "lifetime_depth_median": 27.0,
+            "lifetime_depth_mean": 697.2041545178644,
+            "lifetime_depth_max": 6612,
+            "hops_mean": 0.00097355990125321,
+            "hops_per_depth": 1.3963770797184265e-06,
+            "moved_fraction": 0.0009685927588998773,
+            "born": {
+              "conjugate_pair": 45380,
+              "split_product": 30568,
+              "fusion_or_exchange_product": 326698
+            },
+            "ended": {
+              "alive": 41471,
+              "annihilation": 6,
+              "fusion": 120169,
+              "split": 91302,
+              "exchange": 149698
+            }
+          },
+          "4": {
+            "ever": 621056,
+            "alive_at_end": 40880,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 492.802781069662,
+            "lifetime_depth_max": 6612,
+            "hops_mean": 0.02187081358202803,
+            "hops_per_depth": 4.438045892224053e-05,
+            "moved_fraction": 0.02108022464962902,
+            "born": {
+              "conjugate_pair": 161857,
+              "split_product": 103831,
+              "fusion_or_exchange_product": 355368
+            },
+            "ended": {
+              "alive": 40880,
+              "annihilation": 893,
+              "fusion": 179315,
+              "split": 116528,
+              "exchange": 283440
+            }
+          },
+          "5": {
+            "ever": 763491,
+            "alive_at_end": 823,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 145.9403712682926,
+            "lifetime_depth_max": 6612,
+            "hops_mean": 4.995430201534792,
+            "hops_per_depth": 0.034229255127433765,
+            "moved_fraction": 0.5911084741012009,
+            "born": {
+              "conjugate_pair": 189997,
+              "split_product": 269042,
+              "fusion_or_exchange_product": 304452
+            },
+            "ended": {
+              "alive": 823,
+              "annihilation": 152990,
+              "fusion": 465640,
+              "split": 32028,
+              "exchange": 112010
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            31236,
+            51960,
+            21104,
+            51960,
+            31236
+          ],
+          "incident_ticks_min": 0,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          836,
+          40593,
+          41471,
+          40880,
+          823
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L9/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 93748,
+            "full_summary_rows": 187496,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              15625,
+              25777,
+              10552,
+              26183,
+              15611
+            ]
+          },
+          {
+            "url": "/runs/L9/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 62341,
+            "full_summary_rows": 124603,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              411,
+              20346,
+              20767,
+              20431,
+              386
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "supplied_view_rows_only",
+        "rows": 1582257,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 380612,
+                "alive_at_end": 411,
+                "moved_identities": 225108,
+                "total_hops": 1911228,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 94599,
+                  "split_product": 134176,
+                  "fusion_or_exchange_product": 151837
+                },
+                "ended": {
+                  "alive": 411,
+                  "annihilation": 76325,
+                  "fusion": 232204,
+                  "split": 15953,
+                  "exchange": 55719
+                }
+              },
+              "2": {
+                "ever": 309120,
+                "alive_at_end": 20346,
+                "moved_identities": 6490,
+                "total_hops": 6726,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 80350,
+                  "split_product": 52089,
+                  "fusion_or_exchange_product": 176681
+                },
+                "ended": {
+                  "alive": 20346,
+                  "annihilation": 450,
+                  "fusion": 89047,
+                  "split": 58241,
+                  "exchange": 141036
+                }
+              },
+              "3": {
+                "ever": 201192,
+                "alive_at_end": 20767,
+                "moved_identities": 198,
+                "total_hops": 199,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 22683,
+                  "split_product": 15207,
+                  "fusion_or_exchange_product": 163302
+                },
+                "ended": {
+                  "alive": 20767,
+                  "annihilation": 1,
+                  "fusion": 60084,
+                  "split": 45583,
+                  "exchange": 74757
+                }
+              },
+              "4": {
+                "ever": 310441,
+                "alive_at_end": 20431,
+                "moved_identities": 6637,
+                "total_hops": 6884,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 81472,
+                  "split_product": 51795,
+                  "fusion_or_exchange_product": 177174
+                },
+                "ended": {
+                  "alive": 20431,
+                  "annihilation": 445,
+                  "fusion": 89956,
+                  "split": 58378,
+                  "exchange": 141231
+                }
+              },
+              "5": {
+                "ever": 380892,
+                "alive_at_end": 386,
+                "moved_identities": 225441,
+                "total_hops": 1903024,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 94791,
+                  "split_product": 134180,
+                  "fusion_or_exchange_product": 151921
+                },
+                "ended": {
+                  "alive": 386,
+                  "annihilation": 75759,
+                  "fusion": 232529,
+                  "split": 16093,
+                  "exchange": 56125
+                }
+              }
+            },
+            "pair_birth_events": null
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 15798969110,
+        "first_wholly_after_balance_sweep_index": 96,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 1096721,
+        "tracked_tiers": [
+          "screen"
+        ]
+      },
+      "observer": {
+        "carrier": 262143,
+        "incident_ticks": 9860,
+        "hold_ticks": 7392,
+        "nonzero_current_ticks": 2468,
+        "load_rows_replayed": 9860,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "view IDs obey declared fixed sample",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "screen summary pair totals == tracked birth events",
+          "passed": true
+        },
+        {
+          "check": "screen summary annihilations == tracked annihilation events",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L9/run.json",
+          "url": "/runs/L9/run.json",
+          "sha256": "b62843a16cd25bebe1ebb490bac55e9d9b8204fee23984430e0a1037bc8fb9f6",
+          "bytes": 55364
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L9/view/class_stats.json",
+          "url": "/runs/L9/view/class_stats.json",
+          "sha256": "abd45c5d8c122bcd10c0a02ee28c944a4e1dd9c656f4b97e3f48d08a58547534",
+          "bytes": 3800
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L9/stats.npz",
+          "url": "/runs/L9/stats.npz",
+          "sha256": "7ee29e2a66facb5b95418587e26bd0fd6e8c8cc29bf70d17fd2954bc4773b138",
+          "bytes": 35577
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L9/view/catalogue.npz",
+          "url": "/runs/L9/view/catalogue.npz",
+          "sha256": "ea23e940447b874f35f6f9ea285e10dc5a4b5d2ead90914a7f1e891251411e8a",
+          "bytes": 72045654
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L9/cuts/cut_00001.npz",
+          "url": "/runs/L9/cuts/cut_00001.npz",
+          "sha256": "facb4cabd0491b7ef4f9cc86c586141e62e12a22559df6ec27aded5c33a14340",
+          "bytes": 1814681
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L9/cuts/end.npz",
+          "url": "/runs/L9/cuts/end.npz",
+          "sha256": "556ed108ad53422c9188a330d91c12aa5a974db4e9811e7249620c9d1ae3bac9",
+          "bytes": 1407075
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L9/observers/obs_262143.npz",
+          "url": "/runs/L9/observers/obs_262143.npz",
+          "sha256": "5ff5df922958e48906eff34b0f677d7e279069481eb900624d1e96824c1a79a4",
+          "bytes": 277449
+        }
+      ]
+    },
+    {
+      "name": "L10",
+      "level": 10,
+      "sweeps": 300,
+      "preparation": {
+        "name": "exact06",
+        "rule": "numpy.random.default_rng(20260909 + level).integers(0, 6, size=ports)",
+        "source": "oph_exact.federation.initial_loads"
+      },
+      "regime": "quench: the seeded loads carry variance 35/12 per port against 1/4 in the balanced band; block totals are conserved, so after the balanced class is reached the long density modes are still far from the canonical equilibrium and relax at rate 2 lambda_k in scaled time tau = sweeps / (2 * 4^level); statistics of this run are quench statistics",
+      "register": {
+        "cost_table": [
+          0,
+          5,
+          8,
+          10,
+          8,
+          5
+        ],
+        "kappa": 5,
+        "feeds_back_into_loads": false,
+        "initial_register": "all zero"
+      },
+      "data_scope": {
+        "full_catalogue_local": false,
+        "display_sample": 8,
+        "full_identity_count": 12679156,
+        "analysed_catalogue_rows": 1581745,
+        "catalogue_positions_available": false,
+        "run_counts_authority": "stored_full_run_summary_crosschecked_with_stats_and_sampled_cuts",
+        "missing_full_catalogue_counts_recomputed": false
+      },
+      "screen": {
+        "pairs": [
+          {
+            "classes": [
+              1,
+              5
+            ],
+            "candidate_family": "qL",
+            "first_cut_pair_births": 124786,
+            "whole_run_pair_births": 757258,
+            "whole_run_annihilations": 609494
+          },
+          {
+            "classes": [
+              2,
+              4
+            ],
+            "candidate_family": "qR",
+            "first_cut_pair_births": 208860,
+            "whole_run_pair_births": 649302,
+            "whole_run_annihilations": 3585
+          },
+          {
+            "classes": [
+              3,
+              3
+            ],
+            "candidate_family": "lepton",
+            "first_cut_pair_births": 41328,
+            "whole_run_pair_births": 89909,
+            "whole_run_annihilations": 17
+          }
+        ],
+        "classes": {
+          "1": {
+            "ever": 3053295,
+            "alive_at_end": 3402,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 146.53061725119912,
+            "lifetime_depth_max": 6627,
+            "hops_mean": 5.015823561103661,
+            "hops_per_depth": 0.03423054959568604,
+            "moved_fraction": 0.5914649583482762,
+            "born": {
+              "conjugate_pair": 757258,
+              "split_product": 1076387,
+              "fusion_or_exchange_product": 1219650
+            },
+            "ended": {
+              "alive": 3402,
+              "annihilation": 609494,
+              "fusion": 1864826,
+              "split": 127797,
+              "exchange": 447776
+            }
+          },
+          "2": {
+            "ever": 2486092,
+            "alive_at_end": 163775,
+            "lifetime_depth_median": 25.0,
+            "lifetime_depth_mean": 493.39510565176187,
+            "lifetime_depth_max": 6627,
+            "hops_mean": 0.02168222254043696,
+            "hops_per_depth": 4.394494856570439e-05,
+            "moved_fraction": 0.02089102092762456,
+            "born": {
+              "conjugate_pair": 649302,
+              "split_product": 415203,
+              "fusion_or_exchange_product": 1421587
+            },
+            "ended": {
+              "alive": 163775,
+              "annihilation": 3585,
+              "fusion": 717131,
+              "split": 465945,
+              "exchange": 1135656
+            }
+          },
+          "3": {
+            "ever": 1607810,
+            "alive_at_end": 163721,
+            "lifetime_depth_median": 27.0,
+            "lifetime_depth_mean": 692.8210951542782,
+            "lifetime_depth_max": 6627,
+            "hops_mean": 0.001012557453928014,
+            "hops_per_depth": 1.461499167692832e-06,
+            "moved_fraction": 0.0010075817416236993,
+            "born": {
+              "conjugate_pair": 179818,
+              "split_product": 122895,
+              "fusion_or_exchange_product": 1305097
+            },
+            "ended": {
+              "alive": 163721,
+              "annihilation": 34,
+              "fusion": 481000,
+              "split": 363749,
+              "exchange": 599306
+            }
+          },
+          "4": {
+            "ever": 2481326,
+            "alive_at_end": 163082,
+            "lifetime_depth_median": 24.0,
+            "lifetime_depth_mean": 492.3642637041646,
+            "lifetime_depth_max": 6627,
+            "hops_mean": 0.022006781857764758,
+            "hops_per_depth": 4.4696139586173255e-05,
+            "moved_fraction": 0.021183834772214534,
+            "born": {
+              "conjugate_pair": 649302,
+              "split_product": 413384,
+              "fusion_or_exchange_product": 1418640
+            },
+            "ended": {
+              "alive": 163082,
+              "annihilation": 3585,
+              "fusion": 716776,
+              "split": 466271,
+              "exchange": 1131612
+            }
+          },
+          "5": {
+            "ever": 3050633,
+            "alive_at_end": 3351,
+            "lifetime_depth_median": 36.0,
+            "lifetime_depth_mean": 146.52484254907097,
+            "lifetime_depth_max": 6627,
+            "hops_mean": 5.017880551347868,
+            "hops_per_depth": 0.03424593716705334,
+            "moved_fraction": 0.5911936965213449,
+            "born": {
+              "conjugate_pair": 757258,
+              "split_product": 1075329,
+              "fusion_or_exchange_product": 1218046
+            },
+            "ended": {
+              "alive": 3351,
+              "annihilation": 609494,
+              "fusion": 1862295,
+              "split": 127837,
+              "exchange": 447656
+            }
+          }
+        },
+        "first_cut": {
+          "depth": 1,
+          "counts": [
+            0,
+            124786,
+            208860,
+            82656,
+            208860,
+            124786
+          ],
+          "incident_ticks_min": 0,
+          "incident_ticks_max": 6
+        },
+        "end_counts": [
+          0,
+          3402,
+          163775,
+          163721,
+          163082,
+          3351
+        ],
+        "cut_checks": [
+          {
+            "url": "/runs/L10/cuts/cut_00001.npz",
+            "depth": 1,
+            "actual_stored_rows": 93524,
+            "full_summary_rows": 749948,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              15493,
+              26124,
+              10368,
+              26083,
+              15456
+            ]
+          },
+          {
+            "url": "/runs/L10/cuts/end.npz",
+            "depth": null,
+            "actual_stored_rows": 62341,
+            "full_summary_rows": 497331,
+            "actual_positions_available": true,
+            "stored_counts_screen": [
+              0,
+              407,
+              20402,
+              20413,
+              20696,
+              423
+            ]
+          }
+        ]
+      },
+      "catalogue_census": {
+        "scope": "supplied_view_rows_only",
+        "rows": 1581745,
+        "tiers": {
+          "screen": {
+            "classes": {
+              "1": {
+                "ever": 381312,
+                "alive_at_end": 407,
+                "moved_identities": 225251,
+                "total_hops": 1913662,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 94262,
+                  "split_product": 134432,
+                  "fusion_or_exchange_product": 152618
+                },
+                "ended": {
+                  "alive": 407,
+                  "annihilation": 75691,
+                  "fusion": 233395,
+                  "split": 15875,
+                  "exchange": 55944
+                }
+              },
+              "2": {
+                "ever": 310516,
+                "alive_at_end": 20402,
+                "moved_identities": 6540,
+                "total_hops": 6798,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 81333,
+                  "split_product": 51768,
+                  "fusion_or_exchange_product": 177415
+                },
+                "ended": {
+                  "alive": 20402,
+                  "annihilation": 379,
+                  "fusion": 89688,
+                  "split": 58105,
+                  "exchange": 141942
+                }
+              },
+              "3": {
+                "ever": 200143,
+                "alive_at_end": 20413,
+                "moved_identities": 187,
+                "total_hops": 187,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 22368,
+                  "split_product": 15306,
+                  "fusion_or_exchange_product": 162469
+                },
+                "ended": {
+                  "alive": 20413,
+                  "annihilation": 5,
+                  "fusion": 60090,
+                  "split": 45715,
+                  "exchange": 73920
+                }
+              },
+              "4": {
+                "ever": 309757,
+                "alive_at_end": 20696,
+                "moved_identities": 6701,
+                "total_hops": 6970,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 81120,
+                  "split_product": 51612,
+                  "fusion_or_exchange_product": 177025
+                },
+                "ended": {
+                  "alive": 20696,
+                  "annihilation": 486,
+                  "fusion": 89336,
+                  "split": 58002,
+                  "exchange": 141237
+                }
+              },
+              "5": {
+                "ever": 380017,
+                "alive_at_end": 423,
+                "moved_identities": 225320,
+                "total_hops": 1916713,
+                "born": {
+                  "prepared": 0,
+                  "conjugate_pair": 94458,
+                  "split_product": 134200,
+                  "fusion_or_exchange_product": 151359
+                },
+                "ended": {
+                  "alive": 423,
+                  "annihilation": 75354,
+                  "fusion": 232866,
+                  "split": 15873,
+                  "exchange": 55501
+                }
+              }
+            },
+            "pair_birth_events": null
+          }
+        }
+      },
+      "balance": {
+        "reached": true,
+        "attempt": 57517096274,
+        "first_wholly_after_balance_sweep_index": 88,
+        "pair_birth_events_after_balance": 0,
+        "potential_released_after_balance": 0,
+        "moves_after_balance": 4988965,
+        "tracked_tiers": [
+          "screen"
+        ]
+      },
+      "observer": {
+        "carrier": 1048575,
+        "incident_ticks": 9907,
+        "hold_ticks": 7406,
+        "nonzero_current_ticks": 2501,
+        "load_rows_replayed": 9907,
+        "load_row_mismatches": 0,
+        "final_loads_match": true,
+        "cut_tick_mismatches": 0,
+        "frame_orthogonality_error": 7.278353564288409e-08,
+        "frame_determinant": 1.0000000013292638,
+        "physical_seconds_per_incident_tick": null,
+        "clock_scope": "Every incident seam attempt, including holds; distinct from causal depth and sweep."
+      },
+      "checks": [
+        {
+          "check": "stats.births.sum == tracker_totals.births",
+          "passed": true
+        },
+        {
+          "check": "stats.moves.sum == tracker_totals.moves",
+          "passed": true
+        },
+        {
+          "check": "stats.annihilations.sum == tracker_totals.annihilations",
+          "passed": true
+        },
+        {
+          "check": "stats.fusions.sum == tracker_totals.fusions",
+          "passed": true
+        },
+        {
+          "check": "stats.splits.sum == tracker_totals.splits",
+          "passed": true
+        },
+        {
+          "check": "stats.exchanges.sum == tracker_totals.exchanges",
+          "passed": true
+        },
+        {
+          "check": "stats identities final == metadata identities",
+          "passed": true
+        },
+        {
+          "check": "load potential ledger",
+          "passed": true
+        },
+        {
+          "check": "end load census conserves load",
+          "passed": true
+        },
+        {
+          "check": "end census agrees with stats",
+          "passed": true
+        },
+        {
+          "check": "view IDs obey declared fixed sample",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/cut_00001.npz rows alive on cut",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz all IDs available in selected catalogue",
+          "passed": true
+        },
+        {
+          "check": "cuts/end.npz classes match catalogue",
+          "passed": true
+        },
+        {
+          "check": "end cut rows alive",
+          "passed": true
+        },
+        {
+          "check": "root observer tape replay",
+          "passed": true
+        },
+        {
+          "check": "root observer cut clocks",
+          "passed": true
+        },
+        {
+          "check": "screen summary pair totals == tracked birth events",
+          "passed": true
+        },
+        {
+          "check": "screen summary annihilations == tracked annihilation events",
+          "passed": true
+        },
+        {
+          "check": "class statistics final census",
+          "passed": true
+        }
+      ],
+      "all_checks_pass": true,
+      "sources": [
+        {
+          "file": "oph-physics-sim/runs/universe/L10/run.json",
+          "url": "/runs/L10/run.json",
+          "sha256": "a71bed18fd04f4aedd61448d40251a7fa5341da8e4c22f5e3b0e311af5c37d11",
+          "bytes": 56973
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L10/view/class_stats.json",
+          "url": "/runs/L10/view/class_stats.json",
+          "sha256": "915dd2c2c85c8e4ceb77ac27f7d300eb7ae1eb6c63477ecc839b16fe209921a8",
+          "bytes": 3880
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L10/stats.npz",
+          "url": "/runs/L10/stats.npz",
+          "sha256": "3fc99f29ae6c2e02d3656ce3d609377e87014a491db5c8853ca19b1c4c6978fe",
+          "bytes": 37854
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L10/view/catalogue.npz",
+          "url": "/runs/L10/view/catalogue.npz",
+          "sha256": "8dea19b2512bb403d0d474a4595653a7a18bbdb8576de11535cf50509fde5104",
+          "bytes": 38179440
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L10/cuts/cut_00001.npz",
+          "url": "/runs/L10/cuts/cut_00001.npz",
+          "sha256": "336825eb3a346e9f8c82a8ec37aca77699e6001e05f25fc55ec4b83871c89c1e",
+          "bytes": 1932752
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L10/cuts/end.npz",
+          "url": "/runs/L10/cuts/end.npz",
+          "sha256": "edb743910763a0f9e0eae58ef34a99f58d658a387be22688699a3d634f9133ff",
+          "bytes": 1528806
+        },
+        {
+          "file": "oph-physics-sim/runs/universe/L10/observers/obs_1048575.npz",
+          "url": "/runs/L10/observers/obs_1048575.npz",
+          "sha256": "e0786a8b6e9237a6d50d51f5c3037c83908538d2a9a1e77ec444ef1e36885478",
+          "bytes": 279716
+        }
+      ]
+    }
+  ],
+  "passive_register_control": {
+    "level": 1,
+    "sweeps": 6,
+    "attempts": 15120,
+    "same_preparation_schedule_and_coins": true,
+    "all_load_current_contrast_total_depth_records_equal": true,
+    "register_on_identity_count": 553,
+    "register_off_identity_count": 0,
+    "scope": "Constructive finite control; source kernels.py shows load/current update independent of register."
+  },
+  "source_code": [
+    {
+      "file": "oph-physics-sim/oph_defects/universe.py",
+      "sha256": "da64cf0d9fe1e35ba771e8bee44e8f42f1960a33c115ecc1c956c10f906383b1"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/kernels.py",
+      "sha256": "d91a4579fb2108f5c0be528f62361c94aba7bf71d069ecba1b3a1db266954f52"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/tracking.py",
+      "sha256": "076781b83afcaef0d8894eed53f5dbd963948dd9d19b2ee56c49e54bec203c69"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/dataset.py",
+      "sha256": "681d6353f2966a9daf055ebcbf984bc5ffea1d7f841d79eacc4160a27af35848"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/DATASET.md",
+      "sha256": "1ceb8724bb583860c20ab057aad940e2ecb6447bb863e8c3e3f4bee7912f631b"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/README.md",
+      "sha256": "23d134037fb563f80e7b7efbaafbee279fe031e9bdecf7b7aa6020a3283f28ba"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/run_evidence.py",
+      "sha256": "3852b0af72985e2e0fe391b193bbb8f6471b0851a48fb863e1398ac633f35419"
+    },
+    {
+      "file": "repair-law/reports/GEN.md",
+      "sha256": "10b6e9dd996bea84837a7892b6816acefc1e41fb09e06d0f1ea6467df7acc490"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/viewer2/cosmos.js",
+      "sha256": "26e5093328173dcc1ce1cecca5c9005f0999bd276da012aa15268ffce43f0a06"
+    },
+    {
+      "file": "oph-physics-sim/oph_defects/viewer2/cosmos_evidence.js",
+      "sha256": "0a65c668ce29797bad6de9ac01bb0c466f8222adf500ce95693c6a012f525beb"
+    },
+    {
+      "file": "repair-law/work/CODEX_JOIN_SIMULATOR/cosmology_comparison.json",
+      "sha256": "a08e5a90f1d193bfbaefe9bc9d4bdf83a41c214e46afbcef37ce11406e53c017"
+    }
+  ],
+  "all_checks_pass": true
+}

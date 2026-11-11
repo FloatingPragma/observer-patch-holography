@@ -1,0 +1,211 @@
+#!/usr/bin/env python
+"""Worker R3, finite volume (float64; executed on the reference engine work/DIRAC/routing.py, imported by path).
+
+ A. Spectrum of two alternating ticks on a small periodic patch, built from the engine state by state, against
+    the closed form on the momentum grid; the same with flat link holonomies (twisted grid).
+ B. Plane waves on a twisted patch: Z2 holonomies and a phase holonomy exp(i phi).
+ C. A Gaussian packet on 256 x 128 x 1 cells on the positive branch: the engine against the closed-form phase, against the
+    relativistic phase, and against exp(-i n H) in both frames, with the bounds of THEOREM.md.
+
+ D. The coin frame: a blank spin-up Gaussian at rest on a line drifts along the spin axis; with the half-step
+    rotation of the coin it does not.
+
+    python r3_finite_volume.py [out.json] [sections]      sections: any of ABCD (default all); each call stays under 20 CPU seconds
+"""
+import importlib.util, itertools, json, os, sys, time
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
+RL = os.path.dirname(os.path.dirname(HERE))
+spec = importlib.util.spec_from_file_location('routing', os.path.join(RL, 'work', 'DIRAC', 'routing.py'))
+routing = importlib.util.module_from_spec(spec); spec.loader.exec_module(routing)
+Routing, SIG, I2 = routing.Routing, routing.SIG, routing.I2
+import r3_closed_forms as cf
+from r3_numeric_lib import D_fwd, D_rev, W2, expH, Mfac, dag
+
+T0 = time.time(); out = {}
+want = sys.argv[2] if len(sys.argv) > 2 else 'ABCD'
+f = lambda x, d=3: float(f'{float(x):.{d}e}')
+rng = np.random.default_rng(7)
+
+
+def flat_links(shape, hol):
+    """flat link field with holonomy hol[i] (a sign or a phase) around axis i: one twisted slice per axis"""
+    links = []
+    for i in range(3):
+        z = np.ones(shape, dtype=complex)
+        idx = [slice(None)] * 3; idx[i] = shape[i] - 1
+        z[tuple(idx)] = hol[i]
+        links.append(z)
+    return links
+
+
+# ---------------------------------------------------------------- A. spectrum on a patch
+if 'A' in want:
+    def two_tick_matrix(shape, theta, hol=None):
+        w = Routing(shape, None if hol is None else flat_links(shape, hol))
+        dim = int(np.prod(shape)) * 4; U = np.zeros((dim, dim), complex)
+        for k in range(dim):
+            e = np.zeros(dim, complex); e[k] = 1
+            psi = e.reshape(shape + (2, 2))
+            U[:, k] = w.tick(w.tick(psi, theta), theta, reverse=True).reshape(-1)
+        return U
+
+
+    rows = []
+    for shape, hol in (((4, 3, 2), None), ((4, 3, 2), (-1, 1, 1)), ((4, 3, 2), (-1, -1, -1)), ((4, 4, 2), (np.exp(2j * np.pi / 6), 1, 1))):
+        theta = 0.157935
+        U = two_tick_matrix(shape, theta, hol)
+        ph = np.angle(np.linalg.eigvals(U))
+        phi = [0.0 if hol is None else float(np.angle(h)) for h in (hol or (1, 1, 1))]
+        grids = [(2 * np.pi * np.arange(L) + phi[i]) / L for i, L in enumerate(shape)]
+        p = np.stack(np.meshgrid(*grids, indexing='ij'), -1).reshape(-1, 3)
+        Om = 2 * cf.omega(p, theta)
+        expect = np.sort(np.concatenate([Om, Om, -Om, -Om]) % (2 * np.pi))
+        gaps = np.diff(np.concatenate([expect, [expect[0] + 2 * np.pi]])); cut = expect[np.argmax(gaps)] + gaps.max() / 2
+        expect = np.sort((expect - cut) % (2 * np.pi)); ph = np.sort((ph - cut) % (2 * np.pi))  # compare on the circle, cut in the largest gap
+        rows.append({'cells': list(shape), 'holonomy angles': [round(x, 6) for x in phi], 'dimension': int(U.shape[0]),
+                     'unitarity defect': f(np.abs(U.conj().T @ U - np.eye(len(U))).max()),
+                     'max | eigenphases of two engine ticks - (+-2 w(p), each twice) on the grid p_i = (2 pi m_i + phi_i)/L_i |': f(np.abs(ph - expect).max()),
+                     'smallest phase per tick': round(float(Om.min() / 2), 6)})
+    out['A spectrum of two ticks on a patch (theta = 0.157935)'] = rows
+
+# ---------------------------------------------------------------- B. twisted plane waves
+if 'B' in want:
+    rows = []
+    shape = (8, 6, 4)
+    for hol in ((-1, 1, 1), (-1, -1, 1), (-1, -1, -1), (np.exp(2j * np.pi / 6), 1, np.exp(-2j * np.pi / 3))):
+        w = Routing(shape, flat_links(shape, hol)); worst = 0.0; worst_wrong = 0.0
+        for _ in range(6):
+            m = rng.integers(0, 8, 3)
+            n = tuple(float(m[i]) + np.angle(hol[i]) / (2 * np.pi) for i in range(3))
+            nw = tuple(float(m[i]) - np.angle(hol[i]) / (2 * np.pi) for i in range(3))       # the other sign
+            e = rng.normal(size=4) + 1j * rng.normal(size=4); e /= np.linalg.norm(e)
+            for th in (0.0, 0.157935):
+                p = w.momentum(n); psi = w.plane_wave(n, e)
+                got = w.tick(w.tick(psi, th), th, reverse=True)
+                worst = max(worst, np.abs(got - w.plane_wave(n, W2(p, th) @ e)).max())
+                pw = w.momentum(nw); psi = w.plane_wave(nw, e)
+                got = w.tick(w.tick(psi, th), th, reverse=True)
+                worst_wrong = max(worst_wrong, np.abs(got - w.plane_wave(nw, W2(pw, th) @ e)).max())
+        rows.append({'holonomies': [str(np.round(h, 4)) for h in hol],
+                     'two ticks on exp(i p.x) with exp(i p_i L_i) = holonomy_i, against W2(p)': f(worst),
+                     'the same with exp(i p_i L_i) = conjugate holonomy (control; zero only for signs)': f(worst_wrong)})
+    out['B twisted plane waves on 8 x 6 x 4 cells'] = rows
+    out['B lowest phase per tick'] = [
+        {'L': L, 'theta': th, 'periodic (p = 0)': round(float(cf.omega(np.zeros((1, 3)), th)[0]), 6),
+         'one antiperiodic axis: arccos(cos theta cos(pi/L))': round(float(cf.omega(np.array([[np.pi / L, 0, 0]]), th)[0]), 6),
+         'three antiperiodic axes': round(float(cf.omega(np.full((1, 3), np.pi / L), th)[0]), 6)}
+        for L in (16, 48, 64) for th in (0.0, 0.157935)]
+
+# ---------------------------------------------------------------- C. a packet
+if 'C' in want:
+    shape = (256, 128, 1); theta = 0.157935; Ncell = int(np.prod(shape))
+    ks = [np.fft.fftfreq(L, 1 / L) for L in shape]
+    p = np.stack(np.meshgrid(*[2 * np.pi * ks[i] / shape[i] for i in range(3)], indexing='ij'), -1)
+    p0 = 2 * np.pi * np.array([6 / 256, 2 / 128, 0.0]); sig_p = 0.03
+    g = np.exp(-np.sum((p - p0) ** 2, -1) / (4 * sig_p ** 2))                       # |g|^2 has width sig_p per axis
+    pf = p.reshape(-1, 3); th = np.full(len(pf), theta)
+    W = W2(pf, th); w_ = cf.omega(pf, th); E = cf.energy(pf, th)
+    sO = np.sin(2 * w_); safe = sO > 1e-9
+    Nhat = 1j * (W - np.cos(2 * w_)[:, None, None] * np.eye(4)) / np.where(safe, sO, 1.0)[:, None, None]
+    chi0 = np.array([1.0, 0.3, 0.2j, 0.1]); chi0 = chi0 / np.linalg.norm(chi0)
+    chi = ((np.eye(4) + Nhat) / 2) @ chi0                                           # positive branch: W2 chi = exp(-2 i w) chi
+    chi = np.where(safe[:, None], chi, chi0); chi /= np.linalg.norm(chi, axis=1, keepdims=True)
+    F = g.reshape(-1, 1) * chi; F /= np.linalg.norm(F)
+    wgt = np.sum(np.abs(F) ** 2, 1)
+    out['C packet'] = {'cells': list(shape), 'theta': theta, 'centre p0': [round(float(x), 6) for x in p0], 'momentum width per axis (axes 1, 2)': sig_p,
+                       'position width per axis (cells)': round(1 / (2 * sig_p), 3),
+                       'branch defect: || W2 chi - exp(-2 i w) chi || weighted': f(np.sqrt(np.sum(wgt * np.linalg.norm((W @ chi[..., None])[..., 0] - np.exp(-2j * w_)[:, None] * chi, axis=1) ** 2))),
+                       'mean E': round(float(np.sum(wgt * E)), 6), 'mean w': round(float(np.sum(wgt * w_)), 6),
+                       'mean (E - w) per tick': f(np.sum(wgt * (E - w_))), 'leading term N/(6E) at p0': f(cf.N_lead(p0[None], theta)[0] / (6 * cf.energy(p0[None], theta)[0]))}
+    toF = lambda psi: (np.fft.fftn(psi.reshape(shape + (4,)), axes=(0, 1, 2)) / np.sqrt(Ncell)).reshape(-1, 4)
+    psi = (np.fft.ifftn(F.reshape(shape + (4,)), axes=(0, 1, 2)) * np.sqrt(Ncell)).reshape(shape + (2, 2))
+    eng = Routing(shape)
+    Mh = Mfac(theta / 2)                                                             # M^(1/2)
+    Pwin = np.array([abs(p0[0]) + 3 * sig_p, abs(p0[1]) + 3 * sig_p, 0.0])
+    inside = np.all(np.abs(pf) <= Pwin + 1e-12, axis=1)
+    w_out = float(np.sum(wgt[~inside])); Kw = cf.K_window(Pwin, theta)
+    rows = []; pos = [[eng.mean_position(psi, a) for a in range(2)]]; unwrapped = np.zeros(2)
+    n = 0
+    for target in (2, 10, 20, 50, 100, 200):
+        while n < target:
+            psi = eng.tick(psi, theta, reverse=bool(n % 2)); n += 1
+            if n % 10 == 0 and n <= 100:
+                cur = [eng.mean_position(psi, a) for a in range(2)]
+                unwrapped += (np.array(cur) - np.array(pos[-1]) + np.array(shape[:2]) / 2) % np.array(shape[:2]) - np.array(shape[:2]) / 2; pos.append(cur)
+        Fn = toF(psi)
+        pred = np.exp(-1j * n * w_)[:, None] * F
+        rel = np.exp(-1j * n * E)[:, None] * F
+        UH = expH(pf, th, n)
+        dir_own = (UH @ F[..., None])[..., 0]
+        dir_half = (Mh @ UH @ dag(Mh) @ F[..., None])[..., 0]
+        rows.append({'n': n,
+                     'engine against closed-form phase exp(-i n w(p)) on the coin': f(np.linalg.norm(Fn - pred)),
+                     'engine against relativistic phase exp(-i n E(p)) on the coin': f(np.linalg.norm(Fn - rel)),
+                     'exact mode sum sqrt(sum |F|^2 4 sin^2(n (E - w)/2))': f(np.sqrt(np.sum(wgt * 4 * np.sin(n * (E - w_) / 2) ** 2))),
+                     'window bound n K_window + 2 sqrt(weight outside)': f(n * Kw + 2 * np.sqrt(w_out)),
+                     'engine against exp(-i n H), half-step frame': f(np.linalg.norm(Fn - dir_half)),
+                     'bound sqrt(sum |F|^2 [n (E - w) + 2 sin(delta/2)]^2)': f(np.sqrt(np.sum(wgt * (n * (E - w_) + cf.tilt_chord(pf, th)) ** 2))),
+                     'engine against exp(-i n H), tick frame': f(np.linalg.norm(Fn - dir_own)),
+                     'bound with the frame term added': f(np.sqrt(np.sum(wgt * (n * (E - w_) + cf.tilt_chord(pf, th) + 2 * np.sin(theta / 2) * np.sin(cf.rho(pf)) / np.sin(w_)) ** 2)))})
+    out['C packet']['errors over n ticks (state norm)'] = rows
+    out['C packet']['window'] = {'P_i = |p0_i| + 3 widths': [round(float(x), 5) for x in Pwin], 'weight outside': f(w_out), 'K_window per tick': f(Kw),
+                                 'sum P_i^2 + theta^2 (must be <= 1/4)': round(float(np.sum(Pwin ** 2) + theta ** 2), 4)}
+    vg = np.sum(wgt[:, None] * cf.group_velocity(pf, th), 0); vr = np.sum(wgt[:, None] * pf / E[:, None], 0)
+    out['C packet']['velocity over the first 100 ticks (cells per tick, axes 1 and 2)'] = {'engine centroid': [round(float(x), 6) for x in unwrapped / 100],
+        'mean of the closed-form group velocity': [round(float(x), 6) for x in vg[:2]], 'mean of p/E': [round(float(x), 6) for x in vr[:2]]}
+# ---------------------------------------------------------------- D. the coin frame, executed: a blank spin-up quantum at rest
+if 'D' in want:
+    # W2^(n/2) = M^(1/2) What^(n/2) M^(-1/2) = exp(-i n w) Pi+ + exp(i n w) Pi-, Pi+- = (1 +- Nhat)/2,
+    # Nhat = M^(1/2) (n_s.alpha + n_4 beta) M^(-1/2). For a packet f(p) chi with real even f the centre after n ticks is
+    #   <z>_n = n vbar + c0 + (terms oscillating at 2 w),   vbar = sum |f|^2 <chi|Nhat|chi> dw/dp3,
+    #   c0 = sum |f|^2 Re <chi| (i/2) Nhat dNhat/dp3 |chi>   (the offset known from the Dirac equation as Zitterbewegung).
+    # For the blank spin-up coin <Nhat> = -sin(theta) n_s3(p) (beta = Y_r): the centre drifts. For M^(1/2)|blank, up> it does not.
+    shape = (1, 1, 2048); Lz = 2048; wd = 6.0; n_ticks = 600
+    z = np.arange(Lz) - Lz // 2
+    env = np.exp(-z ** 2 / (2 * wd ** 2)); env /= np.linalg.norm(env)
+    eng = Routing(shape)
+    kz = 2 * np.pi * np.fft.fftfreq(Lz, 1.0); fz = np.abs(np.fft.fft(env)) ** 2; fz /= fz.sum()
+    pz = np.stack([np.zeros(Lz), np.zeros(Lz), kz], -1)
+
+
+    def Nhat_of(pp, thv, kind):
+        w = cf.omega(pp, thv)
+        return 1j * (W2(pp, thv, kind) - np.cos(2 * w)[:, None, None] * np.eye(4)) / np.sin(2 * w)[:, None, None]
+
+
+    blank_up = np.array([1, 0, 0, 0], complex); rows = []
+    for theta, kind, label, half in ((0.087847, 'Y', 'M1 (beta = Y_r): blank record, spin up', False),
+                                     (0.087847, 'Y', 'M1 (beta = Y_r): M^(1/2) |blank, up> (half-step frame)', True),
+                                     (0.157935, 'Y', 'M1 (beta = Y_r): blank record, spin up', False),
+                                     (0.157935, 'Y', 'M1 (beta = Y_r): M^(1/2) |blank, up> (half-step frame)', True),
+                                     (0.157935, 'Z', 'M2 (beta = Z_r): blank record, spin up (an eigenstate of the mass step)', False)):
+        thv = np.full(Lz, theta)
+        vz = cf.group_velocity(pz, thv)[:, 2]; Nh = Nhat_of(pz, thv, kind)
+        hstep = 1e-5; dp = np.array([0, 0, hstep])
+        dN = (Nhat_of(pz + dp, thv, kind) - Nhat_of(pz - dp, thv, kind)) / (2 * hstep)
+        coin = Mfac(theta / 2, kind) @ blank_up if half else blank_up
+        expN = np.real(np.einsum('i,pij,j->p', coin.conj(), Nh, coin))
+        v_pred = float(np.sum(fz * expN * vz))
+        c_pred = float(np.sum(fz * np.real(np.einsum('i,pij,j->p', coin.conj(), 0.5j * Nh @ dN, coin))))
+        psi = (env[:, None] * coin[None, :]).reshape(shape + (2, 2)).astype(complex)
+        ts, xs = [], []
+        for t in range(n_ticks):
+            psi = eng.tick(psi, theta, kind, reverse=bool(t % 2))
+            if t % 2 == 1:
+                ts.append(t + 1); xs.append(float(np.sum(np.sum(np.abs(psi) ** 2, axis=(0, 1, 3, 4)) * z)))
+        ts, xs = np.array(ts), np.array(xs); sel = ts >= 200
+        slope, icpt = np.polyfit(ts[sel], xs[sel], 1)
+        rows.append({'theta': theta, 'coin': label, 'width (cells)': wd,
+                     'weight of the positive branch sum |f|^2 (1 + <Nhat>)/2': round(float(np.sum(fz * (1 + expN) / 2)), 6),
+                     'predicted drift velocity vbar': round(v_pred, 6), 'engine: slope of the centre over ticks 200..600': round(float(slope), 6),
+                     'predicted offset c0 (cells)': round(c_pred, 4), 'engine: intercept of the same fit': round(float(icpt), 4),
+                     'engine: centre after 64 and 600 ticks': [round(float(xs[31]), 4), round(float(xs[-1]), 4)]})
+    out['D blank spin-up Gaussian at rest on a 2048-cell line along axis 3'] = rows
+out['seconds'] = round(time.time() - T0, 2)
+print(json.dumps(out, indent=1))
+if len(sys.argv) > 1:
+    prev = json.load(open(sys.argv[1])) if (os.path.exists(sys.argv[1]) and want != 'ABCD') else {}
+    prev.update(out)
+    json.dump(prev, open(sys.argv[1], 'w'), indent=1)

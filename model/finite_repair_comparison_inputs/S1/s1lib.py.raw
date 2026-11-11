@@ -1,0 +1,440 @@
+"""S1 library: gauge-invariant (contrast) formulation of seam-register laws on a closed triangulated carrier.
+
+State of the chain: the contrast vector d in Z^M, d_e = x_a - x_b - b_e (one integer per oriented seam a<b).
+Face charges q_f = (K b)_f = -(K d)_f, K the face-seam incidence. One attempt on seam e with current j and twist k:
+    d_e'  -> d_e' - j * G[e'][e]   (G = B B^T, current j moves load a -> b)
+    d_e   -> d_e - k               (twist: b_e += k; q_L += k, q_R -= k)
+L(e) is the face that traverses e from a to b (sign +1), R(e) the other face.
+
+A law is a probability kernel (d_e, q_L, q_R) -> distribution over (j, k) built from fair coins.
+Everything is exact integer / Fraction arithmetic.
+"""
+from fractions import Fraction as Fr
+from collections import deque
+import itertools
+
+
+def ref(d, coin):
+    """Reference current: floor(d/2) for coin 1, ceil(d/2) for coin 0."""
+    return (d - (2 * coin - 1) * (abs(d) % 2)) // 2
+
+
+class Carrier:
+    def __init__(self, name, P, seams, faces, rotations=None):
+        self.name, self.P = name, P
+        self.seams = tuple(tuple(s) for s in seams)
+        self.faces = tuple(tuple(f) for f in faces)
+        M, F = len(self.seams), len(self.faces)
+        self.M, self.F = M, F
+        idx = {s: i for i, s in enumerate(self.seams)}
+        self.idx = idx
+        K = [[0] * M for _ in range(F)]
+        L, R = [None] * M, [None] * M
+        for f, face in enumerate(self.faces):
+            for p, r in zip(face, face[1:] + face[:1]):
+                e = idx[(min(p, r), max(p, r))]
+                s = 1 if p < r else -1
+                assert K[f][e] == 0
+                K[f][e] = s
+                if s == 1:
+                    assert L[e] is None; L[e] = f
+                else:
+                    assert R[e] is None; R[e] = f
+        assert all(v is not None for v in L) and all(v is not None for v in R)
+        self.K, self.L, self.R = K, L, R
+        self.fs = [tuple((e, K[f][e]) for e in range(M) if K[f][e]) for f in range(F)]
+        G = []
+        for e, (a, b) in enumerate(self.seams):
+            row = []
+            for e2, (a2, b2) in enumerate(self.seams):
+                c = (a2 == a) - (a2 == b) - (b2 == a) + (b2 == b)
+                if c:
+                    row.append((e2, c))
+            G.append(tuple(row))
+        self.G = G
+        # dual graph
+        self.near = [[] for _ in range(F)]
+        for e in range(M):
+            self.near[L[e]].append((e, R[e])); self.near[R[e]].append((e, L[e]))
+        self.ddist = [self._bfs(f) for f in range(F)]
+        # orientation-preserving automorphisms as port permutations
+        if rotations is None:
+            rotations = self._find_rotations()
+        self.rotations = [tuple(int(v) for v in g) for g in rotations]
+        self.seam_maps = [self._seam_map(g) for g in self.rotations]
+        self.face_maps = [self._face_map(g) for g in self.rotations]
+
+    def _bfs(self, start):
+        seen = {start: 0}; dq = deque([start])
+        while dq:
+            f = dq.popleft()
+            for _, g in self.near[f]:
+                if g not in seen:
+                    seen[g] = seen[f] + 1; dq.append(g)
+        return tuple(seen[g] for g in range(self.F))
+
+    def _find_rotations(self):
+        cyc = set()
+        for f in self.faces:
+            for r in range(3):
+                cyc.add(f[r:] + f[:r])
+        out = []
+        for g in itertools.permutations(range(self.P)):
+            if all(tuple(g[p] for p in f) in cyc for f in self.faces):
+                out.append(g)
+        return out
+
+    def _seam_map(self, g):
+        """(perm, sign): image seam index and orientation sign of every seam under the port permutation g."""
+        perm, sign = [], []
+        for (a, b) in self.seams:
+            a2, b2 = g[a], g[b]
+            if a2 < b2:
+                perm.append(self.idx[(a2, b2)]); sign.append(1)
+            else:
+                perm.append(self.idx[(b2, a2)]); sign.append(-1)
+        return tuple(perm), tuple(sign)
+
+    def _face_map(self, g):
+        canon = {}
+        for f, face in enumerate(self.faces):
+            for r in range(3):
+                canon[face[r:] + face[:r]] = f
+        return tuple(canon[tuple(g[p] for p in face)] for face in self.faces)
+
+    # ----- state helpers -----
+    def grad(self, x):
+        return tuple(x[a] - x[b] for a, b in self.seams)
+
+    def charges(self, d):
+        return tuple(-sum(s * d[e] for e, s in self.fs[f]) for f in range(self.F))
+
+    def q_of(self, d, f):
+        t = 0
+        for e, s in self.fs[f]:
+            t += s * d[e]
+        return -t
+
+    def string(self, start, end):
+        """Offsets b with charge +1 on face start and -1 on face end along a shortest dual path."""
+        b = [0] * self.M
+        here = start
+        while here != end:
+            e, g = min((eg for eg in self.near[here] if self.ddist[eg[1]][end] == self.ddist[here][end] - 1),
+                       key=lambda eg: eg[1])
+            b[e] += self.K[here][e]
+            here = g
+        q = tuple(sum(s * b[e] for e, s in self.fs[f]) for f in range(self.F))
+        assert q == tuple((f == start) - (f == end) for f in range(self.F))
+        return tuple(b)
+
+    def apply(self, d, e, j, k):
+        out = list(d)
+        if j:
+            for e2, c in self.G[e]:
+                out[e2] -= j * c
+        if k:
+            out[e] -= k
+        return tuple(out)
+
+    def act(self, gi, d):
+        perm, sign = self.seam_maps[gi]
+        out = [0] * self.M
+        for e in range(self.M):
+            out[perm[e]] = sign[e] * d[e]
+        return tuple(out)
+
+    def canon(self, d, conj=True):
+        best = None
+        for gi in range(len(self.rotations)):
+            t = self.act(gi, d)
+            if best is None or t < best:
+                best = t
+            if conj:
+                t = tuple(-v for v in t)
+                if t < best:
+                    best = t
+        return best
+
+
+def tetrahedron():
+    seams = [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
+    faces = [(0, 1, 2), (0, 3, 1), (0, 2, 3), (1, 3, 2)]
+    return Carrier('tetrahedron', 4, seams, faces)
+
+
+def octahedron():
+    # ports 0,1 = poles; 2,3,4,5 equator in cyclic order
+    seams = sorted([(0, 2), (0, 3), (0, 4), (0, 5), (1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (3, 4), (4, 5), (2, 5)])
+    faces = [(0, 2, 3), (0, 3, 4), (0, 4, 5), (0, 5, 2), (1, 3, 2), (1, 4, 3), (1, 5, 4), (1, 2, 5)]
+    return Carrier('octahedron', 6, seams, faces)
+
+
+def icosahedron():
+    from model.transported_contrast import law
+    from model.common_source import slow_geometry
+    seams, faces = law.carrier()
+    rots = slow_geometry.source().rotations()
+    return Carrier('icosahedron', 12, seams, faces, rotations=rots)
+
+
+# ---------------------------------------------------------------------------------------------
+# Laws.  tau(d, u, v) -> dict {k: probability (Fraction)}; order in {'TC_excl', 'TC_then', 'CT'}.
+#   TC_excl: twist first on the raw contrast; if a twist is made no current flows in this attempt.
+#   TC_then: twist first on the raw contrast, then the reference current on the new contrast d - k.
+#   CT     : reference current first, then the twist table reads the remaining contrast d - 2j in {-1,0,1}.
+# ---------------------------------------------------------------------------------------------
+HALF = Fr(1, 2)
+ONE = Fr(1)
+
+
+class Law:
+    def __init__(self, name, order, tau, note=''):
+        assert order in ('TC_excl', 'TC_then', 'CT')
+        self.name, self.order, self.tau, self.note = name, order, tau, note
+        self._cache = {}
+
+    def outcomes(self, d, u, v):
+        """List of (probability, j, k), merged."""
+        key = (d, u, v)
+        got = self._cache.get(key)
+        if got is not None:
+            return got
+        acc = {}
+        if self.order == 'CT':
+            for c in (0, 1):
+                j = ref(d, c)
+                for k, pk in self.tau(d - 2 * j, u, v).items():
+                    if pk:
+                        acc[(j, k)] = acc.get((j, k), 0) + pk * HALF
+        else:
+            for k, pk in self.tau(d, u, v).items():
+                if not pk:
+                    continue
+                if k != 0 and self.order == 'TC_excl':
+                    acc[(0, k)] = acc.get((0, k), 0) + pk
+                else:
+                    for c in (0, 1):
+                        j = ref(d - k, c)
+                        acc[(j, k)] = acc.get((j, k), 0) + pk * HALF
+        out = tuple((p, j, k) for (j, k), p in sorted(acc.items()))
+        assert sum(p for p, _, _ in out) == 1
+        self._cache[key] = out
+        return out
+
+
+def process_type(u, v, k):
+    """Classify a unit twist (u, v) -> (u + k, v - k) by what it does to the two face charges."""
+    u2, v2 = u + k, v - k
+    before, after = abs(u) + abs(v), abs(u2) + abs(v2)
+    if after > before:
+        return 'create'
+    if after < before:
+        return 'annihilate'
+    # absolute charge unchanged
+    if (u, v) == (v2, u2):
+        return 'hop' if 0 in (u, v) else 'exchange'
+    if max(abs(u2), abs(v2)) > max(abs(u), abs(v)):
+        return 'merge'
+    if max(abs(u2), abs(v2)) < max(abs(u), abs(v)):
+        return 'split'
+    return 'shift'
+
+
+def static_law():
+    return Law('S_static', 'TC_excl', lambda d, u, v: {0: ONE}, 'offsets never change (transported-contrast law)')
+
+
+def sim_cost(q, table=(0, 5, 8, 10)):
+    a = abs(q)
+    return table[a] if a <= 3 else table[3] + (a - 3) * table[1]
+
+
+def sim_law(table=(0, 5, 8, 10), kappa=5, name='SIM_unit_twist'):
+    """Simulation side: k = sign(d); twist iff 2 dC < kappa (2|d| - 1) (tie: coin); no current when twisted."""
+    def tau(d, u, v):
+        if d == 0:
+            return {0: ONE}
+        k = 1 if d > 0 else -1
+        dc = sim_cost(u + k, table) + sim_cost(v - k, table) - sim_cost(u, table) - sim_cost(v, table)
+        lhs, rhs = 2 * dc, kappa * (2 * abs(d) - 1)
+        if lhs < rhs:
+            return {k: ONE}
+        if lhs == rhs:
+            return {k: HALF, 0: HALF}
+        return {0: ONE}
+    return Law(name, 'TC_excl', tau, f'cost table {table} per {kappa} units; creation where cost allows')
+
+
+def table_law(name, order, hop=(), ann=(), create=(), split=(), merge=(), exchange=(), partial=(), note='',
+              hop_p=ONE, ann_p=ONE):
+    """Law from contrast sets, written for the representative orientation and extended by the symmetries.
+
+    Each set lists the contrasts d (as read by the twist table) at which the process fires, in the representative
+    frame where the twist is k = -1 (charge +1 leaves L for R, contrast goes d -> d + 1):
+      hop      : (1, 0)  -> (0, 1)
+      ann      : (1, -1) -> (0, 0)
+      create   : (0, 0)  -> (-1, 1)           [k = -1; the k = +1 image is at -d]
+      split    : (2, 0)  -> (1, 1)
+      merge    : (1, 1)  -> (0, 2)
+      exchange : (2, 1)  -> (1, 2)
+      partial  : (2, -1) -> (1, 0) and (1, -2) -> (0, -1) (partial annihilation)
+    Symmetries: swap S (d,u,v,k)->(-d,v,u,-k); sign N (d,u,v,k)->(-d,-u,-v,-k); SN (d,u,v,k)->(d,-v,-u,k).
+    """
+    hop, ann, create, split, merge, exchange, partial = (frozenset(s) for s in
+                                                         (hop, ann, create, split, merge, exchange, partial))
+
+    def rep(u, v, k):
+        """Map (u, v, k) to the representative frame with k = -1 and return (sign applied to d, u', v')."""
+        if k == -1:
+            return 1, u, v
+        return -1, v, u      # swap S: (d, u, v, k) -> (-d, v, u, -k)
+
+    def fires(d, u, v, k):
+        sd, a, b = rep(u, v, k)
+        dd = sd * d
+        # now twist k = -1 on (a, b): (a - 1, b + 1); use SN: (d, a, b) ~ (d, -b, -a) to normalise
+        cands = [(a, b), (-b, -a)]
+        for (p, r) in cands:
+            if (p, r) == (1, 0) and dd in hop: return hop_p
+            if (p, r) == (1, -1) and dd in ann: return ann_p
+            if (p, r) == (0, 0) and dd in create: return ONE
+            if (p, r) == (2, 0) and dd in split: return ONE
+            if (p, r) == (1, 1) and dd in merge: return ONE
+            if (p, r) == (2, 1) and dd in exchange: return ONE
+            if (p, r) in ((2, -1), (1, -2), (2, -2)) and dd in partial: return ONE
+        return 0
+
+    def tau(d, u, v):
+        pm, pp = fires(d, u, v, -1), fires(d, u, v, +1)
+        if pm and pp:
+            # both directions enabled: split the weight by a fair coin
+            return {-1: pm * HALF, 1: pp * HALF, 0: ONE - pm * HALF - pp * HALF}
+        if pm:
+            return {-1: pm, 0: ONE - pm} if pm != 1 else {-1: ONE}
+        if pp:
+            return {1: pp, 0: ONE - pp} if pp != 1 else {1: ONE}
+        return {0: ONE}
+    return Law(name, order, tau, note)
+
+
+# ---------------------------------------------------------------------------------------------
+# Chain construction
+# ---------------------------------------------------------------------------------------------
+class Chain:
+    """Markov chain on contrast vectors reachable from the given initial states. Weights are Fractions per attempt."""
+
+    def __init__(self, carrier, law, init, max_states=2_000_000, stop=None, canon=False):
+        self.car, self.law = carrier, law
+        C = carrier
+        index, states, rows = {}, [], []
+        dq = deque()
+        for d in init:
+            if canon:
+                d = C.canon(d)
+            if d not in index:
+                index[d] = len(states); states.append(d); dq.append(d)
+        Minv = Fr(1, C.M)
+        self.truncated = False
+        while dq:
+            d = dq.popleft()
+            i = index[d]
+            while len(rows) <= i:
+                rows.append(None)
+            if stop is not None and stop(d):
+                rows[i] = {i: Fr(1)}
+                continue
+            row = {}
+            for e in range(C.M):
+                u, v = C.q_of(d, C.L[e]), C.q_of(d, C.R[e])
+                for p, j, k in law.outcomes(d[e], u, v):
+                    if j == 0 and k == 0:
+                        t = d
+                    else:
+                        t = C.apply(d, e, j, k)
+                        if canon:
+                            t = C.canon(t)
+                    jdx = index.get(t)
+                    if jdx is None:
+                        if len(states) >= max_states:
+                            self.truncated = True
+                            continue
+                        jdx = index[t] = len(states); states.append(t); dq.append(t)
+                    row[jdx] = row.get(jdx, 0) + p * Minv
+            rows[i] = row
+        self.index, self.states, self.rows = index, states, rows
+        self.n = len(states)
+
+    def classes(self):
+        """Strongly connected components (Tarjan, iterative) and which are closed."""
+        n = self.n
+        adj = [list(r.keys()) for r in self.rows]
+        idx = [-1] * n; low = [0] * n; onst = [False] * n; st = []; comp = [-1] * n
+        counter = 0; ncomp = 0
+        for root in range(n):
+            if idx[root] != -1:
+                continue
+            work = [(root, 0)]
+            while work:
+                v, pi = work[-1]
+                if pi == 0:
+                    idx[v] = low[v] = counter; counter += 1; st.append(v); onst[v] = True
+                recurse = False
+                for i in range(pi, len(adj[v])):
+                    w = adj[v][i]
+                    if idx[w] == -1:
+                        work[-1] = (v, i + 1); work.append((w, 0)); recurse = True; break
+                    elif onst[w]:
+                        low[v] = min(low[v], idx[w])
+                if recurse:
+                    continue
+                if low[v] == idx[v]:
+                    while True:
+                        w = st.pop(); onst[w] = False; comp[w] = ncomp
+                        if w == v: break
+                    ncomp += 1
+                work.pop()
+                if work:
+                    u = work[-1][0]
+                    low[u] = min(low[u], low[v])
+        closed = [True] * ncomp
+        for v in range(n):
+            for w in adj[v]:
+                if comp[w] != comp[v]:
+                    closed[comp[v]] = False
+        members = [[] for _ in range(ncomp)]
+        for v in range(n):
+            members[comp[v]].append(v)
+        return comp, members, closed
+
+
+def solve_fraction(A, b):
+    """Solve A x = b exactly (lists of Fractions), Gaussian elimination with pivoting on nonzero."""
+    n = len(A)
+    A = [row[:] + [bb] for row, bb in zip(A, b)]
+    for c in range(n):
+        piv = next(r for r in range(c, n) if A[r][c] != 0)
+        A[c], A[piv] = A[piv], A[c]
+        inv = 1 / A[c][c]
+        A[c] = [v * inv for v in A[c]]
+        for r in range(n):
+            if r != c and A[r][c] != 0:
+                f = A[r][c]
+                A[r] = [vr - f * vc for vr, vc in zip(A[r], A[c])]
+    return [A[r][n] for r in range(n)]
+
+
+def stationary_fraction(rows, members):
+    """Exact stationary law of a closed class given sparse rows {j: p}."""
+    loc = {v: i for i, v in enumerate(members)}
+    n = len(members)
+    A = [[Fr(0)] * n for _ in range(n)]
+    for v in members:
+        i = loc[v]
+        for w, p in rows[v].items():
+            A[loc[w]][i] += p
+    for i in range(n):
+        A[i][i] -= 1
+    A[-1] = [Fr(1)] * n
+    b = [Fr(0)] * (n - 1) + [Fr(1)]
+    return solve_fraction(A, b)

@@ -1,0 +1,180 @@
+"""Round 3: the Higgs pair (tests G1 to G4 and censuses Ha1, Ha2, Hb, Hc1, Hc2 of CANDIDATES.md).
+
+Run:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python higgs_pair.py [out.json]
+
+Model of a composite: a flux object with integer flux m (class m mod 6) and grading g(m), carrying a cloud of the
+five-level code of the same class, degree n. Statistics sigma = g(m) + n mod 2 (1 = fermion). The CPT image of
+(m, cloud) is (-m, complement cloud) with degree 5 - n.
+
+G1  uniform odd grading g = 1 (the chiral source declares one canonical odd flux object for every cloud).
+G2  conjugate objects: particle and antiparticle composites share statistics iff g(m) + g(-m) = 1 mod 2 for every
+    pattern; class 0 without a flux object (m = 0); content of a (+3, -3) carrier pair; content of one copy.
+G3  class 3 split by a label beyond Z6 (m = +-3 and m = +-9) with opposite gradings.
+G4  the L-H_d identity of a class-3 unit.
+Censuses: exact slopes; outcomes in the m_Z chain (closure) and the cut chain of DC2 (outputs at P_fwd).
+"""
+import json
+import math
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+from scipy.optimize import brentq
+
+from d10_float import Chain, readout, ellbar_su2, ellbar_su3, E_STAR_GEV, PI
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'higgs_pair.json'
+
+PATS = []
+for m in range(32):
+    n3 = bin(m & 0b00111).count('1')
+    n2 = bin(m & 0b11000).count('1')
+    PATS.append(dict(n3=n3, n2=n2, deg=n3 + n2, q6=3 * n2 - 2 * n3, k=(3 * n2 - 2 * n3) % 6))
+GROUPS = sorted({(p['n3'], p['n2']) for p in PATS})
+
+
+def info(n3, n2):
+    q6 = 3 * n2 - 2 * n3
+    return dict(deg=n3 + n2, Y=F(q6, 6), k=q6 % 6, rep=f"({['1', '3', '3b', '1'][n3]},{'2' if n2 == 1 else '1'})")
+
+
+def comp(g):
+    return (3 - g[0], 2 - g[1])
+
+
+# ---------------------------------------------------------------- G1
+cls3 = [g for g in GROUPS if info(*g)['k'] == 3]
+assert cls3 == [(0, 1), (3, 1)]
+g1 = {f"deg {info(*c)['deg']}, Y {info(*c)['Y']}": ('fermion' if (1 + info(*c)['deg']) % 2 else 'boson') for c in cls3}
+assert g1 == {'deg 1, Y 1/2': 'boson', 'deg 4, Y -1/2': 'fermion'}
+# every left-Weyl class-3 fermion has Y = -1/2; anomaly sums of n extra such doublets
+anomaly = {n: dict(TrY3=str(n * 2 * F(-1, 2) ** 3), SU2sq_Y=str(n * F(1, 2) * F(-1, 2)),
+                   Witten_odd=(n % 2 == 1)) for n in (1, 2)}
+assert all(F(v['TrY3']) != 0 and F(v['SU2sq_Y']) != 0 for v in anomaly.values())
+
+# ---------------------------------------------------------------- G2
+# CPT condition for every pattern: g(m) + n = g(-m) + (5 - n) mod 2  <=>  g(m) + g(-m) = 1 mod 2 (n integer)
+for p in PATS:
+    for gm in (0, 1):
+        for gmm in (0, 1):
+            same = (gm + p['deg']) % 2 == (gmm + 5 - p['deg']) % 2
+            assert same == ((gm + gmm) % 2 == 1)
+# class 0 without a flux object: statistics n against 5 - n differ for every class-0 pattern
+class0 = [g for g in GROUPS if info(*g)['k'] == 0]
+assert all((info(*c)['deg'] % 2) != ((5 - info(*c)['deg']) % 2) for c in class0)
+
+
+def copy_content(g):
+    """fields of one copy under a CPT-consistent grading g(+m) = g[m] for m = 1, 2, 3 (g(-m) = g[m] + 1), minimal
+    fluxes |m| <= 3: each field is a CPT pair {(m, cloud), (-m, complement)}; class 0 has no minimal flux object."""
+    fields = []
+    seen = set()
+    for c in GROUPS:
+        k = info(*c)['k']
+        if k == 0:
+            continue
+        for m in ((1,) if k == 1 else (-1,) if k == 5 else (2,) if k == 2 else (-2,) if k == 4 else (3, -3)):
+            key = frozenset({(m, c), (-m, comp(c))})
+            if key in seen:
+                continue
+            seen.add(key)
+            gm = g[abs(m)] if m > 0 else (g[abs(m)] + 1) % 2
+            sigma = (gm + info(*c)['deg']) % 2
+            # name the field by its member with positive flux
+            mm, cc = (m, c) if m > 0 else (-m, comp(c))
+            fields.append(dict(flux=mm, rep=info(*cc)['rep'], Y=str(info(*cc)['Y']),
+                               stat='fermion' if (g[mm] + info(*cc)['deg']) % 2 else 'boson'))
+            assert ((g[mm] + info(*cc)['deg']) % 2) == sigma
+    return fields
+
+
+g2_copy = copy_content({1: 1, 2: 1, 3: 1})
+fermions = sorted((f['rep'], f['Y']) for f in g2_copy if f['stat'] == 'fermion')
+bosons = sorted((f['rep'], f['Y']) for f in g2_copy if f['stat'] == 'boson')
+assert fermions == sorted([('(3,2)', '1/6'), ('(3b,1)', '-2/3'), ('(3b,1)', '1/3'), ('(1,2)', '-1/2')])
+assert bosons == [('(1,2)', '1/2')]
+# a (+3, -3) carrier pair: the four member-cloud choices are states of the two class-3 fields
+pair_states = {}
+for c_plus in cls3:
+    for c_minus in cls3:
+        a = 'L' if c_plus == (3, 1) else 'H'                 # (+3, deg 4) is L, (+3, deg 1) is H (g(3) = 1)
+        b = 'Lbar' if c_minus == (0, 1) else 'Hbar'          # (-3, deg 1) = CPT image of (+3, deg 4)
+        pair_states[f"+3:{info(*c_plus)['rep']}_{info(*c_plus)['Y']} -3:{info(*c_minus)['rep']}_{info(*c_minus)['Y']}"] = f'{a} {b}'
+assert sorted(pair_states.values()) == ['H Hbar', 'H Lbar', 'L Hbar', 'L Lbar']
+
+# ---------------------------------------------------------------- G3
+def class3_sector(g3):
+    out = {}
+    for c in cls3:
+        out[f"{info(*c)['rep']}_{info(*c)['Y']}"] = 'fermion' if (g3 + info(*c)['deg']) % 2 else 'boson'
+    return out
+
+
+g3 = {'m=+-3, g(3)=1': class3_sector(1), 'm=+-9, g(9)=0': class3_sector(0)}
+assert g3['m=+-9, g(9)=0'] == {'(1,2)_1/2': 'fermion', '(1,2)_-1/2': 'boson'}   # Higgsino H_u, boson H_d
+
+# ---------------------------------------------------------------- G4
+unit_b = (F(1, 5) + F(1, 10), F(1, 3) + F(1, 6), F(0))      # Weyl doublet + complex doublet
+g4 = dict(quantum_numbers='fermion (1,2)_{-1/2} and boson (1,2)_{+1/2} in both readings',
+          index_sums=[str(x) for x in unit_b],
+          reading_L='lepton doublet and conjugate slepton', reading_H='Higgsino of H_d and boson H_u',
+          consequence='one-loop slopes and anomalies identical; the reading removes one lepton doublet per unit')
+
+# ---------------------------------------------------------------- censuses
+SM_NOH = (F(4), F(-22, 3) + 4, F(-11) + 4)        # three Weyl families, no Higgs: (4, -10/3, -7)
+H1 = (F(1, 10), F(1, 6), F(0))
+WD = (F(1, 5), F(1, 3), F(0))
+HALF = (F(2, 3), F(2, 3), F(2, 3))                  # boson half of one copy
+FAM = (F(4, 3), F(4, 3), F(4, 3))
+
+
+def add(*vs):
+    return tuple(sum(x) for x in zip(*vs))
+
+
+def mul(n, v):
+    return tuple(n * x for x in v)
+
+
+GAUGE = (F(0), F(-22, 3), F(-11))
+cens = {
+    'Ha1': add(GAUGE, mul(3, FAM), mul(3, HALF)),                       # Higgs = class-3 bosons of the halves
+    'Ha2': add(GAUGE, mul(3, FAM), mul(3, H1)),                         # three Higgs doublets, no other boson
+    'Hb': add(GAUGE, mul(3, FAM), mul(3, HALF), H1, WD, H1, WD),        # + one unit of each grading
+    'Hc1': add(GAUGE, mul(3, FAM), mul(3, HALF)),                       # same content as Ha1
+    'Hc2': add(GAUGE, mul(4, FAM), mul(4, HALF)),                       # four copies, Higgs from the fourth
+}
+assert cens['Ha1'] == (F(6), F(-4, 3), F(-5)) and cens['Ha2'] == (F(43, 10), F(-17, 6), F(-7))
+assert cens['Hb'] == (F(33, 5), F(-1, 3), F(-5)) and cens['Hc2'] == (F(8), F(2, 3), F(-3))
+assert add(cens['Hb'], (F(0), F(4, 3), F(2))) == (F(33, 5), F(1), F(-3))      # Hb + gauginos = D
+
+P = 1.6309720958588974
+a_cut = brentq(lambda a: ellbar_su2(4 * PI * PI * a) + ellbar_su3(4 * PI * PI * a) - P / 4, 0.02, 0.2,
+               xtol=1e-300, rtol=1e-15)
+alpha_U_cut = 1 / (1 / a_cut + 8.5131 / (2 * PI) * (2 * PI - (2 / 3) * math.log(P)))
+outcomes = {}
+for key, b in cens.items():
+    bf = tuple(float(x) for x in b)
+    res = Chain(bf).closure()
+    mz = dict(status='closure', **readout(*res[:2], res[2])) if res else dict(status='no closure')
+    ch = Chain(bf)
+    d = ch.d10_at(alpha_U_cut, P)
+    if 'mz' in d and d['positive']:
+        a0inv, anchor = ch.alpha0_inv(d)
+        a2 = 1 / d['inv2']
+        cut = dict(status='outputs', m_Z_GeV=d['mz'] * E_STAR_GEV, m_W_GeV=0.5 * d['v'] * math.sqrt(4 * PI * a2) * E_STAR_GEV,
+                   sin2_theta_W_mZ=(1 / (d['inv2'] + 5 * d['inv1'] / 3)) / a2, alpha_s_mZ=1 / d['inv3'],
+                   alpha0_inv=a0inv)
+    else:
+        cut = dict(status='Landau pole above m_Z' if 'mz' in d else 'no m_Z root')
+    outcomes[key] = dict(b=[str(x) for x in b], b1_minus_b2=str(b[0] - b[1]), b2_minus_b3=str(b[1] - b[2]),
+                         mZ_chain=mz, cut_chain=cut)
+
+out = dict(G1=dict(class3_statistics=g1, anomaly_of_extra_Y_minus_half_doublets=anomaly),
+           G2=dict(condition='g(m) + g(-m) = 1 mod 2 for every pattern', class0_without_flux_object='CPT inconsistent',
+                   one_copy_fields=g2_copy, pair_plus3_minus3=pair_states),
+           G3=g3, G4=g4, censuses=outcomes)
+OUT.write_text(json.dumps(out, indent=1, default=str) + '\n')
+print(json.dumps(out, indent=1, default=str))

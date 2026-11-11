@@ -1,0 +1,32 @@
+"""The copied producer on the sets without a closure: build_d10_from_p at the declared closure pixel P0.
+
+Run:
+    /tmp/oph-completion-venv/bin/python producer_no_root.py [out.json]
+Records the exception the producer raises (no alpha_U bracket in [0.02, 0.08], or an invalid square root when a
+coupling turns negative at the m_Z scan).
+"""
+import json
+import sys
+import time
+from pathlib import Path
+
+from paper_math_db import PaperMathContext
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'producer_no_root.json'
+P0 = '1.6309720958588974'
+runs = json.loads((HERE / 'run_sets.json').read_text())
+out = {}
+for key in ('A', 'B', 'BnoH', 'S', 'A2', 'B0'):
+    t0 = time.time()
+    ctx = PaperMathContext(precision=20, su2_cutoff=40, su3_cutoff=30, b_coefficients=tuple(runs[key]['b']))
+    try:
+        d = ctx.build_d10_from_p(P0)
+        res = dict(outcome='D10 point', alpha_u=str(d.alpha_u))
+    except Exception as exc:  # the producer signals failure by exceptions
+        res = dict(outcome='exception', type=type(exc).__name__, message=str(exc)[:200])
+    res['b'] = runs[key]['b']
+    res['seconds'] = round(time.time() - t0, 1)
+    out[key] = res
+    print(key, res, flush=True)
+OUT.write_text(json.dumps(out, indent=1) + '\n')

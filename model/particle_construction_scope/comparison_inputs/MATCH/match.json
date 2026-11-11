@@ -1,0 +1,1206 @@
+{
+ "patterns": [
+  {
+   "bits": "00000",
+   "n3": 0,
+   "n2": 0,
+   "Q6": 0,
+   "Y": "0",
+   "T3": "0",
+   "Q": "0",
+   "colour": "1",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-nu_R",
+   "k": 0,
+   "triality": 0,
+   "weak_parity": 0
+  },
+  {
+   "bits": "00001",
+   "n3": 0,
+   "n2": 1,
+   "Q6": 3,
+   "Y": "1/2",
+   "T3": "-1/2",
+   "Q": "0",
+   "colour": "1",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-nu_L",
+   "k": 3,
+   "triality": 0,
+   "weak_parity": 1
+  },
+  {
+   "bits": "00010",
+   "n3": 0,
+   "n2": 1,
+   "Q6": 3,
+   "Y": "1/2",
+   "T3": "1/2",
+   "Q": "1",
+   "colour": "1",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-e_L",
+   "k": 3,
+   "triality": 0,
+   "weak_parity": 1
+  },
+  {
+   "bits": "00011",
+   "n3": 0,
+   "n2": 2,
+   "Q6": 6,
+   "Y": "1",
+   "T3": "0",
+   "Q": "1",
+   "colour": "1",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-e_R",
+   "k": 0,
+   "triality": 0,
+   "weak_parity": 0
+  },
+  {
+   "bits": "00100",
+   "n3": 1,
+   "n2": 0,
+   "Q6": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3",
+   "colour": "3",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "d_R",
+   "k": 4,
+   "triality": 1,
+   "weak_parity": 0
+  },
+  {
+   "bits": "00101",
+   "n3": 1,
+   "n2": 1,
+   "Q6": 1,
+   "Y": "1/6",
+   "T3": "-1/2",
+   "Q": "-1/3",
+   "colour": "3",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "d_L",
+   "k": 1,
+   "triality": 1,
+   "weak_parity": 1
+  },
+  {
+   "bits": "00110",
+   "n3": 1,
+   "n2": 1,
+   "Q6": 1,
+   "Y": "1/6",
+   "T3": "1/2",
+   "Q": "2/3",
+   "colour": "3",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "u_L",
+   "k": 1,
+   "triality": 1,
+   "weak_parity": 1
+  },
+  {
+   "bits": "00111",
+   "n3": 1,
+   "n2": 2,
+   "Q6": 4,
+   "Y": "2/3",
+   "T3": "0",
+   "Q": "2/3",
+   "colour": "3",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "u_R",
+   "k": 4,
+   "triality": 1,
+   "weak_parity": 0
+  },
+  {
+   "bits": "01000",
+   "n3": 1,
+   "n2": 0,
+   "Q6": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3",
+   "colour": "3",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "d_R",
+   "k": 4,
+   "triality": 1,
+   "weak_parity": 0
+  },
+  {
+   "bits": "01001",
+   "n3": 1,
+   "n2": 1,
+   "Q6": 1,
+   "Y": "1/6",
+   "T3": "-1/2",
+   "Q": "-1/3",
+   "colour": "3",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "d_L",
+   "k": 1,
+   "triality": 1,
+   "weak_parity": 1
+  },
+  {
+   "bits": "01010",
+   "n3": 1,
+   "n2": 1,
+   "Q6": 1,
+   "Y": "1/6",
+   "T3": "1/2",
+   "Q": "2/3",
+   "colour": "3",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "u_L",
+   "k": 1,
+   "triality": 1,
+   "weak_parity": 1
+  },
+  {
+   "bits": "01011",
+   "n3": 1,
+   "n2": 2,
+   "Q6": 4,
+   "Y": "2/3",
+   "T3": "0",
+   "Q": "2/3",
+   "colour": "3",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "u_R",
+   "k": 4,
+   "triality": 1,
+   "weak_parity": 0
+  },
+  {
+   "bits": "01100",
+   "n3": 2,
+   "n2": 0,
+   "Q6": -4,
+   "Y": "-2/3",
+   "T3": "0",
+   "Q": "-2/3",
+   "colour": "3bar",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-u_R",
+   "k": 2,
+   "triality": 2,
+   "weak_parity": 0
+  },
+  {
+   "bits": "01101",
+   "n3": 2,
+   "n2": 1,
+   "Q6": -1,
+   "Y": "-1/6",
+   "T3": "-1/2",
+   "Q": "-2/3",
+   "colour": "3bar",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-u_L",
+   "k": 5,
+   "triality": 2,
+   "weak_parity": 1
+  },
+  {
+   "bits": "01110",
+   "n3": 2,
+   "n2": 1,
+   "Q6": -1,
+   "Y": "-1/6",
+   "T3": "1/2",
+   "Q": "1/3",
+   "colour": "3bar",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-d_L",
+   "k": 5,
+   "triality": 2,
+   "weak_parity": 1
+  },
+  {
+   "bits": "01111",
+   "n3": 2,
+   "n2": 2,
+   "Q6": 2,
+   "Y": "1/3",
+   "T3": "0",
+   "Q": "1/3",
+   "colour": "3bar",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-d_R",
+   "k": 2,
+   "triality": 2,
+   "weak_parity": 0
+  },
+  {
+   "bits": "10000",
+   "n3": 1,
+   "n2": 0,
+   "Q6": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3",
+   "colour": "3",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "d_R",
+   "k": 4,
+   "triality": 1,
+   "weak_parity": 0
+  },
+  {
+   "bits": "10001",
+   "n3": 1,
+   "n2": 1,
+   "Q6": 1,
+   "Y": "1/6",
+   "T3": "-1/2",
+   "Q": "-1/3",
+   "colour": "3",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "d_L",
+   "k": 1,
+   "triality": 1,
+   "weak_parity": 1
+  },
+  {
+   "bits": "10010",
+   "n3": 1,
+   "n2": 1,
+   "Q6": 1,
+   "Y": "1/6",
+   "T3": "1/2",
+   "Q": "2/3",
+   "colour": "3",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "u_L",
+   "k": 1,
+   "triality": 1,
+   "weak_parity": 1
+  },
+  {
+   "bits": "10011",
+   "n3": 1,
+   "n2": 2,
+   "Q6": 4,
+   "Y": "2/3",
+   "T3": "0",
+   "Q": "2/3",
+   "colour": "3",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "u_R",
+   "k": 4,
+   "triality": 1,
+   "weak_parity": 0
+  },
+  {
+   "bits": "10100",
+   "n3": 2,
+   "n2": 0,
+   "Q6": -4,
+   "Y": "-2/3",
+   "T3": "0",
+   "Q": "-2/3",
+   "colour": "3bar",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-u_R",
+   "k": 2,
+   "triality": 2,
+   "weak_parity": 0
+  },
+  {
+   "bits": "10101",
+   "n3": 2,
+   "n2": 1,
+   "Q6": -1,
+   "Y": "-1/6",
+   "T3": "-1/2",
+   "Q": "-2/3",
+   "colour": "3bar",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-u_L",
+   "k": 5,
+   "triality": 2,
+   "weak_parity": 1
+  },
+  {
+   "bits": "10110",
+   "n3": 2,
+   "n2": 1,
+   "Q6": -1,
+   "Y": "-1/6",
+   "T3": "1/2",
+   "Q": "1/3",
+   "colour": "3bar",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-d_L",
+   "k": 5,
+   "triality": 2,
+   "weak_parity": 1
+  },
+  {
+   "bits": "10111",
+   "n3": 2,
+   "n2": 2,
+   "Q6": 2,
+   "Y": "1/3",
+   "T3": "0",
+   "Q": "1/3",
+   "colour": "3bar",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-d_R",
+   "k": 2,
+   "triality": 2,
+   "weak_parity": 0
+  },
+  {
+   "bits": "11000",
+   "n3": 2,
+   "n2": 0,
+   "Q6": -4,
+   "Y": "-2/3",
+   "T3": "0",
+   "Q": "-2/3",
+   "colour": "3bar",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-u_R",
+   "k": 2,
+   "triality": 2,
+   "weak_parity": 0
+  },
+  {
+   "bits": "11001",
+   "n3": 2,
+   "n2": 1,
+   "Q6": -1,
+   "Y": "-1/6",
+   "T3": "-1/2",
+   "Q": "-2/3",
+   "colour": "3bar",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-u_L",
+   "k": 5,
+   "triality": 2,
+   "weak_parity": 1
+  },
+  {
+   "bits": "11010",
+   "n3": 2,
+   "n2": 1,
+   "Q6": -1,
+   "Y": "-1/6",
+   "T3": "1/2",
+   "Q": "1/3",
+   "colour": "3bar",
+   "weak": "2",
+   "hand": "R",
+   "family": "Fbar",
+   "name": "anti-d_L",
+   "k": 5,
+   "triality": 2,
+   "weak_parity": 1
+  },
+  {
+   "bits": "11011",
+   "n3": 2,
+   "n2": 2,
+   "Q6": 2,
+   "Y": "1/3",
+   "T3": "0",
+   "Q": "1/3",
+   "colour": "3bar",
+   "weak": "1",
+   "hand": "L",
+   "family": "Fbar",
+   "name": "anti-d_R",
+   "k": 2,
+   "triality": 2,
+   "weak_parity": 0
+  },
+  {
+   "bits": "11100",
+   "n3": 3,
+   "n2": 0,
+   "Q6": -6,
+   "Y": "-1",
+   "T3": "0",
+   "Q": "-1",
+   "colour": "1",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "e_R",
+   "k": 0,
+   "triality": 0,
+   "weak_parity": 0
+  },
+  {
+   "bits": "11101",
+   "n3": 3,
+   "n2": 1,
+   "Q6": -3,
+   "Y": "-1/2",
+   "T3": "-1/2",
+   "Q": "-1",
+   "colour": "1",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "e_L",
+   "k": 3,
+   "triality": 0,
+   "weak_parity": 1
+  },
+  {
+   "bits": "11110",
+   "n3": 3,
+   "n2": 1,
+   "Q6": -3,
+   "Y": "-1/2",
+   "T3": "1/2",
+   "Q": "0",
+   "colour": "1",
+   "weak": "2",
+   "hand": "L",
+   "family": "F",
+   "name": "nu_L",
+   "k": 3,
+   "triality": 0,
+   "weak_parity": 1
+  },
+  {
+   "bits": "11111",
+   "n3": 3,
+   "n2": 2,
+   "Q6": 0,
+   "Y": "0",
+   "T3": "0",
+   "Q": "0",
+   "colour": "1",
+   "weak": "1",
+   "hand": "R",
+   "family": "F",
+   "name": "nu_R",
+   "k": 0,
+   "triality": 0,
+   "weak_parity": 0
+  }
+ ],
+ "class_table": {
+  "0": {
+   "triality": 0,
+   "weak_centre": 0,
+   "states": 4,
+   "fields": {
+    "anti-e_R": 1,
+    "anti-nu_R": 1,
+    "e_R": 1,
+    "nu_R": 1
+   },
+   "bosons": [
+    "gluon (8)",
+    "W (3)",
+    "B (photon and Z after mixing)"
+   ],
+   "conjugate_class": 0
+  },
+  "1": {
+   "triality": 1,
+   "weak_centre": 1,
+   "states": 6,
+   "fields": {
+    "d_L": 3,
+    "u_L": 3
+   },
+   "bosons": [],
+   "conjugate_class": 5
+  },
+  "2": {
+   "triality": 2,
+   "weak_centre": 0,
+   "states": 6,
+   "fields": {
+    "anti-d_R": 3,
+    "anti-u_R": 3
+   },
+   "bosons": [],
+   "conjugate_class": 4
+  },
+  "3": {
+   "triality": 0,
+   "weak_centre": 1,
+   "states": 4,
+   "fields": {
+    "anti-e_L": 1,
+    "anti-nu_L": 1,
+    "e_L": 1,
+    "nu_L": 1
+   },
+   "bosons": [
+    "H (Higgs doublet)"
+   ],
+   "conjugate_class": 3
+  },
+  "4": {
+   "triality": 1,
+   "weak_centre": 0,
+   "states": 6,
+   "fields": {
+    "d_R": 3,
+    "u_R": 3
+   },
+   "bosons": [],
+   "conjugate_class": 2
+  },
+  "5": {
+   "triality": 2,
+   "weak_centre": 1,
+   "states": 6,
+   "fields": {
+    "anti-d_L": 3,
+    "anti-u_L": 3
+   },
+   "bosons": [],
+   "conjugate_class": 1
+  }
+ },
+ "bosons": [
+  {
+   "name": "H (Higgs doublet)",
+   "colour": "1",
+   "weak": "2",
+   "Y": "1/2",
+   "spin": 0,
+   "k": 3
+  },
+  {
+   "name": "gluon (8)",
+   "colour": "8",
+   "weak": "1",
+   "Y": "0",
+   "spin": 1,
+   "k": 0
+  },
+  {
+   "name": "W (3)",
+   "colour": "1",
+   "weak": "3",
+   "Y": "0",
+   "spin": 1,
+   "k": 0
+  },
+  {
+   "name": "B (photon and Z after mixing)",
+   "colour": "1",
+   "weak": "1",
+   "Y": "0",
+   "spin": 1,
+   "k": 0
+  }
+ ],
+ "flux_seen_by": {
+  "0": [],
+  "1": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "2": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "3": [
+   1,
+   3,
+   5
+  ],
+  "4": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "5": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "yukawa_junctions": {
+  "down quark: Q^dag H d_R": "1 + 3 -> 4",
+  "up quark: Q^dag Htilde u_R": "1 + 3 -> 4",
+  "charged lepton: L^dag H e_R": "3 + 3 -> 0",
+  "neutrino (Dirac): L^dag Htilde nu_R": "3 + 3 -> 0"
+ },
+ "catalogue_reactions": {
+  "1+5->0": 609494,
+  "1+1->2": 458209,
+  "5+5->4": 456755,
+  "1+4->5": 394861,
+  "1+2->3": 315024,
+  "4+5->3": 314514,
+  "1+3->4": 238523,
+  "3+5->2": 239773,
+  "2+2->4": 3118,
+  "2+3->5": 1373,
+  "split 2->1+1": 377308,
+  "split 3->1+2": 182353,
+  "split 1->2+5": 102928,
+  "split 4->2+2": 52478,
+  "split 4->1+3": 36547,
+  "split 5->2+3": 24966
+ },
+ "reaction_reading": {
+  "1+5->0": "left quark doublet with its antiparticle: annihilation (meson channel)",
+  "1+1->2": "two left quark doublets into the antitriplet singlet class: diquark (baryon number changes by one if both sides are read as elementary)",
+  "5+5->4": "conjugate of 1+1->2",
+  "1+4->5": "left quark doublet with a right quark: the antitriplet doublet class (diquark)",
+  "1+2->3": "left quark with a right antiquark into the Higgs class: the quark Yukawa vertex Q dbar_R -> Hbar (also the top-condensate channel)",
+  "4+5->3": "conjugate of 1+2->3",
+  "1+3->4": "left quark absorbs the Higgs class and becomes a right quark: the mass vertex Q H -> d_R, Q Htilde -> u_R",
+  "3+5->2": "conjugate of 1+3->4",
+  "2+2->4": "two right antiquarks into a right quark class: antidiquark (colour only)",
+  "2+3->5": "right antiquark with the Higgs class into the left antiquark class: conjugate mass vertex"
+ },
+ "pair_kinds": {
+  "ordered": [
+   {
+    "separation": 1,
+    "size": 60,
+    "mirror_self": true
+   },
+   {
+    "separation": 2,
+    "size": 60,
+    "mirror_self": false
+   },
+   {
+    "separation": 2,
+    "size": 60,
+    "mirror_self": false
+   },
+   {
+    "separation": 3,
+    "size": 60,
+    "mirror_self": false
+   },
+   {
+    "separation": 3,
+    "size": 60,
+    "mirror_self": false
+   },
+   {
+    "separation": 4,
+    "size": 60,
+    "mirror_self": true
+   },
+   {
+    "separation": 5,
+    "size": 20,
+    "mirror_self": true
+   }
+  ],
+  "unordered": [
+   {
+    "separation": 1,
+    "size": 30,
+    "mirror_self": true
+   },
+   {
+    "separation": 2,
+    "size": 60,
+    "mirror_self": true
+   },
+   {
+    "separation": 3,
+    "size": 30,
+    "mirror_self": false
+   },
+   {
+    "separation": 3,
+    "size": 30,
+    "mirror_self": false
+   },
+   {
+    "separation": 4,
+    "size": 30,
+    "mirror_self": true
+   },
+   {
+    "separation": 5,
+    "size": 10,
+    "mirror_self": true
+   }
+  ]
+ },
+ "census": {
+  "(2,4)": {
+   "kinds": [
+    {
+     "separation": 2,
+     "chirality": "+",
+     "count": 1107653,
+     "per_face_pair": 18460.9
+    },
+    {
+     "separation": 2,
+     "chirality": "-",
+     "count": 1109692,
+     "per_face_pair": 18494.9
+    },
+    {
+     "separation": 3,
+     "chirality": "+",
+     "count": 861343,
+     "per_face_pair": 14355.7
+    },
+    {
+     "separation": 3,
+     "chirality": "-",
+     "count": 861518,
+     "per_face_pair": 14358.6
+    },
+    {
+     "separation": 4,
+     "chirality": "",
+     "count": 792175,
+     "per_face_pair": 13202.9
+    },
+    {
+     "separation": 5,
+     "chirality": "",
+     "count": 259535,
+     "per_face_pair": 12976.8
+    }
+   ],
+   "mirror": {
+    "2": {
+     "plus": 1107653,
+     "minus": 1109692,
+     "difference_in_sigma": -1.37
+    },
+    "3": {
+     "plus": 861343,
+     "minus": 861518,
+     "difference_in_sigma": -0.13
+    }
+   }
+  },
+  "(3,3)": {
+   "kinds": [
+    {
+     "separation": 2,
+     "chirality": "",
+     "count": 395030,
+     "per_face_pair": 6583.8
+    },
+    {
+     "separation": 3,
+     "chirality": "+",
+     "count": 131873,
+     "per_face_pair": 4395.8
+    },
+    {
+     "separation": 3,
+     "chirality": "-",
+     "count": 132124,
+     "per_face_pair": 4404.1
+    },
+    {
+     "separation": 4,
+     "chirality": "",
+     "count": 98431,
+     "per_face_pair": 3281.0
+    },
+    {
+     "separation": 5,
+     "chirality": "",
+     "count": 28090,
+     "per_face_pair": 2809.0
+    }
+   ],
+   "mirror": {
+    "3": {
+     "plus": 131873,
+     "minus": 132124,
+     "difference_in_sigma": -0.49
+    }
+   }
+  }
+ },
+ "reading_c_phases": {
+  "rows": [
+   {
+    "alpha": "1/6",
+    "separation": 1,
+    "pairs_in_class": 30,
+    "lambda_min": 0.05388125680781681,
+    "second_level": 2.541506425320354,
+    "rest_phase": 0.04238290659994328,
+    "correction_probability": 0.0008980209467969469,
+    "flux_check": 0.0,
+    "path_independence": 5.329070518200751e-15
+   },
+   {
+    "alpha": "1/6",
+    "separation": 2,
+    "pairs_in_class": 60,
+    "lambda_min": 0.07805637238177955,
+    "second_level": 2.3889233383604696,
+    "rest_phase": 0.0510141492439352,
+    "correction_probability": 0.001300939539696326,
+    "flux_check": 0.0,
+    "path_independence": 6.217248937900877e-15
+   },
+   {
+    "alpha": "1/6",
+    "separation": 3,
+    "pairs_in_class": 60,
+    "lambda_min": 0.09475339310158803,
+    "second_level": 2.2226182415944296,
+    "rest_phase": 0.05620745593166906,
+    "correction_probability": 0.0015792232183598006,
+    "flux_check": 0.0,
+    "path_independence": 4.440892098500626e-15
+   },
+   {
+    "alpha": "1/6",
+    "separation": 4,
+    "pairs_in_class": 30,
+    "lambda_min": 0.1018633366849724,
+    "second_level": 2.145430572983398,
+    "rest_phase": 0.05827869031649382,
+    "correction_probability": 0.0016977222780828734,
+    "flux_check": 0.0,
+    "path_independence": 3.552713678800501e-15
+   },
+   {
+    "alpha": "1/6",
+    "separation": 5,
+    "pairs_in_class": 10,
+    "lambda_min": 0.10554143983352338,
+    "second_level": 2.1038415160807644,
+    "rest_phase": 0.059321832970629824,
+    "correction_probability": 0.0017590239972253897,
+    "flux_check": 0.0,
+    "path_independence": 2.6645352591003757e-15
+   },
+   {
+    "alpha": "1/3",
+    "separation": 1,
+    "pairs_in_class": 30,
+    "lambda_min": 0.16917772318611493,
+    "second_level": 2.363980672458064,
+    "rest_phase": 0.07511264564637833,
+    "correction_probability": 0.002819628719768582,
+    "flux_check": 0.0,
+    "path_independence": 3.552713678800501e-15
+   },
+   {
+    "alpha": "1/3",
+    "separation": 2,
+    "pairs_in_class": 60,
+    "lambda_min": 0.2581026905962693,
+    "second_level": 2.0560755276780314,
+    "rest_phase": 0.09278792133701261,
+    "correction_probability": 0.004301711509937822,
+    "flux_check": 0.0,
+    "path_independence": 4.884981308350689e-15
+   },
+   {
+    "alpha": "1/3",
+    "separation": 3,
+    "pairs_in_class": 60,
+    "lambda_min": 0.33940981995269925,
+    "second_level": 1.7104815706988856,
+    "rest_phase": 0.10641589806640475,
+    "correction_probability": 0.005656830332544988,
+    "flux_check": 0.0,
+    "path_independence": 2.6645352591003757e-15
+   },
+   {
+    "alpha": "1/3",
+    "separation": 4,
+    "pairs_in_class": 30,
+    "lambda_min": 0.38320407329811645,
+    "second_level": 1.5485624549881547,
+    "rest_phase": 0.11308001197133695,
+    "correction_probability": 0.006386734554968607,
+    "flux_check": 0.0,
+    "path_independence": 6.217248937900877e-15
+   },
+   {
+    "alpha": "1/3",
+    "separation": 5,
+    "pairs_in_class": 10,
+    "lambda_min": 0.4096463135629895,
+    "second_level": 1.4598444467477776,
+    "rest_phase": 0.11692067157966698,
+    "correction_probability": 0.006827438559383158,
+    "flux_check": 0.0,
+    "path_independence": 3.552713678800501e-15
+   },
+   {
+    "alpha": "1/2",
+    "separation": 1,
+    "pairs_in_class": 30,
+    "lambda_min": 0.23136163187600173,
+    "second_level": 2.2907246405630763,
+    "rest_phase": 0.08784654696624196,
+    "correction_probability": 0.003856027197933362,
+    "flux_check": 0.0,
+    "path_independence": 4.440892098500626e-15
+   },
+   {
+    "alpha": "1/2",
+    "separation": 2,
+    "pairs_in_class": 60,
+    "lambda_min": 0.36629189017262104,
+    "second_level": 1.9026301134660935,
+    "rest_phase": 0.11055393734047589,
+    "correction_probability": 0.006104864836210351,
+    "flux_check": 0.0,
+    "path_independence": 0.0
+   },
+   {
+    "alpha": "1/2",
+    "separation": 3,
+    "pairs_in_class": 60,
+    "lambda_min": 0.5248320062715082,
+    "second_level": 1.4359290079129092,
+    "rest_phase": 0.13236300227603684,
+    "correction_probability": 0.008747200104525137,
+    "flux_check": 0.0,
+    "path_independence": 0.0
+   },
+   {
+    "alpha": "1/2",
+    "separation": 4,
+    "pairs_in_class": 30,
+    "lambda_min": 0.6540367042901156,
+    "second_level": 1.1715728752538093,
+    "rest_phase": 0.1477868288892269,
+    "correction_probability": 0.010900611738168593,
+    "flux_check": 0.0,
+    "path_independence": 0.0
+   },
+   {
+    "alpha": "1/2",
+    "separation": 5,
+    "pairs_in_class": 10,
+    "lambda_min": 0.8775137836239282,
+    "second_level": 0.8775137836239286,
+    "rest_phase": 0.17123678913697477,
+    "correction_probability": 0.01462522972706547,
+    "flux_check": 0.0,
+    "path_independence": 7.105427357601002e-15
+   }
+  ],
+  "reference": {
+   "no_flux": 0.0,
+   "flux_in_every_face_k1_doublet": 0.157935,
+   "flux_in_every_face_k2_triplet": 0.215043
+  },
+  "note": "rest phase = arccos(1 - lambda_min/60) of the public walk on one carrier; lattice-scale numbers of a declared program"
+ },
+ "particle_cards": [
+  {
+   "species": "up quark",
+   "left_handed": "u_L (in Q, class 1)",
+   "right_handed": "u_R (class 4)",
+   "mass_junction": "1 + 3 -> 4 (Q Htilde -> u_R)",
+   "mass_form": "m = |v y| (audit chiral_particle_map: one Yukawa number per channel and one scalar background)",
+   "mass_status": "not derived: v and y are inputs in every construction so far; the class label is the same for all three generations",
+   "generations": [
+    {
+     "generation": 1,
+     "measured_mass_gev": 0.00216,
+     "measured_source": "up_quark",
+     "derived_mass": null
+    },
+    {
+     "generation": 2,
+     "measured_mass_gev": 1.2729,
+     "measured_source": "charm_quark",
+     "derived_mass": null
+    },
+    {
+     "generation": 3,
+     "measured_mass_gev": 172.1,
+     "measured_source": "top_quark",
+     "derived_mass": null
+    }
+   ]
+  },
+  {
+   "species": "down quark",
+   "left_handed": "d_L (in Q, class 1)",
+   "right_handed": "d_R (class 4)",
+   "mass_junction": "1 + 3 -> 4 (Q H -> d_R)",
+   "mass_form": "m = |v y| (audit chiral_particle_map: one Yukawa number per channel and one scalar background)",
+   "mass_status": "not derived: v and y are inputs in every construction so far; the class label is the same for all three generations",
+   "generations": [
+    {
+     "generation": 1,
+     "measured_mass_gev": 0.0047,
+     "measured_source": "down_quark",
+     "derived_mass": null
+    },
+    {
+     "generation": 2,
+     "measured_mass_gev": 0.09290000000000001,
+     "measured_source": "strange_quark",
+     "derived_mass": null
+    },
+    {
+     "generation": 3,
+     "measured_mass_gev": 4.186,
+     "measured_source": "bottom_quark",
+     "derived_mass": null
+    }
+   ]
+  },
+  {
+   "species": "charged lepton",
+   "left_handed": "e_L (in L, class 3)",
+   "right_handed": "e_R (class 0)",
+   "mass_junction": "3 + 3 -> 0 (L H -> e_R)",
+   "mass_form": "m = |v y| (audit chiral_particle_map: one Yukawa number per channel and one scalar background)",
+   "mass_status": "not derived: v and y are inputs in every construction so far; the class label is the same for all three generations",
+   "generations": [
+    {
+     "generation": 1,
+     "measured_mass_gev": 0.0005109989506900001,
+     "measured_source": "electron",
+     "derived_mass": null
+    },
+    {
+     "generation": 2,
+     "measured_mass_gev": 0.10565837550000001,
+     "measured_source": "muon",
+     "derived_mass": null
+    },
+    {
+     "generation": 3,
+     "measured_mass_gev": 1.7769300000000001,
+     "measured_source": "tau",
+     "derived_mass": null
+    }
+   ]
+  },
+  {
+   "species": "neutrino",
+   "left_handed": "nu_L (in L, class 3)",
+   "right_handed": "nu_R (class 0) if present",
+   "mass_junction": "3 + 3 -> 0 (L Htilde -> nu_R)",
+   "mass_form": "m = |v y| (audit chiral_particle_map: one Yukawa number per channel and one scalar background)",
+   "mass_status": "not derived: v and y are inputs in every construction so far; the class label is the same for all three generations",
+   "generations": [
+    {
+     "generation": 1,
+     "measured_mass_gev": null,
+     "measured_source": null,
+     "derived_mass": null
+    },
+    {
+     "generation": 2,
+     "measured_mass_gev": null,
+     "measured_source": null,
+     "derived_mass": null
+    },
+    {
+     "generation": 3,
+     "measured_mass_gev": null,
+     "measured_source": null,
+     "derived_mass": null
+    }
+   ]
+  }
+ ],
+ "checks": {
+  "z6_trivial_on_all_32": "pass",
+  "class_formula": "pass",
+  "colour_flux_seen_by_coloured_only": "pass",
+  "weak_flux_seen_by_doublets_only": "pass",
+  "yukawa_vertices_conserve_class": "pass",
+  "catalogue_reactions_conserve_class": "pass",
+  "rotation_group_order": 60,
+  "face_distance_sphere": {
+   "0": 1,
+   "1": 3,
+   "2": 6,
+   "3": 6,
+   "4": 3,
+   "5": 1
+  },
+  "ordered_kinds": 7,
+  "unordered_kinds": 6,
+  "lasting_ordered_kinds_separation_ge_2": 6,
+  "lasting_unordered_kinds_separation_ge_2": 5
+ }
+}

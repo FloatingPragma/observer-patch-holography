@@ -1,0 +1,75 @@
+"""Task KOI, part G-e, addition: loads on port sets for a left state along every symmetry axis of the carrier.
+
+For a left state v (unit vector of the first index), unit loads on the ports of a set S act on the second index as
+C_v(S) = (1/4) sum_(g in S) w_g w_g^T with w_g = D(g)^T v. tr C = |S|/4 and tr C^2 = (1/16) sum_(g,h in S) (w_g . w_h)^2,
+with (w_g . w_h)^2 = (v . D(g h^-1) v)^2 / |v|^4 in Q(sqrt5). Q = 2/3 exactly iff 3 sum (w_g.w_h)^2 = 2 |S|^2 (rational
+and sqrt5 parts separately). Directions: the 6 port axes, 10 face axes and 15 edge axes (all symmetry axes of the
+carrier), each up to sign. Every set S with Q = 2/3 is listed with its eigenvalues, delta and covariance.
+Output: koide.json key 'G-e scan'.
+"""
+import itertools, json, math
+from fractions import Fraction as Fr
+import numpy as np
+import mpmath as mp
+
+from koide_lib import QF, ZERO, ONE, PHI, mmul, mT, meq, mcomplex, koide_from_eigs, save, fq
+from koi_carrier import V, N, W, DOT, SEAMS, FACES, GROUP, PERM, TURNS, turn_axis, apply, dot
+
+p0 = 0
+elem = {PERM[k][p0]: k for k in range(12)}
+Dg = [GROUP[elem[p]] for p in range(N)]                                # D(g) of the group element of port p
+axes = []
+seen = set()
+def add(kind, v):
+    key = tuple(round(x / max(abs(y) for y in [fq(t) for t in v]), 9) for x in [fq(t) for t in v])
+    neg = tuple(-x for x in key)
+    if key in seen or neg in seen: return
+    seen.add(key); axes.append((kind, v))
+for p in range(N): add('port axis', V[p])
+for f in FACES: add('face axis', tuple(V[f[0]][i] + V[f[1]][i] + V[f[2]][i] for i in range(3)))
+for a, b in SEAMS: add('edge axis', tuple(V[a][i] + V[b][i] for i in range(3)))
+assert len(axes) == 31, len(axes)
+masks = np.array([[m >> p & 1 for p in range(N)] for m in range(1, 1 << N)], dtype=np.int64)
+sizes = masks.sum(1)
+Pm = mcomplex(GROUP[next(i for i in TURNS if turn_axis(GROUP[i]) == (1, 1, 1))]).real
+rows = []
+for kind, v in axes:
+    vv = dot(v, v)
+    w = [tuple(sum((Dg[p][j][i] * v[j] for j in range(3)), ZERO) for i in range(3)) for p in range(N)]   # D(g)^T v
+    T = [[(dot(w[g], w[h]) * dot(w[g], w[h])) / (vv * vv) for h in range(N)] for g in range(N)]
+    assert all(t.is_real() for r in T for t in r)
+    den = 1
+    for r in T:
+        for t in r: den = den * t.a.denominator // math.gcd(den, t.a.denominator); den = den * t.b.denominator // math.gcd(den, t.b.denominator)
+    Ta = np.array([[int(t.a * den) for t in r] for r in T], dtype=np.int64)
+    Tb = np.array([[int(t.b * den) for t in r] for r in T], dtype=np.int64)
+    sa = np.einsum('sp,pq,sq->s', masks, Ta, masks); sb = np.einsum('sp,pq,sq->s', masks, Tb, masks)
+    hit = np.where((3 * sa == 2 * den * sizes ** 2) & (sb == 0))[0]
+    wf = np.array([[fq(x) for x in wi] for wi in w]) / math.sqrt(fq(vv))
+    row = {'kind': kind, 'direction': [fq(x) for x in v], 'sets_with_Q_two_thirds': int(len(hit))}
+    if len(hit):
+        ex = []
+        for s in hit[:400]:
+            S = [p for p in range(N) if masks[s, p]]
+            C = sum(np.outer(wf[p], wf[p]) for p in S) / 4
+            ev = sorted(np.linalg.eigvalsh(C))
+            k = koide_from_eigs(ev, 'sqrt')
+            ex.append({'ports': S, 'eigenvalues': ev, 'delta': k['delta_canonical'], 'Q': k['Q'],
+                       'turn_covariant_(1,1,1)': bool(np.allclose(Pm @ C @ Pm.T, C)), 'Q_mass_reading': koide_from_eigs([max(x, 0) for x in ev], 'mass')['Q']})
+        sig = sorted({(len(e['ports']), round(e['eigenvalues'][0], 9), round(e['eigenvalues'][1], 9), round(e['eigenvalues'][2], 9), round(e['delta'], 9)) for e in ex})
+        row['distinct_spectra'] = [{'size': a, 'eigenvalues': [b, c, d], 'delta': e} for a, b, c, d, e in sig]
+        row['any_turn_covariant'] = any(e['turn_covariant_(1,1,1)'] for e in ex)
+        row['examples'] = ex[:6]
+        # the images w_g of the loaded ports: how many distinct directions and with which multiplicity
+        e0 = ex[0]['ports']
+        dirs = {}
+        for p in e0:
+            key = tuple(np.round(wf[p] * np.sign(wf[p][np.argmax(np.abs(wf[p]) > 1e-9)]), 9))
+            dirs[key] = dirs.get(key, 0) + 1
+        row['example_image_directions_and_multiplicities'] = [[list(k), m] for k, m in dirs.items()]
+    rows.append(row)
+    print(kind, [round(fq(x), 4) for x in v], 'sets with Q = 2/3:', len(hit), row.get('distinct_spectra', ''))
+out = {'method': __doc__.split('\n\n')[0], 'rows': rows,
+       'total_hits': sum(r['sets_with_Q_two_thirds'] for r in rows), 'label': 'EXACT (integer arithmetic on Q(sqrt5) traces); eigenvalues float64'}
+save('G-e scan', out)
+print('total', out['total_hits'])

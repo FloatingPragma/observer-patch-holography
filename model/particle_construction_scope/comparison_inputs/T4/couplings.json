@@ -1,0 +1,1727 @@
+{
+ "meta": {
+  "worker": "T4",
+  "steps": [
+   "D4",
+   "F4"
+  ],
+  "level": "representation level (level 1); link variable declared (worker X5)",
+  "run_from": "WORKSPACE/reverse-engineering-reality",
+  "tags": "EXACT / MEASURED / IMPORTED / NOT BLIND as marked per block"
+ },
+ "A_carrier": {
+  "tag": "EXACT (Q(sqrt5) arithmetic of the pinned carrier module; Fractions)",
+  "conjugate_frame_is_the_Galois_conjugate_of_the_port_frame": true,
+  "band_multiplicities_(constant, slow 3, middle 5, fast 3prime)": [
+   "1",
+   "3",
+   "5",
+   "3"
+  ],
+  "gram_entries_rational": true,
+  "gram_equals_(3/10)I+(1/5)J-(1/5)Antipode_on_all_144_entries": true,
+  "gram_equals_(5/2)B_const+(1/2)(B_slow+B_fast)+(1/10)B_middle_on_all_144_entries": true,
+  "gram_entries": {
+   "diagonal": "1/2",
+   "antipode": "0",
+   "other_ten": "1/5"
+  },
+  "gram_eigenvalues": {
+   "1 (constant weights): hypercharge": "5/2",
+   "3' (fast band): weak isospin": "1/2",
+   "3 (slow band): colour rotations so(3) in su(3)": "1/2",
+   "5 (middle band): colour quadrupoles": "1/10"
+  },
+  "share_of_one_port_response_by_squared_trace_norm": {
+   "hypercharge": "5/12",
+   "weak isospin": "3/12",
+   "colour rotations": "3/12",
+   "colour quadrupoles": "1/12",
+   "rule": "eigenvalue x multiplicity / 12, divided by Tr X_p^2 = 1/2"
+  },
+  "float_checks_on_the_carrier_vectors": {
+   "tag": "MEASURED (float64)",
+   "gram_from_matrices_against_exact": 2.220446049250313e-16,
+   "sum_of_responses_minus_diag(2,2,2,-3,-3)": 8.881784197001252e-16,
+   "generator_from_port_weights_defect (twelve generators)": 1.27675647831893e-15,
+   "trace_orthonormality_defect": 1.1102230246251565e-16,
+   "Lie_closure_defect_of_the_twelve_dimensional_span": 1.1102230246251565e-16,
+   "port_weight_formulas": {
+    "T_Y = C/sqrt(60)": "w_p = 1/sqrt(60)",
+    "T_W,a = sigma_a/2": "w_p = -(1/2) n'_p.a",
+    "T_rot,a = i[a]_x/2": "w_p = (1/2) n_p.a",
+    "T_quad = S (Tr S^2 = 1/2)": "w_p = -(5/2) n_p^T S n_p"
+   }
+  },
+  "invariance_witness": {
+   "tag": "EXACT (integer matrices)",
+   "Z": "diag(1,-1,0) (quadrupole)",
+   "X": "i[e3]_x (rotation)",
+   "Y": "E12 + E21 (quadrupole)",
+   "-i[Z,X] = -2Y": true,
+   "-i[Z,Y] = 2X": true,
+   "Tr X^2 = Tr Y^2 = 2": true,
+   "consequence": "for a form K = c_rot Tr on the rotations and c_quad Tr on the quadrupoles, K(-i[Z,X],Y) + K(X,-i[Z,Y]) = 4 (c_rot - c_quad): invariant under su(3) iff c_rot = c_quad",
+   "port_orthonormal_form (c_rot, c_quad) = (2, 10)": "4 (2 - 10) = -32",
+   "frame_form (1/2, 1/10)": "4 (1/2 - 1/10) = 8/5"
+  },
+  "count_of_invariant_quadratic_forms": {
+   "under_the_sixty_carrier_rotations (orbits on port pairs; EXACT)": 4,
+   "orbit_sizes": [
+    6,
+    12,
+    30,
+    30
+   ],
+   "under_the_gauge_algebra (null space dimension; MEASURED)": 3,
+   "smallest_nonzero_and_largest_zero_singular_value": [
+    1.732050807568877,
+    3.3281612195348265e-16
+   ],
+   "under_every_unitary_of_the_five_levels": "1 (the trace form; standard)",
+   "reading": "the carrier symmetry leaves four weights (1, 3prime, 3, 5); gauge invariance leaves three (u(1), su(2), su(3)); level democracy leaves one"
+  },
+  "family_traces": {
+   "tag": "EXACT (integers)",
+   "five_levels": {
+    "Tr T3^2": "1/2",
+    "Tr Tc3^2": "1/2",
+    "Tr Y^2": "5/6",
+    "Tr (3/5) Y^2": "1/2",
+    "Tr C^2 (C = 6Y = sum of the twelve responses)": "30"
+   },
+   "odd_colour_occupation_16 (CF-1 chart)": {
+    "states": 16,
+    "sum_T3^2": "2",
+    "sum_Tc3^2": "2",
+    "sum_Tc8^2": "2",
+    "sum_(3/5)Y^2": "2",
+    "sum_Y^2": "10/3",
+    "sum_Q^2": "16/3",
+    "sum_T3^2/sum_Q^2": "3/8"
+   },
+   "odd_total_occupation_16 (FAMILY.md chart)": {
+    "states": 16,
+    "sum_T3^2": "2",
+    "sum_Tc3^2": "2",
+    "sum_Tc8^2": "2",
+    "sum_(3/5)Y^2": "2",
+    "sum_Y^2": "10/3",
+    "sum_Q^2": "16/3",
+    "sum_T3^2/sum_Q^2": "3/8"
+   },
+   "all_32_patterns": {
+    "states": 32,
+    "sum_T3^2": "4",
+    "sum_Tc3^2": "4",
+    "sum_Tc8^2": "4",
+    "sum_(3/5)Y^2": "4",
+    "sum_Y^2": "20/3",
+    "sum_Q^2": "32/3",
+    "sum_T3^2/sum_Q^2": "3/8"
+   },
+   "reading": "every representation built from the five levels has the same three ratios as the levels themselves: (3/5) Y^2 : T3^2 : Tc^2 = 1 : 1 : 1"
+  },
+  "pump": {
+   "tag": "one-load levels recomputed here (MEASURED, float64) and read from worker CX (EXACT there); two-load level read from CX",
+   "rule": "rho_k = (5 - A_k)^-1 / Tr (5 - A_k)^-1 (reports/CX.md result 3)",
+   "one_load_levels_recomputed": {
+    "flux_1": [
+     {
+      "adjacency_eigenvalue": 4.253254,
+      "multiplicity": 2,
+      "level": 0.2986762021676837
+     },
+     {
+      "adjacency_eigenvalue": 0.726543,
+      "multiplicity": 4,
+      "level": 0.052190819319662046
+     },
+     {
+      "adjacency_eigenvalue": -1.902113,
+      "multiplicity": 6,
+      "level": 0.03231405306433074
+     }
+    ],
+    "flux_2": [
+     {
+      "adjacency_eigenvalue": 3.618034,
+      "multiplicity": 3,
+      "level": 0.19810540384903882
+     },
+     {
+      "adjacency_eigenvalue": -0.381966,
+      "multiplicity": 5,
+      "level": 0.05086894532445326
+     },
+     {
+      "adjacency_eigenvalue": -2.236068,
+      "multiplicity": 4,
+      "level": 0.037834765457654296
+     }
+    ],
+    "flux_3": [
+     {
+      "adjacency_eigenvalue": 3.077684,
+      "multiplicity": 4,
+      "level": 0.15694551762460104
+     },
+     {
+      "adjacency_eigenvalue": -1.175571,
+      "multiplicity": 6,
+      "level": 0.04885361636990961
+     },
+     {
+      "adjacency_eigenvalue": -2.628656,
+      "multiplicity": 2,
+      "level": 0.039548115641069075
+     }
+    ],
+    "flux_7": [
+     {
+      "adjacency_eigenvalue": 2.628656,
+      "multiplicity": 2,
+      "level": 0.14504145859024975
+     },
+     {
+      "adjacency_eigenvalue": 1.175571,
+      "multiplicity": 6,
+      "level": 0.08993321924836677
+     },
+     {
+      "adjacency_eigenvalue": -3.077684,
+      "multiplicity": 4,
+      "level": 0.04257944183232497
+     }
+    ]
+   },
+   "largest_difference_from_CX_levels": 3.3306690738754696e-16,
+   "levels_used": {
+    "doublet 2, one load, flux 1": 0.2986762021676837,
+    "doublet 2', one load, flux 7": 0.14504145859024975,
+    "triplet 3, one load, flux 2 = (107 + 17 sqrt5)/732": 0.19810540384903882,
+    "triplet 3, two loads, flux 1 (CX t2_twoload.json)": 0.14059734653272002
+   }
+  }
+ },
+ "A_normalizations": {
+  "tag": "EXACT weights (Fractions) with MEASURED confirmation on the carrier; pump rows MEASURED",
+  "convention": "1/g_i^2 proportional to c_i; g1 in the unified normalization, g_Y^2 = (3/5) g1^2; sin2 = g_Y^2/(g2^2 + g_Y^2)",
+  "candidates": [
+   {
+    "name": "trace form of the five levels",
+    "definition": "K(X,Y) = Tr_5(XY)",
+    "weights_relative_to_Tr5 (1, 3prime, 3, 5)": [
+     "1",
+     "1",
+     "1",
+     "1"
+    ],
+    "weights_measured_on_the_carrier": [
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "block_structure_defect": 2.220446049250313e-16,
+    "ad_invariance_defect (float, trace-orthonormal basis)": 1.1102230246251565e-16,
+    "invariant_under_the_gauge_algebra": true,
+    "status": "forced once the kinetic term is one class function on the five levels (invariant under every unitary of the levels); equal to the family trace and to the form of a tracial reference",
+    "declared_inputs": [
+     "that the link is one variable on the five levels with one pair (eps, kappa)"
+    ],
+    "implied": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      "1",
+      "1",
+      "1"
+     ],
+     "sin2_theta_W": "3/8",
+     "sin2_theta_W_float": 0.375,
+     "alpha3/alpha2": "1",
+     "alpha3/alpha2_float": 1.0,
+     "alpha1/alpha2": "1"
+    }
+   },
+   {
+    "name": "port-orthonormal form (inverse Gram)",
+    "definition": "the twelve responses X_p orthonormal: one unit link component per port",
+    "weights_relative_to_Tr5 (1, 3prime, 3, 5)": [
+     "2/5",
+     "2",
+     "2",
+     "10"
+    ],
+    "weights_measured_on_the_carrier": [
+     0.4,
+     2.0,
+     2.0,
+     10.0
+    ],
+    "block_structure_defect": 1.4210854715202004e-14,
+    "ad_invariance_defect (float, trace-orthonormal basis)": 3.9999999999999964,
+    "invariant_under_the_gauge_algebra": false,
+    "status": "excluded for a colour gauge field: invariant under the rotations so(3) only",
+    "declared_inputs": [
+     "one independent link component per port with a common (eps, kappa)"
+    ],
+    "implied_per_block": {
+     "g^2 on (1, 3prime, 3, 5) as 1/c": [
+      "5/2",
+      "1/2",
+      "1/2",
+      "1/10"
+     ],
+     "sin2_theta_W": "3/4",
+     "sin2_theta_W_float": 0.75
+    },
+    "implied_if_the_colour_form_is_averaged_over_SU(3)": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      "5/2",
+      "1/2",
+      "1/7"
+     ],
+     "sin2_theta_W": "3/4",
+     "sin2_theta_W_float": 0.75,
+     "alpha3/alpha2": "2/7",
+     "alpha3/alpha2_float": 0.2857142857142857,
+     "alpha1/alpha2": "5"
+    },
+    "implied_if_the_inverse_colour_form_is_averaged": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      "5/2",
+      "1/2",
+      "1/4"
+     ],
+     "sin2_theta_W": "3/4",
+     "sin2_theta_W_float": 0.75,
+     "alpha3/alpha2": "1/2",
+     "alpha3/alpha2_float": 0.5,
+     "alpha1/alpha2": "5"
+    },
+    "colour_weight_after_averaging (form, inverse form)": [
+     "7",
+     "4"
+    ],
+    "note": "couplings proportional to the Gram eigenvalues 5/2, 1/2, (1/2 | 1/10)"
+   },
+   {
+    "name": "frame form (Gram)",
+    "definition": "K(X,Y) = sum_p Tr(X X_p) Tr(X_p Y): field energy as the sum over ports of the squared port readout",
+    "weights_relative_to_Tr5 (1, 3prime, 3, 5)": [
+     "5/2",
+     "1/2",
+     "1/2",
+     "1/10"
+    ],
+    "weights_measured_on_the_carrier": [
+     2.5,
+     0.5,
+     0.5,
+     0.1
+    ],
+    "block_structure_defect": 5.551115123125783e-16,
+    "ad_invariance_defect (float, trace-orthonormal basis)": 0.20000000000000007,
+    "invariant_under_the_gauge_algebra": false,
+    "status": "excluded for a colour gauge field: invariant under the rotations so(3) only",
+    "declared_inputs": [
+     "port-local quadratic energy"
+    ],
+    "implied_per_block": {
+     "g^2 on (1, 3prime, 3, 5) as 1/c": [
+      "2/5",
+      "2",
+      "2",
+      "10"
+     ],
+     "sin2_theta_W": "3/28",
+     "sin2_theta_W_float": 0.10714285714285714
+    },
+    "implied_if_the_colour_form_is_averaged_over_SU(3)": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      "2/5",
+      "2",
+      "4"
+     ],
+     "sin2_theta_W": "3/28",
+     "sin2_theta_W_float": 0.10714285714285714,
+     "alpha3/alpha2": "2",
+     "alpha3/alpha2_float": 2.0,
+     "alpha1/alpha2": "1/5"
+    },
+    "implied_if_the_inverse_colour_form_is_averaged": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      "2/5",
+      "2",
+      "7"
+     ],
+     "sin2_theta_W": "3/28",
+     "sin2_theta_W_float": 0.10714285714285714,
+     "alpha3/alpha2": "7/2",
+     "alpha3/alpha2_float": 3.5,
+     "alpha1/alpha2": "1/5"
+    },
+    "colour_weight_after_averaging (form, inverse form)": [
+     "1/4",
+     "1/7"
+    ]
+   },
+   {
+    "name": "adjoint (Killing) form",
+    "definition": "K(X,Y) = Tr(ad_X ad_Y) on the algebra the twelve responses close on",
+    "weights_relative_to_Tr5 (1, 3prime, 3, 5)": [
+     "0",
+     "4",
+     "6",
+     "6"
+    ],
+    "weights_measured_on_the_carrier": [
+     0.0,
+     4.0,
+     6.0,
+     6.0
+    ],
+    "block_structure_defect": 2.6645352591003757e-15,
+    "ad_invariance_defect (float, trace-orthonormal basis)": 8.881784197001252e-16,
+    "invariant_under_the_gauge_algebra": true,
+    "status": "a choice; gives no hypercharge term",
+    "declared_inputs": [
+     "kinetic term from the adjoint representation only"
+    ],
+    "implied": {
+     "g1^2:g2^2:g3^2": "infinite : 1/4 : 1/6",
+     "sin2_theta_W": "1 (no kinetic term for the hypercharge)",
+     "alpha3/alpha2": "2/3"
+    }
+   },
+   {
+    "name": "pump-weighted form",
+    "pairing": "2' (one load, flux 7) with 3 (two loads, flux 1): the injective pairing of candidates/CAP.md, (12,12,1)",
+    "definition": "K(X,Y) = Re Tr(rho XY), rho = p3 on each triplet level, p2 on each doublet level",
+    "p2": 0.14504145859024975,
+    "p3": 0.14059734653272002,
+    "x = p2/p3": 1.031608790401286,
+    "weights_relative_to_Tr5 (1, 3prime, 3, 5), up to a common factor": [
+     1.0189652742407715,
+     1.031608790401286,
+     1.0,
+     1.0
+    ],
+    "invariant_under_the_gauge_algebra": true,
+    "implied": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      0.981387713,
+      0.969359712,
+      1.0
+     ],
+     "sin2_theta_W": 0.377894701,
+     "sin2_theta_W_float": 0.37789470061144437,
+     "alpha3/alpha2": 1.03160879,
+     "alpha3/alpha2_float": 1.031608790401286,
+     "alpha1/alpha2": 1.012408191
+    },
+    "status": "a choice: the relative weight of the two sectors (different load number or flux class) is not fixed by the pump; equal sector weights used here",
+    "declared_inputs": [
+     "which two sectors form the code",
+     "their relative weight",
+     "that the reference weights the kinetic term"
+    ]
+   },
+   {
+    "name": "pump-weighted form",
+    "pairing": "2' (one load, flux 7) with 3 (one load, flux 2): the injective pairing of lead L13",
+    "definition": "K(X,Y) = Re Tr(rho XY), rho = p3 on each triplet level, p2 on each doublet level",
+    "p2": 0.14504145859024975,
+    "p3": 0.19810540384903882,
+    "x = p2/p3": 0.7321428682519681,
+    "weights_relative_to_Tr5 (1, 3prime, 3, 5), up to a common factor": [
+     0.8392857209511808,
+     0.7321428682519681,
+     1.0,
+     1.0
+    ],
+    "invariant_under_the_gauge_algebra": true,
+    "implied": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      1.191489352,
+      1.365853638,
+      1.0
+     ],
+     "sin2_theta_W": 0.343575421,
+     "sin2_theta_W_float": 0.34357542062536306,
+     "alpha3/alpha2": 0.732142868,
+     "alpha3/alpha2_float": 0.7321428682519681,
+     "alpha1/alpha2": 0.872340432
+    },
+    "status": "a choice: the relative weight of the two sectors (different load number or flux class) is not fixed by the pump; equal sector weights used here",
+    "declared_inputs": [
+     "which two sectors form the code",
+     "their relative weight",
+     "that the reference weights the kinetic term"
+    ]
+   },
+   {
+    "name": "pump-weighted form",
+    "pairing": "2 (one load, flux 1) with 3 (two loads, flux 1): the leading levels of lead L20, span (9,12,1), not injective",
+    "definition": "K(X,Y) = Re Tr(rho XY), rho = p3 on each triplet level, p2 on each doublet level",
+    "p2": 0.2986762021676837,
+    "p3": 0.14059734653272002,
+    "x = p2/p3": 2.1243374041783594,
+    "weights_relative_to_Tr5 (1, 3prime, 3, 5), up to a common factor": [
+     1.6746024425070156,
+     2.1243374041783594,
+     1.0,
+     1.0
+    ],
+    "invariant_under_the_gauge_algebra": true,
+    "implied": {
+     "g1^2:g2^2:g3^2 (as 1/c1 : 1/c2 : 1/c3)": [
+      0.597156659,
+      0.470735015,
+      1.0
+     ],
+     "sin2_theta_W": 0.432185112,
+     "sin2_theta_W_float": 0.43218511164949175,
+     "alpha3/alpha2": 2.124337404,
+     "alpha3/alpha2_float": 2.1243374041783594,
+     "alpha1/alpha2": 1.268562227
+    },
+    "status": "a choice: the relative weight of the two sectors (different load number or flux class) is not fixed by the pump; equal sector weights used here",
+    "declared_inputs": [
+     "which two sectors form the code",
+     "their relative weight",
+     "that the reference weights the kinetic term"
+    ]
+   },
+   {
+    "name": "general invariant form",
+    "definition": "c1 Tr on u(1), c2 Tr on su(2), c3 Tr on su(3)",
+    "sin2_theta_W": "3 c2 / (5 c1 + 3 c2)",
+    "alpha3/alpha2": "c2/c3",
+    "for the state-weighted form with x = p2/p3": {
+     "c1:c2:c3": "(2 + 3x)/5 : x : 1",
+     "sin2_theta_W": "3x/(2 + 6x)",
+     "alpha3/alpha2": "x"
+    },
+    "status": "three numbers, two ratios: what gauge invariance alone leaves free"
+   }
+  ],
+  "central_charge": {
+   "C = sum_p X_p": "diag(2,2,2,-3,-3) = 6Y",
+   "spectrum": "integers; smallest nonzero pattern charge 1 (quark doublet)",
+   "Tr_5 C^2": 30,
+   "port weight norm": 12,
+   "Gram eigenvalue = 30/12": "5/2",
+   "unit generator of the trace form": "C/sqrt(60) = sqrt(3/5) Y",
+   "k_Y = Tr Y^2 / Tr T3^2": "5/3 (forced by the level charges 2,2,2,-3,-3)",
+   "integer-charge coupling": "alpha_C = alpha_1/60 = alpha_Y/36 for the link phase exp(i Q6 theta)",
+   "forced": "charge quantization (Q6 integer, singlets of colour and isospin have Q6 = 0 mod 6) and, given c1 = c2, the factor 5/3",
+   "not fixed": "the size of c1 relative to c2 and c3"
+  }
+ },
+ "B_field_step": {
+  "tag": "EXACT relations (derivation in SCALE.md section 2; symbol and stability from worker X5, work/X5/field_symbol.json); Coulomb check MEASURED here",
+  "field_step": "F = prod_links exp(-i eps E^2/2) . prod_plaquettes exp(-i kappa (1 - cos B)); pattern of integer link charge q routes with exp(i q theta)",
+  "symbol (X5)": "cos(omega) = 1 - 2 eps kappa sum_i sin^2(k_i/2) per field step; two polarizations; stable for all k iff 3 eps kappa <= 1",
+  "speed": "c_f = n sqrt(eps kappa) cells per tick for n field steps per tick",
+  "static_phase": "two unit link charges at distance r: phase eps (G(0) - G(r)) per field step, G -> 1/(4 pi r)",
+  "coupling_referred_to_the_routing_cone (one cell per tick)": "alpha_m = n eps / (4 pi)",
+  "coupling_referred_to_the_field_cone": "alpha_f = sqrt(eps/kappa) / (4 pi)",
+  "relation": "alpha_m = c_f alpha_f",
+  "condition_for_the_routing_speed": "n^2 eps kappa = 1 with n >= 2 (n = 1 is unstable on 78.7 percent of the zone, X5); then alpha_m = alpha_f = alpha, eps = 4 pi alpha / n, kappa = 1/(4 pi alpha n)",
+  "one_number_left_per_link_variable": "after the speed condition the pair (eps, kappa) holds exactly one free number, the coupling",
+  "several_factors": "link exp(i theta^a T_a), Tr_5 T_a T_b = delta/2, kinetic (eps_i/2) sum_a E_a^2, plaquette term 2 kappa_i (d - Re Tr U): at linear order every component has the U(1) symbol; alpha_i = sqrt(eps_i/kappa_i)/(4 pi); with all speeds equal to the routing speed alpha_1 : alpha_2 : alpha_3 = eps_1 : eps_2 : eps_3",
+  "trace_form_in_these_variables": "eps_1 = eps_2 = eps_3 for trace-normalized generators; for the compact hypercharge phase with integer charge Q6: eps_C = eps_1/60, kappa_C = 60 kappa_1; for the photon phase with integer charge 3Q: alpha_link = alpha_em/9",
+  "lattice_Coulomb_check (128^3 repeats work/X5/coulomb_check.json; 192^3 added)": [
+   {
+    "lattice": 128,
+    "r1": 4,
+    "r2": 8,
+    "G(r1)-G(r2)": 0.010296977859489988,
+    "(1/r1-1/r2)/(4 pi)": 0.009947183943243459,
+    "ratio": 1.035165119921616
+   },
+   {
+    "lattice": 128,
+    "r1": 6,
+    "r2": 12,
+    "G(r1)-G(r2)": 0.006712764143773737,
+    "(1/r1-1/r2)/(4 pi)": 0.006631455962162305,
+    "ratio": 1.0122609849293065
+   },
+   {
+    "lattice": 128,
+    "r1": 8,
+    "r2": 16,
+    "G(r1)-G(r2)": 0.004993840838963157,
+    "(1/r1-1/r2)/(4 pi)": 0.0049735919716217296,
+    "ratio": 1.0040712763445339
+   },
+   {
+    "lattice": 192,
+    "r1": 4,
+    "r2": 8,
+    "G(r1)-G(r2)": 0.01029968601427336,
+    "(1/r1-1/r2)/(4 pi)": 0.009947183943243459,
+    "ratio": 1.035437373335127
+   },
+   {
+    "lattice": 192,
+    "r1": 6,
+    "r2": 12,
+    "G(r1)-G(r2)": 0.006718925233743456,
+    "(1/r1-1/r2)/(4 pi)": 0.006631455962162305,
+    "ratio": 1.0131900554086812
+   },
+   {
+    "lattice": 192,
+    "r1": 8,
+    "r2": 16,
+    "G(r1)-G(r2)": 0.005004962971765343,
+    "(1/r1-1/r2)/(4 pi)": 0.0049735919716217296,
+    "ratio": 1.006307513829564
+   }
+  ],
+  "isotropy_of_the_matched_field_cone (omega_tick/|k|)": [
+   {
+    "n": 2,
+    "|k|": 0.05,
+    "axis": 0.9999218719485126,
+    "face diagonal": 0.9999739569091426,
+    "body diagonal": 0.9999913189244886
+   },
+   {
+    "n": 2,
+    "|k|": 0.2,
+    "axis": 0.9987492198591704,
+    "face diagonal": 0.9995829685982475,
+    "body diagonal": 0.9998609778988441
+   },
+   {
+    "n": 2,
+    "|k|": 0.5,
+    "axis": 0.9921572562791937,
+    "face diagonal": 0.9973815549523457,
+    "body diagonal": 0.9991267181053369
+   },
+   {
+    "n": 3,
+    "|k|": 0.05,
+    "axis": 0.9999074074076755,
+    "face diagonal": 0.9999594901078207,
+    "body diagonal": 0.9999768513696036
+   },
+   {
+    "n": 3,
+    "|k|": 0.2,
+    "axis": 0.998518519615717,
+    "face diagonal": 0.9993516899671088,
+    "body diagonal": 0.99962950619248
+   },
+   {
+    "n": 3,
+    "|k|": 0.5,
+    "axis": 0.990741008348343,
+    "face diagonal": 0.9959427818320397,
+    "body diagonal": 0.9976803675060518
+   }
+  ],
+  "examples_n=2 (eps, kappa) for a given coupling of the unit link charge": {
+   "alpha = 1/137.035999177 (unit charge e; value IMPORTED from the checkout, illustration only)": {
+    "eps": 0.04585061841351648,
+    "kappa": 5.452489162639114
+   },
+   "alpha/9 (photon link, unit e/3)": {
+    "eps": 0.005094513157057387,
+    "kappa": 49.07240246375202
+   },
+   "alpha = 1/(4 pi) (eps = kappa = 1/2, the self-dual point)": {
+    "eps": 0.5,
+    "kappa": 0.5
+   }
+  },
+  "imported_not_checked": "a compact U(1) link has a confining phase at strong coupling (Wilson action: below beta = 1/e^2 of about 1.01); the small-field symbol applies on the weak side"
+ },
+ "D_running": {
+  "tag": "NOT BLIND. One-loop coefficients IMPORTED: Standard Model with three generations and one Higgs doublet b = (41/10, -19/6, -7) (unified normalization of U(1)); general b = (4 ng/3 + nH/10, -22/3 + 4 ng/3 + nH/6, -11 + 4 ng/3); MSSM b = (33/5, 1, -3) as used by the public D10 lane; leptonic running d_alpha_lep = sum_l (alpha/3 pi)(ln(MZ^2/m_l^2) - 5/3). No thresholds above MZ, no two-loop terms, no scheme conversion.",
+  "inputs": {
+   "masses_GeV": {
+    "file": "model/particle_candidate_atlas/reference_values.json",
+    "values": {
+     "electron": 0.00051099895069,
+     "muon": 0.1056583755,
+     "tau": 1.77693,
+     "top": 172.6,
+     "bottom": 4.186,
+     "charm": 1.2729,
+     "Z": 91.1879,
+     "W_plus": 80.3625,
+     "Higgs": 125.13
+    }
+   },
+   "alpha_inverse_at_zero": {
+    "file": "code/P_derivation/codata_2022_alpha_fixture.json",
+    "value": 137.035999177
+   },
+   "delta_alpha_had_5(MZ)": {
+    "file": "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+    "value": 0.027609,
+    "uncertainty": 0.000112
+   },
+   "G_F_GeV^-2": {
+    "file": "code/particles/calibration/source_ew_comparison_targets.json",
+    "value": 1.1663785e-05
+   },
+   "alpha_s(MZ)": {
+    "file": "evidence/custody/falsification/frozen_targets/fz01_2026-07-17/fz01_freeze_registry_2026-07-17.json (row FZ01-R04, comparator)",
+    "value": 0.1179,
+    "uncertainty": 0.0009
+   },
+   "SI_constants_and_E_star": {
+    "file": "code/particles/runs/clock/clock_source_energy_closure_audit.json",
+    "si": {
+     "GeV_J": 1.602176634e-10,
+     "c_m_s": 299792458.0,
+     "h_J_s": 6.62607015e-34
+    },
+    "E_star_GeV": 1.2208901289579268e+19,
+    "status_in_the_checkout": "E_star is the Planck energy from the measured G (epsilon_Cs is a calibration checksum, not source emitted); NOT_FINAL_SOURCE_ONLY_PACKET"
+   },
+   "public_D10_source_point (conditional values of the checkout, not measured)": {
+    "file": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
+    "values_in_units_of_E_star": {
+     "M_U": 0.0020260720012100033,
+     "P": 1.6309682094039593,
+     "alpha1_mz": 0.016885708038988163,
+     "alpha2_mz": 0.03377788944890805,
+     "alpha3_mz": 0.11833602747445049,
+     "alphaY_mz": 0.010131424823392897,
+     "alpha_U": 0.04112433619563048,
+     "alpha_em_inv_mz": 128.30796547328626,
+     "mZ_run": 7.502403238985918e-18,
+     "sin2w_mz": 0.23073520940371514,
+     "v": 2.0199803239725257e-17
+    }
+   },
+   "proton_mass_GeV": {
+    "file": "pdg_data/particle_masses.csv",
+    "value": 0.9382720894300001
+   }
+  },
+  "derived_at_MZ": {
+   "d_alpha_lep (one loop)": 0.0314208822819705,
+   "alpha_inverse(MZ) = alpha_inverse(0)(1 - d_lep - d_had5)": 128.9467802771895,
+   "sin2_on_shell": 0.22333729871365937,
+   "sin2_GF": 0.23097880377885027,
+   "omitted": "top-quark term (about -6e-5 in d_alpha) and the conversion to the MS-bar scheme (about -1.0 in alpha_inverse(MZ), not shipped): the second shifts ln(scale) by about -0.2"
+  },
+  "variants": {
+   "G_F definition: sin2 cos2 = pi alpha(MZ)/(sqrt2 G_F MZ^2) (primary)": {
+    "sin2(MZ)": 0.23097880377885027,
+    "inverse_couplings_at_MZ (alpha1 unified normalization, alpha2, alpha3)": [
+     59.49768433057802,
+     29.783973059559475,
+     8.481764206955047
+    ],
+    "equal_normalization_SM": {
+     "coefficients": "Standard Model, three generations, one Higgs doublet",
+     "b": [
+      "41/10",
+      "-19/6",
+      "-7"
+     ],
+     "scale_where_alpha1=alpha2_GeV (sin2 = 3/8)": 13119700573439.98,
+     "ln(scale/MZ)": 25.692213864198195,
+     "inverse_alpha_U_there": 42.73260870518682,
+     "predicted_alpha_s(MZ)": 0.07087519382686518,
+     "measured_alpha_s(MZ)": 0.1179,
+     "predicted/measured": 0.6011466821617063,
+     "pull_in_units_of_the_quoted_measurement_uncertainty (no theory error)": -52.24978463681648,
+     "one_loop_Lambda3_GeV: predicted, from measured alpha_s": [
+      0.002789520657045015,
+      0.1418311252946205
+     ],
+     "scale_where_alpha2=alpha3_GeV": 1.3300970300573781e+17,
+     "scale_where_alpha1=alpha3_GeV": 317222041661067.6,
+     "sin2_at_the_alpha2=alpha3_scale": 0.43641080134067356,
+     "alpha3/alpha2_at_the_sin2=3/8_scale": 1.15166513771903,
+     "cell_m = hbar c / scale (alpha1=alpha2)": 1.5040509450252143e-29,
+     "tick_s": 5.016973926092611e-38,
+     "electron_rest_phase_per_tick = m_e/scale": 3.8948979653124525e-17,
+     "eps_n=2 = 2 pi alpha_U (trace-normalized generators)": 0.14703491075228792,
+     "kappa_n=2": 1.70027647666056
+    },
+    "equal_normalization_MSSM_proxy": {
+     "coefficients": "MSSM one-loop set of the public D10 lane (content absent from CF-1)",
+     "b": [
+      "33/5",
+      "1",
+      "-3"
+     ],
+     "scale_where_alpha1=alpha2_GeV (sin2 = 3/8)": 2.7463336682629868e+16,
+     "ln(scale/MZ)": 33.33870608568575,
+     "inverse_alpha_U_there": 24.477953189734734,
+     "predicted_alpha_s(MZ)": 0.11682388228587837,
+     "measured_alpha_s(MZ)": 0.1179,
+     "predicted/measured": 0.9908726232898928,
+     "pull_in_units_of_the_quoted_measurement_uncertainty (no theory error)": -1.1956863490240426,
+     "one_loop_Lambda3_GeV: predicted, from measured alpha_s": [
+      0.1343022019453083,
+      0.1418311252946205
+     ],
+     "scale_where_alpha2=alpha3_GeV": 3.1049330191598252e+16,
+     "scale_where_alpha1=alpha3_GeV": 2.8904215769758108e+16,
+     "sin2_at_the_alpha2=alpha3_scale": 0.376051092251984,
+     "alpha3/alpha2_at_the_sin2=3/8_scale": 1.0032020466169456,
+     "cell_m = hbar c / scale (alpha1=alpha2)": 7.185105828167949e-33,
+     "tick_s": 2.3966933244758106e-41,
+     "electron_rest_phase_per_tick = m_e/scale": 1.8606586541001e-20,
+     "eps_n=2 = 2 pi alpha_U (trace-normalized generators)": 0.25668752850685866,
+     "kappa_n=2": 0.9739468117295774
+    },
+    "required_normalization_by_scale_SM": [
+     {
+      "scale": "1e13 GeV",
+      "GeV": 10000000000000.0,
+      "inverse_couplings": [
+       42.909791520088035,
+       42.59576018961272,
+       36.802556810230634
+      ],
+      "required_sin2": 0.37328002799881776,
+      "required_alpha3/alpha2": 1.1574130680445456,
+      "required c1:c2:c3 (c2 = 1)": [
+       1.0073723612180514,
+       1.0,
+       0.8639957743776856
+      ],
+      "cell_m": 1.9732698045930247e-29,
+      "electron_rest_phase_per_tick": 5.1099895068999994e-17
+     },
+     {
+      "scale": "1e15 GeV",
+      "GeV": 1000000000000000.0,
+      "inverse_couplings": [
+       39.904755564682375,
+       44.91672291939757,
+       41.93310600238663
+      ],
+      "required_sin2": 0.4031129860289511,
+      "required_alpha3/alpha2": 1.0711518225442478,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.8884164509572726,
+       1.0,
+       0.9335744746480058
+      ],
+      "cell_m": 1.973269804593025e-31,
+      "electron_rest_phase_per_tick": 5.109989506899999e-19
+     },
+     {
+      "scale": "public M_U(P)",
+      "GeV": 2.4736113068353256e+16,
+      "inverse_couplings": [
+       37.81125000104679,
+       46.53365811082343,
+       45.50738379395959
+      ],
+      "required_sin2": 0.4247616178642904,
+      "required_alpha3/alpha2": 1.0225518197554584,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.8125570078973038,
+       1.0,
+       0.9779455482648777
+      ],
+      "cell_m": 7.977283250364727e-33,
+      "electron_rest_phase_per_tick": 2.0658013216464426e-20
+     },
+     {
+      "scale": "1e17 GeV",
+      "GeV": 1e+17,
+      "inverse_couplings": [
+       36.89971960927673,
+       47.237685649182424,
+       47.063655194542626
+      ],
+      "required_sin2": 0.4344205817851107,
+      "required_alpha3/alpha2": 1.003697767500642,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.7811500310010505,
+       1.0,
+       0.9963158556087557
+      ],
+      "cell_m": 1.9732698045930247e-33,
+      "electron_rest_phase_per_tick": 5.1099895068999996e-21
+     },
+     {
+      "scale": "public E_cell = E_star/sqrt(P)",
+      "GeV": 9.55991067703677e+18,
+      "inverse_couplings": [
+       33.92405211897897,
+       49.53596541811159,
+       52.14406310480708
+      ],
+      "required_sin2": 0.46698537843319227,
+      "required_alpha3/alpha2": 0.9499828449989917,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.6848368015570256,
+       1.0,
+       1.0526505876019914
+      ],
+      "cell_m": 2.064109039567583e-35,
+      "electron_rest_phase_per_tick": 5.345227251102219e-23
+     },
+     {
+      "scale": "E_star",
+      "GeV": 1.2208901289579268e+19,
+      "inverse_couplings": [
+       33.76445053052984,
+       49.659234937645465,
+       52.41655362167146
+      ],
+      "required_sin2": 0.46877824025218473,
+      "required_alpha3/alpha2": 0.9473960324837917,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.6799228899302641,
+       1.0,
+       1.0555247918637534
+      ],
+      "cell_m": 1.6162550239285502e-35,
+      "electron_rest_phase_per_tick": 4.1854622178504773e-23
+     }
+    ],
+    "candidates_against_SM_running": [
+     {
+      "normalization": "trace form",
+      "c1:c2:c3": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "sin2": 0.375,
+      "alpha3/alpha2": 1.0,
+      "scale_from_the_weak_mixing_angle_GeV": 13119700573439.98,
+      "scale_from_alpha3/alpha2_GeV": 1.3300970300573781e+17,
+      "ln_ratio_of_the_two_scales": 9.224062398363998,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": true
+     },
+     {
+      "normalization": "port-orthonormal, colour form averaged",
+      "c1:c2:c3": [
+       0.4,
+       2.0,
+       7.0
+      ],
+      "sin2": 0.75,
+      "alpha3/alpha2": 0.2857142857142857,
+      "scale_from_the_weak_mixing_angle_GeV": 6.700423308013686e+32,
+      "scale_from_alpha3/alpha2_GeV": null,
+      "ln_ratio_of_the_two_scales": -218.42493811247903,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": false
+     },
+     {
+      "normalization": "port-orthonormal, inverse colour form averaged",
+      "c1:c2:c3": [
+       0.4,
+       2.0,
+       4.0
+      ],
+      "sin2": 0.75,
+      "alpha3/alpha2": 0.5,
+      "scale_from_the_weak_mixing_angle_GeV": 6.700423308013686e+32,
+      "scale_from_alpha3/alpha2_GeV": Infinity,
+      "ln_ratio_of_the_two_scales": 410.40394991794585,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": false
+     },
+     {
+      "normalization": "frame form, colour form averaged",
+      "c1:c2:c3": [
+       2.5,
+       0.5,
+       0.25
+      ],
+      "sin2": 0.10714285714285714,
+      "alpha3/alpha2": 2.0,
+      "scale_from_the_weak_mixing_angle_GeV": null,
+      "scale_from_alpha3/alpha2_GeV": 154601.3163058818,
+      "ln_ratio_of_the_two_scales": 35.62244527116948,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": true
+     },
+     {
+      "normalization": "frame form, inverse colour form averaged",
+      "c1:c2:c3": [
+       2.5,
+       0.5,
+       0.14285714285714285
+      ],
+      "sin2": 0.10714285714285714,
+      "alpha3/alpha2": 3.5,
+      "scale_from_the_weak_mixing_angle_GeV": null,
+      "scale_from_alpha3/alpha2_GeV": 93.85266886264327,
+      "ln_ratio_of_the_two_scales": 28.215566541964957,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": true
+     },
+     {
+      "normalization": "pump-weighted: 2' (one load, flux 7) with 3 (two loads, flux 1)",
+      "c1:c2:c3": [
+       1.0189652742407715,
+       1.031608790401286,
+       1.0
+      ],
+      "sin2": 0.37789470061144437,
+      "alpha3/alpha2": 1.031608790401286,
+      "scale_from_the_weak_mixing_angle_GeV": 20684801916137.12,
+      "scale_from_alpha3/alpha2_GeV": 1.3060126112000438e+16,
+      "ln_ratio_of_the_two_scales": 6.447919835479613,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": true
+     },
+     {
+      "normalization": "pump-weighted: 2' (one load, flux 7) with 3 (one load, flux 2)",
+      "c1:c2:c3": [
+       0.8392857209511808,
+       0.7321428682519681,
+       1.0
+      ],
+      "sin2": 0.34357542062536306,
+      "alpha3/alpha2": 0.7321428682519681,
+      "scale_from_the_weak_mixing_angle_GeV": 81356545243.95656,
+      "scale_from_alpha3/alpha2_GeV": 6.430334040130038e+34,
+      "ln_ratio_of_the_two_scales": 55.02681252375264,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": false
+     },
+     {
+      "normalization": "pump-weighted: 2 (one load, flux 1) with 3 (two loads, flux 1)",
+      "c1:c2:c3": [
+       1.6746024425070156,
+       2.1243374041783594,
+       1.0
+      ],
+      "sin2": 0.43218511164949175,
+      "alpha3/alpha2": 2.1243374041783594,
+      "scale_from_the_weak_mixing_angle_GeV": 7.250985337817635e+16,
+      "scale_from_alpha3/alpha2_GeV": 50487.066730277635,
+      "ln_ratio_of_the_two_scales": -27.993026378088878,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": true
+     }
+    ],
+    "fits_not_derivations": {
+     "state-weighted form: x = p2/p3 that puts the measured couplings on one scale (SM one loop)": {
+      "x": 1.1194732072229672,
+      "scale_GeV": 65453368301246.29,
+      "sin2": 0.3852795179440425,
+      "pump pairings give x": [
+       1.031608790401286,
+       0.7321428682519681,
+       2.1243374041783594
+      ]
+     },
+     "trace form: number of Higgs doublets that closes the triangle at one loop": {
+      "nH": 7.41724982169113,
+      "scale_GeV_at_nH=7": 58600825202696.8,
+      "CF-1 has": "one register of the toggle (worker R8); nothing supplies more"
+     }
+    }
+   },
+   "on-shell: 1 - MW^2/MZ^2": {
+    "sin2(MZ)": 0.22333729871365937,
+    "inverse_couplings_at_MZ (alpha1 unified normalization, alpha2, alpha3)": [
+     60.08889281535493,
+     28.798625584931273,
+     8.481764206955047
+    ],
+    "equal_normalization_SM": {
+     "coefficients": "Standard Model, three generations, one Higgs doublet",
+     "b": [
+      "41/10",
+      "-19/6",
+      "-7"
+     ],
+     "scale_where_alpha1=alpha2_GeV (sin2 = 3/8)": 51279831005559.4,
+     "ln(scale/MZ)": 27.055396420172595,
+     "inverse_alpha_U_there": 42.43429249727186,
+     "predicted_alpha_s(MZ)": 0.08135179376845689,
+     "measured_alpha_s(MZ)": 0.1179,
+     "predicted/measured": 0.6900067325568862,
+     "pull_in_units_of_the_quoted_measurement_uncertainty (no theory error)": -40.609118035047906,
+     "one_loop_Lambda3_GeV: predicted, from measured alpha_s": [
+      0.009918352950146035,
+      0.1418311252946205
+     ],
+     "scale_where_alpha2=alpha3_GeV": 2.6452405403359464e+16,
+     "scale_where_alpha1=alpha3_GeV": 443304615148481.3,
+     "sin2_at_the_alpha2=alpha3_scale": 0.416224660612847,
+     "alpha3/alpha2_at_the_sin2=3/8_scale": 1.0986575951855082,
+     "cell_m = hbar c / scale (alpha1=alpha2)": 3.848042721472886e-30,
+     "tick_s": 1.2835688886719378e-38,
+     "electron_rest_phase_per_tick = m_e/scale": 9.96491097317776e-18,
+     "eps_n=2 = 2 pi alpha_U (trace-normalized generators)": 0.14806857702608187,
+     "kappa_n=2": 1.688406851887036
+    },
+    "equal_normalization_MSSM_proxy": {
+     "coefficients": "MSSM one-loop set of the public D10 lane (content absent from CF-1)",
+     "b": [
+      "33/5",
+      "1",
+      "-3"
+     ],
+     "scale_where_alpha1=alpha2_GeV (sin2 = 3/8)": 1.610546186342559e+17,
+     "ln(scale/MZ)": 35.10759773570015,
+     "inverse_alpha_U_there": 23.21107786521276,
+     "predicted_alpha_s(MZ)": 0.15507639382014166,
+     "measured_alpha_s(MZ)": 0.1179,
+     "predicted/measured": 1.3153214064473422,
+     "pull_in_units_of_the_quoted_measurement_uncertainty (no theory error)": 41.30710424460184,
+     "one_loop_Lambda3_GeV: predicted, from measured alpha_s": [
+      0.5864977748432169,
+      0.1418311252946205
+     ],
+     "scale_where_alpha2=alpha3_GeV": 6604802543046596.0,
+     "scale_where_alpha1=alpha3_GeV": 4.256075171298167e+16,
+     "sin2_at_the_alpha2=alpha3_scale": 0.34883436994715,
+     "alpha3/alpha2_at_the_sin2=3/8_scale": 0.9194542588618076,
+     "cell_m = hbar c / scale (alpha1=alpha2)": 1.225217768559737e-33,
+     "tick_s": 4.0868865639032756e-42,
+     "electron_rest_phase_per_tick = m_e/scale": 3.172830155529062e-21,
+     "eps_n=2 = 2 pi alpha_U (trace-normalized generators)": 0.27069769631837787,
+     "kappa_n=2": 0.9235394441848722
+    },
+    "required_normalization_by_scale_SM": [
+     {
+      "scale": "1e13 GeV",
+      "GeV": 10000000000000.0,
+      "inverse_couplings": [
+       43.50100000486495,
+       41.61041271498452,
+       36.802556810230634
+      ],
+      "required_sin2": 0.36464511853176074,
+      "required_alpha3/alpha2": 1.1306391816618937,
+      "required c1:c2:c3 (c2 = 1)": [
+       1.0454354371063377,
+       1.0,
+       0.884455462201592
+      ],
+      "cell_m": 1.9732698045930247e-29,
+      "electron_rest_phase_per_tick": 5.1099895068999994e-17
+     },
+     {
+      "scale": "1e15 GeV",
+      "GeV": 1000000000000000.0,
+      "inverse_couplings": [
+       40.49596404945929,
+       43.93137544476937,
+       41.93310600238663
+      ],
+      "required_sin2": 0.3942698127750554,
+      "required_alpha3/alpha2": 1.0476537426602506,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.9218005045248563,
+       1.0,
+       0.9545138429618492
+      ],
+      "cell_m": 1.973269804593025e-31,
+      "electron_rest_phase_per_tick": 5.109989506899999e-19
+     },
+     {
+      "scale": "public M_U(P)",
+      "GeV": 2.4736113068353256e+16,
+      "inverse_couplings": [
+       38.4024584858237,
+       45.548310636195225,
+       45.50738379395959
+      ],
+      "required_sin2": 0.41576731557916197,
+      "required_alpha3/alpha2": 1.000899345091358,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.8431148806495354,
+       1.0,
+       0.9991014630034794
+      ],
+      "cell_m": 7.977283250364727e-33,
+      "electron_rest_phase_per_tick": 2.0658013216464426e-20
+     },
+     {
+      "scale": "1e17 GeV",
+      "GeV": 1e+17,
+      "inverse_couplings": [
+       37.49092809405364,
+       46.252338174554225,
+       47.063655194542626
+      ],
+      "required_sin2": 0.4253588503030164,
+      "required_alpha3/alpha2": 0.9827612832740097,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.8105736828387915,
+       1.0,
+       1.017541102828716
+      ],
+      "cell_m": 1.9732698045930247e-33,
+      "electron_rest_phase_per_tick": 5.1099895068999996e-21
+     },
+     {
+      "scale": "public E_cell = E_star/sqrt(P)",
+      "GeV": 9.55991067703677e+18,
+      "inverse_couplings": [
+       34.515260603755884,
+       48.55061794348339,
+       52.14406310480708
+      ],
+      "required_sin2": 0.4576963122073992,
+      "required_alpha3/alpha2": 0.9310862071852545,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.7109129000980847,
+       1.0,
+       1.0740144062740198
+      ],
+      "cell_m": 2.064109039567583e-35,
+      "electron_rest_phase_per_tick": 5.345227251102219e-23
+     },
+     {
+      "scale": "E_star",
+      "GeV": 1.2208901289579268e+19,
+      "inverse_couplings": [
+       34.355659015306756,
+       48.673887463017266,
+       52.41655362167146
+      ],
+      "required_sin2": 0.45947665806363247,
+      "required_alpha3/alpha2": 0.9285976299459184,
+      "required c1:c2:c3 (c2 = 1)": [
+       0.7058334726481506,
+       1.0,
+       1.0768926903875902
+      ],
+      "cell_m": 1.6162550239285502e-35,
+      "electron_rest_phase_per_tick": 4.1854622178504773e-23
+     }
+    ],
+    "candidates_against_SM_running": [
+     {
+      "normalization": "trace form",
+      "c1:c2:c3": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "sin2": 0.375,
+      "alpha3/alpha2": 1.0,
+      "scale_from_the_weak_mixing_angle_GeV": 51279831005559.4,
+      "scale_from_alpha3/alpha2_GeV": 2.6452405403359464e+16,
+      "ln_ratio_of_the_two_scales": 6.245804857593821,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": true
+     },
+     {
+      "normalization": "port-orthonormal, colour form averaged",
+      "c1:c2:c3": [
+       0.4,
+       2.0,
+       7.0
+      ],
+      "sin2": 0.75,
+      "alpha3/alpha2": 0.2857142857142857,
+      "scale_from_the_weak_mixing_angle_GeV": 1.9078409720595828e+33,
+      "scale_from_alpha3/alpha2_GeV": null,
+      "ln_ratio_of_the_two_scales": -214.16464977230348,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": false
+     },
+     {
+      "normalization": "port-orthonormal, inverse colour form averaged",
+      "c1:c2:c3": [
+       0.4,
+       2.0,
+       4.0
+      ],
+      "sin2": 0.75,
+      "alpha3/alpha2": 0.5,
+      "scale_from_the_weak_mixing_angle_GeV": 1.9078409720595828e+33,
+      "scale_from_alpha3/alpha2_GeV": Infinity,
+      "ln_ratio_of_the_two_scales": 390.7842009829268,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": false
+     },
+     {
+      "normalization": "frame form, colour form averaged",
+      "c1:c2:c3": [
+       2.5,
+       0.5,
+       0.25
+      ],
+      "sin2": 0.10714285714285714,
+      "alpha3/alpha2": 2.0,
+      "scale_from_the_weak_mixing_angle_GeV": null,
+      "scale_from_alpha3/alpha2_GeV": 87300.97043190715,
+      "ln_ratio_of_the_two_scales": 33.31164567753862,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": true
+     },
+     {
+      "normalization": "frame form, inverse colour form averaged",
+      "c1:c2:c3": [
+       2.5,
+       0.5,
+       0.14285714285714285
+      ],
+      "sin2": 0.10714285714285714,
+      "alpha3/alpha2": 3.5,
+      "scale_from_the_weak_mixing_angle_GeV": null,
+      "scale_from_alpha3/alpha2_GeV": null,
+      "ln_ratio_of_the_two_scales": 26.186046233546723,
+      "weak_scale_is_below_E_star": false,
+      "strong_scale_is_below_E_star": false
+     },
+     {
+      "normalization": "pump-weighted: 2' (one load, flux 7) with 3 (two loads, flux 1)",
+      "c1:c2:c3": [
+       1.0189652742407715,
+       1.031608790401286,
+       1.0
+      ],
+      "sin2": 0.37789470061144437,
+      "alpha3/alpha2": 1.031608790401286,
+      "scale_from_the_weak_mixing_angle_GeV": 80592326609059.78,
+      "scale_from_alpha3/alpha2_GeV": 2836651620823821.0,
+      "ln_ratio_of_the_two_scales": 3.5609761872089223,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": true
+     },
+     {
+      "normalization": "pump-weighted: 2' (one load, flux 7) with 3 (one load, flux 2)",
+      "c1:c2:c3": [
+       0.8392857209511808,
+       0.7321428682519681,
+       1.0
+      ],
+      "sin2": 0.34357542062536306,
+      "alpha3/alpha2": 0.7321428682519681,
+      "scale_from_the_weak_mixing_angle_GeV": 329477627552.1434,
+      "scale_from_alpha3/alpha2_GeV": 2.724236842766418e+33,
+      "ln_ratio_of_the_two_scales": 50.4667221095836,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": false
+     },
+     {
+      "normalization": "pump-weighted: 2 (one load, flux 1) with 3 (two loads, flux 1)",
+      "c1:c2:c3": [
+       1.6746024425070156,
+       2.1243374041783594,
+       1.0
+      ],
+      "sin2": 0.43218511164949175,
+      "alpha3/alpha2": 2.1243374041783594,
+      "scale_from_the_weak_mixing_angle_GeV": 2.6686615340931008e+17,
+      "scale_from_alpha3/alpha2_GeV": 29747.010679943724,
+      "ln_ratio_of_the_two_scales": -29.82503970494781,
+      "weak_scale_is_below_E_star": true,
+      "strong_scale_is_below_E_star": true
+     }
+    ],
+    "fits_not_derivations": {
+     "state-weighted form: x = p2/p3 that puts the measured couplings on one scale (SM one loop)": {
+      "x": 1.0789877480441803,
+      "scale_GeV": 152258798816119.97,
+      "sin2": 0.38199095172883235,
+      "pump pairings give x": [
+       1.031608790401286,
+       0.7321428682519681,
+       2.1243374041783594
+      ]
+     },
+     "trace form: number of Higgs doublets that closes the triangle at one loop": {
+      "nH": 5.214906261806327,
+      "scale_GeV_at_nH=7": 247977998622210.5,
+      "CF-1 has": "one register of the toggle (worker R8); nothing supplies more"
+     }
+    }
+   }
+  },
+  "light_copies_of_a_family": {
+   "tag": "NOT BLIND; coefficients IMPORTED; primary variant",
+   "rows": [
+    {
+     "families": 1,
+     "b": [
+      "43/30",
+      "-35/6",
+      "-29/3"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.936,
+     "inverse_couplings_at_that_scale": [
+      53.63672293308353,
+      53.63672293308353,
+      48.00917828308064
+     ],
+     "finite_up_to_that_scale": true,
+     "first_divergence_GeV": null,
+     "first_divergence_factor": "hypercharge"
+    },
+    {
+     "families": 3,
+     "b": [
+      "41/10",
+      "-19/6",
+      "-7"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.98,
+     "inverse_couplings_at_that_scale": [
+      42.73260870518682,
+      42.73260870518682,
+      37.105064055183924
+     ],
+     "finite_up_to_that_scale": true,
+     "first_divergence_GeV": 3.618993101535222e+41,
+     "first_divergence_factor": "hypercharge"
+    },
+    {
+     "families": 4,
+     "b": [
+      "163/30",
+      "-11/6",
+      "-17/3"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.936,
+     "inverse_couplings_at_that_scale": [
+      37.280551591238456,
+      37.28055159123846,
+      31.653006941235567
+     ],
+     "finite_up_to_that_scale": true,
+     "first_divergence_GeV": 6.93629411271519e+31,
+     "first_divergence_factor": "hypercharge"
+    },
+    {
+     "families": 8,
+     "b": [
+      "323/30",
+      "7/2",
+      "-1/3"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.889,
+     "inverse_couplings_at_that_scale": [
+      15.472323135445023,
+      15.472323135445038,
+      9.844778485442136
+     ],
+     "finite_up_to_that_scale": true,
+     "first_divergence_GeV": 1.0947110316806458e+17,
+     "first_divergence_factor": "hypercharge"
+    },
+    {
+     "families": 9,
+     "b": [
+      "121/10",
+      "29/6",
+      "1"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.936,
+     "inverse_couplings_at_that_scale": [
+      10.020266021496674,
+      10.020266021496681,
+      4.392721371493779
+     ],
+     "finite_up_to_that_scale": true,
+     "first_divergence_GeV": 2385952414082554.5,
+     "first_divergence_factor": "hypercharge"
+    },
+    {
+     "families": 10,
+     "b": [
+      "403/30",
+      "37/6",
+      "7/3"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.936,
+     "inverse_couplings_at_that_scale": [
+      4.568208907548318,
+      4.568208907548321,
+      -1.0593357424545786
+     ],
+     "finite_up_to_that_scale": false,
+     "first_divergence_GeV": 756950319665.6287,
+     "first_divergence_factor": "colour"
+    },
+    {
+     "families": 11,
+     "b": [
+      "443/30",
+      "15/2",
+      "11/3"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.889,
+     "inverse_couplings_at_that_scale": [
+      -0.8838482064000459,
+      -0.8838482064000353,
+      -6.511392856402935
+     ],
+     "finite_up_to_that_scale": false,
+     "first_divergence_GeV": 187116012.5305553,
+     "first_divergence_factor": "colour"
+    },
+    {
+     "families": 32,
+     "b": [
+      "1283/30",
+      "71/2",
+      "95/3"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.98,
+     "inverse_couplings_at_that_scale": [
+      -115.37704759931555,
+      -115.37704759931556,
+      -121.00459224931843
+     ],
+     "finite_up_to_that_scale": false,
+     "first_divergence_GeV": 490.70500701446844,
+     "first_divergence_factor": "colour"
+    },
+    {
+     "families": 64,
+     "b": [
+      "2563/30",
+      "469/6",
+      "223/3"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.98,
+     "inverse_couplings_at_that_scale": [
+      -289.84287524566304,
+      -289.84287524566304,
+      -295.4704198956658
+     ],
+     "finite_up_to_that_scale": false,
+     "first_divergence_GeV": 186.7669577039003,
+     "first_divergence_factor": "colour"
+    },
+    {
+     "families": 96,
+     "b": [
+      "1281/10",
+      "725/6",
+      "117"
+     ],
+     "scale_where_alpha1=alpha2_GeV": 13119700573439.98,
+     "inverse_couplings_at_that_scale": [
+      -464.30870289201044,
+      -464.30870289201044,
+      -469.9362475420133
+     ],
+     "finite_up_to_that_scale": false,
+     "first_divergence_GeV": 143.7985891049295,
+     "first_divergence_factor": "colour"
+    }
+   ],
+   "largest_number_of_light_complete_families_with_finite_couplings_up_to_the_crossing_scale": 9,
+   "reading": "the crossing scales and the alpha_s mismatch do not depend on the number of complete families (they shift the three coefficients equally); the couplings themselves do. If every zero-phase cone of a species (32 per arrow block, reports/R3.md) were a light fermion with the charges of the species, it would count as a family: rows 32, 64, 96"
+  }
+ },
+ "C_units": {
+  "tag": "anchors are measured values of the shipped tables (IMPORTED, NOT BLIND); every candidate number is stated as required, none is supplied",
+  "constants": {
+   "hbar_GeV_s": 6.582119569509066e-25,
+   "hbar_c_GeV_m": 1.9732698045930247e-16
+  },
+  "one_dimensionful_unknown": "the tick tau; the cell is a = c tau once the routing cone is declared to be the light cone (and the field speed matched, block B)",
+  "measured_anchors": [
+   {
+    "anchor": "electron rest energy",
+    "value_GeV": 0.00051099895069,
+    "candidate_number_needed": "theta_e, rest phase per tick of the electron pattern pair",
+    "tick_s_per_unit_angle": 1.2880886664485817e-21,
+    "cell_m_per_unit_angle": 3.861592674365624e-13,
+    "then_predicted": "every other rest phase as a mass; clock ceiling pi hbar/tick",
+    "state": "theta_e is not an output: 0 under M3, declared under M2; M1 and H values retired (reports/R7.md)"
+   },
+   {
+    "anchor": "Z mass (or W mass, or the Fermi constant)",
+    "value_GeV": 91.1879,
+    "candidate_number_needed": "rest phase of the massive link wave: cos(omega_0) = 1 - eps rho q^2/2 per field step (worker X5): needs rho and eps",
+    "cell_m_per_unit_angle": 2.163960135712112e-18,
+    "then_predicted": "MW/MZ = cos(theta_W) at the scale; fermion masses in units of MZ",
+    "state": "register stiffness rho declared; step E5 open"
+   },
+   {
+    "anchor": "proton mass (the confinement scale)",
+    "value_GeV": 0.9382720894300001,
+    "candidate_number_needed": "alpha_3 at the lattice scale (eps_3 at matched speed) and the running, or an executed confinement scale in cells",
+    "then_predicted": "the lattice scale in GeV, hence every other scale the candidate outputs in cells",
+    "state": "eps_3 declared; composites open (step F3)"
+   },
+   {
+    "anchor": "Z mass together with the measured couplings (running route)",
+    "candidate_number_needed": "the ratios c1:c2:c3 only",
+    "then_predicted": "ln(lattice scale/MZ) from sin2, then alpha_s(MZ) and alpha_U",
+    "state": "available for the trace form (block D); the prediction fails with Standard Model content"
+   },
+   {
+    "anchor": "Newton constant (Planck length)",
+    "candidate_number_needed": "the cell in Planck lengths: a gravity sector",
+    "state": "none in CF-1; the public checkout supplies the pixel reading below"
+   },
+   {
+    "anchor": "caesium hyperfine frequency (the SI second)",
+    "candidate_number_needed": "the whole atomic chain (alpha, m_e, nuclear moment)",
+    "state": "not admissible at this level; the checkout lists the missing components"
+   }
+  ],
+  "source_derived_anchors_claimed_by_the_public_checkout": {
+   "pixel": {
+    "definition": "P = a_cell / l_star^2; outer equation P = phi + sqrt(pi) alpha (extra/fine_structure_constant_derivation.tex)",
+    "P_comparison": 1.6309682094039593,
+    "ancestry": "P_C is computed from the measured alpha(0); the two certified roots of the declared map give alpha_inverse 137.00099 (MSSM proxy) and 168.815 (minimal census)",
+    "assumes": [
+     "l_star identified with the Planck length: E_star is the Planck energy from the measured G (clock audit: epsilon_Cs not source emitted)",
+     "M_U = E_star exp(-2 pi) P^(1/6) and E_cell = E_star/sqrt(P): declared forms",
+     "MSSM one-loop coefficients (33/5, 1, -3): superpartners absent from the carrier",
+     "beta_EW = 4 in v = E_cell exp(-2 pi/(4 alpha_U))",
+     "heat-kernel closure lbar_SU(2) + lbar_SU(3) = P/4 without a hypercharge term: declared",
+     "P/4 as an area reading of the cell: a premise (native regional entropy grows with enclosed ports)"
+    ]
+   },
+   "D10_lane": {
+    "values_at_P_C": {
+     "M_U_GeV": 2.4736113068353256e+16,
+     "alpha_U_inverse": 24.316501918546503,
+     "sin2(mZ)": 0.23073520940371514,
+     "alpha3(mZ)": 0.11833602747445049,
+     "alpha_em_inverse(mZ)": 128.30796547328626,
+     "mZ_GeV": 91.59610057939885,
+     "v_GeV": 246.6174038227292,
+     "v/E_star": 2.0199803239725257e-17
+    },
+    "assumes": "equal couplings alpha_U at M_U (the trace-form normalization), the MSSM proxy, the declared transmutation; W/Z chart conditional on the unemitted QT1-QT5 certificate (code/particles/README.md)",
+    "same_point_run_down_with_SM_coefficients (inverse couplings at MZ)": [
+     46.00293624807773,
+     7.566816867282547,
+     -12.709117668458038
+    ],
+    "same_point_with_SM_coefficients: alpha3 diverges at GeV": 8207833.457617203,
+    "same_point_with_the_MSSM_set (inverse couplings at MZ)": [
+     59.22637181486506,
+     29.605876145261437,
+     8.448379238401701
+    ],
+    "eps_kappa_for_n=2_if_CF-1_adopted_alpha_U(P)": {
+     "eps": 0.2583918249518991,
+     "kappa": 0.9675228697600581
+    }
+   },
+   "what_none_of_them_fixes": "a unit: E_star is externally normalized (docs/research/OPH_PARTICLE_MASS_RESPONSE.md; code/particles/runs/clock/clock_source_energy_closure_audit.json verdict NOT_FINAL_SOURCE_ONLY_PACKET)"
+  },
+  "if_the_cell_is_the_public_pixel": {
+   "declared": "a^2 = P l_star^2 with l_star the Planck length",
+   "l_Planck_m": 1.6162550239285502e-35,
+   "cell_m": 2.064109039567583e-35,
+   "tick_s": 6.885126641736874e-44,
+   "lattice_scale_GeV = E_star/sqrt(P)": 9.55991067703677e+18,
+   "public_M_U_GeV": 2.473611306835326e+16,
+   "electron_rest_phase_per_tick_required": 5.345227251102219e-23,
+   "top_rest_phase_required": 1.805456199654575e-17,
+   "Z_rest_phase_required": 9.53857238635466e-18,
+   "couplings_required_at_this_scale (SM one loop, inverse)": [
+    33.92405211897897,
+    49.53596541811159,
+    52.14406310480708
+   ],
+   "required_sin2": 0.46698537843319227,
+   "required_alpha3/alpha2": 0.9499828449989917,
+   "trace_form_at_this_scale_run_down (SM)": {
+    "alpha_U_inverse from alpha(MZ)": 39.7785196061537,
+    "sin2(MZ)": 0.15530847070823878,
+    "inverse_alpha3(MZ)": -3.883779291698332,
+    "alpha3 diverges at GeV": 2977.9617027817967
+   }
+  },
+  "scales_the_candidate_offers (reports/R7.md, electron anchor)": [
+   {
+    "option": "M1 (flux reading V)",
+    "cell_fm": [
+     33.9,
+     66.1
+    ],
+    "lattice_scale_GeV = hbar c/cell": [
+     0.002985279583347995,
+     0.005820854880805383
+    ]
+   },
+   {
+    "option": "H (background of the runs)",
+    "cell_fm": 3.09,
+    "lattice_scale_GeV": 0.06385986422631147
+   },
+   {
+    "option": "M2 (free angle), bound if the top shares the clock",
+    "cell_m_below": 3.59e-18,
+    "lattice_scale_GeV_above": 54.96573271846865
+   },
+   {
+    "option": "M3 (internal walk)",
+    "statement": "electron massless: no anchor"
+   }
+  ],
+  "cheapest_anchor": {
+   "anchor": "the electron rest energy",
+   "why": "one elementary rest phase of one pattern pair; no composite, no gravity sector, no running needed to state it; the frozen protocol of worker R7 uses it",
+   "unit_then": "tick = theta_e x 1.288089e-21 s, cell = theta_e x 3.8615926744e-13 m",
+   "to_become_a_prediction_the_candidate_must_output": [
+    "theta_e as a number of the program (none is supplied)",
+    "at least one further number in the same clock: a second rest phase (first test: the ratios R7 lists), or the unified coupling alpha_U = n eps/(4 pi) at the lattice scale",
+    "with theta_e and alpha_U: ln(lattice scale/m_e) = ln(1/theta_e) fixes the running length, so alpha(0), sin2(MZ) and alpha_s(MZ) are three comparisons from two outputs"
+   ],
+   "value_theta_e_would_need_for_the_trace_form_to_meet_the_measured_weak_angle (SM one loop, NOT BLIND)": 3.8948979653124525e-17,
+   "the_electron_mass_itself_is_predicted_only_with_a_second_unit": "the only one in the checkout is E_star through the pixel: m_e = theta_e E_star/sqrt(P), theta_e = 5.3452e-23"
+  }
+ },
+ "summary": {
+  "D4_ratios": "gauge invariance leaves three weights; one class function on the five levels (equivalently the family trace or a tracial reference) gives g1^2:g2^2:g3^2 = 1:1:1 and sin2 = 3/8; the two port-democratic readings of the Gram form (sin2 = 3/4 and 3/28) are not invariant on su(3); pump-weighted forms need a declared sector weight",
+  "D4_magnitude": "not fixed: after the speed condition n^2 eps kappa = 1 the field step holds one free number per link variable, alpha = n eps/(4 pi)",
+  "pump_pairings (sin2, alpha3/alpha2)": [
+   [
+    0.37789470061144437,
+    1.031608790401286
+   ],
+   [
+    0.34357542062536306,
+    0.7321428682519681
+   ],
+   [
+    0.43218511164949175,
+    2.1243374041783594
+   ]
+  ],
+  "field_step": "c_f = n sqrt(eps kappa); alpha_m = n eps/(4 pi); alpha_f = sqrt(eps/kappa)/(4 pi); routing speed iff n^2 eps kappa = 1, n >= 2",
+  "running_SM_primary (NOT BLIND)": {
+   "scale_GeV": 13119700573439.98,
+   "inverse_alpha_U": 42.73260870518682,
+   "alpha_s_predicted": 0.07087519382686518,
+   "alpha_s_measured": 0.1179,
+   "alpha2=alpha3_scale_GeV": 1.3300970300573781e+17,
+   "cell_m": 1.5040509450252143e-29,
+   "electron_rest_phase_per_tick": 3.8948979653124525e-17
+  },
+  "running_scheme_spread_of_the_scale_GeV": [
+   13119700573439.98,
+   51279831005559.4
+  ],
+  "running_MSSM_proxy_primary (NOT BLIND; content absent from CF-1)": {
+   "scale_GeV": 2.7463336682629868e+16,
+   "inverse_alpha_U": 24.477953189734734,
+   "alpha_s_predicted": 0.11682388228587837,
+   "public_M_U_GeV": 2.473611306835326e+16,
+   "public_inverse_alpha_U": 24.316501918546503
+  },
+  "pixel_scale_as_lattice_scale (trace form, SM, NOT BLIND)": {
+   "alpha_U_inverse from alpha(MZ)": 39.7785196061537,
+   "sin2(MZ)": 0.15530847070823878,
+   "inverse_alpha3(MZ)": -3.883779291698332,
+   "alpha3 diverges at GeV": 2977.9617027817967
+  },
+  "cheapest_anchor": "electron rest energy; needs theta_e and one further output (a second rest phase, or alpha_U)"
+ }
+}

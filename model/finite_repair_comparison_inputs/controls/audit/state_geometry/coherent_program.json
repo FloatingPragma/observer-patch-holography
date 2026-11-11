@@ -1,0 +1,30 @@
+{
+  "status": "DECLARED finite quantum positive control; numerical implementation checks",
+  "dimension": 62,
+  "declared_inputs": {
+    "H": "full incidence D",
+    "beta": 0.25,
+    "time_step": 0.1,
+    "reset_probability": 0.05,
+    "reset": "global energy-basis Gibbs replacement",
+    "detectors": "site projectors with complete records"
+  },
+  "exact_channel": "C(rho)=(1-eta) U rho U* + eta tr(rho) sigma",
+  "stationary_residual_operator_norm": 1.2441131883798012e-16,
+  "modular_relation_residual_operator_norm": 1.3875298828611588e-14,
+  "damped_mode_residual_operator_norm": 1.1819225169336742e-15,
+  "two_click_joint_probability_sum": 0.9999999999999998,
+  "port_to_incidence_partner_probability_after_idle_step": 0.04900840519538942,
+  "fixed_eta_damping_rate": 0.5129329438755054,
+  "scope": {
+    "native_T0_preserved": false,
+    "reset_seam_local": false,
+    "Gibbs_target_source_selected": false,
+    "quantum_instrument_derived_from_classical_repair": false,
+    "homogeneous_idle_reset_reference_stationary": true,
+    "each_detector_branch_stationary": false,
+    "fixed_eta_underdamped_IR_limit": false,
+    "physical_particle_mass_claim": false
+  },
+  "memory": "Finite retained horizon required; quantum log(62) capacity is not classical amplitude-simulator storage."
+}

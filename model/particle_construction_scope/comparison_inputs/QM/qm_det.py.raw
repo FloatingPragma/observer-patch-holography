@@ -1,0 +1,82 @@
+"""QM appendix G: determinant test of every registered reading on the three sectors at once (NOT BLIND).
+
+Predicted R_f = det(C_f^2)/det(C_e^2) from values.json (absolute weights, phase readings P1, P2).
+Measured: SCALES of RL/work/LS/ls2_compare.py (IMPORTED by LS: PDG 2024 own scales; Xing, Zhang, Zhou 2008 at M_Z and
+2e16 GeV) and the RER M_Z Yukawas (model/common_source/calibrated_matter_results.json).
+Run: cd RL/work/QM && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B qm_det.py
+"""
+import json
+import math
+import os
+import sys
+
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'LS'))
+from ls2_compare import SCALES  # noqa: E402  (measured triples, IMPORTED by LS)
+
+sys.path.insert(0, HERE)
+from qm_paths import RER  # noqa: E402  (the checkout moved at 23:18; both locations are accepted)
+vals = json.load(open(os.path.join(HERE, 'values.json')))
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+meas = {name: {'u': m['u'], 'd': m['d'], 'e': m['e']} for name, m in SCALES.items()}
+meas['RER_MZ_yukawa'] = {'u': [float(v) for v in yuk['up']], 'd': [float(v) for v in yuk['down']],
+                         'e': [float(v) for v in yuk['charged_lepton']]}
+
+
+def parts(tr):
+    y = np.sort(np.array(tr, float))
+    return {'det': float(np.prod(y)), 'scale_y3_cubed': float(y[2] ** 3), 'shape': float(y[0] * y[1] / y[2] ** 2)}
+
+
+M = {}
+for name, m in meas.items():
+    P = {f: parts(m[f]) for f in ('u', 'd', 'e')}
+    M[name] = {'R_u': P['u']['det'] / P['e']['det'], 'R_d': P['d']['det'] / P['e']['det'],
+               'R_u_over_R_d': P['u']['det'] / P['d']['det'],
+               'scale_part_u_over_d': P['u']['scale_y3_cubed'] / P['d']['scale_y3_cubed'],
+               'shape_part_u_over_d': P['u']['shape'] / P['d']['shape'],
+               'shape_part_u_over_e': P['u']['shape'] / P['e']['shape'],
+               'shape_part_d_over_e': P['d']['shape'] / P['e']['shape']}
+
+out = {'NOT_BLIND': True, 'measured': M, 'readings': {}}
+for name, rec in vals.items():
+    if not isinstance(rec, dict) or 'spectra' not in rec:
+        continue
+    row = {}
+    for ph in ('P1', 'P2'):
+        det = {sec: float(np.prod(rec['spectra'][f'{sec}|{ph}']['y_sorted'])) for sec in ('up', 'down', 'lepton')}
+        Ru, Rd = det['up'] / det['lepton'], det['down'] / det['lepton']
+        miss = {}
+        for sname, m in M.items():
+            fu, fd = abs(math.log(Ru / m['R_u'])), abs(math.log(Rd / m['R_d']))
+            miss[sname] = {'u_factor': math.exp(fu), 'd_factor': math.exp(fd), 'passes_factor_3': max(fu, fd) <= math.log(3)}
+        row[ph] = {'R_u': Ru, 'R_d': Rd, 'R_u_over_R_d': Ru / Rd, 'miss': miss}
+    row['reads_beyond_Z6'] = name in ('QM-1a', 'QM-1b', 'QM-5', 'QM-3b-iv', 'QM-4')
+    out['readings'][name] = row
+out['any_reading_passes'] = any(v[ph]['miss'][s]['passes_factor_3'] for v in out['readings'].values()
+                                for ph in ('P1', 'P2') for s in M)
+
+# common-normalization statement: a circulant with q = 1/6 at the measured (x, delta) of each sector
+comp = json.load(open(os.path.join(HERE, 'compare.json')))['measured_MZ']
+R3 = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)
+def circ_det(x, d, q=1 / 6):
+    C = math.sqrt(q) * np.eye(3) + math.sqrt(x * q) * (np.exp(1j * d) * R3 + np.exp(-1j * d) * (R3 @ R3))
+    return float(np.prod(np.linalg.eigvalsh(C) ** 2))
+dets = {s_: circ_det(comp[s_]['x'], comp[s_]['delta']) for s_ in ('up', 'down', 'lepton')}
+out['measured_shapes_at_common_agree_weight'] = {
+    'R_u': dets['up'] / dets['lepton'], 'R_d': dets['down'] / dets['lepton'], 'R_u_over_R_d': dets['up'] / dets['down'],
+    'note': 'every sector with agree weight 1/6 and its own measured (x, delta): the determinant split a shape law '
+            'can produce when it reproduces both measured shapes exactly'}
+with open(os.path.join(HERE, 'det.json'), 'w') as fh:
+    json.dump(out, fh, indent=1, sort_keys=True)
+for k, v in M.items():
+    print(k, {kk: f'{vv:.4g}' for kk, vv in v.items()})
+print('measured shapes at common agree weight:', {k: (f'{v:.4g}' if isinstance(v, float) else v) for k, v in out['measured_shapes_at_common_agree_weight'].items() if k != 'note'})
+for name, row in out['readings'].items():
+    r = row['P1']; r2 = row['P2']
+    print(f"{name:26s} beyondZ6={row['reads_beyond_Z6']!s:5s} P1 R_u={r['R_u']:.3g} R_d={r['R_d']:.3g} R_u/R_d={r['R_u_over_R_d']:.3g} "
+          f"| P2 R_u={r2['R_u']:.3g} R_d={r2['R_d']:.3g} | miss at M_Z(LS) u x{r['miss']['S2_MZ']['u_factor']:.3g} d x{r['miss']['S2_MZ']['d_factor']:.3g}")
+print('any reading passes the factor-3 rule at any scale:', out['any_reading_passes'])

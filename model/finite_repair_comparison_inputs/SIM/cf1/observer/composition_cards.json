@@ -1,0 +1,11053 @@
+{
+ "notes": {
+  "composition": "multiset of the nonzero classes on the twenty faces of one carrier (carrier tier)",
+  "history_sources": "per-sweep compositions from the record files: L5 sweeps 0-600 (all), L6 0-80, L7 0-64, L8 0-4; after that the checkpoints (L6 every 50 to 500, L7 every 50 to 400, L8 every 50 to 300, L9 and L10 at 100, 200, 300)",
+  "moves_between_carriers": "EXACT: a face of a carrier changes only by a twist of one of its own 30 seams; glue seams carry screen plaquettes. Data: composition changes without an own-seam twist in that sweep = 0 at L5 (600 sweeps), L6 (80), L7 (64), L8 (4); total class content per carrier sums to 0 mod 6 on every checkpoint (CH). Content never moves to a neighbour.",
+  "shape_symmetry": "shapes up to the 60 proper rotations of the icosahedral template; a reflection maps class k to 6 - k, so the mirror image of a configuration of composition X is a configuration of the conjugate composition",
+  "pair_correlation": "g(r) = observed / expected pairs of carriers at angular distance r (units: mean spacing of adjacent cells), expected = same numbers placed at random on the carriers; error Poisson on the observed count; first shell (r < 0.5) is the carrier itself"
+ },
+ "cards": {
+  "{2,4}": {
+   "counts_at_end": {
+    "5": 4971,
+    "6": 19614,
+    "7": 78001,
+    "8": 312508,
+    "9": 1246725,
+    "10": 4991967
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L5": {
+    "carriers_at_last_record_sweep": 4971,
+    "entries_total": 7991,
+    "entered_from": {
+     "{}": 2004,
+     "{2,5,5}": 1662,
+     "{1,1,4}": 1641,
+     "{1,2,4,5}": 1045,
+     "{1,2,3}": 638,
+     "{3,4,5}": 598,
+     "{3,3}": 296,
+     "{1,1,5,5}": 28,
+     "{2,2,4,4}": 16,
+     "{1,2,5,5,5}": 14,
+     "{1,1,1,4,5}": 11,
+     "{1,3,3,5}": 7
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 20.0,
+     "0.9": 88.0,
+     "0.99": 197.10000000000036,
+     "1.0": 430.0
+    },
+    "final_holders_came_from": {
+     "{1,1,4}": 1481,
+     "{2,5,5}": 1473,
+     "{1,2,4,5}": 669,
+     "{1,2,3}": 593,
+     "{3,4,5}": 563,
+     "{}": 121,
+     "{1,1,5,5}": 26,
+     "{1,1,1,4,5}": 10,
+     "{1,2,5,5,5}": 9,
+     "{1,1,2,3,5}": 4
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 7.0,
+     "0.5": 40.0,
+     "0.9": 106.0,
+     "0.99": 225.0,
+     "1.0": 430.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     121,
+     66,
+     58,
+     60,
+     57,
+     51,
+     52,
+     51,
+     37,
+     50,
+     58,
+     44,
+     52,
+     55,
+     55,
+     69,
+     52,
+     52,
+     48,
+     71,
+     57,
+     57,
+     76,
+     77,
+     70,
+     67,
+     66,
+     66,
+     76,
+     64,
+     71,
+     63,
+     72,
+     51,
+     57,
+     67,
+     58,
+     57,
+     77,
+     65
+    ],
+    "exits_total": 3020,
+    "exited_to": {
+     "{1,5}": 2696,
+     "{2,5,5}": 93,
+     "{1,1,4}": 87,
+     "{}": 45,
+     "{1,2,4,5}": 40,
+     "{3,3}": 31,
+     "{1,1,5,5}": 5,
+     "{2,2,4,4}": 4,
+     "{1,1,2,4,5,5}": 4,
+     "{1,2,3}": 3
+    },
+    "entries_after_sweep_15": 4424,
+    "exits_after_sweep_15": 993,
+    "entries_after_sweep_30": 3282,
+    "exits_after_sweep_30": 358,
+    "entries_after_sweep_60": 1609,
+    "exits_after_sweep_60": 84,
+    "entries_after_sweep_100": 613,
+    "exits_after_sweep_100": 24,
+    "last_entry_sweep": 430,
+    "last_exit_sweep": 429,
+    "episodes_complete": 3020,
+    "episodes_censored": 4971,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 2.0,
+     "0.5": 6.0,
+     "0.75": 12.0,
+     "0.9": 20.09999999999991,
+     "0.99": 41.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     540,
+     300,
+     499,
+     686,
+     646,
+     337,
+     12,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9324239769740958,
+     0.8948817419597047,
+     0.8116631210111376,
+     0.7347015392316356,
+     0.6598673507696158,
+     0.6235765235890376,
+     0.622074834188462,
+     0.622074834188462,
+     0.622074834188462
+    ],
+    "checkpoint_steps": [],
+    "record_sweeps": 600
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 15979,
+    "entries_total": 27805,
+    "entered_from": {
+     "{}": 8139,
+     "{2,5,5}": 5794,
+     "{1,1,4}": 5622,
+     "{1,2,4,5}": 4016,
+     "{3,4,5}": 1353,
+     "{1,2,3}": 1330,
+     "{3,3}": 1147,
+     "{1,1,5,5}": 109,
+     "{2,2,4,4}": 65,
+     "{1,1,1,4,5}": 45,
+     "{1,2,5,5,5}": 39,
+     "{1,3,3,5}": 31
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 14.0,
+     "0.9": 58.0,
+     "0.99": 77.0,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{2,5,5}": 5181,
+     "{1,1,4}": 5032,
+     "{1,2,4,5}": 2532,
+     "{3,4,5}": 1214,
+     "{1,2,3}": 1209,
+     "{}": 529,
+     "{1,1,5,5}": 109,
+     "{1,1,1,4,5}": 34,
+     "{1,2,5,5,5}": 34,
+     "{2,2,4,4}": 23
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 6.0,
+     "0.5": 33.0,
+     "0.9": 66.0,
+     "0.99": 78.0,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     528,
+     251,
+     237,
+     182,
+     163,
+     154,
+     172,
+     180,
+     212,
+     185,
+     208,
+     205,
+     236,
+     236,
+     210,
+     214,
+     236,
+     231,
+     266,
+     225,
+     245,
+     242,
+     258,
+     294,
+     245,
+     269,
+     267,
+     254,
+     268,
+     281,
+     280,
+     258,
+     266,
+     261,
+     242,
+     255,
+     235,
+     240,
+     215,
+     258
+    ],
+    "exits_total": 11826,
+    "exited_to": {
+     "{1,5}": 10404,
+     "{1,1,4}": 423,
+     "{2,5,5}": 382,
+     "{}": 189,
+     "{3,3}": 163,
+     "{1,2,4,5}": 145,
+     "{1,1,5,5}": 33,
+     "{2,2,4,4}": 21,
+     "{1,2,3}": 11,
+     "{3,4,5}": 10
+    },
+    "entries_after_sweep_15": 13739,
+    "exits_after_sweep_15": 3907,
+    "entries_after_sweep_30": 9266,
+    "exits_after_sweep_30": 1274,
+    "entries_after_sweep_60": 2511,
+    "exits_after_sweep_60": 174,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 79,
+    "episodes_complete": 11826,
+    "episodes_censored": 15979,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 2.0,
+     "0.5": 6.0,
+     "0.75": 12.0,
+     "0.9": 21.0,
+     "0.99": 43.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     2185,
+     1212,
+     1712,
+     2830,
+     2505,
+     1328,
+     54,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9211191335740072,
+     0.8771907323033808,
+     0.7883409287809182,
+     0.6962277868885032,
+     0.6070325728120693,
+     0.5507472028490403,
+     0.544547576236254,
+     0.544547576236254,
+     0.544547576236254
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 15979,
+      "left": 49,
+      "joined": 1394
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 17324,
+      "left": 21,
+      "joined": 1549
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 18852,
+      "left": 5,
+      "joined": 472
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 19319,
+      "left": 1,
+      "joined": 159
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 19477,
+      "left": 0,
+      "joined": 79
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 19556,
+      "left": 0,
+      "joined": 39
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 19595,
+      "left": 0,
+      "joined": 11
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 19606,
+      "left": 0,
+      "joined": 6
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 19612,
+      "left": 0,
+      "joined": 2
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 56598,
+    "entries_total": 103272,
+    "entered_from": {
+     "{}": 32409,
+     "{2,5,5}": 20531,
+     "{1,1,4}": 20493,
+     "{1,2,4,5}": 15022,
+     "{3,3}": 4434,
+     "{3,4,5}": 4409,
+     "{1,2,3}": 4282,
+     "{1,1,5,5}": 447,
+     "{2,2,4,4}": 282,
+     "{1,2,5,5,5}": 189,
+     "{1,1,1,4,5}": 177,
+     "{1,3,3,5}": 109
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 11.0,
+     "0.9": 49.0,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{1,1,4}": 18262,
+     "{2,5,5}": 18216,
+     "{1,2,4,5}": 9278,
+     "{3,4,5}": 3850,
+     "{1,2,3}": 3770,
+     "{}": 2033,
+     "{1,1,5,5}": 419,
+     "{1,2,5,5,5}": 153,
+     "{1,1,1,4,5}": 139,
+     "{2,2,4,4}": 98
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 5.0,
+     "0.5": 29.0,
+     "0.9": 54.0,
+     "0.99": 63.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     2032,
+     1042,
+     856,
+     807,
+     733,
+     758,
+     743,
+     685,
+     726,
+     789,
+     834,
+     802,
+     882,
+     869,
+     888,
+     902,
+     929,
+     977,
+     955,
+     988,
+     1049,
+     984,
+     1020,
+     1067,
+     1000,
+     1044,
+     1084,
+     1087,
+     1084,
+     1013,
+     1022,
+     1023,
+     991,
+     1002,
+     1001,
+     1007,
+     967,
+     1005,
+     937,
+     943
+    ],
+    "exits_total": 46674,
+    "exited_to": {
+     "{1,5}": 40831,
+     "{2,5,5}": 1670,
+     "{1,1,4}": 1667,
+     "{}": 767,
+     "{3,3}": 658,
+     "{1,2,4,5}": 572,
+     "{1,1,5,5}": 121,
+     "{2,2,4,4}": 77,
+     "{1,2,3}": 59,
+     "{3,4,5}": 46
+    },
+    "entries_after_sweep_15": 47216,
+    "exits_after_sweep_15": 15118,
+    "entries_after_sweep_30": 29424,
+    "exits_after_sweep_30": 4818,
+    "entries_after_sweep_60": 2350,
+    "exits_after_sweep_60": 179,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 63,
+    "episodes_complete": 46674,
+    "episodes_censored": 56598,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 2.0,
+     "0.5": 6.0,
+     "0.75": 12.0,
+     "0.9": 21.0,
+     "0.99": 42.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     8679,
+     4521,
+     6866,
+     11009,
+     10126,
+     5312,
+     161,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9154752629528633,
+     0.8711723828624146,
+     0.7744188349298594,
+     0.6744068639337532,
+     0.5732789066407674,
+     0.4968439233081868,
+     0.4875284863225455,
+     0.4875284863225455,
+     0.4875284863225455
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 56598,
+      "left": 360,
+      "joined": 12866
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 69104,
+      "left": 89,
+      "joined": 5920
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 74935,
+      "left": 17,
+      "joined": 1862
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 76780,
+      "left": 3,
+      "joined": 753
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 77530,
+      "left": 0,
+      "joined": 297
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 77827,
+      "left": 0,
+      "joined": 117
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 77944,
+      "left": 0,
+      "joined": 57
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 4991967,
+    "pairwise_distance_multisets": {
+     "2": 2217345,
+     "3": 1722861,
+     "4": 792175,
+     "5": 259535,
+     "1": 51
+    },
+    "distinct_distance_multisets": 5,
+    "rotation_classes": 7,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        2,
+        2
+       ]
+      ],
+      "count": 1109692,
+      "distances": [
+       2
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        2,
+        4
+       ]
+      ],
+      "count": 1107653,
+      "distances": [
+       2
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        2
+       ]
+      ],
+      "count": 861518,
+      "distances": [
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        4,
+        4
+       ],
+       [
+        5,
+        2
+       ]
+      ],
+      "count": 861343,
+      "distances": [
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 792175,
+      "distances": [
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 259535,
+      "distances": [
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        1,
+        2
+       ]
+      ],
+      "count": 51,
+      "distances": [
+       1
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{2,4}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       1109692,
+       1109692,
+       true
+      ],
+      [
+       1107653,
+       1107653,
+       true
+      ],
+      [
+       861518,
+       861343,
+       false
+      ],
+      [
+       861343,
+       861518,
+       false
+      ],
+      [
+       792175,
+       792175,
+       true
+      ],
+      [
+       259535,
+       259535,
+       true
+      ],
+      [
+       51,
+       51,
+       true
+      ]
+     ],
+     "chi2_count_vs_mirror": 0.03555133002604389,
+     "terms": 2,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": 2,
+    "achiral_rotation_classes": 5,
+    "chiral_pairs": 1,
+    "chi2_chiral_pairs": 0.017775665013021944
+   },
+   "conjugate_composition": "{2,4}",
+   "pair_correlation": {
+    "8": {
+     "{2,4}-{2,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 112280.0,
+       "expected_pairs": 111764.15870526024,
+       "g": 1.0046154447071007,
+       "err": 0.0029981174947204133
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 396399.0,
+       "expected_pairs": 396354.31907525565,
+       "g": 1.000112729753642,
+       "err": 0.0015884833975447913
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 574753.0,
+       "expected_pairs": 574303.6970468116,
+       "g": 1.0007823438287073,
+       "err": 0.0013200762311515759
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 1265161.0,
+       "expected_pairs": 1264628.4959205599,
+       "g": 1.0004210755025353,
+       "err": 0.0008894262326853426
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 2093406.0,
+       "expected_pairs": 2092869.7163537722,
+       "g": 1.0002562432061763,
+       "err": 0.0006913286232605476
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 4693468.0,
+       "expected_pairs": 4693074.210466163,
+       "g": 1.0000839086526607,
+       "err": 0.00046162520012646224
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 8759941.0,
+       "expected_pairs": 8763729.786490086,
+       "g": 0.9995676742000961,
+       "err": 0.0003377237571620765
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 18653708.0,
+       "expected_pairs": 18655403.94231029,
+       "g": 0.9999090910968461,
+       "err": 0.0002315143578596359
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 45472592.0,
+       "expected_pairs": 45472165.73512934,
+       "g": 1.0000093741932843,
+       "err": 0.00014829592456026792
+      }
+     ]
+    },
+    "9": {
+     "{2,4}-{2,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 444877.0,
+       "expected_pairs": 444695.1700296726,
+       "g": 1.0004088867668952,
+       "err": 0.0014998836267832317
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 1577630.0,
+       "expected_pairs": 1578108.0573299518,
+       "g": 0.9996970693307525,
+       "err": 0.0007959134445773449
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 2283627.0,
+       "expected_pairs": 2284054.052644358,
+       "g": 0.9998130286610933,
+       "err": 0.0006616163167226823
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 5035608.0,
+       "expected_pairs": 5035800.073702636,
+       "g": 0.9999618583542188,
+       "err": 0.00044561261564807545
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 8320434.0,
+       "expected_pairs": 8323165.639041068,
+       "g": 0.9996718028741066,
+       "err": 0.00034656480186745167
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 18662308.0,
+       "expected_pairs": 18668605.88987539,
+       "g": 0.9996626480888535,
+       "err": 0.00023140396113785892
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 34834134.0,
+       "expected_pairs": 34835442.66211064,
+       "g": 0.9999624330276685,
+       "err": 0.0001694264360901191
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 74320560.0,
+       "expected_pairs": 74326342.8121164,
+       "g": 0.9999221970044858,
+       "err": 0.00011598764284449251
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 181098910.0,
+       "expected_pairs": 181114979.20697543,
+       "g": 0.9999112762122394,
+       "err": 7.430252078066471e-05
+      }
+     ]
+    }
+   }
+  },
+  "{1,5}": {
+   "counts_at_end": {
+    "5": 57,
+    "6": 690,
+    "7": 6599,
+    "8": 65028,
+    "9": 259867,
+    "10": 1041883
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L5": {
+    "carriers_at_last_record_sweep": 57,
+    "entries_total": 12390,
+    "entered_from": {
+     "{1,1,5,5}": 3133,
+     "{}": 2810,
+     "{2,4}": 2696,
+     "{1,1,4}": 1745,
+     "{2,5,5}": 1737,
+     "{1,2,4,5}": 180,
+     "{1,1,1,4,5}": 19,
+     "{1,2,5,5,5}": 15,
+     "{1,1,1,5,5,5}": 14,
+     "{1,2,3}": 9,
+     "{3,3}": 9,
+     "{3,4,5}": 8
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 12.0,
+     "0.9": 53.0,
+     "0.99": 114.0,
+     "1.0": 429.0
+    },
+    "final_holders_came_from": {
+     "{2,4}": 17,
+     "{1,1,5,5}": 15,
+     "{}": 11,
+     "{1,1,4}": 10,
+     "{2,5,5}": 4
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 11.0,
+     "0.9": 76.8,
+     "0.99": 269.95999999999935,
+     "1.0": 429.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     11,
+     2,
+     1,
+     0,
+     0,
+     2,
+     3,
+     2,
+     0,
+     1,
+     4,
+     3,
+     0,
+     1,
+     1,
+     3,
+     1,
+     2,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     1,
+     0,
+     0,
+     0,
+     1,
+     1,
+     0
+    ],
+    "exits_total": 12333,
+    "exited_to": {
+     "{}": 12219,
+     "{1,1,5,5}": 69,
+     "{1,2,4,5}": 11,
+     "{2,5,5}": 10,
+     "{1,2,5,5,5}": 4,
+     "{1,1,4}": 4,
+     "{2,4}": 4,
+     "{1,1,1,5,5,5}": 3,
+     "{1,2,3}": 2,
+     "{1,1,2,3,5}": 1
+    },
+    "entries_after_sweep_15": 5531,
+    "exits_after_sweep_15": 11290,
+    "entries_after_sweep_30": 3033,
+    "exits_after_sweep_30": 10260,
+    "entries_after_sweep_60": 935,
+    "exits_after_sweep_60": 8187,
+    "entries_after_sweep_100": 212,
+    "exits_after_sweep_100": 5843,
+    "last_entry_sweep": 429,
+    "last_exit_sweep": 597,
+    "episodes_complete": 12333,
+    "episodes_censored": 57,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 7.0,
+     "0.25": 25.0,
+     "0.5": 71.0,
+     "0.75": 145.0,
+     "0.9": 241.0,
+     "0.99": 447.6800000000003
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     366,
+     232,
+     327,
+     633,
+     1026,
+     2305,
+     2738,
+     4706
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9704600484261501,
+     0.9517352703793381,
+     0.9136400322841001,
+     0.8648910411622276,
+     0.7833736884584344,
+     0.6001614205004037,
+     0.38095238095238076,
+     0.15074631154156576,
+     0.021638999192897485
+    ],
+    "checkpoint_steps": [],
+    "record_sweeps": 600
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 26660,
+    "entries_total": 48093,
+    "entered_from": {
+     "{1,1,5,5}": 12410,
+     "{}": 11534,
+     "{2,4}": 10404,
+     "{1,1,4}": 6360,
+     "{2,5,5}": 6356,
+     "{1,2,4,5}": 598,
+     "{1,1,1,4,5}": 93,
+     "{1,2,5,5,5}": 80,
+     "{1,1,1,5,5,5}": 68,
+     "{1,2,3}": 60,
+     "{3,4,5}": 49,
+     "{3,3}": 29
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 11.0,
+     "0.9": 45.0,
+     "0.99": 73.0,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{1,1,5,5}": 7370,
+     "{}": 5132,
+     "{2,4}": 5046,
+     "{1,1,4}": 4307,
+     "{2,5,5}": 4263,
+     "{1,2,4,5}": 319,
+     "{1,1,1,4,5}": 51,
+     "{1,2,5,5,5}": 38,
+     "{1,1,1,5,5,5}": 36,
+     "{1,2,3}": 33
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 15.0,
+     "0.9": 53.0,
+     "0.99": 75.0,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     5018,
+     994,
+     713,
+     670,
+     521,
+     541,
+     575,
+     568,
+     513,
+     538,
+     554,
+     510,
+     504,
+     485,
+     475,
+     457,
+     460,
+     440,
+     432,
+     411,
+     398,
+     396,
+     396,
+     378,
+     363,
+     372,
+     343,
+     295,
+     335,
+     337,
+     302,
+     292,
+     270,
+     252,
+     240,
+     260,
+     242,
+     235,
+     212,
+     211
+    ],
+    "exits_total": 21433,
+    "exited_to": {
+     "{}": 21040,
+     "{1,1,5,5}": 257,
+     "{1,2,4,5}": 35,
+     "{1,1,4}": 29,
+     "{2,5,5}": 25,
+     "{2,4}": 12,
+     "{1,2,5,5,5}": 9,
+     "{1,1,1,5,5,5}": 7,
+     "{1,1,1,4,5}": 5,
+     "{1,2,3}": 4
+    },
+    "entries_after_sweep_15": 20486,
+    "exits_after_sweep_15": 17411,
+    "entries_after_sweep_30": 10394,
+    "exits_after_sweep_30": 13319,
+    "entries_after_sweep_60": 1995,
+    "exits_after_sweep_60": 4974,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 79,
+    "episodes_complete": 21433,
+    "episodes_censored": 26660,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 2.0,
+     "0.25": 8.0,
+     "0.5": 23.0,
+     "0.75": 42.0,
+     "0.9": 59.0,
+     "0.99": 75.68000000000029
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     1445,
+     825,
+     1280,
+     2398,
+     3568,
+     8084,
+     3833,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.969915889407062,
+     0.9527165813346514,
+     0.913888013025504,
+     0.86697448561867,
+     0.7922818544943699,
+     0.6050503172065305,
+     0.4681317004146413,
+     0.4681317004146413,
+     0.4681317004146413
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 26660,
+      "left": 4254,
+      "joined": 869
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 23275,
+      "left": 8460,
+      "joined": 574
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 15389,
+      "left": 5487,
+      "joined": 98
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 10000,
+      "left": 3574,
+      "joined": 15
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 6441,
+      "left": 2312,
+      "joined": 5
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 4134,
+      "left": 1429,
+      "joined": 2
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 2707,
+      "left": 994,
+      "joined": 0
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 1713,
+      "left": 609,
+      "joined": 0
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 1104,
+      "left": 414,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 116547,
+    "entries_total": 185490,
+    "entered_from": {
+     "{1,1,5,5}": 49217,
+     "{}": 45643,
+     "{2,4}": 40831,
+     "{1,1,4}": 23006,
+     "{2,5,5}": 22683,
+     "{1,2,4,5}": 2430,
+     "{1,2,5,5,5}": 346,
+     "{1,1,1,4,5}": 327,
+     "{1,1,1,5,5,5}": 250,
+     "{1,2,3}": 214,
+     "{3,4,5}": 191,
+     "{3,3}": 143
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 10.0,
+     "0.9": 41.0,
+     "0.99": 60.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{1,1,5,5}": 33097,
+     "{}": 23791,
+     "{2,4}": 23050,
+     "{1,1,4}": 17087,
+     "{2,5,5}": 16962,
+     "{1,2,4,5}": 1508,
+     "{1,2,5,5,5}": 217,
+     "{1,1,1,4,5}": 205,
+     "{1,1,1,5,5,5}": 169,
+     "{1,2,3}": 135
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 13.0,
+     "0.9": 46.0,
+     "0.99": 61.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     23280,
+     4321,
+     3176,
+     2909,
+     2668,
+     2650,
+     2664,
+     2527,
+     2442,
+     2425,
+     2383,
+     2327,
+     2316,
+     2314,
+     2191,
+     2047,
+     2146,
+     2061,
+     1992,
+     1920,
+     1838,
+     1793,
+     1705,
+     1611,
+     1568,
+     1662,
+     1582,
+     1487,
+     1496,
+     1390,
+     1399,
+     1367,
+     1288,
+     1277,
+     1188,
+     1128,
+     1150,
+     1129,
+     1053,
+     984
+    ],
+    "exits_total": 68943,
+    "exited_to": {
+     "{}": 67405,
+     "{1,1,5,5}": 1039,
+     "{1,2,4,5}": 125,
+     "{1,1,4}": 116,
+     "{2,5,5}": 104,
+     "{2,4}": 46,
+     "{1,1,1,5,5,5}": 21,
+     "{1,1,1,4,5}": 19,
+     "{1,2,5,5,5}": 19,
+     "{3,3}": 9
+    },
+    "entries_after_sweep_15": 75592,
+    "exits_after_sweep_15": 52925,
+    "entries_after_sweep_30": 35872,
+    "exits_after_sweep_30": 36734,
+    "entries_after_sweep_60": 2205,
+    "exits_after_sweep_60": 4260,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 63,
+    "episodes_complete": 68943,
+    "episodes_censored": 116547,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 2.0,
+     "0.25": 6.0,
+     "0.5": 18.0,
+     "0.75": 34.0,
+     "0.9": 47.0,
+     "0.99": 61.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     5615,
+     3233,
+     4881,
+     9198,
+     13790,
+     26743,
+     5483,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9696407716596739,
+     0.952109335943167,
+     0.9140380148014399,
+     0.8658521690381259,
+     0.7889442322012842,
+     0.6074071301315497,
+     0.542006855446941,
+     0.542006855446941,
+     0.542006855446941
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 116547,
+      "left": 31682,
+      "joined": 8250
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 93115,
+      "left": 33381,
+      "joined": 2206
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 61940,
+      "left": 22203,
+      "joined": 356
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 40093,
+      "left": 14654,
+      "joined": 71
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 25510,
+      "left": 9171,
+      "joined": 16
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 16355,
+      "left": 5964,
+      "joined": 4
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 10395,
+      "left": 3800,
+      "joined": 4
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 1041883,
+    "pairwise_distance_multisets": {
+     "3": 357173,
+     "2": 320750,
+     "4": 185198,
+     "1": 115973,
+     "5": 62789
+    },
+    "distinct_distance_multisets": 5,
+    "rotation_classes": 7,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        1
+       ]
+      ],
+      "count": 185198,
+      "distances": [
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        5,
+        1
+       ]
+      ],
+      "count": 179016,
+      "distances": [
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        1
+       ]
+      ],
+      "count": 178157,
+      "distances": [
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        1
+       ],
+       [
+        2,
+        5
+       ]
+      ],
+      "count": 160551,
+      "distances": [
+       2
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        5
+       ],
+       [
+        2,
+        1
+       ]
+      ],
+      "count": 160199,
+      "distances": [
+       2
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        5
+       ],
+       [
+        1,
+        1
+       ]
+      ],
+      "count": 115973,
+      "distances": [
+       1
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        10,
+        1
+       ]
+      ],
+      "count": 62789,
+      "distances": [
+       5
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{1,5}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       185198,
+       185198,
+       true
+      ],
+      [
+       179016,
+       178157,
+       false
+      ],
+      [
+       178157,
+       179016,
+       false
+      ],
+      [
+       160551,
+       160551,
+       true
+      ],
+      [
+       160199,
+       160199,
+       true
+      ],
+      [
+       115973,
+       115973,
+       true
+      ],
+      [
+       62789,
+       62789,
+       true
+      ]
+     ],
+     "chi2_count_vs_mirror": 4.131784877356351,
+     "terms": 2,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": 2,
+    "achiral_rotation_classes": 5,
+    "chiral_pairs": 1,
+    "chi2_chiral_pairs": 2.0658924386781754
+   },
+   "conjugate_composition": "{1,5}",
+   "pair_correlation": {
+    "8": {
+     "{1,5}-{1,5}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 4878.0,
+       "expected_pairs": 4839.224604205783,
+       "g": 1.0080127290972436,
+       "err": 0.014432618047989844
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 17462.0,
+       "expected_pairs": 17153.419493041605,
+       "g": 1.0179894456078318,
+       "err": 0.00770364538998495
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 24955.0,
+       "expected_pairs": 24835.493826289236,
+       "g": 1.0048119105078661,
+       "err": 0.006360715737114637
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 55040.0,
+       "expected_pairs": 54743.16400197143,
+       "g": 1.005422339089094,
+       "err": 0.004285577150224531
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 90920.0,
+       "expected_pairs": 90568.5427585928,
+       "g": 1.0038805663721895,
+       "err": 0.00332929542125312
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 202557.0,
+       "expected_pairs": 203049.55710453578,
+       "g": 0.9975742025170624,
+       "err": 0.002216519628483921
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 378687.0,
+       "expected_pairs": 379162.5400112457,
+       "g": 0.9987458148918625,
+       "err": 0.0016229860025372578
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 807427.0,
+       "expected_pairs": 807291.9535991314,
+       "g": 1.0001672832241997,
+       "err": 0.0011130662390104625
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 1966473.0,
+       "expected_pairs": 1967992.8888438332,
+       "g": 0.9992276959675773,
+       "err": 0.0007125584081687661
+      }
+     ]
+    },
+    "9": {
+     "{1,5}-{1,5}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 19357.0,
+       "expected_pairs": 19320.662699444332,
+       "g": 1.0018807481462173,
+       "err": 0.007201069564850989
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 68516.0,
+       "expected_pairs": 68546.85261609127,
+       "g": 0.9995499047014738,
+       "err": 0.003818637927494059
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 99552.0,
+       "expected_pairs": 99234.47410134775,
+       "g": 1.0031997539315618,
+       "err": 0.0031795263041793573
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 218412.0,
+       "expected_pairs": 218795.51825514188,
+       "g": 0.998247138432266,
+       "err": 0.002135993004734944
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 360965.0,
+       "expected_pairs": 361567.2011080171,
+       "g": 0.9983344697578439,
+       "err": 0.0016616651804788407
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 810972.0,
+       "expected_pairs": 810987.9648389749,
+       "g": 0.9999803143330517,
+       "err": 0.001110423183993776
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 1511957.0,
+       "expected_pairs": 1513478.8998796272,
+       "g": 0.9989944360111342,
+       "err": 0.0008124438385050003
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 3229166.0,
+       "expected_pairs": 3228973.4579844396,
+       "g": 1.0000596294822692,
+       "err": 0.0005565199153717367
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 7869867.0,
+       "expected_pairs": 7868191.032910163,
+       "g": 1.0002130053887643,
+       "err": 0.00035654044383228746
+      }
+     ]
+    }
+   }
+  },
+  "{3,3}": {
+   "counts_at_end": {
+    "5": 762,
+    "6": 3069,
+    "7": 12496,
+    "8": 49332,
+    "9": 196032,
+    "10": 785555
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L5": {
+    "carriers_at_last_record_sweep": 762,
+    "entries_total": 1110,
+    "entered_from": {
+     "{3,4,5}": 383,
+     "{1,2,3}": 378,
+     "{}": 251,
+     "{1,3,3,5}": 61,
+     "{2,4}": 31,
+     "{2,3,3,4}": 1,
+     "{1,5}": 1,
+     "{1,2,4,5}": 1,
+     "{1,1,3,3,5,5}": 1,
+     "{2,3,3,5,5}": 1,
+     "{1,3,4,5,5}": 1
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 42.5,
+     "0.9": 153.0,
+     "0.99": 282.5500000000004,
+     "1.0": 422.0
+    },
+    "final_holders_came_from": {
+     "{3,4,5}": 357,
+     "{1,2,3}": 356,
+     "{1,3,3,5}": 45,
+     "{}": 3,
+     "{2,3,3,5,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 19.0,
+     "0.5": 73.5,
+     "0.9": 173.89999999999998,
+     "0.99": 285.16999999999996,
+     "1.0": 357.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     3,
+     4,
+     2,
+     3,
+     8,
+     6,
+     0,
+     6,
+     2,
+     3,
+     3,
+     4,
+     7,
+     5,
+     3,
+     4,
+     6,
+     2,
+     4,
+     6,
+     6,
+     5,
+     1,
+     6,
+     5,
+     3,
+     3,
+     8,
+     2,
+     5,
+     8,
+     12,
+     8,
+     4,
+     8,
+     6,
+     5,
+     4,
+     9,
+     3
+    ],
+    "exits_total": 348,
+    "exited_to": {
+     "{2,4}": 296,
+     "{1,2,3}": 17,
+     "{3,4,5}": 17,
+     "{1,5}": 9,
+     "{1,2,4,5}": 2,
+     "{1,1,4}": 2,
+     "{1,1,2,2}": 1,
+     "{2,2,4,4}": 1,
+     "{2,5,5}": 1,
+     "{1,1,3,3,5,5}": 1
+    },
+    "entries_after_sweep_15": 716,
+    "exits_after_sweep_15": 42,
+    "entries_after_sweep_30": 642,
+    "exits_after_sweep_30": 11,
+    "entries_after_sweep_60": 455,
+    "exits_after_sweep_60": 3,
+    "entries_after_sweep_100": 264,
+    "exits_after_sweep_100": 2,
+    "last_entry_sweep": 422,
+    "last_exit_sweep": 423,
+    "episodes_complete": 348,
+    "episodes_censored": 762,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 7.0,
+     "0.9": 12.300000000000011,
+     "0.99": 28.529999999999973
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     100,
+     53,
+     65,
+     78,
+     42,
+     10,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9099099099099099,
+     0.8621621621621621,
+     0.7882882882882882,
+     0.7324324324324324,
+     0.6945945945945945,
+     0.6864864864864865,
+     0.6864864864864865,
+     0.6864864864864865,
+     0.6864864864864865
+    ],
+    "checkpoint_steps": [],
+    "record_sweeps": 600
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 1641,
+    "entries_total": 3015,
+    "entered_from": {
+     "{}": 934,
+     "{3,4,5}": 807,
+     "{1,2,3}": 800,
+     "{1,3,3,5}": 250,
+     "{2,4}": 163,
+     "{1,2,4,5}": 18,
+     "{4,4,4}": 8,
+     "{2,3,3,4}": 4,
+     "{1,1,1,3}": 4,
+     "{1,1,2,3,5}": 3,
+     "{2,2,2}": 3,
+     "{2,2,3,5}": 3
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 15.0,
+     "0.9": 65.0,
+     "0.99": 78.0,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{3,4,5}": 733,
+     "{1,2,3}": 718,
+     "{1,3,3,5}": 150,
+     "{1,2,4,5}": 14,
+     "{4,4,4}": 5,
+     "{}": 4,
+     "{1,1,1,3}": 4,
+     "{1,3,4,5,5}": 3,
+     "{3,5,5,5}": 2,
+     "{2,2,3,5}": 2
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 13.0,
+     "0.5": 43.0,
+     "0.9": 71.0,
+     "0.99": 79.0,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     4,
+     7,
+     8,
+     19,
+     8,
+     10,
+     13,
+     18,
+     7,
+     14,
+     18,
+     16,
+     15,
+     14,
+     14,
+     10,
+     18,
+     24,
+     27,
+     25,
+     15,
+     15,
+     18,
+     23,
+     18,
+     18,
+     21,
+     25,
+     20,
+     33,
+     25,
+     17,
+     20,
+     24,
+     19,
+     24,
+     24,
+     19,
+     25,
+     27
+    ],
+    "exits_total": 1374,
+    "exited_to": {
+     "{2,4}": 1147,
+     "{3,4,5}": 77,
+     "{1,2,3}": 71,
+     "{1,5}": 29,
+     "{2,5,5}": 13,
+     "{1,3,3,5}": 12,
+     "{1,1,4}": 6,
+     "{1,2,4,5}": 5,
+     "{1,3,4,5,5}": 3,
+     "{4,4,5,5}": 3
+    },
+    "entries_after_sweep_15": 1510,
+    "exits_after_sweep_15": 197,
+    "entries_after_sweep_30": 1165,
+    "exits_after_sweep_30": 44,
+    "entries_after_sweep_60": 433,
+    "exits_after_sweep_60": 3,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 72,
+    "episodes_complete": 1374,
+    "episodes_censored": 1641,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 7.0,
+     "0.9": 13.0,
+     "0.99": 27.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     362,
+     218,
+     258,
+     315,
+     171,
+     50,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.8788487282463187,
+     0.8055272499617042,
+     0.6880030328281136,
+     0.5968987385266571,
+     0.5384658633161667,
+     0.5158155467853821,
+     0.5158155467853821,
+     0.5158155467853821,
+     0.5158155467853821
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 1641,
+      "left": 1,
+      "joined": 393
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 2033,
+      "left": 0,
+      "joined": 606
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 2639,
+      "left": 1,
+      "joined": 259
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 2897,
+      "left": 0,
+      "joined": 102
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 2999,
+      "left": 0,
+      "joined": 46
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 3045,
+      "left": 0,
+      "joined": 12
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 3057,
+      "left": 0,
+      "joined": 8
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 3065,
+      "left": 0,
+      "joined": 3
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 3068,
+      "left": 0,
+      "joined": 1
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 5410,
+    "entries_total": 10757,
+    "entered_from": {
+     "{}": 3603,
+     "{1,2,3}": 2658,
+     "{3,4,5}": 2594,
+     "{1,3,3,5}": 980,
+     "{2,4}": 658,
+     "{1,2,4,5}": 83,
+     "{2,3,3,4}": 22,
+     "{1,1,2,3,5}": 21,
+     "{4,4,4}": 19,
+     "{1,1,1,3}": 15,
+     "{1,3,4,5,5}": 14,
+     "{2,2,2}": 13
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 8.0,
+     "0.9": 53.0,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{1,2,3}": 2364,
+     "{3,4,5}": 2307,
+     "{1,3,3,5}": 550,
+     "{1,2,4,5}": 49,
+     "{}": 25,
+     "{1,1,2,3,5}": 17,
+     "{4,4,4}": 16,
+     "{1,1,1,3}": 15,
+     "{2,2,2}": 12,
+     "{3,5,5,5}": 10
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 9.0,
+     "0.5": 37.0,
+     "0.9": 58.0,
+     "0.99": 63.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     25,
+     55,
+     55,
+     73,
+     49,
+     71,
+     67,
+     60,
+     54,
+     57,
+     48,
+     63,
+     58,
+     59,
+     65,
+     71,
+     74,
+     72,
+     62,
+     74,
+     73,
+     76,
+     82,
+     81,
+     76,
+     73,
+     68,
+     86,
+     82,
+     84,
+     90,
+     86,
+     94,
+     104,
+     97,
+     105,
+     103,
+     106,
+     96,
+     108
+    ],
+    "exits_total": 5347,
+    "exited_to": {
+     "{2,4}": 4434,
+     "{3,4,5}": 297,
+     "{1,2,3}": 288,
+     "{1,5}": 143,
+     "{1,1,4}": 43,
+     "{2,5,5}": 37,
+     "{1,3,3,5}": 33,
+     "{1,2,4,5}": 20,
+     "{2,3,3,4}": 9,
+     "{1,1,2,2}": 6
+    },
+    "entries_after_sweep_15": 4759,
+    "exits_after_sweep_15": 757,
+    "entries_after_sweep_30": 3478,
+    "exits_after_sweep_30": 151,
+    "entries_after_sweep_60": 365,
+    "exits_after_sweep_60": 3,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 62,
+    "episodes_complete": 5347,
+    "episodes_censored": 5410,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 7.0,
+     "0.9": 13.0,
+     "0.99": 27.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     1483,
+     782,
+     983,
+     1237,
+     686,
+     176,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.8611293192246465,
+     0.7870801519018322,
+     0.6569027824968837,
+     0.5522962506048813,
+     0.48481440125464303,
+     0.4560833551265388,
+     0.4560833551265388,
+     0.4560833551265388,
+     0.4560833551265388
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 5410,
+      "left": 11,
+      "joined": 2956
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 8355,
+      "left": 1,
+      "joined": 2347
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 10701,
+      "left": 2,
+      "joined": 1039
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 11738,
+      "left": 0,
+      "joined": 456
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 12194,
+      "left": 0,
+      "joined": 187
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 12381,
+      "left": 0,
+      "joined": 81
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 12462,
+      "left": 0,
+      "joined": 34
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 785555,
+    "pairwise_distance_multisets": {
+     "2": 395030,
+     "3": 263997,
+     "4": 98431,
+     "5": 28090,
+     "1": 7
+    },
+    "distinct_distance_multisets": 5,
+    "rotation_classes": 6,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        2,
+        3
+       ]
+      ],
+      "count": 395030,
+      "distances": [
+       2
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        5,
+        3
+       ]
+      ],
+      "count": 132124,
+      "distances": [
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        4,
+        3
+       ],
+       [
+        5,
+        3
+       ]
+      ],
+      "count": 131873,
+      "distances": [
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        3
+       ],
+       [
+        7,
+        3
+       ]
+      ],
+      "count": 98431,
+      "distances": [
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        10,
+        3
+       ]
+      ],
+      "count": 28090,
+      "distances": [
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        1,
+        3
+       ]
+      ],
+      "count": 7,
+      "distances": [
+       1
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{3,3}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       395030,
+       395030,
+       true
+      ],
+      [
+       132124,
+       131873,
+       false
+      ],
+      [
+       131873,
+       132124,
+       false
+      ],
+      [
+       98431,
+       98431,
+       true
+      ],
+      [
+       28090,
+       28090,
+       true
+      ],
+      [
+       7,
+       7,
+       true
+      ]
+     ],
+     "chi2_count_vs_mirror": 0.4772857267317432,
+     "terms": 2,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": 2,
+    "achiral_rotation_classes": 4,
+    "chiral_pairs": 1,
+    "chi2_chiral_pairs": 0.2386428633658716
+   },
+   "conjugate_composition": "{3,3}",
+   "pair_correlation": {
+    "8": {
+     "{3,3}-{3,3}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 2917.0,
+       "expected_pairs": 2785.032747675131,
+       "g": 1.0473844526370586,
+       "err": 0.019392683447133092
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 9827.0,
+       "expected_pairs": 9875.24031008935,
+       "g": 0.9951150241842658,
+       "err": 0.010038360895257888
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 14249.0,
+       "expected_pairs": 14312.23729838356,
+       "g": 0.9955815923768465,
+       "err": 0.008340357469062245
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 31215.0,
+       "expected_pairs": 31507.06139836227,
+       "g": 0.9907302875799946,
+       "err": 0.005607557949607301
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 51988.0,
+       "expected_pairs": 52169.175619640824,
+       "g": 0.9965271519534494,
+       "err": 0.004370564975445897
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 117304.0,
+       "expected_pairs": 116950.48709219901,
+       "g": 1.0030227570366792,
+       "err": 0.00292856168305401
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 218106.0,
+       "expected_pairs": 218398.329026664,
+       "g": 0.9986614868897266,
+       "err": 0.0021383780865516415
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 464652.0,
+       "expected_pairs": 464909.2373231791,
+       "g": 0.9994466934564257,
+       "err": 0.001466208490576201
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 1132546.0,
+       "expected_pairs": 1133157.4423297443,
+       "g": 0.9994604083184705,
+       "err": 0.0009391558537245511
+      }
+     ]
+    },
+    "9": {
+     "{3,3}-{3,3}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 10975.0,
+       "expected_pairs": 10994.44093369311,
+       "g": 0.9982317487710056,
+       "err": 0.009528600392743633
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 38974.0,
+       "expected_pairs": 39031.14771750406,
+       "g": 0.9985358432727195,
+       "err": 0.005057969060410636
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 56275.0,
+       "expected_pairs": 56503.92148779325,
+       "g": 0.9959485734482569,
+       "err": 0.0041983550351771155
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 124077.0,
+       "expected_pairs": 124525.21979355234,
+       "g": 0.9964005701471924,
+       "err": 0.002828709345002629
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 205534.0,
+       "expected_pairs": 205833.33705851308,
+       "g": 0.9985457309161344,
+       "err": 0.002202551754770476
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 462030.0,
+       "expected_pairs": 461753.5635963562,
+       "g": 1.0005986665300226,
+       "err": 0.0014720576955315943
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 860587.0,
+       "expected_pairs": 861579.9986502645,
+       "g": 0.9988474678476519,
+       "err": 0.0010767175261787198
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 1839874.0,
+       "expected_pairs": 1838280.1295924434,
+       "g": 1.000867044354067,
+       "err": 0.0007378742389575078
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 4480776.0,
+       "expected_pairs": 4479333.190015352,
+       "g": 1.0003221037425534,
+       "err": 0.00047256684508356845
+      }
+     ]
+    }
+   }
+  },
+  "{2,2,2}": {
+   "counts_at_end": {
+    "5": 82,
+    "6": 326,
+    "7": 1348,
+    "8": 5407,
+    "9": 21859,
+    "10": 86788
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L5": {
+    "carriers_at_last_record_sweep": 82,
+    "entries_total": 147,
+    "entered_from": {
+     "{2,2,3,5}": 63,
+     "{1,1,2,2}": 34,
+     "{}": 33,
+     "{1,2,2,2,5}": 12,
+     "{2,4}": 3,
+     "{1,1,2,3,5}": 1,
+     "{2,2,4,5,5}": 1
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 22.0,
+     "0.9": 65.0,
+     "0.99": 122.87999999999982,
+     "1.0": 157.0
+    },
+    "final_holders_came_from": {
+     "{2,2,3,5}": 50,
+     "{1,1,2,2}": 25,
+     "{1,2,2,2,5}": 5,
+     "{1,1,2,3,5}": 1,
+     "{2,2,4,5,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 16.1,
+     "0.5": 41.0,
+     "0.9": 81.80000000000001,
+     "0.99": 137.55999999999995,
+     "1.0": 157.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     0,
+     2,
+     0,
+     0,
+     3,
+     2,
+     0,
+     2,
+     3,
+     0,
+     2,
+     2,
+     1,
+     1,
+     3,
+     2,
+     0,
+     1,
+     1,
+     3,
+     1,
+     0
+    ],
+    "exits_total": 65,
+    "exited_to": {
+     "{1,2,3}": 52,
+     "{1,1,2,2}": 6,
+     "{1,1,1,3}": 2,
+     "{1,1,4}": 1,
+     "{2,4}": 1,
+     "{1,3,4,4}": 1,
+     "{1,1,1,2,2,5}": 1,
+     "{1,2,2,2,5}": 1
+    },
+    "entries_after_sweep_15": 81,
+    "exits_after_sweep_15": 10,
+    "entries_after_sweep_30": 59,
+    "exits_after_sweep_30": 3,
+    "entries_after_sweep_60": 20,
+    "exits_after_sweep_60": 0,
+    "entries_after_sweep_100": 5,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 157,
+    "last_exit_sweep": 51,
+    "episodes_complete": 65,
+    "episodes_censored": 82,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 2.0,
+     "0.75": 5.0,
+     "0.9": 8.0,
+     "0.99": 16.36
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     25,
+     12,
+     11,
+     13,
+     4,
+     0,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.8299319727891157,
+     0.7482993197278912,
+     0.6326530612244899,
+     0.5850340136054423,
+     0.5578231292517007,
+     0.5578231292517007,
+     0.5578231292517007,
+     0.5578231292517007,
+     0.5578231292517007
+    ],
+    "checkpoint_steps": [],
+    "record_sweeps": 600
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 286,
+    "entries_total": 485,
+    "entered_from": {
+     "{2,2,3,5}": 218,
+     "{1,1,2,2}": 117,
+     "{}": 91,
+     "{1,2,2,2,5}": 30,
+     "{1,2,3}": 12,
+     "{1,1,2,3,5}": 5,
+     "{2,4}": 4,
+     "{2,2,2,2,4}": 1,
+     "{1,1,1,2,2,5}": 1,
+     "{2,2,4,4}": 1,
+     "{2,3,3,4}": 1,
+     "{1,3,3,5}": 1
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 21.0,
+     "0.9": 58.0,
+     "0.99": 76.0,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{2,2,3,5}": 168,
+     "{1,1,2,2}": 88,
+     "{1,2,2,2,5}": 21,
+     "{1,1,2,3,5}": 3,
+     "{2,3,3,4}": 1,
+     "{2,2,2,2,4}": 1,
+     "{1,2,3}": 1,
+     "{1,1,1,2,2,5}": 1,
+     "{1,3,3,5}": 1,
+     "{2,3,3,5,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 14.0,
+     "0.5": 36.5,
+     "0.9": 66.0,
+     "0.99": 77.14999999999998,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     0,
+     3,
+     2,
+     0,
+     0,
+     2,
+     0,
+     4,
+     1,
+     3,
+     3,
+     1,
+     3,
+     3,
+     5,
+     6,
+     4,
+     5,
+     2,
+     8,
+     10,
+     5,
+     7,
+     6,
+     5,
+     5,
+     3,
+     7,
+     1,
+     1,
+     6,
+     8,
+     6,
+     2,
+     4,
+     7,
+     5,
+     4,
+     3,
+     2
+    ],
+    "exits_total": 199,
+    "exited_to": {
+     "{1,2,3}": 173,
+     "{1,1,2,2}": 9,
+     "{2,4}": 5,
+     "{3,3}": 3,
+     "{1,2,4,5}": 3,
+     "{1,1,1,3}": 2,
+     "{1,1,1,2,2,5}": 2,
+     "{1,1,4}": 1,
+     "{2,2,3,5}": 1
+    },
+    "entries_after_sweep_15": 286,
+    "exits_after_sweep_15": 50,
+    "entries_after_sweep_30": 194,
+    "exits_after_sweep_30": 20,
+    "entries_after_sweep_60": 46,
+    "exits_after_sweep_60": 5,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 72,
+    "episodes_complete": 199,
+    "episodes_censored": 286,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 6.0,
+     "0.9": 10.0,
+     "0.99": 34.04000000000002
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     66,
+     25,
+     44,
+     41,
+     17,
+     6,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.8636363636363636,
+     0.8117351398601399,
+     0.6923890928618274,
+     0.6232901446578992,
+     0.5915415663117296,
+     0.5766526664621628,
+     0.5766526664621628,
+     0.5766526664621628,
+     0.5766526664621628
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 286,
+      "left": 0,
+      "joined": 21
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 307,
+      "left": 1,
+      "joined": 14
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 320,
+      "left": 0,
+      "joined": 4
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 324,
+      "left": 0,
+      "joined": 2
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 326,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 326,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 326,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 326,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 326,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 1008,
+    "entries_total": 1786,
+    "entered_from": {
+     "{2,2,3,5}": 738,
+     "{1,1,2,2}": 423,
+     "{}": 396,
+     "{1,2,2,2,5}": 111,
+     "{1,2,3}": 31,
+     "{1,1,2,3,5}": 25,
+     "{2,4}": 16,
+     "{2,2,4,5,5}": 10,
+     "{2,2,4,4}": 7,
+     "{2,2,2,2,4}": 5,
+     "{1,2,2,3,5,5}": 4,
+     "{1,1,1,1,2}": 4
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 16.0,
+     "0.9": 49.0,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{2,2,3,5}": 572,
+     "{1,1,2,2}": 312,
+     "{1,2,2,2,5}": 80,
+     "{1,1,2,3,5}": 19,
+     "{2,2,4,5,5}": 7,
+     "{1,2,2,3,5,5}": 3,
+     "{2,2,2,2,4}": 2,
+     "{1,1,1,1,2}": 2,
+     "{2,3,3,5,5}": 2,
+     "{1,1,2,4,5,5}": 2
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 10.0,
+     "0.5": 31.0,
+     "0.9": 54.0,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     0,
+     2,
+     6,
+     3,
+     8,
+     14,
+     9,
+     15,
+     17,
+     12,
+     21,
+     14,
+     17,
+     12,
+     14,
+     16,
+     26,
+     16,
+     17,
+     22,
+     19,
+     31,
+     22,
+     13,
+     18,
+     29,
+     20,
+     21,
+     29,
+     17,
+     16,
+     24,
+     23,
+     23,
+     18,
+     15,
+     23,
+     17,
+     20,
+     17
+    ],
+    "exits_total": 778,
+    "exited_to": {
+     "{1,2,3}": 663,
+     "{1,1,2,2}": 47,
+     "{2,4}": 15,
+     "{1,1,1,3}": 14,
+     "{1,1,4}": 14,
+     "{3,3}": 13,
+     "{1,1,1,1,2}": 3,
+     "{1,1,2,3,5}": 3,
+     "{1,2,4,5}": 2,
+     "{2,2,2,2,4}": 1
+    },
+    "entries_after_sweep_15": 943,
+    "exits_after_sweep_15": 176,
+    "entries_after_sweep_30": 554,
+    "exits_after_sweep_30": 58,
+    "entries_after_sweep_60": 39,
+    "exits_after_sweep_60": 1,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 61,
+    "episodes_complete": 778,
+    "episodes_censored": 1008,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 6.0,
+     "0.9": 10.300000000000068,
+     "0.99": 29.230000000000018
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     243,
+     135,
+     138,
+     174,
+     72,
+     16,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.8631756756756757,
+     0.7867132634603107,
+     0.6769560063946268,
+     0.5988687081038389,
+     0.5587138103593339,
+     0.5402002219413632,
+     0.5402002219413632,
+     0.5402002219413632,
+     0.5402002219413632
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 1008,
+      "left": 4,
+      "joined": 224
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 1228,
+      "left": 1,
+      "joined": 87
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 1314,
+      "left": 0,
+      "joined": 24
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 1338,
+      "left": 0,
+      "joined": 9
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 1347,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 1347,
+      "left": 0,
+      "joined": 1
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 1348,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 86788,
+    "pairwise_distance_multisets": {
+     "2,2,3": 21374,
+     "2,3,5": 13871,
+     "2,3,4": 13807,
+     "2,2,4": 10432,
+     "2,3,3": 8277,
+     "2,4,4": 6484,
+     "3,3,4": 4830,
+     "2,2,2": 4019,
+     "3,3,3": 3694
+    },
+    "distinct_distance_multisets": 9,
+    "rotation_classes": 13,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        4,
+        2
+       ],
+       [
+        5,
+        2
+       ]
+      ],
+      "count": 10787,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        5,
+        2
+       ]
+      ],
+      "count": 10587,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 10432,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        2
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        2
+       ]
+      ],
+      "count": 8277,
+      "distances": [
+       2,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        2
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 7035,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 6911,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        2
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 6896,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 6836,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        8,
+        2
+       ]
+      ],
+      "count": 6484,
+      "distances": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        7,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 4830,
+      "distances": [
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        2,
+        2
+       ],
+       [
+        5,
+        2
+       ]
+      ],
+      "count": 4019,
+      "distances": [
+       2,
+       2,
+       2
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        9,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1851,
+      "distances": [
+       3,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        2
+       ],
+       [
+        7,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1843,
+      "distances": [
+       3,
+       3,
+       3
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{4,4,4}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       10787,
+       10634,
+       false
+      ],
+      [
+       10587,
+       10748,
+       false
+      ],
+      [
+       10432,
+       10357,
+       false
+      ],
+      [
+       8277,
+       8167,
+       false
+      ],
+      [
+       7035,
+       6873,
+       false
+      ],
+      [
+       6911,
+       6798,
+       false
+      ],
+      [
+       6896,
+       7044,
+       false
+      ],
+      [
+       6836,
+       6967,
+       false
+      ],
+      [
+       6484,
+       6489,
+       false
+      ],
+      [
+       4830,
+       4757,
+       false
+      ],
+      [
+       4019,
+       4016,
+       false
+      ],
+      [
+       1851,
+       1800,
+       false
+      ],
+      [
+       1843,
+       1826,
+       false
+      ]
+     ],
+     "chi2_count_vs_mirror": 10.29723372470641,
+     "terms": 13,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": null,
+    "achiral_rotation_classes": null,
+    "chiral_pairs": null,
+    "chi2_chiral_pairs": null
+   },
+   "conjugate_composition": "{4,4,4}",
+   "pair_correlation": {
+    "8": {
+     "{2,2,2}-{2,2,2}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 38.0,
+       "expected_pairs": 33.4513827906668,
+       "g": 1.1359769561036592,
+       "err": 0.18427979619093343
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 116.0,
+       "expected_pairs": 118.7100301437608,
+       "g": 0.9771710095559837,
+       "err": 0.09072805053815479
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 181.0,
+       "expected_pairs": 171.99591140435135,
+       "g": 1.0523505967213407,
+       "err": 0.07822060383426849
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 355.0,
+       "expected_pairs": 378.2515985501087,
+       "g": 0.9385287500720807,
+       "err": 0.04981193405034813
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 659.0,
+       "expected_pairs": 627.0675247707557,
+       "g": 1.0509235033992843,
+       "err": 0.04093816740927815
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 1419.0,
+       "expected_pairs": 1405.5004428866905,
+       "g": 1.0096048045958517,
+       "err": 0.026801568504885628
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 2631.0,
+       "expected_pairs": 2624.4229678519955,
+       "g": 1.0025060869488531,
+       "err": 0.019544591341124597
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 5521.0,
+       "expected_pairs": 5589.142247880743,
+       "g": 0.9878081027716586,
+       "err": 0.013294245996550475
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 13572.0,
+       "expected_pairs": 13623.264850818521,
+       "g": 0.9962369629174873,
+       "err": 0.008551468998761044
+      }
+     ],
+     "{2,2,2}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 22.03276596069336,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 72.0,
+       "expected_pairs": 66.09829788208009,
+       "g": 1.089286748782073,
+       "err": 0.1283736744534085
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 247.0,
+       "expected_pairs": 234.56521911621095,
+       "g": 1.0530120404493066,
+       "err": 0.06700155165679272
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 324.0,
+       "expected_pairs": 339.8555168151855,
+       "g": 0.9533463014996229,
+       "err": 0.05296368341664571
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 741.0,
+       "expected_pairs": 747.4066764831543,
+       "g": 0.9914281251629965,
+       "err": 0.03642102222811216
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 1265.0,
+       "expected_pairs": 1239.0547889709471,
+       "g": 1.0209395187847994,
+       "err": 0.02870481499619258
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 2754.0,
+       "expected_pairs": 2777.2001991271977,
+       "g": 0.991646191320853,
+       "err": 0.018896213197053768
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 5291.0,
+       "expected_pairs": 5185.731549072265,
+       "g": 1.0202996337028991,
+       "err": 0.01402680792234347
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 10964.0,
+       "expected_pairs": 11043.871983337403,
+       "g": 0.9927677554160432,
+       "err": 0.00948119654588977
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 26665.0,
+       "expected_pairs": 26918.90568084717,
+       "g": 0.9905677562135142,
+       "err": 0.006066153466199777
+      }
+     ],
+     "{2,4}-{2,2,2}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 1289.1622589111328,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 3792.0,
+       "expected_pairs": 3867.486776733398,
+       "g": 0.9804816975231764,
+       "err": 0.015922282564434356
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 13653.0,
+       "expected_pairs": 13715.444250488279,
+       "g": 0.9954471580104993,
+       "err": 0.00851930498428754
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 19872.0,
+       "expected_pairs": 19873.204253387456,
+       "g": 0.9999394031595459,
+       "err": 0.007093374560854738
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 44186.0,
+       "expected_pairs": 43761.20253677368,
+       "g": 1.009707170703761,
+       "err": 0.004803448031349407
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 72442.0,
+       "expected_pairs": 72421.66046066285,
+       "g": 1.0002808488400814,
+       "err": 0.00371643668205449
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 163002.0,
+       "expected_pairs": 162399.13279418944,
+       "g": 1.003712256312197,
+       "err": 0.002486066610680804
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 303179.0,
+       "expected_pairs": 303260.0921150207,
+       "g": 0.9997325987918319,
+       "err": 0.001815659036731142
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 646941.0,
+       "expected_pairs": 645551.5694595337,
+       "g": 1.002152315331879,
+       "err": 0.0012459522435143548
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 1574865.0,
+       "expected_pairs": 1573518.7534835816,
+       "g": 1.0008555643289525,
+       "err": 0.0007975349836681793
+      }
+     ]
+    },
+    "9": {
+     "{2,2,2}-{2,2,2}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 147.0,
+       "expected_pairs": 136.6979922672257,
+       "g": 1.0753632702420042,
+       "err": 0.08869446765012248
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 485.0,
+       "expected_pairs": 485.3667782529408,
+       "g": 0.999244327652047,
+       "err": 0.04537334760490853
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 693.0,
+       "expected_pairs": 702.5593489760112,
+       "g": 0.9863935353078085,
+       "err": 0.037469991966579366
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 1483.0,
+       "expected_pairs": 1548.099498958492,
+       "g": 0.9579487629817794,
+       "err": 0.024875493502741545
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 2589.0,
+       "expected_pairs": 2559.6671431860245,
+       "g": 1.0114596372001183,
+       "err": 0.019878450629131787
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 5812.0,
+       "expected_pairs": 5740.569409288293,
+       "g": 1.0124431194222878,
+       "err": 0.013280298307487122
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 10674.0,
+       "expected_pairs": 10711.924163613161,
+       "g": 0.9964596310584438,
+       "err": 0.009644864038272555
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 22762.0,
+       "expected_pairs": 22854.51308393728,
+       "g": 0.9959520868549022,
+       "err": 0.006601357250721173
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 55911.0,
+       "expected_pairs": 55686.09309312689,
+       "g": 1.0040388343728297,
+       "err": 0.004246214029280313
+      }
+     ],
+     "{2,2,2}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 91.51971988677978,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 302.0,
+       "expected_pairs": 274.55915966033933,
+       "g": 1.0999450915191031,
+       "err": 0.06329472751330349
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 1013.0,
+       "expected_pairs": 974.8635847091675,
+       "g": 1.0391197454587555,
+       "err": 0.03264832272422432
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 1432.0,
+       "expected_pairs": 1411.0968366622924,
+       "g": 1.0148134152062522,
+       "err": 0.02681727778963578
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 3159.0,
+       "expected_pairs": 3109.3719114303585,
+       "g": 1.015960808157816,
+       "err": 0.018075992060959487
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 5039.0,
+       "expected_pairs": 5141.114717102051,
+       "g": 0.9801376310934351,
+       "err": 0.013807494678060523
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 11627.0,
+       "expected_pairs": 11529.985823822022,
+       "g": 1.008414075928657,
+       "err": 0.009352012161236973
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 21608.0,
+       "expected_pairs": 21514.99702320099,
+       "g": 1.0043227046091951,
+       "err": 0.006832285332951146
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 46111.0,
+       "expected_pairs": 45903.49721088409,
+       "g": 1.0045204135136507,
+       "err": 0.00467795991828786
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 112127.0,
+       "expected_pairs": 111846.02400398256,
+       "g": 1.0025121679426658,
+       "err": 0.0029938811180743544
+      }
+     ],
+     "{2,4}-{2,2,2}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 5197.937350273132,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 15611.0,
+       "expected_pairs": 15593.812050819397,
+       "g": 1.0011022288279856,
+       "err": 0.008012408193916368
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 55471.0,
+       "expected_pairs": 55338.40279903411,
+       "g": 1.0023961154326666,
+       "err": 0.004256046628751157
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 79958.0,
+       "expected_pairs": 80093.31337795258,
+       "g": 0.9983105533752356,
+       "err": 0.003530487684794151
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 176852.0,
+       "expected_pairs": 176586.8513246536,
+       "g": 1.0015015199226749,
+       "err": 0.0023814782800994465
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 292561.0,
+       "expected_pairs": 291862.58225917816,
+       "g": 1.0023929677295929,
+       "err": 0.0018532320200583647
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 653505.0,
+       "expected_pairs": 654638.842778778,
+       "g": 0.9982679873165405,
+       "err": 0.0012348741142056384
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 1222479.0,
+       "expected_pairs": 1221549.9114681242,
+       "g": 1.0007605817193004,
+       "err": 0.0009051269313072215
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 2607917.0,
+       "expected_pairs": 2606349.468917275,
+       "g": 1.0006014278213338,
+       "err": 0.0006196040325392139
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 6349927.0,
+       "expected_pairs": 6351031.303427887,
+       "g": 0.9998261221878577,
+       "err": 0.0003967711744210652
+      }
+     ]
+    }
+   }
+  },
+  "{4,4,4}": {
+   "counts_at_end": {
+    "5": 96,
+    "6": 343,
+    "7": 1305,
+    "8": 5341,
+    "9": 21951,
+    "10": 86476
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L5": {
+    "carriers_at_last_record_sweep": 96,
+    "entries_total": 144,
+    "entered_from": {
+     "{1,3,4,4}": 76,
+     "{4,4,5,5}": 30,
+     "{}": 23,
+     "{1,4,4,4,5}": 10,
+     "{1,1,2,4,4}": 2,
+     "{2,2,4,4}": 1,
+     "{1,1,3,4,4,5}": 1,
+     "{1,4,4,5,5,5}": 1
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 28.0,
+     "0.9": 80.70000000000002,
+     "0.99": 133.84999999999997,
+     "1.0": 139.0
+    },
+    "final_holders_came_from": {
+     "{1,3,4,4}": 63,
+     "{4,4,5,5}": 22,
+     "{1,4,4,4,5}": 8,
+     "{1,1,2,4,4}": 1,
+     "{1,1,3,4,4,5}": 1,
+     "{1,4,4,5,5,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 18.0,
+     "0.5": 40.0,
+     "0.9": 93.0,
+     "0.99": 136.14999999999998,
+     "1.0": 139.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     0,
+     1,
+     1,
+     0,
+     1,
+     1,
+     0,
+     0,
+     2,
+     0,
+     1,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0,
+     1,
+     0,
+     3,
+     1,
+     2,
+     1,
+     1,
+     2,
+     1,
+     1,
+     2,
+     0,
+     3,
+     0,
+     3,
+     2,
+     0,
+     1,
+     1,
+     2,
+     5,
+     0,
+     6
+    ],
+    "exits_total": 48,
+    "exited_to": {
+     "{3,4,5}": 44,
+     "{4,4,5,5}": 3,
+     "{2,4}": 1
+    },
+    "entries_after_sweep_15": 98,
+    "exits_after_sweep_15": 13,
+    "entries_after_sweep_30": 69,
+    "exits_after_sweep_30": 4,
+    "entries_after_sweep_60": 24,
+    "exits_after_sweep_60": 0,
+    "entries_after_sweep_100": 8,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 139,
+    "last_exit_sweep": 40,
+    "episodes_complete": 48,
+    "episodes_censored": 96,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 6.25,
+     "0.9": 9.600000000000009,
+     "0.99": 17.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     13,
+     9,
+     8,
+     13,
+     5,
+     0,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9097222222222222,
+     0.8472222222222222,
+     0.7777777777777777,
+     0.7013888888888888,
+     0.6666666666666665,
+     0.6666666666666665,
+     0.6666666666666665,
+     0.6666666666666665,
+     0.6666666666666665
+    ],
+    "checkpoint_steps": [],
+    "record_sweeps": 600
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 290,
+    "entries_total": 507,
+    "entered_from": {
+     "{1,3,4,4}": 235,
+     "{}": 125,
+     "{4,4,5,5}": 104,
+     "{1,4,4,4,5}": 27,
+     "{3,4,5}": 4,
+     "{2,4}": 4,
+     "{2,2,4,4}": 3,
+     "{1,3,4,5,5}": 2,
+     "{1,5}": 1,
+     "{2,4,4,4,4}": 1,
+     "{1,1,2,4,4}": 1
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 18.0,
+     "0.9": 59.0,
+     "0.99": 76.88,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{1,3,4,4}": 188,
+     "{4,4,5,5}": 80,
+     "{1,4,4,4,5}": 16,
+     "{}": 3,
+     "{2,2,4,4}": 1,
+     "{1,1,2,4,4}": 1,
+     "{1,3,4,5,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 11.0,
+     "0.5": 34.0,
+     "0.9": 66.0,
+     "0.99": 78.0,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     3,
+     1,
+     2,
+     1,
+     3,
+     2,
+     3,
+     4,
+     3,
+     3,
+     2,
+     4,
+     3,
+     4,
+     4,
+     10,
+     2,
+     5,
+     4,
+     5,
+     3,
+     3,
+     4,
+     5,
+     2,
+     7,
+     3,
+     8,
+     6,
+     6,
+     9,
+     11,
+     3,
+     5,
+     4,
+     3,
+     10,
+     3,
+     5,
+     3
+    ],
+    "exits_total": 217,
+    "exited_to": {
+     "{3,4,5}": 185,
+     "{4,4,5,5}": 11,
+     "{3,3}": 8,
+     "{1,4,4,4,5}": 3,
+     "{2,5,5}": 3,
+     "{1,2,4,5}": 2,
+     "{2,4}": 1,
+     "{2,4,4,4,4}": 1,
+     "{1,3,4,4}": 1,
+     "{3,5,5,5}": 1
+    },
+    "entries_after_sweep_15": 280,
+    "exits_after_sweep_15": 51,
+    "entries_after_sweep_30": 189,
+    "exits_after_sweep_30": 18,
+    "entries_after_sweep_60": 47,
+    "exits_after_sweep_60": 4,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 65,
+    "episodes_complete": 217,
+    "episodes_censored": 290,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 5.0,
+     "0.9": 11.0,
+     "0.99": 19.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     72,
+     31,
+     36,
+     48,
+     28,
+     2,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.8574257425742574,
+     0.7957547494888699,
+     0.6736538766535601,
+     0.6137487091513099,
+     0.5662444005945098,
+     0.5613121081739643,
+     0.5613121081739643,
+     0.5613121081739643,
+     0.5613121081739643
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 290,
+      "left": 1,
+      "joined": 22
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 311,
+      "left": 0,
+      "joined": 23
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 334,
+      "left": 0,
+      "joined": 8
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 342,
+      "left": 0,
+      "joined": 1
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 343,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 343,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 343,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 343,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 343,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 976,
+    "entries_total": 1790,
+    "entered_from": {
+     "{1,3,4,4}": 721,
+     "{4,4,5,5}": 435,
+     "{}": 421,
+     "{1,4,4,4,5}": 98,
+     "{3,4,5}": 29,
+     "{1,3,4,5,5}": 23,
+     "{2,4}": 14,
+     "{1,1,2,4,4}": 9,
+     "{1,1,3,4,4,5}": 7,
+     "{2,3,3,4}": 7,
+     "{2,2,4,4}": 6,
+     "{1,1,3,3,4}": 3
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 16.0,
+     "0.9": 50.0,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{1,3,4,4}": 566,
+     "{4,4,5,5}": 315,
+     "{1,4,4,4,5}": 59,
+     "{1,3,4,5,5}": 13,
+     "{1,1,2,4,4}": 8,
+     "{2,2,4,4}": 3,
+     "{2,4,4,4,4}": 2,
+     "{}": 2,
+     "{4,5,5,5,5}": 2,
+     "{1,1,3,4,4,5}": 2
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 11.0,
+     "0.5": 33.0,
+     "0.9": 55.0,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     2,
+     2,
+     3,
+     4,
+     2,
+     9,
+     13,
+     12,
+     14,
+     15,
+     12,
+     12,
+     6,
+     20,
+     16,
+     14,
+     22,
+     16,
+     19,
+     11,
+     16,
+     11,
+     17,
+     21,
+     22,
+     23,
+     21,
+     28,
+     21,
+     18,
+     24,
+     18,
+     14,
+     20,
+     27,
+     21,
+     25,
+     23,
+     19,
+     18
+    ],
+    "exits_total": 814,
+    "exited_to": {
+     "{3,4,5}": 688,
+     "{4,4,5,5}": 43,
+     "{2,4}": 22,
+     "{3,3}": 19,
+     "{1,4,4,4,5}": 10,
+     "{2,5,5}": 10,
+     "{1,2,4,5}": 6,
+     "{1,3,4,4}": 2,
+     "{1,3,4,5,5}": 2,
+     "{3,5,5,5}": 2
+    },
+    "entries_after_sweep_15": 931,
+    "exits_after_sweep_15": 164,
+    "entries_after_sweep_30": 594,
+    "exits_after_sweep_30": 53,
+    "entries_after_sweep_60": 43,
+    "exits_after_sweep_60": 3,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 62,
+    "episodes_complete": 814,
+    "episodes_censored": 976,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 2.0,
+     "0.75": 5.0,
+     "0.9": 9.0,
+     "0.99": 23.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     298,
+     130,
+     151,
+     158,
+     64,
+     13,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.8329596412556054,
+     0.7592965437295995,
+     0.6447252469099695,
+     0.5710326073848718,
+     0.5357576792365536,
+     0.5256280138814446,
+     0.5256280138814446,
+     0.5256280138814446,
+     0.5256280138814446
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 976,
+      "left": 1,
+      "joined": 217
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 1192,
+      "left": 0,
+      "joined": 85
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 1277,
+      "left": 0,
+      "joined": 20
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 1297,
+      "left": 0,
+      "joined": 5
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 1302,
+      "left": 0,
+      "joined": 2
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 1304,
+      "left": 0,
+      "joined": 1
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 1305,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 86476,
+    "pairwise_distance_multisets": {
+     "2,2,3": 21382,
+     "2,3,4": 13842,
+     "2,3,5": 13840,
+     "2,2,4": 10357,
+     "2,3,3": 8167,
+     "2,4,4": 6489,
+     "3,3,4": 4757,
+     "2,2,2": 4016,
+     "3,3,3": 3626
+    },
+    "distinct_distance_multisets": 9,
+    "rotation_classes": 13,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        4,
+        4
+       ],
+       [
+        5,
+        4
+       ]
+      ],
+      "count": 10748,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        4
+       ]
+      ],
+      "count": 10634,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 10357,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        4
+       ]
+      ],
+      "count": 8167,
+      "distances": [
+       2,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 7044,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        4
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 6967,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 6873,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 6798,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        8,
+        4
+       ]
+      ],
+      "count": 6489,
+      "distances": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 4757,
+      "distances": [
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        2,
+        4
+       ],
+       [
+        5,
+        4
+       ]
+      ],
+      "count": 4016,
+      "distances": [
+       2,
+       2,
+       2
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        9,
+        4
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 1826,
+      "distances": [
+       3,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        4
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 1800,
+      "distances": [
+       3,
+       3,
+       3
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{2,2,2}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       10748,
+       10587,
+       false
+      ],
+      [
+       10634,
+       10787,
+       false
+      ],
+      [
+       10357,
+       10432,
+       false
+      ],
+      [
+       8167,
+       8277,
+       false
+      ],
+      [
+       7044,
+       6896,
+       false
+      ],
+      [
+       6967,
+       6836,
+       false
+      ],
+      [
+       6873,
+       7035,
+       false
+      ],
+      [
+       6798,
+       6911,
+       false
+      ],
+      [
+       6489,
+       6484,
+       false
+      ],
+      [
+       4757,
+       4830,
+       false
+      ],
+      [
+       4016,
+       4019,
+       false
+      ],
+      [
+       1826,
+       1843,
+       false
+      ],
+      [
+       1800,
+       1851,
+       false
+      ]
+     ],
+     "chi2_count_vs_mirror": 10.29723372470641,
+     "terms": 13,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": null,
+    "achiral_rotation_classes": null,
+    "chiral_pairs": null,
+    "chi2_chiral_pairs": null
+   },
+   "conjugate_composition": "{2,2,2}",
+   "pair_correlation": {
+    "8": {
+     "{4,4,4}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 28.0,
+       "expected_pairs": 32.63965045139347,
+       "g": 0.8578523241753837,
+       "err": 0.16211885081334484
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 128.0,
+       "expected_pairs": 115.75739727584633,
+       "g": 1.1057608672297625,
+       "err": 0.09773637594861034
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 177.0,
+       "expected_pairs": 167.51883508211904,
+       "g": 1.0565976053572317,
+       "err": 0.07941873932640636
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 393.0,
+       "expected_pairs": 369.1195519405762,
+       "g": 1.0646957007123488,
+       "err": 0.05370679363197339
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 548.0,
+       "expected_pairs": 610.8501517106259,
+       "g": 0.8971103608067866,
+       "err": 0.03832265532861623
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 1354.0,
+       "expected_pairs": 1369.8956832089868,
+       "g": 0.9883964279880413,
+       "err": 0.02686097885917245
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 2559.0,
+       "expected_pairs": 2557.628179647964,
+       "g": 1.0005363642623866,
+       "err": 0.01977869961017155
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 5414.0,
+       "expected_pairs": 5444.482326112616,
+       "g": 0.9944012443632303,
+       "err": 0.013514579375836631
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 13170.0,
+       "expected_pairs": 13269.393935694834,
+       "g": 0.9925095346346254,
+       "err": 0.008648520119283722
+      }
+     ],
+     "{2,2,2}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 22.03276596069336,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 72.0,
+       "expected_pairs": 66.09829788208009,
+       "g": 1.089286748782073,
+       "err": 0.1283736744534085
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 247.0,
+       "expected_pairs": 234.56521911621095,
+       "g": 1.0530120404493066,
+       "err": 0.06700155165679272
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 324.0,
+       "expected_pairs": 339.8555168151855,
+       "g": 0.9533463014996229,
+       "err": 0.05296368341664571
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 741.0,
+       "expected_pairs": 747.4066764831543,
+       "g": 0.9914281251629965,
+       "err": 0.03642102222811216
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 1265.0,
+       "expected_pairs": 1239.0547889709471,
+       "g": 1.0209395187847994,
+       "err": 0.02870481499619258
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 2754.0,
+       "expected_pairs": 2777.2001991271977,
+       "g": 0.991646191320853,
+       "err": 0.018896213197053768
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 5291.0,
+       "expected_pairs": 5185.731549072265,
+       "g": 1.0202996337028991,
+       "err": 0.01402680792234347
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 10964.0,
+       "expected_pairs": 11043.871983337403,
+       "g": 0.9927677554160432,
+       "err": 0.00948119654588977
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 26665.0,
+       "expected_pairs": 26918.90568084717,
+       "g": 0.9905677562135142,
+       "err": 0.006066153466199777
+      }
+     ],
+     "{2,4}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 1273.4262298583985,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 3794.0,
+       "expected_pairs": 3820.2786895751956,
+       "g": 0.9931212637321709,
+       "err": 0.016123288216071802
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 13482.0,
+       "expected_pairs": 13548.028063964843,
+       "g": 0.9951263708893204,
+       "err": 0.008570399642957447
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 19553.0,
+       "expected_pairs": 19630.623990631106,
+       "g": 0.996045770594549,
+       "err": 0.007123158294631992
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 43197.0,
+       "expected_pairs": 43227.03583297729,
+       "g": 0.9993051609392477,
+       "err": 0.004808076147244075
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 71261.0,
+       "expected_pairs": 71537.65276870728,
+       "g": 0.9961327670394534,
+       "err": 0.0037315672245566527
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 160480.0,
+       "expected_pairs": 160416.82416381835,
+       "g": 1.0003938230077234,
+       "err": 0.0024972415004590976
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 298989.0,
+       "expected_pairs": 299558.37839584355,
+       "g": 0.9980992740083164,
+       "err": 0.0018253499336496055
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 636578.0,
+       "expected_pairs": 637671.7093551636,
+       "g": 0.9982848394571721,
+       "err": 0.0012512055525104742
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 1553216.0,
+       "expected_pairs": 1554311.755567932,
+       "g": 0.9992950220160102,
+       "err": 0.0008018216826553999
+      }
+     ]
+    },
+    "9": {
+     "{4,4,4}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.0,
+       "g": null,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 126.0,
+       "expected_pairs": 137.85110718748228,
+       "g": 0.9140296554066528,
+       "err": 0.08142823361625579
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 510.0,
+       "expected_pairs": 490.0326042237481,
+       "g": 1.0407470760193231,
+       "err": 0.04608505513025209
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 709.0,
+       "expected_pairs": 709.0897005252267,
+       "g": 0.999873499043689,
+       "err": 0.03755103746629783
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 1597.0,
+       "expected_pairs": 1561.546394643096,
+       "g": 1.0227041639483323,
+       "err": 0.0255916074875956
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 2551.0,
+       "expected_pairs": 2582.946211423151,
+       "g": 0.9876318712012399,
+       "err": 0.01955419163330892
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 5886.0,
+       "expected_pairs": 5793.434923827157,
+       "g": 1.0159775810706257,
+       "err": 0.013242622403460939
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 10875.0,
+       "expected_pairs": 10810.289561326897,
+       "g": 1.0059860041959099,
+       "err": 0.00964666741639721
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 23223.0,
+       "expected_pairs": 23058.657581073297,
+       "g": 1.0071271459905626,
+       "err": 0.006608838527440743
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 56225.0,
+       "expected_pairs": 56188.68109010335,
+       "g": 1.000646374130733,
+       "err": 0.004220033455623356
+      }
+     ],
+     "{2,2,2}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 91.51971988677978,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 302.0,
+       "expected_pairs": 274.55915966033933,
+       "g": 1.0999450915191031,
+       "err": 0.06329472751330349
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 1013.0,
+       "expected_pairs": 974.8635847091675,
+       "g": 1.0391197454587555,
+       "err": 0.03264832272422432
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 1432.0,
+       "expected_pairs": 1411.0968366622924,
+       "g": 1.0148134152062522,
+       "err": 0.02681727778963578
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 3159.0,
+       "expected_pairs": 3109.3719114303585,
+       "g": 1.015960808157816,
+       "err": 0.018075992060959487
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 5039.0,
+       "expected_pairs": 5141.114717102051,
+       "g": 0.9801376310934351,
+       "err": 0.013807494678060523
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 11627.0,
+       "expected_pairs": 11529.985823822022,
+       "g": 1.008414075928657,
+       "err": 0.009352012161236973
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 21608.0,
+       "expected_pairs": 21514.99702320099,
+       "g": 1.0043227046091951,
+       "err": 0.006832285332951146
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 46111.0,
+       "expected_pairs": 45903.49721088409,
+       "g": 1.0045204135136507,
+       "err": 0.00467795991828786
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 112127.0,
+       "expected_pairs": 111846.02400398256,
+       "g": 1.0025121679426658,
+       "err": 0.0029938811180743544
+      }
+     ],
+     "{2,4}-{4,4,4}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 5219.814391136169,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 15813.0,
+       "expected_pairs": 15659.443173408508,
+       "g": 1.009806020871307,
+       "err": 0.00803028243713961
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 55082.0,
+       "expected_pairs": 55571.310665702826,
+       "g": 0.9911949050716773,
+       "err": 0.004223322154070939
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 80681.0,
+       "expected_pairs": 80430.40953197479,
+       "g": 1.0031156184518195,
+       "err": 0.0035315499737879836
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 176771.0,
+       "expected_pairs": 177330.06877841952,
+       "g": 0.9968472984741347,
+       "err": 0.0023709539932022447
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 293763.0,
+       "expected_pairs": 293090.97136974335,
+       "g": 1.0022929011668833,
+       "err": 0.0018492520426575721
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 656516.0,
+       "expected_pairs": 657394.0819725037,
+       "g": 0.9986642989394291,
+       "err": 0.0012325282074349758
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 1228594.0,
+       "expected_pairs": 1226691.161838913,
+       "g": 1.001551195786097,
+       "err": 0.0009035848876411188
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 2619186.0,
+       "expected_pairs": 2617319.0535799023,
+       "g": 1.0007133048672625,
+       "err": 0.0006183388068173424
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 6379422.0,
+       "expected_pairs": 6377761.477722931,
+       "g": 1.0002603613011978,
+       "err": 0.0003960248087198157
+      }
+     ]
+    }
+   }
+  },
+  "{2,2,4,4}": {
+   "counts_at_end": {
+    "5": 123,
+    "6": 539,
+    "7": 2265,
+    "8": 8836,
+    "9": 34700,
+    "10": 139090
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L5": {
+    "carriers_at_last_record_sweep": 123,
+    "entries_total": 1393,
+    "entered_from": {
+     "{}": 769,
+     "{1,1,2,4,4}": 164,
+     "{2,2,4,5,5}": 150,
+     "{2,3,3,4}": 127,
+     "{1,2,2,4,4,5}": 81,
+     "{2,3,4,4,5}": 36,
+     "{1,2,2,3,4}": 35,
+     "{1,2,2,4,5,5,5}": 7,
+     "{2,4}": 4,
+     "{1,2,3,3,4,5}": 4,
+     "{1,1,1,2,4,4,5}": 3,
+     "{1,1,3,4,4,5}": 2
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 0.0,
+     "0.9": 17.0,
+     "0.99": 46.07999999999993,
+     "1.0": 149.0
+    },
+    "final_holders_came_from": {
+     "{1,1,2,4,4}": 46,
+     "{2,2,4,5,5}": 33,
+     "{1,2,2,3,4}": 17,
+     "{1,2,2,4,4,5}": 13,
+     "{2,3,4,4,5}": 8,
+     "{}": 2,
+     "{1,1,2,2,3,4,5}": 1,
+     "{1,1,1,1,4,4}": 1,
+     "{1,1,3,4,4,5}": 1,
+     "{1,2,2,4,5,5,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 5.0,
+     "0.5": 21.0,
+     "0.9": 44.599999999999994,
+     "0.99": 73.34,
+     "1.0": 149.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     2,
+     1,
+     3,
+     5,
+     0,
+     5,
+     2,
+     5,
+     3,
+     3,
+     2,
+     0,
+     5,
+     4,
+     3,
+     3,
+     4,
+     6,
+     2,
+     2,
+     0,
+     2,
+     6,
+     2,
+     1,
+     1,
+     2,
+     3,
+     1,
+     1,
+     1,
+     1,
+     4,
+     2,
+     3,
+     1,
+     3,
+     4,
+     1,
+     4
+    ],
+    "exits_total": 1270,
+    "exited_to": {
+     "{1,2,4,5}": 974,
+     "{1,1,2,4,4}": 50,
+     "{2,2,4,5,5}": 46,
+     "{1,3,4,4}": 36,
+     "{2,2,3,5}": 34,
+     "{1,1,5,5}": 28,
+     "{2,3,3,4}": 23,
+     "{2,4}": 16,
+     "{3,4,5}": 7,
+     "{1,2,2,4,4,5}": 7
+    },
+    "entries_after_sweep_15": 158,
+    "exits_after_sweep_15": 216,
+    "entries_after_sweep_30": 60,
+    "exits_after_sweep_30": 59,
+    "entries_after_sweep_60": 7,
+    "exits_after_sweep_60": 5,
+    "entries_after_sweep_100": 1,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 149,
+    "last_exit_sweep": 93,
+    "episodes_complete": 1270,
+    "episodes_censored": 123,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 7.0,
+     "0.9": 12.0,
+     "0.99": 31.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     347,
+     195,
+     237,
+     294,
+     152,
+     44,
+     1,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.750897343862168,
+     0.6109117013639627,
+     0.37975592246949036,
+     0.21105527638190957,
+     0.11557788944723621,
+     0.08901651112706391,
+     0.08829863603732953,
+     0.08829863603732953,
+     0.08829863603732953
+    ],
+    "checkpoint_steps": [],
+    "record_sweeps": 600
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 527,
+    "entries_total": 5204,
+    "entered_from": {
+     "{}": 2793,
+     "{2,2,4,5,5}": 678,
+     "{1,1,2,4,4}": 624,
+     "{2,3,3,4}": 427,
+     "{1,2,2,4,4,5}": 273,
+     "{2,3,4,4,5}": 150,
+     "{1,2,2,3,4}": 134,
+     "{2,4}": 21,
+     "{1,1,2,4,5,5}": 15,
+     "{1,2,2,4,5,5,5}": 11,
+     "{2,2,2,4,4,4}": 7,
+     "{1,1,3,3,4}": 7
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 0.0,
+     "0.9": 16.699999999999818,
+     "0.99": 52.0,
+     "1.0": 78.0
+    },
+    "final_holders_came_from": {
+     "{2,2,4,5,5}": 198,
+     "{1,1,2,4,4}": 170,
+     "{2,3,4,4,5}": 60,
+     "{1,2,2,3,4}": 45,
+     "{1,2,2,4,4,5}": 29,
+     "{}": 4,
+     "{1,2,2,4,5,5,5}": 4,
+     "{1,1,2,4,5,5}": 4,
+     "{2,4,4,4,4}": 1,
+     "{1,2,3,4,4,4}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 7.0,
+     "0.5": 21.0,
+     "0.9": 50.400000000000034,
+     "0.99": 73.74000000000001,
+     "1.0": 78.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     4,
+     12,
+     3,
+     12,
+     7,
+     11,
+     3,
+     9,
+     10,
+     12,
+     17,
+     20,
+     17,
+     21,
+     11,
+     18,
+     13,
+     11,
+     14,
+     13,
+     16,
+     11,
+     18,
+     11,
+     5,
+     16,
+     9,
+     8,
+     8,
+     6,
+     12,
+     12,
+     11,
+     12,
+     1,
+     6,
+     8,
+     6,
+     7,
+     3
+    ],
+    "exits_total": 4677,
+    "exited_to": {
+     "{1,2,4,5}": 3603,
+     "{2,2,4,5,5}": 172,
+     "{1,1,2,4,4}": 170,
+     "{1,1,5,5}": 151,
+     "{1,3,4,4}": 108,
+     "{2,2,3,5}": 101,
+     "{2,3,3,4}": 75,
+     "{2,4}": 65,
+     "{1,2,2,4,4,5}": 27,
+     "{1,1,4}": 27
+    },
+    "entries_after_sweep_15": 602,
+    "exits_after_sweep_15": 842,
+    "entries_after_sweep_30": 223,
+    "exits_after_sweep_30": 187,
+    "entries_after_sweep_60": 30,
+    "exits_after_sweep_60": 11,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 78,
+    "last_exit_sweep": 78,
+    "episodes_complete": 4677,
+    "episodes_censored": 527,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 7.0,
+     "0.9": 13.0,
+     "0.99": 31.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     1294,
+     735,
+     854,
+     1050,
+     553,
+     184,
+     7,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.7513451191391237,
+     0.6100714781651518,
+     0.38824114699891177,
+     0.22619375369089378,
+     0.13131293124957122,
+     0.0982100435143406,
+     0.09407360906711713,
+     0.09407360906711713,
+     0.09407360906711713
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 527,
+      "left": 3,
+      "joined": 7
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 531,
+      "left": 0,
+      "joined": 7
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 538,
+      "left": 0,
+      "joined": 1
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 539,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 539,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 539,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 539,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 539,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 539,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 2163,
+    "entries_total": 21447,
+    "entered_from": {
+     "{}": 11727,
+     "{2,2,4,5,5}": 2600,
+     "{1,1,2,4,4}": 2387,
+     "{2,3,3,4}": 1848,
+     "{1,2,2,4,4,5}": 1201,
+     "{1,2,2,3,4}": 629,
+     "{2,3,4,4,5}": 561,
+     "{2,4}": 77,
+     "{1,1,2,4,5,5}": 74,
+     "{2,2,2,4,4,4}": 33,
+     "{1,2,3,3,4,5}": 32,
+     "{1,1,3,3,4}": 29
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 0.0,
+     "0.9": 17.0,
+     "0.99": 48.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{2,2,4,5,5}": 758,
+     "{1,1,2,4,4}": 714,
+     "{1,2,2,3,4}": 232,
+     "{2,3,4,4,5}": 195,
+     "{1,2,2,4,4,5}": 156,
+     "{}": 29,
+     "{1,1,2,4,5,5}": 25,
+     "{2,3,3,4}": 8,
+     "{1,1,1,1,4,4}": 6,
+     "{2,2,5,5,5,5}": 5
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 6.0,
+     "0.5": 21.0,
+     "0.9": 45.799999999999955,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     29,
+     16,
+     42,
+     29,
+     45,
+     37,
+     51,
+     52,
+     58,
+     56,
+     57,
+     52,
+     58,
+     56,
+     59,
+     55,
+     63,
+     62,
+     48,
+     53,
+     53,
+     68,
+     51,
+     61,
+     33,
+     53,
+     60,
+     45,
+     51,
+     43,
+     46,
+     45,
+     32,
+     36,
+     20,
+     24,
+     18,
+     37,
+     33,
+     35
+    ],
+    "exits_total": 19284,
+    "exited_to": {
+     "{1,2,4,5}": 14847,
+     "{1,1,2,4,4}": 768,
+     "{2,2,4,5,5}": 715,
+     "{1,1,5,5}": 585,
+     "{1,3,4,4}": 379,
+     "{2,2,3,5}": 377,
+     "{2,3,3,4}": 317,
+     "{2,4}": 282,
+     "{1,2,2,4,4,5}": 139,
+     "{2,5,5}": 112
+    },
+    "entries_after_sweep_15": 2531,
+    "exits_after_sweep_15": 3389,
+    "entries_after_sweep_30": 895,
+    "exits_after_sweep_30": 806,
+    "entries_after_sweep_60": 45,
+    "exits_after_sweep_60": 19,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 63,
+    "episodes_complete": 19284,
+    "episodes_censored": 2163,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 7.0,
+     "0.9": 13.0,
+     "0.99": 29.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     5552,
+     2782,
+     3606,
+     4175,
+     2454,
+     707,
+     8,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.7409843713552601,
+     0.6110821392605891,
+     0.38551353513182923,
+     0.22391593123351208,
+     0.12536367096217382,
+     0.0899937816444659,
+     0.08782650658415578,
+     0.08782650658415578,
+     0.08782650658415578
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 2163,
+      "left": 30,
+      "joined": 116
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 2249,
+      "left": 2,
+      "joined": 16
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 2263,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 2263,
+      "left": 0,
+      "joined": 2
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 2265,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 2265,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 2265,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 139090,
+    "pairwise_distance_multisets": {
+     "2,2,2,3,3,5": 16857,
+     "2,2,3,3,3,5": 16757,
+     "2,2,3,3,4,4": 14265,
+     "2,2,2,3,3,4": 13175,
+     "2,2,2,3,4,4": 12844,
+     "2,2,3,3,4,5": 12154,
+     "2,2,2,2,3,4": 10231,
+     "2,3,3,3,3,4": 8911,
+     "2,2,3,3,3,4": 8805,
+     "2,2,2,4,4,4": 8256,
+     "2,2,3,4,4,4": 6760,
+     "2,2,3,3,5,5": 3451,
+     "2,2,2,2,3,3": 3064,
+     "2,2,2,3,3,3": 2959,
+     "3,3,3,3,3,3": 601
+    },
+    "distinct_distance_multisets": 15,
+    "rotation_classes": 160,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        1,
+        2
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        10,
+        4
+       ],
+       [
+        12,
+        2
+       ]
+      ],
+      "count": 1934,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       5,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        2
+       ],
+       [
+        8,
+        4
+       ]
+      ],
+      "count": 1904,
+      "distances": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        8,
+        2
+       ]
+      ],
+      "count": 1891,
+      "distances": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        2
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 1780,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 1774,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 1707,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        8,
+        2
+       ]
+      ],
+      "count": 1701,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        8,
+        2
+       ]
+      ],
+      "count": 1687,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        4,
+        4
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        8,
+        2
+       ]
+      ],
+      "count": 1681,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        4,
+        2
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        8,
+        4
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1677,
+      "distances": [
+       2,
+       2,
+       3,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 1671,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        4,
+        2
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        8,
+        4
+       ]
+      ],
+      "count": 1654,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        8,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1605,
+      "distances": [
+       2,
+       2,
+       3,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        7,
+        2
+       ],
+       [
+        9,
+        2
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 1549,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        2
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        9,
+        4
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1544,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        2
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1499,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1486,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1484,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        9,
+        2
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1450,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 1433,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       4
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{2,2,4,4}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       1934,
+       1934,
+       true
+      ],
+      [
+       1904,
+       1904,
+       true
+      ],
+      [
+       1891,
+       1891,
+       true
+      ],
+      [
+       1780,
+       1671,
+       false
+      ],
+      [
+       1774,
+       1707,
+       false
+      ],
+      [
+       1707,
+       1774,
+       false
+      ],
+      [
+       1701,
+       1681,
+       false
+      ],
+      [
+       1687,
+       1654,
+       false
+      ],
+      [
+       1681,
+       1701,
+       false
+      ],
+      [
+       1677,
+       1605,
+       false
+      ],
+      [
+       1671,
+       1780,
+       false
+      ],
+      [
+       1654,
+       1687,
+       false
+      ],
+      [
+       1605,
+       1677,
+       false
+      ],
+      [
+       1549,
+       1544,
+       false
+      ],
+      [
+       1544,
+       1549,
+       false
+      ],
+      [
+       1499,
+       1486,
+       false
+      ],
+      [
+       1486,
+       1499,
+       false
+      ],
+      [
+       1484,
+       1450,
+       false
+      ],
+      [
+       1450,
+       1484,
+       false
+      ],
+      [
+       1433,
+       1391,
+       false
+      ]
+     ],
+     "chi2_count_vs_mirror": 127.7793830415215,
+     "terms": 148,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": 148,
+    "achiral_rotation_classes": 12,
+    "chiral_pairs": 74,
+    "chi2_chiral_pairs": 63.88969152076076
+   },
+   "conjugate_composition": "{2,2,4,4}",
+   "pair_correlation": {
+    "8": {},
+    "9": {}
+   }
+  },
+  "{2,3,3,4}": {
+   "counts_at_end": {
+    "5": 47,
+    "6": 195,
+    "7": 845,
+    "8": 3487,
+    "9": 14005,
+    "10": 55690
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L5": {
+    "carriers_at_last_record_sweep": 47,
+    "entries_total": 366,
+    "entered_from": {
+     "{}": 183,
+     "{1,2,2,3,4}": 44,
+     "{2,3,4,4,5}": 31,
+     "{1,2,3,3,4,5}": 24,
+     "{2,2,4,4}": 23,
+     "{1,1,3,3,4}": 17,
+     "{2,3,3,5,5}": 9,
+     "{3,3,3,4,5}": 8,
+     "{1,2,3,3,3}": 6,
+     "{3,3,3,3}": 5,
+     "{2,2,3,3,4,4}": 3,
+     "{2,2,3,5}": 2
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 0.5,
+     "0.9": 21.0,
+     "0.99": 72.70000000000005,
+     "1.0": 118.0
+    },
+    "final_holders_came_from": {
+     "{1,2,2,3,4}": 21,
+     "{2,3,4,4,5}": 13,
+     "{3,3,3,4,5}": 6,
+     "{1,1,3,3,4}": 4,
+     "{1,2,3,3,3}": 1,
+     "{2,2,2,2,4}": 1,
+     "{1,2,3,3,4,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 7.0,
+     "0.5": 26.0,
+     "0.9": 62.199999999999996,
+     "0.99": 111.1,
+     "1.0": 118.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     0,
+     0,
+     0,
+     1,
+     0,
+     2,
+     0,
+     4,
+     1,
+     0,
+     2,
+     1,
+     1,
+     0,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     2,
+     0,
+     1,
+     0,
+     2,
+     1,
+     0,
+     1,
+     1,
+     2,
+     1,
+     0,
+     2,
+     0
+    ],
+    "exits_total": 319,
+    "exited_to": {
+     "{2,2,4,4}": 127,
+     "{1,3,3,5}": 75,
+     "{1,3,4,4}": 24,
+     "{2,2,3,5}": 23,
+     "{1,2,2,3,4}": 17,
+     "{1,2,4,5}": 15,
+     "{2,3,4,4,5}": 10,
+     "{1,1,3,3,4}": 4,
+     "{1,2,2,4,4,5}": 3,
+     "{3,4,5}": 3
+    },
+    "entries_after_sweep_15": 56,
+    "exits_after_sweep_15": 52,
+    "entries_after_sweep_30": 30,
+    "exits_after_sweep_30": 18,
+    "entries_after_sweep_60": 7,
+    "exits_after_sweep_60": 2,
+    "entries_after_sweep_100": 2,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 118,
+    "last_exit_sweep": 75,
+    "episodes_complete": 319,
+    "episodes_censored": 47,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 5.0,
+     "0.9": 11.0,
+     "0.99": 28.279999999999973
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     107,
+     46,
+     63,
+     63,
+     34,
+     6,
+     0,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.7076502732240437,
+     0.5819672131147541,
+     0.34426229508196715,
+     0.22131147540983603,
+     0.14480874316939887,
+     0.12841530054644804,
+     0.12841530054644804,
+     0.12841530054644804,
+     0.12841530054644804
+    ],
+    "checkpoint_steps": [],
+    "record_sweeps": 600
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 189,
+    "entries_total": 1358,
+    "entered_from": {
+     "{}": 670,
+     "{1,2,2,3,4}": 143,
+     "{2,3,4,4,5}": 141,
+     "{1,2,3,3,4,5}": 77,
+     "{2,2,4,4}": 75,
+     "{1,1,3,3,4}": 57,
+     "{2,3,3,5,5}": 54,
+     "{3,3,3,3}": 42,
+     "{1,2,3,3,3}": 24,
+     "{3,3,3,4,5}": 20,
+     "{1,1,2,2,3,4,5}": 5,
+     "{2,2,3,5}": 5
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 1.0,
+     "0.9": 24.0,
+     "0.99": 67.0,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{1,2,2,3,4}": 71,
+     "{2,3,4,4,5}": 52,
+     "{1,1,3,3,4}": 22,
+     "{1,2,3,3,3}": 11,
+     "{2,3,3,5,5}": 11,
+     "{3,3,3,4,5}": 10,
+     "{1,2,3,3,4,5}": 8,
+     "{3,3,4,4,4}": 2,
+     "{1,1,1,2,3,4}": 1,
+     "{1,1,3,3,5,5}": 1
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 8.0,
+     "0.5": 27.0,
+     "0.9": 64.0,
+     "0.99": 79.0,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     0,
+     1,
+     1,
+     3,
+     1,
+     1,
+     4,
+     4,
+     5,
+     1,
+     3,
+     6,
+     3,
+     4,
+     5,
+     5,
+     7,
+     2,
+     8,
+     3,
+     3,
+     6,
+     3,
+     5,
+     1,
+     6,
+     3,
+     3,
+     4,
+     1,
+     2,
+     1,
+     2,
+     6,
+     5,
+     3,
+     0,
+     1,
+     1,
+     3
+    ],
+    "exits_total": 1169,
+    "exited_to": {
+     "{2,2,4,4}": 427,
+     "{1,3,3,5}": 281,
+     "{1,3,4,4}": 96,
+     "{2,2,3,5}": 90,
+     "{1,2,4,5}": 75,
+     "{1,2,2,3,4}": 43,
+     "{2,3,4,4,5}": 33,
+     "{2,3,3,5,5}": 19,
+     "{1,1,3,3,4}": 17,
+     "{2,2,4,5,5}": 12
+    },
+    "entries_after_sweep_15": 221,
+    "exits_after_sweep_15": 160,
+    "entries_after_sweep_30": 111,
+    "exits_after_sweep_30": 54,
+    "entries_after_sweep_60": 27,
+    "exits_after_sweep_60": 5,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 77,
+    "episodes_complete": 1169,
+    "episodes_censored": 189,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 3.0,
+     "0.75": 5.0,
+     "0.9": 10.0,
+     "0.99": 26.95999999999981
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     415,
+     166,
+     227,
+     236,
+     92,
+     31,
+     2,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.6937269372693726,
+     0.5712177121771217,
+     0.34766006772190544,
+     0.20984404341996277,
+     0.15118344255661162,
+     0.13075815460541962,
+     0.1259434163544449,
+     0.1259434163544449,
+     0.1259434163544449
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 189,
+      "left": 2,
+      "joined": 3
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 190,
+      "left": 0,
+      "joined": 4
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 194,
+      "left": 0,
+      "joined": 1
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 195,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 195,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 195,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 195,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 195,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 195,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 751,
+    "entries_total": 5480,
+    "entered_from": {
+     "{}": 2721,
+     "{1,2,2,3,4}": 558,
+     "{2,3,4,4,5}": 550,
+     "{2,2,4,4}": 317,
+     "{1,1,3,3,4}": 278,
+     "{1,2,3,3,4,5}": 263,
+     "{2,3,3,5,5}": 254,
+     "{3,3,3,3}": 162,
+     "{1,2,3,3,3}": 89,
+     "{3,3,3,4,5}": 83,
+     "{1,2,2,4,4,5}": 17,
+     "{1,1,2,4,4}": 15
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 1.0,
+     "0.9": 23.0,
+     "0.99": 54.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{1,2,2,3,4}": 235,
+     "{2,3,4,4,5}": 227,
+     "{1,1,3,3,4}": 83,
+     "{2,3,3,5,5}": 80,
+     "{1,2,3,3,4,5}": 42,
+     "{3,3,3,4,5}": 34,
+     "{1,2,3,3,3}": 30,
+     "{1,2,2,4,4,5}": 3,
+     "{1,1,1,2,3,4}": 3,
+     "{}": 2
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 9.0,
+     "0.5": 28.0,
+     "0.9": 52.0,
+     "0.99": 62.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     2,
+     1,
+     4,
+     5,
+     6,
+     5,
+     14,
+     19,
+     11,
+     19,
+     17,
+     11,
+     14,
+     24,
+     15,
+     20,
+     24,
+     17,
+     11,
+     18,
+     23,
+     11,
+     12,
+     21,
+     13,
+     11,
+     15,
+     12,
+     10,
+     12,
+     15,
+     20,
+     17,
+     18,
+     19,
+     10,
+     18,
+     7,
+     12,
+     10
+    ],
+    "exits_total": 4729,
+    "exited_to": {
+     "{2,2,4,4}": 1848,
+     "{1,3,3,5}": 1067,
+     "{2,2,3,5}": 386,
+     "{1,3,4,4}": 370,
+     "{1,2,4,5}": 278,
+     "{2,3,4,4,5}": 142,
+     "{1,2,2,3,4}": 141,
+     "{1,1,3,3,4}": 73,
+     "{2,3,3,5,5}": 53,
+     "{1,1,2,4,4}": 37
+    },
+    "entries_after_sweep_15": 854,
+    "exits_after_sweep_15": 704,
+    "entries_after_sweep_30": 405,
+    "exits_after_sweep_30": 186,
+    "entries_after_sweep_60": 25,
+    "exits_after_sweep_60": 6,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 63,
+    "episodes_complete": 4729,
+    "episodes_censored": 751,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 1.0,
+     "0.5": 2.0,
+     "0.75": 6.0,
+     "0.9": 11.0,
+     "0.99": 27.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     1629,
+     768,
+     885,
+     860,
+     458,
+     127,
+     2,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.7024657534246576,
+     0.5618993910926782,
+     0.3516566239311595,
+     0.22455265504566618,
+     0.1477265632768623,
+     0.11900571444164326,
+     0.11797088214215072,
+     0.11797088214215072,
+     0.11797088214215072
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 751,
+      "left": 15,
+      "joined": 88
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 824,
+      "left": 1,
+      "joined": 19
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 842,
+      "left": 0,
+      "joined": 3
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 845,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 845,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 845,
+      "left": 0,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 845,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 55690,
+    "pairwise_distance_multisets": {
+     "2,2,2,3,3,5": 6687,
+     "2,2,3,3,3,5": 6666,
+     "2,2,2,3,3,4": 5558,
+     "2,2,3,3,4,4": 5290,
+     "2,2,2,3,4,4": 5219,
+     "2,2,3,3,4,5": 4915,
+     "2,2,2,2,3,4": 4434,
+     "2,3,3,3,3,4": 3452,
+     "2,2,2,4,4,4": 3429,
+     "2,2,3,3,3,4": 3284,
+     "2,2,3,4,4,4": 2681,
+     "2,2,3,3,5,5": 1430,
+     "2,2,2,2,3,3": 1336,
+     "2,2,2,3,3,3": 1071,
+     "3,3,3,3,3,3": 238
+    },
+    "distinct_distance_multisets": 15,
+    "rotation_classes": 302,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        7,
+        3
+       ],
+       [
+        8,
+        3
+       ]
+      ],
+      "count": 381,
+      "distances": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        3
+       ],
+       [
+        3,
+        3
+       ],
+       [
+        10,
+        4
+       ],
+       [
+        12,
+        2
+       ]
+      ],
+      "count": 374,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       5,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        3
+       ],
+       [
+        8,
+        3
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 372,
+      "distances": [
+       2,
+       2,
+       3,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        2
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        10,
+        3
+       ],
+       [
+        12,
+        3
+       ]
+      ],
+      "count": 367,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       5,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        4
+       ],
+       [
+        9,
+        2
+       ],
+       [
+        10,
+        3
+       ],
+       [
+        12,
+        3
+       ]
+      ],
+      "count": 365,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        9,
+        3
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 365,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        7,
+        2
+       ],
+       [
+        8,
+        4
+       ]
+      ],
+      "count": 357,
+      "distances": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        3
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 354,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        2
+       ],
+       [
+        9,
+        4
+       ],
+       [
+        10,
+        3
+       ],
+       [
+        12,
+        3
+       ]
+      ],
+      "count": 353,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        6,
+        4
+       ],
+       [
+        8,
+        3
+       ],
+       [
+        9,
+        3
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 348,
+      "distances": [
+       2,
+       2,
+       3,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        9,
+        2
+       ],
+       [
+        10,
+        3
+       ]
+      ],
+      "count": 347,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        3
+       ]
+      ],
+      "count": 346,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        3
+       ],
+       [
+        8,
+        3
+       ]
+      ],
+      "count": 344,
+      "distances": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        7,
+        2
+       ],
+       [
+        10,
+        3
+       ]
+      ],
+      "count": 344,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       4,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        3
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        8,
+        3
+       ]
+      ],
+      "count": 338,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        3
+       ],
+       [
+        9,
+        3
+       ],
+       [
+        10,
+        4
+       ],
+       [
+        12,
+        2
+       ]
+      ],
+      "count": 337,
+      "distances": [
+       2,
+       2,
+       3,
+       3,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        3
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        8,
+        3
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 336,
+      "distances": [
+       2,
+       2,
+       3,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        8,
+        2
+       ]
+      ],
+      "count": 333,
+      "distances": [
+       2,
+       2,
+       2,
+       4,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        3
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 332,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        9,
+        3
+       ],
+       [
+        10,
+        2
+       ]
+      ],
+      "count": 332,
+      "distances": [
+       2,
+       2,
+       2,
+       3,
+       3,
+       5
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{2,3,3,4}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       381,
+       333,
+       false
+      ],
+      [
+       374,
+       374,
+       true
+      ],
+      [
+       372,
+       325,
+       false
+      ],
+      [
+       367,
+       367,
+       true
+      ],
+      [
+       365,
+       344,
+       false
+      ],
+      [
+       365,
+       353,
+       false
+      ],
+      [
+       357,
+       344,
+       false
+      ],
+      [
+       354,
+       347,
+       false
+      ],
+      [
+       353,
+       365,
+       false
+      ],
+      [
+       348,
+       336,
+       false
+      ],
+      [
+       347,
+       354,
+       false
+      ],
+      [
+       346,
+       327,
+       false
+      ],
+      [
+       344,
+       357,
+       false
+      ],
+      [
+       344,
+       365,
+       false
+      ],
+      [
+       338,
+       325,
+       false
+      ],
+      [
+       337,
+       297,
+       false
+      ],
+      [
+       336,
+       348,
+       false
+      ],
+      [
+       333,
+       381,
+       false
+      ],
+      [
+       332,
+       306,
+       false
+      ],
+      [
+       332,
+       320,
+       false
+      ]
+     ],
+     "chi2_count_vs_mirror": 229.093517125424,
+     "terms": 282,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": 282,
+    "achiral_rotation_classes": 20,
+    "chiral_pairs": 141,
+    "chi2_chiral_pairs": 114.546758562712
+   },
+   "conjugate_composition": "{2,3,3,4}",
+   "pair_correlation": {
+    "8": {},
+    "9": {}
+   }
+  },
+  "{1,2,3}": {
+   "counts_at_end": {
+    "5": 0,
+    "6": 3,
+    "7": 34,
+    "8": 670,
+    "9": 2790,
+    "10": 11174
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 1556,
+    "entries_total": 5016,
+    "entered_from": {
+     "{1,2,4,5}": 1956,
+     "{}": 623,
+     "{2,2,3,5}": 509,
+     "{1,1,2,3,5}": 459,
+     "{1,1,1,3}": 392,
+     "{1,3,3,5}": 376,
+     "{1,1,2,2}": 246,
+     "{2,2,2}": 173,
+     "{3,3}": 71,
+     "{1,1,4}": 29,
+     "{2,2,4,4}": 22,
+     "{1,1,1,4,5}": 22
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 16.0,
+     "0.9": 52.0,
+     "0.99": 75.0,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{1,2,4,5}": 777,
+     "{2,2,3,5}": 214,
+     "{1,3,3,5}": 158,
+     "{1,1,1,3}": 142,
+     "{1,1,2,3,5}": 110,
+     "{1,1,2,2}": 92,
+     "{2,2,2}": 26,
+     "{}": 15,
+     "{1,1,1,4,5}": 5,
+     "{2,2,4,5,5}": 3
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 10.0,
+     "0.5": 35.0,
+     "0.9": 67.0,
+     "0.99": 78.0,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     15,
+     6,
+     16,
+     18,
+     12,
+     18,
+     18,
+     14,
+     16,
+     17,
+     26,
+     16,
+     24,
+     22,
+     19,
+     31,
+     23,
+     24,
+     23,
+     25,
+     30,
+     24,
+     18,
+     29,
+     28,
+     22,
+     25,
+     35,
+     24,
+     32,
+     29,
+     30,
+     21,
+     19,
+     17,
+     25,
+     28,
+     29,
+     20,
+     23
+    ],
+    "exits_total": 3460,
+    "exited_to": {
+     "{2,4}": 1330,
+     "{1,1,4}": 1137,
+     "{3,3}": 800,
+     "{1,5}": 60,
+     "{1,2,4,5}": 38,
+     "{1,1,2,2}": 33,
+     "{1,1,1,3}": 25,
+     "{2,2,2}": 12,
+     "{1,1,2,3,5}": 8,
+     "{3,4,5}": 4
+    },
+    "entries_after_sweep_15": 2672,
+    "exits_after_sweep_15": 2369,
+    "entries_after_sweep_30": 1517,
+    "exits_after_sweep_30": 1598,
+    "entries_after_sweep_60": 328,
+    "exits_after_sweep_60": 562,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 79,
+    "episodes_complete": 3460,
+    "episodes_censored": 1556,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 4.0,
+     "0.5": 11.0,
+     "0.75": 24.0,
+     "0.9": 40.0,
+     "0.99": 65.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     356,
+     212,
+     369,
+     640,
+     741,
+     962,
+     180,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.928828468612555,
+     0.8863448363912255,
+     0.77870692105486,
+     0.661982445415484,
+     0.5135887744461168,
+     0.28440482285802904,
+     0.1715482220859199,
+     0.1715482220859199,
+     0.1715482220859199
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 1556,
+      "left": 451,
+      "joined": 112
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 1217,
+      "left": 742,
+      "joined": 46
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 521,
+      "left": 311,
+      "joined": 6
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 216,
+      "left": 122,
+      "joined": 4
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 98,
+      "left": 65,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 33,
+      "left": 18,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 15,
+      "left": 10,
+      "joined": 0
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 5,
+      "left": 2,
+      "joined": 0
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 3,
+      "left": 0,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 6905,
+    "entries_total": 19163,
+    "entered_from": {
+     "{1,2,4,5}": 7218,
+     "{}": 2435,
+     "{1,1,2,3,5}": 1895,
+     "{2,2,3,5}": 1876,
+     "{1,1,1,3}": 1674,
+     "{1,3,3,5}": 1398,
+     "{1,1,2,2}": 810,
+     "{2,2,2}": 663,
+     "{3,3}": 288,
+     "{1,1,4}": 184,
+     "{1,1,1,4,5}": 81,
+     "{1,2,5,5,5}": 75
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 15.0,
+     "0.9": 46.0,
+     "0.99": 61.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{1,2,4,5}": 3330,
+     "{2,2,3,5}": 916,
+     "{1,1,1,3}": 739,
+     "{1,3,3,5}": 623,
+     "{1,1,2,3,5}": 543,
+     "{1,1,2,2}": 392,
+     "{2,2,2}": 104,
+     "{}": 74,
+     "{1,1,1,4,5}": 28,
+     "{1,2,5,5,5}": 26
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 9.0,
+     "0.5": 31.0,
+     "0.9": 55.0,
+     "0.99": 63.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     74,
+     63,
+     56,
+     70,
+     48,
+     87,
+     79,
+     94,
+     88,
+     91,
+     124,
+     118,
+     114,
+     123,
+     118,
+     109,
+     103,
+     128,
+     120,
+     124,
+     139,
+     146,
+     132,
+     127,
+     141,
+     107,
+     154,
+     139,
+     158,
+     138,
+     133,
+     126,
+     124,
+     125,
+     121,
+     111,
+     113,
+     120,
+     113,
+     133
+    ],
+    "exits_total": 12258,
+    "exited_to": {
+     "{1,1,4}": 4527,
+     "{2,4}": 4282,
+     "{3,3}": 2658,
+     "{1,5}": 214,
+     "{1,2,4,5}": 189,
+     "{1,1,1,3}": 125,
+     "{1,1,2,2}": 122,
+     "{1,1,2,3,5}": 33,
+     "{2,2,2}": 31,
+     "{1,1,5,5}": 20
+    },
+    "entries_after_sweep_15": 9883,
+    "exits_after_sweep_15": 7791,
+    "entries_after_sweep_30": 5121,
+    "exits_after_sweep_30": 4827,
+    "entries_after_sweep_60": 317,
+    "exits_after_sweep_60": 451,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 63,
+    "episodes_complete": 12258,
+    "episodes_censored": 6905,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 4.0,
+     "0.5": 9.0,
+     "0.75": 19.0,
+     "0.9": 32.0,
+     "0.99": 50.43000000000029
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     1414,
+     902,
+     1416,
+     2646,
+     2850,
+     2883,
+     147,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9259065185495703,
+     0.878459201214511,
+     0.7706304627189302,
+     0.6395219820701643,
+     0.4837653114839744,
+     0.2580253619374326,
+     0.2049828397666678,
+     0.2049828397666678,
+     0.2049828397666678
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 6905,
+      "left": 3237,
+      "joined": 1026
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 4694,
+      "left": 2771,
+      "joined": 256
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 2179,
+      "left": 1215,
+      "joined": 39
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 1003,
+      "left": 597,
+      "joined": 6
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 412,
+      "left": 235,
+      "joined": 1
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 178,
+      "left": 101,
+      "joined": 1
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 78,
+      "left": 44,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 11174,
+    "pairwise_distance_multisets": {
+     "2,2,3": 1895,
+     "2,3,5": 1631,
+     "2,3,4": 1611,
+     "2,2,4": 965,
+     "2,3,3": 847,
+     "2,4,4": 791,
+     "1,2,3": 759,
+     "3,3,4": 611,
+     "1,2,2": 447,
+     "3,3,3": 430,
+     "1,3,4": 412,
+     "2,2,2": 288,
+     "1,3,3": 227,
+     "1,4,5": 164,
+     "1,1,2": 96
+    },
+    "distinct_distance_multisets": 15,
+    "rotation_classes": 112,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        8,
+        1
+       ]
+      ],
+      "count": 289,
+      "distances": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        10,
+        1
+       ]
+      ],
+      "count": 281,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        3
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        7,
+        1
+       ]
+      ],
+      "count": 276,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        8,
+        1
+       ]
+      ],
+      "count": 268,
+      "distances": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        3
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        10,
+        1
+       ]
+      ],
+      "count": 254,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        1,
+        2
+       ],
+       [
+        3,
+        3
+       ],
+       [
+        10,
+        1
+       ]
+      ],
+      "count": 254,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        2
+       ],
+       [
+        5,
+        1
+       ],
+       [
+        7,
+        3
+       ]
+      ],
+      "count": 252,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        1
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        2
+       ]
+      ],
+      "count": 251,
+      "distances": [
+       2,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        7,
+        1
+       ]
+      ],
+      "count": 251,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        5,
+        1
+       ],
+       [
+        7,
+        2
+       ]
+      ],
+      "count": 239,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        3,
+        3
+       ],
+       [
+        10,
+        1
+       ]
+      ],
+      "count": 238,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        7,
+        1
+       ]
+      ],
+      "count": 219,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        7,
+        1
+       ]
+      ],
+      "count": 218,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        1
+       ],
+       [
+        5,
+        2
+       ],
+       [
+        6,
+        3
+       ]
+      ],
+      "count": 218,
+      "distances": [
+       2,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        3,
+        1
+       ],
+       [
+        5,
+        2
+       ]
+      ],
+      "count": 217,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        2
+       ],
+       [
+        7,
+        1
+       ]
+      ],
+      "count": 214,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        2
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        7,
+        1
+       ]
+      ],
+      "count": 213,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        5,
+        1
+       ]
+      ],
+      "count": 210,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        4,
+        1
+       ],
+       [
+        5,
+        3
+       ]
+      ],
+      "count": 200,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        2
+       ],
+       [
+        4,
+        3
+       ],
+       [
+        5,
+        1
+       ]
+      ],
+      "count": 196,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{3,4,5}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       289,
+       254,
+       false
+      ],
+      [
+       281,
+       243,
+       false
+      ],
+      [
+       276,
+       261,
+       false
+      ],
+      [
+       268,
+       287,
+       false
+      ],
+      [
+       254,
+       230,
+       false
+      ],
+      [
+       254,
+       248,
+       false
+      ],
+      [
+       252,
+       254,
+       false
+      ],
+      [
+       251,
+       262,
+       false
+      ],
+      [
+       251,
+       231,
+       false
+      ],
+      [
+       239,
+       253,
+       false
+      ],
+      [
+       238,
+       244,
+       false
+      ],
+      [
+       219,
+       204,
+       false
+      ],
+      [
+       218,
+       246,
+       false
+      ],
+      [
+       218,
+       212,
+       false
+      ],
+      [
+       217,
+       164,
+       false
+      ],
+      [
+       214,
+       196,
+       false
+      ],
+      [
+       213,
+       194,
+       false
+      ],
+      [
+       210,
+       182,
+       false
+      ],
+      [
+       200,
+       170,
+       false
+      ],
+      [
+       196,
+       218,
+       false
+      ]
+     ],
+     "chi2_count_vs_mirror": 105.42006397132423,
+     "terms": 112,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": null,
+    "achiral_rotation_classes": null,
+    "chiral_pairs": null,
+    "chi2_chiral_pairs": null
+   },
+   "conjugate_composition": "{3,4,5}",
+   "pair_correlation": {
+    "8": {
+     "{1,2,3}-{3,4,5}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.3680419921875,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 1.0,
+       "expected_pairs": 1.1041259765625,
+       "g": 0.9056937534549475,
+       "err": 0.9056937534549475
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 4.0,
+       "expected_pairs": 3.9232177734375,
+       "g": 1.0195712374373813,
+       "err": 0.5097856187186907
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 2.0,
+       "expected_pairs": 5.6656494140625,
+       "g": 0.3530045461400901,
+       "err": 0.24961190836533723
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 8.0,
+       "expected_pairs": 12.495849609375,
+       "g": 0.6402125705800754,
+       "err": 0.22634932502902128
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 17.0,
+       "expected_pairs": 20.72735595703125,
+       "g": 0.8201721452191862,
+       "err": 0.19892096387812538
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 54.0,
+       "expected_pairs": 46.4403076171875,
+       "g": 1.1627829954342221,
+       "err": 0.15823472335549035
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 100.0,
+       "expected_pairs": 86.66949462890625,
+       "g": 1.1538085046898119,
+       "err": 0.1153808504689812
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 178.0,
+       "expected_pairs": 184.27532958984375,
+       "g": 0.9659459049466294,
+       "err": 0.07240070656132828
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 443.0,
+       "expected_pairs": 449.3353271484375,
+       "g": 0.9859006697990059,
+       "err": 0.046841554420883856
+      }
+     ]
+    },
+    "9": {
+     "{1,2,3}-{3,4,5}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 1.4708633422851562,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 5.0,
+       "expected_pairs": 4.412590026855469,
+       "g": 1.1331213572005319,
+       "err": 0.506747276291442
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 13.0,
+       "expected_pairs": 15.636489868164062,
+       "g": 0.8313886370666883,
+       "err": 0.2305857200601589
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 25.0,
+       "expected_pairs": 22.621245574951175,
+       "g": 1.1051557668284568,
+       "err": 0.22103115336569137
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 44.0,
+       "expected_pairs": 50.00988082885742,
+       "g": 0.8798261317713536,
+       "err": 0.13263877999251672
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 72.0,
+       "expected_pairs": 82.52123260498047,
+       "g": 0.8725027211439705,
+       "err": 0.10282543178743613
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 191.0,
+       "expected_pairs": 185.1263397216797,
+       "g": 1.0317278475183531,
+       "err": 0.07465320700372921
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 365.0,
+       "expected_pairs": 345.2585464477539,
+       "g": 1.0571787541694742,
+       "err": 0.05533526503864214
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 776.0,
+       "expected_pairs": 736.9810859680175,
+       "g": 1.0529442543029874,
+       "err": 0.03779849589732501
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 1791.0,
+       "expected_pairs": 1796.4197006225586,
+       "g": 0.9969830543382038,
+       "err": 0.023558084964405236
+      }
+     ]
+    }
+   }
+  },
+  "{3,4,5}": {
+   "counts_at_end": {
+    "5": 0,
+    "6": 1,
+    "7": 21,
+    "8": 720,
+    "9": 2764,
+    "10": 11177
+   },
+   "carriers_at_end": {
+    "5": 20480,
+    "6": 81920,
+    "7": 327680,
+    "8": 1310720,
+    "9": 5242880,
+    "10": 20971520
+   },
+   "end_sweeps": {
+    "5": 600,
+    "6": 500,
+    "7": 400,
+    "8": 300,
+    "9": 300,
+    "10": 300
+   },
+   "history_L6": {
+    "carriers_at_last_record_sweep": 1458,
+    "entries_total": 5010,
+    "entered_from": {
+     "{1,2,4,5}": 1875,
+     "{}": 617,
+     "{1,3,4,4}": 517,
+     "{1,3,4,5,5}": 470,
+     "{3,5,5,5}": 455,
+     "{1,3,3,5}": 375,
+     "{4,4,5,5}": 229,
+     "{4,4,4}": 185,
+     "{3,3}": 77,
+     "{2,5,5}": 35,
+     "{1,2,5,5,5}": 21,
+     "{1,1,2,4,5,5}": 19
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 16.0,
+     "0.9": 53.0,
+     "0.99": 74.90999999999985,
+     "1.0": 79.0
+    },
+    "final_holders_came_from": {
+     "{1,2,4,5}": 692,
+     "{1,3,4,4}": 215,
+     "{3,5,5,5}": 145,
+     "{1,3,3,5}": 131,
+     "{1,3,4,5,5}": 104,
+     "{4,4,5,5}": 92,
+     "{4,4,4}": 26,
+     "{}": 19,
+     "{1,2,5,5,5}": 7,
+     "{1,1,2,4,5,5}": 5
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 10.700000000000017,
+     "0.5": 36.0,
+     "0.9": 67.0,
+     "0.99": 78.0,
+     "1.0": 79.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     19,
+     11,
+     11,
+     14,
+     9,
+     11,
+     10,
+     14,
+     16,
+     15,
+     16,
+     19,
+     14,
+     27,
+     15,
+     19,
+     15,
+     25,
+     18,
+     19,
+     20,
+     25,
+     36,
+     31,
+     18,
+     26,
+     34,
+     23,
+     22,
+     21,
+     20,
+     25,
+     18,
+     25,
+     30,
+     23,
+     25,
+     28,
+     16,
+     21
+    ],
+    "exits_total": 3552,
+    "exited_to": {
+     "{2,4}": 1353,
+     "{2,5,5}": 1213,
+     "{3,3}": 807,
+     "{1,5}": 49,
+     "{3,5,5,5}": 34,
+     "{1,2,4,5}": 33,
+     "{4,4,5,5}": 26,
+     "{1,3,4,5,5}": 17,
+     "{1,1,5,5}": 4,
+     "{4,4,4}": 4
+    },
+    "entries_after_sweep_15": 2684,
+    "exits_after_sweep_15": 2461,
+    "entries_after_sweep_30": 1528,
+    "exits_after_sweep_30": 1671,
+    "entries_after_sweep_60": 325,
+    "exits_after_sweep_60": 561,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 79,
+    "last_exit_sweep": 79,
+    "episodes_complete": 3552,
+    "episodes_censored": 1458,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 2.0,
+     "0.25": 4.0,
+     "0.5": 11.0,
+     "0.75": 24.0,
+     "0.9": 40.0,
+     "0.99": 67.48999999999978
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     353,
+     209,
+     369,
+     680,
+     800,
+     965,
+     176,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9294282287085166,
+     0.8875187357635156,
+     0.7813960553665219,
+     0.6538694016444383,
+     0.49514411043721984,
+     0.26083607450752294,
+     0.1279662660203022,
+     0.1279662660203022,
+     0.1279662660203022
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 1458,
+      "left": 418,
+      "joined": 132
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 1172,
+      "left": 678,
+      "joined": 60
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 554,
+      "left": 313,
+      "joined": 10
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 251,
+      "left": 135,
+      "joined": 1
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 117,
+      "left": 61,
+      "joined": 0
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 56,
+      "left": 36,
+      "joined": 0
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 20,
+      "left": 9,
+      "joined": 0
+     },
+     {
+      "to_sweep": 450,
+      "holders_before": 11,
+      "left": 7,
+      "joined": 0
+     },
+     {
+      "to_sweep": 500,
+      "holders_before": 4,
+      "left": 3,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 80
+   },
+   "history_L7": {
+    "carriers_at_last_record_sweep": 6840,
+    "entries_total": 19081,
+    "entered_from": {
+     "{1,2,4,5}": 7191,
+     "{}": 2523,
+     "{1,3,4,5,5}": 1904,
+     "{1,3,4,4}": 1887,
+     "{3,5,5,5}": 1682,
+     "{1,3,3,5}": 1350,
+     "{4,4,5,5}": 762,
+     "{4,4,4}": 688,
+     "{3,3}": 297,
+     "{2,5,5}": 163,
+     "{2,2,4,4}": 69,
+     "{1,2,5,5,5}": 67
+    },
+    "entry_sweep_quantiles": {
+     "0.1": 0.0,
+     "0.5": 15.0,
+     "0.9": 46.0,
+     "0.99": 61.0,
+     "1.0": 63.0
+    },
+    "final_holders_came_from": {
+     "{1,2,4,5}": 3276,
+     "{1,3,4,4}": 902,
+     "{3,5,5,5}": 785,
+     "{1,3,3,5}": 639,
+     "{1,3,4,5,5}": 541,
+     "{4,4,5,5}": 326,
+     "{4,4,4}": 117,
+     "{}": 78,
+     "{1,2,5,5,5}": 31,
+     "{1,1,1,4,5}": 30
+    },
+    "final_holders_entry_sweep_quantiles": {
+     "0.1": 9.0,
+     "0.5": 31.0,
+     "0.9": 55.0,
+     "0.99": 63.0,
+     "1.0": 63.0
+    },
+    "final_holders_entry_sweep_hist_first_40": [
+     78,
+     65,
+     65,
+     63,
+     69,
+     80,
+     82,
+     82,
+     88,
+     104,
+     101,
+     120,
+     96,
+     110,
+     118,
+     113,
+     116,
+     136,
+     104,
+     120,
+     110,
+     122,
+     113,
+     134,
+     146,
+     141,
+     131,
+     144,
+     128,
+     123,
+     144,
+     122,
+     146,
+     123,
+     128,
+     134,
+     125,
+     134,
+     127,
+     120
+    ],
+    "exits_total": 12241,
+    "exited_to": {
+     "{2,5,5}": 4515,
+     "{2,4}": 4409,
+     "{3,3}": 2594,
+     "{1,5}": 191,
+     "{1,2,4,5}": 150,
+     "{3,5,5,5}": 131,
+     "{4,4,5,5}": 121,
+     "{1,3,4,5,5}": 36,
+     "{4,4,4}": 29,
+     "{1,1,5,5}": 12
+    },
+    "entries_after_sweep_15": 9790,
+    "exits_after_sweep_15": 7772,
+    "entries_after_sweep_30": 5236,
+    "exits_after_sweep_30": 4841,
+    "entries_after_sweep_60": 319,
+    "exits_after_sweep_60": 472,
+    "entries_after_sweep_100": 0,
+    "exits_after_sweep_100": 0,
+    "last_entry_sweep": 63,
+    "last_exit_sweep": 63,
+    "episodes_complete": 12241,
+    "episodes_censored": 6840,
+    "episode_lifetime_sweeps_quantiles_complete": {
+     "0.1": 1.0,
+     "0.25": 3.0,
+     "0.5": 9.0,
+     "0.75": 19.0,
+     "0.9": 32.0,
+     "0.99": 52.0
+    },
+    "episode_lifetime_hist_1_2_3_5_10_20_50_100_inf": [
+     1429,
+     959,
+     1405,
+     2461,
+     2983,
+     2839,
+     165,
+     0
+    ],
+    "episode_survival_km_grid_sweeps": [
+     1,
+     2,
+     5,
+     10,
+     20,
+     50,
+     100,
+     200,
+     400
+    ],
+    "episode_survival_km": [
+     0.9248132168788803,
+     0.8740957767812737,
+     0.7688652127112638,
+     0.6433874003074586,
+     0.4812116701269286,
+     0.2576069132563593,
+     0.20282593047979922,
+     0.20282593047979922,
+     0.20282593047979922
+    ],
+    "checkpoint_steps": [
+     {
+      "to_sweep": 100,
+      "holders_before": 6840,
+      "left": 3112,
+      "joined": 964
+     },
+     {
+      "to_sweep": 150,
+      "holders_before": 4692,
+      "left": 2687,
+      "joined": 244
+     },
+     {
+      "to_sweep": 200,
+      "holders_before": 2249,
+      "left": 1304,
+      "joined": 37
+     },
+     {
+      "to_sweep": 250,
+      "holders_before": 982,
+      "left": 568,
+      "joined": 8
+     },
+     {
+      "to_sweep": 300,
+      "holders_before": 422,
+      "left": 256,
+      "joined": 1
+     },
+     {
+      "to_sweep": 350,
+      "holders_before": 167,
+      "left": 99,
+      "joined": 1
+     },
+     {
+      "to_sweep": 400,
+      "holders_before": 69,
+      "left": 48,
+      "joined": 0
+     }
+    ],
+    "record_sweeps": 64
+   },
+   "shape_L10": {
+    "count": 11177,
+    "pairwise_distance_multisets": {
+     "2,2,3": 1868,
+     "2,3,4": 1591,
+     "2,3,5": 1550,
+     "2,3,3": 909,
+     "2,2,4": 902,
+     "2,4,4": 798,
+     "1,2,3": 772,
+     "3,3,4": 625,
+     "1,2,2": 472,
+     "3,3,3": 450,
+     "1,3,4": 435,
+     "2,2,2": 309,
+     "1,3,3": 262,
+     "1,4,5": 127,
+     "1,1,2": 107
+    },
+    "distinct_distance_multisets": 15,
+    "rotation_classes": 111,
+    "shapes_up_to_rotation_top20": [
+     {
+      "faces_classes": [
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        4
+       ],
+       [
+        8,
+        3
+       ]
+      ],
+      "count": 287,
+      "distances": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        6,
+        3
+       ]
+      ],
+      "count": 262,
+      "distances": [
+       2,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        3
+       ],
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 261,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        7,
+        5
+       ]
+      ],
+      "count": 254,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        3
+       ],
+       [
+        8,
+        4
+       ]
+      ],
+      "count": 254,
+      "distances": [
+       2,
+       4,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        3
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        7,
+        5
+       ]
+      ],
+      "count": 253,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        10,
+        3
+       ]
+      ],
+      "count": 248,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        6,
+        4
+       ]
+      ],
+      "count": 246,
+      "distances": [
+       2,
+       3,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        5,
+        4
+       ],
+       [
+        10,
+        3
+       ]
+      ],
+      "count": 244,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        5,
+        3
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 243,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        3
+       ]
+      ],
+      "count": 231,
+      "distances": [
+       2,
+       3,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        3,
+        5
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        10,
+        4
+       ]
+      ],
+      "count": 230,
+      "distances": [
+       2,
+       3,
+       5
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        3,
+        3
+       ],
+       [
+        5,
+        5
+       ]
+      ],
+      "count": 218,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        5
+       ],
+       [
+        6,
+        3
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 212,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        5,
+        5
+       ]
+      ],
+      "count": 209,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        4,
+        3
+       ],
+       [
+        5,
+        5
+       ]
+      ],
+      "count": 204,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        3
+       ],
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        4
+       ]
+      ],
+      "count": 204,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        5,
+        5
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        7,
+        3
+       ]
+      ],
+      "count": 196,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        0,
+        4
+       ],
+       [
+        5,
+        5
+       ],
+       [
+        7,
+        3
+       ]
+      ],
+      "count": 194,
+      "distances": [
+       2,
+       2,
+       4
+      ]
+     },
+     {
+      "faces_classes": [
+       [
+        2,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        3
+       ]
+      ],
+      "count": 192,
+      "distances": [
+       2,
+       2,
+       3
+      ]
+     }
+    ],
+    "mirror_comparison": {
+     "with": "{1,2,3}",
+     "rows_count_vs_mirror_count_selfmirror_top20": [
+      [
+       287,
+       268,
+       false
+      ],
+      [
+       262,
+       251,
+       false
+      ],
+      [
+       261,
+       276,
+       false
+      ],
+      [
+       254,
+       252,
+       false
+      ],
+      [
+       254,
+       289,
+       false
+      ],
+      [
+       253,
+       239,
+       false
+      ],
+      [
+       248,
+       254,
+       false
+      ],
+      [
+       246,
+       218,
+       false
+      ],
+      [
+       244,
+       238,
+       false
+      ],
+      [
+       243,
+       281,
+       false
+      ],
+      [
+       231,
+       251,
+       false
+      ],
+      [
+       230,
+       254,
+       false
+      ],
+      [
+       218,
+       196,
+       false
+      ],
+      [
+       212,
+       218,
+       false
+      ],
+      [
+       209,
+       180,
+       false
+      ],
+      [
+       204,
+       190,
+       false
+      ],
+      [
+       204,
+       219,
+       false
+      ],
+      [
+       196,
+       214,
+       false
+      ],
+      [
+       194,
+       213,
+       false
+      ],
+      [
+       192,
+       190,
+       false
+      ]
+     ],
+     "chi2_count_vs_mirror": 101.42006397132424,
+     "terms": 111,
+     "note": "for a self-conjugate composition every pair is counted twice"
+    },
+    "chiral_rotation_classes": null,
+    "achiral_rotation_classes": null,
+    "chiral_pairs": null,
+    "chi2_chiral_pairs": null
+   },
+   "conjugate_composition": "{1,2,3}",
+   "pair_correlation": {
+    "8": {
+     "{1,2,3}-{3,4,5}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 0.3680419921875,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 1.0,
+       "expected_pairs": 1.1041259765625,
+       "g": 0.9056937534549475,
+       "err": 0.9056937534549475
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 4.0,
+       "expected_pairs": 3.9232177734375,
+       "g": 1.0195712374373813,
+       "err": 0.5097856187186907
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 2.0,
+       "expected_pairs": 5.6656494140625,
+       "g": 0.3530045461400901,
+       "err": 0.24961190836533723
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 8.0,
+       "expected_pairs": 12.495849609375,
+       "g": 0.6402125705800754,
+       "err": 0.22634932502902128
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 17.0,
+       "expected_pairs": 20.72735595703125,
+       "g": 0.8201721452191862,
+       "err": 0.19892096387812538
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 54.0,
+       "expected_pairs": 46.4403076171875,
+       "g": 1.1627829954342221,
+       "err": 0.15823472335549035
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 100.0,
+       "expected_pairs": 86.66949462890625,
+       "g": 1.1538085046898119,
+       "err": 0.1153808504689812
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 178.0,
+       "expected_pairs": 184.27532958984375,
+       "g": 0.9659459049466294,
+       "err": 0.07240070656132828
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 443.0,
+       "expected_pairs": 449.3353271484375,
+       "g": 0.9859006697990059,
+       "err": 0.046841554420883856
+      }
+     ]
+    },
+    "9": {
+     "{1,2,3}-{3,4,5}": [
+      {
+       "r_spacings": [
+        0.0,
+        0.5
+       ],
+       "observed_pairs": 0.0,
+       "expected_pairs": 1.4708633422851562,
+       "g": 0.0,
+       "err": null
+      },
+      {
+       "r_spacings": [
+        0.5,
+        1.5
+       ],
+       "observed_pairs": 5.0,
+       "expected_pairs": 4.412590026855469,
+       "g": 1.1331213572005319,
+       "err": 0.506747276291442
+      },
+      {
+       "r_spacings": [
+        1.5,
+        2.5
+       ],
+       "observed_pairs": 13.0,
+       "expected_pairs": 15.636489868164062,
+       "g": 0.8313886370666883,
+       "err": 0.2305857200601589
+      },
+      {
+       "r_spacings": [
+        2.5,
+        3.5
+       ],
+       "observed_pairs": 25.0,
+       "expected_pairs": 22.621245574951175,
+       "g": 1.1051557668284568,
+       "err": 0.22103115336569137
+      },
+      {
+       "r_spacings": [
+        3.5,
+        5.0
+       ],
+       "observed_pairs": 44.0,
+       "expected_pairs": 50.00988082885742,
+       "g": 0.8798261317713536,
+       "err": 0.13263877999251672
+      },
+      {
+       "r_spacings": [
+        5.0,
+        7.0
+       ],
+       "observed_pairs": 72.0,
+       "expected_pairs": 82.52123260498047,
+       "g": 0.8725027211439705,
+       "err": 0.10282543178743613
+      },
+      {
+       "r_spacings": [
+        7.0,
+        10.0
+       ],
+       "observed_pairs": 191.0,
+       "expected_pairs": 185.1263397216797,
+       "g": 1.0317278475183531,
+       "err": 0.07465320700372921
+      },
+      {
+       "r_spacings": [
+        10.0,
+        14.0
+       ],
+       "observed_pairs": 365.0,
+       "expected_pairs": 345.2585464477539,
+       "g": 1.0571787541694742,
+       "err": 0.05533526503864214
+      },
+      {
+       "r_spacings": [
+        14.0,
+        20.0
+       ],
+       "observed_pairs": 776.0,
+       "expected_pairs": 736.9810859680175,
+       "g": 1.0529442543029874,
+       "err": 0.03779849589732501
+      },
+      {
+       "r_spacings": [
+        20.0,
+        30.0
+       ],
+       "observed_pairs": 1791.0,
+       "expected_pairs": 1796.4197006225586,
+       "g": 0.9969830543382038,
+       "err": 0.023558084964405236
+      }
+     ]
+    }
+   }
+  }
+ }
+}

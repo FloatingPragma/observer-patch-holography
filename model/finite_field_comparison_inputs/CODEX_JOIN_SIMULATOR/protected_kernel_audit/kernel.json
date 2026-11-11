@@ -1,0 +1,284 @@
+{
+  "schema": "oph.protected_readout_kernel_audit.v1",
+  "exact_template_bond_pairs": [
+    {
+      "terms": [
+        [
+          0,
+          9,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          1,
+          8,
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          2,
+          11,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          3,
+          10,
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          4,
+          13,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          5,
+          12,
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          6,
+          15,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          7,
+          14,
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          0,
+          5,
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          1,
+          4,
+          [
+            -1,
+            0
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          2,
+          7,
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          3,
+          6,
+          [
+            -1,
+            0
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          8,
+          13,
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          9,
+          12,
+          [
+            -1,
+            0
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          10,
+          15,
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          11,
+          14,
+          [
+            -1,
+            0
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          0,
+          2,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          1,
+          3,
+          [
+            0,
+            -1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          4,
+          6,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          5,
+          7,
+          [
+            0,
+            -1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          8,
+          10,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          9,
+          11,
+          [
+            0,
+            -1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    },
+    {
+      "terms": [
+        [
+          12,
+          14,
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          13,
+          15,
+          [
+            0,
+            -1
+          ]
+        ]
+      ],
+      "exact_commutes_with_eta_plus": true
+    }
+  ],
+  "all_repair_columns_killed_by_eta_minus": true,
+  "all1820_eta_image_columns_annihilated": true,
+  "preparation_integer_identities": [
+    "eta_plus parent_R=6 R_integer",
+    "eta_plus parent_FR=6 FR_integer"
+  ],
+  "contact_identity": "[D,eta_plus]=eta_plus",
+  "exact_target_Strang_template_preserves_protected_eta_image": true,
+  "exact_target_template_all_terminal_native_probabilities": 0,
+  "literal_finite_control_word_terminal_probability_is_forced_zero": false,
+  "literal_complete_source_error_without_Strang_term": "31254619431523520432756722041593587201/365375409332725729550921208179070754913983135744",
+  "literal_all_terminal_native_probability_upper": "976851235809367627541601620877627626999545626990027948381856740247191014401/133499189745056880149688856635597007162669032647290798121690100488888732861290034376435130433536",
+  "literal_all_terminal_native_probability_upper_decimal": 7.31728213238491e-21,
+  "retained_binary64_terminal_probability": 7.001185535238066e-34,
+  "backend_arithmetic_error_included_in_literal_control_certificate": false,
+  "canonical_receipt_or_comparison_modified": false,
+  "sources": {
+    "model/protected_particle_readout/results.json": "56e97b68cd0ef6d04279b271a1c36a1abac38aeeb887b88946f7095f97f1a7b8",
+    "model/protected_particle_readout/packet.py": "326eed48c76648460668fc433da41ef132f549e6199201d5388233f4f7cca71f",
+    "model/protected_particle_readout/execute.py": "e5cb9ccf2ed7f19f01d330656ecd633c9e0958945767d75e08b5eda5539a5fc7",
+    "model/protected_particle_readout/experiment.py": "9597d21f0fbce8275de1a3f38a2e945016e3faecda56ea88d0cbbfb02a2473b2",
+    "model/protected_particle_readout/circuits.py": "b626d0747954483a6648f5246dcf3a097f94b7a4a7d78bc5e3cb2f8d125e570e",
+    "model/protected_particle_readout/bounds.py": "30ddf2214ae80754f88198006bcab5d31038e32697667dd18d32ea1093202515",
+    "model/cube_eta_protection/repair.py": "2339f2d1a2c6e2aeef5a3451705e05812e9d0663c83a42e1afb224f23db501f4",
+    "model/cube_eta_protection/source.py": "28a4ff541d29d25e799d17aafef2bb24f3023ae04d79434918824a6efe504ba4",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
+  }
+}

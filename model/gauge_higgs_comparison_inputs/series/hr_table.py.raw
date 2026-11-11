@@ -1,0 +1,199 @@
+"""Worker HR: tables from the scans. Reads scan_*.json, source_points.json. Writes scan_summary.json and
+SCAN_TABLE.md. Reads no measured value.
+
+Per group (model, beta_G, lambda_L, L):
+  crossing: the kappa_H at which L_alpha passes the level 0.30 on each branch (linear interpolation; the last upward
+  passage in ascending kappa_H). L_alpha is 0.15 to 0.25 on the symmetric side, so the level marks where the doublet
+  link leaves its symmetric-side value. The passage of 0.40 is listed beside it.
+  hysteresis interval: the kappa_H values at which the ascending and the descending branch differ in rho^2 by more
+  than five combined errors and by more than 0.15 in L_alpha;
+  the largest branch difference in rho^2 and in L_alpha.
+Line estimate per (model, beta_G, lambda_L) on the largest lattice with both branches: the mean of the two
+crossings; uncertainty: half their difference, at least half a grid step.
+"""
+import glob
+import json
+import math
+from collections import defaultdict
+
+import numpy as np
+
+groups = defaultdict(lambda: {"up": {}, "down": {}})
+pulls = []
+for f in sorted(glob.glob("scan_*.json")):
+    d = json.load(open(f))
+    if not d.get("points"):
+        continue
+    tag = d["tag"]
+    family = "coarse" if tag.startswith("c4_") else tag.split("_")[0]
+    if family.startswith("T") or family == "test":
+        continue                                   # fixed-kappa series: hr_series.py
+    model = d.get("model", "su2")
+    key = (family, model, round(d["beta_G"], 4), d["lambda_L"], d["L"])
+    if d.get("T", d["L"]) != d["L"]:
+        continue                                   # thermal lattices: hr_thermal.py
+    for p in d["points"]:
+        br = p["branch"]
+        groups[key][br][round(p["kappa_H"], 6)] = p
+        if p["sd_residual_err"] and p["sd_residual_err"] > 0 and abs(p["drift_rho2_second_half_minus_first"]) < 0.5:
+            pulls.append(p["sd_residual"] / p["sd_residual_err"])
+
+
+def crossing(pts, level):
+    ks = sorted(pts)
+    la = [pts[k]["L_alpha"] for k in ks]
+    out = None
+    for i in range(len(ks) - 1):
+        if la[i] < level <= la[i + 1]:
+            out = ks[i] + (level - la[i]) * (ks[i + 1] - ks[i]) / (la[i + 1] - la[i])
+    return out
+
+
+def err2(p):
+    """error of the mean of rho2 from ten blocks; floor from the series' scatter"""
+    e = p.get("rho2_err") or 0.0
+    return max(e, 1e-4)
+
+
+summary = []
+tables = []
+for key in sorted(groups):
+    family, model, beta, lam, L = key
+    g = groups[key]
+    row = {"family": family, "model": model, "beta_G": beta, "lambda_L": lam, "L": L}
+    for br in ("up", "down"):
+        ks = sorted(g[br])
+        if not ks:
+            continue
+        chi = [g[br][k]["chi_L_alpha"] for k in ks]
+        row[f"kappa_peak_{br}"] = ks[int(np.argmax(chi))]
+        row[f"chi_L_alpha_max_{br}"] = float(max(chi))
+        row[f"chi_L_phi_max_{br}"] = float(max(g[br][k]["chi_L_phi"] for k in ks))
+        row[f"chi_rho2_max_{br}"] = float(max(g[br][k]["chi_rho2"] for k in ks))
+        row[f"kappa_range_{br}"] = [ks[0], ks[-1]]
+        row[f"crossing_0.30_{br}"] = crossing(g[br], 0.30)
+        row[f"crossing_0.40_{br}"] = crossing(g[br], 0.40)
+    common = sorted(set(g["up"]) & set(g["down"]))
+    hyst, dmax, dla = [], 0.0, 0.0
+    for k in common:
+        u, dn = g["up"][k], g["down"][k]
+        diff = dn["rho2"] - u["rho2"]
+        sig = math.hypot(err2(u), err2(dn))
+        dl = dn["L_alpha"] - u["L_alpha"]
+        if abs(diff) > 5 * sig and abs(dl) > 0.15:
+            hyst.append(k)
+        if abs(diff) > abs(dmax):
+            dmax, dla = diff, dl
+    row["hysteresis_kappas"] = hyst
+    row["hysteresis_interval"] = [hyst[0], hyst[-1]] if hyst else None
+    row["max_branch_difference_rho2"] = dmax
+    row["L_alpha_difference_there"] = dla
+    step = (common[1] - common[0]) if len(common) > 1 else None
+    row["grid_step"] = step
+    # last symmetric and first Higgs point on the ascending branch (L_alpha threshold 0.5 of the way)
+    ks = sorted(g["up"])
+    if ks:
+        la = np.array([g["up"][k]["L_alpha"] for k in ks])
+        thr = 0.5 * (la.min() + la.max())
+        i = int(np.argmax(la > thr))
+        row["up_branch_crossing"] = {"between": [ks[max(i - 1, 0)], ks[i]],
+                                     "rho2_before_after": [g["up"][ks[max(i - 1, 0)]]["rho2"], g["up"][ks[i]]["rho2"]],
+                                     "L_alpha_before_after": [float(la[max(i - 1, 0)]), float(la[i])]}
+    ks = sorted(g["down"])
+    if ks:
+        la = np.array([g["down"][k]["L_alpha"] for k in ks])
+        thr = 0.5 * (la.min() + la.max())
+        i = int(np.argmax(la > thr))
+        row["down_branch_crossing"] = {"between": [ks[max(i - 1, 0)], ks[i]],
+                                       "rho2_before_after": [g["down"][ks[max(i - 1, 0)]]["rho2"], g["down"][ks[i]]["rho2"]],
+                                       "L_alpha_before_after": [float(la[max(i - 1, 0)]), float(la[i])]}
+    summary.append(row)
+    # per-point table
+    lines = [f"### {family}: model {model}, beta_G = {beta}, lambda_L = {lam}, {L}^4",
+             "", "| kappa_H | branch | plaquette | L_phi | L_alpha | rho^2 | chi(L_phi) | chi(L_alpha) | chi(rho^2) | SD residual |",
+             "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+    for br in ("up", "down"):
+        for k in (sorted(g[br]) if br == "up" else sorted(g[br], reverse=True)):
+            p = g[br][k]
+            lines.append(f"| {k:.4f} | {br} | {p['plaq']:.5f} | {p['L_phi']:.4f} | {p['L_alpha']:.4f} | {p['rho2']:.4f} | "
+                         f"{p['chi_L_phi']:.1f} | {p['chi_L_alpha']:.3f} | {p['chi_rho2']:.1f} | "
+                         f"{p['sd_residual']:+.4f} ({p['sd_residual_err']:.4f}) |")
+    tables.append("\n".join(lines))
+
+# line estimates on the largest lattice of each (family, model, beta, lambda) that has a crossing on both branches
+best = {}
+for row in summary:
+    k = (row["family"], row["model"], row["beta_G"], row["lambda_L"])
+    if row["lambda_L"] == 0 or row.get("crossing_0.30_up") is None or row.get("crossing_0.30_down") is None:
+        continue
+    if k not in best or row["L"] > best[k]["L"]:
+        best[k] = row
+line = []
+for k, row in sorted(best.items()):
+    step = row["grid_step"] or 0.0005
+    cu, cd = row["crossing_0.30_up"], row["crossing_0.30_down"]
+    kc = 0.5 * (cu + cd)
+    hw = max(0.5 * abs(cu - cd), 0.5 * step)
+    line.append({"family": k[0], "model": k[1], "beta_G": k[2], "lambda_L": k[3], "L": row["L"], "kappa_c": kc,
+                 "half_width": hw, "interval": [kc - hw, kc + hw], "crossing_up": cu, "crossing_down": cd,
+                 "two_branches": bool(row["hysteresis_interval"]), "hysteresis_interval": row["hysteresis_interval"],
+                 "crossing_0.40": [row.get("crossing_0.40_up"), row.get("crossing_0.40_down")],
+                 "m0_squared_at_the_line": (1 - 2 * k[3]) / kc - 8})
+
+out = {"groups": summary, "line": line,
+       "schwinger_dyson_pulls": {"n": len(pulls), "mean": float(np.mean(pulls)) if pulls else None,
+                                 "rms": float(np.sqrt(np.mean(np.square(pulls)))) if pulls else None,
+                                 "fraction_above_3": float(np.mean(np.abs(pulls) > 3)) if pulls else None}}
+
+# source verdicts against the line at the source coupling and the smallest stabilizer
+try:
+    sp = json.load(open("source_points.json"))
+    ref = [l for l in line if l["family"] == "A" and l["model"] == "su2" and abs(l["beta_G"] - 5.171) < 1e-3]
+    ref = min(ref, key=lambda l: l["lambda_L"]) if ref else None
+    if ref:
+        lo, hi = ref["interval"]
+        ver = []
+        for p in sp["source_points"]:
+            k = p["kappa_H"]
+            side = "confined side" if k < lo else ("Higgs side" if k > hi else "on the line (inside its measured width)")
+            ver.append({"label": p["label"], "kappa_H": k, "side": side, "kappa_minus_line": k - ref["kappa_c"],
+                        "m0_squared_minus_line": (1 / k - 8) - (1 / ref["kappa_c"] - 8)})
+        out["source_verdicts"] = {"reference_line": ref, "points": ver,
+                                  "mass_squared_of_the_doublet_at_S1_from_the_line": 8 - 1 / ref["kappa_c"] + 0.0}
+except FileNotFoundError:
+    pass
+json.dump(out, open("scan_summary.json", "w"), indent=1)
+
+md = ["# HR scan tables (generated by hr_table.py)", "",
+      "Every row is one run at fixed kappa_H; `up` is the ascending branch from a symmetric start, `down` the descending",
+      "branch from a Higgs start. chi is the volume (or link count) times the variance of the lattice average.",
+      "SD residual: `<rho^2> - 8 kappa_H <L_phi> + 2 lambda_L <rho^4 - rho^2> - 2`, exact value zero.", "",
+      "## Summary per group", "",
+      "| family | model | beta_G | lambda_L | L | L_alpha passes 0.30: up | down | passes 0.40: up | down | hysteresis interval | largest branch difference in rho^2 | in L_alpha | max chi(L_alpha) up / down |",
+      "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+f5 = lambda v: ("%.5f" % v) if v is not None else "none"
+for r in summary:
+    h = r["hysteresis_interval"]
+    md.append(f"| {r['family']} | {r['model']} | {r['beta_G']} | {r['lambda_L']} | {r['L']} | {f5(r.get('crossing_0.30_up'))} | "
+              f"{f5(r.get('crossing_0.30_down'))} | {f5(r.get('crossing_0.40_up'))} | {f5(r.get('crossing_0.40_down'))} | "
+              f"{('%.4f to %.4f' % tuple(h)) if h else 'none'} | "
+              f"{r['max_branch_difference_rho2']:.2f} | {r['L_alpha_difference_there']:.3f} | "
+              f"{r.get('chi_L_alpha_max_up', float('nan')):.2f} / {r.get('chi_L_alpha_max_down', float('nan')):.2f} |")
+md += ["", "## Line estimates (largest lattice with both branches per coupling)", "",
+       "| family | model | beta_G | lambda_L | L | kappa_c | half width | crossing up | crossing down | two branches | m0^2 at the line |",
+       "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+for l in line:
+    md.append(f"| {l['family']} | {l['model']} | {l['beta_G']} | {l['lambda_L']} | {l['L']} | {l['kappa_c']:.5f} | {l['half_width']:.5f} | "
+              f"{l['crossing_up']:.5f} | {l['crossing_down']:.5f} | {'yes' if l['two_branches'] else 'no'} | "
+              f"{l['m0_squared_at_the_line']:+.4f} |")
+if "source_verdicts" in out:
+    md += ["", "## Source points against the line at beta_G = 5.171 and the smallest stabilizer", "",
+           "| point | kappa_H | kappa_H minus line | m0^2 minus line | side |", "| --- | --- | --- | --- | --- |"]
+    for v in out["source_verdicts"]["points"]:
+        md.append(f"| {v['label']} | {v['kappa_H']:.5f} | {v['kappa_minus_line']:+.5f} | {v['m0_squared_minus_line']:+.4f} | {v['side']} |")
+pp = out["schwinger_dyson_pulls"]
+md += ["", f"Schwinger-Dyson pulls over {pp['n']} stationary points: mean {pp['mean']:+.3f}, rms {pp['rms']:.3f}, "
+           f"fraction above three {pp['fraction_above_3']:.3f}.", "", "## Points", ""]
+md += ["\n\n".join(tables)]
+open("SCAN_TABLE.md", "w").write("\n".join(md) + "\n")
+print("\n".join(md[:60 + len(summary) + len(line)]))

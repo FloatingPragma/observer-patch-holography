@@ -1,0 +1,78 @@
+import numpy as np
+import pytest
+
+from controls import centre_controls, source_scalar_control, thermal_response
+
+
+def test_centre_quotient_and_information_loss():
+    r = centre_controls()
+    assert r['centre_contains_element_of_order'] == 14
+    assert len(r['quotient_kernel']) == 6
+    assert r['declared_central_holonomy_order'] == 6
+    rows = r['same_k_inequivalent_representations']
+    assert {x['k'] for x in rows} == {1}
+    assert {(x['SU3_dimension'], x['SU2_dimension']) for x in rows} == {(3, 2), (6, 2), (3, 4)}
+
+
+def test_actual_source_scalar_sector_is_physical_and_responds():
+    r = source_scalar_control()
+    assert r['all_native_current_Ward_checks'] == 12
+    assert r['physical_cyclic_sector_dimension'] == 2
+    assert all(v['susceptibility'] > 0 for v in r['numeric_diagnostics'])
+    assert all(abs(v['probability_sum']-1) < 1e-14 for v in r['numeric_diagnostics'])
+
+
+@pytest.mark.parametrize('beta', [0.1, 1, 3, 20])
+def test_noncommuting_susceptibility_matches_independent_finite_difference(beta):
+    h = np.array([[0, -2], [-2, 1]], float); x = np.diag([0., 1.])
+    step = 1e-5
+    numerical = -(thermal_response(h+step*x, x, beta)['mean']-thermal_response(h-step*x, x, beta)['mean'])/(2*step)
+    r = thermal_response(h, x, beta)
+    assert abs(r['susceptibility']-numerical) < 2e-9
+    assert abs(r['susceptibility']-r['beta_times_variance']) > 1e-4
+
+
+def test_variance_formula_requires_commutation_and_degeneracy_is_continuous():
+    x = np.diag([0., 1.])
+    r = thermal_response(np.diag([0., 1.]), x, 2)
+    assert abs(r['susceptibility']-r['beta_times_variance']) < 1e-14
+    offdiag = np.array([[0., 1.], [1., 0.]])
+    r = thermal_response(np.zeros((2, 2)), offdiag, 2)
+    near = thermal_response(np.diag([0., 1e-12]), offdiag, 2)
+    assert abs(r['susceptibility']-2) < 1e-14
+    assert abs(r['susceptibility']-near['susceptibility']) < 1e-12
+
+
+def test_complete_sector_gibbs_filter_preserves_failure_and_matches_thermal_state():
+    h = np.array([[0., -2.], [-2., 1.]])
+    energy, u = np.linalg.eigh(h)
+    for beta in (0.1, 1., 10.):
+        a = np.exp(-beta*(energy-energy[0])/2)
+        success = (u*a)@u.T
+        failure = (u*np.sqrt(1-a*a))@u.T
+        assert np.allclose(success.T@success+failure.T@failure, np.eye(2), atol=1e-14)
+        state = success@success.T/2
+        probability = np.trace(state)
+        assert abs(probability-(1+np.exp(-beta*np.sqrt(17)))/2) < 1e-14
+        # exp(-10 sqrt(17)) is below a binary64 ulp at 1; the exact
+        # strict inequality is represented by the formula, not this float.
+        assert 0 < 1-probability <= 0.5+1e-14
+        assert abs((state/probability)[1, 1]-thermal_response(h, np.diag([0., 1.]), beta)['mean']) < 1e-14
+
+
+def test_actual_quadratic_probe_response_has_the_correct_factor_and_cutoff_scope():
+    h = np.array([[0., -2.], [-2., 1.]])
+    n = np.diag([0., 1.]); x = 2*(np.eye(2)-n)
+    assert np.array_equal(x@x, 2*x)
+    for beta in (0.1, 1., 10.):
+        a, b = thermal_response(h, n, beta), thermal_response(h, x, beta)
+        assert abs(b['susceptibility']-4*a['susceptibility']) < 1e-13
+
+
+@pytest.mark.parametrize('h,x,beta', [
+    (np.eye(2), np.eye(3), 1), (np.eye(2), np.eye(2), 0),
+    (np.eye(2), np.eye(2), float('nan')), (np.array([[0, 1], [0, 0]]), np.eye(2), 1),
+])
+def test_inadmissible_thermal_inputs_fail(h, x, beta):
+    with pytest.raises(ValueError):
+        thermal_response(h, x, beta)

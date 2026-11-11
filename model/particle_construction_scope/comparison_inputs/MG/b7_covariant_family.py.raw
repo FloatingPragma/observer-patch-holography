@@ -1,0 +1,127 @@
+"""MG block 6a: every chart transport on wiring F that is covariant under the 60 rotations of the mesh, level 0 and 1.
+
+    python b7_covariant_family.py          (box B, about a minute, 8 processes)
+
+A transport is written T(c -> c') = r^k' X(c, k) r^-k. Covariance under the lifted mesh rotations is: X constant on
+the orbits of directed dual edges. Reversibility: X(reverse edge) = X(edge)^-1. Level 0: one orbit, mapped to itself
+by reversal: X = identity or a half turn (the sixteen uniform rules). Level 1: four orbits (corner -> central,
+central -> corner, and two cousin orbits exchanged by reversal): 60 x 60 = 3,600 transports, enumerated here.
+For each: vertex holonomy classes and the group of all closed paths.
+Result file b7_covariant_family.json: the table (flat at the six-valent vertices?) x (group order).
+"""
+import collections
+import json
+import multiprocessing as mp
+import sys
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+
+
+def rotation_action(mesh):
+    """For each of the 60 rotations: image cell and vertex-order shift of every cell."""
+    out = []
+    key = {tuple(sorted(int(v) for v in mesh.tri[c])): c for c in range(mesh.N)}
+    for R in M.ROT_MATS:
+        img = mesh.verts @ R.T
+        vp = np.argmax(mesh.verts @ img.T, axis=0)                 # vp[v] = image vertex of v
+        assert np.allclose(mesh.verts[vp], img, atol=1e-9)
+        cell = np.empty(mesh.N, dtype=np.int64); shift = np.empty(mesh.N, dtype=np.int64)
+        for c in range(mesh.N):
+            t = [int(vp[v]) for v in mesh.tri[c]]
+            d = key[tuple(sorted(t))]
+            s = [int(x) for x in mesh.tri[d]].index(t[0])
+            assert [int(mesh.tri[d][(i + s) % 3]) for i in range(3)] == t
+            cell[c] = d; shift[c] = s
+        out.append((cell, shift))
+    return out
+
+
+def edge_orbits(mesh):
+    act = rotation_action(mesh)
+    n = 3 * mesh.N
+    orb = np.full(n, -1, dtype=np.int64)
+    reps = []
+    for e in range(n):
+        if orb[e] >= 0:
+            continue
+        c, k = divmod(e, 3)
+        for cell, shift in act:
+            orb[3 * int(cell[c]) + (k + int(shift[c])) % 3] = len(reps)
+        reps.append(e)
+    rev = np.array([3 * int(mesh.nbr[c, k]) + int(mesh.nbk[c, k]) for c in range(mesh.N) for k in range(3)])
+    rev_orb = [int(orb[rev[e]]) for e in reps]
+    assert all(len(set(orb[rev[np.flatnonzero(orb == o)]])) == 1 for o in range(len(reps)))
+    return orb.reshape(mesh.N, 3), reps, rev_orb
+
+
+def build(mesh, orb, X):
+    rp = np.array(M.RPOW); rinv = M.INV[rp]
+    T = np.empty((mesh.N, 3), dtype=np.int64)
+    for k in range(3):
+        T[:, k] = M.MUL[rp[mesh.nbk[:, k]], M.MUL[np.asarray(X)[orb[:, k]], rinv[k]]]
+    for k in range(3):
+        assert (T[mesh.nbr[:, k], mesh.nbk[:, k]] == M.INV[T[:, k]]).all()
+    return T
+
+
+def classify(args):
+    level, Xs = args
+    mesh = S.build_mesh(level)
+    orb, reps, rev_orb = ORB[level]
+    res = []
+    for X in Xs:
+        T = build(mesh, orb, X)
+        hol = M.vertex_holonomies(mesh, T)
+        c5 = collections.Counter(int(M.ANGLE[H]) for v, (n, c0, H) in hol.items() if n == 5)
+        c6 = collections.Counter(int(M.ANGLE[H]) for v, (n, c0, H) in hol.items() if n == 6)
+        res.append((tuple(int(x) for x in X), len(M.holonomy_group(mesh, T)), tuple(sorted(c5.items())), tuple(sorted(c6.items()))))
+    return res
+
+
+ORB = {}
+if __name__ == '__main__':
+    out = {}
+    for level in (0, 1):
+        mesh = S.build_mesh(level)
+        ORB[level] = edge_orbits(mesh)
+        orb, reps, rev_orb = ORB[level]
+        m = len(reps)
+        free = [o for o in range(m) if rev_orb[o] > o]; selfrev = [o for o in range(m) if rev_orb[o] == o]
+        print('level', level, 'orbits of directed dual edges', m, 'reversal', rev_orb, flush=True)
+        choices = []
+        import itertools
+        opts = [range(60) for _ in free] + [M.RULES16 for _ in selfrev]
+        for combo in itertools.product(*opts):
+            X = [None] * m
+            for o, x in zip(free, combo[:len(free)]):
+                X[o] = int(x); X[rev_orb[o]] = int(M.INV[x])
+            for o, x in zip(selfrev, combo[len(free):]):
+                X[o] = int(x)
+            choices.append(X)
+        chunks = [(level, choices[i::8]) for i in range(8)]
+        with mp.Pool(8) as pool:
+            rows = [r for part in pool.map(classify, chunks) for r in part]
+        table = collections.Counter()
+        full = collections.Counter()
+        flat_groups = collections.Counter()
+        for X, order, c5, c6 in rows:
+            flat6 = all(a == 0 for a, _ in c6)
+            table[(flat6, order)] += 1
+            if order == 60:
+                full[(c5, c6)] += 1
+            if flat6:
+                flat_groups[order] += 1
+        out[str(level)] = {
+            'orbits_of_directed_dual_edges': m, 'members': len(rows),
+            'count_by_flat_at_six_valent_and_group_order': [{'flat_at_every_six_valent_vertex': bool(f), 'group_order': int(o), 'count': int(n)} for (f, o), n in sorted(table.items())],
+            'group_orders_of_members_flat_at_six_valent': {str(k): int(v) for k, v in sorted(flat_groups.items())},
+            'largest_group_order_among_flat_members': int(max(flat_groups) if flat_groups else 0),
+            'members_with_all_60_rotations': int(sum(full.values())),
+            'their_vertex_holonomy_angles_deg (five-valent, six-valent)': [{'five_valent': [list(x) for x in c5], 'six_valent': [list(x) for x in c6], 'count': int(n)} for (c5, c6), n in sorted(full.items(), key=lambda t: -t[1])]}
+        print(json.dumps(out[str(level)])[:3000], flush=True)
+    json.dump(out, open('b7_covariant_family.json', 'w'), indent=1)
+    print('written b7_covariant_family.json')

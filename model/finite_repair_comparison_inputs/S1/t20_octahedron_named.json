@@ -1,0 +1,1455 @@
+{
+ "S_static|dcap12|reflect0|qcap2": {
+  "law": "S_static",
+  "order": "TC_excl",
+  "carrier": "octahedron",
+  "contrast_cap": 12,
+  "reflecting_cap": false,
+  "lumped_states": 3864,
+  "max_abs_contrast": 5,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 4,
+  "contrasts_at_hop_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "contrasts_at_pair_seam": [
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "event_types": [],
+  "states_with_reflected_outcome": 0,
+  "closed_classes": {
+   "vacuum": 0,
+   "charged": 9,
+   "frozen": 0,
+   "charged_sizes": [
+    85,
+    162,
+    367,
+    367,
+    384,
+    455,
+    488,
+    545,
+    1011
+   ]
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   }
+  },
+  "closed_charged_classes": [
+   {
+    "size": 85,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.2518617455546317,
+    "prob_max_contrast_ge_3": 0.0019174903591940486,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "1": 1.0000000000000002
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 455,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.2168205368218077,
+    "prob_max_contrast_ge_3": 0.00024869911331960534,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "1": 1.0
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 384,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.2351597877160307,
+    "prob_max_contrast_ge_3": 0.0008119459134559025,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "1": 0.9999999999999984
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 162,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.2092518961076144,
+    "prob_max_contrast_ge_3": 9.889383430510276e-05,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "1": 1.000000000000001
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 1011,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.300840261437199,
+    "prob_max_contrast_ge_3": 0.0018787801625162186,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "2": 1.0
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 545,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.2698577893857683,
+    "prob_max_contrast_ge_3": 0.0009723858482944887,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "2": 1.000000000000001
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 488,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.2545926591305172,
+    "prob_max_contrast_ge_3": 0.0005133958784865199,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "2": 1.0000000000000004
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 367,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.3015383793076987,
+    "prob_max_contrast_ge_3": 0.0011543723622205254,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "3": 1.0000000000000004
+    },
+    "prob_double_face": 0.0
+   },
+   {
+    "size": 367,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.0,
+    "reflected_outcomes_per_sweep": 0.0,
+    "mean_max_contrast": 1.301538379307698,
+    "prob_max_contrast_ge_3": 0.0011543723622203998,
+    "twist_events_per_sweep": {},
+    "dual_distance_distribution": {
+     "3": 1.0000000000000004
+    },
+    "prob_double_face": 0.0
+   }
+  ],
+  "seconds": 0.14,
+  "note": "offsets never change (transported-contrast law)",
+  "charge_cap": 2
+ },
+ "D_excl|dcap12|reflect0|qcap2": {
+  "law": "D_excl",
+  "order": "TC_excl",
+  "carrier": "octahedron",
+  "contrast_cap": 12,
+  "reflecting_cap": false,
+  "lumped_states": 1335,
+  "max_abs_contrast": 4,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "contrasts_at_pair_seam": [
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "hop",
+   "annihilate"
+  ],
+  "states_with_reflected_outcome": 0,
+  "closed_classes": {
+   "vacuum": 4,
+   "charged": 0,
+   "frozen": 0,
+   "charged_sizes": []
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "survival_decay_per_attempt": 0.924138173202299,
+  "lifetime_sweeps_tail": 1.0562738724715057,
+  "hop_rate_per_charge_per_sweep_qsd": 0.09441430410082938,
+  "reflected_outcomes_per_sweep_qsd": 0.0,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": 0.9999999999999981,
+    "mean_hops": 5.551115123125775e-17,
+    "absorbed": {
+     "vacuum_label_0": 0.9999999999999976,
+     "vacuum_label_3": 1.2413874518730334e-17,
+     "vacuum_label_2": -3.462117167072149e-16,
+     "vacuum_label_1": -6.814092748765545e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.35199562801413675,
+     "2": 0.1239009221410666,
+     "5": 0.0054036392383350115,
+     "10": 2.9199317018073786e-05,
+     "20": 8.526001143219736e-10,
+     "50": 2.12257706063299e-23,
+     "100": 4.50533337832538e-46
+    }
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": 2.2362953787027604,
+    "mean_hops": 2.8444370738701914,
+    "absorbed": {
+     "vacuum_label_0": 0.4809986711068991,
+     "vacuum_label_3": 0.10938967882583189,
+     "vacuum_label_2": 0.20075206255177352,
+     "vacuum_label_1": 0.2088595875154935
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.6284422678427465,
+     "2": 0.4653014360991925,
+     "5": 0.09349830059734086,
+     "10": 0.0018298271181108182,
+     "20": 2.2992909576696395e-07,
+     "50": 1.3040389372525937e-19,
+     "100": 3.6469582993975443e-40
+    }
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": 1.4999999999999982,
+    "mean_hops": 0.9999999999999998,
+    "absorbed": {
+     "vacuum_label_0": 0.9999999999999977,
+     "vacuum_label_3": 1.2413874518730337e-17,
+     "vacuum_label_2": -3.46211716707215e-16,
+     "vacuum_label_1": -6.814092748765547e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.5918346012436589,
+     "2": 0.23522272906965822,
+     "5": 0.010789531464907775,
+     "10": 5.839831907972118e-05,
+     "20": 1.705200228544754e-09,
+     "50": 4.245154121265991e-23,
+     "100": 9.010666756650801e-46
+    }
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": 2.6925895784692973,
+    "mean_hops": 3.852992020876356,
+    "absorbed": {
+     "vacuum_label_0": 0.5746243550683172,
+     "vacuum_label_3": 0.06589073069803586,
+     "vacuum_label_2": 0.14155739362064587,
+     "vacuum_label_1": 0.21792752061299847
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7778978579312532,
+     "2": 0.56560835151371,
+     "5": 0.11565593769347579,
+     "10": 0.0023175693211860628,
+     "20": 2.941267648806334e-07,
+     "50": 1.673274998845805e-19,
+     "100": 4.680244391119077e-40
+    }
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": 2.1613518737633686,
+    "mean_hops": 2.3607618008965927,
+    "absorbed": {
+     "vacuum_label_0": 0.9612323121065165,
+     "vacuum_label_3": 0.0002529137063375908,
+     "vacuum_label_2": 0.0014948393654134581,
+     "vacuum_label_1": 0.03701993482172927
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8147683202647894,
+     "2": 0.44053179679680915,
+     "5": 0.03802581716749635,
+     "10": 0.00044447715582441905,
+     "20": 4.2937734952359726e-08,
+     "50": 2.2146391584632927e-20,
+     "100": 6.165446813098596e-41
+    }
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": 2.8980366964948487,
+    "mean_hops": 4.321880321761073,
+    "absorbed": {
+     "vacuum_label_0": 0.6359247785494451,
+     "vacuum_label_3": 0.035528709782453836,
+     "vacuum_label_2": 0.09510363110769532,
+     "vacuum_label_1": 0.23344288056040302
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8662114527175541,
+     "2": 0.6175162716105823,
+     "5": 0.1234057691824477,
+     "10": 0.002479747246288685,
+     "20": 3.1462476434761366e-07,
+     "50": 1.7894609421036353e-19,
+     "100": 5.005167203679885e-40
+    }
+   }
+  },
+  "closed_charged_classes": [],
+  "seconds": 2.84,
+  "note": "k = sign(d) whenever sum|q| does not increase; no current in a twisting attempt",
+  "charge_cap": 2
+ },
+ "D_then|dcap12|reflect0|qcap2": {
+  "law": "D_then",
+  "order": "TC_then",
+  "carrier": "octahedron",
+  "contrast_cap": 12,
+  "reflecting_cap": false,
+  "lumped_states": 1335,
+  "max_abs_contrast": 4,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "contrasts_at_pair_seam": [
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "hop",
+   "annihilate"
+  ],
+  "states_with_reflected_outcome": 0,
+  "closed_classes": {
+   "vacuum": 4,
+   "charged": 0,
+   "frozen": 0,
+   "charged_sizes": []
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "survival_decay_per_attempt": 0.9239691853344895,
+  "lifetime_sweeps_tail": 1.0538310769677735,
+  "hop_rate_per_charge_per_sweep_qsd": 0.09224410517647708,
+  "reflected_outcomes_per_sweep_qsd": 0.0,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": 1.0000000000000027,
+    "mean_hops": -9.381384558082566e-15,
+    "absorbed": {
+     "vacuum_label_0": 0.9999999999999976,
+     "vacuum_label_3": -7.797566992281741e-17,
+     "vacuum_label_2": -8.458487351563021e-17,
+     "vacuum_label_1": 9.316918291322394e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.35199562801413675,
+     "2": 0.1239009221410666,
+     "5": 0.0054036392383350115,
+     "10": 2.9199317018073786e-05,
+     "20": 8.526001143219736e-10,
+     "50": 2.12257706063299e-23,
+     "100": 4.50533337832538e-46
+    }
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": 2.2362507518413843,
+    "mean_hops": 2.8440427176294976,
+    "absorbed": {
+     "vacuum_label_0": 0.4812398689810142,
+     "vacuum_label_3": 0.10937751742021415,
+     "vacuum_label_2": 0.2007050799282541,
+     "vacuum_label_1": 0.2086775336705164
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.6284429825829309,
+     "2": 0.46532107681313767,
+     "5": 0.09348424826275728,
+     "10": 0.0018228528866639337,
+     "20": 2.2597145003481562e-07,
+     "50": 1.2101061594344965e-19,
+     "100": 3.0360353854806937e-40
+    }
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": 1.5000000000000029,
+    "mean_hops": 0.9999999999999903,
+    "absorbed": {
+     "vacuum_label_0": 0.9999999999999977,
+     "vacuum_label_3": -7.797566992281742e-17,
+     "vacuum_label_2": -8.458487351563022e-17,
+     "vacuum_label_1": 9.316918291322396e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.5918346012436589,
+     "2": 0.23522272906965822,
+     "5": 0.010789531464907775,
+     "10": 5.839831907972118e-05,
+     "20": 1.705200228544754e-09,
+     "50": 4.245154121265991e-23,
+     "100": 9.010666756650801e-46
+    }
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": 2.7420568317157596,
+    "mean_hops": 3.941732305305179,
+    "absorbed": {
+     "vacuum_label_0": 0.5983731459031485,
+     "vacuum_label_3": 0.05714193227637988,
+     "vacuum_label_2": 0.12839120937336462,
+     "vacuum_label_1": 0.2160937124471054
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7942846837401372,
+     "2": 0.5825712381356772,
+     "5": 0.11712320891752472,
+     "10": 0.0023040706223965194,
+     "20": 2.866319646596773e-07,
+     "50": 1.5366082868537845e-19,
+     "100": 3.855397989247429e-40
+    }
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": 2.1613075536261364,
+    "mean_hops": 2.3603701550992415,
+    "absorbed": {
+     "vacuum_label_0": 0.9614718522075154,
+     "vacuum_label_3": 0.0002408358870754043,
+     "vacuum_label_2": 0.001448179657386125,
+     "vacuum_label_1": 0.036839132248021655
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8147708569330125,
+     "2": 0.4405745968597564,
+     "5": 0.03799241185168922,
+     "10": 0.0004411102633384875,
+     "20": 4.190058593723022e-08,
+     "50": 2.03444830036996e-20,
+     "100": 5.078787153112784e-41
+    }
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": 2.9310727071874747,
+    "mean_hops": 4.363873907199045,
+    "absorbed": {
+     "vacuum_label_0": 0.668192739438134,
+     "vacuum_label_3": 0.02754104348385318,
+     "vacuum_label_2": 0.07914865378678851,
+     "vacuum_label_1": 0.22511756329122246
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8795822535647896,
+     "2": 0.6338027622214631,
+     "5": 0.12232697121358183,
+     "10": 0.0023792275203549876,
+     "20": 2.9416153993264956e-07,
+     "50": 1.5736417608144046e-19,
+     "100": 3.947909841989968e-40
+    }
+   }
+  },
+  "closed_charged_classes": [],
+  "seconds": 2.89,
+  "note": "as D_excl, then the reference current on the new contrast",
+  "charge_cap": 2
+ },
+ "M1|dcap12|reflect0|qcap2": {
+  "law": "M1",
+  "order": "TC_excl",
+  "carrier": "octahedron",
+  "contrast_cap": 12,
+  "reflecting_cap": false,
+  "lumped_states": 1326,
+  "max_abs_contrast": 4,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "contrasts_at_pair_seam": [
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "hop",
+   "annihilate"
+  ],
+  "states_with_reflected_outcome": 0,
+  "closed_classes": {
+   "vacuum": 4,
+   "charged": 0,
+   "frozen": 0,
+   "charged_sizes": []
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "survival_decay_per_attempt": 0.9243603538290882,
+  "lifetime_sweeps_tail": 1.0595021935383118,
+  "hop_rate_per_charge_per_sweep_qsd": 0.09539957045936442,
+  "reflected_outcomes_per_sweep_qsd": 0.0,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": 0.9999999999999942,
+    "mean_hops": -2.0539125955565384e-15,
+    "absorbed": {
+     "vacuum_label_0": 1.0000000000000007,
+     "vacuum_label_3": 4.03836176926557e-18,
+     "vacuum_label_2": -3.3741081950039935e-17,
+     "vacuum_label_1": 3.2683849031917083e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.35199562801413675,
+     "2": 0.1239009221410666,
+     "5": 0.0054036392383350115,
+     "10": 2.9199317018073786e-05,
+     "20": 8.526001143219736e-10,
+     "50": 2.12257706063299e-23,
+     "100": 4.50533337832538e-46
+    }
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": 2.6323998952831187,
+    "mean_hops": 3.384389449705254,
+    "absorbed": {
+     "vacuum_label_0": 0.5859149175092163,
+     "vacuum_label_3": 0.064797367326853,
+     "vacuum_label_2": 0.1408753738657732,
+     "vacuum_label_1": 0.2084123412981576
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7358198523900634,
+     "2": 0.5660238481707778,
+     "5": 0.11834692641832288,
+     "10": 0.0024044817258416255,
+     "20": 3.1433783703648333e-07,
+     "50": 1.9387229288182313e-19,
+     "100": 6.256979445633086e-40
+    }
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": 1.4999999999999944,
+    "mean_hops": 0.9999999999999977,
+    "absorbed": {
+     "vacuum_label_0": 1.0000000000000007,
+     "vacuum_label_3": 4.038361769265571e-18,
+     "vacuum_label_2": -3.374108195003994e-17,
+     "vacuum_label_1": 3.268384903191709e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.5918346012436589,
+     "2": 0.23522272906965822,
+     "5": 0.010789531464907775,
+     "10": 5.839831907972118e-05,
+     "20": 1.705200228544754e-09,
+     "50": 4.245154121265991e-23,
+     "100": 9.010666756650801e-46
+    }
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": 2.973822431185765,
+    "mean_hops": 4.0674963327589895,
+    "absorbed": {
+     "vacuum_label_0": 0.6943568869508218,
+     "vacuum_label_3": 0.022180498903287334,
+     "vacuum_label_2": 0.0756733012691383,
+     "vacuum_label_1": 0.2077893128767527
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8611538365824577,
+     "2": 0.6507925904955986,
+     "5": 0.12994941930153628,
+     "10": 0.0025824790369176846,
+     "20": 3.3418826315391124e-07,
+     "50": 2.0545500480721228e-19,
+     "100": 6.629899873072242e-40
+    }
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": 2.163964587260061,
+    "mean_hops": 2.3602570132319673,
+    "absorbed": {
+     "vacuum_label_0": 0.9633300727440698,
+     "vacuum_label_3": 0.00019111408960540089,
+     "vacuum_label_2": 0.0012397628887126008,
+     "vacuum_label_1": 0.03523905027761315
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8147879081224128,
+     "2": 0.4409573219925222,
+     "5": 0.03841730472428322,
+     "10": 0.0004549514350323978,
+     "20": 4.501482834083739e-08,
+     "50": 2.516336438208468e-20,
+     "100": 8.085977244106779e-41
+    }
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": 3.0059164797691715,
+    "mean_hops": 4.1010588234688825,
+    "absorbed": {
+     "vacuum_label_0": 0.754404895583586,
+     "vacuum_label_3": 0.007526325110497624,
+     "vacuum_label_2": 0.03742719659102453,
+     "vacuum_label_1": 0.20064158271489216
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.9103201580550422,
+     "2": 0.6653610315161991,
+     "5": 0.12201058972191715,
+     "10": 0.0023274808508798664,
+     "20": 2.953180120099223e-07,
+     "50": 1.804104193128719e-19,
+     "100": 5.820163676518007e-40
+    }
+   }
+  },
+  "closed_charged_classes": [],
+  "seconds": 3.46,
+  "note": "twist only at d = -1 (seam reaches exact agreement)",
+  "charge_cap": 2
+ },
+ "J_parity|dcap12|reflect0|qcap2": {
+  "law": "J_parity",
+  "order": "TC_then",
+  "carrier": "octahedron",
+  "contrast_cap": 12,
+  "reflecting_cap": false,
+  "lumped_states": 1321,
+  "max_abs_contrast": 4,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "contrasts_at_pair_seam": [
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "hop",
+   "annihilate"
+  ],
+  "states_with_reflected_outcome": 0,
+  "closed_classes": {
+   "vacuum": 4,
+   "charged": 0,
+   "frozen": 0,
+   "charged_sizes": []
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "survival_decay_per_attempt": 0.9169768493647628,
+  "lifetime_sweeps_tail": 0.9614676113331841,
+  "hop_rate_per_charge_per_sweep_qsd": 0.0039853520023832145,
+  "reflected_outcomes_per_sweep_qsd": 0.0,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": 1.0000000000000009,
+    "mean_hops": 1.204591981718294e-14,
+    "absorbed": {
+     "vacuum_label_0": 1.0000000000000007,
+     "vacuum_label_3": 1.060066235565521e-17,
+     "vacuum_label_2": 5.153627174194374e-17,
+     "vacuum_label_1": 4.34228638780076e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.35199562801413675,
+     "2": 0.1239009221410666,
+     "5": 0.0054036392383350115,
+     "10": 2.9199317018073786e-05,
+     "20": 8.526001143219736e-10,
+     "50": 2.12257706063299e-23,
+     "100": 4.50533337832538e-46
+    }
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": 2.605331440114068,
+    "mean_hops": 3.8017551554500906,
+    "absorbed": {
+     "vacuum_label_0": 0.6765728758258761,
+     "vacuum_label_3": 0.04046749561968388,
+     "vacuum_label_2": 0.09900575711556663,
+     "vacuum_label_1": 0.18395387143887404
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7726524540697399,
+     "2": 0.5818694080606568,
+     "5": 0.09910882837782786,
+     "10": 0.0014357663047691322,
+     "20": 9.934199335122599e-08,
+     "50": 7.143951590416677e-21,
+     "100": 3.4622310153863257e-43
+    }
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": 1.5000000000000002,
+    "mean_hops": 1.0000000000000118,
+    "absorbed": {
+     "vacuum_label_0": 1.0000000000000007,
+     "vacuum_label_3": 1.0600662355655211e-17,
+     "vacuum_label_2": 5.153627174194375e-17,
+     "vacuum_label_1": 4.342286387800761e-16
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.5918346012436589,
+     "2": 0.23522272906965822,
+     "5": 0.010789531464907775,
+     "10": 5.839831907972118e-05,
+     "20": 1.705200228544754e-09,
+     "50": 4.245154121265991e-23,
+     "100": 9.010666756650801e-46
+    }
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": 2.7978280897350416,
+    "mean_hops": 4.224922321418789,
+    "absorbed": {
+     "vacuum_label_0": 0.7530915290451333,
+     "vacuum_label_3": 0.012977648703996562,
+     "vacuum_label_2": 0.052784560540363484,
+     "vacuum_label_1": 0.1811462617105075
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8532697414260473,
+     "2": 0.6254037808513032,
+     "5": 0.10251245476085652,
+     "10": 0.0014593025526073488,
+     "20": 1.0015071016892988e-07,
+     "50": 7.172876588247581e-21,
+     "100": 3.47203138644399e-43
+    }
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": 2.144501849526272,
+    "mean_hops": 2.3483397794808285,
+    "absorbed": {
+     "vacuum_label_0": 0.9701508332722786,
+     "vacuum_label_3": 0.00011220656492797756,
+     "vacuum_label_2": 0.0007952097353453083,
+     "vacuum_label_1": 0.028941750427449724
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8140039061848157,
+     "2": 0.43736908381266626,
+     "5": 0.03560054706922915,
+     "10": 0.00033767105699752546,
+     "20": 1.862114024498271e-08,
+     "50": 1.1737943565963042e-21,
+     "100": 5.450207939721397e-44
+    }
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": 2.7663426386831507,
+    "mean_hops": 4.17675866438306,
+    "absorbed": {
+     "vacuum_label_0": 0.7897231104035284,
+     "vacuum_label_3": 0.0040143522322708585,
+     "vacuum_label_2": 0.0273677508815642,
+     "vacuum_label_1": 0.17889478648263732
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.8767598269210463,
+     "2": 0.6138109738844577,
+     "5": 0.09407752171093403,
+     "10": 0.0012975554974502452,
+     "20": 8.770034857106006e-08,
+     "50": 6.232629910162889e-21,
+     "100": 3.009872469118958e-43
+    }
+   }
+  },
+  "closed_charged_classes": [],
+  "seconds": 3.24,
+  "note": "twist at every odd contrast, then reference current: seam ends at exact agreement",
+  "charge_cap": 2
+ },
+ "M1_hard|dcap5|reflect1|qcap2": {
+  "law": "M1_hard",
+  "order": "TC_excl",
+  "carrier": "octahedron",
+  "contrast_cap": 5,
+  "reflecting_cap": true,
+  "lumped_states": 11811,
+  "max_abs_contrast": 5,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 5,
+  "contrasts_at_hop_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "contrasts_at_pair_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "event_types": [
+   "hop"
+  ],
+  "states_with_reflected_outcome": 66,
+  "closed_classes": {
+   "vacuum": 0,
+   "charged": 1,
+   "frozen": 0,
+   "charged_sizes": [
+    11811
+   ]
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   }
+  },
+  "closed_charged_classes": [
+   {
+    "size": 11811,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.5218512479253745,
+    "reflected_outcomes_per_sweep": 2.04410537332388e-62,
+    "mean_max_contrast": 1.0571111899498071,
+    "prob_max_contrast_ge_3": 2.000004584880783e-06,
+    "twist_events_per_sweep": {
+     "hop": 1.043702495850749
+    },
+    "dual_distance_distribution": {
+     "1": 0.7058304539815489,
+     "2": 0.23910527491811348,
+     "3": 0.05506427110033767
+    },
+    "prob_double_face": 0.0
+   }
+  ],
+  "seconds": 0.49,
+  "note": "M1 without the annihilation entry",
+  "charge_cap": 2
+ },
+ "U_free|dcap5|reflect1|qcap2": {
+  "law": "U_free",
+  "order": "TC_then",
+  "carrier": "octahedron",
+  "contrast_cap": 5,
+  "reflecting_cap": true,
+  "lumped_states": 25564,
+  "max_abs_contrast": 5,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 5,
+  "contrasts_at_hop_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "contrasts_at_pair_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "event_types": [
+   "hop",
+   "annihilate"
+  ],
+  "states_with_reflected_outcome": 1293,
+  "closed_classes": {
+   "vacuum": 4,
+   "charged": 0,
+   "frozen": 0,
+   "charged_sizes": []
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "survival_decay_per_attempt": 0.9674903658826544,
+  "lifetime_sweeps_tail": 2.5214465261275705,
+  "hop_rate_per_charge_per_sweep_qsd": 2.609884390591853,
+  "reflected_outcomes_per_sweep_qsd": 2.724575531030682e-29,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": 2.3333333333296435,
+    "mean_hops": 11.999999999980739,
+    "absorbed": {
+     "vacuum_label_3": 0.0991452991435545,
+     "vacuum_label_2": 0.21196581196399975,
+     "vacuum_label_0": 0.38803418803285483,
+     "vacuum_label_1": 0.30085470085281174
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.6082733996458985,
+     "2": 0.4090995179622395,
+     "5": 0.12448250238052737,
+     "10": 0.01713591323869207,
+     "20": 0.00032471708806239383,
+     "50": 2.2095244471482334e-09,
+     "100": 5.398688339388565e-18
+    }
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": 2.333333333329643,
+    "mean_hops": 11.99999999998074,
+    "absorbed": {
+     "vacuum_label_3": 0.21657848324340523,
+     "vacuum_label_2": 0.381657848322703,
+     "vacuum_label_0": 0.11675485008685016,
+     "vacuum_label_1": 0.2850088183402624
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.6082733996458985,
+     "2": 0.40909951796223926,
+     "5": 0.12448250238052727,
+     "10": 0.017135913238692038,
+     "20": 0.00032471708806239296,
+     "50": 2.209524447148227e-09,
+     "100": 5.398688339388542e-18
+    }
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": 2.6666666666624095,
+    "mean_hops": 13.99999999997782,
+    "absorbed": {
+     "vacuum_label_3": 0.12393162392961325,
+     "vacuum_label_2": 0.26495726495517635,
+     "vacuum_label_0": 0.23504273504119846,
+     "vacuum_label_1": 0.37606837606619953
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7009636467030244,
+     "2": 0.47147534062459145,
+     "5": 0.14346248615645146,
+     "10": 0.019748644739395714,
+     "20": 0.00037422705890431717,
+     "50": 2.5464130648849342e-09,
+     "100": 6.221832276354404e-18
+    }
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": 2.6666666666624104,
+    "mean_hops": 13.999999999977824,
+    "absorbed": {
+     "vacuum_label_3": 0.19135802468934718,
+     "vacuum_label_2": 0.35802469135593606,
+     "vacuum_label_0": 0.14197530864043886,
+     "vacuum_label_1": 0.30864197530646553
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7009636467030245,
+     "2": 0.4714753406245917,
+     "5": 0.1434624861564514,
+     "10": 0.0197486447393957,
+     "20": 0.0003742270589043168,
+     "50": 2.5464130648849284e-09,
+     "100": 6.221832276354392e-18
+    }
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": 2.8333333333287722,
+    "mean_hops": 14.99999999997625,
+    "absorbed": {
+     "vacuum_label_3": 0.1666666666645157,
+     "vacuum_label_2": 0.33333333333109944,
+     "vacuum_label_0": 0.1666666666650235,
+     "vacuum_label_1": 0.33333333333100545
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7496312008197882,
+     "2": 0.5042620496299688,
+     "5": 0.15343897610123403,
+     "10": 0.021121980452055825,
+     "20": 0.0004002510920174261,
+     "50": 2.7234925580521107e-09,
+     "100": 6.654503205223438e-18
+    }
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": 2.8333333333287722,
+    "mean_hops": 14.99999999997625,
+    "absorbed": {
+     "vacuum_label_3": 0.16666666666451582,
+     "vacuum_label_2": 0.3333333333310997,
+     "vacuum_label_0": 0.16666666666502344,
+     "vacuum_label_1": 0.33333333333100523
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.7496312008197882,
+     "2": 0.5042620496299688,
+     "5": 0.15343897610123394,
+     "10": 0.02112198045205581,
+     "20": 0.0004002510920174261,
+     "50": 2.7234925580521107e-09,
+     "100": 6.654503205223438e-18
+    }
+   }
+  },
+  "closed_charged_classes": [],
+  "seconds": 16.83,
+  "note": "hop/annihilate at every contrast (reads charges only)",
+  "charge_cap": 2
+ },
+ "CT_R|dcap5|reflect1|qcap2": {
+  "law": "CT_R",
+  "order": "CT",
+  "carrier": "octahedron",
+  "contrast_cap": 5,
+  "reflecting_cap": true,
+  "lumped_states": 22496,
+  "max_abs_contrast": 5,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 5,
+  "contrasts_at_hop_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "contrasts_at_pair_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "event_types": [
+   "hop",
+   "annihilate"
+  ],
+  "states_with_reflected_outcome": 881,
+  "closed_classes": {
+   "vacuum": 4,
+   "charged": 0,
+   "frozen": 0,
+   "charged_sizes": []
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "survival_decay_per_attempt": 0.9863365659351102,
+  "lifetime_sweeps_tail": 6.0572413786162995,
+  "hop_rate_per_charge_per_sweep_qsd": 0.49480942598761346,
+  "reflected_outcomes_per_sweep_qsd": 1.3748135065707629e-55,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": 3.6804987043347146,
+    "mean_hops": 2.6876222075632867,
+    "absorbed": {
+     "vacuum_label_2": 0.021831007029556985,
+     "vacuum_label_3": 0.005063019317563268,
+     "vacuum_label_1": 0.14837472064130205,
+     "vacuum_label_0": 0.8247312530043527
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.6371224824533446,
+     "2": 0.4590904703138396,
+     "5": 0.23141987009325574,
+     "10": 0.09496025787145815,
+     "20": 0.018017974928723104,
+     "50": 0.0001272439012653246,
+     "100": 3.309156061784791e-08
+    }
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": 6.902246867563567,
+    "mean_hops": 7.224044141240574,
+    "absorbed": {
+     "vacuum_label_2": 0.1923703507931404,
+     "vacuum_label_3": 0.07747398197842678,
+     "vacuum_label_1": 0.3513618932066993,
+     "vacuum_label_0": 0.3787937740034325
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.851284730739542,
+     "2": 0.7606354996253936,
+     "5": 0.5148796133411583,
+     "10": 0.23597704987992973,
+     "20": 0.04564032193775422,
+     "50": 0.000322463609024714,
+     "100": 8.386118332291368e-08
+    }
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": 5.384020976131119,
+    "mean_hops": 4.928895427726666,
+    "absorbed": {
+     "vacuum_label_2": 0.03991187460069022,
+     "vacuum_label_3": 0.00922375738834941,
+     "vacuum_label_1": 0.27674783590886537,
+     "vacuum_label_0": 0.6741165320904124
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.85841976342342,
+     "2": 0.6757372680185639,
+     "5": 0.3658034952019049,
+     "10": 0.15310397265343437,
+     "20": 0.029143927568158475,
+     "50": 0.00020583186094049117,
+     "100": 5.352946147242745e-08
+    }
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": 7.530696873279475,
+    "mean_hops": 8.04096790025765,
+    "absorbed": {
+     "vacuum_label_2": 0.14641454552496097,
+     "vacuum_label_3": 0.047879942947743656,
+     "vacuum_label_1": 0.36505156373623643,
+     "vacuum_label_0": 0.4406539477712783
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.9409649910699184,
+     "2": 0.8470648457563352,
+     "5": 0.5634923645568001,
+     "10": 0.2555430313979079,
+     "20": 0.04933151792703223,
+     "50": 0.0003485272037846204,
+     "100": 9.06393865660882e-08
+    }
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": 7.039047095973167,
+    "mean_hops": 7.161848278398751,
+    "absorbed": {
+     "vacuum_label_2": 0.07862212362566613,
+     "vacuum_label_3": 0.0202083139860351,
+     "vacuum_label_1": 0.33638232754583897,
+     "vacuum_label_0": 0.5647872348252416
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.9622754961877403,
+     "2": 0.8436016157899096,
+     "5": 0.5140306243633206,
+     "10": 0.22401869060944102,
+     "20": 0.0429445549534018,
+     "50": 0.0003033519907576809,
+     "100": 7.889093877175778e-08
+    }
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": 7.576294906092354,
+    "mean_hops": 8.072443073528206,
+    "absorbed": {
+     "vacuum_label_2": 0.1090856242237962,
+     "vacuum_label_3": 0.030193636115577165,
+     "vacuum_label_1": 0.3688731425777551,
+     "vacuum_label_0": 0.4918475970634628
+    },
+    "charged_transient_mass_after_sweeps": {
+     "1": 0.9711946996899011,
+     "2": 0.8773962594077641,
+     "5": 0.5650637413286137,
+     "10": 0.25159011479962207,
+     "20": 0.04840851142885557,
+     "50": 0.00034197882557351596,
+     "100": 8.893638889318461e-08
+    }
+   }
+  },
+  "closed_charged_classes": [],
+  "seconds": 16.46,
+  "note": "reference current first, then twist if the rest is -1",
+  "charge_cap": 2
+ },
+ "D_hard|dcap5|reflect1|qcap2": {
+  "law": "D_hard",
+  "order": "TC_excl",
+  "carrier": "octahedron",
+  "contrast_cap": 5,
+  "reflecting_cap": true,
+  "lumped_states": 12866,
+  "max_abs_contrast": 5,
+  "frozen_by_contrast_cap": 0,
+  "frozen_by_charge_cap": 0,
+  "charge_content_reached": [
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 5,
+  "contrasts_at_hop_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "contrasts_at_pair_seam": [
+   -5,
+   -4,
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "event_types": [
+   "hop"
+  ],
+  "states_with_reflected_outcome": 66,
+  "closed_classes": {
+   "vacuum": 0,
+   "charged": 1,
+   "frozen": 0,
+   "charged_sizes": [
+    12866
+   ]
+  },
+  "vacuum_creates_charge": false,
+  "creates_charge_from_pair": false,
+  "starts": {
+   "uniform_r1": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r1": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "uniform_r2": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r2": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "uniform_r3": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   },
+   "balanced_r3": {
+    "mean_time_with_charge_sweeps": null,
+    "absorbed": {}
+   }
+  },
+  "closed_charged_classes": [
+   {
+    "size": 12866,
+    "abs_charge": 2,
+    "hop_rate_per_charge_per_sweep": 0.55949512076009,
+    "reflected_outcomes_per_sweep": 6.698837871089357e-69,
+    "mean_max_contrast": 1.061193501186552,
+    "prob_max_contrast_ge_3": 2.2618201478655046e-06,
+    "twist_events_per_sweep": {
+     "hop": 1.11899024152018
+    },
+    "dual_distance_distribution": {
+     "1": 0.691827677930931,
+     "2": 0.24752103387672042,
+     "3": 0.0606512881923485
+    },
+    "prob_double_face": 0.0
+   }
+  ],
+  "seconds": 0.73,
+  "note": "D_excl without annihilation",
+  "charge_cap": 2
+ }
+}

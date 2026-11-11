@@ -1,0 +1,219 @@
+{
+ "inputs": {
+  "inverse_alpha_cell (GL B1, DC cut closure)": 16.2453,
+  "g_squared": 0.7735388459652436,
+  "gY_squared = 3 g^2/5": 0.4641233075791461,
+  "beta_G = 4/g^2": 5.1710395940215355,
+  "beta_lat = 8/g^2 (pattern carrier)": 10.342079188043071,
+  "hop coefficient on theta, 4/g^2": 5.1710395940215355,
+  "A_f (UH, CF-1 cone cell)": 0.0057097330883762246,
+  "c_f": 0.7723805486570864,
+  "A_V (UH)": {
+   "B4 (GL link waves, continuous time)": 0.1138360129111076,
+   "B4t (two field steps per tick)": 0.1423927553597822
+  },
+  "J_Euclidean_isotropic": 0.15493346843526817,
+  "J_grid_32_48": [
+   0.15486463008695844,
+   0.15490287361379718
+  ]
+ },
+ "source_points": [
+  {
+   "label": "S1 functional only, tree level",
+   "m0_squared_cell_units": 0.0,
+   "lambda0": 0.0,
+   "kappa_H": 0.125,
+   "lambda_L": 0.0,
+   "standing": "DERIVED (YC F1, UH S2, S3) under the declared construction"
+  },
+  {
+   "label": "S2 functional plus oscillator energy omega = 1, share s = 0.9",
+   "m0_squared_cell_units": 0.09999999999999998,
+   "lambda0": 0.0,
+   "kappa_H": 0.1234567901234568,
+   "lambda_L": 0.0,
+   "standing": "omega and s DECLARED; isotropized (the doublet's speed squared is s)",
+   "speed_squared_of_the_doublet": 0.9
+  },
+  {
+   "label": "S2 functional plus oscillator energy omega = 1, share s = 0.5",
+   "m0_squared_cell_units": 0.5,
+   "lambda0": 0.0,
+   "kappa_H": 0.11764705882352941,
+   "lambda_L": 0.0,
+   "standing": "omega and s DECLARED; isotropized (the doublet's speed squared is s)",
+   "speed_squared_of_the_doublet": 0.5
+  },
+  {
+   "label": "S2 functional plus oscillator energy omega = 1, share s = 0.1",
+   "m0_squared_cell_units": 0.9,
+   "lambda0": 0.0,
+   "kappa_H": 0.11235955056179775,
+   "lambda_L": 0.0,
+   "standing": "omega and s DECLARED; isotropized (the doublet's speed squared is s)",
+   "speed_squared_of_the_doublet": 0.1
+  },
+  {
+   "label": "S3 functional plus fermion zero-point term, cones 1, families 1",
+   "m0_squared_cell_units": -0.035333602751616885,
+   "lambda0": 0.0,
+   "kappa_H": 0.1255545367657179,
+   "lambda_L": 0.0,
+   "standing": "one loop (UH's A_f), y = g/2 on every leg (YC); cone multiplicity DECLARED"
+  },
+  {
+   "label": "S3 functional plus fermion zero-point term, cones 1, families 3",
+   "m0_squared_cell_units": -0.10600080825485066,
+   "lambda0": 0.0,
+   "kappa_H": 0.1266785029628217,
+   "lambda_L": 0.0,
+   "standing": "one loop (UH's A_f), y = g/2 on every leg (YC); cone multiplicity DECLARED"
+  },
+  {
+   "label": "S4 functional plus fermion zero-point term, cones 4, families 1",
+   "m0_squared_cell_units": -0.14133441100646754,
+   "lambda0": 0.0,
+   "kappa_H": 0.1272480663130076,
+   "lambda_L": 0.0,
+   "standing": "one loop (UH's A_f), y = g/2 on every leg (YC); cone multiplicity DECLARED"
+  },
+  {
+   "label": "S4 functional plus fermion zero-point term, cones 4, families 3",
+   "m0_squared_cell_units": -0.4240032330194026,
+   "lambda0": 0.0,
+   "kappa_H": 0.13199583246371271,
+   "lambda_L": 0.0,
+   "standing": "one loop (UH's A_f), y = g/2 on every leg (YC); cone multiplicity DECLARED"
+  },
+  {
+   "label": "S4 functional plus fermion zero-point term, cones 32, families 1",
+   "m0_squared_cell_units": -1.1306752880517403,
+   "lambda0": 0.0,
+   "kappa_H": 0.14557471686563828,
+   "lambda_L": 0.0,
+   "standing": "one loop (UH's A_f), y = g/2 on every leg (YC); cone multiplicity DECLARED"
+  },
+  {
+   "label": "S4 functional plus fermion zero-point term, cones 32, families 3",
+   "m0_squared_cell_units": -3.392025864155221,
+   "lambda0": 0.0,
+   "kappa_H": 0.21701510696883938,
+   "lambda_L": 0.0,
+   "standing": "one loop (UH's A_f), y = g/2 on every leg (YC); cone multiplicity DECLARED"
+  }
+ ],
+ "fermion_term_per_cone_and_family": -0.035333602751616885,
+ "S5_vector_mass_shift": {
+  "Euclidean isotropic, weak factor: (9/4) g^2 J": {
+   "delta_m_squared": 0.26965587684332215,
+   "predicted_kappa_c_at_lambda_to_zero": 0.1293603472327246,
+   "cones_times_families_that_cancel_it": 7.63171190718678
+  },
+  "Euclidean isotropic, with hypercharge: (3/4)(3 g^2 + gY^2) J": {
+   "delta_m_squared": 0.3235870522119865,
+   "predicted_kappa_c_at_lambda_to_zero": 0.1302691773881385,
+   "cones_times_families_that_cancel_it": 9.158054288624134
+  },
+  "Hamiltonian clock, weak factor: (9/2) A_V g^2, B4 (GL link waves, continuous time)": {
+   "delta_m_squared": 0.3962546012544424,
+   "predicted_kappa_c_at_lambda_to_zero": 0.13151413514778873,
+   "cones_times_families_that_cancel_it": 11.214667353340003
+  },
+  "Hamiltonian clock, with hypercharge: (3/2) A_V (3 g^2 + gY^2), B4 (GL link waves, continuous time)": {
+   "delta_m_squared": 0.4755055215053308,
+   "predicted_kappa_c_at_lambda_to_zero": 0.13289929348184695,
+   "cones_times_families_that_cancel_it": 13.457600824008003
+  },
+  "Hamiltonian clock, weak factor: (9/2) A_V g^2, B4t (two field steps per tick)": {
+   "delta_m_squared": 0.4956584744466773,
+   "predicted_kappa_c_at_lambda_to_zero": 0.13325619530972324,
+   "cones_times_families_that_cancel_it": 14.027963067649413
+  },
+  "Hamiltonian clock, with hypercharge: (3/2) A_V (3 g^2 + gY^2), B4t (two field steps per tick)": {
+   "delta_m_squared": 0.5947901693360128,
+   "predicted_kappa_c_at_lambda_to_zero": 0.13504006272167107,
+   "cones_times_families_that_cancel_it": 16.833555681179295
+  },
+  "Euclidean isotropic, weak factor, beta_G = 4.0": {
+   "delta_m_squared": 0.3486003039793534,
+   "predicted_kappa_c_at_lambda_to_zero": 0.13069504139485508
+  },
+  "Euclidean isotropic, weak factor, beta_G = 6.5": {
+   "delta_m_squared": 0.21452326398729438,
+   "predicted_kappa_c_at_lambda_to_zero": 0.12844428593234036
+  }
+ },
+ "one_loop_line_with_stabilizer": {
+  "beta_G = 4.0000": {
+   "0.0002": {
+    "kappa_c_one_loop": 0.13082849389129156,
+    "lambda0": 0.011684908396160775
+   },
+   "0.002": {
+    "kappa_c_one_loop": 0.1320129027707253,
+    "lambda0": 0.11476176906959279
+   },
+   "0.02": {
+    "kappa_c_one_loop": 0.1425170228453765,
+    "lambda0": 0.9846831647164163
+   }
+  },
+  "beta_G = 5.1710": {
+   "0.0002": {
+    "kappa_c_one_loop": 0.12949433089028684,
+    "lambda0": 0.011926924876701933
+   },
+   "0.002": {
+    "kappa_c_one_loop": 0.13068328630933984,
+    "lambda0": 0.11710889988739662
+   },
+   "0.02": {
+    "kappa_c_one_loop": 0.14121695913331592,
+    "lambda0": 1.002896890390497
+   }
+  },
+  "beta_G = 6.5000": {
+   "0.0002": {
+    "kappa_c_one_loop": 0.1285786341173609,
+    "lambda0": 0.012097409440601257
+   },
+   "0.002": {
+    "kappa_c_one_loop": 0.1297707070131462,
+    "lambda0": 0.11876176796435992
+   },
+   "0.02": {
+    "kappa_c_one_loop": 0.1403244869039356,
+    "lambda0": 1.015694427780366
+   }
+  }
+ },
+ "S6_induced_quartic": {
+  "B1": {
+   "lambda0": -0.0013343,
+   "lambda_L_at_kappa_1_over_8": -2.08484375e-05
+  },
+  "B4t": {
+   "lambda0": -0.0099008,
+   "lambda_L_at_kappa_1_over_8": -0.0001547
+  },
+  "B4": {
+   "lambda0": -0.0149162,
+   "lambda_L_at_kappa_1_over_8": -0.000233065625
+  },
+  "B6t": {
+   "lambda0": -0.0194981,
+   "lambda_L_at_kappa_1_over_8": -0.0003046578125
+  },
+  "fermion part alone, one cone, equal legs": {
+   "lambda0": -0.0013785382890156425,
+   "lambda_L_at_kappa_1_over_8": -2.1539660765869414e-05
+  }
+ },
+ "yukawa": {
+  "y = g/2": 0.43975528591628193,
+  "mass angle per unit of |Phi_L|: (g/2) sqrt(kappa_H) at kappa_H = 1/8": 0.15547697236701602,
+  "W mass squared per rho_v^2: g^2 kappa_H / 2 at kappa_H = 1/8": 0.048346177872827724,
+  "Z over W mass ratio at the cell, sqrt(8/5)": 1.2649110640673518
+ }
+}

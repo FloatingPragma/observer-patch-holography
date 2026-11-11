@@ -1,0 +1,956 @@
+{
+ "run": "D",
+ "brief": "repair-law/work/SIM/cf1/QUEUE_BRIEF.md",
+ "program": "CF-1 routing tick, alternating order, mass option M1 (kind Y)",
+ "theta0": 0.171237,
+ "units": "cells and ticks; phases in radians per tick",
+ "seed": "Lanczos start vector default_rng(7)",
+ "clock": "3D: two-tick operator (time independent), phases halved; 1D: one tick",
+ "preparation": "none: eigenstates of the tick (no preparation); Lanczos start vector fills all four sublattices",
+ "sublattices": "a quantum moves by (+-1,+-1,+-1) per tick: (x1-x2) mod 2 and (x2-x3) mod 2 are conserved, four invariant body-centred sublattices; the eigenvectors are computed on the full space, the cavity cells per sublattice are listed per job; on the line (256,1,1) axes 2 and 3 are trivial and there is one sublattice",
+ "line_256": [
+  {
+   "cells": 1,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.16877453,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.028041729778105068,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.16880313145731432
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.0001694367697292476,
+   "binding_lowest_theta0_minus_E": 0.0024624699999999944,
+   "continuum_width_reproducing_lowest_phase": 1.0060430932740254
+  },
+  {
+   "cells": 2,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.162221787,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.09916796430517451,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.16229524482516336
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.0004526184685355039,
+   "binding_lowest_theta0_minus_E": 0.009015212999999994,
+   "continuum_width_reproducing_lowest_phase": 2.0091809377782712
+  },
+  {
+   "cells": 3,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.153296622,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.1867207978451204,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.15341802231131343
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.0007913041081125671,
+   "binding_lowest_theta0_minus_E": 0.017940378000000007,
+   "continuum_width_reproducing_lowest_phase": 3.0127711040197025
+  },
+  {
+   "cells": 4,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.14356186,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.27225024713512613,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.14371413170020048
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.0010595457690835142,
+   "binding_lowest_theta0_minus_E": 0.027675139999999987,
+   "continuum_width_reproducing_lowest_phase": 4.015620646692526
+  },
+  {
+   "cells": 5,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.133976947,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.3480206686397045,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.13414313459302632
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.0012388825826271654,
+   "binding_lowest_theta0_minus_E": 0.03726005299999999,
+   "continuum_width_reproducing_lowest_phase": 5.017845247965403
+  },
+  {
+   "cells": 6,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.125003591,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.4125974394354932,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.1251718138081186
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.001343935211935765,
+   "binding_lowest_theta0_minus_E": 0.046233409,
+   "continuum_width_reproducing_lowest_phase": 6.019582362815485
+  },
+  {
+   "cells": 7,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.116808321,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.46700222017494697,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.1169715561249232
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.0013955112706961481,
+   "binding_lowest_theta0_minus_E": 0.054428678999999994,
+   "continuum_width_reproducing_lowest_phase": 7.020949833454438
+  },
+  {
+   "cells": 8,
+   "unitarity": 1.1102230246251565e-16,
+   "bound_states": [
+    {
+     "abs_phase": 0.109409158,
+     "multiplicity": 4,
+     "mean_weight_in_cavity": 0.5128742049238006,
+     "staggered_copies_at_pi_minus_abs_phase": 4
+    }
+   ],
+   "continuum_dirac_width_n": [
+    {
+     "parity": "even",
+     "E": 0.10956377038876977
+    }
+   ],
+   "relative_error_lowest_vs_continuum_even": -0.001411163455046771,
+   "binding_lowest_theta0_minus_E": 0.061827841999999994,
+   "continuum_width_reproducing_lowest_phase": 8.02203850437886
+  }
+ ],
+ "cube": [
+  {
+   "L": 24,
+   "side": 1,
+   "cavity_corner": [
+    12,
+    12,
+    12
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 1
+   },
+   "cavity_volume_fraction": 7.233796296296296e-05,
+   "clusters": [
+    {
+     "abs_phase": 0.17102590767780954,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0013156468067117646,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17123700000000136,
+     "multiplicity_in_A": 26,
+     "mean_weight_in_cavity": 4.476095835100538e-27,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.3107300221092616,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.006634492959379,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.31174789651350615,
+     "multiplicity_in_A": 22,
+     "mean_weight_in_cavity": 2.4706637519643267e-26,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.31201133568080913,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0014743994959394208,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.39637546084057707,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.01250294633428992,
+     "below_theta0": false,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.17102590767780954,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0013156468067117646,
+     "below_theta0": true,
+     "complete": true
+    }
+   ],
+   "eigen_residual_A": 2.0162764236695394e-13,
+   "seconds": 112.87281608581543
+  },
+  {
+   "L": 24,
+   "side": 2,
+   "cavity_corner": [
+    11,
+    11,
+    11
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 2,
+    "01": 2,
+    "11": 2,
+    "10": 2
+   },
+   "cavity_volume_fraction": 0.0005787037037037037,
+   "clusters": [
+    {
+     "abs_phase": 0.17091344840132808,
+     "multiplicity_in_A": 32,
+     "mean_weight_in_cavity": 0.002064931227628174,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1711340628344978,
+     "multiplicity_in_A": 31,
+     "mean_weight_in_cavity": 0.0006272902509810924,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17123700000001507,
+     "multiplicity_in_A": 17,
+     "mean_weight_in_cavity": 4.6784145623249097e-26,
+     "below_theta0": false,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.17091344840132808,
+     "multiplicity_in_A": 32,
+     "mean_weight_in_cavity": 0.002064931227628174,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1711340628344978,
+     "multiplicity_in_A": 31,
+     "mean_weight_in_cavity": 0.0006272902509810924,
+     "below_theta0": true,
+     "complete": true
+    }
+   ],
+   "eigen_residual_A": 9.267514639006364e-14,
+   "seconds": 312.98866033554077
+  },
+  {
+   "L": 24,
+   "side": 3,
+   "cavity_corner": [
+    11,
+    11,
+    11
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 9,
+    "01": 6,
+    "11": 6,
+    "10": 6
+   },
+   "cavity_volume_fraction": 0.001953125,
+   "clusters": [
+    {
+     "abs_phase": 0.1705694371097543,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.004465678289196244,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1707977924980414,
+     "multiplicity_in_A": 16,
+     "mean_weight_in_cavity": 0.002868908231076384,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17079852134069062,
+     "multiplicity_in_A": 16,
+     "mean_weight_in_cavity": 0.0028638999786339756,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17080454508929488,
+     "multiplicity_in_A": 16,
+     "mean_weight_in_cavity": 0.0028202051395337883,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17080829894335858,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0027136641935831475,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17080886073898963,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.00271021313762879,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1708098647779051,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.002703286779613713,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.1705694371097543,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.004465678289196244,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1707977924980414,
+     "multiplicity_in_A": 16,
+     "mean_weight_in_cavity": 0.002868908231076384,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17079852134069062,
+     "multiplicity_in_A": 16,
+     "mean_weight_in_cavity": 0.0028638999786339756,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17080454508929488,
+     "multiplicity_in_A": 16,
+     "mean_weight_in_cavity": 0.0028202051395337883,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17080829894335858,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0027136641935831475,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17080886073898963,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.00271021313762879,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1708098647779051,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.002703286779613713,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "eigen_residual_A": 2.0089414635740553e-13,
+   "seconds": 437.5797975063324
+  },
+  {
+   "L": 24,
+   "side": 4,
+   "cavity_corner": [
+    10,
+    10,
+    10
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 16,
+    "01": 16,
+    "11": 16,
+    "10": 16
+   },
+   "cavity_volume_fraction": 0.004629629629629629,
+   "clusters": [
+    {
+     "abs_phase": 0.17034228109450286,
+     "multiplicity_in_A": 25,
+     "mean_weight_in_cavity": 0.00597450939098543,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1703429151926724,
+     "multiplicity_in_A": 25,
+     "mean_weight_in_cavity": 0.005940334013052899,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1703467555056745,
+     "multiplicity_in_A": 24,
+     "mean_weight_in_cavity": 0.0059090741096296875,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1703470120679338,
+     "multiplicity_in_A": 6,
+     "mean_weight_in_cavity": 0.005982144077924369,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.17034228109450286,
+     "multiplicity_in_A": 25,
+     "mean_weight_in_cavity": 0.00597450939098543,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1703429151926724,
+     "multiplicity_in_A": 25,
+     "mean_weight_in_cavity": 0.005940334013052899,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1703467555056745,
+     "multiplicity_in_A": 24,
+     "mean_weight_in_cavity": 0.0059090741096296875,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1703470120679338,
+     "multiplicity_in_A": 6,
+     "mean_weight_in_cavity": 0.005982144077924369,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "eigen_residual_A": 2.2512108988373975e-13,
+   "seconds": 452.83104372024536
+  },
+  {
+   "L": 32,
+   "side": 1,
+   "cavity_corner": [
+    16,
+    16,
+    16
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 1
+   },
+   "cavity_volume_fraction": 3.0517578125e-05,
+   "clusters": [
+    {
+     "abs_phase": 0.17114772734472622,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0005614055346702645,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1712370000000045,
+     "multiplicity_in_A": 25,
+     "mean_weight_in_cavity": 1.836686470880586e-26,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.25934621514953304,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0029291049919111124,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.25980132272967893,
+     "multiplicity_in_A": 21,
+     "mean_weight_in_cavity": 1.724543613757656e-25,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.25988613855630843,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0004807629331625064,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.32112721682181944,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.005500025439489591,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.3219734538328515,
+     "multiplicity_in_A": 2,
+     "mean_weight_in_cavity": 4.4160458042545383e-29,
+     "below_theta0": false,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.17114772734472622,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0005614055346702645,
+     "below_theta0": true,
+     "complete": true
+    }
+   ],
+   "eigen_residual_A": 1.6303187136283238e-13,
+   "seconds": 504.47659063339233
+  },
+  {
+   "L": 32,
+   "side": 2,
+   "cavity_corner": [
+    15,
+    15,
+    15
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 2,
+    "01": 2,
+    "11": 2,
+    "10": 2
+   },
+   "cavity_volume_fraction": 0.000244140625,
+   "clusters": [
+    {
+     "abs_phase": 0.17109998832329282,
+     "multiplicity_in_A": 29,
+     "mean_weight_in_cavity": 0.0008780767217229525,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1711935215814013,
+     "multiplicity_in_A": 28,
+     "mean_weight_in_cavity": 0.0002651006940987058,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17123700000003558,
+     "multiplicity_in_A": 23,
+     "mean_weight_in_cavity": 1.203241437653526e-24,
+     "below_theta0": false,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.17109998832329282,
+     "multiplicity_in_A": 29,
+     "mean_weight_in_cavity": 0.0008780767217229525,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1711935215814013,
+     "multiplicity_in_A": 28,
+     "mean_weight_in_cavity": 0.0002651006940987058,
+     "below_theta0": true,
+     "complete": true
+    }
+   ],
+   "eigen_residual_A": 4.2631981157080454e-13,
+   "seconds": 1119.1427547931671
+  },
+  {
+   "L": 32,
+   "side": 3,
+   "cavity_corner": [
+    15,
+    15,
+    15
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 9,
+    "01": 6,
+    "11": 6,
+    "10": 6
+   },
+   "cavity_volume_fraction": 0.000823974609375,
+   "clusters": [
+    {
+     "abs_phase": 0.1709531985223619,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.001916446505854466,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105076184946633,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.00122620421530419,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105107336279446,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.001219953877540414,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105364796118042,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.00120187079496525,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1710552521366364,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0011568741987202141,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105549293717812,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0011546348159203522,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105592181059395,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0011516725618850388,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17114772734476502,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.0005793161584264593,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.1709531985223619,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.001916446505854466,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105076184946633,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.00122620421530419,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105107336279446,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.001219953877540414,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105364796118042,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.00120187079496525,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1710552521366364,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0011568741987202141,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105549293717812,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0011546348159203522,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17105592181059395,
+     "multiplicity_in_A": 8,
+     "mean_weight_in_cavity": 0.0011516725618850388,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17114772734476502,
+     "multiplicity_in_A": 12,
+     "mean_weight_in_cavity": 0.0005793161584264593,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "eigen_residual_A": 5.498306813555007e-13,
+   "seconds": 1144.5290546417236
+  },
+  {
+   "L": 32,
+   "side": 4,
+   "cavity_corner": [
+    14,
+    14,
+    14
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {
+    "00": 16,
+    "01": 16,
+    "11": 16,
+    "10": 16
+   },
+   "cavity_volume_fraction": 0.001953125,
+   "clusters": [
+    {
+     "abs_phase": 0.17085564387634614,
+     "multiplicity_in_A": 30,
+     "mean_weight_in_cavity": 0.002574130010775758,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1708559125652678,
+     "multiplicity_in_A": 30,
+     "mean_weight_in_cavity": 0.002560645023945275,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17085757121495943,
+     "multiplicity_in_A": 20,
+     "mean_weight_in_cavity": 0.0025464948265502894,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [
+    {
+     "abs_phase": 0.17085564387634614,
+     "multiplicity_in_A": 30,
+     "mean_weight_in_cavity": 0.002574130010775758,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.1708559125652678,
+     "multiplicity_in_A": 30,
+     "mean_weight_in_cavity": 0.002560645023945275,
+     "below_theta0": true,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.17085757121495943,
+     "multiplicity_in_A": 20,
+     "mean_weight_in_cavity": 0.0025464948265502894,
+     "below_theta0": true,
+     "complete": false
+    }
+   ],
+   "eigen_residual_A": 3.9020351313884233e-13,
+   "seconds": 1716.1475744247437
+  },
+  {
+   "L": 24,
+   "side": 0,
+   "cavity_corner": [
+    12,
+    12,
+    12
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {},
+   "cavity_volume_fraction": 0.0,
+   "clusters": [
+    {
+     "abs_phase": 0.1712369999999976,
+     "multiplicity_in_A": 31,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.31174789651350704,
+     "multiplicity_in_A": 29,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.3982690864545283,
+     "multiplicity_in_A": 20,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [],
+   "eigen_residual_A": 1.3274772318915795e-11,
+   "seconds": 74.39613056182861
+  },
+  {
+   "L": 32,
+   "side": 0,
+   "cavity_corner": [
+    16,
+    16,
+    16
+   ],
+   "cavity_cells_per_sublattice_(x1-x2)%2,(x2-x3)%2": {},
+   "cavity_volume_fraction": 0.0,
+   "clusters": [
+    {
+     "abs_phase": 0.17123699999999287,
+     "multiplicity_in_A": 18,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.2598013227296761,
+     "multiplicity_in_A": 17,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.32197345383285525,
+     "multiplicity_in_A": 16,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.3713493641933116,
+     "multiplicity_in_A": 15,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": true
+    },
+    {
+     "abs_phase": 0.42662490384514895,
+     "multiplicity_in_A": 14,
+     "mean_weight_in_cavity": 0.0,
+     "below_theta0": false,
+     "complete": false
+    }
+   ],
+   "states_below_theta0": [],
+   "eigen_residual_A": 1.6185876704317581e-13,
+   "seconds": 153.4509792327881
+  }
+ ],
+ "cube_continuum_sphere_reference": [
+  {
+   "side": 1,
+   "equal_volume_radius": 0.6203504908994001,
+   "m_R": 0.10622695701014058,
+   "threshold_m_R": 1.1656,
+   "continuum_bound_state_E": null
+  },
+  {
+   "side": 2,
+   "equal_volume_radius": 1.2407009817988002,
+   "m_R": 0.21245391402028116,
+   "threshold_m_R": 1.1656,
+   "continuum_bound_state_E": null
+  },
+  {
+   "side": 3,
+   "equal_volume_radius": 1.8610514726982004,
+   "m_R": 0.31868087103042175,
+   "threshold_m_R": 1.1656,
+   "continuum_bound_state_E": null
+  },
+  {
+   "side": 4,
+   "equal_volume_radius": 2.4814019635976003,
+   "m_R": 0.4249078280405623,
+   "threshold_m_R": 1.1656,
+   "continuum_bound_state_E": null
+  }
+ ],
+ "seconds": 1739.3657302856445,
+ "frame": "mass-last two-tick operator; eigenphases are identical in the half-step frame (the two-tick operators are conjugate by M^(1/2)); cavity weights are of cells and unchanged by the local conjugation"
+}

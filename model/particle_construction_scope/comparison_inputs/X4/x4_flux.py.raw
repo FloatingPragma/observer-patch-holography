@@ -1,0 +1,204 @@
+"""X4, part 5: flux-pair candidates. (e) the face separations of a stationary flux pair; (f) the three conjugate
+flux classes {1,5}, {2,4}, {3} (added).
+
+Counts are exact. Rest phases are those of the reference table work/DIRAC/defect_phases.json (option M1 of CF-1),
+regenerated here with the reference script and compared entry by entry. They are rest phases of a declared walk on
+a carrier with a declared flux background, not masses.
+
+  1. Separation classes of two faces: dual-graph distance, number of pairs, rotation orbits.
+  2. Which separations a stationary pair can have (reports/CH.md: never adjacent): how many classes.
+  3. Rest phase per (charge phase alpha, separation): are the classes distinguishable, how far apart.
+  4. Per pattern of the chart: the alpha it sees in each flux class k = 1, 2, 3 and whether the two handedness
+     patterns of a Dirac pair get the same angle.
+"""
+import itertools
+import json
+import os
+import subprocess
+import sys
+import tempfile
+from collections import deque
+from fractions import Fraction as F
+
+from x4lib import geometry, dump, RL
+
+geo = geometry()
+seams, faces, rots = geo['seams'], geo['faces'], geo['rotations']
+out = {}
+
+# 1. separation classes
+seam_faces = {e: [i for i, f in enumerate(faces) if set(e) <= set(f)] for e in seams}
+dual = {i: set() for i in range(20)}
+for e, (f, g) in seam_faces.items():
+    dual[f].add(g); dual[g].add(f)
+def dist_from(f0):
+    d = {f0: 0}; q = deque([f0])
+    while q:
+        f = q.popleft()
+        for g in dual[f]:
+            if g not in d:
+                d[g] = d[f] + 1; q.append(g)
+    return d
+dist = {f: dist_from(f) for f in range(20)}
+face_index = {frozenset(f): i for i, f in enumerate(faces)}
+def act(g, f):
+    return face_index[frozenset(g[p] for p in faces[f])]
+classes = {}
+for d in range(1, 6):
+    pairs = {frozenset((a, b)) for a, b in itertools.combinations(range(20), 2) if dist[a][b] == d}
+    orbits, left = 0, set(pairs)
+    while left:
+        p = next(iter(left)); a, b = tuple(p)
+        orb = {frozenset((act(g, a), act(g, b))) for g in rots}
+        left -= orb; orbits += 1
+    # ordered pairs (the two ends carry different classes, as for a (2,4) pair)
+    opairs = {(a, b) for a in range(20) for b in range(20) if a != b and dist[a][b] == d}
+    oorb, left = 0, set(opairs)
+    while left:
+        a, b = next(iter(left))
+        orb = {(act(g, a), act(g, b)) for g in rots}
+        left -= orb; oorb += 1
+    classes[d] = {'pairs': len(pairs), 'rotation_orbits_unordered': orbits, 'rotation_orbits_ordered': oorb}
+out['separation_classes'] = {'by_dual_distance': classes, 'tag': 'EXACT',
+                             'rotation_classes_of_unordered_pairs_at_separation_2_to_5': sum(classes[d]['rotation_orbits_unordered'] for d in range(2, 6))}
+print('1. separation classes (pairs, orbits):', classes)
+assert [classes[d]['pairs'] for d in range(1, 6)] == [30, 60, 60, 30, 10]
+
+# 2. stationary pairs
+stationary = [2, 3, 4, 5]
+out['stationary_pair_separations'] = {
+    'allowed': stationary, 'count': len(stationary),
+    'source': 'reports/CH.md, addition B (EXACT for the register rule of the runs): adjacent nonzero faces can always lower the cost, '
+              'so stationary pairs of classes 2, 3, 4 sit at separation 2 to 5',
+    'shares_of_one_pair_carriers_end_of_level_10': {'(2,4)': [0.444, 0.345, 0.159, 0.052], '(3,3)': [0.503, 0.336, 0.125, 0.036]},
+    'shares_source': 'reports/CH.md, part (b), MEASURED there; not recomputed here'}
+print('2. stationary separations:', stationary, '->', len(stationary), 'classes, not three')
+
+# 3. rest phases: regenerate the reference table and compare with the stored one
+ref_path = os.path.join(RL, 'work', 'DIRAC', 'defect_phases.json')
+stored = json.load(open(ref_path))['rows']
+with tempfile.TemporaryDirectory() as tmp:
+    regen_path = os.path.join(tmp, 'regen.json')
+    env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1')
+    subprocess.run([sys.executable, os.path.join(RL, 'work', 'DIRAC', 'defect_phases.py'), regen_path], check=True, env=env,
+                   stdout=subprocess.DEVNULL)
+    regen = json.load(open(regen_path))['rows']
+worst = max(abs(a['rest_phase'] - b['rest_phase']) for a, b in zip(stored, regen))
+assert [(a['alpha'], a['separation']) for a in stored] == [(b['alpha'], b['separation']) for b in regen]
+table = {}
+for r in regen:
+    table.setdefault(r['alpha'], {})[r['separation']] = r['rest_phase']
+spread = {a: {'d2_to_d5': [round(table[a][d], 6) for d in stationary],
+              'largest_over_smallest': round(table[a][5] / table[a][2], 4),
+              'distinct_values': len({round(table[a][d], 9) for d in stationary})} for a in table}
+out['rest_phases_M1'] = {'regenerated_against_stored_max_difference': worst, 'by_alpha_and_separation': {a: {str(d): round(v, 6) for d, v in t.items()} for a, t in table.items()},
+                         'stationary_separations': spread, 'tag': 'MEASURED (float64), reference script work/DIRAC/defect_phases.py'}
+print('3. reference table regenerated, max difference to the stored file', f'{worst:.1e}')
+for a in table:
+    print('   alpha', a, 'd = 1..5:', [round(table[a][d], 6) for d in range(1, 6)], ' d5/d2 =', spread[a]['largest_over_smallest'])
+# does the rest phase depend on more than the separation? every pair of faces, with the functions of the reference script
+import contextlib, io
+import numpy as np
+sys.path.append(os.path.join(RL, 'work', 'DIRAC'))
+argv, sys.argv = sys.argv, ['defect_phases']
+with contextlib.redirect_stdout(io.StringIO()):
+    import defect_phases as dp
+sys.argv = argv
+assert [tuple(f) for f in dp.faces] == [tuple(f) for f in faces]
+within = {}
+for an, av in (('1/6', 1 / 6), ('1/3', 1 / 3), ('1/2', 1 / 2)):
+    for d in range(1, 6):
+        vals = []
+        for a, b in itertools.permutations(range(20), 2):
+            if dist[a][b] != d: continue
+            lam = np.linalg.eigvalsh(dp.laplacian(dp.string(a, b, av)))[0]
+            vals.append(float(np.arccos(1 - lam / 60)))
+        within[(an, d)] = (len(vals), max(vals) - min(vals), max(abs(v - table[an][d]) for v in vals))
+worst_within = max(v[1] for v in within.values()); worst_ref = max(v[2] for v in within.values())
+out['rest_phases_M1']['all_ordered_face_pairs'] = {'pairs_checked': sum(v[0] for v in within.values()),
+                                                   'largest_spread_inside_a_separation_class': worst_within,
+                                                   'largest_difference_to_the_reference_table': worst_ref,
+                                                   'statement': 'the rest phase depends on the separation only (both rotation classes at separation 3 agree)'}
+print('   all', sum(v[0] for v in within.values()), 'ordered pairs x alpha: spread inside a separation class', f'{worst_within:.1e}',
+      ', difference to the reference table', f'{worst_ref:.1e}')
+
+# 3b. what a flux pair does to a load triplet: it is a breaking of the carrier group, not a label of the quantum.
+# Levels 1 to 3 of the phase-coupled port Laplacian descend from the slow triplet (5 - sqrt5 = 2.763932 without flux).
+split = {}
+for an, av in (('1/6', 1 / 6), ('1/3', 1 / 3), ('1/2', 1 / 2)):
+    for d in range(1, 6):
+        b = next(x for x in range(1, 20) if dist[0][x] == d)
+        lam = np.linalg.eigvalsh(dp.laplacian(dp.string(0, b, av)))
+        ang = [float(np.arccos(1 - x / 60)) for x in lam[1:4]]
+        split[f'alpha {an}, separation {d}'] = {'lowest_level': round(float(lam[0]), 6), 'levels': [round(float(x), 6) for x in lam[1:4]],
+                                               'rest_angles': [round(a, 6) for a in ang],
+                                               'largest_over_smallest_angle': round(ang[2] / ang[0], 4), 'gap_to_the_next_level': round(float(lam[4] - lam[3]), 4),
+                                               'levels_1_to_3_separated_from_level_0': bool(lam[1] - lam[0] > 1.0)}
+# isotropic average over the orientations of the pair: Schur's lemma makes it a multiple of the identity on the triplet
+A0 = np.zeros((12, 12))
+for a, b in seams:
+    A0[a, b] = A0[b, a] = 1
+w0, v0 = np.linalg.eigh(A0)
+T = v0[:, np.abs(w0 - 5 ** 0.5) < 1e-9]
+assert T.shape[1] == 3
+worst_avg = 0.0
+for an, av in (('1/6', 1 / 6), ('1/3', 1 / 3), ('1/2', 1 / 2)):
+    for d in range(1, 6):
+        b = next(x for x in range(1, 20) if dist[0][x] == d)
+        L = dp.laplacian(dp.string(0, b, av))
+        avg = np.zeros((12, 12), complex)
+        for g in rots:
+            P = np.zeros((12, 12)); P[list(g), list(range(12))] = 1
+            avg += P @ L @ P.T
+        avg /= len(rots)
+        ev = np.linalg.eigvalsh(T.T @ avg @ T)
+        worst_avg = max(worst_avg, float(ev[-1] - ev[0]))
+weak = {k: v for k, v in split.items() if k.startswith('alpha 1/6')}
+assert all(v['levels_1_to_3_separated_from_level_0'] and v['gap_to_the_next_level'] > 1.5 for v in weak.values())
+ratios_split = [v['largest_over_smallest_angle'] for v in weak.values()]
+out['flux_pair_splits_a_load_triplet'] = {
+    'slow_triplet_without_flux': {'level': float(5 - 5 ** 0.5), 'rest_angle': float(np.arccos(1 - (5 - 5 ** 0.5) / 60))},
+    'rows': split, 'alpha_1/6_largest_over_smallest_angle_range': [min(ratios_split), max(ratios_split)],
+    'isotropic_average_spread_on_the_triplet': worst_avg,
+    'tag': 'MEASURED (float64); the vanishing of the averaged splitting is Schur\'s lemma',
+    'note': 'levels 1 to 3 descend from the slow triplet where the flag levels_1_to_3_separated_from_level_0 is true (all rows of alpha 1/6); '
+            'at alpha 1/2 and separation 5 the two lowest levels coincide and the assignment by position fails',
+    'statement': 'a flux pair on the carrier splits the three states of a load triplet for a charged level; averaged over the sixty orientations of the '
+                 'pair the first-order operator on the triplet is a multiple of the identity, so an unoriented dilute background shifts the three '
+                 'copies together and does not split them at first order in the density'}
+ex = split['alpha 1/6, separation 2']
+print('3b. slow triplet on a carrier with a flux pair, alpha 1/6, separation 2: levels', ex['levels'], 'angles', ex['rest_angles'],
+      '; ratio largest/smallest, alpha 1/6, separations 1 to 5:', min(ratios_split), 'to', max(ratios_split))
+print('    spread of the orientation-averaged operator on the triplet:', f'{worst_avg:.1e}')
+
+# 4. the chart against the three flux classes
+names = {(1, 1): 'quark doublet Q_L', (1, 2): 'up singlet u_R', (1, 0): 'down singlet d_R', (3, 1): 'lepton doublet L_L',
+         (3, 0): 'electron singlet e_R', (3, 2): 'neutrino singlet nu_R'}
+def alpha(k, q6):
+    r = (k * q6) % 6
+    return F(min(r, 6 - r), 6)
+rows = {}
+for (n3, n2), name in names.items():
+    q6 = 3 * n2 - 2 * n3
+    al = [alpha(k, q6) for k in (1, 2, 3)]
+    ph = [0.0 if a == 0 else table[str(a)][1] for a in al]
+    rows[name] = {'Q6': q6, 'alpha_in_class_1_2_3': [str(a) for a in al], 'rest_phase_at_separation_1': [round(p, 6) for p in ph],
+                  'distinct_nonzero_phases': len({round(p, 9) for p in ph if p > 0})}
+dirac = {'up': ('quark doublet Q_L', 'up singlet u_R'), 'down': ('quark doublet Q_L', 'down singlet d_R'),
+         'electron': ('lepton doublet L_L', 'electron singlet e_R'), 'neutrino': ('lepton doublet L_L', 'neutrino singlet nu_R')}
+pairs_ok = {}
+for k in (1, 2, 3):
+    pairs_ok[f'class {k}'] = {t: (rows[a]['alpha_in_class_1_2_3'][k - 1] == rows[b]['alpha_in_class_1_2_3'][k - 1],
+                                  rows[a]['alpha_in_class_1_2_3'][k - 1]) for t, (a, b) in dirac.items()}
+out['three_flux_classes'] = {
+    'classes_up_to_conjugation': [[1, 5], [2, 4], [3]], 'count': 3, 'patterns': rows,
+    'dirac_pairs_equal_angle_and_left_alpha': {k: {t: {'equal': bool(v[0]), 'alpha_left': v[1]} for t, v in d.items()} for k, d in pairs_ok.items()},
+    'tag': 'EXACT (charges), phases from the reference table',
+    'statement': 'the three classes are three backgrounds, not three copies: a pattern sees them through its own charge. The quark doublet has '
+                 'three different angles, the quark singlets two equal ones and a zero, the lepton doublet two equal ones and a zero, the lepton '
+                 'singlets three zeros; the two handedness patterns of a Dirac pair agree only in class 2 (up and down), where the leptons are massless'}
+for name, r in rows.items():
+    print(f"4. {name:22s} Q6 {r['Q6']:3d}  alpha {r['alpha_in_class_1_2_3']}  phases at d=1 {r['rest_phase_at_separation_1']}")
+print('   Dirac pairs with equal angles per class:', {k: [t for t, v in d.items() if v[0]] for k, d in pairs_ok.items()})
+if len(sys.argv) > 1:
+    dump(out, sys.argv[1])

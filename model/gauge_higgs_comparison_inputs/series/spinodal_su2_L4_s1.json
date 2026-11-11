@@ -1,0 +1,40 @@
+{
+ "model": "su2",
+ "L": 4,
+ "seed": 1,
+ "sweeps_per_value": 150,
+ "stability_limit": 0.13,
+ "rows": [
+  {
+   "kappa_H": 0.128,
+   "rho2_mean_second_half": 2.5300692129405116,
+   "rho2_max": 3.0522811391824707,
+   "sweeps": 150
+  },
+  {
+   "kappa_H": 0.1285,
+   "rho2_mean_second_half": 2.7135835003765476,
+   "rho2_max": 3.348594350046801,
+   "sweeps": 150
+  },
+  {
+   "kappa_H": 0.129,
+   "rho2_mean_second_half": 2.6568221197092927,
+   "rho2_max": 3.5094903444338232,
+   "sweeps": 150
+  },
+  {
+   "kappa_H": 0.1295,
+   "rho2_mean_second_half": 3.437945198333876,
+   "rho2_max": 4.717123117891186,
+   "sweeps": 150
+  },
+  {
+   "kappa_H": 0.13,
+   "rho2_mean_second_half": 18.250390925701033,
+   "rho2_max": 50.21377302150568,
+   "sweeps": 81
+  }
+ ],
+ "seconds": 25.099274158477783
+}

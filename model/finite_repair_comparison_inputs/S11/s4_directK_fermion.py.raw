@@ -1,0 +1,135 @@
+"""S11 direct modular generator in multiprecision: calibration of the profile estimator.
+
+    python s4_directK_fermion.py ring
+    python s4_directK_fermion.py disc <rho> <stagger> [bits]
+
+ring: free fermions on a ring of 402 sites at half filling, interval of l sites. Known: K -> conformal profile
+      times energy density with speed 2 (resummed over hopping range).
+disc: plain honeycomb (hopping 1) on a 64 x 64 torus, disc centred on a mesh vertex. Known for stagger = 0:
+      slope_K(x) = 2 pi (rho^2 - r^2)/(2 rho) * (cone slope of K's generator / Dirac speed) = 2 pi g(x).
+      With a staggered potential the conformal profile must fail.
+"""
+from __future__ import annotations
+
+import json
+import signal
+import sys
+import time
+from pathlib import Path
+
+import mpmath as mp
+import numpy as np
+
+signal.alarm(232)
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import geom as G  # noqa: E402
+import gauss as GS  # noqa: E402
+import flat as FL  # noqa: E402
+import mpdisc as MD  # noqa: E402
+from fpmath import FP, symmetry_blocks  # noqa: E402
+
+mode = sys.argv[1]
+t0 = time.time()
+
+if mode == 'ring':
+    fp = FP(512)
+    N = 402
+    rows = []
+    for l in (16, 32, 64):
+        C = np.empty((l, l), dtype=object)
+        val = {0: fp.ONE // 2}
+        for d in range(1, l):
+            val[d] = fp.from_mp(mp.sin(mp.pi * d / 2) / (N * mp.sin(mp.pi * d / N)))
+        for i in range(l):
+            for j in range(l):
+                C[i, j] = val[abs(i - j)]
+        refl = np.arange(l)[::-1].copy()
+        K = np.zeros((l, l)); eps_all = []
+        for chi, cols in symmetry_blocks([refl], l):
+            B = np.empty((l, len(cols)), dtype=object); B[:, :] = 0
+            for c, (vec, dnorm) in enumerate(cols):
+                amp = {1: fp.ONE, 2: fp.sqrt_half()}[dnorm]
+                for site, sign in vec.items():
+                    B[site, c] = sign * amp
+            Kb, eps, mg, sw = fp.fermi_K(fp.dot(B.T.copy(), fp.dot(C, B)))
+            Bf = fp.arr_to_float(B)
+            K += Bf @ Kb @ Bf.T; eps_all.extend(eps.tolist())
+        x = np.arange(1, l + 1)
+        a, b = 0.5, l + 0.5
+        g = (N / np.pi) * np.sin(np.pi * (x - a) / N) * np.sin(np.pi * (b - x) / N) / np.sin(np.pi * l / N)
+        dj = x[None, :] - x[:, None]
+        slope = np.abs((K * dj * np.exp(-0.5j * np.pi * dj)).sum(axis=1))
+        ratio = slope / (2 * np.pi * g)
+        xm = x[:-1] + 0.5
+        gm = (N / np.pi) * np.sin(np.pi * (xm - a) / N) * np.sin(np.pi * (b - xm) / N) / np.sin(np.pi * l / N)
+        nn = -np.diag(K, 1) / (np.pi * gm)                       # K_{i,i+1}/h_{i,i+1} over beta = 2 pi g / 2
+        mid = slice(l // 4, 3 * l // 4)
+        w = (K ** 2)
+        tot = w.sum()
+        row = {'l': l, 'max_abs_eps': float(np.abs(eps_all).max()), 'resummed_slope_over_known_centre': float(ratio[l // 2]),
+               'resummed_slope_over_known_mean_middle_half': float(ratio[mid].mean()), 'resummed_min_max_middle_half': [float(ratio[mid].min()), float(ratio[mid].max())],
+               'nearest_neighbour_K_over_known_centre': float(nn[l // 2 - 1]), 'nearest_neighbour_mean_middle_half': float(nn[mid].mean()),
+               'weight_of_K_by_range': [float(w[np.abs(dj) == d].sum() / tot) for d in range(0, 8)]}
+        rows.append(row)
+        print(row, flush=True)
+    (HERE / 'out' / 's4_ring.json').write_text(json.dumps({'ring': rows, 'seconds': time.time() - t0}, indent=1))
+
+if mode == 'disc':
+    rho = float(sys.argv[2]); stagger = sys.argv[3]
+    bits = int(sys.argv[4]) if len(sys.argv) > 4 else 448
+    fp = FP(bits)
+    N = 64
+    res = MD.fermion_disc(fp, N, rho, stagger)
+    cells, r, pos, K = res['cells'], res['r'], res['pos'], res['K']
+    n = cells.shape[0]
+    print('disc', rho, stagger, 'carriers', n, 'max eps', res['max_abs_eps'], 'sweeps', res['sweeps'], 'seconds', time.time() - t0, flush=True)
+    # cross-check of the fixed-point correlation matrix against the double-precision Bloch construction
+    T = FL.Torus(N, lambda q: G.bloch_honeycomb(q, 1.0, float(mp.mpf(stagger))), 2)
+    CA = FL.gather(T.real(T.band_projector([0])), cells, 1)
+    hA = FL.gather(T.real(T.H), cells, 1)
+    c_err = float(np.abs(CA - res['C_float']).max())
+    out = {'rho': rho, 'stagger': float(mp.mpf(stagger)), 'bits': bits, 'carriers': n, 'max_abs_eps': res['max_abs_eps'], 'jacobi_sweeps': res['sweeps'],
+           'max_abs_difference_C_fixed_point_vs_double': c_err}
+    if res['max_abs_eps'] < 30:
+        Kd, epsd, margin = GS.direct_K(CA)
+        out['max_abs_difference_K_vs_double_precision'] = float(np.abs(K - Kd).max())
+    sh = MD.honeycomb_cone_slope(1.0)
+    slope, F0, mass = MD.fermion_slope_profile(K, cells, pos)
+    g = (rho ** 2 - r ** 2) / (2 * rho)
+    shells = np.unique(np.round(r, 6))
+    prof = []
+    for s_ in shells:
+        k = np.abs(r - s_) < 1e-5
+        prof.append({'r': float(s_), 'count': int(k.sum()), 'slope_K_over_2pi_slope_h': float(slope[k].mean() / (2 * np.pi * sh)),
+                     'conformal_g': float(g[k].mean()), 'tent': float(rho - s_), 'zero_order_term_over_slope_h': float(F0[k].mean() / sh),
+                     'mass_term_mean_abs': float(np.abs(mass[k]).mean())})
+    y = slope / (2 * np.pi * sh)
+    inner = r < rho - 1.2
+    # two-parameter fits on interior carriers: conformal A (R^2 - r^2)/(2R) and tent A (R - r)
+    from scipy.optimize import least_squares
+    fc = least_squares(lambda p: p[0] * (p[1] ** 2 - r[inner] ** 2) / (2 * p[1]) - y[inner], [1.0, rho])
+    ft = least_squares(lambda p: p[0] * (p[1] - r[inner]) - y[inner], [1.0, rho])
+    centre_shell = np.abs(r - shells[0]) < 1e-5
+    dist = np.linalg.norm(pos[:, None, :] - pos[None, :, :], axis=2)
+    dsh = [0.0] + sorted(set(np.round(dist[np.triu_indices(n, 1)], 6).tolist()))[:10]
+    wtot = float((K ** 2).sum())
+    nnm = np.abs(dist - 1 / 3 ** 0.5) < 1e-6
+    iu = np.triu(nnm, 1)
+    rm = np.linalg.norm((pos[:, None, :] + pos[None, :, :]) / 2, axis=2)[iu]
+    nn_ratio = (K[iu] / hA[iu]) / (2 * np.pi * (rho ** 2 - rm ** 2) / (2 * rho) / sh)
+    out.update({
+        'cone_slope_of_h': sh,
+        'centre_value_slope_K_over_2pi_slope_h': float(y[centre_shell].mean()), 'conformal_centre_value_rho_over_2': rho / 2, 'tent_centre_value_rho': rho,
+        'centre_ratio_to_conformal': float(y[centre_shell].mean() / (g[centre_shell].mean())),
+        'fit_conformal': {'amplitude': float(fc.x[0]), 'radius': float(fc.x[1]), 'rms_residual': float(np.sqrt((fc.fun ** 2).mean())), 'points': int(inner.sum())},
+        'fit_tent': {'amplitude': float(ft.x[0]), 'radius': float(ft.x[1]), 'rms_residual': float(np.sqrt((ft.fun ** 2).mean()))},
+        'weight_of_K_by_pair_distance': [{'distance': float(s_), 'weight_fraction': float((K[np.abs(dist - s_) < 1e-5] ** 2).sum() / wtot)} for s_ in dsh],
+        'nearest_neighbour_K_over_h_relative_to_conformal': {'mean_inner': float(nn_ratio[rm < rho - 1.2].mean()), 'at_centre': float(nn_ratio[np.argmin(rm)])},
+        'profile': prof, 'entanglement_energies_lowest_abs': np.sort(np.abs(res['eps']))[:12].tolist(), 'seconds': time.time() - t0})
+    np.savez(HERE / 'cache' / f'K_honeycomb_rho{rho}_m{stagger}.npz', K=K, cells=cells, pos=pos, r=r, eps=res['eps'])
+    (HERE / 'out' / f's4_disc_rho{rho}_m{stagger}.json').write_text(json.dumps(out, indent=1))
+    print(json.dumps({k: v for k, v in out.items() if k not in ('profile',)}, indent=1), flush=True)
+    for p in prof:
+        print(' r %.3f  slope/2pi %.4f  conformal %.4f  tent %.4f  zero-order %.4f  mass %.4f' % (p['r'], p['slope_K_over_2pi_slope_h'], p['conformal_g'], p['tent'], p['zero_order_term_over_slope_h'], p['mass_term_mean_abs']))
+print('seconds', time.time() - t0)

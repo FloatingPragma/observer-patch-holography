@@ -1,0 +1,9 @@
+"""Strict no-eigh replay of all charged-source localization dependencies."""
+import json
+from pathlib import Path
+import runpy
+runpy.run_path(str(Path(__file__).with_name('replay_transport_no_eigh.py')))
+from model.coherent_defect_wave.chiral_joint.interacting_charge_localization.certificate import certificate
+from model.coherent_defect_wave.chiral_joint.interacting_charge_localization import __file__ as package_file
+assert certificate()==json.loads(Path(package_file).with_name('results.json').read_text())
+print('PASS: full-source string cost, screened counterexample, all-time charged-bin localization, no eigensolver')

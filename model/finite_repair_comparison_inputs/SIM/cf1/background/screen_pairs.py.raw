@@ -1,0 +1,52 @@
+"""Task CH, part (b), screen tier: distance from each defect to the nearest defect of the conjugate class on the end cut,
+against two controls: (i) the same positions with the class labels permuted at random, (ii) uniform random points of
+the same number. Distances in mesh edges (angle / a, a = sqrt(8 pi / (sqrt(3) V))). Reads the end cut only.
+
+    python screen_pairs.py <end.npz> <level> <out.json>
+"""
+import json, sys
+import numpy as np
+from scipy.spatial import cKDTree
+
+CONJ = {1: 5, 2: 4, 3: 3, 4: 2, 5: 1}
+BINS = [0, 1.5, 2.5, 3.5, 4.5, 6.5, 8.5, 12.5, 16.5, 24.5, 32.5, 1e9]
+
+
+def nearest(xa, xb, same):
+    if len(xa) == 0 or len(xb) < (2 if same else 1):
+        return np.array([])
+    t = cKDTree(xb)
+    d, i = t.query(xa, k=2 if same else 1)
+    d = d[:, 1] if same else d
+    return 2 * np.arcsin(np.clip(d / 2, 0, 1))
+
+
+def run(xyz, cls, a):
+    out = {}
+    for k in (1, 2, 3):
+        xa = xyz[cls == k]; xb = xyz[cls == CONJ[k]]
+        ang = nearest(xa, xb, k == 3) / a
+        out[str(k)] = {'n': int(len(xa)), 'median': float(np.median(ang)) if len(ang) else None,
+                       'mean': float(ang.mean()) if len(ang) else None,
+                       'histogram': np.histogram(ang, BINS)[0].tolist()}
+    return out
+
+
+def main(path, level, out_path):
+    z = np.load(path)
+    xyz = z['screen_xyz'].astype(np.float64); xyz /= np.linalg.norm(xyz, axis=1)[:, None]
+    cls = z['screen_cls'].astype(int)
+    V = 10 * 4 ** level + 2
+    a = np.sqrt(8 * np.pi / (np.sqrt(3) * V))
+    rng = np.random.default_rng(1)
+    res = {'level': level, 'defects': int(len(cls)), 'bins_edges': BINS, 'data': run(xyz, cls, a),
+           'labels_permuted': run(xyz, rng.permutation(cls), a)}
+    u = rng.normal(size=xyz.shape); u /= np.linalg.norm(u, axis=1)[:, None]
+    res['uniform_points'] = run(u, cls, a)
+    json.dump(res, open(out_path, 'w'))
+    for key in ('data', 'labels_permuted', 'uniform_points'):
+        print(key, {k: (v['n'], round(v['median'], 2), round(v['mean'], 2)) for k, v in res[key].items()})
+
+
+if __name__ == '__main__':
+    main(sys.argv[1], int(sys.argv[2]), sys.argv[3])

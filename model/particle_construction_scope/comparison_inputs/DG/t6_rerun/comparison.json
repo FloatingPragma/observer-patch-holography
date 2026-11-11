@@ -1,0 +1,45 @@
+{
+ "terms.json": {
+  "entries": 337,
+  "identical": 337,
+  "float_max_abs_difference": 0.0,
+  "differing": [],
+  "n_differing": 0,
+  "keys_only_in_one": []
+ },
+ "seesaw.json": {
+  "entries": 201,
+  "identical": 201,
+  "float_max_abs_difference": 0.0,
+  "differing": [],
+  "n_differing": 0,
+  "keys_only_in_one": []
+ },
+ "engine.json": {
+  "entries": 144,
+  "identical": 142,
+  "float_max_abs_difference": 0.010000000000000009,
+  "differing": [
+   [
+    "/gauss/cpu_seconds",
+    0.23,
+    0.22
+   ],
+   [
+    "/lattice/cpu_seconds",
+    1.61,
+    1.62
+   ]
+  ],
+  "n_differing": 2,
+  "keys_only_in_one": []
+ },
+ "native.json": {
+  "entries": 101,
+  "identical": 101,
+  "float_max_abs_difference": 0.0,
+  "differing": [],
+  "n_differing": 0,
+  "keys_only_in_one": []
+ }
+}

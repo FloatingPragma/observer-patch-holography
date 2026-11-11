@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""Worker DC, row U1b: the producer's D10 chain with M_U = E_cell (lattice-scale unification).
+
+Unchanged producer copy `paper_math_dc.py`, subclassed. No measured value is read. Writes dc_u1b.json.
+"""
+import json
+import sys
+from decimal import Decimal, localcontext
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from paper_math_dc import PaperMathContext  # noqa: E402
+
+RER = next((p for p in (Path("WORKSPACE/repair-law/reverse-engineering-reality"),
+                        Path("WORKSPACE/reverse-engineering-reality")) if p.is_dir()))
+P_FWD = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())["p"][:45]
+
+
+class LatticeUnified(PaperMathContext):
+    def unification_scale_gev(self, p):
+        return self.e_cell(p)
+
+
+out = {}
+for tag, p in (("P_fwd", Decimal(P_FWD)), ("phi", None)):
+    ctx = LatticeUnified(precision=30, su2_cutoff=60, su3_cutoff=30)
+    if p is None:
+        p = ctx.phi
+    try:
+        pt = ctx.build_d10_from_p(p)
+        _, a_inv, _ = ctx.alpha_external_from_d10(pt, "thomson_structured_running")
+        with localcontext() as c:
+            c.prec = 20
+            out[tag] = {"P": str(+p), "alpha_u": str(+pt.alpha_u), "inv_alpha_u": str(+(1 / pt.alpha_u)),
+                        "L_ln_MU_over_mZ": str(+((pt.mu_u / pt.mz_run).ln())), "v_over_Estar": str(+pt.v),
+                        "sin2w_mz": str(+pt.sin2w_mz), "alpha_em_inv_mz": str(+pt.alpha_em_inv_mz),
+                        "outer_map_alpha_inv": str(+a_inv),
+                        "outer_P_from_that_alpha": str(+(ctx.phi + ctx.sqrt_pi / a_inv))}
+    except RuntimeError as exc:
+        out[tag] = {"P": str(p), "error": str(exc)}
+(HERE / "dc_u1b.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

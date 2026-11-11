@@ -1,0 +1,97 @@
+#!/usr/bin/env python
+"""QF block D. The 'source capture' kernel behind the vertex12 receipts
+(oph_fpe/bulk/physical_h3_kms_source_capture.py), run through its own functions on its default
+8-carrier instance and on the smallest instance it accepts.
+
+State as coded: per carrier a hidden normalized complex amplitude on the twelve ports and a phase in R/Z;
+a visible real ledger = |amplitude|^2 per port.  Events: (1) unitary propagation exp(-i s L) of the hidden
+amplitudes inside each carrier, (2) seam repairs on the visible ledger: the two sewn ports take their mean.
+
+Run on a box: python source_capture_probe.py  -> source_capture_probe.json
+"""
+from __future__ import annotations
+
+import json
+
+import numpy as np
+
+from oph_fpe.bulk import physical_h3_kms_source_capture as sc
+from oph_fpe.core.echosahedral_dynamics import local_port_statistics, propagate_local_recurrent_carriers
+
+
+def probe(carrier_count):
+    cfg = sc._normalize_config({"carrier_count": carrier_count, "rung": carrier_count,
+                                "observer_count": min(2, carrier_count),
+                                "observer_support_size": min(2, carrier_count)})
+    fed = sc._build_federation(cfg)
+    prim, amplitudes, lift, repaired, events = sc._source_dynamics(cfg, fed)
+    # recompute the propagated ledger independently
+    state = sc._initialize_source_carriers(cfg["carrier_count"], cfg["seed"])
+    init_int = local_port_statistics(state)
+    for _ in range(cfg["propagation_steps"]):
+        state = propagate_local_recurrent_carriers(state, intrinsic_step=cfg["intrinsic_step"],
+                                                   coupling_strength=cfg["coupling_strength"])
+    prop = local_port_statistics(state)
+    ports_per_seam = sorted({(len(s.left_ports), s.collar_kind) for s in fed.seams})
+    port_use = {}
+    for s in fed.seams:
+        for cid, ports in ((s.left_carrier_id, s.left_ports), (s.right_carrier_id, s.right_ports)):
+            for p in ports:
+                port_use[(cid, p)] = port_use.get((cid, p), 0) + 1
+    same_label = all(s.left_ports == s.right_ports for s in fed.seams)
+    out = {
+        "carrier_count": carrier_count,
+        "seam_count": len(fed.seams),
+        "seam_kinds": [list(x) for x in ports_per_seam],
+        "every_port_bound_exactly_once": sorted(set(port_use.values())) == [1] and len(port_use) == 12 * carrier_count,
+        "seam_joins_equal_port_labels": same_label,
+        "propagation_steps": cfg["propagation_steps"],
+        "intrinsic_step": cfg["intrinsic_step"],
+        "cycles": cfg["cycles"],
+        "repair_count_per_cycle": prim["repair_count_per_cycle"],
+        "repair_event_count": prim["repair_event_count"],
+        "repair_noop_count": prim["repair_noop_count"],
+        "terminal_maximum_seam_mismatch": prim["terminal_maximum_seam_mismatch"],
+        "terminal_fixed_point_receipt": prim["REPAIR_TERMINAL_FIXED_POINT_RECEIPT"],
+        "order_replay_exact": prim["REPAIR_ORDER_REPLAY_EXACT_RECEIPT"],
+        "idempotence_replay_exact": prim["REPAIR_IDEMPOTENCE_REPLAY_EXACT_RECEIPT"],
+        "record_commit_schedule": prim["record_commit_schedule"],
+        "record_snapshot_count": len(prim["record_state_snapshots"]),
+        "total_visible_ledger_initial": float(init_int.sum()),
+        "total_visible_ledger_after_propagation": float(prop.sum()),
+        "total_visible_ledger_after_repair": float(repaired.sum()),
+        "per_carrier_ledger_sum_after_repair_min_max": [float(repaired.sum(axis=1).min()), float(repaired.sum(axis=1).max())],
+        "propagation_changes_port_intensities_max_abs": float(np.abs(prop - init_int).max()),
+        "hidden_amplitudes_unchanged_by_repair": bool(np.allclose(np.abs(amplitudes) ** 2, prop)),
+        "visible_ledger_differs_from_hidden_intensities_max_abs": float(np.abs(repaired - prop).max()),
+        "terminal_ledger_min_max": [float(repaired.min()), float(repaired.max())],
+        "terminal_ledger_uniform": bool(np.allclose(repaired, repaired.mean())),
+        "each_seam_repaired_at_most_once": prim["repair_event_count"] + prim["repair_noop_count"]
+        <= cfg["cycles"] * prim["repair_count_per_cycle"],
+    }
+    # is the terminal ledger exactly the pair mean of the propagated ledger?
+    ok = True
+    for s in fed.seams:
+        l = int(s.left_carrier_id.rsplit("-", 1)[1]); r = int(s.right_carrier_id.rsplit("-", 1)[1])
+        lp, rp = s.left_ports[0], s.right_ports[0]
+        m = 0.5 * (prop[l, lp] + prop[r, rp])
+        if abs(repaired[l, lp] - m) > 1e-14 or abs(repaired[r, rp] - m) > 1e-14:
+            ok = False
+    out["terminal_ledger_equals_pair_mean_of_propagated_ledger"] = ok
+    return out
+
+
+def main():
+    res = {}
+    for n in (8, 4, 2):
+        try:
+            res[f"carriers_{n}"] = probe(n)
+        except Exception as exc:  # the smallest accepted instance is reported, failures are kept
+            res[f"carriers_{n}"] = {"error": f"{type(exc).__name__}: {exc}"}
+    with open("source_capture_probe.json", "w") as fh:
+        json.dump(res, fh, indent=1)
+    print(json.dumps(res, indent=1))
+
+
+if __name__ == "__main__":
+    main()

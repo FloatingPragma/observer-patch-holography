@@ -1,0 +1,56 @@
+"""Comparison of the tick built on the carrier generators with the tick of the audit's spatial/dirac_route.py
+(uncommitted file of another team in the public working tree; read only; this script is skipped when it is absent
+or has changed its interface). Exact, sympy.
+
+Also checks the coin frame for the choice X_i = beta of KD.md section 3.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_audit_compare.py
+"""
+import sympy as s
+
+from kdlib import frames, mm, dag, meq, madd, mscale, kron, E2, is_unitary
+from kdwalk import BETA, ZR, Cu, XG, PLUS, MINUS
+
+fr = next(f for f in frames() if all(sum(1 for c in h['axis'] if not c.is_zero()) == 1 for h in f['half_turns']))
+u = []
+for i in range(3):
+    h = next(h for h in fr['half_turns'] if not h['axis'][i].is_zero())
+    u.append(h['u'])
+alpha = [mm(Cu(x), BETA, dag(Cu(x))) for x in u]
+
+# X_i = beta: M = -u_i, V = C(u_i)(|+><+| x (-u_i) + |-><-| x 1)
+for i in range(3):
+    M = mscale(-1, u[i])
+    assert meq(mm(Cu(u[i]), XG(M), dag(Cu(u[i]))), BETA)
+    V = mm(Cu(u[i]), madd(kron(PLUS, M), kron(MINUS, E2)))
+    assert is_unitary(V) and meq(mm(V, BETA, dag(V)), alpha[i]) and meq(mm(V, ZR, dag(V)), BETA)
+print('EXACT ok: X_i = beta corresponds to M = -u_i; V = C(u_i)(|+><+| x (-u_i) + |-><-| x 1) maps (beta, Z_r) to (alpha_i, beta)')
+
+
+def sym(Mx):
+    return s.Matrix([[s.Rational(x.a.numerator, x.a.denominator) + s.I * s.Rational(x.c.numerator, x.c.denominator)
+                      for x in r] for r in Mx])
+
+
+try:
+    from model.coherent_defect_wave.spatial.dirac_route import clifford
+    al_pub, be_pub = clifford()
+except Exception as err:                                     # the file belongs to another team and may change
+    print('audit file not available in this working tree:', type(err).__name__)
+else:
+    al, be = [sym(a) for a in alpha], sym(BETA)
+    lam = s.Symbol('lambda')
+    pts = [[(s.Rational(3, 5), s.Rational(4, 5)), (s.Rational(5, 13), s.Rational(12, 13)),
+            (s.Rational(15, 17), s.Rational(-8, 17)), (s.Rational(7, 25), s.Rational(24, 25))],
+           [(s.Rational(21, 29), s.Rational(20, 29)), (s.Rational(3, 5), s.Rational(-4, 5)),
+            (s.Rational(5, 13), s.Rational(12, 13)), (s.Rational(1), s.Rational(0))]]
+    for pt in pts:
+        def tick(A, B):
+            Dm = s.eye(4)
+            for (c, sn), g in zip(pt[:3], A):
+                Dm = (c * s.eye(4) - s.I * sn * g) * Dm
+            return ((pt[3][0] * s.eye(4) - s.I * pt[3][1] * B) * Dm).applyfunc(s.expand)
+        p1 = s.expand(tick(al, be).charpoly(lam).as_expr())
+        p2 = s.expand(tick(list(al_pub), be_pub).charpoly(lam).as_expr())
+        assert s.expand(p1 - p2) == 0
+    print('EXACT ok: at two rational points the tick with the carrier generators and the tick with the generators of '
+          'spatial/dirac_route.py have the same characteristic polynomial')

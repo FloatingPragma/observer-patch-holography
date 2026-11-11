@@ -1,0 +1,142 @@
+"""LP addendum 1 (items Z1 to Z3): the two-load walk with a Z6 link phase of class k on the hexagon and on the carrier.
+MEASURED (complex float64); the class-3 rows repeat the exact results of lp3. Writes lp6_classes.json.
+
+Link phase s = exp(i pi k/3) on the reference orientation x -> y of a seam: the local unitary is conjugated by
+diag(s^(n_y)) (the gauge transformation at the head; FR round 1 uses the same reflector m = (|x> - s|y>)/sqrt2).
+"""
+from __future__ import annotations
+
+import cmath
+import json
+import sys
+import time
+
+import numpy as np
+
+import lp_common as L
+from lp3b_carrier import dual_path
+
+OUT = 'lp6_classes.json'
+U24 = np.array([[float(x) for x in row] for row in L.U24])
+
+
+def Dmatrix(m, phases, frame):
+    """phases: {seam index: complex phase on the reference orientation of that seam}."""
+    n = m.ncr
+    D = np.zeros((n, n), dtype=complex)
+    for k in range(m.NA):
+        s_idx, o = divmod(k, 2)
+        x, y = m.seams[s_idx]
+        if frame == 'FP':
+            a, b = (x, y) if o == 0 else (y, x)
+        else:
+            a, b = m.ref[s_idx]
+        ia, ib = m.pidx[a], m.pidx[b]
+        ph = phases.get(s_idx, 1.0)
+        head_is_b = (b == y)
+        for c, cfg in enumerate(m.cfg):
+            na, nb = cfg[ia], cfg[ib]
+            if na + nb > 2:
+                continue
+            col_src = L.NAMES.index(f'{na}{nb}')
+            gcol = ph ** (nb if head_is_b else na)
+            for rec in range(4):
+                col = 4 * col_src + rec
+                for row in range(24):
+                    u = U24[row, col]
+                    if u == 0.0:
+                        continue
+                    s2, r2 = divmod(row, 4)
+                    na2, nb2 = int(L.NAMES[s2][0]), int(L.NAMES[s2][1])
+                    c2 = list(cfg)
+                    c2[ia], c2[ib] = na2, nb2
+                    grow = ph ** (nb2 if head_is_b else na2)
+                    D[4 * m.ci[tuple(c2)] + r2, 4 * c + rec] += grow * u * np.conj(gcol) / m.NA
+    return D
+
+
+def tops(D, idx):
+    sub = D[np.ix_(idx, idx)]
+    ev = np.linalg.eigvalsh((sub + sub.conj().T) / 2)
+    return int(np.sum(np.abs(ev - 1) < 1e-9)), float(ev.max())
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP addendum 1: Z6 classes', 'provenance': L.FC.provenance()}
+    hexrows = {}
+    for frame in ('FP', 'FN'):
+        m = L.Model(L.HEX, L.HEX_SEAMS, frame=frame, ref_tail=L.ORBIT_A)
+        ih, ic = m.sector_index('hard-core'), m.sector_index('cycle')
+        rows = {}
+        for k in range(6):
+            ph = cmath.exp(1j * cmath.pi * k / 3)
+            D = Dmatrix(m, {0: ph}, frame)
+            herm = float(np.abs(D - D.conj().T).max())
+            fh, th = tops(D, ih)
+            fc, tc = tops(D, ic)
+            rows[f'class {k}'] = {'fixed vectors (hard-core, cycle)': [fh, fc],
+                                  'largest eigenvalue (hard-core, cycle)': [round(th, 10), round(tc, 10)],
+                                  'lowest A (hard-core, cycle)': [round(1 - th, 10), round(1 - tc, 10)],
+                                  'hermitian defect': herm}
+        hexrows[frame] = rows
+        print(frame)
+        for k, r in rows.items():
+            print('  ', k, r)
+    out['Z1_hexagon'] = hexrows
+
+    car = L.FC.carrier()
+    seams = [tuple(s) for s in car['seams']]
+    faces = list(L.FC.faces())
+    path, crossed = dual_path(faces, L.FACE_F, L.FACE_FP)
+    m = L.Model(list(range(12)), seams, frame='FP')
+    sidx = {frozenset(e): i for i, e in enumerate(seams)}
+    ih, ic = m.sector_index('hard-core'), m.sector_index('cycle')
+    # orient every crossed seam consistently along the string: the port on a fixed side of the dual path is the tail
+    rows = {}
+    for k in range(6):
+        ph = cmath.exp(1j * cmath.pi * k / 3)
+        phases = {}
+        # side of the string: walking the dual path, the crossed seam (u, v) is left with u on the left; the left ports are
+        # found by keeping the vertex shared with the previous crossed seam on the same side
+        left = None
+        for e in crossed:
+            u, v = e
+            if left is None:
+                left = u
+            elif left not in e:
+                # the side changes vertex: the new left vertex is the one adjacent to the old left vertex along the path
+                left = u if (v in prev) else v
+            other = v if left == u else u
+            i = sidx[frozenset(e)]
+            x, y = seams[i]
+            phases[i] = ph if (x == left) else np.conj(ph)
+            prev = e
+        D = Dmatrix(m, phases, 'FP')
+        # face fluxes (product of the phases around each face, in the outward cyclic order)
+        flux = {}
+        for f in faces:
+            p, q, r = L.FC.outward(f)
+            tot = 1.0
+            for (a, b) in ((p, q), (q, r), (r, p)):
+                i = sidx[frozenset((a, b))]
+                x, y = seams[i]
+                s = phases.get(i, 1.0)
+                tot *= s if (x, y) == (a, b) else np.conj(s)
+            cls = int(round((cmath.phase(tot) % (2 * cmath.pi)) / (cmath.pi / 3))) % 6
+            if cls:
+                flux[str(list(f))] = cls
+        fh, th = tops(D, ih)
+        fc, tc = tops(D, ic)
+        rows[f'class {k}'] = {'faces with flux (class)': flux, 'fixed vectors (hard-core, cycle)': [fh, fc],
+                              'largest eigenvalue (hard-core, cycle)': [round(th, 10), round(tc, 10)],
+                              'lowest A (hard-core, cycle)': [round(1 - th, 10), round(1 - tc, 10)]}
+        print('carrier', k, rows[f'class {k}'])
+    out['Z2_carrier (FP)'] = {'string faces': [list(x) for x in path], 'rows': rows}
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

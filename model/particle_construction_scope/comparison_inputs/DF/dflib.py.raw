@@ -1,0 +1,205 @@
+"""Carrier objects for worker DF (read-only use of the RER geometry).
+
+Ports, seams and rotations come from RER/model/common_source/slow_geometry.py (imported read-only, no bytecode
+written). Faces are the 3-cliques of the seam graph, oriented counterclockwise seen from outside. The area-record
+connection is an integer seam table n_e with oriented face sum 1 mod 20 on every face (lead L16); the sector-k
+twisted adjacency is A_k = sum_e exp(2 pi i k n_e / 20) |v><u| + h.c. for e = (u < v).
+
+Run from anywhere:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B <script>
+"""
+import itertools
+import os
+import sys
+from functools import lru_cache
+
+import numpy as np
+
+RER = 'WORKSPACE/reverse-engineering-reality'
+sys.dont_write_bytecode = True
+if RER not in sys.path:
+    sys.path.insert(0, RER)
+
+SQ5 = 5 ** 0.5
+PHI = (1 + SQ5) / 2
+W3 = np.exp(2j * np.pi / 3)
+
+
+@lru_cache(maxsize=1)
+def carrier():
+    from model.common_source import slow_geometry as sg
+    src = sg.source()
+    frame = sg.raw_frame()
+    V = np.array([[float(a) + float(b) * SQ5 for (a, b) in row] for row in frame])
+    seams = sorted(tuple(sorted(e)) for e in src.seams())
+    rots = [tuple(p) for p in src.rotations()]
+    assert len(V) == 12 and len(seams) == 30 and len(rots) == 60
+    adj = {i: set() for i in range(12)}
+    for u, v in seams:
+        adj[u].add(v)
+        adj[v].add(u)
+    assert all(len(adj[i]) == 5 for i in range(12))
+    faces = []
+    for t in itertools.combinations(range(12), 3):
+        a, b, c = t
+        if b in adj[a] and c in adj[a] and c in adj[b]:
+            n = np.cross(V[b] - V[a], V[c] - V[a])
+            if n @ (V[a] + V[b] + V[c]) < 0:
+                t = (a, c, b)
+            faces.append(t)
+    assert len(faces) == 20
+    A = np.zeros((12, 12))
+    for u, v in seams:
+        A[u, v] = A[v, u] = 1.0
+    return {'V': V, 'seams': seams, 'rots': rots, 'adj': adj, 'faces': faces, 'A': A}
+
+
+def face_of(ports):
+    s = set(ports)
+    for f in carrier()['faces']:
+        if set(f) == s:
+            return f
+    raise KeyError(ports)
+
+
+def rotation_cycling(f):
+    """The proper rotation g with g(a) = b, g(b) = c, g(c) = a for the oriented face f = (a, b, c)."""
+    a, b, c = f
+    hits = [g for g in carrier()['rots'] if g[a] == b and g[b] == c and g[c] == a]
+    assert len(hits) == 1
+    return hits[0]
+
+
+def perm_matrix(g):
+    P = np.zeros((12, 12))
+    for j in range(12):
+        P[g[j], j] = 1.0
+    return P
+
+
+def compose(g, h):
+    """(g o h)(i) = g(h(i))."""
+    return tuple(g[h[i]] for i in range(12))
+
+
+def order(g):
+    k, x = 1, g
+    while x != tuple(range(12)):
+        x = compose(g, x)
+        k += 1
+    return k
+
+
+def cycles(g):
+    seen, out = set(), []
+    for i in range(12):
+        if i in seen:
+            continue
+        c, j = [], i
+        while j not in seen:
+            seen.add(j)
+            c.append(j)
+            j = g[j]
+        out.append(tuple(c))
+    return out
+
+
+def junction(seam=(2, 3)):
+    """Oriented faces on both sides of a seam: f1 = (a, b, c1) and f3 = (b, a, c3)."""
+    C = carrier()
+    u, v = seam
+    sides = [f for f in C['faces'] if u in f and v in f]
+    assert len(sides) == 2
+    out = []
+    for f in sides:
+        i = f.index(u)
+        rot = f[i:] + f[:i]                      # starts at u
+        out.append(rot)
+    # f1 traverses u -> v, f3 traverses v -> u (consistent orientation of the sphere)
+    f1 = next(f for f in out if f[1] == v)
+    f3 = next(f for f in out if f[2] == v)
+    a, b = u, v
+    c1 = f1[2]
+    c3 = f3[1]
+    return {'a': a, 'b': b, 'c1': c1, 'c3': c3, 'f1': (a, b, c1), 'f3': (b, a, c3)}
+
+
+# ------------------------------------------------------------------------------------------- area record
+@lru_cache(maxsize=1)
+def area_table(root_face=0):
+    """Integer seam table n_e (e = (u < v)) with oriented face sum 1 mod 20 on every face.
+
+    Built as an integer dual flow: faces are nodes, seams are dual edges, the oriented face sum is the divergence.
+    Target divergence: 1 on every face except the root, -19 on the root (sum zero over the closed sphere).
+    """
+    C = carrier()
+    faces, seams = C['faces'], C['seams']
+    sidx = {e: i for i, e in enumerate(seams)}
+
+    def orient(f, e):
+        a, b, c = f
+        for x, y in ((a, b), (b, c), (c, a)):
+            if (x, y) == e:
+                return 1
+            if (y, x) == e:
+                return -1
+        return 0
+
+    D = np.zeros((20, 30), dtype=np.int64)
+    for i, f in enumerate(faces):
+        for e in seams:
+            D[i, sidx[e]] = orient(f, e)
+    target = np.ones(20, dtype=np.int64)
+    target[root_face] = -19
+    # spanning tree of the dual graph by BFS from the root
+    dual = {i: [] for i in range(20)}
+    for j, e in enumerate(seams):
+        fs = [i for i in range(20) if D[i, j] != 0]
+        assert len(fs) == 2
+        dual[fs[0]].append((fs[1], j))
+        dual[fs[1]].append((fs[0], j))
+    parent, order_ = {root_face: None}, [root_face]
+    for x in order_:
+        for y, j in dual[x]:
+            if y not in parent:
+                parent[y] = (x, j)
+                order_.append(y)
+    n = np.zeros(30, dtype=np.int64)
+    excess = target.copy()
+    for y in reversed(order_[1:]):
+        x, j = parent[y]
+        # choose n_j so that face y receives its excess through seam j: D[y, j] * n_j = excess[y]
+        n[j] = excess[y] * D[y, j]
+        excess[x] -= D[x, j] * n[j]
+    assert np.all(D @ n == target)
+    assert np.all((D @ n) % 20 == 1)
+    return n, D
+
+
+def twisted_adjacency(k, root_face=0):
+    C = carrier()
+    n, _ = area_table(root_face)
+    A = np.zeros((12, 12), complex)
+    for j, (u, v) in enumerate(C['seams']):
+        ph = np.exp(2j * np.pi * k * n[j] / 20)
+        A[v, u] = ph
+        A[u, v] = np.conj(ph)
+    return A
+
+
+def kernel(A):
+    """One tick of the walk: T = 1 - (5 - A)/60 = 11/12 + A/60."""
+    return np.eye(12) * (11 / 12) + A / 60
+
+
+def face_holonomy(A, f):
+    a, b, c = f
+    return A[b, a] * A[c, b] * A[a, c]
+
+
+def charge(n3, n2):
+    """Load charge of a pattern (L13): q = 2 n3 - 3 n2 = -6Y."""
+    return 2 * n3 - 3 * n2
+
+
+def sector(q, k0=11):
+    return (k0 * q) % 20

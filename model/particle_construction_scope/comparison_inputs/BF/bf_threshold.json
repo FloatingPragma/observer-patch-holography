@@ -1,0 +1,72 @@
+{
+ "cell_coupling_g2": 0.7735388459652436,
+ "inv_alpha_cell": 16.2453,
+ "rows": {
+  "F=5, M1": {
+   "g2_below_which_u>0_wins": 0.7573648274964924,
+   "g2_below_which_colour_blocks_order": 0.12033646116529621,
+   "inv_alpha_bare_needed_for_colour_order": 104.42695831895698,
+   "colour_ordered_at_the_cell_coupling": false,
+   "seconds": 5.1
+  },
+  "F=5, M2": {
+   "g2_below_which_u>0_wins": 1.2074752279989962,
+   "g2_below_which_colour_blocks_order": 0.617981739791702,
+   "inv_alpha_bare_needed_for_colour_order": 20.334533862755904,
+   "colour_ordered_at_the_cell_coupling": false,
+   "seconds": 4.0
+  },
+  "F=15, M1": {
+   "g2_below_which_u>0_wins": 0.9938344324947287,
+   "g2_below_which_colour_blocks_order": null,
+   "inv_alpha_bare_needed_for_colour_order": null,
+   "colour_ordered_at_the_cell_coupling": false,
+   "seconds": 0.2
+  },
+  "F=15, M2": {
+   "g2_below_which_u>0_wins": 1.1069720165701025,
+   "g2_below_which_colour_blocks_order": 0.3648665465519185,
+   "inv_alpha_bare_needed_for_colour_order": 34.44100516507903,
+   "colour_ordered_at_the_cell_coupling": false,
+   "seconds": 4.3
+  },
+  "F=5, M3": {
+   "g2_below_which_u>0_wins": 1.3350926435097603,
+   "g2_below_which_colour_blocks_order": 0.9101845841278412,
+   "inv_alpha_bare_needed_for_colour_order": 13.806397991678297,
+   "colour_ordered_at_the_cell_coupling": true,
+   "seconds": 17.4
+  },
+  "F=15, M3": {
+   "g2_below_which_u>0_wins": 1.1104777701520832,
+   "g2_below_which_colour_blocks_order": 0.7204424423582407,
+   "inv_alpha_bare_needed_for_colour_order": 17.442574001089366,
+   "colour_ordered_at_the_cell_coupling": false,
+   "seconds": 14.5
+  },
+  "F=5, M4": {
+   "g2_below_which_u>0_wins": 1.3603860450330774,
+   "g2_below_which_colour_blocks_order": 1.0295347783307245,
+   "inv_alpha_bare_needed_for_colour_order": 12.205872864959586,
+   "colour_ordered_at_the_cell_coupling": true,
+   "seconds": 74.8
+  },
+  "F=15, M4": {
+   "g2_below_which_u>0_wins": 1.110591043640149,
+   "g2_below_which_colour_blocks_order": 0.8028665813172923,
+   "inv_alpha_bare_needed_for_colour_order": 15.651879037910724,
+   "colour_ordered_at_the_cell_coupling": true,
+   "seconds": 11.6
+  },
+  "F=5, reference C<=30 (scan from the cell coupling upward)": {
+   "g2_below_which_u>0_wins": 1.3636498937969757,
+   "g2_below_which_colour_blocks_order": 1.075614807529106,
+   "seconds": 11.2
+  },
+  "F=15, reference C<=30 (scan from the cell coupling upward)": {
+   "g2_below_which_u>0_wins": 1.1105250623430556,
+   "g2_below_which_colour_blocks_order": 0.8330748772200915,
+   "seconds": 12.9
+  }
+ }
+}

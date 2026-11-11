@@ -1,0 +1,725 @@
+"""S9 comparison harness: frozen particle map against a pinned target table.
+
+Usage (run from the repository root, python of the brief):
+  python s9_harness.py freeze  --candidate C.json --targets T.json --log LOG.jsonl
+  python s9_harness.py compare --candidate C.json --targets T.json --log LOG.jsonl --out R.json [--blind]
+  python s9_harness.py verify-log --log LOG.jsonl
+
+The protocol (statistics, nulls, classification, custody) is protocol_spec.json next to this file.
+Everything here is plain linear-Gaussian arithmetic plus Monte Carlo with a seed fixed by the lock record.
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as _dt
+import hashlib
+import itertools
+import json
+import math
+import sys
+from fractions import Fraction
+from pathlib import Path
+
+import numpy as np
+from scipy import stats
+from scipy.special import logsumexp
+
+HERE = Path(__file__).resolve().parent
+LN2 = math.log(2.0)
+LABELS = ("charge3", "colour", "isospin", "spin2")
+EXPOSURES = ("anchor", "selector", "exposed", "blind")
+PROTOCOL_PATH = HERE / "protocol_spec.json"
+
+
+# ----------------------------------------------------------------------------- hashing and custody
+def canonical_bytes(obj) -> bytes:
+    return json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False).encode()
+
+
+def sha256_hex(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def file_sha256(path) -> str:
+    return sha256_hex(Path(path).read_bytes())
+
+
+def harness_fingerprint() -> str:
+    h = hashlib.sha256()
+    for name in ("s9_harness.py", "s9_evaluators.py"):
+        h.update(name.encode() + b"\0" + (HERE / name).read_bytes() + b"\0")
+    return h.hexdigest()
+
+
+def utc_now() -> str:
+    return _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def log_read(path):
+    """Read the hash-chained log and verify every link. Returns the records."""
+    path = Path(path)
+    records = []
+    if not path.exists():
+        return records
+    prev = "0" * 64
+    for n, line in enumerate(path.read_text().splitlines()):
+        rec = json.loads(line)
+        body = {k: v for k, v in rec.items() if k != "record_sha256"}
+        if rec.get("seq") != n or rec.get("prev") != prev or sha256_hex(canonical_bytes(body)) != rec.get("record_sha256"):
+            raise SystemExit(f"custody log broken at record {n}")
+        prev = rec["record_sha256"]
+        records.append(rec)
+    return records
+
+
+def log_append(path, body):
+    records = log_read(path)
+    rec = dict(body)
+    rec["seq"] = len(records)
+    rec["prev"] = records[-1]["record_sha256"] if records else "0" * 64
+    rec["record_sha256"] = sha256_hex(canonical_bytes(rec))
+    with Path(path).open("a") as fh:
+        fh.write(json.dumps(rec, sort_keys=True) + "\n")
+    return rec
+
+
+def candidate_hash(candidate) -> str:
+    return sha256_hex(canonical_bytes(candidate))
+
+
+def freeze(candidate_path, targets_path, log_path, protocol_path=PROTOCOL_PATH, utc=None, external_anchor=None):
+    """Lock a candidate. The target file is hashed as bytes and never parsed here."""
+    candidate = json.loads(Path(candidate_path).read_text())
+    protocol = json.loads(Path(protocol_path).read_text())
+    errors, warnings = validate_candidate(candidate, protocol)
+    if errors:
+        raise SystemExit("candidate rejected at freeze:\n  " + "\n  ".join(errors))
+    body = {"type": "freeze", "utc": utc or utc_now(), "candidate_id": candidate["id"], "lineage": candidate["lineage"],
+            "candidate_sha256": candidate_hash(candidate), "harness_sha256": harness_fingerprint(),
+            "protocol_sha256": file_sha256(protocol_path),
+            "targets_sha256": file_sha256(targets_path) if targets_path and Path(targets_path).exists() else None,
+            "targets_contract": str(targets_path) if targets_path else None,
+            "external_anchor": external_anchor, "completeness_warnings": warnings}
+    return log_append(log_path, body)
+
+
+def find_lock(records, candidate, targets_path, protocol_path):
+    want = (candidate_hash(candidate), harness_fingerprint(), file_sha256(protocol_path))
+    locks = [r for r in records if r["type"] == "freeze"
+             and (r["candidate_sha256"], r["harness_sha256"], r["protocol_sha256"]) == want]
+    if not locks:
+        raise SystemExit("no lock record matches this candidate, harness and protocol: freeze first")
+    lock = locks[0]
+    thash = file_sha256(targets_path)
+    if lock["targets_sha256"] not in (None, thash):
+        raise SystemExit("target table differs from the one named in the lock record")
+    return lock, thash
+
+
+def count_looks(records, lock, thash):
+    """Distinct frozen candidates of the lineage already compared (unblinded) against this target table."""
+    seen = {r["candidate_sha256"] for r in records
+            if r["type"] == "compare" and not r.get("blind") and r.get("lineage") == lock["lineage"]
+            and r.get("targets_sha256") == thash}
+    seen.add(lock["candidate_sha256"])
+    return len(seen)
+
+
+def compare(candidate_path, targets_path, log_path, out_path=None, protocol_path=PROTOCOL_PATH, blind=False,
+            utc=None, n_null=None, quiet=False):
+    records = log_read(log_path)
+    candidate = json.loads(Path(candidate_path).read_text())
+    protocol = json.loads(Path(protocol_path).read_text())
+    lock, thash = find_lock(records, candidate, targets_path, protocol_path)
+    targets = json.loads(Path(targets_path).read_text())
+    seed = int.from_bytes(hashlib.sha256((lock["record_sha256"] + thash).encode()).digest()[:8], "big")
+    if blind:
+        targets = blind_targets(targets, seed)
+    looks = count_looks(records, lock, thash)
+    result = analyse(candidate, targets, protocol, seed=seed, lock_utc=lock["utc"], looks=looks, n_null=n_null)
+    result["custody"] = {"lock_record_sha256": lock["record_sha256"], "lock_utc": lock["utc"],
+                         "candidate_sha256": lock["candidate_sha256"], "harness_sha256": lock["harness_sha256"],
+                         "protocol_sha256": lock["protocol_sha256"], "targets_sha256": thash, "seed": seed,
+                         "blind": bool(blind), "looks_of_lineage_on_this_table": looks,
+                         "external_anchor": lock.get("external_anchor")}
+    if out_path:
+        Path(out_path).write_text(json.dumps(result, indent=1, sort_keys=True) + "\n")
+    log_append(log_path, {"type": "compare", "utc": utc or utc_now(), "blind": bool(blind),
+                          "candidate_sha256": lock["candidate_sha256"], "lineage": lock["lineage"],
+                          "targets_sha256": thash, "lock_record_sha256": lock["record_sha256"],
+                          "result_sha256": sha256_hex(canonical_bytes(result)), "verdict": result["verdict"]["label"]})
+    if not quiet:
+        print(json.dumps(result["verdict"], indent=1))
+    return result
+
+
+def blind_targets(targets, seed):
+    """Keyed scramble for dry runs: masses are redrawn log-uniform in the window; labels are kept."""
+    rng = np.random.default_rng(seed ^ 0x5939)
+    out = json.loads(json.dumps(targets))
+    lo, hi = out["window"]["ln_low"], out["window"]["ln_high"]
+    for row in out["rows"]:
+        if row.get("ln_mass") is not None:
+            row["ln_mass"] = float(rng.uniform(lo, hi))
+            row["mass_GeV"] = math.exp(row["ln_mass"])
+    out["blinded"] = True
+    return out
+
+
+# ----------------------------------------------------------------------------- validation
+def validate_candidate(c, protocol):
+    errors, warnings = [], []
+    need = ("schema", "id", "lineage", "objects", "classes", "mapping", "assignment_rule", "unit",
+            "free_parameters", "choices", "constants", "tau_policy", "frozen_utc")
+    for key in need:
+        if key not in c:
+            errors.append(f"missing field {key}")
+    if errors:
+        return errors, warnings
+    if c["schema"] != protocol["frozen_object"]["schema"]:
+        errors.append("wrong schema")
+    alphabet = protocol["label_alphabet"]
+    ids = set()
+    for cls in c["classes"]:
+        if cls["id"] in ids:
+            errors.append(f"duplicate class {cls['id']}")
+        ids.add(cls["id"])
+        for lab in LABELS:
+            v = cls["labels"].get(lab)
+            if v is not None and v not in alphabet[lab]:
+                errors.append(f"class {cls['id']}: label {lab}={v!r} outside the alphabet")
+        if cls.get("log_mass") is not None and cls.get("tau") is None and c["tau_policy"]["kind"] == "stated":
+            errors.append(f"class {cls['id']}: mass without stated tau")
+    for m in c["mapping"]:
+        if m["class"] not in ids:
+            errors.append(f"mapping names unknown class {m['class']}")
+        if m["exposure"] not in EXPOSURES:
+            errors.append(f"mapping {m['class']}: exposure {m['exposure']!r}")
+    if c["assignment_rule"] not in ("frozen", "sorted", "optimized"):
+        errors.append("assignment_rule")
+    if c["unit"]["kind"] not in ("anchor_particle", "external", "fitted", "none"):
+        errors.append("unit kind")
+    for ch in c["choices"]:
+        if not ch.get("menu") or ch.get("chosen") not in ch["menu"]:
+            errors.append(f"choice {ch.get('id')}: menu must list every alternative including the chosen one")
+        if len(ch.get("menu", [])) == 1 and not ch.get("no_alternative_reason"):
+            warnings.append(f"choice {ch['id']}: single-member menu without a stated reason")
+    for k in c["constants"]:
+        if "derived" not in k:
+            errors.append(f"constant {k.get('id')}: derivation flag missing")
+        if k.get("derived") and not k.get("proof"):
+            warnings.append(f"constant {k['id']}: derived without proof reference")
+    if c["tau_policy"]["kind"] not in ("stated", "grid"):
+        errors.append("tau_policy")
+    if c["tau_policy"]["kind"] == "grid":
+        warnings.append("tau not stated: exploratory scoring only (UNSCORABLE under the primary rule)")
+    return errors, warnings
+
+
+# ----------------------------------------------------------------------------- code lengths
+def universal_int_bits(n: int, c0=2.865064) -> float:
+    """Rissanen universal code length for an integer n >= 1."""
+    if n < 1:
+        raise ValueError("n >= 1")
+    bits, x = math.log2(c0), float(n)
+    while True:
+        x = math.log2(x)
+        if x <= 0:
+            break
+        bits += x
+    return bits
+
+
+def constant_bits(const, protocol) -> float:
+    if const.get("derived"):
+        return 0.0
+    c0 = protocol["parameters"]["universal_code_c0"]
+    kind, value = const["kind"], const["value"]
+
+    def integer(n):
+        n = int(n)
+        return 1.0 + (universal_int_bits(abs(n), c0) if n != 0 else 0.0) + (1.0 if n < 0 else 0.0)
+    if kind == "integer":
+        return integer(value)
+    if kind == "rational":
+        f = Fraction(str(value))
+        return integer(f.numerator) + universal_int_bits(f.denominator, c0)
+    if kind == "named":
+        return math.log2(len(protocol["label_dictionary"]["named_constants"]))
+    if kind == "real_digits":
+        digits = sum(ch.isdigit() for ch in str(value).lstrip("0."))
+        return digits * math.log2(10.0)
+    raise ValueError(f"constant kind {kind}")
+
+
+# ----------------------------------------------------------------------------- Gaussian evidence kernel
+class Kernel:
+    """Evidence in bits for residual vectors d = y - x under covariance C, free linear parameters D."""
+
+    def __init__(self, cov, design, window, prior_widths):
+        cov = np.atleast_2d(np.asarray(cov, float))
+        self.n = cov.shape[0]
+        self.k = 0 if design is None else design.shape[1]
+        sign, logdet = np.linalg.slogdet(cov)
+        cinv = np.linalg.inv(cov)
+        const = self.n * math.log(window) - 0.5 * (self.n * math.log(2 * math.pi) + logdet)
+        if self.k:
+            a = design.T @ cinv @ design
+            ainv = np.linalg.inv(a)
+            self.proj = ainv @ design.T @ cinv           # theta-hat = proj @ d
+            self.m = cinv - cinv @ design @ ainv @ design.T @ cinv
+            const += 0.5 * self.k * math.log(2 * math.pi) - 0.5 * np.linalg.slogdet(a)[1] - float(np.sum(np.log(prior_widths)))
+        else:
+            self.proj = np.zeros((0, self.n))
+            self.m = cinv
+        self.const = const
+        self.dof = self.n - self.k
+
+    def chi2(self, d):
+        d = np.atleast_2d(d)
+        return np.einsum("ij,jk,ik->i", d, self.m, d)
+
+    def bits(self, d):
+        return (self.const - 0.5 * self.chi2(d)) / LN2
+
+    def bits_cross(self, x, y):
+        """Matrix of bits for every pair (x row, y row): shape [len(x), len(y)]."""
+        xm = x @ self.m
+        q = (np.einsum("ij,ij->i", xm, x)[:, None] - 2.0 * xm @ y.T + np.einsum("ij,jk,ik->i", y, self.m, y)[None, :])
+        return (self.const - 0.5 * q) / LN2
+
+    def theta(self, d):
+        return np.atleast_2d(d) @ self.proj.T
+
+
+def log2_mean_exp2(a, axis=None):
+    """log2 of the mean of 2**a."""
+    a = np.asarray(a, float)
+    n = a.size if axis is None else a.shape[axis]
+    return (logsumexp(a * LN2, axis=axis) - math.log(n)) / LN2
+
+
+# ----------------------------------------------------------------------------- problem assembly
+class MassProblem:
+    """Scored mass rows of a candidate against a target table."""
+
+    def __init__(self, c, targets, protocol, lock_utc=None):
+        self.c, self.protocol = c, protocol
+        tmap = {r["particle"]: r for r in targets["rows"]}
+        cmap = {cl["id"]: cl for cl in c["classes"]}
+        self.window = float(targets["window"]["width"])
+        self.win_lo, self.win_hi = float(targets["window"]["ln_low"]), float(targets["window"]["ln_high"])
+        self.params = c["free_parameters"]
+        self.k = len(self.params)
+        unit = c["unit"]
+        anchor = None
+        rows = []
+        for m in c["mapping"]:
+            cl, tg = cmap[m["class"]], tmap.get(m["particle"])
+            if tg is None:
+                raise SystemExit(f"mapping names a particle outside the target table: {m['particle']}")
+            if cl.get("log_mass") is None or tg.get("ln_mass") is None:
+                continue
+            cls = classify(m["exposure"], lock_utc, tg.get("first_public_utc"))
+            row = {"class": cl["id"], "particle": tg["particle"], "x": float(cl["log_mass"]), "y": float(tg["ln_mass"]),
+                   "eps": float(tg["rel_sigma"]), "tau": cl.get("tau"), "sector": cl.get("sector", "all"),
+                   "design": [float(v) for v in cl.get("design", [1.0] * self.k)], "exposure": m["exposure"],
+                   "class_of_row": cls, "group": json.dumps(tg["labels"], sort_keys=True)}
+            if unit["kind"] == "anchor_particle" and tg["particle"] == unit["particle"]:
+                anchor = row
+                row["class_of_row"] = "calibration"
+                continue
+            rows.append(row)
+        self.calibration_rows = [r for r in rows if r["class_of_row"] == "calibration"]
+        rows = [r for r in rows if r["class_of_row"] != "calibration"]
+        self.rows, self.anchor = rows, anchor
+        self.n = len(rows)
+        self.x = np.array([r["x"] for r in rows])
+        self.y = np.array([r["y"] for r in rows])
+        self.eps = np.array([r["eps"] for r in rows])
+        self.design = np.array([r["design"] for r in rows], float).reshape(self.n, self.k) if self.k else None
+        self.prior_widths = np.array([p["prior_width"] for p in self.params], float)
+        self.sectors = sorted({r["sector"] for r in rows})
+        self.sector_index = np.array([self.sectors.index(r["sector"]) for r in rows], int)
+        self.groups = sorted({r["group"] for r in rows})
+        self.group_index = np.array([self.groups.index(r["group"]) for r in rows], int)
+        self.common_var = 0.0
+        self.shift = 0.0
+        if unit["kind"] == "anchor_particle":
+            if anchor is None:
+                raise SystemExit("anchor particle has no mapped mass row")
+            self.shift = anchor["y"] - anchor["x"]
+            self.anchor_eps2 = anchor["eps"] ** 2
+        elif unit["kind"] == "external":
+            self.shift = float(unit["ln_value_GeV"])
+            self.eps = np.sqrt(self.eps ** 2 + float(unit.get("ln_sigma", 0.0)) ** 2)
+        self.tau_stated = c["tau_policy"]["kind"] == "stated"
+        self.tau = np.array([r["tau"] if r["tau"] is not None else np.nan for r in rows], float)
+        self.grid = list(protocol["parameters"]["tau_grid"])
+
+    # covariance for one assignment of tau per row; the anchor contributes a common term
+    def cov(self, tau_rows):
+        c = np.diag(self.eps ** 2 + np.asarray(tau_rows, float) ** 2)
+        if self.anchor is not None:
+            ta = self.anchor["tau"] if (self.tau_stated and self.anchor["tau"] is not None) else 0.0
+            c = c + (self.anchor_eps2 + ta ** 2) * np.ones((self.n, self.n))
+        return c
+
+    def kernels(self):
+        """List of (label, Kernel): one for stated tau, the grid product over sectors otherwise."""
+        if self.tau_stated:
+            return [("stated", Kernel(self.cov(self.tau), self.design, self.window, self.prior_widths))]
+        combos = list(itertools.product(range(len(self.grid)), repeat=len(self.sectors)))
+        if len(combos) > 7000:
+            raise SystemExit("tau grid over sectors too large; state tau or reduce the number of sectors")
+        out = []
+        for combo in combos:
+            tau_rows = np.array([self.grid[combo[s]] for s in self.sector_index])
+            label = ",".join(f"{self.sectors[i]}={self.grid[g]:g}" for i, g in enumerate(combo))
+            out.append((label, Kernel(self.cov(tau_rows), self.design, self.window, self.prior_widths)))
+        return out
+
+    def residual_vectors(self, x=None, y=None):
+        x = self.x if x is None else x
+        y = self.y if y is None else y
+        return y - x - self.shift
+
+    def mixed_bits(self, d, kernels=None):
+        """log2 of the tau-mixture likelihood ratio for each residual vector (rows of d)."""
+        kernels = kernels or self.kernels()
+        allb = np.stack([k.bits(d) for _, k in kernels])
+        return log2_mean_exp2(allb, axis=0), allb
+
+
+def classify(exposure, lock_utc, first_public_utc):
+    if exposure in ("anchor", "selector"):
+        return "calibration"
+    if exposure == "blind" and lock_utc is not None and first_public_utc is not None and lock_utc < first_public_utc:
+        return "prediction"
+    return "postdiction"
+
+
+# ----------------------------------------------------------------------------- discrete labels
+def discrete_analysis(c, targets, protocol, rng, n_null):
+    alphabet = protocol["label_alphabet"]
+    tmap = {r["particle"]: r for r in targets["rows"]}
+    cmap = {cl["id"]: cl for cl in c["classes"]}
+    tiers = c.get("declared_tiers", ["elementary"])
+    pairs, per_label = [], {lab: {"match": 0, "mismatch": 0, "missing": 0} for lab in LABELS}
+    used_classes = {}
+    for m in c["mapping"]:
+        cl, tg = cmap[m["class"]], tmap[m["particle"]]
+        states = {}
+        for lab in LABELS:
+            mv, tv = cl["labels"].get(lab), tg["labels"][lab]
+            s = "missing" if mv is None else ("match" if mv == tv else "mismatch")
+            states[lab] = s
+            per_label[lab][s] += 1
+        pairs.append({"class": cl["id"], "particle": tg["particle"], **states})
+        used_classes.setdefault(cl["id"], []).append(tg["particle"])
+    supplied = [lab for lab in LABELS if all(cl["labels"].get(lab) is not None for cl in c["classes"] if cl.get("observable", True))]
+    observable = [cl for cl in c["classes"] if cl.get("observable", True)]
+
+    def census(model_tuples, labs, tier_list):
+        from collections import Counter
+        mc, pc = Counter(), Counter()
+        for tup, mult in model_tuples:
+            mc[tup] += mult
+        for r in targets["rows"]:
+            if r["tier"] in tier_list:
+                pc[tuple(r["labels"][lab] for lab in labs)] += 1
+        matched = sum(min(mc[t], pc[t]) for t in pc)
+        return matched, sum(mc.values()) - matched, sum(pc.values()) - matched
+
+    out = {"pairs": pairs, "per_label": per_label, "labels_supplied_by_every_observable_class": supplied,
+           "classes_total": len(c["classes"]), "classes_observable": len(observable),
+           "classes_mapped": len(used_classes), "classes_unmapped": [cl["id"] for cl in c["classes"] if cl["id"] not in used_classes],
+           "classes_reused_for_several_particles": {k: v for k, v in used_classes.items() if len(v) > 1},
+           "mapped_pairs_with_mismatch": sum(any(p[lab] == "mismatch" for lab in LABELS) for p in pairs),
+           "mapped_pairs_all_supplied_labels_match": sum(all(p[lab] in ("match", "missing") for lab in LABELS) for p in pairs),
+           "mapped_pairs_all_four_labels_match": sum(all(p[lab] == "match" for lab in LABELS) for p in pairs),
+           "unmatched_observable_in_reach_classes": [cl["id"] for cl in observable
+                                                      if cl["id"] not in used_classes and cl.get("in_reach", False)]}
+    for tier_list, key in ((tiers, "declared_tiers"), (sorted({r["tier"] for r in targets["rows"]}), "all_tiers")):
+        entry = {"tiers": tier_list, "particles": sum(r["tier"] in tier_list for r in targets["rows"]),
+                 "particles_unmapped": [r["particle"] for r in targets["rows"] if r["tier"] in tier_list
+                                        and r["particle"] not in {p["particle"] for p in pairs}]}
+        if supplied:
+            tuples = [(tuple(cl["labels"][lab] for lab in supplied), int(cl.get("multiplicity", 1))) for cl in observable]
+            matched, um, up = census(tuples, supplied, tier_list)
+            entry["census_on_supplied_labels"] = {"labels": supplied, "matched": matched, "unmatched_model": um,
+                                                  "unmatched_particles": up}
+            # null: independent uniform label tuples for every observable class
+            mults = [m for _, m in tuples]
+            sizes = [len(alphabet[lab]) for lab in supplied]
+            null = np.empty(n_null, int)
+            for i in range(n_null):
+                draw = [(tuple(alphabet[lab][rng.integers(sz)] for lab, sz in zip(supplied, sizes)), m) for m in mults]
+                null[i] = census(draw, supplied, tier_list)[0]
+            entry["null_random_labels"] = {"alphabet_size": int(np.prod(sizes)), "mean_matched": float(null.mean()),
+                                           "max_matched": int(null.max()),
+                                           "p_matched_at_least_observed": float((1 + np.sum(null >= matched)) / (1 + n_null))}
+        out[key] = entry
+    # null: uniform random injective assignment of the mapped classes to particles of the declared tiers
+    names = [r["particle"] for r in targets["rows"] if r["tier"] in tiers]
+    mapped = [cmap[p["class"]] for p in pairs]
+    if mapped and len(mapped) <= len(names):
+        obs = sum(all(p[lab] in ("match", "missing") for lab in LABELS) and any(p[lab] == "match" for lab in LABELS) for p in pairs)
+        null = np.empty(n_null, int)
+        for i in range(n_null):
+            pick = rng.permutation(len(names))[: len(mapped)]
+            null[i] = sum(all(cl["labels"].get(lab) is None or cl["labels"][lab] == tmap[names[j]]["labels"][lab] for lab in LABELS)
+                          and any(cl["labels"].get(lab) is not None for lab in LABELS) for cl, j in zip(mapped, pick))
+        out["null_random_bijection"] = {"observed_pairs_without_mismatch": int(obs), "mean": float(null.mean()),
+                                        "p_at_least_observed": float((1 + np.sum(null >= obs)) / (1 + n_null))}
+    return out
+
+
+# ----------------------------------------------------------------------------- mass statistics and nulls
+def sorted_within_groups(v, group_index):
+    """Sort each row of v inside every label group (rank assignment)."""
+    v = np.array(v, float, copy=True)
+    for g in np.unique(group_index):
+        idx = np.where(group_index == g)[0]
+        if len(idx) > 1:
+            v[..., idx] = np.sort(v[..., idx], axis=-1)
+    return v
+
+
+def group_permutations(group_index, cap, rng, samples):
+    """All (or sampled) permutations of row positions that preserve the label groups."""
+    groups = [np.where(group_index == g)[0] for g in np.unique(group_index)]
+    total = 1
+    for g in groups:
+        total *= math.factorial(len(g))
+    n = len(group_index)
+    if total <= cap:
+        perms = []
+        for combo in itertools.product(*[itertools.permutations(g) for g in groups]):
+            p = np.arange(n)
+            for g, img in zip(groups, combo):
+                p[g] = img
+            perms.append(p)
+        return np.array(perms), total, True
+    perms = np.tile(np.arange(n), (samples, 1))
+    for g in groups:
+        for i in range(samples):
+            perms[i, g] = rng.permutation(g)
+    return perms, total, False
+
+
+def too_good(z_exp):
+    """Fisher combination of P(|Z| <= |z_i|): small value = agreement below the experimental resolution."""
+    z = np.abs(np.asarray(z_exp, float))
+    p = np.clip(stats.chi2.cdf(z ** 2, 1), 1e-300, 1.0)
+    fisher = -2.0 * np.sum(np.log(p))
+    return float(stats.chi2.sf(fisher, 2 * len(z))), [float(v) for v in p]
+
+
+def mass_analysis(c, targets, protocol, rng, lock_utc, looks, n_null, evaluator=None):
+    par = protocol["parameters"]
+    prob = MassProblem(c, targets, protocol, lock_utc)
+    out = {"scored_rows": prob.n, "calibration_rows": [r["particle"] for r in prob.calibration_rows]
+           + ([prob.anchor["particle"]] if prob.anchor else []), "free_parameters": prob.k,
+           "window_width_ln": prob.window, "unit": c["unit"], "tau_policy": c["tau_policy"]["kind"]}
+    if prob.n == 0:
+        out["note"] = "no mass row to score"
+        return out, prob
+    if prob.n <= prob.k:
+        out["note"] = "as many free parameters as scored rows: nothing is tested"
+    kernels = prob.kernels()
+    d = prob.residual_vectors()
+    mixed, allb = prob.mixed_bits(d[None, :], kernels)
+    best = int(np.argmax(allb[:, 0]))
+    kbest = kernels[best][1]
+    theta = kbest.theta(d)[0]
+    resid = d - (prob.design @ theta if prob.k else 0.0)
+    sig_best = np.sqrt(np.diag(np.linalg.inv(kbest.m))) if prob.k == 0 else np.sqrt(np.diag(prob.cov(
+        prob.tau if prob.tau_stated else np.array([prob.grid[list(itertools.product(range(len(prob.grid)), repeat=len(prob.sectors)))[best][s]]
+                                                    for s in prob.sector_index]))))
+    rows = []
+    for i, r in enumerate(prob.rows):
+        rows.append({"particle": r["particle"], "class": r["class"], "sector": r["sector"], "class_of_row": r["class_of_row"],
+                     "ln_residual": float(resid[i]), "relative_residual": float(math.expm1(-resid[i])),
+                     "experimental_rel_sigma": float(prob.eps[i]), "z_experimental_only": float(resid[i] / prob.eps[i]),
+                     "sigma_used": float(sig_best[i]), "z": float(resid[i] / sig_best[i])})
+    chi2 = float(kbest.chi2(d)[0])
+    out.update({"rows": rows, "rms_ln_residual": float(np.sqrt(np.mean(resid ** 2))),
+                "fitted_parameters": {p["id"]: float(t) for p, t in zip(prob.params, theta)},
+                "tau_used": kernels[best][0], "chi2": chi2, "dof": kbest.dof,
+                "fit_p_right_tail": float(stats.chi2.sf(chi2, max(kbest.dof, 1))) if prob.tau_stated else None,
+                "evidence_bits_chosen": float(mixed[0]), "evidence_bits_best_tau": float(allb[best, 0]),
+                "tau_grid_cost_bits": 0.0 if prob.tau_stated else math.log2(len(kernels))})
+    # too-good test on experimental errors only (free parameters refitted with experimental weights)
+    k_exp = Kernel(prob.cov(np.zeros(prob.n)), prob.design, prob.window, prob.prior_widths)
+    th = k_exp.theta(d)[0]
+    r_exp = d - (prob.design @ th if prob.k else 0.0)
+    eps_tot = np.sqrt(np.diag(prob.cov(np.zeros(prob.n))))
+    tg, per_row = too_good(r_exp / eps_tot)
+    out["too_good_p"] = tg
+    out["too_good_per_row"] = dict(zip([r["particle"] for r in prob.rows], per_row))
+
+    obs_bits = float(mixed[0])
+    rule = c["assignment_rule"]
+    # ---- null (iii): random model spectra, same counts, errors, parameters and assignment rule
+    xn = rng.uniform(prob.win_lo, prob.win_hi, size=(n_null, prob.n)) - prob.shift
+    ytar = prob.y.copy()
+    if rule == "sorted":
+        xn = sorted_within_groups(xn, prob.group_index)
+        ytar = sorted_within_groups(prob.y, prob.group_index)
+    nb, _ = prob.mixed_bits(ytar[None, :] - xn - prob.shift, kernels)
+    out["null_iii_random_spectra"] = {"n": n_null, "assignment_rule_replayed": rule, "bits_mean": float(nb.mean()),
+                                      "bits_q999": float(np.quantile(nb, 0.999)), "bits_max": float(nb.max()),
+                                      "p_at_least_observed": float((1 + np.sum(nb >= obs_bits)) / (1 + n_null))}
+    # ---- null (ii): label-preserving reassignments of the mapped classes
+    perms, total, exact = group_permutations(prob.group_index, par["assignment_enumeration_cap"], rng, par["assignment_samples"])
+    pb, _ = prob.mixed_bits(prob.y[None, :] - prob.x[perms] - prob.shift, kernels)
+    is_sorted = bool(np.allclose(np.argsort(np.argsort(sorted_within_groups(prob.x, prob.group_index))), np.argsort(np.argsort(prob.x)))) \
+        if prob.n else True
+    out["null_ii_assignments"] = {"label_preserving_assignments": total, "enumerated_exactly": exact, "evaluated": int(len(perms)),
+                                  "rank_of_frozen": int(1 + np.sum(pb > obs_bits + 1e-9)),
+                                  "fraction_at_least_as_good": float(np.mean(pb >= obs_bits - 1e-9)),
+                                  "bits_best": float(pb.max()), "log2_assignments": math.log2(total),
+                                  "frozen_equals_rank_matching": rank_matching_holds(prob)}
+    # ---- null (i): the declared menu
+    choices = c["choices"]
+    menu_total_bits = float(sum(math.log2(len(ch["menu"])) for ch in choices))
+    non_enum_bits = float(sum(math.log2(len(ch["menu"])) for ch in choices if not ch.get("enumerable")))
+    menu = {"choices": len(choices), "log2_menu_size_declared": menu_total_bits,
+            "log2_menu_size_not_enumerable": non_enum_bits}
+    mixture_bits = obs_bits
+    if evaluator is not None:
+        res = evaluator(c, prob, kernels, rng, par)
+        menu.update(res["report"])
+        mixture_bits = res["menu_mixture_bits"]
+    else:
+        menu["note"] = "no evaluator: every choice is charged log2 of its menu size"
+        non_enum_bits = menu_total_bits
+    out["null_i_menu"] = menu
+    # ---- costs and net evidence
+    exposed = [r for r in prob.rows if r["class_of_row"] == "postdiction"]
+    blind = [r for r in prob.rows if r["class_of_row"] == "prediction"]
+    const_rows = [{"id": k["id"], "kind": k["kind"], "value": k["value"], "derived": bool(k.get("derived")),
+                   "bits": constant_bits(k, protocol)} for k in c["constants"]]
+    const_bits = float(sum(k["bits"] for k in const_rows))
+    assign_bits = math.log2(total) if (exposed and rule != "frozen_blind") else 0.0
+    if all(r["class_of_row"] == "prediction" for r in prob.rows):
+        costs = {"menu_not_enumerable": 0.0, "assignment": 0.0, "constants": 0.0, "looks": 0.0}
+        tier1 = tier2 = obs_bits
+    else:
+        costs = {"menu_not_enumerable": non_enum_bits, "assignment": assign_bits, "constants": const_bits,
+                 "looks": math.log2(max(looks, 1))}
+        tier1 = mixture_bits - non_enum_bits - assign_bits - costs["looks"]
+        tier2 = tier1 - const_bits
+    out["selection_costs_bits"] = costs
+    out["constants"] = const_rows
+    out["net_bits_tier1_enumerated_menus"] = float(tier1)
+    out["net_bits_tier2_with_constant_code"] = float(tier2)
+    out["p_bound_tier1"] = float(min(1.0, 2.0 ** (-tier1)))
+    out["p_bound_tier2"] = float(min(1.0, 2.0 ** (-tier2)))
+    out["rows_by_class"] = {"prediction": [r["particle"] for r in blind], "postdiction": [r["particle"] for r in exposed],
+                            "calibration": out["calibration_rows"]}
+    return out, prob
+
+
+def rank_matching_holds(prob):
+    """True when, inside every label group, heavier model class goes to heavier particle."""
+    for g in np.unique(prob.group_index):
+        idx = np.where(prob.group_index == g)[0]
+        if len(idx) > 1 and not np.array_equal(np.argsort(prob.x[idx], kind="stable"), np.argsort(prob.y[idx], kind="stable")):
+            return False
+    return True
+
+
+# ----------------------------------------------------------------------------- verdict
+def verdict(c, disc, mass, protocol, warnings):
+    par = protocol["parameters"]
+    reasons, label = [], None
+    if disc["mapped_pairs_with_mismatch"]:
+        reasons.append(f"{disc['mapped_pairs_with_mismatch']} mapped pair(s) with a label mismatch")
+    if disc["unmatched_observable_in_reach_classes"]:
+        reasons.append("unmatched observable in-reach model state(s): " + ", ".join(disc["unmatched_observable_in_reach_classes"]))
+    stated = c["tau_policy"]["kind"] == "stated"
+    if stated and mass.get("fit_p_right_tail") is not None and mass["fit_p_right_tail"] < par["fit_p_kill"]:
+        reasons.append(f"stated-error model rejected: fit p = {mass['fit_p_right_tail']:.3g}")
+    if reasons:
+        label = "REJECTED"
+    flags = []
+    if mass.get("too_good_p") is not None and mass["too_good_p"] < par["too_good_p_flag"]:
+        flags.append(f"too good: agreement below the experimental resolution (p = {mass['too_good_p']:.3g})")
+    if mass.get("scored_rows", 0) and mass["scored_rows"] <= mass["free_parameters"]:
+        flags.append("as many free parameters as scored rows")
+    unscorable = [w for w in warnings if "tau not stated" in w]
+    if label is None and mass.get("scored_rows", 0) == 0:
+        label = "NO_MASS_TEST"
+    if label is None:
+        classes = mass["rows_by_class"]
+        if classes["prediction"] and not classes["postdiction"]:
+            ok = mass["evidence_bits_chosen"] >= par["bits_required"]
+            label = "CONFIRMED_PREDICTION" if ok and stated else ("UNSCORABLE" if not stated else "NO_EVIDENCE")
+        else:
+            replay = mass["null_i_menu"].get("replay_p")
+            p3 = mass["null_iii_random_spectra"]["p_at_least_observed"]
+            ok = (mass["net_bits_tier2_with_constant_code"] >= par["bits_required"]
+                  and (replay is None or replay <= par["p_required"]) and p3 <= par["p_required"] and not flags)
+            if not stated:
+                label = "UNSCORABLE"
+                reasons.append("tau not stated: exploratory numbers only")
+            else:
+                label = "SUPPORTED_POSTDICTION" if ok else "NO_EVIDENCE"
+            if not ok:
+                reasons.append("selection freedom is not smaller than the agreement"
+                               if mass["net_bits_tier2_with_constant_code"] < par["bits_required"] else "a null or a flag blocks support")
+    return {"label": label, "reasons": reasons, "flags": flags + unscorable,
+            "net_bits_tier1": mass.get("net_bits_tier1_enumerated_menus"), "net_bits_tier2": mass.get("net_bits_tier2_with_constant_code"),
+            "evidence_bits_chosen": mass.get("evidence_bits_chosen")}
+
+
+def analyse(c, targets, protocol, seed, lock_utc=None, looks=1, n_null=None):
+    errors, warnings = validate_candidate(c, protocol)
+    if errors:
+        raise SystemExit("invalid candidate: " + "; ".join(errors))
+    rng = np.random.default_rng(seed)
+    n_null = n_null or protocol["parameters"]["n_null"]
+    evaluator = None
+    ev = c["objects"].get("evaluator")
+    if ev and ev.get("name"):
+        import s9_evaluators
+        evaluator = s9_evaluators.MASS_EVALUATORS[ev["name"]]
+    disc = discrete_analysis(c, targets, protocol, rng, min(n_null, 4000))
+    mass, _ = mass_analysis(c, targets, protocol, rng, lock_utc, looks, n_null, evaluator)
+    return {"schema": "s9.result.v1", "candidate": c["id"], "lineage": c["lineage"], "discrete": disc, "mass": mass,
+            "completeness_warnings": warnings, "verdict": verdict(c, disc, mass, protocol, warnings)}
+
+
+# ----------------------------------------------------------------------------- CLI
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__)
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    for name in ("freeze", "compare"):
+        p = sub.add_parser(name)
+        p.add_argument("--candidate", required=True)
+        p.add_argument("--targets", required=True)
+        p.add_argument("--log", required=True)
+        p.add_argument("--protocol", default=str(PROTOCOL_PATH))
+        if name == "compare":
+            p.add_argument("--out")
+            p.add_argument("--blind", action="store_true")
+            p.add_argument("--n-null", type=int)
+    p = sub.add_parser("verify-log")
+    p.add_argument("--log", required=True)
+    a = ap.parse_args(argv)
+    if a.cmd == "freeze":
+        rec = freeze(a.candidate, a.targets, a.log, a.protocol)
+        print(json.dumps(rec, indent=1))
+    elif a.cmd == "compare":
+        compare(a.candidate, a.targets, a.log, a.out, a.protocol, a.blind, n_null=a.n_null)
+    else:
+        recs = log_read(a.log)
+        print(f"{len(recs)} records, chain intact; freezes {sum(r['type'] == 'freeze' for r in recs)}, "
+              f"comparisons {sum(r['type'] == 'compare' for r in recs)}")
+
+
+if __name__ == "__main__":
+    sys.path.insert(0, str(HERE))
+    main()

@@ -1,0 +1,85 @@
+"""Analysis of the Polyakov loop correlators at N_t = 4 (melting of the potential).
+
+    python had_melt_analyze.py MELTDIR OUT.json
+
+F(r) / T = -ln C(r), C(r) = < L(x) L(x + r)^* >. Jackknife over streams.
+"""
+import sys, glob, json, os
+import numpy as np
+
+
+def jk(arr):
+    n = arr.shape[0]
+    tot = arr.sum(0)
+    s = (tot[None] - arr) / (n - 1)
+    return arr.mean(0), s
+
+
+def jk_err(s):
+    n = s.shape[0]
+    return np.sqrt((n - 1) / n * ((s - s.mean(0)) ** 2).sum(0))
+
+
+def one(files, nt):
+    C = []; absL = []; L2 = []; nmeas = 0
+    r2 = None
+    for f in files:
+        z = np.load(f)
+        r2 = z['r2']
+        C.append(z['blocks'].mean(0))
+        L = z['L']
+        absL.append(np.abs(L).mean()); nmeas += len(L)
+    C = np.array(C); absL = np.array(absL)
+    Cm, Cj = jk(C)
+    with np.errstate(invalid='ignore', divide='ignore'):
+        Fm = -np.log(Cm); Fj = -np.log(Cj)
+    Fe = jk_err(Fj)
+    r = np.sqrt(r2)
+    ok = (Cm > 0) & np.isfinite(Fe) & (Cm > 3 * jk_err(Cj)) & (r > 0)
+    am, aj = jk(absL)
+    res = dict(streams=len(files), measurements=int(nmeas), r=[float(x) for x in r[ok]],
+               F_over_T=[float(x) for x in Fm[ok]], F_over_T_err=[float(x) for x in Fe[ok]],
+               C=[float(x) for x in Cm[ok]], C_err=[float(x) for x in jk_err(Cj)[ok]],
+               abs_L=float(am), abs_L_err=float(jk_err(aj)), r_max_resolved=float(r[ok].max()))
+    # slope of F/T over 2 <= r <= r_max by weighted straight line, on every jackknife sample
+    sel = ok & (r >= 2.0)
+    if sel.sum() >= 3:
+        def slope(F):
+            w = 1.0 / Fe[sel] ** 2
+            x = r[sel]
+            S0, S1, S2 = w.sum(), (w * x).sum(), (w * x * x).sum()
+            T0, T1 = (w * F[sel]).sum(), (w * x * F[sel]).sum()
+            return (S0 * T1 - S1 * T0) / (S0 * S2 - S1 * S1)
+        s0 = slope(Fm); sj = np.array([slope(f) for f in Fj])
+        res['slope_F_over_T_r_ge_2'] = [float(s0), float(jk_err(sj))]
+        res['sigma_T_a2'] = [float(s0 / nt), float(jk_err(sj) / nt)]
+    # change of F/T between r = 3 and the largest resolved on-axis distance
+    on = [k for k in range(len(r)) if ok[k] and abs(r[k] - round(r[k])) < 1e-9]
+    res['on_axis'] = dict(r=[float(r[k]) for k in on], F_over_T=[float(Fm[k]) for k in on], err=[float(Fe[k]) for k in on])
+    return res
+
+
+def main():
+    d, outfn = sys.argv[1], sys.argv[2]
+    out = {}
+    for tag, beta in (('below', 5.60), ('above', 5.85)):
+        files = sorted(glob.glob(os.path.join(d, 'm%d_*.npz' % int(round(beta * 100)))))
+        if not files:
+            continue
+        nt = json.loads(str(np.load(files[0])['meta']))['nt']
+        ns = json.loads(str(np.load(files[0])['meta']))['ns']
+        res = one(files, nt)
+        res.update(beta=beta, lattice=[ns, ns, ns, nt])
+        out[tag] = res
+    json.dump(out, open(outfn, 'w'), indent=1)
+    for tag in out:
+        o = out[tag]
+        print(tag, 'beta', o['beta'], 'meas', o['measurements'], '|L|', o['abs_L'], o['abs_L_err'])
+        print('  r', [round(x, 3) for x in o['r'][:20]])
+        print('  F/T', [round(x, 3) for x in o['F_over_T'][:20]])
+        print('  err', [round(x, 3) for x in o['F_over_T_err'][:20]])
+        print('  slope', o.get('slope_F_over_T_r_ge_2'), 'sigma_T a^2', o.get('sigma_T_a2'))
+
+
+if __name__ == '__main__':
+    main()

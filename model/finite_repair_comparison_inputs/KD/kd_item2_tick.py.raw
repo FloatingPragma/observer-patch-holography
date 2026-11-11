@@ -1,0 +1,216 @@
+"""Item 2 (continued): what the frame transports do to the routing tick of item 3. Exact, Q(i).
+
+Coin = (record) x (doublet). Links act on the doublet.
+  T0  translation transport: links 1, constant dressing            -> D_flat (the tick of item 3)
+  T1  radial transport with uniform lifts, dressing transported with the frame -> D_rad; equal to a recharting of
+      D_eta (flat dressing, central link signs); D_eta = Sigma D_flat with Sigma a position sign;
+      (D_eta)^2 = -(D_flat)^2, (D_eta)^4 = (D_flat)^4
+  T2  the mixed choice C(u_i) Q_i(G_i) C(u_i)^* (radial link inside the public reflector, dressing not
+      transported): its symbol and its square
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_item2_tick.py [out.json]
+"""
+import json
+import sys
+from itertools import product
+
+from kdlib import (K, ZERO, ONE, I, F, mat, eye, mm, madd, msub, mscale, dag, kron, meq, is_unitary, SX, SY, SZ, E2,
+                   frames, spinor_lift)
+from kdwalk import half, BETA, ZR, Cu, rot_beta, apply_coin, apply_cond_shift, same
+
+out, checks = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+fr = next(f for f in frames() if all(sum(1 for c in h['axis'] if not c.is_zero()) == 1 for h in f['half_turns']))
+u = []
+for i in range(3):
+    h = next(h for h in fr['half_turns'] if not h['axis'][i].is_zero())
+    q = h['q'] if h['axis'][i] == ONE else tuple(-x for x in h['q'])
+    u.append(spinor_lift(q))
+seam_dir = {0: 2, 1: 0, 2: 1}                                 # checked in kd_item2.py
+G = [u[seam_dir[i]] for i in range(3)]                        # radial link of axis i on the doublet
+alpha = [mm(Cu(x), BETA, dag(Cu(x))) for x in u]
+rot = rot_beta(F(3, 5), F(4, 5))
+L = 4
+LK = [kron(E2, G[i]) for i in range(3)]
+MIX = [mm(Cu(u[i]), kron(E2, G[i]), dag(Cu(u[i]))) for i in range(3)]
+
+
+def powr(M, n):
+    P = E2
+    for _ in range(n % 4):
+        P = mm(P, M)
+    return P
+
+
+def g(x):
+    return mm(powr(G[2], x[2]), powr(G[1], x[1]), powr(G[0], x[0]))
+
+
+# central-bit gauge: eta_i(x) with g(x+e_i)^-1 G_i g(x) = eta_i(x)
+def eta(i):
+    return lambda x: (-1) ** ((x[1] + x[2]) if i == 0 else (x[2] if i == 1 else 0))
+
+
+for x in product(range(4), repeat=3):
+    for i in range(3):
+        y = list(x); y[i] += 1
+        assert meq(mm(dag(g(y)), G[i], g(x)), mscale(eta(i)(x), E2))
+
+# transported dressing: u_i(x) = g(x) u_i g(x)^-1 = s_i(x) u_i
+sgn = {}
+for x in product(range(4), repeat=3):
+    for i in range(3):
+        w = mm(g(x), u[i], dag(g(x)))
+        s_ = 1 if meq(w, u[i]) else -1
+        assert meq(w, mscale(s_, u[i]))
+        assert s_ == (-1) ** (sum(x[m] for m in range(3) if seam_dir[m] != i))
+        sgn[(x, i)] = s_
+ok('transported lifts: u_i(x) = s_i(x) u_i with s_i(x) = (-1)^(sum of x_m over the axes m whose seam direction is not i); '
+   'path independent', True)
+
+
+def alpha_sign(i):
+    return lambda x: sgn[(tuple(c % 4 for c in x), i)]
+
+
+def D_flat(vec):
+    for i in range(3):
+        vec = apply_cond_shift(vec, L, i, alpha[i])
+    return apply_coin(vec, rot)
+
+
+def D_eta(vec):
+    for i in range(3):
+        vec = apply_cond_shift(vec, L, i, alpha[i], sign=eta(i))
+    return apply_coin(vec, rot)
+
+
+def D_rad(vec):
+    for i in range(3):
+        vec = apply_cond_shift(vec, L, i, alpha[i], link=LK[i], alpha_sign=alpha_sign(i))
+    return apply_coin(vec, rot)
+
+
+def D_mixed(vec):
+    """C(u_i) Q_i(G_i) C(u_i)^* Z_r: the public reflector with the radial link, conjugated by the untransported
+    dressing. As a shift: P+_alpha T x M_i + P-_alpha (T x M_i)^* with M_i = C(u_i)(1 x G_i)C(u_i)^*."""
+    for i in range(3):
+        vec = apply_cond_shift(vec, L, i, alpha[i], link=MIX[i])
+    return apply_coin(vec, rot)
+
+
+OMEGA = {x: kron(E2, g(x)) for x in product(range(L), repeat=3)}
+
+
+def Omega_star(vec):                                          # psi_rad(x) = (1 x g(x)) psi_eta(x)
+    return apply_coin(vec, None, where=lambda x: OMEGA[x])
+
+
+def Sigma(vec):
+    return {k: (-v if (k[1] % 2 == 0) else v) for k, v in vec.items()}          # -(-1)^(x_2), x_2 = second coordinate
+
+
+basis = [x0 + (c,) for x0 in product(range(L), repeat=3) for c in range(4)]
+flat2 = {}
+for b in basis:
+    v0 = {b: ONE}
+    d_eta, d_flat = D_eta(v0), D_flat(v0)
+    # T1: recharting
+    assert same(D_rad(Omega_star(v0)), Omega_star(d_eta))
+    # central signs: D_eta = Sigma D_flat
+    assert same(d_eta, Sigma(d_flat))
+    # Sigma D_flat Sigma = -D_flat (Sigma v0 = +-v0 on a basis state)
+    s0 = -1 if b[1] % 2 == 0 else 1
+    assert same({k: s0 * v for k, v in Sigma(d_flat).items()}, {k: -v for k, v in d_flat.items()})
+    if basis.index(b) % 37 == 0:
+        flat2[b] = (d_eta, d_flat)
+ok('torus L = 4, all 256 basis states: D_rad = Omega^* D_eta Omega (recharting by products of the radial links)', True)
+ok('torus L = 4, all 256 basis states: D_eta = Sigma D_flat, Sigma = -(-1)^(x_2) (a position sign); '
+   'Sigma D_flat Sigma = -D_flat, hence (D_eta)^2 = -(D_flat)^2 and (D_eta)^4 = (D_flat)^4', True)
+# explicit two-tick check on a sample
+for b, (d_eta, d_flat) in flat2.items():
+    lhs = D_eta(d_eta); rhs = {k: -v for k, v in D_flat(d_flat).items()}
+    assert same(lhs, rhs)
+ok('two ticks, sampled basis states: (D_eta)^2 = -(D_flat)^2', True)
+
+# T2: the mixed choice: symbol, and its square at theta = 0
+def e(c, sn, A):
+    return msub(mscale(c, eye(4)), mscale(K(0, 0, sn), A))
+
+
+pyth = [(F(3, 5), F(4, 5)), (F(5, 13), F(12, 13)), (F(15, 17), F(-8, 17)), (F(7, 25), F(24, 25)), (F(1), F(0))]
+
+
+def sym_flat(cs, th):
+    Dm = eye(4)
+    for i in range(3):
+        Dm = mm(e(cs[i][0], cs[i][1], alpha[i]), Dm)
+    return mm(e(th[0], th[1], BETA), Dm)
+
+
+def sym_rc(cs, th):
+    Dm = eye(4)
+    for i in range(3):
+        z = K(cs[i][0], 0, cs[i][1])                           # exp(i k)
+        Pp = mscale(half, madd(eye(4), alpha[i])); Pm = mscale(half, msub(eye(4), alpha[i]))
+        Si = madd(mscale(z.conj(), mm(Pp, MIX[i])), mscale(z, mm(Pm, dag(MIX[i]))))
+        assert is_unitary(Si)
+        Dm = mm(Si, Dm)
+    return mm(e(th[0], th[1], BETA), Dm)
+
+
+# position-space check of the T2 symbol on Bloch columns (one momentum)
+phases = {0: ONE, 1: I, 2: -ONE, 3: -I}
+cs_of = {0: (F(1), F(0)), 1: (F(0), F(1)), 2: (F(-1), F(0)), 3: (F(0), F(-1))}
+for ks in ((1, 0, 2),):
+    zs = [phases[k] for k in ks]
+    Dk = sym_rc([cs_of[k] for k in ks], (F(3, 5), F(4, 5)))
+    for c in range(4):
+        wave = {}
+        for x in product(range(L), repeat=3):
+            ph = ONE
+            for i in range(3):
+                for _ in range(x[i]):
+                    ph = ph * zs[i]
+            wave[x + (c,)] = ph
+        img = D_mixed(wave)
+        for x in product(range(L), repeat=3):
+            for r in range(4):
+                assert img.get(x + (r,), ZERO) == wave[x + (c,)] * Dk[r][c]
+rel = None
+for cs in ([pyth[0], pyth[1], pyth[2]], [pyth[3], pyth[0], pyth[1]]):
+    for th in (pyth[4], pyth[3]):
+        A = sym_rc(cs, th)
+        # candidates: A = s * D_flat(k with one momentum reversed) * beta
+        found = []
+        for flip in range(3):
+            cs2 = [(c, -sn) if i == flip else (c, sn) for i, (c, sn) in enumerate(cs)]
+            for s_ in (1, -1):
+                if meq(A, mscale(s_, mm(sym_flat(cs2, th), BETA))):
+                    found.append((flip, s_))
+        assert len(found) == 1
+        assert rel in (None, found[0])
+        rel = found[0]
+ok(f'radial links with the untransported dressing C(u_i) Q_i(G_i) C(u_i)^*: symbol = {rel[1]:+d} D_flat(k with k_{rel[0] + 1} reversed) beta', True)
+one = pyth[4]
+for i in range(3):
+    cs = [one, one, one]; cs[i] = pyth[1]
+    A = sym_rc(cs, one)
+    assert meq(mm(A, A), eye(4))
+cs = [pyth[0], pyth[1], one]
+A = sym_rc(cs, one)
+ok('radial links, untransported dressing, theta = 0: the two-tick symbol is the identity for momentum along any one axis '
+   '(no propagation along the axes); it is not the identity for two nonzero components', not meq(mm(A, A), eye(4)))
+
+out['checks'] = checks
+out['transported_dressing_sign'] = 's_i(x) = (-1)^(sum of x_m, m with seam direction != i); seam directions ' + str(seam_dir)
+out['radial_constant_dressing_symbol'] = f'{rel[1]:+d} * D_flat(k_{rel[0] + 1} -> -k_{rel[0] + 1}) * beta'
+for k in checks:
+    print('EXACT ok:', k)
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

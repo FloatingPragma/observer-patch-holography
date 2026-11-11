@@ -1,0 +1,227 @@
+"""Exact asymptotic covariance of the accumulated records of one carrier under the reference rule (fundamental matrix).
+
+Records per seam e = (a,b), a < b, incremented at every attempt on e:
+  R_e += j           (current, + = load moves a -> b)
+  S_e += 1 - 2c      (coin)
+  K_e += [j != 0]    (moves)
+Chain: the reference rule (model.observer.native.native) on the closed class of total load N = 1, 2, 3
+(uniform seam, fair coin). Asymptotic covariance per attempt of an additive functional f:
+  Sigma = E[f f^T] - m m^T + C + C^T,  C = E[(f - m) h(s')^T],  h = Z (g - m),  Z = (I - P + 1 pi^T)^{-1},
+with g(s) the conditional mean increment. All arithmetic in Fractions.
+
+Checks (exact): Sigma_RR * 30 == kappa_N * Pi_cyc with kappa_N = N (12 - N) / 132; axial vector covariance 8 kappa_N I.
+usage: s2_exact.py [Nmax]
+"""
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+from itertools import combinations_with_replacement
+from pathlib import Path
+
+import numpy as np
+
+from model.observer.native import native
+import s2_conventions as CV
+
+HERE = Path(__file__).resolve().parent
+
+
+def all_states(N):
+    out = []
+    for combo in combinations_with_replacement(range(12), N):
+        x = [0] * 12
+        for p in combo:
+            x[p] += 1
+        out.append(tuple(x))
+    return sorted(set(out))
+
+
+def solve(Amat, Bmat):
+    """Gauss-Jordan over Fractions: returns X with A X = B (A square, nonsingular)."""
+    n = len(Amat); r = len(Bmat[0])
+    M = [list(Amat[i]) + list(Bmat[i]) for i in range(n)]
+    for col in range(n):
+        piv = next(i for i in range(col, n) if M[i][col] != 0)
+        if piv != col:
+            M[col], M[piv] = M[piv], M[col]
+        inv = 1 / M[col][col]
+        row = M[col]
+        if inv != 1:
+            for k in range(col, n + r):
+                if row[k] != 0:
+                    row[k] = row[k] * inv
+        nz = [k for k in range(col, n + r) if row[k] != 0]
+        for i in range(n):
+            if i == col:
+                continue
+            f = M[i][col]
+            if f == 0:
+                continue
+            Mi = M[i]
+            for k in nz:
+                Mi[k] = Mi[k] - f * row[k]
+    return [M[i][n:] for i in range(n)]
+
+
+def carrier_chain(N, seams):
+    states = all_states(N)
+    index = {s: i for i, s in enumerate(states)}
+    half = Fr(1, 2 * len(seams))
+    trans = {}
+    for s in states:
+        lst = []
+        for e, seam in enumerate(seams):
+            for c in (0, 1):
+                out, (coin, j) = native(s, seam, c)
+                lst.append((half, out, e, c, j))
+        trans[s] = lst
+    # closed class: the balanced states
+    rec = [s for s in states if max(s) - min(s) <= 1]
+    rs = set(rec)
+    closed = all(out in rs for s in rec for _, out, _, _, _ in trans[s])
+    # every state reaches the class
+    reach = set(rec)
+    changed = True
+    while changed:
+        changed = False
+        for s in states:
+            if s not in reach and any(out in reach for _, out, _, _, _ in trans[s]):
+                reach.add(s); changed = True
+    return states, rec, trans, closed, len(reach) == len(states)
+
+
+def asymptotic_covariance(rec, trans, nseam):
+    n = len(rec)
+    idx = {s: i for i, s in enumerate(rec)}
+    r = 3 * nseam                                    # R, S, K
+    P = [[Fr(0)] * n for _ in range(n)]
+    G = [[Fr(0)] * r for _ in range(n)]
+    for s in rec:
+        i = idx[s]
+        for p, out, e, c, j in trans[s]:
+            P[i][idx[out]] += p
+            if j:
+                G[i][e] += p * j
+                G[i][2 * nseam + e] += p
+            G[i][nseam + e] += p * (1 - 2 * c)
+    pi = Fr(1, n)
+    sym = all(P[i][k] == P[k][i] for i in range(n) for k in range(i))
+    m = [sum(G[i][k] for i in range(n)) * pi for k in range(r)]
+    A = [[(1 if i == k else 0) - P[i][k] + pi for k in range(n)] for i in range(n)]
+    rhs = [[G[i][k] - m[k] for k in range(r)] for i in range(n)]
+    # only the columns with a state-dependent mean need solving
+    cols = [k for k in range(r) if any(rhs[i][k] != 0 for i in range(n))]
+    H_part = solve(A, [[rhs[i][k] for k in cols] for i in range(n)])
+    H = [[Fr(0)] * r for _ in range(n)]
+    for i in range(n):
+        for q, k in enumerate(cols):
+            H[i][k] = H_part[i][q]
+    Sig = [[-m[a] * m[b] for b in range(r)] for a in range(r)]
+    Cm = [[Fr(0)] * r for _ in range(r)]
+    for s in rec:
+        i = idx[s]
+        for p, out, e, c, j in trans[s]:
+            w = p * pi
+            f = {}
+            if j:
+                f[e] = Fr(j); f[2 * nseam + e] = Fr(1)
+            f[nseam + e] = Fr(1 - 2 * c)
+            for a, fa in f.items():
+                for b, fb in f.items():
+                    Sig[a][b] += w * fa * fb
+            ho = H[idx[out]]
+            for a, fa in f.items():
+                row = Cm[a]
+                wf = w * fa
+                for b in cols:
+                    if ho[b] != 0:
+                        row[b] += wf * ho[b]
+    # the centring term -m h^T vanishes because sum_s pi(s) h(s) = 0 for the fundamental-matrix solution
+    for a in range(r):
+        for b in range(r):
+            Sig[a][b] += Cm[a][b] + Cm[b][a]
+    return Sig, m, sym, H
+
+
+def frac_matrix(X):
+    return [[Fr(x.a) for x in row] for row in X]
+
+
+def main(nmax):
+    seams, faces, raw, norm2, B, C, W, Wc = CV.build()
+    nseam = 30
+    # exact rational cycle projector Pi_cyc = I - B^T L^+ B
+    Bf = [[Fr(x.a) for x in row] for row in B]
+    L = [[sum(Bf[p][e] * Bf[q][e] for e in range(30)) for q in range(12)] for p in range(12)]
+    J = Fr(1, 12)
+    Linv = solve([[L[p][q] + J for q in range(12)] for p in range(12)], [[Fr(int(p == q)) for q in range(12)] for p in range(12)])
+    Lp = [[Linv[p][q] - J for q in range(12)] for p in range(12)]
+    BtLp = [[sum(Bf[p][e] * Lp[p][q] for p in range(12)) for q in range(12)] for e in range(30)]
+    Pcyc = [[(1 if e == f else 0) - sum(BtLp[e][q] * Bf[q][f] for q in range(12)) for f in range(30)] for e in range(30)]
+    Wn = CV.fl(W); Wcn = CV.fl(Wc)
+    arr = np.load(HERE / 'conventions_arrays.npz')
+    projs = {k: arr[k] for k in ('P3', 'P3p', 'P4a', 'P4b', 'P5', 'Pgrad')}
+    out = {}
+    for N in range(1, nmax + 1):
+        t = time.time()
+        states, rec, trans, closed, absorbing = carrier_chain(N, seams)
+        Sig, m, sym, H = asymptotic_covariance(rec, trans, nseam)
+        kappa = Fr(N * (12 - N), 132)
+        RR = [[Sig[a][b] * 30 for b in range(30)] for a in range(30)]                 # per sweep
+        SS = [[Sig[30 + a][30 + b] * 30 for b in range(30)] for a in range(30)]
+        RS = [[Sig[a][30 + b] * 30 for b in range(30)] for a in range(30)]
+        KK = [[Sig[60 + a][60 + b] * 30 for b in range(30)] for a in range(30)]
+        RK = [[Sig[a][60 + b] * 30 for b in range(30)] for a in range(30)]
+        SK = [[Sig[30 + a][60 + b] * 30 for b in range(30)] for a in range(30)]
+        ok_RR = all(RR[a][b] == kappa * Pcyc[a][b] for a in range(30) for b in range(30))
+        ok_SS = all(SS[a][b] == (1 if a == b else 0) for a in range(30) for b in range(30))
+        ok_RS = all(RS[a][b] == kappa * Pcyc[a][b] for a in range(30) for b in range(30))
+        ok_RK = all(RK[a][b] == 0 for a in range(30) for b in range(30))
+        ok_SK = all(SK[a][b] == 0 for a in range(30) for b in range(30))
+        # closed form of the Poisson solution for the current record: h_R(x) = B^T L^+ x
+        idx = {s: i for i, s in enumerate(rec)}
+        ok_h = True
+        for s in rec:
+            hs = H[idx[s]]
+            mean = [sum(BtLp[e][q] * Fr(N, 12) for q in range(12)) for e in range(30)]
+            for e in range(30):
+                val = sum(BtLp[e][q] * s[q] for q in range(12)) - mean[e]
+                if hs[e] != val:
+                    ok_h = False
+        RRn = np.array([[float(v) for v in row] for row in RR])
+        KKn = np.array([[float(v) for v in row] for row in KK])
+        comp = {k: float(np.trace(P @ RRn @ P) / max(np.trace(P), 1)) for k, P in projs.items()}
+        axial = Wn @ RRn @ Wn.T
+        axial_c = Wcn @ RRn @ Wcn.T
+        # even record K (moves): rotation-invariant, so it is a function of the seam-pair classes; report its spectrum
+        ev = np.linalg.eigvalsh(KKn)
+        evr = sorted({round(float(v), 10) for v in ev})
+        mult = {str(v): int(np.sum(np.abs(ev - v) < 1e-8)) for v in evr}
+        out[str(N)] = {
+            'states_total': len(states), 'closed_class': len(rec), 'class_closed': closed, 'class_absorbing': absorbing,
+            'transition_symmetric': sym, 'kappa': str(kappa), 'kappa_float': float(kappa),
+            'mean_current_zero': all(v == 0 for v in m[:30]), 'mean_coin_zero': all(v == 0 for v in m[30:60]),
+            'mean_moves_per_attempt_per_seam': str(m[60]), 'moves_per_sweep_per_seam': str(m[60] * 30),
+            'EXACT_Sigma_RR_per_sweep_equals_kappa_Pcyc': ok_RR,
+            'EXACT_Sigma_SS_per_sweep_equals_identity': ok_SS,
+            'EXACT_Sigma_RS_per_sweep_equals_kappa_Pcyc': ok_RS,
+            'EXACT_Sigma_RK_zero': ok_RK, 'EXACT_Sigma_SK_zero': ok_SK,
+            'EXACT_poisson_solution_is_Bt_Lplus_x': ok_h,
+            'rate_per_sweep_per_unit_direction': comp,
+            'axial_cov_per_sweep': axial.round(12).tolist(), 'axial_cov_expected_8kappa': float(8 * kappa),
+            'conjugate_axial_cov_per_sweep_diag': float(axial_c[0, 0]),
+            'axial_diffusion_constant_per_sweep': float(4 * kappa),
+            'moves_record_cov_per_sweep_eigenvalues': mult,
+            'seconds': round(time.time() - t, 1),
+        }
+        print(f'N={N}: states {len(states)}, closed class {len(rec)} (closed {closed}, absorbing {absorbing}), kappa = {kappa}')
+        print(f'   Sigma_RR = kappa Pi_cyc: {ok_RR};  Sigma_SS = I: {ok_SS};  Sigma_RS = kappa Pi_cyc: {ok_RS};  Sigma_RK = 0: {ok_RK};  Sigma_SK = 0: {ok_SK};  h_R = B^T L^+ x: {ok_h}')
+        print('   rate per sweep per unit direction:', {k: round(v, 12) for k, v in comp.items()})
+        print(f'   axial vector A: Cov per sweep = {axial[0, 0]:.12f} I (8 kappa = {float(8 * kappa):.12f}), offdiag max {np.abs(axial - np.diag(np.diag(axial))).max():.1e}; D = {float(4 * kappa):.6f}')
+        print(f'   moves record K: mean rate per seam per sweep {m[60] * 30}, covariance eigenvalues (multiplicity): {mult}   [{time.time() - t:.0f}s]', flush=True)
+    (HERE / 's2_exact.json').write_text(json.dumps(out, indent=1))
+
+
+if __name__ == '__main__':
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 3)

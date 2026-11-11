@@ -1,0 +1,107 @@
+"""Block 3, part C: what a finer code gives. Sections of spin j (degree 2j), ports dense on the sphere, cap of
+opening alpha about an axis. By rotation symmetry the cap effect is diagonal in the J_n basis:
+    nu_m = (2j+1)/(4 pi) int_C |<j,m|u>|^2 du = sum_{i=0}^{j+m} C(2j+1, i) x^i (1-x)^(2j+1-i),  x = cos^2(alpha/2)
+(EXACT: binomial tail, positive terms, evaluated in log space).
+  gaussian  (section space filled, Peschel): eps_m = log((1 - nu_m)/nu_m)
+  tracial   (one quantum, rho = P_j/(2j+1)): kappa_m = -log nu_m
+Angular velocity of the flow about the cap axis at mu = (m + 1/2)/j: omega = eps_(m+1) - eps_m.
+Large-j limit derived here (ARGUED by Laplace asymptotics, MEASURED below): omega = -2 |artanh(mu) - artanh(cos alpha)|.
+Also: flow of a coherent state (the code compression of a port projector): azimuth, spin length (1 = a point).
+Writes flow_jscan.json.
+"""
+import json
+import numpy as np
+from scipy.special import gammaln, logsumexp, xlogy
+from mu_lib import icosphere, cap_ports, axes_of_carrier
+
+out = {'alphas': {}}
+JS = [0.5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+
+
+def log_nu(j, x):
+    """log nu_m and log(1 - nu_m) for m = -j..j (ascending)."""
+    n = int(round(2 * j + 1))
+    i = np.arange(n + 1)
+    lt = gammaln(n + 1) - gammaln(i + 1) - gammaln(n - i + 1) + i * np.log(x) + (n - i) * np.log1p(-x)
+    lnu = np.array([logsumexp(lt[:k + 1]) for k in range(n)])            # m = -j + k, sum i = 0..j+m = k
+    l1nu = np.array([logsumexp(lt[k + 1:]) for k in range(n)])
+    return lnu, l1nu
+
+
+def coherent(j, th):
+    n = int(round(2 * j))
+    k = np.arange(n + 1)                                                  # k = j + m
+    lc = 0.5 * (gammaln(n + 1) - gammaln(k + 1) - gammaln(n - k + 1)) + xlogy(k, np.cos(th / 2)) + xlogy(n - k, np.sin(th / 2))
+    return np.exp(lc)
+
+
+for alpha in (50.0, 80.0, 110.0):
+    za = np.cos(np.radians(alpha)); x = np.cos(np.radians(alpha) / 2) ** 2
+    rows = []
+    for j in JS:
+        lnu, l1nu = log_nu(j, x)
+        eps = l1nu - lnu                                                  # gaussian
+        kap = -lnu                                                        # tracial
+        m = np.arange(-j, j + 1)
+        mu = (m[:-1] + 0.5) / j
+        om = np.diff(eps)
+        om_inf = -2 * np.abs(np.arctanh(np.clip(mu, -1 + 1e-15, 1 - 1e-15)) - np.arctanh(za))
+        inside = (mu > za + 0.15) & (mu < 0.9)
+        row = {'j': j, 'dim': int(2 * j + 1)}
+        if inside.any():
+            row['gaussian_sup_error_of_omega_interior'] = float(np.abs(om - om_inf)[inside].max())
+            row['gaussian_sup_relative_error_interior'] = float((np.abs(om - om_inf) / np.abs(om_inf))[inside].max())
+            row['tracial_sup_abs_omega_interior'] = float(np.abs(np.diff(kap))[inside].max())
+        # boundary layer: slope at the boundary
+        ib = int(np.argmin(np.abs(mu - za)))
+        row['gaussian_omega_at_boundary'] = float(om[ib]); row['gaussian_omega_at_boundary_times_sqrt_j'] = float(om[ib] * np.sqrt(j))
+        row['tracial_omega_at_boundary'] = float(np.diff(kap)[ib])
+        if j == 0.5:
+            row['gaussian_omega_exact_spinor'] = float(om[0]); row['tracial_omega_exact_spinor'] = float(np.diff(kap)[0])
+        # coherent state at colatitude alpha/2: azimuth and spin length under the two flows
+        th0 = np.radians(alpha) / 2
+        c = coherent(j, th0)
+        k = np.arange(int(round(2 * j)))                                  # index of m, pairs (m, m+1)
+        mm = m[:-1]
+        ladder = np.sqrt((j - mm) * (j + mm + 1))
+        cs = {}
+        for name, en in (('gaussian', eps), ('tracial', kap)):
+            cs[name] = {}
+            for t in (0.25, 1.0, 4.0):
+                ct = c * np.exp(-1j * t * en)
+                jp = np.sum(np.conj(ct[1:]) * ct[:-1] * ladder)
+                jz = np.sum(m * np.abs(ct) ** 2)
+                S = np.array([jp.real, jp.imag, jz]) / j
+                cs[name][str(t)] = {'azimuth_over_t': float(np.angle(jp) / t) if abs(np.angle(jp)) < 3 else None,
+                                    'spin_length': float(np.linalg.norm(S)),
+                                    'angular_width_rad': float(np.sqrt(max(0.0, 2 * (1 - np.linalg.norm(S)))))}
+        row['coherent_state_at_half_opening'] = cs
+        row['omega_limit_at_half_opening'] = float(-2 * abs(np.arctanh(np.cos(th0)) - np.arctanh(za)))
+        rows.append(row)
+        g = cs['gaussian']
+        print(f"alpha {alpha} j {j}: sup err interior {row.get('gaussian_sup_error_of_omega_interior')} tracial interior {row.get('tracial_sup_abs_omega_interior')} "
+              f"boundary omega*sqrt(j) {row['gaussian_omega_at_boundary_times_sqrt_j']:.4f} | coherent: az/t(0.25) {g['0.25']['azimuth_over_t']} |S|(0.25) {g['0.25']['spin_length']:.5f} |S|(1) {g['1.0']['spin_length']:.5f} limit {row['omega_limit_at_half_opening']:.5f}", flush=True)
+    out['alphas'][str(alpha)] = {'cos_alpha': float(za), 'rows': rows,
+                                 'limit_profile': 'omega(theta) = -2 |artanh(cos theta) - artanh(cos alpha)|; in the stereographic coordinate z of the cap centre: z -> z |z/r_alpha|^(2 i t) inside the cap'}
+
+# finite point set against the continuous-port formula (level 4, port axis, alpha 80): eigenvalues of the cap effect on spin j
+U, F = icosphere(4)
+n = axes_of_carrier()['port']
+idx = cap_ports(U, n, 80.0)
+e1 = np.cross(n, [1.0, 0.3, 0.2]); e1 /= np.linalg.norm(e1); e2 = np.cross(n, e1)
+chk = {}
+for j in (0.5, 2, 4, 8):
+    d = int(2 * j + 1)
+    th = np.arccos(np.clip(U @ n, -1, 1)); ph = np.arctan2(U @ e2, U @ e1)
+    m = np.arange(-j, j + 1)
+    amp = np.array([coherent(j, t) for t in th]) * np.exp(-1j * np.outer(ph, m))      # <m|u_p> up to a port phase
+    S = amp.conj().T @ amp
+    w, V = np.linalg.eigh(S)
+    Sih = (V / np.sqrt(w)) @ V.conj().T
+    M = Sih @ (amp[idx].conj().T @ amp[idx]) @ Sih
+    ev = np.sort(np.linalg.eigvalsh(M))
+    lnu, _ = log_nu(j, np.cos(np.radians(80.0) / 2) ** 2)
+    chk[str(j)] = {'frame_operator_spread': float(w.max() / w.min() - 1), 'max_abs_difference_of_nu': float(np.abs(ev - np.sort(np.exp(lnu))).max())}
+out['finite_point_set_check_level4_port_alpha80'] = chk
+print(chk)
+json.dump(out, open('flow_jscan.json', 'w'), indent=1)

@@ -1,0 +1,144 @@
+"""R4 item 6: the routing in the arrow basis of the record; Weyl points of each block over the whole zone.
+
+In the basis X_r = chi = +-1 the massless tick is the direct sum of two 2 x 2 walks,
+  forward  S_chi(p) = exp(-i chi p3 s3) exp(-i chi p2 s2) exp(-i chi p1 s1),   reverse: the opposite order,
+  alternating two-tick product  S_rev,chi S_fwd,chi.
+A block is degenerate where it equals +1 (phase 0) or -1 (phase pi). There S(K + q) = s_K (1 - i sigma.(J q)) and
+the sign of det J is the handedness of the cone. Exact: sympy at multiples of pi/2. A grid scan confirms that
+there are no other degeneracy points. Then the mass step: which points it gaps (float64, printed).
+"""
+import sys, itertools
+import numpy as np
+import sympy as sy
+from r4lib import *
+
+OUT = {}
+p = sy.symbols('p1 p2 p3', real=True)
+sg = [sy.Matrix([[0, 1], [1, 0]]), sy.Matrix([[0, -sy.I], [sy.I, 0]]), sy.Matrix([[1, 0], [0, -1]])]
+E = lambda a, i: sy.cos(a) * sy.eye(2) - sy.I * sy.sin(a) * sg[i]
+
+
+def block(kind, chi):
+    f = E(chi * p[2], 2) * E(chi * p[1], 1) * E(chi * p[0], 0)
+    r = E(chi * p[0], 0) * E(chi * p[1], 1) * E(chi * p[2], 2)
+    return {'forward': f, 'reverse': r, 'two_tick': r * f}[kind]
+
+
+def quat(S):
+    """S = u - i sigma.n  ->  (u, n)"""
+    u = sy.simplify((S[0, 0] + S[1, 1]) / 2)
+    n = [sy.simplify(sy.I * (S * sg[i]).trace() / 2) for i in range(3)]
+    return u, sy.Matrix(n)
+
+
+# closed form of the coordinator's note (forward and reverse order, block chi = +), exact identity in p
+c = [sy.cos(x) for x in p]; s = [sy.sin(x) for x in p]
+uf, nf = quat(block('forward', 1)); ur, nr = quat(block('reverse', 1))
+cf = (c[0] * c[1] * c[2] + s[0] * s[1] * s[2],
+      sy.Matrix([s[0] * c[1] * c[2] - c[0] * s[1] * s[2], c[0] * s[1] * c[2] + s[0] * c[1] * s[2], c[0] * c[1] * s[2] - s[0] * s[1] * c[2]]))
+cr = (c[0] * c[1] * c[2] - s[0] * s[1] * s[2],
+      sy.Matrix([s[0] * c[1] * c[2] + c[0] * s[1] * s[2], c[0] * s[1] * c[2] - s[0] * c[1] * s[2], c[0] * c[1] * s[2] + s[0] * s[1] * c[2]]))
+OUT['closed_form_forward_exact'] = bool(sy.simplify(uf - cf[0]) == 0 and sy.simplify(nf - cf[1]) == sy.zeros(3, 1))
+OUT['closed_form_reverse_exact'] = bool(sy.simplify(ur - cr[0]) == 0 and sy.simplify(nr - cr[1]) == sy.zeros(3, 1))
+# block chi = -1 at p equals block chi = +1 at -p; two-tick trace is even and permutation symmetric
+u2, n2 = quat(block('two_tick', 1))
+perm = {p[0]: p[1], p[1]: p[2], p[2]: p[0]}
+OUT['two_tick_phase_invariant_under_cyclic_permutation_of_p_exact'] = bool(sy.simplify(u2 - u2.subs(perm, simultaneous=True)) == 0)
+OUT['two_tick_phase_invariant_under_transposition_p1_p3_exact'] = bool(sy.simplify(u2 - u2.subs({p[0]: p[2], p[2]: p[0]}, simultaneous=True)) == 0)
+OUT['two_tick_phase_even_in_each_p_exact'] = bool(all(sy.simplify(u2 - u2.subs(p[i], -p[i])) == 0 for i in range(3)))
+OUT['forward_phase_invariant_under_cyclic_permutation_exact'] = bool(sy.simplify(uf - uf.subs(perm, simultaneous=True)) == 0)
+OUT['forward_phase_even_under_p_to_minus_p'] = bool(sy.simplify(uf - uf.subs({x: -x for x in p}, simultaneous=True)) == 0)
+OUT['two_tick_cos_phase'] = str(sy.trigsimp(u2))
+
+half = sy.pi / 2
+# translations of the zone by the face points: exact relations of the two-tick block (mirror copies of the cone at p = 0)
+W2s = block('two_tick', 1); mir = {}
+for K, Rd in (((0, 1, 1), (1, 1, -1)), ((1, 1, 0), (1, -1, 1)), ((1, 0, 1), (1, -1, -1)), ((2, 0, 0), (1, 1, 1))):
+    lhs = W2s.subs({p[i]: p[i] + K[i] * half for i in range(3)}, simultaneous=True)
+    rhs = W2s.subs({p[i]: Rd[i] * p[i] for i in range(3)}, simultaneous=True)
+    mir[f'W2(p + {K} pi/2) = W2({Rd} p)'] = bool((lhs - rhs).applyfunc(sy.simplify) == sy.zeros(2, 2))
+OUT['two_tick_block_translation_relations_exact'] = mir; print(mir)
+rngm = np.random.default_rng(2); wm = 0.0
+for K, Rd in (((0, 1, 1), (1, 1, -1)), ((1, 1, 0), (1, -1, 1)), ((1, 0, 1), (1, -1, -1)), ((2, 0, 0), (1, 1, 1)), ((2, 2, 2), (1, 1, 1))):
+    for _ in range(20):
+        q = rngm.uniform(-np.pi, np.pi, 3)
+        wm = max(wm, float(np.abs(sym_W2(q + np.array(K) * np.pi / 2, 0.157935) - sym_W2(np.array(Rd) * q, 0.157935)).max()))
+OUT['same_relations_for_the_4x4_two_tick_product_with_mass_max_defect'] = wm; print(wm)
+table = {}
+for kind in ('forward', 'reverse', 'two_tick'):
+    for chi in (1, -1):
+        u, n = quat(block(kind, chi)); J = n.jacobian(sy.Matrix(p))
+        rows = []
+        for k in itertools.product(range(4), repeat=3):
+            sub = {p[i]: k[i] * half for i in range(3)}
+            nv = n.subs(sub)
+            if nv != sy.zeros(3, 1): continue
+            sK = int(u.subs(sub)); d = int((sK * J.subs(sub)).det())
+            odd = tuple(i + 1 for i in range(3) if k[i] % 2)
+            cls = {0: 'corner', 1: f'axis point, odd coordinate {odd}', 2: f'face point, odd coordinates {odd}', 3: 'half-way point'}[len(odd)]
+            rows.append((cls, 0 if sK == 1 else 1, int(np.sign(d)), abs(d)))
+        agg = {}
+        for cls, ph, sgn, mag in rows:
+            key = f"{cls} | phase {'pi' if ph else '0'}"
+            a = agg.setdefault(key, {'count': 0, 'sign_det_J': set(), 'abs_det_J': set()})
+            a['count'] += 1; a['sign_det_J'].add(sgn); a['abs_det_J'].add(mag)
+        for a in agg.values(): a['sign_det_J'] = sorted(a['sign_det_J']); a['abs_det_J'] = sorted(a['abs_det_J'])
+        net = {ph: sum(r[2] for r in rows if r[1] == i) for i, ph in enumerate(('phase 0', 'phase pi'))}
+        cnt = {f'{ph}, sign {sgn:+d}': sum(1 for r in rows if r[1] == i and r[2] == sgn) for i, ph in enumerate(('phase 0', 'phase pi')) for sgn in (1, -1)}
+        table[f'{kind}, chi={chi:+d}'] = {'points': len(rows), 'counts': cnt, 'signed_sum': net, 'classes': agg}
+        print(kind, chi, len(rows), cnt, net)
+OUT['weyl_points_over_the_zone'] = table
+
+# grid scan: no degeneracy away from the multiples of pi/2 (block chi = +; chi = - is the mirror image p -> -p)
+g = np.arange(96) * 2 * np.pi / 96 + 0.013
+P1, P2, P3 = np.meshgrid(g, g, g, indexing='ij')
+def nvec(P1, P2, P3, rev):
+    c1, c2, c3, s1, s2, s3 = np.cos(P1), np.cos(P2), np.cos(P3), np.sin(P1), np.sin(P2), np.sin(P3)
+    sgn = -1 if rev else 1
+    return (c1 * c2 * c3 + sgn * s1 * s2 * s3,
+            np.stack([s1 * c2 * c3 - sgn * c1 * s2 * s3, c1 * s2 * c3 + sgn * s1 * c2 * s3, c1 * c2 * s3 - sgn * s1 * s2 * c3]))
+uF, nF = nvec(P1, P2, P3, False); uR, nR = nvec(P1, P2, P3, True)
+n2g = uR * nF + uF * nR + np.cross(nR, nF, axis=0)
+def dgrid(period, shift=0.0):
+    return np.sqrt(sum(np.minimum((q - shift) % period, period - ((q - shift) % period)) ** 2 for q in (P1, P2, P3)))
+far2 = dgrid(np.pi / 2) > 0.2                                               # two-tick: every point of the pi/2 grid is a node
+far1 = np.minimum(dgrid(np.pi), dgrid(np.pi, np.pi / 2)) > 0.2               # ordered: corners and half-way points only
+OUT['grid_scan_96^3_min_|n|_at_distance_>0.2_from_the_listed_points'] = {
+    'forward': float(np.linalg.norm(nF, axis=0)[far1].min()), 'reverse': float(np.linalg.norm(nR, axis=0)[far1].min()),
+    'two_tick': float(np.linalg.norm(n2g, axis=0)[far2].min())}
+print(OUT['grid_scan_96^3_min_|n|_at_distance_>0.2_from_the_listed_points'])
+
+# the mass step exp(-i theta Y_r): which points does it gap (4 x 4 symbols, theta = 0.157935)
+th = 0.157935
+def phases(Wm): return sorted(round(float(x), 6) for x in -np.angle(np.linalg.eigvals(Wm)))
+pts = {'corner (0,0,0)': (0, 0, 0), 'corner (pi,0,0)': (2, 0, 0), 'half-way (1,1,1)pi/2': (1, 1, 1), 'half-way (-1,1,1)pi/2': (3, 1, 1),
+       'axis point (pi/2,0,0)': (1, 0, 0), 'axis point (0,pi/2,0)': (0, 1, 0), 'face point (0,pi/2,pi/2)': (0, 1, 1),
+       'face point (pi/2,0,pi/2)': (1, 0, 1), 'face point (pi/2,pi/2,0)': (1, 1, 0)}
+mass = {}
+for name, k in pts.items():
+    q = np.array(k) * np.pi / 2
+    mass[name] = {'ordered_tick_M_S_fwd': phases(sym_M(th) @ sym_S(q)), 'two_tick_product': phases(sym_W2(q, th))}
+    print(name, mass[name])
+OUT['mass_step_at_the_degeneracy_points_theta_0.157935_eigenphases'] = mass
+# the ordered massive tick near a half-way point: a massless cone with speed cos(theta)
+K = np.array([1, 1, 1]) * np.pi / 2; rows = []
+for eps in (0.02, 0.01, 0.005):
+    q = eps * np.array([0.6, -0.48, 0.64])
+    ph = np.sort(np.abs(np.angle(np.linalg.eigvals(sym_M(th) @ sym_S(K + q)))))
+    rows.append({'|q|': eps, 'smallest_phase': float(ph[0]), 'cos(theta)|q|': float(np.cos(th) * eps)})
+OUT['ordered_massive_tick_near_half_way_point'] = rows; print(rows)
+# executed with the engine: two alternating massless ticks return every coin at p = (0, pi/2, pi/2) on a 4^3 torus
+w = Routing((4, 4, 4)); worst = 0.0
+for n in ((0, 1, 1), (1, 0, 1), (1, 1, 0), (0, 0, 0), (2, 0, 0)):
+    for col in range(4):
+        e = np.zeros(4, complex); e[col] = 1; psi = w.plane_wave(n, e)
+        worst = max(worst, float(np.abs(w.tick(w.tick(psi), reverse=True) - psi).max()))
+OUT['engine_two_alternating_ticks_are_the_identity_at_corner_and_face_points_max_defect'] = worst
+worst = 0.0
+for n in ((1, 0, 0), (0, 1, 0), (0, 0, 1), (1, 1, 1)):
+    for col in range(4):
+        e = np.zeros(4, complex); e[col] = 1; psi = w.plane_wave(n, e)
+        worst = max(worst, float(np.abs(w.tick(w.tick(psi, th), th, reverse=True) + psi).max()))
+OUT['engine_two_alternating_massive_ticks_equal_minus_one_at_axis_and_half_way_points_max_defect'] = worst
+print(worst)
+dump(OUT, sys.argv[1] if len(sys.argv) > 1 else RL + '/work/R4/item6_chirality.json')

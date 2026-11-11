@@ -1,0 +1,201 @@
+{
+  "abundance_kernel": {
+    "all_finite_times_odd_mean_zero": true,
+    "complete_record_branches": 7776,
+    "equivariant_kernel": true,
+    "even_preparation": true,
+    "states": 1296
+  },
+  "bias_examples": [
+    {
+      "attempts": 1,
+      "coin_probability": "501/1000",
+      "odd_mean_upper_bound": "1/500"
+    },
+    {
+      "attempts": 10,
+      "coin_probability": "501/1000",
+      "odd_mean_upper_bound": "19356402976611889988754999/976562500000000000000000000"
+    },
+    {
+      "attempts": 100,
+      "coin_probability": "501/1000",
+      "odd_mean_upper_bound": "143125554690627468259109363703764016085493237673568910480750323463266236000917223085936150657469347114196736589434260681695038580595550251282934124463586263722942551383136812022875626352135762090344273721967666514329341596712582065155411194290297085908739943648762549999/788860905221011805411728565282786229673206435109023004770278930664062500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "local": {
+    "accepted_nonzero_twists": 1536,
+    "complete_local_branches": 2592,
+    "every_branch_conjugates": true,
+    "no_operations_and_rejections_retained": true
+  },
+  "native_paired_history": {
+    "attempts_per_history": 7560,
+    "complete_record_sha256": [
+      "9293b118f62432e5267e8f2f919242367f7f2b64d6c5ee8f7568922d850bfcfe",
+      "f5399b29cf0867bd16802aad63fe621753c71f93a27d8a9ec31c13fa8e00c295"
+    ],
+    "curve": [
+      {
+        "attempts": 630,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          2,
+          -1
+        ]
+      },
+      {
+        "attempts": 1260,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          1,
+          -2
+        ]
+      },
+      {
+        "attempts": 1890,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          2,
+          -1
+        ]
+      },
+      {
+        "attempts": 2520,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          0,
+          0
+        ]
+      },
+      {
+        "attempts": 3150,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          1,
+          1
+        ]
+      },
+      {
+        "attempts": 3780,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          1,
+          1
+        ]
+      },
+      {
+        "attempts": 4410,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          -2,
+          1
+        ]
+      },
+      {
+        "attempts": 5040,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          -2,
+          1
+        ]
+      },
+      {
+        "attempts": 5670,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          -1,
+          -1
+        ]
+      },
+      {
+        "attempts": 6300,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          -1,
+          -1
+        ]
+      },
+      {
+        "attempts": 6930,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          -6,
+          0
+        ]
+      },
+      {
+        "attempts": 7560,
+        "paired_mean_odd_counts": [
+          0,
+          0
+        ],
+        "single_history_odd_counts": [
+          -1,
+          -1
+        ]
+      }
+    ],
+    "faces": 412,
+    "level": 0,
+    "maximum_single_history_odd_count": 6,
+    "paired_mean_zero": true,
+    "total_integer_lift": 0
+  },
+  "schema": "oph.charge_conjugation_dynamics.v1",
+  "scope": {
+    "clock": "Complete native attempts, including no-operation and rejected twists.",
+    "ensemble": "Conjugation-symmetric preparation and independent unbiased coins; schedule equivariant.",
+    "formal": "Generic finite-kernel symmetry theorem in Lean; native premises checked by exact enumeration.",
+    "observable": "Odd signed class counts divided by the number of faces.",
+    "physical": "No baryon identification, baryon-to-photon ratio, temperature or physical duration.",
+    "symmetry": "Load complement, class/lift sign reversal and complementary coins."
+  },
+  "sources": {
+    "Lean/Dynamics/ChargeConjugation.lean": "55c2d13f3afeb1577d337062bff948b65c82a5928f2dd71eee14af6ca4370b2b",
+    "Lean/Dynamics/ProtectedCharge.lean": "a659a021d3893ee9676f194db0aedb43116318e0b602c62858b9c015e6a50329",
+    "Lean/Dynamics/PublicMarkov.lean": "0695fb0dfae8a3a7c1a320596322f941660cc74ca46338ce4c03274d4d7048c6",
+    "model/charge_conjugation_dynamics/PROOF.md": "062782639f455692d1363158a0020f2584ef9075cd4c2871b52ee9786c494729",
+    "model/charge_conjugation_dynamics/README.md": "daeb5eae9ea0afd3299c344610fb92655d44af25610b409b2b21cb4f4ed699ae",
+    "model/charge_conjugation_dynamics/__init__.py": "a793f63532332447a144ab8857bf092f99d47a39d6acdef9a7cd6bf688d593f6",
+    "model/charge_conjugation_dynamics/__main__.py": "6e7324eb980036707b3e6217ef91ccac62b0bdccdfcdaa48967c9584baf14495",
+    "model/charge_conjugation_dynamics/symmetry.py": "800039ab5522bb6770dfc414893b4bbb38dea42b7e1a92209f66a8f2055b359d",
+    "model/charge_conjugation_dynamics/test_symmetry.py": "138a1f976872c5db1f8afe658bc0fbfb8ee250f45af38007d7676c245e69a9c9",
+    "model/defect_integer_lift/federation.json": "a4addd82ea591bc08bedaad3f704ff3074846937c871772e8f25e459dbc55f4c",
+    "model/defect_integer_lift/model.py": "25607ad2c8a7c71e3e9d13154c2e89fadb404b29e6757b5514e7991af560d0c8",
+    "model/native_abundance_epochs/model.py": "71a4ad32a154c85d3a3f9907875f614c9b105c7d776377b634445f2e1e4dbe74"
+  }
+}

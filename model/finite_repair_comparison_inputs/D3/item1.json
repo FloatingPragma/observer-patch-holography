@@ -1,0 +1,242 @@
+{
+ "engine_sha256": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+ "exact_closed_form": {
+  "statement": "for every angle profile the symmetric-frame tick on a line has, in each sector sigma_1 = s, Y_r = gamma, the formal solution psi(x) = f_x |Y_r = gamma>, g_(x+1) = g_x tan(pi/4 - gamma s theta_x / 2), at eigenvalue +1; it is normalizable exactly when gamma s theta is positive on the right and negative on the left. (-1)^x anticommutes with the shift and commutes with the mass step, so (-1)^x psi is the same statement at eigenvalue -1 (phase pi)",
+  "rows": [
+   {
+    "sigma_1": 1,
+    "Y_r": 1,
+    "residual_at_the_middle_cell": "[0, 0]",
+    "is_zero": true
+   },
+   {
+    "sigma_1": 1,
+    "Y_r": -1,
+    "residual_at_the_middle_cell": "[0, 0]",
+    "is_zero": true
+   },
+   {
+    "sigma_1": -1,
+    "Y_r": 1,
+    "residual_at_the_middle_cell": "[0, 0]",
+    "is_zero": true
+   },
+   {
+    "sigma_1": -1,
+    "Y_r": -1,
+    "residual_at_the_middle_cell": "[0, 0]",
+    "is_zero": true
+   }
+  ],
+  "all_zero": true
+ },
+ "engine_ring": [
+  {
+   "label": "sharp kink, CF-1 sample angle",
+   "cells": 160,
+   "theta0": 0.157935,
+   "kink_width": 0.0,
+   "modes_with_|phase|_below_theta0/2": 4,
+   "modes_within_theta0/2_of_pi": 4,
+   "other_modes_inside_the_gap": 0,
+   "largest_|phase|_of_the_zero_group": 3.777279053776554e-15,
+   "largest_distance_from_pi": 3.1086244689504383e-15,
+   "zero_kink_count": 2,
+   "zero_kink_eigenvalues_of_sigma1_Yr": [
+    1.0,
+    1.0
+   ],
+   "zero_kink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "zero_kink_largest_|<X_r>|": 3.638524649091963e-15,
+   "kink_density_ratio_per_cell_measured": [
+    0.7281913680749402,
+    0.728191368074941,
+    0.7281913680749356
+   ],
+   "kink_density_ratio_per_cell_closed_form_tan^2(pi/4-theta0/2)": 0.7281913680749411,
+   "kink_density_at_cells_-2..3_from_the_wall": [
+    0.09896434976898752,
+    0.13590431596382635,
+    0.13590431596382635,
+    0.09896434976898755,
+    0.07206498524892616,
+    0.05247710019871592
+   ],
+   "zero_antikink_count": 2,
+   "zero_antikink_eigenvalues_of_sigma1_Yr": [
+    -1.0,
+    -1.0
+   ],
+   "zero_antikink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "zero_antikink_largest_|<X_r>|": 7.264022925146721e-16,
+   "pi_kink_count": 2,
+   "pi_kink_eigenvalues_of_sigma1_Yr": [
+    1.0,
+    1.0
+   ],
+   "pi_kink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "pi_kink_largest_|<X_r>|": 2.8839542667120955e-15,
+   "pi_antikink_count": 2,
+   "pi_antikink_eigenvalues_of_sigma1_Yr": [
+    -1.0,
+    -1.0
+   ],
+   "pi_antikink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "pi_antikink_largest_|<X_r>|": 2.2196148043742863e-15,
+   "closed_form_residual_on_the_engine_(phase_0_and_pi,_both_spins)": 8.202966919863829e-16,
+   "closed_form_recurrence_closure_defect_around_the_ring": 5.218048215738236e-15,
+   "two_ticks_modes_with_|two-tick phase|_below_theta0": 8,
+   "two_ticks_defect_from_square_of_one_tick": 1.3877787807814457e-16
+  },
+  {
+   "label": "sharp kink, cos(theta0) = 3/5 (decay ratio exactly 1/3 per cell in amplitude)",
+   "cells": 96,
+   "theta0": 0.9272952180016123,
+   "kink_width": 0.0,
+   "modes_with_|phase|_below_theta0/2": 4,
+   "modes_within_theta0/2_of_pi": 4,
+   "other_modes_inside_the_gap": 0,
+   "largest_|phase|_of_the_zero_group": 2.1093877824982998e-15,
+   "largest_distance_from_pi": 1.3322676295501878e-15,
+   "zero_kink_count": 2,
+   "zero_kink_eigenvalues_of_sigma1_Yr": [
+    1.0,
+    1.0
+   ],
+   "zero_kink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "zero_kink_largest_|<X_r>|": 6.180544709589021e-16,
+   "kink_density_ratio_per_cell_measured": [
+    0.11111111111111262,
+    0.11111111111109777,
+    0.11111111111131662
+   ],
+   "kink_density_ratio_per_cell_closed_form_tan^2(pi/4-theta0/2)": 0.1111111111111111,
+   "kink_density_at_cells_-2..3_from_the_wall": [
+    0.04938271604938274,
+    0.4444444444444443,
+    0.4444444444444447,
+    0.049382716049382595,
+    0.0054869684499314186,
+    0.0006096631611034914
+   ],
+   "zero_antikink_count": 2,
+   "zero_antikink_eigenvalues_of_sigma1_Yr": [
+    -1.0,
+    -1.0
+   ],
+   "zero_antikink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "zero_antikink_largest_|<X_r>|": 1.3767522310699095e-15,
+   "pi_kink_count": 2,
+   "pi_kink_eigenvalues_of_sigma1_Yr": [
+    1.0,
+    1.0
+   ],
+   "pi_kink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "pi_kink_largest_|<X_r>|": 6.467989738010844e-16,
+   "pi_antikink_count": 2,
+   "pi_antikink_eigenvalues_of_sigma1_Yr": [
+    -1.0,
+    -1.0
+   ],
+   "pi_antikink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "pi_antikink_largest_|<X_r>|": 9.06316322715314e-16,
+   "closed_form_residual_on_the_engine_(phase_0_and_pi,_both_spins)": 8.877317053655111e-16,
+   "closed_form_recurrence_closure_defect_around_the_ring": 2.220446049250313e-15,
+   "two_ticks_modes_with_|two-tick phase|_below_theta0": 8,
+   "two_ticks_defect_from_square_of_one_tick": 1.180184074526917e-16
+  },
+  {
+   "label": "smooth kink, tanh of width 6 cells",
+   "cells": 160,
+   "theta0": 0.157935,
+   "kink_width": 6.0,
+   "modes_with_|phase|_below_theta0/2": 4,
+   "modes_within_theta0/2_of_pi": 4,
+   "other_modes_inside_the_gap": 0,
+   "largest_|phase|_of_the_zero_group": 2.892149175499465e-12,
+   "largest_distance_from_pi": 2.893241202173158e-12,
+   "zero_kink_count": 2,
+   "zero_kink_eigenvalues_of_sigma1_Yr": [
+    1.0,
+    1.0
+   ],
+   "zero_kink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "zero_kink_largest_|<X_r>|": 7.045974095545617e-15,
+   "kink_density_ratio_per_cell_measured": [
+    0.8336779584811316,
+    0.771772201361964,
+    0.7449928545556069
+   ],
+   "kink_density_ratio_per_cell_closed_form_tan^2(pi/4-theta0/2)": 0.7281913680749411,
+   "kink_density_at_cells_-2..3_from_the_wall": [
+    0.07575064603230172,
+    0.07972689679115078,
+    0.07972689679115239,
+    0.07575064603232098,
+    0.06855668484282236,
+    0.05937393403376344
+   ],
+   "zero_antikink_count": 2,
+   "zero_antikink_eigenvalues_of_sigma1_Yr": [
+    -1.0,
+    -1.0
+   ],
+   "zero_antikink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "zero_antikink_largest_|<X_r>|": 4.143332536996418e-15,
+   "pi_kink_count": 2,
+   "pi_kink_eigenvalues_of_sigma1_Yr": [
+    1.0,
+    1.0
+   ],
+   "pi_kink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "pi_kink_largest_|<X_r>|": 1.947427123521672e-15,
+   "pi_antikink_count": 2,
+   "pi_antikink_eigenvalues_of_sigma1_Yr": [
+    -1.0,
+    -1.0
+   ],
+   "pi_antikink_eigenvalues_of_sigma1": [
+    -1.0,
+    1.0
+   ],
+   "pi_antikink_largest_|<X_r>|": 2.5821718807432856e-15,
+   "closed_form_residual_on_the_engine_(phase_0_and_pi,_both_spins)": 3.108618107117765e-07,
+   "closed_form_recurrence_closure_defect_around_the_ring": 3.0936979837914436e-06,
+   "two_ticks_modes_with_|two-tick phase|_below_theta0": 8,
+   "two_ticks_defect_from_square_of_one_tick": 1.6883057536160646e-16
+  }
+ ]
+}

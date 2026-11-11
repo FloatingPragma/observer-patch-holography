@@ -1,0 +1,369 @@
+"""LP direction 3: stationary states of the two-load tick on FR's hexagon and the vacuum of the energy function
+A = I - Re W, with and without the class-3 holonomy (items S1 to S8 of CANDIDATES.md).
+EXACT (Fractions) for dimensions, fixed vectors, weights and limits; spectra and finite filter steps MEASURED (float64).
+Writes lp3_stationary.json. Runs in under a minute.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import lp_common as L
+
+OUT = 'lp3_stationary.json'
+SECTORS = ('hard-core', 'cycle', 'idle')
+
+
+def fl(M):
+    return np.array([[float(x) for x in row] for row in M])
+
+
+def gram(basis, proj=None):
+    """N^dag P N for the columns in `basis` (lists of fractions); proj = set of coordinates kept."""
+    n = len(basis)
+    G = [[Fr(0)] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            G[i][j] = sum((basis[i][t] * basis[j][t] for t in range(len(basis[i]))
+                           if (proj is None or t in proj) and basis[i][t] and basis[j][t]), Fr(0))
+    return G
+
+
+def weight_range(basis, proj):
+    """Smallest and largest value of <v|P|v>/<v|v> on the span of the basis (float eigenvalues of G^-1 P)."""
+    if not basis:
+        return None
+    G, P = fl(gram(basis)), fl(gram(basis, proj))
+    ev = np.linalg.eigvals(np.linalg.solve(G, P)).real
+    return [round(float(ev.min()), 12), round(float(ev.max()), 12)]
+
+
+def exact_constant_weight(basis, proj, value):
+    """True when <v|P|v> = value <v|v> for every v in the span (P - value G = 0 exactly)."""
+    G, P = gram(basis), gram(basis, proj)
+    return all(P[i][j] == value * G[i][j] for i in range(len(basis)) for j in range(len(basis)))
+
+
+def project_on(basis, vec):
+    """Squared norm of the orthogonal projection of vec on the span of the basis (exact)."""
+    if not basis:
+        return Fr(0)
+    n = len(basis)
+    G = gram(basis)
+    rhs = [sum((b[t] * vec[t] for t in range(len(vec)) if b[t] and vec[t]), Fr(0)) for b in basis]
+    # solve G x = rhs by exact elimination
+    M = [row[:] + [rhs[i]] for i, row in enumerate(G)]
+    for c in range(n):
+        p = next(i for i in range(c, n) if M[i][c] != 0)
+        M[c], M[p] = M[p], M[c]
+        inv = 1 / M[c][c]
+        M[c] = [x * inv for x in M[c]]
+        for i in range(n):
+            if i != c and M[i][c] != 0:
+                f = M[i][c]
+                M[i] = [x - f * y for x, y in zip(M[i], M[c])]
+    x = [M[i][n] for i in range(n)]
+    return sum((x[i] * rhs[i] for i in range(n)), Fr(0))
+
+
+def project_vec(basis, vec):
+    """Orthogonal projection of vec on the span of the basis (exact)."""
+    n = len(basis)
+    G = gram(basis)
+    rhs = [sum((b[t] * vec[t] for t in range(len(vec)) if b[t] and vec[t]), Fr(0)) for b in basis]
+    M = [row[:] + [rhs[i]] for i, row in enumerate(G)]
+    for c in range(n):
+        p = next(i for i in range(c, n) if M[i][c] != 0)
+        M[c], M[p] = M[p], M[c]
+        inv = 1 / M[c][c]
+        M[c] = [x * inv for x in M[c]]
+        for i in range(n):
+            if i != c and M[i][c] != 0:
+                f = M[i][c]
+                M[i] = [x - f * y for x, y in zip(M[i], M[c])]
+    x = [M[i][n] for i in range(n)]
+    return [sum((x[i] * basis[i][t] for i in range(n)), Fr(0)) for t in range(len(vec))]
+
+
+def analyse(frame, hol):
+    m = L.hexagon(frame, hol)
+    D = m.D()
+    n = m.ncr
+    idx = {s: m.sector_index(s) for s in SECTORS}
+    res = {'sectors (states)': {s: len(idx[s]) for s in SECTORS},
+           'S1 sectors closed under the walk': {s: L.closed(D, idx[s]) for s in SECTORS},
+           'D symmetric': all(D[i][j] == D[j][i] for i in range(n) for j in range(n))}
+    blank = {4 * c for c in range(len(m.cfg))}
+    doubles_blank = {4 * c for c in range(len(m.cfg)) if m.is_double(m.cfg[c])}
+    fixed = {}
+    spec = {}
+    for s in ('hard-core', 'cycle'):
+        Ds = L.sub(D, idx[s])
+        ns = L.nullspace(L.minus_identity(Ds))
+        # lift to the full coordinates
+        full = []
+        for v in ns:
+            w = [Fr(0)] * n
+            for t, i in enumerate(idx[s]):
+                w[i] = v[t]
+            full.append(w)
+        fixed[s] = full
+        ev = L.eigs(Ds)
+        spec[s] = {'largest eigenvalue': round(float(ev.max()), 12), 'smallest eigenvalue': round(float(ev.min()), 12),
+                   'distinct eigenvalues': sorted(set(round(float(x), 9) for x in ev))}
+    res['S2 fixed vectors of D (eigenvalue 1)'] = {s: len(fixed[s]) for s in fixed}
+    res['spectrum of D by sector (MEASURED)'] = spec
+    res['S4 lowest value of A = 1 - lambda_max by sector (MEASURED)'] = {s: round(1 - spec[s]['largest eigenvalue'], 12) for s in spec}
+    # blank-source cyclic kernel: fixed vectors seen by the blank preparations
+    def blank_rank(basis):
+        rows = [[b[t] for b in basis] for t in sorted(blank)]
+        if not basis:
+            return 0
+        return len(basis) - len(L.nullspace(rows))
+    res['S4 kernel of A on the blank-source cyclic subspace'] = {
+        'hard-core': blank_rank(fixed['hard-core']), 'cycle': blank_rank(fixed['cycle']),
+        'total': blank_rank(fixed['hard-core'] + fixed['cycle'])}
+    res['blank-record weight on the fixed space, range (MEASURED)'] = {s: weight_range(fixed[s], blank) for s in fixed}
+    res['double-load weight on the fixed space of the cycle sector'] = {
+        'range (MEASURED)': weight_range(fixed['cycle'], doubles_blank),
+        'equal to 1/3 on the whole space (EXACT)': exact_constant_weight(fixed['cycle'], doubles_blank, Fr(1, 3))}
+
+    # ---------------- descriptions of the fixed vectors
+    desc = {}
+    if frame == 'FP':
+        hc = fixed['hard-core']
+        if hol == 1:
+            uni = [Fr(0)] * n
+            stag = [Fr(0)] * n
+            for c in range(len(m.cfg)):
+                if not m.is_double(m.cfg[c]):
+                    uni[4 * c] = Fr(1)
+                    pos = [i for i in range(6) if m.cfg[c][i]]
+                    stag[4 * c + 1] = Fr((-1) ** (pos[0] + pos[1]))
+            def fixed_by_D(v):
+                return all(sum(D[i][j] * v[j] for j in range(n) if v[j]) == v[i] for i in range(n))
+            desc['uniform blank distinct-port state is fixed'] = fixed_by_D(uni)
+            desc['staggered record-1 distinct-port state is fixed'] = fixed_by_D(stag)
+        cy = fixed['cycle']
+        if len(cy) == 1:
+            v = cy[0]
+            mags = {abs(x) for x in v if x}
+            desc['cycle fixed vector: equal magnitude on all 18 states'] = (len(mags) == 1 and sum(1 for x in v if x) == 18)
+            desc['cycle fixed vector: signs'] = sorted({('+' if x > 0 else '-') for x in v if x})
+    res['fixed vectors, description'] = desc
+
+    # ---------------- S3: eigenvalue +1 of W on the cycle sector (216 dimensions)
+    ic = idx['cycle']
+    nc = len(ic)
+    refl = []                 # (address, vector in the cycle coordinates) with U_k r = -r
+    refl_double_half = True
+    for k in range(m.NA):
+        Uk = [[Fr(0)] * nc for _ in range(nc)]
+        for tj, j in enumerate(ic):
+            c, rec = divmod(j, 4)
+            for c2, r2, u in m.local(c, rec, k):
+                Uk[ic.index(4 * c2 + r2)][tj] += u
+        minus = L.nullspace([[Uk[i][j] + (1 if i == j else 0) for j in range(nc)] for i in range(nc)])
+        if minus:
+            dset = {t for t, j in enumerate(ic) if j in doubles_blank}
+            refl_double_half &= exact_constant_weight(minus, dset, Fr(1, 2))
+        refl.extend((k, v) for v in minus)
+    flow_map = [[v[t] for (_, v) in refl] for t in range(nc)]        # coefficients -> sum of the reflector vectors
+    flows = len(L.nullspace(flow_map))
+    # float check on the full sector walk
+    Wm = np.zeros((nc * m.NA, nc * m.NA))
+    for tj, j in enumerate(ic):
+        c, rec = divmod(j, 4)
+        for k in range(m.NA):
+            for c2, r2, u in m.local(c, rec, k):
+                ti = ic.index(4 * c2 + r2)
+                for k2 in range(m.NA):
+                    # W = Q R, R = 2 A A^dag - 1 on the address: <k|R|k2> = 2/NA - delta
+                    Wm[ti * m.NA + k, tj * m.NA + k2] += float(u) * (2.0 / m.NA - (1.0 if k == k2 else 0.0))
+    evals, evecs = np.linalg.eig(Wm)
+    plus = np.abs(evals - 1) < 1e-8
+    minus1 = np.abs(evals + 1) < 1e-8
+    Pd = np.zeros(nc * m.NA)
+    for t, j in enumerate(ic):
+        if j in doubles_blank:
+            Pd[t * m.NA:(t + 1) * m.NA] = 1.0
+    V = evecs[:, plus]
+    Qo, _ = np.linalg.qr(V)
+    comp = (Qo.conj().T * Pd) @ Qo
+    dw = np.linalg.eigvalsh((comp + comp.conj().T) / 2)
+    res['S3 eigenvalue +1 of W on the cycle sector'] = {
+        'dimension of the sector': nc * m.NA, 'reflector vectors (eigenvalue -1 of Q)': len(refl),
+        'uniform-address part (fixed vectors of D)': len(fixed['cycle']), 'part in the kernel of A^dag (EXACT count)': flows,
+        'dimension (EXACT count)': len(fixed['cycle']) + flows,
+        'dimension from the float spectrum of W': int(plus.sum()), 'eigenvalue -1, float count': int(minus1.sum()),
+        'unitary (float defect)': float(np.abs(Wm.T @ Wm - np.eye(nc * m.NA)).max()),
+        'double-load weight 1/2 on every reflector vector (EXACT)': refl_double_half,
+        'double-load weight on the eigenvalue +1 space, range (MEASURED)': [round(float(dw.min()), 10), round(float(dw.max()), 10)],
+        'tick-1 double-load weight 2/3 lies in the range': bool(dw.max() >= 2 / 3 - 1e-9)}
+
+    # ---------------- stationary states of the hard-core sector (same count) and its blank block
+    ih = idx['hard-core']
+    nh = len(ih)
+    refl_h = []
+    for k in range(m.NA):
+        Uk = [[Fr(0)] * nh for _ in range(nh)]
+        for tj, j in enumerate(ih):
+            c, rec = divmod(j, 4)
+            for c2, r2, u in m.local(c, rec, k):
+                Uk[ih.index(4 * c2 + r2)][tj] += u
+        refl_h.extend(L.nullspace([[Uk[i][j] + (1 if i == j else 0) for j in range(nh)] for i in range(nh)]))
+    flows_h = len(L.nullspace([[v[t] for v in refl_h] for t in range(nh)]))
+    blank_h = [j for j in ih if j % 4 == 0]
+    evb = L.eigs(L.sub(D, blank_h))
+    res['hard-core sector: eigenvalue +1 of W'] = {
+        'uniform-address part (fixed vectors of D)': len(fixed['hard-core']),
+        'part in the kernel of A^dag (address not uniform)': flows_h,
+        'lowest <A> of a blank-record, uniform-address distinct-port state (MEASURED)': round(1 - float(evb.max()), 12)}
+
+    # ---------------- S5: the cycle vacuum, its count, and the bare double
+    u6 = [Fr(0)] * n
+    sS = [Fr(0)] * n
+    for p in L.HEX:
+        u6[4 * m.ci[m.cfg_of(p, p)]] = Fr(1)
+    for p in (2, 10):
+        sS[4 * m.ci[m.cfg_of(p, p)]] = Fr(1)
+    vac = project_vec(fixed['cycle'], u6) if fixed['cycle'] else None      # the vacuum component of the bare double U6
+    if vac is not None:
+        res['S5 weight of U6 on the fixed space of the cycle sector'] = str(sum(x * x for x in vac) / 6)
+        nv = sum(x * x for x in vac)
+        w = {'double': Fr(0), 'in-dimer': Fr(0), 'C': Fr(0), 'forward (FN record)': Fr(0), 'backward (FN record)': Fr(0)}
+        for j in ic:
+            c, rec = divmod(j, 4)
+            a2 = vac[j] * vac[j] / nv
+            cfg = m.cfg[c]
+            if m.is_double(cfg):
+                w['double'] += a2
+            else:
+                s = m.seam_of(cfg)
+                if L.HEX_TYPES[s] == 'E':
+                    w['in-dimer'] += a2
+                else:
+                    w['C'] += a2
+                    w['forward (FN record)' if rec == 2 else 'backward (FN record)'] += a2
+        pF, pI = w['C'] / 2, w['in-dimer']
+        blank_part_uniform = len({vac[j] for j in sorted(doubles_blank)}) == 1 or len({abs(vac[j]) for j in sorted(doubles_blank)}) == 1
+        res['S5 cycle vacuum'] = {
+            'weights': {k: str(v) for k, v in w.items()}, 'p_F = C/2': str(pF), 'p_I': str(pI),
+            'count of two copies X = p_F + p_I - 2 p_F p_I': str(pF + pI - 2 * pF * pI),
+            'blank-record part is the uniform double load (equal magnitudes)': blank_part_uniform,
+            'weight of the blank-record part': str(w['double'])}
+    # bare doubles
+    def spectral(vec):
+        """weights of a (configuration, record) vector on the distinct eigenvalues of D restricted to the cycle sector."""
+        Dc = fl(L.sub(D, ic))
+        ev, U = np.linalg.eigh((Dc + Dc.T) / 2)
+        x = np.array([float(vec[j]) for j in ic])
+        x = x / np.linalg.norm(x)
+        co = (U.T @ x) ** 2
+        outw = {}
+        for e, c2 in zip(ev, co):
+            key = round(float(e), 9)
+            outw[key] = outw.get(key, 0.0) + float(c2)
+        return {str(k): round(v, 12) for k, v in sorted(outw.items()) if v > 1e-12}
+    def expD(v):
+        return sum(v[i] * sum(D[i][j] * v[j] for j in range(n) if v[j]) for i in range(n) if v[i]) / sum(x * x for x in v)
+    res['S5 bare double loads'] = {
+        '<U6|D|U6>': str(expD(u6)), '<S|D|S>': str(expD(sS)), '<A> = 1 - <D>': str(1 - expD(u6)),
+        'spectral weights of U6 on D (MEASURED)': spectral(u6), 'spectral weights of S on D (MEASURED)': spectral(sS)}
+
+    # ---------------- S7: public reference rho_W = ((5/4) I + (W + W^dag)/2)/Z
+    trD = {s: sum(D[i][i] for i in idx[s]) for s in SECTORS}
+    num = {s: Fr(5, 4) * len(idx[s]) * m.NA + (2 - m.NA) * trD[s] for s in SECTORS}
+    Z = sum(num.values())
+    res['S7 public reference rho_W, weight by sector'] = {s: str(num[s] / Z) for s in SECTORS}
+    res['S7 as floats'] = {s: round(float(num[s] / Z), 6) for s in SECTORS}
+    res['tracial weight by sector'] = {s: str(Fr(len(idx[s]), n)) for s in SECTORS}
+
+    # ---------------- S8: iterated public filter on the blank-record, uniform-address preparations
+    lim = {}
+    for s in ('hard-core', 'cycle'):
+        tot = Fr(0)
+        for c in range(len(m.cfg)):
+            e = [Fr(0)] * n
+            e[4 * c] = Fr(1)
+            if m.sector(m.cfg[c], 0) == s:
+                tot += project_on(fixed[s], e)
+        lim[s] = tot
+    total = lim['hard-core'] + lim['cycle']
+    steps = {}
+    Dh, Dc = fl(L.sub(D, idx['hard-core'])), fl(L.sub(D, ic))
+    for name, Dm, ii in (('hard-core', Dh, idx['hard-core']), ('cycle', Dc, ic)):
+        ev, U = np.linalg.eigh((Dm + Dm.T) / 2)
+        rows = [t for t, j in enumerate(ii) if j % 4 == 0]
+        co = (U[rows, :] ** 2).sum(axis=0)
+        steps[name] = (ev, co)
+    series = {}
+    for nstep in (0, 1, 10, 100, 1000, 10000):
+        ww = {name: float((co * ((5 + 4 * ev) / 9) ** nstep).sum()) for name, (ev, co) in steps.items()}
+        series[nstep] = round(ww['cycle'] / (ww['cycle'] + ww['hard-core']), 9)
+    res['S8 iterated filter K+ = (2 I + W)/3 on the 21 blank preparations'] = {
+        'limit weight kept, hard-core preparations (EXACT)': str(lim['hard-core']),
+        'limit weight kept, double-load preparations (EXACT)': str(lim['cycle']),
+        'limit of the conditional weight of the cycle sector (EXACT)': str(lim['cycle'] / total) if total else 'undefined',
+        'conditional weight of the cycle sector after n filters (MEASURED)': series}
+    return res
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP direction 3: stationary states and the vacuum on the hexagon', 'provenance': L.FC.provenance()}
+    for frame in ('FP', 'FN'):
+        for hol in (1, -1):
+            key = f'{frame}, holonomy {hol:+d}'
+            out[key] = analyse(frame, hol)
+            print('=====', key)
+            print(json.dumps(out[key], indent=1, default=str))
+    # the position of the class-3 sign is a gauge choice: the FP results for the six positions
+    gauge = {}
+    for e in range(6):
+        m = L.hexagon('FP', -1, sign_seam=e)
+        D = m.D()
+        gauge[e] = {s: len(L.nullspace(L.minus_identity(L.sub(D, m.sector_index(s))))) for s in ('hard-core', 'cycle')}
+    out['FP, holonomy -1, sign on each of the six seams: fixed vectors'] = gauge
+    print('sign position', gauge)
+
+    # ---------------- S6: the committed pump (records discarded) on the 21 configurations
+    L.FC.rer_root()
+    import sympy as sp
+    from model.coherent_seam_repair.common import local_pump_kraus
+    K = local_pump_kraus()
+    m = L.hexagon('FP', 1)
+    ncfg = len(m.cfg)
+    P = [[Fr(0)] * ncfg for _ in range(ncfg)]
+    for c in range(ncfg):
+        cfg = m.cfg[c]
+        for k in range(m.NA):
+            a, b = m.pair_at(k)
+            ia, ib = m.pidx[a], m.pidx[b]
+            col = L.NAMES.index(f'{cfg[ia]}{cfg[ib]}')
+            for Kj in K:
+                for row in range(6):
+                    v = sp.nsimplify(Kj[row, col] ** 2)
+                    if v != 0:
+                        c2 = list(cfg)
+                        c2[ia], c2[ib] = int(L.NAMES[row][0]), int(L.NAMES[row][1])
+                        P[m.ci[tuple(c2)]][c] += Fr(int(v.p), int(v.q)) / m.NA
+    dbl = [c for c in range(ncfg) if m.is_double(m.cfg[c])]
+    inflow = sum(P[d][c] for d in dbl for c in range(ncfg) if c not in dbl)
+    stay = {str(P[d][d]) for d in dbl}
+    cols = {str(sum(P[r][c] for r in range(ncfg))) for c in range(ncfg)}
+    out['S6 committed pump'] = {'column sums': sorted(cols), 'transition weight from distinct ports into a double load': str(inflow),
+                                'double load stays with weight': sorted(stay),
+                                'stationary weight of the double loads': '0 (no inflow, outflow 1/3 per attempt)'}
+    print('S6', out['S6 committed pump'])
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

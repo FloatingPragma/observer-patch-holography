@@ -1,0 +1,2959 @@
+{
+ "schema": "oph.viewer.link_check.v1",
+ "checked": "2026-11-11T06:00:42Z",
+ "user_agent": "link-checker/1.0 (python-urllib)",
+ "counts": {
+  "ok": 118,
+  "dead": 21,
+  "refused": 1
+ },
+ "links": [
+  {
+   "url": "https://arxiv.org/abs/1508.07161",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos.js",
+     "line": 598,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/results_data.js",
+     "line": 42,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://arxiv.org/abs/1807.06209",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos_evidence.js",
+     "line": 50,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://arxiv.org/abs/1812.08235",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/results_data.js",
+     "line": 43,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://arxiv.org/abs/2406.13516",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/spectrum.js",
+     "line": 221,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://arxiv.org/abs/2503.14452",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos_evidence.js",
+     "line": 110,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/cosmos_evidence.js",
+     "line": 125,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://arxiv.org/abs/2506.20707",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos_evidence.js",
+     "line": 65,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/cosmos_evidence.js",
+     "line": 80,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/cosmos_evidence.js",
+     "line": 95,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/math.js",
+     "line": 11,
+     "as": "BASE + 'katex.min.css'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/math.js",
+     "line": 12,
+     "as": "BASE + 'katex.min.js'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/index.html",
+     "line": 404,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/index.html",
+     "line": 404,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://floatingpragma.ai/",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/index.html",
+     "line": 411,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/1bf5e5718/model/affine_gauss_charged_clock/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/charged_field_evidence.json",
+     "line": 100,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/1bf5e5718/model/affine_gauss_clock_observables/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/charged_field_evidence.json",
+     "line": 115,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/1bf5e5718/model/affine_gauss_full_spectrum/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/charged_field_evidence.json",
+     "line": 105,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/1bf5e5718/model/native_abelian_field_join/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/charged_field_evidence.json",
+     "line": 110,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/4623c6ec191026f2f470399282dc3458b3bb649f/code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos_evidence.js",
+     "line": 32,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/53630a945/model/native_block_dirac/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/dirac_evidence.json",
+     "line": 30,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/d1d0c28907c449e6c207e41d6909c9038cf75ca7/model/interacting_block_proca/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/proca_evidence.json",
+     "line": 4,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Screen/SL2F5PortCover.lean",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 20,
+     "as": "RER + 'Lean/Screen/SL2F5PortCover.lean'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/README.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/help/journey.js",
+     "line": 80,
+     "as": "REPO + 'README.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/code/particles/MASS_CANDIDATE_STATUS.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 23,
+     "as": "RER + 'code/particles/MASS_CANDIDATE_STATUS.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/docs/research/OPH_FINITE_FIELD_RECORDS.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field-records.html",
+     "line": 32,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 33,
+     "as": "RER + 'docs/research/OPH_FINITE_FIELD_RECORDS.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/docs/research/OPH_FINITE_FIELD_RECORDS.svg",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field-records.html",
+     "line": 32,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 23,
+     "as": "RER + 'extra/fine_structure_constant_derivation.pdf'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 21,
+     "as": "RER + 'extra/fine_structure_constant_derivation.tex'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_defect_wave/chiral_joint/family_cell/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 26,
+     "as": "RER + 'model/coherent_defect_wave/chiral_joint/family_cell/PROOF.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_defect_wave/chiral_joint/higgs_composites/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 27,
+     "as": "RER + 'model/coherent_defect_wave/chiral_joint/higgs_composites/PROOF.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 313,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 318,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_defect_wave/chiral_joint/peter_weyl_links/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 28,
+     "as": "RER + 'model/coherent_defect_wave/chiral_joint/peter_weyl_links/PROOF.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_defect_wave/spatial/ROUTE.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/lattice.js",
+     "line": 33,
+     "as": "RER + 'model/coherent_defect_wave/spatial/ROUTE.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_seam_repair/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 75,
+     "as": "RER + 'model/coherent_seam_repair/PROOF.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 19,
+     "as": "RER + 'model/coherent_seam_repair/PROOF.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/coherent_seam_repair/program.py",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 75,
+     "as": "RER + 'model/coherent_seam_repair/program.py'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/",
+   "http": 200,
+   "note": "https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/defect_particle_classes",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 24,
+     "as": "RER + 'model/defect_particle_classes/'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/chart.js",
+     "line": 10,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 22,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 81,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 99,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/lattice.js",
+     "line": 32,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 17,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 40,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/mapview.js",
+     "line": 11,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "viewer2/tables.js",
+     "line": 9,
+     "as": "RER + 'model/defect_particle_classes/PROOF.md'"
+    },
+    {
+     "file": "findings.json",
+     "line": 25,
+     "as": "literal"
+    },
+    {
+     "file": "findings.json",
+     "line": 49,
+     "as": "literal"
+    },
+    {
+     "file": "findings.json",
+     "line": 235,
+     "as": "literal"
+    },
+    {
+     "file": "findings.json",
+     "line": 548,
+     "as": "literal"
+    },
+    {
+     "file": "findings.json",
+     "line": 810,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/flux_costs.py",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 21,
+     "as": "RER + 'model/defect_particle_classes/flux_costs.py'"
+    },
+    {
+     "file": "viewer2/help/couplings.js",
+     "line": 34,
+     "as": "RER + 'model/defect_particle_classes/flux_costs.py'"
+    },
+    {
+     "file": "viewer2/help/couplings.js",
+     "line": 62,
+     "as": "RER + 'model/defect_particle_classes/flux_costs.py'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 40,
+     "as": "RER + 'model/defect_particle_classes/flux_costs.py'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/federated_observer/source.py",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 37,
+     "as": "RER + 'model/federated_observer/source.py'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 34,
+     "as": "RER + 'model/federated_observer/source.py'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_code_ground_preparation/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 186,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_orthogonal_wilson_bridge/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 192,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_orthogonal_wilson_charged_band/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 198,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_orthogonal_wilson_charged_spatial_records/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 204,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_orthogonal_wilson_spatial_join/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 210,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_quark_spatial_spectrum/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 216,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_wilson_maxwell_interaction_witness/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 222,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/native_wilson_maxwell_spatial_family/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/field_records.json",
+     "line": 228,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/finite_family_clock/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 24,
+     "as": "RER + 'model/finite_family_clock/PROOF.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/interacting_block_scattering/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/collision_evidence.json",
+     "line": 21,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/",
+   "http": 200,
+   "note": "https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/lepton_register_round",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 25,
+     "as": "RER + 'model/lepton_register_round/'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/chart.js",
+     "line": 11,
+     "as": "RER + 'model/lepton_register_round/PROOF.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 87,
+     "as": "RER + 'model/lepton_register_round/PROOF.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 43,
+     "as": "RER + 'model/lepton_register_round/PROOF.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 53,
+     "as": "${RER}model/lepton_register_round/PROOF.md"
+    },
+    {
+     "file": "viewer2/mapview.js",
+     "line": 12,
+     "as": "RER + 'model/lepton_register_round/PROOF.md'"
+    },
+    {
+     "file": "findings.json",
+     "line": 85,
+     "as": "literal"
+    },
+    {
+     "file": "findings.json",
+     "line": 117,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/README.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 43,
+     "as": "RER + 'model/lepton_register_round/README.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 52,
+     "as": "${RER}model/lepton_register_round/README.md"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/results.json",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 44,
+     "as": "RER + 'model/lepton_register_round/results.json'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_charge_centroid/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 323,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_higgs_current_response/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 328,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_higgs_filtered_state/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 333,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_higgs_spectral_join/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 338,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_local_current_readout/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 343,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quark_higgs_join/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 348,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quark_response/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 353,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_weak_current_response/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 358,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_wilson_maxwell/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 363,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_wilson_maxwell_ground/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 368,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_wilson_maxwell_ground_refinement/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 373,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_wilson_maxwell_refinement/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/quantum_evidence.json",
+     "line": 378,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer/native.py",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 45,
+     "as": "RER + 'model/observer/native.py'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_candidate_confirmation/results.json",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/tables.js",
+     "line": 10,
+     "as": "RER + 'model/particle_candidate_confirmation/results.json'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_catalogue_correspondence/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 16,
+     "as": "RER + 'model/particle_catalogue_correspondence/PROOF.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_construction_scope/PROOF.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/mapview.js",
+     "line": 13,
+     "as": "RER + 'model/particle_construction_scope/PROOF.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/standard_model_source_map/candidates/correspondence.json",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/tables.js",
+     "line": 10,
+     "as": "RER + 'model/standard_model_source_map/candidates/correspondence.json'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/journey.js",
+     "line": 63,
+     "as": "PAPER('deriving_standard_model_gauge_structure_from_observer_overlap_consistency')"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 12,
+     "as": "PAPER('deriving_standard_model_gauge_structure_from_observer_overlap_consistency')"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 19,
+     "as": "PAPER('deriving_standard_model_gauge_structure_from_observer_overlap_consistency')"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 21,
+     "as": "PAPER('deriving_standard_model_gauge_structure_from_observer_overlap_consistency')"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 21,
+     "as": "PAPER('deriving_the_particle_zoo_from_observer_consistency')"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 89,
+     "as": "PAPER('deriving_the_particle_zoo_from_observer_consistency')"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 11,
+     "as": "PAPER('deriving_the_particle_zoo_from_observer_consistency')"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 15,
+     "as": "PAPER('deriving_the_particle_zoo_from_observer_consistency')"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 24,
+     "as": "PAPER('deriving_the_particle_zoo_from_observer_consistency')"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/executable_observer_construction.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 20,
+     "as": "PAPER('executable_observer_construction')"
+    },
+    {
+     "file": "viewer2/help/journey.js",
+     "line": 80,
+     "as": "REPO + 'paper/executable_observer_construction.pdf'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 10,
+     "as": "PAPER('executable_observer_construction')"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 34,
+     "as": "PAPER('executable_observer_construction')"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/help/journey.js",
+     "line": 80,
+     "as": "REPO + 'paper/reality_as_consensus_protocol.pdf'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 22,
+     "as": "RER + 'paper/screen_microphysics_and_observer_synchronization.pdf'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": true,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 22,
+     "as": "RER + 'paper/screen_microphysics_and_observer_synchronization.tex'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/DATASET.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 26,
+     "as": "SITE + 'DATASET.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 62,
+     "as": "SITE + 'DATASET.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 35,
+     "as": "SITE + 'DATASET.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/cf1_engine.js",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 158,
+     "as": "SITE + 'cf1_engine.js'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 182,
+     "as": "SITE + 'cf1_engine.js'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 190,
+     "as": "SITE + 'cf1_engine.js'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 36,
+     "as": "SITE + 'cf1_engine.js'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/couplings_chain.js",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 23,
+     "as": "SITE + 'couplings_chain.js'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 41,
+     "as": "SITE + 'couplings_chain.js'"
+    }
+   ],
+   "proposal": "the file exists in the viewer source and is not on the gh-pages branch: rebuild and publish the site"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/couplings_check.mjs",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 24,
+     "as": "SITE + 'couplings_check.mjs'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 41,
+     "as": "SITE + 'couplings_check.mjs'"
+    }
+   ],
+   "proposal": "tools/build_site.py does not copy .mjs files to the site: lift that exclusion or remove the link"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lattice_check.mjs",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/lattice.js",
+     "line": 35,
+     "as": "SITE + 'lattice_check.mjs'"
+    }
+   ],
+   "proposal": "tools/build_site.py does not copy .mjs files to the site: lift that exclusion or remove the link; the file is also missing in the viewer source"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lattice_mc.js",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/lattice.js",
+     "line": 34,
+     "as": "SITE + 'lattice_mc.js'"
+    }
+   ],
+   "proposal": "the file exists in the viewer source and is not on the gh-pages branch: rebuild and publish the site"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lepton_readout.js",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 216,
+     "as": "SITE + 'lepton_readout.js'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 25,
+     "as": "SITE + 'lepton_readout.js'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lepton_round.js",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 46,
+     "as": "SITE + 'lepton_round.js'"
+    }
+   ],
+   "proposal": "the file exists in the viewer source and is not on the gh-pages branch: rebuild and publish the site"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/lepton_round_check.mjs",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 46,
+     "as": "SITE + 'lepton_round_check.mjs'"
+    }
+   ],
+   "proposal": "tools/build_site.py does not copy .mjs files to the site: lift that exclusion or remove the link"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/readout_field.js",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 167,
+     "as": "SITE + 'readout_field.js'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 174,
+     "as": "SITE + 'readout_field.js'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 36,
+     "as": "SITE + 'readout_field.js'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/readout_limit.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 167,
+     "as": "SITE + 'readout_limit.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/gh-pages/walk_engine.js",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 75,
+     "as": "SITE + 'walk_engine.js'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/CONSOLIDATED_STATUS.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/mapview.js",
+     "line": 14,
+     "as": "DER + 'CONSOLIDATED_STATUS.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/COUPLING_FIX.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 251,
+     "as": "DER + 'COUPLING_FIX.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 275,
+     "as": "DER + 'COUPLING_FIX.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 354,
+     "as": "DER + 'COUPLING_FIX.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 75,
+     "as": "DER + 'COUPLING_FIX.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 98,
+     "as": "DER + 'COUPLING_FIX.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 21,
+     "as": "DER + 'COUPLING_FIX.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/LEPTON_STEPS.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 208,
+     "as": "DER + 'LEPTON_STEPS.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 216,
+     "as": "DER + 'LEPTON_STEPS.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 224,
+     "as": "DER + 'LEPTON_STEPS.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 232,
+     "as": "DER + 'LEPTON_STEPS.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 87,
+     "as": "DER + 'LEPTON_STEPS.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 516,
+     "as": "DER + 'LEPTON_STEPS.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 24,
+     "as": "DER + 'LEPTON_STEPS.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/MATCH.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 108,
+     "as": "DER + 'MATCH.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 125,
+     "as": "DER + 'MATCH.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 15,
+     "as": "DER + 'MATCH.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/README.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 29,
+     "as": "DER + 'README.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 57,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/SPECTRUM.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 29,
+     "as": "DER + 'SPECTRUM.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/candidates/CF1.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 158,
+     "as": "DER + 'candidates/CF1.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 174,
+     "as": "DER + 'candidates/CF1.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 182,
+     "as": "DER + 'candidates/CF1.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 190,
+     "as": "DER + 'candidates/CF1.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 62,
+     "as": "DER + 'candidates/CF1.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 70,
+     "as": "DER + 'candidates/CF1.md'"
+    }
+   ],
+   "proposal": "not in the published derivations; the source exists at repair-law/candidates/CF1.md: publish it or remove the link"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CA_ANCHOR.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 15,
+     "as": "DER + 'reports/CA_ANCHOR.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 259,
+     "as": "DER + 'reports/CA_ANCHOR.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 37,
+     "as": "DER + 'reports/CA_ANCHOR.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/CA_ANCHOR.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CC.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 20,
+     "as": "DER + 'reports/CC.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 39,
+     "as": "DER + 'reports/CC.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/CC.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CG_COLLAR.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 18,
+     "as": "DER + 'reports/CG_COLLAR.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 267,
+     "as": "DER + 'reports/CG_COLLAR.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 38,
+     "as": "DER + 'reports/CG_COLLAR.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/CG_COLLAR.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CH_HYPERCHARGE.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 17,
+     "as": "DER + 'reports/CH_HYPERCHARGE.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 251,
+     "as": "DER + 'reports/CH_HYPERCHARGE.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 38,
+     "as": "DER + 'reports/CH_HYPERCHARGE.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/CH_HYPERCHARGE.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CK2.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/journey.js",
+     "line": 88,
+     "as": "DER + 'reports/CK2.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 44,
+     "as": "DER + 'reports/CK2.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 90,
+     "as": "DER + 'reports/CK2.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CM3.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 32,
+     "as": "DER + 'reports/CM3.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/CU_UNIFICATION.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 16,
+     "as": "DER + 'reports/CU_UNIFICATION.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 243,
+     "as": "DER + 'reports/CU_UNIFICATION.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 37,
+     "as": "DER + 'reports/CU_UNIFICATION.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/CU_UNIFICATION.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/DC.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 243,
+     "as": "DER + 'reports/DC.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 338,
+     "as": "DER + 'reports/DC.md'"
+    }
+   ],
+   "proposal": "not in the published derivations; the source exists at repair-law/reports/DC.md: publish it or remove the link"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/DG.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 148,
+     "as": "DER + 'reports/DG.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/FR.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 100,
+     "as": "DER + 'reports/FR.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 24,
+     "as": "DER + 'reports/FR.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/GL.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 133,
+     "as": "DER + 'reports/GL.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 294,
+     "as": "DER + 'reports/GL.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 328,
+     "as": "DER + 'reports/GL.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 60,
+     "as": "DER + 'reports/GL.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 70,
+     "as": "DER + 'reports/GL.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 19,
+     "as": "DER + 'reports/GL.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/HD.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 354,
+     "as": "DER + 'reports/HD.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 76,
+     "as": "DER + 'reports/HD.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 98,
+     "as": "DER + 'reports/HD.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 30,
+     "as": "DER + 'reports/HD.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/HT.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 27,
+     "as": "DER + 'reports/HT.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LC.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 208,
+     "as": "DER + 'reports/LC.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 88,
+     "as": "DER + 'reports/LC.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 44,
+     "as": "DER + 'reports/LC.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 64,
+     "as": "DER + 'reports/LC.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 75,
+     "as": "DER + 'reports/LC.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/LC.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LD.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 45,
+     "as": "DER + 'reports/LD.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 116,
+     "as": "DER + 'reports/LD.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/LD.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LK.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 45,
+     "as": "DER + 'reports/LK.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/LK.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LP.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/leptons.js",
+     "line": 45,
+     "as": "DER + 'reports/LP.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/LP.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LT.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/journey.js",
+     "line": 88,
+     "as": "DER + 'reports/LT.md'"
+    },
+    {
+     "file": "viewer2/leptons.js",
+     "line": 45,
+     "as": "DER + 'reports/LT.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/LT.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LV.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/couplings_page.js",
+     "line": 19,
+     "as": "DER + 'reports/LV.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 275,
+     "as": "DER + 'reports/LV.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 98,
+     "as": "DER + 'reports/LV.md'"
+    },
+    {
+     "file": "viewer2/lattice.js",
+     "line": 31,
+     "as": "DER + 'reports/LV.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 39,
+     "as": "DER + 'reports/LV.md'"
+    }
+   ],
+   "proposal": "the file exists in the local checkout (derivations/reports/LV.md) and is not on the public main branch: commit and push it"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/LW.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 31,
+     "as": "DER + 'reports/LW.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/MA.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 302,
+     "as": "DER + 'reports/MA.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 60,
+     "as": "DER + 'reports/MA.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 76,
+     "as": "DER + 'reports/MA.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 30,
+     "as": "DER + 'reports/MA.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/NM.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 28,
+     "as": "DER + 'reports/NM.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/PM.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 32,
+     "as": "DER + 'reports/PM.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/SS.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 140,
+     "as": "DER + 'reports/SS.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 18,
+     "as": "DER + 'reports/SS.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/UD.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 26,
+     "as": "DER + 'reports/UD.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/UH.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 328,
+     "as": "DER + 'reports/UH.md'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 27,
+     "as": "DER + 'reports/UH.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/reports/YC.md",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 26,
+     "as": "DER + 'reports/YC.md'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/COUPLING/closure_check.py",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 267,
+     "as": "DER + 'work/COUPLING/closure_check.py'"
+    },
+    {
+     "file": "viewer2/links.js",
+     "line": 21,
+     "as": "DER + 'work/COUPLING/closure_check.py'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/FOR_SIM.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 302,
+     "as": "DER + 'work/HR/FOR_SIM.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 311,
+     "as": "DER + 'work/HR/FOR_SIM.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 319,
+     "as": "DER + 'work/HR/FOR_SIM.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 61,
+     "as": "DER + 'work/HR/FOR_SIM.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 75,
+     "as": "DER + 'work/HR/FOR_SIM.md'"
+    }
+   ],
+   "proposal": "not in the published derivations; the source exists at repair-law/work/HR/FOR_SIM.md: publish it or remove the link"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/HR/SPEC.md",
+   "http": 404,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": false,
+   "verdict": "dead",
+   "used": [
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 294,
+     "as": "DER + 'work/HR/SPEC.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 319,
+     "as": "DER + 'work/HR/SPEC.md'"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 328,
+     "as": "DER + 'work/HR/SPEC.md'"
+    },
+    {
+     "file": "viewer2/journey.js",
+     "line": 61,
+     "as": "DER + 'work/HR/SPEC.md'"
+    }
+   ],
+   "proposal": "not in the published derivations; the source exists at repair-law/work/HR/SPEC.md: publish it or remove the link"
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/LEPTON_READOUT/lepton_readout.py",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 24,
+     "as": "DER + 'work/LEPTON_READOUT/lepton_readout.py'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/oph-particles-model/blob/main/derivations/work/MATCH/match.py",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": true,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 15,
+     "as": "DER + 'work/MATCH/match.py'"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://github.com/muellerberndt/reverse-engineering-reality/blob/main/code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
+   "http": 200,
+   "note": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/index.html",
+     "line": 605,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://lambda.gsfc.nasa.gov/resources/graphic_history/microwaves.html",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos.js",
+     "line": 623,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/run_evidence.json",
+     "line": 31,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/couplings_chain.js",
+     "line": 159,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/equations_data.js",
+     "line": 346,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/help/couplings.js",
+     "line": 59,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/help/equations.js",
+     "line": 5,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/help/journey.js",
+     "line": 9,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/lepton_round.js",
+     "line": 272,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/mapview.js",
+     "line": 192,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/results_data.js",
+     "line": 39,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/results_data.js",
+     "line": 40,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/results_data.js",
+     "line": 41,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/tables.js",
+     "line": 116,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-cosmology.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos.js",
+     "line": 623,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/index.html",
+     "line": 605,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/run_evidence.json",
+     "line": 19,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-bbang-nucleosynthesis.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/index.html",
+     "line": 605,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-inflation.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/cosmos.js",
+     "line": 623,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/run_evidence.json",
+     "line": 25,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/mapview.js",
+     "line": 296,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/particle_reference_adapter.js",
+     "line": 45,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/particle_reference_catalog.json",
+     "line": 43,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-phys-constants.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/particle_reference_adapter.js",
+     "line": 21,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/particle_reference_catalog.json",
+     "line": 19,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-standard-model.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/mapview.js",
+     "line": 296,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/particle_reference_adapter.js",
+     "line": 13,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/particle_reference_catalog.json",
+     "line": 11,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/spectrum.js",
+     "line": 221,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-leptons.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/particle_reference_adapter.js",
+     "line": 29,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/particle_reference_catalog.json",
+     "line": 27,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/particle_reference_adapter.js",
+     "line": 53,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/particle_reference_catalog.json",
+     "line": 51,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/spectrum.js",
+     "line": 221,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://pdg.lbl.gov/2025/tables/rpp2025-tab-mesons-light.pdf",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/particle_reference_adapter.js",
+     "line": 37,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/particle_reference_catalog.json",
+     "line": 35,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://philpapers.org/rec/MUEFOC",
+   "http": 403,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "refused",
+   "used": [
+    {
+     "file": "viewer2/links.js",
+     "line": 9,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  },
+  {
+   "url": "https://physics.nist.gov/cuu/Constants/",
+   "http": 200,
+   "note": "",
+   "on_origin_main_of_theory_checkout": null,
+   "on_origin_of_viewer_checkout": null,
+   "verdict": "ok",
+   "used": [
+    {
+     "file": "viewer2/help/equations.js",
+     "line": 4,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/help/journey.js",
+     "line": 9,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/lepton_round.js",
+     "line": 271,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/mapview.js",
+     "line": 192,
+     "as": "literal"
+    },
+    {
+     "file": "viewer2/results_data.js",
+     "line": 38,
+     "as": "literal"
+    }
+   ],
+   "proposal": ""
+  }
+ ],
+ "unresolved_templates": [
+  {
+   "file": "viewer2/quantum_evidence.js",
+   "line": 110,
+   "template": "https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/${name}/PROOF.md"
+  }
+ ]
+}

@@ -1,0 +1,423 @@
+"""T6, items 2 and 3: the neutral block of the tick. Exact (sympy polynomials modulo the circle relations, Gaussian
+rationals at rational points of the circles). Tables are evaluations of the exact closed forms (mpmath, 40 digits).
+
+Neutral block (one-body, per cell and spin): the four neutral patterns
+    nu_L = 11110 (left),  N = 11111 (right),  N^c = 00000 (left),  nu_L^c = 00001 (right).
+Steps (rotations between two patterns on the same cell, spin untouched):
+    Dirac step     exp(-i theta_D H_D),  H_D: nu_L <-> N and N^c <-> nu_L^c   (toggle of the neutral doublet level)
+    pairing step   exp(-i theta_M H_M),  H_M: N <-> N^c                       (pairing of the neutral singlet with itself)
+    (doublet step  exp(-i theta_T H_T),  H_T: nu_L <-> nu_L^c)
+Mass step of the T6 tick: M = M_D^(1/2) M_M M_D^(1/2); tick U_t = M S_t with the routing S_t of CF-1 (alternating order).
+
+    python t6_seesaw.py [out.json]
+"""
+import itertools, json, sys
+from fractions import Fraction as F
+import sympy as sp
+import mpmath as mp
+
+out = {}
+I = sp.I
+cd, sd, ca, sa, ch, sh = sp.symbols('cd sd ca sa ch sh', real=True)      # cos, sin of theta_D; of theta_M/2; of theta_D/2
+CIRC = [cd ** 2 + sd ** 2 - 1, ca ** 2 + sa ** 2 - 1, ch ** 2 + sh ** 2 - 1]
+GENS = (sd, sa, sh, cd, ca, ch)
+
+
+def red(e):
+    """normal form modulo the circle relations (the generators are a Groebner basis: coprime leading terms)"""
+    e = sp.expand(e)
+    if e == 0: return sp.Integer(0)
+    return sp.reduced(e, CIRC, *GENS, gaussian=True)[1]
+
+
+def redm(M):
+    return M.applyfunc(red)
+
+
+def unit(n, i, j):
+    E = sp.zeros(n, n); E[i, j] = 1
+    return E
+
+
+# ------------------------------------------------------------------------------------------------------------
+# 1. the 4 x 4 block at rest: chain nu_L - N - N^c - nu_L^c
+# ------------------------------------------------------------------------------------------------------------
+HD = unit(4, 0, 1) + unit(4, 1, 0) + unit(4, 2, 3) + unit(4, 3, 2)
+HM = unit(4, 1, 2) + unit(4, 2, 1)
+HT = unit(4, 0, 3) + unit(4, 3, 0)
+PM = HM * HM
+G4 = sp.diag(1, -1, 1, -1)                                                # handedness (arrow) of the four patterns
+assert HD * HD == sp.eye(4) and HM * HM * HM == HM
+assert G4 * HD * G4 == -HD and G4 * HM * G4 == -HM and G4 * HT * G4 == -HT
+cM, sM = ca ** 2 - sa ** 2, 2 * sa * ca                                    # cos, sin of theta_M
+MD = cd * sp.eye(4) - I * sd * HD                                          # exp(-i theta_D H_D)
+MDh = ch * sp.eye(4) - I * sh * HD                                         # exp(-i theta_D H_D / 2)
+MM = sp.eye(4) + (cM - 1) * PM - I * sM * HM                               # exp(-i theta_M H_M)
+assert redm(MDh * MDh - MD.subs({cd: ch ** 2 - sh ** 2, sd: 2 * sh * ch})) == sp.zeros(4, 4)
+V = MM * MD                                                               # plain order; conjugate to the others
+lam = sp.symbols('lam')
+cp = sp.Poly((lam * sp.eye(4) - V).det(method='berkowitz'), lam)
+coeffs = [red(c) for c in cp.all_coeffs()]
+# target: (lam^2 - 2 x_l lam + 1)(lam^2 - 2 x_h lam + 1), x_l + x_h = 2 cd ca^2, x_l x_h = cd^2 ca^2 - sa^2
+xs, xp = 2 * cd * ca ** 2, cd ** 2 * ca ** 2 - sa ** 2
+target = [1, -2 * xs, 2 + 4 * xp, -2 * xs, 1]
+assert all(red(c - t) == 0 for c, t in zip(coeffs, target))
+# x = cos(A -+ a) with cos A = cd ca, a = theta_M/2, solves x^2 - xs x + xp = 0:
+#   (x - cos A cos a)^2 = sin^2 A sin^2 a = (1 - cd^2 ca^2) sa^2
+x = sp.symbols('x')
+assert red((x - cd * ca * ca) ** 2 - (1 - cd ** 2 * ca ** 2) * sa ** 2 - (x ** 2 - xs * x + xp)) == 0
+# product rule: sin(th_l) sin(th_h) = sin(A - a) sin(A + a) = sin^2 A - sin^2 a = sd^2 ca^2
+assert red((1 - cd ** 2 * ca ** 2) - sa ** 2 - sd ** 2 * ca ** 2) == 0
+# second product rule: tan(th_l/2) tan(th_h/2) = (cos a - cos A)/(cos a + cos A) = (1 - cd)/(1 + cd) = tan^2(theta_D/2)
+assert sp.expand((ca - cd * ca) * (1 + cd) - (ca + cd * ca) * (1 - cd)) == 0
+# palindromic mass step and its arrow structure
+Msym = MDh * MM * MDh
+assert redm(G4 * Msym * G4 * Msym - sp.eye(4)) == sp.zeros(4, 4)          # G M G = M^-1
+assert redm(Msym * Msym.H - sp.eye(4)) == sp.zeros(4, 4)
+cps = sp.Poly((lam * sp.eye(4) - Msym).det(method='berkowitz'), lam)
+subs_half = {cd: ch ** 2 - sh ** 2, sd: 2 * sh * ch}
+assert all(red(c - sp.sympify(t).subs(subs_half)) == 0 for c, t in zip(cps.all_coeffs(), target))
+# the left-left block of the palindromic step: its eigenvalues are cos(th_l), cos(th_h); eigenvectors give the mixing
+ELL = redm(sp.Matrix([[Msym[0, 0], Msym[0, 2]], [Msym[2, 0], Msym[2, 2]]]))
+assert red(ELL.trace() - xs.subs(subs_half)) == 0 and red(ELL.det() - xp.subs(subs_half)) == 0
+out['rest_block'] = {
+    'basis': ['nu_L = 11110', 'N = 11111', 'N^c = 00000', 'nu_L^c = 00001'],
+    'characteristic_polynomial_of_M_M_M_D': '(lam^2 - 2 cos(th_l) lam + 1)(lam^2 - 2 cos(th_h) lam + 1)',
+    'cos_th_l_plus_cos_th_h': 'cos(theta_D) (1 + cos(theta_M))',
+    'cos_th_l_times_cos_th_h': 'cos^2(theta_D) cos(theta_M) - (1 - cos(theta_M)) sin^2(theta_D) / 2',
+    'closed_form': 'th_h = A + theta_M/2, th_l = A - theta_M/2, A = arccos(cos(theta_D) cos(theta_M/2))',
+    'sum_rule': 'th_h - th_l = theta_M',
+    'product_rule': 'sin(th_l) sin(th_h) = sin^2(theta_D) cos^2(theta_M/2)',
+    'product_rule_half_angles': 'tan(th_l/2) tan(th_h/2) = tan^2(theta_D/2)',
+    'order_of_the_two_steps': 'M_M M_D, M_D M_M and the palindromic M_D^(1/2) M_M M_D^(1/2) are conjugate: same rest phases',
+    'palindromic_step': 'G M G = M^-1 with G the handedness: M = exp(-i K), K handedness-odd',
+    'identities_checked': 'characteristic polynomial (five coefficients), root form, product rule, G M G = M^-1, unitarity: '
+                          'polynomial identities modulo the three circle relations'}
+
+# single exponential exp(-i (theta_D H_D + theta_M H_M))
+tD, tM, tT = sp.symbols('theta_D theta_M theta_T', positive=True)
+cpe = sp.factor((lam * sp.eye(4) - (tD * HD + tM * HM)).det())
+assert sp.expand(cpe - (lam ** 4 - (2 * tD ** 2 + tM ** 2) * lam ** 2 + tD ** 4)) == 0
+r = sp.sqrt(tD ** 2 + tM ** 2 / 4)
+for root in (r + tM / 2, r - tM / 2, -r + tM / 2, -r - tM / 2):
+    assert sp.simplify(cpe.subs(lam, root)) == 0
+# with the doublet step: kappa = [[theta_D, theta_T], [theta_M, theta_D]] (rows nu_L, N^c; columns N, nu_L^c)
+kap = sp.Matrix([[tD, tT], [tM, tD]])
+assert sp.expand((kap * kap.T).det() - (tD ** 2 - tT * tM) ** 2) == 0
+cpt = (lam * sp.eye(4) - (tD * HD + tM * HM + tT * HT)).det()
+assert sp.expand(cpt - (lam ** 4 - (2 * tD ** 2 + tM ** 2 + tT ** 2) * lam ** 2 + (tD ** 2 - tT * tM) ** 2)) == 0
+out['single_exponential_variant'] = {
+    'step': 'exp(-i (theta_D H_D + theta_M H_M))',
+    'rest_phases': 'sqrt(theta_D^2 + theta_M^2/4) +- theta_M/2; product theta_l theta_h = theta_D^2 exactly',
+    'with_doublet_angle_theta_T': 'theta_l theta_h = |theta_D^2 - theta_T theta_M|, theta_l^2 + theta_h^2 = 2 theta_D^2 + theta_M^2 + theta_T^2',
+    'majorana_matrix': '[[theta_T, theta_D], [theta_D, theta_M]] on the left-handed fields (nu_L, N^c); rest phases = its Takagi values'}
+
+# series and bound of the light phase (product steps)
+mp.mp.dps = 40
+for a_val in ('0.2', '0.3', '1.0', '1.5'):
+    a_ = mp.mpf(a_val)
+    tay = mp.taylor(lambda t: mp.acos(mp.cos(t) * mp.cos(a_)) - a_, 0, 5)
+    ct = mp.cot(a_)
+    want = [0, 0, ct / 2, 0, -ct * (1 + 3 * ct ** 2) / 24, 0]
+    assert max(abs(x - y) for x, y in zip(tay, want)) < mp.mpf(10) ** -25
+def mixing_ratio(tD_, tM_):
+    t, a = tD_ / 2, tM_ / 2
+    E00 = mp.cos(tD_) - (mp.cos(tM_) - 1) * mp.sin(t) ** 2
+    E01 = -mp.cos(t) * mp.sin(t) * mp.sin(tM_)
+    A = mp.acos(mp.cos(tD_) * mp.cos(a))
+    tl_, th_ = A - a, A + a
+    return abs((mp.cos(tl_) - E00) / E01), tl_, th_
+
+
+mix_pts = 0
+for tD_s, tM_s in itertools.product(('0.001', '0.05', '0.157935', '0.4', '0.9'), ('0.1', '0.451026811796', '0.9', '1.7')):
+    r_, tl_, th_ = mixing_ratio(mp.mpf(tD_s), mp.mpf(tM_s))
+    assert abs(r_ - mp.tan(tl_ / 2) / mp.tan(mp.mpf(tD_s) / 2)) < mp.mpf(10) ** -30
+    assert abs(r_ ** 2 - mp.tan(tl_ / 2) / mp.tan(th_ / 2)) < mp.mpf(10) ** -30
+    mix_pts += 1
+out['light_phase'] = {
+    'exact': 'th_l = arccos(cos(theta_D) cos(theta_M/2)) - theta_M/2',
+    'series': 'th_l = (theta_D^2/2) cot(theta_M/2) - (theta_D^4/24) cot(theta_M/2) (1 + 3 cot^2(theta_M/2)) + O(theta_D^6)',
+    'bound': '0 <= th_l <= (theta_D^2/2) cot(theta_M/2) for 0 <= theta_D <= pi, 0 < theta_M < pi '
+             '(d th_l/d theta_D = sin(theta_D) cos(a)/sqrt(1 - cos^2(theta_D) cos^2(a)) <= theta_D cot(a), a = theta_M/2)',
+    'admixture_of_the_singlet_in_the_light_left_state': 'amplitude ratio N^c : nu_L = tan(th_l/2)/tan(theta_D/2) = sqrt(tan(th_l/2)/tan(th_h/2)) '
+                                                        '(left block of the palindromic step; checked to 30 digits at ' + str(mix_pts) + ' points); '
+                                                        '(theta_D/2) cot(theta_M/2) to leading order'}
+
+# ------------------------------------------------------------------------------------------------------------
+# 2. the tick at any momentum: 8 x 8 (record x spin x species label), exact at rational points of the circles
+# ------------------------------------------------------------------------------------------------------------
+class GQ:
+    """Gaussian rational"""
+    __slots__ = ('re', 'im')
+
+    def __init__(self, re=0, im=0):
+        self.re, self.im = F(re), F(im)
+
+    def __add__(self, o): o = o if isinstance(o, GQ) else GQ(o); return GQ(self.re + o.re, self.im + o.im)
+    __radd__ = __add__
+
+    def __sub__(self, o): o = o if isinstance(o, GQ) else GQ(o); return GQ(self.re - o.re, self.im - o.im)
+
+    def __rsub__(self, o): return GQ(o) - self
+
+    def __neg__(self): return GQ(-self.re, -self.im)
+
+    def __mul__(self, o):
+        o = o if isinstance(o, GQ) else GQ(o)
+        return GQ(self.re * o.re - self.im * o.im, self.re * o.im + self.im * o.re)
+    __rmul__ = __mul__
+
+    def conj(self): return GQ(self.re, -self.im)
+
+    def __eq__(self, o): o = o if isinstance(o, GQ) else GQ(o); return self.re == o.re and self.im == o.im
+
+    def __hash__(self): return hash((self.re, self.im))
+
+    def __repr__(self): return f'({self.re}+{self.im}i)'
+
+
+def M_(rows): return [[x if isinstance(x, GQ) else GQ(x) for x in r] for r in rows]
+def eye_(n): return [[GQ(1 if i == j else 0) for j in range(n)] for i in range(n)]
+def mul_(A, B):
+    n, m, k = len(A), len(B[0]), len(B)
+    return [[sum((A[i][l] * B[l][j] for l in range(k)), GQ(0)) for j in range(m)] for i in range(n)]
+def add_(A, B): return [[x + y for x, y in zip(r, s)] for r, s in zip(A, B)]
+def sc_(c, A): return [[c * x for x in r] for r in A]
+def dag_(A): return [[A[j][i].conj() for j in range(len(A))] for i in range(len(A[0]))]
+def kron_(*ms):
+    out = ms[0]
+    for B in ms[1:]:
+        out = [[x * y for x in ra for y in rb] for ra in out for rb in B]
+    return out
+def eq_(A, B): return all(x == y for r, s in zip(A, B) for x, y in zip(r, s))
+def prod_(*ms):
+    out = ms[0]
+    for B in ms[1:]: out = mul_(out, B)
+    return out
+
+
+i_ = GQ(0, 1)
+X2 = M_([[0, 1], [1, 0]]); Y2 = M_([[0, GQ(0, -1)], [GQ(0, 1), 0]]); Z2 = M_([[1, 0], [0, -1]]); E2 = eye_(2)
+SIG = [X2, Y2, Z2]
+half = F(1, 2)
+Pp = sc_(half, add_(E2, X2)); Pm = sc_(half, add_(E2, sc_(-1, X2)))            # arrow -: left, arrow +: right (X_r = -(-1)^N, report R8)
+Eab = M_([[0, 1], [0, 0]]); Eba = M_([[0, 0], [1, 0]])                           # |a><b|, |b><a|; a = 1111, b = 0000
+I8 = eye_(8)
+H_D8 = kron_(Z2, E2, E2)
+H_M8 = add_(kron_(mul_(Pm, Z2), E2, Eba), kron_(mul_(Pp, Z2), E2, Eab))          # N = (a, +) <-> N^c = (b, -)
+H_T8 = add_(kron_(mul_(Pp, Z2), E2, Eba), kron_(mul_(Pm, Z2), E2, Eab))          # nu_L = (a, -) <-> nu_L^c = (b, +)
+P_M8 = mul_(H_M8, H_M8)
+assert eq_(mul_(P_M8, H_M8), H_M8) and eq_(dag_(H_M8), H_M8) and eq_(dag_(H_T8), H_T8)
+alpha = [kron_(X2, SIG[k], E2) for k in range(3)]
+Xr8 = kron_(X2, E2, E2)
+Cmat = kron_(Y2, Y2, X2)                                                          # conjugation (Y_r sigma_2 tau_x) K
+
+
+def conjm(A): return [[x.conj() for x in r] for r in A]
+
+
+for H in (H_D8, H_M8, H_T8):                                                     # C H C^-1 = -H  (C^-1 = C^dagger)
+    assert eq_(prod_(Cmat, conjm(H), dag_(Cmat)), sc_(-1, H))
+for k in range(3):                                                               # C alpha C^-1 = alpha
+    assert eq_(prod_(Cmat, conjm(alpha[k]), dag_(Cmat)), alpha[k])
+
+
+def circle(t):
+    t = F(t); return (1 - t * t) / (1 + t * t), 2 * t / (1 + t * t)
+
+
+def period_check(tp, th_, ta):
+    """tp: three circle parameters of the momenta, th_: of theta_D/2, ta: of theta_M/2"""
+    cs = [circle(t) for t in tp]
+    c_h, s_h = circle(th_); c_a, s_a = circle(ta)
+    c_M, s_M = c_a * c_a - s_a * s_a, 2 * s_a * c_a
+    E = [add_(sc_(c, I8), sc_(i_ * (-s), alpha[k])) for k, (c, s) in enumerate(cs)]
+    Sf, Sr = prod_(E[2], E[1], E[0]), prod_(E[0], E[1], E[2])
+    MDh8 = add_(sc_(c_h, I8), sc_(i_ * (-s_h), H_D8))
+    MM8 = add_(add_(I8, sc_(c_M - 1, P_M8)), sc_(i_ * (-s_M), H_M8))
+    M = prod_(MDh8, MM8, MDh8)
+    assert eq_(mul_(M, dag_(M)), I8)
+    assert eq_(prod_(Xr8, M, Xr8, M), I8)                                         # handedness-odd exponential
+    U2 = prod_(M, Sr, M, Sf)
+    lhs = sc_(half, add_(U2, dag_(U2)))
+    Pi = F(1)
+    for c, s in cs: Pi *= (c * c - s * s)
+    M2 = mul_(M, M)
+    Ecos = sc_(half, add_(M2, dag_(M2)))                                          # cos(2 Theta)
+    rhs = add_(sc_((Pi - 1) / 2, I8), sc_((Pi + 1) / 2, Ecos))
+    ok1 = eq_(lhs, rhs)
+    # cos(2 Theta) has the two eigenvalues cos 2th_l, cos 2th_h: (Ecos - x_l)(Ecos - x_h) = 0 with
+    # x_l + x_h = 2 cos 2A cos 2a, x_l x_h = cos^2 2A - sin^2 2a, cos 2A = 2 cd^2 ca^2 - 1
+    c_d = c_h * c_h - s_h * s_h
+    c2A = 2 * c_d * c_d * c_a * c_a - 1
+    ssum, sprod = 2 * c2A * c_M, c2A * c2A - s_M * s_M
+    quad = add_(add_(mul_(Ecos, Ecos), sc_(-ssum, Ecos)), sc_(sprod, I8))
+    ok2 = eq_(quad, [[GQ(0)] * 8 for _ in range(8)])
+    ok3 = eq_(mul_(Ecos, Sf), mul_(Sf, Ecos)) and eq_(mul_(Ecos, Sr), mul_(Sr, Ecos))   # cos(2 Theta) commutes with the routing
+    # the plain order M_M M_D S does not satisfy the identity
+    MD8 = mul_(MDh8, MDh8); Mpl = mul_(MM8, MD8)
+    U2p = prod_(Mpl, Sr, Mpl, Sf)
+    plain_equal = eq_(sc_(half, add_(U2p, dag_(U2p))), rhs)
+    return ok1, ok2, ok3, plain_equal
+
+
+import random
+rng = random.Random(6)
+pts = 0; plain_fail = 0
+for _ in range(40):
+    tp = [F(rng.randint(-9, 9), rng.randint(2, 11)) for _ in range(3)]
+    th_ = F(rng.randint(1, 9), rng.randint(10, 40)); ta = F(rng.randint(1, 9), rng.randint(4, 30))
+    ok1, ok2, ok3, pe = period_check(tp, th_, ta)
+    assert ok1 and ok2 and ok3
+    pts += 1; plain_fail += (not pe)
+# zero-momentum and zero-angle corners
+assert all(period_check([0, 0, 0], F(1, 7), F(2, 9))[:3]) and all(period_check([F(1, 3), F(-1, 5), F(2, 7)], 0, F(2, 9))[:3])
+out['period'] = {
+    'tick': 'U_t = M S_t, M = M_D^(1/2) M_M M_D^(1/2), S_t the alternating routing of CF-1 section 8',
+    'identity': '(U2 + U2^-1)/2 = ((Pi - 1)/2) 1 + ((Pi + 1)/2) cos(2 Theta), Pi = prod_i cos(2 p_i), '
+                'cos(2 Theta) = (M^2 + M^-2)/2 with the two eigenvalues cos(2 th_l), cos(2 th_h), each four times, commuting with the routing',
+    'phases': 'cos(E2_j) = cos^2(th_j) Pi - sin^2(th_j), j = light, heavy; each sign twice (two helicities)',
+    'argument': 'M = exp(-i K) with K handedness-odd; singular value decomposition of its block gives a rotation of the species label that '
+                'depends on the handedness only; the routing is diagonal in handedness and blind to the label, so the rotation commutes with '
+                'it and the tick is the direct sum of two CF-1 ticks with mass angles th_l and th_h (reports R1, R3 apply to each)',
+    'rational_points_checked': pts,
+    'plain_order_M_M_M_D_S_violates_the_identity_at': f'{plain_fail} of {pts} points',
+    'conjugation': 'C = (Y_r sigma_2 tau_x) K: C H C^-1 = -H for the three generators and C alpha_i C^-1 = alpha_i: the block is the '
+                   'doubled (particle and hole) form of two Weyl fields'}
+
+# ------------------------------------------------------------------------------------------------------------
+# 3. the steps on occupations of one cell: modes nu_L up, nu_L down, N up, N down (16 states)
+# ------------------------------------------------------------------------------------------------------------
+def fock_ann(m, n=4):
+    A = sp.zeros(2 ** n, 2 ** n)
+    for s in range(2 ** n):
+        if (s >> m) & 1:
+            A[s ^ (1 << m), s] = (-1) ** bin(s & ((1 << m) - 1)).count('1')
+    return A
+
+
+c = [fock_ann(m) for m in range(4)]; cdg = [x.T for x in c]
+Lu, Ld, Nu, Nd = 0, 1, 2, 3
+for i in range(4):
+    for j in range(4):
+        assert c[i] * cdg[j] + cdg[j] * c[i] == (sp.eye(16) if i == j else sp.zeros(16, 16))
+        assert c[i] * c[j] + c[j] * c[i] == sp.zeros(16, 16)
+hop = [cdg[Lu] * c[Nu] + cdg[Nu] * c[Lu], cdg[Ld] * c[Nd] + cdg[Nd] * c[Ld]]       # Dirac toggle, per spin
+pair = c[Nu] * c[Nd] + cdg[Nd] * cdg[Nu]                                         # singlet pair of the neutral singlet
+assert all(h ** 3 == h for h in hop) and pair ** 3 == pair and hop[0] * hop[1] == hop[1] * hop[0]
+cDs, sDs, cMs, sMs = sp.symbols('cD sD cM sM', real=True)
+CIRC2 = [cDs ** 2 + sDs ** 2 - 1, cMs ** 2 + sMs ** 2 - 1]
+
+
+def red2(e):
+    e = sp.expand(e)
+    return sp.Integer(0) if e == 0 else sp.reduced(e, CIRC2, sDs, sMs, cDs, cMs, gaussian=True)[1]
+
+
+def rot(K, cc, ss): return sp.eye(16) + (cc - 1) * K * K - I * ss * K
+UD = rot(hop[0], cDs, sDs) * rot(hop[1], cDs, sDs)
+UM = rot(pair, cMs, sMs)
+UF = UM * UD                                                                     # exp(-i theta_M pair) exp(-i theta_D toggle)
+assert (UF * UF.H).applyfunc(red2) == sp.eye(16)
+# one-body 4 x 4 step in the same order, with cos, sin of the full angles
+MD4 = cDs * sp.eye(4) - I * sDs * HD
+MM4 = sp.eye(4) + (cMs - 1) * PM - I * sMs * HM
+M4 = MM4 * MD4
+# dictionary: pattern rows (nu_L, N, N^c, nu_L^c) for spin up and spin down
+dic = {('up', 0): c[Lu], ('up', 1): c[Nu], ('up', 2): -cdg[Nd], ('up', 3): cdg[Ld],
+       ('dn', 0): c[Ld], ('dn', 1): c[Nd], ('dn', 2): cdg[Nu], ('dn', 3): -cdg[Lu]}
+bog = True
+for spin in ('up', 'dn'):
+    for m in range(4):
+        lhs = UF.H * dic[(spin, m)] * UF
+        rhs = sp.zeros(16, 16)
+        for n in range(4): rhs += M4[m, n] * dic[(spin, n)]
+        bog = bog and ((lhs - rhs).applyfunc(red2) == sp.zeros(16, 16))
+assert bog
+vac = sp.zeros(16, 1); vac[0] = 1
+amp = red2((vac.T * UM * vac)[0]); amp_full = red2((vac.T * UF * vac)[0])
+assert amp == cMs and amp_full == cMs
+# with all 32 patterns as independent modes the same link is a number-conserving rotation and fixes the empty state
+out['occupations_of_one_cell'] = {
+    'modes': ['nu_L up', 'nu_L down', 'N up', 'N down'],
+    'Dirac_step': 'exp(-i theta_D sum_s (c*_(nu_L s) c_(N s) + h.c.))',
+    'pairing_step': 'exp(-i theta_M (c_(N up) c_(N down) + h.c.)): a rotation by theta_M between the empty cell and the cell holding the '
+                    'spin-singlet pair of neutral singlets',
+    'bogoliubov_identity': 'U^-1 c_m U = sum_n M[m, n] c_n with the 4 x 4 one-body step M = M_M M_D and the dictionary '
+                           'c_(N^c up) = -c*_(N down), c_(N^c down) = c*_(N up), c_(nu_L^c up) = c*_(nu_L down), c_(nu_L^c down) = -c*_(nu_L up): '
+                           'eight operator identities on the 16 states, symbolic in the two angles',
+    'normalisation': 'the rest phase of N under the pairing step alone is theta_M',
+    'empty_state': '<empty| pairing step |empty> = cos(theta_M) per cell: the empty state is not stationary under a pairing step; '
+                   'with all 32 patterns as independent modes the link 11111 <-> 00000 is number conserving and fixes it'}
+
+# ------------------------------------------------------------------------------------------------------------
+# 3b. the same block in the audit's form (chiral_particle_map/model.py): two left Weyl fields (nu_L, N^c), symbol
+#     h_L(p) = -sigma.p, pair matrix Delta = epsilon x M_nu, Nambu matrix B = [[h, -Delta*], [Delta, h^T]]
+# ------------------------------------------------------------------------------------------------------------
+px, py, pz = sp.symbols('p_x p_y p_z', real=True)
+mD, mM = sp.symbols('m_D M', positive=True)
+pauli = (sp.Matrix([[0, 1], [1, 0]]), sp.Matrix([[0, -I], [I, 0]]), sp.diag(1, -1))
+sp_dot = px * pauli[0] + py * pauli[1] + pz * pauli[2]
+Mnu = sp.Matrix([[0, mD], [mD, mM]])
+eps2 = sp.Matrix([[0, 1], [-1, 0]])
+Delta = sp.kronecker_product(eps2, Mnu)
+hL = -sp.kronecker_product(sp_dot, sp.eye(2))
+Bn = hL.row_join(-Delta.conjugate()).col_join(Delta.row_join(hL.T))
+assert Bn == Bn.H
+B2 = (Bn * Bn).applyfunc(sp.expand)
+p2 = px ** 2 + py ** 2 + pz ** 2
+want = sp.kronecker_product(sp.eye(2), sp.kronecker_product(sp.eye(2), p2 * sp.eye(2) + Mnu * Mnu))
+assert (B2 - want).applyfunc(sp.expand) == sp.zeros(8, 8)
+xx = sp.symbols('xx')
+cpm = sp.expand((Mnu * Mnu - xx * sp.eye(2)).det())
+for sgn in (1, -1):
+    root = ((sp.sqrt(mM ** 2 + 4 * mD ** 2) + sgn * mM) / 2) ** 2
+    assert sp.simplify(cpm.subs(xx, root)) == 0
+out['audit_form'] = {
+    'fields': 'two left Weyl fields (nu_L, N^c) of the sixteen even patterns',
+    'pair_matrix': 'Delta = epsilon x [[0, m_D], [m_D, M]], m_D = v y_nu (fourth Higgs channel), M the bare term',
+    'identity': 'B(p)^2 = (|p|^2 + M_nu^2) on every Nambu row; E^2 = |p|^2 + m^2, m = (sqrt(M^2 + 4 m_D^2) +- M)/2',
+    'reading': 'the continuum form of the product rule; the audit\'s massless neutral row is the case without the sixteenth state'}
+
+# ------------------------------------------------------------------------------------------------------------
+# 4. tables: tower values of CF-1 section 10 as examples of theta_M
+# ------------------------------------------------------------------------------------------------------------
+mp.mp.dps = 40
+s5 = sp.sqrt(5)
+tower = [('slow triplet (either record)', sp.Rational(11, 12) + s5 / 60), ('quintet, recorded', sp.Rational(14, 15)),
+         ('quintet, blank', sp.Rational(9, 10)), ('fast triplet (either record)', sp.Rational(11, 12) - s5 / 60),
+         ('uniform load, recorded', sp.Rational(5, 6))]
+thetaD_list = ['1e-6', '1e-5', '1e-4', '1e-3', '1e-2', '0.042383', '0.087847', '0.157935']
+
+
+def light_heavy(tD_, tM_):
+    A = mp.acos(mp.cos(tD_) * mp.cos(tM_ / 2))
+    return A - tM_ / 2, A + tM_ / 2
+
+
+rows = []
+for name, lam_ in tower:
+    tM_ = mp.acos(mp.mpf(sp.N(lam_, 40)))
+    k_exact = sp.sqrt((1 + lam_) / (1 - lam_)) / 2                                # (1/2) cot(theta_M/2)
+    k_simpl = sp.radsimp(sp.simplify(k_exact))
+    assert abs(mp.mpf(sp.N(k_exact, 40)) - mp.cot(tM_ / 2) / 2) < mp.mpf(10) ** -35
+    row = {'sector': name, 'kernel_eigenvalue': str(lam_), 'theta_M': mp.nstr(tM_, 12),
+           'coefficient_k_exact': str(k_simpl), 'coefficient_k': mp.nstr(mp.cot(tM_ / 2) / 2, 12),
+           'k_times_theta_M (1 in the continuum seesaw)': mp.nstr(mp.cot(tM_ / 2) / 2 * tM_, 8), 'light_phase': {}, 'heavy_phase': {},
+           'light_over_theta_D': {}}
+    for t in thetaD_list:
+        l, h = light_heavy(mp.mpf(t), tM_)
+        assert 0 <= l <= mp.mpf(t) ** 2 / 2 * mp.cot(tM_ / 2)
+        assert abs(mp.sin(l) * mp.sin(h) - mp.sin(mp.mpf(t)) ** 2 * mp.cos(tM_ / 2) ** 2) < mp.mpf(10) ** -35
+        row['light_phase'][t] = mp.nstr(l, 10); row['heavy_phase'][t] = mp.nstr(h, 12)
+        row['light_over_theta_D'][t] = mp.nstr(l / mp.mpf(t), 8)
+    rows.append(row)
+out['tower_table'] = {'law': 'th_l = k theta_D^2 (1 - (theta_D^2/12)(1 + 12 k^2) + ...), k = (1/2) cot(theta_M/2) = (1/2) sqrt((1 + lambda)/(1 - lambda)) '
+                             'for theta_M = arccos(lambda)', 'theta_D_values': thetaD_list, 'rows': rows}
+for r_ in rows:
+    print(r_['sector'], '| theta_M', r_['theta_M'], '| k', r_['coefficient_k'], '=', r_['coefficient_k_exact'])
+    print('   light:', r_['light_phase'])
+print(json.dumps({k: v for k, v in out.items() if k != 'tower_table'}, indent=1))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

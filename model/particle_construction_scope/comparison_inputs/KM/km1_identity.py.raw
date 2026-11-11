@@ -1,0 +1,181 @@
+"""Item 1 (a): the correction-probability identity on the public walk, checked by executing the public program.
+
+Executed object: model.coherent_seam_repair.program.Observer (never edited). Exact rational arithmetic.
+
+Statement. For a blank-record embedded state A|x> (x on the twelve ports, or on port x internal level), after t ticks
+of W = Q R the repair record reads 1 with probability
+    p_t(x) = <x| U_{t-1}(P) (1 - P) U_{t-1}(P) |x>,     P = 1 - L_G/60,   U_n the Chebyshev polynomial of the second kind,
+so p_1(x) = <x|L_G|x>/60 and, on a kernel eigenvector with P x = cos(omega) x,
+    p_t = sin^2(t omega) / (1 + cos omega),    p_1 = 1 - cos omega.
+Because both sides are Hermitian forms in x, the identity for all complex x is equivalent to the equality of two
+Gram matrices on the basis preparations A|port, level>; these Gram matrices are computed from executed states.
+
+Checks (all exact):
+  1. plain walk: Gram of the record-one components after one tick = L/60; record-zero embedded overlap = P;
+     record-one embedded overlap = 0.
+  2. plain walk, ticks 2..5: Gram = U_{t-1}(P)(1-P)U_{t-1}(P).
+  3. plain walk, record read after tick 1 (both outcomes kept), then tick 2:
+     P(1,1) = 0 (a written record is erased by the next tick: echo), Gram of (0 then 1) = 4 P (1-P) P,
+     equal to the unread two-tick form.
+  4. five-level fibre with flat links and with the central link on seam (0,1): Gram after one tick =
+     blockdiag(L/60 on levels 0..2, L_z/60 on levels 3, 4), L_z the signed Laplacian; two ticks likewise.
+"""
+import json, sys
+from fractions import Fraction as F
+from model.coherent_seam_repair.program import Observer, State
+from model.common_source import slow_geometry
+
+SEAMS = [tuple(int(v) for v in e) for e in slow_geometry.source().seams()]
+n = 12
+
+
+def mat(rows, cols, f):
+    return [[f(i, j) for j in range(cols)] for i in range(rows)]
+
+
+def mul(A, B):
+    return [[sum((A[i][k] * B[k][j] for k in range(len(B)) if A[i][k] != 0), F(0)) for j in range(len(B[0]))] for i in range(len(A))]
+
+
+def add(A, B, a=1, b=1):
+    return [[a * x + b * y for x, y in zip(r, s)] for r, s in zip(A, B)]
+
+
+def eye(d):
+    return mat(d, d, lambda i, j: F(int(i == j)))
+
+
+def laplacian(sign=None):
+    L = mat(n, n, lambda i, j: F(0))
+    for (a, b) in SEAMS:
+        z = -1 if sign == (a, b) else 1
+        L[a][a] += 1; L[b][b] += 1; L[a][b] -= z; L[b][a] -= z
+    return L
+
+
+def cheb_U(P, t):
+    """U_{t}(P) for a rational matrix P."""
+    d = len(P); U0 = eye(d)
+    if t == 0: return U0
+    U1 = add(P, P)
+    for _ in range(t - 1):
+        U0, U1 = U1, add(mul(add(P, P), U1), U0, 1, -1)
+    return U1
+
+
+def record_parts(obs, state):
+    """(record-zero amplitudes, record-one amplitudes) as dicts index -> value."""
+    D = obs.address_count; r0, r1 = {}, {}
+    for idx, v in enumerate(state.amplitudes):
+        if v != 0:
+            (r1 if (idx // D) % 2 else r0)[idx] = v
+    return r0, r1
+
+
+def gram(parts, denom):
+    d = len(parts); G = mat(d, d, lambda i, j: F(0))
+    for i in range(d):
+        for j in range(i, d):
+            a, b = parts[i], parts[j]
+            if len(a) > len(b): small, big = b, a
+            else: small, big = a, b
+            s = sum((v * big[k] for k, v in small.items() if k in big), F(0))
+            G[i][j] = G[j][i] = s / denom
+    return G
+
+
+def project(obs, state, record):
+    D = obs.address_count
+    return State(tuple(v if (idx // D) % 2 == record else F(0) for idx, v in enumerate(state.amplitudes)), state.norm_denominator)
+
+
+out = {}
+# ---------------------------------------------------------------- 1, 2, 3: the plain walk
+obs = Observer()
+L = laplacian(); P = add(eye(n), L, 1, F(-1, 60))
+basis = [obs.embedded_port(p) for p in range(n)]
+states = basis
+ok_t = {}
+for t in range(1, 6):
+    states = [obs.step(s) for s in states]
+    r1 = [record_parts(obs, s)[1] for s in states]
+    G1 = gram(r1, 60)
+    U = cheb_U(P, t - 1)
+    target = mul(mul(U, add(eye(n), P, 1, -1)), U)
+    ok_t[t] = G1 == target
+    if t == 1:
+        ok_first = G1 == [[x / 60 for x in row] for row in L]
+        # embedded overlaps <A e_i, r | W | A e_j, 0>
+        D = obs.address_count
+        ov0 = mat(n, n, lambda i, j: sum(states[j].amplitudes[obs.index(i, 0, k)] for k in range(D)) / D)
+        ov1 = mat(n, n, lambda i, j: sum(states[j].amplitudes[obs.index(i, 1, k)] for k in range(D)) / D)
+        ok_disc = ov0 == P and all(x == 0 for row in ov1 for x in row)
+        first = states
+print('plain walk: Gram of record-one parts after one tick == L/60 :', ok_first)
+print('plain walk: A* W A on the blank record == P, record-one embedded overlap == 0 :', ok_disc)
+print('plain walk: Gram after t ticks == U_{t-1}(P)(1-P)U_{t-1}(P), t = 1..5 :', ok_t)
+out['plain_one_tick_gram_equals_L_over_60'] = bool(ok_first)
+out['plain_discriminant_blank_block_equals_P'] = bool(ok_disc)
+out['plain_t_tick_gram_equals_chebyshev_form'] = {str(k): bool(v) for k, v in ok_t.items()}
+# read after tick 1, then tick 2
+after1_read1 = [obs.step(project(obs, s, 1)) for s in first]
+after1_read0 = [obs.step(project(obs, s, 0)) for s in first]
+G11 = gram([record_parts(obs, s)[1] for s in after1_read1], 60)
+G01 = gram([record_parts(obs, s)[1] for s in after1_read0], 60)
+G10 = gram([record_parts(obs, s)[0] for s in after1_read1], 60)
+target2 = mul(mul(add(P, P), add(eye(n), P, 1, -1)), add(P, P))
+ok_echo = all(x == 0 for row in G11 for x in row)
+ok_01 = G01 == target2
+ok_10 = G10 == [[x / 60 for x in row] for row in L]
+print('record read after tick 1: P(1 then 1) == 0 for every x (echo):', ok_echo)
+print('record read after tick 1: Gram(1 then 0) == L/60, Gram(0 then 1) == 4 P(1-P)P (equal to the unread two-tick form):', ok_10, ok_01)
+out['read_then_tick_P11_zero'] = bool(ok_echo); out['read_then_tick_gram01_equals_4P(1-P)P'] = bool(ok_01)
+out['read_then_tick_gram10_equals_L_over_60'] = bool(ok_10)
+# port-localized walker: the numbers
+x0 = [F(int(i == 0)) for i in range(n)]
+p1 = (L[0][0]) / 60; p2 = target2[0][0]
+print(f'port-localized walker: p_1 = {p1}, p_2 = {p2}, return after two ticks {obs.source_populations(obs.step(obs.step(basis[0])))[0]}')
+out['port_localized'] = {'p1': str(p1), 'p2': str(p2)}
+
+# ---------------------------------------------------------------- 4: five-level fibre
+for label, ce in (('flat', None), ('central link (0,1)', (0, 1))):
+    o5 = Observer(fibre=5, central_edge=ce)
+    Lz = laplacian(sign=ce) if ce else laplacian()
+    D = o5.address_count
+    b5 = [(p, j) for p in range(n) for j in range(5)]
+    st1 = [o5.step(o5.embedded_port(p, j)) for p, j in b5]
+    G1 = gram([record_parts(o5, s)[1] for s in st1], 60)
+    def block(i, k):
+        (p, j), (q, l) = b5[i], b5[k]
+        if j != l: return F(0)
+        return (L if j < 3 else Lz)[p][q] / 60
+    tgt = mat(60, 60, block)
+    ok1 = G1 == tgt
+    st2 = [o5.step(s) for s in st1]
+    G2 = gram([record_parts(o5, s)[1] for s in st2], 60)
+    Pz = add(eye(n), Lz, 1, F(-1, 60))
+    T3 = target2; Tz = mul(mul(add(Pz, Pz), add(eye(n), Pz, 1, -1)), add(Pz, Pz))
+    def block2(i, k):
+        (p, j), (q, l) = b5[i], b5[k]
+        if j != l: return F(0)
+        return (T3 if j < 3 else Tz)[p][q]
+    ok2 = G2 == mat(60, 60, block2)
+    print(f'five-level fibre, {label}: one-tick Gram == blockdiag(L/60 x 3 levels, L_z/60 x 2 levels): {ok1}; two-tick Gram == 4P(1-P)P blockwise: {ok2}')
+    out[f'fibre5_{"flat" if ce is None else "central"}'] = {'one_tick': bool(ok1), 'two_tick': bool(ok2)}
+    if ce:
+        # the numbers that a one-tick record readout gives on the doublet level
+        a, b = ce
+        sup = lambda xs: sum(xs[i] * Lz[i][j] * xs[j] for i in range(n) for j in range(n)) / (60 * sum(v * v for v in xs))
+        e = lambda *ports: [F(int(i in ports)) for i in range(n)]
+        flat = lambda xs: sum(xs[i] * L[i][j] * xs[j] for i in range(n) for j in range(n)) / (60 * sum(v * v for v in xs))
+        far_edge = next(s for s in SEAMS if not set(s) & {a, b})
+        rows = {'one port (any)': (flat(e(0)), sup(e(0))),
+                'both ends of the negative link, equal sign': (flat(e(a, b)), sup(e(a, b))),
+                'both ends of the negative link, opposite sign': (flat([F(int(i == a)) - F(int(i == b)) for i in range(n)]), sup([F(int(i == a)) - F(int(i == b)) for i in range(n)])),
+                'both ends of a positive link away from it': (flat(e(*far_edge)), sup(e(*far_edge))),
+                'uniform over the twelve ports': (flat(e(*range(n))), sup(e(*range(n))))}
+        for k, (f0, f1) in rows.items():
+            print(f'   doublet level, preparation {k}: p_1 flat {f0}, with the central link {f1}')
+        out['doublet_level_one_tick'] = {k: {'flat': str(a_), 'central': str(b_)} for k, (a_, b_) in rows.items()}
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

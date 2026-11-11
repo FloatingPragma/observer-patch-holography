@@ -1,0 +1,166 @@
+"""CM exact statements X1, X2, X4, X5 and the reflection statement X6 (found in the O readings, stated after
+frames.json; it is a statement about the registered readings, no new reading).
+
+X6: on each orbit let P be the reflection e_n -> e_{-n} written with the closure sign (P e_0 = e_0, P e_1 = s e_2,
+P e_2 = s e_1, s the closure sign of that orbit) and K complex conjugation in the orbit basis. Then (i) P K commutes
+with every Hermitian phase circulant C(q, p, theta) of that orbit (q, p, theta real), and (ii) P_R K D_s (P_L K)^-1
+= D_s for both toggle compressions, both lifts. Hence every Y_s^dag Y_s of O1, O2, O3 commutes with P_L K, the two
+sectors share P_L K, and J = 0 for every choice of (q_s, p_s, theta_s) per sector.
+
+Reads no measured value. Writes exact.json.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=../KD:. /tmp/oph-completion-venv/bin/python -B cm_exact.py
+(X4 needs the carrier: run from the RER checkout with PYTHONPATH=.:RL/work/KD:RL/work/CM)
+"""
+import json
+import os
+import random
+
+import mpmath as mp
+import sympy as sy
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = {'measured_values_read': False}
+mp.mp.dps = 40
+orb = json.load(open(os.path.join(HERE, 'orbit.json')))
+
+
+def ksym(s):
+    """kdlib repr -> sympy number."""
+    t = s.replace('r5', 'sqrt(5)').replace('*i', '*I')
+    return sy.nsimplify(sy.sympify(t), [sy.sqrt(5)])
+
+
+# ------------------------------------------------------------------------------------------------ X6 (exact, sympy)
+th = sy.symbols('theta', real=True)
+qq, pp = sy.symbols('q p', positive=True)
+
+
+def shift(cl):
+    S = sy.zeros(3, 3)
+    S[1, 0] = 1
+    S[2, 1] = 1
+    S[0, 2] = cl
+    return S
+
+
+def refl(cl):
+    P = sy.zeros(3, 3)
+    P[0, 0] = 1
+    P[2, 1] = cl
+    P[1, 2] = cl
+    return P
+
+
+def circ(S):
+    return sy.sqrt(qq) * sy.eye(3) + sy.sqrt(pp) * (sy.exp(sy.I * th) * S + sy.exp(-sy.I * th) * S.H)
+
+
+x6 = {}
+for lname, rec in orb['lifts'].items():
+    up = rec['legs']['up']['per_colour']['0']
+    dn = rec['legs']['down']['per_colour']['0']
+    clL, clR = up['closure_L'], up['closure_R']
+    SL, SR, PL, PR = shift(clL), shift(clR), refl(clL), refl(clR)
+    # (i) circulants: P C^* P^-1 = C (P real, P^-1 = P)
+    ci = {}
+    for side, S, P in (('L', SL, PL), ('R', SR, PR)):
+        C = circ(S)
+        Cconj = C.subs({}).conjugate()
+        ci[side] = sy.simplify(P * Cconj * P - C) == sy.zeros(3, 3)
+    # (ii) toggles
+    ii = {}
+    for sec, d in (('up', up), ('down', dn)):
+        D = sy.diag(*[ksym(x) for x in d['t_n']])
+        lhs = PR * D.conjugate() * PL          # P_R K D K P_L^-1 (P_L^-1 = P_L)
+        ii[sec] = sy.simplify(lhs - D) == sy.zeros(3, 3)
+    x6[lname] = {'closure_L': clL, 'closure_R': clR, 'PK_commutes_with_circulants': ci,
+                 'PK_intertwines_toggle_compressions': ii}
+OUT['X6'] = x6
+OUT['X6']['consequence'] = ('Y^dag Y commutes with P_L K for O1, O2, O3 in both sectors at every (q_s, p_s, theta_s); '
+                            'J = 0 exactly; V is real up to rephasing of rows and columns')
+
+# ------------------------------------------------------------------------------------------------ X1, X2 (numerical grid)
+W = mp.exp(2j * mp.pi / 3)
+
+
+def hcirc(x, d):
+    S = mp.matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+    return mp.eye(3) + mp.sqrt(x) * (mp.exp(1j * d) * S + mp.exp(-1j * d) * S.H)
+
+
+def frame(Y):
+    E, Q = mp.eighe(Y.H * Y)
+    idx = sorted(range(3), key=lambda i: mp.re(E[i]))
+    return [mp.re(E[i]) for i in idx], mp.matrix([[Q[r, i] for i in idx] for r in range(3)])
+
+
+def chamber(d):
+    """Fold d into [-pi/3, pi/3) mod 2 pi/3."""
+    t = (d + mp.pi / 3) % (2 * mp.pi / 3) - mp.pi / 3
+    return t
+
+
+random.seed(20261110)
+grid = []
+viol = 0
+for _ in range(400):
+    xu, xd = mp.mpf(random.uniform(0.05, 0.95)), mp.mpf(random.uniform(0.05, 0.95))
+    du, dd = mp.mpf(random.uniform(-3.1, 3.1)), mp.mpf(random.uniform(-3.1, 3.1))
+    Eu, Qu = frame(hcirc(xu, du))
+    Ed, Qd = frame(hcirc(xd, dd))
+    if min(Eu[1] - Eu[0], Eu[2] - Eu[1], Ed[1] - Ed[0], Ed[2] - Ed[1]) < mp.mpf('1e-6'):
+        continue
+    V = Qu.H * Qd
+    A = [[abs(V[i, j]) for j in range(3)] for i in range(3)]
+    is_perm = all(sum(1 for a in row if abs(a - 1) < 1e-20) == 1 for row in A)
+    J = mp.im(V[0, 0] * V[1, 1] * mp.conj(V[0, 1]) * mp.conj(V[1, 0]))
+    ident = all(abs(A[i][i] - 1) < 1e-20 for i in range(3))
+    # predicted identity: same character carries the same mass rank in both sectors
+    def ranks(x, d):
+        lam = [abs(1 + 2 * mp.sqrt(x) * mp.cos(d + 2 * mp.pi * k / 3)) for k in range(3)]
+        return tuple(sorted(range(3), key=lambda k: lam[k]))
+    pred_ident = ranks(xu, du) == ranks(xd, dd)
+    if not (is_perm and abs(J) < 1e-25 and ident == pred_ident):
+        viol += 1
+    grid.append(1)
+OUT['X1_X2'] = {'random_pairs_tested': len(grid), 'violations': viol,
+                'statement': 'V is a permutation, J = 0, and V = 1 exactly when the character order of abs(lambda_k) '
+                             'agrees; for x < 1/4 this is the condition that chamber(delta_u) and chamber(delta_d) '
+                             'have the same sign'}
+# the adjoint leg: delta_d = -delta_u gives the light-pair transposition (x < 1/4 sample and the native point)
+tr = []
+for d in (mp.mpf(2) / 9, mp.mpf('0.1'), mp.mpf('0.9')):
+    for x in (mp.mpf(1) / 2, mp.mpf('0.2'), mp.mpf('0.83')):
+        Eu, Qu = frame(hcirc(x, -d))
+        Ed, Qd = frame(hcirc(x, d))
+        V = Qu.H * Qd
+        A = [[float(abs(V[i, j])) for j in range(3)] for i in range(3)]
+        tr.append({'delta': float(d), 'x': float(x), 'abs_V_rounded': [[round(a, 12) for a in r] for r in A]})
+OUT['X2_adjoint_leg'] = tr
+
+# ------------------------------------------------------------------------------------------------ X5 (port breaking)
+def port_break(x, d, eps, j):
+    Y = hcirc(x, d)
+    Y[j, j] += eps
+    return Y
+
+
+x5 = []
+for (xu, du, xd, dd, eu, ed) in ((0.5, 0.2, 0.5, 0.2, 0.05, 0.05), (0.8, 0.05, 0.6, 0.1, 0.03, -0.02),
+                                  (0.3, 0.7, 0.45, 0.4, 0.1, 0.2)):
+    for (ju, jd) in ((0, 0), (1, 1), (0, 1), (1, 0), (0, 2)):
+        Eu, Qu = frame(port_break(mp.mpf(xu), mp.mpf(du), mp.mpf(eu), ju))
+        Ed, Qd = frame(port_break(mp.mpf(xd), mp.mpf(dd), mp.mpf(ed), jd))
+        V = Qu.H * Qd
+        J = mp.im(V[0, 0] * V[1, 1] * mp.conj(V[0, 1]) * mp.conj(V[1, 0]))
+        x5.append({'params': [xu, du, xd, dd, eu, ed], 'ports': [ju, jd], 'J': mp.nstr(J, 8)})
+OUT['X5'] = x5
+
+with open(os.path.join(HERE, 'exact.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print('X6', json.dumps(OUT['X6'], indent=None))
+print('X1/X2', OUT['X1_X2'])
+for r in OUT['X2_adjoint_leg']:
+    print('adjoint', r['delta'], r['x'], r['abs_V_rounded'])
+for r in x5:
+    print('X5', r)

@@ -1,0 +1,37 @@
+"""Named laws of the seam-register family (see s1lib.table_law for the table convention)."""
+import s1lib as S
+
+BIG = 12
+DOWN = tuple(range(-BIG, 0))            # d <= -1 : the twist k = sign(d) relaxes the seam by one unit
+ALL = tuple(range(-BIG, BIG + 1))
+ODD = tuple(d for d in ALL if d % 2)
+EVEN = tuple(d for d in ALL if d % 2 == 0)
+UP = tuple(range(0, BIG + 1))
+
+
+def named():
+    L = {}
+    L['S_static'] = S.static_law()
+    L['SIM'] = S.sim_law()
+    # relaxing unit twist, never increases total absolute charge (all charge-neutral or reducing processes enabled)
+    L['D_excl'] = S.table_law('D_excl', 'TC_excl', hop=DOWN, ann=DOWN, split=DOWN, merge=DOWN, exchange=DOWN, partial=DOWN,
+                              note='k = sign(d) whenever sum|q| does not increase; no current in a twisting attempt')
+    L['D_then'] = S.table_law('D_then', 'TC_then', hop=DOWN, ann=DOWN, split=DOWN, merge=DOWN, exchange=DOWN, partial=DOWN,
+                              note='as D_excl, then the reference current on the new contrast')
+    L['M1'] = S.table_law('M1', 'TC_excl', hop=(-1,), ann=(-1,), note='twist only at d = -1 (seam reaches exact agreement)')
+    L['M1_hard'] = S.table_law('M1_hard', 'TC_excl', hop=(-1,), ann=(), note='M1 without the annihilation entry')
+    L['J_parity'] = S.table_law('J_parity', 'TC_then', hop=ODD, ann=ODD, split=ODD, merge=ODD, exchange=ODD, partial=ODD,
+                                note='twist at every odd contrast, then reference current: seam ends at exact agreement')
+    L['U_free'] = S.table_law('U_free', 'TC_then', hop=ALL, ann=ALL, note='hop/annihilate at every contrast (reads charges only)')
+    L['U_hard'] = S.table_law('U_hard', 'TC_then', hop=ALL, ann=(), note='U without annihilation')
+    L['CT_R'] = S.table_law('CT_R', 'CT', hop=(-1,), ann=(-1,), note='reference current first, then twist if the rest is -1')
+    L['CT_RX'] = S.table_law('CT_RX', 'CT', hop=(-1, 0), ann=(-1, 0), note='current first, twist if the rest is -1 or 0')
+    L['CT_X'] = S.table_law('CT_X', 'CT', hop=(0,), ann=(0,), note='current first, twist only from exact agreement')
+    L['X_up'] = S.table_law('X_up', 'TC_then', hop=UP, ann=UP, note='twist only against the contrast (d >= 0)')
+    L['D_hard'] = S.table_law('D_hard', 'TC_excl', hop=DOWN, ann=(), note='D_excl without annihilation')
+    # pair creation above a contrast threshold on top of D_excl (creation at zero charge only)
+    for T in (2, 3):
+        L[f'D_excl_create{T}'] = S.table_law(f'D_excl_create{T}', 'TC_excl', hop=DOWN, ann=DOWN, split=DOWN, merge=DOWN,
+                                             exchange=DOWN, partial=DOWN, create=tuple(range(-BIG, -T + 1)),
+                                             note=f'D_excl plus pair creation from zero charge at |d| >= {T}')
+    return L

@@ -1,0 +1,183 @@
+"""Analysis of the validation runs: broken-phase condensate, first-order point, crossover point, endpoint bracket.
+
+  python ew_valid.py          (on the box, in ~/ew; writes valid_analysis.json)
+"""
+import glob, json, math, sys
+import numpy as np
+import ewlat as E, ew_wham as W
+
+X60 = -0.00550 + 0.12622 * (60 / 80.6) ** 2
+X70 = -0.00550 + 0.12622 * (70 / 80.6) ** 2
+res = {}
+
+
+def binned(a, nb=20):
+    a = np.asarray(a); n = len(a) // nb
+    b = a[:n * nb].reshape(nb, n).mean(1)
+    return float(a.mean()), float(b.std(ddof=1) / math.sqrt(nb))
+
+
+def load(f):
+    d = np.load(f); return json.loads(str(d['meta'])), d['ser']
+
+
+# ---- (a) broken-phase condensate against table 1 of hep-lat/9510020 (m_H* = 80 GeV, T* = 145 GeV) ----
+bp = []
+for f in sorted(glob.glob("bp/*.npz")):
+    m, s = load(f)
+    if len(s) < 400:
+        continue
+    r2, e = binned(s[:, 1] / m['L'] ** 3)
+    slope = m['bG'] * m['bH'] / 8.0
+    cond = E.condensate(r2, m['bG'], m['bH'])
+    val = 0.44015 * (cond + 3.0 / (16 * math.pi ** 2) * math.log(1.0 / 0.44015))
+    bp.append(dict(bG=m['bG'], L=m['L'], n=len(s), R2=r2, R2_err=e, cond=cond, cond_err=slope * e,
+                   value=val, value_err=0.44015 * slope * e))
+bp.sort(key=lambda r: r['bG'])
+if len(bp) >= 3:
+    u = np.array([1.0 / r['bG'] for r in bp]); v = np.array([r['value'] for r in bp]); w = np.array([r['value_err'] for r in bp])
+    fits = {}
+    for deg, sel in (("linear_bG>=8", u <= 0.126), ("quadratic_all", u < 1)):
+        d = 1 if deg.startswith("linear") else 2
+        if sel.sum() <= d:
+            continue
+        A = np.vander(u[sel], d + 1, increasing=True) / w[sel][:, None]
+        cov = np.linalg.inv(A.T @ A)
+        coef = cov @ A.T @ (v[sel] / w[sel])
+        chi2 = float(((A @ coef - v[sel] / w[sel]) ** 2).sum())
+        fits[deg] = dict(continuum=float(coef[0]), err=float(math.sqrt(cov[0, 0])), chi2=chi2, dof=int(sel.sum() - d - 1),
+                         coef=[float(c) for c in coef])
+    res['broken_phase'] = dict(points=bp, fits=fits, literature=dict(value=0.7061, err=0.0007,
+                               cite="hep-lat/9510020, table 1, m_H* = 80 GeV, T* = 145 GeV"))
+    print("broken phase:", [(r['bG'], round(r['value'], 5), round(r['value_err'], 5)) for r in bp], fits, flush=True)
+
+
+def scan_set(files, x, pad=0.004, step=None, maxn=None, bins=None, thin=1):
+    rs = W.RunSet(files, maxn=maxn, thin=thin)
+    rs.solve()
+    ys = sorted(r['y'] for r in rs.runs)
+    span = ys[-1] - ys[0]
+    step = step or max(span / 80.0, 1e-5)
+    ygrid = np.arange(ys[0] - pad, ys[-1] + pad + step / 2, step)
+
+    def fn(r_):
+        m, chi3, cond, neff, kurt = W.y_scan(r_, x, ygrid)
+        yp, cp, ok = W.peak(ygrid, chi3)
+        return np.concatenate([[yp, cp], chi3, m])
+
+    full, err = rs.jackknife(fn)
+    n = len(ygrid)
+    m, chi3, cond, neff, kurt = W.y_scan(rs, x, ygrid)
+    out = dict(L=rs.L, bG=rs.bG, x=x, nruns=len(rs.runs), resid=rs.resid,
+               runs=[dict(y=r['y'], n=r['n'], tau=r['tau'], R2=float((r['S2'] / rs.V).mean()),
+                          chi3=float(rs.V * r['bH'] ** 2 / rs.bG * (r['S2'] / rs.V).var())) for r in rs.runs],
+               y=ygrid.tolist(), chi3=full[2:2 + n].tolist(), chi3_err=err[2:2 + n].tolist(),
+               R2=full[2 + n:].tolist(), R2_err=err[2 + n:].tolist(), neff=neff.tolist(),
+               y_max=float(full[0]), y_max_err=float(err[0]), chi3_max=float(full[1]), chi3_max_err=float(err[1]),
+               bH_max=E.betas(x, float(full[0]), rs.bG)[0])
+    if bins is not None:
+        bH, bR = E.betas(x, float(full[0]), rs.bG)
+        h, e = rs.hist(bH, bR, bins)
+        out['hist'] = dict(y=float(full[0]), bins=[float(b) for b in e], counts=[float(c) for c in h / h.sum()])
+    return out, rs
+
+
+# ---- (b) first-order point x = 0.036 ----
+fo = dict(x=0.036, bG=8, sets={}, runs=[])
+for f in sorted(glob.glob("fo/L*_b8_x0.03600_*.npz")):
+    m, s = load(f)
+    r2 = s[:, 1] / m['L'] ** 3
+    hi = r2 > 5.0
+    fo['runs'].append(dict(L=m['L'], y=m['y'], n=len(r2), R2=float(r2.mean()), frac_broken=float(hi.mean()),
+                           crossings=int(np.abs(np.diff(hi.astype(int))).sum()), file=f.split('/')[-1],
+                           R2_first=float(r2[:200].mean()), R2_last=float(r2[-200:].mean())))
+for L in (8, 12, 16):
+    files = glob.glob(f"fo/L{L}_b8_x0.03600_*.npz")
+    if len(files) < 2:
+        continue
+    try:
+        out, rs = scan_set(files, 0.036, pad={8: 0.010, 12: 0.006, 16: 0.004}[L], bins=np.linspace(1.5, 14.0, 51), thin={8: 8, 12: 3, 16: 2}[L])
+        # histogram with equal peak heights, found by a scan in y
+        best = None
+        for y in out['y']:
+            bH, bR = E.betas(0.036, float(y), 8.0)
+            h, e = rs.hist(bH, bR, np.linspace(1.5, 14.0, 51))
+            c = 0.5 * (e[1:] + e[:-1])
+            lo = h[c < 5.0].max(); hi = h[c >= 5.0].max()
+            d = abs(math.log(max(lo, 1e-300) / max(hi, 1e-300)))
+            if best is None or d < best[0]:
+                valley = h[(c > c[c < 5.0][np.argmax(h[c < 5.0])]) & (c < c[c >= 5.0][np.argmax(h[c >= 5.0])])]
+                best = (d, y, h / h.sum(), e, float(valley.min() / max(lo, hi)) if len(valley) else float('nan'))
+        out['hist_equal_height'] = dict(y=float(best[1]), bins=[float(b) for b in best[3]],
+                                        counts=[float(c) for c in best[2]], valley_over_peak=best[4],
+                                        log_height_mismatch=float(best[0]))
+        fo['sets'][str(L)] = out
+        print("fo L", L, "y_max %.5f(%.5f) chi3_max %.2f(%.2f) equal-height y %.5f valley/peak %.3f" % (
+            out['y_max'], out['y_max_err'], out['chi3_max'], out['chi3_max_err'], best[1], best[4]), flush=True)
+    except Exception as ex:
+        import traceback; traceback.print_exc()
+hy = {}
+for L in (16, 24):
+    try:
+        d = np.load(f"fo/hyst_L{L}.npz"); r = d['rows']
+        hy[str(L)] = dict(y=r[:, 0].tolist(), bH=r[:, 1].tolist(), R2=r[:, 4].tolist(), R2_sd=r[:, 5].tolist(),
+                          branch=["down" if b == 0 else "up" for b in r[:, 6]], sweeps_per_step=300)
+    except Exception as ex:
+        print("hyst", L, ex)
+fo['hysteresis'] = hy
+res['first_order'] = fo
+
+# ---- (c) crossover point x = 0.13 ----
+co = dict(x=0.13, bG=8, sets={})
+for L in (16, 24, 32):
+    files = glob.glob(f"co/L{L}_b8_x0.13000_*.npz")
+    if len(files) < 2:
+        continue
+    try:
+        out, rs = scan_set(files, 0.13, pad=0.004)
+        co['sets'][str(L)] = out
+        print("co L", L, "y_max %.5f(%.5f) chi3_max %.2f(%.2f)" % (out['y_max'], out['y_max_err'], out['chi3_max'], out['chi3_max_err']), flush=True)
+    except Exception as ex:
+        import traceback; traceback.print_exc()
+res['crossover'] = co
+
+# ---- (d) endpoint bracket ----
+ep = dict(bG=8, points=[])
+for x, tag in ((X60, "x0.06445"), (X70, "x0.08970"), (0.115, "x0.11500")):
+    entry = dict(x=x, sets={})
+    for L in (16, 24):
+        files = glob.glob(f"ep/L{L}_b8_{tag}_*.npz")
+        if len(files) < 2:
+            continue
+        try:
+            out, rs = scan_set(files, x, pad=0.0005 if x < 0.1 else 0.002, thin=2 if L == 16 else 1)
+            entry['sets'][str(L)] = out
+            print("ep x %.5f L %d y_max %.5f(%.5f) bH_max %.7f chi3_max %.2f(%.2f) resid %.1e" % (
+                x, L, out['y_max'], out['y_max_err'], out['bH_max'], out['chi3_max'], out['chi3_max_err'], out['resid']), flush=True)
+        except Exception as ex:
+            import traceback; traceback.print_exc()
+    if '16' in entry['sets'] and '24' in entry['sets']:
+        a, b = entry['sets']['16'], entry['sets']['24']
+        ex_ = math.log(b['chi3_max'] / a['chi3_max']) / math.log(1.5)
+        er_ = math.sqrt((b['chi3_max_err'] / b['chi3_max']) ** 2 + (a['chi3_max_err'] / a['chi3_max']) ** 2) / math.log(1.5)
+        entry['growth_exponent_16_24'] = ex_; entry['growth_exponent_err'] = er_
+        print("   growth exponent %.2f(%.2f)" % (ex_, er_), flush=True)
+    ep['points'].append(entry)
+res['endpoint'] = ep
+for key, sets in (("crossover", co['sets']),):
+    if '16' in sets and '24' in sets:
+        a, b = sets['16'], sets['24']
+        co['growth_exponent_16_24'] = math.log(b['chi3_max'] / a['chi3_max']) / math.log(1.5)
+        co['growth_exponent_16_24_err'] = math.sqrt((b['chi3_max_err'] / b['chi3_max']) ** 2 + (a['chi3_max_err'] / a['chi3_max']) ** 2) / math.log(1.5)
+    if '24' in sets and '32' in sets:
+        a, b = sets['24'], sets['32']
+        co['growth_exponent_24_32'] = math.log(b['chi3_max'] / a['chi3_max']) / math.log(32 / 24)
+        co['growth_exponent_24_32_err'] = math.sqrt((b['chi3_max_err'] / b['chi3_max']) ** 2 + (a['chi3_max_err'] / a['chi3_max']) ** 2) / math.log(32 / 24)
+for la, lb in ((8, 12), (12, 16)):
+    if str(la) in fo['sets'] and str(lb) in fo['sets']:
+        a, b = fo['sets'][str(la)], fo['sets'][str(lb)]
+        fo[f'growth_exponent_{la}_{lb}'] = math.log(b['chi3_max'] / a['chi3_max']) / math.log(lb / la)
+        fo[f'growth_exponent_{la}_{lb}_err'] = math.sqrt((b['chi3_max_err'] / b['chi3_max']) ** 2 + (a['chi3_max_err'] / a['chi3_max']) ** 2) / math.log(lb / la)
+        print("fo growth exponent", la, lb, fo[f'growth_exponent_{la}_{lb}'], fo[f'growth_exponent_{la}_{lb}_err'])
+json.dump(res, open("valid_analysis.json", "w"))
+print("written valid_analysis.json")

@@ -1,0 +1,109 @@
+"""LW part (b), exact statements and the census of source statements about v (CANDIDATES.md rows LB1 to LB8).
+
+1. Tree identity: the charged- and neutral-current amplitudes at momentum transfer q^2 are
+   A_CC = (g^2/8)/(M_W^2 - q^2), A_NC = ((g^2 + g'^2)/8)/(M_Z^2 - q^2), M_W = g v/2, M_Z = sqrt(g^2 + g'^2) v/2.
+   At q^2 = 0 both equal 1/(2 v^2) for every g, g'; at q^2 != 0 they depend on the couplings. Every other candidate
+   record (M_W, M_Z, m_t, M_H) contains a coupling.
+2. Census: every statement of the source (private RER copy, 5c7a8281b plus working tree) that uses v, classified as
+   the definition of v, a readout that consumes v, or a declared attachment, with file:line.
+3. Criteria (fixed in CANDIDATES.md before computing): a candidate record is derived when (i) a source statement
+   names it as what fixes v, (ii) v does not run there, as in the source chain, (iii) the record depends on v without
+   a low-energy coupling, as the source's definition does.
+Writes lw_b_exact.json. No measured value is read.
+"""
+from __future__ import annotations
+
+import json
+import sys
+from pathlib import Path
+
+import sympy as sp
+
+sys.dont_write_bytecode = True
+HERE = Path(__file__).resolve().parent
+REPO = Path("/tmp/claude-501/lew_repo")
+
+
+def tree_identity() -> dict:
+    g, gp, v, q2, yt, lam = sp.symbols("g gprime v q2 y_t lambda", positive=True)
+    mw2 = (g * v / 2) ** 2
+    mz2 = (g**2 + gp**2) * v**2 / 4
+    a_cc = (g**2 / 8) / (mw2 - q2)
+    a_nc = ((g**2 + gp**2) / 8) / (mz2 - q2)
+    at0_cc = sp.simplify(a_cc.subs(q2, 0))
+    at0_nc = sp.simplify(a_nc.subs(q2, 0))
+    records = {"G_F/sqrt2 = A(q^2=0)": at0_cc, "M_W": g * v / 2, "M_Z": sp.sqrt(g**2 + gp**2) * v / 2,
+               "m_t": yt * v / sp.sqrt(2), "M_H": sp.sqrt(2 * lam) * v}
+    couplings = {name: sorted(str(s) for s in expr.free_symbols - {v}) for name, expr in records.items()}
+    return {
+        "A_CC_at_0": str(at0_cc), "A_NC_at_0": str(at0_nc),
+        "A_CC_at_0_equals_1_over_2v2": sp.simplify(at0_cc - 1 / (2 * v**2)) == 0,
+        "A_NC_at_0_equals_1_over_2v2": sp.simplify(at0_nc - 1 / (2 * v**2)) == 0,
+        "dA_CC_dg_at_0": str(sp.simplify(sp.diff(a_cc, g).subs(q2, 0))),
+        "dA_CC_dg_at_q2": str(sp.factor(sp.simplify(sp.diff(a_cc, g)))),
+        "couplings_in_each_tree_record": couplings,
+        "statement": ("the zero-momentum weak amplitude is the only tree record that depends on v alone; "
+                      "M_W, M_Z, m_t and M_H each contain a coupling"),
+    }
+
+
+def line(path: str, n: int) -> str:
+    return (REPO / path).read_text(encoding="utf-8").splitlines()[n - 1].strip()[:400]
+
+
+CENSUS = [
+    ("extra/fine_structure_constant_derivation.tex", 375, "definition",
+     "v(P, alpha_U) = E_cell exp(-2 pi/(beta_EW alpha_U)): no renormalization scale, no low-energy coupling"),
+    ("extra/fine_structure_constant_derivation.tex", 418, "readout",
+     "tree-level Z-mass readout m_Z(mu) = (v/2) sqrt(4 pi alpha_2 + 4 pi alpha_Y), consumes v with g2, gY at mu"),
+    ("extra/fine_structure_constant_derivation.tex", 426, "readout",
+     "self-consistency mu = m_Z(mu): fixes the reading scale Q0 of that readout"),
+    ("code/particles/calibration/derive_d11_criticality_boundary_scan.py", 210, "readout",
+     "m_t = y_t(m_t) v/sqrt2 at its own scale, consumes v with y_t"),
+    ("code/particles/calibration/derive_d11_criticality_boundary_scan.py", 222, "readout",
+     "m_H = sqrt(2 lambda(m_t)) v, consumes v with lambda"),
+    ("model/particle_spectrum_audit/inputs.json", 31, "declared attachment",
+     "v_Landau_MSbar(Q0) = v_source (SMDR branch)"),
+    ("code/particles/calibration/source_ew_vev_matching_spec.json", 13, "declared attachment",
+     "the same identification, 'a new conditional physical attachment, not a source theorem'"),
+    ("book/29-chapter-28.md", 143, "definition (physical identification)",
+     "the size of the Higgs field is the reference's stiffness; the strength of the weak interaction fixes it"),
+    ("book/32-chapter-31.md", 155, "definition (physical identification)",
+     "magnitude = stiffness of the reference, 246.22 GeV in laboratory units"),
+    ("book/34-chapter-33.md", 63, "definition (physical identification)",
+     "the stiffness (246.22 GeV) is the bottom of the range, joined to the grain by the coupling in an exponent: "
+     "the transmutation output is named as the stiffness"),
+    ("book/45-appendix-b.md", 109, "definition (physical identification)",
+     "magnitude = stiffness of the reference; the weak carriers drag it and acquire mass"),
+]
+
+VERDICTS = {
+    "LB1": ("readout", "fails (i) and (iii): the Z-mass readout consumes v together with g2 and gY at mu_Z"),
+    "LB2": ("readout", "fails (i) and (iii): the D11 top readout consumes v together with y_t"),
+    "LB3": ("readout", "fails (i) and (iii): a top rest-phase record contains y_t and the QCD pole map"),
+    "LB4": ("definition", "passes (i) book ch. 28 l. 143 and ch. 33 l. 63; (ii) G_F is scale independent below M_W "
+                          "(QED corrections to muon decay are finite, IMPORTED: Berman-Sirlin, Kinoshita-Sirlin); "
+                          "(iii) A(0) = 1/(2 v^2) for all couplings (tree identity above)"),
+    "LB5": ("none", "fails (i): no source statement reads v at mu = v; the chain runs no coupling with slope 4 down to v"),
+    "LB6": ("none", "fails (i): E_cell and M_U anchor the exponent of the definition; v is not read there"),
+    "LB7": ("readout", "fails (i) and (iii): the Higgs record contains lambda"),
+    "LB8": ("readout", "fails (i) and (iii): the W record contains g2"),
+}
+
+
+def main():
+    census = [{"file": f, "line": n, "role": role, "content": what, "text": line(f, n)} for f, n, role, what in CENSUS]
+    out = {"schema": "lw.b_exact.v1", "tree_identity": tree_identity(), "census": census,
+           "criteria": ["(i) a source statement names the record as what fixes v",
+                        "(ii) v does not run at that record, as in the source chain",
+                        "(iii) the record depends on v without a low-energy coupling"],
+           "verdicts": VERDICTS,
+           "derived": "LB4: v is attached at zero momentum transfer through G_F = 1/(sqrt2 v^2)"}
+    (HERE / "lw_b_exact.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps(out["tree_identity"], indent=1))
+    for row in census:
+        print(row["role"], "|", row["file"], row["line"], "|", row["text"][:150])
+
+
+if __name__ == "__main__":
+    main()

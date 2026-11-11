@@ -1,0 +1,99 @@
+"""YC addendum LD: the four legs by pattern degree; link-invariant toggle amplitudes. Exact checks, no measured value.
+Writes yc_legs.json. Run after yc_functional.py (same construction of the pattern space)."""
+import itertools
+import json
+import sys
+
+import numpy as np
+
+sys.path.insert(0, "WORKSPACE/repair-law/work/GL")
+import gl_lib as L  # noqa: E402
+
+NL, DIM = 5, 32
+
+
+def annihilator(i):
+    a = np.zeros((DIM, DIM), complex)
+    for s in range(DIM):
+        if s >> i & 1:
+            a[s ^ (1 << i), s] = (-1) ** bin(s & ((1 << i) - 1)).count("1")
+    return a
+
+
+A = [annihilator(i) for i in range(NL)]
+AD = [a.conj().T for a in A]
+dL = lambda T: sum(T[i, j] * AD[i] @ A[j] for i in range(NL) for j in range(NL))
+TG = [dL(T) for T in L.TBASIS]
+K = A[4] + AD[4]
+deg = np.array([bin(s).count("1") for s in range(DIM)])
+n3 = np.array([bin(s & 7).count("1") for s in range(DIM)])
+n2 = np.array([bin(s & 24).count("1") for s in range(DIM)])
+s1 = np.array([s >> 3 & 1 for s in range(DIM)])
+Ndeg = np.diag(deg).astype(complex)
+out = {"[degree, generator] max over the twelve": float(max(abs(Ndeg @ T - T @ Ndeg).max() for T in TG)),
+       "toggle changes the degree by one": bool(np.allclose(Ndeg @ K - K @ Ndeg, AD[4] - A[4]))}
+
+# every toggle pair (pattern without s2, pattern with s2), its leg and its degree transition
+legname = {(1, 1): "top", (1, 0): "bottom", (3, 0): "tau", (3, 1): "neutrino",
+           (2, 0): "top (conjugate family)", (2, 1): "bottom (conjugate family)", (0, 1): "tau (conjugate family)",
+           (0, 0): "neutrino (conjugate family)"}
+table = {}
+for s in range(DIM):
+    if s >> 4 & 1:
+        continue
+    key = legname[(int(n3[s]), int(s1[s]))]
+    tr = f"{deg[s]} <-> {deg[s] + 1}"
+    table.setdefault(key, {"pairs": 0, "degree transition": tr})
+    assert table[key]["degree transition"] == tr
+    table[key]["pairs"] += 1
+out["legs by degree"] = table
+by_tr = {}
+for k, v in table.items():
+    by_tr.setdefault(v["degree transition"], []).append(f"{k} ({v['pairs']})")
+out["pairs per degree transition (binomial 1, 4, 6, 4, 1)"] = by_tr
+out["reachable from a code state (degree 1) by one toggle"] = sorted(
+    {k for k, v in table.items() if v["degree transition"] in ("0 <-> 1", "1 <-> 2")})
+
+# link-invariant toggle operators: K_f = sum over pairs of f(label) (|with><without| + h.c.), label = (n3, s1 occupation)
+# count the labels on which f may differ while K_f still transforms as the neutral member of the doublet:
+# test [T, K_f] = [T, K]-pattern by requiring K_f = sum_k c_k P_k K P_k' with projectors on (n3, n2); n3 and n2 are
+# Casimir-type labels (they commute with all twelve generators).
+N3 = np.diag(n3).astype(complex); N2 = np.diag(n2).astype(complex)
+out["[n3, generators], [n2, generators] max"] = [float(max(abs(N3 @ T - T @ N3).max() for T in TG)),
+                                                  float(max(abs(N2 @ T - T @ N2).max() for T in TG))]
+labels = sorted({(int(n3[s]), int(n2[s])) for s in range(DIM) if not s >> 4 & 1 or True})
+# amplitude classes: transitions (n3, n2 -> n2 + 1), n2 in {0, 1}: 8 classes; conjugation pairs (n3, n2) with (3 - n3, 1 - n2)
+classes = [(a, b) for a in range(4) for b in range(2)]
+conj_orbits = {tuple(sorted([c, (3 - c[0], 1 - c[1])])) for c in classes}
+deg_orbits = {}
+for c in classes:
+    d = c[0] + c[1]
+    deg_orbits.setdefault(min(d, 4 - d), []).append(c)
+out["link-invariant amplitude classes (n3, doublet occupation before the toggle)"] = {
+    "all": len(classes), "after particle-conjugation": len(conj_orbits), "under a degree rule symmetric in N <-> 4 - N": len(deg_orbits),
+    "degree classes": {f"min(N, 4 - N) = {k}": [f"n3={a}, n2 {b}->{b + 1}" for a, b in v] for k, v in deg_orbits.items()}}
+
+# check that a degree-dependent toggle K_f commutes with the gluons and Q_em and has the doublet commutators of K
+f = {0: 0.3, 1: 0.7, 2: 1.9}                      # arbitrary test values for min(N, 4 - N)
+Kf = np.zeros((DIM, DIM), complex)
+for s in range(DIM):
+    if s >> 4 & 1:
+        continue
+    d = int(deg[s]); w = f[min(d, 4 - d)]
+    Kf[s | 16, s] = K[s | 16, s] * w; Kf[s, s | 16] = K[s, s | 16] * w
+QEM = dL(np.diag([-1 / 3, -1 / 3, -1 / 3, 1.0, 0.0]).astype(complex))
+Y = dL(L.Y5); T3 = TG[10]
+up = Kf * (np.subtract.outer(deg, deg) > 0)          # part that adds s2
+dn = Kf * (np.subtract.outer(deg, deg) < 0)          # part that removes s2
+out["degree-dependent toggle"] = {"[K_f, gluons] max": float(max(abs(Kf @ T - T @ Kf).max() for T in TG[:8])),
+                                  "[K_f, Q_em]": float(abs(Kf @ QEM - QEM @ Kf).max()),
+                                  "hermitian": bool(np.allclose(Kf, Kf.conj().T)),
+                                  "doublet member: [T3, K_f] = -(up - dn)/2 and [Y, K_f] = (up - dn)/2, as for K":
+                                  bool(np.allclose(T3 @ Kf - Kf @ T3, -0.5 * (up - dn))
+                                       and np.allclose(Y @ Kf - Kf @ Y, 0.5 * (up - dn)))}
+# sum rule with leg-dependent amplitudes on the family half: tr K_f^2 = 2 (3 y_t^2 + 3 y_b^2 + y_tau^2 + y_nu^2)
+Pfam = np.diag((n3 % 2 == 1).astype(float))
+out["sum rule weights"] = {"tr_family K_f^2": float(np.trace(Pfam @ Kf @ Kf).real),
+                           "2 (3 f_top^2 + 3 f_bottom^2 + f_tau^2 + f_nu^2)": 2 * (3 * f[2] ** 2 + 3 * f[1] ** 2 + f[1] ** 2 + f[0] ** 2)}
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else "yc_legs.json", "w"), indent=1)
+print(json.dumps(out, indent=1))

@@ -1,0 +1,72 @@
+{
+  "any_replacement_law_accepted": false,
+  "effect_counterexample": {
+    "Hermitian_dimension": 4,
+    "accessible_span_dimension": 3,
+    "noncommuting_accessible_effects": true,
+    "two_distinct_faithful_states_agree_on_all_accessible_effects": true,
+    "unavailable_Y_effect_probabilities": [
+      "3/4",
+      "1/4"
+    ]
+  },
+  "finite_memory_pigeonhole_controls": [
+    {
+      "bits": 0,
+      "histories": 2,
+      "states": 1,
+      "steps": 1
+    },
+    {
+      "bits": 1,
+      "histories": 4,
+      "states": 2,
+      "steps": 2
+    },
+    {
+      "bits": 2,
+      "histories": 8,
+      "states": 4,
+      "steps": 3
+    },
+    {
+      "bits": 8,
+      "histories": 512,
+      "states": 256,
+      "steps": 9
+    },
+    {
+      "bits": 16,
+      "histories": 131072,
+      "states": 65536,
+      "steps": 17
+    }
+  ],
+  "finite_modular_inclusion": {
+    "existing_Lean_theorem": "OPH.QFT.FiniteModularInclusion.image_eq",
+    "status": "EXACT dimension argument",
+    "strict_finite_half_sided_inclusion_possible": false
+  },
+  "native_binary_total_two": {
+    "absorbing_states": 0,
+    "branches_per_state": 60,
+    "maximum_move_probability": "1/6",
+    "minimum_move_probability": "2/15",
+    "moving_branch_counts": {
+      "8": 30,
+      "10": 36
+    },
+    "scope": "native load chain; retained-tape halt and quantum consensus are distinct claims",
+    "seams": 30,
+    "states": 66
+  },
+  "schema": "oph.repair_law.acceptance_audit.v1",
+  "source_sha256": {
+    "repair-law/audit/acceptance/checks.py": "3fa68ba19114fa42cc7e6efca3b31d5ed72b76526650f301a331b99ba15e1357",
+    "reverse-engineering-reality/Lean/QFT/FiniteModularInclusion.lean": "bf6ab2f70bc66df67f1c975bd07a73896dccc29edef9f8dc61431b668c4bf668",
+    "reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "reverse-engineering-reality/model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/paper/tex_fragments/PREMISE_BASIS.tex": "5553bead507c5df804cbb7925b006117857e42b53edf52dfb379d06c648be8d7"
+  }
+}

@@ -1,0 +1,223 @@
+"""Native (iii): the simulation side's unit-twist rule on a periodic strip of 2 L triangles (contrast states).
+
+Rule: SIM/oph_defects/kernels.py CORE with OPH_F_TWIST, cost table (0, 5, 8, 10), kappa = 5 (DECLARED extension).
+Strip: rails never twist (one adjacent face); rungs and diagonals twist. A charge hops along the ring of 2 L faces.
+Pair creation: the table accepts a twist that raises sum |q| when |d| >= 3. Such contrasts occur next to a charge, so
+the one-charge sector of the full rule is not closed. The chain analysed here replaces creation twists by the
+transported repair (DECLARED restriction, "no creation"); the rate at which the full rule would create is reported.
+
+Band of a charge: tilted (counting-field) operator T_theta, every transition weighted by exp(i theta ds), ds the
+change of the charge position in face steps (one face step = half a mesh edge along the strip). For
+theta = pi n / L this is the momentum block k = 2 pi n / L of T; other theta interpolate (twisted boundary condition).
+E(theta) = M (1 - leading eigenvalue) = -i v_s theta + D_s theta^2 + ...,  D = D_s / 4 edge^2 / sweep, v = v_s / 2.
+
+usage: n_iii_twist.py PART [L]      PART in {load, unit, pair, double}
+"""
+import json, sys, time
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+import readouts as R
+
+HERE = Path(__file__).resolve().parent
+PART = sys.argv[1]
+L = int(sys.argv[2]) if len(sys.argv) > 2 else 3
+NOCREATE = lambda q1, q2, m1, m2: abs(m1) + abs(m2) > abs(q1) + abs(q2)
+t0 = time.time()
+cx, perm, sid = R.strip(L)
+M = cx.M
+out = {'L': L, 'ports': cx.P, 'seams': M, 'faces': cx.F, 'cost_table': list(R.COST), 'kappa': R.KAPPA}
+
+
+def start(spec):
+    d = [0] * M
+    for k, v in spec.items():
+        d[sid[k]] += v
+    return tuple(d)
+
+
+def creation_probability(d):
+    """Probability per attempt that the full rule accepts a twist raising sum |q| in contrast state d."""
+    p = 0.0
+    q = cx.charges(d)
+    for e in range(M):
+        if not cx.twistable[e] or d[e] == 0:
+            continue
+        k = 1 if d[e] > 0 else -1
+        q1, q2 = q[cx.fp[e]], q[cx.fm[e]]
+        m1, m2 = q1 + k, q2 - k
+        if abs(m1) + abs(m2) <= abs(q1) + abs(q2):
+            continue
+        dc = R.cost(m1) + R.cost(m2) - R.cost(q1) - R.cost(q2)
+        lhs, rhs = 2 * dc, R.KAPPA * (2 * abs(d[e]) - 1)
+        p += (1.0 if lhs < rhs else 0.5 if lhs == rhs else 0.0) / M
+    return p
+
+
+def leading(A, guess=None, k=1):
+    vals = spla.eigs(A, k=k, which='LR', return_eigenvectors=False, tol=1e-12, maxiter=500000, v0=guess)
+    return vals[np.argsort(-vals.real)]
+
+
+if PART == 'load':
+    # one load quantum on the strip: exact band from the port Laplacian, E = lambda / 2
+    lap = cx.laplacian().astype(float)
+    rows = []
+    for LL in (3, 6, 12, 48, 192):
+        c2, p2, s2 = R.strip(LL)
+        lap2 = c2.laplacian().astype(float)
+        # Bloch form: ports t_i, b_i; momentum k
+        ks = 2 * np.pi * np.arange(LL) / LL
+        Es = []
+        for k in ks:
+            Bk = np.zeros((2, 2), complex)
+            Bk[0, 0] = 2 * (1 - np.cos(k)) + 2; Bk[1, 1] = 2 * (1 - np.cos(k)) + 2
+            Bk[0, 1] = -(1 + np.exp(1j * k)); Bk[1, 0] = np.conj(Bk[0, 1])
+            Es.append(np.linalg.eigvalsh(Bk)[0] / 2)
+        full = np.sort(np.linalg.eigvalsh(lap2)) / 2
+        ks_c = (ks + np.pi) % (2 * np.pi) - np.pi
+        r2 = R.r2_kinetic(ks_c, np.array(Es))
+        rows.append({'L': LL, 'lowest_band_E_at_smallest_k': float(Es[1]), 'D_edge2_per_sweep': float(Es[1] / ks[1] ** 2), 'D_from_khat': r2['D'],
+                     'check_lowest_levels_of_full_laplacian_over_2': [float(v) for v in full[:3]]})
+        print('LOAD', rows[-1], flush=True)
+    out['load_quantum'] = {'rows': rows, 'D_continuum_exact': 0.625,
+                           'statement': 'E(k) = (1 - cos k) + 1 - cos(k / 2) for the rail-symmetric mode: D = 5/8 edge^2 per sweep, m_kin = 4/5; rest cost 1/2 in Phi units'}
+
+if PART == 'unit':
+    d0 = start({('B', 0): -1})                                      # unit charge on U_0, compensated through the bottom rail
+    states, index, T = R.enumerate_chain([d0], R.moves_twist(cx, forbid=NOCREATE), limit=400000)
+    classes, lab = R.recurrent_classes(T)
+    assert len(classes) == 1 and len(classes[0]) == len(states)
+    n = len(states)
+    q = np.array([cx.charges(s) for s in states])
+    assert (np.abs(q).sum(axis=1) == 1).all() and (q.sum(axis=1) == 1).all()
+    pos = np.argmax(q, axis=1)                                      # face index along the ring U_0, D_0, U_1, ...
+    pi = R.stationary(T)
+    Tc = T.tocoo()
+    ds = (pos[Tc.row] - pos[Tc.col] + L) % (2 * L) - L
+    assert set(np.unique(ds)) <= {-1, 0, 1}
+    hop_fwd = float(M * (Tc.data * pi[Tc.col] * (ds == 1)).sum()); hop_bwd = float(M * (Tc.data * pi[Tc.col] * (ds == -1)).sum())
+    darr = np.array(states)
+    create = float(M * sum(p * creation_probability(s) for s, p in zip(states, pi)))
+    res = {'states': n, 'stationary_level': 0.0, 'position_distribution': [float(pi[pos == f].sum()) for f in range(2 * L)],
+           'hops_per_sweep_forward': hop_fwd, 'hops_per_sweep_backward': hop_bwd,
+           'drift_from_hop_counts_edges_per_sweep': (hop_fwd - hop_bwd) / 2,
+           'uncorrelated_D_from_hop_counts': (hop_fwd + hop_bwd) / 8,
+           'creation_attempts_of_full_rule_per_sweep': create,
+           'P(max |d| >= 3)': float(pi[(np.abs(darr).max(axis=1) >= 3)].sum()),
+           'mean_odd_seams': float(pi @ (np.abs(darr) % 2).sum(axis=1)),
+           'mean_seam_potential_half_sum_d2': float(pi @ (darr ** 2).sum(axis=1)) / 2,
+           'release_per_sweep_by_repair': None}
+    # release by repair events and by twists (seam potential |d| - 1/2 per twist), per sweep
+    print('UNIT', res, f'{time.time()-t0:.0f}s', flush=True)
+
+    def tilted(theta):
+        return sp.coo_matrix((Tc.data * np.exp(1j * theta * ds), (Tc.row, Tc.col)), shape=(n, n)).tocsc()
+
+    # exact check of the stationary level and the small-theta expansion
+    band = []
+    v0 = pi.astype(complex)
+    for theta in (0.0, 0.02, 0.04, -0.02, -0.04):
+        lam = leading(tilted(theta), guess=v0)[0]
+        band.append((theta, M * (1 - lam)))
+        print('  theta %+.3f  E = %.10f %+.10fi' % (theta, (M * (1 - lam)).real, (M * (1 - lam)).imag), f'{time.time()-t0:.0f}s', flush=True)
+    E = dict(band)
+    h = 0.02
+    D1 = (E[h].real + E[-h].real) / (2 * h * h); D2 = (E[2 * h].real + E[-2 * h].real) / (2 * 4 * h * h)
+    Ds = (4 * D1 - D2) / 3
+    v1 = (E[-h].imag - E[h].imag) / (2 * h); v2 = (E[-2 * h].imag - E[2 * h].imag) / (4 * h)
+    vs = (4 * v1 - v2) / 3
+    res.update({'E_at_theta_0': [float(E[0.0].real), float(E[0.0].imag)], 'D_s_face_steps2_per_sweep': float(Ds), 'v_s_face_steps_per_sweep': float(vs),
+                'D_edge2_per_sweep': float(Ds / 4), 'drift_edges_per_sweep': float(vs / 2), 'm_kin': float(2 / Ds)})
+    print('UNIT D_s', Ds, 'v_s', vs, 'D', Ds / 4, 'v', vs / 2, flush=True)
+    # the band across the zone: k = 2 theta, theta in (0, pi/2]; lowest two levels of the tilted operator
+    zone = []
+    for kk in np.linspace(0, np.pi, 13)[1:]:
+        lam = leading(tilted(kk / 2), k=4)
+        Ek = M * (1 - lam)
+        zone.append({'k': float(kk), 'levels_Re_Im': [[float(z.real), float(z.imag)] for z in Ek]})
+        print('  k %.4f' % kk, ' '.join('%.5f%+.5fi' % (z.real, z.imag) for z in Ek), f'{time.time()-t0:.0f}s', flush=True)
+        if time.time() - t0 > 170:
+            break
+    res['band_from_tilted_operator'] = zone
+    ks = np.array([0.0] + [z['k'] for z in zone]); Es = np.array([0.0] + [z['levels_Re_Im'][0][0] for z in zone])
+    sh = R.r1s_shape(ks, Es)
+    res['R1s_shape_fit_of_Re_E'] = sh
+    out['unit_charge'] = res
+
+if PART in ('pair', 'double'):
+    spec = {'pair': {('G', 0): 1, ('R', 1): 1}, 'double': {('B', 0): -2}}[PART]
+    d0 = start(spec)
+    states, index, T = R.enumerate_chain([d0], R.moves_twist(cx, forbid=NOCREATE), limit=400000)
+    n = len(states)
+    q = np.array([cx.charges(s) for s in states])
+    absq = np.abs(q).sum(axis=1)
+    print(PART, 'start charges', cx.charges(d0), 'states', n, 'by total |q|', {int(v): int((absq == v).sum()) for v in np.unique(absq)}, f'{time.time()-t0:.0f}s', flush=True)
+    perm_states = R.seam_perm_action(states, index, perm)
+    tr = R.Translations(R.cyclic_group(perm_states, L), (L,))
+    res = {'states': n, 'start_charges': list(cx.charges(d0))}
+    if PART == 'pair':
+        keep = np.flatnonzero(absq == 2)
+        sub = T[keep][:, keep].tocsc()
+        res['transient_states_with_a_pair'] = int(len(keep))
+        # momentum blocks of the transient block
+        inv = -np.ones(n, np.int64); inv[keep] = np.arange(len(keep))
+        psub = inv[perm_states[keep]]
+        trs = R.Translations(R.cyclic_group(psub, L), (L,))
+        rows = []
+        for m in range(L):
+            Bk = trs.block(sub, (m,))
+            ev = np.linalg.eigvals(Bk) if Bk.shape[0] <= 3500 else spla.eigs(sp.csc_matrix(Bk), k=6, which='LR', return_eigenvectors=False, tol=1e-12)
+            Ek = M * (1 - ev); Ek = Ek[np.argsort(Ek.real)]
+            rows.append({'m': m, 'k': 2 * np.pi * m / L, 'block': int(Bk.shape[0]), 'lowest_levels_Re_Im': [[float(z.real), float(z.imag)] for z in Ek[:5]]})
+            print('PAIR m', m, 'block', Bk.shape[0], ' '.join('%.5f%+.5fi' % (z.real, z.imag) for z in Ek[:5]), f'{time.time()-t0:.0f}s', flush=True)
+        res['pair_decay_levels_by_momentum'] = rows
+        E0 = rows[0]['lowest_levels_Re_Im'][0][0]; E1 = rows[1]['lowest_levels_Re_Im'][0][0]
+        kh2 = R.khat(2 * np.pi / L) ** 2
+        res['R1_E0'] = E0
+        res['R2_D_cm_from_first_momentum'] = (E1 - E0) / kh2
+        res['m_kin'] = kh2 / (2 * (E1 - E0)) if E1 > E0 else None
+        res['c2_E0_over_m_kin'] = 2 * E0 * (E1 - E0) / kh2 if E1 > E0 else None
+    else:
+        classes, lab = R.recurrent_classes(T)
+        assert len(classes) == 1 and len(classes[0]) == n
+        pi = R.stationary(T)
+        fused = (np.abs(q).max(axis=1) == 2)
+        darr = np.array(states)
+        # centre-of-charge counting field: sum of face positions changes by +-1 per hop (fission and fusion included)
+        ring_pos = np.arange(2 * L)
+        Tc = T.tocoo()
+        # change of the summed position, taken on the circle: use the circular mean displacement of the charge vector
+        dq = q[Tc.row] - q[Tc.col]
+        src = np.argmin(dq, axis=1); dst = np.argmax(dq, axis=1)
+        moved = (dq != 0).any(axis=1)
+        ds = np.where(moved, (dst - src + L) % (2 * L) - L, 0)
+        assert set(np.unique(ds)) <= {-1, 0, 1}
+        hop_f = float(M * (Tc.data * pi[Tc.col] * (ds == 1)).sum()); hop_b = float(M * (Tc.data * pi[Tc.col] * (ds == -1)).sum())
+        res.update({'P(fused: one face holds 2)': float(pi[fused].sum()), 'hops_per_sweep_forward': hop_f, 'hops_per_sweep_backward': hop_b,
+                    'creation_attempts_of_full_rule_per_sweep': float(M * sum(p * creation_probability(s) for s, p in zip(states, pi))),
+                    'mean_seam_potential_half_sum_d2': float(pi @ (darr ** 2).sum(axis=1)) / 2})
+        print('DOUBLE', res, f'{time.time()-t0:.0f}s', flush=True)
+
+        def tilted(theta):
+            return sp.coo_matrix((Tc.data * np.exp(1j * theta * ds), (Tc.row, Tc.col)), shape=(n, n)).tocsc()
+        E = {}
+        v0 = pi.astype(complex)
+        for theta in (0.02, 0.04, -0.02, -0.04):
+            lam = leading(tilted(theta), guess=v0)[0]
+            E[theta] = M * (1 - lam)
+            print('  theta %+.3f  E = %.10f %+.10fi' % (theta, E[theta].real, E[theta].imag), f'{time.time()-t0:.0f}s', flush=True)
+        h = 0.02
+        D1 = (E[h].real + E[-h].real) / (2 * h * h); D2 = (E[2 * h].real + E[-2 * h].real) / (8 * h * h)
+        Dsum = (4 * D1 - D2) / 3                                     # diffusion of the summed position s1 + s2 (face steps)
+        v1 = (E[-h].imag - E[h].imag) / (2 * h); v2 = (E[-2 * h].imag - E[2 * h].imag) / (4 * h)
+        vsum = (4 * v1 - v2) / 3
+        # centre of charge X = (s1 + s2) / 4 in edges: D_cm = Dsum / 16, v_cm = vsum / 4
+        res.update({'D_sum_face_steps2_per_sweep': float(Dsum), 'v_sum_face_steps_per_sweep': float(vsum),
+                    'D_centre_edge2_per_sweep': float(Dsum / 16), 'drift_centre_edges_per_sweep': float(vsum / 4),
+                    'm_kin_of_the_charge_two_sector': float(8 / Dsum)})
+    out[PART] = res
+
+(HERE / f'n_iii_twist_{PART}_L{L}.json').write_text(json.dumps(out, indent=1, default=float))
+print('done', f'{time.time()-t0:.0f}s')

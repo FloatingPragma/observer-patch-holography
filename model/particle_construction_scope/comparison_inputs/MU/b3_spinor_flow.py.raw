@@ -1,0 +1,211 @@
+"""Block 3, part A: cap modular flow on the spinor section code (two dimensions) for N = 12 ... 2562 ports.
+
+One quantum. Cap algebra: operators on the ports of C plus the outside weight, M_{n_C} + C. States:
+  tracial   rho = W W^dagger / N                     (the tracial state on the section code)
+  gibbs     rho = (2/N) W exp(lam.sigma)/Z W^dagger  (boosted code states)
+  gaussian  many quanta, two-point function G = (2/N) W W^dagger (section projector), Peschel on the cap
+  random    tracial state on a random two-dimensional code (negative control)
+For each: reduced density on the cap, K_C on its support (rank two), and the action of exp(-i t K_C) on
+(a) the compressions of port projectors to the support, read as screen points, (b) the port projectors themselves
+(K_C extended by zero), (c) the localization of the images over the ports of the cap.
+Writes flow_spinor.json.
+"""
+import json
+import numpy as np
+from mu_lib import (icosphere, mesh_edges, sections, spinor, spinors, directions, cap_ports, cap_effect, axes_of_carrier,
+                    herm, vec, boost, rot, powm_pos, expm_herm, I2, angle, mesh_spacing)
+
+ALPHAS = [50, 80, 110]
+TS = [0.25, 0.5, 1.0, 2.0]
+ax = axes_of_carrier()
+rng = np.random.default_rng(20261110)
+
+
+def top2(Fac, full_check=False):
+    """Spectral data of the rank-two density Fac Fac^dagger (Fac is n_C x 2): eigenvalues (ascending), eigenvectors.
+
+    With full_check the n_C x n_C matrix is diagonalized as well and the largest remaining eigenvalue is returned."""
+    V, S, _ = np.linalg.svd(Fac, full_matrices=False)
+    w = S[::-1] ** 2; V = V[:, ::-1]
+    rest = 0.0
+    if full_check:
+        ww = np.linalg.eigvalsh(Fac @ Fac.conj().T)
+        rest = float(max(np.abs(ww[:-2]).max(), np.abs(ww[-2:] - w).max()))
+    return w, V, rest
+
+
+def fit_rotation(U0, U1, n):
+    """Signed rotation angle about n that best maps U0 to U1 (mean azimuth difference) and the rms residual."""
+    e1 = np.cross(n, [1.0, 0.3, 0.2]); e1 /= np.linalg.norm(e1); e2 = np.cross(n, e1)
+    a0 = np.arctan2(U0 @ e2, U0 @ e1); a1 = np.arctan2(U1 @ e2, U1 @ e1)
+    d = np.angle(np.exp(1j * (a1 - a0)))
+    s = np.sqrt(np.clip(1 - (U0 @ n) ** 2, 0, None))
+    keep = s > 0.05
+    ang = float(np.angle(np.mean(np.exp(1j * d[keep]))))
+    R = np.array([directions((rot(n, ang) @ spinor(u))[None, :])[0] for u in U0])
+    res = float(np.sqrt(np.mean(np.arccos(np.clip(np.sum(R * U1, axis=1), -1, 1)) ** 2)))
+    pol = float(np.abs(np.arccos(np.clip(U1 @ n, -1, 1)) - np.arccos(np.clip(U0 @ n, -1, 1))).max())
+    return ang, res, pol
+
+
+def kabsch(P, Q):
+    H = P.T @ Q
+    Uu, S, Vt = np.linalg.svd(H)
+    d = np.sign(np.linalg.det(Vt.T @ Uu.T))
+    R = Vt.T @ np.diag([1, 1, d]) @ Uu.T
+    return float(np.sqrt(np.mean(np.arccos(np.clip(np.sum((P @ R.T) * Q, axis=1), -1, 1)) ** 2)))
+
+
+def analyse_cap(U, W, idx, n, alpha, N, spacing):
+    WC = W[idx]
+    UC = U[idx]
+    E, nC, m = cap_effect(U, idx)
+    cbar = float(np.linalg.norm(m)); eta = float(np.arctanh(cbar)); mh = m / cbar
+    Ecomp = N / 2 * I2 - E
+    tc, rc = vec(Ecomp)[0], vec(Ecomp)[1:]
+    eta_c = float(np.arctanh(np.linalg.norm(rc) / tc))
+    cinf = np.cos(np.radians(alpha) / 2) ** 2
+    res = {'alpha_deg': alpha, 'n_C': int(nC), 'eta': eta, 'eta_continuum': float(np.arctanh(cinf)),
+           'eta_complement': eta_c, 'eta_complement_continuum': float(np.arctanh(1 - cinf)),
+           'axis_misalignment_rad': angle(mh, n)}
+    Einv = np.linalg.inv(E)
+
+    # ---------------- tracial code state
+    full = nC <= 200
+    smp = np.arange(nC) if nC <= 200 else np.sort(rng.choice(nC, 200, replace=False))
+    US = UC[smp]
+
+    def screen_map(V, phases):
+        """Images of the compressed port vectors Pi e_p (p in the sample) under V diag(phases) V^dagger, as screen points."""
+        X = V @ (phases[:, None] * V.conj().T[:, smp])              # n_C x sample
+        psi = np.linalg.lstsq(WC, X, rcond=None)[0]                 # W_C psi = v
+        return directions((E @ psi).T), X
+
+    lam, V, rest = top2(WC / np.sqrt(N), full)
+    kap = -np.log(lam)
+    vis = np.sum(np.abs(V) ** 2, axis=1)                            # <p|Pi|p>
+    tr = {'weight_of_cap': float(lam.sum()), 'rank_defect': rest,
+          'modular_gap': float(kap[0] - kap[1]), 'two_eta': 2 * eta,
+          'visible_fraction_of_a_port_projector_mean': float(vis.mean()), 'two_over_n_C': 2 / nC}
+    flow = {}
+    for t in TS:
+        ph = np.exp(-1j * t * kap)
+        u1, X = screen_map(V, ph)
+        pred = directions(spinors(US) @ powm_pos(E, 1j * t).T)      # chi_u -> E^(it) chi_u
+        ang, rs, pol = fit_rotation(US, u1, n)
+        # (b) port projectors with K extended by zero off the support: <p|(1 - Pi + U_t)|p>
+        stay = np.abs(1 - vis + np.sum(np.abs(V) ** 2 * ph[None, :], axis=1)) ** 2
+        # (c) localization of the image of a compressed port effect over the ports of the cap
+        A = np.abs(X) ** 2
+        A = A / A.sum(axis=0)
+        cen = (A.T @ UC); cen = cen / np.linalg.norm(cen, axis=1)[:, None]
+        rms = np.sqrt(np.sum(A * np.arccos(np.clip(UC @ cen.T, -1, 1)) ** 2, axis=0))
+        flow[str(t)] = {'defect_vs_E^(it)_rad': float(np.arccos(np.clip(np.sum(pred * u1, axis=1), -1, 1)).max()),
+                        'fitted_rotation_angle_about_cap_axis': ang, 'angle_over_t': ang / t, 'rms_residual_rad': rs,
+                        'max_change_of_colatitude_rad': pol,
+                        'port_projector_moved_weight_mean': float(np.mean(1 - stay)),
+                        'image_rms_radius_rad_mean': float(rms.mean()), 'image_rms_radius_over_alpha': float(rms.mean() / np.radians(alpha)),
+                        'image_participation_ratio_over_n_C': float(np.mean(1 / np.sum(A ** 2, axis=0)) / nC)}
+    tr['flow'] = flow
+    res['tracial'] = tr
+
+    # ---------------- Gibbs code states
+    gib = {}
+    perp = np.cross(n, [0.2, -0.7, 0.4]); perp /= np.linalg.norm(perp)
+    for name, lv in (('along_axis', 0.5 * n), ('perpendicular', 0.5 * perp), ('generic', 0.5 * (n + perp) / np.sqrt(2))):
+        R = expm_herm(herm(0, lv)); R = R / np.real(np.trace(R))
+        lam, V, rest = top2(np.sqrt(2 / N) * WC @ powm_pos(R, 0.5), full)
+        kap = -np.log(lam)
+        S = powm_pos(R, 0.5) @ E @ powm_pos(R, 0.5)
+        ws = np.linalg.eigvalsh(S)
+        ER = E @ R
+        wv, vv = np.linalg.eig(ER)
+        fixed = directions(vv.T)
+        # elliptic flow (E R)^(it) on screen points; does it preserve the cap boundary?
+        ca = np.cos(np.radians(alpha))
+        e1 = np.cross(n, [1.0, 0.3, 0.2]); e1 /= np.linalg.norm(e1); e2 = np.cross(n, e1)
+        bnd = np.array([ca * n + np.sqrt(1 - ca * ca) * (np.cos(a) * e1 + np.sin(a) * e2) for a in np.linspace(0, 2 * np.pi, 12, endpoint=False)])
+        period = 2 * np.pi / abs(np.log(ws[1] / ws[0]))
+        dev = 0.0
+        dmax = 0.0
+        for t in np.linspace(0, period, 49):
+            M = vv @ np.diag(np.exp(1j * t * np.log(wv))) @ np.linalg.inv(vv)
+            img = directions(spinors(bnd) @ M.T)
+            dev = max(dev, float(np.abs(np.arccos(np.clip(img @ n, -1, 1)) - np.radians(alpha)).max()))
+            u1, _ = screen_map(V, np.exp(-1j * t * kap))
+            pr = directions(spinors(US) @ M.T)
+            dmax = max(dmax, float(np.arccos(np.clip(np.sum(pr * u1, axis=1), -1, 1)).max()))
+        gib[name] = {'modular_gap': float(kap[0] - kap[1]), 'log_ratio_of_boosted_effect': float(np.log(ws[1] / ws[0])),
+                     'fixed_points_angle_to_cap_axis_rad': [angle(f, n) for f in fixed],
+                     'angle_between_fixed_points_rad': angle(fixed[0], fixed[1]),
+                     'max_excursion_of_boundary_points_rad': dev, 'defect_vs_(E R)^(it)_rad': dmax, 'rank_defect': rest}
+    res['gibbs_lambda_0.5'] = gib
+
+    # ---------------- Gaussian state filling the section space (Peschel)
+    nu, V, rest = top2(np.sqrt(2 / N) * WC, full)
+    eps = np.log((1 - nu) / nu)
+    g = {'nu': nu.tolist(), 'entanglement_energies': eps.tolist(), 'rotation_rate_eps_gap': float(eps[0] - eps[1]),
+         'two_(eta+eta_complement)': 2 * (eta + eta_c),
+         'continuum': float(2 * (np.arctanh(cinf) + np.arctanh(1 - cinf))), 'rank_defect': rest}
+    t = 1.0
+    u1, _ = screen_map(V, np.exp(-1j * t * eps))
+    ang, rs, pol = fit_rotation(US, u1, n)
+    g['fitted_rotation_angle_about_cap_axis_t=1'] = ang; g['rms_residual_rad'] = rs; g['max_change_of_colatitude_rad'] = pol
+    res['gaussian'] = g
+
+    # ---------------- negative control: random two-dimensional code
+    Z = rng.normal(size=(N, 2)) + 1j * rng.normal(size=(N, 2))
+    Qr, _ = np.linalg.qr(Z)
+    Wr = Qr * np.sqrt(N / 2)
+    Er = Wr[idx].conj().T @ Wr[idx]
+    tv = vec(Er)
+    eta_r = float(np.arctanh(np.linalg.norm(tv[1:]) / tv[0])); mr = tv[1:] / np.linalg.norm(tv[1:])
+    # induced port map at rotation angle 1 rad: code points s_p (Bloch vectors of the rows), rotate, nearest port
+    s = directions(Wr[idx].conj())                                # row p = <phi_p|, the code point of port p
+    tt = 1.0 / (2 * eta_r)
+    simg = directions(Wr[idx].conj() @ powm_pos(Er, 1j * tt).T)
+    q = np.argmax(simg @ s.T, axis=1)
+    disp_r = np.arccos(np.clip(np.sum(UC * UC[q], axis=1), -1, 1))
+    # same instrument on the spinor code at rotation angle 1 rad
+    tt2 = 1.0 / (2 * eta)
+    uimg = directions(spinors(UC) @ powm_pos(E, 1j * tt2).T)
+    q2 = np.argmax(uimg @ UC.T, axis=1)
+    res['random_code'] = {'eta': eta_r, 'eta_times_sqrt_n_C': eta_r * np.sqrt(nC), 'axis_angle_to_cap_axis_rad': angle(mr, n),
+                          'port_map_at_1_rad': {'kabsch_residual_rad_random_code': kabsch(UC, UC[q]),
+                                                'mean_displacement_rad_random_code': float(disp_r.mean()),
+                                                'kabsch_residual_rad_spinor_code': kabsch(UC, UC[q2]),
+                                                'mesh_spacing_rad': spacing}}
+    return res
+
+
+out = {'times': TS, 'levels': {}}
+for L in range(5):
+    U, F = icosphere(L)
+    N = len(U)
+    W = sections(U)
+    spacing = mesh_spacing(U, mesh_edges(F))
+    lev = {'N': N, 'frame_defect_WdagW': float(np.abs(W.conj().T @ W - N / 2 * I2).max()), 'caps': {}}
+    for name, n in ax.items():
+        rows = []
+        for a0 in ALPHAS:
+            a = float(a0)
+            for _ in range(20):
+                try:
+                    idx = cap_ports(U, n, a); break
+                except ValueError:
+                    a += 0.37
+            if len(idx) < 3:
+                continue
+            rows.append(analyse_cap(U, W, idx, n, a, N, spacing))
+        lev['caps'][name] = rows
+    out['levels'][str(L)] = lev
+    for name in ('port', 'generic'):
+        for r in lev['caps'][name]:
+            f1 = r['tracial']['flow']['1.0']
+            print(f"L{L} N={N} {name} a={r['alpha_deg']:.1f} nC={r['n_C']} 2eta={2*r['eta']:.5f} (cont {2*r['eta_continuum']:.5f}) "
+                  f"fit rate {f1['angle_over_t']:.5f} res {f1['rms_residual_rad']:.1e} dcolat {f1['max_change_of_colatitude_rad']:.1e} "
+                  f"moved {f1['port_projector_moved_weight_mean']:.2e} img rms/alpha {f1['image_rms_radius_over_alpha']:.3f} PR/nC {f1['image_participation_ratio_over_n_C']:.3f} | "
+                  f"gauss rate {r['gaussian']['rotation_rate_eps_gap']:.5f} (cont {r['gaussian']['continuum']:.5f}) | "
+                  f"gibbs perp excursion {r['gibbs_lambda_0.5']['perpendicular']['max_excursion_of_boundary_points_rad']:.3f} along {r['gibbs_lambda_0.5']['along_axis']['max_excursion_of_boundary_points_rad']:.1e} | "
+                  f"random eta {r['random_code']['eta']:.4f} kabsch rnd {r['random_code']['port_map_at_1_rad']['kabsch_residual_rad_random_code']:.3f} spinor {r['random_code']['port_map_at_1_rad']['kabsch_residual_rad_spinor_code']:.3f}", flush=True)
+json.dump(out, open('flow_spinor.json', 'w'), indent=1)

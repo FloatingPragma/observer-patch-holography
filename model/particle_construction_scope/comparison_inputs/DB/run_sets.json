@@ -1,0 +1,529 @@
+{
+ "A": {
+  "b": [
+   "41/10",
+   "-19/6",
+   "-7"
+  ],
+  "content": "SM: three families, one Higgs doublet",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 144,
+   "min_inv_alpha3_at_mz": -145.10107949030194,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.11487625418060202
+   ],
+   "admissible_alpha_u_range": [
+    0.11586622073578595,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.11586622073578595,
+    "residual": -0.40505316325969004,
+    "inv_alpha2": 4.744177774405664,
+    "inv_alpha3": 0.03950920687019632,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "B": {
+  "b": [
+   "61/10",
+   "-7/6",
+   "-5"
+  ],
+  "content": "A + one complex scalar per Weyl multiplet, three families",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 201,
+   "min_inv_alpha3_at_mz": -46.815780480758576,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.05844816053511705
+   ],
+   "admissible_alpha_u_range": [
+    0.05943812709030101,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.05943812709030101,
+    "residual": -0.2859210732413805,
+    "inv_alpha2": 12.909582475425001,
+    "inv_alpha3": 0.04720903345225835,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "C": {
+  "b": [
+   "61/10",
+   "1/6",
+   "-3"
+  ],
+  "content": "B + adjoint Weyl fermions",
+  "producer_windows": {
+   "status": "closure",
+   "P": 1.6301294244720466,
+   "alpha0_inv": 146.5390657782938,
+   "alpha_U": 0.035966575096829524,
+   "M_U_GeV": 2.473398975981384e+16,
+   "v_GeV": 1.0310586462723565,
+   "m_Z_GeV": 0.38274084020395677,
+   "m_W_GeV": 0.3403560271471368,
+   "sin2_theta_W_mZ": 0.20921708182293552,
+   "alpha_s_mZ": 0.10727089224971015,
+   "alpha_em_inv_mZ": 137.80106631465003,
+   "ln_MU_over_mZ": 38.7073519724863
+  }
+ },
+ "D": {
+  "b": [
+   "33/5",
+   "1",
+   "-3"
+  ],
+  "content": "C + second Higgs doublet + two Weyl doublets (MSSM content)",
+  "producer_windows": {
+   "status": "closure",
+   "P": 1.6309720958588974,
+   "alpha0_inv": 136.99483517741294,
+   "alpha_U": 0.04112424744181669,
+   "M_U_GeV": 2.473612027956188e+16,
+   "v_GeV": 246.59675497393172,
+   "m_Z_GeV": 91.58832749908635,
+   "m_W_GeV": 80.3300549987054,
+   "sin2_theta_W_mZ": 0.23073517991130937,
+   "alpha_s_mZ": 0.1183358619577733,
+   "alpha_em_inv_mZ": 128.3082680579876,
+   "ln_MU_over_mZ": 33.229737095323635
+  }
+ },
+ "B0": {
+  "b": [
+   "11/2",
+   "-7/6",
+   "-5"
+  ],
+  "content": "A + Q, U, D, L scalars (no E scalar), three families",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 201,
+   "min_inv_alpha3_at_mz": -46.81215699013421,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.05844816053511705
+   ],
+   "admissible_alpha_u_range": [
+    0.05943812709030101,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.05943812709030101,
+    "residual": -0.2859034335947362,
+    "inv_alpha2": 12.910485900491521,
+    "inv_alpha3": 0.051080855165913874,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "D0": {
+  "b": [
+   "6",
+   "1",
+   "-3"
+  ],
+  "content": "D without the E scalars",
+  "producer_windows": {
+   "status": "closure",
+   "P": 1.631488446558663,
+   "alpha0_inv": 131.73729302941112,
+   "alpha_U": 0.04111388866642511,
+   "M_U_GeV": 2.4737425311952892e+16,
+   "v_GeV": 244.19631413679448,
+   "m_Z_GeV": 91.27759061378762,
+   "m_W_GeV": 79.539132629931,
+   "sin2_theta_W_mZ": 0.24066509171347936,
+   "alpha_s_mZ": 0.11827317730938575,
+   "alpha_em_inv_mZ": 123.041971004663,
+   "ln_MU_over_mZ": 33.2331883769601
+  }
+ },
+ "B1": {
+  "b": [
+   "137/30",
+   "-5/2",
+   "-19/3"
+  ],
+  "content": "A + one generation-blind copy of the Q, U, D, L scalars",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 159,
+   "min_inv_alpha3_at_mz": -112.45648906696911,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.1000267558528428
+   ],
+   "admissible_alpha_u_range": [
+    0.10101672240802675,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.10101672240802675,
+    "residual": -0.39797083359683716,
+    "inv_alpha2": 5.992129849059083,
+    "inv_alpha3": 0.0010572959812407134,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "D1": {
+  "b": [
+   "76/15",
+   "-1/3",
+   "-13/3"
+  ],
+  "content": "A + gauginos + second Higgs + Higgsinos + one copy of Q, U, D, L scalars",
+  "producer_windows": {
+   "status": "closure",
+   "P": 1.6297835734271704,
+   "alpha0_inv": 150.85246837137672,
+   "alpha_U": 0.030234004536829836,
+   "M_U_GeV": 2.473311508156477e+16,
+   "v_GeV": 0.00026121927086444446,
+   "m_Z_GeV": 9.392369128457472e-05,
+   "m_W_GeV": 8.372503495059845e-05,
+   "sin2_theta_W_mZ": 0.2053783926490122,
+   "alpha_s_mZ": 1.5455309729583657,
+   "alpha_em_inv_mZ": 148.90006002630597,
+   "ln_MU_over_mZ": 47.01994733240457
+  }
+ },
+ "D1E": {
+  "b": [
+   "79/15",
+   "-1/3",
+   "-13/3"
+  ],
+  "content": "D1 + one E scalar",
+  "producer_windows": {
+   "status": "closure",
+   "P": 1.6295945834469971,
+   "alpha0_inv": 153.31857031107555,
+   "alpha_U": 0.03023760271194006,
+   "M_U_GeV": 2.4732637049095864e+16,
+   "v_GeV": 0.0002628544837636339,
+   "m_Z_GeV": 9.431659308409007e-05,
+   "m_W_GeV": 8.425426290701183e-05,
+   "sin2_theta_W_mZ": 0.20199142581671697,
+   "alpha_s_mZ": 1.548027594496481,
+   "alpha_em_inv_mZ": 151.37841372022527,
+   "ln_MU_over_mZ": 47.01575352757515
+  }
+ },
+ "A2": {
+  "b": [
+   "21/5",
+   "-3",
+   "-7"
+  ],
+  "content": "A with two Higgs doublets, no partners",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 144,
+   "min_inv_alpha3_at_mz": -145.1900961544932,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.11487625418060202
+   ],
+   "admissible_alpha_u_range": [
+    0.11586622073578595,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.11586622073578595,
+    "residual": -0.4043003732303634,
+    "inv_alpha2": 4.940336959762269,
+    "inv_alpha3": 0.01992875570592645,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "S": {
+  "b": [
+   "23/5",
+   "-1",
+   "-5"
+  ],
+  "content": "A + gauginos + second Higgs + Higgsinos, no sfermions",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 201,
+   "min_inv_alpha3_at_mz": -46.82437453145866,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.05844816053511705
+   ],
+   "admissible_alpha_u_range": [
+    0.05943812709030101,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.05943812709030101,
+    "residual": -0.27502572102797845,
+    "inv_alpha2": 13.468214745472377,
+    "inv_alpha3": 0.04420224412984197,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "A1": {
+  "b": [
+   "43/30",
+   "-35/6",
+   "-29/3"
+  ],
+  "content": "A with one family",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 196,
+   "with_positive_couplings": 109,
+   "min_inv_alpha3_at_mz": -10.625724050307529,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.061418060200668895,
+    0.14952508361204014
+   ],
+   "admissible_alpha_u_range": [
+    0.15051505016722408,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.2574314381270903,
+    "residual": -0.4070754628926416,
+    "inv_alpha2": 3.870679715321958,
+    "inv_alpha3": 3.8615784681517518,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "BnoH": {
+  "b": [
+   "6",
+   "-4/3",
+   "-5"
+  ],
+  "content": "B with the Higgs identified with one class-3 scalar doublet",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 201,
+   "min_inv_alpha3_at_mz": -46.79494197433479,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.05844816053511705
+   ],
+   "admissible_alpha_u_range": [
+    0.05943812709030101,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.05943812709030101,
+    "residual": -0.2967605775453126,
+    "inv_alpha2": 12.354393609464147,
+    "inv_alpha3": 0.06237689076852604,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "A5D": {
+  "b": [
+   "143/30",
+   "-5/2",
+   "-19/3"
+  ],
+  "content": "A + one Dirac fermion in the native five",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 158,
+   "min_inv_alpha3_at_mz": -112.45760428065554,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.10101672240802675
+   ],
+   "admissible_alpha_u_range": [
+    0.1020066889632107,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.1020066889632107,
+    "residual": -0.3982489383358783,
+    "inv_alpha2": 5.956870175732403,
+    "inv_alpha3": 0.059043789451051154,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "AHD": {
+  "b": [
+   "9/2",
+   "-5/2",
+   "-7"
+  ],
+  "content": "A + one Dirac doublet (1,2)_{+-1/2}",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 143,
+   "min_inv_alpha3_at_mz": -145.3885537944524,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.11586622073578595
+   ],
+   "admissible_alpha_u_range": [
+    0.1168561872909699,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.1168561872909699,
+    "residual": -0.4013740735416841,
+    "inv_alpha2": 5.509609364633816,
+    "inv_alpha3": 0.023357279932897157,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ },
+ "T2": {
+  "b": [
+   "161/10",
+   "53/6",
+   "5"
+  ],
+  "content": "three families as two Dirac tastes each (staggered source action) + one H",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 256,
+   "min_inv_alpha3_at_mz": 3.9010477471903906,
+   "pixel_root_brackets": [
+    [
+     0.11883612040133779,
+     0.11982608695652174
+    ]
+   ],
+   "inadmissible_alpha_u_range": null,
+   "admissible_alpha_u_range": [
+    0.004989966555183947,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.004989966555183947,
+    "residual": 5.8290110348258075,
+    "inv_alpha2": 638.0890255835883,
+    "inv_alpha3": 448.14943579747853,
+    "required_heat_sum": 0.40774302396472434
+   }
+  },
+  "widened_windows": {
+   "status": "no closure in widened windows"
+  },
+  "d10_at_P0_widened": {
+   "alpha_U": 0.11943228914956916,
+   "v_over_Estar": 1.5200314810134856e-06,
+   "mZ_over_Estar": 7.233994277958066e-07,
+   "inv_alpha_123": [
+    28.712332290417468,
+    19.53223620779533,
+    14.689524971549705
+   ],
+   "alpha_em_inv_mZ": 67.38612335849112,
+   "inner_alpha0_inv": 76.6474105639153,
+   "outer_alpha_range_inv": [
+    100.0,
+    200.0
+   ]
+  }
+ },
+ "T2_1": {
+  "b": [
+   "163/30",
+   "-11/6",
+   "-17/3"
+  ],
+  "content": "one family as two Dirac tastes + one H",
+  "producer_windows": {
+   "status": "no closure in the producer windows"
+  },
+  "diagnostic_at_P0": {
+   "alpha_u_points": 300,
+   "with_mz_root": 256,
+   "with_positive_couplings": 177,
+   "min_inv_alpha3_at_mz": -79.67163728539825,
+   "pixel_root_brackets": [],
+   "inadmissible_alpha_u_range": [
+    0.004989966555183947,
+    0.08220735785953177
+   ],
+   "admissible_alpha_u_range": [
+    0.08319732441471572,
+    0.2574314381270903
+   ],
+   "max_pixel_residual_admissible": {
+    "alpha_u": 0.08319732441471572,
+    "residual": -0.3729330194683949,
+    "inv_alpha2": 8.137464625428448,
+    "inv_alpha3": 0.020236302070539836,
+    "required_heat_sum": 0.40774302396472434
+   }
+  }
+ }
+}

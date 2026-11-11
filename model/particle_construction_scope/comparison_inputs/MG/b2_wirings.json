@@ -1,0 +1,373 @@
+{
+ "controls": {
+  "face_axis_L0": {
+   "glue_seams": 30,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "port_pair_L0": {
+   "glue_seams": 30,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "face_axis_L1": {
+   "glue_seams": 120,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "port_pair_L1": {
+   "glue_seams": 120,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "face_axis_L2": {
+   "glue_seams": 480,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "port_pair_L2": {
+   "glue_seams": 480,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "face_axis_L3": {
+   "glue_seams": 1920,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "port_pair_L3": {
+   "glue_seams": 1920,
+   "equal_to_this_builder": true,
+   "cells_equal": true
+  },
+  "negative_control_face_axis_vs_F_L1_equal": false
+ },
+ "port_pair": {
+  "0": {
+   "cells": 20,
+   "glue_seams": 30,
+   "router_collisions": 0,
+   "cell_types_by_distance_pattern": {
+    "(2, 2, 2)": 12,
+    "(1, 2, 2)": 8
+   },
+   "rule_S": {
+    "defined_glue_seams": 10,
+    "vertex_holonomy": {
+     "5": {
+      "undefined": 12
+     },
+     "6": {}
+    }
+   },
+   "crosswise_matches_available_per_seam": {
+    "1": 4,
+    "2": 16,
+    "3": 10
+   },
+   "ambient_angle_between_glued_port_axes_deg": {
+    "antipodal_count": 0,
+    "min": 105.24526371870061,
+    "mean": 144.58479567709753,
+    "histogram_10deg": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     4,
+     0,
+     0,
+     8,
+     8,
+     2,
+     8,
+     0
+    ]
+   },
+   "nearest_rotation_to_frame_transport": {
+    "identity_fraction": 0.0,
+    "classes": {
+     "C5 (fifth of a turn, 72 deg)": 52,
+     "C5^2 (two fifths, 144 deg)": 8
+    },
+    "reversible_directed_seams": 56,
+    "directed_seams": 60,
+    "residual_angle_deg_mean_max": [
+     38.99795358738996,
+     41.81031489577853
+    ],
+    "smallest_margin": 4.440892098500626e-16,
+    "glued_port_distance_after_transport": {
+     "2": 24,
+     "3": 36
+    },
+    "vertex_holonomy": {
+     "5": {
+      "C3 (third of a turn)": 6,
+      "C5 (fifth of a turn, 72 deg)": 4,
+      "C5^2 (two fifths, 144 deg)": 2
+     },
+     "6": {}
+    },
+    "group_order": null
+   }
+  },
+  "1": {
+   "cells": 80,
+   "glue_seams": 120,
+   "router_collisions": 0,
+   "cell_types_by_distance_pattern": {
+    "(2, 2, 2)": 56,
+    "(1, 2, 3)": 24
+   },
+   "rule_S": {
+    "defined_glue_seams": 70,
+    "vertex_holonomy": {
+     "5": {
+      "C3 (third of a turn)": 2,
+      "undefined": 10
+     },
+     "6": {
+      "identity": 10,
+      "undefined": 20
+     }
+    }
+   },
+   "crosswise_matches_available_per_seam": {
+    "0": 8,
+    "1": 42,
+    "2": 2,
+    "3": 68
+   },
+   "ambient_angle_between_glued_port_axes_deg": {
+    "antipodal_count": 0,
+    "min": 113.7098092971014,
+    "mean": 148.47512126709074,
+    "histogram_10deg": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     14,
+     0,
+     24,
+     8,
+     32,
+     42,
+     0
+    ]
+   },
+   "nearest_rotation_to_frame_transport": {
+    "identity_fraction": 0.9166666666666666,
+    "classes": {
+     "identity": 220,
+     "C5 (fifth of a turn, 72 deg)": 8,
+     "C3 (third of a turn)": 8,
+     "C2 (half turn)": 4
+    },
+    "reversible_directed_seams": 240,
+    "directed_seams": 240,
+    "residual_angle_deg_mean_max": [
+     22.200747180116657,
+     28.64182904846756
+    ],
+    "smallest_margin": 0.4198228035853613,
+    "glued_port_distance_after_transport": {
+     "2": 92,
+     "3": 148
+    },
+    "vertex_holonomy": {
+     "5": {
+      "identity": 8,
+      "C5 (fifth of a turn, 72 deg)": 4
+     },
+     "6": {
+      "identity": 22,
+      "C5 (fifth of a turn, 72 deg)": 8
+     }
+    },
+    "group_order": 60
+   }
+  },
+  "2": {
+   "cells": 320,
+   "glue_seams": 480,
+   "router_collisions": 0,
+   "cell_types_by_distance_pattern": {
+    "(2, 2, 2)": 216,
+    "(1, 2, 3)": 104
+   },
+   "rule_S": {
+    "defined_glue_seams": 308,
+    "vertex_holonomy": {
+     "5": {
+      "C3 (third of a turn)": 2,
+      "undefined": 10
+     },
+     "6": {
+      "identity": 66,
+      "undefined": 84
+     }
+    }
+   },
+   "crosswise_matches_available_per_seam": {
+    "0": 8,
+    "1": 164,
+    "2": 28,
+    "3": 280
+   },
+   "ambient_angle_between_glued_port_axes_deg": {
+    "antipodal_count": 0,
+    "min": 115.77123939471407,
+    "mean": 154.41514042654606,
+    "histogram_10deg": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     32,
+     104,
+     24,
+     0,
+     16,
+     176,
+     128
+    ]
+   },
+   "nearest_rotation_to_frame_transport": {
+    "identity_fraction": 0.9583333333333334,
+    "classes": {
+     "identity": 920,
+     "C5 (fifth of a turn, 72 deg)": 16,
+     "C3 (third of a turn)": 16,
+     "C2 (half turn)": 8
+    },
+    "reversible_directed_seams": 960,
+    "directed_seams": 960,
+    "residual_angle_deg_mean_max": [
+     12.127601826247112,
+     39.62727517665692
+    ],
+    "smallest_margin": 0.09532992824316233,
+    "glued_port_distance_after_transport": {
+     "2": 320,
+     "3": 640
+    },
+    "vertex_holonomy": {
+     "5": {
+      "identity": 8,
+      "C5 (fifth of a turn, 72 deg)": 4
+     },
+     "6": {
+      "identity": 134,
+      "C5 (fifth of a turn, 72 deg)": 16
+     }
+    },
+    "group_order": 60
+   }
+  },
+  "3": {
+   "cells": 1280,
+   "glue_seams": 1920,
+   "router_collisions": 0,
+   "cell_types_by_distance_pattern": {
+    "(2, 2, 2)": 852,
+    "(1, 2, 3)": 428
+   },
+   "rule_S": {
+    "defined_glue_seams": 1500,
+    "vertex_holonomy": {
+     "5": {
+      "C3 (third of a turn)": 2,
+      "undefined": 10
+     },
+     "6": {
+      "identity": 362,
+      "undefined": 268
+     }
+    }
+   },
+   "crosswise_matches_available_per_seam": {
+    "0": 20,
+    "1": 400,
+    "2": 346,
+    "3": 1154
+   },
+   "ambient_angle_between_glued_port_axes_deg": {
+    "antipodal_count": 0,
+    "min": 116.35718527850146,
+    "mean": 159.6921118376784,
+    "histogram_10deg": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     58,
+     460,
+     24,
+     8,
+     0,
+     8,
+     1362
+    ]
+   },
+   "nearest_rotation_to_frame_transport": {
+    "identity_fraction": 0.9760416666666667,
+    "classes": {
+     "identity": 3748,
+     "C5 (fifth of a turn, 72 deg)": 40,
+     "C3 (third of a turn)": 40,
+     "C2 (half turn)": 12
+    },
+    "reversible_directed_seams": 3840,
+    "directed_seams": 3840,
+    "residual_angle_deg_mean_max": [
+     6.266457415347317,
+     38.43327445128192
+    ],
+    "smallest_margin": 0.061058690113002356,
+    "glued_port_distance_after_transport": {
+     "2": 1100,
+     "3": 2740
+    },
+    "vertex_holonomy": {
+     "5": {
+      "identity": 12
+     },
+     "6": {
+      "identity": 586,
+      "C5 (fifth of a turn, 72 deg)": 44
+     }
+    },
+    "group_order": 60
+   }
+  }
+ }
+}

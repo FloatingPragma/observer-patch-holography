@@ -1,0 +1,1332 @@
+{
+ "template": {
+  "polar_angle_of_glue_face_ports_deg": 37.37736814064969,
+  "polar_angle_of_belt_ports_deg": 79.18768303642828
+ },
+ "control_carrier_face_flux_units": -0.9999999999999998,
+ "control_six_short_rolls_about_a_flat_vertex": {
+  "roll_angle_deg": 41.81031489577858,
+  "rotation_angle_deg": 71.99999999999994,
+  "su2_trace": 1.6180339887498956,
+  "lift": "short lift (order 10)"
+ },
+ "control_five_short_rolls_about_a_cone_vertex": {
+  "rotation_after_five_rolls_is_about_the_normal": true,
+  "rotation_angle_deg": 59.99999999999996,
+  "closed_with_the_short_lift_of_the_cone_identification": [
+   1.0,
+   1.0
+  ]
+ },
+ "control_pinned_ports_equal_bloch": true,
+ "control_face_axis_ports_equal_fedgeom": true,
+ "flat": {
+  "F": {
+   "chart_S": {
+    "angles_deg": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "keep_modulus": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "plaquette_flux_units_direct_links": 1.9999999999999996,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "identity"
+   },
+   "ambient": {
+    "angles_deg": [
+     74.754736281,
+     74.754736281,
+     74.754736281
+    ],
+    "keep_modulus": [
+     0.794654472,
+     0.794654472,
+     0.794654472
+    ],
+    "plaquette_flux_units_direct_links": 1.9999999999999987,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "trivial (one common frame)"
+   },
+   "chart_R0": {
+    "angles_deg": [
+     116.565051177,
+     116.565051177,
+     116.565051177
+    ],
+    "keep_modulus": [
+     0.525731112,
+     0.525731112,
+     0.525731112
+    ],
+    "plaquette_flux_units_direct_links": 2.000000000000001,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   },
+   "chart_R1": {
+    "angles_deg": [
+     63.434948823,
+     63.434948823,
+     63.434948823
+    ],
+    "keep_modulus": [
+     0.850650808,
+     0.850650808,
+     0.850650808
+    ],
+    "plaquette_flux_units_direct_links": 1.9999999999999996,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   },
+   "chart_R2": {
+    "angles_deg": [
+     63.434948823,
+     63.434948823,
+     63.434948823
+    ],
+    "keep_modulus": [
+     0.850650808,
+     0.850650808,
+     0.850650808
+    ],
+    "plaquette_flux_units_direct_links": 1.9999999999999993,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   }
+  },
+  "face_axis": {
+   "chart_S": {
+    "angles_deg": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "keep_modulus": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "plaquette_flux_units_direct_links": -6.000000000000004,
+    "plaquette_flux_units_through_ports": 8.0,
+    "holonomy": "identity"
+   },
+   "ambient": {
+    "angles_deg": [
+     158.375366073,
+     158.375366073,
+     158.375366073
+    ],
+    "keep_modulus": [
+     0.187592474,
+     0.187592474,
+     0.187592474
+    ],
+    "plaquette_flux_units_direct_links": -6.000000000000004,
+    "plaquette_flux_units_through_ports": 7.999999999999997,
+    "holonomy": "trivial (one common frame)"
+   },
+   "chart_roll": {
+    "angles_deg": [
+     116.565051177,
+     116.565051177,
+     116.565051177
+    ],
+    "keep_modulus": [
+     0.525731112,
+     0.525731112,
+     0.525731112
+    ],
+    "plaquette_flux_units_direct_links": -6.000000000000004,
+    "plaquette_flux_units_through_ports": 8.0,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   },
+   "chart_R0": {
+    "angles_deg": [
+     63.434948823,
+     63.434948823,
+     63.434948823
+    ],
+    "keep_modulus": [
+     0.850650808,
+     0.850650808,
+     0.850650808
+    ],
+    "plaquette_flux_units_direct_links": -6.000000000000004,
+    "plaquette_flux_units_through_ports": 8.0,
+    "holonomy": "C5^2 (two fifths, 144 deg)"
+   },
+   "chart_R1": {
+    "angles_deg": [
+     116.565051177,
+     116.565051177,
+     116.565051177
+    ],
+    "keep_modulus": [
+     0.525731112,
+     0.525731112,
+     0.525731112
+    ],
+    "plaquette_flux_units_direct_links": -6.000000000000004,
+    "plaquette_flux_units_through_ports": 8.0,
+    "holonomy": "C5^2 (two fifths, 144 deg)"
+   },
+   "chart_R2": {
+    "angles_deg": [
+     116.565051177,
+     116.565051177,
+     116.565051177
+    ],
+    "keep_modulus": [
+     0.525731112,
+     0.525731112,
+     0.525731112
+    ],
+    "plaquette_flux_units_direct_links": -6.000000000000004,
+    "plaquette_flux_units_through_ports": 8.0,
+    "holonomy": "C5^2 (two fifths, 144 deg)"
+   }
+  },
+  "port_pair": {
+   "ambient": {
+    "angles_deg": [
+     180.0,
+     116.565051177,
+     180.0
+    ],
+    "keep_modulus": [
+     0.0,
+     0.525731112,
+     0.0
+    ],
+    "plaquette_flux_units_direct_links": null,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "trivial (one common frame)"
+   }
+  },
+  "rolling": {
+   "chart_R0": {
+    "angles_deg": [
+     116.565051177,
+     116.565051177,
+     116.565051177
+    ],
+    "keep_modulus": [
+     0.525731112,
+     0.525731112,
+     0.525731112
+    ],
+    "plaquette_flux_units_direct_links": 2.000000000000001,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   },
+   "chart_R1": {
+    "angles_deg": [
+     63.434948823,
+     63.434948823,
+     63.434948823
+    ],
+    "keep_modulus": [
+     0.850650808,
+     0.850650808,
+     0.850650808
+    ],
+    "plaquette_flux_units_direct_links": 1.9999999999999996,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   },
+   "chart_R2": {
+    "angles_deg": [
+     63.434948823,
+     63.434948823,
+     63.434948823
+    ],
+    "keep_modulus": [
+     0.850650808,
+     0.850650808,
+     0.850650808
+    ],
+    "plaquette_flux_units_direct_links": 1.9999999999999993,
+    "plaquette_flux_units_through_ports": null,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   },
+   "face_axis_chart_roll": {
+    "angles_deg": [
+     116.565051177,
+     116.565051177,
+     116.565051177
+    ],
+    "keep_modulus": [
+     0.525731112,
+     0.525731112,
+     0.525731112
+    ],
+    "plaquette_flux_units_direct_links": -6.000000000000004,
+    "plaquette_flux_units_through_ports": 8.0,
+    "holonomy": "C5 (fifth of a turn, 72 deg)"
+   }
+  },
+  "port_pair_gamma_scan": {
+   "0": {
+    "ports_up": [
+     1,
+     0,
+     2
+    ],
+    "ports_down": [
+     2,
+     3,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     180.0,
+     116.565051
+    ]
+   },
+   "5": {
+    "ports_up": [
+     1,
+     0,
+     3
+    ],
+    "ports_down": [
+     2,
+     3,
+     0
+    ],
+    "antipodal_pairs": 3,
+    "angles_deg": [
+     180.0,
+     180.0,
+     180.0
+    ]
+   },
+   "10": {
+    "ports_up": [
+     1,
+     10,
+     3
+    ],
+    "ports_down": [
+     2,
+     8,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     116.565051,
+     180.0
+    ]
+   },
+   "15": {
+    "ports_up": [
+     1,
+     10,
+     3
+    ],
+    "ports_down": [
+     2,
+     8,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     116.565051,
+     180.0
+    ]
+   },
+   "20": {
+    "ports_up": [
+     1,
+     10,
+     3
+    ],
+    "ports_down": [
+     2,
+     8,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     116.565051,
+     180.0
+    ]
+   },
+   "25": {
+    "ports_up": [
+     1,
+     10,
+     3
+    ],
+    "ports_down": [
+     2,
+     8,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     116.565051,
+     180.0
+    ]
+   },
+   "30": {
+    "ports_up": [
+     1,
+     10,
+     3
+    ],
+    "ports_down": [
+     2,
+     8,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     116.565051,
+     180.0
+    ]
+   },
+   "40": {
+    "ports_up": [
+     1,
+     10,
+     3
+    ],
+    "ports_down": [
+     2,
+     8,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     116.565051,
+     180.0
+    ]
+   },
+   "50": {
+    "ports_up": [
+     1,
+     10,
+     3
+    ],
+    "ports_down": [
+     2,
+     8,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     116.565051,
+     180.0
+    ]
+   },
+   "60": {
+    "ports_up": [
+     0,
+     2,
+     3
+    ],
+    "ports_down": [
+     2,
+     1,
+     0
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     116.565051,
+     180.0,
+     180.0
+    ]
+   },
+   "75": {
+    "ports_up": [
+     0,
+     2,
+     8
+    ],
+    "ports_down": [
+     3,
+     1,
+     10
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     180.0,
+     116.565051
+    ]
+   },
+   "90": {
+    "ports_up": [
+     0,
+     2,
+     8
+    ],
+    "ports_down": [
+     3,
+     1,
+     10
+    ],
+    "antipodal_pairs": 2,
+    "angles_deg": [
+     180.0,
+     180.0,
+     116.565051
+    ]
+   }
+  }
+ },
+ "sphere": {
+  "0": {
+   "F": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 32.94442138552073,
+      "mean": 32.94442138552075,
+      "max": 32.944421385520776
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -1.5898663317884914e-15,
+       "mean": -5.45871864857221e-16,
+       "max": 7.337844608254589e-16
+      },
+      "6": null
+     }
+    },
+    "chart_S": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -5.000000000000002,
+       "mean": -5.000000000000001,
+       "max": -5.000000000000001
+      },
+      "6": null
+     },
+     "vertex_holonomy": {
+      "5": {
+       "C3 (third of a turn), lifted order 3": 12
+      },
+      "6": {}
+     }
+    }
+   },
+   "face_axis": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 116.56505117707796,
+      "mean": 116.56505117707803,
+      "max": 116.56505117707802
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -9.999999999999998,
+       "mean": 3.333333333333332,
+       "max": 10.0
+      },
+      "6": null
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": 4.9999999999999964,
+       "mean": 5.0,
+       "max": 5.0000000000000036
+      },
+      "6": null
+     }
+    },
+    "chart_S": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 4.999999999999996,
+       "mean": 4.999999999999997,
+       "max": 4.999999999999997
+      },
+      "6": null
+     },
+     "vertex_holonomy": {
+      "5": {
+       "C3 (third of a turn), lifted order 3": 12
+      },
+      "6": {}
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": -1.6700075828179255e-15,
+       "mean": -1.54011810415431e-15,
+       "max": -8.906707108362275e-16
+      },
+      "6": null
+     }
+    },
+    "chart_roll": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 116.56505117707799,
+      "mean": 116.56505117707803,
+      "max": 116.56505117707799
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 9.99999999999999,
+       "mean": 9.999999999999996,
+       "max": 9.999999999999996
+      },
+      "6": null
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {}
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": 4.999999999999993,
+       "mean": 4.999999999999998,
+       "max": 4.999999999999999
+      },
+      "6": null
+     }
+    }
+   },
+   "port_pair": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 105.24526371870061,
+      "mean": 144.58479567709753,
+      "max": 163.20429295384912
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -2.4773452069833946,
+       "mean": 2.666666666666666,
+       "max": 9.52265479301661
+      },
+      "6": null
+     }
+    }
+   },
+   "rolling": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 63.434948822921854,
+      "mean": 63.43494882292198,
+      "max": 63.43494882292203
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -2.2266767770905657e-15,
+       "mean": 3.517031458075191e-16,
+       "max": 1.1690053079725473e-15
+      },
+      "6": null
+     }
+    },
+    "chart_R1": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 63.43494882292201,
+      "mean": 63.43494882292201,
+      "max": 63.43494882292201
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -2.672012132508682e-15,
+       "mean": -2.2251358491532052e-15,
+       "max": -1.1133383885452858e-15
+      },
+      "6": null
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {}
+     }
+    },
+    "chart_R0": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 116.56505117707799,
+      "mean": 116.56505117707803,
+      "max": 116.56505117707799
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -8.025622757013796e-15,
+       "mean": -2.184296746375484e-15,
+       "max": -1.543388991733421e-16
+      },
+      "6": null
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {}
+     }
+    },
+    "chart_R2": {
+     "angle_between_glued_axes_deg": {
+      "count": 30,
+      "min": 63.43494882292201,
+      "mean": 63.43494882292201,
+      "max": 63.43494882292201
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -2.8946798102177406e-15,
+       "mean": -2.52821397067718e-15,
+       "max": -2.1042288664040202e-15
+      },
+      "6": null
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {}
+     }
+    }
+   }
+  },
+  "1": {
+   "F": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 54.15595986418058,
+      "mean": 54.50637684984358,
+      "max": 54.85679383550661
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 1.4502862944710602,
+       "mean": 1.4502862944710613,
+       "max": 1.4502862944710622
+      },
+      "6": {
+       "count": 30,
+       "min": 1.4198854822115736,
+       "mean": 1.4198854822115758,
+       "max": 1.419885482211577
+      }
+     }
+    },
+    "chart_S": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -5.000000000000001,
+       "mean": -5.000000000000001,
+       "max": -5.000000000000001
+      },
+      "6": {
+       "count": 30,
+       "min": 1.9999999999999978,
+       "mean": 1.999999999999999,
+       "max": 1.9999999999999987
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "C3 (third of a turn), lifted order 3": 12
+      },
+      "6": {
+       "identity, lifted order 1": 30
+      }
+     }
+    }
+   },
+   "face_axis": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 136.99988363455714,
+      "mean": 137.73865363081052,
+      "max": 138.47742362706384
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -6.452209966801533,
+       "mean": -6.4522099668015285,
+       "max": -6.452209966801526
+      },
+      "6": {
+       "count": 30,
+       "min": -7.419116013279398,
+       "mean": -7.419116013279391,
+       "max": -7.419116013279383
+      }
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": 8.547790033198467,
+       "mean": 8.547790033198469,
+       "max": 8.547790033198472
+      },
+      "6": {
+       "count": 30,
+       "min": 6.5808839867205995,
+       "mean": 6.580883986720609,
+       "max": 6.580883986720617
+      }
+     }
+    },
+    "chart_S": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 4.999999999999996,
+       "mean": 4.999999999999995,
+       "max": 4.999999999999996
+      },
+      "6": {
+       "count": 30,
+       "min": -6.000000000000004,
+       "mean": -6.0000000000000036,
+       "max": -6.0000000000000036
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "C3 (third of a turn), lifted order 3": 12
+      },
+      "6": {
+       "identity, lifted order 1": 30
+      }
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": -1.558673743963399e-15,
+       "mean": -1.558673743963399e-15,
+       "max": -1.558673743963399e-15
+      },
+      "6": {
+       "count": 30,
+       "min": 7.999999999999998,
+       "mean": 8.0,
+       "max": 8.0
+      }
+     }
+    },
+    "chart_roll": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 116.56505117707799,
+      "mean": 116.56505117707799,
+      "max": 116.56505117707799
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 9.99999999999999,
+       "mean": 9.999999999999988,
+       "max": 9.99999999999999
+      },
+      "6": {
+       "count": 30,
+       "min": -6.000000000000007,
+       "mean": -6.0000000000000036,
+       "max": -6.000000000000003
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 30
+      }
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": 4.999999999999993,
+       "mean": 4.999999999999993,
+       "max": 4.999999999999993
+      },
+      "6": {
+       "count": 30,
+       "min": 7.999999999999996,
+       "mean": 7.999999999999998,
+       "max": 8.0
+      }
+     }
+    }
+   },
+   "port_pair": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 113.7098092971014,
+      "mean": 148.47512126709074,
+      "max": 164.5123678208642
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -4.818024399609152,
+       "mean": 3.2774589562409506,
+       "max": 9.684612868065424
+      },
+      "6": {
+       "count": 16,
+       "min": -4.487075055294239,
+       "mean": 3.5225882840445735,
+       "max": 6.312882921052756
+      }
+     }
+    }
+   },
+   "rolling": {
+    "chart_R1": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 63.43494882292201,
+      "mean": 63.43494882292202,
+      "max": 63.43494882292201
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -1.1133383885452858e-15,
+       "mean": -1.113338388545286e-15,
+       "max": -1.1133383885452858e-15
+      },
+      "6": {
+       "count": 30,
+       "min": 1.9999999999999947,
+       "mean": 1.999999999999995,
+       "max": 1.9999999999999958
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 30
+      }
+     }
+    },
+    "chart_R0": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 116.56505117707799,
+      "mean": 116.56505117707799,
+      "max": 116.56505117707799
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -8.025622757013796e-15,
+       "mean": -8.025622757013795e-15,
+       "max": -8.025622757013796e-15
+      },
+      "6": {
+       "count": 30,
+       "min": 1.999999999999996,
+       "mean": 1.9999999999999978,
+       "max": 2.000000000000001
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 30
+      }
+     }
+    },
+    "chart_R2": {
+     "angle_between_glued_axes_deg": {
+      "count": 120,
+      "min": 63.43494882292201,
+      "mean": 63.43494882292202,
+      "max": 63.43494882292201
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -2.8946798102177406e-15,
+       "mean": -2.8946798102177406e-15,
+       "max": -2.8946798102177406e-15
+      },
+      "6": {
+       "count": 30,
+       "min": 1.9999999999999958,
+       "mean": 1.999999999999997,
+       "max": 1.9999999999999978
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 30
+      }
+     }
+    }
+   }
+  },
+  "2": {
+   "F": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 64.11761696767698,
+      "mean": 64.69509778692661,
+      "max": 65.83990684630815
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 1.8612587897563202,
+       "mean": 1.861258789756329,
+       "max": 1.8612587897563335
+      },
+      "6": {
+       "count": 150,
+       "min": 1.8432830126580515,
+       "mean": 1.8510992968194933,
+       "max": 1.858705722828416
+      }
+     }
+    },
+    "chart_S": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -5.000000000000001,
+       "mean": -5.000000000000001,
+       "max": -5.000000000000001
+      },
+      "6": {
+       "count": 150,
+       "min": 1.9999999999999982,
+       "mean": 1.9999999999999984,
+       "max": 1.9999999999999996
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "C3 (third of a turn), lifted order 3": 12
+      },
+      "6": {
+       "identity, lifted order 1": 150
+      }
+     }
+    }
+   },
+   "face_axis": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 146.3265387506815,
+      "mean": 148.03062286625493,
+      "max": 149.46053663786543
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -4.459557953933178,
+       "mean": -4.4595579539331744,
+       "max": -4.459557953933171
+      },
+      "6": {
+       "count": 150,
+       "min": -6.486228115698559,
+       "mean": -6.443235363685347,
+       "max": -6.405722512162249
+      }
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": -9.459557953933182,
+       "mean": -9.459557953933178,
+       "max": -9.459557953933173
+      },
+      "6": {
+       "count": 150,
+       "min": 7.513771884301452,
+       "mean": 7.556764636314656,
+       "max": 7.594277487837751
+      }
+     }
+    },
+    "chart_S": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 0.0,
+      "mean": 0.0,
+      "max": 0.0
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 4.999999999999996,
+       "mean": 4.999999999999995,
+       "max": 4.999999999999996
+      },
+      "6": {
+       "count": 150,
+       "min": -6.000000000000005,
+       "mean": -6.000000000000005,
+       "max": -6.000000000000004
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "C3 (third of a turn), lifted order 3": 12
+      },
+      "6": {
+       "identity, lifted order 1": 150
+      }
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": -1.558673743963399e-15,
+       "mean": -1.558673743963399e-15,
+       "max": -1.558673743963399e-15
+      },
+      "6": {
+       "count": 150,
+       "min": 7.999999999999998,
+       "mean": 8.0,
+       "max": 8.0
+      }
+     }
+    },
+    "chart_roll": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 116.56505117707799,
+      "mean": 116.56505117707799,
+      "max": 116.56505117707799
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": 9.99999999999999,
+       "mean": 9.999999999999988,
+       "max": 9.99999999999999
+      },
+      "6": {
+       "count": 150,
+       "min": -6.000000000000012,
+       "mean": -6.000000000000007,
+       "max": -6.000000000000003
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 150
+      }
+     },
+     "plaquette_flux_units_through_ports": {
+      "5": {
+       "count": 12,
+       "min": 4.999999999999993,
+       "mean": 4.999999999999993,
+       "max": 4.999999999999993
+      },
+      "6": {
+       "count": 150,
+       "min": 7.999999999999991,
+       "mean": 7.999999999999997,
+       "max": 8.0
+      }
+     }
+    }
+   },
+   "port_pair": {
+    "ambient": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 115.77123939471407,
+      "mean": 154.41514042654606,
+      "max": 171.74216244321386
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -5.601954621960893,
+       "mean": 1.7871229946278486,
+       "max": 5.483620131519874
+      },
+      "6": {
+       "count": 86,
+       "min": -3.4209258899316675,
+       "mean": 5.709239813317908,
+       "max": 8.008199992671946
+      }
+     }
+    }
+   },
+   "rolling": {
+    "chart_R1": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 63.43494882292201,
+      "mean": 63.43494882292202,
+      "max": 63.43494882292201
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -1.1133383885452858e-15,
+       "mean": -1.113338388545286e-15,
+       "max": -1.1133383885452858e-15
+      },
+      "6": {
+       "count": 150,
+       "min": 1.9999999999999947,
+       "mean": 1.9999999999999962,
+       "max": 1.9999999999999987
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 150
+      }
+     }
+    },
+    "chart_R0": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 116.56505117707799,
+      "mean": 116.56505117707799,
+      "max": 116.56505117707799
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -8.025622757013796e-15,
+       "mean": -8.025622757013795e-15,
+       "max": -8.025622757013796e-15
+      },
+      "6": {
+       "count": 150,
+       "min": 1.99999999999999,
+       "mean": 1.9999999999999962,
+       "max": 2.000000000000001
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 150
+      }
+     }
+    },
+    "chart_R2": {
+     "angle_between_glued_axes_deg": {
+      "count": 480,
+      "min": 63.43494882292201,
+      "mean": 63.43494882292202,
+      "max": 63.43494882292201
+     },
+     "plaquette_flux_units_direct_links": {
+      "5": {
+       "count": 12,
+       "min": -2.8946798102177406e-15,
+       "mean": -2.8946798102177406e-15,
+       "max": -2.8946798102177406e-15
+      },
+      "6": {
+       "count": 150,
+       "min": 1.9999999999999958,
+       "mean": 1.999999999999997,
+       "max": 1.9999999999999978
+      }
+     },
+     "vertex_holonomy": {
+      "5": {
+       "identity, lifted order 1": 12
+      },
+      "6": {
+       "C5 (fifth of a turn, 72 deg), lifted order 10": 150
+      }
+     }
+    }
+   }
+  }
+ }
+}

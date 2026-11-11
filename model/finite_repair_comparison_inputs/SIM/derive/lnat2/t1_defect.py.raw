@@ -1,0 +1,527 @@
+"""T1: the coherent one-tick operator with a face defect of class k, compressed to the defect face and to the
+characters of the third-turn about its axis; the one-orientation readout; the two-object family register (DA3).
+
+EXACT unless labelled. Writes t1_defect.json.
+
+Formulas (written before evaluation):
+  Geometry. f = axis face of g = gE o gC containing port 4, f' its antipode. rho_F = the element of <g> that turns
+    F in F's outward (register) orientation. Stabilizer of f in A5 = C3; elements mapping f to f' are half-turns
+    with h g h = g^-1.
+  (A) Link-phase defect (the audit join's link signs generalized to Z6): address (a,b) uses s = exp(i pi n_ab/3),
+    m = (|a> - s|b>)/sqrt2, p = (|a> + s|b>)/sqrt2, U_k = I - v v^dag, v = |m,0> - |p,1>, n_ba = -n_ab.
+    Classes: outward sum of n is k on f, -k on f', 0 elsewhere (Dirac string along a dual path).
+    Consensus block (record 0 -> 0): P_s = A^dag W_s A = (11/12) I + (1/60) A_s, (A_s)_{yx} = s_{x->y}.
+    Record 1 <- 0 consensus block: (1/60) sum_k K1^(k) = 0 (K1^(b,a) = -K1^(a,b) with links too).
+    On f's ports in rho_f order the compression is (11/12) I + (1/60)(forward hops s_e, backward conj s_e); its
+    spectrum is gauge invariant: 11/12 + (1/30) cos((Phi + 2 pi j)/3), Phi = arg(loop product along rho_f) = pi k/3.
+    Covariant third-turn: D_phi Pi(g) with phi_b - phi_a = n_ab - n'_ab (n' = n transported by g) commutes with W_s;
+    (D_phi Pi(g))^3 = diag(orbit sums of phi): projective, characters shifted by (orbit sum) pi/9.
+  (B) Register defect: a bookkeeping layer that W does not read; coupled as a coherent readout the only unitary
+    key is the address orientation (see E1): R_Delta = (1/60) sum_{k: Delta_k = Delta} K1^(k) on f's ports.
+  (C) Coherent seam event sign law: agree +1/sqrt2, repair eps(o) eps(s)/sqrt2 (o address orientation, s source).
+  (E) DA3 register: hold = E agreeing half (identity), rotations = C repair components (source a -> T_a, b -> T_b).
+    Gram: unitary extension with agree -> I_F forces T_a^dag T_b = I.
+    Linear readout with address weights beta_o and source amplitudes gamma_s:
+      source keying:  repair = (beta_+ - beta_-) (gamma_a T_a - gamma_b T_b)/2
+      address keying: repair = (gamma_a - gamma_b) (beta_+ T_+ - beta_- T_-)/2
+      agree = (beta_+ + beta_-)(gamma_a + gamma_b)/2 * I
+    Two independent objects, product readout: family operator = M_C M_E (cross term factorizes).
+    Effective circulants with a = sqrt(1/6), b = sqrt(1/12), clock phase theta (sign tied to the orientation):
+      one orientation (R1):     aI + b(e^{i th} S - e^{-i th} S^2): lambda_k = a + 2 i b sin(th + 2 pi k/3)
+      current aligned (R2):     aI + b(e^{i th} S + e^{-i th} S^2): lambda_k = a + 2 b cos(th + 2 pi k/3)
+    Q = sum |lambda|^2 / (sum |lambda|)^2  (A-clock: m_k ~ |lambda_k|^2).
+"""
+from __future__ import annotations
+
+import json
+from fractions import Fraction as F
+from itertools import product
+
+import numpy as np
+import scipy.sparse as sp
+import sympy as s
+
+import lnat2_common as L
+
+C = L.C
+OUT = 'lnat2_t1.json'
+w3 = s.Rational(-1, 2) + s.sqrt(3) * s.I / 2
+sixth = lambda n: s.exp(s.I * s.pi * (n % 6) / 3)
+
+
+def main():
+    out = {'task': 'T1'}
+    car = C.carrier()
+    gC, gE, g = C.native_rotations()
+    g2 = C.compose(g, g)
+    rots = car['rotations']
+
+    # ------------------------------------------------------------ geometry
+    f, fp = L.axis_faces()
+    of = L.oriented_faces()
+    rho_f_name, rho_f = L.rho(f)
+    rho_fp_name, rho_fp = L.rho(fp)
+    stab_f = [h for h in rots if set(h[x] for x in f) == set(f)]
+    to_fp = [h for h in rots if set(h[x] for x in f) == set(fp)]
+    ginv = C.inverse(g)
+    try:
+        from oph_exact import carrier as OC  # cross-check of the register's oriented faces (read only)
+        reg_faces = {tuple(sorted(x)): x for x in OC.oriented_faces()}
+        same_orientation = all(
+            any(L.traverses(L.outward(tuple(sorted(x))), x[i], x[(i + 1) % 3]) for i in range(1)) for x in OC.oriented_faces())
+        reg_check = {'register_oriented_faces_equal_outward_orientation': same_orientation,
+                     'register_face_f': list(reg_faces[f]), "register_face_f'": list(reg_faces[fp])}
+    except Exception as exc:  # pragma: no cover
+        reg_check = {'oph_exact_import': repr(exc)}
+    out['geometry'] = {
+        'g': C.cycles(g), 'defect_face_f': list(f), "antipode_f'": list(fp),
+        'outward_order_f': list(L.outward(f)), "outward_order_f'": list(L.outward(fp)),
+        'rho_f (turns f in its outward orientation)': rho_f_name,
+        "rho_f' (turns f' in its outward orientation)": rho_fp_name,
+        'g_seen_from_outside_f': 'clockwise' if rho_f_name != 'g' else 'counterclockwise',
+        'stabilizer_of_f_in_A5_order': len(stab_f),
+        'stabilizer_of_f_is_<g>': sorted(stab_f) == sorted([tuple(range(12)), g, g2]),
+        'rotations_mapping_f_to_f_prime': len(to_fp),
+        'all_of_them_half_turns_inverting_g': all(C.order(h) == 2 and C.compose(h, C.compose(g, h)) == ginv for h in to_fp),
+        'g_conjugate_to_g_inverse_inside_C3': False,
+        **reg_check,
+    }
+
+    # ------------------------------------------------------------ (A) link-phase defect
+    adj = car['adj']
+    rows = {}
+    for k in range(6):
+        n = L.defect_links(k)
+        classes = {str(list(F_)): L.face_class(n, F_) for F_ in L.faces()}
+        nonzero = {kk: v for kk, v in classes.items() if v}
+        # consensus block P_s = 11/12 I + (1/60) A_s, exact over Q(omega)
+        P = s.zeros(12, 12)
+        for x in range(12):
+            P[x, x] = s.Rational(11, 12)
+        for a, b in car['seams']:
+            P[b, a] = sixth(n[(a, b)]) / 60   # hop a -> b
+            P[a, b] = sixth(n[(b, a)]) / 60
+        assert (P - P.H).applyfunc(s.simplify) == s.zeros(12, 12)
+        p0 = L.outward(f)[0]
+        basis = [p0, rho_f[p0], rho_f[rho_f[p0]]]
+        M = s.Matrix(3, 3, lambda i, j: P[basis[i], basis[j]])
+        fwd = [s.simplify(M[(j + 1) % 3, j] * 60) for j in range(3)]   # phases of the rho_f steps
+        loop = s.simplify(fwd[0] * fwd[1] * fwd[2])
+        Phi = s.Rational(k, 3) * s.pi
+        loop_ok = s.simplify(loop - s.exp(s.I * Phi)) == 0
+        # C3-symmetric gauge on f's ports: each rho_f step gets exp(i pi k/9)
+        t = s.exp(s.I * s.pi * k / 9)
+        d1 = s.simplify(t / fwd[0])
+        d2 = s.simplify(t * t / (fwd[0] * fwd[1]))
+        D = s.diag(1, d1, d2)
+        Msym = (D * M * D.H).applyfunc(lambda e: s.nsimplify(s.simplify(e)))
+        is_circ = all(s.simplify(Msym[(i + d) % 3, i] - Msym[d % 3, 0]) == 0 for i in range(3) for d in range(3))
+        c_fwd = s.simplify(Msym[1, 0])
+        eig_pred = [s.Rational(11, 12) + s.cos(Phi / 3 + 2 * s.pi * j / 3) / 30 for j in range(3)]
+        cp = (M.charpoly(s.Symbol('x')).as_expr())
+        xs = s.Symbol('x')
+        cp_pred = s.expand(s.prod([xs - e for e in eig_pred]))
+        cp_ok = abs(complex(s.N(s.expand(cp.subs(xs, s.Symbol('x'))) - cp_pred.subs(xs, s.Symbol('x')), 30).subs(s.Symbol('x'), 0.37))) < 1e-25
+        ev_num = sorted(float(s.N(e, 30)) for e in eig_pred)
+        split = len({round(e, 14) for e in ev_num}) == 3
+        # covariant third-turn: phi with phi_b - phi_a = n_ab - n'_ab, n'(g a, g b) = n(a, b)
+        n_tr = {(g[a], g[b]): v for (a, b), v in n.items()}
+        phi = {0: 0}
+        queue = [0]
+        while queue:
+            nxt = []
+            for a in queue:
+                for b in range(12):
+                    if adj[a, b] and b not in phi:
+                        phi[b] = (phi[a] + n[(a, b)] - n_tr[(a, b)]) % 6
+                        nxt.append(b)
+            queue = nxt
+        gauge_ok = all((phi[b] - phi[a] - n[(a, b)] + n_tr[(a, b)]) % 6 == 0 for a, b in n)
+        orbit_sums = sorted({(phi[x] + phi[ginv[x]] + phi[C.compose(ginv, ginv)[x]]) % 6 for x in range(12)})
+        rows[k] = {
+            'class_k_on_f': k, 'nonzero_face_classes': nonzero,
+            'loop_product_along_rho_f_equals_exp(i pi k/3)': loop_ok,
+            'compression_on_f_ports_in_rho_f_order_Z6_gauge': [[str(M[i, j]) for j in range(3)] for i in range(3)],
+            'C3_symmetric_gauge_is_circulant': is_circ,
+            'a': '11/12', 'abs_b': '1/60', 'arg_b_along_rho_f': f'pi*{k}/9 (mod 2 pi/3)',
+            'forward_coefficient_symmetric_gauge': str(c_fwd),
+            'eigenvalues': [str(e) for e in eig_pred], 'eigenvalues_numeric': ev_num,
+            'charpoly_matches_prediction': cp_ok,
+            'w_and_w2_split': split,
+            'abs_b_over_a': '1/55', 'koide_balance_1/sqrt2': False,
+            'covariant_gauge_phi_exists': gauge_ok, 'phi': [phi[x] for x in range(12)],
+            '(D_phi Pi(g))^3 = exp(i pi c/3) I with c': orbit_sums,
+            'third_turn_characters': f'exp(i (pi c/3 + 2 pi j)/3), c = {orbit_sums}',
+        }
+    out['A_link_phase_defect'] = rows
+
+    # full 1440-dimensional walk with Z6 links, exact in Z[omega]
+    full = {}
+    I = sp.identity(C.DIM, dtype=np.int64, format='csr')
+    for k in range(6):
+        n = L.defect_links(k)
+        W = L.walk_with_links(n)
+        WWH = W @ W.H()
+        unit = (WWH - L.ZW(14400 * I, 0 * I)).is_zero()
+        n_tr = {(g[a], g[b]): v for (a, b), v in n.items()}
+        phi = rows[k]['phi']
+        Pi = C.perm_operator(g)
+        Pt = L.port_phase_operator(phi) @ L.ZW(Pi, 0 * Pi)
+        comm = (Pt @ W - W @ Pt).is_zero()
+        Pi_plain = L.ZW(Pi, 0 * Pi)
+        comm_plain = (Pi_plain @ W - W @ Pi_plain).is_zero()
+        # consensus block entries from the full walk: <A y|W|A x> = (y-part of 120 W embed(x)) / 7200
+        cons_ok = True
+        rec1_zero = True
+        for x in range(12):
+            vA, vB = W.dot_vec(C.embed_port(x))
+            for y in range(12):
+                za = int(sum(vA[C.idx(y, 0, kk)] for kk in range(60)))
+                zb = int(sum(vB[C.idx(y, 0, kk)] for kk in range(60)))
+                want = (F(11, 12), F(0)) if x == y else ((F(L.SIXTH[n[(x, y)] % 6][0], 60), F(L.SIXTH[n[(x, y)] % 6][1], 60))
+                                                       if adj[x, y] else (F(0), F(0)))
+                cons_ok &= (F(za, 7200), F(zb, 7200)) == want
+                ra = int(sum(vA[C.idx(y, 1, kk)] for kk in range(60)))
+                rb = int(sum(vB[C.idx(y, 1, kk)] for kk in range(60)))
+                rec1_zero &= ra == 0 and rb == 0
+        full[k] = {'W_unitary_exact': unit, 'commutes_with_covariant_third_turn_D_phi_Pi(g)': comm,
+                   'commutes_with_plain_Pi(g)': comm_plain,
+                   'consensus_block_equals_11/12_I_+_A_s/60': cons_ok,
+                   'consensus_record1_block_zero': rec1_zero}
+    out['A_full_walk_checks_Zomega'] = full
+
+    # ------------------------------------------------------------ (B) register defect as a coherent readout
+    _, _, W120 = C.walk_integer()
+    of_f = L.outward(f)
+    delta = {}
+    for kk, (a, b) in enumerate(car['addresses']):
+        if L.traverses(of_f, a, b):
+            delta[kk] = +1
+        elif L.traverses(of_f, b, a):
+            delta[kk] = -1
+        else:
+            delta[kk] = 0
+    p0 = of_f[0]
+    basis = [p0, rho_f[p0], rho_f[rho_f[p0]]]
+    Rplus = s.zeros(3, 3); Rminus = s.zeros(3, 3)
+    outside = True
+    for j, x in enumerate(basis):
+        o = W120 @ C.embed_port(x)
+        for i, y in enumerate(basis):
+            Rplus[i, j] = s.Rational(sum(int(o[C.idx(y, 1, kk)]) for kk in delta if delta[kk] == +1), 120 * 60)
+            Rminus[i, j] = s.Rational(sum(int(o[C.idx(y, 1, kk)]) for kk in delta if delta[kk] == -1), 120 * 60)
+        for y in range(12):
+            if y not in basis:
+                outside &= sum(int(o[C.idx(y, 1, kk)]) for kk in delta if delta[kk] != 0) == 0
+    Sr = s.Matrix(3, 3, lambda i, j: 1 if i == (j + 1) % 3 else 0)   # S_rho |rho^j p> = |rho^{j+1} p>
+    out['B_register_readout'] = {
+        'register_enters_W': False,
+        'compression_with_register_defect': 'identical to k = 0 (round 1: 11/12, 1/60, 1/60), for every class',
+        'coupling': 'record 1 at address (a,b) on the boundary of f: class(f) += +1 if f traverses a->b, -1 if b->a '
+                    '(the only unitary key, see E1); readout Delta = change of class(f)',
+        'R_plus_on_f_ports_rho_order': [[str(Rplus[i, j]) for j in range(3)] for i in range(3)],
+        'R_plus_equals_(S_rho - S_rho^-1)/120': (Rplus - (Sr - Sr.T) / 120) == s.zeros(3, 3),
+        'R_minus_equals_-R_plus': (Rminus + Rplus) == s.zeros(3, 3),
+        'support_on_f_ports_only': outside,
+        'eigenvalues_R_plus': [str(s.simplify(e)) for e in (Rplus).eigenvals()],
+        'reading': 'the oriented repair survives the consensus, with opposite signs on the forward and backward '
+                   'steps: anti-Hermitian, no identity part; moduli (0, sqrt3/120, sqrt3/120)',
+    }
+    # the same readout on the link-phase defect (exact in Z[omega]): forward s/120, backward -conj(s)/120
+    withlinks = {}
+    for k in range(6):
+        n = L.defect_links(k)
+        Wk = L.walk_with_links(n)
+        R = s.zeros(3, 3)
+        for j, x in enumerate(basis):
+            vA, vB = Wk.dot_vec(C.embed_port(x))
+            for i, y in enumerate(basis):
+                za = sum(int(vA[C.idx(y, 1, kk)]) for kk in delta if delta[kk] == +1)
+                zb = sum(int(vB[C.idx(y, 1, kk)]) for kk in delta if delta[kk] == +1)
+                R[i, j] = (za + zb * w3) / 7200
+        fwd = [s.nsimplify(s.simplify(R[(j + 1) % 3, j] * 120)) for j in range(3)]
+        bwd = [s.nsimplify(s.simplify(R[j, (j + 1) % 3] * 120)) for j in range(3)]
+        diag0 = all(s.simplify(R[i, i]) == 0 for i in range(3))
+        anti = all(s.simplify(bwd[j] + s.conjugate(fwd[j])) == 0 for j in range(3))
+        ev = sorted(abs(complex(s.N(e, 30))) for e in R.eigenvals())
+        pred = sorted(abs(float(s.N(s.sin(s.pi * k / 9 + 2 * s.pi * jj / 3) / 60, 30))) for jj in range(3))
+        withlinks[k] = {'forward_steps_x120': [str(v) for v in fwd], 'backward_steps_x120': [str(v) for v in bwd],
+                        'diagonal_zero': diag0, 'backward = -conj(forward)': anti,
+                        'abs_eigenvalues': ev, 'predicted_|sin(pi k/9 + 2 pi j/3)|/60': pred,
+                        'match': all(abs(u - v) < 1e-25 for u, v in zip(ev, pred))}
+    out['B_register_readout']['with_link_defect_class_k'] = withlinks
+
+    # ------------------------------------------------------------ (C) sign law of the coherent seam event (repository program)
+    from model.coherent_seam_repair.program import Observer, State
+    from model.common_source import native_code_transport as transport
+    obs = Observer()
+    addr = {pair: kk for kk, pair in enumerate(obs.addresses)}
+    signs = {}
+    for name, seam in (('C', transport.SEAMS['C']), ('E', transport.SEAMS['E'])):
+        for orient in (seam, seam[::-1]):
+            kk = addr[orient]
+            for src in seam:
+                amps = [F(0)] * obs.dimension
+                amps[obs.index(src, 0, kk)] = F(1)
+                st = obs.repair(State(tuple(amps), 1))
+                r0 = [st.amplitudes[obs.index(p, 0, kk)] for p in seam]
+                r1 = [st.amplitudes[obs.index(p, 1, kk)] for p in seam]
+                eo = 1 if orient == seam else -1
+                es = 1 if src == seam[0] else -1
+                signs[f'{name} address {orient[0]}->{orient[1]}, load at {src}'] = {
+                    'record0_amplitudes_on_seam': [str(v) for v in r0], 'record1_amplitudes_on_seam': [str(v) for v in r1],
+                    'agree_sign': 1 if r0[0] > 0 else -1, 'repair_sign': 1 if r1[0] > 0 else -1,
+                    'eps(o) eps(s)': eo * es, 'law_holds': (1 if r1[0] > 0 else -1) == eo * es and r0[0] > 0}
+    out['C_sign_law'] = {'rows': signs, 'all_rows_obey_repair_sign_eps_o_eps_s_and_agree_positive':
+                         all(v['law_holds'] for v in signs.values())}
+
+    # ------------------------------------------------------------ (E) DA3 two-object family register
+    S3 = s.Matrix(3, 3, lambda i, j: 1 if i == (j + 1) % 3 else 0)
+    S3i = S3.T
+    I3 = s.eye(3)
+    # E1 Gram obstruction
+    gram_SSi = (I3 - S3.T * S3i) / 2
+    out['E1_gram_obstruction'] = {
+        'statement': 'unitary on (seam x record x F) with K0 = |p><p| acting as I_F and repair from a -> T_a, '
+                     'from b -> T_b (outputs |p,1>): <out(a,f)|out(b,f\')> = (1/2)<f|(I - T_a^dag T_b)|f\'> must vanish',
+        'T_a=S, T_b=S^-1: Gram block (1/2)(I - S^-2)': [[str(x) for x in gram_SSi.row(i)] for i in range(3)],
+        'nonzero': gram_SSi != s.zeros(3, 3),
+        'general_solution': 'T_b = T_a (up to a common phase with the record environment): both source components '
+                            'carry the same family action; the source endpoint is not a record of the coherent law',
+    }
+    # E2 native code: is the source recorded by the partner load?
+    from model.common_source import native_gauge_object as obj
+    partner = {}
+    for law, choice, seam in (('C', 0, (2, 3)), ('E', 1, (2, 10))):
+        Ms = obj.equivariant_matchings(choice)
+        pa = {}
+        for Lg, m in enumerate(Ms):
+            for pr in m:
+                for e in seam:
+                    if e in pr and not set(seam) <= set(pr):
+                        pa.setdefault(e, []).append((Lg, [q for q in pr if q != e][0]))
+        common = sorted(set(q for _, q in pa[seam[0]]) & set(q for _, q in pa[seam[1]]))
+        partner[law] = {'seam': list(seam), 'coloring': choice,
+                        'partners_of_first_endpoint (matching, partner)': pa[seam[0]],
+                        'partners_of_second_endpoint (matching, partner)': pa[seam[1]],
+                        'partners_shared_by_both_sources': common,
+                        'fraction_of_active_pairs_whose_source_is_not_recorded': str(F(2 * len(common), 12))}
+    out['E2_native_code_source_record'] = partner
+    # E3 factorization lemma
+    bp, bm, ga, gb, th = s.symbols('beta_plus beta_minus gamma_a gamma_b theta', real=True)
+    Ta, Tb = S3, S3i
+    rep_source = ((bp - bm) * (ga * Ta - gb * Tb) / 2).applyfunc(s.expand)
+    rep_address = ((ga - gb) * (bp * Ta - bm * Tb) / 2).applyfunc(s.expand)
+    # direct sum over (o, s) with amplitudes eps(o) eps(s)/2 (repair half of the active weight, per source amplitude)
+    eps = {'+': 1, '-': -1}
+    direct_source = s.zeros(3, 3); direct_address = s.zeros(3, 3); agree = s.zeros(3, 3)
+    for o, src in product('+-', 'ab'):
+        beta = bp if o == '+' else bm
+        gam = ga if src == 'a' else gb
+        sig = eps[o] * (1 if src == 'a' else -1)
+        direct_source += beta * gam * sig * (Ta if src == 'a' else Tb) / 2
+        direct_address += beta * gam * sig * (Ta if o == '+' else Tb) / 2
+        agree += beta * gam * I3 / 2
+    out['E3_linear_readout_lemma'] = {
+        'source_keying_equals_(b+ - b-)(g_a T_a - g_b T_b)/2': (direct_source - rep_source).applyfunc(s.expand) == s.zeros(3, 3),
+        'address_keying_equals_(g_a - g_b)(b+ T+ - b- T-)/2': (direct_address - rep_address).applyfunc(s.expand) == s.zeros(3, 3),
+        'agree_equals_(b+ + b-)(g_a + g_b)/2 I': (agree - (bp + bm) * (ga + gb) * I3 / 2).applyfunc(s.expand) == s.zeros(3, 3),
+        'consensus_b+=b-_source_keyed_repair': str((rep_source.subs(bm, bp)).applyfunc(s.simplify) == s.zeros(3, 3)) + ' (zero)',
+        'symmetric_input_g_a=g_b_address_keyed_repair': str((rep_address.subs(gb, ga)).applyfunc(s.simplify) == s.zeros(3, 3)) + ' (zero)',
+        'one_orientation_b-=0_symmetric_input': 'source keying: b+ g (S - S^-1)/2;  address keying: 0',
+        'cos_type_condition_c(S)=c(S^-1)': 'source keying needs g_b = -g_a (input |m>): then agree = 0; '
+                                           'address keying needs b- = -b+: then agree = 0',
+        'one_object_no_go': 'under any fixed linear readout of one coherent seam event, the identity (agree) and an '
+                            'equal-sign pair of shifts (Koide form before the phase) are never both nonzero',
+    }
+    # cross term with two independent objects, product readout
+    aE, rC = s.symbols('agree_E repair_C')
+    out['E3_two_objects'] = {
+        'product_readout': 'family operator = M_C M_E; the cross term (C repair) x (E agree) = M_C(repair) * M_E(agree)',
+        'consensus_on_C': 'M_C(repair) = 0 for source keying, so the cross term is exactly 0 (independent objects '
+                          'factorize; the cancellation of round 1 persists)',
+        'one_orientation_on_C': 'M_C(repair) = b+ g (S - S^-1)/2, cross term = agree_E * b+ g (S - S^-1)/2: survives, '
+                                'with opposite signs on S and S^-1',
+        'sum_versus_product': 'a product readout multiplies the hold and the rotation factors; a I + b(S + S^-1) needs a '
+                              'non-product (Fourier) analyzer across the two objects\' flags (as in KOIDE_SOURCE)',
+    }
+    # E4 the 1440 walk: address-keyed coupling on the C seam under the consensus
+    adr = car['addresses']; pos = {pr: i for i, pr in enumerate(adr)}
+    MC = {}
+    for x in (2, 3):
+        o = W120 @ C.embed_port(x)
+        for y in (2, 3):
+            cp_ = s.Rational(int(o[C.idx(y, 1, pos[(2, 3)])]), 120 * 60)
+            cm_ = s.Rational(int(o[C.idx(y, 1, pos[(3, 2)])]), 120 * 60)
+            MC[f'{y}<-{x}'] = {'coeff_T(2,3)': str(cp_), 'coeff_T(3,2)': str(cm_),
+                               'operator_with_T(2,3)=S,T(3,2)=S^-1': f'{cp_} S + ({cm_}) S^-1'}
+    out['E4_walk_address_keyed_consensus'] = {
+        'formula': '(1/60) sum_k <y|K1^(k)|x> T_k, T = S on address (2,3), S^-1 on (3,2), I elsewhere (sum of I terms = 0)',
+        'entries': MC,
+        'result': '+-(1/120)(S - S^-1): survives the consensus for a definite source; opposite signs on S and S^-1',
+    }
+    # E5 effective family operators and Q
+    a_, b_ = 1 / s.sqrt(6), 1 / s.sqrt(12)
+    def lam_R1(theta_val):
+        return [a_ + 2 * s.I * b_ * s.sin(theta_val + 2 * s.pi * kk / 3) for kk in range(3)]
+    def lam_R2(theta_val):
+        return [a_ + 2 * b_ * s.cos(theta_val + 2 * s.pi * kk / 3) for kk in range(3)]
+    def Qnum(lams):
+        mods = [abs(complex(s.N(l, 40))) for l in lams]
+        return sum(m * m for m in mods) / sum(mods) ** 2, mods
+    # symbolic check that the circulants have these eigenvalues
+    CR1 = a_ * I3 + b_ * (s.exp(s.I * th) * S3 - s.exp(-s.I * th) * S3i)
+    CR2 = a_ * I3 + b_ * (s.exp(s.I * th) * S3 + s.exp(-s.I * th) * S3i)
+    def eig_ok(Cm, lam_fn):
+        ok = True
+        for kk in range(3):
+            v = s.Matrix([w3**(kk * j) for j in range(3)])   # S v = w^-k v ... check both labelings
+            lam = s.simplify((Cm * v)[0] / v[0])
+            ok &= any(abs(complex(s.N((lam - lf).subs(th, s.Rational(3, 10)), 50))) < 1e-40 for lf in lam_fn(th))
+        return ok
+    eff = {}
+    for name, lamfn, Cm in (('R1_one_orientation (coherent sign, source keying formal)', lam_R1, CR1),
+                            ('R2_current_aligned (needs the source record)', lam_R2, CR2)):
+        rowsE = {'eigenvalue_formula_verified': eig_ok(Cm, lamfn)}
+        for tv, tl in ((0, '0'), (s.Rational(2, 9), '2/9')):
+            Qv, mods = Qnum(lamfn(tv))
+            ms = sorted(m * m for m in mods)
+            rowsE[f'theta={tl}'] = {'abs_lambda': mods, 'Q': Qv,
+                                    'mass_ratios_m2/m1,m3/m1': [ms[1] / ms[0], ms[2] / ms[0]] if ms[0] > 1e-30 else 'm1=0'}
+        eff[name] = rowsE
+    eff['R0_consensus_both_orientations'] = {'operator': 'a I (rotation cancels)', 'Q': 1 / 3, 'abs_b_over_a': 0}
+    eff['k0_control'] = {'statement': 'no orientation: the half-turn average over eps = +-1 maps b -> -b on the '
+                                      'one-orientation term, so the oriented part averages to 0: a I, Q = 1/3'}
+    eff['abs_b_over_a_moduli'] = '1/sqrt2 in all readouts that keep the rotation (DA3 weights 1/6, 1/12, 1/12)'
+    # range of Q for the one-orientation operator over every clock phase (sum |lambda|^2 = 1 for all theta)
+    import mpmath as mp
+    mp.mp.dps = 30
+    def qR1(t):
+        mods = [mp.sqrt(mp.mpf(1) / 6 + mp.sin(t + 2 * mp.pi * kk / 3) ** 2 / 3) for kk in range(3)]
+        return 1 / mp.fsum(mods) ** 2
+    grid = [qR1(mp.pi * j / 3000) for j in range(3001)]
+    eff['R1_Q_range_over_theta'] = {
+        'sum_abs_lambda_squared': '1 for every theta (3a^2 + 6b^2)',
+        'min_grid': float(min(grid)), 'max_grid': float(max(grid)),
+        'bounds_exact': 'min 6 - 4 sqrt2 = %.12f at theta = pi/6 (mod pi/3); max at theta = 0 (mod pi/3): %.12f'
+                        % (float(6 - 4 * mp.sqrt(2)), float(qR1(0))),
+        'never_2/3': 'sum |lambda_k| > sqrt(3/2) because |lambda_k| >= a = 1/sqrt6 with equality for at most one k',
+        'separates_three_copies': 'for theta not in (pi/6) Z (sin^2 values distinct); at theta = 0 two copies are degenerate; theta = 2/9 separates all three',
+    }
+    out['E5_effective_operators'] = eff
+    # E6 classes: orientation, Aharonov-Bohm phase and total phase per rho_F step
+    cls = {}
+    for k in range(6):
+        ab = s.pi * k / 9
+        ab_fold = ab - (2 * s.pi / 3 if k >= 3 else 0)
+        if k == 0:
+            cls[k] = {'orientation': 'none (control)', 'AB_phase_per_rho_f_step': '0', 'clock_sign': 'undefined (A5)',
+                      'total_phase': 'no oriented term (k0_control)'}
+            continue
+        if k == 3:
+            cls[k] = {'orientation': 'screen (outward normal of f): rho_f = ' + rho_f_name,
+                      'AB_phase_per_rho_f_step': 'pi/3 = -pi/3 (mod 2pi/3): real Z2 links, conjugate characters degenerate',
+                      'clock_sign': '+ on rho_f steps',
+                      'total_phase_if_family_steps_are_hops_around_f': '2/9 + pi/3 (mod 2pi/3), folded |.| = pi/3 - 2/9 = %.9f'
+                      % float(s.pi / 3 - s.Rational(2, 9)),
+                      'total_phase_if_register_is_abstract (DA3)': '2/9'}
+            continue
+        sgn = 1 if k in (1, 2) else -1
+        tot = sgn * s.Rational(2, 9) + ab_fold
+        cls[k] = {'orientation': f'class orientation = {"screen" if sgn > 0 else "reversed screen"} orientation of f',
+                  'AB_phase_per_rho_f_step': f'{s.nsimplify(ab_fold)} (= pi {k}/9 mod 2 pi/3)',
+                  'clock_phase_per_rho_f_step': f'{"+" if sgn > 0 else "-"}2/9',
+                  'total_phase_per_rho_f_step': str(tot), 'total_numeric': float(tot),
+                  'inside_positive_chamber_|theta|<=pi/12': bool(abs(float(tot)) <= float(s.pi / 12))}
+    out['E6_class_phases'] = cls
+    # E7 relation to DA's K1 and the both-orientations control
+    out['E7_K1_and_control'] = {
+        'E_agreeing_half': 'weight 1/6, orientation independent (agree sign + for every o and s): the coherent '
+                           'counterpart of K1 (E coin 0, also 1/6), as DA3 states',
+        'readout_of_this_lane': 'the one-orientation readout acts on the C object (address orientation fixed by the '
+                                'face orientation); it is a different record from K1',
+        'Q_one_orientation_theta=2/9': eff['R1_one_orientation (coherent sign, source keying formal)']['theta=2/9']['Q'],
+        'Q_both_orientations_amplitude_consensus': '1/3 (rotations cancel)',
+        'Q_both_orientations_weights_only': '2/3 (DA3: summing orientations changes neither ratio); 1/2 does not arise',
+    }
+
+    # E8 orientation-odd readout: analyzer even in the orientation on record 0, odd on record 1 (address keying)
+    # One active seam event, definite source s, address input (|+> + |->)/sqrt2, walker read in |p>:
+    #   amplitude(r=0, o) = (1/sqrt2)(1/sqrt2), amplitude(r=1, o) = (1/sqrt2) eps(o) eps(s)/sqrt2, family T(o) on r = 1.
+    al, be = s.symbols('alpha beta', positive=True)
+    even = {'+': 1 / s.sqrt(2), '-': 1 / s.sqrt(2)}
+    odd = {'+': 1 / s.sqrt(2), '-': -1 / s.sqrt(2)}
+    one_obj = {}
+    for src, es in (('a', 1), ('b', -1)):
+        M = s.zeros(3, 3)
+        for o in '+-':
+            M += al * even[o] * (1 / s.sqrt(2)) * (1 / s.sqrt(2)) * I3
+            M += be * odd[o] * (1 / s.sqrt(2)) * (eps[o] * es / s.sqrt(2)) * (S3 if o == '+' else S3i)
+        M = M.applyfunc(s.simplify)
+        one_obj[src] = M
+    pred_a = (al / s.sqrt(2) * I3 + be / (2 * s.sqrt(2)) * (S3 + S3i))
+    ok_a = (one_obj['a'] - pred_a).applyfunc(s.simplify) == s.zeros(3, 3)
+    ok_b = (one_obj['b'] - (al / s.sqrt(2) * I3 - be / (2 * s.sqrt(2)) * (S3 + S3i))).applyfunc(s.simplify) == s.zeros(3, 3)
+    # two objects, Fourier analyzer across flags {E hold, C rot+, C rot-}, C address read with the odd weights
+    act = 1 / s.sqrt(3)
+    hold_amp = act * (1 / s.sqrt(2))                      # E agreeing half, even analyzer on E's address
+    two_obj = {}
+    for src, es in (('a', 1), ('b', -1)):
+        Cex = hold_amp * I3
+        for o in '+-':
+            rot_amp = act * (1 / s.sqrt(2)) * (eps[o] * es / s.sqrt(2))     # C repair at orientation o
+            w_odd = eps[o]                                                   # odd analyzer weight on the C address
+            Cex += rot_amp * w_odd * (S3 if o == '+' else S3i)
+        two_obj[src] = Cex.applyfunc(s.simplify)
+    ok2a = (two_obj['a'] - (I3 / s.sqrt(6) + (S3 + S3i) / s.sqrt(12))).applyfunc(s.simplify) == s.zeros(3, 3)
+    ok2b = (two_obj['b'] - (I3 / s.sqrt(6) - (S3 + S3i) / s.sqrt(12))).applyfunc(s.simplify) == s.zeros(3, 3)
+    # source mixture (native code: both endpoints with weight 1/2): A-clock energies average over eps(s)
+    xk = s.Symbol('x', real=True)
+    mix = s.simplify(((1 / s.sqrt(6) + 2 * xk / s.sqrt(12)) ** 2 + (1 / s.sqrt(6) - 2 * xk / s.sqrt(12)) ** 2) / 2)
+    import mpmath as mp2
+    mp2.mp.dps = 30
+    def lam_mix(t):
+        return [mp2.sqrt(mp2.mpf(1) / 6 + mp2.cos(t + 2 * mp2.pi * k / 3) ** 2 / 3) for k in range(3)]
+    lm = lam_mix(mp2.mpf(2) / 9)
+    msorted = sorted(x_ ** 2 for x_ in lm)
+    out['E8_orientation_odd_readout'] = {
+        'analyzer': 'alpha |r=0> (x) |even orientation> + beta |r=1> (x) |odd orientation>, the odd sign set by the '
+                    'screen (class 3) or class orientation; family action keyed on the address orientation (unitary)',
+        'one_object_definite_source': {
+            'source a': 'alpha/sqrt2 I + beta/(2 sqrt2) (S + S^-1)', 'verified_a': ok_a,
+            'source b': 'alpha/sqrt2 I - beta/(2 sqrt2) (S + S^-1)', 'verified_b': ok_b,
+            'abs_b_over_a': 'beta/(2 alpha): 1/2 for the unbiased analyzer alpha = beta, so Q = 1/2; Koide balance needs '
+                            'beta/alpha = sqrt2 (a weighted analyzer)'},
+        'two_objects_Fourier_analyzer_definite_C_source': {
+            'source a': 'I/sqrt6 + (S + S^-1)/sqrt12 (Koide balance, Q = 2/3 for every clock phase)', 'verified_a': ok2a,
+            'source b': 'I/sqrt6 - (S + S^-1)/sqrt12 (the same with theta -> theta + pi)', 'verified_b': ok2b},
+        'source_sign_law': 'the rotation pair carries eps(s): the source endpoint sets the sign of b, the orientation '
+                           'analyzer sets which shift is rho and makes the pair equal in sign',
+        'native_source_mixture': {
+            'A_clock_energy': f'average over eps(s) of (a + 2 eps b x)^2 = {mix} with x = cos(theta + 2 pi k/3)',
+            'form': '1/6 + (1/3) cos^2(theta + 2 pi k/3): the quadrature spectrum (C_1 shifted by pi/2), Q in '
+                    '[0.343146, 0.346329], ratios <= phi^2',
+            'theta=2/9_abs_lambda': [float(v) for v in lm], 'theta=2/9_ratios': [float(msorted[1] / msorted[0]),
+                                                                                   float(msorted[2] / msorted[0])],
+            'theta=2/9_Q': float(sum(v ** 2 for v in lm) / sum(lm) ** 2)},
+        'coherent_symmetric_source': 'gamma_a = gamma_b: the rotations cancel (address keying), the family operator is a I',
+        'conclusion': 'the Koide form C_2 needs a definite or recorded source endpoint of the C repair together with the '
+                      'orientation-odd readout and a Fourier analyzer across the two objects; the native code puts the '
+                      'load on either endpoint with weight 1/2 and the coherent law records neither',
+    }
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out['geometry'], indent=1, default=str))
+    for k in range(6):
+        r = rows[k]
+        print(k, r['loop_product_along_rho_f_equals_exp(i pi k/3)'], r['C3_symmetric_gauge_is_circulant'],
+              r['forward_coefficient_symmetric_gauge'], r['eigenvalues_numeric'], r['w_and_w2_split'],
+              r['charpoly_matches_prediction'], r['covariant_gauge_phi_exists'], r['(D_phi Pi(g))^3 = exp(i pi c/3) I with c'],
+              r['nonzero_face_classes'])
+        print('   full walk', full[k])
+    print(json.dumps(out['B_register_readout'], indent=1, default=str))
+    print(out['C_sign_law']['all_rows_obey_repair_sign_eps_o_eps_s_and_agree_positive'])
+    print(json.dumps({k: v for k, v in out.items() if k.startswith('E')}, indent=1, default=str)[:7000])
+
+
+if __name__ == '__main__':
+    main()

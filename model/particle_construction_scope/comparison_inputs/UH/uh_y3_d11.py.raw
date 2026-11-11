@@ -1,0 +1,28 @@
+"""Worker UH, Addendum 1 rows: the Yukawa values of worker YC's primary readings (read from RL/work/YC/yc_run.log at
+08:10; YC's report is not on file) as y_t(E_cell), top leg only, with the quartic laws 'zero' and B4, D11 engine.
+Also the induced quartic at the cell for YC's equal legs (fermion part -8 y^4). No measured value is read.
+Writes y3_d11.json."""
+import json
+import math
+import sys
+
+sys.path.insert(0, ".")
+import uhlib as U  # noqa: E402
+import uh_flows_d11 as F  # noqa: E402  (reruns the D11 flows on import; about 40 s)
+
+regs = U.regulators()
+rows = []
+for name, y in (("YC F1 G1 D-a", 0.25309126681566674), ("YC F1 G3a D-a", 0.4257385148668847)):
+    for q in ("zero", "B4"):
+        lam = 0.0 if q == "zero" else U.lam_ind(y, F.g2, F.gY, regs[q])
+        r = F.run_from(F.EC, y, lam)
+        rows.append({"yukawa": name, "y_t_E_cell": y, "y_over_g2": y / F.g2, "quartic": q, "lambda_E_cell": lam, **r})
+        print(name, q, "lam=%.3e" % lam, {k: (round(v, 4) if isinstance(v, float) else v) for k, v in r.items()})
+equal = []
+for name, y in (("YC F1 G1 D-a", 0.25309126681566674), ("YC F1 G3a D-a", 0.4257385148668847)):
+    for q in ("B1", "B4", "B6t"):
+        reg = regs[q]
+        lam = (-8 * y ** 4 * (1.5 - reg["c_f"]) + (3.0 / 16) * U.X_of(F.g2, F.gY) * (5.0 / 6 - reg["c_V"])) / U.K
+        equal.append({"yukawa": name, "y": y, "quartic": q, "lambda_E_cell_equal_legs": lam})
+        print("equal legs", name, q, "lam=%.3e" % lam)
+json.dump({"top_leg_only": rows, "equal_legs_value_at_cell": equal}, open("y3_d11.json", "w"), indent=1)

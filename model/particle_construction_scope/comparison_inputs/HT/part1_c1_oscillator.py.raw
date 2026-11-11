@@ -1,0 +1,26 @@
+"""C1, unbounded case: one oscillator per flux orientation. B = a + b^dagger is normal, so B and B^dagger have
+common (generalized) eigenvectors for every complex beta (EXACT, CCR algebra). Truncated check: the commutator
+[B, B^dagger] vanishes on every state below the truncation edge. Writes part1_c1_oscillator.json."""
+import json
+
+import numpy as np
+from sympy import expand
+from sympy.physics.quantum import Commutator, Dagger
+from sympy.physics.quantum.boson import BosonOp
+from sympy.physics.quantum.operatorordering import normal_ordered_form
+
+a, b = BosonOp("a"), BosonOp("b")
+comm = Commutator(a + Dagger(b), Dagger(a) + b).expand(commutator=True).doit()
+N = 12
+an = np.diag(np.sqrt(np.arange(1, N)), 1)
+I = np.eye(N)
+A, Bm = np.kron(an, I), np.kron(I, an)
+B = A + Bm.T
+C = B @ B.T - B.T @ B
+occ = [(i, j) for i in range(N) for j in range(N)]
+interior = [k for k, (i, j) in enumerate(occ) if i < N - 1 and j < N - 1]
+out = {"commutator_symbolic": str(expand(comm)),
+       "commutator_after_CCR": str(expand(normal_ordered_form(expand(comm), independent=True))),
+       "truncated_N": N, "max_abs_commutator_on_interior_states": float(np.abs(C[np.ix_(interior, interior)]).max())}
+json.dump(out, open("part1_c1_oscillator.json", "w"), indent=1)
+print(out)

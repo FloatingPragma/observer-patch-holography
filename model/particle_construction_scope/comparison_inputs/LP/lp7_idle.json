@@ -1,0 +1,77 @@
+{
+ "task": "LP addendum 2: idle doubles and the record reset",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "public local unitary fixes |20,r> and |02,r> for r = 1, 2, 3": true,
+ "I1": {
+  "hexagon FP, holonomy -1": {
+   "idle doubles (configuration double, record 1, 2, 3)": 18,
+   "D acts as the identity on each of them": true,
+   "D diagonal on the blank doubles": [
+    "2/3"
+   ],
+   "stationary states with weight one on double loads": "18 (idle doubles with the uniform address)",
+   "records written by them at any tick": 0
+  },
+  "hexagon FN, holonomy -1": {
+   "idle doubles (configuration double, record 1, 2, 3)": 18,
+   "D acts as the identity on each of them": true,
+   "D diagonal on the blank doubles": [
+    "2/3"
+   ],
+   "stationary states with weight one on double loads": "18 (idle doubles with the uniform address)",
+   "records written by them at any tick": 0
+  },
+  "carrier FP, flat": {
+   "idle doubles (configuration double, record 1, 2, 3)": 36,
+   "D acts as the identity on each of them": true,
+   "D diagonal on the blank doubles": [
+    "5/6"
+   ],
+   "stationary states with weight one on double loads": "36 (idle doubles with the uniform address)",
+   "records written by them at any tick": 0
+  }
+ },
+ "I2": {
+  "record 1": {
+   "stationary under the tick": true,
+   "state after the reset equals A U6": true,
+   "tick-1 weights after the reset": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  },
+  "record 2": {
+   "stationary under the tick": true,
+   "state after the reset equals A U6": true,
+   "tick-1 weights after the reset": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  },
+  "record 3": {
+   "stationary under the tick": true,
+   "state after the reset equals A U6": true,
+   "tick-1 weights after the reset": {
+    "backward": "1/12",
+    "double": "2/3",
+    "forward": "1/12",
+    "in-dimer": "1/6"
+   },
+   "X": "2/9"
+  }
+ },
+ "seconds": 1.22
+}

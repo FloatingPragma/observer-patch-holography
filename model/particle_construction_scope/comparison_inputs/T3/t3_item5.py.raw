@@ -1,0 +1,189 @@
+"""T3 item 5: a sub-step with a weak link on the left-handed block only.
+
+Local space per cell: record (arrow block chi = X_r) x spin (frame basis) x weak index s (2). Under the chiral reading the
+block chi = +1 holds the left-handed doublet (s transforms under SU(2)), the block chi = -1 two right-handed singlets
+(s is a species label, no link). Static SU(2) links G_{x,i} on the left-handed block. MEASURED (float64, dense, 3x3x2
+torus, 144 dimensions).
+
+  S_i(G)    = block +1: T_i(G) P^+ + T_i(G)^-1 P^-  (alpha_i = sigma_i there);  block -1: the bare routing sub-step
+  (a) record-flip factorization Q' = S_i(G) R (R = record reflection, the CF-1 form): unitary, but Q'^2 != 1
+  (b) doublet-flip factorization S_i(G) = Q_i(G) Sigma_i, Sigma_i = sigma_(i+1) on the spin: Q_i(G) built explicitly as
+      1 - 2 sum |v><v| over the pairs v = (|x, chi=+1, down_i, xi> - conj(c) G |x+e_i, chi=+1, up_i, xi>)/sqrt2 and
+      v = (|x, chi=-1, up_i, xi> - c |x+e_i, chi=-1, down_i, xi>)/sqrt2 (c = <down_i|sigma_(i+1)|up_i>), compared with
+      S_i(G) Sigma_i; involution, block preserving, gauge covariant
+  (c) gauge covariance of S_i(G), Q_i(G), Sigma_i under random g_x in SU(2) on the left-handed block
+  (d) the mass step exp(-i theta beta) and the Wilson term of member B break it; dressed by a classical Higgs frame
+      H_x (beta -> |+><-| x H_x + |-><+| x H_x^dagger) they are covariant with H_x -> g_x H_x
+python t3_item5.py -> item5.json (local, a few CPU s)
+"""
+import json, os, itertools
+import numpy as np
+import t3sym as T
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+rng = np.random.default_rng(5)
+SHAPE = (3, 3, 2)
+NC = int(np.prod(SHAPE))
+cells = list(itertools.product(*[range(n) for n in SHAPE]))
+cidx = {c: k for k, c in enumerate(cells)}
+# local basis: (chi, spin, s) with chi in arrow basis; index = 4*a + 2*spin + s, a = 0 for chi=+1, 1 for chi=-1
+D = 8 * NC
+
+
+def idx(c, a, sp_, s): return 8 * cidx[c] + 4 * a + 2 * sp_ + s
+
+
+def nb(c, i, d=1):
+    c = list(c); c[i] = (c[i] + d) % SHAPE[i]; return tuple(c)
+
+
+def rand_su2():
+    z = rng.normal(size=4); z /= np.linalg.norm(z)
+    return np.array([[z[0] + 1j * z[1], z[2] + 1j * z[3]], [-z[2] + 1j * z[3], z[0] - 1j * z[1]]])
+
+
+def eig_basis(i):
+    w, v = np.linalg.eigh(T.SIG[i]); return v[:, [int(np.argmax(w)), int(np.argmin(w))]]   # columns up_i, down_i
+
+
+def spin_op(Op):
+    """Op on spin, identity on block and s"""
+    out = np.zeros((D, D), complex)
+    for c in cells:
+        for a in range(2):
+            for s in range(2):
+                for t1 in range(2):
+                    for t2 in range(2):
+                        out[idx(c, a, t1, s), idx(c, a, t2, s)] = Op[t1, t2]
+    return out
+
+
+def substep(i, G):
+    """S_i(G): block +1 moves spin up_i by +e_i (link G), down_i by -e_i (link G^dag of the link behind); block -1 bare,
+    up_i by -e_i, down_i by +e_i"""
+    V = eig_basis(i); out = np.zeros((D, D), complex)
+    for c in cells:
+        cp, cm = nb(c, i, 1), nb(c, i, -1)
+        for a in range(2):
+            for t in range(2):                     # t = 0 up_i, t = 1 down_i
+                mv = (1 if t == 0 else -1) * (1 if a == 0 else -1)
+                tgt = cp if mv == 1 else cm
+                if a == 0: L = G[(c, i)] if mv == 1 else np.conj(G[(cm, i)].T)
+                else: L = np.eye(2)
+                proj = np.outer(V[:, t], np.conj(V[:, t]))            # spin projector onto t
+                for s1 in range(2):
+                    for s2 in range(2):
+                        for u1 in range(2):
+                            for u2 in range(2):
+                                out[idx(tgt, a, u1, s1), idx(c, a, u2, s2)] += proj[u1, u2] * L[s1, s2]
+    return out
+
+
+def record_reflection():
+    """R = Z_r in the record basis = the swap of the arrow blocks"""
+    out = np.zeros((D, D), complex)
+    for c in cells:
+        for t in range(2):
+            for s in range(2):
+                out[idx(c, 1, t, s), idx(c, 0, t, s)] = 1; out[idx(c, 0, t, s), idx(c, 1, t, s)] = 1
+    return out
+
+
+def dual_reflector(i, G):
+    """explicit Q_i(G) = 1 - 2 sum |v><v| (see the docstring)"""
+    V = eig_basis(i); j = (i + 1) % 3
+    c = np.conj(V[:, 1]) @ T.SIG[j] @ V[:, 0]            # <down_i| sigma_j |up_i>
+    out = np.eye(D, dtype=complex)
+    for x in cells:
+        y = nb(x, i, 1)
+        for xi in np.eye(2):
+            v = np.zeros(D, complex)                      # block +1: |x, down_i, xi> - conj(c) G |y, up_i, xi>
+            for s in range(2):
+                for t in range(2):
+                    v[idx(x, 0, t, s)] += V[t, 1] * xi[s] / np.sqrt(2)
+            Gx = G[(x, i)] @ xi
+            for s in range(2):
+                for t in range(2):
+                    v[idx(y, 0, t, s)] -= np.conj(c) * V[t, 0] * Gx[s] / np.sqrt(2)
+            out -= 2 * np.outer(v, np.conj(v))
+            w = np.zeros(D, complex)                      # block -1: |x, up_i, xi> - c |y, down_i, xi>
+            for s in range(2):
+                for t in range(2):
+                    w[idx(x, 1, t, s)] += V[t, 0] * xi[s] / np.sqrt(2)
+                    w[idx(y, 1, t, s)] -= c * V[t, 1] * xi[s] / np.sqrt(2)
+            out -= 2 * np.outer(w, np.conj(w))
+    return out
+
+
+def gauge(g):
+    out = np.zeros((D, D), complex)
+    for c in cells:
+        for t in range(2):
+            for s1 in range(2):
+                for s2 in range(2):
+                    out[idx(c, 0, t, s1), idx(c, 0, t, s2)] = g[c][s1, s2]
+            for s in range(2): out[idx(c, 1, t, s), idx(c, 1, t, s)] = 1
+    return out
+
+
+def beta_dressed(H=None):
+    """beta = Y_r in the arrow basis is |+><-| (i) + |-><+| (-i); with a Higgs frame H_x on the doublet index"""
+    out = np.zeros((D, D), complex)
+    for c in cells:
+        Hc = np.eye(2) if H is None else H[c]
+        for t in range(2):
+            for s1 in range(2):
+                for s2 in range(2):
+                    out[idx(c, 0, t, s1), idx(c, 1, t, s2)] += 1j * Hc[s1, s2]
+                    out[idx(c, 1, t, s1), idx(c, 0, t, s2)] += -1j * np.conj(Hc[s2, s1])
+    return out
+
+
+def expm_h(A, theta):
+    w, v = np.linalg.eigh(A); return (v * np.exp(-1j * theta * w)) @ np.conj(v.T)
+
+
+if __name__ == '__main__':
+    out = {'note': __doc__}
+    G = {(c, i): rand_su2() for c in cells for i in range(3)}
+    one = {(c, i): np.eye(2) for c in cells for i in range(3)}
+    R = record_reflection(); E = np.eye(D)
+    res = {}
+    for i in range(3):
+        S = substep(i, G); S1 = substep(i, one)
+        Sig = spin_op(T.SIG[(i + 1) % 3])
+        Qd = dual_reflector(i, G)
+        Qp = S @ R
+        r = {'unitarity_S': float(np.abs(S @ np.conj(S.T) - E).max()),
+             'bare_S_equals_routing_symbol_check_Q1R_involution': float(np.abs((S1 @ R) @ (S1 @ R) - E).max()),
+             'recordflip_Qprime_unitary': float(np.abs(Qp @ np.conj(Qp.T) - E).max()),
+             'recordflip_Qprime_squared_minus_1': float(np.linalg.norm(Qp @ Qp - E, 2)),
+             'dual_explicit_equals_S_Sigma': float(np.abs(Qd - S @ Sig).max()),
+             'dual_involution': float(np.abs(Qd @ Qd - E).max()),
+             'dual_hermitian': float(np.abs(Qd - np.conj(Qd.T)).max()),
+             'dual_minus1_eigenspace_dim': int(round(np.real(np.trace(E - Qd)) / 2)),
+             'Sigma_involution': float(np.abs(Sig @ Sig - E).max())}
+        Xr = np.zeros((D, D)); Xr[np.arange(D), np.arange(D)] = [1 if (k % 8) < 4 else -1 for k in range(D)]
+        r['dual_commutes_with_arrow'] = float(np.abs(Qd @ Xr - Xr @ Qd).max())
+        r['recordflip_Qprime_commutes_with_arrow'] = float(np.abs(Qp @ Xr - Xr @ Qp).max())
+        res['axis %d' % (i + 1)] = r
+        print('axis', i + 1, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items()})
+    out['substeps'] = res
+    # gauge covariance
+    g = {c: rand_su2() for c in cells}
+    Gg = {(c, i): g[nb(c, i, 1)] @ G[(c, i)] @ np.conj(g[c].T) for c in cells for i in range(3)}
+    Gam = gauge(g)
+    cov = {}
+    for i in range(3):
+        cov['S_%d' % (i + 1)] = float(np.abs(substep(i, Gg) @ Gam - Gam @ substep(i, G)).max())
+        cov['Q_%d (doublet flip)' % (i + 1)] = float(np.abs(dual_reflector(i, Gg) @ Gam - Gam @ dual_reflector(i, G)).max())
+        cov['Sigma_%d' % (i + 1)] = float(np.abs(spin_op(T.SIG[(i + 1) % 3]) @ Gam - Gam @ spin_op(T.SIG[(i + 1) % 3])).max())
+    cov['R (record reflection)'] = float(np.abs(R @ Gam - Gam @ R).max())
+    th = 0.157935
+    Mb = expm_h(beta_dressed(), th)
+    cov['mass exp(-i theta beta), bare'] = float(np.abs(Mb @ Gam - Gam @ Mb).max())
+    H = {c: rand_su2() for c in cells}; Hg = {c: g[c] @ H[c] for c in cells}
+    cov['mass with Higgs frame H -> g H'] = float(np.abs(expm_h(beta_dressed(Hg), th) @ Gam - Gam @ expm_h(beta_dressed(H), th)).max())
+    out['gauge_covariance'] = cov
+    print('gauge covariance:', {k: float('%.2g' % v) for k, v in cov.items()})
+    json.dump(out, open(os.path.join(HERE, 'item5.json'), 'w'), indent=1)

@@ -1,0 +1,251 @@
+"""Item 2 of task KD: frame transport on the edge-sharing cubic family, exactly.
+
+(a) translation transport; (b) transport that matches the two carriers' radial code responses at the two ports of
+a shared seam. Arithmetic: Q(sqrt5) and Q(sqrt5, i). No float.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_item2.py [out.json]
+"""
+import json
+import sys
+from itertools import product
+
+from kdlib import (K, ZERO, ONE, I, PHI, F, mat, eye, mm, madd, msub, mscale, dag, transpose, kron, meq, dsum,
+                   is_unitary, SX, SY, SZ, E2, carrier, cover, frames, rotation_matrix, vdot, vadd, vsub, vscale,
+                   doublet_response, triplet_response, spinor_lift, rank, compose, IDP)
+
+car = carrier()
+seams, V = car['seams'], car['V']
+quats, rotm = cover()
+FR = frames()
+fr = next(f for f in FR if all(sum(1 for c in h['axis'] if not c.is_zero()) == 1 for h in f['half_turns']))
+out, checks = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+# order the three half-turns of the frame by coordinate axis: H[i] is the half-turn about e_i
+H = [None] * 3
+for h in fr['half_turns']:
+    i = next(k for k in range(3) if not h['axis'][k].is_zero())
+    H[i] = dict(h)
+    if h['axis'][i] != ONE:                                  # choose the lift with axis +e_i
+        H[i]['axis'] = vscale(-1, h['axis']); H[i]['q'] = tuple(-x for x in h['q']); H[i]['u'] = spinor_lift(H[i]['q'])
+E = [tuple(ONE if i == j else ZERO for j in range(3)) for i in range(3)]
+assert all(H[i]['axis'] == E[i] for i in range(3))
+L = K(2) * PHI                                              # lattice constant (seam length 2)
+index = {v: p for p, v in enumerate(V)}
+
+# --- geometry of the family -------------------------------------------------------------------------------
+# a port v_p of the home carrier also lies in the carrier at cell R iff v_p - L R is a vertex of the home carrier
+holders = {}
+for p in range(12):
+    hs = []
+    for R in product((-1, 0, 1), repeat=3):                  # |R| <= |v|/phi < 1.18, so this range is complete
+        w = tuple(V[p][k] - L * K(R[k]) for k in range(3))
+        if w in index:
+            hs.append((R, index[w]))
+    holders[p] = hs
+ok('every port lies in exactly two carriers (home and one axis neighbour)',
+   all(len(h) == 2 and sum(abs(x) for x in h[1][0]) + sum(abs(x) for x in h[0][0]) == 1 for h in holders.values()))
+shared = {}                                                  # (axis, sign) -> seam of the home carrier
+for a, b in fr['matching']:
+    mid = vadd(V[a], V[b])
+    i = next(k for k in range(3) if not mid[k].is_zero())
+    s = 1 if mid[i] == L else -1
+    assert mid == vscale(K(s) * L, E[i])
+    shared[(i, s)] = (a, b)
+ok('the six shared seams are the six seams of the frame matching, one per axis and side', len(shared) == 6)
+seam_dir = {}
+label = {}                                                   # (axis) -> map home label on the +i seam -> neighbour label
+for i in range(3):
+    a, b = shared[(i, 1)]
+    d = vsub(V[a], V[b])
+    j = next(k for k in range(3) if not d[k].is_zero())
+    assert all(d[k].is_zero() for k in range(3) if k != j) and j != i
+    seam_dir[i] = j
+    # the same two ports are home vertices a', b' of the carrier at +e_i: v_a' = v_a - L e_i
+    lab = {p: index[vsub(V[p], vscale(L, E[i]))] for p in (a, b)}
+    assert set(lab.values()) == set(shared[(i, -1)])
+    label[i] = lab
+    g = H[j]['perm']                                         # half-turn about the seam direction
+    assert all(g[p] == lab[p] for p in (a, b)), 'label map is not the half-turn about the seam direction'
+    # the other two half-turns do something else on these two ports
+    assert all(H[i]['perm'][p] != lab[p] for p in (a, b))                       # about the hop axis: swaps a, b
+    k3 = 3 - i - j
+    assert all(H[k3]['perm'][p] == lab[b if p == a else a] for p in (a, b))   # third axis: crosses over
+ok('shared seam on axis i is parallel to axis j(i) = i-1 (mod 3)', seam_dir == {0: 2, 1: 0, 2: 1})
+ok('relabelling of the two shared ports from a carrier to its +e_i neighbour = half-turn about the seam direction '
+   '(restricted to those ports); the other two half-turns of the frame do not give it', True)
+
+# cell counts (ports modulo translation, seams modulo translation)
+cls = {}
+for p in range(12):
+    (R0, p0), (R1, p1) = holders[p]
+    cls[p] = min(p, p1 if R0 == (0, 0, 0) else p0)
+port_classes = sorted(set(cls.values()))
+seam_classes = set()
+for a, b in seams:
+    # a seam modulo lattice translations: (doubled midpoint reduced modulo 2L in each coordinate, direction up to sign)
+    mid = vadd(V[a], V[b])
+    red = []
+    for k in range(3):
+        x = mid[k]
+        while x.sign() < 0:
+            x = x + K(2) * L
+        while (x - K(2) * L).sign() >= 0:
+            x = x - K(2) * L
+        red.append(repr(x))
+    d = vsub(V[a], V[b])
+    seam_classes.add((tuple(red), frozenset((tuple(map(repr, d)), tuple(map(repr, vscale(-1, d)))))))
+ok('per cell: 6 ports, 27 seams (30 of the home carrier, the 3 shared pairs identified)',
+   len(port_classes) == 6 and len(seam_classes) == 27)
+
+# --- (a) translation transport ------------------------------------------------------------------------------
+# carriers are translates: the radial direction of home label p is the same vector in every carrier, so the code
+# responses X_p coincide label by label and the identity on the fibre intertwines them. Nothing to compute beyond
+# the fact that the family is generated by translations (checked above through `holders`).
+out['a_translation'] = {'link': 'identity on the five-level fibre for every pair of neighbouring carriers',
+                        'holonomy_of_every_closed_path': 'identity'}
+
+# --- (b) radial matching ------------------------------------------------------------------------------------
+Zc = dsum(eye(3), mscale(-1, E2))                              # central element diag(1,1,1,-1,-1)
+
+
+def code(q):
+    return dsum(rotm[q], spinor_lift(q))
+
+
+G = {}
+for i in range(3):
+    a, b = shared[(i, 1)]
+    lab = label[i]
+    sols = []
+    for q, perm in quats.items():
+        u, R = spinor_lift(q), rotm[q]
+        good = True
+        for p in (a, b):
+            if not meq(mm(u, doublet_response(p), dag(u)), doublet_response(lab[p])):
+                good = False; break
+            o, c = triplet_response(p); o2, c2 = triplet_response(lab[p])
+            if not (meq(mm(R, o, transpose(R)), o2) and meq(mm(R, c, transpose(R)), c2)):
+                good = False; break
+        if good:
+            sols.append(q)
+    j = seam_dir[i]
+    assert sorted(map(repr, sols)) == sorted(map(repr, (H[j]['q'], tuple(-x for x in H[j]['q']))))
+    # doublet alone, all of M_2(C): intertwiners X with X M_a = M_a' X and X M_b = M_b' X form a line
+    basis = [mat([[1 if (r, c) == (r0, c0) else 0 for c in range(2)] for r in range(2)]) for r0 in range(2) for c0 in range(2)]
+    cols = []
+    for X in basis:
+        img = []
+        for p in (a, b):
+            D = msub(mm(X, doublet_response(p)), mm(doublet_response(lab[p]), X))
+            img += [x for r in D for x in r]
+        cols.append(tuple(img))
+    dim = 4 - rank(tuple(zip(*cols)))
+    assert dim == 1
+    # doublet alone, cover alphabet: the same two lifts
+    dsol = [q for q in quats if all(meq(mm(spinor_lift(q), doublet_response(p), dag(spinor_lift(q))),
+                                        doublet_response(lab[p])) for p in (a, b))]
+    assert len(dsol) == 2
+    G[i] = code(H[j]['q'])
+ok('radial matching at the two shared ports, within the 120 cover values: exactly the two lifts of the half-turn '
+   'about the seam direction (they differ by the central element)', True)
+ok('radial matching on the doublet within all 2x2 matrices: the intertwiner space is one-dimensional '
+   '(unitary solution unique up to a phase)', True)
+
+for i in range(3):
+    assert is_unitary(G[i]) and meq(mm(G[i], G[i]), Zc)
+    for j in range(3):
+        if i != j:
+            hol = mm(dag(G[j]), dag(G[i]), G[j], G[i])
+            assert meq(hol, Zc)
+            assert meq(mm(G[i], G[j]), mm(Zc, G[j], G[i]))
+            d_i = tuple(r[3:] for r in G[i][3:]); d_j = tuple(r[3:] for r in G[j][3:])
+            t_i = tuple(r[:3] for r in G[i][:3]); t_j = tuple(r[:3] for r in G[j][:3])
+            assert meq(mm(d_i, d_j), mscale(-1, mm(d_j, d_i))) and meq(mm(t_i, t_j), mm(t_j, t_i))
+ok('the three radial transports anticommute on the doublet and commute on the triplet; '
+   'holonomy of every elementary plaquette = diag(1,1,1,-1,-1)', True)
+
+# recharting by cover values to central link bits: V_x = g(x)^-1, g(x) = G3^x3 G2^x2 G1^x1
+def power(M, n):
+    P = eye(5)
+    for _ in range(n % 4):
+        P = mm(P, M)
+    return P
+
+
+def g(x):
+    return mm(power(G[2], x[2]), power(G[1], x[1]), power(G[0], x[0]))
+
+
+pattern = {}
+for x in product(range(4), repeat=3):
+    for i in range(3):
+        y = list(x); y[i] += 1
+        link = mm(dag(g(y)), G[i], g(x))
+        expo = {0: x[1] + x[2], 1: x[2], 2: 0}[i] % 2
+        assert meq(link, Zc if expo else eye(5))
+        pattern[(x, i)] = expo
+for x in product(range(4), repeat=3):                           # flux of the central bits through every plaquette
+    for i in range(3):
+        for j in range(i + 1, 3):
+            xi = list(x); xi[i] = (xi[i] + 1) % 4; xj = list(x); xj[j] = (xj[j] + 1) % 4
+            flux = (pattern[(x, i)] + pattern[(tuple(xi), j)] + pattern[(tuple(xj), i)] + pattern[(x, j)]) % 2
+            assert flux == 1
+ok('recharting by cover values turns the radial transport into central link bits '
+   'b1 = x2+x3, b2 = x3, b3 = 0 (mod 2), with flux 1 through every plaquette', True)
+
+# the sign left open by the matching is a central bit per shared seam. With the bits of `pattern` the radial
+# transport is flat: links Z^b G_i have trivial holonomy on every plaquette and rechart to the identity.
+for x in product(range(4), repeat=3):
+    for i in range(3):
+        y = list(x); y[i] += 1
+        Gp = mm(Zc if pattern[(x, i)] else eye(5), G[i])
+        assert meq(mm(dag(g(y)), Gp, g(x)), eye(5))
+        for p in shared[(i, 1)]:                                # still matches the two radial responses (Z is central)
+            blk = tuple(r[3:] for r in Gp[3:])
+            assert meq(mm(blk, doublet_response(p), dag(blk)), doublet_response(label[i][p]))
+ok('with the central bits b1 = x2+x3, b2 = x3, b3 = 0 on the links the radial transport still matches the responses '
+   'and is flat: it recharts to identity links (carriers labelled through Klein rotations)', True)
+# under the translation transport the two carriers that hold a port assign different radial responses to it
+diff = 0
+for i in range(3):
+    for p in shared[(i, 1)]:
+        assert not meq(doublet_response(p), doublet_response(label[i][p]))
+        assert triplet_response(p) != triplet_response(label[i][p])
+        diff += 1
+ok('translation transport: at each of the six shared ports of a cell the two carriers hold different radial code '
+   'responses (so a common frame and a common response at a shared port exclude each other)', diff == 6)
+
+# a closed path of four seams through four carriers around a plaquette exists (adjacent glue ports)
+adj = {tuple(sorted(e)) for e in seams}
+cyc = []
+for i in range(3):
+    for j in range(3):
+        if i == j:
+            continue
+        # carrier C: port p1 on its +i seam, port p4 on its +j seam, adjacent in C
+        for p1 in shared[(i, 1)]:
+            for p4 in shared[(j, 1)]:
+                if tuple(sorted((p1, p4))) in adj:
+                    cyc.append((i, j, p1, p4))
+ok('ports of different shared seams of one carrier are adjacent (closed 4-seam paths around a plaquette exist)', len(cyc) > 0)
+
+out['b_radial'] = {'seam_direction_of_axis': seam_dir,
+                   'link_on_axis_i': 'code lift R(q)+U(sigma q) of the half-turn about the seam direction j(i)',
+                   'quaternions': {i: [repr(c) for c in H[seam_dir[i]]['q']] for i in range(3)},
+                   'doublet_blocks': {i: [[repr(x) for x in r[3:]] for r in G[i][3:]] for i in range(3)},
+                   'plaquette_holonomy': 'diag(1,1,1,-1,-1)',
+                   'central_bit_gauge': 'b1 = x2+x3, b2 = x3, b3 = 0 (mod 2)',
+                   'sign_left_open': 'one central bit per shared seam: the bit of the public link register (PROTECTION.md)',
+                   'adjacent_glue_port_pairs_around_plaquettes': len(cyc)}
+out['checks'] = checks
+for k in checks:
+    print('EXACT ok:', k)
+print('seam direction of axis:', seam_dir)
+print('radial link quaternions (axis: q):', out['b_radial']['quaternions'])
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

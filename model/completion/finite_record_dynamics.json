@@ -1,0 +1,84 @@
+{
+  "schema": "oph.finite_record_dynamics.v1",
+  "campaign_id": "OPH-FINITE-RECORD-DYNAMICS-v1",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "whole_program_frozen": false,
+  "integrated_gate_accepted": false,
+  "common_source_join_established": false,
+  "canonical_premises_discharged": [],
+  "physical_comparison_count_added": 0,
+  "components": [
+    {
+      "id": "lepton_complete_cycle",
+      "path": "model/lepton_cycle/results.json",
+      "independent_check": "model/lepton_cycle/test_cycle.py",
+      "supports": [
+        "CP-02",
+        "CP-07",
+        "CP-11",
+        "CP-13"
+      ],
+      "result": "Actual native address arrays give complete four-outcome weak and mass instruments, an explicit uniform-address preparation and an archive-preserving SWAP reset. With fresh independent sources, arbitrary-reference half-diamond errors are at most 14*t^2/(81*N) for current spectrum {-1,0,1} and 349*t^2/(1296*N) for the mass round. Complete history, finite resource and preparation/control error budgets are retained. The exact mass trace is 5/18 and its common rate factor relative to the distinct native-pair preparation is 5/4. A two-parameter log-ratio Jacobian has nonzero determinant; common normalization cancels, fixed marginals leave a phase interval, and the unchanged muon ratio has a +9.83213 ppm residual against the stated rounded comparison value.",
+      "interface": {
+        "state": "Declared blank double load at port two and independently prepared uniform address pair each cycle; continuing three-state register and arbitrary untouched reference; old source retained in an exported archive.",
+        "algebra": "Two 60-address source spaces and the three-state register, with all four return projectors and full nonreturn Gram matrices.",
+        "operation": "Explicit preparation unitary, controlled weak or mass kick, inverse ticks, four-outcome readout and SWAP with a fresh independent source. No reset by deletion of the failure environment.",
+        "clock": "Supplied dimensionless kick time h=t/N; weak current spectrum {-1,0,1} has diameter two. No physical duration or mass-unit identification.",
+        "refinement": "Finite repeated fresh-source cycles and temporal N limit on this fixed register. Accumulated implementation/preparation error is N*(epsilon+eta), with source independence included in eta."
+      },
+      "remaining": [
+        "Fresh source, preparation/reset, analyzer and kick services are supplied architecture; their autonomous realization and a common physical energy clock remain open.",
+        "Diagonal stationary register states form a family; the growing exported archive is not a stationary full observer.",
+        "Dimensionless rate ratios and a retrospective rounded-value residual do not establish physical pole masses, a GeV scale or a new eligible comparison."
+      ],
+      "sha256": "91eb6ad7af8bc77ae4ba9b96956e4fbb65f386ef1ec0adbb7bb1002cd9c87e9c",
+      "common_source_transfer_proved": false
+    },
+    {
+      "id": "bounded_current_record_observer",
+      "path": "model/repair_sector_bridge/record_observer_results.json",
+      "independent_check": "model/repair_sector_bridge/test_record_observer.py",
+      "supports": [
+        "CP-02",
+        "CP-13"
+      ],
+      "result": "A bounded classical observer reconstructs native pair distance from a known binary preparation and addressed coin/current records without access to working source loads. Exhaustive comparison covers all 3960 branches. The exact three-state quotient has stationary law (5/11,5/11,1/11); worst-case total-variation error first falls below 1/100 at 39 native attempts. The protocol retains every no-op and halts the source at tape capacity. Its retained logical registers use 298 bits, or 311 including the incoming packet.",
+      "interface": {
+        "state": "Known two-occupation binary preparation among all 66 source states, supplied to the observer as a label; arbitrary initial mixtures are covered by convexity.",
+        "algebra": "Classical native source and bounded logical record registers; distance is reconstructed from complete addressed records, not an arbitrary unknown quantum state.",
+        "operation": "Independent uniform choice among thirty addressed seams and a fair native coin; observer consumes each sequenced native coin/current record and detects malformed or missing records.",
+        "clock": "Every native attempt counts, including no-ops; source halts at declared record capacity.",
+        "refinement": "Exact finite history induction and rational 39-attempt relaxation on the fixed source. Program/geometry storage, physical hardware and a full distance-output tape have separate costs."
+      },
+      "remaining": [
+        "Known preparation and addressed uniform-seam scheduling are declared interfaces of an observer extension; the fixed original observer does not inherit them by relabelling.",
+        "No gauge-sector operator map, physical temperature or transfer to the coherent lepton source is established."
+      ],
+      "sha256": "1a86836545c125fec2719164c3b09c8188a4de22ff98319e2f88f94a6a895791",
+      "common_source_transfer_proved": false
+    },
+    {
+      "id": "native_closed_cell_epochs",
+      "path": "model/native_abundance_epochs/results.json",
+      "independent_check": "model/native_abundance_epochs/test_epochs.py",
+      "supports": [
+        "CP-05",
+        "CP-13"
+      ],
+      "result": "All 1296 states and 7776 complete repair-event branches of a closed two-face triangular cell obey an exact nonincreasing load-plus-register cost. Terminal classes and rational absorption probabilities give limiting occupied-face share 1007/13824 for the declared preparation. An exact 128-attempt interval has width below 5.86e-10. Every initial distribution has nonterminal probability at most 25^(-floor(n/32)), from the all-state finite survival law.",
+      "interface": {
+        "state": "Three loads in {0,...,5} and opposite face classes (k,-k) in Z6 on a declared two-face cell; the stated 1007/13824 average uses independent uniform loads in {0,...,5} and initial flux zero.",
+        "algebra": "Complete 1296-state classical law, all load-only, accepted-class and no-operation events; exact rational occupation statistics.",
+        "operation": "Native load repair and register class-acceptance functions with uniform choice of three oriented seams and a fair balancing coin.",
+        "clock": "Complete native attempt count; no physical temperature, duration or cooling schedule is inferred.",
+        "refinement": "Exact finite dynamics, absorbing-class limits and a uniform all-initial-state block contraction on this fixed cell; no spatial thermodynamic limit."
+      },
+      "remaining": [
+        "The closed cell is a supplied finite geometry; the result does not transfer its absorption probabilities to the full federation.",
+        "Persistent class occupation is not a physical particle identity, thermal abundance or cosmological epoch."
+      ],
+      "sha256": "b25c4361d22557e07f3833189d42c44ae441f0fd15570ef5f03b1cd23cc8e5a6",
+      "common_source_transfer_proved": false
+    }
+  ]
+}

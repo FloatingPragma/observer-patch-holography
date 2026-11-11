@@ -1,0 +1,278 @@
+{
+ "engine_sha256": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+ "cells": 64,
+ "theta0": 0.3,
+ "period_against_engine": 2.318213734067276e-15,
+ "zero_modes_over_the_transverse_zone": {
+  "rows": [
+   {
+    "p2_over_pi/2": 0,
+    "p3_over_pi/2": 0,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 0,
+    "p3_over_pi/2": 1,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 0,
+    "p3_over_pi/2": 2,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 0,
+    "p3_over_pi/2": 3,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 1,
+    "p3_over_pi/2": 0,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 1,
+    "p3_over_pi/2": 1,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 1,
+    "p3_over_pi/2": 2,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 1,
+    "p3_over_pi/2": 3,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 2,
+    "p3_over_pi/2": 0,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 2,
+    "p3_over_pi/2": 1,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 2,
+    "p3_over_pi/2": 2,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 2,
+    "p3_over_pi/2": 3,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 3,
+    "p3_over_pi/2": 0,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 3,
+    "p3_over_pi/2": 1,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 3,
+    "p3_over_pi/2": 2,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   },
+   {
+    "p2_over_pi/2": 3,
+    "p3_over_pi/2": 3,
+    "in_gap_states": 8,
+    "at_zero_phase(|E2|<1e-9)": 8
+   }
+  ],
+  "per_wall_at_each_point": [
+   4
+  ],
+  "reading": "16 points x 4 states per wall = 8 parity classes of cells x 4 two-component cones per wall"
+ },
+ "cone_near_zero_transverse_wave_number": {
+  "rows": [
+   {
+    "q": 0.01,
+    "direction": "axis 2",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.009553309262142866,
+    "phase_per_tick_max": 0.009553309262143478,
+    "phase_over_q": 0.9553309262143179,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553350985482776
+   },
+   {
+    "q": 0.01,
+    "direction": "axis 3",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.009553309262142587,
+    "phase_per_tick_max": 0.0095533092621437,
+    "phase_over_q": 0.9553309262143084,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553350985482776
+   },
+   {
+    "q": 0.01,
+    "direction": "diagonal",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.009553150036603088,
+    "phase_per_tick_max": 0.009553150036604504,
+    "phase_over_q": 0.955315003660366,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553350985482776
+   },
+   {
+    "q": 0.02,
+    "direction": "axis 2",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.019106284556872036,
+    "phase_per_tick_max": 0.01910628455687344,
+    "phase_over_q": 0.9553142278436342,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553309262143104
+   },
+   {
+    "q": 0.02,
+    "direction": "axis 3",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.019106284556871942,
+    "phase_per_tick_max": 0.019106284556873698,
+    "phase_over_q": 0.9553142278436351,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553309262143104
+   },
+   {
+    "q": 0.02,
+    "direction": "diagonal",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.019105010685631033,
+    "phase_per_tick_max": 0.019105010685632057,
+    "phase_over_q": 0.955250534281583,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553309262143104
+   },
+   {
+    "q": 0.04,
+    "direction": "axis 2",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.038209891579358155,
+    "phase_per_tick_max": 0.03820989157935999,
+    "phase_over_q": 0.9552472894839813,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553142278436375
+   },
+   {
+    "q": 0.04,
+    "direction": "axis 3",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.038209891579357974,
+    "phase_per_tick_max": 0.03820989157935983,
+    "phase_over_q": 0.9552472894839725,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553142278436375
+   },
+   {
+    "q": 0.04,
+    "direction": "diagonal",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.038199698475036584,
+    "phase_per_tick_max": 0.038199698475038034,
+    "phase_over_q": 0.9549924618759278,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9553142278436375
+   },
+   {
+    "q": 0.08,
+    "direction": "axis 2",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.07639817578795108,
+    "phase_per_tick_max": 0.07639817578795378,
+    "phase_over_q": 0.9549771973494107,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9552472894839728
+   },
+   {
+    "q": 0.08,
+    "direction": "axis 3",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.07639817578795187,
+    "phase_per_tick_max": 0.07639817578795358,
+    "phase_over_q": 0.9549771973494086,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9552472894839728
+   },
+   {
+    "q": 0.08,
+    "direction": "diagonal",
+    "in_gap_states": 8,
+    "phase_per_tick_min": 0.07631656359398592,
+    "phase_per_tick_max": 0.07631656359398732,
+    "phase_over_q": 0.9539570449248334,
+    "arcsin(cos(theta0) sin q)_over_q": 0.9552472894839728
+   }
+  ],
+  "cos_theta0": 0.955336489125606,
+  "reading": "eight states (two walls, two parity classes of x1, two components): one two-component cone per wall and class, speed cos(theta0)"
+ },
+ "orientation_of_the_wall_cones_(kink,_x1_even)": {
+  "rows": [
+   {
+    "transverse_point_modulo_pi": "(0, 0)",
+    "bound_states_in_the_class": 2,
+    "speed_along_2_(two-tick)": 1.9106729655130614,
+    "speed_along_3_(two-tick)": 1.9106729655133927,
+    "anticommutator_h2_h3": 2.9790409838967277e-15,
+    "spin_along_normal_eigenvalues": [
+     -1.0,
+     1.0
+    ],
+    "orientation": 1.0
+   },
+   {
+    "transverse_point_modulo_pi": "(pi/2, pi/2)",
+    "bound_states_in_the_class": 2,
+    "speed_along_2_(two-tick)": 1.9106729655132597,
+    "speed_along_3_(two-tick)": 1.9106729655131816,
+    "anticommutator_h2_h3": 5.22215678560979e-14,
+    "spin_along_normal_eigenvalues": [
+     -1.0,
+     1.0
+    ],
+    "orientation": -1.0
+   },
+   {
+    "transverse_point_modulo_pi": "(pi/2, 0)",
+    "bound_states_in_the_class": 2,
+    "speed_along_2_(two-tick)": 1.9106729655132784,
+    "speed_along_3_(two-tick)": 1.9106729655133923,
+    "anticommutator_h2_h3": 7.283604593613869e-15,
+    "spin_along_normal_eigenvalues": [
+     -1.0,
+     1.0
+    ],
+    "orientation": -1.0
+   },
+   {
+    "transverse_point_modulo_pi": "(0, pi/2)",
+    "bound_states_in_the_class": 2,
+    "speed_along_2_(two-tick)": 1.9106729655130614,
+    "speed_along_3_(two-tick)": 1.9106729655131822,
+    "anticommutator_h2_h3": 2.094764613337708e-15,
+    "spin_along_normal_eigenvalues": [
+     -1.0,
+     1.0
+    ],
+    "orientation": 1.0
+   }
+  ],
+  "sum": 0.0,
+  "reading": "two cones of each orientation per wall and parity class: the wall carries no net two-dimensional handedness"
+ }
+}

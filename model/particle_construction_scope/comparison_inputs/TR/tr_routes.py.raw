@@ -1,0 +1,84 @@
+"""Worker TR: explicit optimal routes behind tr_exact.json (structure only, no candidate value, no measured value).
+
+For each separation d it prints (i) a route with the minimal number of cost-raising twists (u(d) = 1) and, among
+those, the fewest twists; (ii) a route with the minimal number of twists (3d) and, among those, the fewest
+cost-raising twists. Each step lists the twisted seam's two faces, the classes on the defect faces and the cost.
+  cd /tmp && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=WORKSPACE/oph-physics-sim \
+      /tmp/oph-completion-venv/bin/python -B WORKSPACE/repair-law/work/TR/tr_routes.py
+"""
+from __future__ import annotations
+
+import heapq
+import importlib.util
+import itertools
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+spec = importlib.util.spec_from_file_location("tr_exact", HERE / "tr_exact.py")
+X = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(X)
+
+
+def lexi_search(start, key, max_def=4, cost_cap=30, target=X.VAC):
+    """Dijkstra with a lexicographic pair weight key(cx, cy, c0) -> (w1, w2); returns the route."""
+    c0 = X.cost(start)
+    INF = (1 << 60, 1 << 60)
+    best = {start: (0, 0)}
+    parent = {start: None}
+    heap = [((0, 0), 0, start)]
+    tie = itertools.count(1)
+    while heap:
+        val, _, x = heapq.heappop(heap)
+        if val > best.get(x, INF):
+            continue
+        if x == target:
+            break
+        cx = X.cost(x)
+        for k, delta, y in X.moves(x):
+            cy = X.cost(y)
+            if cy > cost_cap or X.ndef(y) > max_def:
+                continue
+            w = key(cx, cy, c0)
+            nv = (val[0] + w[0], val[1] + w[1])
+            if nv < best.get(y, INF):
+                best[y] = nv
+                parent[y] = (x, k, delta)
+                heapq.heappush(heap, (nv, next(tie), y))
+    route = []
+    y = target
+    while parent.get(y) is not None:
+        x, k, delta = parent[y]
+        route.append((x, k, delta, y))
+        y = x
+    route.reverse()
+    return best.get(target), route
+
+
+def describe(route, start):
+    rows = [{"step": 0, "defects": {f: c for f, c in enumerate(start) if c}, "cost": X.cost(start)}]
+    for i, (x, k, delta, y) in enumerate(route, 1):
+        rows.append({"step": i, "seam_faces": [X.PLUS[k], X.MINUS[k]], "delta": delta if delta == 1 else -1,
+                     "defects": {f: c for f, c in enumerate(y) if c}, "cost": X.cost(y),
+                     "rise": X.cost(y) - X.cost(x)})
+    return rows
+
+
+def main():
+    reps = {2: (0, 2), 3: (0, 8), 4: (0, 12), 5: (0, 13)}
+    out = {}
+    for d, (a, b) in reps.items():
+        start = X.config({a: 3, b: 3})
+        v1, r1 = lexi_search(start, lambda cx, cy, c0: (1 if cy > cx else 0, 1))
+        v2, r2 = lexi_search(start, lambda cx, cy, c0: (1, 1 if cy > cx else 0))
+        out[d] = {"min_uphill_then_length": {"uphill": v1[0], "length": v1[1], "route": describe(r1, start)},
+                  "min_length_then_uphill": {"length": v2[0], "uphill": v2[1], "route": describe(r2, start)}}
+        print(f"d = {d}: min uphill route: uphill {v1[0]}, twists {v1[1]}; min length route: twists {v2[0]}, "
+              f"uphill {v2[1]}")
+        print("  costs along the one-uphill route:", [s["cost"] for s in out[d]["min_uphill_then_length"]["route"]])
+        print("  classes along it:", [sorted(s["defects"].values()) for s in out[d]["min_uphill_then_length"]["route"]])
+    (HERE / "tr_routes.json").write_text(json.dumps(out, indent=1) + "\n")
+
+
+if __name__ == "__main__":
+    main()

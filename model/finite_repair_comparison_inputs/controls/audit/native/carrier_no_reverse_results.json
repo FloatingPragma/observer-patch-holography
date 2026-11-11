@@ -1,0 +1,86 @@
+{
+  "status": "EXACT isolated-carrier one-load construction and exact local total-two completion",
+  "description": {
+    "state_space": "12 ports with nonnegative integer loads; sectors total1 and total2",
+    "event": "Apply a recorded endpoint phase, pump antisymmetric parity forward with probability1 and reverse with probability0, and split double loads.",
+    "memory": "Retain seam, phase setting and complete Kraus outcome as classical records; no unbounded memory theorem",
+    "wiring": "actual isolated icosahedral graph; federation unspecified",
+    "scheduler": "independent uniform seam and 5-setting draws",
+    "declared_numbers": {
+      "reverse_probability": "0",
+      "phase_values": [
+        "1",
+        "i",
+        "-i"
+      ],
+      "phase_setting_count": 5
+    },
+    "port_response": "Not selected; native number phase is declared control, not closed SM response algebra",
+    "input_ancestry": "DECLARED instrument and scheduler; NATIVE graph and population law",
+    "complete_law_accepted": false
+  },
+  "reverse_probability_override": "0",
+  "orbital_transition": [
+    [
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "1/30",
+      "41/50",
+      "1/25",
+      "0"
+    ],
+    [
+      "0",
+      "1/25",
+      "121/150",
+      "1/50"
+    ],
+    [
+      "0",
+      "0",
+      "1/10",
+      "23/30"
+    ]
+  ],
+  "rho_by_graph_distance": [
+    "1/12",
+    "485/29916",
+    "35/9972",
+    "5/3324"
+  ],
+  "rho_eigenvalues": [
+    "1372/7479",
+    "95*sqrt(5)/7479 + 68/831",
+    "68/831 - 95*sqrt(5)/7479",
+    "487/7479"
+  ],
+  "rho_eigenvalue_multiplicities": [
+    1,
+    3,
+    3,
+    5
+  ],
+  "stationary_density_faithful_nontracial": true,
+  "stationary_density_unique": "proved from faithful invariant state and full history-effect algebra",
+  "one_event_effect_span_dimension": 72,
+  "native_history_effect_real_span_dimension": 144,
+  "effect_depth_upper": 3,
+  "triangle_effect_checks": 0,
+  "T9_tier": "finite real linear span of native history effects; not a full operational-effect theorem",
+  "full_operational_effect_premise_supplied": false,
+  "independent_incidence_rank": 12,
+  "exact_history_propagation_checks": 84,
+  "local_total_two_matrix_units_checked": 36,
+  "double_loads_split_not_held": true,
+  "population_shadow_for_arbitrary_inputs_and_seam_sequences": true,
+  "native_coin_current_instrument_preserved": false,
+  "strict_diagonal_channel_shadow_preserved": false,
+  "T4_extra_fixed_source_labels": false,
+  "physical_modular_time_implemented": false,
+  "federation_transport_or_gauge_or_mass_claim": false,
+  "complete_law_accepted": false
+}

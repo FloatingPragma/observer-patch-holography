@@ -1,0 +1,74 @@
+"""NM step 2 (X0, X1, X2): fifth-order transfer of the neutral composite with a spectator lepton family.
+
+Usage (from the RER root, PYTHONPATH=.:<NM>:<NU3>):
+    nm2_transfer.py family y_u y_d y_e out.json      family in {own, spectator}
+own:       the audit's composite (H L) of the Yukawa-coupled family; reproduces NU3 through the extended code.
+spectator: the composite (H L') of the second lepton doublet with zero Yukawa coupling (closed loop alone).
+"""
+import json
+import sys
+import time
+
+import sympy as s
+
+from nu3_lib import config_for, tagged, energy_class, substitute, inner, preparation
+import nm2_lib as L
+
+family = sys.argv[1]
+yu, yd, ye = (int(v) for v in sys.argv[2:5])
+out_path = sys.argv[5]
+config = config_for(yu, yd, ye)
+start = time.time()
+log = {'family': family, 'couplings': {'y_u': yu, 'y_d': yd, 'y_e': ye}, 'spacing': str(config.spacing)}
+
+prep = (lambda cell, spin: preparation(cell=cell, spin=spin, config=config)) if family == 'own' else \
+       (lambda cell, spin: L.prime_preparation(cell, spin, config))
+s0 = prep(0, 0)
+e0 = energy_class(next(iter(s0)))
+assert all(energy_class(k) == e0 for k in s0)
+p_keys = set()
+for cell in range(8):
+    for spin in (0, 1):
+        p_keys |= set(prep(cell, spin))
+
+
+def ones(expr):
+    expr = s.sympify(expr)
+    return s.expand(expr.subs({sym: 1 for sym in expr.free_symbols if sym.name.startswith('r_')}))
+
+
+def images(state):
+    first = L.vapply(state, config)
+    first_t = tagged(first, p_keys)
+    second_t = tagged(L.vapply(first_t, config), p_keys)
+    return first, second_t
+
+
+f_s, st_s = images(s0)
+log['source_first_image_terms'] = len(f_s)
+log['source_second_image_terms'] = len(st_s)
+print('source images', len(f_s), len(st_s), round(time.time() - start, 1), flush=True)
+rows = {}
+for sig in (0, 1):
+    tgt = prep(4, sig)
+    f_t, st_t = images(tgt)
+    low = [inner(tgt, s0), inner(tgt, f_s), inner(f_t, f_s)]
+    m3 = L.bilinear(f_t, f_s, config)
+    m4 = ones(inner(st_t, st_s))
+    middle = L.bilinear(st_t, st_s, config)
+    bare5 = ones(middle)
+    rs5 = s.factor(substitute(middle, e0))
+    rows[sig] = {'bare_V_moments_k0_to_k4': [str(v) for v in (*low, m3, m4)],
+                 'bare_V_moment_k5': str(bare5), 'tagged_fifth_V_moment': str(middle),
+                 'RS_fifth_order_amplitude': str(rs5)}
+    print('target spin', sig, 'k0..k4', low, m3, m4, 'k5', bare5, 'time', round(time.time() - start, 1), flush=True)
+    print('   RS5 =', rs5, flush=True)
+log['targets'] = rows
+if family == 'own' and (yu, yd, ye) == (0, 0, 1):
+    log['S6_conservation'] = L.conservation_checks()
+    assert log['S6_conservation']['yukawa_words_changing_B_or_L'] == 0
+    assert log['S6_conservation']['kinetic_words_stay_inside_one_species_block']
+log['seconds'] = round(time.time() - start, 1)
+with open(out_path, 'w') as handle:
+    json.dump(log, handle, indent=1)
+print('wrote', out_path)

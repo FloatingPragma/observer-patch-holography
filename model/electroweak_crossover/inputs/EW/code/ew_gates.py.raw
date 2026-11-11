@@ -1,0 +1,94 @@
+"""Gates for the production kernels. Prints PASS/FAIL lines and writes gates.json."""
+import json, math, sys, time
+import numpy as np
+from scipy.special import iv
+import ewlat as E
+
+res = {}
+def gate(name, ok, **kw):
+    res[name] = dict(ok=bool(ok), **kw)
+    print(("PASS " if ok else "FAIL ") + name + " " + json.dumps(kw), flush=True)
+
+def binerr(a, nb=20):
+    a = np.asarray(a); n = len(a) // nb
+    b = a[:n * nb].reshape(nb, n).mean(1)
+    return b.std(ddof=1) / math.sqrt(nb)
+
+rng = np.random.default_rng(7)
+E.seed_numba(12345)
+
+# G1 gauge invariance of every observable
+L = 6
+U, phi = E.hot_start(L, rng, 1.3)
+bG, bH, bR = 8.0, 0.34, 0.004
+E.run_series(U, phi, L, bG, bH, bR, 2, 0.0, 5, 0, True, True)
+o1 = list(E.measure_higgs(U, phi, L)) + [E.measure_plaq(U, L)]
+U2, phi2 = E.random_gauge(U, phi, rng)
+o2 = list(E.measure_higgs(U2, phi2, L)) + [E.measure_plaq(U2, L)]
+d = max(abs(a - b) / (1 + abs(a)) for a, b in zip(o1, o2))
+gate("G1_gauge_invariance", d < 1e-12, max_rel_diff=d, observables=["H", "S2", "S4", "plaq"])
+
+# G2 free field: unit links frozen, beta_R = 0
+L = 8; bH = 0.30
+U, phi = E.cold_start(L, 1.0)
+k = 2 * math.pi * np.arange(L) / L
+C = np.cos(k)[:, None, None] + np.cos(k)[None, :, None] + np.cos(k)[None, None, :]
+r2_exact = 2.0 * np.mean(1.0 / (1.0 - bH * C))
+hop_exact = 2.0 * np.mean(C / (1.0 - bH * C))
+E.run_series(U, phi, L, 1.0, bH, 0.0, 2, 0.5 / L ** 1.5, 500, 0, False, True)
+ser, acc = E.run_series(U, phi, L, 1.0, bH, 0.0, 2, 0.5 / L ** 1.5, 20000, 0, False, True)
+r2 = ser[:, 1] / L ** 3; hop = ser[:, 0] / L ** 3
+e1 = binerr(r2); e2 = binerr(hop)
+gate("G2_free_field_R2", abs(r2.mean() - r2_exact) < 4 * e1, mc=r2.mean(), err=e1, exact=r2_exact)
+gate("G2_free_field_hop", abs(hop.mean() - hop_exact) < 4 * e2, mc=hop.mean(), err=e2, exact=hop_exact)
+gate("G2_global_update_acceptance", 0.2 < acc[1] / (20000 * 4) < 0.95, acc=acc[1] / (20000 * 4))
+
+# G3 plaquette at zero hopping against the strong-coupling series u + 2 u^5 (3d, SU(2))
+for bG in (0.5, 1.0):
+    L = 8
+    U, phi = E.hot_start(L, rng, 1.0)
+    E.run_series(U, phi, L, bG, 0.0, 0.0, 1, 0.0, 300, 0, True, False)
+    ser, acc = E.run_series(U, phi, L, bG, 0.0, 0.0, 1, 0.0, 6000, 1, True, False)
+    pl = ser[:, 3]; e = binerr(pl)
+    u = iv(2, bG) / iv(1, bG)
+    exact = u + 2 * u ** 5
+    gate(f"G3_plaquette_strong_coupling_bG{bG}", abs(pl.mean() - exact) < 4 * e + 3 * u ** 9, mc=pl.mean(), err=e,
+         series=exact, truncation=3 * u ** 9)
+
+# G3b plaquette at beta_G = 8, zero hopping (value recorded; compared with the independent numpy code)
+L = 8; bG = 8.0
+U, phi = E.cold_start(L, 1.0)
+E.run_series(U, phi, L, bG, 0.0, 0.0, 2, 0.0, 300, 0, True, False)
+ser, acc = E.run_series(U, phi, L, bG, 0.0, 0.0, 2, 0.0, 6000, 1, True, False)
+pl = ser[:, 3]; e = binerr(pl)
+gate("G3b_plaquette_bG8_recorded", abs(1 - pl.mean() - 1 / bG) < 0.02, mc=pl.mean(), err=e, leading_weak_coupling=1 - 1 / bG)
+
+# G4 Schwinger-Dyson identity <R^2> - beta_H <H>/V + 2 beta_R <R^4 - R^2> = 2
+for (x, y, nor) in ((0.29, -0.05, 4), (0.29, -0.05, 0), (0.036, 0.03, 4)):
+    L = 8; bG = 8.0
+    bH, bR = E.betas(x, y, bG)
+    U, phi = E.cold_start(L, 1.0)
+    eps = 0.5 / L ** 1.5
+    E.run_series(U, phi, L, bG, bH, bR, nor, eps, 500, 0, True, True)
+    ser, acc = E.run_series(U, phi, L, bG, bH, bR, nor, eps, 12000, 0, True, True)
+    V = L ** 3
+    sd = ser[:, 1] / V - bH * ser[:, 0] / V + 2 * bR * (ser[:, 2] - ser[:, 1]) / V
+    e = binerr(sd)
+    gate(f"G4_schwinger_dyson_x{x}_nor{nor}", abs(sd.mean() - 2.0) < 4 * e, mc=sd.mean(), err=e, exact=2.0,
+         R2=float((ser[:, 1] / V).mean()), R2err=binerr(ser[:, 1] / V), acc_or=acc[0] / (12000 * max(nor, 1) * V),
+         acc_gl=acc[1] / (12000 * 4))
+
+# G5 lattice-continuum relation against hep-lat/9510020 table 5 (beta_H,c -> T*_c)
+def ystar(mH, T):
+    h = mH / 80.6
+    return 0.39818 + 0.15545 * h * h - 0.00190 * h ** 4 - 2.58088 * mH * mH / T ** 2
+for mH, bG, bHc, Tc in ((60, 8, 0.3479735, 137.669), (60, 12, 0.3426840, 137.842), (35, 8, 0.3450806, 94.181),
+                        (70, 8, 0.3491523, 153.620), (60, 5, 0.358495, 137.534), (60, 20, 0.3387418, 138.019)):
+    x = -0.00550 + 0.12622 * (mH / 80.6) ** 2
+    bR = x * bHc ** 2 / bG
+    xx, yy = E.xy_of(bG, bHc, bR)
+    T = math.sqrt(2.58088 * mH * mH / (0.39818 + 0.15545 * (mH / 80.6) ** 2 - 0.00190 * (mH / 80.6) ** 4 - yy))
+    gate(f"G5_relation_table5_mH{mH}_bG{bG}", abs(T - Tc) < 0.03, T_from_relation=T, T_table=Tc, y=yy, x=xx)
+
+json.dump(res, open("gates.json", "w"), indent=1)
+print("ALL PASS" if all(v["ok"] for v in res.values()) else "SOME FAIL")

@@ -1,0 +1,58 @@
+{
+ "note": "T3 item 5: a sub-step with a weak link on the left-handed block only.\n\nLocal space per cell: record (arrow block chi = X_r) x spin (frame basis) x weak index s (2). Under the chiral reading the\nblock chi = +1 holds the left-handed doublet (s transforms under SU(2)), the block chi = -1 two right-handed singlets\n(s is a species label, no link). Static SU(2) links G_{x,i} on the left-handed block. MEASURED (float64, dense, 3x3x2\ntorus, 144 dimensions).\n\n  S_i(G)    = block +1: T_i(G) P^+ + T_i(G)^-1 P^-  (alpha_i = sigma_i there);  block -1: the bare routing sub-step\n  (a) record-flip factorization Q' = S_i(G) R (R = record reflection, the CF-1 form): unitary, but Q'^2 != 1\n  (b) doublet-flip factorization S_i(G) = Q_i(G) Sigma_i, Sigma_i = sigma_(i+1) on the spin: Q_i(G) built explicitly as\n      1 - 2 sum |v><v| over the pairs v = (|x, chi=+1, down_i, xi> - conj(c) G |x+e_i, chi=+1, up_i, xi>)/sqrt2 and\n      v = (|x, chi=-1, up_i, xi> - c |x+e_i, chi=-1, down_i, xi>)/sqrt2 (c = <down_i|sigma_(i+1)|up_i>), compared with\n      S_i(G) Sigma_i; involution, block preserving, gauge covariant\n  (c) gauge covariance of S_i(G), Q_i(G), Sigma_i under random g_x in SU(2) on the left-handed block\n  (d) the mass step exp(-i theta beta) and the Wilson term of member B break it; dressed by a classical Higgs frame\n      H_x (beta -> |+><-| x H_x + |-><+| x H_x^dagger) they are covariant with H_x -> g_x H_x\npython t3_item5.py -> item5.json (local, a few CPU s)\n",
+ "substeps": {
+  "axis 1": {
+   "unitarity_S": 6.672645337887658e-16,
+   "bare_S_equals_routing_symbol_check_Q1R_involution": 4.440892098500626e-16,
+   "recordflip_Qprime_unitary": 6.672645337887658e-16,
+   "recordflip_Qprime_squared_minus_1": 1.8313598418147647,
+   "dual_explicit_equals_S_Sigma": 7.771703830473215e-16,
+   "dual_involution": 1.3326092539595606e-15,
+   "dual_hermitian": 5.551115123125783e-17,
+   "dual_minus1_eigenspace_dim": 72,
+   "Sigma_involution": 0.0,
+   "dual_commutes_with_arrow": 0.0,
+   "recordflip_Qprime_commutes_with_arrow": 0.9999999999999998
+  },
+  "axis 2": {
+   "unitarity_S": 5.551444161598392e-16,
+   "bare_S_equals_routing_symbol_check_Q1R_involution": 4.440892098500626e-16,
+   "recordflip_Qprime_unitary": 5.551444161598392e-16,
+   "recordflip_Qprime_squared_minus_1": 1.8632702779894568,
+   "dual_explicit_equals_S_Sigma": 6.661656148355518e-16,
+   "dual_involution": 1.332325396234456e-15,
+   "dual_hermitian": 1.1102230246251565e-16,
+   "dual_minus1_eigenspace_dim": 72,
+   "Sigma_involution": 0.0,
+   "dual_commutes_with_arrow": 0.0,
+   "recordflip_Qprime_commutes_with_arrow": 0.9999999999999998
+  },
+  "axis 3": {
+   "unitarity_S": 2.2326614441561715e-16,
+   "bare_S_equals_routing_symbol_check_Q1R_involution": 0.0,
+   "recordflip_Qprime_unitary": 2.2326614441561715e-16,
+   "recordflip_Qprime_squared_minus_1": 1.8812367889317583,
+   "dual_explicit_equals_S_Sigma": 5.55111570434553e-16,
+   "dual_involution": 6.662223440599738e-16,
+   "dual_hermitian": 1.1102230246251565e-16,
+   "dual_minus1_eigenspace_dim": 72,
+   "Sigma_involution": 0.0,
+   "dual_commutes_with_arrow": 0.0,
+   "recordflip_Qprime_commutes_with_arrow": 2.0
+  }
+ },
+ "gauge_covariance": {
+  "S_1": 2.355138688025663e-16,
+  "Q_1 (doublet flip)": 4.1633020533512474e-16,
+  "Sigma_1": 0.0,
+  "S_2": 1.6883057536160646e-16,
+  "Q_2 (doublet flip)": 2.37886710194586e-16,
+  "Sigma_2": 0.0,
+  "S_3": 3.510833468576701e-16,
+  "Q_3 (doublet flip)": 4.814750509879316e-16,
+  "Sigma_3": 0.0,
+  "R (record reflection)": 1.8640096789578586,
+  "mass exp(-i theta beta), bare": 0.29317003318733925,
+  "mass with Higgs frame H -> g H": 1.1881728819849632e-15
+ }
+}

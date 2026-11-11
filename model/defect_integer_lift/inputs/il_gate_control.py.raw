@@ -1,0 +1,61 @@
+"""Negative control of the gates: a damaged twist list must fail them.
+
+    python il_gate_control.py --run <SIM>/runs/universe/L4 --history history_L4.npz
+
+Three damages, each applied to one applied twist chosen by a fixed seed: the current with its sign flipped, the
+current replaced by the other representative of its class (j - 6 sgn j), and the twist dropped. For each damage
+the script counts the faces whose value modulo 6 differs from the stored end classes and the carriers whose total
+is nonzero. The second damage keeps every class and every total: the gates cannot see a shift by 6, which is the
+content of the lift.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+
+import numpy as np
+
+from il_lift import StoredRun
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--run', required=True)
+    ap.add_argument('--history', required=True)
+    args = ap.parse_args()
+    run = StoredRun(args.run)
+    hz = np.load(args.history)
+    seam = hz['ev_seam'].astype(np.int64)
+    j = hz['ev_j'].astype(np.int64)
+    fp, fm = run.seam_faces(seam)
+    stored, _, _ = run.cut_state(dict(run.end))
+
+    def state(jj, keep=None):
+        w = jj if keep is None else np.where(keep, jj, 0)
+        m = np.bincount(fp, weights=w.astype(float), minlength=run.F).astype(np.int64) \
+            - np.bincount(fm, weights=w.astype(float), minlength=run.F).astype(np.int64)
+        return dict(class_mismatches=int(((m % 6) != stored).sum()),
+                    carriers_with_nonzero_total=int(np.count_nonzero(m[:run.FI].reshape(run.N, 20).sum(axis=1))),
+                    screen_total=int(m[run.FI:].sum()))
+    rng = np.random.default_rng(20261111)
+    picks = rng.integers(0, j.size, size=200)
+    out = {'level': run.level, 'applied_twists': int(j.size), 'undamaged': state(j), 'trials': int(picks.size)}
+    res = {'sign_flipped': [], 'other_representative': [], 'dropped': []}
+    for e in picks.tolist():
+        a = j.copy(); a[e] = -a[e]
+        res['sign_flipped'].append(state(a)['class_mismatches'])
+        b = j.copy(); b[e] = b[e] - 6 * np.sign(b[e])
+        res['other_representative'].append(state(b)['class_mismatches'])
+        keep = np.ones(j.size, bool); keep[e] = False
+        res['dropped'].append(state(j, keep)['class_mismatches'])
+    for k, v in res.items():
+        v = np.asarray(v)
+        out[k] = dict(trials_detected=int((v > 0).sum()), mismatched_faces_min=int(v.min()), mismatched_faces_max=int(v.max()))
+    out['abs_j_3_among_picks'] = int((np.abs(j[picks]) == 3).sum())
+    print(json.dumps(out, indent=1))
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

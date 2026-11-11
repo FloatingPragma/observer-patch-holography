@@ -1,0 +1,248 @@
+{
+ "clock": "exp(-i t H), H = I x N_H + H_Y on the exact 320-state local block; declared y_e = omega = 1",
+ "block_dimension": 320,
+ "ward_identities_checked": 12,
+ "junction_rows": [
+  {
+   "k": 0,
+   "vertex_amplitude_norm_g": 1.4142135623730951,
+   "y_e=1.0": {
+    "P_J_one_tick_to_H_k": 0.21513314310616055,
+    "P_scalar_excited": 0.5378328577654012
+   },
+   "y_e=0.1": {
+    "P_J_one_tick_to_H_k": 0.018078308364999605,
+    "P_scalar_excited": 0.04519577091249899
+   },
+   "y_e=0.01": {
+    "P_J_one_tick_to_H_k": 0.0001838479099970729,
+    "P_scalar_excited": 0.00045961977499268226
+   },
+   "small_y_law": "P_J = 2 y_e^2 (sin(omega/2)/(omega/2))^2 + O(y_e^4) = 1.839 y_e^2 at omega = t = 1",
+   "small_y_law_value_at_0.01": 0.00018387907765274412
+  },
+  {
+   "k": 1,
+   "vertex_amplitude_norm_g": 1.4142135623730951,
+   "y_e=1.0": {
+    "P_J_one_tick_to_H_k": 0.2151331431061605,
+    "P_scalar_excited": 0.5378328577654012
+   },
+   "y_e=0.1": {
+    "P_J_one_tick_to_H_k": 0.018078308364999605,
+    "P_scalar_excited": 0.04519577091249899
+   },
+   "y_e=0.01": {
+    "P_J_one_tick_to_H_k": 0.00018384790999707287,
+    "P_scalar_excited": 0.0004596197749926822
+   },
+   "small_y_law": "P_J = 2 y_e^2 (sin(omega/2)/(omega/2))^2 + O(y_e^4) = 1.839 y_e^2 at omega = t = 1",
+   "small_y_law_value_at_0.01": 0.00018387907765274412
+  }
+ ],
+ "receipt_fields_periodic_spectrum": [
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[0]/energy_transfer_interval",
+   "['2083265509/2147483648', '2083265637/2147483648']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[1]/energy_transfer_interval",
+   "['5396791461/4294967296', '5396791717/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[2]/energy_transfer_interval",
+   "['3135248537/2147483648', '3135248665/2147483648']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[3]/energy_transfer_interval",
+   "['1145737233/536870912', '1145737265/536870912']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[4]/energy_transfer_interval",
+   "['4885302581/2147483648', '4885302709/2147483648']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[5]/energy_transfer_interval",
+   "['2448262311/1073741824', '2448262375/1073741824']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[6]/energy_transfer_interval",
+   "['10060060615/4294967296', '10060060871/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[7]/energy_transfer_interval",
+   "['5761974935/2147483648', '5761975063/2147483648']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[8]/energy_transfer_interval",
+   "['11846979521/4294967296', '11846979777/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[9]/energy_transfer_interval",
+   "['11936272701/4294967296', '11936272957/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[10]/energy_transfer_interval",
+   "['12305040247/4294967296', '12305040503/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[11]/energy_transfer_interval",
+   "['13603947575/4294967296', '13603947831/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[12]/energy_transfer_interval",
+   "['14141473673/4294967296', '14141473929/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[13]/energy_transfer_interval",
+   "['3537344689/1073741824', '3537344753/1073741824']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[14]/energy_transfer_interval",
+   "['1780595979/536870912', '1780596011/536870912']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[15]/energy_transfer_interval",
+   "['14285820147/4294967296', '14285820403/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[16]/energy_transfer_interval",
+   "['3578369617/1073741824', '3578369681/1073741824']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[17]/energy_transfer_interval",
+   "['14493611209/4294967296', '14493611465/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[18]/energy_transfer_interval",
+   "['14571015901/4294967296', '14571016157/4294967296']"
+  ],
+  [
+   "/compensated_charged_spectroscopy/charged_success_branches[0]/complete_energy_windows[19]/energy_transfer_interval",
+   "['7533158271/2147483648', '7533158399/2147483648']"
+  ]
+ ],
+ "receipt_fields_higgs_composites": [
+  [
+   "/same_periodic_H_spectral_bridge/residues_are_instrument_probabilities",
+   false
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/residue_precision",
+   "binary64 diagnostic on complete isolated spectral clusters; exact operator identity separately proved"
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_residue_sums",
+   "{'elementary': 0.500000000000002, 'composite': 0.8947691431049948, 'hopping': 0.028885437696027826}"
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records",
+   "[{'energy_indices': [0], 'rank': 1, 'source_energy_interval': ['-14465768193/4294967296', '-14465768065/4294967296'], 'energy_transfer': 0.9700961283713809, 'el"
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[0]/elementary_residue",
+   0.44499394005244647
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[0]/quantum_composite_residue",
+   0.4230841219589206
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[0]/quantum_hopping_residue",
+   1.1014054885906853e-05
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[0]/elementary_composite_cross_residue",
+   0.4339007610089315
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[0]/elementary_hopping_cross_residue",
+   -0.0022138626153475715
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[0]/composite_hopping_cross_residue",
+   -0.002158673606780622
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[1]/elementary_residue",
+   9.681283903745201e-29
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[1]/quantum_composite_residue",
+   2.4408465743186072e-29
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[1]/quantum_hopping_residue",
+   2.581000225039747e-29
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[1]/elementary_composite_cross_residue",
+   4.861124216831159e-29
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[1]/elementary_hopping_cross_residue",
+   -4.998739434521472e-29
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[1]/composite_hopping_cross_residue",
+   -2.5099453296045755e-29
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[2]/elementary_residue",
+   0.0
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[2]/quantum_composite_residue",
+   0.0
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[2]/quantum_hopping_residue",
+   0.0
+  ],
+  [
+   "/same_periodic_H_spectral_bridge/branches[0]/complete_energy_residue_records[2]/elementary_composite_cross_residue",
+   0.0
+  ]
+ ],
+ "candidates_trY": {
+  "J0 y_J = y_e": 1.0,
+  "J1 y_J = P_J": 0.21513314310616055,
+  "J2 y_J = sqrt(P_J)": 0.46382447445791447,
+  "J3 y_J = first-line weight": 0.22249696403741837,
+  "J4 y_J = composite residue": 0.4230841174721718,
+  "J5 tr Y = sqrt2 E_line (M = E_line v)": 1.3719230596217742
+ },
+ "all_candidates_depend_on_declared_coefficients": true,
+ "comparison_NOT_BLIND": {
+  "J0 y_J = y_e": {
+   "trY": 1.0,
+   "ratio_to_needed": 92.59746990863322,
+   "pass_5_percent": false
+  },
+  "J1 y_J = P_J": {
+   "trY": 0.21513314310616055,
+   "ratio_to_needed": 19.920784745122386,
+   "pass_5_percent": false
+  },
+  "J2 y_J = sqrt(P_J)": {
+   "trY": 0.46382447445791447,
+   "ratio_to_needed": 42.94897281650435,
+   "pass_5_percent": false
+  },
+  "J3 y_J = first-line weight": {
+   "trY": 0.22249696403741837,
+   "ratio_to_needed": 20.602655932217093,
+   "pass_5_percent": false
+  },
+  "J4 y_J = composite residue": {
+   "trY": 0.4230841174721718,
+   "ratio_to_needed": 39.176518836450064,
+   "pass_5_percent": false
+  },
+  "J5 tr Y = sqrt2 E_line (M = E_line v)": {
+   "trY": 1.3719230596217742,
+   "ratio_to_needed": 127.03660423028725,
+   "pass_5_percent": false
+  }
+ }
+}

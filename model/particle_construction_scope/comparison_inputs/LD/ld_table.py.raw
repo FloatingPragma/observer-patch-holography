@@ -1,0 +1,286 @@
+"""Worker LD (step L5): the registered mass definitions R0 to R8 of CANDIDATES.md, evaluated in the order written there.
+
+Run: /tmp/oph-completion-venv/bin/python -B ld_table.py table.json
+Source inputs: the register rates (theta = 2/9) and alpha_P. The electron mass is the unit anchor. Measured values
+enter only the comparison block and the fits F1 to F3 (NOT BLIND). The hadronic terms are IMPORTED (ld_hadronic.py).
+"""
+import json
+import math
+import sys
+
+import mpmath as mp
+from scipy import optimize
+
+import ld_hadronic as H
+import ld_lib as L
+
+mpf = mp.mpf
+OUT = sys.argv[1]
+
+# ---------------------------------------------------------------- inputs
+y = L.register_rates()
+ALPHA_P = mpf('0.0072995452617')          # source value (P - phi)/sqrt(pi), conditional on the D10 chain
+ALPHA_CODATA = 1 / mpf('137.035999177')   # NOT BLIND variant
+M_E = mpf('0.51099895069')                # MeV, unit anchor
+MEAS = {'mu_e': mpf('206.7682827'), 'mu_e_err': mpf('0.0000046'), 'm_mu': mpf('105.6583755'),
+        'm_tau': mpf('1776.93'), 'm_tau_err': mpf('0.09')}
+MEAS['tau_e'] = MEAS['m_tau'] / M_E
+SIG_LN_MUE = MEAS['mu_e_err'] / MEAS['mu_e']
+SIG_LN_TAUE = MEAS['m_tau_err'] / MEAS['m_tau']
+MEAS_Q = L.koide_Q({'e': M_E, 'mu': MEAS['m_mu'], 'tau': MEAS['m_tau']})
+
+names = ['e', 'mu', 'tau']
+lighter = {'e': [], 'mu': ['e'], 'tau': ['e', 'mu']}
+heavier = {'e': ['mu', 'tau'], 'mu': ['tau'], 'tau': []}
+r = {k: {l: y[l] / y[k] for l in names if l != k} for k in names}
+m_reg_gev = {k: float(M_E * y[k] / y['e'] / 1000) for k in names}
+
+# ---------------------------------------------------------------- hadronic functionals (IMPORTED)
+had = {k: H.hadronic_terms(m_reg_gev[k]) for k in names}
+D3, D4 = L.D3, L.D4
+twoD1 = 2 * L.DELTA1
+
+
+def lep_W(row, k, c=None):
+    """Leptonic W_k of a row."""
+    tot = mpf(0)
+    for l in lighter[k]:
+        rr = r[k][l]
+        d2 = 2 * L.Delta(rr)
+        if row == 'R1':
+            tot += D3 + d2 + mpf(2) / 3 * mp.log(1 / rr)
+        elif row == 'R2':
+            tot += D3 + d2
+        elif row == 'R3':
+            tot += D3 + mpf(1) / 2 + d2
+        elif row == 'R4':
+            tot += d2 - twoD1
+        elif row == 'R5':
+            tot += L.X(rr) - L.X(1)
+        elif row == 'R6':
+            tot += d2
+        elif row == 'R7':
+            tot += D3 + d2 + mpf(2) / 3 * mp.log(1 / rr) - L.P(rr) / 3
+        elif row == 'Rc':   # MSbar family at mu = c M with the Thomson charge (fit F3)
+            lc = mp.log(c)
+            tot += D3 + d2 + mpf(2) / 3 * (1 + mpf(3) / 2 * lc) * mp.log(1 / rr) + lc ** 2 / 2 - mpf(5) / 12 * lc
+    for l in heavier[k]:
+        rr = r[k][l]
+        if row in ('R1', 'R2', 'R3', 'Rc'):
+            tot += L.h(rr)
+        elif row == 'R5':
+            tot += L.X(rr) - L.X(1)
+        elif row == 'R7':
+            tot += L.h(rr) - L.P(rr) / 3
+    return tot
+
+
+def had_W(row, k, c=None, charm_lighter=False):
+    """Hadronic W_k of a row (IMPORTED). For the tau: u, d, s lighter; charm and bottom heavier."""
+    t = had[k]
+    light = ['uds'] if k == 'tau' else []
+    if k == 'tau' and charm_lighter:
+        light = ['uds', 'c']
+    heavy = [s for s in t if s not in light]
+    tot = 0.0
+    for s in light:
+        N, T0, Td, ell, Pp = t[s]['N'], t[s]['massless_reference'], t[s]['degenerate_reference'], t[s]['ell'], t[s]['P']
+        if row == 'R1':
+            tot += N * float(D3) + T0 + ell / 3
+        elif row == 'R2':
+            tot += N * float(D3) + T0
+        elif row == 'R3':
+            tot += N * (float(D3) + 0.5) + T0
+        elif row == 'R4':
+            tot += Td
+        elif row == 'R6':
+            tot += T0
+        elif row == 'R7':
+            tot += N * float(D3) + T0 + ell / 3 - Pp / 3
+        elif row == 'Rc':
+            lc = math.log(c)
+            tot += N * (float(D3) + lc * lc / 2 - 5 / 12 * lc) + T0 + (1 + 1.5 * lc) * ell / 3
+    for s in heavy:
+        if row in ('R1', 'R2', 'R3', 'Rc'):
+            tot += t[s]['decoupled_remainder_h']
+        elif row == 'R7':
+            tot += t[s]['decoupled_remainder_h'] - t[s]['P'] / 3
+    return tot
+
+
+def predict(shift, label, extra=None):
+    """shift: relative pole shifts {e, mu, tau}; returns the row record with the NOT BLIND comparison."""
+    m = {k: y[k] * (1 + shift[k]) for k in names}
+    mue, taue = m['mu'] / m['e'], m['tau'] / m['e']
+    rec = {'label': label,
+           'shift_ppm': {k: float(shift[k] * 1e6) for k in names},
+           'mu_over_e': mp.nstr(mue, 12), 'tau_over_e': mp.nstr(taue, 10),
+           'm_mu_MeV_electron_anchor': mp.nstr(M_E * mue, 11), 'm_tau_MeV_electron_anchor': mp.nstr(M_E * taue, 9),
+           'Q_minus_two_thirds': float(L.koide_Q(m) - mpf(2) / 3),
+           'NOT_BLIND': {'mu_e_residual_ppm': float(mp.log(mue / MEAS['mu_e']) * 1e6),
+                         'mu_e_pull_sigma': float(mp.log(mue / MEAS['mu_e']) / SIG_LN_MUE),
+                         'tau_e_residual_ppm': float(mp.log(taue / MEAS['tau_e']) * 1e6),
+                         'tau_e_pull_sigma': float(mp.log(taue / MEAS['tau_e']) / SIG_LN_TAUE),
+                         'm_tau_minus_measured_MeV': float(M_E * taue - MEAS['m_tau'])}}
+    if extra:
+        rec.update(extra)
+    return rec
+
+
+out = {'inputs': {'alpha_P': str(ALPHA_P), 'a2_P': float((ALPHA_P / mp.pi) ** 2), 'a2_CODATA': float((ALPHA_CODATA / mp.pi) ** 2),
+                  'register_mu_over_e': mp.nstr(y['mu'] / y['e'], 12), 'register_tau_over_e': mp.nstr(y['tau'] / y['e'], 10),
+                  'lepton_masses_GeV_electron_anchor': m_reg_gev,
+                  'measured_NOT_BLIND': {'mu_over_e': str(MEAS['mu_e']), 'm_tau_MeV': str(MEAS['m_tau']),
+                                         'tau_over_e': mp.nstr(MEAS['tau_e'], 10), 'Q_minus_two_thirds': float(MEAS_Q - mpf(2) / 3),
+                                         'sigma_ln_mu_e': float(SIG_LN_MUE), 'sigma_ln_tau_e': float(SIG_LN_TAUE)}},
+       'hadronic_functionals_IMPORTED': had}
+
+a = ALPHA_P / mp.pi
+a2 = a ** 2
+a3 = a ** 3
+lnmue = mp.log(y['mu'] / y['e'])
+
+# ---------------------------------------------------------------- three-loop band T (CANDIDATES.md section 4)
+z3 = mp.zeta(3)
+l2 = mp.log(2)
+a4 = mp.polylog(4, mpf(1) / 2)
+pi2, pi4 = mp.pi ** 2, mp.pi ** 4
+d3_4 = (mpf(1283) / 576 + mpf(55) / 24 * z3 - mpf(11) / 9 * pi2 * l2 + mpf(2) / 9 * pi2 * l2 ** 2 + mpf(13) / 18 * pi2
+        - mpf(119) / 2160 * pi4 + l2 ** 4 / 9 + mpf(8) / 3 * a4)
+d3_5 = (mpf(1067) / 576 - mpf(53) / 24 * z3 + mpf(8) / 9 * pi2 * l2 - pi2 * l2 ** 2 / 9 - mpf(85) / 108 * pi2
+        + mpf(91) / 2160 * pi4 + l2 ** 4 / 9 + mpf(8) / 3 * a4)
+d3_8 = -mpf(5917) / 3888 + mpf(2) / 9 * z3 + mpf(13) / 108 * pi2
+d3_9 = -mpf(9481) / 7776 + mpf(11) / 18 * z3 + mpf(4) / 135 * pi2
+d3_10 = -mpf(2353) / 7776 - mpf(7) / 18 * z3 - mpf(13) / 108 * pi2
+d2_3, d2_4 = -D3, -D4                              # MvR's sign (mbar/M)
+c3_species = -2 * d2_3 - d3_4 - d3_8 - d3_10       # three-loop species coefficient of M/mbar, one massless species, QED
+dz2 = d2_3 - d2_4
+dz3 = d3_4 - d3_5 + d3_8 + d3_10 - 3 * d3_9
+c3_R4 = -dz2 - dz3                                 # three-loop coefficient of ln(M_real/M_ref) for R4 at fixed abar(M)
+out['three_loop'] = {'MvR_d3_4': float(d3_4), 'MvR_d3_5': float(d3_5), 'MvR_d3_8': float(d3_8), 'MvR_d3_9': float(d3_9),
+                     'MvR_d3_10': float(d3_10), 'species_coefficient_QED_one_massless_species': float(c3_species),
+                     'R4_three_loop_coefficient_at_fixed_abar': float(c3_R4), 'a3': float(a3)}
+
+rows = {}
+labels = {'R0': 'pole in the real vacuum (control)',
+          'R1': 'short-distance mass at the own rest frequency, charge at zero momentum transfer (DA Z2, look 2)',
+          'R2': 'constant coupling abar(M_k), MSbar charge at the own rest frequency (DA Z3, look 3)',
+          'R3': 'short-distance mass at mu = e^(-2/3) M_k',
+          'R4': 'degenerate vacuum for the lighter families, parameters fixed above M_k',
+          'R5': 'degenerate vacuum for every family at fixed short-distance parameters',
+          'R6': 'vacuum of massless pairs for the lighter families',
+          'R7': 'constant coupling equal to the physical charge at the own rest frequency'}
+for row in ['R0', 'R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7']:
+    Wl = {k: (mpf(0) if row == 'R0' else lep_W(row, k)) for k in names}
+    Wh = {k: (0.0 if row in ('R0', 'R5') else had_W(row, k)) for k in names}
+    coeff_mue = Wl['mu'] - Wl['e']
+    T = float(a3 * max(abs(c3_species), abs(coeff_mue) * mpf(4) / 3 * lnmue))
+    lep_only = predict({k: a2 * Wl[k] for k in names}, labels[row] + ' [leptonic terms only]')
+    full = predict({k: a2 * (Wl[k] + mpf(Wh[k])) for k in names}, labels[row] + ' [with the imported hadronic terms]')
+    res = abs(full['NOT_BLIND']['mu_e_residual_ppm']) * 1e-6
+    passed = bool(res <= max(3 * float(SIG_LN_MUE), T) and abs(full['NOT_BLIND']['tau_e_pull_sigma']) <= 1)
+    rows[row] = {'W_leptonic': {k: float(Wl[k]) for k in names}, 'W_hadronic_IMPORTED': Wh,
+                 'coefficient_of_a2_in_ln_mu_over_e_leptonic': float(coeff_mue),
+                 'coefficient_of_a2_in_ln_mu_over_e_total': float(coeff_mue + mpf(Wh['mu']) - mpf(Wh['e'])),
+                 'three_loop_band_T_ppm': T * 1e6, 'leptonic_only': lep_only, 'with_hadrons': full, 'pass': passed}
+out['rows'] = rows
+
+# ---- R4 at next order (CANDIDATES.md section 5b): abar(M_k) of the theory with the lighter and own species active
+ell_tau_had = had['tau']['uds']['ell']
+abar = {'e': a, 'mu': a * (1 + mpf(2) / 3 * a * mp.log(1 / r['mu']['e'])),
+        'tau': a * (1 + mpf(2) / 3 * a * (mp.log(1 / r['tau']['e']) + mp.log(1 / r['tau']['mu'])) + a * mpf(ell_tau_had) / 3)}
+W4 = {k: lep_W('R4', k) for k in names}
+W4h = {k: had_W('R4', k) for k in names}
+n_light = {'e': 0, 'mu': 1, 'tau': 2}
+shift_n = {k: abar[k] ** 2 * (W4[k] + mpf(W4h[k])) + a3 * c3_R4 * n_light[k] for k in names}
+out['R4_next_order'] = predict(shift_n, 'R4 with abar(M_k)^2 and the three-loop difference (massless lighter species; '
+                                        'the three-loop term of the hadronic sector is not included)',
+                               {'abar_over_a': {k: float(abar[k] / a) for k in names}})
+shift_n_lep = {k: abar[k] ** 2 * W4[k] + a3 * c3_R4 * n_light[k] for k in names}
+out['R4_next_order_leptonic_only'] = predict(shift_n_lep, 'R4 next order, leptonic terms only')
+W4h_c = {k: had_W('R4', k, charm_lighter=True) for k in names}
+out['R4_charm_counted_as_lighter'] = predict({k: a2 * (W4[k] + mpf(W4h_c[k])) for k in names},
+                                             'R4, two-loop order, charm counted as lighter than the tau',
+                                             {'W_hadronic_IMPORTED': W4h_c})
+a2c = (ALPHA_CODATA / mp.pi) ** 2
+out['R4_CODATA_alpha_NOT_BLIND'] = predict({k: a2c * (W4[k] + mpf(W4h[k])) for k in names}, 'R4 with the CODATA alpha')
+
+# ---------------------------------------------------------------- R8: common-scale reading at first order
+g1 = 1 + mpf(3) / 2 * a
+m8 = {k: mp.e ** (mp.log(y[k] / y['e']) / g1) for k in names}
+out['rows']['R8'] = {'leptonic_only': predict({k: m8[k] / (y[k] / y['e']) - 1 for k in names},
+                                              'short-distance masses at one common scale, first order (control)'),
+                     'pass': False}
+# Standard-Model Yukawa running of the ratios between the cell scale and m_Z (size only; applies to R8)
+v = 246.21965
+E_cell = 9.5599e18
+for nm in ('mu', 'tau'):
+    h2 = 2 * (m_reg_gev[nm] / v) ** 2
+    out['rows']['R8'][f'SM_Yukawa_running_ln_{nm}_over_e_from_cell_scale_ppm'] = -1.5 * h2 / (16 * math.pi ** 2) * math.log(E_cell / 91.1876) * 1e6
+
+# ---------------------------------------------------------------- fits and needed sizes (NOT BLIND, zero weight)
+need = mp.log(MEAS['mu_e'] / (y['mu'] / y['e']))
+need_coeff = need / a2
+re_ = r['mu']['e']
+fits = {'needed_ln_mu_over_e_shift': float(need), 'needed_coefficient_of_a2_alpha_P': float(need_coeff),
+        'needed_coefficient_of_a2_alpha_CODATA': float(need / a2c), 'sigma_of_needed_coefficient': float(SIG_LN_MUE / a2)}
+# F1: plane (A, B)
+f1 = {}
+t_uds = had['tau']['uds']
+for A in (mpf(0), mpf(1) / 3, mpf(2) / 3):
+    B = need_coeff - A * mp.log(1 / re_) - 2 * L.Delta(re_)
+    Wt = sum(2 * L.Delta(r['tau'][l]) + A * mp.log(1 / r['tau'][l]) + B for l in ('e', 'mu'))
+    Wt_h = t_uds['massless_reference'] + t_uds['N'] * float(B) + float(A) / 2 * t_uds['ell']
+    sh_mu = need_coeff * a2
+    f1[f'A={mp.nstr(A, 4)}'] = {'B': float(B),
+                               'leptonic_only': predict({'e': mpf(0), 'mu': sh_mu, 'tau': a2 * Wt}, 'F1 line, leptonic'),
+                               'with_hadrons': predict({'e': mpf(0), 'mu': sh_mu, 'tau': a2 * (Wt + mpf(Wt_h))}, 'F1 line, with hadrons')}
+fits['F1_plane_A_B'] = f1
+# F2: kappa family of R4
+kappa = mp.findroot(lambda kx: 2 * (L.Delta(re_) - L.Delta(kx)) - need_coeff, mpf('1.05'))
+Mt = m_reg_gev['tau']
+def uds_kappa_ref(kap):
+    N = 2.0
+    ref = lambda s: N * H.f_qcd(s) * float(L.R_lep(s / Mt ** 2, kap))
+    return H.functional('uds', H.G_of_s(Mt), ref, ref_breaks=[4 * kap * kap * Mt * Mt]) / 3
+Wt_k = sum(2 * (L.Delta(r['tau'][l]) - L.Delta(kappa)) for l in ('e', 'mu'))
+fits['F2_kappa'] = {'kappa': float(kappa), '2Delta(kappa)': float(2 * L.Delta(kappa)),
+                    'leptonic_only': predict({'e': mpf(0), 'mu': need_coeff * a2, 'tau': a2 * Wt_k}, 'F2, leptonic'),
+                    'with_hadrons': predict({'e': mpf(0), 'mu': need_coeff * a2, 'tau': a2 * (Wt_k + mpf(uds_kappa_ref(float(kappa))))},
+                                            'F2, with hadrons')}
+# F3: read scale c in the MSbar family with the Thomson charge
+def f3(lc):
+    c = mp.e ** lc
+    return float(lep_W('Rc', 'mu', c) + mpf(had_W('Rc', 'mu', float(c))) - lep_W('Rc', 'e', c) - mpf(had_W('Rc', 'e', float(c))) - need_coeff)
+sols = []
+grid = [x / 20 for x in range(-80, 41)]
+vals = [f3(x) for x in grid]
+for x0, x1, v0, v1 in zip(grid[:-1], grid[1:], vals[:-1], vals[1:]):
+    if v0 * v1 < 0:
+        sols.append(optimize.brentq(f3, x0, x1, xtol=1e-12))
+f3rec = []
+for lc in sols:
+    c = mp.e ** mpf(lc)
+    sh = {k: a2 * (lep_W('Rc', k, c) + mpf(had_W('Rc', k, float(c)))) for k in names}
+    f3rec.append({'ln_c': lc, 'c': float(c), 'first_order_coefficient_c1': 1 + 1.5 * lc, 'prediction': predict(sh, 'F3')})
+fits['F3_read_scale'] = f3rec
+out['fits_NOT_BLIND_zero_weight'] = fits
+
+json.dump(out, open(OUT, 'w'), indent=1)
+
+# ---------------------------------------------------------------- printout
+print('needed coefficient of a^2 in ln(mu/e): %.4f +- %.4f (alpha_P), %.4f (CODATA alpha)' %
+      (fits['needed_coefficient_of_a2_alpha_P'], fits['sigma_of_needed_coefficient'], fits['needed_coefficient_of_a2_alpha_CODATA']))
+print('%-4s %10s %10s %12s %12s %13s %12s %9s %9s %5s' % ('row', 'c_lep', 'c_tot', 'mu/e', 'res ppm', 'tau/e', 'm_tau MeV', 'tau sig', 'Q-2/3', 'pass'))
+for row, rec in out['rows'].items():
+    f = rec.get('with_hadrons', rec['leptonic_only'])
+    print('%-4s %10s %10s %12s %+12.3f %13s %12s %+9.2f %+9.2e %5s' % (
+        row, ('%.4f' % rec['coefficient_of_a2_in_ln_mu_over_e_leptonic']) if 'W_leptonic' in rec else '',
+        ('%.4f' % rec['coefficient_of_a2_in_ln_mu_over_e_total']) if 'W_leptonic' in rec else '',
+        f['mu_over_e'], f['NOT_BLIND']['mu_e_residual_ppm'], f['tau_over_e'], f['m_tau_MeV_electron_anchor'],
+        f['NOT_BLIND']['tau_e_pull_sigma'], f['Q_minus_two_thirds'], rec['pass']))
+for key in ('R4_next_order', 'R4_next_order_leptonic_only', 'R4_charm_counted_as_lighter', 'R4_CODATA_alpha_NOT_BLIND'):
+    f = out[key]
+    print('%-28s mu/e %s (%+.3f ppm)  tau/e %s  m_tau %s (%+.2f sigma)  Q-2/3 %+.2e' % (
+        key, f['mu_over_e'], f['NOT_BLIND']['mu_e_residual_ppm'], f['tau_over_e'], f['m_tau_MeV_electron_anchor'],
+        f['NOT_BLIND']['tau_e_pull_sigma'], f['Q_minus_two_thirds']))

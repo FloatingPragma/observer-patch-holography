@@ -1,0 +1,1210 @@
+{
+ "NOT_BLIND": true,
+ "measured": {
+  "charged leptons (PDG 2026, MeV)": {
+   "electron": 0.51099895069,
+   "muon": 105.6583755,
+   "tau": 1776.93246513409
+  },
+  "r leptons": 0.5293783221811986,
+  "r up quarks (u at 2 GeV, c at m_c, t pole; as shipped)": 0.769214671142704,
+  "r down quarks (d, s at 2 GeV, b at m_b; as shipped)": 1.2761484088503106,
+  "spread m3/m1": {
+   "leptons": 3477.370086053415,
+   "up": 79675.92592592593,
+   "down": 890.6382978723403
+  },
+  "CKM angles deg": {
+   "12": 13.003466199369875,
+   "23": 2.397381940018274,
+   "13": 0.21382834550537572
+  },
+  "CKM J": 3.1169935287554706e-05,
+  "PMNS deg (value, +, -)": {
+   "theta12_deg": [
+    33.68,
+    0.73,
+    0.7
+   ],
+   "theta23_deg": [
+    43.3,
+    1.0,
+    0.9
+   ],
+   "theta13_deg": [
+    8.56,
+    0.11,
+    0.11
+   ],
+   "delta_cp_deg": [
+    212.0,
+    26.0,
+    41.0
+   ]
+  },
+  "PMNS J (central values)": -0.017764921505851194,
+  "NuFIT sin^2 (as shipped)": {
+   "sin2_theta12": 0.3088,
+   "sin2_theta23": 0.47,
+   "sin2_theta13": 0.02248
+  },
+  "dm31^2/dm21^2": 33.31564282871169
+ },
+ "mixing_candidates": {
+  "M2 identity, P (antipode)": {
+   "abs_V_squared": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "J": 0.0,
+   "note": "right translation coupling",
+   "angles_deg_fixed_order": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "PMNS_pulls_fixed_order": [
+    -48.114285714285714,
+    -48.11111111111111,
+    -77.81818181818183
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    -1.0,
+    -1.0,
+    -1.0
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      0.0,
+      90.0,
+      0.0
+     ],
+     "pulls": [
+      -48.114285714285714,
+      46.7,
+      -77.81818181818183
+     ],
+     "chi2": 10551.543911283523,
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      2,
+      1
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      90.0,
+      90.0,
+      0.0
+     ],
+     "relative_deviation_of_sines": [
+      3.4442469223590058,
+      22.906287353573994,
+      -1.0
+     ],
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      2,
+      0,
+      1
+     ]
+    }
+   }
+  },
+  "M2 C+, third of a turn (anchor 9)": {
+   "abs_V_squared": [
+    [
+     0.2,
+     0.7236067977499789,
+     0.076393202250021
+    ],
+    [
+     0.276393202250021,
+     0.0,
+     0.7236067977499789
+    ],
+    [
+     0.523606797749979,
+     0.276393202250021,
+     0.2
+    ]
+   ],
+   "J": 0.0,
+   "note": "right translation coupling",
+   "angles_deg_fixed_order": [
+    62.26769855229806,
+    62.26769855229806,
+    16.04505713533576
+   ],
+   "PMNS_pulls_fixed_order": [
+    39.16123089355899,
+    18.96769855229806,
+    68.04597395759781
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    2.933742600941502,
+    20.16020613525813,
+    73.06034358253508
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      27.732301447701957,
+      27.732301447701957,
+      16.04505713533576
+     ],
+     "pulls": [
+      -8.496712217568634,
+      -17.29744283588671,
+      68.04597395759781
+     ],
+     "chi2": 5001.650219007028,
+     "passes": false,
+     "row_order": [
+      0,
+      2,
+      1
+     ],
+     "column_order": [
+      1,
+      0,
+      2
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      27.732301447701957,
+      27.732301447701957,
+      16.04505713533576
+     ],
+     "relative_deviation_of_sines": [
+      1.0680908723833888,
+      10.12457870415937,
+      73.06034358253508
+     ],
+     "passes": false,
+     "row_order": [
+      0,
+      2,
+      1
+     ],
+     "column_order": [
+      1,
+      0,
+      2
+     ]
+    }
+   }
+  },
+  "M2 C+^-1, third of a turn (anchor 4)": {
+   "abs_V_squared": [
+    [
+     0.2,
+     0.276393202250021,
+     0.523606797749979
+    ],
+    [
+     0.7236067977499789,
+     0.0,
+     0.276393202250021
+    ],
+    [
+     0.076393202250021,
+     0.7236067977499789,
+     0.2
+    ]
+   ],
+   "J": 0.0,
+   "note": "right translation coupling",
+   "angles_deg_fixed_order": [
+    49.61382244080324,
+    49.61382244080324,
+    46.353072891203695
+   ],
+   "PMNS_pulls_fixed_order": [
+    21.82715402849759,
+    6.313822440803243,
+    343.57338992003355
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    2.385159070364484,
+    17.209290997435158,
+    192.8924967175721
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      27.732301447701957,
+      27.732301447701957,
+      16.04505713533576
+     ],
+     "pulls": [
+      -8.496712217568634,
+      -17.29744283588671,
+      68.04597395759781
+     ],
+     "chi2": 5001.650219007028,
+     "passes": false,
+     "row_order": [
+      2,
+      0,
+      1
+     ],
+     "column_order": [
+      1,
+      2,
+      0
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      27.732301447701957,
+      27.732301447701957,
+      16.04505713533576
+     ],
+     "relative_deviation_of_sines": [
+      1.0680908723833888,
+      10.12457870415937,
+      73.06034358253508
+     ],
+     "passes": false,
+     "row_order": [
+      2,
+      0,
+      1
+     ],
+     "column_order": [
+      1,
+      2,
+      0
+     ]
+    }
+   }
+  },
+  "M2 F P (passage nu of item 3), F (frame partner)": {
+   "abs_V_squared": [
+    [
+     0.2,
+     0.0,
+     0.8
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.8,
+     0.0,
+     0.2
+    ]
+   ],
+   "J": 0.0,
+   "note": "right translation coupling",
+   "angles_deg_fixed_order": [
+    0.0,
+    0.0,
+    63.43494882292201
+   ],
+   "PMNS_pulls_fixed_order": [
+    -48.114285714285714,
+    -48.11111111111111,
+    498.8631711174728
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    -1.0,
+    -1.0,
+    238.66430627007392
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      26.56505117707799,
+      90.0,
+      0.0
+     ],
+     "pulls": [
+      -10.1642126041743,
+      46.7,
+      -77.81818181818183
+     ],
+     "chi2": 8339.87063935046,
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      2,
+      0,
+      1
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      90.0,
+      90.0,
+      26.56505117707799
+     ],
+     "relative_deviation_of_sines": [
+      3.4442469223590058,
+      22.906287353573994,
+      118.83215313503696
+     ],
+     "passes": false,
+     "row_order": [
+      0,
+      2,
+      1
+     ],
+     "column_order": [
+      1,
+      2,
+      0
+     ]
+    }
+   }
+  },
+  "M4a": {
+   "abs_V_squared": [
+    [
+     0.72360679775,
+     0.0,
+     0.27639320225
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.27639320225,
+     0.0,
+     0.72360679775
+    ]
+   ],
+   "J": 0.0,
+   "note": "",
+   "angles_deg_fixed_order": [
+    0.0,
+    0.0,
+    31.717474411459662
+   ],
+   "PMNS_pulls_fixed_order": [
+    -48.114285714285714,
+    -48.11111111111111,
+    210.52249464963327
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    -1.0,
+    -1.0,
+    139.87114472645058
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      31.717474411459662,
+      90.0,
+      0.0
+     ],
+     "pulls": [
+      -2.803607983629054,
+      46.7,
+      -77.81818181818183
+     ],
+     "chi2": 8244.419639213473,
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      2,
+      1
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      90.0,
+      90.0,
+      31.717474411459662
+     ],
+     "relative_deviation_of_sines": [
+      3.4442469223590058,
+      22.906287353573994,
+      139.87114472645058
+     ],
+     "passes": false,
+     "row_order": [
+      0,
+      2,
+      1
+     ],
+     "column_order": [
+      1,
+      0,
+      2
+     ]
+    }
+   }
+  },
+  "M4b": {
+   "abs_V_squared": [
+    [
+     0.333333333333,
+     0.333333333333,
+     0.333333333333
+    ],
+    [
+     0.333333333333,
+     0.333333333333,
+     0.333333333333
+    ],
+    [
+     0.333333333333,
+     0.333333333333,
+     0.333333333333
+    ]
+   ],
+   "J": -0.09622504486493762,
+   "note": "",
+   "angles_deg_fixed_order": [
+    44.99999999995703,
+    44.99999999995703,
+    35.2643896827344
+   ],
+   "PMNS_pulls_fixed_order": [
+    15.506849315009635,
+    1.6999999999570363,
+    242.76717893394903
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    2.1425571360651405,
+    15.904297900693699,
+    153.70264447731432
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      44.99999999995703,
+      44.99999999995703,
+      35.2643896827344
+     ],
+     "pulls": [
+      15.506849315009635,
+      1.6999999999570363,
+      242.76717893394903
+     ],
+     "chi2": 59179.25554322629,
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      1,
+      2
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      44.99999999995703,
+      44.99999999995703,
+      35.2643896827344
+     ],
+     "relative_deviation_of_sines": [
+      2.1425571360651405,
+      15.904297900693699,
+      153.70264447731432
+     ],
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      1,
+      2
+     ]
+    }
+   }
+  },
+  "M6_C+": {
+   "abs_V_squared": [
+    [
+     0.631475730333,
+     0.184262134833,
+     0.184262134833
+    ],
+    [
+     0.333333333333,
+     0.333333333333,
+     0.333333333333
+    ],
+    [
+     0.035190936333,
+     0.482404531833,
+     0.482404531833
+    ]
+   ],
+   "J": 0.04303314829119352,
+   "note": "",
+   "angles_deg_fixed_order": [
+    28.377097676662665,
+    39.73518456150104,
+    25.420458321520574
+   ],
+   "PMNS_pulls_fixed_order": [
+    -7.575574747624765,
+    -3.960906042776615,
+    153.27689383200521
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    1.112228599265804,
+    14.281859308686755,
+    114.02080802041773
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      44.99999999997031,
+      35.9999999999714,
+      10.812316963515524
+     ],
+     "pulls": [
+      15.506849315027827,
+      -8.111111111142884,
+      20.475608759232035
+     ],
+     "chi2": 725.5030531974242,
+     "passes": false,
+     "row_order": [
+      2,
+      1,
+      0
+     ],
+     "column_order": [
+      1,
+      2,
+      0
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      44.99999999997031,
+      35.9999999999714,
+      10.812316963515524
+     ],
+     "relative_deviation_of_sines": [
+      2.1425571360658684,
+      13.051763143487195,
+      49.26593624976333
+     ],
+     "passes": false,
+     "row_order": [
+      2,
+      1,
+      0
+     ],
+     "column_order": [
+      1,
+      2,
+      0
+     ]
+    }
+   }
+  },
+  "M5 flux 0 against even flux k != 0, 10 (tri-bimaximal, standard order)": {
+   "abs_V_squared": [
+    [
+     0.6666666666666666,
+     0.3333333333333333,
+     0.0
+    ],
+    [
+     0.16666666666666666,
+     0.3333333333333333,
+     0.5
+    ],
+    [
+     0.16666666666666666,
+     0.3333333333333333,
+     0.5
+    ]
+   ],
+   "J": 0.0,
+   "note": "the eight pairs (0, k) are this matrix up to the order of rows and columns",
+   "angles_deg_fixed_order": [
+    35.264389682754654,
+    45.00000000000001,
+    0.0
+   ],
+   "PMNS_pulls_fixed_order": [
+    2.1703968256913075,
+    1.70000000000001,
+    -77.81818181818183
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    1.5658871569691377,
+    15.904297900706375,
+    -1.0
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      35.264389682754654,
+      45.00000000000001,
+      0.0
+     ],
+     "pulls": [
+      2.1703968256913075,
+      1.70000000000001,
+      -77.81818181818183
+     ],
+     "chi2": 6063.270043868575,
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      1,
+      2
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      39.23152048359226,
+      26.56505117707799,
+      24.094842552110702
+     ],
+     "relative_deviation_of_sines": [
+      1.8107885517695923,
+      9.691216722447,
+      108.39128897745526
+     ],
+     "passes": false,
+     "row_order": [
+      1,
+      2,
+      0
+     ],
+     "column_order": [
+      2,
+      1,
+      0
+     ]
+    }
+   }
+  },
+  "M5 2 vs 4": {
+   "abs_V_squared": [
+    [
+     0.083333333333,
+     0.25,
+     0.666666666667
+    ],
+    [
+     0.027777777778,
+     0.75,
+     0.222222222222
+    ],
+    [
+     0.888888888889,
+     0.0,
+     0.111111111111
+    ]
+   ],
+   "J": 0.0,
+   "note": "",
+   "angles_deg_fixed_order": [
+    60.000000000049624,
+    54.735610317245346,
+    54.73561031726561
+   ],
+   "PMNS_pulls_fixed_order": [
+    36.05479452061593,
+    11.435610317245349,
+    419.77827561150553
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    2.8488307354556315,
+    18.519401886868902,
+    217.7825779549652
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      28.560825217799227,
+      17.02386618496269,
+      9.594068226899202
+     ],
+     "pulls": [
+      -7.31310683171539,
+      -29.195704238930343,
+      9.400620244538192
+     ],
+     "chi2": 994.2423385211988,
+     "passes": false,
+     "row_order": [
+      1,
+      0,
+      2
+     ],
+     "column_order": [
+      1,
+      2,
+      0
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      28.560825217799227,
+      17.02386618496269,
+      9.594068226899202
+     ],
+     "relative_deviation_of_sines": [
+      1.124756427419106,
+      5.99904427167124,
+      43.65880671686317
+     ],
+     "passes": false,
+     "row_order": [
+      1,
+      0,
+      2
+     ],
+     "column_order": [
+      1,
+      2,
+      0
+     ]
+    }
+   }
+  },
+  "M5 4 vs 18": {
+   "abs_V_squared": [
+    [
+     0.75,
+     0.027777777778,
+     0.222222222222
+    ],
+    [
+     0.25,
+     0.083333333333,
+     0.666666666667
+    ],
+    [
+     0.0,
+     0.888888888889,
+     0.111111111111
+    ]
+   ],
+   "J": 0.0,
+   "note": "",
+   "angles_deg_fixed_order": [
+    10.893394649173437,
+    67.79234570141855,
+    28.125505702040392
+   ],
+   "PMNS_pulls_fixed_order": [
+    -32.55229335832366,
+    24.492345701418557,
+    177.86823365491264
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    -0.1601162770306096,
+    21.132921342879534,
+    125.31418027620471
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      28.560825217799227,
+      17.02386618496269,
+      9.594068226899202
+     ],
+     "pulls": [
+      -7.31310683171539,
+      -29.195704238930343,
+      9.400620244538192
+     ],
+     "chi2": 994.2423385211988,
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      2,
+      1
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      28.560825217799227,
+      17.02386618496269,
+      9.594068226899202
+     ],
+     "relative_deviation_of_sines": [
+      1.124756427419106,
+      5.99904427167124,
+      43.65880671686317
+     ],
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      2,
+      1
+     ]
+    }
+   }
+  },
+  "M5 2 vs 8": {
+   "abs_V_squared": [
+    [
+     0.666666666667,
+     0.333333333333,
+     0.0
+    ],
+    [
+     0.222222222222,
+     0.444444444444,
+     0.333333333333
+    ],
+    [
+     0.111111111111,
+     0.222222222222,
+     0.666666666667
+    ]
+   ],
+   "J": 0.0,
+   "note": "",
+   "angles_deg_fixed_order": [
+    35.2643896827344,
+    35.2643896827344,
+    0.0
+   ],
+   "PMNS_pulls_fixed_order": [
+    2.1703968256635573,
+    -8.92845590807289,
+    -77.81818181818183
+   ],
+   "PMNS_passes_fixed_order": false,
+   "CKM_relative_deviation_fixed_order": [
+    1.5658871569678547,
+    12.80230143890359,
+    -1.0
+   ],
+   "CKM_passes_fixed_order": false,
+   "best_of_36_orders (selection over 36, NOT BLIND)": {
+    "PMNS": {
+     "angles_deg": [
+      35.2643896827344,
+      35.2643896827344,
+      0.0
+     ],
+     "pulls": [
+      2.1703968256635573,
+      -8.92845590807289,
+      -77.81818181818183
+     ],
+     "chi2": 6140.0973687708565,
+     "passes": false,
+     "row_order": [
+      0,
+      1,
+      2
+     ],
+     "column_order": [
+      0,
+      1,
+      2
+     ]
+    },
+    "CKM": {
+     "angles_deg": [
+      29.99999999998139,
+      29.99999999998139,
+      19.471220634480563
+     ],
+     "relative_deviation_of_sines": [
+      1.2221234611782528,
+      10.953143676780273,
+      88.3176134333244
+     ],
+     "passes": false,
+     "row_order": [
+      2,
+      1,
+      0
+     ],
+     "column_order": [
+      2,
+      1,
+      0
+     ]
+    }
+   }
+  }
+ },
+ "J_verdicts": {
+  "kernel-type pairs (M2, M4a, M5): J = 0": {
+   "CKM": "fails: J_CKM = 3.117e-05 (relative precision a few percent)",
+   "PMNS": "not decided: delta = 212 +26 -41 deg includes 180 deg at 0.8 sigma, so J = 0 is allowed by the phase alone"
+  },
+  "M4b trimaximal: abs J = 0.096225": {
+   "CKM": "fails (factor 3100)",
+   "PMNS": "fails: abs J_PMNS <= 0.0335 for any phase at the measured angles"
+  },
+  "M6: abs J = 0.043033": {
+   "CKM": "fails (factor 1400)",
+   "PMNS": "fails: abs J_PMNS <= 0.0335 for any phase at the measured angles"
+  }
+ },
+ "mass_shape_verdicts": {
+  "triplet second index, flux 0: H0 kernel K": {
+   "r": 2.51337546506878,
+   "against leptons": 3.747786903537934,
+   "against up quarks": 2.267456484332318,
+   "against down quarks": 0.9695009198288265,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H0c correction probability 1 - K": {
+   "r": 0.241668489486173,
+   "against leptons": -0.5434862377997915,
+   "against up quarks": -0.68582438875332,
+   "against down quarks": -0.8106266576754239,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H0w rest phase arccos K": {
+   "r": 0.243385350170046,
+   "against leptons": -0.5402430738621392,
+   "against up quarks": -0.6835924231547927,
+   "against down quarks": -0.8092813120463682,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H1 powers K^n": {
+   "r": 2.51337546506878,
+   "against leptons": 3.747786903537934,
+   "against up quarks": 2.267456484332318,
+   "against down quarks": 0.9695009198288265,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H1 powers K^10": {
+   "r": 2.51337546506878,
+   "against leptons": 3.747786903537934,
+   "against up quarks": 2.267456484332318,
+   "against down quarks": 0.9695009198288265,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H1 powers K^100": {
+   "r": 2.51337546506878,
+   "against leptons": 3.747786903537934,
+   "against up quarks": 2.267456484332318,
+   "against down quarks": 0.9695009198288265,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H1i inverse powers K^-n": {
+   "r": 0.397871314452668,
+   "against leptons": -0.24841781806758167,
+   "against up quarks": -0.48275646658999405,
+   "against down quarks": -0.6882248869384144,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H1r rates -log K": {
+   "r": 0.247153804836687,
+   "against leptons": -0.5331244320350357,
+   "against up quarks": -0.6786933295623072,
+   "against down quarks": -0.8063283211242263,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H2 resolvent (5 - A)^-1": {
+   "r": 4.13789982353995,
+   "against leptons": 6.816526763866251,
+   "against up quarks": 4.3793823477039355,
+   "against down quarks": 2.2424910730154086,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H3 log(5 - A)": {
+   "r": 0.175465547062581,
+   "against leptons": -0.6685441399647611,
+   "against up quarks": -0.7718900150436304,
+   "against down quarks": -0.8625038076718217,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H3n -log of the resolvent normalized on the second index": {
+   "r": 0.154752787024567,
+   "against leptons": -0.7076707138536789,
+   "against up quarks": -0.7988171666114031,
+   "against down quarks": -0.8787344904782786,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 0: H4 projector on the slowest level": {
+   "r": null,
+   "verdict": "no hierarchy shape (two levels coincide or vanish)"
+  },
+  "triplet second index, flux 2: H0 kernel K": {
+   "r": 2.04649421240783,
+   "against leptons": 2.8658443813408443,
+   "against up quarks": 1.6604981537438284,
+   "against down quarks": 0.6036490726431485,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H0c correction probability 1 - K": {
+   "r": 0.217737460075988,
+   "against leptons": -0.5886921489742083,
+   "against up quarks": -0.7169353780622398,
+   "against down quarks": -0.8293792018499252,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H0w rest phase arccos K": {
+   "r": 0.21984362258264,
+   "against leptons": -0.5847135906948024,
+   "against up quarks": -0.7141973095026228,
+   "against down quarks": -0.827728796229352,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H1 powers K^n": {
+   "r": 2.04649421240783,
+   "against leptons": 2.8658443813408443,
+   "against up quarks": 1.6604981537438284,
+   "against down quarks": 0.6036490726431485,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H1 powers K^10": {
+   "r": 2.04649421240783,
+   "against leptons": 2.8658443813408443,
+   "against up quarks": 1.6604981537438284,
+   "against down quarks": 0.6036490726431485,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H1 powers K^100": {
+   "r": 2.04649421240783,
+   "against leptons": 2.8658443813408443,
+   "against up quarks": 1.6604981537438284,
+   "against down quarks": 0.6036490726431485,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H1i inverse powers K^-n": {
+   "r": 0.488640521892039,
+   "against leptons": -0.07695403945009982,
+   "against up quarks": -0.3647540274210568,
+   "against down quarks": -0.6170974171160406,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H1r rates -log K": {
+   "r": 0.22442681139388,
+   "against leptons": -0.5760559093746533,
+   "against up quarks": -0.7082390393562261,
+   "against down quarks": -0.8241373731789805,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H2 resolvent (5 - A)^-1": {
+   "r": 4.59268698941841,
+   "against leptons": 7.675623456765573,
+   "against up quarks": 4.970618036439373,
+   "against down quarks": 2.598865898015724,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H3 log(5 - A)": {
+   "r": 0.0982456473105851,
+   "against leptons": -0.8144131650389775,
+   "against up quarks": -0.8722779855919328,
+   "against down quarks": -0.9230139326827237,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H3n -log of the resolvent normalized on the second index": {
+   "r": 0.102453421776829,
+   "against leptons": -0.8064646445009498,
+   "against up quarks": -0.8668077643076806,
+   "against down quarks": -0.9197166872862931,
+   "verdict": "fails for all three sectors"
+  },
+  "triplet second index, flux 2: H4 projector on the slowest level": {
+   "r": null,
+   "verdict": "no hierarchy shape (two levels coincide or vanish)"
+  }
+ },
+ "powers_fitted_to_the_lepton_spread": {
+  "n fitted to m_tau/m_e (FIT, one number)": 100.22605298585387,
+  "masses rising with K^-n: m_mu/m_e, m_tau/m_mu": [
+   341.44190476442964,
+   10.184368226426514
+  ],
+  "masses rising with K^n: m_mu/m_e, m_tau/m_mu": [
+   10.184368226426514,
+   341.44190476442964
+  ],
+  "measured m_mu/m_e, m_tau/m_mu": [
+   206.76828270846718,
+   16.81771517615364
+  ],
+  "flux 2: n fitted to m_tau/m_e (FIT, one number)": 77.49909081190138,
+  "flux 2: masses rising with K^-n: m_mu/m_e, m_tau/m_mu": [
+   239.2483386866153,
+   14.53456314531971
+  ]
+ }
+}

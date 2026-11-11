@@ -1,0 +1,2627 @@
+{
+ "measured": {
+  "sin2_theta12": [
+   0.3096,
+   0.0057,
+   0.0073
+  ],
+  "sin2_theta23": [
+   0.47,
+   0.017,
+   0.013
+  ],
+  "sin2_theta13": [
+   0.02215,
+   0.00056,
+   0.00056
+  ],
+  "delta_deg": [
+   212.0,
+   26.0,
+   41.0
+  ],
+  "dm21": [
+   7.53e-05,
+   9.6e-07,
+   9.7e-07
+  ],
+  "dm31": [
+   0.002511,
+   2.1e-05,
+   2e-05
+  ],
+  "r": 0.02998805256869773,
+  "sigma_r": 0.000455667227304703,
+  "KATRIN_m_beta_eV": 0.45,
+  "cosmology_sum_eV": [
+   0.064,
+   0.072
+  ],
+  "source": "reports/LIT.md (NuFIT 6.1 and 6.0, KATRIN); cosmology IMPORTED from the candidate files of NU3 and DG"
+ },
+ "D1_part_C": {
+  "tuples": [
+   {
+    "id": "C0",
+    "kind": "Dirac: source as it stands",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     4.6276515204404455e-80,
+     4.267236793312142e-82,
+     9.7294145342357e-83
+    ],
+    "J": -3.147306029264645e-82,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.05918939270185883,
+    "r_square": 0.003535401712130539,
+    "r_pulls": {
+     "r_linear": 64.0847934267484,
+     "r_square": -58.052563957772634
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 42.410958904109584
+   },
+   {
+    "id": "C0",
+    "kind": "Dirac: source as it stands",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     null,
+     null,
+     1.0
+    ],
+    "J": 1.589162571538672e-122,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": null,
+     "sin2_theta23": null,
+     "sin2_theta13": 1746.1607142857144
+    },
+    "r_linear": 15.894919078441486,
+    "r_square": 281.8532883742283,
+    "r_pulls": {
+     "r_linear": 34816.92356879546,
+     "r_square": 618484.9017750523
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": null
+   },
+   {
+    "id": "C0",
+    "kind": "Dirac: source as it stands",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     1.0,
+     3.2132282589965297e-82,
+     1.0641014883350453e-82
+    ],
+    "J": -5.761957010516675e-82,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": 121.12280701754386,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.05918939270185883,
+    "r_square": 0.003535401712130539,
+    "r_pulls": {
+     "r_linear": 64.0847934267484,
+     "r_square": -58.052563957772634
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 121.12280701754386
+   },
+   {
+    "id": "C0",
+    "kind": "Dirac: source as it stands",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     1.0641014883350453e-82,
+     1.0,
+     6.1710443139381e-80
+    ],
+    "J": -2.8033929854284707e-123,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": 31.176470588235293,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 15.894919078441486,
+    "r_square": 281.8532883742283,
+    "r_pulls": {
+     "r_linear": 34816.92356879546,
+     "r_square": 618484.9017750523
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 42.410958904109584
+   },
+   {
+    "id": "C1",
+    "kind": "Dirac: hold carries the half-turn",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.6303018838379072,
+     9.192885877071703e-82,
+     2.3455274541504334e-82
+    ],
+    "J": 2.053378345733365e-42,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": 56.2634883926153,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.515633239629737,
+    "r_square": 0.27622519266176954,
+    "r_pulls": {
+     "r_linear": 1065.7891504150025,
+     "r_square": 540.3880844132201
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 56.2634883926153
+   },
+   {
+    "id": "C1",
+    "kind": "Dirac: hold carries the half-turn",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     3.721276287274473e-82,
+     1.0,
+     0.36969811616209286
+    ],
+    "J": 1.0394040409713647e-82,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": 31.176470588235293,
+     "sin2_theta13": 620.6216360037373
+    },
+    "r_linear": 0.9393629485912787,
+    "r_square": 2.62023460048582,
+    "r_pulls": {
+     "r_linear": 1995.699584105673,
+     "r_square": 5684.51359391935
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 620.6216360037373
+   },
+   {
+    "id": "C1",
+    "kind": "Dirac: hold carries the half-turn",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.36969811616209286,
+     8.785164952692102e-83,
+     5.796518788717264e-82
+    ],
+    "J": 2.2633406374340542e-42,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": 10.543529151244364,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.515633239629737,
+    "r_square": 0.27622519266176954,
+    "r_pulls": {
+     "r_linear": 1065.7891504150025,
+     "r_square": 540.3880844132201
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 39.55357142857143
+   },
+   {
+    "id": "C1",
+    "kind": "Dirac: hold carries the half-turn",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     1.5679059576748834e-81,
+     1.0,
+     0.6303018838379072
+    ],
+    "J": 8.689561808681708e-83,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": 31.176470588235293,
+     "sin2_theta13": 1085.9855068534057
+    },
+    "r_linear": 0.9393629485912787,
+    "r_square": 2.62023460048582,
+    "r_pulls": {
+     "r_linear": 1995.699584105673,
+     "r_square": 5684.51359391935
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 1085.9855068534057
+   },
+   {
+    "id": "C2",
+    "kind": "Dirac: repairs carry the half-turn",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "verdict": "excluded: degenerate pair (one splitting is zero)",
+    "masses_over_heaviest": [
+     0.15946544699365212,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "id": "C2",
+    "kind": "Dirac: repairs carry the half-turn",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "verdict": "excluded: degenerate pair (one splitting is zero)",
+    "masses_over_heaviest": [
+     0.15946544699365212,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "id": "C2",
+    "kind": "Dirac: repairs carry the half-turn",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "verdict": "excluded: degenerate pair (one splitting is zero)",
+    "masses_over_heaviest": [
+     0.15946544699365212,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "id": "C2",
+    "kind": "Dirac: repairs carry the half-turn",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "verdict": "excluded: degenerate pair (one splitting is zero)",
+    "masses_over_heaviest": [
+     0.15946544699365212,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "id": "C3",
+    "kind": "Dirac: hold at the E position",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.8586092647468551,
+     0.039128200846401846,
+     0.024835482314959578
+    ],
+    "J": -7.90746598025353e-42,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": 96.3174148678693,
+     "sin2_theta23": -33.143984550276784,
+     "sin2_theta13": 4.795504133856391
+    },
+    "r_linear": 0.18803895352697272,
+    "r_square": 0.03549063942214629,
+    "r_pulls": {
+     "r_linear": 346.85597622009135,
+     "r_square": 12.075888990298175
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 96.3174148678693
+   },
+   {
+    "id": "C3",
+    "kind": "Dirac: hold at the E position",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.028807428292924545,
+     0.9324181725004538,
+     0.1378792281482663
+    ],
+    "J": 3.3791803003906e-42,
+    "delta_deg": 1.440426873375716e-38,
+    "pulls": {
+     "sin2_theta12": -38.464735850284306,
+     "sin2_theta23": 27.201068970614926,
+     "sin2_theta13": 206.659335979047
+    },
+    "r_linear": 4.318047038889513,
+    "r_square": 27.17644359982977,
+    "r_pulls": {
+     "r_linear": 9410.505582516704,
+     "r_square": 59575.1766213995
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 206.659335979047
+   },
+   {
+    "id": "C3",
+    "kind": "Dirac: hold at the E position",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.1642538327092802,
+     0.02582070844967601,
+     0.03815643310626485
+    ],
+    "J": -8.690074303501705e-42,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": -19.910433875441065,
+     "sin2_theta23": -34.16763781156339,
+     "sin2_theta13": 28.582916261187233
+    },
+    "r_linear": 0.18803895352697272,
+    "r_square": 0.03549063942214629,
+    "r_pulls": {
+     "r_linear": 346.85597622009135,
+     "r_square": 12.075888990298175
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 34.16763781156339
+   },
+   {
+    "id": "C3",
+    "kind": "Dirac: hold at the E position",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.1945338228313831,
+     0.7029528485019422,
+     0.8038570745646743
+    ],
+    "J": 3.3449999622447746e-42,
+    "delta_deg": 6.025036380017696e-39,
+    "pulls": {
+     "sin2_theta12": -15.762490023098204,
+     "sin2_theta23": 13.703108735408364,
+     "sin2_theta13": 1395.9054902940613
+    },
+    "r_linear": 4.318047038889513,
+    "r_square": 27.17644359982977,
+    "r_pulls": {
+     "r_linear": 9410.505582516704,
+     "r_square": 59575.1766213995
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 1395.9054902940613
+   },
+   {
+    "id": "C4",
+    "kind": "Dirac: hold off the E position",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.7780824105321767,
+     0.023745877352826003,
+     0.012921192760264055
+    ],
+    "J": -2.065939624268591e-43,
+    "delta_deg": 360.0,
+    "pulls": {
+     "sin2_theta12": 82.18989658459242,
+     "sin2_theta23": -34.32724020362877,
+     "sin2_theta13": -16.480012928099903
+    },
+    "r_linear": 0.02857586421019769,
+    "r_square": 0.0026310577935414773,
+    "r_pulls": {
+     "r_linear": -3.099165956817244,
+     "r_square": -60.03722263936864
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 82.18989658459242
+   },
+   {
+    "id": "C4",
+    "kind": "Dirac: hold off the E position",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.016545483365262795,
+     0.991174761542758,
+     0.2190501495174164
+    ],
+    "J": -2.2887801471227572e-42,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": -40.144454333525644,
+     "sin2_theta23": 30.65733891427988,
+     "sin2_theta13": 351.6074098525293
+    },
+    "r_linear": 33.99456718593785,
+    "r_square": 379.07526951886985,
+    "r_pulls": {
+     "r_linear": 74538.1214582219,
+     "r_square": 831846.7046848532
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 351.6074098525293
+   },
+   {
+    "id": "C4",
+    "kind": "Dirac: hold off the E position",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.20736357147245754,
+     0.013231322418350362,
+     0.02343905229428855
+    ],
+    "J": 2.2498627959892582e-43,
+    "delta_deg": 1.8612158381996948e-39,
+    "pulls": {
+     "sin2_theta12": -14.004990209252389,
+     "sin2_theta23": -35.13605212166536,
+     "sin2_theta13": 2.301879096943841
+    },
+    "r_linear": 0.02857586421019769,
+    "r_square": 0.0026310577935414773,
+    "r_pulls": {
+     "r_linear": -3.099165956817244,
+     "r_square": -60.03722263936864
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 35.13605212166536
+   },
+   {
+    "id": "C4",
+    "kind": "Dirac: hold off the E position",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.10373914394582784,
+     0.9694963220709908,
+     0.7740577818289273
+    ],
+    "J": -2.293789463960228e-42,
+    "delta_deg": 360.0,
+    "pulls": {
+     "sin2_theta12": -28.200117267694814,
+     "sin2_theta23": 29.38213659241122,
+     "sin2_theta13": 1342.692467551656
+    },
+    "r_linear": 33.99456718593785,
+    "r_square": 379.07526951886985,
+    "r_pulls": {
+     "r_linear": 74538.1214582219,
+     "r_square": 831846.7046848532
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 1342.692467551656
+   },
+   {
+    "id": "C5",
+    "kind": "Dirac: repair on the C link only",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.37333282336564577,
+     0.2625145755165862,
+     0.10714163751183628
+    ],
+    "J": -4.329518078582167e-42,
+    "delta_deg": 360.0,
+    "pulls": {
+     "sin2_theta12": 11.181197081692243,
+     "sin2_theta23": -15.960417267954908,
+     "sin2_theta13": 151.77078127113623
+    },
+    "r_linear": 0.32322330470336313,
+    "r_square": 0.11698382685728675,
+    "r_pulls": {
+     "r_linear": 643.5293884731808,
+     "r_square": 190.91953310571373
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 151.77078127113623
+   },
+   {
+    "id": "C5",
+    "kind": "Dirac: repair on the C link only",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.24324114785967577,
+     0.9813913644450897,
+     0.5595250291548304
+    ],
+    "J": -3.9586386451227014e-44,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": -9.090253717852633,
+     "sin2_theta23": 30.081844967358215,
+     "sin2_theta13": 959.5982663479115
+    },
+    "r_linear": 2.0938363213560542,
+    "r_square": 7.548190180339543,
+    "r_pulls": {
+     "r_linear": 4529.2883602692555,
+     "r_square": 16499.325993316284
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 959.5982663479115
+   },
+   {
+    "id": "C5",
+    "kind": "Dirac: repair on the C link only",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.4353817322112542,
+     0.1399425351955607,
+     0.23438833402501455
+    ],
+    "J": -2.019616418775651e-42,
+    "delta_deg": 360.0,
+    "pulls": {
+     "sin2_theta12": 22.066970563377932,
+     "sin2_theta23": -25.389035754187635,
+     "sin2_theta13": 378.9970250446689
+    },
+    "r_linear": 0.32322330470336313,
+    "r_square": 0.11698382685728675,
+    "r_pulls": {
+     "r_linear": 643.5293884731808,
+     "r_square": 190.91953310571373
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 378.9970250446689
+   },
+   {
+    "id": "C5",
+    "kind": "Dirac: repair on the C link only",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.4128578271737299,
+     0.9855622241059477,
+     0.4322783326416521
+    ],
+    "J": 3.1914602041592618e-43,
+    "delta_deg": 8.341243330126025e-40,
+    "pulls": {
+     "sin2_theta12": 18.11540827609296,
+     "sin2_theta23": 30.327189653291043,
+     "sin2_theta13": 732.3720225743788
+    },
+    "r_linear": 2.0938363213560542,
+    "r_square": 7.548190180339543,
+    "r_pulls": {
+     "r_linear": 4529.2883602692555,
+     "r_square": 16499.325993316284
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 732.3720225743788
+   },
+   {
+    "id": "C6",
+    "kind": "Dirac: hold and repair local",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.6084656367896896,
+     0.29664023088458946,
+     0.14864858706083678
+    ],
+    "J": -0.05555555555555555,
+    "delta_deg": 229.38991907551565,
+    "pulls": {
+     "sin2_theta12": 52.432567857840276,
+     "sin2_theta23": -13.335366855031578,
+     "sin2_theta13": 225.89033403720856
+    },
+    "r_linear": 0.07179676972449082,
+    "r_square": 0.0051547761428715625,
+    "r_pulls": {
+     "r_linear": 91.75274114641508,
+     "r_square": -54.4987107646876
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 225.89033403720856
+   },
+   {
+    "id": "C6",
+    "kind": "Dirac: hold and repair local",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.22297288059125514,
+     0.5,
+     0.3333333333333333
+    ],
+    "J": -0.05555555555555555,
+    "delta_deg": 316.08980552674,
+    "pulls": {
+     "sin2_theta12": -11.86672868612943,
+     "sin2_theta23": 1.7647058823529427,
+     "sin2_theta13": 555.6845238095239
+    },
+    "r_linear": 12.928203230275509,
+    "r_square": 192.99484522385714,
+    "r_pulls": {
+     "r_linear": 28306.21647731936,
+     "r_square": 423477.58541400114
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 555.6845238095239
+   },
+   {
+    "id": "C6",
+    "kind": "Dirac: hold and repair local",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.5540422247822772,
+     0.1988729795247262,
+     0.25254507969819484
+    ],
+    "J": -0.05555555555555555,
+    "delta_deg": 228.197415771494,
+    "pulls": {
+     "sin2_theta12": 42.88460083899599,
+     "sin2_theta23": -20.855924651944136,
+     "sin2_theta13": 411.41978517534795
+    },
+    "r_linear": 0.07179676972449082,
+    "r_square": 0.0051547761428715625,
+    "r_pulls": {
+     "r_linear": 91.75274114641508,
+     "r_square": -54.4987107646876
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 411.41978517534795
+   },
+   {
+    "id": "C6",
+    "kind": "Dirac: hold and repair local",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.37881761954729226,
+     0.5,
+     0.3333333333333333
+    ],
+    "J": -0.05555555555555555,
+    "delta_deg": 323.48074903862243,
+    "pulls": {
+     "sin2_theta12": 12.14344202584075,
+     "sin2_theta23": 1.7647058823529427,
+     "sin2_theta13": 555.6845238095239
+    },
+    "r_linear": 12.928203230275509,
+    "r_square": 192.99484522385714,
+    "r_pulls": {
+     "r_linear": 28306.21647731936,
+     "r_square": 423477.58541400114
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 555.6845238095239
+   },
+   {
+    "id": "C7",
+    "kind": "Dirac: frame sign of the distinguished axis",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.8,
+     0.8,
+     0.4444444444444444
+    ],
+    "J": 2.398434552210214e-41,
+    "delta_deg": 2.3189654915999114e-38,
+    "pulls": {
+     "sin2_theta12": 86.03508771929825,
+     "sin2_theta23": 19.411764705882355,
+     "sin2_theta13": 754.0972222222223
+    },
+    "r_linear": 0.05918939270185883,
+    "r_square": 0.003535401712130539,
+    "r_pulls": {
+     "r_linear": 64.0847934267484,
+     "r_square": -58.052563957772634
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 754.0972222222223
+   },
+   {
+    "id": "C7",
+    "kind": "Dirac: frame sign of the distinguished axis",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.5,
+     0.5,
+     0.1111111111111111
+    ],
+    "J": 2.347751265555453e-41,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": 33.40350877192983,
+     "sin2_theta23": 1.7647058823529427,
+     "sin2_theta13": 158.859126984127
+    },
+    "r_linear": 15.894919078441486,
+    "r_square": 281.8532883742283,
+    "r_pulls": {
+     "r_linear": 34816.92356879546,
+     "r_square": 618484.9017750523
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 158.859126984127
+   },
+   {
+    "id": "C7",
+    "kind": "Dirac: frame sign of the distinguished axis",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.2,
+     0.8,
+     0.4444444444444444
+    ],
+    "J": 2.40389455921819e-41,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": -15.013698630136982,
+     "sin2_theta23": 19.411764705882355,
+     "sin2_theta13": 754.0972222222223
+    },
+    "r_linear": 0.05918939270185883,
+    "r_square": 0.003535401712130539,
+    "r_pulls": {
+     "r_linear": 64.0847934267484,
+     "r_square": -58.052563957772634
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 754.0972222222223
+   },
+   {
+    "id": "C7",
+    "kind": "Dirac: frame sign of the distinguished axis",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     0.8,
+     0.2,
+     0.4444444444444444
+    ],
+    "J": 2.127615690013919e-41,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": 86.03508771929825,
+     "sin2_theta23": -20.769230769230766,
+     "sin2_theta13": 754.0972222222223
+    },
+    "r_linear": 15.894919078441486,
+    "r_square": 281.8532883742283,
+    "r_pulls": {
+     "r_linear": 34816.92356879546,
+     "r_square": 618484.9017750523
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 754.0972222222223
+   },
+   {
+    "id": "C8",
+    "kind": "Dirac: hold on the half-turn-even half",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.7375274509582884,
+     1.8522369688303882e-81,
+     3.2952209302863052e-81
+    ],
+    "J": -1.6662353193867255e-41,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": 75.07499139619095,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.07813781365649274,
+    "r_square": 0.009660747261143542,
+    "r_pulls": {
+     "r_linear": 105.66869461427702,
+     "r_square": -44.609978707029974
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 75.07499139619095
+   },
+   {
+    "id": "C8",
+    "kind": "Dirac: hold on the half-turn-even half",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     4.46792987298946e-81,
+     1.0,
+     0.2624725490417115
+    ],
+    "J": 4.825672120229719e-82,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": 31.176470588235293,
+     "sin2_theta13": 429.14740900305634
+    },
+    "r_linear": 11.797900954794716,
+    "r_square": 102.51166146557799,
+    "r_pulls": {
+     "r_linear": 25825.6732041799,
+     "r_square": 224904.6393333883
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 429.14740900305634
+   },
+   {
+    "id": "C8",
+    "kind": "Dirac: hold on the half-turn-even half",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.2624725490417115,
+     1.6496326908456512e-81,
+     3.5243989374002064e-81
+    ],
+    "J": -1.5505012380271085e-41,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -6.455815199765543,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.07813781365649274,
+    "r_square": 0.009660747261143542,
+    "r_pulls": {
+     "r_linear": 105.66869461427702,
+     "r_square": -44.609978707029974
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 39.55357142857143
+   },
+   {
+    "id": "C8",
+    "kind": "Dirac: hold on the half-turn-even half",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     1.34276858675995e-80,
+     1.0,
+     0.7375274509582884
+    ],
+    "J": 4.7774723074451574e-82,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": 31.176470588235293,
+     "sin2_theta13": 1277.4597338540866
+    },
+    "r_linear": 11.797900954794716,
+    "r_square": 102.51166146557799,
+    "r_pulls": {
+     "r_linear": 25825.6732041799,
+     "r_square": 224904.6393333883
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 1277.4597338540866
+   },
+   {
+    "id": "C9",
+    "kind": "Dirac: hold on the half-turn-odd half",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.7375274509582884,
+     2.5624075144691653e-84,
+     4.5984140212392893e-82
+    ],
+    "J": 4.4603773422120115e-42,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": 75.07499139619095,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.24505719713391533,
+    "r_square": 0.08595869627005606,
+    "r_pulls": {
+     "r_linear": 471.9873005512456,
+     "r_square": 122.8322783545962
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 75.07499139619095
+   },
+   {
+    "id": "C9",
+    "kind": "Dirac: hold on the half-turn-odd half",
+    "relative_phase": "theta_nu = +theta_e",
+    "labelling": "IO",
+    "angles": [
+     6.234905582516896e-82,
+     1.0,
+     0.2624725490417115
+    ],
+    "J": -5.276835312269341e-84,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": 31.176470588235293,
+     "sin2_theta13": 429.14740900305634
+    },
+    "r_linear": 3.0806799869400874,
+    "r_square": 10.63349426401611,
+    "r_pulls": {
+     "r_linear": 6694.99966547167,
+     "r_square": 23270.28492737505
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 429.14740900305634
+   },
+   {
+    "id": "C9",
+    "kind": "Dirac: hold on the half-turn-odd half",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.2624725490417115,
+     2.021724142282955e-83,
+     5.637710193964601e-82
+    ],
+    "J": 6.547844500360622e-42,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -6.455815199765543,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.24505719713391533,
+    "r_square": 0.08595869627005606,
+    "r_pulls": {
+     "r_linear": 471.9873005512456,
+     "r_square": 122.8322783545962
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 39.55357142857143
+   },
+   {
+    "id": "C9",
+    "kind": "Dirac: hold on the half-turn-odd half",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "IO",
+    "angles": [
+     2.1479237408056217e-81,
+     1.0,
+     0.7375274509582884
+    ],
+    "J": -9.16070526671014e-84,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": 31.176470588235293,
+     "sin2_theta13": 1277.4597338540866
+    },
+    "r_linear": 3.0806799869400874,
+    "r_square": 10.63349426401611,
+    "r_pulls": {
+     "r_linear": 6694.99966547167,
+     "r_square": 23270.28492737505
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 1277.4597338540866
+   },
+   {
+    "id": "M1",
+    "kind": "Majorana seesaw: pairing at one position",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "NO",
+    "verdict": "excluded: degenerate pair (one splitting is zero)",
+    "masses_over_heaviest": [
+     0.004135046039571069,
+     0.004135046039571069,
+     1.0
+    ]
+   },
+   {
+    "id": "M1",
+    "kind": "Majorana seesaw: pairing at one position",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "IO",
+    "verdict": "excluded: degenerate pair (one splitting is zero)",
+    "masses_over_heaviest": [
+     0.004135046039571069,
+     0.004135046039571069,
+     1.0
+    ]
+   },
+   {
+    "id": "M2",
+    "kind": "Majorana seesaw: pairing with the half-turn image",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "NO",
+    "angles": [
+     6.319884488211667e-78,
+     2.275917114612289e-81,
+     9.490108920345337e-82
+    ],
+    "J": 1.3423558916824153e-81,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": -42.410958904109584,
+     "sin2_theta23": -36.15384615384615,
+     "sin2_theta13": -39.55357142857143
+    },
+    "r_linear": 0.003535401712130539,
+    "r_square": 1.249964790990806e-05,
+    "r_pulls": {
+     "r_linear": -58.052563957772634,
+     "r_square": -65.78386841225094
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 42.410958904109584
+   },
+   {
+    "id": "M2",
+    "kind": "Majorana seesaw: pairing with the half-turn image",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "IO",
+    "angles": [
+     null,
+     null,
+     1.0
+    ],
+    "J": 7.702219492238793e-121,
+    "delta_deg": null,
+    "pulls": {
+     "sin2_theta12": null,
+     "sin2_theta23": null,
+     "sin2_theta13": 1746.1607142857144
+    },
+    "r_linear": 281.8532883742283,
+    "r_square": 80001.25344006153,
+    "r_pulls": {
+     "r_linear": 618484.9017750523,
+     "r_square": 175569403.8503068
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": null
+   },
+   {
+    "id": "M3",
+    "kind": "Majorana seesaw: pairing with the frame sign",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "NO",
+    "angles": [
+     0.0007134391811624334,
+     0.12299866258648838,
+     0.0007858943103739626
+    ],
+    "J": 1.1227638263583012e-43,
+    "delta_deg": 2.6187653846128206e-38,
+    "pulls": {
+     "sin2_theta12": -42.3132275094298,
+     "sin2_theta23": -26.692410570270123,
+     "sin2_theta13": -38.15018873147507
+    },
+    "r_linear": 0.0650347600110637,
+    "r_square": 0.0042296649260799525,
+    "r_pulls": {
+     "r_linear": 76.91294291597225,
+     "r_square": -56.528945026351956
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 42.3132275094298
+   },
+   {
+    "id": "M3",
+    "kind": "Majorana seesaw: pairing with the frame sign",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "IO",
+    "angles": [
+     0.5243585341362108,
+     0.8099732594305875,
+     0.9985012271962569
+    ],
+    "J": 9.191274049367733e-44,
+    "delta_deg": 1.7946985722566575e-38,
+    "pulls": {
+     "sin2_theta12": 37.67693581337032,
+     "sin2_theta23": 19.998427025328677,
+     "sin2_theta13": 1743.4843342790302
+    },
+    "r_linear": 14.376392560376638,
+    "r_square": 235.42534751016282,
+    "r_pulls": {
+     "r_linear": 31484.38958989375,
+     "r_square": 516594.8862505885
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 1743.4843342790302
+   },
+   {
+    "id": "M4",
+    "kind": "Majorana seesaw: pairing doubled at the E position",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "NO",
+    "angles": [
+     0.06376521370141505,
+     0.002308100643369793,
+     1.2799418500189646e-05
+    ],
+    "J": 1.3381727886406107e-41,
+    "delta_deg": 180.0,
+    "pulls": {
+     "sin2_theta12": -33.67599812309383,
+     "sin2_theta23": -35.97629995051002,
+     "sin2_theta13": -39.53071532410681
+    },
+    "r_linear": 0.00023122288752048964,
+    "r_square": 5.3892576354813276e-08,
+    "r_pulls": {
+     "r_linear": -65.30386189322972,
+     "r_square": -65.81118166759995
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 39.53071532410681
+   },
+   {
+    "id": "M4",
+    "kind": "Majorana seesaw: pairing doubled at the E position",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "IO",
+    "angles": [
+     0.00020068957417121683,
+     0.9961894385855935,
+     0.9362228030377406
+    ],
+    "J": 4.955384681045888e-42,
+    "delta_deg": 5.271821532199592e-36,
+    "pulls": {
+     "sin2_theta12": -42.383467181620375,
+     "sin2_theta23": 30.952319916799617,
+     "sin2_theta13": 1632.2728625673942
+    },
+    "r_linear": 4323.831381198739,
+    "r_square": 18555430.33466633,
+    "r_pulls": {
+     "r_linear": 9488945.296157671,
+     "r_square": 40721450200.47784
+    },
+    "all_angles_within_3_sigma": false,
+    "some_r_within_3_sigma": false,
+    "worst_angle_pull": 1632.2728625673942
+   }
+  ],
+  "tuples_with_all_angles_within_3_sigma": 0,
+  "tuples_with_angles_and_r_within_3_sigma": 0,
+  "three_smallest_worst_angle_pulls": [
+   {
+    "id": "C3",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.1642538327092802,
+     0.02582070844967601,
+     0.03815643310626485
+    ],
+    "worst_angle_pull": 34.16763781156339,
+    "r_linear": 0.18803895352697272,
+    "r_square": 0.03549063942214629
+   },
+   {
+    "id": "C4",
+    "relative_phase": "theta_nu = -theta_e",
+    "labelling": "NO",
+    "angles": [
+     0.20736357147245754,
+     0.013231322418350362,
+     0.02343905229428855
+    ],
+    "worst_angle_pull": 35.13605212166536,
+    "r_linear": 0.02857586421019769,
+    "r_square": 0.0026310577935414773
+   },
+   {
+    "id": "M4",
+    "relative_phase": "Y = C_e(+2/9)",
+    "labelling": "NO",
+    "angles": [
+     0.06376521370141505,
+     0.002308100643369793,
+     1.2799418500189646e-05
+    ],
+    "worst_angle_pull": 39.53071532410681,
+    "r_linear": 0.00023122288752048964,
+    "r_square": 5.3892576354813276e-08
+   }
+  ]
+ },
+ "D1_part_B": {
+  "rows": [
+   {
+    "x_source": "lepton channel, bare (20/11)",
+    "x": 1.8181818181818181,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.0477203008644823,
+    "r_pull": 38.914908146174575,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.04383734626694959,
+     0.045183388575882104,
+     0.0665786221525231
+    ],
+    "sum_eV": 0.1555993569953548,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, bare (20/11)",
+    "x": 1.8181818181818181,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 19.95544206311342,
+    "r_pull": 43728.08228584902,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, bare (20/11)",
+    "x": 1.8181818181818181,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.029763122547896446,
+    "r_pull": -0.49362782162710295,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.02410739886058232,
+     0.025610581417472224,
+     0.055607253841771453
+    ],
+    "sum_eV": 0.105325234119826,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, bare (20/11)",
+    "x": 1.8181818181818181,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 32.59862522457935,
+    "r_pull": 71474.6095844021,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels at equal unit Yukawas, bare",
+    "x": 12.727272727272727,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.05719945007801748,
+    "r_pull": 59.71769721135462,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.12780342903631386,
+     0.12836410827246852,
+     0.1372760593601088
+    ],
+    "sum_eV": 0.39344359666889117,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels at equal unit Yukawas, bare",
+    "x": 12.727272727272727,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 16.482685561417895,
+    "r_pull": 36106.8264798586,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels at equal unit Yukawas, bare",
+    "x": 12.727272727272727,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.053350148800745546,
+    "r_pull": 51.27008227086226,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.08708568412549997,
+     0.0878514576045556,
+     0.10047346107110254
+    ],
+    "sum_eV": 0.2754106028011581,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels at equal unit Yukawas, bare",
+    "x": 12.727272727272727,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 17.74409017554653,
+    "r_pull": 38875.08484592524,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 2",
+    "x": 1.8823529411764706,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.048032913861341606,
+    "r_pull": 39.600963622905766,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.04476152258884103,
+     0.04608909362503406,
+     0.06719072781620486
+    ],
+    "sum_eV": 0.15804134403007994,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 2",
+    "x": 1.8823529411764706,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 19.81905759219058,
+    "r_pull": 43428.77511001906,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 2",
+    "x": 1.8823529411764706,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.030417992464887997,
+    "r_pull": 0.9435392111330607,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.024816827784234274,
+     0.02631073013718312,
+     0.05591846690738528
+    ],
+    "sum_eV": 0.10704602482880267,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 2",
+    "x": 1.8823529411764706,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 31.875279364813995,
+    "r_pull": 69887.16634420247,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 2",
+    "x": 8.784313725490197,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.05635177917593613,
+    "r_pull": 57.857412224226245,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.10533567809183397,
+     0.10600520928981391,
+     0.11664735350219683
+    ],
+    "sum_eV": 0.3279882408838447,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 2",
+    "x": 8.784313725490197,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 16.745668630583886,
+    "r_pull": 36683.96491204639,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 2",
+    "x": 8.784313725490197,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.05094636895708975,
+    "r_pull": 45.99478552004195,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.07059648605888436,
+     0.07149678437743551,
+     0.08657288168856489
+    ],
+    "sum_eV": 0.22866615212488475,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 2",
+    "x": 8.784313725490197,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 18.628484236870015,
+    "r_pull": 40815.96189024271,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 4",
+    "x": 1.9753086419753085,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.048456677786902325,
+    "r_pull": 40.530949147797045,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.04607093600755015,
+     0.04737304996023259,
+     0.06807004586902951
+    ],
+    "sum_eV": 0.16151403183681223,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 4",
+    "x": 1.9753086419753085,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 19.63699051754424,
+    "r_pull": 43029.213623617514,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 4",
+    "x": 1.9753086419753085,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.03131965915603727,
+    "r_pull": 2.9223224922627664,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.0258230329268623,
+     0.02730334583311401,
+     0.05637223633617718
+    ],
+    "sum_eV": 0.1094986150961535,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 4",
+    "x": 1.9753086419753085,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 30.928827673951137,
+    "r_pull": 67810.09861988714,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 4",
+    "x": 10.8879012345679,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.05687724119600513,
+    "r_pull": 59.01058275873481,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.11785303185786601,
+     0.11845740108044894,
+     0.12806380096690548
+    ],
+    "sum_eV": 0.36437423390522045,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 4",
+    "x": 10.8879012345679,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 16.581724763229843,
+    "r_pull": 36324.17632614395,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 4",
+    "x": 10.8879012345679,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.052430325889109196,
+    "r_pull": 49.25145363900486,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.07980575633385,
+     0.08062636846792365,
+     0.09423353301249954
+    ],
+    "sum_eV": 0.2546656578142732,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 4",
+    "x": 10.8879012345679,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 18.072931229056493,
+    "r_pull": 39596.754155906296,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/2",
+    "x": -2.0,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.9236216261839804,
+    "r_pull": 1961.153930031736,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.031176147302912207,
+     0.057368685395439,
+     0.05901654141554621
+    ],
+    "sum_eV": 0.14756137411389741,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/2",
+    "x": -2.0,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 0.08269444072199049,
+    "r_pull": 115.66859540251332,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/2",
+    "x": -2.0,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.8838592039873794,
+    "r_pull": 1873.8919550334506,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.014562156663990383,
+     0.049309500787565366,
+     0.05218291297643894
+    ],
+    "sum_eV": 0.11605457042799469,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/2",
+    "x": -2.0,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 0.13140191954631603,
+    "r_pull": 222.56124843010318,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/2",
+    "x": -3.3333333333333335,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.9316312523673167,
+    "r_pull": 1978.7317273877445,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.05153820933784452,
+     0.07067894379831816,
+     0.07188314838508038
+    ],
+    "sum_eV": 0.19410030152124305,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/2",
+    "x": -3.3333333333333335,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 0.07338606069617695,
+    "r_pull": 95.24057366201396,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/2",
+    "x": -3.3333333333333335,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.9111877975175318,
+    "r_pull": 1933.8668487553507,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.030030433606704973,
+     0.056478487074046506,
+     0.05841940553109656
+    ],
+    "sum_eV": 0.14492832621184804,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/2",
+    "x": -3.3333333333333335,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 0.09746860386457205,
+    "r_pull": 148.09173724216583,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/4",
+    "x": -3.3333333333333335,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.9316312523673167,
+    "r_pull": 1978.7317273877445,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.05153820933784452,
+     0.07067894379831816,
+     0.07188314838508038
+    ],
+    "sum_eV": 0.19410030152124305,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/4",
+    "x": -3.3333333333333335,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 0.07338606069617695,
+    "r_pull": 95.24057366201396,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/4",
+    "x": -3.3333333333333335,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.9111877975175318,
+    "r_pull": 1933.8668487553507,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.030030433606704973,
+     0.056478487074046506,
+     0.05841940553109656
+    ],
+    "sum_eV": 0.14492832621184804,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1/4",
+    "x": -3.3333333333333335,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 0.09746860386457205,
+    "r_pull": 148.09173724216583,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/4",
+    "x": -5.413333333333333,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.935495158929028,
+    "r_pull": 1987.211394851579,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.07335456470706489,
+     0.0879199664890391,
+     0.08883632232011279
+    ],
+    "sum_eV": 0.25011085351621676,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/4",
+    "x": -5.413333333333333,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 0.0689526187872723,
+    "r_pull": 85.51101304575303,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/4",
+    "x": -5.413333333333333,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.9240790388237394,
+    "r_pull": 1962.1577604859574,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.04670606397388957,
+     0.06709559507463568,
+     0.06850150663987666
+    ],
+    "sum_eV": 0.1823031656884019,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "all channels, RS, rho = 1/4",
+    "x": -5.413333333333333,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 0.0821585145713297,
+    "r_pull": 114.49246045458031,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1",
+    "x": 1.3333333333333333,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.04464001785724935,
+    "r_pull": 32.154968386071594,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.03620986440733724,
+     0.03772592431256392,
+     0.06182357382421166
+    ],
+    "sum_eV": 0.1357593625441128,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1",
+    "x": 1.3333333333333333,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 21.401424730559427,
+    "r_pull": 46901.41269189792,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1",
+    "x": 1.3333333333333333,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.023778747675960665,
+    "r_pull": -13.626841081956778,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.018300169486303725,
+     0.01986465802982219,
+     0.05334694183575514
+    ],
+    "sum_eV": 0.09151176935188106,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 1",
+    "x": 1.3333333333333333,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 41.05435936438986,
+    "r_pull": 90031.42831772784,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho -> infinity",
+    "x": 2.0,
+    "reading": "linear",
+    "labelling": "NO",
+    "r": 0.04856388291498102,
+    "r_pull": 40.766219805098466,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.04641319037189344,
+     0.04770878483567925,
+     0.06830215399603165
+    ],
+    "sum_eV": 0.16242412920360433,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho -> infinity",
+    "x": 2.0,
+    "reading": "linear",
+    "labelling": "IO",
+    "r": 19.591434209465145,
+    "r_pull": 42929.23647944464,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   },
+   {
+    "x_source": "lepton channel, RS, rho -> infinity",
+    "x": 2.0,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.03155030745627913,
+    "r_pull": 3.4284995583777835,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.02608619674146129,
+     0.027562882332168068,
+     0.05649327093056505
+    ],
+    "sum_eV": 0.11014235000419441,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho -> infinity",
+    "x": 2.0,
+    "reading": "square",
+    "labelling": "IO",
+    "r": 30.695412204326402,
+    "r_pull": 67297.84876815784,
+    "PMNS": "permutation (PM A1): angle pulls of about 40"
+   }
+  ],
+  "rows_with_r_within_3_sigma": [
+   {
+    "x_source": "lepton channel, bare (20/11)",
+    "x": 1.8181818181818181,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.029763122547896446,
+    "r_pull": -0.49362782162710295,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.02410739886058232,
+     0.025610581417472224,
+     0.055607253841771453
+    ],
+    "sum_eV": 0.105325234119826,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 2",
+    "x": 1.8823529411764706,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.030417992464887997,
+    "r_pull": 0.9435392111330607,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.024816827784234274,
+     0.02631073013718312,
+     0.05591846690738528
+    ],
+    "sum_eV": 0.10704602482880267,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   },
+   {
+    "x_source": "lepton channel, RS, rho = 4",
+    "x": 1.9753086419753085,
+    "reading": "square",
+    "labelling": "NO",
+    "r": 0.03131965915603727,
+    "r_pull": 2.9223224922627664,
+    "PMNS": "permutation (PM A1): angle pulls of about 40",
+    "masses_eV_with_the_scale_fitted_to_dm31": [
+     0.0258230329268623,
+     0.02730334583311401,
+     0.05637223633617718
+    ],
+    "sum_eV": 0.1094986150961535,
+    "sum_within_cosmology_bound": false,
+    "heaviest_below_KATRIN": true
+   }
+  ]
+ },
+ "D2_top_form": {
+  "rows": [
+   {
+    "weight": "TF0 source as it stands",
+    "theta_M_per_tick": 0.0,
+    "M_GeV": null,
+    "verdict": "no pairing: Dirac neutrinos; with the Dirac amplitude of YC the third neutrino weighs 41.17 GeV, 51.06 GeV against the KATRIN limit 0.45 eV"
+   },
+   {
+    "weight": "TF1 reflection about (00000 + 11111)/sqrt2",
+    "theta_M_per_tick": 1.5707963267948966,
+    "M_GeV": 1.9177695274206212e+19,
+    "m_nu_eV_y=1_convention_a": 1.245197347654355e-06,
+    "fraction_of_the_atmospheric_floor_a": 2.484933841204438e-05,
+    "theta_M_needed_over_this_a": null,
+    "m_nu_eV_y=1_convention_b": 2.4903946947116465e-06,
+    "fraction_of_the_atmospheric_floor_b": 4.9698676812173686e-05,
+    "theta_M_needed_over_this_b": null,
+    "m_nu3_eV_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 6.940044398238401e-08,
+    "fraction_of_the_floor_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 1.3849653002498171e-06,
+    "m_nu3_eV_with_YC_F1 G3a D-a N1 (reports/YC.md)": 1.0679232682232006e-07,
+    "fraction_of_the_floor_with_YC_F1 G3a D-a N1 (reports/YC.md)": 2.131163123673872e-06
+   },
+   {
+    "weight": "TF3a p_t^3 p_d^2",
+    "theta_M_per_tick": 1.9086448029061406e-08,
+    "M_GeV": 233024535342.0078,
+    "m_nu_eV_y=1_convention_a": 130.47973575370256,
+    "fraction_of_the_atmospheric_floor_a": 2603.872483157503,
+    "theta_M_needed_over_this_a": null,
+    "m_nu_eV_y=1_convention_b": 260.95947144484103,
+    "fraction_of_the_atmospheric_floor_b": 5207.7449650664685,
+    "theta_M_needed_over_this_b": null,
+    "m_nu3_eV_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 7.272222036988076,
+    "fraction_of_the_floor_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 145.12551503989016,
+    "m_nu3_eV_with_YC_F1 G3a D-a N1 (reports/YC.md)": 11.190382480775462,
+    "fraction_of_the_floor_with_YC_F1 G3a D-a N1 (reports/YC.md)": 223.3168916949786
+   },
+   {
+    "weight": "TF3b sqrt(p_t^3 p_d^2)",
+    "theta_M_per_tick": 0.0001381537116007435,
+    "M_GeV": 1686704849562317.2,
+    "m_nu_eV_y=1_convention_a": 0.018026259754386802,
+    "fraction_of_the_atmospheric_floor_a": 0.3597346475110821,
+    "theta_M_needed_over_this_a": null,
+    "m_nu_eV_y=1_convention_b": 0.036052519500130144,
+    "fraction_of_the_atmospheric_floor_b": 0.719469294849674,
+    "theta_M_needed_over_this_b": null,
+    "m_nu3_eV_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 0.0010046844643966338,
+    "fraction_of_the_floor_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 0.020049628518840665,
+    "m_nu3_eV_with_YC_F1 G3a D-a N1 (reports/YC.md)": 0.0015459928714921059,
+    "fraction_of_the_floor_with_YC_F1 G3a D-a N1 (reports/YC.md)": 0.030852057401731185
+   },
+   {
+    "weight": "TF3c sin^3(omega_t) sin^2(omega_d)",
+    "theta_M_per_tick": 0.0007528763359224226,
+    "M_GeV": 9191791897643264.0,
+    "m_nu_eV_y=1_convention_a": 0.003307840157604518,
+    "fraction_of_the_atmospheric_floor_a": 0.06601173672920602,
+    "theta_M_needed_over_this_a": null,
+    "m_nu_eV_y=1_convention_b": 0.00661568031362295,
+    "fraction_of_the_atmospheric_floor_b": 0.13202347342675988,
+    "theta_M_needed_over_this_b": null,
+    "m_nu3_eV_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 0.00018436079710012045,
+    "fraction_of_the_floor_with_YC_F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 0.0036791307383404557,
+    "m_nu3_eV_with_YC_F1 G3a D-a N1 (reports/YC.md)": 0.0002836915352031034,
+    "fraction_of_the_floor_with_YC_F1 G3a D-a N1 (reports/YC.md)": 0.00566138931806587
+   }
+  ],
+  "theta_M_needed_for_the_atmospheric_floor (continuum form theta_D^2/theta_M)": {
+   "a": 4.9698676824088756e-05,
+   "b": 9.939735362434734e-05,
+   "YC F1 G1 D-a N1 (reports/YC.md, work/YC/yc_run.log)": 2.7699306004996334e-06,
+   "YC F1 G3a D-a N1 (reports/YC.md)": 4.262326247347743e-06
+  },
+  "tower_angles_TF2": "DG: 4.3 to 8.2 micro-eV (a), 8.5 to 16 micro-eV (b) at y = 1; no new computation",
+  "E_star_GeV": 1.22089e+19,
+  "floor_eV": 0.0501098792654702
+ },
+ "D3_three_masses": {
+  "rows": [
+   {
+    "id": "C0",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.6980756949381298,
+     10.03798663352536,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C0",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.6980756949381298,
+     10.03798663352536,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C1",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     5.98723316073954,
+     29.852275307940342,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C1",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     5.98723316073954,
+     29.852275307940342,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C2",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     6.564489909368654,
+     41.165594385032946,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C2",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     6.564489909368654,
+     41.165594385032946,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C3",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.8560409626989058,
+     17.867483851974438,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C3",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.8560409626989058,
+     17.867483851974438,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C4",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     7.566700318547935,
+     10.200180364910365,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C4",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     7.566700318547935,
+     10.200180364910365,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C5",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     7.062899390172195,
+     24.114246887602572,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C5",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     7.062899390172195,
+     24.114246887602572,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C6",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.0,
+     11.030287771416736,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C6",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.0,
+     11.030287771416736,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C7",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.6980756949381298,
+     10.03798663352536,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C7",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     0.6980756949381298,
+     10.03798663352536,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C8",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     6.5481040227770055,
+     13.112593932145659,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C8",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     6.5481040227770055,
+     13.112593932145659,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C9",
+    "relative_phase": "theta_nu = +theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     11.295039519729398,
+     22.618343592980654,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "C9",
+    "relative_phase": "theta_nu = -theta_e",
+    "kind": "Dirac, heaviest = YC third-family Dirac mass",
+    "masses_GeV": [
+     11.295039519729398,
+     22.618343592980654,
+     41.165594385032946
+    ],
+    "heaviest_over_KATRIN_limit": 91479098633.40654
+   },
+   {
+    "id": "M1",
+    "relative_phase": "Y = C_e(+2/9)",
+    "kind": "seesaw, YC Dirac mass, pairing weight TF3b",
+    "masses_eV": [
+     4.154416515521882e-06,
+     4.154416515521882e-06,
+     0.0010046844643966338
+    ],
+    "heaviest_over_atmospheric_floor": 0.020049628518840665,
+    "sum_eV": 0.0010129932974276775
+   },
+   {
+    "id": "M2",
+    "relative_phase": "Y = C_e(+2/9)",
+    "kind": "seesaw, YC Dirac mass, pairing weight TF3b",
+    "masses_eV": [
+     2.889122392780933e-07,
+     5.973847500392016e-05,
+     0.0010046844643966338
+    ],
+    "heaviest_over_atmospheric_floor": 0.020049628518840665,
+    "sum_eV": 0.001064711851639832
+   },
+   {
+    "id": "M3",
+    "relative_phase": "Y = C_e(+2/9)",
+    "kind": "seesaw, YC Dirac mass, pairing weight TF3b",
+    "masses_eV": [
+     1.0967387482499081e-06,
+     0.0002562159592856169,
+     0.0010046844643966338
+    ],
+    "heaviest_over_atmospheric_floor": 0.020049628518840665,
+    "sum_eV": 0.0012619971624305006
+   },
+   {
+    "id": "M4",
+    "relative_phase": "Y = C_e(+2/9)",
+    "kind": "seesaw, YC Dirac mass, pairing weight TF3b",
+    "masses_eV": [
+     9.672790539367822e-07,
+     1.530783083004499e-05,
+     0.0010046844643966338
+    ],
+    "heaviest_over_atmospheric_floor": 0.020049628518840665,
+    "sum_eV": 0.0010209595742806156
+   }
+  ],
+  "Dirac_amplitude": "YC row F1 G1 D-a N1 (y_nu = y_tau = g/2 at the cell): 41.17 GeV for the third family (reports/YC.md)",
+  "note": "linear reading; every Dirac row exceeds the KATRIN limit by more than ten orders of magnitude"
+ },
+ "TH_CP": {
+  "holds": true,
+  "statement": "P_j conj(C_e(theta)) P_j = C_e(theta) for the three mirrors: the charged circulant has three antiunitary symmetries; a neutral structure invariant under one of them gives J = 0 (every J = 0 row of part C with a defined delta is of this kind)"
+ },
+ "I1_measured_operator_in_the_counter_basis (FIT input: central values, NO, m1 = 0)": {
+  "+2/9": {
+   "T_over_dm31_abs": [
+    [
+     0.5458042780395435,
+     0.3498088124973822,
+     0.3477814069335659
+    ],
+    [
+     0.3498088124973822,
+     0.24461663282254778,
+     0.22263314702964018
+    ],
+    [
+     0.3477814069335659,
+     0.22263314702964018,
+     0.23956714170660653
+    ]
+   ],
+   "T_over_dm31_phase_deg": [
+    [
+     6.77847701184509e-32,
+     -49.61225394992209,
+     67.62489851154993
+    ],
+    [
+     49.61225394992209,
+     2.754736206199605e-30,
+     112.30966008750138
+    ],
+    [
+     -67.62489851154993,
+     -112.30966008750138,
+     -3.1352668327629595e-30
+    ]
+   ],
+   "norm_third_turn_invariant_part": 0.7079481427744884,
+   "norm_remainder": 0.7069007783550784,
+   "remainder_over_invariant": 0.9985205633631508,
+   "mirror_conjugation_odd_fraction_per_mirror": [
+    0.10923077917722823,
+    0.6054433655566221,
+    0.6086021440418056
+   ]
+  },
+  "-2/9": {
+   "T_over_dm31_abs": [
+    [
+     0.5458042780395435,
+     0.3477814069335659,
+     0.3498088124973822
+    ],
+    [
+     0.3477814069335659,
+     0.23956714170660653,
+     0.22263314702964018
+    ],
+    [
+     0.3498088124973822,
+     0.22263314702964018,
+     0.24461663282254778
+    ]
+   ],
+   "T_over_dm31_phase_deg": [
+    [
+     6.77847701184509e-32,
+     67.62489851154993,
+     -49.61225394992209
+    ],
+    [
+     -67.62489851154993,
+     -3.1352668327629595e-30,
+     -112.30966008750138
+    ],
+    [
+     49.61225394992209,
+     112.30966008750138,
+     2.754736206199605e-30
+    ]
+   ],
+   "norm_third_turn_invariant_part": 0.7079481427744884,
+   "norm_remainder": 0.7069007783550784,
+   "remainder_over_invariant": 0.9985205633631508,
+   "mirror_conjugation_odd_fraction_per_mirror": [
+    0.10923077917722823,
+    0.6086021440418056,
+    0.6054433655566221
+   ]
+  }
+ },
+ "J_measured_central": -0.01779535041474586,
+ "I2_fits": {
+  "D0 (marked position)": {
+   "chi2_angles": 1275.2405607282365,
+   "orientation": "+2/9",
+   "assignment": [
+    0,
+    1,
+    2
+   ],
+   "angles": [
+    0.3684733957320194,
+    0.026510993471292994,
+    0.023371448756607377
+   ],
+   "pulls": [
+    10.328665917898148,
+    -34.114538963746696,
+    2.1811584939417457
+   ],
+   "J": -1.347898933884564e-31,
+   "delta_deg": 360.0,
+   "eigenvalues": [
+    0.024875933324092308,
+    0.2542026162549423,
+    1.1190286209744627
+   ],
+   "kappa": 0.3981071705534972
+  },
+  "link 0-1 with the clock phase": {
+   "chi2_angles": 1125.851791029231,
+   "orientation": "+2/9",
+   "assignment": [
+    0,
+    1,
+    2
+   ],
+   "angles": [
+    0.3852385858369913,
+    0.07222099398054993,
+    0.024207544712901305
+   ],
+   "pulls": [
+    13.269927339823033,
+    -30.598385078419234,
+    3.67418698732376
+   ],
+   "J": 5.523371269406803e-32,
+   "delta_deg": 1.6547098423845171e-28,
+   "eigenvalues": [
+    -0.8635754686904398,
+    0.19906693203053508,
+    1.6645085366599046
+   ],
+   "kappa": 0.8912509381337456
+  }
+ },
+ "I3_marked_position_and_opposite_link": {
+  "best_fit": {
+   "chi2_angles": 63.509774203370895,
+   "orientation": "+2/9",
+   "assignment": [
+    1,
+    0,
+    2
+   ],
+   "angles": [
+    0.3407357404709661,
+    0.395212975346521,
+    0.02172477453466185
+   ],
+   "pulls": [
+    5.462410608941425,
+    -5.752848050267613,
+    -0.7593311881038416
+   ],
+   "J": 1.4676600697221326e-32,
+   "delta_deg": 2.5168305443376253e-29,
+   "eigenvalues": [
+    0.0,
+    1.0,
+    3.0
+   ],
+   "chi_deg": 39.2
+  },
+  "named_phases": {
+   "chi = 60 deg (tri-bimaximal)": {
+    "chi2_angles": 1584.9359527953286,
+    "orientation": "+2/9",
+    "assignment": [
+     1,
+     0,
+     2
+    ],
+    "angles": [
+     0.3333333333333333,
+     0.5,
+     3.0185672466942855e-61
+    ],
+    "pulls": [
+     4.163742690058479,
+     1.7647058823529427,
+     -39.55357142857143
+    ],
+    "J": -2.3811910053210882e-32,
+    "delta_deg": null,
+    "eigenvalues": [
+     0.0,
+     1.0,
+     3.0
+    ]
+   },
+   "chi = 2/9 rad (the clock phase)": {
+    "chi2_angles": 23414.12413519795,
+    "orientation": "+2/9",
+    "assignment": [
+     1,
+     0,
+     2
+    ],
+    "angles": [
+     0.37333282336564577,
+     0.2625145755165862,
+     0.10714163751183628
+    ],
+    "pulls": [
+     11.181197081692243,
+     -15.960417267954908,
+     151.77078127113623
+    ],
+    "J": 1.1334039561715363e-32,
+    "delta_deg": 1.044060471109379e-29,
+    "eigenvalues": [
+     0.0,
+     1.0,
+     3.0
+    ]
+   },
+   "chi = 60 deg + 2/9 rad": {
+    "chi2_angles": 673.1092883883133,
+    "orientation": "+2/9",
+    "assignment": [
+     1,
+     0,
+     2
+    ],
+    "angles": [
+     0.33608812610753497,
+     0.5641491556767324,
+     0.008196638203517492
+    ],
+    "pulls": [
+     4.647039667988593,
+     5.538185628043084,
+     -24.916717493718767
+    ],
+    "J": -3.6389491486097593e-32,
+    "delta_deg": 180.0,
+    "eigenvalues": [
+     0.0,
+     1.0,
+     3.0
+    ]
+   },
+   "chi = 60 deg - 2/9 rad": {
+    "chi2_angles": 649.3381719674356,
+    "orientation": "+2/9",
+    "assignment": [
+     1,
+     0,
+     2
+    ],
+    "angles": [
+     0.33608812610753497,
+     0.43585084432326754,
+     0.008196638203517492
+    ],
+    "pulls": [
+     4.647039667988593,
+     -2.626858128979418,
+     -24.916717493718767
+    ],
+    "J": -4.2881424119558207e-32,
+    "delta_deg": 360.0,
+    "eigenvalues": [
+     0.0,
+     1.0,
+     3.0
+    ]
+   }
+  },
+  "closed_form": "abs(U_k,+-)^2 = (1 +- cos(chi + 2 pi k/3))/3 on the character f_k; the column of |0> is (1/3, 1/3, 1/3)"
+ },
+ "count_of_looks": {
+  "total": 110,
+  "by_part": {
+   "A": 5,
+   "B": 48,
+   "C": 48,
+   "I1": 2,
+   "I2": 2,
+   "I3": 5
+  }
+ }
+}

@@ -1,0 +1,275 @@
+{
+ "task": "LP direction 2, G5 and G6: public species program",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "public_region": {
+  "faces around port 5": [
+   [
+    0,
+    1,
+    5
+   ],
+   [
+    0,
+    5,
+    11
+   ],
+   [
+    1,
+    5,
+    9
+   ],
+   [
+    4,
+    5,
+    9
+   ],
+   [
+    4,
+    5,
+    11
+   ]
+  ],
+  "interior edges": [
+   [
+    0,
+    5
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    9
+   ],
+   [
+    5,
+    11
+   ]
+  ],
+  "link words of the sector": 10
+ },
+ "G5_defect_at_rest": {
+  "[0, 1, 5]": {
+   "interior edges of the face": [
+    [
+     0,
+     5
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "link words": 2,
+   "parity": {
+    "unmoved multisets": 48,
+    "unmoved with a load on the defect face": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ],
+     [
+      5,
+      5
+     ]
+    ],
+    "unmoved exactly when both interior edges of the defect face see an even number of loads": true
+   },
+   "presence": {
+    "unmoved multisets": 45,
+    "unmoved with a load on the defect face": []
+   }
+  },
+  "[0, 5, 11]": {
+   "interior edges of the face": [
+    [
+     0,
+     5
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "link words": 2,
+   "parity": {
+    "unmoved multisets": 48,
+    "unmoved with a load on the defect face": [
+     [
+      0,
+      0
+     ],
+     [
+      5,
+      5
+     ],
+     [
+      11,
+      11
+     ]
+    ],
+    "unmoved exactly when both interior edges of the defect face see an even number of loads": true
+   },
+   "presence": {
+    "unmoved multisets": 45,
+    "unmoved with a load on the defect face": []
+   }
+  },
+  "[1, 5, 9]": {
+   "interior edges of the face": [
+    [
+     1,
+     5
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   "link words": 2,
+   "parity": {
+    "unmoved multisets": 48,
+    "unmoved with a load on the defect face": [
+     [
+      1,
+      1
+     ],
+     [
+      5,
+      5
+     ],
+     [
+      9,
+      9
+     ]
+    ],
+    "unmoved exactly when both interior edges of the defect face see an even number of loads": true
+   },
+   "presence": {
+    "unmoved multisets": 45,
+    "unmoved with a load on the defect face": []
+   }
+  },
+  "[4, 5, 9]": {
+   "interior edges of the face": [
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   "link words": 2,
+   "parity": {
+    "unmoved multisets": 48,
+    "unmoved with a load on the defect face": [
+     [
+      4,
+      4
+     ],
+     [
+      5,
+      5
+     ],
+     [
+      9,
+      9
+     ]
+    ],
+    "unmoved exactly when both interior edges of the defect face see an even number of loads": true
+   },
+   "presence": {
+    "unmoved multisets": 45,
+    "unmoved with a load on the defect face": []
+   }
+  },
+  "[4, 5, 11]": {
+   "interior edges of the face": [
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "link words": 2,
+   "parity": {
+    "unmoved multisets": 48,
+    "unmoved with a load on the defect face": [
+     [
+      4,
+      4
+     ],
+     [
+      5,
+      5
+     ],
+     [
+      11,
+      11
+     ]
+    ],
+    "unmoved exactly when both interior edges of the defect face see an even number of loads": true
+   },
+   "presence": {
+    "unmoved multisets": 45,
+    "unmoved with a load on the defect face": []
+   }
+  }
+ },
+ "G6_public_gauss_on_the_charge_free_link_state": {
+  "one doublet quantum at port 5": "0",
+  "one triplet quantum at port 5": "1",
+  "two doublet quanta at port 5 (levels 3 and 4)": "1",
+  "doublet quanta at ports 5 and 0": "0",
+  "doublet quanta at ports 0 and 1": "1",
+  "two doublet quanta at port 0": "1",
+  "empty wave": "1",
+  "all words": true,
+  "reading": "on the charge-free link state the public Gauss operator admits an even number of doublet quanta at its vertex; the public constraint exists at port 5 only"
+ },
+ "public_two_wave_step_joint_law": {
+  "defect unmoved, both quanta on port 5": "32041/32400",
+  "defect unmoved, other occupation": "11/810000",
+  "defect moved, both quanta on port 5": "0",
+  "defect moved, other occupation": "83/7500",
+  "weight of the intact pair given the defect unmoved": "801025/801036",
+  "as float": 0.9999862677832208,
+  "weight of the unmoved defect given the intact pair": "1"
+ },
+ "public_two_wave_step": {
+  "norm": "1",
+  "face distribution": {
+   "0": "7417/7500",
+   "2": "449/202500",
+   "5": "1/202500",
+   "16": "112/50625",
+   "17": "1343/202500"
+  },
+  "amplitudes": 16200,
+  "weight with both quanta still on port 5": "32041/32400",
+  "weight with one quantum on port 5": "179/16200",
+  "weight with no quantum on port 5": "1/32400"
+ },
+ "seconds": 2.43
+}

@@ -1,0 +1,128 @@
+"""Analysis of the runs at the chain's point: susceptibility along y and along T, peak positions, errors.
+
+  python ew_oph.py            (on the box, in ~/ew; writes oph_analysis.json)
+"""
+import glob, json, math, sys
+import numpy as np
+import ewlat as E, ewmap as M, ew_wham as W
+
+X0 = 0.296
+G2_DECL = 4 * math.pi / 29.605
+ROWS = {
+    "declared": M.chain_inputs(246.60, G2_DECL, 0.23074, 125.84, 171.99, 0.11834),
+    "one_doublet_A": M.chain_inputs(222.9, 4 * math.pi / (142.25 * 0.2056), 0.2056, 125.84 * 222.9 / 246.60,
+                                    171.99 * 222.9 / 246.60, 0.1123),
+    "one_doublet_B": M.chain_inputs(222.9, 4 * math.pi / (142.25 * 0.2056), 0.2056, 125.84, 171.99, 0.1123),
+    "standard_model": dict(M.SM),
+}
+
+
+def tscan(rs, pars, Tgrid, **kw):
+    red = [M.reduce(float(T), **pars, linear=True, **kw) for T in Tgrid]
+    bb = [E.betas(r['x'], r['y'], rs.bG) for r in red]
+    m, var, neff, m3, m4 = rs.curve(bb)
+    bH = np.array([b[0] for b in bb])
+    chi3 = rs.V * bH ** 2 / rs.bG * var
+    g3T = np.array([r['g32'] / r['T'] for r in red])
+    chiD = chi3 / g3T
+    cond = np.array([E.condensate(mm, rs.bG, b) for mm, b in zip(m, bH)])     # <phi^dag phi>/g3^2 at mu = g3^2
+    v2T2 = 2 * cond * g3T                                                     # 2 <phi^dag phi>_3d / T
+    return dict(chiD=chiD, chi3=chi3, cond=cond, v2T2=v2T2, neff=neff, x=np.array([r['x'] for r in red]),
+                y=np.array([r['y'] for r in red]))
+
+
+def analyse_set(files, label, rows=("declared",), skip=0):
+    rs = W.RunSet(files, skip=skip)
+    rs.solve()
+    out = dict(label=label, L=rs.L, bG=rs.bG, nruns=len(rs.runs), resid=rs.resid,
+               runs=[dict(y=r['y'], x=r['x'], n=r['n'], tau=r['tau'], wide=('ophw/' in r['file']),
+                          R2=float((r['S2'] / rs.V).mean()),
+                          chi3=float(rs.V * r['bH'] ** 2 / rs.bG * (r['S2'] / rs.V).var())) for r in rs.runs])
+    xr = rs.runs[0]['x']
+    dense = sorted(r['y'] for r in rs.runs if 'ophw/' not in r['file'])
+    ygrid = np.arange(dense[0] - 0.01, dense[-1] + 0.0101, 0.002)
+    n = len(ygrid)
+    m, chi3, cond, neff, kurt = W.y_scan(rs, xr, ygrid)
+    grids = {}; pts = {}
+    for row in rows:
+        try:
+            Tlo = M.solve_T(lambda x: dense[0] - 0.01, ROWS[row], linear=True)
+            Thi = M.solve_T(lambda x: dense[-1] + 0.01, ROWS[row], linear=True)
+            grids[row] = np.arange(math.ceil(Tlo * 10) / 10, Thi, 0.1)
+            pts[row] = np.array([M.solve_T(lambda x, yy=r['y']: yy, ROWS[row], linear=True) for r in rs.runs])
+        except Exception as e:
+            out.setdefault('errors', []).append(row + ": " + str(e))
+
+    def fall(r_):
+        m, chi3, cond, neff, kurt = W.y_scan(r_, xr, ygrid)
+        yp, cp, ok = W.peak(ygrid, chi3)
+        hw = W.half_width_sym(ygrid, chi3)
+        parts = [[yp, cp, hw], chi3, cond, m]
+        for row, Tg in grids.items():
+            s = tscan(r_, ROWS[row], Tg)
+            Tp, cpT, ok = W.peak(Tg, s['chiD'])
+            parts += [[Tp, cpT, W.half_width_sym(Tg, s['chiD'])], s['chiD'], s['v2T2']]
+            sp = tscan(r_, ROWS[row], pts[row])
+            parts += [sp['chiD'], sp['v2T2']]
+        return np.concatenate(parts)
+
+    full, err = rs.jackknife(fall)
+    out['yscan'] = dict(x=xr, y=ygrid.tolist(), chi3=full[3:3 + n].tolist(), chi3_err=err[3:3 + n].tolist(),
+                        cond=full[3 + n:3 + 2 * n].tolist(), cond_err=err[3 + n:3 + 2 * n].tolist(),
+                        R2=full[3 + 2 * n:3 + 3 * n].tolist(), R2_err=err[3 + 2 * n:3 + 3 * n].tolist(),
+                        y_max=full[0], y_max_err=err[0], chi3_max=full[1], chi3_max_err=err[1],
+                        half_width_sym=full[2], half_width_sym_err=err[2], neff=neff.tolist())
+    off = 3 + 3 * n
+    out['tscan'] = {}
+    for row, Tg in grids.items():
+        nT = len(Tg); nP = len(pts[row])
+        s = tscan(rs, ROWS[row], Tg)
+        sp = tscan(rs, ROWS[row], pts[row])
+        d = dict(T=Tg.tolist(), chi=full[off + 3:off + 3 + nT].tolist(),
+                 chi_err=err[off + 3:off + 3 + nT].tolist(),
+                 v2T2=full[off + 3 + nT:off + 3 + 2 * nT].tolist(),
+                 v2T2_err=err[off + 3 + nT:off + 3 + 2 * nT].tolist(),
+                 T_max=full[off], T_max_err=err[off], chi_max=full[off + 1], chi_max_err=err[off + 1],
+                 half_width_sym=full[off + 2], half_width_sym_err=err[off + 2],
+                 x=s['x'].tolist(), y=s['y'].tolist(), neff=s['neff'].tolist())
+        off += 3 + 2 * nT
+        d['points'] = dict(T=pts[row].tolist(), y=[r['y'] for r in rs.runs], x=sp['x'].tolist(),
+                           chi=full[off:off + nP].tolist(), chi_err=err[off:off + nP].tolist(),
+                           v2T2=full[off + nP:off + 2 * nP].tolist(), v2T2_err=err[off + nP:off + 2 * nP].tolist(),
+                           neff=sp['neff'].tolist())
+        off += 2 * nP
+        out['tscan'][row] = d
+    return out
+
+
+if __name__ == '__main__':
+    res = {}
+    sets = [("b8_L24", "oph*/L24_b8_x0.29600_*.npz", ("declared", "one_doublet_A", "standard_model")),
+            ("b8_L16", "oph/L16_b8_x0.29600_*.npz", ("declared",)),
+            ("b8_L32", "oph/L32_b8_x0.29600_*.npz", ("declared",)),
+            ("b6_L18", "oph/L18_b6_x0.29600_*.npz", ("declared",)),
+            ("b6_L12", "oph/L12_b6_x0.29600_*.npz", ("declared",)),
+            ("b12_L24", "oph/L24_b12_x0.29600_*.npz", ("declared",)),
+            ("b12_L36", "oph/L36_b12_x0.29600_*.npz", ("declared",)),
+            ("x36_b8_L24", "x36/L24_b8_x0.36000_*.npz", ("one_doublet_B",))]
+    only = sys.argv[1:]
+    for key, pat, rows in sets:
+        if only and key not in only:
+            continue
+        files = glob.glob(pat)
+        if len(files) < 2:
+            continue
+        try:
+            res[key] = analyse_set(sorted(files), key, rows)
+            ys = res[key]['yscan']
+            print(key, "runs", res[key]['nruns'], "y_max %.4f(%.4f) chi3_max %.3f(%.3f) hw %.4f" % (
+                ys['y_max'], ys['y_max_err'], ys['chi3_max'], ys['chi3_max_err'], ys['half_width_sym']), flush=True)
+            for row, t in res[key]['tscan'].items():
+                if 'T_max' in t:
+                    print("   ", row, "T_max %.3f(%.3f) chi_max %.3f(%.3f) hw %.3f min neff %.3f" % (
+                        t['T_max'], t['T_max_err'], t['chi_max'], t['chi_max_err'], t['half_width_sym'],
+                        min(t['neff'])), flush=True)
+        except Exception as e:
+            import traceback; traceback.print_exc()
+    for key, val in res.items():
+        json.dump(val, open("oph_set_" + key + ".json", "w"))

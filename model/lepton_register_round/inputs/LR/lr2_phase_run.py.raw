@@ -1,0 +1,365 @@
+"""LR task 3, ordering O1: the weak round of the two-cell register on sixty addresses, executed over many rounds.
+
+Sections:
+  A  one round in rational arithmetic through the public package (E3): amplitude polynomial and the four test outcomes;
+  B  E1 (public Walk, complex amplitudes) against E2 (arrays) on the first rounds;
+  C  E2 over many rounds for N rounds per unit clock time: phase per unit clock time against N and against the
+     elapsed rounds, kept modulus, count read in every round, limit by Richardson extrapolation of executed values;
+  D  complete record: outcome operators on the clocked system from the executed states, coherence multipliers,
+     sampled trajectories with resets (seed 20261111);
+  E  (with --e1-long R N) a long E1 run through the public Walk only.
+
+Run from this directory:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr2_phase_run.py --quick      (local, seconds)
+    python -B lr2_phase_run.py --full --e1-long 10000 100                                          (box)
+Writes lr2_phase_run.json (or lr2_phase_run_quick.json with --quick).
+"""
+import argparse
+import json
+import math
+import os
+import sys
+import time
+from fractions import Fraction as F
+
+import numpy as np
+
+import lr_engine as E
+from model.lepton_register_round import carrier, walk as wk
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+P = F(2, 9)
+PF = 2.0 / 9.0
+SEED = 20261111
+
+
+# ---------------------------------------------------------------------------------------------- A: exact round
+def exact_round(port=2):
+    """|start> -> |start> + (z - 1)|X>. Exact weights of the four outcomes of the two return tests in |X>."""
+    w = carrier.carrier_walk()
+    start = w.uniform({wk.config(port, port): F(1)})          # amplitude one on each address, norm^2 60
+    ws = w.step(start)
+    flagged = {k: v for k, v in wk.tensor(ws, ws).items() if (k[0][1] == 2) != (k[1][1] in (2, 3))}
+    X = wk.on_both(flagged, w.inverse_step)
+    cfg0 = wk.config(port, port)
+    arr = [[F(0)] * 60 for _ in range(60)]
+    outside = F(0)
+    for ((c1, r1, k1), (c2, r2, k2)), v in X.items():
+        if c1 == cfg0 and c2 == cfg0 and r1 == 0 and r2 == 0:
+            arr[k1][k2] = v
+        else:
+            outside += v * v
+    n2 = F(3600)                                              # norm^2 of the unnormalized start pair
+    total = sum((v * v for row in arr for v in row), F(0)) / n2
+    a = sum((v for row in arr for v in row), F(0)) / n2       # <start|X>/<start|start>
+    col = [sum(row, F(0)) / 60 for row in arr]                # Y on its uniform state (coefficient of the unit-amplitude uniform vector)
+    rowv = [sum((arr[i][j] for i in range(60)), F(0)) / 60 for j in range(60)]
+    mc, mr = sum(col, F(0)) / 60, sum(rowv, F(0)) / 60
+    w_yy = a * a
+    w_ny = sum(((c - mc) ** 2 for c in col), F(0)) * 60 / n2
+    w_yn = sum(((r - mr) ** 2 for r in rowv), F(0)) * 60 / n2
+    w_nn = total - w_yy - w_ny - w_yn
+    return dict(inverse_tick_exact=w.inverse_step(ws) == start, outside_blank_doubles=outside, overlap=a, norm=total,
+                w_yy=w_yy, w_ny=w_ny, w_yn=w_yn, w_nn=w_nn)
+
+
+# ---------------------------------------------------------------------------------------------- B: E1 against E2
+def e1_against_e2(N, rounds, port=2):
+    pair = E.Pair(port, port)
+    psi = pair.uu.copy()
+    sx = E.public_standing(port)
+    start = wk.tensor(sx, sx)
+    pd = dict(start)
+    h = 1.0 / N
+    worst_amp = worst_state = worst_count = 0.0
+    rest_max = 0.0
+    for n in range(rounds):
+        c1, c2 = E.public_count(pd), pair.count(psi)
+        worst_count = max(worst_count, abs(c1 - c2), abs(c2 - PF))
+        out1 = E.public_round(pd, h)
+        out2 = pair.round(psi, h)
+        arr1, rest = E.pair_dict_to_array(out1, port, port)
+        rest_max = max(rest_max, rest)
+        worst_state = max(worst_state, float(np.abs(arr1 - out2).max()))
+        a1 = E.cdot(start, out1)
+        a2 = out2.sum() / E.NA
+        worst_amp = max(worst_amp, abs(a1 - a2))
+        g = a2 / abs(a2)
+        psi = g * pair.uu
+        g1 = a1 / abs(a1)
+        pd = {k: g1 * v for k, v in start.items()}
+    return dict(N=N, rounds=rounds, max_abs_difference_of_return_amplitudes=worst_amp,
+                max_abs_difference_of_states=worst_state, max_abs_difference_of_counts_and_from_2_9=worst_count,
+                max_weight_outside_blank_doubles_after_the_inverse_tick=rest_max)
+
+
+# ---------------------------------------------------------------------------------------------- C: many rounds
+def checkpoints(total):
+    pts = set()
+    v = 1
+    while v <= total:
+        for m in (1, 2, 5):
+            if m * v <= total:
+                pts.add(m * v)
+        v *= 10
+    pts.add(total)
+    return sorted(pts)
+
+
+def run_all_yes(N, rounds, j=1, port_x=2, port_y=2, count_every=1):
+    """E2, the branch in which every return test says yes. The state after each test is the projected executed
+    vector, normalized. Returns the running phase per unit clock time at checkpoints."""
+    pair = E.Pair(port_x, port_y)
+    psi = pair.uu.copy()
+    angle = j / N
+    g = 1.0 + 0.0j                 # phase factor carried by the executed state
+    phase = comp = 0.0             # Kahan sum of minus the per-round phase increments
+    logmod = 0.0
+    cnt_dev = 0.0
+    amp_dev = 0.0
+    first_amp = None
+    pts = checkpoints(rounds)
+    rows = []
+    ip = 0
+    for n in range(1, rounds + 1):
+        if count_every and (n <= 100 or n % count_every == 0):
+            cnt_dev = max(cnt_dev, abs(pair.count(psi) - PF))
+        out = pair.round(psi, angle)
+        a = out.sum() / E.NA
+        rel = a * np.conj(g)       # amplitude of this round alone
+        if first_amp is None:
+            first_amp = rel
+        amp_dev = max(amp_dev, abs(rel - first_amp))
+        y = -math.atan2(rel.imag, rel.real) - comp
+        t = phase + y
+        comp = (t - phase) - y
+        phase = t
+        logmod += math.log(abs(rel))
+        g = a / abs(a)
+        psi = g * pair.uu
+        if n == pts[ip]:
+            tt = n / N
+            rows.append(dict(rounds=n, clock_time=tt, phase_per_unit_clock_time=phase / (j * tt),
+                             log_modulus_per_unit_clock_time=logmod / tt))
+            ip += 1
+    return dict(N=N, j=j, rounds=rounds, clock_time=rounds / N, rows=rows,
+                phase_per_unit_clock_time=phase / (j * rounds / N),
+                log_modulus_per_unit_clock_time=logmod / (rounds / N),
+                amplitude_of_one_round=[first_amp.real, first_amp.imag],
+                max_change_of_the_round_amplitude_over_the_run=amp_dev,
+                max_deviation_of_the_count_read_from_2_9=cnt_dev)
+
+
+# ---------------------------------------------------------------------------------------------- D: complete record
+def outcome_operators(N, port=2):
+    """From the executed states of one round for j = +1, 0, -1: the amplitudes of the four test outcomes as
+    functions of j, and the coherence multipliers of the clocked system with every outcome kept."""
+    pair = E.Pair(port, port)
+    outs, comps, amps = {}, {}, {}
+    for j in (1, 0, -1):
+        outs[j] = pair.round(pair.uu.copy(), j / N)
+        amps[j], comps[j] = pair.test(outs[j])
+    z = {j: np.exp(-1j * j / N) for j in (1, -1)}
+    # the non-return vectors are (z_j - 1) times vectors that do not depend on j
+    indep = max(float(np.abs(comps[1][o] / (z[1] - 1) - comps[-1][o] / (z[-1] - 1)).max()) for o in ('ny', 'yn', 'nn'))
+    wts = {o: float((np.abs(comps[1][o]) ** 2).sum() / abs(z[1] - 1) ** 2) for o in ('ny', 'yn', 'nn')}
+    zero_branch = max(float(np.abs(comps[0][o]).max()) for o in ('ny', 'yn', 'nn'))
+    mult = {f'{j},{k}': complex(np.vdot(outs[k], outs[j])) for j in (1, 0, -1) for k in (1, 0, -1)}
+    closed = {f'{j},{k}': complex(1 - PF + PF * np.exp(-1j * (j - k) / N)) for j in (1, 0, -1) for k in (1, 0, -1)}
+    return dict(N=N, amps=amps, weights_over_abs_1_minus_z_squared=wts, j_independence=indep,
+                zero_current_branch_non_return=zero_branch, multipliers=mult,
+                max_abs_multiplier_minus_closed_form=max(abs(mult[k] - closed[k]) for k in mult))
+
+
+def trajectories(N, units, M, ops, rng):
+    """Sampled complete record. Clocked system starts in (|+1> + |0> + |-1>)/sqrt3. Outcome operators are those of
+    the executed round (diagonal in j); a "no" resets the address register of the cell, so every round starts from
+    the standing pair."""
+    js = np.array([1, 0, -1])
+    z = np.exp(-1j * js / N)
+    k_yy = np.array([ops['amps'][j] for j in (1, 0, -1)])
+    w = ops['weights_over_abs_1_minus_z_squared']
+    k_no = {o: (z - 1) * math.sqrt(w[o]) for o in ('ny', 'yn', 'nn')}
+    ks = np.stack([k_yy, k_no['ny'], k_no['yn'], k_no['nn']])           # (4, 3)
+    k2 = np.abs(ks) ** 2
+    c = np.full((M, 3), 1 / math.sqrt(3), dtype=np.complex128)
+    resets = np.zeros(M)
+    rows = []
+    marks = [u for u in (1, 2, 5, 10, 20, 50, 100, 200, 500, 1000) if u <= units]
+    if units not in marks:
+        marks.append(units)
+    n = 0
+    for u in marks:
+        while n < u * N:
+            pr = (np.abs(c) ** 2) @ k2.T                               # (M, 4), rows sum to one
+            r = rng.random(M)
+            o = (r[:, None] > np.cumsum(pr, axis=1)[:, :3]).sum(axis=1)
+            c = c * ks[o]
+            c /= np.linalg.norm(c, axis=1, keepdims=True)
+            resets += (o != 0)
+            n += 1
+        prod = 3 * c[:, 0] * np.conj(c[:, 1])                          # estimator of G_(+1,0)
+        prod2 = 3 * c[:, 0] * np.conj(c[:, 2])                         # estimator of G_(+1,-1)
+        g, g2 = prod.mean(), prod2.mean()
+        se = math.sqrt((prod.real.var() + prod.imag.var()) / M)
+        se2 = math.sqrt((prod2.real.var() + prod2.imag.var()) / M)
+        exact = (1 - PF + PF * np.exp(-1j / N)) ** n
+        exact2 = (1 - PF + PF * np.exp(-2j / N)) ** n
+        dphi = float(np.angle(g * np.conj(exact)))                     # sampled minus exact phase of G
+        rows.append(dict(clock_time=u, rounds=n,
+                         G_plus_zero=[g.real, g.imag], standard_error=se,
+                         exact_from_the_executed_multiplier=[exact.real, exact.imag],
+                         abs_deviation_over_standard_error=abs(g - exact) / se if se else None,
+                         sampled_minus_exact_phase_of_G=dphi, phase_standard_error=se / abs(g) if abs(g) else None,
+                         G_plus_minus=[g2.real, g2.imag], standard_error_plus_minus=se2,
+                         exact_plus_minus=[exact2.real, exact2.imag],
+                         abs_deviation_over_standard_error_plus_minus=abs(g2 - exact2) / se2 if se2 else None,
+                         resets_per_unit_clock_time=float(resets.mean() / u),
+                         resets_standard_error=float(resets.std() / math.sqrt(M) / u)))
+    expected_resets = N * (2.0 / 3.0) * 4 * math.sin(1 / (2 * N)) ** 2 * 14 / 81
+    return dict(N=N, trajectories=M, rows=rows, expected_resets_per_unit_clock_time=expected_resets)
+
+
+# ---------------------------------------------------------------------------------------------- E: long E1 run
+def e1_long(rounds, N, port=2):
+    sx = E.public_standing(port)
+    start = wk.tensor(sx, sx)
+    pd = dict(start)
+    h = 1.0 / N
+    g = 1.0 + 0.0j
+    phase = logmod = 0.0
+    first = None
+    dev = cnt_dev = 0.0
+    rows = []
+    pts = checkpoints(rounds)
+    ip = 0
+    t0 = time.time()
+    for n in range(1, rounds + 1):
+        if n <= 20 or n % 500 == 0:
+            cnt_dev = max(cnt_dev, abs(E.public_count(pd) - PF))
+        out = E.public_round(pd, h)
+        a = E.cdot(start, out)
+        rel = a * np.conj(g)
+        if first is None:
+            first = rel
+        dev = max(dev, abs(rel - first))
+        phase += -math.atan2(rel.imag, rel.real)
+        logmod += math.log(abs(rel))
+        g = a / abs(a)
+        pd = {k: g * v for k, v in start.items()}
+        if n == pts[ip]:
+            rows.append(dict(rounds=n, clock_time=n / N, phase_per_unit_clock_time=phase / (n / N),
+                             log_modulus_per_unit_clock_time=logmod / (n / N)))
+            ip += 1
+    return dict(N=N, rounds=rounds, seconds=round(time.time() - t0, 1), rows=rows,
+                phase_per_unit_clock_time=phase / (rounds / N),
+                log_modulus_per_unit_clock_time=logmod / (rounds / N),
+                max_change_of_the_round_amplitude_over_the_run=dev,
+                max_deviation_of_the_count_read_from_2_9=cnt_dev,
+                amplitude_of_one_round=[first.real, first.imag])
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--quick', action='store_true')
+    ap.add_argument('--full', action='store_true')
+    ap.add_argument('--e1-long', nargs=2, type=int, metavar=('ROUNDS', 'N'))
+    args = ap.parse_args()
+    t0 = time.time()
+    out = {'task': 'LR task 3, ordering O1 on sixty addresses', 'mode': 'quick' if args.quick else 'full',
+           'labels': 'A: EXACT. B, C, D: MEASURED in float64 on executed state vectors; sampled rows with standard errors'}
+
+    # A
+    ex = exact_round(2)
+    ex10 = exact_round(10)
+    out['A_exact_round'] = {k: str(v) for k, v in ex.items()}
+    gatesA = {
+        'inverse tick exact': ex['inverse_tick_exact'] and ex10['inverse_tick_exact'],
+        '<start|X> = <X|X> = 2/9': ex['overlap'] == ex['norm'] == P and ex10['overlap'] == ex10['norm'] == P,
+        'X lies on blank doubles': ex['outside_blank_doubles'] == 0,
+        'outcome weights 4/81, 11/324, 125/1296, 55/1296 (sum 2/9)':
+            (ex['w_yy'], ex['w_ny'], ex['w_yn'], ex['w_nn']) == (F(4, 81), F(11, 324), F(125, 1296), F(55, 1296)),
+        'non-return weight 14/81': ex['w_ny'] + ex['w_yn'] + ex['w_nn'] == F(14, 81)}
+    out['A_gates'] = gatesA
+    print('A', gatesA)
+
+    # B
+    nb = 12 if args.quick else 40
+    out['B_E1_against_E2'] = [e1_against_e2(N, nb) for N in (1, 10, 1000)]
+    for r in out['B_E1_against_E2']:
+        print('B', r)
+
+    # C
+    Ns = [1, 2, 10, 100, 1000] if args.quick else [1, 2, 10, 100, 1000, 10 ** 4, 10 ** 5, 10 ** 6]
+    runs = []
+    for N in Ns:
+        rounds = max(10 ** 4, 2 * N) if not args.quick else max(10 ** 4, N)
+        r = run_all_yes(N, rounds, 1, count_every=1000)
+        th, lm = E.closed_theta(N)
+        r['closed_form_phase'] = th
+        r['closed_form_log_modulus'] = lm
+        r['executed_minus_closed_form'] = r['phase_per_unit_clock_time'] - th
+        r['deviation_from_2_9'] = r['phase_per_unit_clock_time'] - PF
+        r['series_minus_35_over_2187_N2'] = -35.0 / (2187.0 * N * N)
+        if N <= 1000:
+            rm = run_all_yes(N, min(rounds, 10 ** 4), -1, count_every=0)
+            r['j_minus_one_phase_per_unit_clock_time'] = rm['phase_per_unit_clock_time']
+            r['half_difference_of_the_two_currents'] = (r['phase_per_unit_clock_time'] + rm['phase_per_unit_clock_time']) / 2
+        runs.append(r)
+        print('C', N, r['rounds'], repr(r['phase_per_unit_clock_time']), 'dev from 2/9', r['deviation_from_2_9'],
+              'exec-closed', r['executed_minus_closed_form'], 'logmod', r['log_modulus_per_unit_clock_time'],
+              'count dev', r['max_deviation_of_the_count_read_from_2_9'], flush=True)
+    out['C_runs'] = runs
+    # Richardson: theta(N) = theta_inf + c/N^2, from executed values at N and 10 N
+    rich = []
+    byN = {r['N']: r['phase_per_unit_clock_time'] for r in runs}
+    for N in Ns:
+        if 10 * N in byN:
+            lim = (100 * byN[10 * N] - byN[N]) / 99
+            rich.append(dict(N=N, N2=10 * N, limit=lim, limit_minus_2_9=lim - PF))
+    out['C_limit_by_Richardson'] = rich
+    # port 10 control
+    r10 = run_all_yes(10, 10 ** 4, 1, 10, 10, count_every=1000)
+    r_mixed = run_all_yes(10, 10 ** 4, 1, 2, 10, count_every=1000)
+    out['C_controls'] = {'both doubles at port 10, N = 10': r10['phase_per_unit_clock_time'],
+                         'X at port 2 and Y at port 10, N = 10': r_mixed['phase_per_unit_clock_time']}
+    print('C limit', rich, out['C_controls'])
+
+    # D
+    rng = np.random.default_rng(SEED)
+    ops_out, traj = [], []
+    for N in (1, 10, 100, 1000):
+        ops = outcome_operators(N)
+        ops_out.append(dict(N=N, amplitude_yes_yes={str(j): [complex(a).real, complex(a).imag] for j, a in ops['amps'].items()},
+                            weights_over_abs_1_minus_z_squared=ops['weights_over_abs_1_minus_z_squared'],
+                            expected_weights=dict(ny=11 / 324, yn=125 / 1296, nn=55 / 1296),
+                            non_return_vectors_independent_of_j_max_abs_difference=ops['j_independence'],
+                            zero_current_branch_non_return=ops['zero_current_branch_non_return'],
+                            multipliers={k: [v.real, v.imag] for k, v in ops['multipliers'].items()},
+                            max_abs_multiplier_minus_closed_form=ops['max_abs_multiplier_minus_closed_form']))
+        if N in (10, 100):
+            M = 20000 if args.quick else 200000
+            units = 20 if args.quick else (1000 if N == 10 else 100)
+            tr = trajectories(N, units, M, ops, rng)
+            traj.append(tr)
+            print('D', N, tr['rows'][-1], 'expected resets', tr['expected_resets_per_unit_clock_time'], flush=True)
+    out['D_outcome_operators'] = ops_out
+    out['D_trajectories'] = traj
+
+    # E
+    if args.e1_long:
+        out['E_long_run_through_the_public_Walk'] = e1_long(*args.e1_long)
+        r = out['E_long_run_through_the_public_Walk']
+        th, lm = E.closed_theta(r['N'])
+        r['closed_form_phase'] = th
+        r['executed_minus_closed_form'] = r['phase_per_unit_clock_time'] - th
+        print('E', {k: v for k, v in r.items() if k != 'rows'})
+
+    out['seconds'] = round(time.time() - t0, 1)
+    name = 'lr2_phase_run_quick.json' if args.quick else 'lr2_phase_run.json'
+    json.dump(out, open(os.path.join(HERE, name), 'w'), indent=1, default=str)
+    print('written', name, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

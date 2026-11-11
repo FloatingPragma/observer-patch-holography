@@ -1,0 +1,280 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling item A): the capacity reading in the executable observer (CANDIDATES.md, tests N1 to N5).
+
+N1 to N3 run the public program model.coherent_seam_repair.program.Observer (exact rational amplitudes, unchanged).
+N4 uses the binary twelve-port carrier with total two and its uniform stationary law on 66 states (RER
+code/geometry/ENTROPY_FIRST_LAW_AUDIT.md), by direct enumeration.
+N5 evaluates the collar law at the anchor point written by anchor_chain.py (row A1).
+Run from RER:  PYTHONPATH=.:<CA> python <CA>/anchor_capacity.py
+No measured value is read. Writes anchor_capacity.json.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import math
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+from model.coherent_seam_repair.program import Observer, State
+
+HERE = Path(__file__).resolve().parent
+out = {}
+
+
+def h2(p):
+    p = float(p)
+    return 0.0 if p in (0.0, 1.0) else -(p * math.log(p) + (1 - p) * math.log(1 - p))
+
+
+def shannon(ps):
+    return -sum(float(p) * math.log(float(p)) for p in ps if p > 0)
+
+
+# =============================================================== N1: the owned record holds one seam label
+o5 = Observer(fibre=5, central_edge=(0, 1))
+e = o5.central_edge
+other = (1, 5)                                          # a seam without the declared link
+assert other in o5.seams
+
+
+def seam_state(obs, a, b, sign, address, amps_internal):
+    """(|a> + sign |b>) x |record 0> x |address> x sum_i amps_internal[i] |i>, unnormalized exact amplitudes."""
+    vec = [F(0)] * obs.dimension
+    for i, c in enumerate(amps_internal):
+        if c:
+            vec[obs.index(a, 0, address, i)] += F(c)
+            vec[obs.index(b, 0, address, i)] += F(sign) * F(c)
+    return State(tuple(vec), 1)
+
+
+def norm2(state):
+    """Squared norm of a state with real rational amplitudes, as an exact fraction."""
+    return sum((x * x for x in state.amplitudes if x), F(0)) / state.norm_denominator
+
+
+def record_one_probability(obs, state):
+    n = norm2(state) * state.norm_denominator
+    tot = F(0)
+    count = obs.address_count
+    for idx, x in enumerate(state.amplitudes):
+        if x and (idx // count) % 2 == 1:
+            tot += x * x
+    return F(tot) / F(n)
+
+
+def unit(i):
+    return [1 if k == i else 0 for k in range(5)]
+
+
+n1 = {}
+for seam, name in ((e, "central"), (other, "plain")):
+    for orient in (seam, seam[::-1]):
+        k = o5.addresses.index(orient)
+        for sign, sname in ((1, "symmetric"), (-1, "antisymmetric")):
+            row = []
+            for i in range(5):
+                st = seam_state(o5, orient[0], orient[1], sign, k, unit(i))
+                row.append(str(record_one_probability(o5, o5.repair(st))))
+            n1["%s seam %s, %s input, record-1 probability by level 0..4" % (name, list(orient), sname)] = row
+out["N1_record_after_repair"] = n1
+pred = True
+for orient in (e, e[::-1]):
+    pred &= n1["central seam %s, symmetric input, record-1 probability by level 0..4" % list(orient)] == ["0", "0", "0", "1", "1"]
+    pred &= n1["central seam %s, antisymmetric input, record-1 probability by level 0..4" % list(orient)] == ["1", "1", "1", "0", "0"]
+for orient in (other, other[::-1]):
+    pred &= n1["plain seam %s, symmetric input, record-1 probability by level 0..4" % list(orient)] == ["0"] * 5
+    pred &= n1["plain seam %s, antisymmetric input, record-1 probability by level 0..4" % list(orient)] == ["1"] * 5
+out["N1_record_equals_seam_character_xor_centre_class"] = bool(pred)
+
+# =============================================================== N2: what the record takes and what stays in the fibre
+k_e = o5.addresses.index(e)
+
+
+def reduced(obs, state):
+    """Exact reduced density matrices of the owned record (2x2) and of the fibre (5x5)."""
+    n = norm2(state) * state.norm_denominator
+    count, fib = obs.address_count, obs.fibre
+    rec = [[F(0)] * 2 for _ in range(2)]
+    fibm = [[F(0)] * fib for _ in range(fib)]
+    amp = state.amplitudes
+    for port in range(12):
+        for address in range(count):
+            # record matrix: sum over port, address, internal
+            for i in range(fib):
+                x0 = amp[obs.index(port, 0, address, i)]; x1 = amp[obs.index(port, 1, address, i)]
+                if x0 or x1:
+                    xs = (x0, x1)
+                    for r in range(2):
+                        for s_ in range(2):
+                            rec[r][s_] += xs[r] * xs[s_]
+            # fibre matrix: sum over port, address, record
+            for r in range(2):
+                col = [amp[obs.index(port, r, address, i)] for i in range(fib)]
+                if any(col):
+                    for i in range(fib):
+                        for j in range(fib):
+                            fibm[i][j] += col[i] * col[j]
+    rec = [[x / n for x in row] for row in rec]
+    fibm = [[x / n for x in row] for row in fibm]
+    return rec, fibm
+
+
+def entropy_matrix(m):
+    w = np.linalg.eigvalsh(np.array([[float(x) for x in row] for row in m]))
+    return float(-sum(x * math.log(x) for x in w if x > 1e-15))
+
+
+cases = {
+    "inside triplet: levels 0, 1 with amplitudes 1, 2": [1, 2, 0, 0, 0],
+    "inside doublet: levels 3, 4 with amplitudes 1, 2": [0, 0, 0, 1, 2],
+    "across blocks: levels 0, 3 with amplitudes 1, 2": [1, 0, 0, 2, 0],
+    "across blocks: levels 0, 1, 2, 3, 4 with equal amplitudes": [1, 1, 1, 1, 1],
+}
+n2 = {}
+for name, amps in cases.items():
+    st_in = seam_state(o5, e[0], e[1], 1, k_e, amps)
+    st = o5.repair(st_in)
+    rec, fibm = reduced(o5, st)
+    rec_in, fib_in = reduced(o5, st_in)
+    n2[name] = {"record_probabilities": [str(rec[0][0]), str(rec[1][1])], "record_coherence": str(rec[0][1]),
+                "record_entropy": entropy_matrix(rec), "fibre_entropy_before": entropy_matrix(fib_in),
+                "fibre_entropy_after": entropy_matrix(fibm),
+                "fibre_offdiagonal_between_blocks_after": str(max(abs(fibm[i][j]) for i in range(3) for j in range(3, 5))),
+                "fibre_offdiagonal_inside_triplet_after": str(max(abs(fibm[i][j]) for i in range(3) for j in range(3) if i != j)),
+                "fibre_offdiagonal_inside_doublet_after": str(abs(fibm[3][4]))}
+out["N2_coherent_inputs_on_the_central_seam"] = n2
+# code-uniform mixture of the five levels, seam-symmetric input: joint law of (level, record) from N1
+joint = {(i, 0 if i < 3 else 1): F(1, 5) for i in range(5)}
+p_rec1 = sum(p for (i, r), p in joint.items() if r == 1)
+H_rec = h2(p_rec1)
+H_block = h2(F(3, 5))
+I_rec_block = H_rec + H_block - shannon([F(3, 5), F(2, 5)])        # record is a function of the block
+hidden = 0.6 * math.log(3) + 0.4 * math.log(2)
+out["N2_code_uniform_mixture"] = {
+    "record_one_probability": str(p_rec1), "record_entropy": H_rec, "predicted_h_3_over_5": h2(0.6),
+    "mutual_information_record_block": I_rec_block,
+    "mutual_information_record_level_given_block": 0.0,
+    "hidden_index_entropy_left_in_fibre": hidden, "ln5_total": math.log(5),
+    "identity_ln5_equals_block_plus_hidden": abs(math.log(5) - (H_block + hidden))}
+
+# =============================================================== N3: one tick from the blank preparations
+o1 = Observer()
+n3 = {"fibre1": set(), "fibre5_central_link": {}}
+for p in range(12):
+    n3["fibre1"].add(str(record_one_probability(o1, o1.step(o1.embedded_port(p)))))
+for p in (0, 1, 2, 5, 9):                               # ports on the linked seam, adjacent to it, and away from it
+    for i in range(5):
+        st = o5.step(o5.embedded_port(p, i))
+        n3["fibre5_central_link"]["port %d level %d" % (p, i)] = str(record_one_probability(o5, st))
+n3["fibre1"] = sorted(n3["fibre1"])
+vals5 = sorted(set(n3["fibre5_central_link"].values()))
+out["N3_one_tick_record_one_probability"] = {"fibre1_all_ports": n3["fibre1"], "fibre5_values": vals5,
+                                             "binary_entropy_of_1_over_12": h2(1 / 12),
+                                             "all_equal_one_twelfth": bool(n3["fibre1"] == ["1/12"] and vals5 == ["1/12"])}
+
+# =============================================================== N4: binary carrier, total two, every subset of ports
+seams = [tuple(s_) for s_ in o1.seams]
+pairs = list(itertools.combinations(range(12), 2))     # the 66 states
+by_m = {}
+for mask in range(1, 2 ** 12 - 1):
+    R = [p for p in range(12) if mask >> p & 1]
+    m = len(R)
+    Rs = set(R)
+    c = sum(1 for a, b in seams if (a in Rs) != (b in Rs))
+    # direct enumeration: label j = number of loads in R; restricted pattern in R
+    lab = {}
+    pat = {}
+    for x, y in pairs:
+        j = (x in Rs) + (y in Rs)
+        lab[j] = lab.get(j, 0) + 1
+        key = tuple(sorted(z for z in (x, y) if z in Rs))
+        pat[key] = pat.get(key, 0) + 1
+    q = tuple(F(lab.get(j, 0), 66) for j in range(3))
+    S_R = shannon([F(n_, 66) for n_ in pat.values()])
+    a = [math.comb(m, j) for j in range(3)]
+    bb = [math.comb(12 - m, 2 - j) for j in range(3)]
+    Hq = shannon(q)
+    la = sum(float(q[j]) * math.log(a[j]) for j in range(3) if q[j] > 0)
+    lb = sum(float(q[j]) * math.log(bb[j]) for j in range(3) if q[j] > 0)
+    d = by_m.setdefault(m, {"subsets": 0, "crossing_seams": set(), "label_laws": set(), "S_R": set(), "H_q": Hq,
+                            "ln_a": la, "ln_b": lb, "formula_defect": 0.0})
+    d["subsets"] += 1
+    d["crossing_seams"].add(c)
+    d["label_laws"].add(q)
+    d["S_R"].add(round(S_R, 12))
+    d["formula_defect"] = max(d["formula_defect"], abs(S_R - (Hq + la)))
+n4 = {}
+for m in sorted(by_m):
+    d = by_m[m]
+    n4[str(m)] = {"subsets": d["subsets"], "crossing_seams_min_max": [min(d["crossing_seams"]), max(d["crossing_seams"])],
+                  "distinct_crossing_counts": len(d["crossing_seams"]), "distinct_label_laws": len(d["label_laws"]),
+                  "label_law": [str(x) for x in next(iter(d["label_laws"]))], "H_label": d["H_q"],
+                  "S_region": sorted(d["S_R"])[0], "distinct_S_region": len(d["S_R"]),
+                  "ln_a_cap_multiplicity": d["ln_a"], "ln_b_complement_multiplicity": d["ln_b"],
+                  "S_region_minus_H_minus_ln_a": d["formula_defect"]}
+out["N4_binary_carrier_all_subsets"] = n4
+out["N4_claims"] = {
+    "label_law_depends_on_m_only": bool(all(v["distinct_label_laws"] == 1 for v in n4.values())),
+    "H_label_at_most_ln3": bool(all(v["H_label"] <= math.log(3) + 1e-12 for v in n4.values())),
+    "crossing_count_varies_at_fixed_m": {k: v["distinct_crossing_counts"] for k, v in n4.items()},
+    "S_region_increases_up_to_m6": bool(all(n4[str(m)]["S_region"] < n4[str(m + 1)]["S_region"] for m in range(1, 6))),
+    "H_label_max": max(v["H_label"] for v in n4.values()), "ln3": math.log(3)}
+
+# =============================================================== N5: the collar law at the anchor (row A1)
+chain = json.loads((HERE / "anchor_chain.json").read_text())
+t1, t2, t3 = chain["G1_detail"]["t1_t2_t3_at_anchor"]
+P = chain["inputs"]["P_fwd"]
+n = np.arange(0, 41); d2 = (n + 1.0); c2 = (n / 2) * (n / 2 + 1)
+w2 = d2 * np.exp(-t2 * c2); p2 = w2 / w2.sum()
+pp, qq = np.meshgrid(np.arange(26), np.arange(26), indexing="ij")
+pp, qq = pp.ravel(), qq.ravel()
+d3 = (pp + 1) * (qq + 1) * (pp + qq + 2) / 2.0; c3 = (pp ** 2 + qq ** 2 + pp * qq + 3 * pp + 3 * qq) / 3.0
+w3 = d3 * np.exp(-t3 * c3); p3 = w3 / w3.sum()
+H2 = float(-(p2[p2 > 0] * np.log(p2[p2 > 0])).sum()); L2 = float((p2 * np.log(d2)).sum())
+H3 = float(-(p3[p3 > 0] * np.log(p3[p3 > 0])).sum()); L3 = float((p3 * np.log(d3)).sum())
+# full G label with hypercharge: class k = (3 n - 2 (p - q)) mod 6, 6Y = k + 6 m
+kcl = (3 * n[:, None] - 2 * (pp - qq)[None, :]) % 6
+ms = np.arange(-40, 41)
+W = w2[:, None, None] * w3[None, :, None] * np.exp(-t1 * 0.6 * (kcl[:, :, None] / 6 + ms[None, None, :]) ** 2)
+Pg = W / W.sum()
+nzm = Pg > 0
+HG = float(-(Pg[nzm] * np.log(Pg[nzm])).sum())
+LG = float((Pg * (np.log(d2)[:, None, None] + np.log(d3)[None, :, None])).sum())
+LG2 = float((Pg * np.log(d2)[:, None, None]).sum()); LG3 = float((Pg * np.log(d3)[None, :, None]).sum())
+# hypercharge alone (marginal over Y in units of 1/6)
+sixY = (kcl[:, :, None] + 6 * ms[None, None, :])
+margY = {}
+for val, pr in zip(sixY.ravel(), Pg.ravel()):
+    if pr > 1e-18:
+        margY[int(val)] = margY.get(int(val), 0.0) + float(pr)
+HY = shannon(margY.values())
+trip = [(1, 0), (0, 1)]
+p3_fund = float(sum(p3[(pp == a) & (qq == b)].sum() for a, b in trip))
+p3_adj = float(p3[(pp == 1) & (qq == 1)].sum())
+out["N5_collar_law_at_anchor"] = {
+    "t1_t2_t3": [t1, t2, t3], "P_over_4": P / 4, "exp_P_over_4_effective_dimension": math.exp(P / 4),
+    "SU2_sector_probabilities_j_0_to_2": [float(x) for x in p2[:5]],
+    "SU3_probabilities_singlet_fundamentals_adjoint": [float(p3[(pp == 0) & (qq == 0)].sum()), p3_fund, p3_adj],
+    "SU2_label_shannon": H2, "SU2_hidden_index": L2, "SU3_label_shannon": H3, "SU3_hidden_index": L3,
+    "product_label_shannon": H2 + H3, "product_hidden_index": L2 + L3,
+    "G_label_with_hypercharge_shannon": HG, "G_hidden_index": LG, "G_hidden_index_weak_part": LG2,
+    "G_hidden_index_colour_part": LG3, "hypercharge_marginal_shannon": HY,
+    "after_first_freeze_U3_label_shannon": HG + LG2, "after_first_freeze_hidden_index": LG3,
+    "entropy_moved_from_hidden_index_to_records_at_the_freeze": LG2,
+    "share_of_P_over_4_written_at_the_freeze": LG2 / (P / 4),
+    "largest_doublet_index_probability_P_over_4_can_hold": (P / 4) / math.log(2),
+    "largest_triplet_index_probability_P_over_4_can_hold": (P / 4) / math.log(3),
+    "probability_of_a_nontrivial_weak_label_at_anchor": float(1 - p2[0]),
+    "probability_of_a_nontrivial_colour_label_at_anchor": float(1 - p3[(pp == 0) & (qq == 0)].sum())}
+
+# =============================================================== native numbers next to P/4 (fixed list, no selection)
+out["native_numbers_next_to_P_over_4"] = {
+    "P_over_4": P / 4, "h(1/12) record of one tick": h2(1 / 12), "h(3/5) class label of the code": h2(0.6),
+    "(3/5) ln 3 + (2/5) ln 2 hidden index of the code": hidden, "ln 2 capacity of the owned record": math.log(2),
+    "H_label binary carrier m=1..6": [n4[str(m)]["H_label"] for m in range(1, 7)]}
+
+(HERE / "anchor_capacity.json").write_text(json.dumps(out, indent=1, default=str) + "\n")
+print(json.dumps(out, indent=1, default=str))

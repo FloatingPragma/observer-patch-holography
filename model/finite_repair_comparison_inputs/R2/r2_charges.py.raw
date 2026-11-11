@@ -1,0 +1,124 @@
+"""R2: which candidate carries charges (coordinator's note of 2026-11-10 evening; own computation, independent of
+the audit's model/coherent_defect_wave/field_identity_audit, which is cited in the report and not imported).
+
+Exact parts (integers, GF(2), Q(sqrt5, i) through work/KD/kdlib.py):
+  1  the twelve port responses E_p = P_p (triplet) + Q_p (doublet) on the five-level code: sum_p E_p = 4 on the triplet
+     and 6 on the doublet. Their lifts to occupations are positive, so a state is annihilated by all twelve iff it
+     holds no quantum. A flux pair is a state of the link register with no quantum: annihilated by every lifted
+     one-body operator (definition of the lift).
+  2  patterns with charge Q6 = 3 n2 - 2 n3 = 0: the empty and the full pattern only; Z2 charge n2 mod 2
+  3  the frame's cover action: central element = (-1)^n2 on patterns (exact, from the code lift), +1 on the
+     190 flux-pair codewords; the five face positions of a region against the five levels under the stabilizer C5
+  4  the twelve port gauge transformations (vertex stars) fix every Gauss-positive flux-pair codeword
+Float part (printed singular values): the joint kernel of the twelve lifted responses on the 32 patterns.
+"""
+import itertools, json, os, sys
+import numpy as np
+import kdlib as kd
+from model.coherent_seam_repair.protection import BoundaryFlux, rank_mod2
+
+out = {}
+car = kd.carrier()
+V = car['V']
+quats, rotm = kd.cover()
+frames = kd.frames()
+
+# ---- 1: the twelve port responses ------------------------------------------------------------------------------
+v2 = kd.vdot(V[0], V[0])                                     # |v|^2 = phi + 2
+assert all(kd.vdot(V[p], V[p]) == v2 for p in range(12)) and v2 == kd.PHI + kd.K(2)
+A = [kd.doublet_response(p) for p in range(12)]              # w.sigma', |w|^2 = 3 - phi
+C = [kd.triplet_response(p)[0] for p in range(12)]           # v v^T
+S = [kd.mscale(kd.I, kd.triplet_response(p)[1]) for p in range(12)]   # i [v]_x, Hermitian
+def msum(ms):
+    o = ms[0]
+    for m in ms[1:]: o = kd.madd(o, m)
+    return o
+w2 = kd.K(3) - kd.PHI
+r1 = {'A_p^2 = (3 - phi) 1 (so Q_p = (1 + A_p/|w|)/2 is a projector), 12 ports': all(
+          kd.meq(kd.mm(a, a), kd.mscale(w2, kd.E2)) for a in A),
+      'S_p^3 = (phi + 2) S_p and S_p^2 = (phi + 2) 1 - C_p (so P_p = (S_p^2/|v|^2 + S_p/|v|)/2 is a projector), 12 ports': all(
+          kd.meq(kd.mm(s, s, s), kd.mscale(v2, s)) and kd.meq(kd.mm(s, s), kd.msub(kd.mscale(v2, kd.eye(3)), c)) for s, c in zip(S, C)),
+      'sum_p C_p = 4 (phi + 2) 1_3': kd.meq(msum(C), kd.mscale(kd.K(4) * v2, kd.eye(3))),
+      'sum_p S_p = 0': kd.is_zero(msum(S)), 'sum_p A_p = 0': kd.is_zero(msum(A)),
+      'consequence': 'sum_p P_p = 4 on the triplet, sum_p Q_p = 6 on the doublet; sum_p dGamma(E_p) = 4 N3 + 6 N2'}
+# float: the joint kernel of the twelve lifted responses on the 32 occupation patterns
+nv, nw = float(v2) ** 0.5, float(w2) ** 0.5
+def fl(M): return np.array([[complex(x) for x in row] for row in M])
+E = []
+for p in range(12):
+    Pp = (np.eye(3) - fl(C[p]) / nv ** 2 + fl(S[p]) / nv) / 2
+    Qp = (np.eye(2) + fl(A[p]) / nw) / 2
+    Ep = np.zeros((5, 5), complex); Ep[:3, :3] = Pp; Ep[3:, 3:] = Qp      # levels 0,1,2 triplet; 3,4 doublet
+    E.append(Ep)
+def cdag(j):
+    M = np.zeros((32, 32))
+    for s in range(32):
+        if not s >> j & 1:
+            M[s | 1 << j, s] = (-1) ** bin(s & ((1 << j) - 1)).count('1')
+    return M
+cd = [cdag(j) for j in range(5)]
+def lift(X): return sum(X[j, k] * cd[j] @ cd[k].T for j in range(5) for k in range(5))
+LE = [lift(e) for e in E]
+r1['float: projector defects of E_p (max)'] = float(max(np.abs(e @ e - e).max() for e in E))
+r1['float: sum of the lifted responses minus (4 N3 + 6 N2) (max)'] = float(np.abs(
+    sum(LE) - np.diag([4.0 * bin(s & 7).count('1') + 6.0 * bin(s >> 3).count('1') for s in range(32)])).max())
+sv = np.linalg.svd(np.vstack(LE), compute_uv=False)
+r1['float: smallest singular values of the stacked twelve lifted responses'] = [float(x) for x in sv[-3:]]
+r1['float: every lifted response annihilates the empty pattern (max)'] = float(max(np.abs(M[:, 0]).max() for M in LE))
+r1['joint kernel'] = 'the empty pattern only (one zero singular value; exact argument: positivity and the sum rule)'
+out['1_port_responses'] = r1
+print('1:', {k: v for k, v in r1.items()})
+
+# ---- 2: charges of the 32 patterns --------------------------------------------------------------------------------
+pat = [(bin(s >> 3).count('1'), bin(s & 7).count('1')) for s in range(32)]        # (n2, n3)
+q6 = [3 * a - 2 * b for a, b in pat]
+r2 = {'patterns with Q6 = 0 (n2, n3)': sorted({p for p, q in zip(pat, q6) if q == 0}),
+      'number of patterns with Q6 = 0': sum(q == 0 for q in q6),
+      'patterns with odd n2 (Z2-charged)': sum(a % 2 for a, b in pat),
+      'Q6 values (pattern counts)': {str(q): q6.count(q) for q in sorted(set(q6))}}
+out['2_pattern_charges'] = r2
+print('2:', r2)
+
+# ---- 3: the frame's cover action ------------------------------------------------------------------------------------
+one = (kd.ONE, kd.ZERO, kd.ZERO, kd.ZERO)
+r3 = {'code lift of -1: +1 on the triplet, -1 on the doublet (central element = (-1)^n2 on patterns)':
+          kd.meq(kd.code_lift(kd.qneg(one)), kd.dsum(kd.eye(3), kd.mscale(-1, kd.E2)))}
+# the stabilizer of port 5 on the five faces of its region against the five levels
+law = BoundaryFlux()
+fidx = {f: i for i, f in enumerate(law.faces)}
+c5 = [(q, perm) for q, perm in quats.items() if perm[5] == 5 and perm != kd.IDP]
+tr_code = set(); tr_faces = set(); central = set()
+for q, perm in c5:
+    img = [fidx[tuple(sorted(perm[x] for x in law.faces[f]))] for f in law.region]
+    assert sorted(img) == sorted(law.region)
+    tr_faces.add(sum(a == b for a, b in zip(img, law.region)))
+    tr_code.add(repr(kd.trace(kd.code_lift(q, rotm[q]))))
+    central.add(repr(kd.trace(kd.spinor_lift(q))))
+r3['stabilizer of port 5: lifts (non-central)'] = len(c5)
+r3['trace on the five region faces (regular representation of C5)'] = sorted(tr_faces)
+r3['trace on the five levels (triplet + doublet), over the 8 lifts'] = sorted(tr_code)
+r3['trace on the doublet alone (changes sign with the lift)'] = sorted(central)
+r3['reading'] = ('the five face positions carry the regular representation of the stabilizer (trace 0, central element +1); '
+                 'the five levels carry triplet + spinor doublet (trace nonzero, central element -1 on two levels): no equivariant renaming')
+HERE = os.path.dirname(os.path.abspath(__file__))
+A2 = json.load(open(os.path.join(HERE, 'item2.json')))['A_half_turns_on_faces_and_pairs']
+if A2:
+    r3['flux pairs under the frame: characters (from item2.json)'] = A2[0]['character multiplicities (signs of rho_1, rho_2, rho_3)']
+out['3_cover_action'] = r3
+print('3:', r3)
+
+# ---- 4: the twelve port gauge transformations on flux-pair codewords --------------------------------------------
+stars = list(law.vertex_stars)
+r4 = {'rank of the twelve stars': rank_mod2(stars), 'every star has zero face syndrome': all(law.syndrome(s) == 0 for s in stars),
+      'consequence': 'a Gauss-positive codeword (uniform superposition over the star orbit of a word with a given flux pair) is fixed '
+                     'by each of the twelve star operators: eigenvalue +1 at every port, for all 190 pairs and for the flat word'}
+out['4_port_gauge_transformations'] = r4
+print('4:', r4)
+
+out['candidates'] = {
+    'a quantum': 'charged: Z2 = n2 mod 2 and the weights of its pattern (Q6 = 3 n2 - 2 n3); 30 of 32 patterns have Q6 != 0, 16 are Z2-odd',
+    'b flux pair of a carrier': 'neutral: no quantum, annihilated by all twelve lifted port responses and by every native current; '
+                                'central element +1; star operators +1. It carries the frame characters (55, 45, 45, 45) and its separation class',
+    'c composite': 'the charges of its quantum; the flux pair adds a neutral label',
+    'd plaquette flux between carriers': 'neutral: a function of the Z of the links, commutes with every G_x'}
+json.dump(out, open(os.path.join(HERE, 'charges.json'), 'w'), indent=1, default=str)

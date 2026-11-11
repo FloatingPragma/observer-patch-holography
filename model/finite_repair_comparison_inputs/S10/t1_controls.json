@@ -1,0 +1,356 @@
+{
+ "geometry": {
+  "seams_are_pairs_at_squared_distance_4": true,
+  "seams_are_the_edges_of_the_oriented_faces": true,
+  "faces_outward_oriented": true,
+  "A v = +sqrt5 v (band 3 = port vectors)": true,
+  "A sigma(v) = -sqrt5 sigma(v) (band 3')": true,
+  "antipode v_p' = -v_p": true,
+  "adjacency_spectrum": {
+   "-2.236067977": 3,
+   "-1.0": 5,
+   "2.236067977": 3,
+   "5.0": 1
+  }
+ },
+ "rotation_classes": {
+  "C2": 15,
+  "C3": 20,
+  "C5": 12,
+  "C5b": 12,
+  "e": 1
+ },
+ "C1_specified_current": {
+  "dim": 12,
+  "depth_dims": [
+   12
+  ],
+  "rank_gap": [
+   0.2305707935728279,
+   1.0941764168811152e-15
+  ],
+  "closure_residual": 3.398984113369489e-16,
+  "centre_dim": 1,
+  "derived_dim": 11,
+  "killing_max_eig": 1.3406978937662541e-15,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 1,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 3,
+    "rank": 1,
+    "type": "su(2)",
+    "port_band": {
+     "adjacency_eigenvalues_of_port_coefficients": [
+      -2.236068,
+      -2.236068,
+      -2.236068
+     ],
+     "solve_residual": 4.440892098500626e-16,
+     "invariance_residual": 7.771561172376096e-16
+    }
+   },
+   {
+    "dim": 8,
+    "rank": 2,
+    "type": "su(3)",
+    "port_band": {
+     "adjacency_eigenvalues_of_port_coefficients": [
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      2.236068,
+      2.236068,
+      2.236068
+     ],
+     "solve_residual": 2.5521299882161693e-15,
+     "invariance_residual": 4.85722573273506e-15
+    }
+   }
+  ],
+  "A5_content": {
+   "1": 1.0,
+   "3": 1.0,
+   "3'": 1.0,
+   "4": -0.0,
+   "5": 1.0
+  },
+  "A5_invariant_span": true,
+  "generator_span": 12,
+  "seconds": 0.02,
+  "covariance_defect_720": 1.0053497077208614e-15,
+  "sum_is_diag(i,i,i,0,0,0)": true,
+  "antipodal_pairs_commute": true,
+  "conj(X_p) = X_antipode(p)": true,
+  "X_p real symmetric (T-even)": false
+ },
+ "C2_diagonal_phases": {
+  "dim": 12,
+  "depth_dims": [
+   12
+  ],
+  "rank_gap": [
+   1.0,
+   0.0
+  ],
+  "closure_residual": 0.0,
+  "centre_dim": 12,
+  "derived_dim": 0,
+  "killing_max_eig": 0.0,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 12,
+  "compact": true,
+  "A5_content": {
+   "1": 1.0,
+   "3": 1.0,
+   "3'": 1.0,
+   "4": 0.0,
+   "5": 1.0
+  },
+  "A5_invariant_span": true,
+  "generator_span": 12,
+  "seconds": 0.05
+ },
+ "C3_diag_plus_adjacency": {
+  "dim": 144,
+  "depth_dims": [
+   13,
+   24,
+   64,
+   119,
+   144
+  ],
+  "rank_gap": [
+   0.003349437547432216,
+   1.7015502651536584e-13
+  ],
+  "closure_residual": 3.7158111523224146e-14,
+  "centre_dim": 1,
+  "derived_dim": 143,
+  "killing_max_eig": -7.105427357601002e-15,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 1,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 143,
+    "rank": 11,
+    "type": "su(12)"
+   }
+  ],
+  "A5_content": {
+   "1": 4.0,
+   "3": 8.0,
+   "3'": 8.0,
+   "4": 8.0,
+   "5": 12.0
+  },
+  "A5_invariant_span": true,
+  "generator_span": 13,
+  "seconds": 110.54
+ },
+ "C4a_so3_plus_so3": {
+  "dim": 6,
+  "depth_dims": [
+   6
+  ],
+  "rank_gap": [
+   0.9999999999999999,
+   1.5700924586837752e-16
+  ],
+  "closure_residual": 1.1102230246251565e-16,
+  "centre_dim": 0,
+  "derived_dim": 6,
+  "killing_max_eig": -0.9999999999999996,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 0,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 3,
+    "rank": 1,
+    "type": "su(2)"
+   },
+   {
+    "dim": 3,
+    "rank": 1,
+    "type": "su(2)"
+   }
+  ],
+  "generator_span": 6,
+  "seconds": 0.0
+ },
+ "C4b_u1^4_plus_su3": {
+  "dim": 12,
+  "depth_dims": [
+   7,
+   10,
+   12
+  ],
+  "rank_gap": [
+   0.31544977723033674,
+   3.55582821525254e-15
+  ],
+  "closure_residual": 1.9984014443252818e-15,
+  "centre_dim": 4,
+  "derived_dim": 8,
+  "killing_max_eig": 8.9064429638335e-16,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 4,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 8,
+    "rank": 2,
+    "type": "su(3)"
+   }
+  ],
+  "generator_span": 7,
+  "seconds": 0.01
+ },
+ "C4c_su3_su3_u1": {
+  "dim": 17,
+  "depth_dims": [
+   5,
+   7,
+   11,
+   17
+  ],
+  "rank_gap": [
+   0.21720662115890782,
+   1.9043979702891036e-15
+  ],
+  "closure_residual": 9.021414489024847e-16,
+  "centre_dim": 1,
+  "derived_dim": 16,
+  "killing_max_eig": 1.2885116090659476e-90,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 1,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 8,
+    "rank": 2,
+    "type": "su(3)"
+   },
+   {
+    "dim": 8,
+    "rank": 2,
+    "type": "su(3)"
+   }
+  ],
+  "generator_span": 5,
+  "seconds": 0.01
+ },
+ "C5_exchange_preserving": {
+  "dim": 17,
+  "depth_dims": [
+   6,
+   12,
+   17
+  ],
+  "rank_gap": [
+   0.07864311414331149,
+   2.453201343360822e-15
+  ],
+  "closure_residual": 1.7277845820728999e-15,
+  "centre_dim": 1,
+  "derived_dim": 16,
+  "killing_max_eig": -7.441276118567988e-19,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 1,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 8,
+    "rank": 2,
+    "type": "su(3)"
+   },
+   {
+    "dim": 8,
+    "rank": 2,
+    "type": "su(3)"
+   }
+  ],
+  "generator_span": 6,
+  "seconds": 0.01,
+  "max_asymmetry_after_orthonormalisation": 9.992007221626409e-16,
+  "repo_value": 17
+ },
+ "C6_random_covariant": {
+  "dim": 144,
+  "depth_dims": [
+   12,
+   78,
+   144
+  ],
+  "rank_gap": [
+   0.041317473549196064,
+   4.6494968467701535e-15
+  ],
+  "closure_residual": 1.173264755413028e-15,
+  "centre_dim": 1,
+  "derived_dim": 143,
+  "killing_max_eig": -1.0658141036401503e-14,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 1,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 143,
+    "rank": 11,
+    "type": "su(12)"
+   }
+  ],
+  "A5_content": {
+   "1": 4.0,
+   "3": 8.0,
+   "3'": 8.0,
+   "4": 8.0,
+   "5": 12.0
+  },
+  "A5_invariant_span": true,
+  "generator_span": 12,
+  "seconds": 79.98,
+  "covariance_defect": 4.440892098500626e-16
+ },
+ "C6b_random_covariant_seam_supported": {
+  "dim": 144,
+  "depth_dims": [
+   12,
+   78,
+   144
+  ],
+  "rank_gap": [
+   0.005738348199059691,
+   3.7925338435604393e-14
+  ],
+  "closure_residual": 7.993605777301127e-15,
+  "centre_dim": 1,
+  "derived_dim": 143,
+  "killing_max_eig": 3.827984282351649e-17,
+  "killing_negative_semidefinite": true,
+  "killing_kernel_dim": 1,
+  "compact": true,
+  "simple_ideals": [
+   {
+    "dim": 143,
+    "rank": 11,
+    "type": "su(12)"
+   }
+  ],
+  "A5_content": {
+   "1": 4.0,
+   "3": 8.0,
+   "3'": 8.0,
+   "4": 8.0,
+   "5": 12.0
+  },
+  "A5_invariant_span": true,
+  "generator_span": 12,
+  "seconds": 90.22
+ }
+}

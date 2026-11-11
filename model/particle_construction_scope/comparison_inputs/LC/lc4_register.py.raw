@@ -1,0 +1,246 @@
+"""LC item 3: the clocked register on sixty addresses (section 6 and addendum 1 of CANDIDATES.md): compression with
+FR's Fourier-zero analyzer on matched flags, sign structure of the branches, n hold cells, an unlabelled second
+register, the echo frame, cell ensembles. EXACT (Fractions, sympy); mpmath only for the eigenvalues at theta = 2/9.
+Writes lc4_register.json. Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc4_register.py
+No measured value is read.
+"""
+from __future__ import annotations
+
+import itertools
+import random
+import sys
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+import sympy as sp
+
+import lc_common as L
+import fr_common as FC
+
+OUT = 'lc4_register.json'
+mp.mp.dps = 30
+FP = L.frame_plain()
+Z = Fr(0)
+
+
+def rat(x):
+    return sp.Rational(x.numerator, x.denominator)
+
+
+def branches(cfgs, frame, classify):
+    """Tick-1 branches by class: weight, set of amplitude signs."""
+    st, n2 = L.uniform(cfgs)
+    st = L.Qstep(st, frame)
+    w, signs = {}, {}
+    for (cfg, regs), amp in st.items():
+        lab = classify(cfg, regs)
+        w[lab] = w.get(lab, Z) + amp * amp / n2
+        signs.setdefault(lab, set()).add('+' if amp > 0 else '-')
+    return w, signs
+
+
+def compression(pR, pRm, qH, idleA, idleB):
+    """M = (1/sqrt3)(a_H + a_+ z R + a_- z^-1 R^-1), matched flags. Returns the data of the comparison with c C(theta)."""
+    aH2, ap2, am2 = qH * idleA, pR * idleB, pRm * idleB
+    shape = (aH2 == 2 * ap2 and ap2 == am2)
+    c2 = 2 * aH2 if shape else None
+    return {'a_H^2': str(aH2), 'a_+^2': str(ap2), 'a_-^2': str(am2), 'balance (b/a)^2 = a_+^2 / a_H^2': str(ap2 / aH2),
+            'M = c C(theta) with C = sqrt(1/6) + sqrt(1/12)(z R + 1/(z R))': shape,
+            'c^2 = tr(M^dag M) = tr Y': str(c2) if shape else str(aH2 + ap2 + am2) + ' (trace only; shape differs)',
+            'Koide Q = (1 + 2 (b/a)^2)/3': str((1 + 2 * ap2 / aH2) / 3)}
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC item 3: the clocked register on sixty addresses', 'provenance': L.provenance()}
+    f = L.F0
+
+    # ---------------- involution checks of the model on random states (exact)
+    random.seed(20261111)
+    cfgs78 = [L.cfg_of(a, b) for a, b in itertools.combinations_with_replacement(range(12), 2)]
+    st = {}
+    for _ in range(200):
+        st[(random.choice(cfgs78), ((random.randrange(4), random.randrange(60)),))] = Fr(random.randint(-9, 9), random.randint(1, 9))
+    st = {k: v for k, v in st.items() if v}
+    inv = {}
+    for name, frame in (('FP', FP), ('FS(F0)', L.frame_screen(f)), ('FE', L.frame_sorted())):
+        inv[name] = {'Q Q = 1': L.Qstep(L.Qstep(st, frame), frame) == st,
+                     'norm kept by Q': L.norm2(L.Qstep(st, frame)) == L.norm2(st),
+                     'W^-1 W = 1': L.Winv(L.W(st, frame), frame) == st}
+    # rotation covariance of the plain-law tick: a carrier rotation acts on ports and on ordered addresses
+    aidx = {pair: k for k, pair in enumerate(L.ADDR)}
+
+    def rotate(state, g):
+        new = {}
+        for (cfg, regs), amp in state.items():
+            c2 = [0] * 12
+            for pt in range(12):
+                c2[g[pt]] += cfg[pt]
+            regs2 = tuple((r, aidx[(g[L.ADDR[k][0]], g[L.ADDR[k][1]])]) for (r, k) in regs)
+            new[(tuple(c2), regs2)] = amp
+        return new
+    small = dict(list(st.items())[:24])                    # 24 random basis terms keep this check short
+    Wsmall = L.W(small, FP)
+    inv['FP']['W commutes with all 60 carrier rotations (24 random basis terms)'] = all(
+        L.W(rotate(small, g), FP) == rotate(Wsmall, g) for g in L.ROTS)
+    inv['R R = 1'] = L.Rstep(L.Rstep(st)) == st
+    inv['norm kept by R'] = L.norm2(L.Rstep(st)) == L.norm2(st)
+    out['model_checks (200 random basis terms, 78 configurations, 4 record values, 60 addresses)'] = inv
+    print('model checks', inv)
+
+    # ---------------- C1 to C3 and A9: compression and signs
+    d = (2, 10)
+    E, C = L.seam_types(f)
+    tail_, head_ = (d if L.screen_sign(f, d[0], d[1]) > 0 else d[::-1])
+    fwd = next(s for s in C if head_ in s)
+    bwd = next(s for s in C if tail_ in s)
+    far2 = next(x for x in range(12) if L.port_distance(2, x) == 2)
+    comp = {}
+    # C1: double load, record flags
+    for name, cfgs in (('DL at port 2', [L.cfg_of(2, 2)]), ('SD on (2,10)', [L.cfg_of(2, 2), L.cfg_of(10, 10)])):
+        for fname, frame in (('FP', FP), ('FS(F0)', L.frame_screen(f))):
+            w, signs = branches(cfgs, frame, lambda cfg, regs: f'record {regs[0][0]}')
+            row = compression(w['record 2'], w['record 3'], w['record 2'] + w['record 3'], w['record 0'], w['record 0'])
+            row['weights'] = {k: str(v) for k, v in sorted(w.items())}
+            row['signs of the branch amplitudes'] = {k: sorted(v) for k, v in sorted(signs.items())}
+            comp[f'C1 {name}, RD-rec, {fname}'] = row
+    # C2: native pair, repair by source endpoint and agree
+    ports = (2, far2)
+
+    def cls_np(cfg, regs):
+        rec, k = regs[0]
+        a, b = L.ADDR[k]
+        la, lb = a in ports, b in ports
+        return 'inactive' if not (la or lb) else 'agree' if rec == 0 else 'repair first' if la else 'repair second'
+    w, signs = branches([L.cfg_of(*ports)], FP, cls_np)
+    row = compression(w['repair first'], w['repair second'], w['agree'], w['inactive'], w['inactive'])
+    row['weights'] = {k: str(v) for k, v in sorted(w.items())}
+    row['signs of the branch amplitudes'] = {k: sorted(v) for k, v in sorted(signs.items())}
+    row['with a fixed positive flag vector'] = ('the repair with the source at the second endpoint enters with a minus sign '
+                                                '(quadrature form); the record sign of FR (V) restores the plus sign')
+    comp[f'C2 NP on {ports}, RN-rec, FP'] = row
+    # C3: FR's hexagon flags on sixty addresses
+
+    def cls_fr(cfg, regs):
+        if regs[0][0] not in (2, 3):
+            return 'blank'
+        pts = tuple(sorted(L.ports_of(cfg)))
+        return 'in-dimer' if pts == tuple(sorted(d)) else 'forward C' if pts == fwd else 'backward C' if pts == bwd else 'off'
+    for fname, frame in (('FP', FP), ('FS(F0)', L.frame_screen(f))):
+        w, signs = branches([L.cfg_of(2, 2), L.cfg_of(10, 10)], frame, cls_fr)
+        row = compression(w['forward C'], w['backward C'], w['in-dimer'], w['blank'], w['blank'])
+        row['weights'] = {k: str(v) for k, v in sorted(w.items())}
+        row['signs of the branch amplitudes'] = {k: sorted(v) for k, v in sorted(signs.items())}
+        comp[f'C3 SD on (2,10), RD-FR, {fname}'] = row
+    # mixed and sequential readings, for the balance
+    comp['RM A = DL, B = NP'] = compression(Fr(1, 12), Fr(1, 12), Fr(1, 6), Fr(5, 6), Fr(2, 3))
+    comp['RD-sense (the seam without sense is not flagged)'] = compression(Fr(1, 15), Fr(1, 15), Fr(1, 6), Fr(5, 6), Fr(5, 6))
+    comp['RD-sector'] = compression(Fr(1, 30), Fr(1, 30), Fr(1, 10), Fr(5, 6), Fr(5, 6))
+    out['compression'] = comp
+    for k, v in comp.items():
+        print('compression', k, {kk: vv for kk, vv in v.items() if kk not in ('weights',)})
+
+    # eigenvalues of C(theta) and of Y = c^2 C^2 (register outputs)
+    th = sp.Symbol('theta', real=True)
+    a_, b_ = sp.sqrt(sp.Rational(1, 6)), sp.sqrt(sp.Rational(1, 12))
+    lam = [a_ + 2 * b_ * sp.cos(th + 2 * sp.pi * k / 3) for k in range(3)]
+    sum_sq = sp.simplify(sum(l ** 2 for l in lam))
+    thv = mp.mpf(2) / 9
+    lv = [mp.sqrt(mp.mpf(1) / 6) + 2 * mp.sqrt(mp.mpf(1) / 12) * mp.cos(thv + 2 * mp.pi * k / 3) for k in range(3)]
+    y = sorted(l * l for l in lv)
+    out['eigenvalues'] = {
+        'lambda_k of C(theta)': 'sqrt(1/6) + (1/sqrt3) cos(theta + 2 pi k/3)', 'sum of squares (tr C^2)': str(sum_sq),
+        'at theta = 2/9: squares of the eigenvalues of C': [mp.nstr(v, 12) for v in y],
+        'ratios of the squares (register outputs, independent of c)': [mp.nstr(y[1] / y[0], 12), mp.nstr(y[2] / y[0], 12)],
+        'rates y_k = c^2 lambda_k^2 for c^2 = 5/18 (double loads)': [mp.nstr(mp.mpf(5) / 18 * v, 12) for v in y],
+        'rates for c^2 = 2/9 (native pairs)': [mp.nstr(mp.mpf(2) / 9 * v, 12) for v in y],
+    }
+    print('eigenvalues', out['eigenvalues'])
+
+    # ---------------- A1, A7: n hold cells
+    a1 = {}
+    for n in (1, 2, 3, 6):
+        q = 1 - Fr(5, 6) ** n
+        p = Fr(1, 12)
+        count = p + q - 2 * p * q
+        bal = (p * Fr(5, 6) ** n) / (q * Fr(5, 6))
+        a1[n] = {'P(H) = 1 - (5/6)^n': str(q), 'count': str(count), 'count as float': round(float(count), 9),
+                 'balance (b/a)^2': str(bal), 'equals 2/9': count == Fr(2, 9)}
+    out['A1_A7_n_hold_cells'] = a1
+    print('A1', a1)
+
+    # ---------------- A2: one carrier, two registers that both address all loads
+    a = 2
+    b = L.antipode(a)
+    cfg0 = L.cfg_of(a, a, b, b)
+    S = {(cfg0, ((0, k1), (0, k2))): Fr(1) for k1 in range(60) for k2 in range(60)}
+    n2 = Fr(len(S))
+    st2 = L.Qstep(S, FP, reg=0)
+    st2, und = L.Qstep(st2, FP, reg=1, strict=False)
+    wR = sum((amp * amp for (cfg, regs), amp in st2.items() if regs[0][0] == 2), Z) / n2
+    wH = sum((amp * amp for (cfg, regs), amp in st2.items() if regs[1][0] in (2, 3)), Z) / n2
+    wj = sum((amp * amp for (cfg, regs), amp in st2.items() if regs[0][0] == 2 and regs[1][0] in (2, 3)), Z) / n2
+    out['A2_one_carrier_two_registers_unlabelled'] = {
+        'ports': [a, b], 'P(R+) = first register reads 2': str(wR), 'P(H) = second register written': str(wH),
+        'P(R+ and H)': str(wj), 'count': str(wR + wH - 2 * wj), 'weight of events with seam total above two': str(und / n2)}
+    print('A2', out['A2_one_carrier_two_registers_unlabelled'])
+
+    # ---------------- A3, A4: echo frame FE
+    FE = L.frame_sorted()
+    a3 = {}
+    for port in range(12):
+        w, _ = branches([L.cfg_of(port, port)], FE, lambda cfg, regs: f'record {regs[0][0]}')
+        outdeg = sum(1 for x in L.ADJ[port] if x > port)
+        a3[port] = {'record 2': str(w.get('record 2', Z)), 'record 3': str(w.get('record 3', Z)), 'out-degree': outdeg,
+                    'record 2 = out-degree/30': w.get('record 2', Z) == Fr(outdeg, 30)}
+    w, _ = branches([L.cfg_of(2, 2), L.cfg_of(10, 10)], FE, lambda cfg, regs: f'record {regs[0][0]}')
+    out['A3_A4_echo_frame'] = {'double load by port': a3,
+                               'equal weights of the records 2 and 3 at some port': any(
+                                   v['record 2'] == v['record 3'] for v in a3.values()),
+                               'SD on (2,10)': {k: str(v) for k, v in sorted(w.items())}}
+    print('A3/A4', {p: (v['record 2'], v['record 3']) for p, v in a3.items()}, out['A3_A4_echo_frame']['SD on (2,10)'])
+
+    # ---------------- A5, A6: cell ensembles over the total-two configurations
+    per_cfg = {}
+    for x, yv in itertools.combinations_with_replacement(range(12), 2):
+        if x == yv:
+            w, _ = branches([L.cfg_of(x, x)], FP, lambda cfg, regs: f'record {regs[0][0]}')
+            per_cfg[(x, yv)] = (w['record 2'], w['record 2'] + w['record 3'])
+        else:
+            pts = (x, yv)
+
+            def cls(cfg, regs, pts=pts):
+                rec, k = regs[0]
+                a_, b_ = L.ADDR[k]
+                la, lb = a_ in pts, b_ in pts
+                return 'kept' if (la and lb) else 'inactive' if not (la or lb) else 'agree' if rec == 0 else \
+                    'rp1' if la else 'rp2'
+            w, _ = branches([L.cfg_of(x, yv)], FP, cls)
+            per_cfg[(x, yv)] = (w['rp1'], w['agree'])
+    good = [c for c, v in per_cfg.items() if v == (Fr(1, 12), Fr(1, 6))]
+
+    def ens(cfg_list):
+        p = sum((per_cfg[c][0] for c in cfg_list), Z) / len(cfg_list)
+        q = sum((per_cfg[c][1] for c in cfg_list), Z) / len(cfg_list)
+        return {'configurations': len(cfg_list), 'P(R+)': str(p), 'P(H)': str(q), 'count (two such cells)': str(p + q - 2 * p * q),
+                'count as float': round(float(p + q - 2 * p * q), 9)}
+    pairs66 = [c for c in per_cfg if c[0] != c[1]]
+    code36 = [c for c in pairs66 if L.port_distance(*c) >= 2]
+    out['A5_A6_cell_ensembles'] = {
+        'configurations with P(R+) = 1/12 and P(H) = 1/6': len(good),
+        'of which doubles, non-adjacent pairs': [sum(1 for c in good if c[0] == c[1]), sum(1 for c in good if c[0] != c[1])],
+        'adjacent pairs': sorted({(str(v[0]), str(v[1])) for c, v in per_cfg.items() if c[0] != c[1] and L.port_distance(*c) == 1}),
+        'uniform over the 66 pairs': ens(pairs66), 'uniform over the 36 non-adjacent pairs (the pairs of the matching code)': ens(code36),
+        'uniform over all 78 total-two configurations': ens(list(per_cfg)),
+    }
+    print('A5/A6', out['A5_A6_cell_ensembles'])
+
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,103 @@
+"""Shared float machinery for worker HT: the cut closure, the rebuilt chain (unification at E_cell), the D11 chart.
+
+The closure functions are the RER ones (paper_math.py: weights d exp(-t C2), SU(2) cutoff 120, SU(3) cutoff 90,
+t = 4 pi^2 alpha); float64 here, gated against the Decimal implementation (paper_math_copy.py) in part0_rebuilt.py.
+"""
+from __future__ import annotations
+
+import functools
+import math
+
+import numpy as np
+
+PHI = (1 + 5 ** 0.5) / 2
+P_FWD = 1.63097209585889737696451390350695562847912625483895268486516
+P_C = 1.630968209403959324879279847782648941
+E_STAR = 1.2208901289579269e19  # display unit of the D11 engine (declared clock candidate)
+
+_j = np.arange(0, 121) / 2.0
+SU2_D = 2 * _j + 1
+SU2_C = _j * (_j + 1)
+_p, _q = np.meshgrid(np.arange(91), np.arange(91), indexing="ij")
+SU3_D = ((_p + 1) * (_q + 1) * (_p + _q + 2) // 2).astype(float).ravel()
+SU3_C = ((_p * _p + _q * _q + _p * _q + 3 * _p + 3 * _q) / 3.0).ravel()
+
+
+def ellbar(t: float, d: np.ndarray, c: np.ndarray) -> float:
+    x = np.log(d) - t * c
+    x -= x.max()
+    w = np.exp(x)
+    return float((w * np.log(d)).sum() / w.sum())
+
+
+def closure_lhs(alpha: float) -> float:
+    t = 4 * math.pi ** 2 * alpha
+    return ellbar(t, SU2_D, SU2_C) + ellbar(t, SU3_D, SU3_C)
+
+
+@functools.lru_cache(maxsize=None)
+def alpha_cell(p: float) -> float:
+    """Root of ellbar_SU2 + ellbar_SU3 = P/4 with one coupling at the cut (DC's cut closure)."""
+    lo, hi = 0.005, 0.5  # lhs decreases with alpha? check sign: larger alpha -> smaller weights of large reps
+    target = p / 4.0
+    flo, fhi = closure_lhs(lo) - target, closure_lhs(hi) - target
+    if flo * fhi > 0:
+        raise ValueError("no bracket")
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        fm = closure_lhs(mid) - target
+        if flo * fm <= 0:
+            hi, fhi = mid, fm
+        else:
+            lo, flo = mid, fm
+    return 0.5 * (lo + hi)
+
+
+def e_cell(p: float, e_star: float = E_STAR) -> float:
+    return e_star / math.sqrt(p)
+
+
+def v_cell(p: float, beta_ew: float = 4.0, e_star: float = E_STAR) -> float:
+    """Transmutation at the cell with the cut coupling: v = E_cell exp(-2 pi/(beta alpha_cell))."""
+    return e_cell(p, e_star) * math.exp(-2 * math.pi / (beta_ew * alpha_cell(p)))
+
+
+# ----- rebuilt chain: unified at E_cell, one loop below -----
+CENSUS = {
+    "SM": (41 / 10, -19 / 6, -7.0),
+    "B": (61 / 10, -7 / 6, -5.0),
+    "B4": (81 / 10, 5 / 6, -3.0),
+    "D": (33 / 5, 1.0, -3.0),
+    "BE": (43 / 5, 3.0, -1.0),
+}
+GL_5TRACE_MSBAR = (12.789548081051228, 12.287991184033615, 10.152257143370933)  # at P_fwd, GL s4_running.json
+GL_BARE = 16.2453
+
+
+def inv_alphas_rebuilt(mu: float, p: float, b, matching: str = "bare", e_star: float = E_STAR):
+    ec = e_cell(p, e_star)
+    a0 = 1.0 / alpha_cell(p)
+    if matching == "bare":
+        x0 = (a0, a0, a0)
+    elif matching == "5trace":
+        x0 = tuple(a0 + (m - GL_BARE) for m in GL_5TRACE_MSBAR)
+    else:
+        raise ValueError(matching)
+    L = math.log(ec / mu)
+    return tuple(x0[i] + b[i] / (2 * math.pi) * L for i in range(3))
+
+
+# ----- D11 chart (SM one-loop running of the D10 packet above Q0, the engine's constants) -----
+D11_ALPHA_Y = 0.010131400543429989
+D11_ALPHA_2 = 0.03377781411239098
+D11_ALPHA_3 = 0.11833586196478191
+D11_MU_Z_OVER_E = 7.501767385088419e-18
+D11_B = (41 / 6, -19 / 6, -7.0)  # (alpha_Y non-GUT, alpha_2, alpha_3)
+
+
+def d11_alphas(mu: float) -> tuple[float, float, float]:
+    """(alpha_Y, alpha_2, alpha_3) on the D11 engine's chart."""
+    mz = D11_MU_Z_OVER_E * E_STAR
+    L = math.log(mu / mz)
+    return tuple(1.0 / (1.0 / a0 - b / (2 * math.pi) * L)
+                 for a0, b in zip((D11_ALPHA_Y, D11_ALPHA_2, D11_ALPHA_3), D11_B))

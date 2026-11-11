@@ -1,0 +1,230 @@
+{
+ "task": "LP direction 3, S9: carrier",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "string from f to f_prime": {
+  "faces": [
+   [
+    4,
+    5,
+    11
+   ],
+   [
+    0,
+    5,
+    11
+   ],
+   [
+    0,
+    1,
+    5
+   ],
+   [
+    0,
+    1,
+    7
+   ],
+   [
+    1,
+    7,
+    8
+   ],
+   [
+    6,
+    7,
+    8
+   ]
+  ],
+  "seams crossed": [
+   [
+    5,
+    11
+   ],
+   [
+    0,
+    5
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    7,
+    8
+   ]
+  ]
+ },
+ "flat links": {
+  "faces with class-3 flux": [],
+  "sectors (states)": {
+   "hard-core": 132,
+   "cycle": 72,
+   "idle": 108
+  },
+  "sectors closed": {
+   "hard-core": true,
+   "cycle": true,
+   "idle": true
+  },
+  "fixed vectors of D": {
+   "hard-core": 1,
+   "cycle": 1
+  },
+  "spectrum of D (MEASURED)": {
+   "hard-core": {
+    "largest": 1.0,
+    "second": 0.953934466292,
+    "smallest": 0.688467890143
+   },
+   "cycle": {
+    "largest": 1.0,
+    "second": 0.992002620668,
+    "smallest": 0.8
+   }
+  },
+  "lowest value of A = 1 - lambda_max (MEASURED)": {
+   "hard-core": 0.0,
+   "cycle": 0.0
+  },
+  "cycle vacuum": {
+   "equal magnitude on its states": true,
+   "states": 72,
+   "double-load weight": "1/6"
+  },
+  "iterated filter on the 78 blank preparations": {
+   "limit weight kept, hard-core": "1",
+   "limit weight kept, double loads": "1/6",
+   "limit of the conditional weight of the cycle sector": "1/7"
+  }
+ },
+ "public central link (0,1)": {
+  "faces with class-3 flux": [
+   [
+    0,
+    1,
+    5
+   ],
+   [
+    0,
+    1,
+    7
+   ]
+  ],
+  "sectors (states)": {
+   "hard-core": 132,
+   "cycle": 72,
+   "idle": 108
+  },
+  "sectors closed": {
+   "hard-core": true,
+   "cycle": true,
+   "idle": true
+  },
+  "fixed vectors of D": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "spectrum of D (MEASURED)": {
+   "hard-core": {
+    "largest": 0.992481675245,
+    "second": 0.958990729983,
+    "smallest": 0.696122555673
+   },
+   "cycle": {
+    "largest": 1.0,
+    "second": 0.992002620668,
+    "smallest": 0.8
+   }
+  },
+  "lowest value of A = 1 - lambda_max (MEASURED)": {
+   "hard-core": 0.007518324755,
+   "cycle": 0.0
+  },
+  "cycle vacuum": {
+   "equal magnitude on its states": true,
+   "states": 72,
+   "double-load weight": "1/6"
+  },
+  "iterated filter on the 78 blank preparations": {
+   "limit weight kept, hard-core": "0",
+   "limit weight kept, double loads": "1/6",
+   "limit of the conditional weight of the cycle sector": "1"
+  }
+ },
+ "class-3 string between f and f_prime": {
+  "faces with class-3 flux": [
+   [
+    4,
+    5,
+    11
+   ],
+   [
+    6,
+    7,
+    8
+   ]
+  ],
+  "sectors (states)": {
+   "hard-core": 132,
+   "cycle": 72,
+   "idle": 108
+  },
+  "sectors closed": {
+   "hard-core": true,
+   "cycle": true,
+   "idle": true
+  },
+  "fixed vectors of D": {
+   "hard-core": 0,
+   "cycle": 1
+  },
+  "spectrum of D (MEASURED)": {
+   "hard-core": {
+    "largest": 0.973334500388,
+    "second": 0.973334500388,
+    "smallest": 0.714437895244
+   },
+   "cycle": {
+    "largest": 1.0,
+    "second": 0.992002620668,
+    "smallest": 0.8
+   }
+  },
+  "lowest value of A = 1 - lambda_max (MEASURED)": {
+   "hard-core": 0.026665499612,
+   "cycle": 0.0
+  },
+  "cycle vacuum": {
+   "equal magnitude on its states": true,
+   "states": 72,
+   "double-load weight": "1/6"
+  },
+  "iterated filter on the 78 blank preparations": {
+   "limit weight kept, hard-core": "0",
+   "limit weight kept, double loads": "1/6",
+   "limit of the conditional weight of the cycle sector": "1"
+  }
+ },
+ "one tick from the uniform double load of the carrier": {
+  "weights": {
+   "backward (hexagon C seams)": "1/120",
+   "double": "5/6",
+   "emission across the other 24 seams": "2/15",
+   "forward (hexagon C seams)": "1/120",
+   "in-dimer (hexagon E seams)": "1/60"
+  },
+  "X for two carriers with separate address registers": "89/3600",
+  "inverse tick restores the state": true
+ },
+ "seconds": 15.01
+}

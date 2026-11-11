@@ -1,0 +1,286 @@
+#!/usr/bin/env python
+"""QF block B. The E0 node kernel of the earlier simulator (oph_fpe/core/patchnet.py, oph_fpe/dynamics/repair.py)
+on its smallest frustrated-capable instance: a triangle (cycle graph of 3 patches), group Z2 (and S3).
+
+State as coded: per patch one group element per incident edge ("port"), one static group element per directed
+edge ("gauge"), plus hidden/scalar fields that do not enter the mismatch.
+
+1. Exact transition matrix of RepairKernel.step for the port configuration (faithful re-implementation of the
+   three random draws: node among active nodes, neighbour, group element; Metropolis acceptance), exact
+   stationary law at fixed a = exp(-beta), comparison with the Gibbs law a^Phi.
+2. Calibration against the code itself: the real RepairKernel is run for many steps at constant beta and the
+   visit frequencies are compared with the exact stationary law (known-answer control), and with the Gibbs
+   law (negative control).
+3. local_best mode of the real code: absorption, role of beta, holonomy conservation, scalar averaging.
+
+Run on a box: python e0_exact.py [steps]  -> e0_exact.json
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import math
+import sys
+from fractions import Fraction
+from multiprocessing import Pool
+
+import networkx as nx
+import numpy as np
+
+from oph_fpe.core.patchnet import PatchNet
+from oph_fpe.defects.holonomy import cycle_holonomy
+from oph_fpe.dynamics.repair import RepairKernel
+from oph_fpe.groups import get_group
+
+NODES = (0, 1, 2)
+DIRECTED = [(0, 1), (1, 0), (1, 2), (2, 1), (0, 2), (2, 0)]  # port (i, j): port of patch i toward j
+
+
+def make_net(group_name, twist):
+    g = nx.cycle_graph(3)
+    for a, b in g.edges:
+        g.edges[a, b]["weight"] = 1.0
+    group = get_group(group_name)
+    net = PatchNet.synchronized(g, group)
+    if twist is not None:
+        net.set_directed_gauge(0, 1, twist)
+    return net, group
+
+
+def exact_chain(group_name, twist, a):
+    """Transition matrix of the port configuration under mode='random_port', hot_metropolis=True."""
+    net, group = make_net(group_name, twist)
+    elems = list(group.elements)
+    k = len(elems)
+    eidx = {e: i for i, e in enumerate(elems)}
+    gauge = {(i, j): net.states[i].gauges[j] for (i, j) in DIRECTED}
+    mul = {(x, y): group.multiply(x, y) for x in elems for y in elems}
+
+    def mism(cfg, i, j):
+        return cfg[DIRECTED.index((i, j))] != mul[(gauge[(i, j)], cfg[DIRECTED.index((j, i))])]
+
+    states = list(itertools.product(elems, repeat=6))
+    index = {s: n for n, s in enumerate(states)}
+    nbrs = {0: (1, 2), 1: (0, 2), 2: (0, 1)}
+    phi = []
+    rows = []
+    for s in states:
+        mis = {(i, j): mism(s, i, j) for (i, j) in ((0, 1), (1, 2), (0, 2))}
+        mis.update({(j, i): v for (i, j), v in list(mis.items())})
+        phi.append(sum(1 for (i, j) in ((0, 1), (1, 2), (0, 2)) if mis[(i, j)]))
+        active = sorted({i for (i, j), v in mis.items() if v})
+        pool = active if active else list(NODES)
+        row = {}
+        for node in pool:
+            for nb in nbrs[node]:
+                pos = DIRECTED.index((node, nb))
+                for val in elems:
+                    t = list(s)
+                    t[pos] = val
+                    t = tuple(t)
+                    after = mism(t, node, nb)
+                    d = int(after) - int(mis[(node, nb)])
+                    p = Fraction(1, len(pool) * 2 * k)
+                    acc = Fraction(1) if d <= 0 else a
+                    j = index[t]
+                    row[j] = row.get(j, Fraction(0)) + p * acc
+                    if acc != 1:
+                        me = index[s]
+                        row[me] = row.get(me, Fraction(0)) + p * (1 - acc)
+        rows.append(row)
+    return states, phi, rows
+
+
+def stationary_exact(rows):
+    """Solve pi P = pi exactly (Fractions) by Gaussian elimination; small state spaces only."""
+    n = len(rows)
+    # (P^T - I) pi = 0 with normalisation
+    m = [[Fraction(0)] * (n + 1) for _ in range(n)]
+    for i, row in enumerate(rows):
+        for j, p in row.items():
+            m[j][i] += p
+    for i in range(n):
+        m[i][i] -= 1
+    m[n - 1] = [Fraction(1)] * n + [Fraction(1)]
+    for col in range(n):
+        piv = next(r for r in range(col, n) if m[r][col] != 0)
+        m[col], m[piv] = m[piv], m[col]
+        inv = 1 / m[col][col]
+        m[col] = [x * inv for x in m[col]]
+        for r in range(n):
+            if r != col and m[r][col] != 0:
+                f = m[r][col]
+                m[r] = [x - f * y for x, y in zip(m[r], m[col])]
+    return [m[i][n] for i in range(n)]
+
+
+def stationary_float(rows, iters=4000):
+    import scipy.sparse as sp
+
+    n = len(rows)
+    r, c, v = [], [], []
+    for i, row in enumerate(rows):
+        for j, p in row.items():
+            r.append(i)
+            c.append(j)
+            v.append(float(p))
+    pm = sp.csr_matrix((v, (r, c)), shape=(n, n)).T.tocsr()
+    pi = np.full(n, 1.0 / n)
+    for _ in range(iters):
+        nxt = pm @ pi
+        if np.max(np.abs(nxt - pi)) < 1e-15:
+            pi = nxt
+            break
+        pi = nxt
+    return pi / pi.sum()
+
+
+def run_code_chain(args):
+    """Real code: RepairKernel(mode='random_port', hot_metropolis=True) at constant beta on the Z2 triangle."""
+    seed, steps, beta, twist = args
+    net, group = make_net("Z2", twist)
+    kernel = RepairKernel(mode="random_port", hot_metropolis=True, seed=seed)
+    counts = np.zeros(64, dtype=np.int64)
+    burn = 2000
+    thin = 20  # one sample every 20 kernel steps, to weaken the autocorrelation of the samples
+    for t in range(steps * thin + burn):
+        kernel.step(net, 0, beta)
+        if t >= burn and (t - burn) % thin == 0:
+            code = 0
+            for (i, j) in DIRECTED:
+                code = code * 2 + int(net.states[i].ports[j])
+            counts[code] += 1
+    return counts
+
+
+def local_best_code(group_name, twist, seeds):
+    """Real code: local_best mode from random port configurations."""
+    out = {"runs": 0, "absorbed": 0, "steps_to_zero_max": 0, "metropolis_events": 0, "holonomy_changed": 0,
+           "accepted_increases": 0}
+    steps_hist = {}
+    scalar_shift = []
+    for seed in seeds:
+        g = nx.cycle_graph(3)
+        for a, b in g.edges:
+            g.edges[a, b]["weight"] = 1.0
+        group = get_group(group_name)
+        net = PatchNet.random(g, group, seed=seed)
+        if twist is not None:
+            net.set_directed_gauge(0, 1, group.multiply(net.states[0].gauges[1], twist))
+        hol0 = cycle_holonomy(net, [0, 1, 2])
+        mean0 = float(np.mean([net.states[i].scalar for i in NODES]))
+        kernel = RepairKernel(mode="local_best_plus_metropolis_hot_phase", hot_metropolis=True, seed=seed + 7)
+        t0 = None
+        for t in range(400):
+            ev = kernel.step(net, 0, 0.05)  # hot: beta small, Metropolis would accept increases often
+            if ev.reason == "metropolis_hot":
+                out["metropolis_events"] += 1
+            if ev.delta_phi > 0:
+                out["accepted_increases"] += 1
+            if t0 is None and net.total_phi() == 0:
+                t0 = t + 1
+        out["runs"] += 1
+        if net.total_phi() == 0:
+            out["absorbed"] += 1
+        steps_hist[t0] = steps_hist.get(t0, 0) + 1
+        out["steps_to_zero_max"] = max(out["steps_to_zero_max"], t0 or 0)
+        if cycle_holonomy(net, [0, 1, 2]) != hol0:
+            out["holonomy_changed"] += 1
+        sc = [net.states[i].scalar for i in NODES]
+        scalar_shift.append((float(np.mean(sc)) - mean0, float(np.std(sc))))
+    out["steps_to_zero_histogram"] = {str(k): v for k, v in sorted(steps_hist.items(), key=lambda kv: (kv[0] is None, kv[0]))}
+    sh = np.array(scalar_shift)
+    out["scalar_final_spread_max"] = float(sh[:, 1].max())
+    out["scalar_mean_shift_rms"] = float(np.sqrt(np.mean(sh[:, 0] ** 2)))
+    out["scalar_mean_shift_max_abs"] = float(np.abs(sh[:, 0]).max())
+    return out
+
+
+def main():
+    steps = int(sys.argv[1]) if len(sys.argv) > 1 else 400000
+    res = {}
+    # 1. exact chains, Z2 triangle, trivial and nontrivial holonomy
+    for a in (Fraction(1, 2), Fraction(1, 10)):
+        for twist, name in ((None, "holonomy trivial"), (1, "holonomy nontrivial")):
+            states, phi, rows = exact_chain("Z2", twist, a)
+            pi = stationary_exact(rows)
+            gib = [a ** p for p in phi]
+            z = sum(gib)
+            gib = [x / z for x in gib]
+            by_phi = {}
+            for p, x in zip(phi, pi):
+                by_phi.setdefault(p, set()).add(x)
+            ratio = {}
+            for p in sorted(by_phi):
+                vals = sorted(by_phi[p])
+                ratio[str(p)] = {"distinct_stationary_values": [str(v) for v in vals],
+                                 "ratio_to_Phi0_state": [str(v / sorted(by_phi[0])[0]) for v in vals],
+                                 "gibbs_ratio": str(a ** p)}
+            mass = {str(p): str(sum(x for q, x in zip(phi, pi) if q == p)) for p in sorted(by_phi)}
+            gmass = {str(p): str(sum(x for q, x in zip(phi, gib) if q == p)) for p in sorted(by_phi)}
+            res[f"Z2 triangle, a={a}, {name}"] = {
+                "state_count": len(states),
+                "stationary_is_gibbs": pi == gib,
+                "stationary_is_uniform": len(set(pi)) == 1,
+                "per_state_weight_by_Phi": ratio,
+                "stationary_mass_by_Phi": mass,
+                "gibbs_mass_by_Phi": gmass,
+                "min_Phi": min(phi),
+                "states_with_Phi0": sum(1 for p in phi if p == 0),
+            }
+            if a == Fraction(1, 2):
+                res[f"_pi_{name}"] = [float(x) for x in pi]
+                res[f"_gibbs_{name}"] = [float(x) for x in gib]
+    # S3 triangle (46656 port configurations), floats
+    for twist, name in ((None, "holonomy trivial"), ((1, 2, 0), "holonomy 3-cycle")):
+        states, phi, rows = exact_chain("S3", twist, Fraction(1, 2))
+        pi = stationary_float(rows)
+        phi = np.array(phi)
+        w = 0.5 ** phi
+        w = w / w.sum()
+        res[f"S3 triangle, a=1/2, {name}"] = {
+            "state_count": len(states),
+            "stationary_mass_by_Phi": {str(p): float(pi[phi == p].sum()) for p in range(4)},
+            "gibbs_mass_by_Phi": {str(p): float(w[phi == p].sum()) for p in range(4)},
+            "per_state_weight_ratio_to_Phi0": {str(p): [float(pi[phi == p].min() / pi[phi == 0].max()),
+                                                        float(pi[phi == p].max() / pi[phi == 0].min())] for p in range(4)},
+            "max_abs_difference_to_gibbs": float(np.max(np.abs(pi - w))),
+            "min_Phi": int(phi.min()),
+        }
+    # 2. calibration against the real code (Z2 triangle, a = 1/2), both holonomy sectors
+    beta = math.log(2.0)
+    for twist, name in ((None, "holonomy trivial"), (1, "holonomy nontrivial")):
+        with Pool(8) as pool:
+            parts = pool.map(run_code_chain, [(1000 + s, steps, beta, twist) for s in range(8)])
+        counts = np.sum(parts, axis=0)
+        total = counts.sum()
+        pi = np.array(res[f"_pi_{name}"])
+        gib = np.array(res[f"_gibbs_{name}"])
+        # order of the exact states: itertools.product over (0,1)^6 in DIRECTED order = same binary code
+        chi_exact = float(np.sum((counts - total * pi) ** 2 / (total * pi)))
+        chi_gibbs = float(np.sum((counts - total * gib) ** 2 / (total * gib)))
+        res[f"code calibration, Z2 triangle, a=1/2, {name}"] = {
+            "steps_total": int(total),
+            "chi2_against_exact_stationary (63 dof, correlated samples)": chi_exact,
+            "chi2_against_gibbs": chi_gibbs,
+            "max_abs_frequency_error_exact": float(np.max(np.abs(counts / total - pi))),
+            "max_abs_frequency_error_gibbs": float(np.max(np.abs(counts / total - gib))),
+            "empirical_mass_Phi0": float(sum(c for c, p in zip(counts, exact_phi_z2(twist)) if p == 0) / total),
+        }
+    del res["_pi_holonomy trivial"], res["_pi_holonomy nontrivial"]
+    del res["_gibbs_holonomy trivial"], res["_gibbs_holonomy nontrivial"]
+    # 3. local_best on the real code
+    res["local_best real code, Z2 triangle, random links"] = local_best_code("Z2", None, range(2000))
+    res["local_best real code, S3 triangle, random links"] = local_best_code("S3", None, range(2000))
+    with open("e0_exact.json", "w") as fh:
+        json.dump(res, fh, indent=1)
+    print(json.dumps(res, indent=1))
+
+
+def exact_phi_z2(twist):
+    _, phi, _ = exact_chain("Z2", twist, Fraction(1, 2))
+    return phi
+
+
+if __name__ == "__main__":
+    main()

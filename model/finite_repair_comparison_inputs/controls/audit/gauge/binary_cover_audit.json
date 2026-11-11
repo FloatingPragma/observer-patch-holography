@@ -1,0 +1,20 @@
+{
+  "status": "EXACT finite mixed-spin obstruction and allowed cover witness",
+  "carrier_Klein_four_commutes": true,
+  "implementer_commutator": "diag(I3,-I2)",
+  "implementer_commutator_is_scalar": false,
+  "A5_to_PU5_mixed_spin_action_exists": false,
+  "block_phase_choices_cannot_remove_commutator": true,
+  "local_cover_order": 8,
+  "local_carrier_quotient_order": 4,
+  "cover_kernel": [
+    "I5",
+    "diag(I3,-I2)"
+  ],
+  "kernel_centralizes_entire_3plus2_response_algebra": true,
+  "kernel_element_in_response_connected_group": true,
+  "kernel_equals_exp_i_pi_Q": true,
+  "full_binary_icosahedral_source_history_constructed": false,
+  "A2_requires_homomorphic_carrier_to_holonomy_section": false,
+  "premise_evidence": "Lean/Screen/A2HolonomyBridge.lean lines 26-48, 71-81, 113-125; paper/tex_fragments/PREMISE_BASIS.tex lines 59-91"
+}

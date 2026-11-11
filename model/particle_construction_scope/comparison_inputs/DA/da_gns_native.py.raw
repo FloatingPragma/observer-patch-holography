@@ -1,0 +1,146 @@
+"""Worker DA, part 3: the premises of the finite tracial-GNS balance lane replaced by the native record weights.
+
+Run from the RER checkout (read only):
+  cd reverse-engineering-reality && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:../repair-law/work/DA \
+    /tmp/oph-completion-venv/bin/python ../repair-law/work/DA/da_gns_native.py ../repair-law/work/DA/gns_native.json
+
+Reads the complete 128-label native seam menu (C instrument on seam (2,3), E instrument on seam (2,10)) through
+model.common_source.native_repair_mass.native_records and model.common_source.native_code_transport. No measured value.
+Exact arithmetic (sympy rationals and radicals).
+"""
+import json
+import sys
+
+import sympy as s
+
+from model.common_source import native_repair_mass as repair
+from model.common_source import native_code_transport as transport
+
+rows = repair.native_records()  # (cc, cr, ec, er, plus_flag, weight)
+
+# label weights of each instrument separately
+c_labels = {}
+for cc in (0, 1):
+    for cr in range(4):
+        c_labels[(cc, cr)] = s.Rational(transport.code.branch_weight('C', (2, 3), cc, cr))
+e_labels = {}
+for ec in (0, 1):
+    for er in range(8):
+        e_labels[(ec, er)] = s.Rational(transport.PAIR_CODES['E'].branch_weight('E', (2, 10), ec, er))
+images_c = {k: len(transport.code.branch_images('C', (2, 3), *k)[0]) for k in c_labels}
+images_e = {k: len(transport.PAIR_CODES['E'].branch_images('E', (2, 10), *k)[0]) for k in e_labels}
+
+assert sum(c_labels.values()) == 1 and sum(e_labels.values()) == 1
+
+
+def prob(pred):
+    return sum(w for cc, cr, ec, er, _, w in rows if pred(cc, cr, ec, er))
+
+
+plus = lambda cc, cr, ec, er: cc == 0 and cr == 1      # oriented current +1
+minus = lambda cc, cr, ec, er: cc == 1 and cr == 2     # oriented current -1
+hold = lambda cc, cr, ec, er: ec == 0 and er in (4, 5)  # hold record E at coin 0
+
+p_plus, p_minus, q_hold = prob(plus), prob(minus), prob(hold)
+joint_c_e = prob(lambda *a: (plus(*a) or minus(*a)) and hold(*a))
+excl = {
+    'hold_only': prob(lambda *a: hold(*a) and not (plus(*a) or minus(*a))),
+    'plus_only': prob(lambda *a: plus(*a) and not hold(*a)),
+    'minus_only': prob(lambda *a: minus(*a) and not hold(*a)),
+    'hold_and_current': joint_c_e,
+    'rest': prob(lambda *a: not (hold(*a) or plus(*a) or minus(*a))),
+}
+assert sum(excl.values()) == 1
+
+# GNS replacement: singlet block = hold record, charged block = the two oriented current records.
+# Four readings of the coin: the hold record E read at coin 0 only or at both coin values (raw4, raw5 at coin 0;
+# raw4, raw6 at coin 1), the current read at coin 0 only (one orientation) or at both coin values (both orientations).
+hold_b = lambda cc, cr, ec, er: (ec == 0 and er in (4, 5)) or (ec == 1 and er in (4, 6))
+cur_0 = plus
+cur_b = lambda *a: plus(*a) or minus(*a)
+out = {'labels': {}, 'readings': {}}
+for name, (hp, cp, both_orient) in {
+    'hold coin0, current both coins (Particles/04 reading)': (hold, cur_b, True),
+    'hold both coins, current both coins': (hold_b, cur_b, True),
+    'hold coin0, current coin0': (hold, cur_0, False),
+    'hold both coins, current coin0': (hold_b, cur_0, False),
+}.items():
+    for mode in ('marginal', 'exclusive'):
+        if mode == 'marginal':
+            p0 = prob(hp); pc = prob(cp)
+        else:
+            p0 = prob(lambda *a: hp(*a) and not cp(*a)); pc = prob(lambda *a: cp(*a) and not hp(*a))
+        rec = {'p0_singlet_block': str(p0), 'pc_charged_block': str(pc), 'both_orientations_present': both_orient,
+               'exactly_one_of_the_two_blocks': str(prob(lambda *a: hp(*a) != cp(*a))),
+               'per_branch_exclusive_P(C+ xor hold)': str(prob(lambda *a: hp(*a) != plus(*a))),
+               'per_branch_exclusive_P(C- xor hold)': str(prob(lambda *a: hp(*a) != minus(*a)))}
+        if both_orient:
+            a = s.sqrt(p0); b = s.sqrt(pc / 2)
+            ratio = s.radsimp(b / a); Q = s.simplify((1 + 2 * (b / a) ** 2) / 3)
+            rec.update({'a': str(a), 'abs_b': str(b), 'abs_b_over_a': str(ratio), 'Q': str(Q),
+                        'sum_of_Fourier_probabilities_3(a^2+2|b|^2)': str(s.simplify(3 * (a ** 2 + 2 * b ** 2))),
+                        'balanced': bool(s.simplify(ratio - 1 / s.sqrt(2)) == 0)})
+        else:
+            rec.update({'note': 'one orientation only: the operator sqrt(p0) I + sqrt(pc) R is not Hermitian; no circulant mass carrier'})
+        out['readings'][f'{name} [{mode}]'] = rec
+
+# circulant with these amplitudes: Fourier probabilities sum (used by the scale part)
+theta = s.symbols('theta', real=True)
+lam = [s.sqrt(q_hold) + 2 * s.sqrt(p_plus) * s.cos(theta + 2 * s.pi * k / 3) for k in range(3)]
+sum_lam2 = s.nsimplify(s.simplify(s.expand_trig(s.expand(sum(l ** 2 for l in lam)))))
+num_checks = [abs(complex(sum(l ** 2 for l in lam).subs(theta, t).evalf(40)) - 1) < 1e-35 for t in (0, s.Rational(2, 9), s.Rational(1, 3), 1)]
+sum_lam = s.simplify(sum(lam))
+
+# the phase identity of the record menu (LNAT owns the phase; this is only the identity on the same menu)
+c0_plus = p_plus
+exactly_one_coin0 = prob(lambda *a: plus(*a) != hold(*a))
+
+out['labels'] = {
+    'C_label_weights': {f'coin{k[0]}_raw{k[1]}': str(v) for k, v in c_labels.items() if v},
+    'C_label_code_images': {f'coin{k[0]}_raw{k[1]}': images_c[k] for k in c_labels if images_c[k]},
+    'E_label_weights': {f'coin{k[0]}_raw{k[1]}': str(v) for k, v in e_labels.items() if v},
+    'E_label_code_images': {f'coin{k[0]}_raw{k[1]}': images_e[k] for k in e_labels if images_e[k]},
+    'weight_of_one_code_image': '1/12',
+}
+out['native_weights'] = {
+    'p_plus (coin0, raw1)': str(p_plus), 'p_minus (coin1, raw2)': str(p_minus),
+    'q_hold (coin0, raw4 or raw5)': str(q_hold),
+    'q_equals_2p': bool(q_hold == 2 * p_plus == 2 * p_minus),
+    'exclusive_partition': {k: str(v) for k, v in excl.items()},
+    'instruments_independent': bool(joint_c_e == (p_plus + p_minus) * q_hold),
+}
+out['circulant_with_native_amplitudes'] = {
+    'C': 'sqrt(q) I + sqrt(p) (e^{i theta} R + e^{-i theta} R^2)',
+    'sum_lambda': str(sum_lam), 'sum_lambda_squared': str(sum_lam2),
+    'note': 'the three Fourier probabilities lambda_k^2 sum to 3(q + 2p) = 1 for every theta',
+}
+out['phase_identity_same_menu'] = {
+    'P(exactly one of (coin0,raw1) and E at coin 0)': str(exactly_one_coin0),
+    'equals_2_9': bool(exactly_one_coin0 == s.Rational(2, 9)),
+    'owner': 'LNAT (phase mechanism); listed here only as the identity on the menu read above',
+}
+out['premise_map'] = [
+    {'id': 'G1', 'lane': 'two-state orientation register (write/verify), R_m_rep_24', 'native': 'coin of the C instrument: (coin0, raw1) current +1, (coin1, raw2) current -1, one code image each', 'status': 'replaced, EXACT'},
+    {'id': 'G2', 'lane': 'connected M6 algebra in its maximally mixed state', 'native': 'no state is chosen: the record probabilities are the products of the C and E branch weights of the actual menu', 'status': 'replaced, EXACT'},
+    {'id': 'G3', 'lane': 'admissibility event with equal ranks 2 and 2 (asymmetric block choice)', 'native': 'hold block = two code images (raw4, raw5 at coin 0); charged block = one code image per orientation; equal weights q = 2p = 1/6 (marginal) and 10/72 = 5/72 + 5/72 (exclusive). The equality holds in the reading with the hold read at one coin value and the current at both; with the hold read at both coin values (raw4, raw6 at coin 1 included) the ratio is 1/2 and Q = 1/2', 'status': 'replaced, EXACT, conditional on the coin reading'},
+    {'id': 'G4', 'lane': 'Born-Lueders conditioning', 'native': 'marginal or exclusive reading of the same menu; both give p0 = pc in the Particles/04 coin reading', 'status': 'replaced, EXACT'},
+    {'id': 'G5', 'lane': 'a = sqrt(p0), abs(b) = sqrt(pc/2); sqrt(m_k) = eigenvalue', 'native': 'Stinespring amplitudes = square roots of record weights (phases free by the Kraus-phase theorem); the square m = lambda^2 is the product of two amplitude blocks in Y = C^2/3', 'status': 'amplitude rule native up to phases; the square is a premise of the readout'},
+    {'id': 'G6', 'lane': 'regular C3 three-family carrier', 'native': 'order-3 element gE gC of the two native half-turns', 'status': 'LNAT'},
+    {'id': 'G7', 'lane': 'positive chamber', 'native': 'delta = 2/9 < pi/12', 'status': 'holds at the native phase'},
+    {'id': 'G8', 'lane': 'recoverable physical attachment', 'native': 'none', 'status': 'open'},
+]
+checks = {
+    'q_equals_2p': out['native_weights']['q_equals_2p'],
+    'balance_in_particles04_reading_marginal': out['readings']['hold coin0, current both coins (Particles/04 reading) [marginal]']['balanced'],
+    'balance_in_particles04_reading_exclusive': out['readings']['hold coin0, current both coins (Particles/04 reading) [exclusive]']['balanced'],
+    'no_balance_when_hold_read_at_both_coins': not out['readings']['hold both coins, current both coins [marginal]']['balanced'],
+    'fourier_probabilities_sum_to_one': (sum_lam2 == 1) or all(num_checks),
+    'phase_identity': out['phase_identity_same_menu']['equals_2_9'],
+    'per_branch_2_9_in_balanced_reading': out['readings']['hold coin0, current both coins (Particles/04 reading) [marginal]']['per_branch_exclusive_P(C+ xor hold)'] == '2/9' and out['readings']['hold coin0, current both coins (Particles/04 reading) [marginal]']['per_branch_exclusive_P(C- xor hold)'] == '2/9',
+}
+out['checks'] = checks
+out['checks_pass'] = all(checks.values())
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+print(json.dumps({'native_weights': out['native_weights'], 'readings': out['readings'],
+                  'circulant': out['circulant_with_native_amplitudes'], 'labels': out['labels'],
+                  'checks': checks}, indent=1))

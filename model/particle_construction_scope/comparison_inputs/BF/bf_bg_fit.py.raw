@@ -1,0 +1,229 @@
+"""BF sections D and E: logarithm coefficient and MSbar matching constants from the raw series of bf_bg_compute.py.
+
+Per series (magnetic at xi in {1, 2, 4, 8, 16, inf}; electric at xi in {1, 2, 4, 8, 16}):
+  d(phi) = [eps(phi) - eps(0)]/phi^2 for one complex unit-charge link field (type A: C = cos(phi/2), S = sin(phi/2)).
+  D1  free fit d = A ln(phi) + B + phi (c1 + c2 ln phi) + c3 phi^2; A against the continuum 11/(48 pi^2).
+  E1  m(phi) = d - (11/(48 pi^2)) (ln(phi) - c), c = 1.03648 (MSbar); m0 = lim phi -> 0 from fits in several windows.
+Electric constants are extrapolated to xi = infinity (Hamiltonian limit).
+Group algebra (CANDIDATES.md, addendum 08:16 and the trace identity below):
+  1/g_MS^2(mu = 1/a) - 1/g^2 = C_A (m + w/8) - (w/2) tr_F(Chat H^2)/kappa_F, Chat = sum of the squares of all twelve
+  generators in F, H a normalized generator of the factor; magnetic and electric parts averaged.
+Validation: xi = 1 against the Wilson values Lambda_MSbar/Lambda_L = 19.82, 28.81 (IMPORTED from memory).
+Writes bf_bg_fit.json.
+"""
+import json
+import sys
+
+import numpy as np
+
+import bf_lib as L
+
+A_CONT = 11 / (48 * np.pi ** 2)
+val = json.load(open('bf_bg_validate.json'))
+C_MS = val['V5_MSbar_constant']['c_numeric']
+out = {'continuum_log_coefficient_per_complex_unit_charge_field': A_CONT, 'c_MSbar': C_MS}
+
+
+def series(kind, xi):
+    if kind == 'magnetic' or xi == 1.0:
+        rows = json.load(open('bf_bg_data_iso.json'))['rows']
+        return np.array([r['phi'] for r in rows]), np.array([r['d'][str(float(xi))] for r in rows])
+    rows = json.load(open(f'bf_bg_data_aniso_{int(xi)}.json'))['rows']
+    return np.array([r['phi'] for r in rows]), np.array([r['d'] for r in rows])
+
+
+def lsq(cols, y):
+    X = np.column_stack(cols)
+    sc = np.linalg.norm(X, axis=0)
+    c, *_ = np.linalg.lstsq(X / sc, y, rcond=None)
+    return c / sc, float(np.max(np.abs(X @ (c / sc) - y)))
+
+
+def free_fit(phi, d, pmax, npar):
+    s = phi <= pmax
+    p, y = phi[s], d[s]
+    cols = [np.log(p), np.ones_like(p), p, p * np.log(p), p ** 2][:npar]
+    c, res = lsq(cols, y)
+    return float(c[0]), res, int(s.sum())
+
+
+def const_fit(phi, d, pmax, npar):
+    s = phi <= pmax
+    p = phi[s]
+    m = d[s] - A_CONT * (np.log(p) - C_MS)
+    cols = [np.ones_like(p), p, p * np.log(p), p ** 2, p ** 2 * np.log(p)][:npar]
+    c, res = lsq(cols, m)
+    return float(c[0]), res, int(s.sum())
+
+
+fits = {}
+m0 = {}
+for kind, xis in (('magnetic', [1.0, 2.0, 4.0, 8.0, 16.0, np.inf]), ('electric', [1.0, 2.0, 4.0, 8.0, 16.0])):
+    for xi in xis:
+        phi, d = series(kind, xi)
+        two_pt = [float((d[i] - d[j]) / np.log(phi[i] / phi[j])) for i, j in zip(range(len(phi) - 2), range(2, len(phi)))
+                  if abs(phi[i] / phi[j] - 2) < 1e-9]
+        fr = {f'phi<={pm}, {npar} parameters': dict(zip(('A', 'max_residual', 'points'), free_fit(phi, d, pm, npar)))
+              for pm in (0.03, 0.07, 0.15) for npar in (4, 5) if (phi <= pm).sum() >= npar + 2}
+        cf = {f'phi<={pm}, {npar} parameters': dict(zip(('m0', 'max_residual', 'points'), const_fit(phi, d, pm, npar)))
+              for pm in (0.03, 0.07, 0.15, 0.4) for npar in (3, 4, 5) if (phi <= pm).sum() >= npar + 2}
+        mvals = np.array([v['m0'] for v in cf.values()])
+        avals = np.array([v['A'] for v in fr.values()])
+        raw = d - A_CONT * (np.log(phi) - C_MS)
+        key = f'{kind}, xi={xi}'
+        m0[(kind, xi)] = (float(np.median(mvals)), float(mvals.max() - mvals.min()))
+        fits[key] = {'smallest_flux': float(phi.min()), 'largest_flux': float(phi.max()),
+                     'two_point_slopes_over_one_doubling (last five)': two_pt[-5:],
+                     'last_two_point_slope_over_continuum': two_pt[-1] / A_CONT if two_pt else None,
+                     'free_fits_A': fr, 'A_over_continuum (median, spread)': [float(np.median(avals) / A_CONT),
+                                                                           float((avals.max() - avals.min()) / A_CONT)],
+                     'm(phi) at the three smallest fluxes': raw[np.argsort(phi)[:3]].tolist(),
+                     'constant_fits_m0': cf, 'm0 (median, spread)': list(m0[(kind, xi)])}
+        print(key, 'A/A_cont', fits[key]['A_over_continuum (median, spread)'], 'm0', fits[key]['m0 (median, spread)'],
+              'raw', np.round(fits[key]['m(phi) at the three smallest fluxes'], 7), flush=True)
+out['fits'] = fits
+
+# variants: second weight pair
+var = json.load(open('bf_bg_data_variant.json'))['rows']
+iso = {r['n']: r for r in json.load(open('bf_bg_data_iso.json'))['rows']}
+refs = val['V6_references']
+vchk = []
+for r in var:
+    gam = 1 / 8 if 'phi/2' in r['variant'] else 1 / 72
+    for xi, w in (('1.0', refs['1.0']['w_sigma']), ('inf', refs['inf']['w_sigma'])):
+        vchk.append({'variant': r['variant'], 'n': r['n'], 'xi': xi, 'd_variant_minus_d_typeA': r['d'][xi] - iso[r['n']]['d'][xi],
+                     'predicted_-gamma_w': -gam * w})
+out['variant_check'] = {'rows_at_n=4096': [v for v in vchk if v['n'] == 4096],
+                        'max_abs_deviation_at_n=4096': max(abs(v['d_variant_minus_d_typeA'] - v['predicted_-gamma_w']) for v in vchk if v['n'] == 4096)}
+print('variant', out['variant_check'], flush=True)
+
+# electric constant in the Hamiltonian limit
+xs = np.array([2.0, 4.0, 8.0, 16.0])
+mt = np.array([m0[('electric', x)][0] for x in xs])
+ext = {}
+for name, cols, sel in (('a + b/xi^2 on xi = 8, 16', lambda x: [np.ones_like(x), x ** -2.0], [2, 3]),
+                        ('a + b/xi on xi = 8, 16', lambda x: [np.ones_like(x), 1 / x], [2, 3]),
+                        ('a + b/xi + c/xi^2 on xi = 4, 8, 16', lambda x: [np.ones_like(x), 1 / x, x ** -2.0], [1, 2, 3]),
+                        ('a + b/xi^2 + c/xi^4 on xi = 4, 8, 16', lambda x: [np.ones_like(x), x ** -2.0, x ** -4.0], [1, 2, 3]),
+                        ('a + b ln(xi)/xi^2 + c/xi^2 on xi = 4, 8, 16', lambda x: [np.ones_like(x), np.log(x) / x ** 2, x ** -2.0], [1, 2, 3])):
+    c, _ = lsq(cols(xs[sel]), mt[sel])
+    ext[name] = float(c[0])
+ev = np.array(list(ext.values()))
+m_tau_inf = (float(np.median(ev)), float(ev.max() - ev.min()))
+out['electric_constant_Hamiltonian_limit'] = {'m_tau(xi)': {str(x): float(v) for x, v in zip(xs, mt)}, 'extrapolations': ext,
+                                              'm_tau(inf) (median, spread)': list(m_tau_inf)}
+print('m_tau(inf)', out['electric_constant_Hamiltonian_limit'], flush=True)
+
+# constants per anisotropy
+tab = {}
+for xi in (1.0, 2.0, 4.0, 8.0, 16.0, np.inf):
+    ms = m0[('magnetic', xi)]
+    mtau = m_tau_inf if np.isinf(xi) else m0[('electric', xi)]
+    r = refs[str(xi)]
+    tab[xi] = {'m_sigma': ms[0], 'm_tau': mtau[0], 'w_sigma': r['w_sigma'], 'w_tau': r['w_tau'],
+               'm_bar': (ms[0] + mtau[0]) / 2, 'w_bar': (r['w_sigma'] + r['w_tau']) / 2,
+               'uncertainty_m_bar': (ms[1] + mtau[1]) / 2}
+out['constants_per_anisotropy'] = {str(k): v for k, v in tab.items()}
+
+# single-factor SU(N): delta = N (m - w/8) + w/(4N); Lambda ratios
+lam = {}
+for xi, t in tab.items():
+    row = {}
+    for N in (2, 3):
+        dl = {k: N * (t[f'm_{k}'] - t[f'w_{k}'] / 8) + t[f'w_{k}'] / (4 * N) for k in ('sigma', 'tau')}
+        dphys = (dl['sigma'] + dl['tau']) / 2
+        b0 = 11 * N / 3
+        row[f'SU({N})'] = {'delta_sigma': dl['sigma'], 'delta_tau': dl['tau'], 'delta_phys = 1/g_MS^2 - 1/g^2': dphys,
+                           'Lambda_MSbar/Lambda_lattice': float(np.exp(-8 * np.pi ** 2 / b0 * dphys)),
+                           'delta_inv_alpha': 4 * np.pi * dphys,
+                           'wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2': (dl['sigma'] - dl['tau']) / 2}
+    lam[str(xi)] = row
+imported = {'SU(2)': 38.852704 * np.exp(-3 * np.pi ** 2 / 44), 'SU(3)': 38.852704 * np.exp(-3 * np.pi ** 2 / 99)}
+out['single_factor_Kogut_Susskind_and_Wilson'] = lam
+out['validation_against_IMPORTED_values'] = {
+    'Wilson Lambda_MSbar/Lambda_L (IMPORTED from memory)': imported,
+    'computed at xi = 1': {k: lam['1.0'][k]['Lambda_MSbar/Lambda_lattice'] for k in ('SU(2)', 'SU(3)')},
+    'relative_deviation': {k: lam['1.0'][k]['Lambda_MSbar/Lambda_lattice'] / imported[k] - 1 for k in ('SU(2)', 'SU(3)')},
+    'm0 predicted from the imported value, 1/16 - (11/(24 pi^2)) ln 38.852704': 1 / 16 - 11 / (24 * np.pi ** 2) * np.log(38.852704),
+    'm0 computed (xi = 1)': tab[1.0]['m_sigma'],
+    'Lambda_H/Lambda_E computed': {k: lam['1.0'][k]['Lambda_MSbar/Lambda_lattice'] / lam['inf'][k]['Lambda_MSbar/Lambda_lattice']
+                                   for k in ('SU(2)', 'SU(3)')},
+    'Lambda_H/Lambda_E recalled (Hasenfratz, Hasenfratz, Heller, Karsch 1981; from memory, orientation of the ratio '
+    'not remembered)': {'SU(2)': 0.84, 'SU(3)': 0.91}}
+print('validation', json.dumps(out['validation_against_IMPORTED_values']), flush=True)
+
+# source action: factors of G in the traces F = 5, 15
+Hs = {'SU3': L.IDX_T3, 'SU3 (direction T8)': L.IDX_T8, 'SU2': L.IDX_W3, 'U1': L.IDX_B}
+CA = {'SU3': 3.0, 'SU3 (direction T8)': 3.0, 'SU2': 2.0, 'U1': 0.0}
+src = {}
+for F, (T, kap) in L.REPS.items():
+    Chat = sum(t @ t for t in T)
+    X = {a: float(np.trace(Chat @ T[i] @ T[i]).real / kap) for a, i in Hs.items()}
+    own = {'SU3': 4 / 3, 'SU3 (direction T8)': 4 / 3, 'SU2': 3 / 4, 'U1': 0.0}
+    for xi in (1.0, 2.0, np.inf):
+        t = tab[xi]
+        row = {}
+        for a in Hs:
+            dphys = CA[a] * (t['m_bar'] + t['w_bar'] / 8) - t['w_bar'] / 2 * X[a]
+            single = CA[a] * (t['m_bar'] + t['w_bar'] / 8) - t['w_bar'] / 2 * own[a]
+            row[a] = {'X_hat = tr_F(Chat H^2)/kappa_F': X[a], 'delta_inv_alpha_total': 4 * np.pi * dphys,
+                      'single_factor_part': 4 * np.pi * single, 'cross_part': 4 * np.pi * (dphys - single),
+                      'inv_alpha_MSbar_at_E_cell': L.INV_ALPHA_BARE + 4 * np.pi * dphys,
+                      'uncertainty_from_fits': 4 * np.pi * CA[a] * t['uncertainty_m_bar']}
+        src[f'F={F}, xi={xi}'] = row
+        print(f'F={F} xi={xi}', {a: round(v['inv_alpha_MSbar_at_E_cell'], 4) for a, v in row.items()}, flush=True)
+out['source_action_matching'] = src
+out['gl_cross_terms_reproduced (xi = 1)'] = {
+    'F=5': {a: src['F=5, xi=1.0'][a]['cross_part'] for a in ('SU3', 'SU2')} | {'U1': src['F=5, xi=1.0']['U1']['delta_inv_alpha_total']},
+    'F=15': {a: src['F=15, xi=1.0'][a]['cross_part'] for a in ('SU3', 'SU2')} | {'U1': src['F=15, xi=1.0']['U1']['delta_inv_alpha_total']},
+    'GL s3_action.json': {'F=5': [-0.20943951, -0.47123890, -3.45575192], 'F=15': [-1.46607657, -3.29867229, -3.76991118]}}
+print('cross', json.dumps(out['gl_cross_terms_reproduced (xi = 1)']), flush=True)
+
+# charged-field functions C_alpha, S_alpha from the representation matrices against cbar cos(q phi/2), cbar sin(q phi/2)
+def expdiag(Hm, f):
+    w, v = np.linalg.eigh(Hm)
+    return (v * f(w)) @ v.conj().T
+
+
+cs = {}
+for F, (T, kap) in L.REPS.items():
+    for a, i in Hs.items():
+        Hm = T[i]
+        worst, charges = 0.0, []
+        gens = [T[b] for b in range(12)]
+        # ad(H) on the twelve generators: charged pairs are the nonzero eigen-directions
+        ad = np.array([[np.trace(gb @ (Hm @ ga - ga @ Hm)).imag / kap for ga in gens] for gb in gens])   # real antisymmetric
+        w, v = np.linalg.eig(ad)
+        for k in range(12):
+            q = w[k].imag
+            if q > 1e-9:
+                E = sum(v[b, k] * gens[b] for b in range(12))
+                E = E / np.sqrt(np.trace(E @ E.conj().T).real / kap)
+                comm = Hm @ E - E @ Hm
+                qq = (np.trace(comm @ E.conj().T) / np.trace(E @ E.conj().T)).real
+                charges.append(abs(qq))
+                for phi in (0.05, 0.3, 1.1):
+                    Cv = np.trace((E @ E.conj().T + E.conj().T @ E) @ expdiag(Hm, lambda x: np.cos(phi * x))).real / (2 * kap)
+                    Sv = np.trace((E @ E.conj().T - E.conj().T @ E) @ expdiag(Hm, lambda x: np.sin(phi * x))).real / (2 * kap)
+                    cb = np.hypot(Cv, Sv)
+                    worst = max(worst, abs(Cv - cb * np.cos(abs(qq) * phi / 2)), abs(abs(Sv) - cb * np.sin(abs(qq) * phi / 2)))
+        cs[f'F={F}, {a}'] = {'charges_of_the_complex_fields': sorted(np.round(charges, 9).tolist()),
+                             'sum_of_squared_charges (C_A/2)': float(np.sum(np.square(charges))),
+                             'max_deviation_from_cbar_cos_and_cbar_sin': float(worst)}
+out['charged_field_functions'] = cs
+print('C, S structure', json.dumps(cs), flush=True)
+
+# coefficient per factor
+ratio = fits['magnetic, xi=inf']['A_over_continuum (median, spread)']
+ratio_e = fits['electric, xi=16.0']['A_over_continuum (median, spread)']
+out['coefficient_per_factor'] = {
+    'statement': 'the logarithm comes from the charged link fields only; sum over positive roots of q^2 = C_A/2 (exact), '
+                 'so b_a = -(11/3) C_A times the measured ratio A/A_continuum; U(1): no generator of G carries hypercharge, b_1 = 0 exactly',
+    'ratio_magnetic_Hamiltonian': ratio, 'ratio_electric_xi_16': ratio_e,
+    'ratio_Euclidean_isotropic': fits['magnetic, xi=1.0']['A_over_continuum (median, spread)'],
+    'b_gauge (SU3, SU2, U1) in the D10 sign convention': [-11 * ratio[0], -22 / 3 * ratio[0], 0.0],
+    'continuum': [-11.0, -22 / 3, 0.0],
+    'candidate_K1_would_give_ratio': {'EB D* at the cell (0.282, 0.289, 0.209)': [1 - 0.209 / 11, 1 - 0.289 / (22 / 3)],
+                                      'supplement (2.49, 4.38, 3.97)': [1 - 3.97 / 11, 1 - 4.38 / (22 / 3)]}}
+print('coefficient', json.dumps(out['coefficient_per_factor']), flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_bg_fit.json', 'w'), indent=1, default=L.jsonable)

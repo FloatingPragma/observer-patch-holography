@@ -1,0 +1,62 @@
+"""Fresh source replay and exact finite arrival/energy certificate."""
+from pathlib import Path
+import argparse,hashlib,json,sys,importlib.util
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]/'reverse-engineering-reality'
+sys.path.insert(0,str(ROOT))
+spec=importlib.util.spec_from_file_location('native_energy_worker',HERE/'model.py')
+model=importlib.util.module_from_spec(spec);spec.loader.exec_module(model)
+PARENTS={
+ 'model/native_abelian_field_join/results.json':'f6aadcd79eec889de0c3243925c950e482bd456ea5c22fcab6a8406978472327',
+ 'model/affine_gauss_charged_clock/results.json':'7c8f0214f1412e38bdc410c607d0a8f8765df323c3a33a778da923f3892e8613'}
+
+def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+def validate_pins(pins):
+    for name,expected in pins.items():
+        relative=Path(name)
+        if relative.is_absolute() or '..' in relative.parts:raise ValueError('repository-relative pin required')
+        if digest(ROOT/relative)!=expected:raise ValueError('frozen source changed: '+name)
+
+def certificate():
+    pins={}
+    for path,expected in PARENTS.items():
+        if digest(ROOT/path)!=expected:raise ValueError('frozen parent changed: '+path)
+        value=json.loads((ROOT/path).read_text());validate_pins(value['input_sha256'])
+        for name,sha in value['input_sha256'].items():
+            if name in pins and pins[name]!=sha:raise ValueError('inconsistent parent pins')
+            pins[name]=sha
+        pins[path]=expected
+    # Scientific parents are freshly regenerated, not admitted by hash alone.
+    from model.native_abelian_field_join.certificate import certificate as join
+    from model.affine_gauss_full_spectrum.certificate import certificate as spectrum
+    for path,producer in (('model/native_abelian_field_join/results.json',join),
+                          ('model/affine_gauss_full_spectrum/results.json',spectrum)):
+        if producer()!=json.loads((ROOT/path).read_text()):raise ValueError('fresh parent science differs: '+path)
+    result=model.calculate()
+    result['prerequisite_receipts']=PARENTS
+    result['fresh_replay']={'native_complete_reference_Gauss_and_whole_bin_controls':True,
+      'full70928_actual_affine_H_residual':True,'all_new_bounds_exact_rational_or_outward_square_roots':True,
+      'large_native_source_or_pointer_matrix_numerically_executed':False}
+    result['capacity']={'retained_dimension_formula':'D^26 (2^31+1)^13 2^52 3^12 5456 2^416 Mprep^13 2^17 2^20',
+      'native_D':'2^240 5^8 119^24','Mprep':1197721483502453176152084669,
+      'energy_pointer_dimension':2**20,'arrival_pointer_reuses_parent_bit':True,
+      'gate_synthesis_workspace_included':False}
+    result['input_sha256']=dict(sorted(pins.items()))
+    result['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    return result
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__);group=parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--write',action='store_true');group.add_argument('--check',action='store_true')
+    args=parser.parse_args();path=HERE/'results.json'
+    if args.check:
+        expected=json.loads(path.read_text());validate_pins(expected['input_sha256'])
+        for name,sha in expected['owned_source_sha256'].items():
+            if digest(HERE/name)!=sha:raise ValueError('owned source changed: '+name)
+    fresh=certificate()
+    if args.write:path.write_text(json.dumps(fresh,indent=2,sort_keys=True)+'\n')
+    elif fresh!=expected:raise ValueError('fresh source energy receipt differs')
+    print('PASS: actual native-bin ground, finite direct-H clock and complete ordered arrival/energy law')
+
+if __name__=='__main__':main()

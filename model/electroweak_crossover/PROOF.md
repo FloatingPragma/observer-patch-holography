@@ -1,7 +1,7 @@
 # Electroweak crossover of the declared coupling chain
 
 Labels: EXACT, MEASURED (numerical, with error), ARGUED, IMPORTED (with citation), DECLARED. Every number below is
-stored in [results.json](results.json) or [production.json](production.json). The 44 named checks in
+stored in [results.json](results.json) or [production.json](production.json). The 47 named checks in
 `results.json` carry the section number as prefix.
 
 ## 1. The three-dimensional theory
@@ -239,3 +239,24 @@ EXACT relation with DECLARED inputs. Radiation era, `t = 1/(2H)`, `H^2 = (8 pi/3
 - The endpoint value `x_c` is imported. The runs here show the first-order signal at `x = 0.036` and its weakening
   with `x` at one lattice spacing; they do not determine `x_c`.
 - No real-time quantity is computed: no sphaleron rate, no nucleation.
+
+## Matched volume and cutoff sensitivity
+
+A cutoff comparison holds the dimensionless physical side `L g3^2 = 4L/beta_G` fixed. The sets `(beta_G,L)`
+`(6,12)`, `(8,16)` and `(12,24)` all have side eight. The package fits their peak coordinates with a constant
+plus `1/beta_G`, a constant plus `1/beta_G^2`, and both powers. It also repeats the linear fit omitting each
+spacing. These six declared forms are all retained. No form is selected using agreement with a reference
+temperature. Statistical fit covariance treats the separately simulated sets as independent.
+
+For the declared-chain temperature at side eight, the linear intercept is `160.85458 +- 0.07203 GeV`.
+The largest central-value displacement among these forms is `0.34896 GeV`. The fit with both powers and all
+three leave-one-out fits have zero residual degrees of freedom. Their exact interpolation supplies no
+goodness-of-fit test. This spread is finite design sensitivity, not a bound on omitted cutoff terms or an
+infinite-volume extrapolation. It is distinct from the joint size/cutoff fit whose reference side is sixteen.
+
+At `beta_G=8`, the adjacent-volume effective exponent is
+`log(chi_max(L2)/chi_max(L1))/log(L2/L1)`. It is `0.22693 +- 0.03804` for sides 16 to 24 and
+`0.08886 +- 0.08895` for sides 24 to 32 at the declared chain's point. The first-order control at `x=0.036`
+gives `2.16336 +- 0.03170` and `2.88122 +- 0.08832` for sides 8 to 12 and 12 to 16. These are measured
+finite-volume responses, not fitted asymptotic critical exponents. The peak temperature shifts by
+`0.24438 GeV` from side 16 to 24 and `0.03071 GeV` from side 24 to 32 at the common cutoff.

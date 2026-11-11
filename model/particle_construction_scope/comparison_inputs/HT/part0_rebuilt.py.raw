@@ -1,0 +1,135 @@
+"""Part 0 (coordinator request): the chain rebuilt with unification at E_cell. Source-only outputs; no measured value
+is read here. Writes part0_rebuilt.json."""
+import json
+import math
+import sys
+import time
+from decimal import Decimal
+
+sys.path.insert(0, ".")
+import htlib as H  # noqa: E402
+import paper_math_copy as PM  # noqa: E402
+from sm_two_loop_rge_engine import beta_2loop  # noqa: E402
+
+t0 = time.time()
+out = {}
+
+# ---- gate: float closure against the RER Decimal functions and DC's printed values ----
+ctx = PM.PaperMathContext(precision=30)
+a_fwd = H.alpha_cell(H.P_FWD)
+t = Decimal(repr(4 * math.pi ** 2 * a_fwd))
+dec_lhs = ctx.ellbar_su2(t) + ctx.ellbar_su3(t)
+a_phi = H.alpha_cell(H.PHI)
+out["gate"] = {
+    "alpha_cell_P_fwd": a_fwd, "inv_alpha_cell_P_fwd": 1 / a_fwd,
+    "decimal_lhs_minus_P_over_4_at_float_root": float(dec_lhs) - H.P_FWD / 4,
+    "DC_inv_alpha_P_fwd": 16.2453, "DC_alpha_at_phi": 0.0617696, "alpha_cell_phi": a_phi,
+    "pass": abs(1 / a_fwd - 16.2453) < 1e-3 and abs(a_phi - 0.0617696) < 1e-6
+    and abs(float(dec_lhs) - H.P_FWD / 4) < 1e-12,
+}
+
+# ---- R0-a: hierarchy from the transmutation at the cell, over every reachable P ----
+grid = [1.60 + 0.005 * i for i in range(21)] + [H.PHI, H.P_C, H.P_FWD, H.PHI + math.sqrt(math.pi) / 50]
+rows = []
+for p in grid:
+    ac = H.alpha_cell(p)
+    rows.append({"P": p, "inv_alpha_cell": 1 / ac, "v_over_E*": H.v_cell(p) / H.E_STAR,
+                 "v_GeV_display": H.v_cell(p)})
+vals = [r["v_over_E*"] for r in rows]
+out["R0a_hierarchy"] = {
+    "formula": "v/E* = P^(-1/2) exp(-2 pi/(4 alpha_cell(P))); the slopes do not enter",
+    "outer_map_range_of_P_for_alpha0_in_(0,1/50]": [H.PHI, H.PHI + math.sqrt(math.pi) / 50],
+    "rows": rows, "min_v_over_E*": min(vals), "max_v_over_E*": max(vals),
+}
+
+# ---- R0-b: coupling sector per census and matching ----
+QD10 = H.D11_MU_Z_OVER_E * H.E_STAR
+
+
+def packet_at(mu, b, matching):
+    x1, x2, x3 = H.inv_alphas_rebuilt(mu, H.P_FWD, b, matching)
+    if min(x1, x2, x3) <= 0:
+        return None
+    a1, a2, a3 = 1 / x1, 1 / x2, 1 / x3
+    ay = 0.6 * a1
+    return {"inv_alpha_1": x1, "inv_alpha_2": x2, "inv_alpha_3": x3, "alpha_3": a3,
+            "sin2w": ay / (a2 + ay), "inv_alpha_em": 1 / a2 + 1 / ay}
+
+
+def landau_poles(b, matching):
+    ec = H.e_cell(H.P_FWD)
+    x0 = H.inv_alphas_rebuilt(ec, H.P_FWD, b, matching)
+    poles = {}
+    for i, name in enumerate(("alpha_1", "alpha_2", "alpha_3")):
+        if b[i] < 0:
+            poles[name] = ec * math.exp(-2 * math.pi * x0[i] / abs(b[i]))
+    return poles
+
+
+vc = H.v_cell(H.P_FWD)
+census_rows = {}
+for cname, b in H.CENSUS.items():
+    for matching in ("bare", "5trace"):
+        key = f"{cname}_{matching}"
+        poles = landau_poles(b, matching)
+        # Z-scale law with the cell transmutation v (source only)
+        q = vc / 2.5
+        ok = True
+        for _ in range(200):
+            pk = packet_at(q, b, matching)
+            if pk is None:
+                ok = False
+                break
+            a2, ay = 1 / pk["inv_alpha_2"], 0.6 / pk["inv_alpha_1"]
+            qn = vc / 2 * math.sqrt(4 * math.pi * (a2 + ay))
+            if abs(qn / q - 1) < 1e-15:
+                q = qn
+                break
+            q = qn
+        census_rows[key] = {
+            "b": b, "landau_poles_below_E_cell_GeV": poles,
+            "source_only_Q0_GeV": q if ok else None,
+            "packet_at_source_Q0": packet_at(q, b, matching) if ok else None,
+            "packet_at_D10_Q0_91.588_GeV": packet_at(QD10, b, matching),
+            "reaches_D10_Q0_without_pole": packet_at(QD10, b, matching) is not None,
+        }
+out["R0b_coupling_sector"] = {"v_cell_GeV_display": vc, "D10_Q0_GeV": QD10, "rows": census_rows,
+                              "b3_bound_for_no_alpha3_pole_above_D10_Q0": {
+                                  m: -2 * math.pi * H.inv_alphas_rebuilt(H.e_cell(H.P_FWD), H.P_FWD, (0, 0, 0), m)[2]
+                                  / math.log(H.e_cell(H.P_FWD) / QD10) for m in ("bare", "5trace")}}
+
+# ---- R0-d: criticality boundary data at E_cell with the source couplings ----
+bd = {}
+for matching in ("bare", "5trace"):
+    x = H.inv_alphas_rebuilt(H.e_cell(H.P_FWD), H.P_FWD, (0, 0, 0), matching)
+    g1, g2, g3 = (math.sqrt(4 * math.pi / xi) for xi in x)
+    gy = math.sqrt(0.6) * g1
+    X = 2 * g2 ** 4 + (g2 ** 2 + gy ** 2) ** 2
+    y1 = (X / 16) ** 0.25
+    lo, hi = 0.05, 2.0
+    f = lambda y: beta_2loop(g1, g2, g3, y, 0.0)[4]  # noqa: E731
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if f(lo) * f(mid) <= 0:
+            hi = mid
+        else:
+            lo = mid
+    bd[matching] = {"g1_g2_g3": (g1, g2, g3), "yt_crit_1loop": y1, "yt_crit_2loop": 0.5 * (lo + hi),
+                    "lambda": 0.0}
+# the same boundary data on the D11 chart at E_cell, for contrast
+ay, a2, a3 = H.d11_alphas(H.e_cell(H.P_FWD))
+g2, gy, g3 = math.sqrt(4 * math.pi * a2), math.sqrt(4 * math.pi * ay), math.sqrt(4 * math.pi * a3)
+X = 2 * g2 ** 4 + (g2 ** 2 + gy ** 2) ** 2
+bd["D11_chart_at_E_cell"] = {"inv_alpha_1_2_3": (0.6 / ay, 1 / a2, 1 / a3), "yt_crit_1loop": (X / 16) ** 0.25}
+out["R0d_boundary_data_at_E_cell"] = bd
+out["seconds"] = time.time() - t0
+json.dump(out, open("part0_rebuilt.json", "w"), indent=1)
+print(json.dumps(out["gate"], indent=1))
+print("v/E* range", out["R0a_hierarchy"]["min_v_over_E*"], out["R0a_hierarchy"]["max_v_over_E*"])
+for k, r in census_rows.items():
+    print(k, "poles", {n: "%.3e" % v for n, v in r["landau_poles_below_E_cell_GeV"].items()},
+          "Q0src", r["source_only_Q0_GeV"] and "%.4e" % r["source_only_Q0_GeV"],
+          "atD10Q0", r["packet_at_D10_Q0_91.588_GeV"] and {k2: round(v2, 5) for k2, v2 in r["packet_at_D10_Q0_91.588_GeV"].items()})
+print(json.dumps(out["R0b_coupling_sector"]["b3_bound_for_no_alpha3_pole_above_D10_Q0"]))
+print(json.dumps(bd, indent=1))
+print("seconds", out["seconds"])

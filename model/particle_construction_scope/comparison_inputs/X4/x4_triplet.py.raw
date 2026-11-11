@@ -1,0 +1,396 @@
+"""X4, part 2: the conjugate triplet as a copy register (candidates b and a+b), and the five frames (candidate h).
+
+Exact over Q(sqrt5) (library of worker KD) unless a line says float64.
+
+  1. The conjugate triplet 3': irreducible, inequivalent to the code's triplet, determinant one.
+  2. Labels: the stabilizers of the native objects (port: fifth-turns; face: third-turns; frame: Klein group; seam:
+     one half-turn) on 3'. Number of distinct characters, and the dimension of the invariant mass operators.
+  3. Mixing atlas: squared overlaps between the label bases of every pair of native stabilizers.
+  4. Soft breaking of the golden pattern (Klein group -> one half-turn, real operator): what it fixes.
+  5. Comparison with the frozen lepton mixing angles of the public checkout. NOT BLIND.
+  6. What happens if the port load acts on 3': Lie closure of the combined responses (float64, printed gaps).
+  7. The five frames under the stabilizers (candidate h).
+"""
+import itertools
+import math
+import os
+import re
+import sys
+from fractions import Fraction as F
+
+import numpy as np
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE
+from x4lib import geometry, gal_vec, cos2, dot, fl, kstr, face_vector, rot3, dump, RL
+
+geo = geometry()
+V, rots = geo['V'], geo['rotations']
+out = {}
+IDP = tuple(range(12))
+RER = os.getcwd()
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. the conjugate triplet
+chi = {g: kd.trace(rot3(g)) for g in rots}
+chic = {g: kd.trace(rot3(g, conj=True)) for g in rots}
+norm_c = sum((chic[g] * chic[g] for g in rots), ZERO) / K(60)
+cross_c = sum((chi[g] * chic[g] for g in rots), ZERO) / K(60)
+dets = all(kd.det3(rot3(g, conj=True)) == ONE for g in rots)
+out['conjugate_triplet'] = {'character_norm': kstr(norm_c), 'overlap_with_the_code_triplet_character': kstr(cross_c),
+                            'determinant_one_on_all_60_rotations': bool(dets), 'dimension': 3, 'tag': 'EXACT'}
+print('1. 3prime: <chi,chi> =', kstr(norm_c), ' <chi_3,chi_3prime> =', kstr(cross_c), ' det = 1 on all rotations:', dets)
+assert norm_c == ONE and cross_c.is_zero() and dets
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. labels from native stabilizers
+def invariants(group, character):
+    """(distinct characters, dim of commuting Hermitian operators, dim of commuting real symmetric operators)"""
+    n = K(len(group))
+    herm = sum((character[g] * character[g] for g in group), ZERO) / n
+    sym = sum(((character[g] * character[g] + character[kd.compose(g, g)]) * K(F(1, 2)) for g in group), ZERO) / n
+    assert herm.is_rational() and sym.is_rational()
+    return int(herm.a), int(sym.a)
+
+half_turns = sorted({h['perm'] for fr in geo['frames'] for h in fr['half_turns']})
+groups = {
+    'port (fifth-turns, Z5)': (list(geo['port_groups'].values()), 3),
+    'face (third-turns, Z3)': (list(geo['face_groups'].values()), 3),
+    'frame (Klein group)': ([fr['group'] for fr in geo['frames']], 3),
+    'seam (one half-turn, Z2)': ([(IDP, h) for h in half_turns], 2),
+    'frame stabilizer (order 12)': ([fr['normalizer'] for fr in geo['frames']], 1),
+    'all rotations': ([rots], 1),
+}
+labels = {}
+for name, (gs, ndistinct) in groups.items():
+    vals = {invariants(g, chic) for g in gs}
+    assert len(vals) == 1
+    herm, sym = vals.pop()
+    labels[name] = {'subgroups': len(gs), 'order': len(gs[0]), 'distinct_characters_on_the_triplet': ndistinct,
+                    'commuting_hermitian_operators': herm, 'commuting_real_symmetric_operators': sym}
+    print(f'2. {name:30s} n = {len(gs):2d}, order {len(gs[0]):2d}: distinct characters {ndistinct}, '
+          f'Hermitian invariants {herm}, real symmetric invariants {sym}')
+out['labels_on_the_conjugate_triplet'] = {'rows': labels, 'tag': 'EXACT',
+    'reading': 'three distinct labels need a port, a face or a frame; only the frame gives three independent masses with a '
+               'real (time-reversal even) operator; with all rotations or the full frame stabilizer every invariant '
+               'operator is a multiple of the identity (equal masses)'}
+assert labels['frame (Klein group)']['commuting_real_symmetric_operators'] == 3
+assert labels['all rotations']['commuting_hermitian_operators'] == 1
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. mixing atlas on 3' (and, for comparison, on 3)
+def structures(conj):
+    tr = gal_vec if conj else (lambda v: v)
+    s = []
+    for ax in geo['port_axes']:
+        s.append(('port', ax, tr(V[ax[0]])))
+    for f in geo['face_axes']:
+        s.append(('face', f, tr(face_vector(f, V))))
+    for i, fr in enumerate(geo['frames']):
+        s.append(('frame', i, tuple(tr(e) for e in fr['axes'])))
+    return s
+
+def pattern(a, b):
+    """exact data and float matrix of squared overlaps between the label bases of two structures"""
+    (ta, _, va), (tb, _, vb) = a, b
+    if ta == 'frame' and tb == 'frame':
+        ex = [[cos2(e, f) for f in vb] for e in va]
+        return {'exact': ex}, np.array([[fl(x) for x in r] for r in ex])
+    if ta == 'frame':
+        info, M = pattern(b, a)
+        return info, M.T
+    if tb == 'frame':
+        ax = [cos2(va, e) for e in vb]
+        circ = [(ONE - x) * K(F(1, 2)) for x in ax]
+        return {'exact': [ax, circ, circ]}, np.array([[fl(x) for x in r] for r in (ax, circ, circ)])
+    c2 = cos2(va, vb)
+    c = math.sqrt(fl(c2))
+    root = kd.real_sqrt(c2)
+    half = (1 - fl(c2)) / 2
+    M = np.array([[fl(c2), half, half], [half, ((1 + c) / 2) ** 2, ((1 - c) / 2) ** 2], [half, ((1 - c) / 2) ** 2, ((1 + c) / 2) ** 2]])
+    return {'cos2': c2, 'cos_in_Q_sqrt5': None if root is None else kstr(root)}, M
+
+def canon(M):
+    best = None
+    for pr in itertools.permutations(range(3)):
+        for pc in itertools.permutations(range(3)):
+            t = tuple(np.round(M[np.ix_(pr, pc)], 9).ravel())
+            if best is None or t < best:
+                best = t
+    return best
+
+def atlas(conj):
+    st = structures(conj)
+    classes = {}
+    for a, b in itertools.combinations(st, 2):
+        info, M = pattern(a, b)
+        assert np.allclose(M.sum(0), 1) and np.allclose(M.sum(1), 1)
+        key = (a[0], b[0], canon(M))
+        c = classes.setdefault(key, {'pair': f'{a[0]} / {b[0]}', 'count': 0, 'matrix': M, 'info': info})
+        c['count'] += 1
+    return classes
+
+at_c, at_p = atlas(True), atlas(False)
+assert sorted((k[0], k[1], v['count']) for k, v in at_c.items()) == sorted((k[0], k[1], v['count']) for k, v in at_p.items())
+same_sets = sorted(k for k in at_c) == sorted(k for k in at_p)
+rows = []
+for key, c in sorted(at_c.items(), key=lambda kv: (kv[1]['pair'], -kv[1]['count'])):
+    M = c['matrix']
+    r = {'pair': c['pair'], 'pairs_in_class': c['count'], 'squared_overlaps': [[round(float(x), 6) for x in row] for row in M]}
+    info = c['info']
+    if 'exact' in info:
+        r['exact'] = [[kstr(x) for x in row] for row in info['exact']]
+    else:
+        r['cos2_of_the_two_axes'] = kstr(info['cos2']); r['cos_in_Q_sqrt5'] = info['cos_in_Q_sqrt5']
+        r['closed_form'] = 'axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2'
+    rows.append(r)
+    print(f"3. {c['pair']:13s} x{c['count']:3d}:", ' | '.join(' '.join(f'{x:.4f}' for x in row) for row in M))
+out['mixing_atlas_on_the_conjugate_triplet'] = {'classes': rows, 'tag': 'EXACT (squares in Q(sqrt5); circular-circular entries from the closed form)',
+                                              'same_classes_on_the_code_triplet': bool(same_sets)}
+print('   same classes (pair types, counts, matrices) on the port-frame triplet:', same_sets)
+
+# the golden pattern, exactly
+golden = [c for k, c in at_c.items() if k[0] == 'port' and k[1] == 'frame']
+assert len(golden) == 1 and golden[0]['count'] == 30
+ax = sorted(golden[0]['info']['exact'][0], key=fl)
+five = K(5); r5 = K(0, 1)
+assert ax[0].is_zero() and ax[1] == (five - r5) / K(10) and ax[2] == (five + r5) / K(10)
+circ = sorted(golden[0]['info']['exact'][1], key=fl)
+assert circ[0] == (five - r5) / K(20) and circ[1] == (five + r5) / K(20) and circ[2] == K(F(1, 2))
+out['golden_pattern'] = {'axial_state': ['0', '(5 - sqrt5)/10', '(5 + sqrt5)/10'], 'circular_states': ['(5 - sqrt5)/20', '(5 + sqrt5)/20', '1/2'],
+                         'floats': [[0.0, (5 - 5 ** .5) / 10, (5 + 5 ** .5) / 10], [(5 - 5 ** .5) / 20, (5 + 5 ** .5) / 20, 0.5]],
+                         'port_frame_pairs': 30, 'tag': 'EXACT'}
+print('   golden pattern exact: axial (0, (5-sqrt5)/10, (5+sqrt5)/10), circular ((5-sqrt5)/20, (5+sqrt5)/20, 1/2); one class, 30 pairs')
+
+# ---------------------------------------------------------------------------------------------------------------
+# 4 and 5. angles, soft breaking, comparison with the frozen angles (NOT BLIND)
+rs = open(os.path.join(RER, 'code', 'particles', 'RESULTS_STATUS.md')).read()
+def angle(name):
+    m = re.search(r'\| %s \| [^|]*\| [^|]*\| ([0-9.]+) (?:\+([0-9.]+) -([0-9.]+)|\+- ([0-9.]+)) deg \|' % name, rs)
+    v = float(m.group(1)); up, dn = (float(m.group(2)), float(m.group(3))) if m.group(2) else (float(m.group(4)),) * 2
+    return v, up, dn
+meas = {k: angle(k) for k in ('theta12', 'theta23', 'theta13', 'delta_CP')}
+def pull(pred, m):
+    v, up, dn = m
+    return (pred - v) / (up if pred > v else dn)
+def pmns(t12, t23, t13, d):
+    s12, c12 = math.sin(math.radians(t12)), math.cos(math.radians(t12))
+    s23, c23 = math.sin(math.radians(t23)), math.cos(math.radians(t23))
+    s13, c13 = math.sin(math.radians(t13)), math.cos(math.radians(t13))
+    e = complex(math.cos(math.radians(d)), math.sin(math.radians(d)))
+    return np.array([[c12 * c13, s12 * c13, s13 * e.conjugate()],
+                     [-s12 * c23 - c12 * s23 * s13 * e, c12 * c23 - s12 * s23 * s13 * e, s23 * c13],
+                     [s12 * s23 - c12 * c23 * s13 * e, -c12 * s23 - s12 * c23 * s13 * e, c23 * c13]])
+Umeas = pmns(meas['theta12'][0], meas['theta23'][0], meas['theta13'][0], meas['delta_CP'][0])
+M2 = np.abs(Umeas) ** 2
+def angles_of(P):
+    s13 = P[0, 2]; s12 = P[0, 1] / (1 - s13); s23 = P[1, 2] / (1 - s13)
+    return tuple(math.degrees(math.asin(math.sqrt(min(1.0, max(0.0, x))))) for x in (s12, s23, s13))
+comp = []
+for r, (key, c) in zip(rows, sorted(at_c.items(), key=lambda kv: (kv[1]['pair'], -kv[1]['count']))):
+    M = c['matrix']; best = None
+    for pr in itertools.permutations(range(3)):
+        for pc in itertools.permutations(range(3)):
+            P = M[np.ix_(pr, pc)]
+            d = float(np.linalg.norm(P - M2))
+            if best is None or d < best[0]:
+                best = (d, P)
+    t12, t23, t13 = angles_of(best[1])
+    comp.append({'pair': r['pair'], 'pairs_in_class': r['pairs_in_class'], 'distance_to_measured_squared_moduli': round(best[0], 4),
+                 'theta12_deg': round(t12, 3), 'theta23_deg': round(t23, 3), 'theta13_deg': round(t13, 3),
+                 'pulls': [round(pull(t12, meas['theta12']), 1), round(pull(t23, meas['theta23']), 1), round(pull(t13, meas['theta13']), 1)]})
+comp.sort(key=lambda x: x['distance_to_measured_squared_moduli'])
+identity_distance = float(np.linalg.norm(np.eye(3) - M2))
+out['comparison_with_frozen_lepton_mixing_NOT_BLIND'] = {
+    'frozen_values_deg': {k: list(v) for k, v in meas.items()},
+    'source': 'RER/code/particles/RESULTS_STATUS.md, table "Neutrino Oscillation Comparison", column "PDG 2025 NO reference"',
+    'measured_squared_moduli_from_the_frozen_angles': [[round(float(x), 4) for x in row] for row in M2],
+    'classes_ranked_by_distance_after_the_best_of_36_relabellings': comp,
+    'identity_matrix_distance': round(identity_distance, 4),
+    'note': 'the relabelling is chosen with the measured matrix in hand; pulls in quoted one-sided uncertainties'}
+for c in comp[:4]:
+    print('5. NOT BLIND', c)
+print('   identity matrix (one common label basis): distance', round(identity_distance, 4))
+
+# soft breaking of the golden pattern: U0 rows = eigenstates of the fifth-turn (axial, circular +, circular -), columns = frame axes
+n = np.array([fl(x) for x in gal_vec(V[geo['port_axes'][0][0]])]); n /= np.linalg.norm(n)
+E = np.array([[fl(x) for x in e] for e in (gal_vec(e) for e in geo['frames'][0]['axes'])])
+a1 = np.cross(n, E[0] if abs(n @ E[0]) < 0.9 else E[1]); a1 /= np.linalg.norm(a1); b1 = np.cross(n, a1)
+ep = (a1 + 1j * b1) / math.sqrt(2)
+U0 = np.array([[n @ e for e in E], [np.vdot(ep, e) for e in E], [np.vdot(ep.conj(), e) for e in E]])
+assert np.allclose(U0 @ U0.conj().T, np.eye(3))
+s13sq = math.sin(math.radians(meas['theta13'][0])) ** 2
+soft = []
+for j in range(3):
+    kl = [k for k in range(3) if k != j]
+    e_fixed = abs(U0[0, j]) ** 2
+    # rotate the two other columns by a real angle t: the column with the smaller electron entry becomes column 3
+    def rotated(t):
+        Rm = np.eye(3)
+        Rm[np.ix_(kl, kl)] = [[math.cos(t), math.sin(t)], [-math.sin(t), math.cos(t)]]
+        return U0 @ Rm
+    row = {'fixed_frame_axis': j, 'fixed_column_squared': [round(abs(U0[i, j]) ** 2, 6) for i in range(3)]}
+    reach = max(abs(U0[0, k]) ** 2 for k in kl)
+    if e_fixed < 1e-12:
+        # the fixed column is the one with electron entry zero: it is the third mass state and theta13 stays zero
+        row.update({'theta13_deg': 0.0, 'verdict': 'theta13 stays 0: excluded by the measured angle (NOT BLIND)'})
+    else:
+        # the electron entries of the two rotating columns are (x, 0): after rotation (x cos t, x sin t); set x^2 sin^2 t = s13^2
+        x2 = sum(abs(U0[0, k]) ** 2 for k in kl)
+        t = math.asin(math.sqrt(s13sq / x2))
+        # order the rotating columns so that the one with electron entry 0 is rotated into
+        k0 = [k for k in kl if abs(U0[0, k]) ** 2 < 1e-12][0]; k1 = [k for k in kl if k != k0][0]
+        Rm = np.eye(3)
+        Rm[k1, k1] = math.cos(t); Rm[k1, k0] = math.sin(t); Rm[k0, k1] = -math.sin(t); Rm[k0, k0] = math.cos(t)
+        U = U0 @ Rm
+        # column order (1, 2, 3): third = k0; first two by electron entry (larger first)
+        others = sorted([j, k1], key=lambda k: -abs(U[0, k]) ** 2)
+        P = (np.abs(U) ** 2)[:, others + [k0]]
+        t12, t23, t13 = angles_of(P)
+        Uo = U[:, others + [k0]]
+        J = float(np.imag(Uo[0, 0] * Uo[1, 1] * np.conj(Uo[0, 1]) * np.conj(Uo[1, 0])))
+        s12, c12, s23, c23, s13, c13 = (math.sin(math.radians(t12)), math.cos(math.radians(t12)), math.sin(math.radians(t23)),
+                                        math.cos(math.radians(t23)), math.sin(math.radians(t13)), math.cos(math.radians(t13)))
+        Jmax = s12 * c12 * s23 * c23 * s13 * c13 * c13
+        row.update({'theta13_deg_INPUT': round(t13, 4), 'rotation_angle_deg': round(math.degrees(t), 4),
+                    'theta12_deg': round(t12, 4), 'sin2_theta12': round(math.sin(math.radians(t12)) ** 2, 6),
+                    'theta23_deg': round(t23, 4), 'abs_sin_delta': round(abs(J) / Jmax, 6),
+                    'pull_theta12': round(pull(t12, meas['theta12']), 2), 'pull_theta23': round(pull(t23, meas['theta23']), 2),
+                    'pull_delta_270': round(pull(270.0, meas['delta_CP']), 2), 'pull_delta_90': round(pull(90.0, meas['delta_CP']), 2),
+                    'closed_form_sin2_theta12': ('fixed entry / cos^2(theta13)' if others[1] == j else '1 - fixed entry / cos^2(theta13)')})
+    soft.append(row)
+    print('4. soft breaking, fixed frame axis', j, row)
+out['soft_breaking_of_the_golden_pattern'] = {
+    'rule': 'the Klein group of the frame is broken to the half-turn about one frame axis; the operator stays real; '
+            'the measured theta13 fixes the one free angle (INPUT, NOT BLIND)', 'cases': soft, 'tag': 'MEASURED (float64 closed forms)'}
+
+# ---------------------------------------------------------------------------------------------------------------
+# 6. port load on the conjugate triplet: Lie closure of X_p x 1 + 1 x N'_p on C^5 x C^3 (float64)
+Vf = np.array([[fl(x) for x in v] for v in V]); Vf /= np.linalg.norm(Vf, axis=1)[:, None]
+Wf = np.array([[fl(x.gal()) for x in v] for v in V]); Wf /= np.linalg.norm(Wf, axis=1)[:, None]
+sx = np.array([[0, 1], [1, 0]], complex); sy = np.array([[0, -1j], [1j, 0]]); sz = np.diag([1.0, -1.0]).astype(complex)
+def crossf(u):
+    return np.array([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]])
+X = []
+for p in range(12):
+    P = (np.eye(3) - np.outer(Vf[p], Vf[p]) + 1j * crossf(Vf[p])) / 2
+    Q = (np.eye(2) + Wf[p][0] * sz + Wf[p][1] * sy + Wf[p][2] * sx) / 2
+    Z = np.zeros((5, 5), complex); Z[:3, :3] = P / 2; Z[3:, 3:] = -Q / 2
+    X.append(Z)
+def closure(gens, tol=1e-8, cap=60):
+    """dimension of the real Lie algebra generated by the anti-Hermitian matrices i*gens; also span and centre"""
+    def vec(A):
+        return np.concatenate([A.real.ravel(), A.imag.ravel()])
+    basis, mats = [], []
+    def add(A):
+        v = vec(A)
+        for b in basis:
+            v = v - (b @ v) * b
+        nv = np.linalg.norm(v)
+        if nv > tol * max(1.0, np.linalg.norm(vec(A))):
+            basis.append(v / nv); mats.append(A); return True
+        return False
+    for g in gens:
+        add(1j * g)
+    span = len(basis)
+    i = 0
+    while i < len(mats) and len(mats) < cap:
+        for j in range(i):
+            add(mats[i] @ mats[j] - mats[j] @ mats[i])
+        i += 1
+    # centre: elements of the span commuting with all generators
+    B = np.array(basis)
+    d = mats[0].shape[0]
+    def unvec(v):
+        return (v[:d * d] + 1j * v[d * d:]).reshape(d, d)
+    ob = [unvec(b) for b in B]
+    rowsC = []
+    for g in mats[:span]:
+        rowsC.append(np.array([vec(o @ g - g @ o) for o in ob]).T)
+    sv = np.linalg.svd(np.vstack(rowsC), compute_uv=False)
+    centre = int(np.sum(sv < 1e-8)) + (len(ob) - len(sv) if len(sv) < len(ob) else 0)
+    return span, len(mats), centre
+span0, clo0, cen0 = closure(X)
+Np = [np.outer(Wf[p], Wf[p]) for p in range(12)]
+comb = [np.kron(X[p], np.eye(3)) + np.kron(np.eye(5), Np[p]) for p in range(12)]
+span1, clo1, cen1 = closure(comb)
+spanN, cloN, cenN = closure(Np)
+out['port_load_on_the_conjugate_triplet'] = {
+    'responses_on_the_code_alone': {'span': span0, 'closure': clo0, 'centre': cen0},
+    'load_projectors_on_the_conjugate_triplet_alone': {'span': spanN, 'closure': cloN, 'centre': cenN},
+    'responses_plus_load_on_the_conjugate_triplet': {'span': span1, 'closure': clo1, 'centre': cen1},
+    'tag': 'MEASURED (float64 rank, tolerance 1e-8)',
+    'reading': 'if the port load acted on the conjugate triplet the response algebra would grow from 12 to %d dimensions '
+               '(an extra su(3) on the copies): the copies would carry a gauge charge of their own' % clo1}
+print('6. Lie closure (span, closure, centre): code responses', (span0, clo0, cen0), '; load on 3prime', (spanN, cloN, cenN),
+      '; combined', (span1, clo1, cen1))
+assert (span0, clo0, cen0) == (12, 12, 1)
+# the four triplet-doublet pairings (lead L13) and the Galois-conjugate code as a second copy (candidate i, added)
+def code_responses(tri, dbl):
+    res = []
+    for p in range(12):
+        P = (np.eye(3) - np.outer(tri[p], tri[p]) + 1j * crossf(tri[p])) / 2
+        Q = (np.eye(2) + dbl[p][0] * sz + dbl[p][1] * sy + dbl[p][2] * sx) / 2
+        Z = np.zeros((5, 5), complex); Z[:3, :3] = P / 2; Z[3:, 3:] = -Q / 2
+        res.append(Z)
+    return res
+pairings = {'triplet 3 with doublet 2prime (the code)': (Vf, Wf), 'triplet 3prime with doublet 2 (conjugate code)': (Wf, Vf),
+            'triplet 3 with doublet 2': (Vf, Vf), 'triplet 3prime with doublet 2prime': (Wf, Wf)}
+pair_rows = {name: closure(code_responses(t, d)) for name, (t, d) in pairings.items()}
+Xc = code_responses(Wf, Vf)
+both = [np.block([[X[p], np.zeros((5, 5))], [np.zeros((5, 5)), Xc[p]]]) for p in range(12)]
+span2, clo2, cen2 = closure(both)
+out['galois_conjugate_code'] = {
+    'pairings_span_closure_centre': {k: list(v) for k, v in pair_rows.items()},
+    'code_and_conjugate_code_locked_port_by_port': {'span': span2, 'closure': clo2, 'centre': cen2},
+    'copies': 2, 'tag': 'MEASURED (float64 rank, tolerance 1e-8)',
+    'reading': 'the conjugate code is a second complete chart, so the carrier offers two codes, not three; with the responses of both locked '
+               'port by port the algebra has %d dimensions, not 12: the second code would have gauge fields of its own' % clo2}
+print('   pairings (span, closure, centre):', pair_rows)
+print('   code + conjugate code locked port by port:', (span2, clo2, cen2))
+
+# ---------------------------------------------------------------------------------------------------------------
+# 7. the five frames under the stabilizers (candidate h)
+def frame_perm(g):
+    res = []
+    for fr in geo['frames']:
+        img = {tuple(sorted((g[a], g[b]))) for a, b in fr['matching']}
+        res.append(next(i for i, f2 in enumerate(geo['frames']) if set(f2['matching']) == img))
+    return tuple(res)
+def orbits(group):
+    seen, orbs = set(), []
+    for i in range(5):
+        if i in seen: continue
+        o = {i}
+        while True:
+            new = {frame_perm(g)[j] for g in group for j in o} | o
+            if new == o: break
+            o = new
+        seen |= o; orbs.append(len(o))
+    return sorted(orbs, reverse=True)
+fo = {'face third-turns': orbits(list(geo['face_groups'].values())[0]), 'port fifth-turns': orbits(list(geo['port_groups'].values())[0]),
+      'Klein group of a frame': orbits(geo['frames'][0]['group']), 'stabilizer of a frame': orbits(geo['frames'][0]['normalizer']),
+      'one half-turn': orbits((IDP, half_turns[0]))}
+out['five_frames_orbits'] = {'orbits': fo, 'tag': 'EXACT'}
+print('7. orbits of the five frames:', fo)
+assert fo['face third-turns'] == [3, 1, 1]
+# the holonomy of rule S (a third of a turn about a glue face) against the Klein label of a frame
+cyc = []
+for f, grp in geo['face_groups'].items():
+    g = next(x for x in grp if x != IDP)
+    ginv = next(x for x in grp if kd.compose(x, g) == IDP)
+    fixed = [i for i in range(5) if frame_perm(g)[i] == i]
+    for i in fixed:
+        hs = [h['perm'] for h in geo['frames'][i]['half_turns']]
+        img = [hs.index(kd.compose(kd.compose(g, h), ginv)) for h in hs]
+        cyc.append(sorted(img) == [0, 1, 2] and all(img[j] != j for j in range(3)))
+out['third_turn_against_the_klein_label'] = {
+    'face_axes': len(geo['face_groups']), 'frames_fixed_by_each_third_turn': 2, 'pairs_checked': len(cyc),
+    'axes_of_a_fixed_frame_permuted_in_a_3_cycle': bool(all(cyc)), 'tag': 'EXACT',
+    'statement': 'a third of a turn about a face fixes two frames and permutes the three axes of each cyclically, and it moves the three '
+                 'other frames: on a federation whose chart transport has this holonomy (rule S of reports/MG.md, twelve cone points) '
+                 'the Klein label of a frame is permuted around a cone point; the invariant labels there are the three characters of the third-turn'}
+print('   third-turn about a face: fixed frames 2 each; axes of a fixed frame cyclically permuted in all', len(cyc), 'cases:', all(cyc))
+assert len(cyc) == 20 and all(cyc)
+if len(sys.argv) > 1:
+    dump(out, sys.argv[1])

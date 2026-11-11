@@ -1,0 +1,82 @@
+{
+ "UR1": {
+  "gauge": "12",
+  "b": [
+   "41/10",
+   "-19/6",
+   "-7"
+  ],
+  "equal": false
+ },
+ "UR2": {
+  "gauge": "12",
+  "b": [
+   "61/10",
+   "-7/6",
+   "-5"
+  ],
+  "equal": false
+ },
+ "UR8": {
+  "gauge": "12",
+  "b": [
+   "61/10",
+   "13/6",
+   "-2"
+  ],
+  "equal": false
+ },
+ "UR9": {
+  "gauge": "12",
+  "t_cut": 2.430143955750736,
+  "normalized": {
+   "delta_b2": 0.35014612953311863,
+   "delta_b3": 0.4415695084555874,
+   "b2": -0.8165205371335481,
+   "b3": -4.558430491544413,
+   "b1": "no value from the stated formula"
+  },
+  "unnormalized": {
+   "delta_b2": 0.47161022926880264,
+   "delta_b3": 0.549363366837902,
+   "b2": -0.695056437397864,
+   "b3": -4.450636633162098,
+   "b1": "no value from the stated formula"
+  }
+ },
+ "UR3": {
+  "gauge": "24",
+  "b_unified": "-85/6",
+  "b_float": -14.166666666666666,
+  "minus_required": -22.679766666666666
+ },
+ "UR4": {
+  "gauge": "24",
+  "b_unified": "-73/6",
+  "b_float": -12.166666666666666,
+  "minus_required": -20.679766666666666
+ },
+ "UR5": {
+  "gauge": "24",
+  "b_unified": "-53/6",
+  "b_float": -8.833333333333334,
+  "minus_required": -17.346433333333334
+ },
+ "UR6": {
+  "gauge": "24",
+  "b_unified": "347/6",
+  "b_float": 57.833333333333336,
+  "minus_required": 49.320233333333334
+ },
+ "UR7": {
+  "gauge": "24",
+  "b_unified": "-13/6",
+  "b_float": -2.1666666666666665,
+  "minus_required": -10.679766666666666
+ },
+ "requirement": {
+  "b_above": 8.5131,
+  "with_24_currents_matter_sum_needed": 26.84643333333333,
+  "with_12_currents": "equal slopes need matter shifts m3 - m2 = 11/3 and m2 - m1 = 22/3 (gauge part (0, -22/3, -11)); complete multiplets shift all three equally, so no universal content keeps the couplings unified"
+ }
+}

@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+"""Worker CA (coupling items A, H): the triality bound and row A1c (CANDIDATES.md, Addendum 4).
+
+Z6 condition of G = S(U(3) x U(2)): 6Y = 3 (2j) - 2 (p - q) mod 6, so (j, Y) fix the triality (p - q) mod 3.
+Row A1c: closure at mu = m_Z(mu) with the colour tower replaced by its minimum inside the triality classes,
+  ellbar_SU(2)(t2) + ln 3 * P_t3(triality nonzero) = P/4.
+Chain as in anchor_chain.py (same formulas, copied). The outer map uses the producer's Thomson transport (read only).
+No measured value is read. Writes anchor_colour.json.
+"""
+import json
+import sys
+from decimal import Decimal
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import brentq
+
+HERE = Path(__file__).resolve().parent
+RER = Path("WORKSPACE/reverse-engineering-reality")
+sys.path.insert(0, str(RER / "code/P_derivation"))
+from paper_math import D10Point, PaperMathContext  # noqa: E402
+
+REP = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())
+P_FWD = float(REP["p"][:30])
+PHI = (1 + 5 ** 0.5) / 2
+SQPI = np.pi ** 0.5
+K = 4 * np.pi ** 2
+B = (33 / 5, 1.0, -3.0)
+ESTAR_GEV = 1.220890e19
+n = np.arange(121); D2 = n + 1.0; C2 = (n / 2) * (n / 2 + 1)
+p, q = np.meshgrid(np.arange(91), np.arange(91), indexing="ij")
+p, q = p.ravel(), q.ravel()
+D3 = ((p + 1) * (q + 1) * (p + q + 2) / 2).astype(float)
+C3 = ((p ** 2 + q ** 2 + p * q + 3 * p + 3 * q) / 3).astype(float)
+TRI = (p - q) % 3
+
+
+def ell2(t):
+    w = D2 * np.exp(-t * C2)
+    return float((w * np.log(D2)).sum() / w.sum())
+
+
+def colour(t):
+    """(hidden index of the full tower, probability of nonzero triality, minimum inside the triality classes)."""
+    w = D3 * np.exp(-t * C3); w = w / w.sum()
+    pnz = float(w[TRI != 0].sum())
+    return float((w * np.log(D3)).sum()), pnz, pnz * float(np.log(3))
+
+
+def anchors(P):
+    return np.exp(-2 * np.pi) * P ** (1 / 6), P ** -0.5
+
+
+def run(aU, mu, MU):
+    inv = [1 / aU + b / (2 * np.pi) * np.log(MU / mu) for b in B]
+    return None if min(inv) <= 0 else [1 / x for x in inv]
+
+
+def vev(aU, P):
+    return P ** -0.5 * np.exp(-2 * np.pi / (4 * aU))
+
+
+def mZ_fixed(aU, P):
+    MU, _ = anchors(P); v = vev(aU, P); mu = v / 2
+    for _ in range(300):
+        a = run(aU, mu, MU)
+        new = v * np.sqrt(np.pi * (a[1] + 0.6 * a[0]))
+        if abs(new - mu) <= 1e-15 * mu:
+            return new
+        mu = new
+    return mu
+
+
+def residual(x, P, mode):
+    aU = 1 / x; MU, _ = anchors(P)
+    a = run(aU, mZ_fixed(aU, P), MU)
+    full, pnz, cmin = colour(K * a[2])
+    return ell2(K * a[1]) + (full if mode == "A1" else cmin) - P / 4
+
+
+CTX = PaperMathContext(precision=30, su2_cutoff=2, su3_cutoff=2)
+
+
+def point(P, x):
+    aU = 1 / x; MU, _ = anchors(P); v = vev(aU, P); mZ = mZ_fixed(aU, P)
+    a1, a2, a3 = run(aU, mZ, MU); aY = 0.6 * a1; aem = 1 / (1 / a2 + 1 / aY)
+    D = lambda z: Decimal(repr(float(z)))  # noqa: E731
+    d10 = D10Point(p=D(P), n_c=3, mu_u=D(MU), alpha_u=D(aU), mz_run=D(mZ), v=D(v), alpha1_mz=D(a1), alpha2_mz=D(a2),
+                   alpha3_mz=D(a3), alpha_y_mz=D(aY), alpha_em_mz=D(aem), alpha_em_inv_mz=D(1 / aem), sin2w_mz=D(aem / a2))
+    A_T = float(d10.alpha_em_inv_mz + CTX.structured_thomson_running(d10)["total_delta_alpha_inv"])
+    full, pnz, cmin = colour(K * a3)
+    return {"inv_alpha_U": x, "v": v, "v_GeV": v * ESTAR_GEV, "mZ_GeV": mZ * ESTAR_GEV, "ell2": ell2(K * a2),
+            "colour_hidden_index_full_tower": full, "probability_nonzero_triality": pnz,
+            "colour_minimum_inside_triality_classes": cmin, "sin2w_mZ": aem / a2, "alpha_em_inv_mZ": 1 / aem, "A_T": A_T}
+
+
+out = {"inputs": {"P_fwd": P_FWD, "measured_values_read": "none"}, "rows": {}}
+for mode in ("A1", "A1c"):
+    x = brentq(lambda z: residual(z, P_FWD, mode), 22.0, 27.0, xtol=1e-13, rtol=1e-14)
+    at = point(P_FWD, x)
+    P = P_FWD
+    for _ in range(14):
+        x = brentq(lambda z: residual(z, P, mode), x - 1.0, x + 1.0, xtol=1e-13, rtol=1e-14)
+        Pn = PHI + SQPI / point(P, x)["A_T"]
+        done = abs(Pn - P) < 1e-14
+        P = Pn
+        if done:
+            break
+    x = brentq(lambda z: residual(z, P, mode), x - 1.0, x + 1.0, xtol=1e-13, rtol=1e-14)
+    out["rows"][mode] = {"at_P_fwd": at, "fixed_point": {"P_star": P, **point(P, x)}}
+a, c = out["rows"]["A1"]["fixed_point"], out["rows"]["A1c"]["fixed_point"]
+a0 = out["rows"]["A1"]["at_P_fwd"]
+out["bound"] = {"colour_hidden_index_at_anchor": a0["colour_hidden_index_full_tower"],
+                "minimum_inside_triality_classes": a0["colour_minimum_inside_triality_classes"],
+                "largest_change_of_left_side": a0["colour_minimum_inside_triality_classes"] - a0["colour_hidden_index_full_tower"],
+                "share_of_colour_term_that_is_fixed_by_triality": a0["colour_minimum_inside_triality_classes"] / a0["colour_hidden_index_full_tower"],
+                "d_inv_alpha_U": c["inv_alpha_U"] - a["inv_alpha_U"], "dln_v": float(np.log(c["v"] / a["v"])),
+                "d_A_T": c["A_T"] - a["A_T"], "d_P_star": c["P_star"] - a["P_star"]}
+# Z6 check: (j, Y) fix the triality; the singlet is not allowed for a factor whose (j, Y) belong to a triplet
+ok = True
+for twoj in range(0, 6):
+    for sixY in range(-12, 13):
+        tri = [t for t in range(3) if (sixY - 3 * twoj + 2 * t) % 6 == 0]
+        ok &= len(tri) <= 1
+out["Z6_weak_and_hypercharge_labels_fix_the_triality"] = bool(ok)
+(HERE / "anchor_colour.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps(out, indent=1, default=float))

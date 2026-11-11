@@ -1,0 +1,213 @@
+"""QM candidates (CANDIDATES.md sections B and C): x_u, x_d, x_e, spectra and mixing for every reading.
+
+Reads no measured value. Needs seam.json and cell.json (qm_seam.py, qm_cell.py). Writes values.json.
+Run: cd RL/work/QM && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B qm_cand.py
+"""
+import json
+import math
+import os
+import sys
+
+import numpy as np
+import sympy as s
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from qm_paths import RER  # noqa: E402  (the checkout moved at 23:18; both locations are accepted)
+sys.path.insert(0, RER)
+sys.path.insert(0, os.path.join(HERE, '..', 'DF'))
+import dflib as L  # noqa: E402  (read-only carrier and area-record tables of worker DF)
+
+R3 = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)
+P_NAT, Q_NAT = s.Rational(1, 12), s.Rational(1, 6)
+OUT = {'measured_values_read': False}
+
+
+def spectrum(q, p, delta):
+    """Hermitian circulant sqrt(q) I + sqrt(p)(e^{i d} R + e^{-i d} R^2); y_k = lambda_k^2 (A-clock)."""
+    q, p = float(q), float(p)
+    C = math.sqrt(q) * np.eye(3) + math.sqrt(p) * (np.exp(1j * delta) * R3 + np.exp(-1j * delta) * (R3 @ R3))
+    lam, vec = np.linalg.eigh(C)
+    y = lam ** 2
+    o = np.argsort(y)
+    y, vec = y[o], vec[:, o]
+    r = {'y_sorted': y.tolist(), 'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2],
+         'koide_Q': y.sum() / np.sqrt(y).sum() ** 2}
+    r['sigma'] = 0.5 * math.log(y[2] / y[0]) if y[0] > 1e-300 else float('inf')
+    r['rho'] = math.log(y[1] / y[0]) / math.log(y[2] / y[1]) if y[0] > 1e-300 and y[2] > y[1] else float('nan')
+    return r, vec
+
+
+def weights(x, branch):
+    """Absolute weights (CANDIDATES.md C): repair-branch laws keep q = 1/6; agree-branch laws keep p = 1/12."""
+    x = s.nsimplify(x) if not isinstance(x, float) else x
+    if branch == 'repair':
+        return Q_NAT, (x * Q_NAT if not isinstance(x, float) else x / 6)
+    return (P_NAT / x if not isinstance(x, float) else 1 / (12 * x)), P_NAT
+
+
+def evaluate(name, xs, branch, note, label):
+    rec = {'x': {k: (str(v) if not isinstance(v, float) else v) for k, v in xs.items()},
+           'x_float': {k: float(v) for k, v in xs.items()}, 'branch_changed': branch, 'note': note, 'label': label,
+           'lepton_control_x_e_is_half': abs(float(xs['lepton']) - 0.5) < 1e-12}
+    sec = {}
+    vecs = {}
+    for sector in ('up', 'down', 'lepton'):
+        q, p = weights(xs[sector], branch)
+        qf, pf = float(q), float(p)
+        rec.setdefault('abs_weights', {})[sector] = {'q': str(q) if not isinstance(q, float) else q,
+                                                     'p': str(p) if not isinstance(p, float) else p}
+        for ph, delta in (('P1', 2 / 9), ('P2', pf + qf - 2 * pf * qf)):
+            r, v = spectrum(qf, pf, delta)
+            r['delta'] = delta
+            sec[f'{sector}|{ph}'] = r
+            vecs[(sector, ph)] = v
+    rec['spectra'] = sec
+    mix = {}
+    for ph in ('P1', 'P2'):
+        V = vecs[('up', ph)].conj().T @ vecs[('down', ph)]
+        A = np.abs(V)
+        mix[ph] = {'V_abs': np.round(A, 12).tolist(), 's12': A[0, 1], 's23': A[1, 2], 's13': A[0, 2],
+                   'is_permutation': bool(np.allclose(np.sort(A, axis=1)[:, -1], 1.0, atol=1e-9)),
+                   'is_identity': bool(np.allclose(np.diag(A), 1.0, atol=1e-9))}
+    rec['mixing'] = mix
+    OUT[name] = rec
+
+
+# ---------------------------------------------------------------- B1 (seam junction), from seam.json
+seam = json.load(open(os.path.join(HERE, 'seam.json')))
+assert seam['measured_values_read'] is False
+for ms in ('S1_own_quantum', 'S2_vacuum', 'S3_C_symmetric_mixture', 'S4_maximally_mixed'):
+    vals = {}
+    for leg in ('up', 'down', 'lepton'):
+        st = seam['statements'][f'C|{ms}']
+        v = {'up': st['values_up'], 'down': st['values_down'], 'lepton': st['values_lepton']}[leg][0]
+        q_split, q_blocked, p1 = (s.Rational(x) for x in v[:3])
+        vals[leg] = p1 / (q_split + q_blocked)
+    evaluate(f'B1-{ms}', vals, 'repair', 'seam junction with pattern, Higgs memory and class link; blocked inputs '
+             'counted with record 0', 'EXACT')
+
+# ---------------------------------------------------------------- B2 (family cell), from cell.json
+cell = json.load(open(os.path.join(HERE, 'cell.json')))
+assert cell['measured_values_read'] is False
+xc = cell['x_first_second_order_unit']
+xg = cell['x_ground_unit']
+F2 = cell['F2']
+exact_F2 = {}
+for leg, key in (('up', 'up'), ('down', 'down'), ('lepton', 'charged_lepton')):
+    R = s.Rational(F2[key]['R_exact']); T = s.Rational(F2[key]['T_exact'])
+    exact_F2[leg] = (R, T)
+Re, Te = exact_F2['lepton']
+evaluate('F1', {'up': s.Rational(3, 2), 'down': s.Rational(3, 2), 'lepton': s.Rational(1, 2)}, 'repair',
+         'x_s = (1/2) w_s/w_e, w = 12 y_u^2, 12 y_d^2, 4 y_e^2', 'EXACT')
+evaluate('F2a', {k: T / (2 * R) for k, (R, T) in exact_F2.items()}, 'repair', 'x_s = T_s/(2 R_s), absolute', 'EXACT')
+evaluate('F2b', {k: s.Rational(1, 2) * (T / R) / (Te / Re) for k, (R, T) in exact_F2.items()}, 'repair',
+         'x_s = (1/2)(T_s/R_s)/(T_e/R_e)', 'EXACT')
+evaluate('F2c', {k: s.Rational(1, 2) * (R / T) / (Re / Te) for k, (R, T) in exact_F2.items()}, 'repair',
+         'x_s = (1/2)(R_s/T_s)/(R_e/T_e)', 'EXACT')
+for rd in ('F3', 'F4a', 'F4b'):
+    evaluate(rd, {'up': xg[rd]['up'], 'down': xg[rd]['down'], 'lepton': xg[rd]['charged_lepton']}, 'repair',
+             'ground-state reading at the declared coefficients', 'MEASURED')
+
+# ---------------------------------------------------------------- QM-1 exclusion (DA native menu weights)
+hold_marg, hold_excl = s.Rational(1, 6), s.Rational(5, 36)
+evaluate('QM-1a', {'up': hold_excl / hold_marg, 'down': s.Rational(1, 2), 'lepton': s.Rational(1, 2)}, 'repair',
+         'literal: x_u = P(hold and no current)/P(hold); repair convention p_u = 5/36, q_u = 1/6', 'EXACT')
+OUT['QM-1b_weights'] = {'q_u': str(hold_excl), 'p_u': '1/12', 'x_u': str(s.Rational(1, 12) / hold_excl)}
+evaluate('QM-1b', {'up': s.Rational(1, 12) / hold_excl, 'down': s.Rational(1, 2), 'lepton': s.Rational(1, 2)}, 'agree',
+         'structural: Htilde agree block exclusive, q_u = 5/36, p_u = 1/12', 'EXACT')
+
+# ---------------------------------------------------------------- QM-2 colour multiplicity (= F1)
+OUT['QM-2'] = {'same_as': 'F1'}
+
+# ---------------------------------------------------------------- QM-3 interference
+# 3a: exact statement on |c1|^2 + |c2|^2
+ph = s.symbols('phi', real=True)
+c1sq = P_NAT * s.Abs(1 + s.exp(s.I * ph)) ** 2 / 2
+c2sq = P_NAT * s.Abs(1 - s.exp(s.I * ph)) ** 2 / 2
+tot = s.simplify(s.expand_complex(c1sq + c2sq))
+OUT['QM-3a'] = {'|c1|^2+|c2|^2': str(tot), 'equals_2p': bool(s.simplify(tot - 2 * P_NAT) == 0),
+                'Q_bound': '(q + |c1|^2 + |c2|^2)/(3q) = (q + 2p)/(3q) = 2/3 for every phi (E2)', 'label': 'EXACT'}
+
+
+def x3b(phi):
+    return (1 - s.cos(phi)) / 2
+
+
+Q6 = {'Q_L': 1, 'L': -3, 'u_R': 4, 'd_R': -2, 'e_R': -6}
+evaluate('QM-3b-i', {'up': x3b(s.pi * 1 * Q6['Q_L'] / 6), 'down': x3b(s.pi * 1 * Q6['Q_L'] / 6),
+                     'lepton': x3b(s.pi * 3 * Q6['L'] / 6)}, 'repair', 'incoming defect of the leg', 'EXACT')
+evaluate('QM-3b-ii', {'up': x3b(s.pi * 3 * Q6['Q_L'] / 6), 'down': x3b(s.pi * 3 * Q6['Q_L'] / 6),
+                      'lepton': x3b(s.pi * 3 * Q6['L'] / 6)}, 'repair', 'Higgs face seen by the incoming leg', 'EXACT')
+evaluate('QM-3b-iii', {'up': x3b(s.pi * 4 * Q6['u_R'] / 6), 'down': x3b(s.pi * 4 * Q6['d_R'] / 6),
+                       'lepton': x3b(s.pi * 0 * Q6['e_R'] / 6)}, 'repair', 'product face seen by the right leg', 'EXACT')
+evaluate('QM-3b-iv', {'up': x3b(s.pi * 16 / 20), 'down': x3b(s.pi * 2 / 20), 'lepton': x3b(s.pi * 6 / 20)}, 'repair',
+         'area record of the right leg', 'EXACT')
+
+# ---------------------------------------------------------------- QM-4 sector transport (area record)
+def survival(k):
+    A = L.twisted_adjacency(k)
+    T = L.kernel(A)
+    ev = np.linalg.eigvals(T)
+    return float(np.max(np.abs(ev)) ** 2)
+
+
+Sk = {k: survival(k) for k in (9, 16, 2, 13, 6)}
+ratio = {'up': Sk[16] / Sk[9], 'down': Sk[2] / Sk[9], 'lepton': Sk[6] / Sk[13]}
+OUT['QM-4_survivals'] = {str(k): v for k, v in Sk.items()}
+evaluate('QM-4', {k: 0.5 * v / ratio['lepton'] for k, v in ratio.items()}, 'repair',
+         'x_s = (1/2)(S_kR/S_kL)_s/(S_kR/S_kL)_e, T_k = 11/12 + A_k/60', 'MEASURED (float64)')
+
+# ---------------------------------------------------------------- QM-5 record kernel
+cb, cr = (5 - s.sqrt(5)) / 60, (5 + s.sqrt(5)) / 60
+evaluate('QM-5', {'up': s.Rational(1, 2) * cb / cr, 'down': s.Rational(1, 2), 'lepton': s.Rational(1, 2)}, 'repair',
+         'repair weight = family-band correction probability in the record state (u_L blank, d_L, e_L recorded)', 'EXACT')
+
+# ---------------------------------------------------------------- QM-6 truncated memory on chi
+fields = [s.Matrix(5, 5, lambda i, j: 1 if (i == 0 and j == 1 + k) or (i == 3 + k and j == 0) else 0) for k in range(2)]
+phi1 = fields[1]
+chi = s.Matrix([1, 0, 1, 0, 0]) / s.sqrt(2)
+nu = s.simplify((phi1 * chi).norm() ** 2)
+nd = s.simplify((phi1.H * chi).norm() ** 2)
+OUT['QM-6_norms'] = {'||phi_1 chi||^2 (up)': str(nu), '||phi_1^dagger chi||^2 (down, lepton)': str(nd)}
+evaluate('QM-6', {'up': s.Rational(1, 2) * nu / nd, 'down': s.Rational(1, 2), 'lepton': s.Rational(1, 2)}, 'repair',
+         'memory chi = (|0> + |H_2>)/sqrt2', 'EXACT')
+
+# exact statement: any two Hermitian circulants on one register give a permutation V
+perm_all = all(OUT[k]['mixing'][ph]['is_permutation'] for k in OUT if isinstance(OUT[k], dict) and 'mixing' in OUT[k]
+               for ph in ('P1', 'P2'))
+OUT['exact_statement_mixing'] = {'all_readings_V_is_permutation': perm_all,
+                                 'reason': 'circulants on one family register commute; their eigenvectors are the '
+                                           'Fourier vectors, so V_CKM = U_u^dagger U_d is a permutation'}
+
+
+def clean(o):
+    if isinstance(o, dict):
+        return {str(k): clean(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [clean(v) for v in o]
+    if isinstance(o, np.ndarray):
+        return clean(o.tolist())
+    if isinstance(o, (np.floating, float)):
+        return float(o)
+    if isinstance(o, (np.bool_,)):
+        return bool(o)
+    if isinstance(o, s.Basic):
+        return str(o)
+    return o
+
+
+with open(os.path.join(HERE, 'values.json'), 'w') as fh:
+    json.dump(clean(OUT), fh, indent=1, sort_keys=True)
+
+for k, v in OUT.items():
+    if isinstance(v, dict) and 'x_float' in v:
+        sp_ = v['spectra']
+        print(f"{k:12s} x_u={v['x_float']['up']:.4f} x_d={v['x_float']['down']:.4f} x_e={v['x_float']['lepton']:.4f} "
+              f"lep_ok={v['lepton_control_x_e_is_half']} | P1 up y1/y3={sp_['up|P1']['y1_over_y3']:.3e} "
+              f"y2/y3={sp_['up|P1']['y2_over_y3']:.3e} Q={sp_['up|P1']['koide_Q']:.4f} | down y1/y3={sp_['down|P1']['y1_over_y3']:.3e} "
+              f"y2/y3={sp_['down|P1']['y2_over_y3']:.3e} Q={sp_['down|P1']['koide_Q']:.4f} | V_P1 id={v['mixing']['P1']['is_identity']}")
+print('QM-3a', OUT['QM-3a'])
+print('QM-4 survivals', OUT['QM-4_survivals'])
+print('QM-6', OUT['QM-6_norms'])
+print('mixing permutation for all', perm_all)

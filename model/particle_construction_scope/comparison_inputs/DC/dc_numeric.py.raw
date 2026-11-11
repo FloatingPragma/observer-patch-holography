@@ -1,0 +1,151 @@
+#!/usr/bin/env python3
+"""Worker DC: numerical rows of CANDIDATES.md (U0, S2, S3, S4, S5, U2, D1).
+
+No measured value is read. P values: phi and P_fwd (the source-only forward root printed by RER). The D10 solver is
+the unchanged copy `paper_math_dc.py` (sha256 bda03118...), subclassed here to move E* and the two scale anchors.
+Writes dc_numeric.json next to this file. Labels: MEASURED (numerical).
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from decimal import Decimal, localcontext
+from pathlib import Path
+
+import mpmath as mp
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from paper_math_dc import PaperMathContext  # noqa: E402  (unchanged copy of the RER producer)
+
+RER = next((p for p in (Path("WORKSPACE/repair-law/reverse-engineering-reality"),
+                        Path("WORKSPACE/reverse-engineering-reality")) if p.is_dir()))
+rep = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())
+P_FWD = rep["p"]
+ALPHA_U_D10 = float(rep["d10"]["alpha_u"])
+PHI = (1 + 5 ** 0.5) / 2
+out: dict = {"inputs": {"P_fwd": P_FWD[:42], "alpha_U_D10_at_P_fwd": rep["d10"]["alpha_u"][:42], "measured_values_read": "none"}}
+
+# ---------------------------------------------------------------- representation towers (cutoffs of the producer)
+N2, N3 = 120, 90
+n = np.arange(N2 + 1)
+d2 = (n + 1).astype(float)
+c2_2 = (n / 2) * (n / 2 + 1)
+pp, qq = np.meshgrid(np.arange(N3 + 1), np.arange(N3 + 1), indexing="ij")
+d3 = ((pp + 1) * (qq + 1) * (pp + qq + 2) / 2).ravel().astype(float)
+c2_3 = ((pp ** 2 + qq ** 2 + pp * qq + 3 * pp + 3 * qq) / 3).ravel().astype(float)
+
+
+def edge(t: float, dims, cas, power: int = 1, shannon: bool = False) -> float:
+    logw = power * np.log(dims) - t * cas
+    m = logw.max()
+    w = np.exp(logw - m)
+    p = w / w.sum()
+    val = float((p * np.log(dims)).sum())
+    if shannon:
+        nz = p > 0
+        val += float(-(p[nz] * np.log(p[nz])).sum())
+    return val
+
+
+def lhs(alpha2: float, alpha3: float, power=1, shannon=False) -> float:
+    k = 4 * np.pi ** 2
+    return edge(k * alpha2, d2, c2_2, power, shannon) + edge(k * alpha3, d3, c2_3, power, shannon)
+
+
+def bisect(f, lo, hi, it=200):
+    flo = f(lo)
+    for _ in range(it):
+        mid = 0.5 * (lo + hi)
+        fm = f(mid)
+        if (fm > 0) == (flo > 0):
+            lo, flo = mid, fm
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+# sanity: the producer's closure holds on its printed D10 point with this implementation
+dd = rep["d10"]
+sanity = lhs(float(dd["alpha2_mz"]), float(dd["alpha3_mz"])) - float(P_FWD[:30]) / 4
+out["sanity_code_closure_residual_at_printed_point"] = sanity
+assert abs(sanity) < 1e-12, sanity
+
+# ---------------------------------------------------------------- S2, S3, S4 (cut scale, unified coupling) and S5
+rows = {}
+for label, P in (("phi", PHI), ("P_fwd", float(P_FWD[:30]))):
+    for cid, kw in (("S2_dR_logd", {}), ("S3_dR2_logd", {"power": 2}), ("S4_dR_logd_plus_shannon", {"shannon": True})):
+        f = lambda a, kw=kw, P=P: lhs(a, a, **kw) - P / 4
+        assert f(1e-4) > 0 > f(1.0)
+        a_cut = bisect(f, 1e-4, 1.0)
+        row = {"alpha_cut": a_cut, "inv_alpha_cut": 1 / a_cut, "t_cut": 4 * np.pi ** 2 * a_cut, "residual": f(a_cut)}
+        if cid == "S2_dR_logd":
+            row["S5_v_over_Estar_with_MU_eq_Ecell"] = P ** -0.5 * np.exp(-2 * np.pi / (4 * a_cut))
+        rows[f"{cid}@{label}"] = row
+out["cut_scale_closure"] = rows
+
+# D1: the code's own alpha_U inserted in the cut-scale closure
+Pf = float(P_FWD[:30])
+out["D1_cut_closure_at_D10_alpha_U"] = {"lhs": lhs(ALPHA_U_D10, ALPHA_U_D10), "P_over_4": Pf / 4, "ratio": lhs(ALPHA_U_D10, ALPHA_U_D10) / (Pf / 4)}
+
+# ---------------------------------------------------------------- U2: two closures
+aU = rows["S2_dR_logd@P_fwd"]["alpha_cut"]
+b = (33 / 5, 1.0, -3.0)
+
+
+def alphas(L):
+    return [1 / (1 / aU + bi * L / (2 * np.pi)) for bi in b]
+
+
+Lmax = 2 * np.pi / (3 * aU) * (1 - 1e-9)
+grid = np.linspace(0.0, Lmax, 4001)[1:]
+F = [lhs(alphas(L)[1], alphas(L)[2]) - Pf / 4 for L in grid]
+roots = []
+for i in range(1, len(grid)):
+    if (F[i - 1] > 0) != (F[i] > 0):
+        Lr = bisect(lambda L: lhs(alphas(L)[1], alphas(L)[2]) - Pf / 4, grid[i - 1], grid[i])
+        a1, a2, a3 = alphas(Lr)
+        v = Pf ** -0.5 * np.exp(-2 * np.pi / (4 * aU))
+        mz = v / 2 * np.sqrt(4 * np.pi * a2 + 4 * np.pi * 0.6 * a1)
+        roots.append({"L": Lr, "MU_over_Estar": mz * np.exp(Lr), "declared_form": np.exp(-2 * np.pi) * Pf ** (1 / 6)})
+out["U2_two_closures"] = {"alpha_U_from_S2": aU, "L_root_at_zero": "L = 0 solves both closures identically (alpha_i = alpha_U)",
+                          "sign_at_small_L": F[0], "nonzero_roots": roots, "L_window": [0.0, Lmax]}
+
+# ---------------------------------------------------------------- U0: E* cancels; only M_U/E_cell enters
+class Scaled(PaperMathContext):
+    def __init__(self, *args, e_star="1", lam="1", **kw):
+        super().__init__(*args, **kw)
+        self.planck_energy = Decimal(e_star)
+        self._lam = Decimal(lam)
+
+    def unification_scale_gev(self, p):
+        return super().unification_scale_gev(p) * self._lam
+
+    def e_cell(self, p):
+        return super().e_cell(p) * self._lam
+
+
+u0 = {}
+t0 = time.time()
+for tag, kw in (("Estar_1", {}), ("Estar_1e19", {"e_star": "1e19"}), ("both_anchors_x7", {"lam": "7"})):
+    ctx = Scaled(precision=30, su2_cutoff=60, su3_cutoff=30, **kw)
+    pt = ctx.build_d10_from_p(Decimal(P_FWD[:45]))
+    _, thomson_inv, _ = ctx.alpha_external_from_d10(pt, "thomson_structured_running")  # row U0b
+    with localcontext() as c:
+        c.prec = 40
+        u0[tag] = {"alpha_u": str(+pt.alpha_u), "alpha2_mz": str(+pt.alpha2_mz), "alpha3_mz": str(+pt.alpha3_mz),
+                   "alpha_em_inv_mz": str(+pt.alpha_em_inv_mz), "sin2w_mz": str(+pt.sin2w_mz),
+                   "U0b_thomson_alpha_inv": str(+thomson_inv),
+                   "v_over_Estar": str(+(pt.v / ctx.planck_energy)), "mz_over_Estar": str(+(pt.mz_run / ctx.planck_energy))}
+u0["seconds"] = time.time() - t0
+mp.mp.dps = 30
+dev = {k: max(abs(mp.mpf(u0[t][k]) / mp.mpf(u0["Estar_1"][k]) - 1) for t in ("Estar_1e19", "both_anchors_x7"))
+       for k in ("alpha_u", "alpha2_mz", "alpha3_mz", "alpha_em_inv_mz", "sin2w_mz", "U0b_thomson_alpha_inv")}
+u0["max_relative_deviation_dimensionless"] = {k: mp.nstr(v, 3) for k, v in dev.items()}
+u0["printed_report_alpha_u"] = rep["d10"]["alpha_u"][:32]
+out["U0_scale_reduction"] = u0
+
+(HERE / "dc_numeric.json").write_text(json.dumps(out, indent=1, default=float) + "\n")
+print(json.dumps(out, indent=1, default=float))

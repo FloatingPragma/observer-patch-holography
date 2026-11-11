@@ -1,0 +1,261 @@
+"""Block 2a: the one-load covariant agreement pump (CAP) in exact arithmetic.
+
+For flux k in (1, 2, 7) and controls (0, 3, 9, 10): completeness, population lumping on all 144 matrix units,
+covariance under the 120 lifts, the 3 x 3 (4 x 4 for k = 0, 10) matrix of the channel on the band projectors, the
+exact stationary levels, the isotypic blocks of the channel on the 144-dimensional operator space with certified
+eigenvalues and the exact spectral gap. Output m2_cap_one.json. Run: python m2_cap_one.py
+"""
+import json, sys, time
+from kfield import *
+from capx import *
+
+t0 = time.time()
+out = {}
+ctx.prec = 300
+
+
+def one_flux(k, full=True):
+    res = {}
+    krs = kraus_one(k)
+    # completeness and population lumping against the native transition (the load moves with probability 1/2)
+    comp = True; lump = True
+    for (a, b), (K0, K1) in zip(X.E, krs):
+        D0, D1 = dense(K0), dense(K1)
+        comp = comp and meq(madd(mmul(dagger(D0), D0), mmul(dagger(D1), D1)), eye(12))
+        for i in range(12):
+            for j in range(12):
+                Eij = zeros(12); Eij[i][j] = K(1)
+                O = madd(sandwich(K0, Eij), sandwich(K1, Eij))
+                for q in range(12):
+                    if i != j:
+                        target = K(0)
+                    elif i in (a, b):
+                        target = HALF if q in (a, b) else K(0)
+                    else:
+                        target = K(1) if q == i else K(0)
+                    lump = lump and (O[q][q] == target)
+    res['completeness_exact'] = comp; res['population_lumping_on_144_matrix_units_exact'] = lump
+    # covariance of the channel under the lifts
+    A = X.adjacency(k)
+    lam, dims = bands(k)
+    assert is_zero_mat(polyval_mat(poly_from_roots([(l, 1) for l in lam]), A))
+    Pi = band_projectors(A, lam)
+    assert [trace(P) for P in Pi] == dims
+    cov = True
+    probe = zeros(12)
+    for i in range(12):
+        for j in range(12):
+            probe[i][j] = K(i + 2 * j + 1) + ZETA ** ((3 * i + j) % 20)
+    Fp = channel(krs, probe)
+    for gi in range(0, 120, 11):
+        perm, ph = action_one(gi, k)
+        cov = cov and meq(channel(krs, conj_action(probe, perm, ph)), conj_action(Fp, perm, ph))
+    res['covariance_under_lifts_exact'] = cov
+    nb = len(dims)
+    T = zeros(nb)
+    images = [channel(krs, P) for P in Pi]
+    for j in range(nb):
+        acc = zeros(12)
+        for i in range(nb):
+            T[i][j] = trace(mmul(Pi[i], images[j])) * Kq(1, dims[i])
+            acc = madd(acc, mscale(T[i][j], Pi[i]))
+        assert meq(acc, images[j]), 'the channel does not map the span of band projectors into itself'
+    res['bands'] = {'dimensions': dims, 'adjacency_levels': [str(l) for l in lam], 'adjacency_levels_float': [float(l) for l in lam]}
+    res['T'] = [[str(x) for x in row] for row in T]
+    res['T_float'] = [[float(x) for x in row] for row in T]
+    # stationary levels
+    ns = nullspace(msub(T, eye(nb)))
+    assert len(ns) == 1, len(ns)
+    v = ns[0]
+    norm = sum((v[i] * dims[i] for i in range(nb)), K(0))
+    levels = [x * norm.inv() for x in v]
+    rho0 = zeros(12)
+    for i in range(nb):
+        rho0 = madd(rho0, mscale(levels[i], Pi[i]))
+    assert meq(channel(krs, rho0), rho0) and trace(rho0) == 1
+    assert all(rho0[p][p] == Kq(1, 12) for p in range(12))
+    res['stationary_levels'] = [str(x) for x in levels]
+    res['stationary_levels_float'] = [float(x) for x in levels]
+    res['stationary_weights_float'] = [float(x) * d for x, d in zip(levels, dims)]
+    res['stationary_density_is_exact_fixed_point'] = True
+    res['uniform_diagonal_exact'] = True
+    res['levels_positive'] = all(x.sign() > 0 for x in levels)
+    # closed forms (EXACT): Phi(X) = X - {L, X}/60 + Dg(X)/30 with L = 5 - A_k and Dg(X)_pp = sum over seams at p of <-|X|->;
+    # Phi(Pi_j) = (1 - l_j/30) Pi_j + (d_j l_j/360) 1; stationary density = L^-1 / tr L^-1 (for k = 0: the kernel of L)
+    L = msub(mscale(K(5), eye(12)), A)
+    ell = [5 - l for l in lam]
+    Dg = zeros(12)
+    for (a, b) in X.E:
+        z = link(a, b, k)
+        val = (probe[a][a] + probe[b][b] - z * probe[a][b] - z.conj() * probe[b][a]) * HALF
+        Dg[a][a] = Dg[a][a] + val; Dg[b][b] = Dg[b][b] + val
+    closed = madd(msub(probe, mscale(Kq(1, 60), madd(mmul(L, probe), mmul(probe, L)))), mscale(Kq(1, 30), Dg))
+    res['closed_form_channel_exact'] = meq(closed, Fp)
+    Tcf = [[(1 - ell[j] * Kq(1, 30) if i == j else K(0)) + dims[j] * ell[j] * Kq(1, 360) for j in range(nb)] for i in range(nb)]
+    res['closed_form_T_exact'] = meq(Tcf, T)
+    if all(not x.is_zero() for x in ell):
+        Linv = inverse(L)
+        res['stationary_density_is_normalized_inverse_connection_laplacian'] = meq(mscale(trace(Linv).inv(), Linv), rho0)
+    else:
+        res['stationary_density_is_normalized_inverse_connection_laplacian'] = 'k = 0: L is singular, the stationary density is its kernel projector'
+    res['connection_laplacian_levels'] = [str(x) for x in ell]
+    print('   closed forms: channel', res['closed_form_channel_exact'], ' T', res['closed_form_T_exact'], ' rho0 = L^-1/tr:', res['stationary_density_is_normalized_inverse_connection_laplacian'])
+    cpT = charpoly(T)
+    res['T_charpoly'] = [str(x) for x in cpT]
+    # deflate the root 1
+    q = [cpT[0]]
+    for c in cpT[1:-1]:
+        q.append(c + q[-1])
+    assert (cpT[-1] + q[-1]).is_zero()
+    res['T_other_eigenvalues_poly'] = [str(x) for x in q]
+    roots = acb_roots(q)
+    res['T_other_eigenvalues'] = [[float(r.real), float(r.imag)] for r in roots]
+    print(f'flux {k}: bands {dims}, adjacency levels {[round(float(l), 6) for l in lam]}')
+    print('   completeness', comp, ' lumping', lump, ' covariance', cov)
+    for row in T:
+        print('   T row:', ' | '.join(str(x) for x in row))
+    print('   stationary levels:', ' ; '.join(f'{str(x)} = {float(x):.9f} (x{d})' for x, d in zip(levels, dims)))
+    print('   other eigenvalues of T:', res['T_other_eigenvalues'], flush=True)
+    if not full:
+        return res, None
+    # isotypic blocks of the channel on M_12 (adjoint action of the rotation group)
+    blocks = {}
+    allroots = []
+    act = lambda g: action_one(g, k)
+    units = []
+    for i in range(12):
+        for j in range(12):
+            units.append((i, j))
+    for chi in ('1', '3', "3'", '4', '5'):
+        H = subgroup_for(chi)
+        # apply P_chi P_H (adjoint) to matrix units, collect a basis
+        vecs = []
+        Hact = [act(h) for h in H]
+        Gact = [(act(g), CHAR[chi][CLASS[g]]) for g in ROT]
+        for (i, j) in units:
+            # P_H(E_ij)
+            Y = zeros(12)
+            for (perm, ph) in Hact:
+                Y[perm[i]][perm[j]] = Y[perm[i]][perm[j]] + ph[i] * ph[j].conj()
+            Z = zeros(12)
+            for ((perm, ph), w) in Gact:
+                if w.is_zero(): continue
+                for a in range(12):
+                    for b in range(12):
+                        y = Y[a][b]
+                        if not y.is_zero():
+                            Z[perm[a]][perm[b]] = Z[perm[a]][perm[b]] + w * ph[a] * y * ph[b].conj()
+            vecs.append([x for row in Z for x in row])
+        R, piv = rref(vecs)
+        basis = [R[r] for r in range(len(piv))]
+        m = len(basis)
+        Bm = [[basis[c][r] for c in range(m)] for r in range(144)]             # 144 x m
+        imgs = []
+        for b in basis:
+            Xm = [b[12 * i:12 * i + 12] for i in range(12)]
+            Y = channel(krs, Xm)
+            imgs.append([x for row in Y for x in row])
+        Im = [[imgs[c][r] for c in range(m)] for r in range(144)]
+        blk = solve(Bm, Im)
+        assert meq(mmul(Bm, blk), Im)
+        cp = charpoly(blk)
+        real_coeffs = all(x.is_real() for x in cp)
+        # divide out the known exact roots: unperturbed values 1 - (l_i + l_j)/60 and the classical load-chain values
+        known = {}
+        for i in range(nb):
+            for j in range(i, nb):
+                known[1 - (ell[i] + ell[j]) * Kq(1, 60)] = f'1 - (l{dims[i]} + l{dims[j]})/60'
+        for val, nm in ((K(1), '1 (stationary)'), (1 - (5 - S5) * Kq(1, 60), 'load chain 3: 1 - (5 - sqrt5)/60'),
+                        (1 - (5 + S5) * Kq(1, 60), "load chain 3': 1 - (5 + sqrt5)/60"), (Kq(9, 10), 'load chain 5: 9/10')):
+            known[val] = nm
+        rem = list(cp); exact_roots = []
+        for val, nm in known.items():
+            mult = 0
+            while len(rem) > 1 and poly_eval(rem, val).is_zero():
+                q = [rem[0]]
+                for c in rem[1:-1]:
+                    q.append(c + q[-1] * val)
+                rem = q; mult += 1
+            if mult:
+                exact_roots.append((val, nm, mult))
+        roots = []
+        if len(rem) > 1:
+            roots = acb_roots(rem)
+        eig = [(float(v), 0.0, nm, mu) for v, nm, mu in exact_roots] + [(float(r.real), float(r.imag), 'root of the remaining factor', 1) for r in roots]
+        eig.sort(key=lambda t: -(t[0] ** 2 + t[1] ** 2))
+        blocks[chi] = {'multiplicity': m, 'subgroup_order': len(H), 'charpoly': [str(x) for x in cp], 'charpoly_real_coefficients': real_coeffs,
+                       'exact_roots': [{'value': str(v), 'float': float(v), 'name': nm, 'multiplicity': mu} for v, nm, mu in exact_roots],
+                       'remaining_factor': [str(x) for x in rem], 'remaining_factor_degree': len(rem) - 1,
+                       'eigenvalues': [[a, b, nm, mu] for a, b, nm, mu in eig]}
+        for v, nm, mu in exact_roots:
+            allroots.append((chi, v.acb(), nm))
+        for r in roots:
+            allroots.append((chi, r, 'remaining'))
+        print(f'   block {chi:2s}: multiplicity {m}; exact roots {[(round(float(v), 6), mu) for v, nm, mu in exact_roots]}; remaining factor of degree {len(rem) - 1} with roots {[round(float(r.real), 6) if r.imag.contains(0) else (round(float(r.real), 6), round(float(r.imag), 6)) for r in roots]}', flush=True)
+        blocks[chi]['_cp'] = rem if len(rem) > 1 else cp
+        blocks[chi]['_rem'] = rem
+    assert sum(blocks[c]['multiplicity'] * DIM[c] for c in blocks) == 144
+    res['blocks'] = {c: {kk: vv for kk, vv in b.items() if not kk.startswith('_')} for c, b in blocks.items()}
+    # spectral gap: largest modulus below one, certified
+    one_roots = [(chi, r) for chi, r, nm in allroots if nm.startswith('1 (')]
+    assert len(one_roots) == 1 and one_roots[0][0] == '1', one_roots
+    rest = [(chi, r, nm) for chi, r, nm in allroots if not nm.startswith('1 (')]
+    rest.sort(key=lambda t: -float(abs(t[1])))
+    chi2, r2, nm2 = rest[0]
+    mod2 = abs(r2)
+    ties = [(chi, nm) for chi, r, nm in rest if not (abs(r) < mod2)]
+    separated = all(abs(r) < 1 for _, r, _ in rest)
+    res['second_eigenvalue'] = {'blocks_attaining_it': ties, 'value': [float(r2.real), float(r2.imag)], 'modulus': float(mod2), 'enclosure': str(r2),
+                                'gap': float(1 - mod2), 'all_other_moduli_certified_below_one': bool(separated),
+                                'degeneracy_in_operator_space': sum(DIM[chi] for chi, nm in ties)}
+    res['complex_eigenvalue_count'] = sum(DIM[chi] for chi, r, nm in allroots if not r.imag.contains(0))
+    if nm2 == 'remaining':
+        res['second_eigenvalue']['exact'] = 'largest root of the remaining factor of block ' + chi2 + ' (coefficients, descending): ' + ' ; '.join(str(x) for x in blocks[chi2]['_rem'])
+    else:
+        res['second_eigenvalue']['exact'] = nm2
+    # minimal polynomial over Q of the second eigenvalue
+    cp = blocks[chi2]['_cp']
+    if all(x.is_real() for x in cp):
+        nq = poly_real_norm_to_Q(cp)
+    else:
+        nq = poly_norm_to_Q(cp)
+    den = nq.denom(); zp = fmpz_poly([int(c * den) for c in nq.coeffs()])
+    content, facs = zp.factor()
+    found = None
+    for f, mult in facs:
+        for rt, mm in f.complex_roots():
+            if (rt - r2).contains(0) or rt.overlaps(r2):
+                found = f
+    if found is not None:
+        res['second_eigenvalue']['minimal_polynomial_over_Q_degree'] = int(found.degree())
+        res['second_eigenvalue']['minimal_polynomial_over_Q'] = str(found)
+    print(f'   second eigenvalue: {ties}, {r2}, gap {float(1 - mod2):.9f}; all others below one: {separated}; complex eigenvalues {res["complex_eigenvalue_count"]}')
+    print('   exact:', res['second_eigenvalue']['exact'])
+    if found is not None:
+        print(f'   its minimal polynomial over Q has degree {found.degree()}', flush=True)
+    return res, (krs, Pi, levels, rho0, dims)
+
+
+ks = [int(a) for a in sys.argv[1:]] or [1, 2, 7, 3, 9, 0, 10]
+for k in ks:
+    res, _ = one_flux(k, full=(k in (1, 2, 7)))
+    out[f'flux_{k}'] = res
+    json.dump(out, open('m2_cap_one.json', 'w'), indent=1)
+# Galois structure: the levels at flux 3, 7, 9 are the conjugates of the flux-1 levels on the corresponding bands
+if all(f'flux_{k}' in out for k in (1, 3, 7, 9)):
+    from capx import LEVELS1
+    Z1 = sum(((5 - l).inv() * d for l, d in zip(LEVELS1, (2, 4, 6))), K(0))
+    lev1 = [((5 - l) * Z1).inv() for l in LEVELS1]
+    ok = True
+    for k in (3, 7, 9):
+        lam, dims = bands(k)
+        conj = {str(l.galois(k)): x.galois(k) for l, x in zip(LEVELS1, lev1)}
+        Zk = sum(((5 - l).inv() * d for l, d in zip(lam, dims)), K(0))
+        levk = [((5 - l) * Zk).inv() for l in lam]
+        ok = ok and all(conj[str(l)] == x for l, x in zip(lam, levk))
+    out['levels_at_flux_3_7_9_are_galois_conjugates_of_flux_1'] = ok
+    print('levels at flux 3, 7, 9 are the Galois conjugates of the flux-1 levels:', ok)
+out['seconds'] = round(time.time() - t0, 1)
+out['reference_float_values_of_the_theory_session'] = {'flux_1_levels': [0.298676, 0.052191, 0.032314], 'flux_1_second_eigenvalue': 0.96861}
+json.dump(out, open('m2_cap_one.json', 'w'), indent=1)
+print('written m2_cap_one.json in', out['seconds'], 's')

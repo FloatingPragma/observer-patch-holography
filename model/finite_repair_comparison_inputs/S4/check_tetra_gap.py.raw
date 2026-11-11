@@ -1,0 +1,61 @@
+"""Exact check: the static transported-contrast chain on the tetrahedron with one unit pair, total load 0.
+
+Rational transition matrix, exact characteristic polynomial (sympy), and the slowest non-stationary level.
+"""
+import json
+from fractions import Fraction as F
+from pathlib import Path
+import numpy as np
+import sympy as sp
+from model.transported_contrast import law, exact
+
+HERE = Path(__file__).resolve().parent
+ports = 4
+seams = tuple((a, b) for a in range(4) for b in range(a + 1, 4))
+faces = ((0, 1, 2), (0, 3, 1), (0, 2, 3), (1, 3, 2))
+law.check_surface(seams, faces, ports)
+distance, near, sides = law.dual_distance(faces)
+out = {}
+for Q in (1, 2):
+    offsets = tuple(Q * o for o in law.string_offsets(seams, faces, 0, 1))
+    for total in (0, 1, 2, 3):
+        start = tuple([1] * total + [0] * (ports - total))
+        order, classes = exact.closed_class(start, offsets, seams)
+        (cls,) = classes
+        states = [order[i] for i in cls]
+        idx = {s: i for i, s in enumerate(states)}
+        n, M = len(states), len(seams)
+        T = sp.zeros(n, n)
+        for s in states:
+            for k in range(M):
+                for coin in (0, 1):
+                    T[idx[law.attempt(s, offsets, seams, k, coin)[0]], idx[s]] += sp.Rational(1, 2 * M)
+        E = sp.symbols('E')
+        # H = M (1 - T); characteristic polynomial in E
+        H = M * (sp.eye(n) - T)
+        poly = sp.factor(H.charpoly(E).as_expr())
+        roots = []
+        for fac, mult in sp.factor_list(H.charpoly(E).as_expr(), E)[1]:
+            roots += [z for z in sp.Poly(fac, E).nroots(n=20, maxsteps=2000)] * mult
+        roots = sorted(roots, key=lambda z: (sp.re(z), sp.im(z)))
+        real_sorted = [complex(z) for z in roots]
+        gap = real_sorted[1]
+        key = f'Q={Q} total={total}'
+        out[key] = {'states': n, 'characteristic_polynomial_factored': str(poly), 'second_level': [gap.real, gap.imag],
+                    'levels': [[round(z.real, 12), round(z.imag, 12)] for z in real_sorted]}
+        print(key, 'states', n, '\n  charpoly:', poly, '\n  lowest levels:', [(round(z.real, 6), round(z.imag, 6)) for z in real_sorted[:6]], flush=True)
+        if Q == 1 and total == 0:
+            # the slow mode as a function on states (left eigenvector), next to the loads and the contrasts
+            Tn = np.array(T.tolist(), float)
+            w, vl = np.linalg.eig(Tn.T)
+            i = np.argsort(-w.real)[1]
+            f = vl[:, i].real; f = f / np.max(np.abs(f))
+            pi = np.linalg.eig(Tn)[1][:, np.argmax(np.linalg.eig(Tn)[0].real)].real; pi = pi / pi.sum()
+            print('  slow mode (eigenvalue of T %.9f, E = %.9f):' % (w[i].real, M * (1 - w[i].real)))
+            for s, fv, p in sorted(zip(states, f, pi), key=lambda t: -t[2]):
+                print('   loads', s, 'contrast', law.contrast(s, offsets, seams), 'pi %.5f' % p, 'f %+.4f' % fv)
+            lin = np.array([[*s, 1.0] for s in states])
+            resid = f - lin @ np.linalg.lstsq(lin, f, rcond=None)[0]
+            out[key]['slow_mode_distance_from_affine_functions_of_loads'] = float(np.max(np.abs(resid)))
+            print('  distance of the slow mode from affine functions of the loads:', float(np.max(np.abs(resid))))
+(HERE / 'check_tetra_gap.json').write_text(json.dumps(out, indent=1))

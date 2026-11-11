@@ -1,0 +1,663 @@
+{
+ "conjugate_triplet": {
+  "character_norm": "1",
+  "overlap_with_the_code_triplet_character": "0",
+  "determinant_one_on_all_60_rotations": true,
+  "dimension": 3,
+  "tag": "EXACT"
+ },
+ "labels_on_the_conjugate_triplet": {
+  "rows": {
+   "port (fifth-turns, Z5)": {
+    "subgroups": 6,
+    "order": 5,
+    "distinct_characters_on_the_triplet": 3,
+    "commuting_hermitian_operators": 3,
+    "commuting_real_symmetric_operators": 2
+   },
+   "face (third-turns, Z3)": {
+    "subgroups": 10,
+    "order": 3,
+    "distinct_characters_on_the_triplet": 3,
+    "commuting_hermitian_operators": 3,
+    "commuting_real_symmetric_operators": 2
+   },
+   "frame (Klein group)": {
+    "subgroups": 5,
+    "order": 4,
+    "distinct_characters_on_the_triplet": 3,
+    "commuting_hermitian_operators": 3,
+    "commuting_real_symmetric_operators": 3
+   },
+   "seam (one half-turn, Z2)": {
+    "subgroups": 15,
+    "order": 2,
+    "distinct_characters_on_the_triplet": 2,
+    "commuting_hermitian_operators": 5,
+    "commuting_real_symmetric_operators": 4
+   },
+   "frame stabilizer (order 12)": {
+    "subgroups": 5,
+    "order": 12,
+    "distinct_characters_on_the_triplet": 1,
+    "commuting_hermitian_operators": 1,
+    "commuting_real_symmetric_operators": 1
+   },
+   "all rotations": {
+    "subgroups": 1,
+    "order": 60,
+    "distinct_characters_on_the_triplet": 1,
+    "commuting_hermitian_operators": 1,
+    "commuting_real_symmetric_operators": 1
+   }
+  },
+  "tag": "EXACT",
+  "reading": "three distinct labels need a port, a face or a frame; only the frame gives three independent masses with a real (time-reversal even) operator; with all rotations or the full frame stabilizer every invariant operator is a multiple of the identity (equal masses)"
+ },
+ "mixing_atlas_on_the_conjugate_triplet": {
+  "classes": [
+   {
+    "pair": "face / face",
+    "pairs_in_class": 30,
+    "squared_overlaps": [
+     [
+      0.111111,
+      0.444444,
+      0.444444
+     ],
+     [
+      0.444444,
+      0.444444,
+      0.111111
+     ],
+     [
+      0.444444,
+      0.111111,
+      0.444444
+     ]
+    ],
+    "cos2_of_the_two_axes": "1/9",
+    "cos_in_Q_sqrt5": "1/3",
+    "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2"
+   },
+   {
+    "pair": "face / face",
+    "pairs_in_class": 15,
+    "squared_overlaps": [
+     [
+      0.555556,
+      0.222222,
+      0.222222
+     ],
+     [
+      0.222222,
+      0.761567,
+      0.016211
+     ],
+     [
+      0.222222,
+      0.016211,
+      0.761567
+     ]
+    ],
+    "cos2_of_the_two_axes": "5/9",
+    "cos_in_Q_sqrt5": "(1/3)*sqrt5",
+    "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2"
+   },
+   {
+    "pair": "face / frame",
+    "pairs_in_class": 30,
+    "squared_overlaps": [
+     [
+      0.872678,
+      0.0,
+      0.127322
+     ],
+     [
+      0.063661,
+      0.5,
+      0.436339
+     ],
+     [
+      0.063661,
+      0.5,
+      0.436339
+     ]
+    ],
+    "exact": [
+     [
+      "1/2 + (1/6)*sqrt5",
+      "0",
+      "1/2 + (-1/6)*sqrt5"
+     ],
+     [
+      "1/4 + (-1/12)*sqrt5",
+      "1/2",
+      "1/4 + (1/12)*sqrt5"
+     ],
+     [
+      "1/4 + (-1/12)*sqrt5",
+      "1/2",
+      "1/4 + (1/12)*sqrt5"
+     ]
+    ]
+   },
+   {
+    "pair": "face / frame",
+    "pairs_in_class": 20,
+    "squared_overlaps": [
+     [
+      0.333333,
+      0.333333,
+      0.333333
+     ],
+     [
+      0.333333,
+      0.333333,
+      0.333333
+     ],
+     [
+      0.333333,
+      0.333333,
+      0.333333
+     ]
+    ],
+    "exact": [
+     [
+      "1/3",
+      "1/3",
+      "1/3"
+     ],
+     [
+      "1/3",
+      "1/3",
+      "1/3"
+     ],
+     [
+      "1/3",
+      "1/3",
+      "1/3"
+     ]
+    ]
+   },
+   {
+    "pair": "frame / frame",
+    "pairs_in_class": 10,
+    "squared_overlaps": [
+     [
+      0.654508,
+      0.095492,
+      0.25
+     ],
+     [
+      0.25,
+      0.654508,
+      0.095492
+     ],
+     [
+      0.095492,
+      0.25,
+      0.654508
+     ]
+    ],
+    "exact": [
+     [
+      "3/8 + (1/8)*sqrt5",
+      "3/8 + (-1/8)*sqrt5",
+      "1/4"
+     ],
+     [
+      "1/4",
+      "3/8 + (1/8)*sqrt5",
+      "3/8 + (-1/8)*sqrt5"
+     ],
+     [
+      "3/8 + (-1/8)*sqrt5",
+      "1/4",
+      "3/8 + (1/8)*sqrt5"
+     ]
+    ]
+   },
+   {
+    "pair": "port / face",
+    "pairs_in_class": 30,
+    "squared_overlaps": [
+     [
+      0.035191,
+      0.482405,
+      0.482405
+     ],
+     [
+      0.482405,
+      0.352594,
+      0.165001
+     ],
+     [
+      0.482405,
+      0.165001,
+      0.352594
+     ]
+    ],
+    "cos2_of_the_two_axes": "1/3 + (-2/15)*sqrt5",
+    "cos_in_Q_sqrt5": null,
+    "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2"
+   },
+   {
+    "pair": "port / face",
+    "pairs_in_class": 30,
+    "squared_overlaps": [
+     [
+      0.631476,
+      0.184262,
+      0.184262
+     ],
+     [
+      0.184262,
+      0.805196,
+      0.010542
+     ],
+     [
+      0.184262,
+      0.010542,
+      0.805196
+     ]
+    ],
+    "cos2_of_the_two_axes": "1/3 + (2/15)*sqrt5",
+    "cos_in_Q_sqrt5": null,
+    "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2"
+   },
+   {
+    "pair": "port / frame",
+    "pairs_in_class": 30,
+    "squared_overlaps": [
+     [
+      0.276393,
+      0.723607,
+      0.0
+     ],
+     [
+      0.361803,
+      0.138197,
+      0.5
+     ],
+     [
+      0.361803,
+      0.138197,
+      0.5
+     ]
+    ],
+    "exact": [
+     [
+      "1/2 + (-1/10)*sqrt5",
+      "1/2 + (1/10)*sqrt5",
+      "0"
+     ],
+     [
+      "1/4 + (1/20)*sqrt5",
+      "1/4 + (-1/20)*sqrt5",
+      "1/2"
+     ],
+     [
+      "1/4 + (1/20)*sqrt5",
+      "1/4 + (-1/20)*sqrt5",
+      "1/2"
+     ]
+    ]
+   },
+   {
+    "pair": "port / port",
+    "pairs_in_class": 15,
+    "squared_overlaps": [
+     [
+      0.2,
+      0.4,
+      0.4
+     ],
+     [
+      0.4,
+      0.523607,
+      0.076393
+     ],
+     [
+      0.4,
+      0.076393,
+      0.523607
+     ]
+    ],
+    "cos2_of_the_two_axes": "1/5",
+    "cos_in_Q_sqrt5": "(1/5)*sqrt5",
+    "closed_form": "axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2"
+   }
+  ],
+  "tag": "EXACT (squares in Q(sqrt5); circular-circular entries from the closed form)",
+  "same_classes_on_the_code_triplet": true
+ },
+ "golden_pattern": {
+  "axial_state": [
+   "0",
+   "(5 - sqrt5)/10",
+   "(5 + sqrt5)/10"
+  ],
+  "circular_states": [
+   "(5 - sqrt5)/20",
+   "(5 + sqrt5)/20",
+   "1/2"
+  ],
+  "floats": [
+   [
+    0.0,
+    0.276393202250021,
+    0.7236067977499789
+   ],
+   [
+    0.1381966011250105,
+    0.36180339887498947,
+    0.5
+   ]
+  ],
+  "port_frame_pairs": 30,
+  "tag": "EXACT"
+ },
+ "comparison_with_frozen_lepton_mixing_NOT_BLIND": {
+  "frozen_values_deg": {
+   "theta12": [
+    33.68,
+    0.73,
+    0.7
+   ],
+   "theta23": [
+    43.3,
+    1.0,
+    0.9
+   ],
+   "theta13": [
+    8.56,
+    0.11,
+    0.11
+   ],
+   "delta_CP": [
+    212.0,
+    26.0,
+    41.0
+   ]
+  },
+  "source": "RER/code/particles/RESULTS_STATUS.md, table \"Neutrino Oscillation Comparison\", column \"PDG 2025 NO reference\"",
+  "measured_squared_moduli_from_the_frozen_angles": [
+   [
+    0.6771,
+    0.3007,
+    0.0222
+   ],
+   [
+    0.112,
+    0.4281,
+    0.4599
+   ],
+   [
+    0.2109,
+    0.2712,
+    0.5179
+   ]
+  ],
+  "classes_ranked_by_distance_after_the_best_of_36_relabellings": [
+   {
+    "pair": "port / frame",
+    "pairs_in_class": 30,
+    "distance_to_measured_squared_moduli": 0.1541,
+    "theta12_deg": 31.717,
+    "theta23_deg": 45.0,
+    "theta13_deg": 0.0,
+    "pulls": [
+     -2.8,
+     1.7,
+     -77.8
+    ]
+   },
+   {
+    "pair": "port / port",
+    "pairs_in_class": 15,
+    "distance_to_measured_squared_moduli": 0.3118,
+    "theta12_deg": 41.154,
+    "theta23_deg": 48.846,
+    "theta13_deg": 16.045,
+    "pulls": [
+     10.2,
+     5.5,
+     68.0
+    ]
+   },
+   {
+    "pair": "port / face",
+    "pairs_in_class": 30,
+    "distance_to_measured_squared_moduli": 0.3357,
+    "theta12_deg": 45.0,
+    "theta23_deg": 45.0,
+    "theta13_deg": 10.812,
+    "pulls": [
+     15.5,
+     1.7,
+     20.5
+    ]
+   },
+   {
+    "pair": "face / frame",
+    "pairs_in_class": 30,
+    "distance_to_measured_squared_moduli": 0.3494,
+    "theta12_deg": 20.905,
+    "theta23_deg": 45.0,
+    "theta13_deg": 0.0,
+    "pulls": [
+     -18.2,
+     1.7,
+     -77.8
+    ]
+   },
+   {
+    "pair": "frame / frame",
+    "pairs_in_class": 10,
+    "distance_to_measured_squared_moduli": 0.3938,
+    "theta12_deg": 31.717,
+    "theta23_deg": 31.717,
+    "theta13_deg": 18.0,
+    "pulls": [
+     -2.8,
+     -12.9,
+     85.8
+    ]
+   },
+   {
+    "pair": "face / face",
+    "pairs_in_class": 30,
+    "distance_to_measured_squared_moduli": 0.4108,
+    "theta12_deg": 45.0,
+    "theta23_deg": 45.0,
+    "theta13_deg": 19.471,
+    "pulls": [
+     15.5,
+     1.7,
+     99.2
+    ]
+   },
+   {
+    "pair": "face / face",
+    "pairs_in_class": 15,
+    "distance_to_measured_squared_moduli": 0.4449,
+    "theta12_deg": 28.377,
+    "theta23_deg": 28.377,
+    "theta13_deg": 7.315,
+    "pulls": [
+     -7.6,
+     -16.6,
+     -11.3
+    ]
+   },
+   {
+    "pair": "port / face",
+    "pairs_in_class": 30,
+    "distance_to_measured_squared_moduli": 0.5319,
+    "theta12_deg": 25.565,
+    "theta23_deg": 25.565,
+    "theta13_deg": 5.893,
+    "pulls": [
+     -11.6,
+     -19.7,
+     -24.2
+    ]
+   },
+   {
+    "pair": "face / frame",
+    "pairs_in_class": 20,
+    "distance_to_measured_squared_moduli": 0.5857,
+    "theta12_deg": 45.0,
+    "theta23_deg": 45.0,
+    "theta13_deg": 35.264,
+    "pulls": [
+     15.5,
+     1.7,
+     242.8
+    ]
+   }
+  ],
+  "identity_matrix_distance": 1.0472,
+  "note": "the relabelling is chosen with the measured matrix in hand; pulls in quoted one-sided uncertainties"
+ },
+ "soft_breaking_of_the_golden_pattern": {
+  "rule": "the Klein group of the frame is broken to the half-turn about one frame axis; the operator stays real; the measured theta13 fixes the one free angle (INPUT, NOT BLIND)",
+  "cases": [
+   {
+    "fixed_frame_axis": 0,
+    "fixed_column_squared": [
+     0.276393,
+     0.361803,
+     0.361803
+    ],
+    "theta13_deg_INPUT": 8.56,
+    "rotation_angle_deg": 10.0774,
+    "theta12_deg": 32.1172,
+    "sin2_theta12": 0.282655,
+    "theta23_deg": 45.0,
+    "abs_sin_delta": 1.0,
+    "pull_theta12": -2.23,
+    "pull_theta23": 1.7,
+    "pull_delta_270": 2.23,
+    "pull_delta_90": -2.98,
+    "closed_form_sin2_theta12": "fixed entry / cos^2(theta13)"
+   },
+   {
+    "fixed_frame_axis": 1,
+    "fixed_column_squared": [
+     0.723607,
+     0.138197,
+     0.138197
+    ],
+    "theta13_deg_INPUT": 8.56,
+    "rotation_angle_deg": 16.4465,
+    "theta12_deg": 30.6572,
+    "sin2_theta12": 0.259999,
+    "theta23_deg": 45.0,
+    "abs_sin_delta": 1.0,
+    "pull_theta12": -4.32,
+    "pull_theta23": 1.7,
+    "pull_delta_270": 2.23,
+    "pull_delta_90": -2.98,
+    "closed_form_sin2_theta12": "1 - fixed entry / cos^2(theta13)"
+   },
+   {
+    "fixed_frame_axis": 2,
+    "fixed_column_squared": [
+     0.0,
+     0.5,
+     0.5
+    ],
+    "theta13_deg": 0.0,
+    "verdict": "theta13 stays 0: excluded by the measured angle (NOT BLIND)"
+   }
+  ],
+  "tag": "MEASURED (float64 closed forms)"
+ },
+ "port_load_on_the_conjugate_triplet": {
+  "responses_on_the_code_alone": {
+   "span": 12,
+   "closure": 12,
+   "centre": 1
+  },
+  "load_projectors_on_the_conjugate_triplet_alone": {
+   "span": 6,
+   "closure": 9,
+   "centre": 1
+  },
+  "responses_plus_load_on_the_conjugate_triplet": {
+   "span": 12,
+   "closure": 20,
+   "centre": 1
+  },
+  "tag": "MEASURED (float64 rank, tolerance 1e-8)",
+  "reading": "if the port load acted on the conjugate triplet the response algebra would grow from 12 to 20 dimensions (an extra su(3) on the copies): the copies would carry a gauge charge of their own"
+ },
+ "galois_conjugate_code": {
+  "pairings_span_closure_centre": {
+   "triplet 3 with doublet 2prime (the code)": [
+    12,
+    12,
+    1
+   ],
+   "triplet 3prime with doublet 2 (conjugate code)": [
+    12,
+    12,
+    1
+   ],
+   "triplet 3 with doublet 2": [
+    9,
+    12,
+    1
+   ],
+   "triplet 3prime with doublet 2prime": [
+    9,
+    12,
+    1
+   ]
+  },
+  "code_and_conjugate_code_locked_port_by_port": {
+   "span": 12,
+   "closure": 23,
+   "centre": 1
+  },
+  "copies": 2,
+  "tag": "MEASURED (float64 rank, tolerance 1e-8)",
+  "reading": "the conjugate code is a second complete chart, so the carrier offers two codes, not three; with the responses of both locked port by port the algebra has 23 dimensions, not 12: the second code would have gauge fields of its own"
+ },
+ "five_frames_orbits": {
+  "orbits": {
+   "face third-turns": [
+    3,
+    1,
+    1
+   ],
+   "port fifth-turns": [
+    5
+   ],
+   "Klein group of a frame": [
+    4,
+    1
+   ],
+   "stabilizer of a frame": [
+    4,
+    1
+   ],
+   "one half-turn": [
+    2,
+    2,
+    1
+   ]
+  },
+  "tag": "EXACT"
+ },
+ "third_turn_against_the_klein_label": {
+  "face_axes": 10,
+  "frames_fixed_by_each_third_turn": 2,
+  "pairs_checked": 20,
+  "axes_of_a_fixed_frame_permuted_in_a_3_cycle": true,
+  "tag": "EXACT",
+  "statement": "a third of a turn about a face fixes two frames and permutes the three axes of each cyclically, and it moves the three other frames: on a federation whose chart transport has this holonomy (rule S of reports/MG.md, twelve cone points) the Klein label of a frame is permuted around a cone point; the invariant labels there are the three characters of the third-turn"
+ }
+}

@@ -1,0 +1,189 @@
+{
+  "centre_information": {
+    "central_holonomy_turns": [
+      "-1/3",
+      "-1/3",
+      "-1/3",
+      "1/2",
+      "1/2"
+    ],
+    "centre": "U(1)",
+    "centre_contains_element_of_order": 14,
+    "claim": "Centre compatibility is insufficient for species identification.",
+    "declared_central_holonomy_order": 6,
+    "quotient_kernel": [
+      {
+        "SU2_scalar_turns": "0",
+        "SU3_scalar_turns": "0",
+        "z_turns": "0"
+      },
+      {
+        "SU2_scalar_turns": "-1/2",
+        "SU3_scalar_turns": "1/3",
+        "z_turns": "1/6"
+      },
+      {
+        "SU2_scalar_turns": "-1",
+        "SU3_scalar_turns": "2/3",
+        "z_turns": "1/3"
+      },
+      {
+        "SU2_scalar_turns": "-3/2",
+        "SU3_scalar_turns": "1",
+        "z_turns": "1/2"
+      },
+      {
+        "SU2_scalar_turns": "-2",
+        "SU3_scalar_turns": "4/3",
+        "z_turns": "2/3"
+      },
+      {
+        "SU2_scalar_turns": "-5/2",
+        "SU3_scalar_turns": "5/3",
+        "z_turns": "5/6"
+      }
+    ],
+    "same_k_inequivalent_representations": [
+      {
+        "SU2_dimension": 2,
+        "SU3_Dynkin": [
+          1,
+          0
+        ],
+        "SU3_dimension": 3,
+        "Y": "1/6",
+        "colour_triality": 1,
+        "k": 1,
+        "weak_centre_parity": 1
+      },
+      {
+        "SU2_dimension": 2,
+        "SU3_Dynkin": [
+          0,
+          2
+        ],
+        "SU3_dimension": 6,
+        "Y": "1/6",
+        "colour_triality": 1,
+        "k": 1,
+        "weak_centre_parity": 1
+      },
+      {
+        "SU2_dimension": 4,
+        "SU3_Dynkin": [
+          1,
+          0
+        ],
+        "SU3_dimension": 3,
+        "Y": "1/6",
+        "colour_triality": 1,
+        "k": 1,
+        "weak_centre_parity": 1
+      }
+    ]
+  },
+  "finite_quantum_scalar": {
+    "GeV_mass_derived": false,
+    "Hamiltonian": [
+      [
+        "0",
+        "-2"
+      ],
+      [
+        "-2",
+        "1"
+      ]
+    ],
+    "all_native_current_Ward_checks": 12,
+    "all_twelve_Gauss_constraints_exact": true,
+    "complete_active_source_dimension": 320,
+    "cosmological_temperature_derived": false,
+    "electroweak_crossover_derived": false,
+    "exact_mean_N": "-omega*tanh(beta*sqrt(omega**2 + 16)/2)/(2*sqrt(omega**2 + 16)) + 1/2",
+    "exact_negative_derivative_in_scalar_penalty": "beta*omega**2/((4*omega**2 + 64)*cosh(beta*sqrt(omega**2 + 16)/2)**2) + 8*tanh(beta*sqrt(omega**2 + 16)/2)/(omega**2 + 16)**(3/2)",
+    "numeric_diagnostics": [
+      {
+        "beta": 0.1,
+        "beta_times_variance": 0.02493922911061952,
+        "commutator_norm": 2.8284271247461903,
+        "mean": 0.4753482476524541,
+        "probability_sum": 1.0,
+        "susceptibility": 0.024611466614192078
+      },
+      {
+        "beta": 0.5,
+        "beta_times_variance": 0.1205925301423524,
+        "commutator_norm": 2.8284271247461903,
+        "mean": 0.4061120896212129,
+        "probability_sum": 0.9999999999999999,
+        "susceptibility": 0.09131056344003427
+      },
+      {
+        "beta": 1.0,
+        "beta_times_variance": 0.23621659493417455,
+        "commutator_norm": 2.8284271247461903,
+        "mean": 0.3825972527330582,
+        "probability_sum": 0.9999999999999999,
+        "susceptibility": 0.11141918059717854
+      },
+      {
+        "beta": 2.0,
+        "beta_times_variance": 0.4706190720919428,
+        "commutator_norm": 2.8284271247461903,
+        "mean": 0.3787957758408209,
+        "probability_sum": 1.0,
+        "susceptibility": 0.1141054007123467
+      },
+      {
+        "beta": 10.0,
+        "beta_times_variance": 2.352941176470588,
+        "commutator_norm": 2.8284271247461903,
+        "mean": 0.37873218748183346,
+        "probability_sum": 1.0,
+        "susceptibility": 0.1141344117818035
+      }
+    ],
+    "observable_scope": "N is the truncated scalar occupation, not an identified continuum Higgs condensate.",
+    "physical_cyclic_sector_dimension": 2,
+    "quadratic_response_relation": "X=sum phi^dagger phi=2(I-N); chi_X=4 chi_N for H+lambda X at lambda=0",
+    "quartic_in_this_sector": "X^2=2X; this sector cannot independently resolve quadratic and quartic coefficients",
+    "scalar_occupation": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "scalar_quadratic_compression": [
+      [
+        "2",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "scalar_response_noncommuting": true,
+    "scope": "Actual reducing gauge-singlet vacuum sector; NOT a Gibbs trace over all physical sectors.",
+    "sector_gibbs_filter": {
+      "all_failure_records_retained": true,
+      "failure_operator": "sqrt(I-K_success^dagger*K_success)",
+      "global_physical_ground_or_thermalization_claimed": false,
+      "initial_sector_preparation_and_coherent_filter_are_declared_services": true,
+      "input": "I_2/2 in the proved physical sector",
+      "success_operator": "exp(-beta*(H_sector-E_sector_min)/2)",
+      "success_probability": "(1+exp(-beta*sqrt(omega^2+16)))/2"
+    },
+    "source": "model/coherent_defect_wave/chiral_higgs/model.py",
+    "source_sha256": "eb1a89b1b747adf7e87a7f5f8122d1501a039d804eced30eeca509b23ad97bb2",
+    "spontaneous_symmetry_breaking_claimed": false,
+    "supplied_inputs": [
+      "Gibbs-state preparation",
+      "inverse temperature beta in source units"
+    ]
+  }
+}

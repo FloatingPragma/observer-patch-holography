@@ -1,0 +1,139 @@
+"""Worker LY: candidate values (CANDIDATES.md sections 3 and 5). Reads no measured value.
+
+Inputs: d1_chain.json, d2_routes.json, d5_cycle.json, d6_law_N*.json, run.json (all produced in this directory).
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ly_values.py
+Writes values.json.
+"""
+from __future__ import annotations
+
+import glob
+import json
+import math
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+P, Q, THETA, ALPHA = 1.0 / 12.0, 1.0 / 6.0, 2.0 / 9.0, 1.0 / 3.0
+PW = {2: 3 / 8, 3: 3 / 8, 4: 3 / 16, 5: 1 / 16}
+
+
+def load(name):
+    with open(os.path.join(HERE, name)) as fh:
+        return json.load(fh)
+
+
+def circulant():
+    lam = [math.sqrt(1 / 6) * (1 + math.sqrt(2) * math.cos(THETA + 2 * math.pi * k / 3)) for k in range(3)]
+    lam2 = sorted(x * x for x in lam)                       # electron, muon, tau
+    det = lam2[0] * lam2[1] * lam2[2]
+    return lam2, det
+
+
+def d6_table():
+    """K_C(d) per filling from the Monte Carlo files."""
+    out = {}
+    for path in sorted(glob.glob(os.path.join(HERE, 'd6_law_N*.json'))):
+        d = json.load(open(path))
+        N = d['N_loads']
+        rec = out.setdefault(N, {'K': {}, 'E': {}})
+        for sep, k in d['K_C_by_separation'].items():
+            rec['K'][int(sep)] = k
+            rec['E'][int(sep)] = d['K_C_standard_error_by_separation'][sep]
+    for N, rec in out.items():
+        if set(rec['K']) == {2, 3, 4, 5}:
+            rec['mean'] = sum(PW[s] * rec['K'][s] for s in PW)
+            rec['mean_standard_error'] = math.sqrt(sum((PW[s] * rec['E'][s]) ** 2 for s in PW))
+    return out
+
+
+def main():
+    d1, d2, d5, run = load('d1_chain.json'), load('d2_routes.json'), load('d5_cycle.json'), load('run.json')
+    lam2, detC2 = circulant()
+    lmax = lam2[2]
+    f2, f1 = run['factor_yJ_Q0_over_yJ_cell']['two_loops'], run['factor_yJ_Q0_over_yJ_cell']['one_loop']
+    yt2, yt1 = run['y_t_cell']['two_loops'], run['y_t_cell']['one_loop']
+    K = d1['K_placement_mean']
+    Kd = {int(k): v for k, v in d1['K_by_separation'].items()}
+    WG = d1['FR_geometry']['W_G']
+    Tq = d1['T_q_placement_mean_lasting']
+    d6 = d6_table()
+    out = {'measured_values_read': False,
+           'structure': {'K_by_separation': Kd, 'K_placement_mean': K, 'K_G_by_separation': d1['FR_geometry']['K_G_by_separation'],
+                         'W_G': WG, 'T_q_placement_mean': Tq, 'W_43_placement_mean': d5['W_43_placement_mean'],
+                         'K_43_minimal_rise_placement_mean': d5['K_43_minimal_rise_placement_mean'],
+                         'K_q_placement_mean': d5['K_q_placement_mean'], 'committed_law_K_C': d6,
+                         'lambda_sq_e_mu_tau': lam2, 'det_C_sq': detC2},
+           'running': {'factor_two_loops': f2, 'factor_one_loop': f1, 'y_t_cell_two_loops': yt2, 'y_t_cell_one_loop': yt1}}
+    rows = []
+
+    def ratio_row(cid, formula, r, marks, note=''):
+        yc2, yc1 = r * yt2 / lmax, r * yt1 / lmax
+        rows.append({'id': cid, 'formula': formula, 'kind': 'ratio at the cell', 'r': r, 'marks': marks, 'note': note,
+                     'yJ_cell': yc2, 'yJ_MSbar_Q0_two_loops': f2 * yc2, 'yJ_MSbar_Q0_one_loop': f1 * yc1})
+
+    def cell_row(cid, formula, y, marks, note=''):
+        rows.append({'id': cid, 'formula': formula, 'kind': 'y_J at the cell', 'r': y * lmax / yt2, 'marks': marks,
+                     'note': note, 'yJ_cell': y, 'yJ_MSbar_Q0_two_loops': f2 * y, 'yJ_MSbar_Q0_one_loop': f1 * y})
+
+    def q0_row(cid, formula, y, marks, note=''):
+        rows.append({'id': cid, 'formula': formula, 'kind': 'y_J at Q0, pole convention', 'marks': marks, 'note': note,
+                     'yJ_pole_Q0': y})
+
+    ratio_row('D1-1', '<K>', K, 'est.', 'contact reading, w = 1')
+    ratio_row('D1-2', '(2/9) <K>', THETA * K, 'est.')
+    ratio_row('D1-3', '(1/3) <K>', ALPHA * K, 'est.')
+    ratio_row('D1-4', '(1/6) <K>', Q * K, 'est.')
+    ratio_row('D1-5', '(1/12) <K>', P * K, 'est.')
+    ratio_row('D1-6', 'W_G = (K_G(2) + K_G(3))/16', WG, 'est.', 'primary row: FR geometry')
+    ratio_row('D1-7', 'sqrt(<K>)', math.sqrt(K), 'est.', 'amplitude reading')
+    ratio_row('D1-8', '<K> <T_q> / 5', K * Tq / 5.0, 'est.', 'rate normalization')
+    ratio_row('D5-1', '<K_33>/<W_43>', K / d5['W_43_placement_mean'], 'post-D1', 'mass-cycle reading, weight')
+    ratio_row('D5-2', '<K_33>/<K_43 minimal rise>', K / d5['K_43_minimal_rise_placement_mean'], 'post-D1')
+    ratio_row('D5-3', 'sqrt(D5-1)', math.sqrt(K / d5['W_43_placement_mean']), 'post-D1', 'amplitude reading')
+    for N in sorted(d6):
+        if 'mean' in d6[N]:
+            ratio_row('D6-1' if N == 6 else f'D6-2 (N = {N})', f'<K_C>(N = {N})', d6[N]['mean'], 'post-D1',
+                      f"committed law, Monte Carlo, standard error {d6[N]['mean_standard_error']:.2g}")
+    t_cut = 4 * math.pi ** 2 / 16.2453
+    ratio_row('D3-1', 'exp(-t/5)', math.exp(-t_cut / 5), 'est.', 'cut heat time on the thirteenth Casimir step')
+    ratio_row('D3-2', 'exp(-t/10)', math.exp(-t_cut / 10), 'est.')
+    ratio_row('D3-3', 'sqrt3 p q', math.sqrt(3) * P * Q, 'post hoc', 'joint read weight, c_tau = sqrt3')
+    cell_row('PH-1', 'y_J(cell) = sqrt2 p^2', math.sqrt(2) * P * P, 'post hoc')
+    q0_row('PH-2', 'y_J(Q0) = 7/648', 7 / 648, 'post hoc')
+    q0_row('PH-3', 'y_J(Q0) = (2/9)^3', THETA ** 3, 'post hoc')
+    ratio_row('PH-4', '(det C^2)^(1/3)', detC2 ** (1 / 3), 'post hoc')
+    q0_row('PH-5', 'det Y_e = sqrt2 6^-14', (math.sqrt(2) * 6.0 ** -14 / detC2) ** (1 / 3), 'post hoc', 'LS2 basepoint')
+    ratio_row('PH-6', 'q^2', Q * Q, 'post hoc')
+    q0_row('PH-7', 'y_J(Q0) = (4/9)(det C^2)^(1/3)', (4 / 9) * detC2 ** (1 / 3), 'post hoc')
+    g_src = math.sqrt(4 * math.pi / 16.2453)
+    cell_row('PH-8', 'y_J(cell) = g/90', g_src / 90, 'post hoc', f'g = {g_src:.6f} from the cut closure')
+    out['rows'] = rows
+
+    # D2: route lengths
+    lep = {r['d']: r for r in d2['X8_lepton_routes_T0']}
+    qm = d2['X9_quark_mass_term_min_over_class1_positions']
+    nq4 = [r['N_min_over_class1_positions'] for r in qm if r['d_23'] == 4][0]
+    out['D2'] = {'N_e_by_separation': {d: lep[d]['length'] for d in lep},
+                 'read_types_lepton': {d: lep[d]['types'] for d in lep},
+                 'N_q_min_by_separation': {r['d_23']: r['N_min_over_class1_positions'] for r in qm},
+                 'cost_raising_reads_quark_mass_term': sorted(set(r['min_uphill'] for r in qm)),
+                 'D2-0': {'N_e': lep[4]['length']},
+                 'D2-1': {'N_q': nq4, 'R_predicted': 6.0 ** (lep[4]['length'] - nq4)},
+                 'D2-2': {'N_q': 4, 'R_predicted': 6.0 ** (lep[4]['length'] - 4)}}
+    # D3: bottom and neutrino statements
+    out['D3'] = {'m_b_over_m_tau_Q0_c_b_1_over_sqrt3': run['m_b_over_m_tau_Q0']['y_b_equals_y_tau_over_sqrt3'],
+                 'm_b_over_m_tau_Q0_c_b_1': run['m_b_over_m_tau_Q0']['y_b_equals_y_tau'],
+                 'neutrino_yukawa_over_tau_yukawa': 'rho for D3-1 and D3-2 (n_nu = 2); 0 at this order for D3-3'}
+    with open(os.path.join(HERE, 'values.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+    for r in rows:
+        if 'r' in r and r['kind'] != 'y_J at Q0, pole convention':
+            print(f"{r['id']:16s} {r['formula']:34s} r = {r['r']:.6g}  y_J(cell) = {r['yJ_cell']:.6g}  "
+                  f"y_J MSbar(Q0) = {r['yJ_MSbar_Q0_two_loops']:.6g} [{r['marks']}]")
+        else:
+            print(f"{r['id']:16s} {r['formula']:34s} y_J pole(Q0) = {r['yJ_pole_Q0']:.6g} [{r['marks']}]")
+    print('D2', json.dumps(out['D2']))
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,17 @@
+{
+ "checks": {
+  "3-torus L = 3, all 108 basis states: exp(-i theta beta) F3 Z_r F2 Z_r F1 Z_r (dressed public reflectors link by link, record reflections) = exp(-i theta beta) S3 S2 S1, at cos theta = 3/5": true,
+  "3-torus L = 4: 12 Bloch columns (3 momenta with z in {1, i, -1, -i}) reproduce the symbol D(k) = exp(-i theta beta) prod_i (cos k_i - i sin k_i alpha_i)": true,
+  "counterexample without the dressing: exp(-i theta beta) Q3 Z_r Q2 Z_r Q1 Z_r has the symbol exp(-i theta beta) exp(-i (k1+k2+k3) beta): motion along one lattice diagonal, no cone (Bloch columns, L = 4)": true,
+  "symbol: ((D + D^*)/2 - c_t c_1 c_2 c_3)^2 = (s_t s_1 s_2 s_3)^2 + sum_q c_q^2 prod_{r != q} s_r^2, traceless: cos omega = c_t c_1 c_2 c_3 +- sqrt(...), each sign twice (5 exact rational points)": true
+ },
+ "tick": {
+  "formula": "D = exp(-i theta beta) F3 Z_r F2 Z_r F1 Z_r, F_i = C(u_i) Q_i C(u_i)^*",
+  "Q_i": "product over the equally oriented shared seams of axis i of the public reflector (flat link)",
+  "Z_r": "tau_z x 1 = 1 - 2|1><1| on the record",
+  "beta": "tau_x x 1 = 2|+><+| - 1 on the record",
+  "C(u)": "|0><0| x 1 + |1><1| x u",
+  "symbol": "exp(-i theta beta) exp(-i k3 alpha3) exp(-i k2 alpha2) exp(-i k1 alpha1), alpha_i = tau_y x (-i u_i)",
+  "eigenphases": "cos(omega) = c_t c1 c2 c3 +- sqrt(s_t^2 s1^2 s2^2 s3^2 + c_t^2 s1^2 s2^2 s3^2 + s_t^2 c1^2 s2^2 s3^2 + s_t^2 s1^2 c2^2 s3^2 + s_t^2 s1^2 s2^2 c3^2)"
+ }
+}

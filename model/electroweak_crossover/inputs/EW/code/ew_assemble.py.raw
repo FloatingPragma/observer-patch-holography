@@ -1,0 +1,368 @@
+"""Assemble the production record from the analysis files, run the certificate, write results and the site file.
+
+  python ew_assemble.py            (local, in the lane directory)
+"""
+import json, math, sys, glob, os
+from pathlib import Path
+import numpy as np
+
+LANE = Path(__file__).resolve().parent.parent
+PKG = LANE / "rer_package" / "electroweak_crossover"
+SITE = Path("WORKSPACE/oph-physics-sim/oph_defects/viewer2/research/EW/ew_transition.json")
+sys.path.insert(0, str(LANE / "rer_package"))
+
+
+def rnd(v, n=5):
+    if isinstance(v, float):
+        if v != v or v in (float('inf'), float('-inf')):
+            return None
+        return float(f"{v:.{n}g}")
+    if isinstance(v, list):
+        return [rnd(a, n) for a in v]
+    if isinstance(v, dict):
+        return {k: rnd(a, n) for k, a in v.items()}
+    return v
+
+
+def thin_set(s):
+    """Keep what the package and the site need from one chain-point set."""
+    ys = s['yscan']
+    out = dict(L=s['L'], bG=s['bG'], nruns=s['nruns'], runs=rnd(s['runs'], 6),
+               yscan={k: (rnd(v, 6) if not isinstance(v, list) else rnd(v[::2], 5)) for k, v in ys.items()}, tscan={})
+    for k in ('y_max', 'y_max_err', 'chi3_max', 'chi3_max_err', 'half_width_sym', 'half_width_sym_err'):
+        out['yscan'][k] = ys[k]
+    for row, t in s['tscan'].items():
+        d = {k: t[k] for k in ('T_max', 'T_max_err', 'chi_max', 'chi_max_err', 'half_width_sym', 'half_width_sym_err')}
+        for k in ('T', 'chi', 'chi_err', 'v2T2', 'v2T2_err', 'x', 'y', 'neff'):
+            d[k] = rnd(t[k][::2], 5)
+        d['points'] = rnd(t['points'], 5)
+        out['tscan'][row] = d
+    return out
+
+
+def thin_valid(v):
+    v = json.loads(json.dumps(v))
+    def thin(o):
+        if isinstance(o, dict):
+            for k in list(o.keys()):
+                if k == 'hysteresis':
+                    continue
+                if k in ('y', 'chi3', 'chi3_err', 'R2', 'R2_err', 'neff') and isinstance(o[k], list) and len(o[k]) > 45:
+                    step = max(1, len(o[k]) // 40)
+                    o[k] = o[k][::step]
+                else:
+                    thin(o[k])
+        elif isinstance(o, list):
+            for a in o:
+                thin(a)
+    thin(v)
+    for r in v.get('first_order', {}).get('runs', []):
+        r.pop('file', None)
+    return rnd(v, 6)
+
+
+def main():
+    data = LANE / "data"
+    prod = dict(schema="oph.electroweak_crossover.production.v1",
+                note="Lattice measurements of the production runs. Raw series are not stored here.",
+                chain_point={}, validation={}, gates={})
+    for f in sorted(glob.glob(str(data / "oph_set_*.json"))):
+        key = os.path.basename(f)[len("oph_set_"):-5]
+        prod['chain_point'][key] = thin_set(json.load(open(f)))
+    if (data / "valid_analysis.json").exists():
+        prod['validation'] = thin_valid(json.load(open(data / "valid_analysis.json")))
+    if (data / "gates.json").exists():
+        g = json.load(open(data / "gates.json"))
+        prod['gates'] = {k.replace("table5", "table4"): v for k, v in g.items()}
+    if (data / "gate_or.json").exists():
+        for k, v in json.load(open(data / "gate_or.json")).items():
+            prod['gates']["G6_heatbath_vs_overrelaxation_" + k] = dict(ok=abs(v['diff']) < 3 * v['diff_err'], diff=v['diff'],
+                                                                      diff_err=v['diff_err'], R2_heatbath=v['runs']['0']['R2'],
+                                                                      R2_with_overrelaxation=v['runs']['4']['R2'])
+    (PKG / "production.json").write_text(json.dumps(prod, indent=None, sort_keys=True) + "\n")
+    from electroweak_crossover.certificate import certificate
+    cert = certificate(prod)
+    (PKG / "results.json").write_text(json.dumps(cert, indent=1, sort_keys=True) + "\n")
+    failed = [k for k, ok in cert['checks'].items() if not ok]
+    print("checks:", len(cert['checks']), "failed:", failed)
+    return prod, cert
+
+
+def site_file(prod, cert, status_line):
+    from electroweak_crossover import lattice as lt
+    val = prod.get('validation', {})
+    rows = cert['rows']
+    dec = rows['declared']
+    mh_at = cert.get('endpoint', {}).get('m_H_at_x', {})
+
+    mh_tree = cert.get('endpoint', {}).get('m_H_tree_at_x', {})
+
+    def mh(x):
+        for k, v in mh_at.items():
+            if abs(float(k) - x) < 2e-4 and v is not None:
+                return rnd(v, 3)
+        return None
+
+    def mh_t(x):
+        for k, v in mh_tree.items():
+            if abs(float(k) - x) < 2e-4:
+                return rnd(v, 3)
+        return None
+
+    def y_series(st, x):
+        bG = st['bG']
+        bH = [lt.lattice_couplings(x, float(y), bG)[0] for y in st['y']]
+        order = [lt.condensate(r, bG, b) for r, b in zip(st['R2'], bH)]
+        oerr = [bG * b / 8.0 * e for e, b in zip(st['R2_err'], bH)]
+        return dict(L=st['L'], beta_G=bG, axis="y", t=rnd(st['y'], 5), order=rnd(order, 4), order_err=rnd(oerr, 2),
+                    chi=rnd(st['chi3'], 4), chi_err=rnd(st['chi3_err'], 2), chi_max=rnd(st['chi3_max'], 4),
+                    chi_max_err=rnd(st['chi3_max_err'], 2), y_max=rnd(st['y_max'], 4), y_max_err=rnd(st['y_max_err'], 2))
+
+    points = []
+    fo = val.get('first_order')
+    if fo:
+        p = dict(id="first_order", x=fo['x'], m_H_GeV=mh(fo['x']) or mh_t(fo['x']), m_H_tree_GeV=mh_t(fo['x']),
+                 m_H_note=("tree level, x = m_H^2/(8 m_W^2); the one-loop map of the chain has no Higgs mass with this x"
+                           if mh(fo['x']) is None else "declared chain, one-loop map"),
+                 kind="first-order", label="light Higgs", beta_G=8, series=[], hist=[], hysteresis=[])
+        for L in sorted(fo['sets'], key=int):
+            st = fo['sets'][L]
+            p['series'].append(y_series(st, fo['x']))
+            h = st.get('hist_equal_height') or st.get('hist')
+            if h:
+                bH = lt.lattice_couplings(fo['x'], h['y'], 8.0)[0]
+                edges = [lt.condensate(b, 8.0, bH) for b in h['bins']]
+                p['hist'].append(dict(L=int(L), t=rnd(h['y'], 4), bins=rnd(edges, 4), counts=rnd(h['counts'], 3),
+                                      valley_over_peak=rnd(h.get('valley_over_peak'), 3) if h.get('valley_over_peak') is not None else None))
+        for L, hy in fo.get('hysteresis', {}).items():
+            order = [lt.condensate(r, 8.0, b) for r, b in zip(hy['R2'], hy['bH'])]
+            p['hysteresis'].append(dict(L=int(L), beta_G=8, axis="y", t=rnd(hy['y'], 4), order=rnd(order, 4),
+                                        branch=hy['branch'], sweeps_per_step=hy['sweeps_per_step']))
+        p['runs'] = [dict(L=r['L'], y=r['y'], sweeps=r['n'], crossings=r['crossings'], frac_broken=rnd(r['frac_broken'], 3))
+                     for r in fo.get('runs', [])]
+        for k in ('growth_exponent_8_12', 'growth_exponent_8_12_err', 'growth_exponent_12_16', 'growth_exponent_12_16_err'):
+            if k in fo:
+                p[k] = rnd(fo[k], 3)
+        points.append(p)
+    for e in val.get('endpoint', {}).get('points', []):
+        if not e['sets']:
+            continue
+        p = dict(id="x%.4f" % e['x'], x=rnd(e['x'], 5), m_H_GeV=mh(e['x']), m_H_tree_GeV=mh_t(e['x']), beta_G=8,
+                 kind=("first-order" if e['x'] < 0.0983 else "crossover"), label="near the endpoint", series=[])
+        for L in sorted(e['sets'], key=int):
+            p['series'].append(y_series(e['sets'][L], e['x']))
+        if 'growth_exponent_16_24' in e:
+            p['growth_exponent_16_24'] = rnd(e['growth_exponent_16_24'], 3); p['growth_exponent_err'] = rnd(e['growth_exponent_err'], 2)
+        points.append(p)
+    co = val.get('crossover')
+    if co and co.get('sets'):
+        p = dict(id="crossover", x=co['x'], m_H_GeV=mh(co['x']), m_H_tree_GeV=mh_t(co['x']), kind="crossover", label="beyond the endpoint", beta_G=8, series=[])
+        for L in sorted(co['sets'], key=int):
+            p['series'].append(y_series(co['sets'][L], co['x']))
+        for k in ('growth_exponent_16_24', 'growth_exponent_16_24_err', 'growth_exponent_24_32', 'growth_exponent_24_32_err'):
+            if k in co:
+                p[k] = rnd(co[k], 3)
+        points.append(p)
+
+    oph = dict(x=rnd(dec.get('x_at_T_c'), 4), kind="crossover", series=[],
+               reference={"T_c_GeV": 159.5, "err": 1.5, "cite": "D'Onofrio, Rummukainen 2016"})
+    if 'T_c' in dec:
+        oph.update(T_c_GeV=rnd(dec['T_c'], 5), T_c_err=rnd(dec['T_c_err_total'], 2), T_c_err_lattice=rnd(dec['T_c_err_lattice'], 2),
+                   T_c_err_reduction=rnd(dec['truncation_error'], 2), t_seconds=rnd(dec['cosmic_time_seconds'], 4),
+                   ticks=rnd(dec['cosmic_time_ticks'], 4), half_width_high_side_GeV=rnd(dec['half_width_high_side_GeV'], 3),
+                   chi_max=rnd(dec['chi_max'], 4), chi_max_err=rnd(dec['chi_max_err'], 2),
+                   y_c=rnd(dec['y_c_continuum'], 3), g3sq_over_T=rnd(dec['g32_over_T'], 5),
+                   order_def="v^2/T^2 = 2 <phi^dag phi> / T^2 (MS-bar, scale g3^2)",
+                   chi_def="V T <(phi^dag phi - <phi^dag phi>)^2>, three-dimensional field normalization")
+    for key in sorted(prod['chain_point'], key=lambda k: (prod['chain_point'][k]['bG'], prod['chain_point'][k]['L'])):
+        st = prod['chain_point'][key]
+        t = st['tscan'].get('declared')
+        if not t:
+            continue
+        oph['series'].append(dict(L=st['L'], beta_G=st['bG'], axis="T_GeV", kind="reweighted", t=rnd(t['T'], 5),
+                                  order=rnd(t['v2T2'], 4), order_err=rnd(t['v2T2_err'], 2), chi=rnd(t['chi'], 4),
+                                  chi_err=rnd(t['chi_err'], 2), T_max=rnd(t['T_max'], 6), T_max_err=rnd(t['T_max_err'], 2),
+                                  chi_max=rnd(t['chi_max'], 4), chi_max_err=rnd(t['chi_max_err'], 2)))
+        pt = t.get('points')
+        if pt and len(pt['T']) > 8:
+            order = sorted(range(len(pt['T'])), key=lambda i: pt['T'][i])
+            oph['series'].append(dict(L=st['L'], beta_G=st['bG'], axis="T_GeV", kind="runs",
+                                      t=rnd([pt['T'][i] for i in order], 5), order=rnd([pt['v2T2'][i] for i in order], 4),
+                                      order_err=rnd([pt['v2T2_err'][i] for i in order], 2),
+                                      chi=rnd([pt['chi'][i] for i in order], 4), chi_err=rnd([pt['chi_err'][i] for i in order], 2)))
+    ce = cert['continuum_extrapolation']['T_max_declared']
+    oph['continuum'] = dict(points=[dict(beta_G=p['beta_G'], L=p['n_side'], size_g3=p['size'], T_max=rnd(p['value'], 6), err=rnd(p['err'], 2))
+                                    for p in ce['points']], T_continuum=rnd(ce['continuum'], 6), err=rnd(ce['err'], 2),
+                            slope_GeV=rnd(ce['slope'], 3) if ce['slope'] is not None else None, extrapolated=ce['extrapolated'])
+    oph['variants'] = []
+    for name in ('one_doublet_A', 'one_doublet_B', 'standard_model'):
+        r = rows.get(name, {})
+        if 'T_c' not in r:
+            continue
+        oph['variants'].append(dict(
+            id=name, label=r.get('label', 'Standard Model inputs through the same pipeline (check)'),
+            status=r.get('status', 'check against the literature'), assumption=r.get('mass_assumption'),
+            x=rnd(r['x_at_T_c'], 4), T_c_GeV=rnd(r['T_c'], 5), T_c_err=rnd(r['T_c_err_total'], 2),
+            T_c_err_lattice=rnd(r['T_c_err_lattice'], 2), kind="crossover",
+            t_seconds=rnd(r['cosmic_time_seconds'], 4), ticks=rnd(r['cosmic_time_ticks'], 4)))
+    out = dict(lane="EW", title="Electroweak transition for the chain's couplings", status=status_line,
+               inputs=INPUT_ROWS, points=points, oph=oph)
+    ep = cert.get('endpoint')
+    if ep:
+        out['endpoint'] = dict(x_c_bracket=X_C_BRACKET, x_c_literature=0.0983, x_c_literature_err=0.0015,
+                               m_H_c_GeV=rnd(ep['m_H_c_declared_chain'], 3), m_H_c_err=rnd(ep['m_H_c_err_from_x_c'], 2),
+                               m_H_c_reduction_err=1.0, m_H_c_standard_model_literature=72, note=X_C_NOTE)
+    hs = cert.get('higgs_mass_scan_declared_chain')
+    if hs:
+        out['higgs_mass_scan'] = dict(note=hs['note'], m_H_GeV=[rnd(r['m_H'], 5) for r in hs['rows']],
+                                      T_GeV=[rnd(r['T_peak_beta_G_8'], 5) for r in hs['rows']],
+                                      x=[rnd(r['x'], 4) for r in hs['rows']], kind=[r['kind'] for r in hs['rows']])
+    line = cert.get('peak_position_vs_x_beta_G_8')
+    if line:
+        out['transition_line'] = dict(beta_G=8, x=[rnd(p['x'], 5) for p in line], y=[rnd(p['y_max'], 4) for p in line],
+                                      kind=["first-order" if p['x'] < 0.0983 else "crossover" for p in line],
+                                      note="position of the susceptibility maximum in the (x, y) plane, largest volume simulated at each x")
+    out['statements'] = STATEMENTS
+    out['references'] = REFERENCES
+    return out
+
+
+INPUT_ROWS = [
+    {"row": "declared", "name": "v", "value": 246.60, "unit": "GeV", "status": "declared chain"},
+    {"row": "declared", "name": "1/alpha_2(m_Z)", "value": 29.605, "unit": "", "status": "declared chain"},
+    {"row": "declared", "name": "sin^2 theta_W(m_Z)", "value": 0.23074, "unit": "", "status": "declared chain"},
+    {"row": "declared", "name": "alpha_s(m_Z)", "value": 0.11834, "unit": "", "status": "declared chain"},
+    {"row": "declared", "name": "m_W (tree)", "value": 80.330, "unit": "GeV", "status": "declared chain"},
+    {"row": "declared", "name": "m_Z (tree)", "value": 91.588, "unit": "GeV", "status": "declared chain"},
+    {"row": "declared", "name": "m_H", "value": 125.84, "unit": "GeV", "status": "declared chain, declared midpoint"},
+    {"row": "declared", "name": "m_t", "value": 171.99, "unit": "GeV", "status": "declared chain, declared midpoint"},
+    {"row": "one_doublet", "name": "v", "value": 222.9, "unit": "GeV", "status": "source as built, one doublet"},
+    {"row": "one_doublet", "name": "1/alpha_em(m_Z)", "value": 142.25, "unit": "", "status": "source as built, one doublet"},
+    {"row": "one_doublet", "name": "sin^2 theta_W(m_Z)", "value": 0.2056, "unit": "", "status": "source as built, one doublet"},
+    {"row": "one_doublet", "name": "alpha_s(m_Z)", "value": 0.1123, "unit": "", "status": "source as built, one doublet"},
+    {"row": "one_doublet", "name": "g^2 = 4 pi alpha_em / sin^2", "value": 0.42967, "unit": "", "status": "derived from the row"},
+    {"row": "one_doublet", "name": "g'^2 = 4 pi alpha_em / cos^2", "value": 0.11120, "unit": "", "status": "derived from the row"},
+    {"row": "one_doublet", "name": "m_H, m_t", "value": None, "unit": "GeV", "status": "not derived; assumed (see variants)"},
+]
+X_C_BRACKET = [None, None]
+X_C_NOTE = ""
+STATEMENTS = []
+REFERENCES = [
+    {"cite": "Kajantie, Laine, Rummukainen, Shaposhnikov, Nucl. Phys. B458 (1996) 90: dimensional reduction", "url": "https://arxiv.org/abs/hep-ph/9508379"},
+    {"cite": "Kajantie, Laine, Rummukainen, Shaposhnikov, Nucl. Phys. B466 (1996) 189: lattice study of the transition", "url": "https://arxiv.org/abs/hep-lat/9510020"},
+    {"cite": "Laine, Nucl. Phys. B451 (1995) 484: exact relation of lattice and continuum parameters", "url": "https://arxiv.org/abs/hep-lat/9504001"},
+    {"cite": "Laine, Rajantie, Nucl. Phys. B513 (1998) 471: lattice-continuum relations", "url": "https://arxiv.org/abs/hep-lat/9705003"},
+    {"cite": "Rummukainen, Tsypin, Kajantie, Laine, Shaposhnikov, Nucl. Phys. B532 (1998) 283: the endpoint", "url": "https://arxiv.org/abs/hep-lat/9805013"},
+    {"cite": "D'Onofrio, Rummukainen, Phys. Rev. D93 (2016) 025003: the Standard Model crossover on the lattice", "url": "https://arxiv.org/abs/1508.07161"},
+    {"cite": "D'Onofrio, Rummukainen, Tranberg, Phys. Rev. Lett. 113 (2014) 141602", "url": "https://arxiv.org/abs/1404.3565"},
+]
+
+
+def growth_table(cert):
+    """Growth exponent of the susceptibility maximum against x (beta_G = 8)."""
+    val = cert['validation']
+    rows = []
+    fo = val.get('first_order', {})
+    for k, pair in (('growth_exponent_12_16', "12-16"), ('growth_exponent_8_12', "8-12")):
+        if k in fo:
+            rows.append(dict(x=fo['x'], exponent=fo[k], err=fo[k + '_err'], volumes=pair)); break
+    for p in val.get('endpoint', {}).get('points', []):
+        if 'growth_exponent_16_24' in p:
+            rows.append(dict(x=p['x'], exponent=p['growth_exponent_16_24'], err=p['growth_exponent_err'], volumes="16-24"))
+    co = val.get('crossover', {})
+    if 'growth_exponent_16_24' in co:
+        rows.append(dict(x=co['x'], exponent=co['growth_exponent_16_24'], err=co['growth_exponent_16_24_err'], volumes="16-24"))
+    lat = cert['lattice_sets']
+    a = next((v for v in lat.values() if v['beta_G'] == 8 and v['n_side'] == 16 and abs(v['x'] - 0.296) < 1e-9), None)
+    b = next((v for v in lat.values() if v['beta_G'] == 8 and v['n_side'] == 24 and abs(v['x'] - 0.296) < 1e-9), None)
+    if a and b:
+        rows.append(dict(x=0.296, exponent=math.log(b['chi3_max'] / a['chi3_max']) / math.log(1.5),
+                         err=math.hypot(b['chi3_max_err'] / b['chi3_max'], a['chi3_max_err'] / a['chi3_max']) / math.log(1.5),
+                         volumes="16-24"))
+    rows.sort(key=lambda r: r['x'])
+    return rows
+
+
+def bracket(rows, ising=1.963):
+    lo = [r['x'] for r in rows if r['exponent'] - 2 * r['err'] > ising]
+    hi = [r['x'] for r in rows if r['exponent'] + 2 * r['err'] < ising]
+    return [max(lo) if lo else None, min(hi) if hi else None]
+
+
+def make_statements(cert, rows_g, br):
+    dec = cert['rows']['declared']; A = cert['rows']['one_doublet_A']; B = cert['rows']['one_doublet_B']
+    cmp_ = cert['comparison_not_blind']; end = cert.get('endpoint', {})
+    fo = cert['validation'].get('first_order', {})
+    st = []
+    ext = cert['continuum_extrapolation']['T_max_declared']['extrapolated']
+    st.append(dict(text="For the declared chain the electroweak transition is a crossover at T = %.1f +- %.1f (lattice) +- %.1f (reduction) GeV%s."
+                   % (dec['T_c'], dec['T_c_err_lattice'], dec['truncation_error'], "" if ext else ", one lattice spacing"), label="MEASURED"))
+    st.append(dict(text="The chain's point has x = %.3f. The first-order line ends at x = 0.0983(15)." % dec['x_at_T_c'], label="IMPORTED"))
+    if fo.get('sets'):
+        Ls = sorted(fo['sets'], key=int)
+        k = 'growth_exponent_12_16' if 'growth_exponent_12_16' in fo else 'growth_exponent_8_12'
+        st.append(dict(text="At x = 0.036 the transition is first order: two-peak histograms, hysteresis, and a susceptibility maximum that grows from %.0f on %s^3 to %.0f on %s^3%s."
+                       % (fo['sets'][Ls[0]]['chi3_max'], Ls[0], fo['sets'][Ls[-1]]['chi3_max'], Ls[-1],
+                          (" (exponent %.1f, volume scaling is 3)" % fo[k]) if k in fo else ""), label="MEASURED"))
+    lat = cert['lattice_sets']
+    hs = sorted((v['n_side'], v['chi3_max']) for v in lat.values() if v['beta_G'] == 8 and abs(v['x'] - 0.296) < 1e-9)
+    if len(hs) >= 2:
+        st.append(dict(text="At the chain's point the maximum stays finite: " + ", ".join("%.2f on %d^3" % (c, n) for n, c in hs) + ".", label="MEASURED"))
+    if br[0] is not None or br[1] is not None:
+        st.append(dict(text="Growth of the maximum between 16^3 and 24^3 places the end of the first-order signal between x = %s and x = %s at this lattice spacing."
+                       % ("%.3f" % br[0] if br[0] else "?", "%.3f" % br[1] if br[1] else "?"), label="MEASURED"))
+    if end:
+        st.append(dict(text="With the chain's other inputs fixed, a Higgs mass below %.1f GeV gives a first-order transition." % end['m_H_c_declared_chain'], label="IMPORTED"))
+    st.append(dict(text="Standard Model lattice value: 159.5 +- 1.5 GeV (D'Onofrio, Rummukainen 2016). The comparison is not blind.", label="IMPORTED"))
+    pk = cmp_.get('standard_model_peak_beta_G_8')
+    if pk:
+        st.append(dict(text="The same pipeline with Standard Model inputs puts the maximum at %.2f GeV; the published value at equal lattice spacing is %.2f GeV."
+                       % (pk['this_pipeline'], pk['published_interpolated']), label="MEASURED"))
+    st.append(dict(text="The chain's couplings are declared forms that fit. Their derivation is open.", label="DECLARED"))
+    if 'T_c' in A:
+        txt = "Source as built with one doublet: crossover at %.1f GeV if its quartic and top couplings equal the declared row's" % A['T_c']
+        if 'T_c' in B:
+            txt += ", at %.1f GeV if its Higgs and top masses do" % B['T_c']
+        st.append(dict(text=txt + ". These masses are not derived.", label="DECLARED"))
+    st.append(dict(text="The transition lies %.1e s after the start of the radiation era, %.2e ticks." % (dec['cosmic_time_seconds'], dec['cosmic_time_ticks']), label="IMPORTED"))
+    st.append(dict(text="The reduction to three dimensions is perturbative, of relative order g^4, with an accuracy of about one percent.", label="IMPORTED"))
+    return st
+
+
+if __name__ == '__main__':
+    status_line = sys.argv[1] if len(sys.argv) > 1 else "measured"
+    prod, cert = main()
+    rows_g = growth_table(cert)
+    br = bracket(rows_g)
+    X_C_BRACKET[:] = br
+    globals()['X_C_NOTE'] = ("growth exponent of the susceptibility maximum against x at beta_G = 8: "
+                             + "; ".join("x %.4f: %.2f(%.2f) [%s]" % (r['x'], r['exponent'], r['err'], r['volumes']) for r in rows_g))
+    STATEMENTS[:] = make_statements(cert, rows_g, br)
+    site = site_file(prod, cert, status_line)
+    site['endpoint']['growth'] = [dict(x=rnd(r['x'], 5), exponent=rnd(r['exponent'], 3), err=rnd(r['err'], 2), volumes=r['volumes']) for r in rows_g] if 'endpoint' in site else []
+    text = json.dumps(site, separators=(",", ":"))
+    assert '"placeholder"' not in text
+    SITE.write_text(text + "\n")
+    (LANE / "data" / "ew_transition.json").write_text(text + "\n")
+    print("site file bytes:", len(text))
+    for s_ in STATEMENTS:
+        print("  [%s] %s" % (s_['label'], s_['text']))
+    print("growth:", [(round(r['x'], 4), round(r['exponent'], 2), round(r['err'], 2), r['volumes']) for r in rows_g], "bracket", br)
+    # ---- numbers for the report ----
+    for name, r in cert['rows'].items():
+        if 'T_c' in r:
+            print("%-16s T_max(lat) %.3f(%.3f)  T_c %.3f +- %.3f (lattice) +- %.2f (truncation)  x %.4f  t %.3e s  ticks %.3e" % (
+                name, r['T_max_lattice'], r['T_max_lattice_err'], r['T_c'], r['T_c_err_lattice'], r['truncation_error'],
+                r['x_at_T_c'], r['cosmic_time_seconds'], r['cosmic_time_ticks']))
+            print("     variants:", {k: (round(v, 2) if v else v) for k, v in r['variants_T_c'].items()})
+    ce = cert['continuum_extrapolation']
+    for k in ('y_max', 'T_max_declared'):
+        f = ce[k]
+        print(k, "continuum %.4f(%.4f) slope %s(%s) chi2/dof %.2f/%d offsets %s" % (f['continuum'], f['err'], f['slope'], f['slope_err'], f['chi2'], f['dof'], f['size_offsets']))
+        for p in f['points']:
+            print("    bG %g L %d size %.0f value %.4f(%.4f)" % (p['beta_G'], p['n_side'], p['size'], p['value'], p['err']))
+    if 'endpoint' in cert:
+        print("endpoint:", cert['endpoint'])
+    if 'comparison_not_blind' in cert:
+        print("comparison:", {k: v for k, v in cert['comparison_not_blind'].items() if k != 'reference'})
+    print("sizes: production %d bytes, results %d bytes" % ((PKG / "production.json").stat().st_size, (PKG / "results.json").stat().st_size))

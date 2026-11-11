@@ -1,0 +1,183 @@
+"""Task 7: where the area class sits in the cycle lattice, and its relation to the audit's two rank-four deck records
+(audit/state_geometry/cycle_deck.py, read from its exported JSON; nothing of the audit is modified).
+
+Exact integer arithmetic, except the spectral comparison of transfers at the end (float64, defect printed).
+Usage (from the public checkout, local): python t7_cycle_lattice.py [out.json]
+"""
+import json
+import sys
+import time
+from pathlib import Path
+import numpy as np
+import sympy as sp
+from sympy.matrices.normalforms import smith_normal_form
+import ca_core as c
+import ca_corr as cc
+
+out_path = sys.argv[1] if len(sys.argv) > 1 else 't7_cycle_lattice.json'
+AUDIT = Path(__file__).resolve().parents[2] / 'audit' / 'state_geometry' / 'cycle_deck_results.json'
+t0 = time.time()
+res = {'schema': 'repair_law.CA.t7.v1', 'checks': {}}
+
+
+def check(name, ok, detail=None):
+    res['checks'][name] = bool(ok) if detail is None else {'pass': bool(ok), 'detail': detail}
+    print(('PASS  ' if ok else 'FAIL  ') + name + ('' if detail is None else '  ' + str(detail)), flush=True)
+    assert ok, name
+
+
+def snf_diag(rows):
+    Mx = sp.Matrix(rows)
+    S = smith_normal_form(Mx, domain=sp.ZZ)
+    return sorted(abs(int(S[i, i])) for i in range(min(S.shape)))
+
+
+# 1. the cycle lattice in face coordinates
+check('1a the 19 face boundaries (outside face dropped) are a primitive set: Smith form all ones',
+      snf_diag(c.BND2[:19].tolist()) == [1] * 19)
+check('1b the cycle lattice has rank 19 = 30 - 11, so Z_1 = boundaries = Z^20 / Z (1,...,1)',
+      sp.Matrix(c.BND1.tolist()).rank() == 11 and not c.BND2.sum(axis=0).any())
+
+# 2. coinvariants under the 60 rotations
+fidx = {frozenset(f): i for i, f in enumerate(c.FACES)}
+gens = []
+orient_ok = True
+for r in c.ROTS:
+    for f, face in enumerate(c.FACES):
+        img = tuple(r[v] for v in face)
+        g = fidx[frozenset(img)]
+        # a rotation preserves the orientation: the image triple is a cyclic rotation of the listed oriented face
+        tgt = c.FACES[g]
+        orient_ok &= img in (tgt, tgt[1:] + tgt[:1], tgt[2:] + tgt[:2])
+        row = [0] * 20
+        row[f] += 1
+        row[g] -= 1
+        if any(row):
+            gens.append(row)
+check('2a every rotation maps oriented faces to oriented faces (orientation preserved)', orient_ok)
+uniq = [list(x) for x in {tuple(g) for g in gens}]
+d = snf_diag(uniq + [[1] * 20])
+check('2b Z^20 / (span{m - g m} + Z 1) is cyclic of order 20: coinvariants of the cycle lattice under the rotations',
+      d == [1] * 19 + [20], {'smith': d})
+check('2c the area class (sum of the coefficients of a filling, modulo 20) is the quotient map: it vanishes on m - g m '
+      'and on (1,...,1), and takes the value 1 on a face boundary', all(sum(g) == 0 for g in uniq))
+
+# 3. antipode
+dist = np.full((12, 12), 99)
+for p in range(12):
+    dist[p, p] = 0
+    todo = [p]
+    for a in todo:
+        for b in c.NBRS[a]:
+            if dist[p, b] == 99:
+                dist[p, b] = dist[p, a] + 1
+                todo.append(b)
+anti = [int(np.argmax(dist[p])) for p in range(12)]
+rev = True
+for face in c.FACES:
+    img = tuple(anti[v] for v in face)
+    tgt = c.FACES[fidx[frozenset(img)]]
+    rev &= img[::-1] in (tgt, tgt[1:] + tgt[:1], tgt[2:] + tgt[:2])
+check('3 the antipodal map reverses the orientation of every face: area -> -area, character k -> -k', rev)
+
+# 4. the audit's deck records on the same cycles
+aud = json.loads(AUDIT.read_text())
+check('4a the audit uses the same seam and oriented-face lists',
+      [tuple(e) for e in aud['seams']] == list(c.SEAMS) and [tuple(f) for f in aud['faces']] == list(c.FACES))
+basis = c.BND2[:19].astype(object)                             # rows: the cycles c_f = boundary of face f, area 1
+deck = {}
+for comp in ('face_even', 'face_odd'):
+    dd = aud['components'][comp]
+    Z = sp.Matrix([[sp.Rational(x) for x in row] for row in dd['integer_harmonic_cochains']])        # 30 x 4
+    H = sp.Matrix([[sp.Rational(x) for x in row] for row in dd['raw_period_Hermite_basis']])
+    V = sp.Matrix(dd['primitive_integer_edge_deck_map'])                                               # 30 x 4
+    cyc = sp.Matrix(basis.tolist())                                                                    # 19 x 30
+    z_raw = (H.inv() * Z.T * cyc.T).T                                                                  # 19 x 4
+    z_prim = cyc * V
+    assert z_raw == z_prim and all(x.q == 1 for x in z_prim)
+    deck[comp] = np.array(z_prim.tolist(), dtype=object)                                               # 19 x 4 integers
+    assert snf_diag(z_prim.tolist()) == [1, 1, 1, 1]
+check('4b on closed histories both deck records are z(c) = H^-1 Z^T c, integer, onto Z^4 (tree gauge cancels)', True)
+
+
+def int_kernel(D):
+    """Z-basis of {n in Z^19 : n D = 0} for an integer matrix D (19 x r): unimodular row reduction of [D | I]."""
+    rows = [[int(x) for x in D[i]] + [int(i == j) for j in range(D.shape[0])] for i in range(D.shape[0])]
+    ncol = D.shape[1]
+    piv = 0
+    for col in range(ncol):
+        while True:
+            nz = [i for i in range(piv, len(rows)) if rows[i][col] != 0]
+            if len(nz) <= 1:
+                break
+            nz.sort(key=lambda i: abs(rows[i][col]))
+            a = nz[0]
+            for b in nz[1:]:
+                qv = rows[b][col] // rows[a][col]
+                rows[b] = [x - qv * y for x, y in zip(rows[b], rows[a])]
+        nz = [i for i in range(piv, len(rows)) if rows[i][col] != 0]
+        if nz:
+            rows[piv], rows[nz[0]] = rows[nz[0]], rows[piv]
+            piv += 1
+    ker = [r[ncol:] for r in rows if not any(r[:ncol])]
+    assert len(ker) == D.shape[0] - piv
+    return ker
+
+
+import math
+gen = {}
+for label, D in (('even deck', deck['face_even']), ('odd deck', deck['face_odd']),
+                 ('both decks', np.concatenate([deck['face_even'], deck['face_odd']], axis=1))):
+    ker = int_kernel(D)
+    assert all(not any(int(x) for x in (np.array(n, dtype=object) @ D)) for n in ker)
+    g = 20
+    for n in ker:
+        g = math.gcd(g, sum(n) % 20)
+    gen[label] = {'kernel_rank': len(ker), 'area_classes_on_kernel_generated_by': g % 20, 'subgroup_order': 20 // g if g else 1}
+    print(f'   cycles with zero {label}: rank {len(ker)}; their area classes form the subgroup generated by {g % 20} '
+          f'(order {20 // g if g % 20 else 1})')
+res['area_on_deck_kernels'] = gen
+check('4c area classes of cycles with zero even deck record: multiples of 5 only; with zero odd deck record: all 20',
+      gen['even deck']['area_classes_on_kernel_generated_by'] == 5 and gen['odd deck']['area_classes_on_kernel_generated_by'] == 1
+      and gen['both decks']['area_classes_on_kernel_generated_by'] == 5)
+
+# 5. the order-five part of the area class as a linear form of the even deck
+sols = []
+ze = deck['face_even']
+for t in np.ndindex(5, 5, 5, 5):
+    if all((sum(int(t[j]) * int(ze[f, j]) for j in range(4)) - 1) % 5 == 0 for f in range(19)):
+        sols.append([int(x) for x in t])
+check('5a area = t . z_even modulo 5 for exactly one t in (Z/5)^4', len(sols) == 1, {'t': sols})
+t5 = sols[0]
+no4 = True
+for mod in (2, 4):
+    found = False
+    for t in np.ndindex(*([mod] * 8)):
+        zz = np.concatenate([deck['face_even'], deck['face_odd']], axis=1)
+        if all((sum(int(t[j]) * int(zz[f, j]) for j in range(8)) - 1) % mod == 0 for f in range(19)):
+            found = True
+            break
+    no4 &= not found
+check('5b area modulo 2 and modulo 4 are not linear forms of the eight deck coordinates', no4)
+
+# 6. the twisted transfers of the order-five characters are the audit's even Bloch transfers at one momentum
+print('   spectra: area character k = 4 j against the audit even Bloch kernel at momentum 2 pi j t / 5 (float64)')
+worst = 0.0
+for qi, (name, d) in enumerate((('one', 12), ('two', 66))):
+    rows = aud['components']['face_even']['source_sectors'][qi]['aggregated_kernel_rows']
+    sec = cc.Sector(name)
+    for j in range(5):
+        kappa = 2 * np.pi * j * np.array(t5) / 5.0
+        Bm = np.zeros((d, d), complex)
+        for i, jj, zvec, cnt in rows:
+            Bm[jj, i] += cnt / 60.0 * np.exp(1j * float(np.dot(kappa, zvec)))
+        ev_a = np.sort(np.linalg.eigvalsh((Bm + Bm.conj().T) / 2))
+        ev_b = np.sort(np.linalg.eigvalsh(sec.P(4 * j)))
+        worst = max(worst, float(np.abs(ev_a - ev_b).max()))
+check('6 (float64) for j = 0..4 and loads one and two: spectrum of P_(k=4j) = spectrum of the audit even Bloch transfer '
+      'at momentum 2 pi j t / 5', worst < 1e-12, {'defect': worst})
+
+res['t_mod_5'] = t5
+res['seconds'] = round(time.time() - t0, 2)
+json.dump(res, open(out_path, 'w'), indent=1)
+print('wrote', out_path, 'in %.1f s' % (time.time() - t0))

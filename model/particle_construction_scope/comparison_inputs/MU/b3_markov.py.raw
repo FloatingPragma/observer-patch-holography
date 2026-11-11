@@ -1,0 +1,62 @@
+"""Block 3, hypothesis H4 (Markov collars): conditional mutual information I(A:D|B) for cap interior A, collar B,
+exterior D (cap about a port axis, opening 80 degrees, collar half-width delta), for three states:
+  gaussian  many quanta filling the spinor sections (free-fermion entropies of the restricted projector)
+  tracial   one quantum, tracial state on the section code (region algebra: M_n + C)
+  cap       one quantum, stationary state of the covariant agreement pump (levels 0 to 3 exact, level 4 closed form)
+Writes markov.json.
+"""
+import json
+import numpy as np
+from carrier_tools import C
+from mu_lib import icosphere, mesh_edges, sections, axes_of_carrier, cap_stationary, twisted_Q
+
+n = axes_of_carrier()['port']
+out = {}
+
+
+def h2(x):
+    x = np.clip(x, 1e-300, 1 - 1e-16)
+    return float(np.sum(-x * np.log(x) - (1 - x) * np.log1p(-x)))
+
+
+def s_block(lams, w):
+    lams = lams[lams > 1e-300]
+    s = float(np.sum(-lams * np.log(lams)))
+    if 1 - w > 1e-15:
+        s += -(1 - w) * np.log(1 - w)
+    return s
+
+
+for L in (1, 2, 3, 4):
+    U, F = icosphere(L)
+    N = len(U)
+    W = sections(U)
+    E = mesh_edges(F)
+    if L <= 3:
+        rho, Q, info = cap_stationary(U, E)
+    else:
+        Q, _ = twisted_Q(U, E)
+        rho = np.linalg.inv(Q); rho = rho / np.real(np.trace(rho)); rho = (rho + rho.conj().T) / 2
+    ang = np.degrees(np.arccos(np.clip(U @ n, -1, 1)))
+    res = {}
+    for delta in (5.0, 10.0, 20.0, 40.0):
+        a_in, a_out = 80.0 - delta + 0.123, 80.0 + delta + 0.123
+        A = np.nonzero(ang < a_in)[0]; B = np.nonzero((ang >= a_in) & (ang < a_out))[0]; D = np.nonzero(ang >= a_out)[0]
+        if len(B) == 0:
+            continue
+        reg = {'AB': np.r_[A, B], 'BD': np.r_[B, D], 'B': B}
+        ent = {'gaussian': {}, 'tracial': {}, 'cap': {}}
+        for k, idx in reg.items():
+            Ex = W[idx].conj().T @ W[idx]
+            ev = np.linalg.eigvalsh(Ex)
+            ent['gaussian'][k] = h2(2 * ev / N)
+            ent['tracial'][k] = s_block(ev / N, len(idx) / N)
+            lam = np.linalg.eigvalsh(rho[np.ix_(idx, idx)])
+            ent['cap'][k] = s_block(lam, float(lam.sum()))
+        lam_all = np.linalg.eigvalsh(rho)
+        tot = {'gaussian': 0.0, 'tracial': float(np.log(2)), 'cap': float(np.sum(-lam_all * np.log(lam_all)))}
+        res[str(delta)] = {'ports_A_B_D': [len(A), len(B), len(D)],
+                           **{st: ent[st]['AB'] + ent[st]['BD'] - ent[st]['B'] - tot[st] for st in ent}}
+    out[str(L)] = {'N': N, 'collars': res}
+    print(L, N, {d: {k: (round(v, 4) if not isinstance(v, list) else v) for k, v in r.items()} for d, r in res.items()}, flush=True)
+json.dump(out, open('markov.json', 'w'), indent=1)

@@ -1,0 +1,123 @@
+"""Block 5: the invariant mass of the 1+3 load sector under the reference rule.
+
+X = sum_p x_p (1 + u_p.sigma) = t + r.sigma, det X = t^2 - |r|^2. The reference event is taken from
+carrier_tools.reference_event (the integer rule with a coin). Exact arithmetic with Fractions where stated.
+Writes mass.json.
+"""
+import itertools, json
+from fractions import Fraction as Fr
+import numpy as np
+from carrier_tools import C, reference_event, states
+from mu_lib import icosphere, mesh_edges, twisted_Q
+
+out = {}
+U = C.N
+M = len(C.E)
+
+# 1. the mean map of the reference rule on loads is linear: E[x'] = T x, T = 1 - L/(2M), for every load configuration tested (EXACT)
+A = np.zeros((12, 12), dtype=object)
+for a, b in C.E:
+    A[a, b] = A[b, a] = Fr(1)
+T = [[(Fr(1) if p == q else Fr(0)) - ((Fr(5) if p == q else Fr(0)) - A[p, q]) / (2 * M) for q in range(12)] for p in range(12)]
+worst = Fr(0)
+tested = 0
+for total in (1, 2):
+    for x in states(total):
+        mean = [Fr(0)] * 12
+        for seam in C.E:
+            for coin in (0, 1):
+                y, j = reference_event(x, seam, coin)
+                for p in range(12):
+                    mean[p] += Fr(y[p], 2 * M)
+        pred = [sum(T[p][q] * x[q] for q in range(12)) for p in range(12)]
+        worst = max(worst, max(abs(mean[p] - pred[p]) for p in range(12)))
+        tested += 1
+# also a few larger loads
+rng = np.random.default_rng(3)
+for _ in range(200):
+    x = tuple(int(v) for v in rng.integers(0, 7, 12))
+    mean = [Fr(0)] * 12
+    for seam in C.E:
+        for coin in (0, 1):
+            y, j = reference_event(x, seam, coin)
+            for p in range(12):
+                mean[p] += Fr(y[p], 2 * M)
+    pred = [sum(T[p][q] * x[q] for q in range(12)) for p in range(12)]
+    worst = max(worst, max(abs(mean[p] - pred[p]) for p in range(12)))
+    tested += 1
+lam = (55 + 5 ** 0.5) / 60
+Tf = np.array([[float(v) for v in row] for row in T])
+out['mean_map'] = {'configurations_tested': tested, 'max_defect_of_E[x_next] = T x (exact rationals)': str(worst),
+                   'T': '1 - (5 - A)/60', 'energy': 'sum_p x_p is conserved by every event',
+                   'three_momentum_factor_per_attempt': lam, 'exact': '(55 + sqrt5)/60',
+                   'defect_T u = lambda u': float(np.abs(Tf @ U - lam * U).max()),
+                   'half_life_attempts': float(np.log(2) / -np.log(lam)), 'half_life_sweeps_of_30_attempts': float(np.log(2) / -np.log(lam) / 30)}
+
+# 2. mass of the mean four-momentum: M^2(n) = t^2 - lambda^(2n) |r_0|^2
+ex = {}
+for name, x0 in (('one quantum', [0]), ('two quanta adjacent', list(C.E[0])), ('two quanta antipodal', [0, C.anti[0]])):
+    t = len(x0); r0 = U[x0].sum(axis=0)
+    ex[name] = {'t': t, 'r0_squared': float(r0 @ r0), 'mass_squared_at_n=0': float(t * t - r0 @ r0),
+                'mass_squared_of_mean_at_n=30': float(t * t - lam ** 60 * (r0 @ r0)), 'limit': t * t}
+out['mass_of_the_mean_four_momentum'] = ex
+
+# 3. realized mass of two quanta on the binary shell: exact chain on the 66 states
+st = [s for s in states(2) if max(s) == 1]
+idx = {s: i for i, s in enumerate(st)}
+P = np.zeros((66, 66))
+for s in st:
+    for seam in C.E:
+        for coin in (0, 1):
+            y, j = reference_event(s, seam, coin)
+            P[idx[y], idx[s]] += 1 / (2 * M)
+m2 = np.array([4 - np.sum(U[[p for p in range(12) if s[p]]].sum(axis=0) ** 2) for s in st])
+p0 = np.zeros(66); p0[idx[tuple(int(p in C.E[0]) for p in range(12))]] = 1
+traj = []
+p = p0.copy()
+for n in range(0, 301):
+    if n in (0, 1, 5, 10, 30, 60, 120, 300):
+        traj.append((n, float(p @ m2)))
+    p = P @ p
+w = np.sort(np.abs(np.linalg.eigvals(P)))[::-1]
+# rate of E[M^2]: fit on the invariant function
+p = p0.copy(); vals = []
+for n in range(200):
+    vals.append(p @ m2 - 24 / 11); p = P @ p
+rate = float(vals[150] / vals[149])
+out['realized_mass_two_quanta'] = {'values': 'M^2 = |u_p - u_q|^2 in {2 - 2/sqrt5, 2 + 2/sqrt5, 4}', 'stationary_mean': 24 / 11,
+                                   'E[M^2]_from_adjacent_start (n, value)': traj, 'asymptotic_factor_per_attempt': rate,
+                                   'leading_eigenvalue_moduli_of_the_pair_chain': w[:6].tolist()}
+
+# 4. relaxation factors as rest frequencies under a wave completion cos(omega) = lambda (audit: W = Q R)
+a1 = ((25 + 5 * 5 ** 0.5) / 2) ** 0.5                      # flux-1 doublet adjacency eigenvalue = 5 |<chi_a|chi_b>|
+Q1, _ = twisted_Q(U, [tuple(e) for e in C.E])
+q1 = np.linalg.eigvalsh(Q1)
+sect = {'untwisted slow triplet (three-momentum)': lam,
+        'flux 1 spinor doublet': 1 - (5 - a1) / 60,
+        'flux 2 vector triplet': 1 - (5 - (5 + 5 ** 0.5) / 2) / 60}
+out['wave_completion'] = {'doublet_adjacency_eigenvalue_exact': 'sqrt((25 + 5 sqrt5)/2) = 5 cos(theta_adj/2)', 'check_from_twisted_Q': float(5 - 2 * q1[0]),
+                          'sectors': {k: {'lambda': v, 'omega = arccos(lambda)': float(np.arccos(v)), 'period_attempts': float(2 * np.pi / np.arccos(v))} for k, v in sect.items()}}
+om = {k: np.arccos(v) for k, v in sect.items()}
+out['wave_completion']['ratio_omega_doublet_over_triplet'] = float(om['flux 1 spinor doublet'] / om['untwisted slow triplet (three-momentum)'])
+out['wave_completion']['ratio_rate_doublet_over_triplet'] = float((1 - sect['flux 1 spinor doublet']) / (1 - lam))
+
+# 5. the same ratio on refined point sets (seams = mesh edges): lowest twisted level over the untwisted dipole level
+ref = {}
+for L in range(5):
+    V, F = icosphere(L)
+    E = mesh_edges(F) if L else [tuple(e) for e in C.E]
+    Qt, _ = twisted_Q(V, E)
+    N = len(V)
+    Q0 = np.zeros((N, N))
+    for a, b in E:
+        Q0[a, a] += .5; Q0[b, b] += .5; Q0[a, b] -= .5; Q0[b, a] -= .5
+    et = np.linalg.eigvalsh(Qt)[:6]; e0 = np.linalg.eigvalsh(Q0)[:4]
+    ref[str(L)] = {'N': N, 'seams': len(E), 'twisted_lowest_six (doublet, then quartet)': et.tolist(), 'untwisted_lowest_four (0, then triplet)': e0.tolist(),
+                   'rate_ratio_doublet_over_dipole': float(et[0] / e0[1]), 'frequency_ratio_sqrt': float(np.sqrt(et[0] / e0[1])),
+                   'doublet_splitting_relative': float((et[1] - et[0]) / et[0]), 'dipole_splitting_relative': float((e0[3] - e0[1]) / e0[1])}
+    print(L, N, 'rate ratio', et[0] / e0[1], 'sqrt', np.sqrt(et[0] / e0[1]))
+out['refined_point_sets'] = {'levels': ref, 'continuum': 'lowest Landau level of monopole charge 1/2: 1/2; scalar l = 1: 2; rate ratio 1/4, frequency ratio 1/2 (IMPORTED spectrum)'}
+out['what_gives_a_number'] = ('a rest mass needs the band lambda(q) of the twisted (section) transfer on the federation in one declared wave completion: '
+                              'E0 = arccos lambda(0), inertial mass from the curvature of omega(q) at q = 0, c from the cone; E0 = m c^2 is then a test')
+json.dump(out, open('mass.json', 'w'), indent=1)
+print(json.dumps({k: out[k] for k in ('mean_map', 'mass_of_the_mean_four_momentum', 'realized_mass_two_quanta', 'wave_completion')}, indent=1))

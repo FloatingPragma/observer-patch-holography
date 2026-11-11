@@ -1,0 +1,115 @@
+"""Symbol of the routing tick: closed form of its eigenphases (EXACT, symbolic) and the error against exp(-i a H)
+(MEASURED in float64, with the proved bound of spatial/ROUTE.md, which uses only the sixteen relations).
+
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD python RL/work/KD/kd_symbol.py [out.json]
+"""
+import json
+import sys
+
+import numpy as np
+import sympy as s
+from scipy.linalg import expm
+
+from kdlib import mm, dag, kron, SX, E2, frames, spinor_lift, ONE
+from kdwalk import BETA, Cu
+
+fr = next(f for f in frames() if all(sum(1 for c in h['axis'] if not c.is_zero()) == 1 for h in f['half_turns']))
+u = []
+for i in range(3):
+    h = next(h for h in fr['half_turns'] if not h['axis'][i].is_zero())
+    q = h['q'] if h['axis'][i] == ONE else tuple(-x for x in h['q'])
+    u.append(spinor_lift(q))
+alpha = [mm(Cu(x), BETA, dag(Cu(x))) for x in u]
+
+
+def sym(Mx):
+    assert all(x.b == 0 and x.d == 0 for r in Mx for x in r)
+    return s.Matrix([[s.Rational(x.a.numerator, x.a.denominator) + s.I * s.Rational(x.c.numerator, x.c.denominator)
+                      for x in r] for r in Mx])
+
+
+G = [sym(a) for a in alpha] + [sym(BETA)]                    # (alpha_1, alpha_2, alpha_3, beta)
+out = {}
+
+# ---- exact: closed form -------------------------------------------------------------------------------------
+c = s.symbols('c_1 c_2 c_3 c_t', real=True)
+sn = s.symbols('s_1 s_2 s_3 s_t', real=True)
+D = s.eye(4)
+for r in range(4):                                           # exp(-i theta beta) e3 e2 e1: rightmost acts first
+    D = (c[r] * s.eye(4) - s.I * sn[r] * G[r]) * D
+Dd = s.eye(4)
+for r in range(4):
+    Dd = Dd * (c[r] * s.eye(4) + s.I * sn[r] * G[r])
+Hm = ((D + Dd) / 2).applyfunc(s.expand)
+pc = c[0] * c[1] * c[2] * c[3]
+rad = (sn[0] * sn[1] * sn[2] * sn[3]) ** 2
+for q in range(4):
+    term = c[q] ** 2
+    for r in range(4):
+        if r != q:
+            term *= sn[r] ** 2
+    rad += term
+N = (Hm - pc * s.eye(4)).applyfunc(s.expand)
+assert (N * N - rad * s.eye(4)).applyfunc(s.expand) == s.zeros(4) and s.expand(N.trace()) == 0
+print('EXACT ok: ((D + D^*)/2 - c1 c2 c3 c_t)^2 = [s1 s2 s3 s_t]^2 + sum_q c_q^2 prod_(r != q) s_r^2 as a polynomial identity')
+print('          => cos(omega) = c1 c2 c3 c_t +- sqrt(that), each sign twice (D is normal, its spectrum closed under conjugation)')
+out['closed_form'] = 'cos(omega_pm) = c1 c2 c3 c_t +- sqrt(s1^2 s2^2 s3^2 s_t^2 + sum_q c_q^2 prod_{r!=q} s_r^2)'
+# massless case: cos(omega) = c1 c2 c3 +- |s1 s2 s3|; at rest: cos(omega) = c_t
+assert s.expand(rad.subs({sn[3]: 0, c[3]: 1}) - (sn[0] * sn[1] * sn[2]) ** 2) == 0
+assert s.expand(rad.subs({sn[0]: 0, sn[1]: 0, sn[2]: 0})) == 0
+
+# ---- float: the closed form against eigenvalues, and the error bound ------------------------------------------
+Gn = [np.array(g.tolist(), dtype=complex) for g in G]
+rng = np.random.default_rng(11)
+
+
+def tick(h):
+    Dn = np.eye(4, dtype=complex)
+    for r in range(4):
+        Dn = (np.cos(h[r]) * np.eye(4) - 1j * np.sin(h[r]) * Gn[r]) @ Dn
+    return Dn
+
+
+worst_phase = 0.0
+for _ in range(2000):
+    h = rng.uniform(-np.pi, np.pi, 4)
+    ev = np.sort(np.cos(np.angle(np.linalg.eigvals(tick(h)))))
+    cc, ss = np.cos(h), np.sin(h)
+    root = np.sqrt(np.prod(ss) ** 2 + sum(cc[q] ** 2 * np.prod(np.delete(ss, q)) ** 2 for q in range(4)))
+    pred = np.sort([np.prod(cc) - root] * 2 + [np.prod(cc) + root] * 2)
+    worst_phase = max(worst_phase, np.abs(ev - pred).max())
+print(f'MEASURED: closed form against numerical eigenvalues, 2000 random points of the full zone: max defect {worst_phase:.2e}')
+
+worst_ratio, n = 0.0, 0
+for scale in (1.0, 0.5, 0.2, 0.05):
+    for _ in range(1500):
+        h = rng.uniform(-scale, scale, 4)
+        H = sum(h[r] * Gn[r] for r in range(4))
+        err = np.linalg.norm(tick(h) - expm(-1j * H), 2)
+        bound = sum(abs(h[r] * h[t]) for r in range(4) for t in range(r + 1, 4))
+        worst_ratio = max(worst_ratio, err / bound); n += 1
+print(f'MEASURED: ||D - exp(-iH)|| / sum_(r<s)|h_r h_s| over {n} random points with |h_r| <= 1: max {worst_ratio:.6f} (bound: <= 1)')
+lead = []
+for scale in (0.1, 0.03, 0.01, 0.003):
+    h = np.array([0.7, -0.4, 0.5, 0.6]) * scale
+    H = sum(h[r] * Gn[r] for r in range(4))
+    err = np.linalg.norm(tick(h) - expm(-1j * H), 2)
+    lead_term = np.sqrt(sum((h[r] * h[t]) ** 2 for r in range(4) for t in range(r + 1, 4)) + 2 * abs(np.prod(h)))
+    lead.append((scale, err / lead_term))
+print('MEASURED: error / sqrt(sum_(r<s) h_r^2 h_s^2 + 2|h1 h2 h3 h4|) at h = scale*(0.7,-0.4,0.5,0.6):',
+      ', '.join(f'{sc}: {x:.6f}' for sc, x in lead))
+# the numbers of CLIFFORD.md (a = 0.2, 0.1, 0.05; p = (0.7,-0.4,0.5), m = 0.6)
+tab = []
+for a in (0.2, 0.1, 0.05):
+    h = np.array([0.7, -0.4, 0.5, 0.6]) * a
+    cc, ss = np.cos(h), np.sin(h)
+    root = np.sqrt(np.prod(ss) ** 2 + sum(cc[q] ** 2 * np.prod(np.delete(ss, q)) ** 2 for q in range(4)))
+    om = [float(np.arccos(np.prod(cc) + root)), float(np.arccos(np.prod(cc) - root))]
+    tab.append({'a': a, 'omega_minus_plus': om, 'a_E': float(a * np.sqrt(1.26))})
+    print(f'a = {a}: closed-form phases {om[0]:.8f}, {om[1]:.8f}; a E = {a * np.sqrt(1.26):.8f}')
+out.update({'closed_form_vs_eigenvalues_max_defect': worst_phase, 'error_over_bound_max': worst_ratio,
+            'leading_error_ratio': lead, 'clifford_md_table': tab,
+            'bound': '||D_a(p) - exp(-i a H)|| <= a^2 sum_(r<s) |h_r h_s|, h = (p1, p2, p3, m); n ticks: t a sum_(r<s)|h_r h_s|',
+            'leading_error': 'a^2 sqrt(sum_(r<s) h_r^2 h_s^2 + 2|p1 p2 p3 m|) + O(a^3)'})
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

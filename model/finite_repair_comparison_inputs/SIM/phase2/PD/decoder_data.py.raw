@@ -1,0 +1,776 @@
+"""Lane PD: the decoder from the source's objects to particle names and quantum numbers.
+
+Writes SIM/oph_defects/viewer2/research/PD/decoder.json and a copy next to this script.
+
+    env PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python decoder_data.py
+
+Every charge is an integer or a rational number (fractions.Fraction); no floating point enters a check.
+Conventions: RER/model/defect_particle_classes/model.py (levels v1 v2 v3 s1 s2, hypercharge -1/3 and +1/2 per
+level, T3 = (s1 - s2)/2, Q = T3 + Y, class k = 6Y mod 6). The script computes every table on its own and then
+compares it with the certificate (model.patterns(), results.json), with the spin-statistics table of worker SS and
+with the particle table of the viewer. RER is read only: nothing is written there and no bytecode is cached.
+
+Labels: EXACT for the charge tables and the checks, IMPORTED for hadron names (quark model, naming scheme of the
+Particle Data Group), DECLARED for the copy order and the display rules. The decoder carries no mass.
+"""
+import sys
+sys.dont_write_bytecode = True
+
+import hashlib
+import itertools
+import json
+from collections import Counter
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+import sympy as sp
+
+HERE = Path(__file__).resolve().parent
+META = Path('USER_HOME/Projects/oph-meta')
+RER = META / 'reverse-engineering-reality'
+SIM = META / 'oph-physics-sim'
+RL = META / 'repair-law'
+RUN = SIM / 'runs' / 'universe' / 'L6'
+OUT = SIM / 'oph_defects' / 'viewer2' / 'research' / 'PD' / 'decoder.json'
+
+CHECKS = {}
+
+
+def check(name, ok, detail=''):
+    """Record one exact check; stop on the first failure."""
+    if not ok:
+        raise AssertionError(f'check failed: {name} {detail}')
+    CHECKS[name] = True
+
+
+def fs(x):
+    """Fraction to a short string: 2/3, -1, 0."""
+    x = F(x)
+    return str(x.numerator) if x.denominator == 1 else f'{x.numerator}/{x.denominator}'
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+# ------------------------------------------------------------------ (a) the 32 patterns
+LEVELS = ('v1', 'v2', 'v3', 's1', 's2')
+SIX_Y_LEVEL = (-2, -2, -2, 3, 3)
+T3_LEVEL = (F(0), F(0), F(0), F(1, 2), F(-1, 2))
+Q_LEVEL = (F(-1, 3), F(-1, 3), F(-1, 3), F(1), F(0))          # electric charge carried by one level
+COLOURS = ('red', 'green', 'blue')
+SU3_OF_N3 = ('1', '3', '3b', '1')
+SU2_OF_N2 = ('1', '2', '1')
+MULTIPLET_OF = {'u_L': 'Q', 'd_L': 'Q', 'u_R': 'u_R', 'd_R': 'd_R', 'nu_L': 'L', 'e_L': 'L', 'e_R': 'e_R', 'nu_R': 'nu_R'}
+LEFT_NAME = {'Q': 'Q', 'anti-u_R': 'u^c', 'anti-d_R': 'd^c', 'L': 'L', 'anti-e_R': 'e^c', 'anti-nu_R': 'nu^c'}
+# copy names: a label, the decoder carries no mass and cannot order the copies (DECLARED)
+SPECIES = {
+    'u': dict(kind='quark', syms=('u', 'c', 't'), names=('up', 'charm', 'top')),
+    'd': dict(kind='quark', syms=('d', 's', 'b'), names=('down', 'strange', 'bottom')),
+    'e': dict(kind='charged lepton', syms=('e', 'μ', 'τ'), names=('electron', 'muon', 'tau')),
+    'nu': dict(kind='neutrino', syms=('ν', 'ν', 'ν'), subs=('e', 'μ', 'τ'),
+               names=('electron neutrino', 'muon neutrino', 'tau neutrino')),
+}
+ANTI_LEPTON_NAMES = ('positron', 'antimuon', 'antitau')
+
+
+def base_name(n3, n2, s1):
+    if n3 == 1:
+        return {0: 'd_R', 2: 'u_R'}.get(n2) or ('u_L' if s1 else 'd_L')
+    return {0: 'e_R', 2: 'nu_R'}.get(n2) or ('nu_L' if s1 else 'e_L')
+
+
+def copies_of(base, anti):
+    sp_key, hand = base.split('_')
+    s = SPECIES[sp_key]
+    handed = 'left-handed' if hand == 'L' else 'right-handed'
+    rows = []
+    for g in range(3):
+        if sp_key in ('u', 'd'):
+            row = dict(sym=s['syms'][g], sub='', sup='', bar=anti, flavour=s['syms'][g],
+                       particle=s['names'][g] + (' antiquark' if anti else ' quark'))
+        elif sp_key == 'e':
+            row = dict(sym=s['syms'][g], sub='', sup='+' if anti else '−', bar=False, flavour=None,
+                       particle=ANTI_LEPTON_NAMES[g] if anti else s['names'][g])
+        else:
+            nm = s['names'][g]
+            row = dict(sym='ν', sub=s['subs'][g], sup='', bar=anti, flavour=None,
+                       particle=nm.replace('neutrino', 'antineutrino') if anti else nm)
+        species_name = s['names'][g] + (' quark' if sp_key in ('u', 'd') else '')
+        row['long'] = (f'antiparticle of the {handed} {species_name}' if anti else f'{handed} {species_name}')
+        rows.append(row)
+    return rows
+
+
+def decode(mask):
+    bits = [mask >> i & 1 for i in range(5)]
+    n3, n2 = sum(bits[:3]), sum(bits[3:])
+    six_y = sum(c for c, b in zip(SIX_Y_LEVEL, bits) if b)
+    y = F(six_y, 6)
+    t3 = sum((c for c, b in zip(T3_LEVEL, bits) if b), F(0))
+    q = sum((c for c, b in zip(Q_LEVEL, bits) if b), F(0))
+    anti = n3 % 2 == 0
+    if anti:
+        comp = [1 - b for b in bits]
+        base = base_name(sum(comp[:3]), sum(comp[3:]), comp[3])
+    else:
+        base = base_name(n3, n2, bits[3])
+    name = ('anti-' if anti else '') + base
+    multiplet = ('anti-' if anti else '') + MULTIPLET_OF[base]
+    if n3 == 1:
+        ci = bits[:3].index(1)
+        colour, colour_index = COLOURS[ci], ci + 1
+    elif n3 == 2:
+        ci = bits[:3].index(0)
+        colour, colour_index = 'anti-' + COLOURS[ci], ci + 1
+    else:
+        colour, colour_index = None, None
+    b = F(1, 3) if n3 == 1 else F(-1, 3) if n3 == 2 else F(0)
+    lep = F(1) if n3 == 3 else F(-1) if n3 == 0 else F(0)
+    degree = n3 + n2
+    return dict(
+        mask=mask, bits=''.join(str(x) for x in bits), occupied=[LEVELS[i] for i in range(5) if bits[i]],
+        n3=n3, n2=n2, degree=degree, six_Y=six_y, Y=y, T3=t3, Q=q, k=six_y % 6,
+        su3=SU3_OF_N3[n3], su2=SU2_OF_N2[n2], rep=f'({SU3_OF_N3[n3]},{SU2_OF_N2[n2]})_{fs(y)}',
+        name=name, base=base, anti=anti, multiplet=multiplet, species=base.split('_')[0],
+        left_handed_name=LEFT_NAME.get(multiplet), weyl='L' if degree % 2 == 0 else 'R',
+        half='16' if degree % 2 == 0 else '16bar', colour=colour, colour_index=colour_index,
+        B=b, L=lep, B_minus_L=b - lep, statistics='fermion', spin='1/2',
+        ab_sixths=[(f * six_y) % 6 for f in range(6)], complement=31 - mask, copies=copies_of(base, anti))
+
+
+P = [decode(m) for m in range(32)]
+
+# --- exact checks on the patterns
+check('a.class_rule_on_all_32', all(p['k'] == (3 * (p['n2'] % 2) - 2 * (p['n3'] % 3)) % 6 for p in P))
+check('a.six_Y_is_3n2_minus_2n3', all(p['six_Y'] == 3 * p['n2'] - 2 * p['n3'] for p in P))
+check('a.class_mod_3_is_triality_and_mod_2_is_weak_parity',
+      all(p['k'] % 3 == p['n3'] % 3 and p['k'] % 2 == p['n2'] % 2 for p in P))
+check('a.Q_from_level_charges_equals_T3_plus_Y', all(p['Q'] == p['T3'] + p['Y'] for p in P))
+check('a.kernel_phase_is_integer', all((F(p['n3'], 3) + F(p['n2'], 2) + p['Y']).denominator == 1 for p in P))
+mult = [sum(1 for p in P if p['k'] == k) for k in range(6)]
+check('a.class_multiplicities_4_6_6_4_6_6', mult == [4, 6, 6, 4, 6, 6])
+STATED = {'Q': 1, 'anti-Q': 5, 'u_R': 4, 'd_R': 4, 'anti-u_R': 2, 'anti-d_R': 2, 'L': 3, 'anti-L': 3,
+          'e_R': 0, 'nu_R': 0, 'anti-e_R': 0, 'anti-nu_R': 0}
+check('a.stated_class_of_every_multiplet', all(STATED[p['multiplet']] == p['k'] for p in P)
+      and {p['multiplet'] for p in P} == set(STATED))
+dims = Counter(p['multiplet'] for p in P)
+check('a.multiplet_dimensions', dims == Counter({'Q': 6, 'anti-Q': 6, 'u_R': 3, 'd_R': 3, 'anti-u_R': 3, 'anti-d_R': 3,
+                                                 'L': 2, 'anti-L': 2, 'e_R': 1, 'nu_R': 1, 'anti-e_R': 1, 'anti-nu_R': 1}))
+check('a.B_minus_L_is_1_minus_two_thirds_n3', all(p['B_minus_L'] == 1 - F(2, 3) * p['n3'] for p in P))
+check('a.phase_around_flux_depends_on_class_only',
+      all(p['ab_sixths'] == [(f * p['k']) % 6 for f in range(6)] for p in P))
+check('a.colour_flux_seen_by_quark_classes_only',
+      all((p['ab_sixths'][2] != 0) == (p['n3'] in (1, 2)) and (p['ab_sixths'][4] != 0) == (p['n3'] in (1, 2)) for p in P))
+check('a.weak_flux_seen_by_doublets_only', all((p['ab_sixths'][3] != 0) == (p['n2'] == 1) for p in P))
+sixteen = [p for p in P if p['half'] == '16']
+sixteen_bar = [p for p in P if p['half'] == '16bar']
+check('a.the_16_is_Q_uc_dc_L_ec_nuc', len(sixteen) == 16 and len(sixteen_bar) == 16
+      and Counter(p['left_handed_name'] for p in sixteen) == Counter({'Q': 6, 'u^c': 3, 'd^c': 3, 'L': 2, 'e^c': 1, 'nu^c': 1})
+      and all(p['left_handed_name'] is None for p in sixteen_bar))
+
+
+def anomalies(rows):
+    """Anomaly sums of a list of Weyl patterns of one handedness (each pattern is one state)."""
+    tri = lambda p: p['n3'] in (1, 2)
+    return dict(
+        sum_Y=sum((p['Y'] for p in rows), F(0)),
+        sum_Y_cubed=sum((p['Y'] ** 3 for p in rows), F(0)),
+        SU2_squared_U1=sum((p['Y'] for p in rows if p['n2'] == 1), F(0)),          # sum of Y over doublet states
+        SU3_squared_U1=sum((p['Y'] for p in rows if tri(p)), F(0)),               # sum of Y over triplet states
+        SU3_cubed=sum(1 if p['n3'] == 1 else -1 for p in rows if tri(p)),         # triplets minus antitriplets
+        weak_doublets=sum(1 for p in rows if p['n2'] == 1) // 2)
+
+
+AN16, AN16B = anomalies(sixteen), anomalies(sixteen_bar)
+for label, an in (('16', AN16), ('16bar', AN16B)):
+    check(f'a.anomaly_sums_vanish_on_the_{label}',
+          all(an[key] == 0 for key in ('sum_Y', 'sum_Y_cubed', 'SU2_squared_U1', 'SU3_squared_U1', 'SU3_cubed'))
+          and an['weak_doublets'] % 2 == 0)
+CONJ3 = {'1': '1', '3': '3b', '3b': '3'}
+for p in P:
+    c = P[p['complement']]
+    ok = (c['Y'] == -p['Y'] and c['T3'] == -p['T3'] and c['Q'] == -p['Q'] and c['B'] == -p['B'] and c['L'] == -p['L']
+          and c['su3'] == CONJ3[p['su3']] and c['su2'] == p['su2'] and c['k'] == (-p['k']) % 6
+          and c['half'] != p['half'] and c['weyl'] != p['weyl'] and c['base'] == p['base'] and c['anti'] != p['anti']
+          and (c['colour_index'] == p['colour_index']))
+    check(f'a.complement_is_charge_conjugate_{p["mask"]:02d}', ok)
+CHECKS['a.complement_is_charge_conjugate_on_all_32'] = all(CHECKS.pop(f'a.complement_is_charge_conjugate_{m:02d}') for m in range(32))
+
+# --- comparison with the certificate (read only)
+SOURCES = {}
+sys.path.insert(0, str(RER))
+from model.defect_particle_classes import model as CERT          # noqa: E402
+
+cert_rows = CERT.patterns()
+check('a.equal_to_model_patterns_on_all_32', all(
+    c['mask'] == p['mask'] and c['occupied'] == p['occupied'] and c['n3'] == p['n3'] and c['n2'] == p['n2']
+    and c['Y'] == p['Y'] and c['six_Y'] == p['six_Y'] and c['T3'] == p['T3'] and c['Q'] == p['Q'] and c['k'] == p['k']
+    and c['colour'] == p['su3'] and c['weak'] == p['su2'] and c['name'] == p['name'] and c['multiplet'] == p['multiplet']
+    for c, p in zip(cert_rows, P)))
+RESULTS = json.loads((RER / 'model/defect_particle_classes/results.json').read_text())
+check('a.equal_to_results_json_on_all_32', all(
+    r['mask'] == p['mask'] and r['name'] == p['name'] and F(r['Y']) == p['Y'] and F(r['T3']) == p['T3']
+    and F(r['Q']) == p['Q'] and r['k'] == p['k'] for r, p in zip(RESULTS['patterns'], P)) and RESULTS['all_checks_pass'])
+FIELDS = CERT.fields()
+BY_NAME = {f['name']: f for f in FIELDS}
+check('a.handedness_equals_certificate_field_type', all(BY_NAME[p['multiplet']]['lorentz'] == p['weyl'] for p in P))
+check('a.left_handed_generation_classes_of_certificate',
+      RESULTS['left_handed_generation_classes'] == {'Q': 1, 'u^c': 2, 'd^c': 2, 'L': 3, 'e^c': 0, 'nu^c': 0, 'H': 3})
+# the viewer's particle table: copy-1 symbol and handedness word of every pattern
+PMAP = json.loads((SIM / 'oph_defects/particle_map.json').read_text())
+for p in P:
+    entry = PMAP['state_names'][f"{p['n3']},{p['n2']}"]
+    sym, long_name, _ = entry.get('*') or entry['s1' if 's1' in p['occupied'] else 's2']
+    c1 = p['copies'][0]
+    mine = c1['sym'] + ('\u0304' if c1['bar'] else '') + ({'+': '⁺', '−': '⁻'}.get(c1['sup'], ''))
+    norm = lambda s: s.replace('\u016b', 'u\u0304')       # precomposed u with macron
+    hand = 'left-handed' if p['weyl'] == 'L' else 'right-handed'
+    if norm(sym) != norm(mine) or hand not in long_name:
+        raise AssertionError(f'particle_map differs at mask {p["mask"]}: {sym} {long_name} against {mine} {hand}')
+CHECKS['a.symbols_and_handedness_equal_particle_map_state_names'] = True
+check('a.level_charges_equal_particle_map_levels', all(
+    lv['id'] == LEVELS[i] and lv['six_Y'] == SIX_Y_LEVEL[i] and F(lv['electric']) == Q_LEVEL[i]
+    for i, lv in enumerate(PMAP['levels'])))
+
+# currents and register toggles from each pattern
+for p in P:
+    m = p['mask']
+    cur = []
+    for i, j in itertools.permutations(range(3), 2):              # colour level j -> i
+        if m >> j & 1 and not m >> i & 1:
+            cur.append(dict(boson='g', move=f'{LEVELS[j]}>{LEVELS[i]}', to=m ^ (1 << i) ^ (1 << j)))
+    if m >> 4 & 1 and not m >> 3 & 1:
+        cur.append(dict(boson='W+', move='s2>s1', to=m ^ 0b11000))
+    if m >> 3 & 1 and not m >> 4 & 1:
+        cur.append(dict(boson='W-', move='s1>s2', to=m ^ 0b11000))
+    tog = []
+    for lev, add_name, rem_name in ((3, 'H+', 'H-'), (4, 'H0', 'H0bar')):
+        occ = m >> lev & 1
+        tog.append(dict(register=rem_name if occ else add_name, level=LEVELS[lev], adds=not occ, to=m ^ (1 << lev)))
+    p['currents'], p['toggles'] = cur, tog
+
+# ------------------------------------------------------------------ (b) the twelve currents and the Higgs register
+CURRENTS = []
+for i, j in itertools.permutations(range(3), 2):
+    CURRENTS.append(dict(id=f'g_{LEVELS[j]}>{LEVELS[i]}', boson='gluon', kind='level move', move=[LEVELS[j], LEVELS[i]],
+                         dT3=F(0), dY=F(0), dQ=Q_LEVEL[i] - Q_LEVEL[j], six_dY=SIX_Y_LEVEL[i] - SIX_Y_LEVEL[j],
+                         colour=f'{COLOURS[i]} anti-{COLOURS[j]}'))
+CURRENTS.append(dict(id='g_3', boson='gluon', kind='diagonal', generator='n(v1) - n(v2)', dT3=F(0), dY=F(0), dQ=F(0), six_dY=0, colour='diagonal'))
+CURRENTS.append(dict(id='g_8', boson='gluon', kind='diagonal', generator='n(v1) + n(v2) - 2 n(v3)', dT3=F(0), dY=F(0), dQ=F(0), six_dY=0, colour='diagonal'))
+CURRENTS.append(dict(id='W+', boson='W+', kind='level move', move=['s2', 's1'], dT3=T3_LEVEL[3] - T3_LEVEL[4], dY=F(0),
+                     dQ=Q_LEVEL[3] - Q_LEVEL[4], six_dY=0, colour=None))
+CURRENTS.append(dict(id='W-', boson='W-', kind='level move', move=['s1', 's2'], dT3=T3_LEVEL[4] - T3_LEVEL[3], dY=F(0),
+                     dQ=Q_LEVEL[4] - Q_LEVEL[3], six_dY=0, colour=None))
+CURRENTS.append(dict(id='W3', boson='W3', kind='diagonal', generator='T3 = (n(s1) - n(s2))/2', dT3=F(0), dY=F(0), dQ=F(0), six_dY=0, colour=None))
+CURRENTS.append(dict(id='B', boson='B', kind='diagonal', generator='Y = -(n(v1) + n(v2) + n(v3))/3 + (n(s1) + n(s2))/2',
+                     dT3=F(0), dY=F(0), dQ=F(0), six_dY=0, colour=None))
+check('b.twelve_currents_8_3_1', len(CURRENTS) == 12 and Counter(c['boson'][0] for c in CURRENTS) == Counter({'g': 8, 'W': 3, 'B': 1}))
+check('b.every_current_has_class_0', all(c['six_dY'] % 6 == 0 and c['dY'] == 0 for c in CURRENTS))
+check('b.charges_of_the_currents', sorted(fs(c['dQ']) for c in CURRENTS) == ['-1'] + ['0'] * 10 + ['1']
+      and all(c['dQ'] == c['dT3'] + c['dY'] for c in CURRENTS))
+check('b.dimension_of_s_u3_plus_u2_is_12', 3 * 3 + 2 * 2 - 1 == 12)
+check('b.currents_keep_the_block_n3_n2', all(P[c['to']]['n3'] == p['n3'] and P[c['to']]['n2'] == p['n2'] and P[c['to']]['k'] == p['k']
+                                             and P[c['to']]['multiplet'] == p['multiplet'] for p in P for c in p['currents']))
+check('b.W_changes_charge_by_one_gluon_by_zero', all(
+    P[c['to']]['Q'] - p['Q'] == {'g': 0, 'W+': 1, 'W-': -1}[c['boson']] for p in P for c in p['currents']))
+n_currents = Counter(c['boson'] for p in P for c in p['currents'])
+check('b.sixty_four_level_moves', sum(n_currents.values()) == 64 and n_currents == Counter({'g': 48, 'W+': 8, 'W-': 8}))
+LEPTOQUARK = [dict(move=[LEVELS[j], LEVELS[i]], six_dY=SIX_Y_LEVEL[i] - SIX_Y_LEVEL[j], k=(SIX_Y_LEVEL[i] - SIX_Y_LEVEL[j]) % 6)
+              for i in range(5) for j in range(5) if (i < 3) != (j < 3)]
+check('b.moves_between_colour_and_weak_levels_carry_class_1_or_5', len(LEPTOQUARK) == 12
+      and sorted({m['k'] for m in LEPTOQUARK}) == [1, 5] and sorted({m['six_dY'] for m in LEPTOQUARK}) == [-5, 5])
+HIGGS = dict(
+    name='H', rep='(1,2)_1/2', su3='1', su2='2', Y='1/2', six_Y=3, k=3, spin='0', statistics='boson',
+    components=[dict(id='H+', level='s1', action='adds s1', T3='1/2', Y='1/2', Q=fs(Q_LEVEL[3])),
+                dict(id='H0', level='s2', action='adds s2', T3='-1/2', Y='1/2', Q=fs(Q_LEVEL[4]))],
+    conjugate=[dict(id='H-', level='s1', action='removes s1', T3='-1/2', Y='-1/2', Q=fs(-Q_LEVEL[3])),
+               dict(id='H0bar', level='s2', action='removes s2', T3='1/2', Y='-1/2', Q=fs(-Q_LEVEL[4]))],
+    channels=[dict(chain=['d_R', 'Q', 'u_R'], what='quarks'), dict(chain=['e_R', 'L', 'nu_R'], what='leptons'),
+              dict(chain=['anti-u_R', 'anti-Q', 'anti-d_R'], what='antiquarks'),
+              dict(chain=['anti-nu_R', 'anti-L', 'anti-e_R'], what='antileptons')],
+    status='register DECLARED (R8); boson and spin 0 EXACT given the register (SS)')
+toggles = [(p, t) for p in P for t in p['toggles'] if t['adds']]
+check('b.thirty_two_register_toggles', len(toggles) == 32)
+check('b.a_toggle_raises_6Y_by_3_and_the_class_by_3', all(
+    P[t['to']]['six_Y'] - p['six_Y'] == 3 and (P[t['to']]['k'] - p['k']) % 6 == 3 and P[t['to']]['n3'] == p['n3']
+    and P[t['to']]['Q'] - p['Q'] == (1 if t['level'] == 's1' else 0) and P[t['to']]['half'] != p['half'] for p, t in toggles))
+chains = {(p['multiplet'], P[t['to']]['multiplet']) for p, t in toggles}
+want = set()
+for ch in HIGGS['channels']:
+    want |= {(ch['chain'][0], ch['chain'][1]), (ch['chain'][1], ch['chain'][2])}
+check('b.toggle_channels_are_the_four_chains', chains == want)
+check('b.higgs_field_of_certificate', BY_NAME['H']['su3'] == '1' and BY_NAME['H']['su2'] == '2' and BY_NAME['H']['Y'] == F(1, 2)
+      and BY_NAME['H']['k'] == 3 and all(BY_NAME[n]['k'] == 0 and BY_NAME[n]['Y'] == 0 for n in ('G', 'W', 'B')))
+SS = json.loads((RL / 'work/SS/ss_table.json').read_text())
+ss_part = {r['particle']: r for r in SS['particles']}
+check('b.statistics_of_SS_table', all(r['statistics'] == 'Fermi' for n, r in ss_part.items() if r['spin'] == '1/2')
+      and ss_part['Higgs doublet']['statistics'] == 'Bose' and ss_part['gluons']['statistics'] == 'Bose'
+      and ss_part['W, Z, photon']['statistics'] == 'Bose' and ss_part['Higgs doublet']['defect_class'] == 3)
+# photon: the combination of W3 and B along Q = T3 + Y; it leaves the neutral register component H0 alone
+check('b.photon_generator_is_Q_and_H0_is_neutral', all(Q_LEVEL[i] == T3_LEVEL[i] + F(SIX_Y_LEVEL[i], 6) for i in range(5)) and Q_LEVEL[4] == 0)
+
+# ------------------------------------------------------------------ (c) composites
+# colour: Fock space of the three colour levels; E_ij = c*_i c_j with the Jordan-Wigner sign
+def e_op(i, j):
+    m = sp.zeros(8, 8)
+    for s in range(8):
+        if s >> j & 1 and not s >> i & 1:
+            lo, hi = min(i, j), max(i, j)
+            sign = (-1) ** sum(s >> t & 1 for t in range(lo + 1, hi))
+            m[s ^ (1 << i) ^ (1 << j), s] = sign
+    return m
+
+
+E = {(i, j): e_op(i, j) for i, j in itertools.permutations(range(3), 2)}
+SECTOR = {n: [s for s in range(8) if bin(s).count('1') == n] for n in range(4)}
+
+
+def singlet_support(n3s):
+    """Product basis states (tuples of colour masks) with a nonzero component on the SU(3) invariants."""
+    basis = list(itertools.product(*[SECTOR[n] for n in n3s]))
+    pos = {b: i for i, b in enumerate(basis)}
+    rows = []
+    for (i, j), e in E.items():
+        m = sp.zeros(len(basis), len(basis))
+        for b in basis:
+            for f, s in enumerate(b):
+                for t in SECTOR[n3s[f]]:
+                    if e[t, s] != 0:
+                        m[pos[b[:f] + (t,) + b[f + 1:]], pos[b]] += e[t, s]
+        rows.append(m)
+    null = sp.Matrix.vstack(*rows).nullspace()
+    support = {b for v in null for b in basis if v[pos[b]] != 0}
+    return support, len(null), basis
+
+
+def balanced(colour_masks):
+    occ = [sum(m >> i & 1 for m in colour_masks) for i in range(3)]
+    return occ[0] == occ[1] == occ[2]
+
+
+singlet_dims = {}
+for size in (2, 3):
+    for n3s in itertools.product(range(4), repeat=size):
+        support, dim, basis = singlet_support(n3s)
+        singlet_dims[n3s] = dim
+        if support != {b for b in basis if balanced(b)}:
+            raise AssertionError(f'singlet criterion fails in sector {n3s}')
+CHECKS['c.singlet_component_iff_colour_levels_equally_occupied'] = True
+check('c.invariants_3x3b_and_3x3x3', singlet_dims[(1, 2)] == 1 and singlet_dims[(1, 1, 1)] == 1 and singlet_dims[(2, 2, 2)] == 1
+      and singlet_dims[(1, 1)] == 0 and singlet_dims[(1, 1, 2)] == 0 and singlet_dims[(1, 2, 2)] == 0)
+
+
+def composite(masks):
+    rows = [P[m] for m in masks]
+    ksum = sum(p['k'] for p in rows) % 6
+    return dict(singlet=balanced([m & 7 for m in masks]), class_sum=ksum, Q=sum((p['Q'] for p in rows), F(0)),
+                B=sum((p['B'] for p in rows), F(0)), L=sum((p['L'] for p in rows), F(0)),
+                doublets=sum(1 for p in rows if p['n2'] == 1), quanta=len(rows))
+
+
+PATTERN_SETS = {}
+for size in (2, 3):
+    tally = Counter()
+    for masks in itertools.combinations_with_replacement(range(32), size):
+        c = composite(masks)
+        tally['sets'] += 1
+        if not c['singlet']:
+            continue
+        tally['singlet'] += 1
+        if c['class_sum'] not in (0, 3) or c['Q'].denominator != 1 or c['B'].denominator != 1:
+            raise AssertionError(f'colour singlet with fractional charge or class outside 0, 3: {masks}')
+        if (c['class_sum'] == 0) != (c['doublets'] % 2 == 0):
+            raise AssertionError(f'class neutrality differs from doublet parity: {masks}')
+        tally['singlet_class_0' if c['class_sum'] == 0 else 'singlet_class_3'] += 1
+        n3s = sorted(P[m]['n3'] for m in masks)
+        quarks = all(n in (1, 2) for n in n3s)
+        tally['singlet_of_quark_quanta'] += quarks
+        tally['singlet_of_quark_quanta_class_0'] += quarks and c['class_sum'] == 0
+    PATTERN_SETS[str(size)] = dict(tally)
+check('c.every_colour_singlet_set_has_integer_Q_and_B_and_class_0_or_3', True)
+check('c.class_neutral_iff_even_number_of_doublet_patterns', True)
+
+FLAVOURS = [dict(flavour=f, type=t, copy=g + 1, Q=fs(F(2, 3) if t == 'u' else F(-1, 3)), name=SPECIES[t]['names'][g])
+            for t in ('u', 'd') for g, f in enumerate(SPECIES[t]['syms'])]
+FQ = {f['flavour']: F(f['Q']) for f in FLAVOURS}
+ORDER = 'udscbt'
+SUP = {2: '⁺⁺', 1: '⁺', 0: '⁰', -1: '⁻', -2: '⁻⁻'}
+BAR = '\u0304'                                               # combining macron: the bar of an antiparticle name
+MESON_NAMES = {'ud': 'π⁺', 'du': 'π⁻', 'us': 'K⁺', 'su': 'K⁻', 'ds': 'K⁰', 'sd': 'K' + BAR + '⁰',
+               'cu': 'D⁰', 'uc': 'D' + BAR + '⁰', 'cd': 'D⁺', 'dc': 'D⁻', 'cs': 'D_s⁺', 'sc': 'D_s⁻',
+               'ub': 'B⁺', 'bu': 'B⁻', 'db': 'B⁰', 'bd': 'B' + BAR + '⁰', 'sb': 'B_s⁰', 'bs': 'B' + BAR + '_s⁰',
+               'cb': 'B_c⁺', 'bc': 'B_c⁻'}
+NEUTRAL_MESONS = {'u': ['π⁰', 'η', 'η′'], 'd': ['π⁰', 'η', 'η′'], 's': ['η', 'η′'], 'c': ['η_c'], 'b': ['η_b']}
+
+
+def meson_names(q, aq):
+    if 't' in (q, aq):
+        return []
+    return NEUTRAL_MESONS[q] if q == aq else [MESON_NAMES[q + aq]]
+
+
+def baryon_names(flavours, anti=False):
+    """Lowest states of three quarks by flavour content: spin 1/2 and spin 3/2 (naming scheme of the PDG)."""
+    fl = sorted(flavours, key=ORDER.index)
+    if 't' in fl:
+        return [], []
+    charge = sum((FQ[f] for f in fl), F(0)) * (-1 if anti else 1)
+    sup = SUP[int(charge)]
+    light = [f for f in fl if f in 'ud']
+    rest = [f for f in fl if f not in 'ud']
+    sub = ''.join(f for f in rest if f in 'cb')
+    sub = '_' + sub if sub else ''
+    distinct = len(set(fl))
+    bar = BAR if anti else ''
+
+    def nm(letter, star=False, prime=False, show=True):
+        return letter + bar + ('′' if prime else '') + sub + ('*' if star else '') + (sup if show else '')
+    if len(light) == 3:
+        half = [] if distinct == 1 else [('p' if abs(charge) == 1 else 'n') + bar]
+        return half, [nm('Δ')]
+    if len(light) == 2:
+        if light[0] == light[1]:
+            return [nm('Σ')], [nm('Σ', star=True)]
+        return [nm('Λ', show=bool(sub)), nm('Σ')], [nm('Σ', star=True)]
+    if len(light) == 1:
+        if rest[0] == rest[1]:
+            return [nm('Ξ')], [nm('Ξ', star=True)]
+        return [nm('Ξ'), nm('Ξ', prime=True)], [nm('Ξ', star=True)]
+    if distinct == 1:
+        return [], [nm('Ω')]
+    if distinct == 2:
+        return [nm('Ω')], [nm('Ω', star=True)]
+    return [nm('Ω'), nm('Ω', prime=True)], [nm('Ω', star=True)]
+
+
+MESONS = [dict(quark=q, antiquark=aq, content=q + ' ' + aq + BAR, Q=fs(FQ[q] - FQ[aq]), B='0', names=meson_names(q, aq))
+          for q in ORDER for aq in ORDER]
+BARYONS, ANTIBARYONS = [], []
+for combo in itertools.combinations_with_replacement(ORDER, 3):
+    qsum = sum((FQ[f] for f in combo), F(0))
+    half, three = baryon_names(combo)
+    BARYONS.append(dict(quarks=''.join(combo), Q=fs(qsum), B='1', spin_1_2=half, spin_3_2=three))
+    half, three = baryon_names(combo, anti=True)
+    ANTIBARYONS.append(dict(antiquarks=''.join(combo), Q=fs(-qsum), B='-1', spin_1_2=half, spin_3_2=three))
+check('c.counts_36_mesons_56_baryons_56_antibaryons', (len(MESONS), len(BARYONS), len(ANTIBARYONS)) == (36, 56, 56))
+
+
+def name_charge(name):
+    ups, downs = name.count('⁺'), name.count('⁻')
+    if ups or downs:
+        return ups - downs
+    return 0 if '⁰' in name else None
+
+
+for row in MESONS:
+    for n in row['names']:
+        if name_charge(n) is not None and name_charge(n) != F(row['Q']):
+            raise AssertionError(f'meson name charge {n} {row}')
+for row in BARYONS + ANTIBARYONS:
+    for n in row['spin_1_2'] + row['spin_3_2']:
+        want_q = name_charge(n)
+        if want_q is None:
+            want_q = {'p': 1, 'n': 0, 'Λ': 0}[n.replace(BAR, '')] * (-1 if BAR in n and n[0] == 'p' else 1)
+        if want_q != F(row['Q']):
+            raise AssertionError(f'baryon name charge {n} {row}')
+CHECKS['c.charge_in_every_hadron_name_equals_the_computed_charge'] = True
+light = {r['quarks']: (r['spin_1_2'], r['spin_3_2']) for r in BARYONS}
+check('c.light_baryon_names', light['uud'] == (['p'], ['Δ⁺']) and light['udd'] == (['n'], ['Δ⁰']) and light['uuu'] == ([], ['Δ⁺⁺'])
+      and light['uds'] == (['Λ', 'Σ⁰'], ['Σ*⁰']) and light['uus'] == (['Σ⁺'], ['Σ*⁺']) and light['dds'] == (['Σ⁻'], ['Σ*⁻'])
+      and light['uss'] == (['Ξ⁰'], ['Ξ*⁰']) and light['dss'] == (['Ξ⁻'], ['Ξ*⁻']) and light['sss'] == ([], ['Ω⁻'])
+      and light['ddd'] == ([], ['Δ⁻']))
+light_names = sorted({n for r in BARYONS if set(r['quarks']) <= set('uds') for n in r['spin_1_2']})
+check('c.octet_has_eight_and_decuplet_ten_states',
+      sum(len(r['spin_1_2']) for r in BARYONS if set(r['quarks']) <= set('uds')) == 8
+      and sum(len(r['spin_3_2']) for r in BARYONS if set(r['quarks']) <= set('uds')) == 10)
+# chirality rule: the class of a quark depends on its handedness only (1 for L, 4 for R; antiparticles 5 and 2)
+KQ = {'L': 1, 'R': 4}
+check('c.class_of_a_quark_depends_on_handedness_only', all(
+    p['k'] == (KQ[p['base'][-1]] if not p['anti'] else 6 - KQ[p['base'][-1]]) for p in P if p['n3'] in (1, 2)))
+CHIRALITY = dict(
+    meson={a + b: (KQ[a] + 6 - KQ[b]) % 6 for a in 'LR' for b in 'LR'},
+    baryon={''.join(c): sum(KQ[x] for x in c) % 6 for c in itertools.combinations_with_replacement('LR', 3)},
+    antibaryon={''.join(c): sum(6 - KQ[x] for x in c) % 6 for c in itertools.combinations_with_replacement('LR', 3)})
+check('c.class_neutral_chiralities', CHIRALITY['meson'] == {'LL': 0, 'LR': 3, 'RL': 3, 'RR': 0}
+      and CHIRALITY['baryon'] == {'LLL': 3, 'LLR': 0, 'LRR': 3, 'RRR': 0}
+      and CHIRALITY['antibaryon'] == {'LLL': 3, 'LLR': 0, 'LRR': 3, 'RRR': 0})
+# species-level count of class-neutral colour-singlet sets of quark quanta (flavour and handedness per quantum)
+species = [(f, h) for f in ORDER for h in 'LR']
+n_meson = sum(1 for a in species for b in species if CHIRALITY['meson'][a[1] + b[1]] == 0)
+n_baryon = sum(1 for c in itertools.combinations_with_replacement(species, 3)
+               if CHIRALITY['baryon'][''.join(sorted(x[1] for x in c))] == 0)
+check('c.species_level_counts', (n_meson, n_baryon) == (72, 182))
+check('c.statistics_of_composites_in_certificate', RESULTS['spin_statistics']['composites'] ==
+      {'baryon_three_quanta': [1], 'meson_quark_antiquark': [0], 'pure_flux_contents': [0]})
+
+# ------------------------------------------------------------------ (d) carrier contents of the L6 run
+RUNMETA = json.loads((RUN / 'run.json').read_text())
+CARRIERS = RUNMETA['geometry']['carriers']
+
+
+def census(path):
+    with np.load(path) as z:
+        if 'intra_face' not in z.files:
+            return None
+        face = z['intra_face'].astype(np.int64)
+        k = z['intra_cls'].astype(np.int64) % 6
+    car = face // 20
+    order = np.argsort(car, kind='stable')
+    car, k = car[order], k[order]
+    if not len(car):
+        return Counter()
+    starts = np.flatnonzero(np.r_[True, car[1:] != car[:-1]])
+    ends = np.r_[starts[1:], len(car)]
+    return Counter(tuple(sorted(k[a:b].tolist())) for a, b in zip(starts, ends))
+
+
+END = census(RUN / 'cuts' / 'end.npz')
+occupied = sum(END.values())
+EU = json.loads((RUN / 'view' / 'early_universe.json').read_text())
+lab = lambda s: '{' + ','.join(str(x) for x in s) + '}'
+check('d.end_census_equals_early_universe_json', EU['census']['occupied_carriers'] == occupied and EU['carriers'] == CARRIERS
+      and all(END[tuple(int(x) for x in row['set'].strip('{}').split(','))] == row['carriers'] for row in EU['census']['contents'])
+      and EU['census']['not_neutral'] == 0)
+present, peak = Counter(), {}
+for cut in RUNMETA['cuts']:
+    c = census(RUN / cut['file'])
+    if c is None:
+        continue
+    for s, n in c.items():
+        present[s] += 1
+        if n > peak.get(s, (0, 0))[0]:
+            peak[s] = (n, cut['depth'])
+check('d.every_content_of_every_stored_cut_is_class_neutral', all(sum(s) % 6 == 0 for s in present) and all(sum(s) % 6 == 0 for s in END))
+check('d.every_content_holds_an_even_number_of_odd_classes', all(sum(1 for x in s if x % 2) % 2 == 0 for s in list(present) + list(END)))
+NEUTRAL3 = [tuple(ms) for size in (2, 3) for ms in itertools.combinations_with_replacement(range(1, 6), size) if sum(ms) % 6 == 0]
+check('d.nine_neutral_contents_of_at_most_three_members', sorted(NEUTRAL3) == sorted(tuple(x) for x in RESULTS['closed_carriers']['neutral_nonzero_multisets_up_to_three']))
+check('d.all_nine_occur_in_the_stored_cuts', all(s in present for s in NEUTRAL3))
+
+
+def realizations(content):
+    """All-incoming Standard Model field sets with these classes, an SU(3) x SU(2) singlet and hypercharge zero."""
+    by_k = {k: [f for f in FIELDS if f['k'] == k] for k in range(6)}
+    classes = list(content) + ([0] if len(content) == 2 else [])
+    out, seen = [], set()
+    for combo in itertools.product(*[by_k[k] for k in classes]):
+        key = tuple(sorted(f['name'] for f in combo))
+        if key in seen:
+            continue
+        seen.add(key)
+        a, b, c = combo
+        n, y_ok = CERT.gauge_singlets(a, b, CERT.conj(c))
+        if n and y_ok:
+            colour = sorted(f['su3'] for f in combo)
+            out.append(dict(fields=list(key), vertex=CERT.lorentz_kind(a, b, CERT.conj(c)),
+                            colour_epsilon=colour in (['3', '3', '3'], ['3b', '3b', '3b'])))
+    return out
+
+
+RENORMALIZABLE = ('Yukawa', 'fermion gauge current', 'scalar gauge current')
+CENTRE_OF = {
+    (1, 5): 'a left-handed quark and its antiparticle',
+    (2, 4): 'a right-handed quark and its antiparticle',
+    (3, 3): 'a lepton doublet with its antiparticle, or the Higgs with its conjugate',
+    (1, 2, 3): 'a left-handed quark, the antiparticle of a right-handed quark and the Higgs: the classes that meet in a quark Yukawa term',
+    (3, 4, 5): 'the conjugate quark Yukawa term: a right-handed quark, the antiparticle of a left-handed quark and the Higgs',
+    (4, 4, 4): 'three right-handed quarks',
+    (2, 2, 2): 'three antiparticles of right-handed quarks',
+    (1, 1, 4): 'two left-handed quarks and one right-handed quark',
+    (2, 5, 5): 'the antiparticles of two left-handed quarks and of one right-handed quark',
+}
+SS_NOTE = {
+    (3, 3): 'A pair of class-3 bosons. The reading as a lepton with a Higgs is excluded: that set is a fermion.',
+    (4, 4, 4): 'A pure flux content is a boson and cannot be a baryon. A baryon is three quanta on a carrier.',
+    (2, 2, 2): 'A pure flux content is a boson and cannot be an antibaryon. An antibaryon is three quanta on a carrier.',
+}
+ss_obj = {r['object'] for r in SS['objects']}
+PRIMITIVES = []
+for s in sorted(NEUTRAL3, key=lambda t: (-END.get(t, 0), t)):
+    real = realizations(s)
+    kinds = sorted({r['vertex'] for r in real})
+    typed = [k for k in kinds if k in RENORMALIZABLE] or kinds
+    shown = [r for r in real if r['vertex'] in typed]
+    if len(s) == 3:
+        form = f'{s[0]}+{s[1]}->{(6 - s[2]) % 6}'
+    else:
+        form = f'{s[0]}+{s[1]}->0'
+    PRIMITIVES.append(dict(
+        set=list(s), label=lab(s), end_carriers=END.get(s, 0), cuts_present=present[s], peak_carriers=peak[s][0],
+        peak_depth=peak[s][1], statistics='boson', spin='integer', centre_classes_of=CENTRE_OF[s], ss_note=SS_NOTE.get(s),
+        in_ss_table=f'carrier content {lab(s)} (pure fluxes)' in ss_obj, vertex_form=form, vertex=typed,
+        fields=[r['fields'] for r in shown], colour_epsilon=any(r['colour_epsilon'] for r in shown),
+        realizations=len(real)))
+PRIM = {tuple(p['set']): p for p in PRIMITIVES}
+check('d.realization_exists_for_every_primitive_content', all(p['realizations'] > 0 for p in PRIMITIVES))
+check('d.typed_vertices', PRIM[(1, 2, 3)]['vertex'] == ['Yukawa'] and PRIM[(3, 4, 5)]['vertex'] == ['Yukawa']
+      and PRIM[(1, 5)]['vertex'] == ['fermion gauge current'] and PRIM[(2, 4)]['vertex'] == ['fermion gauge current']
+      and PRIM[(3, 3)]['vertex'] == ['Yukawa', 'fermion gauge current', 'scalar gauge current']
+      and all(PRIM[s]['vertex'] == ['three-fermion gauge singlet'] and PRIM[s]['colour_epsilon'] for s in ((4, 4, 4), (2, 2, 2), (1, 1, 4), (2, 5, 5))))
+check('d.quark_yukawa_fields_of_1_2_3', sorted(map(tuple, PRIM[(1, 2, 3)]['fields'])) == [('H', 'Q', 'anti-u_R'), ('Q', 'anti-H', 'anti-d_R')])
+check('d.three_quark_fields', PRIM[(4, 4, 4)]['fields'] == [['d_R', 'd_R', 'u_R']] and PRIM[(2, 2, 2)]['fields'] == [['anti-d_R', 'anti-d_R', 'anti-u_R']]
+      and PRIM[(1, 1, 4)]['fields'] == [['Q', 'Q', 'd_R']])
+# against the certificate's reaction table: the same all-incoming field sets from each stored channel
+for reaction, row in RESULTS['reactions'].items():
+    a, b, c = CERT.parse(reaction)
+    content = tuple(sorted(x for x in (a, b, (6 - c) % 6) if x))
+    if content not in PRIM:
+        raise AssertionError(f'reaction {reaction} has content {content}')
+    conj_name = lambda n: n if n in CERT.SELF_CONJUGATE else CERT.conj(BY_NAME[n])['name']
+    theirs = {tuple(sorted([r['fields'][0], r['fields'][1], conj_name(r['fields'][2])])) for r in row['realizations']}
+    mine = {tuple(sorted(r['fields'])) for r in realizations(content)}
+    if theirs != mine:
+        raise AssertionError(f'realizations differ for {reaction}')
+CHECKS['d.realizations_equal_certificate_reaction_table'] = True
+check('d.ss_table_lists_the_boson_contents', all(PRIM[s]['in_ss_table'] for s in ((1, 5), (2, 4), (3, 3), (1, 2, 3), (3, 4, 5), (2, 2, 2), (4, 4, 4)))
+      and all('boson' in r['statistics'] for r in SS['objects'] if r['object'].startswith('carrier content')))
+
+
+def decompose(content):
+    """Split a neutral content into neutral parts of at most three members, largest number of parts first."""
+    content = tuple(sorted(content))
+    if not content:
+        return []
+    best = None
+    first, rest = content[0], list(content[1:])
+    for size in (1, 2):
+        for idx in itertools.combinations(range(len(rest)), size):
+            part = tuple(sorted((first,) + tuple(rest[i] for i in idx)))
+            if sum(part) % 6:
+                continue
+            left = [x for i, x in enumerate(rest) if i not in idx]
+            tail = decompose(left)
+            if tail is None:
+                continue
+            cand = sorted([part] + tail)
+            if best is None or len(cand) > len(best) or (len(cand) == len(best) and cand < best):
+                best = cand
+    return best
+
+
+CONTENTS = []
+for s, n in sorted(END.items(), key=lambda kv: (-kv[1], kv[0])):
+    parts = decompose(s)
+    if parts is None or sorted(x for p in parts for x in p) != list(s):
+        raise AssertionError(f'no decomposition of {s}')
+    CONTENTS.append(dict(set=list(s), label=lab(s), carriers=n, share=n / occupied, share_text=(f'{100 * n / occupied:.2f} %' if n / occupied >= 0.001 else f'{100 * n / occupied:.3f} %'),
+                         parts=[lab(p) for p in parts], statistics='boson', spin='integer',
+                         cuts_present=present[s], peak_carriers=peak[s][0], peak_depth=peak[s][1]))
+CHECKS['d.every_end_content_splits_into_the_nine_primitive_contents'] = True
+b444, b222 = END.get((4, 4, 4), 0), END.get((2, 2, 2), 0)
+RUNBLOCK = dict(
+    run='L6', law='law C, schedule 1, preparation exact06', carriers=CARRIERS, occupied_carriers=occupied,
+    empty_carriers=CARRIERS - occupied, sweeps=RUNMETA['sweeps'], stored_cuts=sum(1 for c in RUNMETA['cuts']),
+    end_depth=RUNMETA['cuts'][-1]['depth'], distinct_contents_at_end=len(END), distinct_contents_over_stored_cuts=len(present),
+    not_neutral=0, contents=CONTENTS, primitives=PRIMITIVES,
+    conjugate_balance={'{4,4,4}': b444, '{2,2,2}': b222, 'difference': b444 - b222},
+    reading='Every content is a set of flux defects. A flux defect is a boson of integer spin, so every content is a boson (SS). '
+            'The content carries the centre classes of the named particle set and no further quantum number.',
+    decomposition_rule='A content with more than three members is split into neutral parts of at most three members, '
+                       'largest number of parts first. The rule reads classes only; positions on the carrier are not used. DECLARED for display.')
+
+# ------------------------------------------------------------------ output
+MULTIPLETS = []
+for name in ('Q', 'u_R', 'd_R', 'L', 'e_R', 'nu_R', 'anti-Q', 'anti-u_R', 'anti-d_R', 'anti-L', 'anti-e_R', 'anti-nu_R'):
+    rows = [p for p in P if p['multiplet'] == name]
+    f = BY_NAME[name]
+    MULTIPLETS.append(dict(name=name, left_handed_name=LEFT_NAME.get(name), su3=f['su3'], su2=f['su2'].replace('2b', '2'), Y=fs(f['Y']),
+                           six_Y=int(6 * f['Y']), k=f['k'], weyl=f['lorentz'], half=rows[0]['half'], n3=rows[0]['n3'], n2=rows[0]['n2'],
+                           states=len(rows), masks=[p['mask'] for p in rows], components=sorted({p['name'] for p in rows})))
+check('a.twelve_multiplets_32_states', len(MULTIPLETS) == 12 and sum(m['states'] for m in MULTIPLETS) == 32)
+CLASS_TABLE = {str(k): dict(k=k, conjugate=(6 - k) % 6, triality=k % 3, weak_parity=k % 2, patterns=mult[k],
+                            multiplets=sorted({p['multiplet'] for p in P if p['k'] == k}),
+                            bosons={0: ['gluons', 'W', 'B'], 3: ['H', 'anti-H']}.get(k, []),
+                            seen_by=[j for j in range(1, 6) if (k * j) % 6]) for k in range(6)}
+check('a.class_table_equals_certificate', all(
+    sorted(RESULTS['class_table'][k]['fermion_multiplets']) == CLASS_TABLE[k]['multiplets']
+    and RESULTS['class_table'][k]['patterns'] == CLASS_TABLE[k]['patterns'] for k in '012345')
+    and RESULTS['aharonov_bohm']['classes_seeing_flux'] == {k: v['seen_by'] for k, v in CLASS_TABLE.items()})
+
+
+def clean(x):
+    if isinstance(x, F):
+        return fs(x)
+    if isinstance(x, dict):
+        return {str(k): clean(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return [clean(v) for v in x]
+    if isinstance(x, (np.integer,)):
+        return int(x)
+    return x
+
+
+git_head = (RER / '.git' / 'HEAD').read_text().strip() if (RER / '.git' / 'HEAD').is_file() else ''
+DOC = dict(
+    schema='oph.viewer.decoder.v1',
+    lane='PD',
+    statement='A quantum is a pattern on a carrier\'s port, and the defect class it sees is 6Y mod 6.',
+    status='Exact decoder of charges and names. It carries no mass, no coupling value and no mixing.',
+    labels=dict(
+        patterns='EXACT: charges, class, representations, anomaly sums, charge conjugation; equal to the certificate on all 32 rows',
+        the_16='DECLARED convention: the 16 is the set of patterns of even degree (Q, u^c, d^c, L, e^c, nu^c)',
+        copies='DECLARED label: the copy changes no charge; the decoder carries no mass and cannot order the copies',
+        bosons='EXACT: charges of the twelve currents and of the register; the register itself is DECLARED (R8)',
+        statistics='EXACT given the premises of the certificate (a spin doublet per quantum, the Gauss law, antisymmetric occupation)',
+        composites='EXACT: colour singlet, class sum, charge, baryon number. Hadron names: names of the quark model in the naming scheme of the Particle Data Group',
+        run='MEASURED counts of the stored run L6; readings from SS and the certificate'),
+    sources=dict(
+        certificate='reverse-engineering-reality/model/defect_particle_classes (61 checks)',
+        rer_head=git_head,
+        sha256={
+            'RER/model/defect_particle_classes/model.py': sha(RER / 'model/defect_particle_classes/model.py'),
+            'RER/model/defect_particle_classes/results.json': sha(RER / 'model/defect_particle_classes/results.json'),
+            'RL/work/SS/ss_table.json': sha(RL / 'work/SS/ss_table.json'),
+            'SIM/oph_defects/particle_map.json': sha(SIM / 'oph_defects/particle_map.json'),
+            'SIM/runs/universe/L6/view/early_universe.json': sha(RUN / 'view/early_universe.json'),
+            'SIM/runs/universe/L6/cuts/end.npz': sha(RUN / 'cuts/end.npz'),
+            'SIM/runs/universe/L6/run.json': sha(RUN / 'run.json')},
+        reports=['repair-law/MATCH.md', 'repair-law/reports/SS.md', 'repair-law/reports/DG.md', 'repair-law/reports/GL.md',
+                 'repair-law/reports/CH_HYPERCHARGE.md']),
+    levels=[dict(id=LEVELS[i], kind='colour' if i < 3 else 'weak', colour=COLOURS[i] if i < 3 else None, six_Y=SIX_Y_LEVEL[i],
+                 Y=F(SIX_Y_LEVEL[i], 6), T3=T3_LEVEL[i], Q=Q_LEVEL[i]) for i in range(5)],
+    patterns=P, multiplets=MULTIPLETS, class_table=CLASS_TABLE,
+    anomaly_sums={'16': AN16, '16bar': AN16B},
+    copies=dict(count=3, names={k: dict(symbols=list(v['syms']), names=list(v['names'])) for k, v in SPECIES.items()},
+                note='The copy changes no charge. Three copies per pattern: 32 Weyl blocks per copy (CH).'),
+    bosons=dict(
+        currents=CURRENTS,
+        groups=[dict(name='gluons', symbol='g', count=8, rep='(8,1)_0', Q='0', k=0, spin='1', statistics='boson',
+                     action='six moves between colour levels and two diagonal generators'),
+                dict(name='W', symbol='W', count=3, rep='(1,3)_0', Q='+1, -1, 0', k=0, spin='1', statistics='boson',
+                     action='W+ moves s2 to s1, W- moves s1 to s2, W3 is diagonal'),
+                dict(name='B', symbol='B', count=1, rep='(1,1)_0', Q='0', k=0, spin='1', statistics='boson',
+                     action='the hypercharge generator Y')],
+        mixing=dict(photon='the combination of W3 and B with generator Q = T3 + Y; the neutral register component H0 carries Q = 0',
+                    Z='the other combination of W3 and B', note='The decoder carries no mixing angle and no mass.'),
+        spin_label='integer EXACT; vector with two polarizations taken from GL and X5 (SS table)',
+        not_gauged=dict(count=len(LEPTOQUARK), six_dY=[-5, 5], classes=[1, 5],
+                        note='Moves between a colour level and a weak level change 6Y by 5. They are not among the twelve currents (GL).'),
+        higgs=HIGGS),
+    composites=dict(
+        rule='A set of quanta has a colour singlet component exactly when every colour level is occupied equally often over the set. '
+             'A colour singlet set has class sum 0 or 3. It is class neutral exactly when it holds an even number of doublet patterns.',
+        no_mass='The decoder carries no masses. Names follow the flavour content; the order of states inside a flavour content is that of the quark model.',
+        names_label='Names of the quark model in the naming scheme for hadrons of the Particle Data Group. Lowest states only: '
+                    'pseudoscalar mesons, baryons of spin 1/2 and 3/2. A content with a top quark has no entry. '
+                    'The table follows the scheme and does not say which states have been observed.',
+        flavours=FLAVOURS, chirality_class_sum=CHIRALITY,
+        chirality_note='L and R name the handedness of the quark; for an antiquark, of the quark it is the antiparticle of. '
+                       'Class sum 3 is the class of the Higgs register: a left-handed quark with the antiparticle of a right-handed quark is the content of the quark Yukawa term.',
+        statistics=dict(meson='boson: two quanta', baryon='fermion: three quanta', flux_content='boson'),
+        species_level_counts=dict(class_neutral_mesons=n_meson, class_neutral_baryons=n_baryon, class_neutral_antibaryons=n_baryon),
+        pattern_sets=PATTERN_SETS, mesons=MESONS, baryons=BARYONS, antibaryons=ANTIBARYONS),
+    run=RUNBLOCK,
+    checks=CHECKS)
+text = json.dumps(clean(DOC), indent=1, ensure_ascii=False) + '\n'
+OUT.parent.mkdir(parents=True, exist_ok=True)
+OUT.write_text(text)
+(HERE / 'decoder.json').write_text(text)
+print(f'{len(CHECKS)} exact checks pass')
+for name in CHECKS:
+    print('  PASS', name)
+print('pattern sets:', PATTERN_SETS)
+print('end census:', [(c['label'], c['carriers'], c['parts']) for c in CONTENTS])
+print('primitives:', [(p['label'], p['end_carriers'], p['cuts_present'], p['peak_carriers'], p['vertex'], p['fields']) for p in PRIMITIVES])
+print('wrote', OUT, len(text.encode()), 'bytes, sha256', hashlib.sha256(text.encode()).hexdigest())

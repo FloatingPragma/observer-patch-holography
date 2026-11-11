@@ -1,0 +1,2829 @@
+{
+ "level": 5,
+ "window": [
+  300,
+  400
+ ],
+ "checkpoint": 300,
+ "balanced_sweep": 52,
+ "regime": "balanced",
+ "checks": [
+  {
+   "before_sweep": 300,
+   "intra_ok": true,
+   "screen_ok": true
+  },
+  {
+   "after_sweep": 300,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 692
+  },
+  {
+   "after_sweep": 301,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 740
+  },
+  {
+   "after_sweep": 302,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 666
+  },
+  {
+   "after_sweep": 303,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 673
+  },
+  {
+   "after_sweep": 304,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 690
+  },
+  {
+   "after_sweep": 305,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 715
+  },
+  {
+   "after_sweep": 306,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 666
+  },
+  {
+   "after_sweep": 307,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 661
+  },
+  {
+   "after_sweep": 308,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 688
+  },
+  {
+   "after_sweep": 309,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 610
+  },
+  {
+   "after_sweep": 310,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 595
+  },
+  {
+   "after_sweep": 311,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 640
+  },
+  {
+   "after_sweep": 312,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 648
+  },
+  {
+   "after_sweep": 313,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 629
+  },
+  {
+   "after_sweep": 314,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 572
+  },
+  {
+   "after_sweep": 315,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 570
+  },
+  {
+   "after_sweep": 316,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 587
+  },
+  {
+   "after_sweep": 317,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 584
+  },
+  {
+   "after_sweep": 318,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 564
+  },
+  {
+   "after_sweep": 319,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 541
+  },
+  {
+   "after_sweep": 320,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 567
+  },
+  {
+   "after_sweep": 321,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 560
+  },
+  {
+   "after_sweep": 322,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 574
+  },
+  {
+   "after_sweep": 323,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 568
+  },
+  {
+   "after_sweep": 324,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 511
+  },
+  {
+   "after_sweep": 325,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 545
+  },
+  {
+   "after_sweep": 326,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 558
+  },
+  {
+   "after_sweep": 327,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 524
+  },
+  {
+   "after_sweep": 328,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 490
+  },
+  {
+   "after_sweep": 329,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 528
+  },
+  {
+   "after_sweep": 330,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 468
+  },
+  {
+   "after_sweep": 331,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 502
+  },
+  {
+   "after_sweep": 332,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 477
+  },
+  {
+   "after_sweep": 333,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 480
+  },
+  {
+   "after_sweep": 334,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 506
+  },
+  {
+   "after_sweep": 335,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 443
+  },
+  {
+   "after_sweep": 336,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 447
+  },
+  {
+   "after_sweep": 337,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 476
+  },
+  {
+   "after_sweep": 338,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 446
+  },
+  {
+   "after_sweep": 339,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 473
+  },
+  {
+   "after_sweep": 340,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 471
+  },
+  {
+   "after_sweep": 341,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 482
+  },
+  {
+   "after_sweep": 342,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 448
+  },
+  {
+   "after_sweep": 343,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 433
+  },
+  {
+   "after_sweep": 344,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 464
+  },
+  {
+   "after_sweep": 345,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 449
+  },
+  {
+   "after_sweep": 346,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 438
+  },
+  {
+   "after_sweep": 347,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 432
+  },
+  {
+   "after_sweep": 348,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 411
+  },
+  {
+   "after_sweep": 349,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 455
+  },
+  {
+   "after_sweep": 350,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 409
+  },
+  {
+   "after_sweep": 351,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 440
+  },
+  {
+   "after_sweep": 352,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 418
+  },
+  {
+   "after_sweep": 353,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 406
+  },
+  {
+   "after_sweep": 354,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 409
+  },
+  {
+   "after_sweep": 355,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 380
+  },
+  {
+   "after_sweep": 356,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 364
+  },
+  {
+   "after_sweep": 357,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 372
+  },
+  {
+   "after_sweep": 358,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 384
+  },
+  {
+   "after_sweep": 359,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 411
+  },
+  {
+   "after_sweep": 360,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 370
+  },
+  {
+   "after_sweep": 361,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 366
+  },
+  {
+   "after_sweep": 362,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 370
+  },
+  {
+   "after_sweep": 363,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 414
+  },
+  {
+   "after_sweep": 364,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 387
+  },
+  {
+   "after_sweep": 365,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 386
+  },
+  {
+   "after_sweep": 366,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 397
+  },
+  {
+   "after_sweep": 367,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 352
+  },
+  {
+   "after_sweep": 368,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 367
+  },
+  {
+   "after_sweep": 369,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 311
+  },
+  {
+   "after_sweep": 370,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 344
+  },
+  {
+   "after_sweep": 371,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 333
+  },
+  {
+   "after_sweep": 372,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 364
+  },
+  {
+   "after_sweep": 373,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 341
+  },
+  {
+   "after_sweep": 374,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 344
+  },
+  {
+   "after_sweep": 375,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 374
+  },
+  {
+   "after_sweep": 376,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 355
+  },
+  {
+   "after_sweep": 377,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 336
+  },
+  {
+   "after_sweep": 378,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 338
+  },
+  {
+   "after_sweep": 379,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 357
+  },
+  {
+   "after_sweep": 380,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 320
+  },
+  {
+   "after_sweep": 381,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 314
+  },
+  {
+   "after_sweep": 382,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 339
+  },
+  {
+   "after_sweep": 383,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 300
+  },
+  {
+   "after_sweep": 384,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 315
+  },
+  {
+   "after_sweep": 385,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 311
+  },
+  {
+   "after_sweep": 386,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 297
+  },
+  {
+   "after_sweep": 387,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 318
+  },
+  {
+   "after_sweep": 388,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 301
+  },
+  {
+   "after_sweep": 389,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 294
+  },
+  {
+   "after_sweep": 390,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 292
+  },
+  {
+   "after_sweep": 391,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 278
+  },
+  {
+   "after_sweep": 392,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 277
+  },
+  {
+   "after_sweep": 393,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 277
+  },
+  {
+   "after_sweep": 394,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 291
+  },
+  {
+   "after_sweep": 395,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 292
+  },
+  {
+   "after_sweep": 396,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 295
+  },
+  {
+   "after_sweep": 397,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 249
+  },
+  {
+   "after_sweep": 398,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 246
+  },
+  {
+   "after_sweep": 399,
+   "intra_ok": true,
+   "screen_ok": true,
+   "accepted_twists": 262
+  }
+ ],
+ "all_checks_ok": true,
+ "seeded_identities": {
+  "carrier": 14643,
+  "screen": 485
+ },
+ "tiers": {
+  "carrier": {
+   "hops": {
+    "1": {
+     "hops": 21646,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 10790,
+      "fm_to_fp,j<0": 0,
+      "fp_to_fm,j>0": 0,
+      "fp_to_fm,j<0": 10856
+     },
+     "handedness_chi_plus": 0,
+     "handedness_chi_minus": 21646,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      10856,
+      0,
+      10790,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      21646,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 20717,
+      "back_hops": 9398,
+      "p": 0.4536371096201187,
+      "err": 0.0034588477928413804,
+      "random_choice": 0.3333333333333333
+     }
+    },
+    "5": {
+     "hops": 21795,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 0,
+      "fm_to_fp,j<0": 10913,
+      "fp_to_fm,j>0": 10882,
+      "fp_to_fm,j<0": 0
+     },
+     "handedness_chi_plus": 21795,
+     "handedness_chi_minus": 0,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      10913,
+      0,
+      10882,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      21795,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 20862,
+      "back_hops": 9626,
+      "p": 0.46141309558048127,
+      "err": 0.0034513967223468115,
+      "random_choice": 0.3333333333333333
+     }
+    }
+   },
+   "per_sweep": {
+    "1": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 59742,
+       "msd": 0.29932041110106794,
+       "err": 0.0023341034513724465,
+       "step_dual_hist_0_to_5": [
+        44286,
+        14669,
+        774,
+        13,
+        0,
+        0
+       ],
+       "mean_step": 0.2721033778581233
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 58785,
+       "msd": 0.5968699498171303,
+       "err": 0.005563569330296069
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 57835,
+       "msd": 0.9026368116192617,
+       "err": 0.009066337771147643
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 55971,
+       "msd": 1.513426595915742,
+       "err": 0.016234327383994305
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 53272,
+       "msd": 2.3693685238023727,
+       "err": 0.027558397381958935
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 49819,
+       "msd": 3.3588389971697543,
+       "err": 0.04387399713216616
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 43337,
+       "msd": 4.903638922860373,
+       "err": 0.07221594998960278
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 36038,
+       "msd": 6.032854209445585,
+       "err": 0.09153539437770901
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 23413,
+       "msd": 7.082817238286422,
+       "err": 0.137276479748812
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 10609,
+       "msd": 7.6115562258459795,
+       "err": 0.197176093630918
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 360,
+       "msd": 7.8,
+       "err": 0.34562225168273447
+      }
+     ],
+     "alpha_fit_all_lags": 0.7234909611177552,
+     "persistence_per_sweep": {
+      "pairs": 58785,
+      "autocorrelation": -0.0833640410734445,
+      "both_moved": 4097,
+      "mean_cos_turn": [
+       -0.30909465040961953,
+       0.010006140613433322
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.005869552276266994,
+       0.008613325116771271
+      ]
+     }
+    },
+    "2": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 552490,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        552490,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 546959,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 541428,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 530366,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 513776,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 491659,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 447439,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 392175,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 281675,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 143568,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 5521,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 546959,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "3": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 162844,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        162844,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 161206,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 159568,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 156292,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 151383,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 144843,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 131763,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 115423,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 82819,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 42199,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 1621,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 161206,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "4": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 555738,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_dual_hist_0_to_5": [
+        555738,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 550170,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 544602,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 533468,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 516770,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 494514,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 450009,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 394402,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 283223,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 144339,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 5550,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 550170,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "5": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 59693,
+       "msd": 0.30437404720821537,
+       "err": 0.003457861886276785,
+       "step_dual_hist_0_to_5": [
+        44138,
+        14702,
+        842,
+        11,
+        0,
+        0
+       ],
+       "mean_step": 0.2750573769118657
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 58735,
+       "msd": 0.6078147612156295,
+       "err": 0.00747972768194847
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 57784,
+       "msd": 0.9176588675065762,
+       "err": 0.011426531643651724
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 55918,
+       "msd": 1.5382166744161092,
+       "err": 0.02035979781137297
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 53217,
+       "msd": 2.4090422233496813,
+       "err": 0.032671256256785054
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 49764,
+       "msd": 3.440258017844225,
+       "err": 0.04663572871714827
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 43273,
+       "msd": 5.0428211586901766,
+       "err": 0.07080625529136267
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 35976,
+       "msd": 6.255114520791639,
+       "err": 0.09207308211288141
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 23349,
+       "msd": 7.3771896012677205,
+       "err": 0.14658056947236908
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 10561,
+       "msd": 8.192784774169112,
+       "err": 0.17870569568234212
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 359,
+       "msd": 7.676880222841226,
+       "err": 0.27752348151393463
+      }
+     ],
+     "alpha_fit_all_lags": 0.7274538611234562,
+     "persistence_per_sweep": {
+      "pairs": 58735,
+      "autocorrelation": -0.0838053298940181,
+      "both_moved": 4202,
+      "mean_cos_turn": [
+       -0.30868942753005063,
+       0.009909158296107558
+      ],
+      "mean_sin_turn_left_positive": [
+       -0.010740460839757165,
+       0.008435510371249254
+      ]
+     }
+    }
+   },
+   "events": {
+    "identities": 14684,
+    "births": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     },
+     "last_birth_sweep": null
+    },
+    "annihilations": {
+     "events": 598,
+     "table_unordered": {
+      "1,5": 598
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,5": 598
+      }
+     }
+    },
+    "fusions": {
+     "events": 17,
+     "table_a_b_to_c": {
+      "1,2,3": 2,
+      "1,3,4": 7,
+      "3,5,2": 4,
+      "4,5,3": 4
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,2,3": 2,
+       "1,3,4": 7,
+       "3,5,2": 4,
+       "4,5,3": 4
+      }
+     }
+    },
+    "splits": {
+     "events": 0,
+     "table_a_to_b_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "exchanges": {
+     "events": 12,
+     "table_fp_fm_to_fp_fm": {
+      "1,2,2,1": 2,
+      "2,1,1,2": 2,
+      "4,5,5,4": 4,
+      "5,4,4,5": 4
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,2,2,1": 2,
+       "2,1,1,2": 2,
+       "4,5,5,4": 4,
+       "5,4,4,5": 4
+      }
+     }
+    },
+    "moves": {
+     "hops_total": 43441
+    },
+    "addition_mod6_violations": {
+     "births": 0,
+     "annihilations": 0,
+     "fusions": 0,
+     "splits": 0,
+     "exchanges": 0
+    },
+    "class_out_of_range": 0,
+    "per_class": {
+     "1": {
+      "identities": 971,
+      "alive_at_end": 360,
+      "created_by": {
+       "present in the preparation": 967,
+       "exchange of 1,2": 4
+      },
+      "ended_by": {
+       "annihilation with 5": 598,
+       "alive at end": 360,
+       "fusion with 3 into 4": 7,
+       "exchange with 2 into 1,2": 4,
+       "fusion with 2 into 3": 2
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6640.0,
+       "0.25": 6848.0,
+       "0.5": 7265.0,
+       "0.75": 7882.5,
+       "0.9": 8381.0,
+       "0.99": 8693.0
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 305.0,
+       "0.25": 315.0,
+       "0.5": 334.0,
+       "0.75": 362.0,
+       "0.9": 385.0,
+       "0.99": 399.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       1,
+       0,
+       0,
+       1,
+       2,
+       0,
+       607,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       360,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 7282.0,
+       "fusion": 6795.0,
+       "split": null,
+       "exchange": 3562.0
+      },
+      "born_in_balanced_regime": 4,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 85.30000000000001,
+       "0.25": 207.25,
+       "0.5": 390.0,
+       "0.75": 544.5,
+       "0.9": 615.6,
+       "0.99": 658.26
+      },
+      "hops_quantiles": {
+       "0.5": 24.0,
+       "0.9": 40.0,
+       "0.99": 49.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       41,
+       24,
+       81,
+       109,
+       356,
+       360,
+       0,
+       0
+      ]
+     },
+     "2": {
+      "identities": 5532,
+      "alive_at_end": 5526,
+      "created_by": {
+       "present in the preparation": 5524,
+       "fusion 3+5": 4,
+       "exchange of 1,2": 4
+      },
+      "ended_by": {
+       "alive at end": 5526,
+       "exchange with 1 into 1,2": 4,
+       "fusion with 1 into 3": 2
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 254.5,
+       "0.25": 544.5,
+       "0.5": 3641.0,
+       "0.75": 6751.0,
+       "0.9": 6835.5,
+       "0.99": 6871.95
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 12.5,
+       "0.25": 25.5,
+       "0.5": 167.5,
+       "0.75": 311.0,
+       "0.9": 314.0,
+       "0.99": 314.9
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       1,
+       0,
+       0,
+       0,
+       2,
+       0,
+       3,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       0,
+       4,
+       5521,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 3729.0,
+       "split": null,
+       "exchange": 3562.0
+      },
+      "born_in_balanced_regime": 8,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 104.2,
+       "0.25": 254.5,
+       "0.5": 505.0,
+       "0.75": 584.0,
+       "0.9": 631.4,
+       "0.99": 659.84
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       5532,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "3": {
+      "identities": 1638,
+      "alive_at_end": 1627,
+      "created_by": {
+       "present in the preparation": 1632,
+       "fusion 4+5": 4,
+       "fusion 1+2": 2
+      },
+      "ended_by": {
+       "alive at end": 1627,
+       "fusion with 1 into 4": 7,
+       "fusion with 5 into 2": 4
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6659.0,
+       "0.25": 6880.5,
+       "0.5": 7155.0,
+       "0.75": 7614.0,
+       "0.9": 8514.0,
+       "0.99": 8634.6
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 306.0,
+       "0.25": 316.5,
+       "0.5": 329.0,
+       "0.75": 350.0,
+       "0.9": 392.0,
+       "0.99": 397.4
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       11,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       5,
+       1621,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 7155.0,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 6,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       1638,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "4": {
+      "identities": 5570,
+      "alive_at_end": 5558,
+      "created_by": {
+       "present in the preparation": 5555,
+       "exchange of 4,5": 8,
+       "fusion 1+3": 7
+      },
+      "ended_by": {
+       "alive at end": 5558,
+       "exchange with 5 into 4,5": 8,
+       "fusion with 5 into 3": 4
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 17.00000000000001,
+       "0.25": 143.75,
+       "0.5": 488.5,
+       "0.75": 7253.75,
+       "0.9": 7714.4,
+       "0.99": 8126.51
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 1.4000000000000004,
+       "0.25": 7.25,
+       "0.5": 22.5,
+       "0.75": 333.5,
+       "0.9": 355.7,
+       "0.99": 373.8
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       2,
+       0,
+       0,
+       3,
+       2,
+       0,
+       5,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       1,
+       0,
+       1,
+       6,
+       5550,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 3977.5,
+       "split": null,
+       "exchange": 488.5
+      },
+      "born_in_balanced_regime": 15,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 5.6,
+       "0.25": 61.0,
+       "0.5": 153.0,
+       "0.75": 376.0,
+       "0.9": 486.6,
+       "0.99": 496.86
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       5570,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "5": {
+      "identities": 973,
+      "alive_at_end": 359,
+      "created_by": {
+       "present in the preparation": 965,
+       "exchange of 4,5": 8
+      },
+      "ended_by": {
+       "annihilation with 1": 598,
+       "alive at end": 359,
+       "exchange with 4 into 4,5": 8,
+       "fusion with 3 into 2": 4,
+       "fusion with 4 into 3": 4
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 6635.3,
+       "0.25": 6845.5,
+       "0.5": 7265.0,
+       "0.75": 7880.25,
+       "0.9": 8377.7,
+       "0.99": 8693.0
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 305.0,
+       "0.25": 315.0,
+       "0.5": 334.0,
+       "0.75": 362.0,
+       "0.9": 385.0,
+       "0.99": 399.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       2,
+       0,
+       0,
+       3,
+       3,
+       0,
+       606,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       359,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": 7282.0,
+       "fusion": 6843.5,
+       "split": null,
+       "exchange": 488.5
+      },
+      "born_in_balanced_regime": 8,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 5.7,
+       "0.25": 88.5,
+       "0.5": 213.0,
+       "0.75": 372.5,
+       "0.9": 484.7,
+       "0.99": 496.67
+      },
+      "hops_quantiles": {
+       "0.5": 24.0,
+       "0.9": 41.0,
+       "0.99": 49.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       38,
+       26,
+       82,
+       115,
+       333,
+       379,
+       0,
+       0
+      ]
+     }
+    },
+    "note": "identities present at sweep 300 are seeded (birth sweep -1); lifetimes are censored by the window"
+   }
+  },
+  "screen": {
+   "hops": {
+    "1": {
+     "hops": 125,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 63,
+      "fm_to_fp,j<0": 0,
+      "fp_to_fm,j>0": 0,
+      "fp_to_fm,j<0": 62
+     },
+     "handedness_chi_plus": 0,
+     "handedness_chi_minus": 125,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      62,
+      0,
+      63,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      125,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 122,
+      "back_hops": 35,
+      "p": 0.28688524590163933,
+      "err": 0.040949999658279314,
+      "random_choice": "1/degree (1/6 or 1/5)"
+     }
+    },
+    "5": {
+     "hops": 224,
+     "direction_vs_current": {
+      "fm_to_fp,j>0": 0,
+      "fm_to_fp,j<0": 105,
+      "fp_to_fm,j>0": 119,
+      "fp_to_fm,j<0": 0
+     },
+     "handedness_chi_plus": 224,
+     "handedness_chi_minus": 0,
+     "handedness_chi_zero": 0,
+     "contrast_hist_-2_to_2": [
+      0,
+      105,
+      0,
+      119,
+      0
+     ],
+     "abs_current_hist_0_to_3": [
+      0,
+      224,
+      0,
+      0
+     ],
+     "back_hop": {
+      "successive_hop_pairs": 219,
+      "back_hops": 60,
+      "p": 0.273972602739726,
+      "err": 0.0301375549398465,
+      "random_choice": "1/degree (1/6 or 1/5)"
+     }
+    }
+   },
+   "per_sweep": {
+    "1": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 153,
+       "msd": 0.7466904144526356,
+       "err": 0.041612645544651036,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        77,
+        63,
+        12,
+        1,
+        0,
+        0
+       ],
+       "mean_step": 0.5843772613910366
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 150,
+       "msd": 1.4238238884624257,
+       "err": 0.11371257043234574
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 147,
+       "msd": 1.8877960120352137,
+       "err": 0.11483979541939524
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 141,
+       "msd": 2.6607972406656257,
+       "err": 0.4009218277921358
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 132,
+       "msd": 4.332394050140125,
+       "err": 1.3292669182319847
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 120,
+       "msd": 7.358471122737342,
+       "err": 2.527154576846987
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 96,
+       "msd": 13.09157722058323,
+       "err": 3.005222205612354
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 75,
+       "msd": 18.44424493132123,
+       "err": 2.526303315908508
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 35,
+       "msd": 32.33378621945611,
+       "err": 23.91481311424558
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 5,
+       "msd": 67.87572642098556,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 0,
+       "msd": null,
+       "err": null
+      }
+     ],
+     "alpha_fit_all_lags": 0.9514904116303304,
+     "persistence_per_sweep": {
+      "pairs": 150,
+      "autocorrelation": -0.05649715105248195,
+      "both_moved": 31,
+      "mean_cos_turn": [
+       -0.08354905503337874,
+       0.12835721262066685
+      ],
+      "mean_sin_turn_left_positive": [
+       0.2748606989649592,
+       0.11437210833183813
+      ]
+     }
+    },
+    "2": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 16583,
+       "msd": 9.451106649238964e-16,
+       "err": 9.472683678086767e-16,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        16583,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 2.3873153010786263e-09
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 16415,
+       "msd": 9.45235604926509e-16,
+       "err": 9.473944436205836e-16
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 16247,
+       "msd": 9.453631287809636e-16,
+       "err": 9.475231324998131e-16
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 15911,
+       "msd": 9.456262554318183e-16,
+       "err": 9.477886812937972e-16
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 15407,
+       "msd": 9.46042464171005e-16,
+       "err": 9.48208771653023e-16
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 14735,
+       "msd": 9.46641699302705e-16,
+       "err": 9.488137036933614e-16
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 13391,
+       "msd": 9.480205979173114e-16,
+       "err": 9.50206197746655e-16
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 11723,
+       "msd": 9.492166519719711e-16,
+       "err": 9.514173049907166e-16
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 8403,
+       "msd": 9.512213233108199e-16,
+       "err": 9.534585677379467e-16
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 4269,
+       "msd": 9.54537418756751e-16,
+       "err": 9.568612814636335e-16
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 164,
+       "msd": 9.556567168556683e-16,
+       "err": 9.580180868369706e-16
+      }
+     ],
+     "alpha_fit_all_lags": 0.0023872782290985223,
+     "persistence_per_sweep": {
+      "pairs": 16415,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "3": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 16874,
+       "msd": 9.288117907095517e-16,
+       "err": 9.310111313370973e-16,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        16874,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 2.3461449352724225e-09
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 16704,
+       "msd": 9.288818519437648e-16,
+       "err": 9.310805558033326e-16
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 16534,
+       "msd": 9.289533538952654e-16,
+       "err": 9.311514108390081e-16
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 16194,
+       "msd": 9.291008614410066e-16,
+       "err": 9.312975932106414e-16
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 15684,
+       "msd": 9.293341140960645e-16,
+       "err": 9.315287762333124e-16
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 15004,
+       "msd": 9.296697840059556e-16,
+       "err": 9.31861523374596e-16
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 13644,
+       "msd": 9.304415000520902e-16,
+       "err": 9.326267687647088e-16
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 11944,
+       "msd": 9.316532829091944e-16,
+       "err": 9.338290913864347e-16
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 8568,
+       "msd": 9.32902985501963e-16,
+       "err": 9.350749770920717e-16
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 4368,
+       "msd": 9.329029855019621e-16,
+       "err": 9.350749770920707e-16
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 168,
+       "msd": 9.32902985501962e-16,
+       "err": 9.350749770920705e-16
+      }
+     ],
+     "alpha_fit_all_lags": 0.0011513237439634706,
+     "persistence_per_sweep": {
+      "pairs": 16704,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "4": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 14445,
+       "msd": 0.0,
+       "err": 0.0,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        14445,
+        0,
+        0,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.0
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 14298,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 14152,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 13860,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 13422,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 12838,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 11670,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 10217,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 7317,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 3700,
+       "msd": 0.0,
+       "err": 0.0
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 142,
+       "msd": 0.0,
+       "err": 0.0
+      }
+     ],
+     "persistence_per_sweep": {
+      "pairs": 14298,
+      "autocorrelation": null,
+      "both_moved": 0,
+      "mean_cos_turn": null,
+      "mean_sin_turn_left_positive": null
+     }
+    },
+    "5": {
+     "msd_by_lag_sweeps": [
+      {
+       "lag_sweeps": 1,
+       "n": 249,
+       "msd": 0.7942846742500967,
+       "err": 0.10557030182513975,
+       "step_edges_hist_bins": [
+        0,
+        0.5,
+        1.5,
+        2.5,
+        3.5,
+        5.5,
+        1000000000.0
+       ],
+       "step_edges_hist": [
+        120,
+        104,
+        25,
+        0,
+        0,
+        0
+       ],
+       "mean_step": 0.6133178289496922
+      },
+      {
+       "lag_sweeps": 2,
+       "n": 242,
+       "msd": 1.5485024447574176,
+       "err": 0.20208737447507694
+      },
+      {
+       "lag_sweeps": 3,
+       "n": 236,
+       "msd": 2.255428087606142,
+       "err": 0.26875894773078646
+      },
+      {
+       "lag_sweeps": 5,
+       "n": 224,
+       "msd": 3.8174827148922423,
+       "err": 0.3999882584009232
+      },
+      {
+       "lag_sweeps": 8,
+       "n": 206,
+       "msd": 5.892615713713958,
+       "err": 0.5298942557882831
+      },
+      {
+       "lag_sweeps": 12,
+       "n": 182,
+       "msd": 7.728755203135764,
+       "err": 0.9403452071971483
+      },
+      {
+       "lag_sweeps": 20,
+       "n": 135,
+       "msd": 11.841220415924086,
+       "err": 3.051422891166156
+      },
+      {
+       "lag_sweeps": 30,
+       "n": 95,
+       "msd": 20.15408177790583,
+       "err": 6.412672379931004
+      },
+      {
+       "lag_sweeps": 50,
+       "n": 51,
+       "msd": 32.42473552926745,
+       "err": 3.891802844472395e-14
+      },
+      {
+       "lag_sweeps": 75,
+       "n": 26,
+       "msd": 47.36352675195664,
+       "err": 3.891802844472395e-14
+      },
+      {
+       "lag_sweeps": 100,
+       "n": 1,
+       "msd": 76.38467239061205,
+       "err": 7.78360568894479e-14
+      }
+     ],
+     "alpha_fit_all_lags": 0.934032572593351,
+     "persistence_per_sweep": {
+      "pairs": 242,
+      "autocorrelation": -0.036303767341574276,
+      "both_moved": 71,
+      "mean_cos_turn": [
+       -0.06443111986850532,
+       0.08981034392101381
+      ],
+      "mean_sin_turn_left_positive": [
+       0.06850934563089003,
+       0.07665129085669427
+      ]
+     }
+    }
+   },
+   "events": {
+    "identities": 495,
+    "births": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     },
+     "last_birth_sweep": null
+    },
+    "annihilations": {
+     "events": 0,
+     "table_unordered": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "fusions": {
+     "events": 4,
+     "table_a_b_to_c": {
+      "1,4,5": 1,
+      "2,5,1": 1,
+      "3,5,2": 1,
+      "4,5,3": 1
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,4,5": 1,
+       "2,5,1": 1,
+       "3,5,2": 1,
+       "4,5,3": 1
+      }
+     }
+    },
+    "splits": {
+     "events": 0,
+     "table_a_to_b_c": {},
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {}
+     }
+    },
+    "exchanges": {
+     "events": 3,
+     "table_fp_fm_to_fp_fm": {
+      "1,2,2,1": 1,
+      "4,5,5,4": 1,
+      "5,4,4,5": 1
+     },
+     "table_by_regime": {
+      "quench": {},
+      "balanced": {
+       "1,2,2,1": 1,
+       "4,5,5,4": 1,
+       "5,4,4,5": 1
+      }
+     }
+    },
+    "moves": {
+     "hops_total": 349
+    },
+    "addition_mod6_violations": {
+     "births": 0,
+     "annihilations": 0,
+     "fusions": 0,
+     "splits": 0,
+     "exchanges": 0
+    },
+    "class_out_of_range": 0,
+    "per_class": {
+     "1": {
+      "identities": 3,
+      "alive_at_end": 1,
+      "created_by": {
+       "present in the preparation": 1,
+       "fusion 2+5": 1,
+       "exchange of 1,2": 1
+      },
+      "ended_by": {
+       "alive at end": 1,
+       "fusion with 4 into 5": 1,
+       "exchange with 2 into 1,2": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 1777.5,
+       "0.25": 2646.75,
+       "0.5": 4095.5,
+       "0.75": 5544.25,
+       "0.9": 6413.5,
+       "0.99": 6935.05
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 81.6,
+       "0.25": 121.5,
+       "0.5": 188.0,
+       "0.75": 254.5,
+       "0.9": 294.4,
+       "0.99": 318.34
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       1,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       0,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 1198.0,
+       "split": null,
+       "exchange": 6993.0
+      },
+      "born_in_balanced_regime": 2,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 1198.0,
+       "0.25": 1198.0,
+       "0.5": 1198.0,
+       "0.75": 1198.0,
+       "0.9": 1198.0,
+       "0.99": 1198.0
+      },
+      "hops_quantiles": {
+       "0.5": 50.0,
+       "0.9": 57.2,
+       "0.99": 58.82
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       0,
+       0,
+       0,
+       0,
+       1,
+       2,
+       0,
+       0
+      ]
+     },
+     "2": {
+      "identities": 168,
+      "alive_at_end": 166,
+      "created_by": {
+       "present in the preparation": 166,
+       "fusion 3+5": 1,
+       "exchange of 1,2": 1
+      },
+      "ended_by": {
+       "alive at end": 166,
+       "fusion with 5 into 1": 1,
+       "exchange with 1 into 1,2": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 7005.1,
+       "0.25": 7023.25,
+       "0.5": 7053.5,
+       "0.75": 7083.75,
+       "0.9": 7101.9,
+       "0.99": 7112.79
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 321.6,
+       "0.25": 322.5,
+       "0.5": 324.0,
+       "0.75": 325.5,
+       "0.9": 326.4,
+       "0.99": 326.94
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       2,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       1,
+       164,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 7114.0,
+       "split": null,
+       "exchange": 6993.0
+      },
+      "born_in_balanced_regime": 2,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       168,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "3": {
+      "identities": 170,
+      "alive_at_end": 169,
+      "created_by": {
+       "present in the preparation": 169,
+       "fusion 4+5": 1
+      },
+      "ended_by": {
+       "alive at end": 169,
+       "fusion with 5 into 2": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 7434.0,
+       "0.25": 7434.0,
+       "0.5": 7434.0,
+       "0.75": 7434.0,
+       "0.9": 7434.0,
+       "0.99": 7434.0
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 342.0,
+       "0.25": 342.0,
+       "0.5": 342.0,
+       "0.75": 342.0,
+       "0.9": 342.0,
+       "0.99": 342.0
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       0,
+       168,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 7434.0,
+       "split": null,
+       "exchange": null
+      },
+      "born_in_balanced_regime": 1,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": null,
+       "0.25": null,
+       "0.5": null,
+       "0.75": null,
+       "0.9": null,
+       "0.99": null
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       170,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "4": {
+      "identities": 147,
+      "alive_at_end": 143,
+      "created_by": {
+       "present in the preparation": 145,
+       "exchange of 4,5": 2
+      },
+      "ended_by": {
+       "alive at end": 143,
+       "exchange with 5 into 4,5": 2,
+       "fusion with 1 into 5": 1,
+       "fusion with 5 into 3": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 2138.1000000000004,
+       "0.25": 5291.25,
+       "0.5": 7517.0,
+       "0.75": 8071.25,
+       "0.9": 8215.7,
+       "0.99": 8302.37
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 98.30000000000001,
+       "0.25": 242.75,
+       "0.5": 345.0,
+       "0.75": 370.75,
+       "0.9": 377.5,
+       "0.99": 381.55
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       1,
+       0,
+       0,
+       0,
+       3,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       142,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 8151.5,
+       "split": null,
+       "exchange": 3539.5
+      },
+      "born_in_balanced_regime": 2,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 36.0,
+       "0.25": 36.0,
+       "0.5": 36.0,
+       "0.75": 36.0,
+       "0.9": 36.0,
+       "0.99": 36.0
+      },
+      "hops_quantiles": {
+       "0.5": 0.0,
+       "0.9": 0.0,
+       "0.99": 0.0
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       147,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "5": {
+      "identities": 7,
+      "alive_at_end": 2,
+      "created_by": {
+       "present in the preparation": 4,
+       "exchange of 4,5": 2,
+       "fusion 1+4": 1
+      },
+      "ended_by": {
+       "alive at end": 2,
+       "exchange with 4 into 4,5": 2,
+       "fusion with 2 into 1": 1,
+       "fusion with 3 into 2": 1,
+       "fusion with 4 into 3": 1
+      },
+      "lifetime_depth_quantiles_ended": {
+       "0.1": 386.40000000000003,
+       "0.25": 912.0,
+       "0.5": 7043.0,
+       "0.75": 7114.0,
+       "0.9": 7306.0,
+       "0.99": 7421.2
+      },
+      "lifetime_sweeps_quantiles_ended": {
+       "0.1": 18.0,
+       "0.25": 42.0,
+       "0.5": 323.0,
+       "0.75": 327.0,
+       "0.9": 336.0,
+       "0.99": 341.4
+      },
+      "lifetime_depth_hist_bins": [
+       0,
+       1,
+       3,
+       10,
+       30,
+       100,
+       300,
+       1000,
+       3000,
+       10000,
+       100000
+      ],
+      "lifetime_depth_hist_ended": [
+       0,
+       0,
+       0,
+       0,
+       1,
+       0,
+       1,
+       0,
+       3,
+       0
+      ],
+      "lifetime_depth_hist_alive_censored": [
+       1,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       0,
+       1,
+       0
+      ],
+      "median_lifetime_depth_by_ending": {
+       "annihilation": null,
+       "fusion": 7114.0,
+       "split": null,
+       "exchange": 3539.5
+      },
+      "born_in_balanced_regime": 3,
+      "balanced_born_lifetime_depth_quantiles_ended": {
+       "0.1": 123.60000000000001,
+       "0.25": 255.0,
+       "0.5": 474.0,
+       "0.75": 693.0,
+       "0.9": 824.4,
+       "0.99": 903.24
+      },
+      "hops_quantiles": {
+       "0.5": 25.0,
+       "0.9": 60.60000000000002,
+       "0.99": 92.45999999999997
+      },
+      "hops_hist_0_1_2_5_10_30_100_1000_inf": [
+       1,
+       0,
+       0,
+       0,
+       3,
+       3,
+       0,
+       0
+      ]
+     }
+    },
+    "note": "identities present at sweep 300 are seeded (birth sweep -1); lifetimes are censored by the window"
+   }
+  }
+ }
+}

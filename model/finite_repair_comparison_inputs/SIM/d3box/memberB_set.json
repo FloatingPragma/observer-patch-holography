@@ -1,0 +1,880 @@
+{
+ "engine_sha256": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+ "set": "B",
+ "results": [
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 2.0,
+    "n": 1
+   },
+   "unitarity_defect_probe": 3.1136561286718613e-15,
+   "Gamma_chiral_probe": 6.661705207306529e-15,
+   "ritz_values_in_window": 4,
+   "states_in_window": 4,
+   "phases_per_tick_all": [
+    -1.1130614297671076e-05,
+    -1.1130614297588209e-05,
+    1.1130614297609759e-05,
+    1.1130614297686622e-05
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 1,
+     "states": 1,
+     "phases_per_tick": [
+      -8.746816401746443e-18
+     ],
+     "residual": 2.2261228593449283e-05,
+     "Gamma_eigenvalues": [
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.541605
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 1,
+     "states": 1,
+     "phases_per_tick": [
+      -4.692852894033224e-18
+     ],
+     "residual": 2.226122859344928e-05,
+     "Gamma_eigenvalues": [
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.541605
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -1,
+     "states": 1,
+     "phases_per_tick": [
+      -6.201373543448537e-18
+     ],
+     "residual": 2.2261228593449273e-05,
+     "Gamma_eigenvalues": [
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.541605
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -1,
+     "states": 1,
+     "phases_per_tick": [
+      6.2711108919955926e-18
+     ],
+     "residual": 2.2261228593449273e-05,
+     "Gamma_eigenvalues": [
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.541605
+     ]
+    }
+   ],
+   "seconds": 43.7
+  },
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 2.0,
+    "n": 2
+   },
+   "unitarity_defect_probe": 3.141279388052142e-15,
+   "Gamma_chiral_probe": 6.238559822561638e-15,
+   "ritz_values_in_window": 8,
+   "states_in_window": 8,
+   "phases_per_tick_all": [
+    -7.249648884241302e-05,
+    -7.249648884237479e-05,
+    -2.1883869606249836e-05,
+    -2.1883869606237165e-05,
+    2.1883869606200807e-05,
+    2.1883869606247892e-05,
+    7.249648884236153e-05,
+    7.249648884240401e-05
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 2,
+     "states": 2,
+     "phases_per_tick": [
+      -5.062308488956896e-18,
+      4.482177080281152e-18
+     ],
+     "residual": 0.00010709475969417104,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.541064,
+      0.541064
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 2,
+     "states": 2,
+     "phases_per_tick": [
+      -5.729245756086042e-18,
+      8.2194844400099355e-19
+     ],
+     "residual": 0.00010709475969417094,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.541064,
+      0.541064
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -2,
+     "states": 2,
+     "phases_per_tick": [
+      -1.7914913717352566e-18,
+      6.954033430264668e-18
+     ],
+     "residual": 0.00010709475969417084,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.541064,
+      -0.541064
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -2,
+     "states": 2,
+     "phases_per_tick": [
+      -3.2536260571550454e-18,
+      4.0268971545493734e-18
+     ],
+     "residual": 0.00010709475969417088,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.541064,
+      -0.541064
+     ]
+    }
+   ],
+   "seconds": 43.7
+  },
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 2.0,
+    "n": 3
+   },
+   "unitarity_defect_probe": 2.934590518822634e-15,
+   "Gamma_chiral_probe": 6.245904637617219e-15,
+   "ritz_values_in_window": 12,
+   "states_in_window": 12,
+   "phases_per_tick_all": [
+    -0.0003398799516992901,
+    -0.0003398799516992304,
+    -0.0002378529410948821,
+    -0.00023785294109485795,
+    -0.00011198762227111175,
+    -0.00011198762227109854,
+    0.00011198762227108293,
+    0.0001119876222711236,
+    0.0002378529410948663,
+    0.00023785294109488874,
+    0.0003398799516992149,
+    0.0003398799516992735
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -1.8740945485279814e-18,
+      3.0141824686920115e-19,
+      8.130643499126495e-18
+     ],
+     "residual": 0.0006113869673816589,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.540403,
+      0.538554,
+      0.540242
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -3.0742596212546908e-18,
+      5.22168709877361e-18,
+      8.164285541111365e-18
+     ],
+     "residual": 0.0006343333765094148,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.539274,
+      0.539478,
+      0.540446
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -2.130888659284232e-18,
+      3.7141077641940956e-19,
+      5.471705467878621e-18
+     ],
+     "residual": 0.0005517843956046813,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.538498,
+      -0.540516,
+      -0.540184
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -5.383730577011888e-18,
+      2.634443313089579e-18,
+      4.5585899916384866e-18
+     ],
+     "residual": 0.0005303861727322364,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.538803,
+      -0.540573,
+      -0.539823
+     ]
+    }
+   ],
+   "seconds": 43.9
+  },
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 2.0,
+    "n": 3,
+    "p3": 1.5707963267948966
+   },
+   "unitarity_defect_probe": 3.552802722023216e-15,
+   "Gamma_chiral_probe": 5.614494455660386,
+   "ritz_values_in_window": 0,
+   "states_in_window": 0,
+   "seconds": 44.1
+  },
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 2.0,
+    "n": 3,
+    "flux": 1.0471975511965976
+   },
+   "unitarity_defect_probe": 2.7536221766280034e-15,
+   "Gamma_chiral_probe": 5.335251403664412e-15,
+   "ritz_values_in_window": 12,
+   "states_in_window": 12,
+   "phases_per_tick_all": [
+    -0.00033970757689263443,
+    -0.0003397075768925932,
+    -0.00022487354396200866,
+    -0.00022487354396198323,
+    -0.00010229457124818362,
+    -0.00010229457124813231,
+    0.00010229457124816503,
+    0.00010229457124819002,
+    0.0002248735439619983,
+    0.00022487354396202283,
+    0.00033970757689257746,
+    0.0003397075768926466
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -1.0057744401687354e-17,
+      -3.0795192811153873e-18,
+      3.3242172099162303e-18
+     ],
+     "residual": 0.0005998365433376815,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.539311,
+      0.540344,
+      0.539877
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -8.705806763383615e-18,
+      -8.182787567000207e-19,
+      2.775842990180074e-18
+     ],
+     "residual": 0.0005140651168798373,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.539036,
+      0.539684,
+      0.540812
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -9.591983121308041e-18,
+      -3.784662517970583e-18,
+      6.6093301437236915e-18
+     ],
+     "residual": 0.0005209787464728805,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.538116,
+      -0.540471,
+      -0.540945
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -8.373249725221413e-18,
+      -1.0954648926493436e-18,
+      3.2003441192319963e-18
+     ],
+     "residual": 0.0005287088076877716,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.540134,
+      -0.539348,
+      -0.54005
+     ]
+    }
+   ],
+   "seconds": 43.9
+  },
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 2.0,
+    "n": 3,
+    "flux": 2.0943951023931953
+   },
+   "unitarity_defect_probe": 2.807025413470085e-15,
+   "Gamma_chiral_probe": 6.24202974151139e-15,
+   "ritz_values_in_window": 12,
+   "states_in_window": 12,
+   "phases_per_tick_all": [
+    -0.00033808855184203876,
+    -0.0003380885518419795,
+    -0.00017543935011898193,
+    -0.00017543935011894246,
+    -5.64203961166422e-05,
+    -5.642039611660917e-05,
+    5.642039611660324e-05,
+    5.6420396116660217e-05,
+    0.0001754393501189503,
+    0.00017543935011898366,
+    0.00033808855184198244,
+    0.0003380885518420255
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -3.775232506727583e-18,
+      -1.754411012831358e-18,
+      3.69105328326858e-18
+     ],
+     "residual": 0.0005969543639833462,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.538907,
+      0.539081,
+      0.542617
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -7.710722725350965e-18,
+      -2.5611313237900413e-18,
+      7.420085619494115e-18
+     ],
+     "residual": 0.0005091504647766646,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.539435,
+      0.542047,
+      0.539123
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -5.163300395580924e-18,
+      4.763937062998952e-18,
+      9.194191067084617e-18
+     ],
+     "residual": 0.0005400588003860923,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.541489,
+      -0.539279,
+      -0.539837
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -5.449512075027011e-18,
+      -2.576250472905146e-18,
+      4.5880902628976855e-18
+     ],
+     "residual": 0.0005843912668897689,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.539501,
+      -0.539262,
+      -0.541841
+     ]
+    }
+   ],
+   "seconds": 43.8
+  },
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 2.0,
+    "n": 3,
+    "flux": 3.141592653589793
+   },
+   "unitarity_defect_probe": 2.6823671852113062e-15,
+   "Gamma_chiral_probe": 6.218315052997529e-15,
+   "ritz_values_in_window": 12,
+   "states_in_window": 12,
+   "phases_per_tick_all": [
+    -0.00033640861981432113,
+    -0.00033640861981426383,
+    -6.585554667131175e-05,
+    -6.585554667119529e-05,
+    -5.7518175176882955e-05,
+    -5.75181751768539e-05,
+    5.7518175176878077e-05,
+    5.7518175176900086e-05,
+    6.585554667122696e-05,
+    6.58555466712689e-05,
+    0.00033640861981428535,
+    0.00033640861981429874
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -9.532096304131419e-18,
+      -2.548671262096053e-18,
+      1.2100299348419055e-17
+     ],
+     "residual": 0.0005253260367880119,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.541962,
+      0.539409,
+      0.540256
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -1.1124897232716979e-17,
+      -1.5185236176777073e-18,
+      4.110193221152852e-18
+     ],
+     "residual": 0.00046926933578163234,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.539609,
+      0.539208,
+      0.542809
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -7.094890601474056e-18,
+      1.5587283327662843e-19,
+      3.87786211678245e-18
+     ],
+     "residual": 0.0004864990686875537,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.542654,
+      -0.540255,
+      -0.538717
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -1.2959029177860428e-17,
+      4.3800490234513045e-18,
+      8.156483380383732e-18
+     ],
+     "residual": 0.0005261438871286058,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.543867,
+      -0.53892,
+      -0.53884
+     ]
+    }
+   ],
+   "seconds": 43.8
+  },
+  {
+   "config": {
+    "L": 48,
+    "theta0": 0.3,
+    "xi_c": 0.0,
+    "n": 3
+   },
+   "unitarity_defect_probe": 2.889432824878198e-15,
+   "Gamma_chiral_probe": 5.368189476811293e-15,
+   "ritz_values_in_window": 12,
+   "states_in_window": 12,
+   "phases_per_tick_all": [
+    -0.0002491616511056016,
+    -0.00024916165110551523,
+    -0.00017039752425284,
+    -0.00017039752425279184,
+    -8.25735485444914e-05,
+    -8.257354854448415e-05,
+    8.25735485444842e-05,
+    8.257354854449845e-05,
+    0.0001703975242528137,
+    0.00017039752425283353,
+    0.0002491616511055429,
+    0.0002491616511055785
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -8.946513543381707e-18,
+      1.4556093000486024e-19,
+      3.4202421122645835e-18
+     ],
+     "residual": 0.00042985573326267696,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.530757,
+      0.530757,
+      0.530757
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -8.451679978950091e-18,
+      -2.696763060863647e-18,
+      8.287313333021342e-18
+     ],
+     "residual": 0.0004664005258422234,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.530757,
+      0.530757,
+      0.530757
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      3.1526552898543783e-19,
+      6.354667112419436e-18,
+      1.3207295376156588e-17
+     ],
+     "residual": 0.00041251295457308645,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.530757,
+      -0.530757,
+      -0.530757
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -6.672418321252679e-18,
+      -1.5816483070398354e-18,
+      4.970214317028497e-18
+     ],
+     "residual": 0.000389791962278835,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.530757,
+      -0.530757,
+      -0.530757
+     ]
+    }
+   ],
+   "seconds": 43.8
+  },
+  {
+   "config": {
+    "L": 64,
+    "theta0": 0.157935,
+    "xi_c": 2.0,
+    "n": 3
+   },
+   "unitarity_defect_probe": 3.1491713607145187e-15,
+   "Gamma_chiral_probe": 6.22829630614016e-15,
+   "ritz_values_in_window": 12,
+   "states_in_window": 12,
+   "phases_per_tick_all": [
+    -0.002311234459030362,
+    -0.0023112344590303434,
+    -0.002179916130458239,
+    -0.002179916130458226,
+    -0.0002874258224841642,
+    -0.00028742582248415257,
+    0.00028742582248414525,
+    0.0002874258224841734,
+    0.0021799161304582215,
+    0.002179916130458249,
+    0.0023112344590303416,
+    0.0023112344590303724
+   ],
+   "cores": [
+    {
+     "core": 0,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -5.4391839124417825e-18,
+      -4.0053051854294464e-19,
+      6.2924437016732496e-18
+     ],
+     "residual": 0.00402052397322262,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.549778,
+      0.549999,
+      0.549549
+     ]
+    },
+    {
+     "core": 1,
+     "winding": 3,
+     "states": 3,
+     "phases_per_tick": [
+      -2.747587659083015e-18,
+      1.5906155233965927e-19,
+      5.584336367797374e-18
+     ],
+     "residual": 0.004027346998455446,
+     "Gamma_eigenvalues": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      0.549955,
+      0.549925,
+      0.549447
+     ]
+    },
+    {
+     "core": 2,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -5.2510695364144465e-18,
+      -2.9039702533746453e-18,
+      2.3697292474671853e-19
+     ],
+     "residual": 0.004126538983383347,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.549683,
+      -0.549842,
+      -0.549802
+     ]
+    },
+    {
+     "core": 3,
+     "winding": -3,
+     "states": 3,
+     "phases_per_tick": [
+      -3.648534591068666e-18,
+      1.5473108214696278e-18,
+      3.3911026563338796e-18
+     ],
+     "residual": 0.0043102986426112495,
+     "Gamma_eigenvalues": [
+      -1.0,
+      -1.0,
+      -1.0
+     ],
+     "velocity_per_tick_(Gamma_basis_diagonal)": [
+      -0.549838,
+      -0.549925,
+      -0.549564
+     ]
+    }
+   ],
+   "seconds": 81.3
+  }
+ ],
+ "symbol_check_against_t3sym": null
+}

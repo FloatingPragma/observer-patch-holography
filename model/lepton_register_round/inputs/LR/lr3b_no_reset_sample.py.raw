@@ -1,0 +1,45 @@
+"""LR addendum 1 (O10b): a second sample of the round without reset at N = 100. Brute force on the 60 x 60 arrays.
+
+Run (box):  python -B lr3b_no_reset_sample.py
+Writes lr3b_no_reset_sample.json.
+"""
+import json
+import math
+import os
+
+import numpy as np
+
+import lr3_orderings as O
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+N, ROUNDS, M, SEED = 100, 10 ** 4, 450, 20261112
+
+
+def main():
+    rng = np.random.default_rng(SEED)
+    red = O.reduced_no_reset(N, ROUNDS)
+    exact = float(red['mean_count'].mean())
+    mean, per_traj = O.sampled_no_reset(N, ROUNDS, M, rng)
+    flipped = int((per_traj > 2 / 9 + 1e-9).sum())
+    first = json.load(open(os.path.join(HERE, 'lr3_orderings.json')))['O10_no_reset'][1]
+    m1, n1, se1 = first['running_mean_count_sampled'], first['trajectories'], first['running_mean_standard_error']
+    m2, se2 = float(per_traj.mean()), float(per_traj.std(ddof=1) / math.sqrt(M))
+    union = (n1 * m1 + M * m2) / (n1 + M)
+    var_union = (n1 * (se1 ** 2 * n1) + M * (se2 ** 2 * M)) / (n1 + M)        # pooled variance of one trajectory
+    se_union = math.sqrt(var_union / (n1 + M))
+    out = dict(task='LR addendum 1, O10b', N=N, rounds=ROUNDS, trajectories=M, seed=SEED,
+               running_mean_count_exact=exact, running_mean_count_sampled=m2, standard_error=se2,
+               deviation_over_standard_error=(m2 - exact) / se2,
+               trajectories_with_a_non_return=flipped, fraction_with_a_non_return=flipped / M,
+               leading_order_fraction=1 - math.exp(-14 / 81),
+               first_sample=dict(trajectories=n1, running_mean=m1, standard_error=se1),
+               union=dict(trajectories=n1 + M, running_mean=union, standard_error=se_union,
+                          deviation_over_standard_error=(union - exact) / se_union),
+               mean_count_at_rounds={str(n): float(mean[n - 1]) for n in (1, 1000, 2000, 5000, 10000)},
+               exact_mean_count_at_rounds={str(n): float(red['mean_count'][n - 1]) for n in (1, 1000, 2000, 5000, 10000)})
+    json.dump(out, open(os.path.join(HERE, 'lr3b_no_reset_sample.json'), 'w'), indent=1)
+    print(out)
+
+
+if __name__ == '__main__':
+    main()

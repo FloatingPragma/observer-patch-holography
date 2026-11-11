@@ -1,0 +1,166 @@
+"""S6 audit instrument: does the carrier -> Standard Model label chain execute the repair rule at all?
+
+Method (reverse engineering, not reading): replace the code object of every implementation of the repair rule
+that the chain can reach by a function that raises. Then run the repository's own producer of the fifteen
+internal weights and compare with the committed export. If the producer finishes with identical output, no
+mutation of the repair rule can change these labels (the rule is never executed).
+
+Calibration (positive control): the same poisoning must break a computation that is known to use the rule
+(the closed class of the total-two carrier), and a live mutant must change that computation's answer.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 python SCR/research/S6/s6_audit_poison.py OUT.json
+"""
+import json, sys, time, types
+
+T0 = time.time()
+out = {'schema': 's6.audit.poison.v1'}
+
+
+def _poison(*args, **kwargs):
+    raise RuntimeError('POISONED repair-rule implementation was called')
+
+
+def poison(module, names):
+    done = []
+    for name in names:
+        f = getattr(module, name, None)
+        if f is None:
+            continue
+        g = getattr(f, '__wrapped__', f)
+        if isinstance(g, types.FunctionType) and not g.__code__.co_freevars:
+            g.__code__ = _poison.__code__
+            g.__defaults__ = None
+            g.__kwdefaults__ = None
+            if hasattr(f, 'cache_clear'):
+                f.cache_clear()
+            done.append(module.__name__ + '.' + name)
+    return done
+
+
+# ---------------------------------------------------------------- positive control (before poisoning)
+import model.observer.native as nat
+
+SEAMS_CTRL = None
+
+
+def closed_classes(rule, seams):
+    """Closed communicating classes of the total-two chain under ``rule``; returns sorted class sizes."""
+    states = nat.states()
+    index = {s: i for i, s in enumerate(states)}
+    succ = [sorted({index[rule(s, e, c)[0]] for e in seams for c in (0, 1)}) for s in states]
+    reach = []
+    for i in range(len(states)):
+        hit, stack = {i}, [i]
+        while stack:
+            for j in succ[stack.pop()]:
+                if j not in hit:
+                    hit.add(j); stack.append(j)
+        reach.append(hit)
+    rec = [i for i in range(len(states)) if all(i in reach[j] for j in reach[i])]
+    classes = []
+    for i in rec:
+        if not any(i in c for c in classes):
+            classes.append(reach[i])
+    return sorted(len(c) for c in classes)
+
+
+from model.common_source import slow_geometry
+src = slow_geometry.source()
+seams = tuple(tuple(int(v) for v in s) for s in src.seams())
+
+
+def mutant_full(loads, seam, coin):        # move the whole contrast
+    a, b = seam; d = loads[a] - loads[b]; o = list(loads); o[a] -= d; o[b] += d
+    return tuple(o), (coin, d)
+
+
+def mutant_none(loads, seam, coin):        # never move
+    return tuple(loads), (coin, 0)
+
+
+def mutant_floor(loads, seam, coin):       # ignore the coin
+    a, b = seam; d = loads[a] - loads[b]; j = d // 2; o = list(loads); o[a] -= j; o[b] += j
+    return tuple(o), (coin, j)
+
+
+control = {'native': closed_classes(nat.native, seams),
+           'mutant_full_transfer': closed_classes(mutant_full, seams),
+           'mutant_no_move': closed_classes(mutant_none, seams),
+           'mutant_floor_only': closed_classes(mutant_floor, seams)}
+out['positive_control_closed_class_sizes_total_two'] = control
+out['positive_control_mutants_change_answer'] = len({json.dumps(v) for v in control.values()}) > 1
+print('control', control, round(time.time() - T0, 1)); sys.stdout.flush()
+
+# ---------------------------------------------------------------- import leaves, then poison
+import importlib
+leaf = {}
+for name in ('model.record_laws.family', 'model.repair_scheduler.coins', 'model.transported_contrast.law'):
+    try:
+        leaf[name] = importlib.import_module(name)
+    except Exception as exc:   # noqa: BLE001
+        out.setdefault('leaf_import_errors', {})[name] = repr(exc)
+closure = sys.modules['oph_fpe.dynamics.self_readback_repair_closure']
+poisoned = []
+poisoned += poison(nat, ['native', 'tick'])
+poisoned += poison(src, ['seam_mean_matrix', 'seam_mean_matrix_exact', 'repair_mean', 'repair_mean_exact', 'apply_seam_mean',
+                         'integer_nearest_agreement', 'centered_response_kernel', 'normalized_response_kernel',
+                         'band_damping_factors'])
+poisoned += poison(closure, ['_balanced_seam_attempt_outcomes', '_local_outcomes', 'candidate_transition_rows',
+                             '_evaluate_candidate_uncached', '_event_weights', '_compose_transition_rows',
+                             '_two_event_path_law_check', 'enumerate_protected_sector'])
+if 'model.record_laws.family' in leaf:
+    poisoned += poison(leaf['model.record_laws.family'], ['current', 'move', 'check_native_rule', 'coin_instrument',
+                                                         'minimal_instrument', 'apply_instrument', 'classical_kernel'])
+if 'model.repair_scheduler.coins' in leaf:
+    poisoned += poison(leaf['model.repair_scheduler.coins'], ['coin_maps', '_coin_maps', 'apply_coin'])
+if 'model.transported_contrast.law' in leaf:
+    poisoned += poison(leaf['model.transported_contrast.law'], ['current', 'attempt'])
+out['poisoned_functions'] = poisoned
+print('poisoned', len(poisoned)); sys.stdout.flush()
+
+# the poison is live: the control computation must now fail
+try:
+    closed_classes(nat.native, seams)
+    out['poison_is_live'] = False
+except RuntimeError:
+    out['poison_is_live'] = True
+print('poison live', out['poison_is_live']); sys.stdout.flush()
+
+# ---------------------------------------------------------------- the repository's producer of the fifteen weights
+status = {}
+try:
+    from model.standard_model_source_map import algebra
+    t = time.time()
+    rows = algebra.source_components()
+    status['source_components_seconds'] = round(time.time() - t, 1)
+    match = algebra.match_components()
+    committed = json.load(open('model/standard_model_source_map/particle_map.json'))
+    status['source_weights_equal_committed_export'] = (json.loads(json.dumps(list(rows))) == committed['source_weights'])
+    status['component_match_equal_committed_export'] = (json.loads(json.dumps(match)) == committed['complete_internal_component_match'])
+    status['rows'] = list(rows)
+    status['finished_with_all_rule_implementations_poisoned'] = True
+except RuntimeError as exc:
+    import traceback
+    status['finished_with_all_rule_implementations_poisoned'] = False
+    status['error'] = repr(exc)
+    status['traceback'] = traceback.format_exc().splitlines()[-12:]
+out['fifteen_weights_under_poison'] = status
+print({k: v for k, v in status.items() if k != 'rows'}); sys.stdout.flush()
+
+if status.get('finished_with_all_rule_implementations_poisoned') and time.time() - T0 < 150:
+    g = {}
+    try:
+        t = time.time()
+        value = algebra.gauge_and_higgs()
+        g['seconds'] = round(time.time() - t, 1)
+        g['equal_committed_export'] = (json.loads(json.dumps(value)) == committed['gauge_and_Higgs_readout'])
+        g['finished_with_all_rule_implementations_poisoned'] = True
+    except RuntimeError as exc:
+        g['finished_with_all_rule_implementations_poisoned'] = False
+        g['error'] = repr(exc)
+    out['gauge_and_higgs_under_poison'] = g
+    print(g)
+
+out['seconds'] = round(time.time() - T0, 1)
+json.dump(out, open(sys.argv[1], 'w'), indent=1, sort_keys=True)
+print('written', sys.argv[1], out['seconds'])

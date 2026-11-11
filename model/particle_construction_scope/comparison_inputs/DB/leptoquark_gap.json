@@ -1,0 +1,52 @@
+{
+ "positive_sector_dimension": [
+  7200,
+  7200
+ ],
+ "theta0_multiplicity": {
+  "t": 776,
+  "d": 762
+ },
+ "thetapi_multiplicity": {
+  "t": 5848,
+  "d": 5612
+ },
+ "inner_clusters": {
+  "t": 163,
+  "d": 199
+ },
+ "inner_states": {
+  "t": 576,
+  "d": 826
+ },
+ "lowest_nonzero_theta": {
+  "t": 0.03140262756459536,
+  "d": 0.003813100205994494
+ },
+ "common_eigenphases": [
+  {
+   "theta": 3.0274258380998695e-08,
+   "mult_t": 776,
+   "mult_d": 762
+  },
+  {
+   "theta": 1.5967207683750853,
+   "mult_t": 2,
+   "mult_d": 2
+  },
+  {
+   "theta": 1.59793763546972,
+   "mult_t": 2,
+   "mult_d": 2
+  },
+  {
+   "theta": 3.141592602395018,
+   "mult_t": 5848,
+   "mult_d": 5612
+  }
+ ],
+ "smallest_difference_between_distinct_inner_values": 4.913189705524346e-06,
+ "max_spread_inside_a_cluster": 1.9256544092627337e-07,
+ "stationary_cross_block_operators_exist": true,
+ "dimension_of_stationary_cross_block_operators_at_least": 33410296
+}

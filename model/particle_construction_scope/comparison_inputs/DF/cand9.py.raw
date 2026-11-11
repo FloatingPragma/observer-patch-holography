@@ -1,0 +1,263 @@
+"""DF-9 and DF-10 (appendix 2 of CANDIDATES.md). Reads no measured value; writes values9.json.
+
+Run: cd RL/work/DF && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B cand9.py
+"""
+import json
+import math
+import os
+
+import numpy as np
+
+import dflib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+W = np.exp(2j * np.pi / 3)
+R3 = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)      # regular 3-cycle (characters are relabelled only)
+P_NAT, Q_NAT = 1 / 12, 1 / 6
+OUT = {'measured_values_read': False}
+
+
+def summary(y):
+    y = np.sort(np.asarray(y, float))
+    r = {'y_sorted': y.tolist(), 'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2],
+         'koide_Q': y.sum() / np.sqrt(y).sum() ** 2}
+    if y[0] > 1e-15 * y[2]:
+        r['sigma'] = 0.5 * math.log(y[2] / y[0])
+        r['rho'] = math.log(y[1] / y[0]) / math.log(y[2] / y[1]) if y[2] > y[1] * (1 + 1e-12) else 'inf'
+    else:
+        r['sigma'], r['rho'] = 'inf', 'undefined'
+    return r
+
+
+def circ(c0, c1, c2):
+    Y = c0 * np.eye(3) + c1 * R3 + c2 * (R3 @ R3)
+    lam = np.linalg.eigvals(Y)
+    return np.abs(lam) ** 2, lam
+
+
+# ===================================================================================== DF-9
+rows = {}
+def add(name, weights, rule, k, q6):
+    shift = 2 * math.pi * k * q6 / (6 if rule == 'P1' else 18)
+    d = 2 / 9 + shift
+    if weights == 'W1':
+        c = (math.sqrt(Q_NAT), math.sqrt(P_NAT) * np.exp(1j * d), math.sqrt(P_NAT) * np.exp(-1j * d))
+    elif weights == 'W2':
+        c = (math.sqrt(Q_NAT), math.sqrt(P_NAT) * np.exp(1j * d), 0.0)
+    else:
+        c = (0.0, math.sqrt(P_NAT) * np.exp(1j * d), math.sqrt(P_NAT) * np.exp(-1j * d))
+    y, lam = circ(*c)
+    shift_mod = (shift % (2 * math.pi / 3))
+    rows[name] = {'weights': weights, 'phase_rule': rule, 'k': k, 'Q6': q6, 'delta': d,
+                  'shift_mod_2pi_over_3': shift_mod, 'shift_in_units_of_pi_over_9': shift_mod / (math.pi / 9),
+                  **summary(y)}
+
+
+for rule in ('P1', 'P2'):
+    for k in (1, 4):
+        for q6 in (4, -2, 1):
+            add(f'9-W1-{rule}-k{k}-Q{q6}', 'W1', rule, k, q6)
+for w in ('W2', 'W3'):
+    for q6 in (4, -2):
+        add(f'9-{w}-P1-k1-Q{q6}', w, 'P1', 1, q6)
+# exact statements, checked on the readings
+same_ud = all(abs(rows[f'9-{w}-{r}-k{k}-Q4']['y1_over_y3'] - rows[f'9-{w}-{r}-k{k}-Q-2']['y1_over_y3']) < 1e-14
+              and abs(rows[f'9-{w}-{r}-k{k}-Q4']['y2_over_y3'] - rows[f'9-{w}-{r}-k{k}-Q-2']['y2_over_y3']) < 1e-14
+              for (w, r, k) in (('W1', 'P1', 1), ('W1', 'P1', 4), ('W1', 'P2', 1), ('W1', 'P2', 4),
+                                ('W2', 'P1', 1), ('W3', 'P1', 1)))
+lepton = summary(circ(math.sqrt(Q_NAT), math.sqrt(P_NAT) * np.exp(2j / 9), math.sqrt(P_NAT) * np.exp(-2j / 9))[0])
+p1_even_is_lepton = all(abs(rows[f'9-W1-P1-k{k}-Q{q}']['y1_over_y3'] - lepton['y1_over_y3']) < 1e-12
+                        for k in (1, 4) for q in (4, -2))
+OUT['DF-9'] = {
+    'readings': rows,
+    'lepton_reference_delta_2_9': lepton,
+    'exact_statements': {
+        'up_equals_down': 'Q6_up = 4 and Q6_down = -2 are equal mod 6, so exp(2 pi i k Q6/6) and every phase rule built '
+                          'from it coincide for up and down; with junction weights read from the same Z6 junction '
+                          '1 + 3 -> 4, C_u = C_d',
+        'up_equals_down_checked_on_all_readings': same_ud,
+        'P1_even_charge_is_relabelling': 'for even Q6 the P1 shift 2 pi k Q6/6 lies in (2 pi/3)Z, a relabelling of the '
+                                         'characters: the spectrum is the lepton circulant at delta = 2/9',
+        'P1_even_charge_checked': p1_even_is_lepton,
+        'Q_bounds': {'W1': 'Q <= (1 + 2x)/3 = 2/3', 'W2': 'Q <= (1 + x)/3 = 1/2',
+                     'W3': 'Q = 3/(2 (sum_k |cos(delta + 2 pi k/3)|)^2) in [3/8, 1/2]'},
+    },
+}
+# check the W3 range claim numerically
+qs = []
+for t in np.linspace(0, 2 * math.pi, 2001):
+    y, _ = circ(0.0, math.sqrt(P_NAT) * np.exp(1j * t), math.sqrt(P_NAT) * np.exp(-1j * t))
+    if np.sqrt(y).sum() > 0:
+        qs.append(y.sum() / np.sqrt(y).sum() ** 2)
+OUT['DF-9']['exact_statements']['W3_Q_range_numerical'] = [min(qs), max(qs)]
+
+# ===================================================================================== DF-10
+C = L.carrier()
+gC = next(g for g in C['rots'] if g[2] == 3 and g[3] == 2 and L.order(g) == 2)
+gE = next(g for g in C['rots'] if g[2] == 10 and g[10] == 2 and L.order(g) == 2)
+g = L.compose(gE, gC)
+FA, FB = L.face_of((4, 5, 11)), L.face_of((6, 7, 8))
+faces = C['faces']
+iA, iB = faces.index(FA), faces.index(FB)
+_, D = L.area_table(0)                     # oriented face/seam incidence (20 x 30)
+
+
+def flux_table(target):
+    """Integer seam table n with D n = target (target sums to zero), by a dual spanning-tree flow."""
+    dual = {i: [] for i in range(20)}
+    for j in range(30):
+        fs = [i for i in range(20) if D[i, j] != 0]
+        dual[fs[0]].append((fs[1], j))
+        dual[fs[1]].append((fs[0], j))
+    root = 0
+    parent, order_ = {root: None}, [root]
+    for x in order_:
+        for y, j in dual[x]:
+            if y not in parent:
+                parent[y] = (x, j)
+                order_.append(y)
+    n = np.zeros(30)
+    excess = np.array(target, float).copy()
+    for y in reversed(order_[1:]):
+        x, j = parent[y]
+        n[j] = excess[y] * D[y, j]
+        excess[x] -= D[x, j] * n[j]
+    assert np.allclose(D @ n, target)
+    return n
+
+
+def twisted(m_flux):
+    """Adjacency with face flux 2 pi m/6 on FA and -2 pi m/6 on FB (m may be fractional for continuation)."""
+    target = np.zeros(20)
+    target[iA], target[iB] = m_flux, -m_flux
+    n = flux_table(target)
+    A = np.zeros((12, 12), complex)
+    for j, (u, v) in enumerate(C['seams']):
+        ph = np.exp(2j * np.pi * n[j] / 6)
+        A[v, u] = ph
+        A[u, v] = np.conj(ph)
+    return A
+
+
+def lift(A, gg):
+    P = L.perm_matrix(gg)
+    B = P @ A @ P.T
+    d = np.zeros(12, complex)
+    d[0] = 1.0
+    seen, queue = {0}, [0]
+    while queue:
+        u = queue.pop()
+        for v in C['adj'][u]:
+            if v not in seen:
+                d[v] = A[v, u] * d[u] / B[v, u]
+                seen.add(v)
+                queue.append(v)
+    M = np.diag(d) @ P
+    assert np.allclose(M @ A @ M.conj().T, A, atol=1e-10)
+    M3 = M @ M @ M
+    c = M3[0, 0]
+    assert np.allclose(M3, c * np.eye(12), atol=1e-10)
+    return M / c ** (1 / 3)
+
+
+def family_levels(m_flux):
+    A = twisted(m_flux)
+    assert np.allclose(A, A.conj().T)
+    Gt = lift(A, g)
+    levels = []
+    for j in range(3):
+        Pj = sum(W ** (-d * j) * np.linalg.matrix_power(Gt, d) for d in range(3)) / 3
+        U, s, _ = np.linalg.svd(Pj)
+        B = U[:, s > 0.5]
+        assert B.shape[1] == 4
+        ev = np.linalg.eigvalsh(B.conj().T @ A @ B)
+        levels.append(ev)
+    return levels
+
+
+def track(m_target, steps=60):
+    """Follow the family-band level (sqrt5 at zero flux) in each Fourier sector by continuity."""
+    cur = None
+    for t in np.linspace(0, 1, steps + 1):
+        lv = family_levels(t * m_target)
+        if cur is None:
+            cur = []
+            for ev in lv:
+                i = int(np.argmin(np.abs(ev - math.sqrt(5))))
+                assert abs(ev[i] - math.sqrt(5)) < 1e-9
+                cur.append(ev[i])
+        else:
+            # match sectors by continuity of the whole sector spectrum is not needed: the lift is continuous in t
+            new = []
+            for j, ev in enumerate(lv):
+                i = int(np.argmin(np.abs(ev - cur[j])))
+                new.append(ev[i])
+            cur = new
+    final = family_levels(m_target)
+    gaps = [float(np.sort(np.abs(ev - a))[1]) for ev, a in zip(final, cur)]
+    return np.array(cur), gaps
+
+
+df10 = {'axis_faces': [list(FA), list(FB)], 'readings': {}}
+for m in (0, 1, 2, 3):
+    a, gaps = track(m)
+    E = (5 - a) / 60
+    om = np.arccos(1 - E)
+    entry = {'family_adjacency_levels': sorted(a.tolist(), reverse=True), 'min_gap_to_other_levels_in_sector': min(gaps),
+             'families_1_2_degenerate': bool(np.isclose(sorted(a)[0], sorted(a)[1]) or np.isclose(sorted(a)[1], sorted(a)[2]))}
+    if m:
+        entry['10A'] = summary(E)
+        entry['10F'] = summary(om)
+    else:
+        entry['equal_levels'] = bool(np.allclose(a, math.sqrt(5)))
+    df10['readings'][f'm{m}'] = entry
+df10['assignments'] = {'left_quark (k=1, Q6=1)': 'm1', 'right_quark (k=4, Q6=4 or -2)': 'm4 = conjugate of m2',
+                       'lepton (k=3, Q6=-3)': 'm3'}
+# conjugation check: m = 4 = -2 mod 6; the direct continuation 0 -> -2 reproduces the m = 2 levels
+am2, _ = track(-2)
+a2 = np.array(df10['readings']['m2']['family_adjacency_levels'])
+df10['m4_as_minus2_equals_m2'] = bool(np.allclose(sorted(am2), sorted(a2)))
+df10['full_spectra_equal_m2_m4'] = bool(np.allclose(np.linalg.eigvalsh(twisted(2)), np.linalg.eigvalsh(twisted(4))))
+# degeneracy structure of the full spectrum: the class flux lifts the family degeneracy for m = 1, 2 (quark
+# classes); for m = 3 (lepton class, real flux pi) every level is twofold
+deg = {}
+for m in (0, 1, 2, 3):
+    ev = np.round(np.linalg.eigvalsh(twisted(m)), 8)
+    vals, cnt = np.unique(ev, return_counts=True)
+    deg[f'm{m}'] = {'distinct_levels': int(len(vals)), 'multiplicities': sorted(cnt.tolist(), reverse=True)}
+df10['full_spectrum_degeneracy'] = deg
+lv3 = family_levels(3)
+df10['m3_sector_spectra'] = [np.round(np.sort(e)[::-1], 6).tolist() for e in lv3]
+df10['m3_note'] = ('flux pi is real: two Fourier sectors have identical spectra and every level of the twelve is twofold; '
+                   'the continuation of the family band is not unique (gap 0 inside one sector)')
+OUT['DF-10'] = df10
+
+
+def clean(o):
+    if isinstance(o, dict):
+        return {str(k): clean(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [clean(v) for v in o]
+    if isinstance(o, np.ndarray):
+        return clean(o.tolist())
+    if isinstance(o, (np.floating,)):
+        return float(o)
+    if isinstance(o, (np.bool_,)):
+        return bool(o)
+    if isinstance(o, complex):
+        return [o.real, o.imag]
+    return o
+
+
+with open(os.path.join(HERE, 'values9.json'), 'w') as fh:
+    json.dump(clean(OUT), fh, indent=1, sort_keys=True)
+
+for name, r in rows.items():
+    print(name, 'shift/(pi/9)=%.3f' % r['shift_in_units_of_pi_over_9'], 'y1/y3=%.3e y2/y3=%.3e Q=%.4f' % (
+        r['y1_over_y3'], r['y2_over_y3'], r['koide_Q']))
+print('up=down all', same_ud, '| P1 even = lepton', p1_even_is_lepton, '| W3 Q range', OUT['DF-9']['exact_statements']['W3_Q_range_numerical'])
+for m, e in df10['readings'].items():
+    print('DF-10', m, np.round(e['family_adjacency_levels'], 6), 'gap', round(e['min_gap_to_other_levels_in_sector'], 4),
+          'deg12', e['families_1_2_degenerate'],
+          ('A y1/y3=%.4f y2/y3=%.4f Q=%.4f' % (e['10A']['y1_over_y3'], e['10A']['y2_over_y3'], e['10A']['koide_Q'])) if '10A' in e else '')
+print('m4 (as -2) = m2', df10['m4_as_minus2_equals_m2'], 'full spectra equal', df10['full_spectra_equal_m2_m4']); print('degeneracy', df10['full_spectrum_degeneracy'])

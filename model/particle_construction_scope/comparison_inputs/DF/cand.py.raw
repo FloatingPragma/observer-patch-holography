@@ -1,0 +1,327 @@
+"""Evaluate the registered DF candidates (CANDIDATES.md). Reads no measured value. Writes values.json.
+
+Run: cd RL/work/DF && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B cand.py
+"""
+import json
+import math
+import os
+
+import numpy as np
+import sympy as sp
+
+import dflib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+P_NAT, Q_NAT = 1 / 12, 1 / 6
+THETA_L = 2 / 9
+OUT = {'labels': 'EXACT = closed form or exact algebra; MEASURED = float64 with printed defect; ARGUED = written '
+                 'argument', 'measured_values_read': False}
+
+
+def spectrum_summary(y):
+    """y: three nonnegative Yukawa values (any order)."""
+    y = np.sort(np.asarray(y, float))
+    res = {'y_sorted': y.tolist(), 'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2]}
+    if y[0] > 0:
+        res['sigma'] = 0.5 * math.log(y[2] / y[0])
+        res['rho'] = math.log(y[1] / y[0]) / math.log(y[2] / y[1]) if y[2] > y[1] else float('inf')
+    else:
+        res['sigma'] = float('inf')
+        res['rho'] = None
+    res['koide_Q'] = y.sum() / np.sqrt(y).sum() ** 2
+    return res
+
+
+def svd_frames(Y):
+    """Y_ij with i = left copy, j = right copy. Left frame = eigenvectors of Y Y^dag (columns), sorted ascending."""
+    U, s, Vh = np.linalg.svd(Y)
+    idx = np.argsort(s)
+    return s[idx], U[:, idx], Vh.conj().T[:, idx]
+
+
+def ckm_abs(UuL, UdL):
+    return np.abs(UuL.conj().T @ UdL)
+
+
+# ================================================================================= Z6 labels (exact)
+def z6(n3, n2):
+    return (3 * n2 - 2 * n3) % 6
+
+
+pat = {'Q_L': (1, 1), 'u_R': (1, 2), 'd_R': (1, 0), 'L': (3, 1), 'e_R': (3, 0), 'nu_R': (3, 2), 'H': (0, 1)}
+cls = {k: z6(*v) for k, v in pat.items()}
+cls['Hbar'] = (-cls['H']) % 6
+six_y = {k: 3 * v[1] - 2 * v[0] for k, v in pat.items()}
+six_y['Hbar'] = -six_y['H']
+OUT['z6_identity'] = {
+    'label': 'EXACT',
+    'classes': cls,
+    'six_Y_integer': six_y,
+    'up_junction_classes': (cls['Q_L'], cls['H'], cls['u_R']),
+    'down_junction_classes': (cls['Q_L'], cls['Hbar'], cls['d_R']),
+    'identical_mod_6': (cls['Q_L'], cls['H'], cls['u_R']) == (cls['Q_L'], cls['Hbar'], cls['d_R']),
+    'integer_junctions': {'up': f"{six_y['Q_L']} + {six_y['H']} -> {six_y['u_R']}",
+                          'down': f"{six_y['Q_L']} + ({six_y['Hbar']}) -> {six_y['d_R']}"},
+    'consequence': 'a junction law that reads the defects only through Z6 classes assigns the same data to the up and '
+                   'the down junction: Y_u = c Y_d, equal singular-value ratios, V_CKM = 1',
+}
+assert OUT['z6_identity']['identical_mod_6']
+
+# ================================================================================= DF-1 circulant
+C = L.carrier()
+gC = next(g for g in C['rots'] if g[2] == 3 and g[3] == 2 and L.order(g) == 2)
+gE = next(g for g in C['rots'] if g[2] == 10 and g[10] == 2 and L.order(g) == 2)
+gR = L.compose(gE, gC)
+face_axis = L.face_of((4, 5, 11))
+a_, b_, c_ = face_axis
+assert gR[a_] in face_axis
+# R on the face ports in the face orientation that gR induces
+R3 = np.zeros((3, 3))
+pos = {p: i for i, p in enumerate(face_axis)}
+for p in face_axis:
+    R3[pos[gR[p]], pos[p]] = 1.0
+assert np.allclose(np.linalg.matrix_power(R3, 3), np.eye(3))
+
+
+def circulant(c0, c1, c2):
+    return c0 * np.eye(3) + c1 * R3 + c2 * (R3 @ R3)
+
+
+df1 = {'axis_face': list(face_axis), 'R_on_face_ports': R3.tolist(), 'readings': {}}
+# 1a: numerical illustration of the exact bound (the proof is in fiber.json)
+rng = np.random.default_rng(20261110)
+worst = 0.0
+for _ in range(20000):
+    ph = np.exp(1j * rng.uniform(0, 2 * np.pi, 3))
+    Y = circulant(math.sqrt(Q_NAT) * ph[0], math.sqrt(P_NAT) * ph[1], math.sqrt(P_NAT) * ph[2])
+    lam = np.linalg.eigvals(Y)
+    y = np.abs(lam) ** 2
+    worst = max(worst, y.sum() / np.sqrt(y).sum() ** 2)
+df1['1a'] = {'label': 'EXACT (proof in fiber.json); MEASURED illustration',
+             'bound': 'Q <= 2/3 for every phase assignment at the native weights',
+             'max_Q_over_20000_random_phase_triples': worst, 'bound_value': 2 / 3,
+             'up_down': 'identical under Z6 (z6_identity)'}
+assert worst <= 2 / 3 + 1e-12
+for n in range(6):
+    th = THETA_L + n * math.pi / 9
+    Y = circulant(math.sqrt(Q_NAT), math.sqrt(P_NAT) * np.exp(1j * th), math.sqrt(P_NAT) * np.exp(-1j * th))
+    assert np.allclose(Y, Y.conj().T)
+    lam = np.linalg.eigvalsh(Y)
+    closed = sorted(math.sqrt(Q_NAT) + 2 * math.sqrt(P_NAT) * math.cos(th + 2 * math.pi * k / 3) for k in range(3))
+    assert np.allclose(sorted(lam), closed)
+    y = lam ** 2
+    key = '1b' if n == 0 else f'1c-{n}'
+    df1['readings'][key] = {'theta': th, 'theta_formula': f'2/9 + {n} pi/9', 'lambda': sorted(lam.tolist()),
+                            'positive_chamber': bool(np.all(lam > 0)), **spectrum_summary(y),
+                            'V_CKM': 'identity (one R for both sectors, EXACT)'}
+OUT['DF-1'] = df1
+
+# ================================================================================= DF-2 one orientation
+th = THETA_L
+Y = circulant(math.sqrt(Q_NAT), math.sqrt(P_NAT) * np.exp(1j * th), 0)
+lam = np.linalg.eigvals(Y)
+y = np.abs(lam) ** 2
+bound_amp = (math.sqrt(Q_NAT) + math.sqrt(P_NAT)) / (math.sqrt(Q_NAT) - math.sqrt(P_NAT))
+OUT['DF-2'] = {'label': 'EXACT bound; MEASURED values', 'theta': th, 'abs_lambda': sorted(np.abs(lam).tolist()),
+               **spectrum_summary(y),
+               'bound_y3_over_y1_any_theta': bound_amp ** 2,
+               'bound_formula': '((sqrt q + sqrt p)/(sqrt q - sqrt p))^2 = (3 + 2 sqrt2)^2 = 17 + 12 sqrt2',
+               'bound_exact_check': abs(bound_amp ** 2 - (17 + 12 * math.sqrt(2))) < 1e-12,
+               'V_CKM': 'identity (EXACT)'}
+
+# ================================================================================= DF-3 untwisted overlap
+J = L.junction((2, 3))
+a, b, c1, c3 = J['a'], J['b'], J['c1'], J['c3']
+f1, f3 = J['f1'], J['f3']
+
+
+def chars(face, A=None):
+    """Untwisted: eigenvectors of the cyclic shift a -> b -> c of the oriented face (columns, ports in face order).
+    Twisted (A given): eigenvectors of A restricted to the face, ascending eigenvalue."""
+    if A is None:
+        U = np.array([[W ** (-j * i) for j in range(3)] for i in range(3)], complex) / math.sqrt(3)
+        return U, [f'character w^{j}' for j in range(3)]
+    sub = A[np.ix_(face, face)]
+    ev, U = np.linalg.eigh(sub)
+    return U, ev.tolist()
+
+
+W = L.W3
+T0 = L.kernel(C['A'])
+h3 = np.ones(3) / math.sqrt(3)            # consensus character on f3 (ports in f3 order)
+U1, _ = chars(f1)
+U3, _ = chars(f3)
+# contact vertex: M[p in f3, p' in f1] = delta_{p p'} h(p) on the shared ports
+Mc = np.zeros((3, 3), complex)
+for i, p in enumerate(f3):
+    for j, pp in enumerate(f1):
+        if p == pp:
+            Mc[i, j] = h3[i]
+Mt = np.diag(h3) @ T0[np.ix_(f3, f1)]
+df3 = {'junction': J}
+for key, M in (('3a', Mc), ('3b', Mt)):
+    Yc = U1.T @ M.T @ U3.conj()          # Y_ij = sum conj(w_j(p)) M[p, p'] u_i(p')
+    s, UL, UR = svd_frames(Yc)
+    df3[key] = {'Y_in_character_basis_abs': np.abs(Yc).tolist(), 'singular_values': s.tolist(),
+                **spectrum_summary(s),
+                'left_frame_abs_in_characters': np.abs(UL).tolist(), 'V_CKM': 'identity (Z6, EXACT)'}
+# exact forms for 3b: block of T between f3 rows (b, a, c3) and f1 cols (a, b, c1)
+x = sp.symbols('x')
+Tb = sp.Matrix([[sp.Rational(1, 60), sp.Rational(11, 12), sp.Rational(1, 60)],
+                [sp.Rational(11, 12), sp.Rational(1, 60), sp.Rational(1, 60)],
+                [sp.Rational(1, 60), sp.Rational(1, 60), 0]])
+assert np.allclose(np.array(Tb, float), T0[np.ix_(f3, f1)])
+sv2 = sp.Poly((Tb * Tb.T).charpoly(x).as_expr(), x)
+df3['3b_exact'] = {'block_rows_f3_cols_f1': [[str(e) for e in row] for row in Tb.tolist()],
+                   'singular_values_times_sqrt3': ['9/10', '(28 + sqrt(786))/60', '(sqrt(786) - 28)/60'],
+                   'check': [float(sp.Rational(9, 10)), float((28 + sp.sqrt(786)) / 60), float((sp.sqrt(786) - 28) / 60)],
+                   'charpoly_of_T_T^t': str(sv2.as_expr())}
+assert np.allclose(sorted(df3['3b_exact']['check']), sorted((s * math.sqrt(3)).tolist()))
+OUT['DF-3'] = df3
+
+# ================================================================================= DF-4 area record
+legs = {'Q_L': (1, 1), 'H': (0, 1), 'u_R': (1, 2), 'd_R': (1, 0), 'L': (3, 1), 'e_R': (3, 0)}
+sec = {k: L.sector(L.charge(*v)) for k, v in legs.items()}
+sec['Hbar'] = L.sector(-L.charge(0, 1))
+assert (sec['Q_L'], sec['H'], sec['u_R'], sec['d_R'], sec['Hbar'], sec['L'], sec['e_R']) == (9, 7, 16, 2, 13, 13, 6)
+assert (sec['Q_L'] + sec['H']) % 20 == sec['u_R'] and (sec['Q_L'] + sec['Hbar']) % 20 == sec['d_R']
+assert (sec['L'] + sec['Hbar']) % 20 == sec['e_R']
+channels = {'up': ('Q_L', 'H', 'u_R'), 'down': ('Q_L', 'Hbar', 'd_R'), 'charged_lepton_control': ('L', 'Hbar', 'e_R')}
+
+
+def df4_eval(seam=(2, 3), root_face=0):
+    J = L.junction(seam)
+    f1, f3 = J['f1'], J['f3']
+    res = {}
+    for name, (lft, hig, rgt) in channels.items():
+        kL, kH, kR = sec[lft], sec[hig], sec[rgt]
+        AL, AH, AR = (L.twisted_adjacency(k, root_face) for k in (kL, kH, kR))
+        Uf1, evL = chars(f1, AL)
+        Uf3, evR = chars(f3, AR)
+        evH, VH = np.linalg.eigh(AH[np.ix_(f3, f3)])
+        h = VH[:, np.argmax(evH)]
+        out = {'sectors': (kL, kH, kR), 'h_moduli': np.abs(h).tolist()}
+        Mc = np.zeros((3, 3), complex)
+        for i, p in enumerate(f3):
+            for j, pp in enumerate(f1):
+                if p == pp:
+                    Mc[i, j] = h[i]
+        Mt = np.diag(h) @ L.kernel(AL)[np.ix_(f3, f1)]
+        for key, M in (('4a', Mc), ('4b', Mt)):
+            Y = Uf1.T @ M.T @ Uf3.conj()
+            s, UL, UR = svd_frames(Y)
+            out[key] = {'singular_values': s.tolist(), **spectrum_summary(s), 'UL': UL}
+        res[name] = out
+    return res
+
+
+base = df4_eval()
+df4 = {'sectors': sec, 'junctions': {'up': '9 + 7 -> 16', 'down': '9 + 13 -> 2', 'charged_lepton': '13 + 13 -> 6'}}
+for key in ('4a', '4b'):
+    rows = {}
+    for name in channels:
+        r = base[name][key]
+        rows[name] = {k: v for k, v in r.items() if k != 'UL'}
+    V = ckm_abs(base['up'][key]['UL'], base['down'][key]['UL'])
+    sv_u = np.array(base['up'][key]['singular_values'])
+    rows['V_CKM_abs'] = V.tolist()
+    rows['degenerate_pair_in_left_frame'] = bool(np.isclose(sv_u[1], sv_u[2]) or np.isclose(sv_u[0], sv_u[1]))
+    df4[key] = rows
+# covariance and gauge checks: other seams, other gauge root
+checks = []
+for seam, root in (((0, 1), 0), ((5, 9), 3), ((2, 3), 7), ((6, 7), 11)):
+    other = df4_eval(seam, root)
+    for name in channels:
+        for key in ('4a', '4b'):
+            checks.append(float(np.max(np.abs(np.array(other[name][key]['singular_values'])
+                                              - np.array(base[name][key]['singular_values'])))))
+df4['max_singular_value_change_over_seams_and_gauges'] = max(checks)
+df4['h_has_uniform_modulus'] = all(np.allclose(base[n]['h_moduli'], 1 / math.sqrt(3)) for n in channels)
+df4['up_equals_down_4b'] = bool(np.allclose(base['up']['4b']['singular_values'], base['down']['4b']['singular_values']))
+OUT['DF-4'] = df4
+
+# ================================================================================= DF-5 second index
+r5 = sp.sqrt(5)
+tau = [sp.Rational(11, 12) + r5 / 60, sp.Rational(9, 10), sp.Rational(11, 12) - r5 / 60]   # slow, middle, fast
+rho5a = sp.log(tau[1] / tau[2]) / sp.log(tau[0] / tau[1])
+sig5a = sp.log(tau[0] / tau[2]) / 2
+om = [1 - t for t in tau]
+rho5b = sp.log(om[1] / om[0]) / sp.log(om[2] / om[1])
+sig5b = sp.log(om[2] / om[0]) / 2
+OUT['DF-5'] = {
+    'label': 'EXACT',
+    'tau': [str(t) for t in tau],
+    '5a': {'rule': 'y_c proportional to tau_c^N', 'rho': str(rho5a), 'rho_value': float(rho5a),
+           'sigma_over_N': str(sig5a), 'sigma_over_N_value': float(sig5a),
+           'heavy_copy': 'slow (the public family band)', 'light_copy': 'fast'},
+    '5b': {'rule': 'y_c proportional to (1 - tau_c)^N', 'rho': str(rho5b), 'rho_value': float(rho5b),
+           'sigma_over_N': str(sig5b), 'sigma_over_N_value': float(sig5b),
+           'heavy_copy': 'fast', 'light_copy': 'slow'},
+    'up_down': 'the same function of the kernel level in both sectors: rho_u = rho_d, V_CKM = 1; N_u, N_d free',
+    'fiber_left': 'one free number per sector (N_q), the RER spread modulus with a native shape law',
+}
+
+# ================================================================================= DF-6 mixing summary
+OUT['DF-6'] = {'6a': 'V_CKM = 1 for every Z6-only junction law (EXACT, z6_identity)',
+               '6b_4a': df4['4a']['V_CKM_abs'], '6b_4b': df4['4b']['V_CKM_abs'],
+               '6c': 'quoted from RL/work/T5/MASS_MATRICES.md row B2: sines 0.526, 0.707, 0 (no new evaluation)'}
+
+# ================================================================================= DF-7 survival gate
+s_ = sp.symbols('s', nonnegative=True)
+x_eff = sp.Rational(1, 2) * s_ / ((1 + s_) / 2)
+OUT['DF-7'] = {
+    'label': 'EXACT under the stated reading; ARGUED that the reading is the hypothesis of the brief',
+    'reading': 'survival multiplies the rate of each record by s per transported unit; C (coin0, raw1) carries one '
+               'unit; E (coin0) is raw4 (current 0, survival 1) and raw5 (current +1, survival s) at 1/12 each; the '
+               'Z6 Aharonov-Bohm phases of u_R and d_R coincide',
+    'x_eff': str(sp.simplify(x_eff)), 'x_eff_le_half_for_s_le_1': bool(sp.simplify(sp.Rational(1, 2) - x_eff
+                                                                                    - (1 - s_) / (2 * (1 + s_))) == 0),
+    'Q_bound': 'Q_s <= (1 + 2 x_eff)/3 <= 2/3',
+    'up_down': 'identical (Z6)',
+}
+
+# ================================================================================= write
+def clean(o):
+    if isinstance(o, dict):
+        return {str(k): clean(v) for k, v in o.items() if not isinstance(v, np.ndarray) or True}
+    if isinstance(o, (list, tuple)):
+        return [clean(v) for v in o]
+    if isinstance(o, np.ndarray):
+        return clean(o.tolist())
+    if isinstance(o, complex):
+        return [o.real, o.imag]
+    if isinstance(o, (np.floating,)):
+        return float(o)
+    if isinstance(o, (np.integer,)):
+        return int(o)
+    if isinstance(o, (np.bool_,)):
+        return bool(o)
+    if isinstance(o, float) and (math.isinf(o) or math.isnan(o)):
+        return str(o)
+    return o
+
+
+with open(os.path.join(HERE, 'values.json'), 'w') as fh:
+    json.dump(clean(OUT), fh, indent=1, sort_keys=True)
+
+# short printout
+for k, v in OUT['DF-1']['readings'].items():
+    print(k, 'theta=%.5f' % v['theta'], 'y1/y3=%.3e y2/y3=%.3e Q=%.5f sigma=%.4f rho=%s pos=%s' % (
+        v['y1_over_y3'], v['y2_over_y3'], v['koide_Q'], v['sigma'], v['rho'], v['positive_chamber']))
+print('DF-1a max Q', worst)
+d2 = OUT['DF-2']
+print('DF-2 y1/y3=%.4e y2/y3=%.4e Q=%.4f bound y3/y1=%.4f' % (d2['y1_over_y3'], d2['y2_over_y3'], d2['koide_Q'],
+                                                            d2['bound_y3_over_y1_any_theta']))
+for key in ('3a', '3b'):
+    print('DF-' + key, 'sv', np.round(df3[key]['singular_values'], 6), 'y1/y3=%.3e y2/y3=%.4f' % (
+        df3[key]['y1_over_y3'], df3[key]['y2_over_y3']))
+for key in ('4a', '4b'):
+    for name in channels:
+        r = df4[key][name]
+        print('DF-' + key, name, 'sv', np.round(r['singular_values'], 6))
+    print('   |V|', np.round(np.array(df4[key]['V_CKM_abs']), 4).tolist(), 'degenerate', df4[key]['degenerate_pair_in_left_frame'])
+print('DF-4 checks', df4['max_singular_value_change_over_seams_and_gauges'], 'h uniform', df4['h_has_uniform_modulus'],
+      'up=down(4b)', df4['up_equals_down_4b'])
+print('DF-5a rho', OUT['DF-5']['5a']['rho_value'], 'sigma/N', OUT['DF-5']['5a']['sigma_over_N_value'])
+print('DF-5b rho', OUT['DF-5']['5b']['rho_value'], 'sigma/N', OUT['DF-5']['5b']['sigma_over_N_value'])
+print('DF-7', OUT['DF-7']['x_eff'], OUT['DF-7']['x_eff_le_half_for_s_le_1'])

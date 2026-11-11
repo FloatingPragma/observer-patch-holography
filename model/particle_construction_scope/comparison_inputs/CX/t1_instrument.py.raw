@@ -1,0 +1,209 @@
+"""Task 1: exact carrier-level identities of CAP (Q(zeta_20) arithmetic; no floating point in any identity).
+
+Checks: geometry against the carrier's exact Gram matrix; face holonomy; completeness; population lumping against
+model.observer.native for every matrix unit (totals one and two); covariance under the 120 cover elements with
+monomial implementers; group law and central element; endpoint-swap covariance. The last block compares the exact
+rows with the float rows of work/FLUXPUMP/cap.py after a port rephasing (MEASURED, defect printed).
+"""
+import json, sys, time
+from fractions import Fraction as F
+from cyc import Cyc, ZERO, ONE, Z, SQRT5, q5, mmul, dagger, meq, eye, mat
+import carrier_exact as ce
+from model.observer import native
+
+out = {}
+t0 = time.time()
+
+# 1. geometry: the frame reproduces the carrier's exact Gram matrix and orientation
+gram = ce._src.intrinsic_gram_exact()
+ok = True
+for p in range(12):
+    for q in range(12):
+        g = gram[p][q]
+        ok &= ce.dot(p, q) == q5(g[0], g[1])
+orient = [ce.triple(*f).sign() for f in ce.FACES]
+assert ok and set(orient) == {1}
+# spinors are the coherent states of the directions: chi chi^dagger = (1 + u.sigma)/2
+for p in range(12):
+    c = ce.SPINOR[p]; w, z = ce.VECTOR[p]
+    assert c[0] * c[0].conj() == (ONE + z) / 2 and c[1] * c[1].conj() == (ONE - z) / 2 and c[1] * c[0].conj() == w / 2
+out['geometry'] = {'gram_entries_equal_carrier_exact_gram': 144, 'oriented_faces_positive_determinant': 20,
+                   'spinor_projectors_equal_(1+u.sigma)/2': 12}
+print('geometry: Gram 144/144, orientation 20/20, coherent-state projectors 12/12')
+
+# 2. link phases and flux
+flux = sorted({ce.face_flux(f) for f in ce.FACES})
+assert flux == [19], flux                          # zeta^19 = exp(-2 pi i / 20) on every oriented face
+out['link'] = {'all_60_link_phases_are_20th_roots_of_unity': True, 'exponents': {f'{a},{b}': ce.LINK[(a, b)] for a, b in ce.SEAMS},
+               'face_holonomy_exponent_mod_20': 19, 'face_holonomy': 'exp(-2 pi i/20) on each of the 20 oriented faces'}
+print('link phases: 60 roots of unity; face holonomy zeta^19 = exp(-2 pi i/20) on 20/20 oriented faces')
+
+# 3. binary cover
+cover = ce.COVER
+assert len(cover) == 120
+for perm, t, G in cover:
+    # G is special unitary and G chi_p = zeta^t(p) chi_{perm p}
+    GG = [[G[0][0].conj() * G[0][0] + G[1][0].conj() * G[1][0], G[0][0].conj() * G[0][1] + G[1][0].conj() * G[1][1]],
+          [G[0][1].conj() * G[0][0] + G[1][1].conj() * G[1][0], G[0][1].conj() * G[0][1] + G[1][1].conj() * G[1][1]]]
+    assert GG[0][0] == 1 and GG[1][1] == 1 and GG[0][1] == 0 and GG[1][0] == 0
+    assert G[0][0] * G[1][1] - G[0][1] * G[1][0] == 1
+    for p in range(12):
+        img = ce.apply_su2(G, ce.SPINOR[p]); tgt = ce.SPINOR[perm[p]]; ph = Z ** t[p]
+        assert img[0] == ph * tgt[0] and img[1] == ph * tgt[1]
+key = {(perm, t): i for i, (perm, t, G) in enumerate(cover)}
+assert len(key) == 120
+ident = tuple(range(12))
+central = [i for i, (perm, t, G) in enumerate(cover) if perm == ident]
+assert sorted(cover[i][1] for i in central) == [tuple([0] * 12), tuple([10] * 12)]
+closed = 0
+for perm_g, t_g, _ in cover:
+    for perm_h, t_h, _ in cover:
+        perm = tuple(perm_g[perm_h[p]] for p in range(12))
+        t = tuple((t_h[p] + t_g[perm_h[p]]) % 20 for p in range(12))
+        assert (perm, t) in key
+        closed += 1
+orders = {}
+for perm, t, _ in cover:
+    cur = (perm, t); n = 1
+    while cur != (ident, tuple([0] * 12)):
+        cur = (tuple(perm[cur[0][p]] for p in range(12)), tuple((cur[1][p] + t[cur[0][p]]) % 20 for p in range(12))); n += 1
+    orders[n] = orders.get(n, 0) + 1
+assert orders == {1: 1, 2: 1, 3: 20, 4: 30, 5: 24, 6: 20, 10: 24}, orders     # binary icosahedral group
+out['cover'] = {'elements': 120, 'products_closed': closed, 'element_orders': orders,
+                'central_element': 'identity permutation with port phases zeta^10 = -1: acts as (-1)^(k * load)',
+                'lifts_are_special_unitary_with_g_chi_p=zeta^t_chi_gp': True}
+print(f'binary cover: 120 lifts, {closed} products closed, element orders {orders}')
+
+# 4. instrument identities for every flux, totals one and two
+def completeness(total, k):
+    d = len(ce.space(total))
+    for seam in ce.SEAMS:
+        acc = {}
+        for _, K in ce.instrument(seam, total, k):
+            cols = {}
+            for (i, j), v in K.items():
+                cols.setdefault(j, []).append((i, v))
+            for j, cj in cols.items():
+                for j2, cj2 in cols.items():
+                    s = ZERO
+                    rows2 = dict(cj2)
+                    for i, v in cj:
+                        if i in rows2:
+                            s = s + v.conj() * rows2[i]
+                    if not s.is_zero():
+                        acc[(j, j2)] = acc.get((j, j2), ZERO) + s
+        assert all((acc.get((i, j), ZERO) == (ONE if i == j else ZERO)) for i in range(d) for j in range(d)), (total, k, seam)
+    return True
+
+def lumping(total, k):
+    """diag(sum_r K E_ij K^dagger) = T_seam e_i if i == j else 0, for all matrix units, all seams. Returns count."""
+    states = ce.space(total); d = len(states); idx = {s: i for i, s in enumerate(states)}
+    count = 0
+    for seam in ce.SEAMS:
+        T = {}
+        for s, i in idx.items():
+            for coin in (0, 1):
+                nxt, _ = native.native(s, seam, coin)
+                T[(idx[tuple(nxt)], i)] = T.get((idx[tuple(nxt)], i), F(0)) + F(1, 2)
+        cols = []
+        for _, K in ce.instrument(seam, total, k):
+            c = {}
+            for (i, j), v in K.items():
+                c.setdefault(j, {})[i] = v
+            cols.append(c)
+        for i in range(d):
+            for j in range(d):
+                diag = {}
+                for c in cols:
+                    ci, cj = c.get(i), c.get(j)
+                    if ci and cj:
+                        for m, v in ci.items():
+                            if m in cj:
+                                diag[m] = diag.get(m, ZERO) + v * cj[m].conj()
+                for m in range(d) if i == j else diag:
+                    want = Cyc.of(T.get((m, i), F(0))) if i == j else ZERO
+                    assert diag.get(m, ZERO) == want, (total, k, seam, i, j, m)
+                count += 1
+    return count
+
+def covariance(total, k):
+    """U_g K_{e,r} U_g^dagger = phase * K_{g e, r'} for the 120 cover elements; returns (count, phases seen)."""
+    phases = {}; count = 0
+    for lift in cover:
+        perm = lift[0]
+        U = ce.implementer(lift, total, k)
+        for seam in ce.SEAMS:
+            a, b = seam; img = (perm[a], perm[b])
+            rows = dict(ce.instrument(seam, total, k)); tgt = dict(ce.instrument(img, total, k))
+            for label, K in rows.items():
+                C = ce.conj_sparse(K, U)
+                found = None
+                for e in range(20):
+                    if ce.sp_eq(C, {key_: v * Z ** e for key_, v in tgt[label].items()}):
+                        found = e; break
+                assert found is not None, (total, k, seam, label)
+                phases.setdefault(label, set()).add(found); count += 1
+    return count, {label: sorted(v) for label, v in phases.items()}
+
+def swap(total, k):
+    """Rows of the reversed seam: keep equal, corrected equal up to the sign -1, split_a and split_b exchanged."""
+    for a, b in ce.SEAMS:
+        r1 = dict(ce.instrument((a, b), total, k)); r2 = dict(ce.instrument((b, a), total, k))
+        assert ce.sp_eq(r1['keep'], r2['keep'])
+        assert ce.sp_eq(r1['corrected'], {key_: -v for key_, v in r2['corrected'].items()})
+        if total == 2:
+            assert ce.sp_eq(r1['split_a'], r2['split_b']) and ce.sp_eq(r1['split_b'], r2['split_a'])
+    return True
+
+for total in (1, 2):
+    for k in ((0, 1, 2, 3, 7, 10) if total == 1 else (1,)):
+        t1 = time.time()
+        completeness(total, k)
+        units = lumping(total, k)
+        ncov, phases = covariance(total, k)
+        swap(total, k)
+        d = len(ce.space(total))
+        centre = ce.implementer(cover[[i for i in central if cover[i][1][0] == 10][0]], total, k)
+        centre_sign = {e for _, e in centre}
+        out[f'total_{total}_flux_{k}'] = {
+            'dimension': d, 'completeness_exact_on_seams': 30,
+            'population_lumping_matrix_units_checked': units,
+            'covariance_row_identities_checked': ncov, 'covariance_row_phase_exponents_by_label': phases,
+            'central_element_acts_as': {0: '+1', 10: '-1'}[centre_sign.pop()] if len(centre_sign) == 1 else 'mixed',
+            'endpoint_swap': 'keep equal; corrected changes sign; split_a and split_b exchange'}
+        print(f'total {total}, flux {k}: completeness 30 seams; lumping {units} matrix-unit identities; covariance {ncov} row identities '
+              f'(row phase exponents: keep {phases["keep"]}, corrected {phases["corrected"]}'
+              + (f', splits {len(phases["split_a"])} values' if 'split_a' in phases else '') + f'); centre acts as {out[f"total_{total}_flux_{k}"]["central_element_acts_as"]}; swap ok; {time.time() - t1:.1f}s')
+
+# 5. comparison with the float code under audit (MEASURED): a port rephasing maps the exact rows onto cap.py's rows
+try:
+    import numpy as np
+    sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parents[1] / 'FLUXPUMP'))
+    import cap
+    g = {0: 1.0 + 0j}; stack = [0]
+    while stack:
+        a = stack.pop()
+        for b in ce.NBR[a]:
+            if b not in g:
+                g[b] = g[a] * cap.link(a, b) / complex(ce.link(a, b)); stack.append(b)
+    gauge_defect = max(abs(cap.link(a, b) - g[b] * complex(ce.link(a, b)) / g[a]) for a, b in ce.ADJ)
+    worst = 0.0
+    for total in (1, 2):
+        states = ce.space(total)
+        D = np.array([np.prod([g[p] ** s[p] for p in range(12)]) for s in states])
+        for seam in ce.SEAMS:
+            fl = dict(cap.instrument(seam, total))
+            for label, K in ce.instrument(seam, total):
+                Kd = np.array([[complex(v) for v in row] for row in ce.sp_dense(K, len(states))])
+                Kg = D[:, None] * Kd * D.conj()[None, :]
+                if label.startswith('split'):               # a rank-one row is defined up to its phase
+                    i, j = np.unravel_index(np.abs(Kg).argmax(), Kg.shape)
+                    Kg = Kg * (fl[label][i, j] / Kg[i, j])
+                worst = max(worst, np.abs(Kg - fl[label]).max())
+    out['float_code_comparison'] = {'status': 'MEASURED', 'gauge_defect_on_links': gauge_defect, 'row_defect_after_port_rephasing': worst}
+    print(f'cap.py rows equal the exact rows after a port rephasing (split rows up to their phase): link defect {gauge_defect:.1e}, row defect {worst:.1e} (totals one and two)')
+except Exception as exc:                              # the float comparison is optional
+    print('float comparison skipped:', exc)
+
+out['seconds'] = time.time() - t0
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 't1_instrument.json', 'w'), indent=1)

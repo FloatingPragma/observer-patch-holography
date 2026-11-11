@@ -1,0 +1,111 @@
+"""Task 5: what the area characters reach of the gauge premises, computed on the matrices (level-1 tables) so that
+the selections are explicit: which characters, which load sectors, which multiplets.
+
+Float64 with rank tolerances (MEASURED).  Usage: python t5_assess.py [out.json]
+"""
+import json
+import sys
+import time
+import numpy as np
+import ca_core as c
+import ca_corr as cc
+
+out_path = sys.argv[1] if len(sys.argv) > 1 else 't5_assess.json'
+t0 = time.time()
+res = {'schema': 'repair_law.CA.t5.v1'}
+secs = {'one': cc.Sector('one'), 'two': cc.Sector('two')}
+lead = {}
+for name in ('one', 'two'):
+    for k in range(20):
+        sp = secs[name].spectrum(k)
+        lead[(name, k)] = dict(m=sp['m'], lam1=sp['lam1'], lam2=sp['lam2'], q=sp['q'], E0=sp['E0'], gap=sp['gap'],
+                               n=np.array(c.compressed(secs[name].states, sp['V'])))
+
+# (a) spectral table
+print('character | one quantum: m, lambda1, q, E0/gap | two quanta: m, lambda1, q, E0/gap')
+res['spectral'] = {}
+for k in range(11):
+    a, b = lead[('one', k)], lead[('two', k)]
+    res['spectral'][k] = {s: {x: float(lead[(s, k)][x]) for x in ('m', 'lam1', 'lam2', 'q', 'E0', 'gap')} for s in ('one', 'two')}
+    print(f"   k = {k:2d} | {a['m']} {a['lam1']:.6f} {a['q']:.5f} {a['E0']/a['gap'] if a['gap'] else 0:.3f} | "
+          f"{b['m']} {b['lam1']:.6f} {b['q']:.5f} {b['E0']/b['gap']:.3f}")
+
+
+def data(parts):
+    ops = [c.block([lead[p]['n'][s] for p in parts]) for s in range(12)]
+    return c.lie_data(ops, tol=1e-8)
+
+
+# (b) every pairing (one quantum k1) + (two quanta k2)
+print('\npairings one quantum k1 + two quanta k2 with span 12 or closure 12 (all 20 x 20 computed):')
+res['pairings_one_two'] = {}
+hits = []
+for k1 in range(20):
+    for k2 in range(20):
+        if (lead[('one', k1)]['m'], lead[('two', k2)]['m']) != (2, 3):
+            # a 12-dimensional closure with one-dimensional centre inside u(m1) + u(m2) needs m1^2 + m2^2 = 13
+            continue
+        d = data([('one', k1), ('two', k2)])
+        res['pairings_one_two'][f'{k1},{k2}'] = list(d)
+        if d[0] == 12:
+            hits.append((k1, k2))
+        print(f'   k1 = {k1:2d}, k2 = {k2:2d}: {d}')
+res['injective_pairings_one_two'] = hits
+same = {k: res['pairings_one_two'].get(f'{k},{k}') for k in range(20) if f'{k},{k}' in res['pairings_one_two']}
+res['single_character_pairings'] = same
+print('   injective (span 12):', hits)
+print('   one character for both load sectors (k1 = k2):', same)
+
+# (c) one quantum, two characters of the same lifted chain (the pairing of lead L13)
+print('\none quantum, two characters k and k\' (triplet with doublet):')
+res['pairings_one_one'] = {}
+for k1 in range(20):
+    for k2 in range(20):
+        if (lead[('one', k1)]['m'], lead[('one', k2)]['m']) == (2, 3):
+            d = data([('one', k1), ('one', k2)])
+            res['pairings_one_one'][f'{k1},{k2}'] = list(d)
+            print(f'   doublet k = {k1:2d}, triplet k = {k2:2d}: {d}')
+
+# (d) completeness counterexamples
+print('\ncompleteness (premise G3): the same occupations on every leading multiplet of the record')
+res['completeness'] = {}
+for name in ('one', 'two'):
+    parts = [(name, k) for k in range(20)]
+    dims = [lead[p]['m'] for p in parts]
+    ops = [c.block([lead[p]['n'][s] for p in parts]) for s in range(12)]
+    d = c.lie_data(ops, tol=1e-8, cap=1200)
+    res['completeness'][f'{name}_all_20_characters'] = {'dimensions': dims, 'total_dimension': int(sum(dims)), 'lie': list(d)}
+    print(f'   {name}: all 20 characters, multiplet dimensions {dims} (total {sum(dims)}): (span, closure, centre) = {d}')
+both = [('one', k) for k in range(20)] + [('two', k) for k in range(20)]
+# uncompressed occupations on the lifted chain commute
+N1 = [np.diag(secs['one'].occ[p]) for p in range(12)]
+d = c.lie_data(N1, tol=1e-8)
+res['completeness']['uncompressed_occupations_one_quantum'] = list(d)
+print(f'   occupations without compression (any character, lag 0): {d}  (abelian)')
+# finite lag: the insertions as they enter the correlations, X^(1/2) N_p X^(1/2)
+for k, lag in ((1, 5), (1, 20), (7, 20)):       # larger lags lose float64 resolution of the 144 directions
+    P = secs['one'].P(k)
+    w, v = np.linalg.eigh(P)
+    Xh = (v * (w / w[-1]) ** (lag / 2.0)) @ v.conj().T
+    ops = [Xh @ N1[p] @ Xh for p in range(12)]
+    d = c.lie_data(ops, tol=1e-12, cap=200)
+    res['completeness'][f'finite_lag_one_quantum_k{k}_lag{lag}'] = list(d)
+    print(f'   one quantum, k = {k}, finite lag {lag}: Lie algebra of the insertions P^(lag/2) N_p P^(lag/2) at tolerance '
+          f'1e-12: {d}')
+
+# (e) weight of a character in the unconditioned record
+print('\nmean character over closed histories, Tr(P_k^L) / Tr(P_0^L):')
+res['mean_character'] = {}
+for name in ('one', 'two'):
+    for L in (100, 300, 1000):
+        row = []
+        for k in range(11):
+            w0 = np.linalg.eigvalsh(secs[name].P(0))
+            wk = np.linalg.eigvalsh(secs[name].P(k))
+            row.append(float((wk ** L).sum() / (w0 ** L).sum()))
+        res['mean_character'][f'{name}_L{L}'] = row
+        print(f'   {name}, L = {L}: ' + ' '.join(f'{x:.2e}' for x in row))
+
+res['seconds'] = round(time.time() - t0, 2)
+json.dump(res, open(out_path, 'w'), indent=1)
+print('wrote', out_path, 'in %.1f s' % (time.time() - t0))

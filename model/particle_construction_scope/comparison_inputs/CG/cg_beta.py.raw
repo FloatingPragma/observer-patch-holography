@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Worker CG, task 2: the collar's Gibbs parameter from the electric term of GL's action and the modular weight,
+for the collar elements G1 to G5 of CANDIDATES.md section 3. Symbolic (sympy); no measured value.
+
+Run:  python cg_beta.py   (writes cg_beta.json)
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import sympy as sp
+
+HERE = Path(__file__).resolve().parent
+g, C2, x, x0, l, A, L, r, tau, s = sp.symbols("g C2 x x0 l A_perp L r tau s", positive=True)
+alpha = g ** 2 / (4 * sp.pi)
+out = {}
+
+# electric energy per unit length of a label-R flux of cross-section A: (g^2/2) C2 / A   (GL's E1, CC row B1)
+e_len = (g ** 2 / 2) * C2 / A
+
+# ---------------------------------------------------------------- flat wedge (Bisognano-Wichmann weight 2 pi x)
+t_wedge = sp.simplify(sp.integrate(2 * sp.pi * x * e_len, (x, x0, x0 + l)) / C2)
+kappa_wedge = sp.simplify(t_wedge / (4 * sp.pi ** 2 * alpha))
+scale_free = sp.simplify(kappa_wedge.subs({x0: s * x0, l: s * l, A: s ** 2 * A}) - kappa_wedge) == 0
+rows = {
+    "G1_adjacent_cubic_element": kappa_wedge.subs({x0: 0, A: l ** 2}),
+    "G2_element_centred_at_distance_l": kappa_wedge.subs({x0: l / 2, A: l ** 2}),
+    "half_link_on_the_cut": kappa_wedge.subs({x0: 0, l: l / 2, A: l ** 2}, simultaneous=True),
+}
+out["flat_wedge"] = {"t_over_C2": str(t_wedge), "kappa": str(kappa_wedge), "kappa_scale_free": scale_free,
+                     "rows": {k: str(sp.simplify(v)) for k, v in rows.items()}}
+
+# ---------------------------------------------------------------- static patch of radius L
+N = sp.sqrt(1 - r ** 2 / L ** 2)                     # lapse of the static Killing vector
+dl = 1 / sp.sqrt(1 - r ** 2 / L ** 2)                # proper radial length element
+E_killing = sp.simplify(sp.integrate(sp.simplify(N * dl) * e_len, (r, 0, L)))    # flux from the observer to the horizon
+beta_GH = 2 * sp.pi * L                              # KMS period of the static patch (IMPORTED)
+t_static = sp.simplify(beta_GH * E_killing / C2)
+# Euclidean area swept by the radial segment under the modular circle (tau_E in [0, 2 pi L))
+area = sp.simplify(sp.integrate(sp.integrate(sp.sqrt((1 / (1 - r ** 2 / L ** 2)) * (1 - r ** 2 / L ** 2)), (tau, 0, 2 * sp.pi * L)), (r, 0, L)))
+t_2d = sp.simplify((g ** 2 / A) * area / 2)          # two-dimensional heat time g_2^2 A/2 with g_2^2 = g^2/A_perp
+kappa_static = sp.simplify(t_static / (4 * sp.pi ** 2 * alpha))
+out["static_patch"] = {
+    "killing_energy_over_C2": str(sp.simplify(E_killing / C2)), "t_over_C2": str(t_static),
+    "swept_euclidean_area": str(area), "two_dimensional_heat_time": str(t_2d),
+    "kmS_route_equals_2d_route": sp.simplify(t_static - t_2d) == 0, "kappa": str(kappa_static),
+    "rows": {"G3_A_perp_L^2": str(kappa_static.subs(A, L ** 2)),
+             "G4_A_perp_port_cap_(pi/3)L^2": str(sp.simplify(kappa_static.subs(A, sp.pi * L ** 2 / 3))),
+             "G5_A_perp_hemisphere_2piL^2": str(sp.simplify(kappa_static.subs(A, 2 * sp.pi * L ** 2)))},
+    "source_A_equals_2pi": "the gauge paper's 'A = 2 pi' is the swept area 2 pi L^2 in units of A_perp = L^2"}
+
+# ---------------------------------------------------------------- the factor chain
+out["factor_chain"] = {
+    "t": "t = 2 pi (modular period, IMPORTED) x g^2/2 (electric coefficient of GL's action, EXACT in CC row B1) "
+         "x kappa (shape number) = 4 pi^2 kappa alpha",
+    "check": str(sp.simplify(2 * sp.pi * (g ** 2 / 2) * 1 - 4 * sp.pi ** 2 * alpha)),
+    "unit_heat_time": "g^2/2 is the heat time of one electric step (LV); the collar's t is 2 pi kappa unit heat times"}
+(HERE / "cg_beta.json").write_text(json.dumps(out, indent=1, default=str) + "\n")
+print(json.dumps(out, indent=1, default=str))

@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+"""Worker CG, task 5 (source side): the coordinator's closure chain (copy of work/COUPLING/closure_check.py,
+kept line for line in `chain`) with the collar law's weight power w and shape number kappa as arguments:
+sector weights d^w exp(-t C2), t_i = 4 pi^2 kappa alpha_i(anchor). Rows V1 to V6 of CANDIDATES.md section 4.
+
+No measured value is read here (the producer's measured-coupling line is moved to cg_not_blind.py).
+Run:  python cg_closure.py   (writes cg_closure.json)
+"""
+import json
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import brentq
+
+pi = np.pi
+HERE = Path(__file__).resolve().parent
+
+
+def ell2(t, w=1, N=120):
+    n = np.arange(0, N + 1); j = n / 2.0; d = 2 * j + 1; C = j * (j + 1)
+    lw = w * np.log(d) - t * C; lw -= lw.max(); p = np.exp(lw)
+    return float((p * np.log(d)).sum() / p.sum())
+
+
+def ell3(t, w=1, N=60):
+    p, q = np.meshgrid(np.arange(N + 1), np.arange(N + 1))
+    d = (p + 1) * (q + 1) * (p + q + 2) / 2.0; C = (p * p + q * q + p * q + 3 * p + 3 * q) / 3.0
+    lw = w * np.log(d) - t * C; lw -= lw.max(); pr = np.exp(lw)
+    return float((pr * np.log(d)).sum() / pr.sum())
+
+
+EP = 1.220890e19
+
+
+def chain(P, aU, b=(33 / 5, 1.0, -3.0), beta=4.0, read='mZ', w=1, kappa=1.0):
+    MU = EP * np.exp(-2 * pi) * P ** (1 / 6); Ecell = EP / np.sqrt(P)
+    v = Ecell * np.exp(-2 * pi / (beta * aU))
+
+    def al(mu):
+        return [1.0 / (1.0 / aU + bi / (2 * pi) * np.log(MU / mu)) for bi in b]
+    mu = 91.0
+    for _ in range(200):
+        a1, a2, a3 = al(mu); aY = 0.6 * a1
+        mz = v * np.sqrt(pi * (a2 + aY)); mw = v * np.sqrt(pi * a2)
+        new = mz if read == 'mZ' else mw
+        if abs(new - mu) < 1e-12 * mu: break
+        mu = new
+    a1, a2, a3 = al(mu); aY = 0.6 * a1
+    lhs = ell2(4 * pi * pi * kappa * a2, w) + ell3(4 * pi * pi * kappa * a3, w)
+    return dict(MU=MU, Ecell=Ecell, v=v, mu=mu, mz=v * np.sqrt(pi * (a2 + aY)), mw=v * np.sqrt(pi * a2), a1=a1, a2=a2,
+                a3=a3, s2=aY / (aY + a2), aem_inv=1.0 / (a2 * aY / (a2 + aY)), lhs=lhs)
+
+
+def roots(P, w, kappa, lo=4.0, hi=120.0, n=500):
+    """All sign changes of lhs - P/4 in 1/alpha_U on [lo, hi] (the producer's bracket 18-40 is too narrow for
+    some rows), each refined by brentq. Couplings must stay positive down to the anchor."""
+    f = lambda x: chain(P, 1.0 / x, w=w, kappa=kappa)['lhs'] - P / 4
+    xs = np.linspace(lo, hi, n)
+    vals = []
+    for x in xs:
+        try:
+            c = chain(P, 1.0 / x, w=w, kappa=kappa)
+            ok = all(np.isfinite([c['a1'], c['a2'], c['a3']])) and min(c['a1'], c['a2'], c['a3']) > 0
+            vals.append(c['lhs'] - P / 4 if ok else np.nan)
+        except Exception:
+            vals.append(np.nan)
+    out = []
+    for i in range(n - 1):
+        if np.isfinite(vals[i]) and np.isfinite(vals[i + 1]) and vals[i] * vals[i + 1] < 0:
+            out.append(brentq(f, xs[i], xs[i + 1], xtol=1e-12))
+    return out
+
+
+P = 1.6309721
+rows = {"V1": (1, 1.0, "the source's declared chain (one-sided register, A = 2 pi)"),
+        "V2": (2, 1.0, "the action's link moves (two-sided register)"),
+        "V3": (1, 0.5, "G1: cubic element adjacent to the cut"),
+        "V4": (2, 0.5, "G1 with link moves"),
+        "V5": (1, 3 / pi, "G4: port-cap cross-section"),
+        "V6": (1, 1 / (2 * pi), "G5: hemispherical-cap cross-section (unit heat time)")}
+res = {}
+for name, (w, kappa, what) in rows.items():
+    rs = roots(P, w, kappa)
+    entry = {"w": w, "kappa": kappa, "reading": what, "roots_inv_alpha_U": rs, "solutions": []}
+    for x in rs:
+        c = chain(P, 1.0 / x, w=w, kappa=kappa)
+        entry["solutions"].append({
+            "inv_alpha_U": x, "M_U": c['MU'], "v_GeV": c['v'], "anchor_GeV": c['mu'], "mW_GeV": c['mw'],
+            "inv_alpha_1": 1 / c['a1'], "inv_alpha_2": 1 / c['a2'], "alpha_3": c['a3'], "sin2": c['s2'],
+            "inv_alpha_em_anchor": c['aem_inv'], "lhs": c['lhs'], "P_over_4": P / 4})
+    res[name] = entry
+# producer reproduction: V1 must give the producer's printed 24.3166 and 246.597 GeV
+v1 = res["V1"]["solutions"][0]
+res["producer_reproduction"] = {"inv_alpha_U": round(v1["inv_alpha_U"], 4), "v_GeV": round(v1["v_GeV"], 3),
+                                "expected_from_closure_check.out": [24.3166, 246.597]}
+# sensitivity of v to kappa and the meaning of a power-2 row at kappa = 1
+res["sensitivity"] = {}
+for w in (1, 2):
+    xs = []
+    for k in (0.999, 1.0, 1.001):
+        r_ = roots(P, w, k, lo=10.0, hi=60.0, n=200)
+        xs.append((k, r_[0] if r_ else None, chain(P, 1.0 / r_[0], w=w, kappa=k)['v'] if r_ else None))
+    res["sensitivity"][f"w={w}"] = xs
+(HERE / "cg_closure.json").write_text(json.dumps(res, indent=1) + "\n")
+for name in rows:
+    e = res[name]
+    for s in e["solutions"]:
+        print(f"{name} w={e['w']} kappa={e['kappa']:.5f}: 1/aU={s['inv_alpha_U']:.4f} v={s['v_GeV']:.4g} GeV "
+              f"anchor={s['anchor_GeV']:.4g} 1/a2={s['inv_alpha_2']:.3f} a3={s['alpha_3']:.5f} sin2={s['sin2']:.5f} "
+              f"1/aem={s['inv_alpha_em_anchor']:.3f}")
+    if not e["solutions"]:
+        print(f"{name} w={e['w']} kappa={e['kappa']:.5f}: no root on [4, 120]")
+print(res["producer_reproduction"])
+print(json.dumps(res["sensitivity"]))

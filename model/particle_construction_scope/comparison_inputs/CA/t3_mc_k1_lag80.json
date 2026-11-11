@@ -1,0 +1,102 @@
+{
+ "schema": "repair_law.CA.t3_mc.v1",
+ "k": 1,
+ "lag": 80,
+ "procs": 11,
+ "G": {
+  "samples": 300000000,
+  "closed_histories": 25030940,
+  "attempts": 48000000000,
+  "mean_character_measured": 0.2692498034595185,
+  "mean_character_exact": 0.26924159868567255,
+  "rms_error_over_predicted_sigma": 1.0059617194343684,
+  "max_abs_error_to_exact_finite_lag": 0.0001539019157854319,
+  "median_predicted_sigma": 6.16108503547041e-05,
+  "max_abs_error_to_limit": 0.0004607225042543732,
+  "scale_of_limit": 0.013888888888889016
+ },
+ "T3": {
+  "samples": 900000000,
+  "closed_histories": 74999422,
+  "attempts": 216000000000,
+  "mean_character_measured": 0.09912925064783586,
+  "mean_character_exact": 0.09900196133316222,
+  "rms_error_over_predicted_sigma": 1.0154327192358386,
+  "max_abs_error_to_exact_finite_lag": 7.504673186385107e-05,
+  "median_predicted_sigma": 2.7704896066104798e-05,
+  "max_abs_error_to_limit": 0.00016553767865726783,
+  "scale_of_limit": 0.0023148148148148468
+ },
+ "G_eigenvalues_sampled": [
+  0.08333333333333334,
+  0.028591266326079515,
+  0.028591266326079508,
+  0.028591266326079483,
+  0.0004844617162589908,
+  0.0004844617162589854,
+  0.00048446171625898213,
+  0.00048446171625897725,
+  0.0004844617162589723,
+  5.045372249372893e-05,
+  5.0453722493717224e-05,
+  5.045372249371335e-05
+ ],
+ "G_eigenvalues_limit": [
+  0.08333333333333331,
+  0.02777777777777805,
+  0.027777777777777693,
+  0.027777777777777624,
+  5.98832222053832e-18,
+  2.9554570025727678e-18,
+  1.330246033050471e-18,
+  -4.888288749696773e-20,
+  -7.128427207195896e-19,
+  -3.1689636765075208e-18,
+  -5.8360135653089615e-18,
+  -8.962795783424386e-18
+ ],
+ "reconstruction_from_samples": [
+  {
+   "tolerance": 0.05,
+   "gns_rank": 4,
+   "kept_over_dropped": 59.01656491427331,
+   "lie": [
+    4,
+    9,
+    6
+   ]
+  },
+  {
+   "tolerance": 0.1,
+   "gns_rank": 4,
+   "kept_over_dropped": 59.01656491427331,
+   "lie": [
+    4,
+    4,
+    1
+   ]
+  },
+  {
+   "tolerance": 0.2,
+   "gns_rank": 4,
+   "kept_over_dropped": 59.01656491427331,
+   "lie": [
+    4,
+    4,
+    1
+   ]
+  },
+  {
+   "tolerance": 0.3,
+   "gns_rank": 4,
+   "kept_over_dropped": 59.01656491427331,
+   "lie": [
+    4,
+    4,
+    1
+   ]
+  }
+ ],
+ "multiplet_dimension_from_coincident_two_point": 2.0601696247241743,
+ "seconds": 368.9
+}

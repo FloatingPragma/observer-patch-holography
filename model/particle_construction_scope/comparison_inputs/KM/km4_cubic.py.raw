@@ -1,0 +1,157 @@
+"""Item 4 on the edge-sharing cubic federation of work/CUBIC (three space dimensions).
+
+Table of the unit cell: cubic_tables_copy.json (an unchanged copy of work/CUBIC/cubic_tables.json): six port classes
+per cell, 27 seams per cell (24 private to one carrier, 3 shared by two carriers and counted twice in the sum of
+carrier operators), walk kernel 1 - L/120 (the quantum addresses the oriented seams of the two carriers that hold
+its port; DECLARED in work/CUBIC).
+
+Flat level (hop 1) with a periodic array of central flux pairs: in one cell per supercell of n x n x n cells
+(N = n^3 carriers per defect) the sign of ONE PRIVATE seam of one carrier is flipped. The two faces of that carrier
+which contain the seam then carry flux pi; the seam belongs to no other carrier, so the pair starts and ends on the
+faces of that carrier. (A flipped shared seam would be a pair in each of the two carriers that share it.)
+
+Method: exact secular equation det(1 - G_q(E) V) = 0 of the rank-two perturbation with the lattice Green function
+summed over the n^3 folded wave vectors; dense diagonalization of the supercell for small n as a check.
+
+usage: python km4_cubic.py <out.json> <processes> n1 n2 ... [--seams]
+"""
+import json, os, sys, time
+import numpy as np
+from multiprocessing import Pool
+from scipy.optimize import brentq
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TAB = json.load(open(os.path.join(HERE, 'cubic_tables_copy.json')))
+SEAMS = TAB['seams']
+NA = 120
+PRIVATE = [i for i, r in enumerate(SEAMS) if not r['shared']]
+
+
+def cell_matrices(kap):
+    kap = np.atleast_2d(kap)
+    H = np.zeros((len(kap), 6, 6), complex)
+    for r in SEAMS:
+        w = 2 if r['shared'] else 1
+        i, j = r['from_class'], r['to_class']
+        ph = np.exp(1j * (kap @ np.array(r['cell_offset_of_to'], float)))
+        H[:, i, i] += w; H[:, j, j] += w; H[:, i, j] -= w * ph; H[:, j, i] -= w * np.conj(ph)
+    return H
+
+
+D0 = float(np.linalg.eigvalsh(cell_matrices(np.array([1e-3, 0, 0]))[0])[0] / 1e-6)
+
+
+def dense_supercell(n, seam, q=(0, 0, 0)):
+    """Supercell matrix with Bloch vector q (hop to a port in cell R + off carries exp(i q.off))."""
+    P = 6 * n ** 3; L = np.zeros((P, P), complex)
+    idx = lambda c, x, y, z: 6 * (((x % n) * n + (y % n)) * n + (z % n)) + c
+    q = np.asarray(q, float)
+    for x in range(n):
+        for y in range(n):
+            for z in range(n):
+                for s, r in enumerate(SEAMS):
+                    w = 2 if r['shared'] else 1
+                    o = r['cell_offset_of_to']
+                    a = idx(r['from_class'], x, y, z); b = idx(r['to_class'], x + o[0], y + o[1], z + o[2])
+                    sg = -1 if (s == seam and (x, y, z) == (0, 0, 0)) else 1
+                    ph = np.exp(1j * (q @ np.array(o, float)))
+                    L[a, a] += w; L[b, b] += w; L[a, b] -= w * sg * ph; L[b, a] -= w * sg * np.conj(ph)
+    return L
+
+
+class Folded:
+    def __init__(self, n, q, seam, chunk=262144):
+        r = SEAMS[seam]
+        self.i, self.j, off = r['from_class'], r['to_class'], np.array(r['cell_offset_of_to'], float)
+        self.V = np.array([[0, 2.0], [2.0, 0]])                      # hop -1 becomes +1 on a private seam
+        g = np.arange(n) / n
+        frac = np.stack(np.meshgrid(g, g, g, indexing='ij'), -1).reshape(-1, 3)
+        self.K = len(frac)
+        lam = np.empty((self.K, 6)); W = np.empty((self.K, 6, 2, 2), complex)
+        for s in range(0, self.K, chunk):
+            kap = np.asarray(q, float)[None, :] + 2 * np.pi * frac[s:s + chunk]
+            w_, U = np.linalg.eigh(cell_matrices(kap))
+            # port x = (cell 0, class i), port y = (cell off, class j): psi(R, c) = exp(i kappa.R) u_c
+            Up = np.stack([U[:, self.i, :], U[:, self.j, :] * np.exp(1j * (kap @ off))[:, None]], 1)
+            W[s:s + chunk] = np.einsum('kxn,kyn->knxy', Up, Up.conj()); lam[s:s + chunk] = w_
+        self.lam, self.W = lam, W
+        self.poles = np.sort(lam.ravel())[:8]
+
+    def G(self, E, deriv=False):
+        r = 1.0 / (E - self.lam)
+        G = np.einsum('kn,knxy->xy', r, self.W) / self.K
+        if deriv: return G, -np.einsum('kn,knxy->xy', r * r, self.W) / self.K
+        return G
+
+    def f(self, E):
+        return float(((E - self.poles[0]) * np.linalg.det(np.eye(2) - self.G(E) @ self.V)).real)
+
+    def lowest(self):
+        lo = self.poles[0]; hi = self.poles[self.poles > lo + 1e-12][0]
+        grid = np.geomspace(max(hi * 1e-10, 1e-16), hi * (1 - 1e-9), 300)
+        vals = [self.f(x) for x in grid]
+        for a, b, fa, fb in zip(grid[:-1], grid[1:], vals[:-1], vals[1:]):
+            if fa * fb < 0:
+                root = brentq(self.f, a, b, xtol=1e-18, rtol=1e-14)
+                if abs(root - lo) > 1e-13 * max(1.0, abs(lo)):
+                    return root
+        return None
+
+
+def analyse(task):
+    n, seam = task
+    t0 = time.time()
+    fo = Folded(n, (0, 0, 0), seam)
+    E0 = fo.lowest()
+    G, dG = fo.G(E0, deriv=True)
+    u, s, vh = np.linalg.svd(np.eye(2) - fo.V @ G)
+    c = vh[-1].conj(); norm2 = float((c.conj() @ (-dG) @ c).real)
+    psi_def = G @ c
+    w_ends = float((abs(psi_def) ** 2).sum() / norm2)                # weight on the two ports of the flipped seam
+    ovl = float(abs(c.sum() / E0) ** 2 / (6 * n ** 3) / norm2)
+    N = n ** 3; p0 = E0 / NA; om0 = float(np.arccos(1 - p0)); born = 4.0 / (6 * N)
+    rec = {'n': n, 'seam': seam, 'seam_row': SEAMS[seam], 'N_carriers_per_defect': N, 'E0': E0, 'p0': p0, 'omega0': om0,
+           'first_order_E': born, 'E0_over_first_order': E0 / born, 'N_E0': N * E0,
+           'weight_on_seam_ends_relative_to_uniform': w_ends / (2 / (6 * N)), 'overlap_with_uniform': ovl}
+    delta = 0.05 * np.pi / n
+    dirs = {'x': (1, 0, 0), 'y': (0, 1, 0), 'z': (0, 0, 1), 'xy': (2 ** -.5, 2 ** -.5, 0), 'yz': (0, 2 ** -.5, 2 ** -.5), 'zx': (2 ** -.5, 0, 2 ** -.5)}
+    c2 = {k: (Folded(n, np.array(d) * delta, seam).lowest() - E0) / delta ** 2 for k, d in dirs.items()}
+    Dm = (c2['x'] + c2['y'] + c2['z']) / 3
+    T = np.array([[c2['x'], c2['xy'] - (c2['x'] + c2['y']) / 2, c2['zx'] - (c2['x'] + c2['z']) / 2],
+                  [0, c2['y'], c2['yz'] - (c2['y'] + c2['z']) / 2], [0, 0, c2['z']]])
+    T = T + T.T - np.diag(np.diag(T))
+    ev = np.linalg.eigvalsh(T)
+    fac = om0 / np.sin(om0)
+    v = np.sqrt(2 * Dm * fac / NA)
+    rec.update({'curvature_tensor_eigenvalues': ev.tolist(), 'curvature_mean': Dm, 'curvature_over_load': Dm / D0,
+                'anisotropy': float((ev[-1] - ev[0]) / Dm), 'v_over_v0': float(np.sqrt(Dm * fac / D0)),
+                'compton_length_lattice_constants': float(v / om0), 'compton_length_over_defect_spacing': float(v / om0 / n),
+                'defects_per_compton_volume': float((v / om0) ** 3 / N), 'seconds': time.time() - t0})
+    return rec
+
+
+if __name__ == '__main__':
+    outp, procs = sys.argv[1], int(sys.argv[2])
+    args = [a for a in sys.argv[3:] if not a.startswith('--')]
+    sizes = [int(x) for x in args]
+    out = {'load_curvature': D0, 'walk_addresses': NA, 'load_speed': float(np.sqrt(2 * D0 / NA)), 'private_seams': PRIVATE}
+    # dense check for small n
+    chk = []
+    for n in (1, 2, 3, 4):
+        Ld = np.linalg.eigvalsh(dense_supercell(n, PRIVATE[0]))[0]
+        Et = Folded(n, (0, 0, 0), PRIVATE[0]).lowest() if n > 1 else None
+        chk.append({'n': n, 'dense': float(Ld), 'secular': Et})
+        print(f'check n={n}: dense lowest level {Ld:.12e}, secular equation {Et}', flush=True)
+    out['dense_check'] = chk
+    tasks = [(n, PRIVATE[0]) for n in sorted(sizes, reverse=True)]
+    if '--seams' in sys.argv:
+        tasks += [(n, s) for n in (4, 8) for s in PRIVATE[1:]]
+    res = []
+    with Pool(procs, maxtasksperchild=1) as pool:
+        for r in pool.imap_unordered(analyse, tasks):
+            res.append(r)
+            print(f"cubic n={r['n']:4d} seam={r['seam']:2d} N={r['N_carriers_per_defect']:9d} E0={r['E0']:.9e} p0={r['p0']:.6e} omega0={r['omega0']:.3e} E0/first={r['E0_over_first_order']:.5f} "
+                  f"N*E0={r['N_E0']:.6f} D/D0={r['curvature_over_load']:.5f} v/v0={r['v_over_v0']:.5f} aniso={r['anisotropy']:.1e} ends/unif={r['weight_on_seam_ends_relative_to_uniform']:.4f} "
+                  f"ovl={r['overlap_with_uniform']:.4f} Compton/spacing={r['compton_length_over_defect_spacing']:.3f} [{r['seconds']:.1f}s]", flush=True)
+            out['rows'] = sorted(res, key=lambda r: (r['seam'], r['n']))
+            json.dump(out, open(outp, 'w'), indent=1)

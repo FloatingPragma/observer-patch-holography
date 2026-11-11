@@ -1,0 +1,66 @@
+"""Finite constructive control: local unitary Hodge lift on the full carrier.
+
+This is a DECLARED replacement/extension, not a derivation from unread C/E
+repair. Integer arithmetic verifies the wave and mass-square identities.
+"""
+from pathlib import Path
+import json
+import numpy as np
+from checks import EDGES,FACES,LCAR
+
+HERE=Path(__file__).resolve().parent
+B=np.zeros((30,12),dtype=np.int64)
+for i,(a,b) in enumerate(EDGES):B[i,a]=-1;B[i,b]=1
+C=np.zeros((20,30),dtype=np.int64)
+edge_index={e:i for i,e in enumerate(EDGES)}
+for f,face in enumerate(FACES):
+ for j in range(3):
+  a,b=face[j],face[(j+1)%3];C[f,edge_index[tuple(sorted((a,b)))]]=1 if a<b else -1
+assert np.array_equal(C@B,np.zeros((20,12),dtype=np.int64))
+assert np.array_equal(B.T@B,LCAR)
+D=np.zeros((62,62),dtype=np.int64)
+D[:12,12:42]=B.T;D[12:42,:12]=B
+D[12:42,42:]=C.T;D[42:,12:42]=C
+Gamma=np.diag(np.r_[np.ones(12,dtype=np.int64),-np.ones(30,dtype=np.int64),np.ones(20,dtype=np.int64)])
+D2=np.zeros_like(D);D2[:12,:12]=LCAR;D2[12:42,12:42]=B@B.T+C.T@C;D2[42:,42:]=C@C.T
+assert np.array_equal(D@D,D2)
+assert np.array_equal(D@Gamma+Gamma@D,np.zeros_like(D))
+assert np.array_equal((3*D+Gamma)@(3*D+Gamma),9*D2+np.eye(62,dtype=np.int64))
+# Connected matrix support plus all local projectors generates full matrix
+# algebra: along each edge, projector products isolate the matrix unit.
+seen={0}
+while True:
+ new=seen|{j for i in seen for j in np.flatnonzero(D[i])}
+ if new==seen:break
+ seen=new
+assert len(seen)==62
+# Exact rational rank independently, avoiding tolerance-based kernel claims.
+from sympy import Matrix
+rB=Matrix(B).rank();rC=Matrix(C).rank()
+assert rB==11 and rC==19
+vals=np.linalg.eigvalsh(D)
+result={'status':'EXACT integer/rational identities; displayed eigenvalues numerical',
+        'input_label':'DECLARED coherent state space, unitary clock and local-projector apparatus',
+        'carrier_components':{'ports':12,'seams':30,'faces':20},
+        'rank_B':rB,'rank_C':rC,'kernel_dimension_D':2,
+        'boundary_of_boundary_zero':True,'port_square_equals_original_graph_Laplacian':True,
+        'squared_operator':'diag(B^T B, B B^T+C^T C, C C^T)',
+        'unitary_law':'U(t)=exp(-itD)',
+        'mass_extension':'H_m=D+m Gamma; H_m^2=D^2+m^2 I',
+        'mass_parameter_label':'DECLARED; no physical mass predicted',
+        'rational_mass_test':'m=1/3 checked by (3D+Gamma)^2=9D^2+I',
+        'local_projector_and_H_algebra':'M_62 from connected matrix-unit paths',
+        'faithful_stationary_state':'rho_beta=exp(-beta H_m)/Z for declared finite beta',
+        'modular_flow':'rho_beta^(it) A rho_beta^(-it)=exp(-i beta t H_m) A exp(i beta t H_m)',
+        'scope':{'T0_exact_native_shadow':False,'T1_carrier_covariance':'orientation-covariant incidence lift',
+                 'T2_T3_gauge_algebra':False,'T4_native_protected_records':False,
+                 'T5_ambient_faithful_modular':'constructed, not source-selected or geometric',
+                 'T6_coherent_waves':'constructed, real frequencies, no damping',
+                 'T7_terminating_repair':False,'T8_unbounded_common_space':False,
+                 'T9_noncommuting_effects':'constructed via coherent flow and local projectors',
+                 'T10_mass_hook':'algebraic free-wave control only, no physical mass or 3+1'},
+        'negative_control':'Keeping only C0 gives L, with diffusion or quadratic unitary phase; omitting C2 leaves 19 harmonic edge-cycle zeros.',
+        'dimension_boundary':'A 2D screen refinement supplies 2+1 waves; incidence partners do not add a third spatial momentum.',
+        'D_spectrum_rounded':np.round(vals,9).tolist()}
+(HERE/'hodge_control.json').write_text(json.dumps(result,indent=2)+'\n')
+print('PASS: full 62-component incidence lift, boundary-square and mass-square identities; no native-law claim')

@@ -1,0 +1,88 @@
+"""Worker LY, X7: dependence of the frozen classes on the register cost table (structure, no measured value).
+
+Tables: T0 = (0, 5, 8, 10, 8, 5) (declared in the runs); A1 = (0, 17/10, 9/10, 4/5, 9/10, 17/10) and
+A2 = (0, 1/5, 3/5, 4/5, 3/5, 1/5) (worker UH, from the plaquette cost and the swap-test cost of the centre flux).
+For each table: rise of every unit twist on an isolated class, and the cheapest route (fewest cost-raising reads,
+then fewest reads) of the (3,3) annihilation and of the quark vertex 1 + 3 -> 4.
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_x7_tables.py
+Writes x7_tables.json.
+"""
+from __future__ import annotations
+
+import json
+import os
+import time
+from fractions import Fraction
+
+import ly_lib as L
+from ly_d2_routes import cheapest
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def main():
+    t0 = time.time()
+    reps = L.pair_orbit_reps()
+    scaled = {'T0': (L.T0, 1), 'A1': (tuple(int(x * 10) for x in L.A1), 10), 'A2': (tuple(int(x * 5) for x in L.A2), 5)}
+    out = {}
+    for name in ('T0', 'A1', 'A2'):
+        table, scale = scaled[name]
+        rows = {'table': [str(Fraction(x, scale)) for x in table], 'isolated_class_rises': {}, 'lepton': [],
+                'quark_vertex': []}
+        for cls in range(1, 6):
+            cfg = L.config({0: cls})
+            c0 = L.cost(cfg, table)
+            rr = sorted(set(L.cost(L.twist(cfg, k, dl), table) - c0 for k in L.FACE_SEAMS[0] for dl in (1, 5)))
+            rows['isolated_class_rises'][cls] = [str(Fraction(r, scale)) for r in rr]
+        rows['frozen_classes'] = [cls for cls in range(1, 6)
+                                  if min(Fraction(x) for x in rows['isolated_class_rises'][cls]) > 0]
+        rows['classes_that_split_downhill'] = [cls for cls in range(1, 6)
+                                               if min(Fraction(x) for x in rows['isolated_class_rises'][cls]) < 0]
+        rows['pair_creation_rise'] = str(Fraction(L.cost(L.twist(L.VAC, 0, 1), table), scale))
+        # three unit twists across one seam move an isolated class 3 by one face: rises along the way
+        cfg = L.config({0: 3})
+        k = L.FACE_SEAMS[0][0]
+        dl = 1 if L.PLUS[k] != 0 else 5
+        seq, x = [], cfg
+        for _ in range(3):
+            y = L.twist(x, k, 6 - dl)
+            seq.append(str(Fraction(L.cost(y, table) - L.cost(x, table), scale)))
+            x = y
+        rows['class3_hop_by_three_twists_rises'] = seq
+        seps = (1, 2, 3, 4, 5) if name != 'A2' else (1, 2)
+        done3 = False
+        for a, b, d, size in reps:
+            if d not in seps or (d == 3 and done3):
+                continue
+            if d == 3:
+                done3 = True
+            start = L.config({a: 3, b: 3})
+            if name == 'T0':
+                res = cheapest([start], L.VAC, table, max_rise=5)
+            else:
+                res = cheapest([start], L.VAC, table, max_rise=2 * scale, limit=150_000)
+            rows['lepton'].append({'d': d, 'cost_raising_reads': res.get('uphill'), 'reads': res.get('length'),
+                                   'rises': [str(Fraction(r, scale)) for r in res.get('rises', [])],
+                                   'aborted': bool(res.get('aborted', False))})
+            q = cheapest([L.config({a: 1, b: 3})], L.config({b: 4}), table, max_rise=2 * scale, limit=150_000)
+            rows['quark_vertex'].append({'d': d, 'cost_raising_reads': q.get('uphill'), 'reads': q.get('length')})
+            print(f"X7 {name} d={d}: (3,3) annihilation {res.get('uphill')} cost-raising, {res.get('length')} reads, "
+                  f"rises {[str(Fraction(r, scale)) for r in res.get('rises', [])]}; quark vertex {q.get('uphill')} "
+                  f"cost-raising, {q.get('length')} reads; {time.time() - t0:.1f}s", flush=True)
+            if time.time() - t0 > 95:
+                rows['stopped_for_time_at_d'] = d
+                break
+        out[name] = rows
+        print(name, 'isolated rises', rows['isolated_class_rises'], 'frozen', rows['frozen_classes'],
+              'split downhill', rows['classes_that_split_downhill'], 'class-3 hop', seq, flush=True)
+    out['A2_note'] = ('under A2 the three twists that move a class 3 by one face are flat (rises 0, 0, 0), so the '
+                      'annihilation needs no cost-raising read at any separation; routes are computed for '
+                      'separations 1 and 2 only')
+    out['seconds'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'x7_tables.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

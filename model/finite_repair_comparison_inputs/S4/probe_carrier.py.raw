@@ -1,0 +1,30 @@
+"""Probe: sizes of reachable sets of the static transported-contrast chain on the carrier (unit pair sectors)."""
+import sys, time
+from model.transported_contrast import law
+seams, faces = law.carrier()
+distance, near, sides = law.dual_distance(faces)
+M = len(seams)
+def reach(start, offsets, limit):
+    seen = {start}; frontier = [start]; t0 = time.time()
+    while frontier:
+        nxt = []
+        for s in frontier:
+            for k in range(M):
+                a, b = seams[k]
+                d = s[a] - s[b] - offsets[k]
+                if d == 0: continue
+                for coin in (0, 1):
+                    j = (d - (2 * coin - 1) * (abs(d) % 2)) // 2
+                    if j == 0: continue
+                    t = list(s); t[a] -= j; t[b] += j; t = tuple(t)
+                    if t not in seen:
+                        seen.add(t); nxt.append(t)
+        frontier = nxt
+        if len(seen) > limit: return len(seen), False, time.time() - t0
+    return len(seen), True, time.time() - t0
+for dist in (1, 2, 3, 4, 5):
+    end = next(g for g in range(20) if distance[0][g] == dist)
+    off = law.string_offsets(seams, faces, 0, end)
+    for total in (0, 1):
+        n, done, sec = reach(tuple([1] * total + [0] * (12 - total)), off, int(sys.argv[1]))
+        print('dist', dist, 'total', total, 'reachable', n, 'complete', done, f'{sec:.1f}s', flush=True)

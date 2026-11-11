@@ -1,0 +1,316 @@
+"""MV library: template carrier, section frames, link phases, flat-federation kernels and Bloch walks.
+
+Port labels are those of `oph_defects.fedgeom` and of the public carrier (`walk_engine.js`): port vectors PV,
+seams sorted (a < b), control face TOP = (0, 11, 5), bridge ports P = (4, 1, 10).
+
+Conventions
+  link g from a to b      the seam operation exchanges (|a> - g|b>)|0>/sqrt2 with (|a> + g|b>)|1>/sqrt2; a parallel
+                          amplitude has s(b) = g s(a); the kernel term is |s(b) - g s(a)|^2, so L[b, a] = -g.
+  section frames          chi_p = eigenvector of n_p.J with eigenvalue m (helicity m about the port axis); the
+                          recharting phase is z_ab = phase <chi_b|chi_a>.
+  equivariant gauge       chi_{rho p} = u3 chi_p, rho the third of a turn of the carrier about the control axis
+                          (TOP[k] -> TOP[k+1], P[k] -> P[k+1]) and u3 its spin-j lift with u3^3 = 1. In this gauge
+                          z_{rho a, rho b} = z_ab, and the rule "frames turn with the carriers" is G = 1 on a bridge
+                          seam for every cyclic labelling of the cell corners.
+"""
+import numpy as np
+from scipy.linalg import expm
+
+PHI = (1 + 5 ** 0.5) / 2
+PV = np.array([(-1, PHI, 0), (1, PHI, 0), (-1, -PHI, 0), (1, -PHI, 0), (0, -1, PHI), (0, 1, PHI),
+               (0, -1, -PHI), (0, 1, -PHI), (PHI, 0, -1), (PHI, 0, 1), (-PHI, 0, -1), (-PHI, 0, 1)], float)
+NC = PV / np.linalg.norm(PV, axis=1)[:, None]                       # convex icosahedron axes
+_G = np.where(np.isclose(abs(PV), PHI), np.sign(PV) * (-1 / PHI), PV)
+NGR = _G / np.linalg.norm(_G, axis=1)[:, None]                      # great icosahedron (Galois conjugate) axes
+SEAMS = [(a, b) for a in range(12) for b in range(a + 1, 12) if abs(np.linalg.norm(PV[a] - PV[b]) - 2) < 1e-9]
+assert len(SEAMS) == 30
+SIDX = {e: i for i, e in enumerate(SEAMS)}
+TA60 = np.array([a for a, b in SEAMS] + [b for a, b in SEAMS], dtype=np.int64)   # oriented address k: TA60[k] -> TB60[k]
+TB60 = np.array([b for a, b in SEAMS] + [a for a, b in SEAMS], dtype=np.int64)
+NBR = [[q for q in range(12) if (min(p, q), max(p, q)) in SIDX] for p in range(12)]
+FACES = []
+for a in range(12):
+    for b in range(a + 1, 12):
+        for c in range(b + 1, 12):
+            if (a, b) in SIDX and (b, c) in SIDX and (a, c) in SIDX:
+                n = np.cross(PV[b] - PV[a], PV[c] - PV[a])
+                FACES.append((a, b, c) if n @ (PV[a] + PV[b] + PV[c]) > 0 else (a, c, b))   # outward orientation
+assert len(FACES) == 20
+FACE_SEAMS = [[SIDX[(min(x, y), max(x, y))] for x, y in ((f[0], f[1]), (f[1], f[2]), (f[0], f[2]))] for f in FACES]
+TOP = (0, 11, 5)
+assert any(set(f) == set(TOP) for f in FACES)
+P = []
+for k in range(3):
+    e = {TOP[(k + 1) % 3], TOP[(k + 2) % 3]}
+    third = [v for f in FACES if e <= set(f) and set(f) != set(TOP) for v in f if v not in e]
+    assert len(third) == 1
+    P.append(third[0])
+P = tuple(P)
+assert P == (4, 1, 10)
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, 3 ** 0.5 / 2])
+
+
+def addr_index(a, b):
+    return SIDX[(a, b)] if a < b else 30 + SIDX[(b, a)]
+
+
+# ------------------------------------------------------------------------------------------------ spin
+def spin_matrices(j):
+    d = int(round(2 * j + 1)); m = np.array([j - i for i in range(d)])
+    Jz = np.diag(m).astype(complex); Jp = np.zeros((d, d), complex)
+    for i in range(1, d):
+        Jp[i - 1, i] = np.sqrt(j * (j + 1) - m[i] * (m[i] + 1))
+    return (Jp + Jp.conj().T) / 2, (Jp - Jp.conj().T) / (2j), Jz
+
+
+def axis_state(j, m, n):
+    Jx, Jy, Jz = spin_matrices(j)
+    w, U = np.linalg.eigh(n[0] * Jx + n[1] * Jy + n[2] * Jz)
+    return U[:, int(np.argmin(abs(w - m)))]
+
+
+def rot_matrix(n, ang):
+    n = np.asarray(n, float) / np.linalg.norm(n)
+    K = np.array([[0, -n[2], n[1]], [n[2], 0, -n[0]], [-n[1], n[0], 0]])
+    return np.eye(3) + np.sin(ang) * K + (1 - np.cos(ang)) * (K @ K)
+
+
+def spin_rot(j, n, ang):
+    """exp(-i ang n.J): the spin-j matrix of the rotation by ang about n (one of the two lifts for half-integer j)."""
+    n = np.asarray(n, float) / np.linalg.norm(n)
+    Jx, Jy, Jz = spin_matrices(j)
+    return expm(-1j * ang * (n[0] * Jx + n[1] * Jy + n[2] * Jz))
+
+
+def perm_of(R, axes):
+    perm = [int(np.argmax(axes @ (R @ axes[p]))) for p in range(12)]
+    assert all(np.allclose(R @ axes[p], axes[perm[p]], atol=1e-9) for p in range(12)), 'not a symmetry of the axes'
+    return perm
+
+
+def third_turn(axes):
+    """(rho, n, ang): the rotation by ang about n with rho(TOP[k]) = TOP[k+1] in the given realization of the axes."""
+    n = axes[list(TOP)].sum(0); n = n / np.linalg.norm(n)
+    for ang in (2 * np.pi / 3, -2 * np.pi / 3):
+        rho = perm_of(rot_matrix(n, ang), axes)
+        if rho[TOP[0]] == TOP[1]:
+            assert rho[TOP[1]] == TOP[2] and rho[TOP[2]] == TOP[0] and all(rho[P[k]] == P[(k + 1) % 3] for k in range(3))
+            return rho, n, ang
+    raise AssertionError('no third of a turn found')
+
+
+def seam_half_turn(axes, k):
+    """(perm, n): the two-fold rotation of the carrier about the midpoint axis of the control-face seam that faces
+    neighbour k, i.e. seam (TOP[k+1], TOP[k+2]); it exchanges those two ports."""
+    a, b = TOP[(k + 1) % 3], TOP[(k + 2) % 3]
+    n = axes[a] + axes[b]; n = n / np.linalg.norm(n)
+    perm = perm_of(rot_matrix(n, np.pi), axes)
+    assert perm[a] == b and perm[b] == a
+    return perm, n
+
+
+def frames(j, m, axes, gauge='equivariant', rng=None):
+    """Section frames chi[p] (kets), one per port. gauge: 'equivariant' (see module text), 'numpy' (phases of eigh),
+    'random' (numpy phases times random phases; a control for gauge dependence)."""
+    d = int(round(2 * j + 1))
+    chi = np.zeros((12, d), complex)
+    if j == 0:
+        chi[:] = 1.0
+        return chi
+    if gauge in ('numpy', 'random'):
+        for p in range(12):
+            chi[p] = axis_state(j, m, axes[p])
+        if gauge == 'random':
+            chi *= np.exp(2j * np.pi * rng.random(12))[:, None]
+        return chi
+    rho, n, ang = third_turn(axes)
+    u3 = spin_rot(j, n, ang) * (-1) ** int(round(2 * j))
+    assert np.allclose(u3 @ u3 @ u3, np.eye(d), atol=1e-10)
+    done = set()
+    for p in range(12):
+        if p in done:
+            continue
+        chi[p] = axis_state(j, m, axes[p])
+        q = rho[p]; r = rho[q]
+        assert rho[r] == p and len({p, q, r}) == 3
+        chi[q] = u3 @ chi[p]; chi[r] = u3 @ chi[q]
+        done |= {p, q, r}
+    Jx, Jy, Jz = spin_matrices(j)
+    for p in range(12):
+        H = axes[p][0] * Jx + axes[p][1] * Jy + axes[p][2] * Jz
+        assert np.allclose(H @ chi[p], m * chi[p], atol=1e-9)
+    return chi
+
+
+def phase(z):
+    return z / abs(z)
+
+
+def link(chi, a, b):
+    """Recharting phase from port a to port b for frames chi (rows are kets)."""
+    return phase(np.vdot(chi[b], chi[a]))
+
+
+TYPES = {
+    'scalar':   dict(j=0, m=0, axes=NC, charged=False, flux=0),
+    'vector':   dict(j=1, m=1, axes=NC, charged=False, flux=2),
+    'spinor':   dict(j=0.5, m=0.5, axes=NC, charged=True, flux=1),
+    'spinor_g': dict(j=0.5, m=0.5, axes=NGR, charged=True, flux=7),
+    'vector_g': dict(j=1, m=1, axes=NGR, charged=False, flux=14),
+}
+
+
+def type_frames(name, gauge='equivariant', rng=None):
+    t = TYPES[name]
+    return frames(t['j'], t['m'], t['axes'], gauge, rng)
+
+
+def template_links(name, gauge='equivariant', rng=None):
+    """z60[k]: link along the oriented internal address k (TA60[k] -> TB60[k])."""
+    chi = type_frames(name, gauge, rng)
+    return np.array([link(chi, int(TA60[k]), int(TB60[k])) for k in range(60)])
+
+
+def face_flux(z60):
+    """Holonomy phase (radians, in (-pi, pi]) of the template links around every oriented face."""
+    out = []
+    for a, b, c in FACES:
+        h = z60[addr_index(a, b)] * z60[addr_index(b, c)] * z60[addr_index(c, a)]
+        out.append(float(np.angle(h)))
+    return np.array(out)
+
+
+# ------------------------------------------------------------------------------------------------ flat federation
+def flat_layout():
+    """Coordinator's layout (gluing_bands.py): the up carrier at the origin, the down carrier of the cell displaced
+    by delta_k is neighbour k; the up carrier has its control axis along +z and control vertex k pointing away from
+    neighbour k; the down carrier is the up carrier turned by half a turn about z. Returns (DEL, AX24, ok)."""
+    def attempt(DEL):
+        tau = -(A1 + A2) / 3
+        dirs = [(tau + d) / np.linalg.norm(tau + d) for d in DEL]
+        n = NC[list(TOP)].sum(0); n /= np.linalg.norm(n)
+        v = np.cross(n, [0, 0, 1.0]); s = np.linalg.norm(v); c = n[2]
+        K = np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
+        R = np.eye(3) + K + K @ K * ((1 - c) / s ** 2)
+        X = NC @ R.T
+        a0 = np.arctan2(X[TOP[0]][1], X[TOP[0]][0]); t0 = np.arctan2(-dirs[0][1], -dirs[0][0])
+        rz = lambda t: np.array([[np.cos(t), -np.sin(t), 0], [np.sin(t), np.cos(t), 0], [0, 0, 1]])
+        X = X @ rz(t0 - a0).T
+        ok = all(np.allclose(X[TOP[k]][:2] / np.linalg.norm(X[TOP[k]][:2]), -dirs[k], atol=1e-9) for k in range(3))
+        return X, ok, rz
+    DEL = (np.zeros(2), A1, A2)
+    X, ok, rz = attempt(DEL)
+    if not ok:
+        DEL = (DEL[0], DEL[2], DEL[1])
+        X, ok, rz = attempt(DEL)
+    return DEL, np.vstack([X, X @ rz(np.pi).T]), ok
+
+
+FLAT_DEL, FLAT_AX, _ok = flat_layout()
+assert _ok
+
+
+def glue_pairs(gluing):
+    """Glue seams of the unit cell as (bond k, up port a, down port b)."""
+    if gluing == 'bridge':
+        return [(k, P[k], P[k]) for k in range(3)]
+    if gluing == 'seam':
+        out = []
+        for k in range(3):
+            out += [(k, TOP[(k + 1) % 3], TOP[(k + 2) % 3]), (k, TOP[(k + 2) % 3], TOP[(k + 1) % 3])]
+        return out
+    raise ValueError(gluing)
+
+
+def flat_links(name, gluing, rule, gauge='equivariant', rng=None, lift_signs=(1, 1, 1)):
+    """Links of the unit cell: (zu60, zd60, glue) with glue = [(k, a, b, G)], G the link from (up, a) to (down, b).
+
+    rule 'template'  frames turn with the carriers (the same template frames in both carriers); a glue seam between
+                     template ports a and b carries the template recharting phase z_ab (1 when a = b).
+    rule 'one'       G = 1 on every glue seam in the given gauge (the coordinator's "template" on the shared seam;
+                     gauge dependent when a != b: a control).
+    rule 'ambient'   one common frame: every port has its geometric axis; every link is the recharting phase between
+                     the two axes (coordinator's rule).
+    rule 'halfturn'  shared seam only: transport by the two-fold carrier rotation about the midpoint axis of the
+                     shared seam, G = <chi_b| U_k |chi_a> / |.|, U_k its spin lift times lift_signs[k].
+    """
+    t = TYPES[name]
+    j, m = t['j'], t['m']
+    pairs = glue_pairs(gluing)
+    if j == 0:
+        one = np.ones(60, complex)
+        return one, one, [(k, a, b, 1.0 + 0j) for k, a, b in pairs]
+    if rule == 'ambient':
+        assert t['axes'] is NC, 'the ambient rule is defined for the convex realization'
+        chi = np.array([axis_state(j, m, FLAT_AX[p]) for p in range(24)])
+        if rng is not None:
+            chi *= np.exp(2j * np.pi * rng.random(24))[:, None]
+        zu = np.array([link(chi[:12], int(TA60[k]), int(TB60[k])) for k in range(60)])
+        zd = np.array([link(chi[12:], int(TA60[k]), int(TB60[k])) for k in range(60)])
+        glue = [(k, a, b, phase(np.vdot(chi[12 + b], chi[a]))) for k, a, b in pairs]
+        return zu, zd, glue
+    chi = type_frames(name, gauge, rng)
+    z = np.array([link(chi, int(TA60[k]), int(TB60[k])) for k in range(60)])
+    if rule == 'template':
+        glue = [(k, a, b, 1.0 + 0j if a == b else link(chi, a, b)) for k, a, b in pairs]
+    elif rule == 'one':
+        glue = [(k, a, b, 1.0 + 0j) for k, a, b in pairs]
+    elif rule == 'halfturn':
+        assert gluing == 'seam'
+        glue = []
+        for k, a, b in pairs:
+            perm, n = seam_half_turn(t['axes'], k)
+            U = spin_rot(j, n, np.pi) * lift_signs[k]
+            assert perm[a] == b
+            glue.append((k, a, b, phase(np.vdot(chi[b], U @ chi[a]))))
+    else:
+        raise ValueError(rule)
+    return z, z, glue
+
+
+def kernel_L(q, links):
+    """Twisted port Laplacian L_G(q) (24 x 24) and the twisted adjacency A_G(q), degree vector."""
+    zu, zd, glue = links
+    A = np.zeros((24, 24), complex)
+    deg = np.zeros(24)
+    for blk, z in ((0, zu), (12, zd)):
+        for k in range(30):
+            a, b = blk + int(TA60[k]), blk + int(TB60[k])
+            A[b, a] += z[k]; A[a, b] += np.conj(z[k]); deg[a] += 1; deg[b] += 1
+    for k, a, b, G in glue:
+        g = G * np.exp(1j * (q @ FLAT_DEL[k]))
+        A[12 + b, a] += g; A[a, 12 + b] += np.conj(g); deg[a] += 1; deg[12 + b] += 1
+    return np.diag(deg) - A, A, deg
+
+
+def register_size(gluing):
+    return 60 + 2 * len(glue_pairs(gluing))
+
+
+def bloch_walk(q, links):
+    """Dense Bloch walk W(q) = Q(q) R on (24 ports) x (2 parities) x (S addresses), with its isometry A.
+    Address register of a carrier: 60 oriented internal seams, then for glue seam number s of the unit cell the
+    orientation up -> down at 60 + 2 s and down -> up at 60 + 2 s + 1 (the same numbering in both carriers)."""
+    zu, zd, glue = links
+    S = 60 + 2 * len(glue)
+    dim = 24 * 2 * S
+    idx = lambda port, r, k: (port * 2 + r) * S + k
+    Q = np.eye(dim, dtype=complex)
+
+    def add(a, b, ka, kb, g):
+        I = [idx(a, 0, ka), idx(b, 0, kb), idx(a, 1, ka), idx(b, 1, kb)]
+        v = np.array([1, -g, -1, -g], complex) / np.sqrt(2)
+        Q[np.ix_(I, I)] -= np.outer(v, v.conj())
+    for blk, z in ((0, zu), (12, zd)):
+        for k in range(60):
+            add(blk + int(TA60[k]), blk + int(TB60[k]), k, k, z[k])
+    for s, (k, a, b, G) in enumerate(glue):
+        g = G * np.exp(1j * (q @ FLAT_DEL[k]))
+        add(a, 12 + b, 60 + 2 * s, 60 + 2 * s, g)                    # orientation up -> down
+        add(12 + b, a, 60 + 2 * s + 1, 60 + 2 * s + 1, np.conj(g))   # orientation down -> up
+    Aiso = np.zeros((dim, 48), complex)
+    for port in range(24):
+        for r in range(2):
+            Aiso[idx(port, r, 0):idx(port, r, 0) + S, port * 2 + r] = 1 / np.sqrt(S)
+    R = 2 * Aiso @ Aiso.conj().T - np.eye(dim)
+    return Q @ R, Q, R, Aiso

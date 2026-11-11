@@ -1,0 +1,471 @@
+"""MG block 3: geometric frames of the federation for other workers.
+
+    python b3_frames.py            (box A; a few seconds)
+
+Writes frames_flat_{F,face_axis,port_pair,rolling}.json, frames_L{0,1,2}_{F,face_axis,port_pair,rolling}.json and
+b3_frames_summary.json (the angles and plaquette fluxes quoted in the report).
+
+Two comparisons of spinor frames across a glue seam are delivered wherever they exist:
+  chart    the internal frame is transported by the carrier rotation T of a rule (S, R0, R1, R2): the hop
+           (c, p) -> (c', q) has amplitude <chi_q| U_T |chi_p>, chi the template spinors, U_T the lift of T;
+  ambient  every carrier has an embedding E_c in one common frame (the screen), port (c, p) has the axis E_c u_p and
+           the hop has amplitude <chi(E_c' u_q)|chi(E_c u_p)>; nothing is transported.
+For each hop the file gives keep = <chi+_q|...|chi+_p> and flip = <chi-_q|...|chi+_p> (chi-(n) = chi+(-n)),
+|keep| = cos(angle/2), |flip| = sin(angle/2), angle = angle between the two glued port axes after transport.
+Spinor gauge: chi+(n) = (cos(theta/2), exp(i phi) sin(theta/2)). SU(2): U(n, t) = cos(t/2) - i sin(t/2) n.sigma.
+"""
+import collections
+import json
+import math
+import sys
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+
+U12 = M.PORT_UNIT
+TOP, BELT = M.TOP, M.BELT
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, 3 ** 0.5 / 2])
+DELTA = (np.zeros(2), A1, A2)
+BOND_DIR = (30.0, 150.0, 270.0)                 # direction from the up carrier to its down neighbour on bond k
+UNIT = 2 * math.pi / 20
+
+
+def rz(deg):
+    a = math.radians(deg)
+    return np.array([[math.cos(a), -math.sin(a), 0], [math.sin(a), math.cos(a), 0], [0, 0, 1.0]])
+
+
+def face_frame():
+    """Q: template coordinates -> coordinates in the frame of the glue face (x along TOP[0], z the face normal)."""
+    n = U12[list(TOP)].sum(axis=0); n /= np.linalg.norm(n)
+    ex = U12[TOP[0]] - (U12[TOP[0]] @ n) * n; ex /= np.linalg.norm(ex)
+    ey = np.cross(n, ex)
+    return np.stack([ex, ey, n])
+
+
+Q = face_frame()
+POLAR_TOP = math.degrees(math.acos(float((Q @ U12[TOP[0]])[2])))
+POLAR_BELT = math.degrees(math.acos(float((Q @ U12[BELT[0]])[2])))
+AZ_TOP = [math.degrees(math.atan2(*(Q @ U12[p])[[1, 0]])) % 360 for p in TOP]
+AZ_BELT = [math.degrees(math.atan2(*(Q @ U12[p])[[1, 0]])) % 360 for p in BELT]
+assert np.allclose(AZ_TOP, [0, 120, 240], atol=1e-9) and np.allclose(AZ_BELT, [180, 300, 60], atol=1e-9)
+
+
+def chi(n, sign=+1):
+    return M.spinor(np.asarray(n, float) * sign)
+
+
+def amp(nq, U, np_):
+    """keep and flip amplitudes of the hop from axis np_ to axis nq with internal transport U (2x2)."""
+    v = U @ chi(np_)
+    return complex(np.vdot(chi(nq), v)), complex(np.vdot(chi(nq, -1), v))
+
+
+def cj(z):
+    return [round(float(np.real(z)), 12), round(float(np.imag(z)), 12)]
+
+
+def mat(Mx):
+    return [[round(float(x), 12) for x in row] for row in np.asarray(Mx)]
+
+
+def cmat(Mx):
+    return [[cj(x) for x in row] for row in np.asarray(Mx)]
+
+
+def angle(a, b):
+    return math.degrees(math.acos(max(-1.0, min(1.0, float(np.dot(a, b))))))
+
+
+def phase_units(z):
+    return None if abs(z) < 1e-9 else float(np.angle(z) / UNIT)
+
+
+def seam_entry(c, p, d, q, U, axis_p, axis_q, extra=None):
+    k, f = amp(axis_q, U, axis_p)
+    Rso = M.so3_of(U)
+    e = {'from': [c, int(p)], 'to': [d, int(q)], 'angle_between_glued_axes_after_transport_deg': round(angle(Rso @ axis_p, axis_q), 9),
+         'keep': cj(k), 'flip': cj(f), 'z_keep': None if abs(k) < 1e-9 else cj(k / abs(k)), 'z_flip': None if abs(f) < 1e-9 else cj(f / abs(f))}
+    if extra:
+        e.update(extra)
+    return e
+
+
+CONV = {
+    'port_labels': 'template labels of oph_defects.fedgeom / RL/work/S3/s0_lib.py',
+    'template_port_axes': mat(U12),
+    'spinor': 'chi+(n) = (cos(theta/2), exp(i phi) sin(theta/2)), chi-(n) = chi+(-n); complex numbers are [re, im]',
+    'su2': 'U(n, t) = cos(t/2) - i sin(t/2) n.sigma; U (v.sigma) U^+ = (R v).sigma',
+    'hop': 'amplitude of the hop from port p of the first carrier to port q of the second: keep = <chi+_q| U |chi+_p>, flip = <chi-_q| U |chi+_p>; '
+           'the reverse hop has the complex conjugate keep amplitude (U replaced by U^-1)',
+    'z': 'z_keep = keep / |keep| is the recharting phase for the covariant agreement pump and for section bands of helicity 1/2; '
+         'intra-carrier seams use z_ab = phase of <chi_b|chi_a> with the template axes (chart) or the ambient axes (ambient)',
+    'flux_unit': '2 pi / 20; a carrier face oriented outward has flux -1 unit in this spinor convention (helicity +1/2)',
+}
+
+summary = {'template': {'polar_angle_of_glue_face_ports_deg': POLAR_TOP, 'polar_angle_of_belt_ports_deg': POLAR_BELT}}
+# control: flux of an oriented carrier face
+f0 = S.BASE_FACES[0]
+zf = np.prod([np.vdot(chi(U12[f0[(i + 1) % 3]]), chi(U12[f0[i]])) for i in range(3)])
+summary['control_carrier_face_flux_units'] = phase_units(zf)
+# control: physical rolling of the convex carrier on the flat lattice, six short rolls about the hinge edges around a vertex
+alpha = math.pi - math.acos(-math.sqrt(5) / 3)            # pi minus the dihedral angle
+Uroll = np.eye(2, dtype=complex)
+for j in range(6):
+    a = math.radians(60 * j)
+    Uroll = (math.cos(alpha / 2) * np.eye(2) - 1j * math.sin(alpha / 2) * (math.cos(a) * M.SIG[0] + math.sin(a) * M.SIG[1])) @ Uroll
+summary['control_six_short_rolls_about_a_flat_vertex'] = {
+    'roll_angle_deg': math.degrees(alpha), 'rotation_angle_deg': math.degrees(math.acos((np.trace(M.so3_of(Uroll)) - 1) / 2)),
+    'su2_trace': float(np.trace(Uroll).real), 'lift': 'short lift (order 10)' if np.trace(Uroll).real > 0 else 'long lift (order 5)'}
+U5 = np.eye(2, dtype=complex)
+for j in range(5):
+    a = math.radians(60 * j)
+    U5 = (math.cos(alpha / 2) * np.eye(2) - 1j * math.sin(alpha / 2) * (math.cos(a) * M.SIG[0] + math.sin(a) * M.SIG[1])) @ U5
+R5 = M.so3_of(U5)
+close = M.su2_of(R5.T)                                     # short lift of the rotation that closes the cone
+summary['control_five_short_rolls_about_a_cone_vertex'] = {
+    'rotation_after_five_rolls_is_about_the_normal': bool(abs(abs(R5[2, 2]) - 1) < 1e-9),
+    'rotation_angle_deg': math.degrees(math.acos(max(-1.0, min(1.0, (np.trace(R5) - 1) / 2)))),
+    'closed_with_the_short_lift_of_the_cone_identification': [round(float(x), 9) for x in np.diag(close @ U5).real]}
+print('controls', summary['control_five_short_rolls_about_a_cone_vertex'], flush=True)
+print('controls', summary['control_carrier_face_flux_units'], summary['control_six_short_rolls_about_a_flat_vertex'], flush=True)
+
+RULES = {'S': M.E60}
+for i in range(3):
+    RULES[f'F_R{i}'] = M.crosswise_rule(TOP, i)
+    RULES[f'B_R{i}'] = M.crosswise_rule(BELT, i)
+RULES['B_roll'] = M.crosswise_rule(TOP, 0)        # face_axis: the convex carrier rolls over the edge of its top face under the mesh edge
+
+
+# ----------------------------------------------------------------------------- flat honeycomb
+def flat_ring():
+    """The plaquette around a mesh vertex, counter-clockwise: (carrier type, bond in, bond out)."""
+    return [('U', 2, 1), ('D', 1, 0), ('U', 0, 2), ('D', 2, 1), ('U', 1, 0), ('D', 0, 2)]
+
+
+def flat_flux(ports_u, ports_d, axis_u, axis_d, Ubond, via=None):
+    """Product of the hop phases around the mesh-vertex plaquette. axis_u[p], axis_d[p]: axes used for the spinors of
+    the up and the down carrier; Ubond[k]: internal transport up -> down on bond k (2x2). via: None for the direct
+    link between the in and out ports, or a function (i, j) -> intermediate port."""
+    z = 1.0 + 0j
+    ring = flat_ring()
+    for idx, (kind, kin, kout) in enumerate(ring):
+        ports, ax = (ports_u, axis_u) if kind == 'U' else (ports_d, axis_d)
+        a, b = ports[kin], ports[kout]
+        path = [a, b] if via is None else [a, via(kin, kout), b]
+        for x, y in zip(path[:-1], path[1:]):
+            z *= np.vdot(chi(ax[y]), chi(ax[x]))
+        nxt_kind = ring[(idx + 1) % 6][0]
+        if kind == 'U':
+            z *= np.vdot(chi(axis_d[ports_d[kout]]), Ubond[kout] @ chi(ax[b]))
+        else:
+            z *= np.vdot(chi(axis_u[ports_u[kout]]), Ubond[kout].conj().T @ chi(ax[b]))
+    return z
+
+
+def flat_chart(ports, g):
+    """Chart transports of the uniform rule g on the three bonds (uniform labels, k' = k) with their lifts.
+    The lift on bond k is r~^k g~ r~^-k with r~ the lift of order 3 and g~ the lift of g listed first in mg_lib."""
+    rt = M.ODD_LIFT[M.R3]
+    rp = [M.ONE, rt, int(M.BMUL[rt, rt])]
+    out = []
+    for k in range(3):
+        T = int(M.MUL[M.RPOW[k], M.MUL[g, M.INV[M.RPOW[k]]]])
+        TL = int(M.BMUL[rp[k], M.BMUL[2 * g, M.BINV[rp[k]]]])
+        assert TL // 2 == T
+        out.append((T, TL))
+    return out
+
+
+def flat_file(name, ports_u, ports_d, E_up, E_down, comparisons, primary, note):
+    doc = {'wiring': name, 'lattice': {
+        'unit_cell': 'one up carrier and one down carrier; seam k joins port ports_up[k] of the up carrier of cell R to port ports_down[k] of the down carrier of cell R - delta_k',
+        'a1': A1.tolist(), 'a2': A2.tolist(), 'delta': [d.tolist() for d in DELTA], 'delta_in_lattice_coordinates': [[0, 0], [1, 0], [0, 1]],
+        'bond_direction_deg_from_up_carrier': list(BOND_DIR), 'bloch_convention': 'oph_defects.bloch.bloch_honeycomb: L[u, d] -= exp(-i q.delta_k)',
+        'plaquette': 'counter-clockwise ring around a mesh vertex as in oph_defects.bloch.incidence_bloch'},
+        'conventions': CONV, 'note': note, 'glue_ports_up': [int(p) for p in ports_u], 'glue_ports_down': [int(p) for p in ports_d]}
+    if E_up is not None:
+        doc['embedding'] = {'E_up': mat(E_up), 'E_down': mat(E_down), 'meaning': 'ambient axis of port p = E u_p; ambient z is the screen normal'}
+        doc['ports'] = [{'carrier': kind, 'port': p, 'ambient_axis': mat([E @ U12[p]])[0]} for kind, E in (('up', E_up), ('down', E_down)) for p in range(12)]
+    else:
+        doc['embedding'] = None
+        doc['ports'] = [{'carrier': kind, 'port': p, 'ambient_axis': None} for kind in ('up', 'down') for p in range(12)]
+    doc['comparisons'] = comparisons
+    doc['primary_comparison'] = primary
+    doc['glue_seams'] = comparisons[primary]['glue_seams']
+    json.dump(doc, open(f'frames_flat_{name}.json', 'w'), indent=1)
+    return doc
+
+
+def flat_ambient(ports_u, ports_d, E_up, E_down, via=None):
+    axu = [E_up @ U12[p] for p in range(12)]; axd = [E_down @ U12[p] for p in range(12)]
+    Rseam = E_down @ E_up.T
+    seams = []
+    for k in range(3):
+        e = seam_entry('up', ports_u[k], 'down', ports_d[k], np.eye(2, dtype=complex), axu[ports_u[k]], axd[ports_d[k]],
+                       {'k': k, 'cell_displacement': DELTA[k].tolist(), 'transport_rotation': mat(Rseam), 'transport_su2': cmat(M.su2_of(Rseam)),
+                        'transport_meaning': 'rotation of the common frame that carries the embedded up carrier onto the embedded down carrier; the internal state is NOT transported in this comparison'})
+        seams.append(e)
+    I2 = [np.eye(2, dtype=complex)] * 3
+    z = flat_flux(ports_u, ports_d, axu, axd, I2)
+    res = {'kind': 'ambient', 'glue_seams': seams, 'plaquette_flux_units_direct_links': phase_units(z), 'holonomy': 'trivial (one common frame)'}
+    if via is not None:
+        res['plaquette_flux_units_through_ports'] = phase_units(flat_flux(ports_u, ports_d, axu, axd, I2, via))
+    return res
+
+
+def flat_chart_cmp(ports, g, label, via=None):
+    tr = flat_chart(ports, g)
+    ax = [U12[p] for p in range(12)]
+    seams = []
+    for k in range(3):
+        T, TL = tr[k]
+        e = seam_entry('up', ports[k], 'down', ports[k], M.B2[TL], ax[ports[k]], ax[ports[k]],
+                       {'k': k, 'cell_displacement': DELTA[k].tolist(), 'transport_perm': list(M.ROT60[T]), 'transport_class': M.CLASS_NAME[int(M.ANGLE[T])],
+                        'transport_axis_through': M.axis_label(T), 'transport_rotation': mat(M.ROT_MATS[T]), 'transport_su2': cmat(M.B2[TL]),
+                        'transport_meaning': 'carrier rotation T (template coordinates) from the up carrier to the down carrier: port p of up corresponds to port T(p) of down; the reverse uses the inverse',
+                        'port_after_transport': int(M.ROT60[T][ports[k]])})
+        seams.append(e)
+    Ub = [M.B2[tr[k][1]] for k in range(3)]
+    z = flat_flux(ports, ports, ax, ax, Ub)
+    # holonomy of the hexagon (up -> down uses T_k, down -> up its inverse)
+    H = M.ONE
+    for kind, kin, kout in flat_ring():
+        H = int(M.BMUL[tr[kout][1] if kind == 'U' else M.BINV[tr[kout][1]], H])
+    res = {'kind': 'chart', 'rule': label, 'glue_seams': seams, 'plaquette_flux_units_direct_links': phase_units(z),
+           'holonomy_around_mesh_vertex': {'class': M.CLASS_NAME[int(M.ANGLE[H // 2])], 'lifted_order': int(M.BORD[H]), 'su2': cmat(M.B2[H])}}
+    if via is not None:
+        res['plaquette_flux_units_through_ports'] = phase_units(flat_flux(ports, ports, ax, ax, Ub, via))
+    return res
+
+
+via_top = lambda i, j: TOP[3 - i - j]                     # belt port i to belt port j through the top-face port between them
+flat = {}
+# F: glue face up, glue port k tilted towards neighbour k; the down carrier is the up carrier turned by a half turn about the normal
+E_up = rz(BOND_DIR[0]) @ Q; E_dn = rz(180) @ E_up
+cmpF = {'chart_S': flat_chart_cmp(TOP, M.E60, 'S'), 'ambient': flat_ambient(TOP, TOP, E_up, E_dn)}
+for i in range(3):
+    cmpF[f'chart_R{i}'] = flat_chart_cmp(TOP, RULES[f'F_R{i}'], f'R{i}')
+flat['F'] = flat_file('F', TOP, TOP, E_up, E_dn, cmpF, 'chart_S',
+                      'Wiring F on the honeycomb: up port TOP[k] glued to down port TOP[k]. Embedding: glue face parallel to the screen, port k tilted towards neighbour k.')
+# face_axis: top face up, top port k towards mesh vertex k, belt port k towards neighbour k
+E_up = rz(BOND_DIR[0] - 180) @ Q; E_dn = rz(180) @ E_up
+cmpB = {'chart_S': flat_chart_cmp(BELT, M.E60, 'S', via_top), 'ambient': flat_ambient(BELT, BELT, E_up, E_dn, via_top),
+        'chart_roll': flat_chart_cmp(BELT, RULES['B_roll'], 'roll (half turn about the top-face seam under the mesh edge)', via_top)}
+for i in range(3):
+    cmpB[f'chart_R{i}'] = flat_chart_cmp(BELT, RULES[f'B_R{i}'], f'R{i}', via_top)
+flat['face_axis'] = flat_file('face_axis', BELT, BELT, E_up, E_dn, cmpB, 'chart_S',
+                              'Flat form of the control gluing face_axis (oph_defects.bloch honeycomb3): up belt port P[k] glued to down belt port P[k], P = (4, 1, 10).')
+
+
+# port_pair: both carriers in the declared tangent frame (template x, y = tangent, z = normal); ports of the declared router
+def pinned_ports(gamma):
+    out = []
+    for base in ((30, 150, 270), (210, 330, 90)):
+        ports = []
+        for a in base:
+            t = math.radians(a + gamma)
+            score = U12[:, 0] * math.cos(t) + U12[:, 1] * math.sin(t)
+            score[ports] = -9
+            ports.append(int(np.argmax(score)))
+        out.append(ports)
+    return out
+
+
+try:
+    from oph_defects import bloch as BL
+    summary['control_pinned_ports_equal_bloch'] = all(pinned_ports(g) == BL.pinned_ports(g) for g in (0, 5, 10, 15, 20, 25, 30, 40, 50, 60, 75, 90))
+    summary['control_face_axis_ports_equal_fedgeom'] = bool(tuple(BL.FG._control_ports()) == tuple(BELT))
+except Exception as e:                                   # pragma: no cover
+    summary['control_pinned_ports_equal_bloch'] = repr(e)
+I3 = np.eye(3)
+scan = {}
+for gam in (0, 5, 10, 15, 20, 25, 30, 40, 50, 60, 75, 90):
+    pu, pd = pinned_ports(gam)
+    scan[str(gam)] = {'ports_up': pu, 'ports_down': pd, 'antipodal_pairs': int(sum(S.ANTI[a] == b for a, b in zip(pu, pd))),
+                      'angles_deg': [round(angle(U12[a], U12[b]), 6) for a, b in zip(pu, pd)]}
+pu, pd = pinned_ports(15)
+cmpP = {'ambient': flat_ambient(pu, pd, I3, I3)}
+cmpP['ambient']['frame_angle_gamma_deg'] = 15
+doc = flat_file('port_pair', pu, pd, I3, I3, cmpP, 'ambient',
+                'Declared router on the flat lattice (oph_defects.bloch.pinned_ports): both carriers sit in the tangent frame, template z along the normal; the mesh is turned by gamma against the frame. gamma = 15 degrees is listed; the ports for other gamma are in gamma_scan.')
+doc['gamma_scan'] = scan
+json.dump(doc, open('frames_flat_port_pair.json', 'w'), indent=1)
+flat['port_pair'] = doc
+# rolling: wiring F with the crosswise rules; no embedding with the two-carrier cell (the transport has holonomy)
+cmpR = {f'chart_R{i}': flat_chart_cmp(TOP, RULES[f'F_R{i}'], f'R{i}') for i in range(3)}
+cmpR['face_axis_chart_roll'] = cmpB['chart_roll']
+flat['rolling'] = flat_file('rolling', TOP, TOP, None, None, cmpR, 'chart_R1',
+                            'Wiring F with the rolling transport R1 (primary): the carrier sits with its glue face on the cell, glue port k at the first end of mesh edge k, and rolls over the shared edge. '
+                            'No common frame exists (a fifth of a turn around every mesh vertex). With a two-carrier cell the lift has the short (order 10) holonomy.')
+summary['flat'] = {}
+for name, doc in flat.items():
+    summary['flat'][name] = {}
+    for cname, cdoc in doc['comparisons'].items():
+        summary['flat'][name][cname] = {
+            'angles_deg': [s['angle_between_glued_axes_after_transport_deg'] for s in cdoc['glue_seams']],
+            'keep_modulus': [round(abs(complex(*s['keep'])), 9) for s in cdoc['glue_seams']],
+            'plaquette_flux_units_direct_links': cdoc.get('plaquette_flux_units_direct_links'),
+            'plaquette_flux_units_through_ports': cdoc.get('plaquette_flux_units_through_ports'),
+            'holonomy': cdoc.get('holonomy_around_mesh_vertex', {}).get('class', cdoc.get('holonomy'))}
+        print('flat', name, cname, summary['flat'][name][cname], flush=True)
+summary['flat']['port_pair_gamma_scan'] = scan
+
+
+# ----------------------------------------------------------------------------- sphere
+def cell_frames(mesh, towards):
+    """E[c]: glue-face normal along the cell normal, TOP[k] tilted towards the midpoint of edge k ('edge') or towards vertex k ('vertex')."""
+    N = mesh.N
+    E = np.empty((N, 3, 3))
+    worst = 0.0
+    for c in range(N):
+        nu = mesh.points[c] / np.linalg.norm(mesh.points[c])
+        vs = mesh.verts[mesh.tri[c]]
+        cen = vs.mean(axis=0)
+        ex = np.cross(np.array([0.3, 0.5, 0.8]), nu); ex /= np.linalg.norm(ex); ey = np.cross(nu, ex)
+        az = []
+        for k in range(3):
+            tgt = (vs[(k + 1) % 3] + vs[(k + 2) % 3]) / 2 if towards == 'edge' else vs[k]
+            t = tgt - cen; t -= (t @ nu) * nu
+            az.append(math.atan2(t @ ey, t @ ex))
+        d = [az[k] - math.radians(120 * k) for k in range(3)]
+        psi = math.atan2(sum(math.sin(x) for x in d), sum(math.cos(x) for x in d))
+        worst = max(worst, max(abs((x - psi + math.pi) % (2 * math.pi) - math.pi) for x in d))
+        B = np.stack([ex, ey, nu], axis=1)
+        E[c] = B @ rz(math.degrees(psi)) @ Q
+    return E, math.degrees(worst)
+
+
+def tangent_frames(mesh):
+    normals = mesh.points / np.linalg.norm(mesh.points, axis=1, keepdims=True)
+    refv = np.tile(np.array([0.0, 0.0, 1.0]), (mesh.N, 1)); refv[np.abs(normals[:, 2]) > 0.9] = np.array([1.0, 0.0, 0.0])
+    tx = np.cross(refv, normals); tx /= np.linalg.norm(tx, axis=1, keepdims=True)
+    ty = np.cross(normals, tx)
+    return np.stack((tx, ty, normals), axis=2)
+
+
+def vertex_ring(mesh, W, v, cl):
+    """(cell, in port, out port, k_out) around vertex v, counter-clockwise."""
+    n = len(cl); ring = []
+    for j in range(n):
+        c, i = cl[j]; cprev, iprev = cl[(j - 1) % n]
+        kout = (i + 1) % 3
+        kin = int(mesh.nbk[cprev, (iprev + 1) % 3])
+        ring.append((c, int(W[c, kin]), int(W[c, kout]), kout))
+    return ring
+
+
+def sphere_fluxes(mesh, W, axes_of, Uof, via=None):
+    """Plaquette flux (units) per vertex. axes_of(c) -> 12 axes used for the spinors of carrier c; Uof(c, k) -> 2x2 internal transport."""
+    res = {5: [], 6: []}
+    for v, cl in S.vertex_cycles(mesh).items():
+        ring = vertex_ring(mesh, W, v, cl)
+        z = 1.0 + 0j
+        for j, (c, a, b, kout) in enumerate(ring):
+            ax = axes_of(c)
+            path = [a, b] if via is None else [a] + via(c, a, b) + [b]
+            for x, y in zip(path[:-1], path[1:]):
+                z *= np.vdot(chi(ax[y]), chi(ax[x]))
+            d, a2 = ring[(j + 1) % len(ring)][0], ring[(j + 1) % len(ring)][1]
+            z *= np.vdot(chi(axes_of(d)[a2]), Uof(c, kout) @ chi(ax[b]))
+        res[len(cl)].append(phase_units(z))
+    return res
+
+
+def stats(x):
+    x = [t for t in x if t is not None]
+    if not x:
+        return None
+    return {'count': len(x), 'min': float(np.min(x)), 'mean': float(np.mean(x)), 'max': float(np.max(x))}
+
+
+summary['sphere'] = {}
+for level in range(3):
+    mesh = S.build_mesh(level)
+    N = mesh.N
+    summary['sphere'][str(level)] = {}
+    todo = []
+    WF, _ = M.wiring('F', level); EF, wF = cell_frames(mesh, 'edge')
+    WB, _ = M.wiring('B', level); EB, wB = cell_frames(mesh, 'vertex')
+    WP, _ = S.pinned_wiring(mesh); EP = tangent_frames(mesh)
+    todo.append(('F', WF, TOP, EF, {'S': M.E60}, 'S', wF, None))
+    todo.append(('face_axis', WB, BELT, EB, {'S': M.E60, 'roll': RULES['B_roll']}, 'S', wB, lambda c, a, b: [TOP[3 - BELT.index(a) - BELT.index(b)]]))
+    todo.append(('port_pair', WP, None, EP, {}, 'ambient', 0.0, None))
+    todo.append(('rolling', WF, TOP, None, {'R1': RULES['F_R1'], 'R0': RULES['F_R0'], 'R2': RULES['F_R2']}, 'R1', 0.0, None))
+    for name, W, base, E, rules, primary, worst, via in todo:
+        doc = {'wiring': name, 'level': level, 'conventions': CONV, 'cells': 'cell indices and vertex order of s0_lib.build_mesh(level) = pinned builder order',
+               'glue_port_of_cell_edge': 'W[c][k] is the port of carrier c glued across the mesh edge opposite the k-th vertex of cell c',
+               'W': W.tolist(), 'neighbour': mesh.nbr.tolist(), 'neighbour_edge_index': mesh.nbk.tolist()}
+        chart = {}
+        for rname, g in rules.items():
+            T = M.transports(mesh, W, base, g)
+            TL, unsolved, raw = M.lift_transports(mesh, T, target6=(-1 if name == 'rolling' or rname == 'roll' else +1))
+            assert unsolved == 0
+            chart[rname] = (T, TL)
+        # level 0 rolling: a common frame exists (trivial holonomy): parallel carriers
+        if name == 'rolling' and level == 0:
+            T, TL = chart['R1']
+            G, _, _ = M.tree_transport(mesh, T, 0)
+            E = np.stack([M.ROT_MATS[M.R3] @ M.ROT_MATS[int(M.INV[G[c]])] for c in range(N)])
+            for c in range(N):
+                for j in range(3):
+                    assert np.allclose(E[c] @ U12[int(W[c, j])], mesh.verts[mesh.tri[c, (j + 1) % 3]], atol=1e-9)
+            doc['embedding_note'] = 'level 0 only: the rolling transport is flat, every carrier is a parallel copy of the mesh icosahedron with its glue face on its cell'
+        if E is not None:
+            doc['carrier_frames'] = [mat(E[c]) for c in range(N)]
+            doc['port_axes'] = [mat(U12 @ E[c].T) for c in range(N)]          # port_axes[c][p] = E_c u_p
+            doc['embedding_fit_error_deg'] = worst
+        else:
+            doc['carrier_frames'] = None; doc['port_axes'] = None
+        seams = []
+        angles_amb = []; angles_chart = collections.defaultdict(list)
+        for c in range(N):
+            for k in range(3):
+                d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+                if c > d:
+                    continue
+                p, q = int(W[c, k]), int(W[d, k2])
+                e = {'cells': [c, d], 'ports': [p, q], 'edge_index': [k, k2]}
+                if E is not None:
+                    ka, fa = amp(E[d] @ U12[q], np.eye(2), E[c] @ U12[p])
+                    a = angle(E[c] @ U12[p], E[d] @ U12[q]); angles_amb.append(a)
+                    e['ambient'] = {'angle_deg': round(a, 9), 'keep': cj(ka), 'flip': cj(fa)}
+                for rname, (T, TL) in chart.items():
+                    t, tl = int(T[c, k]), int(TL[c, k])
+                    kc, fc = amp(U12[q], M.B2[tl], U12[p])
+                    a = M.DIST_ANGLE[int(M.DIST[M.ROT60[t][p], q])]; angles_chart[rname].append(a)
+                    e[f'chart_{rname}'] = {'transport_perm': list(M.ROT60[t]), 'transport_rotation': mat(M.ROT_MATS[t]), 'transport_su2': cmat(M.B2[tl]),
+                                           'angle_deg': round(a, 9), 'keep': cj(kc), 'flip': cj(fc)}
+                    if E is not None:
+                        e[f'chart_{rname}']['ambient_rotation'] = mat(E[d] @ M.ROT_MATS[t] @ E[c].T)
+                seams.append(e)
+        doc['glue_seams'] = seams
+        doc['primary_comparison'] = primary
+        sm = {}
+        if E is not None:
+            fl = sphere_fluxes(mesh, W, lambda c: [E[c] @ U12[p] for p in range(12)], lambda c, k: np.eye(2, dtype=complex))
+            sm['ambient'] = {'angle_between_glued_axes_deg': stats(angles_amb), 'plaquette_flux_units_direct_links': {str(n): stats(x) for n, x in fl.items()}}
+            if via is not None:
+                fl2 = sphere_fluxes(mesh, W, lambda c: [E[c] @ U12[p] for p in range(12)], lambda c, k: np.eye(2, dtype=complex), via)
+                sm['ambient']['plaquette_flux_units_through_ports'] = {str(n): stats(x) for n, x in fl2.items()}
+        for rname, (T, TL) in chart.items():
+            fl = sphere_fluxes(mesh, W, lambda c: [U12[p] for p in range(12)], lambda c, k, TL=TL: M.B2[int(TL[c, k])])
+            hol = M.vertex_holonomies(mesh, TL, M.BMUL, M.ONE)
+            hc = {5: collections.Counter(), 6: collections.Counter()}
+            for v, (n, c0, H) in hol.items():
+                hc[n][f'{M.CLASS_NAME[int(M.ANGLE[H // 2])]}, lifted order {int(M.BORD[H])}'] += 1
+            sm[f'chart_{rname}'] = {'angle_between_glued_axes_deg': stats(angles_chart[rname]),
+                                    'plaquette_flux_units_direct_links': {str(n): stats(x) for n, x in fl.items()},
+                                    'vertex_holonomy': {str(n): dict(x) for n, x in hc.items()}}
+            if via is not None:
+                fl2 = sphere_fluxes(mesh, W, lambda c: [U12[p] for p in range(12)], lambda c, k, TL=TL: M.B2[int(TL[c, k])], via)
+                sm[f'chart_{rname}']['plaquette_flux_units_through_ports'] = {str(n): stats(x) for n, x in fl2.items()}
+        doc['summary'] = sm
+        json.dump(doc, open(f'frames_L{level}_{name}.json', 'w'))
+        summary['sphere'][str(level)][name] = sm
+        print('sphere', level, name, json.dumps(sm)[:900], flush=True)
+json.dump(summary, open('b3_frames_summary.json', 'w'), indent=1)
+print('written')

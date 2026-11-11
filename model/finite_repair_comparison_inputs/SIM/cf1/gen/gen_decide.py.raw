@@ -1,0 +1,583 @@
+"""Task GEN: the pre-registered decisions (GEN.md section 1.3) on the outputs of gen_static.py and gen_ident.py.
+
+    python gen_decide.py <out dir> <result.json> [T_override]
+
+Type A: categories of equal standing, occupancy per face slot (heterogeneity; best 2/3/4-group partitions on the
+discovery sample; fixed partitions tested on the validation sample and on the conjugate class).
+Type B: significant modes of a histogram (density per bin; dips tested one-sided).
+Type C: dominant categories (share >= 5 %), three-way split if exactly three with >= 90 % together.
+Type D: two values, z of the difference.
+Errors: Poisson, chi^2 divided by the dispersion factor phi >= 1 from the per-block tables (Pearson over blocks).
+Multiplicity: Bonferroni, family-wise alpha 0.05, T = max(1000, number of tests that enter a decision).
+"""
+import json
+import math
+import sys
+from pathlib import Path
+
+import numpy as np
+from scipy import stats
+
+ALPHA = 0.05
+CONJ = {1: 5, 5: 1, 2: 4, 4: 2, 3: 3}
+PRIMARY = (1, 4, 3)
+ALLC = (1, 4, 3, 5, 2)
+
+
+class Ledger:
+    def __init__(self, T):
+        self.T = T
+        self.n = 0
+        self.rows = []
+
+    @property
+    def p_thr(self):
+        return ALPHA / self.T
+
+    @property
+    def z2(self):           # two-sided
+        return float(stats.norm.isf(self.p_thr / 2))
+
+    @property
+    def z1(self):           # one-sided
+        return float(stats.norm.isf(self.p_thr))
+
+    def add(self, name, p):
+        self.n += 1
+        self.rows.append((name, float(p)))
+        return p < self.p_thr
+
+
+# ------------------------------------------------------------------------------------------------ dispersion
+def phi_rates(nb, eb):
+    """Pearson dispersion of block x category counts against category rates common to all blocks"""
+    nb = np.asarray(nb, float); eb = np.asarray(eb, float)
+    r = nb.sum(0) / np.maximum(eb.sum(0), 1e-300)
+    E = eb * r
+    ok = E > 0
+    X2 = float((((nb - E) ** 2) / np.where(ok, E, 1))[ok].sum())
+    dof = int(ok.sum() - nb.shape[1])
+    return (max(1.0, X2 / dof) if dof > 0 else 1.0), X2, dof
+
+
+def phi_hist(nb):
+    """Pearson dispersion of a block x bin histogram table against a common shape"""
+    nb = np.asarray(nb, float)
+    T = nb.sum(1)
+    nb = nb[T > 0]
+    T = T[T > 0]
+    colsum = nb.sum(0)
+    keep = colsum > 0
+    nb = nb[:, keep]
+    if nb.shape[0] < 2 or nb.shape[1] < 2:
+        return 1.0, 0.0, 0
+    p = nb.sum(0) / nb.sum()
+    E = T[:, None] * p[None, :]
+    X2 = float(((nb - E) ** 2 / E).sum())
+    dof = (nb.shape[0] - 1) * (nb.shape[1] - 1)
+    return max(1.0, X2 / dof), X2, dof
+
+
+# ------------------------------------------------------------------------------------------------ type A
+def best_partitions(n, e, gmax):
+    """categories sorted by rate; exact DP over contiguous groups maximizing sum N_s log(N_s / E_s)"""
+    n = np.asarray(n, float); e = np.asarray(e, float)
+    order = np.argsort(n / e, kind='stable')
+    ns, es = n[order], e[order]
+    m = len(n)
+
+    def seg(i, j):
+        N = ns[i:j].sum(); E = es[i:j].sum()
+        return N * math.log(N / E) if N > 0 else 0.0
+    best = {}
+    for g in range(1, gmax + 1):
+        # dp[j] = best LL of the first j categories in g groups
+        dp = {(0, 0): (0.0, [])}
+        for gg in range(1, g + 1):
+            for j in range(gg, m + 1):
+                cand = []
+                for i in range(gg - 1, j):
+                    if (gg - 1, i) in dp:
+                        ll, cuts = dp[(gg - 1, i)]
+                        cand.append((ll + seg(i, j), cuts + [j]))
+                if cand:
+                    dp[(gg, j)] = max(cand, key=lambda t: t[0])
+        ll, cuts = dp[(g, m)]
+        groups = []
+        start = 0
+        for c in cuts:
+            groups.append(sorted(int(x) for x in order[start:c]))
+            start = c
+        best[g] = {'loglik': ll, 'groups': groups}
+    return best
+
+
+def group_stats(n, e, groups, phi):
+    n = np.asarray(n, float); e = np.asarray(e, float)
+    out = []
+    for G in groups:
+        N = n[G].sum(); E = e[G].sum()
+        R = N / E
+        out.append({'categories': G, 'count': int(N), 'exposure': float(E), 'rate': R, 'se': math.sqrt(phi * max(N, 1)) / E})
+    return out
+
+
+def within_chi2(n, e, groups, phi):
+    n = np.asarray(n, float); e = np.asarray(e, float)
+    X2 = 0.0; dof = 0
+    for G in groups:
+        N = n[G].sum(); E = e[G].sum()
+        R = N / E
+        Ex = e[G] * R
+        X2 += float(((n[G] - Ex) ** 2 / np.maximum(Ex, 1e-300)).sum())
+        dof += len(G) - 1
+    return X2 / phi, dof
+
+
+def pairwise(gs, led, tag):
+    res = []
+    allsig = True
+    for a in range(len(gs)):
+        for b in range(a + 1, len(gs)):
+            d = gs[a]['rate'] - gs[b]['rate']
+            s = math.sqrt(gs[a]['se'] ** 2 + gs[b]['se'] ** 2)
+            z = d / s if s > 0 else 0.0
+            p = 2 * stats.norm.sf(abs(z))
+            sig = led.add(f'{tag} pair {a}-{b}', p)
+            allsig &= sig
+            res.append({'groups': [a, b], 'z': z, 'p': p, 'significant': bool(sig), 'ratio': gs[a]['rate'] / gs[b]['rate'] if gs[b]['rate'] else None})
+    return res, allsig
+
+
+def type_A(tag, cats, disc, val, conj, led):
+    """disc/val/conj: dict n, e, phi (conj may be None for a self-conjugate class: the validation result is used)"""
+    n, e, phi = np.asarray(disc['n'], float), np.asarray(disc['e'], float), disc['phi']
+    m = len(cats)
+    res = {'categories': cats, 'discovery': {'counts': [int(x) for x in n], 'exposure': [float(x) for x in e], 'phi': phi,
+                                             'rate': (n / e).tolist(),
+                                             'rate_rel_to_mean': ((n / e) / (n.sum() / e.sum())).tolist()}}
+    if n.sum() == 0:
+        res['decision'] = 'no (no defects)'
+        return res
+    Ex = e / e.sum() * n.sum()
+    X2 = float(((n - Ex) ** 2 / Ex).sum()) / phi
+    p = float(stats.chi2.sf(X2, m - 1))
+    het = led.add(f'{tag} heterogeneity', p)
+    res['discovery'].update({'chi2_over_phi': X2, 'dof': m - 1, 'p': p, 'heterogeneous': bool(het)})
+    # validation sample heterogeneity (reported)
+    vn, ve, vphi = np.asarray(val['n'], float), np.asarray(val['e'], float), val['phi']
+    vEx = ve / ve.sum() * vn.sum()
+    vX2 = float(((vn - vEx) ** 2 / np.maximum(vEx, 1e-300)).sum()) / vphi
+    res['validation'] = {'counts': [int(x) for x in vn], 'phi': vphi, 'rate_rel_to_mean': ((vn / ve) / (vn.sum() / ve.sum())).tolist(),
+                         'chi2_over_phi': vX2, 'dof': m - 1, 'p': float(stats.chi2.sf(vX2, m - 1))}
+    if not het:
+        res['decision'] = 'no (no heterogeneity on the discovery sample)'
+        res['three_way'] = False
+        return res
+    gmax = min(4, m)
+    parts = best_partitions(n, e, gmax)
+    res['partitions_discovery'] = {str(g): {'groups': [[cats[i] for i in G] for G in parts[g]['groups']],
+                                            'loglik': parts[g]['loglik']} for g in parts}
+    if m < 3:
+        res['decision'] = 'no (fewer than three categories)'
+        res['three_way'] = False
+        return res
+    G3 = parts[3]['groups']
+    gs = group_stats(vn, ve, G3, vphi)
+    pw, allsig = pairwise(gs, led, f'{tag} validation g3')
+    res['validation']['g3'] = {'groups': gs, 'pairwise': pw, 'all_pairs_distinct': bool(allsig)}
+    ok = allsig
+    if m > 3:
+        w3, dof3 = within_chi2(vn, ve, G3, vphi)
+        p3 = float(stats.chi2.sf(w3, dof3))
+        sig3 = led.add(f'{tag} validation within g3', p3)
+        G2 = parts[2]['groups']
+        w2, dof2 = within_chi2(vn, ve, G2, vphi)
+        p2 = float(stats.chi2.sf(w2, dof2))
+        sig2 = led.add(f'{tag} validation within g2', p2)
+        res['validation']['within_g3'] = {'chi2_over_phi': w3, 'dof': dof3, 'p': p3, 'significant': bool(sig3)}
+        res['validation']['within_g2'] = {'chi2_over_phi': w2, 'dof': dof2, 'p': p2, 'significant': bool(sig2)}
+        ok = ok and (not sig3) and sig2
+    if ok and conj is not None:
+        cn, ce, cphi = np.asarray(conj['n'], float), np.asarray(conj['e'], float), conj['phi']
+        cg = group_stats(cn, ce, G3, cphi)
+        cpw, callsig = pairwise(cg, led, f'{tag} conjugate g3')
+        res['conjugate_validation_g3'] = {'groups': cg, 'pairwise': cpw, 'all_pairs_distinct': bool(callsig)}
+        ok = ok and callsig
+    res['three_way'] = bool(ok)
+    res['decision'] = 'yes' if ok else 'no (three-group partition not confirmed on the validation sample)'
+    return res
+
+
+# ------------------------------------------------------------------------------------------------ type B
+def modes(counts, widths, phi, led, tag, register=True):
+    c = np.asarray(counts, float); w = np.asarray(widths, float)
+    nz = np.nonzero(c > 0)[0]
+    if len(nz) == 0:
+        return {'modes': [], 'dips': []}
+    last = nz[-1] + 1
+    c = c[:last]; w = w[:last]
+    d = c / w
+    var = phi * np.maximum(c, 1.0) / w ** 2
+    # local maxima (plateaus: first bin)
+    peaks = []
+    for i in range(len(d)):
+        left = d[i - 1] if i > 0 else -1
+        j = i
+        while j + 1 < len(d) and d[j + 1] == d[i]:
+            j += 1
+        right = d[j + 1] if j + 1 < len(d) else -1
+        if d[i] > left and d[i] > right and (not peaks or peaks[-1] != i):
+            peaks.append(i)
+    tested = {}
+
+    def dip(a, b):
+        v = a + int(np.argmin(d[a:b + 1]))
+        lo = a if d[a] <= d[b] else b
+        z = (d[lo] - d[v]) / math.sqrt(var[lo] + var[v])
+        return z, v
+    zthr = led.z1
+    changed = True
+    while changed and len(peaks) > 1:
+        changed = False
+        zs = []
+        for a, b in zip(peaks[:-1], peaks[1:]):
+            z, v = dip(a, b)
+            key = (a, b)
+            if key not in tested:
+                tested[key] = (z, v)
+                if register:
+                    led.add(f'{tag} dip {a}-{b}', float(stats.norm.sf(z)))
+            zs.append(z)
+        k = int(np.argmin(zs))
+        if zs[k] < zthr:
+            a, b = peaks[k], peaks[k + 1]
+            peaks.remove(a if d[a] < d[b] else b)
+            changed = True
+    final_dips = []
+    for a, b in zip(peaks[:-1], peaks[1:]):
+        z, v = tested.get((a, b), dip(a, b))
+        final_dips.append({'between': [a, b], 'valley': v, 'z': z})
+    return {'modes': peaks, 'mode_density': [float(d[p]) for p in peaks], 'dips': final_dips,
+            'dips_tested': len(tested)}
+
+
+def type_B(tag, disc, val, conj, led):
+    """disc/val/conj: dict counts, widths, phi"""
+    md = modes(disc['counts'], disc['widths'], disc['phi'], led, tag + ' disc')
+    mv = modes(val['counts'], val['widths'], val['phi'], led, tag + ' val')
+    mc = modes(conj['counts'], conj['widths'], conj['phi'], led, tag + ' conj') if conj is not None else None
+    res = {'discovery': {'counts': [int(x) for x in disc['counts']], 'phi': disc['phi'], **md},
+           'validation': {'counts': [int(x) for x in val['counts']], 'phi': val['phi'], **mv}}
+    if mc is not None:
+        res['conjugate'] = {'counts': [int(x) for x in conj['counts']], 'phi': conj['phi'], **mc}
+    n_d, n_v = len(md['modes']), len(mv['modes'])
+    same = n_d == n_v and all(abs(a - b) <= 1 for a, b in zip(md['modes'], mv['modes']))
+    n_c = len(mc['modes']) if mc is not None else n_d
+    res['n_modes'] = {'discovery': n_d, 'validation': n_v, 'conjugate': n_c}
+    res['three_way'] = bool(n_d == 3 and same and n_c == 3)
+    res['decision'] = 'yes' if res['three_way'] else f'no ({n_d} significant modes on the discovery sample)'
+    return res
+
+
+# ------------------------------------------------------------------------------------------------ type C
+def dominance(items):
+    tot = sum(v for _, v in items)
+    if tot == 0:
+        return {'dominant': [], 'share_dominant': 0.0, 'n_dominant': 0}
+    dom = [(k, v / tot) for k, v in items if v / tot >= 0.05]
+    return {'dominant': dom, 'share_dominant': sum(s for _, s in dom), 'n_dominant': len(dom), 'total': tot}
+
+
+def type_C(disc_items, val_items, conj_items):
+    d, v = dominance(disc_items), dominance(val_items)
+    c = dominance(conj_items) if conj_items is not None else d
+    def three(x):
+        return x['n_dominant'] == 3 and x['share_dominant'] >= 0.90
+    res = {'discovery': d, 'validation': v, 'conjugate': c}
+    res['three_way'] = bool(three(d) and three(v) and three(c))
+    res['decision'] = 'yes' if res['three_way'] else f"no ({d['n_dominant']} categories above 5 %, together {d['share_dominant']:.3f})"
+    return res
+
+
+# ------------------------------------------------------------------------------------------------ type D
+def type_D(tag, n1, e1, n2, e2, phi, led):
+    r1, r2 = n1 / e1, n2 / e2
+    s = math.sqrt(phi * (max(n1, 1) / e1 ** 2 + max(n2, 1) / e2 ** 2))
+    z = (r1 - r2) / s
+    p = 2 * stats.norm.sf(abs(z))
+    sig = led.add(tag, p)
+    return {'count_1': int(n1), 'exposure_1': float(e1), 'count_2': int(n2), 'exposure_2': float(e2), 'rate_1': r1, 'rate_2': r2,
+            'ratio': r1 / r2 if r2 else None, 'z': z, 'p': p, 'significant': bool(sig), 'three_way': False,
+            'decision': 'no (two-valued)'}
+
+
+# ================================================================================================ main
+def run(outdir, T):
+    od = Path(outdir)
+    led = Ledger(T)
+    G = json.load(open(od / 'geom_labels.json'))
+    S = {}
+    for L in range(3, 11):
+        p = od / f'static_L{L}_s300.json'
+        if p.exists():
+            S[L] = (json.load(open(p)), np.load(od / f'static_L{L}_s300.npz'))
+    I = {}
+    for L in range(3, 11):
+        p = od / f'ident_L{L}.json'
+        if p.exists():
+            bp = od / f'ident_L{L}_blocks.npz'
+            I[L] = (json.load(open(p)), np.load(bp) if bp.exists() else None)
+    R = {'ledger': None, 'properties': {}}
+
+    # ---------------- P1: face labels
+    fstar = G['Fstar_class']
+    own = G['frame_class_own']
+    def face_sets(prop):
+        if prop == 'P1.1':
+            names = ['T+', 'T-', 'ax_x', 'ax_y', 'ax_z']
+            return names, [[f for f in range(20) if fstar[f] == nm] for nm in names]
+        if prop == 'P1.1b':
+            return ['T+', 'T-', 'axial'], [[f for f in range(20) if fstar[f] == 'T+'], [f for f in range(20) if fstar[f] == 'T-'],
+                                           [f for f in range(20) if fstar[f].startswith('ax')]]
+        if prop == 'P1.2':
+            names = ['ax_x', 'ax_y', 'ax_z']
+            return names, [[f for f in range(20) if fstar[f] == nm] for nm in names]
+        if prop == 'P1.3':
+            return [f'f{f} (L,R)={tuple(G["LR"][f])}' for f in range(20)], [[f] for f in range(20)]
+        if prop == 'P1.4':
+            return [f'axis {tuple(p)}' for p in G['axis_pairs']], [[f for f in range(20) if G['axis_id'][f] == i] for i in range(10)]
+        if prop.startswith('P1.5'):
+            F = int(prop.split('F')[1])
+            return [f'F{F} class {j}' for j in range(5)], [[f for f in range(20) if own[f][F] == j] for j in range(5)]
+        if prop == 'P1.6h':
+            names = ['outer', 'equatorial', 'inner']
+            return names, [[f for f in range(20) if G['hemisphere'][f] == nm] for nm in names]
+        if prop == 'P1.6l':
+            return [f'|z|={v}' for v in G['latitude_abs_z_values']], [[f for f in range(20) if G['latitude_class'][f] == i] for i in range(4)]
+        raise KeyError(prop)
+
+    def face_data(L, k, sets):
+        js, z = S[L]
+        N = js['carriers']
+        fc = np.array(js['face_counts'])[k]
+        n = np.array([fc[s].sum() for s in sets], float)
+        e = np.array([len(s) * N for s in sets], float)
+        fb = z['face_blocks'][:, k, :].astype(float)
+        per = N // fb.shape[0]
+        nb = np.stack([fb[:, s].sum(1) for s in sets], 1)
+        eb = np.stack([np.full(fb.shape[0], len(s) * per, float) for s in sets], 1)
+        phi = phi_rates(nb, eb)[0]
+        return {'n': n, 'e': e, 'phi': phi}
+
+    props_P1 = ['P1.1', 'P1.1b', 'P1.2', 'P1.3', 'P1.4', 'P1.5F1', 'P1.5F2', 'P1.5F3', 'P1.5F4', 'P1.6h', 'P1.6l']
+    for prop in props_P1:
+        cats, sets = face_sets(prop)
+        pr = {'tier': 'carrier', 'discovery': 'L10 sweep 300', 'validation': 'L9 sweep 300', 'categories': cats,
+              'faces_per_category': [s for s in sets], 'classes': {}}
+        for k in ALLC:
+            disc = face_data(10, k, sets); val = face_data(9, k, sets)
+            conj = face_data(9, CONJ[k], sets) if CONJ[k] != k else None
+            pr['classes'][str(k)] = type_A(f'{prop} class {k}', cats, disc, val, conj, led)
+            # replications (reported only)
+            pr['classes'][str(k)]['replications_rate_rel_to_mean'] = {}
+            for L in (8, 7, 6, 5):
+                if L in S:
+                    dd = face_data(L, k, sets)
+                    pr['classes'][str(k)]['replications_rate_rel_to_mean'][f'L{L}'] = ((dd['n'] / dd['e']) / (dd['n'].sum() / dd['e'].sum())).tolist()
+        pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+        R['properties'][prop] = pr
+
+    # P1.7 glued ports on the face (geometry: discovery L9, validation L8)
+    def glue_data(L, k):
+        js, z = S[L]
+        n = np.array(js['glue_counts'])[k].astype(float)
+        e = np.array(js['glue_exposure_face_slots'], float)
+        nb = z['glue_blocks'][:, k, :].astype(float)
+        eb = z['glue_exposure_blocks'].astype(float)
+        keep = e > 0
+        return {'n': n[keep], 'e': e[keep], 'phi': phi_rates(nb[:, keep], eb[:, keep])[0]}, keep
+    pr = {'tier': 'carrier', 'discovery': 'L9 sweep 300', 'validation': 'L8 sweep 300', 'classes': {}}
+    for k in ALLC:
+        disc, keep = glue_data(9, k); val, _ = glue_data(8, k)
+        conj = glue_data(8, CONJ[k])[0] if CONJ[k] != k else None
+        cats = [f'{g} glued ports' for g in range(4) if keep[g]]
+        pr['classes'][str(k)] = type_A(f'P1.7 class {k}', cats, disc, val, conj, led)
+    pr['exposure_face_slots_L9'] = S[9][0]['glue_exposure_face_slots']
+    pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+    R['properties']['P1.7'] = pr
+
+    # ---------------- P2
+    def pair_sep(L, k):
+        js, z = S[L]
+        kk = {1: 1, 5: 1, 2: 2, 4: 2, 3: 3}[k]
+        tab = js['pair_type_one_pair_carriers'][str(kk)]
+        cnt = np.zeros(5)
+        for key, v in tab.items():
+            cnt[int(key.split(',')[0]) - 1] += v
+        nb = z['pair_sep_blocks'][:, kk, 1:6]
+        return {'counts': cnt, 'widths': np.ones(5), 'phi': phi_hist(nb)[0]}
+    pr = {'tier': 'carrier', 'unit': 'one-pair carriers (classes k and 6-k of a carrier share the value)', 'classes': {}}
+    for k in ALLC:
+        pr['classes'][str(k)] = type_B(f'P2.1 class {k}', pair_sep(10, k), pair_sep(9, k), pair_sep(10, CONJ[k]), led)
+    pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+    R['properties']['P2.1'] = pr
+
+    pr = {'tier': 'carrier', 'classes': {}}
+    for kk, kname in ((1, '(1,5)'), (2, '(2,4)'), (3, '(3,3)')):
+        for L in (10, 9):
+            tab = S[L][0]['pair_type_one_pair_carriers'][str(kk)]
+            for d in (2, 3):
+                a_, b_ = tab.get(f'{d},+1', 0), tab.get(f'{d},-1', 0)
+                if a_ + b_ == 0:
+                    continue
+                pr['classes'][f'{kname} d={d} L{L}'] = type_D(f'P2.2 {kname} d={d} L{L}', a_, 1.0, b_, 1.0, 1.0, led)
+    pr['answer'] = 'no'
+    R['properties']['P2.2'] = pr
+
+    pr = {'tier': 'carrier', 'classes': {}}
+    for k in ALLC:
+        kk = {1: 1, 5: 1, 2: 2, 4: 2, 3: 3}[k]
+        items = lambda L: sorted(S[L][0]['pair_type_one_pair_carriers'][str(kk)].items(), key=lambda t: -t[1])
+        pr['classes'][str(k)] = type_C(items(10), items(9), None)
+    pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+    R['properties']['P2.3'] = pr
+
+    pr = {'tier': 'carrier', 'categories': ['-', '1', '2', '3', '4', '5', '', '', '', 'tie'], 'classes': {}}
+    for k in ALLC:
+        def items(L, kc):
+            v = S[L][0]['nearest_other_defect_class'][kc]
+            names = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 9: 'tie'}
+            return sorted([(names[i], v[i]) for i in names if v[i]], key=lambda t: -t[1])
+        pr['classes'][str(k)] = type_C(items(10, k), items(9, k), items(10, CONJ[k]))
+    pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+    R['properties']['P2.4'] = pr
+
+    def near_d(L, k):
+        js, z = S[L]
+        cnt = np.array(js['nearest_other_defect_distance'][k][1:6], float)
+        nb = z['nearest_distance_blocks'][:, k, 1:6]
+        return {'counts': cnt, 'widths': np.ones(5), 'phi': phi_hist(nb)[0]}
+    pr = {'tier': 'carrier', 'classes': {}}
+    for k in ALLC:
+        pr['classes'][str(k)] = type_B(f'P2.5 class {k}', near_d(10, k), near_d(9, k), near_d(10, CONJ[k]), led)
+    pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+    R['properties']['P2.5'] = pr
+
+    pr = {'tier': 'carrier', 'classes': {}}
+    for k in ALLC:
+        it = lambda L, kc: [(a_, b_) for a_, b_ in S[L][0]['composition_by_class'][str(kc)]]
+        pr['classes'][str(k)] = type_C(it(10, k), it(9, k), it(10, CONJ[k]))
+    pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+    R['properties']['P2.6'] = pr
+
+    pr = {'tier': 'carrier', 'classes': {}}
+    for k in ALLC:
+        it = lambda L, kc: [(f'{a_} shape {b_} key {c_}', w_) for a_, b_, c_, w_ in S[L][0]['shape_by_class'][str(kc)]]
+        r_ = type_C(it(10, k), it(9, k), None)
+        r_['top10_discovery'] = it(10, k)[:10]
+        pr['classes'][str(k)] = r_
+    pr['answer'] = 'yes' if any(pr['classes'][str(k)].get('three_way') for k in PRIMARY) else 'no'
+    R['properties']['P2.7'] = pr
+
+    # ---------------- P3 identities
+    def ident(L, tier, k, sub, prop, phi_from=None):
+        js, z = I[L]
+        cnt = np.array(js['tiers'][tier][str(k)][f'{sub}_{prop}'], float)
+        w = np.array(js['widths'][prop][:len(cnt)], float)
+        key = f'{tier}_{k}_{sub}_{prop}'
+        if z is not None and key in z.files:
+            phi = phi_hist(z[key])[0]
+        elif phi_from is not None:
+            jz = I[phi_from][1]
+            phi = phi_hist(jz[key])[0] if (jz is not None and key in jz.files) else 2.0
+        else:
+            phi = 2.0
+        return {'counts': cnt, 'widths': w, 'phi': phi}
+    for prop in ('birth_sweep', 'hops', 'lifetime_depth'):
+        pid = {'birth_sweep': 'P3.1', 'hops': 'P3.2', 'lifetime_depth': 'P3.3'}[prop]
+        pr = {'edges': I[6][0]['edges'][prop], 'tiers': {}}
+        for tier, Ld, Lv in (('carrier', 6, 5), ('screen', 10, 9)):
+            tt = {}
+            for sub in ('alive', 'all'):
+                for k in ALLC:
+                    d_ = ident(Ld, tier, k, sub, prop, phi_from=(9 if tier == 'screen' else None))
+                    v_ = ident(Lv, tier, k, sub, prop)
+                    c_ = ident(Ld, tier, CONJ[k], sub, prop, phi_from=(9 if tier == 'screen' else None))
+                    if d_['counts'].sum() < 1:
+                        tt[f'{sub} {k}'] = {'decision': 'no (no identities)', 'three_way': False}
+                        continue
+                    tt[f'{sub} {k}'] = type_B(f'{pid} {tier} {sub} class {k}', d_, v_, c_, led)
+            pr['tiers'][tier] = tt
+        pr['answer'] = 'yes' if any(v.get('three_way') for t in pr['tiers'].values() for key, v in t.items()
+                                    if int(key.split()[1]) in PRIMARY) else 'no'
+        R['properties'][pid] = pr
+
+    # ---------------- P4.1 valence (pooled L5..L9)
+    pr = {'pooled_levels': [L for L in (5, 6, 7, 8, 9) if L in S], 'classes': {}}
+    for k in ALLC:
+        n1 = sum(S[L][0]['valence_counts']['pentagonal'][k] for L in pr['pooled_levels'])
+        e1 = sum(S[L][0]['valence_counts']['pentagonal_faces'] for L in pr['pooled_levels'])
+        n2 = sum(S[L][0]['valence_counts']['other'][k] for L in pr['pooled_levels'])
+        e2 = sum(S[L][0]['valence_counts']['other_faces'] for L in pr['pooled_levels'])
+        pr['classes'][f'carrier {k}'] = type_D(f'P4.1 carrier class {k}', n1, e1, n2, e2, 1.0, led)
+        s1 = sum(S[L][0]['screen_valence_counts']['pentagonal'][k] for L in pr['pooled_levels'])
+        f1 = sum(S[L][0]['screen_valence_counts']['pentagonal_plaquettes'] for L in pr['pooled_levels'])
+        s2 = sum(S[L][0]['screen_valence_counts']['other'][k] for L in pr['pooled_levels'])
+        f2 = sum(S[L][0]['screen_valence_counts']['other_plaquettes'] for L in pr['pooled_levels'])
+        pr['classes'][f'screen {k}'] = type_D(f'P4.1 screen class {k}', s1, f1, s2, f2, 1.0, led)
+    pr['answer'] = 'no'
+    R['properties']['P4.1'] = pr
+
+    # ---------------- P4.2 ancestor
+    def anc_carrier(L, k):
+        js, z = S[L]
+        N = js['carriers']
+        n = np.array(js['ancestor_counts'][k], float)
+        e = np.full(20, 20.0 * N / 20)                      # face slots per ancestor = 20 * 4^L
+        cb = z['class_blocks'][:, k].astype(float)
+        NB = len(cb); per = N // NB
+        anc_of_block = np.arange(NB) // (NB // 20)
+        nb = np.zeros((NB, 20)); eb = np.zeros((NB, 20))
+        nb[np.arange(NB), anc_of_block] = cb
+        eb[np.arange(NB), anc_of_block] = 20.0 * per
+        return {'n': n, 'e': e, 'phi': phi_rates(nb, eb)[0]}
+    def anc_screen(L, k):
+        js, z = S[L]
+        n = np.array(js['screen_ancestor_counts'][k], float)
+        e = np.array(js['screen_ancestor_exposure'], float)
+        nb = z['screen_ancestor_blocks'][:, k, :].astype(float)
+        eb = z['screen_ancestor_exposure_blocks'].astype(float)
+        return {'n': n, 'e': e, 'phi': phi_rates(nb, eb)[0]}
+    cats = [f'base face {b}' for b in range(20)]
+    pr = {'carrier': {'discovery': 'L10', 'validation': 'L9', 'classes': {}}, 'screen': {'discovery': 'L9', 'validation': 'L8', 'classes': {}}}
+    for k in ALLC:
+        pr['carrier']['classes'][str(k)] = type_A(f'P4.2 carrier class {k}', cats, anc_carrier(10, k), anc_carrier(9, k),
+                                                  anc_carrier(9, CONJ[k]) if CONJ[k] != k else None, led)
+        pr['screen']['classes'][str(k)] = type_A(f'P4.2 screen class {k}', cats, anc_screen(9, k), anc_screen(8, k),
+                                                 anc_screen(8, CONJ[k]) if CONJ[k] != k else None, led)
+    pr['answer'] = 'yes' if any(pr[t]['classes'][str(k)].get('three_way') for t in ('carrier', 'screen') for k in PRIMARY) else 'no'
+    R['properties']['P4.2'] = pr
+
+    R['ledger'] = {'tests': led.n, 'T_used': led.T, 'alpha_family': ALPHA, 'p_per_test': led.p_thr,
+                   'z_two_sided': led.z2, 'z_one_sided': led.z1,
+                   'significant_tests': [r for r in led.rows if r[1] < led.p_thr]}
+    return R, led
+
+
+def main():
+    outdir, res_path = sys.argv[1], sys.argv[2]
+    T = 1000
+    R, led = run(outdir, T)
+    if led.n > T:
+        R, led = run(outdir, led.n)
+        # one more pass in case the number of dips changed with the stricter threshold
+        R, led = run(outdir, max(led.n, led.T))
+    json.dump(R, open(res_path, 'w'), indent=1, default=float)
+    print('tests', led.n, 'T used', led.T, 'p per test', led.p_thr)
+    for pid, pr in R['properties'].items():
+        print(pid, pr.get('answer'))
+
+
+if __name__ == '__main__':
+    main()

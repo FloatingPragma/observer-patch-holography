@@ -1,0 +1,766 @@
+{
+ "RER": "WORKSPACE/reverse-engineering-reality",
+ "entries": [
+  {
+   "group": "S1",
+   "file": "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex",
+   "claimed": 106,
+   "found": 106,
+   "phrase": "Declare that each crossing read carries one nat of cut entropy",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex",
+   "claimed": 135,
+   "found": 135,
+   "phrase": "nat-per-read reading is a declared dictionary",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "paper/tex_fragments/CROSSING_READ_AREA_LAW.tex",
+   "claimed": 157,
+   "found": 157,
+   "phrase": "regional reduced entropy carries no",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "Lean/Geometry/CrossingReadAreaLaw.lean",
+   "claimed": 123,
+   "found": 125,
+   "phrase": "planck_area_of_area_law",
+   "tag": "Lean, algebra only",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "paper/tex_fragments/M1_NECESSITY.tex",
+   "claimed": 91,
+   "found": 92,
+   "phrase": "one-nat-per-crossing-read dictionary changes by an",
+   "tag": "paper, counterexample",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "code/m1_necessity/SPECTRAL_COMPLETION.md",
+   "claimed": 201,
+   "found": 201,
+   "phrase": "one-nat planar crossing statistic are different",
+   "tag": "scope statement",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "Lean/InformationProjection/LogTransitionAction.lean",
+   "claimed": 364,
+   "found": 364,
+   "phrase": "theorem markov_multiplier_action_tradeoff",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "Lean/InformationProjection/LogTransitionAction.lean",
+   "claimed": 729,
+   "found": 729,
+   "phrase": "theorem sourceRepairAction_no_multiplier",
+   "tag": "Lean, negative control",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/clock_defect_energy/ENERGY.md",
+   "claimed": 81,
+   "found": 81,
+   "phrase": "A concrete repair-action hypothesis would be `S=-a*N`",
+   "tag": "hypothesis",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/clock_defect_energy/ENERGY.md",
+   "claimed": 83,
+   "found": 83,
+   "phrase": "Action per event times events per time has energy",
+   "tag": "hypothesis",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/charged_lepton_response/PHASE_AND_PREMISES.md",
+   "claimed": 203,
+   "found": 203,
+   "phrase": "one radian per selected event",
+   "tag": "separate input",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/charged_lepton_response/SOURCE_PHASE_SELECTION.md",
+   "claimed": 276,
+   "found": 276,
+   "phrase": "Converting it into radians requires an explicit phase-per-event",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+   "claimed": 4091,
+   "found": 4107,
+   "phrase": "setting a probability equal to an angle in radians is an additional rule",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": false
+  },
+  {
+   "group": "S1",
+   "file": "model/coherent_defect_wave/energy/PROOF.md",
+   "claimed": 297,
+   "found": 297,
+   "phrase": "are complete; assigning",
+   "tag": "model, exact",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+   "claimed": 80,
+   "found": 80,
+   "phrase": "The vacuum-flag compression of `P_U` is exactly `Y`",
+   "tag": "model, exact",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+   "claimed": 98,
+   "found": 98,
+   "phrase": "||A0(h)-exp(-ih X tensor Y)|| <= h^2",
+   "tag": "model, exact",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+   "claimed": 100,
+   "found": 100,
+   "phrase": "contraction telescoping gives",
+   "tag": "model, exact",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+   "claimed": 144,
+   "found": 144,
+   "phrase": "The time `t=Nh` in (9) is the accumulated weak-kick angle",
+   "tag": "declared clock",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/standard_model_source_map/KOIDE_SOURCE.md",
+   "claimed": 147,
+   "found": 147,
+   "phrase": "No equality between this angle clock and global native-attempt time",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S1",
+   "file": "model/clock_defect_energy/MODE_ENERGY.md",
+   "claimed": 43,
+   "found": 43,
+   "phrase": "This is exactly `1-cos(theta)` for its existing coherent wave phase",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S2",
+   "file": "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",
+   "claimed": 386,
+   "found": 386,
+   "phrase": "theorem gibbs_of_neg_log",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S2",
+   "file": "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",
+   "claimed": 399,
+   "found": 399,
+   "phrase": "The number is declared",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S2",
+   "file": "Lean/Thermodynamics/CollarTemperatureReading.lean",
+   "claimed": 190,
+   "found": 190,
+   "phrase": "theorem collar_beta_free",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S2",
+   "file": "paper/executable_observer_construction.tex",
+   "claimed": 2741,
+   "found": 2781,
+   "phrase": "commutative record algebra has identity flow",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": false
+  },
+  {
+   "group": "S2",
+   "file": "paper/executable_observer_construction.tex",
+   "claimed": 2745,
+   "found": 2785,
+   "phrase": "modular frequency $\\nu=\\log(P(b=0)/P(b=1))$",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": false
+  },
+  {
+   "group": "S2",
+   "file": "model/native_action/README.md",
+   "claimed": 549,
+   "found": 549,
+   "phrase": "The modular flow is generated by `log(rho/(1-rho))*N`",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S2",
+   "file": "Lean/QFT/ModularClockComparison.lean",
+   "claimed": 62,
+   "found": 63,
+   "phrase": "theorem nonresonant_coefficient_zero",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S2",
+   "file": "model/relative_modular_dynamics/README.md",
+   "claimed": 249,
+   "found": 249,
+   "phrase": "The modular response fixes a frequency `log(5/4)` per unit of the",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S2",
+   "file": "model/charged_lepton_response/PHASE_AND_PREMISES.md",
+   "claimed": 223,
+   "found": 223,
+   "phrase": "The tracial input used in (4) has a trivial modular flow",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S3",
+   "file": "paper/tex_fragments/PAPER.tex",
+   "claimed": 2533,
+   "found": 2533,
+   "phrase": "KMS normalization.",
+   "tag": "supplied receipt",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S3",
+   "file": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+   "claimed": 273,
+   "found": 273,
+   "phrase": "neither the state nor the geometric $2\\pi$ normalization",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S3",
+   "file": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+   "claimed": 462,
+   "found": 462,
+   "phrase": "is a geometric KMS normalization required",
+   "tag": "declared premise",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S3",
+   "file": "Lean/QFT/StructuralInheritance.lean",
+   "claimed": 95,
+   "found": 95,
+   "phrase": "Bisognano",
+   "tag": "refused, not evaluable",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S3",
+   "file": "Lean/Thermodynamics/HorizonThermalitySurface.lean",
+   "claimed": 50,
+   "found": 51,
+   "phrase": "no horizon temperature claim",
+   "tag": "declared split",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S3",
+   "file": "model/observer_time_fields/REFINEMENT.md",
+   "claimed": 1849,
+   "found": 1849,
+   "phrase": "an Unruh temperature",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S3",
+   "file": "paper/tex_fragments/WEYL_GEOMETRIC_MODULAR.tex",
+   "claimed": 86,
+   "found": 88,
+   "phrase": "native event-count readouts",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S4",
+   "file": "Lean/QFT/StructuralInheritance.lean",
+   "claimed": 272,
+   "found": 272,
+   "phrase": "theorem gibbsState_kms",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S4",
+   "file": "Lean/QFT/StructuralInheritance.lean",
+   "claimed": 255,
+   "found": 251,
+   "phrase": "heisenbergFlow_kms_point",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S4",
+   "file": "Lean/QFT/InheritanceMatrix.lean",
+   "claimed": 77,
+   "found": 77,
+   "phrase": "distinguishes no state and no temperature",
+   "tag": "Lean anchor",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S4",
+   "file": "paper/observers_are_all_you_need.tex",
+   "claimed": 1089,
+   "found": 1090,
+   "phrase": "unitary continuation of $H=-\\log P$ with native time",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S4",
+   "file": "model/interacting_extension/source_selection/PROOF.md",
+   "claimed": 569,
+   "found": 569,
+   "phrase": "Euclidean time slab",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S4",
+   "file": "model/observer_correspondence/QUANTUM_CLOCK.md",
+   "claimed": 268,
+   "found": 268,
+   "phrase": "unitary continuation",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S4",
+   "file": "Lean/SourceLaw/HistoryRegister.lean",
+   "claimed": 13,
+   "found": 14,
+   "phrase": "declared Euclidean index",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "paper/tex_fragments/PAPER.tex",
+   "claimed": 1464,
+   "found": 1464,
+   "phrase": "an observer-readable transition, event correspondence, and calibrated clock instrument",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "paper/executable_observer_construction.tex",
+   "claimed": 508,
+   "found": 508,
+   "phrase": "fixed-reference relation",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "model/predictions/README.md",
+   "claimed": 586,
+   "found": 586,
+   "phrase": "corresponds to modular parameter",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "model/transfer_modular_probe/README.md",
+   "claimed": 114,
+   "found": 114,
+   "phrase": "The unit coupling per event fixes the modular parameter convention",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "model/transfer_modular_probe/README.md",
+   "claimed": 244,
+   "found": 244,
+   "phrase": "per **incident event**",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
+   "claimed": 80,
+   "found": 80,
+   "phrase": "No source-derived clock",
+   "tag": "Lean module statement",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "model/particle_atlas_horizontal/THEOREMS.md",
+   "claimed": 15,
+   "found": 15,
+   "phrase": "Source event counts and observer modular parameters are related by a clock",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "model/native_modular_dynamics/PROOF.md",
+   "claimed": 176,
+   "found": 176,
+   "phrase": "Poissonizing",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S5",
+   "file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+   "claimed": 2456,
+   "found": 2467,
+   "phrase": "Their separate regional-modular and energy-clock properties cannot be",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": false
+  },
+  {
+   "group": "S5",
+   "file": "paper/executable_observer_construction.tex",
+   "claimed": 1254,
+   "found": 1253,
+   "phrase": "it is not the walk quasienergy",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "Lean/Geometry/InternalClockRestFrequency.lean",
+   "claimed": 65,
+   "found": 65,
+   "phrase": "theorem planeWavePhase_frameWorldline",
+   "tag": "Lean, mass declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "Lean/Geometry/InternalClockRestFrequency.lean",
+   "claimed": 126,
+   "found": 126,
+   "phrase": "theorem internalClock_rotation_law",
+   "tag": "Lean, mass declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "paper/executable_observer_construction.tex",
+   "claimed": 4378,
+   "found": 4420,
+   "phrase": "For a coherent rest angular frequency",
+   "tag": "conditional",
+   "ok": true,
+   "near_claim": false
+  },
+  {
+   "group": "S6",
+   "file": "paper/executable_observer_construction.tex",
+   "claimed": 4383,
+   "found": 4425,
+   "phrase": "relaxation rates and maintenance counts acquire no mass interpretation",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": false
+  },
+  {
+   "group": "S6",
+   "file": "model/clock_defect_energy/SI_UNITS.md",
+   "claimed": 25,
+   "found": 25,
+   "phrase": "repair count or a classical relaxation rate does not supply that gap",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/coherent_defect_wave/energy/PROOF.md",
+   "claimed": 17,
+   "found": 17,
+   "phrase": "The continuous evolution is `exp(-it H_Lambda)`",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/coherent_defect_wave/energy/PROOF.md",
+   "claimed": 21,
+   "found": 21,
+   "phrase": "declared replacement clock",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/coherent_defect_wave/energy/PROOF.md",
+   "claimed": 23,
+   "found": 23,
+   "phrase": "cannot be relabelled as H energies",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/particle_common_contract/PROOF.md",
+   "claimed": 90,
+   "found": 90,
+   "phrase": "The sole source time convention is",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/particle_primary_mass_readout/PROOF.md",
+   "claimed": 204,
+   "found": 204,
+   "phrase": "The primary clock is `exp(-itH)` in source action units with hbar=1",
+   "tag": "declared",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/charged_lepton_response/PHASE_AND_PREMISES.md",
+   "claimed": 133,
+   "found": 133,
+   "phrase": "The action eigenvalues are `(5/108)r_i^2`",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/charged_lepton_response/PHASE_AND_PREMISES.md",
+   "claimed": 150,
+   "found": 150,
+   "phrase": "proportional action-mass interpretation",
+   "tag": "hypothesis",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/charged_lepton_response/PHASE_AND_PREMISES.md",
+   "claimed": 156,
+   "found": 156,
+   "phrase": "rounds has the controlled logical generator X tensor Y in the clock t=Nh",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/charged_lepton_response/RELATIVISTIC_MASS.md",
+   "claimed": 45,
+   "found": 45,
+   "phrase": "sigma_j(Y)",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "paper/tex_fragments/MASSIVE_OPERATIONAL_CLOCKS.tex",
+   "claimed": 134,
+   "found": 133,
+   "phrase": "positive Floquet accounting observable",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+   "claimed": 1762,
+   "found": 1773,
+   "phrase": "The two clocks cannot be scalar rescalings and shifts of one another.",
+   "tag": "paper",
+   "ok": true,
+   "near_claim": false
+  },
+  {
+   "group": "S6",
+   "file": "model/coherent_defect_wave/chiral_joint/two_cell/REFINEMENT_PROOF.md",
+   "claimed": 186,
+   "found": 186,
+   "phrase": "Reassigning the clock independently for each species",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/coherent_defect_wave/chiral_joint/finite_clock/PROOF.md",
+   "claimed": 35,
+   "found": 35,
+   "phrase": "is not identified with a replacement physical energy",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S6",
+   "file": "model/coherent_defect_wave/many_body_route/PROOF.md",
+   "claimed": 8,
+   "found": 8,
+   "phrase": "Floquet logarithm",
+   "tag": "refused",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S7",
+   "file": "Lean/Geometry/ProperTimeInternalAction.lean",
+   "claimed": 270,
+   "found": 270,
+   "phrase": "theorem refinementInvariant_iff_b_zero",
+   "tag": "Lean, declared refinement",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S7",
+   "file": "Lean/Geometry/SourceClockRateAlongWorldlines.lean",
+   "claimed": 501,
+   "found": 501,
+   "phrase": "theorem rules_both_declared",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S7",
+   "file": "Lean/Geometry/SourceClockRateAlongWorldlines.lean",
+   "claimed": 421,
+   "found": 421,
+   "phrase": "indexAccrual_not_refinementInvariant",
+   "tag": "Lean",
+   "ok": true,
+   "near_claim": true
+  },
+  {
+   "group": "S7",
+   "file": "model/clock_defect_energy/MODE_ENERGY.md",
+   "claimed": 114,
+   "found": 114,
+   "phrase": "Subdivision is a compiler/control refinement",
+   "tag": "model",
+   "ok": true,
+   "near_claim": true
+  }
+ ],
+ "missing": 0
+}

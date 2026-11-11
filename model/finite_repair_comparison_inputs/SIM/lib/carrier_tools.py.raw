@@ -1,0 +1,185 @@
+"""Shared carrier objects for the repair-law search (numpy; self-contained; runs locally and on the boxes).
+
+    from carrier_tools import C          # one cached Carrier instance
+
+C.V, C.N        port vectors (12 x 3) of the convex icosahedron and their unit axes
+C.Ng            Galois-conjugate unit axes (great icosahedron realization: adjacent ports have N.N = -1/sqrt5)
+C.E, C.F        30 seams (a < b), 20 faces oriented outward (counter-clockwise seen from outside)
+C.nbr, C.anti   neighbours of each port; antipode of each port
+C.A             port adjacency (12 x 12)
+C.rot           the 60 proper rotations: list of (R 3x3, perm) with perm[p] = image port, R @ N[p] = N[perm[p]]
+C.rhombi        30 lists [a, b, w1, w2]: a seam and its two wing ports
+Functions: spin_matrices(j), axis_state(j, m, n), sections(j, m, axes) -> 12 x (2j+1) matrix W (row p = <chi_p|),
+su2(R) -> 2x2 lift of a rotation, spin_rep(j, R) -> (2j+1)-dimensional representation of the rotation,
+flux_adjacency(k) -> Hermitian 12 x 12 magnetic adjacency with uniform flux 2 pi k / 20 per face,
+check_rows(W, clusters) -> rows spanning the local consistency checks, states(total) -> load configurations,
+reference_event(x, seam, coin) -> the reference integer rule on a load tuple.
+"""
+import itertools
+import numpy as np
+from scipy.linalg import expm
+
+PHI = (1 + 5 ** 0.5) / 2
+
+
+def spin_matrices(j):
+    d = int(round(2 * j + 1)); m = np.array([j - i for i in range(d)])
+    Jz = np.diag(m).astype(complex)
+    Jp = np.zeros((d, d), complex)
+    for i in range(1, d):
+        Jp[i - 1, i] = np.sqrt(j * (j + 1) - m[i] * (m[i] + 1))
+    return (Jp + Jp.conj().T) / 2, (Jp - Jp.conj().T) / (2j), Jz
+
+
+def axis_state(j, m, n):
+    """Eigenvector of n.J with eigenvalue m (phase convention of numpy.eigh; a gauge choice)."""
+    Jx, Jy, Jz = spin_matrices(j)
+    w, U = np.linalg.eigh(n[0] * Jx + n[1] * Jy + n[2] * Jz)
+    return U[:, int(np.argmin(abs(w - m)))]
+
+
+def rotation_axis_angle(R):
+    ang = np.arccos(np.clip((np.trace(R) - 1) / 2, -1, 1))
+    if ang < 1e-9:
+        return np.array([0.0, 0.0, 1.0]), 0.0
+    w, U = np.linalg.eig(R)
+    ax = np.real(U[:, int(np.argmin(abs(w - 1)))]); ax /= np.linalg.norm(ax)
+    # fix the sign of the axis so that R = exp(ang * hat(ax))
+    K = np.array([[0, -ax[2], ax[1]], [ax[2], 0, -ax[0]], [-ax[1], ax[0], 0]])
+    if np.linalg.norm(expm(ang * K) - R) > 1e-6:
+        ax = -ax
+    return ax, ang
+
+
+def spin_rep(j, R):
+    """Spin-j representation matrix of the rotation R (one of the two lifts for half-integer j)."""
+    ax, ang = rotation_axis_angle(R)
+    Jx, Jy, Jz = spin_matrices(j)
+    return expm(-1j * ang * (ax[0] * Jx + ax[1] * Jy + ax[2] * Jz))
+
+
+def su2(R):
+    return spin_rep(0.5, R)
+
+
+class Carrier:
+    def __init__(self):
+        V = []
+        for s1 in (1, -1):
+            for s2 in (1, -1):
+                V += [(0, s1, s2 * PHI), (s1, s2 * PHI, 0), (s2 * PHI, 0, s1)]
+        self.V = np.array(V, float)
+        self.N = self.V / np.linalg.norm(self.V, axis=1)[:, None]
+        # Galois conjugate: phi -> -1/phi in the coordinates
+        G = np.where(np.isclose(abs(self.V), PHI), np.sign(self.V) * (-1 / PHI), self.V)
+        self.Ng = G / np.linalg.norm(G, axis=1)[:, None]
+        d = lambda a, b: np.linalg.norm(self.V[a] - self.V[b])
+        self.E = [(a, b) for a in range(12) for b in range(a + 1, 12) if abs(d(a, b) - 2) < 1e-9]
+        Eset = set(self.E)
+        self.nbr = [[q for q in range(12) if (min(p, q), max(p, q)) in Eset] for p in range(12)]
+        self.anti = [int(np.argmin(np.linalg.norm(self.V + self.V[p], axis=1))) for p in range(12)]
+        F = []
+        for a, b, c in itertools.combinations(range(12), 3):
+            if (a, b) in Eset and (b, c) in Eset and (a, c) in Eset:
+                n = np.cross(self.V[b] - self.V[a], self.V[c] - self.V[a])
+                F.append((a, b, c) if n @ (self.V[a] + self.V[b] + self.V[c]) > 0 else (a, c, b))
+        self.F = F
+        self.A = np.zeros((12, 12))
+        for a, b in self.E:
+            self.A[a, b] = self.A[b, a] = 1
+        self.rhombi = [[a, b] + [c for c in range(12) if c in self.nbr[a] and c in self.nbr[b]] for a, b in self.E]
+        self.rot = self._rotations()
+
+    def _rotations(self):
+        out, seen = [], set()
+        axes = [(self.N[p], 5) for p in range(12)]
+        axes += [((self.V[a] + self.V[b] + self.V[c]) / np.linalg.norm(self.V[a] + self.V[b] + self.V[c]), 3) for a, b, c in self.F]
+        axes += [((self.V[a] + self.V[b]) / np.linalg.norm(self.V[a] + self.V[b]), 2) for a, b in self.E]
+        for ax, order in axes:
+            K = np.array([[0, -ax[2], ax[1]], [ax[2], 0, -ax[0]], [-ax[1], ax[0], 0]])
+            for k in range(order):
+                R = expm(2 * np.pi * k / order * K)
+                perm = tuple(int(np.argmin(np.linalg.norm(self.N - R @ self.N[p], axis=1))) for p in range(12))
+                assert all(np.linalg.norm(R @ self.N[p] - self.N[perm[p]]) < 1e-9 for p in range(12))
+                if perm not in seen:
+                    seen.add(perm); out.append((R, perm))
+        assert len(out) == 60
+        return out
+
+    def perm_matrix(self, perm):
+        P = np.zeros((12, 12))
+        for p in range(12):
+            P[perm[p], p] = 1
+        return P
+
+
+C = Carrier()
+
+
+def sections(j, m, axes=None):
+    """12 x (2j+1) matrix W, row p = <chi_p|; the section of psi is W @ psi. Helicity m about the port axis."""
+    axes = C.N if axes is None else axes
+    return np.array([axis_state(j, m, axes[p]).conj() for p in range(12)])
+
+
+def flux_adjacency(k):
+    eidx = {e: i for i, e in enumerate(C.E)}
+    M = np.zeros((20, 30)); rhs = np.full(20, 2 * np.pi * k / 20); rhs[0] -= 2 * np.pi * k
+    for f, (a, b, c) in enumerate(C.F):
+        for x, y in ((a, b), (b, c), (c, a)):
+            if (x, y) in eidx: M[f, eidx[(x, y)]] += 1
+            else: M[f, eidx[(y, x)]] -= 1
+    th = np.linalg.lstsq(M, rhs, rcond=None)[0]
+    assert np.allclose(M @ th, rhs, atol=1e-9)
+    A = np.zeros((12, 12), complex)
+    for (a, b), t in zip(C.E, th):
+        A[b, a] = np.exp(1j * t); A[a, b] = np.exp(-1j * t)
+    return A
+
+
+def check_rows(W, clusters, tol=1e-9):
+    """Rows c (as 12-vectors) with c @ phi = 0 for every section phi = W psi; one per independent local check."""
+    rows = []
+    for S in clusters:
+        u, s, vh = np.linalg.svd(W[S, :], full_matrices=True)
+        r = int((s > tol).sum())
+        for c in u[:, r:].T:
+            row = np.zeros(12, complex); row[S] = c.conj(); rows.append(row)
+    return np.array(rows) if rows else np.zeros((0, 12), complex)
+
+
+def states(total):
+    """Load configurations of twelve ports with the given total (tuples), binary ones first."""
+    out = [x for x in itertools.product(range(total + 1), repeat=12) if sum(x) == total] if total <= 2 else None
+    if out is None:
+        raise ValueError('use your own enumeration above total two')
+    return sorted(out, key=lambda x: (max(x), x))
+
+
+def reference_event(x, seam, coin):
+    a, b = seam
+    d = x[a] - x[b]
+    j = (d - (2 * coin - 1) * (abs(d) % 2)) // 2
+    y = list(x); y[a] -= j; y[b] += j
+    return tuple(y), j
+
+
+if __name__ == '__main__':
+    print('ports 12, seams', len(C.E), 'faces', len(C.F), 'rotations', len(C.rot), 'rhombi', len(C.rhombi))
+    print('adjacent axes scalar product (convex, great):', round(float(C.N[C.E[0][0]] @ C.N[C.E[0][1]]), 6), round(float(C.Ng[C.E[0][0]] @ C.Ng[C.E[0][1]]), 6))
+    for j, m, cl, name in ((0.5, 0.5, [list(f) for f in C.F], 'faces'), (1, 1, C.rhombi, 'rhombi'), (1, 0, C.rhombi, 'rhombi')):
+        W = sections(j, m)
+        rows = check_rows(W, cl)
+        ker = 12 - np.linalg.matrix_rank(rows, tol=1e-9)
+        print(f'spin {j} helicity {m}: {len(rows)} checks on {name}, common kernel {ker}')
+    for j, m in ((0.5, 0.5), (1, 1)):
+        Wg = sections(j, m, C.Ng); W = sections(j, m)
+        X = [np.outer(Wg[p].conj(), Wg[p]) for p in range(12)]
+        print(f'great realization spin {j}: sum of port projectors / identity:', np.round(np.real(np.diag(sum(X))), 4))
+    # covariance of sections under rotations, up to port phases
+    j, m = 0.5, 0.5
+    W = sections(j, m); R, perm = C.rot[7]
+    U = spin_rep(j, R)
+    ph = [(W[perm[p]] @ U) / W[p] for p in range(12)]
+    print('rotation covariance of spinor sections (ratios constant per port, modulus 1):', all(abs(abs(x[0]) - 1) < 1e-9 and abs(x[0] - x[1]) < 1e-9 for x in ph))
+    print(states(2)[:2], len(states(2)), reference_event((1, 1) + (0,) * 10, C.E[0], 1))

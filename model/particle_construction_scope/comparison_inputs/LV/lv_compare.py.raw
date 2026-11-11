@@ -1,0 +1,151 @@
+"""Worker LV: the comparison with measured values (NOT BLIND). The only script of this lane that reads them.
+Run once after lv_exact.json, lv_potential.json, lv_main.json and lv_cw.json were on file. Writes lv_compare.json.
+
+Measured inputs: v = 246.21965 GeV (from G_F), E* = 1.220890e19 GeV, reference masses H 125.13, t 172.1 GeV (the
+references of UH and HT).
+"""
+import json
+import math
+
+from scipy.optimize import brentq
+
+import lv_chain as C
+
+pi = math.pi
+V_MEAS = 246.21965
+MH_REF, MT_REF = 125.13, 172.1
+E_CELL = C.EP / math.sqrt(C.P_FWD)
+M_U = C.EP * math.exp(-2 * pi) * C.P_FWD ** (1 / 6)
+X_MEAS = V_MEAS / E_CELL
+L_MEAS = -math.log(X_MEAS)
+out = {"measured": {"v_GeV": V_MEAS, "E_cell_GeV": E_CELL, "v_over_E_cell": X_MEAS, "ln(E_cell/v)": L_MEAS,
+                    "1/alpha_needed_by_the_working_law": L_MEAS * 2 / pi}}
+main = json.load(open("lv_main.json"))
+pot = json.load(open("lv_potential.json"))
+cw = json.load(open("lv_cw.json"))
+
+# ---------------------------------------------------------------- group C: rows, verdicts, needed couplings
+mk = json.load(open("lv_exact.json"))["M2_link_vacuum"]
+K8 = main["C8_wilson_form_d3"]["minimum_total_times_g2"]
+laws = {
+    "C1_gaussian_isolated_plaquette": lambda a: (pi / 2) * a,
+    "C2_gaussian_3d_complex": lambda a: (3 * pi / 4) * a,
+    "C3_gaussian_4d_complex": lambda a: pi * a,
+    "C4_link_vacuum_continuous": lambda a: mk["exponent_times_alpha_continuous"] * a,
+    "C5_link_vacuum_two_steps": lambda a: mk["exponent_times_alpha_two_steps"] * a,
+    "C6_wilson_isolated": lambda a: (2 / pi) * a,
+    "C7a_wilson_one_link_3d": lambda a: (8 / pi) * a,
+    "C7b_wilson_one_link_4d": lambda a: (12 / pi) * a,
+    "C8_wilson_3d_relaxed": lambda a: K8 / (4 * pi) * a,
+    "C9a_heat_kernel_density_tau_g2/2": lambda a: (pi / 2) * a - math.log(2 * (pi * a - 1)),
+    "C9b_heat_kernel_density_tau_g2/3": lambda a: (3 * pi / 4) * a - math.log(2 * (1.5 * pi * a - 1)),
+    "C9c_heat_kernel_density_tau_g2/4": lambda a: pi * a - math.log(2 * (2 * pi * a - 1)),
+    "C10_full_closed_loop": lambda a: 2 * pi * a,
+    "C11_neutral_direction_unit_winding": lambda a: (5 * pi / 4) * a,
+}
+ident = {
+    "I1": lambda S, a: math.exp(-S),
+    "I2": lambda S, a: 2 * math.sqrt(2) / math.sqrt(4 * pi / a) * math.exp(-S),
+    "I3": lambda S, a: math.sqrt(2) * math.exp(-S / 2),
+}
+rows = {}
+count = {"rows": 0, "pass_main": [], "near_main": [], "pass_retired": [], "near_retired": []}
+for ln, f in laws.items():
+    for iname, g in ident.items():
+        key = ln + "|" + iname
+        r = {}
+        for lab, a in (("main", 24.3166), ("retired", 16.2453)):
+            x = g(f(a), a)
+            d = math.log(x / X_MEAS)
+            r["ln(v_row/v_measured)_" + lab] = d
+            r["v_row_GeV_" + lab] = x * E_CELL
+            if abs(d) <= 0.05:
+                count["pass_" + lab].append(key)
+            elif abs(d) <= 0.15:
+                count["near_" + lab].append(key)
+        try:
+            r["1/alpha_needed"] = brentq(lambda a: math.log(g(f(a), a) / X_MEAS), 2.0, 400.0)
+        except ValueError:
+            r["1/alpha_needed"] = None
+        rows[key] = r
+        count["rows"] += 1
+out["group_C"] = {"rows": rows, "count": count,
+                  "note": "at 24.3166 the row C1|I1 is the working law; the chain's coupling was solved with that law inside"}
+
+# ---------------------------------------------------------------- M5: prefactors, the chain solved again
+m5 = {}
+for sn, pr in main["M5_prefactors_in_the_chain"].items():
+    m5[sn] = {pn: [{"v_GeV": r["v_GeV"], "ratio_to_measured": r["v_GeV"] / V_MEAS, "1/alpha_U": r["1/alpha_U"]} for r in rr]
+              for pn, rr in pr.items()}
+out["M5_prefactor_rows"] = m5
+need = {}
+for sn, b in (("declared_(33/5,1,-3)", (33 / 5, 1.0, -3.0)), ("source_two_doublets_(41/5,1,-3)", (41 / 5, 1.0, -3.0)),
+              ("source_one_doublet_(81/10,5/6,-3)", (81 / 10, 5 / 6, -3.0)), ("source_three_doublets_(83/10,7/6,-3)", (83 / 10, 7 / 6, -3.0))):
+    f = lambda lc: math.log(C.solve(b=b, pref=math.exp(lc))[0][1]["v"] / V_MEAS)
+    lc = brentq(f, -3.0, 3.0, xtol=1e-10)
+    need[sn] = {"prefactor_needed": math.exp(lc), "1/alpha_U_then": C.solve(b=b, pref=math.exp(lc))[0][0]}
+out["M5_prefactor_the_measured_v_needs"] = need
+
+# ---------------------------------------------------------------- M6: scale rows
+out["M6_scale_rows_ratio_to_measured"] = {k: v / V_MEAS for k, v in main["M6_scale_rows"]["evaluations_at_the_chain_solution_GeV"].items()}
+out["M6_chain_solved_again_ratio"] = {k: [r["v_GeV"] / V_MEAS for r in rr] for k, rr in main["M6_scale_rows"]["chain_solved_again"].items()}
+
+# ---------------------------------------------------------------- M4 readings
+out["M4_ratio_to_measured"] = {k: v["v_GeV"] / V_MEAS for k, v in main["M4_register_readings"]["rows_at_24.3166"].items()}
+
+# ---------------------------------------------------------------- group A: curvature the measured chart needs
+lam_meas = MH_REF ** 2 / (2 * V_MEAS ** 2)
+m2_Q0 = -lam_meas * V_MEAS ** 2                      # tree relation of V = m^2 |H|^2 + lambda |H|^4
+lnR = cw["BK_mass_parameter_running_chart_BM"]["ln[m^2(E_cell)/m^2(Q0)]"]
+m2_cell = m2_Q0 * math.exp(lnR)
+S_m = -math.log(math.sqrt(-m2_cell) / E_CELL)
+gA = {"lambda_reference": lam_meas, "m^2(Q0)_GeV2": m2_Q0, "m^2(E_cell)_GeV2": m2_cell,
+      "m^2(E_cell)_over_E_cell^2": m2_cell / E_CELL ** 2, "S_m_=_-ln(|m(E_cell)|/E_cell)": S_m,
+      "1/alpha_for_exp(-(pi/2)/alpha)_=_|m|/E_cell": S_m * 2 / pi}
+gA["computed_m_h^2_over_E_cell^2_(g_U)"] = {k: {n: v[n]["m_h^2_over_E_cell^2"]["main_24.3166"] for n in ("n_fam_1", "n_fam_3")}
+                                            for k, v in pot["A1_curvature"]["rows"].items()}
+gA["ratio_computed_over_needed_smallest_in_magnitude"] = min(
+    abs(x) for v in gA["computed_m_h^2_over_E_cell^2_(g_U)"].values() for x in v.values()) / abs(m2_cell / E_CELL ** 2)
+ch = cw["BM_chart_at_the_cell"]
+gA["veltman_ratio_on_chart_BM_at_the_cell_(reference_yt_0.37368)"] = 0.75 * (3 * ch["g2"] ** 2 + ch["gY"] ** 2) / (6 * 0.37368 ** 2)
+out["group_A"] = gA
+
+# ---------------------------------------------------------------- group B
+gB = {"BU_rows": {}}
+for k, v in cw["BU_rows"].items():
+    if "mt_pole_GeV" in v and v["mt_pole_GeV"]:
+        gB["BU_rows"][k] = {"mt_pole_GeV": v["mt_pole_GeV"], "mt_dev_percent": 100 * (v["mt_pole_GeV"] / MT_REF - 1),
+                            "mH_tree_GeV": v["mH_tree_GeV"],
+                            "mH_dev_percent": None if v["mH_tree_GeV"] is None else 100 * (v["mH_tree_GeV"] / MH_REF - 1)}
+bc = cw["BC_coleman_weinberg_family"]["rows"]
+mins = [r for r in bc if r.get("type") == "minimum"]
+gB["BC"] = {"largest_yt_cell_with_a_minimum_on_the_grid": max(r["yt_cell"] for r in mins) if mins else None,
+            "top_running_mass_there_GeV": max(r["mt_running_GeV"] for r in mins) if mins else None,
+            "mH_range_GeV": [min(r["mH_GeV"] for r in mins), max(r["mH_GeV"] for r in mins)] if mins else None,
+            "verdict": "a radiative minimum at the measured hierarchy needs a top below about 60 to 80 GeV and gives a Higgs "
+                       "near 7 to 10 GeV; excluded by the reference masses"}
+out["group_B"] = gB
+
+# ---------------------------------------------------------------- group D
+gD = {}
+for k, v in pot["D_member_B_tadpole"].items():
+    if k.startswith("D"):
+        gD[k] = {"theta_B": v["theta_B"], "v_over_E_cell": v["v_over_E_cell_(g_U)"], "ratio_to_measured": v["v_over_E_cell_(g_U)"] / X_MEAS}
+out["group_D"] = gD
+
+json.dump(out, open("lv_compare.json", "w"), indent=1, default=float)
+print(json.dumps(out["measured"]))
+for k, r in rows.items():
+    print("%-46s main %+8.3f (%.4g GeV)  retired %+8.3f  needs 1/alpha = %s" % (
+        k, r["ln(v_row/v_measured)_main"], r["v_row_GeV_main"], r["ln(v_row/v_measured)_retired"],
+        "%.4f" % r["1/alpha_needed"] if r["1/alpha_needed"] else "none"))
+print(json.dumps(count))
+print(json.dumps(out["M5_prefactor_the_measured_v_needs"]))
+print(json.dumps(out["M6_scale_rows_ratio_to_measured"])); print(json.dumps(out["M6_chain_solved_again_ratio"]))
+print(json.dumps(out["M4_ratio_to_measured"]))
+print(json.dumps({k: v for k, v in gA.items() if k != "computed_m_h^2_over_E_cell^2_(g_U)"}))
+print(json.dumps(gB["BC"]))
+for k, v in gB["BU_rows"].items():
+    if "|zero" in k or "|B4t" in k:
+        print(k, {a: (round(b, 2) if isinstance(b, float) else b) for a, b in v.items()})
+print(json.dumps(gD))

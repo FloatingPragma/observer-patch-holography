@@ -1,0 +1,10 @@
+import sys, time, os
+t = time.time()
+import numpy as np
+from oph_defects import fedgeom
+for gl in ('face_axis', 'port_pair'):
+    for L in (0, 1):
+        g = fedgeom.build(L, cache=False, gluing=gl)
+        print(gl, L, 'carriers', g.carriers, 'vertices', g.vertices, 'glue', g.glue_seams, round(time.time()-t, 2))
+        print('  first glue', list(zip((g.glue_a[:6] // 12).tolist(), (g.glue_a[:6] % 12).tolist(), (g.glue_b[:6] // 12).tolist(), (g.glue_b[:6] % 12).tolist())))
+print('control ports', fedgeom._control_ports(), 'control face', fedgeom.CONTROL_FACE)

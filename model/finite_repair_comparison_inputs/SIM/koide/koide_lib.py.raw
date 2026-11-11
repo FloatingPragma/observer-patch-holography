@@ -1,0 +1,271 @@
+"""Task KOI: shared tools. Exact field, Koide parameters, circulant decomposition, the results file.
+
+Koide parameters of three real numbers l_0, l_1, l_2 (eigenvalues of a copy matrix):
+  a = mean, l_k = a + 2|b| cos(delta + 2 pi k/3);  sum (l - a)^2 = 6|b|^2,  sum (l - a)^3 = 6|b|^3 cos(3 delta);
+  Q = sum l^2 / (sum l)^2 = 1/3 + (2/3)(|b|/a)^2;  Q = 2/3  <=>  |b|/a = 1/sqrt2;  consensus weight w = 1/(3Q).
+  delta is fixed only modulo 2 pi/3 and up to sign (relabelling, complex conjugation); the canonical value is
+  delta in [0, pi/3] with 3 delta = arccos(cos 3 delta). The measured charged leptons: delta = 0.2222248, Q = 0.6666645.
+Two readings of a copy matrix with eigenvalues l: 'sqrt' (l = sqrt m, the task's reading) and 'mass' (l = m, the rest
+phase of the tick is the mass; sqrt m = sqrt l).
+For a circulant C = a + b P + conj(b) P^2 (P the cyclic permutation, P e_k = e_(k+1)): a = C[0,0], b = C[1,0], and the
+eigenvalues are a + 2|b| cos(arg b + 2 pi k/3): the delta of the eigenvalues is arg b (mod the symmetries).
+
+Exact field QF = Q(sqrt5, sqrt-3): a + b r + c s + d rs with r = sqrt5, s = sqrt(-3) = i sqrt3; it holds the carrier
+(Q(sqrt5)) and the flux phases exp(2 pi i k/6) = (1 +- s)/2, (-1 +- s)/2, -1.
+"""
+import json, math, os
+from fractions import Fraction as Fr
+
+import numpy as np
+import mpmath as mp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))          # repair-law
+OUT = os.path.join(HERE, 'koide.json')
+REPORT = os.path.join(RL, 'reports', 'KOI.md')
+mp.mp.dps = 40
+DELTA_LEPTON, Q_LEPTON = 0.2222248, 0.6666645                          # LIT.md B2 (for the readback only)
+
+
+# ------------------------------------------------------------------------------------------------ exact field
+class QF:
+    __slots__ = ('a', 'b', 'c', 'd')
+
+    def __init__(self, a=0, b=0, c=0, d=0):
+        self.a, self.b, self.c, self.d = Fr(a), Fr(b), Fr(c), Fr(d)
+
+    @staticmethod
+    def lift(x):
+        return x if isinstance(x, QF) else QF(x)
+
+    def __add__(self, o):
+        o = QF.lift(o); return QF(self.a + o.a, self.b + o.b, self.c + o.c, self.d + o.d)
+    __radd__ = __add__
+
+    def __neg__(self):
+        return QF(-self.a, -self.b, -self.c, -self.d)
+
+    def __sub__(self, o):
+        return self + (-QF.lift(o))
+
+    def __rsub__(self, o):
+        return QF.lift(o) - self
+
+    def __mul__(self, o):
+        o = QF.lift(o)
+        a1, b1, c1, d1, a2, b2, c2, d2 = self.a, self.b, self.c, self.d, o.a, o.b, o.c, o.d
+        return QF(a1 * a2 + 5 * b1 * b2 - 3 * c1 * c2 - 15 * d1 * d2,
+                  a1 * b2 + b1 * a2 - 3 * c1 * d2 - 3 * d1 * c2,
+                  a1 * c2 + c1 * a2 + 5 * b1 * d2 + 5 * d1 * b2,
+                  a1 * d2 + d1 * a2 + b1 * c2 + c1 * b2)
+    __rmul__ = __mul__
+
+    def conj(self):
+        return QF(self.a, self.b, -self.c, -self.d)
+
+    def inv(self):
+        n = self * self.conj()                                         # in Q(sqrt5): p + q r
+        assert n.c == 0 and n.d == 0
+        p, q = n.a, n.b; den = p * p - 5 * q * q
+        return self.conj() * QF(p / den, -q / den)
+
+    def __truediv__(self, o):
+        return self * QF.lift(o).inv()
+
+    def __rtruediv__(self, o):
+        return QF.lift(o) * self.inv()
+
+    def __eq__(self, o):
+        o = QF.lift(o); return (self.a, self.b, self.c, self.d) == (o.a, o.b, o.c, o.d)
+
+    def __hash__(self):
+        return hash((self.a, self.b, self.c, self.d))
+
+    def is_zero(self):
+        return self.a == 0 and self.b == 0 and self.c == 0 and self.d == 0
+
+    def is_real(self):
+        return self.c == 0 and self.d == 0
+
+    def __complex__(self):
+        r5, r3 = 5 ** 0.5, 3 ** 0.5
+        return complex(float(self.a) + float(self.b) * r5, r3 * (float(self.c) + float(self.d) * r5))
+
+    def mpc(self):
+        r5, r3 = mp.sqrt(5), mp.sqrt(3)
+        return mp.mpc(mp.mpf(self.a.numerator) / self.a.denominator + mp.mpf(self.b.numerator) / self.b.denominator * r5,
+                      r3 * (mp.mpf(self.c.numerator) / self.c.denominator + mp.mpf(self.d.numerator) / self.d.denominator * r5))
+
+    def sign(self):
+        """sign of a real element p + q sqrt5, exactly"""
+        assert self.is_real()
+        p, q = self.a, self.b
+        if q == 0: return (p > 0) - (p < 0)
+        if p == 0: return (q > 0) - (q < 0)
+        if p > 0 and q > 0: return 1
+        if p < 0 and q < 0: return -1
+        s = (p * p > 5 * q * q) - (p * p < 5 * q * q)                  # |p| against |q| sqrt5
+        return s if p > 0 else -s
+
+    def __str__(self):
+        parts = []
+        for v, u in ((self.a, ''), (self.b, 'sqrt5'), (self.c, 'i sqrt3'), (self.d, 'i sqrt15')):
+            if v == 0: continue
+            parts.append(f'{v}' if not u else (f'{v} {u}' if v not in (1, -1) else ('' if v == 1 else '-') + u))
+        return ' + '.join(parts).replace('+ -', '- ') if parts else '0'
+    __repr__ = __str__
+
+
+ZERO, ONE = QF(0), QF(1)
+R5 = QF(0, 1)
+S3 = QF(0, 0, 1)                                                       # sqrt(-3) = i sqrt3
+PHI = QF(Fr(1, 2), Fr(1, 2))
+
+
+def zeta(num, den):
+    """exp(2 pi i num/den) for den in (1, 2, 3, 6)"""
+    k = Fr(num, den) % 1
+    table = {Fr(0): QF(1), Fr(1, 6): QF(Fr(1, 2), 0, Fr(1, 2)), Fr(1, 3): QF(Fr(-1, 2), 0, Fr(1, 2)), Fr(1, 2): QF(-1),
+             Fr(2, 3): QF(Fr(-1, 2), 0, Fr(-1, 2)), Fr(5, 6): QF(Fr(1, 2), 0, Fr(-1, 2))}
+    return table[k]
+
+
+# matrices over QF as lists of lists
+def mzeros(n, m=None):
+    return [[ZERO for _ in range(m or n)] for _ in range(n)]
+
+
+def mmul(A, B):
+    n, k, m = len(A), len(B), len(B[0])
+    return [[sum((A[i][t] * B[t][j] for t in range(k) if not A[i][t].is_zero() and not B[t][j].is_zero()), ZERO)
+             for j in range(m)] for i in range(n)]
+
+
+def mT(A):
+    return [list(r) for r in zip(*A)]
+
+
+def mH(A):
+    return [[x.conj() for x in r] for r in zip(*A)]
+
+
+def madd(A, B, s=1):
+    return [[a + (b if s == 1 else -b) for a, b in zip(ra, rb)] for ra, rb in zip(A, B)]
+
+
+def mscale(A, x):
+    x = QF.lift(x); return [[a * x for a in r] for r in A]
+
+
+def mtrace(A):
+    return sum((A[i][i] for i in range(len(A))), ZERO)
+
+
+def meq(A, B):
+    return all(a == b for ra, rb in zip(A, B) for a, b in zip(ra, rb))
+
+
+def mcomplex(A):
+    return np.array([[complex(x) for x in r] for r in A])
+
+
+def mstr(A):
+    return [[str(x) for x in r] for r in A]
+
+
+# ------------------------------------------------------------------------------------------------ Koide parameters
+def koide_from_traces(t1, t2, t3):
+    """exact parameters of a 3 x 3 Hermitian matrix with real traces t_k = tr M^k in Q(sqrt5).
+    Returns Q (signed eigenvalues), |b|^2/a^2, cos^2(3 delta) and the sign of cos(3 delta), all exact."""
+    a = t1 / 3
+    s2 = t2 - t1 * t1 / 3                                              # sum (l - a)^2 = 6 |b|^2
+    s3 = t3 - 3 * a * t2 + 6 * a * a * a                               # sum (l - a)^3 = 6 |b|^3 cos 3 delta
+    out = {'a': a, 'b2': s2 / 6}
+    out['Q'] = t2 / (t1 * t1) if not t1.is_zero() else None
+    out['b2_over_a2'] = (s2 / 6) / (a * a) if not a.is_zero() else None
+    out['cos2_3delta'] = (s3 * s3 * 6) / (s2 * s2 * s2) if not s2.is_zero() else None   # = s3^2 / (36 |b|^6)
+    out['sign_cos_3delta'] = s3.sign() if not s2.is_zero() else 0
+    out['Q_is_two_thirds'] = (out['Q'] == QF(Fr(2, 3))) if out['Q'] is not None else False
+    return out
+
+
+def koide_from_eigs(lams, reading='sqrt'):
+    """float (mpmath) parameters from three eigenvalues. reading 'sqrt': l = sqrt m; 'mass': l = m (sqrt m = sqrt l)."""
+    l = [mp.mpf(x) for x in lams]
+    if reading == 'mass':
+        if min(l) < -mp.mpf('1e-30'): return {'reading': reading, 'note': 'negative eigenvalue: no mass reading'}
+        l = [mp.sqrt(max(x, 0)) for x in l]
+    neg = any(x < -mp.mpf('1e-30') for x in l)
+    out = {'reading': reading, 'values_read_as_sqrt_m': [float(x) for x in l], 'negative_entries': bool(neg)}
+    out.update(_params(l))
+    if neg:
+        out['with_absolute_values'] = _params([abs(x) for x in l])
+    return out
+
+
+def _params(l):
+    n = len(l); s1 = sum(l); a = s1 / n; d = [x - a for x in l]
+    s2 = sum(x * x for x in d); s3 = sum(x ** 3 for x in d)
+    res = {'a': float(a), 'Q': float(sum(x * x for x in l) / s1 ** 2) if s1 != 0 else None}
+    if n == 3:
+        b = mp.sqrt(s2 / 6)
+        res['abs_b'] = float(b)
+        res['abs_b_over_a'] = float(b / a) if a != 0 else None
+        if b > mp.mpf('1e-30'):
+            c3 = max(-1, min(1, s3 / (6 * b ** 3)))
+            res['cos_3delta'] = float(c3)
+            res['delta_canonical'] = float(mp.acos(c3) / 3)
+        else:
+            res['cos_3delta'] = None; res['delta_canonical'] = None
+        res['consensus_weight'] = float(s1 ** 2 / (3 * sum(x * x for x in l))) if s1 != 0 else None
+    else:
+        res['consensus_weight'] = float(s1 ** 2 / (n * sum(x * x for x in l))) if s1 != 0 else None
+    return res
+
+
+def circulant_parts(M, P):
+    """circulant part (1/3) sum_k P^k M P^-k of a 3 x 3 complex matrix with respect to a unitary P (P^3 = 1) and the
+    relative norm of the rest. In a basis where P is the cyclic permutation: a = Mc[0,0], b = Mc[1,0]."""
+    M = np.asarray(M, complex); P = np.asarray(P, complex)
+    Mc = sum(np.linalg.matrix_power(P, k) @ M @ np.linalg.matrix_power(P, k).conj().T for k in range(3)) / 3
+    rest = M - Mc
+    return Mc, float(np.linalg.norm(rest) / max(np.linalg.norm(M), 1e-300))
+
+
+def lemma_rational():
+    """Q = 2/3 is impossible for three rational numbers that are not all zero (proof in the report, checked here by
+    brute force on integer triples up to 60)."""
+    bad = []
+    for x in range(-60, 61):
+        for y in range(-60, 61):
+            for z in range(-60, 61):
+                s = x + y + z
+                if s and 3 * (x * x + y * y + z * z) == 2 * s * s: bad.append((x, y, z))
+    return bad
+
+
+# ------------------------------------------------------------------------------------------------ results file
+def load():
+    if os.path.exists(OUT):
+        return json.load(open(OUT))
+    return {}
+
+
+def save(key, value):
+    d = load(); d[key] = value
+    json.dump(d, open(OUT, 'w'), indent=1, default=_default)
+
+
+def _default(o):
+    if isinstance(o, QF): return str(o)
+    if isinstance(o, Fr): return str(o)
+    if isinstance(o, (np.floating, mp.mpf)): return float(o)
+    if isinstance(o, (np.integer,)): return int(o)
+    if isinstance(o, complex): return [o.real, o.imag]
+    if isinstance(o, np.ndarray): return o.tolist()
+    raise TypeError(type(o))
+
+
+def fq(x):
+    """float of a real QF"""
+    return complex(x).real

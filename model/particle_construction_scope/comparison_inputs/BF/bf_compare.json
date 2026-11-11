@@ -1,0 +1,725 @@
+{
+ "label": "NOT BLIND",
+ "ln(E_cell/m_Z)": 39.191189837501234,
+ "measured_inv_alpha_123": [
+  59.02,
+  29.58,
+  8.47
+ ],
+ "slopes_needed_from_each_cell_row": {
+  "bare equal (cut closure)": {
+   "slopes_needed (b1, b2, b3)": [
+    6.857698571372348,
+    2.137837393124413,
+    -1.2465467601641018
+   ]
+  },
+  "full register, F=5, Hamiltonian (xi = inf)": {
+   "slopes_needed (b1, b2, b3)": [
+    7.298633701131063,
+    2.7887165213829106,
+    -0.2501855618782314
+   ]
+  },
+  "full register, F=5, CF-1 field step (xi = 2)": {
+   "slopes_needed (b1, b2, b3)": [
+    7.414400388085092,
+    2.805596011014819,
+    -0.21960420529609537
+   ]
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1)": {
+   "slopes_needed (b1, b2, b3)": [
+    7.411729458733153,
+    2.7722772703710548,
+    -0.2697037221413746
+   ]
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    9.25788627709834,
+    4.880676043098444,
+    1.4911457335223879
+   ]
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    8.388967782045922,
+    3.7589070895819034,
+    1.4911457335223879
+   ]
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    8.007356640318191,
+    3.4518811441255455,
+    0.5706140196921285
+   ]
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    7.71838584771222,
+    3.1783816685442825,
+    0.234784032521439
+   ]
+  },
+  "full register, F=15, Hamiltonian (xi = inf)": {
+   "slopes_needed (b1, b2, b3)": [
+    7.338718712927309,
+    3.149481627549132,
+    -0.08984551469324403
+   ]
+  },
+  "full register, F=15, CF-1 field step (xi = 2)": {
+   "slopes_needed (b1, b2, b3)": [
+    7.4650096441498865,
+    3.2610793155979736,
+    -0.017167181036915318
+   ]
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1)": {
+   "slopes_needed (b1, b2, b3)": [
+    7.46209590303868,
+    3.225575269120804,
+    -0.06823794491926442
+   ]
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    8.444413328424643,
+    4.582894543543058,
+    1.3012424370323465
+   ]
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    8.133368529750047,
+    4.166206259719426,
+    1.3012424370323465
+   ]
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    7.949123147323031,
+    3.931414522442737,
+    1.3012424370323465
+   ]
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row": {
+   "slopes_needed (b1, b2, b3)": [
+    7.680795358255794,
+    3.5450300023458707,
+    0.35301385472549224
+   ]
+  }
+ },
+ "inv_alpha3_cell_needed_for_measured_alpha_s": {
+  "VL (81/10, 5/6, -3)": 27.182414764873528,
+  "SM (41/10, -19/6, -7)": 52.132301118038235,
+  "B (61/10, -7/6, -5)": 39.657357941455885
+ },
+ "predictions": {
+  "bare equal (cut closure) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    66.76881986515852,
+    21.443192990242647,
+    -2.467114764873525
+   ],
+   "difference_from_measured": [
+    7.7488198651585165,
+    -8.136807009757351,
+    -10.937114764873526
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "bare equal (cut closure) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    41.81893351199382,
+    -3.506693362922057,
+    -27.417001118038236
+   ],
+   "difference_from_measured": [
+    -17.201066488006184,
+    -33.086693362922055,
+    -35.887001118038235
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "bare equal (cut closure) | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    54.29387668857617,
+    8.968249813660293,
+    -14.942057941455882
+   ],
+   "difference_from_measured": [
+    -4.726123311423834,
+    -20.611750186339705,
+    -23.412057941455885
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, Hamiltonian (xi = inf) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    64.01849952100905,
+    17.383352920318536,
+    -8.681889430857392
+   ],
+   "difference_from_measured": [
+    4.998499521009045,
+    -12.196647079681462,
+    -17.151889430857395
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, Hamiltonian (xi = inf) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    39.06861316784435,
+    -7.5665334328461675,
+    -33.6317757840221
+   ],
+   "difference_from_measured": [
+    -19.951386832155656,
+    -37.14653343284617,
+    -42.1017757840221
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, Hamiltonian (xi = inf) | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    51.5435563444267,
+    4.9084097437361836,
+    -21.15683260743975
+   ],
+   "difference_from_measured": [
+    -7.476443655573306,
+    -24.671590256263816,
+    -29.626832607439752
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, CF-1 field step (xi = 2) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    63.29640810026268,
+    17.278067583314655,
+    -8.872639773669867
+   ],
+   "difference_from_measured": [
+    4.276408100262678,
+    -12.301932416685343,
+    -17.342639773669866
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, CF-1 field step (xi = 2) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    38.34652174709798,
+    -7.671818769850049,
+    -33.822526126834575
+   ],
+   "difference_from_measured": [
+    -20.673478252902022,
+    -37.25181876985005,
+    -42.292526126834574
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, CF-1 field step (xi = 2) | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    50.82146492368034,
+    4.8031244067323025,
+    -21.347582950252225
+   ],
+   "difference_from_measured": [
+    -8.198535076319665,
+    -24.776875593267697,
+    -29.817582950252223
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    63.31306794620975,
+    17.485892281437774,
+    -8.560145460760323
+   ],
+   "difference_from_measured": [
+    4.293067946209746,
+    -12.094107718562224,
+    -17.030145460760323
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    38.36318159304505,
+    -7.46399407172693,
+    -33.51003181392503
+   ],
+   "difference_from_measured": [
+    -20.656818406954955,
+    -37.04399407172693,
+    -41.98003181392503
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=5, isotropic Euclidean (xi = 1) | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    50.8381247696274,
+    5.010949104855421,
+    -21.03508863734268
+   ],
+   "difference_from_measured": [
+    -8.181875230372604,
+    -24.569050895144578,
+    -29.50508863734268
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    51.79771724412686,
+    4.334814839762696,
+    -19.543393911721026
+   ],
+   "difference_from_measured": [
+    -7.222282755873145,
+    -25.245185160237302,
+    -28.013393911721025
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    26.847830890962157,
+    -20.615071513402007,
+    -44.49328026488573
+   ],
+   "difference_from_measured": [
+    -32.172169109037846,
+    -50.195071513402006,
+    -52.96328026488573
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M1, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    39.32277406754451,
+    -8.140128336819657,
+    -32.01833708830338
+   ],
+   "difference_from_measured": [
+    -19.697225932455495,
+    -37.720128336819656,
+    -40.48833708830338
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    57.21757166955703,
+    11.331816815949246,
+    -19.543393911721026
+   ],
+   "difference_from_measured": [
+    -1.8024283304429716,
+    -18.248183184050752,
+    -28.013393911721025
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    32.26768531639233,
+    -13.618069537215458,
+    -44.49328026488573
+   ],
+   "difference_from_measured": [
+    -26.752314683607672,
+    -43.19806953721546,
+    -52.96328026488573
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M2, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    44.74262849297469,
+    -1.143126360633108,
+    -32.01833708830338
+   ],
+   "difference_from_measured": [
+    -14.277371507025315,
+    -30.723126360633106,
+    -40.48833708830338
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    59.59786032385913,
+    13.246882427601516,
+    -13.801603500583798
+   ],
+   "difference_from_measured": [
+    0.5778603238591273,
+    -16.333117572398482,
+    -22.2716035005838
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    34.64797397069443,
+    -11.703003925563188,
+    -38.75148985374851
+   ],
+   "difference_from_measured": [
+    -24.372026029305573,
+    -41.283003925563186,
+    -47.22148985374851
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M3, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    47.12291714727678,
+    0.7719392510191634,
+    -26.276546677166156
+   ],
+   "difference_from_measured": [
+    -11.897082852723223,
+    -28.808060748980836,
+    -34.74654667716616
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    61.400307432584846,
+    14.952827635952179,
+    -11.706873497110433
+   ],
+   "difference_from_measured": [
+    2.380307432584843,
+    -14.62717236404782,
+    -20.176873497110435
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    36.450421079420146,
+    -9.997058717212525,
+    -36.656759850275144
+   ],
+   "difference_from_measured": [
+    -22.569578920579858,
+    -39.57705871721252,
+    -45.12675985027514
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M4, F=5, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    48.925364256002496,
+    2.477884459369826,
+    -24.18181667369279
+   ],
+   "difference_from_measured": [
+    -10.094635743997507,
+    -27.102115540630173,
+    -32.65181667369279
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, Hamiltonian (xi = inf) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    63.76847039881364,
+    15.13309082055988,
+    -9.682005919639018
+   ],
+   "difference_from_measured": [
+    4.748470398813637,
+    -14.446909179440118,
+    -18.152005919639016
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, Hamiltonian (xi = inf) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    38.81858404564894,
+    -9.816795532604823,
+    -34.631892272803725
+   ],
+   "difference_from_measured": [
+    -20.201415954351063,
+    -39.39679553260482,
+    -43.101892272803724
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, Hamiltonian (xi = inf) | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    51.29352722223129,
+    2.658147643977528,
+    -22.156949096221375
+   ],
+   "difference_from_measured": [
+    -7.726472777768713,
+    -26.92185235602247,
+    -30.626949096221374
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, CF-1 field step (xi = 2) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    62.98073430345397,
+    14.437003412036251,
+    -10.135334960904714
+   ],
+   "difference_from_measured": [
+    3.960734303453968,
+    -15.142996587963747,
+    -18.605334960904713
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, CF-1 field step (xi = 2) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    38.03084795028927,
+    -10.512882941128453,
+    -35.08522131406943
+   ],
+   "difference_from_measured": [
+    -20.989152049710732,
+    -40.09288294112845,
+    -43.55522131406943
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, CF-1 field step (xi = 2) | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    50.50579112687163,
+    1.9620602354538983,
+    -22.61027813748707
+   ],
+   "difference_from_measured": [
+    -8.514208873128375,
+    -27.6179397645461,
+    -31.08027813748707
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1) | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    62.99890868085077,
+    14.658458893206966,
+    -9.816782522196235
+   ],
+   "difference_from_measured": [
+    3.9789086808507648,
+    -14.921541106793033,
+    -18.286782522196233
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1) | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    38.04902232768607,
+    -10.291427459957738,
+    -34.76666887536095
+   ],
+   "difference_from_measured": [
+    -20.970977672313936,
+    -39.87142745995774,
+    -43.23666887536095
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "full register, F=15, isotropic Euclidean (xi = 1) | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    50.52396550426842,
+    2.183515716624613,
+    -22.291725698778592
+   ],
+   "difference_from_measured": [
+    -8.496034495731585,
+    -27.396484283375386,
+    -30.76172569877859
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    56.87173164932249,
+    6.192218482758163,
+    -18.358877495341556
+   ],
+   "difference_from_measured": [
+    -2.1482683506775118,
+    -23.387781517241834,
+    -26.82887749534156
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    31.921845296157795,
+    -18.757667870406543,
+    -43.30876384850627
+   ],
+   "difference_from_measured": [
+    -27.09815470384221,
+    -48.33766787040654,
+    -51.778763848506266
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M1, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    44.39678847274014,
+    -6.28272469382419,
+    -30.833820671923913
+   ],
+   "difference_from_measured": [
+    -14.623211527259862,
+    -35.86272469382419,
+    -39.303820671923916
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    58.811864743741026,
+    8.791299814281878,
+    -18.358877495341556
+   ],
+   "difference_from_measured": [
+    -0.2081352562589771,
+    -20.78870018571812,
+    -26.82887749534156
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    33.861978390576326,
+    -16.158586538882826,
+    -43.30876384850627
+   ],
+   "difference_from_measured": [
+    -25.158021609423677,
+    -45.73858653888283,
+    -51.778763848506266
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M2, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    46.336921567158676,
+    -3.683643362300474,
+    -30.833820671923913
+   ],
+   "difference_from_measured": [
+    -12.683078432841327,
+    -33.26364336230047,
+    -39.303820671923916
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    59.961090081903386,
+    10.255806604710752,
+    -18.358877495341556
+   ],
+   "difference_from_measured": [
+    0.9410900819033827,
+    -19.324193395289246,
+    -26.82887749534156
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    35.011203728738685,
+    -14.694079748453952,
+    -43.30876384850627
+   ],
+   "difference_from_measured": [
+    -24.008796271261318,
+    -44.27407974845395,
+    -51.778763848506266
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M3, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    47.486146905321036,
+    -2.2191365718715996,
+    -30.833820671923913
+   ],
+   "difference_from_measured": [
+    -11.533853094678967,
+    -31.7991365718716,
+    -39.303820671923916
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row | VL (81/10, 5/6, -3)": {
+   "inv_alpha_123_at_91.1876": [
+    61.634777042559264,
+    12.665869070970475,
+    -12.44432865399693
+   ],
+   "difference_from_measured": [
+    2.614777042559261,
+    -16.914130929029525,
+    -20.914328653996932
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row | SM (41/10, -19/6, -7)": {
+   "inv_alpha_123_at_91.1876": [
+    36.684890689394564,
+    -12.28401728219423,
+    -37.39421500716164
+   ],
+   "difference_from_measured": [
+    -22.33510931060544,
+    -41.864017282194226,
+    -45.86421500716164
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  },
+  "menu M4, F=15, mean-field rule on the Hamiltonian row | B (61/10, -7/6, -5)": {
+   "inv_alpha_123_at_91.1876": [
+    49.159833865976914,
+    0.1909258943881218,
+    -24.919271830579287
+   ],
+   "difference_from_measured": [
+    -9.860166134023089,
+    -29.389074105611876,
+    -33.38927183057929
+   ],
+   "status": "no outputs: a coupling is not positive at m_Z"
+  }
+ },
+ "fermion_matching_constant_needed (F=5 Hamiltonian row)": {
+  "VL (81/10, 5/6, -3)": {
+   "b_f": 8.0,
+   "k_needed_for_SC_bound (source quantity)": 6.445676698070569,
+   "k_needed_for_measured_alpha_s (NOT BLIND)": 13.471062457791502
+  },
+  "SM (41/10, -19/6, -7)": {
+   "b_f": 4.0,
+   "k_needed_for_SC_bound (source quantity)": 51.08770772499025,
+   "k_needed_for_measured_alpha_s (NOT BLIND)": 66.13331475308425
+  },
+  "B (61/10, -7/6, -5)": {
+   "b_f": 6.0,
+   "k_needed_for_SC_bound (source quantity)": 21.326353707043797,
+   "k_needed_for_measured_alpha_s (NOT BLIND)": 31.02514655622242
+  }
+ }
+}

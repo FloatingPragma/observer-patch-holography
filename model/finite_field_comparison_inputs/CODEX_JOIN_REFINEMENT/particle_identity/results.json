@@ -1,0 +1,196 @@
+{
+  "RER_input_sha256": {
+    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
+    "Lean/Screen/SeamCurrentEdge30Moment.lean": "dca0b721180b8b6a2363105ec9cb35bb9c5f5dca2da4352a9caef3b00129cd01",
+    "model/coherent_defect_wave/chiral_particle_map/PROOF.md": "3cb1b28d50eda9fa5d1a6ac20b947d3c6bcf7ee745f9d77b54112a2e702a3593",
+    "model/interacting_block_propagation/results.json": "9f1807659bd53760a53ea9ebcadd864dcbf3b1624345cb7461744727233913bc",
+    "model/interacting_block_quadrature/results.json": "64f90635637575bdaa9a24f1840ea3abb6362d6de8bc28e97de7fb275e8218e3",
+    "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
+    "model/particle_transport/algebra.py": "3b3d4d77a4b8e7f9ac9bb6f700a52b1cb52e2c4f5f092752329223e9400ba4d9"
+  },
+  "actual_source_classification": [
+    {
+      "charge": "Gauss neutral; N=R=0",
+      "defensible_identity": "finite transverse oscillator quanta with exact same-H field residues",
+      "detector_support": "complete neutral electric/magnetic pump and exact energy records",
+      "dispersion": "eight finite cone normal-mode frequencies; no translation momentum band",
+      "id": "affine_gauss_neutral",
+      "physical_particle_identification": null,
+      "source_CAR_parity": "even",
+      "spatial_representation": "two copies each of proper icosahedral3,3_prime,4,5 in the neutral one-quantum sector"
+    },
+    {
+      "charge": "source+1, retained reference-1; joint Gauss neutral",
+      "defensible_identity": "exact unit-charge CAR excitation with compensated finite transport and transverse occupation",
+      "detector_support": "separate complete energy-window, arrival, and arrival/photon-occupation settings",
+      "dispersion": "actual-H finite charged energy windows and short-time neighbor arrival; no charged momentum band or pole",
+      "id": "affine_gauss_mobile_charge",
+      "physical_particle_identification": null,
+      "source_CAR_parity": "odd; compensated joint pump even",
+      "spatial_representation": "spinless site permutation; fixed-reference proper stabilizerC5; no spinor rotation lift supplied"
+    },
+    {
+      "charge": "all native Gauss generators zero",
+      "defensible_identity": "isolated neutral collective one-excitation band on a declared block lattice",
+      "detector_support": "complete native preparations and block position/momentum/projected-current records",
+      "dispersion": "E(k)=Delta-2J sum_i cos(k_i), exact one-excitation sector; z=2 low momentum",
+      "id": "native_block_exchange",
+      "physical_particle_identification": null,
+      "source_CAR_parity": "even",
+      "spatial_representation": "native cubic triplet with distinct constituent X momenta; block momentum is separate"
+    },
+    {
+      "charge": "all native Gauss generators zero",
+      "defensible_identity": "controlled three-component free scalar Klein-Gordon covariance on bounded momentum/time readouts",
+      "detector_support": "complete retained-reference finite Weyl records, controlled admitted/actual-ground and capacity errors",
+      "dispersion": "omega(ap)^2 -> Delta^2+(Delta^2/6)|p|^2 with declared length/time scaling",
+      "id": "native_block_quadrature",
+      "physical_particle_identification": null,
+      "source_CAR_parity": "even",
+      "spatial_representation": "three internal scalar components in the proved continuum comparison; finite native rotation/reference data retained"
+    }
+  ],
+  "cone_representation": {
+    "charged_reference_fixed_full_icosahedral_symmetry": false,
+    "finite_spatial_irreps_are_not_Lorentz_spin": true,
+    "fixed_reference_rotation_stabilizer_order": 5,
+    "neutral_transverse_modes": [
+      {
+        "class_characters": {
+          "identity": "3",
+          "order2": "-1",
+          "order3": "0",
+          "order5_144": "1/2 - sqrt(5)/2",
+          "order5_72": "1/2 + sqrt(5)/2"
+        },
+        "dimension": 3,
+        "proper_icosahedral_irrep": "3",
+        "squared_frequency": "4 - sqrt(5)"
+      },
+      {
+        "class_characters": {
+          "identity": "5",
+          "order2": "1",
+          "order3": "-1",
+          "order5_144": "0",
+          "order5_72": "0"
+        },
+        "dimension": 5,
+        "proper_icosahedral_irrep": "5",
+        "squared_frequency": "3"
+      },
+      {
+        "class_characters": {
+          "identity": "3",
+          "order2": "-1",
+          "order3": "0",
+          "order5_144": "1/2 - sqrt(5)/2",
+          "order5_72": "1/2 + sqrt(5)/2"
+        },
+        "dimension": 3,
+        "proper_icosahedral_irrep": "3",
+        "squared_frequency": "6 - sqrt(5)"
+      },
+      {
+        "class_characters": {
+          "identity": "4",
+          "order2": "0",
+          "order3": "1",
+          "order5_144": "-1",
+          "order5_72": "-1"
+        },
+        "dimension": 4,
+        "proper_icosahedral_irrep": "4",
+        "squared_frequency": "4"
+      },
+      {
+        "class_characters": {
+          "identity": "4",
+          "order2": "0",
+          "order3": "1",
+          "order5_144": "-1",
+          "order5_72": "-1"
+        },
+        "dimension": 4,
+        "proper_icosahedral_irrep": "4",
+        "squared_frequency": "6"
+      },
+      {
+        "class_characters": {
+          "identity": "3",
+          "order2": "-1",
+          "order3": "0",
+          "order5_144": "1/2 + sqrt(5)/2",
+          "order5_72": "1/2 - sqrt(5)/2"
+        },
+        "dimension": 3,
+        "proper_icosahedral_irrep": "3_prime",
+        "squared_frequency": "sqrt(5) + 4"
+      },
+      {
+        "class_characters": {
+          "identity": "5",
+          "order2": "1",
+          "order3": "-1",
+          "order5_144": "0",
+          "order5_72": "0"
+        },
+        "dimension": 5,
+        "proper_icosahedral_irrep": "5",
+        "squared_frequency": "7"
+      },
+      {
+        "class_characters": {
+          "identity": "3",
+          "order2": "-1",
+          "order3": "0",
+          "order5_144": "1/2 + sqrt(5)/2",
+          "order5_72": "1/2 - sqrt(5)/2"
+        },
+        "dimension": 3,
+        "proper_icosahedral_irrep": "3_prime",
+        "squared_frequency": "sqrt(5) + 6"
+      }
+    ],
+    "proper_rotation_group_order": 60,
+    "total_transverse_representation": "2*(3+3_prime+4+5)"
+  },
+  "independent_geometry_audit_sha256": "06d896c8a3de1b575ecf83d1c42f4f600f8731b138c93844b5626be4c3ccf4c5",
+  "mass_label_nonselection_control": {
+    "actual_charged_energy_mean_shift": "mu",
+    "actual_charged_spectral_window_shift": "mu",
+    "actual_neutral_ground_and_all_neutral_field_records_unchanged": true,
+    "actual_source_deformation": "H_eta(mu)=H_eta+mu N, mu>=0",
+    "fixed_N1_arrival_and_joint_photon_probabilities_unchanged": true,
+    "gauge_CAR_parity_reference_geometry_unchanged": true,
+    "literal_complete_CAR_matrix_control_dimension": 8,
+    "one_source_spectrum_claim": "the undeformed construction remains mu=0; this control proves nonselection by the other labels, not ambiguity in a fixed H"
+  },
+  "own_source_sha256": {
+    "PROOF.md": "00d5bb42ab747391f396189d3424862df541c280786f1dd613c0ad736e9186fb",
+    "README.md": "5e6cc7ae3cdd44dbb7fa940b48ec45b1dcdaaec7cd6a6ee5b4c889c97b30b08e",
+    "model.py": "524123bcb49f400aaae906df31707a31c61c9e76d6c05b91ad7a11c2f04f64e7",
+    "test_identity.py": "12878a43e7fe9fdb29b5fd90f3f019f8cf984a967833897d9876c8d85cd81590"
+  },
+  "spin_ambiguity_controls": {
+    "icosahedral_geometric_3_occurs_in_integer_spins": [
+      1,
+      5
+    ],
+    "meaning": "same admitted finite representation can occur inside different continuous-rotation representations; no extension is thereby selected",
+    "native_binary_cube_spinor_G1_occurs_in_half_integer_spins": [
+      "1/2",
+      "7/2"
+    ],
+    "native_cube_vector_T1_occurs_in_integer_spins": [
+      1,
+      3
+    ],
+    "same_central_sign_does_not_fix_spin": true
+  },
+  "worker_source_receipt_sha256": {
+    "CODEX_JOIN_QUANTUM/coulomb_mobile/results.json": "79de12b140bf5e4ce8335ad1eef97bc851882ebd11d96f6a2152dc6d79bcdd17",
+    "CODEX_JOIN_QUANTUM/coulomb_source/results.json": "b79e2794b638772feb731e440d232c3369b1a381efbd52f8fd9972f389d6552e"
+  }
+}

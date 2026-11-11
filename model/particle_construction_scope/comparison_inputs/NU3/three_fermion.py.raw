@@ -1,0 +1,70 @@
+"""T1 and T2: the no-scalar product of one Yukawa step on HL (L L e^c or L Q d^c) and its transfer.
+
+Usage (from the RER root): three_fermion.py channel out.json, channel in {e, d}.
+"""
+import json
+import sys
+import time
+from collections import Counter
+
+import sympy as s
+
+from nu3_lib import (config_for, vapply, tagged, energy_class, substitute,
+                     inner, supported_bilinear, preparation, norm2,
+                     gauss_check)
+
+channel = sys.argv[1]
+out_path = sys.argv[2]
+couplings = {'e': (0, 0, 1), 'd': (0, 1, 0)}[channel]
+config = config_for(*couplings)
+start = time.time()
+
+
+def three(cell, spin):
+    composite = preparation(cell=cell, spin=spin, config=config)
+    image = vapply(composite, config)
+    part = {k: v for k, v in image.items() if energy_class(k) == (0, 0)}
+    weight = norm2(part)
+    normed = {k: s.expand(v / s.sqrt(weight)) for k, v in part.items()}
+    return normed, weight, composite
+
+
+s3, w_s, s_comp = three(0, 0)
+assert gauss_check(s3, config) == 96
+local_modes = Counter(bin(k[0]).count('1') for k in s3)
+log = {'channel': channel, 'couplings': couplings,
+       'first_order_mixing_norm_squared_<s3|V|s>^2': str(w_s),
+       'three_fermion_state_terms': len(s3),
+       'fermion_number_census': dict(local_modes),
+       'gauss_checks_passed': 96}
+print('mixing |<s3|V|s>|^2 =', w_s, 'terms', len(s3), flush=True)
+
+p_keys = set()  # E0 = 0 class: no tag is ever (0,0) on a three-hop path; record any occurrence
+rows = {}
+first_s = vapply(s3, config)
+for sig in (0, 1):
+    t3, w_t, _ = three(4, sig)
+    first_t = vapply(t3, config)
+    m0, m1, m2 = inner(t3, s3), inner(t3, first_s), inner(first_t, first_s)
+    total, support = supported_bilinear(first_t, first_s, config)
+    m3 = s.expand(total - s.sympify(support[0]['contribution']))
+    # Resolvent version: tag first images by class, E0 = (0,0).
+    tagged_s = tagged(first_s, set())
+    tagged_t = tagged(first_t, set())
+    total_t, support_t = supported_bilinear(tagged_t, tagged_s, config)
+    middle = s.expand(total_t - s.sympify(support_t[0]['contribution']))
+    rs3 = s.factor(substitute(middle, (0, 0)))
+    edges = [{'path': r['path'], 'contribution': r['contribution']}
+             for r in support if r.get('kind') == 'kinetic' and r['contribution'] != '0']
+    rows[sig] = {'bare_V_moments_k0_to_k3': [str(x) for x in (m0, m1, m2, m3)],
+                 'tagged_third_moment': str(middle), 'RS_third_order_amplitude': str(rs3),
+                 'first_image_classes': dict(Counter(str(energy_class(k)) for k in first_s)),
+                 'nonzero_middle_kinetic_summands': edges}
+    print('target spin', sig, 'moments', m0, m1, m2, m3, 'RS3', rs3,
+          'time', round(time.time() - start, 1), flush=True)
+
+log['targets'] = rows
+log['seconds'] = round(time.time() - start, 1)
+with open(out_path, 'w') as handle:
+    json.dump(log, handle, indent=1)
+print('wrote', out_path)

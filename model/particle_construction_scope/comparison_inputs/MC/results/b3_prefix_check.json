@@ -1,0 +1,46 @@
+{
+ "A s=1.0 iid": {
+  "tree_pairs": 81910,
+  "strict_loewner": 81131,
+  "equal_effects": 779,
+  "violations": 0
+ },
+ "A s=0.5 iid": {
+  "tree_pairs": 81896,
+  "strict_loewner": 81788,
+  "equal_effects": 108,
+  "violations": 0
+ },
+ "A s=0.05 iid": {
+  "tree_pairs": 81858,
+  "strict_loewner": 81843,
+  "equal_effects": 15,
+  "violations": 0
+ },
+ "A s=1.0 jump": {
+  "tree_pairs": 81865,
+  "strict_loewner": 81865,
+  "equal_effects": 0,
+  "violations": 0
+ },
+ "A s=0.2 jump": {
+  "tree_pairs": 81804,
+  "strict_loewner": 81804,
+  "equal_effects": 0,
+  "violations": 0
+ },
+ "B start=stationary": {
+  "tree_pairs": 40973,
+  "strict_loewner": 39339,
+  "equal_effects": 1634,
+  "violations": 0,
+  "worst_relative_eigenvalue": 0.0
+ },
+ "B start=uniform": {
+  "tree_pairs": 40976,
+  "strict_loewner": 39056,
+  "equal_effects": 1920,
+  "violations": 0,
+  "worst_relative_eigenvalue": 0.0
+ }
+}

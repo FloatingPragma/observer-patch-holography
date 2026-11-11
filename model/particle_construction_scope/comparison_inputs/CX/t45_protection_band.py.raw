@@ -1,0 +1,226 @@
+"""Tasks 4 and 5: protection and the band test, on the actual carrier.
+
+Exact (Q(zeta_20)): the face checks and their common kernel (the doublet); rhombus checks and the triplet; the
+leak of the leading band under one CAP event; the code-invariance defects of the CAP rows; the population defect
+of a doublet state under the native kernel (the counterexample of the tradeoff lemma); the population shadow of the
+face reset. Evaluated from exact matrices at 40 digits: the contraction of a face-check sweep off the band.
+"""
+import json, sys, time, pickle, pathlib
+from fractions import Fraction as F
+import mpmath
+import numpy as np
+from cyc import (Cyc, ZERO, ONE, Z, SQRT5, R18, q5, mat, eye, mmul, madd, mscale, dagger, mtrace, meq, mzero,
+                 rank_nullspace, to_numpy)
+import carrier_exact as ce
+import oneload as ol
+
+n = 12
+out = {}
+t0 = time.time()
+mpmath.mp.dps = 40
+
+
+def band(k):
+    A = ce.twisted_adjacency(k)
+    spec = ol.spectrum(A)
+    P = ol.projectors(A, spec)
+    return A, spec, P
+
+
+def norm2(M):
+    """Operator 2-norm of an exact matrix, at 40 digits."""
+    Mm = mpmath.matrix([[x.mp(40) for x in row] for row in M])
+    return max(mpmath.svd_c(Mm, compute_uv=False))
+
+
+def check_projectors(Wcols, clusters):
+    """Exact check projectors: for each cluster the projector onto the orthogonal complement (inside the cluster) of
+    the restriction of span(Wcols). Returns list of (cluster, 12x12 projector, vector)."""
+    res = []
+    for S in clusters:
+        # v in C^S with v^dagger W_S = 0  <=>  (W_S)^dagger v = 0
+        Wd = [[Wcols[c][p].conj() for p in S] for c in range(len(Wcols))]
+        rk, null = rank_nullspace(Wd)
+        for v in null:
+            nv = sum((x * x.conj() for x in v), ZERO)
+            Pi = mat(n, n)
+            for i, p in enumerate(S):
+                for j, q in enumerate(S):
+                    Pi[p][q] = v[i] * v[j].conj() / nv
+            full = [ZERO] * n
+            for i, p in enumerate(S):
+                full[p] = v[i]
+            res.append((S, Pi, full))
+    return res
+
+
+def analyse(k, label, Wcols, clusters, cluster_name):
+    A, spec, P = band(k)
+    lead = max(range(len(spec)), key=lambda j: spec[j][0].mp(40).real)
+    Pb = P[lead]; d = spec[lead][1]; ell = Cyc.of(5) - spec[lead][0]
+    Wmat = [[Wcols[c][p] for c in range(len(Wcols))] for p in range(n)]
+    assert meq(mmul(Pb, Wmat), Wmat) and rank_nullspace(Wmat)[0] == d, 'section space is the leading band'
+    checks = check_projectors(Wcols, clusters)
+    assert all(mzero(mmul(Pi, Pb)) for _, Pi, _ in checks), 'checks vanish on the band'
+    rk, _ = rank_nullspace([v for _, _, v in checks])
+    assert rk == n - d, 'common kernel of the checks is exactly the band'
+    # CAP rows against the band
+    rows = ol.kraus_dense(k)
+    img = ol.channel(rows, Pb)
+    retention = mtrace(mmul(Pb, img)) / d
+    assert retention == ONE - ell * (12 - d) / 360
+    q = ell * d / 60
+    for (a, b) in ce.SEAMS:
+        z = ce.link(a, b, k)
+        # <-_e|P|-_e> and <+_e|P|+_e>
+        qm = (Pb[a][a] + Pb[b][b] - z * Pb[a][b] - z.conj() * Pb[b][a]) / 2
+        qp = (Pb[a][a] + Pb[b][b] + z * Pb[a][b] + z.conj() * Pb[b][a]) / 2
+        assert qm == q and qp == (Cyc.of(10) - ell) * d / 60
+    qplus = (Cyc.of(10) - ell) * d / 60
+    keep_defect2 = q * (ONE - q); corr_defect2 = q * (ONE - qplus)
+    # sweep of all checks in the listed order: F = C_last ... C_1, exact; contraction off the band
+    Fm = eye(n)
+    for _, Pi, _ in checks:
+        Fm = mmul(madd(eye(n), Pi, -1), Fm)
+    Pperp = madd(eye(n), Pb, -1)
+    assert meq(mmul(Fm, Pb), Pb) and meq(mmul(Pb, Fm), Pb)
+    kappas = []
+    Fk = eye(n)
+    for m in range(1, 9):
+        Fk = mmul(Fm, Fk)
+        kappas.append(norm2(madd(Fk, Pb, -1)))
+    # parent operator gap
+    H = mat(n, n)
+    for _, Pi, _ in checks:
+        H = madd(H, Pi)
+    Hm = mpmath.matrix([[x.mp(40) for x in row] for row in H])
+    evH = sorted([e.real for e in mpmath.eigh(Hm)[0]])
+    res = {
+        'flux': k, 'band': label, 'band_dimension': d, 'band_adjacency_eigenvalue': ol.show(spec[lead][0]),
+        'l = 5 - a': ol.show(ell), 'l_float': float(ell.mp(30).real),
+        'check_family': cluster_name, 'number_of_checks': len(checks),
+        'checks_annihilate_band_exactly': True, 'rank_of_checks': rk, 'common_kernel_equals_band': True,
+        'parent_operator_gap_float': float(evH[d]),
+        'CAP_event_band_retention_exact': '1 - l (12 - d)/360', 'CAP_event_band_retention_float': float(retention.mp(30).real),
+        'CAP_event_band_leak_float': float((ell * (12 - d) / 360).mp(30).real),
+        'q = <-_e|P|-_e> = d l/60': float(q.mp(30).real),
+        'code_invariance_defect_keep_row_|(1-P)K P|': float(mpmath.sqrt(keep_defect2.mp(40).real)),
+        'code_invariance_defect_corrected_row': float(mpmath.sqrt(corr_defect2.mp(40).real)),
+        'code_invariance_defect_keep_row_squared_exact': ol.show(keep_defect2),
+        'band_test_lower_bound_for_any_protocol_starting_with_a_CAP_event_|E - P| >=': float(mpmath.sqrt(keep_defect2.mp(40).real)),
+        'sweep_contraction_|F^m - P|_m=1..8': [mpmath.nstr(x, 12) for x in kappas],
+        'records_per_sweep': len(checks),
+    }
+    print(f'flux {k}, band {label} (dimension {d}): {len(checks)} {cluster_name} checks, rank {rk}, kernel = band (exact); parent gap {float(evH[d]):.6f}')
+    print(f'   one CAP event keeps the band with probability 1 - l(12 - d)/360 = {float(retention.mp(30).real):.9f} (exact identity); row defects {res["code_invariance_defect_keep_row_|(1-P)K P|"]:.6f} (keep), {res["code_invariance_defect_corrected_row"]:.6f} (corrected)')
+    print('   check sweep, |F^m - P| for m = 1..8:', ', '.join(mpmath.nstr(x, 6) for x in kappas))
+    return res, Pb, checks
+
+
+# ---- doublet at flux 1 with face checks
+W2 = [[ce.SPINOR[p][c].conj() for p in range(n)] for c in range(2)]
+faces = [list(f) for f in ce.FACES]
+res2, P2, checks2 = analyse(1, 'spinor doublet', W2, faces, 'face')
+out['doublet_flux_1'] = res2
+
+# ---- triplet at flux 2 with rhombus checks
+W3 = [[(ce.SPINOR[p][0] * ce.SPINOR[p][0]).conj() for p in range(n)],
+      [(ce.SPINOR[p][0] * ce.SPINOR[p][1]).conj() for p in range(n)],
+      [(ce.SPINOR[p][1] * ce.SPINOR[p][1]).conj() for p in range(n)]]
+rhombi = []
+for a, b in ce.SEAMS:
+    wings = [c for c in range(n) if c in ce.NBR[a] and c in ce.NBR[b]]
+    assert len(wings) == 2
+    rhombi.append([a, b] + wings)
+res3, P3, checks3 = analyse(2, 'triplet', W3, rhombi, 'rhombus')
+out['triplet_flux_2'] = res3
+# face checks see nothing of the triplet: the restriction to three ports has full rank
+assert all(len(check_projectors(W3, [f])) == 0 for f in faces)
+out['triplet_flux_2']['face_checks'] = 'none (the triplet restricted to a face has rank 3)'
+
+# ---- tradeoff lemma: the exact counterexample on the carrier
+# doublet state with spinor chi_0: psi_p = <chi_p|chi_0>; populations (1 + u_0.u_p)/12
+amp = [ce.braket(ce.SPINOR[p], ce.SPINOR[0]) for p in range(n)]
+nrm = sum((x * x.conj() for x in amp), ZERO)
+pop = [x * x.conj() / nrm for x in amp]
+assert all(pop[p] == (ONE + ce.dot(0, p)) / 12 for p in range(n))
+lap = ce._src.laplacian()
+Tpop = [sum((Cyc.of(F(int(i == j)) - F(int(lap[i, j]), 60)) * pop[j] for j in range(n)), ZERO) for i in range(n)]
+defect = [Tpop[i] - pop[i] for i in range(n)]
+assert defect[0] == -q5(F(5, 720), F(-1, 720))
+out['tradeoff_counterexample'] = {
+    'state': 'doublet vector with spinor chi_0: psi_p = <chi_p|chi_0>/sqrt6',
+    'populations': sorted({ol.show(x) for x in pop}),
+    'native_kernel_changes_population_of_port_0_by': ol.show(defect[0]), 'float': float(defect[0].mp(30).real),
+    'meaning': 'a channel that fixes every doublet state leaves these populations unchanged; the native kernel moves them: '
+               'population lumping fails by exactly (5 - sqrt5)/720 at port 0 on this input',
+}
+print(f'tradeoff counterexample: doublet state chi_0 has populations {sorted({ol.show(x) for x in pop})}; native kernel changes port 0 by {ol.show(defect[0])} = {float(defect[0].mp(30).real):.6f}')
+
+# ---- face reset of lead L17: exact population shadow of one event on a load at a port of the face
+S, Pi, v = checks2[0]
+a = S[0]
+NS = mat(n, n)
+for p in S:
+    NS[p][p] = ONE
+Ef = madd(NS, Pi, -1)
+K0 = madd(eye(n), Pi, -1)
+rho0 = mat(n, n); rho0[a][a] = ONE
+after = madd(mmul(mmul(K0, rho0), K0), mscale(Ef, Pi[a][a] / 2))
+shadow = [after[p][p] for p in S]
+out['face_reset_L17'] = {'face': S, 'population_shadow_from_first_port': [ol.show(x) for x in shadow],
+                         'fixed_space': 'every doublet state (K0 P = P, reset rows vanish on P)',
+                         'population_lumping_onto_an_ergodic_chain': 'impossible by the tradeoff lemma'}
+print('face reset (L17): populations on the face after one event from its first port:', [ol.show(x) for x in shadow])
+
+# ---- Zeno resources with the face-check band test (doublet, p = 1/6): analytic bounds evaluated
+kap = [mpmath.mpf(x) for x in res2['sweep_contraction_|F^m - P|_m=1..8']]
+kappa1 = kap[0]
+rate = (kap[7] / kap[3]) ** (mpmath.mpf(1) / 4)
+p = mpmath.mpf(1) / 6; v = p * (1 - p)
+rows_z = []
+for t in (0.2, 1.0, 3.0):
+    for target in (1e-2, 1e-3, 1e-4):
+        r = int(mpmath.ceil(v * t * t / target))                 # p(1-p) t^2/(2r) <= target/2
+        # choose m with |F^m - P| * t * sqrt(v) <= target/2
+        m = 1
+        while (kap[m - 1] if m <= 8 else kap[7] * rate ** (m - 8)) * t * mpmath.sqrt(v) > target / 2:
+            m += 1
+        rows_z.append({'pulse_angle': t, 'operator_error_target': target, 'pulses_r': r, 'sweeps_per_test_m': m,
+                       'face_records': 20 * m * r, 'failure_probability_bound': float(v * t * t / r + 2 * (kap[m - 1] if m <= 8 else kap[7] * rate ** (m - 8)) * t * mpmath.sqrt(v))})
+out['zeno_with_face_check_band_test'] = {
+    'bound': '|K - exp(i t P N_p P)| <= p(1-p) t^2/(2r) + |F^m - P| t sqrt(p(1-p)); failure probability <= p(1-p) t^2/r + 2 |F^m - P| t sqrt(p(1-p))',
+    'p(1-p)': '5/36', 'asymptotic_sweep_contraction_per_sweep': float(rate), 'rows': rows_z,
+    'records': '20 m r face-check outcomes plus r pulse times',
+}
+print('Zeno with face-check test (doublet): asymptotic contraction per sweep', mpmath.nstr(rate, 8))
+for row in rows_z:
+    print('   ', row)
+
+# ---- two loads: leak of the leading triplet of the reference under one CAP event (MEASURED, float from the exact rho)
+try:
+    import twoload as tw
+    pk = pathlib.Path(sys.argv[1]).with_name('t2_twoload.pkl')
+    rho = np.array([[complex(x) for x in row] for row in pickle.load(open(pk, 'rb'))['rho']])
+    sh = tw.shell(2); pos = {i: m for m, i in enumerate(sh)}; dd = len(sh)
+    ev, evec = np.linalg.eigh(rho)
+    V = evec[:, -3:]; Pt = V @ V.conj().T
+    img = np.zeros((dd, dd), complex)
+    for seam in ce.SEAMS:
+        for lab, K in ce.instrument(seam, 2, 1):
+            Kd = np.zeros((dd, dd), complex)
+            for (i, j), val in K.items():
+                if j in pos:
+                    Kd[pos[i], pos[j]] = complex(val)
+            img += Kd @ Pt @ Kd.conj().T
+    img /= 30
+    ret = np.trace(Pt @ img).real / 3
+    out['two_load_leading_triplet'] = {'status': 'MEASURED (float64 from the exact stationary density)',
+                                       'CAP_event_retention': float(ret), 'leak_per_event': float(1 - ret),
+                                       'level_gap_to_next': float(ev[-3] - ev[-4])}
+    print(f'two loads: leading triplet of the reference kept by one CAP event with probability {ret:.9f} (float)')
+except Exception as exc:
+    print('two-load leak skipped:', exc)
+
+out['seconds'] = time.time() - t0
+json.dump(out, open(sys.argv[1], 'w'), indent=1)

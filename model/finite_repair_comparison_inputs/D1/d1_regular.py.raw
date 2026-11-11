@@ -1,0 +1,84 @@
+"""D1: assemble regular.json from item1.json ... item6.json (no new computation).
+Run: /tmp/oph-completion-venv/bin/python RL/work/D1/d1_regular.py  (from RL/work/D1 or with paths relative to it)
+"""
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ld = lambda n: json.load(open(os.path.join(HERE, n)))
+i1, i1b, i2, i3, i4, i5, i6 = (ld(n) for n in ('item1.json', 'item1b.json', 'item2.json', 'item3.json', 'item4.json',
+                                                'item5.json', 'item6.json'))
+
+out = {
+    'task': 'D1: the ports as the elements of the frame group, and the second index (briefs/TASK_D1.md)',
+    'labels': 'EXACT unless marked; item 6 NOT BLIND',
+    'item1_certificate': {
+        'status': 'EXACT, integers and Q(sqrt5); all five frames x twelve base ports',
+        'checks': len(i1['checks']) + len(i1b['checks']),
+        'statement': i1['statement'],
+        'canonical': i1b['canonical'],
+        'base_port_dependent': i1b['base_port_dependent'],
+        'M3_in_frame_coordinates_six_values': i1['M3_in_frame_coordinates_six_values'],
+    },
+    'item2_cover': {
+        'status': 'EXACT, Q(zeta_60); 26 checks after the canonical lift of the half-turn',
+        'decompositions': i2['decompositions'],
+        'answer': i2['answer'],
+        'second_index_levels_by_flux': {k: {ir: v['float'] for ir, v in d.items()} for k, d in i2['second_index'].items()},
+    },
+    'item3_tick': {
+        'status': 'EXACT (integers, Q(sqrt5)); composition with the CF-1 routing ARGUED',
+        'checks': len(i3['checks']),
+        'walk': i3['walk'],
+        'per_tick_on_second_index': i3['per_tick_on_second_index'],
+        'conserved': i3['conserved_by_the_internal_walk_and_the_M3_control'],
+        'passage_between_carriers': i3['passage_between_carriers'],
+    },
+    'item4_mixing': {
+        'status': 'EXACT unless marked',
+        'checks': len(i4['checks']),
+        'conventions': i4['conventions'],
+        'M1_anchors_port_diagonal': i4['M1'],
+        'M2_right_translations_classes': i4['M2']['classes_by_abs_V_squared'],
+        'M2_angles': {k: {'theta12_23_13_deg': [v['theta12_deg'], v['theta23_deg'], v['theta13_deg']], 'J': v['J']}
+                      for k, v in i4['M2']['per_element'].items()},
+        'M3a_consensus_on_triplet': i4['M3a'],
+        'M3b_consensus_on_singlets': {k: i4['M3b'][k] for k in ('abs_V_squared', 'J', 'statement')},
+        'M4a_frame_axis_on_triplet': {k: i4['M4a'][k] for k in ('abs_V_squared_exact', 'theta12_deg', 'theta23_deg', 'theta13_deg', 'J', 'statement')},
+        'M4b_frame_axis_on_singlets': {k: i4['M4b'][k] for k in ('abs_V_squared', 'theta12_deg', 'theta23_deg', 'theta13_deg', 'J', 'J_squared_exact', 'statement')},
+        'M6_third_of_a_turn_eigenbasis': {k: i4['M6_C+'][k] for k in ('abs_V_squared_exact', 'theta12_deg', 'theta23_deg', 'theta13_deg', 'J', 'J_squared_exact', 'statement')},
+        'M5_flux_sectors': {'gauge': i4['M5']['gauge'], 'antiunitary_symmetry': i4['M5']['antiunitary_symmetry'],
+                            'tri_bimaximal': i4['M5']['tri_bimaximal'], 'L13_reading': i4['M5']['L13_reading (DECLARED)'],
+                            'pairs': {k: {'abs_V_squared_exact': v['abs_V_squared_exact'],
+                                          'theta12_23_13_deg': [v['theta12_deg'], v['theta23_deg'], v['theta13_deg']], 'J': v['J']}
+                                      for k, v in i4['M5']['pairs'].items()}},
+        'M5_odd_doublets_MEASURED': i4['M5_odd_doublets (MEASURED, float64 of exact matrices)'],
+    },
+    'item5_hierarchy': {
+        'status': 'EXACT closed forms, logarithms at 40 digits',
+        'flux0': {k: {'values': v['values'], 'spread': v.get('largest_over_smallest'),
+                      'r': v.get('r = log(m3/m2)/log(m2/m1), ascending')}
+                  for k, v in i5['rows']['triplet second index, flux 0']['functions'].items()},
+        'flux2': {k: {'values': v['values'], 'spread': v.get('largest_over_smallest'),
+                      'r': v.get('r = log(m3/m2)/log(m2/m1), ascending')}
+                  for k, v in i5['rows']['triplet second index, flux 2']['functions'].items()},
+        'powers_shape': i5['powers_shape'],
+        'decision': 'only K^n at many events and the projector on the slowest level are far from the identity; the powers fix '
+                    'r at 2.513375 (K^n) or 0.397871 (K^-n) for every n; the projector leaves two copies degenerate at zero',
+    },
+    'item6_comparison_NOT_BLIND': {
+        'measured': {k: i6['measured'][k] for k in ('r leptons', 'r up quarks (u at 2 GeV, c at m_c, t pole; as shipped)',
+                                                    'r down quarks (d, s at 2 GeV, b at m_b; as shipped)', 'CKM angles deg', 'CKM J',
+                                                    'PMNS deg (value, +, -)', 'PMNS J (central values)')},
+        'mixing': {k: {'angles_deg_fixed_order': v.get('angles_deg_fixed_order'), 'PMNS_pulls_fixed_order': v.get('PMNS_pulls_fixed_order'),
+                       'best_of_36': v['best_of_36_orders (selection over 36, NOT BLIND)']}
+                   for k, v in i6['mixing_candidates'].items()},
+        'J': i6['J_verdicts'],
+        'mass_shapes': i6['mass_shape_verdicts'],
+        'powers_fitted_to_the_lepton_spread': i6['powers_fitted_to_the_lepton_spread'],
+        'verdict': 'the second index is a canonical label; no native function of the kernel or of the flux sectors on it gives a '
+                   'measured mass ratio, mass shape, mixing angle set or rephasing invariant',
+    },
+}
+json.dump(out, open(os.path.join(HERE, 'regular.json'), 'w'), indent=1, default=float)
+print('regular.json written:', os.path.getsize(os.path.join(HERE, 'regular.json')), 'bytes')

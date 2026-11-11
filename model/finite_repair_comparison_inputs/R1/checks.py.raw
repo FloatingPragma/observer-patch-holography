@@ -1,0 +1,298 @@
+"""Executed (float64) checks of the CF-1 reference implementation cf1.py. Every number is a printed defect (MEASURED).
+
+    python checks.py <section> [<section> ...]     sections: wrap joint joint2 fock fock2 cone cone2 variants speed doublers sector
+
+Results accumulate in checks.json (one key per section). Exact certificates: cf1_exact.py -> exact.json.
+Declared sample values: theta = 0.157935 (M1, doublet in a uniform flux), eps = 0.3, kappa = 0.2.
+"""
+import json, os, sys, time
+import numpy as np
+from cf1 import (Species, OneBody, Gaussian, Joint, Sector, Lattice, Fock, Routing, routing, fock_tick, symbol,
+                 period_phase, dense, mass_step, class_theta)
+
+HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'checks.json')
+TH, EPS, KAP = 0.157935, 0.3, 0.2
+
+
+def save(key, val):
+    d = json.load(open(OUT)) if os.path.exists(OUT) else {}
+    d[key] = val; json.dump(d, open(OUT, 'w'), indent=1)
+
+
+def rnd(shape, seed):
+    rng = np.random.default_rng(seed); x = rng.normal(size=shape) + 1j * rng.normal(size=shape)
+    return x / np.linalg.norm(x)
+
+
+# ------------------------------------------------------------------ wrap: one quantum, the engine and its symbol
+def sec_wrap():
+    res = {}; rng = np.random.default_rng(7)
+    shape = (6, 4, 4); ob = OneBody(shape, Species(theta=TH)); psi = rnd(shape + (2, 2), 1)
+    res['wrapper_equals_routing_tick'] = float(max(np.abs(ob.tick(psi, t) - ob.w.tick(psi, TH, 'Y', reverse=bool(t))).max() for t in (0, 1)))
+    res['one_body_inverse_tick'] = float(max(np.abs(ob.untick(ob.tick(psi, t), t) - psi).max() for t in (0, 1)))
+    th = np.full(shape, TH)
+    res['site_dependent_mass_equals_uniform'] = float(np.abs(mass_step(psi, th) - ob.w.mass(psi, TH)).max())
+    worst = 0.0
+    for n in ((1, 0, 0), (1, 1, 0), (2, 1, 3)):
+        for col in range(4):
+            e = np.zeros(4, complex); e[col] = 1
+            for t in (0, 1):
+                got = ob.tick(ob.w.plane_wave(n, e), t)
+                worst = max(worst, np.abs(got - ob.w.plane_wave(n, symbol(ob.w.momentum(n), TH, 'Y', t) @ e)).max())
+    res['tick_against_symbol_both_orders'] = float(worst)
+    # closed form of the two-tick product: U2 + U2^dagger = 2 cos(E2), random wave numbers, both mass kinds
+    worst = 0.0
+    for _ in range(300):
+        p = rng.uniform(-np.pi, np.pi, 3); th_ = rng.uniform(0, 1.5); kind = 'Y' if rng.random() < .5 else 'Z'
+        U2 = symbol(p, th_, kind, 1) @ symbol(p, th_, kind, 0)
+        worst = max(worst, np.abs(U2 + U2.conj().T - 2 * np.cos(period_phase(p, th_)) * np.eye(4)).max())
+    res['two_tick_closed_form_300_random_points'] = float(worst)
+    res['phase_per_tick_alternating'] = {
+        'massless_p_0.1_0.1_0.1': period_phase((.1, .1, .1)) / 2, 'theta_0.157935_p_0.1_0.1_0.1': period_phase((.1, .1, .1), TH) / 2,
+        'theta_0.157935_p_0.1_0_0': period_phase((.1, 0, 0), TH) / 2, 'sqrt_p2_theta2_(0.1,0.1,0.1)': float(np.hypot(np.sqrt(.03), TH))}
+    # record statistics after one tick from a blank record (CF-1 section 4, item 4)
+    w1 = OneBody((64, 2, 2), Species(theta=TH)); w0 = OneBody((64, 2, 2), Species(theta=0.0))
+    res['record_written_after_one_tick'] = {
+        'rest_theta': Routing.record_probability(w1.tick(w1.w.plane_wave((0, 0, 0), [1, 0, 0, 0]))),
+        'massless_p_2pi_over_64': Routing.record_probability(w0.tick(w0.w.plane_wave((1, 0, 0), [1, 0, 0, 0]))),
+        'both': Routing.record_probability(w1.tick(w1.w.plane_wave((1, 0, 0), [1, 0, 0, 0])))}
+    # packet velocity through the wrapper (item 5)
+    w2 = OneBody((256, 1, 1), Species(theta=TH)); psi = w2.w.packet(12, 3.0, lambda p: routing.branch(p, TH)[0])
+    x0 = w2.w.mean_position(psi); x1 = w2.w.mean_position(w2.run(psi, 60))
+    res['packet_velocity_theta_0.157935'] = float(((x1 - x0 + 128) % 256 - 128) / 60)
+    return res
+
+
+# ------------------------------------------------------------------ joint: matter and quantum links
+def joint_checks(shape, N, stat=-1, cells=None, species=None, both_orders=True):
+    sp = Species(theta=TH); sps = species if species is not None else [sp] * N
+    J = Joint(shape, sps, EPS, KAP); lat = J.lat; Psi = J.random(11, stat)
+    r = {'shape': list(shape), 'quanta': N, 'dimension': int(Psi.size), 'links': lat.NL, 'plaquettes': len(lat.plaq)}
+    P1 = J.tick(Psi, 1); u = abs(np.linalg.norm(P1) - 1); inv = np.abs(J.untick(P1, 1) - Psi).max()
+    if both_orders:
+        P0 = J.tick(Psi, 0); u = max(u, abs(np.linalg.norm(P0) - 1)); inv = max(inv, np.abs(J.untick(P0, 0) - Psi).max())
+    r['unitarity'] = float(u); r['inverse_tick'] = float(inv)
+    cs = list(range(lat.N)) if cells is None else cells
+    r['commutator_with_Gauss'] = float(max(np.abs(J.tick(J.gauss(Psi, c), 1) - J.gauss(P1, c)).max() for c in cs))
+    r['Gauss_cells_checked'] = len(cs)
+    a = tuple(int(j == lat.axes[0]) for j in range(3))
+    r['translation_covariance'] = float(np.abs(J.tick(J.translate(Psi, a), 1) - J.translate(P1, a)).max())
+    if J.identical(): r['exchange_symmetry_kept'] = float(np.abs(P1 - stat * P1.transpose(0, 2, 1)).max())
+    return r
+
+
+def sec_joint():
+    rows = []
+    for shape in ((4, 1, 1), (6, 1, 1), (2, 2, 1), (3, 2, 1)):
+        for N in (0, 1, 2):
+            if shape == (3, 2, 1) and N == 2: continue                  # section joint2
+            rows.append(joint_checks(shape, N)); print(rows[-1], flush=True)
+    return rows
+
+
+def sec_joint2():
+    r = joint_checks((3, 2, 1), 2, cells=[0, 3, 5], both_orders=False); print(r)
+    return r
+
+
+# ------------------------------------------------------------------ fock: the lift, number and pattern charge
+def sec_fock():
+    res = {}
+    for shape, z in (((4, 1, 1), 0b0110), ((2, 2, 1), 0b10010110)):
+        lat = Lattice(shape); n = 4 * lat.N; fk = Fock(n); sp = Species(theta=TH); key = 'x'.join(map(str, shape))
+        D = [OneBody(shape, sp, lat.signs(z)).matrix(t) for t in (0, 1)]
+        psi = rnd(fk.dim, 3)
+        out = fock_tick(fk, psi, lat, [(0, sp)], z, 0)
+        r = {'modes': n, 'link_word': z, 'unitarity': float(abs(np.linalg.norm(out) - 1))}
+        r['number_commutator'] = float(np.abs(fk.count * out - fock_tick(fk, fk.count * psi, lat, [(0, sp)], z, 0)).max())
+        vac = np.zeros(fk.dim, complex); vac[0] = 1
+        r['empty_state_fixed'] = float(np.abs(fock_tick(fk, vac, lat, [(0, sp)], z, 0) - vac).max())
+        # one quantum: lift against D
+        v = rnd(n, 4); one = np.zeros(fk.dim, complex); one[1 << np.arange(n)] = v
+        got = fock_tick(fk, one, lat, [(0, sp)], z, 1)
+        r['one_quantum_lift_equals_D'] = float(np.abs(got[1 << np.arange(n)] - D[1] @ v).max())
+        # two quanta: lift against D A D^T
+        A = rnd((n, n), 5); A = A - A.T; A /= np.linalg.norm(A) / np.sqrt(2)
+        iu = np.triu_indices(n, 1); two = np.zeros(fk.dim, complex); two[(1 << iu[0]) | (1 << iu[1])] = A[iu]
+        got = fock_tick(fk, two, lat, [(0, sp)], z, 0); want = D[0] @ A @ D[0].T
+        r['two_quanta_lift_equals_D_A_Dt'] = float(np.abs(got[(1 << iu[0]) | (1 << iu[1])] - want[iu]).max())
+        if shape == (4, 1, 1):
+            # correlation matrix of a state that is not Gaussian: three quanta, random amplitudes
+            three = np.where(fk.count == 3, rnd(fk.dim, 6), 0); three /= np.linalg.norm(three)
+            C0 = fk.correlation(three, np.arange(n)); C1 = fk.correlation(fock_tick(fk, three, lat, [(0, sp)], z, 0), np.arange(n))
+            r['correlation_rule_C_to_D_C_Ddagger'] = float(np.abs(C1 - D[0] @ C0 @ D[0].conj().T).max())
+            r['trace_C'] = float(np.trace(C1).real)
+        res[key] = r; print(key, r, flush=True)
+    return res
+
+
+def sec_fock2():
+    res = {}
+    # two patterns on a ring of two cells: charged doublet pattern (M1) and neutral singlet pattern (M0)
+    lat = Lattice((2, 1, 1)); fk = Fock(16); a = Species('L', 0, 1, theta=TH); b = Species('e+', 3, 0, theta=0.0)
+    blocks = [(0, a), (8, b)]; psi = rnd(fk.dim, 8); out = fock_tick(fk, psi, lat, blocks, 0b10, 1)
+    na, nb = fk.number(0x00FF), fk.number(0xFF00); q6 = a.Q6 * na + b.Q6 * nb
+    r = {'modes': 16, 'unitarity': float(abs(np.linalg.norm(out) - 1))}
+    for name, op in (('N_a', na), ('N_b', nb), ('Q6_total', q6), ('Z2_parity', 1 - 2 * (na & 1))):
+        r[f'commutator_{name}'] = float(np.abs(op * out - fock_tick(fk, op * psi, lat, blocks, 0b10, 1)).max())
+    # option M2 read literally: the handedness (X_r eigenvalue) is part of the pattern, so the count of quanta with
+    # odd n2 is the number of quanta with X_r = -1; the mass step does not conserve it
+    c = Species('L', 0, 1, theta=TH, kind='Z')
+    lat1 = Lattice((2, 1, 1)); f8 = Fock(8); psi = rnd(f8.dim, 9)
+    def chir_minus(v):                                                # number of quanta with X_r = -1
+        acc = np.zeros_like(v)
+        for cell in range(2):
+            for s in (0, 1):
+                m0, m1 = 4 * cell + s, 4 * cell + 2 + s
+                acc += (f8.hop(v, m0, m0) + f8.hop(v, m1, m1) - f8.hop(v, m0, m1) - f8.hop(v, m1, m0)) / 2
+        return acc
+    for kind in ('Y', 'Z'):
+        c.kind = kind
+        o1 = chir_minus(fock_tick(f8, psi, lat1, [(0, c)], 0, 0)); o2 = fock_tick(f8, chir_minus(psi), lat1, [(0, c)], 0, 0)
+        r[f'M2_reading_commutator_of_tick_with_number_of_X_minus_quanta_kind_{kind}'] = float(np.linalg.norm(o1 - o2))
+    c.theta = 0.0
+    o1 = chir_minus(fock_tick(f8, psi, lat1, [(0, c)], 0, 0)); o2 = fock_tick(f8, chir_minus(psi), lat1, [(0, c)], 0, 0)
+    r['same_commutator_without_mass_step'] = float(np.linalg.norm(o1 - o2))
+    res['two_patterns_ring_2'] = r; print(r)
+    return res
+
+
+# ------------------------------------------------------------------ cone: one cell per axis per tick, complete tick
+def commutator_norm(J, Psi, A, B, T):
+    """|| [U^-T A U^T, B] Psi ||, the ticks 0 .. T-1 of the alternating schedule"""
+    def At(v):
+        for t in range(T): v = J.tick(v, t)
+        v = A(v)
+        for t in reversed(range(T)): v = J.untick(v, t)
+        return v
+    return float(np.linalg.norm(At(B(Psi)) - B(At(Psi))))
+
+
+def sec_cone():
+    sp = Species(theta=TH); J = Joint((6, 1, 1), [sp, sp], EPS, KAP); Psi = J.random(21); res = {'lattice': [6, 1, 1], 'quanta': 2}
+    dens = lambda c: (lambda v: J.density(v, c)); lx = lambda k: (lambda v: J.link_x(v, k)); lz = lambda k: (lambda v: J.link_z(v, k))
+    for T in (1, 2, 3):
+        res[f'density_cell_0_after_{T}_ticks_vs_density_cell_y'] = [commutator_norm(J, Psi, dens(0), dens(y), T) for y in range(6)]
+        res[f'density_cell_0_after_{T}_ticks_vs_X_link_k'] = [commutator_norm(J, Psi, dens(0), lx(k), T) for k in range(6)]
+    for T in (1, 2):
+        res[f'X_link_0_after_{T}_ticks_vs_density_cell_y'] = [commutator_norm(J, Psi, lx(0), dens(y), T) for y in range(6)]
+        res[f'X_link_0_after_{T}_ticks_vs_Z_link_k'] = [commutator_norm(J, Psi, lx(0), lz(k), T) for k in range(6)]
+    res['note'] = 'link k joins cells k and k+1; predicted zeros: operators supported outside the cells within T of the support'
+    for k, v in res.items(): print(k, [f'{x:.1e}' for x in v] if isinstance(v, list) and k != 'lattice' else v)
+    return res
+
+
+def sec_cone2():
+    """plaquette term: pure gauge on 4 x 2 x 1 (16 links), and one quantum on 4 x 2 x 1"""
+    res = {}
+    J = Joint((4, 2, 1), [], EPS, KAP); lat = J.lat; Psi = J.random(22)
+    k0 = lat.lid[((0, 0, 0), 1)]                                      # link from (0,0,0) to (0,1,0): both ends at x1 = 0
+    lx = lambda k: (lambda v: J.link_x(v, k)); lz = lambda k: (lambda v: J.link_z(v, k))
+    ends = lambda c, i: {c[0], lat.step(c, i)[0]}
+    for name, op in (('X', lx), ('Z', lz)):
+        rows = {f'{c}->axis{i}': commutator_norm(J, Psi, lx(k0), op(k), 1) for (c, i), k in lat.lid.items()}
+        far = [v for ((c, i), k), v in zip(lat.lid.items(), rows.values()) if 2 in ends(c, i)]
+        res[f'pure_gauge_4x2x1_X_link_(0,0,0)->(0,1,0)_after_1_tick_vs_{name}_links'] = {
+            'max_over_links_with_an_end_at_x1_=_2': max(far), 'links_with_nonzero_commutator': [k for k, v in rows.items() if v > 1e-12],
+            'min_nonzero': min([v for v in rows.values() if v > 1e-12] or [0.0])}
+    t0 = time.time()
+    sp = Species(theta=TH); J = Joint((4, 2, 1), [sp], EPS, KAP); lat = J.lat; Psi = J.random(23)
+    dens = lambda c: (lambda v: J.density(v, lat.cid[c]))
+    res['one_quantum_4x2x1'] = {
+        'density_(0,0,0)_after_1_tick_vs_density_(2,0,0)': commutator_norm(J, Psi, dens((0, 0, 0)), dens((2, 0, 0)), 1),
+        'density_(0,0,0)_after_1_tick_vs_X_link_(2,0,0)->(2,1,0)': commutator_norm(J, Psi, dens((0, 0, 0)), lambda v: J.link_x(v, lat.lid[((2, 0, 0), 1)]), 1),
+        'density_(0,0,0)_after_1_tick_vs_density_(1,1,0)_(inside)': commutator_norm(J, Psi, dens((0, 0, 0)), dens((1, 1, 0)), 1)}
+    print(res['one_quantum_4x2x1'], round(time.time() - t0, 1), 's')
+    for k, v in res.items(): print(k, v)
+    return res
+
+
+def sec_speed():
+    """group velocity of the period dispersion, E = E2/2 per tick: v_i = cos^2(theta) sin(2 p_i) prod_(j != i) cos(2 p_j) / sin(E2)"""
+    rng = np.random.default_rng(3); worst = 0.0; worst_fd = 0.0
+    for _ in range(20000):
+        p = rng.uniform(-np.pi, np.pi, 3); th = rng.uniform(0, 1.2) if rng.random() < .7 else 0.0
+        E2 = period_phase(p, th); c = np.cos(2 * p)
+        if np.sin(E2) < 1e-6: continue
+        v = np.cos(th) ** 2 * np.sin(2 * p) * np.array([c[1] * c[2], c[0] * c[2], c[0] * c[1]]) / np.sin(E2)
+        worst = max(worst, float(np.linalg.norm(v)))
+        if np.sin(E2) > 0.05:
+            h = 1e-6; fd = np.array([(period_phase(p + h * np.eye(3)[i], th) - period_phase(p - h * np.eye(3)[i], th)) / (4 * h) for i in range(3)])
+            worst_fd = max(worst_fd, float(np.abs(fd - v).max()))
+    res = {'samples': 20000, 'largest_group_speed_cells_per_tick': worst, 'formula_against_finite_difference': worst_fd,
+           'on_axis_massless': float(np.sin(0.6) / np.sin(period_phase((0.3, 0, 0))))}
+    print(res); return res
+
+
+def sec_doublers():
+    """wave vectors where the period symbol is +1 or -1 (grid of multiples of pi/2), and the ordered tick for comparison"""
+    import itertools
+    grid = [0.0, np.pi / 2, np.pi, 3 * np.pi / 2]; res = {}
+    for th in (0.0, TH):
+        plus = minus = gap = one_p = one_m = 0
+        for p in itertools.product(grid, repeat=3):
+            U2 = symbol(p, th, 'Y', 1) @ symbol(p, th, 'Y', 0); U1 = symbol(p, th, 'Y', 0)
+            plus += np.abs(U2 - np.eye(4)).max() < 1e-12; minus += np.abs(U2 + np.eye(4)).max() < 1e-12
+            gap += abs(period_phase(p, th) - 2 * th) < 1e-9
+            one_p += np.abs(U1 - np.eye(4)).max() < 1e-12; one_m += np.abs(U1 + np.eye(4)).max() < 1e-12
+        res[f'theta_{th}'] = {'grid_points': 64, 'period_symbol_equals_+1': int(plus), 'period_symbol_equals_-1': int(minus),
+                              'period_phase_equals_2_theta': int(gap), 'ordered_tick_symbol_equals_+1': int(one_p), 'ordered_tick_symbol_equals_-1': int(one_m)}
+    # the cone at a doubler is the cone at the origin: same phases at p* + q and at q
+    q = np.array([0.07, -0.05, 0.11]); ps = np.array([np.pi / 2, 3 * np.pi / 2, np.pi])
+    res['phase_at_doubler_plus_q_minus_phase_at_q'] = abs(period_phase(ps + q, TH) - period_phase(q, TH))
+    print(res); return res
+
+
+def sec_sector():
+    """the Gauss-sector reduction (cf1.Sector) against the full engine"""
+    rows = []; rng = np.random.default_rng(5)
+    for shape, Ns in (((4, 1, 1), (0, 1, 2)), ((6, 1, 1), (0, 1, 2)), ((2, 2, 1), (0, 1)), ((3, 2, 1), (0, 1))):
+        for N in Ns:
+            sp = Species(theta=TH); J = Joint(shape, [sp] * N, EPS, KAP); S = Sector(J)
+            phi = rng.normal(size=(len(S.reps), S.md)) + 1j * rng.normal(size=(len(S.reps), S.md)); Psi = S.embed(phi)
+            out = J.tick(Psi, 1)
+            rows.append({'shape': list(shape), 'quanta': N, 'sector_dimension': S.dim, 'gauge_classes_of_link_words': len(S.reps),
+                         'coeff_of_embed': float(np.abs(S.coeff(Psi) - phi).max()),
+                         'Gauss_eigenvalue': float(max(np.abs(J.gauss(Psi, c) - S.g[c] * Psi).max() for c in range(J.lat.N))),
+                         'sector_tick_against_full_tick': float(np.abs(S.coeff(out) - (S.matrix(1) @ phi.ravel()).reshape(phi.shape)).max()),
+                         'weight_leaving_the_sector': float(abs(np.linalg.norm(S.coeff(out)) ** 2 - np.linalg.norm(phi) ** 2) / np.linalg.norm(phi) ** 2)})
+            print(rows[-1], flush=True)
+    return rows
+
+
+# ------------------------------------------------------------------ variants: the program without a declared item
+def sec_variants():
+    res = {}
+    # without the record reflection: Q_3 Q_2 Q_1 per tick
+    X = routing.SIG[0]; Zr = np.kron(routing.SIG[2], np.eye(2))
+    def q(p, i): return (np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * np.kron(X, routing.SIG[i])) @ Zr      # Q_i = S_i R
+    rows = []
+    for p in ((0.1, 0, 0), (0.1, 0.1, 0.1), (0.2, 0.2, 0.2)):
+        one = q(p, 2) @ q(p, 1) @ q(p, 0); two = (q(p, 0) @ q(p, 1) @ q(p, 2)) @ one
+        rows.append({'p': list(p), 'phases_two_ticks_without_R': [round(float(x), 9) for x in np.sort(np.abs(np.angle(np.linalg.eigvals(two))))],
+                     'phase_two_ticks_with_R': 2 * (period_phase(p) / 2)})
+    res['without_record_reflection'] = rows
+    # symmetric instead of antisymmetric amplitudes; distinguishable pair; neutral species; option M2 with a declared charge
+    res['symmetric_statistics_ring_4'] = joint_checks((4, 1, 1), 2, stat=+1)
+    a = Species('L', 0, 1, theta=TH); b = Species('e+', 3, 0, theta=0.0)
+    res['charged_and_neutral_pair_ring_4'] = joint_checks((4, 1, 1), 2, species=[a, b])
+    res['neutral_quantum_2x2x1'] = joint_checks((2, 2, 1), 1, species=[b])
+    res['M2_declared_record_independent_charge_2x2x1'] = joint_checks((2, 2, 1), 1, species=[Species('L', 0, 1, theta=TH, kind='Z')])
+    # static class labels (version 1): one carrier with the class (k, d) = (1, 1); translation covariance is lost, the rest holds
+    lab = Species('L', 0, 1); lab.theta = class_theta((6, 1, 1), {(3, 0, 0): (1, 1)}, lab)
+    r = joint_checks((6, 1, 1), 1, species=[lab]); r['theta_at_the_labelled_carrier'] = float(lab.theta[3, 0, 0]); res['static_class_label_ring_6'] = r
+    # ordered schedule only (no alternation): helicity splitting of the one-tick symbol
+    p = (0.1, 0.1, 0.1)
+    res['ordered_schedule_only_phases_p_0.1_0.1_0.1'] = [round(float(x), 9) for x in np.sort(np.abs(np.angle(np.linalg.eigvals(symbol(p, 0.0)))))]
+    for k, v in res.items(): print(k, v)
+    return res
+
+
+SECTIONS = {'wrap': sec_wrap, 'joint': sec_joint, 'joint2': sec_joint2, 'fock': sec_fock, 'fock2': sec_fock2, 'cone': sec_cone, 'cone2': sec_cone2,
+            'variants': sec_variants, 'speed': sec_speed, 'doublers': sec_doublers, 'sector': sec_sector}
+
+if __name__ == '__main__':
+    for name in sys.argv[1:]:
+        t0 = time.time(); out = SECTIONS[name](); save(name, out)
+        if name == 'wrap': print(json.dumps(out, indent=1))
+        print(f'[{name}] {time.time() - t0:.1f} s', flush=True)

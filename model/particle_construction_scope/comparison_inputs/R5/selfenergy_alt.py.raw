@@ -1,0 +1,111 @@
+"""Item 5 for the binding schedule of CF-1 (ticks alternate between forward and reverse order): second-order dressed branch.
+
+Two-tick operator W = (F_eps F_kappa M S_rev)(F_eps F_kappa M S_fwd). Its square root is carried by the doubled operator
+    U2 = [[0, A], [B, 0]],   A = F_kappa M S_rev,  B = F_kappa M S_fwd,   W-eigenphase = 2 x (U2-eigenphase),
+and exp(-i eps V) acts on both halves, so the one-kick formula of PROOFS.md section 5 applies to U2 with a rank-8 defect per
+flipped link:  sigma(p) = -(1/(2 sin^2 a)) sum_i v_i^+ (D K_i D)^(-1) v_i   (per tick), a = kappa n_p.
+`dense_alt` is the definition-level evaluation on a small torus; `kspace_alt` the Brillouin-zone form.
+"""
+import json, sys, time
+from multiprocessing import Pool
+import numpy as np
+from r5lib import Routing, ALPHA, BETA, matrix_of
+from selfenergy import I4, PP, PM
+from selfenergy_run import coin_axis
+
+Z4 = np.zeros((4, 4), complex)
+
+def steps(K, theta):
+    S = [np.cos(K[..., i])[..., None, None] * I4 - 1j * np.sin(K[..., i])[..., None, None] * ALPHA[i] for i in range(3)]
+    M = np.cos(theta) * I4 - 1j * np.sin(theta) * BETA
+    return S, M
+
+def kspace_alt(dims, L, theta, kappa, p, coin, E, eta=0.0, y=None, want='sigma'):
+    npl = 2 * (dims - 1); a = kappa * npl
+    axes = [2 * np.pi * np.arange(L) / L + p[i] if i < dims else np.array([p[i]]) for i in range(3)]
+    K = np.stack(np.meshgrid(*axes, indexing='ij'), axis=-1).reshape(-1, 3); n = len(K)
+    S, M = steps(K, theta)
+    A = M @ S[0] @ S[1] @ S[2]; B = M @ S[2] @ S[1] @ S[0]
+    U2 = np.zeros((n, 8, 8), complex); U2[:, :4, 4:] = A; U2[:, 4:, :4] = B
+    yy = (E + 2 * a if y is None else y) + 1j * eta; mu = np.exp(-1j * yy); I8 = np.eye(8)
+    c = 1j * (U2 + mu * I8) @ np.linalg.inv(U2 - mu * I8)
+    Sp, Mp = steps(np.array(p, float), theta)
+    psi0 = np.concatenate([coin, coin]) / np.sqrt(2)               # on-axis: A(p) = B(p), so the second half equals the first
+    tot = 0.0; eig_list = []
+    for i in range(dims):
+        pre = np.zeros((n, 8, 8), complex); prep = np.zeros((8, 8), complex)
+        pf = np.broadcast_to(I4, (n, 4, 4)).copy(); pfp = I4.copy()
+        for j in range(i): pf = S[j] @ pf; pfp = Sp[j] @ pfp                      # forward: S_1 ... S_{i-1} act before S_i
+        pr = np.broadcast_to(I4, (n, 4, 4)).copy(); prp = I4.copy()
+        for j in range(2, i, -1): pr = S[j] @ pr; prp = Sp[j] @ prp               # reverse: S_3 ... S_{i+1} act before S_i
+        pre[:, :4, :4] = pf; pre[:, 4:, 4:] = pr; prep[:4, :4] = pfp; prep[4:, 4:] = prp
+        Ct = pre @ c @ np.linalg.inv(pre); ph = np.exp(1j * K[:, i])[:, None, None]
+        K16 = np.block([[Ct.mean(axis=0), (Ct / ph).mean(axis=0)], [(Ct * ph).mean(axis=0), Ct.mean(axis=0)]])
+        Z8 = np.zeros((8, 8))
+        D = np.block([[np.kron(np.eye(2), PP[i]), Z8], [Z8, np.kron(np.eye(2), PM[i])]])
+        if want == 'eigs':
+            w, v = np.linalg.eigh(D); Bm = v[:, w > 0.5]; Kr = Bm.conj().T @ K16 @ Bm
+            eig_list.append(np.linalg.eigvalsh((Kr + Kr.conj().T) / 2).tolist() + [float(np.abs(Kr - Kr.conj().T).max())]); continue
+        wv = prep @ psi0
+        v = D @ np.concatenate([wv, np.exp(1j * p[i]) * wv])
+        tot = tot + np.vdot(v, np.linalg.pinv(D @ K16 @ D, rcond=1e-10) @ v)
+    if want == 'eigs': return eig_list
+    sig = -tot / (2 * np.sin(a) ** 2)
+    return float(sig.real) if eta == 0 else complex(sig)
+
+def dense_alt(shape, theta, kappa, p, coin, E):
+    shape = tuple(shape); N = int(np.prod(shape)); dirs = [i for i in range(3) if shape[i] > 1]
+    a = kappa * 2 * (len(dirs) - 1); n4 = 4 * N
+    def ops(flip):
+        links = [np.full(shape, np.exp(1j * p[i]) if shape[i] > 1 else 1.0, dtype=complex) for i in range(3)]
+        if flip is not None: links[flip[1]][flip[0]] *= -1
+        eng = Routing(shape, links)
+        return matrix_of(lambda s: eng.tick(s, theta, reverse=True), shape + (2, 2)), matrix_of(lambda s: eng.tick(s, theta), shape + (2, 2))
+    psi = np.tile(coin, N) / np.sqrt(N); psi0 = np.concatenate([psi, psi]) / np.sqrt(2)
+    A0, B0 = ops(None); U0 = np.block([[np.zeros((n4, n4)), A0], [B0, np.zeros((n4, n4))]])
+    res0 = float(np.linalg.norm(U0 @ psi0 - np.exp(-1j * E) * psi0)); tot = 0.0; mu = np.exp(-1j * (E + 2 * a))
+    for i in dirs:
+        Al, Bl = ops(((0, 0, 0), i)); Ul = np.block([[np.zeros((n4, n4)), Al], [Bl, np.zeros((n4, n4))]])
+        val = -1j * np.vdot(psi0, (Ul + mu * np.eye(2 * n4)) @ np.linalg.solve(Ul - mu * np.eye(2 * n4), psi0))
+        tot += N * float(val.real + 1 / np.tan(a))
+    return -0.5 * tot, dict(residual_unperturbed=res0, vacuum_shift_per_eps2=0.5 * N * len(dirs) / np.tan(a))
+
+def gap_of_pair(theta, n=41):
+    """smallest distance of the per-tick eigenphases of the alternating pair from 0 and pi over the Brillouin zone (grid)"""
+    g = np.linspace(-np.pi / 2, np.pi / 2, n); K = np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1).reshape(-1, 3)
+    S, M = steps(K, theta); W = (M @ S[0] @ S[1] @ S[2]) @ (M @ S[2] @ S[1] @ S[0])
+    ph = np.abs(np.angle(np.linalg.eigvals(W))) / 2            # in [0, pi/2]; the doubled operator has +-, i.e. also pi - ph
+    F = M @ S[2] @ S[1] @ S[0]; pf = np.abs(np.angle(np.linalg.eigvals(F)))
+    return float(ph.min()), float(min(pf.min(), (np.pi - pf).min()))
+
+def job(a): return dict(dims=a[0], L=a[1], kappa=a[2], p=a[3], axis=a[4] + 1, eta=a[5], E=coin_axis(a[3], TH, a[4])[1],
+                        sigma=kspace_alt(a[0], a[1], TH, a[2], tuple(a[3] if j == a[4] else 0.0 for j in range(3)), coin_axis(a[3], TH, a[4])[0], coin_axis(a[3], TH, a[4])[1], a[5]))
+def scan(a): return kspace_alt(a[0], a[1], TH, 0.1, (0.0, 0.0, 0.0), coin_axis(0.0, TH, 0)[0], 0.0, 0.0, y=a[2], want='eigs')
+
+TH = 0.157935
+if __name__ == '__main__':
+    out = {}; t0 = time.time()
+    gp, gf = gap_of_pair(TH); out['gap'] = dict(alternating_pair_min_abs_phase_per_tick=gp, forward_only_min_distance_from_0_or_pi=gf)
+    print(f'3D spectrum: alternating pair, smallest |phase per tick| over the zone = {gp:.6f} (theta = {TH});  forward-only tick, smallest distance of a phase from 0 or pi = {gf:.2e}')
+    rows = []
+    for shape, dims, L, kap in (((4, 4, 1), 2, 4, -0.025), ((3, 3, 3), 3, 3, 0.31)):
+        for p1 in (0.1, 0.3):
+            coin, E = coin_axis(p1, TH, 0); p = (p1, 0.0, 0.0)
+            d, info = dense_alt(shape, TH, kap, p, coin, E); k = kspace_alt(dims, L, TH, kap, p, coin, E)
+            rows.append(dict(shape=shape, kappa=kap, p1=p1, sigma_dense=d, sigma_kspace=k)); print(f'check {shape} kappa={kap} p1={p1}: dense {d:+.8f}  k-space {k:+.8f}  (residual {info["residual_unperturbed"]:.1e})')
+    out['dense_against_kspace'] = rows
+    # levels bound to one flipped link, alternating schedule
+    for dims, L in ((2, 96), (3, 32)):
+        ys = np.concatenate([np.linspace(-TH + 0.004, TH - 0.004, 121), np.linspace(np.pi - TH + 0.004, np.pi + TH - 0.004, 121)])
+        with Pool(12) as pool: sc = pool.map(scan, [(dims, L, float(y)) for y in ys], chunksize=2)
+        for i in range(dims):
+            ev = np.array([r[i][:8] for r in sc]); herm = max(r[i][8] for r in sc); lev = []
+            for half in (slice(0, 121), slice(121, 242)):
+                yy, ee = ys[half], ev[half]
+                for col in range(8):
+                    for q in range(len(yy) - 1):
+                        if ee[q, col] * ee[q + 1, col] < 0 and abs(ee[q, col]) + abs(ee[q + 1, col]) < 5:
+                            lev.append(float(yy[q] - ee[q, col] * (yy[q + 1] - yy[q]) / (ee[q + 1, col] - ee[q, col])))
+            out[f'bound_levels_{dims}D_direction_{i + 1}'] = dict(levels=sorted(lev), antihermitian_part=herm)
+            print(f'{dims}D L={L} alternating, flipped link of direction {i + 1}: bound levels at', [round(x, 4) for x in sorted(lev)], '(anti-Hermitian part %.1e)' % herm)
+    json.dump(out, open('selfenergy_alt_check.json', 'w'), indent=1); print('seconds', round(time.time() - t0, 1))

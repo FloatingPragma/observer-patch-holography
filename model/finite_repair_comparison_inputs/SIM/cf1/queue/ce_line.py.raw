@@ -1,0 +1,224 @@
+"""Runs C and E (QUEUE_BRIEF.md): a mass barrier and a double-slab resonance on a line of 512 cells.
+
+Background theta0 = 0.087847, slabs at theta1 = 0.171237. Shape (512, 1, 1): axes 2 and 3 act trivially, one sublattice.
+
+Exact lattice reference (EXACT up to rounding; the derivation is checked by unitarity T + R = 1 and against the executed
+packets): on the line the four components split into two copies (eigenvalue +-1 of sigma_1) of a two-state walk, record in
+the X basis, |+> moving right. A stationary state of the tick U = M S at phase E obeys, with u = right-moving and d =
+left-moving amplitude, (u(x), d(x+1)) = T_x (u(x-1), d(x)), T_x = [[e^{iE}/c, s/c], [s/c, e^{-iE}/c]], c = cos theta(x),
+s = +-sin theta(x) for the two copies. In the background the eigenvalues are e^{+-ip} with cos E = cos(theta0) cos(p).
+Transmission t relative to free propagation; Wigner delay tau = d arg t / dE (ticks).
+Continuum reference (relativistic expectation): Dirac equation sigma_x p + m(x) sigma_z, m = theta(x) on intervals of
+length one cell per cell, psi continuous at the interfaces.
+Executed: packets on the positive branch (every plane wave carries positive_coin(p, theta0)), Gaussian of width w = 24 cells
+in space centred 100 cells left of the structure; probability on the right half and the left half of the ring at the
+measuring time; prediction = sum over positive momenta of the packet weight times T(p) of the exact lattice reference.
+E also: probability inside the well against time, dwell (sum over ticks) relative to the same packet without slabs, and
+the decay rate of the well probability after the pulse (fit of log P_well over the late window).
+`python ce_line.py C|E`
+"""
+import json, sys, time, os
+import numpy as np
+from cq_common import EngineC, positive_coin
+
+TH0, TH1 = 0.087847, 0.171237
+L = 512; MID = 256
+RUNS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'runs')
+
+
+def lattice_profile(slabs):
+    """slabs: list of (start, n). theta per cell along the line"""
+    th = np.full(L, TH0)
+    for a, n in slabs: th[a:a + n] = TH1
+    return th
+
+
+def transfer_t(E, thetas, sign=+1):
+    """transmission amplitude (relative to free), T, R through the cells with angles `thetas`, embedded in theta0"""
+    def Tm(theta):
+        c, s = np.cos(theta), sign * np.sin(theta)
+        return np.array([[np.exp(1j * E) / c, s / c], [s / c, np.exp(-1j * E) / c]])
+    T0 = Tm(TH0)
+    lam, V = np.linalg.eig(T0)
+    j = np.abs(V[0]) ** 2 - np.abs(V[1]) ** 2
+    if not np.all(np.abs(np.abs(lam) - 1) < 1e-9): return None
+    iR, iL = (0, 1) if j[0] > 0 else (1, 0)
+    V = V[:, [iR, iL]] / np.sqrt(np.abs(j[[iR, iL]]))
+    K = np.eye(2, dtype=complex)
+    for th in thetas: K = Tm(th) @ K
+    Q = np.linalg.solve(V, K @ V)
+    r = -Q[1, 0] / Q[1, 1]; t = Q[0, 0] + Q[0, 1] * r
+    t_rel = t / lam[iR] ** len(thetas)
+    return t_rel, float(abs(t) ** 2), float(abs(r) ** 2), complex(r)
+
+
+def continuum_t(E, regions, m0=TH0):
+    """regions: list of (x_start, x_end, m) inside the background m0; returns t (relative to free), T, R"""
+    def W(x, m):
+        k = np.sqrt(complex(E * E - m * m))
+        return np.array([[(E + m) * np.exp(1j * k * x), (E + m) * np.exp(-1j * k * x)], [k * np.exp(1j * k * x), -k * np.exp(-1j * k * x)]])
+    bounds = []
+    seq = [(-np.inf, regions[0][0], m0)] + []
+    for i, (a, b, m) in enumerate(regions):
+        seq.append((a, b, m))
+        nxt = regions[i + 1][0] if i + 1 < len(regions) else np.inf
+        if nxt > b: seq.append((b, nxt, m0))
+    K = np.eye(2, dtype=complex)
+    for (a1, b1, m1), (a2, b2, m2) in zip(seq[:-1], seq[1:]):
+        K = np.linalg.solve(W(b1, m2), W(b1, m1)) @ K
+    r = -K[1, 0] / K[1, 1]; t = K[0, 0] + K[0, 1] * r
+    return t, float(abs(t) ** 2), float(abs(r) ** 2)
+
+
+def p_to_E(p): return float(np.arccos(np.cos(TH0) * np.cos(p)))
+
+
+def stationary_curves(slabs, regions, pgrid):
+    th = lattice_profile(slabs)
+    lo = min(a for a, n in slabs); hi = max(a + n for a, n in slabs)
+    cells = th[lo:hi]
+    rows = []
+    for p in pgrid:
+        E = p_to_E(p)
+        tl, Tl, Rl, _ = transfer_t(E, cells, +1)
+        tl2, Tl2, _, _ = transfer_t(E, cells, -1)
+        Ec = float(np.hypot(p, TH0))                      # continuum: same momentum, relativistic energy
+        tc, Tc, Rc = continuum_t(Ec, regions)
+        rows.append({'p': float(p), 'E_lattice': E, 'T_lattice': Tl, 'R_lattice': Rl, 'unitarity_T_plus_R_minus_1': Tl + Rl - 1,
+                     'T_lattice_other_copy': Tl2, 'arg_t_lattice': float(np.angle(tl)), 'E_continuum': Ec, 'T_continuum': Tc, 'R_continuum': Rc,
+                     'arg_t_continuum': float(np.angle(tc))})
+    # Wigner delays by finite differences in E along the grid
+    for key_arg, key_E, out in (('arg_t_lattice', 'E_lattice', 'delay_lattice'), ('arg_t_continuum', 'E_continuum', 'delay_continuum')):
+        ph = np.unwrap([r[key_arg] for r in rows]); Es = np.array([r[key_E] for r in rows])
+        d = np.gradient(ph, Es)
+        for r, v in zip(rows, d): r[out] = float(v)
+    return rows
+
+
+def packet(e, p0, x0, w):
+    psi = np.zeros((L, 1, 1, 2, 2), complex); weights = {}
+    for n in range(L):
+        p = 2 * np.pi * n / L; p = p - 2 * np.pi if p > np.pi else p
+        g = np.exp(-(p - p0) ** 2 * w * w / 2)
+        if g < 1e-10: continue
+        coin = positive_coin((p, 0, 0), TH0)
+        psi += g * np.exp(-1j * p * x0) * e.plane_wave((n, 0, 0), coin)
+        weights[p] = (g * np.linalg.norm(coin)) ** 2
+    nrm = np.linalg.norm(psi)
+    tot = sum(weights.values())
+    return psi / nrm, {p: v / tot for p, v in weights.items()}
+
+
+def run_packet(slabs, p0, w=24.0, well=None):
+    e = EngineC((L, 1, 1))
+    th = lattice_profile(slabs).reshape(L, 1, 1)
+    lo = min(a for a, n in slabs); hi = max(a + n for a, n in slabs)
+    centre = 0.5 * (lo + hi)
+    x0 = centre - 100
+    psi, wts = packet(e, p0, x0, w)
+    free = psi.copy()
+    E0 = p_to_E(p0); v0 = np.cos(TH0) * np.sin(p0) / np.sin(E0)
+    t_meas = int(min(220 / v0, (L - x0 - 3 * w) / 1.0))
+    pw, pwf = [], []
+    xs = np.arange(L)
+    for t in range(t_meas):
+        psi = e.step(psi, th, 'Y', t); free = e.step(free, TH0, 'Y', t)
+        if well is not None:
+            rho = np.sum(np.abs(psi[:, 0, 0]) ** 2, axis=(1, 2)); rhof = np.sum(np.abs(free[:, 0, 0]) ** 2, axis=(1, 2))
+            pw.append(float(rho[well[0]:well[1]].sum())); pwf.append(float(rhof[well[0]:well[1]].sum()))
+    rho = np.sum(np.abs(psi[:, 0, 0]) ** 2, axis=(1, 2))
+    right = float(rho[(xs >= centre) & (xs < centre + L / 2)].sum()); left = float(1 - right)
+    near = float(rho[np.abs(xs - centre) < (hi - lo) / 2 + 30].sum())
+    pred = sum(v * transfer_t(p_to_E(p), lattice_profile(slabs)[lo:hi], +1)[1] for p, v in wts.items() if p > 0)
+    pred_cont = sum(v * continuum_t(float(np.hypot(p, TH0)), [(a - 0.5, a + n - 0.5, TH1) for a, n in slabs])[1] for p, v in wts.items() if p > 0)
+    neg = sum(v for p, v in wts.items() if p <= 0)
+    out = {'p0': p0, 'width': w, 'start_centre': x0, 'ticks': t_meas, 'P_right_half_measured': right, 'P_left_half_measured': left,
+           'P_right_predicted_lattice_exact_T': float(pred), 'P_right_predicted_continuum_T': float(pred_cont),
+           'measured_minus_lattice_prediction': right - float(pred), 'packet_weight_on_p_le_0': float(neg),
+           'probability_within_30_cells_of_structure_at_measurement': near, 'norm': float(rho.sum())}
+    if well is not None:
+        out['well_probability_every_tick'] = pw; out['well_probability_free_every_tick'] = pwf
+        out['dwell_ticks'] = float(sum(pw)); out['dwell_free_ticks'] = float(sum(pwf))
+        # tau_W averaged over the packet (lattice exact)
+        out['wigner_delay_packet_average_lattice'] = None
+    return out
+
+
+def runC():
+    pgrid = np.round(np.arange(0.05, 0.6001, 0.01), 4)
+    out = {'run': 'C', 'brief': 'repair-law/work/SIM/cf1/QUEUE_BRIEF.md', 'program': 'CF-1 tick on a line (512,1,1), mass option M1 (kind Y)',
+           'theta0': TH0, 'theta1': TH1, 'units': 'cells and ticks', 'seed': 'none', 'clock': 'one tick (axes 2, 3 trivial on the line)',
+           'preparation': 'positive-branch Gaussian packets, width 24 cells, centre 100 cells left of the slab', 'sublattices': 'line: one sublattice',
+           'slabs': []}
+    for n in (1, 4, 16):
+        a = MID - n // 2
+        st = stationary_curves([(a, n)], [(a - 0.5, a + n - 0.5, TH1)], pgrid)
+        pk = [run_packet([(a, n)], p0) for p0 in (0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6)]
+        out['slabs'].append({'cells': n, 'start': a, 'stationary': st, 'packets': pk,
+                             'max_abs_unitarity': float(max(abs(r['unitarity_T_plus_R_minus_1']) for r in st)),
+                             'max_abs_T_lattice_minus_continuum': float(max(abs(r['T_lattice'] - r['T_continuum']) for r in st))})
+        print('slab', n, 'unitarity', out['slabs'][-1]['max_abs_unitarity'], 'max |T_lat - T_cont|', out['slabs'][-1]['max_abs_T_lattice_minus_continuum'], flush=True)
+        for r in st[::5]: print('   p', r['p'], 'T_lat', round(r['T_lattice'], 6), 'T_cont', round(r['T_continuum'], 6), flush=True)
+        for q in pk: print('   packet p0', q['p0'], 'P_right', round(q['P_right_half_measured'], 6), 'pred', round(q['P_right_predicted_lattice_exact_T'], 6),
+                           'cont', round(q['P_right_predicted_continuum_T'], 6), 'near', round(q['probability_within_30_cells_of_structure_at_measurement'], 6), flush=True)
+    json.dump(out, open(os.path.join(RUNS, 'C_barrier.json'), 'w'), indent=1)
+
+
+def runE():
+    pgrid = np.round(np.arange(0.02, 0.7001, 0.0025), 5)
+    a1 = MID - 10; a2 = a1 + 4 + 12          # slab [a1, a1+4), well [a1+4, a1+16), slab [a2, a2+4)
+    slabs = [(a1, 4), (a2, 4)]
+    regions = [(a1 - 0.5, a1 + 3.5, TH1), (a2 - 0.5, a2 + 3.5, TH1)]
+    well = (a1 + 4, a2)
+    st = stationary_curves(slabs, regions, pgrid)
+    # resonances: local maxima of T and of the delay
+    def peaks(key):
+        v = np.array([r[key] for r in st]); idx = [i for i in range(1, len(v) - 1) if v[i] > v[i - 1] and v[i] >= v[i + 1]]
+        return idx
+    res = []
+    for kind in ('lattice', 'continuum'):
+        for i in peaks('delay_' + kind):
+            r = st[i]; Ekey = 'E_' + kind; T = np.array([q['T_' + kind] for q in st]); Es = np.array([q[Ekey] for q in st])
+            # FWHM of the delay peak in E
+            dl = np.array([q['delay_' + kind] for q in st]); half = 0.5 * dl[i]
+            lo_ = i
+            while lo_ > 0 and dl[lo_] > half: lo_ -= 1
+            hi_ = i
+            while hi_ < len(dl) - 1 and dl[hi_] > half: hi_ += 1
+            res.append({'model': kind, 'p': r['p'], 'E': r[Ekey], 'delay_peak_ticks': r['delay_' + kind], 'T_at_peak': r['T_' + kind],
+                        'width_from_delay_2_over_tau': 2 / r['delay_' + kind] if r['delay_' + kind] > 0 else None,
+                        'delay_FWHM_in_E': float(Es[hi_] - Es[lo_]) if (dl[lo_] <= half and dl[hi_] <= half) else None})
+    out = {'run': 'E', 'brief': 'repair-law/work/SIM/cf1/QUEUE_BRIEF.md', 'program': 'CF-1 tick on a line (512,1,1), mass option M1 (kind Y)',
+           'theta0': TH0, 'theta1': TH1, 'slabs': [list(s) for s in slabs], 'well_cells': list(well), 'units': 'cells and ticks', 'seed': 'none',
+           'clock': 'one tick', 'preparation': 'positive-branch Gaussian packets, width 24 cells, centre 100 cells left of the structure', 'sublattices': 'line: one sublattice',
+           'stationary': st, 'resonances_from_delay_peaks': res}
+    pk = []
+    for p0 in np.round(np.arange(0.05, 0.6001, 0.05), 3):
+        q = run_packet(slabs, float(p0), well=well)
+        pw = np.array(q['well_probability_every_tick'])
+        imax = int(np.argmax(pw))
+        late = np.arange(imax + 20, len(pw))
+        late = late[pw[late] > 1e-12] if len(late) else late
+        if len(late) > 20:
+            sl = np.polyfit(late, np.log(pw[late]), 1)[0]; q['late_decay_rate_of_well_probability_per_tick'] = float(-sl); q['late_window'] = [int(late[0]), int(late[-1])]
+        else:
+            q['late_decay_rate_of_well_probability_per_tick'] = None
+        q['extra_dwell_ticks'] = q['dwell_ticks'] - q['dwell_free_ticks']
+        # packet average of the exact lattice delay
+        e_ = EngineC((L, 1, 1)); _, wts = packet(e_, float(p0), 0.0, 24.0)
+        dl = {r['p']: r['delay_lattice'] for r in st}
+        ps = np.array(sorted(dl)); ds = np.array([dl[p] for p in ps])
+        q['wigner_delay_packet_average_lattice'] = float(sum(v * np.interp(p, ps, ds) for p, v in wts.items() if p > 0) / max(1e-15, sum(v for p, v in wts.items() if p > 0)))
+        q['well_probability_every_tick'] = [round(x, 10) for x in q['well_probability_every_tick'][::2]]
+        q['well_probability_free_every_tick'] = [round(x, 10) for x in q['well_probability_free_every_tick'][::2]]
+        q['note_series'] = 'well probabilities stored every second tick'
+        pk.append(q)
+        print('E packet p0', p0, 'P_right', round(q['P_right_half_measured'], 5), 'pred', round(q['P_right_predicted_lattice_exact_T'], 5), 'extra dwell', round(q['extra_dwell_ticks'], 3),
+              'tauW avg', round(q['wigner_delay_packet_average_lattice'], 3), 'late decay', q['late_decay_rate_of_well_probability_per_tick'], flush=True)
+    out['packets'] = pk
+    for r in res: print('resonance', r, flush=True)
+    json.dump(out, open(os.path.join(RUNS, 'E_resonance.json'), 'w'), indent=1)
+
+
+if __name__ == '__main__':
+    {'C': runC, 'E': runE}[sys.argv[1]]()

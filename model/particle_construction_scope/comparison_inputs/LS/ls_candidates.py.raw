@@ -1,0 +1,163 @@
+"""Worker LS: values of the candidates registered in CANDIDATES.md (section 3) and of the post hoc
+expressions of section 0. Reads no measured lepton mass; the comparison is ls_compare.py.
+
+Inputs (source branch at P_fwd): LEW t1_chain.json (v/E*, E_cell/E*, gauge packet at Q0, y_t from double
+criticality), DC dc_numeric.json (alpha_cut), ls_exact.json (native shape). E* = 1.22089e19 GeV (declared
+unit of the comparison branch). Running: Standard Model one loop (census of the source, reports/DB.md),
+gauge couplings and y_t run from Q0; the lepton Yukawas run with the common factor
+16 pi^2 dln y_l/dt = 3 y_t^2 - (9/4) g2^2 - (9/4) g1^2 (GUT-normalized g1; y_b, y_tau^2 terms dropped).
+  cd RER && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B RL/work/LS/ls_candidates.py
+"""
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+RL = Path("WORKSPACE/repair-law")
+CHAIN = json.loads((RL / "work/SIM/derive/lew/t1_chain.json").read_text())["pixels"]["P_fwd"]
+DC = json.loads((RL / "work/DC/dc_numeric.json").read_text())["cut_scale_closure"]["S2_dR_logd@P_fwd"]
+EXACT = json.loads((HERE / "exact.json").read_text())
+
+E_STAR = 1.22089e19
+c = CHAIN["chain"]
+P = float(c["P"])
+V = float(c["v_over_E"]) * E_STAR
+E_CELL = float(c["Ecell_over_E"]) * E_STAR
+Q0 = float(c["muZ_over_E"]) * E_STAR
+MU_C = float(CHAIN["criticality"]["mu_c_GeV"])
+ALPHA_U = float(c["alpha_U"])
+ALPHA_CUT = float(DC["alpha_cut"])
+G1, G2, G3 = float(c["g1_GUT"]), float(c["g2"]), float(c["g3"])
+YT_Q0 = float(CHAIN["criticality"]["yt_Q0"])
+YT_MUC = float(CHAIN["criticality"]["boundary_yt"])
+LSQ = [float(x) for x in EXACT["X1"]["lambda_sq_sorted"]]  # e, mu, tau
+LMAX2 = LSQ[2]
+SQ2 = math.sqrt(2.0)
+K = 1.0 / (16 * math.pi**2)
+
+
+def rhs(y):
+    g1, g2, g3, yt, lnyl = y
+    return [
+        K * (41.0 / 10.0) * g1**3,
+        K * (-19.0 / 6.0) * g2**3,
+        K * (-7.0) * g3**3,
+        K * yt * (4.5 * yt**2 - 8 * g3**2 - 2.25 * g2**2 - 0.85 * g1**2),
+        K * (3 * yt**2 - 2.25 * g2**2 - 2.25 * g1**2),
+    ]
+
+
+def run(mu_to, n=6000):
+    """RK4 from Q0 to mu_to in t = ln mu; returns couplings at mu_to and ln y_l(mu_to) - ln y_l(Q0)."""
+    y = [G1, G2, G3, YT_Q0, 0.0]
+    t0, t1 = math.log(Q0), math.log(mu_to)
+    h = (t1 - t0) / n
+    for _ in range(n):
+        k1 = rhs(y)
+        k2 = rhs([a + 0.5 * h * b for a, b in zip(y, k1)])
+        k3 = rhs([a + 0.5 * h * b for a, b in zip(y, k2)])
+        k4 = rhs([a + h * b for a, b in zip(y, k3)])
+        y = [a + h / 6 * (b1 + 2 * b2 + 2 * b3 + b4) for a, b1, b2, b3, b4 in zip(y, k1, k2, k3, k4)]
+    return y
+
+
+RUN_MUC = run(MU_C)
+RUN_CELL = run(E_CELL)
+# y_l(Q0) = y_l(mu0) * exp(-(ln y_l(mu0) - ln y_l(Q0)))
+DOWN_MUC = math.exp(-RUN_MUC[4])
+DOWN_CELL = math.exp(-RUN_CELL[4])
+
+
+def masses(yJ):
+    return [V / SQ2 * yJ * l for l in LSQ]
+
+
+def row(cid, kind, statement_scale, yJ_stated, yJ_Q0, note, est=False, weight="structural"):
+    m = masses(yJ_Q0)
+    return {
+        "id": cid,
+        "kind": kind,
+        "statement_scale": statement_scale,
+        "yJ_at_statement_scale": yJ_stated,
+        "yJ_at_Q0_or_v": yJ_Q0,
+        "masses_GeV_e_mu_tau": m,
+        "sum_GeV": sum(m),
+        "note": note,
+        "value_estimated_before_listing": est,
+        "weight": weight,
+    }
+
+
+def main():
+    rows = []
+    # Direction R/H
+    yJ_u_muc = YT_MUC / LMAX2
+    rows.append(row("R1", "R/H", "mu_c", yJ_u_muc, yJ_u_muc * DOWN_MUC,
+                    "tr Y_e = tr Y_u at mu_c, up sector on the native circulant", est=True))
+    rows.append(row("R2", "R/H", "Q0", YT_Q0 / LMAX2, YT_Q0 / LMAX2,
+                    "same at Q0 without running (control)", est=True))
+    rows.append(row("H1", "R/H", "mu_c", yJ_u_muc / 2, yJ_u_muc / 2 * DOWN_MUC,
+                    "y_J/y_J^u = |<B>| = 1/2 (two-level memory, coherent state)", est=True))
+    # Direction T
+    g_cut = math.sqrt(4 * math.pi * ALPHA_CUT)
+    y0 = g_cut / 12
+    rows.append(row("T0", "T", "E_cell", y0, y0 * DOWN_CELL,
+                    "y_J(E_cell) = g_cut p, one current amplitude sqrt(p) per class-3 leg", est=True))
+    for aname, a in (("alpha_U", ALPHA_U), ("alpha_cut", ALPHA_CUT)):
+        for b in (4, 12, 20, 24, 30, 32, 60):
+            y0 = math.exp(-2 * math.pi / (b * a))
+            rows.append(row(f"T({aname},{b})", "T scan", "E_cell", y0, y0 * DOWN_CELL,
+                            f"y_J(E_cell) = exp(-2 pi/({b} {aname}))", weight="menu"))
+    # Direction N
+    rows.append(row("N1", "N", "v", math.exp(-5), math.exp(-5), "y_J = exp(-5), five levels read", est=True))
+    rows.append(row("N1'", "N", "v", SQ2 * math.exp(-5), SQ2 * math.exp(-5), "M/v = exp(-5)", est=True))
+    for n in range(1, 9):
+        rows.append(row(f"N2(yJ,{n})", "N scan", "v", math.exp(-n), math.exp(-n), f"y_J = exp(-{n})",
+                        weight="menu"))
+        rows.append(row(f"N2(M/v,{n})", "N scan", "v", SQ2 * math.exp(-n), SQ2 * math.exp(-n),
+                        f"M/v = exp(-{n})", weight="menu"))
+    # Post hoc expressions (section 0), evaluated for the record
+    det_rho = float(EXACT["X1"]["det_rho"])
+    ph = {
+        "PH1": (8.0 / 729.0, "y_J = (2/9)^3"),
+        "PH2": (math.exp(-4.5), "y_J = exp(-9/2)"),
+        "PH3": (SQ2 * P**-10, "M/v = P^-10"),
+        "PH4": (((1.0 / 12.0) ** 10 / det_rho) ** (1.0 / 3.0), "|det Y_e| = (1/12)^10"),
+        "PH7": (SQ2 / 132.0, "M/v = 1/132"),
+        "PH8": (SQ2 / 128.0, "M/v = 2^-7 (DA B2)"),
+        "PH9": (7.0 / 648.0, "y_J = 7/648 (DA S6)"),
+        "PH10": ((V / E_CELL) ** 0.125, "y_J = (v/E_cell)^(1/8)"),
+        "X3": (float(EXACT["X3"]["yJ_native_shape"]), "MCPR |det Y_e| = sqrt2 6^-14 on the native shape (DECLARED)"),
+    }
+    for k, (y, note) in ph.items():
+        rows.append(row(k, "post hoc" if k != "X3" else "declared reference", "v", y, y, note,
+                        weight="post hoc fit" if k != "X3" else "declared"))
+    out = {
+        "inputs": {
+            "P_fwd": P, "v_source_GeV": V, "E_cell_GeV": E_CELL, "Q0_GeV": Q0, "mu_c_GeV": MU_C,
+            "alpha_U": ALPHA_U, "alpha_cut": ALPHA_CUT, "g1_g2_g3_Q0": [G1, G2, G3],
+            "yt_Q0_criticality": YT_Q0, "yt_mu_c_criticality_two_loop": YT_MUC,
+            "lambda_sq_e_mu_tau": LSQ, "E_star_declared_GeV": E_STAR,
+            "measured_values_read": "none",
+        },
+        "running_one_loop": {
+            "at_mu_c": {"g1": RUN_MUC[0], "g2": RUN_MUC[1], "g3": RUN_MUC[2], "yt_one_loop": RUN_MUC[3],
+                        "yl_Q0_over_yl_mu_c": DOWN_MUC},
+            "at_E_cell": {"g1": RUN_CELL[0], "g2": RUN_CELL[1], "g3": RUN_CELL[2], "yt_one_loop": RUN_CELL[3],
+                          "yl_Q0_over_yl_E_cell": DOWN_CELL},
+        },
+        "rows": rows,
+    }
+    (HERE / "candidates.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps(out["inputs"], indent=1))
+    print(json.dumps(out["running_one_loop"], indent=1))
+    for r in rows:
+        print(f"{r['id']:16s} yJ(stmt)={r['yJ_at_statement_scale']:.6g} yJ(Q0/v)={r['yJ_at_Q0_or_v']:.6g} "
+              f"M={r['sum_GeV']:.6g} GeV  m=({r['masses_GeV_e_mu_tau'][0]:.5g}, {r['masses_GeV_e_mu_tau'][1]:.5g}, "
+              f"{r['masses_GeV_e_mu_tau'][2]:.5g})")
+
+
+if __name__ == "__main__":
+    main()

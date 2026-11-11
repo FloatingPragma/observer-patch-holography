@@ -1,0 +1,73 @@
+"""Shared pieces of the run queue A to G (repair-law/work/SIM/cf1/QUEUE_BRIEF.md).
+
+EngineC: the CF-1 engine with complex link phases. Routing.seam_involution transports the amplitude at x + e_i to x
+with the factor z(x) (the link from x to x + e_i) before the reflector acts and back with conj(z) after it. For the
+shift S_i = Q_i R this means: amplitude moving forward from x to x + e_i is multiplied by conj(z(x)), amplitude moving
+backward from x + e_i to x by z(x). For real signs this is the engine's shift_fast. Checked in `selftest()` against
+Routing.shift (seam involution after record reflection) with random complex links.
+"""
+import os, sys
+import numpy as np
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))
+from cf1_lib import Engine, Routing, SIG, I2, positive_coin, phases, symbol_order, matrix_pencil  # noqa: E402,F401
+
+BLANK_UP = np.array([1, 0, 0, 0], complex)
+BLANK_DOWN = np.array([0, 1, 0, 0], complex)
+
+
+class EngineC(Engine):
+    def shift_fast(self, psi, i):
+        x = psi[..., ::-1, :] @ SIG[i].T
+        if self.links is None:
+            return 0.5 * (np.roll(psi + x, 1, axis=i) + np.roll(psi - x, -1, axis=i))
+        z = self.links[i][..., None, None]
+        return 0.5 * (np.roll(np.conj(z) * (psi + x), 1, axis=i) + z * np.roll(psi - x, -1, axis=i))
+
+    def shift_inverse(self, psi, i):
+        """inverse of shift_fast: P+ T* + P- T with the conjugate transports"""
+        x = psi[..., ::-1, :] @ SIG[i].T
+        if self.links is None:
+            return 0.5 * (np.roll(psi + x, -1, axis=i) + np.roll(psi - x, 1, axis=i))
+        z = self.links[i][..., None, None]
+        return 0.5 * (z * np.roll(psi + x, -1, axis=i) + np.roll(np.conj(z) * (psi - x), 1, axis=i))
+
+    def two_ticks(self, psi, theta=0.0, kind='Y'):
+        return self.step(self.step(psi, theta, kind, 0), theta, kind, 1)
+
+    def two_ticks_inverse(self, psi, theta=0.0, kind='Y'):
+        th = -theta if np.isscalar(theta) else -np.asarray(theta)
+        psi = self.mass_field(psi, th, kind)
+        for i in (0, 1, 2):
+            psi = self.shift_inverse(psi, i)
+        psi = self.mass_field(psi, th, kind)
+        for i in (2, 1, 0):
+            psi = self.shift_inverse(psi, i)
+        return psi
+
+
+def selftest(seed=3):
+    rng = np.random.default_rng(seed)
+    shape = (6, 5, 4)
+    links = [np.exp(1j * rng.uniform(0, 2 * np.pi, size=shape)) for _ in range(3)]
+    e = EngineC(shape, links)
+    psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); psi /= np.linalg.norm(psi)
+    d = {}
+    d['complex_links_fast_shift_equals_public_seam_form'] = float(max(np.abs(e.shift_fast(psi, i) - e.shift(psi, i)).max() for i in range(3)))
+    d['complex_links_shift_inverse'] = float(max(np.abs(e.shift_inverse(e.shift_fast(psi, i), i) - psi).max() for i in range(3)))
+    th = rng.uniform(0, 0.3, size=shape)
+    d['two_tick_inverse'] = float(np.abs(e.two_ticks_inverse(e.two_ticks(psi, th), th) - psi).max())
+    d['unitarity_complex_links'] = float(abs(np.linalg.norm(e.two_ticks(psi, th)) - 1))
+    # gauge covariance with a U(1) gauge transformation g(x): links z -> g(x) z conj(g(x+e_i)) under psi -> g psi ... found below
+    g = np.exp(1j * rng.uniform(0, 2 * np.pi, size=shape))
+    best = None
+    for lg in ([np.conj(g) * links[i] * np.roll(g, -1, axis=i) for i in range(3)], [g * links[i] * np.conj(np.roll(g, -1, axis=i)) for i in range(3)]):
+        eg = EngineC(shape, lg)
+        err = float(np.abs(eg.two_ticks(g[..., None, None] * psi, th) - g[..., None, None] * e.two_ticks(psi, th)).max())
+        best = err if best is None else min(best, err)
+    d['u1_gauge_covariance'] = best
+    return d
+
+
+if __name__ == '__main__':
+    print(selftest())

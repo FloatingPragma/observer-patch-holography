@@ -1,0 +1,127 @@
+"""Item 5: negative controls for the flat level in a background of central flux pairs (honeycomb federation).
+
+A. Pure gauge. The five seams at one port of the defect carrier are flipped instead of one seam (a vertex
+   recharting: no face carries flux). Expected: the kernel bottom is exactly 0 although the uniform preparation
+   reads five times the one-tick value of a single flipped seam.
+B. Signs. (i) Charge phases exp(+-2 pi i/3) (the phase a triplet level sees from a colour-centre flux) and
+   exp(+-2 pi i/6): the two defects of the honeycomb superlattice with equal phases (one sign) against conjugate
+   phases (both signs), with the central sign -1 as reference. (ii) One sign on every seam: all sixty internal
+   links of every carrier negative (flux pi in every face, the class k = 10): bottom and band width.
+C. Random against periodic placement at equal density: S x S cells, defects on randomly chosen carriers
+   (same flipped template seam), densities 1/16 and 1/64. Reported: kernel bottom, the spectral measure of the
+   uniform preparation over the lowest levels (weight captured, weighted median, quartiles, mean), against the
+   periodic value; and the executed-law record series p_t of the uniform preparation built from that measure
+   (first maximum, its height: 1/2 for a single branch).
+
+usage: python km5_controls.py <out.json> <processes> [S] [realizations] [k]
+"""
+import json, sys, time
+import numpy as np
+from multiprocessing import Pool
+import km_lib as K
+
+NAb = 66
+
+
+def pure_gauge(m):
+    tpl = K.Template('scalar', 'bridge')
+    port = next(p for p in range(12) if p not in K.GLUE)
+    star = [e for e, (a, b) in enumerate(K.E) if port in (a, b)]
+    base = K.honeycomb_family(m, 0, -1.0)
+    defects = [(cell, t, e, -1.0) for (cell, t, _, _) in base for e in star]
+    sc = K.Supercell(tpl, m, m, defects=defects)
+    w, U = sc.lowest(k=3, sigma=-0.02 / m ** 2)
+    one = K.Supercell(tpl, m, m, defects=base); w1, _ = one.lowest(k=3, sigma=-0.02 / m ** 2)
+    return {'m': m, 'port': port, 'flipped_seams_per_defect': len(star), 'E0_pure_gauge': float(w[0]), 'E1_pure_gauge': float(w[1]),
+            'uniform_one_tick_p_pure_gauge': 4.0 * len(defects) / sc.P / NAb, 'E0_single_seam': float(w1[0]),
+            'uniform_one_tick_p_single_seam': 4.0 * len(base) / sc.P / NAb}
+
+
+def signs(task):
+    m, name, w1, w2 = task
+    tpl = K.Template('scalar', 'bridge')
+    base = K.honeycomb_family(m, 0, 1.0)
+    defects = [(base[0][0], base[0][1], 0, w1), (base[1][0], base[1][1], 0, w2)]
+    sc = K.Supercell(tpl, m, m, defects=defects)
+    w, U = sc.lowest(k=3, sigma=-0.02 / m ** 2)
+    born = (abs(1 - w1) ** 2 + abs(1 - w2) ** 2) / sc.P
+    return {'m': m, 'N': m * m, 'case': name, 'E0': float(w[0]), 'p0': float(w[0] / NAb), 'first_order_E': float(born), 'E0_over_first_order': float(w[0] / born), 'N_E0': float(m * m * w[0])}
+
+
+def all_negative():
+    tpl = K.Template('scalar', 'bridge')
+    defects = [(t, e, -1.0) for t in (0, 1) for e in range(30)]
+    lo, hi, lev0 = 1e9, -1e9, None
+    for kx in np.linspace(-np.pi, np.pi, 13):
+        for ky in np.linspace(-np.pi, np.pi, 13):
+            kap = kx * np.array([1.0, 0.0]) * 2 + ky * np.array([0.0, 1.0]) * 2
+            w = np.linalg.eigvalsh(tpl.cell_matrix(kap, defects))
+            lo, hi = min(lo, w[0]), max(hi, w[0])
+            if kx == 0 and ky == 0: lev0 = w[:8]
+    w0 = np.linalg.eigvalsh(tpl.cell_matrix((0, 0), defects))
+    return {'lowest_band_min': float(lo), 'lowest_band_max': float(hi), 'levels_q0': [float(x) for x in w0[:8]], 'carrier_value': 5 - 5 ** 0.5,
+            'p_bottom': float(lo / NAb), 'rest_phase_bottom': float(np.arccos(1 - lo / NAb))}
+
+
+def random_case(task):
+    S, dens, seed, kk = task
+    rng = np.random.default_rng(abs(seed) + 1000 * round(1 / dens))
+    tpl = K.Template('scalar', 'bridge')
+    ncar = 2 * S * S; nd = int(round(ncar * dens))
+    if seed < 0:                                            # periodic reference at the same density on the same patch
+        m = int(round(dens ** -0.5)); base = K.honeycomb_family(m, 0, -1.0)
+        defects = [((i + a * m, k + b * m), t, e, w) for a in range(S // m) for b in range(S // m) for (i, k), t, e, w in base]
+    else:
+        cars = rng.choice(ncar, size=nd, replace=False)
+        defects = [((int(c // 2) // S, int(c // 2) % S), int(c % 2), 0, -1.0) for c in cars]
+    sc = K.Supercell(tpl, S, S, defects=defects)
+    w, U = sc.lowest(k=kk, sigma=-0.02 * dens)
+    wt = abs(U.sum(0)) ** 2 / sc.P
+    order = np.argsort(w); w, wt = w[order], wt[order]
+    cap = float(wt.sum()); cum = np.cumsum(wt) / cap
+    q25, q50, q75 = (float(w[np.searchsorted(cum, x)]) for x in (0.25, 0.5, 0.75))
+    mean_low = float((w * wt).sum() / cap)
+    om = np.arccos(1 - w / NAb)
+    ts = np.arange(1, 40001)
+    # record-one probability of the uniform preparation from the captured levels (law of item 1)
+    amp = wt / (1 + np.cos(om))
+    pt = np.array([(amp * np.sin(t * om) ** 2).sum() for t in ts[::8]])
+    tmax = int(ts[::8][np.argmax(pt)]); hmax = float(pt.max())
+    # first local maximum
+    first = next((i for i in range(1, len(pt) - 1) if pt[i] >= pt[i - 1] and pt[i] > pt[i + 1]), int(np.argmax(pt)))
+    return {'S': S, 'density': dens, 'seed': seed, 'defects': len(defects), 'k': kk, 'E_min': float(w[0]), 'E_second': float(w[1]),
+            'uniform_weight_captured': cap, 'uniform_weight_on_lowest': float(wt[0]), 'largest_single_weight': float(wt.max()),
+            'E_at_largest_weight': float(w[np.argmax(wt)]), 'participation_levels': float(cap ** 2 / (wt ** 2).sum()),
+            'E_q25': q25, 'E_median': q50, 'E_q75': q75, 'E_mean_captured': mean_low, 'first_order_E': 4.0 * len(defects) / sc.P,
+            'record_first_maximum_t': int(ts[::8][first]), 'record_first_maximum_height': float(pt[first]), 'record_global_max': hmax, 'record_global_max_t': tmax,
+            'E_top_captured': float(w[-1])}
+
+
+if __name__ == '__main__':
+    outp, procs = sys.argv[1], int(sys.argv[2])
+    S = int(sys.argv[3]) if len(sys.argv) > 3 else 48
+    R = int(sys.argv[4]) if len(sys.argv) > 4 else 6
+    kk = int(sys.argv[5]) if len(sys.argv) > 5 else 120
+    out = {}
+    out['A_pure_gauge'] = [pure_gauge(m) for m in (2, 4, 8)]
+    for r in out['A_pure_gauge']:
+        print(f"A pure gauge m={r['m']}: E0 = {r['E0_pure_gauge']:.3e} (single seam {r['E0_single_seam']:.6e}); one-tick p of the uniform state {r['uniform_one_tick_p_pure_gauge']:.6e} against {r['uniform_one_tick_p_single_seam']:.6e}", flush=True)
+    w3 = np.exp(2j * np.pi / 3); w6 = np.exp(2j * np.pi / 6)
+    tasks = [(m, name, a, b) for m in (2, 4, 8, 16, 32) for name, a, b in (('central sign -1, -1', -1.0, -1.0), ('1/3: one sign (w, w)', w3, w3), ('1/3: both signs (w, conj w)', w3, np.conj(w3)),
+                                                                        ('1/6: one sign (w, w)', w6, w6), ('1/6: both signs (w, conj w)', w6, np.conj(w6)))]
+    with Pool(procs) as pool:
+        out['B_signs'] = pool.map(signs, tasks)
+        for r in out['B_signs']:
+            print(f"B m={r['m']:3d} N={r['N']:5d} {r['case']:30s} E0={r['E0']:.9e} N*E0={r['N_E0']:.6f} E0/first={r['E0_over_first_order']:.5f}", flush=True)
+        out['B_all_links_negative'] = all_negative()
+        print('B all internal links negative:', out['B_all_links_negative'], flush=True)
+        json.dump(out, open(outp, 'w'), indent=1)
+        tasks = [(S, d, s, kk) for d in (1 / 16, 1 / 64) for s in [-1] + list(range(R))]
+        res = []
+        for r in pool.imap_unordered(random_case, tasks):
+            res.append(r)
+            print(f"C S={r['S']} density 1/{round(1 / r['density'])} seed {r['seed']:3d} ({'periodic' if r['seed'] < 0 else 'random'}): E_min={r['E_min']:.6e} captured={r['uniform_weight_captured']:.4f} "
+                  f"weight on lowest={r['uniform_weight_on_lowest']:.4f} levels={r['participation_levels']:.1f} quartiles {r['E_q25']:.4e} {r['E_median']:.4e} {r['E_q75']:.4e} mean {r['E_mean_captured']:.4e} "
+                  f"first-order {r['first_order_E']:.4e}; record first max {r['record_first_maximum_height']:.4f} at t={r['record_first_maximum_t']}", flush=True)
+            out['C_random'] = sorted(res, key=lambda r: (r['density'], r['seed']))
+            json.dump(out, open(outp, 'w'), indent=1)

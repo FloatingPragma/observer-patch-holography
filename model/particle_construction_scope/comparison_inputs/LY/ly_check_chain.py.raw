@@ -1,0 +1,133 @@
+"""Worker LY: independent check of the linear solve of X1 by direct simulation of the uniform-proposal chain
+(no measured value, no candidate value).
+
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_check_chain.py
+Writes check_chain.json.
+"""
+from __future__ import annotations
+
+import json
+import os
+import time
+
+import numpy as np
+
+import ly_lib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T = np.array(L.T0, dtype=np.int16)
+PL = np.array(L.PLUS, dtype=np.int64)
+MI = np.array(L.MINUS, dtype=np.int64)
+DIST = np.array(L.DIST, dtype=np.int64)
+
+
+def run(a, b, M, rng, max_steps=400_000):
+    start = np.array(L.config({a: 3, b: 3}), dtype=np.int8)
+    seams6 = np.array(L.FACE_SEAMS[a] + L.FACE_SEAMS[b], dtype=np.int64)
+    leak_seam = seams6[rng.integers(0, 6, M)]
+    leak_j = rng.choice(np.array([1, -1], dtype=np.int64), M)
+    reg = np.tile(start, (M, 1))
+    rows = np.arange(M)
+    p, m = PL[leak_seam], MI[leak_seam]
+    reg[rows, p] = (reg[rows, p] + leak_j) % 6
+    reg[rows, m] = (reg[rows, m] - leak_j) % 6
+    split_is_a = (p == a) | (m == a)
+    frag = np.where(p == np.where(split_is_a, a, b), m, p)
+    leak_type = DIST[frag, np.where(split_is_a, b, a)]
+    outcome = np.zeros(M, dtype=np.int8)
+    ids = rows.copy()
+    live = np.ones(M, dtype=bool)
+    step = 0
+    while step < max_steps:
+        step += 1
+        n = ids.size
+        v = rng.integers(0, 60, n)
+        seam, jj = v >> 1, np.where(v & 1, 1, -1)
+        pp, mm = PL[seam], MI[seam]
+        idx = np.arange(n)
+        cp, cm = reg[idx, pp].astype(np.int64), reg[idx, mm].astype(np.int64)
+        npv, nmv = (cp + jj) % 6, (cm - jj) % 6
+        rise = T[npv] + T[nmv] - T[cp] - T[cm]
+        ok = (rise <= 0) & ((cp != 0) | (cm != 0))
+        r = np.flatnonzero(ok)
+        if r.size == 0:
+            continue
+        reg[r, pp[r]] = npv[r]
+        reg[r, mm[r]] = nmv[r]
+        sub = reg[r]
+        nzmask = sub != 0
+        nz = nzmask.sum(axis=1)
+        any_done = False
+        vac = nz == 0
+        if vac.any():
+            outcome[ids[r[vac]]] = 1
+            live[r[vac]] = False
+            any_done = True
+        two = np.flatnonzero(nz == 2)
+        if two.size:
+            f1 = np.argmax(nzmask[two], axis=1)
+            f2 = 19 - np.argmax(nzmask[two][:, ::-1], axis=1)
+            c1, c2 = sub[two, f1], sub[two, f2]
+            sep = DIST[f1, f2]
+            fin = (((c1 == 3) & (c2 == 3)) | ((c1 == 2) & (c2 == 4)) | ((c1 == 4) & (c2 == 2))) & (sep >= 2)
+            if fin.any():
+                outcome[ids[r[two[fin]]]] = np.where((c1 == 3)[fin], 2, 3)
+                live[r[two[fin]]] = False
+                any_done = True
+        if any_done:
+            nlive = int(np.count_nonzero(live))
+            if nlive == 0:
+                break
+            if (live.size - nlive) * 20 >= live.size:
+                reg, ids = reg[live], ids[live]
+                live = np.ones(ids.size, dtype=bool)
+    return outcome, leak_type
+
+
+def main():
+    t0 = time.time()
+    rng = np.random.default_rng(777)
+    ref = json.load(open(os.path.join(HERE, 'd1_chain.json')))
+    out = {'rows': [], 'batches': 4, 'trajectories_per_batch': 250_000}
+    for row in ref['X1_one_cost_raising_read']:
+        if row['d'] not in (2, 3):
+            continue
+        a, b = row['faces']
+        tot = vac = l33 = l24 = unres = 0
+        by = {}
+        for _ in range(4):
+            oc, lt = run(a, b, 250_000, rng)
+            tot += oc.size
+            vac += int((oc == 1).sum())
+            l33 += int((oc == 2).sum())
+            l24 += int((oc == 3).sum())
+            unres += int((oc == 0).sum())
+            for t in set(lt.tolist()):
+                v = by.setdefault(int(t), [0, 0])
+                v[0] += int(((oc == 1) & (lt == t)).sum())
+                v[1] += int((lt == t).sum())
+        k = vac / tot
+        se = float(np.sqrt(k * (1 - k) / tot))
+        solved = row['K_vacuum']
+        solved_by = {}
+        for p in row['per_leak']:
+            solved_by.setdefault(p['fragment_distance_to_partner'], []).append(p['dist'].get("('vacuum',)", 0.0))
+        solved_by = {t: sum(v) / len(v) for t, v in solved_by.items()}
+        out['rows'].append({'d': row['d'], 'faces': [a, b], 'trajectories': tot, 'unresolved': unres,
+                            'vacuum_simulated': k, 'standard_error': se, 'vacuum_solved': solved,
+                            'deviation_in_standard_errors': (k - solved) / se,
+                            'lasting_33_simulated': l33 / tot, 'lasting_24_simulated': l24 / tot,
+                            'by_fragment_distance_simulated': {t: v[0] / v[1] for t, v in sorted(by.items())},
+                            'by_fragment_distance_solved': solved_by})
+        print(f"d={row['d']} ({a},{b}): simulated {k:.6f} +- {se:.6f}, solved {solved:.6f}, "
+              f"deviation {(k - solved) / se:+.2f} s.e.; unresolved {unres}; by fragment distance "
+              f"{ {t: round(v[0] / v[1], 6) for t, v in sorted(by.items())} } against "
+              f"{ {t: round(v, 6) for t, v in sorted(solved_by.items())} }; {time.time() - t0:.1f}s", flush=True)
+    out['seconds'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'check_chain.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

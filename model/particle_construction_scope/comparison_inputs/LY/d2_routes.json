@@ -1,0 +1,871 @@
+{
+ "rule": "fewest cost-raising reads, then fewest reads; proposals: unit twists on the 30 seams",
+ "X8_lepton_routes_T0": [
+  {
+   "d": 1,
+   "faces": [
+    0,
+    1
+   ],
+   "orbit_size": 30,
+   "uphill": 0,
+   "length": 3,
+   "types": {
+    "raising": 0,
+    "flat": 0,
+    "lowering": 3
+   },
+   "rises": [
+    -4,
+    -6,
+    -10
+   ],
+   "explored": 5,
+   "with_rise_at_most_kappa": {
+    "uphill": 0,
+    "length": 3,
+    "types": {
+     "raising": 0,
+     "flat": 0,
+     "lowering": 3
+    }
+   }
+  },
+  {
+   "d": 2,
+   "faces": [
+    0,
+    2
+   ],
+   "orbit_size": 60,
+   "uphill": 1,
+   "length": 6,
+   "types": {
+    "raising": 1,
+    "flat": 1,
+    "lowering": 4
+   },
+   "rises": [
+    3,
+    0,
+    -3,
+    -4,
+    -6,
+    -10
+   ],
+   "explored": 638,
+   "with_rise_at_most_kappa": {
+    "uphill": 1,
+    "length": 6,
+    "types": {
+     "raising": 1,
+     "flat": 1,
+     "lowering": 4
+    }
+   }
+  },
+  {
+   "d": 3,
+   "faces": [
+    0,
+    8
+   ],
+   "orbit_size": 30,
+   "uphill": 1,
+   "length": 10,
+   "types": {
+    "raising": 1,
+    "flat": 5,
+    "lowering": 4
+   },
+   "rises": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -3,
+    -4,
+    -6,
+    -10
+   ],
+   "explored": 1064,
+   "with_rise_at_most_kappa": {
+    "uphill": 1,
+    "length": 10,
+    "types": {
+     "raising": 1,
+     "flat": 5,
+     "lowering": 4
+    }
+   }
+  },
+  {
+   "d": 3,
+   "faces": [
+    0,
+    9
+   ],
+   "orbit_size": 30,
+   "uphill": 1,
+   "length": 10,
+   "types": {
+    "raising": 1,
+    "flat": 5,
+    "lowering": 4
+   },
+   "rises": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -3,
+    -4,
+    -6,
+    -10
+   ],
+   "explored": 1064,
+   "with_rise_at_most_kappa": {
+    "uphill": 1,
+    "length": 10,
+    "types": {
+     "raising": 1,
+     "flat": 5,
+     "lowering": 4
+    }
+   }
+  },
+  {
+   "d": 4,
+   "faces": [
+    0,
+    12
+   ],
+   "orbit_size": 30,
+   "uphill": 1,
+   "length": 14,
+   "types": {
+    "raising": 1,
+    "flat": 10,
+    "lowering": 3
+   },
+   "rises": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -5,
+    -8,
+    -10
+   ],
+   "explored": 1664,
+   "with_rise_at_most_kappa": {
+    "uphill": 1,
+    "length": 14,
+    "types": {
+     "raising": 1,
+     "flat": 10,
+     "lowering": 3
+    }
+   }
+  },
+  {
+   "d": 5,
+   "faces": [
+    0,
+    13
+   ],
+   "orbit_size": 10,
+   "uphill": 1,
+   "length": 18,
+   "types": {
+    "raising": 1,
+    "flat": 14,
+    "lowering": 3
+   },
+   "rises": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -5,
+    -8,
+    0,
+    -10
+   ],
+   "explored": 2398,
+   "with_rise_at_most_kappa": {
+    "uphill": 1,
+    "length": 18,
+    "types": {
+     "raising": 1,
+     "flat": 14,
+     "lowering": 3
+    }
+   }
+  }
+ ],
+ "X9_quark_mass_term_min_over_class1_positions": [
+  {
+   "d_23": 2,
+   "face_of_2": 0,
+   "face_of_3": 2,
+   "orbit_size": 60,
+   "min_uphill": 0,
+   "N_min_over_class1_positions": 5,
+   "types_on_the_minimal_route": {
+    "raising": 0,
+    "flat": 2,
+    "lowering": 3
+   },
+   "classes_along_the_minimal_route": [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     1,
+     5
+    ],
+    []
+   ],
+   "start_of_the_minimal_route": {
+    "0": 2,
+    "1": 1,
+    "2": 3
+   },
+   "explored": 95
+  },
+  {
+   "d_23": 2,
+   "face_of_2": 2,
+   "face_of_3": 0,
+   "orbit_size": 60,
+   "min_uphill": 0,
+   "N_min_over_class1_positions": 5,
+   "types_on_the_minimal_route": {
+    "raising": 0,
+    "flat": 1,
+    "lowering": 4
+   },
+   "classes_along_the_minimal_route": [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     1,
+     5
+    ],
+    []
+   ],
+   "start_of_the_minimal_route": {
+    "0": 3,
+    "1": 1,
+    "2": 2
+   },
+   "explored": 95
+  },
+  {
+   "d_23": 3,
+   "face_of_2": 0,
+   "face_of_3": 8,
+   "orbit_size": 30,
+   "min_uphill": 0,
+   "N_min_over_class1_positions": 9,
+   "types_on_the_minimal_route": {
+    "raising": 0,
+    "flat": 5,
+    "lowering": 4
+   },
+   "classes_along_the_minimal_route": [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     1,
+     5
+    ],
+    []
+   ],
+   "start_of_the_minimal_route": {
+    "0": 2,
+    "4": 1,
+    "8": 3
+   },
+   "explored": 198
+  },
+  {
+   "d_23": 3,
+   "face_of_2": 0,
+   "face_of_3": 9,
+   "orbit_size": 30,
+   "min_uphill": 0,
+   "N_min_over_class1_positions": 9,
+   "types_on_the_minimal_route": {
+    "raising": 0,
+    "flat": 5,
+    "lowering": 4
+   },
+   "classes_along_the_minimal_route": [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     1,
+     5
+    ],
+    []
+   ],
+   "start_of_the_minimal_route": {
+    "0": 2,
+    "1": 1,
+    "9": 3
+   },
+   "explored": 198
+  },
+  {
+   "d_23": 4,
+   "face_of_2": 0,
+   "face_of_3": 12,
+   "orbit_size": 30,
+   "min_uphill": 0,
+   "N_min_over_class1_positions": 13,
+   "types_on_the_minimal_route": {
+    "raising": 0,
+    "flat": 10,
+    "lowering": 3
+   },
+   "classes_along_the_minimal_route": [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     1,
+     5
+    ],
+    []
+   ],
+   "start_of_the_minimal_route": {
+    "0": 2,
+    "4": 1,
+    "12": 3
+   },
+   "explored": 352
+  },
+  {
+   "d_23": 5,
+   "face_of_2": 0,
+   "face_of_3": 13,
+   "orbit_size": 10,
+   "min_uphill": 0,
+   "N_min_over_class1_positions": 17,
+   "types_on_the_minimal_route": {
+    "raising": 0,
+    "flat": 14,
+    "lowering": 3
+   },
+   "classes_along_the_minimal_route": [
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     2,
+     3
+    ],
+    [
+     1,
+     1,
+     4
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     1,
+     5
+    ],
+    []
+   ],
+   "start_of_the_minimal_route": {
+    "0": 2,
+    "1": 1,
+    "13": 3
+   },
+   "explored": 539
+  }
+ ],
+ "X9_separation_4_every_class1_position": {
+  "face_of_2": 0,
+  "face_of_3": 12,
+  "rows": [
+   {
+    "class1_face": 1,
+    "d_1_to_3": 5,
+    "d_1_to_2": 1,
+    "uphill": 0,
+    "length": 16,
+    "types": {
+     "raising": 0,
+     "flat": 13,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 2,
+    "d_1_to_3": 4,
+    "d_1_to_2": 2,
+    "uphill": 0,
+    "length": 15,
+    "types": {
+     "raising": 0,
+     "flat": 12,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 3,
+    "d_1_to_3": 3,
+    "d_1_to_2": 2,
+    "uphill": 0,
+    "length": 14,
+    "types": {
+     "raising": 0,
+     "flat": 11,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 4,
+    "d_1_to_3": 3,
+    "d_1_to_2": 1,
+    "uphill": 0,
+    "length": 13,
+    "types": {
+     "raising": 0,
+     "flat": 10,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 5,
+    "d_1_to_3": 4,
+    "d_1_to_2": 2,
+    "uphill": 0,
+    "length": 15,
+    "types": {
+     "raising": 0,
+     "flat": 12,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 6,
+    "d_1_to_3": 3,
+    "d_1_to_2": 1,
+    "uphill": 0,
+    "length": 13,
+    "types": {
+     "raising": 0,
+     "flat": 10,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 7,
+    "d_1_to_3": 2,
+    "d_1_to_2": 2,
+    "uphill": 0,
+    "length": 14,
+    "types": {
+     "raising": 0,
+     "flat": 11,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 8,
+    "d_1_to_3": 2,
+    "d_1_to_2": 3,
+    "uphill": 0,
+    "length": 15,
+    "types": {
+     "raising": 0,
+     "flat": 12,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 9,
+    "d_1_to_3": 3,
+    "d_1_to_2": 3,
+    "uphill": 0,
+    "length": 16,
+    "types": {
+     "raising": 0,
+     "flat": 13,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 10,
+    "d_1_to_3": 2,
+    "d_1_to_2": 3,
+    "uphill": 0,
+    "length": 15,
+    "types": {
+     "raising": 0,
+     "flat": 12,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 11,
+    "d_1_to_3": 1,
+    "d_1_to_2": 3,
+    "uphill": 0,
+    "length": 15,
+    "types": {
+     "raising": 0,
+     "flat": 12,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 13,
+    "d_1_to_3": 1,
+    "d_1_to_2": 5,
+    "uphill": 0,
+    "length": 17,
+    "types": {
+     "raising": 0,
+     "flat": 14,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 14,
+    "d_1_to_3": 2,
+    "d_1_to_2": 4,
+    "uphill": 0,
+    "length": 16,
+    "types": {
+     "raising": 0,
+     "flat": 13,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 15,
+    "d_1_to_3": 3,
+    "d_1_to_2": 2,
+    "uphill": 0,
+    "length": 14,
+    "types": {
+     "raising": 0,
+     "flat": 11,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 16,
+    "d_1_to_3": 2,
+    "d_1_to_2": 2,
+    "uphill": 0,
+    "length": 14,
+    "types": {
+     "raising": 0,
+     "flat": 11,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 17,
+    "d_1_to_3": 1,
+    "d_1_to_2": 3,
+    "uphill": 0,
+    "length": 15,
+    "types": {
+     "raising": 0,
+     "flat": 12,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 18,
+    "d_1_to_3": 2,
+    "d_1_to_2": 4,
+    "uphill": 0,
+    "length": 16,
+    "types": {
+     "raising": 0,
+     "flat": 13,
+     "lowering": 3
+    }
+   },
+   {
+    "class1_face": 19,
+    "d_1_to_3": 3,
+    "d_1_to_2": 3,
+    "uphill": 0,
+    "length": 16,
+    "types": {
+     "raising": 0,
+     "flat": 13,
+     "lowering": 3
+    }
+   }
+  ]
+ },
+ "X9_separation_4_with_pair_creation_admitted": {
+  "uphill": 0,
+  "length": 13,
+  "types": {
+   "raising": 0,
+   "flat": 10,
+   "lowering": 3
+  },
+  "aborted": null,
+  "explored": 352
+ },
+ "seconds": 5.0
+}

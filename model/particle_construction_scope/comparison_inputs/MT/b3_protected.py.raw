@@ -1,0 +1,257 @@
+"""Block 3: protected content under the autonomous law.
+
+Part A (exact, rational arithmetic). The unread channel of law C or E maps a matrix unit |x><x'| of a load register
+to sum over (seam, coin) with equal records of (1/60) (signs) |f(x)><f(x')|. Hence
+  * diagonal units follow the population kernel T;
+  * a unit with x != x' has total weight a(x, x') = (number of (seam, coin) with equal records)/60; if a < 1 for
+    every such pair the off-diagonal part is a strict contraction in the 1-norm and has no fixed point;
+  * between the symmetric register and the fermionic register the units |x>_S <x|_A follow the signed kernel T_s.
+Fixed-point dimensions follow from exact ranks. With an internal factor the channel is (load channel) x identity,
+so Fix = Fix(load) x (internal algebra).
+
+Part B (exact over Q(zeta_20)). Port-axis effects on the protected algebra of two spinor quanta: one-click effects
+(one-body) and two-click coincidences (two-body); spans and Lie closures.
+
+Part C (float). Relation to the twisted chain of two hard-core quanta (lead L16) and to the covariant agreement
+pump (candidates/CAP.md): overlap of their leading triplets with the helicity (+,+) component of
+(uniform position) x (triplet).
+"""
+import itertools, json, time
+from fractions import Fraction as Fr
+import numpy as np
+from flint import fmpq_mat, fmpq
+import framed as fq
+from framed import SEAMS, STATES78, BIN66, IDX66, IDX78, current, record_of
+from mt_lib import (Z, ZERO, ONE, zmat, zeye, zkron, zdsum, zrank, lie_report, lie_closure, centre_dim, Span,
+                    port_projectors, SPINOR, VECTOR, helicity_projector, N_EX, AXES)
+from carrier_tools import C, axis_state
+
+t0 = time.time()
+out = {}
+ONE12 = [tuple(int(i == p) for i in range(12)) for p in range(12)]
+
+
+def images(x, law):
+    res = []
+    for (a, b) in SEAMS:
+        for coin in (0, 1):
+            j = current(x[a], x[b], coin)
+            y = list(x); y[a] -= j; y[b] += j
+            res.append((record_of(law, coin, x[a], x[b], j), tuple(y)))
+    return res
+
+
+def q(fr):
+    return fmpq(fr.numerator, fr.denominator)
+
+
+def exact_rank(M):
+    n = len(M)
+    return fmpq_mat(n, len(M[0]), [q(v) for row in M for v in row]).rank()
+
+
+# ---------------------------------------------------------------- Part A
+partA = {}
+for law in ('C', 'E'):
+    for name, states in (('one quantum (12)', ONE12), ('two quanta (78)', STATES78)):
+        idx = {x: i for i, x in enumerate(states)}; n = len(states)
+        img = [images(x, law) for x in states]
+        T = [[Fr(0)] * n for _ in range(n)]
+        for i, im in enumerate(img):
+            for rec, y in im:
+                T[idx[y]][i] += Fr(1, 60)
+        amax, arg = Fr(0), None
+        for i in range(n):
+            for k in range(i + 1, n):
+                a = Fr(sum(1 for (r1, _), (r2, _) in zip(img[i], img[k]) if r1 == r2), 60)
+                if a > amax:
+                    amax, arg = a, (states[i], states[k])
+        TmI = [[T[i][k] - (1 if i == k else 0) for k in range(n)] for i in range(n)]
+        fixed_diag = n - exact_rank(TmI)
+        row = {'population_kernel_fixed_dimension': fixed_diag, 'max_offdiagonal_weight_a': str(amax),
+               'offdiagonal_units_strictly_contracting': bool(amax < 1),
+               'fixed_point_dimension_of_the_load_channel': fixed_diag if amax < 1 else None}
+        ev = np.sort(np.linalg.eigvals(np.array(T, float)).real)[::-1]
+        row['population_kernel_leading_eigenvalues'] = [round(float(v), 9) for v in ev[:6]]
+        if n == 78:
+            bins = [idx[x] for x in BIN66]
+            row['binary_shell_closed'] = all(T[i][k] == 0 for k in bins for i in range(n) if i not in bins)
+            row['uniform_on_binary_shell_stationary'] = all(sum(T[i][k] for k in bins) == (1 if i in bins else 0) for i in range(n))
+            dbl = [idx[x] for x in states if max(x) == 2]
+            row['double_load_survival_per_attempt'] = sorted({str(T[i][i]) for i in dbl})
+            # signed kernel between the symmetric and the fermionic register
+            Ts = [[Fr(0)] * 66 for _ in range(66)]
+            for x in BIN66:
+                for rec, y in images(x, law):
+                    Ts[IDX66[y]][IDX66[x]] += Fr(fq.hop_sign(x, y), 60)
+            TsmI = [[Ts[i][k] - (1 if i == k else 0) for k in range(66)] for i in range(66)]
+            row['signed_kernel_fixed_dimension'] = 66 - exact_rank(TsmI)
+            evs = np.linalg.eigvals(np.array(Ts, float))
+            row['signed_kernel_spectral_radius'] = round(float(np.abs(evs).max()), 9)
+            row['signed_kernel_top_multiplicity'] = int((np.abs(np.abs(evs) - np.abs(evs).max()) < 1e-9).sum())
+            T66 = np.array([[float(T[i][k]) for k in bins] for i in bins])
+            e66 = np.sort(np.linalg.eigvalsh((T66 + T66.T) / 2))[::-1]
+            row['binary_shell_second_eigenvalue'] = round(float(e66[1]), 9)
+        partA[f'{law}, {name}'] = row
+        print(law, name, row, flush=True)
+out['A_fixed_points_of_the_load_channels'] = partA
+out['A_reading'] = {
+    'one quantum': 'Fix(load channel) = scalars, so the fixed-point algebra of the framed law is 1 x M_d (dimension d^2)',
+    'two bosons': 'H = ref78 x Sym^2(C^d) + ferm66 x Lambda^2(C^d): fixed-point algebra M(Sym^2 C^d) + M(Lambda^2 C^d); d = 2: M_3 + C',
+    'two fermions': 'H = ref78 x Lambda^2(C^d) + ferm66 x Sym^2(C^d): the same algebra; d = 2: C + M_3',
+    'two labelled quanta': 'positions C^12 x C^12 = sym78 + anti66: fixed-point algebra span{1, position exchange} x M_d x M_d; d = 2: M_4 + M_4',
+    'coherence between the two registers': 'not protected: the signed kernel has no fixed point; its spectral radius is the survival factor per attempt'}
+
+# ---------------------------------------------------------------- Part B: effects on the protected algebra of two spinors
+P2 = {m2: [helicity_projector(1, N_EX[p], m2) for p in range(12)] for m2 in (1, -1)}
+I2 = zeye(2)
+half = Z(Fr(1, 2))
+SW = zmat([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]])
+Psym = (zeye(4) + SW) * half
+Pasym = (zeye(4) - SW) * half
+one_click = [(zkron(P2[m2][p], I2) + zkron(I2, P2[m2][p])) * half for p in range(12) for m2 in (1, -1)]
+def coincidences(pairs):
+    return [(zkron(P2[m][p], P2[mm][q]) + zkron(P2[mm][q], P2[m][p])) * half for (p, q) in pairs for m in (1, -1) for mm in (1, -1)]
+dist = {}
+for p in range(12):
+    for qq in range(p + 1, 12):
+        dd = 1 if (p, qq) in set(C.E) else (3 if C.anti[p] == qq else 2)
+        dist.setdefault(dd, []).append((p, qq))
+allpairs = dist[1] + dist[2] + dist[3]
+def span_dim(ops): return zrank([list(X.ravel()) for X in ops])
+def trip(ops): return [Psym @ X @ Psym for X in ops]
+partB = {
+    'algebra': 'M_3 (triplet) + M_1 (singlet) inside the commutant of the swap on C^2 x C^2: 10 Hermitian directions, 9 on the triplet',
+    'one_click_effects': {'count': len(one_click), 'span': span_dim(one_click), 'span_on_triplet': span_dim(trip(one_click)),
+                          'lie': lie_report(one_click)},
+    'coincidence_effects_all_pairs': {'count': 4 * len(allpairs), 'span': span_dim(coincidences(allpairs)),
+                                      'span_on_triplet': span_dim(trip(coincidences(allpairs)))},
+    'coincidence_effects_adjacent_pairs': {'span': span_dim(coincidences(dist[1])), 'span_on_triplet': span_dim(trip(coincidences(dist[1])))},
+    'coincidence_effects_distance_two': {'span': span_dim(coincidences(dist[2])), 'span_on_triplet': span_dim(trip(coincidences(dist[2])))},
+    'coincidence_effects_antipodal': {'span': span_dim(coincidences(dist[3])), 'span_on_triplet': span_dim(trip(coincidences(dist[3])))},
+}
+print('B spans', partB, flush=True)
+# Lie closure of the coincidence responses (two-port probes), on a spanning subset
+sp = Span(); gens = []
+for X in coincidences(allpairs):
+    if sp.add(list(X.ravel())):
+        gens.append(X)
+partB['coincidence_lie'] = lie_report(gens)
+partB['coincidence_lie_on_triplet'] = lie_report(trip(gens))
+# double load (bosons): both quanta on port p, internal state in Sym^2: effects of the two-click readout at p
+dbl = [Psym @ zkron(P2[m][p], P2[mm][p]) @ Psym for p in range(12) for m in (1, -1) for mm in (1, -1)]
+partB['double_load_effects_on_triplet'] = {'span': span_dim(dbl), 'note': 'the three helicity projectors of spin 1 along the port axis'}
+# comparison: an elementary vector quantum, one-click effects, top helicity only and all helicities
+V_top = port_projectors(VECTOR)
+V_all = [helicity_projector(2, N_EX[p], m2) for p in range(12) for m2 in (2, 0, -2)]
+partB['elementary_vector_one_click'] = {'top_helicity': lie_report(V_top), 'all_helicities_span': span_dim(V_all)}
+# identity: the one-click response on the triplet is the spin-1 representation of the spinor response
+# (Pi x 1 + 1 x Pi)/2 = (1 + n.S)/2 with S the total spin: check (X - 1/2)^2 Psym = (1/4)(n.S)^2 and linearity in n
+lin = True
+for p in range(12):
+    Xp = (zkron(P2[1][p], I2) + zkron(I2, P2[1][p])) * half
+    Xm = (zkron(P2[-1][p], I2) + zkron(I2, P2[-1][p])) * half
+    lin &= all(not v for v in (Xp + Xm - zeye(4)).ravel())
+partB['one_click_identity'] = {'X_plus + X_minus = 1': bool(lin),
+    'reading': 'X_pm = (1 pm n.S)/2 with S the total spin: the one-body response of the pair is the tensor-product '
+               'representation of the one-quantum u(2); no quadrupole'}
+out['B_port_effects_on_two_spinor_quanta'] = partB
+print('B', {k: v for k, v in partB.items() if k.startswith('coincidence_lie') or k.startswith('double') or k.startswith('elementary')}, flush=True)
+
+# ---------------------------------------------------------------- Part C: twisted chain and CAP
+chi = [axis_state(0.5, 0.5, C.N[p]) for p in range(12)]
+def link(a, b, k=1):
+    z = np.vdot(chi[b], chi[a]); return (z / abs(z)) ** k        # hop a -> b
+f0 = C.F[0]
+hol = link(f0[0], f0[1]) * link(f0[1], f0[2]) * link(f0[2], f0[0])
+flux_unit = float(np.angle(hol) / (2 * np.pi) * 20)
+pairs = [tuple(p for p in range(12) if x[p]) for x in BIN66]
+pidx = {c: i for i, c in enumerate(pairs)}
+def T2(k, fermi=False):
+    H = np.zeros((66, 66), complex)
+    for (a, b) in SEAMS:
+        for c in pairs:
+            ina, inb = a in c, b in c
+            if ina != inb:
+                i = pidx[c]; H[i, i] += 1
+                src, dst = (a, b) if ina else (b, a)
+                d = tuple(sorted(dst if x == src else x for x in c))
+                sgn = 1
+                if fermi:
+                    other = [x for x in c if x != src][0]
+                    sgn = 1 if (src < other) == (dst < other) else -1
+                H[pidx[d], i] -= sgn * link(src, dst, k)
+    return np.eye(66) - H / 60
+trip_vecs = [np.array([1, 0, 0, 0.]), np.array([0, 1, 1, 0.]) / 2 ** .5, np.array([0, 0, 0, 1.])]
+sing_vec = np.array([0, 1, -1, 0.]) / 2 ** .5
+def section(t):
+    return np.array([np.vdot(np.kron(chi[p], chi[q2]), t) for (p, q2) in pairs])
+Wt = np.array([section(t) for t in trip_vecs]).T
+Ws = section(sing_vec)[:, None]
+def analyse(T, W, label):
+    ev, evec = np.linalg.eigh((T + T.conj().T) / 2)
+    top = ev[-1]; sel = np.abs(ev - top) < 1e-9; m = int(sel.sum())
+    Q, _ = np.linalg.qr(W)
+    sv = np.linalg.svd(Q.conj().T @ evec[:, sel], compute_uv=False)
+    ray = np.linalg.eigvalsh(Q.conj().T @ T @ Q)
+    resid = np.linalg.norm(T @ Q - Q @ (Q.conj().T @ T @ Q))
+    return {'leading_factor': round(float(top), 9), 'multiplicity': m, 'next': round(float(ev[~sel].max()), 9),
+            'cosines_of_principal_angles_with_section_space': [round(float(s), 9) for s in sv],
+            'rayleigh_quotients_on_section_space': [round(float(v), 9) for v in ray],
+            'invariance_residual_of_section_space': float(resid), 'section': label}
+partC = {'flux_per_face_of_the_spinor_frame': round(flux_unit, 6)}
+k1 = 1                                # the hop a -> b carries the phase of <chi_b|chi_a>, as in CAP
+partC['hard_core_bosons_flux_1_vs_triplet_sections'] = analyse(T2(k1), Wt, '<chi_p chi_q|t>, t in the triplet (symmetric in p, q)')
+partC['hard_core_fermions_flux_1_vs_singlet_section'] = analyse(T2(k1, fermi=True), Ws, '<chi_p chi_q|s>, s the singlet (antisymmetric in p, q)')
+print('C twisted chains', partC, flush=True)
+
+# CAP on the total-two carrier in this labelling (definition copied from work/FLUXPUMP/cap.py)
+states = [tuple(int(p in c) for p in range(12)) for c in pairs] + [tuple(2 * int(p == q2) for p in range(12)) for q2 in range(12)]
+sidx = {s: i for i, s in enumerate(states)}
+def cap_rows(seam):
+    a, b = seam; z = link(a, b, k1); d = len(states)
+    keep = np.zeros((d, d), complex); corr = np.zeros((d, d), complex); sa = np.zeros((d, d), complex); sb = np.zeros((d, d), complex)
+    for s, i in sidx.items():
+        xa, xb = s[a], s[b]
+        if (xa, xb) in ((0, 0), (1, 1)):
+            keep[i, i] = 1
+        elif (xa, xb) in ((1, 0), (0, 1)):
+            t = list(s); t[a], t[b] = xb, xa; j = sidx[tuple(t)]
+            ia, ib = (i, j) if xa == 1 else (j, i)
+            cp = np.array([1, np.conj(z)]) / np.sqrt(2); cm = np.array([1, -np.conj(z)]) / np.sqrt(2)
+            col = 0 if i == ia else 1
+            keep[ia, i] += cp[col] / np.sqrt(2); keep[ib, i] += z * cp[col] / np.sqrt(2)
+            corr[ia, i] += cm[col] / np.sqrt(2); corr[ib, i] += z * cm[col] / np.sqrt(2)
+        else:
+            t = list(s); t[a], t[b] = 1, 1
+            (sa if xa == 2 else sb)[sidx[tuple(t)], i] = 1
+    return [keep, corr, sa, sb]
+import scipy.sparse as sps
+d = len(states)
+Sup = sps.csr_matrix((d * d, d * d), dtype=complex)
+for e in SEAMS:
+    for K in cap_rows(e):
+        Ks = sps.csr_matrix(K)
+        Sup = Sup + sps.kron(Ks, Ks.conj(), format='csr') / 30
+rng = np.random.default_rng(5)
+X = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d)); rho = X @ X.conj().T; rho /= np.trace(rho).real
+v = rho.ravel()
+for it in range(1, 200001):
+    new = Sup @ v
+    step = np.linalg.norm(new - v); v = new
+    if step < 1e-14:
+        break
+rho = v.reshape(d, d)
+rho = (rho + rho.conj().T) / 2
+ev, evec = np.linalg.eigh(rho)
+top = ev[-1]; sel = np.abs(ev - top) < 1e-8
+Q, _ = np.linalg.qr(np.vstack([Wt, np.zeros((12, 3))]))
+sv = np.linalg.svd(Q.conj().T @ evec[:, sel], compute_uv=False)
+partC['CAP_two_loads'] = {'iterations': it, 'last_step': float(step), 'leading_level': round(float(top), 6), 'multiplicity': int(sel.sum()),
+                          'cosines_of_principal_angles_with_triplet_sections': [round(float(s), 9) for s in sv],
+                          'weight_of_stationary_state_on_section_space': round(float(np.real(np.trace(Q.conj().T @ rho @ Q))), 6)}
+print('C CAP', partC['CAP_two_loads'], flush=True)
+out['C_relation_to_twisted_chain_and_CAP'] = partC
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('b3_protected.json', 'w'), indent=1)
+print('written b3_protected.json', out['seconds'], 's')

@@ -1,0 +1,67 @@
+"""Tools for the federation workers: what an internal transport protects.
+
+    protected(nodes, hops, link, j2s) -> dict
+
+nodes : number of configurations (positions of one quantum on a carrier or on a federation).
+hops  : list of (p, q, rate): the unread law moves p -> q with probability `rate` per attempt (both directions listed).
+link  : function (p, q) -> 3 x 3 proper rotation applied to the internal frame on the hop p -> q
+        (link(q, p) must be the inverse). The identity for every hop is the ambient (flat) transport.
+j2s   : internal type, e.g. [1] spinor, [2] vector, [1, 2] for 2 + 3 (the spinor block uses the same rotation here;
+        pass a second function through `link_spinor` for the Galois-conjugate pairing).
+
+Returns the dimension of the internal algebra fixed by the unread law (theorem T3 of TRADEOFF.md: the commutant of the
+holonomy group) and the leading relaxation factor of the unprotected part. Float linear algebra, tolerance 1e-9.
+"""
+import numpy as np
+from scipy.linalg import expm
+from mt_lib import herm_spin
+
+
+def _rep(j2, Rm):
+    """Spin-j2/2 matrix of a proper rotation (one of its two lifts for odd j2)."""
+    ang = np.arccos(np.clip((np.trace(Rm) - 1) / 2, -1, 1))
+    if ang < 1e-12:
+        return np.eye(j2 + 1, dtype=complex)
+    if abs(ang - np.pi) < 1e-9:
+        w, v = np.linalg.eigh((Rm + Rm.T) / 2); ax = v[:, -1]
+    else:
+        ax = np.array([Rm[2, 1] - Rm[1, 2], Rm[0, 2] - Rm[2, 0], Rm[1, 0] - Rm[0, 1]]) / (2 * np.sin(ang))
+    Jx, Jy, Jz = herm_spin(j2)
+    return expm(-1j * ang * (ax[0] * Jx + ax[1] * Jy + ax[2] * Jz))
+
+
+def protected(nodes, hops, link, j2s, link_spinor=None):
+    """Fixed-point dimension inside the block algebra (sum over blocks of M_(2j+1)); coherences between blocks of
+    different spin are not counted (they are not accessible to port readouts and depend on the choice of lifts)."""
+    total_fixed, worst, full = 0, 0.0, 0
+    for j2 in j2s:
+        d = j2 + 1; full += d * d
+        stay = np.ones(nodes)
+        M = np.zeros((nodes * d * d, nodes * d * d), complex)
+        for p, q, rate in hops:
+            stay[p] -= rate
+            Rm = link_spinor(p, q) if (j2 % 2 and link_spinor) else link(p, q)
+            U = _rep(j2, Rm)
+            M[q * d * d:(q + 1) * d * d, p * d * d:(p + 1) * d * d] += rate * np.kron(U, U.conj())   # Ad(U): the sign of the lift cancels
+        for p in range(nodes):
+            M[p * d * d:(p + 1) * d * d, p * d * d:(p + 1) * d * d] += stay[p] * np.eye(d * d)
+        ev = np.linalg.eigvals(M)
+        total_fixed += int((np.abs(ev - 1) < 1e-9).sum())
+        rest = np.abs(ev[np.abs(ev - 1) >= 1e-9])
+        if len(rest):
+            worst = max(worst, float(rest.max()))
+    return {'block_algebra_dimension': full, 'protected_dimension': total_fixed, 'leading_factor_of_the_rest': worst}
+
+
+if __name__ == '__main__':
+    from carrier_tools import C
+    hops = [(p, q, 1 / 60) for p in range(12) for q in C.nbr[p]]
+    flat = lambda p, q: np.eye(3)
+    theta = np.arccos(1 / np.sqrt(5))
+    def geodesic(p, q):
+        k = np.cross(C.N[p], C.N[q]); k /= np.linalg.norm(k)
+        K = np.array([[0, -k[2], k[1]], [k[2], 0, -k[0]], [-k[1], k[0], 0]])
+        return expm(theta * K)
+    for name, link in (('ambient frame (flat)', flat), ('geodesic rotation of each hop', geodesic)):
+        for tname, js in (('spinor', [1]), ('vector', [2]), ('2 + 3', [1, 2])):
+            print(name, '|', tname, protected(12, hops, link, js))

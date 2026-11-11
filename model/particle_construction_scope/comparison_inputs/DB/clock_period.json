@@ -1,0 +1,205 @@
+{
+ "lattice": [
+  3,
+  3,
+  2
+ ],
+ "link_word": 2316114869129267,
+ "class_labels": {
+  "(0, 0, 0)": [
+   1,
+   2
+  ],
+  "(1, 1, 0)": [
+   2,
+   3
+  ],
+  "(2, 0, 1)": [
+   3,
+   2
+  ],
+  "(0, 2, 1)": [
+   4,
+   4
+  ],
+  "(2, 2, 0)": [
+   5,
+   5
+  ]
+ },
+ "max_angle_difference_pattern_vs_complement": 0.0,
+ "max_period_spectrum_difference": 0.0,
+ "max_period_spectrum_difference_with_native_factor": 0.0,
+ "single_tick_with_native_factor_odd_half_shifted_by_pi": true,
+ "rows": [
+  {
+   "pattern": [
+    0,
+    0
+   ],
+   "complement": [
+    3,
+    2
+   ],
+   "Q6": 0,
+   "degree": 0,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    0,
+    1
+   ],
+   "complement": [
+    3,
+    1
+   ],
+   "Q6": 3,
+   "degree": 1,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    0,
+    2
+   ],
+   "complement": [
+    3,
+    0
+   ],
+   "Q6": 6,
+   "degree": 2,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    1,
+    0
+   ],
+   "complement": [
+    2,
+    2
+   ],
+   "Q6": -2,
+   "degree": 1,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    1,
+    1
+   ],
+   "complement": [
+    2,
+    1
+   ],
+   "Q6": 1,
+   "degree": 2,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    1,
+    2
+   ],
+   "complement": [
+    2,
+    0
+   ],
+   "Q6": 4,
+   "degree": 3,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    2,
+    0
+   ],
+   "complement": [
+    1,
+    2
+   ],
+   "Q6": -4,
+   "degree": 2,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    2,
+    1
+   ],
+   "complement": [
+    1,
+    1
+   ],
+   "Q6": -1,
+   "degree": 3,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    2,
+    2
+   ],
+   "complement": [
+    1,
+    0
+   ],
+   "Q6": 2,
+   "degree": 4,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    3,
+    0
+   ],
+   "complement": [
+    0,
+    2
+   ],
+   "Q6": -6,
+   "degree": 3,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    3,
+    1
+   ],
+   "complement": [
+    0,
+    1
+   ],
+   "Q6": -3,
+   "degree": 4,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  },
+  {
+   "pattern": [
+    3,
+    2
+   ],
+   "complement": [
+    0,
+    0
+   ],
+   "Q6": 0,
+   "degree": 5,
+   "period_spectrum_max_diff": 0.0,
+   "period_spectrum_max_diff_with_native_factor": 0.0
+  }
+ ],
+ "finding": "CF-1 treats a pattern and its complement identically; the native factor (-1)^n per tick cancels over the CF-1 period, so the even and odd cloud halves are degenerate in the period readout"
+}

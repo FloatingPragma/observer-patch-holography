@@ -1,0 +1,73 @@
+{
+ "task": "LP addendum 4: committed pump on the hard-core sector",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "holonomy +1": {
+  "stationary states of the pump (eigenvalue 1 of the channel)": 1,
+  "purity of the stationary state": 1.0,
+  "eigenvalues of the stationary state": [
+   1.0
+  ],
+  "jump weight per attempt": -0.0,
+  "as a fraction (continued fraction)": "0",
+  "jump weight per addressed seam (six seams)": [
+   -0.0,
+   -0.0,
+   -0.0,
+   -0.0,
+   -0.0,
+   -0.0
+  ],
+  "second largest modulus of the channel": 0.9553418013
+ },
+ "holonomy -1": {
+  "stationary states of the pump (eigenvalue 1 of the channel)": 1,
+  "purity of the stationary state": 0.242014080196,
+  "eigenvalues of the stationary state": [
+   0.0033359731,
+   0.0033359731,
+   0.0061131143,
+   0.0131313131,
+   0.0131313131,
+   0.0131313131,
+   0.0136512309,
+   0.023173576,
+   0.023173576,
+   0.0307932135,
+   0.0494949495,
+   0.0494949495,
+   0.0837858756,
+   0.3371268145,
+   0.3371268145
+  ],
+  "jump weight per attempt": 0.088888888889,
+  "as a fraction (continued fraction)": "4/45",
+  "jump weight per addressed seam (six seams)": [
+   0.088888888889,
+   0.088888888889,
+   0.088888888889,
+   0.088888888889,
+   0.088888888889,
+   0.088888888889
+  ],
+  "second largest modulus of the channel": 0.9553418013
+ },
+ "hexagon, holonomy -1, exact": {
+  "dimension of the stationary space": 1,
+  "jump weight per attempt (EXACT)": "4/45",
+  "jump weight per address": [
+   "4/45"
+  ],
+  "populations": [
+   "1/15"
+  ],
+  "purity": "39533/163350"
+ },
+ "seconds": 2.98
+}

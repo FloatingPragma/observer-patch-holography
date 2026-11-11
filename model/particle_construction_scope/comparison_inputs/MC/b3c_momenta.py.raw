@@ -1,0 +1,349 @@
+"""Block 3C: load four-momenta (lead L18). A record of a load at port p is the null vector k_p = (1, u_p);
+the population is the set of partial sums X_t = sum_{s <= t} k_{p_s} of the tapes, ordered by the Loewner order.
+
+Exact arithmetic: X = (n, sum_a m_a u_a) with n the record count and m in Z^6 the signed axis counts; the relation
+"dn >= |sum dm_a u_a|" is decided in integers (mc_lib.relation_axis_counts).
+
+Parts (python b3c_momenta.py <part> [--procs 12]):
+  single     one tape: Loewner order against the prefix order
+  joint      K tapes of length T from a common origin, four record sequences, whole-population statistics and
+             interval profiles
+  complete   the complete population of all load configurations of total <= n (n = 5), Loewner order against the
+             configuration order (polyhedral cone)
+  window     deep-window ladder: a diamond of duration dT centred in the cloud at time t0 (i.i.d. ports)
+  boost      Lorentz test: counts in boosted diamonds of equal volume against the Gaussian density
+  covariant  variant: steps isotropic in the rest frame of the running sum
+Writes results/b3c_<part>.json.
+"""
+import argparse, json, os, sys, time
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+from carrier_tools import C
+
+AX = [p for p in range(12) if p < C.anti[p]]
+AXI = np.zeros(12, np.int64); SGN = np.zeros(12, np.int64)
+for _a, _p in enumerate(AX):
+    AXI[_p] = _a; SGN[_p] = 1; AXI[C.anti[_p]] = _a; SGN[C.anti[_p]] = -1
+U6 = C.N[AX]
+S = L.axis_gram_signs(U6)
+NBR = np.array(C.nbr)
+KIND_ID = {'iid': 1, 'jump': 2, 'lazy': 3, 'spin': 4}
+
+
+def port_sequences(kind, K, T, rng):
+    if kind == 'iid':
+        return rng.integers(12, size=(K, T))
+    P = np.empty((K, T), np.int64)
+    p = rng.integers(12, size=K)
+    if kind == 'jump':        # one record per accepted move of the load: simple walk on the icosahedron
+        for t in range(T):
+            p = NBR[p, rng.integers(5, size=K)]; P[:, t] = p
+    elif kind == 'lazy':      # one record per attempt of the reference rule: the load moves with probability 1/12
+        for t in range(T):
+            mv = rng.random(K) < 1 / 12
+            p = np.where(mv, NBR[p, rng.integers(5, size=K)], p); P[:, t] = p
+    elif kind == 'spin':      # projective port-axis readouts of a spinor: P(p -> q) = (1 + u_p.u_q) / 12
+        cum = np.cumsum((1 + C.N @ C.N.T) / 12, axis=1)
+        for t in range(T):
+            p = np.minimum((rng.random(K)[:, None] > cum[p]).sum(axis=1), 11); P[:, t] = p
+    return P
+
+
+def partial_sums(P):
+    K, T = P.shape
+    inc = np.zeros((K, T, 6), np.int64)
+    inc[np.arange(K)[:, None], np.arange(T)[None, :], AXI[P]] = SGN[P]
+    return np.broadcast_to(np.arange(1, T + 1), (K, T)).copy(), np.cumsum(inc, axis=1)
+
+
+def to_points(n, m):
+    return np.column_stack([np.asarray(n, float), np.asarray(m, float) @ U6])
+
+
+# ----------------------------------------------------------------------------- single
+def part_single():
+    out = {}
+    for kind in KIND_ID:
+        rng = np.random.default_rng([3, KIND_ID[kind]])
+        n, m = partial_sums(port_sequences(kind, 1, 1500, rng))
+        R = L.relation_axis_counts(n[0], m[0], S)
+        prefix = np.triu(np.ones((1500, 1500), bool), 1)
+        Rf = L.relation_cone(to_points(n[0], m[0]))
+        P = to_points(n[0], m[0])
+        out[kind] = {'T': 1500, 'loewner_equals_prefix_order_exact': bool((R == prefix).all()),
+                     'float_relation_equals_exact': bool((R == Rf).all()), 'ordering_fraction': float(R.sum() / prefix.sum()),
+                     'final_point': [float(v) for v in P[-1]], 'final_rapidity': float(np.arctanh(np.linalg.norm(P[-1, 1:]) / P[-1, 0])),
+                     'null_links': int(sum(abs(P[i + 1, 0] - P[i, 0] - np.linalg.norm(P[i + 1, 1:] - P[i, 1:])) < 1e-9 for i in range(1499)))}
+    return out
+
+
+# ----------------------------------------------------------------------------- joint
+def joint_one(a):
+    kind, K, T, seed = a
+    rng = np.random.default_rng([seed, KIND_ID[kind], K, T])
+    n, m = partial_sums(port_sequences(kind, K, T, rng))
+    nn = n.reshape(-1); mm = m.reshape(-1, 6)
+    tape = np.repeat(np.arange(K), T); pos = np.tile(np.arange(T), K)
+    key = np.column_stack([nn, mm])
+    uniq, inv = np.unique(key, axis=0, return_inverse=True)
+    inv = inv.reshape(-1)
+    N = uniq.shape[0]
+    R = L.relation_axis_counts(uniq[:, 0], uniq[:, 1:], S)
+    # prefix (tape) order on the distinct points
+    Rp = np.zeros((N, N), bool)
+    ids = inv.reshape(K, T)
+    for k in range(K):
+        Rp[np.ix_(ids[k], ids[k])] |= np.triu(np.ones((T, T), bool), 1)
+    np.fill_diagonal(Rp, False)
+    st = L.order_stats(R, check_transitive=True)
+    P = to_points(uniq[:, 0], uniq[:, 1:])
+    rap = np.arctanh(np.minimum(np.linalg.norm(P[:, 1:], axis=1) / P[:, 0], 1 - 1e-15))
+    st.update({'kind': kind, 'K': K, 'T': T, 'seed': seed, 'distinct_points': int(N), 'records': int(K * T),
+               'prefix_in_loewner': bool(not (Rp & ~R).any()), 'prefix_pairs': int(Rp.sum()),
+               'extra_fraction': float((R & ~Rp).sum() / max(1, R.sum())),
+               'null_fraction': float(np.mean(np.abs(P[:, 0] - np.linalg.norm(P[:, 1:], axis=1)) < 1e-9)),
+               'x2_over_t_at_T': float(np.mean((P[uniq[:, 0] == T, 1:] ** 2).sum(axis=1)) / T),
+               'median_rapidity': float(np.median(rap))})
+    st['profile'] = L.profile_means(L.interval_profile(R, rng))
+    return st
+
+
+def part_joint(procs, seeds):
+    shapes = ((400, 10), (100, 40), (40, 100), (16, 250), (4, 1000))
+    jobs = [(kind, K, T, s) for kind in KIND_ID for K, T in shapes for s in range(seeds)]
+    with Pool(procs) as pool:
+        rows = pool.map(joint_one, jobs, chunksize=1)
+    out = {}
+    for kind in KIND_ID:
+        for K, T in shapes:
+            sel = [r for r in rows if (r['kind'], r['K'], r['T']) == (kind, K, T)]
+            s = L.summarize(sel, keys=('r', 'd_r', 'm', 'd_m', 'links', 'height', 'N', 'extra_fraction', 'null_fraction',
+                                       'x2_over_t_at_T', 'median_rapidity'))
+            s['prefix_in_loewner_all'] = all(r['prefix_in_loewner'] for r in sel)
+            s['transitive_all'] = all(r['transitive'] for r in sel)
+            s['profile'] = L.across_seeds([r['profile'] for r in sel])
+            out[f'{kind}|K={K}|T={T}'] = s
+    return out
+
+
+# ----------------------------------------------------------------------------- complete
+def lattice_points(nmax):
+    """All (n, m): m in Z^6, |m|_1 <= n, |m|_1 = n mod 2, 1 <= n <= nmax: images of load configurations of total n."""
+    import itertools
+    ms = [m for m in itertools.product(range(-nmax, nmax + 1), repeat=6) if sum(abs(v) for v in m) <= nmax]
+    ms = np.array(ms, np.int64)
+    l1 = np.abs(ms).sum(axis=1)
+    n_list, m_list = [], []
+    for n in range(1, nmax + 1):
+        ok = (l1 <= n) & ((l1 - n) % 2 == 0)
+        n_list.append(np.full(ok.sum(), n)); m_list.append(ms[ok])
+    return np.concatenate(n_list), np.vstack(m_list)
+
+
+def part_complete(nmax=5):
+    n, m = lattice_points(nmax)
+    N = n.size
+    R = L.relation_axis_counts(n, m, S)
+    # configuration order (adding loads): dn >= |dm|_1 and same parity
+    Rc = np.zeros((N, N), bool)
+    for s in range(0, N, 400):
+        dn = n[None, :] - n[s:s + 400, None]
+        d1 = np.abs(m[None, :, :] - m[s:s + 400, None, :]).sum(axis=2)
+        Rc[s:s + 400] = (dn > 0) & (dn >= d1) & ((dn - d1) % 2 == 0)
+    rng = np.random.default_rng(5)
+    st = L.order_stats(R, check_transitive=True)
+    stc = L.order_stats(Rc, check_transitive=True)
+    P = to_points(n, m)
+    out = {'nmax': nmax, 'points': int(N), 'layer_sizes': [int((n == k).sum()) for k in range(1, nmax + 1)],
+           'loewner': {k: st[k] for k in ('N', 'C2', 'r', 'd_r', 'm', 'd_m', 'links', 'height', 'transitive')},
+           'configuration_order': {k: stc[k] for k in ('N', 'C2', 'r', 'd_r', 'm', 'd_m', 'links', 'height', 'transitive')},
+           'configuration_order_in_loewner': bool(not (Rc & ~R).any()),
+           'extra_relations_fraction_of_loewner': float((R & ~Rc).sum() / R.sum()),
+           'null_fraction_of_points': float(np.mean(np.abs(P[:, 0] - np.linalg.norm(P[:, 1:], axis=1)) < 1e-9)),
+           'profile_loewner': L.profile_means(L.interval_profile(R, rng)),
+           'profile_configuration_order': L.profile_means(L.interval_profile(Rc, rng))}
+    return out
+
+
+# ----------------------------------------------------------------------------- window ladder
+def window_one(a):
+    t0, dT, target, seed = a
+    rng = np.random.default_rng([seed, t0, dT, 77])
+    dens = (3 / (2 * np.pi * t0)) ** 1.5 * np.pi * dT ** 4 / 24
+    K = int(max(target / dens, 3000) * 1.3)
+    pts_n, pts_m = [], []
+    done = 0
+    while done < K:
+        k = min(2_000_000, K - done); done += k
+        cnt = rng.multinomial(t0, [1 / 12] * 12, size=k)
+        m0 = np.zeros((k, 6), np.int64)
+        for p in range(12):
+            m0[:, AXI[p]] += SGN[p] * cnt[:, p]
+        near = np.linalg.norm(m0 @ U6, axis=1) <= dT + 1e-9
+        m0 = m0[near]
+        if m0.shape[0] == 0:
+            continue
+        n, m = partial_sums(rng.integers(12, size=(m0.shape[0], dT)))
+        m = m + m0[:, None, :]
+        x = m.reshape(-1, 6) @ U6
+        s = n.reshape(-1).astype(float)
+        inside = np.linalg.norm(x, axis=1) <= np.minimum(s, dT - s) + 1e-9
+        pts_n.append((t0 + n.reshape(-1))[inside]); pts_m.append(m.reshape(-1, 6)[inside])
+    n = np.concatenate(pts_n); m = np.vstack(pts_m)
+    found = n.size
+    key = np.unique(np.column_stack([n, m]), axis=0)
+    if key.shape[0] > target:
+        key = key[rng.choice(key.shape[0], target, replace=False)]
+    R = L.relation_axis_counts(key[:, 0], key[:, 1:], S)
+    st = L.order_stats(R)
+    st.update({'t0': t0, 'dT': dT, 'seed': seed, 'walkers': K, 'points_found': int(found), 'expected_points': float(K * dens)})
+    return st
+
+
+def part_window(procs, seeds):
+    jobs = [(t0, dT, 3000, s) for t0 in (600,) for dT in (4, 8, 16, 32, 64, 128, 256, 512) for s in range(seeds)]
+    jobs += [(t0, dT, 3000, s) for t0 in (6000,) for dT in (16, 64) for s in range(seeds)]
+    with Pool(procs) as pool:
+        rows = pool.map(window_one, jobs, chunksize=1)
+    out = {}
+    for t0, dT in sorted({(r['t0'], r['dT']) for r in rows}):
+        sel = [r for r in rows if (r['t0'], r['dT']) == (t0, dT)]
+        s = L.summarize(sel, keys=('r', 'd_r', 'm', 'd_m', 'links', 'height', 'N', 'points_found', 'expected_points', 'walkers'))
+        s['dT_over_rms_radius'] = float(dT / np.sqrt(t0))
+        out[f't0={t0}|dT={dT}'] = s
+    return out
+
+
+# ----------------------------------------------------------------------------- boost test
+def boost_one(a):
+    t0, dT, K, seed = a
+    rng = np.random.default_rng([seed, t0, dT, 99])
+    etas = (0.0, 0.5, 1.0, 1.5, 2.0)
+    steps = int(np.ceil(dT * np.cosh(max(etas)))) + 1
+    cnt = rng.multinomial(t0, [1 / 12] * 12, size=K)
+    x0 = np.zeros((K, 3))
+    for p in range(12):
+        x0 += cnt[:, p:p + 1] * C.N[p][None, :]
+    counts = np.zeros(len(etas)); x = x0.copy()
+    tips = [(np.array([t0, 0, 0, 0.0]), np.array([t0 + dT * np.cosh(e), 0, 0, dT * np.sinh(e)])) for e in etas]
+    for s in range(1, steps + 1):
+        x += C.N[rng.integers(12, size=K)]
+        P = np.column_stack([np.full(K, float(t0 + s)), x])
+        for i, (p, q) in enumerate(tips):
+            counts[i] += L.in_diamond(P, p, q).sum()
+    # Gaussian prediction: integrate the density K (3 / (2 pi t))^(3/2) exp(-3 x^2 / (2 t)) over the layers of each diamond
+    pred = []
+    g = np.random.default_rng(1)
+    for (p, q), e in zip(tips, etas):
+        tot = 0.0
+        for s in range(1, steps + 1):
+            t = t0 + s
+            # Monte Carlo over a box containing the layer of the diamond
+            half = dT * np.cosh(e) / 2 + 1e-9
+            y = (g.random((40000, 3)) - 0.5) * 2 * half
+            y[:, 2] += dT * np.sinh(e) / 2
+            P = np.column_stack([np.full(40000, float(t)), y])
+            w = L.in_diamond(P, p, q)
+            if w.any():
+                tot += (2 * half) ** 3 * np.mean(w * K * (3 / (2 * np.pi * t)) ** 1.5 * np.exp(-3 * (y ** 2).sum(axis=1) / (2 * t)))
+        pred.append(tot)
+    return {'t0': t0, 'dT': dT, 'K': K, 'seed': seed, 'etas': etas, 'counts': counts.tolist(), 'gaussian_prediction': pred}
+
+
+def part_boost(procs, seeds):
+    jobs = [(600, 16, 400000, s) for s in range(seeds)] + [(6000, 16, 400000, s) for s in range(seeds)]
+    with Pool(procs) as pool:
+        rows = pool.map(boost_one, jobs, chunksize=1)
+    out = {}
+    for t0 in (600, 6000):
+        sel = [r for r in rows if r['t0'] == t0]
+        c = np.array([r['counts'] for r in sel]); g = np.array([r['gaussian_prediction'] for r in sel])
+        ratio = c / c[:, :1]
+        out[f't0={t0}|dT=16'] = {'etas': sel[0]['etas'], 'counts_mean': c.mean(axis=0).tolist(),
+                                 'count_ratio_to_eta0': ratio.mean(axis=0).tolist(),
+                                 'count_ratio_se': (ratio.std(axis=0, ddof=1) / np.sqrt(len(sel))).tolist(),
+                                 'gaussian_prediction_ratio': (g.mean(axis=0) / g.mean(axis=0)[0]).tolist(),
+                                 'invariant_population_ratio': [1.0] * 5, 'walkers': sel[0]['K'], 'seeds': len(sel)}
+    return out
+
+
+# ----------------------------------------------------------------------------- covariant variant
+def boost_vectors(X, k):
+    """Boost the vectors k [K, 4] by the pure boost that maps e_0 to X / tau(X); X [K, 4] timelike."""
+    tau = np.sqrt(np.maximum(X[:, 0] ** 2 - (X[:, 1:] ** 2).sum(axis=1), 1e-300))
+    v = X / tau[:, None]                      # unit timelike, v0 = gamma, vec = gamma beta
+    g = v[:, 0]; gb = v[:, 1:]
+    kd = (gb * k[:, 1:]).sum(axis=1)
+    t = g * k[:, 0] + kd
+    x = k[:, 1:] + gb * ((kd / (1 + g)) + k[:, 0])[:, None]
+    return np.column_stack([t, x])
+
+
+def covariant_one(a):
+    K, T, seed, scale = a
+    rng = np.random.default_rng([seed, K, T, 55, int(scale)])
+    X = np.tile(np.array([1.0, 0, 0, 0]), (K, 1))
+    pts = []
+    for t in range(T):
+        k = np.column_stack([np.ones(K), C.N[rng.integers(12, size=K)]])
+        step = boost_vectors(X, k)
+        if scale:      # dilation-covariant member: step size proportional to the invariant mass of the running sum
+            step *= np.sqrt(X[:, 0] ** 2 - (X[:, 1:] ** 2).sum(axis=1))[:, None]
+        X = X + step
+        pts.append(X.copy())
+    P = np.vstack(pts)
+    rap_final = np.arctanh(np.linalg.norm(X[:, 1:], axis=1) / X[:, 0])
+    R = L.relation_cone(P)
+    st = L.order_stats(R)
+    tape = np.tile(np.arange(K), T); pos = np.repeat(np.arange(T), K)
+    Rp = (tape[:, None] == tape[None, :]) & (pos[:, None] < pos[None, :])
+    st.update({'K': K, 'T': T, 'seed': seed, 'scale': scale, 'prefix_in_loewner': bool(not (Rp & ~R).any()),
+               'extra_fraction': float((R & ~Rp).sum() / max(1, R.sum())),
+               'rapidity_final_mean': float(rap_final.mean()), 'rapidity_final_sd': float(rap_final.std()),
+               'profile': L.profile_means(L.interval_profile(R, rng))})
+    return st
+
+
+def part_covariant(procs, seeds):
+    shapes = ((400, 10), (100, 40), (40, 100), (16, 250))
+    jobs = [(K, T, s, sc) for sc in (0, 1) for K, T in shapes for s in range(seeds)]
+    with Pool(procs) as pool:
+        rows = pool.map(covariant_one, jobs, chunksize=1)
+    out = {}
+    for sc in (0, 1):
+        for K, T in shapes:
+            sel = [r for r in rows if (r['K'], r['T'], r['scale']) == (K, T, sc)]
+            s = L.summarize(sel, keys=('r', 'd_r', 'm', 'd_m', 'links', 'height', 'N', 'extra_fraction', 'rapidity_final_mean', 'rapidity_final_sd'))
+            s['prefix_in_loewner_all'] = all(r['prefix_in_loewner'] for r in sel)
+            s['profile'] = L.across_seeds([r['profile'] for r in sel])
+            out[f'{"mass-scaled" if sc else "unit"} step|K={K}|T={T}'] = s
+    return out
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('part')
+    ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--seeds', type=int, default=8)
+    a = ap.parse_args()
+    t0 = time.time()
+    res = {'single': part_single, 'complete': part_complete}.get(a.part)
+    if res is not None:
+        res = res()
+    elif a.part == 'joint':
+        res = part_joint(a.procs, a.seeds)
+    elif a.part == 'window':
+        res = part_window(a.procs, a.seeds)
+    elif a.part == 'boost':
+        res = part_boost(a.procs, a.seeds)
+    elif a.part == 'covariant':
+        res = part_covariant(a.procs, a.seeds)
+    else:
+        raise SystemExit('unknown part')
+    res = {'part': a.part, 'seconds': time.time() - t0, 'result': res}
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open(f'results/b3c_{a.part}.json', 'w'), indent=1, default=float)
+
+    print(json.dumps(res, default=float)[:6000])
+    print('seconds', round(res['seconds'], 1))

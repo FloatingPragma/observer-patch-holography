@@ -1,0 +1,97 @@
+{
+ "carriers_8": {
+  "carrier_count": 8,
+  "seam_count": 48,
+  "seam_kinds": [
+   [
+    1,
+    "single_port"
+   ]
+  ],
+  "every_port_bound_exactly_once": true,
+  "seam_joins_equal_port_labels": true,
+  "propagation_steps": 4,
+  "intrinsic_step": 0.137,
+  "cycles": 16,
+  "repair_count_per_cycle": 3,
+  "repair_event_count": 48,
+  "repair_noop_count": 0,
+  "terminal_maximum_seam_mismatch": 0.0,
+  "terminal_fixed_point_receipt": true,
+  "order_replay_exact": true,
+  "idempotence_replay_exact": true,
+  "record_commit_schedule": [
+   3,
+   7,
+   11,
+   15
+  ],
+  "record_snapshot_count": 4,
+  "total_visible_ledger_initial": 7.999999999999999,
+  "total_visible_ledger_after_propagation": 8.000000000000002,
+  "total_visible_ledger_after_repair": 8.000000000000002,
+  "per_carrier_ledger_sum_after_repair_min_max": [
+   0.8263922222706295,
+   1.1347191117044249
+  ],
+  "propagation_changes_port_intensities_max_abs": 0.22346525737361939,
+  "hidden_amplitudes_unchanged_by_repair": true,
+  "visible_ledger_differs_from_hidden_intensities_max_abs": 0.1142911516806237,
+  "terminal_ledger_min_max": [
+   0.018757201594684487,
+   0.20465473106527277
+  ],
+  "terminal_ledger_uniform": false,
+  "each_seam_repaired_at_most_once": true,
+  "terminal_ledger_equals_pair_mean_of_propagated_ledger": true
+ },
+ "carriers_4": {
+  "carrier_count": 4,
+  "seam_count": 24,
+  "seam_kinds": [
+   [
+    1,
+    "single_port"
+   ]
+  ],
+  "every_port_bound_exactly_once": true,
+  "seam_joins_equal_port_labels": true,
+  "propagation_steps": 4,
+  "intrinsic_step": 0.137,
+  "cycles": 16,
+  "repair_count_per_cycle": 2,
+  "repair_event_count": 24,
+  "repair_noop_count": 8,
+  "terminal_maximum_seam_mismatch": 0.0,
+  "terminal_fixed_point_receipt": true,
+  "order_replay_exact": true,
+  "idempotence_replay_exact": true,
+  "record_commit_schedule": [
+   3,
+   7,
+   11,
+   15
+  ],
+  "record_snapshot_count": 4,
+  "total_visible_ledger_initial": 3.9999999999999996,
+  "total_visible_ledger_after_propagation": 4.0,
+  "total_visible_ledger_after_repair": 4.0,
+  "per_carrier_ledger_sum_after_repair_min_max": [
+   0.9284109733342182,
+   1.0973730629007434
+  ],
+  "propagation_changes_port_intensities_max_abs": 0.23816506327061507,
+  "hidden_amplitudes_unchanged_by_repair": true,
+  "visible_ledger_differs_from_hidden_intensities_max_abs": 0.17646373304181065,
+  "terminal_ledger_min_max": [
+   0.020525220298463157,
+   0.18266277133868578
+  ],
+  "terminal_ledger_uniform": false,
+  "each_seam_repaired_at_most_once": true,
+  "terminal_ledger_equals_pair_mean_of_propagated_ledger": true
+ },
+ "carriers_2": {
+  "error": "RuntimeError: source federation has no nonempty triangle for the triple-overlap contract"
+ }
+}

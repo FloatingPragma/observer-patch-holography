@@ -1,0 +1,623 @@
+{
+ "schema": "repair_law.CA.t1.v1",
+ "args": {
+  "walk": 10,
+  "tree": 5,
+  "literal": 3,
+  "out": "t1_area_record.json"
+ },
+ "checks": {
+  "A1 theta is integer with coboundary 1 on 19 oriented faces and 1 - 20 on the outside face": {
+   "pass": true,
+   "detail": {
+    "theta": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     -1,
+     1,
+     0,
+     0,
+     -8,
+     5,
+     -3,
+     0,
+     2,
+     14,
+     4,
+     0,
+     18,
+     0,
+     3,
+     -2,
+     2,
+     -1,
+     0,
+     -3,
+     2,
+     -2,
+     1,
+     19,
+     1
+    ]
+   }
+  },
+  "A2 no integer table has coboundary exactly 1 on all faces: the sum of the 20 face boundaries is zero": true,
+  "A3 coboundary is 1 modulo 20 on every oriented face": true,
+  "B1 Smith forms: face coboundary diag(1^19, 0), port coboundary diag(1^11, 0)": true,
+  "B2 kernel of the face coboundary modulo 20 = port coboundaries (both have 20^11 elements)": true,
+  "B3 every pair of tables (20 outside faces x 4 trees) differs modulo 20 by g(b) - g(a) for a port function g": {
+   "pass": true,
+   "detail": {
+    "tables": 80
+   }
+  },
+  "C1 one quantum: homological area = sum of theta along the moves, every closed walk, all starts, lengths <= 10": {
+   "pass": true,
+   "detail": {
+    "closed_walks": 12230460,
+    "distinct_cycles": 109941
+   }
+  },
+  "C2 area = number of moves modulo 2 on every closed walk": true,
+  "C3 the area histogram is the same from every port (rotation invariance)": {
+   "pass": true,
+   "detail": {
+    "length_10": [
+     172995,
+     0,
+     136600,
+     0,
+     82025,
+     0,
+     50525,
+     0,
+     36100,
+     0,
+     31870,
+     0,
+     36100,
+     0,
+     50525,
+     0,
+     82025,
+     0,
+     136600,
+     0
+    ]
+   }
+  },
+  "C4 one quantum: brute-force histograms = diagonal of the powers of the lifted move matrix in Z[Z/20]": true,
+  "D1 one (12 states): complete histories of L <= 5 attempts, homological area = counter on every closed history, and area-resolved return counts = diagonal of the powers of the lifted chain": {
+   "pass": true,
+   "detail": {
+    "tree_leaves": 93312,
+    "closed_histories_at_L": 6143085120
+   }
+  },
+  "D1 two (66 states): complete histories of L <= 5 attempts, homological area = counter on every closed history, and area-resolved return counts = diagonal of the powers of the lifted chain": {
+   "pass": true,
+   "detail": {
+    "tree_leaves": 7245786,
+    "closed_histories_at_L": 23478417120
+   }
+  },
+  "D1 full (78 states): complete histories of L <= 5 attempts, homological area = counter on every closed history, and area-resolved return counts = diagonal of the powers of the lifted chain": {
+   "pass": true,
+   "detail": {
+    "tree_leaves": 8461758,
+    "closed_histories_at_L": 27228417120
+   }
+  },
+  "D2 one: literal native.native enumeration of all 60^4 branch sequences per start = lifted chain power": {
+   "pass": true,
+   "detail": {
+    "native_calls": 158155920
+   }
+  },
+  "D2 full: literal native.native enumeration of all 60^3 branch sequences per start = lifted chain power": {
+   "pass": true,
+   "detail": {
+    "native_calls": 17133480
+   }
+  },
+  "E1 one: for all 20 characters and L <= 5, sum over closed histories of zeta^(k area) = diagonal entry of the L-th power of the twisted count matrix, exactly in Z[zeta_20]": true,
+  "E2 one: the twisted count matrix of character -k is the transpose of that of k (Hermitian blocks)": true,
+  "E1 two: for all 20 characters and L <= 5, sum over closed histories of zeta^(k area) = diagonal entry of the L-th power of the twisted count matrix, exactly in Z[zeta_20]": true,
+  "E2 two: the twisted count matrix of character -k is the transpose of that of k (Hermitian blocks)": true,
+  "E1 full: for all 20 characters and L <= 5, sum over closed histories of zeta^(k area) = diagonal entry of the L-th power of the twisted count matrix, exactly in Z[zeta_20]": true,
+  "F1 no native branch leads from a binary configuration to a double load": true,
+  "F2 a double load at p has 50 holds and 10 splits; a split over the seam (p, q) carries one unit of current p -> q and adds theta(p -> q) to the counter": true,
+  "F3 closed histories of a double load are the all-hold histories: 50^L at area 0": true,
+  "F4 area-resolved closed-history counts: full carrier = exclusion chain + 12 * 50^L at area 0": true,
+  "G1 (float64) spinor-frame links = omega^(sgn theta) up to a port rephasing; flux per oriented face = sgn": {
+   "pass": true,
+   "detail": {
+    "sgn": -1,
+    "defect": 1.6910413304902302e-15
+   }
+  }
+ },
+ "seconds": 218.97,
+ "theta": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  -1,
+  1,
+  0,
+  0,
+  -8,
+  5,
+  -3,
+  0,
+  2,
+  14,
+  4,
+  0,
+  18,
+  0,
+  3,
+  -2,
+  2,
+  -1,
+  0,
+  -3,
+  2,
+  -2,
+  1,
+  19,
+  1
+ ],
+ "seams": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   0,
+   7
+  ],
+  [
+   0,
+   10
+  ],
+  [
+   0,
+   11
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   1,
+   8
+  ],
+  [
+   1,
+   9
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   10
+  ],
+  [
+   2,
+   11
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   3,
+   8
+  ],
+  [
+   3,
+   9
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   9
+  ],
+  [
+   4,
+   11
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   5,
+   11
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   6,
+   8
+  ],
+  [
+   6,
+   10
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   10
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   10,
+   11
+  ]
+ ],
+ "faces": [
+  [
+   0,
+   11,
+   5
+  ],
+  [
+   0,
+   5,
+   1
+  ],
+  [
+   0,
+   1,
+   7
+  ],
+  [
+   0,
+   7,
+   10
+  ],
+  [
+   0,
+   10,
+   11
+  ],
+  [
+   1,
+   5,
+   9
+  ],
+  [
+   5,
+   11,
+   4
+  ],
+  [
+   11,
+   10,
+   2
+  ],
+  [
+   10,
+   7,
+   6
+  ],
+  [
+   7,
+   1,
+   8
+  ],
+  [
+   3,
+   9,
+   4
+  ],
+  [
+   3,
+   4,
+   2
+  ],
+  [
+   3,
+   2,
+   6
+  ],
+  [
+   3,
+   6,
+   8
+  ],
+  [
+   3,
+   8,
+   9
+  ],
+  [
+   4,
+   9,
+   5
+  ],
+  [
+   2,
+   4,
+   11
+  ],
+  [
+   6,
+   2,
+   10
+  ],
+  [
+   8,
+   6,
+   7
+  ],
+  [
+   9,
+   8,
+   1
+  ]
+ ],
+ "one_quantum_walk_histogram_by_length": {
+  "1": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "2": [
+   5,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "3": [
+   0,
+   5,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   5
+  ],
+  "4": [
+   45,
+   0,
+   10,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   10,
+   0
+  ],
+  "5": [
+   0,
+   100,
+   0,
+   25,
+   0,
+   5,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   5,
+   0,
+   25,
+   0,
+   100
+  ],
+  "6": [
+   575,
+   0,
+   275,
+   0,
+   70,
+   0,
+   30,
+   0,
+   15,
+   0,
+   10,
+   0,
+   15,
+   0,
+   30,
+   0,
+   70,
+   0,
+   275,
+   0
+  ],
+  "7": [
+   0,
+   1855,
+   0,
+   840,
+   0,
+   315,
+   0,
+   140,
+   0,
+   105,
+   0,
+   105,
+   0,
+   140,
+   0,
+   315,
+   0,
+   840,
+   0,
+   1855
+  ],
+  "8": [
+   9285,
+   0,
+   6220,
+   0,
+   2810,
+   0,
+   1460,
+   0,
+   920,
+   0,
+   760,
+   0,
+   920,
+   0,
+   1460,
+   0,
+   2810,
+   0,
+   6220,
+   0
+  ],
+  "9": [
+   0,
+   35880,
+   0,
+   21875,
+   0,
+   11445,
+   0,
+   6825,
+   0,
+   5355,
+   0,
+   5355,
+   0,
+   6825,
+   0,
+   11445,
+   0,
+   21875,
+   0,
+   35880
+  ],
+  "10": [
+   172995,
+   0,
+   136600,
+   0,
+   82025,
+   0,
+   50525,
+   0,
+   36100,
+   0,
+   31870,
+   0,
+   36100,
+   0,
+   50525,
+   0,
+   82025,
+   0,
+   136600,
+   0
+  ]
+ },
+ "all_pass": true
+}

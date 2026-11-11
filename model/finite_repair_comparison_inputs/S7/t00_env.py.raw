@@ -1,0 +1,18 @@
+"""Environment probe: load the pinned carrier and federation builder, print basic facts and timings."""
+import sys, time
+from pathlib import Path
+import numpy as np
+from model.common_source import slow_geometry
+src = slow_geometry.source()
+print('seams', len(src.seams()), src.seams()[:6])
+print('faces', len(src.oriented_faces()), src.oriented_faces()[:4])
+print('rotations', len(src.rotations()))
+ARCHIVE = slow_geometry.ARCHIVE
+sys.path.insert(0, str(ARCHIVE))
+from oph_exact import federation as F
+for lvl in (0, 1, 2, 3, 4):
+    t = time.time()
+    fed = F.build_federation(lvl, 'port_pair')
+    print('level', lvl, 'carriers', fed.carriers, 'ports', fed.ports, 'seams', fed.seams, 'inter', fed.inter_count, 'build s', round(time.time() - t, 2), flush=True)
+    if lvl == 0:
+        print(fed.inter_pairs.tolist())

@@ -1,0 +1,74 @@
+"""R7, supplementary exact and float checks behind statements of the report (no verdict depends on this file).
+
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/DIRAC:RL/work/R7 nice -n 10 \
+      /tmp/oph-completion-venv/bin/python RL/work/R7/checks_extra.py
+Writes RL/work/R7/checks_extra.json.
+"""
+import itertools, json, math, os, sys
+import numpy as np
+RL = 'WORKSPACE/repair-law'
+sys.path.insert(0, os.path.join(RL, 'work', 'DIRAC'))
+from routing import Routing                                            # noqa: E402
+
+out = {}
+# ---- A. the neutral toggle on the 32 patterns, integer arithmetic ---------------------------------------------
+N = 5
+states = list(itertools.product((0, 1), repeat=N))                    # (v1, v2, v3, s1, s2)
+idx = {s: i for i, s in enumerate(states)}
+def lower(k):
+    A = np.zeros((32, 32), dtype=np.int64)
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0; A[idx[tuple(t)], idx[s]] = (-1) ** sum(s[:k])
+    return A
+a = [lower(k) for k in range(N)]; ad = [x.T for x in a]
+G0 = a[4] + ad[4]                                                      # toggle of the neutral doublet level
+par = np.diag([(-1) ** sum(s) for s in states])                       # handedness class: occupation parity
+z2 = np.diag([(-1) ** (s[3] + s[4]) for s in states])                 # (-1)^(n2): the Z2 charge of section 8
+z2four = np.diag([(-1) ** s[3] for s in states])                      # (-1)^(n(s1)): charge on the four other levels
+ns2 = np.diag([s[4] for s in states])
+Tplus = ad[3] @ a[4]                                                   # weak isospin raising operator
+el = {'e_R': (1, 1, 1, 0, 0), 'e_L': (1, 1, 1, 0, 1), 'positron_L (e^c_L)': (0, 0, 0, 1, 1), 'positron_R (in Lbar_R)': (0, 0, 0, 1, 0),
+      'u_L': (1, 0, 0, 1, 0), 'u_R': (1, 0, 0, 1, 1), 'd_L': (1, 0, 0, 0, 1), 'd_R': (1, 0, 0, 0, 0), 'nu_L': (1, 1, 1, 1, 0), 'nu_R': (1, 1, 1, 1, 1)}
+A = {
+    'toggle_squares_to_identity': bool(np.array_equal(G0 @ G0, np.eye(32, dtype=np.int64))),
+    'abs_matrix_element_e_R_e_L': int(abs(G0[idx[el['e_R']], idx[el['e_L']]])),
+    'abs_matrix_element_positron_pair': int(abs(G0[idx[el['positron_L (e^c_L)']], idx[el['positron_R (in Lbar_R)']]])),
+    'abs_matrix_elements_u_d_nu_pairs': [int(abs(G0[idx[el[x]], idx[el[y]]])) for x, y in (('u_L', 'u_R'), ('d_L', 'd_R'), ('nu_L', 'nu_R'))],
+    'toggle_anticommutes_with_occupation_parity': bool(not np.any(G0 @ par + par @ G0)),
+    'toggle_anticommutes_with_Z2_charge_n2_mod_2': bool(not np.any(G0 @ z2 + z2 @ G0)),
+    'toggle_commutes_with_charge_on_the_four_other_levels': bool(not np.any(G0 @ z2four - z2four @ G0)),
+    'isospin_raising_commutes_with_occupation_parity': bool(not np.any(Tplus @ par - par @ Tplus)),
+    'isospin_raising_commutes_with_occupation_of_s2': bool(not np.any(Tplus @ ns2 - ns2 @ Tplus)),
+    's2_occupied_in_the_left_class': {k[:-2]: bool(el[k][4]) for k in ('e_L', 'd_L', 'u_L', 'nu_L')},
+}
+out['A_toggle'] = A
+print('A:', json.dumps(A))
+
+# ---- B. declared extension E1 on a full two-dimensional lattice (no reduction), both mass kinds ----------------
+def lowest(theta, L, kind):
+    x = np.arange(L); B = 2 * np.pi / L
+    lk = [np.ones((L, L, 1), complex), np.repeat(np.exp(1j * B * x)[:, None, None], L, axis=1), np.ones((L, L, 1), complex)]
+    eng = Routing((L, L, 1), lk); dim = 4 * L * L
+    U = np.empty((dim, dim), complex)
+    for j in range(dim):
+        e = np.zeros(dim, complex); e[j] = 1
+        U[:, j] = eng.tick(eng.tick(e.reshape(L, L, 1, 2, 2), theta, kind), theta, kind, reverse=True).reshape(dim)
+    Ee = np.sort(-np.angle(np.linalg.eigvals(U)) / 2); pos = Ee[Ee > 1e-9]
+    return {'L': L, 'flux_per_plaquette': B, 'mass_kind': kind, 'E0_minus_theta': float(pos[0] - theta),
+            'states_within_1e-9_of_theta': int(np.sum(np.abs(pos - theta) < 1e-9)), 'next_level': float(pos[np.abs(pos - theta) > 1e-9][0])}
+theta = 0.087847
+out['B_full_lattice'] = [lowest(theta, 8, 'Y'), lowest(theta, 8, 'Z'), lowest(theta, 12, 'Y')]
+# control: no field on the same lattice (the level at theta is then the single p = 0 state and its aliases)
+def nofield(theta, L):
+    eng = Routing((L, L, 1)); dim = 4 * L * L
+    U = np.empty((dim, dim), complex)
+    for j in range(dim):
+        e = np.zeros(dim, complex); e[j] = 1
+        U[:, j] = eng.tick(eng.tick(e.reshape(L, L, 1, 2, 2), theta), theta, reverse=True).reshape(dim)
+    Ee = np.sort(-np.angle(np.linalg.eigvals(U)) / 2); pos = Ee[Ee > 1e-9]
+    return {'L': L, 'states_within_1e-9_of_theta': int(np.sum(np.abs(pos - theta) < 1e-9))}
+out['B_control_no_field'] = nofield(theta, 8)
+for r in out['B_full_lattice']: print('B:', r)
+print('B control:', out['B_control_no_field'])
+json.dump(out, open(os.path.join(RL, 'work', 'R7', 'checks_extra.json'), 'w'), indent=1)

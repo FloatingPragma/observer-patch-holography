@@ -1,0 +1,469 @@
+{
+ "measured_values_read": false,
+ "structure": {
+  "K_by_separation": {
+   "2": 0.07655477381397474,
+   "3": 0.003126386336700537,
+   "4": 0.00024765250859171866,
+   "5": 3.206138144819311e-05
+  },
+  "K_placement_mean": 0.02992887373820469,
+  "K_G_by_separation": {
+   "2": 0.023194959826347852,
+   "3": 0.007528737804509216
+  },
+  "W_G": 0.0019202311019285668,
+  "T_q_placement_mean": 613.75,
+  "W_43_placement_mean": 0.18931166454917753,
+  "K_43_minimal_rise_placement_mean": 0.3605455797383658,
+  "K_q_placement_mean": 0.017878347308859028,
+  "committed_law_K_C": {
+   "2": {
+    "K": {
+     "2": 0.07846666666666667,
+     "3": 0.005825,
+     "4": 0.00075,
+     "5": 0.000225
+    },
+    "E": {
+     "2": 0.0010977981667022474,
+     "3": 0.0003804894463056762,
+     "4": 0.00013687928075497769,
+     "5": 7.499156202533723e-05
+    },
+    "mean": 0.0317640625,
+    "mean_standard_error": 0.0004364802239050343
+   },
+   "3": {
+    "K": {
+     "2": 0.07645,
+     "3": 0.005275,
+     "4": 0.0008,
+     "5": 0.000125
+    },
+    "E": {
+     "2": 0.0010847841375130815,
+     "3": 0.0003621851650054154,
+     "4": 0.00014136477637657834,
+     "5": 5.5898205472090066e-05
+    },
+    "mean": 0.0308046875,
+    "mean_standard_error": 0.00042970116107545
+   },
+   "4": {
+    "K": {
+     "2": 0.07558333333333334,
+     "3": 0.00595,
+     "4": 0.000725,
+     "5": 0.00015
+    },
+    "E": {
+     "2": 0.0010791238193982155,
+     "3": 0.0003845317769703825,
+     "4": 0.00013458030827353607,
+     "5": 6.123265060406907e-05
+    },
+    "mean": 0.0307203125,
+    "mean_standard_error": 0.0004303531469328794
+   },
+   "6": {
+    "K": {
+     "2": 0.07625333333333334,
+     "3": 0.005166666666666667,
+     "4": 0.00055,
+     "5": 0.00021666666666666666
+    },
+    "E": {
+     "2": 0.0006852676483870561,
+     "3": 0.00020695912886006866,
+     "4": 9.571637790890334e-05,
+     "5": 6.008601088193244e-05
+    },
+    "mean": 0.03064916666666667,
+    "mean_standard_error": 0.00026906466221331924
+   },
+   "8": {
+    "K": {
+     "2": 0.07585,
+     "3": 0.005225,
+     "4": 0.000825,
+     "5": 0.00015
+    },
+    "E": {
+     "2": 0.0010808698464662616,
+     "3": 0.0003604690954159593,
+     "4": 0.00014355481313770013,
+     "5": 6.123265060406907e-05
+    },
+    "mean": 0.0305671875,
+    "mean_standard_error": 0.0004281366543663503
+   }
+  },
+  "lambda_sq_e_mu_tau": [
+   0.000271352515549743,
+   0.05610764538021524,
+   0.943621002104235
+  ],
+  "det_C_sq": 1.4366583251142344e-05
+ },
+ "running": {
+  "factor_two_loops": 1.0895029172444717,
+  "factor_one_loop": 1.0763608901563186,
+  "y_t_cell_two_loops": 0.37311399472069384,
+  "y_t_cell_one_loop": 0.3970516655746791
+ },
+ "rows": [
+  {
+   "id": "D1-1",
+   "formula": "<K>",
+   "kind": "ratio at the cell",
+   "r": 0.02992887373820469,
+   "marks": "est.",
+   "note": "contact reading, w = 1",
+   "yJ_cell": 0.011834074923143022,
+   "yJ_MSbar_Q0_two_loops": 0.01289325915165397,
+   "yJ_MSbar_Q0_one_loop": 0.013554943355398525
+  },
+  {
+   "id": "D1-2",
+   "formula": "(2/9) <K>",
+   "kind": "ratio at the cell",
+   "r": 0.006650860830712153,
+   "marks": "est.",
+   "note": "",
+   "yJ_cell": 0.002629794427365116,
+   "yJ_MSbar_Q0_two_loops": 0.0028651687003675486,
+   "yJ_MSbar_Q0_one_loop": 0.0030122096345330056
+  },
+  {
+   "id": "D1-3",
+   "formula": "(1/3) <K>",
+   "kind": "ratio at the cell",
+   "r": 0.00997629124606823,
+   "marks": "est.",
+   "note": "",
+   "yJ_cell": 0.003944691641047674,
+   "yJ_MSbar_Q0_two_loops": 0.004297753050551323,
+   "yJ_MSbar_Q0_one_loop": 0.004518314451799507
+  },
+  {
+   "id": "D1-4",
+   "formula": "(1/6) <K>",
+   "kind": "ratio at the cell",
+   "r": 0.004988145623034115,
+   "marks": "est.",
+   "note": "",
+   "yJ_cell": 0.001972345820523837,
+   "yJ_MSbar_Q0_two_loops": 0.0021488765252756616,
+   "yJ_MSbar_Q0_one_loop": 0.0022591572258997537
+  },
+  {
+   "id": "D1-5",
+   "formula": "(1/12) <K>",
+   "kind": "ratio at the cell",
+   "r": 0.0024940728115170575,
+   "marks": "est.",
+   "note": "",
+   "yJ_cell": 0.0009861729102619186,
+   "yJ_MSbar_Q0_two_loops": 0.0010744382626378308,
+   "yJ_MSbar_Q0_one_loop": 0.0011295786129498768
+  },
+  {
+   "id": "D1-6",
+   "formula": "W_G = (K_G(2) + K_G(3))/16",
+   "kind": "ratio at the cell",
+   "r": 0.0019202311019285668,
+   "marks": "est.",
+   "note": "primary row: FR geometry",
+   "yJ_cell": 0.0007592720971977101,
+   "yJ_MSbar_Q0_two_loops": 0.0008272291648792333,
+   "yJ_MSbar_Q0_one_loop": 0.0008696827031847261
+  },
+  {
+   "id": "D1-7",
+   "formula": "sqrt(<K>)",
+   "kind": "ratio at the cell",
+   "r": 0.1729996350811316,
+   "marks": "est.",
+   "note": "amplitude reading",
+   "yJ_cell": 0.06840520165024165,
+   "yJ_MSbar_Q0_two_loops": 0.07452766675263463,
+   "yJ_MSbar_Q0_one_loop": 0.07835243900394165
+  },
+  {
+   "id": "D1-8",
+   "formula": "<K> <T_q> / 5",
+   "kind": "ratio at the cell",
+   "r": 3.673769251364626,
+   "marks": "est.",
+   "note": "rate normalization",
+   "yJ_cell": 1.452632696815806,
+   "yJ_MSbar_Q0_two_loops": 1.5826475608655248,
+   "yJ_MSbar_Q0_one_loop": 1.663869296875169
+  },
+  {
+   "id": "D5-1",
+   "formula": "<K_33>/<W_43>",
+   "kind": "ratio at the cell",
+   "r": 0.15809313076125883,
+   "marks": "post-D1",
+   "note": "mass-cycle reading, weight",
+   "yJ_cell": 0.06251107110237723,
+   "yJ_MSbar_Q0_two_loops": 0.06810599432611658,
+   "yJ_MSbar_Q0_one_loop": 0.07160120528060411
+  },
+  {
+   "id": "D5-2",
+   "formula": "<K_33>/<K_43 minimal rise>",
+   "kind": "ratio at the cell",
+   "r": 0.08300995885159078,
+   "marks": "post-D1",
+   "note": "",
+   "yJ_cell": 0.03282268758288635,
+   "yJ_MSbar_Q0_two_loops": 0.03576041387335858,
+   "yJ_MSbar_Q0_one_loop": 0.03759564426010944
+  },
+  {
+   "id": "D5-3",
+   "formula": "sqrt(D5-1)",
+   "kind": "ratio at the cell",
+   "r": 0.39760926895792914,
+   "marks": "post-D1",
+   "note": "amplitude reading",
+   "yJ_cell": 0.15721733868581295,
+   "yJ_MSbar_Q0_two_loops": 0.17128874913960535,
+   "yJ_MSbar_Q0_one_loop": 0.18007931622987441
+  },
+  {
+   "id": "D6-2 (N = 2)",
+   "formula": "<K_C>(N = 2)",
+   "kind": "ratio at the cell",
+   "r": 0.0317640625,
+   "marks": "post-D1",
+   "note": "committed law, Monte Carlo, standard error 0.00044",
+   "yJ_cell": 0.012559720715736704,
+   "yJ_MSbar_Q0_two_loops": 0.013683852359570963,
+   "yJ_MSbar_Q0_one_loop": 0.014386109938217338
+  },
+  {
+   "id": "D6-2 (N = 3)",
+   "formula": "<K_C>(N = 3)",
+   "kind": "ratio at the cell",
+   "r": 0.0308046875,
+   "marks": "post-D1",
+   "note": "committed law, Monte Carlo, standard error 0.00043",
+   "yJ_cell": 0.012180377485894492,
+   "yJ_MSbar_Q0_two_loops": 0.013270556804020932,
+   "yJ_MSbar_Q0_one_loop": 0.013951603986027586
+  },
+  {
+   "id": "D6-2 (N = 4)",
+   "formula": "<K_C>(N = 4)",
+   "kind": "ratio at the cell",
+   "r": 0.0307203125,
+   "marks": "post-D1",
+   "note": "committed law, Monte Carlo, standard error 0.00043",
+   "yJ_cell": 0.012147015051999574,
+   "yJ_MSbar_Q0_two_loops": 0.013234208334966044,
+   "yJ_MSbar_Q0_one_loop": 0.01391339010749624
+  },
+  {
+   "id": "D6-1",
+   "formula": "<K_C>(N = 6)",
+   "kind": "ratio at the cell",
+   "r": 0.03064916666666667,
+   "marks": "post-D1",
+   "note": "committed law, Monte Carlo, standard error 0.00027",
+   "yJ_cell": 0.01211888351823386,
+   "yJ_MSbar_Q0_two_loops": 0.013203558946861737,
+   "yJ_MSbar_Q0_one_loop": 0.01388116778769759
+  },
+  {
+   "id": "D6-2 (N = 8)",
+   "formula": "<K_C>(N = 8)",
+   "kind": "ratio at the cell",
+   "r": 0.0305671875,
+   "marks": "post-D1",
+   "note": "committed law, Monte Carlo, standard error 0.00043",
+   "yJ_cell": 0.012086468412708797,
+   "yJ_MSbar_Q0_two_loops": 0.013168242594829394,
+   "yJ_MSbar_Q0_one_loop": 0.013844038994606022
+  },
+  {
+   "id": "D3-1",
+   "formula": "exp(-t/5)",
+   "kind": "ratio at the cell",
+   "r": 0.615064098655789,
+   "marks": "est.",
+   "note": "cut heat time on the thirteenth Casimir step",
+   "yJ_cell": 0.24320041875604034,
+   "yJ_MSbar_Q0_two_loops": 0.2649675657097831,
+   "yJ_MSbar_Q0_one_loop": 0.2785657452447317
+  },
+  {
+   "id": "D3-2",
+   "formula": "exp(-t/10)",
+   "kind": "ratio at the cell",
+   "r": 0.7842602238133648,
+   "marks": "est.",
+   "note": "",
+   "yJ_cell": 0.31010168738828736,
+   "yJ_MSbar_Q0_two_loops": 0.33785669305197225,
+   "yJ_MSbar_Q0_one_loop": 0.35519555472320335
+  },
+  {
+   "id": "D3-3",
+   "formula": "sqrt3 p q",
+   "kind": "ratio at the cell",
+   "r": 0.024056261216234404,
+   "marks": "post hoc",
+   "note": "joint read weight, c_tau = sqrt3",
+   "yJ_cell": 0.009512005032124361,
+   "yJ_MSbar_Q0_two_loops": 0.010363357231343585,
+   "yJ_MSbar_Q0_one_loop": 0.01089520644782833
+  },
+  {
+   "id": "PH-1",
+   "formula": "y_J(cell) = sqrt2 p^2",
+   "kind": "y_J at the cell",
+   "r": 0.024837539185929028,
+   "marks": "post hoc",
+   "note": "",
+   "yJ_cell": 0.009820927516479826,
+   "yJ_MSbar_Q0_two_loops": 0.010699929179251274,
+   "yJ_MSbar_Q0_one_loop": 0.01057086228379891
+  },
+  {
+   "id": "PH-2",
+   "formula": "y_J(Q0) = 7/648",
+   "kind": "y_J at Q0, pole convention",
+   "marks": "post hoc",
+   "note": "",
+   "yJ_pole_Q0": 0.010802469135802469
+  },
+  {
+   "id": "PH-3",
+   "formula": "y_J(Q0) = (2/9)^3",
+   "kind": "y_J at Q0, pole convention",
+   "marks": "post hoc",
+   "note": "",
+   "yJ_pole_Q0": 0.010973936899862823
+  },
+  {
+   "id": "PH-4",
+   "formula": "(det C^2)^(1/3)",
+   "kind": "ratio at the cell",
+   "r": 0.024309974200927252,
+   "marks": "post hoc",
+   "note": "",
+   "yJ_cell": 0.00961232482685144,
+   "yJ_MSbar_Q0_two_loops": 0.010472655940356105,
+   "yJ_MSbar_Q0_one_loop": 0.01101011438476318
+  },
+  {
+   "id": "PH-5",
+   "formula": "det Y_e = sqrt2 6^-14",
+   "kind": "y_J at Q0, pole convention",
+   "marks": "post hoc",
+   "note": "LS2 basepoint",
+   "yJ_pole_Q0": 0.01078983159080728
+  },
+  {
+   "id": "PH-6",
+   "formula": "q^2",
+   "kind": "ratio at the cell",
+   "r": 0.027777777777777776,
+   "marks": "post hoc",
+   "note": "",
+   "yJ_cell": 0.010983517331660149,
+   "yJ_MSbar_Q0_two_loops": 0.011966574174448947,
+   "yJ_MSbar_Q0_one_loop": 0.012580700751060468
+  },
+  {
+   "id": "PH-7",
+   "formula": "y_J(Q0) = (4/9)(det C^2)^(1/3)",
+   "kind": "y_J at Q0, pole convention",
+   "marks": "post hoc",
+   "note": "",
+   "yJ_pole_Q0": 0.01080443297818989
+  },
+  {
+   "id": "PH-8",
+   "formula": "y_J(cell) = g/90",
+   "kind": "y_J at the cell",
+   "r": 0.02471465851952234,
+   "marks": "post hoc",
+   "note": "g = 0.879511 from the cut closure",
+   "yJ_cell": 0.009772339687028488,
+   "yJ_MSbar_Q0_two_loops": 0.010646992597321464,
+   "yJ_MSbar_Q0_one_loop": 0.010518564244439903
+  }
+ ],
+ "D2": {
+  "N_e_by_separation": {
+   "1": 3,
+   "2": 6,
+   "3": 10,
+   "4": 14,
+   "5": 18
+  },
+  "read_types_lepton": {
+   "1": {
+    "raising": 0,
+    "flat": 0,
+    "lowering": 3
+   },
+   "2": {
+    "raising": 1,
+    "flat": 1,
+    "lowering": 4
+   },
+   "3": {
+    "raising": 1,
+    "flat": 5,
+    "lowering": 4
+   },
+   "4": {
+    "raising": 1,
+    "flat": 10,
+    "lowering": 3
+   },
+   "5": {
+    "raising": 1,
+    "flat": 14,
+    "lowering": 3
+   }
+  },
+  "N_q_min_by_separation": {
+   "2": 5,
+   "3": 9,
+   "4": 13,
+   "5": 17
+  },
+  "cost_raising_reads_quark_mass_term": [
+   0
+  ],
+  "D2-0": {
+   "N_e": 14
+  },
+  "D2-1": {
+   "N_q": 13,
+   "R_predicted": 6.0
+  },
+  "D2-2": {
+   "N_q": 4,
+   "R_predicted": 60466176.0
+  }
+ },
+ "D3": {
+  "m_b_over_m_tau_Q0_c_b_1_over_sqrt3": {
+   "two_loops": 1.6930595591675912,
+   "one_loop": 1.6221068908073912
+  },
+  "m_b_over_m_tau_Q0_c_b_1": {
+   "two_loops": 2.9323090609120865,
+   "one_loop": 2.8094360769846753
+  },
+  "neutrino_yukawa_over_tau_yukawa": "rho for D3-1 and D3-2 (n_nu = 2); 0 at this order for D3-3"
+ }
+}

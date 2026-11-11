@@ -1,0 +1,133 @@
+"""Independent vertex, weighted-bound, interval and complete-record controls."""
+from fractions import Fraction as F
+import itertools
+import json
+from pathlib import Path
+import numpy as np
+from scipy import sparse
+
+from scattering import (inputs,member,menus,exact_two_particle_matrix,
+                         independent_bog_vertex,moment_bound,preparation)
+from finite_collision import certificate
+
+
+def result():
+    return json.loads(Path(__file__).with_name('results.json').read_text())
+
+
+def test_exact_capacity_vertex_and_free_zero():
+    for N in (2,8):
+        row=exact_two_particle_matrix(N)
+        assert row['exact_capacity_effect_matrix_element']>0
+        assert row['free_matrix_element_zero']
+
+
+def test_independent_quasiparticle_quartic_contraction():
+    row=independent_bog_vertex()
+    assert row['quartic_Bogoliubov_matrix_element']>0
+    assert abs(row['quartic_Bogoliubov_matrix_element']-row['closed_form_matrix_element'])<1e-13
+
+
+def test_packets_have_six_conserved_elastic_channels():
+    for side in (32,64):assert len(menus(side))==6
+
+
+def test_square_root_remainder_includes_overflow():
+    for u in np.concatenate((np.linspace(0,1,201),np.linspace(1,20,201))):
+        f=np.sqrt(max(1-u,0))
+        assert abs(f-1)<=u+1e-14
+        assert abs(f-1+u/2)<=u*u+1e-14
+
+
+def test_global_weighted_operators_including_overflow():
+    # Full six canonical modes up to total occupation six. Inputs stop at
+    # four, so all intermediate and output columns are represented exactly.
+    basis=[n for n in itertools.product(range(7),repeat=6) if sum(n)<=6]
+    ids={n:i for i,n in enumerate(basis)}
+    rows=[];columns=[];values=[]
+    lowers=[]
+    for mode in range(6):
+        row=[];col=[];data=[]
+        for j,n in enumerate(basis):
+            if n[mode]:
+                target=list(n);target[mode]-=1
+                row.append(ids[tuple(target)]);col.append(j);data.append(np.sqrt(n[mode]))
+        lowers.append(sparse.csr_matrix((data,(row,col)),shape=(len(basis),len(basis))))
+    total=np.array([sum(n) for n in basis])
+    local=[np.array([sum(n[:3]) for n in basis]),np.array([sum(n[3:]) for n in basis])]
+    accepted=np.flatnonzero(total<=4)
+    t=.125;C=3.
+    Hfree=sparse.csr_matrix((len(basis),len(basis)))
+    V1=Hfree.copy()
+    for color in range(3):
+        bx=lowers[color];by=lowers[3+color]
+        X=bx+bx.T;Y=by+by.T
+        nx=sparse.diags(local[0]);ny=sparse.diags(local[1])
+        cubicx=bx.T@nx+nx@bx;cubicy=by.T@ny+ny@by
+        Hfree-=t*(X@Y)
+        V1+=t/2*(cubicx@Y+X@cubicy)
+    for N in (1,3):
+        HN=sparse.csr_matrix(Hfree.shape)
+        for color in range(3):
+            ax=sparse.diags(np.sqrt(np.maximum(0,1-local[0]/N)))@lowers[color]
+            ay=sparse.diags(np.sqrt(np.maximum(0,1-local[1]/N)))@lowers[3+color]
+            HN-=t*((ax+ax.T)@(ay+ay.T))
+        difference=(HN-Hfree)[:,accepted].toarray()
+        remainder=(HN-Hfree-V1/N)[:,accepted].toarray()
+        weight=(total[accepted]+2.)**2
+        assert np.linalg.norm(difference/weight,2)<=C/N+1e-13
+        assert np.linalg.norm(remainder/(total[accepted]+3.)**3,2)<=C/N**2+1e-13
+        weighted=difference*(total[:,None]+4.)**2/(total[accepted]+6.)**4
+        assert np.linalg.norm(weighted,2)<=C/N+1e-13
+
+
+def test_every_error_is_below_collision_amplitude_before_squaring():
+    for row in result()['finite_members']:
+        b=row['exact_bounds'];signal=F(b['leading_collision_amplitude_lower'])
+        assert F(b['second_order_Born_amplitude_error_upper'])<=signal/8
+        assert F(b['capacity_projection_and_detector_amplitude_error_upper'])<=signal/8
+        p=row['complete_preparation'];N=row['constituent_blocks_per_macrocell_N'];V=row['macro_sites']
+        r0=F(p['initial_odds_upper_exact']);c=F(p['odds_contraction_exact']);depth=p['binary_filter_depth']
+        assert 2*N*V*r0*c**depth<=(signal/8)**2
+        assert F(b['conditional_hit_probability_lower'])==(signal/2)**2>0
+        assert F(b['native_prepared_packet_probability_outside_actual_energy_window_upper'])<F(1,1000)
+        residual=F(b['exact_admitted_packet_energy_residual_over_Delta_upper'])
+        width=F(b['energy_halfwidth_over_Delta'])
+        assert F(b['native_prepared_packet_probability_outside_actual_energy_window_upper'])==min(F(1),(residual/width+signal/8)**2)
+
+
+def test_interval_full_capacity_collision_and_complete_preparation():
+    row=certificate()
+    assert row['exact_reducing_source_dimension']==1024
+    assert F(row['exact_source_amplitude_lower'])>F(26,1000)
+    assert F(row['conditional_hit_probability_lower_after_preparation_margin'])>F(17,100000)
+    parent,_,_=inputs()
+    prep=preparation(parent,1,5,F(row['exact_source_amplitude_lower']))
+    assert prep['binary_filter_depth']==0
+    assert prep['all_preparation_flags_retained']
+
+
+def test_collision_scope_is_finite_and_nonstationary():
+    scope=result()['scope']
+    assert not scope['prepared_two_packet_state_is_actual_interacting_ground']
+    assert not scope['asymptotic_scattering_matrix_proved']
+    assert not scope['nontrivial_interacting_relativistic_UV_limit_proved']
+    assert scope['measured_inputs']==[]
+
+
+def test_complete_time_series_and_native_occupation_intervals():
+    rows=result()['interval_certified_five_block_collision']['complete_time_series']
+    assert [r['clock_Delta_times_t'] for r in rows]==['0','1/4','1/2','3/4','1']
+    for row in rows:
+        hit=list(map(F,row['native_preparation_hit_probability_interval_exact']))
+        complement=list(map(F,row['native_preparation_complement_probability_interval_exact']))
+        assert 0<=hit[0]<=hit[1]<=1
+        assert complement==[1-hit[1],1-hit[0]]
+        if row['clock_Delta_times_t']!='0':assert hit[0]>0
+        for site in row['occupation_marginals']:
+            assert len(site['components'])==3
+            for color in site['components']:
+                lo,hi=map(F,color['ideal_interval_exact'])
+                plo,phi=map(F,color['native_preparation_interval_exact'])
+                assert 0<=plo<=lo<=hi<=phi<=1
+        assert not row['classical_trajectories_claim']

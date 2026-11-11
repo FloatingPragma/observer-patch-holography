@@ -1,0 +1,23 @@
+"""Exact pair-sector analysis of the named laws on the tetrahedron (and optionally the octahedron)."""
+import json, sys, time
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S, s1an as A, s1laws
+
+HERE = Path(__file__).resolve().parent
+which = sys.argv[1] if len(sys.argv) > 1 else 'tetrahedron'
+C = {'tetrahedron': S.tetrahedron, 'octahedron': S.octahedron}[which]()
+names = sys.argv[2].split(',') if len(sys.argv) > 2 else None
+laws = s1laws.named()
+out = {}
+for name, law in laws.items():
+    if names and name not in names:
+        continue
+    t0 = time.time()
+    res, ch = A.analyse_pair_sector(C, law, max_states=int(sys.argv[3]) if len(sys.argv) > 3 else 200000)
+    res['seconds'] = round(time.time() - t0, 2)
+    res['note'] = law.note
+    out[name] = res
+    print(json.dumps(res), flush=True)
+tag = '' if not names else '_' + '_'.join(names)
+Path(HERE / f't10_{which}_named{tag}.json').write_text(json.dumps(out, indent=1))

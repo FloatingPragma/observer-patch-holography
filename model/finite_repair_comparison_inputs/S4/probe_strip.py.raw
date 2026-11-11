@@ -1,0 +1,31 @@
+"""Probe: sizes of the unit-twist chain on the periodic strip, by sector (contrast states)."""
+import sys, time
+import numpy as np
+import readouts as R
+
+for L in (3, 4, 5):
+    cx, perm, sid = R.strip(L)
+    M = cx.M
+    for label, d0 in (('vacuum, flat', {}),
+                      ('one quantum', 'quantum'),
+                      ('unit charge on U_0, string through bottom rail', {('B', 0): -1}),
+                      ('unit charge on D_0, string through top rail', {('T', 0): 1}),
+                      ):
+        if d0 == 'quantum':
+            x = np.zeros(cx.P, int); x[0] = 1
+            d = tuple(int(v) for v in cx.B @ x)
+        else:
+            d = [0] * M
+            for k, v in d0.items():
+                d[sid[k]] = v
+            d = tuple(d)
+        t0 = time.time()
+        try:
+            states, index, T = R.enumerate_chain([d], R.moves_twist(cx, forbid=(lambda q1, q2, m1, m2: abs(m1) + abs(m2) > abs(q1) + abs(q2)) if len(sys.argv) > 2 else None), limit=int(sys.argv[1]))
+        except ArithmeticError:
+            print(L, label, 'charges', cx.charges(d), 'exceeds limit', f'{time.time()-t0:.1f}s', flush=True); continue
+        classes, lab = R.recurrent_classes(T)
+        qs = {cx.charges(s) for s in states}
+        absq = sorted({sum(abs(v) for v in q) for q in qs})
+        print(L, label, 'start charges', cx.charges(d), 'reachable', len(states), 'closed classes', [len(c) for c in classes],
+              'total |q| values seen', absq, 'max |d|', max(max(abs(v) for v in s) for s in states), f'{time.time()-t0:.1f}s', flush=True)

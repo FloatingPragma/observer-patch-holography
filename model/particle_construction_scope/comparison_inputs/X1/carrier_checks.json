@@ -1,0 +1,793 @@
+{
+ "carrier": {
+  "ports": 12,
+  "seams": 30,
+  "faces": 20,
+  "oriented_addresses": 60,
+  "symmetries": 120,
+  "rotations": 60,
+  "tag": "EXACT"
+ },
+ "scalar_walk": {
+  "tag": "EXACT (integers, Q(sqrt5) characters); the sector assignment cross-checked in float64",
+  "dimension": 1440,
+  "checks": {
+   "Q_involution": true,
+   "R_involution": true,
+   "W_orthogonal": true,
+   "trace_W": "-1276",
+   "W_commutes_with_all_120_symmetries": true,
+   "max_abs_entry_of_60_times_commutator_W_Zr": 58
+  },
+  "rotation_content_total": {
+   "1": 24,
+   "3": 72,
+   "3'": 72,
+   "4": 96,
+   "5": 120
+  },
+  "stationary_plus_one": {
+   "dimension": 38,
+   "rotation_content": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "4": 4,
+    "5": 3
+   }
+  },
+  "stationary_minus_one": {
+   "dimension": 1356,
+   "rotation_content": {
+    "1": 21,
+    "3": 67,
+    "3'": 67,
+    "4": 92,
+    "5": 113
+   }
+  },
+  "oscillatory": [
+   {
+    "sector": "slow triplet, blank",
+    "record_block": "blank",
+    "rotation_irrep": "3",
+    "dimension": 6,
+    "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+    "rest_phase": 0.304708
+   },
+   {
+    "sector": "fast triplet, blank",
+    "record_block": "blank",
+    "rotation_irrep": "3'",
+    "dimension": 6,
+    "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+    "rest_phase": 0.496198
+   },
+   {
+    "sector": "quintet, blank",
+    "record_block": "blank",
+    "rotation_irrep": "5",
+    "dimension": 10,
+    "kernel_eigenvalue": "9/10",
+    "rest_phase": 0.451027
+   },
+   {
+    "sector": "uniform, recorded",
+    "record_block": "recorded",
+    "rotation_irrep": "1",
+    "dimension": 2,
+    "kernel_eigenvalue": "5/6",
+    "rest_phase": 0.585686
+   },
+   {
+    "sector": "fast triplet, recorded",
+    "record_block": "recorded",
+    "rotation_irrep": "3",
+    "dimension": 6,
+    "kernel_eigenvalue": "11/12 - sqrt(5)/60",
+    "rest_phase": 0.496198
+   },
+   {
+    "sector": "slow triplet, recorded",
+    "record_block": "recorded",
+    "rotation_irrep": "3'",
+    "dimension": 6,
+    "kernel_eigenvalue": "sqrt(5)/60 + 11/12",
+    "rest_phase": 0.304708
+   },
+   {
+    "sector": "quintet, recorded",
+    "record_block": "recorded",
+    "rotation_irrep": "5",
+    "dimension": 10,
+    "kernel_eigenvalue": "14/15",
+    "rest_phase": 0.367208
+   }
+  ],
+  "oscillatory_dimension": 46,
+  "sector_table": [
+   {
+    "sector": "stationary +1",
+    "dimension": 38,
+    "rotation_content": {
+     "1": 1,
+     "3": 1,
+     "3'": 1,
+     "4": 4,
+     "5": 3
+    }
+   },
+   {
+    "sector": "stationary -1",
+    "dimension": 1356,
+    "rotation_content": {
+     "1": 21,
+     "3": 67,
+     "3'": 67,
+     "4": 92,
+     "5": 113
+    }
+   },
+   {
+    "sector": "slow triplet, blank + slow triplet, recorded",
+    "dimension": 12,
+    "rotation_content": {
+     "3": 2,
+     "3'": 2
+    }
+   },
+   {
+    "sector": "quintet, recorded",
+    "dimension": 10,
+    "rotation_content": {
+     "5": 2
+    }
+   },
+   {
+    "sector": "quintet, blank",
+    "dimension": 10,
+    "rotation_content": {
+     "5": 2
+    }
+   },
+   {
+    "sector": "fast triplet, blank + fast triplet, recorded",
+    "dimension": 12,
+    "rotation_content": {
+     "3'": 2,
+     "3": 2
+    }
+   },
+   {
+    "sector": "uniform, recorded",
+    "dimension": 2,
+    "rotation_content": {
+     "1": 2
+    }
+   }
+  ],
+  "float_character_defect": 5.6843418860808015e-12,
+  "antipodal_parity_of_kernel_multiplets": {
+   "uniform": 1,
+   "port-frame triplet 3": -1,
+   "conjugate triplet 3'": -1,
+   "quintet": 1
+  }
+ },
+ "link_register": {
+  "tag": "EXACT (GF(2) ranks, counts)",
+  "link_bits": 30,
+  "rank_vertex_stars": 11,
+  "rank_face_boundaries": 19,
+  "gauge_copies_per_flux_pattern": 2048,
+  "flux_patterns": 524288,
+  "flux_patterns_by_number_of_defect_faces": {
+   "0": 1,
+   "2": 190,
+   "4": 4845,
+   "6": 38760,
+   "8": 125970,
+   "10": 184756,
+   "12": 125970,
+   "14": 38760,
+   "16": 4845,
+   "18": 190,
+   "20": 1
+  },
+  "pairs": 190,
+  "pairs_by_separation": {
+   "1": 30,
+   "2": 60,
+   "3": 60,
+   "4": 30,
+   "5": 10
+  },
+  "link_words_of_the_one_pair_sector": 389120,
+  "rotation_content_of_the_20_faces": {
+   "1": 1,
+   "3": 1,
+   "3'": 1,
+   "4": 2,
+   "5": 1
+  },
+  "rotation_content_of_the_190_pairs": {
+   "1": 6,
+   "3": 7,
+   "3'": 7,
+   "4": 13,
+   "5": 18
+  },
+  "rotation_content_of_pairs_by_separation": {
+   "1": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "4": 2,
+    "5": 3
+   },
+   "2": {
+    "1": 1,
+    "3": 3,
+    "3'": 3,
+    "4": 4,
+    "5": 5
+   },
+   "3": {
+    "1": 2,
+    "3": 2,
+    "3'": 2,
+    "4": 4,
+    "5": 6
+   },
+   "4": {
+    "1": 1,
+    "3": 1,
+    "3'": 1,
+    "4": 2,
+    "5": 3
+   },
+   "5": {
+    "1": 1,
+    "3": 0,
+    "3'": 0,
+    "4": 1,
+    "5": 1
+   }
+  },
+  "pairs_fixed_by_a_half_turn": 10
+ },
+ "patterns": {
+  "tag": "EXACT (Q(sqrt5) characters of the cover of order 120, rationals)",
+  "rows": [
+   {
+    "n3": 0,
+    "n2": 0,
+    "N": 0,
+    "states": 1,
+    "SU3": "1",
+    "SU2": "1",
+    "Q6": 0,
+    "Q5_public_sign": 0,
+    "Y": "0",
+    "electric_charges": [
+     "0"
+    ],
+    "handedness_class_convention": "left",
+    "Z2_link_charge": 0,
+    "triality": 0,
+    "centre_flux_classes_seen": [],
+    "cover_content_of_internal_factor": {
+     "1": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     3,
+     2
+    ]
+   },
+   {
+    "n3": 0,
+    "n2": 1,
+    "N": 1,
+    "states": 2,
+    "SU3": "1",
+    "SU2": "2",
+    "Q6": 3,
+    "Q5_public_sign": -3,
+    "Y": "1/2",
+    "electric_charges": [
+     "1",
+     "0"
+    ],
+    "handedness_class_convention": "right",
+    "Z2_link_charge": 1,
+    "triality": 0,
+    "centre_flux_classes_seen": [
+     1,
+     3,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "2'": 1
+    },
+    "sign_under_cover_centre": -1,
+    "conjugate": [
+     3,
+     1
+    ]
+   },
+   {
+    "n3": 0,
+    "n2": 2,
+    "N": 2,
+    "states": 1,
+    "SU3": "1",
+    "SU2": "1",
+    "Q6": 6,
+    "Q5_public_sign": -6,
+    "Y": "1",
+    "electric_charges": [
+     "1"
+    ],
+    "handedness_class_convention": "left",
+    "Z2_link_charge": 0,
+    "triality": 0,
+    "centre_flux_classes_seen": [],
+    "cover_content_of_internal_factor": {
+     "1": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     3,
+     0
+    ]
+   },
+   {
+    "n3": 1,
+    "n2": 0,
+    "N": 1,
+    "states": 3,
+    "SU3": "3",
+    "SU2": "1",
+    "Q6": -2,
+    "Q5_public_sign": 2,
+    "Y": "-1/3",
+    "electric_charges": [
+     "-1/3"
+    ],
+    "handedness_class_convention": "right",
+    "Z2_link_charge": 0,
+    "triality": 1,
+    "centre_flux_classes_seen": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "3": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     2,
+     2
+    ]
+   },
+   {
+    "n3": 1,
+    "n2": 1,
+    "N": 2,
+    "states": 6,
+    "SU3": "3",
+    "SU2": "2",
+    "Q6": 1,
+    "Q5_public_sign": -1,
+    "Y": "1/6",
+    "electric_charges": [
+     "2/3",
+     "-1/3"
+    ],
+    "handedness_class_convention": "left",
+    "Z2_link_charge": 1,
+    "triality": 1,
+    "centre_flux_classes_seen": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "6": 1
+    },
+    "sign_under_cover_centre": -1,
+    "conjugate": [
+     2,
+     1
+    ]
+   },
+   {
+    "n3": 1,
+    "n2": 2,
+    "N": 3,
+    "states": 3,
+    "SU3": "3",
+    "SU2": "1",
+    "Q6": 4,
+    "Q5_public_sign": -4,
+    "Y": "2/3",
+    "electric_charges": [
+     "2/3"
+    ],
+    "handedness_class_convention": "right",
+    "Z2_link_charge": 0,
+    "triality": 1,
+    "centre_flux_classes_seen": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "3": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     2,
+     0
+    ]
+   },
+   {
+    "n3": 2,
+    "n2": 0,
+    "N": 2,
+    "states": 3,
+    "SU3": "3bar",
+    "SU2": "1",
+    "Q6": -4,
+    "Q5_public_sign": 4,
+    "Y": "-2/3",
+    "electric_charges": [
+     "-2/3"
+    ],
+    "handedness_class_convention": "left",
+    "Z2_link_charge": 0,
+    "triality": 2,
+    "centre_flux_classes_seen": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "3": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     1,
+     2
+    ]
+   },
+   {
+    "n3": 2,
+    "n2": 1,
+    "N": 3,
+    "states": 6,
+    "SU3": "3bar",
+    "SU2": "2",
+    "Q6": -1,
+    "Q5_public_sign": 1,
+    "Y": "-1/6",
+    "electric_charges": [
+     "1/3",
+     "-2/3"
+    ],
+    "handedness_class_convention": "right",
+    "Z2_link_charge": 1,
+    "triality": 2,
+    "centre_flux_classes_seen": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "6": 1
+    },
+    "sign_under_cover_centre": -1,
+    "conjugate": [
+     1,
+     1
+    ]
+   },
+   {
+    "n3": 2,
+    "n2": 2,
+    "N": 4,
+    "states": 3,
+    "SU3": "3bar",
+    "SU2": "1",
+    "Q6": 2,
+    "Q5_public_sign": -2,
+    "Y": "1/3",
+    "electric_charges": [
+     "1/3"
+    ],
+    "handedness_class_convention": "left",
+    "Z2_link_charge": 0,
+    "triality": 2,
+    "centre_flux_classes_seen": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "3": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     1,
+     0
+    ]
+   },
+   {
+    "n3": 3,
+    "n2": 0,
+    "N": 3,
+    "states": 1,
+    "SU3": "1",
+    "SU2": "1",
+    "Q6": -6,
+    "Q5_public_sign": 6,
+    "Y": "-1",
+    "electric_charges": [
+     "-1"
+    ],
+    "handedness_class_convention": "right",
+    "Z2_link_charge": 0,
+    "triality": 0,
+    "centre_flux_classes_seen": [],
+    "cover_content_of_internal_factor": {
+     "1": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     0,
+     2
+    ]
+   },
+   {
+    "n3": 3,
+    "n2": 1,
+    "N": 4,
+    "states": 2,
+    "SU3": "1",
+    "SU2": "2",
+    "Q6": -3,
+    "Q5_public_sign": 3,
+    "Y": "-1/2",
+    "electric_charges": [
+     "0",
+     "-1"
+    ],
+    "handedness_class_convention": "left",
+    "Z2_link_charge": 1,
+    "triality": 0,
+    "centre_flux_classes_seen": [
+     1,
+     3,
+     5
+    ],
+    "cover_content_of_internal_factor": {
+     "2'": 1
+    },
+    "sign_under_cover_centre": -1,
+    "conjugate": [
+     0,
+     1
+    ]
+   },
+   {
+    "n3": 3,
+    "n2": 2,
+    "N": 5,
+    "states": 1,
+    "SU3": "1",
+    "SU2": "1",
+    "Q6": 0,
+    "Q5_public_sign": 0,
+    "Y": "0",
+    "electric_charges": [
+     "0"
+    ],
+    "handedness_class_convention": "right",
+    "Z2_link_charge": 0,
+    "triality": 0,
+    "centre_flux_classes_seen": [],
+    "cover_content_of_internal_factor": {
+     "1": 1
+    },
+    "sign_under_cover_centre": 1,
+    "conjugate": [
+     0,
+     0
+    ]
+   }
+  ],
+  "anomaly_sums_even_class": {
+   "sum_Y": "0",
+   "sum_Y_cubed": "0",
+   "SU2_SU2_Y": "0",
+   "SU3_SU3_Y": "0",
+   "SU3_cubed_(triplets_minus_antitriplets)": "0",
+   "states": 16,
+   "sum_T3_squared_over_sum_Q_squared": "3/8"
+  },
+  "anomaly_sums_odd_class": {
+   "sum_Y": "0",
+   "sum_Y_cubed": "0",
+   "SU2_SU2_Y": "0",
+   "SU3_SU3_Y": "0",
+   "SU3_cubed_(triplets_minus_antitriplets)": "0",
+   "states": 16,
+   "sum_T3_squared_over_sum_Q_squared": "3/8"
+  },
+  "counts": {
+   "states": 32,
+   "Z2_odd_states": 16,
+   "states_with_Q6_nonzero": 30,
+   "states_with_Q6_nonzero_modulo_6": 28,
+   "states_with_nonzero_triality": 24,
+   "patterns_blind_to_every_centre_flux": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "by_total_occupation_N (the U(5) multiplets of flat links)": {
+    "0": 1,
+    "1": 5,
+    "2": 10,
+    "3": 10,
+    "4": 5,
+    "5": 1
+   }
+  },
+  "cover_irreps": {
+   "1": 1,
+   "2": 2,
+   "2'": 2,
+   "3": 3,
+   "3'": 3,
+   "4": 4,
+   "4s": 4,
+   "5": 5,
+   "6": 6
+  },
+  "spinorial_cover_irreps": [
+   "2",
+   "2'",
+   "4s",
+   "6"
+  ]
+ },
+ "doublet_level_with_one_Z2_flux_pair": {
+  "tag": "MEASURED (float64 eigenvalues of the signed 12 x 12 Laplacian)",
+  "rows": [
+   {
+    "separation": 1,
+    "pairs": 30,
+    "rest_phase": 0.087847,
+    "spread_over_pairs": 1.2628786905111156e-15,
+    "lambda_min": 0.231361632,
+    "CF1_item6_value": 0.087847,
+    "difference": 1.1518563880486e-15
+   },
+   {
+    "separation": 2,
+    "pairs": 60,
+    "rest_phase": 0.110554,
+    "spread_over_pairs": 1.0130785099704553e-15,
+    "lambda_min": 0.36629189,
+    "CF1_item6_value": 0.110554,
+    "difference": 1.3877787807814457e-17
+   },
+   {
+    "separation": 3,
+    "pairs": 60,
+    "rest_phase": 0.132363,
+    "spread_over_pairs": 8.326672684688674e-16,
+    "lambda_min": 0.524832006,
+    "CF1_item6_value": 0.132363,
+    "difference": 2.7755575615628914e-17
+   },
+   {
+    "separation": 4,
+    "pairs": 30,
+    "rest_phase": 0.147787,
+    "spread_over_pairs": 0.0,
+    "lambda_min": 0.654036704,
+    "CF1_item6_value": 0.147787,
+    "difference": 0.0
+   },
+   {
+    "separation": 5,
+    "pairs": 10,
+    "rest_phase": 0.171237,
+    "spread_over_pairs": 0.0,
+    "lambda_min": 0.877513784,
+    "CF1_item6_value": 0.171237,
+    "difference": 0.0
+   }
+  ],
+  "triplet_level": "blind to the Z2 link: rest phase 0 (the flat kernel)"
+ },
+ "census_shadows_L10_sweep300": {
+  "tag": "EXACT counts of stored data; inherits the declared register rule of the runs",
+  "carriers": 20971520,
+  "distinct_configurations": 31,
+  "carriers_by_number_of_Z2_odd_faces (classes 1, 3, 5)": {
+   "0": 19061459,
+   "2": 1908734,
+   "4": 1326,
+   "6": 1
+  },
+  "share_of_carriers_with_a_Z2_flux": 0.091079,
+  "share_of_carriers_with_exactly_two_Z2_odd_faces": 0.091016,
+  "carriers_by_number_of_Z3_nonzero_faces (classes 1, 2, 4, 5)": {
+   "0": 14540235,
+   "2": 6111927,
+   "3": 176146,
+   "4": 139461,
+   "5": 3290,
+   "6": 454,
+   "7": 7
+  },
+  "share_of_carriers_with_a_Z3_flux": 0.306668,
+  "carriers_(Z2 flux, Z3 flux)": {
+   "False,False": 13753389,
+   "False,True": 5308070,
+   "True,False": 786846,
+   "True,True": 1123215
+  },
+  "share_with_defects_but_flat_in_Z2 (invisible to the working register)": 0.253109,
+  "share_of_defect_carriers_flat_in_Z2": 0.73538,
+  "Z2_odd_faces_per_carrier": 0.182284,
+  "of_which_class_3": 0.081811,
+  "Z3_nonzero_faces_per_carrier": 0.635593,
+  "share_of_defect_carriers_by_composition": {
+   "2,4": 0.6916,
+   "1,5": 0.1443,
+   "3,3": 0.1088,
+   "2,2,4,4": 0.0193,
+   "2,2,2": 0.012,
+   "4,4,4": 0.012,
+   "2,3,3,4": 0.0077,
+   "3,4,5": 0.0015,
+   "1,2,3": 0.0015
+  }
+ },
+ "three_plus_two_split": {
+  "tag": "EXACT (sympy, the public function gauge_walk.local)",
+  "flat_reflector_is_the_scalar_reflector_times_identity_on_the_code": true,
+  "level_swap_commutes_with_flat_reflector": true,
+  "level_swap_commutes_with_central_link_reflector": false,
+  "Q5_commutes_with_central_link_reflector": true,
+  "every_level_projector_commutes_with_central_link_reflector": true,
+  "reading": "with flat links the code is a spectator (symmetry U(5)); the central link sign alone separates the three vector levels from the two spinor levels"
+ }
+}

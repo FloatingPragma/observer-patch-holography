@@ -1,0 +1,79 @@
+"""Lane AV: driver for lattices with several electric steps per tick (engine av_engine_an).
+
+Usage: python av_run_an.py <tasks.json> <worker index> <number of workers> <output directory>
+Task fields as in av_run_fm.py plus steps (electric steps per tick). par is beta or g^2 of the isotropic lattice.
+S of the output is the isotropic S = 2 pi^2/g^2. Reads no measured value."""
+import json
+import math
+import os
+import sys
+import time
+
+import numpy as np
+
+import av_complex as C
+import av_engine as E
+import av_engine_an as A
+from av_run import NBLOCK, estimate
+from av_run_fm import twist_set
+
+
+def run_task(t):
+    t0 = time.time()
+    cx = C.build(t["cx"])
+    kind, par = int(t["kind"]), float(t["par"])
+    a_step = 1.0 / float(t["steps"])
+    N, ncyc, nloc, ntherm, nhit = int(t["N"]), int(t["ncyc"]), int(t["nloc"]), int(t["ntherm"]), int(t.get("nhit", 4))
+    E.seed_rng(int(t["seed"]))
+    U, _nf = E.cold(cx)
+    g2 = 4.0 / par if kind == 0 else par
+    tl = cx["ptype"] == 1
+    if kind == 0:
+        ppar = np.where(tl, par / a_step, par * a_step)
+    else:
+        ppar = np.where(tl, par * a_step, par / a_step)
+    a = (cx["pl"], cx["ps"], cx["pn"], cx["lp_ptr"], cx["lp_idx"], cx["lp_pos"])
+    links = np.arange(cx["nlink"])
+    tw, twp = twist_set(cx, t.get("mode", "fm"))
+    tw0 = np.zeros(cx["nplaq"])
+    step = 0.5 * math.sqrt(g2) / 2.0
+    for _ in range(30):
+        acc = A.sweep(U, links, *a, kind, ppar, tw0, 0.0, nhit, step)
+        r = acc / (links.size * nhit)
+        step = min(1.5, step * min(1.5, max(0.6, (r + 0.1) / 0.55)))
+    near = set()
+    for p in twp:
+        near |= set(C.shells(cx, int(p), int(t.get("nshell", 1))).tolist())
+    near = np.array(sorted(near), np.int64)
+    for _ in range(int(t.get("pretherm", 150))):
+        A.sweep(U, links, *a, kind, ppar, tw0, 0.0, nhit, step)
+    pt, ps_ = A.mean_plaq(U, cx["pl"], cx["ps"], cx["pn"], cx["ptype"])
+    out = {"task": t, "complex": {k: cx[k] for k in ("name", "nsite", "nlink", "nplaq")}, "step": step,
+           "near_links": int(near.size), "twisted_plaquettes": twp.tolist(), "twist_weights": tw[twp].tolist(),
+           "g2": g2, "x": 4.0 * math.pi / g2, "S": 2.0 * math.pi ** 2 / g2, "plaq_time_like": pt, "plaq_face": ps_}
+    nodes = np.zeros((N + 1, NBLOCK, 7))
+    ahalf = 0.5 / N
+    for k in range(N + 1):
+        nodes[k] = A.run_node(U, links, near, *a, kind, ppar, tw, twp, k / N, nhit, step, ntherm, ncyc, nloc, ahalf, NBLOCK)
+    out.update(estimate(nodes, N))
+    out["nodes"] = nodes.tolist()
+    out["seconds"] = time.time() - t0
+    return out
+
+
+if __name__ == "__main__":
+    tasks = json.load(open(sys.argv[1]))
+    i, n, od = int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+    os.makedirs(od, exist_ok=True)
+    for j, t in enumerate(tasks):
+        if j % n != i:
+            continue
+        fn = os.path.join(od, t["name"] + ".json")
+        if os.path.exists(fn):
+            continue
+        r = run_task(t)
+        json.dump(r, open(fn + ".tmp", "w"))
+        os.replace(fn + ".tmp", fn)
+        print("%s lnA %.4f +- %.4f (fwd %.4f bwd %.4f TI %.4f) plaq t %.4f s %.4f %.0fs" % (
+            t["name"], r["lnA"], r["lnA_err"], r["lnA_forward"], r["lnA_backward"], r["lnA_TI"], r["plaq_time_like"],
+            r["plaq_face"], r["seconds"]), flush=True)

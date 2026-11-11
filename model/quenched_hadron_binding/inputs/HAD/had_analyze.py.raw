@@ -1,0 +1,477 @@
+"""Analysis of one lattice of lane HAD. Everything follows CANDIDATES.md (fixed before the run).
+
+    python had_analyze.py LABEL NS NT MEASDIR CFGDIR OUT.json
+
+Reads no literature value and no measured mass except the declared input m_pi/m_rho = 0.1780 for the physical point.
+"""
+import sys, glob, json, os, hashlib
+import numpy as np
+from scipy.optimize import minimize_scalar, brentq
+
+RATIO_PHYS = 0.1780
+WINDOWS = {
+    16: dict(pion=(4, 8), rho=(4, 8), nucleon=(4, 7), alt=dict(pion=(5, 8), rho=(5, 8), nucleon=(5, 7))),
+    24: dict(pion=(5, 12), rho=(5, 10), nucleon=(5, 9), alt=dict(pion=(6, 12), rho=(6, 10), nucleon=(6, 9))),
+    32: dict(pion=(6, 16), rho=(6, 13), nucleon=(6, 12), alt=dict(pion=(7, 16), rho=(7, 13), nucleon=(7, 12))),
+}
+
+
+def jk_samples(arr, streams):
+    """Delete-one-stream jackknife samples of the mean. arr has shape (n, ...)."""
+    ids = np.unique(streams)
+    tot = arr.sum(0)
+    n = arr.shape[0]
+    out = []
+    for s in ids:
+        m = streams == s
+        out.append((tot - arr[m].sum(0)) / (n - m.sum()))
+    return arr.mean(0), np.array(out)
+
+
+def jk_err(samples):
+    n = samples.shape[0]
+    return np.sqrt((n - 1) / n * ((samples - samples.mean(0)) ** 2).sum(0))
+
+
+def fit_mass(y, s, t, T, kind):
+    def model(m):
+        f = np.exp(-m * t)
+        if kind == 'cosh':
+            f = f + np.exp(-m * (T - t))
+        return f
+
+    def chi2(m):
+        f = model(m)
+        A = (y * f / s ** 2).sum() / (f * f / s ** 2).sum()
+        return (((y - A * f) / s) ** 2).sum()
+    grid = np.linspace(0.02, 3.0, 150)
+    c = np.array([chi2(m) for m in grid])
+    k = int(np.argmin(c))
+    lo = grid[max(k - 1, 0)]
+    hi = grid[min(k + 1, len(grid) - 1)]
+    res = minimize_scalar(chi2, bounds=(lo, hi), method='bounded', options=dict(xatol=1e-12))
+    return float(res.x), float(res.fun)
+
+
+def meff_curve(C, T, kind):
+    out = np.full(T // 2, np.nan)
+    for t in range(0, T // 2):
+        a, b = C[t], C[t + 1]
+        if not (a > 0 and b > 0):
+            continue
+        if kind == 'exp':
+            out[t] = np.log(a / b)
+        else:
+            f = lambda m: np.cosh(m * (t - T / 2)) / np.cosh(m * (t + 1 - T / 2)) - a / b
+            try:
+                out[t] = brentq(f, 1e-6, 8.0)
+            except ValueError:
+                pass
+    return out
+
+
+def linfit(x, y, s):
+    """Weighted straight line y = c0 + c1 x. Returns c0, c1, chi2."""
+    w = 1.0 / s ** 2
+    S0, S1, S2 = w.sum(), (w * x).sum(), (w * x * x).sum()
+    T0, T1 = (w * y).sum(), (w * x * y).sum()
+    det = S0 * S2 - S1 * S1
+    c0 = (S2 * T0 - S1 * T1) / det
+    c1 = (S0 * T1 - S1 * T0) / det
+    return c0, c1, float((w * (y - c0 - c1 * x) ** 2).sum())
+
+
+def potfit(r, V, s, fix_e=None):
+    """V = V0 + sigma r - e / r, weighted linear least squares. Returns (V0, sigma, e, chi2)."""
+    w = 1.0 / s
+    if fix_e is None:
+        A = np.stack([np.ones_like(r), r, -1.0 / r], 1) * w[:, None]
+        p, *_ = np.linalg.lstsq(A, V * w, rcond=None)
+        chi2 = float((((V - p[0] - p[1] * r + p[2] / r) * w) ** 2).sum())
+        return p[0], p[1], p[2], chi2
+    A = np.stack([np.ones_like(r), r], 1) * w[:, None]
+    p, *_ = np.linalg.lstsq(A, (V + fix_e / r) * w, rcond=None)
+    chi2 = float((((V - p[0] - p[1] * r + fix_e / r) * w) ** 2).sum())
+    return p[0], p[1], fix_e, chi2
+
+
+def tau_int_streams(series_list):
+    """Integrated autocorrelation time from the average autocovariance of several streams (Madras-Sokal window)."""
+    n = min(len(x) for x in series_list)
+    acc = np.zeros(n // 3)
+    for x in series_list:
+        x = x[:n] - x[:n].mean()
+        for t in range(len(acc)):
+            acc[t] += (x[:n - t] * x[t:]).mean()
+    rho = acc / acc[0]
+    tau = 0.5
+    win = len(rho) - 1
+    for t in range(1, len(rho)):
+        tau += rho[t]
+        if t >= 6 * tau:
+            win = t
+            break
+    nn = n * len(series_list)
+    err = tau * np.sqrt(2.0 * (2 * win + 1) / nn)
+    return float(tau), float(err), int(win), [float(v) for v in rho[:8]]
+
+
+def lag1(obs, streams, cfgs):
+    """Lag-one correlation coefficient between consecutive saved configurations within a stream."""
+    m = obs.mean()
+    num = 0.0
+    cnt = 0
+    for s in np.unique(streams):
+        sel = streams == s
+        o = obs[sel][np.argsort(cfgs[sel])] - m
+        num += (o[:-1] * o[1:]).sum()
+        cnt += len(o) - 1
+    var = ((obs - m) ** 2).mean()
+    return float(num / cnt / var), float(1.0 / np.sqrt(cnt))
+
+
+def main():
+    label, ns, nt, measdir, cfgdir, outfn = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4], sys.argv[5], sys.argv[6]
+    T = nt
+    files = sorted(glob.glob(os.path.join(measdir, 'meas_*.npz')))
+    # further directories: MEASDIR_x holds added hopping parameters on the same configurations
+    xfiles = sorted(glob.glob(os.path.join(measdir.rstrip('/') + '_x', 'meas_*.npz')))
+    kap_all = sorted({round(float(k), 6) for f in ([files[0]] + xfiles[:1]) for k in np.load(f)['kappas']})
+
+    def to_dict(f, d=None):
+        z = np.load(f, allow_pickle=False)
+        ks = [round(float(k), 6) for k in z['kappas']]
+        e = {} if d is None else d
+        for k in z.files:
+            tail = k.rsplit('_', 1)[-1]
+            if tail.isdigit():
+                e[k.rsplit('_', 1)[0] + f'_{kap_all.index(ks[int(tail)])}'] = z[k]
+            elif k not in e:
+                e[k] = z[k]
+        e['kappas'] = np.array(kap_all)
+        return e
+    recs = [to_dict(f) for f in files]
+    byname = {os.path.basename(f): r for f, r in zip(files, recs)}
+    fixfiles = []
+    for f in xfiles:
+        if os.path.basename(f) in byname:
+            to_dict(f, byname[os.path.basename(f)])
+    for r in recs:
+        r['files'] = list(r.keys())
+    meta0 = json.loads(str(recs[0]['meta']))
+    streams = np.array([json.loads(str(r['meta']))['stream'] for r in recs])
+    cfgs = np.array([json.loads(str(r['meta']))['cfg'] for r in recs])
+    n = len(recs)
+    nstream = len(np.unique(streams))
+    out = dict(label=label, lattice=[ns, ns, ns, nt], beta=5.7, configurations=n, streams=int(nstream),
+               ape=meta0['ape'], source_smearing=meta0['smear'], ratio_phys_input=RATIO_PHYS)
+    rr = recs[0]['r']
+    names = meta0['classes']
+    kappas = [float(k) for k in recs[0]['kappas']]
+    have_had = 'pion_SP_0' in recs[0]['files']
+    have_pp = 'pion_PP_0' in recs[0]['files']
+    out['configurations_from_reruns'] = [os.path.basename(f) for f in fixfiles]
+
+    def col(key):
+        idx = np.array([i for i, r in enumerate(recs) if key in r])
+        return np.array([recs[i][key] for i in idx]), idx
+
+    # ------------------------------------------------------------ plaquette and autocorrelation
+    plaq = np.array([0.5 * (float(r['ps']) + float(r['pt'])) for r in recs])
+    pm, psamp = jk_samples(plaq, streams)
+    out['plaquette'] = dict(value=float(pm), err=float(jk_err(psamp)))
+    ser = []
+    hot = []
+    cold = []
+    for f in sorted(glob.glob(os.path.join(cfgdir, 'series_*.npz'))):
+        z = np.load(f)
+        p = 0.5 * (z['ps'] + z['pt'])
+        m = json.loads(str(z['meta']))
+        ser.append(p[250:])
+        (hot if m['start'] == 'hot' else cold).append(p)
+    if ser:
+        tau, tau_err, win, rho = tau_int_streams(ser)
+        nmin = min(len(x) for x in hot + cold)
+        hotm = np.mean([x[:nmin] for x in hot], 0)
+        coldm = np.mean([x[:nmin] for x in cold], 0)
+        diff = hotm - coldm
+        # first sweep after which hot and cold stream averages agree within 3 standard errors of their difference
+        se = np.sqrt(np.var([x[:nmin] for x in hot], 0) / len(hot) + np.var([x[:nmin] for x in cold], 0) / len(cold))
+        agree = np.abs(diff) < 3 * se
+        first_agree = int(np.argmax(agree)) if agree.any() else -1
+        out['autocorrelation'] = dict(
+            plaquette_tau_int_sweeps=tau, tau_err=tau_err, window=win, rho_first_lags=rho,
+            series_sweeps_used_per_stream=int(min(len(x) for x in ser)),
+            hot_minus_cold_plaquette_sweeps_250_to_500=float(diff[250:500].mean()),
+            hot_minus_cold_err=float(np.sqrt((se[250:500] ** 2).mean() / 1.0) / np.sqrt(250 / max(2 * tau, 1.0))),
+            first_sweep_hot_cold_agree=first_agree,
+            plaquette_series_mean_after_250=float(np.mean([x.mean() for x in ser])),
+            plaquette_series_err=float(np.std([x.mean() for x in ser], ddof=1) / np.sqrt(len(ser))))
+
+    # ------------------------------------------------------------ static potential
+    W = np.array([r['W'] for r in recs])                                 # (n, classes, Tmax)
+    Wm, Wj = jk_samples(W, streams)
+    We = jk_err(Wj)
+    pot = dict(r=[float(x) for x in rr], names=names, W_mean=Wm.tolist(), W_err=We.tolist())
+
+    def veff(Wx, t):                                                    # ln W(r, t) / W(r, t + 1), t >= 1
+        return np.log(Wx[..., t - 1] / Wx[..., t])
+    V = {}
+    for t in (1, 2, 3, 4):
+        with np.errstate(invalid='ignore', divide='ignore'):
+            vm = veff(Wm, t)
+            vj = veff(Wj, t)
+        V[t] = (vm, vj, jk_err(vj))
+        pot[f'V_t{t}'] = [None if not np.isfinite(v) else float(v) for v in vm]
+        pot[f'V_t{t}_err'] = [None if not np.isfinite(v) else float(v) for v in V[t][2]]
+    fits = {}
+
+    def run_fit(tag, t, sel, fix_e=None):
+        vm, vj, ve = V[t]
+        r_ = rr[sel]
+        p = potfit(r_, vm[sel], ve[sel], fix_e)
+        pj = np.array([potfit(r_, vj[i][sel], ve[sel], fix_e)[:3] for i in range(vj.shape[0])])
+        pe = jk_err(pj)
+        r0 = np.sqrt((1.65 - p[2]) / p[1]) if p[1] > 0 and p[2] < 1.65 else np.nan
+        with np.errstate(invalid='ignore'):
+            r0j = np.sqrt((1.65 - pj[:, 2]) / pj[:, 1])
+        fits[tag] = dict(estimator_t=t, r_used=[float(x) for x in r_], V0=float(p[0]), V0_err=float(pe[0]),
+                         sigma=float(p[1]), sigma_err=float(pe[1]), e=float(p[2]), e_err=float(pe[2]),
+                         chi2=p[3], dof=int(len(r_) - (3 if fix_e is None else 2)),
+                         r0=float(r0), r0_err=float(jk_err(r0j)),
+                         sqrt_sigma=float(np.sqrt(p[1])) if p[1] > 0 else None,
+                         sqrt_sigma_err=float(jk_err(np.sqrt(np.abs(pj[:, 1])))))
+        return p, pj
+    ok2 = np.isfinite(V[2][0]) & np.isfinite(V[2][2])
+    pF1, pjF1 = run_fit('F1_primary', 2, ok2 & (rr >= 1.41))
+    run_fit('F2_all_r', 2, ok2 & (rr >= 0.99))
+    run_fit('F3_e_fixed_pi12_r_ge_2', 2, ok2 & (rr >= 1.99), fix_e=np.pi / 12)
+    ok3 = np.isfinite(V[3][0]) & np.isfinite(V[3][2]) & (rr >= 1.41)
+    with np.errstate(invalid='ignore'):
+        ok3 = ok3 & (V[3][2] < 0.10 * np.abs(V[3][0]))
+    if ok3.sum() >= 4:
+        run_fit('F4_t3', 3, ok3)
+    sig = [fits[k]['sigma'] for k in fits]
+    pot['fits'] = fits
+    pot['sigma'] = fits['F1_primary']['sigma']
+    pot['sigma_stat'] = fits['F1_primary']['sigma_err']
+    pot['sigma_syst'] = float(0.5 * (max(sig) - min(sig)))
+    pot['sigma_over_err'] = float(pot['sigma'] / np.hypot(pot['sigma_stat'], pot['sigma_syst']))
+    r0s = [fits[k]['r0'] for k in fits]
+    pot['r0'] = fits['F1_primary']['r0']
+    pot['r0_stat'] = fits['F1_primary']['r0_err']
+    pot['r0_syst'] = float(0.5 * (np.nanmax(r0s) - np.nanmin(r0s)))
+    out['potential'] = pot
+    sigma_j = pjF1[:, 1]
+    with np.errstate(invalid='ignore'):
+        r0_j = np.sqrt((1.65 - pjF1[:, 2]) / pjF1[:, 1])
+    sigma_m = pF1[1]
+    r0_m = fits['F1_primary']['r0']
+    # lag-one correlation of a smeared loop: class nearest r = 2, t = 2
+    k2 = int(np.argmin(np.abs(rr - 2.0)))
+    out.setdefault('autocorrelation', {})['lag1_plaquette'] = lag1(plaq, streams, cfgs)
+    out['autocorrelation']['lag1_loop_r2_t2'] = lag1(W[:, k2, 1], streams, cfgs)
+
+    if not have_had:
+        json.dump(out, open(outfn, 'w'), indent=1)
+        print('sha256', hashlib.sha256(open(outfn, 'rb').read()).hexdigest())
+        return
+
+    # ------------------------------------------------------------ hadron correlators
+    win = WINDOWS[T]
+    half = T // 2
+
+    def fold_meson(C):
+        C = np.asarray(C)
+        f = np.empty(C.shape[:-1] + (half + 1,))
+        f[..., 0] = C[..., 0]
+        for t in range(1, half + 1):
+            f[..., t] = 0.5 * (C[..., t] + C[..., T - t])
+        return f
+
+    def fold_nucleon(cp, cm):
+        cp = np.real(cp)
+        cm = np.real(cm)
+        f = np.empty(cp.shape[:-1] + (half + 1,))
+        f[..., 0] = cp[..., 0]
+        for t in range(1, half + 1):
+            f[..., t] = 0.5 * (cp[..., t] - cm[..., T - t])
+        return f
+
+    types = ['SP', 'SS'] + (['PP'] if have_pp else [])
+    corr = {}
+    cidx = {}
+    for ik in range(len(kappas)):
+        for ty in types:
+            a_, idx = col(f'pion_{ty}_{ik}')
+            corr[('pion', ty, ik)] = fold_meson(a_)
+            corr[('rho', ty, ik)] = fold_meson(col(f'rho_{ty}_{ik}')[0])
+            corr[('nucleon', ty, ik)] = fold_nucleon(col(f'nucp_{ty}_{ik}')[0], col(f'nucm_{ty}_{ik}')[0])
+            cidx[(ty, ik)] = idx
+    for nm, ik in (('lightest', len(kappas) - 1), ('heaviest', 0)):
+        ii = cidx[('SP', ik)]
+        out['autocorrelation'][f'lag1_pion_t5_{nm}'] = lag1(corr[('pion', 'SP', ik)][:, 5], streams[ii], cfgs[ii])
+
+    # solver statistics
+    sol = []
+    excluded = []
+    for ik, kap in enumerate(kappas):
+        it, ii = col(f'iters_S_{ik}')
+        rs = col(f'resid_S_{ik}')[0]
+        fb = col(f'fallback_S_{ik}')[0]
+        sol.append(dict(kappa=kap, configurations=int(len(ii)), iterations_mean=float(it.mean()), iterations_max=int(it.max()),
+                        true_residual_max=float(rs.max()), fallbacks=int(fb.sum()),
+                        configurations_with_fallback=int((fb.sum(1) > 0).sum())))
+        bad = np.nonzero(rs.max(1) > 1e-6)[0]
+        for b in bad:
+            excluded.append(dict(kappa=kap, stream=int(streams[ii[b]]), cfg=int(cfgs[ii[b]]), residual=float(rs[b].max()),
+                                 reason='true residual above 1e-6'))
+        for i in range(n):
+            if i not in set(ii.tolist()):
+                excluded.append(dict(kappa=kap, stream=int(streams[i]), cfg=int(cfgs[i]),
+                                     reason='fallback solver did not finish in the time of the run'))
+    out['solver'] = sol
+    out['excluded'] = excluded
+    tails = []
+    for ik, kap in enumerate(kappas):
+        c = corr[('pion', 'SP', ik)][:, (win['pion'][0] + win['pion'][1]) // 2]
+        k_ = int(np.argmax(c))
+        ii = cidx[('SP', ik)]
+        tails.append(dict(kappa=kap, t=int((win['pion'][0] + win['pion'][1]) // 2), max_over_median=float(c.max() / np.median(c)),
+                          stream=int(streams[ii[k_]]), cfg=int(cfgs[ii[k_]]), n_above_10_medians=int((c > 10 * np.median(c)).sum())))
+    out['pion_tail'] = tails
+
+    kinds = dict(pion='cosh', rho='cosh', nucleon='exp')
+    masses = {}       # (channel, type, window tag, ik) -> (value, jk samples)
+    had = []
+    for ik, kap in enumerate(kappas):
+        row = dict(kappa=kap, t=list(range(half + 1)))
+        for ch in ('pion', 'rho', 'nucleon'):
+            for ty in types:
+                Cm, Cj = jk_samples(corr[(ch, ty, ik)], streams[cidx[(ty, ik)]])
+                Ce = jk_err(Cj)
+                row[f'{ch}_{ty}'] = Cm.tolist()
+                row[f'{ch}_{ty}_err'] = Ce.tolist()
+                me = meff_curve(Cm, T, kinds[ch])
+                mej = np.array([meff_curve(c, T, kinds[ch]) for c in Cj])
+                row[f'meff_{ch}_{ty}'] = [None if not np.isfinite(v) else float(v) for v in me]
+                row[f'meff_{ch}_{ty}_err'] = [None if not np.isfinite(v) else float(v) for v in jk_err(mej)]
+                for tag, w in (('primary', win[ch]), ('alt', win['alt'][ch])):
+                    t = np.arange(w[0], w[1] + 1)
+                    m0, c2 = fit_mass(Cm[t], Ce[t], t, T, kinds[ch])
+                    mj = np.array([fit_mass(c[t], Ce[t], t, T, kinds[ch])[0] for c in Cj])
+                    masses[(ch, ty, tag, ik)] = (m0, mj)
+                    row[f'mass_{ch}_{ty}_{tag}'] = [m0, float(jk_err(mj)), c2, int(len(t) - 2), list(w)]
+        for ch in ('pion', 'rho', 'nucleon'):
+            m0, mj = masses[(ch, 'SP', 'primary', ik)]
+            syst = max(abs(m0 - masses[(ch, 'SP', 'alt', ik)][0]), abs(m0 - masses[(ch, 'SS', 'primary', ik)][0]))
+            row[f'mass_{ch}'] = [m0, float(jk_err(mj)), float(syst)]
+        for nme, a_, b_ in (('mN_over_mrho', 'nucleon', 'rho'), ('mpi_over_mrho', 'pion', 'rho')):
+            a0, aj = masses[(a_, 'SP', 'primary', ik)]
+            b0, bj = masses[(b_, 'SP', 'primary', ik)]
+            alt = masses[(a_, 'SP', 'alt', ik)][0] / masses[(b_, 'SP', 'alt', ik)][0]
+            ss = masses[(a_, 'SS', 'primary', ik)][0] / masses[(b_, 'SS', 'primary', ik)][0]
+            row[nme] = [a0 / b0, float(jk_err(aj / bj)), float(max(abs(a0 / b0 - alt), abs(a0 / b0 - ss)))]
+        had.append(row)
+    out['hadrons'] = had
+
+    # ------------------------------------------------------------ chiral extrapolation
+    ik_all = list(range(len(kappas)))
+    invk = np.array([1.0 / k for k in kappas])
+
+    def chain(mpi, mrho, mN, epi2, erho, eN, x_inv_kappa, sigma, r0):
+        """One evaluation of the chiral chain. Inputs are arrays over the kappas used."""
+        c0, c1, chi_pi = linfit(x_inv_kappa, mpi ** 2, epi2)
+        inv_kc = -c0 / c1
+        kc = 1.0 / inv_kc
+        x = mpi ** 2
+        r0_, r1_, chi_r = linfit(x, mrho, erho)
+        n0_, n1_, chi_n = linfit(x, mN, eN)
+        c = RATIO_PHYS
+        A = c * c * r1_ * r1_
+        B = 2 * c * c * r0_ * r1_ - 1.0
+        Cc = c * c * r0_ * r0_
+        disc = B * B - 4 * A * Cc
+        xph = (-B - np.sqrt(disc)) / (2 * A) if A != 0 else -Cc / B
+        mrho_ph = r0_ + r1_ * xph
+        mN_ph = n0_ + n1_ * xph
+        inv_kph = inv_kc + xph / c1
+        ss = np.sqrt(sigma)
+        return dict(kappa_c=kc, slope_mpi2=c1, chi2_pi=chi_pi, mrho_chiral=r0_, mrho_slope=r1_, chi2_rho=chi_r,
+                    mN_chiral=n0_, mN_slope=n1_, chi2_N=chi_n, mpi2_phys=xph, kappa_phys=1.0 / inv_kph,
+                    mrho_phys=mrho_ph, mN_phys=mN_ph,
+                    mN_over_mrho_chiral=n0_ / r0_, mN_over_mrho_phys=mN_ph / mrho_ph,
+                    mrho_over_sqrtsigma_chiral=r0_ / ss, mN_over_sqrtsigma_chiral=n0_ / ss,
+                    mrho_over_sqrtsigma_phys=mrho_ph / ss, mN_over_sqrtsigma_phys=mN_ph / ss,
+                    mrho_r0_chiral=r0_ * r0, mN_r0_chiral=n0_ * r0, mrho_r0_phys=mrho_ph * r0, mN_r0_phys=mN_ph * r0,
+                    sqrt_sigma=ss, r0=r0)
+
+    def variant(ty, tag, use):
+        m = {ch: np.array([masses[(ch, ty, tag, i)][0] for i in use]) for ch in kinds}
+        mj = {ch: np.array([masses[(ch, ty, tag, i)][1] for i in use]) for ch in kinds}       # (kappa, njk)
+        e = {ch: np.array([jk_err(masses[(ch, ty, tag, i)][1]) for i in use]) for ch in kinds}
+        e2 = np.array([jk_err(masses[('pion', ty, tag, i)][1] ** 2) for i in use])
+        x = invk[use]
+        cen = chain(m['pion'], m['rho'], m['nucleon'], e2, e['rho'], e['nucleon'], x, sigma_m, r0_m)
+        js = [chain(mj['pion'][:, i], mj['rho'][:, i], mj['nucleon'][:, i], e2, e['rho'], e['nucleon'], x,
+                    sigma_j[i], r0_j[i]) for i in range(mj['pion'].shape[1])]
+        err = {k: float(jk_err(np.array([j[k] for j in js]))) for k in cen}
+        return {k: [float(cen[k]), err[k]] for k in cen}
+    # rule (b) of the log: drop a hopping parameter whose pion fit fails
+    use = []
+    dropped = []
+    for i in ik_all:
+        m0, mj = masses[('pion', 'SP', 'primary', i)]
+        w = win['pion']
+        Cm = np.array(had[i]['pion_SP'])
+        okc = bool((Cm[w[0]:w[1] + 1] > 0).all())
+        rel = float(jk_err(mj) / m0) if m0 > 0 else np.inf
+        if okc and rel <= 0.25:
+            use.append(i)
+        else:
+            dropped.append(dict(kappa=kappas[i], pion_relative_error=rel, correlator_positive=okc))
+    ch = dict(kappas_used=[kappas[i] for i in use], kappas_dropped=dropped,
+              primary=variant('SP', 'primary', use), alt_window=variant('SP', 'alt', use),
+              smeared_sink=variant('SS', 'primary', use))
+    var_list = ['alt_window', 'smeared_sink']
+    if len(use) >= 4:
+        ch['lightest_three'] = variant('SP', 'primary', use[1:])
+        var_list.append('lightest_three')
+    if len(use) < len(ik_all):
+        with np.errstate(all='ignore'):
+            ch['four_point_preregistered'] = variant('SP', 'primary', ik_all)
+    if have_pp:
+        ch['point_point'] = variant('PP', 'primary', use)
+    syst = {}
+    for k in ch['primary']:
+        syst[k] = float(max(abs(ch['primary'][k][0] - ch[v][k][0]) for v in var_list))
+    ch['systematic'] = syst
+    ch['systematic_variants'] = var_list
+    out['chiral'] = ch
+    json.dump(out, open(outfn, 'w'), indent=1)
+    print('sha256', hashlib.sha256(open(outfn, 'rb').read()).hexdigest())
+
+    # ------------------------------------------------------------ jackknife samples for the public package
+    def r12(a):
+        return [[float(f'{v:.12g}') for v in row] for row in np.atleast_2d(a)]
+    dump = dict(label=label, lattice=[ns, ns, ns, nt], beta=5.7, configurations=n, streams=int(nstream),
+                kappas=kappas, r=[float(x) for x in rr], separations=names, windows=dict(
+                    pion=list(win['pion']), rho=list(win['rho']), nucleon=list(win['nucleon']),
+                    alt=dict(pion=list(win['alt']['pion']), rho=list(win['alt']['rho']), nucleon=list(win['alt']['nucleon']))),
+                ratio_phys_input=RATIO_PHYS,
+                W_mean=r12(Wm), W_jk=[r12(w) for w in Wj], correlators={},
+                summary=dict(plaquette=out['plaquette'], autocorrelation=out['autocorrelation'], solver=out['solver'],
+                             pion_tail=out['pion_tail'], excluded=out['excluded'], ape=out['ape'],
+                             source_smearing=out['source_smearing']))
+    for ik in range(len(kappas)):
+        for chn in ('pion', 'rho', 'nucleon'):
+            for ty in ('SP', 'SS'):
+                Cm, Cj = jk_samples(corr[(chn, ty, ik)], streams[cidx[(ty, ik)]])
+                dump['correlators'][f'{chn}_{ty}_{ik}'] = dict(mean=r12(Cm)[0], jk=r12(Cj))
+    jfn = outfn.replace('analysis_', 'jk_')
+    json.dump(dump, open(jfn, 'w'))
+    print('jk file', jfn, os.path.getsize(jfn))
+
+
+if __name__ == '__main__':
+    main()

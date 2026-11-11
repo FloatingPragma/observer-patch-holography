@@ -1,0 +1,209 @@
+"""Reference implementation of the family walk (declared extension of the public coherent seam walk to many carriers).
+
+    from family_walk import FlatPatch, FamilyWalk
+
+Definition (see repair-law/work/SIM/STEPS.md, step 1). State of one quantum of one internal level:
+amplitude psi[port, record, address]; record in {0, 1} (the owned parity record of the public program); the address
+register is LOCAL to the carrier that holds the port: its sixty oriented internal seams and both orientations of
+its glue seams, NA addresses (66 with one glue seam per neighbour, 72 with a shared seam). A glue address belongs
+to the registers of both carriers. One step is W = Q R:
+  R  reflects each (port, record) about the uniform superposition of its carrier's NA addresses;
+  Q  applies, on the seam named by the address, the public reversible repair with the link z of that seam:
+     v = m|0> - p|1>,  m = (|a> - z|b>)/sqrt2,  p = (|a> + z|b>)/sqrt2,  psi -> psi - <v|psi> v   (z = hop phase a -> b).
+Facts checked by `python family_walk.py`: unitarity; on one isolated carrier the step is the public walk (return
+11/12 and 643/900); the blank-record discriminant A* Q A equals 1 - L_G / NA with L_G the recharted port Laplacian
+(so cos omega = 1 - lambda / NA); the executed return amplitude has its spectral lines at those phases.
+
+A sector is fixed by the hop phases: scalar (all 1), spinor or vector sections (z_ab = phase of <chi_b|chi_a> in the
+frames of the ports). The five internal levels of the public fibre are five such walks: three with the vector
+phases and two with the spinor phases; a Z2 link sign multiplies the spinor phases of that seam by -1.
+"""
+import itertools
+import numpy as np
+
+PHI = (1 + 5 ** 0.5) / 2
+PV = np.array([(-1, PHI, 0), (1, PHI, 0), (-1, -PHI, 0), (1, -PHI, 0), (0, -1, PHI), (0, 1, PHI),
+               (0, -1, -PHI), (0, 1, -PHI), (PHI, 0, -1), (PHI, 0, 1), (-PHI, 0, -1), (-PHI, 0, 1)], float)
+N = PV / np.linalg.norm(PV, axis=1)[:, None]
+E = [(a, b) for a in range(12) for b in range(a + 1, 12) if abs(np.linalg.norm(PV[a] - PV[b]) - 2) < 1e-9]
+_ES = set(E)
+_adj = lambda a, b: (min(a, b), max(a, b)) in _ES
+F = [f for f in itertools.combinations(range(12), 3) if _adj(f[0], f[1]) and _adj(f[1], f[2]) and _adj(f[0], f[2])]
+TOP = (0, 11, 5)                                   # control face of the simulation package
+GLUE = []                                          # bridge glue ports: across the control-face edge opposite vertex k
+for k in range(3):
+    e = {TOP[(k + 1) % 3], TOP[(k + 2) % 3]}
+    GLUE.append([v for f in F if e <= set(f) and set(f) != set(TOP) for v in f if v not in e][0])
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, 3 ** 0.5 / 2])
+
+
+def spin_matrices(j):
+    d = int(round(2 * j + 1)); m = np.array([j - i for i in range(d)])
+    Jz = np.diag(m).astype(complex); Jp = np.zeros((d, d), complex)
+    for i in range(1, d):
+        Jp[i - 1, i] = np.sqrt(j * (j + 1) - m[i] * (m[i] + 1))
+    return (Jp + Jp.conj().T) / 2, (Jp - Jp.conj().T) / (2j), Jz
+
+
+def coherent(j, m, n):
+    Jx, Jy, Jz = spin_matrices(j)
+    w, U = np.linalg.eigh(n[0] * Jx + n[1] * Jy + n[2] * Jz)
+    return U[:, int(np.argmin(abs(w - m)))]
+
+
+def ambient_axes():
+    """Axes of the 24 ports of a cell in one common frame: up carrier with the control axis along +z and control
+    vertex k pointing away from neighbour k; down carrier = up carrier turned by half a turn about z."""
+    tau = -(A1 + A2) / 3
+    DEL = [np.zeros(2), A1, A2]
+    def frame(DEL):
+        dirs = [(tau + d) / np.linalg.norm(tau + d) for d in DEL]
+        n = N[list(TOP)].sum(0); n /= np.linalg.norm(n)
+        v = np.cross(n, [0, 0, 1.0]); s = np.linalg.norm(v); c = n[2]
+        K = np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
+        X = N @ (np.eye(3) + K + K @ K * ((1 - c) / s ** 2)).T
+        rz = lambda t: np.array([[np.cos(t), -np.sin(t), 0], [np.sin(t), np.cos(t), 0], [0, 0, 1]])
+        a0 = np.arctan2(X[TOP[0]][1], X[TOP[0]][0]); t0 = np.arctan2(-dirs[0][1], -dirs[0][0])
+        X = X @ rz(t0 - a0).T
+        ok = all(np.allclose(X[TOP[k]][:2] / np.linalg.norm(X[TOP[k]][:2]), -dirs[k], atol=1e-9) for k in range(3))
+        return X, ok, rz
+    X, ok, rz = frame(DEL)
+    if not ok:
+        DEL = [DEL[0], DEL[2], DEL[1]]; X, ok, rz = frame(DEL)
+    assert ok
+    return np.vstack([X, X @ rz(np.pi).T]), DEL
+
+
+class FlatPatch:
+    """Periodic patch of n1 x n2 cells of the flat honeycomb federation (one up and one down carrier per cell).
+
+    sector: 'scalar', 'spinor' (j = 1/2, helicity 1/2) or 'vector' (j = 1, helicity 1).
+    gluing: 'bridge' (one glue seam per neighbour) or 'seam' (shared control-face edge, two glue seams, crossed).
+    rule:   'template' (z = 1 on glue seams) or 'ambient' (phases from the axes of the ports in one common frame).
+    flips:  optional set of seam indices whose link sign is flipped (applies to the spinor sector)."""
+
+    def __init__(self, n1, n2, sector='scalar', gluing='bridge', rule='template', flips=()):
+        self.n1, self.n2, self.sector, self.gluing, self.rule = n1, n2, sector, gluing, rule
+        AX, DEL = ambient_axes()
+        self.AX, self.DEL = AX, DEL
+        j, m = {'scalar': (0, 0), 'spinor': (0.5, 0.5), 'vector': (1, 1)}[sector]
+        chi = [coherent(j, m, AX[p]) if j else np.ones(1) for p in range(24)]
+        def z(a, b):
+            if not j: return 1.0 + 0j
+            v = np.vdot(chi[b], chi[a]); return v / abs(v)
+        self.ncell = n1 * n2; self.P = 24 * self.ncell; self.ncar = 2 * self.ncell
+        cell = lambda i, k: (i % n1) * n2 + (k % n2)
+        seams = []                                          # (port a, port b, hop phase a -> b, is_glue)
+        for c in range(self.ncell):
+            for blk in (0, 12):
+                for a, b in E:
+                    seams.append((24 * c + blk + a, 24 * c + blk + b, z(blk + a, blk + b), False))
+        cellvec = {0: (0, 0), 1: None, 2: None}
+        # displacement of neighbour k in cell coordinates: DEL[k] = i*A1 + k*A2
+        disp = []
+        for d in DEL:
+            sol = np.linalg.solve(np.array([A1, A2]).T, d); disp.append((int(round(sol[0])), int(round(sol[1]))))
+        for i in range(n1):
+            for k2 in range(n2):
+                c = cell(i, k2)
+                for k in range(3):
+                    c2 = cell(i + disp[k][0], k2 + disp[k][1])
+                    pairs = [(GLUE[k], 12 + GLUE[k])] if gluing == 'bridge' else [(TOP[(k + 1) % 3], 12 + TOP[(k + 2) % 3]), (TOP[(k + 2) % 3], 12 + TOP[(k + 1) % 3])]
+                    for a, b in pairs:
+                        seams.append((24 * c + a, 24 * c2 + b, (1.0 + 0j) if rule == 'template' else z(a, b), True))
+        self.seams = seams
+        self.flips = set(flips)
+        self.carrier = np.array([p // 12 for p in range(self.P)])
+        self.NA = 60 + (6 if gluing == 'bridge' else 12)
+        self.positions = self._positions(DEL)
+
+    def _positions(self, DEL):
+        """Planar position of every carrier centre (mesh edge = 1): up at cell origin, down at tau + ... ."""
+        tau = -(A1 + A2) / 3
+        pos = np.zeros((self.ncar, 2))
+        for i in range(self.n1):
+            for k in range(self.n2):
+                c = i * self.n2 + k; o = i * A1 + k * A2
+                pos[2 * c] = o; pos[2 * c + 1] = o - tau * 1.0   # the down carrier of the same cell is neighbour 0 of the up carrier
+        return pos
+
+    def laplacian(self):
+        L = np.zeros((self.P, self.P), complex)
+        for s, (a, b, z, glue) in enumerate(self.seams):
+            if s in self.flips and self.sector == 'spinor': z = -z
+            L[a, a] += 1; L[b, b] += 1; L[b, a] -= z; L[a, b] -= np.conj(z)
+        return L
+
+
+class FamilyWalk:
+    def __init__(self, patch):
+        self.g = patch; P, NA = patch.P, patch.NA
+        count = np.zeros(patch.ncar, int)
+        ia, ib, pa, pb, zz = [], [], [], [], []
+        for s, (a, b, z, glue) in enumerate(patch.seams):
+            if s in patch.flips and patch.sector == 'spinor': z = -z
+            for (x, y, w) in ((a, b, z), (b, a, np.conj(z))):          # the two oriented addresses of the seam
+                cx, cy = patch.carrier[x], patch.carrier[y]
+                ax = count[cx]; count[cx] += 1
+                if cy == cx: ay = ax
+                else: ay = count[cy]; count[cy] += 1
+                pa.append(x); pb.append(y); ia.append(ax); ib.append(ay); zz.append(w)
+        assert (count == NA).all(), (count.min(), count.max(), NA)
+        self.pa, self.pb, self.ia, self.ib, self.z = map(np.array, (pa, pb, ia, ib, zz))
+        self.psi = np.zeros((P, 2, NA), complex); self.t = 0
+
+    def embed(self, port, amp=1.0):
+        self.psi[port, 0, :] += amp / np.sqrt(self.g.NA)
+
+    def reflect(self):
+        self.psi = 2 * self.psi.mean(axis=2, keepdims=True) - self.psi
+
+    def seam(self):
+        h = 2 ** -0.5; p = self.psi; pa, pb, ia, ib, z = self.pa, self.pb, self.ia, self.ib, self.z
+        A0, B0, A1_, B1 = p[pa, 0, ia], p[pb, 0, ib], p[pa, 1, ia], p[pb, 1, ib]
+        c = ((A0 - np.conj(z) * B0) - (A1_ + np.conj(z) * B1)) * h
+        p[pa, 0, ia] = A0 - c * h; p[pb, 0, ib] = B0 + z * c * h
+        p[pa, 1, ia] = A1_ + c * h; p[pb, 1, ib] = B1 + z * c * h
+
+    def step(self):
+        self.reflect(); self.seam(); self.t += 1
+
+    def populations(self):
+        return (abs(self.psi) ** 2).sum(axis=(1, 2))
+
+    def overlap(self, port):
+        return self.psi[port, 0, :].sum() / np.sqrt(self.g.NA)
+
+    def discriminant(self):
+        """A* Q A on the blank record (P x P), by applying Q to embedded basis states."""
+        P = self.g.P; D = np.zeros((P, P), complex); keep = self.psi
+        for x in range(P):
+            self.psi = np.zeros_like(keep); self.embed(x); self.seam()
+            D[:, x] = self.psi[:, 0, :].sum(axis=1) / np.sqrt(self.g.NA)
+        self.psi = keep
+        return D
+
+
+if __name__ == '__main__':
+    # 1. one isolated carrier: the public walk
+    class One:                                               # twelve ports, thirty seams, sixty addresses
+        P = 12; ncar = 1; NA = 60; sector = 'scalar'; flips = set(); carrier = np.zeros(12, int)
+        seams = [(a, b, 1.0 + 0j, False) for a, b in E]
+    w = FamilyWalk(One()); w.embed(0); w.step(); r1 = w.populations()[0]; w.step(); r2 = w.populations()[0]
+    print(f'isolated carrier: return after one and two steps {r1:.12f} {r2:.12f} (11/12 = {11/12:.12f}, 643/900 = {643/900:.12f})')
+    # 2. flat patches: unitarity, discriminant against the recharted Laplacian
+    for sector, gluing, rule in (('scalar', 'bridge', 'template'), ('spinor', 'bridge', 'template'), ('vector', 'bridge', 'template'), ('spinor', 'seam', 'ambient'), ('vector', 'seam', 'ambient')):
+        g = FlatPatch(3, 3, sector, gluing, rule); w = FamilyWalk(g)
+        rng = np.random.default_rng(1); w.psi = rng.normal(size=w.psi.shape) + 1j * rng.normal(size=w.psi.shape); n0 = np.linalg.norm(w.psi); w.step(); n1 = np.linalg.norm(w.psi)
+        D = w.discriminant(); L = g.laplacian()
+        err = abs(D - (np.eye(g.P) - L / g.NA)).max()
+        lam = np.linalg.eigvalsh(L)
+        print(f'{sector:6s} {gluing:6s} {rule:8s}: NA {g.NA}, norm ratio after a step {n1 / n0:.12f}, |A*QA - (1 - L/NA)| = {err:.1e}, lowest levels of L {np.round(lam[:4], 6)}')
+    # 3. executed spectrum: return amplitude of a port excitation against the kernel phases
+    g = FlatPatch(4, 4, 'spinor', 'bridge', 'template'); w = FamilyWalk(g); w.embed(0)
+    T = 4096; amp = np.zeros(T, complex)
+    for t in range(T): amp[t] = w.overlap(0); w.step()
+    spec = abs(np.fft.fft(amp * np.hanning(T))) ** 2; freq = 2 * np.pi * np.fft.fftfreq(T)
+    lam = np.linalg.eigvalsh(g.laplacian()); om = np.arccos(1 - lam / g.NA)
+    peak = abs(freq[np.argmax(spec[1:T // 2]) + 1])
+    print(f'executed walk, spinor sector on a 4 x 4 patch: strongest line at {peak:.5f} rad per step; lowest kernel phase {om[0]:.5f}; resolution {2 * np.pi / T:.5f}')

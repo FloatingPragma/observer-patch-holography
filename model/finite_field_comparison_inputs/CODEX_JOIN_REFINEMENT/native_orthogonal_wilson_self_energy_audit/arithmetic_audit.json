@@ -1,0 +1,25 @@
+{
+  "all_CI_passed_claimed": false,
+  "commands": [
+    "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 reverse-engineering-reality/.venv/bin/python -m pytest -q repair-law/work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/test_algebraic_intervals.py",
+    "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 reverse-engineering-reality/.venv/bin/python repair-law/work/CODEX_JOIN_REFINEMENT/native_orthogonal_wilson_self_energy_audit/contractions.py"
+  ],
+  "physical_mass_certified": false,
+  "result": "Exact interval and rational contraction arithmetic replay completed; many-body transfer and spectral remainder remain uncertified.",
+  "schema": "oph.finite_self_energy_arithmetic_audit.v1",
+  "source_sha256": {
+    "PROOF.md": "921acf966d9b1a6b67fbcb56cd6ffb38d63dd33488f27ea6592018d5f69d7a1c",
+    "algebraic_intervals.py": "2634781c9a0e5d5809660e3b283ff76e702070a5b7ad46999edf3587c92ce696",
+    "candidate.json": "39f18b05be2fb798110ebfd62ed21ff35a325354fc9f6c0411eda4006241b1cf",
+    "contractions-replay.log": "0100cf6ad2e669f8be25351764b6bcc8a9ff002d671a2e05eed5d9300191a658",
+    "contractions.json": "3f540383dac19ece7fe663b5cd260651b66c809fe7036c8b7f8977283e3f82ab",
+    "contractions.py": "e630242b0ccfb6a167b3884fe14ec352ab4999ccad19800bd0c7b2612173ed87",
+    "interval-tests.log": "f4938cf813502ff05994bcccdd2c66e8097f4cb87b0cdb5b76a506c8fc716707",
+    "test_algebraic_intervals.py": "d0c24909ab402b25b86630a9dda6f61c3e9a2021f333d7151f1fd9c783d3a172"
+  },
+  "tests": {
+    "contraction_producer_exit_code": 0,
+    "frozen_scientific_hash_admissions": "unchanged; executed by imported band.admit()",
+    "interval_regressions": "19 passed in 0.53s"
+  }
+}

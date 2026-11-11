@@ -1,0 +1,379 @@
+"""T5, item 3: the operators that the carrier supplies on the family band, their eigenvalues, the mixing matrices.
+
+Exact over Q(sqrt5) and its extension by s = sqrt(phi + 2) (t5lib). Output: native.json.
+
+  1. Named operators on the band and their exact spectra.
+  2. Span: the port load projectors span every real symmetric operator on the band, the port responses every
+     Hermitian one (exact ranks 6 and 9). A mass operator on the band is a real weight function on the ports.
+  3. Sums of port responses over port sets: orbits of the residual groups, and all classes of port triples.
+  4. Mixing matrices (squared overlaps) between the eigenbases that the residual groups fix.
+"""
+import itertools
+import math
+import sys
+from fractions import Fraction as F
+
+import numpy as np
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, R5, PHI
+import t5lib as t
+from t5lib import E, EZ, EO, W, IDP, geometry, rot, kstr, kfl
+
+geo = geometry()
+V, seams, rots, faces, anti = geo['V'], geo['seams'], geo['rotations'], geo['faces'], geo['antipode']
+fr = next(f for f in geo['frames'] if f['coordinate_frame'])
+klein, stab = fr['klein'], fr['stabilizer']
+R = {g: rot(g) for g in rots}
+C5 = R5 * K(F(1, 5))                                   # 1/sqrt5, the cosine between adjacent ports
+out = {'arithmetic': 'Q(sqrt5) and its extension by sqrt(phi + 2); eigenvalues are exact, floats are their values',
+       'frame': 'coordinate axes of the raw port frame; frame seams ' + str(list(fr['matching']))}
+EX, EY, EZc = (ONE, ZERO, ZERO), (ZERO, ONE, ZERO), (ZERO, ZERO, ONE)
+AX = (EX, EY, EZc)
+
+
+def is_diag(C):
+    return all(C[i][j].is_zero() for i in range(3) for j in range(3) if i != j)
+
+
+def diag_of(C):
+    return [C[i][i].real_K() for i in range(3)]
+
+
+def axial(C, u):
+    """C commutes with the rotations about u: eigenvalue x on u, y + k and y - k on the two circular states.
+    Returns exact x, y, k^2 in Q(sqrt5); checks C u = x u and det C = x (y^2 - k^2)."""
+    Cu = t.eapply(C, u)
+    x = (t.edot(u, Cu) / t.edot(u, u)).real_K()
+    assert all((a - E.lift(x) * E.lift(b)).is_zero() for a, b in zip(Cu, u)), 'u is not an eigenvector'
+    tr, tr2 = t.etr(C).real_K(), t.etr(t.emm(C, C)).real_K()
+    y = (tr - x) * K(F(1, 2))
+    k2 = (tr2 - x * x - K(2) * y * y) * K(F(1, 2))
+    assert t.edet3(C).real_K() == x * (y * y - k2)
+    return x, y, k2
+
+
+def spec_axial(C, u):
+    x, y, k2 = axial(C, u)
+    k = math.sqrt(max(kfl(k2), 0.0))
+    return {'axial': kstr(x), 'circular': f'{kstr(y)} +- sqrt({kstr(k2)})',
+            'values': sorted([kfl(x), kfl(y) + k, kfl(y) - k], reverse=True),
+            'order_axial_plus_minus': [kfl(x), kfl(y) + k, kfl(y) - k]}
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. named operators
+ops = []
+# kernel
+L = [[(5 if p == q else 0) - (1 if tuple(sorted((p, q))) in seams else 0) for q in range(12)] for p in range(12)]
+T = [[F(int(p == q)) - F(L[p][q], 60) for q in range(12)] for p in range(12)]
+Tb = t.band_compress(T)
+assert is_diag(Tb) and len(set(diag_of(Tb))) == 1
+ops.append({'operator': 'the kernel T = 1 - L/60 (repair mean of the public carrier)', 'symmetry': 'all rotations',
+            'eigenvalues': [kstr(diag_of(Tb)[0])] * 3, 'values': [kfl(diag_of(Tb)[0])] * 3, 'pattern': 'three equal'})
+# port load projector
+p0 = 0
+Lp = t.load_projector(p0)
+x, y, k2 = axial(Lp, V[p0])
+assert y.is_zero() and k2.is_zero() and x == K(F(1, 4))
+ops.append({'operator': 'port projector delta_p delta_p^T compressed to the band = (1/4) n n^T', 'symmetry': 'rotations about the port axis',
+            'eigenvalues': ['1/4', '0', '0'], 'values': [0.25, 0, 0], 'pattern': 'one nonzero, two zero; eigenvector: the state along the port axis; the plane is degenerate'})
+# port response (coherent projector)
+Pp = t.coherent_projector(p0)
+assert t.eeq(t.emm(Pp, Pp), Pp) and t.etr(Pp) == EO and t.eherm(Pp)
+assert all(a.is_zero() for a in t.eapply(Pp, V[p0]))                          # annihilates the axial state
+Pm = t.coherent_projector(anti[p0])
+assert t.ezero(t.emm(Pp, Pm)) and t.eeq(t.eadd(Pp, Pm, t.escale(K(4), Lp)), t.eeye())
+ops.append({'operator': 'port response on the triplet, P_p = (1 - n n^T + i [n]_x)/2 (the code response is P_p/2)',
+            'symmetry': 'rotations about the port axis; not real (it contains the orientation)',
+            'eigenvalues': ['1', '0', '0'], 'values': [1, 0, 0],
+            'pattern': 'one nonzero, two zero; eigenvector: one circular state about the port axis; the other circular state belongs to the antipodal port',
+            'identity': 'P_p + P_(-p) + n n^T = 1, P_p P_(-p) = 0 (exact)'})
+# frame-seam operators: seam (a, b) of the frame matching with midpoint on one axis
+seam_rows = []
+for (a, b) in fr['matching']:
+    mid = kd.vadd(V[a], V[b]); dif = kd.vsub(V[a], V[b])
+    imid = next(i for i in range(3) if not mid[i].is_zero()); idir = next(i for i in range(3) if not dif[i].is_zero())
+    assert sum(1 for x_ in mid if not x_.is_zero()) == 1 and sum(1 for x_ in dif if not x_.is_zero()) == 1
+    seam_rows.append({'seam': [a, b], 'midpoint_axis': imid + 1, 'seam_direction_axis': idir + 1,
+                      'normal_axis': ({0, 1, 2} - {imid, idir}).pop() + 1})
+a, b = fr['matching'][0]
+row0 = seam_rows[0]
+im, idr, inr = row0['midpoint_axis'] - 1, row0['seam_direction_axis'] - 1, row0['normal_axis'] - 1
+def unit(p, q):
+    M = [[0] * 12 for _ in range(12)]; M[p][q] = 1
+    return M
+def add(*Ms):
+    return [[sum(M[i][j] for M in Ms) for j in range(12)] for i in range(12)]
+def scal(c, M):
+    return [[c * M[i][j] for j in range(12)] for i in range(12)]
+exch = t.band_compress(add(unit(a, b), unit(b, a)))
+assert is_diag(exch)
+d = diag_of(exch)
+assert d[im] == (ONE + C5) * K(F(1, 4)) and d[idr] == (C5 - ONE) * K(F(1, 4)) and d[inr].is_zero()
+ops.append({'operator': 'exchange across one frame seam, |a><b| + |b><a|', 'symmetry': 'Klein group of the frame',
+            'eigenvalues': {'midpoint axis': kstr(d[im]), 'seam direction': kstr(d[idr]), 'normal axis': kstr(d[inr])},
+            'values': sorted((kfl(x_) for x_ in d), reverse=True), 'pattern': 'three different, one of them zero; eigenvectors: the frame axes'})
+summ = t.band_compress(add(unit(a, a), unit(b, b), unit(a, b), unit(b, a)))          # (delta_a + delta_b)(..)^T
+diff = t.band_compress(add(unit(a, a), unit(b, b), scal(-1, unit(a, b)), scal(-1, unit(b, a))))
+assert is_diag(summ) and is_diag(diff)
+ds, dd = diag_of(summ), diag_of(diff)
+assert ds[im] == (ONE + C5) * K(F(1, 2)) and all(ds[i].is_zero() for i in range(3) if i != im)
+assert dd[idr] == (ONE - C5) * K(F(1, 2)) and all(dd[i].is_zero() for i in range(3) if i != idr)
+ops.append({'operator': 'frame axis projector from one frame seam: (delta_a + delta_b)(delta_a + delta_b)^T', 'symmetry': 'Klein group',
+            'eigenvalues': [kstr(ds[im]), '0', '0'], 'values': [kfl(ds[im]), 0, 0], 'pattern': 'one nonzero (on the midpoint axis), two zero'})
+ops.append({'operator': 'seam difference (delta_a - delta_b)(delta_a - delta_b)^T; the seam mean of the public law is 1 minus half of it',
+            'symmetry': 'Klein group', 'eigenvalues': [kstr(dd[idr]), '0', '0'], 'values': [kfl(dd[idr]), 0, 0],
+            'pattern': 'one nonzero (on the seam direction, which is another axis of the same frame), two zero',
+            'seam_mean_on_the_band': f'eigenvalues {kstr(ONE - dd[idr] * K(F(1, 2)))}, 1, 1 (two equal and one different)'})
+# the two seams of one axis, and all six
+pair = [s for s, r in zip(fr['matching'], seam_rows) if r['midpoint_axis'] == row0['midpoint_axis']]
+assert len(pair) == 2
+pairx = t.band_compress(add(*[add(unit(p, q), unit(q, p)) for p, q in pair]))
+assert is_diag(pairx)
+dp = diag_of(pairx)
+ops.append({'operator': 'exchange across the two frame seams of one axis', 'symmetry': 'Klein group',
+            'eigenvalues': {'midpoint axis': kstr(dp[im]), 'seam direction': kstr(dp[idr]), 'normal axis': kstr(dp[inr])},
+            'values': sorted((kfl(x_) for x_ in dp), reverse=True),
+            'pattern': 'three different, one zero; ratio of the nonzero pair -(3 - sqrt5)/2 = -0.381966'})
+assert dp[idr] * (K(F(3, 2)) + R5 * K(F(1, 2))) == -dp[im]
+allx = t.band_compress(add(*[add(unit(p, q), unit(q, p)) for p, q in fr['matching']]))
+assert is_diag(allx) and diag_of(allx) == [C5] * 3
+ops.append({'operator': 'exchange across all six frame seams (the matching of the frame)', 'symmetry': 'frame stabilizer',
+            'eigenvalues': [kstr(C5)] * 3, 'values': [kfl(C5)] * 3, 'pattern': 'three equal'})
+out['frame_seams'] = seam_rows
+out['named_operators'] = ops
+for o in ops:
+    print('1.', o['operator'], '->', o['values'], '|', o['pattern'])
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. span
+sym_rows, herm_rows = [], []
+for p in range(12):
+    outer, cross = t.unit_axis_data(V[p])
+    o = t.kmat(outer); c = t.kmat(cross)
+    sym = [o[i][j] for i in range(3) for j in range(i, 3)]
+    sym_rows.append(tuple(sym))
+    # P_p = (1 - outer)/2 + (i/s) cross / 2: real coordinates on (six symmetric units, three units of i[.]_x / s)
+    herm_rows.append(tuple([(ONE if i == j else ZERO) - o[i][j] for i in range(3) for j in range(i, 3)]
+                           + [c[2][1], c[0][2], c[1][0]]))
+rk_sym, rk_herm = kd.rank(tuple(sym_rows)), kd.rank(tuple(herm_rows))
+out['span'] = {'rank_of_the_twelve_port_load_projectors_in_the_real_symmetric_operators': rk_sym,
+               'rank_of_the_twelve_port_responses_in_the_hermitian_operators': rk_herm,
+               'statement': 'every real symmetric operator on the band is a real combination of port load projectors (6 of 6), every Hermitian operator a real combination of the twelve port responses (9 of 9): a mass operator on the band is a real weight function on the ports, M = sum_p w_p P_p, and the carrier does not fix the weights',
+               'kernel_dimension_of_the_weight_map': 12 - rk_herm}
+print('2. span: load projectors rank', rk_sym, 'of 6; responses rank', rk_herm, 'of 9')
+assert rk_sym == 6 and rk_herm == 9
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. sums of port responses over port sets
+def gram(ports):
+    return t.eadd(*[t.coherent_projector(p) for p in ports]) if len(ports) > 1 else t.coherent_projector(ports[0])
+
+
+def vsum(ports):
+    u = (ZERO, ZERO, ZERO)
+    for p in ports:
+        u = kd.vadd(u, V[p])
+    return u
+
+
+def orbits(group):
+    seen, res = set(), []
+    for p in range(12):
+        if p in seen:
+            continue
+        orb = sorted({g[p] for g in group})
+        seen.update(orb)
+        res.append(tuple(orb))
+    return res
+
+
+PC = t.emat([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+tcyc = next(g for g in stab if t.order(g) == 3 and t.eeq(R[g], PC))
+z3 = (IDP, tcyc, kd.compose(tcyc, tcyc))
+z5 = tuple(g for g in rots if g[p0] == p0)
+dist = [[0 if p == q else (1 if tuple(sorted((p, q))) in seams else (3 if q == anti[p] else 2)) for q in range(12)]
+        for p in range(12)]
+orbit_rows = []
+faxis = (ONE, ONE, ONE)                                       # axis of tcyc in the coordinate frame
+for orb in orbits(z3):
+    C = gram(orb)
+    sp = spec_axial(C, faxis)
+    cp = t.circulant_parameters(C)
+    kind = 'face' if all(dist[a_][b_] == 1 for a_, b_ in itertools.combinations(orb, 2)) else 'belt triple (mutual distance 2)'
+    cosang = t.overlap2(vsum(orb), faxis)
+    orbit_rows.append({'group': 'third of a turn', 'ports': list(orb), 'kind': kind,
+                       'axis_side': '+' if kfl(kd.vdot(vsum(orb), faxis)) > 0 else '-',
+                       'cos2_port_to_axis': kstr(t.overlap2(V[orb[0]], faxis)),
+                       'eigenvalues': sp, 'koide_quotient_sum_sq_over_sq_sum': kstr(cp['Q']), 'Q_value': kfl(cp['Q'])})
+for orb in orbits(z5):
+    if len(orb) == 1:
+        continue
+    C = gram(orb)
+    sp = spec_axial(C, V[p0])
+    orbit_rows.append({'group': 'fifth of a turn', 'ports': list(orb),
+                       'kind': 'five neighbours of the port' if dist[p0][orb[0]] == 1 else 'five neighbours of the antipode',
+                       'eigenvalues': sp})
+for orb in orbits(klein):
+    C = gram(orb)
+    assert is_diag(C) and all(x_.in_K() for r_ in C for x_ in r_)
+    dv = diag_of(C)
+    orbit_rows.append({'group': 'Klein group', 'ports': list(orb), 'kind': 'four ports of one coordinate plane (two antipodal pairs)',
+                       'eigenvalues': {'exact_on_axes_1_2_3': [kstr(x_) for x_ in dv], 'values': sorted((kfl(x_) for x_ in dv), reverse=True)}})
+C = gram(tuple(range(12)))
+assert t.eeq(C, t.escale(K(4), t.eeye()))
+orbit_rows.append({'group': 'frame stabilizer or all rotations', 'ports': list(range(12)), 'kind': 'all twelve ports',
+                   'eigenvalues': {'exact_on_axes_1_2_3': ['4', '4', '4'], 'values': [4.0, 4.0, 4.0]}})
+out['sums_of_port_responses_over_orbits'] = orbit_rows
+for r in orbit_rows:
+    print('3.', r['group'], r['kind'], r['ports'], r['eigenvalues']['values'])
+
+# all classes of port sets of size 1, 2, 3 up to rotation: spectra of the sum of responses (float eigenvalues of exact matrices)
+def canon(ports):
+    return min(tuple(sorted(g[p] for p in ports)) for g in rots)
+
+
+set_rows = []
+for size in (1, 2, 3):
+    classes = {}
+    for ports in itertools.combinations(range(12), size):
+        classes.setdefault(canon(ports), []).append(ports)
+    for rep, members in sorted(classes.items()):
+        C = gram(rep)
+        ev = t.spectrum_float(C)
+        cp = t.circulant_parameters(C)
+        dists = sorted(dist[a_][b_] for a_, b_ in itertools.combinations(rep, 2))
+        nz = [e for e in ev if e > 1e-12]
+        set_rows.append({'size': size, 'representative': list(rep), 'sets_in_class': len(members), 'mutual_distances': dists,
+                         'rank': len(nz), 'eigenvalues_ascending': ev,
+                         'smallest_over_largest': (ev[0] / ev[2]) if len(nz) == 3 else 0.0,
+                         'trace_sq_over_sq_trace': kfl(cp['Q']), 'determinant': kstr(cp['det'])})
+out['sums_of_port_responses_over_small_port_sets'] = {
+    'rule': 'M = sum of P_p over a set of ports (weights 0 or 1); classes up to the sixty rotations',
+    'classes': set_rows,
+    'smallest_set_with_three_nonzero_eigenvalues': 'three ports (one or two ports give rank 1 or 2)'}
+for r in set_rows:
+    print(f"3. set size {r['size']} distances {r['mutual_distances']} x{r['sets_in_class']:3d} rank {r['rank']} ev {[round(e, 6) for e in r['eigenvalues_ascending']]} min/max {r['smallest_over_largest']:.6f}")
+
+# ---------------------------------------------------------------------------------------------------------------
+# 4. mixing matrices
+def axis_vs_frame(u, axes):
+    """rows: axial state, each circular state about u; columns: frame axes. Exact."""
+    ax = [t.overlap2(u, e) for e in axes]
+    circ = [(ONE - x_) * K(F(1, 2)) for x_ in ax]
+    return [ax, circ, circ]
+
+
+def axis_vs_axis(u, v):
+    c2 = t.overlap2(u, v)
+    c = math.sqrt(kfl(c2))
+    half = (1 - kfl(c2)) / 2
+    return {'cos2': kstr(c2), 'matrix': [[kfl(c2), half, half], [half, ((1 + c) / 2) ** 2, ((1 - c) / 2) ** 2],
+                                           [half, ((1 - c) / 2) ** 2, ((1 + c) / 2) ** 2]],
+            'closed_form': 'axial-axial c^2; axial-circular (1 - c^2)/2; circular-circular ((1 +- c)/2)^2'}
+
+
+def angles(M):
+    """Standard parametrization from squared moduli (rows e, mu, tau; columns 1, 2, 3)."""
+    s13 = M[0][2]
+    if s13 >= 1 - 1e-12:
+        return None
+    s12, s23 = M[0][1] / (1 - s13), M[1][2] / (1 - s13)
+    j2 = M[0][0] * M[1][1] * M[0][1] * M[1][0] - 0.25 * (1 - M[0][0] - M[1][1] - M[0][1] - M[1][0]
+                                                         + M[0][0] * M[1][1] + M[0][1] * M[1][0]) ** 2
+    return {'sin2_theta13': s13, 'sin2_theta12': s12, 'sin2_theta23': s23, 'abs_J': math.sqrt(max(j2, 0.0))}
+
+
+def relabellings(M):
+    seen = {}
+    for rp in itertools.permutations(range(3)):
+        for cp_ in itertools.permutations(range(3)):
+            a_ = angles([[M[rp[i]][cp_[j]] for j in range(3)] for i in range(3)])
+            if a_ is None:
+                continue
+            key = tuple(round(a_[k], 6) for k in ('sin2_theta13', 'sin2_theta12', 'sin2_theta23', 'abs_J'))
+            seen.setdefault(key, 0)
+            seen[key] += 1
+    return [{'sin2_theta13': k[0], 'sin2_theta12': k[1], 'sin2_theta23': k[2], 'abs_J': k[3], 'relabellings': n}
+            for k, n in sorted(seen.items())]
+
+
+mix = []
+# port against frame
+M = axis_vs_frame(V[p0], AX)
+mix.append({'pair': 'port (fifth-turn) against frame (Klein group)', 'rows': 'axial, circular, circular', 'columns': 'frame axes',
+            'exact': [[kstr(x_) for x_ in r_] for r_ in M], 'values': [[kfl(x_) for x_ in r_] for r_ in M],
+            'distinct_classes': 1, 'name': 'golden pattern',
+            'defined_rows': 'all three rows need a port-side operator with three different eigenvalues (axial weight and orientation-odd part both present); the load projector alone defines the axial row only, the response alone one circular row only'})
+classes = set()
+for f_ in geo['frames']:
+    for p in range(12):
+        classes.add(tuple(sorted(kstr(x_) for x_ in axis_vs_frame(V[p], f_['axes'])[0])))
+assert len(classes) == 1
+# face against frame
+fclasses = {}
+for f_ in geo['frames']:
+    for fc in faces:
+        Mf = axis_vs_frame(vsum(fc), f_['axes'])
+        key = tuple(sorted(kstr(x_) for x_ in Mf[0]))
+        in_stab = any(t.order(g) == 3 and all(g[p] in fc for p in fc) for g in f_['stabilizer'])
+        fclasses.setdefault(key, {'count': 0, 'in_stabilizer': set(), 'M': Mf})
+        fclasses[key]['count'] += 1
+        fclasses[key]['in_stabilizer'].add(in_stab)
+for key, d_ in sorted(fclasses.items()):
+    assert len(d_['in_stabilizer']) == 1
+    ins = d_['in_stabilizer'].pop()
+    order_ = sorted(range(3), key=lambda i_: kfl(d_['M'][0][i_]))
+    mix.append({'pair': 'face (third-turn) against frame (Klein group)', 'rows': 'axial, circular, circular',
+                'columns': 'frame axes, ordered by the axial row',
+                'third_turn_in_the_frame_stabilizer': ins, 'face_frame_pairs': d_['count'],
+                'exact_axial_row_sorted': list(key),
+                'exact': [[kstr(d_['M'][r_][i_]) for i_ in order_] for r_ in range(3)],
+                'values': [[kfl(d_['M'][r_][i_]) for i_ in order_] for r_ in range(3)],
+                'name': 'all entries 1/3 (trimaximal)' if ins else 'one zero entry'})
+# frame against frame
+f0, f1 = geo['frames'][0], geo['frames'][1]
+Mff = [[t.overlap2(a_, b_) for b_ in f1['axes']] for a_ in f0['axes']]
+ffclasses = set()
+for fa, fb in itertools.combinations(geo['frames'], 2):
+    ffclasses.add(tuple(sorted(kstr(t.overlap2(a_, b_)) for a_ in fa['axes'] for b_ in fb['axes'])))
+assert len(ffclasses) == 1
+mix.append({'pair': 'frame against another frame', 'rows': 'axes of frame A', 'columns': 'axes of frame B',
+            'exact': [[kstr(x_) for x_ in r_] for r_ in Mff], 'values': [[kfl(x_) for x_ in r_] for r_ in Mff], 'distinct_classes': 1})
+# same group on both sides
+mix.append({'pair': 'the same residual group for both operators', 'values': [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+            'name': 'no mixing (identity up to relabelling)'})
+# port/port, port/face, face/face (closed forms)
+pp = axis_vs_axis(V[0], V[1])
+mix.append({'pair': 'port against another port', **pp})
+pf = {}
+for fc in faces:
+    r_ = axis_vs_axis(V[0], vsum(fc))
+    pf.setdefault(r_['cos2'], r_)
+for k_, r_ in sorted(pf.items()):
+    mix.append({'pair': 'port against face', **r_})
+ff = {}
+for fa, fb in itertools.combinations(faces, 2):
+    if set(anti[p] for p in fa) == set(fb):
+        continue
+    r_ = axis_vs_axis(vsum(fa), vsum(fb))
+    ff.setdefault(r_['cos2'], r_)
+for k_, r_ in sorted(ff.items()):
+    mix.append({'pair': 'face against another face', **r_})
+for m_ in mix:
+    vals = m_.get('values') or m_.get('matrix')
+    m_['angle_sets_over_the_36_relabellings'] = relabellings(vals)
+    print('4.', m_['pair'], m_.get('name', ''), [[round(float(x_), 6) for x_ in r_] for r_ in vals])
+out['mixing_matrices'] = mix
+# golden pattern in the standard parametrization (the relabelling with the zero entry as U_e3)
+g = [[kfl(x_) for x_ in r_] for r_ in M]
+gs = [[g[0][i] for i in np.argsort(g[0])[::-1]], [g[1][i] for i in np.argsort(g[0])[::-1]], [g[2][i] for i in np.argsort(g[0])[::-1]]]
+out['golden_pattern_standard_angles'] = {'squared_moduli': gs, **angles(gs),
+                                         'exact': {'sin2_theta12': '(5 - sqrt5)/10', 'sin2_theta23': '1/2', 'sin2_theta13': '0', 'J': '0'}}
+out['trimaximal_standard_angles'] = {**angles([[1 / 3] * 3] * 3),
+                                     'exact': {'sin2_theta13': '1/3', 'sin2_theta12': '1/2', 'sin2_theta23': '1/2', 'abs_J': '1/(6 sqrt3)'}}
+print('4. golden:', out['golden_pattern_standard_angles'])
+print('4. trimaximal:', out['trimaximal_standard_angles'])
+if len(sys.argv) > 1:
+    t.dump(out, sys.argv[1])

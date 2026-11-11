@@ -1,0 +1,79 @@
+"""LR task 5: comparison of the executed ratios with the measured ratios. NOT BLIND.
+
+Runs only after RESULTS.sha256 exists (the result files of tasks 1 to 4 are fixed and hashed). Measured values are
+the ones of ADDENDUM_THEORY.md: CODATA 2022 m_mu/m_e = 206.7682827(46) and m_e c^2 = 0.51099895069(16) MeV;
+PDG 2024 m_tau = 1776.93(9) MeV; from them m_tau/m_e = 3477.365(176). One comparison per executed setting. No
+setting is chosen by its agreement.
+
+Run from this directory:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr5_compare.py
+Writes lr5_compare.json.
+"""
+import hashlib
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+MU_E, D_MU_E = 206.7682827, 0.0000046                    # CODATA 2022
+ME, MTAU, D_MTAU = 0.51099895069, 1776.93, 0.09          # CODATA 2022, PDG 2024
+TAU_E, D_TAU_E = MTAU / ME, D_MTAU / ME
+KOIDE_MEAS, D_KOIDE = 0.6666645, 0.0000051               # ADDENDUM_THEORY.md
+
+
+def row(setting, mu_e, tau_e, q=None):
+    out = dict(setting=setting, muon_over_electron=mu_e, tau_over_electron=tau_e,
+               muon_over_electron_deviation_ppm=(mu_e / MU_E - 1) * 1e6,
+               muon_over_electron_deviation_sigma=(mu_e - MU_E) / D_MU_E,
+               tau_over_electron_deviation_ppm=(tau_e / TAU_E - 1) * 1e6,
+               tau_over_electron_deviation_sigma=(tau_e - TAU_E) / D_TAU_E,
+               muon_mass_MeV_with_the_electron_as_unit=mu_e * ME, tau_mass_MeV_with_the_electron_as_unit=tau_e * ME)
+    if q is not None:
+        out['koide_Q'] = q
+        out['koide_Q_deviation_sigma'] = (q - KOIDE_MEAS) / D_KOIDE
+    return out
+
+
+def main():
+    lock = os.path.join(HERE, 'RESULTS.sha256')
+    if not os.path.exists(lock):
+        sys.exit('RESULTS.sha256 is missing: fix and hash the result files first')
+    ok = True
+    for line in open(lock):
+        parts = line.split()
+        if len(parts) == 2 and os.path.exists(os.path.join(HERE, parts[1])):
+            ok &= hashlib.sha256(open(os.path.join(HERE, parts[1]), 'rb').read()).hexdigest() == parts[0]
+    if not ok:
+        sys.exit('a result file differs from its hash in RESULTS.sha256')
+    d = json.load(open(os.path.join(HERE, 'lr4_characters.json')))
+    rows = []
+    for kind, name in (('DL', 'double loads, record flags'), ('NP', 'native pairs, oriented record')):
+        b = d['B_one_round_compression'][kind]
+        rows.append(row(f'{name}; phase 2/9 inserted; one-round weights', b['muon_over_electron'],
+                        b['tau_over_electron'], b['koide_Q']))
+        c = d['C_executed_rest_rates'][kind]['ratios_of_the_limits']
+        rows.append(row(f'{name}; phase 2/9 inserted; executed rest rates, limit of many mass rounds',
+                        c['muon_over_electron'], c['tau_over_electron']))
+    for r in d['D_with_the_executed_phase']:
+        for kind, name in (('DL', 'double loads'), ('NP', 'native pairs')):
+            x = r[kind]
+            rows.append(row(f"{name}; phase of the current from {r['N_p']} executed phase rounds per unit clock time",
+                            x['muon_over_electron'], x['tau_over_electron'], x['koide_Q']))
+            rows[-1]['order_is_electron_muon_tau'] = x['order_is_electron_muon_tau']
+    out = dict(task='LR task 5: comparison with measurement', label='NOT BLIND',
+               measured=dict(muon_over_electron=[MU_E, D_MU_E], source_muon_over_electron='CODATA 2022 (NIST), https://physics.nist.gov/cuu/Constants/',
+                             tau_over_electron=[TAU_E, D_TAU_E],
+                             source_tau_over_electron='PDG 2024 m_tau = 1776.93(9) MeV over CODATA 2022 m_e c^2 = 0.51099895069(16) MeV, https://pdg.lbl.gov/',
+                             koide_Q=[KOIDE_MEAS, D_KOIDE]),
+               rule='one comparison per executed setting; no setting is chosen by its agreement; the settings with a '
+                    'finite number of phase rounds form a one-parameter family and a value picked from it by its agreement is a fit',
+               rows=rows)
+    json.dump(out, open(os.path.join(HERE, 'lr5_compare.json'), 'w'), indent=1)
+    for r in rows:
+        print(f"{r['setting'][:95]:95s} mu/e {r['muon_over_electron']:.6f} ({r['muon_over_electron_deviation_ppm']:+.2f} ppm, "
+              f"{r['muon_over_electron_deviation_sigma']:+.0f} sigma)  tau/e {r['tau_over_electron']:.4f} "
+              f"({r['tau_over_electron_deviation_sigma']:+.2f} sigma)")
+
+
+if __name__ == '__main__':
+    main()

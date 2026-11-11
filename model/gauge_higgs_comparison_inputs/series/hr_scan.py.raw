@@ -1,0 +1,65 @@
+"""Worker HR: hysteresis scan of the hop coefficient kappa_H (CANDIDATES.md, section 4).
+
+Usage:
+  python hr_scan.py <tag> <beta_G> <lambda_L> <L> <kappa_start> <kappa_stop> <npoints> <ntherm> <nmeas> <seed> [mode] [T]
+  mode: updown (default; ascending from a symmetric start, then descending with the configuration carried),
+        up, down (descending from a Higgs start: unit links, uniform doublet of length rho0 = 3)
+Writes scan_<tag>.json (per-point summaries and the series of L_phi and rho2) and prints one line per point.
+Reads no measured value.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import hr_lib as H
+
+tag, beta, lam, L = sys.argv[1], float(sys.argv[2]), float(sys.argv[3]), int(sys.argv[4])
+k0, k1, npts = float(sys.argv[5]), float(sys.argv[6]), int(sys.argv[7])
+ntherm, nmeas, seed = int(sys.argv[8]), int(sys.argv[9]), int(sys.argv[10])
+mode = sys.argv[11] if len(sys.argv) > 11 else "updown"
+T = int(sys.argv[12]) if len(sys.argv) > 12 else L
+kappas = np.linspace(k0, k1, npts)
+t0 = time.time()
+lat = H.Lattice(L, beta, kappas[0], lam, seed=seed, T=T)
+out = {"tag": tag, "beta_G": beta, "lambda_L": lam, "L": L, "T": T, "ntherm": ntherm, "nmeas": nmeas, "seed": seed,
+       "mode": mode, "points": []}
+
+
+def do(kap, branch, extra_therm=0):
+    lat.kappa = float(kap)
+    lat.acc_scale = [0, 0]; lat.acc_phi = [0, 0]
+    res, rows = H.run_point(lat, ntherm + extra_therm, nmeas)
+    res["branch"] = branch
+    res["series_L_phi"] = np.round(rows[:, 1], 5).tolist()
+    res["series_rho2"] = np.round(rows[:, 3], 5).tolist()
+    res["drift_rho2_second_half_minus_first"] = float(rows[nmeas // 2:, 3].mean() - rows[:nmeas // 2, 3].mean())
+    out["points"].append(res)
+    print(f"{branch:4s} kappa {kap:.5f} plaq {res['plaq']:.5f} L_phi {res['L_phi']:9.4f} L_alpha {res['L_alpha']:.4f} "
+          f"rho2 {res['rho2']:9.4f} chi_Lphi {res['chi_L_phi']:10.3f} chi_La {res['chi_L_alpha']:8.4f} "
+          f"sd {res['sd_residual']:+.4f}({res['sd_residual_err']:.4f}) acc {res['acc_scale']:.2f}/{res['acc_phi']:.3f} "
+          f"t {time.time() - t0:.0f}s", flush=True)
+
+
+if mode in ("updown", "up"):
+    lat.kappa = float(kappas[0])
+    for _ in range(100):
+        lat.sweep()
+    for kap in kappas:
+        do(kap, "up")
+if mode == "down":
+    rho0sq = 9.0
+    if lam > 0:
+        rho0sq = max(9.0, (8.0 * kappas[-1] - 1.0 + 2.0 * lam) / (2.0 * lam))
+    lat.phi[:] = 0.0
+    lat.phi[:, 0] = np.sqrt(rho0sq)
+    lat.kappa = float(kappas[-1])
+    for _ in range(100):
+        lat.sweep()
+if mode in ("updown", "down"):
+    for kap in kappas[::-1]:
+        do(kap, "down")
+out["seconds"] = time.time() - t0
+json.dump(out, open(f"scan_{tag}.json", "w"))
+print("done", out["seconds"])

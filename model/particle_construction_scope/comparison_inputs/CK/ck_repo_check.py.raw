@@ -1,0 +1,58 @@
+"""CK: the energy-clock identity on the repository's own coherent seam program (Observer.step).
+
+Run from RER:  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:<RL>/work/CK /tmp/oph-completion-venv/bin/python -B <RL>/work/CK/ck_repo_check.py
+Checks, in exact rational arithmetic, for blank-record inputs with the law's uniform (consensus) address:
+    1 - <psi| step |psi> / <psi|psi>  =  P(record 1 after one step).
+Writes repo_check.json next to this file. The repository is imported read only.
+"""
+import json
+import os
+import random
+import sys
+from fractions import Fraction as F
+
+sys.dont_write_bytecode = True
+from model.coherent_seam_repair.program import Observer, State  # noqa: E402
+
+obs = Observer()
+n_addr = obs.address_count
+
+
+def check(state):
+    out = obs.step(state)
+    x, y = state.amplitudes, out.amplitudes
+    nrm = sum(a * a for a in x)
+    inner = sum(a * b for a, b in zip(x, y)) / nrm
+    p1 = F(0)
+    for port in range(12):
+        for address in range(n_addr):
+            v = y[obs.index(port, 1, address)]
+            p1 += v * v
+    return 1 - inner, p1 / nrm, sum(b * b for b in y) / nrm
+
+
+rows = []
+for port in range(12):
+    e, p1, norm_out = check(obs.embedded_port(port))
+    rows.append({'port': port, '1 - <step>': str(e), 'P(record 1)': str(p1), 'norm kept': str(norm_out)})
+random.seed(5)
+rand = []
+for trial in range(8):
+    coef = [F(random.randint(-9, 9), random.randint(1, 7)) for _ in range(12)]
+    amps = [F(0)] * obs.dimension
+    for port, c in enumerate(coef):
+        for i, a in enumerate(obs.embedded_port(port).amplitudes):
+            amps[i] += c * a
+    e, p1, norm_out = check(State(tuple(amps), n_addr))
+    rand.append({'trial': trial, '1 - <step>': str(e), 'P(record 1)': str(p1), 'equal': e == p1})
+# control: a blank record with one fixed address (no consensus) is outside the identity
+st = obs.basis_state(2, 0, 0)
+e, p1, _ = check(st)
+out = {'ports': rows, 'all ports equal 1/12': all(r['1 - <step>'] == '1/12' == r['P(record 1)'] for r in rows),
+       'random blank consensus inputs': rand, 'all random equal': all(r['equal'] for r in rand),
+       'control: fixed address': {'1 - <step>': str(e), 'P(record 1)': str(p1)}, 'addresses': n_addr,
+       'dimension': obs.dimension}
+json.dump(out, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'repo_check.json'), 'w'), indent=1)
+print('all ports equal 1/12:', out['all ports equal 1/12'], '| all random equal:', out['all random equal'],
+      '| control:', out['control: fixed address'])
+print([(r['1 - <step>'], r['P(record 1)']) for r in rand[:3]])

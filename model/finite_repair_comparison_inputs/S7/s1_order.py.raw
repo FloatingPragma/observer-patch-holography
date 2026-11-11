@@ -1,0 +1,53 @@
+"""Ordering fraction, Myrheim-Meyer dimension and longest chain of the provenance order of native histories.
+
+usage: s1_order.py <graph> <conv> <filling> <durations> <seed_lo> <seed_hi> [label]
+  graph    fed:<level>[:face_axis] | flat:<n> | fcc:<n> | tri:<n> | cubic:<n>
+  conv     all | moves
+  filling  a/b   (balanced background, uniform sample of the stationary law)
+Rows are appended to s1_order.json under the label (default graph|conv|filling).
+"""
+import json
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+import s7lib as S
+from s1_calibrate import sample_intervals, summarize, show
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE / 's1_order.json'
+
+
+def build(spec):
+    kind, *rest = spec.split(':')
+    if kind == 'fed':
+        return S.federation(int(rest[0]), rest[1] if len(rest) > 1 else 'port_pair')
+    if kind == 'flat':
+        return S.flat_carriers(int(rest[0]))
+    if kind == 'fcc':
+        return S.fcc_carriers(int(rest[0]))
+    if kind == 'tri':
+        return S.triangular_torus(int(rest[0]))
+    if kind == 'cubic':
+        return S.cubic_torus(int(rest[0]))
+    raise ValueError(spec)
+
+
+if __name__ == '__main__':
+    spec, conv, filling, durs, lo, hi = sys.argv[1:7]
+    label = sys.argv[7] if len(sys.argv) > 7 else f'{spec}|{conv}|{filling}'
+    durations = [float(v) if '.' in v else int(v) for v in durs.split(',')]
+    fn, fd = (int(v) for v in filling.split('/'))
+    g = build(spec)
+    t = time.time()
+    rows = sample_intervals(g, conv, durations, range(int(lo), int(hi)), filling=(fn, fd))
+    data = json.loads(OUT.read_text()) if OUT.exists() else {}
+    entry = data.setdefault(label, {'graph': g.name, 'ports': g.nports, 'seams': g.M, 'conv': conv, 'filling': filling, 'rows': []})
+    have = {(r[0], r[1]) for r in entry['rows']}
+    entry['rows'] += [list(r) for r in rows if (r[0], r[1]) not in have]
+    all_d = sorted({r[1] for r in entry['rows']})
+    entry['summary'] = summarize([tuple(r) for r in entry['rows']], all_d)
+    OUT.write_text(json.dumps(data))
+    show(f'{label}: {g.name}, {g.nports} ports, {g.M} seams; reference f: 1/2 (1+1), 8/35 = 0.2286 (2+1), 1/10 (3+1)  [{time.time() - t:.0f}s]', entry['summary'])

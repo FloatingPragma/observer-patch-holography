@@ -1,0 +1,79 @@
+"""Worker LD: checks of the literature functions against the dispersive identity I2 (CANDIDATES.md section 1).
+
+Run: /tmp/oph-completion-venv/bin/python -B ld_checks.py checks.json
+No measured value is used. The mass ratios are the register's own.
+"""
+import json
+import sys
+
+import mpmath as mp
+
+import ld_lib as L
+
+out = {}
+y = L.register_rates()
+r_e_mu = y['e'] / y['mu']
+r_e_tau = y['e'] / y['tau']
+r_mu_tau = y['mu'] / y['tau']
+out['register'] = {'mu_over_e': str(y['mu'] / y['e']), 'tau_over_e': str(y['tau'] / y['e']),
+                   'tau_over_mu': str(y['tau'] / y['mu']), 'Q': str(L.koide_Q(y))}
+
+# ---- constants of the closed form
+out['constants'] = {
+    'X(0) - d3': str(L.X(0) - L.D3),
+    'X(1) - d4 (own species, MvR d^(2)_4)': str(L.X(1) - L.D4),
+    'X(1 - 1e-12) - d4': str(L.X(1 - mp.mpf('1e-12')) - L.D4),
+    'X(1 + 1e-12) - d4': str(L.X(1 + mp.mpf('1e-12')) - L.D4),
+    'Delta(1) - (pi^2/8 - 3/8)': str(L.Delta(1) - L.DELTA1),
+    'd3': str(L.D3), 'd4': str(L.D4), 'Delta(1)': str(L.DELTA1),
+    'linear coefficient of Delta at r -> 0 minus pi^2/8': str(L.Delta(mp.mpf('1e-9')) / mp.mpf('1e-9') - mp.pi ** 2 / 8),
+}
+
+# ---- approximate formulas of the literature against the exact function
+gray = lambda r: mp.pi ** 2 / 8 * r - mp.mpf('0.597') * r ** 2 + mp.mpf('0.230') * r ** 3            # held from memory
+bek = lambda r: -(mp.mpf('1.562') - mp.mpf('2.394') * r + mp.mpf('0.9428') * r ** 2 - mp.mpf('0.2666') * r ** 3)  # fetched
+grid = [mp.mpf(i) / 100 for i in range(0, 101)]
+out['approximations'] = {
+    'max abs(Delta_exact - Gray approximation) on [0,1]': str(max(abs(L.Delta(r) - gray(r)) for r in grid)),
+    'max abs(X_exact - Bekavac approximation) on [0,1]': str(max(abs(L.X(r) - bek(r)) for r in grid)),
+}
+
+# ---- kernel G
+zs = ['1e-8', '1e-4', '0.01', '0.3', '1', '3.9', '4', '4.1', '10', '100', '1e4', '1e8']
+out['kernel_G'] = {z: {'closed': str(L.G_closed(mp.mpf(z))), 'quadrature_minus_closed': str(L.G_quad(mp.mpf(z)) - L.G_closed(mp.mpf(z)))}
+                   for z in zs}
+out['kernel_G_limits'] = {
+    'G(1e-10) / (-(pi/2) sqrt z)': str(L.G_closed(mp.mpf('1e-10')) / (-(mp.pi / 2) * mp.mpf('1e-5'))),
+    'G(1e10) - G_inf(1e10)': str(L.G_closed(mp.mpf('1e10')) - L.G_inf(mp.mpf('1e10'))),
+    'spline error at z = 0.37': str(float(L.G_float(0.37)) - float(L.G_closed(mp.mpf('0.37')))),
+}
+
+# ---- dispersive identity I2 against the closed form
+pairs = [(float(r_e_mu), 1.0), (float(r_mu_tau), 1.0), (float(r_e_tau), 1.0), (0.3, 1.0), (0.05, 0.5), (2.0, 1.0),
+         (float(1 / r_mu_tau), 1.0), (float(1 / r_e_mu), 1.0), (float(1 / r_e_tau), 1.0)]
+rows = []
+for r, rp in pairs:
+    closed = float(L.X(r) - L.X(rp))
+    disp = L.disp_X_diff(r, rp)
+    rows.append({'r': r, 'r_ref': rp, 'closed_form': closed, 'dispersive': disp, 'difference': disp - closed})
+out['dispersive_identity'] = rows
+out['dispersive_identity_max_abs_difference'] = max(abs(x['difference']) for x in rows)
+
+# ---- heavy species: non-decoupled asymptotics and the decoupled remainder
+heavy = []
+for r in (1.0, 1.5, 2.0, 5.0, float(1 / r_mu_tau), 50.0, float(1 / r_e_mu), float(1 / r_e_tau), 1e5):
+    hv = float(L.h(r))
+    heavy.append({'r': r, 'X': float(L.X(r)), 'h': hv, 'h_times_r2': hv * r * r,
+                  'h_from_kernel_difference': L.disp_h(r) if r >= 1.0 else None})
+out['heavy_species'] = heavy
+
+# ---- values used in the table
+out['values'] = {
+    'r_e_in_mu': str(r_e_mu), 'r_e_in_tau': str(r_e_tau), 'r_mu_in_tau': str(r_mu_tau),
+    '2Delta(r_e_in_mu)': str(2 * L.Delta(r_e_mu)), '2Delta(r_e_in_tau)': str(2 * L.Delta(r_e_tau)),
+    '2Delta(r_mu_in_tau)': str(2 * L.Delta(r_mu_tau)), '2Delta(1)': str(2 * L.DELTA1),
+    'P(r_e_in_mu)': str(L.P(r_e_mu)), 'P asymptote ln(1/r^2) - 5/3': str(-2 * mp.log(r_e_mu) - mp.mpf(5) / 3),
+}
+
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+print(json.dumps(out, indent=1))

@@ -1,0 +1,167 @@
+#!/usr/bin/env python3
+"""HD step C1: Lambda^(3) from the D10 colour coupling, its sensitivities, and the cut-coupling rows.
+
+Reads no measured hadron value. Imports the RER QCD producer unchanged (four-loop running, three-loop
+decoupling) and a private copy of the legacy D10 closure (`d10_copy.py`) whose slope triple is varied.
+
+Run from RER/code/particles:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:<HD> /tmp/oph-completion-venv/bin/python <HD>/hd_lambda.py <HD>/lambda.json
+"""
+
+from __future__ import annotations
+
+import json
+import math
+import os
+import sys
+from pathlib import Path
+
+HD = Path(__file__).resolve().parent
+sys.path.insert(0, str(HD))
+
+from qcd import derive_lambda_qcd_source_transmutation as lq  # RER producer, unchanged
+
+import d10_copy as d10  # private copy of RER calibration/legacy_d10/particle_masses_paper_d10_d11.py
+
+P_FWD = 1.63097209585889737696
+E_STAR = lq.E_STAR_DISPLAY_GEV  # display unit, checksum status in RER
+MZ = lq.MZ_RUN_GEV
+A3 = lq.ALPHA_3_MZ
+MB, MC = lq.MB_MB_GEV, lq.MC_MC_GEV
+
+
+def lam3(alpha_mz: float, mz: float = MZ, mb: float = MB, mc: float = MC) -> float:
+    return lq.chain(alpha_mz, mz, mb, mc)["lambda3_gev"]
+
+
+def dlog(f, x0: float, rel: float = 1e-3) -> float:
+    up, dn = f(x0 * (1 + rel)), f(x0 * (1 - rel))
+    return (math.log(up) - math.log(dn)) / (math.log(1 + rel) - math.log(1 - rel))
+
+
+def main(out: Path) -> None:
+    art = lq.build_artifact()
+    central = art["central"]
+    L3 = central["lambda3_gev"]
+
+    # Sensitivities of the producer chain (EXACT arithmetic of the declared chain, MEASURED by finite differences)
+    sens = {
+        "dlnL3_dln_alpha3_mZ": dlog(lambda a: lam3(a), A3),
+        "dlnL3_dln_mb": dlog(lambda m: lam3(A3, mb=m), MB),
+        "dlnL3_dln_mc": dlog(lambda m: lam3(A3, mc=m), MC),
+        "dlnL3_dln_mZrun_at_fixed_alpha": dlog(lambda m: lam3(A3, mz=m), MZ),
+        "one_loop_threshold_exponents": "2/27 for m_b and for m_c (EXACT at one loop)",
+    }
+
+    # D10 closure copy at P_fwd with the current display unit
+    d10.E_PLANCK_GEV = E_STAR
+    base = d10.build_paper_d10(P_FWD, 3)
+    MU = base.mu_u
+    LN_U_Z = math.log(MU / base.mz_run)
+    repro = {
+        "alpha3_mZ_copy": base.alpha3_mz,
+        "alpha3_mZ_RER_chain": A3,
+        "mZ_run_copy_GeV": base.mz_run,
+        "mZ_run_RER_GeV": MZ,
+        "alpha_U": base.alpha_u,
+        "M_U_GeV": MU,
+        "ln_MU_over_mZ": LN_U_Z,
+    }
+
+    # (a) colour slope below M_U shifted by db3, alpha_U, M_U and m_Z held (DC2 reading: closure at the cut)
+    def a3_fixed(db3: float) -> float:
+        inv = 1.0 / A3 + (db3 / (2 * math.pi)) * LN_U_Z
+        return 1.0 / inv if inv > 0 else float("nan")
+
+    slope_a = []
+    for db3 in (-0.10, -0.03, -0.01, 0.0, 0.01, 0.03, 0.10):
+        a = a3_fixed(db3)
+        slope_a.append({"b3": -3 + db3, "Delta_b3": 4 + db3, "alpha3_mZ": a, "lambda3_GeV": lam3(a),
+                        "lambda3_ratio": lam3(a) / L3})
+    h = 1e-3
+    dlnL_db3_a = (math.log(lam3(a3_fixed(h))) - math.log(lam3(a3_fixed(-h)))) / (2 * h)
+
+    # (b) full D10 closure re-solved with slopes (33/5, 1, -3 + db3)
+    slope_b = []
+    for db3 in (-0.03, -0.01, 0.01, 0.03):
+        d10.B_MSSM = (33.0 / 5.0, 1.0, -3.0 + db3)
+        c = d10.build_paper_d10(P_FWD, 3)
+        slope_b.append({"b3": -3 + db3, "Delta_b3": 4 + db3, "alpha_U": c.alpha_u, "mZ_run_GeV": c.mz_run,
+                        "alpha3_mZ": c.alpha3_mz, "lambda3_GeV": lam3(c.alpha3_mz, mz=c.mz_run),
+                        "lambda3_ratio": lam3(c.alpha3_mz, mz=c.mz_run) / L3})
+    d10.B_MSSM = (33.0 / 5.0, 1.0, -3.0)
+    lb = {r["b3"]: r for r in slope_b}
+    dlnL_db3_b = (math.log(lb[-2.99]["lambda3_GeV"]) - math.log(lb[-3.01]["lambda3_GeV"])) / 0.02
+
+    # SM colour slope below M_U (b3 = -7) at the D10 alpha_U: Landau pole check
+    inv_sm = 1.0 / base.alpha_u + (-7.0 / (2 * math.pi)) * LN_U_Z
+    sm_pole_GeV = MU * math.exp(-(2 * math.pi / 7.0) / base.alpha_u)
+
+    # Cut rows (GL route): 1/alpha_3(E_cell) x one-loop slope b3 from E_cell to m_Z
+    E_CELL = E_STAR * P_FWD ** -0.5
+    ln_cell_z = math.log(E_CELL / MZ)
+    cut_rows = []
+    for name, inv0 in (("DC cut closure", 16.2453), ("GL 5-trace MSbar", 10.152257), ("GL 15-trace MSbar", 8.895621)):
+        for b3 in (-7.0, -5.0, -3.0):
+            inv_z = inv0 + (b3 / (2 * math.pi)) * ln_cell_z
+            row = {"start": name, "inv_alpha3_Ecell": inv0, "b3": b3, "inv_alpha3_mZ": inv_z}
+            if inv_z > 0:
+                a = 1.0 / inv_z
+                row.update({"alpha3_mZ": a, "lambda3_GeV": lam3(a), "lambda3_over_Estar": lam3(a) / E_STAR,
+                            "colour_scale_kind": "Lambda^(3) from the four-loop chain"})
+            else:
+                pole = E_CELL * math.exp(-2 * math.pi * inv0 / abs(b3))
+                row.update({"alpha3_mZ": None, "pole_scale_GeV": pole, "pole_over_Estar": pole / E_STAR,
+                            "colour_scale_kind": "one-loop pole above m_Z"})
+            cut_rows.append(row)
+    # 1/alpha_3(E_cell) that the D10 alpha_3(m_Z) needs for each one-loop slope (EXACT inversion)
+    needed = {str(b3): 1.0 / A3 - (b3 / (2 * math.pi)) * ln_cell_z for b3 in (-7.0, -5.0, -3.0)}
+
+    # C5: H4 string tension at the census density against the hadron scale
+    sqrt_sigma_cell = 0.173  # per cell, MA report Part 2/4 (MEASURED there, +-0.003)
+    z3 = {
+        "sqrt_sigma_per_cell_H4": sqrt_sigma_cell,
+        "sqrt_sigma_GeV_cell_is_hbar_c_over_Estar": sqrt_sigma_cell * E_STAR,
+        "sqrt_sigma_GeV_cell_is_hbar_c_over_Ecell": sqrt_sigma_cell * E_CELL,
+        "ratio_to_lambda3_D10": sqrt_sigma_cell * E_STAR / L3,
+        "sigma_H4_per_cell2": 0.0300,
+        "sigma_needed_per_cell2_order": (L3 / E_STAR) ** 2,
+        "flux_density_H4_per_plaquette": 0.0898,
+        "flux_density_needed_order_dilute_gas": 0.0898 * (L3 / E_STAR) ** 2 / 0.0300,
+        "note": "ARGUED: string tension proportional to the areal flux density of a dilute centre-flux gas; hadron scale of order sqrt(sigma)",
+    }
+
+    result = {
+        "artifact": "HD_lambda",
+        "rer_root_used": os.getcwd(),
+        "producer": "qcd/derive_lambda_qcd_source_transmutation.py (unchanged)",
+        "inputs": {"alpha3_mZ_run": A3, "mZ_run_GeV": MZ, "mu_Z_over_Estar": lq.MU_Z_OVER_E, "E_star_GeV": E_STAR,
+                   "mb_mb_GeV": MB, "mc_mc_GeV": MC, "P_fwd": P_FWD},
+        "central": central,
+        "lambda3_over_Estar": L3 / E_STAR,
+        "lambda3_threshold_corner_interval_GeV": art["lambda3_interval_gev"],
+        "sensitivities": sens,
+        "d10_copy_reproduction": repro,
+        "colour_slope_below_MU": {
+            "a_alphaU_MU_mZ_held": slope_a,
+            "dlnL3_db3_held": dlnL_db3_a,
+            "b_full_D10_closure_resolved": slope_b,
+            "dlnL3_db3_resolved": dlnL_db3_b,
+            "SM_b3_minus7_inv_alpha3_mZ": inv_sm,
+            "SM_b3_minus7_one_loop_pole_GeV": sm_pole_GeV,
+        },
+        "cut_rows": {"E_cell_GeV": E_CELL, "ln_Ecell_over_mZ": ln_cell_z, "rows": cut_rows,
+                     "inv_alpha3_Ecell_needed_for_D10_alpha3": needed},
+        "z3_scale": z3,
+    }
+    out.write_text(json.dumps(result, indent=1) + "\n")
+    print(json.dumps({"lambda3_GeV": L3, "lambda3_over_Estar": L3 / E_STAR, "sens": sens,
+                      "dlnL3_db3_held": dlnL_db3_a, "dlnL3_db3_resolved": dlnL_db3_b,
+                      "SM_pole_GeV": sm_pole_GeV, "needed_inv_alpha3_Ecell": needed}, indent=1))
+    for r in cut_rows:
+        print(r)
+    print(json.dumps(z3, indent=1))
+
+
+if __name__ == "__main__":
+    main(Path(sys.argv[1]) if len(sys.argv) > 1 else HD / "lambda.json")

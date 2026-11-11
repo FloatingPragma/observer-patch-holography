@@ -1,0 +1,1098 @@
+{
+ "not_blind": true,
+ "verdict_rule": "with a shipped uncertainty: |pull| <= 2 compatible, <= 3 tension, above fails; without: more than 10 percent off fails; an exact zero or equality fails when the measured value excludes it",
+ "measured": {
+  "charged_lepton_pole_masses_MeV": {
+   "electron": 0.51099895069,
+   "muon": 105.6583755,
+   "tau": 1776.93
+  },
+  "mass_ratios (lightest/heaviest, middle/heaviest)": {
+   "charged leptons, pole masses": [
+    0.00028757404663661484,
+    0.0594611917745775
+   ],
+   "charged leptons, Yukawa couplings at M_Z": [
+    0.00027945280215036026,
+    0.058870774101410304
+   ],
+   "up-type quarks, Yukawa couplings at M_Z": [
+    7.274966632531366e-06,
+    0.0036744448918133023
+   ],
+   "down-type quarks, Yukawa couplings at M_Z": [
+    0.0009438799509759236,
+    0.018777212180548286
+   ]
+  },
+  "koide_quotient_central": 0.666664463403,
+  "koide_quotient_enclosure": [
+   0.666659380315637,
+   0.666669546221701
+  ],
+  "koide_quotient_recomputed_here": 0.6666644634026365,
+  "charged_leptons_in_circulant_variables (readback of measured values, not a prediction)": {
+   "b_over_a": 0.7071044442682811,
+   "delta": 0.22222476189459092
+  },
+  "quark_mixing (sines, PDG global fit as shipped)": {
+   "sin_theta12": 0.22501,
+   "sin_theta23": 0.04183,
+   "sin_theta13": 0.003732,
+   "delta_radians": 1.147
+  },
+  "lepton_mixing_deg (PDG 2025, normal ordering: value, plus, minus)": {
+   "theta12_deg": [
+    33.68,
+    0.73,
+    0.7
+   ],
+   "theta23_deg": [
+    43.3,
+    1.0,
+    0.9
+   ],
+   "theta13_deg": [
+    8.56,
+    0.11,
+    0.11
+   ],
+   "delta_cp_deg": [
+    212.0,
+    26.0,
+    41.0
+   ]
+  },
+  "lepton_mixing_sin2 (NuFIT 6.1 as shipped)": {
+   "sin2_theta12": 0.3088,
+   "sin2_theta23": 0.47,
+   "sin2_theta13": 0.02248
+  },
+  "largest_quoted_relative_range_of_a_quark_mass": 0.032407407407407406,
+  "files": [
+   "RER/code/particles/data/particle_reference_values.json",
+   "RER/evidence/custody/falsification/frozen_targets/fz10_2026-07-28/koide_balance_comparison_frozen_2026-07-28.json",
+   "RER/model/common_source/calibrated_matter_results.json",
+   "RER/code/particles/results_status.json",
+   "RER/code/particles/data/pdg_2026_conditional_quark_comparison.json"
+  ]
+ },
+ "band_with_frame": {
+  "copies": 3,
+  "fixed": [
+   "the eigenvectors of every operator that keeps a residual group (frame axes; axis and circular states of a port or of a face)",
+   "the mixing matrix between two such bases",
+   "the spectrum of each named operator (kernel: three equal; port projector, port response, axis projector: one nonzero)"
+  ],
+  "free": [
+   "which operator is the mass operator: a real weight on each of the twelve ports (9 independent numbers per sector), 3 per sector once a residual group is kept",
+   "which residual group belongs to which sector",
+   "the map from eigenvalue to mass"
+  ],
+  "predictions": [
+   {
+    "id": "B1",
+    "statement": "operator invariant under all rotations or under the frame stabilizer: three equal masses",
+    "comparison": {
+     "measured middle/heaviest": {
+      "charged leptons, pole masses": 0.0594611917745775,
+      "charged leptons, Yukawa couplings at M_Z": 0.058870774101410304,
+      "up-type quarks, Yukawa couplings at M_Z": 0.0036744448918133023,
+      "down-type quarks, Yukawa couplings at M_Z": 0.018777212180548286
+     }
+    },
+    "verdict": "fails (every measured ratio differs from 1)"
+   },
+   {
+    "id": "B2",
+    "statement": "one sector keeps the Klein group of the frame, the other the fifth-turn of a port: sin^2 theta12 = (5 - sqrt5)/10, sin^2 theta23 = 1/2, theta13 = 0, no phase",
+    "leptons": {
+     "theta12_deg": {
+      "predicted": 31.717474411461005,
+      "measured": [
+       33.68,
+       0.73,
+       0.7
+      ],
+      "pull": -2.8036079836271357,
+      "verdict": "tension"
+     },
+     "theta23_deg": {
+      "predicted": 45.00000000000001,
+      "measured": [
+       43.3,
+       1.0,
+       0.9
+      ],
+      "pull": 1.70000000000001,
+      "verdict": "compatible"
+     },
+     "theta13_deg": {
+      "predicted": 0.0,
+      "measured": [
+       8.56,
+       0.11,
+       0.11
+      ],
+      "pull": -77.81818181818183,
+      "verdict": "fails"
+     }
+    },
+    "quarks": {
+     "sin_theta12": {
+      "predicted": 0.5257311121191336,
+      "measured": 0.22501,
+      "predicted_over_measured_minus_1": 1.3364788770238372,
+      "verdict": "fails"
+     },
+     "sin_theta23": {
+      "predicted": 0.7071067811865476,
+      "measured": 0.04183,
+      "predicted_over_measured_minus_1": 15.904297900706371,
+      "verdict": "fails"
+     },
+     "sin_theta13": {
+      "predicted": 0.0,
+      "measured": 0.003732,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     }
+    },
+    "leptons_verdict": "fails",
+    "quarks_verdict": "fails"
+   },
+   {
+    "id": "B3",
+    "statement": "one sector keeps the Klein group, the other the third-turn of the same frame: every squared entry 1/3",
+    "leptons": {
+     "theta12_deg": {
+      "predicted": 45.00000000000001,
+      "measured": [
+       33.68,
+       0.73,
+       0.7
+      ],
+      "pull": 15.506849315068504,
+      "verdict": "fails"
+     },
+     "theta23_deg": {
+      "predicted": 45.00000000000001,
+      "measured": [
+       43.3,
+       1.0,
+       0.9
+      ],
+      "pull": 1.70000000000001,
+      "verdict": "compatible"
+     },
+     "theta13_deg": {
+      "predicted": 35.264389682754654,
+      "measured": [
+       8.56,
+       0.11,
+       0.11
+      ],
+      "pull": 242.7671789341332,
+      "verdict": "fails"
+     }
+    },
+    "quarks": {
+     "sin_theta12": {
+      "predicted": 0.7071067811865476,
+      "measured": 0.22501,
+      "predicted_over_measured_minus_1": 2.1425571360674973,
+      "verdict": "fails"
+     },
+     "sin_theta23": {
+      "predicted": 0.7071067811865476,
+      "measured": 0.04183,
+      "predicted_over_measured_minus_1": 15.904297900706371,
+      "verdict": "fails"
+     },
+     "sin_theta13": {
+      "predicted": 0.5773502691896257,
+      "measured": 0.003732,
+      "predicted_over_measured_minus_1": 153.70264447739166,
+      "verdict": "fails"
+     }
+    },
+    "leptons_verdict": "fails",
+    "quarks_verdict": "fails"
+   },
+   {
+    "id": "B4",
+    "statement": "both sectors keep the same residual group: no mixing",
+    "leptons": {
+     "theta12_deg": {
+      "predicted": 0.0,
+      "measured": [
+       33.68,
+       0.73,
+       0.7
+      ],
+      "pull": -48.114285714285714,
+      "verdict": "fails"
+     },
+     "theta23_deg": {
+      "predicted": 0.0,
+      "measured": [
+       43.3,
+       1.0,
+       0.9
+      ],
+      "pull": -48.11111111111111,
+      "verdict": "fails"
+     },
+     "theta13_deg": {
+      "predicted": 0.0,
+      "measured": [
+       8.56,
+       0.11,
+       0.11
+      ],
+      "pull": -77.81818181818183,
+      "verdict": "fails"
+     }
+    },
+    "quarks": {
+     "sin_theta12": {
+      "predicted": 0.0,
+      "measured": 0.22501,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta23": {
+      "predicted": 0.0,
+      "measured": 0.04183,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta13": {
+      "predicted": 0.0,
+      "measured": 0.003732,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     }
+    },
+    "leptons_verdict": "fails",
+    "quarks_verdict": "fails"
+   },
+   {
+    "id": "B5",
+    "statement": "mass operator = a port projector, a port response or a frame axis projector: one massive copy, two massless",
+    "comparison": {
+     "charged leptons, pole masses": {
+      "measured": [
+       0.00028757404663661484,
+       0.0594611917745775
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     },
+     "charged leptons, Yukawa couplings at M_Z": {
+      "measured": [
+       0.00027945280215036026,
+       0.058870774101410304
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     },
+     "up-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       7.274966632531366e-06,
+       0.0036744448918133023
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     },
+     "down-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       0.0009438799509759236,
+       0.018777212180548286
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     }
+    },
+    "verdict": "fails as an exact statement; the measured ratios are small (largest middle/heaviest: 0.0595)"
+   },
+   {
+    "id": "B6",
+    "statement": "mass operator = sum of the responses of the three ports of a face (declared choice; the smallest port set with three nonzero eigenvalues); eigenvalues 0.031625, 0.552786, 2.415589",
+    "eigenvalues": [
+     0.03162508931233032,
+     0.5527864045000419,
+     2.4155885061876283
+    ],
+    "mass = eigenvalue squared": {
+     "predicted (lightest/heaviest, middle/heaviest)": [
+      0.00017140268167247134,
+      0.05236833878174335
+     ],
+     "comparison": {
+      "charged leptons, pole masses": {
+       "measured": [
+        0.00028757404663661484,
+        0.0594611917745775
+       ],
+       "predicted_over_measured_minus_1": [
+        -0.40397026895455657,
+        -0.11928541593521647
+       ],
+       "verdict": "fails"
+      },
+      "charged leptons, Yukawa couplings at M_Z": {
+       "measured": [
+        0.00027945280215036026,
+        0.058870774101410304
+       ],
+       "predicted_over_measured_minus_1": [
+        -0.3866489068867962,
+        -0.11045268928290142
+       ],
+       "verdict": "fails"
+      },
+      "up-type quarks, Yukawa couplings at M_Z": {
+       "measured": [
+        7.274966632531366e-06,
+        0.0036744448918133023
+       ],
+       "predicted_over_measured_minus_1": [
+        22.56061413478,
+        13.252040872464981
+       ],
+       "verdict": "fails"
+      },
+      "down-type quarks, Yukawa couplings at M_Z": {
+       "measured": [
+        0.0009438799509759236,
+        0.018777212180548286
+       ],
+       "predicted_over_measured_minus_1": [
+        -0.8184062692556933,
+        1.7889304481520867
+       ],
+       "verdict": "fails"
+      }
+     }
+    },
+    "mass = eigenvalue": {
+     "predicted (lightest/heaviest, middle/heaviest)": [
+      0.013092084695436068,
+      0.22884129605852033
+     ],
+     "comparison": {
+      "charged leptons, pole masses": {
+       "measured": [
+        0.00028757404663661484,
+        0.0594611917745775
+       ],
+       "predicted_over_measured_minus_1": [
+        44.525960525845115,
+        2.8485823985176313
+       ],
+       "verdict": "fails"
+      },
+      "charged leptons, Yukawa couplings at M_Z": {
+       "measured": [
+        0.00027945280215036026,
+        0.058870774101410304
+       ],
+       "predicted_over_measured_minus_1": [
+        45.84900131504797,
+        2.887180006573724
+       ],
+       "verdict": "fails"
+      },
+      "up-type quarks, Yukawa couplings at M_Z": {
+       "measured": [
+        7.274966632531366e-06,
+        0.0036744448918133023
+       ],
+       "predicted_over_measured_minus_1": [
+        1798.6075249187231,
+        61.27914767979808
+       ],
+       "verdict": "fails"
+      },
+      "down-type quarks, Yukawa couplings at M_Z": {
+       "measured": [
+        0.0009438799509759236,
+        0.018777212180548286
+       ],
+       "predicted_over_measured_minus_1": [
+        12.870497706725864,
+        11.187181667765458
+       ],
+       "verdict": "fails"
+      }
+     }
+    },
+    "koide_quotient (mass = eigenvalue squared)": {
+     "predicted": 0.6824045318333193,
+     "exact": "(8 + sqrt5)/15",
+     "measured_enclosure": [
+      0.666659380315637,
+      0.666669546221701
+     ],
+     "distance_in_half_widths": 3096.638600722741,
+     "verdict": "fails"
+    },
+    "circulant_variables": {
+     "carrier": {
+      "b_over_a": 0.7236067977499789,
+      "delta": 0.20943951023931953
+     },
+     "measured_charged_leptons": {
+      "b_over_a": 0.7071044442682811,
+      "delta": 0.22222476189459092
+     }
+    },
+    "verdict": "fails (both attachments, every sector; nearest: charged leptons with mass = eigenvalue squared)"
+   }
+  ]
+ },
+ "second_index": {
+  "copies": 3,
+  "fixed": [
+   "the kernel on the second index, M3 (integer matrix): levels sqrt5, -1, -sqrt5; seam costs 5 - sqrt5, 6, 5 + sqrt5",
+   "its eigenvectors: the base port direction, its conjugate, the normal of their plane",
+   "the mixing against the frame axes of the second index and between two anchors"
+  ],
+  "free": [
+   "the reading of the second index as the generation",
+   "the map from kernel level to mass (cost, rest phase, modulus)",
+   "what the second sector is (frame axes of the second index: three free masses; another anchor: nothing free)",
+   "the base port (anchor) of each sector"
+  ],
+  "predictions": [
+   {
+    "id": "D1",
+    "statement": "masses proportional to the seam cost (equivalently to the correction probability 1 - T): 0.381966 : 0.829180 : 1",
+    "predicted (lightest/heaviest, middle/heaviest)": [
+     0.38196601125010515,
+     0.8291796067500631
+    ],
+    "comparison": {
+     "charged leptons, pole masses": {
+      "measured": [
+       0.00028757404663661484,
+       0.0594611917745775
+      ],
+      "predicted_over_measured_minus_1": [
+       1327.2353387500443,
+       12.94488711046281
+      ],
+      "verdict": "fails"
+     },
+     "charged leptons, Yukawa couplings at M_Z": {
+      "measured": [
+       0.00027945280215036026,
+       0.058870774101410304
+      ],
+      "predicted_over_measured_minus_1": [
+       1365.8355024924294,
+       13.08474101804276
+      ],
+      "verdict": "fails"
+     },
+     "up-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       7.274966632531366e-06,
+       0.0036744448918133023
+      ],
+      "predicted_over_measured_minus_1": [
+       52503.15988742452,
+       224.66118996572328
+      ],
+      "verdict": "fails"
+     },
+     "down-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       0.0009438799509759236,
+       0.018777212180548286
+      ],
+      "predicted_over_measured_minus_1": [
+       403.67647485802814,
+       43.158823939212226
+      ],
+      "verdict": "fails"
+     }
+    },
+    "verdict": "fails"
+   },
+   {
+    "id": "D2",
+    "statement": "masses proportional to the rest phase arccos(T) of the internal walk: 0.614086 : 0.908965 : 1",
+    "predicted (lightest/heaviest, middle/heaviest)": [
+     0.6140860664768221,
+     0.9089649210959757
+    ],
+    "comparison": {
+     "charged leptons, pole masses": {
+      "measured": [
+       0.00028757404663661484,
+       0.0594611917745775
+      ],
+      "predicted_over_measured_minus_1": [
+       2134.4015553872123,
+       14.286691940887092
+      ],
+      "verdict": "fails"
+     },
+     "charged leptons, Yukawa couplings at M_Z": {
+      "measured": [
+       0.00027945280215036026,
+       0.058870774101410304
+      ],
+      "predicted_over_measured_minus_1": [
+       2196.4589689260356,
+       14.440002870188192
+      ],
+      "verdict": "fails"
+     },
+     "up-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       7.274966632531366e-06,
+       0.0036744448918133023
+      ],
+      "predicted_over_measured_minus_1": [
+       84409.84303133737,
+       246.37475941499574
+      ],
+      "verdict": "fails"
+     },
+     "down-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       0.0009438799509759236,
+       0.018777212180548286
+      ],
+      "predicted_over_measured_minus_1": [
+       649.59763780541,
+       47.40787398874854
+      ],
+      "verdict": "fails"
+     }
+    },
+    "verdict": "fails"
+   },
+   {
+    "id": "D3",
+    "statement": "kernel against the frame axes of the second index: the middle copy unmixed, the lightest and heaviest rotated by arctan(1/phi): with copies ordered by cost sin^2 theta13 = (5 - sqrt5)/10, theta12 = theta23 = 0",
+    "leptons": {
+     "theta12_deg": {
+      "predicted": 0.0,
+      "measured": [
+       33.68,
+       0.73,
+       0.7
+      ],
+      "pull": -48.114285714285714,
+      "verdict": "fails"
+     },
+     "theta23_deg": {
+      "predicted": 0.0,
+      "measured": [
+       43.3,
+       1.0,
+       0.9
+      ],
+      "pull": -48.11111111111111,
+      "verdict": "fails"
+     },
+     "theta13_deg": {
+      "predicted": 31.717474411461005,
+      "measured": [
+       8.56,
+       0.11,
+       0.11
+      ],
+      "pull": 210.52249464964547,
+      "verdict": "fails"
+     }
+    },
+    "quarks": {
+     "sin_theta12": {
+      "predicted": 0.0,
+      "measured": 0.22501,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta23": {
+      "predicted": 0.0,
+      "measured": 0.04183,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta13": {
+      "predicted": 0.5257311121191336,
+      "measured": 0.003732,
+      "predicted_over_measured_minus_1": 139.87114472645595,
+      "verdict": "fails"
+     }
+    },
+    "with the mixed pair relabelled as copies 1 and 2 (declared relabelling)": {
+     "leptons": {
+      "theta12_deg": {
+       "predicted": 31.717474411461005,
+       "measured": [
+        33.68,
+        0.73,
+        0.7
+       ],
+       "pull": -2.8036079836271357,
+       "verdict": "tension"
+      },
+      "theta23_deg": {
+       "predicted": 0.0,
+       "measured": [
+        43.3,
+        1.0,
+        0.9
+       ],
+       "pull": -48.11111111111111,
+       "verdict": "fails"
+      },
+      "theta13_deg": {
+       "predicted": 0.0,
+       "measured": [
+        8.56,
+        0.11,
+        0.11
+       ],
+       "pull": -77.81818181818183,
+       "verdict": "fails"
+      }
+     },
+     "quarks": {
+      "sin_theta12": {
+       "predicted": 0.5257311121191336,
+       "measured": 0.22501,
+       "predicted_over_measured_minus_1": 1.3364788770238372,
+       "verdict": "fails"
+      },
+      "sin_theta23": {
+       "predicted": 0.0,
+       "measured": 0.04183,
+       "predicted_over_measured_minus_1": -1.0,
+       "verdict": "fails"
+      },
+      "sin_theta13": {
+       "predicted": 0.0,
+       "measured": 0.003732,
+       "predicted_over_measured_minus_1": -1.0,
+       "verdict": "fails"
+      }
+     }
+    },
+    "leptons_verdict": "fails",
+    "quarks_verdict": "fails"
+   },
+   {
+    "id": "D4",
+    "statement": "two kernels anchored at ports of the same coordinate plane: the middle copy unmixed, squared sine 4/5 (or 1/5 after relabelling) between the other two",
+    "leptons": {
+     "theta12_deg": {
+      "predicted": 0.0,
+      "measured": [
+       33.68,
+       0.73,
+       0.7
+      ],
+      "pull": -48.114285714285714,
+      "verdict": "fails"
+     },
+     "theta23_deg": {
+      "predicted": 0.0,
+      "measured": [
+       43.3,
+       1.0,
+       0.9
+      ],
+      "pull": -48.11111111111111,
+      "verdict": "fails"
+     },
+     "theta13_deg": {
+      "predicted": 26.56505117707799,
+      "measured": [
+       8.56,
+       0.11,
+       0.11
+      ],
+      "pull": 163.6822834279817,
+      "verdict": "fails"
+     }
+    },
+    "quarks": {
+     "sin_theta12": {
+      "predicted": 0.0,
+      "measured": 0.22501,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta23": {
+      "predicted": 0.0,
+      "measured": 0.04183,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta13": {
+      "predicted": 0.4472135954999579,
+      "measured": 0.003732,
+      "predicted_over_measured_minus_1": 118.83215313503696,
+      "verdict": "fails"
+     }
+    },
+    "leptons_verdict": "fails",
+    "quarks_verdict": "fails"
+   },
+   {
+    "id": "D5",
+    "statement": "two kernels anchored in different coordinate planes: squared moduli (rows and columns ordered by cost) 1/5, (5 - sqrt5)/10, (3 + sqrt5)/10 / (5 + sqrt5)/10, 0, (5 - sqrt5)/10 / (3 - sqrt5)/10, (5 + sqrt5)/10, 1/5",
+    "leptons": {
+     "theta12_deg": {
+      "predicted": 49.61382244080324,
+      "measured": [
+       33.68,
+       0.73,
+       0.7
+      ],
+      "pull": 21.82715402849759,
+      "verdict": "fails"
+     },
+     "theta23_deg": {
+      "predicted": 49.61382244080324,
+      "measured": [
+       43.3,
+       1.0,
+       0.9
+      ],
+      "pull": 6.313822440803243,
+      "verdict": "fails"
+     },
+     "theta13_deg": {
+      "predicted": 46.353072891203695,
+      "measured": [
+       8.56,
+       0.11,
+       0.11
+      ],
+      "pull": 343.57338992003355,
+      "verdict": "fails"
+     }
+    },
+    "quarks": {
+     "sin_theta12": {
+      "predicted": 0.7616946424227126,
+      "measured": 0.22501,
+      "predicted_over_measured_minus_1": 2.3851590703644843,
+      "verdict": "fails"
+     },
+     "sin_theta23": {
+      "predicted": 0.7616946424227126,
+      "measured": 0.04183,
+      "predicted_over_measured_minus_1": 17.209290997435158,
+      "verdict": "fails"
+     },
+     "sin_theta13": {
+      "predicted": 0.7236067977499789,
+      "measured": 0.003732,
+      "predicted_over_measured_minus_1": 192.89249671757207,
+      "verdict": "fails"
+     }
+    },
+    "with the zero entry relabelled as U_e3 (declared relabelling)": {
+     "leptons": {
+      "theta12_deg": {
+       "predicted": 31.717474411461005,
+       "measured": [
+        33.68,
+        0.73,
+        0.7
+       ],
+       "pull": -2.8036079836271357,
+       "verdict": "tension"
+      },
+      "theta23_deg": {
+       "predicted": 31.717474411461005,
+       "measured": [
+        43.3,
+        1.0,
+        0.9
+       ],
+       "pull": -12.869472876154436,
+       "verdict": "fails"
+      },
+      "theta13_deg": {
+       "predicted": 0.0,
+       "measured": [
+        8.56,
+        0.11,
+        0.11
+       ],
+       "pull": -77.81818181818183,
+       "verdict": "fails"
+      }
+     },
+     "quarks": {
+      "sin_theta12": {
+       "predicted": 0.5257311121191336,
+       "measured": 0.22501,
+       "predicted_over_measured_minus_1": 1.3364788770238372,
+       "verdict": "fails"
+      },
+      "sin_theta23": {
+       "predicted": 0.5257311121191336,
+       "measured": 0.04183,
+       "predicted_over_measured_minus_1": 11.568279037034033,
+       "verdict": "fails"
+      },
+      "sin_theta13": {
+       "predicted": 0.0,
+       "measured": 0.003732,
+       "predicted_over_measured_minus_1": -1.0,
+       "verdict": "fails"
+      }
+     }
+    },
+    "leptons_verdict": "fails",
+    "quarks_verdict": "fails"
+   }
+  ]
+ },
+ "cone_copies": {
+  "copies": 4,
+  "fixed": [
+   "four copies per parity class (two of each handedness), each twofold in spin",
+   "eigenstates of a source ordered on the kinds of one parity: the kinds; level = half the kind angle",
+   "the unitary between even-kind and odd-kind states (four third-turn lifts, every squared overlap 1/4)"
+  ],
+  "free": [
+   "the source pattern: eight kind angles per species (a preparation, not part of the tick)"
+  ],
+  "predictions": [
+   {
+    "id": "C1",
+    "statement": "uniform source, or any on-site step invariant under the tick's group: four equal masses",
+    "verdict": "fails (measured ratios differ from 1); and four copies, not three"
+   },
+   {
+    "id": "C2",
+    "statement": "source on one kind of cell: one massive copy (four times the lattice average), three massless",
+    "comparison": {
+     "charged leptons, pole masses": {
+      "measured": [
+       0.00028757404663661484,
+       0.0594611917745775
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     },
+     "charged leptons, Yukawa couplings at M_Z": {
+      "measured": [
+       0.00027945280215036026,
+       0.058870774101410304
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     },
+     "up-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       7.274966632531366e-06,
+       0.0036744448918133023
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     },
+     "down-type quarks, Yukawa couplings at M_Z": {
+      "measured": [
+       0.0009438799509759236,
+       0.018777212180548286
+      ],
+      "predicted_over_measured_minus_1": [
+       -1.0,
+       -1.0
+      ],
+      "verdict": "fails"
+     }
+    },
+    "verdict": "fails as an exact statement; three massless copies and one massive is the leading-order shape of one heavy generation only if the three light ones are the generations and the fourth is removed"
+   },
+   {
+    "id": "C3",
+    "statement": "two species ordered on the same parity: no mixing",
+    "leptons": {
+     "theta12_deg": {
+      "predicted": 0.0,
+      "measured": [
+       33.68,
+       0.73,
+       0.7
+      ],
+      "pull": -48.114285714285714,
+      "verdict": "fails"
+     },
+     "theta23_deg": {
+      "predicted": 0.0,
+      "measured": [
+       43.3,
+       1.0,
+       0.9
+      ],
+      "pull": -48.11111111111111,
+      "verdict": "fails"
+     },
+     "theta13_deg": {
+      "predicted": 0.0,
+      "measured": [
+       8.56,
+       0.11,
+       0.11
+      ],
+      "pull": -77.81818181818183,
+      "verdict": "fails"
+     }
+    },
+    "quarks": {
+     "sin_theta12": {
+      "predicted": 0.0,
+      "measured": 0.22501,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta23": {
+      "predicted": 0.0,
+      "measured": 0.04183,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     },
+     "sin_theta13": {
+      "predicted": 0.0,
+      "measured": 0.003732,
+      "predicted_over_measured_minus_1": -1.0,
+      "verdict": "fails"
+     }
+    },
+    "leptons_verdict": "fails",
+    "quarks_verdict": "fails"
+   },
+   {
+    "id": "C4",
+    "statement": "two species ordered on opposite parities: every squared entry 1/4 (4 x 4)",
+    "verdict": "fails for quarks (measured matrix near the identity); not comparable entry by entry (four copies)"
+   }
+  ]
+ },
+ "verdicts": [
+  {
+   "id": "B1",
+   "statement": "operator invariant under all rotations or under the frame stabilizer: three equal masses",
+   "verdict": "fails (every measured ratio differs from 1)"
+  },
+  {
+   "id": "B2",
+   "statement": "one sector keeps the Klein group of the frame, the other the fifth-turn of a port: sin^2 theta12 = (5 - sqrt5)/10, sin^2 theta23 = 1/2, theta13 = 0, no phase",
+   "leptons_verdict": "fails",
+   "quarks_verdict": "fails"
+  },
+  {
+   "id": "B3",
+   "statement": "one sector keeps the Klein group, the other the third-turn of the same frame: every squared entry 1/3",
+   "leptons_verdict": "fails",
+   "quarks_verdict": "fails"
+  },
+  {
+   "id": "B4",
+   "statement": "both sectors keep the same residual group: no mixing",
+   "leptons_verdict": "fails",
+   "quarks_verdict": "fails"
+  },
+  {
+   "id": "B5",
+   "statement": "mass operator = a port projector, a port response or a frame axis projector: one massive copy, two massless",
+   "verdict": "fails as an exact statement; the measured ratios are small (largest middle/heaviest: 0.0595)"
+  },
+  {
+   "id": "B6",
+   "statement": "mass operator = sum of the responses of the three ports of a face (declared choice; the smallest port set with three nonzero eigenvalues); eigenvalues 0.031625, 0.552786, 2.415589",
+   "verdict": "fails (both attachments, every sector; nearest: charged leptons with mass = eigenvalue squared)"
+  },
+  {
+   "id": "D1",
+   "statement": "masses proportional to the seam cost (equivalently to the correction probability 1 - T): 0.381966 : 0.829180 : 1",
+   "verdict": "fails"
+  },
+  {
+   "id": "D2",
+   "statement": "masses proportional to the rest phase arccos(T) of the internal walk: 0.614086 : 0.908965 : 1",
+   "verdict": "fails"
+  },
+  {
+   "id": "D3",
+   "statement": "kernel against the frame axes of the second index: the middle copy unmixed, the lightest and heaviest rotated by arctan(1/phi): with copies ordered by cost sin^2 theta13 = (5 - sqrt5)/10, theta12 = theta23 = 0",
+   "leptons_verdict": "fails",
+   "quarks_verdict": "fails"
+  },
+  {
+   "id": "D4",
+   "statement": "two kernels anchored at ports of the same coordinate plane: the middle copy unmixed, squared sine 4/5 (or 1/5 after relabelling) between the other two",
+   "leptons_verdict": "fails",
+   "quarks_verdict": "fails"
+  },
+  {
+   "id": "D5",
+   "statement": "two kernels anchored in different coordinate planes: squared moduli (rows and columns ordered by cost) 1/5, (5 - sqrt5)/10, (3 + sqrt5)/10 / (5 + sqrt5)/10, 0, (5 - sqrt5)/10 / (3 - sqrt5)/10, (5 + sqrt5)/10, 1/5",
+   "leptons_verdict": "fails",
+   "quarks_verdict": "fails"
+  },
+  {
+   "id": "C1",
+   "statement": "uniform source, or any on-site step invariant under the tick's group: four equal masses",
+   "verdict": "fails (measured ratios differ from 1); and four copies, not three"
+  },
+  {
+   "id": "C2",
+   "statement": "source on one kind of cell: one massive copy (four times the lattice average), three massless",
+   "verdict": "fails as an exact statement; three massless copies and one massive is the leading-order shape of one heavy generation only if the three light ones are the generations and the fourth is removed"
+  },
+  {
+   "id": "C3",
+   "statement": "two species ordered on the same parity: no mixing",
+   "leptons_verdict": "fails",
+   "quarks_verdict": "fails"
+  },
+  {
+   "id": "C4",
+   "statement": "two species ordered on opposite parities: every squared entry 1/4 (4 x 4)",
+   "verdict": "fails for quarks (measured matrix near the identity); not comparable entry by entry (four copies)"
+  }
+ ],
+ "decision": {
+  "most_constrained_nontrivial_pattern": "the kernel on the second index (structure 2): three different levels and the mixing are fixed with no parameter and no choice of operator; the levels have no hierarchy: every predicted mass ratio exceeds the measured one by a factor of at least 13.9",
+  "most_constrained_on_the_band": "the sum of the responses of the three ports of a face: all three circulant parameters fixed (a = 1, |b| = phi/sqrt5, delta = pi/15) once that operator is declared; with mass = eigenvalue squared it misses the charged-lepton ratios by 11.0 and 38.7 percent (couplings at M_Z; 11.9 and 40.4 percent for pole masses) and the Koide quotient by 0.0157",
+  "most_constrained_on_the_cone_copies": "a source on one kind of cell: one massive and three massless copies; the source pattern is a preparation",
+  "smallest_factor_by_which_the_kernel_levels_miss_a_measured_ratio": 13.94488711046281,
+  "no_prediction_passes": true
+ }
+}

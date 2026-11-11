@@ -1,0 +1,191 @@
+{
+ "su3_lib_sha256": "cbfe5ebebe952c046bb3ad1978ba4b804e6185da6a4cc4f08f8c96114d3f435a",
+ "gamma_algebra": {
+  "ok": true,
+  "clifford": 0.0,
+  "gamma5": 0.0,
+  "charge_conjugation": 0.0
+ },
+ "kernel_equals_reference": {
+  "ok": true,
+  "relative_difference": 2.446843112558282e-16,
+  "plaquette": 0.5640580335020648
+ },
+ "gamma5_routine": {
+  "ok": true,
+  "difference": 0.0
+ },
+ "gamma5_hermiticity_operator": {
+  "ok": true,
+  "relative_difference": 4.854116661408995e-16
+ },
+ "even_odd_solve": {
+  "ok": true,
+  "kappa": 0.16,
+  "iterations": 62,
+  "true_residual": 7.930023854885289e-11,
+  "cg_iterations": 258,
+  "cg_residual": 9.095912402808064e-12,
+  "max_relative_difference_to_cg": 2.92201094821648e-10
+ },
+ "ape_smearing": {
+  "ok": true,
+  "unitarity": 2.664536694725099e-15,
+  "determinant": 3.1109287693786416e-15,
+  "covariance": 9.561181451069974e-15,
+  "smeared_loop_invariance": 1.7208456881689926e-15,
+  "classes": [
+   "(1,0,0)",
+   "(1,1,0)",
+   "(1,1,1)",
+   "(2,0,0)",
+   "(2,1,0)",
+   "(2,2,0)"
+  ]
+ },
+ "loop_1x1_equals_temporal_plaquette": {
+  "ok": true,
+  "difference": 2.220446049250313e-16
+ },
+ "loops_equal_lane_qcd_routine": {
+  "ok": true,
+  "max_difference": 3.1086244689504383e-15,
+  "W11": 0.5701144693464508,
+  "W22": 0.14873940076193085
+ },
+ "gamma5_hermiticity_propagator": {
+  "ok": true,
+  "relative_difference": 8.750279836752432e-10,
+  "max_true_residual": 5.99479658988711e-11,
+  "iterations": [
+   38,
+   43
+  ]
+ },
+ "gauge_covariance_point_source": {
+  "ok": true,
+  "propagator": 1.7218726911743094e-11,
+  "mesons": 4.520717133971175e-10,
+  "nucleon": 1.421931866068021e-12,
+  "kappa": 0.15
+ },
+ "gauge_invariance_smeared_correlators": {
+  "ok": true,
+  "smeared_point": 3.932743020129692e-11,
+  "smeared_smeared": 8.879152968432891e-11
+ },
+ "smearing_hermitian": {
+  "ok": true,
+  "relative_difference": 1.3475359707451256e-15
+ },
+ "meson_correlators_positive": {
+  "ok": true,
+  "pion": [
+   15.44840493441572,
+   1.5976475956207323,
+   0.3079484127721161,
+   0.0657684177620725,
+   0.03327524123485298,
+   0.0784004224487014,
+   0.30481476376656846,
+   1.5777648756215572
+  ],
+  "rho": [
+   12.554368034503293,
+   1.0374090326158925,
+   0.1798593623492647,
+   0.03391904473805007,
+   0.014800124507528314,
+   0.03471585265086591,
+   0.15926754031760612,
+   0.9907025748323178
+  ]
+ },
+ "nucleon_contraction_equals_wick_sum": {
+  "ok": true,
+  "relative_difference": 7.658123047165121e-16
+ },
+ "free_field_correlators": {
+  "ok": true,
+  "lattice": [
+   4,
+   4,
+   4,
+   16
+  ],
+  "kappa": 0.12,
+  "pion_max_relative": 3.116285007820352e-12,
+  "rho_max_relative": 3.1151747847957267e-12,
+  "propagator_max_relative": 8.349027724155729e-14,
+  "pion_at_t": [
+   14.991279560290199,
+   1.3427068545887826,
+   0.618910882096667,
+   0.4277957334869929,
+   0.32192954497572057,
+   0.2517820218787025,
+   0.2063466262865177,
+   0.18075534013602865,
+   0.1724912822755345
+  ],
+  "max_true_residual": 2.6782980215556767e-13
+ },
+ "free_nucleon_mass": {
+  "ok": true,
+  "lattice": [
+   8,
+   8,
+   8,
+   32
+  ],
+  "kappa": 0.11,
+  "quark_pole_mass": 0.4353180712578458,
+  "three_quark_mass": 1.3059542137735374,
+  "meff_nucleon": [
+   3.831745585047847,
+   3.1325455487921148,
+   2.3321453757297537,
+   1.7738340903957581,
+   1.5069897901552414,
+   1.3942710723953904,
+   1.3461176253182447,
+   1.3247248622303465,
+   1.3148811705360666,
+   1.3101768683487716,
+   1.3075329643100637,
+   1.3040246257463117,
+   1.2897640310813145,
+   1.215953968810889,
+   0.905740398971932
+  ],
+  "sign_of_C_plus": 1.0,
+  "imag_over_real": 1.0516716922206883e-20,
+  "reflection_Cplus_plus_Cminus": 1.1758051201704578e-16,
+  "reflection_Cplus_minus_Cminus": 2.0,
+  "meff_pion": [
+   2.1012084485749787,
+   1.6040284141988566,
+   1.2398630727021545,
+   1.0418954485647887,
+   0.9489538495082154,
+   0.9068813082952185,
+   0.8876864746292589,
+   0.8787667018653197,
+   0.8745343456489316,
+   0.8724050689980302,
+   0.870788707203063,
+   0.8666651004269362
+  ],
+  "two_quark_mass": 0.8706361425156915,
+  "solve_seconds": 9.50798773765564,
+  "iterations": [
+   34,
+   34
+  ]
+ },
+ "hop_seconds": {
+  "8x8x8x16": 0.003037238121032715,
+  "12x12x12x24": 0.016443729400634766
+ },
+ "all_pass": true
+}

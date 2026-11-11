@@ -1,0 +1,147 @@
+"""Native (ii): transported-contrast sectors with static offsets. Spectrum, complex levels, R5.
+
+The chain is built with model.transported_contrast.law.attempt on (loads, offsets); offsets are static.
+E = M (1 - eigenvalue), unit 1 / sweep. R5 = stationary release per sweep; exact value (1/2) |dbar|^2, which is
+(1/2) q^T D^+ q on a sphere. The mean map is affine with the vacuum spectrum, so the levels lambda_L / 2 of the port
+Laplacian are present in every sector; the question is whether any sector has a slower or a sector-dependent level.
+
+usage: n_ii_tc.py PART      PART in {triangle, ring, polyhedra, carrier}   (carrier: classes too large, kept for reference)
+"""
+import json, sys, time
+from fractions import Fraction as F
+from pathlib import Path
+import numpy as np
+import scipy.sparse.linalg as spla
+from model.transported_contrast import law, exact
+import readouts as R
+
+HERE = Path(__file__).resolve().parent
+PART = sys.argv[1]
+
+
+def tc_chain(start, offsets, seams, limit=2_000_000):
+    M = len(seams)
+
+    def moves(x):
+        for k in range(M):
+            for coin in (0, 1):
+                yield 1.0 / (2 * M), law.attempt(x, offsets, seams, k, coin)[0]
+    states, index, T = R.enumerate_chain([start], moves, limit=limit)
+    classes, lab = R.recurrent_classes(T)
+    assert len(classes) == 1
+    cls = classes[0]
+    Tc = T[cls][:, cls].tocsc()
+    return [states[i] for i in cls], Tc, len(states)
+
+
+def analyse(states, T, offsets, seams, ports, dense_limit=3500, nev=40):
+    M, n = len(seams), len(states)
+    lap = np.array(exact.port_laplacian(seams, ports), float)
+    lam = np.sort(np.linalg.eigvalsh(lap))
+    if n <= dense_limit:
+        ev = np.linalg.eigvals(T.toarray())
+    else:
+        ev = spla.eigs(T, k=min(nev, n - 2), which='LR', return_eigenvectors=False, tol=1e-11, maxiter=200000)
+    E = M * (1 - ev)
+    E = E[np.argsort(E.real)]
+    nonstat = E[1:]
+    pi = R.stationary(T)
+    d = np.array([law.contrast(x, offsets, seams) for x in states])
+    release = float(pi @ (d * d // 4).sum(axis=1))
+    reference, dbar = exact.mean_contrast(seams, ports, offsets)
+    half = sum(v * v for v in dbar) / 2
+    cx_ = nonstat[np.abs(nonstat.imag) > 1e-4]            # below: numerical splitting of defective levels
+    lead = sorted(cx_[cx_.imag > 0], key=lambda z: z.real)[:3]
+    return {'class_size': n, 'stationary_level': complex(E[0]).real,
+            'gap_Re_E1': float(nonstat[0].real) if len(nonstat) else None, 'vacuum_gap_lambda1_over_2': float(lam[1] / 2),
+            'lowest_levels': [[float(z.real), float(z.imag)] for z in nonstat[:8]],
+            'complex_levels_found': int(len(cx_) // 2), 'levels_found': int(len(E)),
+            'leading_complex_levels_Re_Im': [[float(z.real), float(z.imag)] for z in lead],
+            'max_quality_Im_over_Re': float(max((abs(z.imag) / z.real for z in cx_), default=0.0)),
+            'R5_release_per_sweep': release, 'R5_exact_half_dbar2': str(half), 'R5_exact_float': float(half),
+            'mean_contrast_error': float(np.max(np.abs(pi @ d - np.array([float(v) for v in dbar])))),
+            'odd_seams_mean': float(pi @ (np.abs(d) % 2).sum(axis=1)),
+            'seam_potential_mean_half_sum_d2': float(pi @ (d * d).sum(axis=1)) / 2}
+
+
+out = {}
+t0 = time.time()
+if PART == 'triangle':
+    seams, faces = law.TRIANGLE
+    rows = []
+    for Q in range(0, 7):
+        for total in (0, 1, 2):
+            states, T, reach = tc_chain((total, 0, 0), (Q, 0, 0), seams)
+            row = {'Q': Q, 'total': total, **analyse(states, T, (Q, 0, 0), seams, 3)}
+            rows.append(row)
+            print('TRI', {k: v for k, v in row.items() if k not in ('lowest_levels',)}, flush=True)
+    out['triangle'] = rows
+
+if PART == 'ring':
+    rows = []
+    for L in (4, 5, 6):
+        seams = tuple((i, i + 1) for i in range(L - 1)) + ((0, L - 1),)        # a < b; the last seam closes the ring
+        for Q in (0, 1, 2, 3):
+            for total in (0, 1, 2):
+                offsets = (Q,) + (0,) * (L - 1)
+                states, T, reach = tc_chain(tuple([1] * total + [0] * (L - total)), offsets, seams)
+                row = {'L': L, 'Q': Q, 'total': total, **analyse(states, T, offsets, seams, L)}
+                # ring: one cycle; holonomy of the offsets around it. exact R5 = (holonomy)^2 / (2 L)
+                rows.append(row)
+                print('RING', {k: v for k, v in row.items() if k not in ('lowest_levels',)}, f'{time.time()-t0:.0f}s', flush=True)
+    out['ring'] = rows
+
+if PART == 'polyhedra':
+    solids = {'tetrahedron': (4, tuple((a, b) for a in range(4) for b in range(a + 1, 4)), ((0, 1, 2), (0, 3, 1), (0, 2, 3), (1, 3, 2))),
+              'octahedron': (6, tuple((a, b) for a in range(6) for b in range(a + 1, 6) if (a, b) not in ((0, 5), (1, 3), (2, 4))),
+                             ((0, 1, 2), (0, 2, 3), (0, 3, 4), (0, 4, 1), (5, 2, 1), (5, 3, 2), (5, 4, 3), (5, 1, 4)))}
+    rows = []
+    for name, (ports, seams, faces) in solids.items():
+        law.check_surface(seams, faces, ports)
+        distance, near, sides = law.dual_distance(faces)
+        dual = np.array(exact.dual_laplacian(seams, faces), float)
+        maxd = max(distance[0])
+        cases = [('vacuum', None, 1)] + [(f'pair of charge {Q} at dual distance {dist}', (dist, Q), total)
+                                          for dist in range(1, maxd + 1) for Q in (1, 2) for total in range(0, 2 if name == 'octahedron' else ports)]
+        for label, spec, total in cases:
+            if spec is None:
+                offsets = (0,) * len(seams)
+            else:
+                end = next(g for g in range(len(faces)) if distance[0][g] == spec[0])
+                offsets = tuple(spec[1] * o for o in law.string_offsets(seams, faces, 0, end))
+            q = np.array(law.charges(offsets, seams, faces), float)
+            try:
+                states, T, reach = tc_chain(tuple([1] * total + [0] * (ports - total)), offsets, seams, limit=60000)
+            except ArithmeticError as err:
+                print('POLY', name, label, total, 'skipped:', err, flush=True); continue
+            row = {'solid': name, 'sector': label, 'total': total, 'reachable': reach, **analyse(states, T, offsets, seams, ports),
+                   'half_q_Dplus_q': float(q @ np.linalg.pinv(dual) @ q / 2)}
+            rows.append(row)
+            print('POLY', {k: v for k, v in row.items() if k not in ('lowest_levels',)}, f'{time.time()-t0:.0f}s', flush=True)
+            (HERE / f'n_ii_tc_{PART}.json').write_text(json.dumps({'polyhedra': rows}, indent=1))
+    out['polyhedra'] = rows
+
+if PART == 'carrier':
+    seams, faces = law.carrier()
+    distance, near, sides = law.dual_distance(faces)
+    dual = np.array(exact.dual_laplacian(seams, faces), float)
+    rows = []
+    cases = [('vacuum', None, 0), ('vacuum', None, 1), ('vacuum', None, 2)]
+    for dist in (1, 2, 3, 4, 5):
+        end = next(g for g in range(20) if distance[0][g] == dist)
+        cases += [(f'unit pair at dual distance {dist}', end, 0), (f'unit pair at dual distance {dist}', end, 1)]
+    for name, end, total in cases:
+        offsets = (0,) * 30 if end is None else law.string_offsets(seams, faces, 0, end)
+        q = np.array(law.charges(offsets, seams, faces), float)
+        try:
+            states, T, reach = tc_chain(tuple([1] * total + [0] * (12 - total)), offsets, seams)
+        except ArithmeticError as err:
+            print('CAR', name, total, 'skipped:', err, flush=True); continue
+        row = {'sector': name, 'total': total, 'reachable': reach, **analyse(states, T, offsets, seams, 12),
+               'half_q_Dplus_q': float(q @ np.linalg.pinv(dual) @ q / 2)}
+        rows.append(row)
+        print('CAR', {k: v for k, v in row.items() if k not in ('lowest_levels',)}, f'{time.time()-t0:.0f}s', flush=True)
+        (HERE / f'n_ii_tc_{PART}.json').write_text(json.dumps({'carrier': rows}, indent=1))
+    out['carrier'] = rows
+
+(HERE / f'n_ii_tc_{PART}.json').write_text(json.dumps(out, indent=1))

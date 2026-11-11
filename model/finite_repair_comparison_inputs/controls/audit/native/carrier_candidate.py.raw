@@ -1,0 +1,188 @@
+"""Phase-addressed mixed parity pump on the actual icosahedral carrier.
+
+Declared diagnostic: r=3/4, five retained phase settings per seam, uniform seams.
+No accepted gauge, protected particle, transport or mass claim.
+"""
+from pathlib import Path
+import json,sys
+import sympy as s
+import numpy as np
+ROOT=Path(__file__).resolve().parents[3]
+sys.path.insert(0,str(ROOT/'reverse-engineering-reality'))
+from model.common_source import slow_geometry
+from model.observer import native
+
+
+def require(ok,msg):
+    if not bool(ok):raise ArithmeticError(msg)
+
+
+def describe(reverse=s.Rational(3,4), setting_count=5):
+    return {'state_space':'12 ports with nonnegative integer loads; sectors total1 and total2',
+        'event':('Choose an endpoint fairly, quarter-turn its load phase, pump antisymmetric seam parity to symmetric parity, and split double loads.' if reverse==0 and setting_count==2 else 'Apply a recorded endpoint phase, pump antisymmetric parity forward with probability1 and reverse with probability'+str(reverse)+', and split double loads.'),
+        'memory':'Retain seam, phase setting and complete Kraus outcome as classical records; no unbounded memory theorem',
+        'wiring':'actual isolated icosahedral graph; federation unspecified',
+        'scheduler':'independent uniform seam and '+str(setting_count)+'-setting draws',
+        'declared_numbers':{'reverse_probability':str(reverse),'phase_values':(['i'] if setting_count==2 else ['1','i'] if setting_count==3 else ['1','i','-i']),'phase_setting_count':setting_count},
+        'port_response':'Not selected; native number phase is declared control, not closed SM response algebra',
+        'input_ancestry':'DECLARED instrument and scheduler; NATIVE graph and population law',
+        'complete_law_accepted':False}
+
+
+def space(sector):
+    if sector==1:return [tuple(int(i==j) for i in range(12)) for j in range(12)]
+    if sector==2:return list(native.states())
+    raise ValueError('diagnostic supports total1 or total2')
+
+
+def local_rows(r=s.Rational(3,4)):
+    # Keys00,10,01,11,20,02.
+    plus=s.Matrix([0,1,1,0,0,0])/s.sqrt(2);minus=s.Matrix([0,1,-1,0,0,0])/s.sqrt(2)
+    rows=[s.diag(1,0,0,1,0,0)+s.sqrt(1-r)*plus*plus.T,
+          plus*minus.T,s.sqrt(r)*minus*plus.T]
+    for src in (4,5):K=s.zeros(6);K[3,src]=1;rows.append(K)
+    return rows
+
+
+def instrument(seam,sector,reverse=s.Rational(3,4),setting_count=5):
+    """Complete recorded instrument, including its zero rows; numpy for harness."""
+    a,b=seam;states=space(sector);index={x:i for i,x in enumerate(states)}
+    keys=[(0,0),(1,0),(0,1),(1,1),(2,0),(0,2)];ki={x:i for i,x in enumerate(keys)}
+    local=local_rows(reverse);out=[]
+    settings=([('none',None,1)] if setting_count in (3,5) else [])+[(f'{p}:{sign}',p,sign*1j) for p in (a,b) for sign in ((1,-1) if setting_count==5 else (1,))]
+    names=['keep','forward','reverse','split_a','split_b']
+    for label,p,phase in settings:
+        for name,L in zip(names,local):
+            K=np.zeros((len(states),len(states)),complex)
+            for j,x in enumerate(states):
+                phase_x=1 if p is None else phase**x[p]
+                for k,yk in enumerate(keys):
+                    if L[k,ki[x[a],x[b]]]==0:continue
+                    y=list(x);y[a],y[b]=yk;y=tuple(y)
+                    if y not in index:raise ArithmeticError('local row leaves declared total')
+                    K[index[y],j]+=complex(L[k,ki[x[a],x[b]]])*phase_x/np.sqrt(setting_count)
+            out.append(((label,name),K))
+    return out
+
+
+def certificate(reverse=s.Rational(3,4),setting_count=5):
+    require(setting_count in (2,5),'orbital/tomography certificate implemented for two or five settings')
+    reverse=s.Rational(reverse);root=s.sqrt(1-reverse)
+    seams=list(slow_geometry.source().seams());n=12;I=s.eye(n)
+    adj={i:[] for i in range(n)}
+    for a,b in seams:adj[a].append(b);adj[b].append(a)
+    dist=[];paths={}
+    for p in range(n):
+        d=[-1]*n;d[p]=0;q=[p];parent={p:None}
+        for a in q:
+            for b in adj[a]:
+                if d[b]<0:d[b]=d[a]+1;parent[b]=a;q.append(b)
+        dist.append(d)
+        for b in range(n):
+            path=[];t=b
+            while t is not None:path.append(t);t=parent[t]
+            paths[p,b]=list(reversed(path))
+    B=[s.Matrix(n,n,lambda i,j:int(dist[i][j]==d)) for d in range(4)]
+    gamma={5:3*root/s.Integer(10),3:root*(2+s.I)/6,2:root*(1+s.I)/4}[setting_count]
+    def averaged(R):
+        total=s.zeros(n)
+        for a,b in seams:
+            Y=R.copy();S=R[a,a]+R[b,b]
+            Y[a,a]=Y[b,b]=S/2
+            Y[a,b]=Y[b,a]=(1-reverse)*S/2-reverse*R[a,b]*(s.Rational(1,setting_count) if setting_count!=2 else 0)
+            for j in range(n):
+                if j in (a,b):continue
+                Y[a,j]=Y[b,j]=gamma*(R[a,j]+R[b,j])
+                Y[j,a]=Y[j,b]=s.conjugate(gamma)*(R[j,a]+R[j,b])
+            total+=Y
+        return total/len(seams)
+    images=[averaged(X) for X in B];T=s.zeros(4)
+    for k,Y in enumerate(images):
+        for d in range(4):
+            vals={Y[i,j] for i in range(n) for j in range(n) if dist[i][j]==d}
+            require(len(vals)==1,'actual carrier orbital invariance');T[d,k]=next(iter(vals))
+    null=(T-s.eye(4)).nullspace();require(len(null)==1,'one invariant fixed vector')
+    v=null[0]/(12*null[0][0]);R=sum((v[i]*B[i] for i in range(4)),s.zeros(n))
+    require(averaged(R)==R and s.trace(R)==1,'exact source stationarity')
+    d0,a,b,c=list(v)
+    eigen=[d0+5*a+5*b+c,d0+s.sqrt(5)*(a-b)-c,d0-s.sqrt(5)*(a-b)-c,d0-a-b+c]
+    require(all(e.is_positive for e in eigen),'exact positive eigenvalues')
+    require(R!=I/12,'nontracial fixed density')
+    if reverse==s.Rational(3,4) and setting_count==5:require(s.Rational(147,20)*a-s.Rational(3,5)*b==s.Rational(1,48),'independent adjacent equation')
+    # Prove diagonal availability from pair sums: unsigned incidence has rank12,
+    # since the connected graph has an odd face. Verify rank independently.
+    incidence=s.Matrix([[int(i in edge) for edge in seams] for i in range(n)])
+    require(incidence.rank()==12,'all port diagonals accessible')
+    # One-event effects of the local plus/minus/phase settings generate real and
+    # imaginary edge units; verify the pair formula exactly on 2x2.
+    pl=s.Matrix([1,1])/s.sqrt(2);mi=s.Matrix([1,-1])/s.sqrt(2)
+    Qp=pl*pl.T;Qm=mi*mi.T;V=s.diag(s.I,1)
+    require(Qp+Qm==s.eye(2),'pair sum effect')
+    require(Qp-Qm==s.Matrix([[0,1],[1,0]]),'real edge effect')
+    require(s.simplify(V.conjugate().T*Qm*V-Qm.conjugate().conjugate())!=s.zeros(2),'phase changes effect')
+    phased_plus=V.conjugate().T*Qm*V;Vm=s.diag(-s.I,1)
+    require(s.simplify(phased_plus-Vm.conjugate().T*Qm*Vm)==s.Matrix([[0,s.I],[-s.I,0]]),'imaginary edge effect')
+    if setting_count==2:
+        Vb=s.diag(1,s.I);phased_b=Vb.conjugate().T*Qm*Vb
+        require(s.simplify(phased_plus+phased_b)==s.eye(2),'actual two-setting pair sum')
+        require(s.simplify(phased_plus-phased_b)==s.Matrix([[0,s.I],[-s.I,0]]),'actual two-setting imaginary effect')
+    def X(a,b,imag=False):
+        Y=s.zeros(n);Y[a,b]=s.I if imag else 1;Y[b,a]=-s.I if imag else 1;return Y
+    triangle_checks=0
+    if setting_count==2:
+        require(reverse==0,'two-setting minimal certificate uses no reverse')
+        for a,b in seams:
+            c=next(x for x in adj[a] if x in adj[b])
+            K=I.copy();K[a,a]=K[c,c]=K[a,c]=K[c,a]=s.Rational(1,2)
+            V=I.copy();V[a,a]=s.I;K=K*V
+            require(s.simplify(K.conjugate().T*X(a,b,True)*K)==(X(a,b)+X(c,b,True))/2,'triangle gives real edge')
+            triangle_checks+=1
+    propagation_checks=0
+    for a in range(n):
+        for b in range(a+1,n):
+            path=paths[a,b]
+            for u,w in zip(path[1:-1],path[2:]):
+                # Conjugate an already reachable a-u edge/coherence by keep on u-w.
+                K=I.copy();K[u,u]=K[w,w]=root/2;K[u,w]=K[w,u]=root/2
+                for im in (False,True):
+                    if setting_count==2:
+                        V=I.copy();V[w,w]=s.I;A=K*V
+                        expected=(X(a,u,im)+(-1 if im else 1)*X(a,w,not im))/2
+                        require(s.simplify(A.conjugate().T*X(a,u,im)*A)==expected,'phase-only history propagation')
+                    else:
+                        require(s.simplify(K*X(a,u,im)*K)==root*(X(a,u,im)+X(a,w,im))/2,'native history propagation identity')
+                    propagation_checks+=1
+    # Completeness and exact all-input population lumping for local totals0..2.
+    local=local_rows(reverse);require(s.simplify(sum((K.T*K for K in local),s.zeros(6)))==s.eye(6),'local full-domain completion')
+    keys=[(0,0),(1,0),(0,1),(1,1),(2,0),(0,2)]
+    local_matrix_units=0
+    for i in range(6):
+        for j in range(6):
+            E=s.zeros(6);E[i,j]=1;Y=s.simplify(sum((K*E*K.T for K in local),s.zeros(6)))
+            expected=[s.Integer(0)]*6
+            if i==j:
+                aa,bb=keys[i]
+                for coin in (0,1):
+                    out=(int((aa+bb)//2),int((aa+bb+1)//2))
+                    if coin:out=out[::-1]
+                    expected[keys.index(out)]+=s.Rational(1,2)
+            require([Y[k,k] for k in range(6)]==expected,'native all-input population law');local_matrix_units+=1
+    return {'status':'EXACT isolated-carrier one-load construction and exact local total-two completion',
+        'description':describe(reverse,setting_count),'reverse_probability_override':str(reverse),'orbital_transition':[[str(x) for x in row] for row in T.tolist()],
+        'rho_by_graph_distance':list(map(str,v)),'rho_eigenvalues':list(map(str,eigen)),
+        'rho_eigenvalue_multiplicities':[1,3,3,5],
+        'stationary_density_faithful_nontracial':True,
+        'stationary_density_unique':'proved from faithful invariant state and full history-effect algebra',
+        'one_event_effect_span_dimension':42 if setting_count==2 else 72,'native_history_effect_real_span_dimension':144,'effect_depth_upper':4 if setting_count==2 else 3,'triangle_effect_checks':triangle_checks,
+        'T9_tier':'finite real linear span of native history effects; not a full operational-effect theorem',
+        'full_operational_effect_premise_supplied':False,
+        'independent_incidence_rank':12,'exact_history_propagation_checks':propagation_checks,
+        'local_total_two_matrix_units_checked':local_matrix_units,
+        'double_loads_split_not_held':True,
+        'population_shadow_for_arbitrary_inputs_and_seam_sequences':True,
+        'native_coin_current_instrument_preserved':False,'strict_diagonal_channel_shadow_preserved':False,
+        'T4_extra_fixed_source_labels':False,'physical_modular_time_implemented':False,
+        'federation_transport_or_gauge_or_mass_claim':False,'complete_law_accepted':False}
+
+if __name__=='__main__':
+    d=certificate();Path(__file__).with_name('carrier_results.json').write_text(json.dumps(d,indent=2)+'\n');print(json.dumps(d,indent=2))

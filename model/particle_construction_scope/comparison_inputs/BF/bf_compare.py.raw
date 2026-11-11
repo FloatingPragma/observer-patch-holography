@@ -1,0 +1,58 @@
+"""BF section G (step 4): comparison with measured values. NOT BLIND. Run once after bf_running.json is on file.
+
+Measured inputs, read here only: m_Z = 91.1876 GeV; GUT-normalized 1/alpha_i(m_Z) = (59.02, 29.58, 8.47);
+alpha_s(m_Z) = 0.1180; sin^2 theta_W(m_Z) = 0.23122.
+Writes bf_compare.json.
+"""
+import json
+import math
+import sys
+
+run = json.load(open('bf_running.json'))
+MZ = 91.1876
+MEAS = (59.02, 29.58, 8.47)
+E_CELL = run['E_cell_GeV']
+LG = math.log(E_CELL / MZ)
+CENSUS = {'VL (81/10, 5/6, -3)': (8.1, 5 / 6, -3.0), 'SM (41/10, -19/6, -7)': (4.1, -19 / 6, -7.0),
+          'B (61/10, -7/6, -5)': (6.1, -7 / 6, -5.0)}
+out = {'label': 'NOT BLIND', 'ln(E_cell/m_Z)': LG, 'measured_inv_alpha_123': MEAS}
+need = {}
+for cname, c in run['cell_couplings'].items():
+    inv0 = c['inv_alpha_1_2_3']
+    need[cname] = {'slopes_needed (b1, b2, b3)': [2 * math.pi * (MEAS[i] - inv0[i]) / LG for i in range(3)]}
+out['slopes_needed_from_each_cell_row'] = need
+out['inv_alpha3_cell_needed_for_measured_alpha_s'] = {k: MEAS[2] - b[2] * LG / (2 * math.pi) for k, b in CENSUS.items()}
+pred = {}
+for key, r in run['rows'].items():
+    cname, sname = key.split(' | ')
+    inv0 = run['cell_couplings'][cname]['inv_alpha_1_2_3']
+    b = CENSUS[sname]
+    inv = [inv0[i] + b[i] * LG / (2 * math.pi) for i in range(3)]
+    row = {'inv_alpha_123_at_91.1876': inv, 'difference_from_measured': [inv[i] - MEAS[i] for i in range(3)]}
+    if min(inv) > 0 and min(inv0) > 0:
+        aem = inv[1] + 5 * inv[0] / 3
+        row.update({'sin2_theta_W': inv[1] / aem, 'sin2_ratio_to_measured': inv[1] / aem / 0.23122,
+                    'alpha_s': 1 / inv[2], 'alpha_s_ratio_to_measured': 1 / inv[2] / 0.1180})
+    else:
+        row['status'] = 'no outputs: a coupling is not positive at m_Z'
+    pred[key] = row
+out['predictions'] = pred
+# fermion matching constant k: 1/alpha_3(E_cell) = (matched gauge value) + (b_f/(2 pi)) k, b_f = b3 + 11
+base = run['cell_couplings']['full register, F=5, Hamiltonian (xi = inf)']['inv_alpha_1_2_3'][2]
+kf = {}
+for sname, b in CENSUS.items():
+    bf = b[2] + 11
+    kf[sname] = {'b_f': bf,
+                 'k_needed_for_SC_bound (source quantity)': (run['bound_inv_alpha3_needed'][sname] - base) * 2 * math.pi / bf,
+                 'k_needed_for_measured_alpha_s (NOT BLIND)': (out['inv_alpha3_cell_needed_for_measured_alpha_s'][sname] - base) * 2 * math.pi / bf}
+out['fermion_matching_constant_needed (F=5 Hamiltonian row)'] = kf
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'bf_compare.json', 'w'), indent=1)
+for k in ('bare equal (cut closure)', 'full register, F=5, Hamiltonian (xi = inf)', 'full register, F=15, Hamiltonian (xi = inf)',
+          'full register, F=5, CF-1 field step (xi = 2)', 'full register, F=5, isotropic Euclidean (xi = 1)',
+          'full register, F=15, isotropic Euclidean (xi = 1)'):
+    print(k.ljust(52), [round(x, 3) for x in need[k]['slopes_needed (b1, b2, b3)']])
+print('needed 1/alpha_3(E_cell) for measured alpha_s', out['inv_alpha3_cell_needed_for_measured_alpha_s'])
+print('fermion constant', json.dumps(kf))
+for k, v in pred.items():
+    if 'full register, F=5, Hamiltonian' in k or 'bare' in k:
+        print(k, [round(x, 2) for x in v['inv_alpha_123_at_91.1876']], v.get('status', ''), v.get('sin2_theta_W'), v.get('alpha_s'))

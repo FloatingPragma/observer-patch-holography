@@ -1,0 +1,229 @@
+"""R2 item 3: the routing of the candidates, executed (float64; every number carries its printed defect).
+
+  0  r2lib.GenRouting against the reference engine work/DIRAC/routing.py (Pauli pointer, random Z2 links)
+  a  the Z2-charged quantum: reference engine, three-dimensional packet, static flat field in a random gauge
+  b  the flux pair alone with its native pointer (the half-turn permutations): the commuting-reflection shift
+  c  the composite (charged quantum that carries the flux code of its carrier): pointer sigma_i x 1 and sigma_i x rho_i
+
+Carrier tables: carrier_tables.json (written by r2_item2.py). Run from the public checkout with the brief's command:
+    sh run.sh r2_item3.py [parts]      parts: any of the letters 0, a, b, c (default all); results merge into item3.json
+"""
+import json, os, sys, time
+import numpy as np
+from routing import Routing                      # reference engine, imported by path
+from r2lib import (GenRouting, SIG, branch_packet, cell_distribution, displacement, group_velocity,
+                   linear_mean, packet_velocity, positive_phases)
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TAB = json.load(open(os.path.join(HERE, 'carrier_tables.json')))
+out = {}
+PARTS = sys.argv[1] if len(sys.argv) > 1 else '0abc'
+rng = np.random.default_rng(7)
+t00 = time.time()
+
+# ---- carrier data: frame 0, one free orbit and one short orbit of pairs --------------------------------------
+FR = TAB['frames'][0]
+hq = FR['half_turns_on_pairs']
+sep = TAB['separation']
+def orbit(i): return [i, hq[0][i], hq[1][i], hq[2][i]]
+def rho_on(points):
+    idx = {p: k for k, p in enumerate(points)}
+    return [np.array([[1.0 if idx[hq[i][points[c]]] == r else 0.0 for c in range(len(points))] for r in range(len(points))])
+            for i in range(3)]
+free_seed = next(i for i in range(190) if len(set(orbit(i))) == 4 and sep[i] == 2)
+ORB = orbit(free_seed)
+RHO = rho_on(ORB)
+short_seed = next(i for i in range(190) if len(set(orbit(i))) == 2)
+SORB = sorted(set(orbit(short_seed)))
+RHO_SHORT = rho_on(SORB)
+RHO_ALL = rho_on(list(range(190)))
+out['orbit_used'] = {'pairs (face indices)': [TAB['pairs'][i] for i in ORB], 'separation': sep[free_seed],
+                     'short orbit': [TAB['pairs'][i] for i in SORB], 'short orbit separation': sep[short_seed]}
+CHARS = [(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)]
+def char_projector(rho, e):
+    return (np.eye(len(rho[0])) + e[0] * rho[0] + e[1] * rho[1] + e[2] * rho[2]) / 4
+
+# ---- 0: the general engine against the reference engine --------------------------------------------------------
+if '0' in PARTS:
+    shape = (6, 4, 4)
+    links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]
+    ref, gen = Routing(shape, links), GenRouting(shape, SIG, links)
+    psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); psi /= np.linalg.norm(psi)
+    d0 = {f'Q_{i} (links)': float(np.abs(ref.seam_involution(psi, i) - gen.seam_involution(psi, i)).max()) for i in range(3)}
+    d0['tick forward, theta 0.157935 (links)'] = float(np.abs(ref.tick(psi, 0.157935) - gen.tick(psi, 0.157935)).max())
+    d0['tick reverse (links)'] = float(np.abs(ref.tick(psi, 0.0, reverse=True) - gen.tick(psi, 0.0, reverse=True)).max())
+    for name, J in (('commuting pointer rho (free orbit)', RHO), ('pointer sigma x rho', [np.kron(SIG[i], RHO[i]) for i in range(3)]),
+                    ('commuting pointer rho (all 190 pairs)', RHO_ALL)):
+        g = GenRouting((4, 4, 4), J)
+        x = rng.normal(size=(4, 4, 4, 2, g.d)) + 1j * rng.normal(size=(4, 4, 4, 2, g.d)); x /= np.linalg.norm(x)
+        d0[f'{name}: Q_i Q_i = 1'] = float(max(np.abs(g.seam_involution(g.seam_involution(x, i), i) - x).max() for i in range(3)))
+        d0[f'{name}: Q_i R = P+ T + P- T*'] = float(max(np.abs(g.shift(x, i) - g.shift_direct(x, i)).max() for i in range(3)))
+        d0[f'{name}: tick norm'] = float(abs(np.linalg.norm(g.tick(x, 0.2)) - 1))
+        d0[f'{name}: [S_i, S_j]'] = float(max(np.abs(g.shift(g.shift(x, i), j) - g.shift(g.shift(x, j), i)).max()
+                                              for i in range(3) for j in range(i)))
+    out['0_engine_validation'] = d0
+    print('0: general engine against the reference engine and identities', round(time.time() - t00, 1), 's')
+    for k, v in d0.items(): print(f'   {k}: {v:.1e}')
+
+# ---- a: the Z2-charged quantum (reference engine) --------------------------------------------------------------
+if 'a' in PARTS:
+    shape = (40, 36, 36)
+    n0, T = (2, 1, 1), 8
+    gen0 = GenRouting(shape, SIG)
+    ra = []
+    g = rng.choice([-1.0, 1.0], size=shape)                    # a gauge transformation at every carrier
+    flat = [g * np.roll(g, -1, axis=i) for i in range(3)]      # the flat field in that gauge
+    for theta in (0.0, 0.157935):
+        p0 = gen0.momentum(n0)
+        coin0 = np.linalg.eigh(np.kron(SIG[0], sum(p0[i] * SIG[i] for i in range(3))))[1][:, -1]   # alpha.p = +|p|
+        psi0 = branch_packet(gen0, n0, (0.125, 0.125, 0.125), coin0, (17, 17, 17), theta)
+        eng, engg = Routing(shape), Routing(shape, flat)
+        psi, psig = psi0, g[..., None, None] * psi0
+        for t in range(T):
+            psi = eng.tick(psi, theta, reverse=bool(t % 2)); psig = engg.tick(psig, theta, reverse=bool(t % 2))
+        P0, P1, P1g = cell_distribution(psi0), cell_distribution(psi), cell_distribution(psig)
+        v = [(linear_mean(P1, i, shape[i] // 2) - linear_mean(P0, i, shape[i] // 2)) / T for i in range(3)]
+        vg, spread = group_velocity(gen0, p0, theta)
+        vbar = packet_velocity(gen0, psi0, theta)
+        ra.append({'theta': theta, 'p0': [float(x) for x in p0], 'ticks': T, 'velocity_measured': [float(x) for x in v],
+                   'velocity_predicted (dE/dp averaged over the packet)': vbar,
+                   'velocity_dE_dp_at_p0': [float(x) for x in vg], 'helicity_spread_of_dE_dp': spread,
+                   'max |measured - predicted|': float(np.abs(np.array(v) - np.array(vbar)).max()),
+                   'norm_defect': float(abs(np.linalg.norm(psi) - 1)),
+                   'cell_distribution: gauge-transformed run minus plain run (max)': float(np.abs(P1g - P1).max()),
+                   'complete position instrument: outcomes, total probability': [int(P1.size), float(P1.sum())]})
+        print('a:', ra[-1])
+    out['a_charged_quantum'] = ra
+    print('   elapsed', round(time.time() - t00, 1), 's')
+
+# ---- b: the flux pair alone, pointer = half-turn permutations ---------------------------------------------------
+if 'b' in PARTS:
+    rb = {}
+    shape = (16, 16, 16)
+    gb = GenRouting(shape, RHO)
+    x0 = (8, 8, 8)
+    psi = np.zeros(shape + (2, 4), complex); psi[x0 + (0, 0)] = 1.0     # one cell, blank record, the pair ORB[0]
+    Tb = 5
+    psiT = gb.run(psi, Tb)
+    P = cell_distribution(psiT)
+    want = np.zeros(shape)
+    for eta in ((s1, s2, s3) for s1 in (1, -1) for s2 in (1, -1) for s3 in (1, -1)):
+        want[tuple((x0[i] + Tb * eta[i]) % shape[i] for i in range(3))] += 1 / 8
+    rb['definite pair, blank record, 5 ticks: eight beams of weight 1/8 on the body diagonals (max defect)'] = float(np.abs(P - want).max())
+    synd = (np.abs(psiT) ** 2).sum(axis=(0, 1, 2, 3))
+    rb['face syndrome after 5 ticks: weight on the four pairs of the orbit'] = [float(x) for x in synd]
+    # short orbit: four beams
+    gs = GenRouting(shape, RHO_SHORT)
+    psi = np.zeros(shape + (2, 2), complex); psi[x0 + (0, 0)] = 1.0
+    Ps = cell_distribution(gs.run(psi, Tb))
+    pts = sorted(tuple(int(c) for c in np.array(idx) - np.array(x0)) for idx in zip(*np.nonzero(Ps > 1e-12)))
+    rb['pair fixed by a half-turn: beams (displacement, 5 ticks)'] = [list(p) for p in pts]
+    rb['pair fixed by a half-turn: weight per beam'] = sorted({round(float(Ps[tuple((x0[i] + p[i]) % 16 for i in range(3))]), 12) for p in pts})
+    # a packet in one joint sector moves rigidly
+    e = CHARS[1]
+    vec = char_projector(RHO, e)[:, 0]; vec = vec / np.linalg.norm(vec)
+    coin = np.kron(np.array([1, 1]) / np.sqrt(2), vec)                    # X_r = +1, character (+,-,-)
+    psi0 = gb.gaussian(x0, (2.0, 2.0, 2.0), (0, 0, 0), coin)
+    psiT = gb.run(psi0, 4)
+    P0, P1 = cell_distribution(psi0), cell_distribution(psiT)
+    rb['packet in the sector X_r = +, character (+,-,-): P_4(x) - P_0(x - 4 (1,-1,-1)) (max)'] = float(
+        np.abs(P1 - np.roll(P0, (4, -4, -4), axis=(0, 1, 2))).max())
+    # symbol phases: commuting pointer against the Dirac pointer
+    rows = []
+    for p in ((0.1, 0.0, 0.0), (0.1, 0.1, 0.0), (0.1, 0.1, 0.1)):
+        ec = np.unique(np.round(positive_phases(gb, p), 9))
+        ed = np.unique(np.round(positive_phases(GenRouting(shape, SIG), p), 9))
+        rows.append({'p': list(p), '|p|': float(np.linalg.norm(p)), 'flux pair (commuting pointer): phases per tick': [float(x) for x in ec],
+                     'Dirac pointer: phases per tick': [float(x) for x in ed]})
+    rb['symbol_phases'] = rows
+    # with a mass step: one-dimensional Dirac walk along the body diagonal of each character
+    th = 0.110554
+    worst = 0.0
+    for p in ((0.1, 0.0, 0.0), (0.07, -0.02, 0.05), (0.1, 0.1, 0.1), (0.3, 0.2, -0.1)):
+        got = np.unique(np.round(positive_phases(gb, p, th), 9))
+        want = np.unique(np.round(sorted(np.arccos(np.cos(th) * np.cos(np.dot(c, p))) for c in CHARS), 9))
+        worst = max(worst, float(np.abs(got - want).max()) if len(got) == len(want) else 1.0)
+    rb['mass step theta: phases = arccos(cos theta cos(e.p)), e the character (max defect, 4 momenta)'] = worst
+    # conserved labels: character weights
+    psi = rng.normal(size=shape + (2, 4)) + 1j * rng.normal(size=shape + (2, 4)); psi /= np.linalg.norm(psi)
+    w0 = [float(np.linalg.norm(psi @ char_projector(RHO, c).T) ** 2) for c in CHARS]
+    psiT = gb.run(psi, 6, th)
+    w1 = [float(np.linalg.norm(psiT @ char_projector(RHO, c).T) ** 2) for c in CHARS]
+    rb['character weights unchanged by 6 ticks with mass step (max change)'] = float(np.abs(np.array(w1) - np.array(w0)).max())
+    out['b_flux_pair_commuting_reflection_shift'] = rb
+    print('b:', round(time.time() - t00, 1), 's')
+    for k, v in rb.items(): print('  ', k, ':', v)
+
+# ---- c: the composite ---------------------------------------------------------------------------------------------
+if 'c' in PARTS:
+    rc = {}
+    JC1 = [np.kron(SIG[i], np.eye(4)) for i in range(3)]         # the flux code as a label carried by the quantum
+    JC2 = [np.kron(SIG[i], RHO[i]) for i in range(3)]            # the full cover lift on doublet x pairs
+    PAULI_OF = {CHARS[0]: np.eye(2), CHARS[1]: SIG[0], CHARS[2]: SIG[1], CHARS[3]: SIG[2]}
+    VV = sum(np.kron(PAULI_OF[c], char_projector(RHO, c)) for c in CHARS)
+    rc['unitary V = sum_e V_e x Pi_e maps sigma_i x 1 to sigma_i x rho_i (max defect)'] = float(max(
+        np.abs(VV @ JC1[i] @ VV.conj().T - JC2[i]).max() for i in range(3)))
+    rc['V unitary'] = float(np.abs(VV @ VV.conj().T - np.eye(8)).max())
+    theta_d = {1: 0.087847, 2: 0.110554, 3: 0.132363, 4: 0.147787, 5: 0.171237}    # CF1.md section 4 item 6, alpha = 1/2
+    shape = (32, 28, 28)
+    n0, T = (2, 1, 1), 6
+    g = rng.choice([-1.0, 1.0], size=shape)
+    flat = [g * np.roll(g, -1, axis=i) for i in range(3)]
+    th = theta_d[sep[free_seed]]
+    runs = []
+    for name, J in (('label carried (sigma x 1)', JC1), ('frame-turned (sigma x rho)', JC2)):
+        gc = GenRouting(shape, J, flat)
+        gfree = GenRouting(shape, J)
+        p0 = gfree.momentum(n0)
+        spin0 = np.linalg.eigh(np.kron(SIG[0], sum(p0[i] * SIG[i] for i in range(3))))[1][:, -1].reshape(2, 2)
+        pair0 = np.zeros(4); pair0[0] = 1.0                                          # the pair ORB[0]
+        coin0 = np.einsum('rs,q->rsq', spin0, pair0).reshape(-1)
+        if J is JC2: coin0 = np.kron(np.eye(2), VV) @ coin0
+        plain = branch_packet(gfree, n0, (0.14, 0.14, 0.14), coin0, (14, 13, 13), th)
+        psi0 = g[..., None, None] * plain
+        psiT = gc.run(psi0, T, th)
+        P0, P1 = cell_distribution(psi0), cell_distribution(psiT)
+        v = [(linear_mean(P1, i, shape[i] // 2) - linear_mean(P0, i, shape[i] // 2)) / T for i in range(3)]
+        vg, spread = group_velocity(gfree, p0, th)
+        vbar = packet_velocity(gfree, plain, th)
+        pw0 = (np.abs(psi0.reshape(shape + (2, 2, 4))) ** 2).sum(axis=(0, 1, 2, 3, 4))
+        pw1 = (np.abs(psiT.reshape(shape + (2, 2, 4))) ** 2).sum(axis=(0, 1, 2, 3, 4))
+        cw0 = [float(np.linalg.norm(psi0 @ np.kron(np.eye(2), char_projector(RHO, c)).T) ** 2) for c in CHARS]
+        cw1 = [float(np.linalg.norm(psiT @ np.kron(np.eye(2), char_projector(RHO, c)).T) ** 2) for c in CHARS]
+        runs.append({'pointer': name, 'theta (M1, alpha 1/2, separation of the pair)': th, 'p0': [float(x) for x in p0], 'ticks': T,
+                     'velocity_measured': [float(x) for x in v], 'velocity_predicted (dE/dp averaged over the packet)': vbar,
+                     'max |measured - predicted|': float(np.abs(np.array(v) - np.array(vbar)).max()),
+                     'velocity_dE_dp_at_p0': [float(x) for x in vg],
+                     'helicity_spread_of_dE_dp': spread, 'norm_defect': float(abs(np.linalg.norm(psiT) - 1)),
+                     'face syndrome: weight on the four pairs of the orbit, t = 0': [float(x) for x in pw0],
+                     'face syndrome: weight on the four pairs of the orbit, t = T': [float(x) for x in pw1],
+                     'character weights, max change': float(np.abs(np.array(cw1) - np.array(cw0)).max())})
+        print('c:', runs[-1])
+    rc['packets'] = runs
+    print('   elapsed', round(time.time() - t00, 1), 's')
+    # rest phase by separation class: velocity of a composite packet on a line
+    line = []
+    for dsep in (1, 5):
+        gl = GenRouting((256, 1, 1), JC1)
+        th = theta_d[dsep]
+        p0 = gl.momentum((12, 0, 0))
+        spin0 = np.linalg.eigh(np.kron(SIG[0], SIG[0]))[1][:, -1].reshape(2, 2)
+        coin0 = np.einsum('rs,q->rsq', spin0, np.array([1.0, 0, 0, 0])).reshape(-1)
+        psi0 = branch_packet(gl, (12, 0, 0), (0.052, 0, 0), coin0, (100, 0, 0), th)
+        psiT = gl.run(psi0, 60, th)
+        v = (linear_mean(cell_distribution(psiT), 0, 128) - linear_mean(cell_distribution(psi0), 0, 128)) / 60
+        E0 = np.arccos(np.cos(th) * np.cos(p0[0]))
+        line.append({'separation': dsep, 'theta': th, 'p0': float(p0[0]), 'velocity_measured': float(v),
+                     'velocity_predicted (dE/dp averaged over the packet)': packet_velocity(gl, psi0, th)[0],
+                     'velocity_dE_dp_at_p0': float(np.cos(th) * np.sin(p0[0]) / np.sin(E0))})
+        print('c line:', line[-1])
+    rc['rest_phase_by_separation_class'] = line
+    out['c_composite'] = rc
+    for k, v in rc.items():
+        if not isinstance(v, list): print('  ', k, ':', v)
+
+print('seconds', round(time.time() - t00, 1))
+path = os.path.join(HERE, 'item3.json')
+old = json.load(open(path)) if os.path.exists(path) else {}
+old.update(out)                                   # parts run separately are merged into one result file
+json.dump(old, open(path, 'w'), indent=1)

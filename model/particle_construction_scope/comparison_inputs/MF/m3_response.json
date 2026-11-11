@@ -1,0 +1,137 @@
+{
+ "i_face_check_pump": {
+  "fixed_space_dimension": 4,
+  "fixed_algebra": "M_2 on the doublet (exact: rank of Phi - 1 is 140)",
+  "trace_preserving": true,
+  "one_face_event_populations_from_a_port_of_the_face": [
+   "5/9",
+   "2/9",
+   "2/9"
+  ],
+  "asymptotic_populations_from_port_0": [
+   "1945/30744 - 83/30744*s5",
+   "2479/30744 - 617/153720*s5",
+   "2645/30744 + 617/153720*s5",
+   "3179/30744 + 83/30744*s5"
+  ],
+  "population_shadow": "lost (one event from a port of the face gives 5/9, 2/9, 2/9)",
+  "first_order_generator_is_commutator_with_P_N_p_P": true,
+  "first_order_response": "X_p = P N_p P = Q_p / 6 on the doublet",
+  "second_order": {
+   "form": "L2(rho) = (g/6) [ 2 <chi_p|rho|chi_p> tau_p - {Q_p, rho} ], tau_p = a Q_p + (1 - a)(1 - Q_p), per attempt, times (epsilon/Gamma)^2",
+   "g": "65/6 - 5/6*s5",
+   "g_float": 8.96994335208351,
+   "a": "18981/35014 + 659/35014*s5",
+   "a_float": 0.584182578316455,
+   "formula_exact_on_all_of_M2": true,
+   "leak_rate_from_chi_p": "65/18 - 5/18*s5",
+   "leak_rate_float": 2.98998111736117,
+   "coherence_decay_rate": "65/36 - 5/36*s5",
+   "population_transfer_rate_to_orthogonal_state": "6455/3843 - 250/1281*s5",
+   "population_transfer_rate_float": 1.243286239103606
+  },
+  "leakage_amplitude_squared": "5/36 (audit: (d/12)(1 - d/12))"
+ },
+ "ii_cap": {
+  "fixed_space_dimension": 1,
+  "first_order_response_of_stationary_state": {
+   "first_order_coefficient_of_P_L1_rho0": "0",
+   "nonzero_band_blocks": {
+    "2x2": false,
+    "2x4": true,
+    "2x6": true,
+    "4x2": true,
+    "4x4": false,
+    "4x6": true,
+    "6x2": true,
+    "6x4": true,
+    "6x6": false
+   },
+   "doublet_block_is_zero": true,
+   "quartet_block_is_zero": true,
+   "sextet_block_is_zero": true,
+   "diagonal_is_zero": true,
+   "hilbert_schmidt_norm_squared": "1444198844176945084213675/2699419916352822642938401 + 416832524703677444641825/2699419916352822642938401*s5 + 1351900253695691850421875/5398839832705645285876802*c + 430432409930766615706825/5398839832705645285876802*s5*c",
+   "hilbert_schmidt_norm": 1.3021849278987967,
+   "span_of_the_twelve_responses": 11
+  },
+  "second_order_doublet_block": {
+   "form": "Pi_2 rho2 Pi_2 = alpha 1 + beta Q_p (internal coordinates), times (epsilon/Gamma)^2",
+   "alpha": "59505384332012944389776925/75198097702283126890991381 + 22512069015067286579817825/75198097702283126890991381*s5 + 28590643010267657296108700/75198097702283126890991381*c + 12859298658228000531995850/75198097702283126890991381*s5*c",
+   "beta": "-132481297481964221648925/26380669251809551619362 - 50993838184416343376725/26380669251809551619362*s5 - 54267813348084495340925/26380669251809551619362*c - 35436874473526307698575/26380669251809551619362*s5*c",
+   "alpha_float": 2.911249171526584,
+   "beta_float": -18.97042587966413,
+   "doublet_level": 0.2986762021676839,
+   "relative_splitting_beta_over_level": -63.51502309853827
+  },
+  "pinched_port_loads": {
+   "definition": "sum_j Pi_j N_p Pi_j = time average of N_p under the modular flow of the stationary state",
+   "real_span": 12,
+   "lie_closure_float": 54,
+   "centre_float": 1
+  },
+  "slowest_sector": {
+   "eigenvalue": 0.9686061079559666,
+   "multiplicity": 3,
+   "decay_per_attempt": 0.03139389204403342,
+   "first_order_shift_matrix_eigenvalues": [
+    [
+     2.5123520489663535e-16,
+     -4.340167356849992e-16
+    ],
+    [
+     -2.94948866493707e-15,
+     0.1941496830579725
+    ],
+    [
+     -1.7925662345656703e-15,
+     -0.1941496830579988
+    ]
+   ],
+   "precession_frequency_per_unit_probe": 0.1941496830579988,
+   "ideal_P_N_p_P_frequency": 0.16666666666666666,
+   "ratio_to_ideal": 1.1648980983479928,
+   "weight_of_eigenoperators_in_the_doublet_block": [
+    0.9244410052281078,
+    0.9244410052281138,
+    0.9244410052280995
+   ]
+  }
+ },
+ "iii_framed_quanta": {
+  "first_order_response": "X_p = Pi_p / 12 on the internal factor, for every internal dimension (exact: Tr of N_p in the uniform state)",
+  "fundamental_matrix_by_port_distance": {
+   "0": "35/3",
+   "1": "2/3",
+   "2": "-7/3",
+   "3": "-10/3"
+  },
+  "second_order": "L2(rho) = -(1/12) sum_pq v_p v_q g_pq [Pi_q, [Pi_p, rho]] per attempt, times (epsilon/Gamma)^2; one port: -(35/36) [Pi_p, [Pi_p, rho]]",
+  "single_port_dephasing_rate": "35/36",
+  "leakage": "none: the internal factor never leaves; the term is dephasing in the basis of Pi_p",
+  "with_position_record": "the conditional evolution is exp(-i epsilon tau_p Pi_p) exactly, tau_p the recorded occupation time of port p; no second-order term",
+  "float_check_on_the_joint_chain": {
+   "spinor_great/one_port": {
+    "first_order_defect": 2.7755575615628914e-17,
+    "second_order_defect": 1.5543122344752192e-15,
+    "slow_eigenvalue_defect_at_eta_1e-3": 1.0115492496885334e-08
+   },
+   "spinor_great/all_ports": {
+    "first_order_defect": 2.7755575615628914e-17,
+    "second_order_defect": 1.1759024490678593e-14,
+    "slow_eigenvalue_defect_at_eta_1e-3": 2.2541765173156744e-09
+   },
+   "vector_convex/one_port": {
+    "first_order_defect": 1.3877787807814457e-17,
+    "second_order_defect": 4.996003610813204e-16,
+    "slow_eigenvalue_defect_at_eta_1e-3": 1.0115492499635393e-08
+   },
+   "vector_convex/all_ports": {
+    "first_order_defect": 4.3885418357208765e-17,
+    "second_order_defect": 7.739538082024919e-15,
+    "slow_eigenvalue_defect_at_eta_1e-3": 7.938707124322362e-08
+   }
+  }
+ },
+ "seconds": 228.3
+}

@@ -1,0 +1,56 @@
+import sys, pathlib, itertools, json
+import numpy as np
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / 'lib'))
+from carrier_tools import C, sections, flux_adjacency, check_rows
+from lie_tools import lie_closure, centre_dim
+
+def proj(W):
+    return [np.outer(W[p].conj(), W[p]) for p in range(12)]      # |chi_p><chi_p| on the internal space
+
+def report(name, blocks):
+    d = sum(b[0].shape[0] for b in blocks)
+    gens = []
+    for p in range(12):
+        D = np.zeros((d, d), complex); o = 0
+        for b in blocks:
+            k = b[p].shape[0]; D[o:o + k, o:o + k] = b[p]; o += k
+        gens.append(1j * D)
+    rk = np.linalg.matrix_rank(np.array([np.concatenate([g.real.ravel(), g.imag.ravel()]) for g in gens]), tol=1e-9)
+    mats, dims = lie_closure(gens, max_dim=80)
+    print(f'{name}: span {rk}, closure {dims[-1]}, centre {centre_dim(mats)}')
+
+S2, S3 = proj(sections(0.5, 0.5)), proj(sections(1, 1))
+S2g, S3g = proj(sections(0.5, 0.5, C.Ng)), proj(sections(1, 1, C.Ng))
+S3r, S3rg = proj(sections(1, 0)), proj(sections(1, 0, C.Ng))
+report('spinor(convex) + vector(convex)', [S2, S3])
+report('spinor(great)  + vector(convex)', [S2g, S3])
+report('spinor(convex) + vector(great) ', [S2, S3g])
+report('spinor(great)  + vector(great) ', [S2g, S3g])
+report('spinor(great)  + radial vector(convex)', [S2g, S3r])
+report('radial vector(convex) + radial vector(great)', [S3r, S3rg])
+report('all four circular', [S2, S2g, S3, S3g])
+# which flux band is the great-realization spinor section space?
+for name, W in (('spinor great', sections(0.5, 0.5, C.Ng)), ('vector great', sections(1, 1, C.Ng)), ('spinor convex', sections(0.5, 0.5)), ('vector convex', sections(1, 1))):
+    Q, _ = np.linalg.qr(W); Q = Q[:, :W.shape[1]]
+    best = None
+    for k in range(20):
+        A = flux_adjacency(k)
+        # gauge-invariant test: is the port-projector Gram |<chi_p|chi_q>| pattern an invariant subspace? compare projectors up to diagonal unitary
+        w, U = np.linalg.eigh(A)
+        for ev in sorted(set(np.round(w, 6))):
+            B = U[:, abs(w - ev) < 1e-6]
+            if B.shape[1] != W.shape[1]:
+                continue
+            # compare gauge-invariant data: moduli of the projector entries and the face holonomies of its phases
+            P1, P2 = Q @ Q.conj().T, B @ B.conj().T
+            if np.allclose(abs(P1), abs(P2), atol=1e-8):
+                hol1 = [np.angle(P1[a, b] * P1[b, c] * P1[c, a]) for a, b, c in C.F]
+                hol2 = [np.angle(P2[a, b] * P2[b, c] * P2[c, a]) for a, b, c in C.F]
+                if np.allclose(np.exp(1j * np.array(hol1)), np.exp(1j * np.array(hol2)), atol=1e-8):
+                    best = (k, float(ev)); break
+        if best: break
+    print(f'{name}: section space equals the band (flux k, adjacency eigenvalue) = {best}')
+# checks for the great realization
+for name, W, cl in (('spinor great / faces', sections(0.5, 0.5, C.Ng), [list(f) for f in C.F]), ('vector great / rhombi', sections(1, 1, C.Ng), C.rhombi), ('radial great / rhombi', sections(1, 0, C.Ng), C.rhombi)):
+    rows = check_rows(W, cl)
+    print(f'{name}: {len(rows)} checks, common kernel {12 - np.linalg.matrix_rank(rows, tol=1e-9) if len(rows) else 12}')

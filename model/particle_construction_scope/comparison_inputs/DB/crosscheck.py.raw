@@ -1,0 +1,44 @@
+"""Cross-check of the float64 chain (d10_float.py) against the copied producer (paper_math_db.py).
+
+Run:
+    /tmp/oph-completion-venv/bin/python crosscheck.py
+Checks at the published forward point P_fwd of RER/code/P_derivation/README.md with the declared slopes:
+alpha_U, v/E*, m_Z/E*, alpha_3(m_Z), and the closure value alpha^-1 of the float chain against the published
+136.994835177412937.
+"""
+import json
+from pathlib import Path
+
+from d10_float import Chain, readout
+from paper_math_db import PaperMathContext
+
+P_FWD = '1.63097209585889737696451390350695562847912625483895268486516'
+ALPHA_U_PUBLISHED = 0.0411242474418166851408899338896597194
+V_PUBLISHED = 2.0198114078576330591337426182670149e-17
+ALPHA_INV_PUBLISHED = 136.994835177412937295289429464436
+
+ctx = PaperMathContext(precision=20, su2_cutoff=40, su3_cutoff=30, b_coefficients=('33/5', '1', '-3'))
+dp = ctx.build_d10_from_p(P_FWD)
+ch = Chain((33 / 5, 1, -3))
+df = ch.solve_alpha_u(float(P_FWD))
+rows = {
+    'alpha_U': (float(dp.alpha_u), df['alpha_u'], ALPHA_U_PUBLISHED),
+    'v_over_Estar': (float(dp.v), df['v'], V_PUBLISHED),
+    'mZ_over_Estar': (float(dp.mz_run), df['mz'], None),
+    'alpha3_mZ': (float(dp.alpha3_mz), 1 / df['inv3'], None),
+    'alpha_em_inv_mZ': (float(dp.alpha_em_inv_mz), df['inv2'] + 5 * df['inv1'] / 3, None),
+}
+out = {}
+for k, (a, b, c) in rows.items():
+    out[k] = dict(producer_copy=a, float_chain=b, published=c, rel_diff_float_vs_copy=abs(a - b) / abs(a))
+    assert abs(a - b) / abs(a) < 1e-9, (k, a, b)
+    if c is not None:
+        assert abs(a - c) / abs(c) < 1e-9, (k, a, c)
+
+alpha, d, p = ch.closure()
+r = readout(alpha, d, p)
+out['closure_float'] = r
+out['closure_alpha_inv_rel_diff_vs_published'] = abs(r['alpha0_inv'] - ALPHA_INV_PUBLISHED) / ALPHA_INV_PUBLISHED
+assert out['closure_alpha_inv_rel_diff_vs_published'] < 1e-9
+Path(__file__).with_name('crosscheck.json').write_text(json.dumps(out, indent=1) + '\n')
+print(json.dumps(out, indent=1))

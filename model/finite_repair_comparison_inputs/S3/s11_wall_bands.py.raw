@@ -1,0 +1,74 @@
+"""S3 step 11: exact Bloch bands of a straight wall between the two staggered domains (flat lattice).
+
+Strip periodic along the mesh edge direction A1 (Bloch momentum k), N2 rows across (periodic), rows 0..N2/2-1 wired
+"up cells F, down cells B", rows N2/2..N2-1 wired "up cells B, down cells F".  The two walls (one B-B, one F-F) run
+along a mesh edge, the geometry of the walls that the icosahedral mesh forces along its base edges.
+Control: the same strip with one domain only (no wall): no level inside the flat gap window.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s11_wall_bands.py [N2=40] [NK=96]
+Writes SCR/research/S3/s11_wall_bands.json
+"""
+import json
+import math
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+N2 = int(sys.argv[1]) if len(sys.argv) > 1 else 40
+NK = int(sys.argv[2]) if len(sys.argv) > 2 else 96
+T0 = time.time()
+F, B = S.FACE_TRIPLE, S.BELT_TRIPLE
+WINDOW = (0.16961303410167172, 0.19060178417474383)
+MID = 0.5 * (WINDOW[0] + WINDOW[1])
+LC = S.LCAR.astype(float)
+
+
+def strip(k, up_types, down_types):
+    """Row n holds an up carrier (ports 24n..24n+11) and a down carrier (24n+12..24n+23).
+    Bonds: 0: U(n)-D(n);  1: U(n)-D(n) of the cell shifted by -A1 (phase exp(-ik));  2: U(n)-D(n-1)."""
+    n = len(up_types)
+    L = np.zeros((24 * n, 24 * n), complex)
+    for r in range(n):
+        L[24 * r:24 * r + 12, 24 * r:24 * r + 12] = LC
+        L[24 * r + 12:24 * r + 24, 24 * r + 12:24 * r + 24] = LC
+    for r in range(n):
+        pu = up_types[r]
+        for b, (rd, ph) in enumerate(((r, 1.0), (r, np.exp(-1j * k)), ((r - 1) % n, 1.0))):
+            pd = down_types[rd]
+            u, d = 24 * r + pu[b], 24 * rd + 12 + pd[b]
+            L[u, u] += 1; L[d, d] += 1
+            L[u, d] -= ph; L[d, u] -= np.conj(ph)
+    return L
+
+
+ks = (np.arange(NK) + 0.5) * 2 * math.pi / NK
+half = N2 // 2
+cases = {'two_walls': ([F] * half + [B] * (N2 - half), [B] * half + [F] * (N2 - half)),
+         'no_wall_control': ([F] * N2, [B] * N2)}
+out = {'rows': N2, 'k_points': NK, 'window': list(WINDOW)}
+for name, (ut, dt) in cases.items():
+    inside = []
+    sign_mid = []
+    for k in ks:
+        ev = np.linalg.eigvalsh(strip(k, ut, dt))
+        inside.append(int(np.sum((ev > WINDOW[0]) & (ev < WINDOW[1]))))
+        sign_mid.append(int(np.sum(ev < MID)))
+    inside = np.array(inside); below = np.array(sign_mid)
+    crossings = int(np.sum(np.abs(np.diff(np.r_[below, below[0]]))))
+    out[name] = {'levels_inside_window_per_k': inside.tolist(), 'total_levels_inside_window': int(inside.sum()),
+                 'inside_window_per_unit_wall_length_both_walls': float(inside.sum() / NK),
+                 'mid_gap_crossings_over_the_zone': crossings,
+                 'k_with_levels_inside': [float(ks[i]) for i in np.flatnonzero(inside)][:6] + ['...'] if inside.any() else []}
+    print(name, json.dumps({kk: vv for kk, vv in out[name].items() if kk != 'levels_inside_window_per_k'}), round(time.time() - T0, 1), flush=True)
+# prediction for the icosahedral mesh: 30 walls of length 2^l mesh edges, one F-F wall each
+per_len = out['two_walls']['inside_window_per_unit_wall_length_both_walls'] / 2.0
+out['prediction_icosahedral'] = {str(l): 30 * 2 ** l * per_len for l in (3, 4, 5, 6)}
+out['in_gap_levels_per_unit_wall_length_per_wall'] = per_len
+json.dump(out, open(S.S3 + '/s11_wall_bands.json', 'w'), indent=1)
+print('per unit length per wall', per_len, 'prediction', out['prediction_icosahedral'])

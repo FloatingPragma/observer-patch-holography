@@ -1,0 +1,226 @@
+"""Task KOI, part G-b: the four cones of the alternating two-tick period (origin and the three axis cones) as copies.
+
+Exact model (first order in the source angles), checked against the executed engine below:
+  cone basis on one of the four body-centred lattices: |K, parity> = plane wave exp(i K.x) on the even (odd) cells,
+  K in {0, K1 = (0, pi/2, pi/2), K2 = (pi/2, 0, pi/2), K3 = (pi/2, pi/2, 0)}; coin = record (x) spin.
+  At the cones the forward tick is 1_record (x) a_K with a_K = 1, i sigma_1, -i sigma_2, i sigma_3; it maps |K, even>
+  to |K, odd>. With mass angles theta(x) on cells, the period on the rest space of the even parity is, to first order,
+  1 - i Y_record (x) M with
+     M = sum_(even x) (theta_x / N) s(x) s(x)^T (x) 1_spin + sum_(odd x) (theta_x / N) w(x) w(x)^dagger,
+     s_K(x) = exp(i K.x) (= +-1),  w(x) = sum_K s_K(x) |K> (x) a_K^dagger  (an 8 x 2 matrix),
+  N = number of even cells; phases per tick = eigenvalues of M / 2 (each twice: spin; and +-: record).
+  M is a 4 x 4 matrix of quaternions (entries real combinations of 1, i sigma_k): eigenvalues come in spin pairs.
+Third-turn R about (1,1,1) through cell 0: (W psi)(x) = (1 (x) u) psi(R^-1 x), u = (1 - i(s1 + s2 + s3))/2; it maps K1 -> K2
+-> K3 -> K1 and is not a symmetry of the alternating tick (R1). Output: koide.json key 'G-b'.
+"""
+import itertools, json, math, os, sys
+import numpy as np
+import sympy as sp
+import mpmath as mp
+
+from koide_lib import koide_from_eigs, save, RL
+
+I = sp.I
+s1 = sp.Matrix([[0, 1], [1, 0]]); s2 = sp.Matrix([[0, -I], [I, 0]]); s3 = sp.Matrix([[1, 0], [0, -1]]); one2 = sp.eye(2)
+SIG = [s1, s2, s3]
+Xr = s1
+KP = {0: (0, 0, 0), 1: (0, 1, 1), 2: (1, 0, 1), 3: (1, 1, 0)}             # units of pi/2
+NAMES = {0: 'origin', 1: 'K1 (0,pi/2,pi/2)', 2: 'K2 (pi/2,0,pi/2)', 3: 'K3 (pi/2,pi/2,0)'}
+out = {'copy_space': 'G-b: the four cones of the two-tick period on one body-centred lattice (origin and three axis cones)',
+       'basis': 'plane waves exp(i K.x) on the even cells, K = 0, K1, K2, K3; spin in the frame basis; the third-turn about (1,1,1) maps K1 -> K2 -> K3'}
+
+
+def E(i, quarter):
+    al = sp.kronecker_product(Xr, SIG[i])
+    return [sp.eye(4), -I * al, -sp.eye(4), I * al][quarter % 4]
+
+
+def fwd(k, order=(0, 1, 2)):
+    out_ = sp.eye(4)
+    for i in order: out_ = E(i, k[i]) * out_
+    return out_
+
+
+# ------------------------------------------------------------------------------------------------ 1. cone points
+a = {}
+for K, k in KP.items():
+    A = fwd(k)
+    blk = A[:2, :2]
+    assert A == sp.kronecker_product(sp.eye(2), blk), 'record-independent at the cones'
+    a[K] = sp.simplify(blk)
+assert a[0] == one2 and a[1] == I * s1 and a[2] == -I * s2 and a[3] == I * s3
+u = (one2 - I * (s1 + s2 + s3)) / 2
+assert sp.simplify(u * s1 * u.H - s2) == sp.zeros(2) and sp.simplify(u * s2 * u.H - s3) == sp.zeros(2)
+assert sp.simplify(u ** 3 + one2) == sp.zeros(2)
+Rmap = {0: 0, 1: 2, 2: 3, 3: 1}                                          # R K1 = K2, R K2 = K3, R K3 = K1
+# forward tick of the rotated program W S_fwd W^dagger at cone K: u a_(R^-1 K) u^dagger
+Rinv = {v: k for k, v in Rmap.items()}
+arot = {K: sp.simplify(u * a[Rinv[K]] * u.H) for K in KP}
+Zs = {K: (1 if sp.simplify(arot[K] - a[K]) == sp.zeros(2) else (-1 if sp.simplify(arot[K] + a[K]) == sp.zeros(2) else None)) for K in KP}
+out['cone_points'] = {
+    'forward_tick_at_the_cones': {NAMES[K]: str(a[K]) for K in KP},
+    'third_turn_spin_lift': 'u = (1 - i(sigma_1 + sigma_2 + sigma_3))/2, u sigma_i u^dagger = sigma_(i+1), u^3 = -1',
+    'forward_tick_of_the_turned_program_at_the_cones_equals_sign_times_forward_tick': {NAMES[K]: Zs[K] for K in KP},
+    'reading': 'the turned program (axis order 2, 3, 1 instead of 1, 2, 3) has the opposite forward tick at K2 and K3: the turn acts on the even copies as W and, carried through one tick, as Z W with Z = diag(1, 1, -1, -1)',
+    'label': 'EXACT (sympy)'}
+print('1. a_K:', {K: a[K].tolist() for K in KP}, '| turned/original signs Z:', Zs)
+ZV = [Zs[K] for K in range(4)]
+
+
+# ------------------------------------------------------------------------------------------------ 2. first-order copy matrices
+def svec(x):
+    """s_K(x) = exp(i K.x) for K in units of pi/2: i^(k.x)"""
+    return [int(sp.re(I ** (sum(k[i] * x[i] for i in range(3)) % 4))) for K, k in sorted(KP.items())]
+
+
+def Mfirst(sources):
+    """sources: list of (cell, weight); returns the 8 x 8 matrix M / (theta/N) (cone-major, spin-minor)"""
+    M = sp.zeros(8, 8)
+    for x, wgt in sources:
+        s = svec(x)
+        assert all(v in (1, -1) for v in s)
+        if x[0] % 2 == 0:
+            M += wgt * sp.kronecker_product(sp.Matrix(4, 4, lambda i, j: s[i] * s[j]), one2)
+        else:
+            w = sp.zeros(8, 2)
+            for K in range(4): w[2 * K:2 * K + 2, :] = s[K] * a[K].H
+            M += wgt * (w * w.H)
+    return M
+
+
+Wturn = sp.kronecker_product(sp.Matrix(4, 4, lambda i, j: 1 if Rmap[j] == i else 0), u)      # on cones (x) spin
+Zm = sp.kronecker_product(sp.diag(*ZV), one2)
+
+
+def axis_block(M):
+    return M[2:, 2:]
+
+
+def iszero(Mx):
+    """exact zero test (expand and simplify first; sympy's raw is_zero_matrix can return None)"""
+    z = sp.simplify(sp.expand(Mx)).is_zero_matrix
+    assert z is not None
+    return bool(z)
+
+
+def exact_traces(B):
+    t1 = sp.nsimplify(sp.simplify(B.trace())); B2 = B * B
+    t2 = sp.nsimplify(sp.simplify(B2.trace())); t3 = sp.nsimplify(sp.simplify((B2 * B).trace()))
+    return t1, t2, t3
+
+
+def doublet_eigs(B):
+    ev = np.linalg.eigvalsh(np.array(B.evalf(30).tolist(), dtype=complex))
+    ev = np.sort(ev)
+    assert np.max(np.abs(ev[0::2] - ev[1::2])) < 1e-9, 'spin pairs'
+    return [float(x) for x in ev[0::2]]
+
+
+def kind(x):
+    par = x[0] % 2; m = [(xi - par) // 2 % 2 for xi in x]
+    return par, (0 if m[0] == m[1] == m[2] else (1 if m[1] == m[2] else (2 if m[0] == m[2] else 3)))
+
+
+L = 8
+cells = [x for x in itertools.product(range(L), repeat=3) if (x[0] - x[1]) % 2 == 0 and (x[1] - x[2]) % 2 == 0]
+NE = sum(1 for x in cells if x[0] % 2 == 0)
+rep = {}
+for x in cells:
+    rep.setdefault(kind(x), x)
+# the plane-wave signs depend only on (parity, kind) up to an overall sign per cell: check
+for x in cells:
+    s, s0 = svec(x), svec(rep[kind(x)])
+    assert s == s0 or s == [-v for v in s0]
+
+
+def analyse(sources, label):
+    M = Mfirst(sources)
+    B = axis_block(M)
+    ev4 = doublet_eigs(M); ev3 = doublet_eigs(B)
+    t1, t2, t3 = exact_traces(B)
+    Q3 = sp.nsimplify(2 * t2 / t1 ** 2) if t1 != 0 else None
+    T1, T2, _ = exact_traces(M)
+    Q4 = sp.nsimplify(2 * T2 / T1 ** 2) if T1 != 0 else None
+    covW = iszero(Wturn * M - M * Wturn)
+    covZW = iszero((Zm * Wturn) * M - M * (Zm * Wturn))
+    covW3 = iszero(axis_block(Wturn) * B - B * axis_block(Wturn))
+    covZW3 = iszero(axis_block(Zm * Wturn) * B - B * axis_block(Zm * Wturn))
+    row = {'sources': label, 'cells': [list(x) for x, _ in sources],
+           'M_over_theta_per_N (4 x 4 quaternion blocks, cone-major)': [[str(sp.simplify(M[2 * i:2 * i + 2, 2 * j:2 * j + 2])) for j in range(4)] for i in range(4)],
+           'four_copy_levels (period, units theta/N; per tick half)': ev4, 'Q4 (four copies, balance value 1/2)': str(Q4),
+           'axis_block_levels': ev3, 'Q3_exact (axis cones, sqrt reading)': str(Q3),
+           'axis_block_sqrt_reading': koide_from_eigs(ev3, 'sqrt'), 'axis_block_mass_reading': koide_from_eigs([max(v, 0) for v in ev3], 'mass'),
+           'covariant_under_W (turn on the even copies)': bool(covW), 'covariant_under_ZW (turn carried through one tick)': bool(covZW),
+           'axis_block_covariant_under_W': bool(covW3), 'axis_block_covariant_under_ZW': bool(covZW3),
+           'Q3_is_2/3': bool(Q3 == sp.Rational(2, 3)) if Q3 is not None else False}
+    return row, M
+
+
+# single sources
+singles = {}
+for par in (0, 1):
+    for k in range(4):
+        x = rep[(par, k)]
+        row, M = analyse([(x, 1)], f"one {'even' if par == 0 else 'odd'} cell of kind {k}")
+        singles[(par, k)] = row
+        print('2.', row['sources'], 'levels4', [round(v, 6) for v in row['four_copy_levels (period, units theta/N; per tick half)']],
+              'axis', [round(v, 6) for v in row['axis_block_levels']], 'Q3', row['Q3_exact (axis cones, sqrt reading)'], 'Q4', row['Q4 (four copies, balance value 1/2)'],
+              'covW', row['covariant_under_W (turn on the even copies)'], 'covZW', row['covariant_under_ZW (turn carried through one tick)'])
+out['one_point_source'] = list(singles.values())
+
+# all multisets of at most three sources over the eight (parity, kind) classes, equal angles
+slots = [(par, k) for par in (0, 1) for k in range(4)]
+few, hits = [], []
+q3set, q4set = {}, {}
+for n in (1, 2, 3):
+    for combo in itertools.combinations_with_replacement(slots, n):
+        srcs = [(rep[c], 1) for c in combo]
+        row, M = analyse(srcs, ' + '.join(f"{'E' if c[0] == 0 else 'O'}{c[1]}" for c in combo))
+        few.append(row)
+        q3set.setdefault(row['Q3_exact (axis cones, sqrt reading)'], []).append(row['sources'])
+        q4set.setdefault(row['Q4 (four copies, balance value 1/2)'], []).append(row['sources'])
+        if row['Q3_is_2/3']: hits.append(row)
+print('2. configurations with at most three sources:', len(few), '| axis-block Q3 = 2/3 in', len(hits), 'of them')
+print('   distinct Q3:', sorted(q3set, key=lambda s: float(sp.nsimplify(s)) if s != 'None' else -1))
+print('   distinct Q4:', sorted(q4set, key=lambda s: float(sp.nsimplify(s)) if s != 'None' else -1))
+for h in hits[:12]:
+    print('   Q3 = 2/3:', h['sources'], 'axis levels', [round(v, 6) for v in h['axis_block_levels']], 'delta', round(h['axis_block_sqrt_reading']['delta_canonical'] or -1, 6),
+          'covW3', h['axis_block_covariant_under_W'], 'covZW3', h['axis_block_covariant_under_ZW'])
+cov_rows = [r for r in few if r['axis_block_covariant_under_W'] or r['axis_block_covariant_under_ZW']]
+
+
+def circulant_blocks(B, T):
+    """B (6 x 6, axis cones (x) spin) commuting with the turn T (T^3 = -1). With T' = -T (T'^3 = 1) and the covariant
+    basis e_i = T'^i e_0, e_0 = |K1> (x) spin, B is the block circulant [[A0, B1^+, B1], [B1, A0, B1^+], [B1^+, B1, A0]].
+    Returns A0, B1 and, if B1 = |b| U with U unitary of eigenvalues exp(+-i phi), the phase phi."""
+    Tp = -T
+    e0 = sp.zeros(6, 2); e0[0, 0] = 1; e0[1, 1] = 1
+    Bas = sp.Matrix.hstack(e0, Tp * e0, Tp * Tp * e0)
+    Bp = sp.simplify(sp.expand(Bas.H * B * Bas))
+    A0, B1 = Bp[0:2, 0:2], Bp[2:4, 0:2]
+    assert iszero(Bp[2:4, 2:4] - A0) and iszero(Bp[4:6, 2:4] - B1) and iszero(Bp[0:2, 4:6] - B1) and iszero(Bp[0:2, 2:4] - B1.H)
+    q0 = sp.simplify(B1.trace() / 2)
+    gram = sp.simplify(sp.expand(B1.H * B1))
+    prop_unitary = iszero(gram - gram[0, 0] * sp.eye(2))
+    res = {'A0': str(A0), 'B1': str(B1), 'B1_scalar_part (tr/2)': str(q0), 'B1_is_multiple_of_a_unitary': bool(prop_unitary)}
+    if prop_unitary and gram[0, 0] != 0:
+        nb = sp.sqrt(gram[0, 0])
+        res['abs_b'] = str(sp.nsimplify(nb))
+        res['phi = arccos(Re tr B1 / (2|b|))'] = float(sp.acos(sp.re(q0) / nb))
+    return res
+
+
+for r in cov_rows:
+    srcs = [(tuple(x), 1) for x in r['cells']]
+    M = Mfirst(srcs); B = axis_block(M)
+    for name, T in (('W', axis_block(Wturn)), ('ZW', axis_block(Zm * Wturn))):
+        if iszero(T * B - B * T):
+            r[f'circulant_blocks_under_{name}'] = circulant_blocks(B, T)
+            print('   covariant', r['sources'], name, r[f'circulant_blocks_under_{name}'], 'Q3', r['Q3_exact (axis cones, sqrt reading)'])
+out['few_sources'] = {'count': len(few), 'rows': few, 'axis_Q3_values': {k: len(v) for k, v in q3set.items()},
+                      'four_copy_Q4_values': {k: len(v) for k, v in q4set.items()}, 'axis_Q3_equal_2/3': [h['sources'] for h in hits],
+                      'turn_covariant_axis_blocks': [(r['sources'], r['axis_block_covariant_under_W'], r['axis_block_covariant_under_ZW'], r['Q3_exact (axis cones, sqrt reading)'],
+                                                      r['axis_block_sqrt_reading'].get('delta_canonical')) for r in cov_rows]}
+print('   turn-covariant axis blocks:', [(r[0], r[1], r[2], r[3], None if r[4] is None else round(r[4], 6)) for r in out['few_sources']['turn_covariant_axis_blocks']][:20])
+save('G-b', out)
+print('saved G-b (exact part)')

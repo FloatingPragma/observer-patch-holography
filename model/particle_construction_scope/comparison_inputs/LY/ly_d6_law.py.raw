@@ -1,0 +1,182 @@
+"""Worker LY, D6: one cost-raising read under the committed law C with the register rule (Monte Carlo, MEASURED).
+
+Loads x in {0,1} on the 12 ports (N loads), attempt on a uniform seam (a, b) with a coin c: if exactly one end is
+loaded the load ends on a (c = 1) or b (c = 0); j = old x_a - new x_a; a current proposes the twist delta = j on that
+seam (plus face +j, minus face -j); it is applied iff the cost does not rise. Leak: emission of a double load across
+a seam of a class-3 face; afterwards both ends carry one load, the other N - 2 loads are uniform on the other ports.
+Every trajectory is kept to absorption (vacuum, lasting (3,3), lasting (2,4)); unresolved trajectories are counted.
+
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_d6_law.py N M seed
+Writes d6_law_N<N>.json. No measured value is read.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+
+import numpy as np
+
+import ly_lib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T = np.array(L.T0, dtype=np.int16)
+SA = np.array([s[0] for s in L.SEAMS], dtype=np.int64)
+SB = np.array([s[1] for s in L.SEAMS], dtype=np.int64)
+assert np.all(SA < SB)
+PL = np.array(L.PLUS, dtype=np.int64)
+MI = np.array(L.MINUS, dtype=np.int64)
+DIST = np.array(L.DIST, dtype=np.int64)
+
+
+AMASK = (1 << SA).astype(np.int32)
+BMASK = (1 << SB).astype(np.int32)
+
+
+def run(a, b, N, M, rng, max_steps=2_000_000):
+    """M trajectories from the lasting (3,3) placement (a, b); returns outcome codes and leak types.
+    Loads are bit-packed (bit p set: port p loaded); arrays are compacted as trajectories are absorbed."""
+    start = np.array(L.config({a: 3, b: 3}), dtype=np.int8)
+    seams6 = L.FACE_SEAMS[a] + L.FACE_SEAMS[b]
+    leak_seam = np.array(seams6, dtype=np.int64)[rng.integers(0, 6, M)]
+    leak_j = rng.choice(np.array([1, -1], dtype=np.int64), M)
+    reg = np.tile(start, (M, 1))
+    rows = np.arange(M)
+    p, m = PL[leak_seam], MI[leak_seam]
+    reg[rows, p] = (reg[rows, p] + leak_j) % 6
+    reg[rows, m] = (reg[rows, m] - leak_j) % 6
+    split_is_a = (p == a) | (m == a)
+    split_face = np.where(split_is_a, a, b)
+    frag = np.where(p == split_face, m, p)
+    partner = np.where(split_is_a, b, a)
+    leak_type = DIST[frag, partner]
+    # loads: both ends of the leak seam loaded, N - 2 others uniform on the other 10 ports
+    loads = np.zeros((M, 12), dtype=np.int8)
+    la, lb = SA[leak_seam], SB[leak_seam]
+    loads[rows, la] = 1
+    loads[rows, lb] = 1
+    if N > 2:
+        keys = rng.random((M, 12))
+        keys[rows, la] = 2.0
+        keys[rows, lb] = 2.0
+        order = np.argsort(keys, axis=1)[:, :N - 2]
+        np.put_along_axis(loads, order, 1, axis=1)
+    assert np.all(loads.sum(axis=1) == N)
+    lw = (loads.astype(np.int32) << np.arange(12, dtype=np.int32)).sum(axis=1).astype(np.int32)
+    outcome = np.zeros(M, dtype=np.int8)            # 0 unresolved, 1 vacuum, 2 lasting (3,3), 3 lasting (2,4)
+    out_sep = np.zeros(M, dtype=np.int8)
+    steps_used = np.zeros(M, dtype=np.int64)
+    ids = rows.copy()                               # trajectory id of each live row
+    live = np.ones(M, dtype=bool)
+    step = 0
+    while ids.size and step < max_steps:
+        step += 1
+        n = ids.size
+        v = rng.integers(0, 60, n)
+        seam, coin = v >> 1, (v & 1).astype(bool)
+        am, bm = AMASK[seam], BMASK[seam]
+        xa = (lw & am) != 0
+        xb = (lw & bm) != 0
+        moved = (xa ^ xb) & (coin ^ xa)
+        cur = np.flatnonzero(moved)
+        if cur.size == 0:
+            continue
+        lw[cur] ^= am[cur] | bm[cur]
+        jj = np.where(xa[cur], 1, -1)
+        sc = seam[cur]
+        pp, mm = PL[sc], MI[sc]
+        cp, cm = reg[cur, pp].astype(np.int64), reg[cur, mm].astype(np.int64)
+        npv, nmv = (cp + jj) % 6, (cm - jj) % 6
+        ok = (T[npv] + T[nmv] - T[cp] - T[cm]) <= 0
+        if not ok.any():
+            continue
+        r, pp, mm = cur[ok], pp[ok], mm[ok]
+        reg[r, pp] = npv[ok]
+        reg[r, mm] = nmv[ok]
+        sub = reg[r]
+        nzmask = sub != 0
+        nz = nzmask.sum(axis=1)
+        vac = nz == 0
+        any_done = False
+        if vac.any():
+            outcome[ids[r[vac]]] = 1
+            steps_used[ids[r[vac]]] = step
+            live[r[vac]] = False
+            any_done = True
+        two = np.flatnonzero(nz == 2)
+        if two.size:
+            f1 = np.argmax(nzmask[two], axis=1)
+            f2 = 19 - np.argmax(nzmask[two][:, ::-1], axis=1)
+            c1, c2 = sub[two, f1], sub[two, f2]
+            sep = DIST[f1, f2]
+            last33 = (c1 == 3) & (c2 == 3) & (sep >= 2)
+            last24 = (((c1 == 2) & (c2 == 4)) | ((c1 == 4) & (c2 == 2))) & (sep >= 2)
+            fin = last33 | last24
+            if fin.any():
+                tid = ids[r[two[fin]]]
+                outcome[tid] = np.where(last33[fin], 2, 3)
+                out_sep[tid] = sep[fin]
+                steps_used[tid] = step
+                live[r[two[fin]]] = False
+                any_done = True
+        if any_done:
+            nlive = int(np.count_nonzero(live))
+            if nlive == 0:
+                break
+            if (live.size - nlive) * 20 >= live.size:
+                reg, lw, ids = reg[live], lw[live], ids[live]
+                live = np.ones(ids.size, dtype=bool)
+    # rows marked dead but not yet compacted are finished; rows still live are unresolved
+    return outcome, out_sep, leak_type, steps_used
+
+
+def main():
+    N = int(sys.argv[1]) if len(sys.argv) > 1 else 6
+    M = int(sys.argv[2]) if len(sys.argv) > 2 else 200_000
+    seed = int(sys.argv[3]) if len(sys.argv) > 3 else 20261111
+    seps = [int(x) for x in sys.argv[4].split(',')] if len(sys.argv) > 4 else [2, 3, 4, 5]
+    tag = '' if len(sys.argv) <= 4 else '_d' + ''.join(str(x) for x in seps)
+    rng = np.random.default_rng(seed + 1000 * N + 7 * sum(seps))
+    t0 = time.time()
+    reps = [(a, b, d, n) for a, b, d, n in L.pair_orbit_reps() if d in seps]
+    out = {'N_loads': N, 'trajectories_per_placement': M, 'seed': seed + 1000 * N + 7 * sum(seps),
+           'separations': seps, 'rows': []}
+    Kd, Vd, cnt = {}, {}, {}
+    for a, b, d, size in reps:
+        Mi = M // 2 if d == 3 else M
+        oc, sep, lt, steps = run(a, b, N, Mi, rng)
+        res = {'d': d, 'faces': [a, b], 'trajectories': int(Mi), 'unresolved': int((oc == 0).sum()),
+               'vacuum': float((oc == 1).mean()), 'lasting_33': float((oc == 2).mean()),
+               'lasting_24': float((oc == 3).mean()), 'mean_attempts': float(steps[oc > 0].mean()),
+               'max_attempts': int(steps.max()),
+               'vacuum_by_fragment_distance': {int(t): [float((oc[lt == t] == 1).mean()), int((lt == t).sum())]
+                                               for t in sorted(set(lt.tolist()))},
+               'return_33_by_separation': {int(s): float(((oc == 2) & (sep == s)).mean()) for s in (2, 3, 4, 5)},
+               'lasting_24_by_separation': {int(s): float(((oc == 3) & (sep == s)).mean()) for s in (2, 3, 4, 5)}}
+        k = res['vacuum']
+        res['vacuum_standard_error'] = float(np.sqrt(max(k * (1 - k), 1e-30) / Mi))
+        out['rows'].append(res)
+        Kd.setdefault(d, []).append(k)
+        Vd.setdefault(d, []).append(res['vacuum_standard_error'] ** 2)
+        print(f"N={N} d={d} ({a},{b}) M={Mi}: vacuum {k:.6f} +- {res['vacuum_standard_error']:.6f} "
+              f"33 {res['lasting_33']:.5f} 24 {res['lasting_24']:.5f} unresolved {res['unresolved']} "
+              f"mean attempts {res['mean_attempts']:.0f} by fragment distance "
+              f"{ {t: round(v[0], 5) for t, v in res['vacuum_by_fragment_distance'].items()} } {time.time() - t0:.1f}s", flush=True)
+    K = {d: float(np.mean(v)) for d, v in Kd.items()}
+    E = {d: float(np.sqrt(np.sum(Vd[d])) / len(Vd[d])) for d in Vd}
+    pw = {d: float(w) for d, w in L.PLACEMENT_WEIGHTS.items()}
+    out['K_C_by_separation'] = K
+    out['K_C_standard_error_by_separation'] = E
+    out['partial_placement_sum'] = sum(pw[d] * K[d] for d in K)
+    out['partial_placement_sum_standard_error'] = float(np.sqrt(sum((pw[d] * E[d]) ** 2 for d in K)))
+    out['seconds'] = round(time.time() - t0, 1)
+    print(f"N={N}: K_C(d) {K}; sum of weight times K over these separations = {out['partial_placement_sum']:.6f} "
+          f"+- {out['partial_placement_sum_standard_error']:.6f}", flush=True)
+    with open(os.path.join(HERE, f'd6_law_N{N}{tag}.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

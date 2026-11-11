@@ -1,0 +1,234 @@
+"""Q2: Fourier modes of the native order-3 rotation g = gE o gC and the coherent one-tick operator on them.
+
+EXACT unless labelled. Writes q2_family.json.
+
+Formulas (written before evaluation):
+  Pi(g) acts on port x parity x address; sector projectors E_k = (1/3) sum_d w^{-dk} Pi(g)^d, w = e^{2 pi i/3}.
+  [W, Pi(h)] = 0 for all carrier rotations h  =>  W = W_0 + W_1 + W_2 on the sectors.
+  Discriminant per sector: A^dag Q A = diag(P, P_sign) restricted to sector k of C^12 x C^2.
+  Compression of any operator X to the orbit {v, gv, g^2 v} of a seed v (orthonormal orbit):
+      M_ij = <g^i v|X|g^j v> = c_{j-i},  c_d = <v|X Pi(g)^d|v>,  M = c0 I + c1 S + c2 S^2  (S_ij = delta_{j,i+1}).
+  Eigenvalues lambda_k = c0 + c1 w^k + c2 w^{2k}.  Target (Hermitian) form: c0 = sqrt(q), c1 = sqrt(p) e^{i theta},
+  c2 = conj(c1), |c1|/c0 = 1/sqrt2, theta = 2/9.
+"""
+from __future__ import annotations
+
+import json
+from fractions import Fraction as F
+
+import numpy as np
+import scipy.sparse as sp
+import sympy as s
+
+import lnat_common as C
+
+OUT = 'q2_family.json'
+w = s.Rational(-1, 2) + s.sqrt(3) * s.I / 2
+
+
+def frac_vec_dot(u, v):
+    return sum(F(int(a)) * F(int(b)) for a, b in zip(u, v))
+
+
+def compress(Xint, scale, v, PG):
+    """c_d = <v|X Pi(g)^d|v>/<v|v> for an integer matrix Xint = scale*X and an integer seed v."""
+    vv = int(v @ v)
+    out = []
+    u = v.copy()
+    for d in range(3):
+        out.append(F(int(v @ (Xint @ u)), scale * vv))
+        u = PG @ u
+    return out
+
+
+def orbit_gram(v, PG):
+    u1 = PG @ v; u2 = PG @ u1
+    return [[int(a @ b) for b in (v, u1, u2)] for a in (v, u1, u2)]
+
+
+def circ_eigs(c):
+    c0, c1, c2 = [s.nsimplify(x) for x in c]
+    return [s.simplify(c0 + c1 * w**k + c2 * w**(2 * k)) for k in range(3)]
+
+
+def main():
+    out = {'question': 'Q2'}
+    car = C.carrier(); gC, gE, g = C.native_rotations()
+    adj = car['adj']
+    Q2, R60, W120 = C.walk_integer()
+    PG, PC, PE = C.perm_operator(g), C.perm_operator(gC), C.perm_operator(gE)
+    I = sp.identity(C.DIM, dtype=np.int64, format='csr')
+    out['symmetries'] = {
+        'W_commutes_with_all_60_rotations': all(C.sparse_equal(W120 @ C.perm_operator(p), C.perm_operator(p) @ W120)
+                                                for p in car['rotations']),
+        'g_order_3_no_fixed_basis_state': C.sparse_equal(PG @ PG @ PG, I) and int(PG.diagonal().sum()) == 0,
+        'gC_g_gC_equals_g_inverse': C.sparse_equal(PC @ PG @ PC, PG.T),
+        'gE_g_gE_equals_g_inverse': C.sparse_equal(PE @ PG @ PE, PG.T),
+        'W_real_rational_entries_denominator_120': True,
+    }
+
+    # ---- sector dimensions, discriminant spectra, +-1 multiplicities
+    trW = F(int(W120.diagonal().sum()), 120)
+    trWg = F(int((W120 @ PG).diagonal().sum()), 120)
+    trWg2 = F(int((W120 @ PG @ PG).diagonal().sum()), 120)
+    # port-space Fourier bases
+    L = s.Matrix(np.diag(adj.sum(1)) - adj)
+    A = s.Matrix(adj)
+    P = s.eye(12) - L / 60
+    Psign = s.eye(12) - (s.diag(*[5] * 12) + A) / 60
+    reps = [2, 3, 4, 6]
+    sector_spec = {}
+    lam = {'1': s.Integer(1), '3(geometric)': s.Rational(11, 12) + s.sqrt(5) / 60,
+           "3'": s.Rational(11, 12) - s.sqrt(5) / 60, '5': s.Rational(9, 10)}
+    lams = {'1': s.Rational(5, 6), '3(geometric)': s.Rational(11, 12) - s.sqrt(5) / 60,
+            "3'": s.Rational(11, 12) + s.sqrt(5) / 60, '5': s.Rational(14, 15)}
+    content = {0: {'1': 1, '3(geometric)': 1, "3'": 1, '5': 1}, 1: {'3(geometric)': 1, "3'": 1, '5': 2},
+               2: {'3(geometric)': 1, "3'": 1, '5': 2}}
+    x = s.symbols('x')
+    for k in range(3):
+        Fk = s.zeros(12, 4)
+        for j, r in enumerate(reps):
+            y = r
+            for d in range(3):
+                Fk[y, j] += w**(-d * k) / s.sqrt(3)
+                y = g[y]
+        Pk = (Fk.H * P * Fk).applyfunc(s.simplify)
+        Psk = (Fk.H * Psign * Fk).applyfunc(s.simplify)
+        pred = s.Integer(1); preds = s.Integer(1)
+        for irr, mult in content[k].items():
+            pred *= (x - lam[irr])**mult
+            preds *= (x - lams[irr])**mult
+        okP = s.simplify(s.expand(Pk.charpoly(x).as_expr() - pred)) == 0
+        okS = s.simplify(s.expand(Psk.charpoly(x).as_expr() - preds)) == 0
+        osc = sum(m for irr, m in content[k].items() if lam[irr] != 1) + sum(content[k].values())
+        sum_lambda_osc = sum(m * lam[irr] for irr, m in content[k].items() if lam[irr] != 1) + \
+            sum(m * lams[irr] for irr, m in content[k].items())
+        trWk = (trW + (2 if k == 0 else -1) * trWg) / 3
+        # tr W_k = (m+ - m-) + 2 sum lambda_osc
+        diff = s.nsimplify(trWk) - 2 * sum_lambda_osc
+        tot = 480 - 2 * osc
+        mplus = (tot + diff) / 2; mminus = (tot - diff) / 2
+        sector_spec[k] = {
+            'dimension': 480,
+            'P_sector_eigenvalues': {irr: [str(lam[irr]), m] for irr, m in content[k].items()},
+            'P_sign_sector_eigenvalues': {irr: [str(lams[irr]), m] for irr, m in content[k].items()},
+            'charpoly_checks': [okP, okS],
+            'oscillatory_pairs': osc,
+            'trace_W_k': str(trWk), 'mult_plus1': str(s.nsimplify(mplus)), 'mult_minus1': str(s.nsimplify(mminus)),
+            'rest_phases': sorted({f'arccos({lam[irr]})' for irr in content[k] if lam[irr] != 1} |
+                                  {f'arccos({lams[irr]})' for irr in content[k]}),
+        }
+    out['sectors'] = sector_spec
+    out['traces'] = {'trW': str(trW), 'trW_Pi(g)': str(trWg), 'trW_Pi(g^2)': str(trWg2)}
+
+    # ---- relation between sectors 1 and 2
+    # E_k sector projectors (complex); check Pi(gC) E_1 Pi(gC) = E_2 and conj(E_1) = E_2 via traces of products
+    out['sector_relations'] = {
+        'Pi(gC) maps sector 1 to sector 2': 'from gC g gC = g^{-1}: Pi(gC) E_k Pi(gC) = E_{-k}',
+        'W_2 = Pi(gC) W_1 Pi(gC)': 'EXACT (W commutes with Pi(gC)); spectra of sectors 1 and 2 coincide',
+        'W_2 = conj(W_1)': 'EXACT (W and Pi(g) real, conj(E_1) = E_2); spectra complex conjugate',
+        'consequence': 'every conjugation-invariant mass functional is equal on families 1 and 2',
+    }
+
+    # ---- compressions to g-orbits of native seeds
+    def blank(x):
+        return C.embed_port(x)
+
+    def vec(entries):
+        v = np.zeros(C.DIM, dtype=np.int64)
+        for (port, par, k), a in entries:
+            v[C.idx(port, par, k)] += a
+        return v
+
+    adr = car['addresses']; pos = {pr: i for i, pr in enumerate(adr)}
+    seeds = {
+        'A|2> (blank, uniform address, port 2: common port of C and E seams)': blank(2),
+        'A|3> (other middle orbit)': blank(3),
+        'A|4> (axis face orbit {4,11,5})': blank(4),
+        'C repair output |p_23,1,(2,3)>': vec([((2, 1, pos[(2, 3)]), 1), ((3, 1, pos[(2, 3)]), 1)]),
+        'E repair output |p_2,10,1,(2,10)>': vec([((2, 1, pos[(2, 10)]), 1), ((10, 1, pos[(2, 10)]), 1)]),
+        'C hold output |p_23,0,(2,3)>': vec([((2, 0, pos[(2, 3)]), 1), ((3, 0, pos[(2, 3)]), 1)]),
+    }
+    # full one-tick output from port 2, and its record-1 part
+    o = (W120 @ blank(2))  # = 120 W A|2> * sqrt60 (unnormalised)
+    seeds['W A|2> (all branches of one tick from port 2)'] = o.copy()
+    o1 = o.copy()
+    for y in range(12):
+        for k in range(60):
+            o1[C.idx(y, 0, k)] = 0
+    seeds['record-1 part of W A|2> (repair branch, all addresses)'] = o1
+    # native C and E record-1 branches only (addresses (2,3),(3,2),(2,10),(10,2))
+    o2 = np.zeros(C.DIM, dtype=np.int64)
+    for pr in ((2, 3), (3, 2), (2, 10), (10, 2)):
+        for y in range(12):
+            o2[C.idx(y, 1, pos[pr])] = o1[C.idx(y, 1, pos[pr])]
+    seeds['C and E record-1 branches from port 2 (4 addresses)'] = o2
+
+    WT120 = W120.T.tocsr()
+    H240 = (240 * I - (W120 + WT120)).tocsr()  # 240 * (I - Re W) = 240 I - 120 (W + W^T)
+    comps = {}
+    for name, v in seeds.items():
+        G = orbit_gram(v, PG)
+        cW = compress(W120, 120, v, PG)
+        cWT = compress(WT120, 120, v, PG)
+        cRe = [(a + b) / 2 for a, b in zip(cW, cWT)]
+        cW2 = compress((W120 @ W120).tocsr(), 14400, v, PG)
+        cH = compress(H240, 240, v, PG)
+        ev = circ_eigs(cW)
+        comps[name] = {
+            'orbit_gram_(unnormalised)': G, 'orbit_orthogonal': G[0][1] == 0 and G[0][2] == 0,
+            'c_W': [str(c) for c in cW], 'c_W_inverse(=W^T)': [str(c) for c in cWT],
+            'c_ReW': [str(c) for c in cRe], 'c_W^2': [str(c) for c in cW2],
+            'c_onsite_energy_I-ReW': [str(c) for c in cH],
+            'c1_equals_c2_for_W': cW[1] == cW[2], 'c1_equals_c2_for_ReW': cRe[1] == cRe[2],
+            'eigenvalues_W_compression': [str(e) for e in ev],
+            'eigenvalues_numeric': [complex(s.N(e)) for e in ev],
+            'abs_lambda_1_equals_abs_lambda_2': bool(abs(complex(s.N(ev[1]))) - abs(complex(s.N(ev[2]))) == 0
+                                                     or abs(abs(complex(s.N(ev[1]))) - abs(complex(s.N(ev[2])))) < 1e-15),
+            'hermitian_form': ('real c1 = c2: arg b in {0, pi}' if cW[1] == cW[2] else
+                               'real c1 != c2: not Hermitian; Hermitian part has c1 = c2 = (c1+c2)/2'),
+            'ratio_|c1|/c0': (str(abs(cW[1]) / cW[0]) if cW[0] != 0 else 'c0=0'),
+        }
+    out['compressions'] = comps
+
+    # ---- native family band (geometric triplet): exact scalar action
+    frame = s.Matrix([[s.Rational(a) + s.Rational(b) * s.sqrt(5) for a, b in row]
+                      for row in C.slow_geometry.raw_frame()])
+    LB = (L * frame - (5 - s.sqrt(5)) * frame).applyfunc(s.simplify)
+    frame_c = frame.subs(s.sqrt(5), -s.sqrt(5))
+    LBc = (L * frame_c - (5 + s.sqrt(5)) * frame_c).applyfunc(s.simplify)
+    out['family_band'] = {
+        'frame': 'raw_frame (12 x 3, Q(sqrt5)) = native geometric family triplet (native_repair_mass)',
+        'L B = (5 - sqrt5) B': LB == s.zeros(12, 3),
+        "L B' = (5 + sqrt5) B' (Galois conjugate, 3')": LBc == s.zeros(12, 3),
+        'one-tick amplitude on all three Fourier modes of g': '11/12 + sqrt5/60 (geometric 3); 11/12 - sqrt5/60 (3\')',
+        'rest phase on all three modes': 'arccos(11/12 + sqrt5/60) = %.12f' % float(s.acos(s.Rational(11, 12) + s.sqrt(5) / 60)),
+        'correction probability (energy of the declared clock) on all three modes': '1/12 - sqrt5/60 = %.12f' % float(s.Rational(1, 12) - s.sqrt(5) / 60),
+        'circulant': 'a = 11/12 + sqrt5/60, b = 0: scalar (Schur: W commutes with A5, the band is irreducible)',
+        'Koide_Q_if_masses_are_rest_phases': '1/3',
+    }
+    # Fourier modes of g on the band: eigenvectors of the 3x3 rotation R(g) in the frame coordinates
+    Bm = frame
+    base = [0, 1, 4]
+    T = s.Matrix.hstack(*[Bm[g[i], :].T for i in base])
+    D = s.Matrix.hstack(*[Bm[i, :].T for i in base])
+    Rg = (T * D.inv()).applyfunc(s.simplify)
+    out['family_band']['R(g)_in_frame'] = [[str(e) for e in Rg.row(i)] for i in range(3)]
+    out['family_band']['R(g)^3 = I'] = (Rg**3).applyfunc(s.simplify) == s.eye(3)
+    out['family_band']['trace R(g)'] = str(s.simplify(Rg.trace()))
+
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out['symmetries'], indent=1))
+    for k, v in out['sectors'].items():
+        print(k, v['charpoly_checks'], v['oscillatory_pairs'], v['mult_plus1'], v['mult_minus1'], v['trace_W_k'])
+    print(out['traces'])
+    for name, c in comps.items():
+        print('\n', name)
+        for key in ('orbit_orthogonal', 'c_W', 'c_W_inverse(=W^T)', 'c_ReW', 'c_W^2', 'c_onsite_energy_I-ReW',
+                    'c1_equals_c2_for_W', 'eigenvalues_numeric', 'abs_lambda_1_equals_abs_lambda_2', 'ratio_|c1|/c0'):
+            print('  ', key, c[key])
+    print({k: v for k, v in out['family_band'].items() if k != 'R(g)_in_frame'})
+
+
+if __name__ == '__main__':
+    main()

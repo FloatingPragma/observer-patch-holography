@@ -1,0 +1,271 @@
+"""Task KOI, part G-a: the rank-three band of the carrier, resolved along the axes of one fixed cubic frame.
+
+Copy space: the band (adjacency eigenvalue sqrt5), basis = the frame axes (load f(p) = n_p . e_i). The eight thirds of a
+turn of the frame stabilizer act on it as signed cyclic permutations; the turn about (1, 1, 1) is the cyclic permutation
+P itself, so the frame-axis basis is covariant under it.
+Sources: (i) uniform rest angle; (ii) loads on one port and on every set of ports (all 4096), and for comparison the port
+responses of T5; (iii) a flux pair on the carrier for every pair of faces and charge phase 1/6, 1/3, 1/2; (iv) the
+internal walk as mass step (option M3).
+Arithmetic: Q(sqrt5, sqrt-3) exact (koide_lib.QF) for matrices and traces; eigenvalues of 12 x 12 matrices at 40 digits
+(mpmath) from the exact matrices. Output: koide.json key 'G-a'.
+"""
+import itertools, json, math, sys
+from fractions import Fraction as Fr
+import numpy as np
+import mpmath as mp
+
+from koide_lib import (QF, ZERO, ONE, PHI, R5, mzeros, mmul, mT, mH, madd, mscale, mtrace, meq, mstr, mcomplex,
+                       koide_from_traces, koide_from_eigs, circulant_parts, save, fq, DELTA_LEPTON)
+from koi_carrier import (V, N, W, DOT, SEAMS, ANTI, FACES, GROUP, PERM, TURNS, HALF, I3, band, diag_ports, adjacency,
+                         flux_laplacian, dual_paths, face_dist, turn_axis, apply, dot, face_flux, C3)
+
+out = {'copy_space': 'G-a: rank-three band of the twelve-port carrier (adjacency sqrt5), frame axes of one fixed cubic frame',
+       'basis': 'frame axes e_1, e_2, e_3; the third-turn about (1,1,1) is the cyclic permutation P e_1 = e_2 -> e_3 -> e_1 (covariant basis)'}
+P = mcomplex(C3)
+sq = lambda x: [float(v) for v in x]
+
+
+def trace_params(C):
+    t1 = mtrace(C); C2 = mmul(C, C); t2 = mtrace(C2); t3 = mtrace(mmul(C2, C))
+    assert t1.is_real() and t2.is_real() and t3.is_real()
+    return koide_from_traces(t1, t2, t3), (t1, t2, t3)
+
+
+def commuting_turns(C):
+    return [turn_axis(GROUP[i]) for i in TURNS if meq(mmul(GROUP[i], C), mmul(C, GROUP[i]))]
+
+
+def circ_row(C):
+    """circulant parameters in the covariant basis, if C commutes with P"""
+    if not meq(mmul(C3, C), mmul(C, C3)): return None
+    a, b = C[0][0], C[1][0]
+    bc = complex(b)
+    return {'a': str(a), 'b': str(b), 'abs_b': abs(bc), 'arg_b': math.atan2(bc.imag, bc.real), 'a_float': fq(a)}
+
+
+# ---------------------------------------------------------------------------------------------- (i) and (iv)
+Iband = band(diag_ports({p: 1 for p in range(N)}))
+assert meq(Iband, I3)
+L0 = madd(diag_ports({p: 5 for p in range(N)}), adjacency(), -1)
+T0 = madd(I3, mscale(band(L0), QF(Fr(1, 60))), -1)                     # kernel 1 - L/60 on the band
+kern = T0[0][0]
+assert meq(T0, mscale(I3, kern)) and kern == QF(Fr(11, 12), Fr(1, 60))
+out['(i) uniform rest angle theta'] = {'matrix': 'theta * 1', 'circulant': {'a': 'theta', 'b': '0'}, 'eigenvalues': 'theta (three times)',
+                                       'Q': '1/3', 'delta': 'undefined (|b| = 0)', 'label': 'EXACT'}
+out['(iv) internal walk as mass step (M3)'] = {
+    'matrix': f'kernel {kern} times 1 on the band; mass angle arccos(11/12 + sqrt5/60) = {math.acos(fq(kern)):.9f} for all three',
+    'circulant': {'a': str(kern), 'b': '0'}, 'Q': '1/3', 'delta': 'undefined', 'label': 'EXACT',
+    'reason': 'the band is one eigenspace of the carrier walk; every frame axis carries the same kernel level'}
+print('(i), (iv): scalar; kernel level on the band', kern)
+
+# ---------------------------------------------------------------------------------------------- (ii) loads on port sets
+# exact: tr C_S = |S|/4, tr C_S^2 = (1/16) sum_(p,q in S) (n_p.n_q)^2 with (n.m)^2 in {1, 1/5}
+n2 = [[Fr(1) if q == p or q == ANTI[p] else Fr(1, 5) for q in range(N)] for p in range(N)]
+for p in range(N):
+    for q in range(N):
+        e = DOT[p][q] * DOT[p][q] / (W * W)
+        assert e == QF(n2[p][q])
+Pn = [np.outer(np.array([fq(x) for x in V[p]]), np.array([fq(x) for x in V[p]])) / fq(W) / 4 for p in range(N)]
+rows, two_thirds, formula_ok = [], [], True
+qm_best = []
+for mask in range(1, 1 << N):
+    S = [p for p in range(N) if mask >> p & 1]
+    t1 = Fr(len(S), 4); t2 = sum(n2[p][q] for p in S for q in S) / 16
+    Q = t2 / (t1 * t1)
+    A = sum(1 for p in S if ANTI[p] in S and ANTI[p] > p)
+    formula_ok &= (Q == Fr(len(S) ** 2 + 4 * len(S) + 8 * A, 5 * len(S) ** 2))
+    if Q == Fr(2, 3): two_thirds.append(S)
+    ev = np.linalg.eigvalsh(sum(Pn[p] for p in S))
+    ev = np.clip(ev, 0, None)
+    qm = float(ev.sum() / np.sqrt(ev).sum() ** 2)
+    rows.append((len(S), A, Q, qm, mask))
+# exact check of the formula against the band compression on a sample of subsets
+rng = np.random.default_rng(20261110)
+for mask in [int(x) for x in rng.integers(1, 1 << N, 40)]:
+    S = [p for p in range(N) if mask >> p & 1]
+    C = band(diag_ports({p: 1 for p in S}))
+    (kp, (t1, t2, t3)) = trace_params(C)
+    assert t1 == QF(Fr(len(S), 4)) and kp['Q'] == QF(Fr(len(S) ** 2 + 4 * len(S) + 8 * sum(1 for p in S if ANTI[p] in S and ANTI[p] > p), 5 * len(S) ** 2))
+qvals = sorted({r[2] for r in rows})
+qm_sorted = sorted(rows, key=lambda r: abs(r[3] - 2 / 3))
+print('(ii) loads: formula holds for all 4095 sets:', formula_ok, '| sets with Q = 2/3:', len(two_thirds))
+print('     distinct Q (sqrt reading):', [str(x) for x in qvals])
+print('     mass reading, closest to 2/3:', [(r[0], r[1], round(r[3], 6)) for r in qm_sorted[:5]])
+# third-turn invariant port sets (unions of the four orbits of the turn about (1, 1, 1))
+turn = next(i for i in TURNS if turn_axis(GROUP[i]) == (1, 1, 1))
+orb, seen = [], set()
+for p in range(N):
+    if p in seen: continue
+    o = sorted({p, PERM[turn][p], PERM[turn][PERM[turn][p]]}); seen |= set(o); orb.append(o)
+def orbit_kind(o):
+    return 'face' if all(DOT[a][b] == PHI for a, b in itertools.combinations(o, 2)) else 'belt triple'
+inv_rows = []
+for k in range(1, 16):
+    S = sorted(sum((orb[j] for j in range(4) if k >> j & 1), []))
+    C = band(diag_ports({p: 1 for p in S}))
+    kp, (t1, t2, t3) = trace_params(C)
+    ev = sorted(np.linalg.eigvalsh(mcomplex(C)).real)
+    inv_rows.append({'ports': S, 'orbits': [orbit_kind(orb[j]) + ' ' + ('+' if fq(sum((V[orb[j][0]][i] for i in range(3)), ZERO)) > 0 else '-') for j in range(4) if k >> j & 1],
+                     'matrix': mstr(C), 'circulant': circ_row(C), 'eigenvalues': ev, 'Q_exact': str(kp['Q']),
+                     'cos2_3delta_exact': str(kp['cos2_3delta']), 'sign_cos_3delta': kp['sign_cos_3delta'],
+                     'sqrt_reading': koide_from_eigs(ev, 'sqrt'), 'mass_reading': koide_from_eigs(ev, 'mass')})
+print('     turn-invariant sets:', [(r['orbits'], r['Q_exact'], r['circulant']['a'] if r['circulant'] else None, r['circulant']['b'] if r['circulant'] else None) for r in inv_rows])
+single = band(diag_ports({0: 1}))
+out['(ii) loads on port sets'] = {
+    'operator': 'C_S = (1/4) sum_(p in S) n_p n_p^T (the band compression of the load projector of each port of S)',
+    'single_port': {'matrix': mstr(single), 'eigenvalues': '1/4, 0, 0', 'Q': '1', 'commutes_with_a_third_turn': bool(commuting_turns(single)),
+                    'reading': 'rank one; no port lies on a three-fold axis, so a single port is never third-turn covariant'},
+    'exact_formula': 'Q = (|S|^2 + 4|S| + 8A) / (5 |S|^2), A = number of antipodal pairs in S (checked on all 4095 sets, and against the exact compression on 40 sets)',
+    'formula_holds_on_all_sets': formula_ok,
+    'Q_equal_2/3': 'none of the 4095 sets (EXACT: 7|S|^2 - 12|S| = 24A has no solution with 1 <= |S| <= 12, 0 <= A <= |S|/2)',
+    'sets_with_Q_two_thirds': two_thirds,
+    'distinct_Q_values': [str(x) for x in qvals],
+    'mass_reading_closest_to_2/3': [{'size': r[0], 'antipodal_pairs': r[1], 'Q_mass': r[3], 'ports': [p for p in range(N) if r[4] >> p & 1]} for r in qm_sorted[:6]],
+    'mass_reading_note': 'Q with sqrt m = sqrt(eigenvalue); float64 eigenvalues; the closest values are listed, none is 2/3 to within 1e-3',
+    'third_turn_invariant_sets (about (1,1,1))': inv_rows,
+    'label': 'EXACT (Q, circulant parameters); float64 for the mass reading'}
+
+# ---------------------------------------------------------------------------------------------- (ii') port responses (T5)
+# tr(P_p P_q) = (1 + n_p.n_q)^2 / 4 in {1, (3 + sqrt5)/10, (3 - sqrt5)/10, 0}
+G1 = {0: (Fr(1), Fr(0)), 1: (Fr(3, 10), Fr(1, 10)), 2: (Fr(3, 10), Fr(-1, 10)), 3: (Fr(0), Fr(0))}
+def pdist(p, q):
+    if p == q: return 0
+    return 1 if DOT[p][q] == PHI else (2 if DOT[p][q] == -PHI else 3)
+resp_23, resp_q = [], set()
+for mask in range(1, 1 << N):
+    S = [p for p in range(N) if mask >> p & 1]
+    ra = sum(G1[pdist(p, q)][0] for p in S for q in S); rb = sum(G1[pdist(p, q)][1] for p in S for q in S)
+    Qa, Qb = ra / len(S) ** 2, rb / len(S) ** 2
+    resp_q.add((Qa, Qb))
+    if Qa == Fr(2, 3) and Qb == 0: resp_23.append(S)
+# numerical delta of the face sum and of the turn-invariant sets
+def response(p):
+    n = np.array([fq(x) for x in V[p]]); n = n / np.linalg.norm(n)
+    cx = np.array([[0, -n[2], n[1]], [n[2], 0, -n[0]], [-n[1], n[0], 0]])
+    return (np.eye(3) - np.outer(n, n) + 1j * cx) / 2
+resp_inv = []
+for r in inv_rows:
+    M = sum(response(p) for p in r['ports'])
+    Mc, rest = circulant_parts(M, P)
+    ev = sorted(np.linalg.eigvalsh(M).real)
+    resp_inv.append({'orbits': r['orbits'], 'circulant_rest_norm': rest, 'a': Mc[0, 0].real, 'b': [Mc[1, 0].real, Mc[1, 0].imag],
+                     'abs_b': abs(Mc[1, 0]), 'arg_b': float(np.angle(Mc[1, 0])), 'eigenvalues': ev,
+                     'sqrt_reading': koide_from_eigs(ev, 'sqrt'), 'mass_reading': koide_from_eigs(ev, 'mass')})
+print('(ii\') responses: sets with Q = 2/3:', len(resp_23), '| face sum:', [(x['orbits'], round(x['sqrt_reading']['Q'], 6), round(x['sqrt_reading']['delta_canonical'] or 0, 6)) for x in resp_inv[:3]])
+out['(ii\') port responses of T5, for comparison'] = {
+    'operator': 'R_S = sum_(p in S) (1 - n n^T + i [n]_x)/2 (rank-one projector on a circular state about each port); tr R_p R_q = (1 + n_p.n_q)^2/4',
+    'Q_equal_2/3': f'none of the 4095 sets (EXACT, Q in Q(sqrt5)); {len(resp_q)} distinct values',
+    'third_turn_invariant_sets': resp_inv,
+    'note': 'T5: the face sum has a = 1, |b| = (5 + sqrt5)/10, delta = pi/15, Q = (8 + sqrt5)/15 = 0.682405 (reproduced here in float64)',
+    'label': 'EXACT (Q); float64 (delta, eigenvalues)'}
+
+# ---------------------------------------------------------------------------------------------- (iii) flux pairs
+def mp_eigs(M):
+    A = mp.matrix([[x.mpc() for x in r] for r in M])
+    E, Q = mp.eighe(A)
+    return [E[i] for i in range(len(M))], Q
+
+
+def band_weights(Q):
+    """weight of each eigenvector in the band (frame-axis coordinates)"""
+    nrm = mp.sqrt(4 * W.mpc().real)
+    wts = []
+    for j in range(N):
+        s = 0
+        for i in range(3):
+            amp = sum(Q[p, j] * V[p][i].mpc().real for p in range(N)) / nrm
+            s += abs(amp) ** 2
+        wts.append(s)
+    return wts
+
+
+face_perm = []
+for k in range(12):
+    g = GROUP[k]; fp = []
+    for f in FACES:
+        img = sorted(PERM[k][x] for x in f)
+        fp.append(next(i for i, h in enumerate(FACES) if sorted(h) == img))
+    face_perm.append(fp)
+flux_rows, classes = [], {}
+for (num, den, name) in ((1, 6, '1/6'), (1, 3, '1/3'), (1, 2, '1/2')):
+    for f1 in range(20):
+        for f2 in range(20):
+            if f1 == f2: continue
+            d = face_dist(f1, f2)
+            path = dual_paths(f1, f2)[0]
+            L = flux_laplacian(path, num, den)
+            ev = np.linalg.eigvalsh(mcomplex(L))
+            key = (name, d, tuple(np.round(ev, 9)))
+            inv = [turn_axis(GROUP[i]) for i in TURNS if face_perm[i][f1] == f1 and face_perm[i][f2] == f2]
+            classes.setdefault(key, []).append((f1, f2, inv, path))
+print('(iii) flux pairs: spectral classes', len(classes), 'by (alpha, d):', sorted({(k[0], k[1]) for k in classes}))
+for key, members in sorted(classes.items(), key=lambda kv: (kv[0][0], kv[0][1])):
+    name, d = key[0], key[1]
+    num, den = {'1/6': (1, 6), '1/3': (1, 3), '1/2': (1, 2)}[name]
+    f1, f2, inv, path = next(((a, b, c, p) for a, b, c, p in members if c), members[0])
+    L = flux_laplacian(path, num, den)
+    fl = [face_flux(L, FACES[i]) for i in range(20)]
+    lam, Qv = mp_eigs(L)
+    wts = band_weights(Qv)
+    # eigenspaces (degenerate levels grouped) and their band weight; the copy levels are the three eigenspaces with the
+    # largest band weight
+    order_ = sorted(range(N), key=lambda j: lam[j]); spaces = []
+    for j in order_:
+        if spaces and abs(lam[j] - spaces[-1]['level']) < mp.mpf('1e-25'):
+            spaces[-1]['dim'] += 1; spaces[-1]['band_weight'] += wts[j]
+        else:
+            spaces.append({'level': lam[j], 'dim': 1, 'band_weight': wts[j]})
+    top = sorted(sorted(spaces, key=lambda s: -s['band_weight'])[:3], key=lambda s: s['level'])
+    rest_max = max((s['band_weight'] for s in spaces if s not in top), default=0)
+    levels = [s['level'] for s in top]
+    idx = [next(j for j in range(N) if abs(lam[j] - s['level']) < mp.mpf('1e-25')) for s in top]
+    phases = [mp.acos(1 - x / 60) for x in levels]
+    # gauge independence of the levels: a second shortest path, if any
+    alt = dual_paths(f1, f2)
+    gauge = None
+    if len(alt) > 1:
+        lam2, _ = mp_eigs(flux_laplacian(alt[-1], num, den))
+        gauge = float(max(abs(a - b) for a, b in zip(sorted(lam), sorted(lam2))))
+    # first-order compression in the shortest-string gauge (gauge dependent; shown for comparison only)
+    Cb = band(L)
+    kc, _ = trace_params(Cb)
+    evc = sorted(np.linalg.eigvalsh(mcomplex(Cb)).real)
+    Cb2 = band(flux_laplacian(alt[-1], num, den)) if len(alt) > 1 else None
+    row = {'alpha': name, 'separation': d, 'pairs_in_class': len(members), 'faces': [f1, f2],
+           'third_turns_of_the_frame_fixing_both_faces': [list(x) for x in inv],
+           'levels_all_12': [float(x) for x in lam], 'band_levels': [float(x) for x in levels],
+           'eigenspace_dimensions': [s['dim'] for s in top],
+           'band_weights_of_the_three_eigenspaces': [float(s['band_weight']) for s in top],
+           'largest_band_weight_elsewhere': float(rest_max),
+           'copy_picture': ('ambiguous: a fourth eigenspace holds band weight ' + f'{float(rest_max):.3f}') if rest_max > 0.3 else 'clear',
+           'gauge_check_second_path': gauge,
+           'costs': {'sqrt_reading': koide_from_eigs(levels, 'sqrt'), 'mass_reading': koide_from_eigs(levels, 'mass')},
+           'rest_phases_arccos(1 - lambda/60)': [float(x) for x in phases],
+           'rest_phases': {'sqrt_reading': koide_from_eigs(phases, 'sqrt'), 'mass_reading': koide_from_eigs(phases, 'mass')},
+           'splitting_only (levels minus the unperturbed 5 - sqrt5)': [float(x - (5 - mp.sqrt(5))) for x in levels],
+           'first_order_compression_shortest_string_gauge': {'eigenvalues': evc, 'Q': str(kc['Q']),
+                                                            'differs_in_another_shortest_gauge': (not meq(Cb, Cb2)) if Cb2 is not None else None}}
+    flux_rows.append(row)
+    print(f"  alpha {name} d {d} ({len(members)} ordered pairs): band levels {[round(float(x), 6) for x in levels]} "
+          f"Q(costs) {row['costs']['sqrt_reading']['Q']:.6f} Q(phases, sqrt) {row['rest_phases']['sqrt_reading']['Q']:.6f} "
+          f"Q(phases, mass) {row['rest_phases']['mass_reading']['Q']:.6f} delta(phases) {row['rest_phases']['sqrt_reading']['delta_canonical']:.4f} "
+          f"turn-invariant {bool(inv)} gauge {gauge}")
+# exact statement on the unchanged middle level
+mid = sorted({(r['alpha'], r['separation']) for r in flux_rows if abs(r['band_levels'][1] - (5 - 5 ** 0.5)) < 1e-12})
+out['(iii) flux pair on the carrier'] = {
+    'operator': 'phase-coupled port Laplacian with flux +alpha on face f1 and -alpha on face f2 (string along a shortest dual path, convention of family_band.py); the three levels with the largest band weight are the copy levels; rest phase arccos(1 - lambda/60) of the carrier walk',
+    'gauge': 'the levels do not depend on the path (checked where two shortest paths exist); the band compression does (first-order matrices differ between gauges), so the copy matrix is given by its levels',
+    'classes_whose_middle_copy_stays_at_5_-_sqrt5': mid,
+    'third_turn_covariance': 'a pair is fixed by a third-turn of the frame only at separation 5 with both faces on a body diagonal of the frame (4 of the 10 antipodal pairs)',
+    'classes': flux_rows, 'label': 'EXACT matrices over Q(sqrt5, sqrt-3); levels at 40 digits from them'}
+
+# ---------------------------------------------------------------------------------------------- summary
+allQ = [(r['alpha'], r['separation'], r['costs']['sqrt_reading']['Q'], r['rest_phases']['sqrt_reading']['Q'], r['rest_phases']['mass_reading']['Q'],
+         r['rest_phases']['sqrt_reading']['delta_canonical']) for r in flux_rows]
+out['summary'] = {
+    'Q=2/3': 'no source on the band gives Q = 2/3 (uniform, M3: 1/3; loads: none of 4095 port sets; responses: none; flux pairs: Q between '
+             f"{min(min(x[2], x[3], x[4]) for x in allQ):.6f} and {max(max(x[2], x[3], x[4]) for x in allQ):.6f})",
+    'delta=2/9': 'every band matrix has entries in Q(sqrt5, sqrt-3); its cos(3 delta) is algebraic and cannot equal cos(2/3) (transcendental, Lindemann-Weierstrass)',
+    'flux_pair_Q_range': allQ}
+save('G-a', out)
+print('saved G-a')

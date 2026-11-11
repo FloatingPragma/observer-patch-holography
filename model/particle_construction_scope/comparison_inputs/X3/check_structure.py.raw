@@ -1,0 +1,221 @@
+"""Structural checks behind the labels (exact integer enumeration). Prints one line per check; exits nonzero on failure."""
+import itertools, json, sys
+from collections import Counter, defaultdict
+import x3lib as X
+
+out = {}
+def check(name, ok, value=None):
+    out[name] = {'ok': bool(ok), 'value': value}
+    print(('ok   ' if ok else 'FAIL ') + name + ('' if value is None else f': {value}'))
+    if not ok:
+        sys.exit(1)
+
+F = range(20)
+# 1. carrier
+TF = [[0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11], [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6],
+      [7, 1, 8], [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9], [4, 9, 5], [2, 4, 11], [6, 2, 10],
+      [8, 6, 7], [9, 8, 1]]
+check('faces equal the template faces of the universe runs (compose.py TF, oph_defects.geometry.BASE_FACES)',
+      [list(f) for f in X.FACES] == TF)
+# outward orientation: counterclockwise seen from outside, from the exact raw frame
+import kdlib
+V = kdlib.carrier()['V']
+def outward(f):
+    a, b, c = (V[p] for p in X.FACES[f])
+    n = kdlib.vcross(kdlib.vsub(b, a), kdlib.vsub(c, a))
+    return kdlib.vdot(n, kdlib.vadd(kdlib.vadd(a, b), c)).sign()
+check('every oriented face is counterclockwise seen from outside (exact raw frame)', all(outward(f) == 1 for f in F))
+sepc = Counter(X.SEP[f][g] for f in F for g in F if f < g)
+check('unordered face pairs at separation 1..5', [sepc[d] for d in range(1, 6)] == [30, 60, 60, 30, 10], [sepc[d] for d in range(1, 6)])
+check('60 rotations act on faces as 60 distinct permutations', len(set(X.ROT_FACES)) == 60)
+check('inversion sends separation d to 5 - d', all(X.SEP[f][X.INVERSION_FACES[g]] == 5 - X.SEP[f][g] for f in F for g in F))
+
+# 2. frames and the (L, R) coordinates
+check('frames are the five matchings of item1.json, in its order',
+      [[list(e) for e in fr['matching']] for fr in X.FRAMES] == [fr['matching'] for fr in json.load(open(sys.argv[1]))['frames']])
+check('rotations permute the five frames by 60 distinct even permutations',
+      len(set(X.ROT_FRAMES)) == 60 and all(X.perm_sign(p) == 1 for p in X.ROT_FRAMES))
+check('the three edges of every face lie in three different frames', all(len(set(X.EDGE_FRAMES[f])) == 3 for f in F))
+check('faces <-> ordered pairs (L, R) of distinct frames is a bijection', len(set(X.LR)) == 20 and all(a != b for a, b in X.LR))
+check('equivariance: (L, R)(g f) = (pi_g L, pi_g R) for all 60 rotations',
+      all(X.LR[gf[f]] == (gp[X.LR[f][0]], gp[X.LR[f][1]]) for gf, gp in zip(X.ROT_FACES, X.ROT_FRAMES) for f in F))
+check('inversion swaps L and R', all(X.LR[X.INVERSION_FACES[f]] == X.LR[f][::-1] for f in F))
+# L and R as tetrahedra: the four faces with the same L are pairwise at separation 3
+tetL = defaultdict(list); tetR = defaultdict(list)
+for f in F:
+    tetL[X.LR[f][0]].append(f); tetR[X.LR[f][1]].append(f)
+check('faces with a common L (common R) frame: five tetrahedra of four faces, pairwise separation 3',
+      all(len(v) == 4 and all(X.SEP[a][b] == 3 for a, b in itertools.combinations(v, 2)) for t in (tetL, tetR) for v in t.values()))
+# frame stabilisers
+for Fr in range(5):
+    st = X.frame_stabilizer(Fr)
+    orb = Counter()
+    seen = set()
+    for f in F:
+        if f in seen: continue
+        o = {g[f] for g in st}; seen |= o
+        kind = 'L' if all(X.LR[x][0] == Fr for x in o) else 'R' if all(X.LR[x][1] == Fr for x in o) else 'edge'
+        orb[(kind, len(o))] += 1
+    assert len(st) == 12 and orb == Counter({('L', 4): 1, ('R', 4): 1, ('edge', 12): 1}), orb
+check('each frame has a stabiliser of order 12 with face orbits 4 (L = frame), 4 (R = frame), 12 (frame of an edge)', True)
+
+# 3. ordered and unordered pairs: orbits under rotation
+def orbits(items, act):
+    seen, res = {}, []
+    for x in items:
+        if x in seen: continue
+        o = {act(g, x) for g in range(60)}
+        for y in o: seen[y] = len(res)
+        res.append(o)
+    return res, seen
+opairs = [(f, g) for f in F for g in F if f != g]
+oo, oid = orbits(opairs, lambda g, x: (X.ROT_FACES[g][x[0]], X.ROT_FACES[g][x[1]]))
+upairs = [frozenset(p) for p in itertools.combinations(F, 2)]
+uo, uid = orbits(upairs, lambda g, x: frozenset(X.ROT_FACES[g][f] for f in x))
+desc_o = sorted((X.SEP[f][g], X.CHI[f][g], len(o)) for o in oo for f, g in [next(iter(o))])
+desc_u = sorted((X.SEP[f][g], len(o)) for o in uo for f, g in [tuple(next(iter(o)))])
+check('ordered pairs: 7 rotation orbits (separation, chirality, size)', desc_o == [(1, 0, 60), (2, -1, 60), (2, 1, 60), (3, -1, 60), (3, 1, 60), (4, 0, 60), (5, 0, 20)], desc_o)
+check('unordered pairs: 6 rotation orbits (separation, size)', desc_u == [(1, 30), (2, 60), (3, 30), (3, 30), (4, 30), (5, 10)], desc_u)
+check('(separation, chirality) is constant on every orbit of ordered pairs and separates the orbits',
+      all(len({(X.SEP[f][g], X.CHI[f][g]) for f, g in o}) == 1 for o in oo) and len({d[:2] for d in desc_o}) == 7)
+check('unordered pairs: (separation, chirality at separation 3) separates the 6 orbits',
+      all(len({(X.SEP[f][g], X.CHI[f][g] if X.SEP[f][g] == 3 else 0) for f, g in map(tuple, o)}) == 1 for o in uo)
+      and len({(X.SEP[f][g], X.CHI[f][g] if X.SEP[f][g] == 3 else 0) for o in uo for f, g in [tuple(next(iter(o)))]}) == 6)
+pat = defaultdict(set)
+for f, g in opairs:
+    pat[(X.SEP[f][g], X.CHI[f][g])].add(X.pattern(f, g))
+check('arc pattern on the five frames per (separation, chirality)', all(len(v) == 1 for v in pat.values()),
+      {f'{k[0]},{k[1]:+d}': next(iter(v)) for k, v in sorted(pat.items())})
+turn = defaultdict(set)
+for f, g in opairs:
+    turn[(X.SEP[f][g], X.CHI[f][g])].add(X.turn_sequence(f, g))
+check('turns of the shortest dual path per (separation, chirality); None = path not unique', all(len(v) == 1 for v in turn.values()),
+      {f'{k[0]},{k[1]:+d}': next(iter(v)) for k, v in sorted(turn.items())})
+# symmetries of the chirality
+I = X.INVERSION_FACES
+check('separation 2: chi(g, f) = -chi(f, g); separation 3: chi(g, f) = chi(f, g)',
+      all(X.CHI[g][f] == (-X.CHI[f][g] if X.SEP[f][g] == 2 else X.CHI[f][g]) for f, g in opairs))
+check('inversion of both faces: chi -> -chi at separations 2 and 3', all(X.CHI[I[f]][I[g]] == -X.CHI[f][g] for f, g in opairs))
+check('inversion with exchange of the two faces (geometric reflection of a conjugate pair): chi kept at 2, reversed at 3',
+      all(X.CHI[I[g]][I[f]] == (X.CHI[f][g] if X.SEP[f][g] == 2 else -X.CHI[f][g]) for f, g in opairs))
+# stabilisers
+stab = {}
+for o in uo:
+    f, g = tuple(next(iter(o)))
+    stab[(X.SEP[f][g], X.CHI[f][g] if X.SEP[f][g] == 3 else 0)] = 60 // len(o)
+check('stabiliser orders of unordered pairs (separation, chi): 2, 1, 2, 2, 2, 6', stab == {(1, 0): 2, (2, 0): 1, (3, -1): 2, (3, 1): 2, (4, 0): 2, (5, 0): 6}, {f'{k[0]},{k[1]:+d}': v for k, v in sorted(stab.items())})
+
+# 4. with one declared frame: orbits under its stabiliser of order 12
+def count_orbits(items, group, act):
+    seen, n = set(), 0
+    for x in items:
+        if x in seen: continue
+        n += 1
+        seen |= {act(g, x) for g in group}
+    return n
+res = {}
+for Fr in range(5):
+    st = X.frame_stabilizer(Fr)
+    a = count_orbits(list(F), st, lambda g, x: g[x])
+    b = count_orbits(opairs, st, lambda g, x: (g[x[0]], g[x[1]]))
+    c = count_orbits(upairs, st, lambda g, x: frozenset(g[f] for f in x))
+    b1 = count_orbits([p for p in opairs if X.SEP[p[0]][p[1]] == 1], st, lambda g, x: (g[x[0]], g[x[1]]))
+    c1 = count_orbits([p for p in upairs if X.SEP[tuple(p)[0]][tuple(p)[1]] == 1], st, lambda g, x: frozenset(g[f] for f in x))
+    res[Fr] = (a, b, c, b1, c1)
+check('with one declared frame: orbits of faces, ordered pairs, unordered pairs, and of the adjacent ones',
+      all(v == (3, 33, 19, 5, 3) for v in res.values()), res[0])
+
+# 5. the frame lifts on placements: Klein four-group, never the quaternion group
+quats, rotm = kdlib.cover()
+ok = True
+for fr in X.FRAMES:
+    hs = [X.face_perm(h['perm']) for h in fr['half_turns']]
+    comp = lambda p, q: tuple(p[q[i]] for i in range(20))
+    ok &= all(comp(hs[i], hs[j]) == comp(hs[j], hs[i]) for i in range(3) for j in range(3))
+    ok &= comp(hs[0], hs[1]) == hs[2] and all(comp(h, h) == tuple(range(20)) for h in hs)
+    ok &= all(h[f] != f for h in hs for f in F)
+    # both lifts +-q of a half-turn are the same face permutation, by construction of the cover table
+    ok &= all(quats[h['q']] == h['perm'] and quats[kdlib.qneg(h['q'])] == h['perm'] for h in fr['half_turns'])
+    orbs = {frozenset([f] + [h[f] for h in hs]) for f in F}
+    ok &= len(orbs) == 5 and all(len(o) == 4 for o in orbs)
+check('per frame: the three half-turns commute on faces, multiply to each other, fix no face, 5 orbits of 4 faces; '
+      'the lifts q and -q act alike (central sign acts as +1)', ok)
+
+# 6. ports as directed five-cycles of frames; the audit's region
+fans = {}
+for p in range(12):
+    fan = [f for f in F if p in X.FACES[f]]
+    # counterclockwise order around the port seen from outside
+    order = [fan[0]]
+    while len(order) < 5:
+        f = order[-1]; a, b, c = X.FACES[f]
+        i = (a, b, c).index(p)
+        nxt = X.NEIGHBOUR[f][(i + 2) % 3]        # across the edge (previous vertex, p): counterclockwise neighbour
+        order.append(nxt)
+    assert sorted(order) == sorted(fan)
+    fans[p] = order
+ok = True
+cyc = {}
+for p, order in fans.items():
+    arcs = [X.LR[f] for f in order]
+    succ = {a: b for a, b in arcs}
+    ok &= len(succ) == 5 and set(succ.values()) == set(range(5))
+    c = [0]
+    while len(c) < 5: c.append(succ[c[-1]])
+    ok &= succ[c[-1]] == 0
+    cyc[p] = c
+check('the five faces at a port are the five arcs of one directed five-cycle of the frames (12 ports, 12 distinct cycles; antipode = reversed cycle)',
+      ok and len({tuple(c) for c in cyc.values()}) == 12 and all(cyc[X.ANTIPODE_PORT[p]][1:] == cyc[p][1:][::-1] for p in range(12)))
+partner = X._face_of[(0, 1, 7)]
+region = [f for f in F if 5 in X.FACES[f]]
+rel = sorted((X.SEP[partner][f], X.CHI[partner][f], X.FACES[f]) for f in region)
+check('audit region (five faces at port 5) against its exterior partner (0,1,7): (separation, chirality, face)',
+      [r[:2] for r in rel] == [(1, 0), (2, -1), (2, 1), (3, -1), (3, 1)], rel)
+
+# 7. position classes relative to one frame: the five orbits of its Klein group, 3 axial + 2 corner
+ok = True
+for Fr, fr in enumerate(X.FRAMES):
+    hs = [X.face_perm(h['perm']) for h in fr['half_turns']]
+    cls = [X.FRAME_CLASS[f][Fr] for f in F]
+    ok &= Counter(cls) == Counter({0: 4, 1: 4, 2: 4, 3: 4, 4: 4})
+    ok &= all(cls[h[f]] == cls[f] for h in hs for f in F)                       # classes = Klein orbits
+    # the half-turn about axis i exchanges the two faces across a frame seam on axis i
+    ok &= all(X.SEP[f][hs[cls[f]][f]] == 1 for f in F if cls[f] < 3)
+    st = X.frame_stabilizer(Fr)
+    perms = set()
+    for g in st:
+        img = {}
+        for f in F:
+            img.setdefault(cls[f], set()).add(cls[g[f]])
+        ok &= all(len(v) == 1 for v in img.values())
+        p = tuple(next(iter(img[k])) for k in range(5))
+        ok &= p[3] == 3 and p[4] == 4
+        perms.add(p[:3])
+    ok &= perms == {(0, 1, 2), (1, 2, 0), (2, 0, 1)}                             # axes permuted cyclically only
+    ok &= all({cls[f], cls[X.INVERSION_FACES[f]]} == {3, 4} for f in F if cls[f] >= 3)
+    ok &= all(cls[X.INVERSION_FACES[f]] == cls[f] for f in F if cls[f] < 3)
+check('relative to one frame the twenty faces fall into five classes of four (the orbits of its Klein group): three axial, '
+      'permuted cyclically by the stabiliser of the frame and kept by the inversion; two corner, kept by the stabiliser and exchanged by the inversion', ok)
+
+# 8. relative to a face: the third-turns about it keep L and R and permute its three edge frames cyclically
+ok = True
+for f in F:
+    st = [i for i in range(60) if X.ROT_FACES[i][f] == f]
+    ok &= len(st) == 3
+    for i in st:
+        p = X.ROT_FRAMES[i]
+        L, R = X.LR[f]
+        ok &= p[L] == L and p[R] == R
+        if p != tuple(range(5)):
+            a, b, e = X.EDGE_FRAMES[f]
+            ok &= (p[a], p[b], p[e]) in ((b, e, a), (e, a, b))
+check('the third-turns about a face keep its L and R and permute its three edge frames cyclically', ok)
+def npaths(f, g):
+    d = X.SEP[f][g]; paths = [[f]]
+    for _ in range(d):
+        paths = [p + [v] for p in paths for v in X.NEIGHBOUR[p[-1]] if X.SEP[f][v] == len(p) and X.SEP[v][g] == d - len(p)]
+    return len(paths)
+np_ = {d: sorted({npaths(f, g) for f in F for g in F if X.SEP[f][g] == d}) for d in range(1, 6)}
+check('number of shortest dual paths at separation 1..5', np_ == {1: [1], 2: [1], 3: [1], 4: [2], 5: [6]}, np_)
+json.dump(out, open(sys.argv[2], 'w'), indent=1, default=str)
+print('all checks passed')

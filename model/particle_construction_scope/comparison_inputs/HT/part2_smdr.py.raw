@@ -1,0 +1,26 @@
+"""Part 2: SMDR rows (two and three loops, attachments A1 and A2) at one scale from part2_d11.json.
+Usage: part2_smdr.py <key-prefix> <out.json>. Conditional rows; no measured value is read."""
+import json
+import sys
+import time
+
+sys.path.insert(0, ".")
+import smdrlib as S  # noqa: E402
+
+prefix, outpath = sys.argv[1], sys.argv[2]
+d11 = json.load(open("part2_d11.json"))["rows"]
+name = next(k for k in d11 if k.startswith(prefix))
+row = d11[name]
+mu = row["mu_c_GeV"]
+guess = (0.96 * row["two_loop"]["mt_pole"] / 172.63, 0.14 * (row["two_loop"]["mh_tree"] / 125.77) ** 2)
+t0 = time.time()
+pk0 = S.packet_p_fwd()
+res = {"name": name, "mu_c_GeV": mu, "guess": guess}
+for lp in (2, 3):
+    res[str(lp)] = S.family_point(pk0, mu, lp, guess)
+    r = res[str(lp)]
+    print(name[:40], lp, "lam_b=%.1e beta_b=%.1e" % (r["boundary_lambda"], r["boundary_beta_lambda"]),
+          "A1 H=%.4f t=%.4f" % (r["A1"]["H"], r["A1"]["t"]), "A2 H=%.4f t=%.4f" % (r["A2"]["H"], r["A2"]["t"]),
+          flush=True)
+res["seconds"] = time.time() - t0
+json.dump(res, open(outpath, "w"), indent=1)

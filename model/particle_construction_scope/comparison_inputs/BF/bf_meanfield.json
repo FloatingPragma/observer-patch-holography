@@ -1,0 +1,809 @@
+{
+ "G1_harmonic_full_register": {
+  "mean_lattice_frequency": 2.387602242859582,
+  "plaquette_fluctuation_w_H": 0.7958674142865273,
+  "g2": 0.7735388459652436,
+  "electric_flux_per_direction": 1.0288654777167932,
+  "mean_Casimir_per_link": {
+   "SU3 (8 directions)": 8.230923821734345,
+   "SU2 (3 directions)": 3.0865964331503797,
+   "U1": 1.0288654777167932,
+   "total": 12.346385732601519
+  },
+  "rms_6Y_per_link": 7.8569668869741065,
+  "one_loop_plaquette_deficit": {
+   "F=5: 0.6 g^2 w_H": 0.3693806167131256,
+   "F=15: 0.8 g^2 w_H": 0.49250748895083424
+  }
+ },
+ "G2_mean_field_at_cell_coupling": {
+  "F=5, reference C<=30": {
+   "u_per_block": {
+    "((1, 0), 0, -2)": 0.8132560065929065,
+    "((0, 0), 1, 3)": 0.8936137435170671
+   },
+   "energy_per_link": 10.036229813872705,
+   "confined_energy_per_link": 12.927598985053837,
+   "energy_from_uniform_start": 10.036229813872705,
+   "energy_from_top_state_start": null,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    6.011563172450839,
+    2.860094007733609,
+    0.9508084200834109,
+    9.822465600267861
+   ],
+   "weight_on_vacuum_sector": 0.0002982181223905273,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.437430557727932,
+    "SU2": 0.6376749516686382,
+    "U1": 0.5575771940923557
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.6613853322594416,
+    "SU2": 0.7985455226025866,
+    "U1": 0.7467109173517926
+   },
+   "product_state_plaquette": 0.5175283153042145,
+   "iterations": 13,
+   "sectors": 2611,
+   "weight_of_reference_link_vacuum_inside": {
+    "M1": 0.013620535771991016,
+    "M2": 0.1154217428482783,
+    "M3": 0.3797434876365711,
+    "M4": 0.694246503319891
+   },
+   "weight_above_0.8_of_the_cut": 0.004844775196059527
+  },
+  "F=5, reference C<=45": {
+   "u_per_block": {
+    "((1, 0), 0, -2)": 0.8176306960364045,
+    "((0, 0), 1, 3)": 0.8961956124018734
+   },
+   "energy_per_link": 10.021510741984475,
+   "confined_energy_per_link": 12.927598985053837,
+   "energy_from_uniform_start": 10.021510741984475,
+   "energy_from_top_state_start": null,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    6.173900407341803,
+    2.928107864237654,
+    0.9716457564764545,
+    10.073654028055905
+   ],
+   "weight_on_vacuum_sector": 0.0002790251734532455,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.44691893036820995,
+    "SU2": 0.6450765483029804,
+    "U1": 0.5658135011290722
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.6685199551009753,
+    "SU2": 0.8031665756883689,
+    "U1": 0.7522057571762345
+   },
+   "product_state_plaquette": 0.5261819775421182,
+   "iterations": 13,
+   "sectors": 6056,
+   "weight_of_reference_link_vacuum_inside": {
+    "M1": 0.012857897221991639,
+    "M2": 0.11013105143532878,
+    "M3": 0.3665978921595983,
+    "M4": 0.6779109489242598
+   },
+   "weight_above_0.8_of_the_cut": 0.00011034327733400283
+  },
+  "F=5, reference C<=60": {
+   "u_per_block": {
+    "((1, 0), 0, -2)": 0.8176757631250839,
+    "((0, 0), 1, 3)": 0.8962250133376496
+   },
+   "energy_per_link": 10.021415784604756,
+   "confined_energy_per_link": 12.927598985053837,
+   "energy_from_uniform_start": 10.021415784604756,
+   "energy_from_top_state_start": null,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    6.175668073027381,
+    2.928958452526176,
+    0.9718900659786371,
+    10.07651659153219
+   ],
+   "weight_on_vacuum_sector": 0.00027885083935479793,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.4470174736371231,
+    "SU2": 0.6451612029798252,
+    "U1": 0.5659037112427443
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.6685936536021884,
+    "SU2": 0.8032192745320702,
+    "U1": 0.7522657185082571
+   },
+   "product_state_plaquette": 0.5262749653742039,
+   "iterations": 13,
+   "sectors": 10997,
+   "weight_of_reference_link_vacuum_inside": {
+    "M1": 0.012850961571502895,
+    "M2": 0.11008281573740933,
+    "M3": 0.3664771967286989,
+    "M4": 0.6777576970068871
+   },
+   "weight_above_0.8_of_the_cut": 1.2098616444416852e-06
+  },
+  "F=5, M1": {
+   "u_per_block": {
+    "((1, 0), 0, -2)": 0.0,
+    "((0, 0), 1, 3)": 0.4137457821717415
+   },
+   "energy_per_link": 12.9342063696872,
+   "confined_energy_per_link": 12.927598985053837,
+   "energy_from_uniform_start": 12.9342063696872,
+   "energy_from_top_state_start": 12.934206369687201,
+   "product_state_with_u_above_zero_wins": false,
+   "colour_blocks_ordered": false,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.28552332617714365,
+    0.12335624341522775,
+    0.4088795695923714
+   ],
+   "weight_on_vacuum_sector": 0.5088829347974768,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.029304500151663415,
+    "U1": 0.01758270009099805
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.1711855722649062,
+    "U1": 0.13259977409859358
+   },
+   "product_state_plaquette": 0.011721800060665366,
+   "iterations": 13
+  },
+  "F=5, M2": {
+   "u_per_block": {
+    "((1, 0), 0, -2)": 0.0,
+    "((0, 0), 1, 3)": 0.6562844744328035
+   },
+   "energy_per_link": 12.387768980497668,
+   "confined_energy_per_link": 12.927598985053837,
+   "energy_from_uniform_start": 12.38776898049767,
+   "energy_from_top_state_start": 12.387768980497668,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": false,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    4.356004871493702e-239,
+    0.7706739755856666,
+    0.31382797194649326,
+    1.0845019475321598
+   ],
+   "weight_on_vacuum_sector": 0.15796570172788177,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.1855105109107613,
+    "U1": 0.11130630654645678
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.43070931138154106,
+    "U1": 0.33362599800743464
+   },
+   "product_state_plaquette": 0.07420420436430451,
+   "iterations": 10
+  },
+  "F=5, M3": {
+   "u_per_block": {
+    "((1, 0), 0, -2)": 0.5945108703960471,
+    "((0, 0), 1, 3)": 0.7406710461675385
+   },
+   "energy_per_link": 11.831477124149144,
+   "confined_energy_per_link": 12.927598985053837,
+   "energy_from_uniform_start": 11.831477124149144,
+   "energy_from_top_state_start": 11.831477124149163,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    2.1607754540859676,
+    1.1816643553818338,
+    0.3525098520798628,
+    3.694949661547664
+   ],
+   "weight_on_vacuum_sector": 0.010206234485160254,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.12492207796755778,
+    "SU2": 0.30095493645881854,
+    "U1": 0.23054179306231423
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.3534431750190655,
+    "SU2": 0.548593598630916,
+    "U1": 0.4801476783889663
+   },
+   "product_state_plaquette": 0.1953352213640621,
+   "iterations": 15
+  },
+  "F=5, M4": {
+   "u_per_block": {
+    "((1, 0), 0, -2)": 0.694540806053238,
+    "((0, 0), 1, 3)": 0.8084585424202358
+   },
+   "energy_per_link": 11.039395556981729,
+   "confined_energy_per_link": 12.927598985053837,
+   "energy_from_uniform_start": 11.039395556981734,
+   "energy_from_top_state_start": 11.039395556981729,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    3.34737257636911,
+    1.6650374631526286,
+    0.4838693496961201,
+    5.496279389217858
+   ],
+   "weight_on_vacuum_sector": 0.002387549519343334,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.2326971514630607,
+    "SU2": 0.42719977682977045,
+    "U1": 0.3493987266830866
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.4823869312730815,
+    "SU2": 0.6536052148122523,
+    "U1": 0.5910995911714765
+   },
+   "product_state_plaquette": 0.31049820160974456,
+   "iterations": 10
+  },
+  "F=15, reference C<=30": {
+   "u_per_block": {
+    "((0, 1), 0, -4)": 0.755978706834204,
+    "((1, 0), 1, 1)": 0.6861697191405888,
+    "((0, 0), 0, 6)": 0.91889778692597,
+    "((0, 0), 1, -3)": 0.8577170694205187,
+    "((0, 1), 0, 2)": 0.7775000235928037
+   },
+   "energy_per_link": 9.270324079597339,
+   "confined_energy_per_link": 9.695699238790379,
+   "energy_from_uniform_start": 9.270324079597339,
+   "energy_from_top_state_start": null,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    4.76580773895034,
+    1.940379825135493,
+    0.8870975226372225,
+    7.593285086723057
+   ],
+   "weight_on_vacuum_sector": 0.0010709483685218061,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.28385103124936545,
+    "SU2": 0.3015656181506502,
+    "U1": 0.4733466619832206
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.5327767180061131,
+    "SU2": 0.5491499049901131,
+    "U1": 0.688001934578109
+   },
+   "product_state_plaquette": 0.34677495329846164,
+   "iterations": 21,
+   "sectors": 2611,
+   "weight_of_reference_link_vacuum_inside": {
+    "M1": 0.0372746756116362,
+    "M2": 0.23429386116341153,
+    "M3": 0.5809229649443717,
+    "M4": 0.8517341898404809
+   },
+   "weight_above_0.8_of_the_cut": 0.0007261139194524734
+  },
+  "F=15, reference C<=45": {
+   "u_per_block": {
+    "((0, 1), 0, -4)": 0.756838079960938,
+    "((1, 0), 1, 1)": 0.6872198214312943,
+    "((0, 0), 0, 6)": 0.9191924403114535,
+    "((0, 0), 1, -3)": 0.8582154893379912,
+    "((0, 1), 0, 2)": 0.7782933795134218
+   },
+   "energy_per_link": 9.269434910025339,
+   "confined_energy_per_link": 9.695699238790379,
+   "energy_from_uniform_start": 9.269434910025339,
+   "energy_from_top_state_start": null,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    4.787121891652582,
+    1.9480677611430135,
+    0.890120906122696,
+    7.625310558918288
+   ],
+   "weight_on_vacuum_sector": 0.001057625110464452,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.28527647288936664,
+    "SU2": 0.3029005011178454,
+    "U1": 0.4746224661166706
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.5341127904191835,
+    "SU2": 0.5503639714932704,
+    "U1": 0.6889284912940316
+   },
+   "product_state_plaquette": 0.3481441833711709,
+   "iterations": 22,
+   "sectors": 6056,
+   "weight_of_reference_link_vacuum_inside": {
+    "M1": 0.03690603599491268,
+    "M2": 0.23263121821097382,
+    "M3": 0.5783399117792218,
+    "M4": 0.8497106696167116
+   },
+   "weight_above_0.8_of_the_cut": 4.008083489456035e-06
+  },
+  "F=15, reference C<=60": {
+   "u_per_block": {
+    "((0, 1), 0, -4)": 0.7568400497841141,
+    "((1, 0), 1, 1)": 0.6872221888303058,
+    "((0, 0), 0, 6)": 0.9191932091646313,
+    "((0, 0), 1, -3)": 0.8582166140147448,
+    "((0, 1), 0, 2)": 0.7782951515738684
+   },
+   "energy_per_link": 9.269433566645828,
+   "confined_energy_per_link": 9.695699238790379,
+   "energy_from_uniform_start": 9.269433566645828,
+   "energy_from_top_state_start": null,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    4.787170648147944,
+    1.9480853733181571,
+    0.8901292591536805,
+    7.625385280619777
+   ],
+   "weight_on_vacuum_sector": 0.0010575965429146534,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.2852796989857559,
+    "SU2": 0.302903517091465,
+    "U1": 0.4746254633919758
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.5341158104622591,
+    "SU2": 0.5503667114674224,
+    "U1": 0.6889306666072978
+   },
+   "product_state_plaquette": 0.3481473026355101,
+   "iterations": 22,
+   "sectors": 10997,
+   "weight_of_reference_link_vacuum_inside": {
+    "M1": 0.036905248388220666,
+    "M2": 0.23262768548066085,
+    "M3": 0.5783344605407845,
+    "M4": 0.8497064011708456
+   },
+   "weight_above_0.8_of_the_cut": 1.5317996803272476e-08
+  },
+  "F=15, M1": {
+   "u_per_block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.6947760106460616,
+    "((0, 0), 1, -3)": 0.0,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "energy_per_link": 9.639541013454917,
+   "confined_energy_per_link": 9.695699238790379,
+   "energy_from_uniform_start": 9.639541013454917,
+   "energy_from_top_state_start": 9.639541013454917,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": false,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.0,
+    0.24421888217744403,
+    0.24421888217744403
+   ],
+   "weight_on_vacuum_sector": 0.5929685297042602,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.0,
+    "U1": 0.06990375628954387
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.0,
+    "U1": 0.2643931850285553
+   },
+   "product_state_plaquette": 0.015534168064343084,
+   "iterations": 10
+  },
+  "F=15, M2": {
+   "u_per_block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.8143861964615651,
+    "((0, 0), 1, -3)": 0.5656672882729258,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "energy_per_link": 9.582514281864428,
+   "confined_energy_per_link": 9.695699238790379,
+   "energy_from_uniform_start": 9.582514281864428,
+   "energy_from_top_state_start": 9.58251428186443,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": false,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.3796490536426912,
+    0.40505114524341046,
+    0.7847001988861017
+   ],
+   "weight_on_vacuum_sector": 0.26306412323486744,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.025596717068784365,
+    "U1": 0.14731820147765065
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.15998974051102266,
+    "U1": 0.3838205329026193
+   },
+   "product_state_plaquette": 0.04297606493365834,
+   "iterations": 35
+  },
+  "F=15, M3": {
+   "u_per_block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.8664552866467837,
+    "((0, 0), 1, -3)": 0.7073037669004495,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "energy_per_link": 9.503026842127644,
+   "confined_energy_per_link": 9.695699238790379,
+   "energy_from_uniform_start": 9.503026842127644,
+   "energy_from_top_state_start": 9.50302684212765,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": false,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.738145892537418,
+    0.5421751888702016,
+    1.2803210814076196
+   ],
+   "weight_on_vacuum_sector": 0.14836354564351256,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.06256967407498239,
+    "U1": 0.20662711453807814
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.0,
+    "SU2": 0.2501393093357827,
+    "U1": 0.4545625529430225
+   },
+   "product_state_plaquette": 0.07094500619401031,
+   "iterations": 19
+  },
+  "F=15, M4": {
+   "u_per_block": {
+    "((0, 1), 0, -4)": 0.6328617179137143,
+    "((1, 0), 1, 1)": 0.5443798166809853,
+    "((0, 0), 0, 6)": 0.8639987363661124,
+    "((0, 0), 1, -3)": 0.7808256026648439,
+    "((0, 1), 0, 2)": 0.6637976830974431
+   },
+   "energy_per_link": 9.565644724820057,
+   "confined_energy_per_link": 9.695699238790379,
+   "energy_from_uniform_start": 9.565644724820057,
+   "energy_from_top_state_start": 9.56564472482007,
+   "product_state_with_u_above_zero_wins": true,
+   "colour_blocks_ordered": true,
+   "mean_Casimir (SU3, SU2, U1, total)": [
+    2.734190830951243,
+    1.1918819816448503,
+    0.5697289035314804,
+    4.4958017161275725
+   ],
+   "weight_on_vacuum_sector": 0.006859264372096885,
+   "stiffness_Z_per_factor": {
+    "SU3": 0.13255245427108064,
+    "SU2": 0.15879727228884064,
+    "U1": 0.31090490395624293
+   },
+   "sqrt_Z_per_factor": {
+    "SU3": 0.36407753881705013,
+    "SU2": 0.3984937543912585,
+    "U1": 0.557588471864549
+   },
+   "product_state_plaquette": 0.19275486001919592,
+   "iterations": 19
+  }
+ },
+ "G3_rule": {
+  "F=5": {
+   "M1": {
+    "weight_of_reference_link_vacuum_inside": 0.012850961571502895,
+    "loop_expansion_applies (weight >= 0.99)": false
+   },
+   "M2": {
+    "weight_of_reference_link_vacuum_inside": 0.11008281573740933,
+    "loop_expansion_applies (weight >= 0.99)": false
+   },
+   "M3": {
+    "weight_of_reference_link_vacuum_inside": 0.3664771967286989,
+    "loop_expansion_applies (weight >= 0.99)": false
+   },
+   "M4": {
+    "weight_of_reference_link_vacuum_inside": 0.6777576970068871,
+    "loop_expansion_applies (weight >= 0.99)": false
+   }
+  },
+  "F=15": {
+   "M1": {
+    "weight_of_reference_link_vacuum_inside": 0.036905248388220666,
+    "loop_expansion_applies (weight >= 0.99)": false
+   },
+   "M2": {
+    "weight_of_reference_link_vacuum_inside": 0.23262768548066085,
+    "loop_expansion_applies (weight >= 0.99)": false
+   },
+   "M3": {
+    "weight_of_reference_link_vacuum_inside": 0.5783344605407845,
+    "loop_expansion_applies (weight >= 0.99)": false
+   },
+   "M4": {
+    "weight_of_reference_link_vacuum_inside": 0.8497064011708456,
+    "loop_expansion_applies (weight >= 0.99)": false
+   }
+  }
+ },
+ "E_menu_correction_mean_field_rule": {
+  "F=5, M1": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -10.861504480863632,
+    "SU2": -13.04853808055584,
+    "U1": -12.220782276882188
+   },
+   "mean_field_state": "confined (u = 0)"
+  },
+  "F=5, M2": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -10.861504480863632,
+    "SU2": -6.0515361043692915,
+    "U1": -6.800927851452011
+   },
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "F=5, M3": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -5.119714069726405,
+    "SU2": -4.136470492717021,
+    "U1": -4.420639197149914
+   },
+   "mean_field_state": "u > 0 on all blocks"
+  },
+  "F=5, M4": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -3.0249840662530394,
+    "SU2": -2.430525284366358,
+    "U1": -2.618192088424202
+   },
+   "mean_field_state": "u > 0 on all blocks"
+  },
+  "F=15, M1": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -8.676871575702538,
+    "SU2": -8.940872337801718,
+    "U1": -6.8967387494911465
+   },
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "F=15, M2": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -8.676871575702538,
+    "SU2": -6.341791006278002,
+    "U1": -4.9566056550726145
+   },
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "F=15, M3": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -8.676871575702538,
+    "SU2": -4.877284215849127,
+    "U1": -3.8073803169102525
+   },
+   "mean_field_state": "u > 0 on colourless blocks only"
+  },
+  "F=15, M4": {
+   "delta_inv_alpha (SU3, SU2, U1)": {
+    "SU3": -2.7623227343579133,
+    "SU2": -2.467221749589406,
+    "U1": -2.1336933562543785
+   },
+   "mean_field_state": "u > 0 on all blocks"
+  }
+ },
+ "P1_single_open_plaquette_exact": {
+  "F=5, M1": {
+   "ground_energy": 10.351836401814657,
+   "plaquette_value": 0.2925719756564647,
+   "mean_Casimir_per_link": 0.7798513278328241,
+   "weight_on_vacuum": 0.38105098718136254
+  },
+  "F=5, M2": {
+   "ground_energy": 9.23257684117449,
+   "plaquette_value": 0.4641812956537893,
+   "mean_Casimir_per_link": 1.490376026182886,
+   "weight_on_vacuum": 0.16347877861300164
+  },
+  "F=5, M3": {
+   "ground_energy": 8.999983428239638,
+   "plaquette_value": 0.5207184496359589,
+   "mean_Casimir_per_link": 1.8124647254783233,
+   "weight_on_vacuum": 0.1258475414496579
+  },
+  "F=5, M4": {
+   "ground_energy": 8.97886288414985,
+   "plaquette_value": 0.528752177642108,
+   "mean_Casimir_per_link": 1.865943791436196,
+   "weight_on_vacuum": 0.12209235251566855
+  },
+  "F=5, reference C<=45": {
+   "ground_energy": 8.978038545310943,
+   "plaquette_value": 0.5291927636409025,
+   "mean_Casimir_per_link": 1.86909255396915,
+   "weight_on_vacuum": 0.12192753089238094
+  },
+  "F=15, M1": {
+   "ground_energy": 8.753506631763175,
+   "plaquette_value": 0.18296021934356307,
+   "mean_Casimir_per_link": 0.5376166024042615,
+   "weight_on_vacuum": 0.5311933777605345
+  },
+  "F=15, M2": {
+   "ground_energy": 8.311160857722559,
+   "plaquette_value": 0.316339364473689,
+   "mean_Casimir_per_link": 1.0875943483869754,
+   "weight_on_vacuum": 0.30308900155578566
+  },
+  "F=15, M3": {
+   "ground_energy": 8.233917888296675,
+   "plaquette_value": 0.3530828423525423,
+   "mean_Casimir_per_link": 1.2679412970437436,
+   "weight_on_vacuum": 0.26572553105770885
+  },
+  "F=15, M4": {
+   "ground_energy": 8.229036076208542,
+   "plaquette_value": 0.35652297802464095,
+   "mean_Casimir_per_link": 1.2863454850671978,
+   "weight_on_vacuum": 0.26312767759740285
+  },
+  "F=15, reference C<=45": {
+   "ground_energy": 8.228906005139734,
+   "plaquette_value": 0.35664446996119875,
+   "mean_Casimir_per_link": 1.287022812530091,
+   "weight_on_vacuum": 0.2630524358677834
+  }
+ },
+ "P2_plaquette_equivalent_coupling": {
+  "F=5, M1": {
+   "largest_one_plaquette_value": 0.32488727810805224,
+   "full_register_one_loop_value_at_cell": 0.6306193832868744,
+   "full_register_exponential_form_at_cell": 0.6911622924599402,
+   "g_P^2 linear form": 1.4137880878420084,
+   "inv_alpha_P linear form (upper bound)": 8.888440016169858,
+   "g_P^2 exponential form": 2.354405966837689,
+   "inv_alpha_P exponential form": 5.33738479742202,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": false
+  },
+  "F=5, M2": {
+   "largest_one_plaquette_value": 0.5391586522530207,
+   "full_register_one_loop_value_at_cell": 0.6306193832868744,
+   "full_register_exponential_form_at_cell": 0.6911622924599402,
+   "g_P^2 linear form": 0.9650714417051292,
+   "inv_alpha_P linear form (upper bound)": 13.021181719102968,
+   "g_P^2 exponential form": 1.293652256523931,
+   "inv_alpha_P exponential form": 9.713870594656756,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": false
+  },
+  "F=5, M3": {
+   "largest_one_plaquette_value": 0.6711791179859548,
+   "full_register_one_loop_value_at_cell": 0.6306193832868744,
+   "full_register_exponential_form_at_cell": 0.6911622924599402,
+   "g_P^2 linear form": 0.6886006306063427,
+   "inv_alpha_P linear form (upper bound)": 18.24914189127875,
+   "g_P^2 exponential form": 0.8349783490291355,
+   "inv_alpha_P exponential form": 15.049935880338241,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": true
+  },
+  "F=5, M4": {
+   "largest_one_plaquette_value": 0.7552876086212368,
+   "full_register_one_loop_value_at_cell": 0.6306193832868744,
+   "full_register_exponential_form_at_cell": 0.6911622924599402,
+   "g_P^2 linear form": 0.5124647376056999,
+   "inv_alpha_P linear form (upper bound)": 24.521434729481772,
+   "g_P^2 exponential form": 0.58773747708596,
+   "inv_alpha_P exponential form": 21.380924484625417,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": true
+  },
+  "F=15, M1": {
+   "largest_one_plaquette_value": 0.23576610301867676,
+   "full_register_one_loop_value_at_cell": 0.5074925110491657,
+   "full_register_exponential_form_at_cell": 0.6110921646057399,
+   "g_P^2 linear form": 1.200315974844939,
+   "inv_alpha_P linear form (upper bound)": 10.469218837133731,
+   "g_P^2 exponential form": 2.2694028998679308,
+   "inv_alpha_P exponential form": 5.537302616071602,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": false
+  },
+  "F=15, M2": {
+   "largest_one_plaquette_value": 0.4456797253246697,
+   "full_register_one_loop_value_at_cell": 0.5074925110491657,
+   "full_register_exponential_form_at_cell": 0.6110921646057399,
+   "g_P^2 linear form": 0.8706228335348148,
+   "inv_alpha_P linear form (upper bound)": 14.433771008897693,
+   "g_P^2 exponential form": 1.269298558825305,
+   "inv_alpha_P exponential form": 9.900248075589833,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": false
+  },
+  "F=15, M3": {
+   "largest_one_plaquette_value": 0.5911858308973492,
+   "full_register_one_loop_value_at_cell": 0.5074925110491657,
+   "full_register_exponential_form_at_cell": 0.6110921646057399,
+   "g_P^2 linear form": 0.6420889990029638,
+   "inv_alpha_P linear form (upper bound)": 19.571072910254248,
+   "g_P^2 exponential form": 0.8255534572755835,
+   "inv_alpha_P exponential form": 15.221752757028682,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": true
+  },
+  "F=15, M4": {
+   "largest_one_plaquette_value": 0.6897448688170194,
+   "full_register_one_loop_value_at_cell": 0.5074925110491657,
+   "full_register_exponential_form_at_cell": 0.6110921646057399,
+   "g_P^2 linear form": 0.48729085651332327,
+   "inv_alpha_P linear form (upper bound)": 25.7882339600509,
+   "g_P^2 exponential form": 0.5833784284248921,
+   "inv_alpha_P exponential form": 21.54068440324075,
+   "menu_can_hold_the_one_loop_plaquette_of_the_full_register": true
+  }
+ },
+ "P3_strong_coupling_ratios": {
+  "F=5, loop ((1, 0), 0, -2)": {
+   "amplitude": 1.2927598985053836,
+   "electric_cost_of_the_loop": 2.165908768702682,
+   "ratio": 0.596867198279875
+  },
+  "F=5, loop ((0, 0), 1, 3)": {
+   "amplitude": 1.2927598985053836,
+   "electric_cost_of_the_loop": 1.3923699227374384,
+   "ratio": 0.9284600862131389
+  },
+  "F=15, loop ((0, 1), 0, -4)": {
+   "amplitude": 0.32318997462634597,
+   "electric_cost_of_the_loop": 2.47532430708878,
+   "ratio": 0.13056469962372266
+  },
+  "F=15, loop ((1, 0), 1, 1)": {
+   "amplitude": 0.32318997462634597,
+   "electric_cost_of_the_loop": 3.2488631530540233,
+   "ratio": 0.09947786637997917
+  },
+  "F=15, loop ((0, 0), 0, 6)": {
+   "amplitude": 0.32318997462634597,
+   "electric_cost_of_the_loop": 0.9282466151582922,
+   "ratio": 0.3481725323299272
+  },
+  "F=15, loop ((0, 0), 1, -3)": {
+   "amplitude": 0.32318997462634597,
+   "electric_cost_of_the_loop": 1.3923699227374384,
+   "ratio": 0.23211502155328476
+  },
+  "F=15, loop ((0, 1), 0, 2)": {
+   "amplitude": 0.32318997462634597,
+   "electric_cost_of_the_loop": 2.165908768702682,
+   "ratio": 0.14921679956996878
+  }
+ }
+}

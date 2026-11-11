@@ -1,0 +1,67 @@
+"""LW part (b), two auxiliary computations.
+
+1. Equivalent MSbar scale of the derived attachment LB4: with v(Q0) from lw_b_LB4.json, the scale Q_F at which the
+   five-loop SMDR running gives v(Q_F) = v_source (bisection in ln Q). No measured value enters.
+2. Tool gate for the G_F evaluator (reads SMDR's own reference model, benchmark_data/ReferenceModel.dat, which SMDR's
+   authors fitted to measured data; it tests only that GF_local of the readout is the muon-decay Fermi constant):
+   GF_local at the reference inputs against the file's SMDR_GFermi.
+Writes lw_b_equiv_and_gate.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import re
+from pathlib import Path
+
+import lwlib as L
+
+HERE = Path(__file__).resolve().parent
+REF = Path("/tmp/claude-501/lew_smdr/SMDR/benchmark_data/ReferenceModel.dat")
+
+
+def equivalent_scale() -> dict:
+    lb4 = json.loads((HERE / "lw_b_LB4.json").read_text())
+    pk = json.loads((HERE.parent / "SIM" / "derive" / "lew" / "t1_chain.json").read_text())["pixels"]["P_fwd"]["packet_Q0"]
+    vs = lb4["v_source_GeV"]
+    target = vs / lb4["v_Q0_GeV"]
+    lo, hi = math.log(150.0), math.log(260.0)
+    r_lo = L.rg_to(pk, math.exp(lo), 5)["v"] / pk["v"]
+    r_hi = L.rg_to(pk, math.exp(hi), 5)["v"] / pk["v"]
+    assert (r_lo - target) * (r_hi - target) < 0
+    for _ in range(14):
+        mid = 0.5 * (lo + hi)
+        r_mid = L.rg_to(pk, math.exp(mid), 5)["v"] / pk["v"]
+        if (r_lo - target) * (r_mid - target) <= 0:
+            hi, r_hi = mid, r_mid
+        else:
+            lo, r_lo = mid, r_mid
+    return {"Q_F_GeV": math.exp(0.5 * (lo + hi)), "bracket_GeV": [math.exp(lo), math.exp(hi)],
+            "target_ratio_v_source_over_vQ0": target}
+
+
+def gate() -> dict:
+    text = REF.read_text()
+    val = {m.group(1): float(eval(m.group(2), {}, {}))
+           for m in re.finditer(r"SMDR_(\w+?)\s*=\s*([^;]+);", text)}
+    pk = {"Q0": val["Q_in"], "v": val["v_in"], "gY": val["gp_in"], "g2": val["g_in"], "g3": val["g3_in"],
+          "yu": val["yu_in"], "yc": val["yc_in"], "yt": val["yt_in"], "yd": val["yd_in"], "ys": val["ys_in"],
+          "yb": val["yb_in"], "ye": val["ye_in"], "ymu": val["ymu_in"], "ytau": val["ytau_in"],
+          "lambda": val["lambda_in"]}
+    out = L.readout(pk)
+    return {"GF_local_reference_inputs": out["GF_local"], "SMDR_GFermi_in_file": val["GFermi"],
+            "relative_difference": out["GF_local"] / val["GFermi"] - 1,
+            "W_BW_reference_inputs": out["W"], "Z_BW_reference_inputs": out["Z"],
+            "file_MW_PDG": val["MW_PDG"], "file_MZ_PDG": val["MZ_PDG"],
+            "reference_input_scale_GeV": val["Q_in"], "reference_input_v_GeV": val["v_in"]}
+
+
+def main():
+    res = {"schema": "lw.b_equiv_and_gate.v1", "equivalent_MSbar_scale_of_LB4": equivalent_scale(),
+           "tool_gate_GF_evaluator": gate()}
+    (HERE / "lw_b_equiv_and_gate.json").write_text(json.dumps(res, indent=2) + "\n")
+    print(json.dumps(res, indent=1))
+
+
+if __name__ == "__main__":
+    main()

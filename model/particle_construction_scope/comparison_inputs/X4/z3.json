@@ -1,0 +1,160 @@
+{
+ "levels": [
+  {
+   "level": 0,
+   "carriers": 20,
+   "vertices": 12,
+   "vertex_census_valence_holonomy": {
+    "valence 5, holonomy r^2": 12
+   },
+   "vertices_with_nontrivial_holonomy": 12,
+   "holonomy_group_order": 3,
+   "character_0": {
+    "lowest_level": 4.440892098500626e-16,
+    "lowest_level_times_carriers": 8.881784197001252e-15,
+    "degeneracy": 1,
+    "next_level": 0.7639320225002106
+   },
+   "character_1": {
+    "lowest_level": 0.6972243622680034,
+    "lowest_level_times_carriers": 13.944487245360069,
+    "degeneracy": 5,
+    "next_level": 2.0
+   },
+   "character_2": {
+    "lowest_level": 0.6972243622680039,
+    "lowest_level_times_carriers": 13.944487245360078,
+    "degeneracy": 5,
+    "next_level": 1.9999999999999993
+   },
+   "characters_1_and_2_equal": true
+  },
+  {
+   "level": 1,
+   "carriers": 80,
+   "vertices": 42,
+   "vertex_census_valence_holonomy": {
+    "valence 5, holonomy r^2": 12,
+    "valence 6, holonomy r^0": 30
+   },
+   "vertices_with_nontrivial_holonomy": 12,
+   "holonomy_group_order": 3,
+   "character_0": {
+    "lowest_level": -8.881784197001252e-16,
+    "lowest_level_times_carriers": -7.105427357601002e-14,
+    "degeneracy": 1,
+    "next_level": 0.18188507161646328
+   },
+   "character_1": {
+    "lowest_level": 0.24094277156334254,
+    "lowest_level_times_carriers": 19.275421725067403,
+    "degeneracy": 5,
+    "next_level": 0.6393075494561522
+   },
+   "character_2": {
+    "lowest_level": 0.24094277156334343,
+    "lowest_level_times_carriers": 19.275421725067474,
+    "degeneracy": 5,
+    "next_level": 0.6393075494561549
+   },
+   "characters_1_and_2_equal": true
+  },
+  {
+   "level": 2,
+   "carriers": 320,
+   "vertices": 162,
+   "vertex_census_valence_holonomy": {
+    "valence 5, holonomy r^2": 12,
+    "valence 6, holonomy r^0": 150
+   },
+   "vertices_with_nontrivial_holonomy": 12,
+   "holonomy_group_order": 3,
+   "character_0": {
+    "lowest_level": 2.220446049250313e-15,
+    "lowest_level_times_carriers": 7.105427357601002e-13,
+    "degeneracy": 1,
+    "next_level": 0.045289535529289715
+   },
+   "character_1": {
+    "lowest_level": 0.07051817108497715,
+    "lowest_level_times_carriers": 22.56581474719269,
+    "degeneracy": 5,
+    "next_level": 0.17580756791418573
+   },
+   "character_2": {
+    "lowest_level": 0.07051817108498781,
+    "lowest_level_times_carriers": 22.5658147471961,
+    "degeneracy": 5,
+    "next_level": 0.1758075679141835
+   },
+   "characters_1_and_2_equal": true
+  },
+  {
+   "level": 3,
+   "carriers": 1280,
+   "vertices": 642,
+   "vertex_census_valence_holonomy": {
+    "valence 5, holonomy r^2": 12,
+    "valence 6, holonomy r^0": 630
+   },
+   "vertices_with_nontrivial_holonomy": 12,
+   "holonomy_group_order": 3,
+   "character_0": {
+    "lowest_level": 2.220446049250313e-15,
+    "lowest_level_times_carriers": 2.8421709430404007e-12,
+    "degeneracy": 1,
+    "next_level": 0.011322048008383767
+   },
+   "character_1": {
+    "lowest_level": 0.019179649857492986,
+    "lowest_level_times_carriers": 24.549951817591023,
+    "degeneracy": 5,
+    "next_level": 0.04544660034801229
+   },
+   "character_2": {
+    "lowest_level": 0.019179649857478775,
+    "lowest_level_times_carriers": 24.549951817572833,
+    "degeneracy": 5,
+    "next_level": 0.04544660034795678
+   },
+   "characters_1_and_2_equal": true
+  },
+  {
+   "level": 4,
+   "carriers": 5120,
+   "vertices": 2562,
+   "vertex_census_valence_holonomy": {
+    "valence 5, holonomy r^2": 12,
+    "valence 6, holonomy r^0": 2550
+   },
+   "vertices_with_nontrivial_holonomy": 12,
+   "holonomy_group_order": 3,
+   "character_0": {
+    "lowest_level": -1.1102230246251565e-13,
+    "lowest_level_times_carriers": -5.684341886080801e-10,
+    "degeneracy": 1,
+    "next_level": 0.002830986778784794
+   },
+   "character_1": {
+    "lowest_level": 0.0050255002766510515,
+    "lowest_level_times_carriers": 25.730561416453384,
+    "degeneracy": 5,
+    "next_level": 0.011509185357976737
+   },
+   "character_2": {
+    "lowest_level": 0.005025500276638617,
+    "lowest_level_times_carriers": 25.73056141638972,
+    "degeneracy": 5,
+    "next_level": 0.011509185358030471
+   },
+   "characters_1_and_2_equal": true
+  }
+ ],
+ "summary": {
+  "copies": 3,
+  "label": "character of the three-valued chart record under the third of a turn of the glue triple",
+  "holonomy": "a third of a turn at the twelve five-valent vertices, identity at every six-valent vertex, levels 0 to 4 (EXACT; agrees with reports/MG.md item 2)",
+  "masses": "character 0 is untwisted; characters 1 and 2 are complex conjugates and have equal spectra; their lowest level times the number of carriers is 13.944, 19.275, 22.566, 24.550, 25.731 at levels 0 to 4: it falls as 1/N",
+  "tag": "holonomy EXACT, levels MEASURED (float64)"
+ }
+}

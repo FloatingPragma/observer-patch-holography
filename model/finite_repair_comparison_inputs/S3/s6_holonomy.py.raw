@@ -1,0 +1,121 @@
+"""S3 step 6: the carrier automorphism accumulated by the wiring's own frame transport around mesh vertices.
+
+Cell wirings.  Two cells c, c' share a mesh edge; the half-turn about the edge midpoint maps c to c' and edge
+k+j of c to edge k'+j of c' (k, k' the indices of the shared edge).  The transport T(c->c') is the carrier
+automorphism with T(W[c,k+j]) = W[c',k'+j], j = 0,1,2.  It exists iff the two ordered triples have the same type
+and is then unique among rotations.  The holonomy at a mesh vertex is the product of the transports once around
+it; its conjugacy class does not depend on port labels.
+
+Vertex wiring (six belt ports).  The transport u->v between six-valent vertices is the translation: the direction
+j at u goes to the direction j - j_uv + j_vu + 3 at v.  The loop runs through the neighbours of a vertex.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s6_holonomy.py [max_level=3]
+Writes SCR/research/S3/s6_holonomy.json
+"""
+import collections
+import json
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+MAXL = int(sys.argv[1]) if len(sys.argv) > 1 else 3
+T0 = time.time()
+F, B = S.FACE_TRIPLE, S.BELT_TRIPLE
+r = S.find_aut(F, (F[1], F[2], F[0]), proper_only=True)[0]
+mirror = S.compose(tuple(S.ANTI), r)
+IDENT = tuple(range(12))
+_cache = {}
+
+
+def transport(src, dst):
+    key = (src, dst)
+    if key not in _cache:
+        cands = S.find_aut(src, dst, proper_only=True)
+        if not cands:
+            cands = S.find_aut(src, dst)
+        _cache[key] = cands[0] if len(cands) == 1 else None
+    return _cache[key]
+
+
+def label(g):
+    c = S.rotation_class(g)
+    return ('proper ' if c['proper'] else 'improper ') + c['class'] + f" (order {c['order']})"
+
+
+def cell_holonomy(mesh, W):
+    cyc = S.vertex_cycles(mesh)
+    res = {5: collections.Counter(), 6: collections.Counter()}
+    for v, cl in cyc.items():
+        H = IDENT
+        ok = True
+        n = len(cl)
+        for j in range(n):
+            c, i = cl[j]
+            c2, _ = cl[(j + 1) % n]
+            k = (i + 1) % 3
+            assert mesh.nbr[c, k] == c2
+            k2 = int(mesh.nbk[c, k])
+            src = tuple(int(W[c, (k + t) % 3]) for t in range(3))
+            dst = tuple(int(W[c2, (k2 + t) % 3]) for t in range(3))
+            T = transport(src, dst)
+            if T is None:
+                ok = False
+                break
+            H = S.compose(T, H)
+        res[n]['undefined (types differ along the loop)' if not ok else label(H)] += 1
+    return {'five_valent_vertices': dict(res[5]), 'six_valent_vertices': dict(res[6])}
+
+
+out = {'cell_wirings': {}, 'vertex_wiring': {}}
+towers = {
+    'F_mesh_order': lambda l, m: S.uniform_wiring_mesh_order(m, F),
+    'B_mesh_order': lambda l, m: S.uniform_wiring_mesh_order(m, B),
+    'F_nat_r': lambda l, m: S.natural_tower(l, F, r)[l],
+    'B_nat_mirror': lambda l, m: S.natural_tower(l, B, mirror)[l],
+    'pinned': lambda l, m: S.pinned_wiring(m)[0],
+}
+for name, make in towers.items():
+    out['cell_wirings'][name] = {}
+    for l in range(MAXL + 1):
+        mesh = S.build_mesh(l)
+        out['cell_wirings'][name][str(l)] = cell_holonomy(mesh, make(l, mesh))
+        print(name, l, out['cell_wirings'][name][str(l)], round(time.time() - T0, 1), flush=True)
+
+# ---- vertex wiring
+U = S.PORT_UNIT
+n = U[list(S.TOP)].sum(axis=0); n /= np.linalg.norm(n)
+ref = U[S.TOP[0]] - (U[S.TOP[0]] @ n) * n; ref /= np.linalg.norm(ref)
+e2 = np.cross(n, ref)
+polar = np.degrees(np.arccos(np.clip(U @ n, -1, 1)))
+belt = [p for p in range(12) if 60 < polar[p] < 120]
+az = np.degrees(np.arctan2(U[belt] @ e2, U[belt] @ ref)) % 360
+belt = tuple(belt[i] for i in np.argsort(az))
+shift = {d: S.find_aut(belt, tuple(belt[(j + d) % 6] for j in range(6))) for d in range(6)}
+assert all(len(v) == 1 for v in shift.values())
+out['vertex_wiring']['belt_shift_by_one_step'] = label(shift[1][0])
+out['vertex_wiring']['belt_shift_classes'] = {d: label(shift[d][0]) for d in range(6)}
+for l in range(1, MAXL + 1):
+    mesh = S.build_mesh(l)
+    cyc = S.vertex_cycles(mesh)
+    nbrs = {v: [int(mesh.tri[c, (i + 1) % 3]) for c, i in cl] for v, cl in cyc.items()}
+    res = {5: collections.Counter(), 6: collections.Counter()}
+    for w, ring in nbrs.items():
+        if any(len(nbrs[x]) != 6 for x in ring):
+            res[len(ring)]['skipped (a five-valent vertex on the loop)'] += 1
+            continue
+        d = 0
+        m = len(ring)
+        for j in range(m):
+            u, v = ring[j], ring[(j + 1) % m]
+            d += nbrs[v].index(u) - nbrs[u].index(v) + 3
+        res[m][label(shift[d % 6][0])] += 1
+    out['vertex_wiring'][str(l)] = {'loop_around_five_valent_vertex': dict(res[5]), 'loop_around_six_valent_vertex': dict(res[6])}
+    print('V6', l, out['vertex_wiring'][str(l)], flush=True)
+json.dump(out, open(S.S3 + '/s6_holonomy.json', 'w'), indent=1)
+print('written', S.S3 + '/s6_holonomy.json')

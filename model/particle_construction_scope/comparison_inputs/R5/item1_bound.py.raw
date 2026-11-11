@@ -1,0 +1,119 @@
+"""Item 1: the tick in background link phases against the covariant Dirac evolution; the proved bound, executed.
+
+Checks, in this order:
+ 0. convention: constant link phases exp(-i A_i) give the symbol at p - A (engine with complex links).
+ 1. n ticks of the engine with slowly varying A_2(x_1), theta(x_2), phi(x_1) on an L x L x 1 lattice against
+    exp(-i n H) psi, H = alpha.(p - A) + theta beta + phi, computed by an independent spectral solver;
+    the proved bound (PROOFS.md, Theorem 1) evaluated from the initial data and the sup norms of the fields.
+ 2. scaling: the same physical configuration at spacings 1, 1/2, 1/4 (momenta, masses, potentials scaled by eps,
+    field strength by eps^2, n by 1/eps): error of the ordered tick ~ eps, of the alternating order ~ eps^2.
+"""
+import json, sys, time
+import numpy as np
+from r5lib import Routing, tick, mass_step, coin_apply, ALPHA, BETA, positive_coin
+
+out = {}
+# ---- 0. convention -------------------------------------------------------------------------------------------
+rng = np.random.default_rng(3)
+shape = (6, 4, 4); A = np.array([0.31, -0.17, 0.23])
+w = Routing(shape, [np.full(shape, np.exp(-1j * A[i])) for i in range(3)])
+worst = 0
+for n in ((1, 0, 0), (1, 1, 0), (2, 1, 3)):
+    for col in range(4):
+        e = np.zeros(4, complex); e[col] = 1
+        for theta in (0.0, 0.157935):
+            got = w.tick(w.plane_wave(n, e), theta)
+            want = w.plane_wave(n, Routing.symbol(w.momentum(n) - A, theta) @ e)
+            worst = max(worst, np.abs(got - want).max())
+out['constant_link_phase_is_symbol_at_p_minus_A'] = float(worst)
+print('0. constant link phases exp(-iA): tick = symbol(p - A), defect', worst)
+
+
+# ---- spectral reference ----------------------------------------------------------------------------------------
+class Config:
+    def __init__(self, L, B0, th0, th1, ph0, p0, sigma, centre=None):
+        self.L = L; x = np.arange(L); q = 2 * np.pi / L
+        X1, X2 = np.meshgrid(x, x, indexing='ij')
+        self.A2 = (B0 / q) * np.sin(q * X1)[..., None]                 # A_2(x_1); F_12 = B0 cos(q x_1)
+        self.theta = (th0 + th1 * np.cos(q * X2))[..., None]
+        self.phi = (ph0 * np.sin(q * X1))[..., None]
+        self.k = 2 * np.pi * np.fft.fftfreq(L)
+        self.sup = dict(F12=abs(B0), d1F12=abs(B0) * q, theta=abs(th0) + abs(th1), d2theta=abs(th1) * q, d22theta=abs(th1) * q * q,
+                        d1phi=abs(ph0) * q, d11phi=abs(ph0) * q * q)
+        c = L / 2 if centre is None else centre
+        g = np.exp(-((X1 - c) ** 2 + (X2 - c) ** 2) / (4 * sigma ** 2)) * np.exp(1j * (p0[0] * X1 + p0[1] * X2))
+        psi = g[..., None, None, None] * positive_coin((p0[0], p0[1], 0.0), th0).reshape(2, 2)
+        self.psi0 = psi / np.linalg.norm(psi)
+        self.engine = Routing((L, L, 1), [np.ones((L, L, 1), complex), np.exp(-1j * self.A2), np.ones((L, L, 1), complex)])
+
+    def Pi(self, psi, j):
+        """(p_j - A_j) psi, spectral derivative; j = 0, 1"""
+        kk = self.k.reshape((-1, 1, 1, 1, 1) if j == 0 else (1, -1, 1, 1, 1))
+        d = np.fft.ifft(kk * np.fft.fft(psi, axis=j), axis=j)
+        return d - self.A2[..., None, None] * psi if j == 1 else d
+
+    def H(self, psi):
+        return (coin_apply(self.Pi(psi, 0), ALPHA[0]) + coin_apply(self.Pi(psi, 1), ALPHA[1])
+                + self.theta[..., None, None] * coin_apply(psi, BETA) + self.phi[..., None, None] * psi)
+
+    def evolve(self, psi, t, dt=0.1, order=12):
+        steps = int(round(t / dt))
+        for _ in range(steps):
+            term = psi; acc = psi.copy()
+            for k in range(1, order + 1):
+                term = (-1j * dt / k) * self.H(term); acc = acc + term
+            psi = acc
+        return psi
+
+    def bound(self, n):
+        """Theorem 1 with the growth bounds, from the initial data and the sup norms (unit-norm state)"""
+        s = self.sup; nrm = np.linalg.norm
+        N1 = [nrm(self.Pi(self.psi0, 0)), nrm(self.Pi(self.psi0, 1)), 0.0]
+        N12 = nrm(self.Pi(self.Pi(self.psi0, 1), 0))                    # Pi_1 Pi_2 psi
+        b = [s['F12'] + s['d1phi'], s['F12'] + s['d2theta'], 0.0]       # ||[H, Pi_k]||
+        g12 = s['d1F12']                                                # ||d_1 B_2||, B_2 = alpha_1 F_12 + beta d_2 theta
+        t = float(n)
+        N1t = [N1[k] + t * b[k] for k in range(3)]
+        N12t = N12 + t * (b[0] * N1[1] + b[1] * N1[0]) + t * t * b[0] * b[1] + t * g12
+        per_tick = (N12t + s['theta'] * (N1t[0] + N1t[1]) + (2 / 3) * s['F12'] * N1t[2]
+                    + 0.5 * (s['F12'] + s['d2theta'] + s['d1phi']))
+        return n * per_tick, dict(N1_0=N1[:2], N12_0=N12, per_tick=per_tick)
+
+    def run(self, n, alternate, frame=False):
+        """frame=True: prepare N^(1/2) psi0 and read N^(-1/2) psi_n, N = exp(-i phi) exp(-i theta beta) the on-site
+        factor of the tick. In this frame the alternating pair is a palindromic product (second order)."""
+        psi = self.psi0
+        phi = self.phi if np.abs(self.phi).max() > 0 else None
+        if frame: psi = np.exp(-0.5j * self.phi)[..., None, None] * mass_step(psi, 0.5 * self.theta)
+        for t in range(n):
+            psi = tick(self.engine, psi, self.theta, phi, reverse=(alternate and t % 2 == 1))
+        if frame: psi = np.exp(0.5j * self.phi)[..., None, None] * mass_step(psi, -0.5 * self.theta)
+        return psi
+
+
+# ---- 1. the bound, executed ------------------------------------------------------------------------------------
+t0 = time.time()
+cfg = Config(L=64, B0=0.004, th0=0.08, th1=0.02, ph0=0.03, p0=(0.12, 0.04), sigma=6.0)
+rows = []
+for n in (4, 8, 16, 32):
+    ref = cfg.evolve(cfg.psi0, n)
+    e_ord = np.linalg.norm(cfg.run(n, False) - ref); e_alt = np.linalg.norm(cfg.run(n, True) - ref)
+    e_altf = np.linalg.norm(cfg.run(n, True, frame=True) - ref)
+    bnd, parts = cfg.bound(n)
+    rows.append(dict(n=n, error_ordered=float(e_ord), error_alternating=float(e_alt), error_alternating_half_step_frame=float(e_altf), bound=float(bnd), reference_norm_drift=float(abs(np.linalg.norm(ref) - 1))))
+    print(f'1. n={n:3d}  error ordered {e_ord:.3e}  alternating {e_alt:.3e}  alternating, half-step frame {e_altf:.3e}  proved bound {bnd:.3e}  (reference norm drift {abs(np.linalg.norm(ref)-1):.1e})')
+out['bound_check'] = dict(config=dict(L=64, B0=0.004, theta0=0.08, theta1=0.02, phi0=0.03, p0=[0.12, 0.04], sigma=6.0), sup_norms=cfg.sup, rows=rows, initial=parts)
+
+# ---- 2. scaling ------------------------------------------------------------------------------------------------
+rows = []
+for eps, L in ((1.0, 32), (0.5, 64), (0.25, 128)):
+    c = Config(L=L, B0=0.02 * eps ** 2, th0=0.2 * eps, th1=0.06 * eps, ph0=0.08 * eps, p0=(0.4 * eps, 0.2 * eps), sigma=3.0 / eps)
+    n = int(round(8 / eps)); ref = c.evolve(c.psi0, n)
+    e_ord = np.linalg.norm(c.run(n, False) - ref); e_alt = np.linalg.norm(c.run(n, True, frame=True) - ref)
+    rows.append(dict(eps=eps, L=L, n=n, error_ordered=float(e_ord), error_alternating_half_step_frame=float(e_alt), bound=float(c.bound(n)[0])))
+    print(f'2. eps={eps:5.2f} L={L:4d} n={n:3d}  ordered {e_ord:.4e}  alternating (half-step frame) {e_alt:.4e}  bound {c.bound(n)[0]:.3e}')
+for a, b in zip(rows[:-1], rows[1:]):
+    print('   ratio ordered %.3f (first order: 2)   alternating %.3f (second order: 4)' % (a['error_ordered'] / b['error_ordered'], a['error_alternating_half_step_frame'] / b['error_alternating_half_step_frame']))
+out['scaling'] = rows
+out['seconds'] = time.time() - t0
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'item1_bound.json', 'w'), indent=1)

@@ -1,0 +1,222 @@
+{
+ "one_edge_exact": {
+  "states": 216,
+  "mismatched": 180,
+  "consistent": 36,
+  "left_rewrite": {
+   "all_consistent_after": true,
+   "keeps_right_port_and_link": true,
+   "idempotent": true
+  },
+  "right_rewrite": {
+   "all_consistent_after": true,
+   "keeps_left_port_and_link": true
+  },
+  "link_absorbs": {
+   "all_consistent_after": true,
+   "keeps_both_ports": true,
+   "new_link_equals_pi_pj_inverse": true,
+   "link_changed_on_every_mismatched_state": true
+  },
+  "terminal_law_from_uniform_mismatched_start_q=0": {
+   "support": 36,
+   "distinct_probabilities": [
+    "1/36"
+   ],
+   "uniform_on_36_consistent_states": true
+  },
+  "terminal_law_from_uniform_mismatched_start_q=2/25": {
+   "support": 36,
+   "distinct_probabilities": [
+    "1/36"
+   ],
+   "uniform_on_36_consistent_states": true
+  },
+  "port_perturbation_response": {
+   "perturbations": 180,
+   "left_rewrite_restores_the_unperturbed_state": true,
+   "right_rewrite_copies_the_perturbation_to_the_facing_port": true,
+   "link_branch_writes_the_perturbation_into_the_link": true,
+   "branch_probabilities": "healed (1-q)/2, copied (1-q)/2, written into the link q"
+  },
+  "terminal_law_from_biased_start_q=0": {
+   "support": 36,
+   "distinct_probabilities": [
+    "1/40",
+    "1/24"
+   ],
+   "uniform": false,
+   "note": "every consistent state is absorbing; the terminal law is the image of the initial law"
+  }
+ },
+ "frame_covariance": {
+  "mask_changed": 0,
+  "naive_mask_changed": 200,
+  "repair_not_equivariant": 0,
+  "holonomy_class_changed": 0,
+  "residual_changed": 0,
+  "trials": 200
+ },
+ "relaxation_q0_full_budget": {
+  "runs": 2000,
+  "q": 0.0,
+  "budget": 30,
+  "drive_edge_fraction": 0.0,
+  "cycles": 8,
+  "phi_increases": 0,
+  "cycles_to_zero_max": 1,
+  "faces_changed_element": 0,
+  "faces_changed_class": 0,
+  "faces_total": 40000,
+  "link_writes": 0,
+  "initial_mismatch_fraction": 0.8306333333333047,
+  "final_phi_nonzero_runs": 0,
+  "fraction_faces_changed_element": 0.0,
+  "fraction_faces_changed_class": 0.0,
+  "survival_of_initial_face_holonomy": {
+   "0": 1.0,
+   "1": 1.0,
+   "2": 1.0,
+   "4": 1.0,
+   "8": 1.0
+  }
+ },
+ "relaxation_q0_budget4": {
+  "runs": 2000,
+  "q": 0.0,
+  "budget": 4,
+  "drive_edge_fraction": 0.0,
+  "cycles": 16,
+  "phi_increases": 0,
+  "cycles_to_zero_max": 8,
+  "faces_changed_element": 0,
+  "faces_changed_class": 0,
+  "faces_total": 40000,
+  "link_writes": 0,
+  "initial_mismatch_fraction": 0.8333166666666373,
+  "final_phi_nonzero_runs": 0,
+  "fraction_faces_changed_element": 0.0,
+  "fraction_faces_changed_class": 0.0,
+  "survival_of_initial_face_holonomy": {
+   "0": 1.0,
+   "1": 1.0,
+   "2": 1.0,
+   "4": 1.0,
+   "8": 1.0,
+   "16": 1.0
+  }
+ },
+ "relaxation_q0.08_full_budget": {
+  "runs": 20000,
+  "q": 0.08,
+  "budget": 30,
+  "drive_edge_fraction": 0.0,
+  "cycles": 8,
+  "phi_increases": 0,
+  "cycles_to_zero_max": 1,
+  "faces_changed_element": 74120,
+  "faces_changed_class": 54153,
+  "faces_total": 400000,
+  "link_writes": 40204,
+  "initial_mismatch_fraction": 0.8330983333333485,
+  "final_phi_nonzero_runs": 0,
+  "fraction_faces_changed_element": 0.1853,
+  "fraction_faces_changed_class": 0.1353825,
+  "survival_of_initial_face_holonomy": {
+   "0": 1.0,
+   "1": 0.8146999999999001,
+   "2": 0.8146999999999001,
+   "4": 0.8146999999999001,
+   "8": 0.8146999999999001
+  }
+ },
+ "predicted_fraction_faces_changed_q0.08 = 1-(1-q*5/6)^3": 0.1869629629629629,
+ "driven_q0_drive0.1": {
+  "runs": 2000,
+  "q": 0.0,
+  "budget": 30,
+  "drive_edge_fraction": 0.1,
+  "cycles": 64,
+  "phi_increases": 0,
+  "cycles_to_zero_max": 1,
+  "faces_changed_element": 0,
+  "faces_changed_class": 0,
+  "faces_total": 40000,
+  "link_writes": 0,
+  "initial_mismatch_fraction": 0.8343333333333041,
+  "final_phi_nonzero_runs": 0,
+  "fraction_faces_changed_element": 0.0,
+  "fraction_faces_changed_class": 0.0,
+  "survival_of_initial_face_holonomy": {
+   "0": 1.0,
+   "1": 1.0,
+   "2": 1.0,
+   "4": 1.0,
+   "8": 1.0,
+   "16": 1.0,
+   "32": 1.0,
+   "64": 1.0
+  }
+ },
+ "driven_q0.08_drive0.1": {
+  "runs": 4000,
+  "q": 0.08,
+  "budget": 30,
+  "drive_edge_fraction": 0.1,
+  "cycles": 128,
+  "phi_increases": 0,
+  "cycles_to_zero_max": 1,
+  "faces_changed_element": 64276,
+  "faces_changed_class": 47200,
+  "faces_total": 80000,
+  "link_writes": 109767,
+  "initial_mismatch_fraction": 0.8346666666666516,
+  "final_phi_nonzero_runs": 0,
+  "fraction_faces_changed_element": 0.80345,
+  "fraction_faces_changed_class": 0.59,
+  "survival_of_initial_face_holonomy": {
+   "0": 1.0,
+   "1": 0.8159750000000203,
+   "2": 0.7997125000000184,
+   "4": 0.7685125000000135,
+   "8": 0.7096750000000059,
+   "16": 0.6027749999999991,
+   "32": 0.43887499999999896,
+   "128": 0.06356250000000102
+  },
+  "measured_hazard_per_cycle": 0.020176773863623015,
+  "measured_lifetime_cycles": 49.56193724324352,
+  "predicted_hazard_per_cycle = 3*drive*(5/6)*q": 0.020000000000000004
+ },
+ "driven_q0.08_drive0.3": {
+  "runs": 4000,
+  "q": 0.08,
+  "budget": 30,
+  "drive_edge_fraction": 0.3,
+  "cycles": 64,
+  "phi_increases": 0,
+  "cycles_to_zero_max": 1,
+  "faces_changed_element": 66208,
+  "faces_changed_class": 48518,
+  "faces_total": 80000,
+  "link_writes": 159310,
+  "initial_mismatch_fraction": 0.8342166666666511,
+  "final_phi_nonzero_runs": 0,
+  "fraction_faces_changed_element": 0.8276,
+  "fraction_faces_changed_class": 0.606475,
+  "survival_of_initial_face_holonomy": {
+   "0": 1.0,
+   "1": 0.8177125000000217,
+   "2": 0.7712500000000153,
+   "4": 0.683637500000004,
+   "8": 0.5368125000000011,
+   "16": 0.3332999999999998,
+   "32": 0.1273000000000014,
+   "64": 0.01776249999999973
+  },
+  "measured_hazard_per_cycle": 0.06154553162938025,
+  "measured_lifetime_cycles": 16.24813326858364,
+  "predicted_hazard_per_cycle = 3*drive*(5/6)*q": 0.06
+ },
+ "b12_parameters_lifetime_cycles_by_formula (drive 0.003, q 0.08)": 1666.6666666666663
+}

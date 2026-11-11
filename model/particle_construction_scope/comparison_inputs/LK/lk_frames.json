@@ -1,0 +1,131 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "model/coherent_seam_repair/program.py sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/common.py sha256": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/common_source/slow_geometry.py sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "R10 R12 by frame (FN native, FP plain law of the public program)": {
+  "FN": {
+   "W^-1 W S = S": true,
+   "weights": {
+    "B": "1/12",
+    "F": "1/12",
+    "I": "1/6",
+    "double": "2/3"
+   },
+   "P": "2/9",
+   "<S|W^-1 Pi_F W|S>": "1/12",
+   "<S|W^-1 Pi_I W|S>": "1/6",
+   "non-return norms squared (A, B)": [
+    "11/144",
+    "5/36"
+   ],
+   "<SS|X>": "2/9",
+   "pair identity (W^-1 x W^-1)(Z_F x Z_I)(W x W)|SS> = |SS> - 2|X>": true,
+   "G_I off-diagonal": "0",
+   "compression of W^-1 Qx W on the uniform doubles of A": [
+    [
+     "5/18",
+     "0"
+    ],
+    [
+     "0",
+     "1/6"
+    ]
+   ],
+   "T_blk T_addr T_sym S = S": true,
+   "family closure of (double 2, blank) contains (double 10, blank)": false,
+   "blocks in the closure": 3
+  },
+  "FP": {
+   "W^-1 W S = S": true,
+   "weights": {
+    "B": "1/12",
+    "F": "1/12",
+    "I": "1/6",
+    "double": "2/3"
+   },
+   "P": "2/9",
+   "<S|W^-1 Pi_F W|S>": "1/12",
+   "<S|W^-1 Pi_I W|S>": "1/6",
+   "non-return norms squared (A, B)": [
+    "11/144",
+    "5/36"
+   ],
+   "<SS|X>": "2/9",
+   "pair identity (W^-1 x W^-1)(Z_F x Z_I)(W x W)|SS> = |SS> - 2|X>": true,
+   "G_I off-diagonal": "0",
+   "compression of W^-1 Qx W on the uniform doubles of A": [
+    [
+     "5/18",
+     "0"
+    ],
+    [
+     "0",
+     "1/6"
+    ]
+   ],
+   "T_blk T_addr T_sym S = S": true,
+   "family closure of (double 2, blank) contains (double 10, blank)": true,
+   "blocks in the closure": 18
+  }
+ },
+ "R10 all round numbers equal in the two frames": true,
+ "R11 E seam with a two-orientation address: two ticks from the double at port 2": {
+  "plain law": {
+   "orientation +": {
+    "after one tick": {
+     "('11', 3, 1)": "1"
+    },
+    "after two ticks": {
+     "('02', 0, 0)": "1"
+    }
+   },
+   "orientation -": {
+    "after one tick": {
+     "('11', 2, 0)": "1"
+    },
+    "after two ticks": {
+     "('02', 0, 1)": "1"
+    }
+   },
+   "W_E^2 on the symmetric double (orientation +)": {
+    "('02', 0, 0)": "1",
+    "('20', 0, 0)": "1"
+   },
+   "W_E^2 on the antisymmetric double (orientation +)": {
+    "('02', 0, 0)": "1",
+    "('20', 0, 0)": "-1"
+   }
+  },
+  "native frame": {
+   "orientation +": {
+    "after one tick": {
+     "('11', 2, 1)": "1"
+    },
+    "after two ticks": {
+     "('20', 0, 0)": "1"
+    }
+   },
+   "orientation -": {
+    "after one tick": {
+     "('11', 2, 0)": "1"
+    },
+    "after two ticks": {
+     "('20', 0, 1)": "1"
+    }
+   },
+   "W_E^2 on the symmetric double (orientation +)": {
+    "('20', 0, 0)": "1",
+    "('02', 0, 0)": "1"
+   },
+   "W_E^2 on the antisymmetric double (orientation +)": {
+    "('20', 0, 0)": "1",
+    "('02', 0, 0)": "-1"
+   }
+  }
+ },
+ "R11 statement": "plain law: W_E^2 |20, blank, o> = |02, blank, o>, so X_E = W_E^2 on the blank doubles and T_sym = (1 + W_E^2)/2; native frame: W_E^2 is the identity on the blank doubles",
+ "seconds": 0.45
+}

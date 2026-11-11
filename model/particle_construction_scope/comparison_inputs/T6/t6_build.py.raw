@@ -1,0 +1,107 @@
+"""T6: assemble neutrino.json from the four result files and add the closing comparison (not blind).
+
+Measured values are read from the tables of the public checkout and enter nothing but the section `not_blind`:
+  model/particle_candidate_atlas/reference_values.json   electron and top mass energies
+  code/particles/neutrino/README.md                       KATRIN upper limit on the effective electron-neutrino mass
+
+    cd RER && python RL/work/T6/t6_build.py
+"""
+import json, os, re, sys
+import mpmath as mp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = os.getcwd()
+mp.mp.dps = 40
+load = lambda name: json.load(open(os.path.join(HERE, name)))
+terms, seesaw, engine, native = load('terms.json'), load('seesaw.json'), load('engine.json'), load('native.json')
+
+# ---------------------------------------------------------------------------------------------------------------
+# closing comparison, not blind
+# ---------------------------------------------------------------------------------------------------------------
+ref = json.load(open(os.path.join(RER, 'model', 'particle_candidate_atlas', 'reference_values.json')))
+mass = {m['target']: m for m in ref['masses']}
+me = mp.mpf(mass['electron']['value']); mt = mp.mpf(mass['top']['value'])            # GeV
+assert mass['electron']['unit'] == 'GeV' and mass['top']['unit'] == 'GeV'
+readme = open(os.path.join(RER, 'code', 'particles', 'neutrino', 'README.md')).read()
+m = re.search(r"KATRIN's ([0-9.]+) eV upper limit at\s+([0-9]+)% confidence", readme)
+assert m, 'KATRIN limit not found in the public README'
+bound_eV = mp.mpf(m.group(1))
+ratio = bound_eV * mp.mpf('1e-9') / me                                               # m_nu / m_e upper bound
+theta_top = mp.pi * me / mt                                                          # ceiling of the electron angle if the top shares the clock (report R7)
+
+
+def light(tD, tM):
+    return mp.acos(mp.cos(tD) * mp.cos(tM / 2)) - tM / 2
+
+
+rows = []
+for r in seesaw['tower_table']['rows']:
+    tM = mp.mpf(r['theta_M']); k = mp.cot(tM / 2) / 2
+    te = mp.findroot(lambda t: light(t, tM) / t - ratio, ratio / k)                  # common Dirac angle theta_D = theta_e at the bound
+    unit = me / te                                                                   # hbar / tick in GeV
+    at_ceiling = light(theta_top, tM) / theta_top * me * mp.mpf('1e9')               # light mass in eV if theta_e sits at the top ceiling
+    rows.append({'sector': r['sector'], 'theta_M': r['theta_M'],
+                 'largest_common_Dirac_angle_per_tick': mp.nstr(te, 4),
+                 'fraction_of_the_top_ceiling': mp.nstr(te / theta_top, 3),
+                 'tick_energy_at_least_GeV': mp.nstr(unit, 4),
+                 'heavy_state_at_least_GeV': mp.nstr((light(te, tM) + tM) * unit, 4),
+                 'light_mass_eV_if_the_electron_angle_is_at_the_top_ceiling': mp.nstr(at_ceiling, 3)})
+not_blind = {
+    'exposure': 'retrospective, not blind; no measured value enters any derivation above',
+    'inputs': {'KATRIN_upper_limit_eV': m.group(1), 'confidence_percent': m.group(2), 'source_file': 'RER/code/particles/neutrino/README.md',
+               'electron_mass_GeV': mass['electron']['value'], 'top_mass_GeV': mass['top']['value'],
+               'source_file_masses': 'RER/model/particle_candidate_atlas/reference_values.json'},
+    'bound_on_neutrino_over_electron': mp.nstr(ratio, 4),
+    'electron_angle_ceiling_if_the_top_shares_the_clock': mp.nstr(theta_top, 4),
+    'assumption': 'one common Dirac angle for neutrino and electron (lead L31), pairing angle at the tower values',
+    'rows': rows,
+    'without_the_pairing_step': 'neutrino over electron = 1 against the bound ' + mp.nstr(ratio, 3) + ' (report R7)',
+    'sentence': ('Not blind: with one common Dirac angle and the pairing angle at the tower values, the KATRIN limit of ' + m.group(1) +
+                 ' eV against the electron mass requires an electron angle below ' + rows[0]['largest_common_Dirac_angle_per_tick'] + ' to ' +
+                 rows[-1]['largest_common_Dirac_angle_per_tick'] + ' per tick, ' +
+                 mp.nstr(1 / mp.mpf(rows[0]['fraction_of_the_top_ceiling']), 2) + ' to ' + mp.nstr(1 / mp.mpf(rows[-1]['fraction_of_the_top_ceiling']), 2) +
+                 ' times below the ceiling ' + mp.nstr(theta_top, 3) + ' that the top quark sets, that is a tick shorter than hbar/(' +
+                 rows[-1]['tick_energy_at_least_GeV'] + ' to ' + rows[0]['tick_energy_at_least_GeV'] + ' GeV).')}
+
+out = {
+    'worker': 'T6', 'step': 'E6 (neutrino masses)', 'date': '2026-11-10',
+    'scope': 'candidate program CF-1 (declared tick on the cubic family) with the chart of work/MAP; algebra of a declared program at '
+             'instrument level; level 1 for every premise; a rest phase is not a mass',
+    'corrections_stated_first': [
+        'Among the operators bilinear in the five level operators no pairing term conserves colour and electric charge and the three '
+        'number-conserving ones are diagonal. The pairing of the neutral singlet with itself is bilinear in the mode operators of the quanta; '
+        'on the pattern register it is the top form a_v1 a_v2 a_v3 a_s1 a_s2 (degree five), the link 11111 <-> 00000.',
+        'Every step of CF-1 section 8 conserves the number of quanta. A pairing step does not, and it does not fix the empty state '
+        '(amplitude cos(theta_M) per cell): with it the reference of report R1 is lost.',
+        'The pairing exists as such only with the conjugation that identifies 00000 with the hole of 11111 (one family; reports R4, R8). With 32 '
+        'independent patterns the same link is a number-conserving rotation between two neutral singlets, it fixes the empty state, and it '
+        'changes the record-independent Gauss charge (-1)^(n_s1).'],
+    'results': {
+        '1_allowed_terms': {'tag': 'EXACT; chart DECLARED', 'detail': terms},
+        '2_3_tick_and_phases': {'tag': 'EXACT (closed forms, identities); MEASURED (engine, float64 with printed defects); steps and angles DECLARED',
+                                'detail': seesaw, 'engine': engine},
+        '4_native': {'tag': 'EXACT; carrier and cover NATIVE; audit packets IMPORTED (their code executed, read only)', 'detail': native}},
+    'gauss_constraint': {
+        'central_charge_(-1)^n2 (CF-1 section 8)': {'Dirac toggle': 'fails, operator norm 2 |sin(theta_D)| on the occupied cell',
+                                                    'pairing of the neutral singlet': 'commutes', 'pairing of the left neutrino': 'commutes'},
+        'Z6_classes': 'pairings commute for every class; the toggle fails for the odd classes',
+        'record_independent_charge_(-1)^n_s1, one family': 'all three commute (a pair on one cell has even charge)',
+        'executed': 'full tick with eight quantum links on 2 x 2 x 1, eps = 0.3, kappa = 0.2: engine.json, key gauss'},
+    'verdict': {
+        'as_the_programs_stand': 'absent. The left neutrino has rest phase zero in every public program and in options M0 and M3 of CF-1; '
+                                 'option M1 gives it the vector-like angle of the electron doublet and leaves 11111 at zero. No step changes the '
+                                 'occupation of the neutral doublet level and no step changes the number of quanta or the degree.',
+        'at_representation_level': 'an option with one structural distinction: the pairing of the neutral singlet is the only mass term invariant '
+                                   'under the twelve responses, the only one that needs no charge-taking register, and it commutes with the Gauss '
+                                   'constraint.',
+        'conditional_statement': 'With a Dirac toggle of angle theta_D on the neutrino (step E3) and a pairing step of angle theta_M, the light rest '
+                                 'phase is arccos(cos(theta_D) cos(theta_M/2)) - theta_M/2 <= (theta_D^2/2) cot(theta_M/2). For theta_M at the lattice '
+                                 'scale the neutrino is lighter than a charged fermion of the same Dirac angle by the factor (theta_D/2) cot(theta_M/2).',
+        'what_fixes_theta_M': 'nothing in the public programs or in CF-1. Its native value is zero.',
+        'smallest_declared_input': ['the conjugation identifying 00000 with the hole of 11111', 'one pairing step on the neutral singlet with its angle',
+                                    'the Dirac toggle of step E3 for the neutrino']},
+    'not_blind': not_blind,
+    'files': {'scripts': ['t6_terms.py', 't6_seesaw.py', 't6_engine.py', 't6_native.py', 't6_build.py'],
+              'results': ['terms.json', 'seesaw.json', 'engine.json', 'native.json', 'neutrino.json'], 'note': 'NEUTRINO.md'}}
+json.dump(out, open(os.path.join(HERE, 'neutrino.json'), 'w'), indent=1)
+print(json.dumps(not_blind, indent=1))

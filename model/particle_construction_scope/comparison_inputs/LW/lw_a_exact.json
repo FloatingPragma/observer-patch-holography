@@ -1,0 +1,68 @@
+{
+  "schema": "lw.a_exact.v1",
+  "LA1_pullback": {
+    "J_pop_transport_minus_sigma_eta_form": "0",
+    "J_pop_pullback_minus_J10": "0",
+    "Pi_WW_on_chart": "tau2",
+    "tauY_on_chart_minus_fibre_plus_kappa_dn": "0",
+    "sigma_plus_eta_s_on_chart": "(4*dn*kappa*tau2**2 + dn*kappa + 8*eta_s*tau2**2 + 4*tau2**3)/(2*(4*tau2**2 + 1))",
+    "identity_holds": true,
+    "statement": "J10(tau2, dn) = J_pop_EW(sigma(tau2, dn), eta(tau2, dn)) exactly; J_pop_EW = Pi_WW^2 + det(Pi_neutral)^2 + (tr(Pi_neutral)/2 + eta_source)^2, and on the chart Pi_WW = tau2"
+  },
+  "LA1_J_pop_terms_at_P_fwd": {
+    "zero_selector_law": {
+      "Pi_WW_sq": 0.0,
+      "det_neutral_sq": 0.0,
+      "trace_term_sq": 0.0,
+      "J_pop": 0.0,
+      "J_pop_exactly_zero": true
+    },
+    "carrier_value_law": {
+      "Pi_WW_sq": 5.343226832687945e-08,
+      "det_neutral_sq": 9.900416285420423e-11,
+      "trace_term_sq": 2.5851077278548854e-07,
+      "J_pop": 3.1204204527522217e-07,
+      "J_pop_exactly_zero": false
+    }
+  },
+  "LA1_seam_pump": {
+    "kraus_complete": true,
+    "fixes_agreeing_subspace": true,
+    "removes_disagreeing_components_from_K0_branch": true,
+    "statement": "the pump is the identity on span{|00>, |11>, |+>} with every other Kraus branch zero there; it acts only on the disagreement components |->, |20>, |02>"
+  },
+  "LA4_i_projection": {
+    "normalized": true,
+    "E_X": "5000000000000000000000/684974175887064686476447",
+    "E_X_equals_p": true,
+    "E_D1": "0",
+    "E_D2": "0",
+    "fine_means_zero": true,
+    "statement": "with the coarse moment as the only emitted moment, the multipliers of the fine deformation features vanish and their means stay at the reference value 0; a nonzero mean needs an emitted moment on that feature"
+  },
+  "LA5_z6_traces": {
+    "generation_exponents": {
+      "Q_L": 0,
+      "u_R": 0,
+      "d_R": 0,
+      "L_L": 0,
+      "e_R": 0,
+      "nu_R": 0
+    },
+    "higgs_exponent": 0,
+    "generation_trace": "1",
+    "adjoint_exponents": {
+      "gluon": 0,
+      "W": 0,
+      "B": 0
+    },
+    "vacuum_polarization_trace": "1",
+    "regular_register_trace": "1/6",
+    "statement": "the Z6 centre acts trivially on every Standard-Model field and on every gauge adjoint, so the invariant projector is the identity (normalized trace 1) on the vacuum-polarization chart on which the D10 transport acts; the trace 1/6 of the C10 carrier is the trace on the regular register, which the D10 transport does not carry"
+  },
+  "basis": {
+    "kappa": 4.333972827136212,
+    "eta_source": 0.02214662617740713,
+    "P_fwd": 1.6309720958588974
+  }
+}

@@ -1,0 +1,58 @@
+"""MG checks: covariance of the global chart of the natural tower under the 60 rotations of the mesh (levels 0-3).
+
+    python b9_checks.py       (box B, seconds)
+For every rotation rho of the base icosahedron and every cell c: the port glued across edge k of c has global label
+G; the port glued across the image edge of rho(c) must have global label rho(G). Writes b9_checks.json.
+"""
+import json
+import sys
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+from b7_covariant_family import rotation_action
+
+
+def ancestral(L0, g, level):
+    """T at `level` pulled back from the uniform rule g at level L0 (tower labels)."""
+    mesh0 = S.build_mesh(L0); W0, base = M.wiring('Fnat', L0)
+    T = M.transports(mesh0, W0, base, g); mprev = mesh0
+    for lv in range(L0 + 1, level + 1):
+        mf = S.build_mesh(lv)
+        P = np.arange(mf.N) // 4
+        Tf = np.full((mf.N, 3), M.E60, dtype=np.int64)
+        for k in range(3):
+            Q = mf.nbr[:, k] // 4
+            dif = np.flatnonzero(P != Q)
+            kc = np.array([int(np.where(mprev.nbr[P[c]] == Q[c])[0][0]) for c in dif], dtype=np.int64)
+            Tf[dif, k] = T[P[dif], kc]
+        T, mprev = Tf, mf
+    return T
+
+
+
+out = {}
+g = M.crosswise_rule(M.TOP, 1)
+for level in range(4):
+    mesh = S.build_mesh(level)
+    W, base = M.wiring('Fnat', level)
+    T = ancestral(0, g, level)
+    G, _, _ = M.tree_transport(mesh, T, 0)
+    glob = np.array([[M.ROT60[M.R3][M.ROT60[int(M.INV[G[c]])][p]] for p in range(12)] for c in range(mesh.N)])
+    Gam = np.array([[glob[c, W[c, k]] for k in range(3)] for c in range(mesh.N)])
+    bad = 0
+    for i, (cell, shift) in enumerate(rotation_action(mesh)):
+        rho = M.ROT60[i]
+        for c in range(mesh.N):
+            for k in range(3):
+                if Gam[cell[c], (k + shift[c]) % 3] != rho[Gam[c, k]]:
+                    bad += 1
+    # negative control: a wrong rotation label breaks it
+    cell, shift = rotation_action(mesh)[1]
+    rho = M.ROT60[2]
+    neg = sum(1 for c in range(mesh.N) for k in range(3) if Gam[cell[c], (k + shift[c]) % 3] != rho[Gam[c, k]])
+    out[str(level)] = {'violations_over_60_rotations': int(bad), 'checks': int(60 * 3 * mesh.N), 'negative_control_violations': int(neg)}
+    print('level', level, out[str(level)], flush=True)
+json.dump(out, open('b9_checks.json', 'w'), indent=1)

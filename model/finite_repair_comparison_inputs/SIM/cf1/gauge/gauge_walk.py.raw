@@ -1,0 +1,198 @@
+"""Run H4 (task MA), part 3b: the readouts of runs H2 and H3 in link fields drawn from the plaquette-action ensemble.
+
+    python gauge_walk.py kstar.json out.json [--procs P]
+
+Identical to cf1_h2.py / cf1_h3.py (lattice 96 x 48 x 48, packet width 5 at wave number 2 pi 8 / 96 along the first
+axis, positive-branch coin, T = 48 ticks, alternating order, no rest angle, ballistic window of the free packet), except
+that the links are the configurations drawn by gauge_draw.py instead of independent random links. A quantum of charge 1
+sees u = omega^n on each link (omega = exp(2 pi i / N)). Rigid pair at separation s along the second axis: effective
+link u(x, i) conj(u(x + s e_2, i)), as in H3. Kinds: Z3 charge in the Z3 field, Z2 charge in the Z2 field, and (for each
+normalisation where both groups have a point) both charges in the product of the two independent fields.
+Mean free path = -1 / slope of log(ballistic / free) against ticks, fitted where the ratio exceeds 1e-3 (as in H2/H3).
+"""
+import json, os, sys, time
+import numpy as np
+from multiprocessing import Pool
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))
+from cf1_lib import Engine, positive_coin          # noqa: E402
+import gauge_mc as G                                # noqa: E402
+
+N_ = 48; shape = (2 * N_, N_, N_)
+p0 = 2 * np.pi * 8 / shape[0]; width = 5.0; start = (N_ // 3, N_ // 2, N_ // 2); coin = positive_coin((p0, 0, 0), 0.0); T = N_
+grids = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij', sparse=True)
+ts = np.arange(4, T + 1, 4)
+SEPS = (0, 1, 2, 4, 8, 16)
+
+
+def ballistic(links):
+    eng = Engine(shape, links); psi = eng.gaussian(start, width, (p0, 0, 0), coin); rows = []
+    for t in range(T):
+        psi = eng.step(psi, 0.0, 'Y', t)
+        if (t + 1) % 4 == 0:
+            rho = Engine.density(psi); xc = start[0] + (t + 1)
+            dx = ((grids[0] - xc + shape[0] / 2) % shape[0]) - shape[0] / 2; dy = grids[1] - start[1]; dz = grids[2] - start[2]
+            rows.append(float(rho[(np.abs(dx) <= 2.5 * width) & (np.sqrt(dy ** 2 + dz ** 2) <= 2.5 * width + 0 * dx)].sum()))
+    return np.array(rows)
+
+
+def rate(r):
+    ok = r > 1e-3
+    return float(-np.polyfit(ts[ok], np.log(r[ok]), 1)[0]) if ok.sum() >= 3 else float('nan')
+
+
+COPIES = [((0.5, 6.0, 1000), 0), ((0.5, 6.0, 1000), 1), ((0.5, 6.0, 1000), 2), ((0.2, 8.0, 3000), 3)]
+
+
+def fix_one(f):
+    """Z_N Landau gauge, best of several annealing copies (Gribov copies with leftover pure-gauge walls exist; the copy
+    with the largest mean Re U is kept). Saves configs/fixed_<name>.npz and returns the record of all copies."""
+    d = np.load(os.path.join(HERE, f)); n = d['n'].astype(np.int64); N = int(d['N']); ct = G.cos_table(N)
+    p_before = G.plaquette_ints(n, N); rec = []; best = None
+    for an, seed in COPIES:
+        nf, sweeps, share = G.landau_gauge(n, N, anneal=an, seed=seed)
+        assert np.array_equal(G.plaquette_ints(nf, N), p_before)
+        obj = float(ct[nf].mean()); rec.append({'anneal': list(an), 'seed': seed, 'sweeps': sweeps, 'nontrivial_link_share': share, 'mean_ReU': obj})
+        if best is None or obj > best[0]:
+            best = (obj, nf, share)
+    out = os.path.join(HERE, os.path.dirname(f), 'fixed_' + os.path.basename(f))
+    np.savez_compressed(out, n=best[1].astype(np.int8), N=N)
+    return {'file': f, 'fixed_file': os.path.relpath(out, HERE), 'copies': rec, 'nontrivial_link_share_kept': best[2],
+            'nontrivial_link_share_before': float(np.mean(n != 0)), 'nontrivial_plaquettes_per_carrier': float(3 * np.mean(p_before != 0))}
+
+
+WALL_AT = (88, 47, 47)        # link layer (from x to x + e_mu) far from the packet: it runs over x0 = 4..76, centre (24, 24) across
+
+
+def remove_walls(nf, N, rec):
+    """Landau-gauge copies can keep flat pure-gauge walls (a whole layer of mu-links carrying the same value m) that the
+    annealing does not remove. For each axis, every layer whose majority nonzero value covers more than half of the
+    layer is removed by the gauge transformation g(x) = sum of m over the wall layers below x_mu; what is left of their
+    sum (the holonomy sector) lands on the layer leaving x_mu = L - 1 and is moved by move_sector_wall. Plaquettes are
+    unchanged (EXACT)."""
+    for mu in range(3):
+        L = nf.shape[1 + mu]; lay = np.moveaxis(nf[mu], mu, 0).reshape(L, -1); g1 = np.zeros(L, np.int64); walls = []
+        for w in range(L):
+            vals, cnt = np.unique(lay[w], return_counts=True); nz = vals != 0
+            if nz.any() and cnt[nz].max() > 0.5 * lay.shape[1]:
+                m = int(vals[nz][np.argmax(cnt[nz])]); walls.append((w, m))
+                g1[w + 1:] += m
+        if walls:
+            g = np.moveaxis(np.broadcast_to((g1 % N).reshape((L,) + (1, 1)), (L,) + tuple(np.delete(nf.shape[1:], mu))), 0, mu)
+            nf = np.stack([(nf[nu] + g - np.roll(g, -1, nu)) % N for nu in range(3)])
+        rec.append({'axis': mu, 'walls_removed': walls})
+    return nf
+
+
+def move_sector_wall(nf, N, rec):
+    """A field with dilute flux can carry a uniform holonomy h != 1 along an axis (the Polyakov-loop sector of the torus).
+    No gauge transformation removes it (EXACT: the Polyakov loops are gauge invariant); in the Landau gauge it sits on a
+    single layer of links (a wall). The ensemble is translation invariant, so the configuration is translated (all
+    links, all directions) to put that layer far from the packet. Applied only when more than half of the lines along mu
+    carry the same nontrivial holonomy."""
+    for mu in range(3):
+        h = nf[mu].sum(axis=mu) % N
+        vals, cnt = np.unique(h, return_counts=True); m = int(vals[np.argmax(cnt)]); frac = float(cnt.max() / h.size)
+        row = {'axis': mu, 'majority_holonomy': m, 'share_of_lines': frac, 'shift': 0}
+        if m != 0 and frac > 0.75:
+            layer = np.moveaxis(nf[mu] == m, mu, 0).reshape(nf.shape[1 + mu], -1).sum(1)
+            w = int(np.argmax(layer)); shift = (WALL_AT[mu] - w) % nf.shape[1 + mu]
+            nf = np.roll(nf, shift, axis=1 + mu); row.update({'wall_layer': w, 'wall_links': int(layer[w]), 'shift': int(shift)})
+        rec.append(row)
+    return nf
+
+
+def links_of(files, info, shift=(0, 0, 0)):
+    """product over the listed configurations of omega_N^n (charge 1 in each group), each in the Z_N Landau gauge
+    (fix_one). The Monte Carlo field is gauge-random (each link is uniformly distributed, Elitzur); the packet of H2/H3
+    is prepared in the frame where most links are 1, and the pair link of H3 is a strip flux only if the short sides are
+    near 1. The Landau gauge is the frame with links as close to 1 as the annealing reaches (choice of frame: ARGUED)."""
+    u = [np.ones(shape, complex) for _ in range(3)]
+    for f in files:
+        ff = os.path.join(HERE, os.path.dirname(f), 'fixed_' + os.path.basename(f))
+        d = np.load(ff); nf = d['n'].astype(np.int64); N = int(d['N']); sec = []; wl = []
+        p0_ = G.plaquette_ints(nf, N); share0 = float(np.mean(nf != 0))
+        nf = np.roll(nf, shift, axis=(1, 2, 3))                    # translation: another place of the same sample
+        nf = remove_walls(nf, N, wl)
+        nf = move_sector_wall(nf, N, sec)
+        assert np.array_equal(np.sort(G.plaquette_ints(nf, N).ravel()), np.sort(p0_.ravel()))
+        info.append({'file': f, 'fixed_file': os.path.relpath(ff, HERE), 'translation': list(shift), 'nontrivial_link_share_fixed': share0,
+                     'nontrivial_link_share': float(np.mean(nf != 0)), 'walls': wl, 'sector': sec})
+        for i in range(3):
+            u[i] = u[i] * np.exp(2j * np.pi * nf[i] / N)
+    if all(int(np.load(os.path.join(HERE, f))['N']) == 2 for f in files):
+        u = [np.real(x) for x in u]
+    return u
+
+
+def job(args):
+    kind, cfg_index, files, free, shift = args
+    t0 = time.time(); info = []; u = links_of(files, info, shift)
+    single = ballistic(u) / free; r1 = rate(single)
+    rows = []
+    for s in SEPS:
+        if s == 0:
+            r = np.ones_like(free); rr = 0.0                    # EXACT: u conj(u) = 1, the pair sees no field
+        else:
+            links = [u[i] * np.conj(np.roll(u[i], -s, axis=1)) for i in range(3)]
+            r = ballistic(links) / free; rr = rate(r)
+        rows.append({'separation': s, 'ballistic_share_relative_to_free': [float(x) for x in r], 'rate_per_tick': rr,
+                     'rate_over_single_quantum_rate': rr / r1 if r1 > 0 else float('nan')})
+    return {'kind': kind, 'config': cfg_index, 'translation': list(shift), 'files': files, 'gauge_fixing': info, 'single_ballistic_share_relative_to_free': [float(x) for x in single],
+            'single_rate_per_tick': r1, 'single_mean_free_path_cells': (1 / r1 if r1 > 0 else None), 'pairs': rows, 'seconds': time.time() - t0}
+
+
+if __name__ == '__main__':
+    K = json.load(open(sys.argv[1])); outf = sys.argv[2]
+    procs = int(sys.argv[sys.argv.index('--procs') + 1]) if '--procs' in sys.argv else 24
+    pts = {p['label']: p for p in K['draw_points']}
+    free = ballistic(None)
+    kinds = []
+    for lab, p in pts.items():
+        kinds.append((f'Z{p["N"]} charge in {lab}', [lab]))
+    for norm in ('carrier', 'plaquette'):
+        a = [l for l in pts if pts[l]['N'] == 3 and pts[l]['normalisation'] == norm]
+        b = [l for l in pts if pts[l]['N'] == 2 and pts[l]['normalisation'] == norm]
+        if a and b:
+            kinds.append((f'Z3 and Z2 charge in {a[0]} x {b[0]}', [a[0], b[0]]))
+    SHIFTS = [(0, 0, 0), (48, 24, 0), (24, 12, 24), (72, 36, 12)]   # four places per configuration
+    jobs = [(name, i, [f'configs/{l}_{i}.npz' for l in labs], free, sh) for name, labs in kinds for i in range(5) for sh in SHIFTS]
+    t0 = time.time(); res = []
+    files = [f'configs/{l}_{i}.npz' for l in pts for i in range(5)]
+    if '--refix' in sys.argv or not all(os.path.exists(os.path.join(HERE, 'configs', 'fixed_' + os.path.basename(f))) for f in files):
+        with Pool(procs) as pool:
+            fixing = pool.map(fix_one, files)
+        json.dump(fixing, open(os.path.join(HERE, 'configs', 'fixing.json'), 'w'))
+    else:
+        fixing = json.load(open(os.path.join(HERE, 'configs', 'fixing.json'))) if os.path.exists(os.path.join(HERE, 'configs', 'fixing.json')) else []
+    for r in fixing:
+        print('fixed', r['file'], [(c['seed'], round(c['nontrivial_link_share'], 5), round(c['mean_ReU'], 5)) for c in r['copies']], f'{time.time() - t0:.0f}s', flush=True)
+    with Pool(procs) as pool:
+        for r in pool.imap_unordered(job, jobs):
+            res.append(r)
+            print(r['kind'], 'cfg', r['config'], r['translation'], 'link share', [round(g['nontrivial_link_share'], 5) for g in r['gauge_fixing']], 'mfp', None if r['single_mean_free_path_cells'] is None else round(r['single_mean_free_path_cells'], 2),
+                  'pair/single', [round(x['rate_over_single_quantum_rate'], 3) for x in r['pairs']], f'{time.time() - t0:.0f}s', flush=True)
+    summary = []
+    for name, labs in kinds:
+        rr = sorted([r for r in res if r['kind'] == name], key=lambda r: (r['config'], r['translation']))
+        cfgs = sorted({r['config'] for r in rr})
+        def two(vals_by_cfg):
+            """mean over all samples; error from the five configuration means (independent) and from all samples"""
+            allv = np.concatenate([np.asarray(v, float) for v in vals_by_cfg]); cm = np.array([np.mean(v) for v in vals_by_cfg])
+            return {'mean': float(allv.mean()), 'err_configs': float(cm.std(ddof=1) / np.sqrt(len(cm))), 'err_samples': float(allv.std(ddof=1) / np.sqrt(len(allv))),
+                    'config_means': [float(x) for x in cm]}
+        r1 = two([[r['single_rate_per_tick'] for r in rr if r['config'] == c] for c in cfgs])
+        row = {'kind': name, 'labels': labs, 'configs': len(cfgs), 'samples': len(rr), 'single_rate_per_tick': r1,
+               'single_mean_free_path_cells_from_mean_rate': float(1 / r1['mean']) if r1['mean'] > 0 else None,
+               'single_mean_free_path_range_from_err_configs': [float(1 / (r1['mean'] + r1['err_configs'])), float(1 / max(r1['mean'] - r1['err_configs'], 1e-9))],
+               'single_mean_free_path_cells_per_sample': [r['single_mean_free_path_cells'] for r in rr], 'pairs': []}
+        for j, s in enumerate(SEPS):
+            row['pairs'].append({'separation': s, 'rate_per_tick': two([[r['pairs'][j]['rate_per_tick'] for r in rr if r['config'] == c] for c in cfgs]),
+                                 'rate_over_mean_single_rate': (two([[r['pairs'][j]['rate_per_tick'] / r1['mean'] for r in rr if r['config'] == c] for c in cfgs]) if r1['mean'] > 0 else None),
+                                 'rate_over_single_per_sample_mean': two([[r['pairs'][j]['rate_over_single_quantum_rate'] for r in rr if r['config'] == c] for c in cfgs])})
+        summary.append(row)
+    out = {'run': 'H4 walk', 'label': 'candidate CF-1 routing (no rest angle) in static link fields drawn from the plaquette-action Gibbs ensemble at kappa*',
+           'lattice': list(shape), 'ticks': [int(t) for t in ts], 'free_ballistic': [float(x) for x in free], 'points': K['draw_points'],
+           'gauge_fixing': fixing, 'summary': summary, 'per_config': res, 'seconds': time.time() - t0}
+    json.dump(out, open(outf, 'w'), indent=1); print('written', outf)

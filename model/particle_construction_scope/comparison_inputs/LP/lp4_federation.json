@@ -1,0 +1,91 @@
+{
+ "task": "LP direction 4: federation glue seam",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "F1_public_rule": {
+  "level": 0,
+  "carriers": 20,
+  "ports": 240,
+  "seams": 630,
+  "inter-carrier seams": 30,
+  "every inter-carrier seam joins two different carriers": true,
+  "largest number of glue seams at one port": 1,
+  "glued ports per carrier": [
+   3
+  ],
+  "carriers by number of adjacent pairs among their three glued ports": {
+   "0": 12,
+   "1": 8
+  },
+  "receipt: declared_convention": true,
+  "receipt: source_derived": false,
+  "receipt: mode": "port_pair",
+  "reading": "a glue seam is an ordinary seam between one port of a carrier and one port of a neighbour; no port belongs to two carriers; the occupation is global, so a load carries no carrier label"
+ },
+ "F1_binary_rule_on_a_glue_seam": {
+  "occupied [], coin 0": "((), 0)",
+  "occupied [], coin 1": "((), 0)",
+  "occupied [1], coin 0": "((82,), 1)",
+  "occupied [1], coin 1": "((1,), 0)",
+  "occupied [82], coin 0": "((82,), 0)",
+  "occupied [82], coin 1": "((1,), -1)",
+  "occupied [1, 82], coin 0": "((1, 82), 0)",
+  "occupied [1, 82], coin 1": "((1, 82), 0)"
+ },
+ "F1_coherent_event_on_a_glue_seam": {
+  "seam with one load at each end and a blank record is kept": true,
+  "transitions from states without a double load (records 0, 1) into a double load or a record 2, 3": [],
+  "weight of a double load after a glue-seam event, from configurations without one": "0"
+ },
+ "F1_occurrence_weights": {
+  "two loads uniform over the 66 distinct pairs of one carrier, both ends of a given seam loaded": "1/66",
+  "two loads uniform over the distinct pairs of two glued carriers (24 ports), both ends of the glue seam loaded": "1/276",
+  "F3 declared reading of FR round 5 (one uniform load per carrier, coincidence on an identified port)": "1/144"
+ },
+ "F2_integer_law": {
+  "events that put two loads on a port that held fewer": [
+   "(0, 3) -> (2, 1)",
+   "(0, 4) -> (2, 2)",
+   "(0, 5) -> (2, 3)",
+   "(1, 2) -> (2, 1)",
+   "(1, 3) -> (2, 2)",
+   "(1, 4) -> (2, 3)",
+   "(2, 1) -> (1, 2)",
+   "(3, 0) -> (1, 2)",
+   "(3, 1) -> (2, 2)",
+   "(4, 0) -> (2, 2)",
+   "(4, 1) -> (3, 2)",
+   "(5, 0) -> (3, 2)"
+  ],
+  "smallest seam total among them": 3,
+  "smallest larger endpoint load among them": 2,
+  "from a seam total of two": [
+   "(0,2) -> [(1, 1)]",
+   "(1,1) -> [(1, 1)]",
+   "(2,0) -> [(1, 1)]"
+  ],
+  "retained level-0 run: initial loads": {
+   "range": [
+    0,
+    5
+   ],
+   "total": 611,
+   "ports": 240
+  },
+  "retained level-0 run: terminal balanced class": "109 ports with 2 loads and 131 ports with 3 loads",
+  "events that produce equal loads of two from unequal loads": [
+   "(0, 4) -> (2, 2)",
+   "(1, 3) -> (2, 2)",
+   "(3, 1) -> (2, 2)",
+   "(4, 0) -> (2, 2)"
+  ],
+  "reading": "a load of two appears on a port that held fewer only at a seam total of at least three: a double load exchanges place with a single load, or it forms beside a load of at least three; equal loads of two form at a seam total of four; the total-two sector and the binary class contain no such event"
+ },
+ "seconds": 1.24
+}

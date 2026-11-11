@@ -1,0 +1,224 @@
+"""Worker CM library: the generation rotation, its cover lifts, the five-level Fock lift, orbits, toggles.
+
+Exact arithmetic over Q(sqrt5, i) with the field class of RL/work/KD/kdlib.py (imported unchanged); the carrier and
+the code-lift convention are those of RER model/common_source/slow_geometry and model/coherent_seam_repair/holonomy.py
+(read only). mpmath helpers for the transcendental clock phase theta = 2/9.
+
+Run scripts from the RER checkout with
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/CM /tmp/oph-completion-venv/bin/python -B <script>
+"""
+import itertools
+from functools import lru_cache
+
+import mpmath as mp
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, I
+
+mp.mp.dps = 50
+LEVELS = ('c0', 'c1', 'c2', 's1', 's2')
+C0, C1, C2, S1, S2 = range(5)
+
+
+# ------------------------------------------------------------------------------------------------ carrier, g, lifts
+@lru_cache(maxsize=1)
+def generation_rotation():
+    car = kd.carrier()
+    rots = car['rotations']
+    ident = tuple(range(12))
+
+    def order(p):
+        k, x = 1, p
+        while x != ident:
+            x = kd.compose(p, x)
+            k += 1
+        return k
+    gC = [p for p in rots if p[2] == 3 and p[3] == 2 and order(p) == 2]
+    gE = [p for p in rots if p[2] == 10 and p[10] == 2 and order(p) == 2]
+    assert len(gC) == 1 and len(gE) == 1
+    gC, gE = gC[0], gE[0]
+    g = kd.compose(gE, gC)                         # g(i) = gE(gC(i))
+    assert order(g) == 3
+    face = (4, g[4], g[g[4]])
+    assert set(face) == {4, 5, 11}
+    quats, rotm = kd.cover()
+    lifts = [q for q, p in quats.items() if p == g]
+    assert len(lifts) == 2
+    # +q: the lift with w = +1/2 (q^3 = -1); -q: w = -1/2 (q^3 = +1)
+    plus = [q for q in lifts if q[0].sign() > 0]
+    minus = [q for q in lifts if q[0].sign() < 0]
+    assert len(plus) == 1 and len(minus) == 1
+    return {'gC': gC, 'gE': gE, 'g': g, 'face_orbit': face, 'q_plus': plus[0], 'q_minus': minus[0],
+            'R': rotm[plus[0]]}
+
+
+def code_lift(q):
+    """5x5 exact matrix R(q) + U(sigma(q)) on (c0, c1, c2, s1, s2)."""
+    return kd.code_lift(q)
+
+
+# ------------------------------------------------------------------------------------------------ Fock space
+def bits(mask):
+    return [j for j in range(5) if (mask >> j) & 1]
+
+
+def det(M):
+    n = len(M)
+    if n == 0:
+        return ONE
+    if n == 1:
+        return M[0][0]
+    s = ZERO
+    for j in range(n):
+        if M[0][j].is_zero():
+            continue
+        minor = [row[:j] + row[j + 1:] for row in M[1:]]
+        term = M[0][j] * det(minor)
+        s = s + (term if j % 2 == 0 else -term)
+    return s
+
+
+@lru_cache(maxsize=None)
+def fock_lift_column(qkey, mask):
+    """Gamma(M)|mask> as dict mask' -> K, M the code lift of the quaternion qkey."""
+    M = code_lift(qkey)
+    occ = bits(mask)
+    k = len(occ)
+    out = {}
+    for tgt in itertools.combinations(range(5), k):
+        sub = [[M[r][c] for c in occ] for r in tgt]
+        d = det(sub)
+        if not d.is_zero():
+            m2 = sum(1 << r for r in tgt)
+            out[m2] = d
+    return out
+
+
+def apply_lift(q, vec, g):
+    """Lifted shift Pi(g) x Gamma(code lift of q) on a vector {(port, mask): K}."""
+    out = {}
+    for (p, m), a in vec.items():
+        for m2, b in fock_lift_column(q, m).items():
+            key = (g[p], m2)
+            out[key] = out.get(key, ZERO) + a * b
+    return {k: v for k, v in out.items() if not v.is_zero()}
+
+
+def create(j, vec):
+    out = {}
+    for (p, m), a in vec.items():
+        if (m >> j) & 1:
+            continue
+        sign = -1 if bin(m & ((1 << j) - 1)).count('1') % 2 else 1
+        key = (p, m | (1 << j))
+        out[key] = out.get(key, ZERO) + (a if sign > 0 else -a)
+    return {k: v for k, v in out.items() if not v.is_zero()}
+
+
+def annihilate(j, vec):
+    out = {}
+    for (p, m), a in vec.items():
+        if not (m >> j) & 1:
+            continue
+        sign = -1 if bin(m & ((1 << j) - 1)).count('1') % 2 else 1
+        key = (p, m & ~(1 << j))
+        out[key] = out.get(key, ZERO) + (a if sign > 0 else -a)
+    return {k: v for k, v in out.items() if not v.is_zero()}
+
+
+def inner(u, v):
+    s = ZERO
+    for k, a in u.items():
+        b = v.get(k)
+        if b is not None:
+            s = s + a.conj() * b
+    return s
+
+
+def vadd(u, v, c=ONE):
+    out = dict(u)
+    for k, b in v.items():
+        out[k] = out.get(k, ZERO) + c * b
+    return {k: x for k, x in out.items() if not x.is_zero()}
+
+
+def vscale(c, u):
+    return {k: c * x for k, x in u.items() if not (c * x).is_zero()}
+
+
+def vequal(u, v):
+    d = vadd(u, v, K(-1))
+    return len(d) == 0
+
+
+def pattern(port, levels):
+    m = 0
+    for j in levels:
+        m |= 1 << j
+    return {(port, m): ONE}
+
+
+# ------------------------------------------------------------------------------------------------ mpmath helpers
+SQ5 = mp.sqrt(5)
+
+
+def to_mp(x):
+    x = K.lift(x)
+    re = mp.mpf(x.a.numerator) / x.a.denominator + mp.mpf(x.b.numerator) / x.b.denominator * SQ5
+    im = mp.mpf(x.c.numerator) / x.c.denominator + mp.mpf(x.d.numerator) / x.d.denominator * SQ5
+    return mp.mpc(re, im)
+
+
+def mat_mp(A):
+    return mp.matrix([[to_mp(x) for x in row] for row in A])
+
+
+def shift(n, closure):
+    """Cyclic shift on an orbit basis e_0..e_{n-1}: S e_j = e_{j+1}, S e_{n-1} = closure * e_0."""
+    S = mp.zeros(n, n)
+    for j in range(n - 1):
+        S[j + 1, j] = 1
+    S[0, n - 1] = closure
+    return S
+
+
+def circulant(S, q, p, theta):
+    n = S.rows
+    Sd = S.H
+    return mp.sqrt(q) * mp.eye(n) + mp.sqrt(p) * (mp.exp(1j * theta) * S + mp.exp(-1j * theta) * Sd)
+
+
+def herm_eig(H):
+    """Eigenvalues ascending and orthonormal eigenvectors (columns) of a Hermitian mp.matrix."""
+    E, Q = mp.eighe(H)
+    order = sorted(range(len(E)), key=lambda i: E[i])
+    Es = [E[i] for i in order]
+    Qs = mp.matrix(Q.rows, len(order))
+    for c, i in enumerate(order):
+        for r in range(Q.rows):
+            Qs[r, c] = Q[r, i]
+    return Es, Qs
+
+
+def ckm_numbers(V):
+    a = [[abs(V[i, j]) for j in range(3)] for i in range(3)]
+    s13 = a[0][2]
+    c13 = mp.sqrt(1 - s13 ** 2) if s13 < 1 else mp.mpf(0)
+    s12 = a[0][1] / c13 if c13 > 0 else mp.nan
+    s23 = a[1][2] / c13 if c13 > 0 else mp.nan
+    J = mp.im(V[0, 0] * V[1, 1] * mp.conj(V[0, 1]) * mp.conj(V[1, 0]))
+    return {'abs_V': [[float(x) for x in row] for row in a], 's12': float(s12), 's23': float(s23),
+            's13': float(s13), 'J': float(J), 'J_50digits': mp.nstr(J, 30)}
+
+
+def is_permutation(V, tol=mp.mpf('1e-30')):
+    a = [[abs(V[i, j]) for j in range(V.cols)] for i in range(V.rows)]
+    ok = all(sum(1 for x in row if abs(x - 1) < tol) == 1 and all(x < tol or abs(x - 1) < tol for x in row) for row in a)
+    if not ok:
+        return False, None
+    perm = [next(j for j in range(V.cols) if abs(a[i][j] - 1) < tol) for i in range(V.rows)]
+    return True, perm
+
+
+def level_gaps(E):
+    return [float(E[i + 1] - E[i]) for i in range(len(E) - 1)]

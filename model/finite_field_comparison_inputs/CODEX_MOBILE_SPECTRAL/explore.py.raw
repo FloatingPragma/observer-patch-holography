@@ -1,0 +1,37 @@
+"""Explore the zero-photon compression of the fixed mobile source; not a certificate."""
+from pathlib import Path
+import importlib.util
+import mpmath as mp
+
+HERE=Path(__file__).resolve().parent
+path=HERE.parent/'CODEX_JOIN_QUANTUM/coulomb_mobile/model.py'
+spec=importlib.util.spec_from_file_location('mobile_spectral_parent',path)
+mobile=importlib.util.module_from_spec(spec);spec.loader.exec_module(mobile)
+
+mp.mp.dps=60
+def amplitudes(edge):
+    variance=mp.mpf(str(mobile.exact_peierls_data(edge)[2].evalf(70)))
+    sigma=mp.sqrt(variance);a=mp.sqrt(3-mp.sqrt(6));b=mp.sqrt(3+mp.sqrt(6))
+    even2=(mp.cos(sigma*b)-mp.cos(sigma*a))/(2*mp.sqrt(6))
+    even0=mp.cos(sigma*a)-(3-mp.sqrt(6))*even2
+    return even0+even2,mp.sqrt(2)*even2
+
+if __name__=='__main__':
+    kr,dr=amplitudes(0);kb,db=amplitudes(12)
+    eta=mp.mpf(1)/24;A=mp.zeros(13)
+    charges,_=mobile.parent.charge_geometry()
+    for i in range(13):A[i,i]=mp.mpf(str(charges[i]['total_energy_above_actual_neutral_ground']))
+    for e,(u,v) in enumerate(mobile.actual_edges()):A[u,v]=A[v,u]=-eta*(kr if e<12 else kb)
+    es,vs=mp.eigsy(A)
+    v=(5+mp.sqrt(73))/48
+    r=eta*(5*mp.sqrt(1-kb*kb)+mp.sqrt(25*(1-kb*kb)+48*(1-kr*kr)))/2
+    c=2+mp.sqrt(4-mp.sqrt(5))-v
+    lower=(es[0]+c-mp.sqrt((c-es[0])**2+4*r*r))/2
+    r2=eta*eta*min(dr*dr,db*db)/5
+    print('vacuum overlaps',kr,kb)
+    print('two-photon coefficients',dr,db)
+    print('A eigenvalues',list(es))
+    print('V norm upper',v,'R norm upper',r,'Q lower',c)
+    print('actual ground interval',lower,es[0]-r2/13)
+    print('strict photon dressing improvement lower',r2/13)
+    print('second-level Schur lower',(es[1]+c-mp.sqrt((c-es[1])**2+4*r*r))/2)

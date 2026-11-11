@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""Worker CG, task 3: the one-sided edge algebra on the executable observer, its sectors and the state the
+repair law leaves on it (check C8 of CANDIDATES.md).
+
+Run from RER:  PYTHONPATH=.:<CG> python <CG>/cg_observer.py   (about 25 s; writes cg_observer.json here)
+Reads RER code only. No measured value is read.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import math
+from fractions import Fraction as F
+from pathlib import Path
+
+import sympy as sp
+
+from model.observer import coherent_continuation as cc
+from model.common_source.slow_geometry import source
+
+HERE = Path(__file__).resolve().parent
+out = {}
+
+# ------------------------------------------------------------------ (a) the source's own audit (S-e)
+audit = cc.edge_generator_audit()
+out["source_edge_generator_audit"] = {k: audit[k] for k in audit if k != "selected_order_five_class"}
+
+# ------------------------------------------------------------------ (b) the module, rebuilt independently
+rots = list(source().rotations())
+seams = list(cc.quantum_mixing.seams())
+L = sp.zeros(12)
+for a, b in seams:
+    L[a, a] += 1; L[b, b] += 1; L[a, b] -= 1; L[b, a] -= 1
+s5 = sp.sqrt(5)
+eig = [sp.Integer(0), 5 - s5, sp.Integer(6), 5 + s5]
+I12 = sp.eye(12)
+proj = {}
+for lam in eig:
+    M = I12
+    for mu in eig:
+        if mu != lam:
+            M = M * (L - mu * I12) / (lam - mu)
+    proj[lam] = M.applyfunc(sp.nsimplify).applyfunc(sp.simplify)
+ranks = {str(l): sp.simplify(P.trace()) for l, P in proj.items()}
+idem = all(sp.simplify(P * P - P) == sp.zeros(12) for P in proj.values())
+complete = sp.simplify(sum(proj.values(), sp.zeros(12)) - I12) == sp.zeros(12)
+diag_const = {str(l): sorted({str(sp.simplify(P[i, i])) for i in range(12)}) for l, P in proj.items()}
+out["module"] = {"seams": len(seams), "projector_ranks": {k: str(v) for k, v in ranks.items()},
+                 "projectors_idempotent": idem, "projectors_complete": complete,
+                 "diagonal_of_each_projector": diag_const}
+
+# multiplicities of the rotation-group irreps in the twelve-port permutation module
+compose = lambda p, q: tuple(p[q[i]] for i in range(12))
+ident = tuple(range(12))
+
+
+def order(p):
+    k, x = 1, p
+    while x != ident:
+        x = compose(p, x); k += 1
+    return k
+
+
+fixed = lambda p: sum(1 for i in range(12) if p[i] == i)
+by_order = {}
+for p in rots:
+    by_order.setdefault(order(p), []).append(fixed(p))
+phi = (1 + s5) / 2
+# A5 character table on (order 1, 2, 3, 5a, 5b); the two order-5 classes have equal fixed-point counts
+table = {"1": (1, 1, 1, 1, 1), "3": (3, -1, 0, phi, 1 - phi), "3'": (3, -1, 0, 1 - phi, phi),
+         "4": (4, 0, 1, -1, -1), "5": (5, 1, -1, 0, 0)}
+fix_by_order = {o: sorted(set(v)) for o, v in by_order.items()}
+sizes = {o: len(v) for o, v in by_order.items()}
+assert fix_by_order == {1: [12], 2: [0], 3: [0], 5: [2]} and sizes == {1: 1, 2: 15, 3: 20, 5: 24}
+mult = {}
+for R, ch in table.items():
+    m = (12 * ch[0] + 15 * 0 * ch[1] + 20 * 0 * ch[2] + 12 * 2 * ch[3] + 12 * 2 * ch[4]) / sp.Integer(60)
+    mult[R] = sp.simplify(m)
+out["irrep_multiplicities_in_twelve_port_module"] = {R: str(v) for R, v in mult.items()}
+out["irrep_multiplicities_in_regular_module"] = {R: str(table[R][0]) for R in table}
+out["tracial_sector_law"] = {
+    "twelve_port_module": {R: str(sp.Rational(int(mult[R]) * table[R][0], 12)) for R in table},
+    "regular_module_of_the_rotation_group": {R: str(sp.Rational(table[R][0] ** 2, 60)) for R in table},
+    "statement": "the twelve-port module holds each present irrep once (power 1); the regular module holds R "
+                 "d_R times (power 2) (EXACT)"}
+
+# ------------------------------------------------------------------ (c) the state the repair law leaves
+K12 = I12 - L / 60
+nonneg = all(K12[i, j] >= 0 for i in range(12) for j in range(12))
+dstoch = all(sum(K12[i, j] for j in range(12)) == 1 for i in range(12)) and \
+    all(sum(K12[i, j] for i in range(12)) == 1 for j in range(12))
+# every classical port law mu (diagonal state) has p_R = Tr(P_R diag mu) = rank/12, because diag(P_R) is constant
+mu = [sp.Rational(k + 1, 78) for k in range(12)]                 # an arbitrary non-uniform classical law
+pR_mu = {str(l): str(sp.simplify(sum(mu[i] * P[i, i] for i in range(12)))) for l, P in proj.items()}
+out["repair_state"] = {"K12_nonnegative": nonneg, "K12_doubly_stochastic": dstoch,
+                       "stationary_law": "uniform on the twelve ports",
+                       "sector_law_of_an_arbitrary_classical_port_law": pR_mu,
+                       "statement": "native repair is doubly stochastic; every classical port law, the stationary "
+                                    "one included, has p_R = d_R/12: weight power 1, exponent 0 (EXACT)"}
+
+# ------------------------------------------------------------------ (d) the Poissonized semigroup and the filter
+t, x, N = sp.symbols("t x N", positive=True)
+pois = sp.simplify(sp.summation(sp.exp(-60 * t) * (60 * t) ** N / sp.factorial(N) * (1 - x / 60) ** N, (N, 0, sp.oo)))
+out["poissonized_semigroup"] = {"eigenvalue_identity_E[(1-x/60)^N]": str(pois),
+                                "sector_law": "Tr(P_R exp(-tL)) = d_R exp(-t lambda_R): power 1, exponent t = "
+                                              "mean attempts/60 (EXACT)"}
+filt = {}
+for l in eig[1:]:
+    ratio = -120 * sp.log(1 - l / 120) / l
+    filt[str(l)] = {"exponent_ratio_exact": str(ratio), "value": float(ratio)}
+out["heralded_filter_of_S-f"] = {
+    "law": "p_R = d_R (1 - lambda_R/120)^(2n)/Z; n = 2 and t = 1/30 in the source receipt",
+    "per_sector_exponent_over_linear_Casimir_exponent": filt}
+try:
+    from model.predictions import inverse_clock as ic
+    rec = ic.prepared_edge_gibbs()
+    out["source_prepared_receipt"] = {k: rec[k] for k in ("sector_law", "limit_sector_ratio")}
+    out["source_prepared_receipt"]["ideal_family"] = rec["ideal_family"]
+except Exception as exc:  # pragma: no cover
+    out["source_prepared_receipt"] = {"error": repr(exc)}
+
+# ------------------------------------------------------------------ (e) one patch's side of a native collar
+STATES = cc.STATES
+assert len(STATES) == 66 and all(sum(s_) == 2 for s_ in STATES)
+adj = {i: set() for i in range(12)}
+for a, b in seams:
+    adj[a].add(b); adj[b].add(a)
+
+
+def ball(r):
+    S = {0}
+    for _ in range(r):
+        S |= {j for i in S for j in adj[i]}
+    return S
+
+
+caps = {"one_port": {0}, "seam": {0, 1}, "hemisphere_six_ports": ball(1), "eleven_ports": set(range(11))}
+regional = {}
+for name, A in caps.items():
+    A = sorted(A)
+    cross = sum(1 for a, b in seams if (a in A) != (b in A))
+    sectors = {}
+    for k in range(3):
+        d = math.comb(len(A), k)
+        M = math.comb(12 - len(A), 2 - k)
+        count = sum(1 for s_ in STATES if sum(s_[i] for i in A) == k)
+        assert count == d * M
+        if d * M:
+            sectors[k] = {"intrinsic_dim": d, "exterior_multiplicity": M, "uniform_law": str(F(d * M, 66))}
+    regional[name] = {"ports": len(A), "crossing_seams": cross, "sectors_by_load_inside": sectors}
+out["native_collar_split"] = {
+    "rows": regional,
+    "statement": "under the native uniform law on the 66 states (constant total two) a cap's side has the sector "
+                 "law (intrinsic dim) x (exterior multiplicity): one power of its own count, the exterior "
+                 "count acting as the Boltzmann factor of check C7 (EXACT)"}
+
+(HERE / "cg_observer.json").write_text(json.dumps(out, indent=1, default=str) + "\n")
+print(json.dumps(out, indent=1, default=str)[:7000])

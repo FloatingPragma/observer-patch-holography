@@ -1,0 +1,69 @@
+"""Task GEN: collect the decision JSON, the P3.3 group table, the replications and the geometry labels into
+repair-law/work/SIM/cf1/runs/GEN_three_populations.json. Pure JSON assembly (no statistics here).
+
+    python gen_build.py
+"""
+import hashlib
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE.parent / 'runs' / 'GEN_three_populations.json'
+
+R = json.load(open(HERE / 'out' / 'GEN_three_populations.json'))
+groups = json.load(open(HERE / 'out' / 'GEN_groups_P33.json'))
+rep = json.load(open(HERE / 'out' / 'GEN_replication_P3.json'))
+comp = json.load(open(HERE / 'out' / 'GEN_comp_groups.json'))
+geo = json.load(open(HERE / 'out' / 'geom_labels.json'))
+
+summary = {
+    'P1.1 frame class relative to F* (T+, T-, ax_x, ax_y, ax_z)': 'no: occupancy uniform within 0.6 %; no class heterogeneous at the corrected level (largest chi2/phi 23.0 for 4 dof, class 3, p 1.2e-4)',
+    'P1.1b 4 + 4 + 12 grouping': 'no: all classes homogeneous (p >= 0.03)',
+    'P1.2 three axial classes of F*': 'no: class 3 heterogeneous on L10 (ax_z 0.6 % low, p 3.3e-5), L9 pairwise |z| <= 3.1, not three distinct groups; other classes homogeneous',
+    'P1.3 ordered frame pair (L, R) = template face': 'no: classes 2, 3, 4 heterogeneous, face rates within 1.2 % of the mean (p 5e-14 to 5e-6), best three-group partitions not confirmed on L9 (pairwise |z| <= 3.7); classes 1, 5 homogeneous',
+    'P1.4 unordered pair {L, R} = three-fold axis': 'no: all classes homogeneous (p >= 7.8e-4)',
+    'P1.5 frame classes relative to frames 1 to 4': 'no: all homogeneous (p >= 0.016)',
+    'P1.6 outer / equatorial / inner and latitude': 'no: classes 2, 4 outer +0.4 %, inner -0.35 % (p 1e-14), L9 confirms outer vs inner only (z -4.9), equatorial not distinct; two levels, not three',
+    'P1.7 glued ports on the face': 'no: classes 2, 4 about 1 to 2 % fewer on faces with two glued ports (p 6e-7, 3e-6), L9/L8 pairwise |z| <= 3.7',
+    'P2.1 separation of one-pair carriers': 'no: one mode per class ((1,5) at d = 3, (2,4) and (3,3) at d = 2)',
+    'P2.2 chirality': 'no (two-valued): equal, largest |z| 1.44',
+    'P2.3 pair type (d, chi)': 'no: 7, 6 and 4 types above 5 %',
+    'P2.4 partner class': 'no: one or two dominant partners (class 1: 5 at 0.989; class 4: 2 at 0.925; class 3: 3 at 0.936)',
+    'P2.5 distance to the nearest other defect': 'no: one mode per class',
+    'P2.6 composition': 'no: class 1 {1,5} 0.989; class 4 {2,4} 0.890, {2,2,4,4} 0.0496, {4,4,4} 0.0462 (near miss of the 5 % rule, see report 5.3); class 3 {3,3} 0.916 and {2,3,3,4} 0.065',
+    'P2.7 composition and shape': 'no: 7, 5 and 4 dominant shapes',
+    'P3.1 birth sweep': 'no: one or two significant modes (sweep 0; second modes at sweeps 9 to 40, carrier tier reading ii, or 252 to 316, screen alive classes 1 and 5)',
+    'P3.2 number of moves': 'no: one or two significant modes',
+    'P3.3 lifetime': 'yes by the pre-registered rule, for all identities (not for the protected ones): classes 3 (carrier L6/L5, screen L10/L9) and 4 (screen L10/L9; conjugate 2 confirms) under reading ii; the groups are lifetime 1 to 3-5 depth, ordinary contact times, and survivors to the end of the run (94 to 99 % alive, position set by the run length); alive identities have one mode in every class',
+    'P4.1 valence (pentagonal cells and plaquettes)': 'no (two-valued): no difference resolved (pooled L5 to L9: |z| <= 1.23; 0 to 1 screen defects on the 60 pentagonal plaquettes)',
+    'P4.2 level-0 ancestor': 'no: all classes homogeneous over the 20 base faces on both tiers (p >= 0.065)',
+}
+
+res = {
+    'task': 'GEN: three populations within one defect class (pre-registered test, stored data only)',
+    'report': 'repair-law/reports/GEN.md',
+    'scripts': 'repair-law/work/SIM/cf1/gen/ (gen_geom.py, gen_static.py, gen_ident.py, gen_decide.py, gen_groups.py, '
+               'gen_lifecheck.py, gen_replicate.py, gen_build.py, sync.sh)',
+    'inputs': {
+        'checkpoints_sweep_300': 'L5..L8 ~/oph-physics-sim/runs/universe/L*/checkpoints/ckpt_000300.npz; L9, L10 ~/cf1bg_data/L*/ckpt_000300.npz (box A)',
+        'catalogues': 'L3..L8 ~/oph-physics-sim/runs/universe/L*/catalogue.npz; L9, L10 ~/cf1bg_data/L*/catalogue.npz (box A)',
+        'geometry': 'oph_defects.fedgeom.build(L) cache on box A (L3..L9); run.json geometry for the template',
+        'x3_register_sha256': {
+            'register.json': hashlib.sha256(open(HERE / 'x3' / 'register.json', 'rb').read()).hexdigest(),
+            'x3_register.py': hashlib.sha256(open(HERE / 'x3' / 'x3_register.py', 'rb').read()).hexdigest()},
+    },
+    'answer_per_property': summary,
+    'three_way_split_found': {
+        'property': 'P3.3 identity lifetime, all identities, reading ii (count per unit ln(1 + depth))',
+        'classes': {'carrier tier': [3], 'screen tier': [3, 4, 2]},
+        'not_found_for': 'identities alive at the end (protected defects): one lifetime mode in every class and tier',
+        'groups': groups,
+    },
+    'geometry': {k: geo[k] for k in ('fixed_frame_index_x3_order', 'fixed_frame_definition', 'Fstar_class', 'LR', 'axis_id',
+                                     'hemisphere', 'latitude_abs_z_values', 'latitude_class', 'checks')},
+    'decisions': R,
+    'replication_P3_mode_bins': rep,
+    'supplementary_composition_groups_P2_6_near_miss': comp,
+}
+json.dump(res, open(OUT, 'w'), indent=1, default=float)
+print('written', OUT, OUT.stat().st_size)

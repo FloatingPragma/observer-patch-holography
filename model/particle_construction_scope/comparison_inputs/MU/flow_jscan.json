@@ -1,0 +1,1585 @@
+{
+ "alphas": {
+  "50.0": {
+   "cos_alpha": 0.6427876096865394,
+   "rows": [
+    {
+     "j": 0.5,
+     "dim": 2,
+     "gaussian_omega_at_boundary": -2.683259128100981,
+     "gaussian_omega_at_boundary_times_sqrt_j": -1.8973507251609067,
+     "tracial_omega_at_boundary": -2.3221739586435364,
+     "gaussian_omega_exact_spinor": -2.683259128100981,
+     "tracial_omega_exact_spinor": -2.3221739586435364,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.683259128100981,
+        "spin_length": 1.0000000000000002,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -2.683259128100981,
+        "spin_length": 1.0000000000000002,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": 0.45833352548881223,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -2.3221739586435364,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -2.3221739586435364,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": null,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 1,
+     "dim": 3,
+     "gaussian_omega_at_boundary": -2.1676452911299107,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.1676452911299107,
+     "tracial_omega_at_boundary": -1.665459788242991,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.1960849464638654,
+        "spin_length": 0.9999077070415696,
+        "angular_width_rad": 0.01358623998245169
+       },
+       "1.0": {
+        "azimuth_over_t": -2.1946692344750476,
+        "spin_length": 0.9985646756778485,
+        "angular_width_rad": 0.05357843450776708
+       },
+       "4.0": {
+        "azimuth_over_t": -0.6051191523293898,
+        "spin_length": 0.9858515774234324,
+        "angular_width_rad": 0.16821666134225566
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -1.7132034104098517,
+        "spin_length": 0.9997375603483696,
+        "angular_width_rad": 0.022910244504606207
+       },
+       "1.0": {
+        "azimuth_over_t": -1.7065040889279917,
+        "spin_length": 0.9961303734278514,
+        "angular_width_rad": 0.08797302509461205
+       },
+       "4.0": {
+        "azimuth_over_t": -0.08421638589159289,
+        "spin_length": 0.987465737760362,
+        "angular_width_rad": 0.15833042815351728
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 2,
+     "dim": 5,
+     "gaussian_omega_at_boundary": -1.7835865538479956,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.522372294118126,
+     "tracial_omega_at_boundary": -1.0477563146927609,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.7942248861221315,
+        "spin_length": 0.9999871202344585,
+        "angular_width_rad": 0.005075384821181591
+       },
+       "1.0": {
+        "azimuth_over_t": -1.794041256021244,
+        "spin_length": 0.9997998967934254,
+        "angular_width_rad": 0.020005159663176786
+       },
+       "4.0": {
+        "azimuth_over_t": -0.2212475117169648,
+        "spin_length": 0.9978005915268899,
+        "angular_width_rad": 0.06632357760419842
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -1.1304579809226787,
+        "spin_length": 0.9997371856142637,
+        "angular_width_rad": 0.022926595287407
+       },
+       "1.0": {
+        "azimuth_over_t": -1.126400198914315,
+        "spin_length": 0.9959743410685186,
+        "angular_width_rad": 0.08972913608724242
+       },
+       "4.0": {
+        "azimuth_over_t": 0.4958706082084118,
+        "spin_length": 0.96471999829736,
+        "angular_width_rad": 0.26563132986393007
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 4,
+     "dim": 9,
+     "gaussian_sup_error_of_omega_interior": 0.4151015525776871,
+     "gaussian_sup_relative_error_interior": 0.35111715794429604,
+     "tracial_sup_abs_omega_interior": 0.5131621162007246,
+     "gaussian_omega_at_boundary": -1.3298965078212635,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.659793015642527,
+     "tracial_omega_at_boundary": -0.8752412487966453,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.5249508835297758,
+        "spin_length": 0.9999236722844101,
+        "angular_width_rad": 0.01235538065701355
+       },
+       "1.0": {
+        "azimuth_over_t": -1.5252000430869819,
+        "spin_length": 0.9987847064085401,
+        "angular_width_rad": 0.049300985618137234
+       },
+       "4.0": {
+        "azimuth_over_t": 0.04128323237555032,
+        "spin_length": 0.982039019537457,
+        "angular_width_rad": 0.18953089701968395
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.6317940620497088,
+        "spin_length": 0.9997713347585527,
+        "angular_width_rad": 0.021385286598372622
+       },
+       "1.0": {
+        "azimuth_over_t": -0.6296890850244163,
+        "spin_length": 0.9964317176733792,
+        "angular_width_rad": 0.08447819039989865
+       },
+       "4.0": {
+        "azimuth_over_t": -0.5979191983441168,
+        "spin_length": 0.9603384013390204,
+        "angular_width_rad": 0.28164374184767405
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 8,
+     "dim": 17,
+     "gaussian_sup_error_of_omega_interior": 0.43684596981545676,
+     "gaussian_sup_relative_error_interior": 0.5880562664730655,
+     "tracial_sup_abs_omega_interior": 0.31717744898770217,
+     "gaussian_omega_at_boundary": -1.0080796796468197,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.8512799098185146,
+     "tracial_omega_at_boundary": -0.5205369398383177,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.4025870578708677,
+        "spin_length": 0.9995388824612553,
+        "angular_width_rad": 0.030368323587075755
+       },
+       "1.0": {
+        "azimuth_over_t": -1.4028640620490176,
+        "spin_length": 0.9927949881147404,
+        "angular_width_rad": 0.12004175844479763
+       },
+       "4.0": {
+        "azimuth_over_t": 0.16054039404620235,
+        "spin_length": 0.9234866128371414,
+        "angular_width_rad": 0.39118636776569454
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.2722717753487947,
+        "spin_length": 0.9998665659625782,
+        "angular_width_rad": 0.016336097295365944
+       },
+       "1.0": {
+        "azimuth_over_t": -0.27148867246584724,
+        "spin_length": 0.997894777274853,
+        "angular_width_rad": 0.06488794533882261
+       },
+       "4.0": {
+        "azimuth_over_t": -0.2595209663321203,
+        "spin_length": 0.9727449316955029,
+        "angular_width_rad": 0.2334740598203453
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 16,
+     "dim": 33,
+     "gaussian_sup_error_of_omega_interior": 0.14190830114473973,
+     "gaussian_sup_relative_error_interior": 0.1506009539705397,
+     "tracial_sup_abs_omega_interior": 0.0936807000532498,
+     "gaussian_omega_at_boundary": -0.7208135810405587,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.883254324162235,
+     "tracial_omega_at_boundary": -0.3876357347470859,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.3953355052568668,
+        "spin_length": 0.9989118205386184,
+        "angular_width_rad": 0.046651462171760964
+       },
+       "1.0": {
+        "azimuth_over_t": -1.3879112145185797,
+        "spin_length": 0.983765164378847,
+        "angular_width_rad": 0.18019342730051516
+       },
+       "4.0": {
+        "azimuth_over_t": 0.47502141534766384,
+        "spin_length": 0.9137733173301812,
+        "angular_width_rad": 0.4152750478172721
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.07790597834063481,
+        "spin_length": 0.9999666391713268,
+        "angular_width_rad": 0.0081683325927907
+       },
+       "1.0": {
+        "azimuth_over_t": -0.07775931496446341,
+        "spin_length": 0.9994690015758217,
+        "angular_width_rad": 0.032588293118181344
+       },
+       "4.0": {
+        "azimuth_over_t": -0.07551537982989759,
+        "spin_length": 0.9921626735590493,
+        "angular_width_rad": 0.12519845399165835
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 32,
+     "dim": 65,
+     "gaussian_sup_error_of_omega_interior": 0.12570212225888566,
+     "gaussian_sup_relative_error_interior": 0.19215705040797024,
+     "tracial_sup_abs_omega_interior": 0.04771532431676562,
+     "gaussian_omega_at_boundary": -0.5134348423402064,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.9044260697296473,
+     "tracial_omega_at_boundary": -0.28925869717326136,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.4314617639071756,
+        "spin_length": 0.9987538778843574,
+        "angular_width_rad": 0.04992238206741676
+       },
+       "1.0": {
+        "azimuth_over_t": -1.417662139286919,
+        "spin_length": 0.9820383761295846,
+        "angular_width_rad": 0.1895342917279902
+       },
+       "4.0": {
+        "azimuth_over_t": 0.3088228741534843,
+        "spin_length": 0.9138499725119591,
+        "angular_width_rad": 0.4150904178321656
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.010684182701201988,
+        "spin_length": 0.9999978010982319,
+        "angular_width_rad": 0.0020970940694749183
+       },
+       "1.0": {
+        "azimuth_over_t": -0.010678747225940347,
+        "spin_length": 0.9999648569014599,
+        "angular_width_rad": 0.00838368636581018
+       },
+       "4.0": {
+        "azimuth_over_t": -0.010593489169221365,
+        "spin_length": 0.9994475458396327,
+        "angular_width_rad": 0.03324016126216329
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 64,
+     "dim": 129,
+     "gaussian_sup_error_of_omega_interior": 0.04963625161487428,
+     "gaussian_sup_relative_error_interior": 0.0711403829108046,
+     "tracial_sup_abs_omega_interior": 0.005467970289954938,
+     "gaussian_omega_at_boundary": -0.36675289831425206,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.9340231865140165,
+     "tracial_omega_at_boundary": -0.18560089007338032,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.461369453008797,
+        "spin_length": 0.9991579208673831,
+        "angular_width_rad": 0.04103849735594404
+       },
+       "1.0": {
+        "azimuth_over_t": -1.4542799682194838,
+        "spin_length": 0.9875497802949048,
+        "angular_width_rad": 0.1577987306989203
+       },
+       "4.0": {
+        "azimuth_over_t": 0.19310436025849476,
+        "spin_length": 0.9191975299773809,
+        "angular_width_rad": 0.4020011692087949
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.0003342434757071973,
+        "spin_length": 0.9999999859401242,
+        "angular_width_rad": 0.00016768944999104825
+       },
+       "1.0": {
+        "azimuth_over_t": -0.00033423266745379716,
+        "spin_length": 0.9999997750683303,
+        "angular_width_rad": 0.0006707185247694801
+       },
+       "4.0": {
+        "azimuth_over_t": -0.0003340603189747245,
+        "spin_length": 0.9999964076783451,
+        "angular_width_rad": 0.0026804184952807747
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 128,
+     "dim": 257,
+     "gaussian_sup_error_of_omega_interior": 0.029429672961667208,
+     "gaussian_sup_relative_error_interior": 0.046496855646746924,
+     "tracial_sup_abs_omega_interior": 0.00036715169976986317,
+     "gaussian_omega_at_boundary": -0.25969292705753233,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.938090075977033,
+     "tracial_omega_at_boundary": -0.1333007242053843,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.4756447526818453,
+        "spin_length": 0.9995424954186543,
+        "angular_width_rad": 0.03024911837874773
+       },
+       "1.0": {
+        "azimuth_over_t": -1.4735812610540262,
+        "spin_length": 0.9929652196812472,
+        "angular_width_rad": 0.11861517878208354
+       },
+       "4.0": {
+        "azimuth_over_t": 0.12525032885114915,
+        "spin_length": 0.9347450651282112,
+        "angular_width_rad": 0.3612614977320135
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -5.051644105057349e-07,
+        "spin_length": 0.9999999999990615,
+        "angular_width_rad": 1.370015709921346e-06
+       },
+       "1.0": {
+        "azimuth_over_t": -5.051642907008674e-07,
+        "spin_length": 0.9999999999829706,
+        "angular_width_rad": 5.8359879896754224e-06
+       },
+       "4.0": {
+        "azimuth_over_t": -5.051623742843308e-07,
+        "spin_length": 0.9999999997255332,
+        "angular_width_rad": 2.342933130223202e-05
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 256,
+     "dim": 513,
+     "gaussian_sup_error_of_omega_interior": 0.015506582462035734,
+     "gaussian_sup_relative_error_interior": 0.02409701103497039,
+     "tracial_sup_abs_omega_interior": 6.932918616975314e-07,
+     "gaussian_omega_at_boundary": -0.18379609104749672,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.9407374567599476,
+     "tracial_omega_at_boundary": -0.09596583378219181,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.4817331406299203,
+        "spin_length": 0.9997634853616201,
+        "angular_width_rad": 0.021749236233942815
+       },
+       "1.0": {
+        "azimuth_over_t": -1.481200798947756,
+        "spin_length": 0.9962879317673792,
+        "angular_width_rad": 0.08616342881548789
+       },
+       "4.0": {
+        "azimuth_over_t": 0.09773763405055898,
+        "spin_length": 0.955601429375614,
+        "angular_width_rad": 0.2979884918059287
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -1.6584268014070744e-12,
+        "spin_length": 0.999999999999865,
+        "angular_width_rad": 5.196212462831347e-07
+       },
+       "1.0": {
+        "azimuth_over_t": -1.6584268013495381e-12,
+        "spin_length": 0.999999999999865,
+        "angular_width_rad": 5.196212462831347e-07
+       },
+       "4.0": {
+        "azimuth_over_t": -1.6584268004289604e-12,
+        "spin_length": 0.999999999999865,
+        "angular_width_rad": 5.196212462831347e-07
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    },
+    {
+     "j": 512,
+     "dim": 1025,
+     "gaussian_sup_error_of_omega_interior": 0.008245695640338724,
+     "gaussian_sup_relative_error_interior": 0.012920001807035814,
+     "tracial_sup_abs_omega_interior": 6.426859044950106e-12,
+     "gaussian_omega_at_boundary": -0.1301347059715865,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.944612257927242,
+     "tracial_omega_at_boundary": -0.06521844463307103,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.4845010087671757,
+        "spin_length": 0.9998798338000852,
+        "angular_width_rad": 0.015502657831148797
+       },
+       "1.0": {
+        "azimuth_over_t": -1.4843665581365555,
+        "spin_length": 0.9980954760527472,
+        "angular_width_rad": 0.061717484512135184
+       },
+       "4.0": {
+        "azimuth_over_t": 0.08855702594104042,
+        "spin_length": 0.9737253083505104,
+        "angular_width_rad": 0.22923652261142677
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -2.5945842947278053e-23,
+        "spin_length": 1.0000000000004154,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -2.594584294727805e-23,
+        "spin_length": 1.0000000000004154,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": -2.594584294727805e-23,
+        "spin_length": 1.0000000000004154,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.487089170530668
+    }
+   ],
+   "limit_profile": "omega(theta) = -2 |artanh(cos theta) - artanh(cos alpha)|; in the stereographic coordinate z of the cap centre: z -> z |z/r_alpha|^(2 i t) inside the cap"
+  },
+  "80.0": {
+   "cos_alpha": 0.17364817766693041,
+   "rows": [
+    {
+     "j": 0.5,
+     "dim": 2,
+     "gaussian_omega_at_boundary": -2.2244862051204355,
+     "gaussian_omega_at_boundary_times_sqrt_j": -1.5729492802965894,
+     "tracial_omega_at_boundary": -1.3456164319827646,
+     "gaussian_omega_exact_spinor": -2.2244862051204355,
+     "tracial_omega_exact_spinor": -1.3456164319827646,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.2244862051204355,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -2.2244862051204355,
+        "spin_length": 0.9999999999999999,
+        "angular_width_rad": 1.4901161193847656e-08
+       },
+       "4.0": {
+        "azimuth_over_t": -0.6536898783255389,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -1.3456164319827646,
+        "spin_length": 0.9999999999999999,
+        "angular_width_rad": 1.4901161193847656e-08
+       },
+       "1.0": {
+        "azimuth_over_t": -1.3456164319827646,
+        "spin_length": 0.9999999999999998,
+        "angular_width_rad": 2.1073424255447017e-08
+       },
+       "4.0": {
+        "azimuth_over_t": 0.22517989481213202,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 1,
+     "dim": 3,
+     "gaussian_sup_error_of_omega_interior": 1.153199520965623,
+     "gaussian_sup_relative_error_interior": 1.5422041167716134,
+     "tracial_sup_abs_omega_interior": 0.7656095305565078,
+     "gaussian_omega_at_boundary": -1.9009601503300961,
+     "gaussian_omega_at_boundary_times_sqrt_j": -1.9009601503300961,
+     "tracial_omega_at_boundary": -0.7656095305565078,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.9184949598522167,
+        "spin_length": 0.9999700257291592,
+        "angular_width_rad": 0.007742644359756933
+       },
+       "1.0": {
+        "azimuth_over_t": -1.9184532851766838,
+        "spin_length": 0.9995211457734227,
+        "angular_width_rad": 0.030946864997196115
+       },
+       "4.0": {
+        "azimuth_over_t": -0.3469874551588306,
+        "spin_length": 0.9925251146997003,
+        "angular_width_rad": 0.12226925451886682
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.8696764885316702,
+        "spin_length": 0.9989363115223784,
+        "angular_width_rad": 0.04612349678030962
+       },
+       "1.0": {
+        "azimuth_over_t": -0.8607423576695532,
+        "spin_length": 0.983898726945763,
+        "angular_width_rad": 0.17945067876292378
+       },
+       "4.0": {
+        "azimuth_over_t": -0.7496985748055561,
+        "spin_length": 0.9150473018749185,
+        "angular_width_rad": 0.41219582269858474
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 2,
+     "dim": 5,
+     "gaussian_sup_error_of_omega_interior": 0.2191346051844616,
+     "gaussian_sup_relative_error_interior": 0.13738342925504704,
+     "tracial_sup_abs_omega_interior": 0.3055835493881002,
+     "gaussian_omega_at_boundary": -1.440128376146464,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.0366490811046716,
+     "tracial_omega_at_boundary": -0.6997811879833772,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.703377928863812,
+        "spin_length": 0.9996322736949764,
+        "angular_width_rad": 0.02711922952532297
+       },
+       "1.0": {
+        "azimuth_over_t": -1.7040059844091717,
+        "spin_length": 0.9941638646237013,
+        "angular_width_rad": 0.10803828373589316
+       },
+       "4.0": {
+        "azimuth_over_t": -0.14520154585663134,
+        "spin_length": 0.9185701028788098,
+        "angular_width_rad": 0.403558910498059
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.45025017092449693,
+        "spin_length": 0.9992412521397188,
+        "angular_width_rad": 0.03895504743370706
+       },
+       "1.0": {
+        "azimuth_over_t": -0.44603671228141784,
+        "spin_length": 0.9883820935676063,
+        "angular_width_rad": 0.15243297827172234
+       },
+       "4.0": {
+        "azimuth_over_t": -0.3973635403499128,
+        "spin_length": 0.8903010715578571,
+        "angular_width_rad": 0.4683992494488925
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 4,
+     "dim": 9,
+     "gaussian_sup_error_of_omega_interior": 0.6989254914652,
+     "gaussian_sup_relative_error_interior": 1.597158103222149,
+     "tracial_sup_abs_omega_interior": 0.36445834782147424,
+     "gaussian_omega_at_boundary": -1.0742912040378925,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.148582408075785,
+     "tracial_omega_at_boundary": -0.6243998438639144,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.619520117067528,
+        "spin_length": 0.9981755253674618,
+        "angular_width_rad": 0.06040653329795063
+       },
+       "1.0": {
+        "azimuth_over_t": -1.618595746688667,
+        "spin_length": 0.971800404037574,
+        "angular_width_rad": 0.23748514042956897
+       },
+       "4.0": {
+        "azimuth_over_t": 0.06298976197201174,
+        "spin_length": 0.7707621626254275,
+        "angular_width_rad": 0.6771083183281276
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.1710535195083105,
+        "spin_length": 0.9997200550940104,
+        "angular_width_rad": 0.02366199087099786
+       },
+       "1.0": {
+        "azimuth_over_t": -0.17007698372350333,
+        "spin_length": 0.9955991137879648,
+        "angular_width_rad": 0.09381776177286644
+       },
+       "4.0": {
+        "azimuth_over_t": -0.15688816015172302,
+        "spin_length": 0.9450129907237612,
+        "angular_width_rad": 0.3316233082165329
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 8,
+     "dim": 17,
+     "gaussian_sup_error_of_omega_interior": 0.34418348562136847,
+     "gaussian_sup_relative_error_interior": 0.5859260318143307,
+     "tracial_sup_abs_omega_interior": 0.14942348260546012,
+     "gaussian_omega_at_boundary": -0.7842893614928608,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.2183053036962774,
+     "tracial_omega_at_boundary": -0.3927727581839634,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.6222168368718124,
+        "spin_length": 0.9967535390331594,
+        "angular_width_rad": 0.08057866922257476
+       },
+       "1.0": {
+        "azimuth_over_t": -1.6099061707663678,
+        "spin_length": 0.9522841594715769,
+        "angular_width_rad": 0.30892018557686757
+       },
+       "4.0": {
+        "azimuth_over_t": 0.24097279861864823,
+        "spin_length": 0.7858152380194863,
+        "angular_width_rad": 0.6544994453481435
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.03934373378132969,
+        "spin_length": 0.9999586764157269,
+        "angular_width_rad": 0.009091048814423108
+       },
+       "1.0": {
+        "azimuth_over_t": -0.039252062462988124,
+        "spin_length": 0.9993422498088703,
+        "angular_width_rad": 0.03626982743630524
+       },
+       "4.0": {
+        "azimuth_over_t": -0.037895639412110285,
+        "spin_length": 0.990272244130633,
+        "angular_width_rad": 0.1394830159508105
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 16,
+     "dim": 33,
+     "gaussian_sup_error_of_omega_interior": 0.28080570647715786,
+     "gaussian_sup_relative_error_interior": 0.767593588615544,
+     "tracial_sup_abs_omega_interior": 0.11431321357981261,
+     "gaussian_omega_at_boundary": -0.5635068135279646,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.2540272541118584,
+     "tracial_omega_at_boundary": -0.3127569303937401,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.6464188843863437,
+        "spin_length": 0.9970831780514517,
+        "angular_width_rad": 0.07637829467261303
+       },
+       "1.0": {
+        "azimuth_over_t": -1.633670856694226,
+        "spin_length": 0.9576930731855012,
+        "angular_width_rad": 0.290884605348921
+       },
+       "4.0": {
+        "azimuth_over_t": 0.06535237833637969,
+        "spin_length": 0.7811595128785366,
+        "angular_width_rad": 0.6615746172903907
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.00348380678816614,
+        "spin_length": 0.9999986884030682,
+        "angular_width_rad": 0.0016196276929227472
+       },
+       "1.0": {
+        "azimuth_over_t": -0.0034825073459471834,
+        "spin_length": 0.9999790339380731,
+        "angular_width_rad": 0.006475501822549228
+       },
+       "4.0": {
+        "azimuth_over_t": -0.0034621564923111867,
+        "spin_length": 0.9996694043304776,
+        "angular_width_rad": 0.02571364110826884
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 32,
+     "dim": 65,
+     "gaussian_sup_error_of_omega_interior": 0.16498294493036936,
+     "gaussian_sup_relative_error_interior": 0.49904175343906004,
+     "tracial_sup_abs_omega_interior": 0.05454223363517041,
+     "gaussian_omega_at_boundary": -0.40161078734077593,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.271853689010649,
+     "tracial_omega_at_boundary": -0.20773788402687643,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.6613785737144633,
+        "spin_length": 0.9982484416468876,
+        "angular_width_rad": 0.05918713294479399
+       },
+       "1.0": {
+        "azimuth_over_t": -1.656496671401323,
+        "spin_length": 0.973626773543753,
+        "angular_width_rad": 0.22966595941169407
+       },
+       "4.0": {
+        "azimuth_over_t": -0.02845674207122213,
+        "spin_length": 0.8045848221995472,
+        "angular_width_rad": 0.6251642628948856
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -4.447625345345089e-05,
+        "spin_length": 0.9999999976262778,
+        "angular_width_rad": 6.890170126759912e-05
+       },
+       "1.0": {
+        "azimuth_over_t": -4.447564889459905e-05,
+        "spin_length": 0.9999999620234964,
+        "angular_width_rad": 0.0002755957314926462
+       },
+       "4.0": {
+        "azimuth_over_t": -4.446600390888703e-05,
+        "spin_length": 0.9999993931271569,
+        "angular_width_rad": 0.0011017012690286688
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 64,
+     "dim": 129,
+     "gaussian_sup_error_of_omega_interior": 0.07783918357541786,
+     "gaussian_sup_relative_error_interior": 0.22357261124339173,
+     "tracial_sup_abs_omega_interior": 0.013520644012233518,
+     "gaussian_omega_at_boundary": -0.2854963321373507,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.2839706570988056,
+     "tracial_omega_at_boundary": -0.13723943422112495,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.6669446936790506,
+        "spin_length": 0.999072429669832,
+        "angular_width_rad": 0.04307134384177008
+       },
+       "1.0": {
+        "azimuth_over_t": -1.665620651895296,
+        "spin_length": 0.9855901226293918,
+        "angular_width_rad": 0.1697638204719025
+       },
+       "4.0": {
+        "azimuth_over_t": -0.07577336386091407,
+        "spin_length": 0.8507592115742117,
+        "angular_width_rad": 0.5463346747659135
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -1.0924529730327954e-08,
+        "spin_length": 0.9999999999999596,
+        "angular_width_rad": 2.8429603618888426e-07
+       },
+       "1.0": {
+        "azimuth_over_t": -1.0924529231862186e-08,
+        "spin_length": 0.9999999999997075,
+        "angular_width_rad": 7.649101476496815e-07
+       },
+       "4.0": {
+        "azimuth_over_t": -1.0924521257749384e-08,
+        "spin_length": 0.9999999999956715,
+        "angular_width_rad": 2.942290783865035e-06
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 128,
+     "dim": 257,
+     "gaussian_sup_error_of_omega_interior": 0.041499053896341453,
+     "gaussian_sup_relative_error_interior": 0.1289363685591086,
+     "tracial_sup_abs_omega_interior": 0.0025819589033027057,
+     "gaussian_omega_at_boundary": -0.20216839646898643,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.2872743053572924,
+     "tracial_omega_at_boundary": -0.09947776397575181,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.6689754299922563,
+        "spin_length": 0.9995239556684181,
+        "angular_width_rad": 0.030855934002453463
+       },
+       "1.0": {
+        "azimuth_over_t": -1.668637535876284,
+        "spin_length": 0.9924921214847916,
+        "angular_width_rad": 0.12253879806174368
+       },
+       "4.0": {
+        "azimuth_over_t": -0.09258275457295767,
+        "spin_length": 0.9040327383620038,
+        "angular_width_rad": 0.43810332488579945
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -9.387417177892097e-16,
+        "spin_length": 1.0000000000001603,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -9.387417177878727e-16,
+        "spin_length": 1.0000000000001603,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": -9.387417177664826e-16,
+        "spin_length": 1.0000000000001603,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 256,
+     "dim": 513,
+     "gaussian_sup_error_of_omega_interior": 0.021249887242097865,
+     "gaussian_sup_relative_error_interior": 0.06513873524546203,
+     "tracial_sup_abs_omega_interior": 7.252780143351956e-05,
+     "gaussian_omega_at_boundary": -0.14307052935072706,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.289128469611633,
+     "tracial_omega_at_boundary": -0.07189171012099127,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.66980587419542,
+        "spin_length": 0.9997589219193908,
+        "angular_width_rad": 0.021958054586381153
+       },
+       "1.0": {
+        "azimuth_over_t": -1.6697207777163208,
+        "spin_length": 0.9961700861356337,
+        "angular_width_rad": 0.08752044177637888
+       },
+       "4.0": {
+        "azimuth_over_t": -0.09757220487210011,
+        "spin_length": 0.9452593910722247,
+        "angular_width_rad": 0.330879461217451
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -7.59379611175215e-18,
+        "spin_length": 0.999999999999864,
+        "angular_width_rad": 5.21540641784668e-07
+       },
+       "1.0": {
+        "azimuth_over_t": -7.59379611175215e-18,
+        "spin_length": 0.999999999999864,
+        "angular_width_rad": 5.21540641784668e-07
+       },
+       "4.0": {
+        "azimuth_over_t": -7.59379611175215e-18,
+        "spin_length": 0.999999999999864,
+        "angular_width_rad": 5.21540641784668e-07
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    },
+    {
+     "j": 512,
+     "dim": 1025,
+     "gaussian_sup_error_of_omega_interior": 0.011305997581942062,
+     "gaussian_sup_relative_error_interior": 0.03489072773278832,
+     "tracial_sup_abs_omega_interior": 1.1280440492811294e-07,
+     "gaussian_omega_at_boundary": -0.10122441423609674,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.2904470312953635,
+     "tracial_omega_at_boundary": -0.05195297653492936,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -1.6701754348111097,
+        "spin_length": 0.9998786959982323,
+        "angular_width_rad": 0.015575878900895825
+       },
+       "1.0": {
+        "azimuth_over_t": -1.670154095357811,
+        "spin_length": 0.9980659863536268,
+        "angular_width_rad": 0.06219346664036738
+       },
+       "4.0": {
+        "azimuth_over_t": -0.09901691401856674,
+        "spin_length": 0.9707523924141597,
+        "angular_width_rad": 0.24185784083151132
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": 3.0233179631928024e-31,
+        "spin_length": 1.0000000000005764,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": 3.0233179631928024e-31,
+        "spin_length": 1.0000000000005764,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": 3.0233179631928024e-31,
+        "spin_length": 1.0000000000005764,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -1.6705147180624058
+    }
+   ],
+   "limit_profile": "omega(theta) = -2 |artanh(cos theta) - artanh(cos alpha)|; in the stereographic coordinate z of the cap centre: z -> z |z/r_alpha|^(2 i t) inside the cap"
+  },
+  "110.0": {
+   "cos_alpha": -0.3420201433256687,
+   "rows": [
+    {
+     "j": 0.5,
+     "dim": 2,
+     "gaussian_sup_error_of_omega_interior": 1.5957897426340748,
+     "gaussian_sup_relative_error_interior": 2.2388972980678665,
+     "tracial_sup_abs_omega_interior": 0.6833903335189366,
+     "gaussian_omega_at_boundary": -2.3085467520829748,
+     "gaussian_omega_at_boundary_times_sqrt_j": -1.6323890630840512,
+     "tracial_omega_at_boundary": -0.6833903335189366,
+     "gaussian_omega_exact_spinor": -2.3085467520829748,
+     "tracial_omega_exact_spinor": -0.6833903335189366,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.3085467520829743,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -2.3085467520829748,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": -0.737750425288078,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.6833903335189366,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -0.6833903335189366,
+        "spin_length": 0.9999999999999999,
+        "angular_width_rad": 1.4901161193847656e-08
+       },
+       "4.0": {
+        "azimuth_over_t": -0.6833903335189366,
+        "spin_length": 1.0,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 1,
+     "dim": 3,
+     "gaussian_sup_error_of_omega_interior": 0.4074576191810606,
+     "gaussian_sup_relative_error_interior": 0.22494453207561205,
+     "tracial_sup_abs_omega_interior": 0.25608490960960884,
+     "gaussian_omega_at_boundary": -1.9172977298473124,
+     "gaussian_omega_at_boundary_times_sqrt_j": -1.9172977298473124,
+     "tracial_omega_at_boundary": -0.9045710396616053,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.1545648273776856,
+        "spin_length": 0.9996802794223995,
+        "angular_width_rad": 0.02528717372900919
+       },
+       "1.0": {
+        "azimuth_over_t": -2.1549790111632556,
+        "spin_length": 0.9949085578695059,
+        "angular_width_rad": 0.10091027827227574
+       },
+       "4.0": {
+        "azimuth_over_t": -0.5913099971247305,
+        "spin_length": 0.9247509771775129,
+        "angular_width_rad": 0.38794077595036885
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.3940760963136023,
+        "spin_length": 0.9985228692849881,
+        "angular_width_rad": 0.05435311794206246
+       },
+       "1.0": {
+        "azimuth_over_t": -0.3898823689354921,
+        "spin_length": 0.9768822625379583,
+        "angular_width_rad": 0.21502435890866742
+       },
+       "4.0": {
+        "azimuth_over_t": -0.30147200656388695,
+        "spin_length": 0.7633282504531471,
+        "angular_width_rad": 0.6879996359691666
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 2,
+     "dim": 5,
+     "gaussian_sup_error_of_omega_interior": 0.5105441069593484,
+     "gaussian_sup_relative_error_interior": 0.4172534760630952,
+     "tracial_sup_abs_omega_interior": 0.18339181879960165,
+     "gaussian_omega_at_boundary": -1.4867609370643615,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.102597481202952,
+     "tracial_omega_at_boundary": -0.5285522230018996,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.059133348815209,
+        "spin_length": 0.9967605087825797,
+        "angular_width_rad": 0.08049212653943598
+       },
+       "1.0": {
+        "azimuth_over_t": -2.0597178477043534,
+        "spin_length": 0.9495341168434507,
+        "angular_width_rad": 0.31769760199456754
+       },
+       "4.0": {
+        "azimuth_over_t": -0.6079216410893117,
+        "spin_length": 0.5742203675691694,
+        "angular_width_rad": 0.9227996883731925
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.16076949751715874,
+        "spin_length": 0.9993086507572475,
+        "angular_width_rad": 0.03718465389787815
+       },
+       "1.0": {
+        "azimuth_over_t": -0.1582503217624094,
+        "spin_length": 0.9893500738333988,
+        "angular_width_rad": 0.14594468929427484
+       },
+       "4.0": {
+        "azimuth_over_t": -0.13321071491528344,
+        "spin_length": 0.8944583012687077,
+        "angular_width_rad": 0.45943813235579883
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 4,
+     "dim": 9,
+     "gaussian_sup_error_of_omega_interior": 0.7008530748454032,
+     "gaussian_sup_relative_error_interior": 1.5188305185694357,
+     "tracial_sup_abs_omega_interior": 0.26527823348673896,
+     "gaussian_omega_at_boundary": -1.123570067852966,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.247140135705932,
+     "tracial_omega_at_boundary": -0.532866349066009,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.0310275311923336,
+        "spin_length": 0.9938323786085548,
+        "angular_width_rad": 0.11106413814949649
+       },
+       "1.0": {
+        "azimuth_over_t": -2.0187217074955415,
+        "spin_length": 0.9086135454866449,
+        "angular_width_rad": 0.42751948379776833
+       },
+       "4.0": {
+        "azimuth_over_t": -0.10768036735699106,
+        "spin_length": 0.6057617473277855,
+        "angular_width_rad": 0.8879619954392355
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.0390173899165169,
+        "spin_length": 0.999896073592597,
+        "angular_width_rad": 0.014417101470335614
+       },
+       "1.0": {
+        "azimuth_over_t": -0.038771994722774865,
+        "spin_length": 0.9983619833531747,
+        "angular_width_rad": 0.05723664292785313
+       },
+       "4.0": {
+        "azimuth_over_t": -0.035746209190158695,
+        "spin_length": 0.9783291407997213,
+        "angular_width_rad": 0.20818673925242534
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 8,
+     "dim": 17,
+     "gaussian_sup_error_of_omega_interior": 0.5200056618080862,
+     "gaussian_sup_relative_error_interior": 1.5603256752128878,
+     "tracial_sup_abs_omega_interior": 0.19739948660392126,
+     "gaussian_omega_at_boundary": -0.8181152083750113,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.3139792465352635,
+     "tracial_omega_at_boundary": -0.3330259354818925,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.0294844386326227,
+        "spin_length": 0.9943361976710194,
+        "angular_width_rad": 0.10643122031603848
+       },
+       "1.0": {
+        "azimuth_over_t": -2.015622261458166,
+        "spin_length": 0.9176310517656102,
+        "angular_width_rad": 0.40587916486163655
+       },
+       "4.0": {
+        "azimuth_over_t": -0.31112735394538615,
+        "spin_length": 0.5899270535628407,
+        "angular_width_rad": 0.9056190660947453
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -0.0037035350646343924,
+        "spin_length": 0.9999963376248691,
+        "angular_width_rad": 0.0027064275829741676
+       },
+       "1.0": {
+        "azimuth_over_t": -0.003699658490891533,
+        "spin_length": 0.9999415713435629,
+        "angular_width_rad": 0.010810056099496075
+       },
+       "4.0": {
+        "azimuth_over_t": -0.003641894029784161,
+        "spin_length": 0.9991046000801769,
+        "angular_width_rad": 0.04231784304104181
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 16,
+     "dim": 33,
+     "gaussian_sup_error_of_omega_interior": 0.2746036252027079,
+     "gaussian_sup_relative_error_interior": 0.6905210545365406,
+     "tracial_sup_abs_omega_interior": 0.0833355969445575,
+     "gaussian_omega_at_boundary": -0.5894937405890865,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.357974962356346,
+     "tracial_omega_at_boundary": -0.27749285240986343,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.028074142749713,
+        "spin_length": 0.9965475014149501,
+        "angular_width_rad": 0.08309631261433835
+       },
+       "1.0": {
+        "azimuth_over_t": -2.022585455533907,
+        "spin_length": 0.9480556185790039,
+        "angular_width_rad": 0.3223177978982734
+       },
+       "4.0": {
+        "azimuth_over_t": -0.3892955528366823,
+        "spin_length": 0.6272799499347708,
+        "angular_width_rad": 0.8633887306019569
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -5.412048697969423e-05,
+        "spin_length": 0.999999990829339,
+        "angular_width_rad": 0.00013543013703280334
+       },
+       "1.0": {
+        "azimuth_over_t": -5.4117626775819414e-05,
+        "spin_length": 0.9999998533145003,
+        "angular_width_rad": 0.0005416373320714217
+       },
+       "4.0": {
+        "azimuth_over_t": -5.407237805909456e-05,
+        "spin_length": 0.9999976643415441,
+        "angular_width_rad": 0.0021613229540563177
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 32,
+     "dim": 65,
+     "gaussian_sup_error_of_omega_interior": 0.15865027099004858,
+     "gaussian_sup_relative_error_interior": 0.4339914642993577,
+     "tracial_sup_abs_omega_interior": 0.03743653961705551,
+     "gaussian_omega_at_boundary": -0.42075131433703006,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.380128860486933,
+     "tracial_omega_at_boundary": -0.18088976910220556,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.024559800968302,
+        "spin_length": 0.9981584723475538,
+        "angular_width_rad": 0.0606881809324709
+       },
+       "1.0": {
+        "azimuth_over_t": -2.023057664753874,
+        "spin_length": 0.9714119442611346,
+        "angular_width_rad": 0.23911526818196013
+       },
+       "4.0": {
+        "azimuth_over_t": -0.4309581844704657,
+        "spin_length": 0.7091911878357992,
+        "angular_width_rad": 0.7626385935214672
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -1.7655385531982396e-08,
+        "spin_length": 0.9999999999998584,
+        "angular_width_rad": 5.320778808402158e-07
+       },
+       "1.0": {
+        "azimuth_over_t": -1.7655378848945068e-08,
+        "spin_length": 0.9999999999978212,
+        "angular_width_rad": 2.0874926039758174e-06
+       },
+       "4.0": {
+        "azimuth_over_t": -1.765527201894262e-08,
+        "spin_length": 0.9999999999652319,
+        "angular_width_rad": 8.33883412787049e-06
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 64,
+     "dim": 129,
+     "gaussian_sup_error_of_omega_interior": 0.08397180684151268,
+     "gaussian_sup_relative_error_interior": 0.24030563795982676,
+     "tracial_sup_abs_omega_interior": 0.011063270084703092,
+     "gaussian_omega_at_boundary": -0.2988060011729312,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.3904480093834497,
+     "tracial_omega_at_boundary": -0.13568243140707548,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.0218185977913787,
+        "spin_length": 0.9990514686728817,
+        "angular_width_rad": 0.04355528273627096
+       },
+       "1.0": {
+        "azimuth_over_t": -2.0214347720696026,
+        "spin_length": 0.9850463017616314,
+        "angular_width_rad": 0.17293755080009987
+       },
+       "4.0": {
+        "azimuth_over_t": -0.44469083805847043,
+        "spin_length": 0.8104572826783013,
+        "angular_width_rad": 0.6156991429613958
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -2.701136633032738e-15,
+        "spin_length": 0.9999999999999855,
+        "angular_width_rad": 1.70551585290724e-07
+       },
+       "1.0": {
+        "azimuth_over_t": -2.7011366328748546e-15,
+        "spin_length": 0.9999999999999855,
+        "angular_width_rad": 1.70551585290724e-07
+       },
+       "4.0": {
+        "azimuth_over_t": -2.7011366303487796e-15,
+        "spin_length": 0.9999999999999855,
+        "angular_width_rad": 1.70551585290724e-07
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 128,
+     "dim": 257,
+     "gaussian_sup_error_of_omega_interior": 0.045309825625372724,
+     "gaussian_sup_relative_error_interior": 0.1393445214953844,
+     "tracial_sup_abs_omega_interior": 0.002028016757490647,
+     "gaussian_omega_at_boundary": -0.2117610783444488,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.395803111819768,
+     "tracial_omega_at_boundary": -0.10021052678491937,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.0202047055408343,
+        "spin_length": 0.9995187532371408,
+        "angular_width_rad": 0.031024079772306253
+       },
+       "1.0": {
+        "azimuth_over_t": -2.020108040220074,
+        "spin_length": 0.9923562242189692,
+        "angular_width_rad": 0.12364283870108139
+       },
+       "4.0": {
+        "azimuth_over_t": -0.4477773263163885,
+        "spin_length": 0.8911718668377113,
+        "angular_width_rad": 0.4665364576585386
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": 1.2717686471287552e-17,
+        "spin_length": 1.0000000000001563,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": 1.2717686471287552e-17,
+        "spin_length": 1.0000000000001563,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": 1.2717686471287552e-17,
+        "spin_length": 1.0000000000001563,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 256,
+     "dim": 513,
+     "gaussian_sup_error_of_omega_interior": 0.023420009255365692,
+     "gaussian_sup_relative_error_interior": 0.07113846070902898,
+     "tracial_sup_abs_omega_interior": 5.041382269199701e-05,
+     "gaussian_omega_at_boundary": -0.14991981370067542,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.3987170192108067,
+     "tracial_omega_at_boundary": -0.07335841993185488,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.019337466361975,
+        "spin_length": 0.9997576218984664,
+        "angular_width_rad": 0.02201717972555079
+       },
+       "1.0": {
+        "azimuth_over_t": -2.0193132289484903,
+        "spin_length": 0.9961360542684369,
+        "angular_width_rad": 0.08790842657633138
+       },
+       "4.0": {
+        "azimuth_over_t": -0.44812986536786653,
+        "spin_length": 0.9416747532927141,
+        "angular_width_rad": 0.34154134949456966
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": 8.315309701128955e-18,
+        "spin_length": 0.9999999999999483,
+        "angular_width_rad": 3.216718605894283e-07
+       },
+       "1.0": {
+        "azimuth_over_t": 8.315309701128955e-18,
+        "spin_length": 0.9999999999999483,
+        "angular_width_rad": 3.216718605894283e-07
+       },
+       "4.0": {
+        "azimuth_over_t": 8.315309701128955e-18,
+        "spin_length": 0.9999999999999483,
+        "angular_width_rad": 3.216718605894283e-07
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    },
+    {
+     "j": 512,
+     "dim": 1025,
+     "gaussian_sup_error_of_omega_interior": 0.012402726443028922,
+     "gaussian_sup_relative_error_interior": 0.03790668176200927,
+     "tracial_sup_abs_omega_interior": 6.176866884644028e-08,
+     "gaussian_omega_at_boundary": -0.10609284564946009,
+     "gaussian_omega_at_boundary_times_sqrt_j": -2.4006070590115502,
+     "tracial_omega_at_boundary": -0.053490095309039365,
+     "coherent_state_at_half_opening": {
+      "gaussian": {
+       "0.25": {
+        "azimuth_over_t": -2.0188888195631556,
+        "spin_length": 0.9998783708404037,
+        "angular_width_rad": 0.015596740659275458
+       },
+       "1.0": {
+        "azimuth_over_t": -2.018882752354343,
+        "spin_length": 0.998057467153375,
+        "angular_width_rad": 0.06233029514810667
+       },
+       "4.0": {
+        "azimuth_over_t": -0.44798939756783185,
+        "spin_length": 0.9698100713687601,
+        "angular_width_rad": 0.24572313131343548
+       }
+      },
+      "tracial": {
+       "0.25": {
+        "azimuth_over_t": -1.8552281361978173e-19,
+        "spin_length": 1.0000000000003726,
+        "angular_width_rad": 0.0
+       },
+       "1.0": {
+        "azimuth_over_t": -1.8552281361978173e-19,
+        "spin_length": 1.0000000000003726,
+        "angular_width_rad": 0.0
+       },
+       "4.0": {
+        "azimuth_over_t": -1.8552281361978173e-19,
+        "spin_length": 1.0000000000003726,
+        "angular_width_rad": 0.0
+       }
+      }
+     },
+     "omega_limit_at_half_opening": -2.018430168888496
+    }
+   ],
+   "limit_profile": "omega(theta) = -2 |artanh(cos theta) - artanh(cos alpha)|; in the stereographic coordinate z of the cap centre: z -> z |z/r_alpha|^(2 i t) inside the cap"
+  }
+ },
+ "finite_point_set_check_level4_port_alpha80": {
+  "0.5": {
+   "frame_operator_spread": 4.440892098500626e-16,
+   "max_abs_difference_of_nu": 0.01052546449261793
+  },
+  "2": {
+   "frame_operator_spread": 1.1102230246251565e-15,
+   "max_abs_difference_of_nu": 0.015613992074454852
+  },
+  "4": {
+   "frame_operator_spread": 0.00821179560797125,
+   "max_abs_difference_of_nu": 0.024044873787918752
+  },
+  "8": {
+   "frame_operator_spread": 0.040235812195880793,
+   "max_abs_difference_of_nu": 0.0307221395891204
+  }
+ }
+}

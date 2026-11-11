@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+"""Worker CG: the single NOT BLIND comparison (CANDIDATES.md section 5). Run once, after every source row is on file.
+
+Measured values (PDG, the same numbers as work/CC/cc_not_blind.py): 1/alpha_em(m_Z) = 127.951,
+sin^2 theta_W(m_Z) = 0.23122, alpha_s(m_Z) = 0.1180(9), v = 246.21965 GeV, m_Z = 91.1876 GeV.
+Run:  python cg_not_blind.py   (writes cg_not_blind.json)
+"""
+import json
+import math
+from pathlib import Path
+
+from scipy.optimize import brentq
+
+from cg_closure import ell2, ell3, P
+
+HERE = Path(__file__).resolve().parent
+src = json.loads((HERE / "cg_closure.json").read_text())
+aem_inv, s2m, asm, dasm, vm = 127.951, 0.23122, 0.1180, 0.0009, 246.21965
+a2m = 1.0 / (aem_inv * s2m)
+out = {"measured": {"inv_alpha_em_mZ": aem_inv, "sin2_mZ": s2m, "alpha_s_mZ": asm, "v_GeV": vm,
+                    "inv_alpha_2_mZ": 1 / a2m}, "rows": {}, "lhs_with_measured": {}, "kappa_that_closes": {}}
+pi = math.pi
+for name in ("V1", "V2", "V3", "V4", "V5", "V6"):
+    e = src[name]
+    if not e["solutions"]:
+        out["rows"][name] = "no source root"
+        continue
+    s = e["solutions"][0]
+    out["rows"][name] = {"v_ratio": s["v_GeV"] / vm, "alpha_s_ratio": s["alpha_3"] / asm, "sin2_ratio": s["sin2"] / s2m,
+                         "inv_alpha_em_ratio": s["inv_alpha_em_anchor"] / aem_inv}
+    w, k = e["w"], e["kappa"]
+    out["lhs_with_measured"][name] = {"lhs": ell2(4 * pi * pi * k * a2m, w) + ell3(4 * pi * pi * k * asm, w),
+                                      "P_over_4": P / 4}
+for w in (1, 2):
+    f = lambda k, a3=asm: ell2(4 * pi * pi * k * a2m, w) + ell3(4 * pi * pi * k * a3, w) - P / 4
+    k0 = brentq(f, 0.2, 5.0)
+    klo = brentq(lambda k: f(k, asm + dasm), 0.2, 5.0)
+    khi = brentq(lambda k: f(k, asm - dasm), 0.2, 5.0)
+    out["kappa_that_closes"][f"w={w}"] = {"kappa": k0, "range_from_alpha_s": [min(klo, khi), max(klo, khi)]}
+(HERE / "cg_not_blind.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

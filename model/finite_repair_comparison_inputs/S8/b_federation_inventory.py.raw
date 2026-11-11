@@ -1,0 +1,168 @@
+"""S8 script B: port Laplacian of the federation at levels 0..LMAX for two declared routings.
+
+Level 0: full spectrum, state counts, seam resistances, releases, diameter.
+Levels 0..LMAX: low multiplets (sheet conductance read from l = 1, 2, 3), two-point resistance between antipodal
+carriers (the one quantity with a logarithmic level dependence), cutoff-scale seam resistances, diameter.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          ../research/S8/b_federation_inventory.py [LMAX=3]
+Writes b_federation_inventory.json next to this file.
+"""
+import json
+import sys
+import time
+from math import comb, lgamma, log, pi, exp
+from pathlib import Path
+
+import numpy as np
+import scipy.linalg as la
+import scipy.sparse as sp
+import scipy.sparse.csgraph as csg
+import scipy.sparse.linalg as sla
+from scipy.spatial import cKDTree
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import fedlib as FL  # noqa: E402
+
+LMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 3
+DENSE_MAX = 1000        # dense eigen-decomposition and pseudo-inverse up to this many ports, sparse solves above
+OUT = HERE / 'b_federation_inventory.json'
+res = {'level0': {}, 'levels': {}}
+rng = np.random.default_rng(88)
+
+
+def lnC(n, k):
+    return lgamma(n + 1) - lgamma(k + 1) - lgamma(n - k + 1)
+
+
+def grounded_solver(Lap):
+    n = Lap.shape[0]
+    lu = sla.splu(Lap[:n - 1, :n - 1].tocsc())
+
+    def solve(rhs):                      # rhs zero-sum columns [n, k]; returns potentials with last node at 0
+        x = np.zeros_like(rhs, dtype=float)
+        x[:n - 1] = lu.solve(np.ascontiguousarray(rhs[:n - 1]))
+        return x
+    return solve
+
+
+for gluing in ('port_pair', 'face_axis'):
+    res['levels'][gluing] = {}
+    for level in range(LMAX + 1):
+        t0 = time.time()
+        a, b, pts = FL.seams(level, gluing)
+        N = 20 * 4 ** level; P = 12 * N; M = a.size
+        Lap, A, deg = FL.laplacian(a, b, P)
+        row = {'carriers': N, 'ports': P, 'seams': M}
+        # ---- low spectrum
+        k = 16
+        if P <= DENSE_MAX:
+            full = la.eigvalsh(Lap.toarray())
+            low = full[:k]
+        else:
+            full = None
+            low = np.sort(sla.eigsh(Lap, k=k, sigma=-1e-3 / 4 ** level, which='LM', return_eigenvectors=False, tol=1e-12))
+        mult = {'l=1': low[1:4], 'l=2': low[4:9], 'l=3': low[9:16]}
+        for name, ell in (('l=1', 1), ('l=2', 2), ('l=3', 3)):
+            v = mult[name] * N
+            row[name] = {'N_lambda': v.tolist(), 'mean': float(v.mean()), 'spread_percent': float(100 * np.ptp(v) / v.mean()),
+                         'sheet_conductance_3Nlambda/(pi l(l+1))': float(3 * v.mean() / (pi * ell * (ell + 1)))}
+        sigma = row['l=1']['sheet_conductance_3Nlambda/(pi l(l+1))']
+        row['lambda_2'] = float(low[1]); row['relaxation_time_sweeps_2/lambda_2'] = float(2 / low[1])
+        row['gap_per_attempt_lambda_2/(2M)'] = float(low[1] / (2 * M))
+        row['diffusion_constant_edge2_per_sweep'] = None
+        # mesh edge length on the unit sphere: carriers are triangles of area 4 pi/N = (sqrt3/4) a^2
+        a_edge = (4 * 4 * pi / (N * 3 ** .5)) ** .5
+        # lambda = (sigma/rho) k^2, rho = 12N/(4 pi) ports per unit area; D = lambda/(2 k^2) per sweep, in a_edge^2
+        row['mesh_edge_on_unit_sphere'] = a_edge
+        row['diffusion_constant_edge2_per_sweep'] = float(sigma * 4 * pi / (12 * N) / 2 / a_edge ** 2)
+        lam_max = float(sla.eigsh(Lap, k=1, which='LA', return_eigenvectors=False, tol=1e-10)[0]) if full is None else float(full[-1])
+        row['lambda_max'] = lam_max; row['lambda_max/lambda_2'] = lam_max / float(low[1])
+        # ---- cutoff-scale seam resistances (Foster: sum over seams = P - 1)
+        solve = grounded_solver(Lap)
+        if P <= DENSE_MAX:
+            Lp = la.pinvh(Lap.toarray())
+            Rse = Lp[a, a] + Lp[b, b] - 2 * Lp[a, b]
+            row['foster_sum_R_seams_minus_(P-1)'] = float(Rse.sum() - (P - 1))
+            intra, glue = Rse[:30 * N], Rse[30 * N:]
+            row['trace_pinv'] = float(np.trace(Lp)); row['mean_resistance_all_pairs'] = float(2 * np.trace(Lp) / P)
+        else:
+            sample_i = rng.choice(30 * N, 600, replace=False); sample_g = 30 * N + rng.choice(M - 30 * N, min(600, M - 30 * N), replace=False)
+            def rs(idx):
+                rhs = np.zeros((P, idx.size)); rhs[a[idx], np.arange(idx.size)] = 1; rhs[b[idx], np.arange(idx.size)] -= 1
+                x = solve(rhs)
+                return x[a[idx], np.arange(idx.size)] - x[b[idx], np.arange(idx.size)]
+            intra, glue = rs(sample_i), rs(sample_g)
+        row['R_intra_seam'] = {'mean': float(intra.mean()), 'min': float(intra.min()), 'max': float(intra.max())}
+        row['R_glue_seam'] = {'mean': float(glue.mean()), 'min': float(glue.min()), 'max': float(glue.max())}
+        row['unit_offset_release_per_sweep_(1-R)/2'] = {'intra_mean': float((1 - intra.mean()) / 2), 'glue_mean': float((1 - glue.mean()) / 2)}
+        # ---- antipodal carrier pairs: smeared (uniform over the 12 ports) and port-to-port resistances
+        anti = cKDTree(pts).query(-pts)[1]
+        assert np.allclose(pts[anti], -pts, atol=1e-6)
+        pairs = [(c, int(anti[c])) for c in range(N) if c < anti[c]]
+        if len(pairs) > 40:
+            pairs = [pairs[i] for i in rng.choice(len(pairs), 40, replace=False)]
+        rhs = np.zeros((P, len(pairs)))
+        for j, (c, d) in enumerate(pairs):
+            rhs[12 * c:12 * c + 12, j] = 1 / 12; rhs[12 * d:12 * d + 12, j] = -1 / 12
+        x = solve(rhs)
+        Rcc = np.array([(x[12 * c:12 * c + 12, j].mean() - x[12 * d:12 * d + 12, j].mean()) for j, (c, d) in enumerate(pairs)])
+        # port-to-port for the unglued port 0 of each carrier of the first 12 pairs
+        pp = pairs[:12]
+        rhs = np.zeros((P, len(pp)))
+        for j, (c, d) in enumerate(pp):
+            rhs[12 * c, j] = 1; rhs[12 * d, j] = -1
+        x = solve(rhs)
+        Rpp = np.array([x[12 * c, j] - x[12 * d, j] for j, (c, d) in enumerate(pp)])
+        row['R_antipodal_carriers_smeared'] = {'mean': float(Rcc.mean()), 'std': float(Rcc.std()), 'pairs': len(pairs)}
+        row['R_antipodal_port_to_port'] = {'mean': float(Rpp.mean()), 'std': float(Rpp.std()), 'pairs': len(pp)}
+        row['predicted_slope_per_level_ln2/(pi sigma)'] = float(log(2) / (pi * sigma))
+        # ---- diameter of the port graph (seams), from 6 sources
+        srcs = rng.choice(P, 6, replace=False)
+        dist = csg.shortest_path(A, method='D', unweighted=True, indices=srcs)
+        row['port_graph_eccentricity_seams_max_over_6_sources'] = int(dist.max())
+        row['seconds'] = round(time.time() - t0, 2)
+        res['levels'][gluing][str(level)] = row
+        print(gluing, level, json.dumps(row), flush=True)
+
+        if level == 0:
+            z = {}
+            ev = full
+            z['zero_modes'] = int((ev < 1e-9).sum())
+            z['lambda_2'] = float(ev[1]); z['lambda_max'] = float(ev[-1])
+            vals, counts = np.unique(np.round(ev, 8), return_counts=True)
+            z['distinct_levels'] = int(vals.size)
+            z['largest_degeneracies'] = sorted(((int(c), float(v)) for v, c in zip(vals, counts)), reverse=True)[:8]
+            z['relaxation_time_sweeps'] = float(2 / ev[1]); z['relaxation_time_attempts'] = float(2 * M / ev[1])
+            z['sum_1/lambda'] = float((1 / ev[1:]).sum())
+            z['log_state_counts'] = {
+                'one quantum (240)': log(P), 'two quanta binary C(240,2)': lnC(P, 2), 'two quanta all': log(comb(P, 2) + P),
+                'one per carrier on average (20 quanta)': lnC(P, 20), 'two per carrier (40 quanta)': lnC(P, 40),
+                'half filling C(240,120)': lnC(P, 120), 'all binary 240 ln 2': P * log(2),
+            }
+            z['double_load_exit_probability_per_attempt'] = {'degree 5': 5 / M, 'degree 6': 6 / M}
+            z['double_load_survival_exponent_per_sweep'] = {'degree 5': -M * log(1 - 5 / M), 'degree 6': -M * log(1 - 6 / M)}
+            z['kappa_half_filling_per_attempt'] = 120 * 120 / (P * (P - 1))
+            z['load_moving_events_per_sweep_per_carrier_half_filling'] = M * 120 * 120 / (P * (P - 1)) / N
+            z['attempts_touching_one_carrier_per_sweep'] = 33
+            res['level0'][gluing] = z
+            print('level0', gluing, json.dumps(z), flush=True)
+
+# ---- level dependence summary
+for gluing in ('port_pair', 'face_axis'):
+    rows = res['levels'][gluing]
+    lv = sorted(int(k) for k in rows)
+    summ = {}
+    for key in ('R_antipodal_carriers_smeared', 'R_antipodal_port_to_port'):
+        y = np.array([rows[str(l)][key]['mean'] for l in lv])
+        summ[key] = {'values': y.tolist(), 'increments_per_level': np.diff(y).tolist()}
+    s = np.array([rows[str(l)]['l=1']['sheet_conductance_3Nlambda/(pi l(l+1))'] for l in lv])
+    summ['sheet_conductance_l=1'] = {'values': s.tolist(), 'increments_per_level': np.diff(s).tolist(),
+                                     'ratio_of_successive_increments': (np.diff(s)[:-1] / np.diff(s)[1:]).tolist()}
+    summ['predicted_log_slope_per_level_at_top_level'] = float(log(2) / (pi * s[-1]))
+    summ['one_loop_like_coefficient_1/(pi sigma)_per_efold'] = float(1 / (pi * s[-1]))
+    res['levels'][gluing]['summary'] = summ
+    print('summary', gluing, json.dumps(summ), flush=True)
+
+OUT.write_text(json.dumps(res, indent=1))

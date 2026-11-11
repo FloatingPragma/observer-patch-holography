@@ -1,0 +1,69 @@
+"""Worker ML. Check of the import "flux multiplets = monopole harmonics on the twelve ports".
+
+Claim (Wu-Yang monopole harmonics / Wigner functions): on the spin-j component of the flux-k sector
+(k = 2m), the twisted adjacency of the carrier has eigenvalue 5 * d^j_{mm}(theta_s), theta_s the seam
+angle (cos theta_s = 1/sqrt5), provided j + |m| < 5 (no aliasing by the five-fold port stabilizer).
+
+Reference values: the table of lead L13 (RL/LEADS.md), printed to four decimals.
+Run: nice -n 15 /tmp/oph-completion-venv/bin/python wigner_check.py   (well below one second)
+"""
+import json
+from fractions import Fraction
+from math import factorial
+
+import sympy as sp
+
+x = 1 / sp.sqrt(5)                      # cos(theta_s)
+c2 = (1 + x) / 2                        # cos^2(theta_s / 2)
+s2 = (1 - x) / 2                        # sin^2(theta_s / 2)
+
+
+def d_mm(j, m):
+    """Wigner d^j_{mm}(theta_s), exact in Q(sqrt5) up to the overall cos(theta_s/2)^(2m) for half-integer m."""
+    j = Fraction(j)
+    m = Fraction(m)
+    jp, jm = int(j + m), int(j - m)
+    tot = 0
+    for s in range(0, jm + 1):
+        if jp - s < 0:
+            continue
+        coef = sp.Rational((-1) ** s * factorial(jp) * factorial(jm),
+                           factorial(jp - s) * factorial(s) * factorial(s) * factorial(jm - s))
+        # cos^(2j-2s)(t/2) sin^(2s)(t/2) = c2^(j-s) * s2^s
+        tot += coef * c2 ** sp.Rational(j - s) * s2 ** s
+    return sp.nsimplify(sp.simplify(tot))
+
+
+# (k, j, dimension, value printed in L13 or None)
+rows = [
+    (0, 0, 1, 5.0), (0, 1, 3, 5 ** 0.5), (0, 2, 5, -1.0), (0, 3, 3, -(5 ** 0.5)),
+    (1, "1/2", 2, 4.2533), (1, "3/2", 4, 0.7265), (1, "5/2", 6, -1.9021),
+    (2, 1, 3, 3.6180), (2, 2, 5, -0.3820), (2, 3, 4, -2.2361),
+    (3, "3/2", 4, 3.0777), (3, "5/2", 6, -1.1756), (3, "7/2", 2, -2.6287),
+    (4, 2, 5, None), (5, "5/2", 6, None),
+]
+out = []
+for k, j, dim, ref in rows:
+    jj = Fraction(j)
+    m = Fraction(k, 2)
+    val = 5 * d_mm(jj, m)
+    num = float(val)
+    aliased = (jj + m) >= 5
+    ok = None if ref is None else abs(num - ref) < 6e-5
+    out.append(dict(k=k, j=str(jj), dim=dim, predicted=num, exact=str(sp.simplify(val)),
+                    L13=ref, aliased=bool(aliased), match=ok))
+    print(f"k={k} j={str(jj):>3} dim={dim}  5*d = {num:+.6f}   L13 = {ref}   aliased={aliased}  match={ok}")
+
+# rest phases of a walk with local coins (discriminant = twisted adjacency / 5): cos(omega_0) = d^j_{jj}
+ph = {}
+for name, j in (("spinor k=1", "1/2"), ("vector k=2", 1), ("scalar triplet k=0", None)):
+    lam = float(d_mm(1, 0)) if j is None else float(d_mm(Fraction(j), Fraction(j)))
+    ph[name] = dict(lambda0=lam, omega0_deg=float(sp.deg(sp.acos(lam)).evalf()))
+print(ph)
+
+# lazy family kernel: omega^2 = arccos(1-x)^2 = 2x + x^2/3 + O(x^3), x = mu/(2M)
+xx = sp.symbols("x", positive=True)
+ser = sp.series(sp.acos(1 - xx) ** 2, xx, 0, 3).removeO()
+print("arccos(1-x)^2 =", ser)
+
+json.dump(dict(rows=out, local_coin_rest_phases=ph, lazy_series=str(ser)), open("wigner_check.json", "w"), indent=1)

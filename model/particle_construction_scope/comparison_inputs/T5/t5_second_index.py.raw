@@ -1,0 +1,181 @@
+"""T5, space (d): the second index of the regular representation of the frame group, with the kernel as a
+parameter-free mass operator (coordinator's note; `RL/work/DESIGN/DESIGN.md` entry A, `torsor.py`, float64 there).
+
+Exact over Q(sqrt5) and the integers. Output: second_index.json.
+
+Convention. Fix the coordinate frame and a base port p0. Every port is g_p(p0) for exactly one rotation g_p of the
+frame group. The nine functions F_ij(p) = R(g_p)_ij span the part of the port space on which the frame group acts by
+the triplet. The geometric (left) rotations act on i; the right translations p -> g_p k^-1 (p0) act on j. The
+adjacency acts on j alone by M3 = sum of R(s) over the five rotations s with s(p0) adjacent to p0.
+"""
+import itertools
+import math
+import sys
+from fractions import Fraction as F
+
+import kdlib as kd
+from kdlib import K, ZERO, ONE, R5, PHI
+import t5lib as t
+from t5lib import E, EZ, EO, W, IDP, geometry, rot, kmat, kstr, kfl
+
+geo = geometry()
+V, seams, rots, anti = geo['V'], geo['seams'], geo['rotations'], geo['antipode']
+fr = next(f for f in geo['frames'] if f['coordinate_frame'])
+G, klein = fr['stabilizer'], fr['klein']
+R = {g: kmat(rot(g)) for g in G}
+p0 = 0
+out = {'arithmetic': 'integers and Q(sqrt5); exact', 'base_port': p0, 'base_port_vector': [kstr(x) for x in V[p0]]}
+adj = lambda p, q: tuple(sorted((p, q))) in seams
+comp, inv = kd.compose, (lambda g: tuple(sorted(range(12), key=lambda i: g[i])))
+
+# 1. simply transitive, Cayley graph ------------------------------------------------------------------------
+free = all(all(g[p] != p for p in range(12)) for g in G if g != IDP)
+elem = {}
+for g in G:
+    assert g[p0] not in elem
+    elem[g[p0]] = g
+transitive = len(elem) == 12
+S = [g for g in G if adj(p0, g[p0])]
+cayley = all(adj(p, q) == (comp(inv(elem[p]), elem[q]) in S) for p in range(12) for q in range(12) if p != q)
+kinds = sorted(('half-turn' if t.order(s) == 2 else 'third of a turn') for s in S)
+out['torsor'] = {'frame_group_order': len(G), 'acts_freely_on_the_ports': free, 'acts_transitively': transitive,
+                 'seam_graph_is_its_cayley_graph': cayley, 'generators': kinds, 'generating_set_closed_under_inverse': all(inv(s) in S for s in S),
+                 'port_space': 'regular representation: 1 + 1prime + 1second + 3 x 3 (free and transitive action; every type occurs as often as its dimension)'}
+print('1.', out['torsor'])
+assert free and transitive and cayley and kinds == ['half-turn'] + ['third of a turn'] * 4
+
+# 2. left and right actions --------------------------------------------------------------------------------
+def left(k):                                    # geometric rotation: p -> k(p)
+    return tuple(k[p] for p in range(12))
+def right(k):                                   # p = g_p(p0) -> g_p k^-1 (p0)
+    return tuple(comp(elem[p], inv(k))[p0] for p in range(12))
+def commutes_with_adjacency(perm):
+    return all(adj(p, q) == adj(perm[p], perm[q]) for p in range(12) for q in range(p + 1, 12))
+lr = all(tuple(left(a)[right(b)[p]] for p in range(12)) == tuple(right(b)[left(a)[p]] for p in range(12)) for a in G for b in G)
+left_ok = all(commutes_with_adjacency(left(k)) for k in G)
+right_sym = [k for k in G if commutes_with_adjacency(right(k))]
+k0 = next(k for k in right_sym if k != IDP)
+out['two_actions'] = {'left_and_right_commute': lr, 'left_action_commutes_with_the_adjacency': left_ok,
+                      'right_translations_that_commute_with_the_adjacency': len(right_sym),
+                      'the_nontrivial_one_is_the_antipodal_map': right(k0) == anti,
+                      'it_is_the_half_turn_about': [kstr(x) for x in next(h['axis'] for h in fr['half_turns'] if h['perm'] == k0)],
+                      'adjacency_is_the_sum_of_right_translations_by_the_generators': all(
+                          sum(1 for s in S if right(inv(s))[q] == p) == (1 if adj(p, q) else 0) for p in range(12) for q in range(12))}
+print('2.', out['two_actions'])
+assert lr and left_ok and len(right_sym) == 2 and out['two_actions']['the_nontrivial_one_is_the_antipodal_map']
+assert out['two_actions']['adjacency_is_the_sum_of_right_translations_by_the_generators']
+
+# 3. the kernel on the second index --------------------------------------------------------------------------
+M3 = kd.zeros(3)
+for s in S:
+    M3 = kd.madd(M3, R[s])
+Fij = lambda p, i, j: R[elem[p]][i][j]
+act = all(sum((Fij(q, i, j) for q in range(12) if adj(p, q)), ZERO) == sum((Fij(p, i, m) * M3[m][j] for m in range(3)), ZERO)
+          for p in range(12) for i in range(3) for j in range(3))
+rank9 = kd.rank(tuple(tuple(Fij(p, i, j) for p in range(12)) for i in range(3) for j in range(3)))
+integer = all(x.is_rational() and x.a.denominator == 1 for r in M3 for x in r)
+v = V[p0]
+vg = tuple(x.gal() for x in v)
+nrm = kd.vcross(v, vg)
+def mv(M, x):
+    return tuple(sum((M[i][j] * x[j] for j in range(3)), ZERO) for i in range(3))
+eig = {'sqrt5 on the base port direction v_p0': mv(M3, v) == tuple(R5 * x for x in v),
+       '-sqrt5 on the conjugate direction (sqrt5 -> -sqrt5 of v_p0; in the same coordinate plane, perpendicular)': mv(M3, vg) == tuple(-R5 * x for x in vg),
+       '-1 on the normal of that plane': mv(M3, nrm) == tuple(-x for x in nrm),
+       'the three are mutually perpendicular': kd.vdot(v, vg).is_zero() and kd.vdot(v, nrm).is_zero() and kd.vdot(vg, nrm).is_zero()}
+def sq(x):
+    n = kd.vdot(x, x)
+    return [x[i] * x[i] / n for i in range(3)]
+comp_rows = {'slow (adjacency sqrt5, cost 5 - sqrt5): the public family band': sq(v),
+             'middle (adjacency -1, cost 6): the triplet inside the rank-five band': sq(nrm),
+             'fast (adjacency -sqrt5, cost 5 + sqrt5)': sq(vg)}
+bands = {'slow': all(Fij(p, i, 0) * v[0] + Fij(p, i, 1) * v[1] + Fij(p, i, 2) * v[2] == V[p][i] for p in range(12) for i in range(3)),
+         'fast': all(Fij(p, i, 0) * vg[0] + Fij(p, i, 1) * vg[1] + Fij(p, i, 2) * vg[2] == V[p][i].gal() for p in range(12) for i in range(3))}
+out['kernel_on_the_second_index'] = {
+    'M3_in_the_frame_axes_of_the_second_index': [[int(x.a) for x in r] for r in M3], 'integer_symmetric': integer and kd.meq(M3, kd.transpose(M3)),
+    'A_F_ij = sum_m F_im M3_mj (all ports, all i, j)': act, 'the_nine_functions_F_ij_are_independent': rank9 == 9,
+    'eigenvectors': eig,
+    'squared_components_on_the_frame_axes_of_the_second_index': {k: [kstr(x) for x in r] for k, r in comp_rows.items()},
+    'squared_components_values': {k: [kfl(x) for x in r] for k, r in comp_rows.items()},
+    'the_slow_component_is_the_coordinate_loads_v_p (the family band); the fast one is their conjugate': bands,
+    'rotation_angle_in_the_mixed_plane_deg': math.degrees(math.atan(2 / (1 + 5 ** 0.5))),
+    'note': 'the matrix depends on the base port only through a relabelling of the axes; DESIGN.md lists it for another base port'}
+print('3. M3 =', out['kernel_on_the_second_index']['M3_in_the_frame_axes_of_the_second_index'], eig, bands)
+assert act and rank9 == 9 and integer and all(eig.values()) and all(bands.values())
+
+# 4. spectra under the candidate attachments -----------------------------------------------------------------
+adjv = [5 ** 0.5, -1.0, -(5 ** 0.5)]
+cost = [5 - a for a in adjv]
+level = [1 - c / 60 for c in cost]
+phase = [math.acos(x) for x in level]
+out['spectra'] = {
+    'order': 'slow, middle, fast',
+    'adjacency': ['sqrt5', '-1', '-sqrt5'], 'seam_cost': ['5 - sqrt5', '6', '5 + sqrt5'], 'seam_cost_values': cost,
+    'kernel_level_T': ['11/12 + sqrt5/60', '9/10', '11/12 - sqrt5/60'], 'kernel_level_values': level,
+    'rest_phase_if_the_internal_walk_is_the_mass_step (CF1 section 10)': phase,
+    'ratios_to_the_largest': {'seam cost (equal to the correction probability 1 - T)': [c / max(cost) for c in cost],
+                              'rest phase arccos(T)': [x / max(phase) for x in phase],
+                              'modulus of the adjacency eigenvalue': [abs(a) / max(abs(b) for b in adjv) for a in adjv]},
+    'exact_cost_ratios': {'slow/fast': '(3 - sqrt5)/2', 'middle/fast': '(15 - 3 sqrt5)/10'},
+    'sum_of_costs_over_square_of_sum_of_roots (the quotient of the Koide form, costs as masses)':
+        sum(cost) / sum(math.sqrt(c) for c in cost) ** 2}
+print('4.', out['spectra']['ratios_to_the_largest'])
+
+# 5. residual groups on the second index ---------------------------------------------------------------------
+PC = t.emat([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+tcyc = next(g for g in G if t.order(g) == 3 and t.eeq(rot(g), PC))
+grp_rows = []
+for name, grp in (('right frame group (order 12)', G), ('right Klein group', klein),
+                  ('right third of a turn', (IDP, tcyc, comp(tcyc, tcyc))),
+                  ('the antipodal map (the one right half-turn that the seams keep)', (IDP, k0))):
+    dh, ds = t.commutant_dims([R[g] for g in grp if g != IDP])
+    grp_rows.append({'group': name, 'order': len(grp), 'hermitian_dimension': dh, 'real_symmetric_dimension': ds,
+                     'commutes_with_the_kernel': all(kd.meq(kd.mm(R[g], M3), kd.mm(M3, R[g])) for g in grp)})
+resid = [g for g in G if kd.meq(kd.mm(R[g], M3), kd.mm(M3, R[g]))]
+out['residual_groups_on_the_second_index'] = {
+    'table': grp_rows,
+    'left_groups (frame stabilizer, Klein group, third of a turn, the tick\'s group)': 'act on the first index only: every Hermitian 3 x 3 matrix on the second index commutes with them (9 real parameters, no constraint)',
+    'full_rotation_group': 'does not preserve the frame; its invariant operators on the port space are the functions of the kernel (the port space is multiplicity free under it: 1 + 3 + 3prime + 5), on the second index diag(m_slow, m_middle, m_fast) in the eigenbasis of M3: three free eigenvalues, eigenvectors fixed',
+    'right_elements_commuting_with_M3': len(resid),
+    'general_form_under_the_antipodal_map': '[[x, z, 0], [conj(z), y, 0], [0, 0, m]] in axes where the normal of the base port plane is the third: 5 real parameters; the kernel fixes x, y, z, m'}
+for r in grp_rows:
+    print('5.', r)
+assert len(resid) == 2
+
+# 6. mixing --------------------------------------------------------------------------------------------------
+basis = lambda p: (V[p], kd.vcross(V[p], tuple(x.gal() for x in V[p])), tuple(x.gal() for x in V[p]))   # slow, middle, fast
+def ov(x, y):
+    return kd.vdot(x, y) * kd.vdot(x, y) / (kd.vdot(x, x) * kd.vdot(y, y))
+axes = ((ONE, ZERO, ZERO), (ZERO, ONE, ZERO), (ZERO, ZERO, ONE))
+Mfa = [[ov(b, e) for e in axes] for b in basis(p0)]
+classes = {}
+for p in range(12):
+    Mp = [[ov(a, b) for b in basis(p)] for a in basis(p0)]
+    key = tuple(tuple(kstr(x) for x in r) for r in Mp)
+    classes.setdefault(key, {'ports': [], 'M': Mp})
+    classes[key]['ports'].append(p)
+def angles(M):
+    s13 = M[0][2]
+    if s13 >= 1 - 1e-12:
+        return None
+    return {'sin2_theta13': s13, 'sin2_theta12': M[0][1] / (1 - s13), 'sin2_theta23': M[1][2] / (1 - s13)}
+anchor_rows = []
+for key, d in classes.items():
+    Mv = [[kfl(x) for x in r] for r in d['M']]
+    anchor_rows.append({'second_anchor_ports': d['ports'], 'relation_to_the_base_port': sorted({
+        ('same or antipode' if p in (p0, anti[p0]) else ('adjacent' if adj(p0, p) else 'distance two')) for p in d['ports']}),
+        'exact': [list(r) for r in key], 'values': Mv, 'standard_angles_with_copies_ordered_by_cost': angles(Mv)})
+mfav = [[kfl(x) for x in r] for r in Mfa]
+out['mixing'] = {
+    'kernel_eigenbasis_against_the_frame_axes_of_the_second_index': {
+        'rows': 'slow, middle, fast (ordered by cost)', 'columns': 'axes 1, 2, 3',
+        'exact': [[kstr(x) for x in r] for r in Mfa], 'values': mfav,
+        'reading': 'one copy (the middle one) is unmixed; the lightest and the heaviest are rotated by the angle with tangent 1/phi (31.717 degrees), squared sine (5 - sqrt5)/10; real matrix, no phase'},
+    'two_kernels_anchored_at_different_base_ports': {
+        'rule': 'M3 for the base port p is R(g_p) M3 R(g_p)^T; rows: copies of the anchor p0, columns: copies of the anchor p, both ordered slow, middle, fast',
+        'classes': anchor_rows}}
+print('6. kernel basis against second-index axes:', [[round(x, 6) for x in r] for r in mfav])
+for r in anchor_rows:
+    print('6. anchors', r['second_anchor_ports'], r['relation_to_the_base_port'], [[round(x, 6) for x in rr] for rr in r['values']])
+if len(sys.argv) > 1:
+    t.dump(out, sys.argv[1])

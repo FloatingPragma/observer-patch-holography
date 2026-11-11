@@ -1,0 +1,66 @@
+"""Worker LS, round 2: NOT BLIND comparison of the determinant-line basepoint (CANDIDATES.md 5.4), run after
+ls2_construct.py. Measured values are IMPORTED, quoted from memory, MeV unless marked:
+  S1 own scales, PDG 2024 central values: leptons pole; u, d, s MSbar at 2 GeV; c, b MSbar at their own mass;
+     t direct/pole 172.57 GeV.
+  S2 MSbar at M_Z and S3 MSbar at 2e16 GeV: Xing, Zhang, Zhou, Phys. Rev. D 77 (2008) 113016, Standard Model table.
+  cd RER && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B RL/work/LS/ls2_compare.py
+"""
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+C = json.loads((HERE / "ls2_construct.json").read_text())
+N = float(C["N_value"])
+V = float(C["v_source_GeV"])
+
+SCALES = {
+    "S1_own": {"e": [0.51099895e-3, 105.6583755e-3, 1776.93e-3],
+               "u": [2.16e-3, 1.2730, 172.57], "d": [4.70e-3, 93.5e-3, 4.183]},
+    "S2_MZ": {"e": [0.486570161e-3, 102.7181359e-3, 1746.24e-3],
+              "u": [1.27e-3, 0.619, 171.7], "d": [2.90e-3, 55e-3, 2.89]},
+    "S3_2e16": {"e": [0.469652e-3, 99.1466e-3, 1685.58e-3],
+                "u": [0.48e-3, 0.235, 74.0], "d": [1.14e-3, 22e-3, 1.00]},
+}
+
+
+def main():
+    rows = {}
+    for name, m in SCALES.items():
+        det = {f: math.prod(m[f]) for f in m}
+        R_u, R_d = det["u"] / det["e"], det["d"] / det["e"]
+        row = {
+            "products_GeV3": det,
+            "R_u": R_u, "R_d": R_d, "R_u_over_R_d": R_u / R_d,
+            "worst_quark_factor": max(abs(math.log(R_u)), abs(math.log(R_d))),
+            "excluded_at_this_scale": max(abs(math.log(R_u)), abs(math.log(R_d))) > math.log(3),
+            "best_Z6_only_compromise_factor": math.sqrt(R_u / R_d),
+        }
+        if name in ("S1_own", "S2_MZ"):
+            row["over_N_with_v_source"] = {f: det[f] / V**3 / N for f in det}
+        rows[name] = row
+    # Unregistered look L7 (considered while reasoning before section 5 was written, listed after the fact):
+    # per cone point weight 6^(-|6Y_R|/6) of the right-handed leg (e_R -6, u_R 4, d_R -2): fits the leptons by
+    # construction, predicts R_u = 6^4 and R_d = 6^8.
+    l7 = {"R_u_pred": 6.0**4, "R_d_pred": 6.0**8}
+    for name, r in rows.items():
+        r["L7_unregistered_miss"] = {"u": r["R_u"] / l7["R_u_pred"], "d": r["R_d"] / l7["R_d_pred"]}
+    verdict = all(r["excluded_at_this_scale"] for r in rows.values())
+    z6_verdict = all(math.sqrt(r["R_u_over_R_d"]) > 3 for r in rows.values())
+    out = {"N_predicted": N, "v_source_GeV": V, "scales": rows,
+           "D1_D2_excluded": verdict, "every_Z6_label_construction_misses_a_quark_sector_by_more_than_3": z6_verdict}
+    (HERE / "ls2_compare.json").write_text(json.dumps(out, indent=1) + "\n")
+    for name, r in rows.items():
+        extra = ""
+        if "over_N_with_v_source" in r:
+            o = r["over_N_with_v_source"]
+            extra = f"  over N: e {o['e']:.4f}  u {o['u']:.4g}  d {o['d']:.4g}"
+        print(f"{name:8s} R_u = {r['R_u']:.4g}  R_d = {r['R_d']:.4g}  R_u/R_d = {r['R_u_over_R_d']:.4g}  "
+              f"min miss for any Z6-only rule = {r['best_Z6_only_compromise_factor']:.3g}{extra}")
+    print("D1/D2 excluded:", verdict, "| every Z6-label construction misses by > 3:", z6_verdict)
+
+
+if __name__ == "__main__":
+    main()

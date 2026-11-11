@@ -1,0 +1,50 @@
+"""Worker HR: diagnostic for the hypercharge engine. Weak links frozen at the identity: the doublet coupled to the
+hypercharge angle alone (charge 3 in the angle a, plaquette term (6/g^2)(1 - cos 2 a_P) + (4/g^2)(1 - cos 3 a_P)).
+Stability limit of the symmetric side at lambda_L = 0 on 4^4 against the one-loop value 1/(8 - (3/4) gY^2 J), and
+the mean of cos(3 a) of a link in a maximal-tree-free gauge-invariant form: the plaquette averages.
+Usage: python hr_qed_check.py <seed>. Writes qed_check_s<seed>.json.
+"""
+import json
+import sys
+import time
+
+import numpy as np
+
+import hr_lib as H
+import hr_u1 as HU
+
+
+class FrozenWeak(HU.LatticeU1):
+    def update_links(self):
+        U0 = self.U.copy()
+        super().update_links()
+        self.U[:] = U0                      # weak links stay at the identity; the angle update is kept
+
+
+seed = int(sys.argv[1])
+t0 = time.time()
+lat = FrozenWeak(4, 5.171, 0.1230, 0.0, seed=seed)
+for _ in range(150):
+    lat.sweep()
+rows, limit = [], None
+for kap in np.arange(0.1240, 0.1300001, 0.0005):
+    lat.kappa = float(kap)
+    r2 = []
+    for i in range(150):
+        lat.sweep()
+        r2.append(float((lat.phi ** 2).sum(1).mean()))
+        if r2[-1] > 50.0:
+            break
+    pl = lat.plaquettes()
+    rows.append({"kappa_H": float(kap), "rho2": float(np.mean(r2[len(r2) // 2:])), "max": float(max(r2)), "sweeps": len(r2),
+                 "cos2a": pl[2], "cos3a": pl[3]})
+    print(f"kappa {kap:.4f} rho2 {rows[-1]['rho2']:.3f} max {rows[-1]['max']:.2f} cos2a {pl[2]:.5f} cos3a {pl[3]:.5f} t {time.time() - t0:.0f}s", flush=True)
+    if r2[-1] > 50.0:
+        limit = float(kap)
+        break
+    if time.time() - t0 > 95:
+        break
+g2 = 4 / 5.171
+one_loop = 1.0 / (8.0 - 0.75 * 0.6 * g2 * 0.154933)
+json.dump({"seed": seed, "stability_limit": limit, "one_loop": one_loop, "free": 0.125, "rows": rows}, open(f"qed_check_s{seed}.json", "w"), indent=1)
+print("stability limit", limit, "one loop", one_loop)

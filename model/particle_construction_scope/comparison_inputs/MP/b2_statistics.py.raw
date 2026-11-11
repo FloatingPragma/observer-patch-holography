@@ -1,0 +1,328 @@
+"""Block 2: statistics of two quanta under the public rule, with the five-level fibre.
+
+Labelled lift (declared): two quanta with positions (x, y); the public rows act on the quantum that sits on the
+addressed seam; |11> is fixed for both orders; a double load splits by the exchange-symmetric hop, each moved quantum
+transported through its own link sign. Fibre labels ride along (flat links) or see the central sign (spinor levels).
+"""
+import itertools, json, math, sys, time
+from fractions import Fraction as F
+import numpy as np
+import mplib as M
+
+t0 = time.time()
+out = {}
+R2 = 1 / math.sqrt(2)
+
+
+def say(*a):
+    print(*a); sys.stdout.flush()
+
+
+def ix(x, y, r):
+    return (12 * x + y) * 4 + r
+
+
+def labelled_U(sign1, sign2):
+    Us = []
+    for k, (a, b) in enumerate(M.ADDR):
+        U = np.eye(576)
+        s1, s2 = sign1[k], sign2[k]
+        for y in range(12):
+            if y in (a, b):
+                continue
+            v = np.zeros(576); v[ix(a, y, 0)] = 1; v[ix(b, y, 0)] = -s1; v[ix(a, y, 1)] = -1; v[ix(b, y, 1)] = -s1
+            U -= np.outer(v, v) / 2
+            v = np.zeros(576); v[ix(y, a, 0)] = 1; v[ix(y, b, 0)] = -s2; v[ix(y, a, 1)] = -1; v[ix(y, b, 1)] = -s2
+            U -= np.outer(v, v) / 2
+        v = np.zeros(576); v[ix(a, a, 0)] = 1; v[ix(a, b, 2)] = -s2 * R2; v[ix(b, a, 2)] = -s1 * R2
+        U -= np.outer(v, v)
+        v = np.zeros(576); v[ix(b, b, 0)] = 1; v[ix(a, b, 3)] = -s1 * R2; v[ix(b, a, 3)] = -s2 * R2
+        U -= np.outer(v, v)
+        Us.append(U)
+    return Us
+
+
+flat = [1] * 60
+zed = [(-1 if tuple(sorted(M.ADDR[k])) == (0, 1) else 1) for k in range(60)]      # the public central link on seam (0,1)
+X = np.zeros((576, 576))
+for x in range(12):
+    for y in range(12):
+        for r in range(4):
+            X[ix(y, x, r), ix(x, y, r)] = 1
+# symmetric / antisymmetric position bases, with records
+Bs = np.zeros((576, 312)); Ba = np.zeros((576, 264))
+for i, (x, y) in enumerate(M.CONF):
+    for r in range(4):
+        if x == y:
+            Bs[ix(x, x, r), 4 * i + r] = 1
+        else:
+            Bs[ix(x, y, r), 4 * i + r] = Bs[ix(y, x, r), 4 * i + r] = R2
+for i, (x, y) in enumerate(M.PAIRS):
+    for r in range(4):
+        Ba[ix(x, y, r), 4 * i + r], Ba[ix(y, x, r), 4 * i + r] = R2, -R2
+
+# ---------------------------------------------------------------- A. flat links: exchange, restriction to the two sectors
+Uff = labelled_U(flat, flat)
+inv = max(float(np.max(np.abs(U @ U - np.eye(576)))) for U in Uff)
+com = max(float(np.max(np.abs(U @ X - X @ U))) for U in Uff)
+Tpub = M.two_quanta_T()
+sym_def = max(float(np.max(np.abs(Bs.T @ U @ Bs - Tp / 2.0))) for U, Tp in zip(Uff, Tpub))
+leak = max(float(np.max(np.abs(Ba.T @ U @ Bs))) for U in Uff)
+# fermionic integer rule on the 66 antisymmetric configurations
+TF = []
+for a, b in M.ADDR:
+    T = 2 * np.eye(264, dtype=np.int64)
+    for y in range(12):
+        if y in (a, b):
+            continue
+        w = np.zeros(264, dtype=np.int64)
+        for port, sg in ((a, 1), (b, -1)):
+            lo, hi = min(port, y), max(port, y)
+            orient = 1 if port < y else -1                  # |port ^ y> = orient * |lo ^ hi>
+            w[4 * M.PAIRS.index((lo, hi)) + 0] += sg * orient
+            w[4 * M.PAIRS.index((lo, hi)) + 1] += -orient
+        T -= np.outer(w, w)
+    TF.append(T)
+asym_def = max(float(np.max(np.abs(Ba.T @ U @ Ba - Tf / 2.0))) for U, Tf in zip(Uff, TF))
+split_on_antisym = max(float(np.max(np.abs((Ba.T @ U @ Ba)[np.ix_([4 * i + r for i in range(66) for r in (2, 3)], range(264))]
+                                           - np.eye(264)[[4 * i + r for i in range(66) for r in (2, 3)]]))) for U in Uff)
+out['lift'] = {'labelled_dimension': 576 * 60, 'involution_defect': inv, 'commutator_with_exchange': com,
+               'symmetric_sector_equals_public_rule_defect': sym_def, 'symmetric_antisymmetric_coupling': leak,
+               'antisymmetric_sector_equals_signed_hard_core_rule_defect': asym_def,
+               'split_rows_act_on_antisymmetric_positions': split_on_antisym > 1e-12,
+               'statement': 'the label-blind lift commutes with the exchange: both exchange sectors are invariant; the public 78-configuration rule is the symmetric one; '
+                            'on antisymmetric positions there is no double load and the split rows are the identity'}
+say('lift: involution', inv, 'commutator with exchange', com, 'sym = public', sym_def, 'antisym = signed rule', asym_def, 'split rows on antisym', split_on_antisym)
+
+# ---------------------------------------------------------------- B. antisymmetric positions (two scalar fermions)
+SF = sum(TF)
+b0 = [4 * i for i in range(66)]; b1 = [4 * i + 1 for i in range(66)]
+assert np.abs(SF[np.ix_(b0, b1)]).sum() == 0
+K = M.native_kernel()
+first = True
+for cj in range(66):
+    for ci in range(66):
+        val = sum(F(int(Tk[4 * ci + r, 4 * cj]) ** 2, 240) for Tk in TF for r in range(4))
+        first &= (val == K[ci][cj])
+P1 = np.eye(12) - M.LAP / 60.0
+lam1 = np.linalg.eigvalsh(P1)
+freeF_int = np.zeros((66, 66), dtype=np.int64)          # 120 * (1 - (L x 1 + 1 x L)/60) on antisymmetric pairs
+for i, (x, y) in enumerate(M.PAIRS):
+    freeF_int[i, i] += 120 - 2 * 10
+    for (p, q, moved) in [(x, y, 0), (x, y, 1)]:
+        src = (p, q)[moved]; other = (p, q)[1 - moved]
+        for nb in M.NBR[src]:
+            if nb == other:
+                continue
+            new = (nb, other) if moved == 0 else (other, nb)
+            lo, hi = min(new), max(new)
+            freeF_int[M.PAIRS.index((lo, hi)), i] += 2 * (1 if new[0] < new[1] else -1)
+Padj = np.diag([1 if M.ADJ[x, y] else 0 for x, y in M.PAIRS]).astype(np.int64)
+contact_identity = np.array_equal(SF[np.ix_(b0, b0)], freeF_int + 4 * Padj)
+freeF_levels = sorted([lam1[i] + lam1[j] - 1 for i in range(12) for j in range(i + 1, 12)])
+free_def = float(np.max(np.abs(np.array(sorted(np.linalg.eigvalsh(freeF_int / 120.0))) - np.array(freeF_levels))))
+
+
+def act66(g):
+    p = g['perm']
+    Pm = np.zeros((66, 66))
+    for i, (x, y) in enumerate(M.PAIRS):
+        a, b = p[x], p[y]
+        Pm[M.PAIRS.index((min(a, b), max(a, b))), i] = 1 if a < b else -1
+    return Pm
+
+
+ferm = {}
+for name, idx in (('blank', b0), ('record1', b1)):
+    ferm[name] = {'exact_factors': M.exact_levels(SF[np.ix_(idx, idx)]), 'levels': M.level_rows(M.label_levels(SF[np.ix_(idx, idx)] / 120.0, act66))}
+    say(f'\nantisymmetric positions, {name} block:')
+    for r in ferm[name]['levels']:
+        say(f"   lambda {r['lambda']:.9f} omega {r['omega']:.6f} dim {r['dim']:2d} {r['irreps']}")
+    for r in ferm[name]['exact_factors']:
+        say(f"     degree {r['degree']} x{r['multiplicity']}: {r['exact']} -> {[round(v, 9) for v in r['lambda']]}")
+free_lv = M.level_rows(M.label_levels(freeF_int / 120.0, act66))
+say('free fermions (additive kernel):', [(round(r['lambda'], 6), round(r['omega'], 6), r['dim'], r['irreps']) for r in free_lv])
+
+
+def by_irrep(rows):
+    d = {}
+    for r in rows:
+        for nm, mult in r['irreps'].items():
+            d.setdefault(nm, []).extend([r['lambda']] * mult)
+    return {k: sorted(v, reverse=True) for k, v in d.items()}
+
+
+bp, bf = by_irrep(ferm['blank']['levels']), by_irrep(free_lv)
+shifts = []
+for nm in sorted(bp):
+    for lp, lf in zip(bp[nm], bf[nm]):
+        shifts.append({'irrep': nm, 'lambda_public': lp, 'lambda_free': lf, 'omega_public': math.acos(lp), 'omega_free': math.acos(lf), 'shift_omega': math.acos(lp) - math.acos(lf)})
+    say(f'  {nm:4s} public {[round(v, 6) for v in bp[nm]]}\n       free   {[round(v, 6) for v in bf[nm]]}')
+sh = np.array([r['shift_omega'] for r in shifts])
+out['antisymmetric_positions'] = {
+    'dimension': 66, 'first_step_population_law_equals_native_on_binary': bool(first),
+    'blank_block_equals_free_fermions_plus_contact': bool(contact_identity),
+    'contact_term': 'D = 1 - (L x 1 + 1 x L)/60 + (1/30) * projector on adjacent pairs: an attraction of twice the hop amplitude on a common seam',
+    'free_fermion_levels_additive_defect': free_def, 'spectrum': ferm, 'free_levels': free_lv, 'shift_by_sector': shifts,
+    'shift_summary': {'min': float(sh.min()), 'max': float(sh.max()), 'all_nonpositive': bool((sh < 1e-12).all())},
+    'largest_eigenvalue': ferm['blank']['levels'][0]['lambda'], 'lowest_phase': ferm['blank']['levels'][0]['omega'],
+    'stationary_state_exists': bool(abs(ferm['blank']['levels'][0]['lambda'] - 1) < 1e-9)}
+say('first step = native on binary:', first, '| blank block = free fermions + (1/30) adjacent projector:', contact_identity, '| shifts', out['antisymmetric_positions']['shift_summary'],
+    '| lowest phase', out['antisymmetric_positions']['lowest_phase'])
+
+# ---------------------------------------------------------------- C. the five-level fibre: sectors by type and exchange symmetry
+types = [0, 0, 0, 1, 1]                     # three vector levels, two spinor levels
+Q5 = [2, 2, 2, -3, -3]
+lab = [(i, j) for i in range(5) for j in range(5)]
+Xl = np.zeros((25, 25))
+for n, (i, j) in enumerate(lab):
+    Xl[lab.index((j, i)), n] = 1
+table = []
+for tname, cond in (('vector-vector', lambda i, j: types[i] + types[j] == 0), ('vector-spinor', lambda i, j: types[i] + types[j] == 1), ('spinor-spinor', lambda i, j: types[i] + types[j] == 2)):
+    Pt = np.diag([1.0 if cond(i, j) else 0.0 for i, j in lab])
+    ds = int(round(np.trace(Pt @ (np.eye(25) + Xl) / 2))); da = int(round(np.trace(Pt @ (np.eye(25) - Xl) / 2)))
+    q = sorted(set(Q5[i] + Q5[j] for i, j in lab if cond(i, j)))
+    table.append({'type': tname, 'label_symmetric': ds, 'label_antisymmetric': da, 'Q5': q[0], 'six_Y': -q[0],
+                  'fermions': f'78 x {da} + 66 x {ds} = {78 * da + 66 * ds}', 'bosons': f'78 x {ds} + 66 x {da} = {78 * ds + 66 * da}'})
+out['five_levels'] = {'sectors': table, 'fermion_total': sum(78 * r['label_antisymmetric'] + 66 * r['label_symmetric'] for r in table),
+                      'boson_total': sum(78 * r['label_symmetric'] + 66 * r['label_antisymmetric'] for r in table),
+                      'check': {'Lambda2(C60)': 60 * 59 // 2, 'Sym2(C60)': 60 * 61 // 2},
+                      'fermion_patterns_in_one_symmetric_spatial_state': {'(2,0)': 3, '(1,1)': 6, '(0,2)': 1},
+                      'pattern_dimensions_C(3,n3)C(2,n2)': {f'({a},{b})': math.comb(3, a) * math.comb(2, b) for a in range(4) for b in range(3)}}
+say('\nfive levels, two quanta, sectors:')
+for r in table:
+    say('  ', r)
+say('   totals: fermions', out['five_levels']['fermion_total'], 'bosons', out['five_levels']['boson_total'], out['five_levels']['check'])
+
+# ---------------------------------------------------------------- D. the doubly occupied uniform mode under the public rule
+T = Tpub
+S = sum(T)
+dbl0 = [4 * c for c in range(66, 78)]
+adj = [M.CIDX[c] for c in M.ADJPAIR]
+pair = dbl0 + [4 * c + 2 for c in adj] + [4 * c + 3 for c in adj]
+Spair = S[np.ix_(pair, pair)]
+d = np.zeros(72, dtype=object); d[:] = 0; d[:12] = 1
+# <uu|T_t(D)|uu> = (<d|T_t(D)|d> + 132)/144, exact
+Sobj = Spair.astype(object)
+vecs = [d]
+for t in range(1, 7):
+    vecs.append(Sobj.dot(vecs[-1]))
+mom = [F(int(sum(d * v)), 120 ** t) for t, v in enumerate(vecs)]            # <d|D^t|d>
+cheb = {1: [0, 1], 2: [-1, 0, 2], 3: [0, -3, 0, 4], 4: [1, 0, -8, 0, 8], 5: [0, 5, 0, -20, 0, 16], 6: [-1, 0, 18, 0, -48, 0, 32]}
+ret = {}
+for t, co in cheb.items():
+    amp_d = sum(F(c) * mom[n] for n, c in enumerate(co))
+    amp = (amp_d + 132) / 144
+    ret[t] = {'amplitude': str(amp), 'probability': str(amp * amp), 'probability_float': float(amp * amp)}
+e0 = np.zeros(312)
+for c in range(66):
+    e0[4 * c] = math.sqrt(2) / 12
+for c in range(66, 78):
+    e0[4 * c] = 1 / 12
+Us = [x / 2.0 for x in T]
+pav, stat = M.time_average(Us, e0)
+ret_avg, ret_levels = M.return_average(S / 120.0, e0)
+pop_c = pav.reshape(78, 4).sum(axis=1)
+out['uniform_mode_twice'] = {
+    'state': '|u,u> x blank x uniform address (u the uniform port mode): amplitude 1/12 on each double load, sqrt2/12 on each binary configuration',
+    'first_step_overlap_<psi|W|psi>': ret[1]['amplitude'], 'return': ret,
+    'weight_on_fixed_vectors_of_W': stat, 'weight_exact': str(F(11, 12) + F(1, 72)),
+    'average_return_probability': ret_avg, 'weights_by_level': ret_levels,
+    'double_load_probability_initial': str(F(1, 12)), 'double_load_probability_time_average': float(pop_c[66:].sum()),
+    'adjacent_pair_with_split_record_time_average': float(pav.reshape(78, 4)[:, 2:].sum()),
+    'binary_blank_time_average': float(pav.reshape(78, 4)[:66, 0].sum()),
+    'verdict': 'not stationary under the public two-quanta rule: the double-load component (1/12) enters the pair sector',
+    'stationary_instead': 'uniform superposition of the 66 binary configurations (no double load), blank record: fixed by every U_k',
+}
+say('\nuniform mode occupied twice: <psi|W|psi> =', ret[1]['amplitude'], '| return probabilities', {t: round(r['probability_float'], 9) for t, r in ret.items()},
+    '| fixed weight', stat, '=', F(11, 12) + F(1, 72), '| average return', ret_avg)
+say('   time averages: double load', float(pop_c[66:].sum()), '(initial 1/12) | adjacent pair with split record', float(pav.reshape(78, 4)[:, 2:].sum()))
+# quasi-free control: the one-quantum uniform mode is exactly stationary
+U1 = M.one_quantum_U()
+x = np.zeros((24, 60)); x[0::2, :] = 1 / math.sqrt(12 * 60)
+out['uniform_mode_twice']['quasi_free_control_defect_|W A u - A u|'] = float(np.max(np.abs(M.apply_W(x, U1) - x)))
+say('   quasi-free control (product of two one-quantum walks): |W A u - A u| =', out['uniform_mode_twice']['quasi_free_control_defect_|W A u - A u|'])
+
+# ---------------------------------------------------------------- E. types with the public central link: stationary sector and lowest phases
+res = {}
+Ps = Bs @ Bs.T; Pa = Ba @ Ba.T
+blank576 = [ix(x, y, 0) for x in range(12) for y in range(12)]
+
+
+def top_levels(D, proj=None, n=4):
+    if proj is not None:
+        w, E = np.linalg.eigh(proj)
+        B = E[:, w > 0.5]
+        D = B.T @ D @ B
+    w = np.linalg.eigvalsh(D)[::-1]
+    return w
+
+
+for tname, (s1, s2) in (('vector-vector', (flat, flat)), ('vector-spinor', (flat, zed)), ('spinor-spinor', (zed, zed))):
+    Us_t = labelled_U(s1, s2)
+    D = sum(Us_t) / 60
+    hc = [ix(x, y, r) for x in range(12) for y in range(12) if x != y for r in (0, 1)]              # hard-core sector
+    pr = [ix(x, x, 0) for x in range(12)] + [ix(x, y, r) for x in range(12) for y in range(12) if M.ADJ[x, y] for r in (2, 3)]
+    rest = sorted(set(range(576)) - set(hc) - set(pr))
+    crossing = float(np.abs(D[np.ix_(hc, pr)]).max() + np.abs(D[np.ix_(hc, rest)]).max() + np.abs(D[np.ix_(pr, rest)]).max())
+    row = {'cross_sector': crossing}
+    if tname != 'vector-spinor':
+        com_t = max(float(np.max(np.abs(U @ X - X @ U))) for U in Us_t)
+        row['commutator_with_exchange'] = com_t
+        for sec, proj in (('position-symmetric', Ps), ('position-antisymmetric', Pa)):
+            w, E = np.linalg.eigh(proj); B = E[:, w > 0.5]
+            for secname, idx in (('hard-core', hc), ('pair', pr)):
+                Bi = np.zeros((576, len(idx))); Bi[idx, range(len(idx))] = 1
+                Pi = Bi @ Bi.T
+                w2, E2 = np.linalg.eigh(B.T @ Pi @ B)
+                Bsec = B @ E2[:, w2 > 0.5]
+                if Bsec.shape[1] == 0:
+                    continue
+                ev = np.linalg.eigvalsh(Bsec.T @ D @ Bsec)[::-1]
+                row[f'{sec} | {secname}'] = {'dimension': int(Bsec.shape[1]), 'stationary_vectors': int(np.sum(ev > 1 - 1e-9)),
+                                            'top_lambda': [float(v) for v in ev[:4]], 'lowest_phases': [float(math.acos(min(1.0, v))) for v in ev[:4]]}
+    else:
+        swap_def = max(float(np.max(np.abs(X @ U @ X - V))) for U, V in zip(Us_t, labelled_U(s2, s1)))
+        row['exchange_maps_vs_to_sv_defect'] = swap_def
+        for secname, idx in (('hard-core', hc), ('pair', pr)):
+            ev = np.linalg.eigvalsh(D[np.ix_(idx, idx)])[::-1]
+            row[f'distinguishable | {secname}'] = {'dimension': len(idx), 'stationary_vectors': int(np.sum(ev > 1 - 1e-9)),
+                                                    'top_lambda': [float(v) for v in ev[:4]], 'lowest_phases': [float(math.acos(min(1.0, v))) for v in ev[:4]]}
+    res[tname] = row
+    say(f'\ncentral link on seam (0,1), type {tname}:')
+    for k, v in row.items():
+        say('   ', k, v)
+# one quantum with the central link: spinor level has no stationary state
+Az = M.ADJ.astype(float).copy(); Az[0, 1] = Az[1, 0] = -1
+ev_s = np.linalg.eigvalsh(np.eye(12) - (5 * np.eye(12) - Az) / 60)[::-1]
+res['one_spinor_quantum'] = {'top_lambda': [float(v) for v in ev_s[:4]], 'lowest_phases': [float(math.acos(v)) for v in ev_s[:4]]}
+say('one spinor quantum with the central link: top lambda', [round(float(v), 9) for v in ev_s[:4]], 'phases', [round(float(math.acos(v)), 6) for v in ev_s[:4]])
+out['central_link_types'] = res
+
+# ---------------------------------------------------------------- F. n labelled hard-core quanta: the move graph is connected (n = 2..5)
+conn = {}
+for n in range(2, 6):
+    start = tuple(range(n))
+    seen = {start}; stack = [start]
+    while stack:
+        c = stack.pop()
+        occ = set(c)
+        for i in range(n):
+            for nb in M.NBR[c[i]]:
+                if nb not in occ:
+                    c2 = c[:i] + (nb,) + c[i + 1:]
+                    if c2 not in seen:
+                        seen.add(c2); stack.append(c2)
+    total = math.perm(12, n)
+    conn[n] = {'labelled_binary_configurations': total, 'reached_from_one': len(seen), 'connected': len(seen) == total,
+               'fermion_stationary_blank_states_Lambda^n(C^5)': math.comb(5, n),
+               'by_pattern': {f'({a},{n - a})': math.comb(3, a) * math.comb(2, n - a) for a in range(4) if 0 <= n - a <= 2},
+               'boson_stationary_blank_states_Sym^n(C^5)': math.comb(n + 4, 4)}
+    say(f'n = {n}: labelled hard-core move graph connected: {len(seen) == total} ({len(seen)} of {total}); fermions: Lambda^{n}(C^5) = {math.comb(5, n)} {conn[n]["by_pattern"]}')
+out['hard_core_n_quanta'] = {'statement': 'a blank-record vector on binary configurations is fixed by every seam operation iff it is constant along every allowed hop; '
+                                          'the labelled move graph is connected, so the fixed vectors are the constants: exchange-symmetric in position. '
+                                          'With Fermi statistics the internal state is totally antisymmetric: Lambda^n(C^5), n <= 5: the 32 occupation patterns.',
+                             'n': conn, 'total_patterns': sum(math.comb(5, n) for n in range(6))}
+out['seconds'] = time.time() - t0
+json.dump(out, open('b2_statistics.json', 'w'), indent=1, default=str)
+say('\nwritten b2_statistics.json in', round(out['seconds'], 1), 's')

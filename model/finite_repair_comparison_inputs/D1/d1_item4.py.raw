@@ -1,0 +1,380 @@
+"""D1 item 4. Two sectors and their mixing. Exact: Q(sqrt5) and Q(zeta_60) (d1lib.C60); floats are printed values.
+
+Candidates and conventions: CANDIDATES.md (written before this script was run).
+Run from the public checkout:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/D1 python RL/work/D1/d1_item4.py [out.json]
+"""
+import json
+import math
+import sys
+from fractions import Fraction as F
+
+import numpy as np
+
+import kdlib as kd
+from kdlib import K, ONE, ZERO, PHI
+
+import d1lib as d
+from d1lib import (C60, C0, C1, IU, W3, Z20, S5, S3, PHI60, frame, torsor, canonical_ops, adjacency, pmul, pinv, IDP,
+                   cmm, cdag, ceq, ceye, cscale, csub, cadd, cdot, cnull3)
+import d1cover as dc
+
+checks, counts = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+def bump(name, n=1):
+    counts[name] = counts.get(name, 0) + n
+
+
+def lift(v):
+    return tuple(C60.lift(x) for x in v)
+
+
+def nrm2(v):
+    return cdot(v, v)
+
+
+def fl(x):
+    return complex(x).real
+
+
+def show(x):
+    """Exact value as a string: a + b sqrt5 when it lies in Q(sqrt5), else the float with a marker."""
+    q = x.q5()
+    if q is not None:
+        a, b = q
+        if b == 0:
+            return str(a)
+        if a == 0:
+            return f'{b}*sqrt5'
+        return f'{a} + {b}*sqrt5'
+    return f'{fl(x):.12f} (in Q(zeta_60), not in Q(sqrt5))'
+
+
+def mixing(U, Wm):
+    """U, Wm: lists of three column vectors (C60). Returns exact |V|^2, angles and J for V_ab = <u_a, w_b>/norms."""
+    nu = [nrm2(u) for u in U]
+    nw = [nrm2(w) for w in Wm]
+    G = [[cdot(U[a], Wm[b]) for b in range(3)] for a in range(3)]
+    sq = [[(G[a][b] * G[a][b].conj()) / (nu[a] * nw[b]) for b in range(3)] for a in range(3)]
+    # unitarity of the normalized overlap (bases orthogonal and complete)
+    for a in range(3):
+        assert sum((sq[a][b] for b in range(3)), C0) == C1
+        assert sum((sq[b][a] for b in range(3)), C0) == C1
+    s13 = sq[0][2]
+    one_minus = C1 - s13
+    if one_minus.is_zero():
+        s12 = s23 = None
+    else:
+        s12 = sq[0][1] / one_minus
+        s23 = sq[1][2] / one_minus
+    z = G[0][0] * G[1][1] * G[0][1].conj() * G[1][0].conj()
+    den = nu[0] * nu[1] * nw[0] * nw[1]
+    J = (z - z.conj()) * (IU * F(-1, 2)) / den
+    assert J.is_real()
+    def deg(s2):
+        if s2 is None:
+            return None
+        v = min(max(fl(s2), 0.0), 1.0)
+        return math.degrees(math.asin(math.sqrt(v)))
+    out = {'abs_V_squared_exact': [[show(x) for x in r] for r in sq],
+           'abs_V_squared': [[round(fl(x), 12) for x in r] for r in sq],
+           'sin2_theta12': None if s12 is None else show(s12), 'sin2_theta23': None if s23 is None else show(s23),
+           'sin2_theta13': show(s13),
+           'theta12_deg': deg(s12), 'theta23_deg': deg(s23), 'theta13_deg': deg(s13),
+           'J_exact': show(J), 'J': fl(J)}
+    J2 = J * J
+    q = J2.q5()
+    if q is not None:
+        out['J_squared_exact'] = show(J2)
+    return out, sq, J
+
+
+out = {'arithmetic': 'Q(sqrt5) and Q(zeta_60); floats are printed values of exact numbers',
+       'conventions': 'CANDIDATES.md: rows sector 1, columns sector 2, each basis ordered by level (largest adjacency level first); '
+                      'sin^2 t13 = |V13|^2, sin^2 t12 = |V12|^2/(1-|V13|^2), sin^2 t23 = |V23|^2/(1-|V13|^2), J = Im(V11 V22 V12* V21*)'}
+
+# ---------------------------------------------------------------------------------------------------------------
+# the kernel eigenbasis on the triplet second index (body axes normal, short, long of the base port)
+# ---------------------------------------------------------------------------------------------------------------
+O = [lift((ZERO, ONE, PHI)), lift((ONE, ZERO, ZERO)), lift((ZERO, PHI, -ONE))]          # slow, middle, fast
+M3 = ((-1, 0, 0), (0, -1, 2), (0, 2, 1))
+M3c = tuple(tuple(C60.lift(x) for x in r) for r in M3)
+for u, lam in zip(O, (S5, C60.lift(-1), -S5)):
+    img = tuple(sum((M3c[i][j] * u[j] for j in range(3)), C0) for i in range(3))
+    assert img == tuple(lam * x for x in u)
+ok('kernel eigenbasis on the second index: (0,1,phi) sqrt5, (1,0,0) -1, (0,phi,-1) -sqrt5', True)
+
+# M1: port-diagonal coupling, any anchors: identity (item 1b: the copies are canonical subspaces)
+ok('M1: with a port-diagonal coupling the copies of two anchors coincide (item1b.json, 60 cases): V = 1, J = 0',
+   json.load(open(sys.argv[2] if len(sys.argv) > 2 else 'item1b.json'))['checks'].get(
+       '(a) slow copy = sqrt5 eigenspace of A, for every frame and base port', False))
+out['M1'] = {'statement': 'V = identity for every pair of anchors and every frame; J = 0. Anchors are coordinates of '
+                          'one canonical operator (item 1b).'}
+
+# M2: coupling by a right translation R(a): V(a) = O^T rho(a) O
+f0, p00 = 1, 0
+fr = frame(f0)
+to = torsor(f0, p00)
+rhoB = to['rhoB']
+ops = canonical_ops(f0)
+names = {}
+for g in fr['T']:
+    perm = to['right'][g]
+    nm = None
+    for key, val in (('identity', IDP), ('P (antipode)', ops['P']), ('F (frame partner)', ops['F']),
+                     ('F P (passage nu of item 3)', pmul(ops['F'], ops['P'])), ('C+', ops['C+']), ('C+^-1', pinv(ops['C+'])),
+                     ('C-', ops['C-']), ('C-^-1', pinv(ops['C-']))):
+        if perm == val:
+            nm = key
+    if nm is None:
+        nm = 'third of a turn (other)'
+    names[g] = nm
+m2 = {}
+classes = {}
+for g in fr['T']:
+    R = rhoB[g]
+    Wm = [tuple(sum((C60.lift(R[i][j]) * u[j] for j in range(3)), C0) for i in range(3)) for u in O]
+    res, sq, J = mixing(O, Wm)
+    anchor = to['elem'] and None
+    # relation of the two anchors: p0 and a^-1 p0 (the anchor whose frame-axis names R(a) identifies with those of p0)
+    p1 = pinv(g)[p00]
+    same_rect = fr['kind'][g] in ('identity', 'half-turn')
+    res['right_translation'] = names[g]
+    res['kind'] = fr['kind'][g]
+    res['second_anchor_port'] = p1
+    res['anchors_on_seams_of_the_same_frame_axis'] = same_rect
+    key = json.dumps(res['abs_V_squared_exact'])
+    classes.setdefault(key, []).append(names[g] if names[g] != 'third of a turn (other)' else f'third of a turn (anchor {p1})')
+    m2[names[g] + ('' if names[g] != 'third of a turn (other)' else f' [anchor {p1}]')] = res
+    ok('M2: every right translation gives a real orthogonal mixing (J = 0 exactly)', J.is_zero())
+    bump('M2 right translations computed')
+out['M2'] = {'per_element': m2, 'classes_by_abs_V_squared': [{'members': v, 'abs_V_squared': json.loads(k)} for k, v in classes.items()]}
+ok('M2: P keeps the copies (V = 1); F and F P give the 1/5, 4/5 plane; the eight thirds of a turn give two classes of four',
+   sorted(len(v) for v in classes.values()) == [2, 2, 4, 4])
+
+# M3a: consensus projector on the triplet second index
+Phi = [[rhoB[to['elem'][p]][i][j] for i in range(3) for j in range(3)] for p in range(12)]
+ok('M3a: the uniform port state is orthogonal to the triplet-isotypic part (sum over ports of every matrix coefficient is 0)',
+   all(sum(Phi[p][c] for p in range(12)) == 0 for c in range(9)))
+out['M3a'] = {'statement': 'the consensus projector is zero on the triplet second index: no heavy copy, the three copies are '
+                           'degenerate at zero under a consensus mass; the mixing is undefined (any basis)'}
+
+# singlet space: rectangle basis; kernel 2J - 1; left characters complete the degenerate plane
+w = W3
+rect = [lift((ONE, ZERO, ZERO)), lift((ZERO, ONE, ZERO)), lift((ZERO, ZERO, ONE))]
+uni = (C1, C1, C1)
+chi1 = (C1, w, w * w)
+chi2 = (C1, w * w, w)
+Ksing = tuple(tuple(C60.lift(1 if i == j else 2) for j in range(3)) for i in range(3))
+for v, lam in ((uni, 5), (chi1, -1), (chi2, -1)):
+    img = tuple(sum((Ksing[i][j] * v[j] for j in range(3)), C0) for i in range(3))
+    assert img == tuple(C60.lift(lam) * x for x in v)
+ok('singlet space: kernel 2J - 1 has the uniform state (5) and the two left characters (-1, -1)', True)
+cons = tuple(tuple(C60.lift(F(1, 3)) for _ in range(3)) for _ in range(3))
+for v, lam in ((uni, 1), (chi1, 0), (chi2, 0)):
+    img = tuple(sum((cons[i][j] * v[j] for j in range(3)), C0) for i in range(3))
+    assert img == tuple(C60.lift(lam) * x for x in v)
+ok('singlet space: the consensus projector J/3 has the same eigenvectors (1, 0, 0)', True)
+res, sq, J = mixing([uni, chi1, chi2], [uni, chi1, chi2])
+out['M3b'] = dict(res, statement='kernel and consensus projector commute on the singlet space: V = 1, J = 0; the consensus '
+                                 'projector gives one heavy state (the uniform one) and two massless ones (1prime, 1second)')
+res, sq, J = mixing([uni, chi1, chi2], rect)
+out['M4b'] = dict(res, statement='kernel (or consensus projector) on the singlet space against one golden rectangle (a frame axis), '
+                                 'completed by the other two rectangles: the three-point Fourier matrix (trimaximal); '
+                                 '|J| = 1/(6 sqrt3), the largest value a 3 x 3 unitary allows; the sign of J follows the '
+                                 'order of 1prime and 1second')
+ok('M4b: |V|^2 = 1/3 everywhere and J^2 = 1/108 exactly', all(x == C60.lift(F(1, 3)) for r in sq for x in r)
+   and J * J == C60.lift(F(1, 108)))
+
+# M4a: kernel against the axis lines of the second index
+axes = {'normal': lift((ONE, ZERO, ZERO)), 'short': lift((ZERO, ONE, ZERO)), 'long': lift((ZERO, ZERO, ONE))}
+res, sq, J = mixing(O, [axes['long'], axes['normal'], axes['short']])
+out['M4a'] = dict(res, statement='kernel copies (slow, middle, fast) against the axis lines ordered (long, normal, short): one '
+                                 'angle arctan(1/phi) = 31.717 degrees, two zeros, J = 0; which of the three standard angles '
+                                 'carries it follows the order of the lines')
+ok('M4a: one angle with sin^2 = (5 - sqrt5)/10, real', J.is_zero() and sq[0][2] == C60.lift(K(F(1, 2), F(-1, 10))))
+
+# M6: kernel against the eigenbasis of the right third of a turn C+ (acting on the second index by rho(c+^-1))
+for label, key in (('C+', 'C+'), ('C-', 'C-')):
+    g = next(g for g in fr['T'] if to['right'][g] == ops[key])
+    R = rhoB[g]
+    Rc = tuple(tuple(C60.lift(x) for x in r) for r in R)
+    vecs = []
+    for lam in (C1, w, w * w):
+        Bm = csub(Rc, cscale(lam, ceye(3)))
+        v = cnull3(Bm)
+        vecs.append(v)
+    res, sq, J = mixing(O, vecs)
+    out['M6_' + label] = dict(res, statement=f'kernel copies against the eigenvectors of {label} on the second index '
+                                             '(eigenvalues 1, w, w^2 in this order)')
+    bump('M6 cases')
+
+# ---------------------------------------------------------------------------------------------------------------
+# M5: flux sectors in the frame gauge (even k, triplet second index)
+# ---------------------------------------------------------------------------------------------------------------
+half = F(1, 2)
+closed_even = {
+    0: [S5, C60.lift(-1), -S5],
+    2: [(S5 + 5) * half, (S5 - 3) * half, -S5],
+    4: [(S5 + 3) * half, (S5 - 5) * half, -S5],
+    6: [S5, (5 - S5) * half, -(S5 + 3) * half],
+    8: [S5, (3 - S5) * half, -(S5 + 5) * half],
+}
+for k in (10, 12, 14, 16, 18):
+    closed_even[k] = sorted([-x for x in closed_even[20 - k] if True], key=lambda x: -fl(x)) if False else None
+# exact eigenvalues for k = 10..18 from A_(k+10) = -A_k and A_(20-k) = conj(A_k) (same real eigenvalues)
+for k in (10, 12, 14, 16, 18):
+    closed_even[k] = sorted([-x for x in closed_even[k - 10]], key=lambda x: -fl(x))
+
+
+def triplet_matrix(f, p0, k):
+    return dc.second_index_matrix(f, p0, k, "3")
+
+
+def eigbasis(m, lams):
+    vecs = []
+    for lam in lams:
+        v = cnull3(csub(m, cscale(lam, ceye(3))))
+        img = tuple(sum((m[i][j] * v[j] for j in range(3)), C0) for i in range(3))
+        assert img == tuple(lam * x for x in v)
+        vecs.append(v)
+    return vecs
+
+
+def sector_bases(f, p0):
+    out_ = {}
+    for k in range(0, 20, 2):
+        m = triplet_matrix(f, p0, k)
+        assert ceq(m, cdag(m))
+        lams = sorted(closed_even[k], key=lambda x: -fl(x))
+        out_[k] = eigbasis(m, lams)
+    return out_
+
+
+ok('frame gauge: A_(k+10) = -A_k and A_(20-k) = conj(A_k) on the triplet second index (k even)',
+   all(ceq(triplet_matrix(f0, p00, (k + 10) % 20), cscale(-1, triplet_matrix(f0, p00, k)))
+       and ceq(triplet_matrix(f0, p00, (20 - k) % 20), tuple(tuple(x.conj() for x in r) for r in triplet_matrix(f0, p00, k)))
+       for k in (0, 2, 4, 6, 8)))
+# twisted adjacency in the port basis does not depend on the base port (frame gauge); checked for k = 2 and 4
+for k in (2, 4):
+    A_ref = dc.twisted_adjacency(f0, p00, k)
+    for p0 in range(12):
+        assert ceq(dc.twisted_adjacency(f0, p0, k), A_ref)
+        bump('base ports with the same twisted adjacency in the port basis (k = 2, 4)')
+ok('frame gauge: the twisted adjacency A_k (k even) in the port basis is the same for all twelve base ports',
+   counts['base ports with the same twisted adjacency in the port basis (k = 2, 4)'] == 24)
+
+bases = sector_bases(f0, p00)
+pairs = [(0, 2), (0, 4), (0, 6), (0, 8), (2, 4), (2, 6), (2, 8), (4, 6), (4, 8), (6, 8), (2, 18), (4, 16), (4, 18), (4, 14),
+         (14, 18), (0, 14), (0, 18)]
+m5 = {}
+for k1, k2 in pairs:
+    res, sq, J = mixing(bases[k1], bases[k2])
+    res['levels_sector_1'] = [round(fl(x), 9) for x in sorted(closed_even[k1], key=lambda x: -fl(x))]
+    res['levels_sector_2'] = [round(fl(x), 9) for x in sorted(closed_even[k2], key=lambda x: -fl(x))]
+    m5[f'{k1} vs {k2}'] = res
+    bump('M5 flux pairs')
+# base-port and frame independence of |V|^2 and J (two more gauges)
+for f, p0 in ((1, 5), (3, 7)):
+    b2 = sector_bases(f, p0)
+    for k1, k2 in ((0, 2), (2, 4), (4, 18)):
+        r1, _, J1 = mixing(bases[k1], bases[k2])
+        r2, _, J2 = mixing(b2[k1], b2[k2])
+        assert r1['abs_V_squared_exact'] == r2['abs_V_squared_exact'] and J1 == J2, (f, p0, k1, k2)
+        bump('M5 pairs recomputed in another frame or base port')
+ok('M5: |V|^2 and J of the flux pairs do not depend on the frame or the base port (checked in two more gauges)', True)
+# the antiunitary symmetry behind J = 0: Theta = P o (complex conjugation) commutes with A_k for every even k
+Pperm = d.antipode()
+for k in range(0, 20, 2):
+    A_k = dc.twisted_adjacency(f0, p00, k)
+    assert all(A_k[Pperm[p]][Pperm[q]].conj() == A_k[p][q] for p in range(12) for q in range(12))
+    bump('even k with P conj(A_k) P = A_k (exact)')
+ok('M5: the antipode with complex conjugation commutes with A_k for every even k: all flux pairs have J = 0',
+   counts['even k with P conj(A_k) P = A_k (exact)'] == 10 and all(r['J'] == 0.0 for r in m5.values()))
+# the tri-bimaximal pattern between flux 0 and every nonzero even flux (up to the order of the copies)
+TBM = [[F(2, 3), F(1, 3), F(0)], [F(1, 6), F(1, 3), F(1, 2)], [F(1, 6), F(1, 3), F(1, 2)]]
+from itertools import permutations
+
+
+def is_tbm(sq):
+    vals = [[x.q5() for x in r] for r in sq]
+    if any(v is None or v[1] != 0 for r in vals for v in r):
+        return False
+    rat = [[v[0] for v in r] for r in vals]
+    return any(all(rat[s[i]][t[j]] == TBM[i][j] for i in range(3) for j in range(3))
+               for s in permutations(range(3)) for t in permutations(range(3)))
+
+
+tbm = {}
+for k in range(2, 20, 2):
+    if k == 10:
+        continue
+    _, sq, J = mixing(bases[0], bases[k])
+    tbm[k] = is_tbm(sq)
+ok('M5: flux 0 against every even flux k != 0, 10 is exactly the tri-bimaximal pattern up to the order of rows and columns',
+   all(tbm.values()) and len(tbm) == 8)
+ok('M5: flux 0 against flux 10 is the identity up to order (A_10 = -A_0)',
+   mixing(bases[0], bases[10])[1] == [[C0, C0, C1], [C0, C1, C0], [C1, C0, C0]])
+nontbm = {f'{k1} vs {k2}': is_tbm(mixing(bases[k1], bases[k2])[1]) for k1, k2 in ((2, 4), (2, 8), (4, 8), (2, 6), (4, 18), (2, 18))}
+# squared moduli of the twisted eigenvectors in the flux-0 eigenbasis (slow, middle, fast)
+twisted_in_untwisted = {}
+for k in (2, 4):
+    cols = []
+    for v in bases[k]:
+        cols.append([show((cdot(u, v) * cdot(u, v).conj()) / (nrm2(u) * nrm2(v))) for u in bases[0]])
+    twisted_in_untwisted[k] = cols
+
+# odd flux: the doublet second index (2 x 2 per doublet type), one angle per pair, no rephasing invariant
+odd = {}
+for irrep in ("2", "2'"):
+    vecs = {}
+    for k in (1, 3, 7, 9, 11, 13, 17, 19):
+        m = dc.second_index_matrix(f0, p00, k, irrep)
+        Mn = np.array([[complex(x) for x in r] for r in m])
+        ev, U = np.linalg.eigh(Mn)
+        vecs[k] = (ev[::-1], U[:, ::-1])
+    rows = {}
+    for k1, k2 in ((1, 7), (7, 11), (1, 11), (1, 3), (3, 7)):
+        Ua, Ub = vecs[k1][1], vecs[k2][1]
+        Vm = Ua.conj().T @ Ub
+        rows[f'{k1} vs {k2}'] = {'abs_V_squared': np.round(abs(Vm) ** 2, 12).tolist(),
+                                 'angle_deg': math.degrees(math.asin(min(1.0, abs(Vm[0, 1])))),
+                                 'levels': [np.round(vecs[k1][0], 6).tolist(), np.round(vecs[k2][0], 6).tolist()]}
+    odd[irrep] = rows
+out['M5_odd_doublets (MEASURED, float64 of exact matrices)'] = odd
+
+out['M5'] = {'gauge': 'frame gauge: section into the frame cover; for even k the bundle is trivial on the frame cover and the '
+                      'identification of the port spaces of two flux sectors is canonical',
+             'antiunitary_symmetry': 'P o K (antipode with complex conjugation) commutes with every A_k, k even: J = 0 for every pair',
+             'tri_bimaximal': {'flux 0 against k': tbm, 'other pairs (False = not tri-bimaximal)': nontbm,
+                               'twisted eigenvectors (columns, levels descending) in the flux-0 eigenbasis (slow, middle, fast), squared moduli':
+                                   twisted_in_untwisted},
+             'pairs': m5,
+             'L13_reading (DECLARED)': {'u_R': 4, 'd_R': 18, 'e_R': 14, 'nu_R': 0,
+                                        'rule': 'charge q = 6Y, flux k = 11 q mod 20 (lead L13, base flux k0 = 11)'}}
+
+path = sys.argv[1] if len(sys.argv) > 1 else 'item4.json'
+out['checks'] = checks
+out['counts'] = counts
+json.dump(out, open(path, 'w'), indent=1)
+print('all checks passed:', len(checks), '| counts:', counts)
+print('M2 classes:')
+for c in out['M2']['classes_by_abs_V_squared']:
+    print('  ', c['members'])
+    print('     ', c['abs_V_squared'])
+for key in ('M2',):
+    for nm, r in out[key]['per_element'].items():
+        print(f'  {nm:40s} s12^2={r["sin2_theta12"]}, s23^2={r["sin2_theta23"]}, s13^2={r["sin2_theta13"]}, '
+              f'deg=({r["theta12_deg"]}, {r["theta23_deg"]}, {r["theta13_deg"]}), J={r["J"]}')
+for key in ('M3b', 'M4a', 'M4b', 'M6_C+', 'M6_C-'):
+    r = out[key]
+    print(key, r['abs_V_squared'], 'deg', r['theta12_deg'], r['theta23_deg'], r['theta13_deg'], 'J', r['J'], r.get('J_squared_exact'))
+for pr, r in m5.items():
+    print('M5', pr, 'deg', [None if x is None else round(x, 4) for x in (r['theta12_deg'], r['theta23_deg'], r['theta13_deg'])],
+          'J', round(r['J'], 9), r.get('J_squared_exact'))

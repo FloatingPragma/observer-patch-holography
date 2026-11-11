@@ -1,0 +1,333 @@
+{
+ "R1_menus": [
+  {
+   "menu": "M0",
+   "sectors": 1,
+   "states": 1,
+   "largest_Casimir": 0.0,
+   "largest_SU3_SU2_U1_parts": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "largest_abs_6Y": 0,
+   "largest_2j": 0,
+   "SU3_irreps": [
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "menu": "M1",
+   "sectors": 11,
+   "states": 119,
+   "largest_Casimir": 2.1,
+   "largest_SU3_SU2_U1_parts": [
+    1.3333333333333333,
+    0.75,
+    0.6
+   ],
+   "largest_abs_6Y": 6,
+   "largest_2j": 1,
+   "SU3_irreps": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ]
+  },
+  {
+   "menu": "M2",
+   "sectors": 48,
+   "states": 3380,
+   "largest_Casimir": 5.4,
+   "largest_SU3_SU2_U1_parts": [
+    3.3333333333333335,
+    2.0,
+    2.4
+   ],
+   "largest_abs_6Y": 12,
+   "largest_2j": 2,
+   "SU3_irreps": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     0
+    ]
+   ]
+  },
+  {
+   "menu": "M3",
+   "sectors": 140,
+   "states": 45500,
+   "largest_Casimir": 9.9,
+   "largest_SU3_SU2_U1_parts": [
+    6.0,
+    3.75,
+    5.4
+   ],
+   "largest_abs_6Y": 18,
+   "largest_2j": 3,
+   "SU3_irreps": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     0
+    ]
+   ]
+  },
+  {
+   "menu": "M4",
+   "sectors": 325,
+   "states": 383180,
+   "largest_Casimir": 15.6,
+   "largest_SU3_SU2_U1_parts": [
+    9.333333333333334,
+    6.0,
+    9.6
+   ],
+   "largest_abs_6Y": 24,
+   "largest_2j": 4,
+   "SU3_irreps": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     0
+    ]
+   ]
+  }
+ ],
+ "R1_reference_menu_C_le_40": {
+  "sectors": 4729,
+  "states": 300626510
+ },
+ "R2_leak_of_truncated_link_operator": {
+  "F=5, M1": {
+   "sectors_with_zero_leak_both_orientations": 1,
+   "states_in_those_sectors": 1,
+   "share_of_states_with_zero_leak": 0.008403361344537815,
+   "leak_on_the_vacuum_sector": 0.0,
+   "mean_leak_over_states (U)": 0.7142857142857143,
+   "mean_leak_over_states (U^dagger)": 0.7142857142857143,
+   "largest_leak": 0.9333333333333333
+  },
+  "F=5, M2": {
+   "sectors_with_zero_leak_both_orientations": 11,
+   "states_in_those_sectors": 119,
+   "share_of_states_with_zero_leak": 0.03520710059171597,
+   "leak_on_the_vacuum_sector": 0.0,
+   "mean_leak_over_states (U)": 0.5544378698224852,
+   "mean_leak_over_states (U^dagger)": 0.5544378698224852,
+   "largest_leak": 0.9
+  },
+  "F=5, M3": {
+   "sectors_with_zero_leak_both_orientations": 48,
+   "states_in_those_sectors": 3380,
+   "share_of_states_with_zero_leak": 0.07428571428571429,
+   "leak_on_the_vacuum_sector": 0.0,
+   "mean_leak_over_states (U)": 0.4523076923076923,
+   "mean_leak_over_states (U^dagger)": 0.4523076923076923,
+   "largest_leak": 0.88
+  },
+  "F=15, M1": {
+   "sectors_with_zero_leak_both_orientations": 1,
+   "states_in_those_sectors": 1,
+   "share_of_states_with_zero_leak": 0.008403361344537815,
+   "leak_on_the_vacuum_sector": 0.0,
+   "mean_leak_over_states (U)": 0.8257703081232493,
+   "mean_leak_over_states (U^dagger)": 0.8257703081232493,
+   "largest_leak": 0.8888888888888888
+  },
+  "F=15, M2": {
+   "sectors_with_zero_leak_both_orientations": 11,
+   "states_in_those_sectors": 119,
+   "share_of_states_with_zero_leak": 0.03520710059171597,
+   "leak_on_the_vacuum_sector": 0.0,
+   "mean_leak_over_states (U)": 0.6796844181459567,
+   "mean_leak_over_states (U^dagger)": 0.6796844181459567,
+   "largest_leak": 0.8444444444444444
+  },
+  "F=15, M3": {
+   "sectors_with_zero_leak_both_orientations": 48,
+   "states_in_those_sectors": 3380,
+   "share_of_states_with_zero_leak": 0.07428571428571429,
+   "leak_on_the_vacuum_sector": 0.0,
+   "mean_leak_over_states (U)": 0.5707692307692308,
+   "mean_leak_over_states (U^dagger)": 0.5707692307692308,
+   "largest_leak": 0.8200000000000001
+  }
+ },
+ "R4_largest_mean_link": {
+  "F=5, M1": {
+   "block ((1, 0), 0, -2)": 0.30795984417042904,
+   "block ((0, 0), 1, 3)": 0.43301270189221924,
+   "Re chi_F / N_F": 0.32488727810805224
+  },
+  "F=5, M2": {
+   "block ((1, 0), 0, -2)": 0.5189945280000813,
+   "block ((0, 0), 1, 3)": 0.6614378277661475,
+   "Re chi_F / N_F": 0.5391586522530207
+  },
+  "F=5, M3": {
+   "block ((1, 0), 0, -2)": 0.6518490512955827,
+   "block ((0, 0), 1, 3)": 0.7784917920001224,
+   "Re chi_F / N_F": 0.6711791179859548
+  },
+  "F=5, M4": {
+   "block ((1, 0), 0, -2)": 0.7380644494873857,
+   "block ((0, 0), 1, 3)": 0.8446432862178089,
+   "Re chi_F / N_F": 0.7552876086212368
+  },
+  "F=15, M1": {
+   "block ((0, 1), 0, -4)": 0.2696723314583159,
+   "block ((1, 0), 1, 1)": 0.15850941938252558,
+   "block ((0, 0), 0, 6)": 0.7071067811865477,
+   "block ((0, 0), 1, -3)": 0.43301270189221924,
+   "block ((0, 1), 0, 2)": 0.30795984417042904,
+   "Re chi_F / N_F": 0.23576610301867676
+  },
+  "F=15, M2": {
+   "block ((0, 1), 0, -4)": 0.4749477537490204,
+   "block ((1, 0), 1, 1)": 0.366102285178344,
+   "block ((0, 0), 0, 6)": 0.8660254037844385,
+   "block ((0, 0), 1, -3)": 0.6614378277661475,
+   "block ((0, 1), 0, 2)": 0.5189945280000813,
+   "Re chi_F / N_F": 0.4456797253246697
+  },
+  "F=15, M3": {
+   "block ((0, 1), 0, -4)": 0.6177000759405297,
+   "block ((1, 0), 1, 1)": 0.5239267290556704,
+   "block ((0, 0), 0, 6)": 0.9238795325112872,
+   "block ((0, 0), 1, -3)": 0.7784917920001224,
+   "block ((0, 1), 0, 2)": 0.6518490512955827,
+   "Re chi_F / N_F": 0.5911858308973492
+  },
+  "F=15, M4": {
+   "block ((0, 1), 0, -4)": 0.7123258833292317,
+   "block ((1, 0), 1, 1)": 0.6351586786113685,
+   "block ((0, 0), 0, 6)": 0.9510565162951538,
+   "block ((0, 0), 1, -3)": 0.8446432862178089,
+   "block ((0, 1), 0, 2)": 0.7380644494873857,
+   "Re chi_F / N_F": 0.6897448688170194
+  }
+ }
+}

@@ -1,0 +1,84 @@
+"""S8 helper: seam lists of the level-l federation for the pinned routing and for a symmetric control wiring.
+
+port_pair  : the pinned RER builder (REPO/evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/federation.py).
+face_axis  : own implementation of the simulation session's control wiring: every carrier puts the three-fold axis of
+             template face (0, 11, 5) along its cell normal; the mesh edge opposite the k-th vertex of the cell is glued
+             through the belt port across the template edge opposite the k-th vertex of that face.
+Both are DECLARED routings. Nothing is written outside the caller's directory.
+"""
+import sys
+from pathlib import Path
+
+import numpy as np
+import scipy.sparse as sp
+
+REPO = Path(__file__).resolve().parents[2] / 'rer-edit'
+ARCH = REPO / 'evidence/observer_dynamics_20260925/oph-physics-sim'
+sys.dont_write_bytecode = True
+if str(ARCH) not in sys.path:
+    sys.path.insert(0, str(ARCH))
+from oph_exact import carrier as C  # noqa: E402
+from oph_exact import federation as FED  # noqa: E402
+from oph_fpe.core.icosahedral import build_geodesic_icosahedral_tower, geodesic_icosahedral_patch_arrays  # noqa: E402
+
+PHI = (1 + 5 ** .5) / 2
+PORT_VECTORS = np.array([(-1, PHI, 0), (1, PHI, 0), (-1, -PHI, 0), (1, -PHI, 0), (0, -1, PHI), (0, 1, PHI),
+                         (0, -1, -PHI), (0, 1, -PHI), (PHI, 0, -1), (PHI, 0, 1), (-PHI, 0, -1), (-PHI, 0, 1)], float)
+PORT_UNIT = PORT_VECTORS / np.linalg.norm(PORT_VECTORS, axis=1, keepdims=True)
+TEMPLATE_SEAMS = np.asarray(C.seams(), dtype=np.int64)
+TEMPLATE_FACES = np.asarray(C.oriented_faces(), dtype=np.int64)
+# the embedding matches the pinned seam list: seams are exactly the port pairs at squared distance 4
+_d2 = ((PORT_VECTORS[:, None, :] - PORT_VECTORS[None, :, :]) ** 2).sum(-1)
+assert sorted(map(tuple, TEMPLATE_SEAMS.tolist())) == sorted((a, b) for a in range(12) for b in range(a + 1, 12) if abs(_d2[a, b] - 4) < 1e-9)
+CONTROL_FACE = (0, 11, 5)
+assert any(set(CONTROL_FACE) == set(f) for f in TEMPLATE_FACES.tolist())
+
+
+def control_ports():
+    t = CONTROL_FACE
+    out = []
+    for k in range(3):
+        e = {t[(k + 1) % 3], t[(k + 2) % 3]}
+        third = [int(v) for f in TEMPLATE_FACES.tolist() if e <= set(f) and set(f) != set(t) for v in f if v not in e]
+        assert len(third) == 1
+        out.append(third[0])
+    return tuple(out)
+
+
+def seams(level, gluing):
+    """(a, b, carrier_xyz): global port ends of all seams (30 N template seams first, then the glue seams)."""
+    points, left, right = geodesic_icosahedral_patch_arrays(level, patch_basis='cells')
+    N = int(points.shape[0])
+    assert N == 20 * 4 ** level
+    left = np.asarray(left, dtype=np.int64); right = np.asarray(right, dtype=np.int64)
+    if gluing == 'port_pair':
+        fed = FED.build_federation(level, 'port_pair')
+        a, b = np.asarray(fed.seam_a, dtype=np.int64), np.asarray(fed.seam_b, dtype=np.int64)
+    elif gluing == 'face_axis':
+        tri = np.asarray(build_geodesic_icosahedral_tower(level).levels[level].faces, dtype=np.int64)
+        ports = np.array(control_ports(), dtype=np.int64)
+
+        def edge_port(cells, others):
+            shared = (tri[cells][:, :, None] == tri[others][:, None, :]).any(axis=2)
+            assert (shared.sum(axis=1) == 2).all()
+            return ports[np.argmin(shared, axis=1)]
+        lp, rp = edge_port(left, right), edge_port(right, left)
+        base = (np.arange(N, dtype=np.int64) * 12)[:, None]
+        ia = (base + TEMPLATE_SEAMS[None, :, 0]).ravel(); ib = (base + TEMPLATE_SEAMS[None, :, 1]).ravel()
+        a = np.concatenate([ia, left * 12 + lp]); b = np.concatenate([ib, right * 12 + rp])
+        slots = np.concatenate([left * 12 + lp, right * 12 + rp])
+        assert np.unique(slots).size == slots.size
+    else:
+        raise ValueError(gluing)
+    assert a.size == 630 * 4 ** level
+    pts = np.asarray(points, float)
+    pts = pts / np.linalg.norm(pts, axis=1, keepdims=True)
+    return a, b, pts
+
+
+def laplacian(a, b, ports):
+    A = sp.coo_matrix((np.ones(a.size), (a, b)), shape=(ports, ports))
+    A = (A + A.T).tocsr()
+    assert A.max() == 1
+    deg = np.asarray(A.sum(1)).ravel()
+    return (sp.diags(deg) - A).tocsc(), A, deg

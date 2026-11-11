@@ -1,0 +1,19 @@
+"""Size probe: lumped pair sector on the icosahedron for a law, from uniform loads + unit pair (all dual distances)."""
+import sys, time, json
+from pathlib import Path
+import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S, s1an as A, s1laws, s1c
+name = sys.argv[1]; cap = int(sys.argv[2]); mode = sys.argv[3] if len(sys.argv) > 3 else 'uniform'
+C = S.icosahedron() if (len(sys.argv) <= 4 or sys.argv[4] == 'ico') else S.octahedron()
+law = s1laws.named()[name]
+if mode == 'uniform':
+    init = [tuple(-o for o in C.string(0, C.ddist[0].index(r))) for r in sorted(set(C.ddist[0]) - {0})]
+else:
+    init = A.pair_initial(C)
+t0 = time.time()
+ch = s1c.build_chain(C, law, init, cap=cap, tcap=cap * 24)
+print(json.dumps(dict(law=name, mode=mode, n=ch['n'], overflow=ch['overflow'], sec=round(time.time() - t0, 1),
+                      maxd=int(ch['maxd'].max()) if not ch['overflow'] else None,
+                      charge=sorted(set(int(v) for v in ch['absq'])) if not ch['overflow'] else None,
+                      nnz=int(ch['T'].nnz) if not ch['overflow'] else None)))

@@ -1,0 +1,94 @@
+"""DG, completing T6's open item: the stationary reference of one cell with the Dirac step and the pairing step.
+
+One cell, four modes (nu_L up, nu_L down, N up, N down), T6's occupation form:
+  Dirac   exp(-i theta_D sum_s (c*_(nu,s) c_(N,s) + h.c.))
+  pairing exp(-i theta_M (c_(N,up) c_(N,down) + h.c.))
+  M = M_D^(1/2) M_M M_D^(1/2) (palindromic order of T6 and CF-1 section 13).
+T6 measured the 16 phases (n1 + n2 - 1) th_l + (n3 + n4 - 1) th_h. Here: the state with phase -(th_l + th_h) (all
+quasi-particle numbers zero) is constructed, checked to be the unique eigenvector with that phase, and its weights on
+the number of quanta (equal to minus B - L: both modes carry B - L = -1) and on the empty cell are printed.
+Float64 with printed defects; th_l, th_h from T6's closed form.
+
+    python dg_reference.py [out.json]
+"""
+import json, sys
+import numpy as np
+from scipy.linalg import expm
+
+nm = 4
+dim = 2 ** nm
+
+
+def ann(k):
+    A = np.zeros((dim, dim))
+    for s in range(dim):
+        if (s >> k) & 1:
+            sign = (-1) ** bin(s & ((1 << k) - 1)).count('1')
+            A[s ^ (1 << k), s] = sign
+    return A
+
+
+c = [ann(k) for k in range(nm)]
+cd = [x.T for x in c]
+NU_UP, NU_DN, N_UP, N_DN = 0, 1, 2, 3
+HD = sum(cd[nu] @ c[n] + cd[n] @ c[nu] for nu, n in ((NU_UP, N_UP), (NU_DN, N_DN)))
+HM = c[N_UP] @ c[N_DN] + cd[N_DN] @ cd[N_UP]
+Nop = sum(cd[k] @ c[k] for k in range(nm))
+# CAR check
+for i in range(nm):
+    for j in range(nm):
+        assert np.allclose(c[i] @ cd[j] + cd[j] @ c[i], np.eye(dim) * (i == j))
+
+
+def closed(thD, thM):
+    A = np.arccos(np.cos(thD) * np.cos(thM / 2))
+    return A - thM / 2, A + thM / 2
+
+
+def reference(thD, thM):
+    M = expm(-0.5j * thD * HD) @ expm(-1j * thM * HM) @ expm(-0.5j * thD * HD)
+    unit_def = np.abs(M.conj().T @ M - np.eye(dim)).max()
+    w, V = np.linalg.eig(M)
+    ph = -np.angle(w)                       # M v = exp(-i phase) v
+    thl, thh = closed(thD, thM)
+    target = -(thl + thh)
+    pred = sorted(((n1 + n2 - 1) * thl + (n3 + n4 - 1) * thh) for n1 in (0, 1) for n2 in (0, 1) for n3 in (0, 1) for n4 in (0, 1))
+    spec_def = np.abs(np.sort(ph) - np.array(pred)).max()
+    tol = min(1e-9, 0.1 * thl)
+    sel = np.where(np.abs(np.angle(np.exp(1j * (ph - target)))) < tol)[0]
+    assert len(sel) == 1, (thD, thM, len(sel))
+    ref = V[:, sel[0]]
+    ref = ref / np.linalg.norm(ref)
+    stat_def = np.abs(M @ ref - np.exp(-1j * target) * ref).max()
+    nvals = np.diag(Nop).astype(int)
+    weights = {f'N={n} (B-L={-n})': float(np.sum(np.abs(ref[nvals == n]) ** 2)) for n in (0, 1, 2, 3, 4)}
+    return {'theta_D': thD, 'theta_M': thM, 'th_l': float(thl), 'th_h': float(thh),
+            'unitarity_defect': float(unit_def), 'spectrum_vs_T6_formula_defect': float(spec_def),
+            'stationarity_defect': float(stat_def), 'weight_on_empty_cell': float(abs(ref[0]) ** 2),
+            'weights_by_number_of_quanta': weights, 'mean_number_of_quanta': float(np.real(ref.conj() @ Nop @ ref)),
+            'empty_cell_survival_per_step |<0|M|0>|^2': float(abs(M[0, 0]) ** 2)}
+
+
+cases = [(0.157935, float(np.arccos(0.9))), (0.042383, float(np.arccos(0.9))), (1e-3, float(np.arccos(0.9))),
+         (1e-3, 0.0020260728058680042), (1e-6, 0.0020260728058680042)]
+rows = [reference(*cs) for cs in cases]
+# the pure pairing block in closed form: on span(|0>, |N up N down>) the step is exp(-i theta_M sigma) with sigma an
+# involution; its two eigenvectors are equal-weight superpositions of the empty cell and the pair
+P2 = np.zeros((dim, 2)); P2[0, 0] = 1; P2[(1 << N_UP) | (1 << N_DN), 1] = 1
+blk = P2.T @ HM @ P2
+assert np.allclose(blk @ blk, np.eye(2)) and np.allclose(np.diag(blk), 0)
+out = {'cases': rows,
+       'pairing_block': 'on span(empty, N-pair) the pairing generator is an involution with zero diagonal: its eigenvectors '
+                        'are (|0> +- |pair>)/sqrt2, weight 1/2 on the empty cell for every theta_M',
+       'statement': 'For theta_D > 0 the one-cell step with the pairing has a unique stationary state with all quasi-particle '
+                    'numbers zero (phase -(th_l + th_h)). Its weights on 0, 2 and 4 quanta tend to 1/4, 1/2, 1/4 when theta_D '
+                    'is small against theta_M: at rest each of the two Majorana pairs (light and heavy) mixes the empty and the '
+                    'paired occupation with equal weight. Odd numbers of quanta have weight zero (number parity is kept). The '
+                    'reference has no definite number of quanta and no definite B - L (both modes carry B - L = -1). The '
+                    'empty cell survives one step with probability cos^2(theta_M) (T6). The empty reference of '
+                    'CF-1 is replaced by this paired reference; on the lattice the reference is the filled negative branch of '
+                    'the doubled period (T6: direct sum of two CF-1 ticks with angles th_l and th_h; report R4: that branch is '
+                    'stationary under the period and undefined at the phase-pi cones).'}
+print(json.dumps(out, indent=1))
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

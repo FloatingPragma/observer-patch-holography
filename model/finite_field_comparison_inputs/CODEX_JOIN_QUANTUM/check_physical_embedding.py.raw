@@ -1,0 +1,36 @@
+"""Exact finite nonabelian check of the full-dual reference construction."""
+import json
+from pathlib import Path
+import sympy as s
+
+dimension=3
+pauli=(s.Matrix([[0,1],[1,0]]),s.Matrix([[0,-s.I],[s.I,0]]),s.diag(1,-1))
+generators=[s.diag(s.zeros(1),sigma/2) for sigma in pauli]
+omega=sum((s.kronecker_product(s.eye(3)[:,i],s.eye(3)[:,i]) for i in range(3)),s.zeros(9,1))/s.sqrt(3)
+projector=s.diag(1,0,0)
+success=s.kronecker_product(projector,s.eye(3))*omega
+failure=omega-success
+for generator in generators:
+    joint=s.kronecker_product(generator,s.eye(3))-s.kronecker_product(s.eye(3),generator.T)
+    assert joint*omega==joint*success==joint*failure==s.zeros(9,1)
+    assert generator*projector==projector*generator
+assert (success.H*success)[0]==s.Rational(1,3)
+assert (failure.H*failure)[0]==s.Rational(2,3)
+parity=s.diag(1,-1,-1)
+assert s.kronecker_product(parity,parity)*omega==omega
+casimir=sum((g*g for g in generators),s.zeros(3))
+failure_source_casimir=(failure.H*s.kronecker_product(casimir,s.eye(3))*failure)[0]/s.Rational(2,3)
+assert failure_source_casimir==s.Rational(3,4)
+hamiltonian=s.diag(0,-1,-1)
+assert all(hamiltonian*g==g*hamiltonian for g in generators)
+assert (failure.H*s.kronecker_product(hamiltonian,s.eye(3))*failure)[0]/s.Rational(2,3)==-1
+result={'exact_nonabelian_joint_Gauss_checks':9,'total_parity':'even',
+    'complete_filter_probabilities':['1/3','2/3'],
+    'failed_source_only_Casimir':'3/4','failed_joint_Gauss':'0',
+    'selected_source_physical_ground_energy':'0',
+    'lower_energy_in_expanded_joint_physical_space':'-1',
+    'source_only_failure_is_physical':False,
+    'full_dual_reference_preserves_original_source_record_law':True,
+    'preferred_full_source_protocol':'physical Householder/Cayley preparation with all Gauss-preserving failures retained'}
+Path(__file__).with_name('physical_embedding_results.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+print('PASS: joint physical success and failure; source-only failure and expanded-ground distinction explicit')

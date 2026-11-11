@@ -1,0 +1,227 @@
+"""Actual source representation labels and finite particle-identity limits."""
+from __future__ import annotations
+from functools import lru_cache
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import re
+
+import sympy as s
+
+HERE=Path(__file__).resolve().parent
+WORK=HERE.parents[1]
+RER=WORK.parent/'reverse-engineering-reality'
+AUDIT=HERE.parent/'coulomb_audit/audit.py'
+spec=importlib.util.spec_from_file_location('identity_finite_cone_audit',AUDIT)
+audit=importlib.util.module_from_spec(spec);spec.loader.exec_module(audit)
+
+
+def clean(value):return s.simplify(s.expand(value))
+
+
+@lru_cache(None)
+def proper_cone_group():
+    # Reuse the oriented-face propagation algorithm already checked by
+    # model/particle_transport/algebra.py, on the actual committed cone data.
+    raw=(RER/'Lean/ObserverPatchHolography/CoreAxioms.lean').read_text()
+    raw=raw.split('def orientedFaces',1)[1].split('def faceEdges',1)[0]
+    faces=[tuple(map(int,row)) for row in re.findall(r'\((\d+),\s*(\d+),\s*(\d+)\)',raw)]
+    third={(f[j],f[(j+1)%3]):f[(j+2)%3] for f in faces for j in range(3)}
+    first,second=faces[0][:2];permutations=set()
+    for target in third:
+        image={first:target[0],second:target[1]}
+        while True:
+            before=len(image)
+            for (a,b),c in third.items():
+                if a not in image or b not in image:continue
+                value=third[image[a],image[b]]
+                assert c not in image or image[c]==value
+                image[c]=value
+            if len(image)==before:break
+        assert set(image)==set(image.values())==set(range(12))
+        permutations.add((0,)+tuple(image[i]+1 for i in range(12)))
+    assert len(permutations)==60
+    permutations=tuple(sorted(permutations))
+    assert all(tuple(p[q[i]] for i in range(13)) in permutations for p in permutations for q in permutations)
+    raw=(RER/'Lean/Screen/SeamCurrentEdge30Moment.lean').read_text()
+    raw=raw.split('def portVector',1)[1].split('theorem portVector_positivePort',1)[0]
+    phi=(1+s.sqrt(5))/2
+    vocabulary={'0':s.Integer(0),'1':s.Integer(1),'-1':s.Integer(-1),'φ':phi,'-φ':-phi}
+    vertices=[s.zeros(3,1)]+[s.Matrix([vocabulary[v.strip()] for v in row.split(',')]) for row in re.findall(r'!\[([^\[\]]+)\]',raw)]
+    gram=sum((v*v.T for v in vertices),s.zeros(3)).applyfunc(clean)
+    assert gram==4*(phi+2)*s.eye(3)
+    rotations=[]
+    for perm in permutations:
+        rotation=(sum((vertices[perm[i]]*vertices[i].T for i in range(13)),s.zeros(3))/(4*(phi+2))).applyfunc(clean)
+        assert (rotation.T*rotation-s.eye(3)).applyfunc(clean)==s.zeros(3)
+        assert clean(rotation.det())==1
+        assert all((rotation*vertices[i]-vertices[perm[i]]).applyfunc(clean)==s.zeros(3,1) for i in range(13))
+        rotations.append(rotation)
+    classes=[]
+    for perm,rotation in zip(permutations,rotations):
+        trace=clean(s.trace(rotation))
+        label={s.Integer(3):'identity',s.Integer(-1):'order2',s.Integer(0):'order3',phi:'order5_72',1-phi:'order5_144'}[trace]
+        classes.append(label)
+    counts={name:classes.count(name) for name in set(classes)}
+    assert counts=={'identity':1,'order2':15,'order3':20,'order5_72':12,'order5_144':12}
+    return permutations,classes,vertices
+
+
+@lru_cache(None)
+def actual_transverse_irreps():
+    D,C,B,G,K,PT=audit.independently_rebuilt_geometry()
+    group,classes,_=proper_cone_group()
+    edges=[]
+    for row in range(42):
+        edges.append((next(i for i in range(13) if D[row,i]==-1),next(i for i in range(13) if D[row,i]==1)))
+    index={edge:i for i,edge in enumerate(edges)}
+    actions=[]
+    for perm in group:
+        targets=[];signs=[]
+        for u,v in edges:
+            target=(perm[u],perm[v]);sign=1
+            if target not in index:target=target[::-1];sign=-1
+            targets.append(index[target]);signs.append(sign)
+        assert all(signs[i]*signs[j]*K[targets[i],targets[j]]==K[i,j] for i in range(42) for j in range(42))
+        actions.append((targets,signs))
+    x=s.Symbol('x');phi=(1+s.sqrt(5))/2
+    roots=(s.Integer(0),4-s.sqrt(5),s.Integer(3),6-s.sqrt(5),s.Integer(4),s.Integer(6),4+s.sqrt(5),s.Integer(7),6+s.sqrt(5))
+    class_order=('identity','order2','order3','order5_72','order5_144')
+    table={'1':(1,1,1,1,1),'3':(3,-1,0,phi,1-phi),'3_prime':(3,-1,0,1-phi,phi),'4':(4,0,1,-1,-1),'5':(5,1,-1,0,0)}
+    sizes=(1,15,20,12,12)
+    powers=[s.eye(42)]
+    for _ in range(8):powers.append(powers[-1]*K)
+    rows=[]
+    for lam in roots[1:]:
+        polynomial=s.Poly(s.prod(x-other for other in roots if other!=lam)/s.prod(lam-other for other in roots if other!=lam),x,extension=s.sqrt(5))
+        P=sum((coef*powers[i] for (i,),coef in polynomial.terms()),s.zeros(42)).applyfunc(s.expand)
+        characters={}
+        for cls,(targets,signs) in zip(classes,actions):
+            trace=clean(sum(sign*P[i,target] for i,(target,sign) in enumerate(zip(targets,signs))))
+            assert cls not in characters or characters[cls]==trace
+            characters[cls]=trace
+        ordered=[characters[name] for name in class_order]
+        multiplicities={name:clean(sum(size*value*char for size,value,char in zip(sizes,ordered,character))/60) for name,character in table.items()}
+        assert all(v.is_Integer and v>=0 for v in multiplicities.values())
+        assert sum(multiplicities.values())==1
+        irrep=next(name for name,value in multiplicities.items() if value)
+        rows.append({'squared_frequency':str(lam),'dimension':int(characters['identity']),'proper_icosahedral_irrep':irrep,'class_characters':{key:str(value) for key,value in characters.items()}})
+    assert {name:sum(row['proper_icosahedral_irrep']==name for row in rows) for name in ('3','3_prime','4','5')}=={'3':2,'3_prime':2,'4':2,'5':2}
+    # A fixed compensator breaks full cone rotation covariance in N=1.
+    Q=s.eye(13)-s.eye(13)[:,1]*s.ones(1,13)
+    cost=[(Q[:,i].T*G*Q[:,i])[0]/2 for i in range(13)]
+    cost_preserving=[perm for perm in group if all(cost[perm[i]]==cost[i] for i in range(13))]
+    stabilizer=[perm for perm in group if perm[1]==1]
+    assert cost_preserving==stabilizer and len(stabilizer)==5
+    return {'proper_rotation_group_order':60,'fixed_reference_rotation_stabilizer_order':5,
+        'charged_reference_fixed_full_icosahedral_symmetry':False,
+        'neutral_transverse_modes':rows,'total_transverse_representation':'2*(3+3_prime+4+5)',
+        'finite_spatial_irreps_are_not_Lorentz_spin':True}
+
+
+def spin_restriction_controls():
+    # Character restrictions of actual rotation data, not another Hamiltonian.
+    phi=(1+s.sqrt(5))/2
+    sizes=(1,15,20,12,12)
+    vector=(3,-1,0,phi,1-phi)
+    spin5=(11,-1,-1,1,1)
+    assert tuple(clean(1+2*sum(s.chebyshevt(n,(s.sympify(trace)-1)/2) for n in range(1,6))) for trace in vector)==spin5
+    assert clean(sum(n*a*b for n,a,b in zip(sizes,vector,vector))/60)==1
+    assert clean(sum(n*a*b for n,a,b in zip(sizes,vector,spin5))/60)==1
+    # Proper cube angles:0,pi/2,pi,2pi/3; the vector character has the same
+    # value on both pi classes, so their sizes can be combined.
+    counts=(1,6,9,8);T1=(3,1,-1,0);spin3=(7,-1,-1,1)
+    assert tuple(clean(1+2*sum(s.chebyshevt(n,s.Rational(trace-1,2)) for n in range(1,4))) for trace in T1)==spin3
+    assert s.Rational(sum(n*a*b for n,a,b in zip(counts,T1,spin3)),24)==1
+    # Binary-cube central-odd characters; opposite lifts have opposite signs.
+    G1=(2,s.sqrt(2),0,1);spin7half=(8,0,0,1)
+    assert tuple(clean(s.chebyshevu(7,s.sympify(value)/2)) for value in G1)==spin7half
+    assert clean(sum(n*a*b for n,a,b in zip(counts,G1,G1))/24)==1
+    assert clean(sum(n*a*b for n,a,b in zip(counts,G1,spin7half))/24)==1
+    return {'icosahedral_geometric_3_occurs_in_integer_spins':[1,5],
+        'native_cube_vector_T1_occurs_in_integer_spins':[1,3],
+        'native_binary_cube_spinor_G1_occurs_in_half_integer_spins':['1/2','7/2'],
+        'same_central_sign_does_not_fix_spin':True,
+        'meaning':'same admitted finite representation can occur inside different continuous-rotation representations; no extension is thereby selected'}
+
+
+def exact_number_shift():
+    # Complete two-mode CAR witness for the general [H,N]=0 proof. A finite
+    # electromagnetic unitary can be noncommuting between distinct bonds;
+    # this number-shift identity needs none of their commutation relations.
+    c=[]
+    for j in range(2):
+        op=s.zeros(4)
+        for mask in range(4):
+            if mask>>j&1:op[mask^(1<<j),mask]=(-1)**((mask&((1<<j)-1)).bit_count())
+        c.append(op)
+    N=sum((op.H*op for op in c),s.zeros(4))
+    W=s.Matrix([[s.Rational(3,5),4*s.I/5],[4*s.I/5,s.Rational(3,5)]])
+    hop=s.kronecker_product(c[1].H*c[0],W)
+    liftedN=s.kronecker_product(N,s.eye(2))
+    H=2*liftedN-(hop+hop.H)/24+s.kronecker_product(s.eye(4),s.diag(0,1))
+    assert H*liftedN==liftedN*H
+    P1=s.diag(0,1,1,0);P1=s.kronecker_product(P1,s.eye(2))
+    mu=s.Rational(7,3)
+    assert (H+mu*liftedN)*P1==(H+mu*s.eye(8))*P1
+    assert all(liftedN*s.kronecker_product(op.H,s.eye(2))-s.kronecker_product(op.H,s.eye(2))*liftedN==s.kronecker_product(op.H,s.eye(2)) for op in c)
+    return {'actual_source_deformation':'H_eta(mu)=H_eta+mu N, mu>=0',
+        'gauge_CAR_parity_reference_geometry_unchanged':True,
+        'actual_neutral_ground_and_all_neutral_field_records_unchanged':True,
+        'fixed_N1_arrival_and_joint_photon_probabilities_unchanged':True,
+        'actual_charged_energy_mean_shift':'mu','actual_charged_spectral_window_shift':'mu',
+        'literal_complete_CAR_matrix_control_dimension':8,
+        'one_source_spectrum_claim':'the undeformed construction remains mu=0; this control proves nonselection by the other labels, not ambiguity in a fixed H'}
+
+
+def classification():
+    return [
+        {'id':'affine_gauss_neutral','defensible_identity':'finite transverse oscillator quanta with exact same-H field residues',
+         'charge':'Gauss neutral; N=R=0','source_CAR_parity':'even',
+         'spatial_representation':'two copies each of proper icosahedral3,3_prime,4,5 in the neutral one-quantum sector',
+         'dispersion':'eight finite cone normal-mode frequencies; no translation momentum band',
+         'detector_support':'complete neutral electric/magnetic pump and exact energy records',
+         'physical_particle_identification':None},
+        {'id':'affine_gauss_mobile_charge','defensible_identity':'exact unit-charge CAR excitation with compensated finite transport and transverse occupation',
+         'charge':'source+1, retained reference-1; joint Gauss neutral','source_CAR_parity':'odd; compensated joint pump even',
+         'spatial_representation':'spinless site permutation; fixed-reference proper stabilizerC5; no spinor rotation lift supplied',
+         'dispersion':'actual-H finite charged energy windows and short-time neighbor arrival; no charged momentum band or pole',
+         'detector_support':'separate complete energy-window, arrival, and arrival/photon-occupation settings',
+         'physical_particle_identification':None},
+        {'id':'native_block_exchange','defensible_identity':'isolated neutral collective one-excitation band on a declared block lattice',
+         'charge':'all native Gauss generators zero','source_CAR_parity':'even',
+         'spatial_representation':'native cubic triplet with distinct constituent X momenta; block momentum is separate',
+         'dispersion':'E(k)=Delta-2J sum_i cos(k_i), exact one-excitation sector; z=2 low momentum',
+         'detector_support':'complete native preparations and block position/momentum/projected-current records',
+         'physical_particle_identification':None},
+        {'id':'native_block_quadrature','defensible_identity':'controlled three-component free scalar Klein-Gordon covariance on bounded momentum/time readouts',
+         'charge':'all native Gauss generators zero','source_CAR_parity':'even',
+         'spatial_representation':'three internal scalar components in the proved continuum comparison; finite native rotation/reference data retained',
+         'dispersion':'omega(ap)^2 -> Delta^2+(Delta^2/6)|p|^2 with declared length/time scaling',
+         'detector_support':'complete retained-reference finite Weyl records, controlled admitted/actual-ground and capacity errors',
+         'physical_particle_identification':None},
+    ]
+
+
+def receipt():
+    names=('model/interacting_block_propagation/results.json','model/interacting_block_quadrature/results.json',
+        'model/coherent_defect_wave/chiral_particle_map/PROOF.md','model/particle_common_contract/PROOF.md',
+        'model/particle_transport/algebra.py','Lean/ObserverPatchHolography/CoreAxioms.lean',
+        'Lean/Screen/SeamCurrentCarrierQuotient.lean','Lean/Screen/SeamCurrentEdge30Moment.lean')
+    result={'actual_source_classification':classification(),'cone_representation':actual_transverse_irreps(),
+        'spin_ambiguity_controls':spin_restriction_controls(),'mass_label_nonselection_control':exact_number_shift(),
+        'RER_input_sha256':{name:hashlib.sha256((RER/name).read_bytes()).hexdigest() for name in names},
+        'worker_source_receipt_sha256':{name:hashlib.sha256((WORK/name).read_bytes()).hexdigest() for name in ('CODEX_JOIN_QUANTUM/coulomb_source/results.json','CODEX_JOIN_QUANTUM/coulomb_mobile/results.json')},
+        'independent_geometry_audit_sha256':hashlib.sha256(AUDIT.read_bytes()).hexdigest(),
+        'own_source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}}
+    return result
+
+
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
+    value=receipt();path=HERE/'results.json'
+    if args.check:assert json.loads(path.read_text())==value
+    else:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    print('PASS: actual-source particle labels and finite representation controls')

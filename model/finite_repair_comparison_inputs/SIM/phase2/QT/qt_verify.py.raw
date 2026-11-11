@@ -1,0 +1,42 @@
+"""QT: compares a rebuild (sh run_all.sh <directory>) with the hashed result files of this directory.
+JSON files are compared as data without the field "seconds"; RESULTS.md and COMPARISON.md byte for byte.
+Usage: python -B qt_verify.py <directory>
+"""
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+JSONS = ['gate/lp6_classes.json', 'gate/lp3_stationary.json', 'gate/lp3b_carrier.json', 'qt0_checks.json', 'qt1_hexagon.json',
+         'qt1_carrier_A.json', 'qt1_carrier_BC.json', 'qt1b_exact.json', 'qt2_analyzer.json', 'qt3_nfold.json',
+         'qt5_controls.json', 'qt6_filter.json', 'qt7_public_gauss.json', 'qt4_compare.json']
+TEXTS = ['RESULTS.md', 'COMPARISON.md']
+
+
+def strip(o):
+    if isinstance(o, dict):
+        return {k: strip(v) for k, v in o.items() if k != 'seconds'}
+    if isinstance(o, list):
+        return [strip(x) for x in o]
+    return o
+
+
+def main():
+    other = sys.argv[1]
+    ok = True
+    for name in JSONS:
+        a = strip(json.load(open(os.path.join(HERE, name))))
+        b = strip(json.load(open(os.path.join(other, name))))
+        same = a == b
+        ok &= same
+        print('PASS' if same else 'FAIL', name)
+    for name in TEXTS:
+        same = open(os.path.join(HERE, name), 'rb').read() == open(os.path.join(other, name), 'rb').read()
+        ok &= same
+        print('PASS' if same else 'FAIL', name)
+    print('ALL PASS' if ok else 'DIFFERENCES FOUND')
+    return 0 if ok else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,309 @@
+{
+ "M1_eigenstates": {
+  "lattice 64, M = 64: outcome distribution minus the delta at j = 5 M/64 (max)": 8.502143064418722e-32,
+  "lattice 64, M = 128: outcome distribution minus the delta at j = 5 M/64 (max)": 8.502143064418722e-32,
+  "lattice 64, M = 16, 48, 100: distribution minus the kernel sin^2(M d/2)/(M sin(d/2))^2 (max)": 4.440892098500626e-16,
+  "weight of the two outcomes nearest to the momentum (bound 8/pi^2 = 0.8106)": [
+   {
+    "M": 16,
+    "two nearest outcomes": 0.9019379741530801,
+    "total": 0.9999999999999998
+   },
+   {
+    "M": 48,
+    "two nearest outcomes": 0.9007774581609832,
+    "total": 1.0
+   },
+   {
+    "M": 100,
+    "two nearest outcomes": 0.9369544624262158,
+    "total": 0.9999999999999997
+   }
+  ]
+ },
+ "M2_engine_packet": {
+  "p0": 0.2945243112740431,
+  "exact momentum distribution: mean, std (rad)": [
+   0.2945243112740432,
+   0.05206503443153905
+  ],
+  "registers": [
+   {
+    "M": 16,
+    "bin (rad)": 0.39269908169872414,
+    "total probability": 1.0,
+    "mean (rad)": 0.3436947555701709,
+    "circular std (rad)": 0.35967916623869,
+    "half-width of the central 68% (rad)": 0.1762437441050639,
+    "half-width of the central 95% (rad)": 0.7656384610899021
+   },
+   {
+    "M": 32,
+    "bin (rad)": 0.19634954084936207,
+    "total probability": 1.0,
+    "mean (rad)": 0.29452431127404316,
+    "circular std (rad)": 0.2895649983879533,
+    "half-width of the central 68% (rad)": 0.15194587602486598,
+    "half-width of the central 95% (rad)": 0.502450381076127
+   },
+   {
+    "M": 64,
+    "bin (rad)": 0.09817477042468103,
+    "total probability": 1.0000000000000002,
+    "mean (rad)": 0.29452431127404316,
+    "circular std (rad)": 0.18455605690417942,
+    "half-width of the central 68% (rad)": 0.0793049676576705,
+    "half-width of the central 95% (rad)": 0.222674630709319
+   },
+   {
+    "M": 128,
+    "bin (rad)": 0.04908738521234052,
+    "total probability": 1.0000000000000002,
+    "mean (rad)": 0.29452431127404305,
+    "circular std (rad)": 0.1356359934708671,
+    "half-width of the central 68% (rad)": 0.06240426939726626,
+    "half-width of the central 95% (rad)": 0.1461885252421309
+   },
+   {
+    "M": 256,
+    "bin (rad)": 0.02454369260617026,
+    "total probability": 1.0,
+    "mean (rad)": 0.2945243112740432,
+    "circular std (rad)": 0.05206503443154332,
+    "half-width of the central 68% (rad)": 0.05262716771263353,
+    "half-width of the central 95% (rad)": 0.1035973277499683,
+    "distribution minus the exact lattice momentum distribution (max)": 2.7755575615628914e-17
+   },
+   {
+    "M": 512,
+    "bin (rad)": 0.01227184630308513,
+    "total probability": 1.0,
+    "mean (rad)": 0.29452431127404316,
+    "circular std (rad)": 0.05206503443154118,
+    "half-width of the central 68% (rad)": 0.050857276462487014,
+    "half-width of the central 95% (rad)": 0.10088604908732468,
+    "distribution minus the exact lattice momentum distribution (max)": 2.7755575615628914e-17
+   }
+  ],
+  "M = 32, all outcomes": [
+   0.029773890513211516,
+   0.4393593668699371,
+   0.4393593668699377,
+   0.029773890513211526,
+   0.010495841285112452,
+   0.005416813983788886,
+   0.003352522995462875,
+   0.0023151404514969182,
+   0.001722809846524619,
+   0.0013548285309918202,
+   0.0011125421557994244,
+   0.000946526090450448,
+   0.0008298754006068416,
+   0.0007470205531397102,
+   0.0006885572361095528,
+   0.0006486704690067778,
+   0.0006237806750606192,
+   0.0006118129433001951,
+   0.0006118129433001939,
+   0.000623780675060619,
+   0.0006486704690067781,
+   0.0006885572361095529,
+   0.00074702055313971,
+   0.0008298754006068419,
+   0.0009465260904504479,
+   0.0011125421557994241,
+   0.00135482853099182,
+   0.0017228098465246185,
+   0.0023151404514969182,
+   0.0033525229954628763,
+   0.005416813983788885,
+   0.01049584128511245
+  ],
+  "position instrument: outcomes, total probability": [
+   256,
+   0.999999999999962
+  ],
+  "position: mean, std (cells) at t = 0": [
+   0.6590783591954592,
+   23.69093162083168
+  ],
+  "position: mean, std (cells) at t = 60": [
+   53.11739044653017,
+   23.68116975694665
+  ],
+  "momentum record M = 256 after 60 ticks minus before (max)": 7.16093850883226e-15,
+  "sigma_x sigma_p at t = 0 (the engine packet takes the eigenvector phases of numpy.linalg.eig)": 1.2334691705538388,
+  "packet with the spectral projector as coin (r2lib.branch_packet), same sigma_p: sigma_x, sigma_x sigma_p": [
+   9.681334410152347,
+   0.5017106421847802
+  ]
+ },
+ "M3_resolution": {
+  "quantity": "half-width (rad per cell) of the central interval of outcomes that holds 68% of the probability (interpolated quantiles)",
+  "lattice": 512,
+  "rows": [
+   {
+    "patch (cells)": 32,
+    "sigma_x": 4.0,
+    "sigma_p = 1/(2 sigma_x)": 0.125,
+    "probability inside the patch": 0.9999311558133932,
+    "M=8": 0.5816586799882546,
+    "M=16": 0.24975506417029608,
+    "M=32": 0.1673951886958592,
+    "M=64": 0.14084280790499915,
+    "M=128": 0.13276745292964506,
+    "M=256": 0.12831585088780564,
+    "M=512": 0.12439592018566321
+   },
+   {
+    "patch (cells)": 64,
+    "sigma_x": 8.0,
+    "sigma_p = 1/(2 sigma_x)": 0.0625,
+    "probability inside the patch": 0.9999352681559965,
+    "M=8": 0.5843113027779847,
+    "M=16": 0.16637368556185422,
+    "M=32": 0.14952462113651027,
+    "M=64": 0.08996033387345574,
+    "M=128": 0.07223430325528124,
+    "M=256": 0.0666301673442488,
+    "M=512": 0.06234605206186973
+   },
+   {
+    "patch (cells)": 128,
+    "sigma_x": 16.0,
+    "sigma_p = 1/(2 sigma_x)": 0.03125,
+    "probability inside the patch": 0.9999363092948541,
+    "M=8": 0.5850259710138095,
+    "M=16": 0.1590678530995444,
+    "M=32": 0.15493495570430724,
+    "M=64": 0.04997742514260071,
+    "M=128": 0.041537742089761125,
+    "M=256": 0.036813155456339494,
+    "M=512": 0.0309216064244807
+   },
+   {
+    "patch (cells)": 256,
+    "sigma_x": 32.0,
+    "sigma_p = 1/(2 sigma_x)": 0.015625,
+    "probability inside the patch": 0.9999365704057127,
+    "M=8": 0.5852017463895774,
+    "M=16": 0.15720801469720666,
+    "M=32": 0.15880801558414886,
+    "M=64": 0.03781216770548014,
+    "M=128": 0.032742704032811404,
+    "M=256": 0.020946486724974393,
+    "M=512": 0.015910645055129638
+   }
+  ],
+  "reading": "the width is the larger of about one bin 2 pi/M and the intrinsic sigma_p = 4/patch of a packet that fills the patch"
+ },
+ "M4_three_axes": {
+  "p0": [
+   0.5235987755982988,
+   0.2617993877991494,
+   0.2617993877991494
+  ],
+  "t = 0": {
+   "mean momentum per axis (rad), M = 24": [
+    0.5258989313828979,
+    0.2606727700424681,
+    0.26303256797862107
+   ],
+   "std per axis (rad)": [
+    0.1458680207077317,
+    0.14396347392508263,
+    0.14269620555826568
+   ]
+  },
+  "t = 6": {
+   "mean momentum per axis (rad), M = 24": [
+    0.5258989313828978,
+    0.2606727700424681,
+    0.26303256797862107
+   ],
+   "std per axis (rad)": [
+    0.1458680207077286,
+    0.1439634739250795,
+    0.14269620555826332
+   ]
+  },
+  "momentum record after 6 ticks minus before, three axes (max)": 3.3306690738754696e-16,
+  "position: mean cell at t = 0 and t = 6": [
+   [
+    9.102957156645866,
+    11.001073695624898,
+    10.93252500391361
+   ],
+   [
+    12.585760136474658,
+    12.14749698716388,
+    12.089157216794083
+   ]
+  ]
+ },
+ "M5_flux_pair": {
+  "pairs of the orbit (face indices)": [
+   [
+    0,
+    3
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    9,
+    10
+   ],
+   [
+    8,
+    14
+   ]
+  ],
+  "mean momentum per axis (rad), M = 16, t = 0": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "momentum record after 3 ticks minus before (max)": 1.1102230246251565e-16,
+  "displacement per tick": [
+   0.9999999999999994,
+   -0.9999999999999997,
+   -1.0
+  ],
+  "face syndrome distribution over the orbit, t = 0": [
+   0.25000000000000683,
+   0.25000000000000683,
+   0.25000000000000683,
+   0.25000000000000683
+  ],
+  "face syndrome distribution over the orbit, t = 3": [
+   0.2500000000000059,
+   0.2500000000000059,
+   0.2500000000000059,
+   0.2500000000000059
+  ],
+  "joint outcomes cell x pair: number, total probability": [
+   16384,
+   1.0000000000000209
+  ]
+ },
+ "S_code_carrying_reflector": {
+  "dimension": 1296,
+  "each local factor is an involution (max)": 0.0,
+  "local factors commute pairwise (max)": 0.0,
+  "one-composite sector (32 states): leakage out of the sector (max)": 0.0,
+  "one-composite sector: code-carrying reflector minus reflector with the code as a label (max)": 0.0,
+  "after 3 ticks: probability that the quantum and the single nonflat carrier are in the same cell": 1.0,
+  "after 3 ticks: distribution over the cell": [
+   0.0,
+   0.5,
+   0.0,
+   0.5
+  ],
+  "with a second pair on the neighbour: norm, probability that the quantum still sits on its own pair": [
+   1.0,
+   1.0
+  ]
+ }
+}

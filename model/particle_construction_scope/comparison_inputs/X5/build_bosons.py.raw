@@ -1,0 +1,153 @@
+"""X5: assemble bosons.json from the executed results (field_symbol.json, alphabets.json, currents.json, higgs.json).
+
+Every number in the table is read from a result file of this directory or computed here from stated inputs.
+Conventions (CF-1): levels (v1, v2, v3, s1, s2), s2 the neutral doublet level; Q6 = 6Y = 3 n2 - 2 n3; T3 = +1/2 on s1;
+Q = T3 + Y; pattern = occupation of the five levels.
+"""
+import json, math, os, sys
+D = os.path.dirname(os.path.abspath(__file__))
+L = lambda n: json.load(open(os.path.join(D, n)))
+fs, al, cu, hg, cb = L('field_symbol.json'), L('alphabets.json'), L('currents.json'), L('higgs.json'), L('coulomb_check.json')
+pk = {(r['eps_kappa'], r['field_steps_per_tick']): r for r in fs['C_packets']['rows']}
+st = {round(r['eps_kappa'], 6): r for r in fs['D_stability']['rows']}
+noise = fs['D_stability']['compact_step_from_noise_12^3']
+costs = al['C_charges_and_costs']
+cov = al['B_cover_120']
+
+alpha = 1 / 137.035999                                                # IMPORTED (low-energy value), illustration only
+g2 = 4 * math.pi * alpha / 9                                          # coupling squared of the unit link charge e/3
+illustration = {'alpha_imported': alpha, 'unit_link_charge': 'e/3 (pattern charge 3Q = 3 n_s1 - n3)', 'sqrt(eps/kappa) = 4 pi alpha / 9': g2,
+                'two_field_steps_per_tick': {'eps': g2 / 2, 'kappa': 1 / (2 * g2), 'eps_kappa': (g2 / 2) * (1 / (2 * g2))},
+                'status': 'lattice Coulomb law (phase eps / (4 pi r) per field step between unit charges) MEASURED in coulomb_check.json; '
+                          'the identification with alpha is ARGUED and the bare value at the lattice scale is not alpha',
+                'coulomb_check': cb['rows']}
+
+field_step = {
+    'link_variable': 'phase theta_l in [0, 2 pi) per link of the cubic lattice of carriers, conjugate integer E_l (DECLARED)',
+    'step': 'F = prod_links exp(-i eps E_l^2 / 2) . prod_plaquettes exp(-i kappa (1 - cos B_p)); n such steps per tick',
+    'relation_to_section_8': 'clock form of a Z_N link, exp(-i eps_N cos(2 pi E/N)) and exp(-i kappa_N cos B); N = 2 is section 8; '
+                             'N to infinity: eps = -(2 pi/N)^2 eps_N, kappa = -kappa_N, up to a global phase',
+    'matter_coupling': 'pattern of integer charge q routes with z_l = exp(i q theta_l) (routing.py, argument links)',
+    'gauss': 'G_x(a) = exp(i a (div E - q N_x)); executed for Z_N, N = 2, 3, 4, 6 (alphabets.json) and as gauge covariance for U(1)',
+    'symbol_small_fields': fs['A_exact']['dispersion'], 'polarizations': 2,
+    'speed_per_field_step': 'sqrt(eps kappa) cells', 'stability': 'all wave vectors stable iff 3 eps kappa <= 1 (per field step)',
+    'speed_equal_to_routing': {'one_step_per_tick': 'eps kappa = 1: exact on the axes (omega = |k|), linearly unstable on the share of the zone below',
+                               'unstable_share_at_eps_kappa_1': st[1.0]['unstable_share_of_the_zone'],
+                               'largest_growth_factor_per_step_at_eps_kappa_1': st[1.0]['largest_growth_factor_per_step'],
+                               'corrected': 'n >= 2 field steps per tick with eps kappa = 1/n^2; recommended n = 2, eps kappa = 1/4',
+                               'omega_per_tick_n_2': '4 arcsin(sqrt(sum_i sin^2(k_i/2)) / 2)'},
+    'coupling': 'sqrt(eps/kappa) = g^2 of the unit link charge; fine-structure constant of that charge = sqrt(eps/kappa) / (4 pi)',
+    'illustration': illustration,
+    'validation': {
+        'line_256_cells_60_ticks_p0': fs['C_packets']['p0'],
+        'matter_massless_packet_velocity': fs['C_packets']['matter_massless_routing_velocity_same_packet'],
+        'field_packet_velocity_eps_kappa_1_one_step': pk[(1.0, 1)]['velocity_measured'],
+        'field_packet_velocity_eps_kappa_1/4_two_steps': pk[(0.25, 2)]['velocity_measured'],
+        'its_prediction_d_omega_dk_over_packet': pk[(0.25, 2)]['d_omega_dk_averaged_over_the_packet'],
+        'field_packet_velocity_eps_kappa_1/3_one_step': [r for r in fs['C_packets']['rows'] if abs(r['eps_kappa'] - 1 / 3) < 1e-9][0]['velocity_measured'],
+        'lattice_step_against_symbol_defect': fs['B_lattice']['step_against_symbol_defect'],
+        'compact_step_from_noise': noise, 'kicked_quantum_mode': fs['E_quantum_mode']}}
+
+alphabets = [
+    {'alphabet': 'Z2', 'native': True, 'origin': 'image of -1 of the cover: diag(1,1,1,-1,-1) on the levels; CF-1 section 8',
+     'pattern_charge': 'n2 mod 2', 'smallest_flux_loop_kappa': costs['smallest_flux_loop_in_units_of_kappa (one link changed, four plaquettes, eps -> 0)']['Z2 (section 8)'],
+     'smallest_electric_loop_eps': 8.0, 'wave': False, 'excitations': 'closed flux loops, closed electric loops, charges at string ends',
+     'standard_model_boson': None},
+    {'alphabet': 'Z6', 'native': True, 'origin': 'sixth roots of the total port response exp(i (pi k/3) sum_p X_p) = centre of SU(3) x SU(2); the register classes',
+     'pattern_charge': 'Q6 mod 6', 'smallest_flux_loop_kappa': {'clock': 2.0, 'reflection': 8.0}, 'smallest_electric_loop_eps': {'clock': 2.0, 'reflection': 8.0},
+     'wave': False, 'note': 'no small-field regime (spacing 2 pi/6 = %.4f rad); gapped in both solvable limits (eps -> 0, kappa -> 0). A massless window of the clock form between them is reported in '
+                            'the literature for cyclic alphabets of five or more values: IMPORTED, as remembered, not checked here, not '
+                            'established for a unitary tick. Even then it is not the B boson: rows neutral under Z6 = '
+                            % (2 * math.pi / 6) + ', '.join(costs['rows_neutral_under_every_central_alphabet']),
+     'standard_model_boson': None},
+    {'alphabet': 'cover of order 120', 'native': True, 'origin': "the audit's lift controller; acts as (rotation on the triplet, conjugate spinor on the doublet)",
+     'classes': cov['classes_by_real_part'], 'smallest_flux_loop_kappa': {'plaquette function trace/5': costs['smallest_flux_loop_in_units_of_kappa (one link changed, four plaquettes, eps -> 0)']['cover of order 120, plaquette function trace/5'], 'reflection': 8.0},
+     'wave': False, 'intersections': cov['intersection_orders_of_cover_times_colour_centre_with'],
+     'note': 'colour and weak frames are rotated together by one group element; no nontrivial element is close to the identity on both '
+             'blocks (smallest max cost %.6f); its only elements inside SU(3), SU(2), U(1)_Y, U(1)_em are central' % cov['smallest_of_max(cost_triplet,cost_doublet)_over_nontrivial_elements'],
+     'standard_model_boson': None},
+    {'alphabet': 'U(1) phase per generator', 'native': False, 'origin': 'DECLARED continuous link variable', 'smallest_flux_loop_kappa': 0.0,
+     'wave': True, 'polarizations': 2, 'standard_model_boson': 'photon, B; each component of W, Z and gluons at linear order'}]
+
+generators = {
+    'convention': 'levels (v1, v2, v3, s1, s2); port response X_p of audit/gauge/ENCODED_OVERLAP.md; n_p port direction, n\'_p conjugate direction; '
+                  'D_p = second quantization of X_p on the 32 patterns',
+    'B (hypercharge Y)': {'port_weights': '-1/6 for every port', 'carrier_representation': 'trivial (1)', 'levels': [-1 / 3, -1 / 3, -1 / 3, 1 / 2, 1 / 2],
+                          'integer_link_charge_of_a_pattern': 'Q6 = 3 n2 - 2 n3'},
+    'W (T_a, a = 1, 2, 3)': {'port_weights': "-(1/2) n'_p . a", 'carrier_representation': 'conjugate triplet (3\')', 'levels': 'a . sigma / 2 on (s1, s2)',
+                            'integer_link_charge_of_a_pattern (T3)': '2 T3 = n_s1 - n_s2'},
+    'gluons, rotations (3)': {'port_weights': 'n_p . a', 'carrier_representation': 'triplet (3)', 'levels': 'i [a]_x on (v1, v2, v3)'},
+    'gluons, quadrupoles (5)': {'port_weights': '-(5/2) n_p^T S n_p, S symmetric traceless', 'carrier_representation': 'quintet (5)', 'levels': 'S on (v1, v2, v3)'},
+    'photon (Q = T3 + Y)': {'port_weights': "-(1/6 + n'_p . a3 / 2)", 'levels': [-1 / 3, -1 / 3, -1 / 3, 1, 0], 'integer_link_charge_of_a_pattern': '3Q = 3 n_s1 - n3',
+                            'declared': 'the isospin axis a3 (which doublet level is neutral; fixed by the toggle)'},
+    'Z (T3 - s2 Q)': {'port_weights': "s2/6 - (1 - s2) n'_p . a3 / 2", 'levels': 'diag(s2/3, s2/3, s2/3, 1/2 - s2, -1/2)', 's2': 'sin^2 of the mixing angle: DECLARED ratio of two '
+                      'field-step couplings; 3/8 if one normalization is used for all twelve components (sum T3^2 / sum Q^2 = %s on the family half)' % cu['B_carrier']['sum_T3^2_over_sum_Q^2']},
+    'checks': {'exact_moments': cu['A_exact_moments'], 'carrier_defects': cu['B_carrier']['defects'],
+               'first_order_change_of_the_tick_under_a_link_phase_is_charge_times_link_current_defect': cu['C_coupling']['largest_defect']},
+    'pattern_charges': costs['rows']}
+
+common_declared = ['continuous link variable', 'field step and its two parameters per simple factor', 'number of field steps per tick']
+bosons = [
+    {'boson': 'photon', 'states': 1, 'excitation': 'wave of the link phase that gauges Q = T3 + Y', 'travels': True, 'polarizations': 2,
+     'speed_cells_per_tick': 'n sqrt(eps kappa); 1 at long wavelength for eps kappa = 1/n^2, n >= 2', 'mass': 'zero',
+     'mass_reason': 'Q annihilates the register quantum (higgs.json D; R8: the toggle commutes with su(3) + u(1)_em)',
+     'native': ['generator and current: sum_p w_p D_p, w_p = -(1/6 + n\'_p.a3/2)'], 'exact_in_CF1': ['coupling through the routing link', 'Gauss constraint'],
+     'declared': common_declared + ['isospin axis a3'], 'native_alphabet_can_carry_it': False,
+     'why_not_native': 'U(1)_em meets the native alphabets in the colour centre only (order %d); electron and neutrino are not separated by any central class' % cov['intersection_orders_of_cover_times_colour_centre_with']['U1_em = diag(e^-2ia 1_3, e^6ia, 1)'],
+     'status': 'symbol EXACT, lattice and packets MEASURED, native/declared split EXACT at representation level; best guess for the map'},
+    {'boson': 'Z', 'states': 1, 'excitation': 'wave of the link phase for T3 - s2 Q on a phase-coherent register', 'travels': True, 'polarizations': 3,
+     'speed_cells_per_tick': 'transverse n sqrt(eps kappa) at short wavelength; longitudinal n sqrt(u rho)',
+     'mass': 'open', 'mass_formula': 'rest phase per field step: cos(omega_0) = 1 - eps rho q^2 / 2 (rho stiffness, q register charge); mZ^2/mW^2 = (g^2 + g\'^2)/g^2',
+     'native': ['generator weights', 'mixing value 3/8 at one normalization'], 'declared': common_declared + ['register phase stiffness rho and number cost u', 'ratio of the two couplings'],
+     'native_alphabet_can_carry_it': False, 'status': 'symbol with register EXACT; representation level'},
+    {'boson': 'W+, W-', 'states': 2, 'excitation': 'wave of the link components along T1 +- i T2 (a link matrix on the doublet levels)', 'travels': True, 'polarizations': 3,
+     'speed_cells_per_tick': 'as Z', 'mass': 'open', 'mass_formula': 'mW^2/mZ^2 = g^2/(g^2 + g\'^2); 5/8 at one normalization',
+     'native': ["generators: weights -(1/2) n'_p.(a1 +- i a2), conjugate triplet of the carrier group"], 'declared': common_declared + ['link matrices in the routing (the engine routes with phases only)', 'register'],
+     'native_alphabet_can_carry_it': False, 'why_not_native': 'the native alphabets meet SU(2) in its centre only (order %d)' % cov['intersection_orders_of_cover_times_colour_centre_with']['SU2_weak (identity on the triplet)'],
+     'status': 'representation level; linear order only; not executed on the engine'},
+    {'boson': 'gluons', 'states': 8, 'excitation': 'waves of the link components along the triplet (3 rotations) and quintet (5 quadrupoles) of port weights', 'travels': 'at linear order',
+     'polarizations': 2, 'speed_cells_per_tick': 'n sqrt(eps_3 kappa_3)', 'mass': 'zero at linear order; confinement and the bound-state scale open',
+     'native': ['generators: weights n_p.a and -(5/2) n_p^T S n_p'], 'declared': common_declared + ['link matrices in the routing'],
+     'native_alphabet_can_carry_it': False, 'why_not_native': 'the native alphabets meet SU(3) in its centre only (order %d): colour-centre flux loops, not gluons' % cov['intersection_orders_of_cover_times_colour_centre_with']['SU3_colour (identity on the doublet)'],
+     'status': 'representation level; linear order only; not executed on the engine'},
+    {'boson': 'B (before mixing)', 'states': 1, 'excitation': 'wave of the link phase that gauges Y: the uniform combination of the twelve responses', 'travels': True, 'polarizations': 2,
+     'speed_cells_per_tick': 'n sqrt(eps_1 kappa_1)', 'mass': 'zero without a register', 'native': ['generator = -(1/6) sum_p D_p; the Z6 classes are its six central points'],
+     'declared': common_declared, 'native_alphabet_can_carry_it': False,
+     'why_not_native': 'a Z6 link sees Q6 mod 6: the right-handed electron (Q6 = -6) would be neutral', 'status': 'as photon'},
+    {'boson': 'Higgs', 'states': 1, 'excitation': 'R8 register quantum (Z2 charge 1, 6Y = 3, T3 = -1/2, Q = 0, colour singlet); as a wave: the amplitude mode of the register',
+     'travels': False, 'travels_detail': {
+         'R8 tick': 'the register word is never shifted: static, no rest phase; it moves only bound to a quantum (toggle)',
+         'declared exchange with link sign (Gauss-compatible, executed)': 'one quantum on an empty register: rest phase 3 lambda per tick, largest group velocity sin(lambda) per axis, '
+                                                                         'omega = 3 lambda - tan(lambda)|k|^2/2 near rest; lambda = pi/2: one cell per tick per axis along a diagonal fixed by the sublattice',
+         'phase-coherent register': 'its one mode (phase, number) is the third polarization of the massive link wave if the link is a continuous phase; with a '
+                                    'native finite alphabet it stays a massless scalar wave of speed n sqrt(u rho) that the Standard Model does not have (ARGUED)',
+         'neutral scalar wave': 'needs a second canonical pair per cell (DECLARED): cos(omega) = 1 - u_h (m^2 + rho_h s)/2, speed sqrt(u_h rho_h)'},
+     'speed_cells_per_tick': '0 in the R8 tick', 'mass': 'open', 'native': ['charges of the register quantum (R8)', 'the toggle as the only charge- and colour-conserving linear operator (L31)'],
+     'declared': ['register', 'its reference state', 'its exchange step and parameters', 'a second pair for the amplitude'], 'native_alphabet_can_carry_it': None,
+     'status': 'static: EXACT by construction of the R8 tick; exchange MEASURED (defects printed) with exact closed form; mode count ARGUED with exact symbol'}]
+
+others = [
+    {'object': 'flux loop of the Z2 link (weak-centre flux, class 3)', 'native': True, 'travels': 'by the link step only, at second order in eps (ARGUED); not a wave', 'mass': 'lattice scale: 8 kappa per tick for the smallest loop (eps -> 0)',
+     'standard_model_boson': None},
+    {'object': 'flux loops of the Z6 link (classes 1, 5; colour part 2, 4)', 'native': True, 'travels': 'by the link step only; not a wave', 'mass': 'lattice scale: 2 kappa (clock) or 8 kappa (reflection)',
+     'standard_model_boson': None},
+    {'object': 'flux and electric loops of the cover of order 120', 'native': True, 'travels': 'by the link step only', 'mass': 'lattice scale: %.6f kappa (trace/5)' % costs['smallest_flux_loop_in_units_of_kappa (one link changed, four plaquettes, eps -> 0)']['cover of order 120, plaquette function trace/5'],
+     'standard_model_boson': None},
+    {'object': 'the twelve responses D_p acting on the empty vacuum of R1', 'native': True, 'travels': 'no: D_p annihilates the empty vacuum (EXACT: a one-body operator on no quanta)',
+     'mass': None, 'standard_model_boson': None},
+    {'object': 'pair of routed quanta, pattern and conjugate pattern (alternative carrier of a boson)', 'native': True,
+     'travels': 'at the routing speed; collinear massless pair has omega = |k| on an axis (cos E = cos p)', 'mass': 'zero; a threshold of a two-quantum continuum, no bound state shown (ARGUED, not executed)',
+     'standard_model_boson': 'kept as alternative only'}]
+
+out = {'task': 'X5, issue 7 of MAP.md: gauge bosons and the Higgs as travelling excitations', 'date': '2026-11-10', 'status': 'best guess table; every number from the result files of this directory',
+       'native_means': "built from the carrier's port directions with the audit's five-level code (the code itself is declared architecture of the audit)",
+       'correction_to_CF1_section_8': 'with a link phase, one field step per tick cannot give the routing speed: eps kappa = 1 is linearly unstable on %.4f of the zone; use n = 2 field steps per tick with eps kappa = 1/4'
+                                      % st[1.0]['unstable_share_of_the_zone'],
+       'field_step': field_step, 'alphabets': alphabets, 'generators': generators, 'bosons': bosons, 'travelling_objects_without_a_standard_model_boson': others,
+       'executed_checks': {'ZN_gauss_rows': al['A_ZN_and_U1']['rows'], 'U1_gauge_covariance_of_the_routing_tick': al['A_ZN_and_U1']['U1_gauge_covariance_of_the_routing_tick'],
+                           'higgs_exchange': hg['A_exchange'], 'higgs_one_quantum': hg['B_one_quantum'], 'link_wave_with_register': hg['C_link_wave_with_register'],
+                           'electroweak_mass_matrix': hg['D_mass_matrix'], 'cover_120_classes': cov['rows']},
+       'sources': {n: os.path.join(D, n) for n in ('field_symbol.py', 'alphabets.py', 'currents.py', 'higgs.py', 'build_bosons.py')}}
+json.dump(out, open(os.path.join(D, 'bosons.json'), 'w'), indent=1)
+print('bosons.json written;', len(bosons), 'boson rows,', len(alphabets), 'alphabets,', len(others), 'other objects')
+print('illustration', illustration)

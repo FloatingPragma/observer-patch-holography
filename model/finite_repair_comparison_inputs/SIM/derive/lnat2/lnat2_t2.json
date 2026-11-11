@@ -1,0 +1,163 @@
+{
+ "task": "T2",
+ "exclusive_events": {
+  "K5_two_objects_P(R xor H)": "2/9",
+  "K6_one_object_exclusive_P(R or H)": "1/4",
+  "joint_P(R and H)": "1/72",
+  "note": "the phase 2/9 needs the hold and the rotation on independent objects (K5); one seam event gives 1/4"
+ },
+ "federation_mean": {
+  "mean": "2/9",
+  "variance": "14/(81*n)",
+  "spread": "0.415740 / sqrt(n)"
+ },
+ "coherent_averages": {
+  "single_carrier_arg_E_exp_iX": "0.2053340309702779409512722945646487954863",
+  "relative_to_2/9": "-0.07599686063374926571927467445908042031185",
+  "n_carrier_coherent_phase_series": "2/9 - 35/(2187 n^2) + O(n^-4)",
+  "series_checked_n=10,100,1000": true,
+  "n=10": "0.2220620996705027052179109970433016203399",
+  "n=1000": "0.2222222062185633837998686328523045140371",
+  "statement": "the phase is 2/9 only as the federation mean (arithmetic, or coherent with n -> infinity); a single carrier gives 0.205330"
+ },
+ "sign_of_the_phase": {
+  "rho_f": "g^2 = g^-1",
+  "rho_f'": "g",
+  "halfturns": [
+   {
+    "h": [
+     [
+      0,
+      1
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      4,
+      6
+     ],
+     [
+      5,
+      7
+     ],
+     [
+      8,
+      11
+     ],
+     [
+      9,
+      10
+     ]
+    ],
+    "h g h = g^-1": true,
+    "h rho_f h = rho_fprime": true
+   },
+   {
+    "h": [
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      9
+     ],
+     [
+      2,
+      10
+     ],
+     [
+      4,
+      7
+     ],
+     [
+      5,
+      8
+     ],
+     [
+      6,
+      11
+     ]
+    ],
+    "h g h = g^-1": true,
+    "h rho_f h = rho_fprime": true
+   },
+   {
+    "h": [
+     [
+      0,
+      10
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      3,
+      9
+     ],
+     [
+      4,
+      8
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      7,
+      11
+     ]
+    ],
+    "h g h = g^-1": true,
+    "h rho_f h = rho_fprime": true
+   }
+  ],
+  "statement": "J is defined by the readout at f: J = +1 on rho_f = g^-1 steps. A half-turn carries the readout to f', where the aligned steps are rho_f' = g: on the g-labelled register J -> -J and theta -> -theta. Elements of C3 fix f and J. The sign of theta labels which family is which; theta and -theta give conjugate circulants with the same spectrum."
+ },
+ "clock_consistency": {
+  "C_2 (Koide form, needs a current record)": {
+   "A_clock": {
+    "Q": "0.6666666666666666666666666666666666666667",
+    "ratios": [
+     "206.7703159727293886125503393177750774626",
+     "3477.472837104598532313001225522648344607"
+    ]
+   },
+   "Floquet": {
+    "Q": "0.4780353479482584296188694379568597837598",
+    "ratios": [
+     "14.37951034969355521264228578745547707338",
+     "58.97010584906728695730798272610772011179"
+    ]
+   }
+  },
+  "C_1 (one-orientation readout of the coherent law)": {
+   "A_clock": {
+    "Q": "0.3450877310808785795918363148618672034269",
+    "ratios": [
+     "1.894974319636075421691585717005724597229",
+     "2.573738428683474086428401048759555643116"
+    ]
+   },
+   "Floquet": {
+    "Q": "0.336426804247136779672401932166247880428",
+    "ratios": [
+     "1.376580681007339513422047745349504058774",
+     "1.604287552817393910500658673284959213834"
+    ]
+   }
+  },
+  "which clock": "the mass readout uses the A-clock: premise (b) assigns one quantum of action hbar to each read, so the same coefficient makes the phase per tick equal the expected reads per tick and the energy per tick equal the expected reads per tick in hbar/tick (DA's A-clock, lead L30). The Floquet rest phase arccos(1 - p) ~ sqrt(2p) per tick is the coherent walk's own clock and assigns a different action to a read. Using it for the masses while using (b) for the phase would read one tick with two clocks. The choice follows from the premise that supplies the phase and is fixed before any mass is compared."
+ },
+ "premises": {
+  "(a) DECLARED": "crossing-read area law with its Planck-area dictionary: one nat of cut entropy per crossing read (CROSSING_READ_AREA_LAW.tex, proposition \"Area law and the Planck-area dictionary\", proof line 124; the remark there calls the nat-per-read reading a declared dictionary)",
+  "(b) IMPORTED": "Wick correspondence: a stationary process with Euclidean weight e^{-1} per unit Euclidean time has real-time phase e^{-i} per unit real time, both from one action coefficient; stated as \"each read carries one quantum of action hbar\"",
+  "chain (ARGUED)": "(a) gives the Euclidean weight e^{-1} per read, i.e. S_E = hbar per read; (b) continues the same coefficient to S = hbar per read in real time, i.e. exp(-i) per read; on the consensus clock the expected number of exclusive reads per tick is 2/9, so the phase per tick is 2/9 rad as a federation mean",
+  "what each premise supplies": "(a) alone fixes a weight in nats and no angle; (b) alone fixes the continuation and not the coefficient; together they supply the radian",
+  "identification inside (a) as used here": "the area law counts unordered crossing reads of the three-dimensional source population per layer; the phase map counts exclusive record events of a carrier per tick; \"each read carries hbar\" applies the dictionary to both kinds of read",
+  "not supplied by (a) or (b)": "the event-to-coherent-control map (which family branch receives exp(+i theta)), named as a separate input in PHASE_AND_PREMISES.md; here it is the readout orientation J of T1, and with the coherent sign law it gives C_1, not C_2"
+ }
+}

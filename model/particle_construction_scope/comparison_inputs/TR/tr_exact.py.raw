@@ -1,0 +1,463 @@
+"""Worker TR, exact part: the register of one carrier under the committed rule of the runs.
+
+Source: the twelve-port carrier of oph_exact.carrier (seams, oriented faces, sixty rotations), imported read only;
+the register rule of oph_defects/DATASET.md section 1 (unit twist on seam (a, b): the face that traverses a -> b
+changes by +delta, the face that traverses b -> a by -delta; in the balanced band delta = j = +-1 and the twist is
+applied iff cost[new] - cost[old] <= 0). Cost table (0, 5, 8, 10, 8, 5) and kappa = 5 are the declared values
+of the runs. No measured value is read. No candidate value is computed here.
+
+  cd /tmp && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=WORKSPACE/oph-physics-sim \
+      /tmp/oph-completion-venv/bin/python -B WORKSPACE/repair-law/work/TR/tr_exact.py
+"""
+from __future__ import annotations
+
+import heapq
+import itertools
+import json
+import time
+from collections import deque
+from fractions import Fraction
+from pathlib import Path
+
+import oph_exact.carrier as C
+
+HERE = Path(__file__).resolve().parent
+COST = (0, 5, 8, 10, 8, 5)
+KAPPA = 5
+SEAMS = [tuple(map(int, s)) for s in C.seams()]
+FACES = [tuple(map(int, f)) for f in C.oriented_faces()]
+NF, NS = len(FACES), len(SEAMS)
+VAC = (0,) * NF
+SECTORS = ((4, 30),)
+
+
+def face_sides():
+    """Copy of oph_defects.fedgeom._template_face_sides: face traversing seam k a->b (plus) and b->a (minus)."""
+    key = {s: k for k, s in enumerate(SEAMS)}
+    plus, minus = [-1] * NS, [-1] * NS
+    for f, (p, q, r) in enumerate(FACES):
+        for u, v in ((p, q), (q, r), (r, p)):
+            k = key[(min(u, v), max(u, v))]
+            if u < v:
+                assert plus[k] < 0
+                plus[k] = f
+            else:
+                assert minus[k] < 0
+                minus[k] = f
+    assert min(plus) >= 0 and min(minus) >= 0
+    return plus, minus
+
+
+PLUS, MINUS = face_sides()
+NBR = [[] for _ in range(NF)]
+SEAM_OF = {}
+for k in range(NS):
+    a, b = PLUS[k], MINUS[k]
+    NBR[a].append(b)
+    NBR[b].append(a)
+    SEAM_OF[(a, b)] = k
+    SEAM_OF[(b, a)] = k
+
+
+def dual_distances():
+    D = [[-1] * NF for _ in range(NF)]
+    for s in range(NF):
+        D[s][s] = 0
+        dq = deque([s])
+        while dq:
+            x = dq.popleft()
+            for y in NBR[x]:
+                if D[s][y] < 0:
+                    D[s][y] = D[s][x] + 1
+                    dq.append(y)
+    return D
+
+
+DIST = dual_distances()
+
+
+def cost(cfg):
+    return sum(COST[c] for c in cfg)
+
+
+def twist(cfg, k, delta):
+    new = list(cfg)
+    new[PLUS[k]] = (new[PLUS[k]] + delta) % 6
+    new[MINUS[k]] = (new[MINUS[k]] - delta) % 6
+    return tuple(new)
+
+
+def moves(cfg):
+    for k in range(NS):
+        for delta in (1, 5):
+            yield k, delta, twist(cfg, k, delta)
+
+
+def config(assign):
+    cfg = [0] * NF
+    for f, c in assign.items():
+        cfg[f] = c % 6
+    return tuple(cfg)
+
+
+def ndef(cfg):
+    return sum(1 for c in cfg if c)
+
+
+# ---------------------------------------------------------------- face permutations of the sixty rotations
+def face_perms():
+    fidx = {}
+    for i, f in enumerate(FACES):
+        for r in range(3):
+            fidx[f[r:] + f[:r]] = i
+    perms = []
+    for perm in C.rotations():
+        pf = [fidx[tuple(perm[v] for v in f)] for f in FACES]
+        perms.append(pf)
+    return perms
+
+
+FPERMS = face_perms()
+
+
+def pair_orbits():
+    pairs = [(a, b) for a in range(NF) for b in range(a + 1, NF)]
+    seen, orbits = set(), []
+    for a, b in pairs:
+        if (a, b) in seen:
+            continue
+        orb = set()
+        for pf in FPERMS:
+            x, y = pf[a], pf[b]
+            orb.add((min(x, y), max(x, y)))
+        seen |= orb
+        orbits.append(sorted(orb))
+    return orbits
+
+
+# ---------------------------------------------------------------- searches on the configuration graph
+def search(start, objective, max_def, cost_cap, target=VAC):
+    """Exact minimum of an additive (or bottleneck) objective over twist routes from start to target, inside the
+    sector of configurations with at most max_def nonzero faces and cost <= cost_cap. Integer weights:
+    'length' (one per twist), 'uphill' (one per cost-raising twist), 'above_start' (one per twist made from a
+    configuration above the starting cost), 'action' (excess cost units of the configuration the twist is made
+    from; divide by kappa), 'bottleneck' (minimal max excess over the route)."""
+    c0 = cost(start)
+    INF = 1 << 60
+    best = {start: 0}
+    heap = [(0, 0, start, c0, ndef(start))]
+    tie = itertools.count(1)
+    while heap:
+        val, _, x, cx, nx = heapq.heappop(heap)
+        if val > best.get(x, INF):
+            continue
+        if x == target:
+            return val, len(best)
+        for k in range(NS):
+            p, m = PLUS[k], MINUS[k]
+            xp, xm = x[p], x[m]
+            base = cx - COST[xp] - COST[xm]
+            nbase = nx - (xp != 0) - (xm != 0)
+            for delta in (1, 5):
+                yp, ym = (xp + delta) % 6, (xm - delta) % 6
+                cy = base + COST[yp] + COST[ym]
+                if cy > cost_cap:
+                    continue
+                ny = nbase + (yp != 0) + (ym != 0)
+                if ny > max_def:
+                    continue
+                if objective == 'length':
+                    nv = val + 1
+                elif objective == 'uphill':
+                    nv = val + (1 if cy > cx else 0)
+                elif objective == 'above_start':
+                    nv = val + (1 if cx > c0 else 0)
+                elif objective == 'action':
+                    nv = val + max(cx - c0, 0)
+                elif objective == 'uphill_cost':
+                    nv = val + max(cy - cx, 0)
+                elif objective == 'bottleneck':
+                    nv = max(val, cy - c0)
+                else:
+                    raise ValueError(objective)
+                y = list(x)
+                y[p], y[m] = yp, ym
+                y = tuple(y)
+                if nv < best.get(y, INF):
+                    best[y] = nv
+                    heapq.heappush(heap, (nv, next(tie), y, cy, ny))
+    return None, len(best)
+
+
+def min_twists_flow(assign):
+    """Minimal number of unit twists to reach the vacuum, by the lift argument: every twist sequence defines an
+    integer seam flow; the classes lift to integers in {c, c - 6}; the cost of a lift is the transport distance on
+    the dual graph (sources and sinks matched by min-cost assignment of unit charges). Exact for the small
+    configurations used here (lifts with an extra +-6 on an empty face are checked to be worse)."""
+    faces = list(assign)
+    best = None
+    for lift in itertools.product(*[(assign[f] % 6, assign[f] % 6 - 6) for f in faces]):
+        if sum(lift) != 0:
+            continue
+        src, snk = [], []
+        for f, q in zip(faces, lift):
+            (src if q > 0 else snk).extend([f] * abs(q))
+        # assignment of unit charges: brute force over permutations is too big; use a greedy-exact min-cost
+        # matching by the Hungarian algorithm on the small cost matrix
+        n = len(src)
+        cm = [[DIST[s][t] for t in snk] for s in src]
+        val = hungarian(cm) if n else 0
+        best = val if best is None else min(best, val)
+    return best
+
+
+def hungarian(cm):
+    n = len(cm)
+    INF = 10 ** 9
+    u, v, p, way = [0] * (n + 1), [0] * (n + 1), [0] * (n + 1), [0] * (n + 1)
+    for i in range(1, n + 1):
+        p[0] = i
+        j0 = 0
+        minv = [INF] * (n + 1)
+        used = [False] * (n + 1)
+        while True:
+            used[j0] = True
+            i0, delta, j1 = p[j0], INF, 0
+            for j in range(1, n + 1):
+                if not used[j]:
+                    cur = cm[i0 - 1][j - 1] - u[i0] - v[j]
+                    if cur < minv[j]:
+                        minv[j], way[j] = cur, j0
+                    if minv[j] < delta:
+                        delta, j1 = minv[j], j
+            for j in range(n + 1):
+                if used[j]:
+                    u[p[j]] += delta
+                    v[j] -= delta
+                else:
+                    minv[j] -= delta
+            j0 = j1
+            if p[j0] == 0:
+                break
+        while True:
+            j1 = way[j0]
+            p[j0] = p[j1]
+            j0 = j1
+            if j0 == 0:
+                break
+    return -v[0]
+
+
+def count_shortest(start, target, length, max_def=6):
+    """Number of twist sequences of exactly `length` unit twists from start to target (layered BFS counts)."""
+    layer = {start: 1}
+    for _ in range(length):
+        nxt = {}
+        for x, m in layer.items():
+            for _, _, y in moves(x):
+                if ndef(y) > max_def:
+                    continue
+                nxt[y] = nxt.get(y, 0) + m
+        layer = nxt
+    return layer.get(target, 0)
+
+
+def count_shortest_bidir(start, target, length, max_def=6):
+    h = length // 2
+    fwd = {start: 1}
+    for _ in range(h):
+        nxt = {}
+        for x, m in fwd.items():
+            for _, _, y in moves(x):
+                if ndef(y) <= max_def:
+                    nxt[y] = nxt.get(y, 0) + m
+        fwd = nxt
+    bwd = {target: 1}
+    for _ in range(length - h):
+        nxt = {}
+        for x, m in bwd.items():
+            for _, _, y in moves(x):
+                if ndef(y) <= max_def:
+                    nxt[y] = nxt.get(y, 0) + m
+        bwd = nxt
+    return sum(m * bwd.get(x, 0) for x, m in fwd.items())
+
+
+# ---------------------------------------------------------------- third-order effective hop of a class-3 face
+def effective_hop_class3(assign, a, m):
+    """Sum over all three-twist routes from cfg (class 3 on a) to cfg' (class 3 moved from a to m, everything else
+    equal) of 1 / ((C0 - C1)(C0 - C2)) in cost units; t3 = tau^3 / eps^2 times this sum. Also returns the list of
+    routes and checks that no intermediate configuration is degenerate with the start."""
+    start = config(assign)
+    end_assign = dict(assign)
+    del end_assign[a]
+    end_assign[m] = 3
+    end = config(end_assign)
+    c0 = cost(start)
+    assert cost(end) == c0
+    total = Fraction(0)
+    routes = []
+    for k1, d1, x1 in moves(start):
+        c1 = cost(x1)
+        for k2, d2, x2 in moves(x1):
+            c2 = cost(x2)
+            for k3, d3, x3 in moves(x2):
+                if x3 != end:
+                    continue
+                if c1 == c0 or c2 == c0:
+                    raise AssertionError('degenerate intermediate on a third-order route')
+                total += Fraction(1, (c0 - c1) * (c0 - c2))
+                routes.append({'seams': [k1, k2, k3], 'deltas': [d1, d2, d3], 'excess': [c1 - c0, c2 - c0]})
+    return total, routes
+
+
+def main():
+    t0 = time.time()
+    out = {'source': {'carrier': 'oph_exact.carrier (oph-physics-sim, read only)', 'faces': NF, 'seams': NS,
+                      'rotations': len(FPERMS), 'cost_table_declared': COST, 'kappa_declared': KAPPA,
+                      'rule': 'unit twist +-1 on a seam; plus face +delta, minus face -delta; applied iff the '
+                              'cost does not rise (balanced band)'}}
+    # dual graph
+    deg = sorted(set(len(n) for n in NBR))
+    dist_hist = {}
+    for a in range(NF):
+        for b in range(a + 1, NF):
+            dist_hist[DIST[a][b]] = dist_hist.get(DIST[a][b], 0) + 1
+    out['dual_graph'] = {'degree': deg, 'unordered_pairs_by_distance': dist_hist,
+                         'diameter': max(max(r) for r in DIST)}
+    # orbits of unordered face pairs
+    orbits = pair_orbits()
+    orb_rows = []
+    for orb in orbits:
+        a, b = orb[0]
+        orb_rows.append({'representative': [a, b], 'distance': DIST[a][b], 'size': len(orb)})
+    orb_rows.sort(key=lambda r: (r['distance'], r['size']))
+    out['pair_orbits'] = orb_rows
+    lasting = [(a, b) for a in range(NF) for b in range(a + 1, NF) if DIST[a][b] >= 2]
+    w = {}
+    for a, b in lasting:
+        w[DIST[a][b]] = w.get(DIST[a][b], 0) + 1
+    out['lasting_placements'] = {'count': len(lasting), 'by_distance': w,
+                                 'weights': {d: str(Fraction(n, len(lasting))) for d, n in w.items()}}
+
+    # X1: superselection of lasting (3,3) pairs and the frozen/moving classes
+    x1 = {'lasting_33_all_proposals_raise_cost': True, 'min_rise_over_lasting_33': None}
+    rises = []
+    for a, b in lasting:
+        cfg = config({a: 3, b: 3})
+        c0 = cost(cfg)
+        r = [cost(y) - c0 for _, _, y in moves(cfg)]
+        rises.append(min(r))
+        if min(r) <= 0:
+            x1['lasting_33_all_proposals_raise_cost'] = False
+    x1['min_rise_over_lasting_33'] = min(rises)
+    adjacent = [(a, b) for a in range(NF) for b in range(a + 1, NF) if DIST[a][b] == 1]
+    adj_down = []
+    for a, b in adjacent:
+        cfg = config({a: 3, b: 3})
+        c0 = cost(cfg)
+        k = SEAM_OF[(a, b)]
+        adj_down.append(sorted(cost(twist(cfg, k, d)) - c0 for d in (1, 5)))
+    x1['adjacent_33_shared_seam_rises'] = sorted(set(tuple(x) for x in adj_down))
+    single = {}
+    for cls in range(1, 6):
+        cfg = config({0: cls})
+        c0 = cost(cfg)
+        single[cls] = sorted(set(cost(y) - c0 for k, _, y in moves(cfg) if PLUS[k] == 0 or MINUS[k] == 0))
+    x1['isolated_face_rises_on_its_seams'] = single
+    # quark side: class-1 hop and 1 + 3 -> 4 fusion
+    a = 0
+    m = NBR[a][0]
+    b = [f for f in NBR[m] if f != a][0]
+    cfg = config({a: 1, b: 3})
+    hop = [cost(twist(cfg, SEAM_OF[(a, m)], d)) - cost(cfg) for d in (1, 5)]
+    cfg2 = config({m: 1, b: 3})
+    fus = [cost(twist(cfg2, SEAM_OF[(m, b)], d)) - cost(cfg2) for d in (1, 5)]
+    x1['class1_hop_rises'] = sorted(hop)
+    x1['fusion_1_3_to_4_rises'] = sorted(fus)
+    out['X1_superselection'] = x1
+
+    # X2: read counts and barriers per orbit representative, exact searches
+    reps = {}
+    for r in orb_rows:
+        if r['distance'] >= 2:
+            reps.setdefault(r['distance'], []).append(tuple(r['representative']))
+    x2 = {'sector': 'configurations with at most max_def nonzero faces and cost <= cap', 'rows': []}
+    for d in sorted(reps):
+        for (a, b) in reps[d]:
+            start = config({a: 3, b: 3})
+            row = {'d': d, 'faces': [a, b], 'C0': cost(start)}
+            row['n_min_flow'] = min_twists_flow({a: 3, b: 3})
+            for obj in ('uphill', 'uphill_cost', 'above_start', 'action', 'bottleneck'):
+                for (md, cap) in SECTORS:
+                    val, nstates = search(start, obj, md, cap)
+                    row[f'{obj}_def{md}_cap{cap}'] = str(val) if val is not None else None
+                    row[f'{obj}_def{md}_cap{cap}_states'] = nstates
+            if d <= 3:
+                val, nstates = search(start, 'length', 4, 60)
+                row['n_min_search_def4'] = str(val)
+            x2['rows'].append(row)
+            print('X2', d, (a, b), {k: v for k, v in row.items() if not k.endswith('states')},
+                  f'{time.time() - t0:.1f}s', flush=True)
+    # quark: (1 at a, 3 at b) to (4 at b)
+    qrows = []
+    for d in sorted(reps):
+        a, b = reps[d][0]
+        start = config({a: 1, b: 3})
+        target = config({b: 4})
+        val, _ = search(start, 'length', 4, 60, target=target)
+        up, _ = search(start, 'uphill', 4, 30, target=target)
+        qrows.append({'d': d, 'faces': [a, b], 'n_q_min': str(val), 'uphill_min': str(up),
+                      'n_q_flow': min_twists_flow({a: 1, b: 3, }) if False else None})
+    qa = adjacent[0]
+    val, _ = search(config({qa[0]: 1, qa[1]: 3}), 'length', 4, 60, target=config({qa[1]: 4}))
+    qrows.append({'d': 1, 'faces': list(qa), 'n_q_min': str(val)})
+    val, _ = search(config({qa[0]: 3, qa[1]: 3}), 'length', 4, 60)
+    x2['adjacent_33_n_min'] = str(val)
+    x2['quark_rows'] = qrows
+    out['X2_read_counts'] = x2
+
+    # multiplicity of minimal twist sequences (orderings and routes), for the record
+    mult = {}
+    for d in (2,):
+        a, b = reps[d][0]
+        n = 3 * d
+        mult[d] = count_shortest_bidir(config({a: 3, b: 3}), VAC, n)
+    a, b = adjacent[0]
+    mult[1] = count_shortest(config({a: 3, b: 3}), VAC, 3)
+    qmult = {}
+    for d in (2, 3, 4, 5):
+        a, b = reps[d][0]
+        qmult[d] = count_shortest_bidir(config({a: 1, b: 3}), config({b: 4}), d)
+    out['multiplicity_minimal_sequences'] = {'lepton_33_to_vacuum': mult, 'quark_13_to_4': qmult}
+
+    # X3: third-order effective hop of a class-3 face (isolated, and with the partner at every distance)
+    x3rows = []
+    for d in sorted(reps):
+        for (a, b) in reps[d]:
+            for m in NBR[a]:
+                assign = {a: 3, b: 3}
+                if m == b:
+                    continue
+                tot, routes = effective_hop_class3(assign, a, m)
+                x3rows.append({'d': d, 'faces': [a, b], 'move_to': m, 'new_d': DIST[m][b],
+                               'sum_inverse_denominators': str(tot), 'routes': len(routes),
+                               'route_seams_equal_shared_seam': all(set(r['seams']) == {SEAM_OF[(a, m)]}
+                                                                    for r in routes),
+                               'excess_costs': sorted(set(tuple(r['excess']) for r in routes))})
+    tot_iso, routes_iso = effective_hop_class3({0: 3}, 0, NBR[0][0])
+    out['X3_effective_class3_hop'] = {
+        'formula': 't3 = (tau^3 / eps^2) * sum over three-twist routes of 1/((C0 - C1)(C0 - C2)), cost units',
+        'isolated_face': {'sum': str(tot_iso), 'routes': len(routes_iso),
+                          'excess_costs': sorted(set(tuple(r['excess']) for r in routes_iso))},
+        'with_partner_rows': x3rows,
+        'distinct_sums_with_partner': sorted(set(r['sum_inverse_denominators'] for r in x3rows)),
+        'class1_hop': 'first order, resonant (cost unchanged): amplitude tau',
+    }
+    out['seconds'] = round(time.time() - t0, 1)
+    (HERE / 'tr_exact.json').write_text(json.dumps(out, indent=1, default=str) + '\n')
+    print(json.dumps({k: v for k, v in out.items() if k not in ('X2_read_counts',)}, indent=1, default=str)[:6000])
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,154 @@
+"""Block 4: which SL(2,C) elements act on the spinor factor, and how (twelve ports).
+
+rotations  the binary lifts of the 60 carrier rotations (recharting, wiring holonomy); unitary port response
+boosts     selective filtering by cap effects (one Kraus operator per outcome); absorptive port response
+Checks: Kraus completeness, the channel with all outcomes retained, the selective branches as Lorentz maps, the
+normalized action on screen points against the aberration formula, the map on load four-vectors.
+Writes kraus.json.
+"""
+import itertools, json
+import numpy as np
+from carrier_tools import C, su2
+from mu_lib import (icosphere, sections, spinor, spinors, directions, herm, vec, boost, lorentz, powm_pos, expm_herm,
+                    cap_effect, ETA, I2, SIG, angle)
+
+U, F = icosphere(0)
+N = 12
+W = sections(U)
+out = {}
+
+# ---------------------------------------------------------------- rotations
+lifts = [su2(R) for R, perm in C.rot]
+cov = 0.0
+for (R, perm), g in zip(C.rot, lifts):
+    for p in range(12):
+        ratio = (W[perm[p]] @ g) / W[p]                      # <chi_gp| g = phase <chi_p|
+        cov = max(cov, abs(abs(ratio[0]) - 1), abs(ratio[0] - ratio[1]))
+group = []
+front = [I2]
+def known(x, G):
+    return any(np.abs(x - y).max() < 1e-5 for y in G)       # the lifts of the two-fold rotations carry an arccos error of 1e-8
+group = [I2]
+changed = True
+while changed:
+    changed = False
+    for g in list(group):
+        for h in lifts:
+            x = h @ g
+            if not known(x, group):
+                group.append(x); changed = True
+            if len(group) > 500:
+                raise RuntimeError('closure does not terminate')
+flux = []
+chi = spinors(U)
+for a, b, c in C.F:
+    z = 1
+    for x, y in ((a, b), (b, c), (c, a)):
+        w = np.vdot(chi[y], chi[x]); z *= w / abs(w)
+    flux.append(np.angle(z))
+out['rotations'] = {'covariance_defect_of_sections_under_the_60_lifts': float(cov),
+                    'order_of_the_group_generated_by_the_lifts': len(group),
+                    'recharting_phase_around_a_face_rad': [float(min(flux)), float(max(flux))], 'minus_2pi_over_20': -2 * np.pi / 20}
+
+# ---------------------------------------------------------------- sharp port readout, all outcomes retained
+A = [np.sqrt(2 / N) * np.outer(chi[p], chi[p].conj()) for p in range(N)]
+comp = sum(a.conj().T @ a for a in A)
+Lch = sum(lorentz(a) for a in A)
+branch_defect = max(np.abs(lorentz(A[p]) - np.outer(np.r_[1, U[p]], np.r_[1, U[p]]) / N).max() for p in range(N))
+# semigroup generated: products of rank-one operators are rank one, |chi_p><chi_q| up to a scalar
+prods = set()
+for p, q, r in itertools.product(range(N), repeat=3):
+    X = A[p] @ A[q] @ A[r]
+    prods.add(int(np.linalg.matrix_rank(X, tol=1e-12)))
+out['sharp_port_readout'] = {
+    'completeness_defect': float(np.abs(comp - I2).max()),
+    'channel_on_(t,r)': np.round(Lch, 12).tolist(), 'channel_defect_vs_diag(1,1/3,1/3,1/3)': float(np.abs(Lch - np.diag([1, 1 / 3, 1 / 3, 1 / 3])).max()),
+    'branch_p_is_the_null_map_(1/N) k_p k_p^T_defect': float(branch_defect),
+    'ranks_of_all_products_of_three_Kraus_operators': sorted(prods),
+    'statement': 'every element of the generated semigroup is c |chi_p><chi_q| (rank at most one, determinant 0): no Lorentz transformation; '
+                 'the normalized action on the screen is the constant map onto port p'}
+
+# ---------------------------------------------------------------- cap readouts (star and complement), all outcomes retained
+res_caps = {}
+for name, idx in (('star', [0] + C.nbr[0]), ('face', list(C.F[0])), ('seam', list(C.E[0]))):
+    idx = np.array(idx)
+    E, nC, m = cap_effect(U, idx)
+    cbar = np.linalg.norm(m); eta = np.arctanh(cbar); n = m / cbar
+    Ec = N / 2 * I2 - E
+    vc = vec(Ec); eta_c = np.arctanh(np.linalg.norm(vc[1:]) / vc[0])
+    Bp = powm_pos(2 * E / N, 0.5); Bm = powm_pos(2 * Ec / N, 0.5)
+    comp = Bp @ Bp + Bm @ Bm
+    Lch = lorentz(Bp) + lorentz(Bm)
+    # frame with n as third axis
+    e1 = np.cross(n, [1.0, 0.3, 0.2]); e1 /= np.linalg.norm(e1); e2 = np.cross(n, e1)
+    Rm = np.eye(4); Rm[1:, 1:] = np.array([e1, e2, n])
+    Lf = Rm @ Lch @ Rm.T
+    g_perp = (nC / np.cosh(eta) + (N - nC) / np.cosh(eta_c)) / N
+    # selective branch as a Lorentz map
+    Lp = lorentz(Bp) / abs(np.linalg.det(Bp))
+    lor_def = float(np.abs(Lp.T @ ETA @ Lp - ETA).max())
+    # normalized action on the screen: aberration tan(theta'/2) = exp(-eta) tan(theta/2) about n, azimuth unchanged
+    img = directions(chi @ Bp.T)
+    th = np.arccos(np.clip(U @ n, -1, 1)); thp = 2 * np.arctan(np.exp(-eta) * np.tan(th / 2))
+    pred = np.array([np.cos(thp[p]) * n + np.sin(thp[p]) * ((U[p] - (U[p] @ n) * n) / max(np.linalg.norm(U[p] - (U[p] @ n) * n), 1e-300)) for p in range(N)])
+    ab_def = float(np.abs(img - pred).max())
+    # induced map on load four-vectors: k_p -> w_p k_{p'}, w_p = (2/N) <chi_p|E|chi_p>
+    kp = np.hstack([np.ones((N, 1)), U])
+    Lk = (lorentz(Bp) @ kp.T).T
+    wts = Lk[:, 0]
+    dop = nC / N * (1 + cbar * np.cos(th))
+    nearest = np.arccos(np.clip((img @ U.T).max(axis=1), -1, 1))
+    res_caps[name] = {'n_C': int(nC), 'eta': float(eta), 'eta_complement': float(eta_c),
+                      'completeness_defect': float(np.abs(comp - I2).max()),
+                      'channel_in_cap_frame_(t,r1,r2,r_axis)': np.round(Lf, 12).tolist(),
+                      'transverse_contraction_factor': float(Lf[1, 1]), 'predicted_(n_C sech eta + n_C\' sech eta\')/N': float(g_perp),
+                      'selective_branch_Lorentz_defect': lor_def, 'rapidity_of_branch': float(np.arccosh(Lp[0, 0])),
+                      'aberration_formula_defect': ab_def,
+                      'null_rays_map_to_null_rays_defect': float(np.abs(Lk[:, 0] ** 2 - np.sum(Lk[:, 1:] ** 2, axis=1)).max()),
+                      'doppler_weight_defect': float(np.abs(wts - dop).max()),
+                      'distance_of_image_points_to_nearest_port_rad_(min,max)': [float(nearest[nearest > 1e-9].min()), float(nearest.max())],
+                      'ports_fixed': int((nearest < 1e-9).sum())}
+out['cap_readout_two_outcomes'] = res_caps
+
+# ---------------------------------------------------------------- complex port response: rotations and boosts
+P = 2 / N * W @ W.conj().T                                    # code projector on the port space
+def realrank(ms):
+    return int(np.linalg.matrix_rank(np.array([np.concatenate([m.real.ravel(), m.imag.ravel()]) for m in ms]), tol=1e-9))
+Dp = [2 / N * np.outer(chi[p], chi[p].conj()) for p in range(N)]     # P N_p P on the code
+out['port_response'] = {'code_projector_defect': float(np.abs(P @ P - P).max()),
+                        'real_span_of_Hermitian_responses_P N_p P': realrank(Dp),
+                        'real_span_of_i P N_p P (unitary response, rotations and phase)': realrank([1j * d for d in Dp]),
+                        'real_span_of_both (complex port weights)': realrank(Dp + [1j * d for d in Dp]),
+                        'statement': 'real port potentials give u(2); absorptive (imaginary) port potentials give the Hermitian directions; together gl(2,C)'}
+# Zeno: loss on the ports of the star cap, interleaved with projection onto the code
+idx = np.array([0] + C.nbr[0])
+E, nC, m = cap_effect(U, idx)
+NC = np.zeros((N, N)); NC[idx, idx] = 1
+V = np.sqrt(2 / N) * W                                         # isometry code -> ports
+target = expm_herm(-2 / N * E)                                 # exp(-P N_C P) on the code, loss strength 1
+zen = {}
+for r in (10, 100, 1000, 10000):
+    step = V.conj().T @ np.diag(np.exp(-np.diag(NC) / r)) @ V
+    zen[str(r)] = float(np.abs(np.linalg.matrix_power(step, r) - target).max())
+tv = vec(target)
+out['zeno_loss_on_star_cap'] = {'max_abs_error_by_number_of_steps': zen,
+                                'limit_is_boost_along_minus_axis_with_rapidity': float(2 * np.arctanh(np.linalg.norm(tv[1:]) / tv[0])),
+                                'predicted_2 (n_C/N) cbar s (s = 1)': float(2 * nC / N * np.linalg.norm(m))}
+
+# ---------------------------------------------------------------- covariance of cap effects and random filters
+cdef = 0.0
+for (R, perm), g in zip(C.rot, lifts):
+    Eg = cap_effect(U, np.array([perm[p] for p in idx]))[0]
+    cdef = max(cdef, np.abs(g @ E @ g.conj().T - Eg).max())
+rng = np.random.default_rng(5)
+rdef = 0.0
+for _ in range(200):
+    Ar = rng.normal(size=(2, 2)) + 1j * rng.normal(size=(2, 2))
+    L = lorentz(Ar) / abs(np.linalg.det(Ar))
+    rdef = max(rdef, np.abs(L.T @ ETA @ L - ETA).max() / np.abs(L).max() ** 2)
+out['filters'] = {'cap_effect_covariance_defect_under_carrier_rotations': float(cdef),
+                  'random_invertible_Kraus_operator_is_dilation_times_Lorentz_relative_defect': float(rdef),
+                  'statement': 'X -> A X A^dagger is |det A| times a proper orthochronous Lorentz map for every invertible A (EXACT identity); IMPORTED: these are all '
+                               'connected linear automorphisms of the cone of unnormalized qubit states (Hoehn and Mueller 2016 use this cone)'}
+json.dump(out, open('kraus.json', 'w'), indent=1)
+print(json.dumps(out, indent=1))

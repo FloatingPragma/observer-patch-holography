@@ -1,0 +1,90 @@
+{
+ "selftest_routing_against_reference_engine": 3.878959614448864e-18,
+ "selftest_inverse_tick": 4.4226944273466224e-18,
+ "cone_ring": [
+  {
+   "ticks": 1,
+   "max_commutator_outside": 4.475439899216419e-16,
+   "min_commutator_on_boundary": 0.3020150504584218,
+   "operators_outside": 22
+  },
+  {
+   "ticks": 2,
+   "max_commutator_outside": 6.486421522534885e-16,
+   "min_commutator_on_boundary": 0.33316128217672325,
+   "operators_outside": 16
+  },
+  {
+   "ticks": 3,
+   "max_commutator_outside": 8.079951835409732e-16,
+   "min_commutator_on_boundary": 0.34726752247040293,
+   "operators_outside": 10
+  }
+ ],
+ "cone_4x2": [
+  {
+   "operator": "cell (0,0)",
+   "max_commutator_outside": 5.637215575302161e-16,
+   "operators_outside": 14,
+   "commutators_on_the_boundary_column": [
+    2.404256788071033e-16,
+    0.629909180511589,
+    0.4518691873535159,
+    0.4681451609953632
+   ]
+  },
+  {
+   "operator": "X on the transverse link at x1 = 0",
+   "max_commutator_outside": 5.59497381383593e-16,
+   "operators_outside": 14,
+   "commutators_on_the_boundary_column": [
+    2.4014411158601534e-16,
+    1.6829419696157935,
+    1.2072686725343242,
+    1.682941969615793
+   ]
+  }
+ ],
+ "symmetries_3x2": {
+  "gauss_forward": 0.0,
+  "gauss_reverse": 0.0,
+  "gauss_with_theta_of_x_and_U1_twist": 0.0,
+  "translation_axis_1": 3.2407950727585767e-16,
+  "translation_axis_2": 3.0488306519062466e-16,
+  "half_turn_axis_3": 3.198978012422761e-16,
+  "half_turn_axis_1": 2.1326615565893262e-16,
+  "half_turn_axis_2": 3.114319744197648e-16,
+  "parity": 3.198978012422761e-16,
+  "control_half_turn_axis_3_without_spin_lift": 1.4149724510288708,
+  "time_reversal_of_the_alternating_pair": 2.3430869539722414e-15,
+  "control_time_reversal_single_forward_tick": 1.414892333740236,
+  "charge_conjugation_one_body_routing_and_mass_all_link_words": 0.0,
+  "control_charge_conjugation_antiunitary_against_field_step": 1.3707087774116695
+ },
+ "cube_rotations_on_the_symbol": {
+  "keeps_each_ordered_tick": 4,
+  "exchanges_forward_and_reverse": 4,
+  "neither": 16
+ },
+ "third_of_a_turn": [
+  {
+   "p_norm": 0.39597979746446665,
+   "massless_forward_spectrum_defect": 3.885780586188048e-16,
+   "massive_forward_spectrum_defect": 3.3306690738754696e-16,
+   "massive_alternating_pair_spectrum_defect": 1.6653345369377348e-16
+  },
+  {
+   "p_norm": 0.19798989873223333,
+   "massless_forward_spectrum_defect": 4.163336342344337e-16,
+   "massive_forward_spectrum_defect": 3.0531133177191805e-16,
+   "massive_alternating_pair_spectrum_defect": 1.6653345369377348e-16
+  },
+  {
+   "p_norm": 0.09899494936611666,
+   "massless_forward_spectrum_defect": 6.522560269672795e-16,
+   "massive_forward_spectrum_defect": 1.942890293094024e-16,
+   "massive_alternating_pair_spectrum_defect": 8.326672684688674e-17
+  }
+ ],
+ "seconds": 120.66524028778076
+}

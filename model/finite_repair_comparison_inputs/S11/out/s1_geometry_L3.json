@@ -1,0 +1,293 @@
+{
+ "template": {
+  "seams": 30,
+  "faces": 20,
+  "coordinate_seams_equal_pinned": true
+ },
+ "glue_ports": [
+  4,
+  1,
+  10
+ ],
+ "reference_check": [
+  {
+   "level": 0,
+   "ports": 240,
+   "seams": 630,
+   "seam_set_equal_on_sim_cells": true,
+   "max_spectrum_difference_my_mesh_vs_sim": 1.0658141036401503e-14
+  },
+  {
+   "level": 1,
+   "ports": 960,
+   "seams": 2520,
+   "seam_set_equal_on_sim_cells": true,
+   "max_spectrum_difference_my_mesh_vs_sim": 2.4868995751603507e-14
+  },
+  {
+   "level": 2,
+   "ports": 3840,
+   "seams": 10080,
+   "seam_set_equal_on_sim_cells": true
+  }
+ ],
+ "flat": {
+  "levels_at_q0": [
+   -2.5536450998729714e-15,
+   0.3999442453035006,
+   2.7639320225002084,
+   2.76393202250021,
+   2.7639320225002106,
+   2.8081965424780626,
+   3.26794919243112,
+   3.267949192431122,
+   5.999999999999994,
+   5.999999999999997,
+   5.999999999999999,
+   5.999999999999999,
+   6.0,
+   6.000000000000003,
+   6.0000000000000036,
+   6.265768709949472,
+   6.7320508075688785,
+   6.732050807568879,
+   7.236067977499786,
+   7.236067977499788,
+   7.236067977499788,
+   8.000000000000002,
+   8.000000000000004,
+   8.52609050226896
+  ],
+  "flat_band_count": 16,
+  "flat_band_levels": [
+   2.763932,
+   3.267949,
+   6.0,
+   6.732051,
+   7.236068,
+   8.0
+  ],
+  "massless_curvature_by_direction": [
+   0.014204542246056502,
+   0.014204544387941468,
+   0.014204540800009699,
+   0.014204543920252171
+  ],
+  "lambda_K_two_lowest": [
+   0.18300468924737912,
+   0.18300468924738356
+  ],
+  "cone_slope_by_direction": [
+   0.05697798603593318,
+   0.056969763752079405,
+   0.05696154028145273,
+   0.056969763752134917
+  ],
+  "band1_max_on_grid": 0.18128379521189444,
+  "band2_min_on_grid": 0.18472809100507653,
+  "band2_max_on_grid": 0.39992593560329603,
+  "band3_min_on_grid": 2.7639320225002,
+  "honeycomb_t_from_slope": 0.06578301653328907,
+  "honeycomb_t_from_bandwidth": 0.06665432260054933
+ },
+ "sphere": [
+  {
+   "level": 3,
+   "carriers": 1280,
+   "R_area_edges": 6.64125828693203,
+   "count_below_lambda_K": 643,
+   "half_of_carriers": 640,
+   "multiplets_low": [
+    [
+     -1.6479873021779667e-16,
+     1
+    ],
+    [
+     0.0006434553202839585,
+     3
+    ],
+    [
+     0.001921758003382326,
+     5
+    ],
+    [
+     0.0035612088020265478,
+     3
+    ],
+    [
+     0.004069020716717338,
+     4
+    ],
+    [
+     0.006133560169197935,
+     5
+    ],
+    [
+     0.006752819545009017,
+     4
+    ],
+    [
+     0.008839367472388384,
+     3
+    ]
+   ],
+   "multiplets_near_cone": [
+    {
+     "lambda": 0.14655988315075744,
+     "degeneracy": 3,
+     "states_below": 595,
+     "x=(lambda-lambda_K)R/s": -4.248558460214073
+    },
+    {
+     "lambda": 0.14808756997450223,
+     "degeneracy": 5,
+     "states_below": 598,
+     "x=(lambda-lambda_K)R/s": -4.070468151203491
+    },
+    {
+     "lambda": 0.14904206687251578,
+     "degeneracy": 5,
+     "states_below": 603,
+     "x=(lambda-lambda_K)R/s": -3.9591975394034944
+    },
+    {
+     "lambda": 0.1499171980522123,
+     "degeneracy": 3,
+     "states_below": 608,
+     "x=(lambda-lambda_K)R/s": -3.8571789975174626
+    },
+    {
+     "lambda": 0.1503775548369663,
+     "degeneracy": 4,
+     "states_below": 611,
+     "x=(lambda-lambda_K)R/s": -3.803512839782993
+    },
+    {
+     "lambda": 0.1560639121483625,
+     "degeneracy": 1,
+     "states_below": 615,
+     "x=(lambda-lambda_K)R/s": -3.140624926507186
+    },
+    {
+     "lambda": 0.15640405392782528,
+     "degeneracy": 4,
+     "states_below": 616,
+     "x=(lambda-lambda_K)R/s": -3.1009728501323646
+    },
+    {
+     "lambda": 0.15756559954540889,
+     "degeneracy": 5,
+     "states_below": 620,
+     "x=(lambda-lambda_K)R/s": -2.965565504366116
+    },
+    {
+     "lambda": 0.15905664502919428,
+     "degeneracy": 3,
+     "states_below": 625,
+     "x=(lambda-lambda_K)R/s": -2.7917466647787856
+    },
+    {
+     "lambda": 0.16219956826298376,
+     "degeneracy": 3,
+     "states_below": 628,
+     "x=(lambda-lambda_K)R/s": -2.4253599412682267
+    },
+    {
+     "lambda": 0.16594590694885872,
+     "degeneracy": 3,
+     "states_below": 631,
+     "x=(lambda-lambda_K)R/s": -1.9886299755084211
+    },
+    {
+     "lambda": 0.17090839850727138,
+     "degeneracy": 5,
+     "states_below": 634,
+     "x=(lambda-lambda_K)R/s": -1.41012681546038
+    },
+    {
+     "lambda": 0.17646631274536587,
+     "degeneracy": 4,
+     "states_below": 639,
+     "x=(lambda-lambda_K)R/s": -0.7622121717441659
+    },
+    {
+     "lambda": 0.1920850398713462,
+     "degeneracy": 4,
+     "states_below": 643,
+     "x=(lambda-lambda_K)R/s": 1.058543166970775
+    },
+    {
+     "lambda": 0.19834042560917026,
+     "degeneracy": 5,
+     "states_below": 647,
+     "x=(lambda-lambda_K)R/s": 1.7877656500833072
+    },
+    {
+     "lambda": 0.20376273312538665,
+     "degeneracy": 3,
+     "states_below": 652,
+     "x=(lambda-lambda_K)R/s": 2.419871920887079
+    },
+    {
+     "lambda": 0.20477617610859103,
+     "degeneracy": 3,
+     "states_below": 655,
+     "x=(lambda-lambda_K)R/s": 2.5380141809617305
+    },
+    {
+     "lambda": 0.21057360397691777,
+     "degeneracy": 1,
+     "states_below": 658,
+     "x=(lambda-lambda_K)R/s": 3.213850160227431
+    },
+    {
+     "lambda": 0.21067343121926824,
+     "degeneracy": 5,
+     "states_below": 659,
+     "x=(lambda-lambda_K)R/s": 3.2254875352191785
+    },
+    {
+     "lambda": 0.2113067911128724,
+     "degeneracy": 3,
+     "states_below": 664,
+     "x=(lambda-lambda_K)R/s": 3.2993215550023574
+    },
+    {
+     "lambda": 0.2120151193180969,
+     "degeneracy": 4,
+     "states_below": 667,
+     "x=(lambda-lambda_K)R/s": 3.3818950163876718
+    },
+    {
+     "lambda": 0.21794844279193867,
+     "degeneracy": 3,
+     "states_below": 671,
+     "x=(lambda-lambda_K)R/s": 4.073573045216925
+    },
+    {
+     "lambda": 0.21987152466646998,
+     "degeneracy": 5,
+     "states_below": 674,
+     "x=(lambda-lambda_K)R/s": 4.297756588574593
+    },
+    {
+     "lambda": 0.22041057348098558,
+     "degeneracy": 4,
+     "states_below": 679,
+     "x=(lambda-lambda_K)R/s": 4.360596280883748
+    },
+    {
+     "lambda": 0.2205834945899983,
+     "degeneracy": 3,
+     "states_below": 683,
+     "x=(lambda-lambda_K)R/s": 4.380754583789731
+    }
+   ],
+   "top_of_two_band_block": null,
+   "next_level": null
+  }
+ ],
+ "lambda_K": 0.18300468924738134,
+ "cone_slope": 0.05696976345540006,
+ "seconds": 82.96055603027344
+}

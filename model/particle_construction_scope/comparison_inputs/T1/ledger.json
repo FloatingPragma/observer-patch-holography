@@ -1,0 +1,3159 @@
+{
+ "schema": "repair-law.T1.premise-ledger.v1",
+ "date": "2026-11-10",
+ "paths": {
+  "RL": "WORKSPACE/repair-law",
+  "RER": "WORKSPACE/reverse-engineering-reality"
+ },
+ "register": {
+  "file": "RER/tracking/premise_register.json",
+  "schema": "oph.premise_register.v3",
+  "rows": 84,
+  "ids": "PR-01 to PR-85 without PR-83 (retired)",
+  "caution": "The register is not the whole premise set: A1 to A3 and result-specific declarations are in RER/claims/axiom_registry.yaml and RER/claims/assumption_dictionary.md; see 'premises_outside_the_register'."
+ },
+ "candidate": "CF-1 (RL/candidates/CF1.md, sections 8 to 12) with the audit's coherent packets (RER/model/coherent_seam_repair, RER/model/coherent_defect_wave)",
+ "reading_rule": "The level says what exists, not that the premise is supplied. Every construction counted is a declared program; none is a shadow of the committed rule beyond level 1.",
+ "levels": [
+  "nothing",
+  "label-level shadow",
+  "executed on one carrier",
+  "executed on a family",
+  "proof"
+ ],
+ "summary": {
+  "by_supply_level": {
+   "nothing": 59,
+   "label-level shadow": 4,
+   "executed on one carrier": 5,
+   "executed on a family": 15,
+   "proof": 1
+  },
+  "by_rest_mass_dependence": {
+   "none": 44,
+   "direct": 21,
+   "unit": 9,
+   "criterion": 10
+  },
+  "by_premise_status": {
+   "cannot be met as it stands": 6,
+   "adopted as declared semantics": 2,
+   "unmet": 23,
+   "not used by the candidate's mass chain": 43,
+   "import": 2,
+   "import; nothing to anchor yet": 1,
+   "violated on the family": 2,
+   "unmet; declared instance": 2,
+   "violated by the candidate's own mass step; coefficients absent": 1,
+   "adopted as declared grammar; one deviation (degrees zero and five kept)": 1,
+   "unmet; the declared instance breaks the candidate's constraint": 1
+  },
+  "rows_on_which_a_rest_mass_depends": [
+   "PR-02",
+   "PR-03",
+   "PR-04",
+   "PR-11",
+   "PR-13",
+   "PR-14",
+   "PR-15",
+   "PR-16",
+   "PR-17",
+   "PR-20",
+   "PR-21",
+   "PR-22",
+   "PR-36",
+   "PR-37",
+   "PR-38",
+   "PR-39",
+   "PR-40",
+   "PR-41",
+   "PR-43",
+   "PR-44",
+   "PR-47",
+   "PR-48",
+   "PR-49",
+   "PR-50",
+   "PR-51",
+   "PR-52",
+   "PR-53",
+   "PR-54",
+   "PR-58",
+   "PR-59",
+   "PR-64",
+   "PR-65",
+   "PR-66",
+   "PR-67",
+   "PR-68",
+   "PR-69",
+   "PR-70",
+   "PR-73",
+   "PR-74",
+   "PR-75"
+  ],
+  "of_these_at_nothing_or_label_level": [
+   "PR-04",
+   "PR-11",
+   "PR-13",
+   "PR-14",
+   "PR-17",
+   "PR-21",
+   "PR-36",
+   "PR-37",
+   "PR-38",
+   "PR-39",
+   "PR-40",
+   "PR-41",
+   "PR-49",
+   "PR-51",
+   "PR-67",
+   "PR-68",
+   "PR-69",
+   "PR-70",
+   "PR-73",
+   "PR-74",
+   "PR-75"
+  ]
+ },
+ "rows": [
+  {
+   "id": "PR-01",
+   "name": "confluent terminating repair contract",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "obstructed",
+   "statement": "Repair moves close every local mismatch, complete to local diamonds and strictly lower a well-founded measure, so repair terminates with agreeing endpoints.",
+   "consumed_by": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean"
+   ],
+   "theorem_group": [
+    "RE-02 Confluence, acceptance and protected observations"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "The tick of CF-1 and the audit's seam repair are unitary: no accepted step lowers a measure and nothing terminates.",
+   "cite": [
+    "RL/candidates/CF1.md",
+    "RER/model/coherent_seam_repair/PROOF.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": "The consensus theorems hold for terminating repair contracts, not for a reversible tick."
+  },
+  {
+   "id": "PR-02",
+   "name": "algebra-state representation of public records",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "register_implementation_status": "declared",
+   "statement": "Public records are the span of the orthogonal projectors of a partition in a finite complex matrix algebra, read through the trace pairing.",
+   "consumed_by": [
+    "Lean/EventAlgebra/PublicRecordAlgebra.lean",
+    "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
+    "Lean/EventAlgebra/OperationalBornBridge.lean"
+   ],
+   "theorem_group": [
+    "RE-07 Quantum representation and operational probabilities"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "both",
+   "relation_to_the_row": "row",
+   "supply": "Records of CF-1 are projector families on one finite Hilbert space with all outcomes kept (cell, record, Gauss sector); the audit's programs use complete Kraus instruments.",
+   "cite": [
+    "RL/reports/R1.md",
+    "RL/reports/R2.md",
+    "RER/model/coherent_seam_repair/PREMISES.md"
+   ],
+   "premise_status_for_the_candidate": "adopted as declared semantics",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "A1",
+    "F1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-03",
+   "name": "operational effect additivity",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "A frame valuation is additive on coexistent effect sums across contexts; the finite Busch-Gleason theorem then forces the Born trace form.",
+   "consumed_by": [
+    "Lean/EventAlgebra/FiniteBuschGleason.lean",
+    "Lean/EventAlgebra/OperationalBornBridge.lean"
+   ],
+   "theorem_group": [
+    "RE-07 Quantum representation and operational probabilities"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on one carrier",
+   "supplied_by": "audit",
+   "relation_to_the_row": "part",
+   "supply": "Finite events of the coherent seam program have additive probabilities and chart-equivalent experiments agree; implementation independence and joint refinement for all coexistent effects are not shown. CF-1 uses Born weights by declaration.",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md",
+    "RL/reports/KM.md"
+   ],
+   "premise_status_for_the_candidate": "adopted as declared semantics",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "B4",
+    "F1"
+   ],
+   "note": "The rest phase is read as a probability: cos(omega) = 1 - p."
+  },
+  {
+   "id": "PR-04",
+   "name": "declared phase-sensitive effect",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "declared",
+   "statement": "One declared phase-sensitive effect (the Pauli-Y projector of the committed two-level fixture) completes its tomography; it is an effect, not an instrument.",
+   "consumed_by": [
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
+    "Lean/EventAlgebra/SourcePhaseSelection.lean"
+   ],
+   "theorem_group": [
+    "RE-07 Quantum representation and operational probabilities"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "Not the fixture of the row. In CF-1 the handedness class is the arrow state of the record and the mass step turns about Y_r; reading either needs a phase-sensitive record effect, which is declared apparatus.",
+   "cite": [
+    "RL/reports/R7.md",
+    "RL/reports/R2.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "F1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-05",
+   "name": "counting path reference",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "The path-space reference is an initial law times the uniform-step counting weight; no theorem selects it.",
+   "consumed_by": [
+    "Lean/InformationProjection/ReferenceNormalForm.lean",
+    "Lean/InformationProjection/SourceReferenceSelection.lean",
+    "Lean/Variational/SourceToHamiltonianComposed.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "No path-space reference law in a unitary circuit.",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-06",
+   "name": "real Legendre enrichment",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "One real velocity curvature of the Legendre extension is a representation choice beyond the realized-history law.",
+   "consumed_by": [
+    "Lean/Variational/ModeExtremalEnrichment.lean",
+    "Lean/Variational/SourceToHamiltonianComposed.lean"
+   ],
+   "theorem_group": [
+    "RE-06 Inertia and the real dynamical completion"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "Inertia in CF-1 is the curvature of the tick's dispersion (inertial mass tan(theta)), not this route.",
+   "cite": [
+    "RL/reports/R3.md"
+   ],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-07",
+   "name": "declared repair law: common faithful reference and repaired-visible fibre",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "derived_from_native_records",
+   "statement": "One common faithful reference serves both projections and the transition feasible set is the fibre of the repaired visible datum; Gibbs states, conditional resampling and the four-law package follow.",
+   "consumed_by": [
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean",
+    "Lean/Geometry/EinsteinBranchInhabitant.lean"
+   ],
+   "theorem_group": [
+    "RE-01 Common repair reference and law"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "both",
+   "relation_to_the_row": "analog",
+   "supply": "A faithful stationary heralded reference of the tick exists (filter (2 + W)/3: exact success 281/1080 in the joint program on one carrier; four small lattices in CF-1). It is not an information projection and no repaired-visible fibre is defined.",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md",
+    "RER/model/coherent_defect_wave/README.md",
+    "RL/reports/R1.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-08",
+   "name": "refinement-uniform low-temperature control",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "One uniform low-temperature tail bound holds across a declared indexed family.",
+   "consumed_by": [
+    "Lean/Thermodynamics/LowTemperatureControl.lean",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean",
+    "Lean/Thermodynamics/CoherentRefinementFamily.lean"
+   ],
+   "theorem_group": [
+    "RE-25 Low-temperature and common-reference branch"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-09",
+   "name": "equal-face-weight and barycentric one-third port-dual rules",
+   "type": "selection_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Equal weights on the twenty faces, shared one third to each port, give the port-dual weight 1/12.",
+   "consumed_by": [
+    "Lean/Screen/PrimitivePortDualMeasure.lean"
+   ],
+   "theorem_group": [
+    "RE-13 Physical geometry and responsive metric"
+   ],
+   "standard_model_rows": [
+    "SML-01",
+    "SML-02",
+    "SML-04"
+   ],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "The chart takes its algebra from the five-level code; the bracket-variety route is not consumed.",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-10",
+   "name": "measure-to-metric and nearest-point repair rules",
+   "type": "selection_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The port-dual measure is read as the carrier inner product and the verdict is the nearest classified compact family.",
+   "consumed_by": [
+    "Lean/Screen/PortDualMetricSelection.lean"
+   ],
+   "theorem_group": [
+    "RE-13 Physical geometry and responsive metric"
+   ],
+   "standard_model_rows": [
+    "SML-01",
+    "SML-02",
+    "SML-04"
+   ],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-11",
+   "name": "compact-Lie classification inputs",
+   "type": "external_mathematics",
+   "disposition": "import",
+   "register_implementation_status": "not_addressed",
+   "statement": "Classical Lie inputs: reductive splitting, surjective exponential on compact connected groups, classification of compact simple Lie algebras (dimensions 3, 8, 10 below twelve).",
+   "consumed_by": [
+    "Lean/Screen/SMStructureComposition.lean"
+   ],
+   "theorem_group": [
+    "RE-14 Gauge algebra to physical gauge fields"
+   ],
+   "standard_model_rows": [
+    "SML-01",
+    "SML-02",
+    "SML-03",
+    "SML-04",
+    "SML-05",
+    "SML-06",
+    "SML-07",
+    "SML-08",
+    "SML-09",
+    "SML-10",
+    "SML-17"
+   ],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "External mathematics; nothing to construct. The theorem that consumes it needs the sixty rotations acting by inner automorphisms: with the frame group alone the exclusion of su(2)^4 fails (exact countermodule).",
+   "cite": [
+    "RL/work/T1/frame_check.json"
+   ],
+   "premise_status_for_the_candidate": "import",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "D2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-12",
+   "name": "matter candidate grammar",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "A matter candidate is a stratum of the compact locus with a graded module of zero abelian charges and dimension at most twelve (frozen grammar).",
+   "consumed_by": [
+    "code/b15_matter_freeze/matter_class_freeze_v1.json",
+    "code/b15_matter_freeze/matter_class_freeze_v1.md"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "The chart is the charged class of PR-59; neither class contains the other.",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-13",
+   "name": "Koide balance premise",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Koide balance rho/a = 1/sqrt2 on a positive face circulant makes the Koide quotient 2/3.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/KoideCirculant.lean"
+   ],
+   "theorem_group": [
+    "RE-20 Parameter selection and P"
+   ],
+   "standard_model_rows": [
+    "SML-15"
+   ],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "No generation triplet in CF-1. The audit's source map excludes balanced Koide for its four charged-lepton rows.",
+   "cite": [
+    "RER/model/standard_model_source_map/SOURCE_MASSES.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-14",
+   "name": "hadronic transport packet",
+   "type": "empirical_import",
+   "disposition": "import",
+   "register_implementation_status": "not_addressed",
+   "statement": "The hadronic vacuum-polarization payload (KNT19) is a pinned empirical import.",
+   "consumed_by": [
+    "code/particles/alpha_hvp_audit/build_alpha_hvp_verdict.py"
+   ],
+   "theorem_group": [
+    "RE-23 External calibrations and empirical imports"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "import",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "F4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-15",
+   "name": "clock and energy calibration anchors",
+   "type": "empirical_import",
+   "disposition": "import",
+   "register_implementation_status": "declared",
+   "statement": "Internal charges, gaps and step order carry no laboratory units; measured clock and energy standards are an empirical attachment.",
+   "consumed_by": [
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+   ],
+   "theorem_group": [
+    "RE-12 Source clock, physical time and execution cost",
+    "RE-23 External calibrations and empirical imports"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "row",
+   "supply": "Anchor analysis with the electron mass: no nonzero electron angle under M0 and M3; cell 34 to 66 fm and a ceiling of 9 to 18 MeV under M1; under M2 the anchor fixes cell/theta only. The audit's mass instrument reads rest energy two in source units.",
+   "cite": [
+    "RL/reports/R7.md",
+    "RER/model/coherent_defect_wave/mass_instrument/PROOF.md"
+   ],
+   "premise_status_for_the_candidate": "import; nothing to anchor yet",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "F4",
+    "F5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-16",
+   "name": "source-causal continuum and stable-causality certificate",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Promotion of the finite event order and Lorentz carrier to a continuum needs a source-selected refinement family with dense isotropic link directions, calibrated volume, manifold tests and a unique Lorentzian limit.",
+   "consumed_by": [
+    "claims/claim_registry.yaml"
+   ],
+   "theorem_group": [
+    "RE-13 Physical geometry and responsive metric"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "proof",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "part",
+   "supply": "For the free tick: exact two-tick phase, 0 <= E - w <= (2/9) E^3 (1 + 3.1 E^2) for E <= 1/2, and a strict cone of one cell per axis per tick. One lattice, six link directions, angular dependence at relative order |p|^2.",
+   "cite": [
+    "RL/reports/R3.md",
+    "RL/work/R3/THEOREM.md",
+    "RL/reports/R1.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "B1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-17",
+   "name": "proposed fundamental numerical parameters P and N",
+   "type": "numerical_input",
+   "disposition": "import",
+   "register_implementation_status": "declared",
+   "statement": "P and N are the two proposed fundamental numerical parameters.",
+   "consumed_by": [
+    "code/P_derivation/interval_contraction_certificate.py",
+    "model/observer/p_response/experiment.py"
+   ],
+   "theorem_group": [
+    "RE-20 Parameter selection and P"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "No P or N enters CF-1; every mass angle is free or at the lattice scale.",
+   "cite": [
+    "RL/candidates/CF1.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "D4",
+    "F4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-18",
+   "name": "spherically symmetric radial readout",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "A source on the three-dimensional completion carrier is read through one radial strength profile (spherical symmetry).",
+   "consumed_by": [
+    "Lean/Geometry/InverseSquareShellLaw.lean",
+    "Lean/Geometry/RestFiberShellTransport.lean",
+    "Lean/Geometry/CommonWorldIslandBridge.lean"
+   ],
+   "theorem_group": [
+    "RE-21 Cosmology and dark-sector attachment"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-19",
+   "name": "shell-flux normalization",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Radial strength times shell content is the constant source charge (Gauss normalization).",
+   "consumed_by": [
+    "Lean/Geometry/InverseSquareShellLaw.lean",
+    "Lean/Geometry/RestFiberShellTransport.lean",
+    "Lean/Geometry/CommonWorldIslandBridge.lean"
+   ],
+   "theorem_group": [
+    "RE-21 Cosmology and dark-sector attachment"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-20",
+   "name": "equal source-counting measure on the sixty directed source seams",
+   "type": "selection_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "declared",
+   "statement": "The seam move law is an A2-natural, A3-unique projection on the sixty directed seams; the weight is then 1/60 on each.",
+   "consumed_by": [
+    "Lean/Screen/SeamCurrentDirichletGenerator.lean",
+    "Lean/Screen/LightSignalAdequacySurface.lean",
+    "Lean/Screen/LightSignalMaxwellComposition.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on one carrier",
+   "supplied_by": "audit",
+   "relation_to_the_row": "part",
+   "supply": "The public internal walk reflects the address about the uniform state of the sixty directed seams (kernel 1 - L/60). On the family the routing addresses the twelve directed frame seams only, in a fixed axis order.",
+   "cite": [
+    "RER/model/coherent_seam_repair/walk.py",
+    "RL/reports/KM.md",
+    "RL/candidates/CF1.md"
+   ],
+   "premise_status_for_the_candidate": "violated on the family",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "D3",
+    "E5"
+   ],
+   "note": "The routing weights are natural under the Klein group of the frame only."
+  },
+  {
+   "id": "PR-21",
+   "name": "auxiliary oscillator lift of the seam-current generator",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "register_implementation_status": "constructed_on_declared_inputs",
+   "statement": "A transverse carrier mode evolves by the first-order oscillator lift of the spatial symbol.",
+   "consumed_by": [
+    "Lean/Screen/LightSignalAdequacySurface.lean"
+   ],
+   "theorem_group": [
+    "RE-06 Inertia and the real dynamical completion"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "No link wave in CF-1: at eps = 0 plaquette fluxes are static, at eps > 0 no flux label is conserved.",
+   "cite": [
+    "RL/reports/R2.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "D3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-22",
+   "name": "physical-frequency identification for the seam-current symbol",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "constructed_on_declared_inputs",
+   "statement": "A readout frequency is identified with the carrier symbol at a positive chart scale; physical length and frequency consume PR-15.",
+   "consumed_by": [
+    "Lean/Screen/LightSignalAdequacySurface.lean"
+   ],
+   "theorem_group": [
+    "RE-06 Inertia and the real dynamical completion",
+    "RE-12 Source clock, physical time and execution cost"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "analog",
+   "supply": "CF-1 reads the phase per period of two ticks as the frequency of its own symbol (351 cases on 64^3, 5e-11); three candidate mass readouts (theta, tan theta, sin theta) agree to first order only.",
+   "cite": [
+    "RL/reports/R3.md",
+    "RL/reports/R1.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "B4",
+    "F4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-23",
+   "name": "typed modular flow supply",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "constructed_on_declared_inputs",
+   "statement": "The finite first-law pairings satisfy the typed modular flow package (entropy differential equals the modular pairing, 2 pi split, edge term).",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+   ],
+   "theorem_group": [
+    "RE-16 Modular flow, null translations and stress"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on one carrier",
+   "supplied_by": "audit",
+   "relation_to_the_row": "analog",
+   "supply": "The faithful reference of the coherent seam walk is nontracial and its modular generator is a function of W + W*; equality with the walk clock and any geometric normalization are open.",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-24",
+   "name": "half-sided inclusion and null translation supply",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The reconstructed stress obeys the weak Ward identity under chart steps (null translations).",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+   ],
+   "theorem_group": [
+    "RE-16 Modular flow, null translations and stress"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-25",
+   "name": "null-stress tomography supply",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "obstructed",
+   "statement": "On the null cone geometry and stress quadratic charges match up to the coupling; one universal stress source.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+   ],
+   "theorem_group": [
+    "RE-16 Modular flow, null translations and stress"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-26",
+   "name": "generalized-entropy stationarity supply",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "First-order bulk entropy variation balances the area variation over 4G; MaxEnt family conditions.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+   ],
+   "theorem_group": [
+    "RE-17 Joint state\u2013geometry entropy stationarity"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-27",
+   "name": "small-ball geometry supply",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Small-ball area identity with the coefficient 4 pi l^4/15, a cofinal shrinking family, Bianchi identity.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean"
+   ],
+   "theorem_group": [
+    "RE-18 One gravitational branch and its normalization"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-28",
+   "name": "physical tower and calibration supply",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "An Einstein-admissible tower exists with refinement naturality and kappa = 8 pi G.",
+   "consumed_by": [
+    "Lean/Thermodynamics/EinsteinPremiseLink.lean"
+   ],
+   "theorem_group": [
+    "RE-18 One gravitational branch and its normalization"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-29",
+   "name": "layered shell-cardinality law",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The layered readout graph has shellCoeff n^2 outward boundary edges at shell n up to a declared depth.",
+   "consumed_by": [
+    "Lean/Screen/LayeredDiscreteGauss.lean"
+   ],
+   "theorem_group": [
+    "RE-21 Cosmology and dark-sector attachment"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-30",
+   "name": "layered shell equidistribution",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Within one shell every outward boundary edge carries the same flux.",
+   "consumed_by": [
+    "Lean/Screen/LayeredDiscreteGauss.lean"
+   ],
+   "theorem_group": [
+    "RE-21 Cosmology and dark-sector attachment"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-31",
+   "name": "layered steady sourcing",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Vertex outflow equals a source supported in the layer-zero ball (steady Gauss).",
+   "consumed_by": [
+    "Lean/Screen/LayeredDiscreteGauss.lean"
+   ],
+   "theorem_group": [
+    "RE-21 Cosmology and dark-sector attachment"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-32",
+   "name": "Cartesian joint carrier of an observer pair",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The joint index space of two observers is the Cartesian product of their label alphabets.",
+   "consumed_by": [
+    "Lean/QFT/JointSlotFactorisation.lean",
+    "Lean/QFT/SourceCorrelationCapstone.lean",
+    "Lean/QFT/CarrierJoinTransport.lean"
+   ],
+   "theorem_group": [
+    "RE-04 Observer regions, causal provenance and time-slice access"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "Neighbouring carriers of the family share a seam (two ports); the engine uses the cell index as an independent register with no port-level realization.",
+   "cite": [
+    "RL/reports/KD.md"
+   ],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-33",
+   "name": "two-slot diamond region map",
+   "type": "selection_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The region system is the four-region diamond with slot-factor algebras.",
+   "consumed_by": [
+    "Lean/QFT/TwoSlotCPNetWitness.lean",
+    "Lean/QFT/CarrierJoinTransport.lean",
+    "Lean/QFT/JoinNetMorphism.lean"
+   ],
+   "theorem_group": [
+    "RE-04 Observer regions, causal provenance and time-slice access"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-34",
+   "name": "two-observer slot split",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Two observers are the two tensor factors of the joint carrier.",
+   "consumed_by": [
+    "Lean/QFT/JointSlotFactorisation.lean",
+    "Lean/QFT/SourceCorrelationCapstone.lean",
+    "Lean/QFT/CarrierJoinTransport.lean"
+   ],
+   "theorem_group": [
+    "RE-04 Observer regions, causal provenance and time-slice access"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-35",
+   "name": "same-source loop-to-kernel identity",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The carrier loop classes realized by the source are the six-axis gluing classes, whose image generates the Z6 tensor-action kernel.",
+   "consumed_by": [
+    "Lean/Screen/GlobalFormCharacterDescent.lean"
+   ],
+   "theorem_group": [
+    "RE-14 Gauge algebra to physical gauge fields"
+   ],
+   "standard_model_rows": [
+    "SML-03"
+   ],
+   "supply_level": "label-level shadow",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "part",
+   "supply": "The chart assigns a flux of class k the phase exp(2 pi i k Q6/6); the tick gauges only the Z2 part (link signs for patterns with n2 odd). Classes of order three and six need a declared link register.",
+   "cite": [
+    "RL/candidates/CF1.md",
+    "RL/MAP.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-36",
+   "name": "family band-selection rules: single complete faithful band and operational cost order",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "constructed_on_declared_inputs",
+   "statement": "The family multiplicity object is one complete faithful band of the port adjacency, without a source-visible splitting projector, of dimension 3 to 5; the lowest seam cost selects (the rank-three band, cost 5 - sqrt5).",
+   "consumed_by": [
+    "Lean/Screen/A5FamilyBand.lean",
+    "Lean/Screen/SMStructureAdequacySurface.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [
+    "SML-17",
+    "SML-19"
+   ],
+   "supply_level": "label-level shadow",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "part",
+   "supply": "Section 8 has no load register. Under option M3 the selected band is the slow triplet of the carrier walk, rest phase 0.304708 for every pattern; candidate G-a resolves it along the frame axes.",
+   "cite": [
+    "RL/candidates/CF1.md",
+    "RL/work/MAP/source_map.json",
+    "RL/work/T1/frame_check.json"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E4"
+   ],
+   "note": "The seam cost is the M3 rest phase (cos omega = 1 - cost/60), so the excluded trivial band is the only massless sector. After frame fixing the port space is the regular representation of the frame group (three equivalent triplets, costs 5 - sqrt5, 6, 5 + sqrt5; not multiplicity free), and the exchange of the two ports of each frame seam connects the slow and the fast triplet (squared element 4/5): the band is not invariant under a law that distinguishes the frame seams. In M3 as defined the load register keeps all sixty rotations, so the band is exactly degenerate and no axis is preferred."
+  },
+  {
+   "id": "PR-37",
+   "name": "fine-structure closure map selection",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "The P-closure map (running, matching, tree-level m_Z closure, continuation masses) is a declared selection.",
+   "consumed_by": [
+    "code/P_derivation/FULL_DERIVATION.md",
+    "model/observer/p_response/experiment.py"
+   ],
+   "theorem_group": [
+    "RE-20 Parameter selection and P"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "D4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-38",
+   "name": "same-quantity bridge for the P closure",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The screen detuning reading of P and the electromagnetic return reading are the same typed quantity.",
+   "consumed_by": [
+    "code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md"
+   ],
+   "theorem_group": [
+    "RE-20 Parameter selection and P"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "D4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-39",
+   "name": "physical Thomson readback contract",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The Thomson endpoint transport attaches to the physical Thomson scheme by a declared readback contract.",
+   "consumed_by": [
+    "code/P_derivation/runtime/thomson_endpoint_contract_current.json",
+    "claims/physical_identification_registry.json"
+   ],
+   "theorem_group": [
+    "RE-20 Parameter selection and P"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "D4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-40",
+   "name": "payload-coherent anchor-gap premise",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The charged-lepton kappa closure assumes an anchor gap coherent with the hadronic payload across the three charged channels.",
+   "consumed_by": [
+    "code/particles/leptons/derive_charged_kappa_interval_coherent_closure.py",
+    "docs/POSTDICTION_LEDGER.md"
+   ],
+   "theorem_group": [
+    "RE-20 Parameter selection and P"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "Premise of the public lepton lane, not of CF-1.",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-41",
+   "name": "electroweak sector selection premises",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The conditional Higgs and top rows consume declared selection premises.",
+   "consumed_by": [
+    "docs/POSTDICTION_LEDGER.md"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "Premise of the public electroweak rows, not of CF-1.",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E3",
+    "E5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-42",
+   "name": "horizon record central-charge identification",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The modular weight of the declared reference splits as 2 pi B + Z with Z the edge record of a horizon.",
+   "consumed_by": [
+    "Lean/Thermodynamics/CapFirstLaw.lean",
+    "Lean/Geometry/EinsteinBranchInhabitant.lean"
+   ],
+   "theorem_group": [
+    "RE-21 Cosmology and dark-sector attachment"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-43",
+   "name": "pointwise-continuous public star-automorphism flow",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "obstructed",
+   "statement": "A continuous real-parameter group of star automorphisms of one finite matrix algebra is supplied; a self-adjoint generator then represents it.",
+   "consumed_by": [
+    "Lean/Dynamics/StoneConverse.lean",
+    "Lean/EventAlgebra/SchroedingerFrameFlow.lean"
+   ],
+   "theorem_group": [
+    "RE-07 Quantum representation and operational probabilities"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "audit",
+   "relation_to_the_row": "row",
+   "supply": "The audit's graded flux field, spectral left-Weyl field and positive Hamiltonian have specified continuous clocks. CF-1 has a discrete tick: reference and branches belong to the period of two ticks, which equals -1 at 32 wave vectors, so no gapped logarithm exists.",
+   "cite": [
+    "RER/model/coherent_defect_wave/many_body_route/PROOF.md",
+    "RER/model/coherent_defect_wave/chiral_regulator/PROOF.md",
+    "RER/model/coherent_defect_wave/energy/PROOF.md",
+    "RL/reports/R1.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B2",
+    "C2"
+   ],
+   "note": "Clauses C4 and Q1 of the particle criterion."
+  },
+  {
+   "id": "PR-44",
+   "name": "finite subsystem split and normalized local-operation interface",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Locality helpers are read on a supplied bipartite split with a designated local factor and a normalized local operation.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/Locality/NoSignalling.lean",
+    "Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean",
+    "Lean/EventAlgebra/SlotLocalitySurface.lean"
+   ],
+   "theorem_group": [
+    "RE-07 Quantum representation and operational probabilities"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "both",
+   "relation_to_the_row": "row",
+   "supply": "Cells are declared factors; the tick is a product of local gates with a strict cone (commutators outside the cone below 5e-16); even gates on disjoint cells commute in the audit's occupation circuit.",
+   "cite": [
+    "RL/reports/R1.md",
+    "RL/reports/R4.md",
+    "RER/model/coherent_defect_wave/species/PROOF.md"
+   ],
+   "premise_status_for_the_candidate": "unmet; declared instance",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "A1",
+    "B2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-45",
+   "name": "source-selected real variational dynamics and symmetry data",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The variational surface is supplied with kernel, Lagrangian, derivative data and an invariance law.",
+   "consumed_by": [
+    "Lean/Variational/DiscreteNoether.lean",
+    "Lean/Variational/SourceToHamiltonianComposed.lean",
+    "Lean/Variational/TranslationInvariantComposedInstance.lean"
+   ],
+   "theorem_group": [
+    "RE-06 Inertia and the real dynamical completion"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-46",
+   "name": "physical global-form selection attachments",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Selecting the physical global group among the four quotients needs a complete character category, an instanton normalization and a flux attachment.",
+   "consumed_by": [
+    "Lean/Screen/SMStructureAdequacySurface.lean",
+    "Lean/Screen/Z6Descent.lean"
+   ],
+   "theorem_group": [
+    "RE-14 Gauge algebra to physical gauge fields"
+   ],
+   "standard_model_rows": [
+    "SML-03"
+   ],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-47",
+   "name": "spacetime Spin and fermion-chirality attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "The parity-graded exterior table is attached to a physical Lorentzian Spin structure, odd-Weyl typing and fermion parity.",
+   "consumed_by": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "model/observer_particles/spin_matter_join.py"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [
+    "SML-05",
+    "SML-06",
+    "SML-07",
+    "SML-08",
+    "SML-09",
+    "SML-10",
+    "SML-13",
+    "SML-14",
+    "SML-15",
+    "SML-17",
+    "SML-19"
+   ],
+   "supply_level": "executed on a family",
+   "supplied_by": "both",
+   "relation_to_the_row": "part",
+   "supply": "Spin: at rest the 24 lifts of the frame group act and the rest branch is the faithful doublet (pointer declared). Chirality: the arrow label is a handedness near p = 0 only; each arrow sector holds equal numbers of both handedness at each phase (64 cones). The audit's left-Weyl field uses a long-range spectral derivative; Dirac times its module is vector-like.",
+   "cite": [
+    "RL/reports/R4.md",
+    "RL/reports/R3.md",
+    "RER/model/coherent_defect_wave/chiral_regulator/PROOF.md",
+    "RER/model/coherent_defect_wave/physical_attachment/PROOF.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "B2",
+    "B3",
+    "D5",
+    "E3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-48",
+   "name": "one-Higgs scalar carrier and kinetic-action attachment",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "One complex weak doublet of hypercharge one half is the physical scalar carrier, with a gauge-covariant kinetic action.",
+   "consumed_by": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/NeutralCurrentDictionary.lean",
+    "Lean/Screen/ChargedCurrentDictionary.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [
+    "SML-10",
+    "SML-11",
+    "SML-13",
+    "SML-14",
+    "SML-15",
+    "SML-19"
+   ],
+   "supply_level": "executed on one carrier",
+   "supplied_by": "audit",
+   "relation_to_the_row": "part",
+   "supply": "On one site: actual invariant pair tensors couple the matter occupations to a five-state charged scalar (320-state lepton/scalar response, gauge-singlet ground). No scalar kinetic action; the cutoff is not canonical. In CF-1 the doublet is the two spinor levels, a label.",
+   "cite": [
+    "RER/model/coherent_defect_wave/chiral_higgs/PROOF.md",
+    "RL/MAP.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-49",
+   "name": "renormalizable Higgs potential and electroweak-breaking law",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "The scalar has the quadratic-plus-quartic potential, a stable broken branch and a vacuum tied to the electroweak scale.",
+   "consumed_by": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [
+    "SML-10",
+    "SML-12",
+    "SML-19"
+   ],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "No potential and no broken state. The audit's quantum ground has charged scalar expectation zero; the neutral background of its dictionary is a separate input.",
+   "cite": [
+    "RER/model/coherent_defect_wave/PARTICLE_PATH.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E3",
+    "E5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-50",
+   "name": "Yukawa interaction-line and coupling-matrix attachment",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "The up, down and charged-lepton interaction lines are selected with complete Yukawa matrices, family labels and chiral attachment.",
+   "consumed_by": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [
+    "SML-10",
+    "SML-13",
+    "SML-14",
+    "SML-15",
+    "SML-19"
+   ],
+   "supply_level": "executed on a family",
+   "supplied_by": "audit",
+   "relation_to_the_row": "part",
+   "supply": "At a declared neutral background the audit's dictionary gives E^2 = p^2 + |v y|^2 per paired channel, with three free coefficients and one family. In CF-1 the toggle (M2) has one declared angle, gives 1 : 1 : 1 : 1 and breaks the Gauss constraint by 2|sin theta|.",
+   "cite": [
+    "RER/model/coherent_defect_wave/chiral_particle_map/PROOF.md",
+    "RL/reports/R7.md",
+    "RL/reports/R1.md"
+   ],
+   "premise_status_for_the_candidate": "violated by the candidate's own mass step; coefficients absent",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E3",
+    "E4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-51",
+   "name": "common screen-electroweak load and capacity bridge",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The screen-load line and the electroweak scalar order-unit line are identified by one positive readout tied to the capacity action.",
+   "consumed_by": [
+    "claims/assumption_dictionary.md",
+    "code/capacity_readback/manifests/n_closure_branch_certificate.json"
+   ],
+   "theorem_group": [
+    "RE-20 Parameter selection and P"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "D4",
+    "F4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-52",
+   "name": "observer-to-physical-spacetime and causal attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Finite informational order, Lorentz target and event placements are identified with one effective physical spacetime (faithful embedding, volume, dimension, clocks, unique limit).",
+   "consumed_by": [
+    "Lean/Geometry/SourceReadRouting.lean"
+   ],
+   "theorem_group": [
+    "RE-13 Physical geometry and responsive metric"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "part",
+   "supply": "Position by cell projectors, a strict cone and a covariant momentum readout on a declared lattice. No embedding theorem, volume calibration, rods or limit.",
+   "cite": [
+    "RL/reports/R1.md",
+    "RL/reports/R2.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-53",
+   "name": "physical finite-carrier propagation, frame, and comparison attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "A finite-carrier propagation action is identified with a physical field sector, a frame and boost law, calibrated scales, a cofinal domain and a wave-packet readout.",
+   "consumed_by": [
+    "claims/frozen_prediction_register.json",
+    "docs/FROZEN_PREDICTION_LADDER.md"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "part",
+   "supply": "Packets on the cone with velocity dE/dp (1e-8 on a line), phase estimation of momentum, a frozen comparison protocol. No boost law, unit or cofinal domain; labels only against the electron.",
+   "cite": [
+    "RL/reports/R2.md",
+    "RL/reports/R3.md",
+    "RL/reports/R7.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B1",
+    "F5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-54",
+   "name": "source gauge-field, current, and action attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "obstructed",
+   "statement": "The compact bracket and matter representation are realized by one source-produced gauge connection, current algebra, field strength, covariant matter operator and local action.",
+   "consumed_by": [
+    "model/common_source/native_sm_current.py",
+    "model/common_source/native_sm_current_results.json"
+   ],
+   "theorem_group": [
+    "RE-14 Gauge algebra to physical gauge fields"
+   ],
+   "standard_model_rows": [
+    "SML-01",
+    "SML-02",
+    "SML-03",
+    "SML-04",
+    "SML-05",
+    "SML-06",
+    "SML-07",
+    "SML-08",
+    "SML-09",
+    "SML-10",
+    "SML-13",
+    "SML-14",
+    "SML-15",
+    "SML-17",
+    "SML-19"
+   ],
+   "supply_level": "executed on a family",
+   "supplied_by": "both",
+   "relation_to_the_row": "part",
+   "supply": "CF-1: one Z2 link field with exact continuity, [U, G_x] = 0 for M0 and M1, covariant translation; the quantum ends the electric string. Audit: sixty-state quantum links with endpoint Ward identities and one Gauss-invariant gauge/Higgs Hamiltonian on a finite control. No non-abelian link dynamics, no selected coefficients.",
+   "cite": [
+    "RL/reports/R1.md",
+    "RL/reports/R2.md",
+    "RL/reports/R4.md",
+    "RER/model/coherent_defect_wave/chiral_source/PROOF.md",
+    "RER/model/coherent_defect_wave/PARTICLE_PATH.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "C3",
+    "D2",
+    "D3",
+    "E5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-55",
+   "name": "declared baryon- and lepton-number labels",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The ten one-generation Weyl labels carry baryon and lepton numbers.",
+   "consumed_by": [
+    "code/a5_closure/baryon_dimension_six_census.py"
+   ],
+   "theorem_group": [
+    "RE-24 Baryon-specific branch"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-56",
+   "name": "dimension-six baryon-operator eligibility and contraction grammar",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Dimension-six baryon operators are four-field multisets filtered by charge, triality, weak and Lorentz parity.",
+   "consumed_by": [
+    "code/a5_closure/baryon_dimension_six_census.py",
+    "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json"
+   ],
+   "theorem_group": [
+    "RE-24 Baryon-specific branch"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-57",
+   "name": "physical proton state and baryon-violating effective-action attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "Fields, labels and census are attached to a physical proton state and an effective action.",
+   "consumed_by": [
+    "Lean/Screen/BaryonDimensionSix.lean"
+   ],
+   "theorem_group": [
+    "RE-24 Baryon-specific branch"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-58",
+   "name": "time-indexed net evolution and time-slice generation interface",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "A time-indexed or Cauchy-region interface is realized with net-compatible evolution whose slice algebra generates the evolved regional algebra.",
+   "consumed_by": [
+    "Lean/QFT/StructuralNetAdequacySurface.lean",
+    "Lean/QFT/PathTimeSliceInterface.lean"
+   ],
+   "theorem_group": [
+    "RE-04 Observer regions, causal provenance and time-slice access"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "analog",
+   "supply": "The tick maps the algebra of a cell set into that of its one-step neighbourhood (gate locality, argued and measured). No time-slice generation statement.",
+   "cite": [
+    "RL/reports/R1.md",
+    "RL/work/R1/DEFINITION.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "A1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-59",
+   "name": "declared five-mode exterior component and mask-selection grammar",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "Five-mode carrier C^3 + C^2 with charges 6Y = (-2, 3); exterior degrees zero and five omitted; ten isotypic rows; masks selected by vanishing anomaly sums.",
+   "consumed_by": [
+    "Lean/Screen/ExteriorSelection.lean",
+    "Lean/Screen/ExteriorComponentBridge.lean",
+    "Lean/Screen/QuantumMatterIntegration.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [
+    "SML-03",
+    "SML-05",
+    "SML-06",
+    "SML-07",
+    "SML-08",
+    "SML-09",
+    "SML-10",
+    "SML-11",
+    "SML-13",
+    "SML-14",
+    "SML-15",
+    "SML-17",
+    "SML-19"
+   ],
+   "supply_level": "executed on a family",
+   "supplied_by": "both",
+   "relation_to_the_row": "row",
+   "supply": "Audit: thirty source slots per cell carry every occupation of the fifteen charge states with the twelve currents. CF-1: the same five levels with Q6 = 3 n2 - 2 n3 as a chart of 32 patterns, anomaly sums zero; it keeps degrees zero and five as the neutral singlet and its conjugate.",
+   "cite": [
+    "RER/model/coherent_defect_wave/chiral_source/PROOF.md",
+    "RER/model/coherent_defect_wave/field_identity_audit/PROOF.md",
+    "RL/work/MAP/source_map.json",
+    "RL/candidates/CF1.md"
+   ],
+   "premise_status_for_the_candidate": "adopted as declared grammar; one deviation (degrees zero and five kept)",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "D1",
+    "E6"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-60",
+   "name": "admissible scheduler class: mismatch non-increase clause",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Every step of an admissible scheduler on the two-register repair carrier does not increase the defect mismatch.",
+   "consumed_by": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-61",
+   "name": "admissible scheduler class: single-register locality clause",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Every step writes at most one of the two registers.",
+   "consumed_by": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-62",
+   "name": "admissible scheduler class: unit expected capacity clause",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The expected capacity spend of every step is at most one unit.",
+   "consumed_by": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-63",
+   "name": "two-register capacity-split reading",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The first register is the shared record and the second the private defect flag.",
+   "consumed_by": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-64",
+   "name": "operational phase-instrument channel realization",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "constructed_on_declared_inputs",
+   "statement": "A phase-sensitive measurement is a family of completely positive outcome maps with trace-preserving sum, matching the declared effects and the recorded outcome.",
+   "consumed_by": [
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
+    "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean",
+    "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean"
+   ],
+   "theorem_group": [
+    "RE-08 Native coherent controls, phase and reset"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "both",
+   "relation_to_the_row": "analog",
+   "supply": "Complete instruments with all outcomes kept: phase estimation of the covariant translation with a clock register, the record after one tick, the audit's reservoir, energy/charge and battery records. All on declared coherent services.",
+   "cite": [
+    "RL/reports/R2.md",
+    "RL/reports/KM.md",
+    "RER/model/coherent_defect_wave/mass_instrument/PROOF.md"
+   ],
+   "premise_status_for_the_candidate": "unmet; declared instance",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "F1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-65",
+   "name": "source-produced phase preparation and readback provenance",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "obstructed",
+   "statement": "One source construction supplies the common preparation, selects the instrument, produces the outcomes and binds custody to one run.",
+   "consumed_by": [
+    "Lean/EventAlgebra/SourcePhaseSelection.lean",
+    "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean",
+    "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean"
+   ],
+   "theorem_group": [
+    "RE-08 Native coherent controls, phase and reset"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on one carrier",
+   "supplied_by": "audit",
+   "relation_to_the_row": "part",
+   "supply": "Receipts bind implementation, heralded preparation and every detector complement of the joint program. Coherent preparation remains a declared service; nothing of this kind exists for the family tick.",
+   "cite": [
+    "RER/model/coherent_defect_wave/README.md",
+    "RER/model/coherent_seam_repair/PREMISES.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "F1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-66",
+   "name": "declared discrete kinetic term of the temporal Maxwell action",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "The temporal Maxwell packet is the Euler-Lagrange system of one declared discrete action with kinetic term (h/2)|E|^2 and step h.",
+   "consumed_by": [
+    "Lean/Screen/TemporalMaxwellEvolution.lean",
+    "Lean/Screen/ScaledMaxwellStability.lean"
+   ],
+   "theorem_group": [
+    "RE-06 Inertia and the real dynamical completion"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "analog",
+   "supply": "Z2 field step: link flips with angle eps and plaquette phases with angle kappa, both declared; executed with quantum links on small lattices. No U(1) link, no wave.",
+   "cite": [
+    "RL/reports/R1.md",
+    "RL/candidates/CF1.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "D3",
+    "E5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-67",
+   "name": "declared finite one-doublet electroweak grammar",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "One declared complex doublet with 6Y = 3 and a four-parameter weak-hypercharge action with declared couplings.",
+   "consumed_by": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/NeutralCurrentDictionary.lean",
+    "Lean/Screen/ChargedCurrentDictionary.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "label-level shadow",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "part",
+   "supply": "The two spinor levels of the chart are a doublet with 6Y = 3 and the twelve port responses close on 8 + 3 + 1; no couplings.",
+   "cite": [
+    "RL/MAP.md",
+    "RL/work/MAP/source_map.json"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E3",
+    "E5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-68",
+   "name": "declared finite quartic breaking packet",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "Declared quartic potential lambda (|h|^2 - r^2)^2 and chosen point (0, r).",
+   "consumed_by": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/NeutralCurrentDictionary.lean",
+    "Lean/Screen/ChargedCurrentDictionary.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E3",
+    "E5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-69",
+   "name": "declared finite Yukawa-line coefficient",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "declared",
+   "statement": "One doublet-singlet Yukawa line with one declared real coefficient y; no family matrices.",
+   "consumed_by": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Geometry/CommonWorldKinematicsWitness.lean"
+   ],
+   "theorem_group": [
+    "RE-19 Matter, statistics and interactions"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "label-level shadow",
+   "supplied_by": "CF-1",
+   "relation_to_the_row": "part",
+   "supply": "Option M2: one declared angle read as the toggle of the neutral doublet level, the only operator that conserves colour and electric charge. It breaks the Gauss constraint.",
+   "cite": [
+    "RL/candidates/CF1.md",
+    "RL/reports/R7.md"
+   ],
+   "premise_status_for_the_candidate": "unmet; the declared instance breaks the candidate's constraint",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-70",
+   "name": "source homogeneous edge position action",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The physical position action is homogeneous with support on the complete thirty-direction edge orbit and equal weights.",
+   "consumed_by": [
+    "Lean/Screen/SeamCurrentEdge30Moment.lean",
+    "Lean/Screen/SeamCurrentHomogeneousAction.lean"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "The routing of CF-1 is supported on the three frame axes; its dispersion has a cubic term at relative order |p|^2: 2 |p|^4 (1 - sum n_i^4)/(6E).",
+   "cite": [
+    "RL/reports/R3.md"
+   ],
+   "premise_status_for_the_candidate": "violated on the family",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B1",
+    "D3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-71",
+   "name": "continuous field same-operator sector attachment",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The compared observable lives in a continuous field sector read on the operator sector of the committed symbol.",
+   "consumed_by": [
+    "Lean/Screen/SeamCurrentPhysicalMetricAttachment.lean"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-72",
+   "name": "cofinal gluing into the compared regime",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "The finite patch embeds cofinally into the compared regime.",
+   "consumed_by": [
+    "Lean/Screen/DispersionArmingInterface.lean"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-73",
+   "name": "declared finite carrier scale",
+   "type": "numerical_input",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "One declared positive carrier scale fills the coefficient slot (C4 = -a^2/20 and two more).",
+   "consumed_by": [
+    "Lean/Screen/DispersionArmingInterface.lean"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "Neighbouring object: the cell length under an anchor.",
+   "cite": [
+    "RL/reports/R7.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "F4"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-74",
+   "name": "coherent frame and boost transport",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "One coherent frame carries the comparison and a boost transport connects it to the source frame.",
+   "consumed_by": [
+    "Lean/Screen/DispersionArmingInterface.lean"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "No boost on a fixed lattice; no Lorentz covariance of states or apparatus.",
+   "cite": [
+    "RL/reports/R3.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-75",
+   "name": "frozen nuisance and coverage readout rules",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Nuisance isolation and coverage rules are fixed before exposure.",
+   "consumed_by": [
+    "Lean/Screen/DispersionArmingInterface.lean"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "Neighbouring object: the comparison protocol of R7, frozen by hash before its numbers; retrospective, not blind.",
+   "cite": [
+    "RL/reports/R7.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "unit",
+   "mass_steps": [
+    "F5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PR-76",
+   "name": "source-derived positive exclusivity lower bound",
+   "type": "numerical_input",
+   "disposition": "remove",
+   "register_implementation_status": "not_addressed",
+   "statement": "A source theorem fixes a positive lower bound for the admissible scales.",
+   "consumed_by": [
+    "Lean/Screen/DispersionArmingInterface.lean"
+   ],
+   "theorem_group": [
+    "RE-22 Physical propagation and an eligible test"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-77",
+   "name": "pathwise weak fairness for canonical adaptive repair",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Pathwise weak fairness along a canonical adaptive repair run.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
+    "Lean/Tower/AdaptiveFixedPointEndpoint.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-78",
+   "name": "work-conserving canonical adaptive choice",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Work-conserving choice: when some site has an effective repair, the selected site has one.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
+    "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-79",
+   "name": "bounded waste between canonical adaptive changes",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Bounded waste: one genuine record change within q + 1 attempts.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean",
+    "Lean/Tower/CumulativeCapacityEndpoint.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-80",
+   "name": "sufficient cumulative attempt budget",
+   "type": "numerical_input",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "The attempt budget is at least (q + 1) times the initial mismatch count.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean",
+    "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean",
+    "Lean/Tower/CumulativeCapacityEndpoint.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-81",
+   "name": "certified causal read support",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "derived_from_native_records",
+   "statement": "Every semantic commit declares the register versions it depends on; the support is sound and complete.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
+    "Lean/QFT/SourceDerivedEventPrecedence.lean"
+   ],
+   "theorem_group": [
+    "RE-04 Observer regions, causal provenance and time-slice access"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-82",
+   "name": "abstract semantic ancestry acyclicity rank",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "derived_from_native_records",
+   "statement": "A rank strictly increasing along authenticated parent edges witnesses acyclicity.",
+   "consumed_by": [
+    "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
+    "Lean/ObserverPatchHolography/Provenance/CausalInterval.lean",
+    "Lean/QFT/SourceDerivedEventPrecedence.lean"
+   ],
+   "theorem_group": [
+    "RE-04 Observer regions, causal provenance and time-slice access"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-84",
+   "name": "pathwise weak fairness for fixed node attempts",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Pathwise weak fairness for fixed node attempts.",
+   "consumed_by": [
+    "Lean/Computation/FixedFederationProgress.lean",
+    "Lean/Tower/FixedFederationEndpoint.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  },
+  {
+   "id": "PR-85",
+   "name": "bounded waste between fixed node changes",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "register_implementation_status": "not_addressed",
+   "statement": "Bounded waste between fixed node changes.",
+   "consumed_by": [
+    "Lean/Computation/FixedFederationComplexity.lean",
+    "Lean/ObserverPatchHolography/Execution/RankedAttemptCapacity.lean",
+    "Lean/Tower/FixedFederationExecutionEndpoint.lean"
+   ],
+   "theorem_group": [
+    "RE-03 Scheduler, reference and resources"
+   ],
+   "standard_model_rows": [],
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "relation_to_the_row": "-",
+   "supply": "",
+   "cite": [],
+   "premise_status_for_the_candidate": "not used by the candidate's mass chain",
+   "rest_mass_dependence": "none",
+   "mass_steps": [],
+   "note": ""
+  }
+ ],
+ "premises_outside_the_register": [
+  {
+   "id": "A1-carrier",
+   "source": "A1",
+   "statement": "Twelve ports, thirty seams, twenty faces, oriented, with no preferred labels.",
+   "consumed_by": "Lie-type theorem; every screen theorem",
+   "supply_level": "executed on one carrier",
+   "supplied_by": "both",
+   "supply": "The pinned carrier. On the family one of its five frames is singled out by the arrangement.",
+   "cite": [
+    "RL/candidates/CF1.md",
+    "RER/model/coherent_seam_repair/PREMISES.md"
+   ],
+   "premise_status_for_the_candidate": "met for one carrier; the clause 'no preferred labels' fails on the family",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "A3",
+    "D2"
+   ]
+  },
+  {
+   "id": "A1-federation",
+   "source": "A1",
+   "statement": "Carriers join through typed seams and coherent triple overlaps and refine to an oriented spherical support with mesh tending to zero (degree-one bridge).",
+   "consumed_by": "categorical route; refinement naturality of every response clause",
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "supply": "The cubic family is bipartite: every port lies in exactly two carriers, so no three carriers overlap and the nerve is a graph; one spacing, no refinement. The audit's packets use one carrier or declared cubic boxes.",
+   "cite": [
+    "RL/candidates/CF1.md",
+    "RER/model/coherent_seam_repair/PREMISES.md",
+    "RER/model/coherent_defect_wave/species/PROOF.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "A3"
+   ]
+  },
+  {
+   "id": "A1-central-ports",
+   "source": "A1",
+   "statement": "Twelve pairwise-orthogonal central port projections summing to one.",
+   "consumed_by": "A1 carrier algebra",
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "supply": "The coherent position projectors are not central in the walk algebra (the audit's own finding).",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md"
+   ],
+   "premise_status_for_the_candidate": "violated by the coherent programs",
+   "rest_mass_dependence": "none",
+   "mass_steps": []
+  },
+  {
+   "id": "A1-response",
+   "source": "A1",
+   "statement": "An injective map from the twelve port functions into u(H), closed under commutators, complete for the quotient-visible response, positive definite, natural under refinement.",
+   "consumed_by": "Lie-type theorem (Theorem 'finite-current fixed-space')",
+   "supply_level": "executed on one carrier",
+   "supplied_by": "audit",
+   "supply": "The declared geometric code response has an exact rank-twelve Gram and Lie image s(u(3) + u(2)). In CF-1 the twelve lifted port responses on the 32 patterns close on 8 + 3 + 1 (labels); the tick applies none of them. Completeness and naturality are unproved.",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md",
+    "RL/reports/R2.md",
+    "RL/MAP.md"
+   ],
+   "premise_status_for_the_candidate": "unmet; declared instance",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "D2"
+   ]
+  },
+  {
+   "id": "A2-agreement",
+   "source": "A2",
+   "statement": "The interpretation of accepted data is natural under every overlap restriction, recharting, seam translation, federation and refinement map.",
+   "consumed_by": "all agreement statements",
+   "supply_level": "proof",
+   "supplied_by": "audit",
+   "supply": "Finite agreement theorem of the coherent seam program: the whole history law of every adaptive protocol in its grammar is equal in two charts, for one carrier and the implemented frame groupoid. CF-1: exact covariance of the tick under Z2 link gauge and translations; under rotations only the Klein group of the frame fixes it.",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md",
+    "RL/reports/R1.md",
+    "RL/reports/R4.md"
+   ],
+   "premise_status_for_the_candidate": "met on one carrier inside a declared grammar; unmet on the family",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "D2"
+   ]
+  },
+  {
+   "id": "A2-holonomy",
+   "source": "A2",
+   "statement": "For every one of the sixty proper carrier automorphisms a closed path of accepted transports and a projective implementer inside the response group (times its centralizer).",
+   "consumed_by": "Lie-type theorem; Lean/Screen/A2HolonomyBridge.lean",
+   "supply_level": "executed on one carrier",
+   "supplied_by": "audit",
+   "supply": "A source-generated 120-lift controller with recorded inverses acts on one carrier (apparatus service). In the family the transport across a shared seam is the lift of a half-turn and every plaquette has central holonomy; the tick commutes with four of the sixty rotations.",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md",
+    "RL/reports/KD.md",
+    "RL/reports/R1.md",
+    "RL/reports/R4.md",
+    "RL/work/T1/frame_check.json"
+   ],
+   "premise_status_for_the_candidate": "cannot be met as it stands",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "A3",
+    "D2"
+   ]
+  },
+  {
+   "id": "A3-projection",
+   "source": "A3",
+   "statement": "The realized state is the information projection of a reference onto the agreement constraints, with an A1-generated cover and natural positive weights.",
+   "consumed_by": "edge-sector weighting; four-law package",
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "supply": "The heralded filter with weight 1/2 is not an information projection.",
+   "cite": [
+    "RER/model/coherent_seam_repair/PREMISES.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "none",
+   "mass_steps": []
+  },
+  {
+   "id": "matter-image",
+   "source": "paper",
+   "statement": "Declared matrix current, declared fermionic spin category, conjugate projector pair (Proposition 'conditional matter image').",
+   "consumed_by": "hypercharge lattice, N_c = 3, Z6 kernel",
+   "supply_level": "label-level shadow",
+   "supplied_by": "CF-1",
+   "supply": "The chart reproduces the charges of both handedness classes of all species; spin category and projector choice are declarations.",
+   "cite": [
+    "RL/work/MAP/source_map.json",
+    "RL/reports/R7.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "D1"
+   ]
+  },
+  {
+   "id": "generation-window",
+   "source": "paper",
+   "statement": "One-Higgs quark branch, intrinsic CKM CP capability, weak-sector ultraviolet completability (Proposition 'conditional generation window').",
+   "consumed_by": "3 <= N_g <= 5",
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "supply": "No mixing matrix and no running in CF-1.",
+   "cite": [
+    "RL/reports/R7.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E4"
+   ]
+  },
+  {
+   "id": "declared-completion",
+   "source": "paper",
+   "statement": "A declared physical attachment of the rank-three band to the matter packet (Corollary 'declared minimal completion').",
+   "consumed_by": "N_g = 3",
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "supply": "See PR-36.",
+   "cite": [
+    "RL/candidates/CF1.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "direct",
+   "mass_steps": [
+    "E4"
+   ]
+  },
+  {
+   "id": "C1",
+   "source": "criterion",
+   "statement": "A stated background and phase.",
+   "consumed_by": "carrier-mode receipt",
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "supply": "Empty matter sector with flat Gauss-invariant links; stationary under every tick at eps = 0.",
+   "cite": [
+    "RL/reports/R1.md"
+   ],
+   "premise_status_for_the_candidate": "met inside the declared program",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "A1",
+    "C2"
+   ]
+  },
+  {
+   "id": "C2",
+   "source": "criterion",
+   "statement": "A quadratic action with positive kinetic coefficient.",
+   "consumed_by": "carrier-mode receipt",
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "supply": "No action for any link mode; the Z2 field step has declared angles.",
+   "cite": [
+    "RL/candidates/CF1.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "D3"
+   ]
+  },
+  {
+   "id": "C3",
+   "source": "criterion",
+   "statement": "A gauge fixing or constraint reduction with a physical projector.",
+   "consumed_by": "carrier-mode receipt",
+   "supply_level": "executed on a family",
+   "supplied_by": "CF-1",
+   "supply": "Constraint reduction without gauge fixing: sectors G_x = g_x of the Z2 link field, preserved by the tick for M0 and M1; broken by the chiral mass step.",
+   "cite": [
+    "RL/reports/R1.md",
+    "RL/reports/R2.md",
+    "RL/reports/R4.md"
+   ],
+   "premise_status_for_the_candidate": "met for Z2 with M0, M1; violated with M2",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "C3",
+    "E3"
+   ]
+  },
+  {
+   "id": "C4",
+   "source": "criterion",
+   "statement": "A positive reduced Hamiltonian.",
+   "consumed_by": "carrier-mode receipt",
+   "supply_level": "executed on a family",
+   "supplied_by": "audit",
+   "supply": "Audit: a declared local Wilson clock with a unique filled sea and gap two (free). CF-1: excitations of the empty state have both signs of the phase and no gapped filled branch exists.",
+   "cite": [
+    "RER/model/coherent_defect_wave/many_body_route/PROOF.md",
+    "RL/reports/R1.md",
+    "RL/reports/R4.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met by the tick as it stands",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B2",
+    "C2"
+   ]
+  },
+  {
+   "id": "Q1",
+   "source": "criterion",
+   "statement": "A positive-energy quantization with a physical Hilbert space.",
+   "consumed_by": "quantum-particle receipt",
+   "supply_level": "executed on a family",
+   "supplied_by": "audit",
+   "supply": "As C4.",
+   "cite": [
+    "RER/model/coherent_defect_wave/many_body_route/PROOF.md",
+    "RL/reports/R4.md"
+   ],
+   "premise_status_for_the_candidate": "cannot be met by the tick as it stands",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B2",
+    "C2"
+   ]
+  },
+  {
+   "id": "Q2",
+   "source": "criterion",
+   "statement": "A two-point function whose spectral measure contains a pole with positive residue.",
+   "consumed_by": "quantum-particle receipt",
+   "supply_level": "proof",
+   "supplied_by": "audit",
+   "supply": "Audit: a controlled massive free Dirac field and vacuum limit of the declared Wilson clock. CF-1: the one-body shell is exact, with 32 cones at phase zero and 32 at phase pi per species.",
+   "cite": [
+    "RER/model/coherent_defect_wave/many_body_route/PROOF.md",
+    "RL/reports/R3.md"
+   ],
+   "premise_status_for_the_candidate": "unmet for the candidate (one cone per species is open)",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "B2",
+    "F1"
+   ]
+  },
+  {
+   "id": "Q3",
+   "source": "criterion",
+   "statement": "Asymptotic-state hypotheses of the phase, including a deconfined sector for a coloured carrier.",
+   "consumed_by": "quantum-particle receipt",
+   "supply_level": "nothing",
+   "supplied_by": "-",
+   "supply": "No interacting tick; composites are open.",
+   "cite": [
+    "RL/candidates/CF1.md"
+   ],
+   "premise_status_for_the_candidate": "unmet",
+   "rest_mass_dependence": "criterion",
+   "mass_steps": [
+    "F2",
+    "F3"
+   ]
+  }
+ ],
+ "gauge_fixings": [
+  {
+   "place": "Carrier chart and its holonomy (premise A2; Lean/Screen/A2HolonomyBridge.lean; hypothesis H2 of Lean/Screen/A5OPH.lean)",
+   "fixed": "nothing: every one of the sixty proper rechartings needs a closed path and an implementer inside the response group",
+   "residual": "all sixty rotations (cover of order 120)",
+   "threefold_label": "none: 3 and 3' are irreducible, the five frames are one orbit",
+   "cf1": "CF-1 keeps the twelve rotations of one frame in its arrangement and four in its tick. Not the same: the stack retains what CF-1 removes."
+  },
+  {
+   "place": "Cover over a Klein four-subgroup (Lean/Screen/ExteriorSelection.lean, no_klein_section_of_unique_involution)",
+   "fixed": "nothing can be: the transport double cover has no section over any Klein four-subgroup",
+   "residual": "the quaternion group over each frame",
+   "threefold_label": "the three anticommuting lifts of the half-turns",
+   "cf1": "Same object as the spin pointer of CF-1 (quaternion lifts sigma_1..3). In the stack it is an obstruction statement, not a choice of frame."
+  },
+  {
+   "place": "Port-frame chart (Lean/Screen/PortFrameGram.lean; A1 'no preferred labels'; the port projectors of RER/paper/tex_fragments/SOURCE_FLAVOR_ORBIT.tex are written in the coordinates of one cubic frame)",
+   "fixed": "coordinates only",
+   "residual": "everything; all statements are invariant",
+   "threefold_label": "none",
+   "cf1": "Same coordinates, different status: a convention in the stack, the arrangement of carriers in CF-1."
+  },
+  {
+   "place": "Tree gauge of seam connections (Lean/Screen/SeamU1HolonomyClassification.lean)",
+   "fixed": "the eleven tree seams of one carrier",
+   "residual": "one constant port phase, acting trivially; invariants are the nineteen chord holonomies",
+   "threefold_label": "none",
+   "cf1": "Same count as the nineteen face-flux bits per carrier of CF-1."
+  },
+  {
+   "place": "Temporal gauge of the carrier-mode evolution (Lean/Screen/CarrierModeOscillators.lean, CarrierEvolutionFlow.lean, ScaledMaxwellStability.lean); in the action of PR-66 the scalar potential is the Gauss multiplier",
+   "fixed": "the scalar potential, set to zero",
+   "residual": "time-independent port gauge; the Gauss constraint is kept",
+   "threefold_label": "none",
+   "cf1": "The link field of CF-1 is of this kind by construction (links on spatial edges, G_x as constraint)."
+  },
+  {
+   "place": "Constraint reduction of the particle criterion (clause C3 of the gauge-structure paper)",
+   "fixed": "radiation gauge or a physical projector of rank two per generator",
+   "residual": "global charge rotations",
+   "threefold_label": "none",
+   "cf1": "CF-1 reduces by Gauss sector without fixing a gauge, for Z2 only; it has no gauge-boson mode."
+  },
+  {
+   "place": "Centre (deck) quotient (Lean/Screen/Z6Descent.lean, GlobalFormCharacterDescent.lean; PR-35, PR-46)",
+   "fixed": "the kernel Z6 generated by (omega I_3, -I_2, exp(i pi/3)); four admissible global forms, none selected",
+   "residual": "the quotient group after the full kernel",
+   "threefold_label": "colour triality only (2t + 3d + q = 0 mod 6 on every row); the diagonal generator fixes all three family copies",
+   "cf1": "A different group of order three: the third-turn of the frame is a rotation of the vector levels, not central."
+  },
+  {
+   "place": "Family frame (Proposition 'complete family orbit', RER/paper/tex_fragments/SOURCE_FLAVOR_ORBIT.tex)",
+   "fixed": "nothing by symmetry: U(3)^5 with one common unitary on the quark doublet; only coefficient matrices fix it",
+   "residual": "rephasings; invariants are singular spectra, mixing overlaps and tr[H_u, H_d]^3",
+   "threefold_label": "the family index, never a conserved charge",
+   "cf1": "Closest in content. The family factor of the stack is gauge trivial; the axes of CF-1 are directions of space and of the colour block."
+  },
+  {
+   "place": "Seam schedule (PR-20)",
+   "fixed": "nothing: equal weight on the sixty directed seams",
+   "residual": "all sixty rotations",
+   "threefold_label": "none",
+   "cf1": "CF-1 fixes an axis order; that step reduces twelve to four."
+  }
+ ],
+ "frame_fixing_exact": {
+  "level": "algebraic property of the carrier table (level 1); nothing here is a premise supplied",
+  "carrier": {
+   "ports": 12,
+   "rotations": 60,
+   "klein_groups": 5,
+   "half_turns": 15
+  },
+  "frame_group": {
+   "order": 12,
+   "elements_fixing_a_port": 0,
+   "port_orbits": [
+    12
+   ],
+   "acts_freely_and_transitively_on_ports": true,
+   "trace_classes": [
+    "-1",
+    "0",
+    "3"
+   ]
+  },
+  "klein_group": {
+   "port_orbits": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     1,
+     4,
+     7,
+     10
+    ],
+    [
+     2,
+     5,
+     8,
+     11
+    ]
+   ],
+   "each_orbit_lies_in_one_coordinate_plane": [
+    [
+     0
+    ],
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ]
+  },
+  "commutant_dimension_of_the_port_space": {
+   "full_rotation_group": 4,
+   "frame_group": 12,
+   "klein_group": 36
+  },
+  "bands": {
+   "1": {
+    "rank": "1",
+    "adjacency_eigenvalue": "5",
+    "seam_cost": "0",
+    "walk_kernel_eigenvalue_blank_record": "1",
+    "rest_phase_arccos_float": 0.0,
+    "under_frame_group": {
+     "trivial": "1",
+     "each_of_the_two_conjugate_characters": "0",
+     "triplet": "0"
+    },
+    "under_klein_group": {
+     "trivial": "1",
+     "x": "0",
+     "y": "0",
+     "z": "0"
+    }
+   },
+   "3": {
+    "rank": "3",
+    "adjacency_eigenvalue": "(1)*sqrt5",
+    "seam_cost": "5 + (-1)*sqrt5",
+    "walk_kernel_eigenvalue_blank_record": "11/12 + (1/60)*sqrt5",
+    "rest_phase_arccos_float": 0.304708,
+    "under_frame_group": {
+     "trivial": "0",
+     "each_of_the_two_conjugate_characters": "0",
+     "triplet": "1"
+    },
+    "under_klein_group": {
+     "trivial": "0",
+     "x": "1",
+     "y": "1",
+     "z": "1"
+    }
+   },
+   "5": {
+    "rank": "5",
+    "adjacency_eigenvalue": "-1",
+    "seam_cost": "6",
+    "walk_kernel_eigenvalue_blank_record": "9/10",
+    "rest_phase_arccos_float": 0.451027,
+    "under_frame_group": {
+     "trivial": "0",
+     "each_of_the_two_conjugate_characters": "1",
+     "triplet": "1"
+    },
+    "under_klein_group": {
+     "trivial": "2",
+     "x": "1",
+     "y": "1",
+     "z": "1"
+    }
+   },
+   "3p": {
+    "rank": "3",
+    "adjacency_eigenvalue": "(-1)*sqrt5",
+    "seam_cost": "5 + (1)*sqrt5",
+    "walk_kernel_eigenvalue_blank_record": "11/12 + (-1/60)*sqrt5",
+    "rest_phase_arccos_float": 0.496198,
+    "under_frame_group": {
+     "trivial": "0",
+     "each_of_the_two_conjugate_characters": "0",
+     "triplet": "1"
+    },
+    "under_klein_group": {
+     "trivial": "0",
+     "x": "1",
+     "y": "1",
+     "z": "1"
+    }
+   }
+  },
+  "triplets_3_and_3p": {
+   "characters_equal_on_the_frame_group": true,
+   "characters_on_a_fifth_turn": [
+    "1/2 + (1/2)*sqrt5",
+    "1/2 + (-1/2)*sqrt5"
+   ],
+   "characters_equal_on_the_full_group": false
+  },
+  "spinor_times_vector_triplet": {
+   "full_group_cover_120": {
+    "multiplicity_of_the_doublet": "1",
+    "norm_squared_of_the_character": "2"
+   },
+   "frame_group_cover_24": {
+    "multiplicity_of_the_doublet": "1",
+    "norm_squared_of_the_character": "3"
+   },
+   "klein_group_cover_8": {
+    "multiplicity_of_the_doublet": "3",
+    "norm_squared_of_the_character": "9"
+   },
+   "reading": "norm 2 = two inequivalent constituents (2 + 4); norm 3 = three inequivalent doublets (2 + 2' + 2''); norm 9 = one doublet three times"
+  },
+  "port_space_total": {
+   "under_frame_group": {
+    "trivial": "1",
+    "each_of_the_two_conjugate_characters": "1",
+    "triplet": "3"
+   },
+   "under_klein_group": {
+    "trivial": "3",
+    "x": "3",
+    "y": "3",
+    "z": "3"
+   }
+  },
+  "lie_type_theorem_with_the_frame_group": {
+   "statement": "A faithful, commutator-closed, compact twelve-port response on which the twelve frame rotations act by inner automorphisms exists with Lie type su(2)^4: the exclusion step of the finite-current fixed-space theorem needs rotations outside the frame group.",
+   "algebra": "su(2)^4 = four copies of (R^3, cross product); centre 0",
+   "action": "first factor through the third-turn quotient (cyclic permutation matrices), three factors by the frame rotations",
+   "rho_is_a_homomorphism": true,
+   "rho_acts_by_proper_rotations_hence_inner_automorphisms": true,
+   "response_is_equivariant": true,
+   "response_determinant": "717850771456",
+   "response_is_injective_rank_12": true,
+   "fixed_dimension_per_factor": [
+    "1",
+    "0",
+    "0",
+    "0"
+   ],
+   "fixed_dimension_total": "1",
+   "fixed_dimension_of_the_port_space_under_the_frame_group": "1",
+   "public_exclusion_step": "Lean/Screen/A2HolonomyBridge.lean, four_factor_fixed_dimension_ne_one: factorwise fixed dimensions each zero or three (uses simplicity of the sixty-rotation group)"
+  },
+  "frame_matching_between_the_triplet_copies": {
+   "operator": "port permutation exchanging the two ports of each frame seam",
+   "commutes_with_the_frame_group": true,
+   "commutes_with_all_sixty_rotations": false,
+   "diagonal_elements_m_bb": {
+    "3": "(1/5)*sqrt5",
+    "5": "-1",
+    "3p": "(-1/5)*sqrt5"
+   },
+   "squared_off_diagonal_elements": {
+    "3|5": "0",
+    "3|3p": "4/5",
+    "5|3p": "0"
+   },
+   "squared_off_diagonal_elements_float": {
+    "3|5": 0.0,
+    "3|3p": 0.8,
+    "5|3p": 0.0
+   },
+   "trace_on_one_klein_character": "-1",
+   "weights_of_its_single_odd_or_even_direction_on_the_bands_3_5_3p": {
+    "3": "1/2 + (1/10)*sqrt5",
+    "5": "0",
+    "3p": "1/2 + (-1/10)*sqrt5"
+   },
+   "weights_float": {
+    "3": 0.723607,
+    "5": 0.0,
+    "3p": 0.276393
+   },
+   "reading": "nonzero off-diagonal elements: an operator that respects the frame group only connects the three copies; no such operator exists under the sixty rotations (commutant dimension 4)"
+  }
+ },
+ "violated_or_unmeetable_most_damaging_first": [
+  {
+   "premise": "A2-holonomy",
+   "why": "The Lie-type theorem's premise. The family realizes the frame group (the tick: its Klein group). With the frame group in the place of the sixty rotations the theorem's conclusion is not forced: su(2)^4 satisfies the response clauses with the frame group acting by inner automorphisms (exact countermodule). Smallest input that removes it: one endogenous closed path whose holonomy leaves the frame; the frame group is maximal, so one more rotation generates all sixty."
+  },
+  {
+   "premise": "PR-47 with C4, Q1, PR-43",
+   "why": "One chiral cone per species and a positive Hamiltonian. The local tick is vector-like over the zone, has both signs of the phase and no gapped logarithm."
+  },
+  {
+   "premise": "PR-48, PR-49, PR-50 (PR-67 to PR-69)",
+   "why": "The mass step itself. The toggle breaks the candidate's Gauss constraint by 2|sin theta|; there is no scalar register, no state of it and one amplitude for all species."
+  },
+  {
+   "premise": "PR-54 with A1-response",
+   "why": "Only the Z2 centre is gauged and has a constraint. The twelve port responses are labels: the tick applies none of them; no link dynamics."
+  },
+  {
+   "premise": "PR-36",
+   "why": "No load register in the binding definition. Where the band exists (M3) it is the 0.304708 sector, degenerate, and the band the rule excludes is the only massless one."
+  },
+  {
+   "premise": "A1-federation",
+   "why": "No triple overlaps (the cubic family is bipartite), no spherical support, no refinement."
+  },
+  {
+   "premise": "PR-16, PR-52, PR-53, PR-74, PR-70, PR-20",
+   "why": "One lattice with six link directions: cubic term at relative order |p|^2, no boost transport, routing weights on the frame seams only."
+  },
+  {
+   "premise": "PR-15, PR-17",
+   "why": "Nothing to anchor: the electron is massless or its angle is free."
+  },
+  {
+   "premise": "PR-59",
+   "why": "The chart keeps exterior degrees zero and five, which the declared grammar omits (minor)."
+  },
+  {
+   "premise": "PR-01, A1-central-ports",
+   "why": "A unitary tick has no terminating repair; coherent port projectors are not central. Neither is on the mass chain."
+  }
+ ]
+}

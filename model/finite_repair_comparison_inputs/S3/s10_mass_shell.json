@@ -1,0 +1,455 @@
+{
+ "flat": {
+  "F up / B down (1,1,1)/(2,2,2)": {
+   "up_triple": [
+    0,
+    1,
+    5
+   ],
+   "down_triple": [
+    0,
+    2,
+    8
+   ],
+   "gap_minimum_at_q": [
+    2.09439516953056,
+    3.6275986392135677
+   ],
+   "distance_to_K": 1.1168642339503625e-07,
+   "half_gap_m": 0.010494375036527837,
+   "mid_gap_level": 0.18010740913820933,
+   "slope_v_by_direction": [
+    0.05272531503824699,
+    0.052708690045665293,
+    0.052691961754471835,
+    0.052705977647841844,
+    0.05272062122001271,
+    0.05270562171644985
+   ],
+   "massless_c2": 0.014705882352941176,
+   "massless_anisotropy": 1.362098569521691e-16,
+   "bond_conductances": [
+    "12/17",
+    "12/17",
+    "12/17"
+   ]
+  },
+  "(1,2,2) up / (1,1,2) down": {
+   "up_triple": [
+    0,
+    1,
+    4
+   ],
+   "down_triple": [
+    0,
+    2,
+    10
+   ],
+   "gap_minimum_at_q": [
+    2.104447444913239,
+    3.627598747192773
+   ],
+   "distance_to_K": 0.010052342520061272,
+   "half_gap_m": 0.0034659919227258973,
+   "mid_gap_level": 0.17978527676701184,
+   "slope_v_by_direction": [
+    0.053090927646620344,
+    0.052923068642013286,
+    0.05260073134538005,
+    0.05246183249250898,
+    0.052631440610684886,
+    0.052923337688773116
+   ],
+   "massless_c2": 0.014705882352941176,
+   "massless_anisotropy": 1.362098569521691e-16,
+   "bond_conductances": [
+    "12/17",
+    "12/17",
+    "12/17"
+   ]
+  },
+  "(1,1,2) up / (1,2,2) down": {
+   "up_triple": [
+    0,
+    1,
+    8
+   ],
+   "down_triple": [
+    0,
+    2,
+    5
+   ],
+   "gap_minimum_at_q": [
+    2.0893688740680947,
+    3.6188931236543667
+   ],
+   "distance_to_K": 0.010052389086917843,
+   "half_gap_m": 0.0034659919227299496,
+   "mid_gap_level": 0.17978527675864786,
+   "slope_v_by_direction": [
+    0.05262950852713994,
+    0.052921513132786875,
+    0.053059713486849513,
+    0.05292252897223256,
+    0.05263127667986965,
+    0.05246236332827886
+   ],
+   "massless_c2": 0.014705882352941176,
+   "massless_anisotropy": 1.362098569521691e-16,
+   "bond_conductances": [
+    "12/17",
+    "12/17",
+    "12/17"
+   ]
+  },
+  "(1,1,2) up / (1,2,2) down, second": {
+   "up_triple": [
+    0,
+    1,
+    10
+   ],
+   "down_triple": [
+    0,
+    2,
+    4
+   ],
+   "gap_minimum_at_q": [
+    2.089368902872335,
+    3.6363043462222295
+   ],
+   "distance_to_K": 0.010052385890855298,
+   "half_gap_m": 0.003465991922728978,
+   "mid_gap_level": 0.17978527675922296,
+   "slope_v_by_direction": [
+    0.052630263354457536,
+    0.052461141109940324,
+    0.05260071576117452,
+    0.052923727038580275,
+    0.053092079248910067,
+    0.05292392420201304
+   ],
+   "massless_c2": 0.014705882352941176,
+   "massless_anisotropy": 1.362098569521691e-16,
+   "bond_conductances": [
+    "12/17",
+    "12/17",
+    "12/17"
+   ]
+  }
+ },
+ "frustration": {
+  "level0_minimum_same_colour_neighbour_pairs_over_all_colourings": 6,
+  "level0_colourings_attaining_minimum": 250,
+  "level0_dual_edges": 30,
+  "covariant_colouring": {
+   "0": {
+    "cells": 20,
+    "dual_edges": 30,
+    "same_class_pairs_covariant_colouring": 30,
+    "thirty_times_two_to_level": 30,
+    "lower_bound_six_times_two_to_level": 6,
+    "five_valent_vertices": 12
+   },
+   "1": {
+    "cells": 80,
+    "dual_edges": 120,
+    "same_class_pairs_covariant_colouring": 60,
+    "thirty_times_two_to_level": 60,
+    "lower_bound_six_times_two_to_level": 12,
+    "five_valent_vertices": 12
+   },
+   "2": {
+    "cells": 320,
+    "dual_edges": 480,
+    "same_class_pairs_covariant_colouring": 120,
+    "thirty_times_two_to_level": 120,
+    "lower_bound_six_times_two_to_level": 24,
+    "five_valent_vertices": 12
+   },
+   "3": {
+    "cells": 1280,
+    "dual_edges": 1920,
+    "same_class_pairs_covariant_colouring": 240,
+    "thirty_times_two_to_level": 240,
+    "lower_bound_six_times_two_to_level": 48,
+    "five_valent_vertices": 12
+   },
+   "4": {
+    "cells": 5120,
+    "dual_edges": 7680,
+    "same_class_pairs_covariant_colouring": 480,
+    "thirty_times_two_to_level": 480,
+    "lower_bound_six_times_two_to_level": 96,
+    "five_valent_vertices": 12
+   },
+   "5": {
+    "cells": 20480,
+    "dual_edges": 30720,
+    "same_class_pairs_covariant_colouring": 960,
+    "thirty_times_two_to_level": 960,
+    "lower_bound_six_times_two_to_level": 192,
+    "five_valent_vertices": 12
+   }
+  }
+ },
+ "octahedral_control": {
+  "3": {
+   "cells": 512,
+   "ports": 6144,
+   "vertex_valences": {
+    "4": 6,
+    "6": 252
+   },
+   "cell_graph_two_colourable": true,
+   "same_class_dual_edges": 0,
+   "window": [
+    0.16961303410167172,
+    0.19060178417474383
+   ],
+   "window_covered_by_computed_levels": true,
+   "levels_inside_window": 0,
+   "levels_inside_window_values": [],
+   "gap_edges_seen": [
+    0.16936797587490818,
+    0.19084761302573766
+   ],
+   "uniform_F_levels_within_same_half_width_of_its_crossing": 6,
+   "uniform_F_window_covered": true,
+   "low_spectrum_staggered": {
+    "N_lambda_first9": [
+     2.2497281815248016e-13,
+     0.8402054877847567,
+     0.8402054877847619,
+     0.8402054877847688,
+     2.0532395321088597,
+     2.0532395321088672,
+     2.9090079042669275,
+     2.9090079042669372,
+     2.9090079042669457
+    ],
+    "multiplicities": [
+     3,
+     2,
+     3,
+     3,
+     3,
+     1
+    ],
+    "spread_l1": 1.440294207113565e-14,
+    "spread_l2": 0.33341184672143614
+   },
+   "low_spectrum_uniform_F": {
+    "N_lambda_first9": [
+     1.748184930150387e-13,
+     0.870528437734693,
+     0.8705284377346965,
+     0.8705284377347027,
+     2.1258729618208774,
+     2.12587296182088,
+     3.0104479487854947,
+     3.0104479487854974,
+     3.010447948785504
+    ],
+    "multiplicities": [
+     3,
+     2,
+     3,
+     3,
+     3,
+     1
+    ],
+    "spread_l1": 1.1095490848493713e-14,
+    "spread_l2": 0.3329703413442876
+   }
+  },
+  "4": {
+   "cells": 2048,
+   "ports": 24576,
+   "vertex_valences": {
+    "4": 6,
+    "6": 1020
+   },
+   "cell_graph_two_colourable": true,
+   "same_class_dual_edges": 0,
+   "window": [
+    0.16961303410167172,
+    0.19060178417474383
+   ],
+   "window_covered_by_computed_levels": true,
+   "levels_inside_window": 0,
+   "levels_inside_window_values": [],
+   "gap_edges_seen": [
+    0.1694835799493299,
+    0.19073164319365882
+   ],
+   "uniform_F_levels_within_same_half_width_of_its_crossing": 18,
+   "uniform_F_window_covered": true,
+   "low_spectrum_staggered": {
+    "N_lambda_first9": [
+     7.715356131754447e-13,
+     0.8413760465930745,
+     0.8413760465930937,
+     0.8413760465931085,
+     2.0614802571480553,
+     2.0614802571480557,
+     2.923946378618821,
+     2.9239463786188344,
+     2.92394637861885
+    ],
+    "multiplicities": [
+     3,
+     2,
+     3,
+     3,
+     3,
+     1
+    ],
+    "spread_l1": 4.037769400625662e-14,
+    "spread_l2": 0.334424010015769
+   },
+   "low_spectrum_uniform_F": {
+    "N_lambda_first9": [
+     9.416495361236343e-13,
+     0.8720537203125759,
+     0.8720537203125762,
+     0.8720537203125848,
+     2.136273730246464,
+     2.136273730246474,
+     3.0296596472680615,
+     3.029659647268064,
+     3.029659647268071
+    ],
+    "multiplicities": [
+     3,
+     2,
+     3,
+     3,
+     3,
+     1
+    ],
+    "spread_l1": 1.0184904886155024e-14,
+    "spread_l2": 0.3343128210516482
+   }
+  },
+  "2": {
+   "cells": 128,
+   "ports": 1536,
+   "vertex_valences": {
+    "4": 6,
+    "6": 60
+   },
+   "cell_graph_two_colourable": true,
+   "same_class_dual_edges": 0,
+   "window": [
+    0.16961303410167172,
+    0.19060178417474383
+   ],
+   "window_covered_by_computed_levels": true,
+   "levels_inside_window": 0,
+   "levels_inside_window_values": [],
+   "gap_edges_seen": [
+    0.16650548056040668,
+    0.19372043133307534
+   ],
+   "uniform_F_levels_within_same_half_width_of_its_crossing": 6,
+   "uniform_F_window_covered": true,
+   "low_spectrum_staggered": {
+    "N_lambda_first9": [
+     -1.0195316587684932e-13,
+     0.836323042531454,
+     0.8363230425324458,
+     0.8363230425324825,
+     2.020448999194954,
+     2.0204489991951307,
+     2.855901969127731,
+     2.8559019691279457,
+     2.8559019691285044
+    ],
+    "multiplicities": [
+     3,
+     2,
+     3,
+     3,
+     3,
+     1
+    ],
+    "spread_l1": 1.229800636484597e-12,
+    "spread_l2": 0.33130272636724845
+   },
+   "low_spectrum_uniform_F": {
+    "N_lambda_first9": [
+     -1.7571949144987617e-13,
+     0.8652716526022926,
+     0.8652716526025267,
+     0.8652716526027131,
+     2.084760543949381,
+     2.0847605439495225,
+     2.9412140425357087,
+     2.9412140425358584,
+     2.941214042536295
+    ],
+    "multiplicities": [
+     3,
+     2,
+     3,
+     3,
+     3,
+     1
+    ],
+    "spread_l1": 4.860352011568823e-13,
+    "spread_l2": 0.32957851924955994
+   }
+  }
+ },
+ "walls": {
+  "3": {
+   "cells": 1280,
+   "ports": 15360,
+   "window": [
+    0.16961303410167172,
+    0.19060178417474383
+   ],
+   "window_covered_by_computed_levels": true,
+   "levels_inside_window": 8,
+   "same_class_dual_edges": 240,
+   "cells_touching_a_wall": 420,
+   "area_share_of_wall_cells": 0.328125,
+   "mean_weight_share_on_wall_cells_inside_window": 0.4027307152314687,
+   "min_weight_share_on_wall_cells_inside_window": 0.38839875339399577,
+   "mean_weight_share_on_wall_cells_outside_window": 0.4261685197005093,
+   "multiplicities_inside_window": [
+    4,
+    4
+   ]
+  },
+  "4": {
+   "cells": 5120,
+   "ports": 61440,
+   "window": [
+    0.16961303410167172,
+    0.19060178417474383
+   ],
+   "window_covered_by_computed_levels": true,
+   "levels_inside_window": 40,
+   "same_class_dual_edges": 480,
+   "cells_touching_a_wall": 900,
+   "area_share_of_wall_cells": 0.17578125,
+   "mean_weight_share_on_wall_cells_inside_window": 0.26070913079961655,
+   "min_weight_share_on_wall_cells_inside_window": 0.21072977159149386,
+   "mean_weight_share_on_wall_cells_outside_window": 0.24639430259948877,
+   "multiplicities_inside_window": [
+    3,
+    5,
+    3,
+    5,
+    4,
+    4,
+    5,
+    3,
+    3,
+    4,
+    1
+   ]
+  }
+ }
+}

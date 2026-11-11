@@ -1,0 +1,103 @@
+{
+ "S1_S3_native_groups": {
+  "cover": {
+   "finite": true,
+   "order": 120,
+   "element_orders": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10
+   ]
+  },
+  "cover + Z2": {
+   "finite": true,
+   "order": 120,
+   "element_orders": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10
+   ]
+  },
+  "cover + Z6": {
+   "finite": true,
+   "order": 360,
+   "element_orders": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10,
+    12,
+    15,
+    30
+   ]
+  },
+  "cover + Z6 + Z20 area character": {
+   "finite": true,
+   "order": 3600,
+   "element_orders": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10,
+    12,
+    15,
+    20,
+    30,
+    60
+   ]
+  },
+  "Z6 + Z20 alone": {
+   "finite": true,
+   "order": 60,
+   "element_orders": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10,
+    12,
+    15,
+    20,
+    30,
+    60
+   ]
+  }
+ },
+ "S3_intersections_largest_native_group": {
+  "with SU(3) x 1": 3,
+  "with 1 x SU(2)": 2,
+  "central elements (U(1)_Y)": 60,
+  "colour block and weak block both non-central": 3540
+ },
+ "S2_frame_normalizer": {
+  "port_graph_automorphisms": 120,
+  "with_unitary_implementer_on_both_blocks": 60,
+  "of_which_rotations": 60,
+  "reflections_with_implementer": 0,
+  "centralizer_dimension_in_g": 1,
+  "centralizer_generator_proportional_to_6Y": [
+   2.0,
+   2.0,
+   2.0,
+   -3.0,
+   -3.0
+  ],
+  "statement": "N_G(frame) = rho(2I) . U(1)_Y; identity component U(1)_Y; the non-abelian part is finite"
+ }
+}

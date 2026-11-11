@@ -1,0 +1,335 @@
+{
+ "A spectrum of two ticks on a patch (theta = 0.157935)": [
+  {
+   "cells": [
+    4,
+    3,
+    2
+   ],
+   "holonomy angles": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "dimension": 96,
+   "unitarity defect": 1.332e-15,
+   "max | eigenphases of two engine ticks - (+-2 w(p), each twice) on the grid p_i = (2 pi m_i + phi_i)/L_i |": 1.776e-15,
+   "smallest phase per tick": 0.157935
+  },
+  {
+   "cells": [
+    4,
+    3,
+    2
+   ],
+   "holonomy angles": [
+    3.141593,
+    0.0,
+    0.0
+   ],
+   "dimension": 96,
+   "unitarity defect": 1.332e-15,
+   "max | eigenphases of two engine ticks - (+-2 w(p), each twice) on the grid p_i = (2 pi m_i + phi_i)/L_i |": 8.882e-16,
+   "smallest phase per tick": 0.797768
+  },
+  {
+   "cells": [
+    4,
+    3,
+    2
+   ],
+   "holonomy angles": [
+    3.141593,
+    3.141593,
+    3.141593
+   ],
+   "dimension": 96,
+   "unitarity defect": 1.332e-15,
+   "max | eigenphases of two engine ticks - (+-2 w(p), each twice) on the grid p_i = (2 pi m_i + phi_i)/L_i |": 8.882e-16,
+   "smallest phase per tick": 0.797768
+  },
+  {
+   "cells": [
+    4,
+    4,
+    2
+   ],
+   "holonomy angles": [
+    1.047198,
+    0.0,
+    0.0
+   ],
+   "dimension": 128,
+   "unitarity defect": 1.332e-15,
+   "max | eigenphases of two engine ticks - (+-2 w(p), each twice) on the grid p_i = (2 pi m_i + phi_i)/L_i |": 1.776e-15,
+   "smallest phase per tick": 0.30481
+  }
+ ],
+ "seconds": 15.37,
+ "C packet": {
+  "cells": [
+   256,
+   128,
+   1
+  ],
+  "theta": 0.157935,
+  "centre p0": [
+   0.147262,
+   0.098175,
+   0.0
+  ],
+  "momentum width per axis (axes 1, 2)": 0.03,
+  "position width per axis (cells)": 16.667,
+  "branch defect: || W2 chi - exp(-2 i w) chi || weighted": 2.918e-16,
+  "mean E": 0.239922,
+  "mean w": 0.238725,
+  "mean (E - w) per tick": 0.001197,
+  "leading term N/(6E) at p0": 0.001136,
+  "errors over n ticks (state norm)": [
+   {
+    "n": 2,
+    "engine against closed-form phase exp(-i n w(p)) on the coin": 7.606e-16,
+    "engine against relativistic phase exp(-i n E(p)) on the coin": 0.002611,
+    "exact mode sum sqrt(sum |F|^2 4 sin^2(n (E - w)/2))": 0.002611,
+    "window bound n K_window + 2 sqrt(weight outside)": 0.1508,
+    "engine against exp(-i n H), half-step frame": 0.006516,
+    "bound sqrt(sum |F|^2 [n (E - w) + 2 sin(delta/2)]^2)": 0.01485,
+    "engine against exp(-i n H), tick frame": 0.05794,
+    "bound with the frame term added": 0.1324
+   },
+   {
+    "n": 10,
+    "engine against closed-form phase exp(-i n w(p)) on the coin": 3.224e-15,
+    "engine against relativistic phase exp(-i n E(p)) on the coin": 0.01306,
+    "exact mode sum sqrt(sum |F|^2 4 sin^2(n (E - w)/2))": 0.01306,
+    "window bound n K_window + 2 sqrt(weight outside)": 0.2053,
+    "engine against exp(-i n H), half-step frame": 0.01487,
+    "bound sqrt(sum |F|^2 [n (E - w) + 2 sin(delta/2)]^2)": 0.02528,
+    "engine against exp(-i n H), tick frame": 0.08248,
+    "bound with the frame term added": 0.1423
+   },
+   {
+    "n": 20,
+    "engine against closed-form phase exp(-i n w(p)) on the coin": 6.412e-15,
+    "engine against relativistic phase exp(-i n E(p)) on the coin": 0.02611,
+    "exact mode sum sqrt(sum |F|^2 4 sin^2(n (E - w)/2))": 0.02611,
+    "window bound n K_window + 2 sqrt(weight outside)": 0.2735,
+    "engine against exp(-i n H), half-step frame": 0.02819,
+    "bound sqrt(sum |F|^2 [n (E - w) + 2 sin(delta/2)]^2)": 0.03833,
+    "engine against exp(-i n H), tick frame": 0.1156,
+    "bound with the frame term added": 0.1549
+   },
+   {
+    "n": 50,
+    "engine against closed-form phase exp(-i n w(p)) on the coin": 1.593e-14,
+    "engine against relativistic phase exp(-i n E(p)) on the coin": 0.06526,
+    "exact mode sum sqrt(sum |F|^2 4 sin^2(n (E - w)/2))": 0.06526,
+    "window bound n K_window + 2 sqrt(weight outside)": 0.478,
+    "engine against exp(-i n H), half-step frame": 0.06578,
+    "bound sqrt(sum |F|^2 [n (E - w) + 2 sin(delta/2)]^2)": 0.07749,
+    "engine against exp(-i n H), tick frame": 0.1082,
+    "bound with the frame term added": 0.193
+   },
+   {
+    "n": 100,
+    "engine against closed-form phase exp(-i n w(p)) on the coin": 3.178e-14,
+    "engine against relativistic phase exp(-i n E(p)) on the coin": 0.1304,
+    "exact mode sum sqrt(sum |F|^2 4 sin^2(n (E - w)/2))": 0.1304,
+    "window bound n K_window + 2 sqrt(weight outside)": 0.8189,
+    "engine against exp(-i n H), half-step frame": 0.1307,
+    "bound sqrt(sum |F|^2 [n (E - w) + 2 sin(delta/2)]^2)": 0.1428,
+    "engine against exp(-i n H), tick frame": 0.1566,
+    "bound with the frame term added": 0.2571
+   },
+   {
+    "n": 200,
+    "engine against closed-form phase exp(-i n w(p)) on the coin": 6.358e-14,
+    "engine against relativistic phase exp(-i n E(p)) on the coin": 0.2597,
+    "exact mode sum sqrt(sum |F|^2 4 sin^2(n (E - w)/2))": 0.2597,
+    "window bound n K_window + 2 sqrt(weight outside)": 1.501,
+    "engine against exp(-i n H), half-step frame": 0.2598,
+    "bound sqrt(sum |F|^2 [n (E - w) + 2 sin(delta/2)]^2)": 0.2733,
+    "engine against exp(-i n H), tick frame": 0.2682,
+    "bound with the frame term added": 0.3866
+   }
+  ],
+  "window": {
+   "P_i = |p0_i| + 3 widths": [
+    0.23726,
+    0.18817,
+    0.0
+   ],
+   "weight outside": 0.004701,
+   "K_window per tick": 0.006818,
+   "sum P_i^2 + theta^2 (must be <= 1/4)": 0.1166
+  },
+  "velocity over the first 100 ticks (cells per tick, axes 1 and 2)": {
+   "engine centroid": [
+    0.598713,
+    0.392271
+   ],
+   "mean of the closed-form group velocity": [
+    0.598843,
+    0.39307
+   ],
+   "mean of p/E": [
+    0.609386,
+    0.406402
+   ]
+  }
+ },
+ "D blank spin-up Gaussian at rest on a 2048-cell line along axis 3": [
+  {
+   "theta": 0.087847,
+   "coin": "M1 (beta = Y_r): blank record, spin up",
+   "width (cells)": 6.0,
+   "weight of the positive branch sum |f|^2 (1 + <Nhat>)/2": 0.5,
+   "predicted drift velocity vbar": -0.038399,
+   "engine: slope of the centre over ticks 200..600": -0.038225,
+   "predicted offset c0 (cells)": 3.2019,
+   "engine: intercept of the same fit": 3.1265,
+   "engine: centre after 64 and 600 ticks": [
+    -0.213,
+    -20.1521
+   ]
+  },
+  {
+   "theta": 0.087847,
+   "coin": "M1 (beta = Y_r): M^(1/2) |blank, up> (half-step frame)",
+   "width (cells)": 6.0,
+   "weight of the positive branch sum |f|^2 (1 + <Nhat>)/2": 0.5,
+   "predicted drift velocity vbar": 0.0,
+   "engine: slope of the centre over ticks 200..600": 0.000173,
+   "predicted offset c0 (cells)": 3.2143,
+   "engine: intercept of the same fit": 3.1381,
+   "engine: centre after 64 and 600 ticks": [
+    2.1863,
+    2.8774
+   ]
+  },
+  {
+   "theta": 0.157935,
+   "coin": "M1 (beta = Y_r): blank record, spin up",
+   "width (cells)": 6.0,
+   "weight of the positive branch sum |f|^2 (1 + <Nhat>)/2": 0.5,
+   "predicted drift velocity vbar": -0.040411,
+   "engine: slope of the centre over ticks 200..600": -0.040482,
+   "predicted offset c0 (cells)": 2.3429,
+   "engine: intercept of the same fit": 2.3714,
+   "engine: centre after 64 and 600 ticks": [
+    0.0784,
+    -21.8805
+   ]
+  },
+  {
+   "theta": 0.157935,
+   "coin": "M1 (beta = Y_r): M^(1/2) |blank, up> (half-step frame)",
+   "width (cells)": 6.0,
+   "weight of the positive branch sum |f|^2 (1 + <Nhat>)/2": 0.5,
+   "predicted drift velocity vbar": -0.0,
+   "engine: slope of the centre over ticks 200..600": -7.6e-05,
+   "predicted offset c0 (cells)": 2.3724,
+   "engine: intercept of the same fit": 2.4037,
+   "engine: centre after 64 and 600 ticks": [
+    2.8312,
+    2.4442
+   ]
+  },
+  {
+   "theta": 0.157935,
+   "coin": "M2 (beta = Z_r): blank record, spin up (an eigenstate of the mass step)",
+   "width (cells)": 6.0,
+   "weight of the positive branch sum |f|^2 (1 + <Nhat>)/2": 0.923867,
+   "predicted drift velocity vbar": -0.0,
+   "engine: slope of the centre over ticks 200..600": -0.0,
+   "predicted offset c0 (cells)": 0.0,
+   "engine: intercept of the same fit": 0.0,
+   "engine: centre after 64 and 600 ticks": [
+    0.0,
+    -0.0
+   ]
+  }
+ ],
+ "B twisted plane waves on 8 x 6 x 4 cells": [
+  {
+   "holonomies": [
+    "-1",
+    "1",
+    "1"
+   ],
+   "two ticks on exp(i p.x) with exp(i p_i L_i) = holonomy_i, against W2(p)": 9.191e-16,
+   "the same with exp(i p_i L_i) = conjugate holonomy (control; zero only for signs)": 8.327e-16
+  },
+  {
+   "holonomies": [
+    "-1",
+    "-1",
+    "1"
+   ],
+   "two ticks on exp(i p.x) with exp(i p_i L_i) = holonomy_i, against W2(p)": 1.025e-15,
+   "the same with exp(i p_i L_i) = conjugate holonomy (control; zero only for signs)": 5.58e-16
+  },
+  {
+   "holonomies": [
+    "-1",
+    "-1",
+    "-1"
+   ],
+   "two ticks on exp(i p.x) with exp(i p_i L_i) = holonomy_i, against W2(p)": 6.331e-16,
+   "the same with exp(i p_i L_i) = conjugate holonomy (control; zero only for signs)": 3.632e-16
+  },
+  {
+   "holonomies": [
+    "(0.5+0.866j)",
+    "1",
+    "(-0.5-0.866j)"
+   ],
+   "two ticks on exp(i p.x) with exp(i p_i L_i) = holonomy_i, against W2(p)": 6.654e-16,
+   "the same with exp(i p_i L_i) = conjugate holonomy (control; zero only for signs)": 0.07939
+  }
+ ],
+ "B lowest phase per tick": [
+  {
+   "L": 16,
+   "theta": 0.0,
+   "periodic (p = 0)": 0.0,
+   "one antiperiodic axis: arccos(cos theta cos(pi/L))": 0.19635,
+   "three antiperiodic axes": 0.33115
+  },
+  {
+   "L": 16,
+   "theta": 0.157935,
+   "periodic (p = 0)": 0.157935,
+   "one antiperiodic axis: arccos(cos theta cos(pi/L))": 0.251346,
+   "three antiperiodic axes": 0.365628
+  },
+  {
+   "L": 48,
+   "theta": 0.0,
+   "periodic (p = 0)": 0.0,
+   "one antiperiodic axis: arccos(cos theta cos(pi/L))": 0.06545,
+   "three antiperiodic axes": 0.113038
+  },
+  {
+   "L": 48,
+   "theta": 0.157935,
+   "periodic (p = 0)": 0.157935,
+   "one antiperiodic axis: arccos(cos theta cos(pi/L))": 0.170855,
+   "three antiperiodic axes": 0.193945
+  },
+  {
+   "L": 64,
+   "theta": 0.0,
+   "periodic (p = 0)": 0.0,
+   "one antiperiodic axis: arccos(cos theta cos(pi/L))": 0.049087,
+   "three antiperiodic axes": 0.084885
+  },
+  {
+   "L": 64,
+   "theta": 0.157935,
+   "periodic (p = 0)": 0.157935,
+   "one antiperiodic axis: arccos(cos theta cos(pi/L))": 0.165327,
+   "three antiperiodic axes": 0.179134
+  }
+ ]
+}

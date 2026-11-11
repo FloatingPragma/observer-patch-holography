@@ -1,0 +1,56 @@
+"""Lane AV: the only script that reads a measured value. NOT BLIND. Run once, after fits.json is hashed
+(FITS_BEFORE_COMPARISON.sha256). Reads fits.json and abelian.json, writes compare.json.
+
+Measured value: v = 246.22 GeV (Particle Data Group 2024, from G_F; ADDENDUM_THEORY.md).
+"""
+import json
+import math
+
+V_MEASURED = 246.22
+F = json.load(open("fits.json"))
+AB = json.load(open("abelian.json"))
+E_CELL = F["E_cell_GeV"]
+S_U = F["S_U"]
+out = {"label": "NOT BLIND", "v_measured_GeV": V_MEASURED, "source": "Particle Data Group 2024, v from G_F",
+       "E_cell_GeV": E_CELL, "S_U": S_U,
+       "c_needed_for_the_measured_v_at_bM=1": math.log(E_CELL / V_MEASURED) / S_U,
+       "ln_A_needed_for_the_measured_v_at_b=1": math.log(V_MEASURED / E_CELL), "rows": {}}
+
+
+def row(name, c=None, lnA=None, c_err=None, lnA_err=None, label="MEASURED"):
+    r = {"label": label}
+    if c is not None:
+        v = E_CELL * math.exp(-c * S_U)
+        r.update({"c": c, "c_err": c_err, "v_GeV_bM=1": v, "ratio_bM=1": v / V_MEASURED, "log10_ratio_bM=1": math.log10(v / V_MEASURED),
+                  "log10_ratio_err": (c_err * S_U / math.log(10)) if c_err else None})
+    if lnA is not None:
+        v = E_CELL * math.exp(lnA)
+        r.update({"lnA_at_S_U": lnA, "lnA_err": lnA_err, "v_GeV_b=1": v, "ratio_b=1": v / V_MEASURED, "log10_ratio_b=1": math.log10(v / V_MEASURED)})
+    out["rows"][name] = r
+
+
+a = AB["A_single_register_at_x_U"]
+row("one tick, Cartan circle (exact)", 1.0, math.log(a["A1_cartan_one_tick"]["<A>"]), label="EXACT")
+row("one tick, full link, weight power 2 (exact)", 1.0, math.log(a["A2_full_link_w2_one_tick"]["<A>"]), label="EXACT")
+row("one tick, one-sided register, weight power 1 (exact)", None, math.log(a["A3_one_sided_w1_one_tick"]["<A>"]), label="EXACT")
+row("one tick, labels, weight power 0 (exact)", None, math.log(a["A4_labels_w0_one_tick"]["<A>"]), label="EXACT")
+for k in ("cub4_infinite", "cub3_infinite", "icoT_infinite", "icoT_NT1_Gauss", "pair2_pinned_boundary", "ico2"):
+    t = AB["C_twist_reading"][k]
+    row("Cartan circle, %s (exact)" % k, t["c"], math.log(t["<A>_x_U"]), label="EXACT")
+for k, e in F["scans"].items():
+    m = e["fit_p1_weak"]
+    row("SU(2) %s, electric step" % k, m["c"], e.get("lnA_at_S_U"), m["c_err"], e.get("lnA_at_S_U_err"))
+for k, e in F.get("second_reading", {}).get("scans", {}).items():
+    m = e["fit_p1"]
+    row("SU(2) %s, face step" % k, m["c"], e.get("lnA_at_S_U"), m["c_err"], e.get("lnA_at_S_U_err"))
+for k, e in F.get("doublet", {}).items():
+    row("doublet %s (%s)" % (k, e["side"]), None, e["lnA"], None, e["lnA_err"])
+json.dump(out, open("compare.json", "w"), indent=1)
+print("NOT BLIND. measured v = %.2f GeV. c needed at b M = 1: %.5f. ln <A> needed at b = 1: %.3f" % (
+    V_MEASURED, out["c_needed_for_the_measured_v_at_bM=1"], out["ln_A_needed_for_the_measured_v_at_b=1"]))
+print("%-58s %10s %14s %12s %14s %12s" % ("row", "c", "v (bM=1) GeV", "log10 ratio", "v (b=1) GeV", "log10 ratio"))
+for k, r in out["rows"].items():
+    print("%-58s %10s %14s %12s %14s %12s" % (
+        k, ("%.4f" % r["c"]) if "c" in r else "", ("%.4g" % r["v_GeV_bM=1"]) if "c" in r else "",
+        ("%.2f" % r["log10_ratio_bM=1"]) if "c" in r else "", ("%.4g" % r["v_GeV_b=1"]) if "lnA_at_S_U" in r else "",
+        ("%.2f" % r["log10_ratio_b=1"]) if "lnA_at_S_U" in r else ""))

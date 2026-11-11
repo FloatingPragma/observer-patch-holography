@@ -1,0 +1,82 @@
+{
+ "family": "own",
+ "couplings": {
+  "y_u": 0,
+  "y_d": 0,
+  "y_e": 1
+ },
+ "spacing": "pi",
+ "source_first_image_terms": 83,
+ "source_second_image_terms": 2720,
+ "targets": {
+  "0": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "0",
+   "tagged_fifth_V_moment": "0",
+   "RS_fifth_order_amplitude": "0"
+  },
+  "1": {
+   "bare_V_moments_k0_to_k4": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "bare_V_moment_k5": "-31*I/32",
+   "tagged_fifth_V_moment": "-9*I*r_0_0**2*r_0_1**2/16 - 3*I*r_0_0*r_0_1**2*r_1_1/8 - I*r_0_1**2*r_1_1**2/32",
+   "RS_fifth_order_amplitude": "-I*(18*Delta_l**2 - 12*Delta_l*Delta_s + Delta_s**2)/(32*Delta_l**2*Delta_s**2*(Delta_l - Delta_s)**2)"
+  }
+ },
+ "S6_conservation": {
+  "species_of_the_15_native_indices": [
+   "u^c",
+   "u^c",
+   "Q",
+   "Q",
+   "u^c",
+   "Q",
+   "Q",
+   "Q",
+   "Q",
+   "e^c",
+   "L",
+   "L",
+   "d^c",
+   "d^c",
+   "d^c"
+  ],
+  "yukawa_words": 112,
+  "yukawa_words_changing_B_or_L": 0,
+  "fermion_pairs_per_channel": {
+   "up": [
+    [
+     "Q",
+     "u^c"
+    ]
+   ],
+   "charged_lepton": [
+    [
+     "L",
+     "e^c"
+    ]
+   ],
+   "down": [
+    [
+     "Q",
+     "d^c"
+    ]
+   ]
+  },
+  "kinetic_words_stay_inside_one_species_block": true,
+  "neutral_singlet_mode_in_the_module": "none (15 states)",
+  "statement": "every term of the audit Hamiltonian conserves baryon number and lepton number separately; an amplitude that changes B - L by two (pairing of two neutral composites, the dimension-five operator, a top-form step) vanishes at every order"
+ },
+ "seconds": 23.8
+}

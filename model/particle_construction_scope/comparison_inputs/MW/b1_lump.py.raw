@@ -1,0 +1,61 @@
+"""Block 1: population lumping on the federation, statistically. Trajectories from one port; the expectation of
+sum_p |psi_p|^2 w_p (w_p = squared chord distance of the carrier of p from the start, in mesh edges^2) and of the
+carrier populations against the native one-load chain (exact powers by eigendecomposition).
+    python b1_lump.py [level=2] [rule=c3j0] [traj_per_batch=20000] [batches=16]   ->  b1_lump_L<level>_<rule>.json"""
+import json, math, sys, time
+import multiprocessing as mp
+import numpy as np
+import capfed as CF
+import b1_fed as BF
+
+LEVEL = int(sys.argv[1]) if len(sys.argv) > 1 else 2
+RULE = sys.argv[2] if len(sys.argv) > 2 else 'c3j0'
+NT = int(sys.argv[3]) if len(sys.argv) > 3 else 20000
+NB = int(sys.argv[4]) if len(sys.argv) > 4 else 16
+SWEEPS = np.array([0.25, 0.5, 1, 2, 4, 8, 16, 32, 64])
+P0 = 7
+
+
+def batch(seed):
+    fed, z_int, Z = BF.setup(f'sphere:{LEVEL}', RULE)
+    times = np.round(SWEEPS * fed.M).astype(np.int64)
+    xyz = fed.xyz[np.arange(fed.P) // 12]
+    w = ((xyz - xyz[P0]) ** 2).sum(axis=1) * fed.radius ** 2
+    psi0 = np.zeros(fed.P, complex); psi0[P0] = 1.0
+    m = np.zeros(times.size); m2 = np.zeros(times.size); pop = np.zeros((times.size, fed.P))
+    CF.run_timed(fed.A, fed.B, np.ascontiguousarray(Z), fed.ptr, fed.idx, psi0, NT, times, seed, w, m, m2, pop)
+    return m / NT, pop.reshape(times.size, fed.N, 12).sum(axis=2) / NT
+
+
+if __name__ == '__main__':
+    T0 = time.time()
+    fed, z_int, Z = BF.setup(f'sphere:{LEVEL}', RULE)
+    times = np.round(SWEEPS * fed.M).astype(np.int64)
+    with mp.Pool(min(16, NB)) as pool:
+        res = pool.map(batch, [900 + 13 * b for b in range(NB)])
+    ms = np.array([r[0] for r in res]); pops = np.array([r[1] for r in res])
+    # native chain: p_t = (1 - L/(2M))^t p_0
+    H = CF.hop_matrix(fed, Z)
+    Lg = (np.diag(fed.deg.astype(float)) - np.abs(H.toarray()))
+    lam, V = np.linalg.eigh(Lg)
+    xyz = fed.xyz[np.arange(fed.P) // 12]
+    w = ((xyz - xyz[P0]) ** 2).sum(axis=1) * fed.radius ** 2
+    c0 = V[P0]
+    exact_m = []; exact_pop = []
+    for t in times:
+        p = V @ ((1 - lam / (2 * fed.M)) ** int(t) * c0)
+        exact_m.append(float(p @ w)); exact_pop.append(p.reshape(fed.N, 12).sum(axis=1))
+    exact_m = np.array(exact_m); exact_pop = np.array(exact_pop)
+    mean = ms.mean(axis=0); err = ms.std(axis=0, ddof=1) / math.sqrt(NB)
+    pm = pops.mean(axis=0); pe = pops.std(axis=0, ddof=1) / math.sqrt(NB)
+    big = exact_pop > 2e-3                                   # carriers with enough statistics
+    zp = ((pm - exact_pop) / np.maximum(pe, 1e-300))[big]
+    out = {'geometry': fed.kind, 'rule': RULE, 'trajectories': NT * NB, 'start_port': P0, 'sweeps': SWEEPS.tolist(),
+           'mean_square_distance_mesh_edges2': mean.tolist(), 'standard_error': err.tolist(), 'native_chain_exact': exact_m.tolist(),
+           'z': ((mean - exact_m) / err).tolist(),
+           'carrier_populations': {'entries_compared': int(big.sum()), 'z_rms': float(np.sqrt(np.mean(zp ** 2))), 'z_max_abs': float(np.abs(zp).max()),
+                                   'max_abs_deviation': float(np.abs(pm - exact_pop).max())},
+           'diffusion_constant_from_exact_chain_at_8_to_16_sweeps': float((exact_m[6] - exact_m[5]) / (4 * 8)),
+           'seconds': round(time.time() - T0, 1)}
+    json.dump(out, open(f'b1_lump_L{LEVEL}_{RULE}.json', 'w'), indent=1)
+    print(json.dumps(out))

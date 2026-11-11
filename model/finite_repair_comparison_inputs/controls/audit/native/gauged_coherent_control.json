@@ -1,0 +1,101 @@
+{
+  "status": "EXACT finite SAME-carrier reversible-repair and encoded-transport coupling",
+  "declared_architecture_changes": [
+    "five-level encoded fibre attached to the moving one-load source",
+    "transported parity seam rule",
+    "fixed internal link background",
+    "owned coherent address reflection and complete heralded preparation"
+  ],
+  "internal_charge": "Q5=diag(2,2,2,-3,-3)",
+  "internal_charge_conserved": true,
+  "general_local_control_dimension": 20,
+  "general_local_unitarity_and_covariance_checked": true,
+  "carrier_ports": 12,
+  "seams": 30,
+  "coupled_walk_dimension": 7200,
+  "ordered_seam_reflector_negative_rank": 5,
+  "ordered_seam_reflector_trace": 110,
+  "discriminant_blocks": [
+    "I-L_G/(2*M)",
+    "I-(Degree+A_G)/(2*M)"
+  ],
+  "same_coupled_W_trace": -6380,
+  "same_coupled_reference": {
+    "rho": "((5/4)I+(W_G+W_G*)/2)/2620",
+    "eigenvalue_lower": "1/10480",
+    "success_probability": "131/810",
+    "failure_tail": "(679/810)^k",
+    "normalization": "2620",
+    "previous_uncoupled_reference_inherited": false
+  },
+  "central_link": {
+    "edge": [
+      0,
+      1
+    ],
+    "matrix": "diag(I3,-I2)",
+    "actual_compiled_word": [
+      0,
+      0
+    ],
+    "quaternion": [
+      [
+        "-1",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "source_receipt_sha256": "b8adc7f35ba40e81e6841a5f4708182f4eb53ce7323a9bd72c7ea968d4226a52"
+  },
+  "static_flux_witness": {
+    "nontrivial_triangular_faces": [
+      [
+        0,
+        1,
+        5
+      ],
+      [
+        0,
+        1,
+        7
+      ]
+    ],
+    "Wilson_loop_trace": "1",
+    "flat_Wilson_loop_trace": "5",
+    "trace_A_cubed_flat": "600",
+    "trace_A_cubed_flux": "552",
+    "trace_P_cubed_difference": "-1/4500",
+    "trace_embedded_W_cubed_difference": "-1/1125",
+    "doublet_endpoint_three_step_return_amplitude_flat": "1871/5400",
+    "doublet_endpoint_three_step_return_amplitude_flux": "1039/3000",
+    "amplitude_difference": "-1/6750",
+    "probability_difference": "-9353/91125000"
+  },
+  "parallel_sections": {
+    "triplet_kernel_dimension": 3,
+    "doublet_kernel_dimension": 0,
+    "finite_doublet_L_determinant": "13132800",
+    "physical_rest_mass_claim": false
+  },
+  "gauge_scope": "Covariance holds for arbitrary block-unitary passive frames with transformed links. The finite120-element source link alphabet is closed only under its own local120-element rechartings unless the continuous orbit is explicitly admitted.",
+  "readout_scope": "Prepared source-return probabilities change. Full7200-dimensional tomography does not follow from the1440-dimensional support proof; conserved internal charges split the support and require the code/referral apparatus contract.",
+  "scope": {
+    "kinematic_gauge_coupling_on_same_source_state_clock": true,
+    "dynamical_gauge_field_or_backreaction": false,
+    "protected_flux_defect": false,
+    "interacting_many_particle_scattering": false,
+    "physical_spin_or_statistics": false,
+    "continuum_or_GeV_mass": false
+  }
+}

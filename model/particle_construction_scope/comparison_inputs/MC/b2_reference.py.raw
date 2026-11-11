@@ -1,0 +1,42 @@
+"""Reference table for matched comparisons: uniform sprinklings of flat diamonds in d = 2, 3, 4 at interval sizes
+N = 24 .. 1536 (height, link fraction, d_r, d_m), and the interval-profile protocol applied to sprinklings.
+Writes results/b2_reference.json."""
+import json, os, sys
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+
+
+def one(a):
+    d, N, seed = a
+    rng = np.random.default_rng([seed, N, d, 11])
+    st = L.order_stats(L.relation_cone(L.sprinkle_diamond(N, d, rng)))
+    st.update({'d': d, 'seed': seed})
+    return st
+
+
+def prof(a):
+    d, seed = a
+    rng = np.random.default_rng([seed, d, 12])
+    R = L.relation_cone(L.sprinkle_diamond(4000, d, rng))
+    return d, L.profile_means(L.interval_profile(R, rng))
+
+
+if __name__ == '__main__':
+    procs = int(sys.argv[1]) if len(sys.argv) > 1 else 12
+    sizes = (24, 48, 96, 192, 384, 768, 1536)
+    with Pool(procs) as pool:
+        rows = pool.map(one, [(d, N, s) for d in (2, 3, 4) for N in sizes for s in range(24)], chunksize=1)
+        profs = pool.map(prof, [(d, s) for d in (2, 3, 4) for s in range(8)], chunksize=1)
+    res = {'sizes': sizes, 'table': {}, 'profile_protocol': {}}
+    for d in (2, 3, 4):
+        for N in sizes:
+            res['table'][f'd={d}|N={N}'] = L.summarize([r for r in rows if r['d'] == d and r['N'] == N])
+        res['profile_protocol'][f'd={d}'] = L.across_seeds([p for dd, p in profs if dd == d])
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open('results/b2_reference.json', 'w'), indent=1)
+    for k, s in res['table'].items():
+        print(f'{k:16s} d_r {s["d_r"][0]:.3f}+-{s["d_r"][1]:.3f}  d_m {s["d_m"][0]:.3f}+-{s["d_m"][1]:.3f}  links {s["links"][0]:.4f}  height {s["height"][0]:.2f}+-{s["height"][1]:.2f}')
+    for d, pr in res['profile_protocol'].items():
+        for b, v in pr.items():
+            print(f'profile {d} bin {b:10s} N {v["N"][0]:7.1f} d_r {v["d_r"][0]:.3f}+-{v["d_r"][1]:.3f} d_m {v["d_m"][0]:.3f}+-{v["d_m"][1]:.3f} links {v["links"][0]:.4f} height {v["height"][0]:.2f}')

@@ -1,0 +1,217 @@
+"""Independent mobile Gauss matrices and finite Peierls Taylor controls."""
+from __future__ import annotations
+
+from fractions import Fraction as F
+from functools import lru_cache
+import hashlib
+import importlib.util
+import itertools
+import json
+import math
+from pathlib import Path
+
+import mpmath as mp
+import sympy as s
+
+HERE=Path(__file__).resolve().parent
+spec=importlib.util.spec_from_file_location('coulomb_mobile_independent_static_audit',HERE/'audit.py')
+static=importlib.util.module_from_spec(spec);spec.loader.exec_module(static)
+MOBILE=static.WORK/'CODEX_JOIN_QUANTUM/coulomb_mobile'
+ETA=F(1,24)
+
+
+def endpoint(interval,upper=False):
+    sign,mantissa,exponent,_=interval._mpi_[int(upper)]
+    return F((-1)**sign*mantissa)*F(2)**exponent
+
+
+def enclosure(interval,places=30):
+    scale=10**places;lo=endpoint(interval);hi=endpoint(interval,True)
+    return [str(F(lo.numerator*scale//lo.denominator,scale)),str(F(-(-hi.numerator*scale//hi.denominator),scale))]
+
+
+def ivalue(value):
+    value=s.sympify(value);iv=mp.iv
+    if value.is_Rational:return iv.mpf(int(value.p))/int(value.q)
+    if value.is_Add:return sum((ivalue(v) for v in value.args),iv.mpf(0))
+    if value.is_Mul:return math.prod(ivalue(v) for v in value.args)
+    if value.is_Pow:
+        base,power=value.args
+        if power.is_Integer:return ivalue(base)**int(power)
+        if power.is_Rational and power.q==2:return iv.sqrt(ivalue(base))**int(power.p)
+    raise ValueError(value)
+
+
+def literal_full_kinematic_hopping():
+    # Two source fermions, three reference counts and one longitudinal bit.
+    # Every kinematic column is retained, including mismatched Gauss sectors.
+    basis=list(itertools.product(range(4),range(3),range(2)))
+    ids={word:i for i,word in enumerate(basis)};dimension=len(basis)
+    creation=[]
+    for y in range(2):
+        entries={}
+        for col,(mask,R,ell) in enumerate(basis):
+            if mask>>y&1 or R==2 or (y==1 and ell):continue
+            after=(mask|(1<<y),R+1,ell if y==0 else 1)
+            entries[ids[after],col]=(-1)**((mask&((1<<y)-1)).bit_count())
+        creation.append(s.SparseMatrix(dimension,dimension,entries))
+    gauss=[s.diag(*[(-ell-(mask&1)+R) if y==0 else (ell-((mask>>1)&1)) for mask,R,ell in basis]) for y in range(2)]
+    number=[s.diag(*[mask>>y&1 for mask,R,ell in basis]) for y in range(2)]
+    for D in creation:
+        for G in gauss:assert G*D-D*G==s.zeros(dimension)
+    # A literal finite unitary from a two-level quadrature. No CCR identity.
+    W=s.Matrix([[s.Rational(3,5),4*s.I/5],[4*s.I/5,s.Rational(3,5)]])
+    assert W.H*W==s.eye(2)
+    d=[s.kronecker_product(D.H,s.eye(2)) for D in creation]
+    Wfull=s.kronecker_product(s.eye(dimension),W)
+    hop=d[1].H*d[0]*Wfull
+    V=-(hop+hop.H)/24
+    factor=d[1]-d[0]*Wfull
+    assert s.simplify(V+(d[1].H*d[1]+d[0].H*d[0])/24-factor.H*factor/24)==s.zeros(2*dimension)
+    for y in range(2):
+        delta=s.kronecker_product(number[y],s.eye(2))-d[y].H*d[y]
+        assert delta==s.diag(*delta.diagonal()) and all(v>=0 for v in delta.diagonal())
+        G=s.kronecker_product(gauss[y],s.eye(2))
+        assert G*V-V*G==s.zeros(2*dimension)
+    N0=s.kronecker_product(number[0],s.eye(2));N1=s.kronecker_product(number[1],s.eye(2))
+    J=s.I*(hop-hop.H)/24
+    assert s.I*(V*N0-N0*V)==-J and s.I*(V*N1-N1*V)==J
+    # The matched physical subspace identifies the dressed hopping with CAR.
+    embedding=s.zeros(dimension,4)
+    for mask in range(4):embedding[ids[mask,mask.bit_count(),mask>>1&1],mask]=1
+    for y,D in enumerate(creation):
+        ordinary=s.zeros(4)
+        for mask in range(4):
+            if not mask>>y&1:ordinary[mask|1<<y,mask]=(-1)**((mask&((1<<y)-1)).bit_count())
+        assert D*embedding==embedding*ordinary
+    return {'literal_full_kinematic_source_dimension':dimension,
+        'with_nontrivial_finite_Peierls_dimension':2*dimension,
+        'full_Gauss_commutators_and_invalid_boundaries':True,
+        'hopping_form_bound_is_explicit_positive_factorization':True,
+        'physical_CAR_embedding_exact':True,'oriented_charge_current_continuity_exact':True}
+
+
+@lru_cache(None)
+def independently_derived_edge_data(edge):
+    D,C,B,G,K,PT=static.independently_rebuilt_geometry()
+    x=s.Symbol('x')
+    roots=(s.Integer(0),4-s.sqrt(5),s.Integer(3),6-s.sqrt(5),s.Integer(4),s.Integer(6),4+s.sqrt(5),s.Integer(7),6+s.sqrt(5))
+    powers=[s.eye(42)]
+    for _ in range(8):powers.append(powers[-1]*K)
+    weights=[]
+    for lam in roots[1:]:
+        poly=s.Poly(s.prod(x-other for other in roots if other!=lam)/s.prod(lam-other for other in roots if other!=lam),x,extension=s.sqrt(5))
+        weights.append(s.expand(sum(coef*powers[i][edge,edge] for (i,),coef in poly.terms())))
+    frequencies=[s.sqrt(lam) for lam in roots[1:]]
+    f_squared=[weight/(2*omega) for weight,omega in zip(weights,frequencies)]
+    variance=sum(f_squared)
+    assert s.simplify(sum(weights)-PT[edge,edge])==0
+    return frequencies,f_squared,variance,G
+
+
+def independent_first_integral(edge,y,x,time):
+    # The candidate uses polynomial cosine/sine interpolation. This audit
+    # instead evaluates the actual 4x4 exponential by a norm-controlled
+    # Taylor series, before expanding into the frequency-shell occupations.
+    mp.iv.dps=80;iv=mp.iv
+    omega,f_squared,variance,G=independently_derived_edge_data(edge)
+    sigma=iv.sqrt(ivalue(variance))
+    J=[[iv.mpf(0) for _ in range(4)] for _ in range(4)]
+    for n in range(1,4):J[n-1][n]=J[n][n-1]=iv.sqrt(n)
+    power=[iv.mpf(1),iv.mpf(0),iv.mpf(0),iv.mpf(0)]
+    real=[iv.mpf(0) for _ in range(4)];imag=[iv.mpf(0) for _ in range(4)]
+    for order in range(61):
+        coefficient=sigma**order/math.factorial(order)
+        target=real if order%2==0 else imag
+        sign=(-1)**(order//2)
+        for j in range(4):target[j]+=sign*coefficient*power[j]
+        power=[sum((J[j][k]*power[k] for k in range(4)),iv.mpf(0)) for j in range(4)]
+    # ||sigma J||<sqrt(11/4)<5/3 and exp(5/3)<6.
+    tail=F(6)*F(5,3)**61/math.factorial(61)
+    interval_tail=iv.mpf([-int(tail.numerator),int(tail.numerator)])/tail.denominator
+    amplitudes=[(real[j] if j%2==0 else imag[j])+interval_tail for j in range(4)]
+    probabilities=[ivalue(f)/ivalue(variance) for f in f_squared]
+    rho_y=s.eye(13)[:,y]-s.eye(13)[:,1];rho_x=s.eye(13)[:,x]-s.eye(13)[:,1]
+    delta0=((rho_x.T*G*rho_x)[0]-(rho_y.T*G*rho_y)[0])/2
+    t=ivalue(s.Rational(time.numerator,time.denominator));eta=iv.mpf(1)/24
+    all_norm_squared=iv.mpf(0);photon_norm_squared=iv.mpf(0);configuration_count=0
+    for number in range(4):
+        for words in itertools.combinations_with_replacement(range(8),number):
+            n=[words.count(j) for j in range(8)]
+            multinomial=math.factorial(number)//math.prod(math.factorial(nj) for nj in n)
+            weight=amplitudes[number]**2*multinomial
+            for pj,nj in zip(probabilities,n):weight*=pj**nj
+            energy=delta0+sum(nj*wj for nj,wj in zip(n,omega))
+            z=ivalue(energy)
+            time_factor=t*t if energy==0 else (2*iv.sin(z*t/2)/z)**2
+            contribution=eta*eta*weight*time_factor
+            all_norm_squared+=contribution
+            if number:photon_norm_squared+=contribution
+            configuration_count+=1
+    degree=12 if y==0 else 6
+    remainder=6*eta*eta*t*t*iv.sqrt(degree)
+    first=iv.sqrt(all_norm_squared);first_photon=iv.sqrt(photon_norm_squared)
+    actual=first-remainder;actual_photon=first_photon-remainder
+    assert endpoint(actual)>0 and endpoint(actual_photon)>0
+    return {'edge':edge,'source':y,'arrival':x,'time':str(time),
+        'independent_Taylor_order':60,'uniform_exponential_vector_tail':str(tail),
+        'frequency_shell_occupation_configurations':configuration_count,
+        'first_arrival_norm_interval':enclosure(first),
+        'first_nonvacuum_arrival_norm_interval':enclosure(first_photon),
+        'all_order_Duhamel_remainder_interval':enclosure(remainder),
+        'unconditional_arrival_probability_lower':str(endpoint(actual*actual/4)),
+        'unconditional_nonvacuum_arrival_probability_lower':str(endpoint(actual_photon*actual_photon/4))}
+
+
+def universal_analytic_bounds():
+    t=F(1,4);eta=ETA
+    sinc=1-100*t*t/24
+    amplitude=eta*t*sinc-24*eta*eta*t*t
+    assert amplitude==F(47,9216)
+    short=F(1,64)
+    assert 1-100*short*short/24>F(11,12)
+    photon=eta*short/12-24*eta*eta*short*short
+    assert photon==F(13,294912)
+    assert 1/F(108)>1/F(121)
+    assert s.sqrt(4-s.sqrt(5))<s.Rational(3,2)
+    return {'eta':str(eta),'physical_ground_gap':'sqrt(4-sqrt(5))',
+        'full_kinematic_ground_gap':'26/217',
+        'unconditional_neighbor_arrival_lower':str(amplitude*amplitude/4),
+        'unconditional_neighbor_and_nonvacuum_lower':str(photon*photon/4),
+        'separate_actual_H_energy_window_hit_lower_apex':'1/6',
+        'separate_actual_H_energy_window_hit_lower_boundary':'5/24',
+        'all_detector_settings_keep_their_complete_projector_complements':True,
+        'static_charged_eigenline_not_transferred':True,
+        'finite_exponential_uses_no_unbounded_CCR_identity':True}
+
+
+def receipt():
+    value={'full_kinematic_operator_checks':literal_full_kinematic_hopping(),
+        'universal_bounds':universal_analytic_bounds(),
+        'independent_finite_exponential_first_integral':[independent_first_integral(edge,1,x,time) for edge,x in ((0,0),(12,2)) for time in (F(1,4),F(1,64))]}
+    candidate=json.loads((MOBILE/'results.json').read_text())
+    comparisons=[]
+    for own,published in zip(value['independent_finite_exponential_first_integral'],candidate['finite_Peierls_first_integral_controls']):
+        assert (own['edge'],own['source'],own['arrival'],own['time'])==(published['actual_oriented_edge'],published['source_vertex'],published['arrival_vertex'],published['time'])
+        for ownkey,pubkey in (('first_arrival_norm_interval','first_arrival_norm_interval'),('first_nonvacuum_arrival_norm_interval','first_arrival_nonvacuum_norm_interval')):
+            ownlo,ownhi=map(F,own[ownkey]);publo,pubhi=map(F,published[pubkey])
+            assert ownlo<=pubhi and publo<=ownhi
+        for ownkey,pubkey in (('unconditional_arrival_probability_lower','unconditional_arrival_probability_lower'),('unconditional_nonvacuum_arrival_probability_lower','unconditional_arrival_nonvacuum_probability_lower')):
+            assert abs(F(own[ownkey])-F(published[pubkey]))<F(1,10**60)
+        comparisons.append({'edge':own['edge'],'time':own['time'],'independent_norm_enclosures_overlap':True,'independent_probability_lower_endpoints_differ_by_less_than':'1e-60'})
+    value['candidate_reconciliation']=comparisons
+    value['candidate_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(MOBILE.iterdir()) if p.suffix in ('.py','.md','.json')}
+    names=('mobile_audit.py','test_mobile_audit.py','MOBILE_AUDIT.md')
+    value['audit_source_sha256']={name:hashlib.sha256((HERE/name).read_bytes()).hexdigest() for name in names if (HERE/name).exists()}
+    value['shared_audit_input_sha256']={name:hashlib.sha256((HERE/name).read_bytes()).hexdigest() for name in ('audit.py','static_results.json')}
+    value['geometry_input_sha256']={name:hashlib.sha256((static.RER/name).read_bytes()).hexdigest() for name in ('Lean/Screen/SeamCurrentCarrierQuotient.lean','Lean/ObserverPatchHolography/CoreAxioms.lean')}
+    return value
+
+
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');args=parser.parse_args()
+    value=receipt();path=HERE/'mobile_results.json'
+    if args.check:assert json.loads(path.read_text())==value
+    else:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    print('PASS: independent mobile finite Gauss and Peierls audit')

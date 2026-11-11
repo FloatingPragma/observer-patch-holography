@@ -1,0 +1,55 @@
+"""LR addendum 2 (O11): control with the current of the kick read from the pair's own cell X in the same round.
+
+Run from this directory (seconds):
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr3c_self_current.py
+Writes lr3c_self_current.json.
+"""
+import json
+import math
+import os
+
+import numpy as np
+
+import lr_engine as E
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+PAIR = E.Pair(2, 2)
+
+
+def run(N, rounds):
+    h = 1.0 / N
+    jx = PAIR.rp.astype(float) - PAIR.rm.astype(float)                      # +1 record 2, -1 record 3, 0 blank
+    kick = np.exp(-1j * h * jx[:, None] * PAIR.xor)                         # exp(-i h J_X Qx)
+    psi = PAIR.uu.copy()
+    g = 1.0 + 0j
+    phase = 0.0
+    first = None
+    dev = 0.0
+    for _ in range(rounds):
+        out = PAIR.inverse_tick(PAIR.tick(psi) * kick)
+        a = out.sum() / E.NA
+        rel = a * np.conj(g)
+        if first is None:
+            first = rel
+        dev = max(dev, abs(rel - first))
+        phase += -math.atan2(rel.imag, rel.real)
+        g = a / abs(a)
+        psi = g * PAIR.uu
+    z = np.exp(-1j * h)
+    closed = 1 + (5 / 72) * (z - 1) + (1 / 72) * (np.conj(z) - 1)
+    return dict(N=N, rounds=rounds, phase_per_unit_clock_time=phase / (rounds / N),
+                closed_form=-N * math.atan2(closed.imag, closed.real),
+                round_amplitude_minus_closed_form=abs(first - closed), max_change_of_the_round_amplitude=dev)
+
+
+def main():
+    rows = [run(N, 10 ** 4) for N in (1, 10, 100, 1000)]
+    out = dict(task='LR addendum 2, O11: the current read from the pair cell itself', limit='1/18',
+               limit_float=1 / 18, rows=rows)
+    json.dump(out, open(os.path.join(HERE, 'lr3c_self_current.json'), 'w'), indent=1)
+    for r in rows:
+        print(r)
+
+
+if __name__ == '__main__':
+    main()

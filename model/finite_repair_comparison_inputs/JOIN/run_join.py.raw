@@ -1,0 +1,98 @@
+"""Exact checks of the joint walk: unitarity, reduction to the static-link walk, conservation, covariance, influence
+in both directions, trace for the heralded reference."""
+import json, sys
+from fractions import Fraction as Fr
+import numpy as np
+import join as J
+
+out = {}
+e0 = 0                                             # seams[0], the central edge of the public package
+a0, b0 = J.SEAMS[e0]
+start = 1 << e0
+print('central negative link', J.SEAMS[e0], 'flux faces', [J.FACES[i] for i, b in enumerate(J.flux(start)) if b])
+
+# ---- global sector: all thirty links may move
+order, _ = J.reachable(start, range(J.M))
+patterns = {J.flux(l) for l in order}
+print(f'global two-defect sector: reachable link states {len(order)}, flux patterns {len(patterns)}, defects per pattern {sorted({sum(p) for p in patterns})}')
+out['global_reachable_link_states'] = len(order); out['global_flux_patterns'] = len(patterns)
+
+# ---- regional sector of the public protection note: the five faces at vertex 5, interior edges movable
+v = 5
+interior = [J.EDGE[frozenset((v, q))] for q in J.ADJ[v]]
+reg = J.Joint(start, interior)
+print(f'regional sector (vertex {v}): link states {reg.L}, joint dimension {reg.dim}')
+out['regional_link_states'] = reg.L; out['regional_dimension'] = reg.dim
+
+# 1. unitarity: norms and inner products of basis images (exact integers)
+rng = np.random.default_rng(1)
+ok = True
+vecs = []
+for _ in range(6):
+    psi = reg.zero(); idx = tuple(int(rng.integers(0, n)) for n in psi.shape); psi[idx] = 1
+    vecs.append((psi, reg.step(psi)))
+for i, (p, wp) in enumerate(vecs):
+    ok &= reg.norm2(wp) == 120 ** 2 * reg.norm2(p)
+    for q, wq in vecs[i + 1:]:
+        ok &= int((wp * wq).sum()) == 120 ** 2 * int((p * q).sum())
+print('unitarity on sampled basis vectors (exact):', ok); out['unitary_sampled'] = bool(ok)
+
+# 2. reduction: with moves disabled the three-step embedded return amplitude reproduces the public numbers
+def embedded_return(model, link_index, port, steps, moves=True):
+    psi0 = model.embedded(link_index, port)
+    psi = model.run(psi0, steps, moves)
+    amp = Fr(int((psi0 * psi).sum()), 60 * 120 ** steps)            # <A x| W^t |A x>, |A x|^2 = 60/60
+    return amp
+flat = J.Joint(0, [], moves=False)
+static = J.Joint(start, [], moves=False)
+d3 = embedded_return(static, 0, a0, 3) - embedded_return(flat, 0, a0, 3)
+print('static central link, three-step embedded return change at an endpoint:', d3, '(public value -1/6750)')
+out['static_three_step_change'] = str(d3)
+
+# 3. field -> matter with moving links
+for steps in (2, 3, 4, 5):
+    r_static = embedded_return(static, 0, a0, steps)
+    r_joint = embedded_return(reg, reg.index[start], a0, steps)
+    print(f'   steps {steps}: return amplitude static {r_static} = {float(r_static):.9f}   joint {r_joint} = {float(r_joint):.9f}   difference {float(r_joint - r_static):+.3e}')
+    out[f'return_steps_{steps}'] = {'static': str(r_static), 'joint': str(r_joint)}
+
+# 4. matter -> field: defect position distribution for different walker preparations
+def defect_distribution(model, port, steps):
+    psi = model.run(model.embedded(model.index[start], port), steps)
+    w = {}
+    for i, l in enumerate(model.links):
+        inside = tuple(i2 for i2, b in enumerate(J.flux(l)) if b)
+        w[inside] = w.get(inside, 0) + int((psi[i] * psi[i]).sum())
+    tot = sum(w.values())
+    return {str([J.FACES[f] for f in key]): Fr(val, tot) for key, val in sorted(w.items())}
+far = [p for p in range(J.N) if p not in (a0, b0, v) and p not in J.ADJ[v]][0]
+for steps in (1, 2, 4):
+    for label, port in (('walker at an endpoint of the negative link', a0), ('walker at the centre of the region', v), ('walker outside the region', far)):
+        dist = defect_distribution(reg, port, steps)
+        moved = 1 - dist[str([J.FACES[f] for f in [i for i, b in enumerate(J.flux(start)) if b]])]
+        print(f'   steps {steps}, {label} (port {port}): probability that a defect has moved {moved} = {float(moved):.6f}')
+        out[f'moved_steps_{steps}_port_{port}'] = str(moved)
+
+# 5. conservation: number of defects in every reachable link state
+print('defect number over the regional sector:', sorted({sum(J.flux(l)) for l in reg.links}))
+
+# 6. recharting covariance at the centre of the region (the only vertex whose five links are all movable)
+psi = reg.embedded(reg.index[start], a0); psi[reg.index[start], v, 1, 7] = 3
+lhs = reg.gauge(reg.step(psi), v); rhs = reg.step(reg.gauge(psi, v))
+print('commutes with the vertex recharting at the region centre (exact):', lhs is not None and bool((lhs == rhs).all()))
+out['recharting_covariance'] = bool(lhs is not None and (lhs == rhs).all())
+
+# 7. trace of W_J on the regional joint space, for the heralded reference rho = [(5/4) I + (W + W*)/2] / Z
+tr = 0
+for i in range(reg.L):
+    for p in range(J.N):
+        for par in range(2):
+            for k in range(2 * J.M):
+                psi = reg.zero(); psi[i, p, par, k] = 1
+                tr += int(reg.step(psi)[i, p, par, k])
+trace = Fr(tr, 120)
+d = reg.dim
+Z = Fr(5, 4) * d + trace
+print(f'trace of W_J on the regional space: {trace}; static-link value per link state (2 - 60) * 22 = {-58 * 22}; filter normalization Z = {Z}; success probability {Z / (Fr(9, 4) * d)}')
+out['trace'] = str(trace); out['filter_Z'] = str(Z); out['success_probability'] = str(Z / (Fr(9, 4) * d))
+json.dump(out, open(sys.argv[1], 'w'), indent=1)

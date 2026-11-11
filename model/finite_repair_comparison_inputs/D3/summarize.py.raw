@@ -1,0 +1,41 @@
+"""D3: condensed reading of the vortex.py result files (counts, handedness, velocities, pair splittings).
+
+Usage:  python summarize.py <result.json> [more.json ...]
+"""
+import json, sys
+import numpy as np
+
+
+def fmt(v, d=6):
+    return None if v is None else round(float(v), d)
+
+
+def lines(path):
+    d = json.load(open(path))
+    for r in d['results']:
+        c = r['config']
+        head = (f"n={c['n']} L={c['L']} th0={c['theta0']} {c.get('kind', 'vortex')} xi_c={c.get('xi_c')} "
+                f"{c.get('centred', 'plaquette')} p3={round(c.get('p3', 0.0), 4)} flux={round(c.get('flux', 0.0), 4)}")
+        for row in r['classes']:
+            sat = row.get('block_saturated'); res = row.get('largest_residual_in_window')
+            cl = f"  class {row['class']} in-window(class)={row.get('states_in_window')} sat={sat} res={res if res is None else f'{res:.1e}'}"
+            if not row['cores']:
+                yield head + cl + f" | no state in window (largest cos H {row.get('largest_ritz_value_of_cos_H')}, edge {row.get('window_edge_cos')})"
+                continue
+            for cr in row['cores']:
+                nz = cr.get('near_zero_group', {})
+                ph = nz.get('phases_per_tick', [])
+                pos = sorted(abs(x) for x in ph)[::2] if ph else []
+                gr = cr.get('group_residual_of_U')
+                yield (head + cl + f" | core {cr['core']} w={cr['winding']} states={cr['states']} gres={gr if gr is None else f'{gr:.1e}'}"
+                       f" | group |E| {[float(f'{x:.3g}') for x in pos]} next {fmt(nz.get('next_phase_per_tick'), 4)}"
+                       f" | n+ {nz.get('n_plus')} n- {nz.get('n_minus')}"
+                       f" | smooth/stag + {nz.get('plus_smooth')}/{nz.get('plus_staggered')} - {nz.get('minus_smooth')}/{nz.get('minus_staggered')}"
+                       f" | ax1 + {nz.get('plus_shift_correlation_axis1')} - {nz.get('minus_shift_correlation_axis1')}"
+                       f" | v+ {nz.get('dE_dp3_per_tick_on_Gamma_plus')} v- {nz.get('dE_dp3_per_tick_on_Gamma_minus')}"
+                       f" | Theta sv {nz.get('Theta_plus_onto_minus_singular_values')}")
+
+
+if __name__ == '__main__':
+    for p in sys.argv[1:]:
+        for ln in lines(p): print(ln)

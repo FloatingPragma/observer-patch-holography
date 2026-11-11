@@ -1,0 +1,162 @@
+"""FR round 2, goal 4: source mechanisms (S1 to S3, I1 of ROUND2_REGISTER.md). EXACT (sympy, Fractions).
+Writes fr6_source.json.
+
+Per object basis (l, r, o) as in fr_common. y = z w^k is the phase of the family step in sector k of F
+(R v_k = w^k v_k, z = exp(i theta)); T K acts as y^(+1) on (r = 1, o = +), y^(-1) on (r = 1, o = -).
+"""
+from __future__ import annotations
+
+import sys
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+import fr_common as FC
+import fr2_register as R2
+
+OUT = 'fr6_source.json'
+y = sp.Symbol('y')
+a13, a23 = R2.a13, R2.a23
+
+
+def q_oriented():
+    Q = FC.obj_event(1)
+    M = sp.zeros(12, 12)
+    for o in range(2):
+        for i in range(6):
+            for j in range(6):
+                l, r, l2, r2 = i // 2, i % 2, j // 2, j % 2
+                M[FC.oidx(l2, r2, o), FC.oidx(l, r, o)] = Q[FC.oidx(l2, r2, 0), FC.oidx(l, r, 0)]
+    return M
+
+
+def dphase(sym):
+    return sp.diag(*[(sym if i % 2 == 0 else 1 / sym) if (i // 2) % 2 == 1 else 1 for i in range(12)])
+
+
+def e(l, r, o):
+    v = sp.zeros(12, 1)
+    v[FC.oidx(l, r, o)] = 1
+    return v
+
+
+def simp(M):
+    return M.applyfunc(lambda x: sp.nsimplify(sp.expand(sp.simplify(x))))
+
+
+def main():
+    out = {'task': 'FR round 2 goal 4: source mechanisms', 'provenance': FC.provenance()}
+    Q = FC.obj_event(1)
+    Rr = FC.obj_address_reflection()
+    V = FC.obj_orient()
+    Qor = q_oriented()
+    Wp, Wor, Wv = Q * Rr, Qor * Rr, V * Q * Rr
+
+    # ---- S1 two-tick maps on blank records
+    def img(W2, l, o):
+        v = W2 * e(l, 0, o)
+        nz = [(i // 4, (i // 2) % 2, i % 2, v[i]) for i in range(12) if v[i] != 0]
+        return [(('tail', 'head', 'idle')[a], b, '+-'[c], str(d)) for a, b, c, d in nz]
+    W2p, W2or, W2v = simp(Wp * Wp), simp(Wor * Wor), simp(Wv * Wv)
+    exch = sp.zeros(12, 12)
+    for l in range(3):
+        for r in range(2):
+            for o in range(2):
+                l2 = {0: 1, 1: 0, 2: 2}[l]
+                exch[FC.oidx(l2, r, o), FC.oidx(l, r, o)] = (-1 if (r == 1 and l != 2) else 1)
+    s1 = {
+        'plain (Q R_2)^2 = exchange (x) Z_r on the seam block, identity on idle': W2p == exch,
+        'plain: images of blank tail/head': {f'{("tail","head")[l]},{"+-"[o]}': img(W2p, l, o) for l in (0, 1) for o in (0, 1)},
+        'plain: (Q R_2)^4 = 1': simp(W2p * W2p) == sp.eye(12),
+        'native frame (Q_or R_2)^2 = 1': W2or == sp.eye(12),
+        'one-sided V every tick: images of blank tail/head': {f'{("tail","head")[l]},{"+-"[o]}': img(W2v, l, o)
+                                                              for l in (0, 1) for o in (0, 1)},
+        'one-sided V: period': next(n for n in range(1, 17) if simp(Wv ** n) == sp.eye(12)),
+    }
+    out['S1_two_tick_maps'] = s1
+    print('S1', {k: v for k, v in s1.items() if not isinstance(v, dict)})
+    print('   plain images', s1['plain: images of blank tail/head'])
+    print('   one-sided V images', s1['one-sided V every tick: images of blank tail/head'])
+
+    # ---- I1: unitary iteration with record reuse, native-frame law, sector phase y
+    inC = FC.obj_state(a13, 0, a23)
+    inE = FC.obj_state(a13, 0, a23)
+    fl = R2.flags()
+    WC = dphase(y) * Wor
+    WE = Wor
+    rows = {}
+    psiC, psiE = inC, inE
+    for n in range(1, 7):
+        psiC = simp(WC * psiC)
+        psiE = simp(WE * psiE)
+        lam = ((fl['E_agree'].T * psiE)[0] * (fl['C_idle'].T * psiC)[0]
+               + (fl['E_idle'].T * psiE)[0] * ((fl['C_rep+'].T * psiC)[0] + (fl['C_rep-'].T * psiC)[0])) / sp.sqrt(3)
+        ret = (inC.T * psiC)[0]
+        rows[n] = {'lambda_k(n) as a function of y = z w^k': str(sp.nsimplify(sp.expand(sp.simplify(lam)))),
+                   'C return amplitude <in|psi_n>': str(sp.nsimplify(sp.expand(sp.simplify(ret)))),
+                   'E return amplitude': str(sp.nsimplify(sp.simplify((inE.T * psiE)[0])))}
+    out['I1_native_frame_record_reuse'] = rows
+    for n, r in rows.items():
+        print('I1 n =', n, r)
+
+    # ---- S2 return-detector cycle (two ticks, then the return detector onto the preparation)
+    s2 = {}
+    for name, W in (('native frame', Wor), ('plain', Wp), ('one-sided V every tick', Wv)):
+        WCn = dphase(y) * W
+        one = sp.nsimplify(sp.expand(sp.simplify((inC.T * WCn * inC)[0])))
+        two = sp.nsimplify(sp.expand(sp.simplify((inC.T * WCn * WCn * inC)[0])))
+        four = sp.nsimplify(sp.expand(sp.simplify((inC.T * WCn ** 4 * inC)[0])))
+        e1 = sp.nsimplify(sp.simplify((inE.T * W * inE)[0]))
+        e2 = sp.nsimplify(sp.simplify((inE.T * W * W * inE)[0]))
+        s2[name] = {'C one tick <in|W|in>': str(one), 'C two ticks <in|W^2|in>': str(two),
+                    'C four ticks <in|W^4|in>': str(four), 'E one tick': str(e1), 'E two ticks': str(e2)}
+    K0 = sp.Rational(5, 6) + sp.Rational(1, 12) * (y + 1 / y)
+    s2['native frame: two-tick C return equals 5/6 + (y + 1/y)/12'] = sp.simplify(
+        sp.sympify(s2['native frame']['C two ticks <in|W^2|in>']) - K0) == 0
+    th = sp.Symbol('theta', real=True)
+    s2['operator on F'] = 'K_0 = (5/6) I + (1/12)(z R + z^-1 R^-1), eigenvalues 5/6 + (1/6) cos(theta + 2 pi k/3)'
+    s2['abs_b_over_a'] = '1/10'
+    import mpmath as mp
+    mp.mp.dps = 30
+    lam = [mp.mpf(5) / 6 + mp.cos(mp.mpf(2) / 9 + 2 * mp.pi * k / 3) / 6 for k in range(3)]
+    gam = sorted(-mp.log(x) for x in lam)
+    s2['theta=2/9 (mechanism only)'] = {'lambda_k': [mp.nstr(x, 12) for x in lam],
+                                        'rates -log lambda sorted': [mp.nstr(g, 10) for g in gam],
+                                        'rate ratios': [mp.nstr(gam[1] / gam[0], 8), mp.nstr(gam[2] / gam[0], 8)],
+                                        'amplitude-squared ratios': [mp.nstr(sorted(x * x for x in lam)[i] /
+                                                                             sorted(x * x for x in lam)[0], 8)
+                                                                     for i in (1, 2)]}
+    out['S2_return_detector_cycle'] = s2
+    for k, v in s2.items():
+        print('S2', k, v)
+
+    # ---- S3 full sixty-address walk: return amplitude of A|2>
+    from model.coherent_seam_repair.program import Observer
+    obs = Observer()
+    st = obs.embedded_port(2)
+    lams_ = [sp.Integer(1), sp.Rational(11, 12) + sp.sqrt(5) / 60, sp.Rational(11, 12) - sp.sqrt(5) / 60,
+             sp.Rational(9, 10)]
+    wts = [sp.Rational(1, 12), sp.Rational(1, 4), sp.Rational(1, 4), sp.Rational(5, 12)]
+    exact, okf = [], True
+    for n in range(1, 9):
+        st = obs.step(st)
+        amp = obs.embedded_return_amplitude(st, 2)
+        pred = sp.nsimplify(sp.simplify(sum(w * sp.chebyshevt(n, l) for w, l in zip(wts, lams_))))
+        okf &= sp.simplify(amp - pred) == 0
+        exact.append(str(sp.nsimplify(amp)))
+    om = [mp.acos(mp.mpf(str(sp.N(l, 40)))) for l in lams_]
+    series = [float(sum(mp.mpf(str(sp.N(w, 30))) * mp.cos(n * o) for w, o in zip(wts, om))) for n in range(0, 201)]
+    out['S3_full_walk_return'] = {
+        'formula_matches_Observer_n<=8': okf, 'exact_return_amplitudes_n=1..8': exact,
+        'float_n=1..12': [round(x, 6) for x in series[1:13]],
+        'max_abs_return_for_10<=n<=200': round(max(abs(x) for x in series[10:]), 6),
+        'n_of_max': 10 + max(range(len(series[10:])), key=lambda i: abs(series[10 + i])),
+        'long_time_mean': '1/12 (the uniform mode)',
+    }
+    print('S3', out['S3_full_walk_return'])
+    FC.jdump(out, OUT)
+    print('written', OUT)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

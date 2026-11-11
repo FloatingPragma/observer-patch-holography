@@ -1,0 +1,245 @@
+"""D3 library (worker D3, round 6): the CF-1 routing tick with a cell-dependent mass phase.
+
+Reference engines, imported by path and never modified:
+    work/DIRAC/routing.py   (Routing: seam involution, record reflection, shift)
+    work/R1/cf1.py          (mass_step with an angle per cell; used in check_lib.py only)
+On box B the repository is absent; there the byte-identical copy routing_ref_copy.py is loaded (sha256 recorded).
+
+Added here (DECLARED, the extension the task asks for):
+    mass step with an angle and a phase per cell
+        M(x) = exp(-i theta(x) N(x)),   N(x) = cos phi(x) Z_r + sin phi(x) Y_r
+    (phi = 0 is the engine's kind 'Z', phi = pi/2 its kind 'Y'); the symmetric frame of worker R6,
+        U_s = M^1/2 S_rev M S_fwd M^1/2   (period of two ticks; on a line with one tick: M^1/2 S M^1/2);
+    sparse matrices of the same operators (validated against the engine in check_lib.py);
+    the two exact structures used throughout:
+        Gamma = alpha_3 = X_r sigma_3   chiral symmetry of the transverse period at p_3 = 0:  Gamma U_s Gamma = U_s^-1
+        Theta = exp(i (pi/2)(x_1 + x_2)) sigma_1   commutes with the transverse period, anticommutes with Gamma.
+Index conventions of work/R1/DEFINITION.md: psi[x1, x2, x3, r, s]; one-body index n = 4 cell + 2 r + s.
+"""
+import hashlib, importlib.util, os
+import numpy as np
+import scipy.sparse as sp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+_REF = 'WORKSPACE/repair-law/work/DIRAC/routing.py'
+ENGINE = _REF if os.path.exists(_REF) else os.path.join(HERE, 'routing_ref_copy.py')
+_spec = importlib.util.spec_from_file_location('routing_ref', ENGINE)
+routing = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(routing)
+Routing, SIG = routing.Routing, routing.SIG
+ENGINE_SHA = hashlib.sha256(open(ENGINE, 'rb').read()).hexdigest()
+
+I2 = np.eye(2, dtype=complex)
+XR, YR, ZR = [np.kron(SIG[k], I2) for k in range(3)]            # record Pauli matrices on the coin (index 2 r + s)
+SPIN = [np.kron(I2, SIG[k]) for k in range(3)]                  # sigma_1, sigma_2, sigma_3
+ALPHA = [np.kron(SIG[0], SIG[k]) for k in range(3)]             # alpha_i = X_r sigma_i
+GAMMA = ALPHA[2]                                                # handedness along axis 3
+
+
+# ------------------------------------------------------------------ engine level (arrays psi[x1, x2, x3, r, s])
+def mass_apply(psi, theta, phi, f=1.0):
+    """exp(-i f theta(x) (cos phi(x) Z_r + sin phi(x) Y_r)) psi"""
+    th = f * np.asarray(theta, float); ph = np.broadcast_to(np.asarray(phi, float), th.shape)
+    c, s = np.cos(th)[..., None], np.sin(th)[..., None]; cp, sn = np.cos(ph)[..., None], np.sin(ph)[..., None]
+    out = np.empty_like(psi)
+    out[..., 0, :] = (c - 1j * s * cp) * psi[..., 0, :] - s * sn * psi[..., 1, :]
+    out[..., 1, :] = s * sn * psi[..., 0, :] + (c + 1j * s * cp) * psi[..., 1, :]
+    return out
+
+
+class EngineWalk:
+    """The tick executed by the reference engine; only the mass step is added here."""
+
+    def __init__(self, shape, theta, phi=0.0, links=None):
+        self.shape = tuple(shape); self.w = Routing(self.shape, links)
+        self.theta = np.broadcast_to(np.asarray(theta, float), self.shape).copy()
+        self.phi = np.broadcast_to(np.asarray(phi, float), self.shape).copy()
+
+    def route(self, psi, reverse=False):
+        for i in ((2, 1, 0) if reverse else (0, 1, 2)): psi = self.w.shift(psi, i)
+        return psi
+
+    def mass(self, psi, f=1.0):
+        return mass_apply(psi, self.theta, self.phi, f)
+
+    def tick(self, psi, t=0):
+        return self.mass(self.route(psi, reverse=bool(t % 2)))
+
+    def period(self, psi):
+        return self.tick(self.tick(psi, 0), 1)
+
+    def sym(self, psi, ticks=2):
+        """symmetric frame: M^1/2 S M^1/2 (ticks = 1, a line) or M^1/2 S_rev M S_fwd M^1/2 (ticks = 2)"""
+        psi = self.route(self.mass(psi, 0.5))
+        if ticks == 2: psi = self.route(self.mass(psi), reverse=True)
+        return self.mass(psi, 0.5)
+
+    def dense(self, f):
+        n = 4 * int(np.prod(self.shape)); out = np.empty((n, n), complex)
+        for k in range(n):
+            e = np.zeros(n, complex); e[k] = 1
+            out[:, k] = f(e.reshape(self.shape + (2, 2))).ravel()
+        return out
+
+
+# ------------------------------------------------------------------ sparse matrices of the same operators
+def _translation(shape, i, links=None):
+    """T_i |x> = conj(z_(x,i)) |x + e_i>  (the engine's convention for a link phase z; z = 1 without links)"""
+    N = int(np.prod(shape)); idx = np.arange(N).reshape(shape)
+    z = np.ones(N, complex) if links is None else np.conj(np.asarray(links[i], complex)).ravel()
+    return sp.csr_matrix((z, (np.roll(idx, -1, axis=i).ravel(), idx.ravel())), shape=(N, N))
+
+
+def shift_matrix(shape, i, links=None, p=None):
+    """S_i = P_i^+ T_i + P_i^- T_i^dagger, alpha_i = X_r sigma_i. p: instead of a lattice axis, the coin operator
+    exp(-i p alpha_i) of a wave number p along axis i (used for the free axis 3 of a transverse patch)."""
+    N = int(np.prod(shape))
+    if p is not None:
+        return sp.kron(sp.identity(N), np.cos(p) * np.eye(4) - 1j * np.sin(p) * ALPHA[i], format='csr')
+    T = _translation(shape, i, links)
+    Pp, Pm = (np.eye(4) + ALPHA[i]) / 2, (np.eye(4) - ALPHA[i]) / 2
+    return (sp.kron(T, Pp) + sp.kron(T.conj().T, Pm)).tocsr()
+
+
+def mass_matrix(theta, phi, f=1.0):
+    th = f * np.asarray(theta, float).ravel(); ph = np.broadcast_to(np.asarray(phi, float), np.shape(theta)).ravel()
+    c, s, cp, sn = np.cos(th), np.sin(th), np.cos(ph), np.sin(ph); N = len(th)
+    blocks = np.zeros((N, 4, 4), complex)
+    for sidx in (0, 1):
+        blocks[:, 0 + sidx, 0 + sidx] = c - 1j * s * cp
+        blocks[:, 0 + sidx, 2 + sidx] = -s * sn
+        blocks[:, 2 + sidx, 0 + sidx] = s * sn
+        blocks[:, 2 + sidx, 2 + sidx] = c + 1j * s * cp
+    return sp.bsr_matrix((blocks, np.arange(N), np.arange(N + 1)), shape=(4 * N, 4 * N)).tocsr()
+
+
+class Patch:
+    """Transverse patch (L1, L2) with periodic wrap, free axis 3 at wave number p3 (coin operator), fields theta, phi."""
+
+    def __init__(self, shape2, theta, phi, p3=0.0, links=None):
+        self.shape = (shape2[0], shape2[1], 1); self.N = shape2[0] * shape2[1]
+        self.theta = np.asarray(theta, float).reshape(self.shape); self.phi = np.asarray(phi, float).reshape(self.shape)
+        l3 = None if links is None else [np.asarray(l).reshape(self.shape) for l in links] + [np.ones(self.shape)]
+        self.S = [shift_matrix(self.shape, 0, l3), shift_matrix(self.shape, 1, l3), shift_matrix(self.shape, 2, p=p3)]
+        self.p3 = p3
+        self.M = mass_matrix(self.theta, self.phi); self.Mh = mass_matrix(self.theta, self.phi, 0.5)
+        x1, x2 = np.meshgrid(np.arange(shape2[0]), np.arange(shape2[1]), indexing='ij')
+        self.x1, self.x2 = x1.ravel(), x2.ravel()
+
+    def fwd(self): return (self.S[2] @ self.S[1] @ self.S[0]).tocsr()
+    def rev(self): return (self.S[0] @ self.S[1] @ self.S[2]).tocsr()
+
+    def period(self):
+        """M S_rev M S_fwd, the period as section 13 of CF1.md defines it"""
+        return (self.M @ self.rev() @ self.M @ self.fwd()).tocsr()
+
+    def period_sym(self):
+        return (self.Mh @ self.rev() @ self.M @ self.fwd() @ self.Mh).tocsr()
+
+    def gamma(self): return sp.kron(sp.identity(self.N), GAMMA, format='csr')
+
+    def theta_op(self):
+        return sp.kron(sp.diags(np.exp(0.5j * np.pi * (self.x1 + self.x2))), SPIN[0], format='csr')
+
+    def class_index(self, a, b):
+        """one-body indices of the cells with (x1 mod 2, x2 mod 2) = (a, b)"""
+        cells = np.nonzero((self.x1 % 2 == a) & (self.x2 % 2 == b))[0]
+        return (4 * cells[:, None] + np.arange(4)[None, :]).ravel(), cells
+
+
+# ------------------------------------------------------------------ fields
+def theta1(u, terms=14):
+    """Jacobi theta_1(u | tau = i), q = exp(-pi)"""
+    q = np.exp(-np.pi); out = np.zeros(np.shape(u), complex)
+    for k in range(terms): out += 2 * (-1) ** k * q ** ((k + 0.5) ** 2) * np.sin((2 * k + 1) * u)
+    return out
+
+
+def checkerboard_cores(L, centred='plaquette'):
+    """four cores on an L x L torus: winding +1 at (c1, c1), (c2, c2), winding -1 at (c1, c2), (c2, c1)"""
+    off = 0.5 if centred == 'plaquette' else 0.0
+    c1, c2 = L // 4 - off, 3 * L // 4 - off
+    return [((c1, c1), +1), ((c2, c2), +1), ((c1, c2), -1), ((c2, c1), -1)]
+
+
+def vortex_phase(L, n, cores):
+    """n times the phase of the elliptic function with simple zeros at the +1 cores and simple poles at the -1 cores:
+    harmonic, periodic on the L x L torus (sum of the signs zero, sum of sign times position zero)."""
+    x1, x2 = np.meshgrid(np.arange(L), np.arange(L), indexing='ij'); z = x1 + 1j * x2
+    f = np.ones((L, L), complex)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        for (c, sgn) in cores:
+            t = theta1(np.pi * (z - (c[0] + 1j * c[1])) / L)
+            f = f * t if sgn > 0 else f / t
+        ph = n * np.angle(f)
+    # D3 continuation: a core on a cell centre is a zero or pole of f; its phase is undefined (nan at a pole).
+    # The caller sets the modulus to zero on such a cell (vortex.py, build); the phase there is set to 0 here.
+    return np.where(np.isfinite(ph), ph, 0.0)
+
+
+def core_distance(L, c):
+    x1, x2 = np.meshgrid(np.arange(L), np.arange(L), indexing='ij')
+    d1 = (x1 - c[0] + L / 2) % L - L / 2; d2 = (x2 - c[1] + L / 2) % L - L / 2
+    return np.hypot(d1, d2), d1, d2
+
+
+def vortex_modulus(L, theta0, cores, xi_c, n):
+    """theta0 times the product over the cores of tanh(r / xi_c)^|n| (xi_c = 0: uniform modulus)"""
+    th = np.full((L, L), float(theta0))
+    if xi_c > 0:
+        for (c, sgn) in cores: th = th * np.tanh(core_distance(L, c)[0] / xi_c) ** abs(n)
+    return th
+
+
+# ------------------------------------------------------------------ spectral subspace of cos H near +1
+def ingap_subspace(U, k, a, deg=160, sweeps=3, seed=0):
+    """Orthonormal basis V (n x k) of an invariant subspace of C = (U + U^dagger)/2 containing all eigenvalues above
+    a, by subspace iteration with a Chebyshev filter that maps [-1, a] to [-1, 1]. Returns V, the Ritz values of C
+    (descending) and the residual norms. U must be a period in the symmetric frame restricted to an invariant block."""
+    C = ((U + U.conj().T) * 0.5).tocsr(); n = C.shape[0]
+    rng = np.random.default_rng(seed)
+    V = rng.normal(size=(n, k)) + 1j * rng.normal(size=(n, k)); V, _ = np.linalg.qr(V)
+    def t(Xb): return (2.0 * (C @ Xb) - (a - 1.0) * Xb) / (a + 1.0)
+    for _ in range(sweeps):
+        P0, P1 = V, t(V)
+        for _ in range(deg - 1):
+            P0, P1 = P1, 2.0 * t(P1) - P0
+            nrm = np.abs(P1).max()
+            if nrm > 1e100: P0, P1 = P0 / nrm, P1 / nrm
+        V, _ = np.linalg.qr(P1)
+        w, R = np.linalg.eigh(V.conj().T @ (C @ V)); V = V @ R[:, ::-1]; w = w[::-1]
+    res = np.linalg.norm(C @ V - V * w[None, :], axis=0)
+    return V, w, res
+
+
+def ingap_subspace_robust(U, k, a, deg=60, sweeps=14, seed=0, tol=1e-9):
+    """D3 continuation. Chebyshev-filtered subspace iteration on C = (U + U^dagger)/2 with a moderate degree and many
+    sweeps, then keep only Ritz vectors with eigenvalue above a AND residual below tol.
+    Why: with a high degree one sweep amplifies the states at C = 1 by e^90 and states deeper in the window by e^50;
+    after QR the latter are below rounding and the rest of the block is noise (ingap_subspace with deg = 200 to 250
+    loses in-window states and returns spurious ones). Unconverged Ritz vectors near the window edge are mixtures of
+    +E and -E states whose compression of sin H falls near zero; the residual cut removes them.
+    Returns V (kept), w (kept), res (kept), number of Ritz values above a, number kept."""
+    C = ((U + U.conj().T) * 0.5).tocsr(); n = C.shape[0]
+    rng = np.random.default_rng(seed)
+    V = rng.normal(size=(n, k)) + 1j * rng.normal(size=(n, k)); V, _ = np.linalg.qr(V)
+    def t(Xb): return (2.0 * (C @ Xb) - (a - 1.0) * Xb) / (a + 1.0)
+    for _ in range(sweeps):
+        P0, P1 = V, t(V)
+        for _ in range(deg - 1):
+            P0, P1 = P1, 2.0 * t(P1) - P0
+        V, _ = np.linalg.qr(P1)
+        w, R = np.linalg.eigh(V.conj().T @ (C @ V)); V = V @ R[:, ::-1]; w = w[::-1]
+    res = np.linalg.norm(C @ V - V * w[None, :], axis=0)
+    above = w > a; good = above & (res < tol)
+    return V[:, good], w[good], res[good], int(above.sum()), int(good.sum())
+
+
+def signed_phases(U, V):
+    """Signed eigenphases of the compression of U = exp(-i H) to span(V): eigenvalues of the Hermitian compression
+    of sin H = i (U - U^dagger)/2 (valid for |E2| < pi/2, the in-gap window). Returns E2 (ascending), the orthonormal
+    eigenvectors in the full space, and the defect of the compression of U from unitarity."""
+    UV = U @ V; u = V.conj().T @ UV
+    h = 1j * (u - u.conj().T) / 2
+    w, R = np.linalg.eigh(h)
+    defect = float(np.abs(u.conj().T @ u - np.eye(u.shape[0])).max())
+    return np.arcsin(np.clip(w, -1, 1)), V @ R, defect

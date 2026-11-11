@@ -1,0 +1,65 @@
+{
+ "record_independent_charge": {
+  "commutes_with_toggle": true,
+  "equal_on_both_handedness_classes": true,
+  "equals_exp_i_pi_(Q_em + n3/3)": true,
+  "generators_it_fails_to_commute_with": [
+   "su2_T1",
+   "su2_T2"
+  ],
+  "central_link_sign_(-1)^n2_commutes_with_all_twelve": true,
+  "central_link_sign_anticommutes_with_toggle": true,
+  "central_sign_equals_record_independent_times_neutral_level_parity": true,
+  "link_matrix_on_one_load": "diag(1,1,1,-1,1), against the public central link diag(1,1,1,-1,-1)",
+  "lifted_toggle_conserves_(-1)^n_s1_and_(-1)^(n0+h)_separately": true
+ },
+ "A_face_kinematics": {
+  "every_seam_in_two_faces_with_opposite_orientation": true,
+  "class_sum_mod_6_over_the_20_faces_on_500_random_Z6_words": 0,
+  "consequence": "no link word differs from another by one class-3 face; faces change in pairs or by fusion"
+ },
+ "B_tetrahedron": {
+  "link_words": 64,
+  "words_with_an_odd_number_of_class3_faces": 0,
+  "product_of_face_signs_is_one_on_every_word": true,
+  "additive_face_charge": "identically trivial: G_x unchanged",
+  "toggle_times_any_seam_flip_anticommutes_with_G_x": true,
+  "pair_operator_A_hermitian": true,
+  "A_cubed_equals_A": true,
+  "A_anticommutes_with_pair_parity": true,
+  "K_cubed_equals_K": true,
+  "step_unitary_(U U* = 101^2)": true,
+  "step_commutes_with_G_x_times_pair_parity": true,
+  "step_commutes_with_plain_G_x": false,
+  "flux_move_instead_of_pair_fails_with_pair_parity": true,
+  "port_constraints_product_is_matter_parity": true,
+  "step_commutes_with_port_constraints_(ports 0..3)": [
+   false,
+   true,
+   true,
+   true
+  ],
+  "modified_port_constraint_Gamma0_times_pair_parity": {
+   "involution": true,
+   "commutes_with_the_others": true,
+   "commutes_with_the_step": true
+  },
+  "pair_parity_as_product_over_faces": "prod_f i^(flux_f): a single class-3 face would carry half a unit (a Z4 charge)",
+  "topological_spin_of_(flux 3, charge 3)_in_the_Z6_double": "exp(2 pi i 9/6) = -1"
+ },
+ "C_carrier": {
+  "right_patterns_blind_to_class_3": true,
+  "left_patterns_see_class_3": true,
+  "overlap_(right, pair present) with (left, pair absent)": 1.0,
+  "one_flipped_seam_lambda_min": 0.2313616318760045,
+  "next_level": 2.2907246405630755,
+  "overlap_(right, no pair) with (left, pair made by one flipped seam)": 0.9890627941535381,
+  "its_square": 0.9782452107788042,
+  "register_expectation_in_a_state_diagonal_in_flux": 0.0,
+  "coherent_amplitude_sqrt(p(1-p))_for_the_supplied_pair_densities": {
+   "0.040": 0.19595917942265423,
+   "0.00008": 0.008943914131967056,
+   "0": 0.0
+  }
+ }
+}

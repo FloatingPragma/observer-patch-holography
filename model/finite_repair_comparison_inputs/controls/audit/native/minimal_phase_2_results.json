@@ -1,0 +1,42 @@
+{
+  "status": "EXACT three-port one-load diagnostic, not an accepted carrier law",
+  "input_labels": {
+    "seam_graph": "DECLARED path of three ports",
+    "scheduler": "DECLARED uniform two seams",
+    "reverse_probability": "DECLARED 0",
+    "phase_settings": "DECLARED recorded endpoint quarter-turn settings: 2"
+  },
+  "stationary_density": [
+    [
+      "1/3",
+      "11/57 - 2*I/57",
+      "1/19"
+    ],
+    [
+      "11/57 + 2*I/57",
+      "1/3",
+      "11/57 + 2*I/57"
+    ],
+    [
+      "1/19",
+      "11/57 - 2*I/57",
+      "1/3"
+    ]
+  ],
+  "stationary_dimension": 1,
+  "stationary_rank": 3,
+  "faithful_nontracial": true,
+  "retained_endpoint_swap_covariance": true,
+  "global_load_phase_covariance": true,
+  "every_setting_preserves_population_lumping_for_all_inputs": true,
+  "native_coin_current_histories_preserved": false,
+  "strict_diagonal_state_channel_shadow_preserved": false,
+  "native_history_effect_real_span_dimension": 9,
+  "history_span_reached_with_at_most_events": 3,
+  "full_tomography_does_not_implement_each_modular_rotated_effect": true,
+  "modular_flow_executed_by_source": false,
+  "relativistic_transport_proved": false,
+  "gauge_algebra_selected": false,
+  "protected_label_beyond_total_load_proved": false,
+  "complete_law_accepted": false
+}

@@ -1,0 +1,87 @@
+"""R4 item 2: statistics. Executed with the reference engine.
+
+(a) The central element of the cover is -1 on every one-quantum mode (item 4). Its lift to k quanta is the k-th
+    tensor power restricted to the antisymmetric or to the symmetric subspace: (-1)^k in both. Checked here as the
+    square of a lifted half-turn and the cube of a lifted third of a turn on k = 2, 3 quanta in both subspaces.
+(b) Exchange of two quanta by routing. Two-quantum amplitude from {A, B} to {A', B'}: det (antisymmetric) or
+    permanent (symmetric) of the 2 x 2 matrix of one-body amplitudes <X'| W^t |X>, computed by executing the ticks.
+    1. ring 4 x 1 x 1, two right-movers at opposite cells, two ticks: they exchange (non-contractible path);
+    2. the same with a Z2 holonomy -1 around the ring (charged pattern);
+    3. torus 2 x 2 x 2 with mass: one tick translates by (1,1,1);
+    4. contractible exchange on 6 x 6 x 6: two quanta two cells apart, blank records; joint cell statistics after
+       one and two ticks in both lifts and for distinguishable quanta.
+"""
+import sys, itertools
+import numpy as np
+from r4lib import *
+
+OUT = {}
+
+# ---- (a) -----------------------------------------------------------------------------------------------
+def sym_anti(n, k):
+    """projectors on the symmetric and antisymmetric subspaces of (C^n)^(tensor k)"""
+    N = n ** k; Ps = np.zeros((N, N)); Pa = np.zeros((N, N))
+    idx = np.arange(N).reshape((n,) * k)
+    for perm in itertools.permutations(range(k)):
+        sgn = np.linalg.det(np.eye(k)[list(perm)])
+        T = np.zeros((N, N)); T[idx.transpose(perm).ravel(), idx.ravel()] = 1
+        Ps += T; Pa += sgn * T
+    f = float(np.prod(range(1, k + 1)))
+    return Ps / f, Pa / f
+a = {}
+for k in (2, 3):
+    Ps, Pa = sym_anti(4, k)                                           # one cell: record x spin, the cover acts on the spin
+    for name, q, m in (('half-turn squared', (0.0, 1.0, 0.0, 0.0), 2), ('third of a turn cubed', (0.5, 0.5, 0.5, 0.5), 3)):
+        g = np.kron(I2, spin_lift(q)); gk = g
+        for _ in range(k - 1): gk = np.kron(gk, g)
+        z = np.linalg.matrix_power(gk, m)
+        a[f'{name}, {k} quanta'] = {'one_body_power_is_minus_one': bool(np.allclose(np.linalg.matrix_power(g, m), -np.eye(4))),
+                                    'antisymmetric_lift_equals_(-1)^k_defect': float(np.abs(Pa @ z @ Pa - (-1) ** k * Pa).max()),
+                                    'symmetric_lift_equals_(-1)^k_defect': float(np.abs(Ps @ z @ Ps - (-1) ** k * Ps).max()),
+                                    'dimensions_antisymmetric_symmetric': [int(round(np.trace(Pa))), int(round(np.trace(Ps)))]}
+OUT['a_central_element_lift'] = a; print(a)
+
+# ---- (b) -----------------------------------------------------------------------------------------------
+def at(shape, x, coin):
+    psi = np.zeros(tuple(shape) + (2, 2), complex); psi[x] = np.asarray(coin, complex).reshape(2, 2); return psi
+def run(w, psi, ticks, theta=0.0):
+    for t in range(ticks): psi = w.tick(psi, theta, reverse=bool(t % 2))
+    return psi
+def amps(w, A, B, ticks, theta=0.0):
+    fa, fb = run(w, A, ticks, theta), run(w, B, ticks, theta)
+    O = np.array([[np.vdot(A, fa), np.vdot(A, fb)], [np.vdot(B, fa), np.vdot(B, fb)]])
+    return O, O[0, 0] * O[1, 1] - O[0, 1] * O[1, 0], O[0, 0] * O[1, 1] + O[0, 1] * O[1, 0]
+c2 = lambda z: [float(np.real(z)), float(np.imag(z))]
+b = {}
+right = np.kron([1, 1], [1, 1]) / 2                                   # alpha_1 = X_r sigma_1 = +1: moves +1 cell per tick along axis 1
+for name, links in (('1_ring_4x1x1', None), ('2_ring_4x1x1_Z2_holonomy_-1', [np.array([1.0, 1, 1, -1]).reshape(4, 1, 1), np.ones((4, 1, 1)), np.ones((4, 1, 1))])):
+    w = Routing((4, 1, 1), links); A, B = at(w.shape, (0, 0, 0), right), at(w.shape, (2, 0, 0), right)
+    O, det, perm = amps(w, A, B, 2); rt = np.vdot(A, run(w, A, 4))
+    b[name] = {'one_body_amplitudes_after_two_ticks': [[c2(x) for x in row] for row in O], 'one_quantum_round_trip_four_ticks': c2(rt),
+               'two_quantum_return_amplitude_antisymmetric': c2(det), 'symmetric': c2(perm),
+               'exchange_sign_antisymmetric': c2(det / rt), 'exchange_sign_symmetric': c2(perm / rt)}
+th = 0.157935; w = Routing((2, 2, 2)); up = np.kron([1, 1j], [1, 0]) / np.sqrt(2)      # Y_r = +1, spin up
+A, B = at(w.shape, (0, 0, 0), up), at(w.shape, (1, 1, 1), up)
+O, det, perm = amps(w, A, B, 1, th); rt = np.vdot(A, run(w, A, 2, th))
+b['3_torus_2x2x2_mass_one_tick'] = {'one_quantum_round_trip_two_ticks': c2(rt), 'exp(-2 i theta)': c2(np.exp(-2j * th)),
+                                    'exchange_sign_antisymmetric': c2(det / rt), 'exchange_sign_symmetric': c2(perm / rt)}
+# 4. contractible exchange: joint cell statistics
+w = Routing((6, 6, 6)); blank_up = [1, 0, 0, 0]
+A0, B0 = at(w.shape, (0, 0, 0), blank_up), at(w.shape, (2, 0, 0), blank_up)
+rows = {}
+for ticks in (1, 2):
+    fa, fb = run(w, A0, ticks).reshape(-1, 4), run(w, B0, ticks).reshape(-1, 4)
+    na, nb = (np.abs(fa) ** 2).sum(1), (np.abs(fb) ** 2).sum(1); ov = np.einsum('ci,ci->c', np.conj(fa), fb)
+    same = {'distinguishable': float((na * nb).sum()), 'antisymmetric': float((na * nb - np.abs(ov) ** 2).sum()),
+            'symmetric': float((na * nb + np.abs(ov) ** 2).sum())}
+    pair_d = np.outer(na, nb) + np.outer(nb, na); cross = 2 * np.real(np.outer(ov, np.conj(ov)))
+    iu = np.triu_indices(len(na), 1)
+    tot = {'antisymmetric': float((pair_d - cross)[iu].sum() + same['antisymmetric']), 'symmetric': float((pair_d + cross)[iu].sum() + same['symmetric'])}
+    C, Dc = cidx(w.shape, (1, 1, 1)), cidx(w.shape, (1, 5, 1))
+    rows[f'{ticks}_tick' + ('s' if ticks > 1 else '')] = {
+        'probability_both_quanta_in_one_cell': same, 'total_probability_check': tot,
+        'cells_(1,1,1)_and_(1,-1,1)': {'distinguishable': float(pair_d[C, Dc]), 'antisymmetric': float((pair_d - cross)[C, Dc]), 'symmetric': float((pair_d + cross)[C, Dc])}}
+b['4_contractible_exchange_6x6x6_blank_records_two_cells_apart'] = rows
+OUT['b_exchange_by_executed_routing'] = b
+for k, v in b.items(): print(k, v)
+dump(OUT, sys.argv[1] if len(sys.argv) > 1 else RL + '/work/R4/item2_statistics.json')

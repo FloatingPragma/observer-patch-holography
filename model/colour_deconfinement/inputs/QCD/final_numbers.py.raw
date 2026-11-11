@@ -1,0 +1,40 @@
+"""Print every final number of the lane as text for the report."""
+import json, os
+import numpy as np
+from build_outputs import ve
+H = os.path.dirname(os.path.abspath(__file__))
+L = lambda n: json.load(open(os.path.join(H, n))) if os.path.exists(os.path.join(H, n)) else None
+A = L('analysis_su3_nt4.json'); R = L('analysis_reg.json'); SG = L('sigma.json'); SM = L('summary.json'); G = L('gates.json')
+T = json.load(open(os.path.join(H, 'rer_package', 'colour_deconfinement', 'lattice_tables.json')))
+print('== N_t = 4')
+for ns in ('8', '12', '16'):
+    rw = A['reweight'][ns]
+    print(f"N_s={ns}: runs {len(rw['runs'])} betas {rw['betas']} samples(sub {rw['sub']}) {sum(rw['samples'])} beta_c {ve(rw['beta_c'], rw['beta_c_err'])} chi_max {ve(rw['chi_max'], rw['chi_max_err'])} two {rw['two_peaks']}")
+    print('   points:', '; '.join(f"{p['beta']}: |L|={ve(p['absL'], p['absL_err'])} chi={ve(p['chi'], p['chi_err'])} P={p['plaq']:.5f} n={p['n']}" for p in A['sizes'][ns]))
+print('fit', A['beta_c_extrapolation']); print('scaling', A['chi_max_scaling'])
+tot = sum(r['done'] for r in A['runs']); print('runs', len(A['runs']), 'total sweeps', tot)
+for r in A['runs']:
+    if r['ns'] == 16:
+        print('  ', r['file'], r['done'], r.get('tunnellings'), round(r['absL'], 4))
+print('== sectors', json.dumps(T['scatter_sectors']))
+print('== sigma'); print(json.dumps(SG['result'])) if SG else None
+if SG:
+    for k, v in SG['fits'].items():
+        if v:
+            print(f"  {k}: a sqrt(sigma) = {ve(v['a_sqrt_sigma'], v['a_sqrt_sigma_err'])} sigma a2 = {ve(v['sigma_a2'], v['sigma_a2_err'])} e = {v.get('e', v.get('e_fixed')):.3f} chi2 {v['chi2']:.2f}/{v['dof']}")
+    for k, v in SG['potentials'].items():
+        print('  V', k, ' '.join(ve(a, b) for a, b in zip(v['V'], v['err'])))
+    print('  measurements', SG['measurements'], 'blocks', SG['blocks'], SG['runs'], 'overlap', [round(x, 3) for x in SG.get('overlap_T3', [])])
+print('== unsmeared', json.dumps(T.get('string_tension')))
+print('== register')
+for name in ('Z3', 'Z2'):
+    r = R[name]
+    for Ls in sorted((k for k in r if k != 'scaling'), key=int):
+        v = r[Ls]
+        print(f"{name} L={Ls}: kappa_peak {ve(v['kappa_peak'], v['kappa_peak_err'])} C_max {ve(v['C_max'], v['C_max_err'])} 2/3-Bmin {v['two_thirds_minus_binder_min']:.2e}({v['binder_min_err']:.1e}) dip {v['dip_over_second_peak']:.2f} edge {v['peak_on_edge']} runs {[(q['kappa'], q['n'], round(q['tau'], 0)) for q in v['runs']]}")
+    print('  scaling', r.get('scaling')); print('  site', {k: T['register'][name].get(k) for k in ('kappa_c', 'kappa_c_err', 'kappa_c_literature')})
+print('== coupling scan')
+for row in (T.get('coupling_scan') or {}).get('rows', []):
+    print('  ', row)
+print('== gates'); [print('  ', k, v) for k, v in G.items() if isinstance(v, dict) and 'measured' in v]
+print('  12^4', T['plaquette_symmetric'])

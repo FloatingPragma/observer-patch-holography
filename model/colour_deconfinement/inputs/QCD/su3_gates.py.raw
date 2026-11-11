@@ -1,0 +1,131 @@
+"""Gates of the SU(3) kernel. Writes gates.json and prints PASS / FAIL lines.
+
+    python su3_gates.py [quick]
+"""
+import json, sys, time
+import numpy as np
+from multiprocessing import Pool
+import su3_lib as S
+
+
+def one_plaquette_u(beta, n=400):
+    """Exact one-plaquette average <Re tr U / 3> with weight exp((beta/3) Re tr U): Weyl integration on the torus."""
+    t = 2 * np.pi * (np.arange(n) + 0.5) / n
+    a, b = np.meshgrid(t, t, indexing='ij'); c = -a - b
+    e = [np.exp(1j * a), np.exp(1j * b), np.exp(1j * c)]
+    haar = np.abs(e[0] - e[1]) ** 2 * np.abs(e[0] - e[2]) ** 2 * np.abs(e[1] - e[2]) ** 2
+    retr = np.cos(a) + np.cos(b) + np.cos(c)
+    w = haar * np.exp(beta / 3.0 * retr)
+    return float((w * retr / 3.0).sum() / w.sum())
+
+
+def binned(x, nb=20):
+    x = np.asarray(x); m = len(x) // nb
+    b = x[:nb * m].reshape(nb, m).mean(1)
+    return float(x.mean()), float(b.std(ddof=1) / np.sqrt(nb))
+
+
+def plaq_run(args):
+    dims, beta, ntherm, nmeas, n_or, seed, start = args
+    up, dn = S.neighbours(*dims); V = int(np.prod(dims))
+    S.seed_rng(seed)
+    U = S.cold_start(V) if start == 'cold' else S.hot_start(V)
+    p = []
+    t0 = time.time()
+    for n in range(ntherm + nmeas):
+        S.compound_sweeps(U, up, dn, beta, 1, n_or)
+        if (n + 1) % 50 == 0:
+            S.reunitarize(U)
+        if n >= ntherm:
+            a, b = S.plaquette(U, up); p.append(0.5 * (a + b))
+    m, e = binned(p)
+    return dict(dims=list(dims), beta=beta, ntherm=ntherm, nmeas=nmeas, n_or=n_or, start=start, plaq=m, err=e,
+                seconds=time.time() - t0)
+
+
+def main():
+    quick = len(sys.argv) > 1 and sys.argv[1] == 'quick'
+    out = {}; ok_all = True
+
+    def gate(name, ok, detail):
+        nonlocal ok_all
+        ok_all = ok_all and bool(ok)
+        out[name] = dict(ok=bool(ok), **detail)
+        print(('PASS ' if ok else 'FAIL ') + name + ' ' + json.dumps(detail), flush=True)
+
+    # --- compile and symmetry gates on a small thermalised lattice
+    dims = (4, 4, 4, 4); up, dn = S.neighbours(*dims); V = 256
+    S.seed_rng(11); U = S.hot_start(V)
+    S.compound_sweeps(U, up, dn, 5.7, 5, 2); S.reunitarize(U)
+    rng = np.random.default_rng(5)
+    p0 = S.plaquette(U, up); l0 = S.polyakov(U, up, 4); w0 = S.wilson_loops(U, up, 2)
+    g = S.random_su3(V, rng)
+    Ug = S.gauge_transform(U, up, g)
+    p1 = S.plaquette(Ug, up); l1 = S.polyakov(Ug, up, 4); w1 = S.wilson_loops(Ug, up, 2)
+    d = max(abs(p0[0] - p1[0]), abs(p0[1] - p1[1]), abs(l0 - l1), float(np.abs(w0 - w1).max()))
+    gate('gauge_invariance', d < 1e-12, dict(max_change=d, plaquette=0.5 * (p0[0] + p0[1]), polyakov=[l0.real, l0.imag]))
+    gate('wilson_1x1_equals_plaquette', abs(w0[0, 0] - 0.5 * (p0[0] + p0[1])) < 1e-12, dict(diff=abs(w0[0, 0] - 0.5 * (p0[0] + p0[1]))))
+    res = []
+    for k in (1, 2):
+        Uc = S.centre_transform(U, dims, 2, k)
+        p2 = S.plaquette(Uc, up); l2 = S.polyakov(Uc, up, 4)
+        res.append(max(abs(p0[0] - p2[0]), abs(p0[1] - p2[1]), abs(l2 - np.exp(2j * np.pi * k / 3) * l0)))
+    gate('centre_transformation', max(res) < 1e-12, dict(max_plaquette_change_or_loop_mismatch=max(res)))
+    # a spatial centre transformation leaves the temporal loop unchanged
+    Us = U.copy(); idx = np.arange(V)[(np.arange(V) % 4) == 1]; Us[idx, 0] *= np.exp(2j * np.pi / 3)
+    p3 = S.plaquette(Us, up); l3 = S.polyakov(Us, up, 4)
+    gate('spatial_centre_transformation', max(abs(p0[0] - p3[0]), abs(p0[1] - p3[1]), abs(l3 - l0)) < 1e-12,
+         dict(max_change=max(abs(p0[0] - p3[0]), abs(p0[1] - p3[1]), abs(l3 - l0))))
+    # --- overrelaxation keeps the action
+    U2 = U.copy(); S.sweep(U2, up, dn, 5.7, False); p4 = S.plaquette(U2, up)
+    dS = abs((p4[0] + p4[1]) - (p0[0] + p0[1])) / 2
+    gate('overrelaxation_keeps_action', dS < 1e-12, dict(plaquette_change=dS, link_change=float(np.abs(U2 - U).max())))
+    # --- unitarity drift
+    dims = (8, 8, 8, 4); up, dn = S.neighbours(*dims); V = 2048
+    S.seed_rng(12); U = S.hot_start(V)
+    e0 = S.unitarity_defect(U)
+    S.compound_sweeps(U, up, dn, 5.7, 50 if quick else 200, 4)
+    e1 = S.unitarity_defect(U)
+    gate('unitarity_drift_200_sweeps', max(e1) < 1e-10, dict(after_start=list(e0), after_sweeps=list(e1)))
+    # --- generator of x0: moments against quadrature
+    S.seed_rng(13)
+    gx = {}
+    okx = True
+    for a in (0.3, 1.0, 2.0, 8.0):
+        xs = np.array([S.gen_x0(a) for _ in range(200000)])
+        q = np.linspace(-1, 1, 200001); w = np.sqrt(1 - q * q) * np.exp(a * q)
+        ex = float((w * q).sum() / w.sum()); se = xs.std() / np.sqrt(len(xs))
+        gx[str(a)] = dict(mean=float(xs.mean()), exact=ex, err=float(se))
+        okx = okx and abs(xs.mean() - ex) < 4 * se
+    gate('su2_x0_generator', okx, gx)
+    # --- plaquette gates in parallel
+    nth, nme = (60, 150) if quick else (300, 900)
+    tasks = [((8, 8, 8, 8), 5.7, nth, nme, 4, 101, 'cold'), ((8, 8, 8, 8), 6.0, nth, nme, 4, 102, 'cold'),
+             ((8, 8, 8, 8), 5.7, nth, 3 * nme, 0, 103, 'hot'),
+             ((6, 6, 6, 6), 1.0, 100, 600, 1, 104, 'hot'), ((6, 6, 6, 6), 2.0, 100, 600, 1, 105, 'hot'),
+             ((6, 6, 6, 6), 3.0, 100, 600, 1, 106, 'hot')]
+    with Pool(6) as pool:
+        r = pool.map(plaq_run, tasks)
+    lit = {5.7: 0.5492, 6.0: 0.5937}
+    for k in (0, 1):
+        b = r[k]['beta']
+        gate(f'plaquette_beta_{b}', abs(r[k]['plaq'] - lit[b]) < 5e-4 + 3 * r[k]['err'],
+             dict(measured=r[k]['plaq'], err=r[k]['err'], literature=lit[b], lattice='8^4', seconds=r[k]['seconds'],
+                  sweeps=r[k]['nmeas']))
+    dd = abs(r[2]['plaq'] - r[0]['plaq']); ee = float(np.hypot(r[2]['err'], r[0]['err']))
+    gate('heatbath_alone_equals_with_overrelaxation', dd < 3.5 * ee, dict(hb_only=r[2]['plaq'], hb_err=r[2]['err'],
+                                                                         with_or=r[0]['plaq'], or_err=r[0]['err']))
+    for k in (3, 4, 5):
+        b = r[k]['beta']; u = one_plaquette_u(b); ref = u + 4 * u ** 5
+        ser = b / 18 + b * b / 216 - 5 * b ** 4 / 93312
+        tol = 3e-4 if b <= 2.0 else 3e-3
+        gate(f'strong_coupling_beta_{b}', abs(r[k]['plaq'] - ref) < tol + 3 * r[k]['err'],
+             dict(measured=r[k]['plaq'], err=r[k]['err'], one_plaquette_exact=u, series_to_beta4=ser, with_cube_term=ref,
+                  lattice='6^4'))
+    out['all_pass'] = ok_all
+    json.dump(out, open('gates.json', 'w'), indent=1)
+    print('ALL PASS' if ok_all else 'SOME FAIL', flush=True)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,1827 @@
+{
+ "continuum_log_coefficient_per_complex_unit_charge_field": 0.02321943791803574,
+ "c_MSbar": 1.0364764215194981,
+ "fits": {
+  "magnetic, xi=1.0": {
+   "smallest_flux": 0.0007669903939428206,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023220630827810323,
+    0.02322022340497847,
+    0.023220023028909433,
+    0.02321982459278696,
+    0.02321972740826631
+   ],
+   "last_two_point_slope_over_continuum": 1.0000124675813251,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.023219509963029124,
+     "max_residual": 7.908763172137512e-09,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.023219437926692277,
+     "max_residual": 3.175385510090223e-10,
+     "points": 11
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.02321971740896268,
+     "max_residual": 8.153302413771435e-08,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.02321944191653954,
+     "max_residual": 6.620075043706208e-10,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023220200777093497,
+     "max_residual": 3.6603052797068436e-07,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023219450559103235,
+     "max_residual": 3.3401285626233346e-09,
+     "points": 16
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    1.0000018236027328,
+    3.2853956409815655e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.10745579869344946,
+    -0.10745573153329288,
+    -0.10745559803411237
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.10745595236534657,
+     "max_residual": 1.950113481807847e-08,
+     "points": 11
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.10745599691244447,
+     "max_residual": 3.1746849593616844e-10,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.1074559968587577,
+     "max_residual": 3.1550470569463585e-10,
+     "points": 11
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.10745580467459331,
+     "max_residual": 1.3488931159544304e-07,
+     "points": 14
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.10745599506827004,
+     "max_residual": 1.3768528678292924e-09,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.10745599769340168,
+     "max_residual": 3.613961768733631e-10,
+     "points": 14
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.10745542656559474,
+     "max_residual": 5.56863258616147e-07,
+     "points": 16
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.10745598948540824,
+     "max_residual": 6.778315422839576e-09,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.10745599803755096,
+     "max_residual": 4.222324712088721e-10,
+     "points": 16
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.10745251775590033,
+     "max_residual": 6.006325542678992e-06,
+     "points": 19
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.1074559502236334,
+     "max_residual": 5.679971383509841e-08,
+     "points": 19
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.1074559973472848,
+     "max_residual": 8.126341266567749e-10,
+     "points": 19
+    }
+   },
+   "m0 (median, spread)": [
+    -0.10745599227683914,
+    3.480281650633521e-06
+   ]
+  },
+  "magnetic, xi=2.0": {
+   "smallest_flux": 0.0007669903939428206,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023220954339440845,
+    0.0232204222750363,
+    0.023220165632005636,
+    0.023219914493999107,
+    0.023219794115203963
+   ],
+   "last_two_point_slope_over_continuum": 1.0000153404733345,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.023219617677513113,
+     "max_residual": 1.872029917193707e-08,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.02321944606517979,
+     "max_residual": 6.885358394548291e-10,
+     "points": 11
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.023220085765837922,
+     "max_residual": 1.793862569599014e-07,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.023219470743055727,
+     "max_residual": 4.109958956499682e-09,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023221110625928288,
+     "max_residual": 7.573482447842395e-07,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023219527243287453,
+     "max_residual": 2.2231948504369825e-08,
+     "points": 16
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    1.0000057943850758,
+    7.168824475312605e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.1273240618797652,
+    -0.1273239788666741,
+    -0.12732381498270234
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.1273241884638178,
+     "max_residual": 4.7644427875193074e-08,
+     "points": 11
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.12732429886213112,
+     "max_residual": 1.1112968878457252e-09,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.12732430331253491,
+     "max_residual": 7.855464334571849e-10,
+     "points": 11
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.12732384607311617,
+     "max_residual": 3.030638084655646e-07,
+     "points": 14
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.127324283461582,
+     "max_residual": 9.978355725026589e-09,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.1273243037689007,
+     "max_residual": 8.149678709656882e-10,
+     "points": 14
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.12732302420560565,
+     "max_residual": 1.1935913418470445e-06,
+     "points": 16
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.12732424473773546,
+     "max_residual": 4.652711926844688e-08,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.1273243041009422,
+     "max_residual": 8.75566896763047e-10,
+     "points": 16
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.12731731189108103,
+     "max_residual": 1.1324115929245426e-05,
+     "points": 19
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.12732396145877695,
+     "max_residual": 4.217080601109924e-07,
+     "points": 19
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.12732430541788672,
+     "max_residual": 1.3853103386640697e-09,
+     "points": 19
+    }
+   },
+   "m0 (median, spread)": [
+    -0.12732426409965875,
+    6.9935268056930955e-06
+   ]
+  },
+  "magnetic, xi=4.0": {
+   "smallest_flux": 0.0007669903939428206,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.02322103714453232,
+    0.023220472892328595,
+    0.023220201844343216,
+    0.023219937773359015,
+    0.02321981099614332
+   ],
+   "last_two_point_slope_over_continuum": 1.0000160674909055,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.02321965145980051,
+     "max_residual": 2.2179132475041996e-08,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.023219448018960812,
+     "max_residual": 4.347455728748173e-10,
+     "points": 11
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.023220207407943866,
+     "max_residual": 2.13286480560404e-07,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.02321947660575454,
+     "max_residual": 4.7533065261617935e-09,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023221427441882235,
+     "max_residual": 9.022954962634167e-07,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023219542260647635,
+     "max_residual": 2.5875568077093902e-08,
+     "points": 16
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    1.0000068452211848,
+    8.524852877188866e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.13543130846775775,
+    -0.13543122196324656,
+    -0.13543104986971938
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.13543142463189642,
+     "max_residual": 5.653898688118275e-08,
+     "points": 11
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.13543155573834464,
+     "max_residual": 1.148007855444888e-09,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.13543156136420362,
+     "max_residual": 5.589778362402598e-10,
+     "points": 11
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.13543101799812507,
+     "max_residual": 3.601861494340053e-07,
+     "points": 14
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.13543153756236628,
+     "max_residual": 1.1669825716875692e-08,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.135431561415752,
+     "max_residual": 5.678685299770336e-10,
+     "points": 14
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.1354300402551389,
+     "max_residual": 1.4205509518139259e-06,
+     "points": 16
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.13543149238475718,
+     "max_residual": 5.4255242853962216e-08,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.13543156165039,
+     "max_residual": 6.121811391146537e-10,
+     "points": 16
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.13542322867224393,
+     "max_residual": 1.3511928337539558e-05,
+     "points": 19
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.135431159661165,
+     "max_residual": 4.974034248095283e-07,
+     "points": 19
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.1354315643341498,
+     "max_residual": 2.6590645518798084e-09,
+     "points": 19
+    }
+   },
+   "m0 (median, spread)": [
+    -0.13543151497356173,
+    8.335661905861658e-06
+   ]
+  },
+  "magnetic, xi=8.0": {
+   "smallest_flux": 0.0007669903939428206,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023221058449911344,
+    0.023220485604084358,
+    0.02322021055708605,
+    0.023219942980584215,
+    0.023219813718875496
+   ],
+   "last_two_point_slope_over_continuum": 1.000016184751805,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.02321965944841906,
+     "max_residual": 2.3290522899177546e-08,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.023219445331372584,
+     "max_residual": 2.5509638845733207e-10,
+     "points": 11
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.023220241921568435,
+     "max_residual": 2.2340813457533137e-07,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.02321947633745689,
+     "max_residual": 5.009074738326902e-09,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023221520548349313,
+     "max_residual": 9.459868805239413e-07,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.02321954465904941,
+     "max_residual": 2.684440031375246e-08,
+     "points": 16
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    1.0000070688919807,
+    8.937412628395324e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.1378782753458087,
+    -0.1378781886525721,
+    -0.1378780148605162
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.13787838855708429,
+     "max_residual": 5.8935782892843847e-08,
+     "points": 11
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.13787852485162205,
+     "max_residual": 7.70097596802799e-10,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.13787852923803579,
+     "max_residual": 3.259603420513457e-10,
+     "points": 11
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.13787796356660084,
+     "max_residual": 3.7689663598405865e-07,
+     "points": 14
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.1378785067693971,
+     "max_residual": 1.18776280755295e-08,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.13787853077607595,
+     "max_residual": 4.079589721595056e-10,
+     "points": 14
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.13787693973238352,
+     "max_residual": 1.487997037391553e-06,
+     "points": 16
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.13787846037474666,
+     "max_residual": 5.587640519721937e-08,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.13787853151800947,
+     "max_residual": 5.434423466788019e-10,
+     "points": 16
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.13786979295187918,
+     "max_residual": 1.4186780467551063e-05,
+     "points": 19
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.13787811618095158,
+     "max_residual": 5.154059268264177e-07,
+     "points": 19
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.1378785350848634,
+     "max_residual": 3.2631456703402506e-09,
+     "points": 19
+    }
+   },
+   "m0 (median, spread)": [
+    -0.13787848357207189,
+    8.742132984213002e-06
+   ]
+  },
+  "magnetic, xi=16.0": {
+   "smallest_flux": 0.0007669903939428206,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023221063895375697,
+    0.023220488743734887,
+    0.023220212735271837,
+    0.023219944818428363,
+    0.02321981644160759
+   ],
+   "last_two_point_slope_over_continuum": 1.000016302012701,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.02321966335759685,
+     "max_residual": 2.3433512241766152e-08,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.023219448843289348,
+     "max_residual": 4.887980575851714e-10,
+     "points": 11
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.023220251903595838,
+     "max_residual": 2.2597520288325512e-07,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.02321947799005792,
+     "max_residual": 4.927146995958864e-09,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.02322154575194314,
+     "max_residual": 9.574990220695412e-07,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.02321954628656031,
+     "max_residual": 2.693996889457928e-08,
+     "points": 16
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    1.000007188117276,
+    9.030832965006285e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.13852522907509712,
+    -0.13852514124950802,
+    -0.13852496670255054
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.13852534080491313,
+     "max_residual": 5.970777700037289e-08,
+     "points": 11
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.13852547919197375,
+     "max_residual": 1.2995544917959734e-09,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.13852548511628565,
+     "max_residual": 6.172919952973643e-10,
+     "points": 11
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.13852491066525485,
+     "max_residual": 3.8136932598020756e-07,
+     "points": 14
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.13852546041571476,
+     "max_residual": 1.2091149359516606e-08,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.13852548509967003,
+     "max_residual": 6.27676161046864e-10,
+     "points": 14
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.1385238745145499,
+     "max_residual": 1.5059784888860062e-06,
+     "points": 16
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.13852541348437827,
+     "max_residual": 5.6414633409218595e-08,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.13852548545170998,
+     "max_residual": 6.940328034499288e-10,
+     "points": 16
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.1385166382803291,
+     "max_residual": 1.4367216847804842e-05,
+     "points": 19
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.1385250662539397,
+     "max_residual": 5.199907338049314e-07,
+     "points": 19
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.13852548886473812,
+     "max_residual": 3.3159941459359743e-09,
+     "points": 19
+    }
+   },
+   "m0 (median, spread)": [
+    -0.13852543695004652,
+    8.850584409025863e-06
+   ]
+  },
+  "magnetic, xi=inf": {
+   "smallest_flux": 0.0007669903939428206,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023221065767254006,
+    0.023220490122117975,
+    0.02322021341595488,
+    0.023219945737350554,
+    0.023219818075246833
+   ],
+   "last_two_point_slope_over_continuum": 1.000016372369238,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.023219665326514684,
+     "max_residual": 2.3443216090601737e-08,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.02321945110776209,
+     "max_residual": 5.149478066179825e-10,
+     "points": 11
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.023220255664762882,
+     "max_residual": 2.2680672134844926e-07,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.023219479182139298,
+     "max_residual": 4.862132918503903e-09,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023221554563380313,
+     "max_residual": 9.613680073961017e-07,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.02321954726983103,
+     "max_residual": 2.692519029956486e-08,
+     "points": 16
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    1.0000072516887666,
+    9.05902901546841e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.13874430153244793,
+    -0.13874421323504535,
+    -0.13874403802754892
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.13874441267937743,
+     "max_residual": 6.003428881795614e-08,
+     "points": 11
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.13874455207455025,
+     "max_residual": 1.5889123350376622e-09,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.13874455905978408,
+     "max_residual": 6.641419636466139e-10,
+     "points": 11
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.13874398064288254,
+     "max_residual": 3.829188708337483e-07,
+     "points": 14
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.13874453276532955,
+     "max_residual": 1.2239253333046207e-08,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.13874455794877183,
+     "max_residual": 8.149924346501081e-10,
+     "points": 14
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.1387429402529808,
+     "max_residual": 1.512138134707186e-06,
+     "points": 16
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.13874448553766866,
+     "max_residual": 5.666728997155701e-08,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.13874455795528784,
+     "max_residual": 8.095553116760357e-10,
+     "points": 16
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.13873567357943375,
+     "max_residual": 1.4428568459845525e-05,
+     "points": 19
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.13874413718708922,
+     "max_residual": 5.215832466487491e-07,
+     "points": 19
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.13874456113165304,
+     "max_residual": 3.277874305318562e-09,
+     "points": 19
+    }
+   },
+   "m0 (median, spread)": [
+    -0.1387445091514991,
+    8.887552219283279e-06
+   ]
+  },
+  "electric, xi=1.0": {
+   "smallest_flux": 0.0007669903939428206,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023220630827810323,
+    0.02322022340497847,
+    0.023220023028909433,
+    0.02321982459278696,
+    0.02321972740826631
+   ],
+   "last_two_point_slope_over_continuum": 1.0000124675813251,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.023219509963029124,
+     "max_residual": 7.908763172137512e-09,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.023219437926692277,
+     "max_residual": 3.175385510090223e-10,
+     "points": 11
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.02321971740896268,
+     "max_residual": 8.153302413771435e-08,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.02321944191653954,
+     "max_residual": 6.620075043706208e-10,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023220200777093497,
+     "max_residual": 3.6603052797068436e-07,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023219450559103235,
+     "max_residual": 3.3401285626233346e-09,
+     "points": 16
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    1.0000018236027328,
+    3.2853956409815655e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.10745579869344946,
+    -0.10745573153329288,
+    -0.10745559803411237
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.10745595236534657,
+     "max_residual": 1.950113481807847e-08,
+     "points": 11
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.10745599691244447,
+     "max_residual": 3.1746849593616844e-10,
+     "points": 11
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.1074559968587577,
+     "max_residual": 3.1550470569463585e-10,
+     "points": 11
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.10745580467459331,
+     "max_residual": 1.3488931159544304e-07,
+     "points": 14
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.10745599506827004,
+     "max_residual": 1.3768528678292924e-09,
+     "points": 14
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.10745599769340168,
+     "max_residual": 3.613961768733631e-10,
+     "points": 14
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.10745542656559474,
+     "max_residual": 5.56863258616147e-07,
+     "points": 16
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.10745598948540824,
+     "max_residual": 6.778315422839576e-09,
+     "points": 16
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.10745599803755096,
+     "max_residual": 4.222324712088721e-10,
+     "points": 16
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.10745251775590033,
+     "max_residual": 6.006325542678992e-06,
+     "points": 19
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.1074559502236334,
+     "max_residual": 5.679971383509841e-08,
+     "points": 19
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.1074559973472848,
+     "max_residual": 8.126341266567749e-10,
+     "points": 19
+    }
+   },
+   "m0 (median, spread)": [
+    -0.10745599227683914,
+    3.480281650633521e-06
+   ]
+  },
+  "electric, xi=2.0": {
+   "smallest_flux": 0.0015339807878856412,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023220068736775342,
+    0.023219920964742256,
+    0.02321982501821385,
+    0.02321971370952018,
+    0.0232196511717662
+   ],
+   "last_two_point_slope_over_continuum": 1.0000091842761747,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.023219281052810504,
+     "max_residual": 5.753871379354791e-09,
+     "points": 9
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.0232194193516147,
+     "max_residual": 1.3715018010174163e-10,
+     "points": 9
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.02321896527315317,
+     "max_residual": 6.372982519486925e-08,
+     "points": 12
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.023219375549301653,
+     "max_residual": 3.0602861356143762e-09,
+     "points": 12
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023218394845854928,
+     "max_residual": 2.4505473456004623e-07,
+     "points": 14
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023219280114555377,
+     "max_residual": 1.907118327149071e-08,
+     "points": 14
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    0.9999932240240546,
+    4.412276315170092e-05
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.10364356874441555,
+    -0.10364351871109001,
+    -0.10364342092819354
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.10364382629243196,
+     "max_residual": 2.1103243777464975e-08,
+     "points": 9
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.10364373609450474,
+     "max_residual": 6.719792500220478e-10,
+     "points": 9
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.10364372598994874,
+     "max_residual": 2.0004041478838275e-10,
+     "points": 9
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.10364405477831506,
+     "max_residual": 1.3191337727702646e-07,
+     "points": 12
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.10364376318439047,
+     "max_residual": 9.625536673274482e-09,
+     "points": 12
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.10364372736669791,
+     "max_residual": 2.106902985410386e-10,
+     "points": 12
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.10364451174496965,
+     "max_residual": 4.4418269781743014e-07,
+     "points": 14
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.10364382505975131,
+     "max_residual": 4.728299828060667e-08,
+     "points": 14
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.1036437279129712,
+     "max_residual": 3.107855223172251e-10,
+     "points": 14
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.10364679530313241,
+     "max_residual": 3.062138807879977e-06,
+     "points": 17
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.10364423949788476,
+     "max_residual": 4.3146738566701703e-07,
+     "points": 17
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.10364373241707561,
+     "max_residual": 2.8073450369925368e-09,
+     "points": 17
+    }
+   },
+   "m0 (median, spread)": [
+    -0.10364379412207089,
+    3.0693131836678766e-06
+   ]
+  },
+  "electric, xi=4.0": {
+   "smallest_flux": 0.0030679615757712823,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.0232189957165441,
+    0.023219465964293178,
+    0.02321958831068766,
+    0.02321962947499437,
+    0.023219617409887563
+   ],
+   "last_two_point_slope_over_continuum": 1.0000077302410357,
+   "free_fits_A": {
+    "phi<=0.03, 4 parameters": {
+     "A": 0.02321906865081219,
+     "max_residual": 3.475695675714263e-09,
+     "points": 7
+    },
+    "phi<=0.03, 5 parameters": {
+     "A": 0.023219395814777485,
+     "max_residual": 6.177264255669002e-11,
+     "points": 7
+    },
+    "phi<=0.07, 4 parameters": {
+     "A": 0.023218346792683146,
+     "max_residual": 7.03759930331671e-08,
+     "points": 10
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.023219302844262265,
+     "max_residual": 2.0624470187247113e-09,
+     "points": 10
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023217056079570985,
+     "max_residual": 3.1806513028920236e-07,
+     "points": 12
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023219110646206662,
+     "max_residual": 1.640407029657176e-08,
+     "points": 12
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    0.9999850009493104,
+    0.00010076622934455103
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.1041930061222445,
+    -0.10419295901416284,
+    -0.10419288170797347
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.10419340842822655,
+     "max_residual": 2.091326753439482e-08,
+     "points": 7
+    },
+    "phi<=0.03, 4 parameters": {
+     "m0": -0.10419320456363408,
+     "max_residual": 4.034406420050374e-10,
+     "points": 7
+    },
+    "phi<=0.03, 5 parameters": {
+     "m0": -0.10419318215824648,
+     "max_residual": 3.273713244933418e-11,
+     "points": 7
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.10419388993919071,
+     "max_residual": 1.7946936470281116e-07,
+     "points": 10
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.10419325907019213,
+     "max_residual": 9.131711137255749e-09,
+     "points": 10
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.10419318580460273,
+     "max_residual": 9.829048686071928e-11,
+     "points": 10
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.10419484363682552,
+     "max_residual": 6.616681443305517e-07,
+     "points": 12
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.10419337572082975,
+     "max_residual": 5.085436795282394e-08,
+     "points": 12
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.10419318710452068,
+     "max_residual": 2.1896613688898725e-10,
+     "points": 12
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.10419978493075607,
+     "max_residual": 5.212513568719768e-06,
+     "points": 15
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.10419410883838831,
+     "max_residual": 5.022592444448026e-07,
+     "points": 15
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.10419319728656565,
+     "max_residual": 3.939545689668478e-09,
+     "points": 15
+    }
+   },
+   "m0 (median, spread)": [
+    -0.10419331739551094,
+    6.602772509592403e-06
+   ]
+  },
+  "electric, xi=8.0": {
+   "smallest_flux": 0.006135923151542565,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.023215143424929415,
+    0.02321778879745087,
+    0.023218691646922834,
+    0.02321929016300888,
+    0.02321946697893632
+   ],
+   "last_two_point_slope_over_continuum": 1.0000012515764025,
+   "free_fits_A": {
+    "phi<=0.07, 4 parameters": {
+     "A": 0.023217579521619215,
+     "max_residual": 4.2471203359761844e-08,
+     "points": 8
+    },
+    "phi<=0.07, 5 parameters": {
+     "A": 0.023219198374427336,
+     "max_residual": 1.1176524705724944e-09,
+     "points": 8
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.02321554798384771,
+     "max_residual": 2.4321732186582956e-07,
+     "points": 10
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023218874730154618,
+     "max_residual": 8.81834288923855e-09,
+     "points": 10
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    0.999947854373,
+    0.00015721270224158294
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.1045734063011976,
+    -0.10457337723998342,
+    -0.1045733861577163
+   ],
+   "constant_fits_m0": {
+    "phi<=0.03, 3 parameters": {
+     "m0": -0.10457402689544397,
+     "max_residual": 8.857141228779675e-09,
+     "points": 5
+    },
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.10457477574803847,
+     "max_residual": 1.5397439678821456e-07,
+     "points": 8
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.1045737688380369,
+     "max_residual": 5.306953945738435e-09,
+     "points": 8
+    },
+    "phi<=0.07, 5 parameters": {
+     "m0": -0.10457364386187881,
+     "max_residual": 2.664882203795571e-11,
+     "points": 8
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.10457619413037018,
+     "max_residual": 6.321424222410776e-07,
+     "points": 10
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.10457395140672845,
+     "max_residual": 3.8329724477703664e-08,
+     "points": 10
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.10457364506084503,
+     "max_residual": 6.868206003929345e-11,
+     "points": 10
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.10458325292055017,
+     "max_residual": 5.278013943593729e-06,
+     "points": 13
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.10457502526539478,
+     "max_residual": 4.3847827758958235e-07,
+     "points": 13
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.1045736621981234,
+     "max_residual": 3.8145523129085035e-09,
+     "points": 13
+    }
+   },
+   "m0 (median, spread)": [
+    -0.1045739891510862,
+    9.609058671353199e-06
+   ]
+  },
+  "electric, xi=16.0": {
+   "smallest_flux": 0.01227184630308513,
+   "largest_flux": 0.39269908169872414,
+   "two_point_slopes_over_one_doubling (last five)": [
+    0.02320069623802729,
+    0.02321114340169719,
+    0.023214935723009138,
+    0.023217674391649422,
+    0.023218615648661758
+   ],
+   "last_two_point_slope_over_continuum": 0.9999645870250226,
+   "free_fits_A": {
+    "phi<=0.07, 4 parameters": {
+     "A": 0.02321631880898101,
+     "max_residual": 1.5765118877020257e-08,
+     "points": 6
+    },
+    "phi<=0.15, 4 parameters": {
+     "A": 0.023213277430306236,
+     "max_residual": 1.3585694094708778e-07,
+     "points": 8
+    },
+    "phi<=0.15, 5 parameters": {
+     "A": 0.023218476225593872,
+     "max_residual": 4.614574722339171e-09,
+     "points": 8
+    }
+   },
+   "A_over_continuum (median, spread)": [
+    0.9998656681929279,
+    0.00022389841244165436
+   ],
+   "m(phi) at the three smallest fluxes": [
+    -0.10469010367137699,
+    -0.10469021311102396,
+    -0.10469067362507524
+   ],
+   "constant_fits_m0": {
+    "phi<=0.07, 3 parameters": {
+     "m0": -0.10469212266008873,
+     "max_residual": 9.721893425018724e-08,
+     "points": 6
+    },
+    "phi<=0.07, 4 parameters": {
+     "m0": -0.10469054367869551,
+     "max_residual": 2.2295381513215418e-09,
+     "points": 6
+    },
+    "phi<=0.15, 3 parameters": {
+     "m0": -0.10469415873773574,
+     "max_residual": 5.054842444479624e-07,
+     "points": 8
+    },
+    "phi<=0.15, 4 parameters": {
+     "m0": -0.10469082851505716,
+     "max_residual": 2.1317918166841032e-08,
+     "points": 8
+    },
+    "phi<=0.15, 5 parameters": {
+     "m0": -0.10469032651255575,
+     "max_residual": 2.9629021458532634e-11,
+     "points": 8
+    },
+    "phi<=0.4, 3 parameters": {
+     "m0": -0.10470377807381014,
+     "max_residual": 4.662689830847722e-06,
+     "points": 11
+    },
+    "phi<=0.4, 4 parameters": {
+     "m0": -0.10469238392625804,
+     "max_residual": 3.286885781467186e-07,
+     "points": 11
+    },
+    "phi<=0.4, 5 parameters": {
+     "m0": -0.10469035599447395,
+     "max_residual": 3.175902679730669e-09,
+     "points": 11
+    }
+   },
+   "m0 (median, spread)": [
+    -0.10469147558757294,
+    1.3451561254387845e-05
+   ]
+  }
+ },
+ "variant_check": {
+  "rows_at_n=4096": [
+   {
+    "variant": "cbar = cos(phi/2)",
+    "n": 4096,
+    "xi": "1.0",
+    "d_variant_minus_d_typeA": -0.06249992814407285,
+    "predicted_-gamma_w": -0.0625
+   },
+   {
+    "variant": "cbar = cos(phi/2)",
+    "n": 4096,
+    "xi": "inf",
+    "d_variant_minus_d_typeA": -0.0994833438819524,
+    "predicted_-gamma_w": -0.09948342678581627
+   },
+   {
+    "variant": "cbar = cos(phi/6)",
+    "n": 4096,
+    "xi": "1.0",
+    "d_variant_minus_d_typeA": -0.0069444362926965875,
+    "predicted_-gamma_w": -0.006944444444444444
+   },
+   {
+    "variant": "cbar = cos(phi/6)",
+    "n": 4096,
+    "xi": "inf",
+    "d_variant_minus_d_typeA": -0.011053705462918229,
+    "predicted_-gamma_w": -0.011053714087312918
+   }
+  ],
+  "max_abs_deviation_at_n=4096": 8.290386387110882e-08
+ },
+ "electric_constant_Hamiltonian_limit": {
+  "m_tau(xi)": {
+   "2.0": -0.10364379412207089,
+   "4.0": -0.10419331739551094,
+   "8.0": -0.1045739891510862,
+   "16.0": -0.10469147558757294
+  },
+  "extrapolations": {
+   "a + b/xi^2 on xi = 8, 16": -0.10473063773306854,
+   "a + b/xi on xi = 8, 16": -0.10480896202405969,
+   "a + b/xi + c/xi^2 on xi = 4, 8, 16": -0.10476039572985908,
+   "a + b/xi^2 + c/xi^4 on xi = 4, 8, 16": -0.10473262159952121,
+   "a + b ln(xi)/xi^2 + c/xi^2 on xi = 4, 8, 16": -0.10474055706533196
+  },
+  "m_tau(inf) (median, spread)": [
+   -0.10474055706533196,
+   7.832429099115246e-05
+  ]
+ },
+ "constants_per_anisotropy": {
+  "1.0": {
+   "m_sigma": -0.10745599227683914,
+   "m_tau": -0.10745599227683914,
+   "w_sigma": 0.5,
+   "w_tau": 0.5,
+   "m_bar": -0.10745599227683914,
+   "w_bar": 0.5,
+   "uncertainty_m_bar": 3.480281650633521e-06
+  },
+  "2.0": {
+   "m_sigma": -0.12732426409965875,
+   "m_tau": -0.10364379412207089,
+   "w_sigma": 0.6730945377784839,
+   "w_tau": 0.331726365555379,
+   "m_bar": -0.11548402911086482,
+   "w_bar": 0.5024104516669314,
+   "uncertainty_m_bar": 5.031419994680486e-06
+  },
+  "4.0": {
+   "m_sigma": -0.13543151497356173,
+   "m_tau": -0.10419331739551094,
+   "w_sigma": 0.7583181541664381,
+   "w_tau": 0.20260511536459763,
+   "m_bar": -0.11981241618453634,
+   "w_bar": 0.48046163476551784,
+   "uncertainty_m_bar": 7.46921720772703e-06
+  },
+  "8.0": {
+   "m_sigma": -0.13787848357207189,
+   "m_tau": -0.1045739891510862,
+   "w_sigma": 0.7858961363487659,
+   "w_tau": 0.11272037286955053,
+   "m_bar": -0.12122623636157905,
+   "w_bar": 0.4493082546091582,
+   "uncertainty_m_bar": 9.1755958277831e-06
+  },
+  "16.0": {
+   "m_sigma": -0.13852543695004652,
+   "m_tau": -0.10469147558757294,
+   "w_sigma": 0.7933346032444625,
+   "w_tau": 0.05940103670607632,
+   "m_bar": -0.12160845626880973,
+   "w_bar": 0.4263678199752694,
+   "uncertainty_m_bar": 1.1151072831706854e-05
+  },
+  "inf": {
+   "m_sigma": -0.1387445091514991,
+   "m_tau": -0.10474055706533196,
+   "w_sigma": 0.7958674142865302,
+   "w_tau": 0.0,
+   "m_bar": -0.12174253310841554,
+   "w_bar": 0.3979337071432651,
+   "uncertainty_m_bar": 4.360592160521787e-05
+  }
+ },
+ "single_factor_Kogut_Susskind_and_Wilson": {
+  "1.0": {
+   "SU(2)": {
+    "delta_sigma": -0.27741198455367827,
+    "delta_tau": -0.27741198455367827,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.27741198455367827,
+    "Lambda_MSbar/Lambda_lattice": 19.82315650717136,
+    "delta_inv_alpha": -3.486061810766403,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": 0.0
+   },
+   "SU(3)": {
+    "delta_sigma": -0.46820131016385075,
+    "delta_tau": -0.46820131016385075,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.46820131016385075,
+    "Lambda_MSbar/Lambda_lattice": 28.809333844680943,
+    "delta_inv_alpha": -5.883591185647479,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": 0.0
+   }
+  },
+  "2.0": {
+   "SU(2)": {
+    "delta_sigma": -0.33878534542162797,
+    "delta_tau": -0.24875338393856417,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.29376936468009607,
+    "Lambda_MSbar/Lambda_lattice": 23.640659472155416,
+    "delta_inv_alpha": -3.6916147117149225,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.0450159807415319
+   },
+   "SU(3)": {
+    "delta_sigma": -0.5782920324843673,
+    "delta_tau": -0.40768490565319826,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.4929884690687828,
+    "Lambda_MSbar/Lambda_lattice": 34.41935420375966,
+    "delta_inv_alpha": -6.195075810923868,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.08530356341558454
+   }
+  },
+  "4.0": {
+   "SU(2)": {
+    "delta_sigma": -0.36565279921792826,
+    "delta_tau": -0.23371227421159657,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.2996825367147624,
+    "Lambda_MSbar/Lambda_lattice": 25.19471556383845,
+    "delta_inv_alpha": -3.765921823009004,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.06597026250316584
+   },
+   "SU(3)": {
+    "delta_sigma": -0.6274706732192297,
+    "delta_tau": -0.37167311083454047,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.49957189202688507,
+    "Lambda_MSbar/Lambda_lattice": 36.08488722440168,
+    "delta_inv_alpha": -6.277805543726462,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.1278987811923446
+   }
+  },
+  "8.0": {
+   "SU(2)": {
+    "delta_sigma": -0.3739939841877395,
+    "delta_tau": -0.22323802491086622,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.29861600454930287,
+    "Lambda_MSbar/Lambda_lattice": 24.9070548402024,
+    "delta_inv_alpha": -3.7525193845457046,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.07537797963843663
+   },
+   "SU(3)": {
+    "delta_sigma": -0.6428551571512723,
+    "delta_tau": -0.3465987428735442,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.49472695001240824,
+    "Lambda_MSbar/Lambda_lattice": 34.8515516711292,
+    "delta_inv_alpha": -6.2169222067674665,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.14812820713886404
+   }
+  },
+  "16.0": {
+   "SU(2)": {
+    "delta_sigma": -0.3762176993056508,
+    "delta_tau": -0.21680808076340544,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.29651289003452813,
+    "Lambda_MSbar/Lambda_lattice": 24.34939955579352,
+    "delta_inv_alpha": -3.726090868108607,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.07970480927112268
+   },
+   "SU(3)": {
+    "delta_sigma": -0.6469655701297743,
+    "delta_tau": -0.3313997291353244,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.4891826496325493,
+    "Lambda_MSbar/Lambda_lattice": 33.49182098950063,
+    "delta_inv_alpha": -6.147250473396826,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.15778292049722495
+   }
+  },
+  "inf": {
+   "SU(2)": {
+    "delta_sigma": -0.3769724450888145,
+    "delta_tau": -0.20948111413066392,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.2932267796097392,
+    "Lambda_MSbar/Lambda_lattice": 23.502955080036287,
+    "delta_inv_alpha": -3.684796386631,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.08374566547907529
+   },
+   "SU(3)": {
+    "delta_sigma": -0.6483615232880686,
+    "delta_tau": -0.31422167119599587,
+    "delta_phys = 1/g_MS^2 - 1/g^2": -0.48129159724203224,
+    "Lambda_MSbar/Lambda_lattice": 31.647530522477723,
+    "delta_inv_alpha": -6.048088584520264,
+    "wave_speed_shift (g_tau/g_sigma - 1)/g^2 = (delta_sigma - delta_tau)/2": -0.16706992604603638
+   }
+  }
+ },
+ "validation_against_IMPORTED_values": {
+  "Wilson Lambda_MSbar/Lambda_L (IMPORTED from memory)": {
+   "SU(2)": 19.82314318029368,
+   "SU(3)": 28.80931447650071
+  },
+  "computed at xi = 1": {
+   "SU(2)": 19.82315650717136,
+   "SU(3)": 28.809333844680943
+  },
+  "relative_deviation": {
+   "SU(2)": 6.72288827052725e-07,
+   "SU(3)": 6.722888268306804e-07
+  },
+  "m0 predicted from the imported value, 1/16 - (11/(24 pi^2)) ln 38.852704": -0.10745596105651226,
+  "m0 computed (xi = 1)": -0.10745599227683914,
+  "Lambda_H/Lambda_E computed": {
+   "SU(2)": 0.8434325147483008,
+   "SU(3)": 0.9103185420492463
+  },
+  "Lambda_H/Lambda_E recalled (Hasenfratz, Hasenfratz, Heller, Karsch 1981; from memory, orientation of the ratio not remembered)": {
+   "SU(2)": 0.84,
+   "SU(3)": 0.91
+  }
+ },
+ "source_action_matching": {
+  "F=5, xi=1.0": {
+   "SU3": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.4,
+    "delta_inv_alpha_total": -6.093030695886798,
+    "single_factor_part": -5.883591185647478,
+    "cross_part": -0.2094395102393202,
+    "inv_alpha_MSbar_at_E_cell": 10.152269304113203,
+    "uncertainty_from_fits": 0.00013120352719264355
+   },
+   "SU3 (direction T8)": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.4000000000000004,
+    "delta_inv_alpha_total": -6.0930306958867995,
+    "single_factor_part": -5.883591185647478,
+    "cross_part": -0.20943951023932159,
+    "inv_alpha_MSbar_at_E_cell": 10.1522693041132,
+    "uncertainty_from_fits": 0.00013120352719264355
+   },
+   "SU2": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 0.9,
+    "delta_inv_alpha_total": -3.9573007088048726,
+    "single_factor_part": -3.486061810766403,
+    "cross_part": -0.4712388980384694,
+    "inv_alpha_MSbar_at_E_cell": 12.287999291195128,
+    "uncertainty_from_fits": 8.746901812842903e-05
+   },
+   "U1": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.0999999999999999,
+    "delta_inv_alpha_total": -3.455751918948772,
+    "single_factor_part": -0.0,
+    "cross_part": -3.455751918948772,
+    "inv_alpha_MSbar_at_E_cell": 12.789548081051228,
+    "uncertainty_from_fits": 0.0
+   }
+  },
+  "F=5, xi=2.0": {
+   "SU3": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.4,
+    "delta_inv_alpha_total": -6.405525008796342,
+    "single_factor_part": -6.195075810923868,
+    "cross_part": -0.21044919787247465,
+    "inv_alpha_MSbar_at_E_cell": 9.839774991203658,
+    "uncertainty_from_fits": 0.00018968006510895614
+   },
+   "SU3 (direction T8)": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.4000000000000004,
+    "delta_inv_alpha_total": -6.405525008796345,
+    "single_factor_part": -6.195075810923868,
+    "cross_part": -0.21044919787247743,
+    "inv_alpha_MSbar_at_E_cell": 9.839774991203655,
+    "uncertainty_from_fits": 0.00018968006510895614
+   },
+   "SU2": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 0.9,
+    "delta_inv_alpha_total": -4.165125406927991,
+    "single_factor_part": -3.6916147117149225,
+    "cross_part": -0.47351069521306816,
+    "inv_alpha_MSbar_at_E_cell": 12.080174593072009,
+    "uncertainty_from_fits": 0.0001264533767393041
+   },
+   "U1": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.0999999999999999,
+    "delta_inv_alpha_total": -3.472411764895835,
+    "single_factor_part": -0.0,
+    "cross_part": -3.472411764895835,
+    "inv_alpha_MSbar_at_E_cell": 12.772888235104165,
+    "uncertainty_from_fits": 0.0
+   }
+  },
+  "F=5, xi=inf": {
+   "SU3": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.4,
+    "delta_inv_alpha_total": -6.214774665983868,
+    "single_factor_part": -6.048088584520263,
+    "cross_part": -0.1666860814636046,
+    "inv_alpha_MSbar_at_E_cell": 10.030525334016133,
+    "uncertainty_from_fits": 0.0016439045156155787
+   },
+   "SU3 (direction T8)": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.4000000000000004,
+    "delta_inv_alpha_total": -6.214774665983869,
+    "single_factor_part": -6.048088584520263,
+    "cross_part": -0.16668608146360603,
+    "inv_alpha_MSbar_at_E_cell": 10.030525334016131,
+    "uncertainty_from_fits": 0.0016439045156155787
+   },
+   "SU2": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 0.9,
+    "delta_inv_alpha_total": -4.05984006992411,
+    "single_factor_part": -3.684796386631,
+    "cross_part": -0.3750436832931104,
+    "inv_alpha_MSbar_at_E_cell": 12.18545993007589,
+    "uncertainty_from_fits": 0.001095936343743719
+   },
+   "U1": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.0999999999999999,
+    "delta_inv_alpha_total": -2.750320344149474,
+    "single_factor_part": -0.0,
+    "cross_part": -2.750320344149474,
+    "inv_alpha_MSbar_at_E_cell": 13.494979655850527,
+    "uncertainty_from_fits": 0.0
+   }
+  },
+  "F=15, xi=1.0": {
+   "SU3": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999987,
+    "delta_inv_alpha_total": -7.3496677573227105,
+    "single_factor_part": -5.883591185647478,
+    "cross_part": -1.4660765716752329,
+    "inv_alpha_MSbar_at_E_cell": 8.89563224267729,
+    "uncertainty_from_fits": 0.00013120352719264355
+   },
+   "SU3 (direction T8)": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999994,
+    "delta_inv_alpha_total": -7.349667757322714,
+    "single_factor_part": -5.883591185647478,
+    "cross_part": -1.4660765716752358,
+    "inv_alpha_MSbar_at_E_cell": 8.895632242677287,
+    "uncertainty_from_fits": 0.00013120352719264355
+   },
+   "SU2": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999985,
+    "delta_inv_alpha_total": -6.784734097035682,
+    "single_factor_part": -3.486061810766403,
+    "cross_part": -3.2986722862692788,
+    "inv_alpha_MSbar_at_E_cell": 9.46056590296432,
+    "uncertainty_from_fits": 8.746901812842903e-05
+   },
+   "U1": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.1999999999999993,
+    "delta_inv_alpha_total": -3.7699111843077495,
+    "single_factor_part": -0.0,
+    "cross_part": -3.7699111843077495,
+    "inv_alpha_MSbar_at_E_cell": 12.47538881569225,
+    "uncertainty_from_fits": 0.0
+   }
+  },
+  "F=15, xi=2.0": {
+   "SU3": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999987,
+    "delta_inv_alpha_total": -7.668220196031188,
+    "single_factor_part": -6.195075810923868,
+    "cross_part": -1.4731443851073212,
+    "inv_alpha_MSbar_at_E_cell": 8.577079803968811,
+    "uncertainty_from_fits": 0.00018968006510895614
+   },
+   "SU3 (direction T8)": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999994,
+    "delta_inv_alpha_total": -7.66822019603119,
+    "single_factor_part": -6.195075810923868,
+    "cross_part": -1.4731443851073225,
+    "inv_alpha_MSbar_at_E_cell": 8.577079803968811,
+    "uncertainty_from_fits": 0.00018968006510895614
+   },
+   "SU2": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999985,
+    "delta_inv_alpha_total": -7.0061895782063965,
+    "single_factor_part": -3.6916147117149225,
+    "cross_part": -3.314574866491474,
+    "inv_alpha_MSbar_at_E_cell": 9.239110421793605,
+    "uncertainty_from_fits": 0.0001264533767393041
+   },
+   "U1": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.1999999999999993,
+    "delta_inv_alpha_total": -3.7880855617045457,
+    "single_factor_part": -0.0,
+    "cross_part": -3.7880855617045457,
+    "inv_alpha_MSbar_at_E_cell": 12.457214438295455,
+    "uncertainty_from_fits": 0.0
+   }
+  },
+  "F=15, xi=inf": {
+   "SU3": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999987,
+    "delta_inv_alpha_total": -7.214891154765493,
+    "single_factor_part": -6.048088584520263,
+    "cross_part": -1.1668025702452296,
+    "inv_alpha_MSbar_at_E_cell": 9.030408845234508,
+    "uncertainty_from_fits": 0.0016439045156155787
+   },
+   "SU3 (direction T8)": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999994,
+    "delta_inv_alpha_total": -7.214891154765494,
+    "single_factor_part": -6.048088584520263,
+    "cross_part": -1.166802570245231,
+    "inv_alpha_MSbar_at_E_cell": 9.030408845234506,
+    "uncertainty_from_fits": 0.0016439045156155787
+   },
+   "SU2": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.7999999999999985,
+    "delta_inv_alpha_total": -6.310102169682766,
+    "single_factor_part": -3.684796386631,
+    "cross_part": -2.6253057830517665,
+    "inv_alpha_MSbar_at_E_cell": 9.935197830317234,
+    "uncertainty_from_fits": 0.001095936343743719
+   },
+   "U1": {
+    "X_hat = tr_F(Chat H^2)/kappa_F": 1.1999999999999993,
+    "delta_inv_alpha_total": -3.0003494663448795,
+    "single_factor_part": -0.0,
+    "cross_part": -3.0003494663448795,
+    "inv_alpha_MSbar_at_E_cell": 13.244950533655121,
+    "uncertainty_from_fits": 0.0
+   }
+  }
+ },
+ "gl_cross_terms_reproduced (xi = 1)": {
+  "F=5": {
+   "SU3": -0.2094395102393202,
+   "SU2": -0.4712388980384694,
+   "U1": -3.455751918948772
+  },
+  "F=15": {
+   "SU3": -1.4660765716752329,
+   "SU2": -3.2986722862692788,
+   "U1": -3.7699111843077495
+  },
+  "GL s3_action.json": {
+   "F=5": [
+    -0.20943951,
+    -0.4712389,
+    -3.45575192
+   ],
+   "F=15": [
+    -1.46607657,
+    -3.29867229,
+    -3.76991118
+   ]
+  }
+ },
+ "charged_field_functions": {
+  "F=5, SU3": {
+   "charges_of_the_complex_fields": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "sum_of_squared_charges (C_A/2)": 1.5,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 2.220446049250313e-16
+  },
+  "F=5, SU3 (direction T8)": {
+   "charges_of_the_complex_fields": [
+    0.866025404,
+    0.866025404
+   ],
+   "sum_of_squared_charges (C_A/2)": 1.4999999999999998,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 2.7755575615628914e-17
+  },
+  "F=5, SU2": {
+   "charges_of_the_complex_fields": [
+    1.0
+   ],
+   "sum_of_squared_charges (C_A/2)": 1.0,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 2.220446049250313e-16
+  },
+  "F=5, U1": {
+   "charges_of_the_complex_fields": [],
+   "sum_of_squared_charges (C_A/2)": 0.0,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 0.0
+  },
+  "F=15, SU3": {
+   "charges_of_the_complex_fields": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "sum_of_squared_charges (C_A/2)": 1.5,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 1.1102230246251565e-16
+  },
+  "F=15, SU3 (direction T8)": {
+   "charges_of_the_complex_fields": [
+    0.866025404,
+    0.866025404
+   ],
+   "sum_of_squared_charges (C_A/2)": 1.4999999999999993,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 1.1102230246251565e-16
+  },
+  "F=15, SU2": {
+   "charges_of_the_complex_fields": [
+    1.0
+   ],
+   "sum_of_squared_charges (C_A/2)": 0.9999999999999996,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 2.220446049250313e-16
+  },
+  "F=15, U1": {
+   "charges_of_the_complex_fields": [],
+   "sum_of_squared_charges (C_A/2)": 0.0,
+   "max_deviation_from_cbar_cos_and_cbar_sin": 0.0
+  }
+ },
+ "coefficient_per_factor": {
+  "statement": "the logarithm comes from the charged link fields only; sum over positive roots of q^2 = C_A/2 (exact), so b_a = -(11/3) C_A times the measured ratio A/A_continuum; U(1): no generator of G carries hypercharge, b_1 = 0 exactly",
+  "ratio_magnetic_Hamiltonian": [
+   1.0000072516887666,
+   9.05902901546841e-05
+  ],
+  "ratio_electric_xi_16": [
+   0.9998656681929279,
+   0.00022389841244165436
+  ],
+  "ratio_Euclidean_isotropic": [
+   1.0000018236027328,
+   3.2853956409815655e-05
+  ],
+  "b_gauge (SU3, SU2, U1) in the D10 sign convention": [
+   -11.000079768576432,
+   -7.333386512384288,
+   0.0
+  ],
+  "continuum": [
+   -11.0,
+   -7.333333333333333,
+   0.0
+  ],
+  "candidate_K1_would_give_ratio": {
+   "EB D* at the cell (0.282, 0.289, 0.209)": [
+    0.981,
+    0.960590909090909
+   ],
+   "supplement (2.49, 4.38, 3.97)": [
+    0.6390909090909092,
+    0.4027272727272727
+   ]
+  }
+ }
+}

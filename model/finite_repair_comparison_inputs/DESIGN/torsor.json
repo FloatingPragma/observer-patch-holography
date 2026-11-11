@@ -1,0 +1,97 @@
+{
+ "free": true,
+ "transitive": true,
+ "cayley": true,
+ "generators": [
+  "third of a turn",
+  "third of a turn",
+  "third of a turn",
+  "half-turn",
+  "third of a turn"
+ ],
+ "left_types": {
+  "1": {
+   "rank": 1,
+   "adjacency_eigenvalues_on_it": [
+    5.0
+   ]
+  },
+  "1'": {
+   "rank": 1,
+   "adjacency_eigenvalues_on_it": [
+    -1.0
+   ]
+  },
+  "1''": {
+   "rank": 1,
+   "adjacency_eigenvalues_on_it": [
+    -1.0
+   ]
+  },
+  "3": {
+   "rank": 9,
+   "adjacency_eigenvalues_on_it": [
+    -2.236068,
+    -2.236068,
+    -2.236068,
+    -1.0,
+    -1.0,
+    -1.0,
+    2.236068,
+    2.236068,
+    2.236068
+   ]
+  }
+ },
+ "M3": [
+  [
+   -1.0,
+   0.0,
+   0.0
+  ],
+  [
+   0.0,
+   -1.0,
+   2.0
+  ],
+  [
+   0.0,
+   2.0,
+   1.0
+  ]
+ ],
+ "M3_eigenvalues": [
+  -2.23606797749979,
+  -1.0,
+  2.23606797749979
+ ],
+ "M3_eigenvectors_squared": [
+  [
+   0.0,
+   0.7236067977499788,
+   0.2763932022500209
+  ],
+  [
+   1.0,
+   0.0,
+   0.0
+  ],
+  [
+   0.0,
+   0.2763932022500209,
+   0.7236067977499788
+  ]
+ ],
+ "kernel_levels_on_generations": {
+  "triplet": [
+   0.9539344662916631,
+   0.9,
+   0.8793988670416701
+  ],
+  "singlets": [
+   1.0,
+   0.9,
+   0.9
+  ]
+ }
+}

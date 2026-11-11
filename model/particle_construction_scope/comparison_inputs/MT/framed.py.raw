@@ -1,0 +1,283 @@
+"""Framed quanta: the typed tuple as a program.
+
+A load quantum carries an internal state in the carrier's ambient frame. The reference seam event moves port contents
+and the internal state rides along. Nothing else is added to the autonomous law.
+
+Event classes (audit/PROTECTION_AND_READOUT.md):
+  autonomous law : reference record law C (records coin and current) or E (coin and contrast) on a seam drawn
+                   uniformly from the 30 seams, fair coin; internal labels are carried by the moved quantum.
+  preparation    : a load configuration prior and an internal density (declared; block 5 gives heralded ones).
+  apparatus      : port-axis readout N_p x |chi_p,m><chi_p,m| and probe pulses exp(i eps N_p x Pi_p).
+  accepted record: the tape (seam, coin, current) of the reference instrument, plus apparatus clicks.
+
+Interface (briefs/LAW_SEARCH.md section 5, extended by the internal type and the statistics):
+  describe(), space(sector, d, stat), instrument(seam, sector, law, d, stat), apparatus(...), port_response(...).
+
+Exact amplitudes are elements of Q(sqrt2)(i) (class S of model.record_laws.family); float copies for numerics.
+"""
+import itertools
+from fractions import Fraction as Fr
+import numpy as np
+from model.observer import native
+from model.record_laws.family import S, ROOT_HALF
+from carrier_tools import C
+
+SEAMS = list(C.E)
+STATES78 = list(native.states())
+IDX78 = {x: i for i, x in enumerate(STATES78)}
+BIN66 = [x for x in STATES78 if max(x) == 1]
+IDX66 = {x: i for i, x in enumerate(BIN66)}
+ONE_S = S(1)
+
+
+def current(xa, xb, coin):
+    d = xa - xb
+    return (d - (2 * coin - 1) * (abs(d) % 2)) // 2
+
+
+def record_of(law, coin, xa, xb, j):
+    if law == 'C':
+        return (coin, j)
+    if law == 'E':
+        return (coin, xa - xb)
+    raise ValueError(law)
+
+
+# ------------------------------------------------------------------ the event on labelled quanta
+def event(state, seam, coin, law='C'):
+    """One reference event on a tuple of labelled quanta, each a pair (port, internal label).
+
+    Returns (record, [(amplitude, new_state), ...]); the coin amplitude 1/sqrt2 is NOT included.
+    A double load splits as the reference rule says (one unit moves); which of the two quanta moves is not recorded,
+    so the move is the exchange-symmetric superposition (the second-quantized hop sum_s a+_{b,s} a_{a,s} / sqrt2).
+    """
+    a, b = seam
+    at_a = [i for i, (p, s) in enumerate(state) if p == a]
+    at_b = [i for i, (p, s) in enumerate(state) if p == b]
+    xa, xb = len(at_a), len(at_b)
+    j = current(xa, xb, coin)
+    rec = record_of(law, coin, xa, xb, j)
+    if j == 0:
+        return rec, [(ONE_S, state)]
+    src, dst, movers = (a, b, at_a) if j > 0 else (b, a, at_b)
+    assert abs(j) == 1, 'totals above two are not built'
+    amp = ONE_S if len(movers) == 1 else ROOT_HALF
+    out = []
+    for i in movers:
+        new = list(state); new[i] = (dst, state[i][1]); out.append((amp, tuple(new)))
+    return rec, out
+
+
+def labelled_space(sector, d):
+    modes = [(p, s) for p in range(12) for s in range(d)]
+    if sector == 1:
+        return [(m,) for m in modes]
+    if sector == 2:
+        return [(m1, m2) for m1 in modes for m2 in modes]
+    raise ValueError('sectors one and two')
+
+
+def labelled_instrument(seam, sector, law='C', d=1):
+    """{record: {(out_index, in_index): S amplitude}} on labelled quanta (distinguishable); exact."""
+    basis = labelled_space(sector, d); idx = {x: i for i, x in enumerate(basis)}
+    kraus = {}
+    for i, x in enumerate(basis):
+        for coin in (0, 1):
+            rec, outs = event(x, seam, coin, law)
+            branch = kraus.setdefault(rec, {})
+            for amp, y in outs:
+                key = (idx[y], i)
+                branch[key] = branch.get(key, S()) + ROOT_HALF * amp
+    return basis, kraus
+
+
+# ------------------------------------------------------------------ identical quanta: Fock bases as vectors of the labelled space
+def fock_basis(d, stat):
+    """Two identical quanta with modes (port, internal). Returns (labels, vectors); each vector is a dict
+    {labelled state: S amplitude} in the labelled two-quanta space."""
+    modes = [(p, s) for p in range(12) for s in range(d)]
+    labels, vecs = [], []
+    for i, m1 in enumerate(modes):
+        for m2 in modes[i:]:
+            if m1 == m2:
+                if stat == 'bose':
+                    labels.append((m1, m2)); vecs.append({(m1, m2): ONE_S})
+            else:
+                sgn = ONE_S if stat == 'bose' else S(-1)
+                labels.append((m1, m2)); vecs.append({(m1, m2): ROOT_HALF, (m2, m1): ROOT_HALF * sgn})
+    return labels, vecs
+
+
+def restrict(kraus_branch, basis, vecs):
+    """Matrix elements <v_k| K |v_l> of a labelled Kraus branch in an orthonormal family vecs; exact; also returns
+    the squared norm of the part of K v_l outside the span (must vanish when the family is invariant)."""
+    idx = {x: i for i, x in enumerate(basis)}
+    cols = {}
+    for (o, i), amp in kraus_branch.items():
+        cols.setdefault(i, []).append((o, amp))
+    where = {}
+    for k, v in enumerate(vecs):
+        for x, amp in v.items():
+            where.setdefault(idx[x], []).append((k, amp))
+    out, leak = {}, S()
+    for l, v in enumerate(vecs):
+        image = {}
+        for x, amp in v.items():
+            for o, a2 in cols.get(idx[x], []):
+                image[o] = image.get(o, S()) + a2 * amp
+        norm_in = S()
+        for o, val in image.items():
+            norm_in = norm_in + val * val.conj()
+        comp = {}
+        for o, val in image.items():
+            for k, amp in where.get(o, []):
+                comp[k] = comp.get(k, S()) + amp.conj() * val
+        norm_out = S()
+        for k, val in comp.items():
+            if val:
+                out[(k, l)] = val; norm_out = norm_out + val * val.conj()
+        leak = leak + norm_in - norm_out
+    return out, leak
+
+
+# ------------------------------------------------------------------ load registers (positions only)
+def loads_of(positions):
+    x = [0] * 12
+    for p in positions:
+        x[p] += 1
+    return tuple(x)
+
+
+def reference_instrument(seam, sector, law='C'):
+    """The reference instrument on the load register (12 or 78 states): {record: {(out, in): S}}."""
+    states = [tuple(int(i == p) for i in range(12)) for p in range(12)] if sector == 1 else STATES78
+    idx = {x: i for i, x in enumerate(states)}
+    a, b = seam
+    kraus = {}
+    for i, x in enumerate(states):
+        for coin in (0, 1):
+            j = current(x[a], x[b], coin)
+            y = list(x); y[a] -= j; y[b] += j
+            rec = record_of(law, coin, x[a], x[b], j)
+            kraus.setdefault(rec, {})[(idx[tuple(y)], i)] = ROOT_HALF
+    return states, kraus
+
+
+def hop_sign(x, y):
+    """Sign of the move x -> y of the antisymmetric (spinless fermion) register, basis (|pq> - |qp>)/sqrt2, p < q."""
+    if x == y:
+        return 1
+    px = [p for p in range(12) if x[p]]; py = [p for p in range(12) if y[p]]
+    stay = [p for p in px if p in py][0]
+    src = [p for p in px if p != stay][0]; dst = [p for p in py if p != stay][0]
+    return 1 if (src < stay) == (dst < stay) else -1
+
+
+def fermion_instrument(seam, law='C'):
+    """The reference rule on two spinless fermions (66 binary states): the reference instrument with hop signs."""
+    a, b = seam
+    kraus = {}
+    for i, x in enumerate(BIN66):
+        for coin in (0, 1):
+            j = current(x[a], x[b], coin)
+            y = list(x); y[a] -= j; y[b] += j; y = tuple(y)
+            rec = record_of(law, coin, x[a], x[b], j)
+            kraus.setdefault(rec, {})[(IDX66[y], i)] = ROOT_HALF * hop_sign(x, y)
+    return BIN66, kraus
+
+
+def sym_vectors():
+    """The 78 load states as symmetric position states of two labelled quanta (internal dimension one)."""
+    vecs = []
+    for x in STATES78:
+        ports = [p for p in range(12) for _ in range(x[p])]
+        p, q = ports
+        if p == q:
+            vecs.append({((p, 0), (q, 0)): ONE_S})
+        else:
+            vecs.append({((p, 0), (q, 0)): ROOT_HALF, ((q, 0), (p, 0)): ROOT_HALF})
+    return vecs
+
+
+def anti_vectors():
+    vecs = []
+    for x in BIN66:
+        p, q = [p for p in range(12) if x[p]]
+        vecs.append({((p, 0), (q, 0)): ROOT_HALF, ((q, 0), (p, 0)): ROOT_HALF * S(-1)})
+    return vecs
+
+
+# ------------------------------------------------------------------ float copies
+def s_float(val):
+    a, b, c, d = (float(t) for t in val.parts())
+    return complex(a + b * 2 ** .5, c + d * 2 ** .5)
+
+
+def dense(branch, n, m=None):
+    M = np.zeros((n, n if m is None else m), complex)
+    for (o, i), val in branch.items():
+        M[o, i] = s_float(val)
+    return M
+
+
+def kraus_num(seam, sector, law='C'):
+    """Float Kraus matrices of the reference instrument: sector 1 (12 states), 'S' (78), 'A' (66 fermionic)."""
+    if sector == 1:
+        st, kr = reference_instrument(seam, 1, law); n = 12
+    elif sector == 'S':
+        st, kr = reference_instrument(seam, 2, law); n = 78
+    elif sector == 'A':
+        st, kr = fermion_instrument(seam, law); n = 66
+    else:
+        raise ValueError(sector)
+    return [(rec, dense(br, n)) for rec, br in sorted(kr.items())]
+
+
+# ------------------------------------------------------------------ the candidate interface
+def describe():
+    return {
+        'name': 'framed quanta',
+        'sentence': 'A load carries an internal spin state in the ambient frame of its carrier; the reference seam '
+                    'event moves the load and the internal state rides along; a port reads it along its own axis.',
+        'carrier': 'icosahedral, 12 ports, 30 seams (NATIVE)',
+        'local_state': 'port load 0, 1, 2 (NATIVE) times internal space C^d of each load (DECLARED: d and its spin type)',
+        'autonomous_law': 'reference record law C or E on a uniformly drawn seam, fair coin (NATIVE); transport of the '
+                          'internal label is the identity in the ambient frame (DECLARED, no number)',
+        'statistics': 'identical quanta: bosons or fermions on modes (port, internal); a double load splits by the '
+                      'exchange-symmetric hop (DECLARED)',
+        'memory': 'the reference tape (seam, coin, current); apparatus clicks',
+        'scheduler': 'independent uniform seam draws, fair coin (NATIVE)',
+        'preparation': 'load prior times internal density sigma (DECLARED); heralded port preparations (block 5)',
+        'apparatus': 'port-axis readout N_p x |chi_p,m><chi_p,m| and probe pulses exp(i eps N_p x Pi_p) (DECLARED); '
+                     'axes: convex (C.N) or great (C.Ng) realization (DECLARED)',
+        'clock': 'attempt count',
+        'declared_numbers': [],
+        'port_response': 'D_p = i Pi_p / 12: first-order response of the unread channel to a probe at port p in the '
+                         'stationary position state; exact unitary words when the tape is read',
+        'shadow_level': 'instrument (population, history, coin and current records, post-measurement load states) on '
+                        'one quantum and on the position-symmetric register of two; the position-antisymmetric '
+                        'register is the reference rule on two spinless fermions',
+        'complete_law_accepted': False,
+    }
+
+
+def space(sector, d=2, stat='bose'):
+    if sector == 1:
+        return labelled_space(1, d)
+    if stat == 'dist':
+        return labelled_space(2, d)
+    return fock_basis(d, stat)[0]
+
+
+def instrument(seam, sector, law='C', d=2, stat='bose'):
+    """[(record, Kraus matrix as numpy array)] of one autonomous event (the uniform seam draw is not included)."""
+    basis, kr = labelled_instrument(seam, sector, law, d)
+    if sector == 1 or stat == 'dist':
+        return [(rec, dense(br, len(basis))) for rec, br in sorted(kr.items())]
+    labels, vecs = fock_basis(d, stat)
+    out = []
+    for rec, br in sorted(kr.items()):
+        mat, leak = restrict(br, basis, vecs)
+        assert not leak
+        out.append((rec, dense(mat, len(labels))))
+    return out

@@ -1,0 +1,231 @@
+{
+ "schema": "fz.looks_added.v1",
+ "note": "Looks found after the freeze in files of the record that are not value lines of registry.json. Entries are only added (PROTOCOL.md section 6). Values that appear as registry lines are counted by the run ledger instead.",
+ "entries": [
+  {
+   "rows": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q7",
+    "Q8"
+   ],
+   "n": 20,
+   "what": "QM: 20 registered readings, each a pair (x_u, x_d) compared with the values needed by the measured spectra",
+   "cite": "RL/reports/QM.md, section 3 (Candidates)"
+  },
+  {
+   "rows": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5"
+   ],
+   "n": 3,
+   "what": "LS round 2: determinant constructions D1, D2 and the unregistered L7 compared with the up and down determinants",
+   "cite": "RL/reports/LS2.md, sections 3 and 4"
+  },
+  {
+   "rows": [
+    "H0"
+   ],
+   "n": 9,
+   "what": "DE: nine nucleon values N0, N1, N2 written before computing and compared with m_p",
+   "cite": "RL/reports/DE.md, Candidates"
+  },
+  {
+   "rows": [
+    "E4"
+   ],
+   "n": 41,
+   "what": "null-model scan of 41 alternative constant pairs in the gauge-width map",
+   "cite": "RL/reports/MAUD.md section 8 (tracking/null_model_scorecard.md:13-41)"
+  },
+  {
+   "rows": [
+    "E1",
+    "E2"
+   ],
+   "n": 3,
+   "what": "repository W, Z candidate B, ledger envelope and paper SMDR rows",
+   "cite": "RL/reports/MAUD.md section 9"
+  },
+  {
+   "rows": [
+    "E3"
+   ],
+   "n": 3,
+   "what": "repository H ledger envelope, paper SMDR row and the archived one-loop boundary (115.1 GeV)",
+   "cite": "RL/reports/MAUD.md section 9; RER MASS_CANDIDATE_STATUS.md"
+  },
+  {
+   "rows": [
+    "Q6"
+   ],
+   "n": 4,
+   "what": "repository top ledger envelope, paper SMDR row, top running at fixed P (162.059 GeV) and the archived one-loop boundary (164.13 GeV)",
+   "cite": "RL/reports/MAUD.md section 9; RER MASS_CANDIDATE_STATUS.md"
+  },
+  {
+   "rows": [
+    "L1",
+    "L2",
+    "L3"
+   ],
+   "n": 7,
+   "what": "repository lepton rows: paper packet, icosahedral completion at three pixels, Stage-5, two kappa intervals",
+   "cite": "RL/reports/MAUD.md sections 2 and 9"
+  },
+  {
+   "rows": [
+    "N3"
+   ],
+   "n": 3,
+   "what": "three candidate neutrino laws ranked by their error against the measured splitting ratio",
+   "cite": "RL/reports/MAUD.md section 7"
+  },
+  {
+   "rows": [
+    "N1",
+    "N2"
+   ],
+   "n": 1,
+   "what": "absolute attachment found by monomial searches ranked against a scale fitted to the splittings (lower bound)",
+   "cite": "RL/reports/MAUD.md section 7"
+  },
+  {
+   "rows": [
+    "L1",
+    "L2",
+    "L3",
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5"
+   ],
+   "n": 55,
+   "what": "TR: 22 mental estimates before registration, 26 scripted comparisons, 7 mental estimates of variants (lepton/quark junction weight ratio against the value needed by the measured masses)",
+   "cite": "RL/reports/TR.md, Looks counted"
+  },
+  {
+   "rows": [
+    "Q1",
+    "Q2",
+    "Q3",
+    "Q4",
+    "Q5",
+    "Q7",
+    "Q8"
+   ],
+   "n": 22,
+   "what": "QM round 2: 12 looks before registration and ten registered readings compared with measurement",
+   "cite": "RL/reports/QM2.md (CANDIDATES.md section H)"
+  },
+  {
+   "rows": [
+    "E1",
+    "E2"
+   ],
+   "n": 1,
+   "what": "EB F1 row B + D* (m_W 23.5, m_Z 26.3 GeV)",
+   "cite": "RL/reports/EB.md, Step 3"
+  },
+  {
+   "rows": [
+    "E4"
+   ],
+   "n": 2,
+   "what": "EB F1 rows A + D* and B + D* (alpha^-1(0) 163.44 and 153.89)",
+   "cite": "RL/reports/EB.md, Step 3"
+  },
+  {
+   "rows": [
+    "E1",
+    "E2",
+    "E3",
+    "Q6"
+   ],
+   "n": 6,
+   "what": "LW: six other attachments of v (Q0, m_t running, top pole, Higgs pole, W pole, mu = v) compared with measurement",
+   "cite": "RL/reports/LW.md, section 4"
+  },
+  {
+   "rows": [
+    "E4"
+   ],
+   "n": 3,
+   "what": "SC: modular family c = 0, 1/2, 1 of the declared chain (alpha^-1(0) ratios 0.9934, 0.9981, 1.0028)",
+   "cite": "RL/reports/SC.md, chain reruns"
+  },
+  {
+   "rows": [
+    "H0",
+    "H5"
+   ],
+   "n": 3,
+   "what": "HD: three alternative import sets for m_N and m_rho",
+   "cite": "RL/reports/HD.md, Alternative import sets"
+  },
+  {
+   "rows": [
+    "H0",
+    "H5"
+   ],
+   "n": 9,
+   "what": "HD: nine rows with the source cut coupling (hadrons at 1.6e4 to 3.3e15 GeV)",
+   "cite": "RL/reports/HD.md, Steps 3 and 4"
+  },
+  {
+   "rows": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5"
+   ],
+   "n": 41,
+   "what": "CM: 41 registered CKM readings (31 at 23:27, 10 at 23:37), all with J = 0",
+   "cite": "RL/reports/CM.md, RESULT"
+  },
+  {
+   "rows": [
+    "E3",
+    "Q6"
+   ],
+   "n": 16,
+   "what": "HT: candidate boundary scales K1, C2b, C3c, C3b, C3d and the census-BE cell row under D11 and SMDR A1, A2, compared once",
+   "cite": "RL/reports/HT.md, Consequences table and NOT BLIND list"
+  },
+  {
+   "rows": [
+    "E3"
+   ],
+   "n": 3,
+   "what": "HT: C1 nonlinear end at the measured top, m_H 166.1, 169.4, 171.5 GeV",
+   "cite": "RL/reports/HT.md, NOT BLIND list"
+  },
+  {
+   "rows": [
+    "E5"
+   ],
+   "n": 1,
+   "what": "HT: census BE at Q0, sin^2 theta_W = 0.2308 against 0.23122",
+   "cite": "RL/reports/HT.md, NOT BLIND list"
+  },
+  {
+   "rows": [
+    "N4",
+    "N5",
+    "N6",
+    "N7"
+   ],
+   "n": 108,
+   "what": "PM: 108 looks at the mixing candidates, none passes",
+   "cite": "RL/reports/PM.md, RESULT"
+  }
+ ]
+}

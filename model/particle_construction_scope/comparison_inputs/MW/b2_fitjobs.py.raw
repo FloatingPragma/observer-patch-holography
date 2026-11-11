@@ -1,0 +1,16 @@
+"""Writes the list of fit commands for the series present in b2/ (one line per configuration, seeds pooled).
+    python b2_fitjobs.py [prefix ...] > b2_fit_jobs.txt ; ./b2_par.sh b2_fit_jobs.txt 12
+With prefixes only configurations whose name starts with one of them are listed."""
+import glob, os, re, sys
+prefixes = tuple(sys.argv[1:])
+groups = {}
+for f in sorted(glob.glob('b2/*.npz')):
+    name = os.path.basename(f)[:-4]
+    key = re.sub(r'_s\d+$', '', name)
+    groups.setdefault(key, []).append(f)
+for key, files in groups.items():
+    out = f'b2/fit_{key}.json'
+    if os.path.exists(out) or (prefixes and not key.startswith(prefixes)):
+        continue
+    exact = ' --exact' if key.startswith(('ref_', 'engine_')) else ''
+    print(f"python structure_factor.py fit {' '.join(files)} --out {out}{exact} > b2/fit_{key}.log 2>&1")

@@ -1,0 +1,48 @@
+"""GL step 2, M5: a link register of growing capacity tends to the group manifold.
+
+U(1): register |n>, |n| <= L; the truncated multiplication operator (U + U^dagger)/2 against cos(theta) under Haar.
+SU(2): class functions |j>, j <= J; multiplication by chi_1/2 (chi_1/2 chi_j = chi_{j-1/2} + chi_{j+1/2}) against the
+Haar moments of chi_1/2 (Catalan numbers). Also the sizes of the audit's links and of the code's first truncation.
+Writes s2_peter_weyl.json.
+"""
+import json
+import sys
+from math import comb
+
+import numpy as np
+
+out = {}
+u1 = []
+for Lc in (1, 2, 5, 20, 100):
+    n = 2 * Lc + 1
+    C = (np.eye(n, k=1) + np.eye(n, k=-1)) / 2
+    w = np.linalg.eigvalsh(C)
+    row = {'capacity_states': n}
+    for m in (1, 2, 3):
+        exact = comb(2 * m, m) / 4 ** m                         # Haar mean of cos^(2m)
+        row[f'mean cos^{2 * m}: register / Haar'] = float(np.mean(w ** (2 * m)) / exact)
+    # vacuum (n = 0) spectral moments are exact once the capacity exceeds the moment order
+    v0 = np.zeros(n); v0[Lc] = 1
+    row['vacuum moment <0|C^6|0> / Haar'] = float(v0 @ np.linalg.matrix_power(C, 6) @ v0 / (comb(6, 3) / 64))
+    u1.append(row)
+su2 = []
+catalan = [comb(2 * m, m) // (m + 1) for m in range(8)]
+for J2 in (1, 2, 4, 10, 40):                       # j = 0, 1/2, ..., J2/2
+    n = J2 + 1
+    T = np.eye(n, k=1) + np.eye(n, k=-1)          # chi_1/2 on class functions
+    v0 = np.zeros(n); v0[0] = 1
+    row = {'capacity_j_max': J2 / 2}
+    for m in (1, 2, 3, 4, 6):
+        row[f'<0|chi^{2 * m}|0> / Catalan({m})'] = float(v0 @ np.linalg.matrix_power(T, 2 * m) @ v0 / catalan[m])
+    su2.append(row)
+out['U1'] = u1
+out['SU2_class_functions'] = su2
+out['link_sizes'] = {'audit_60_state': '1 + 3^2 + 6^2 + 1^2 + 2^2 + 3^2 = 60 (trivial plus the five matter blocks)',
+                     'audit_119_state': '1 + 2 x 59 (both orientations)',
+                     'code_first_truncation': '1 + 3^2 + 2^2 = 14; with both orientations 27',
+                     'full_register': 'L^2(G) = sum over irreducible R of V_R^* (x) V_R (Peter-Weyl)'}
+for r in u1:
+    print('U(1)', r)
+for r in su2:
+    print('SU(2)', r)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's2_peter_weyl.json', 'w'), indent=1)

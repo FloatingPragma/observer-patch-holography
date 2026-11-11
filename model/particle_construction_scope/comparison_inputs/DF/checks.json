@@ -1,0 +1,108 @@
+{
+ "R_images_of_instrument_seams": {
+  "C": [
+   0,
+   10
+  ],
+  "E": [
+   0,
+   1
+  ]
+ },
+ "axis_faces": [
+  [
+   4,
+   5,
+   11
+  ],
+  [
+   6,
+   7,
+   8
+  ]
+ ],
+ "frame_group_commutant_dimension_by_sector": {
+  "0": {
+   "block_sizes_d_times_m": [
+    1,
+    2,
+    9
+   ],
+   "commutant_dimension": 12,
+   "irreducible_blocks": 4
+  },
+  "2": {
+   "block_sizes_d_times_m": [
+    1,
+    1,
+    1,
+    9
+   ],
+   "commutant_dimension": 12,
+   "irreducible_blocks": 4
+  },
+  "7": {
+   "block_sizes_d_times_m": [
+    4,
+    4,
+    4
+   ],
+   "commutant_dimension": 12,
+   "irreducible_blocks": 3
+  },
+  "9": {
+   "block_sizes_d_times_m": [
+    4,
+    4,
+    4
+   ],
+   "commutant_dimension": 12,
+   "irreducible_blocks": 3
+  },
+  "13": {
+   "block_sizes_d_times_m": [
+    4,
+    4,
+    4
+   ],
+   "commutant_dimension": 12,
+   "irreducible_blocks": 3
+  },
+  "16": {
+   "block_sizes_d_times_m": [
+    1,
+    1,
+    1,
+    9
+   ],
+   "commutant_dimension": 12,
+   "irreducible_blocks": 4
+  }
+ },
+ "frame_groups_found": 5,
+ "instrument_faces": [
+  [
+   2,
+   3,
+   4
+  ],
+  [
+   2,
+   3,
+   6
+  ],
+  [
+   2,
+   6,
+   10
+  ],
+  [
+   2,
+   10,
+   11
+  ]
+ ],
+ "instrument_register_touches_axis_face": false,
+ "twisted_face_characters_uniform_modulus": true,
+ "vertex_lemma_max_deviation_random": 7.105427357601002e-15
+}

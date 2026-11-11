@@ -1,0 +1,196 @@
+#!/usr/bin/env python3
+"""S2 task 2(a): the seam law with a link register and Gauss covariance.
+
+Seam space: endpoint loads (x_a, x_b) and a link register E in Z_N (N = 7; the statements do not depend on N >= 3).
+Local Gauss generators:  G_a = N_a + E,  G_b = N_b - E   (a hop a -> b with E -> E + 1 commutes with both).
+Classical joint law (requirement 2 with the link read): (x_a, x_b, E) -> (x_a - j, x_b + j, E + j), j the native current.
+
+Checks, all by enumeration or exact algebra:
+ 1. every classical branch conserves (G_a, G_b): Gauss covariance is implied by the classical joint law;
+ 2. Gauss sectors of the binary seam space and the classical kernel on each;
+ 3. the unitary lifts: moduli forced to 1/sqrt2 on the odd sector (pulse area pi/4), free phases counted;
+    endpoint swap + link-shift invariance leave exp(i chi) exp(-+ i pi/4 sigma_x);
+ 4. dimension of the convex set of non-unitary admissible channels on an odd sector;
+ 5. the collision sector of the total-two carrier is not unistochastic (no unitary lift);
+ 6. pulse-area scan and the two-event control (unread double event = SWAP, read double event = 1/2).
+"""
+import itertools, json, math, cmath
+from fractions import Fraction as Fr
+from pathlib import Path
+import numpy as np
+import sympy as sp
+
+HERE = Path(__file__).resolve().parent
+N = 7
+out = {}
+
+def current(key, coin):
+    d = key[0] - key[1]
+    return (d - (2 * coin - 1) * (abs(d) % 2)) // 2
+
+KEYS_BIN = [(0, 0), (1, 0), (0, 1), (1, 1)]
+KEYS_ALL = KEYS_BIN + [(2, 0), (0, 2)]
+
+def gauss(key, E):
+    return ((key[0] + E) % N, (key[1] - E) % N)
+
+# 1. conservation on every classical branch
+ok = True; branches = 0
+for key in KEYS_ALL:
+    for E in range(N):
+        for coin in (0, 1):
+            j = current(key, coin)
+            new = (key[0] - j, key[1] + j); En = (E + j) % N
+            ok &= gauss(key, E) == gauss(new, En); branches += 1
+out['every_classical_branch_conserves_both_Gauss_charges'] = {'branches': branches, 'holds': bool(ok)}
+print('1. classical branches conserve (G_a, G_b):', ok, f'({branches} branches)')
+
+# control: the old requirement 3 (N_a and N_b separately) is violated by every moving branch
+viol = sum(1 for key in KEYS_ALL for coin in (0, 1) if current(key, coin) != 0)
+out['moving_branches_violating_separate_number_conservation'] = viol
+
+# 2. Gauss sectors on the binary seam space
+states = [(key, E) for key in KEYS_BIN for E in range(N)]
+sectors = {}
+for s in states: sectors.setdefault((sum(s[0]),) + gauss(*s), []).append(s)
+sizes = sorted(len(v) for v in sectors.values())
+out['binary_gauss_sectors'] = {'count': len(sectors), 'sizes': {str(k): sizes.count(k) for k in sorted(set(sizes))}}
+kernels = set()
+for lab, members in sectors.items():
+    P = [[Fr(0)] * len(members) for _ in members]
+    for c_, s in enumerate(members):
+        for coin in (0, 1):
+            j = current(s[0], coin)
+            t = ((s[0][0] - j, s[0][1] + j), (s[1] + j) % N)
+            P[members.index(t)][c_] += Fr(1, 2)
+    kernels.add(tuple(tuple(str(v) for v in row) for row in P))
+out['classical_kernels_on_sectors'] = sorted([list(map(list, k)) for k in kernels])
+print('2. sectors:', out['binary_gauss_sectors'], 'kernels:', out['classical_kernels_on_sectors'])
+
+# 3. unitary lifts on the odd sector: |U_ts|^2 = 1/2 for all four entries
+chi, al, be = sp.symbols('chi alpha beta', real=True)
+U = sp.exp(sp.I * chi) / sp.sqrt(2) * sp.Matrix([[sp.exp(sp.I * al), sp.I * sp.exp(sp.I * be)], [sp.I * sp.exp(-sp.I * be), sp.exp(-sp.I * al)]])
+unit = sp.simplify(U.H * U - sp.eye(2))
+moduli = [sp.simplify(sp.Abs(U[i, j]) ** 2) for i in range(2) for j in range(2)]
+out['odd_sector_unitary_family'] = {'form': 'exp(i chi)/sqrt2 [[exp(i alpha), i exp(i beta)], [i exp(-i beta), exp(-i alpha)]]',
+                                    'unitary': unit == sp.zeros(2, 2), 'moduli_squared': [str(m) for m in moduli],
+                                    'free_phases': 3, 'free_hopping_strength': 0}
+# completeness of the family: a 2x2 unitary with all moduli 1/sqrt2 has 4 phases and one orthogonality condition (1 real phase)
+a0, a1, a2, a3 = sp.symbols('a0:4', real=True)
+G = sp.Matrix([[sp.exp(sp.I * a0), sp.exp(sp.I * a1)], [sp.exp(sp.I * a2), sp.exp(sp.I * a3)]]) / sp.sqrt(2)
+orth = sp.simplify((G.H * G)[0, 1] * 2)       # exp(i(a1-a0)) + exp(i(a3-a2)) = 0  <=>  a3 = a2 + a1 - a0 + pi
+sol = sp.simplify(orth.subs(a3, a2 + a1 - a0 + sp.pi))
+out['odd_sector_unitary_family']['orthogonality_fixes_one_phase'] = (sol == 0)
+# swap + shift invariance:  X U X = U
+X = sp.Matrix([[0, 1], [1, 0]])
+swap_sols = []
+for a_, b_ in itertools.product((0, sp.pi), repeat=2):
+    Us = U.subs({al: a_, be: b_})
+    if sp.simplify(X * Us * X - Us) == sp.zeros(2, 2):
+        # identify with exp(i chi') exp(-i s pi/4 sigma_x)
+        for sgn in (1, -1):
+            for shift in (0, sp.pi):
+                T = sp.exp(sp.I * (chi + shift)) * (sp.eye(2) * sp.cos(sp.pi / 4) - sgn * sp.I * sp.sin(sp.pi / 4) * X)
+                if sp.simplify(T - Us) == sp.zeros(2, 2):
+                    swap_sols.append({'alpha': str(a_), 'beta': str(b_), 'equals': f'exp(i(chi+{shift})) exp(-i*({sgn})*pi/4*sigma_x)'})
+generic = sp.simplify(X * U * X - U)
+out['swap_and_shift_invariant_unitaries'] = {'solutions': swap_sols, 'generic_alpha_beta_is_covariant': generic == sp.zeros(2, 2),
+                                             'remaining_parameters': 'block phase chi (U(1)) and the sign of the quarter turn'}
+print('3. odd-sector unitaries: unitary', out['odd_sector_unitary_family']['unitary'], 'moduli^2', out['odd_sector_unitary_family']['moduli_squared'])
+print('   swap + shift invariant:', swap_sols)
+# sqrt(SWAP) is the member chi = pi/4, sign +  (P_sym + i P_anti)
+sq = sp.Matrix([[1 + sp.I, 1 - sp.I], [1 - sp.I, 1 + sp.I]]) / 2
+member = sp.exp(sp.I * sp.pi / 4) * (sp.eye(2) * sp.cos(sp.pi / 4) - sp.I * sp.sin(sp.pi / 4) * X)
+out['sqrt_swap_is_member_chi_pi_over_4'] = bool(max(abs(complex(v)) for v in (sq - member).evalf(30)) < 1e-25) and (sq - member).applyfunc(lambda v: sp.simplify(sp.expand_complex(v))) == sp.zeros(2, 2)
+out['sqrt_swap_fixes_symmetric_vector'] = sp.simplify(sq * sp.Matrix([1, 1]) - sp.Matrix([1, 1])) == sp.zeros(2, 1)
+print('   sqrt(SWAP) = exp(i pi/4) exp(-i pi/4 sigma_x):', out['sqrt_swap_is_member_chi_pi_over_4'])
+
+# 4. dimension of the admissible (not necessarily unitary) channels on an odd sector
+# Hermitian Choi matrix J on out (x) in (4x4, 16 real parameters); constraints: Tr_out J = 1 (4), <t|Phi(|s><s|)|t> = 1/2 (2 new)
+basis = []
+for i in range(4):
+    for j in range(i, 4):
+        if i == j:
+            M = np.zeros((4, 4), complex); M[i, i] = 1; basis.append(M)
+        else:
+            M = np.zeros((4, 4), complex); M[i, j] = 1; M[j, i] = 1; basis.append(M)
+            M = np.zeros((4, 4), complex); M[i, j] = 1j; M[j, i] = -1j; basis.append(M)
+def constraints(J, swap):
+    # index = out*2 + in
+    rows = []
+    T = J.reshape(2, 2, 2, 2)            # [out, in, out', in']
+    tr = np.einsum('oiok->ik', T)        # partial trace over the output
+    rows += [tr[0, 0].real, tr[1, 1].real, tr[0, 1].real, tr[0, 1].imag]
+    rows += [T[0, 0, 0, 0].real, T[0, 1, 0, 1].real]            # population of output 0 from inputs 0 and 1
+    if swap:
+        Xs = np.array([[0, 1], [1, 0]]); XX = np.kron(Xs, Xs)
+        D = XX @ J @ XX - J
+        rows += list(D.real.ravel()) + list(D.imag.ravel())
+    return rows
+dims = {}
+for swap in (False, True):
+    A = np.array([constraints(Bm, swap) for Bm in basis]).T
+    dims['with_swap' if swap else 'no_swap'] = int(16 - np.linalg.matrix_rank(A, tol=1e-10))
+out['admissible_channel_family_real_dimension_per_odd_sector'] = dims
+print('4. real dimension of admissible channels on one odd sector:', dims)
+# the stay/move coherence (visibility) is free between 0 (fully recorded, law C) and 1/2 (unitary)
+vis = []
+for v in (0.0, 0.25, 0.5):
+    # Kraus mixture: with weight 1-2v the fully dephased law, with weight 2v the beam splitter
+    Jbs = np.zeros((4, 4), complex)
+    Ub = np.array([[1, -1j], [-1j, 1]]) / math.sqrt(2)
+    vecU = Ub.reshape(-1)                   # index out*2+in
+    Jbs = np.outer(vecU, vecU.conj())
+    Jcl = np.diag([0.5, 0.5, 0.5, 0.5]).astype(complex)
+    J = 2 * v * Jbs + (1 - 2 * v) * Jcl
+    T = J.reshape(2, 2, 2, 2)
+    vis.append({'visibility': v, 'min_choi_eigenvalue': float(np.linalg.eigvalsh(J).min()),
+                'stay_move_coherence_abs': float(abs(T[0, 0, 1, 0])), 'classical_law_kept': bool(abs(T[0, 0, 0, 0] - .5) < 1e-12 and abs(T[0, 1, 0, 1] - .5) < 1e-12)})
+out['visibility_family'] = vis
+
+# 5. the collision sector of the total-two carrier
+members = [((2, 0), 0), ((1, 1), 1), ((0, 2), 2)]
+P = np.zeros((3, 3))
+for c_, s in enumerate(members):
+    for coin in (0, 1):
+        j = current(s[0], coin); t = ((s[0][0] - j, s[0][1] + j), (s[1] + j) % N)
+        P[members.index(t), c_] += .5
+out['collision_sector'] = {'states': [str(m) for m in members], 'classical_kernel': P.tolist(),
+                           'row_sums': P.sum(1).tolist(), 'bistochastic': bool(np.allclose(P.sum(1), 1)),
+                           'unitary_lift_exists': bool(np.allclose(P.sum(1), 1))}
+print('5. collision sector kernel row sums', P.sum(1), '-> unitary lift exists:', out['collision_sector']['unitary_lift_exists'])
+
+# 6. pulse-area scan on the full seam space with a Z_N link, and the two-event control
+dim = 4 * N
+idx = {s: i for i, s in enumerate(states)}
+hop = np.zeros((dim, dim))
+for E in range(N):
+    hop[idx[((0, 1), (E + 1) % N)], idx[((1, 0), E)]] = 1          # b_b^dag b_a (x) link shift
+Hh = hop + hop.T
+w_, V_ = np.linalg.eigh(Hh)
+def pulse(tau): return (V_ * np.exp(-1j * tau * w_)) @ V_.T
+Ga = np.diag([float((s[0][0] + s[1]) % N) for s in states]); Gb = np.diag([float((s[0][1] - s[1]) % N) for s in states])
+scan = []
+for tau in (0.2, math.pi / 8, math.pi / 4, 1.0, 3 * math.pi / 8, math.pi / 2, 3 * math.pi / 4):
+    Ut = pulse(tau)
+    pm = abs(Ut[idx[((0, 1), 1)], idx[((1, 0), 0)]]) ** 2
+    comm = max(np.abs(Ut @ np.diag(np.exp(2j * math.pi * np.diag(Ga) / N)) - np.diag(np.exp(2j * math.pi * np.diag(Ga) / N)) @ Ut).max(),
+               np.abs(Ut @ np.diag(np.exp(2j * math.pi * np.diag(Gb) / N)) - np.diag(np.exp(2j * math.pi * np.diag(Gb) / N)) @ Ut).max())
+    scan.append({'tau': tau, 'P_move_when_read': float(pm), 'sin2_tau': math.sin(tau) ** 2, 'gauss_commutator': float(comm),
+                 'classical_law_ok': bool(abs(pm - .5) < 1e-12)})
+out['pulse_area_scan'] = scan
+U1 = pulse(math.pi / 4)
+two_unread = abs((U1 @ U1)[idx[((0, 1), 1)], idx[((1, 0), 0)]]) ** 2
+two_read = 0.5
+out['two_events_same_seam'] = {'P_moved_unread_unitary': float(two_unread), 'P_moved_read_each_time': two_read}
+print('6. pulse scan:', [(round(s['tau'], 4), round(s['P_move_when_read'], 4), s['classical_law_ok']) for s in scan])
+print('   two events on one seam: unread', two_unread, 'read', two_read)
+
+# 7. the old covariance (independent port phases) forbids the dressed hop; the Gauss group allows it
+Na = np.diag([float(s[0][0]) for s in states]); Nb = np.diag([float(s[0][1]) for s in states])
+out['dressed_hop_commutes'] = {'with_Na': bool(np.allclose(Hh @ Na, Na @ Hh)), 'with_Nb': bool(np.allclose(Hh @ Nb, Nb @ Hh)),
+                               'with_Ga_mod_N': bool(np.allclose(pulse(.3) @ np.diag(np.exp(2j * math.pi * np.diag(Ga) / N)), np.diag(np.exp(2j * math.pi * np.diag(Ga) / N)) @ pulse(.3))),
+                               'with_Gb_mod_N': bool(np.allclose(pulse(.3) @ np.diag(np.exp(2j * math.pi * np.diag(Gb) / N)), np.diag(np.exp(2j * math.pi * np.diag(Gb) / N)) @ pulse(.3)))}
+print('7. dressed hop commutes with:', out['dressed_hop_commutes'])
+Path(HERE / 't2a_link_law.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't2a_link_law.json')

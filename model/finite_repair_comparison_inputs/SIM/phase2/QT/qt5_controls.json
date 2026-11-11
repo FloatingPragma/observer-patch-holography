@@ -1,0 +1,186 @@
+{
+ "task": "QT controls after the hash",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "K1_separate_record_values": {
+  "hexagon": {
+   "class 0": {
+    "triple": {
+     "consensus states (exact)": 1,
+     "T-A": 1,
+     "lowest A": -0.0,
+     "T-A lowest A": -0.0
+    },
+    "double+single": {
+     "consensus states (exact)": 1,
+     "T-A": 1,
+     "lowest A": 0.0,
+     "T-A lowest A": 0.0
+    },
+    "separated": {
+     "consensus states (exact)": 1,
+     "T-A": 1,
+     "lowest A": -0.0,
+     "T-A lowest A": -0.0
+    }
+   },
+   "class 1": {
+    "triple": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0075572574,
+     "T-A lowest A": 0.0075572574
+    },
+    "double+single": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0048208447,
+     "T-A lowest A": 0.0048208447
+    },
+    "separated": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0045482664,
+     "T-A lowest A": 0.0045482664
+    }
+   },
+   "class 2": {
+    "triple": {
+     "consensus states (exact)": 1,
+     "T-A": 1,
+     "lowest A": -0.0,
+     "T-A lowest A": -0.0
+    },
+    "double+single": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0185310716,
+     "T-A lowest A": 0.0185310716
+    },
+    "separated": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0179350476,
+     "T-A lowest A": 0.0179350476
+    }
+   },
+   "class 3": {
+    "triple": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0075572574,
+     "T-A lowest A": 0.0075572574
+    },
+    "double+single": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0174247296,
+     "T-A lowest A": 0.0174247296
+    },
+    "separated": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0393308458,
+     "T-A lowest A": 0.0393308458
+    }
+   },
+   "class 4": {
+    "triple": {
+     "consensus states (exact)": 1,
+     "T-A": 1,
+     "lowest A": -0.0,
+     "T-A lowest A": -0.0
+    },
+    "double+single": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0185310716,
+     "T-A lowest A": 0.0185310716
+    },
+    "separated": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0179350476,
+     "T-A lowest A": 0.0179350476
+    }
+   },
+   "class 5": {
+    "triple": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0075572574,
+     "T-A lowest A": 0.0075572574
+    },
+    "double+single": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0048208447,
+     "T-A lowest A": 0.0048208447
+    },
+    "separated": {
+     "consensus states (exact)": 0,
+     "T-A": 0,
+     "lowest A": 0.0045482664,
+     "T-A lowest A": 0.0045482664
+    }
+   }
+  },
+  "carrier (triple components)": {
+   "class 0": {
+    "consensus states (exact)": 1,
+    "T-A": 1,
+    "lowest A": -0.0,
+    "T-A lowest A": -0.0
+   },
+   "class 1": {
+    "consensus states (exact)": 0,
+    "T-A": 0,
+    "lowest A": 0.0024679932,
+    "T-A lowest A": 0.0024679932
+   },
+   "class 2": {
+    "consensus states (exact)": 1,
+    "T-A": 1,
+    "lowest A": -0.0,
+    "T-A lowest A": -0.0
+   },
+   "class 3": {
+    "consensus states (exact)": 0,
+    "T-A": 0,
+    "lowest A": 0.0024679932,
+    "T-A lowest A": 0.0024679932
+   },
+   "class 4": {
+    "consensus states (exact)": 1,
+    "T-A": 1,
+    "lowest A": -0.0,
+    "T-A lowest A": -0.0
+   },
+   "class 5": {
+    "consensus states (exact)": 0,
+    "T-A": 0,
+    "lowest A": 0.0024679932,
+    "T-A lowest A": 0.0024679932
+   }
+  },
+  "equal to law T-A in every entry": true
+ },
+ "K2_cycle_of_the_double_and_single_block": {
+  "configurations": 30,
+  "moves (edges)": 30,
+  "degrees": [
+   2
+  ],
+  "length of the cycle through one vertex": 30,
+  "one cycle through all configurations": true,
+  "net load crossings of one seam along the cycle (absolute value)": 3,
+  "reading": "a record-1 state that changes sign at every move and carries the link phase of the moved load closes when (-1)^30 s^3 = 1, classes 0, 2 and 4; the emission pairs of the double do not act on record 1"
+ },
+ "seconds": 28.72
+}

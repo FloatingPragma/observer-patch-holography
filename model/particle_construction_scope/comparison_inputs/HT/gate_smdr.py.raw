@@ -1,0 +1,20 @@
+"""Gate: the private SMDR interface reproduces LEW's K4 two-loop row (t4_criticality.json). Writes gate_smdr.json."""
+import json
+import math
+import sys
+import time
+
+sys.path.insert(0, ".")
+import smdrlib as S  # noqa: E402
+
+t0 = time.time()
+lew = json.load(open(S.LEW / "t4_criticality.json"))["candidates"]["K4_log_midpoint_post_exposure"]["2"]
+pk0 = S.packet_p_fwd()
+e, p = 1.22089e19, 1.63097209585889737696451390350695562847912625483895268486516
+mu = e * math.exp(-math.pi) * p ** (-1 / 6)
+row = S.family_point(pk0, mu, 2)
+dev = max(abs(row[a][k] / lew[a][k] - 1) for a in ("A1", "A2") for k in ("W", "Z", "H", "t"))
+out = {"mu_c": mu, "mine": row, "lew": {a: lew[a] for a in ("A1", "A2")}, "max_rel_dev": dev,
+       "pass_1e-9": dev < 1e-9, "seconds": time.time() - t0}
+json.dump(out, open("gate_smdr.json", "w"), indent=1)
+print(json.dumps({k: out[k] for k in ("max_rel_dev", "pass_1e-9", "seconds")}))

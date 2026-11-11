@@ -1,0 +1,46 @@
+{
+ "two_loop_available": true,
+ "scales": {
+  "mu_U_gauge_unification": 2.473612289234337e+16,
+  "E_cell_pixel_energy": 9.559899286840613e+18,
+  "E_star": 1.2208901289579268e+19,
+  "log_midpoint_half_turn": 4.862867915106425e+17,
+  "v_transmutation_gev": 246.59678102099912,
+  "mz_run_gev": 91.58833750192969
+ },
+ "rows": {
+  "log_midpoint_half_turn_2loop": {
+   "mh": 125.77115226639518,
+   "mt": 172.62935892273643,
+   "rel_dev": 0.0
+  },
+  "E_cell_pixel_energy_2loop": {
+   "mh": 131.80938727093422,
+   "mt": 175.66412567505776,
+   "rel_dev": 0.0
+  },
+  "E_star_2loop": {
+   "mh": 132.29093055239247,
+   "mt": 175.9047363846019,
+   "rel_dev": 0.0
+  },
+  "mu_U_gauge_unification_2loop": {
+   "mh": 119.37075206466659,
+   "mt": 169.37032266864955,
+   "rel_dev": 0.0
+  },
+  "log_midpoint_half_turn_1loop": {
+   "mh": 121.63432000427385,
+   "mt": 167.394214934821,
+   "rel_dev": 0.0
+  },
+  "E_cell_pixel_energy_1loop": {
+   "mh": 127.83227871460655,
+   "mt": 170.44889767995056,
+   "rel_dev": 0.0
+  }
+ },
+ "worst_relative_deviation": 0.0,
+ "gate_pass_1e-12": true,
+ "seconds": 6.962187051773071
+}

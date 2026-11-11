@@ -1,0 +1,150 @@
+{
+ "chain": {
+  "states": 78,
+  "binary_states": 66,
+  "doubly_loaded_states": 12,
+  "binary_class_closed": true,
+  "uniform_on_binary_is_stationary": true,
+  "rank_of_T_transpose_minus_1": 77,
+  "unique_stationary_law": true,
+  "transition_matrix_symmetric_on_binary_class": true,
+  "stay_probability_of_doubly_loaded_state": [
+   "5/6"
+  ]
+ },
+ "one_carrier_caps": [
+  {
+   "cap": "one_port",
+   "ports": 1,
+   "configurations": 2,
+   "weight_depends_on_cap_load_only": true,
+   "equals_C(V-v,q-k)/C(V,q)": true,
+   "w_k": {
+    "0": "5/6",
+    "1": "1/6"
+   },
+   "K_of_k": {
+    "0": 0.1823215567939546,
+    "1": 1.791759469228055
+   },
+   "cap_load_distribution": {
+    "0": "5/6",
+    "1": "1/6"
+   }
+  },
+  {
+   "cap": "face_0_11_5",
+   "ports": 3,
+   "configurations": 7,
+   "weight_depends_on_cap_load_only": true,
+   "equals_C(V-v,q-k)/C(V,q)": true,
+   "w_k": {
+    "0": "6/11",
+    "1": "3/22",
+    "2": "1/66"
+   },
+   "K_of_k": {
+    "0": 0.6061358035703156,
+    "1": 1.9924301646902063,
+    "2": 4.189654742026425
+   },
+   "cap_load_distribution": {
+    "0": "6/11",
+    "1": "9/22",
+    "2": "1/22"
+   }
+  },
+  {
+   "cap": "port_and_five_neighbours",
+   "ports": 6,
+   "configurations": 22,
+   "weight_depends_on_cap_load_only": true,
+   "equals_C(V-v,q-k)/C(V,q)": true,
+   "w_k": {
+    "0": "5/22",
+    "1": "1/11",
+    "2": "1/66"
+   },
+   "K_of_k": {
+    "0": 1.4816045409242156,
+    "1": 2.3978952727983707,
+    "2": 4.189654742026425
+   },
+   "cap_load_distribution": {
+    "0": "5/22",
+    "1": "6/11",
+    "2": "5/22"
+   }
+  }
+ ],
+ "two_point": {
+  "joint_occupation_values_over_all_66_pairs": [
+   "1/66"
+  ],
+  "connected_correlation": "-5/396",
+  "formula_-f(1-f)/(V-1)": "-5/396",
+  "depends_on_distance": false
+ },
+ "federation_closed_form": [
+  {
+   "case": "level 0, one carrier, filling 1/3",
+   "V": 240,
+   "q": 80,
+   "v": 12,
+   "K(k+1)-K(k) at mean load": 0.6997045811061184,
+   "exact_slope_at_k0": "log((153)/(76))",
+   "second_difference": 0.01962948211351545,
+   "entropy_of_cap_state": 7.637575181236226,
+   "entropy_per_port": 0.6364645984363522
+  },
+  {
+   "case": "level 0, five carriers",
+   "V": 240,
+   "q": 80,
+   "v": 60,
+   "K(k+1)-K(k) at mean load": 0.70144598337464,
+   "exact_slope_at_k0": "log((121)/(60))",
+   "second_difference": 0.024828104765902026,
+   "entropy_of_cap_state": 38.17225587901603,
+   "entropy_per_port": 0.6362042646502671
+  },
+  {
+   "case": "level 0, hemisphere, filling 1/2",
+   "V": 240,
+   "q": 120,
+   "v": 120,
+   "K(k+1)-K(k) at mean load": 0.016529301951209163,
+   "exact_slope_at_k0": "log((61)/(60))",
+   "second_difference": 0.033058603902418326,
+   "entropy_of_cap_state": 83.08161036462026,
+   "entropy_per_port": 0.6923467530385021
+  },
+  {
+   "case": "level 1, cap of 20 carriers",
+   "V": 960,
+   "q": 320,
+   "v": 240,
+   "K(k+1)-K(k) at mean load": 0.6952283467637699,
+   "exact_slope_at_k0": "log((481)/(240))",
+   "second_difference": 0.006239176352494269,
+   "entropy_of_cap_state": 152.744620895869,
+   "entropy_per_port": 0.6364359203994542
+  },
+  {
+   "case": "level 2, cap of 80 carriers",
+   "V": 3840,
+   "q": 1280,
+   "v": 960,
+   "K(k+1)-K(k) at mean load": 0.6936678783067691,
+   "exact_slope_at_k0": "log((1921)/(960))",
+   "second_difference": 0.001561822255325751,
+   "entropy_of_cap_state": 611.0347759019879,
+   "entropy_per_port": 0.6364945582312375
+  }
+ ],
+ "paper_check_V240_q80_v12_slope_from_k0_to_k1": {
+  "value": 0.62191967127157,
+  "log(149/80)": 0.6219196712715775
+ },
+ "conclusion": "rho_cap = direct sum over cap loads k of w_k * identity: K = -log w_{N_cap} is central in the load-conserving cap algebra; the modular flow is the identity there and a pure phase exp(i t (K(k) - K(k'))) on operators that change the cap load; K couples every pair of cap ports equally (a function of the total cap load), it is not a sum of local terms weighted by a profile; the connected two-point function is the same for all pairs, no power law."
+}

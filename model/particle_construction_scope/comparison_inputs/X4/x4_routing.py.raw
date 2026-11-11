@@ -1,0 +1,252 @@
+"""X4, part 6: the copies that the routing tick of CF-1 makes by itself (candidate g, added): sublattice classes
+and zone corners. Executed on the reference engine work/DIRAC/routing.py (imported by path, unchanged). float64.
+
+Every axis step of the tick moves the quantum by exactly one cell, so one tick changes the parity of all three
+coordinates. The two parities (x1 + x2, x2 + x3) mod 2 are therefore conserved: four classes of cells.
+
+  1. Executed: a state supported on one class stays on it, with a link field, a mass step and the alternating order.
+  2. Symbol: D(K + q) = (-1)^n D(q) for the eight zone corners K with n components equal to pi: eight exact copies of
+     the cone, four at phase 0 and four at phase pi per tick.
+  3. Action of the third of a turn (cyclic permutation of the axes) and of the translations on the four classes.
+"""
+import itertools
+import json
+import os
+import sys
+
+import numpy as np
+
+from x4lib import RL, dump
+sys.path.append(os.path.join(RL, 'work', 'DIRAC'))
+from routing import Routing
+
+out = {}
+rng = np.random.default_rng(4)
+shape = (4, 4, 4)
+grid = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij')
+cls = ((grid[0] + grid[1]) % 2) * 2 + ((grid[1] + grid[2]) % 2)          # class index 0..3 of every cell
+
+# 1. executed conservation of the class
+rows = []
+for links_on in (False, True):
+    links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)] if links_on else None
+    w = Routing(shape, links)
+    for c in range(4):
+        psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2))
+        psi = psi * (cls == c)[..., None, None]
+        psi /= np.linalg.norm(psi)
+        leak = 0.0
+        for t in range(6):
+            psi = w.tick(psi, theta=0.157935, kind='Y' if t % 2 == 0 else 'Z', reverse=bool(t % 2))
+            outside = float(np.sum(np.abs(psi * (cls != c)[..., None, None]) ** 2))
+            leak = max(leak, outside)
+        rows.append({'links': links_on, 'class': c, 'cells_in_class': int(np.sum(cls == c)), 'largest_weight_outside_after_6_ticks': leak,
+                     'norm_defect': float(abs(np.linalg.norm(psi) - 1))})
+out['class_conservation_executed'] = {'lattice': shape, 'rows': rows, 'classes': 4, 'tag': 'MEASURED (float64), reference engine'}
+print('1. largest weight outside the class after six ticks:', max(r['largest_weight_outside_after_6_ticks'] for r in rows),
+      '; norm defect', max(r['norm_defect'] for r in rows))
+assert max(r['largest_weight_outside_after_6_ticks'] for r in rows) < 1e-28      # rounding of the spin basis change
+
+# 2. the eight corners
+worst, phases = 0.0, {}
+for K in itertools.product((0.0, np.pi), repeat=3):
+    npi = sum(1 for k in K if k > 0)
+    for _ in range(20):
+        q = rng.uniform(-1, 1, size=3); th = rng.uniform(0, 0.6)
+        for kind in ('Y', 'Z'):
+            worst = max(worst, np.abs(Routing.symbol(np.array(K) + q, th, kind) - (-1) ** npi * Routing.symbol(q, th, kind)).max())
+    ev = np.linalg.eigvals(Routing.symbol(np.array(K), 0.157935))
+    phases[str(tuple(int(round(k / np.pi)) for k in K))] = sorted(round(float(abs(np.angle(e))), 6) for e in ev)
+at_zero = [k for k, v in phases.items() if abs(v[0] - 0.157935) < 1e-6]
+at_pi = [k for k, v in phases.items() if abs(v[0] - (np.pi - 0.157935)) < 1e-6]
+out['zone_corners'] = {'identity_D(K+q)_equals_sign_times_D(q)_max_defect': float(worst),
+                       'rest_phases_at_theta_0.157935': phases, 'corners_at_phase_theta': at_zero, 'corners_at_phase_pi_minus_theta': at_pi,
+                       'tag': 'MEASURED (float64)'}
+print('2. D(K + q) = (-1)^n D(q): max defect', f'{worst:.1e}', '; corners with rest phase theta:', at_zero, '; with pi - theta:', at_pi)
+assert len(at_zero) == 4 and len(at_pi) == 4
+
+# 3. symmetry action on the four classes: class = (a, b) = (x1 + x2, x2 + x3) mod 2
+def third_turn(a, b):                      # (x1, x2, x3) -> (x3, x1, x2)
+    return ((a + b) % 2, a)
+orb, seen = [], set()
+for c in itertools.product((0, 1), repeat=2):
+    if c in seen: continue
+    o = [c]
+    while third_turn(*o[-1]) != c:
+        o.append(third_turn(*o[-1]))
+    seen |= set(o); orb.append(o)
+trans = {f'translation by one cell along axis {i + 1}': {str(c): str(((c[0] + (i in (0, 1))) % 2, (c[1] + (i in (1, 2))) % 2))
+                                                         for c in itertools.product((0, 1), repeat=2)} for i in range(3)}
+out['classes_under_the_symmetries'] = {
+    'orbits_of_the_third_turn': [[str(c) for c in o] for o in orb], 'translations': trans, 'tag': 'EXACT',
+    'statement': 'four classes; the third of a turn about the cell at the origin fixes one and permutes three; the translations by one '
+                 'cell permute all four, so the four are exact translates of one another and have equal spectra in any background that '
+                 'is invariant under translation by one cell'}
+print('3. orbits of the third-turn on the classes:', [[str(c) for c in o] for o in orb])
+assert sorted(len(o) for o in orb) == [1, 3]
+
+# 4. the period of two ticks (forward then reverse order, CF-1 section 8): cones on the grid (pi/2) Z^3.
+# Recomputed here from the building blocks of the reference engine; the census is that of reports/R3.md and R4.md.
+SIG = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+Xr = SIG[0]
+def ex(pp, i):
+    a = np.kron(Xr, SIG[i]); return np.cos(pp) * np.eye(4) - 1j * np.sin(pp) * a
+def massY(th):
+    b = np.kron(SIG[1], np.eye(2)); return np.cos(th) * np.eye(4) - 1j * np.sin(th) * b
+def period(p, th=0.0):
+    fwd = massY(th) @ ex(p[2], 2) @ ex(p[1], 1) @ ex(p[0], 0)
+    rev = massY(th) @ ex(p[0], 0) @ ex(p[1], 1) @ ex(p[2], 2)
+    return rev @ fwd
+assert np.abs(massY(0.3) @ ex(0.2, 2) @ ex(-0.1, 1) @ ex(0.4, 0) - Routing.symbol((0.4, -0.1, 0.2), 0.3)).max() < 1e-15
+plus, minus, other = [], [], 0
+for m in itertools.product(range(4), repeat=3):
+    p = np.array(m) * np.pi / 2
+    W = period(p)
+    if np.abs(W - np.eye(4)).max() < 1e-12: plus.append(m)
+    elif np.abs(W + np.eye(4)).max() < 1e-12: minus.append(m)
+    else: other += 1
+# types of the zero-phase points modulo the corners: which coordinates are odd multiples of pi/2
+types = {}
+for m in plus:
+    key = tuple(i + 1 for i in range(3) if m[i] % 2)
+    types[key] = types.get(key, 0) + 1
+# rest phase with a mass step, and handedness in each arrow block (X_r = chi): sign of det of the linear term
+th = 0.157935
+gap_ok = all(np.abs(np.sort(np.abs(np.angle(np.linalg.eigvals(period(np.array(m) * np.pi / 2, th))))) - 2 * th).max() < 1e-12 for m in plus)
+closed_ok = all(np.abs(period(np.array(m) * np.pi / 2, th) + np.eye(4)).max() < 1e-12 for m in minus)
+vr = np.array([1, 1]) / np.sqrt(2)
+def block(W, chi):
+    b = np.kron(np.array([1, chi]) / np.sqrt(2), np.eye(2)).reshape(2, 2, 2).transpose(0, 2, 1).reshape(4, 2) if False else np.kron((np.array([[1], [chi]]) / np.sqrt(2)), np.eye(2))
+    return b.conj().T @ W @ b
+hand = {}
+eps = 1e-5
+for m in plus:
+    p0 = np.array(m) * np.pi / 2
+    for chi in (1, -1):
+        Mlin = np.zeros((3, 3))
+        for i in range(3):
+            d = np.zeros(3); d[i] = eps
+            dW = (block(period(p0 + d), chi) - block(period(p0 - d), chi)) / (2 * eps)
+            h = 1j * dW                                         # W ~ 1 - i h(q)
+            for j in range(3):
+                Mlin[i, j] = 0.5 * np.trace(SIG[j] @ h).real
+        s = int(np.sign(np.linalg.det(Mlin)))
+        key = tuple(i + 1 for i in range(3) if m[i] % 2)
+        hand.setdefault(key, set()).add(s * chi)
+same = sorted(k for k, v in hand.items() if v == {hand[()].copy().pop()})
+mirror = sorted(k for k, v in hand.items() if v == {-hand[()].copy().pop()})
+out['period_of_two_ticks'] = {
+    'points_with_W2_plus_one': len(plus), 'points_with_W2_minus_one': len(minus), 'other_points_of_the_grid': other,
+    'zero_phase_points_by_type': {('origin and corners' if not k else 'coordinates %s at +-pi/2' % (k,)): v for k, v in sorted(types.items())},
+    'cones_per_parity_class_of_cells': {'zero_phase': len(plus) // 8, 'phase_pi': len(minus) // 8},
+    'all_zero_phase_points_have_rest_phase_theta_per_tick': bool(gap_ok), 'all_phase_pi_points_stay_closed_with_the_mass_step': bool(closed_ok),
+    'handedness_relative_to_the_origin': {'same': [str(k) for k in same], 'opposite': [str(k) for k in mirror]},
+    'tag': 'MEASURED (float64); agrees with reports/R3.md result 7 and reports/R4.md C2, C3',
+    'statement': 'per parity class of cells the period has four zero-phase cones: the origin and three doublers labelled by the frame axis whose '
+                 'wave-number component is not +-pi/2. All four have the same rest phase. Two have the handedness of the origin block and two the '
+                 'opposite one. Four further cones sit at phase pi and are not gapped by the mass step'}
+print('4. period: W2 = +1 at', len(plus), 'points, -1 at', len(minus), ', neither at', other, '; types of the zero-phase points', types)
+print('   rest phase theta at all zero-phase points:', gap_ok, '; phase-pi points closed with mass:', closed_ok,
+      '; handedness as the origin:', same, ', opposite:', mirror)
+assert len(plus) == 32 and len(minus) == 32 and other == 0 and gap_ok and closed_ok
+
+# 5. which rotations of the frame stabilizer are symmetries of the tick (momentum-independent coin unitary)
+gens = [1j * SIG[0], 1j * SIG[1], (np.eye(2) - 1j * (SIG[0] + SIG[1] + SIG[2])) / 2]
+group = [np.eye(2, dtype=complex)]
+grew = True
+while grew:
+    grew = False
+    for g in list(group):
+        for h in gens:
+            c = g @ h
+            if not any(np.abs(c - x).max() < 1e-9 for x in group):
+                group.append(c); grew = True
+assert len(group) == 24
+sym_fwd, sym_per, worst_third = 0, 0, None
+rows5 = []
+for u in group:
+    R = np.array([[0.5 * np.trace(SIG[j] @ u @ SIG[i] @ u.conj().T).real for i in range(3)] for j in range(3)])
+    U = np.kron(np.eye(2), u)
+    dfw = dper = 0.0
+    for _ in range(12):
+        p = rng.uniform(-1, 1, size=3)
+        dfw = max(dfw, np.abs(U @ Routing.symbol(p, 0.2) @ U.conj().T - Routing.symbol(R @ p, 0.2)).max())
+        dper = max(dper, np.abs(U @ period(p, 0.2) @ U.conj().T - period(R @ p, 0.2)).max())
+    is_half = np.abs(np.abs(R) - np.eye(3)).max() < 1e-9
+    rows5.append((bool(is_half), float(dfw), float(dper)))
+    sym_fwd += dfw < 1e-12; sym_per += dper < 1e-12
+third_min = min(min(r[1], r[2]) for r in rows5 if not r[0])
+out['rotation_symmetry_of_the_tick'] = {
+    'lifts_tested': 24, 'lifts_commuting_with_the_ordered_tick': int(sym_fwd), 'lifts_commuting_with_the_period': int(sym_per),
+    'rotations': 'identity and the three half-turns about the frame axes (8 lifts = 4 rotations)',
+    'smallest_defect_of_a_third_turn': float(third_min), 'tag': 'MEASURED (float64); agrees with reports/R1.md result 4 and reports/R4.md C4',
+    'statement': 'the rotation symmetry of the CF-1 tick is the Klein group of the frame; the third of a turn is not a symmetry'}
+print('5. lifts of the frame stabilizer that are coin symmetries: ordered tick', sym_fwd, ', period', sym_per, 'of 24; smallest third-turn defect', f'{third_min:.3f}')
+assert sym_fwd == 8 and sym_per == 8 and all(r[0] for r in rows5 if r[1] < 1e-12)
+
+# 6. the copies with an ordered source of mass (coordinator's candidate g; simulation session, work/SIM/family/rank_one.py,
+# lattice 8^3, half-step frame). Reproduced here on the reference engine, lattice 4^3, mass step after each of the two ticks.
+L4 = 4; shape4 = (L4, L4, L4); N4 = 4 * L4 ** 3
+w4 = Routing(shape4)
+def mass_x(psi, th):
+    c, s = np.cos(th)[..., None], np.sin(th)[..., None]
+    o = np.empty_like(psi)
+    o[..., 0, :] = c * psi[..., 0, :] - s * psi[..., 1, :]
+    o[..., 1, :] = s * psi[..., 0, :] + c * psi[..., 1, :]
+    return o
+assert np.abs(mass_x(psi, np.full(shape, 0.3)) - w.mass(psi, 0.3)).max() < 1e-15          # same step as the engine for a uniform angle
+def period_matrix(th):
+    P = np.zeros((N4, N4), complex)
+    for k in range(N4):
+        b = np.zeros(N4, complex); b[k] = 1; q = b.reshape(shape4 + (2, 2))
+        for order in ((0, 1, 2), (2, 1, 0)):
+            for i in order: q = w4.shift(q, i)
+            q = mass_x(q, th)
+        P[:, k] = q.reshape(-1)
+    return P
+def census(th):
+    P = period_matrix(th)
+    assert np.abs(P.conj().T @ P - np.eye(N4)).max() < 1e-12
+    a = np.sort(np.abs(np.angle(np.linalg.eigvals(P)) / 2))
+    zero = int(np.sum(a < 1e-9))
+    lifted = a[a >= 1e-9][: 128 - zero]
+    vals, counts = np.unique(np.round(lifted, 5), return_counts=True)
+    return {'rest_states_left_at_zero': zero, 'lifted': int(len(lifted)), 'lifted_phases_per_tick': [[float(v), int(c)] for v, c in zip(vals, counts)]}
+thd = 0.171237
+g4 = np.meshgrid(*[np.arange(L4)] * 3, indexing='ij')
+cls4 = ((g4[0] + g4[1]) % 2) * 2 + ((g4[1] + g4[2]) % 2)
+even = (g4[0] % 2 == 0) & (cls4 == 0)
+kind = (((g4[0] // 2) + (g4[1] // 2)) % 2) * 2 + (((g4[1] // 2) + (g4[2] // 2)) % 2)       # four kinds of even cells
+one = np.zeros(shape4); one[0, 0, 0] = thd
+src = {'no source': np.zeros(shape4), 'one cell': one, 'all cells of one independent lattice': np.where(cls4 == 0, thd, 0.0),
+       'the even cells of one kind': np.where(even & (kind == 0), thd, 0.0), 'all even cells of that lattice': np.where(even, thd, 0.0)}
+res6 = {name: dict(census(th), source_cells=int(np.sum(th > 0))) for name, th in src.items()}
+# cone basis against cell kinds on the even cells of one lattice: the four rest waves are the characters of the four kinds
+ycells = [c for c in itertools.product(range(2), repeat=3)]
+waves = [np.array([np.exp(1j * np.dot(p2, y)) for y in ycells]) / np.sqrt(8) for p2 in ((0, 0, 0), (0, np.pi, np.pi), (np.pi, 0, np.pi), (np.pi, np.pi, 0))]
+kinds = [np.array([1.0 if ((y[0] + y[1]) % 2) * 2 + ((y[1] + y[2]) % 2) == k else 0.0 for y in ycells]) / np.sqrt(2) for k in range(4)]
+had = np.array([[abs(np.vdot(kv, wv)) ** 2 for wv in waves] for kv in kinds])
+sim = json.load(open(os.path.join(RL, 'work', 'SIM', 'family', 'rank_one.json'))) if os.path.exists(os.path.join(RL, 'work', 'SIM', 'family', 'rank_one.json')) else None
+sim_rows = {r['sources']: r for r in sim['rows']} if sim else {}
+out['copies_with_an_ordered_source_of_mass'] = {
+    'lattice': shape4, 'theta_source': thd, 'reference_engine_runs': res6,
+    'cells_of_one_kind_on_this_lattice': 4, 'one_cell_prediction_theta_over_cells_of_its_kind': thd / 4,
+    'squared_overlaps_cell_kinds_against_cones': [[round(float(x), 9) for x in row] for row in had],
+    'simulation_session_8cubed': {str(k): {'rest_states_left_at_zero': v['rest_states_left_at_zero'], 'lifted': v['lifted'], 'largest_lifted_phase': v['largest_lifted_phase']}
+                                  for k, v in sim_rows.items() if k in (0, 1, 128)},
+    'tag': 'MEASURED (float64 diagonalisation, reference engine); the 8^3 rows are read from work/SIM/family/rank_one.json',
+    'statement': 'the period has 128 rest states on 4^3 (32 per independent lattice: four copies of 8). A source on one cell lifts one copy (8 states) to the '
+                 'source angle divided by the number of cells of its kind and leaves three copies at zero; sources on all cells of the lattice lift all four '
+                 'copies to the source angle. The four kinds of cell and the four cones are related by the character table of a Klein group: every '
+                 'squared overlap is 1/4'}
+for name, r in res6.items():
+    print(f"6. {name:38s} sources {r['source_cells']:3d} | at zero {r['rest_states_left_at_zero']:3d} | lifted {r['lifted']:2d} {r['lifted_phases_per_tick']}")
+print('   cell kinds against cones, squared overlaps:', np.round(had, 6).tolist())
+if sim:
+    print('   simulation session, 8^3: one source: at zero', sim_rows[1]['rest_states_left_at_zero'], 'lifted', sim_rows[1]['lifted'], 'to', round(sim_rows[1]['largest_lifted_phase'], 6),
+          '(theta/32 =', round(thd / 32, 6), '); all cells of a lattice: lifted', sim_rows[128]['lifted'], 'to', round(sim_rows[128]['largest_lifted_phase'], 6))
+assert res6['no source']['rest_states_left_at_zero'] == 128 and res6['one cell']['lifted'] == 8 and res6['one cell']['rest_states_left_at_zero'] == 120
+assert res6['all cells of one independent lattice']['lifted'] == 32 and res6['the even cells of one kind']['lifted'] == 8
+assert np.allclose(had, 0.25)
+if len(sys.argv) > 1:
+    dump(out, sys.argv[1])

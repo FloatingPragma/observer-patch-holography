@@ -1,0 +1,112 @@
+"""LW part (a), the source equations that read the strict W/Z chart (CANDIDATES.md rows LA2, LA6).
+
+At P_fwd, with the producer's own functions (interval_contraction_certificate.py of the private RER copy), evaluate
+each source equation that reads the chart couplings on three charts: the unsliced chart (no transport), the
+zero-selector law (compact slice only) and the carrier value law (slice plus (tau2, dn)).
+E1 pixel closure ellbar_SU2(4 pi^2 alpha2) + ellbar_SU3(4 pi^2 alpha3) = P/4 at mu_Z;
+E2 Z-scale law mu_Z = v sqrt(pi (alpha2 + alphaY)) (tree Z-mass readout at its fixed point);
+E3 Thomson outer map G(P) = phi + sqrt(pi)/A_T with A_T = 1/alpha2 + 1/alphaY + Delta(mu_Z, v, alpha3).
+Writes lw_a_chart.json. No measured value is read.
+"""
+from __future__ import annotations
+
+import importlib.util
+import json
+import sys
+from pathlib import Path
+
+sys.dont_write_bytecode = True
+HERE = Path(__file__).resolve().parent
+REPO = Path("/tmp/claude-501/lew_repo")
+E_STAR_CLOCK = 1.2208901289579269e19
+
+
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+ICC = load("lw_icc", REPO / "code" / "P_derivation" / "interval_contraction_certificate.py")
+
+
+def main():
+    chain = json.loads((HERE.parent / "SIM" / "derive" / "lew" / "t1_chain.json").read_text())["pixels"]["P_fwd"]
+    c = chain["chain"]
+    mpb = ICC.MpBackend(50)
+    solver = ICC.PointSolver(mpb, 40, 40)
+    b = solver.b
+    ctx = b.ctx
+    p = b.num(c["P"])
+    alpha_u = b.num(c["alpha_U"])
+    mu_u = ICC.mu_u_of_p(b, p)
+    mz = solver.solve_mz(alpha_u, p, mu_u)
+    a1 = ICC.alpha_run(b, alpha_u, b.b_mssm[0], mz, mu_u)
+    a2 = ICC.alpha_run(b, alpha_u, b.b_mssm[1], mz, mu_u)
+    a3 = ICC.alpha_run(b, alpha_u, b.b_mssm[2], mz, mu_u)
+    ay = b.num(3) * a1 / b.num(5)
+    v = ICC.v_transmutation(b, alpha_u, p)
+    beta = (a2 - ay) / (a2 + ay)
+    eta = alpha_u * beta
+    lam = eta * eta / (4 * beta)
+    c2 = 1 + eta * 2 / 3 + (1 - beta / 6) * eta * eta
+    cn = 1 + eta * 4 / 3 + (2 - beta / 6) * eta * eta
+    tau2_c, dn_c = -lam * c2, lam * cn
+
+    def chart(slice_on: bool, tau2, dn):
+        a2p = a2 * (1 + tau2)
+        ay_star = ay * (1 - 2 * eta) if slice_on else ay
+        d_par = ay * (8 * eta * tau2 * tau2 - tau2) / (1 + 4 * tau2 * tau2) if slice_on else 0 * tau2
+        ayp = ay_star + d_par + (a2 + ay) * dn
+        return a2p, ayp
+
+    delta = ICC.structured_delta_alpha_inv(b, mz, v, a3, solver.vectors, solver.roots_ascending)
+
+    def closure(a2x):
+        return (ICC.ellbar(b, solver.su2_terms, b.four_pi_sq * a2x)
+                + ICC.ellbar(b, solver.su3_terms, b.four_pi_sq * a3) - p / 4)
+
+    def outer(a2x, ayx):
+        a_t = 1 / a2x + 1 / ayx + delta
+        return b.phi + b.sqrt_pi / a_t, a_t
+
+    rows = {}
+    for name, (sl, t2, dn) in {"unsliced_chart": (False, 0 * eta, 0 * eta),
+                               "zero_selector_law": (True, 0 * eta, 0 * eta),
+                               "carrier_value_law": (True, tau2_c, dn_c)}.items():
+        a2p, ayp = chart(sl, t2, dn)
+        mzc = v * ctx.sqrt(ctx.pi * (a2p + ayp))
+        mwc = v * ctx.sqrt(ctx.pi * a2p)
+        g, a_t = outer(a2p, ayp)
+        rows[name] = {
+            "alpha2_on_chart": ctx.nstr(a2p, 20), "alphaY_on_chart": ctx.nstr(ayp, 20),
+            "MW_GeV": float(mwc) * E_STAR_CLOCK, "MZ_GeV": float(mzc) * E_STAR_CLOCK,
+            "E1_closure_residual_if_chart_alpha2_is_read": ctx.nstr(closure(a2p), 6),
+            "E2_MZ_minus_muZ_GeV": float(mzc - mz) * E_STAR_CLOCK,
+            "E2_relative": float(mzc / mz - 1),
+            "E3_A_T_if_chart_is_read": ctx.nstr(a_t, 15),
+            "E3_G_of_P_fwd_minus_P_fwd": ctx.nstr(g - p, 6),
+        }
+    # sensitivities for scale
+    d_closure_d_lnalpha2 = (closure(a2 * (1 + b.num("1e-12"))) - closure(a2)) / b.num("1e-12")
+    out = {
+        "schema": "lw.a_chart.v1",
+        "basis_P_fwd": {"P": ctx.nstr(p, 25), "alpha_U": ctx.nstr(alpha_u, 25), "muZ_GeV": float(mz) * E_STAR_CLOCK,
+                        "v_GeV": float(v) * E_STAR_CLOCK, "eta": ctx.nstr(eta, 15), "lambda": ctx.nstr(lam, 15),
+                        "tau2_carrier": ctx.nstr(tau2_c, 15), "dn_carrier": ctx.nstr(dn_c, 15),
+                        "A_T_fixed_point": ctx.nstr(1 / alpha_u * 0 + 1 / a2 + 1 / ay + delta, 20),
+                        "d_closure_d_ln_alpha2": ctx.nstr(d_closure_d_lnalpha2, 8)},
+        "rows": rows,
+        "reading": {
+            "E1": "the pixel closure reads alpha2(mu_Z); a chart with tau2 != 0 carries a second alpha2 that violates it",
+            "E2": "the source's Z-scale law is the tree Z-mass readout at mu = mu_Z; only the unsliced chart reports the same Z mass",
+            "E3": "the outer Thomson map reads 1/alpha2 + 1/alphaY at mu_Z; P_fwd is its fixed point only with the unsliced couplings",
+        },
+    }
+    (HERE / "lw_a_chart.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == "__main__":
+    main()

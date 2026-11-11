@@ -1,0 +1,545 @@
+{
+ "geometry": "sphere L2 wiring F (natural labels)",
+ "rule": "capgauge",
+ "carriers": 320,
+ "ports": 3840,
+ "seams": 10080,
+ "internal_face_flux_units": [
+  -1.0
+ ],
+ "plaquette_flux_units_by_valence": {
+  "5": {
+   "1.0418": 2,
+   "1.7916": 10
+  },
+  "6": {
+   "0.7783": 50,
+   "1.1532": 15,
+   "2.4234": 50,
+   "2.7983": 20,
+   "4.4435": 15
+  }
+ },
+ "twisted_L": {
+  "lowest_levels": [
+   0.3733729791199003,
+   0.3733729791199042,
+   0.3733729791199046,
+   0.37337297911990497,
+   0.3733729791199098,
+   0.37337297911990985
+  ],
+  "isolated_carrier_lowest_level": 0.37337297911989964,
+  "coherence_rate_per_sweep_bracket": [
+   0.7467459582398006,
+   0.7566617407344778
+  ],
+  "coherence_time_sweeps_bracket": [
+   1.3215945067201602,
+   1.3391435051850291
+  ],
+  "lowest_mode_carrier_participation": 48.01628476545532,
+  "lowest_mode_port_inverse_participation": 0.0023140297433225927
+ },
+ "population": {
+  "graph_laplacian_lowest": [
+   2.925177461365891e-16,
+   0.0027601043215490445,
+   0.0027601043215490484,
+   0.0027601043215490606,
+   0.008183433162833851
+  ],
+  "N_times_lambda2": 0.8832333828956942,
+  "slowest_population_rate_per_sweep": 0.0013800521607745223
+ },
+ "exact": {
+  "cg_iterations": 46,
+  "cg_residual": 8.101586303006235e-14,
+  "stationarity_defect": 5.612810927732033e-14,
+  "doublet_weight": {
+   "mean": 0.5566738909267102,
+   "min": 0.5566733378876196,
+   "max": 0.5566752562590144,
+   "mean_at_five_valent_vertices": 0.5566750429178303,
+   "mean_elsewhere": 0.5566736250826055,
+   "isolated_carrier": 0.597352
+  },
+  "mean_block": {
+   "levels": [
+    0.3002997051085633,
+    0.25650948351991537,
+    0.058956849898155944,
+    0.05851883126793908,
+    0.0578570485277773,
+    0.05489564116182335,
+    0.039139636754978356,
+    0.038657418483870144,
+    0.03503088958299683,
+    0.034023777356613626,
+    0.03313357110871405,
+    0.03297714722865273
+   ],
+   "doublet_weight": 0.5566738909267112,
+   "top2_weight": 0.5568091886284787,
+   "mean_internal_agreement": 0.42488931551553777,
+   "diagonal_min_max": [
+    0.08333333333333334,
+    0.08333333333333334
+   ]
+  },
+  "neighbour_block": {
+   "frobenius_norm_over_carrier_block_norm": 0.07194066222990453,
+   "singular_values_times_N": [
+    0.030229423889877913,
+    0.0008779386779081695,
+    0.0006589157662519674,
+    0.0003495406322034896
+   ],
+   "glue_seam_coherence_times_P": [
+    0.08999861814079865,
+    0.0
+   ]
+  },
+  "seam_agreement": {
+   "internal_mean": 0.4248893155155367,
+   "internal_min_max": [
+    0.3492822955700056,
+    0.46906994292348564
+   ],
+   "glue_mean": 0.2479226694673144,
+   "glue_min_max": [
+    0.24791753362120622,
+    0.24794019368176673
+   ],
+   "imaginary_part_internal_max_abs": 0.01664506024423665,
+   "imaginary_part_glue_max_abs": 1.456258533409117e-05
+  },
+  "jumps_per_sweep": 1.531786377527744,
+  "diagonal_times_P_min_max": [
+   1.0,
+   1.0
+  ],
+  "carrier_distance_profile": [
+   {
+    "carrier_distance": 0,
+    "pairs": 320,
+    "rms_block_norm_times_N": 0.4205172705904744,
+    "max_block_norm_times_N": 0.4205178575389975
+   },
+   {
+    "carrier_distance": 1,
+    "pairs": 960,
+    "rms_block_norm_times_N": 0.041135570794134484,
+    "max_block_norm_times_N": 0.04114559122416003
+   },
+   {
+    "carrier_distance": 2,
+    "pairs": 1920,
+    "rms_block_norm_times_N": 0.0038596131567197917,
+    "max_block_norm_times_N": 0.003988237441886482
+   },
+   {
+    "carrier_distance": 3,
+    "pairs": 2820,
+    "rms_block_norm_times_N": 0.00043891289069734136,
+    "max_block_norm_times_N": 0.000593318803990096
+   },
+   {
+    "carrier_distance": 4,
+    "pairs": 3720,
+    "rms_block_norm_times_N": 4.7915182755205464e-05,
+    "max_block_norm_times_N": 6.228134319973749e-05
+   },
+   {
+    "carrier_distance": 5,
+    "pairs": 4500,
+    "rms_block_norm_times_N": 5.717269060226823e-06,
+    "max_block_norm_times_N": 8.059703840969577e-06
+   },
+   {
+    "carrier_distance": 6,
+    "pairs": 5280,
+    "rms_block_norm_times_N": 6.448761549629644e-07,
+    "max_block_norm_times_N": 8.360222197160215e-07
+   },
+   {
+    "carrier_distance": 7,
+    "pairs": 5880,
+    "rms_block_norm_times_N": 7.782587167316589e-08,
+    "max_block_norm_times_N": 1.3317274288164344e-07
+   },
+   {
+    "carrier_distance": 8,
+    "pairs": 6480,
+    "rms_block_norm_times_N": 8.947505383906096e-09,
+    "max_block_norm_times_N": 1.3814158831251873e-08
+   },
+   {
+    "carrier_distance": 9,
+    "pairs": 6840,
+    "rms_block_norm_times_N": 1.086504973165798e-09,
+    "max_block_norm_times_N": 1.9321419099049813e-09
+   },
+   {
+    "carrier_distance": 10,
+    "pairs": 7140,
+    "rms_block_norm_times_N": 1.2734860664068604e-10,
+    "max_block_norm_times_N": 2.0266655907871848e-10
+   },
+   {
+    "carrier_distance": 11,
+    "pairs": 7260,
+    "rms_block_norm_times_N": 1.539249906568027e-11,
+    "max_block_norm_times_N": 3.2841389737552375e-11
+   },
+   {
+    "carrier_distance": 12,
+    "pairs": 7260,
+    "rms_block_norm_times_N": 1.8240255760481187e-12,
+    "max_block_norm_times_N": 3.4283818258812788e-12
+   }
+  ],
+  "coherence_length": {
+   "honeycomb_steps": 0.4570042431603316,
+   "mesh_edges": 0.26385152280941865,
+   "fit": "log of the rms block norm against carrier distance 1..7",
+   "local_slopes": [
+    -2.3663062566549624,
+    -2.174021272241834,
+    -2.2148685447856638,
+    -2.1259411675837185,
+    -2.1821882427906605,
+    -2.114584373859449
+   ]
+  },
+  "port_distance_profile": [
+   {
+    "port_distance": 1,
+    "same_carrier": {
+     "pairs": 19200,
+     "mean_modulus_times_P": 0.4250065978647364,
+     "max_modulus_times_P": 0.46909557797889073
+    },
+    "different_carriers": {
+     "pairs": 960,
+     "mean_modulus_times_P": 0.2479226695133333,
+     "max_modulus_times_P": 0.24794019384886348
+    }
+   },
+   {
+    "port_distance": 2,
+    "same_carrier": {
+     "pairs": 19200,
+     "mean_modulus_times_P": 0.20337854376211495,
+     "max_modulus_times_P": 0.24338493100073047
+    },
+    "different_carriers": {
+     "pairs": 9600,
+     "mean_modulus_times_P": 0.09753455285794106,
+     "max_modulus_times_P": 0.10585258338131984
+    }
+   },
+   {
+    "port_distance": 3,
+    "same_carrier": {
+     "pairs": 3840,
+     "mean_modulus_times_P": 0.02647795874236598,
+     "max_modulus_times_P": 0.03386473877500435
+    },
+    "different_carriers": {
+     "pairs": 35520,
+     "mean_modulus_times_P": 0.04117092436552565,
+     "max_modulus_times_P": 0.0520555636104368
+    }
+   },
+   {
+    "port_distance": 4,
+    "different_carriers": {
+     "pairs": 69120,
+     "mean_modulus_times_P": 0.016513763654801637,
+     "max_modulus_times_P": 0.02454072053848419
+    }
+   },
+   {
+    "port_distance": 5,
+    "different_carriers": {
+     "pairs": 104520,
+     "mean_modulus_times_P": 0.005181697098919853,
+     "max_modulus_times_P": 0.012547847604330017
+    }
+   },
+   {
+    "port_distance": 6,
+    "different_carriers": {
+     "pairs": 144840,
+     "mean_modulus_times_P": 0.00160051451891039,
+     "max_modulus_times_P": 0.002378809960438436
+    }
+   },
+   {
+    "port_distance": 7,
+    "different_carriers": {
+     "pairs": 184080,
+     "mean_modulus_times_P": 0.0005414351473875692,
+     "max_modulus_times_P": 0.0012214117560726415
+    }
+   },
+   {
+    "port_distance": 8,
+    "different_carriers": {
+     "pairs": 213840,
+     "mean_modulus_times_P": 0.00016588678495374967,
+     "max_modulus_times_P": 0.00035892201626484973
+    }
+   },
+   {
+    "port_distance": 9,
+    "different_carriers": {
+     "pairs": 243180,
+     "mean_modulus_times_P": 5.5874633789707105e-05,
+     "max_modulus_times_P": 0.00019180710932718384
+    }
+   },
+   {
+    "port_distance": 10,
+    "different_carriers": {
+     "pairs": 277920,
+     "mean_modulus_times_P": 1.787046933678933e-05,
+     "max_modulus_times_P": 3.931287030832986e-05
+    }
+   },
+   {
+    "port_distance": 11,
+    "different_carriers": {
+     "pairs": 307260,
+     "mean_modulus_times_P": 6.101321385464294e-06,
+     "max_modulus_times_P": 1.8554864528448842e-05
+    }
+   },
+   {
+    "port_distance": 12,
+    "different_carriers": {
+     "pairs": 330000,
+     "mean_modulus_times_P": 1.97730153239109e-06,
+     "max_modulus_times_P": 4.72916460589355e-06
+    }
+   },
+   {
+    "port_distance": 13,
+    "different_carriers": {
+     "pairs": 358740,
+     "mean_modulus_times_P": 6.817283569382285e-07,
+     "max_modulus_times_P": 2.3317170092661626e-06
+    }
+   },
+   {
+    "port_distance": 14,
+    "different_carriers": {
+     "pairs": 390480,
+     "mean_modulus_times_P": 2.2562592608590236e-07,
+     "max_modulus_times_P": 5.302806750906198e-07
+    }
+   }
+  ],
+  "spectrum": {
+   "top_levels_times_N": [
+    0.3690965220303303,
+    0.3673224252586685,
+    0.36713824203282086,
+    0.3671382420328207,
+    0.36393776060379235,
+    0.36393776060379224,
+    0.3635040625252782,
+    0.3635040625252782
+   ],
+   "level_2N_times_N": 0.1836133721077719,
+   "level_2N_plus_1_times_N": 0.06324670642750024,
+   "smallest_times_N": 0.03297565449739058,
+   "weight_of_top_2N": 0.5597312150507923,
+   "isolated_carrier_levels": [
+    0.298676,
+    0.052191,
+    0.032314
+   ]
+  },
+  "modular_hamiltonian_profile": [
+   {
+    "carrier_distance": 0,
+    "rms_block_norm": 29.938803908498432,
+    "max_block_norm": 29.93881244923613
+   },
+   {
+    "carrier_distance": 1,
+    "rms_block_norm": 0.24084680704399455,
+    "max_block_norm": 0.24085248637333773
+   },
+   {
+    "carrier_distance": 2,
+    "rms_block_norm": 0.007634087189962636,
+    "max_block_norm": 0.007761564622210371
+   },
+   {
+    "carrier_distance": 3,
+    "rms_block_norm": 0.0005378473667408054,
+    "max_block_norm": 0.0007185967006947927
+   },
+   {
+    "carrier_distance": 4,
+    "rms_block_norm": 4.289184071253774e-05,
+    "max_block_norm": 5.520029684233474e-05
+   },
+   {
+    "carrier_distance": 5,
+    "rms_block_norm": 4.02176795714185e-06,
+    "max_block_norm": 5.612185181515455e-06
+   },
+   {
+    "carrier_distance": 6,
+    "rms_block_norm": 3.747013042391961e-07,
+    "max_block_norm": 4.826121976317008e-07
+   },
+   {
+    "carrier_distance": 7,
+    "rms_block_norm": 3.835916958351135e-08,
+    "max_block_norm": 6.530901879873026e-08
+   },
+   {
+    "carrier_distance": 8,
+    "rms_block_norm": 3.84028128274708e-09,
+    "max_block_norm": 5.9256191085080495e-09
+   },
+   {
+    "carrier_distance": 9,
+    "rms_block_norm": 4.1181368988448035e-10,
+    "max_block_norm": 7.292218922988806e-10
+   },
+   {
+    "carrier_distance": 10,
+    "rms_block_norm": 4.330549175897215e-11,
+    "max_block_norm": 6.890516216715584e-11
+   }
+  ]
+ },
+ "trajectories": {
+  "chains": 16,
+  "active_events_per_chain": 100000000,
+  "stride": 8,
+  "raw_events_total": 220082714558.00372,
+  "sweeps_total": 21833602.63472259,
+  "mean_block": {
+   "levels": [
+    0.30038313821057633,
+    0.2564686058519983,
+    0.05897140727254932,
+    0.058506455929725414,
+    0.057855957604759,
+    0.05487901126892534,
+    0.03914180415866946,
+    0.038657361709705414,
+    0.03502507466032895,
+    0.03401451921000915,
+    0.03312838279365857,
+    0.03296828132909487
+   ],
+   "doublet_weight": 0.5567176465391923,
+   "top2_weight": 0.5568517440625746,
+   "mean_internal_agreement": 0.4249305980858792,
+   "diagonal_min_max": [
+    0.08326847946434192,
+    0.08337095215311
+   ]
+  },
+  "doublet_weight": [
+   0.5567176465391924,
+   4.4932272441990784e-05
+  ],
+  "jumps_per_sweep": [
+   1.5313587220850704,
+   0.00037140297495630157
+  ],
+  "fraction_of_jumps_on_glue_seams": [
+   0.06138700358023036,
+   3.874268690942828e-05
+  ],
+  "ports_in_support": [
+   23.64998643967768,
+   0.02292756045552358
+  ],
+  "carriers_in_support": [
+   3.2369300996137853,
+   0.002245978626950363
+  ],
+  "port_participation_ratio": [
+   4.4860874223907,
+   0.00090523334882325
+  ],
+  "carrier_participation_ratio": [
+   1.1095966161468436,
+   6.859243409721105e-05
+  ],
+  "largest_carrier_weight": [
+   0.9532447004070117,
+   2.746504862167815e-05
+  ],
+  "seam_agreement_internal": [
+   0.4249485630481078,
+   4.880265389290265e-05
+  ],
+  "seam_agreement_glue": [
+   0.24796895629118965,
+   0.00019677852492723383
+  ],
+  "support_carriers_histogram": [
+   0.0,
+   0.5281841839616833,
+   0.1811752055647512,
+   0.08383440915010201,
+   0.04914716004914896,
+   0.03183378090688729,
+   0.022259910885743483,
+   0.016403607492181616,
+   0.012614346647271093,
+   0.010005651851405482,
+   0.008118397736179367,
+   0.006710708672792337,
+   0.005639527210946632,
+   0.0047889337786879305,
+   0.004103496425472332,
+   0.0035456878830314683,
+   0.0030869190073271506,
+   0.002694269950911745,
+   0.0023606469165762837,
+   0.002086775162470749,
+   0.00184769207865109,
+   0.0016459724293783739,
+   0.0014650320706862978,
+   0.0013108050582198503
+  ],
+  "neighbour_block": {
+   "frobenius_norm_over_carrier_block_norm": 0.07192636917065491,
+   "glue_seam_coherence_times_P": [
+    0.08990997372043219,
+    0.000146054449318578,
+    6.754473980499504e-20,
+    7.811174276820074e-20
+   ]
+  },
+  "against_exact": {
+   "carrier_block": {
+    "max_abs_deviation": 6.485387847912638e-05,
+    "largest_entry": 0.08333333333333312,
+    "z_rms": 1.0410298421301842,
+    "z_max_abs": 3.0677197625070813,
+    "z_count": 276
+   },
+   "neighbour_block": {
+    "max_abs_deviation": 4.930854277768876e-05,
+    "largest_entry": 0.022499654535199663,
+    "z_rms": 0.7809744973736483,
+    "z_max_abs": 2.616189825301094,
+    "z_count": 276
+   }
+  }
+ },
+ "seconds": 216.9
+}

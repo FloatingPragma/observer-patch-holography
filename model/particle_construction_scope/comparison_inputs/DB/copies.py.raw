@@ -1,0 +1,56 @@
+"""Copy counts admitted by the RER source RG frontier (A4, A5, B4, B5 of CANDIDATES.md) in both chains.
+
+Run:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python copies.py [out.json]
+m_Z chain: the declared producer chain (closure, float chain of d10_float.py).
+Cut chain: DC2 at P_fwd (see cut_chain_censuses.py).
+"""
+import json
+import math
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+from scipy.optimize import brentq
+
+from d10_float import Chain, readout, ellbar_su2, ellbar_su3, E_STAR_GEV, PI
+
+HERE = Path(__file__).parent
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'copies.json'
+GAUGE_H = (F(1, 10), F(-22, 3) + F(1, 6), F(-11))     # gauge part + one Higgs doublet
+FAM = (F(4, 3), F(4, 3), F(4, 3))                     # one Weyl family (b1 GUT-normalized)
+HALVES = (F(2), F(2), F(2))                           # one copy of both halves
+
+
+def census(n, per):
+    return tuple(g + n * p for g, p in zip(GAUGE_H, per))
+
+
+sets = {'A4': census(4, FAM), 'A5': census(5, FAM), 'B4': census(4, HALVES), 'B5': census(5, HALVES)}
+assert census(3, FAM) == (F(41, 10), F(-19, 6), F(-7)) and census(3, HALVES) == (F(61, 10), F(-7, 6), F(-5))
+
+P = 1.6309720958588974
+a_cut = brentq(lambda a: ellbar_su2(4 * PI * PI * a) + ellbar_su3(4 * PI * PI * a) - P / 4, 0.02, 0.2,
+               xtol=1e-300, rtol=1e-15)
+alpha_U_cut = 1 / (1 / a_cut + 8.5131 / (2 * PI) * (2 * PI - (2 / 3) * math.log(P)))
+out = {}
+for key, b in sets.items():
+    bf = tuple(float(x) for x in b)
+    entry = dict(b=[str(x) for x in b])
+    res = Chain(bf).closure()
+    entry['mZ_chain'] = dict(status='closure', **readout(*res[:2], res[2])) if res else dict(status='no closure')
+    ch = Chain(bf)
+    d = ch.d10_at(alpha_U_cut, P)
+    if 'mz' in d and d['positive']:
+        a0inv, anchor = ch.alpha0_inv(d)
+        a2 = 1 / d['inv2']
+        entry['cut_chain'] = dict(status='outputs', m_Z_GeV=d['mz'] * E_STAR_GEV,
+                                  m_W_GeV=0.5 * d['v'] * math.sqrt(4 * PI * a2) * E_STAR_GEV,
+                                  sin2_theta_W_mZ=(1 / (d['inv2'] + 5 * d['inv1'] / 3)) / a2,
+                                  alpha_s_mZ=1 / d['inv3'], alpha_em_inv_mZ=anchor, alpha0_inv=a0inv)
+    else:
+        entry['cut_chain'] = dict(status='Landau pole above m_Z' if 'mz' in d else 'no m_Z root')
+    out[key] = entry
+    print(key, entry['b'], 'mZ chain:', {k: (round(v, 5) if isinstance(v, float) else v) for k, v in entry['mZ_chain'].items()})
+    print('      cut chain:', {k: (round(v, 5) if isinstance(v, float) else v) for k, v in entry['cut_chain'].items()})
+OUT.write_text(json.dumps(out, indent=1) + '\n')

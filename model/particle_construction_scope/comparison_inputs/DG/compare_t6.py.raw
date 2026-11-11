@@ -1,0 +1,44 @@
+"""DG: compare T6's stored results with the rerun (exact strings for exact items, max abs difference for floats)."""
+import json, sys, os
+
+t6, out = sys.argv[1], sys.argv[2]
+
+def flat(x, p=''):
+    if isinstance(x, dict):
+        for k, v in x.items():
+            yield from flat(v, p + '/' + str(k))
+    elif isinstance(x, list):
+        for i, v in enumerate(x):
+            yield from flat(v, p + f'[{i}]')
+    else:
+        yield p, x
+
+def num(s):
+    try:
+        return float(s)
+    except Exception:
+        return None
+
+report = {}
+for name in ['terms.json', 'seesaw.json', 'engine.json', 'native.json']:
+    a = dict(flat(json.load(open(os.path.join(t6, name)))))
+    b = dict(flat(json.load(open(os.path.join(out, name)))))
+    same, differ, worst, missing = 0, [], 0.0, sorted(set(a) ^ set(b))
+    for k in sorted(set(a) & set(b)):
+        if a[k] == b[k]:
+            same += 1
+            continue
+        fa, fb = num(a[k]), num(b[k])
+        if fa is not None and fb is not None:
+            d = abs(fa - fb)
+            worst = max(worst, d)
+            if d > 1e-9 * max(1.0, abs(fa)):
+                differ.append((k, a[k], b[k]))
+        else:
+            differ.append((k, str(a[k])[:80], str(b[k])[:80]))
+    report[name] = dict(entries=len(a), identical=same, float_max_abs_difference=worst,
+                        differing=differ[:20], n_differing=len(differ), keys_only_in_one=missing[:20])
+json.dump(report, open(os.path.join(out, 'comparison.json'), 'w'), indent=1)
+for k, v in report.items():
+    print(k, 'entries', v['entries'], 'identical', v['identical'], 'differing', v['n_differing'],
+          'float max diff', v['float_max_abs_difference'], 'keys only in one', len(v['keys_only_in_one']))

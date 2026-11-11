@@ -1,0 +1,42 @@
+{
+  "spectrum": {
+    "hasResidual": true,
+    "hasTwoTick": true,
+    "hasGenerationGate": true,
+    "bridge": "field readout"
+  },
+  "story": {
+    "initial": {
+      "amp": [
+        2.3794381716332555,
+        0.040349908219207364,
+        0.5802119201475366
+      ],
+      "m": [
+        5.66172601262541,
+        0.001628115093298458,
+        0.33664587228129145
+      ],
+      "names": [
+        "τ",
+        "e",
+        "μ"
+      ],
+      "mu": 206.77031597272907,
+      "tau": 3477.4728371046003,
+      "Q": 0.6666666666666669,
+      "reading": "squared eigenvalue ratios, with an independently calibrated overall scale"
+    },
+    "initialText": "mμ/me206.7703measured 206.7683+9.83354 ppm\nmτ/me3477.4728measured 3477.37+29.54849 ppm\nKoide Q0.666667measured 0.666664",
+    "fittedRatio": 206.76828270846872,
+    "reference": 206.76828270846718,
+    "tauReference": 3477.370086053415,
+    "restored": true,
+    "hasResidual": true,
+    "hasTwoTick": true,
+    "hasMemoryBoundary": true,
+    "hasNullEffect": true
+  },
+  "exceptions": [],
+  "passed": true
+}

@@ -1,0 +1,18 @@
+{
+ "set_record_weight_after_one_tick_from_blank": {
+  "odd_subsets": "c_1**2*c_2**2*c_3**2*s_t**2 + c_1**2*c_2**2*c_t**2*s_3**2 + c_1**2*c_3**2*c_t**2*s_2**2 + c_1**2*s_2**2*s_3**2*s_t**2 + c_2**2*c_3**2*c_t**2*s_1**2 + c_2**2*s_1**2*s_3**2*s_t**2 + c_3**2*s_1**2*s_2**2*s_t**2 + c_t**2*s_1**2*s_2**2*s_3**2",
+  "remainder": "0"
+ },
+ "checks": {
+  "exp(-i theta beta) = Z_r Y_theta with Y_theta = cos(theta) tau_z + sin(theta) tau_y (two record reflections at angle theta), checked at cos theta = 3/5": true,
+  "dressed reading: all four generators anticommute with Z_r, so each of them maps blank to set; for H = sum h_r A_r, H^2 = |h|^2 and exp(-iH)|blank> has set-record weight sin^2|h|": true,
+  "CLIFFORD.md reading alpha_i = tau_z x (i u_i): the three shifts commute with the record value, only the beta rotation flips it: set-record weight after one tick from a blank state = sin^2(theta) for every momentum": true,
+  "dressed reading, tick from a blank state: set-record weight is independent of the spinor and equals (1 - cos(2 theta) cos(2 k1) cos(2 k2) cos(2 k3))/2 (polynomial identity); at rest sin^2(theta)": true,
+  "two-component reading: the public-type reflector whose exchanged two-state factor is the doublet read along a_j (j != i, both choices) and flipped by a_i = i u_i satisfies Q^W_i a_j = P+_(a_i) T + P-_(a_i) T^* (rings L = 3, 4)": true,
+  "CLIFFORD.md shift = |blank><blank| x Q^W_i a_j + |set><set| x a_j Q^W_i: the record selects the order of the two reflections": true,
+  "among the 120 cover values exactly two act as scalars on the doublet (+1 and -1): a link-phase mass angle from the public alphabet is 0 or pi": true,
+  "mismatch of two seam events with links 1 and u_j: Q(1) Q(u_j) = -beta (1 x u_j), of order four; it commutes with beta and with alpha_i (i != j): a quarter turn about beta x a_j, not a scalar mass rotation": true,
+  "five-level code, ring L = 3: S_i Z_r = C(W_i) Q_i C(W_i)^* with the public reflector of fibre dimension 5 and W_i = R_i + u_i; the dressed flips are block diagonal: tau_x x R_i on the triplet, alpha_i on the doublet": true,
+  "triplet block: all four generators commute; the symbol is diagonal with eigenvalues exp(-i sg (theta + k_j - k_i - k_l)), sg = +-1, j = 1, 2, 3: six straight lines, no gap opening": true
+ }
+}

@@ -1,0 +1,123 @@
+"""a02: two quanta on one carrier (66 balanced states). Commutant by orbital counting (exact),
+Liouville spectra of the four members by symmetry blocks, stationary states, convergence rates.
+Writes a02_two_quanta.json."""
+import json, os, sys, time, itertools
+import numpy as np
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import q2lib as q
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+out = {}
+t00 = time.time()
+st = q.space(2)
+n = len(st)
+idx = q.index(st)
+Ps = [q.exchange(st, e) for e in q.SEAMS]
+
+# ---------------------------------------------------------------- 1. commutant = orbitals of the group generated
+def orbital_count(perms, n):
+    """Number of orbits on ordered pairs of basis states under the permutations (exact, union-find)."""
+    parent = np.arange(n * n)
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+    for p in perms:
+        img = np.array([int(np.argmax(p[:, i])) for i in range(n)])
+        for i in range(n):
+            for j in range(n):
+                a, b = find(i * n + j), find(img[i] * n + img[j])
+                if a != b:
+                    parent[a] = b
+    return len({find(i) for i in range(n * n)})
+
+c30 = orbital_count(Ps, n)
+c11 = orbital_count(Ps[:11], n)
+out['commutant_dimension_all_30_seams'] = c30
+out['commutant_dimension_first_11_seams'] = c11
+print('commutant of the seam exchanges on the 66 states: all 30 seams ->', c30, '; first 11 seams only ->', c11)
+c1 = orbital_count([q.exchange(q.space(1), e) for e in q.SEAMS], 12)
+out['commutant_dimension_one_quantum'] = c1
+print('one quantum:', c1)
+
+# ---------------------------------------------------------------- 2. spin sectors
+allpairs = np.zeros((n, n))
+for a, b in itertools.combinations(range(12), 2):
+    allpairs += np.eye(n) - q.exchange(st, (a, b))
+w, v = np.linalg.eigh(allpairs)
+blocks = {}
+for val in sorted(set(np.round(w, 6))):
+    sel = np.abs(w - val) < 1e-6
+    blocks[int(sel.sum())] = v[:, sel]
+out['spin_sector_dimensions'] = sorted(blocks)
+print('spin sectors (dimensions):', sorted(blocks))
+H = sum(np.eye(n) - P for P in Ps)                     # exchange Hamiltonian of the reference rule
+levels = {d: np.round(np.linalg.eigvalsh(B.T @ H @ B), 9) for d, B in blocks.items()}
+out['exchange_levels_by_sector'] = {str(d): sorted(set(float(x) for x in lv)) for d, lv in levels.items()}
+
+def block_superop(mem, B1, B2):
+    S = 0
+    for e in q.SEAMS:
+        for _, K in q.instrument(mem, st, e):
+            S = S + np.kron(B1.T @ K @ B1, (B2.T @ K @ B2).conj())
+    return S / q.M
+
+spec = {}
+for mem in ('parity', 'sqrtswap'):
+    allw = []
+    per_block = {}
+    for d1, B1 in blocks.items():
+        for d2, B2 in blocks.items():
+            if d1 * d2 > 600:      # the (54,54) block is treated below
+                continue
+            S = block_superop(mem, B1, B2)
+            ww = np.linalg.eigvals(S)
+            allw.append(ww)
+            per_block[f'{d1}x{d2}'] = {'max_real': float(ww.real.max()), 'max_abs_imag': float(abs(ww.imag).max()),
+                                       'fixed': int((abs(ww - 1) < 1e-8).sum())}
+    spec[mem] = per_block
+    print(mem, json.dumps(per_block))
+out['block_spectra_small'] = spec
+print('elapsed', round(time.time() - t00, 1))
+
+# (54,54) block. parity: real symmetric. sqrtswap: S = A + iB with A, B real symmetric; in the basis of
+# transposition-even/odd operators it is similar to the real matrix [[As, -Bsa], [Bsa^T, Aa]].
+B54 = blocks[54]
+Ks = [B54.T @ P @ B54 for P in Ps]
+d = 54
+A = sum(np.kron(K, K) for K in Ks) / (2 * q.M) + np.eye(d * d) / 2
+wA = np.linalg.eigvalsh((A + A.T) / 2)
+per = {'fixed': int((abs(wA - 1) < 1e-8).sum()), 'second': float(np.sort(wA)[-2]), 'min': float(wA.min())}
+out['parity_block_54x54'] = per
+print('parity (54,54):', per, 'elapsed', round(time.time() - t00, 1))
+Bm = sum(np.kron(K, np.eye(d)) - np.kron(np.eye(d), K) for K in Ks) / (2 * q.M)
+# transposition-even / odd orthonormal bases of the d*d space
+evn, odd = [], []
+for i in range(d):
+    for j in range(i, d):
+        u = np.zeros(d * d)
+        if i == j:
+            u[i * d + j] = 1; evn.append(u)
+        else:
+            u[i * d + j] = u[j * d + i] = 2 ** -0.5; evn.append(u)
+            u2 = np.zeros(d * d); u2[i * d + j] = 2 ** -0.5; u2[j * d + i] = -2 ** -0.5; odd.append(u2)
+Ev, Od = np.array(evn).T, np.array(odd).T
+As, Aa = Ev.T @ A @ Ev, Od.T @ A @ Od
+Bsa = Ev.T @ Bm @ Od
+Mreal = np.block([[As, -Bsa], [Bsa.T, Aa]])
+del A, Bm
+t1 = time.time()
+w54 = np.linalg.eigvals(Mreal)
+print('sqrtswap (54,54) eig time', round(time.time() - t1, 1))
+per = {'fixed': int((abs(w54 - 1) < 1e-8).sum()), 'complex': int((abs(w54.imag) > 1e-9).sum()),
+       'second_modulus': float(sorted(abs(w54[abs(w54 - 1) > 1e-8]))[-1]),
+       'max_abs_imag': float(abs(w54.imag).max()), 'max_ratio_imag_over_decay':
+       float(np.max(abs(w54.imag[abs(w54 - 1) > 1e-8]) / (1 - w54.real[abs(w54 - 1) > 1e-8])))}
+out['sqrtswap_block_54x54'] = per
+print('sqrtswap (54,54):', per, 'elapsed', round(time.time() - t00, 1))
+np.save(os.path.join(HERE, 'a02_sqrtswap_54x54_eigs.npy'), w54)
+
+with open(os.path.join(HERE, 'a02_two_quanta.json'), 'w') as f:
+    json.dump(out, f, indent=1, default=str)
+print('wrote a02_two_quanta.json; total', round(time.time() - t00, 1))

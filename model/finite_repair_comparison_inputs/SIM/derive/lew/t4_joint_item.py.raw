@@ -1,0 +1,149 @@
+"""T4 joint item (PREREGISTRATION Addendum 3): M_U and the criticality scale as one item R.
+
+J1: field content of the running used for criticality versus the D10 unification at M_U.
+J2: scan dR (R = 2 pi - (2/3) ln P + dR), forward root P(dR) re-solved, K4 tie mu_c = E* e^-pi P^(-1/6) e^(-dR/2),
+    W, Z, H, t with attachments A1 and A2; sensitivities; compare-only implied dR per observable.
+Writes t4_joint_item.json. SMDR work files j.dat / k.dat (no collision with the other T4 run).
+"""
+from __future__ import annotations
+
+import json
+import math
+
+import lewlib as L
+
+ICC = L.ICC
+CLOSURE = L.CLOSURE
+E = L.E_STAR_BRANCH
+DRS = (-1.0, -0.5, -0.25, 0.0, 0.25, 0.5, 1.0)
+
+
+def patch_mu_u(dr: float):
+    def mu_u_of_p(b, p):
+        return b.exp(-b.two_pi - b.num(repr(dr))) * b.exp(b.log(p) / b.num(6))
+    ICC.mu_u_of_p = mu_u_of_p
+
+
+def forward_point(dr: float) -> dict:
+    patch_mu_u(dr)
+    mpb = ICC.MpBackend(40)
+    solver = ICC.PointSolver(mpb, 30, 30)
+    alpha = solver.fixed_point(ICC.MODE_SOURCE)
+    row = solver.inner(alpha, ICC.MODE_SOURCE)
+    b = solver.b
+    p, au, mz, mu_u, v = row["p"], row["alpha_u"], row["mz"], row["mu_u"], row["v"]
+    a1, a2, a3 = (ICC.alpha_run(b, au, c, mz, mu_u) for c in b.b_mssm)
+    cb = ICC.MpBackend(40)
+    t = CLOSURE.mass_coefficients(cb, cb.num(b.ctx.nstr(p, 35)), cb.num(b.ctx.nstr(au, 35)))
+    g1 = math.sqrt(4 * math.pi * float(a1))
+    sq2 = math.sqrt(2.0)
+    pk = {"Q0": float(mz) * E, "v": float(v) * E, "gY": math.sqrt(0.6) * g1,
+          "g2": math.sqrt(4 * math.pi * float(a2)), "g3": math.sqrt(4 * math.pi * float(a3)),
+          "yu": 6.0 ** -6, "yc": 6.0 ** -3, "yt": None, "yd": 6.0 ** -6, "ys": 6.0 ** -4, "yb": 6.0 ** -2,
+          "ye": sq2 * float(t[0]), "ymu": sq2 * float(t[1]), "ytau": sq2 * float(t[2]), "lambda": None}
+    pf = float(p)
+    mu_c = E * math.exp(-math.pi) * pf ** (-1.0 / 6.0) * math.exp(-dr / 2.0)
+    return {"dR": dr, "P": b.ctx.nstr(p, 25), "alpha_inv": float(row["alpha_inv"]), "alpha_U": float(au),
+            "R": 2 * math.pi - (2.0 / 3.0) * math.log(pf) + dr,
+            "sin2w_Q0": 0.6 * float(a1) / (0.6 * float(a1) + float(a2)),
+            "M_U_GeV": float(mu_u) * E, "mu_c_GeV": mu_c, "packet": pk}
+
+
+def attach_a2(pk: dict) -> dict:
+    vs = pk["v"]
+    q = 163.0
+    for _ in range(80):
+        row = L.rg_to(pk, q, 5, name="k.dat")
+        q_new = row["yt"] * vs / math.sqrt(2.0)
+        if abs(q_new - q) < 1e-9:
+            break
+        q = q_new
+    r = L.rg_to(pk, q, 5, name="k.dat")["v"] / vs
+    new = dict(pk)
+    new["v"] = vs / r
+    return {"Q_t": q, "r": r, "outputs": L.readout(new)}
+
+
+def implied(xs, ys, target):
+    for x0, x1, y0, y1 in zip(xs, xs[1:], ys, ys[1:]):
+        if (y0 - target) * (y1 - target) <= 0 and y0 != y1:
+            return x0 + (target - y0) * (x1 - x0) / (y1 - y0)
+    return None
+
+
+def main():
+    L.compile_drivers()
+    t1 = json.loads((L.LANE / "t1_chain.json").read_text())
+    refs = dict(t1["references_compare_only_GeV"])
+    out = {"schema": "lew.t4_joint_item.v1"}
+    # J1 on the declared P_fwd packet
+    pk = dict(t1["pixels"]["P_fwd"]["packet_Q0"])
+    chain = t1["pixels"]["P_fwd"]["chain"]
+    g_u = math.sqrt(4 * math.pi * float(chain["alpha_U"]))
+    mu_u = float(chain["MU_over_E"]) * E
+
+    def gauge_at(q):
+        r = L.rg_to(pk, q, 2, name="j.dat")
+        return {"g1": math.sqrt(5.0 / 3.0) * r["gY"], "g2": r["g2"], "g3": r["g3"]}
+
+    lo, hi = math.log(1e10), math.log(1e18)
+    f = lambda x: (lambda g: g["g1"] - g["g2"])(gauge_at(math.exp(x)))
+    flo = f(lo)
+    for _ in range(60):
+        mid = 0.5 * (lo + hi)
+        fm = f(mid)
+        if (fm > 0) == (flo > 0):
+            lo, flo = mid, fm
+        else:
+            hi = mid
+    out["J1"] = {"D10_unified_g_at_M_U": g_u, "M_U_GeV": mu_u, "SM_run_at_M_U": gauge_at(mu_u),
+                 "mu_c_K4_GeV": pk["mu_c"], "SM_run_at_mu_c_K4": gauge_at(pk["mu_c"]),
+                 "SM_g1_equals_g2_scale_GeV": math.exp(0.5 * (lo + hi)),
+                 "SM_run_at_g1_eq_g2": gauge_at(math.exp(0.5 * (lo + hi)))}
+    # J2 scan
+    rows = []
+    guess = (0.96, 0.14)
+    for dr in DRS:
+        pt = forward_point(dr)
+        pkd = pt.pop("packet")
+        crit = L.solve_criticality(pkd, pt["mu_c_GeV"], 2, guess=guess, name="j.dat")
+        guess = (crit["yt_Q0"], crit["lambda_Q0"])
+        pkd["yt"], pkd["lambda"] = crit["yt_Q0"], crit["lambda_Q0"]
+        pt["yt_Q0"], pt["lambda_Q0"] = crit["yt_Q0"], crit["lambda_Q0"]
+        pt["boundary_lambda"], pt["boundary_beta_lambda"] = crit["boundary"]["lambda"], crit["boundary"]["beta_lambda"]
+        pt["Q0_GeV"], pt["v_source_GeV"] = pkd["Q0"], pkd["v"]
+        pt["A1"] = L.readout(pkd)
+        a2 = attach_a2(pkd)
+        pt["A2"], pt["A2_scale_GeV"], pt["A2_r"] = a2["outputs"], a2["Q_t"], a2["r"]
+        rows.append(pt)
+        print("dR=%+.2f P=%s ainv=%.6f sin2=%.6f v=%.4f muc=%.4e | A1 W=%.4f Z=%.4f H=%.4f t=%.4f | A2 W=%.4f Z=%.4f H=%.4f t=%.4f"
+              % (dr, pt["P"][:14], pt["alpha_inv"], pt["sin2w_Q0"], pt["v_source_GeV"], pt["mu_c_GeV"],
+                 pt["A1"]["W"], pt["A1"]["Z"], pt["A1"]["H"], pt["A1"]["t"],
+                 pt["A2"]["W"], pt["A2"]["Z"], pt["A2"]["H"], pt["A2"]["t"]), flush=True)
+    out["J2_rows"] = rows
+    i0 = DRS.index(0.0)
+    ip, im = DRS.index(0.25), DRS.index(-0.25)
+    sens = {}
+    for key in ("alpha_inv", "sin2w_Q0", "v_source_GeV", "alpha_U"):
+        sens[key] = (math.log(rows[ip][key]) - math.log(rows[im][key])) / 0.5
+    for ak in ("A1", "A2"):
+        for k in ("W", "Z", "H", "t"):
+            sens[f"{ak}_{k}"] = (math.log(rows[ip][ak][k]) - math.log(rows[im][ak][k])) / 0.5
+    out["J2_sensitivity_dlnX_ddR_at_0"] = sens
+    imp = {"alpha_inv": implied(DRS, [r["alpha_inv"] for r in rows], 137.035999177)}
+    for ak in ("A1", "A2"):
+        for k in ("W", "Z", "H", "t"):
+            imp[f"{ak}_{k}"] = implied(DRS, [r[ak][k] for r in rows], refs[k])
+        imp[f"{ak}_W_over_Z"] = implied(DRS, [r[ak]["W"] / r[ak]["Z"] for r in rows], 0.88136)
+    out["J2_implied_dR_compare_only"] = imp
+    vals = [v for v in imp.values() if v is not None]
+    out["J2_implied_spread"] = {"min": min(vals) if vals else None, "max": max(vals) if vals else None,
+                                "scan_step": 0.25}
+    (L.LANE / "t4_joint_item.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps(out["J1"], indent=1))
+    print(json.dumps(sens, indent=1))
+    print(json.dumps(imp, indent=1))
+
+
+if __name__ == "__main__":
+    main()

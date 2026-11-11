@@ -1,0 +1,143 @@
+"""LW addendum 1: the hypercharge slice alphaY* = alphaY (1 - 2 eta), eta = alpha_U cos 2 theta_W0 (rows LS1 to LS5).
+
+LS2 census of every assignment of eta_source / compact_eta / the slice factor in the repository (read only), and the
+    exact identity that the seed route alpha_u_from_seed = 8 pi tau_seed / ln(alphaY/alpha2) returns alpha_U.
+LS3 structure of the slice's custodial term 2 eta s0^2 against the Standard-Model one-loop top term 3 y_t^2/(32 pi^2),
+    both from the source packet at P_fwd (no measured value).
+LS4 the pixel closure has zero derivative along alphaY (U(1) irreps have log d = 0).
+LS5 provenance from read-only git, and the share of the then-recorded Z gap that the slice removed at P = 1.63094
+    (this last number uses the reference value recorded in the repository at that time: NOT BLIND, provenance only).
+Writes lw_slice.json.
+"""
+from __future__ import annotations
+
+import importlib.util
+import json
+import math
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+import sympy as sp
+
+sys.dont_write_bytecode = True
+HERE = Path(__file__).resolve().parent
+RER_CANDIDATES = [Path("WORKSPACE/reverse-engineering-reality"),
+                  Path("WORKSPACE/repair-law/reverse-engineering-reality")]
+RER = next(p for p in RER_CANDIDATES if p.is_dir())
+E_STAR_CLOCK = 1.2208901289579269e19
+
+
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def git(*args) -> str:
+    return subprocess.run(["git", "-C", str(RER), *args], capture_output=True, text=True, timeout=120).stdout
+
+
+def census() -> dict:
+    pattern = r"(compact_eta\s*=|eta_source\s*=|eta_EW\s*=|alpha_u\s*\*\s*cos2_theta_w0|\(1\.0 - 2\.0 \* eta)"
+    done = subprocess.run(["grep", "-rnE", pattern, "code", "model"], cwd=RER, capture_output=True, text=True)
+    hits = []
+    for row in done.stdout.splitlines():
+        path, line, text = row.split(":", 2)
+        if "/runs/" in path or not path.endswith(".py"):
+            continue
+        hits.append({"file": path, "line": int(line), "text": text.strip()[:160]})
+    emitters = [h for h in hits if re.search(r"alpha_u\s*\*\s*cos2_theta_w0", h["text"])]
+    tau = sp.symbols("alpha_U alphaY alpha2", positive=True)
+    a_u, ay, a2 = tau
+    tau_seed = a_u / (8 * sp.pi) * sp.log(ay / a2)
+    seed_back = sp.simplify(8 * sp.pi * tau_seed / sp.log(ay / a2) - a_u)
+    lew = json.loads((HERE.parent / "SIM" / "derive" / "lew" / "t2_law_choice.json").read_text())
+    return {"rer_path": str(RER), "rer_head": git("rev-parse", "HEAD").strip(), "hits": hits,
+            "defining_lines": emitters,
+            "seed_route_alpha_u_from_seed_minus_alpha_U": str(seed_back),
+            "lew_executable_census_pattern_contains_eta_source": "eta_source" in lew["executable_source_search"]["pattern"],
+            "lew_executable_emitters": lew["executable_source_search"]["emitters_of_tau2_dn_or_J10_or_C10"],
+            "statement": ("the slice is defined by the formula itself (compact_eta = alpha_u * cos2_theta_w0) in the D10 "
+                          "calibration chain; every other occurrence consumes it; the seed route returns alpha_U "
+                          "identically; no executable package emits eta_source")}
+
+
+def structure() -> dict:
+    t1 = json.loads((HERE.parent / "SIM" / "derive" / "lew" / "t1_chain.json").read_text())["pixels"]["P_fwd"]
+    c, pk = t1["chain"], t1["packet_Q0"]
+    a2 = float(c["alpha2"]); ay = 0.6 * float(c["alpha1"]); au = float(c["alpha_U"])
+    s2 = ay / (a2 + ay); beta = (a2 - ay) / (a2 + ay); eta = au * beta
+    slice_term = 1.0 / (1.0 - 2.0 * eta * s2) - 1.0          # (MW/MZ)^2 chart / tree - 1
+    yt = pk["yt"]
+    top_term = 3.0 * yt * yt / (32.0 * math.pi**2)           # one-loop top custodial term, y_t(Q0) of the packet
+    return {"sin2_theta_W0": s2, "eta": eta, "slice_ratio_shift": slice_term,
+            "slice_leading_term_2_eta_s2": 2 * eta * s2, "y_t_Q0_packet": yt, "top_custodial_term": top_term,
+            "ratio_slice_over_top": slice_term / top_term,
+            "statement": ("the slice term is 2 alpha_U sin^2 cos 2 theta (gauge couplings only); the one-loop custodial "
+                          "term of the same packet is 3 y_t^2/(32 pi^2) (top Yukawa); they share no factor")}
+
+
+def closure_blindness() -> dict:
+    icc = load("lw_icc2", RER / "code" / "P_derivation" / "interval_contraction_certificate.py")
+    src = (RER / "code" / "P_derivation" / "interval_contraction_certificate.py").read_text()
+    body = src[src.index("def pixel_residual"):src.index("def solve_alpha_u")]
+    return {"pixel_residual_reads": sorted(set(re.findall(r"self\.(su\d)_terms", body))),
+            "alpha_1_or_Y_in_pixel_residual": ("b_mssm[0]" in body),
+            "u1_irrep_log_dim": 0.0,
+            "statement": ("the closure reads alpha2 and alpha3 only (SU(2), SU(3) heat-kernel sums); every U(1) irrep "
+                          "has dimension 1 and log d = 0, so the closure fixes no hypercharge moment: it singles out "
+                          "the hypercharge direction and supplies no magnitude"),
+            "module_loaded": hasattr(icc, "ellbar")}
+
+
+def provenance() -> dict:
+    first = git("log", "--format=%h %ad %s", "--date=iso", "-S", "compact_eta = alpha_u * cos2_theta_w0", "--",
+                "code/particles/calibration/").strip().splitlines()
+    before = git("show", "13d5b69ca:code/particles/RESULTS_STATUS.md").splitlines()
+    after = git("show", "0ac276683:code/particles/RESULTS_STATUS.md").splitlines()
+    pick = lambda lines, tag: next((l[:120] for l in lines if l.startswith(f"| {tag} |")), None)
+    # the slice at the legacy pixel of that time, current chain functions
+    icc = load("lw_icc3", RER / "code" / "P_derivation" / "interval_contraction_certificate.py")
+    mpb = icc.MpBackend(40)
+    sol = icc.PointSolver(mpb, 40, 40)
+    b = sol.b
+    p = b.num("1.63094")
+    au, mu_u = sol.solve_alpha_u(p)
+    mz = sol.solve_mz(au, p, mu_u)
+    a1 = icc.alpha_run(b, au, b.b_mssm[0], mz, mu_u)
+    a2 = icc.alpha_run(b, au, b.b_mssm[1], mz, mu_u)
+    ay = b.num(3) * a1 / 5
+    v = icc.v_transmutation(b, au, p)
+    eta = au * (a2 - ay) / (a2 + ay)
+    mz_unsliced = float(v * b.ctx.sqrt(b.ctx.pi * (a2 + ay))) * E_STAR_CLOCK
+    mz_sliced = float(v * b.ctx.sqrt(b.ctx.pi * (a2 + ay * (1 - 2 * eta)))) * E_STAR_CLOCK
+    recorded_unsliced, recorded_reference = 91.6524603, 91.18797809193725   # 13d5b69ca row and its reference
+    return {"first_commit_with_slice": first[-1] if first else None, "all_commits_found": first,
+            "row_before_13d5b69ca_Z": pick(before, "Z"), "row_before_13d5b69ca_W": pick(before, "W"),
+            "row_at_0ac276683_Z": pick(after, "Z"), "row_at_0ac276683_W": pick(after, "W"),
+            "legacy_pixel_current_chain": {"P": "1.63094", "MZ_unsliced_GeV": mz_unsliced, "MZ_sliced_GeV": mz_sliced,
+                                           "slice_shift_GeV": mz_sliced - mz_unsliced},
+            "NOT_BLIND_share_of_recorded_gap": {
+                "recorded_unsliced_Z": recorded_unsliced, "reference_then": recorded_reference,
+                "recorded_gap_GeV": recorded_unsliced - recorded_reference,
+                "slice_shift_GeV": mz_sliced - mz_unsliced,
+                "share_removed": (mz_unsliced - mz_sliced) / (recorded_unsliced - recorded_reference),
+                "residual_after_slice_GeV": recorded_unsliced + (mz_sliced - mz_unsliced) - recorded_reference}}
+
+
+def main():
+    out = {"schema": "lw.slice.v1", "LS2_census": census(), "LS3_structure": structure(),
+           "LS4_closure_blindness": closure_blindness(), "LS5_provenance": provenance()}
+    (HERE / "lw_slice.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps({k: (v if k != "LS2_census" else {kk: vv for kk, vv in v.items() if kk != "hits"})
+                      for k, v in out.items()}, indent=1))
+    print("census hits:", len(out["LS2_census"]["hits"]))
+    for h in out["LS2_census"]["hits"]:
+        print("  ", h["file"], h["line"], h["text"][:100])
+
+
+if __name__ == "__main__":
+    main()

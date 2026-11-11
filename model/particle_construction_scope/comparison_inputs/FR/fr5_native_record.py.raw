@@ -1,0 +1,118 @@
+"""FR round 2, item 3: the coherent completion of the native signed current record (N1 to N6 of ROUND2_REGISTER.md).
+EXACT. Writes fr5_native_record.json.
+
+Seam-local basis (p0, m0, p1, m1): p = (|a> + |b>)/sqrt2, m = (|a> - |b>)/sqrt2 in the native order (a, b); record 0, 1.
+"""
+from __future__ import annotations
+
+import sys
+
+import sympy as sp
+
+import fr_common as FC
+import fr2_register as R2
+
+OUT = 'fr5_native_record.json'
+r2 = sp.sqrt(2)
+
+
+def seam_event(order):
+    """Law's U_k in the port basis (|lo,0>, |hi,0>, |lo,1>, |hi,1>) for the ordered address ('lohi' or 'hilo')."""
+    v = sp.Matrix([1, -1, -1, -1]) / r2 if order == 'lohi' else sp.Matrix([-1, 1, -1, -1]) / r2
+    return sp.eye(4) - v * v.T
+
+
+def main():
+    out = {'task': 'FR round 2 item 3: native signed current completion', 'provenance': FC.provenance()}
+    Z = sp.diag(1, 1, -1, -1)
+    U_nat = seam_event('lohi')
+    U_rev = seam_event('hilo')
+    a0, b0, a1, b1 = (sp.eye(4)[:, i] for i in range(4))
+    p0, m0 = (a0 + b0) / r2, (a0 - b0) / r2
+    p1, m1 = (a1 + b1) / r2, (a1 - b1) / r2
+    # N1: conditions (i), (ii) fix the blank-record action; involution fixes the rest up to the sign on |m,1>
+    cond = {
+        '(i)+(ii) source a: U|a,0> = |p>(|0>+|1>)/sqrt2': (U_nat * a0 - (p0 + p1) / r2) == sp.zeros(4, 1),
+        '(i)+(ii) source b: U|b,0> = |p>(|0>-|1>)/sqrt2': (U_nat * b0 - (p0 - p1) / r2) == sp.zeros(4, 1),
+        'involution U^2 = 1': U_nat * U_nat == sp.eye(4), 'unitary': FC.is_unitary(U_nat),
+    }
+    c = sp.Symbol('c')
+    # general completion: U|p,0> = |p,0>, U|m,0> = |p,1> forced by (i),(ii); U|p,1> = x, U|m,1> = y
+    B = sp.Matrix.hstack(p0, m0, p1, m1)
+    Ugen = (B * sp.Matrix([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, c]]) * B.T).applyfunc(sp.simplify)
+    inv = (Ugen * Ugen - sp.eye(4)).applyfunc(sp.simplify)
+    sols = sp.solve([e for e in inv if e != 0], c)
+    cond['involutive completions: sign on |m,1>'] = str(sols)
+    cond['reflection form I - v v^T is the + solution'] = (Ugen.subs(c, 1) - U_nat).applyfunc(sp.simplify) == sp.zeros(4, 4)
+    cond['reversed address of the law: U_(b,a) = Z U_(a,b) Z'] = U_rev == Z * U_nat * Z
+    cond['blank records: Z U_(b,a) = U_(a,b) (one-sided V of round 1, LNAT3 squared quarter-turns)'] = all(
+        (Z * U_rev * x - U_nat * x) == sp.zeros(4, 1) for x in (a0, b0))
+    cond['non-blank records: Z U_(b,a) = U_(a,b) Z differs from U_(a,b)'] = (Z * U_rev == U_nat * Z) and (Z * U_rev != U_nat)
+    out['N1'] = cond
+    print('N1', cond)
+
+    # N2, N3: native order against the f screen orientation
+    f = (4, 5, 11)
+    nat = {'C': (2, 3), 'E': (2, 10)}
+    scr = {k: FC.screen_orientation(f, v) for k, v in nat.items()}
+    a13, a23, z = R2.a13, R2.a23, R2.z
+    Phi, _ = R2.analyzer_E1(R2.flags())
+    M_ref = R2.compress(Phi, R2.psi((a13, 0, a23)), R2.psi((a13, 0, a23)))
+    # E read in the native frame: Z at the screen address (o = 0) instead of the reversed one; load at port 2 or 10
+    W, V = R2.obj_ops(1)
+    Vnat_E = sp.diag(*[(-1 if ((i // 2) % 2 == 1 and i % 2 == 0) else 1) for i in range(12)])
+    rows = {}
+    for name, prepE in (('E load at port 10 (screen tail, native head)', (a13, 0, a23)),
+                        ('E load at port 2 (junction, native tail)', (0, a13, a23))):
+        pE = (Vnat_E * W * FC.obj_state(*prepE)).applyfunc(sp.nsimplify)
+        M = R2.compress(Phi, R2.psi((a13, 0, a23)), pE)
+        rep = sp.nsimplify((FC.obj_flag('p', 1, 'u').T * pE)[0])
+        rows[name] = {'compression_equals_primary': (M - M_ref).applyfunc(sp.simplify) == sp.zeros(3, 3),
+                      'E repair amplitude in the native frame': str(rep)}
+    out['N2_N3'] = {'native_order': nat, 'f_screen_orientation': scr,
+                    'C: native order equals screen orientation': scr['C'] == nat['C'],
+                    'E: native order opposite to screen orientation': scr['E'] == nat['E'][::-1],
+                    'E in the native frame (Z at the screen address)': rows}
+    print('N2/N3', out['N2_N3'])
+
+    # N4: transport law of the repository against the coherent record frame
+    from model.common_source import native_code_transport as tr
+    rots = FC.carrier()['rotations']
+    agree = total = rev_count = 0
+    for law, seam in (('C', (2, 3)), ('E', (2, 10))):
+        for p in rots:
+            reverse = p[seam[0]] > p[seam[1]]
+            s_img, coin_img, raw_img = tr.transported_record(law, seam, 0, 1, p)
+            native_reversed = (raw_img & 3) == 2 and coin_img == 1
+            native_kept = (raw_img & 3) == 1 and coin_img == 0
+            coherent_flip = reverse  # U_(pa,pb) = Z U_sorted Z exactly when pa > pb (checked above)
+            agree += int((native_reversed and coherent_flip) or (native_kept and not coherent_flip))
+            total += 1
+            rev_count += int(reverse)
+    out['N4_transport'] = {'cases': total, 'order_reversing': rev_count,
+                           'native current reversed (raw 1 -> 2, coin complemented) exactly when the coherent record '
+                           'frame flips (Z)': agree}
+    print('N4', out['N4_transport'])
+
+    # N5: statistics of the native-frame record for a definite source
+    stat = {}
+    for name, s_vec, J in (('source a (J = +1)', a0, 1), ('source b (J = -1)', b0, -1)):
+        o = U_nat * s_vec
+        P1 = sp.nsimplify(sum(o[i] ** 2 for i in (2, 3)))
+        plus = sp.Matrix([1, 1]) / r2
+        minus = sp.Matrix([1, -1]) / r2
+        # record state after tracing the load (load is |p>): amplitudes on record 0, 1 along p
+        rec = sp.Matrix([(p0.T * o)[0], (p1.T * o)[0]])
+        stat[name] = {'P(record 1)': str(P1), 'P(conjugate value = J)': str(sp.nsimplify(((plus if J == 1 else minus).T
+                                                                                          * rec)[0] ** 2))}
+    out['N5_statistics'] = {**stat, 'native rule': 'P(|J| = 1 | source) = 1/2 (the coin matches the source)'}
+    # N6: junction port 2 is the tail of both seams in the native frame
+    out['N6'] = {'native tails': {k: v[0] for k, v in nat.items()}, 'both equal the native reset port 2': all(
+        v[0] == 2 for v in nat.values())}
+    print('N5', stat, 'N6', out['N6'])
+    FC.jdump(out, OUT)
+    print('written', OUT)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

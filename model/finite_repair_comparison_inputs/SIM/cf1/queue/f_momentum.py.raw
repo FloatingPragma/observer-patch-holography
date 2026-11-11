@@ -1,0 +1,92 @@
+"""Run F (QUEUE_BRIEF.md): momentum readout of a 32^3 packet by phase estimation of the lattice translation.
+
+Apparatus (one axis i, clock register of M states, every outcome kept): clock prepared uniform, controlled translation
+T_i^{-c} (psi(x) -> psi(x + c e_i)) for clock value c, inverse Fourier transform of the clock, clock read. Outcome j
+(j = 0..M-1, read as p = 2 pi j / M folded to (-pi, pi]) has the branch state
+    phi_j = (1/M) sum_c exp(-2 pi i j c / M) T_i^{-c} psi,   P(j) = ||phi_j||^2,  sum_j P(j) = 1.
+Executed with the translations of the lattice (np.roll on the state), for M = 8, 16, 32 and the three axes. Joint
+readout of the three axes (three registers): P(j1, j2, j3) from the momentum amplitudes of the state with the Fejer kernel
+F_M(p - 2 pi j/M) = |(1/M) sum_c exp(i c (p - 2 pi j / M))|^2 per axis (EXACT formula); its marginals are compared with the
+executed one-axis readouts. Readout before and after 32 ticks (half-step frame, Engine.step_half) of the free tick (theta = 0 and 0.087847): the
+translation commutes with the tick, so the distributions must agree (EXACT up to rounding).
+Packets: Gaussian amplitude width 3 cells at the centre, p0 = (0.3, 0.2, 0.1) (off the 32-grid) and p0 = (2 pi 3/32, 0, 0)
+(on the grid); coin positive_coin((p0_1, 0, 0), theta). Fills all four sublattices.
+`python f_momentum.py out.json`
+"""
+import json, sys, time
+import numpy as np
+from cq_common import EngineC, positive_coin
+
+N = 32
+
+
+def readout_axis(psi, i, M):
+    rolled = np.stack([np.roll(psi, -c, axis=i) for c in range(M)], axis=0)       # T^{-c} psi
+    ph = np.exp(-2j * np.pi * np.outer(np.arange(M), np.arange(M)) / M) / M       # [j, c]
+    br = np.tensordot(ph, rolled, axes=([1], [0]))                                  # phi_j
+    return np.array([float(np.sum(np.abs(br[j]) ** 2)) for j in range(M)])
+
+
+def momentum_weights(psi):
+    a = np.fft.fftn(psi, axes=(0, 1, 2), norm='ortho')
+    return np.sum(np.abs(a) ** 2, axis=(3, 4))                                       # weight at p = 2 pi n / N (e^{+ipx})
+
+
+def fejer(dp, M):
+    num = np.sin(M * dp / 2); den = M * np.sin(dp / 2)
+    out = np.where(np.abs(den) > 1e-14, (num / np.where(np.abs(den) > 1e-14, den, 1)) ** 2, 1.0)
+    return out
+
+
+def joint(wk, M):
+    p = 2 * np.pi * np.arange(N) / N
+    K = np.array([[fejer(p[n] - 2 * np.pi * j / M, M) for n in range(N)] for j in range(M)])   # [j, n]
+    return np.einsum('ja,kb,lc,abc->jkl', K, K, K, wk)
+
+
+def stats(P, M):
+    pj = 2 * np.pi * np.arange(M) / M; pj = np.where(pj > np.pi, pj - 2 * np.pi, pj)
+    mean = float(np.sum(P * pj)); var = float(np.sum(P * (pj - mean) ** 2))
+    return mean, float(np.sqrt(var))
+
+
+if __name__ == '__main__':
+    t0 = time.time()
+    out = {'run': 'F', 'brief': 'repair-law/work/SIM/cf1/QUEUE_BRIEF.md', 'program': 'CF-1 routing tick, alternating order, mass option M1 (kind Y)',
+           'lattice': [N, N, N], 'units': 'momentum in radians per cell', 'seed': 'none', 'clock': 'clock register of M states (apparatus), ticks of the program for the before/after check', 'frame': 'half-step frame M^(1/2) S M^(1/2) (Engine.step_half) for the 32 ticks; the readout itself does not involve the tick',
+           'preparation': 'Gaussian amplitude width 3, centre (16,16,16), coin positive_coin((p0_1,0,0), theta)', 'sublattices': 'the Gaussian fills all four sublattices',
+           'apparatus': 'phase estimation of T_i with clock prepared uniform, controlled T_i^{-c}, inverse QFT, clock read; all branches kept', 'rows': []}
+    e = EngineC((N, N, N))
+    for p0 in ((0.3, 0.2, 0.1), (2 * np.pi * 3 / N, 0.0, 0.0)):
+        for theta in (0.0, 0.087847):
+            psi = e.gaussian((16, 16, 16), 3.0, p0, positive_coin((p0[0], 0, 0), theta))
+            wk = momentum_weights(psi)
+            later = psi.copy()
+            for t in range(32): later = e.step_half(later, theta, 'Y', t)
+            row = {'p0': list(p0), 'theta': theta, 'registers': []}
+            pn = 2 * np.pi * np.arange(N) / N; pn = np.where(pn > np.pi, pn - 2 * np.pi, pn)
+            marg = [wk.sum(axis=tuple(k for k in range(3) if k != i)) for i in range(3)]
+            row['packet_momentum_mean'] = [float(np.sum(m * pn)) for m in marg]
+            row['packet_momentum_sd'] = [float(np.sqrt(np.sum(m * (pn - np.sum(m * pn)) ** 2))) for m in marg]
+            for M in (8, 16, 32):
+                Pj = joint(wk, M)
+                reg = {'M': M, 'axes': []}
+                for i in range(3):
+                    P = readout_axis(psi, i, M); P2 = readout_axis(later, i, M)
+                    Pm = Pj.sum(axis=tuple(k for k in range(3) if k != i))
+                    mean, sd = stats(P, M)
+                    reg['axes'].append({'axis': i + 1, 'P_outcomes': [float(x) for x in P], 'sum': float(P.sum()),
+                                        'max_abs_executed_minus_joint_marginal': float(np.abs(P - Pm).max()),
+                                        'max_abs_before_minus_after_32_ticks': float(np.abs(P - P2).max()),
+                                        'readout_mean_p': mean, 'readout_sd_p': sd, 'most_likely_outcome_p': float(2 * np.pi * np.argmax(P) / M if np.argmax(P) <= M // 2 else 2 * np.pi * np.argmax(P) / M - 2 * np.pi)})
+                reg['joint_most_likely'] = [int(x) for x in np.unravel_index(np.argmax(Pj), Pj.shape)]
+                reg['joint_max_probability'] = float(Pj.max()); reg['joint_sum'] = float(Pj.sum())
+                reg['joint_distribution_nonzero_above_1e-6'] = [[int(a), int(b), int(c), float(Pj[a, b, c])] for a, b, c in zip(*np.nonzero(Pj > 1e-6))]
+                row['registers'].append(reg)
+                print('p0', [round(x, 4) for x in p0], 'theta', theta, 'M', M, 'means', [round(a['readout_mean_p'], 4) for a in reg['axes']], 'sds', [round(a['readout_sd_p'], 4) for a in reg['axes']],
+                      'exec-vs-joint', max(a['max_abs_executed_minus_joint_marginal'] for a in reg['axes']), 'before-after', max(a['max_abs_before_minus_after_32_ticks'] for a in reg['axes']),
+                      'packet mean', [round(x, 4) for x in row['packet_momentum_mean']], flush=True)
+            out['rows'].append(row)
+    out['seconds'] = time.time() - t0
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)
+    print('written', sys.argv[1])

@@ -1,0 +1,534 @@
+{
+ "a_native_module": {
+  "orbital": "(c*[port 2, level j, blank, address (0,1)] - c*[.., address (1,0)])/sqrt2",
+  "link_words": 10,
+  "levels": 5,
+  "one_tick_equals_minus_identity_on_every_orbital": true,
+  "amplitudes_with_record_written": 0,
+  "correction_probability": "0 (exact)",
+  "tick_on_occupation_degree_n": "(-1)^n; identity on the degree 2 and 4 module: rest phase 0"
+ },
+ "a_flux_table_for_pairs": {
+  "class_1": {
+   "down": {
+    "alpha_right": "2/3",
+    "alpha_left": "1/6",
+    "left_minus_right_rest_phase_by_separation": [
+     -0.03273,
+     -0.041774,
+     -0.050208,
+     -0.054801,
+     -0.057599
+    ]
+   },
+   "up": {
+    "alpha_right": "2/3",
+    "alpha_left": "1/6",
+    "left_minus_right_rest_phase_by_separation": [
+     -0.03273,
+     -0.041774,
+     -0.050208,
+     -0.054801,
+     -0.057599
+    ]
+   },
+   "charged lepton": {
+    "alpha_right": "0",
+    "alpha_left": "1/2",
+    "left_minus_right_rest_phase_by_separation": [
+     0.087847,
+     0.110554,
+     0.132363,
+     0.147787,
+     0.171237
+    ]
+   },
+   "neutrino": {
+    "alpha_right": "0",
+    "alpha_left": "1/2",
+    "left_minus_right_rest_phase_by_separation": [
+     0.087847,
+     0.110554,
+     0.132363,
+     0.147787,
+     0.171237
+    ]
+   }
+  },
+  "class_2": {
+   "down": {
+    "alpha_right": "1/3",
+    "alpha_left": "1/3",
+    "left_minus_right_rest_phase_by_separation": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "up": {
+    "alpha_right": "1/3",
+    "alpha_left": "1/3",
+    "left_minus_right_rest_phase_by_separation": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "charged lepton": {
+    "alpha_right": "0",
+    "alpha_left": "0",
+    "left_minus_right_rest_phase_by_separation": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "neutrino": {
+    "alpha_right": "0",
+    "alpha_left": "0",
+    "left_minus_right_rest_phase_by_separation": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "class_3": {
+   "down": {
+    "alpha_right": "0",
+    "alpha_left": "1/2",
+    "left_minus_right_rest_phase_by_separation": [
+     0.087847,
+     0.110554,
+     0.132363,
+     0.147787,
+     0.171237
+    ]
+   },
+   "up": {
+    "alpha_right": "0",
+    "alpha_left": "1/2",
+    "left_minus_right_rest_phase_by_separation": [
+     0.087847,
+     0.110554,
+     0.132363,
+     0.147787,
+     0.171237
+    ]
+   },
+   "charged lepton": {
+    "alpha_right": "0",
+    "alpha_left": "1/2",
+    "left_minus_right_rest_phase_by_separation": [
+     0.087847,
+     0.110554,
+     0.132363,
+     0.147787,
+     0.171237
+    ]
+   },
+   "neutrino": {
+    "alpha_right": "0",
+    "alpha_left": "1/2",
+    "left_minus_right_rest_phase_by_separation": [
+     0.087847,
+     0.110554,
+     0.132363,
+     0.147787,
+     0.171237
+    ]
+   }
+  }
+ },
+ "a_relative_phase_is_axial": {
+  "eigenphases_of_shift_times_axial_step": "chi (s p + delta), chi, s = +-1: checked True",
+  "gap": "none: zero phase at p = delta",
+  "record_written_from_blank_at_rest": "sin(delta)**2",
+  "same_record_statistics_as_a_mass_of_angle_delta": true,
+  "toggle_times_relative_phase_pi_squares_to_identity": true,
+  "native_sign_with_toggle_gives_sinE_equals_cos_theta_sin_p_defect": 5.48172618408671e-16
+ },
+ "b_reference": {
+  "trace_of_tick_per_level": "-9570",
+  "normalization": "42150",
+  "weight_of_each_of_the_five_levels": "1/5",
+  "diagonal_independent_of_level_on_sample": true,
+  "tick_never_changes_the_level_on_sample": true,
+  "sample_basis_states": 360,
+  "coherence_between_levels": "0: the reference commutes with every level occupation",
+  "expectation_of_the_register_lowering_operator": 0
+ },
+ "c_port_against_frame": {
+  "frames": 5,
+  "axes": 15,
+  "conjugate_axes_orthogonality_defect": 1.0547118733938987e-15,
+  "abs_cosine_port_frame_axis_port_triplet": [
+   0.0,
+   0.525731,
+   0.850651
+  ],
+  "abs_cosine_conjugate_frame_spinor_doublet": [
+   0.0,
+   0.525731,
+   0.850651
+  ],
+  "closed_forms": [
+   "0",
+   "sqrt((5 - sqrt5)/10)",
+   "sqrt((5 + sqrt5)/10)"
+  ],
+  "closed_form_values": [
+   0.0,
+   0.525731,
+   0.850651
+  ],
+  "spinor_squared_overlaps_(1 +- c)/2": [
+   0.074675,
+   0.237134,
+   0.5,
+   0.762866,
+   0.925325
+  ],
+  "angles_between_port_and_frame_axis_rad": [
+   0.553574,
+   1.017222,
+   1.570796
+  ]
+ },
+ "c_three_section_overlap": {
+  "definition": "abs sum over ports of conj(x_left) x_right x_Higgs (or its conjugate), x_q the lowest section of charge q",
+  "uniform_value_1_over_sqrt12": 0.288675,
+  "rows": [
+   {
+    "class": 1,
+    "separation": 1,
+    "down": 0.287583,
+    "up": 0.287583,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 0.996218,
+    "path_independence": 1.1102230246251565e-16,
+    "smallest_level_gap": 2.059363,
+    "defined": true
+   },
+   {
+    "class": 1,
+    "separation": 2,
+    "down": 0.283443,
+    "up": 0.283443,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 0.981874,
+    "path_independence": 1.6653345369377348e-16,
+    "smallest_level_gap": 1.536338,
+    "defined": true
+   },
+   {
+    "class": 1,
+    "separation": 3,
+    "down": 0.269592,
+    "up": 0.269592,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 0.933893,
+    "path_independence": 2.220446049250313e-16,
+    "smallest_level_gap": 0.911097,
+    "defined": true
+   },
+   {
+    "class": 1,
+    "separation": 4,
+    "down": 0.250133,
+    "up": 0.250133,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 0.866486,
+    "path_independence": 2.220446049250313e-16,
+    "smallest_level_gap": 0.517536,
+    "defined": true
+   },
+   {
+    "class": 1,
+    "separation": 5,
+    "down": 0.232128,
+    "up": 0.171628,
+    "charged lepton": 0.275997,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 0.841055,
+    "path_independence": 0.028794259016184265,
+    "smallest_level_gap": 0.0,
+    "defined": false
+   },
+   {
+    "class": 2,
+    "separation": 1,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 2.220446049250313e-16,
+    "smallest_level_gap": 2.194803,
+    "defined": true
+   },
+   {
+    "class": 2,
+    "separation": 2,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 2.220446049250313e-16,
+    "smallest_level_gap": 1.797973,
+    "defined": true
+   },
+   {
+    "class": 2,
+    "separation": 3,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 2.7755575615628914e-16,
+    "smallest_level_gap": 1.371072,
+    "defined": true
+   },
+   {
+    "class": 2,
+    "separation": 4,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 2.220446049250313e-16,
+    "smallest_level_gap": 1.165358,
+    "defined": true
+   },
+   {
+    "class": 2,
+    "separation": 5,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 3.3306690738754696e-16,
+    "smallest_level_gap": 1.050198,
+    "defined": true
+   },
+   {
+    "class": 3,
+    "separation": 1,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 2.220446049250313e-16,
+    "smallest_level_gap": 2.059363,
+    "defined": true
+   },
+   {
+    "class": 3,
+    "separation": 2,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 1.6653345369377348e-16,
+    "smallest_level_gap": 1.536338,
+    "defined": true
+   },
+   {
+    "class": 3,
+    "separation": 3,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 3.3306690738754696e-16,
+    "smallest_level_gap": 0.911097,
+    "defined": true
+   },
+   {
+    "class": 3,
+    "separation": 4,
+    "down": 0.288675,
+    "up": 0.288675,
+    "charged lepton": 0.288675,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 1.0,
+    "path_independence": 5.551115123125783e-17,
+    "smallest_level_gap": 0.517536,
+    "defined": true
+   },
+   {
+    "class": 3,
+    "separation": 5,
+    "down": 0.251938,
+    "up": 0.232122,
+    "charged lepton": 0.265484,
+    "neutrino": 0.288675,
+    "quark_over_lepton": 0.948977,
+    "path_independence": 0.053340940472954346,
+    "smallest_level_gap": 0.0,
+    "defined": false
+   }
+  ]
+ },
+ "d_flux_background": {
+  "rows": {
+   "class_1": {
+    "relative_exponent_of_zeta6_between_partners": [
+     3
+    ],
+    "relative_sign": -1,
+    "exponent_on_the_empty_partner": {
+     "d_R/Q_L": 4,
+     "Q_L/u_R": 1,
+     "e_R/L_L": 0,
+     "L_L/nu_R": 3
+    },
+    "F_k G0 F_k^-1 = sign * G0 with sign": -1
+   },
+   "class_2": {
+    "relative_exponent_of_zeta6_between_partners": [
+     0
+    ],
+    "relative_sign": 1,
+    "exponent_on_the_empty_partner": {
+     "d_R/Q_L": 2,
+     "Q_L/u_R": 2,
+     "e_R/L_L": 0,
+     "L_L/nu_R": 0
+    },
+    "F_k G0 F_k^-1 = sign * G0 with sign": 1
+   },
+   "class_3": {
+    "relative_exponent_of_zeta6_between_partners": [
+     3
+    ],
+    "relative_sign": -1,
+    "exponent_on_the_empty_partner": {
+     "d_R/Q_L": 0,
+     "Q_L/u_R": 3,
+     "e_R/L_L": 0,
+     "L_L/nu_R": 3
+    },
+    "F_k G0 F_k^-1 = sign * G0 with sign": -1
+   },
+   "class_4": {
+    "relative_exponent_of_zeta6_between_partners": [
+     0
+    ],
+    "relative_sign": 1,
+    "exponent_on_the_empty_partner": {
+     "d_R/Q_L": 4,
+     "Q_L/u_R": 4,
+     "e_R/L_L": 0,
+     "L_L/nu_R": 0
+    },
+    "F_k G0 F_k^-1 = sign * G0 with sign": 1
+   },
+   "class_5": {
+    "relative_exponent_of_zeta6_between_partners": [
+     3
+    ],
+    "relative_sign": -1,
+    "exponent_on_the_empty_partner": {
+     "d_R/Q_L": 2,
+     "Q_L/u_R": 5,
+     "e_R/L_L": 0,
+     "L_L/nu_R": 3
+    },
+    "F_k G0 F_k^-1 = sign * G0 with sign": -1
+   }
+  },
+  "toggle_component_of_any_function_of_the_flux_operators": 0,
+  "reason": "flux operators are functions of Q6; the toggle shifts Q6 by 3; matrix elements between partners vanish",
+  "stationary_densities_supplied_by_coordinator": {
+   "2": "669/2500",
+   "4": "669/2500",
+   "3": "409/5000"
+  },
+  "coherence_factor_between_partners_per_carrier_if_one_flux_at_most": "2091/2500",
+  "classes_2_and_4_on_the_handedness_bit": "identity times a common phase (zeta_3 for quarks, 1 for leptons)"
+ },
+ "item5_flipped_phase": {
+  "theta": 0.157935,
+  "coupling_to_the_quantum": "the toggle at that cell changes sign: vertex 2 theta (exact, K = G0 x X_h)",
+  "line_160_cells_in_gap_states_(phase, weight on the flipped cell)": [
+   [
+    -0.150415,
+    0.0458
+   ],
+   [
+    -0.150415,
+    0.0458
+   ],
+   [
+    0.150415,
+    0.0458
+   ],
+   [
+    0.150415,
+    0.0458
+   ]
+  ],
+  "bound_phase_over_theta_on_the_line": 0.952385,
+  "cube_6x6x6_two_tick_in_gap_states_(phase per tick, largest cell weight)": [
+   [
+    -0.151557,
+    0.0379
+   ],
+   [
+    -0.151557,
+    0.0379
+   ],
+   [
+    -0.151557,
+    0.0443
+   ],
+   [
+    -0.151557,
+    0.0443
+   ],
+   [
+    0.151557,
+    0.0379
+   ],
+   [
+    0.151557,
+    0.0379
+   ],
+   [
+    0.151557,
+    0.0443
+   ],
+   [
+    0.151557,
+    0.0443
+   ]
+  ],
+  "cube_6_lowest_phase_per_tick": 0.15155745791282282,
+  "cube_4_lowest_phase_per_tick": 0.07797658570445469,
+  "first_order_estimate_theta_(1 - cones/cells)": {
+   "cube_6_(8 cone momenta of 216)": 0.15208555555555556,
+   "cube_4_(32 cone momenta of 64)": 0.0789675
+  },
+  "reading": "in the cube the shift follows theta x (cone momenta on the lattice)/(cells), a finite-volume shift; no bound state seen at these sizes"
+ }
+}

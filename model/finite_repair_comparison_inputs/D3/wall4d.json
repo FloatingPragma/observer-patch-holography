@@ -1,0 +1,3361 @@
+{
+ "engine_sha256": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+ "clifford_defect": 0.0,
+ "S4_against_P+T+P-T*": 0.0,
+ "rows": [
+  {
+   "label": "native mass step, real mass kink along axis 4",
+   "cells": 64,
+   "theta0": 0.3,
+   "r": 0.0,
+   "points": [
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      1
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": 1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      3
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      0.0,
+      -0.0,
+      -0.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0,
+      -0.0
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.949162,
+        0.949162,
+        0.949162
+       ]
+      }
+     ]
+    }
+   ],
+   "unitarity_defect": 2.225097845165244e-16,
+   "totals_over_the_64_transverse_points": {
+    "zero_states_per_wall": 256,
+    "orientation_sum_at_kink": 0
+   }
+  },
+  {
+   "label": "with the Wilson-type term r = 0.5 (2r > theta_0)",
+   "cells": 64,
+   "theta0": 0.3,
+   "r": 0.5,
+   "points": [
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      0,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      1,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      2,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      0,
+      3,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      0,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      1,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      2,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      1,
+      3,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      0,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      1,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      0
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      2
+     ],
+     "zero_phase_states": 8,
+     "phases_in_gap": [
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      -0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813,
+      0.00010813
+     ],
+     "orientation_by_x4_class": [
+      {
+       "class": 0,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.94137,
+        0.94137,
+        0.94137
+       ]
+      },
+      {
+       "class": 1,
+       "states": 2,
+       "orientation": -1,
+       "speeds_per_tick": [
+        0.960213,
+        0.960213,
+        0.960213
+       ]
+      }
+     ]
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      2,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      2,
+      3,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      0,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      1,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      2,
+      3
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      0
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      1
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      2
+     ],
+     "zero_phase_states": 0
+    },
+    {
+     "p_perp_over_pi/2": [
+      3,
+      3,
+      3
+     ],
+     "zero_phase_states": 0
+    }
+   ],
+   "unitarity_defect": 3.5529768754331006e-15,
+   "totals_over_the_64_transverse_points": {
+    "zero_states_per_wall": 32,
+    "orientation_sum_at_kink": -16
+   }
+  }
+ ]
+}

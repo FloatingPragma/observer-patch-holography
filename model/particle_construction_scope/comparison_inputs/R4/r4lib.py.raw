@@ -1,0 +1,213 @@
+"""Worker R4: shared helpers.
+
+Exact one-body operators of CF-1 section 8 built from the definitions (all entries dyadic rationals), the
+reference engine imported by path (unchanged), occupation sectors built from the anticommutation relations in
+integer arithmetic, and the cover of the frame's rotation group in the engine's spin convention.
+Mode index of (cell x, record r, spin s): ((x1 L2 + x2) L3 + x3) 4 + 2 r + s, the engine's psi.ravel().
+"""
+import sys, itertools, json
+import numpy as np
+import scipy.sparse as sp
+
+RL = 'WORKSPACE/repair-law'
+for _d in (RL + '/work/DIRAC', RL + '/work/KD'):
+    if _d not in sys.path: sys.path.append(_d)
+from routing import Routing, SIG          # reference engine, read only
+
+I2 = np.eye(2, dtype=complex)
+I4 = np.eye(4, dtype=complex)
+
+
+def cells(shape): return list(itertools.product(*[range(s) for s in shape]))
+def ncell(shape): return int(np.prod(shape))
+def dim(shape): return 4 * ncell(shape)
+def cidx(shape, x): return ((x[0] % shape[0]) * shape[1] + (x[1] % shape[1])) * shape[2] + (x[2] % shape[2])
+def mode(shape, x, r, s): return cidx(shape, x) * 4 + 2 * r + s
+def step(shape, x, i, d=1):
+    y = list(x); y[i] = (y[i] + d) % shape[i]; return tuple(y)
+
+
+# ---- exact one-body operators (definitions of section 8) ------------------------------------------------
+def reflector_projectors(shape, i, links=None):
+    """Projectors Pi_v = |v><v| of the reflectors of axis i, one per link (x, x+e_i) and spin sign along i.
+    v = (a0 - z b0 - a1 - z b1)/2 with (a, b) = (x, x+e_i) for spin +, (x+e_i, x) for spin -; the link sign z
+    multiplies the components at x+e_i (the engine's rule). Entries are multiples of 1/8."""
+    out = []
+    n2 = 2 * ncell(shape)
+    for x in cells(shape):
+        y = step(shape, x, i); z = 1.0 if links is None else float(links[i][x])
+        cx, cy = 2 * cidx(shape, x), 2 * cidx(shape, y)
+        for eps in (+1, -1):
+            w = np.zeros(n2)
+            if eps > 0: w[cx] += 1; w[cy] += -z; w[cx + 1] += -1; w[cy + 1] += -z
+            else:       w[cy] += z; w[cx] += -1; w[cy + 1] += -z; w[cx + 1] += -1
+            out.append(np.kron(np.outer(w, w) / 4, (I2 + eps * SIG[i]) / 2))
+    return out
+
+
+def Q_exact(shape, i, links=None):
+    return np.eye(dim(shape), dtype=complex) - 2 * sum(reflector_projectors(shape, i, links))
+
+
+def R_exact(shape): return np.diag(np.tile([1.0, 1.0, -1.0, -1.0], ncell(shape))).astype(complex)
+def rec_op(shape, m2): return np.kron(np.eye(ncell(shape)), np.kron(m2, I2))
+def spin_op(shape, m2): return np.kron(np.eye(ncell(shape)), np.kron(I2, m2))
+def M_exact(shape, c, s): return rec_op(shape, np.array([[c, -s], [s, c]], complex))     # exp(-i theta Y_r)
+
+
+def S_exact(shape, i, links=None): return Q_exact(shape, i, links) @ R_exact(shape)
+
+
+def tick_exact(shape, reverse=False, links=None, cs=None):
+    W = np.eye(dim(shape), dtype=complex)
+    for i in ((2, 1, 0) if reverse else (0, 1, 2)): W = S_exact(shape, i, links) @ W
+    return W if cs is None else M_exact(shape, *cs) @ W
+
+
+def engine_matrix(shape, f):
+    """matrix of an operation of the reference engine, column by column"""
+    D = dim(shape); out = np.empty((D, D), complex)
+    for j in range(D):
+        e = np.zeros(D, complex); e[j] = 1
+        out[:, j] = f(e.reshape(tuple(shape) + (2, 2))).ravel()
+    return out
+
+
+def gauss_int(A, scale):
+    """(re, im) int64 arrays of scale*A, asserting exact integrality"""
+    B = A * scale
+    re, im = np.rint(B.real), np.rint(B.imag)
+    assert np.array_equal(re, B.real) and np.array_equal(im, B.imag), 'not integral at this scale'
+    return re.astype(np.int64), im.astype(np.int64)
+
+
+# ---- symbols ----------------------------------------------------------------------------------------------
+ALPHA = [np.kron(SIG[0], SIG[i]) for i in range(3)]
+YR = np.kron(SIG[1], I2); ZR = np.kron(SIG[2], I2); XR = np.kron(SIG[0], I2)
+
+
+def ex(p, i): return np.cos(p) * I4 - 1j * np.sin(p) * ALPHA[i]
+def sym_S(p, reverse=False):
+    out = I4
+    for i in ((2, 1, 0) if reverse else (0, 1, 2)): out = ex(p[i], i) @ out
+    return out
+def sym_M(theta): return np.cos(theta) * I4 - 1j * np.sin(theta) * YR
+def sym_W2(p, theta=0.0): return sym_M(theta) @ sym_S(p, True) @ sym_M(theta) @ sym_S(p, False)
+
+
+# ---- occupation sectors from the anticommutation relations, integer arithmetic ---------------------------
+class Sector:
+    """k quanta on n fermionic modes, occupation basis |I> = a+_{i1} ... a+_{ik} |0>, i1 < ... < ik."""
+    def __init__(self, n, k):
+        self.n, self.k = n, k
+        self.comb = np.array(list(itertools.combinations(range(n), k)), dtype=np.int64).reshape(-1, k)
+        self.nb = len(self.comb)
+        self.occ = np.zeros((self.nb, n), dtype=np.int64)
+        self.occ[np.repeat(np.arange(self.nb), k), self.comb.ravel()] = 1
+        self.less = np.cumsum(self.occ, axis=1) - self.occ
+        self.mask = (self.occ << np.arange(n, dtype=np.int64)).sum(axis=1)
+        self._order = np.argsort(self.mask); self._sorted = self.mask[self._order]
+
+    def index(self, masks): return self._order[np.searchsorted(self._sorted, masks)]
+
+    def hop(self, j, l):
+        """a+_j a_l restricted to the sector: (rows, cols, signs)"""
+        if j == l:
+            sel = np.nonzero(self.occ[:, j])[0]; return sel, sel, np.ones(len(sel), np.int64)
+        sel = np.nonzero((self.occ[:, l] == 1) & (self.occ[:, j] == 0))[0]
+        sgn = 1 - 2 * ((self.less[sel, l] + self.less[sel, j] - (1 if l < j else 0)) & 1)
+        new = self.mask[sel] - (np.int64(1) << l) + (np.int64(1) << j)
+        return self.index(new), sel, sgn
+
+    def bilinear(self, G):
+        """sum_jl G[j,l] a+_j a_l for a Gaussian-integer matrix G: (re, im) int64 CSR"""
+        rows, cols, vr, vi = [], [], [], []
+        for j, l in zip(*np.nonzero(G)):
+            r, c, s = self.hop(int(j), int(l)); g = G[j, l]
+            assert g.real == round(g.real) and g.imag == round(g.imag)
+            rows.append(r); cols.append(c); vr.append(s * int(round(g.real))); vi.append(s * int(round(g.imag)))
+        rows = np.concatenate(rows); cols = np.concatenate(cols)
+        mk = lambda v: sp.csr_matrix((np.concatenate(v), (rows, cols)), shape=(self.nb, self.nb), dtype=np.int64)
+        return mk(vr), mk(vi)
+
+    def eye(self): return sp.identity(self.nb, dtype=np.int64, format='csr')
+    def zero(self): return sp.csr_matrix((self.nb, self.nb), dtype=np.int64)
+
+
+def gi_apply(op, X):
+    """(Ar + i Ai)(Xr + i Xi) in int64"""
+    Ar, Ai = op; Xr, Xi = X
+    Yr, Yi = Ar @ Xr, Ar @ Xi
+    if Ai.nnz: Yr = Yr - Ai @ Xi; Yi = Yi + Ai @ Xr
+    return Yr, Yi
+
+
+def reduce2(X):
+    """divide out the common power of two; returns (X, exponent removed)"""
+    Xr, Xi = X
+    o = int(np.bitwise_or.reduce(np.abs(Xr).ravel())) | int(np.bitwise_or.reduce(np.abs(Xi).ravel()))
+    if o == 0: return X, 0
+    t = (o & -o).bit_length() - 1
+    return (Xr >> t, Xi >> t), t
+
+
+def ext_power(A, rows, cols):
+    """Lambda^k(A)[I, J] = det A[I, J], k = 2 or 3, explicit formula (exact on Gaussian integers held in complex128)"""
+    k = rows.shape[1]
+    S = A[rows[:, None, :, None], cols[None, :, None, :]]
+    if k == 2: return S[..., 0, 0] * S[..., 1, 1] - S[..., 0, 1] * S[..., 1, 0]
+    if k == 3:
+        return (S[..., 0, 0] * (S[..., 1, 1] * S[..., 2, 2] - S[..., 1, 2] * S[..., 2, 1])
+                - S[..., 0, 1] * (S[..., 1, 0] * S[..., 2, 2] - S[..., 1, 2] * S[..., 2, 0])
+                + S[..., 0, 2] * (S[..., 1, 0] * S[..., 2, 1] - S[..., 1, 1] * S[..., 2, 0]))
+    raise ValueError(k)
+
+
+# ---- the cover of the frame's rotation group, engine convention ------------------------------------------
+def hurwitz_units():
+    """the 24 unit quaternions (a0; a1, a2, a3) of the binary tetrahedral group, frame coordinates"""
+    out = []
+    for i in range(4):
+        for s in (1, -1):
+            q = [0.0] * 4; q[i] = float(s); out.append(tuple(q))
+    for s in itertools.product((0.5, -0.5), repeat=4): out.append(tuple(s))
+    return out
+
+
+def qmul(a, b):
+    return (a[0] * b[0] - a[1] * b[1] - a[2] * b[2] - a[3] * b[3],
+            a[0] * b[1] + a[1] * b[0] + a[2] * b[3] - a[3] * b[2],
+            a[0] * b[2] - a[1] * b[3] + a[2] * b[0] + a[3] * b[1],
+            a[0] * b[3] + a[1] * b[2] - a[2] * b[1] + a[3] * b[0])
+
+
+def spin_lift(q): return q[0] * I2 - 1j * (q[1] * SIG[0] + q[2] * SIG[1] + q[3] * SIG[2])
+
+
+def rotation_of(q):
+    U = spin_lift(q)
+    R = np.array([[0.5 * np.trace(SIG[i] @ U @ SIG[j] @ U.conj().T).real for j in range(3)] for i in range(3)])
+    assert np.array_equal(R, np.rint(R)); return R.astype(int)
+
+
+def lattice_rep(L, q):
+    """G(q) on a cube of side L: (G psi)(R x) = U psi(x), rotation about the cell at the origin"""
+    shape = (L, L, L); U = spin_lift(q); R = rotation_of(q); D = dim(shape)
+    G = np.zeros((D, D), complex)
+    for x in cells(shape):
+        y = tuple(int(v) % L for v in R @ np.array(x))
+        for r in range(2):
+            for s in range(2):
+                for t in range(2):
+                    G[mode(shape, y, r, t), mode(shape, x, r, s)] = U[t, s]
+    return G
+
+
+def dump(obj, path):
+    def conv(o):
+        if isinstance(o, (np.floating, np.integer)): return o.item()
+        if isinstance(o, np.bool_): return bool(o)
+        if isinstance(o, np.ndarray): return o.tolist()
+        if isinstance(o, complex): return [o.real, o.imag]
+        raise TypeError(type(o))
+    json.dump(obj, open(path, 'w'), indent=1, default=conv)

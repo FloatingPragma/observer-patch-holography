@@ -1,0 +1,355 @@
+{
+ "C2_S3_menu_on_quantum_register": {
+  "isotypic_projectors_idempotent": true,
+  "projectors_sum_to_identity": true,
+  "projector_traces_d_R_squared": {
+   "trivial": "1",
+   "sign": "1",
+   "standard": "4"
+  },
+  "left_right_multiplication_commute_with_every_projector": true,
+  "face_moves_commute_with_every_projector": true,
+  "statement": "every move of the S3 menu (L_e(g), R_e(g), M_f(g)) is a translation of the register and commutes with the electric-sector projectors; Refresh rewrites records only. The menu induces the identity on electric sector labels (EXACT)."
+ },
+ "C2b_class_reading": {
+  "stationary_class_law": {
+   "e": "1/6",
+   "transpositions": "1/2",
+   "three_cycles": "1/3"
+  },
+  "bijections_matching_d_over_4": 0,
+  "bijections_matching_d2_over_6": 0
+ },
+ "C3_SU2_link_operator": {
+  "rates_2j_to_2J": {
+   "0->1": "1",
+   "1->2": "3/4",
+   "1->0": "1/4",
+   "2->3": "2/3",
+   "2->1": "1/3",
+   "3->4": "5/8",
+   "3->2": "3/8",
+   "4->5": "3/5",
+   "4->3": "2/5",
+   "5->6": "7/12",
+   "5->4": "5/12"
+  },
+  "equal_to_N_dJ_over_dj_dF": true,
+  "reversible_for_d_squared": true,
+  "statement": "the multiplication operator of the action's plaquette term induces q(j->J) = d_J/(2 d_j): the Plancherel walk, reversible for d_j^2 (EXACT)"
+ },
+ "C4_SU2_one_sided_Schwinger": {
+  "weights_symmetric": true,
+  "weight_equals_d_j_d_jprime": true,
+  "statement": "the Hermitian charged hop on the one-sided register (each j once) has symmetric total weight d_j d_j'; its sector proposal q(j->j') = c d_j' is reversible for d_j (EXACT)"
+ },
+ "C5_label_set_chains": {
+  "SU2_n_le_12:fusion": {
+   "states": 13,
+   "proposal_reversible_for_d_power": [
+    2
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      2
+     ],
+     "pi_trivial": 0.29235551892401956
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      2
+     ],
+     "pi_trivial": 0.6328826547882787
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": false
+  },
+  "SU2_n_le_12:one_sided": {
+   "states": 13,
+   "proposal_reversible_for_d_power": [
+    1
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.48740408161779003
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.7795585364324172
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": true
+  },
+  "SU2_n_le_12:schwinger": {
+   "states": 13,
+   "proposal_reversible_for_d_power": [
+    1
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.48740408161779003
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.7795585364324172
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": true
+  },
+  "SU2_n_le_12:symmetric": {
+   "states": 13,
+   "proposal_reversible_for_d_power": [
+    0
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      0
+     ],
+     "pi_trivial": 0.6773056168984665
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      0
+     ],
+     "pi_trivial": 0.8779756469114285
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": false
+  },
+  "SU3_p_q_le_4:fusion": {
+   "states": 25,
+   "proposal_reversible_for_d_power": [
+    2
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      2
+     ],
+     "pi_trivial": 0.13262911722663007
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      2
+     ],
+     "pi_trivial": 0.6504916611895013
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": false
+  },
+  "SU3_p_q_le_4:one_sided": {
+   "states": 25,
+   "proposal_reversible_for_d_power": [
+    1
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.397204755267134
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.8524443040412953
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": true
+  },
+  "SU3_p_q_le_4:symmetric": {
+   "states": 25,
+   "proposal_reversible_for_d_power": [
+    0
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      0
+     ],
+     "pi_trivial": 0.7011749285553474
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      0
+     ],
+     "pi_trivial": 0.9461751012049113
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": false
+  },
+  "SU3_p_plus_q_le_6:fusion": {
+   "states": 28,
+   "proposal_reversible_for_d_power": [
+    2
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      2
+     ],
+     "pi_trivial": 0.1326282928475921
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      2
+     ],
+     "pi_trivial": 0.6504916611893845
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": false
+  },
+  "SU3_p_plus_q_le_6:one_sided": {
+   "states": 28,
+   "proposal_reversible_for_d_power": [
+    1
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.39720442222919095
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      1
+     ],
+     "pi_trivial": 0.8524443040412858
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": true
+  },
+  "SU3_p_plus_q_le_6:symmetric": {
+   "states": 28,
+   "proposal_reversible_for_d_power": [
+    0
+   ],
+   "stationary_law_by_y=exp(-beta/12)": {
+    "9/10": {
+     "weight_powers_matching_exactly": [
+      0
+     ],
+     "pi_trivial": 0.7011748804596729
+    },
+    "4/5": {
+     "weight_powers_matching_exactly": [
+      0
+     ],
+     "pi_trivial": 0.9461751012049108
+    }
+   },
+   "declared_condition_d_a_q_ab_equals_d_b_q_ba": false
+  }
+ },
+ "C1_C7_exponent": "in every row the stationary law equals d^w y^(12 C2) with y the acceptance's exp(-beta/12): the exponent is the acceptance's beta exactly; w is the proposal's measure",
+ "C6_IBM_sampler": {
+  "rows": {
+   "k=0": {
+    "stationary_residual": 1.1102230246251565e-16,
+    "detailed_balance_error": 3.469446951953614e-18,
+    "max_dev_from_d^k_exp(-beta C)": 0.0
+   },
+   "k=1": {
+    "stationary_residual": 1.1102230246251565e-16,
+    "detailed_balance_error": 3.469446951953614e-18,
+    "max_dev_from_d^k_exp(-beta C)": 1.3877787807814457e-17
+   },
+   "k=2": {
+    "stationary_residual": 5.551115123125783e-17,
+    "detailed_balance_error": 3.469446951953614e-18,
+    "max_dev_from_d^k_exp(-beta C)": 5.551115123125783e-17
+   }
+  },
+  "statement": "the power is placed in the acceptance target by declaration (OPH_KAPPA = 1); its proposal is the complete graph (power 0)"
+ },
+ "C7_constant_energy_resampling": {
+  "rows": {
+   "w=1": {
+    "100": {
+     "Q": 253,
+     "beta_bath_per_quantum": 0.3330785682057765,
+     "max_minus_min_log_deviation": 4.089736479975443,
+     "fitted_power": -0.3663935909509005
+    },
+    "1000": {
+     "Q": 2528,
+     "beta_bath_per_quantum": 0.3333026618599339,
+     "max_minus_min_log_deviation": 0.33839430510852253,
+     "fitted_power": 0.8837415776042062
+    },
+    "10000": {
+     "Q": 25277,
+     "beta_bath_per_quantum": 0.3333363021587544,
+     "max_minus_min_log_deviation": 0.033283019252849044,
+     "fitted_power": 0.9885389243540516
+    },
+    "100000": {
+     "Q": 252773,
+     "beta_bath_per_quantum": 0.3333329378204723,
+     "max_minus_min_log_deviation": 0.0033227103704120964,
+     "fitted_power": 0.9988555589350057
+    },
+    "1000000": {
+     "Q": 2527726,
+     "beta_bath_per_quantum": 0.33333338639494986,
+     "max_minus_min_log_deviation": 0.0003322162665426731,
+     "fitted_power": 0.999885569026911
+    }
+   },
+   "w=2": {
+    "100": {
+     "Q": 253,
+     "beta_bath_per_quantum": 0.3330785682057765,
+     "max_minus_min_log_deviation": 4.089736479975443,
+     "fitted_power": 0.6336064090490884
+    },
+    "1000": {
+     "Q": 2528,
+     "beta_bath_per_quantum": 0.3333026618599339,
+     "max_minus_min_log_deviation": 0.3383943051080678,
+     "fitted_power": 1.8837415776043034
+    },
+    "10000": {
+     "Q": 25277,
+     "beta_bath_per_quantum": 0.3333363021587544,
+     "max_minus_min_log_deviation": 0.03328301925648702,
+     "fitted_power": 1.9885389243542448
+    },
+    "100000": {
+     "Q": 252773,
+     "beta_bath_per_quantum": 0.3333329378204723,
+     "max_minus_min_log_deviation": 0.0033227103704120964,
+     "fitted_power": 1.9988555589205776
+    },
+    "1000000": {
+     "Q": 2527726,
+     "beta_bath_per_quantum": 0.33333338639494986,
+     "max_minus_min_log_deviation": 0.0003322158008813858,
+     "fitted_power": 1.9998855690494213
+    }
+   },
+   "exact_N100_w1_law": [
+    "1363409138871520621689062791261092208654038114423386234348947662536400/2690679846074073427943870345062277171376826681746533455700562487177799",
+    "1009097558808370326796276858198754528276892568534129324473907032797774/2690679846074073427943870345062277171376826681746533455700562487177799",
+    "282239745594512931261078077603058358322988336166783852917062406164700/2690679846074073427943870345062277171376826681746533455700562487177799",
+    "34113971392397729039993985822536627794265052261481004980932088494000/2690679846074073427943870345062277171376826681746533455700562487177799"
+   ]
+  },
+  "beta_per_quantum_target": 0.3333333333333333,
+  "statement": "uniform resampling on a constant-energy shell gives the collar marginal d^w Omega(Q - E_R); the log deviation from d^w exp(-beta_bath E_R) falls as 1/N and the fitted power stays w: the power is the register's own count and the exponent is the bath's inverse temperature (EXACT finite formula, MEASURED convergence)"
+ }
+}

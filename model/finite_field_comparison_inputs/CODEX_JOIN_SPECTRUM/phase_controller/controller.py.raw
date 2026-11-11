@@ -1,0 +1,176 @@
+"""Interacting C/E XOR phase controller; construction contains no target data."""
+from pathlib import Path
+import hashlib
+import json
+
+import mpmath as mp
+import numpy as np
+import scipy.sparse as sp
+from scipy.sparse.linalg import eigsh
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+PC, PE = s.Rational(1,12), s.Rational(1,6)
+P = PC+PE-2*PC*PE
+D = 1-2*P
+PSI = s.kronecker_product(s.Matrix([s.sqrt(1-PC),s.sqrt(PC)]),
+                         s.Matrix([s.sqrt(1-PE),s.sqrt(PE)]))
+X = s.diag(0,1,1,0)
+H0 = s.eye(4)-PSI*PSI.T
+
+
+def selected_x(kappa):
+    """Unique positive stationary root using the proved monotone inverse."""
+    d = mp.mpf(5)/9
+    lo, hi = d, mp.mpf(1)
+    for _ in range(300):
+        mid = (lo+hi)/2
+        got = mp.sqrt((1-d*d)/(1-mid*mid))-d/mid
+        if got < kappa:
+            lo = mid
+        else:
+            hi = mid
+    return (lo+hi)/2
+
+
+def surface(x,kappa):
+    d = mp.mpf(5)/9
+    return mp.mpf(1)/2+kappa*(1+x*x)/4-mp.sqrt(1+2*kappa*d*x+kappa*kappa*x*x)/2
+
+
+def family_effect(theta):
+    vals = [1/mp.sqrt(6)+mp.cos(theta+2*mp.pi*k/3)/mp.sqrt(3) for k in range(3)]
+    masses = sorted(v*v for v in vals)
+    return {"C_eigenvalues": [str(v) for v in vals],
+            "all_positive": all(v>=0 for v in vals),
+            "squared_effect_ratios": [str(masses[1]/masses[0]),str(masses[2]/masses[0])],
+            "Q": str(sum(masses)/sum(mp.sqrt(v) for v in masses)**2)}
+
+
+def finite_quantum(n):
+    assert n%6 == 0
+    psi = np.asarray(PSI.evalf(18),dtype=float).ravel()
+    h0 = np.eye(4)-np.outer(psi,psi)
+    xx = np.diag([0.,1.,1.,0.])
+    theta = 2*np.pi*np.arange(n)/n
+    q = (1-np.cos(3*theta))/2
+    blocks = [h0+(xx-qj*np.eye(4))@(xx-qj*np.eye(4)) for qj in q]
+    T = sp.coo_matrix((np.ones(n),(np.arange(n),(np.arange(n)+1)%n)),shape=(n,n)).tocsr()
+    kinetic = (1/12)/(2*np.pi/n)**2*(2*sp.eye(n)-T-T.T)
+    h = sp.kron(kinetic,sp.eye(4))+sp.block_diag(blocks,format="csr")
+    eigenvalues,eigenvectors = eigsh(h,k=4,which="SA",tol=1e-13,v0=np.ones(4*n))
+    order = np.argsort(eigenvalues)
+    eigenvalues,eigenvectors = eigenvalues[order],eigenvectors[:,order]
+    g = eigenvectors[:,0]
+    if sum(g)<0:
+        g=-g
+    residual = np.linalg.norm(h@g-eigenvalues[0]*g)
+    assert residual < 1e-10
+    assert min(g)>0
+    ground = g.reshape(n,4)
+    probability = np.sum(ground**2,axis=1)
+    c3def = np.max(abs(np.roll(probability,n//3)-probability))
+    mirrordef = np.max(abs(probability-probability[(-np.arange(n))%n]))
+    moments = [sum(probability*np.exp(1j*k*theta)) for k in (1,2,3)]
+    assert max(abs(moments[0]),abs(moments[1]),c3def,mirrordef)<2e-11
+    # Complete traced-clock effect of a single conditional circulant step.
+    a,b=1/np.sqrt(6),1/np.sqrt(12)
+    shift = np.roll(np.eye(3),1,axis=0)
+    effect = np.zeros((3,3),complex)
+    coherent = np.zeros((3,3),complex)
+    for angle,weight in zip(theta,probability):
+        c=a*np.eye(3)+b*(np.exp(1j*angle)*shift+np.exp(-1j*angle)*shift.T)
+        effect += weight*c.conj().T@c
+        coherent += weight*c
+    assert np.max(abs(effect-np.eye(3)/3))<2e-11
+    assert np.max(abs(coherent-a*np.eye(3)))<2e-11
+    return {"N":n,"dimension":4*n,"lowest_energies":eigenvalues.tolist(),
+            "ground_residual":float(residual),"min_ground_component":float(min(g)),
+            "C3_probability_defect":float(c3def),"reflection_probability_defect":float(mirrordef),
+            "moments_exp_i_k_theta":[[float(z.real),float(z.imag)] for z in moments],
+            "traced_clock_family_effect": [[float(v.real) for v in row] for row in effect],
+            "conditional_ground_return_amplitude": [[float(v.real) for v in row] for row in coherent],
+            "angle_probabilities":probability.tolist()}
+
+
+def main():
+    mp.mp.dps=80
+    assert P==s.Rational(2,9)
+    assert (PSI.T*X*PSI)[0]==P
+    assert H0*H0==H0
+    assert H0*X-X*H0!=s.zeros(4)
+    q,kappa,energy=s.symbols("q kappa energy",real=True)
+    H=H0+kappa*(X-q*s.eye(4))**2
+    # The two bright directions are normalized projected XOR subspaces.
+    b0=(s.eye(4)-X)*PSI/s.sqrt(1-P)
+    b1=X*PSI/s.sqrt(P)
+    B=b0.row_join(b1)
+    assert s.simplify(B.T*B)==s.eye(2)
+    bright=s.simplify(B.T*H*B)
+    expected=s.Matrix([[P+kappa*q*q,-s.sqrt(P*(1-P))],
+                       [-s.sqrt(P*(1-P)),1-P+kappa*(1-q)**2]])
+    assert s.simplify(bright-expected)==s.zeros(2)
+    assert s.simplify(H*B-B*bright)==s.zeros(4,2)
+    polynomial_H=H.charpoly(energy)
+    char=s.factor(polynomial_H.as_expr().subs(polynomial_H.gen,energy))
+    expected_char=(energy-1-kappa*q*q)*(energy-1-kappa*(1-q)**2)*(energy*s.eye(2)-bright).det()
+    assert s.simplify(char-expected_char)==0
+    x=s.Symbol("x",real=True)
+    polynomial=81*x**4+90*x**3-90*x-25
+    isolation=s.polys.polytools.intervals(polynomial,eps=s.Rational(1,10**30))
+    real_roots=[]
+    for (lo,hi),multiplicity in isolation:
+        mid=(lo+hi)/2
+        val=mp.mpf(str(s.N(mid,70)))
+        derivative=(val-(mp.mpf(5)/9+val)/mp.sqrt(1+mp.mpf(10)/9*val+val*val))/2
+        real_roots.append({"interval":[str(lo),str(hi)],"multiplicity":multiplicity,
+                           "midpoint":str(val),"stationary_after_unsquaring":abs(derivative)<mp.mpf("1e-25"),
+                           "ground_surface_derivative":str(derivative)})
+    rows=[]
+    for label,kap in (("current weight",mp.mpf(1)/12),("hold weight",mp.mpf(1)/6),
+                      ("XOR weight",mp.mpf(2)/9),("half",mp.mpf(1)/2),
+                      ("principal equal energy scales",mp.mpf(1)),("integer control",mp.mpf(2))):
+        xv=selected_x(kap)
+        theta=mp.acos(xv)/3
+        assert xv>mp.mpf(5)/9 and xv<1
+        rows.append({"label":label,"kappa":str(kap),"x":str(xv),"theta":str(theta),
+                     "q_at_minimum":str((1-xv)/2),"global_minimum_energy":str(surface(xv,kap)),
+                     "theta_minus_XOR_expectation":str(theta-mp.mpf(2)/9),
+                     "six_branches":[str(sign*theta+2*mp.pi*m/3) for m in range(3) for sign in (-1,1)],
+                     "conditional_family_effect":family_effect(theta)})
+    principal=rows[4]
+    # A numerical independent check of the global proof, not its replacement.
+    xx=np.linspace(-1,1,20001)
+    vals=.5+(1+xx**2)/4-.5*np.sqrt(1+(10/9)*xx+xx**2)
+    assert min(vals)+1e-12>=float(principal["global_minimum_energy"])
+    out={"schema":"oph.codex.xor_phase_controller.v1","measured_inputs":[],
+         "fitted_parameters":[],"native_probabilities":{"C":"1/12","E":"1/6","XOR":"2/9"},
+         "declared_architecture":["rank-one coherent reset","C3 detector q=sin^2(3theta/2)",
+                                  "squared read-disagreement interaction","kappa=1 principal",
+                                  "quantum angular register and D=1/12 kinetic coefficient"],
+         "exact":{"controller_dimension":4,"reset_and_XOR_do_not_commute":True,
+                    "bright_matrix":str(bright),"complete_characteristic_polynomial":str(char),
+                    "dark_energies":["1+kappa*q^2","1+kappa*(1-q)^2"],
+                    "global_ground_surface":"1/2+kappa*(1+x^2)/4-sqrt(1+2*kappa*(5/9)*x+kappa^2*x^2)/2",
+                    "global_minimizer_inverse":"kappa=sqrt((1-d^2)/(1-x^2))-d/x, d=5/9, x in (d,1)",
+                    "principal_stationary_polynomial":str(polynomial),"isolated_real_roots":real_roots,
+                    "number_global_angle_branches":6,"unique_angle_selected":False,
+                    "phase_varies_continuously_with_kappa":True},
+         "source_parameter_rows":rows,"finite_quantum":[finite_quantum(n) for n in (24,60,120)],
+         "interpretation":{"classical_minimum_is_quantum_state":False,
+                           "ground_has_nonzero_first_or_second_angle_character":False,
+                           "unconditioned_family_effect_split":False,
+                           "same_FR_or_primary_source_clock":False,
+                           "principal_phase_correction_sign":"negative relative to 2/9",
+                           "small_dressing_selected":False}}
+    files=[Path(__file__),HERE/"CONSTRUCTION.md"]
+    out["input_hashes"]={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in files}
+    dest=HERE/"results.json"
+    dest.write_text(json.dumps(out,indent=2)+"\n")
+    print(json.dumps({"output":str(dest),"principal":principal,
+                      "quantum_ground_keeps_all_six_branches":True,
+                      "all_record_outcomes_retained":True},indent=2))
+
+
+if __name__=="__main__":
+    main()

@@ -1,0 +1,188 @@
+"""D1 item 6. Comparison with measured mixing angles and mass ratios. NOT BLIND: every number below was computed in
+items 4 and 5 before the tables were read (candidate list CANDIDATES.md). Tables of the public checkout (read only):
+  code/particles/data/particle_reference_values.json        lepton masses (PDG 2026 API)
+  code/particles/data/pdg_2026_conditional_quark_comparison.json quark masses (schemes as shipped)
+  model/common_source/calibrated_matter_results.json         CKM (PDG global fit), NuFIT oscillation inputs
+  code/particles/results_status.json                         PMNS angles with uncertainties (PDG 2025, normal ordering)
+Verdicts: pulls (PMNS, asymmetric errors) fail beyond 3; CKM sines fail beyond 10 percent relative deviation (rule of
+worker T5); mass-ratio shapes r fail beyond 1 percent (lepton masses are known to 1e-7).
+Run from the public checkout: /tmp/oph-completion-venv/bin/python RL/work/D1/d1_item6.py RL/work/D1/item4.json RL/work/D1/item5.json [out]
+"""
+import json
+import math
+import os
+import sys
+from itertools import permutations
+
+RER = os.getcwd()
+ld = lambda rel: json.load(open(os.path.join(RER, rel)))
+item4 = json.load(open(sys.argv[1]))
+item5 = json.load(open(sys.argv[2]))
+
+ref = ld('code/particles/data/particle_reference_values.json')['entries']
+mass = {k: ref[k]['api_value'] for k in ('electron', 'muon', 'tau')}
+quark = {q['quark']: float(q['central']) for q in ld('code/particles/data/pdg_2026_conditional_quark_comparison.json')['masses']}
+cal = ld('model/common_source/calibrated_matter_results.json')
+ckm = {k: float(cal['calibration']['CKM'][k]) for k in ('sin_theta12', 'sin_theta23', 'sin_theta13', 'delta_radians')}
+nufit = {k: float(v) for k, v in cal['optional_phenomenological_neutrino_extension']['calibration']['oscillation_inputs'].items()}
+rows = {r['observable_id']: r for r in ld('code/particles/results_status.json')['comparison_rows']}
+
+
+def parse(disp):
+    t = disp.replace('deg', '').split()
+    v = float(t[0])
+    if t[1] == '+-':
+        return v, float(t[2]), float(t[2])
+    return v, float(t[1]), -float(t[2])
+
+
+pmns = {k: parse(rows[k]['reference_display']) for k in ('theta12_deg', 'theta23_deg', 'theta13_deg', 'delta_cp_deg')}
+
+
+def J_of(t12, t23, t13, d):
+    s12, s23, s13 = (math.sin(math.radians(x)) for x in (t12, t23, t13))
+    c12, c23, c13 = (math.cos(math.radians(x)) for x in (t12, t23, t13))
+    return c12 * c23 * c13 ** 2 * s12 * s23 * s13 * math.sin(math.radians(d))
+
+
+meas = {
+    'charged leptons (PDG 2026, MeV)': mass,
+    'r leptons': math.log(mass['tau'] / mass['muon']) / math.log(mass['muon'] / mass['electron']),
+    'r up quarks (u at 2 GeV, c at m_c, t pole; as shipped)': math.log(quark['t'] / quark['c']) / math.log(quark['c'] / quark['u']),
+    'r down quarks (d, s at 2 GeV, b at m_b; as shipped)': math.log(quark['b'] / quark['s']) / math.log(quark['s'] / quark['d']),
+    'spread m3/m1': {'leptons': mass['tau'] / mass['electron'], 'up': quark['t'] / quark['u'], 'down': quark['b'] / quark['d']},
+    'CKM angles deg': {k: math.degrees(math.asin(ckm['sin_theta' + k])) for k in ('12', '23', '13')},
+    'CKM J': J_of(*(math.degrees(math.asin(ckm['sin_theta' + k])) for k in ('12', '23', '13')), math.degrees(ckm['delta_radians'])),
+    'PMNS deg (value, +, -)': pmns,
+    'PMNS J (central values)': J_of(pmns['theta12_deg'][0], pmns['theta23_deg'][0], pmns['theta13_deg'][0], pmns['delta_cp_deg'][0]),
+    'NuFIT sin^2 (as shipped)': {k: nufit[k] for k in ('sin2_theta12', 'sin2_theta23', 'sin2_theta13')},
+    'dm31^2/dm21^2': nufit['delta_m31_squared_eV2'] / nufit['delta_m21_squared_eV2'],
+}
+
+
+def pull(pred, m):
+    v, up, dn = m
+    d = pred - v
+    return d / up if d > 0 else d / abs(dn)
+
+
+def angles(S):
+    s13 = S[0][2]
+    if 1 - s13 < 1e-15:
+        return None
+    s12 = S[0][1] / (1 - s13)
+    s23 = S[1][2] / (1 - s13)
+    clamp = lambda x: min(max(x, 0.0), 1.0)
+    return tuple(math.degrees(math.asin(math.sqrt(clamp(x)))) for x in (s12, s23, s13))
+
+
+def verdict_pmns(a):
+    p = [pull(a[0], pmns['theta12_deg']), pull(a[1], pmns['theta23_deg']), pull(a[2], pmns['theta13_deg'])]
+    return p, all(abs(x) <= 3 for x in p)
+
+
+def verdict_ckm(a):
+    m = meas['CKM angles deg']
+    dev = [math.sin(math.radians(x)) / math.sin(math.radians(m[k])) - 1 for x, k in zip(a, ('12', '23', '13'))]
+    return dev, all(abs(x) <= 0.10 for x in dev)
+
+
+def best(S):
+    out = {'PMNS': None, 'CKM': None}
+    bp = bc = None
+    for sg in permutations(range(3)):
+        for tg in permutations(range(3)):
+            T = [[S[sg[i]][tg[j]] for j in range(3)] for i in range(3)]
+            a = angles(T)
+            if a is None:
+                continue
+            p, _ = verdict_pmns(a)
+            chi = sum(x * x for x in p)
+            if bp is None or chi < bp[0]:
+                bp = (chi, a, p, sg, tg)
+            dev, _ = verdict_ckm(a)
+            lg = sum(math.log(max(math.sin(math.radians(x)), 1e-300) / math.sin(math.radians(meas['CKM angles deg'][k]))) ** 2
+                     for x, k in zip(a, ('12', '23', '13')))
+            if bc is None or lg < bc[0]:
+                bc = (lg, a, dev, sg, tg)
+    out['PMNS'] = {'angles_deg': bp[1], 'pulls': bp[2], 'chi2': bp[0], 'passes': all(abs(x) <= 3 for x in bp[2]),
+                   'row_order': bp[3], 'column_order': bp[4]}
+    out['CKM'] = {'angles_deg': bc[1], 'relative_deviation_of_sines': bc[2], 'passes': all(abs(x) <= 0.10 for x in bc[2]),
+                  'row_order': bc[3], 'column_order': bc[4]}
+    return out
+
+
+cands = {}
+def add(name, S, J, note=''):
+    a = angles(S)
+    entry = {'abs_V_squared': S, 'J': J, 'note': note}
+    if a is not None:
+        p, okp = verdict_pmns(a)
+        dev, okc = verdict_ckm(a)
+        entry.update({'angles_deg_fixed_order': a, 'PMNS_pulls_fixed_order': p, 'PMNS_passes_fixed_order': okp,
+                      'CKM_relative_deviation_fixed_order': dev, 'CKM_passes_fixed_order': okc})
+    entry['best_of_36_orders (selection over 36, NOT BLIND)'] = best(S)
+    cands[name] = entry
+
+
+for c in item4['M2']['classes_by_abs_V_squared']:
+    S = [[float(eval(x.replace('sqrt5', '5**0.5').replace('+ -', '- '))) for x in r] for r in c['abs_V_squared']]
+    add('M2 ' + ', '.join(c['members'][:2]), S, 0.0, 'right translation coupling')
+for key in ('M4a', 'M4b', 'M6_C+'):
+    add(key, item4[key]['abs_V_squared'], item4[key]['J'])
+TBMstd = [[2 / 3, 1 / 3, 0.0], [1 / 6, 1 / 3, 1 / 2], [1 / 6, 1 / 3, 1 / 2]]
+add('M5 flux 0 against even flux k != 0, 10 (tri-bimaximal, standard order)', TBMstd, 0.0,
+    'the eight pairs (0, k) are this matrix up to the order of rows and columns')
+for pr in ('2 vs 4', '4 vs 18', '2 vs 8'):
+    add('M5 ' + pr, item4['M5']['pairs'][pr]['abs_V_squared'], 0.0)
+
+# J verdicts
+Jv = {'kernel-type pairs (M2, M4a, M5): J = 0': {
+    'CKM': 'fails: J_CKM = %.3e (relative precision a few percent)' % meas['CKM J'],
+    'PMNS': 'not decided: delta = 212 +26 -41 deg includes 180 deg at 0.8 sigma, so J = 0 is allowed by the phase alone'},
+    'M4b trimaximal: abs J = 0.096225': {'CKM': 'fails (factor 3100)', 'PMNS': 'fails: abs J_PMNS <= 0.0335 for any phase at the measured angles'},
+    'M6: abs J = 0.043033': {'CKM': 'fails (factor 1400)', 'PMNS': 'fails: abs J_PMNS <= 0.0335 for any phase at the measured angles'}}
+
+# mass-shape verdicts
+rshape = {}
+for sec in ('triplet second index, flux 0', 'triplet second index, flux 2'):
+    for nm, rr in item5['rows'][sec]['functions'].items():
+        r = rr.get('r = log(m3/m2)/log(m2/m1), ascending')
+        if r is None:
+            rshape[f'{sec}: {nm}'] = {'r': None, 'verdict': 'no hierarchy shape (two levels coincide or vanish)'}
+            continue
+        rshape[f'{sec}: {nm}'] = {'r': r, 'against leptons': r / meas['r leptons'] - 1,
+                                  'against up quarks': r / meas['r up quarks (u at 2 GeV, c at m_c, t pole; as shipped)'] - 1,
+                                  'against down quarks': r / meas['r down quarks (d, s at 2 GeV, b at m_b; as shipped)'] - 1,
+                                  'verdict': 'fails for all three sectors' if min(abs(r / meas[k] - 1) for k in (
+                                      'r leptons', 'r up quarks (u at 2 GeV, c at m_c, t pole; as shipped)',
+                                      'r down quarks (d, s at 2 GeV, b at m_b; as shipped)')) > 0.01 else 'within 1 percent of one sector'}
+# the powers fitted to the lepton spread (one fitted number n; recorded as a fit)
+lam = [11 / 12 + 5 ** 0.5 / 60, 0.9, 11 / 12 - 5 ** 0.5 / 60]
+n_fit = math.log(meas['spread m3/m1']['leptons']) / math.log(lam[0] / lam[2])
+powers_fit = {'n fitted to m_tau/m_e (FIT, one number)': n_fit,
+              'masses rising with K^-n: m_mu/m_e, m_tau/m_mu': [(lam[0] / lam[1]) ** n_fit, (lam[1] / lam[2]) ** n_fit],
+              'masses rising with K^n: m_mu/m_e, m_tau/m_mu': [(lam[1] / lam[2]) ** n_fit, (lam[0] / lam[1]) ** n_fit],
+              'measured m_mu/m_e, m_tau/m_mu': [mass['muon'] / mass['electron'], mass['tau'] / mass['muon']]}
+lam2 = [1 - (5 - (5 + 5 ** 0.5) / 2) / 60, 1 - (5 + (3 - 5 ** 0.5) / 2) / 60, 1 - (5 + 5 ** 0.5) / 60]
+n_fit2 = math.log(meas['spread m3/m1']['leptons']) / math.log(lam2[0] / lam2[2])
+powers_fit['flux 2: n fitted to m_tau/m_e (FIT, one number)'] = n_fit2
+powers_fit['flux 2: masses rising with K^-n: m_mu/m_e, m_tau/m_mu'] = [(lam2[0] / lam2[1]) ** n_fit2, (lam2[1] / lam2[2]) ** n_fit2]
+
+out = {'NOT_BLIND': True, 'measured': meas, 'mixing_candidates': cands, 'J_verdicts': Jv, 'mass_shape_verdicts': rshape,
+       'powers_fitted_to_the_lepton_spread': powers_fit}
+path = sys.argv[3] if len(sys.argv) > 3 else 'item6.json'
+json.dump(out, open(path, 'w'), indent=1, default=float)
+print('measured r: leptons %.6f, up %.6f, down %.6f' % (meas['r leptons'], meas['r up quarks (u at 2 GeV, c at m_c, t pole; as shipped)'],
+                                                       meas['r down quarks (d, s at 2 GeV, b at m_b; as shipped)']))
+print('CKM deg', {k: round(v, 4) for k, v in meas['CKM angles deg'].items()}, 'J_CKM %.4e' % meas['CKM J'], '| J_PMNS central %.4f' % meas['PMNS J (central values)'])
+for nm, e in cands.items():
+    a = e.get('angles_deg_fixed_order')
+    b = e['best_of_36_orders (selection over 36, NOT BLIND)']
+    print(f'{nm}\n   fixed order: {None if a is None else [round(x, 3) for x in a]} pulls {None if a is None else [round(x, 1) for x in e["PMNS_pulls_fixed_order"]]}'
+          f'\n   best PMNS: {[round(x, 3) for x in b["PMNS"]["angles_deg"]]} pulls {[round(x, 1) for x in b["PMNS"]["pulls"]]} passes {b["PMNS"]["passes"]}'
+          f'\n   best CKM: {[round(x, 3) for x in b["CKM"]["angles_deg"]]} dev {[round(x, 2) for x in b["CKM"]["relative_deviation_of_sines"]]} passes {b["CKM"]["passes"]}')
+for nm, v in rshape.items():
+    if v['r'] is not None:
+        print(f'{nm:95s} r {v["r"]:.6f}  vs leptons {v["against leptons"]:+.3f}  up {v["against up quarks"]:+.3f}  down {v["against down quarks"]:+.3f}')
+print(powers_fit)

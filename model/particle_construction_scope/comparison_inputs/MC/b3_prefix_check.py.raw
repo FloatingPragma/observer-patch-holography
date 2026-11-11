@@ -1,0 +1,52 @@
+"""Check that every tree (prefix) relation that is not a strict Loewner relation is an equality of effects
+(a recorded row that acts trivially on the history operator), for populations A (framed) and B (CAP).
+Writes results/b3_prefix_check.json."""
+import json, os
+import numpy as np
+import mc_lib as L
+import b3a_framed as A
+import b3b_cap as B
+
+out = {}
+for s, seq in ((1.0, 'iid'), (0.5, 'iid'), (0.05, 'iid'), (1.0, 'jump'), (0.2, 'jump')):
+    rng = np.random.default_rng([11, int(s * 100)])
+    pts, keys, null, ray, run_of, step_of, clicks = A.sample(100, 40, s, seq, rng)
+    index = {}
+    for i, k in enumerate(keys):
+        index.setdefault(k, i)
+    viol = eq = strict = 0
+    for k, i in index.items():
+        for n in range(len(k)):
+            j = index[k[:n]]
+            d = pts[j] - pts[i]                       # ancestor minus descendant
+            if np.abs(d).max() <= 1e-13 * max(np.abs(pts[j]).max(), 1e-300):
+                eq += 1
+            elif d[0] >= np.linalg.norm(d[1:]) * (1 - 1e-9):
+                strict += 1
+            else:
+                viol += 1
+    out[f'A s={s} {seq}'] = {'tree_pairs': eq + strict + viol, 'strict_loewner': strict, 'equal_effects': eq, 'violations': viol}
+for start in (0, 1):
+    rng = np.random.default_rng([12, start])
+    E12, keys, rate = B.sample(50, 40, B.RHO if start == 0 else np.eye(12) / 12, rng)
+    index = {}
+    for i, k in enumerate(keys):
+        index.setdefault(k, i)
+    viol = eq = strict = 0; worst = 0.0
+    for k, i in index.items():
+        for n in range(len(k)):
+            j = index[k[:n]]
+            D = E12[j] - E12[i]
+            sc = max(np.linalg.norm(E12[j]), 1e-300)
+            w = np.linalg.eigvalsh(D)
+            if np.linalg.norm(D) <= 1e-12 * sc:
+                eq += 1
+            elif w[0] >= -1e-9 * sc:
+                strict += 1
+            else:
+                viol += 1; worst = min(worst, w[0] / sc)
+    out[f'B start={"stationary" if start == 0 else "uniform"}'] = {'tree_pairs': eq + strict + viol, 'strict_loewner': strict, 'equal_effects': eq,
+                                                                  'violations': viol, 'worst_relative_eigenvalue': worst}
+os.makedirs('results', exist_ok=True)
+json.dump(out, open('results/b3_prefix_check.json', 'w'), indent=1)
+print(json.dumps(out, indent=1))

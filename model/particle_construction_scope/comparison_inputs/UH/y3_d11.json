@@ -1,0 +1,94 @@
+{
+ "top_leg_only": [
+  {
+   "yukawa": "YC F1 G1 D-a",
+   "y_t_E_cell": 0.25309126681566674,
+   "y_over_g2": 0.5015772967521379,
+   "quartic": "zero",
+   "lambda_E_cell": 0.0,
+   "mt_pole": 140.53573044522693,
+   "mh_tree": 53.55970102221085,
+   "lambda_mt": 0.023586933687875806,
+   "yt_mt": 0.7589499852261169,
+   "min_lambda": -0.01478429020675065,
+   "mu_at_min_lambda_GeV": 83788466.90614401
+  },
+  {
+   "yukawa": "YC F1 G1 D-a",
+   "y_t_E_cell": 0.25309126681566674,
+   "y_over_g2": 0.5015772967521379,
+   "quartic": "B4",
+   "lambda_E_cell": -0.0018368059202722989,
+   "mt_pole": 140.5347454475537,
+   "mh_tree": 50.37162178194086,
+   "lambda_mt": 0.020862534386950692,
+   "yt_mt": 0.7589446153558917,
+   "min_lambda": -0.017463975433357936,
+   "mu_at_min_lambda_GeV": 65556400.0844345
+  },
+  {
+   "yukawa": "YC F1 G3a D-a",
+   "y_t_E_cell": 0.4257385148668847,
+   "y_over_g2": 0.8437303115864897,
+   "quartic": "zero",
+   "lambda_E_cell": 0.0,
+   "mt_pole": 182.81912441542184,
+   "mh_tree": 145.98672112373094,
+   "lambda_mt": 0.1752354252094827,
+   "yt_mt": 0.9896671304164035,
+   "min_lambda": 0.0,
+   "mu_at_min_lambda_GeV": 9.559899286840644e+18
+  },
+  {
+   "yukawa": "YC F1 G3a D-a",
+   "y_t_E_cell": 0.4257385148668847,
+   "y_over_g2": 0.8437303115864897,
+   "quartic": "B4",
+   "lambda_E_cell": -0.0022342160408574305,
+   "mt_pole": 182.8178764481164,
+   "mh_tree": 145.57203537861483,
+   "lambda_mt": 0.17424130158638446,
+   "yt_mt": 0.9896603155837967,
+   "min_lambda": -0.0022342160408574305,
+   "mu_at_min_lambda_GeV": 9.559899286840644e+18
+  }
+ ],
+ "equal_legs_value_at_cell": [
+  {
+   "yukawa": "YC F1 G1 D-a",
+   "y": 0.25309126681566674,
+   "quartic": "B1",
+   "lambda_E_cell_equal_legs": -0.0001501286146137939
+  },
+  {
+   "yukawa": "YC F1 G1 D-a",
+   "y": 0.25309126681566674,
+   "quartic": "B4",
+   "lambda_E_cell_equal_legs": -0.0019313345179566655
+  },
+  {
+   "yukawa": "YC F1 G1 D-a",
+   "y": 0.25309126681566674,
+   "quartic": "B6t",
+   "lambda_E_cell_equal_legs": -0.00243403651605105
+  },
+  {
+   "yukawa": "YC F1 G3a D-a",
+   "y": 0.4257385148668847,
+   "quartic": "B1",
+   "lambda_E_cell_equal_legs": -0.0010439761938705406
+  },
+  {
+   "yukawa": "YC F1 G3a D-a",
+   "y": 0.4257385148668847,
+   "quartic": "B4",
+   "lambda_E_cell_equal_legs": -0.0029910948395170164
+  },
+  {
+   "yukawa": "YC F1 G3a D-a",
+   "y": 0.4257385148668847,
+   "quartic": "B6t",
+   "lambda_E_cell_equal_legs": -0.00701616760820337
+  }
+ ]
+}

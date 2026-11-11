@@ -1,0 +1,131 @@
+{
+ "circulant_bound": {
+  "bound_at_native_weights": "1/3 / (3 * 1/6) = 2/3",
+  "native_weights": "with |c0|^2 = 1/6 and |c1|^2 = |c2|^2 = 1/12 the bound is Q <= 2/3 for every phase assignment",
+  "proof": "sum_k lambda_k = 3 c0 (checked), sum_k |lambda_k|^2 = 3 (|c0|^2 + |c1|^2 + |c2|^2) (Parseval, checked), sum_k |lambda_k| >= |sum_k lambda_k| = 3 |c0| (triangle inequality).",
+  "required_x_for_given_Q": "x >= (3 Q - 1)/2",
+  "statement": "For Y = c0 1 + c1 R + c2 R^2 and masses y_k = |lambda_k|^2: Q = sum y / (sum sqrt y)^2 <= (|c0|^2 + |c1|^2 + |c2|^2) / (3 |c0|^2), with equality iff lambda_k / c0 >= 0 for every k."
+ },
+ "circulant_chart": {
+  "Q_identity": "Q = (1 + r^2/2)/3",
+  "bijection": "real triples <-> (a, complex r e^{i delta}); ordering fixes delta in [0, pi/3] on the positive chamber",
+  "formula": "sqrt(y_k) = a (1 + r cos(delta + 2 pi k/3)); a = mean of sqrt(y); r e^{i delta} = (2/(3a)) sum_k sqrt(y_k) w^{-k}",
+  "scalars_per_sector": [
+   "a",
+   "r",
+   "delta"
+  ],
+  "x_definition": "x = r^2/4 = p/q in the circulant mechanism, Q = (1 + 2 x)/3"
+ },
+ "fiber": {
+  "count": {
+   "granted": "2 spreads",
+   "strict": "6 spectral scalars + 4 mixing parameters"
+  },
+  "free_action": "(lambda_u, lambda_d) in (R_>0)^2 acting by sigma_q -> lambda_q sigma_q",
+  "granted_subfamily_fixed_by_templates": [
+   "rho_u = rho_ord",
+   "rho_d = 1/rho_ord",
+   "mu_q affine in (sigma_u, sigma_d)"
+  ],
+  "granted_subfamily_free": [
+   "sigma_u",
+   "sigma_d"
+  ],
+  "mixing": "left frames U_uL, U_dL enter only through V_CKM = U_uL^dag U_dL (3 angles, 1 phase); right frames are unobservable in the Standard Model",
+  "per_sector_spectral": "three positive singular values y_1 <= y_2 <= y_3; charts (mu, sigma, rho) and (a, r, delta)",
+  "strict_lane_free": [
+   "mu_u",
+   "sigma_u",
+   "rho_u",
+   "mu_d",
+   "sigma_d",
+   "rho_d",
+   "V_CKM (3 angles, 1 phase)"
+  ],
+  "top_coordinate": "y_t lives in the Higgs lane (double criticality); granted with a scheme conversion it fixes one combination through the up-sector endpoint"
+ },
+ "labels": "EXACT unless stated; IMPORTED = read from a target-free RER artifact",
+ "rer_chart": {
+  "formula": "ln y_k = 2 (mu + sigma v_k), sum v = 0, v_3 - v_1 = 1, rho = (v_2 - v_1)/(v_3 - v_2)",
+  "ln_y2_over_y1": "2*rho*sigma/(rho + 1)",
+  "ln_y3_over_y2": "2*sigma/(rho + 1)",
+  "rays_reproduced": {
+   "max_abs_difference_to_artifact": 6.938893903907228e-18,
+   "v_d": [
+    -0.4786218840482289,
+    -0.04275623190354216,
+    0.5213781159517711
+   ],
+   "v_u": [
+    -0.5213781159517711,
+    0.04275623190354216,
+    0.4786218840482289
+   ]
+  },
+  "scalars_per_sector": [
+   "mu",
+   "sigma",
+   "rho"
+  ],
+  "sigma_is_half_log_span": true,
+  "v_of_rho": [
+   "(-2*rho - 1)/(3*(rho + 1))",
+   "(rho - 1)/(3*(rho + 1))",
+   "(rho + 2)/(3*(rho + 1))"
+  ]
+ },
+ "rer_statement": {
+  "axiom_level_counterfamily": "Y_q(lambda_q) = U_qL diag(exp(mu_q + lambda_q*sigma_q*v_q1), exp(mu_q + lambda_q*sigma_q*v_q2), exp(mu_q + lambda_q*sigma_q*v_q3)) U_qR^dagger",
+  "axiom_level_free_action": "(lambda_u,lambda_d).(sigma_u,sigma_d) = (lambda_u*sigma_u,lambda_d*sigma_d)",
+  "gap21_over_gap32_down": 0.7726273959416414,
+  "gap21_over_gap32_up": 1.294284936377706,
+  "generic_interface_scalars": [
+   "mu_u",
+   "sigma_u",
+   "rho_u",
+   "mu_d",
+   "sigma_d",
+   "rho_d"
+  ],
+  "generic_interface_unemitted": {
+   "sector_means": [
+    "mu_u",
+    "mu_d"
+   ],
+   "shape_law": [
+    "rho_u",
+    "rho_d"
+   ],
+   "spans": [
+    "sigma_u",
+    "sigma_d"
+   ]
+  },
+  "granted_subfamily_coordinates": [
+   "sigma_u",
+   "sigma_d"
+  ],
+  "granted_subfamily_fiber": "(R_{>0})^2",
+  "label": "IMPORTED",
+  "rho_ord": 1.294284936377706,
+  "shape_law_status": "candidate-only ordered three-point reciprocal-ray law; rejected at common scale on the properly typed target surface, so the grant is a restriction to a subfamily",
+  "template_ancestry": {
+   "family_transport_kernel": "conjugacy_riesz_candidate",
+   "generation_bundle_branch_generator": "candidate_only",
+   "generation_bundle_splitting_obstruction": "closed_exact_current_corpus_obstruction_certificate",
+   "overlap_edge_transport_cocycle": "common_refinement_projector_overlap_candidate"
+  },
+  "top_route": "The conditional Higgs/top double-criticality coordinate, granted together with a source-side scheme conversion, would fix one combination of the two spans through the up-sector endpoint; that route is recorded as live and is outside this certificate.",
+  "v_d": [
+   -0.4786218840482289,
+   -0.042756231903542156,
+   0.5213781159517711
+  ],
+  "v_u": [
+   -0.5213781159517711,
+   0.042756231903542156,
+   0.4786218840482289
+  ]
+ }
+}

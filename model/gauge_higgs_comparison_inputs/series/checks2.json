@@ -1,0 +1,55 @@
+{
+ "U1_gauge_invariance": {
+  "weak_factor_max_change": 4.440892098500626e-16,
+  "hypercharge_max_change": 0.0,
+  "neutral_vector_component_max_change": 5.551115123125783e-17,
+  "charged_vector_components_max_change_(not_invariant)": 0.0940013988258453
+ },
+ "U1_kappa0": {
+  "weak_term": 0.8152757030513684,
+  "trV_over_2": 0.8424706357631553,
+  "cos_2a": 0.9854118079071321,
+  "cos_3a": 0.9674791442747818,
+  "cos_2a_estimate": 0.9857618291873326,
+  "cos_2a_err": 7.540806742107784e-05,
+  "trV_over_2_without_hypercharge_(G4)": 0.84791,
+  "acc_u1": 0.62634765625
+ },
+ "U1_schwinger_dyson": [
+  {
+   "kappa": 0.125,
+   "lambda": 0.002,
+   "rho2": 2.3927833560270466,
+   "L_alpha": 0.1540854450791433,
+   "sd_residual": 0.002730074178859984,
+   "sd_err": 0.00227844712128093
+  },
+  {
+   "kappa": 0.136,
+   "lambda": 0.002,
+   "rho2": 11.099210901768272,
+   "L_alpha": 0.8157869794691874,
+   "sd_residual": 0.006588957528620547,
+   "sd_err": 0.0035574259543972716
+  }
+ ],
+ "seconds_last_call_checks2": 3.7530181407928467,
+ "compact_gauge_invariance_max_change": 1.734723475976807e-18,
+ "compact_unit_norm_defect": 7.771561172376096e-16,
+ "compact_beta_H_0": {
+  "sin2": 0.8005361043526784,
+  "sin2_err": 0.0005070614527754378,
+  "expected_sin2": 0.8,
+  "abscos": 0.374733082342368,
+  "expected_abscos": 0.375,
+  "plaq": 0.8484885734380455,
+  "plaq_pure_gauge_(G4)": 0.84791
+ },
+ "compact_sphere_heat_bath": {
+  "k": 7.3,
+  "mean_c_sampled": 0.7471504906935602,
+  "mean_c_exact": 0.7477700290426869,
+  "err": 0.0004245013794370367,
+  "acceptance": 0.862885
+ }
+}

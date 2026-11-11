@@ -1,0 +1,136 @@
+"""Block 3, part B: cap modular flow of the stationary state of candidate CAP (covariant agreement pump).
+
+Level 0: the stationary density of the twelve-port pump is computed from the Kraus rows of work/FLUXPUMP/cap.py
+(copied verbatim to ext/cap.py) and compared with the closed form rho = Q^(-1)/Tr Q^(-1), Q = (5 - A_1)/2.
+Refined point sets (DECLARED analogue: seams = mesh edges, recharting phase = phase of <chi_b|chi_a>): the stationary
+density solves Q rho + rho Q = diag(d), d_p = sum over seams at p of <-|rho|->; it has uniform diagonal.
+Cap algebra M_{n_C} + C; rho_C = rho restricted to the cap ports (faithful); K_C = -log rho_C; flow of port projectors.
+Writes flow_capstate.json.
+"""
+import json, sys, time
+import numpy as np
+from carrier_tools import C
+from mu_lib import (icosphere, mesh_edges, cap_ports, axes_of_carrier, cap_stationary, channel_defect, twisted_Q,
+                    mesh_spacing, angle)
+
+LEVELS = [0, 1, 2, 3, 4]
+ALPHAS = [50, 80, 110]
+TS = [0.5, 1.0, 2.0, 4.0, 8.0]
+out = {'times': TS, 'levels': {}}
+t0 = time.time()
+
+# ---------------------------------------------------------------- level 0 against the candidate's own Kraus rows
+try:
+    sys.path.insert(0, 'ext')
+    import cap as capmod
+    S = np.zeros((144, 144), complex)
+    for seam in capmod.SEAMS:
+        for label, K in capmod.instrument(seam, 1):
+            S += np.kron(K, K.conj()) / len(capmod.SEAMS)
+    w, v = np.linalg.eig(S)
+    i = int(np.argmin(abs(w - 1)))
+    rho = v[:, i].reshape(12, 12); rho = rho / np.trace(rho); rho = (rho + rho.conj().T) / 2
+    lev_cap = np.sort(np.linalg.eigvalsh(rho))[::-1]
+    A1 = np.zeros((12, 12), complex)
+    for a, b in capmod.SEAMS:
+        z = capmod.link(a, b)
+        A1[a, b] = np.conj(z); A1[b, a] = z
+    Qc = (5 * np.eye(12) - A1) / 2
+    closed = np.linalg.inv(Qc); closed = closed / np.trace(closed)
+    out['level0_check_against_cap_py'] = {
+        'stationary_eigenvalue_defect': float(abs(w[i] - 1)), 'second_eigenvalue_modulus': float(np.sort(abs(w))[-2]),
+        'levels': np.round(lev_cap, 9).tolist(),
+        'max_abs_difference_to_closed_form_Q^-1/Tr': float(np.abs(rho - closed).max()),
+        'diagonal_spread': float(np.ptp(np.real(np.diag(rho))))}
+    print('cap.py stationary state: levels', np.round(lev_cap, 6), 'difference to Q^-1/Tr', np.abs(rho - closed).max(), flush=True)
+except Exception as ex:                                             # the copy of the public model is missing
+    out['level0_check_against_cap_py'] = {'error': repr(ex)}
+    print('cap.py check failed:', repr(ex), flush=True)
+
+ax = axes_of_carrier()
+
+
+def flow_of_ports(U, idx, rhoC, n, alpha, spacing):
+    UC = U[idx]
+    nC = len(idx)
+    lam, V = np.linalg.eigh(rhoC)
+    kap = -np.log(lam)
+    K = (V * kap) @ V.conj().T
+    # locality of K_C: share of the squared off-diagonal weight beyond 3 mesh spacings
+    D = np.arccos(np.clip(UC @ UC.T, -1, 1)) / spacing
+    off = np.abs(K) ** 2 * (D > 0.5)
+    res = {'n_C': int(nC), 'alpha_deg': alpha, 'min_eigenvalue_rho_C_times_N': float(lam[0] * len(U)), 'max_eigenvalue_rho_C_times_N': float(lam[-1] * len(U)),
+           'modular_spectrum_width': float(kap.max() - kap.min()),
+           'K_offdiagonal_share_beyond_3_spacings': float(off[D > 3].sum() / off.sum()),
+           'K_offdiagonal_share_beyond_6_spacings': float(off[D > 6].sum() / off.sum()), 'ports': []}
+    e1 = np.cross(n, [1.0, 0.3, 0.2]); e1 /= np.linalg.norm(e1); e2 = np.cross(n, e1)
+    for frac in (0.25, 0.5, 0.75):
+        th = np.radians(alpha) * frac
+        target = np.cos(th) * n + np.sin(th) * e1
+        p = int(np.argmax(UC @ target))
+        col = V.conj().T[:, p]
+        row = {'colatitude_over_alpha': float(np.arccos(np.clip(UC[p] @ n, -1, 1)) / np.radians(alpha)), 't': {}}
+        az0 = np.arctan2(UC[p] @ e2, UC[p] @ e1)
+        dist = np.arccos(np.clip(UC @ UC[p], -1, 1))
+        for t in TS:
+            psi = V @ (np.exp(-1j * t * kap) * col)
+            pi = np.abs(psi) ** 2
+            cen = pi @ UC
+            R = float(np.linalg.norm(cen)); cen = cen / R
+            dcen = np.arccos(np.clip(UC @ cen, -1, 1))
+            order = np.argsort(dist)
+            cum = np.cumsum(pi[order])
+            r90 = float(dist[order][np.searchsorted(cum, 0.9)])
+            row['t'][str(t)] = {
+                'return_probability': float(pi[p]),
+                'centre_displacement_spacings': angle(cen, UC[p]) / spacing, 'centre_displacement_rad': angle(cen, UC[p]),
+                'centre_azimuth_change_rad': float(np.angle(np.exp(1j * (np.arctan2(cen @ e2, cen @ e1) - az0)))),
+                'centre_colatitude_change_rad': float(np.arccos(np.clip(cen @ n, -1, 1)) - np.arccos(np.clip(UC[p] @ n, -1, 1))),
+                'rms_radius_spacings': float(np.sqrt(pi @ dcen ** 2) / spacing), 'rms_radius_rad': float(np.sqrt(pi @ dcen ** 2)),
+                'r90_spacings': r90 / spacing,
+                'weight_beyond_3_spacings': float(pi[dist > 3 * spacing].sum()), 'weight_beyond_6_spacings': float(pi[dist > 6 * spacing].sum()),
+                'participation_ratio': float(1 / np.sum(pi ** 2))}
+        res['ports'].append(row)
+    return res
+
+
+for L in LEVELS:
+    U, F = icosphere(L)
+    N = len(U)
+    E = mesh_edges(F) if L > 0 else [tuple(e) for e in C.E]
+    spacing = mesh_spacing(U, E)
+    if L <= 3:
+        rho, Q, info = cap_stationary(U, E)
+        Qi = np.linalg.inv(Q); Qi = Qi / np.real(np.trace(Qi))
+    else:                                                          # level 4: the closed-form analogue Q^(-1)/Tr (see trace distances of levels 1 to 3)
+        Q, _ = twisted_Q(U, E)
+        Qi = np.linalg.inv(Q); Qi = Qi / np.real(np.trace(Qi)); Qi = (Qi + Qi.conj().T) / 2
+        rho, info = Qi, {'iterations': 0, 'note': 'rho = Q^(-1)/Tr, not the exact stationary state'}
+    lam = np.sort(np.linalg.eigvalsh(rho))[::-1]
+    lev = {'N': N, 'seams': len(E), 'solver': info, 'channel_defect': channel_defect(rho, U, E),
+           'diagonal_spread_times_N': float(np.ptp(np.real(np.diag(rho))) * N),
+           'levels_top8': lam[:8].tolist(), 'weight_of_leading_doublet': float(lam[:2].sum()),
+           'gap_doublet_to_next (log ratio)': float(np.log(lam[1] / lam[2])),
+           'trace_distance_to_Q^-1/Tr': float(0.5 * np.abs(np.linalg.eigvalsh(rho - Qi)).sum()),
+           'mesh_spacing_rad': spacing, 'caps': {}}
+    print(f'L{L} N={N} stationary: iterations {info["iterations"]} defect {lev["channel_defect"]:.1e} doublet weight {lev["weight_of_leading_doublet"]:.4f} '
+          f'trace distance to Q^-1 {lev["trace_distance_to_Q^-1/Tr"]:.2e} time {time.time()-t0:.0f}s', flush=True)
+    for name in ('port', 'generic'):
+        rows = []
+        for a0 in ALPHAS:
+            a = float(a0)
+            for _ in range(20):
+                try:
+                    idx = cap_ports(U, ax[name], a); break
+                except ValueError:
+                    a += 0.37
+            if len(idx) < 5:
+                continue
+            r = flow_of_ports(U, idx, rho[np.ix_(idx, idx)], ax[name], a, spacing)
+            rows.append(r)
+            pr = r['ports'][1]
+            print(f'  {name} a={a:.1f} nC={r["n_C"]} width(K) {r["modular_spectrum_width"]:.2f} K beyond 3 spacings {r["K_offdiagonal_share_beyond_3_spacings"]:.3f} | mid port: ' +
+                  ' '.join(f't={t}: ret {pr["t"][str(t)]["return_probability"]:.3f} dc {pr["t"][str(t)]["centre_displacement_spacings"]:.2f}a rms {pr["t"][str(t)]["rms_radius_spacings"]:.2f}a>3a {pr["t"][str(t)]["weight_beyond_3_spacings"]:.3f}' for t in TS), flush=True)
+        lev['caps'][name] = rows
+    out['levels'][str(L)] = lev
+    json.dump(out, open('flow_capstate.json', 'w'), indent=1)

@@ -1,0 +1,32 @@
+"""Spectrum of the transported-contrast chain on closed classes: do loop charges carry a native frequency?"""
+import sys
+import numpy as np
+from model.transported_contrast import exact, law
+
+def chain(start, offsets, seams):
+    order, classes = exact.closed_class(start, offsets, seams)
+    out = []
+    for cls in classes:
+        states = [order[i] for i in cls]
+        idx = {s: i for i, s in enumerate(states)}
+        n, m = len(states), len(seams)
+        T = np.zeros((n, n))
+        for s in states:
+            for k in range(m):
+                for coin in (0, 1):
+                    nxt, _ = law.attempt(s, offsets, seams, k, coin)
+                    T[idx[nxt], idx[s]] += 1 / (2 * m)
+        out.append((states, T))
+    return out
+
+seams, faces = law.TRIANGLE
+print('TRIANGLE (3 ports, 3 seams, one face), offsets (Q,0,0)')
+for Q in range(0, 7):
+    for total in (0, 1, 2):
+        (states, T), = chain((total, 0, 0), (Q, 0, 0), seams)
+        ev = np.linalg.eigvals(T)
+        ev = ev[np.argsort(-np.abs(ev))]
+        cx = [e for e in ev if abs(e.imag) > 1e-12 and e.imag > 0]
+        lead = sorted(cx, key=lambda e: -abs(e))[:2]
+        desc = ', '.join(f'|l|={abs(e):.5f} arg={np.angle(e):.5f} (period {2*np.pi/np.angle(e)/3:.2f} sweeps, life {-1/np.log(abs(e))/3:.2f} sweeps)' for e in lead)
+        print(f'Q={Q} total={total} states={len(states)} second |l|={(abs(ev[1]) if len(ev) > 1 else 0):.5f}  complex pairs={len(cx)}  {desc}')

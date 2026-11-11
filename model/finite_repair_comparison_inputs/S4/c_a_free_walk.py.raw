@@ -1,0 +1,74 @@
+"""Control (a): free walk on a ring and on the triangular torus. Known answers: R2 exact, R1 zero.
+
+Continuous-time walk, hop rate r to every neighbour (IMPORTED closed forms):
+  ring        E(k) = r khat^2,                       D = r,       m_kin = 1 / (2 r)
+  triangular  E(k) = r sum_{three axes} khat_i^2,    D = 3 r / 2, m_kin = 1 / (3 r)
+"""
+import json, math, sys
+from pathlib import Path
+import numpy as np
+import scipy.sparse as sp
+import readouts as R
+
+HERE = Path(__file__).resolve().parent
+r = 0.37
+out = {'rate': r, 'ring': [], 'triangular': []}
+
+for L in (6, 12, 24, 48):
+    rows = np.r_[np.arange(L), np.arange(L)]
+    cols = np.r_[(np.arange(L) + 1) % L, (np.arange(L) - 1) % L]
+    W = sp.coo_matrix((np.full(2 * L, r), (rows, cols)), shape=(L, L)).tocsc()
+    G = W - sp.diags(np.asarray(W.sum(axis=0)).ravel())
+    tr = R.Translations(R.cyclic_group((np.arange(L) + 1) % L, L), (L,))
+    bd = R.bands(G, tr, lambda ev: -ev)
+    k = np.array([2 * np.pi * m[0] / L for m in tr.momenta()])
+    E = np.array([bd[m][0].real for m in tr.momenta()])
+    exact = r * R.khat(k) ** 2
+    r2 = R.r2_kinetic(k, E); r1 = R.r1_pole(k, E); sh = R.r1s_shape(k, E)
+    row = {'L': L, 'max_abs_error_of_band': float(np.max(np.abs(E - exact))),
+           'R1_E0': r1['E0'], 'R1_c2_from_two_smallest_k': r1['c2_small_k'],
+           'R2_D': r2['D'], 'R2_m_kin': r2['m_kin'], 'R2_m_kin_exact': 1 / (2 * r),
+           'largest_slope': R.largest_slope(k, E), 'largest_slope_exact': 2 * r,
+           'R1s_alpha': sh['alpha'], 'R1s_m': sh['m'], 'R1s_c2': sh['c2']}
+    out['ring'].append(row)
+    print(row)
+
+for N in (3, 6, 12, 24):
+    n = N * N
+    idx = lambda i, j: (i % N) * N + (j % N)
+    rows, cols = [], []
+    for i in range(N):
+        for j in range(N):
+            for di, dj in ((1, 0), (0, 1), (1, 1), (-1, 0), (0, -1), (-1, -1)):
+                rows.append(idx(i + di, j + dj)); cols.append(idx(i, j))
+    W = sp.coo_matrix((np.full(len(rows), r), (rows, cols)), shape=(n, n)).tocsc()
+    G = W - sp.diags(np.asarray(W.sum(axis=0)).ravel())
+    px = np.array([idx(i + 1, j) for i in range(N) for j in range(N)])
+    py = np.array([idx(i, j + 1) for i in range(N) for j in range(N)])
+    perms = {}
+    cur_x = np.arange(n)
+    for a in range(N):
+        cur = cur_x.copy()
+        for b in range(N):
+            perms[(a, b)] = cur.copy(); cur = py[cur]
+        cur_x = px[cur_x]
+    tr = R.Translations(perms, (N, N))
+    bd = R.bands(G, tr, lambda ev: -ev)
+    worst, Dvals = 0.0, []
+    for m in tr.momenta():
+        k1, k2 = 2 * np.pi * m[0] / N, 2 * np.pi * m[1] / N
+        k1, k2 = (k1 + np.pi) % (2 * np.pi) - np.pi, (k2 + np.pi) % (2 * np.pi) - np.pi
+        exact = r * (R.khat(k1) ** 2 + R.khat(k2) ** 2 + R.khat(k1 + k2) ** 2)
+        worst = max(worst, abs(bd[m][0].real - exact))
+        k2c = 4 / 3 * (k1 ** 2 + k1 * k2 + k2 ** 2)       # Cartesian |k|^2, axes at 120 degrees
+        if m in ((1, 0), (0, 1), (N - 1, 1)):
+            Dvals.append(bd[m][0].real / k2c)
+    row = {'N': N, 'max_abs_error_of_band': float(worst), 'R1_E0': float(bd[(0, 0)][0].real),
+           'R2_D_three_directions_at_smallest_k': [float(v) for v in Dvals], 'R2_D_exact_continuum': 1.5 * r,
+           'R2_m_kin_exact': 1 / (3 * r)}
+    out['triangular'].append(row)
+    print(row)
+
+out['statement'] = ('R2 returns 1/(2D) (ring: lattice-exact with khat; triangular: up to O(k^2), isotropic). R1 returns E0 = 0. '
+                    'The two-point c^2 = E1^2/khat^2 goes to zero as 1/L^2: there is no cone. R1s returns alpha = 0 (c infinite): a Galilean particle.')
+(HERE / 'c_a_free_walk.json').write_text(json.dumps(out, indent=1))

@@ -1,0 +1,1257 @@
+{
+ "S_static": {
+  "law": "S_static",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 36,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 3,
+  "charge_content_reached": [
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 2,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "contrasts_at_pair_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [],
+  "classes": {
+   "total": 3,
+   "closed": 3,
+   "closed_sizes": [
+    6,
+    11,
+    19
+   ],
+   "closed_charge": [
+    2
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": false,
+  "closed_pair_classes": [
+   {
+    "size": 19,
+    "hop_rate_per_charge_per_sweep": "0",
+    "value": 0.0
+   },
+   {
+    "size": 6,
+    "hop_rate_per_charge_per_sweep": "0",
+    "value": 0.0
+   },
+   {
+    "size": 11,
+    "hop_rate_per_charge_per_sweep": "0",
+    "value": 0.0
+   }
+  ],
+  "seconds": 0.02,
+  "note": "offsets never change (transported-contrast law)"
+ },
+ "SIM": {
+  "law": "SIM_unit_twist",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 13,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 10,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "lifetime_sweeps_tail": 0.9141358246245129,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": -4.996003610813205e-16
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.3348979766803842,
+    "2": 0.11215665478461513,
+    "5": 0.004212720233087431,
+    "10": 1.774701176226422e-05,
+    "20": 3.149564264899444e-10,
+    "50": 1.7604600970608912e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.0,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": -0.0
+   },
+   "2": {
+    "1": -0.0
+   },
+   "0": {
+    "1": 1.0
+   }
+  },
+  "seconds": 0.01,
+  "note": "cost table (0, 5, 8, 10) per 5 units; creation where cost allows"
+ },
+ "D_excl": {
+  "law": "D_excl",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 13,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 10,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "lifetime_sweeps_tail": 0.9141358246245129,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": -4.996003610813205e-16
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.3348979766803842,
+    "2": 0.11215665478461513,
+    "5": 0.004212720233087431,
+    "10": 1.774701176226422e-05,
+    "20": 3.149564264899444e-10,
+    "50": 1.7604600970608912e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.0,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": -0.0
+   },
+   "2": {
+    "1": -0.0
+   },
+   "0": {
+    "1": 1.0
+   }
+  },
+  "seconds": 0.01,
+  "note": "k = sign(d) whenever sum|q| does not increase; no current in a twisting attempt"
+ },
+ "D_then": {
+  "law": "D_then",
+  "order": "TC_then",
+  "carrier": "tetrahedron",
+  "lumped_states": 13,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 10,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "lifetime_sweeps_tail": 0.9141358246245129,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": -4.996003610813205e-16
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.3348979766803842,
+    "2": 0.11215665478461513,
+    "5": 0.004212720233087431,
+    "10": 1.774701176226422e-05,
+    "20": 3.149564264899444e-10,
+    "50": 1.7604600970608912e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.0,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": -0.0
+   },
+   "2": {
+    "1": -0.0
+   },
+   "0": {
+    "1": 1.0
+   }
+  },
+  "seconds": 0.01,
+  "note": "as D_excl, then the reference current on the new contrast"
+ },
+ "M1": {
+  "law": "M1",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 13,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 10,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "lifetime_sweeps_tail": 0.9141358246245129,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": -4.996003610813205e-16
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.3348979766803842,
+    "2": 0.11215665478461513,
+    "5": 0.004212720233087431,
+    "10": 1.774701176226422e-05,
+    "20": 3.149564264899444e-10,
+    "50": 1.7604600970608912e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.0,
+  "final_vacuum_label_probability": {
+   "2": {
+    "1": -0.0
+   },
+   "1": {
+    "1": -0.0
+   },
+   "0": {
+    "1": 1.0
+   }
+  },
+  "seconds": 0.01,
+  "note": "twist only at d = -1 (seam reaches exact agreement)"
+ },
+ "M1_hard": {
+  "law": "M1_hard",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 16,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -2,
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0,
+   1
+  ],
+  "event_types": [
+   "hop"
+  ],
+  "classes": {
+   "total": 1,
+   "closed": 1,
+   "closed_sizes": [
+    16
+   ],
+   "closed_charge": [
+    2
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": false,
+  "closed_pair_classes": [
+   {
+    "size": 16,
+    "hop_rate_per_charge_per_sweep": "3639/8746",
+    "value": 0.4160759204207638
+   }
+  ],
+  "seconds": 0.01,
+  "note": "M1 without the annihilation entry"
+ },
+ "J_parity": {
+  "law": "J_parity",
+  "order": "TC_then",
+  "carrier": "tetrahedron",
+  "lumped_states": 13,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 10,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "lifetime_sweeps_tail": 0.9141358246245129,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": -4.996003610813205e-16
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.3348979766803842,
+    "2": 0.11215665478461513,
+    "5": 0.004212720233087431,
+    "10": 1.774701176226422e-05,
+    "20": 3.149564264899444e-10,
+    "50": 1.7604600970608912e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.0,
+  "final_vacuum_label_probability": {
+   "2": {
+    "1": -0.0
+   },
+   "1": {
+    "1": -0.0
+   },
+   "0": {
+    "1": 1.0
+   }
+  },
+  "seconds": 0.01,
+  "note": "twist at every odd contrast, then reference current: seam ends at exact agreement"
+ },
+ "U_free": {
+  "law": "U_free",
+  "order": "TC_then",
+  "carrier": "tetrahedron",
+  "lumped_states": 54,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 3,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "contrasts_at_pair_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 8,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333345,
+  "lifetime_sweeps_tail": 0.9141358246245197,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": 3.999999999999998
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.334897976680384,
+    "2": 0.11215665478461499,
+    "5": 0.004212720233087418,
+    "10": 1.7747011762264104e-05,
+    "20": 3.1495642648994064e-10,
+    "50": 1.7604600970608427e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 1.9999999999999996,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": 0.4361361144553192
+   },
+   "2": {
+    "1": 0.17776162392264822
+   },
+   "0": {
+    "1": 0.34108580605060396
+   },
+   "None": {
+    "1": 0.0450164555714281
+   }
+  },
+  "seconds": 0.44,
+  "note": "hop/annihilate at every contrast (reads charges only)"
+ },
+ "U_hard": {
+  "law": "U_hard",
+  "order": "TC_then",
+  "carrier": "tetrahedron",
+  "lumped_states": 46,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 3,
+  "charge_content_reached": [
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "contrasts_at_pair_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "hop"
+  ],
+  "classes": {
+   "total": 1,
+   "closed": 1,
+   "closed_sizes": [
+    46
+   ],
+   "closed_charge": [
+    2
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": false,
+  "closed_pair_classes": [
+   {
+    "size": 46,
+    "hop_rate_per_charge_per_sweep": "2",
+    "value": 2.0
+   }
+  ],
+  "seconds": 0.45,
+  "note": "U without annihilation"
+ },
+ "CT_R": {
+  "law": "CT_R",
+  "order": "CT",
+  "carrier": "tetrahedron",
+  "lumped_states": 48,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 3,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "contrasts_at_pair_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 7,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.9479178302769848,
+  "lifetime_sweeps_tail": 3.1159953145485177,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 2.6204809137754013
+  },
+  "mean_hops_before_annihilation": {
+   "1": 1.3575623782066446
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "102442246970325164/6515486427943089"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.6121027440200619,
+    "2": 0.4126581817270437,
+    "5": 0.1519953652748547,
+    "10": 0.03049622359247854,
+    "20": 0.0012316390165253404,
+    "50": 8.11349680757214e-08
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.3482282512668907,
+  "final_vacuum_label_probability": {
+   "2": {
+    "1": 0.022548020009422527
+   },
+   "1": {
+    "1": 0.15300172432187958
+   },
+   "0": {
+    "1": 0.8156527317519091
+   },
+   "None": {
+    "1": 0.008797523916788492
+   }
+  },
+  "seconds": 0.39,
+  "note": "reference current first, then twist if the rest is -1"
+ },
+ "CT_RX": {
+  "law": "CT_RX",
+  "order": "CT",
+  "carrier": "tetrahedron",
+  "lumped_states": 54,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 3,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "contrasts_at_pair_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 8,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8785383364438341,
+  "lifetime_sweeps_tail": 1.2870436870649038,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 1.385646546443384
+  },
+  "mean_hops_before_annihilation": {
+   "1": 4.256642810719818
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "44510012714659871342892/5353699665679073958769"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.4614200879843963,
+    "2": 0.21312922657760058,
+    "5": 0.020722683580315367,
+    "10": 0.00042586067270043883,
+    "20": 1.798500567018372e-07,
+    "50": 1.3546893262296738e-17
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 1.4426641990516178,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": 0.46967159316152357
+   },
+   "2": {
+    "1": 0.24693244228142178
+   },
+   "0": {
+    "1": 0.18352585742518876
+   },
+   "None": {
+    "1": 0.09987010713186535
+   }
+  },
+  "seconds": 0.48,
+  "note": "current first, twist if the rest is -1 or 0"
+ },
+ "CT_X": {
+  "law": "CT_X",
+  "order": "CT",
+  "carrier": "tetrahedron",
+  "lumped_states": 54,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 3,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "contrasts_at_pair_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 8,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.9328359487403668,
+  "lifetime_sweeps_tail": 2.3971873115083313,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 2.3843037122980486
+  },
+  "mean_hops_before_annihilation": {
+   "1": 4.1750774458972355
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "1784889953634003012/124766680270056797"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.6155799897119341,
+    "2": 0.41060698797803435,
+    "5": 0.11760799890254821,
+    "10": 0.014608195606125196,
+    "20": 0.00022537878088809972,
+    "50": 8.276798355133379e-10
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.7354756106371022,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": 0.39783544240182545
+   },
+   "2": {
+    "1": 0.3682154547210862
+   },
+   "None": {
+    "1": 0.2339491028770873
+   }
+  },
+  "seconds": 0.47,
+  "note": "current first, twist only from exact agreement"
+ },
+ "X_up": {
+  "law": "X_up",
+  "order": "TC_then",
+  "carrier": "tetrahedron",
+  "lumped_states": 54,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 3,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 3,
+  "contrasts_at_hop_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "contrasts_at_pair_seam": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 8,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.9210014696907903,
+  "lifetime_sweeps_tail": 2.025267718686677,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 2.291847578164353
+  },
+  "mean_hops_before_annihilation": {
+   "1": 5.790927720548094
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "5301006671236107578802/385497325516001723855"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.6685508026834701,
+    "2": 0.406878273605766,
+    "5": 0.09248472532404052,
+    "10": 0.007832125619282019,
+    "20": 5.6169303407153883e-05,
+    "50": 2.071844793238885e-11
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 1.2001092034111984,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": 0.45105337267811907
+   },
+   "2": {
+    "1": 0.2004722191306931
+   },
+   "None": {
+    "1": 0.21590745808408723
+   },
+   "0": {
+    "1": 0.13256695010709962
+   }
+  },
+  "seconds": 0.58,
+  "note": "twist only against the contrast (d >= 0)"
+ },
+ "D_hard": {
+  "law": "D_hard",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 16,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -2,
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0,
+   1
+  ],
+  "event_types": [
+   "hop"
+  ],
+  "classes": {
+   "total": 1,
+   "closed": 1,
+   "closed_sizes": [
+    16
+   ],
+   "closed_charge": [
+    2
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": false,
+  "closed_pair_classes": [
+   {
+    "size": 16,
+    "hop_rate_per_charge_per_sweep": "1847/4163",
+    "value": 0.44367042997838096
+   }
+  ],
+  "seconds": 0.01,
+  "note": "D_excl without annihilation"
+ },
+ "D_excl_create2": {
+  "law": "D_excl_create2",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 13,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 10,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "lifetime_sweeps_tail": 0.9141358246245129,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": -4.996003610813205e-16
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.3348979766803842,
+    "2": 0.11215665478461513,
+    "5": 0.004212720233087431,
+    "10": 1.774701176226422e-05,
+    "20": 3.149564264899444e-10,
+    "50": 1.7604600970608912e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.0,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": -0.0
+   },
+   "2": {
+    "1": -0.0
+   },
+   "0": {
+    "1": 1.0
+   }
+  },
+  "seconds": 0.09,
+  "note": "D_excl plus pair creation from zero charge at |d| >= 2"
+ },
+ "D_excl_create3": {
+  "law": "D_excl_create3",
+  "order": "TC_excl",
+  "carrier": "tetrahedron",
+  "lumped_states": 13,
+  "truncated": false,
+  "hit_contrast_cap": false,
+  "max_abs_contrast": 2,
+  "charge_content_reached": [
+   0,
+   2
+  ],
+  "max_abs_contrast_at_uncharged_seam": 1,
+  "contrasts_at_hop_seam": [
+   -1,
+   0,
+   1
+  ],
+  "contrasts_at_pair_seam": [
+   -2,
+   -1,
+   0
+  ],
+  "event_types": [
+   "annihilate",
+   "hop"
+  ],
+  "classes": {
+   "total": 10,
+   "closed": 3,
+   "closed_sizes": [
+    1,
+    1,
+    1
+   ],
+   "closed_charge": [
+    0
+   ]
+  },
+  "creates_charge_from_pair": false,
+  "vacuum_left": false,
+  "start_states": {
+   "1": "uniform loads, unit pair at dual distance 1 on a shortest string"
+  },
+  "annihilates": true,
+  "survival_decay_per_attempt": 0.8333333333333334,
+  "lifetime_sweeps_tail": 0.9141358246245129,
+  "all_pair_states_absorbed": true,
+  "mean_annihilation_time_sweeps": {
+   "1": 0.9999999999999996
+  },
+  "mean_hops_before_annihilation": {
+   "1": -4.996003610813205e-16
+  },
+  "mean_annihilation_time_attempts_exact": {
+   "1": "6"
+  },
+  "survival_after_sweeps": {
+   "1": {
+    "1": 0.3348979766803842,
+    "2": 0.11215665478461513,
+    "5": 0.004212720233087431,
+    "10": 1.774701176226422e-05,
+    "20": 3.149564264899444e-10,
+    "50": 1.7604600970608912e-24
+   }
+  },
+  "hop_rate_per_charge_per_sweep_qsd": 0.0,
+  "final_vacuum_label_probability": {
+   "1": {
+    "1": -0.0
+   },
+   "2": {
+    "1": -0.0
+   },
+   "0": {
+    "1": 1.0
+   }
+  },
+  "seconds": 0.01,
+  "note": "D_excl plus pair creation from zero charge at |d| >= 3"
+ }
+}

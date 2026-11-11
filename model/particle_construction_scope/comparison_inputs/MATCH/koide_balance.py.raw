@@ -1,0 +1,51 @@
+"""Koide's relation as a balanced split of consensus over three copies (exact identity), and the lepton ratios it gives.
+
+sqrt(m_k) = A (1 + sqrt2 cos(delta + 2 pi k / 3)) is the vector A sqrt3 (u + chi_delta) with u the uniform (consensus)
+unit vector and chi_delta a unit vector orthogonal to it: equal squared weight on consensus and on disagreement.
+Q = sum m / (sum sqrt m)^2 = 1 / (3 cos^2 angle(sqrt m, u)) = 2/3 exactly when the weights are equal.
+"""
+import json
+from mpmath import mp, mpf, cos, sqrt, pi, findroot
+
+mp.dps = 30
+ME, MMU, MTAU = mpf('0.51099895069'), mpf('105.6583755'), mpf('1776.93')  # MeV, PDG 2026 (public reference file)
+
+
+def roots(delta):
+    return [1 + sqrt(2) * cos(delta + 2 * pi * k / 3) for k in range(3)]
+
+
+def ratios(delta):
+    t, e, mu = roots(delta)  # k = 0 heaviest, k = 1 lightest, k = 2 middle
+    return (mu / e) ** 2, (t / e) ** 2
+
+
+def q_of(masses):
+    return sum(masses) / sum(sqrt(m) for m in masses) ** 2
+
+
+# weight check: uniform part and orthogonal part have equal norm for every delta
+d = mpf('0.3')
+v = roots(d)
+par = sum(v) / sqrt(3)
+perp2 = sum(x * x for x in v) - par ** 2
+assert abs(par ** 2 - perp2) < mpf('1e-25')
+
+r29 = ratios(mpf(2) / 9)
+measured = (MMU / ME, MTAU / ME)
+q_meas = q_of([ME, MMU, MTAU])
+# delta from the measured masses (best fit of the phase with Q free is equivalent to solving on mu/e)
+delta_fit = findroot(lambda x: ratios(x)[0] - measured[0], mpf('0.2222'))
+out = dict(
+    identity='Q = 2/3 if and only if sqrt(m) has equal squared weight on the uniform vector and on its complement',
+    Q_measured=float(q_meas),
+    ratios_at_delta_2_9=dict(mu_over_e=float(r29[0]), tau_over_e=float(r29[1])),
+    ratios_measured=dict(mu_over_e=float(measured[0]), tau_over_e=float(measured[1])),
+    relative_deviation=dict(mu_over_e=float(r29[0] / measured[0] - 1), tau_over_e=float(r29[1] / measured[1] - 1)),
+    delta_from_mu_over_e=float(delta_fit),
+    delta_2_9=float(mpf(2) / 9),
+    electron_near_node=dict(note='the lightest copy sits where 1 + sqrt2 cos(delta + 2 pi/3) nearly vanishes; zero at delta = pi/12',
+                            pi_over_12=float(pi / 12)),
+    status='identity EXACT; delta = 2/9 is a fit to the measured masses (Brannen), not derived; comparison NOT BLIND')
+json.dump(out, open('koide_balance.json', 'w'), indent=1)
+print(json.dumps(out, indent=1))

@@ -1,0 +1,19 @@
+"""Gate for the G_F routine: LEW's P_fwd packet (criticality at the declared midpoint, two loops, LEW's own solve)
+with v attached through G_F; reproduces LEW's control F outputs. Writes part2_gf_gate.json."""
+import json
+import sys
+import time
+
+sys.path.insert(0, ".")
+import smdrlib as S  # noqa: E402
+
+t0 = time.time()
+pk = S.packet_p_fwd()
+gf = S.attach_gf(pk)
+lewF = json.load(open(S.LEW / "t3_fermi_control.json"))
+dev = max(abs(gf["outputs_GeV"][k] / lewF["outputs_GeV"][k] - 1) for k in ("W", "Z", "H", "t"))
+out = {"mine": gf, "lew_control_F": {"v_Q0_GeV": lewF["v_Q0_GeV"], "outputs_GeV": lewF["outputs_GeV"]},
+       "max_rel_dev": dev, "pass_1e-8": dev < 1e-8, "seconds": time.time() - t0}
+json.dump(out, open("part2_gf_gate.json", "w"), indent=1)
+print(json.dumps({"v_Q0": gf["v_Q0_GeV"], "lew_v_Q0": lewF["v_Q0_GeV"], "max_rel_dev": dev,
+                  "readouts": len(gf["history"]), "seconds": out["seconds"]}))

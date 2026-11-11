@@ -1,0 +1,311 @@
+"""Task CO, parts (a), (b), (c), (g): per-attempt defect dynamics read from the stored record files.
+
+    python hops.py <run_dir> <ckpt_sweep> <s0> <s1> <out.json> [--save-snap snap.npz]
+
+The record file of a sweep lists every attempt in schedule order with its seam, current j, contrast d and twist
+(accepted delta > 0, minus the proposed delta when blocked, 0 when no current moved). The face classes before sweep s0
+are read from the checkpoint `ckpt_sweep`: if ckpt_sweep = s0 directly, if ckpt_sweep = s1 by subtracting the accepted
+deltas of sweeps s0..s1-1 (the register is additive mod 6, so this is exact). Nothing is simulated: the stored twists
+are applied in schedule order. After every sweep the class totals are checked against `stats.npz: counts_intra,
+counts_screen` (EXACT check). Every accepted twist is turned into a tracker event (pre and post classes of its two
+faces) and fed to the run's own tracker (`oph_defects.tracking.Tracker`, C kernel), one tracker per tier, seeded with
+the defects present at the start. Per sweep the identity map is stored, giving positions at every sweep boundary.
+
+Measured:
+- moves: for each hop, the current sign and the direction of the hop relative to the seam orientation (a hop from the
+  face traversing b->a to the face traversing a->b, or back), and the handedness chi = sign(((x_to - x_from) x J) . n)
+  with J the direction of unit flow (a->b for j > 0), n the outward normal at the seam;
+- back-hop probability of successive hops of one identity (random choice among the neighbouring faces: 1/3 on the
+  carrier, 1/degree on the screen);
+- displacement per sweep, its distribution, MSD against lag in sweeps, persistence of successive per-sweep steps;
+- event tables of the window (via events.analyse on the tracker catalogue).
+"""
+import argparse, json, sys
+from pathlib import Path
+import numpy as np
+import numba
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'background'))
+from compose import DD, TF  # noqa: E402
+import events as EV  # noqa: E402
+from oph_defects import fedgeom as FG  # noqa: E402
+from oph_defects.tracking import Tracker  # noqa: E402
+
+
+@numba.njit(cache=True)
+def build_events(cls, fp, fm, delta, depth, pos):
+    m = fp.shape[0]
+    ev = np.empty((m, 8), np.int32)
+    for e in range(m):
+        a = fp[e]; b = fm[e]
+        k1 = cls[a]; k2 = cls[b]
+        n1 = (k1 + delta[e]) % 6; n2 = (k2 - delta[e] + 6) % 6
+        cls[a] = n1; cls[b] = n2
+        ev[e, 0] = pos[e]; ev[e, 1] = a; ev[e, 2] = b; ev[e, 3] = k1; ev[e, 4] = k2; ev[e, 5] = n1; ev[e, 6] = n2
+        ev[e, 7] = depth[e]
+    return ev
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('run'); ap.add_argument('ckpt', type=int); ap.add_argument('s0', type=int); ap.add_argument('s1', type=int)
+    ap.add_argument('out')
+    a = ap.parse_args()
+    run = Path(a.run)
+    meta = json.load(open(run / 'run.json'))
+    L = meta['config']['level']
+    geo = FG.build(L)
+    N = geo.carriers; NI = 20 * N; V = geo.vertices
+    S = geo.seams
+    st = np.load(run / 'stats.npz')
+    bal_sweep = int(meta['totals']['attempts_to_balanced_class'] // S)
+    TFP = np.array(meta['geometry']['template_face_plus']); TFM = np.array(meta['geometry']['template_face_minus'])
+    TS = np.array(meta['geometry']['template_seams'])
+    pv = np.array(meta['geometry']['port_vectors'], float); pv /= np.linalg.norm(pv, axis=1, keepdims=True)
+    fc = pv[np.array(TF)].mean(1); fcn = fc / np.linalg.norm(fc, axis=1, keepdims=True)
+    a_edge = np.sqrt(8 * np.pi / (np.sqrt(3) * V))
+    mesh = geo.mesh_xyz / np.linalg.norm(geo.mesh_xyz, axis=1, keepdims=True)
+    cxyz = geo.carrier_xyz / np.linalg.norm(geo.carrier_xyz, axis=1, keepdims=True)
+
+    def faces_of(seam):
+        seam = seam.astype(np.int64)
+        fp = np.empty(len(seam), np.int64); fm = np.empty(len(seam), np.int64)
+        intra = seam < 30 * N
+        c, k = np.divmod(seam[intra], 30)
+        fp[intra] = 20 * c + TFP[k]; fm[intra] = 20 * c + TFM[k]
+        g = seam[~intra] - 30 * N
+        fp[~intra] = geo.glue_fp[g]; fm[~intra] = geo.glue_fm[g]
+        return fp, fm
+
+    rec_files = {r['sweep']: r['file'] for r in meta['records']}
+    ck = np.load(run / f'checkpoints/ckpt_{a.ckpt:06d}.npz')
+    cls = ck['classes'].astype(np.int64) % 6
+    if a.ckpt == a.s1:
+        for s in range(a.s0, a.s1):
+            z = np.load(run / rec_files[s])
+            tw = z['twist'].astype(np.int64); acc = tw > 0
+            fp, fm = faces_of(z['seam'][acc])
+            np.subtract.at(cls, fp, tw[acc]); np.add.at(cls, fm, tw[acc])
+            cls %= 6
+    else:
+        assert a.ckpt == a.s0
+    cls = cls.astype(np.int64)
+    # check: counts before s0 equal stats after sweep s0-1
+    def counts(c):
+        return np.bincount(c[:NI], minlength=6).tolist(), np.bincount(c[NI:], minlength=6).tolist()
+    checks = []
+    if a.s0 > 0:
+        ci, cs = counts(cls)
+        checks.append({'before_sweep': a.s0, 'intra_ok': ci == st['counts_intra'][a.s0 - 1].tolist(),
+                       'screen_ok': cs == st['counts_screen'][a.s0 - 1].tolist()})
+    trk = {}
+    for tier, F0, FT in (('carrier', 0, NI), ('screen', NI, V)):
+        t = Tracker(F0, FT, slots=1, capacity=1 << 20)
+        nz = np.nonzero(cls[F0:F0 + FT])[0] + F0
+        t.seed(nz, cls[nz])
+        trk[tier] = t
+    n_seed = {k: v.n for k, v in trk.items()}
+    snaps = {'carrier': [], 'screen': []}
+
+    def snap(tier):
+        t = trk[tier]
+        f = np.nonzero(t.face_id >= 0)[0]
+        return np.c_[t.face_id[f].astype(np.int64), f + t.F0]
+    for tier in snaps:
+        snaps[tier].append(snap(tier))
+    moves = {'carrier': [], 'screen': []}
+    empty32 = np.zeros(1, np.int32)
+    for s in range(a.s0, a.s1):
+        z = np.load(run / rec_files[s])
+        tw = z['twist'].astype(np.int64); acc = np.nonzero(tw > 0)[0]
+        seam = z['seam'][acc].astype(np.int64)
+        fp, fm = faces_of(seam)
+        ev = build_events(cls, fp, fm, tw[acc], z['depth'][acc].astype(np.int64), acc.astype(np.int64))
+        cur = z['current'][acc].astype(np.int64); con = z['contrast'][acc].astype(np.int64)
+        ci, cs = counts(cls)
+        checks.append({'after_sweep': s, 'intra_ok': ci == st['counts_intra'][s].tolist(), 'screen_ok': cs == st['counts_screen'][s].tolist(),
+                       'accepted_twists': int(len(acc))})
+        intra = fp < NI
+        for tier, msk in (('carrier', intra), ('screen', ~intra)):
+            e = ev[msk]
+            t = trk[tier]
+            # hops: one occupied, it empties
+            k1, k2, n1, n2 = e[:, 3], e[:, 4], e[:, 5], e[:, 6]
+            mv_pm = (k1 != 0) & (k2 == 0) & (n1 == 0)      # from fp to fm
+            mv_mp = (k1 == 0) & (k2 != 0) & (n2 == 0)      # from fm to fp
+            mv = mv_pm | mv_mp
+            # identity of the mover is assigned inside the tracker; get it from the face_id map before processing
+            src = np.where(mv_pm, e[:, 1], e[:, 2]); dst = np.where(mv_pm, e[:, 2], e[:, 1])
+            klass = np.where(mv_pm, k1, k2)
+            sm = seam[msk]; cm = cur[msk]; dm = con[msk]
+            moves[tier].append(np.c_[np.full(mv.sum(), s), e[mv, 0], e[mv, 7], src[mv], dst[mv], klass[mv], sm[mv], cm[mv], dm[mv],
+                                     mv_mp[mv].astype(np.int64)])
+            t.process(e, s, empty32, empty32, 0)
+            snaps[tier].append(snap(tier))
+        print('sweep', s, checks[-1], flush=True)
+    out = {'level': L, 'window': [a.s0, a.s1], 'checkpoint': a.ckpt, 'balanced_sweep': bal_sweep,
+           'regime': 'balanced' if a.s0 >= bal_sweep else ('quench' if a.s1 <= bal_sweep else 'mixed'),
+           'checks': checks, 'all_checks_ok': all(c.get('intra_ok', True) and c.get('screen_ok', True) for c in checks),
+           'seeded_identities': n_seed, 'tiers': {}}
+    for tier in ('carrier', 'screen'):
+        t = trk[tier]
+        M = np.concatenate(moves[tier]) if moves[tier] else np.zeros((0, 10), np.int64)
+        res = {}
+        # ---------- hop geometry and handedness
+        sw, pos, dep, src, dst, kl, sm, cm, dm, mp = M.T if len(M) else [np.zeros(0, np.int64)] * 10
+        if tier == 'carrier':
+            kk = sm % 30
+            ua, ub = pv[TS[kk, 0]], pv[TS[kk, 1]]
+            xf, xt = fcn[src % 20], fcn[dst % 20]
+        else:
+            g = sm - 30 * N
+            ua = cxyz[geo.glue_a[g] // 12]; ub = cxyz[geo.glue_b[g] // 12]
+            xf, xt = mesh[src - NI], mesh[dst - NI]
+        nrm = ua + ub; nrm /= np.linalg.norm(nrm, axis=1, keepdims=True)
+        J = (ub - ua) * np.sign(cm)[:, None]
+        chi = np.sign((np.cross(xt - xf, J) * nrm).sum(1))
+        hop = {}
+        for k in range(1, 6):
+            m = kl == k
+            if not m.any():
+                continue
+            tab = {}
+            for dname, dv in (('fm_to_fp', 1), ('fp_to_fm', 0)):
+                for jname, js in (('j>0', 1), ('j<0', -1)):
+                    tab[f'{dname},{jname}'] = int((m & (mp == dv) & (np.sign(cm) == js)).sum())
+            hop[str(k)] = {'hops': int(m.sum()), 'direction_vs_current': tab,
+                           'handedness_chi_plus': int((m & (chi > 0)).sum()), 'handedness_chi_minus': int((m & (chi < 0)).sum()),
+                           'handedness_chi_zero': int((m & (chi == 0)).sum()),
+                           'contrast_hist_-2_to_2': [int((m & (dm == q)).sum()) for q in (-2, -1, 0, 1, 2)],
+                           'abs_current_hist_0_to_3': [int((m & (np.abs(cm) == q)).sum()) for q in range(4)]}
+        res['hops'] = hop
+        # ---------- back-hops: successive hops of the same identity (identity of the mover = identity on the
+        # destination face in the next snapshot is not enough; use the tracker catalogue: moves keep identity, so a
+        # sequence of hops of one identity is a chain src -> dst -> ... ; chain them by matching dst of hop h with src of
+        # a later hop from the same face before any other event on it).
+        order = np.lexsort((pos, sw))
+        srcs, dsts, kls = src[order], dst[order], kl[order]
+        last_by_face = {}
+        back = {k: [0, 0] for k in range(1, 6)}
+        for h in range(len(srcs)):
+            f0 = int(srcs[h])
+            prev = last_by_face.pop(f0, None)
+            if prev is not None:
+                back[int(kls[h])][1] += 1
+                if prev == int(dsts[h]):
+                    back[int(kls[h])][0] += 1
+            last_by_face[int(dsts[h])] = f0
+        for k in range(1, 6):
+            if str(k) in hop and back[k][1]:
+                p = back[k][0] / back[k][1]
+                hop[str(k)]['back_hop'] = {'successive_hop_pairs': back[k][1], 'back_hops': back[k][0], 'p': p,
+                                          'err': float(np.sqrt(p * (1 - p) / back[k][1])),
+                                          'random_choice': 1 / 3 if tier == 'carrier' else '1/degree (1/6 or 1/5)'}
+        # ---------- per-sweep positions of identities
+        cat = t.view()
+        cl = cat['cls'].astype(np.int64)
+        sn = snaps[tier]
+        nsw = len(sn) - 1
+        # position table: identity -> face at each boundary (or -1)
+        nid = t.n
+        P = np.full((nsw + 1, nid), -1, np.int64)
+        for b, arr in enumerate(sn):
+            if len(arr):
+                P[b, arr[:, 0]] = arr[:, 1]
+        per = {}
+        lags = [l for l in (1, 2, 3, 5, 8, 12, 20, 30, 50, 75, 100) if l <= nsw]
+
+        def dist(f1, f2):
+            if tier == 'carrier':
+                assert ((f1 // 20) == (f2 // 20)).all()
+                return DD[f1 % 20, f2 % 20].astype(float)
+            return np.arccos(np.clip((mesh[f1 - NI] * mesh[f2 - NI]).sum(1), -1, 1)) / a_edge
+
+        def vec(f1, f2):
+            if tier == 'carrier':
+                return fcn[f2 % 20] - fcn[f1 % 20], fcn[f1 % 20]
+            x0, x1 = mesh[f1 - NI], mesh[f2 - NI]
+            d = x1 - x0
+            return (d - (d * x0).sum(1, keepdims=True) * x0) / a_edge, x0
+        G = 32
+        for k in range(1, 6):
+            ids = np.nonzero(cl == k)[0]
+            if len(ids) == 0:
+                continue
+            d = {}
+            msd = []
+            for l in lags:
+                Sg = np.zeros(G); Ng = np.zeros(G); r2all = []
+                for b in range(nsw + 1 - l):
+                    f1 = P[b, ids]; f2 = P[b + l, ids]
+                    ok = (f1 >= 0) & (f2 >= 0)
+                    # same identity alive at both boundaries means alive throughout (identities are not reused)
+                    if not ok.any():
+                        continue
+                    r2 = dist(f1[ok], f2[ok]) ** 2
+                    gg = ids[ok] % G
+                    Sg += np.bincount(gg, r2, G); Ng += np.bincount(gg, None, G)
+                    if l == 1:
+                        r2all.append(np.sqrt(r2))
+                v, e = EV_jk(Sg, Ng)
+                ent = {'lag_sweeps': l, 'n': int(Ng.sum()), 'msd': v, 'err': e}
+                if l == 1 and r2all:
+                    x = np.concatenate(r2all)
+                    if tier == 'carrier':
+                        ent['step_dual_hist_0_to_5'] = np.bincount(np.round(x).astype(int), minlength=6).tolist()
+                    else:
+                        ent['step_edges_hist_bins'] = [0, 0.5, 1.5, 2.5, 3.5, 5.5, 1e9]
+                        ent['step_edges_hist'] = np.histogram(x, ent['step_edges_hist_bins'])[0].tolist()
+                    ent['mean_step'] = float(x.mean())
+                msd.append(ent)
+            d['msd_by_lag_sweeps'] = msd
+            good = [x for x in msd if x['msd'] and x['n'] > 50]
+            if len(good) >= 3:
+                tt = np.array([x['lag_sweeps'] for x in good], float); yy = np.array([x['msd'] for x in good])
+                d['alpha_fit_all_lags'] = float(np.polyfit(np.log(tt), np.log(yy), 1)[0])
+            # persistence of successive per-sweep steps
+            if nsw >= 2:
+                num = 0.0; den = 0.0; cosl = []; sinl = []; cnt = 0
+                for b in range(nsw - 1):
+                    f0, f1, f2 = P[b, ids], P[b + 1, ids], P[b + 2, ids]
+                    ok = (f0 >= 0) & (f1 >= 0) & (f2 >= 0)
+                    if not ok.any():
+                        continue
+                    s1, n0 = vec(f0[ok], f1[ok]); s2, _ = vec(f1[ok], f2[ok])
+                    num += (s1 * s2).sum(); den += ((s1 * s1).sum() + (s2 * s2).sum()) / 2; cnt += ok.sum()
+                    n1 = np.linalg.norm(s1, axis=1); n2 = np.linalg.norm(s2, axis=1); both = (n1 > 1e-9) & (n2 > 1e-9)
+                    cosl.append(((s1 * s2).sum(1) / np.maximum(n1 * n2, 1e-12))[both])
+                    sinl.append(((np.cross(s1, s2) * n0).sum(1) / np.maximum(n1 * n2, 1e-12))[both])
+                cosl = np.concatenate(cosl) if cosl else np.zeros(0); sinl = np.concatenate(sinl) if sinl else np.zeros(0)
+                d['persistence_per_sweep'] = {'pairs': int(cnt), 'autocorrelation': (num / den) if den else None,
+                                              'both_moved': int(len(cosl)),
+                                              'mean_cos_turn': [float(cosl.mean()), float(cosl.std() / np.sqrt(max(len(cosl), 1)))] if len(cosl) else None,
+                                              'mean_sin_turn_left_positive': [float(sinl.mean()), float(sinl.std() / np.sqrt(max(len(sinl), 1)))] if len(sinl) else None}
+            per[str(k)] = d
+        res['per_sweep'] = per
+        # ---------- event tables of the window
+        catv = dict(cat)
+        catv['tier'] = np.zeros(t.n, np.uint8)
+        end_depth = int(max(catv['death_depth'].max(), catv['birth_depth'].max())) if t.n else 0
+        res['events'] = EV.analyse(catv, np.ones(t.n, bool), end_depth, a.s1, bal_sweep, None)
+        res['events']['note'] = f'identities present at sweep {a.s0} are seeded (birth sweep -1); lifetimes are censored by the window'
+        out['tiers'][tier] = res
+        print(tier, {k: (v['hops'], v.get('handedness_chi_plus'), v.get('handedness_chi_minus')) for k, v in hop.items()}, flush=True)
+    json.dump(out, open(a.out, 'w'), indent=1, default=float)
+    print('wrote', a.out)
+
+
+def EV_jk(S, N):
+    S = np.asarray(S, float); N = np.asarray(N, float)
+    if N.sum() <= 0:
+        return None, None
+    r = S.sum() / N.sum()
+    ok = (N.sum() - N) > 0
+    loo = (S.sum() - S[ok]) / (N.sum() - N[ok])
+    g = ok.sum()
+    return float(r), float(np.sqrt((g - 1) / g * ((loo - loo.mean()) ** 2).sum())) if g > 1 else None
+
+
+if __name__ == '__main__':
+    main()

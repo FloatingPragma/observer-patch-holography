@@ -1,0 +1,26 @@
+"""One long run of the register ensemble (same kernel as reg_fss.py), for sizes whose autocorrelation time is long.
+
+    python reg_long.py N L KAPPA NSWEEPS SUFFIX [START]
+"""
+import os, sys, time, json, zlib
+import numpy as np
+import gauge_mc as G
+
+KC = {3: 1.0843, 2: 0.761413}
+N, L, kappa, nsw, suffix = int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
+tag = f'Z{N}_L{L}_k{kappa:.4f}_{suffix}'
+out = os.path.join('regruns', tag + '.npz')
+seed = zlib.crc32(tag.encode()) + 104729 * N
+rng = np.random.default_rng(seed); shape = (L, L, L)
+start = sys.argv[6] if len(sys.argv) > 6 else ('cold' if kappa >= KC[N] else 'hot')
+n = G.cold(shape) if start == 'cold' else G.hot(shape, N, rng)
+hb = G.HeatBath(n, N, kappa, seed)
+e = np.empty(nsw); P = np.empty((nsw // 10, 3), np.complex128); t0 = time.time()
+for sw in range(nsw):
+    hb.sweeps(1)
+    e[sw] = G.plaquette_obs(n, N)[1]
+    if (sw + 1) % 10 == 0:
+        P[sw // 10] = G.polyakov(n, N)
+meta = dict(N=N, L=L, kappa=kappa, nsweeps=nsw, start=start, seed=int(seed), seconds=time.time() - t0, suffix=suffix)
+np.savez(out + '.tmp.npz', e=e, P=P, meta=json.dumps(meta)); os.replace(out + '.tmp.npz', out)
+print(tag, f'{time.time() - t0:.0f}s e={e[nsw // 5:].mean():.5f} C={3 * L ** 3 * e[nsw // 5:].var():.2f}', flush=True)

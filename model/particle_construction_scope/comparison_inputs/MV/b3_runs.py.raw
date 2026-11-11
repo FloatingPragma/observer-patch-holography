@@ -1,0 +1,306 @@
+"""Block 3: runs of the family walk on the sphere federation, with frame files for the viewer.
+
+  python b3_runs.py spread --level 4 [--gluing bridge|seam]      localized quantum of every type from one carrier
+  python b3_runs.py packet --level 4 [--gluing ...]               Gaussian packets with a mean wave vector
+  python b3_runs.py defect --level 3 [--gluing ...]               static Z2 flux (one flipped link) near a charged wave
+  python b3_runs.py twoway --level 2 [--gluing ...]               link register of one region, joint tick U = C B
+
+Clock: one walk step (one tick for `twoway`). Lengths: mesh edges (mean geodesic length of a mesh edge).
+Writes frames_{name}.npz (see VIEWER.md) and summary_{name}.json.
+"""
+import argparse
+import json
+import time
+from multiprocessing import Pool
+
+import numpy as np
+
+import mv_lib as M
+import mv_walk as W
+import mv_fed as F
+import mv_defect as D
+
+SPEED = {'bridge': 0.020747, 'seam': 0.031272}                      # scalar speed of the flat federation (block 2)
+FRAME_RULE = 'frames turn with the carriers: in the template gauge that is equivariant under the third of a turn about the control axis (order-three cover element) the bridge link is 1 and a shared-seam link is the template recharting phase of the two glued control-face ports'
+
+
+def header(fed, kind, types, extra):
+    h = {'schema': 'oph.repair_law.family_walk.frames.v1', 'run': kind, 'geometry_level': int(fed['level']), 'carriers': int(fed['ncar']),
+         'ports': int(12 * fed['ncar']), 'wiring': {'bridge': 'bridge (fedgeom face_axis): one glue seam per neighbour through the bridge ports (4, 1, 10); register 66',
+                                                   'seam': 'shared seam: two glue seams per neighbour on the control-face seam that faces it, crossed endpoints; register 72'}[fed['gluing']],
+         'gluing': fed['gluing'], 'register': int(fed['S']), 'frame_rule': FRAME_RULE, 'clock': 'walk steps (W = Q R); one tick = one step',
+         'length_unit': 'mesh edge', 'mesh_edge_radians': fed['edge_angle'], 'types': types,
+         'type_definitions': {'scalar': 'no link phase', 'vector': 'recharting phase of spin 1, helicity 1, convex port frame (flux 2 per face); no Z2 charge',
+                              'spinor': 'recharting phase of spin 1/2, helicity 1/2, convex port frame (flux 1 per face); Z2 charge',
+                              'spinor_g': 'recharting phase of spin 1/2, great-icosahedron port frame (flux 7 per face); Z2 charge',
+                              'committed': 'classical one-quantum mean map of the committed rule: kernel 1 - L/S per step, same start'}}
+    h.update(extra)
+    return h
+
+
+def write_frames(name, head, prob, steps, fed, flux_faces=None, flux_prob=None):
+    d = dict(header=np.array(json.dumps(head)), prob=np.asarray(prob, np.float32), steps=np.asarray(steps, np.int32),
+             carrier_xyz=fed['carrier_xyz'].astype(np.float32))
+    d['flux_faces'] = np.asarray(flux_faces if flux_faces is not None else [], np.int32)
+    d['flux_prob'] = np.asarray(flux_prob if flux_prob is not None else np.zeros((len(steps), 0)), np.float32)
+    np.savez_compressed(f'frames_{name}.npz', **d)
+
+
+def evolve(psi, f, z60, charged, steps, every):
+    out = np.zeros(f['ncar']); frames = []; saved = []
+    for t in range(steps + 1):
+        if t % every == 0:
+            W.carrier_prob(psi, out); frames.append(out.astype(np.float32)); saved.append(t)
+        if t < steps:
+            W.step(psi, f, z60, charged)
+    return np.array(frames), saved
+
+
+def linfit(x, y):
+    x = np.asarray(x, float); y = np.asarray(y, float)
+    if x.size < 3:
+        return None
+    A = np.vstack([x, np.ones_like(x)]).T
+    c, res = np.linalg.lstsq(A, y, rcond=None)[:2]
+    return {'slope': float(c[0]), 'intercept': float(c[1]), 'points': int(x.size), 'rms_residual': float(np.sqrt(np.mean((A @ c - y) ** 2)))}
+
+
+# ------------------------------------------------------------------------------------------------ spread
+def spread_worker(a):
+    level, gluing, name, steps, every = a
+    t0 = time.time()
+    fed = F.build(level, gluing); c0 = F.start_carrier(fed)
+    if name == 'committed':
+        p = np.zeros(12 * fed['ncar']); p[12 * c0:12 * c0 + 12] = 1 / 12
+        q = np.zeros_like(p); frames = []; saved = []
+        for t in range(steps + 1):
+            if t % every == 0:
+                frames.append(p.reshape(-1, 12).sum(1).astype(np.float32)); saved.append(t)
+            if t < steps:
+                W.committed_step(p, q, M.TA60[:30], M.TB60[:30], fed['ga'], fed['gb'], fed['S']); p, q = q, p
+        return name, np.array(frames), saved, {'seconds': time.time() - t0}
+    f, z60, charged = F.typed(fed, name)
+    psi = F.carrier_state(f, name, c0)
+    frames, saved = evolve(psi, f, z60, charged, steps, every)
+    return name, frames, saved, {'seconds': time.time() - t0, 'norm_end': float(np.vdot(psi, psi).real), 'blank_record_probability_end': float(W.record_prob(psi))}
+
+
+def spread(level, gluing, pool):
+    fed = F.build(level, gluing); c0 = F.start_carrier(fed)
+    dist = F.distances(fed, c0)
+    half = np.pi / fed['edge_angle']
+    steps = int(1.25 * half / SPEED[gluing]); every = max(1, steps // 180); steps = (steps // every) * every
+    types = ['scalar', 'vector', 'spinor', 'spinor_g', 'committed']
+    res = pool.map(spread_worker, [(level, gluing, n, steps, every) for n in types])
+    prob = np.stack([r[1] for r in res], axis=1); saved = np.array(res[0][2])
+    summ = {'level': level, 'gluing': gluing, 'carriers': fed['ncar'], 'start_carrier': c0, 'half_circumference_edges': half, 'steps': steps,
+            'start': 'section of the top state along the control axis on one carrier (scalar: uniform), blank record, uniform address', 'types': {}}
+    for k, (name, fr, sv, info) in enumerate(res):
+        rs = F.radial_summary(fr.astype(float), dist)
+        row = dict(info); row['radii'] = {key: [round(v, 5) for v in val] for key, val in rs.items()}
+        t = saved.astype(float); r99 = np.array(rs['r99']); r50 = np.array(rs['r50']); rms = np.array(rs['rms'])
+        win = (r99 >= 2.0) & (r99 <= 0.55 * half)
+        row['front_speed_r99'] = linfit(t[win], r99[win])
+        win5 = (r50 >= 1.0) & (r50 <= 0.45 * half)
+        row['median_speed_r50'] = linfit(t[win5], r50[win5])
+        winr = (rms >= 0.5) & (rms <= 0.35 * half)
+        row['rms_speed'] = linfit(t[winr], rms[winr])
+        row['rms2_slope'] = linfit(t[winr], rms[winr] ** 2)
+        row['rms_at_end'] = float(rms[-1]); row['start_probability_end'] = rs['start'][-1]
+        row['start_probability_mean_second_half'] = float(np.mean(rs['start'][len(sv) // 2:]))
+        row['within_1_edge_mean_second_half'] = float(np.mean(rs['within_1_edge'][len(sv) // 2:]))
+        row['within_3_edges_mean_second_half'] = float(np.mean(rs['within_3_edges'][len(sv) // 2:]))
+        summ['types'][name] = row
+    name = f'spread_{gluing}_L{level}'
+    write_frames(name, header(fed, 'spread', types, {'start_carrier': c0, 'saved_steps': saved.tolist(), 'start': summ['start']}), prob, saved, fed)
+    json.dump(summ, open(f'summary_{name}.json', 'w'), indent=1)
+    for n in types:
+        r = summ['types'][n]
+        print(f"spread L{level} {gluing} {n:9s}: front {r['front_speed_r99']['slope'] if r['front_speed_r99'] else None} edges/step; rms2 slope {r['rms2_slope']['slope'] if r['rms2_slope'] else None};"
+              f" rms end {r['rms_at_end']:.3f}; on start carrier (2nd half) {r['start_probability_mean_second_half']:.4f}; within 3 edges {r['within_3_edges_mean_second_half']:.4f}; {r['seconds']:.0f}s", flush=True)
+
+
+# ------------------------------------------------------------------------------------------------ packet
+def packet_worker(a):
+    level, gluing, name, steps, every, sigma, q0 = a
+    t0 = time.time()
+    fed = F.build(level, gluing); c0 = F.start_carrier(fed)
+    f, z60, charged = F.typed(fed, name)
+    wc = None
+    if name == 'scalar':                                             # centre of the preparation filter: the flat-federation frequency at q0
+        lv = np.linalg.eigvalsh(M.kernel_L(np.array([q0, 0.0]), M.flat_links('scalar', gluing, 'template'))[0])[0]
+        wc = float(np.arccos(1 - lv / fed['S']))
+    psi, e, w, kept = F.packet_state(f, name, c0, sigma, q0, z60, charged, w_center=wc)
+    frames, saved = evolve(psi, f, z60, charged, steps, every)
+    return name, frames, saved, {'seconds': time.time() - t0, 'direction': e.tolist(), 'norm_end': float(np.vdot(psi, psi).real),
+                                 'mean_frequency': w, 'one_way_preparation_amplitude_ratio': kept}
+
+
+def packet(level, gluing, pool, sigma=3.0, q0=1.0):
+    fed = F.build(level, gluing); c0 = F.start_carrier(fed)
+    x = fed['carrier_xyz']; x0 = x[c0]
+    half = np.pi / fed['edge_angle']
+    steps = int(0.8 * half / SPEED[gluing]); every = max(1, steps // 150); steps = (steps // every) * every
+    types = ['scalar', 'vector', 'spinor', 'spinor_g']
+    res = pool.map(packet_worker, [(level, gluing, n, steps, every, sigma, q0) for n in types])
+    prob = np.stack([r[1] for r in res], axis=1); saved = np.array(res[0][2])
+    e = np.array(res[0][3]['direction'])
+    summ = {'level': level, 'gluing': gluing, 'start_carrier': c0, 'sigma_edges': sigma, 'q0_per_edge': q0, 'steps': steps, 'types': {}}
+    for name, fr, sv, info in res:
+        fr = fr.astype(float)
+        m = fr @ x; m /= np.linalg.norm(m, axis=1)[:, None]
+        along = np.arctan2(m @ e, m @ x0) / fed['edge_angle']
+        across = np.arcsin(np.clip(m @ np.cross(x0, e), -1, 1)) / fed['edge_angle']
+        sp = np.sqrt(np.array([(p * np.arccos(np.clip(x @ mm, -1, 1)) ** 2).sum() / p.sum() for p, mm in zip(fr, m)])) / fed['edge_angle']
+        t = saved.astype(float)
+        win = (t > 0) & (np.abs(along) < 0.5 * half)
+        # probability that stays within 2 sigma of the start
+        d0 = F.distances(fed, c0)
+        stay = fr[:, d0 <= 2 * sigma].sum(1) / fr.sum(1)
+        summ['types'][name] = dict(info, centroid_along=[round(v, 4) for v in along], centroid_across=[round(v, 4) for v in across],
+                                   spread=[round(v, 4) for v in sp], centroid_speed=linfit(t[win], along[win]),
+                                   within_2_sigma_of_start=[round(float(v), 5) for v in stay])
+        print(f"packet L{level} {gluing} {name:9s}: centroid speed {summ['types'][name]['centroid_speed']['slope']:.5f} edges/step, along end {along[-1]:.2f}, spread {sp[0]:.2f} -> {sp[-1]:.2f}, within 2 sigma of start at end {stay[-1]:.4f}", flush=True)
+    name = f'packet_{gluing}_L{level}'
+    write_frames(name, header(fed, 'packet', types, {'start_carrier': c0, 'saved_steps': saved.tolist(), 'sigma_edges': sigma, 'q0_per_edge': q0,
+                                                     'direction_xyz': e.tolist(), 'start': 'Gaussian packet of carrier sections (top state along the control axis) with mean wave vector q0 along direction_xyz, made one-way by the preparation sum_{t<512} h_t exp(i w t) W^t (Hann weights) before step 0'}), prob, saved, fed)
+    json.dump(summ, open(f'summary_{name}.json', 'w'), indent=1)
+
+
+# ------------------------------------------------------------------------------------------------ static defect
+def defect_worker(a):
+    level, gluing, name, steps, every, where, flipped = a
+    fed = F.build(level, gluing); c0 = F.start_carrier(fed)
+    f, z60, charged = F.typed(fed, name)
+    f['sgn'] = fed['sgn'].copy(); f['gsg'] = fed['gsg'].copy()
+    if flipped:
+        if where[0] == 'internal':
+            f['sgn'][where[1], where[2]] = -1
+        else:
+            f['gsg'][where[1]] = -1
+    psi = F.carrier_state(f, name, c0)
+    frames, saved = evolve(psi, f, z60, charged, steps, every)
+    return name, flipped, frames, saved
+
+
+def defect(level, gluing, pool, steps=None):
+    fed = F.build(level, gluing); c0 = F.start_carrier(fed)
+    nb = F.neighbours(fed)
+    c1, k0, k1 = nb[c0][0]                                           # the neighbour across the first bond of the start carrier
+    e01 = M.SIDX[(0, 1)]
+    gs = int(np.flatnonzero(((fed['bond_ca'] == c0) & (fed['bond_cb'] == c1)) | ((fed['bond_ca'] == c1) & (fed['bond_cb'] == c0)))[0])
+    variants = {'internal': ('internal', c1, e01), 'glue': ('glue', gs)}
+    steps = steps or int(0.5 * np.pi / fed['edge_angle'] / SPEED[gluing]); every = max(1, steps // 120); steps = (steps // every) * every
+    dist = F.distances(fed, c0)
+    summ = {'level': level, 'gluing': gluing, 'start_carrier': c0, 'defect_carrier': c1, 'steps': steps, 'variants': {}}
+    for vname, where in variants.items():
+        jobs = [(level, gluing, n, steps, every, where, fl) for n in ('spinor', 'spinor_g', 'vector') for fl in (False, True)]
+        res = {(r[0], r[1]): r for r in pool.map(defect_worker, jobs)}
+        saved = np.array(res[('spinor', False)][3])
+        chans = ['spinor', 'spinor_with_defect', 'spinor_g', 'spinor_g_with_defect', 'vector', 'vector_with_defect']
+        prob = np.stack([res[(n, fl)][2] for n in ('spinor', 'spinor_g', 'vector') for fl in (False, True)], axis=1)
+        if where[0] == 'internal':
+            faces = [20 * c1 + i for i, es in enumerate(M.FACE_SEAMS) if e01 in es]
+            desc = f'flipped internal link (0,1) of carrier {c1}: Z2 flux on its faces (0,1,5) and (0,1,7)'
+        else:
+            faces = [int(fed['glue_fp'][gs]), int(fed['glue_fm'][gs])] if gluing == 'bridge' else []
+            desc = f'flipped glue link between carriers {c0} and {c1}: Z2 flux on the two screen plaquettes it borders'
+        row = {'description': desc, 'flux_faces': faces}
+        for n in ('spinor', 'spinor_g', 'vector'):
+            a = res[(n, False)][2].astype(float); b = res[(n, True)][2].astype(float)
+            tv = 0.5 * abs(b - a).sum(1)
+            row[n] = {'total_variation_distance': [round(float(v), 7) for v in tv], 'tv_max': float(tv.max()), 'tv_end': float(tv[-1]),
+                      'max_carrier_difference': float(abs(b - a).max()),
+                      'probability_on_defect_carrier_flat_mean_second_half': float(a[len(saved) // 2:, c1].mean()),
+                      'probability_on_defect_carrier_with_defect_mean_second_half': float(b[len(saved) // 2:, c1].mean()),
+                      'rms_radius_end_flat': float(np.sqrt((a[-1] * dist ** 2).sum())), 'rms_radius_end_with_defect': float(np.sqrt((b[-1] * dist ** 2).sum()))}
+            print(f"defect L{level} {gluing} {vname:8s} {n:9s}: TV max {row[n]['tv_max']:.5f} end {row[n]['tv_end']:.5f}; on defect carrier flat {row[n]['probability_on_defect_carrier_flat_mean_second_half']:.5f} with {row[n]['probability_on_defect_carrier_with_defect_mean_second_half']:.5f}", flush=True)
+        summ['variants'][vname] = row
+        name = f'defect_{vname}_{gluing}_L{level}'
+        write_frames(name, header(fed, 'defect', chans, {'start_carrier': c0, 'defect_carrier': c1, 'saved_steps': saved.tolist(), 'defect': desc,
+                                                         'difference_map': 'prob[:, 1] - prob[:, 0] (spinor), prob[:, 3] - prob[:, 2] (spinor_g), prob[:, 5] - prob[:, 4] (vector, identically zero)',
+                                                         'gauss_constraints_imposed': 'none: the links are a static background; the saved readouts are gauge invariant'}),
+                     prob, saved, fed, faces, np.ones((len(saved), len(faces))))
+    json.dump(summ, open(f'summary_defect_{gluing}_L{level}.json', 'w'), indent=1)
+
+
+# ------------------------------------------------------------------------------------------------ two-way coupling
+def twoway_worker(a):
+    level, gluing, name, steps, every, gauss = a
+    t0 = time.time()
+    fed = F.build(level, gluing)
+    nb = F.neighbours(fed)
+    c1 = F.start_carrier(fed)
+    assert gluing == 'bridge', 'in the shared-seam gluing port 5 has glue links outside the register'
+    c0 = next(c for c, k, k2 in nb[c1] if k == 1)               # the wave enters the region carrier at its bridge port 1
+    f, z60, charged = F.typed(fed, name)
+    J = D.Joint(f, z60, charged, c1=c1, centre=5, word0=1)
+    psi0 = F.carrier_state(f, name, c0)
+    g0 = J.words.index(1)
+    if gauss:                                                        # positive sector of the Gauss constraint at the region centre
+        J.psi[g0] = psi0 / np.sqrt(2); J.psi[J.partner[g0]] = psi0 / np.sqrt(2)
+    else:
+        J.psi[g0] = psi0
+    frames = []; saved = []; faces = []; on_c1 = []; on_ends = []
+    ends = sorted({12 * c1 + p for e in J.reg['interior'] for p in M.SEAMS[e]})
+    pp = np.zeros(12 * fed['ncar'])
+    for t in range(steps + 1):
+        if t % every == 0:
+            cp = J.carrier_prob(); frames.append(cp.astype(np.float32)); saved.append(t); faces.append(J.face_prob()); on_c1.append(float(cp[c1]))
+            tot = 0.0
+            for g in range(J.nw):
+                W.port_prob(J.psi[g], pp); tot += pp[ends].sum()
+            on_ends.append(float(tot))
+        if t < steps:
+            J.tick()
+    return name, gauss, np.array(frames), saved, np.array(faces), {'seconds': time.time() - t0, 'norm_end': J.norm2(), 'c0': c0, 'c1': c1, 'on_c1': on_c1, 'on_ends': on_ends,
+                                                                 'faces': [sorted(M.FACES[i]) for i in J.reg['faces']], 'face_ids': [20 * c1 + i for i in J.reg['faces']],
+                                                                 'gauss_expectation_end': float(np.vdot(J.psi, J.gauss()).real)}
+
+
+def twoway(level, gluing, pool, steps=1500):
+    fed = F.build(level, gluing)
+    every = max(1, steps // 150); steps = (steps // every) * every
+    jobs = [(level, gluing, n, steps, every, g) for n, g in (('spinor', True), ('spinor', False), ('vector', True), ('spinor_g', True), ('scalar', True))]
+    res = pool.map(twoway_worker, jobs)
+    summ = {'level': level, 'gluing': gluing, 'steps': steps, 'tick': 'U = C4 C3 C2 C1 C0 B, B the family step conditional on the link word of the region carrier',
+            'region': 'the five faces at port 5 of one carrier; initial flux on face (0,1,5) (negative boundary link (0,1)); ten link words', 'runs': []}
+    for name, gauss, fr, sv, faces, info in res:
+        i0 = info['faces'].index([0, 1, 5])
+        moved = 1 - faces[:, i0]
+        row = {'type': name, 'gauss_sector': 'positive (projected start)' if gauss else 'none (definite link word)', 'start_carrier': info['c0'], 'region_carrier': info['c1'],
+               'faces': info['faces'], 'face_probabilities': np.round(faces, 6).tolist(), 'moved_probability': np.round(moved, 6).tolist(),
+               'moved_max': float(moved.max()), 'moved_end': float(moved[-1]), 'moved_mean_second_half': float(moved[len(sv) // 2:].mean()),
+               'wave_on_region_carrier': [round(v, 6) for v in info['on_c1']], 'wave_on_region_ports': [round(v, 6) for v in info['on_ends']],
+               'wave_on_region_carrier_max': float(max(info['on_c1'])), 'face_probability_sum_defect': float(abs(faces.sum(1) - 1).max()),
+               'norm_end': info['norm_end'], 'gauss_expectation_end': info['gauss_expectation_end'], 'seconds': info['seconds']}
+        summ['runs'].append(row)
+        print(f"twoway L{level} {gluing} {name:9s} gauss={gauss}: moved max {row['moved_max']:.5f}, end {row['moved_end']:.5f}, mean 2nd half {row['moved_mean_second_half']:.5f}; wave on region carrier max {row['wave_on_region_carrier_max']:.5f}; <Gamma> end {row['gauss_expectation_end']:.6f}", flush=True)
+    keep = [r for r in res if r[1]]
+    types = [r[0] for r in keep]
+    prob = np.stack([r[2] for r in keep], axis=1); saved = np.array(keep[0][3])
+    info = keep[0][5]
+    name = f'twoway_{gluing}_L{level}'
+    head = header(fed, 'twoway', types, {'start_carrier': info['c0'], 'region_carrier': info['c1'], 'saved_steps': saved.tolist(), 'tick': summ['tick'], 'region': summ['region'],
+                                         'flux_face_labels': info['faces'], 'flux_prob_layout': 'flux_prob[frame, type * 5 + face]: probability that the regional flux sits on that face, per type in the order of `types`',
+                                         'gauss_constraints_imposed': 'the one constraint at the region centre port (positive sector, by projection of the start); every other port has static links outside the register'})
+    write_frames(name, head, prob, saved, fed, [fid for _ in keep for fid in info['face_ids']], np.concatenate([r[4] for r in keep], axis=1))
+    json.dump(summ, open(f'summary_{name}.json', 'w'), indent=1)
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('kind'); ap.add_argument('--level', type=int, default=2); ap.add_argument('--gluing', default='bridge')
+    ap.add_argument('--procs', type=int, default=5); ap.add_argument('--steps', type=int, default=None)
+    a = ap.parse_args()
+    t0 = time.time()
+    with Pool(a.procs) as pool:
+        if a.kind == 'spread':
+            spread(a.level, a.gluing, pool)
+        elif a.kind == 'packet':
+            packet(a.level, a.gluing, pool)
+        elif a.kind == 'defect':
+            defect(a.level, a.gluing, pool, a.steps)
+        elif a.kind == 'twoway':
+            twoway(a.level, a.gluing, pool, a.steps or 1500)
+    print(f'{a.kind} L{a.level} {a.gluing} done in {time.time() - t0:.0f}s', flush=True)

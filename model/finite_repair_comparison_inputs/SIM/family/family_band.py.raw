@@ -1,0 +1,68 @@
+"""The rank-three band of the twelve-port carrier (the family band of Lean/Screen/A5FamilyBand.lean: adjacency eigenvalue
+sqrt5, Laplacian cost 5 - sqrt5) in the background of one flux pair on the carrier.
+
+The finite theorem stack says a family factor needs a symmetry-breaking background before three copies can have three
+different masses (REPAIR_MATTER_AND_INTERACTION_READOUT.tex:134-139). A flux pair on a carrier is such a background.
+For every face separation d = 1..5 and charge phase alpha = 1/6, 1/3, 1/2 this script gives the twelve levels of the
+phase-coupled port Laplacian, the three levels that grow out of the band, their rest phases arccos(1 - lambda/60) of
+the public walk, the weight each keeps in the unperturbed band, and a rephasing invariant between the eigenbases of two
+different charge phases on the same pair. Exact numbers of one carrier; nothing fitted; not masses.
+"""
+import itertools, json, sys
+from collections import deque
+import numpy as np
+ph = (1 + 5 ** 0.5) / 2
+V = np.array([p for s1 in (-1, 1) for s2 in (-1, 1) for p in ((0, s1, s2 * ph), (s1, s2 * ph, 0), (s1 * ph, 0, s2))], float)
+n = 12
+seams = [(i, j) for i in range(n) for j in range(i + 1, n) if abs(np.linalg.norm(V[i] - V[j]) - 2) < 1e-9]
+faces = [f for f in itertools.combinations(range(n), 3) if all(tuple(sorted(e)) in seams for e in itertools.combinations(f, 2))]
+faces = [f if np.dot(np.cross(V[f[1]] - V[f[0]], V[f[2]] - V[f[0]]), V[f[0]] + V[f[1]] + V[f[2]]) > 0 else (f[0], f[2], f[1]) for f in faces]
+assert len(seams) == 30 and len(faces) == 20
+sf = {e: [i for i, f in enumerate(faces) if set(e) <= set(f)] for e in seams}
+dual = {i: [] for i in range(20)}
+for e, (f, g) in sf.items(): dual[f].append((g, e)); dual[g].append((f, e))
+def path(f1, f2):
+    prev = {f1: None}; q = deque([f1])
+    while q:
+        f = q.popleft()
+        if f == f2: break
+        for g, e in dual[f]:
+            if g not in prev: prev[g] = (f, e); q.append(g)
+    out = []; f = f2
+    while prev[f] is not None: g, e = prev[f]; out.append((g, f, e)); f = g
+    return out[::-1]
+def orient(e, f):
+    a, b = e; i = f.index(a); return 1 if f[(i + 1) % 3] == b else -1
+def laplacian(f1, f2, alpha):
+    z = {}
+    for g, f, e in path(f1, f2): z[e] = np.exp(2j * np.pi * alpha * orient(e, faces[g]))     # crossing from face g to face f
+    L = np.zeros((n, n), complex)
+    for a, b in seams:
+        v = np.zeros(n, complex); v[a] = 1; v[b] = -z.get((a, b), 1.0); L += np.outer(v, v.conj())
+    return L
+L0 = laplacian(0, 0, 0).real; w0, U0 = np.linalg.eigh(L0)
+band = U0[:, np.abs(w0 - (5 - 5 ** 0.5)) < 1e-9]; assert band.shape[1] == 3
+dist = {(a, b): len(path(a, b)) for a in range(20) for b in range(20)}
+out = {'band_cost': 5 - 5 ** 0.5, 'band_rest_phase': float(np.arccos(1 - (5 - 5 ** 0.5) / 60)), 'rows': []}
+rep = {d: next(b for b in range(20) if dist[(0, b)] == d) for d in range(1, 6)}
+def jarlskog(A, B):
+    U = A.conj().T @ B                                   # 3 x 3 mixing between two triples of band-descended states
+    return float(np.imag(U[0, 0] * U[1, 1] * np.conj(U[0, 1]) * np.conj(U[1, 0]))), U
+keep = {}
+for d in range(1, 6):
+    for alpha, name in ((1 / 6, '1/6'), (1 / 3, '1/3'), (1 / 2, '1/2')):
+        L = laplacian(0, rep[d], alpha); w, U = np.linalg.eigh(L)
+        wt = np.sum(np.abs(band.conj().T @ U) ** 2, axis=0)          # weight of each level in the unperturbed band
+        idx = np.argsort(-wt)[:3]; idx = idx[np.argsort(w[idx])]
+        lev = w[idx]; keep[(d, name)] = U[:, idx]
+        out['rows'].append({'separation': d, 'alpha': name, 'levels': [float(x) for x in w], 'band_levels': [float(x) for x in lev], 'band_weights': [float(x) for x in wt[idx]],
+                            'rest_phases': [float(np.arccos(1 - x / 60)) for x in lev], 'splitting_over_mean': float((lev[2] - lev[0]) / lev.mean()),
+                            'ratios_to_lowest': [float(x / lev[0]) for x in lev]})
+for d in range(1, 6):
+    J, U = jarlskog(keep[(d, '1/6')], keep[(d, '1/3')])
+    out['rows'].append({'separation': d, 'mixing_between': 'alpha 1/6 and alpha 1/3 on the same pair', 'abs_squared': [[float(abs(x) ** 2) for x in r] for r in U], 'jarlskog_like_invariant': J})
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+print('band cost', round(out['band_cost'], 6), 'rest phase', round(out['band_rest_phase'], 6))
+for r in out['rows']:
+    if 'alpha' in r: print('d', r['separation'], 'alpha', r['alpha'], 'band levels', [round(x, 4) for x in r['band_levels']], 'weights', [round(x, 2) for x in r['band_weights']], 'rest', [round(x, 4) for x in r['rest_phases']], 'split/mean', round(r['splitting_over_mean'], 3))
+    else: print('d', r['separation'], 'mixing |U|^2 rows', [[round(x, 3) for x in row] for row in r['abs_squared']], 'J', round(r['jarlskog_like_invariant'], 5))

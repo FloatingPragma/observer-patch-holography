@@ -1,0 +1,183 @@
+{
+ "torsor": {
+  "directed_seams": 60,
+  "images_of_the_base_seam_under_the_rotations": 60,
+  "simply_transitive": true
+ },
+ "seam_events": {
+  "turn_is_right_translation_by_the_fifth_turn": true,
+  "reverse_is_right_translation_by_the_half_turn": true
+ },
+ "commutant": {
+  "frames": 120,
+  "blocks": {
+   "1": "M_1 (rank of the central projector 1)",
+   "2": "M_2 (rank of the central projector 4)",
+   "2'": "M_2 (rank of the central projector 4)",
+   "3": "M_3 (rank of the central projector 9)",
+   "3'": "M_3 (rank of the central projector 9)",
+   "4": "M_4 (rank of the central projector 16)",
+   "4s": "M_4 (rank of the central projector 16)",
+   "5": "M_5 (rank of the central projector 25)",
+   "6": "M_6 (rank of the central projector 36)"
+  },
+  "dimension": 120,
+  "on_the_60_directed_seams": "the integer-spin blocks 1, 3, 3', 4, 5: dimension 1 + 9 + 9 + 16 + 25 = 60",
+  "unitary_group": "U(1) x U(2) x U(2) x U(3) x U(3) x U(4) x U(4) x U(5) x U(6)"
+ },
+ "lie_algebra_of_seam_events_by_block": {
+  "1": {
+   "dimension_of_block_algebra": 1,
+   "lie_closure_of_seam_events": 1,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 1,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": false,
+    "reverse (sum)": true,
+    "reverse (difference)": false
+   }
+  },
+  "2": {
+   "dimension_of_block_algebra": 4,
+   "lie_closure_of_seam_events": 4,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": false,
+    "reverse (difference)": true
+   }
+  },
+  "2'": {
+   "dimension_of_block_algebra": 4,
+   "lie_closure_of_seam_events": 4,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": false,
+    "reverse (difference)": true
+   }
+  },
+  "3": {
+   "dimension_of_block_algebra": 9,
+   "lie_closure_of_seam_events": 9,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": true,
+    "reverse (difference)": false
+   }
+  },
+  "3'": {
+   "dimension_of_block_algebra": 9,
+   "lie_closure_of_seam_events": 9,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": true,
+    "reverse (difference)": false
+   }
+  },
+  "4": {
+   "dimension_of_block_algebra": 16,
+   "lie_closure_of_seam_events": 16,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": true,
+    "reverse (difference)": false
+   }
+  },
+  "4s": {
+   "dimension_of_block_algebra": 16,
+   "lie_closure_of_seam_events": 16,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": false,
+    "reverse (difference)": true
+   }
+  },
+  "5": {
+   "dimension_of_block_algebra": 25,
+   "lie_closure_of_seam_events": 25,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": true,
+    "reverse (difference)": false
+   }
+  },
+  "6": {
+   "dimension_of_block_algebra": 36,
+   "lie_closure_of_seam_events": 36,
+   "centre": 1,
+   "full_u(d)": true,
+   "turn_alone": 2,
+   "reverse_alone": 1,
+   "nonzero_generators": {
+    "turn (sum)": true,
+    "turn (difference)": true,
+    "reverse (sum)": false,
+    "reverse (difference)": true
+   }
+  }
+ },
+ "directed_seams_total": {
+  "lie_closure_of_seam_events": 57,
+  "centre": 2,
+  "sum_of_block_dimensions": 60
+ },
+ "mirror_copy_on_multiplicity_spaces": {
+  "blocks": "3 and 2'",
+  "lie_closure_of_seam_events": 13,
+  "centre": 2,
+  "type": "u(3) + u(2) (dimension 13); its traceless-per-pair part contains u(1) + su(2) + su(3)",
+  "every_element_commutes_with_the_carrier_rotations": true
+ },
+ "equivariant_port_maps_into_the_commutant": {
+  "rank_bound": 1,
+  "reason": "rotations act trivially on the commutant, so an equivariant D factors through the invariants of the port module (dimension 1)"
+ },
+ "port_response_in_the_frame_space": {
+  "subspace": "functions g -> <u_g chi_0|psi>, psi in C^2: left-irreducible, right character of the port stabilizer",
+  "compressed_port_multiplications_equal_Q_p_over_6_gram_defect": 2.7755575615628914e-17,
+  "invariant_under_left_rotations": true,
+  "rank_with_image_under_turn_and_under_reverse": [
+   2,
+   4
+  ],
+  "reading": "the response algebra acts on the left (representation) factor of a block; the commutant acts on the right (multiplicity) factor; the turn acts on the subspace by a phase (flux), the reverse maps it out of itself"
+ },
+ "seconds": 20.0
+}

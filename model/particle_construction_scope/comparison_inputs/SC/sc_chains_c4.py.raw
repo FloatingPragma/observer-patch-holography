@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+"""Worker SC: row C4 of CANDIDATES.md (GL's four-copy slopes K2(4,1) in the cell frame). Source values only; writes
+sc_chains_c4.json. The NOT BLIND comparison of these rows is a separate step (sc_not_blind_c4.py). The row runner is
+the same as in sc_chains.py (copied here so that importing does not rerun the other rows)."""
+from __future__ import annotations
+
+import json
+
+import numpy as np
+
+from sc_chain_lib import PHI, SQPI, Chain, alpha_cut, bisect, _l3, _c3
+
+P_FWD = 1.63097209585889737696451390350695562847912625483895268486516
+
+
+def p_trivial3(t):
+    logw = _l3 - t * _c3
+    m = logw.max()
+    return float(np.exp(-m) / np.exp(logw - m).sum())
+
+
+T_HALF3 = bisect(lambda t: p_trivial3(t) - 0.5, 0.01, 20.0)
+
+
+def run_row(ch):
+    at = ch.point(P_FWD)
+    if at.get("status") != "ok":
+        return {"at_P_fwd": at}
+    P, hist, fp = P_FWD, [], None
+    for _ in range(40):
+        q = ch.point(P)
+        if q.get("status") != "ok":
+            fp = {"status": f"stopped at P = {P}: {q.get('status')}"}
+            break
+        Pn = PHI + SQPI / q["A_T"]
+        hist.append(abs(Pn - P))
+        P = Pn
+        if hist[-1] < 1e-14:
+            break
+    if fp is None:
+        fp = {"P_star": P, **ch.point(P), "last_dP": hist[-3:], "iterations": len(hist)}
+    return {"at_P_fwd": at, "fixed_point": fp}
+
+
+K2_41 = (32 / 3, 10 / 3, -1 / 3)
+out = {"slopes": K2_41, "measured_values_read": "none",
+       "C1 law at the cell": run_row(Chain(R=0.0, closure="cut", slopes=K2_41, law_coupling="U")),
+       "C3a B10 self-consistent": run_row(Chain(R=0.0, closure="cut", slopes=K2_41, law_coupling="selfSU2")),
+       "C3b B9 beta = 8/3 (target-informed)": run_row(Chain(R=0.0, closure="cut", slopes=K2_41, beta=8 / 3)),
+       "C3c B12 (post-hoc, target-informed)": run_row(Chain(R=0.0, closure="cut", slopes=K2_41,
+                                                            law_inv=lambda P: T_HALF3 / alpha_cut(P)))}
+open("sc_chains_c4.json", "w").write(json.dumps(out, indent=1, default=float) + "\n")
+for k, r in out.items():
+    if isinstance(r, dict) and "at_P_fwd" in r:
+        a = r["at_P_fwd"]
+        print(k, {m: a.get(m) for m in ("status", "v_over_Estar", "sin2w_mZ", "alpha3_mZ", "alpha_em_inv_mZ", "A_T")},
+              "P* =", r.get("fixed_point", {}).get("P_star"))

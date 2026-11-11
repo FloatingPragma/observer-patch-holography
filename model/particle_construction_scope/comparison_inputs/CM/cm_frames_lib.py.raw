@@ -1,0 +1,110 @@
+"""Helpers shared by cm_frames.py, cm_app1.py and cm_compare.py (mpmath, 50 digits; no source data, no measured data)."""
+import re
+from fractions import Fraction as F
+
+import mpmath as mp
+
+mp.mp.dps = 50
+SQ5 = mp.sqrt(5)
+
+
+def parse_real(s):
+    s = s.strip()
+    if s.startswith('(') and s.endswith(')'):
+        s = s[1:-1]
+    a, b = F(0), F(0)
+    m = re.fullmatch(r'(-?[\d/]+)\+(-?[\d/]+)\*r5', s)
+    if m:
+        a, b = F(m.group(1)), F(m.group(2))
+    elif s.endswith('*r5'):
+        b = F(s[:-3])
+    else:
+        a = F(s)
+    return mp.mpf(a.numerator) / a.denominator + mp.mpf(b.numerator) / b.denominator * SQ5
+
+
+def parse(s):
+    """Parse kdlib's repr: re, im*i, re+im*i (re, im each 'x', 'y*r5' or '(x+y*r5)')."""
+    s = s.strip()
+    if not s.endswith('*i'):
+        return mp.mpc(parse_real(s), 0)
+    body = s[:-2]
+    depth, cut = 0, None
+    for k, ch in enumerate(body):
+        if ch == '(':
+            depth += 1
+        elif ch == ')':
+            depth -= 1
+        elif ch == '+' and depth == 0 and k > 0:
+            cut = k
+    if cut is None:
+        return mp.mpc(0, parse_real(body))
+    return mp.mpc(parse_real(body[:cut]), parse_real(body[cut + 1:]))
+
+
+def herm_eig(H):
+    E, Q = mp.eighe(H)
+    idx = sorted(range(len(E)), key=lambda i: mp.re(E[i]))
+    Es = [mp.re(E[i]) for i in idx]
+    Qs = mp.matrix(Q.rows, len(idx))
+    for c, i in enumerate(idx):
+        for r in range(Q.rows):
+            Qs[r, c] = Q[r, i]
+    return Es, Qs
+
+
+def shift(n, closure):
+    S = mp.zeros(n, n)
+    for j in range(n - 1):
+        S[j + 1, j] = 1
+    S[0, n - 1] = closure
+    return S
+
+
+def kron(A, B):
+    out = mp.zeros(A.rows * B.rows, A.cols * B.cols)
+    for i in range(A.rows):
+        for j in range(A.cols):
+            for k in range(B.rows):
+                for l in range(B.cols):
+                    out[i * B.rows + k, j * B.cols + l] = A[i, j] * B[k, l]
+    return out
+
+
+def circ(S, q, p, th):
+    return mp.sqrt(q) * mp.eye(S.rows) + mp.sqrt(p) * (mp.exp(1j * th) * S + mp.exp(-1j * th) * S.H)
+
+
+def ckm(V):
+    a = [[abs(V[i, j]) for j in range(3)] for i in range(3)]
+    s13 = a[0][2]
+    c13 = mp.sqrt(1 - s13 ** 2)
+    J = mp.im(V[0, 0] * V[1, 1] * mp.conj(V[0, 1]) * mp.conj(V[1, 0]))
+    return {'abs_V': [[mp.nstr(x, 12) for x in row] for row in a],
+            's12': float(a[0][1] / c13) if c13 > 1e-40 else None,
+            's23': float(a[1][2] / c13) if c13 > 1e-40 else None,
+            's13': float(s13), 'J': float(J), 'J_30': mp.nstr(J, 30)}
+
+
+def perm_check(V, tol=mp.mpf('1e-35')):
+    a = [[abs(V[i, j]) for j in range(V.cols)] for i in range(V.rows)]
+    for row in a:
+        if not all(x < tol or abs(x - 1) < tol for x in row):
+            return False, None
+    return True, [next(j for j in range(V.cols) if abs(a[i][j] - 1) < tol) for i in range(V.rows)]
+
+
+def svals(V):
+    return [float(x) for x in mp.svd_c(V, compute_uv=False)]
+
+
+def spectrum_summary(E):
+    E = [x for x in E]
+    out = {'levels': [mp.nstr(x, 15) for x in E]}
+    if E[0] > 0 and E[-1] > 0:
+        out['y1_over_y3'] = float(E[0] / E[-1])
+        out['y2_over_y3'] = float(E[1] / E[-1])
+        out['koide_Q'] = float(sum(E) / sum(mp.sqrt(x) for x in E) ** 2)
+    gaps = [E[i + 1] - E[i] for i in range(len(E) - 1)]
+    out['min_relative_gap'] = float(min(gaps) / max(abs(E[-1]), mp.mpf('1e-60')))
+    return out

@@ -1,0 +1,318 @@
+{
+ "measured": {
+  "inv_aem_mZ": 127.951,
+  "sin2_mZ": 0.23122,
+  "alpha_s_mZ": 0.118,
+  "alpha_s_err": 0.0009,
+  "v": 246.21965,
+  "mZ": 91.1876,
+  "inv_alpha_0": 137.035999
+ },
+ "inv_alpha_2(m_Z) = sin2 x 1/alpha_em": 29.58483022,
+ "P_fwd": 1.6309720958588974,
+ "P from the measured alpha(0)": 1.6309682094206657,
+ "N1": {
+  "f=1, w=1": {
+   "left_side": 0.40770410500785137,
+   "over_P_fwd/4": 0.9999045502814627,
+   "minus_P_fwd/4": -3.8918956872968646e-05,
+   "minus_P_meas/4": -3.794734731504823e-05
+  },
+  "f=2, w=1": {
+   "left_side": 0.15833857823925093,
+   "over_P_fwd/4": 0.3883293371879969,
+   "minus_P_fwd/4": -0.2494044457254734,
+   "minus_P_meas/4": -0.24940347411591549
+  },
+  "f=0.5, w=1": {
+   "left_side": 0.9314679104100709,
+   "over_P_fwd/4": 2.2844484287011526,
+   "minus_P_fwd/4": 0.5237248864453465,
+   "minus_P_meas/4": 0.5237258580549045
+  },
+  "f=1, w=2": {
+   "left_side": 0.6201433917501243,
+   "over_P_fwd/4": 1.5209172329181915,
+   "minus_P_fwd/4": 0.2124003677854,
+   "minus_P_meas/4": 0.21240133939495792
+  },
+  "f=2, w=2": {
+   "left_side": 0.2671468111029045,
+   "over_P_fwd/4": 0.655184259206398,
+   "minus_P_fwd/4": -0.14059621286181984,
+   "minus_P_meas/4": -0.14059524125226192
+  },
+  "coordinator input 1/alpha_2 = 29.58, f=1, w=1": {
+   "left_side": 0.4076411112048463,
+   "coordinator_value": 0.40764111120484625
+  },
+  "factor_that_closes_with_measured_couplings": {
+   "w=1, P_fwd": {
+    "f_star": 0.9999165399588499,
+    "f_star_minus_1": -8.346004115011851e-05,
+    "change under alpha_s +- 0.0009": [
+     -0.0012932442737351169,
+     0.0013403715735251787
+    ],
+    "change under 1/alpha_2 +- 0.006": [
+     0.00016779135124433964,
+     -0.00016777223192487867
+    ],
+    "combined (quadrature)": 0.0013274538927294168
+   },
+   "w=1, P_meas": {
+    "f_star": 0.9999186233565656,
+    "f_star_minus_1": -8.137664343443873e-05,
+    "change under alpha_s +- 0.0009": [
+     -0.0012932361054200925,
+     0.0013403633139970061
+    ],
+    "change under 1/alpha_2 +- 0.006": [
+     0.00016779199221206298,
+     -0.00016777287286851017
+    ],
+    "combined (quadrature)": 0.00132744582569597
+   },
+   "w=2, P_fwd": {
+    "f_star": 1.4585028860917228,
+    "f_star_minus_1": 0.45850288609172285
+   },
+   "w=2, P_meas": {
+    "f_star": 1.4585058657516938,
+    "f_star_minus_1": 0.45850586575169383
+   }
+  }
+ },
+ "N2": {
+  "reference chain": {
+   "v/v_meas": 1.0015315795223154,
+   "mZ/mZ_meas": 1.004394539379108,
+   "alpha_s/alpha_s_meas": 1.0028462877777395,
+   "sin2/sin2_meas": 0.9979032086813829,
+   "inv_aem/inv_aem_meas": 1.0027922256018913,
+   "inv_a2/inv_a2_meas": 1.0006895795688726
+  },
+  "B4 f=1, w=1": {
+   "v/v_meas": 1.0015315795223154,
+   "mZ/mZ_meas": 1.004394539379108,
+   "alpha_s/alpha_s_meas": 1.0028462877777395,
+   "sin2/sin2_meas": 0.9979032086813829,
+   "inv_aem/inv_aem_meas": 1.0027922256018913,
+   "inv_a2/inv_a2_meas": 1.0006895795688726
+  },
+  "B4 f=0.99, w=1": {
+   "v/v_meas": 1.4840528342657746,
+   "mZ/mZ_meas": 1.4963678904326894,
+   "alpha_s/alpha_s_meas": 1.0100180767954756,
+   "sin2/sin2_meas": 0.9984457905155174,
+   "inv_aem/inv_aem_meas": 0.991624104086773,
+   "inv_a2/inv_a2_meas": 0.9900829124991597
+  },
+  "B4 f=1.01, w=1": {
+   "v/v_meas": 0.6760548234989476,
+   "mZ/mZ_meas": 0.6743711063696556,
+   "alpha_s/alpha_s_meas": 0.9957765721325124,
+   "sin2/sin2_meas": 0.997373438057941,
+   "inv_aem/inv_aem_meas": 1.0139528098583066,
+   "inv_a2/inv_a2_meas": 1.011289599996889
+  },
+  "B4 f=0.5, w=1": {
+   "v/v_meas": 611528112.2020715,
+   "mZ/mZ_meas": 919540838.9545183,
+   "alpha_s/alpha_s_meas": 1.5623556379713799,
+   "sin2/sin2_meas": 1.065648562960135,
+   "inv_aem/inv_aem_meas": 0.42637342599428396,
+   "inv_a2/inv_a2_meas": 0.4543642286951982
+  },
+  "B4 f=2, w=1": {
+   "v/v_meas": 1.474272519771417e-17,
+   "mZ/mZ_meas": 1.0304244908573696e-17,
+   "alpha_s/alpha_s_meas": 0.586615776931594,
+   "sin2/sin2_meas": 0.9734425898058006,
+   "inv_aem/inv_aem_meas": 2.100923717274671,
+   "inv_a2/inv_a2_meas": 2.045128624328285
+  },
+  "B4 f=1, w=2": {
+   "v/v_meas": 153952.99763493787,
+   "mZ/mZ_meas": 188228.8534514607,
+   "alpha_s/alpha_s_meas": 1.2754523161172249,
+   "sin2/sin2_meas": 1.0230308989474006,
+   "inv_aem/inv_aem_meas": 0.6631113576591079,
+   "inv_a2/inv_a2_meas": 0.6783834083282285
+  },
+  "B4 f=2, w=2": {
+   "v/v_meas": 9.238089070829567e-07,
+   "mZ/mZ_meas": 7.886666834443276e-07,
+   "alpha_s/alpha_s_meas": 0.8005980173315541,
+   "sin2/sin2_meas": 0.984498715707099,
+   "inv_aem/inv_aem_meas": 1.3969943420610715,
+   "inv_a2/inv_a2_meas": 1.3753391356092086
+  },
+  "B4 f=0.5, w=2": {
+   "v/v_meas": 185630481906.73624,
+   "mZ/mZ_meas": 347999943033.5859,
+   "alpha_s/alpha_s_meas": 1.8343765865069217,
+   "sin2/sin2_meas": 1.1431880500401277,
+   "inv_aem/inv_aem_meas": 0.2619346424669207,
+   "inv_a2/inv_a2_meas": 0.2994405531597172
+  },
+  "B5 Wilson form on SU(2)": {
+   "v/v_meas": 0.2287580760842933,
+   "mZ/mZ_meas": 0.22491369672996114,
+   "alpha_s/alpha_s_meas": 0.97677479472415,
+   "sin2/sin2_meas": 0.9959740291276715,
+   "inv_aem/inv_aem_meas": 1.0447203649190153,
+   "inv_a2/inv_a2_meas": 1.040514351160123
+  },
+  "D5 F=5, Hamiltonian | declared (33/5, 1, -3) | v-law coupling: bare": {
+   "v/v_meas": 0.0017465341050697573,
+   "mZ/mZ_meas": 0.0017048849353237952,
+   "alpha_s/alpha_s_meas": 2.620657973148262,
+   "sin2/sin2_meas": 0.9279937310684633,
+   "inv_aem/inv_aem_meas": 1.1147218127066976,
+   "inv_a2/inv_a2_meas": 1.0344548540770888
+  },
+  "D5 F=5, Hamiltonian | declared (33/5, 1, -3) | v-law coupling: matched SU(2)": {
+   "v/v_meas": 0.3452793188629609,
+   "mZ/mZ_meas": 0.3404990763582668,
+   "alpha_s/alpha_s_meas": 1.3124514557801314,
+   "sin2/sin2_meas": 0.9802869739767005,
+   "inv_aem/inv_aem_meas": 1.0501257003366171,
+   "inv_a2/inv_a2_meas": 1.0294245450781456
+  },
+  "D5 F=5, Hamiltonian | declared (33/5, 1, -3) | v-law coupling: mean of matched": {
+   "v/v_meas": 0.5204912608636162,
+   "mZ/mZ_meas": 0.5139655246198902,
+   "alpha_s/alpha_s_meas": 1.2697562122713766,
+   "sin2/sin2_meas": 0.9841974494809185,
+   "inv_aem/inv_aem_meas": 1.0444075551159937,
+   "inv_a2/inv_a2_meas": 1.0279032519637628
+  },
+  "D5 F=5, Hamiltonian | source, two doublets (41/5, 1, -3) | v-law coupling: bare": {
+   "v/v_meas": 0.0017515028423725884,
+   "mZ/mZ_meas": 0.0016856043576048733,
+   "alpha_s/alpha_s_meas": 2.626537648862518,
+   "sin2/sin2_meas": 0.8300390904262978,
+   "inv_aem/inv_aem_meas": 1.246272518463064,
+   "inv_a2/inv_a2_meas": 1.0344549076483731
+  },
+  "D5 F=5, Hamiltonian | source, two doublets (41/5, 1, -3) | v-law coupling: matched SU(2)": {
+   "v/v_meas": 0.34569451545258634,
+   "mZ/mZ_meas": 0.3361124837925708,
+   "alpha_s/alpha_s_meas": 1.3138668738621697,
+   "sin2/sin2_meas": 0.8843035081789739,
+   "inv_aem/inv_aem_meas": 1.1641573625134232,
+   "inv_a2/inv_a2_meas": 1.0294684397430016
+  },
+  "D5 F=5, Hamiltonian | source, two doublets (41/5, 1, -3) | v-law coupling: mean of matched": {
+   "v/v_meas": 0.5209395832063486,
+   "mZ/mZ_meas": 0.507174674115191,
+   "alpha_s/alpha_s_meas": 1.2710700495899325,
+   "sin2/sin2_meas": 0.8884024016938414,
+   "inv_aem/inv_aem_meas": 1.1570840825220796,
+   "inv_a2/inv_a2_meas": 1.0279562778743305
+  },
+  "D5 F=15, Hamiltonian | declared (33/5, 1, -3) | v-law coupling: bare": {
+   "v/v_meas": 0.00010343414332311218,
+   "mZ/mZ_meas": 0.00010028187728313948,
+   "alpha_s/alpha_s_meas": 3.1618805602570093,
+   "sin2/sin2_meas": 0.8813858575431524,
+   "inv_aem/inv_aem_meas": 1.1736701777823706,
+   "inv_a2/inv_a2_meas": 1.0344562961175388
+  },
+  "D5 F=15, Hamiltonian | declared (33/5, 1, -3) | v-law coupling: matched SU(2)": {
+   "v/v_meas": 0.5494532105078153,
+   "mZ/mZ_meas": 0.5432491956222121,
+   "alpha_s/alpha_s_meas": 1.1100367715073052,
+   "sin2/sin2_meas": 0.9566067908089877,
+   "inv_aem/inv_aem_meas": 1.0630434699309235,
+   "inv_a2/inv_a2_meas": 1.0169146022610713
+  },
+  "D5 F=15, Hamiltonian | declared (33/5, 1, -3) | v-law coupling: mean of matched": {
+   "v/v_meas": 0.15068620265457294,
+   "mZ/mZ_meas": 0.1481932034593843,
+   "alpha_s/alpha_s_meas": 1.2044243091549434,
+   "sin2/sin2_meas": 0.9462123239824901,
+   "inv_aem/inv_aem_meas": 1.08289133262339,
+   "inv_a2/inv_a2_meas": 1.0246451244620736
+  },
+  "D5 F=15, Hamiltonian | source, two doublets (41/5, 1, -3) | v-law coupling: bare": {
+   "v/v_meas": 0.00010371452495040582,
+   "mZ/mZ_meas": 9.920181230787483e-05,
+   "alpha_s/alpha_s_meas": 3.1700340490764582,
+   "sin2/sin2_meas": 0.7868917594827547,
+   "inv_aem/inv_aem_meas": 1.3146106643124922,
+   "inv_a2/inv_a2_meas": 1.03445629867565
+  },
+  "D5 F=15, Hamiltonian | source, two doublets (41/5, 1, -3) | v-law coupling: matched SU(2)": {
+   "v/v_meas": 0.5489300074835023,
+   "mZ/mZ_meas": 0.5354819234847693,
+   "alpha_s/alpha_s_meas": 1.1109490869458505,
+   "sin2/sin2_meas": 0.8651153358804254,
+   "inv_aem/inv_aem_meas": 1.175580332573203,
+   "inv_a2/inv_a2_meas": 1.0170125742684888
+  },
+  "D5 F=15, Hamiltonian | source, two doublets (41/5, 1, -3) | v-law coupling: mean of matched": {
+   "v/v_meas": 0.1507177924397277,
+   "mZ/mZ_meas": 0.14624021842961493,
+   "alpha_s/alpha_s_meas": 1.2055324233936004,
+   "sin2/sin2_meas": 0.8541394581665493,
+   "inv_aem/inv_aem_meas": 1.1997010222533673,
+   "inv_a2/inv_a2_meas": 1.0247119811093464
+  },
+  "D5 F=5, isotropic | declared (33/5, 1, -3) | v-law coupling: bare": {
+   "v/v_meas": 0.0019862038528094877,
+   "mZ/mZ_meas": 0.0019417370189652528,
+   "alpha_s/alpha_s_meas": 2.5405310109111956,
+   "sin2/sin2_meas": 0.9381214705629,
+   "inv_aem/inv_aem_meas": 1.1026865103650436,
+   "inv_a2/inv_a2_meas": 1.0344538906735272
+  },
+  "D5 F=5, isotropic | declared (33/5, 1, -3) | v-law coupling: matched SU(2)": {
+   "v/v_meas": 0.3467554581739491,
+   "mZ/mZ_meas": 0.34248463947320285,
+   "alpha_s/alpha_s_meas": 1.3085473509323102,
+   "sin2/sin2_meas": 0.990229176104467,
+   "inv_aem/inv_aem_meas": 1.039457825569575,
+   "inv_a2/inv_a2_meas": 1.029301466209101
+  },
+  "D5 F=5, isotropic | declared (33/5, 1, -3) | v-law coupling: mean of matched": {
+   "v/v_meas": 0.7758108889649092,
+   "mZ/mZ_meas": 0.7683722483381538,
+   "alpha_s/alpha_s_meas": 1.2292323400293526,
+   "sin2/sin2_meas": 0.9980288359569917,
+   "inv_aem/inv_aem_meas": 1.0280647719854519,
+   "inv_a2/inv_a2_meas": 1.0260382876730307
+  },
+  "D5 F=5, isotropic | source, two doublets (41/5, 1, -3) | v-law coupling: bare": {
+   "v/v_meas": 0.001991968492522018,
+   "mZ/mZ_meas": 0.001919327136253688,
+   "alpha_s/alpha_s_meas": 2.546169910772706,
+   "sin2/sin2_meas": 0.8384229388439238,
+   "inv_aem/inv_aem_meas": 1.2338092474836213,
+   "inv_a2/inv_a2_meas": 1.034453975248028
+  },
+  "D5 F=5, isotropic | source, two doublets (41/5, 1, -3) | v-law coupling: matched SU(2)": {
+   "v/v_meas": 0.3471714772706711,
+   "mZ/mZ_meas": 0.33796565474326107,
+   "alpha_s/alpha_s_meas": 1.309984553621902,
+   "sin2/sin2_meas": 0.8923871129204081,
+   "inv_aem/inv_aem_meas": 1.1534760026725308,
+   "inv_a2/inv_a2_meas": 1.0293471198479127
+  },
+  "D5 F=5, isotropic | source, two doublets (41/5, 1, -3) | v-law coupling: mean of matched": {
+   "v/v_meas": 0.7761932855943194,
+   "mZ/mZ_meas": 0.757705716487552,
+   "alpha_s/alpha_s_meas": 1.2304796156618778,
+   "sin2/sin2_meas": 0.9005446804124009,
+   "inv_aem/inv_aem_meas": 1.1394247382525826,
+   "inv_a2/inv_a2_meas": 1.0261028867636555
+  }
+ },
+ "window_of_f": {
+  "d ln v / d ln f (source)": -39.31158218997189,
+  "f window for v within 1 percent": 0.00025437795791772867,
+  "f window for v within 0.15 percent": 3.81566936876593e-05,
+  "f offset equivalent to the reference chain v deviation": -3.893020238131278e-05
+ }
+}

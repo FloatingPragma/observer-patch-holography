@@ -1,0 +1,157 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "T1 W^-1 W S = S": true,
+ "T2 one tick from S": {
+  "weights": {
+   "B": "1/12",
+   "F": "1/12",
+   "I": "1/6",
+   "double": "2/3"
+  },
+  "p_F": "1/12",
+  "p_I": "1/6",
+  "P = <Qx>": "2/9"
+ },
+ "T3 zero return": {
+  "<S|W^-1 Pi_F W|S>": "1/12",
+  "<S|W^-1 Pi_I W|S>": "1/6",
+  "zero-return amplitude of one round": "1 - P + P exp(-i h j), P = 2/9",
+  "state after a zero return": "S (x) S (the return test projects on it), so round n + 1 starts as round 1",
+  "N rounds": [
+   {
+    "N": 1,
+    "phase per unit clock time, j = +1": "0.205334030970278",
+    "amplitude kept": "0.917110764911",
+    "count read in every round": "2/9"
+   },
+   {
+    "N": 2,
+    "phase per unit clock time, j = +1": "0.218167184001747",
+    "amplitude kept": "0.9576828609",
+    "count read in every round": "2/9"
+   },
+   {
+    "N": 6,
+    "phase per unit clock time, j = +1": "0.221777012442412",
+    "amplitude kept": "0.985698740144",
+    "count read in every round": "2/9"
+   },
+   {
+    "N": 10,
+    "phase per unit clock time, j = +1": "0.222062099670503",
+    "amplitude kept": "0.991394996221",
+    "count read in every round": "2/9"
+   },
+   {
+    "N": 100,
+    "phase per unit clock time, j = +1": "0.22222062184783",
+    "amplitude kept": "0.999136175514",
+    "count read in every round": "2/9"
+   },
+   {
+    "N": 1000,
+    "phase per unit clock time, j = +1": "0.222222206218563",
+    "amplitude kept": "0.999913583981",
+    "count read in every round": "2/9"
+   },
+   {
+    "N": 10000,
+    "phase per unit clock time, j = +1": "0.222222222062186",
+    "amplitude kept": "0.999991358062",
+    "count read in every round": "2/9"
+   },
+   {
+    "N": 1000000,
+    "phase per unit clock time, j = +1": "0.222222222222206",
+    "amplitude kept": "0.99999991358",
+    "count read in every round": "2/9"
+   }
+  ],
+  "limit": "exp(-i (2/9) j): phase per unit clock time 2/9",
+  "period average 8/27 enters": false
+ },
+ "T4 non-return": {
+  "weight per round": "4 sin^2(h j/2) * 14/81",
+  "P(1 - P)": "14/81",
+  "object A (forward flag): norm^2 of the non-return vector": "11/144",
+  "object A split": {
+   "record 2 or 3": "0",
+   "record 1": "0",
+   "blank record, double at 2 or 10": "11/144",
+   "blank record, other configuration": "0"
+  },
+  "object A: blank-record double part with uniform address": "1/144",
+  "object B (in-dimer flag): norm^2": "5/36",
+  "object B split": {
+   "record 2 or 3": "0",
+   "record 1": "0",
+   "blank record, double at 2 or 10": "5/36",
+   "blank record, other configuration": "0"
+  },
+  "object B: blank-record double part with uniform address": "0",
+  "share of non-returns with both records blank": "1",
+  "as float": 1.0
+ },
+ "T5 controls": {
+  "(i) forward only, same objects: weights per tick": {
+   "1": {
+    "B": "1/12",
+    "F": "1/12",
+    "I": "1/6",
+    "double": "2/3"
+   },
+   "2": {
+    "B": "7/36",
+    "F": "7/36",
+    "I": "7/18",
+    "double": "2/9"
+   },
+   "3": {
+    "B": "2/9",
+    "F": "2/9",
+    "I": "4/9",
+    "double": "1/9"
+   },
+   "4": {
+    "B": "7/36",
+    "F": "7/36",
+    "I": "7/18",
+    "double": "2/9"
+   },
+   "5": {
+    "B": "1/12",
+    "F": "1/12",
+    "I": "1/6",
+    "double": "2/3"
+   },
+   "6": {
+    "double": "1"
+   }
+  },
+  "(i) exclusive counts at ticks 1 to 6": [
+   "2/9",
+   "35/81",
+   "38/81",
+   "35/81",
+   "2/9",
+   "0"
+  ],
+  "(i) mean per tick": "8/27",
+  "(ii) inverse tick, no return read: phase at t = 1": "0.20533403097",
+  "(iii) forward only with a new pair per round": "coherence factor per round 1 - P + P exp(-i h j); pairs consumed per unit clock time: N",
+  "(iv) expected resets per unit clock time, |j| = 1": {
+   "10": "0.017269552",
+   "100": "0.0017283807",
+   "1000": "0.00017283949",
+   "405311": "4.2643675e-7"
+  },
+  "(iv) leading form": "14/(81 N)"
+ }
+}

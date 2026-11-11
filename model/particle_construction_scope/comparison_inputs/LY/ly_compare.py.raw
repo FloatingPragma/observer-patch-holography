@@ -1,0 +1,128 @@
+"""Worker LY: comparison with measurement. NOT BLIND. The only script of this directory that reads measured values.
+
+Measured inputs: charged-lepton pole masses and their running values at m_Z (work/LS/compare.json; the running
+values are IMPORTED there from Xing, Zhang, Zhou 2008), v = 246.21965 GeV from G_F (the brief), the quark
+determinant tables of work/LS/ls2_compare.json (IMPORTED there), m_b/m_tau at M_Z from the same table.
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B ly_compare.py
+Writes compare.json.
+"""
+from __future__ import annotations
+
+import json
+import math
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+V_GF = 246.21965
+PASS = 0.05
+
+
+def load(path):
+    with open(path) as fh:
+        return json.load(fh)
+
+
+def qed_pole_over_running(m, mu, alpha):
+    return 1.0 + (alpha / math.pi) * (1.0 + 0.75 * math.log(mu * mu / (m * m)))
+
+
+def main():
+    vals, run = load(os.path.join(HERE, 'values.json')), load(os.path.join(HERE, 'run.json'))
+    ls = load(os.path.join(HERE, '..', 'LS', 'compare.json'))
+    ls2 = load(os.path.join(HERE, '..', 'LS', 'ls2_compare.json'))
+    pole = ls['measured']['pole_GeV']
+    runmz = ls['measured']['running_mZ_GeV_IMPORTED']
+    s2 = math.sqrt(2.0)
+    yJ_pole = s2 * sum(pole) / V_GF
+    yJ_run = s2 * sum(runmz) / V_GF
+    f_sum = sum(pole) / sum(runmz)
+    lam2 = vals['structure']['lambda_sq_e_mu_tau']
+    lmax = lam2[2]
+    f2, f1 = vals['running']['factor_two_loops'], vals['running']['factor_one_loop']
+    yt2, yt1 = vals['running']['y_t_cell_two_loops'], vals['running']['y_t_cell_one_loop']
+    alpha = run['alpha_em_chart_Q0']
+    # one-loop QED pole factors with the chart's coupling (check of the imported factor)
+    qed = [qed_pole_over_running(m, run['Q0_GeV'], alpha) for m in pole]
+    f_sum_qed = sum(pole) / sum(m / f for m, f in zip(pole, qed))
+    needed = {'yJ_Q0_pole_convention': yJ_pole, 'yJ_Q0_MSbar_from_running_masses': yJ_run,
+              'pole_sum_over_running_sum_IMPORTED': f_sum, 'pole_sum_over_running_sum_one_loop_QED_chart_alpha': f_sum_qed,
+              'yJ_cell_two_loops': yJ_run / f2, 'yJ_cell_one_loop': yJ_run / f1,
+              'y_tau_cell_two_loops': yJ_run / f2 * lmax, 'y_tau_cell_one_loop': yJ_run / f1 * lmax,
+              'r_needed_two_loops': yJ_run / f2 * lmax / yt2, 'r_needed_one_loop': yJ_run / f1 * lmax / yt1,
+              'vertex_amplitude_per_Higgs_amplitude_(9/2)yJ_cell': 4.5 * yJ_run / f2}
+    K = vals['structure']['K_placement_mean']
+    needed['w_needed_uniform_chain_two_loops'] = needed['r_needed_two_loops'] / K
+    needed['w_needed_uniform_chain_one_loop'] = needed['r_needed_one_loop'] / K
+    d6 = vals['structure']['committed_law_K_C']
+    if '6' in d6 and 'mean' in d6['6']:
+        needed['w_needed_committed_law_N6_two_loops'] = needed['r_needed_two_loops'] / d6['6']['mean']
+    out = {'NOT_BLIND': True, 'measured': {'pole_GeV': pole, 'running_mZ_GeV_IMPORTED': runmz, 'v_GF_GeV': V_GF},
+           'needed': needed}
+    rows, looks = [], 0
+    for r in vals['rows']:
+        if 'yJ_pole_Q0' in r:
+            pred2 = pred1 = r['yJ_pole_Q0']
+        else:
+            pred2 = f_sum * r['yJ_MSbar_Q0_two_loops']
+            pred1 = f_sum * r['yJ_MSbar_Q0_one_loop']
+        ratio2, ratio1 = pred2 / yJ_pole, pred1 / yJ_pole
+        row = {'id': r['id'], 'formula': r['formula'], 'marks': r['marks'], 'r_cell': r.get('r'),
+               'yJ_cell': r.get('yJ_cell'), 'yJ_Q0_pole_convention_two_loops': pred2,
+               'ratio_to_measured_two_loops': ratio2, 'ratio_to_measured_one_loop': ratio1,
+               'pass_5_percent_two_loops': abs(ratio2 - 1) <= PASS, 'pass_5_percent_one_loop': abs(ratio1 - 1) <= PASS,
+               'masses_GeV_e_mu_tau': [pred2 * l * V_GF / s2 for l in lam2]}
+        row['deviation_percent_e_mu_tau'] = [100 * (m / p - 1) for m, p in zip(row['masses_GeV_e_mu_tau'], pole)]
+        rows.append(row)
+        looks += 2
+    out['rows'] = rows
+    # D2: determinant ratios
+    d2 = vals['D2']
+    d2c = {}
+    for cid in ('D2-1', 'D2-2'):
+        pred = d2[cid]['R_predicted']
+        d2c[cid] = {'N_q': d2[cid]['N_q'], 'R_predicted': pred}
+        for sc, tab in ls2['scales'].items():
+            d2c[cid][sc] = {'R_u_measured': tab['R_u'], 'R_d_measured': tab['R_d'],
+                            'miss_factor_u': max(tab['R_u'] / pred, pred / tab['R_u']),
+                            'miss_factor_d': max(tab['R_d'] / pred, pred / tab['R_d'])}
+            looks += 2
+        mz = d2c[cid]['S2_MZ']
+        d2c[cid]['pass_factor_3_at_MZ'] = mz['miss_factor_u'] <= 3 and mz['miss_factor_d'] <= 3
+    out['D2'] = d2c
+    # D3: bottom against tau, neutrino
+    mb_mtau_meas = 2.89 / 1.74624                    # IMPORTED (the M_Z table used by LS2 and UD)
+    d3 = {'m_b_over_m_tau_MZ_IMPORTED': mb_mtau_meas}
+    for name, v in (('c_b = 1/sqrt3', vals['D3']['m_b_over_m_tau_Q0_c_b_1_over_sqrt3']), ('c_b = 1', vals['D3']['m_b_over_m_tau_Q0_c_b_1'])):
+        d3[name] = {'two_loops': v['two_loops'], 'one_loop': v['one_loop'],
+                    'deviation_percent_two_loops': 100 * (v['two_loops'] / mb_mtau_meas - 1),
+                    'deviation_percent_one_loop': 100 * (v['one_loop'] / mb_mtau_meas - 1)}
+        looks += 2
+    rho_needed = needed['r_needed_two_loops']
+    d3['neutrino_under_n_nu_2'] = {'rho_needed_from_the_tau': rho_needed,
+                                   'm_nu3_GeV_estimate': rho_needed * rho_needed * yt2 * f2 * V_GF / s2,
+                                   'bound_GeV': 0.8e-9, 'note': 'rho^2 y_t at the cell, run with the tau factor'}
+    out['D3'] = d3
+    out['looks_printed_by_this_script'] = looks
+    with open(os.path.join(HERE, 'compare.json'), 'w') as fh:
+        json.dump(out, fh, indent=1)
+        fh.write('\n')
+    print('needed', json.dumps(needed, indent=1))
+    print(f"{'id':16s} {'formula':34s} {'r(cell)':>10s} {'yJ(cell)':>10s} {'yJ(Q0)':>10s} {'ratio 2L':>9s} {'ratio 1L':>9s} pass marks")
+    for r in rows:
+        rc = f"{r['r_cell']:.5g}" if r['r_cell'] is not None else '-'
+        yc = f"{r['yJ_cell']:.5g}" if r['yJ_cell'] is not None else '-'
+        print(f"{r['id']:16s} {r['formula']:34s} {rc:>10s} {yc:>10s} {r['yJ_Q0_pole_convention_two_loops']:10.6f} "
+              f"{r['ratio_to_measured_two_loops']:9.4f} {r['ratio_to_measured_one_loop']:9.4f} "
+              f"{'yes' if r['pass_5_percent_two_loops'] else 'no ':3s}  {r['marks']}")
+    for cid in ('D1-6', 'D1-1', 'D6-1'):
+        for r in rows:
+            if r['id'] == cid:
+                print(cid, 'masses GeV (e, mu, tau):', [f'{m:.6g}' for m in r['masses_GeV_e_mu_tau']],
+                      'deviation percent:', [f'{d:+.1f}' for d in r['deviation_percent_e_mu_tau']])
+    print('D2', json.dumps(d2c, indent=1))
+    print('D3', json.dumps(d3, indent=1))
+    print('looks printed:', looks)
+
+
+if __name__ == '__main__':
+    main()

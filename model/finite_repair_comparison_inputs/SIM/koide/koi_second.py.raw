@@ -1,0 +1,228 @@
+"""Task KOI, part G-e: the second triplet index of the regular representation of the frame group on the ports.
+
+With the frame fixed, port g.p0 <-> group element g (p0 = (0, 1, phi)). Triplet sector basis
+|i, j> = (1/2) sum_g D(g)_ij |g.p0> (D = frame rotation matrices): the left index i carries the rotations, the right index
+j is the second index (three copies). The right action of a third-turn c acts on j by D(c) = the cyclic permutation P,
+so the frame-axis basis of the second index is third-turn covariant. Every left-invariant port operator O acts as
+1 (x) M_O; the adjacency gives M3.
+Sources: (i) uniform; (iv) the carrier walk (kernel 1 - (5 - M3)/60, mass angle arccos of it); (ii) loads on ports
+(per left state and averaged over the left index); (iii) flux pairs (exact levels of the twelve-port Laplacian grouped by
+copy). Output: koide.json key 'G-e'.
+"""
+import itertools, json, math
+from fractions import Fraction as Fr
+import numpy as np
+import mpmath as mp
+
+from koide_lib import (QF, ZERO, ONE, PHI, mzeros, mmul, mT, madd, mscale, mtrace, meq, mstr, mcomplex,
+                       koide_from_traces, koide_from_eigs, circulant_parts, save, fq, lemma_rational)
+from koi_carrier import (V, N, W, DOT, ANTI, FACES, GROUP, PERM, TURNS, HALF, I3, C3, adjacency, diag_ports,
+                         flux_laplacian, dual_paths, face_dist, turn_axis)
+
+out = {'copy_space': 'G-e: second index of the regular representation of the frame group on the twelve ports',
+       'basis': 'frame axes of the second index; the right third-turn about (1,1,1) acts as the cyclic permutation P (covariant basis)'}
+p0 = 0
+assert [fq(x) for x in V[p0]] == [0.0, 1.0, fq(PHI)]
+elem = {PERM[k][p0]: k for k in range(12)}
+assert sorted(elem) == list(range(N))
+B = mzeros(N, 9)                                                       # columns (i, j) -> 3 i + j
+for p in range(N):
+    g = GROUP[elem[p]]
+    for i in range(3):
+        for j in range(3):
+            B[p][3 * i + j] = g[i][j] * QF(Fr(1, 2))
+BT = mT(B)
+assert meq(mmul(BT, B), [[QF(int(a == b)) for b in range(9)] for a in range(9)])
+
+
+def sector(O):
+    return mmul(mmul(BT, O), B)
+
+
+def right_block(S9):
+    """if S9 = 1 (x) M, return M; else None"""
+    M = [[S9[j][k] for k in range(3)] for j in range(3)]
+    for i in range(3):
+        for j in range(3):
+            for k in range(3):
+                for i2 in range(3):
+                    want = M[j][k] if i == i2 else ZERO
+                    if not S9[3 * i + j][3 * i2 + k] == want: return None
+    return M
+
+
+def left_average(S9):
+    return [[sum((S9[3 * i + j][3 * i + k] for i in range(3)), ZERO) * QF(Fr(1, 3)) for k in range(3)] for j in range(3)]
+
+
+A = adjacency()
+M3 = right_block(sector(A))
+assert M3 is not None
+print('M3 (base port (0,1,phi)):', mstr(M3))
+# the right action of the turns on the second index and the commutation with M3
+turn_c = next(i for i in TURNS if turn_axis(GROUP[i]) == (1, 1, 1))
+Pm = GROUP[turn_c]
+assert meq(Pm, C3)
+comm_turns = [turn_axis(GROUP[i]) for i in TURNS if meq(mmul(GROUP[i], M3), mmul(M3, GROUP[i]))]
+comm_half = [i for i in HALF if meq(mmul(GROUP[i], M3), mmul(M3, GROUP[i]))]
+# check that the right action of c on the ports acts on j by D(c): R_c |g.p0> = |g c^-1 . p0>
+def mul(a, b): return next(k for k in range(12) if meq(GROUP[k], mmul(GROUP[a], GROUP[b])))
+def inv(a): return next(k for k in range(12) if meq(GROUP[k], mT(GROUP[a])))
+Rc = mzeros(N)
+for p in range(N):
+    q = PERM[mul(elem[p], inv(turn_c))][p0]
+    Rc[q][p] = ONE
+Rsec = sector(Rc)
+assert right_block(Rsec) is not None
+Rj = right_block(Rsec)
+print('right third-turn on the second index:', mstr(Rj), '| equals P:', meq(Rj, C3) or meq(Rj, mT(C3)))
+
+# ---------------------------------------------------------------------------------------------- (i), (iv)
+Ksec = madd(mscale(I3, ONE), mscale(madd(mscale(I3, QF(5)), M3, -1), QF(Fr(1, 60))), -1)    # kernel 1 - (5 - M3)/60
+Mc_float = mcomplex(M3).real
+mu = sorted(np.linalg.eigvalsh(Mc_float))
+P = mcomplex(C3).real
+circ, rest = circulant_parts(Mc_float, P)
+t1, t2, t3 = mtrace(M3), mtrace(mmul(M3, M3)), mtrace(mmul(mmul(M3, M3), M3))
+kp_adj = koide_from_traces(t1, t2, t3)
+cost = madd(mscale(I3, QF(5)), M3, -1)
+kp_cost = koide_from_traces(mtrace(cost), mtrace(mmul(cost, cost)), mtrace(mmul(mmul(cost, cost), cost)))
+kp_kern = koide_from_traces(mtrace(Ksec), mtrace(mmul(Ksec, Ksec)), mtrace(mmul(mmul(Ksec, Ksec), Ksec)))
+r5 = mp.sqrt(5)
+mu_exact = [-r5, mp.mpf(-1), r5]
+costs = [5 - x for x in mu_exact]
+kern = [1 - c / 60 for c in costs]
+phases = [mp.acos(k) for k in kern]
+w, U = np.linalg.eigh(Mc_float)
+Mphase = U @ np.diag([float(mp.acos(1 - (5 - x) / 60)) for x in w]) @ U.T            # arccos(kernel) as a matrix
+circ_ph, rest_ph = circulant_parts(Mphase, P)
+out['(i) uniform rest angle theta'] = {'matrix': 'theta * 1', 'Q': '1/3', 'label': 'EXACT'}
+out['(iv) internal walk as mass step (M3)'] = {
+    'M3_in_the_covariant_basis (base port (0, 1, phi))': mstr(M3),
+    'M3_form_of_DESIGN.md': '[[-1,0,0],[0,-1,2],[0,2,1]] (another base port relabels the axes)',
+    'third_turns_commuting_with_M3': comm_turns, 'half_turns_commuting_with_M3': len(comm_half),
+    'circulant_part_of_M3': {'a': float(circ[0, 0].real), 'b': float(circ[1, 0].real), 'relative_norm_of_the_rest': rest},
+    'adjacency_eigenvalues': 'sqrt5, -1, -sqrt5',
+    'adjacency': {'Q_signed_exact': str(kp_adj['Q']), 'cos2_3delta_exact': str(kp_adj['cos2_3delta']), 'sign': kp_adj['sign_cos_3delta'],
+                  'sqrt_reading': koide_from_eigs(mu_exact, 'sqrt')},
+    'costs 5 - sqrt5, 6, 5 + sqrt5': {'Q_exact': str(kp_cost['Q']), 'b2_over_a2': str(kp_cost['b2_over_a2']), 'cos2_3delta_exact': str(kp_cost['cos2_3delta']),
+                                      'sign': kp_cost['sign_cos_3delta'], 'sqrt_reading': koide_from_eigs(costs, 'sqrt'), 'mass_reading': koide_from_eigs(costs, 'mass')},
+    'kernel levels': {'values': [str(x) for x in ('11/12 - sqrt5/60', '9/10', '11/12 + sqrt5/60')], 'Q_exact': str(kp_kern['Q']),
+                      'cos2_3delta_exact': str(kp_kern['cos2_3delta']), 'sign': kp_kern['sign_cos_3delta'],
+                      'sqrt_reading': koide_from_eigs(kern, 'sqrt')},
+    'mass angles arccos(kernel)': {'values': [float(x) for x in phases], 'sqrt_reading': koide_from_eigs(phases, 'sqrt'),
+                                   'mass_reading': koide_from_eigs(phases, 'mass'),
+                                   'matrix_in_covariant_basis': Mphase.tolist(),
+                                   'circulant_part': {'a': float(circ_ph[0, 0].real), 'b': float(circ_ph[1, 0].real), 'relative_norm_of_the_rest': rest_ph}},
+    'label': 'EXACT (M3, traces, Q); mass angles from the closed forms at 40 digits'}
+print('(iv) M3: commuting turns', comm_turns, '| circulant part a, b', circ[0, 0].real, circ[1, 0].real, 'rest', round(rest, 4))
+print('     Q: adjacency (signed)', kp_adj['Q'], '| costs', kp_cost['Q'], '| kernel', kp_kern['Q'],
+      '| phases sqrt', round(out['(iv) internal walk as mass step (M3)']['mass angles arccos(kernel)']['sqrt_reading']['Q'], 6),
+      'mass', round(out['(iv) internal walk as mass step (M3)']['mass angles arccos(kernel)']['mass_reading']['Q'], 6))
+print('     delta: costs', out['(iv) internal walk as mass step (M3)']['costs 5 - sqrt5, 6, 5 + sqrt5']['sqrt_reading']['delta_canonical'],
+      'phases', out['(iv) internal walk as mass step (M3)']['mass angles arccos(kernel)']['sqrt_reading']['delta_canonical'])
+
+# ---------------------------------------------------------------------------------------------- (ii) loads
+# per left frame axis i: the load on port g contributes (1/4) e_k e_k^T with D(g)^T e_i = +- e_k
+Dg = {p: GROUP[elem[p]] for p in range(N)}
+def row_target(p, i):
+    r = [fq(x) for x in Dg[p][i]]
+    k = int(np.argmax(np.abs(r))); assert abs(abs(r[k]) - 1) < 1e-12 and sum(abs(x) for x in r) == 1
+    return k
+counts_q, two_thirds_axis = set(), []
+diag_v_rows = []
+for mask in range(1, 1 << N):
+    S = [p for p in range(N) if mask >> p & 1]
+    for i in range(3):
+        n = [0, 0, 0]
+        for p in S: n[row_target(p, i)] += 1
+        Q = Fr(sum(x * x for x in n), sum(n) ** 2)
+        counts_q.add(Q)
+        if Q == Fr(2, 3): two_thirds_axis.append((S, i))
+# exact check of the per-axis statement against the sector compression for one set
+S0 = [0, 1, 5]
+S9 = sector(diag_ports({p: 1 for p in S0}))
+for i in range(3):
+    blk = [[S9[3 * i + j][3 * i + k] for k in range(3)] for j in range(3)]
+    n = [0, 0, 0]
+    for p in S0: n[row_target(p, i)] += 1
+    assert meq(blk, [[QF(Fr(n[j], 4)) if j == k else ZERO for k in range(3)] for j in range(3)])
+avg_single = left_average(sector(diag_ports({0: 1})))
+assert meq(avg_single, mscale(I3, QF(Fr(1, 12))))
+# left state along the body diagonal (1,1,1)/sqrt3: copy matrix (1/4) sum_g w_g w_g^T, w_g = D(g)^T v
+diag_rows, two_thirds_diag = {}, []
+vb = np.ones(3) / np.sqrt(3)
+for mask in range(1, 1 << N):
+    S = [p for p in range(N) if mask >> p & 1]
+    Mv = np.zeros((3, 3))
+    for p in S:
+        wv = mcomplex(mT(Dg[p])).real @ vb; Mv += np.outer(wv, wv) / 4
+    # exact rational traces: entries are multiples of 1/12
+    Mi = np.rint(Mv * 12).astype(int)
+    t1_, t2_ = Fr(int(np.trace(Mi)), 12), Fr(int(np.trace(Mi @ Mi)), 144)
+    Q = t2_ / t1_ ** 2
+    if Q == Fr(2, 3): two_thirds_diag.append(S)
+    key = Q
+    if key not in diag_rows:
+        ev = sorted(np.linalg.eigvalsh(Mv))
+        diag_rows[key] = {'example_ports': S, 'Q': str(Q), 'eigenvalues': ev, 'covariant': bool(np.allclose(P @ Mv @ P.T, Mv)),
+                          'mass_reading_Q': koide_from_eigs([max(x, 0) for x in ev], 'mass').get('Q')}
+lem = lemma_rational() if False else 'proof in the report (Lemma 1)'
+out['(ii) loads on ports'] = {
+    'single_port': 'for a left state along frame axis i the load on port g is (1/4) e_k e_k^T with D(g)^T e_i = +- e_k: rank one on one axis of the second index; averaged over the left index it is (1/12) times 1',
+    'port_sets_left_state_on_a_frame_axis': {'copy_matrix': '(1/4) diag(n_1, n_2, n_3), n_k = number of ports of S whose group element sends e_i to +-e_k',
+                                             'Q_values': sorted(str(x) for x in counts_q), 'Q_equal_2/3': len(two_thirds_axis),
+                                             'reason': 'integer eigenvalues: Lemma 1 excludes 2/3'},
+    'port_sets_left_state_on_the_body_diagonal': {'copy_matrix': '(1/4) sum_(g in S) w_g w_g^T with w_g = D(g)^T (1,1,1)/sqrt3 a signed body diagonal; rational entries',
+                                                  'Q_equal_2/3': len(two_thirds_diag), 'classes': list(diag_rows.values())},
+    'port_sets_left_average': '(|S|/12) times 1: scalar, Q = 1/3',
+    'label': 'EXACT'}
+print('(ii) loads: frame-axis left state, Q = 2/3 in', len(two_thirds_axis), 'cases; body-diagonal left state:', len(two_thirds_diag),
+      '| body-diagonal Q values', sorted(diag_rows.keys())[:8], '...')
+
+# ---------------------------------------------------------------------------------------------- (iii) flux pairs
+# exact levels of the twelve-port Laplacian; each eigenvector is assigned to the copy (kernel band containing a triplet:
+# adjacency sqrt5, -1, -sqrt5 restricted to the triplet sector) with the largest weight, or to a singlet
+Bf = mcomplex(B)
+wM, UM = np.linalg.eigh(Mc_float)                                       # copies: eigenvectors of M3 on the second index
+proj = {}
+for k, name in enumerate(('fast (-sqrt5)', 'middle (-1)', 'slow (+sqrt5)')):
+    u = UM[:, k]
+    cols = np.array([np.kron(np.eye(3)[i], u) for i in range(3)]).T   # 9 x 3: left index free, right = copy k
+    proj[name] = Bf @ cols                                             # 12 x 3 orthonormal
+sing = np.eye(N) - Bf @ Bf.T                                           # projector on the three singlets
+rows3 = []
+for (num, den, name) in ((1, 6, '1/6'), (1, 3, '1/3'), (1, 2, '1/2')):
+    for d in range(1, 6):
+        f2 = next(f for f in range(20) if face_dist(0, f) == d)
+        L = mcomplex(flux_laplacian(dual_paths(0, f2)[0], num, den))
+        lam, Uv = np.linalg.eigh(L)
+        assign, wts = [], []
+        for j in range(N):
+            v = Uv[:, j]
+            ws = {nm: float(np.sum(np.abs(Pj.conj().T @ v) ** 2)) for nm, Pj in proj.items()}
+            ws['singlets'] = float(np.real(v.conj() @ sing @ v))
+            best = max(ws, key=ws.get); assign.append(best); wts.append(ws[best])
+        groups = {nm: sorted(float(lam[j]) for j in range(N) if assign[j] == nm) for nm in list(proj) + ['singlets']}
+        ok = all(len(groups[nm]) == 3 for nm in proj)
+        mean = [float(np.mean(groups[nm])) for nm in proj] if ok else None
+        low = [float(min(groups[nm])) for nm in proj] if ok else None
+        r = {'alpha': name, 'separation': d, 'levels_by_copy': groups, 'smallest_assignment_weight': float(min(wts)), 'three_levels_per_copy': ok}
+        if ok:
+            r['copy_mean_cost'] = mean; r['copy_lowest_cost'] = low
+            r['mean_cost'] = {'sqrt_reading': koide_from_eigs(mean, 'sqrt')}
+            r['mean_rest_phase'] = {'values': [float(mp.acos(1 - mp.mpf(x) / 60)) for x in mean]}
+            r['mean_rest_phase']['sqrt_reading'] = koide_from_eigs(r['mean_rest_phase']['values'], 'sqrt')
+            r['mean_rest_phase']['mass_reading'] = koide_from_eigs(r['mean_rest_phase']['values'], 'mass')
+            r['lowest_rest_phase'] = {'values': [float(mp.acos(1 - mp.mpf(x) / 60)) for x in low]}
+            r['lowest_rest_phase']['sqrt_reading'] = koide_from_eigs(r['lowest_rest_phase']['values'], 'sqrt')
+        rows3.append(r)
+        print(f"(iii) alpha {name} d {d}: per copy three levels {ok}, min weight {min(wts):.3f}",
+              (f"Q(mean cost) {r['mean_cost']['sqrt_reading']['Q']:.6f} Q(mean phase) {r['mean_rest_phase']['sqrt_reading']['Q']:.6f} "
+               f"Q(lowest phase) {r['lowest_rest_phase']['sqrt_reading']['Q']:.6f}") if ok else '')
+out['(iii) flux pair on the carrier'] = {
+    'method': 'exact twelve-port Laplacian with the flux pair (as in G-a); each eigenvector assigned to the copy (M3 eigenvector of the second index, any left state) or the singlets that holds most of its weight; copy mass = mean or lowest of its three levels',
+    'gauge_note': 'the levels are gauge invariant; the assignment uses projections in the shortest-string gauge',
+    'rows': rows3, 'label': 'MEASURED (float64 eigenvectors of exact matrices)'}
+save('G-e', out)
+print('saved G-e')

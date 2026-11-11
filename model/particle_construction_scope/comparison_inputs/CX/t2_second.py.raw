@@ -1,0 +1,79 @@
+"""Task 2: the exact second eigenvalue of the one-load CAP channel for flux 1, 2, 3, 7 (needs t2_oneload_flux*.pkl).
+
+Flux 1: the second eigenvalue is the largest root of an exact quartic over Q(r), r = 2 cos(pi/10); the quartic is
+the vector-multiplet secular polynomial divided by its native root (55 + sqrt5)/60. Its norm to Q is an irreducible
+polynomial of degree 16. Flux 2, 3, 7: the second eigenvalue is the native slow value (55 + sqrt5)/60 exactly.
+"""
+import json, pickle, sys
+from fractions import Fraction as F
+import mpmath, sympy as s
+from cyc import Cyc, ZERO, ONE, SQRT5, R18, q5
+import oneload as ol
+
+base = sys.argv[1]
+native = q5(F(11, 12), F(1, 60))
+out = {}
+summary = json.load(open(base + '.json'))
+for k in (1, 2, 3, 7):
+    d = pickle.load(open(f'{base}_flux{k}.pkl', 'rb'))
+    sec, taus, active = d['secular'], d['taus'], d['active']
+    # candidates: all secular roots and all bare values
+    cands = []
+    for label, P in sec.items():
+        for rt in ol.poly_roots_mp(P, 50):
+            cands.append((complex(rt).real, f'secular {label}'))
+    for row in summary[f'flux_{k}']['bare_values']:            # bare values that remain in the spectrum
+        if row['multiplicity_in_spectrum'] > 0:
+            cands.append((row['float'], 'bare ' + row['tau']))
+    cands.sort(reverse=True)
+    assert abs(cands[0][0] - 1) < 1e-30 or abs(cands[0][0] - 1) < 1e-12
+    res = {'largest_candidates': [(float(v), w) for v, w in cands[:5]]}
+    # the native slow value is an exact root of the vector secular polynomial or an exact bare value
+    in_sec = {label: ol.poly_eval(P, native).is_zero() for label, P in sec.items()}
+    in_bare = any(row['multiplicity_in_spectrum'] > 0 and row['tau'] == ol.show(native) for row in summary[f'flux_{k}']['bare_values'])
+    res['native_slow_value_(55+sqrt5)/60'] = {'exact_root_of_secular': [l for l, v in in_sec.items() if v], 'exact_bare_value': in_bare}
+    assert ol.poly_eval(sec['1'], ONE).is_zero(), 'eigenvalue one'
+    if k == 1:
+        Q4 = ol.poly_divide_root(sec['3'], native)
+        roots = sorted([complex(rt).real for rt in ol.poly_roots_mp(Q4, 50)], reverse=True)
+        lam = max(ol.poly_roots_mp(Q4, 50), key=lambda rt: complex(rt).real).real
+        lo = F(int(mpmath.floor(lam * 10 ** 15)), 10 ** 15); hi = lo + F(1, 10 ** 15)
+        assert ol.poly_eval(Q4, Cyc.of(lo)).sign() * ol.poly_eval(Q4, Cyc.of(hi)).sign() < 0
+        # the quartic in the rate variable mu = 60 (1 - lambda)
+        # Q4(1 - mu/60) = sum_i c_i (1 - mu/60)^i
+        mu_poly = [ZERO]
+        power = [ONE]
+        for c in Q4:
+            mu_poly = ol.poly_add(mu_poly, [c * x for x in power])
+            power = ol.poly_mul(power, [ONE, Cyc.of(F(-1, 60))])
+        lead = mu_poly[-1]
+        mu_poly = [c / lead for c in mu_poly]
+        # norm to Q and irreducibility
+        prod = [ONE]
+        for g in (1, 3, 7, 9):
+            prod = ol.poly_mul(prod, [c.galois(g) for c in mu_poly])
+        assert all(c.is_rational() for c in prod)
+        x = s.symbols('mu')
+        pq = s.Poly([s.Rational(c.rational().numerator, c.rational().denominator) for c in reversed(prod)], x)
+        fac = s.factor_list(pq)
+        res.update({
+            'second_eigenvalue': mpmath.nstr(lam, 40),
+            'isolating_interval': [str(lo), str(hi)],
+            'quartic_in_lambda_monic_low_to_high': [ol.show(c) for c in Q4],
+            'quartic_in_mu=60(1-lambda)_monic_low_to_high': [ol.show(c) for c in mu_poly],
+            'quartic_roots_lambda': [float(v) for v in roots],
+            'rate_mu_2': mpmath.nstr(60 * (1 - lam), 30),
+            'norm_polynomial_degree': int(pq.degree()), 'norm_polynomial_irreducible_over_Q': len(fac[1]) == 1 and fac[1][0][1] == 1,
+            'norm_polynomial_in_mu_integer_coefficients_high_to_low': [str(c) for c in (pq * s.ilcm(*[c.q for c in pq.all_coeffs()])).all_coeffs()],
+        })
+        assert abs(cands[1][0] - float(lam)) < 1e-12
+        print(f'flux 1: second eigenvalue {mpmath.nstr(lam, 30)} = largest root of the quartic (in mu = 60(1 - lambda)):')
+        for i, c in enumerate(mu_poly):
+            print(f'      mu^{i}: {ol.show(c)}')
+        print(f'   isolating interval [{lo}, {hi}]; norm polynomial over Q: degree {pq.degree()}, irreducible {res["norm_polynomial_irreducible_over_Q"]}; mu_2 = {mpmath.nstr(60 * (1 - lam), 20)}')
+    else:
+        assert abs(cands[1][0] - float(native.mp(30).real)) < 1e-12 and cands[2][0] < cands[1][0] - 1e-6
+        res['second_eigenvalue'] = '(55 + sqrt5)/60 = ' + mpmath.nstr(native.mp(40).real, 30)
+        print(f'flux {k}: second eigenvalue = (55 + sqrt5)/60 exactly ({res["native_slow_value_(55+sqrt5)/60"]}); next {cands[2][0]:.9f} ({cands[2][1]})')
+    out[f'flux_{k}'] = res
+json.dump(out, open(base + '_second.json', 'w'), indent=1)

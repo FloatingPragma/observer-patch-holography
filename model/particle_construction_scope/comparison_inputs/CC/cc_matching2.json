@@ -1,0 +1,123 @@
+{
+ "ln(E_cell/M_U)": 5.957067830590499,
+ "D6_required_slope_differences": {
+  "links alone (0, -22/3, -11)": {
+   "b1 - b2": 7.333333333333333,
+   "b2 - b3": 3.666666666666667
+  },
+  "F=5, Hamiltonian": {
+   "required b1 - b2": -1.3812088991495395,
+   "required b2 - b3": -2.2729056940339545,
+   "split of 1/alpha at M_U with the links alone (1-2, 2-3)": [
+    8.262229530637372,
+    5.6312894984911255
+   ]
+  },
+  "F=5, step a/2": {
+   "required b1 - b2": -0.7306359943307658,
+   "required b2 - b3": -2.3630494499967507,
+   "split of 1/alpha at M_U with the links alone (1-2, 2-3)": [
+    7.645423446894892,
+    5.716754504299719
+   ]
+  },
+  "F=5, isotropic": {
+   "required b1 - b2": -0.5290058929789243,
+   "required b2 - b3": -2.252649735835862,
+   "split of 1/alpha at M_U with the links alone (1-2, 2-3)": [
+    7.454258594718835,
+    5.6120848895132935
+   ]
+  },
+  "F=15, Hamiltonian": {
+   "required b1 - b2": -3.490943891761785,
+   "required b2 - b3": -0.9543213236513022,
+   "split of 1/alpha at M_U with the links alone (1-2, 2-3)": [
+    10.262462508200622,
+    4.381143887514095
+   ]
+  },
+  "F=15, step a/2": {
+   "required b1 - b2": -3.394277931439254,
+   "required b2 - b3": -0.6982732393039477,
+   "split of 1/alpha at M_U with the links alone (1-2, 2-3)": [
+    10.170813821364586,
+    4.138385520256162
+   ]
+  },
+  "F=15, isotropic": {
+   "required b1 - b2": -3.1798682787741215,
+   "required b2 - b3": -0.5958607447138614,
+   "split of 1/alpha at M_U with the links alone (1-2, 2-3)": [
+    9.967532717590666,
+    4.041288562718397
+   ]
+  }
+ },
+ "D7_block_stiffness": {
+  "hypercharge generator on the triplet block (share)": 0.3999999999999999,
+  "on the doublet block (share)": 0.6000000000000001,
+  "gluon generator on the triplet block (share)": 1.0,
+  "W generator on the doublet block (share)": 1.0
+ },
+ "D7_two_block_action": {
+  "F=5, Hamiltonian": {
+   "needed bare (1/alpha_1, 1/alpha_2, 1/alpha_3)": [
+    27.06687474225287,
+    28.37639446802751,
+    30.531329064087267
+   ],
+   "U(1) value implied by the two block weights": 29.238368306451413,
+   "implied minus needed": 2.171493564198542
+  },
+  "F=5, step a/2": {
+   "needed bare (1/alpha_1, 1/alpha_2, 1/alpha_3)": [
+    27.788966162999234,
+    28.48167980503139,
+    30.72207940689974
+   ],
+   "U(1) value implied by the two block weights": 29.37783964577873,
+   "implied minus needed": 1.5888734827794977
+  },
+  "F=5, isotropic": {
+   "needed bare (1/alpha_1, 1/alpha_2, 1/alpha_3)": [
+    27.77230631705217,
+    28.27385510690827,
+    30.409585093990195
+   ],
+   "U(1) value implied by the two block weights": 29.128147101741042,
+   "implied minus needed": 1.3558407846888727
+  },
+  "F=15, Hamiltonian": {
+   "needed bare (1/alpha_1, 1/alpha_2, 1/alpha_3)": [
+    27.31690386444828,
+    30.626656567786164,
+    31.53144555286889
+   ],
+   "U(1) value implied by the two block weights": 30.988572161819256,
+   "implied minus needed": 3.671668297370978
+  },
+  "F=15, step a/2": {
+   "needed bare (1/alpha_1, 1/alpha_2, 1/alpha_3)": [
+    28.104639959807944,
+    31.322743976309795,
+    31.98477459413459
+   ],
+   "U(1) value implied by the two block weights": 31.587556223439712,
+   "implied minus needed": 3.4829162636317683
+  },
+  "F=15, isotropic": {
+   "needed bare (1/alpha_1, 1/alpha_2, 1/alpha_3)": [
+    28.08646558241115,
+    31.10128849513908,
+    31.66622215542611
+   ],
+   "U(1) value implied by the two block weights": 31.32726195925389,
+   "implied minus needed": 3.240796376842738
+  }
+ },
+ "checks": {
+  "D7_shares_are_2/5_and_3/5": true,
+  "D7_nonabelian_generators_live_on_one_block": true
+ }
+}

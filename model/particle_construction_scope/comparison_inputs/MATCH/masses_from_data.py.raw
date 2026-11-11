@@ -1,0 +1,85 @@
+"""Masses of the named defect species from the numbers the data contains, in GeV and SI units.
+
+Unit: the external unit of the public comparison branch, E* = 1.22089e19 GeV (paper
+`deriving_the_particle_zoo_from_observer_consistency.tex`, section "The twelve comparison values"): one tick is
+hbar/E*, one cell c hbar/E*, and a rest phase theta per tick is a rest energy theta E*. No measured mass enters.
+
+Two mass-like numbers per class exist in the data:
+  (a) rest phase of the class-k charge carried by the class-k defect pair at the lasting separations 2..5
+      (Aharonov-Bohm angle alpha = k*k/6 mod 1; table work/DIRAC/defect_phases.json, option M1 of CF-1);
+  (b) the declared register cost of a class-k defect in the universe runs (5, 8, 10 cost units; particle_map.json).
+Measured masses are read afterwards for comparison only (public PDG 2026 file).
+"""
+import json
+from pathlib import Path
+
+RL = Path('WORKSPACE/repair-law')
+RER = Path('WORKSPACE/reverse-engineering-reality')
+E_STAR_GEV = 1.22089e19
+HBAR = 1.054571817e-34      # J s
+C = 299792458.0             # m / s
+GEV_J = 1.602176634e-10     # J per GeV
+TICK_S = HBAR / (E_STAR_GEV * GEV_J)
+CELL_M = C * TICK_S
+GEV_KG = GEV_J / C ** 2
+
+# rest phases of a charged level on a carrier holding a flux pair, separations 1..5 (CF1.md section 4 item 6)
+PH = {
+    '1/6': [0.042383, 0.051014, 0.056207, 0.058279, 0.059322],
+    '1/3': [0.075113, 0.092788, 0.106416, 0.113080, 0.116921],
+    '1/2': [0.087847, 0.110554, 0.132363, 0.147787, 0.171237],
+}
+dp = RL / 'work/DIRAC/defect_phases.json'
+ALPHA_OF_CLASS = {1: '1/6', 5: '1/6', 2: '1/3', 4: '1/3', 3: '1/2'}  # k*k/6 mod 1 (2/3 has the spectrum of 1/3)
+COST = {1: 5, 5: 5, 2: 8, 4: 8, 3: 10, 0: 0}
+
+ref = json.loads((RER / 'code/particles/data/particle_reference_values.json').read_text())['entries']
+SPECIES = [  # name, class of the left-handed field, class of the right-handed field, measured entries by generation
+    ('up-type quark', 1, 4, ['up_quark', 'charm_quark', 'top_quark']),
+    ('down-type quark', 1, 4, ['down_quark', 'strange_quark', 'bottom_quark']),
+    ('charged lepton', 3, 0, ['electron', 'muon', 'tau']),
+]
+
+rows = []
+for name, kl, kr, meas in SPECIES:
+    lo_l, hi_l = min(PH[ALPHA_OF_CLASS[kl]][1:]), max(PH[ALPHA_OF_CLASS[kl]][1:])
+    if kr == 0:
+        lo_r = hi_r = 0.0
+    else:
+        lo_r, hi_r = min(PH[ALPHA_OF_CLASS[kr]][1:]), max(PH[ALPHA_OF_CLASS[kr]][1:])
+    gens = []
+    for g, key in enumerate(meas, 1):
+        gens.append(dict(generation=g, particle=key, measured_GeV=ref[key]['value_gev']))
+    rows.append(dict(
+        species=name, left_class=kl, right_class=kr,
+        rest_phase_left_per_tick=[lo_l, hi_l], rest_phase_right_per_tick=[lo_r, hi_r],
+        rest_energy_left_GeV=[lo_l * E_STAR_GEV, hi_l * E_STAR_GEV],
+        rest_energy_right_GeV=[lo_r * E_STAR_GEV, hi_r * E_STAR_GEV],
+        register_cost_units=dict(left=COST[kl], right=COST[kr]),
+        same_value_for_all_three_generations=True, generations=gens))
+
+meas_all = [g['measured_GeV'] for r in rows for g in r['generations']]
+data_all = [x for r in rows for x in r['rest_phase_left_per_tick'] + r['rest_phase_right_per_tick'] if x > 0]
+summary = dict(
+    unit=dict(E_star_GeV=E_STAR_GEV, tick_s=TICK_S, cell_m=CELL_M, E_star_kg=E_STAR_GEV * GEV_KG),
+    spread_of_data_rest_phases=max(data_all) / min(data_all),
+    spread_of_measured_charged_fermion_masses=max(meas_all) / min(meas_all),
+    measured_lepton_ratios=dict(mu_over_e=ref['muon']['value_gev'] / ref['electron']['value_gev'],
+                                tau_over_e=ref['tau']['value_gev'] / ref['electron']['value_gev']),
+    data_lepton_ratios=dict(mu_over_e=1.0, tau_over_e=1.0),
+    electron_anchor=dict(
+        note='unit chosen so that the class-3 rest phase at separation 2 equals the electron mass',
+        GeV_per_unit_phase=ref['electron']['value_gev'] / PH['1/2'][1],
+        predicted_muon_GeV=ref['electron']['value_gev'], measured_muon_GeV=ref['muon']['value_gev'],
+        predicted_left_quark_range_GeV=[PH['1/6'][1] * ref['electron']['value_gev'] / PH['1/2'][1],
+                                        PH['1/6'][4] * ref['electron']['value_gev'] / PH['1/2'][1]]),
+)
+out = dict(rows=rows, summary=summary)
+Path('masses_from_data.json').write_text(json.dumps(out, indent=1))
+print(f"unit: tick {TICK_S:.4e} s, cell {CELL_M:.4e} m, energy unit {E_STAR_GEV:.5e} GeV = {E_STAR_GEV*GEV_KG:.4e} kg")
+for r in rows:
+    print(f"{r['species']:16s} left class {r['left_class']}: {r['rest_phase_left_per_tick'][0]:.4f}-{r['rest_phase_left_per_tick'][1]:.4f}/tick = "
+          f"{r['rest_energy_left_GeV'][0]:.2e}-{r['rest_energy_left_GeV'][1]:.2e} GeV; right class {r['right_class']}: "
+          f"{r['rest_energy_right_GeV'][0]:.2e}-{r['rest_energy_right_GeV'][1]:.2e} GeV; measured "
+          + ', '.join(f"{g['particle']} {g['measured_GeV']:.6g}" for g in r['generations']))
+print(json.dumps(summary, indent=1))

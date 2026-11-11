@@ -1,0 +1,20 @@
+import time, sys, json
+t=time.time()
+import model.observer.native as nat
+calls = {'native': 0}
+orig = nat.native
+def counted(*a, **k):
+    calls['native'] += 1
+    return orig(*a, **k)
+nat.native = counted
+from model.standard_model_source_map import algebra
+print('import', round(time.time()-t,1), 'native calls at import', calls); sys.stdout.flush()
+t=time.time()
+rows = algebra.source_components()
+print('source_components', round(time.time()-t,1), calls); sys.stdout.flush()
+m = algebra.match_components()
+print('match', round(time.time()-t,1), calls)
+print(json.dumps(rows[:3]))
+print(json.dumps({k: v['source_masks'] for k, v in m.items()}))
+repo_mods = sorted(k for k, v in sys.modules.items() if getattr(v, '__file__', None) and 'rer-edit' in str(v.__file__))
+print(len(repo_mods)); print(repo_mods)

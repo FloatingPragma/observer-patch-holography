@@ -1,0 +1,141 @@
+"""Closed forms for the free alternating tick of CF-1 (worker R3). numpy, float64; proofs in THEOREM.md, exact
+checks in r3_exact.py.
+
+Conventions (candidates/CF1.md section 8, engine work/DIRAC/routing.py):
+    E_i = exp(-i p_i alpha_i), alpha_i = X_r sigma_i;  M = exp(-i theta beta), beta = Y_r or Z_r
+    D_fwd = M E3 E2 E1,  D_rev = M E1 E2 E3,  W2 = D_rev D_fwd (two ticks),  What = M^(-1/2) W2 M^(1/2)
+
+    What = cos(2 w) - i sin(2 w) (n_s . alpha + n_4 beta) = exp(-2 i (k_eff . alpha + m_eff beta))
+    cos w = |cos theta| cos rho,   cos 2 rho = cos 2p1 cos 2p2 cos 2p3          (w = phase per tick, in [0, pi/2])
+
+p: array (..., 3); theta: scalar or array broadcastable to p[..., 0].
+"""
+import numpy as np
+
+
+def _e(p):
+    q = p * p
+    e1 = q[..., 0] + q[..., 1] + q[..., 2]
+    e2 = q[..., 0] * q[..., 1] + q[..., 0] * q[..., 2] + q[..., 1] * q[..., 2]
+    return e1, e2
+
+
+def N_odd(p):
+    """sin^2 rho = (1 - cos 2p1 cos 2p2 cos 2p3)/2, without cancellation: the probability that the record is
+    written by one massless tick from a blank record"""
+    u = np.sin(p) ** 2
+    e1 = u[..., 0] + u[..., 1] + u[..., 2]
+    e2 = u[..., 0] * u[..., 1] + u[..., 0] * u[..., 2] + u[..., 1] * u[..., 2]
+    return e1 - 2 * e2 + 4 * u[..., 0] * u[..., 1] * u[..., 2]
+
+
+def rho(p):
+    """massless phase per tick, in [0, pi/2]"""
+    return np.arcsin(np.sqrt(np.clip(N_odd(p), 0.0, 1.0)))
+
+
+def omega(p, theta=0.0):
+    """phase per tick of the alternating order, in [0, pi/2]; both helicities"""
+    s2 = np.sin(theta) ** 2 + np.cos(theta) ** 2 * N_odd(p)
+    return np.arcsin(np.sqrt(np.clip(s2, 0.0, 1.0)))
+
+
+def energy(p, theta=0.0):
+    return np.sqrt(_e(p)[0] + np.asarray(theta, float) ** 2)
+
+
+def u0(p):
+    """helicity axis (not normalised): What commutes with 1 x sigma.u0"""
+    S, C = np.sin(2 * p), np.cos(2 * p)
+    return np.stack([S[..., 0] * C[..., 1] * C[..., 2], S[..., 1] * C[..., 2], S[..., 2]], axis=-1)
+
+
+def axis4(p, theta=0.0):
+    """unit vector (n_s, n_4) of What; |n_s| = sin rho / sin w, n_4 = sin theta cos rho / sin w"""
+    th = np.broadcast_to(np.asarray(theta, float), p.shape[:-1])
+    w = np.concatenate([np.cos(th)[..., None] * u0(p), (np.sin(2 * th) * (1 - N_odd(p)))[..., None]], axis=-1)
+    return w / np.linalg.norm(w, axis=-1, keepdims=True)
+
+
+def effective_dirac(p, theta=0.0):
+    """(k_eff, m_eff): What = exp(-2 i (k_eff . alpha + m_eff beta)) exactly"""
+    n = axis4(p, theta); w = omega(p, theta)[..., None]
+    return w * n[..., :3], (w * n[..., 3:])[..., 0]
+
+
+def group_velocity(p, theta=0.0):
+    """d w / d p_i = cos^2(theta) sin 2p_i prod_{j != i} cos 2p_j / sin 2w   (cells per tick)"""
+    S, C = np.sin(2 * p), np.cos(2 * p)
+    num = np.stack([S[..., 0] * C[..., 1] * C[..., 2], C[..., 0] * S[..., 1] * C[..., 2], C[..., 0] * C[..., 1] * S[..., 2]], axis=-1)
+    th = np.broadcast_to(np.asarray(theta, float), p.shape[:-1])
+    return (np.cos(th) ** 2 / np.sin(2 * omega(p, theta)))[..., None] * num
+
+
+def tau(x):
+    """3 (tan x - x)/x^3 = 1 + 2 x^2/5 + 17 x^4/105 + ..., increasing on [0, pi/2)"""
+    x = np.asarray(x, float)
+    small = x < 0.02
+    xs = np.where(small, 1.0, x)
+    return np.where(small, 1 + 0.4 * x * x + 17 * x ** 4 / 105, 3 * (np.tan(xs) - xs) / xs ** 3)
+
+
+def N_lead(p, theta=0.0):
+    """N = theta^2 |p|^2 + 4 sum_{i<j} p_i^2 p_j^2;  E - w = N/(6 E) to leading order"""
+    e1, e2 = _e(p)
+    return np.asarray(theta, float) ** 2 * e1 + 4 * e2
+
+
+def B_bound(p, theta=0.0):
+    """Theorem 2: 0 <= E^2 - w^2 <= B for 2|p| < pi/2 and E < pi/2"""
+    e1, e2 = _e(p); th2 = np.asarray(theta, float) ** 2
+    return 4 * e2 * tau(2 * np.sqrt(e1)) / 3 + th2 * e1 * tau(np.sqrt(e1 + th2)) / 3
+
+
+def phase_bound(p, theta=0.0):
+    """0 <= E - w <= E - sqrt(E^2 - B)"""
+    E = energy(p, theta)
+    return E - np.sqrt(np.clip(E * E - B_bound(p, theta), 0.0, None))
+
+
+def K_box(P, T):
+    """Corollary: for |p_i| <= P, |theta| <= T, 3 P^2 + T^2 <= 1/4:  0 <= E - w <= K_box(P, T) per tick"""
+    Emax2 = 3 * P * P + T * T
+    return P * P * (T * T + 4 * P * P) / (2 * np.sqrt(Emax2)) * (1 + 3.1 * Emax2)
+
+
+def K_window(Pvec, T):
+    """the same for an anisotropic window |p_i| <= P_i (sum P_i^2 + T^2 <= 1/4): the bound (N/6E)(1 + 3.1 E^2)
+    is increasing in every |p_i| and in |theta|, so its supremum is at the corner"""
+    P = np.asarray(Pvec, float)[None]
+    E2 = float(np.sum(P * P) + T * T)
+    return float(N_lead(P, T)[0]) / (6 * np.sqrt(E2)) * (1 + 3.1 * E2)
+
+
+def tilt_chord(p, theta=0.0):
+    """2 sin(delta/2): delta = angle between the axis of What and that of H = alpha.p + theta beta"""
+    th = np.broadcast_to(np.asarray(theta, float), p.shape[:-1])
+    m = np.concatenate([p, th[..., None]], axis=-1)
+    m = m / np.linalg.norm(m, axis=-1, keepdims=True)
+    return np.linalg.norm(axis4(p, theta) - m, axis=-1)
+
+
+def op_error_half_step(p, theta, n):
+    """|| What^(n/2) - exp(-i n H) ||, exact (n even)"""
+    E, w, ch = energy(p, theta), omega(p, theta), tilt_chord(p, theta)
+    s2 = (ch / 2) ** 2
+    return 2 * np.sqrt((1 - s2) * np.sin(n * (E - w) / 2) ** 2 + s2 * np.sin(n * (E + w) / 2) ** 2)
+
+
+def frame_term(p, theta, n):
+    """|| W2^(n/2) - What^(n/2) || = 2 |sin n w| sin(|theta|/2) sin(rho)/sin(w), exact (n even)"""
+    w = omega(p, theta)
+    return 2 * np.abs(np.sin(n * w)) * np.sin(np.abs(theta) / 2) * np.sin(rho(p)) / np.sin(w)
+
+
+def ordered_phases(p, theta=0.0):
+    """the two phases of the ordered tick D_fwd (worker KD, item 3): cos w = ct c1 c2 c3 +- sqrt(...)"""
+    c, s = np.cos(p), np.sin(p); ct, st = np.cos(theta), np.sin(theta)
+    r = np.sqrt((s[..., 0] * s[..., 1] * s[..., 2]) ** 2 + st ** 2 * ((c[..., 0] * s[..., 1] * s[..., 2]) ** 2
+                + (s[..., 0] * c[..., 1] * s[..., 2]) ** 2 + (s[..., 0] * s[..., 1] * c[..., 2]) ** 2))
+    a = ct * c[..., 0] * c[..., 1] * c[..., 2]
+    return np.arccos(np.clip(a + r, -1, 1)), np.arccos(np.clip(a - r, -1, 1))

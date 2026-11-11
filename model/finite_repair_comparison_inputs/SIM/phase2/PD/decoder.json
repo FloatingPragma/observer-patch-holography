@@ -1,0 +1,6225 @@
+{
+ "schema": "oph.viewer.decoder.v1",
+ "lane": "PD",
+ "statement": "A quantum is a pattern on a carrier's port, and the defect class it sees is 6Y mod 6.",
+ "status": "Exact decoder of charges and names. It carries no mass, no coupling value and no mixing.",
+ "labels": {
+  "patterns": "EXACT: charges, class, representations, anomaly sums, charge conjugation; equal to the certificate on all 32 rows",
+  "the_16": "DECLARED convention: the 16 is the set of patterns of even degree (Q, u^c, d^c, L, e^c, nu^c)",
+  "copies": "DECLARED label: the copy changes no charge; the decoder carries no mass and cannot order the copies",
+  "bosons": "EXACT: charges of the twelve currents and of the register; the register itself is DECLARED (R8)",
+  "statistics": "EXACT given the premises of the certificate (a spin doublet per quantum, the Gauss law, antisymmetric occupation)",
+  "composites": "EXACT: colour singlet, class sum, charge, baryon number. Hadron names: names of the quark model in the naming scheme of the Particle Data Group",
+  "run": "MEASURED counts of the stored run L6; readings from SS and the certificate"
+ },
+ "sources": {
+  "certificate": "reverse-engineering-reality/model/defect_particle_classes (61 checks)",
+  "rer_head": "ref: refs/heads/main",
+  "sha256": {
+   "RER/model/defect_particle_classes/model.py": "4774921b26e3267f5f5669489d969f8ed2e3fe579ef7d5a65b1f1895ddd285f0",
+   "RER/model/defect_particle_classes/results.json": "d5ab8975891f44841497a51ac6d64f901b80f3d5cf85fe9ec13f6facbf5bc61d",
+   "RL/work/SS/ss_table.json": "7e996c26c90c43c2e296bca59211add77e88c18972e76a7a5cc9dc9f1546fdf8",
+   "SIM/oph_defects/particle_map.json": "55b5731f243ed62a87bad2567e805d2d8c47e4b79ae54f8a31cdbe157fbc83d3",
+   "SIM/runs/universe/L6/view/early_universe.json": "10401b9d15ac88851281ac0ef5bf686394766a18a69b24481a69a620b728e3a1",
+   "SIM/runs/universe/L6/cuts/end.npz": "fa2961968cb783e0419f04418a9b5722192a545b3653486bf75dd6de3b7c19bd",
+   "SIM/runs/universe/L6/run.json": "21e1931d9caf83570e5d175fee25020e826e2e958e66ea5ecf4d2d504127a297"
+  },
+  "reports": [
+   "repair-law/MATCH.md",
+   "repair-law/reports/SS.md",
+   "repair-law/reports/DG.md",
+   "repair-law/reports/GL.md",
+   "repair-law/reports/CH_HYPERCHARGE.md"
+  ]
+ },
+ "levels": [
+  {
+   "id": "v1",
+   "kind": "colour",
+   "colour": "red",
+   "six_Y": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3"
+  },
+  {
+   "id": "v2",
+   "kind": "colour",
+   "colour": "green",
+   "six_Y": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3"
+  },
+  {
+   "id": "v3",
+   "kind": "colour",
+   "colour": "blue",
+   "six_Y": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3"
+  },
+  {
+   "id": "s1",
+   "kind": "weak",
+   "colour": null,
+   "six_Y": 3,
+   "Y": "1/2",
+   "T3": "1/2",
+   "Q": "1"
+  },
+  {
+   "id": "s2",
+   "kind": "weak",
+   "colour": null,
+   "six_Y": 3,
+   "Y": "1/2",
+   "T3": "-1/2",
+   "Q": "0"
+  }
+ ],
+ "patterns": [
+  {
+   "mask": 0,
+   "bits": "00000",
+   "occupied": [],
+   "n3": 0,
+   "n2": 0,
+   "degree": 0,
+   "six_Y": 0,
+   "Y": "0",
+   "T3": "0",
+   "Q": "0",
+   "k": 0,
+   "su3": "1",
+   "su2": "1",
+   "rep": "(1,1)_0",
+   "name": "anti-nu_R",
+   "base": "nu_R",
+   "anti": true,
+   "multiplet": "anti-nu_R",
+   "species": "nu",
+   "left_handed_name": "nu^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "-1",
+   "B_minus_L": "1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "complement": 31,
+   "copies": [
+    {
+     "sym": "ν",
+     "sub": "e",
+     "sup": "",
+     "bar": true,
+     "flavour": null,
+     "particle": "electron antineutrino",
+     "long": "antiparticle of the right-handed electron neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "μ",
+     "sup": "",
+     "bar": true,
+     "flavour": null,
+     "particle": "muon antineutrino",
+     "long": "antiparticle of the right-handed muon neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "τ",
+     "sup": "",
+     "bar": true,
+     "flavour": null,
+     "particle": "tau antineutrino",
+     "long": "antiparticle of the right-handed tau neutrino"
+    }
+   ],
+   "currents": [],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 8
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 16
+    }
+   ]
+  },
+  {
+   "mask": 1,
+   "bits": "10000",
+   "occupied": [
+    "v1"
+   ],
+   "n3": 1,
+   "n2": 0,
+   "degree": 1,
+   "six_Y": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3",
+   "k": 4,
+   "su3": "3",
+   "su2": "1",
+   "rep": "(3,1)_-1/3",
+   "name": "d_R",
+   "base": "d_R",
+   "anti": false,
+   "multiplet": "d_R",
+   "species": "d",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "red",
+   "colour_index": 1,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "complement": 30,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "d",
+     "particle": "down quark",
+     "long": "right-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "s",
+     "particle": "strange quark",
+     "long": "right-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "b",
+     "particle": "bottom quark",
+     "long": "right-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 2
+    },
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 4
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 9
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 17
+    }
+   ]
+  },
+  {
+   "mask": 2,
+   "bits": "01000",
+   "occupied": [
+    "v2"
+   ],
+   "n3": 1,
+   "n2": 0,
+   "degree": 1,
+   "six_Y": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3",
+   "k": 4,
+   "su3": "3",
+   "su2": "1",
+   "rep": "(3,1)_-1/3",
+   "name": "d_R",
+   "base": "d_R",
+   "anti": false,
+   "multiplet": "d_R",
+   "species": "d",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "green",
+   "colour_index": 2,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "complement": 29,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "d",
+     "particle": "down quark",
+     "long": "right-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "s",
+     "particle": "strange quark",
+     "long": "right-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "b",
+     "particle": "bottom quark",
+     "long": "right-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 1
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 4
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 10
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 18
+    }
+   ]
+  },
+  {
+   "mask": 3,
+   "bits": "11000",
+   "occupied": [
+    "v1",
+    "v2"
+   ],
+   "n3": 2,
+   "n2": 0,
+   "degree": 2,
+   "six_Y": -4,
+   "Y": "-2/3",
+   "T3": "0",
+   "Q": "-2/3",
+   "k": 2,
+   "su3": "3b",
+   "su2": "1",
+   "rep": "(3b,1)_-2/3",
+   "name": "anti-u_R",
+   "base": "u_R",
+   "anti": true,
+   "multiplet": "anti-u_R",
+   "species": "u",
+   "left_handed_name": "u^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": "anti-blue",
+   "colour_index": 3,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    2,
+    4,
+    0,
+    2,
+    4
+   ],
+   "complement": 28,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "u",
+     "particle": "up antiquark",
+     "long": "antiparticle of the right-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "c",
+     "particle": "charm antiquark",
+     "long": "antiparticle of the right-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "t",
+     "particle": "top antiquark",
+     "long": "antiparticle of the right-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 6
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 5
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 11
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 19
+    }
+   ]
+  },
+  {
+   "mask": 4,
+   "bits": "00100",
+   "occupied": [
+    "v3"
+   ],
+   "n3": 1,
+   "n2": 0,
+   "degree": 1,
+   "six_Y": -2,
+   "Y": "-1/3",
+   "T3": "0",
+   "Q": "-1/3",
+   "k": 4,
+   "su3": "3",
+   "su2": "1",
+   "rep": "(3,1)_-1/3",
+   "name": "d_R",
+   "base": "d_R",
+   "anti": false,
+   "multiplet": "d_R",
+   "species": "d",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "blue",
+   "colour_index": 3,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "complement": 27,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "d",
+     "particle": "down quark",
+     "long": "right-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "s",
+     "particle": "strange quark",
+     "long": "right-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "b",
+     "particle": "bottom quark",
+     "long": "right-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 1
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 2
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 12
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 20
+    }
+   ]
+  },
+  {
+   "mask": 5,
+   "bits": "10100",
+   "occupied": [
+    "v1",
+    "v3"
+   ],
+   "n3": 2,
+   "n2": 0,
+   "degree": 2,
+   "six_Y": -4,
+   "Y": "-2/3",
+   "T3": "0",
+   "Q": "-2/3",
+   "k": 2,
+   "su3": "3b",
+   "su2": "1",
+   "rep": "(3b,1)_-2/3",
+   "name": "anti-u_R",
+   "base": "u_R",
+   "anti": true,
+   "multiplet": "anti-u_R",
+   "species": "u",
+   "left_handed_name": "u^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": "anti-green",
+   "colour_index": 2,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    2,
+    4,
+    0,
+    2,
+    4
+   ],
+   "complement": 26,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "u",
+     "particle": "up antiquark",
+     "long": "antiparticle of the right-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "c",
+     "particle": "charm antiquark",
+     "long": "antiparticle of the right-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "t",
+     "particle": "top antiquark",
+     "long": "antiparticle of the right-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 6
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 3
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 13
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 21
+    }
+   ]
+  },
+  {
+   "mask": 6,
+   "bits": "01100",
+   "occupied": [
+    "v2",
+    "v3"
+   ],
+   "n3": 2,
+   "n2": 0,
+   "degree": 2,
+   "six_Y": -4,
+   "Y": "-2/3",
+   "T3": "0",
+   "Q": "-2/3",
+   "k": 2,
+   "su3": "3b",
+   "su2": "1",
+   "rep": "(3b,1)_-2/3",
+   "name": "anti-u_R",
+   "base": "u_R",
+   "anti": true,
+   "multiplet": "anti-u_R",
+   "species": "u",
+   "left_handed_name": "u^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": "anti-red",
+   "colour_index": 1,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    2,
+    4,
+    0,
+    2,
+    4
+   ],
+   "complement": 25,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "u",
+     "particle": "up antiquark",
+     "long": "antiparticle of the right-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "c",
+     "particle": "charm antiquark",
+     "long": "antiparticle of the right-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "t",
+     "particle": "top antiquark",
+     "long": "antiparticle of the right-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 5
+    },
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 3
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 14
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 22
+    }
+   ]
+  },
+  {
+   "mask": 7,
+   "bits": "11100",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3"
+   ],
+   "n3": 3,
+   "n2": 0,
+   "degree": 3,
+   "six_Y": -6,
+   "Y": "-1",
+   "T3": "0",
+   "Q": "-1",
+   "k": 0,
+   "su3": "1",
+   "su2": "1",
+   "rep": "(1,1)_-1",
+   "name": "e_R",
+   "base": "e_R",
+   "anti": false,
+   "multiplet": "e_R",
+   "species": "e",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "1",
+   "B_minus_L": "-1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "complement": 24,
+   "copies": [
+    {
+     "sym": "e",
+     "sub": "",
+     "sup": "−",
+     "bar": false,
+     "flavour": null,
+     "particle": "electron",
+     "long": "right-handed electron"
+    },
+    {
+     "sym": "μ",
+     "sub": "",
+     "sup": "−",
+     "bar": false,
+     "flavour": null,
+     "particle": "muon",
+     "long": "right-handed muon"
+    },
+    {
+     "sym": "τ",
+     "sub": "",
+     "sup": "−",
+     "bar": false,
+     "flavour": null,
+     "particle": "tau",
+     "long": "right-handed tau"
+    }
+   ],
+   "currents": [],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 15
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 23
+    }
+   ]
+  },
+  {
+   "mask": 8,
+   "bits": "00010",
+   "occupied": [
+    "s1"
+   ],
+   "n3": 0,
+   "n2": 1,
+   "degree": 1,
+   "six_Y": 3,
+   "Y": "1/2",
+   "T3": "1/2",
+   "Q": "1",
+   "k": 3,
+   "su3": "1",
+   "su2": "2",
+   "rep": "(1,2)_1/2",
+   "name": "anti-e_L",
+   "base": "e_L",
+   "anti": true,
+   "multiplet": "anti-L",
+   "species": "e",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "-1",
+   "B_minus_L": "1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    3,
+    0,
+    3,
+    0,
+    3
+   ],
+   "complement": 23,
+   "copies": [
+    {
+     "sym": "e",
+     "sub": "",
+     "sup": "+",
+     "bar": false,
+     "flavour": null,
+     "particle": "positron",
+     "long": "antiparticle of the left-handed electron"
+    },
+    {
+     "sym": "μ",
+     "sub": "",
+     "sup": "+",
+     "bar": false,
+     "flavour": null,
+     "particle": "antimuon",
+     "long": "antiparticle of the left-handed muon"
+    },
+    {
+     "sym": "τ",
+     "sub": "",
+     "sup": "+",
+     "bar": false,
+     "flavour": null,
+     "particle": "antitau",
+     "long": "antiparticle of the left-handed tau"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 16
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 0
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 24
+    }
+   ]
+  },
+  {
+   "mask": 9,
+   "bits": "10010",
+   "occupied": [
+    "v1",
+    "s1"
+   ],
+   "n3": 1,
+   "n2": 1,
+   "degree": 2,
+   "six_Y": 1,
+   "Y": "1/6",
+   "T3": "1/2",
+   "Q": "2/3",
+   "k": 1,
+   "su3": "3",
+   "su2": "2",
+   "rep": "(3,2)_1/6",
+   "name": "u_L",
+   "base": "u_L",
+   "anti": false,
+   "multiplet": "Q",
+   "species": "u",
+   "left_handed_name": "Q",
+   "weyl": "L",
+   "half": "16",
+   "colour": "red",
+   "colour_index": 1,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "complement": 22,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "u",
+     "particle": "up quark",
+     "long": "left-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "c",
+     "particle": "charm quark",
+     "long": "left-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "t",
+     "particle": "top quark",
+     "long": "left-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 10
+    },
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 12
+    },
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 17
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 1
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 25
+    }
+   ]
+  },
+  {
+   "mask": 10,
+   "bits": "01010",
+   "occupied": [
+    "v2",
+    "s1"
+   ],
+   "n3": 1,
+   "n2": 1,
+   "degree": 2,
+   "six_Y": 1,
+   "Y": "1/6",
+   "T3": "1/2",
+   "Q": "2/3",
+   "k": 1,
+   "su3": "3",
+   "su2": "2",
+   "rep": "(3,2)_1/6",
+   "name": "u_L",
+   "base": "u_L",
+   "anti": false,
+   "multiplet": "Q",
+   "species": "u",
+   "left_handed_name": "Q",
+   "weyl": "L",
+   "half": "16",
+   "colour": "green",
+   "colour_index": 2,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "complement": 21,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "u",
+     "particle": "up quark",
+     "long": "left-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "c",
+     "particle": "charm quark",
+     "long": "left-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "t",
+     "particle": "top quark",
+     "long": "left-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 9
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 12
+    },
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 18
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 2
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 26
+    }
+   ]
+  },
+  {
+   "mask": 11,
+   "bits": "11010",
+   "occupied": [
+    "v1",
+    "v2",
+    "s1"
+   ],
+   "n3": 2,
+   "n2": 1,
+   "degree": 3,
+   "six_Y": -1,
+   "Y": "-1/6",
+   "T3": "1/2",
+   "Q": "1/3",
+   "k": 5,
+   "su3": "3b",
+   "su2": "2",
+   "rep": "(3b,2)_-1/6",
+   "name": "anti-d_L",
+   "base": "d_L",
+   "anti": true,
+   "multiplet": "anti-Q",
+   "species": "d",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "anti-blue",
+   "colour_index": 3,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "complement": 20,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "d",
+     "particle": "down antiquark",
+     "long": "antiparticle of the left-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "s",
+     "particle": "strange antiquark",
+     "long": "antiparticle of the left-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "b",
+     "particle": "bottom antiquark",
+     "long": "antiparticle of the left-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 14
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 13
+    },
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 19
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 3
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 27
+    }
+   ]
+  },
+  {
+   "mask": 12,
+   "bits": "00110",
+   "occupied": [
+    "v3",
+    "s1"
+   ],
+   "n3": 1,
+   "n2": 1,
+   "degree": 2,
+   "six_Y": 1,
+   "Y": "1/6",
+   "T3": "1/2",
+   "Q": "2/3",
+   "k": 1,
+   "su3": "3",
+   "su2": "2",
+   "rep": "(3,2)_1/6",
+   "name": "u_L",
+   "base": "u_L",
+   "anti": false,
+   "multiplet": "Q",
+   "species": "u",
+   "left_handed_name": "Q",
+   "weyl": "L",
+   "half": "16",
+   "colour": "blue",
+   "colour_index": 3,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "complement": 19,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "u",
+     "particle": "up quark",
+     "long": "left-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "c",
+     "particle": "charm quark",
+     "long": "left-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "t",
+     "particle": "top quark",
+     "long": "left-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 9
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 10
+    },
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 20
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 4
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 28
+    }
+   ]
+  },
+  {
+   "mask": 13,
+   "bits": "10110",
+   "occupied": [
+    "v1",
+    "v3",
+    "s1"
+   ],
+   "n3": 2,
+   "n2": 1,
+   "degree": 3,
+   "six_Y": -1,
+   "Y": "-1/6",
+   "T3": "1/2",
+   "Q": "1/3",
+   "k": 5,
+   "su3": "3b",
+   "su2": "2",
+   "rep": "(3b,2)_-1/6",
+   "name": "anti-d_L",
+   "base": "d_L",
+   "anti": true,
+   "multiplet": "anti-Q",
+   "species": "d",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "anti-green",
+   "colour_index": 2,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "complement": 18,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "d",
+     "particle": "down antiquark",
+     "long": "antiparticle of the left-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "s",
+     "particle": "strange antiquark",
+     "long": "antiparticle of the left-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "b",
+     "particle": "bottom antiquark",
+     "long": "antiparticle of the left-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 14
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 11
+    },
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 21
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 5
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 29
+    }
+   ]
+  },
+  {
+   "mask": 14,
+   "bits": "01110",
+   "occupied": [
+    "v2",
+    "v3",
+    "s1"
+   ],
+   "n3": 2,
+   "n2": 1,
+   "degree": 3,
+   "six_Y": -1,
+   "Y": "-1/6",
+   "T3": "1/2",
+   "Q": "1/3",
+   "k": 5,
+   "su3": "3b",
+   "su2": "2",
+   "rep": "(3b,2)_-1/6",
+   "name": "anti-d_L",
+   "base": "d_L",
+   "anti": true,
+   "multiplet": "anti-Q",
+   "species": "d",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "anti-red",
+   "colour_index": 1,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "complement": 17,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "d",
+     "particle": "down antiquark",
+     "long": "antiparticle of the left-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "s",
+     "particle": "strange antiquark",
+     "long": "antiparticle of the left-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "b",
+     "particle": "bottom antiquark",
+     "long": "antiparticle of the left-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 13
+    },
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 11
+    },
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 22
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 6
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 30
+    }
+   ]
+  },
+  {
+   "mask": 15,
+   "bits": "11110",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3",
+    "s1"
+   ],
+   "n3": 3,
+   "n2": 1,
+   "degree": 4,
+   "six_Y": -3,
+   "Y": "-1/2",
+   "T3": "1/2",
+   "Q": "0",
+   "k": 3,
+   "su3": "1",
+   "su2": "2",
+   "rep": "(1,2)_-1/2",
+   "name": "nu_L",
+   "base": "nu_L",
+   "anti": false,
+   "multiplet": "L",
+   "species": "nu",
+   "left_handed_name": "L",
+   "weyl": "L",
+   "half": "16",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "1",
+   "B_minus_L": "-1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    3,
+    0,
+    3,
+    0,
+    3
+   ],
+   "complement": 16,
+   "copies": [
+    {
+     "sym": "ν",
+     "sub": "e",
+     "sup": "",
+     "bar": false,
+     "flavour": null,
+     "particle": "electron neutrino",
+     "long": "left-handed electron neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "μ",
+     "sup": "",
+     "bar": false,
+     "flavour": null,
+     "particle": "muon neutrino",
+     "long": "left-handed muon neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "τ",
+     "sup": "",
+     "bar": false,
+     "flavour": null,
+     "particle": "tau neutrino",
+     "long": "left-handed tau neutrino"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "W-",
+     "move": "s1>s2",
+     "to": 23
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 7
+    },
+    {
+     "register": "H0",
+     "level": "s2",
+     "adds": true,
+     "to": 31
+    }
+   ]
+  },
+  {
+   "mask": 16,
+   "bits": "00001",
+   "occupied": [
+    "s2"
+   ],
+   "n3": 0,
+   "n2": 1,
+   "degree": 1,
+   "six_Y": 3,
+   "Y": "1/2",
+   "T3": "-1/2",
+   "Q": "0",
+   "k": 3,
+   "su3": "1",
+   "su2": "2",
+   "rep": "(1,2)_1/2",
+   "name": "anti-nu_L",
+   "base": "nu_L",
+   "anti": true,
+   "multiplet": "anti-L",
+   "species": "nu",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "-1",
+   "B_minus_L": "1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    3,
+    0,
+    3,
+    0,
+    3
+   ],
+   "complement": 15,
+   "copies": [
+    {
+     "sym": "ν",
+     "sub": "e",
+     "sup": "",
+     "bar": true,
+     "flavour": null,
+     "particle": "electron antineutrino",
+     "long": "antiparticle of the left-handed electron neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "μ",
+     "sup": "",
+     "bar": true,
+     "flavour": null,
+     "particle": "muon antineutrino",
+     "long": "antiparticle of the left-handed muon neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "τ",
+     "sup": "",
+     "bar": true,
+     "flavour": null,
+     "particle": "tau antineutrino",
+     "long": "antiparticle of the left-handed tau neutrino"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 8
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 24
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 0
+    }
+   ]
+  },
+  {
+   "mask": 17,
+   "bits": "10001",
+   "occupied": [
+    "v1",
+    "s2"
+   ],
+   "n3": 1,
+   "n2": 1,
+   "degree": 2,
+   "six_Y": 1,
+   "Y": "1/6",
+   "T3": "-1/2",
+   "Q": "-1/3",
+   "k": 1,
+   "su3": "3",
+   "su2": "2",
+   "rep": "(3,2)_1/6",
+   "name": "d_L",
+   "base": "d_L",
+   "anti": false,
+   "multiplet": "Q",
+   "species": "d",
+   "left_handed_name": "Q",
+   "weyl": "L",
+   "half": "16",
+   "colour": "red",
+   "colour_index": 1,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "complement": 14,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "d",
+     "particle": "down quark",
+     "long": "left-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "s",
+     "particle": "strange quark",
+     "long": "left-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "b",
+     "particle": "bottom quark",
+     "long": "left-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 18
+    },
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 20
+    },
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 9
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 25
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 1
+    }
+   ]
+  },
+  {
+   "mask": 18,
+   "bits": "01001",
+   "occupied": [
+    "v2",
+    "s2"
+   ],
+   "n3": 1,
+   "n2": 1,
+   "degree": 2,
+   "six_Y": 1,
+   "Y": "1/6",
+   "T3": "-1/2",
+   "Q": "-1/3",
+   "k": 1,
+   "su3": "3",
+   "su2": "2",
+   "rep": "(3,2)_1/6",
+   "name": "d_L",
+   "base": "d_L",
+   "anti": false,
+   "multiplet": "Q",
+   "species": "d",
+   "left_handed_name": "Q",
+   "weyl": "L",
+   "half": "16",
+   "colour": "green",
+   "colour_index": 2,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "complement": 13,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "d",
+     "particle": "down quark",
+     "long": "left-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "s",
+     "particle": "strange quark",
+     "long": "left-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "b",
+     "particle": "bottom quark",
+     "long": "left-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 17
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 20
+    },
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 10
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 26
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 2
+    }
+   ]
+  },
+  {
+   "mask": 19,
+   "bits": "11001",
+   "occupied": [
+    "v1",
+    "v2",
+    "s2"
+   ],
+   "n3": 2,
+   "n2": 1,
+   "degree": 3,
+   "six_Y": -1,
+   "Y": "-1/6",
+   "T3": "-1/2",
+   "Q": "-2/3",
+   "k": 5,
+   "su3": "3b",
+   "su2": "2",
+   "rep": "(3b,2)_-1/6",
+   "name": "anti-u_L",
+   "base": "u_L",
+   "anti": true,
+   "multiplet": "anti-Q",
+   "species": "u",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "anti-blue",
+   "colour_index": 3,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "complement": 12,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "u",
+     "particle": "up antiquark",
+     "long": "antiparticle of the left-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "c",
+     "particle": "charm antiquark",
+     "long": "antiparticle of the left-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "t",
+     "particle": "top antiquark",
+     "long": "antiparticle of the left-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 22
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 21
+    },
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 11
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 27
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 3
+    }
+   ]
+  },
+  {
+   "mask": 20,
+   "bits": "00101",
+   "occupied": [
+    "v3",
+    "s2"
+   ],
+   "n3": 1,
+   "n2": 1,
+   "degree": 2,
+   "six_Y": 1,
+   "Y": "1/6",
+   "T3": "-1/2",
+   "Q": "-1/3",
+   "k": 1,
+   "su3": "3",
+   "su2": "2",
+   "rep": "(3,2)_1/6",
+   "name": "d_L",
+   "base": "d_L",
+   "anti": false,
+   "multiplet": "Q",
+   "species": "d",
+   "left_handed_name": "Q",
+   "weyl": "L",
+   "half": "16",
+   "colour": "blue",
+   "colour_index": 3,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "complement": 11,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "d",
+     "particle": "down quark",
+     "long": "left-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "s",
+     "particle": "strange quark",
+     "long": "left-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "b",
+     "particle": "bottom quark",
+     "long": "left-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 17
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 18
+    },
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 12
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 28
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 4
+    }
+   ]
+  },
+  {
+   "mask": 21,
+   "bits": "10101",
+   "occupied": [
+    "v1",
+    "v3",
+    "s2"
+   ],
+   "n3": 2,
+   "n2": 1,
+   "degree": 3,
+   "six_Y": -1,
+   "Y": "-1/6",
+   "T3": "-1/2",
+   "Q": "-2/3",
+   "k": 5,
+   "su3": "3b",
+   "su2": "2",
+   "rep": "(3b,2)_-1/6",
+   "name": "anti-u_L",
+   "base": "u_L",
+   "anti": true,
+   "multiplet": "anti-Q",
+   "species": "u",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "anti-green",
+   "colour_index": 2,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "complement": 10,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "u",
+     "particle": "up antiquark",
+     "long": "antiparticle of the left-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "c",
+     "particle": "charm antiquark",
+     "long": "antiparticle of the left-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "t",
+     "particle": "top antiquark",
+     "long": "antiparticle of the left-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 22
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 19
+    },
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 13
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 29
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 5
+    }
+   ]
+  },
+  {
+   "mask": 22,
+   "bits": "01101",
+   "occupied": [
+    "v2",
+    "v3",
+    "s2"
+   ],
+   "n3": 2,
+   "n2": 1,
+   "degree": 3,
+   "six_Y": -1,
+   "Y": "-1/6",
+   "T3": "-1/2",
+   "Q": "-2/3",
+   "k": 5,
+   "su3": "3b",
+   "su2": "2",
+   "rep": "(3b,2)_-1/6",
+   "name": "anti-u_L",
+   "base": "u_L",
+   "anti": true,
+   "multiplet": "anti-Q",
+   "species": "u",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "anti-red",
+   "colour_index": 1,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "complement": 9,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "u",
+     "particle": "up antiquark",
+     "long": "antiparticle of the left-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "c",
+     "particle": "charm antiquark",
+     "long": "antiparticle of the left-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "t",
+     "particle": "top antiquark",
+     "long": "antiparticle of the left-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 21
+    },
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 19
+    },
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 14
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 30
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 6
+    }
+   ]
+  },
+  {
+   "mask": 23,
+   "bits": "11101",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3",
+    "s2"
+   ],
+   "n3": 3,
+   "n2": 1,
+   "degree": 4,
+   "six_Y": -3,
+   "Y": "-1/2",
+   "T3": "-1/2",
+   "Q": "-1",
+   "k": 3,
+   "su3": "1",
+   "su2": "2",
+   "rep": "(1,2)_-1/2",
+   "name": "e_L",
+   "base": "e_L",
+   "anti": false,
+   "multiplet": "L",
+   "species": "e",
+   "left_handed_name": "L",
+   "weyl": "L",
+   "half": "16",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "1",
+   "B_minus_L": "-1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    3,
+    0,
+    3,
+    0,
+    3
+   ],
+   "complement": 8,
+   "copies": [
+    {
+     "sym": "e",
+     "sub": "",
+     "sup": "−",
+     "bar": false,
+     "flavour": null,
+     "particle": "electron",
+     "long": "left-handed electron"
+    },
+    {
+     "sym": "μ",
+     "sub": "",
+     "sup": "−",
+     "bar": false,
+     "flavour": null,
+     "particle": "muon",
+     "long": "left-handed muon"
+    },
+    {
+     "sym": "τ",
+     "sub": "",
+     "sup": "−",
+     "bar": false,
+     "flavour": null,
+     "particle": "tau",
+     "long": "left-handed tau"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "W+",
+     "move": "s2>s1",
+     "to": 15
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H+",
+     "level": "s1",
+     "adds": true,
+     "to": 31
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 7
+    }
+   ]
+  },
+  {
+   "mask": 24,
+   "bits": "00011",
+   "occupied": [
+    "s1",
+    "s2"
+   ],
+   "n3": 0,
+   "n2": 2,
+   "degree": 2,
+   "six_Y": 6,
+   "Y": "1",
+   "T3": "0",
+   "Q": "1",
+   "k": 0,
+   "su3": "1",
+   "su2": "1",
+   "rep": "(1,1)_1",
+   "name": "anti-e_R",
+   "base": "e_R",
+   "anti": true,
+   "multiplet": "anti-e_R",
+   "species": "e",
+   "left_handed_name": "e^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "-1",
+   "B_minus_L": "1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "complement": 7,
+   "copies": [
+    {
+     "sym": "e",
+     "sub": "",
+     "sup": "+",
+     "bar": false,
+     "flavour": null,
+     "particle": "positron",
+     "long": "antiparticle of the right-handed electron"
+    },
+    {
+     "sym": "μ",
+     "sub": "",
+     "sup": "+",
+     "bar": false,
+     "flavour": null,
+     "particle": "antimuon",
+     "long": "antiparticle of the right-handed muon"
+    },
+    {
+     "sym": "τ",
+     "sub": "",
+     "sup": "+",
+     "bar": false,
+     "flavour": null,
+     "particle": "antitau",
+     "long": "antiparticle of the right-handed tau"
+    }
+   ],
+   "currents": [],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 16
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 8
+    }
+   ]
+  },
+  {
+   "mask": 25,
+   "bits": "10011",
+   "occupied": [
+    "v1",
+    "s1",
+    "s2"
+   ],
+   "n3": 1,
+   "n2": 2,
+   "degree": 3,
+   "six_Y": 4,
+   "Y": "2/3",
+   "T3": "0",
+   "Q": "2/3",
+   "k": 4,
+   "su3": "3",
+   "su2": "1",
+   "rep": "(3,1)_2/3",
+   "name": "u_R",
+   "base": "u_R",
+   "anti": false,
+   "multiplet": "u_R",
+   "species": "u",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "red",
+   "colour_index": 1,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "complement": 6,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "u",
+     "particle": "up quark",
+     "long": "right-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "c",
+     "particle": "charm quark",
+     "long": "right-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "t",
+     "particle": "top quark",
+     "long": "right-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 26
+    },
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 28
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 17
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 9
+    }
+   ]
+  },
+  {
+   "mask": 26,
+   "bits": "01011",
+   "occupied": [
+    "v2",
+    "s1",
+    "s2"
+   ],
+   "n3": 1,
+   "n2": 2,
+   "degree": 3,
+   "six_Y": 4,
+   "Y": "2/3",
+   "T3": "0",
+   "Q": "2/3",
+   "k": 4,
+   "su3": "3",
+   "su2": "1",
+   "rep": "(3,1)_2/3",
+   "name": "u_R",
+   "base": "u_R",
+   "anti": false,
+   "multiplet": "u_R",
+   "species": "u",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "green",
+   "colour_index": 2,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "complement": 5,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "u",
+     "particle": "up quark",
+     "long": "right-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "c",
+     "particle": "charm quark",
+     "long": "right-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "t",
+     "particle": "top quark",
+     "long": "right-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 25
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 28
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 18
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 10
+    }
+   ]
+  },
+  {
+   "mask": 27,
+   "bits": "11011",
+   "occupied": [
+    "v1",
+    "v2",
+    "s1",
+    "s2"
+   ],
+   "n3": 2,
+   "n2": 2,
+   "degree": 4,
+   "six_Y": 2,
+   "Y": "1/3",
+   "T3": "0",
+   "Q": "1/3",
+   "k": 2,
+   "su3": "3b",
+   "su2": "1",
+   "rep": "(3b,1)_1/3",
+   "name": "anti-d_R",
+   "base": "d_R",
+   "anti": true,
+   "multiplet": "anti-d_R",
+   "species": "d",
+   "left_handed_name": "d^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": "anti-blue",
+   "colour_index": 3,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    2,
+    4,
+    0,
+    2,
+    4
+   ],
+   "complement": 4,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "d",
+     "particle": "down antiquark",
+     "long": "antiparticle of the right-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "s",
+     "particle": "strange antiquark",
+     "long": "antiparticle of the right-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "b",
+     "particle": "bottom antiquark",
+     "long": "antiparticle of the right-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v3",
+     "to": 30
+    },
+    {
+     "boson": "g",
+     "move": "v2>v3",
+     "to": 29
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 19
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 11
+    }
+   ]
+  },
+  {
+   "mask": 28,
+   "bits": "00111",
+   "occupied": [
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "n3": 1,
+   "n2": 2,
+   "degree": 3,
+   "six_Y": 4,
+   "Y": "2/3",
+   "T3": "0",
+   "Q": "2/3",
+   "k": 4,
+   "su3": "3",
+   "su2": "1",
+   "rep": "(3,1)_2/3",
+   "name": "u_R",
+   "base": "u_R",
+   "anti": false,
+   "multiplet": "u_R",
+   "species": "u",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": "blue",
+   "colour_index": 3,
+   "B": "1/3",
+   "L": "0",
+   "B_minus_L": "1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    4,
+    2,
+    0,
+    4,
+    2
+   ],
+   "complement": 3,
+   "copies": [
+    {
+     "sym": "u",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "u",
+     "particle": "up quark",
+     "long": "right-handed up quark"
+    },
+    {
+     "sym": "c",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "c",
+     "particle": "charm quark",
+     "long": "right-handed charm quark"
+    },
+    {
+     "sym": "t",
+     "sub": "",
+     "sup": "",
+     "bar": false,
+     "flavour": "t",
+     "particle": "top quark",
+     "long": "right-handed top quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 25
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 26
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 20
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 12
+    }
+   ]
+  },
+  {
+   "mask": 29,
+   "bits": "10111",
+   "occupied": [
+    "v1",
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "n3": 2,
+   "n2": 2,
+   "degree": 4,
+   "six_Y": 2,
+   "Y": "1/3",
+   "T3": "0",
+   "Q": "1/3",
+   "k": 2,
+   "su3": "3b",
+   "su2": "1",
+   "rep": "(3b,1)_1/3",
+   "name": "anti-d_R",
+   "base": "d_R",
+   "anti": true,
+   "multiplet": "anti-d_R",
+   "species": "d",
+   "left_handed_name": "d^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": "anti-green",
+   "colour_index": 2,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    2,
+    4,
+    0,
+    2,
+    4
+   ],
+   "complement": 2,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "d",
+     "particle": "down antiquark",
+     "long": "antiparticle of the right-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "s",
+     "particle": "strange antiquark",
+     "long": "antiparticle of the right-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "b",
+     "particle": "bottom antiquark",
+     "long": "antiparticle of the right-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v1>v2",
+     "to": 30
+    },
+    {
+     "boson": "g",
+     "move": "v3>v2",
+     "to": 27
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 21
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 13
+    }
+   ]
+  },
+  {
+   "mask": 30,
+   "bits": "01111",
+   "occupied": [
+    "v2",
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "n3": 2,
+   "n2": 2,
+   "degree": 4,
+   "six_Y": 2,
+   "Y": "1/3",
+   "T3": "0",
+   "Q": "1/3",
+   "k": 2,
+   "su3": "3b",
+   "su2": "1",
+   "rep": "(3b,1)_1/3",
+   "name": "anti-d_R",
+   "base": "d_R",
+   "anti": true,
+   "multiplet": "anti-d_R",
+   "species": "d",
+   "left_handed_name": "d^c",
+   "weyl": "L",
+   "half": "16",
+   "colour": "anti-red",
+   "colour_index": 1,
+   "B": "-1/3",
+   "L": "0",
+   "B_minus_L": "-1/3",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    2,
+    4,
+    0,
+    2,
+    4
+   ],
+   "complement": 1,
+   "copies": [
+    {
+     "sym": "d",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "d",
+     "particle": "down antiquark",
+     "long": "antiparticle of the right-handed down quark"
+    },
+    {
+     "sym": "s",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "s",
+     "particle": "strange antiquark",
+     "long": "antiparticle of the right-handed strange quark"
+    },
+    {
+     "sym": "b",
+     "sub": "",
+     "sup": "",
+     "bar": true,
+     "flavour": "b",
+     "particle": "bottom antiquark",
+     "long": "antiparticle of the right-handed bottom quark"
+    }
+   ],
+   "currents": [
+    {
+     "boson": "g",
+     "move": "v2>v1",
+     "to": 29
+    },
+    {
+     "boson": "g",
+     "move": "v3>v1",
+     "to": 27
+    }
+   ],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 22
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 14
+    }
+   ]
+  },
+  {
+   "mask": 31,
+   "bits": "11111",
+   "occupied": [
+    "v1",
+    "v2",
+    "v3",
+    "s1",
+    "s2"
+   ],
+   "n3": 3,
+   "n2": 2,
+   "degree": 5,
+   "six_Y": 0,
+   "Y": "0",
+   "T3": "0",
+   "Q": "0",
+   "k": 0,
+   "su3": "1",
+   "su2": "1",
+   "rep": "(1,1)_0",
+   "name": "nu_R",
+   "base": "nu_R",
+   "anti": false,
+   "multiplet": "nu_R",
+   "species": "nu",
+   "left_handed_name": null,
+   "weyl": "R",
+   "half": "16bar",
+   "colour": null,
+   "colour_index": null,
+   "B": "0",
+   "L": "1",
+   "B_minus_L": "-1",
+   "statistics": "fermion",
+   "spin": "1/2",
+   "ab_sixths": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "complement": 0,
+   "copies": [
+    {
+     "sym": "ν",
+     "sub": "e",
+     "sup": "",
+     "bar": false,
+     "flavour": null,
+     "particle": "electron neutrino",
+     "long": "right-handed electron neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "μ",
+     "sup": "",
+     "bar": false,
+     "flavour": null,
+     "particle": "muon neutrino",
+     "long": "right-handed muon neutrino"
+    },
+    {
+     "sym": "ν",
+     "sub": "τ",
+     "sup": "",
+     "bar": false,
+     "flavour": null,
+     "particle": "tau neutrino",
+     "long": "right-handed tau neutrino"
+    }
+   ],
+   "currents": [],
+   "toggles": [
+    {
+     "register": "H-",
+     "level": "s1",
+     "adds": false,
+     "to": 23
+    },
+    {
+     "register": "H0bar",
+     "level": "s2",
+     "adds": false,
+     "to": 15
+    }
+   ]
+  }
+ ],
+ "multiplets": [
+  {
+   "name": "Q",
+   "left_handed_name": "Q",
+   "su3": "3",
+   "su2": "2",
+   "Y": "1/6",
+   "six_Y": 1,
+   "k": 1,
+   "weyl": "L",
+   "half": "16",
+   "n3": 1,
+   "n2": 1,
+   "states": 6,
+   "masks": [
+    9,
+    10,
+    12,
+    17,
+    18,
+    20
+   ],
+   "components": [
+    "d_L",
+    "u_L"
+   ]
+  },
+  {
+   "name": "u_R",
+   "left_handed_name": null,
+   "su3": "3",
+   "su2": "1",
+   "Y": "2/3",
+   "six_Y": 4,
+   "k": 4,
+   "weyl": "R",
+   "half": "16bar",
+   "n3": 1,
+   "n2": 2,
+   "states": 3,
+   "masks": [
+    25,
+    26,
+    28
+   ],
+   "components": [
+    "u_R"
+   ]
+  },
+  {
+   "name": "d_R",
+   "left_handed_name": null,
+   "su3": "3",
+   "su2": "1",
+   "Y": "-1/3",
+   "six_Y": -2,
+   "k": 4,
+   "weyl": "R",
+   "half": "16bar",
+   "n3": 1,
+   "n2": 0,
+   "states": 3,
+   "masks": [
+    1,
+    2,
+    4
+   ],
+   "components": [
+    "d_R"
+   ]
+  },
+  {
+   "name": "L",
+   "left_handed_name": "L",
+   "su3": "1",
+   "su2": "2",
+   "Y": "-1/2",
+   "six_Y": -3,
+   "k": 3,
+   "weyl": "L",
+   "half": "16",
+   "n3": 3,
+   "n2": 1,
+   "states": 2,
+   "masks": [
+    15,
+    23
+   ],
+   "components": [
+    "e_L",
+    "nu_L"
+   ]
+  },
+  {
+   "name": "e_R",
+   "left_handed_name": null,
+   "su3": "1",
+   "su2": "1",
+   "Y": "-1",
+   "six_Y": -6,
+   "k": 0,
+   "weyl": "R",
+   "half": "16bar",
+   "n3": 3,
+   "n2": 0,
+   "states": 1,
+   "masks": [
+    7
+   ],
+   "components": [
+    "e_R"
+   ]
+  },
+  {
+   "name": "nu_R",
+   "left_handed_name": null,
+   "su3": "1",
+   "su2": "1",
+   "Y": "0",
+   "six_Y": 0,
+   "k": 0,
+   "weyl": "R",
+   "half": "16bar",
+   "n3": 3,
+   "n2": 2,
+   "states": 1,
+   "masks": [
+    31
+   ],
+   "components": [
+    "nu_R"
+   ]
+  },
+  {
+   "name": "anti-Q",
+   "left_handed_name": null,
+   "su3": "3b",
+   "su2": "2",
+   "Y": "-1/6",
+   "six_Y": -1,
+   "k": 5,
+   "weyl": "R",
+   "half": "16bar",
+   "n3": 2,
+   "n2": 1,
+   "states": 6,
+   "masks": [
+    11,
+    13,
+    14,
+    19,
+    21,
+    22
+   ],
+   "components": [
+    "anti-d_L",
+    "anti-u_L"
+   ]
+  },
+  {
+   "name": "anti-u_R",
+   "left_handed_name": "u^c",
+   "su3": "3b",
+   "su2": "1",
+   "Y": "-2/3",
+   "six_Y": -4,
+   "k": 2,
+   "weyl": "L",
+   "half": "16",
+   "n3": 2,
+   "n2": 0,
+   "states": 3,
+   "masks": [
+    3,
+    5,
+    6
+   ],
+   "components": [
+    "anti-u_R"
+   ]
+  },
+  {
+   "name": "anti-d_R",
+   "left_handed_name": "d^c",
+   "su3": "3b",
+   "su2": "1",
+   "Y": "1/3",
+   "six_Y": 2,
+   "k": 2,
+   "weyl": "L",
+   "half": "16",
+   "n3": 2,
+   "n2": 2,
+   "states": 3,
+   "masks": [
+    27,
+    29,
+    30
+   ],
+   "components": [
+    "anti-d_R"
+   ]
+  },
+  {
+   "name": "anti-L",
+   "left_handed_name": null,
+   "su3": "1",
+   "su2": "2",
+   "Y": "1/2",
+   "six_Y": 3,
+   "k": 3,
+   "weyl": "R",
+   "half": "16bar",
+   "n3": 0,
+   "n2": 1,
+   "states": 2,
+   "masks": [
+    8,
+    16
+   ],
+   "components": [
+    "anti-e_L",
+    "anti-nu_L"
+   ]
+  },
+  {
+   "name": "anti-e_R",
+   "left_handed_name": "e^c",
+   "su3": "1",
+   "su2": "1",
+   "Y": "1",
+   "six_Y": 6,
+   "k": 0,
+   "weyl": "L",
+   "half": "16",
+   "n3": 0,
+   "n2": 2,
+   "states": 1,
+   "masks": [
+    24
+   ],
+   "components": [
+    "anti-e_R"
+   ]
+  },
+  {
+   "name": "anti-nu_R",
+   "left_handed_name": "nu^c",
+   "su3": "1",
+   "su2": "1",
+   "Y": "0",
+   "six_Y": 0,
+   "k": 0,
+   "weyl": "L",
+   "half": "16",
+   "n3": 0,
+   "n2": 0,
+   "states": 1,
+   "masks": [
+    0
+   ],
+   "components": [
+    "anti-nu_R"
+   ]
+  }
+ ],
+ "class_table": {
+  "0": {
+   "k": 0,
+   "conjugate": 0,
+   "triality": 0,
+   "weak_parity": 0,
+   "patterns": 4,
+   "multiplets": [
+    "anti-e_R",
+    "anti-nu_R",
+    "e_R",
+    "nu_R"
+   ],
+   "bosons": [
+    "gluons",
+    "W",
+    "B"
+   ],
+   "seen_by": []
+  },
+  "1": {
+   "k": 1,
+   "conjugate": 5,
+   "triality": 1,
+   "weak_parity": 1,
+   "patterns": 6,
+   "multiplets": [
+    "Q"
+   ],
+   "bosons": [],
+   "seen_by": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "2": {
+   "k": 2,
+   "conjugate": 4,
+   "triality": 2,
+   "weak_parity": 0,
+   "patterns": 6,
+   "multiplets": [
+    "anti-d_R",
+    "anti-u_R"
+   ],
+   "bosons": [],
+   "seen_by": [
+    1,
+    2,
+    4,
+    5
+   ]
+  },
+  "3": {
+   "k": 3,
+   "conjugate": 3,
+   "triality": 0,
+   "weak_parity": 1,
+   "patterns": 4,
+   "multiplets": [
+    "L",
+    "anti-L"
+   ],
+   "bosons": [
+    "H",
+    "anti-H"
+   ],
+   "seen_by": [
+    1,
+    3,
+    5
+   ]
+  },
+  "4": {
+   "k": 4,
+   "conjugate": 2,
+   "triality": 1,
+   "weak_parity": 0,
+   "patterns": 6,
+   "multiplets": [
+    "d_R",
+    "u_R"
+   ],
+   "bosons": [],
+   "seen_by": [
+    1,
+    2,
+    4,
+    5
+   ]
+  },
+  "5": {
+   "k": 5,
+   "conjugate": 1,
+   "triality": 2,
+   "weak_parity": 1,
+   "patterns": 6,
+   "multiplets": [
+    "anti-Q"
+   ],
+   "bosons": [],
+   "seen_by": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  }
+ },
+ "anomaly_sums": {
+  "16": {
+   "sum_Y": "0",
+   "sum_Y_cubed": "0",
+   "SU2_squared_U1": "0",
+   "SU3_squared_U1": "0",
+   "SU3_cubed": 0,
+   "weak_doublets": 4
+  },
+  "16bar": {
+   "sum_Y": "0",
+   "sum_Y_cubed": "0",
+   "SU2_squared_U1": "0",
+   "SU3_squared_U1": "0",
+   "SU3_cubed": 0,
+   "weak_doublets": 4
+  }
+ },
+ "copies": {
+  "count": 3,
+  "names": {
+   "u": {
+    "symbols": [
+     "u",
+     "c",
+     "t"
+    ],
+    "names": [
+     "up",
+     "charm",
+     "top"
+    ]
+   },
+   "d": {
+    "symbols": [
+     "d",
+     "s",
+     "b"
+    ],
+    "names": [
+     "down",
+     "strange",
+     "bottom"
+    ]
+   },
+   "e": {
+    "symbols": [
+     "e",
+     "μ",
+     "τ"
+    ],
+    "names": [
+     "electron",
+     "muon",
+     "tau"
+    ]
+   },
+   "nu": {
+    "symbols": [
+     "ν",
+     "ν",
+     "ν"
+    ],
+    "names": [
+     "electron neutrino",
+     "muon neutrino",
+     "tau neutrino"
+    ]
+   }
+  },
+  "note": "The copy changes no charge. Three copies per pattern: 32 Weyl blocks per copy (CH)."
+ },
+ "bosons": {
+  "currents": [
+   {
+    "id": "g_v2>v1",
+    "boson": "gluon",
+    "kind": "level move",
+    "move": [
+     "v2",
+     "v1"
+    ],
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "red anti-green"
+   },
+   {
+    "id": "g_v3>v1",
+    "boson": "gluon",
+    "kind": "level move",
+    "move": [
+     "v3",
+     "v1"
+    ],
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "red anti-blue"
+   },
+   {
+    "id": "g_v1>v2",
+    "boson": "gluon",
+    "kind": "level move",
+    "move": [
+     "v1",
+     "v2"
+    ],
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "green anti-red"
+   },
+   {
+    "id": "g_v3>v2",
+    "boson": "gluon",
+    "kind": "level move",
+    "move": [
+     "v3",
+     "v2"
+    ],
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "green anti-blue"
+   },
+   {
+    "id": "g_v1>v3",
+    "boson": "gluon",
+    "kind": "level move",
+    "move": [
+     "v1",
+     "v3"
+    ],
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "blue anti-red"
+   },
+   {
+    "id": "g_v2>v3",
+    "boson": "gluon",
+    "kind": "level move",
+    "move": [
+     "v2",
+     "v3"
+    ],
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "blue anti-green"
+   },
+   {
+    "id": "g_3",
+    "boson": "gluon",
+    "kind": "diagonal",
+    "generator": "n(v1) - n(v2)",
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "diagonal"
+   },
+   {
+    "id": "g_8",
+    "boson": "gluon",
+    "kind": "diagonal",
+    "generator": "n(v1) + n(v2) - 2 n(v3)",
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": "diagonal"
+   },
+   {
+    "id": "W+",
+    "boson": "W+",
+    "kind": "level move",
+    "move": [
+     "s2",
+     "s1"
+    ],
+    "dT3": "1",
+    "dY": "0",
+    "dQ": "1",
+    "six_dY": 0,
+    "colour": null
+   },
+   {
+    "id": "W-",
+    "boson": "W-",
+    "kind": "level move",
+    "move": [
+     "s1",
+     "s2"
+    ],
+    "dT3": "-1",
+    "dY": "0",
+    "dQ": "-1",
+    "six_dY": 0,
+    "colour": null
+   },
+   {
+    "id": "W3",
+    "boson": "W3",
+    "kind": "diagonal",
+    "generator": "T3 = (n(s1) - n(s2))/2",
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": null
+   },
+   {
+    "id": "B",
+    "boson": "B",
+    "kind": "diagonal",
+    "generator": "Y = -(n(v1) + n(v2) + n(v3))/3 + (n(s1) + n(s2))/2",
+    "dT3": "0",
+    "dY": "0",
+    "dQ": "0",
+    "six_dY": 0,
+    "colour": null
+   }
+  ],
+  "groups": [
+   {
+    "name": "gluons",
+    "symbol": "g",
+    "count": 8,
+    "rep": "(8,1)_0",
+    "Q": "0",
+    "k": 0,
+    "spin": "1",
+    "statistics": "boson",
+    "action": "six moves between colour levels and two diagonal generators"
+   },
+   {
+    "name": "W",
+    "symbol": "W",
+    "count": 3,
+    "rep": "(1,3)_0",
+    "Q": "+1, -1, 0",
+    "k": 0,
+    "spin": "1",
+    "statistics": "boson",
+    "action": "W+ moves s2 to s1, W- moves s1 to s2, W3 is diagonal"
+   },
+   {
+    "name": "B",
+    "symbol": "B",
+    "count": 1,
+    "rep": "(1,1)_0",
+    "Q": "0",
+    "k": 0,
+    "spin": "1",
+    "statistics": "boson",
+    "action": "the hypercharge generator Y"
+   }
+  ],
+  "mixing": {
+   "photon": "the combination of W3 and B with generator Q = T3 + Y; the neutral register component H0 carries Q = 0",
+   "Z": "the other combination of W3 and B",
+   "note": "The decoder carries no mixing angle and no mass."
+  },
+  "spin_label": "integer EXACT; vector with two polarizations taken from GL and X5 (SS table)",
+  "not_gauged": {
+   "count": 12,
+   "six_dY": [
+    -5,
+    5
+   ],
+   "classes": [
+    1,
+    5
+   ],
+   "note": "Moves between a colour level and a weak level change 6Y by 5. They are not among the twelve currents (GL)."
+  },
+  "higgs": {
+   "name": "H",
+   "rep": "(1,2)_1/2",
+   "su3": "1",
+   "su2": "2",
+   "Y": "1/2",
+   "six_Y": 3,
+   "k": 3,
+   "spin": "0",
+   "statistics": "boson",
+   "components": [
+    {
+     "id": "H+",
+     "level": "s1",
+     "action": "adds s1",
+     "T3": "1/2",
+     "Y": "1/2",
+     "Q": "1"
+    },
+    {
+     "id": "H0",
+     "level": "s2",
+     "action": "adds s2",
+     "T3": "-1/2",
+     "Y": "1/2",
+     "Q": "0"
+    }
+   ],
+   "conjugate": [
+    {
+     "id": "H-",
+     "level": "s1",
+     "action": "removes s1",
+     "T3": "-1/2",
+     "Y": "-1/2",
+     "Q": "-1"
+    },
+    {
+     "id": "H0bar",
+     "level": "s2",
+     "action": "removes s2",
+     "T3": "1/2",
+     "Y": "-1/2",
+     "Q": "0"
+    }
+   ],
+   "channels": [
+    {
+     "chain": [
+      "d_R",
+      "Q",
+      "u_R"
+     ],
+     "what": "quarks"
+    },
+    {
+     "chain": [
+      "e_R",
+      "L",
+      "nu_R"
+     ],
+     "what": "leptons"
+    },
+    {
+     "chain": [
+      "anti-u_R",
+      "anti-Q",
+      "anti-d_R"
+     ],
+     "what": "antiquarks"
+    },
+    {
+     "chain": [
+      "anti-nu_R",
+      "anti-L",
+      "anti-e_R"
+     ],
+     "what": "antileptons"
+    }
+   ],
+   "status": "register DECLARED (R8); boson and spin 0 EXACT given the register (SS)"
+  }
+ },
+ "composites": {
+  "rule": "A set of quanta has a colour singlet component exactly when every colour level is occupied equally often over the set. A colour singlet set has class sum 0 or 3. It is class neutral exactly when it holds an even number of doublet patterns.",
+  "no_mass": "The decoder carries no masses. Names follow the flavour content; the order of states inside a flavour content is that of the quark model.",
+  "names_label": "Names of the quark model in the naming scheme for hadrons of the Particle Data Group. Lowest states only: pseudoscalar mesons, baryons of spin 1/2 and 3/2. A content with a top quark has no entry. The table follows the scheme and does not say which states have been observed.",
+  "flavours": [
+   {
+    "flavour": "u",
+    "type": "u",
+    "copy": 1,
+    "Q": "2/3",
+    "name": "up"
+   },
+   {
+    "flavour": "c",
+    "type": "u",
+    "copy": 2,
+    "Q": "2/3",
+    "name": "charm"
+   },
+   {
+    "flavour": "t",
+    "type": "u",
+    "copy": 3,
+    "Q": "2/3",
+    "name": "top"
+   },
+   {
+    "flavour": "d",
+    "type": "d",
+    "copy": 1,
+    "Q": "-1/3",
+    "name": "down"
+   },
+   {
+    "flavour": "s",
+    "type": "d",
+    "copy": 2,
+    "Q": "-1/3",
+    "name": "strange"
+   },
+   {
+    "flavour": "b",
+    "type": "d",
+    "copy": 3,
+    "Q": "-1/3",
+    "name": "bottom"
+   }
+  ],
+  "chirality_class_sum": {
+   "meson": {
+    "LL": 0,
+    "LR": 3,
+    "RL": 3,
+    "RR": 0
+   },
+   "baryon": {
+    "LLL": 3,
+    "LLR": 0,
+    "LRR": 3,
+    "RRR": 0
+   },
+   "antibaryon": {
+    "LLL": 3,
+    "LLR": 0,
+    "LRR": 3,
+    "RRR": 0
+   }
+  },
+  "chirality_note": "L and R name the handedness of the quark; for an antiquark, of the quark it is the antiparticle of. Class sum 3 is the class of the Higgs register: a left-handed quark with the antiparticle of a right-handed quark is the content of the quark Yukawa term.",
+  "statistics": {
+   "meson": "boson: two quanta",
+   "baryon": "fermion: three quanta",
+   "flux_content": "boson"
+  },
+  "species_level_counts": {
+   "class_neutral_mesons": 72,
+   "class_neutral_baryons": 182,
+   "class_neutral_antibaryons": 182
+  },
+  "pattern_sets": {
+   "2": {
+    "sets": 528,
+    "singlet": 84,
+    "singlet_class_0": 44,
+    "singlet_of_quark_quanta": 48,
+    "singlet_of_quark_quanta_class_0": 24,
+    "singlet_class_3": 40
+   },
+   "3": {
+    "sets": 5984,
+    "singlet": 632,
+    "singlet_class_0": 316,
+    "singlet_of_quark_quanta": 128,
+    "singlet_of_quark_quanta_class_0": 64,
+    "singlet_class_3": 316
+   }
+  },
+  "mesons": [
+   {
+    "quark": "u",
+    "antiquark": "u",
+    "content": "u ū",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "π⁰",
+     "η",
+     "η′"
+    ]
+   },
+   {
+    "quark": "u",
+    "antiquark": "d",
+    "content": "u d̄",
+    "Q": "1",
+    "B": "0",
+    "names": [
+     "π⁺"
+    ]
+   },
+   {
+    "quark": "u",
+    "antiquark": "s",
+    "content": "u s̄",
+    "Q": "1",
+    "B": "0",
+    "names": [
+     "K⁺"
+    ]
+   },
+   {
+    "quark": "u",
+    "antiquark": "c",
+    "content": "u c̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "D̄⁰"
+    ]
+   },
+   {
+    "quark": "u",
+    "antiquark": "b",
+    "content": "u b̄",
+    "Q": "1",
+    "B": "0",
+    "names": [
+     "B⁺"
+    ]
+   },
+   {
+    "quark": "u",
+    "antiquark": "t",
+    "content": "u t̄",
+    "Q": "0",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "d",
+    "antiquark": "u",
+    "content": "d ū",
+    "Q": "-1",
+    "B": "0",
+    "names": [
+     "π⁻"
+    ]
+   },
+   {
+    "quark": "d",
+    "antiquark": "d",
+    "content": "d d̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "π⁰",
+     "η",
+     "η′"
+    ]
+   },
+   {
+    "quark": "d",
+    "antiquark": "s",
+    "content": "d s̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "K⁰"
+    ]
+   },
+   {
+    "quark": "d",
+    "antiquark": "c",
+    "content": "d c̄",
+    "Q": "-1",
+    "B": "0",
+    "names": [
+     "D⁻"
+    ]
+   },
+   {
+    "quark": "d",
+    "antiquark": "b",
+    "content": "d b̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "B⁰"
+    ]
+   },
+   {
+    "quark": "d",
+    "antiquark": "t",
+    "content": "d t̄",
+    "Q": "-1",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "s",
+    "antiquark": "u",
+    "content": "s ū",
+    "Q": "-1",
+    "B": "0",
+    "names": [
+     "K⁻"
+    ]
+   },
+   {
+    "quark": "s",
+    "antiquark": "d",
+    "content": "s d̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "K̄⁰"
+    ]
+   },
+   {
+    "quark": "s",
+    "antiquark": "s",
+    "content": "s s̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "η",
+     "η′"
+    ]
+   },
+   {
+    "quark": "s",
+    "antiquark": "c",
+    "content": "s c̄",
+    "Q": "-1",
+    "B": "0",
+    "names": [
+     "D_s⁻"
+    ]
+   },
+   {
+    "quark": "s",
+    "antiquark": "b",
+    "content": "s b̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "B_s⁰"
+    ]
+   },
+   {
+    "quark": "s",
+    "antiquark": "t",
+    "content": "s t̄",
+    "Q": "-1",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "c",
+    "antiquark": "u",
+    "content": "c ū",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "D⁰"
+    ]
+   },
+   {
+    "quark": "c",
+    "antiquark": "d",
+    "content": "c d̄",
+    "Q": "1",
+    "B": "0",
+    "names": [
+     "D⁺"
+    ]
+   },
+   {
+    "quark": "c",
+    "antiquark": "s",
+    "content": "c s̄",
+    "Q": "1",
+    "B": "0",
+    "names": [
+     "D_s⁺"
+    ]
+   },
+   {
+    "quark": "c",
+    "antiquark": "c",
+    "content": "c c̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "η_c"
+    ]
+   },
+   {
+    "quark": "c",
+    "antiquark": "b",
+    "content": "c b̄",
+    "Q": "1",
+    "B": "0",
+    "names": [
+     "B_c⁺"
+    ]
+   },
+   {
+    "quark": "c",
+    "antiquark": "t",
+    "content": "c t̄",
+    "Q": "0",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "b",
+    "antiquark": "u",
+    "content": "b ū",
+    "Q": "-1",
+    "B": "0",
+    "names": [
+     "B⁻"
+    ]
+   },
+   {
+    "quark": "b",
+    "antiquark": "d",
+    "content": "b d̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "B̄⁰"
+    ]
+   },
+   {
+    "quark": "b",
+    "antiquark": "s",
+    "content": "b s̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "B̄_s⁰"
+    ]
+   },
+   {
+    "quark": "b",
+    "antiquark": "c",
+    "content": "b c̄",
+    "Q": "-1",
+    "B": "0",
+    "names": [
+     "B_c⁻"
+    ]
+   },
+   {
+    "quark": "b",
+    "antiquark": "b",
+    "content": "b b̄",
+    "Q": "0",
+    "B": "0",
+    "names": [
+     "η_b"
+    ]
+   },
+   {
+    "quark": "b",
+    "antiquark": "t",
+    "content": "b t̄",
+    "Q": "-1",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "t",
+    "antiquark": "u",
+    "content": "t ū",
+    "Q": "0",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "t",
+    "antiquark": "d",
+    "content": "t d̄",
+    "Q": "1",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "t",
+    "antiquark": "s",
+    "content": "t s̄",
+    "Q": "1",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "t",
+    "antiquark": "c",
+    "content": "t c̄",
+    "Q": "0",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "t",
+    "antiquark": "b",
+    "content": "t b̄",
+    "Q": "1",
+    "B": "0",
+    "names": []
+   },
+   {
+    "quark": "t",
+    "antiquark": "t",
+    "content": "t t̄",
+    "Q": "0",
+    "B": "0",
+    "names": []
+   }
+  ],
+  "baryons": [
+   {
+    "quarks": "uuu",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Δ⁺⁺"
+    ]
+   },
+   {
+    "quarks": "uud",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "p"
+    ],
+    "spin_3_2": [
+     "Δ⁺"
+    ]
+   },
+   {
+    "quarks": "uus",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Σ⁺"
+    ],
+    "spin_3_2": [
+     "Σ*⁺"
+    ]
+   },
+   {
+    "quarks": "uuc",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [
+     "Σ_c⁺⁺"
+    ],
+    "spin_3_2": [
+     "Σ_c*⁺⁺"
+    ]
+   },
+   {
+    "quarks": "uub",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Σ_b⁺"
+    ],
+    "spin_3_2": [
+     "Σ_b*⁺"
+    ]
+   },
+   {
+    "quarks": "uut",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "udd",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "n"
+    ],
+    "spin_3_2": [
+     "Δ⁰"
+    ]
+   },
+   {
+    "quarks": "uds",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Λ",
+     "Σ⁰"
+    ],
+    "spin_3_2": [
+     "Σ*⁰"
+    ]
+   },
+   {
+    "quarks": "udc",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Λ_c⁺",
+     "Σ_c⁺"
+    ],
+    "spin_3_2": [
+     "Σ_c*⁺"
+    ]
+   },
+   {
+    "quarks": "udb",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Λ_b⁰",
+     "Σ_b⁰"
+    ],
+    "spin_3_2": [
+     "Σ_b*⁰"
+    ]
+   },
+   {
+    "quarks": "udt",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "uss",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ⁰"
+    ],
+    "spin_3_2": [
+     "Ξ*⁰"
+    ]
+   },
+   {
+    "quarks": "usc",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_c⁺",
+     "Ξ′_c⁺"
+    ],
+    "spin_3_2": [
+     "Ξ_c*⁺"
+    ]
+   },
+   {
+    "quarks": "usb",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_b⁰",
+     "Ξ′_b⁰"
+    ],
+    "spin_3_2": [
+     "Ξ_b*⁰"
+    ]
+   },
+   {
+    "quarks": "ust",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "ucc",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_cc⁺⁺"
+    ],
+    "spin_3_2": [
+     "Ξ_cc*⁺⁺"
+    ]
+   },
+   {
+    "quarks": "ucb",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_cb⁺",
+     "Ξ′_cb⁺"
+    ],
+    "spin_3_2": [
+     "Ξ_cb*⁺"
+    ]
+   },
+   {
+    "quarks": "uct",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "ubb",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_bb⁰"
+    ],
+    "spin_3_2": [
+     "Ξ_bb*⁰"
+    ]
+   },
+   {
+    "quarks": "ubt",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "utt",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "ddd",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Δ⁻"
+    ]
+   },
+   {
+    "quarks": "dds",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [
+     "Σ⁻"
+    ],
+    "spin_3_2": [
+     "Σ*⁻"
+    ]
+   },
+   {
+    "quarks": "ddc",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Σ_c⁰"
+    ],
+    "spin_3_2": [
+     "Σ_c*⁰"
+    ]
+   },
+   {
+    "quarks": "ddb",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [
+     "Σ_b⁻"
+    ],
+    "spin_3_2": [
+     "Σ_b*⁻"
+    ]
+   },
+   {
+    "quarks": "ddt",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "dss",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ⁻"
+    ],
+    "spin_3_2": [
+     "Ξ*⁻"
+    ]
+   },
+   {
+    "quarks": "dsc",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_c⁰",
+     "Ξ′_c⁰"
+    ],
+    "spin_3_2": [
+     "Ξ_c*⁰"
+    ]
+   },
+   {
+    "quarks": "dsb",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_b⁻",
+     "Ξ′_b⁻"
+    ],
+    "spin_3_2": [
+     "Ξ_b*⁻"
+    ]
+   },
+   {
+    "quarks": "dst",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "dcc",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_cc⁺"
+    ],
+    "spin_3_2": [
+     "Ξ_cc*⁺"
+    ]
+   },
+   {
+    "quarks": "dcb",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_cb⁰",
+     "Ξ′_cb⁰"
+    ],
+    "spin_3_2": [
+     "Ξ_cb*⁰"
+    ]
+   },
+   {
+    "quarks": "dct",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "dbb",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [
+     "Ξ_bb⁻"
+    ],
+    "spin_3_2": [
+     "Ξ_bb*⁻"
+    ]
+   },
+   {
+    "quarks": "dbt",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "dtt",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "sss",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Ω⁻"
+    ]
+   },
+   {
+    "quarks": "ssc",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ω_c⁰"
+    ],
+    "spin_3_2": [
+     "Ω_c*⁰"
+    ]
+   },
+   {
+    "quarks": "ssb",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [
+     "Ω_b⁻"
+    ],
+    "spin_3_2": [
+     "Ω_b*⁻"
+    ]
+   },
+   {
+    "quarks": "sst",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "scc",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Ω_cc⁺"
+    ],
+    "spin_3_2": [
+     "Ω_cc*⁺"
+    ]
+   },
+   {
+    "quarks": "scb",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ω_cb⁰",
+     "Ω′_cb⁰"
+    ],
+    "spin_3_2": [
+     "Ω_cb*⁰"
+    ]
+   },
+   {
+    "quarks": "sct",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "sbb",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [
+     "Ω_bb⁻"
+    ],
+    "spin_3_2": [
+     "Ω_bb*⁻"
+    ]
+   },
+   {
+    "quarks": "sbt",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "stt",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "ccc",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Ω_ccc⁺⁺"
+    ]
+   },
+   {
+    "quarks": "ccb",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [
+     "Ω_ccb⁺"
+    ],
+    "spin_3_2": [
+     "Ω_ccb*⁺"
+    ]
+   },
+   {
+    "quarks": "cct",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "cbb",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [
+     "Ω_cbb⁰"
+    ],
+    "spin_3_2": [
+     "Ω_cbb*⁰"
+    ]
+   },
+   {
+    "quarks": "cbt",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "ctt",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "bbb",
+    "Q": "-1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Ω_bbb⁻"
+    ]
+   },
+   {
+    "quarks": "bbt",
+    "Q": "0",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "btt",
+    "Q": "1",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "quarks": "ttt",
+    "Q": "2",
+    "B": "1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   }
+  ],
+  "antibaryons": [
+   {
+    "antiquarks": "uuu",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Δ̄⁻⁻"
+    ]
+   },
+   {
+    "antiquarks": "uud",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "p̄"
+    ],
+    "spin_3_2": [
+     "Δ̄⁻"
+    ]
+   },
+   {
+    "antiquarks": "uus",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Σ̄⁻"
+    ],
+    "spin_3_2": [
+     "Σ̄*⁻"
+    ]
+   },
+   {
+    "antiquarks": "uuc",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [
+     "Σ̄_c⁻⁻"
+    ],
+    "spin_3_2": [
+     "Σ̄_c*⁻⁻"
+    ]
+   },
+   {
+    "antiquarks": "uub",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Σ̄_b⁻"
+    ],
+    "spin_3_2": [
+     "Σ̄_b*⁻"
+    ]
+   },
+   {
+    "antiquarks": "uut",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "udd",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "n̄"
+    ],
+    "spin_3_2": [
+     "Δ̄⁰"
+    ]
+   },
+   {
+    "antiquarks": "uds",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Λ̄",
+     "Σ̄⁰"
+    ],
+    "spin_3_2": [
+     "Σ̄*⁰"
+    ]
+   },
+   {
+    "antiquarks": "udc",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Λ̄_c⁻",
+     "Σ̄_c⁻"
+    ],
+    "spin_3_2": [
+     "Σ̄_c*⁻"
+    ]
+   },
+   {
+    "antiquarks": "udb",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Λ̄_b⁰",
+     "Σ̄_b⁰"
+    ],
+    "spin_3_2": [
+     "Σ̄_b*⁰"
+    ]
+   },
+   {
+    "antiquarks": "udt",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "uss",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄⁰"
+    ],
+    "spin_3_2": [
+     "Ξ̄*⁰"
+    ]
+   },
+   {
+    "antiquarks": "usc",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_c⁻",
+     "Ξ̄′_c⁻"
+    ],
+    "spin_3_2": [
+     "Ξ̄_c*⁻"
+    ]
+   },
+   {
+    "antiquarks": "usb",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_b⁰",
+     "Ξ̄′_b⁰"
+    ],
+    "spin_3_2": [
+     "Ξ̄_b*⁰"
+    ]
+   },
+   {
+    "antiquarks": "ust",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "ucc",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_cc⁻⁻"
+    ],
+    "spin_3_2": [
+     "Ξ̄_cc*⁻⁻"
+    ]
+   },
+   {
+    "antiquarks": "ucb",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_cb⁻",
+     "Ξ̄′_cb⁻"
+    ],
+    "spin_3_2": [
+     "Ξ̄_cb*⁻"
+    ]
+   },
+   {
+    "antiquarks": "uct",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "ubb",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_bb⁰"
+    ],
+    "spin_3_2": [
+     "Ξ̄_bb*⁰"
+    ]
+   },
+   {
+    "antiquarks": "ubt",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "utt",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "ddd",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Δ̄⁺"
+    ]
+   },
+   {
+    "antiquarks": "dds",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [
+     "Σ̄⁺"
+    ],
+    "spin_3_2": [
+     "Σ̄*⁺"
+    ]
+   },
+   {
+    "antiquarks": "ddc",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Σ̄_c⁰"
+    ],
+    "spin_3_2": [
+     "Σ̄_c*⁰"
+    ]
+   },
+   {
+    "antiquarks": "ddb",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [
+     "Σ̄_b⁺"
+    ],
+    "spin_3_2": [
+     "Σ̄_b*⁺"
+    ]
+   },
+   {
+    "antiquarks": "ddt",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "dss",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄⁺"
+    ],
+    "spin_3_2": [
+     "Ξ̄*⁺"
+    ]
+   },
+   {
+    "antiquarks": "dsc",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_c⁰",
+     "Ξ̄′_c⁰"
+    ],
+    "spin_3_2": [
+     "Ξ̄_c*⁰"
+    ]
+   },
+   {
+    "antiquarks": "dsb",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_b⁺",
+     "Ξ̄′_b⁺"
+    ],
+    "spin_3_2": [
+     "Ξ̄_b*⁺"
+    ]
+   },
+   {
+    "antiquarks": "dst",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "dcc",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_cc⁻"
+    ],
+    "spin_3_2": [
+     "Ξ̄_cc*⁻"
+    ]
+   },
+   {
+    "antiquarks": "dcb",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_cb⁰",
+     "Ξ̄′_cb⁰"
+    ],
+    "spin_3_2": [
+     "Ξ̄_cb*⁰"
+    ]
+   },
+   {
+    "antiquarks": "dct",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "dbb",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ξ̄_bb⁺"
+    ],
+    "spin_3_2": [
+     "Ξ̄_bb*⁺"
+    ]
+   },
+   {
+    "antiquarks": "dbt",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "dtt",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "sss",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Ω̄⁺"
+    ]
+   },
+   {
+    "antiquarks": "ssc",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ω̄_c⁰"
+    ],
+    "spin_3_2": [
+     "Ω̄_c*⁰"
+    ]
+   },
+   {
+    "antiquarks": "ssb",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ω̄_b⁺"
+    ],
+    "spin_3_2": [
+     "Ω̄_b*⁺"
+    ]
+   },
+   {
+    "antiquarks": "sst",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "scc",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ω̄_cc⁻"
+    ],
+    "spin_3_2": [
+     "Ω̄_cc*⁻"
+    ]
+   },
+   {
+    "antiquarks": "scb",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ω̄_cb⁰",
+     "Ω̄′_cb⁰"
+    ],
+    "spin_3_2": [
+     "Ω̄_cb*⁰"
+    ]
+   },
+   {
+    "antiquarks": "sct",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "sbb",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ω̄_bb⁺"
+    ],
+    "spin_3_2": [
+     "Ω̄_bb*⁺"
+    ]
+   },
+   {
+    "antiquarks": "sbt",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "stt",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "ccc",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Ω̄_ccc⁻⁻"
+    ]
+   },
+   {
+    "antiquarks": "ccb",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [
+     "Ω̄_ccb⁻"
+    ],
+    "spin_3_2": [
+     "Ω̄_ccb*⁻"
+    ]
+   },
+   {
+    "antiquarks": "cct",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "cbb",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [
+     "Ω̄_cbb⁰"
+    ],
+    "spin_3_2": [
+     "Ω̄_cbb*⁰"
+    ]
+   },
+   {
+    "antiquarks": "cbt",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "ctt",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "bbb",
+    "Q": "1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": [
+     "Ω̄_bbb⁺"
+    ]
+   },
+   {
+    "antiquarks": "bbt",
+    "Q": "0",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "btt",
+    "Q": "-1",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   },
+   {
+    "antiquarks": "ttt",
+    "Q": "-2",
+    "B": "-1",
+    "spin_1_2": [],
+    "spin_3_2": []
+   }
+  ]
+ },
+ "run": {
+  "run": "L6",
+  "law": "law C, schedule 1, preparation exact06",
+  "carriers": 81920,
+  "occupied_carriers": 24758,
+  "empty_carriers": 57162,
+  "sweeps": 500,
+  "stored_cuts": 180,
+  "end_depth": 10816,
+  "distinct_contents_at_end": 15,
+  "distinct_contents_over_stored_cuts": 505,
+  "not_neutral": 0,
+  "contents": [
+   {
+    "set": [
+     2,
+     4
+    ],
+    "label": "{2,4}",
+    "carriers": 19513,
+    "share": 0.7881492850795703,
+    "share_text": "78.81 %",
+    "parts": [
+     "{2,4}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 19513,
+    "peak_depth": 9920
+   },
+   {
+    "set": [
+     3,
+     3
+    ],
+    "label": "{3,3}",
+    "carriers": 3073,
+    "share": 0.12412149608207448,
+    "share_text": "12.41 %",
+    "parts": [
+     "{3,3}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 3755,
+    "peak_depth": 1
+   },
+   {
+    "set": [
+     1,
+     5
+    ],
+    "label": "{1,5}",
+    "carriers": 688,
+    "share": 0.027788997495758947,
+    "share_text": "2.78 %",
+    "parts": [
+     "{1,5}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 30639,
+    "peak_depth": 960
+   },
+   {
+    "set": [
+     2,
+     2,
+     4,
+     4
+    ],
+    "label": "{2,2,4,4}",
+    "carriers": 555,
+    "share": 0.022416996526375313,
+    "share_text": "2.24 %",
+    "parts": [
+     "{2,4}",
+     "{2,4}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 5030,
+    "peak_depth": 2
+   },
+   {
+    "set": [
+     2,
+     2,
+     2
+    ],
+    "label": "{2,2,2}",
+    "carriers": 335,
+    "share": 0.013530979885289604,
+    "share_text": "1.35 %",
+    "parts": [
+     "{2,2,2}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 178,
+    "peak_carriers": 335,
+    "peak_depth": 4608
+   },
+   {
+    "set": [
+     4,
+     4,
+     4
+    ],
+    "label": "{4,4,4}",
+    "carriers": 334,
+    "share": 0.013490588900557396,
+    "share_text": "1.35 %",
+    "parts": [
+     "{4,4,4}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 178,
+    "peak_carriers": 334,
+    "peak_depth": 5056
+   },
+   {
+    "set": [
+     2,
+     3,
+     3,
+     4
+    ],
+    "label": "{2,3,3,4}",
+    "carriers": 227,
+    "share": 0.009168753534211165,
+    "share_text": "0.92 %",
+    "parts": [
+     "{2,4}",
+     "{3,3}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 1501,
+    "peak_depth": 1
+   },
+   {
+    "set": [
+     3,
+     3,
+     4,
+     4,
+     4
+    ],
+    "label": "{3,3,4,4,4}",
+    "carriers": 13,
+    "share": 0.000525082801518701,
+    "share_text": "0.053 %",
+    "parts": [
+     "{3,3}",
+     "{4,4,4}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 178,
+    "peak_carriers": 15,
+    "peak_depth": 6
+   },
+   {
+    "set": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "label": "{3,3,3,3}",
+    "carriers": 6,
+    "share": 0.00024234590839324662,
+    "share_text": "0.024 %",
+    "parts": [
+     "{3,3}",
+     "{3,3}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 175,
+    "peak_depth": 1
+   },
+   {
+    "set": [
+     2,
+     2,
+     2,
+     2,
+     4
+    ],
+    "label": "{2,2,2,2,4}",
+    "carriers": 4,
+    "share": 0.00016156393892883107,
+    "share_text": "0.016 %",
+    "parts": [
+     "{2,2,2}",
+     "{2,4}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 178,
+    "peak_carriers": 95,
+    "peak_depth": 4
+   },
+   {
+    "set": [
+     2,
+     2,
+     2,
+     3,
+     3
+    ],
+    "label": "{2,2,2,3,3}",
+    "carriers": 3,
+    "share": 0.00012117295419662331,
+    "share_text": "0.012 %",
+    "parts": [
+     "{2,2,2}",
+     "{3,3}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 178,
+    "peak_carriers": 13,
+    "peak_depth": 9
+   },
+   {
+    "set": [
+     2,
+     4,
+     4,
+     4,
+     4
+    ],
+    "label": "{2,4,4,4,4}",
+    "carriers": 3,
+    "share": 0.00012117295419662331,
+    "share_text": "0.012 %",
+    "parts": [
+     "{2,4}",
+     "{4,4,4}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 178,
+    "peak_carriers": 82,
+    "peak_depth": 4
+   },
+   {
+    "set": [
+     2,
+     2,
+     2,
+     4,
+     4,
+     4
+    ],
+    "label": "{2,2,2,4,4,4}",
+    "carriers": 2,
+    "share": 8.078196946441554e-05,
+    "share_text": "0.008 %",
+    "parts": [
+     "{2,4}",
+     "{2,4}",
+     "{2,4}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 734,
+    "peak_depth": 4
+   },
+   {
+    "set": [
+     1,
+     2,
+     3
+    ],
+    "label": "{1,2,3}",
+    "carriers": 1,
+    "share": 4.039098473220777e-05,
+    "share_text": "0.004 %",
+    "parts": [
+     "{1,2,3}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 178,
+    "peak_carriers": 1835,
+    "peak_depth": 1088
+   },
+   {
+    "set": [
+     2,
+     2,
+     3,
+     3,
+     4,
+     4
+    ],
+    "label": "{2,2,3,3,4,4}",
+    "carriers": 1,
+    "share": 4.039098473220777e-05,
+    "share_text": "0.004 %",
+    "parts": [
+     "{2,4}",
+     "{2,4}",
+     "{3,3}"
+    ],
+    "statistics": "boson",
+    "spin": "integer",
+    "cuts_present": 179,
+    "peak_carriers": 329,
+    "peak_depth": 3
+   }
+  ],
+  "primitives": [
+   {
+    "set": [
+     2,
+     4
+    ],
+    "label": "{2,4}",
+    "end_carriers": 19513,
+    "cuts_present": 179,
+    "peak_carriers": 19513,
+    "peak_depth": 9920,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "a right-handed quark and its antiparticle",
+    "ss_note": null,
+    "in_ss_table": true,
+    "vertex_form": "2+4->0",
+    "vertex": [
+     "fermion gauge current"
+    ],
+    "fields": [
+     [
+      "G",
+      "anti-u_R",
+      "u_R"
+     ],
+     [
+      "B",
+      "anti-u_R",
+      "u_R"
+     ],
+     [
+      "G",
+      "anti-d_R",
+      "d_R"
+     ],
+     [
+      "B",
+      "anti-d_R",
+      "d_R"
+     ]
+    ],
+    "colour_epsilon": false,
+    "realizations": 10
+   },
+   {
+    "set": [
+     3,
+     3
+    ],
+    "label": "{3,3}",
+    "end_carriers": 3073,
+    "cuts_present": 179,
+    "peak_carriers": 3755,
+    "peak_depth": 1,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "a lepton doublet with its antiparticle, or the Higgs with its conjugate",
+    "ss_note": "A pair of class-3 bosons. The reading as a lepton with a Higgs is excluded: that set is a fermion.",
+    "in_ss_table": true,
+    "vertex_form": "3+3->0",
+    "vertex": [
+     "Yukawa",
+     "fermion gauge current",
+     "scalar gauge current"
+    ],
+    "fields": [
+     [
+      "L",
+      "W",
+      "anti-L"
+     ],
+     [
+      "B",
+      "L",
+      "anti-L"
+     ],
+     [
+      "H",
+      "L",
+      "anti-nu_R"
+     ],
+     [
+      "L",
+      "anti-H",
+      "anti-e_R"
+     ],
+     [
+      "H",
+      "anti-L",
+      "e_R"
+     ],
+     [
+      "anti-H",
+      "anti-L",
+      "nu_R"
+     ],
+     [
+      "H",
+      "W",
+      "anti-H"
+     ],
+     [
+      "B",
+      "H",
+      "anti-H"
+     ]
+    ],
+    "colour_epsilon": false,
+    "realizations": 22
+   },
+   {
+    "set": [
+     1,
+     5
+    ],
+    "label": "{1,5}",
+    "end_carriers": 688,
+    "cuts_present": 179,
+    "peak_carriers": 30639,
+    "peak_depth": 960,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "a left-handed quark and its antiparticle",
+    "ss_note": null,
+    "in_ss_table": true,
+    "vertex_form": "1+5->0",
+    "vertex": [
+     "fermion gauge current"
+    ],
+    "fields": [
+     [
+      "G",
+      "Q",
+      "anti-Q"
+     ],
+     [
+      "Q",
+      "W",
+      "anti-Q"
+     ],
+     [
+      "B",
+      "Q",
+      "anti-Q"
+     ]
+    ],
+    "colour_epsilon": false,
+    "realizations": 5
+   },
+   {
+    "set": [
+     2,
+     2,
+     2
+    ],
+    "label": "{2,2,2}",
+    "end_carriers": 335,
+    "cuts_present": 178,
+    "peak_carriers": 335,
+    "peak_depth": 4608,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "three antiparticles of right-handed quarks",
+    "ss_note": "A pure flux content is a boson and cannot be an antibaryon. An antibaryon is three quanta on a carrier.",
+    "in_ss_table": true,
+    "vertex_form": "2+2->4",
+    "vertex": [
+     "three-fermion gauge singlet"
+    ],
+    "fields": [
+     [
+      "anti-d_R",
+      "anti-d_R",
+      "anti-u_R"
+     ]
+    ],
+    "colour_epsilon": true,
+    "realizations": 1
+   },
+   {
+    "set": [
+     4,
+     4,
+     4
+    ],
+    "label": "{4,4,4}",
+    "end_carriers": 334,
+    "cuts_present": 178,
+    "peak_carriers": 334,
+    "peak_depth": 5056,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "three right-handed quarks",
+    "ss_note": "A pure flux content is a boson and cannot be a baryon. A baryon is three quanta on a carrier.",
+    "in_ss_table": true,
+    "vertex_form": "4+4->2",
+    "vertex": [
+     "three-fermion gauge singlet"
+    ],
+    "fields": [
+     [
+      "d_R",
+      "d_R",
+      "u_R"
+     ]
+    ],
+    "colour_epsilon": true,
+    "realizations": 1
+   },
+   {
+    "set": [
+     1,
+     2,
+     3
+    ],
+    "label": "{1,2,3}",
+    "end_carriers": 1,
+    "cuts_present": 178,
+    "peak_carriers": 1835,
+    "peak_depth": 1088,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "a left-handed quark, the antiparticle of a right-handed quark and the Higgs: the classes that meet in a quark Yukawa term",
+    "ss_note": null,
+    "in_ss_table": true,
+    "vertex_form": "1+2->3",
+    "vertex": [
+     "Yukawa"
+    ],
+    "fields": [
+     [
+      "H",
+      "Q",
+      "anti-u_R"
+     ],
+     [
+      "Q",
+      "anti-H",
+      "anti-d_R"
+     ]
+    ],
+    "colour_epsilon": false,
+    "realizations": 4
+   },
+   {
+    "set": [
+     1,
+     1,
+     4
+    ],
+    "label": "{1,1,4}",
+    "end_carriers": 0,
+    "cuts_present": 130,
+    "peak_carriers": 4758,
+    "peak_depth": 576,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "two left-handed quarks and one right-handed quark",
+    "ss_note": null,
+    "in_ss_table": false,
+    "vertex_form": "1+1->2",
+    "vertex": [
+     "three-fermion gauge singlet"
+    ],
+    "fields": [
+     [
+      "Q",
+      "Q",
+      "d_R"
+     ]
+    ],
+    "colour_epsilon": true,
+    "realizations": 1
+   },
+   {
+    "set": [
+     2,
+     5,
+     5
+    ],
+    "label": "{2,5,5}",
+    "end_carriers": 0,
+    "cuts_present": 117,
+    "peak_carriers": 4742,
+    "peak_depth": 576,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "the antiparticles of two left-handed quarks and of one right-handed quark",
+    "ss_note": null,
+    "in_ss_table": false,
+    "vertex_form": "2+5->1",
+    "vertex": [
+     "three-fermion gauge singlet"
+    ],
+    "fields": [
+     [
+      "anti-Q",
+      "anti-Q",
+      "anti-d_R"
+     ]
+    ],
+    "colour_epsilon": true,
+    "realizations": 1
+   },
+   {
+    "set": [
+     3,
+     4,
+     5
+    ],
+    "label": "{3,4,5}",
+    "end_carriers": 0,
+    "cuts_present": 169,
+    "peak_carriers": 1799,
+    "peak_depth": 960,
+    "statistics": "boson",
+    "spin": "integer",
+    "centre_classes_of": "the conjugate quark Yukawa term: a right-handed quark, the antiparticle of a left-handed quark and the Higgs",
+    "ss_note": null,
+    "in_ss_table": true,
+    "vertex_form": "3+4->1",
+    "vertex": [
+     "Yukawa"
+    ],
+    "fields": [
+     [
+      "H",
+      "anti-Q",
+      "d_R"
+     ],
+     [
+      "anti-H",
+      "anti-Q",
+      "u_R"
+     ]
+    ],
+    "colour_epsilon": false,
+    "realizations": 4
+   }
+  ],
+  "conjugate_balance": {
+   "{4,4,4}": 334,
+   "{2,2,2}": 335,
+   "difference": -1
+  },
+  "reading": "Every content is a set of flux defects. A flux defect is a boson of integer spin, so every content is a boson (SS). The content carries the centre classes of the named particle set and no further quantum number.",
+  "decomposition_rule": "A content with more than three members is split into neutral parts of at most three members, largest number of parts first. The rule reads classes only; positions on the carrier are not used. DECLARED for display."
+ },
+ "checks": {
+  "a.class_rule_on_all_32": true,
+  "a.six_Y_is_3n2_minus_2n3": true,
+  "a.class_mod_3_is_triality_and_mod_2_is_weak_parity": true,
+  "a.Q_from_level_charges_equals_T3_plus_Y": true,
+  "a.kernel_phase_is_integer": true,
+  "a.class_multiplicities_4_6_6_4_6_6": true,
+  "a.stated_class_of_every_multiplet": true,
+  "a.multiplet_dimensions": true,
+  "a.B_minus_L_is_1_minus_two_thirds_n3": true,
+  "a.phase_around_flux_depends_on_class_only": true,
+  "a.colour_flux_seen_by_quark_classes_only": true,
+  "a.weak_flux_seen_by_doublets_only": true,
+  "a.the_16_is_Q_uc_dc_L_ec_nuc": true,
+  "a.anomaly_sums_vanish_on_the_16": true,
+  "a.anomaly_sums_vanish_on_the_16bar": true,
+  "a.complement_is_charge_conjugate_on_all_32": true,
+  "a.equal_to_model_patterns_on_all_32": true,
+  "a.equal_to_results_json_on_all_32": true,
+  "a.handedness_equals_certificate_field_type": true,
+  "a.left_handed_generation_classes_of_certificate": true,
+  "a.symbols_and_handedness_equal_particle_map_state_names": true,
+  "a.level_charges_equal_particle_map_levels": true,
+  "b.twelve_currents_8_3_1": true,
+  "b.every_current_has_class_0": true,
+  "b.charges_of_the_currents": true,
+  "b.dimension_of_s_u3_plus_u2_is_12": true,
+  "b.currents_keep_the_block_n3_n2": true,
+  "b.W_changes_charge_by_one_gluon_by_zero": true,
+  "b.sixty_four_level_moves": true,
+  "b.moves_between_colour_and_weak_levels_carry_class_1_or_5": true,
+  "b.thirty_two_register_toggles": true,
+  "b.a_toggle_raises_6Y_by_3_and_the_class_by_3": true,
+  "b.toggle_channels_are_the_four_chains": true,
+  "b.higgs_field_of_certificate": true,
+  "b.statistics_of_SS_table": true,
+  "b.photon_generator_is_Q_and_H0_is_neutral": true,
+  "c.singlet_component_iff_colour_levels_equally_occupied": true,
+  "c.invariants_3x3b_and_3x3x3": true,
+  "c.every_colour_singlet_set_has_integer_Q_and_B_and_class_0_or_3": true,
+  "c.class_neutral_iff_even_number_of_doublet_patterns": true,
+  "c.counts_36_mesons_56_baryons_56_antibaryons": true,
+  "c.charge_in_every_hadron_name_equals_the_computed_charge": true,
+  "c.light_baryon_names": true,
+  "c.octet_has_eight_and_decuplet_ten_states": true,
+  "c.class_of_a_quark_depends_on_handedness_only": true,
+  "c.class_neutral_chiralities": true,
+  "c.species_level_counts": true,
+  "c.statistics_of_composites_in_certificate": true,
+  "d.end_census_equals_early_universe_json": true,
+  "d.every_content_of_every_stored_cut_is_class_neutral": true,
+  "d.every_content_holds_an_even_number_of_odd_classes": true,
+  "d.nine_neutral_contents_of_at_most_three_members": true,
+  "d.all_nine_occur_in_the_stored_cuts": true,
+  "d.realization_exists_for_every_primitive_content": true,
+  "d.typed_vertices": true,
+  "d.quark_yukawa_fields_of_1_2_3": true,
+  "d.three_quark_fields": true,
+  "d.realizations_equal_certificate_reaction_table": true,
+  "d.ss_table_lists_the_boson_contents": true,
+  "d.every_end_content_splits_into_the_nine_primitive_contents": true,
+  "a.twelve_multiplets_32_states": true,
+  "a.class_table_equals_certificate": true
+ }
+}

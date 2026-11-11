@@ -1,0 +1,182 @@
+"""Worker LY, X1, X2, X6 and the FR-geometry variant: outcome of one cost-raising read on the carrier register.
+
+Reads no measured value and computes no candidate value (candidate values are assembled in ly_values.py).
+  cd RL/work/LY && PYTHONDONTWRITEBYTECODE=1 nice -n 10 /tmp/oph-completion-venv/bin/python -B ly_d1_chain.py
+Writes d1_chain.json.
+"""
+from __future__ import annotations
+
+import json
+import os
+import time
+from fractions import Fraction
+
+import ly_chain as CH
+import ly_lib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T = L.T0
+
+
+def leak_states(start):
+    rs = CH.rises(start, T)
+    rmin = min(r for _, _, r in rs)
+    leaks = [(k, d) for k, d, r in rs if r == rmin]
+    hist = {}
+    for _, _, r in rs:
+        hist[r] = hist.get(r, 0) + 1
+    return rmin, leaks, hist
+
+
+def merge(dist_list, weights=None):
+    out = {}
+    n = len(dist_list)
+    for i, d in enumerate(dist_list):
+        w = weights[i] if weights else 1.0 / n
+        for k, v in d.items():
+            out[k] = out.get(k, 0.0) + w * v
+    return out
+
+
+def main():
+    t0 = time.time()
+    out = {'source': {'carrier': L.CARRIER_PATH, 'cost_table': T, 'kappa': L.KAPPA,
+                      'rule': 'uniform proposal over 60 (seam, delta); twist applied iff the cost does not rise'}}
+    reps = L.pair_orbit_reps()
+    out['pair_orbits'] = [{'faces': [a, b], 'd': d, 'size': n} for a, b, d, n in reps]
+
+    # ---------------- X1: one cost-raising read from every lasting (3,3) orbit
+    x1 = []
+    for a, b, d, size in reps:
+        if d < 2:
+            continue
+        start = L.config({a: 3, b: 3})
+        rmin, leaks, hist = leak_states(start)
+        starts = [L.twist(start, k, dl) for k, dl in leaks]
+        res, info = CH.solve_absorption(starts, T)
+        per = []
+        for (k, dl), s, r in zip(leaks, starts, res):
+            split_face = a if (L.PLUS[k] == a or L.MINUS[k] == a) else b
+            other = L.MINUS[k] if L.PLUS[k] == split_face else L.PLUS[k]
+            partner = b if split_face == a else a
+            per.append({'seam': k, 'delta': 1 if dl == 1 else -1, 'split_face': split_face, 'fragment_face': other,
+                        'fragment_distance_to_partner': L.DIST[other][partner], 'classes': L.defects(s),
+                        'dist': r['dist'], 'ticks': r['ticks']})
+        mean = merge([r['dist'] for r in res])
+        row = {'faces': [a, b], 'd': d, 'orbit_size': size, 'min_rise': rmin, 'leak_proposals': len(leaks),
+               'rise_histogram': hist, 'mean_over_leaks': mean, 'K_vacuum': mean.get("('vacuum',)", 0.0),
+               'mean_ticks_to_absorption': sum(r['ticks'] for r in res) / len(res), 'per_leak': per, 'chain': info}
+        x1.append(row)
+        print(f"X1 d={d} faces=({a},{b}) leaks={len(leaks)} rise={rmin} states={info['states']} "
+              f"K_vac={row['K_vacuum']:.6f} resid={info['residual']:.1e} {time.time() - t0:.1f}s", flush=True)
+        print('   outcome', {k: round(v, 6) for k, v in sorted(mean.items())}, flush=True)
+    out['X1_one_cost_raising_read'] = x1
+
+    # placement mean (d = 3: two mirror orbits of equal size)
+    Kd = {}
+    for row in x1:
+        Kd.setdefault(row['d'], []).append((row['orbit_size'], row['K_vacuum']))
+    Kmean = {d: sum(n * k for n, k in v) / sum(n for n, _ in v) for d, v in Kd.items()}
+    out['K_by_separation'] = Kmean
+    out['K_placement_mean'] = sum(float(L.PLACEMENT_WEIGHTS[d]) * Kmean[d] for d in Kmean)
+    print('K(d):', Kmean, ' <K> =', out['K_placement_mean'], flush=True)
+
+    # eventual fate under repeated cost-raising reads (structure): transfer between the lasting (3,3) separations
+    seps = sorted(Kmean)
+    import numpy as np
+    Tm = np.zeros((len(seps), len(seps)))
+    vac = np.zeros(len(seps))
+    other = np.zeros(len(seps))
+    for i, d in enumerate(seps):
+        rows_d = [r for r in x1 if r['d'] == d]
+        tot = sum(r['orbit_size'] for r in rows_d)
+        for r in rows_d:
+            w = r['orbit_size'] / tot
+            for lab, p in r['mean_over_leaks'].items():
+                if lab == "('vacuum',)":
+                    vac[i] += w * p
+                elif lab.startswith('((3, 3),'):
+                    dd = int(lab.split(',')[-1].strip(' )'))
+                    Tm[i, seps.index(dd)] += w * p
+                else:
+                    other[i] += w * p
+    Kinf = np.linalg.solve(np.eye(len(seps)) - Tm, vac)
+    out['repeated_reads'] = {'separations': seps, 'transfer_33_to_33': Tm.tolist(), 'vacuum': vac.tolist(),
+                             'other_absorbing': other.tolist(), 'eventual_vacuum_probability': Kinf.tolist(),
+                             'placement_mean_eventual': float(sum(float(L.PLACEMENT_WEIGHTS[d]) * Kinf[i]
+                                                                  for i, d in enumerate(seps)))}
+    print('repeated reads: eventual vacuum', dict(zip(seps, Kinf.round(6))), flush=True)
+
+    # ---------------- X2: the quark vertex 1 + 3 -> 4 (exact rationals)
+    x2 = []
+    for a, b, d, size in reps:
+        res, info = CH.exact_small([L.config({a: 1, b: 3})], T)
+        res2, _ = CH.exact_small([L.config({b: 1, a: 3})], T)
+        x2.append({'faces': [a, b], 'd': d, 'orbit_size': size,
+                   'outcome_class1_on_first': {k: str(v) for k, v in res[0]['dist'].items()},
+                   'ticks_class1_on_first': str(res[0]['ticks']), 'ticks_class1_on_second': str(res2[0]['ticks']),
+                   'ticks_float': float(res[0]['ticks'] + res2[0]['ticks']) / 2})
+        print(f"X2 d={d} ({a},{b}) outcome {x2[-1]['outcome_class1_on_first']} ticks {x2[-1]['ticks_class1_on_first']}"
+              f" / {x2[-1]['ticks_class1_on_second']}", flush=True)
+    out['X2_quark_vertex'] = x2
+    Tq = {}
+    for r in x2:
+        Tq.setdefault(r['d'], []).append((r['orbit_size'], r['ticks_float']))
+    Tq = {d: sum(n * t for n, t in v) / sum(n for n, _ in v) for d, v in Tq.items()}
+    out['T_q_by_separation'] = Tq
+    out['T_q_placement_mean_lasting'] = sum(float(L.PLACEMENT_WEIGHTS[d]) * Tq[d] for d in (2, 3, 4, 5))
+    print('T_q(d):', Tq, ' mean over lasting placements', out['T_q_placement_mean_lasting'], flush=True)
+
+    # ---------------- X6: geometry of the hexagon around a face axis
+    f = 0
+    ports, hseams = L.hexagon(f)
+    flank = []
+    for k in hseams:
+        fl = sorted((L.DIST[f][L.PLUS[k]], L.DIST[f][L.MINUS[k]]))
+        flank.append(fl)
+    band = [g for g in range(L.NF) if L.DIST[f][g] in (2, 3)]
+    per_face = {g: [k for k in hseams if g in (L.PLUS[k], L.MINUS[k])] for g in range(L.NF)}
+    deg = {p: sum(1 for k in hseams if p in L.SEAMS[k]) for p in ports}
+    out['X6_hexagon'] = {'face': f, 'face_ports': L.FACES[f], 'antipodal_face': L.antipodal_face(f),
+                         'hexagon_ports': ports, 'hexagon_seams': [L.SEAMS[k] for k in hseams],
+                         'hexagon_is_a_six_cycle': len(hseams) == 6 and all(v == 2 for v in deg.values()),
+                         'flanking_separations_per_seam': flank,
+                         'every_seam_separates_d2_from_d3': all(fl == [2, 3] for fl in flank),
+                         'band_faces_flanked_by_exactly_one_hexagon_seam': all(len(per_face[g]) == 1 for g in band),
+                         'faces_outside_band_flanked': sum(len(per_face[g]) for g in range(L.NF) if g not in band),
+                         'faces_by_separation': {d: sum(1 for g in range(L.NF) if L.DIST[f][g] == d) for d in range(6)}}
+    print('X6', {k: v for k, v in out['X6_hexagon'].items() if k not in ('hexagon_seams',)}, flush=True)
+
+    # ---------------- FR geometry: lepton flux on f, Higgs flux on a band face h, split across the hexagon seam of h
+    g_rows = []
+    for h in band:
+        k = per_face[h][0]
+        start = L.config({f: 3, h: 3})
+        starts = [L.twist(start, k, dl) for dl in (1, 5)]
+        res, info = CH.solve_absorption(starts, T)
+        hp = L.MINUS[k] if L.PLUS[k] == h else L.PLUS[k]
+        for dl, r in zip((1, -1), res):
+            g_rows.append({'h': h, 'd_f_h': L.DIST[f][h], 'seam': L.SEAMS[k], 'delta': dl, 'other_flank_face': hp,
+                           'd_f_other_flank': L.DIST[f][hp], 'dist': r['dist'],
+                           'K_vacuum': r['dist'].get("('vacuum',)", 0.0), 'ticks': r['ticks']})
+        print(f"G h={h} d={L.DIST[f][h]} K_vac(+,-)=({g_rows[-2]['K_vacuum']:.6f},{g_rows[-1]['K_vacuum']:.6f}) "
+              f"{time.time() - t0:.1f}s", flush=True)
+    KG = {}
+    for d in (2, 3):
+        v = [r['K_vacuum'] for r in g_rows if r['d_f_h'] == d]
+        KG[d] = sum(v) / len(v)
+    out['FR_geometry'] = {'rows': g_rows, 'K_G_by_separation': KG,
+                          'W_G': (KG[2] + KG[3]) / 16.0,
+                          'W_G_formula': 'sum over 16 lasting faces (1/16) x sum over 12 oriented hexagon seams (1/12) x '
+                                         '[seam flanks the Higgs face] x K_G = (K_G(2) + K_G(3))/16',
+                          'outcome_mean_by_separation': {d: merge([r['dist'] for r in g_rows if r['d_f_h'] == d])
+                                                         for d in (2, 3)}}
+    print('K_G:', KG, ' W_G =', out['FR_geometry']['W_G'], flush=True)
+    out['seconds'] = round(time.time() - t0, 1)
+    with open(os.path.join(HERE, 'd1_chain.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+        fh.write('\n')
+
+
+if __name__ == '__main__':
+    main()

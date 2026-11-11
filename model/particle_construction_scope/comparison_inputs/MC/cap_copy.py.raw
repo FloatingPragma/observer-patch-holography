@@ -1,0 +1,109 @@
+# Copy of repair-law/work/FLUXPUMP/cap.py (theory session, candidate CAP), unchanged below this header; sha256 of the original:
+# f574200fcfa471c77ee4b0dbd1ad2735868a582ed09a46ef74ebe65262d39ccc
+"""Covariant agreement pump (CAP), candidate interface.
+
+One sentence: a seam event corrects the component in which its two ports disagree after recharting through their
+spinor frames, and splits a double load as the reference rule does.
+
+Interface (same as audit/native/minimal_candidate.py): describe(), space(total), instrument(seam, total).
+Run from a checkout that provides `model.common_source.slow_geometry` (the public repository), for example
+`cd reverse-engineering-reality && PYTHONPATH=. python ../repair-law/work/FLUXPUMP/cap.py`.
+"""
+import itertools
+import numpy as np
+from model.common_source import slow_geometry
+
+_src = slow_geometry.source()
+SEAMS = tuple(tuple(int(v) for v in e) for e in _src.seams())
+FACES = tuple(tuple(int(v) for v in f) for f in _src.oriented_faces())
+N, M = 12, len(SEAMS)
+FLUX = 1                      # units of 2 pi / 20 per oriented face; the declared recharting class
+
+
+def _frame():
+    A = np.zeros((N, N))
+    for a, b in SEAMS:
+        A[a, b] = A[b, a] = 1
+    w, v = np.linalg.eigh(A)
+    U = v[:, np.abs(w - 5 ** .5) < 1e-9] * 2.0        # port unit vectors (slow band), up to a rotation
+    f = FACES[0]
+    if np.linalg.det(np.array([U[f[0]], U[f[1]], U[f[2]]])) < 0:
+        U[:, 2] *= -1
+    R = np.linalg.qr(np.random.default_rng(3).normal(size=(3, 3)))[0]   # generic position: no port at a pole
+    if np.linalg.det(R) < 0:
+        R[:, 0] *= -1
+    return A, U @ R.T
+
+
+ADJ, PORT_VECTORS = _frame()
+
+
+def _spinor(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+
+
+SPINORS = [_spinor(u) for u in PORT_VECTORS]
+
+
+def link(a, b, flux=None):
+    """Recharting phase for the hop a -> b: the phase of <chi_b|chi_a>, to the power `flux`."""
+    z = np.vdot(SPINORS[b], SPINORS[a])
+    return (z / abs(z)) ** (FLUX if flux is None else flux)
+
+
+def describe():
+    return {
+        'name': 'covariant agreement pump',
+        'sentence': 'A seam event corrects the component in which its two ports disagree after recharting through '
+                    'their spinor frames, and splits a double load as the reference rule does.',
+        'state_added_to_reference_rule': 'none (a complex Hilbert space over the load configurations)',
+        'declared': ['recharting class (flux %d per face in units 2 pi/20; one unit is the spinor frame of the port '
+                     'directions)' % FLUX, 'record alphabet {keep, corrected, split_a, split_b}',
+                     'uniform independent seam scheduler'],
+        'declared_numbers': 0,
+        'coin': False, 'record': True,
+        'port_response': 'not claimed',
+    }
+
+
+def space(total):
+    if total == 1:
+        return [tuple(int(p == q) for p in range(N)) for q in range(N)]
+    if total == 2:
+        binary = [tuple(int(p in c) for p in range(N)) for c in itertools.combinations(range(N), 2)]
+        double = [tuple(2 * int(p == q) for p in range(N)) for q in range(N)]
+        return binary + double
+    raise ValueError('totals one and two')
+
+
+def instrument(seam, total, flux=None):
+    """Kraus rows [(label, matrix)] on the full sector; rows that are exactly zero in the sector are omitted."""
+    a, b = seam
+    z = link(a, b, flux)
+    states = space(total)
+    index = {s: i for i, s in enumerate(states)}
+    d = len(states)
+    keep = np.zeros((d, d), complex); corr = np.zeros((d, d), complex)
+    split_a = np.zeros((d, d), complex); split_b = np.zeros((d, d), complex)
+    for s, i in index.items():
+        xa, xb = s[a], s[b]
+        if (xa, xb) in ((0, 0), (1, 1)):
+            keep[i, i] = 1
+        elif (xa, xb) in ((1, 0), (0, 1)):
+            t = list(s); t[a], t[b] = xb, xa; j = index[tuple(t)]
+            ia, ib = (i, j) if xa == 1 else (j, i)          # ia: load at a, ib: load at b
+            # |+> = (|ia> + z|ib>)/sqrt2, |-> = (|ia> - z|ib>)/sqrt2 ; keep gets |+><+|, corr gets |+><-|
+            src = i
+            cp = np.array([1, np.conj(z)]) / np.sqrt(2)      # <+| on (ia, ib)
+            cm = np.array([1, -np.conj(z)]) / np.sqrt(2)     # <-| on (ia, ib)
+            col = 0 if src == ia else 1
+            keep[ia, src] += (1 / np.sqrt(2)) * cp[col]; keep[ib, src] += (z / np.sqrt(2)) * cp[col]
+            corr[ia, src] += (1 / np.sqrt(2)) * cm[col]; corr[ib, src] += (z / np.sqrt(2)) * cm[col]
+        elif (xa, xb) in ((2, 0), (0, 2)):
+            t = list(s); t[a], t[b] = 1, 1
+            (split_a if xa == 2 else split_b)[index[tuple(t)], i] = 1
+        else:
+            raise ArithmeticError('load outside the total-two carrier')
+    rows = [('keep', keep), ('corrected', corr), ('split_a', split_a), ('split_b', split_b)]
+    return [(label, K) for label, K in rows if np.any(K)]

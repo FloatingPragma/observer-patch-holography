@@ -1,0 +1,149 @@
+"""Block 5 test: the count-limit construction of the papers run on a population that the tape generates.
+
+Population: every carrier keeps the six signed axis counts of its tape modulo Q (a finite register). Its site is the
+readback x = sum_a m_a u_a (the same rank-three readout the papers apply to supplied loads). The law of the register
+is stationary (uniform on (Z/Q)^6), so every layer carries a fresh sample of the same smooth density; one record per
+carrier and layer moves each site by one unit vector.
+Order (the papers' read law, DECLARED): event (j+1, t) reads every (j, s) with |x_t(j+1) - x_s(j)| <= a; transitive
+closure. Clock (DECLARED): one layer = a / c.
+Measured in the generated interval between a bottom tip (layer 0) and a top tip (layer K) at the centre:
+  I, C (inclusive events, strict generated pairs), r = 2C / (I(I-1));
+  comparison with the cone order dt = (j' - j) a >= |dx| on the same events (violations in both directions).
+Controls: the same sites held fixed (the papers' hypothesis), and a uniform Poisson population of equal density.
+
+python b7_readlaw.py [--procs 12 --seeds 6]     writes results/b7_readlaw.json
+"""
+import argparse, json, os, time
+from multiprocessing import Pool
+import numpy as np
+from scipy.spatial import cKDTree
+from scipy.spatial.distance import cdist
+import mc_lib as L
+import b3c_momenta as C3
+
+U6, AXI, SGN = C3.U6, C3.AXI, C3.SGN
+
+
+def register_layers(Q, t0, rho, radius, K, rng):
+    """Positions [K+1, n, 3] of every carrier that is within `radius` of the centre at some layer 0..K.
+    All carriers of the cloud are advanced (a carrier whose register wraps jumps by Q u_a and can enter the region),
+    so the layer populations are samples of the stationary law. `rho` is the nominal central density (Gaussian
+    estimate with variance Q^2/6 per axis); the measured central density is returned by `central_density`."""
+    sigma2 = Q * Q / 6.0
+    total = int(rho * (2 * np.pi * sigma2) ** 1.5)
+    keep = []
+    done = 0
+    while done < total:
+        k = min(500_000, total - done); done += k
+        cnt = rng.multinomial(t0, [1 / 12] * 12, size=k)
+        m = np.zeros((k, 6), np.int64)
+        for p in range(12):
+            m[:, AXI[p]] += SGN[p] * cnt[:, p]
+        m = (m + Q // 2) % Q - Q // 2
+        xs = [m @ U6]
+        for j in range(K):
+            p = rng.integers(12, size=k)
+            m[np.arange(k), AXI[p]] += SGN[p]
+            m = (m + Q // 2) % Q - Q // 2
+            xs.append(m @ U6)
+        xs = np.array(xs)                                    # [K+1, k, 3]
+        near = (np.linalg.norm(xs, axis=2) <= radius + 1e-9).any(axis=0)
+        keep.append(xs[:, near, :])
+    return np.concatenate(keep, axis=1), total
+
+
+def central_density(X, r):
+    return [float((np.linalg.norm(x, axis=1) <= r).sum() / (4 * np.pi * r ** 3 / 3)) for x in X]
+
+
+def generated_interval(X, a):
+    """X: list of K+1 arrays [n_j, 3]. Returns diamond layers and the counts of the generated order."""
+    K = len(X) - 1
+    s = int(np.argmin(np.linalg.norm(X[0], axis=1))); t = int(np.argmin(np.linalg.norm(X[K], axis=1)))
+    trees = [cKDTree(x) for x in X]
+    F = [np.array([s])]
+    for j in range(K):
+        nb = trees[j + 1].query_ball_point(X[j][F[j]], a)
+        F.append(np.unique(np.concatenate([np.asarray(v, int) for v in nb])) if len(nb) else np.zeros(0, int))
+    B = [None] * (K + 1); B[K] = np.array([t])
+    for j in range(K, 0, -1):
+        nb = trees[j - 1].query_ball_point(X[j][B[j]], a)
+        B[j - 1] = np.unique(np.concatenate([np.asarray(v, int) for v in nb]))
+    D = [np.intersect1d(F[j], B[j]) for j in range(K + 1)]
+    if any(d.size == 0 for d in D):
+        return None
+    P = [X[j][D[j]] for j in range(K + 1)]
+    M1 = [cdist(P[j], P[j + 1]) <= a for j in range(K)]
+    C = 0; C_cone = 0; gen_not_cone = 0; cone_not_gen = 0; links = 0
+    for j in range(K):
+        R = M1[j]
+        for jp in range(j + 1, K + 1):
+            if jp > j + 1:
+                R = (R.astype(np.float32) @ M1[jp - 1].astype(np.float32)) > 0.5
+            cone = cdist(P[j], P[jp]) <= (jp - j) * a * (1 + 1e-12)
+            C += int(R.sum()); C_cone += int(cone.sum())
+            gen_not_cone += int((R & ~cone).sum()); cone_not_gen += int((cone & ~R).sum())
+    I = int(sum(d.size for d in D))
+    # events of the layers inside the continuum cone diamond of the two tips, for the count law
+    tip0, tipK = X[0][s], X[K][t]
+    I_cone = 0
+    for j in range(K + 1):
+        I_cone += int(((np.linalg.norm(X[j] - tip0, axis=1) <= j * a + 1e-9) & (np.linalg.norm(X[j] - tipK, axis=1) <= (K - j) * a + 1e-9)).sum())
+    return {'I': I, 'C': C, 'r': 2 * C / (I * (I - 1)), 'C_cone': C_cone, 'r_cone_same_events': 2 * C_cone / (I * (I - 1)),
+            'generated_outside_cone': gen_not_cone, 'cone_not_generated_fraction': cone_not_gen / max(1, C_cone),
+            'I_cone_diamond': I_cone, 'layer_sizes': [int(d.size) for d in D],
+            'tip_offset': float(np.linalg.norm(tipK - tip0))}
+
+
+def one(a_):
+    kind, Q, rho, a, K, seed = a_
+    rng = np.random.default_rng([seed, Q, int(rho * 10), int(a * 10), K, {'register': 1, 'fixed': 2, 'poisson': 3}[kind]])
+    radius = K * a / 2 + a
+    Xa, carriers = register_layers(Q, 200_000, rho, radius, K, rng)
+    dens = central_density(Xa, K * a / 2)
+    if kind == 'poisson':            # uniform static population at the measured central density of the register cloud
+        R = radius
+        n = rng.poisson(dens[0] * 8 * R ** 3)
+        x = (rng.random((n, 3)) - 0.5) * 2 * R
+        X = [x] * (K + 1)
+    else:
+        X = [Xa[0]] * (K + 1) if kind == 'fixed' else [Xa[j] for j in range(K + 1)]
+    out = generated_interval(X, a)
+    if out is None:
+        return {'kind': kind, 'Q': Q, 'rho': rho, 'a': a, 'K': K, 'seed': seed, 'failed': True}
+    vol = np.pi * (K * a) ** 4 / (24 * a)            # continuum sum over layers of the ball volumes (c = a per layer)
+    out.update({'kind': kind, 'Q': Q, 'rho': rho, 'a': a, 'K': K, 'seed': seed, 'carriers_total': int(carriers),
+                'sites_per_layer_simulated': int(X[0].shape[0]), 'd_r': L.dim_from_r(out['r']),
+                'central_density_first_layer': dens[0], 'central_density_last_layer': dens[-1],
+                'count_over_density_volume': out['I'] / (dens[0] * vol), 'neighbours_per_read': dens[0] * 4 * np.pi * a ** 3 / 3})
+    return out
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--seeds', type=int, default=6)
+    a = ap.parse_args()
+    t0 = time.time()
+    cases = [(96, 2.0, 3.0, 4), (96, 2.0, 3.0, 6), (96, 2.0, 3.0, 8), (96, 4.0, 3.0, 6), (96, 1.0, 3.0, 6), (96, 2.0, 2.0, 6), (96, 2.0, 2.0, 10)]
+    jobs = [(kind, Q, rho, aa, K, s) for kind in ('register', 'fixed', 'poisson') for (Q, rho, aa, K) in cases for s in range(a.seeds)]
+    jobs.sort(key=lambda j: -j[4] * j[2])
+    with Pool(a.procs) as pool:
+        rows = pool.map(one, jobs, chunksize=1)
+    out = {}
+    for (Q, rho, aa, K) in cases:
+        for kind in ('register', 'fixed', 'poisson'):
+            sel = [r for r in rows if (r['kind'], r['Q'], r['rho'], r['a'], r['K']) == (kind, Q, rho, aa, K) and not r.get('failed')]
+            d = L.summarize(sel, keys=('I', 'C', 'r', 'd_r', 'r_cone_same_events', 'generated_outside_cone', 'cone_not_generated_fraction',
+                                       'I_cone_diamond', 'count_over_density_volume', 'neighbours_per_read', 'tip_offset', 'sites_per_layer_simulated',
+                                       'central_density_first_layer', 'central_density_last_layer'))
+            d['failed'] = sum(1 for r in rows if (r['kind'], r['Q'], r['rho'], r['a'], r['K']) == (kind, Q, rho, aa, K) and r.get('failed'))
+            out[f'{kind}|Q={Q}|rho={rho}|a={aa}|K={K}'] = d
+    res = {'seconds': time.time() - t0, 'result': out,
+           'papers_even_K_ladder_q144': {'4': 0.0600, '6': 0.0803, '8': 0.0887, '10': 0.0932, '12': 0.0955}}
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open('results/b7_readlaw.json', 'w'), indent=1, default=float)
+    for k, v in out.items():
+        f = lambda key, n=4: f"{v[key][0]:.{n}g}+-{v[key][1]:.2g}" if key in v else '-'
+        print(f'{k:40s} I {f("I", 6):>14s} r {f("r"):>16s} d_r {f("d_r")} r_cone {f("r_cone_same_events")} outside-cone {f("generated_outside_cone")} cone-not-generated {f("cone_not_generated_fraction")} count/(density V) {f("count_over_density_volume")} density {f("central_density_first_layer")} -> {f("central_density_last_layer")} nb {f("neighbours_per_read")} failed {v["failed"]}')
+    print('seconds', round(res['seconds'], 1))

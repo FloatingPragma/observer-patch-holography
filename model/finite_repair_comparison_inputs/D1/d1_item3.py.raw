@@ -1,0 +1,236 @@
+"""D1 item 3. Which labels the tick keeps. Exact: integer matrices (120 W), Q(sqrt5) (kdlib.K) for the 3 x 3 algebra.
+
+A. The public walk of one carrier (model/coherent_seam_repair/walk.py: states (port, record, ordered seam), 1,440;
+   W = Q R with R the address reflection and Q the product of the seam reflectors with v = (a0 - b0 - a1 - b1)/sqrt2),
+   rebuilt here as the integer matrix 120 W and checked against the public invariants (trace -1276; discriminant
+   diag(1 - L/60, 1 - (Degree + Adjacency)/60)). It commutes with all sixty rotations acting on ports and addresses.
+B. On the triplet-isotypic rest states of the frame group the discriminant is 1 x K3 with K3 = (55 + M3)/60 (blank
+   record) and (55 - M3)/60 (record set), M3 in the body axes (normal, short, long) of the base port.
+C. One tick on the second index: with the hat-embedding v -> v x (1,...,1) over the sixty addresses,
+   W (hat v) = Q hat v and W (Q hat v) = 2 Q hat(K v) - hat v. For v = Phi(e_i x x) the first index i is untouched and
+   the pair (x, y) of second-index vectors maps to (-y, x + 2 K3 y).
+D. Passage between carriers of the cubic family (translates on the lattice of spacing 2 phi, each port shared with
+   one neighbour): the relabelling nu (port of carrier X -> the label of the same point in the neighbour) is the
+   canonical right translation F P for every frame; on the two ports of the seam of axis i it is the left half-turn
+   about their short axis. It acts on the second index by the half-turn about the short axis of the base port.
+Run from the public checkout:
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/KD:RL/work/D1 python RL/work/D1/d1_item3.py [out.json]
+"""
+import json
+import math
+import sys
+from fractions import Fraction as F
+
+import numpy as np
+
+import kdlib as kd
+from kdlib import K, ONE, ZERO, PHI, R5
+
+import d1lib as d
+from d1lib import frame, torsor, canonical_ops, adjacency, pmul, pinv, IDP, i3mul, i3T
+
+checks, counts = {}, {}
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+def bump(name, n=1):
+    counts[name] = counts.get(name, 0) + n
+
+
+car = kd.carrier()
+seams = list(car['seams'])
+n, M = 12, len(seams)
+D = 2 * M
+addresses = [(a, b) for e in seams for a, b in (e, e[::-1])]
+addr_index = {ab: k for k, ab in enumerate(addresses)}
+N = 2 * n * D
+
+
+def idx(a, r, k):
+    return (2 * a + r) * D + k
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# A. the walk as integer matrices: 60 R = 2 J_addr - 60 I, 2 Q
+# ---------------------------------------------------------------------------------------------------------------
+R60 = np.zeros((N, N), dtype=np.int64)
+for i in range(2 * n):
+    for k in range(D):
+        for k2 in range(D):
+            R60[i * D + k, i * D + k2] = 2
+        R60[i * D + k, i * D + k] -= 60
+Q2 = 2 * np.eye(N, dtype=np.int64)
+for k, (a, b) in enumerate(addresses):
+    sites = [idx(a, 0, k), idx(b, 0, k), idx(a, 1, k), idx(b, 1, k)]
+    signs = [1, -1, -1, -1]
+    # U = I - v v^T with v = signs/sqrt2: 2U = 2I - signs signs^T on the four sites
+    for s1, j1 in zip(signs, sites):
+        for s2, j2 in zip(signs, sites):
+            Q2[j1, j2] -= s1 * s2
+W120 = Q2 @ R60                                                  # 120 W, integer
+ok('Q^2 = 1 and R^2 = 1 (integer identities 4 Q^2 = 4, 3600 R^2 = 3600)',
+   np.array_equal(Q2 @ Q2, 4 * np.eye(N, dtype=np.int64)) and np.array_equal(R60 @ R60, 3600 * np.eye(N, dtype=np.int64)))
+ok('trace W = -1276 (public certificate)', int(np.trace(W120)) == -1276 * 120)
+# discriminant: hat* W hat / 60 with hat = embedding by the all-ones address vector
+hat = np.zeros((N, 2 * n), dtype=np.int64)
+for a in range(n):
+    for r in range(2):
+        for k in range(D):
+            hat[idx(a, r, k), 2 * a + r] = 1
+disc7200 = hat.T @ W120 @ hat                                    # = 120 * 60 * disc
+Adj = np.array(adjacency(), dtype=np.int64)
+Lap = 5 * np.eye(n, dtype=np.int64) - Adj
+blank = 60 * np.eye(n, dtype=np.int64) - Lap                    # 60 (1 - L/60)
+signd = 60 * np.eye(n, dtype=np.int64) - (5 * np.eye(n, dtype=np.int64) + Adj)
+target = np.zeros((2 * n, 2 * n), dtype=np.int64)
+target[0::2, 0::2] = blank
+target[1::2, 1::2] = signd
+ok('discriminant = diag(1 - L/60, 1 - (5 + A)/60) on (port, record) (public certificate)', np.array_equal(disc7200, 120 * target))
+# covariance under all sixty rotations (ports and addresses together)
+rots = car['rotations']
+
+
+def walk_perm(g):
+    out = np.empty(N, dtype=np.int64)
+    for a in range(n):
+        for r in range(2):
+            for k, (x, y) in enumerate(addresses):
+                out[idx(a, r, k)] = idx(g[a], r, addr_index[(g[x], g[y])])
+    return out
+
+
+for g in rots:
+    pi = walk_perm(g)
+    # (L W)[pi[i], pi[j]] = W[i, j] for a symmetry
+    assert np.array_equal(W120[np.ix_(pi, pi)], W120)
+    assert np.array_equal(R60[np.ix_(pi, pi)], R60)
+    bump('rotations checked against W and R (exact integers)')
+ok('W and the address reflection R commute with all sixty rotations', counts['rotations checked against W and R (exact integers)'] == 60)
+# the rest-plane identities W hat v = Q hat v and W Q hat v = 2 Q hat (K v) - hat v, for every v (integer form)
+WH = W120 @ hat                                                   # 120 W hat
+QH = Q2 @ hat                                                     # 2 Q hat
+ok('W hat = Q hat (integer form: 120 W hat = 60 (2 Q hat))', np.array_equal(WH, 60 * QH))
+lhs = W120 @ QH                                                   # 240 W Q hat
+rhs = 2 * (QH @ (target)) * 2 - 240 * hat                         # 240 (2 Q hat K - hat) with K = target/60
+ok('W Q hat = 2 Q hat K - hat (integer form, K the discriminant)', np.array_equal(lhs, rhs))
+
+# ---------------------------------------------------------------------------------------------------------------
+# B, C. the second index (exact over Q(sqrt5))
+# ---------------------------------------------------------------------------------------------------------------
+M3 = ((-1, 0, 0), (0, -1, 2), (0, 2, 1))
+K3_blank = tuple(tuple(F(55 * (i == j) + M3[i][j], 60) for j in range(3)) for i in range(3))
+K3_set = tuple(tuple(F(55 * (i == j) - M3[i][j], 60) for j in range(3)) for i in range(3))
+for f in range(5):
+    for p0 in range(12):
+        to = torsor(f, p0)
+        Phi = [[to['rhoB'][to['elem'][p]][i][j] for i in range(3) for j in range(3)] for p in range(12)]
+        for r, K3 in ((0, K3_blank), (1, K3_set)):
+            Kport = (blank if r == 0 else signd)
+            for i in range(3):
+                for j in range(3):
+                    col = [Phi[p][3 * i + j] for p in range(12)]
+                    lhsv = [sum(F(int(Kport[p][q]), 60) * col[q] for q in range(12)) for p in range(12)]
+                    rhsv = [sum(K3[m][j] * Phi[p][3 * i + m] for m in range(3)) for p in range(12)]
+                    assert lhsv == rhsv
+        bump('(frame, base port) pairs: discriminant on the triplet = 1 x K3 (both records)')
+ok('discriminant on the triplet-isotypic rest states = 1 x (55 + M3)/60 (blank) and 1 x (55 - M3)/60 (record set), '
+   'first index untouched, all frames and base ports', counts['(frame, base port) pairs: discriminant on the triplet = 1 x K3 (both records)'] == 60)
+# eigenvalues of K3 and the per-tick phases
+lev = {'slow (0,1,phi)': (K(F(11, 12), F(1, 60)), (ZERO, ONE, PHI)), 'middle (1,0,0)': (K(F(9, 10)), (ONE, ZERO, ZERO)),
+       'fast (0,phi,-1)': (K(F(11, 12), F(-1, 60)), (ZERO, PHI, -ONE))}
+for name, (lam, u) in lev.items():
+    img = tuple(sum((K(K3_blank[i][j]) * u[j] for j in range(3)), ZERO) for i in range(3))
+    assert img == tuple(lam * x for x in u)
+ok('K3 (blank) eigenvalues 11/12 + sqrt5/60, 9/10, 11/12 - sqrt5/60 on (0,1,phi), (1,0,0), (0,phi,-1)', True)
+tick6 = np.zeros((6, 6))
+tick6[0:3, 3:6] = -np.eye(3)
+tick6[3:6, 0:3] = np.eye(3)
+tick6[3:6, 3:6] = 2 * np.array([[float(x) for x in r] for r in K3_blank])
+ev = np.linalg.eigvals(tick6)
+phases = sorted(abs(np.angle(e)) for e in ev)
+expect = sorted([math.acos(float(lam)) for lam, _ in lev.values()] * 2)
+ok('one tick on (rest, image) x second index has eigenphases +-arccos of the three levels (float64 of exact numbers)',
+   max(abs(a - b) for a, b in zip(phases, expect)) < 1e-12 and max(abs(abs(e) - 1) for e in ev) < 1e-12)
+
+# ---------------------------------------------------------------------------------------------------------------
+# D. passage between carriers of the cubic family
+# ---------------------------------------------------------------------------------------------------------------
+TWO_PHI = K(2) * PHI
+nu_rows = []
+for f in range(5):
+    fr = frame(f)
+    coords = fr['coords']
+    ops = canonical_ops(f)
+    nu = []
+    for p in range(12):
+        c = coords[p]
+        j = next(i for i in range(3) if c[i] == PHI or c[i] == -PHI)       # the seam axis of p is its long axis
+        sgn = ONE if c[j] == PHI else -ONE
+        target_c = tuple(c[i] - (TWO_PHI * sgn if i == j else ZERO) for i in range(3))
+        q = next(q for q in range(12) if coords[q] == target_c)
+        nu.append(q)
+    nu = tuple(nu)
+    FP = pmul(ops['F'], ops['P'])
+    ok('the relabelling nu between neighbouring carriers is a fixed-point-free involution', pmul(nu, nu) == IDP and all(nu[p] != p for p in range(12)))
+    ok('nu = F P (the canonical right Klein element), every frame', nu == FP)
+    for p0 in range(12):
+        to = torsor(f, p0)
+        h_s = next(g for g in fr['T'] if to['rhoB'][g] == ((-1, 0, 0), (0, 1, 0), (0, 0, -1)))
+        assert to['right'][h_s] == nu
+        bump('base ports: nu = R(half-turn about the short axis of the base port)')
+    # on each frame seam, nu agrees with the left half-turn about the short axis of the two seam ports
+    for a, b in fr['matching']:
+        sa = fr['body'][a][1]
+        h = next(g for g in fr['T'] if fr['kind'][g] == 'half-turn' and
+                 tuple(sum(fr['rho'][g][i][t] * sa[t] for t in range(3)) for i in range(3)) == sa)
+        assert h[a] == nu[a] and h[b] == nu[b]
+        bump('frame seams: nu on the seam = left half-turn about the short axis of its ports')
+ok('on every frame seam nu is the left half-turn about the short axis of its two ports (a different half-turn for each axis)',
+   counts['frame seams: nu on the seam = left half-turn about the short axis of its ports'] == 30)
+# action of nu on the kernel copies: O^T diag(-1, 1, -1) O
+O = [(ZERO, ONE, PHI), (ONE, ZERO, ZERO), (ZERO, PHI, -ONE)]
+Hs = (-1, 1, -1)
+nrm = [sum((x * x for x in u), ZERO) for u in O]
+Vsq = []
+for a in range(3):
+    row = []
+    for b in range(3):
+        x = sum((K(Hs[t]) * O[a][t] * O[b][t] for t in range(3)), ZERO)
+        row.append(x * x / (nrm[a] * nrm[b]))
+    Vsq.append(row)
+ok('passage mixes the kernel copies: squared moduli [[1/5, 0, 4/5], [0, 1, 0], [4/5, 0, 1/5]] (slow, middle, fast)',
+   Vsq == [[K(F(1, 5)), ZERO, K(F(4, 5))], [ZERO, ONE, ZERO], [K(F(4, 5)), ZERO, K(F(1, 5))]])
+ok('nu does not commute with the adjacency (it is not P)',
+   any(adjacency()[nu[p]][nu[q]] != adjacency()[p][q] for p in range(12) for q in range(12)))
+
+out = {
+    'arithmetic': 'integers (120 W, 2 Q, 60 R) and Q(sqrt5); floats only for printed phases',
+    'walk': {'dimension': N, 'trace_W': -1276, 'discriminant': 'diag(1 - L/60, 1 - (5 + A)/60)',
+             'symmetry': 'W and R commute with all sixty rotations acting on ports and addresses'},
+    'per_tick_on_second_index': {
+        'basis': 'x = rest component (blank record, uniform address), y = component along Q hat; second index in body axes (normal, short, long) of the base port',
+        'map': '(x, y) -> (-y, x + 2 K3 y), first index untouched',
+        'K3_blank': [[str(x) for x in r] for r in K3_blank],
+        'K3_record_set': [[str(x) for x in r] for r in K3_set],
+        'eigenphases_per_tick': {name: math.acos(float(lam)) for name, (lam, _) in lev.items()},
+        'mixed_axes': 'short and long (entry 2/60); the normal axis is a level',
+    },
+    'conserved_by_the_internal_walk_and_the_M3_control': 'all sixty rotations of the internal register (first index, and the '
+        'rotation multiplet: slow = 3, fast = 3prime, middle inside 5); not conserved: the axis lines of the second index',
+    'passage_between_carriers': {
+        'relabelling': 'nu = F P for every frame (the right translation by the half-turn about the short axis of the base port); '
+                       'on the seam of each axis it agrees with the left half-turn about the short axis of the seam ports',
+        'first_index': 'unchanged',
+        'second_index': 'multiplied by diag(-1, +1, -1) in (normal, short, long): the axis lines are kept up to sign',
+        'kernel_copies_squared_moduli': [[str(x) for x in r] for r in Vsq],
+    },
+    'checks': checks, 'counts': counts,
+}
+path = sys.argv[1] if len(sys.argv) > 1 else 'item3.json'
+json.dump(out, open(path, 'w'), indent=1)
+print('all checks passed:', len(checks), '| counts:', counts)
+print('phases per tick:', out['per_tick_on_second_index']['eigenphases_per_tick'])

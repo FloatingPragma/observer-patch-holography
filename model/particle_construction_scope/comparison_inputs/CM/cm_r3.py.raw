@@ -1,0 +1,174 @@
+"""CM round 3, native base (CANDIDATES.md R3-B, R3-C): bond junctions in FR's register; scans S1, S2; statement X9.
+
+Step 0: FR's family compression rebuilt with FR's own round-1 functions when they import (read only; FR is changing
+its files in parallel, so a failure here is recorded and does not stop the run; the family shape C(theta) is the one
+FR's round-2 registration keeps).
+Reads no measured value. Writes r3.json.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B cm_r3.py
+"""
+import json
+import os
+import random
+import sys
+import time
+
+import mpmath as mp
+
+import cm_r3_lib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.dont_write_bytecode = True
+OUT = {'measured_values_read': False}
+t0 = time.time()
+
+# ------------------------------------------------------------------------------------------- step 0: FR check
+FRDIR = os.path.join(HERE, '..', 'FR')
+try:
+    sys.path.insert(0, FRDIR)
+    import sympy as sp
+    import fr2_register as FR2
+    import fr_common as FC
+    fl = FR2.flags()
+    pC = FR2.psi((FR2.a13, 0, FR2.a23))
+    pE = FR2.psi((FR2.a13, 0, FR2.a23))
+    Phi, _ = FR2.analyzer_E1(fl)
+    M = FR2.compress(Phi, pC, pE)
+    target = (sp.sqrt(2) / 3 * FR2.C_target()).applyfunc(sp.nsimplify)
+    gC, gE, g = FC.native_rotations()
+    ginv = FC.inverse(g)
+    OUT['FR_register_check'] = {'status': 'rebuilt',
+                                'M_equals_(sqrt2/3)C(theta)': (M - target).applyfunc(sp.simplify) == sp.zeros(3, 3),
+                                'x_j_from_carrier': [4, ginv[4], ginv[ginv[4]]],
+                                'repository_root_used_by_FR_code': FC.rer_root()}
+except Exception as exc:  # FR's files are in flux; record and continue
+    OUT['FR_register_check'] = {'status': 'not rebuilt', 'reason': repr(exc)[:300]}
+finally:
+    if FRDIR in sys.path:
+        sys.path.remove(FRDIR)
+
+# ------------------------------------------------------------------------------------------- readings (native)
+TH = {'N': mp.mpf(2) / 9, 'N0': mp.mpf(0)}
+res = {}
+for pb in ('PB3', 'PB2'):
+    for an in ('A', 'B'):
+        b = L.base_native(TH['N'])
+        res[f'primary|WB3|{pb}|{an}|N'] = L.reading('WB3', pb, an, b, b, TH['N'])
+for pb in ('PB3', 'PB2', 'PB1'):
+    for wt in ('WBR', 'WBR+', 'WBR-'):
+        for an in ('A', 'B'):
+            b = L.base_native(TH['N'])
+            res[f'secondary|{wt}|{pb}|{an}|N'] = L.reading(wt, pb, an, b, b, TH['N'])
+for an in ('A', 'B'):
+    b = L.base_native(TH['N'])
+    res[f'secondary|WB3|PB1|{an}|N'] = L.reading('WB3', 'PB1', an, b, b, TH['N'])
+for pb in ('PB3', 'PB2', 'PB1'):
+    for wt in ('WB3', 'WBR'):
+        b = L.base_native(TH['N0'])
+        res[f'control|{wt}|{pb}|A|N0'] = L.reading(wt, pb, 'A', b, b, TH['N0'])
+OUT['native'] = res
+
+# ------------------------------------------------------------------------------------------- scan S1 (theta)
+S1 = {}
+for pb in ('PB3', 'PB2'):
+    rows = []
+    for i in range(25):
+        th = mp.pi / 3 * i / 24
+        b = L.base_native(th)
+        r = L.reading('WB3', pb, 'A', b, b, th)
+        rows.append({'theta': float(th), 'V12': r['V12'], 'V23': r['V23'], 'V13': r['V13'],
+                     'V13_over_V23': r.get('V13_over_V23'), 'delta_deg': r.get('delta_deg'), 'J': r['J'],
+                     'same_characters': r['same_characters']})
+    S1[pb] = rows
+OUT['scan_S1_theta_native_WB3_A'] = S1
+
+# ------------------------------------------------------------------------------------------- scan S2 (bond phase)
+KAPPA = L.DEFICIT / mp.sqrt(2)                     # native WB3 bond weight in units of the hold
+OUT['kappa'] = mp.nstr(KAPPA, 20)
+
+
+def s2_point(pb, alpha, base_u, base_d):
+    Yu = base_u[0] + KAPPA * base_u[1] * L.bond(*L.BONDS['C'], alpha)
+    Yd = base_d[0] + KAPPA * base_d[1] * L.bond(*L.BONDS[pb], alpha)
+    return L.analyse(Yu, Yd)
+
+
+S2 = {}
+for pb in ('PB3', 'PB2'):
+    rows = []
+    b = L.base_native(TH['N'])
+    for i in range(36):
+        al = mp.pi * i / 36
+        r = s2_point(pb, al, b, b)
+        rows.append({'alpha': float(al), 'V12': r['V12'], 'V23': r['V23'], 'V13': r['V13'],
+                     'V13_over_V23': r.get('V13_over_V23'), 'delta_deg': r.get('delta_deg'), 'J': r['J']})
+    S2[pb] = rows
+OUT['scan_S2_alpha_native_A'] = S2
+
+# ------------------------------------------------------------------------------------------- X9
+random.seed(7)
+worst_el = mp.mpf(0)
+for _ in range(60):
+    al = mp.mpf(random.uniform(-3, 3))
+    for j in range(3):
+        B = L.bond(j, (j - 1) % 3, al)
+        for k in range(3):
+            for l in range(3):
+                got = (L.CHARS[k].H * B * L.CHARS[l])[0]
+                want = mp.mpf(2) / 3 * mp.cos(al - 2 * mp.pi * (k + l) / 3) * L.W ** ((1 + j) * (k - l))
+                worst_el = max(worst_el, abs(got - want))
+# first-order V for two bonds: V_ab = kap [ <a|B_d|b>/(lam^d_b - lam^d_a) - <a|B_u|b>/(lam^u_b - lam^u_a) ], a != b
+worst_fo = mp.mpf(0)
+for _ in range(200):
+    ru, rd = mp.mpf(random.uniform(1.1, 1.95)), mp.mpf(random.uniform(1.1, 1.95))
+    du, dd = mp.mpf(random.uniform(0.02, 0.9)), mp.mpf(random.uniform(0.02, 0.9))
+    au, ad = mp.mpf(random.uniform(-3, 3)), mp.mpf(random.uniform(-3, 3))
+    ju, jd = 0, random.choice((1, 2))
+    kap = mp.mpf('1e-4')
+    Bu, Bd = L.bond(ju, (ju - 1) % 3, au), L.bond(jd, (jd - 1) % 3, ad)
+    bu, bd = L.base_chart(ru, du), L.base_chart(rd, dd)
+    Eu, Qu = L.frame(bu[0] + kap * Bu)
+    Ed, Qd = L.frame(bd[0] + kap * Bd)
+    V = Qu.H * Qd
+
+    def lam_order(r, d):
+        lam = [1 + r * mp.cos(d + 2 * mp.pi * k / 3) for k in range(3)]
+        return lam, sorted(range(3), key=lambda k: lam[k] ** 2)
+    lu, ou = lam_order(ru, du)
+    ld, od = lam_order(rd, dd)
+    if ou != od:
+        continue
+    for a in range(3):
+        for b_ in range(3):
+            if a == b_:
+                continue
+            k, l = ou[a], od[b_]
+            pred = kap * ((L.CHARS[k].H * Bd * L.CHARS[l])[0] / (ld[l] - ld[k])
+                          - (L.CHARS[k].H * Bu * L.CHARS[l])[0] / (lu[l] - lu[k]))
+            if abs(pred) > mp.mpf('1e-8'):
+                worst_fo = max(worst_fo, abs(abs(V[a, b_]) - abs(pred)) / abs(pred))
+OUT['X9'] = {'element_formula': '<v_k| b_j(alpha) |v_l> = (2/3) cos(alpha - 2 pi (k+l)/3) w^((1+j)(k-l)), '
+                                'b_j = e^{i alpha}|x_j><x_{j-1}| + h.c.',
+             'max_abs_error_elements': mp.nstr(worst_el, 5),
+             'first_order_max_relative_error_moduli_(kappa=1e-4)': float(worst_fo)}
+OUT['seconds'] = round(time.time() - t0, 1)
+with open(os.path.join(HERE, 'r3.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+print('FR check', OUT['FR_register_check'])
+for k, r in res.items():
+    print(f"{k:28s} V12 {r['V12']:.5f} V23 {r['V23']:.5f} V13 {r['V13']:.5f} V13/V23 {r.get('V13_over_V23', float('nan')):.4f}"
+          f" J {r['J']:+.4e} delta {r.get('delta_deg', float('nan')):+8.2f} same {r['same_characters']}"
+          f" up {r['chars_up']} down {r['chars_down']} | y up {r['spectra']['up'][0]:.2e} {r['spectra']['up'][1]:.2e}"
+          f" down {r['spectra']['down'][0]:.2e} {r['spectra']['down'][1]:.2e}")
+for pb, rows in S1.items():
+    for s in rows[::3]:
+        print('S1', pb, 'theta %.4f V13/V23 %s delta %s J %+.3e V12 %.5f' % (
+            s['theta'], s['V13_over_V23'] and round(s['V13_over_V23'], 4), s['delta_deg'] and round(s['delta_deg'], 2),
+            s['J'], s['V12']))
+for pb, rows in S2.items():
+    for s in rows[::3]:
+        print('S2', pb, 'alpha %.4f V13/V23 %s delta %s J %+.3e V12 %.5f V23 %.5f' % (
+            s['alpha'], s['V13_over_V23'] and round(s['V13_over_V23'], 4), s['delta_deg'] and round(s['delta_deg'], 2),
+            s['J'], s['V12'], s['V23']))
+print('X9', OUT['X9'])
+print('seconds', OUT['seconds'])

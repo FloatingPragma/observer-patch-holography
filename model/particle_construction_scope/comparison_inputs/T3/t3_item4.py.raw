@@ -1,0 +1,77 @@
+"""T3 item 4: the filled reference of member B (phi = 5 pi/16) against the CF-1 period.
+
+For a palindromic period P(p) = cos(Omega) - i sin(Omega) K(p), K a Hermitian involution where sin(Omega) != 0, the
+negative branch (eigenvalue exp(+i Omega), phase -Omega) has projector Pi_-(p) = (1 - K)/2. It is defined at every p
+iff the period has no point with P = +-1 (gaps at 0 and at pi). Checks (MEASURED, float64):
+  - gaps at 0 and at pi on a 40^3 grid (exact grid values; the refined values are in item1.json)
+  - particle-hole conjugation C = (Y_r sigma_2) K: U_C conj(P(-p)) U_C^dagger = P(p) for every letter and the period
+  - stationarity: Pi_- commutes with the period; one tick maps Pi_-(T_r T_f) to Pi_-(T_f T_r) (distance printed)
+  - decay of the reference's two-point kernel G(r) = sum_p Pi_-(p) exp(i p_1 r) / N^3 along an axis (N = 48, shifted
+    grid so that no grid point sits on an exact node of W2); exponential for B, power law for W2
+python t3_item4.py -> item4.json (local, < 20 CPU s)
+"""
+import json, os
+import numpy as np
+import t3sym as T
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+UC = np.kron(T.SY, T.SY)
+PHI = 5 * np.pi / 16
+
+
+def projector_minus(P):
+    c = np.real(np.trace(P, axis1=-2, axis2=-1)) / 4
+    s = np.sqrt(np.clip(1 - c * c, 0, None))
+    K = 1j * (P - c[..., None, None] * T.I4) / s[..., None, None]
+    return (T.I4 - K) / 2, c, s
+
+
+def kernel_decay(word, N=48, shift=0.37):
+    g = -np.pi + 2 * np.pi * (np.arange(N) + shift) / N
+    p = np.stack(np.meshgrid(g, g, g, indexing='ij'), axis=-1)
+    Pm, c, s = projector_minus(T.symbol(word, p))
+    avg = Pm.mean(axis=(1, 2))                                  # average over p2, p3
+    rs = np.arange(0, N // 2 + 1)
+    G = np.array([np.abs(np.einsum('k,kab->ab', np.exp(1j * g * r), avg) / N).max() for r in rs])
+    return rs, G, float(s.min())
+
+
+if __name__ == '__main__':
+    out = {'note': __doc__}
+    rng = np.random.default_rng(11)
+    q = rng.uniform(-np.pi, np.pi, (400, 3))
+    # particle-hole conjugation, letter by letter and for the periods
+    words = {'S_1': [T.S(0)], 'M(0.3)': [T.M(0.3)], 'L_2(phi)': [T.L(1, PHI)], 'B period theta=0.157935': T.period_B(PHI, 0.157935),
+             'W2 theta=0.157935': T.period_W2(0.157935)}
+    ph = {k: float(np.abs(UC @ np.conj(T.symbol(w, -q)) @ np.conj(UC.T) - T.symbol(w, q)).max()) for k, w in words.items()}
+    out['particle_hole_defect'] = ph; print('particle-hole defect', ph)
+    # gaps and stationarity
+    res = {}
+    for theta in (0.05, 0.157935):
+        wB = T.period_B(PHI, theta)
+        p, om = T.omega_grid(wB, 40, 0.0)
+        Tf = [T.M(theta / 2)] + T.lazy_half(PHI) + [T.M(theta / 2)]
+        Tr = [T.M(theta / 2)] + T.rev(T.lazy_half(PHI)) + [T.M(theta / 2)]
+        Pa = T.symbol(Tf + Tr, q); Pb = T.symbol(Tr + Tf, q)
+        PmA, _, _ = projector_minus(Pa); PmB, _, _ = projector_minus(Pb)
+        comm = float(np.abs(PmA @ Pa - Pa @ PmA).max())
+        rs, G, smin = kernel_decay(wB)
+        sl = np.polyfit(rs[4:16], np.log(G[4:16]), 1)[0]
+        res['B theta=%g' % theta] = {'gap0_grid40': float(om.min()), 'gappi_grid40': float(np.pi - om.max()),
+                                     'projector_commutes_with_period': comm,
+                                     'one_tick_moves_reference_by': float(np.abs(PmA - PmB).max()),
+                                     'min_sin_Omega_on_kernel_grid': smin,
+                                     'kernel_abs_G(r)': {str(int(r)): float(x) for r, x in zip(rs, G)},
+                                     'decay_rate_per_cell_fit_r4_to_15': float(-sl), 'decay_length_cells': float(-1 / sl)}
+        print('B theta=%g: gap0 %.4f gappi %.4f comm %.1e one-tick %.3f decay length %.3f cells' % (
+            theta, om.min(), np.pi - om.max(), comm, res['B theta=%g' % theta]['one_tick_moves_reference_by'], -1 / sl))
+        print('   |G(r)| r=0,2,4,8,12,16,24:', [float('%.3g' % G[r]) for r in (0, 2, 4, 8, 12, 16, 24)])
+    wW = T.period_W2(0.157935)
+    rs, G, smin = kernel_decay(wW)
+    llr = np.polyfit(np.log(rs[4:24]), np.log(G[4:24]), 1)[0]
+    res['W2 theta=0.157935'] = {'min_sin_Omega_on_kernel_grid': smin, 'kernel_abs_G(r)': {str(int(r)): float(x) for r, x in zip(rs, G)},
+                                'loglog_slope_r4_to_23': float(llr),
+                                'note': 'Pi_- undefined at the 32 phase-pi points; the shifted grid avoids them, so G samples their singularity'}
+    print('W2 theta=0.157935: min sin on grid %.3g, |G(r)| r=0,2,4,8,12,16,24:' % smin, [float('%.3g' % G[r]) for r in (0, 2, 4, 8, 12, 16, 24)], 'loglog slope %.2f' % llr)
+    out['references'] = res
+    json.dump(out, open(os.path.join(HERE, 'item4.json'), 'w'), indent=1)

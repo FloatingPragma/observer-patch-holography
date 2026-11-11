@@ -1,0 +1,684 @@
+{
+ "level0": {
+  "port_pair": {
+   "zero_modes": 1,
+   "lambda_2": 0.04414253069900306,
+   "lambda_max": 8.500069195202384,
+   "distinct_levels": 103,
+   "largest_degeneracies": [
+    [
+     70,
+     6.0
+    ],
+    [
+     30,
+     7.23606798
+    ],
+    [
+     30,
+     2.76393202
+    ],
+    [
+     3,
+     8.0
+    ],
+    [
+     3,
+     6.73205081
+    ],
+    [
+     3,
+     3.26794919
+    ],
+    [
+     2,
+     8.21359035
+    ],
+    [
+     2,
+     6.53563726
+    ]
+   ],
+   "relaxation_time_sweeps": 45.30777842433871,
+   "relaxation_time_attempts": 28543.900407333385,
+   "sum_1/lambda": 197.6562098475636,
+   "log_state_counts": {
+    "one quantum (240)": 5.480638923341991,
+    "two quanta binary C(240,2)": 10.263955294713924,
+    "two quanta all": 10.272288676272701,
+    "one per carrier on average (20 quanta)": 66.46313906670332,
+    "two per carrier (40 quanta)": 105.46031991181212,
+    "half filling C(240,120)": 163.38817085641875,
+    "all binary 240 ln 2": 166.35532333438687
+   },
+   "double_load_exit_probability_per_attempt": {
+    "degree 5": 0.007936507936507936,
+    "degree 6": 0.009523809523809525
+   },
+   "double_load_survival_exponent_per_sweep": {
+    "degree 5": 5.019946878981412,
+    "degree 6": 6.028754140174923
+   },
+   "kappa_half_filling_per_attempt": 0.2510460251046025,
+   "load_moving_events_per_sweep_per_carrier_half_filling": 7.907949790794978,
+   "attempts_touching_one_carrier_per_sweep": 33
+  },
+  "face_axis": {
+   "zero_modes": 1,
+   "lambda_2": 0.04414253069900061,
+   "lambda_max": 8.473535929208118,
+   "distinct_levels": 27,
+   "largest_degeneracies": [
+    [
+     70,
+     6.0
+    ],
+    [
+     30,
+     7.23606798
+    ],
+    [
+     30,
+     2.76393202
+    ],
+    [
+     11,
+     8.0
+    ],
+    [
+     11,
+     6.73205081
+    ],
+    [
+     11,
+     3.26794919
+    ],
+    [
+     5,
+     8.21359035
+    ],
+    [
+     5,
+     6.53563726
+    ]
+   ],
+   "relaxation_time_sweeps": 45.30777842434123,
+   "relaxation_time_attempts": 28543.900407334975,
+   "sum_1/lambda": 197.58833333332962,
+   "log_state_counts": {
+    "one quantum (240)": 5.480638923341991,
+    "two quanta binary C(240,2)": 10.263955294713924,
+    "two quanta all": 10.272288676272701,
+    "one per carrier on average (20 quanta)": 66.46313906670332,
+    "two per carrier (40 quanta)": 105.46031991181212,
+    "half filling C(240,120)": 163.38817085641875,
+    "all binary 240 ln 2": 166.35532333438687
+   },
+   "double_load_exit_probability_per_attempt": {
+    "degree 5": 0.007936507936507936,
+    "degree 6": 0.009523809523809525
+   },
+   "double_load_survival_exponent_per_sweep": {
+    "degree 5": 5.019946878981412,
+    "degree 6": 6.028754140174923
+   },
+   "kappa_half_filling_per_attempt": 0.2510460251046025,
+   "load_moving_events_per_sweep_per_carrier_half_filling": 7.907949790794978,
+   "attempts_touching_one_carrier_per_sweep": 33
+  }
+ },
+ "levels": {
+  "port_pair": {
+   "0": {
+    "carriers": 20,
+    "ports": 240,
+    "seams": 630,
+    "l=1": {
+     "N_lambda": [
+      0.8828506139800613,
+      0.8908408637597348,
+      0.8910468553360995
+     ],
+     "mean": 0.8882461110252985,
+     "spread_percent": 0.9227444121964534,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.4241062777554862
+    },
+    "l=2": {
+     "N_lambda": [
+      2.337729820234438,
+      2.379270177732779,
+      2.379270177733005,
+      2.379837680252554,
+      2.4236333071292195
+     ],
+     "mean": 2.3799482326163988,
+     "spread_percent": 3.6094687152225724,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3787805255237198
+    },
+    "l=3": {
+     "N_lambda": [
+      3.576666949421328,
+      3.6216650678395634,
+      3.6600937849476427,
+      3.7077918907535095,
+      6.199521942966376,
+      6.271680456947911,
+      6.4548855236055855
+     ],
+     "mean": 4.784615088068845,
+     "spread_percent": 60.15569740106214,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.38074757102911044
+    },
+    "lambda_2": 0.04414253069900306,
+    "relaxation_time_sweeps_2/lambda_2": 45.30777842433871,
+    "gap_per_attempt_lambda_2/(2M)": 3.5033754523018305e-05,
+    "diffusion_constant_edge2_per_sweep": 0.00765180855084813,
+    "mesh_edge_on_unit_sphere": 1.2045910058552547,
+    "lambda_max": 8.500069195202384,
+    "lambda_max/lambda_2": 192.5596258438883,
+    "foster_sum_R_seams_minus_(P-1)": 1.7053025658242404e-13,
+    "trace_pinv": 197.65620984757584,
+    "mean_resistance_all_pairs": 1.647135082063132,
+    "R_intra_seam": {
+     "mean": 0.36095245114346153,
+     "min": 0.34061372121361955,
+     "max": 0.3665975842537603
+    },
+    "R_glue_seam": {
+     "mean": 0.7476176437974418,
+     "min": 0.7434561720356008,
+     "max": 0.751303313528278
+    },
+    "unit_offset_release_per_sweep_(1-R)/2": {
+     "intra_mean": 0.31952377442826924,
+     "glue_mean": 0.1261911781012791
+    },
+    "R_antipodal_carriers_smeared": {
+     "mean": 1.630735739057198,
+     "std": 0.010383584719189355,
+     "pairs": 10
+    },
+    "R_antipodal_port_to_port": {
+     "mean": 1.9457493938628059,
+     "std": 0.09058034645418829,
+     "pairs": 10
+    },
+    "predicted_slope_per_level_ln2/(pi sigma)": 0.5202365815482142,
+    "port_graph_eccentricity_seams_max_over_6_sources": 15,
+    "seconds": 0.05
+   },
+   "1": {
+    "carriers": 80,
+    "ports": 960,
+    "seams": 2520,
+    "l=1": {
+     "N_lambda": [
+      0.8252662242107532,
+      0.8347873515878651,
+      0.8365724460922687
+     ],
+     "mean": 0.832208673963629,
+     "spread_percent": 1.3585801536610216,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.39735037243578913
+    },
+    "l=2": {
+     "N_lambda": [
+      2.4005979187270436,
+      2.4122428792666395,
+      2.423721411327354,
+      2.4435772565337683,
+      2.465275009054399
+     ],
+     "mean": 2.4290828949818413,
+     "spread_percent": 2.662613551022472,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.38660054991633136
+    },
+    "l=3": {
+     "N_lambda": [
+      4.228629623773253,
+      4.2813531182547635,
+      4.297359943727849,
+      5.006047632490685,
+      5.042702132430898,
+      5.061584692585736,
+      5.1656081880323415
+     ],
+     "mean": 4.726183618756504,
+     "spread_percent": 19.82526790835128,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.37609774244251964
+    },
+    "lambda_2": 0.010315827802634415,
+    "relaxation_time_sweeps_2/lambda_2": 193.87683065912054,
+    "gap_per_attempt_lambda_2/(2M)": 2.0467912306814314e-06,
+    "diffusion_constant_edge2_per_sweep": 0.007169073265262528,
+    "mesh_edge_on_unit_sphere": 0.6022955029276273,
+    "lambda_max": 8.592967071574058,
+    "lambda_max/lambda_2": 832.9886108974813,
+    "foster_sum_R_seams_minus_(P-1)": 4.092726157978177e-12,
+    "trace_pinv": 1105.1263929538322,
+    "mean_resistance_all_pairs": 2.3023466519871505,
+    "R_intra_seam": {
+     "mean": 0.36129211268241684,
+     "min": 0.34110479465781407,
+     "max": 0.36666666666667336
+    },
+    "R_glue_seam": {
+     "mean": 0.7658244130183635,
+     "min": 0.7530768553063603,
+     "max": 0.7782340428666956
+    },
+    "unit_offset_release_per_sweep_(1-R)/2": {
+     "intra_mean": 0.31935394365879155,
+     "glue_mean": 0.11708779349081827
+    },
+    "R_antipodal_carriers_smeared": {
+     "mean": 2.3185770651489754,
+     "std": 0.017391864351037883,
+     "pairs": 40
+    },
+    "R_antipodal_port_to_port": {
+     "mean": 2.59058948184019,
+     "std": 0.09589221446195174,
+     "pairs": 12
+    },
+    "predicted_slope_per_level_ln2/(pi sigma)": 0.5552671281019266,
+    "port_graph_eccentricity_seams_max_over_6_sources": 34,
+    "seconds": 1.48
+   },
+   "2": {
+    "carriers": 320,
+    "ports": 3840,
+    "seams": 10080,
+    "l=1": {
+     "N_lambda": [
+      0.8174727058309016,
+      0.8302863249924466,
+      0.8366370659852322
+     ],
+     "mean": 0.8281320322695267,
+     "spread_percent": 2.3141672351219174,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.39540391940529646
+    },
+    "l=2": {
+     "N_lambda": [
+      2.4253323595674554,
+      2.4521323310476233,
+      2.4563863215443567,
+      2.472069533341369,
+      2.509487544330933
+     ],
+     "mean": 2.4630816179663473,
+     "spread_percent": 3.4166624503884866,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3920116147381275
+    },
+    "l=3": {
+     "N_lambda": [
+      4.498748030668903,
+      4.543037078249717,
+      4.574236455709394,
+      5.117246444961715,
+      5.163060602936572,
+      5.18565473181053,
+      5.250325694286482
+     ],
+     "mean": 4.904615576946187,
+     "spread_percent": 15.323885263308272,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.39029690651824694
+    },
+    "lambda_2": 0.0025546022057215674,
+    "relaxation_time_sweeps_2/lambda_2": 782.9007567286134,
+    "gap_per_attempt_lambda_2/(2M)": 1.2671637925206187e-07,
+    "diffusion_constant_edge2_per_sweep": 0.007133954978352531,
+    "mesh_edge_on_unit_sphere": 0.3011477514638137,
+    "lambda_max": 8.63182870157232,
+    "lambda_max/lambda_2": 3378.9326112063673,
+    "foster_sum_R_seams_minus_(P-1)": 3.637978807091713e-12,
+    "trace_pinv": 5546.023125996001,
+    "mean_resistance_all_pairs": 2.8885537114562507,
+    "R_intra_seam": {
+     "mean": 0.3613917407459297,
+     "min": 0.34069295134631705,
+     "max": 0.3666666666666858
+    },
+    "R_glue_seam": {
+     "mean": 0.7700818517480805,
+     "min": 0.7500584546716091,
+     "max": 0.7788395665186578
+    },
+    "unit_offset_release_per_sweep_(1-R)/2": {
+     "intra_mean": 0.31930412962703514,
+     "glue_mean": 0.11495907412595974
+    },
+    "R_antipodal_carriers_smeared": {
+     "mean": 2.905868866155674,
+     "std": 0.035338505711615446,
+     "pairs": 40
+    },
+    "R_antipodal_port_to_port": {
+     "mean": 3.1679240698319453,
+     "std": 0.1111131791238517,
+     "pairs": 12
+    },
+    "predicted_slope_per_level_ln2/(pi sigma)": 0.5580005390045109,
+    "port_graph_eccentricity_seams_max_over_6_sources": 66,
+    "seconds": 86.91
+   },
+   "summary": {
+    "R_antipodal_carriers_smeared": {
+     "values": [
+      1.630735739057198,
+      2.3185770651489754,
+      2.905868866155674
+     ],
+     "increments_per_level": [
+      0.6878413260917775,
+      0.5872918010066988
+     ]
+    },
+    "R_antipodal_port_to_port": {
+     "values": [
+      1.9457493938628059,
+      2.59058948184019,
+      3.1679240698319453
+     ],
+     "increments_per_level": [
+      0.6448400879773841,
+      0.5773345879917553
+     ]
+    },
+    "sheet_conductance_l=1": {
+     "values": [
+      0.4241062777554862,
+      0.39735037243578913,
+      0.39540391940529646
+     ],
+     "increments_per_level": [
+      -0.02675590531969707,
+      -0.0019464530304926786
+     ],
+     "ratio_of_successive_increments": [
+      13.745980458066702
+     ]
+    },
+    "predicted_log_slope_per_level_at_top_level": 0.5580005390045109,
+    "one_loop_like_coefficient_1/(pi sigma)_per_efold": 0.8050246104351764
+   }
+  },
+  "face_axis": {
+   "0": {
+    "carriers": 20,
+    "ports": 240,
+    "seams": 630,
+    "l=1": {
+     "N_lambda": [
+      0.8828506139800121,
+      0.8828506139800179,
+      0.8828506139800913
+     ],
+     "mean": 0.8828506139800405,
+     "spread_percent": 8.97886037603507e-12,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.4215301176799146
+    },
+    "l=2": {
+     "N_lambda": [
+      2.3792701777327543,
+      2.3792701777328205,
+      2.3792701777328533,
+      2.37927017773288,
+      2.379270177732886
+     ],
+     "mean": 2.379270177732839,
+     "spread_percent": 5.543485416656142e-12,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3786726097373137
+    },
+    "l=3": {
+     "N_lambda": [
+      3.6600937849474953,
+      3.660093784947573,
+      3.6600937849475805,
+      3.6600937849476938,
+      6.454885523605517,
+      6.454885523605557,
+      6.454885523605559
+     ],
+     "mean": 4.857861672943854,
+     "spread_percent": 57.53131576849585,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3865763490528393
+    },
+    "lambda_2": 0.04414253069900061,
+    "relaxation_time_sweeps_2/lambda_2": 45.30777842434123,
+    "gap_per_attempt_lambda_2/(2M)": 3.5033754523016354e-05,
+    "diffusion_constant_edge2_per_sweep": 0.0076053289660635405,
+    "mesh_edge_on_unit_sphere": 1.2045910058552547,
+    "lambda_max": 8.473535929208118,
+    "lambda_max/lambda_2": 191.9585441756279,
+    "foster_sum_R_seams_minus_(P-1)": -5.115907697472721e-13,
+    "trace_pinv": 197.58833333332373,
+    "mean_resistance_all_pairs": 1.6465694444443644,
+    "R_intra_seam": {
+     "mean": 0.36083333333333306,
+     "min": 0.3553472222222187,
+     "max": 0.36659722222222535
+    },
+    "R_glue_seam": {
+     "mean": 0.7499999999999891,
+     "min": 0.7499999999999757,
+     "max": 0.750000000000007
+    },
+    "unit_offset_release_per_sweep_(1-R)/2": {
+     "intra_mean": 0.31958333333333344,
+     "glue_mean": 0.12500000000000544
+    },
+    "R_antipodal_carriers_smeared": {
+     "mean": 1.633333333333337,
+     "std": 4.20069427281521e-15,
+     "pairs": 10
+    },
+    "R_antipodal_port_to_port": {
+     "mean": 2.043222853535357,
+     "std": 8.522727272719521e-05,
+     "pairs": 10
+    },
+    "predicted_slope_per_level_ln2/(pi sigma)": 0.5234159812044306,
+    "port_graph_eccentricity_seams_max_over_6_sources": 16,
+    "seconds": 0.03
+   },
+   "1": {
+    "carriers": 80,
+    "ports": 960,
+    "seams": 2520,
+    "l=1": {
+     "N_lambda": [
+      0.8300164608314741,
+      0.8300164608316473,
+      0.8300164608318603
+     ],
+     "mean": 0.8300164608316605,
+     "spread_percent": 4.6534810873519346e-11,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3963036677669979
+    },
+    "l=2": {
+     "N_lambda": [
+      2.4240280555283316,
+      2.424028055528697,
+      2.424028055528808,
+      2.4240280555295426,
+      2.4240280555298037
+     ],
+     "mean": 2.4240280555290363,
+     "spread_percent": 6.073179422552782e-11,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3857960472308815
+    },
+    "l=3": {
+     "N_lambda": [
+      4.261848635430424,
+      4.261848635430432,
+      4.2618486354305665,
+      5.065619483122851,
+      5.06561948312296,
+      5.0656194831230925,
+      5.065619483123195
+     ],
+     "mean": 4.7211462626833605,
+     "spread_percent": 17.02490884567365,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3756968823829423
+    },
+    "lambda_2": 0.010375205760393425,
+    "relaxation_time_sweeps_2/lambda_2": 192.76726131397325,
+    "gap_per_attempt_lambda_2/(2M)": 2.0585725715066322e-06,
+    "diffusion_constant_edge2_per_sweep": 0.007150188414566007,
+    "mesh_edge_on_unit_sphere": 0.6022955029276273,
+    "lambda_max": 8.505710637769491,
+    "lambda_max/lambda_2": 819.8112725859768,
+    "foster_sum_R_seams_minus_(P-1)": 2.9558577807620168e-12,
+    "trace_pinv": 1105.5110779220981,
+    "mean_resistance_all_pairs": 2.3031480790043712,
+    "R_intra_seam": {
+     "mean": 0.3612310606060611,
+     "min": 0.35569702503934963,
+     "max": 0.36660379976716406
+    },
+    "R_glue_seam": {
+     "mean": 0.7670454545454691,
+     "min": 0.7604117473435568,
+     "max": 0.7736791617473875
+    },
+    "unit_offset_release_per_sweep_(1-R)/2": {
+     "intra_mean": 0.31938446969696943,
+     "glue_mean": 0.11647727272726544
+    },
+    "R_antipodal_carriers_smeared": {
+     "mean": 2.320634920634922,
+     "std": 0.013746434980705474,
+     "pairs": 40
+    },
+    "R_antipodal_port_to_port": {
+     "mean": 2.7322578888519993,
+     "std": 0.014704564516543776,
+     "pairs": 12
+    },
+    "predicted_slope_per_level_ln2/(pi sigma)": 0.5567336820167198,
+    "port_graph_eccentricity_seams_max_over_6_sources": 34,
+    "seconds": 1.39
+   },
+   "2": {
+    "carriers": 320,
+    "ports": 3840,
+    "seams": 10080,
+    "l=1": {
+     "N_lambda": [
+      0.8242517681026057,
+      0.8242517681055989,
+      0.8242517681058681
+     ],
+     "mean": 0.8242517681046909,
+     "spread_percent": 3.9580022562313215e-10,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.3935512297382886
+    },
+    "l=2": {
+     "N_lambda": [
+      2.451098567376984,
+      2.451098567382772,
+      2.451098567383412,
+      2.4510985673842627,
+      2.4510985673846895
+     ],
+     "mean": 2.4510985673824237,
+     "spread_percent": 3.143648314533991e-10,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.39010445300437585
+    },
+    "l=3": {
+     "N_lambda": [
+      4.503851190566356,
+      4.503851190566536,
+      4.5038511905725915,
+      5.168509336009697,
+      5.168509336013499,
+      5.168509336015985,
+      5.16850933601739
+     ],
+     "mean": 4.883655845108864,
+     "spread_percent": 13.609848165625978,
+     "sheet_conductance_3Nlambda/(pi l(l+1))": 0.38862898405435164
+    },
+    "lambda_2": 0.002575786775320643,
+    "relaxation_time_sweeps_2/lambda_2": 776.4617860308073,
+    "gap_per_attempt_lambda_2/(2M)": 1.277672011567779e-07,
+    "diffusion_constant_edge2_per_sweep": 0.0071005283884159115,
+    "mesh_edge_on_unit_sphere": 0.3011477514638137,
+    "lambda_max": 8.520068299799702,
+    "lambda_max/lambda_2": 3307.75372458347,
+    "foster_sum_R_seams_minus_(P-1)": 2.2737367544323206e-12,
+    "trace_pinv": 5556.736803277754,
+    "mean_resistance_all_pairs": 2.8941337517071637,
+    "R_intra_seam": {
+     "mean": 0.3613304924242426,
+     "min": 0.3557145279700755,
+     "max": 0.36660406861578343
+    },
+    "R_glue_seam": {
+     "mean": 0.7713068181818201,
+     "min": 0.7608961849217417,
+     "max": 0.7746470167367376
+    },
+    "unit_offset_release_per_sweep_(1-R)/2": {
+     "intra_mean": 0.3193347537878787,
+     "glue_mean": 0.11434659090908994
+    },
+    "R_antipodal_carriers_smeared": {
+     "mean": 2.9143720748311366,
+     "std": 0.04260468552026953,
+     "pairs": 40
+    },
+    "R_antipodal_port_to_port": {
+     "mean": 3.3330039036813974,
+     "std": 0.04820763620946402,
+     "pairs": 12
+    },
+    "predicted_slope_per_level_ln2/(pi sigma)": 0.5606273935400333,
+    "port_graph_eccentricity_seams_max_over_6_sources": 69,
+    "seconds": 145.72
+   },
+   "summary": {
+    "R_antipodal_carriers_smeared": {
+     "values": [
+      1.633333333333337,
+      2.320634920634922,
+      2.9143720748311366
+     ],
+     "increments_per_level": [
+      0.6873015873015851,
+      0.5937371541962144
+     ]
+    },
+    "R_antipodal_port_to_port": {
+     "values": [
+      2.043222853535357,
+      2.7322578888519993,
+      3.3330039036813974
+     ],
+     "increments_per_level": [
+      0.6890350353166421,
+      0.6007460148293982
+     ]
+    },
+    "sheet_conductance_l=1": {
+     "values": [
+      0.4215301176799146,
+      0.3963036677669979,
+      0.3935512297382886
+     ],
+     "increments_per_level": [
+      -0.025226449912916726,
+      -0.002752438028709281
+     ],
+     "ratio_of_successive_increments": [
+      9.165129114549524
+     ]
+    },
+    "predicted_log_slope_per_level_at_top_level": 0.5606273935400333,
+    "one_loop_like_coefficient_1/(pi sigma)_per_efold": 0.8088143604467114
+   }
+  }
+ }
+}

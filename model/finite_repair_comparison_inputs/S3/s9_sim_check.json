@@ -1,0 +1,36 @@
+{
+ "sim_fedgeom_sha256": "c980cd4092fe7a49951828b1f61a447c82216bbea58a8486e87fc1570e8d73b7",
+ "defining_sources_identical_to_pinned": {
+  "oph_fpe/core/icosahedral.py": true,
+  "oph_fpe/core/screen_ports.py": true,
+  "oph_exact/carrier.py": true
+ },
+ "control_ports_sim": [
+  4,
+  1,
+  10
+ ],
+ "belt_triple_own": [
+  4,
+  1,
+  10
+ ],
+ "levels": {
+  "0": {
+   "face_axis": true,
+   "port_pair": true
+  },
+  "1": {
+   "face_axis": true,
+   "port_pair": true
+  },
+  "2": {
+   "face_axis": true,
+   "port_pair": true
+  },
+  "3": {
+   "face_axis": true,
+   "port_pair": true
+  }
+ }
+}

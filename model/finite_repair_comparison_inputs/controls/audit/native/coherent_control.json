@@ -1,0 +1,57 @@
+{
+  "status": "EXACT local total-two unitary completion and actual one-load finite walk",
+  "local_unitary_dimension": 24,
+  "local_record_dimension": 4,
+  "all_four_blank_record_kraus_blocks_match": true,
+  "source_port_dimension": 12,
+  "one_load_parity_record_dimension": 2,
+  "coherent_ordered_seam_addresses": 60,
+  "full_walk_dimension": 1440,
+  "walk": "W=Q(2AA*-I), A=I_source,parity tensor uniform_ordered_seam",
+  "discriminant_blocks": [
+    "I-L/(2*M)",
+    "I-(Degree+Adjacency)/(2*M)"
+  ],
+  "blank_parity_discriminant": "exact native one-load kernel",
+  "native_kernel_eigenvalues": [
+    "1 multiplicity1",
+    "11/12+sqrt(5)/60 multiplicity3",
+    "11/12-sqrt(5)/60 multiplicity3",
+    "9/10 multiplicity5"
+  ],
+  "walk_phase_relation": "cos(omega)=lambda; reciprocal pairs away from endpoints",
+  "full_walk_eigenvalue_plus_one_multiplicity": 38,
+  "full_walk_eigenvalue_minus_one_multiplicity": 1356,
+  "full_walk_oscillatory_dimension": 46,
+  "full_A_cyclic_subspace_dimension": 47,
+  "blank_parity_A_cyclic_subspace_dimension": 23,
+  "auxiliary_record_modes_are_not_particle_species": true,
+  "first_event_source_populations_exact_native": true,
+  "second_event_source_return_probability": "643/900",
+  "classical_two_event_source_return_probability": "101/120",
+  "second_event_return_difference": "-229/1800",
+  "all_time_native_population_shadow": false,
+  "trace_W": "-1276",
+  "W_diagonal_endpoint": "-29/60",
+  "W_diagonal_outside": "-29/30",
+  "stationary_filter": {
+    "K_success": "(2I+W)/3",
+    "K_failure": "sqrt(2)*(I-W)/3",
+    "rho": "((5/4)I+(W+W*)/2)/524",
+    "normalization": "524",
+    "eigenvalue_lower": "1/2096",
+    "success_probability_from_maximally_mixed": "131/810",
+    "independent_fresh_restart_failure_tail": "(679/810)^k",
+    "rho_a0k_b0k": "-29/31440",
+    "scope": "Declared finite stationary preparation for the same W, with explicit outcome and restart cost; not inherited from the committed pump or a modular/physical-time identification."
+  },
+  "added_primitives": [
+    "owned coherent outcome memory",
+    "coherent seam/endpoint address",
+    "uniform-address reflection",
+    "reversible record reuse"
+  ],
+  "faithful_phase_pump_stationary_state_inherited": false,
+  "protected_particle_or_continuum_claim": false,
+  "scope": "A coherent architectural alternative, exact finite wave recurrence and explicit faithful stationary preparation. Full apparatus control, physical clock interpretation, federation locality, protected sectors and particle response remain unproved."
+}

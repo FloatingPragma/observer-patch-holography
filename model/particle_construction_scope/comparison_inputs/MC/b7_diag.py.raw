@@ -1,0 +1,20 @@
+"""Diagnostic for b7: forward reach and interval sizes per layer, moving sites against the same sites held fixed."""
+import numpy as np
+from scipy.spatial import cKDTree
+import b7_readlaw as B7
+
+rng = np.random.default_rng(5)
+K, a, rho, Q = 6, 3.0, 2.0, 96
+Xa, total = B7.register_layers(Q, 200_000, rho, K * a / 2 + a, K, rng)
+for name, X in (('moving', [Xa[j] for j in range(K + 1)]), ('fixed', [Xa[0]] * (K + 1))):
+    s = int(np.argmin(np.linalg.norm(X[0], axis=1)))
+    F = [np.array([s])]
+    for j in range(K):
+        nb = cKDTree(X[j + 1]).query_ball_point(X[j][F[j]], a)
+        F.append(np.unique(np.concatenate([np.asarray(v, int) for v in nb])))
+    rad = [float(np.linalg.norm(X[j][F[j]] - X[0][s], axis=1).max()) for j in range(K + 1)]
+    inball = [int((np.linalg.norm(X[j] - X[0][s], axis=1) <= j * a).sum()) for j in range(K + 1)]
+    cen = [int((np.linalg.norm(X[j], axis=1) <= 9).sum()) for j in range(K + 1)]
+    out = B7.generated_interval(X, a)
+    print(name, 'forward sizes', [f.size for f in F], 'sites in cone ball', inball, 'max radius', np.round(rad, 2))
+    print('   sites within 9 of the centre per layer', cen, 'interval layers', out['layer_sizes'], 'I', out['I'], 'r', round(out['r'], 4), 'tip offset', round(out['tip_offset'], 3))

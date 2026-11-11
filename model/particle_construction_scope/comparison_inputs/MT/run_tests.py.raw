@@ -1,0 +1,67 @@
+"""Scorecard of the framed-quanta tuple against audit/ACCEPTANCE.md, REQUIREMENTS.md (G1 to G7).
+
+Reads the block results (b12, b3, b4, b5, b6 JSON files in this directory) and prints one line per gate with the
+number that decides it. Writes scorecard.json. No computation here; rerun the block scripts to regenerate inputs.
+"""
+import json
+
+b12 = json.load(open('b12_tuple_shadows.json')); b3 = json.load(open('b3_protected.json'))
+b4 = json.load(open('b4_tradeoff.json')); b5 = json.load(open('b5_access.json')); b6 = json.load(open('b6_candidate.json'))
+b7 = json.load(open('b7_exact_extras.json'))
+rows = []
+
+
+def row(gate, status, member, number, note=''):
+    rows.append({'gate': gate, 'status': status, 'member': member, 'deciding_number': number, 'note': note})
+    print(f'{gate:4s} {status:14s} [{member}] {number}' + (f' | {note}' if note else ''))
+
+
+t1 = b12['T1_one_quantum_instrument_is_reference_x_identity']
+t2 = b12['T2_two_labelled_quanta_positions']
+ok0 = all(v['equal_to_reference_tensor_identity_all_30_seams'] for v in t1.values()) and all(
+    v['symmetric_restriction_is_reference_78'] and v['antisymmetric_restriction_is_fermionic_66'] and v['complete'] for v in t2.values())
+row('T0', 'PASS' if ok0 else 'FAIL', 'any d', 'instrument shadow exact on one quantum and on the symmetric register (laws C, E, 30 seams)',
+    'antisymmetric register: populations, records, histories exact; coherences carry the exchange sign (witness %s)' % b12['T5_gauge_invariant_witness']['difference_of_right_hand_sides_mod_1'])
+row('T1', 'PASS' if all(b7['X2_exact_covariance_of_load_instruments_under_60_rotations'].values()) else 'FAIL', 'any d',
+    'load instruments covariant under the 60 rotations, exact (12, 78, fermionic 66; C, E); apparatus: exact implementers W P_q W^-1 = P_a(q)',
+    'native controller tape law reproduced exactly: %s' % b7['X1_native_controller_on_framed_bosons']['framed_tables_equal_reference_exactly'])
+B = b5['B_lie_algebras_of_first_order_responses']
+fmt = lambda r: f"span {r['span']}, closure {r['closure']}, centre {r['centre']}"
+row('G1', 'FAIL', 'spinor', fmt(B['spinor convex']), 'not injective')
+row('G1', 'FAIL', 'vector', fmt(B['vector convex']), 'not injective')
+row('G1', 'FAIL', '2+3 same realization', fmt(B['spinor convex + vector convex']), 'not injective')
+row('G1', 'PASS (level 1-2)', '2+3 spinor great, vector convex', fmt(B['spinor great + vector convex']),
+    'D_p = i P_p / 12 is the first-order response of the unread channel; exact form defect %.1e' % b5['D_response_channel']['defect_of_exact_form_against_direct_simulation'])
+cm = b5['D_response_channel']['commutator_of_ordered_unread_responses']
+row('G2', 'PASS (level 1-2)', '2+3 mixed', 'closure 12; [Lambda_q, Lambda_p]/eps^2 -> ad([D_q, D_p]), defect %.1e at eps %.2f' % (cm[-1][list(cm[-1])[1]], cm[-1]['eps']),
+    'exact unitary words when the tape is read (defect %.1e)' % b5['D_response_channel']['tape_resolved_word']['max_defect_internal_state_vs_unitary_word'])
+row('G3', 'DECLARED', '2+3 mixed', 'locked top-helicity probe: 12; type-resolving probes: ' + fmt(B['spinor great + vector convex, type-resolving probes (24 generators)']),
+    'completeness holds only for the locked probe grammar')
+g = B['gram_mixed_2+3']
+row('G4', 'PASS', '2+3 mixed', 'Gram eigenvalues on 1, 3, 5, 3\': %s' % g['exact'])
+c = b5['C_generated_implementers']['spinor great + vector convex']
+row('G5', 'LOCAL ONLY', '2+3 mixed', '%d projective classes over %d rotations, at most %d stabilizer words of 2 pulses, exact covariance %s' % (
+    c['projective_classes'], c['port_permutations_reached'], c['max_word_length_in_stabilizer_words'], c['exact_covariance_W P_q W^-1 = P_a(q)_for_every_class']),
+    'pulse words on one carrier; no closed overlap path on a federation')
+row('G6', 'PASS (local)', '2+3 mixed', 'implementers are products of exponentials of the twelve responses; centralizer part trivial')
+row('G7', 'NOT DONE', '-', 'federation and refinement not computed', 'see INTERFACE.md')
+A = b3['A_fixed_points_of_the_load_channels']
+row('T4', 'PASS', 'spinor (simplest)', 'load channel fixed dimension %d, off-diagonal weight %s: fixed-point algebra 1 x M_d; pairs: M_3 + C' % (
+    A['C, one quantum (12)']['population_kernel_fixed_dimension'], A['C, one quantum (12)']['max_offdiagonal_weight_a']),
+    'lifetime infinite under the autonomous law; unread complete port readout contracts the Bloch vector by 1/3')
+E = b5['E_states_preparation_modular']
+row('T5', 'PARTIAL', 'spinor', 'stationary (uniform) x sigma for every sigma (defect %.1e); null-click sigma_n faithful, nontracial; modular flow = own-axis pulse (defect %.1e)' % (
+    E['stationarity_defect_of_uniform_x_sigma']['C'], max(r['equals_own_axis_pulse_at_port_0'] for r in E['modular_orbit_of_a_neighbouring_port_effect'])),
+    'sigma is prepared, not selected by the law; no cap or refinement statement')
+row('T6', 'FAIL', 'any d', 'the internal factor rides a diffusing load; no propagating mode is added')
+row('T7', 'UNCHANGED', 'any d', 'load histories are the reference histories')
+row('T8', 'PARTIAL', 'spinor', 'persistent quantum factor; covariant rank-three readback s = 3 E[m n_p] exact; not generated by the law, not translated')
+Asp = b5['A_effect_spans']
+row('T9', 'PASS (on the factor)', 'spinor', 'one-event effect span %d of %d; any projector from a port effect and three pulses (residual %.0e)' % (
+    Asp['spinor (d = 2)']['one_event_top_helicity_span'], Asp['spinor (d = 2)']['hermitian_directions'], b6['4_any_spinor_projector_from_a_port_effect_and_three_pulses']['max_residual']),
+    'vector %d of 9; spin 3/2 %d of 16 (incomplete); 2+3 locked %d at depth one, %d at depth two of 13' % (
+        Asp['vector (d = 3)']['one_event_top_helicity_span'], Asp['spin 3/2 (d = 4)']['one_event_all_helicities_span'],
+        Asp['2 + 3, spinor great, vector convex, locked top helicity']['one_event_span'], Asp['2 + 3, spinor great, vector convex, locked top helicity']['two_event_sequences_span']))
+row('T10', 'NOT APPLICABLE', '-', 'no propagating sector')
+json.dump({'candidate': 'framed quanta', 'rows': rows}, open('scorecard.json', 'w'), indent=1)
+print('written scorecard.json')

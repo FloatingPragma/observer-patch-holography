@@ -1,0 +1,211 @@
+"""GL step 3d: small-field waves of the continuous links, polarizations, speeds, self-interaction.
+
+1. Linear (exact per wave vector): port coordinates theta_{l,p} (U_l = exp(i sum_p theta_p X_p)); magnetic term of the
+   code-trace action; electric term E1 (Casimir of the code trace) or E2 (port-phase Laplacian). Modes per k: count of
+   transverse and longitudinal modes, speeds of the twelve generators.
+2. Nonlinear compact evolution (classical Hamiltonian lattice field, links in G as 5 x 5 matrices, leapfrog with two
+   field steps per tick, step 1/2): Gauss law, energy, packet velocity of a gluon, a W and B against the dispersion of
+   the field step; energy transfer from a two-colour packet into the commutator direction (gluon-gluon coupling),
+   with an abelian control.
+Writes s3_waves.json.
+"""
+import json
+import sys
+
+import numpy as np
+
+import gl_lib as L
+
+out = {}
+T = np.array(L.TBASIS)                                  # 12 x 5 x 5 Hermitian, tr(T_a T_b) = delta/2
+G = np.array([[np.trace(a @ b).real for b in L.X] for a in L.X])     # port Gram tr(X_p X_q)
+
+# ============================================================================ 1. linear spectrum
+def curl_matrix(k):
+    """lattice curl from link amplitudes (3) to plaquette amplitudes (3: 23, 31, 12) at wave vector k."""
+    e = [1 - np.exp(1j * ki) for ki in k]                # forward difference symbol (sign irrelevant for C^dagger C)
+    C = np.zeros((3, 3), complex)
+    C[0, 1], C[0, 2] = -e[2], e[1]
+    C[1, 2], C[1, 0] = -e[0], e[2]
+    C[2, 0], C[2, 1] = -e[1], e[0]
+    return C
+
+
+def modes(k, kinetic):
+    C = curl_matrix(k)
+    K = np.kron(C.conj().T @ C, G)                      # potential: (1/g^2) tr((curl theta . X)^2), g = 1
+    M = np.kron(np.eye(3), G if kinetic == 'E1' else 0.5 * np.eye(12))   # kinetic metric
+    w, V = np.linalg.eigh(M)
+    Mi = (V / np.sqrt(w)) @ V.conj().T
+    om2 = np.linalg.eigvalsh(Mi @ K @ Mi)
+    return np.sort(om2)
+
+
+rows = []
+for k in [(0.3, 0.0, 0.0), (0.2, 0.5, 0.1), (1.0, 1.0, 1.0), (np.pi, 0.4, 2.0)]:
+    khat2 = sum(4 * np.sin(ki / 2) ** 2 for ki in k)
+    for kin in ('E1', 'E2'):
+        om2 = modes(k, kin)
+        zero = int(np.sum(np.abs(om2) < 1e-10))
+        nz = om2[np.abs(om2) > 1e-10] / khat2
+        rows.append({'k': list(k), 'kinetic': kin, 'zero_modes': zero, 'nonzero_modes': int(len(nz)),
+                     'omega^2 / khat^2 values (multiplicity)': {f'{v:.6f}': int(np.sum(np.abs(nz - v) < 1e-8))
+                                                                for v in sorted(set(np.round(nz, 8)))}})
+out['linear'] = {'rows': rows, 'statement': 'E1: 24 transverse modes with omega^2 = khat^2 and 12 longitudinal zero modes '
+                                              'per k (one cone for gluons, W, B); E2: four speeds'}
+for r in rows:
+    print('linear', r, flush=True)
+
+# ============================================================================ 2. nonlinear compact evolution
+Ls = (48, 4, 4)
+tau = 0.5
+
+
+def expm_batch(H):
+    w, V = np.linalg.eigh(H)
+    return np.einsum('...ij,...j,...kj->...ik', V, np.exp(1j * w), V.conj())
+
+
+def staples(U):
+    S = [np.zeros_like(U[0]) for _ in range(3)]
+    dag = lambda A: np.conj(np.swapaxes(A, -1, -2))
+    for i in range(3):
+        for j in range(3):
+            if i == j:
+                continue
+            Uj_xi = np.roll(U[j], -1, axis=i)
+            Ui_xj = np.roll(U[i], -1, axis=j)
+            S[i] += Uj_xi @ dag(Ui_xj) @ dag(U[j])
+            Uj_xi_mj = np.roll(np.roll(U[j], -1, axis=i), 1, axis=j)
+            Ui_mj = np.roll(U[i], 1, axis=j)
+            Uj_mj = np.roll(U[j], 1, axis=j)
+            S[i] += dag(Uj_xi_mj) @ dag(Ui_mj) @ Uj_mj
+    return S
+
+
+def force(U, g2=1.0):
+    S = staples(U)
+    return [-(2 / g2) * np.einsum('aij,...ji->...a', T, U[i] @ S[i]).imag for i in range(3)]
+
+
+def energy(U, E, g2=1.0):
+    el = sum(np.sum(E[i] ** 2) for i in range(3)) * g2 / 2
+    mag = 0.0
+    dag = lambda A: np.conj(np.swapaxes(A, -1, -2))
+    for i in range(3):
+        for j in range(i + 1, 3):
+            P = U[i] @ np.roll(U[j], -1, axis=i) @ dag(np.roll(U[i], -1, axis=j)) @ dag(U[j])
+            mag += np.sum(1 - np.einsum('...ii->...', P).real / 5) * 10 / g2
+    return el, mag
+
+
+def gauss(U, E):
+    dag = lambda A: np.conj(np.swapaxes(A, -1, -2))
+    Gx = np.zeros(Ls + (12,))
+    for i in range(3):
+        EL = np.einsum('...a,aij->...ij', E[i], T)
+        ER = dag(U[i]) @ EL @ U[i]                       # right field at x + e_i
+        ERc = np.einsum('aij,...ji->...a', T, ER).real * 2
+        Gx += E[i] - np.roll(ERc, 1, axis=i)
+    return float(np.abs(Gx).max())
+
+
+def evolve(U, E, ticks, record=None):
+    F = force(U)
+    E = [E[i] + 0.5 * tau * F[i] for i in range(3)]     # half kick: E at t + tau/2
+    traj = []
+    for step in range(2 * ticks):
+        U = [expm_batch(np.einsum('...a,aij->...ij', tau * E[i], T)) @ U[i] for i in range(3)]
+        F = force(U)
+        E = [E[i] + tau * F[i] for i in range(3)]
+        if record is not None and step % 2 == 1:
+            traj.append(record(U, E))
+    return U, E, traj
+
+
+def packet(gen_pol, eps, k0=0.6, width=4.0):
+    """right-moving linear packet along axis 0; gen_pol = list of (generator index, polarization axis)."""
+    x = np.arange(Ls[0])
+    ks = 2 * np.pi * np.fft.fftfreq(Ls[0])
+    env = np.exp(-((x - Ls[0] / 4) ** 2) / (2 * width ** 2))
+    A0 = env * np.cos(k0 * x)
+    Ak = np.fft.fft(A0)
+    Ak[ks < 0] = 0; Ak[ks > 0] *= 2                       # analytic signal: right-moving part
+    om = np.arccos(np.clip(1 - 2 * tau ** 2 * np.sin(ks / 2) ** 2, -1, 1)) / tau
+    A = np.fft.ifft(Ak).real
+    Adot = np.fft.ifft(-1j * om * Ak).real
+    U = [np.broadcast_to(L.I5, Ls + (5, 5)).copy() for _ in range(3)]
+    E = [np.zeros(Ls + (12,)) for _ in range(3)]
+    for a, pol in gen_pol:
+        Afield = np.broadcast_to(A[:, None, None], Ls) * eps
+        U[pol] = expm_batch(np.einsum('...,ij->...ij', Afield, T[a])) @ U[pol]
+        E[pol][..., a] += np.broadcast_to(Adot[:, None, None], Ls) * eps
+    return U, E
+
+
+def centroid(U, E):
+    """circular mean of the electric energy along axis 0 (periodic box), in cells."""
+    w = sum(np.sum(E[i] ** 2, axis=-1) for i in range(3)).sum(axis=(1, 2))
+    ang = np.angle(np.sum(w * np.exp(2j * np.pi * np.arange(Ls[0]) / Ls[0])))
+    return float((ang % (2 * np.pi)) * Ls[0] / (2 * np.pi))
+
+
+ticks = 24
+k0 = 0.6
+om_k = lambda k: np.arccos(1 - 2 * tau ** 2 * np.sin(k / 2) ** 2) / tau
+vg_central = (om_k(k0 + 1e-5) - om_k(k0 - 1e-5)) / 2e-5
+# packet-weighted group velocity of the prepared right-moving packet
+_x = np.arange(Ls[0]); _ks = 2 * np.pi * np.fft.fftfreq(Ls[0])
+_Ak = np.fft.fft(np.exp(-((_x - Ls[0] / 4) ** 2) / (2 * 4.0 ** 2)) * np.cos(k0 * _x))
+_om = np.arccos(np.clip(1 - 2 * tau ** 2 * np.sin(_ks / 2) ** 2, -1, 1)) / tau
+_wk = np.where(_ks > 0, np.abs(_Ak) ** 2 * _om ** 2, 0.0)       # electric-energy weights |A_k|^2 omega_k^2
+_vg = np.where(_ks > 0, np.cos(_ks / 2) / np.sqrt(1 - tau ** 2 * np.sin(_ks / 2) ** 2), 0.0)   # d omega / dk
+vg_pred = float(np.sum(_wk * _vg) / np.sum(_wk))
+vel = {}
+for name, gp in [('gluon lambda_1, polarization 2', [(0, 1)]), ('W1, polarization 2', [(8, 1)]), ('B_GUT, polarization 2', [(11, 1)]),
+                 ('gluon lambda_8, polarization 3', [(7, 2)])]:
+    U, E = packet(gp, 1e-3)
+    g0 = gauss(U, E); e0 = sum(energy(U, E))
+    U, E, traj = evolve(U, E, ticks, record=centroid)
+    v = np.polyfit(np.arange(1, ticks + 1)[4:], np.array(traj)[4:], 1)[0]
+    vel[name] = {'velocity_cells_per_tick': float(v), 'predicted_packet_weighted_group_velocity': float(vg_pred),
+                 'group_velocity_at_central_k': float(vg_central),
+                 'gauss_initial': g0, 'gauss_final': gauss(U, E), 'energy_drift_relative': float(abs(sum(energy(U, E)) - e0) / e0)}
+    print('packet', name, vel[name], flush=True)
+out['packets_small_amplitude'] = vel
+
+
+def plaquette23_commutator(U, a_dir):
+    """largest component along TBASIS[a_dir] of log U_P on the (2,3) plaquettes (non-abelian field strength)."""
+    dag = lambda A: np.conj(np.swapaxes(A, -1, -2))
+    Pq = U[1] @ np.roll(U[2], -1, axis=1) @ dag(np.roll(U[1], -1, axis=2)) @ dag(U[2])
+    best = 0.0
+    for P_ in Pq.reshape(-1, 5, 5)[::7]:
+        K = L.logm_unitary(P_)
+        best = max(best, abs(2 * np.trace(K @ T[a_dir]).real))
+    return best
+
+
+def partner_effect(main, partner, eps, comm_dir):
+    """relative change of the main packet's field after 16 ticks caused by a partner packet of equal amplitude."""
+    a_main, pol_main = main
+    U, E = packet([main], eps)
+    U, E, _ = evolve(U, E, 16)
+    alone = E[pol_main][..., a_main].copy()
+    U, E = packet([main, partner], eps)
+    fs = plaquette23_commutator(U, comm_dir) if comm_dir is not None else 0.0
+    U, E, _ = evolve(U, E, 16)
+    withp = E[pol_main][..., a_main]
+    return {'relative_change_of_main_field': float(np.linalg.norm(withp - alone) / np.linalg.norm(alone)),
+            'field_strength_component_on_23_plaquettes': float(fs), 'gauss_final': gauss(U, E)}
+
+
+tr = {}
+for name, main, partner, cdir in [('gluon lambda_1 (pol 2) with gluon lambda_2 (pol 3); commutator lambda_3', (0, 1), (1, 2), 6),
+                                  ('W1 (pol 2) with W2 (pol 3); commutator W3', (8, 1), (9, 2), 10),
+                                  ('control: gluon lambda_1 (pol 2) with B (pol 3)', (0, 1), (11, 2), None),
+                                  ('control: gluon lambda_1 (pol 2) with W1 (pol 3)', (0, 1), (8, 2), None)]:
+    tr[name] = {f'eps={eps}': partner_effect(main, partner, eps, cdir) for eps in (0.05, 0.1, 0.2, 0.4)}
+    print('partner', name, tr[name], flush=True)
+out['self_interaction'] = tr
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's3_waves.json', 'w'), indent=1, default=L.jsonable)

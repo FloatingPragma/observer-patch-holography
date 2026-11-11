@@ -1,0 +1,73 @@
+"""CU Part D: sensitivity of the chain to the window R = T - c ln P (engine at P = 1.6309721). No measured value.
+
+Writes cu_sensitivity.json.
+"""
+import json
+import os
+
+import numpy as np
+
+import cu_chain as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+pi = np.pi
+P = C.P_FWD
+lnP = np.log(P)
+KEYS = ('inv_aU', 'v', 'mz', 'mw', 'inv_a1', 'inv_a2', 'a3', 's2', 'inv_aem')
+out = {'P': P, 'ln P': lnP}
+
+
+def get(R, b=C.B_DECL, read='mZ'):
+    r = C.solvex(P, R, b=b, read=read)
+    return {k: float(r[0][k]) for k in KEYS} if len(r) == 1 else None
+
+
+# D1: outputs against c at T = 2 pi
+d1 = {}
+for lab, b in (('declared slopes', C.B_DECL), ('source slopes, two doublets', C.B_SRC2)):
+    for read in ('mZ', 'mW'):
+        rows = {}
+        for c in [0, 1 / 6, 1 / 4, 1 / 3, 1 / 2, 0.6, 2 / 3, 0.7, 0.75, 0.8, 0.9, 1.0, 1.1, 1.2]:
+            rows[f'c = {c:.4f}'] = {'R': 2 * pi - c * lnP, **get(2 * pi - c * lnP, b, read)}
+        d1[f'{lab}, reading {read}'] = rows
+out['D1_outputs_against_c'] = d1
+
+# D2: outputs against the period T at c = 2/3
+d2 = {}
+for name, T in (('pi', pi), ('3 pi/2', 1.5 * pi), ('2 pi - 0.5', 2 * pi - 0.5), ('2 pi - 0.1', 2 * pi - 0.1), ('2 pi', 2 * pi),
+                ('2 pi + 0.1', 2 * pi + 0.1), ('2 pi + 0.5', 2 * pi + 0.5), ('3 pi', 3 * pi)):
+    d2[f'T = {name}'] = {'R': T - 2 / 3 * lnP, **get(T - 2 / 3 * lnP)}
+out['D2_outputs_against_period'] = d2
+
+# D3: logarithmic derivatives with respect to R at the declared point
+R0 = float(C.R_decl(P))
+h = 1e-3
+d3 = {}
+for lab, b in (('declared slopes', C.B_DECL), ('source slopes, two doublets', C.B_SRC2)):
+    up, dn, mid = get(R0 + h, b), get(R0 - h, b), get(R0, b)
+    d3[lab] = {k: {'value': mid[k], 'd/dR': (up[k] - dn[k]) / (2 * h), 'd ln/dR': (up[k] - dn[k]) / (2 * h) / mid[k],
+                   'd ln/dc at T = 2 pi': -lnP * (up[k] - dn[k]) / (2 * h) / mid[k]} for k in KEYS}
+out['D3_derivatives_at_declared_point'] = d3
+
+# D4: a factor 2 in the linear size against the step from c = 0 to c = 2/3
+a0, a23, a2x = get(2 * pi), get(R0), get(R0 + np.log(2))
+out['D4_factor_two_against_c_step'] = {
+    'Delta R of c: 0 -> 2/3': -2 / 3 * lnP, 'Delta R of a factor 2': float(np.log(2)),
+    'relative change of outputs, c = 0 -> 2/3': {k: a23[k] / a0[k] - 1 for k in KEYS},
+    'relative change of outputs, factor 2 larger collar at c = 2/3': {k: a2x[k] / a23[k] - 1 for k in KEYS}}
+json.dump(out, open(os.path.join(HERE, 'cu_sensitivity.json'), 'w'), indent=1)
+
+print('D1 declared slopes, reading mZ')
+print(f"{'c':>7s} {'R':>7s} {'1/aU':>8s} {'v':>8s} {'mZ':>8s} {'mW':>8s} {'1/a2':>7s} {'a3':>8s} {'sin2':>8s} {'1/aem':>8s}")
+for k, r in d1['declared slopes, reading mZ'].items():
+    print(f"{k[4:]:>7s} {r['R']:7.4f} {r['inv_aU']:8.4f} {r['v']:8.2f} {r['mz']:8.3f} {r['mw']:8.3f} {r['inv_a2']:7.3f} {r['a3']:8.5f} {r['s2']:8.5f} {r['inv_aem']:8.3f}")
+print('D1 source slopes, reading mZ')
+for k, r in d1['source slopes, two doublets, reading mZ'].items():
+    print(f"{k[4:]:>7s} {r['R']:7.4f} {r['inv_aU']:8.4f} {r['v']:8.2f} {r['mz']:8.3f} {r['mw']:8.3f} {r['inv_a2']:7.3f} {r['a3']:8.5f} {r['s2']:8.5f} {r['inv_aem']:8.3f}")
+print('D2')
+for k, r in d2.items():
+    print(f"{k:>14s} {r['R']:7.4f} {r['inv_aU']:8.4f} {r['v']:8.2f} {r['mz']:8.3f} {r['inv_a2']:7.3f} {r['a3']:8.5f} {r['s2']:8.5f} {r['inv_aem']:8.3f}")
+print('D3 d ln/dR (declared):', {k: round(v['d ln/dR'], 5) for k, v in d3['declared slopes'].items()})
+print('D3 d ln/dc (declared):', {k: round(v['d ln/dc at T = 2 pi'], 5) for k, v in d3['declared slopes'].items()})
+print('D3 d ln/dR (source):', {k: round(v['d ln/dR'], 5) for k, v in d3['source slopes, two doublets'].items()})
+print('D4', json.dumps(out['D4_factor_two_against_c_step'], indent=1))

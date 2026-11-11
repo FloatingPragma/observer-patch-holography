@@ -1,0 +1,22 @@
+import sys, numpy as np
+from scipy.optimize import minimize
+import cubic_fed as cf
+
+def bands(kv, k, twice): return np.linalg.eigvalsh(cf.bloch(kv, k, twice))
+
+for k in (1, 2):
+    for twice in (True, False):
+        n = 24
+        grid = np.linspace(-np.pi, np.pi, n, endpoint=False)
+        E = np.array([[[bands((a, b, c), k, twice) for c in grid] for b in grid] for a in grid])
+        print(f'flux {k}, shared seams counted {"twice" if twice else "once"}')
+        for j in range(6):
+            print(f'   band {j}: min {E[..., j].min():.6f} max {E[..., j].max():.6f}')
+        gaps = E[..., 1:] - E[..., :-1]
+        for j in range(5):
+            idx = np.unravel_index(np.argmin(gaps[..., j]), gaps[..., j].shape)
+            k0 = np.array([grid[i] for i in idx])
+            f = lambda q: (lambda e: e[j + 1] - e[j])(bands(q, k, twice))
+            r = minimize(f, k0, method='Nelder-Mead', options={'xatol': 1e-10, 'fatol': 1e-13, 'maxiter': 4000})
+            e = bands(r.x, k, twice)
+            print(f'   min direct gap between bands {j},{j+1}: {r.fun:.3e} at k = {np.round(r.x, 5)} levels {e[j]:.6f} {e[j+1]:.6f}')

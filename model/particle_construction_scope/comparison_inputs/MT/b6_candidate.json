@@ -1,0 +1,60 @@
+{
+ "1_levi_civita_spin_with_area_counter": {
+  "no counter": {
+   "protected_Bloch_directions": 1,
+   "protected_internal_algebra_dimension": 2,
+   "next_factor": 0.976967233,
+   "symmetry_defect": 5.204170427930421e-18
+  },
+  "counter +": {
+   "protected_Bloch_directions": 3,
+   "protected_internal_algebra_dimension": 4,
+   "next_factor": 0.987554234,
+   "symmetry_defect": 5.204170427930421e-18
+  },
+  "counter -": {
+   "protected_Bloch_directions": 3,
+   "protected_internal_algebra_dimension": 4,
+   "next_factor": 0.987554234,
+   "symmetry_defect": 5.204170427930421e-18
+  }
+ },
+ "1_reading": "the geodesic-rotation transport has holonomy Z_20; on the cover (port, area counter mod 20) it is flat, and the unread law protects the full M_2 there: (Levi-Civita spin, counter) is unitarily (ambient spin) x (counter)",
+ "2_commutant_dimension_of_holonomy_groups": {
+  "Z_3 about the glue-face axis (rule S)": {
+   "spinor": 2,
+   "vector": 3,
+   "2 + 3": 5
+  },
+  "all 60 rotations (rolling rules, level >= 1)": {
+   "spinor": 1,
+   "vector": 1,
+   "2 + 3": 2
+  },
+  "Z_5 about one port axis": {
+   "spinor": 2,
+   "vector": 3,
+   "2 + 3": 5
+  },
+  "trivial": {
+   "spinor": 4,
+   "vector": 9,
+   "2 + 3": 25
+  }
+ },
+ "2_reading": "dimension of the internal algebra protected by the unread law when frame changes have this holonomy; full protection is d^2 = 4, 9 (and 13 on the block algebra of 2 + 3, 25 in M_5)",
+ "3_modular_orbit_of_port_effects_for_maximum_entropy_states": {
+  "spinor great + vector convex": {
+   "max_distance_of_modular_orbit_from_one_event_span": 4.4887063708587305e-15
+  },
+  "spinor convex + vector convex": {
+   "max_distance_of_modular_orbit_from_one_event_span": 0.944202182988131
+  }
+ },
+ "4_any_spinor_projector_from_a_port_effect_and_three_pulses": {
+  "targets": 60,
+  "max_residual": 9.965856028284284e-08,
+  "pulses": "exp(i x1 P_a) exp(i x2 P_b) exp(i x3 P_a) on two adjacent ports"
+ },
+ "seconds": 1.5
+}

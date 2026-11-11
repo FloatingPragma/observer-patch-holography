@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""S10 t1: calibration of the closure instrument on known answers (positive and negative controls).
+
+  C1  specified current D_p of the gauge paper on C^6: must give dim 12, centre 1, su(3) + su(2); band labels.
+  C2  diagonal port phases: abelian, dim 12, centre 12.
+  C3  diagonal port phases + i*adjacency: u(12), dim 144, derived 143 (paper's negative control).
+  C4  so(3) + so(3) on R^3 + R^3 and u(1)^4 + su(3): ideal splitting with equal Killing ratios.
+  C5  stored native exchange response (repo npz): 6 preserving Hermitian responses -> 17 = su(3)+su(3)+u(1).
+  C6  random rotation-covariant Hermitian port response on C^12 (32-parameter family): expected u(12).
+"""
+import json, sys, time
+from pathlib import Path
+import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s10lib as L
+
+HERE = Path(__file__).resolve().parent
+out = {'geometry': L.geometry_checks()}
+print('geometry:', out['geometry'])
+assert all(v is True for k, v in out['geometry'].items() if k != 'adjacency_spectrum')
+cls, cnt = np.unique(L.ROTCLASS, return_counts=True)
+out['rotation_classes'] = dict(zip(cls.tolist(), cnt.tolist()))
+print('rotation classes:', out['rotation_classes'])
+
+
+def hat(v):
+    x, y, z = v
+    return np.array([[0, -z, y], [z, 0, -x], [-y, x, 0]], float)
+
+
+def specified_current():
+    r2 = float(L.VEC[0] @ L.VEC[0])
+    D = []
+    for p in range(12):
+        v, s = L.VEC[p], L.VECS[p]
+        Q = np.outer(v, v) / 2 - r2 * np.eye(3) / 6 + np.eye(3) / 12
+        M = np.zeros((6, 6), complex)
+        M[:3, :3] = hat(v / 2) + 1j * Q
+        M[3:, 3:] = hat(s / 2)
+        D.append(M)
+    return D
+
+
+def report(name, gens, rots=None, ports=False):
+    t0 = time.time()
+    clo = L.Closure(gens)
+    st = L.structure(clo, rot_unitaries=rots)
+    s = L.summarize(st)
+    s['generator_span'] = L.span_rank(gens)
+    if ports and clo.dim == 12 and 'simple_ideals' in st:
+        for idl, sm in zip(st['simple_ideals'], s['simple_ideals']):
+            if idl.get('_basis') is not None:
+                sm['port_band'] = L.band_of_ideal(clo, st, idl, gens)
+    s['seconds'] = round(time.time() - t0, 2)
+    print(f"{name}: span {s['generator_span']} depth dims {s['depth_dims']} dim {s['dim']} centre {s['centre_dim']} derived {s['derived_dim']}"
+          f" ideals {[(t['type'], t['dim']) for t in s.get('simple_ideals', [])]} A5 {s.get('A5_content')} gap {s['rank_gap']}", flush=True)
+    return s
+
+
+# C1
+D = specified_current()
+U6 = []
+for i, g in enumerate(L.ROTS):
+    U = np.zeros((6, 6))
+    U[:3, :3] = L.ROT3[i]
+    U[3:, 3:] = L.ROT3S[i]
+    U6.append(U)
+cov = max(np.abs(U6[i] @ D[p] @ U6[i].T - D[g[p]]).max() for i, g in enumerate(L.ROTS) for p in range(12))
+S = sum(D)
+out['C1_specified_current'] = report('C1 specified current', D, U6, ports=True)
+out['C1_specified_current']['covariance_defect_720'] = float(cov)
+out['C1_specified_current']['sum_is_diag(i,i,i,0,0,0)'] = bool(np.allclose(S, np.diag([1j, 1j, 1j, 0, 0, 0])))
+print('   covariance defect', cov, ' sum = diag(iI3,0):', out['C1_specified_current']['sum_is_diag(i,i,i,0,0,0)'])
+for t in out['C1_specified_current']['simple_ideals']:
+    print('   ideal', t['type'], 'port-coefficient A-eigenvalues', t.get('port_band', {}).get('adjacency_eigenvalues_of_port_coefficients'))
+# antipodal commutation and the PT type of the specified current
+out['C1_specified_current']['antipodal_pairs_commute'] = bool(all(np.allclose(L.comm(D[p], D[L.ANTI[p]]), 0) for p in range(12)))
+out['C1_specified_current']['conj(X_p) = X_antipode(p)'] = bool(all(np.allclose(np.conj(1j * D[p]), 1j * D[L.ANTI[p]]) for p in range(12)))
+out['C1_specified_current']['X_p real symmetric (T-even)'] = bool(all(np.allclose((1j * D[p]).imag, 0) for p in range(12)))
+print('   antipodal commute:', out['C1_specified_current']['antipodal_pairs_commute'], ' conj(X_p)=X_p\':', out['C1_specified_current']['conj(X_p) = X_antipode(p)'])
+
+# C2, C3
+Pm = [L.perm_matrix(g) for g in L.ROTS]
+diag = [1j * L.n_op(p) for p in range(12)]
+out['C2_diagonal_phases'] = report('C2 diagonal phases', diag, Pm)
+out['C3_diag_plus_adjacency'] = report('C3 diagonal phases + iA', diag + [1j * L.ADJ.astype(complex)], Pm)
+
+# C4 known reducible algebras
+so3 = [hat(e) for e in np.eye(3)]
+g4 = []
+for k in so3:
+    M = np.zeros((6, 6), complex); M[:3, :3] = k; g4.append(M)
+    M = np.zeros((6, 6), complex); M[3:, 3:] = k; g4.append(M)
+out['C4a_so3_plus_so3'] = report('C4a so(3)+so(3)', g4)
+gm = []
+rng = np.random.default_rng(1)
+for _ in range(3):
+    H = rng.standard_normal((3, 3)) + 1j * rng.standard_normal((3, 3)); H = H + H.conj().T; H -= np.trace(H) / 3 * np.eye(3)
+    M = np.zeros((7, 7), complex); M[:3, :3] = 1j * H; gm.append(M)
+for k in range(4):
+    M = np.zeros((7, 7), complex); M[3 + k, 3 + k] = 1j; gm.append(M)
+out['C4b_u1^4_plus_su3'] = report('C4b u(1)^4+su(3)', gm)
+gs = []
+for _ in range(2):
+    H = rng.standard_normal((3, 3)) + 1j * rng.standard_normal((3, 3)); H = H + H.conj().T; H -= np.trace(H) / 3 * np.eye(3)
+    M = np.zeros((6, 6), complex); M[:3, :3] = 1j * H; gs.append(M)
+    H = rng.standard_normal((3, 3)) + 1j * rng.standard_normal((3, 3)); H = H + H.conj().T; H -= np.trace(H) / 3 * np.eye(3)
+    M = np.zeros((6, 6), complex); M[3:, 3:] = 1j * H; gs.append(M)
+gs.append(1j * np.eye(6, dtype=complex))
+out['C4c_su3_su3_u1'] = report('C4c su(3)+su(3)+u(1) (target 17)', gs)
+
+# C5 stored exchange response: 6 preserving Hermitian responses in the rational frame with Gram metric G
+z = np.load(Path('model/common_source/native_persistent_response_results.npz'))
+G = z['geometric_Gram_metric']
+w, V = np.linalg.eigh(G)
+Gh = V @ np.diag(np.sqrt(w)) @ V.T          # G^{1/2}
+Ghi = V @ np.diag(1 / np.sqrt(w)) @ V.T
+pres = z['c01_flat_joint_phase_preserving_responses']
+herm = [Gh @ h @ Ghi for h in pres]         # self-adjoint in the Gram metric -> symmetric in the orthonormal frame
+out['C5_exchange_preserving'] = report('C5 exchange law, 6 preserving responses', [1j * h.astype(complex) for h in herm])
+out['C5_exchange_preserving']['max_asymmetry_after_orthonormalisation'] = float(max(np.abs(h - h.T).max() for h in herm))
+out['C5_exchange_preserving']['repo_value'] = 17
+
+# C6 random covariant Hermitian response on C^12
+def random_covariant(rng, support=None):
+    """X_0 = average over the stabiliser of port 0 of a random Hermitian matrix; X_p = P_g X_0 P_g^T, g(0)=p."""
+    H = rng.standard_normal((12, 12)) + 1j * rng.standard_normal((12, 12)); H = H + H.conj().T
+    if support is not None:
+        H = H * support
+    stab = [i for i, g in enumerate(L.ROTS) if g[0] == 0]
+    X0 = sum(Pm[i] @ H @ Pm[i].T for i in stab) / len(stab)
+    X = [None] * 12
+    for i, g in enumerate(L.ROTS):
+        if X[g[0]] is None:
+            X[g[0]] = Pm[i] @ X0 @ Pm[i].T
+    return X
+rng = np.random.default_rng(7)
+X = random_covariant(rng)
+cov = max(np.abs(Pm[i] @ X[p] @ Pm[i].T - X[g[p]]).max() for i, g in enumerate(L.ROTS) for p in range(12))
+out['C6_random_covariant'] = report('C6 random covariant Hermitian response (full 32-dim family)', [-1j * x for x in X], Pm)
+out['C6_random_covariant']['covariance_defect'] = float(cov)
+nn = (L.ADJ + np.eye(12)) > 0
+X = random_covariant(rng, support=nn)
+out['C6b_random_covariant_seam_supported'] = report('C6b random covariant, diagonal+seam support (16-dim family)', [-1j * x for x in X], Pm)
+
+(HERE / 't1_controls.json').write_text(json.dumps(out, indent=1, default=str))
+print('written', HERE / 't1_controls.json')

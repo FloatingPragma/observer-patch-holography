@@ -1,0 +1,94 @@
+"""QT exact supplements to the selection table (law T-A; the double+single and separated blocks are law independent).
+
+E1  carrier, class 0: the uniform separated state and the uniform double+single state with its emission states are
+    fixed by D~ exactly. With the modular nullity 1 of each component (qt1_carrier_A.json) each count is exactly 1.
+E2  hexagon, classes 0, 2, 4: the fixed vector of the double+single component that has no blank-record part.
+    Its support, record values and moduli; it is orthogonal to the cyclic subspace of the blank preparations.
+E3  hexagon and carrier, classes 2 and 4: fixed vectors of D by component, listed with and without a blank part.
+Writes qt1b_exact.json. EXACT.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import qt_common as Q
+import qt_analysis as QA
+
+OUT = 'qt1b_exact.json'
+
+
+def apply_D(D, v):
+    out = {}
+    for j, a in v.items():
+        for i, d in D[j].items():
+            out[i] = out.get(i, 0) + d * a
+    return {i: x for i, x in out.items() if x != 0}
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'QT exact supplements', 'provenance': Q.FC.provenance()}
+    law = Q.Law('T-A')
+
+    # ---------------- E1
+    m = Q.carrier(law, 0)
+    D = m.Dsparse()
+    sep = {m.sidx(c, 0): Fr(1) for c in range(len(m.cfg)) if m.ctype(m.cfg[c]) == 'separated'}
+    ds = {m.sidx(c, 0): Fr(1) for c in range(len(m.cfg)) if m.ctype(m.cfg[c]) == 'double+single'}
+    n_em = 0
+    for c in range(len(m.cfg)):
+        cfg = m.cfg[c]
+        if m.ctype(cfg) != 'separated':
+            continue
+        pp = m.ports_of(cfg)
+        if any(frozenset((a, b)) in m.seam_set for a in pp for b in pp if a < b):
+            ds[m.sidx(c, 2)] = Fr(1)
+            ds[m.sidx(c, 3)] = Fr(1)
+            n_em += 1
+    ref = json.load(open('qt1_carrier_A.json'))['laws']['T-A']['class 0']['by type']
+    out['E1_carrier_class_0'] = {
+        'uniform separated state: blank configurations': len(sep), 'fixed by D exactly': apply_D(D, sep) == sep,
+        'modular nullity of its component': ref['separated']['modular nullity (upper bound, exact)'],
+        'uniform double+single state: blank configurations': sum(1 for j in ds if j % m.nrec == 0),
+        'its emission states (separated configurations with an adjacent pair, records 2 and 3)': 2 * n_em,
+        'fixed by D exactly (double+single)': apply_D(D, ds) == ds,
+        'modular nullity of its component (double+single)': ref['double+single']['modular nullity (upper bound, exact)'],
+        'weight of the blank record in the uniform double+single state': str(Fr(sum(1 for j in ds if j % m.nrec == 0), len(ds)))}
+    print('E1', out['E1_carrier_class_0'], flush=True)
+
+    # ---------------- E2 and E3 (hexagon)
+    e2 = {}
+    for k in (0, 2, 4):
+        m = Q.hexagon(law, k)
+        D = m.Dsparse()
+        res = QA.analyse(m, exact_limit=200, do_mod=False, keep_vectors=True)
+        rows = []
+        for v in res['_vectors']:
+            types = sorted({m.ctype(m.cfg[j // m.nrec]) for j in v})
+            recs = sorted({j % m.nrec for j in v})
+            blank = any(j % m.nrec == 0 for j in v)
+            rows.append({'support': len(v), 'content types': types, 'records': recs, 'has a blank part': blank,
+                         'equal moduli': len({Q.norm2(a) for a in v.values()}) == 1, 'fixed by D exactly': apply_D(D, v) == v})
+        wr = [r for r in rows if r['content types'] == ['double+single'] and r['records'] == [1]]
+        shell = [r for r in rows if r['support'] == 2 and not r['has a blank part']]
+        e2[f'class {k}'] = {
+            'fixed vectors of D in the components with a blank preparation': len(rows),
+            'with a blank-record part': sum(1 for r in rows if r['has a blank part']),
+            'written-record vector of the double+single component (record 1 only)': wr,
+            'antisymmetric shell vectors with record 2 or 3 in the triple component (support 2 each)': len(shell),
+            'every listed vector fixed by D exactly': all(r['fixed by D exactly'] for r in rows)}
+        print('E2 class', k, e2[f'class {k}'], flush=True)
+    out['E2_hexagon'] = e2
+    out['E2_reading'] = ('on the hexagon the double+single configurations with the single-load moves (a hop of the single, '
+                         'the exchange of the double with an adjacent single) form one cycle of length 30 with total winding 3; '
+                         'a record-1 state that changes sign at every move closes when s^3 = 1, classes 0, 2, 4 (ARGUED)')
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

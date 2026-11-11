@@ -1,0 +1,276 @@
+"""Shared exact objects for lane L-NAT round 2 (face defect, oriented readout).
+
+Reuses round 1 (../lnat/lnat_common.py: carrier, rotations gC, gE, g = gE o gC, the exact integer walk 120 W).
+Adds: faces and their outward orientation, the axis faces of g, Z6 link phases for a face defect of class k, the
+consensus block of the walk with links, and exact Z[omega] sparse arithmetic for the 1440-dimensional walk with
+sixth-root link phases (omega = exp(2 pi i/3); a sixth root exp(i pi n/3) is a unit of Z[omega]).
+
+The public repository is imported read only (round-1 module sets the path; no byte code is written).
+"""
+from __future__ import annotations
+
+import os
+import sys
+from fractions import Fraction as F
+from functools import lru_cache
+
+import numpy as np
+import scipy.sparse as sp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'lnat'))
+sys.dont_write_bytecode = True
+import lnat_common as C  # noqa: E402
+
+N_PORT, N_ADDR, DIM = C.N_PORT, C.N_ADDR, C.DIM
+
+
+# ---------------------------------------------------------------- exact Q(sqrt5) sign, port vectors, faces
+def q5_sign(a: F, b: F) -> int:
+    """Sign of a + b sqrt5 (a, b rational)."""
+    if a == 0 and b == 0:
+        return 0
+    if a >= 0 and b >= 0:
+        return 1
+    if a <= 0 and b <= 0:
+        return -1
+    # opposite signs: compare a^2 with 5 b^2
+    big = 1 if a * a > 5 * b * b else -1
+    return (1 if a > 0 else -1) if big == 1 else (1 if b > 0 else -1)
+
+
+def q5_mul(x, y):
+    return (x[0] * y[0] + 5 * x[1] * y[1], x[0] * y[1] + x[1] * y[0])
+
+
+def q5_add(x, y):
+    return (x[0] + y[0], x[1] + y[1])
+
+
+def q5_sub(x, y):
+    return (x[0] - y[0], x[1] - y[1])
+
+
+@lru_cache(maxsize=1)
+def port_vectors():
+    """Exact port vectors (Q(sqrt5)^3) of the repository's raw frame: entries (a, b) meaning a + b sqrt5."""
+    return [tuple((F(a), F(b)) for (a, b) in row) for row in C.slow_geometry.raw_frame()]
+
+
+def cross(u, v):
+    return (q5_sub(q5_mul(u[1], v[2]), q5_mul(u[2], v[1])),
+            q5_sub(q5_mul(u[2], v[0]), q5_mul(u[0], v[2])),
+            q5_sub(q5_mul(u[0], v[1]), q5_mul(u[1], v[0])))
+
+
+def dot(u, v):
+    out = (F(0), F(0))
+    for a, b in zip(u, v):
+        out = q5_add(out, q5_mul(a, b))
+    return out
+
+
+def vsub(u, v):
+    return tuple(q5_sub(a, b) for a, b in zip(u, v))
+
+
+def vadd3(u, v, w):
+    return tuple(q5_add(q5_add(a, b), c) for a, b, c in zip(u, v, w))
+
+
+@lru_cache(maxsize=1)
+def faces():
+    """The 20 faces as sorted port triples."""
+    adj = C.carrier()['adj']
+    out = sorted({tuple(sorted((a, b, c))) for a in range(12) for b in range(12) for c in range(12)
+                  if len({a, b, c}) == 3 and adj[a, b] and adj[b, c] and adj[a, c]})
+    assert len(out) == 20
+    return tuple(out)
+
+
+def outward(face):
+    """Cyclic order (p, q, r) of a face that is counterclockwise seen from outside (outward normal), exact."""
+    X = port_vectors()
+    p, q, r = face
+    n = cross(vsub(X[q], X[p]), vsub(X[r], X[p]))
+    sgn = q5_sign(*dot(n, vadd3(X[p], X[q], X[r])))
+    assert sgn != 0
+    return (p, q, r) if sgn > 0 else (p, r, q)
+
+
+@lru_cache(maxsize=1)
+def oriented_faces():
+    return tuple(outward(f) for f in faces())
+
+
+def traverses(face_oriented, a, b):
+    p, q, r = face_oriented
+    return (a, b) in ((p, q), (q, r), (r, p))
+
+
+@lru_cache(maxsize=1)
+def axis_faces():
+    """The two faces fixed setwise by g = gE o gC: f (contains port 4) and its antipode f'."""
+    gC, gE, g = C.native_rotations()
+    fixed = [f for f in faces() if set(g[x] for x in f) == set(f)]
+    assert len(fixed) == 2
+    f = [x for x in fixed if 4 in x][0]
+    fp = [x for x in fixed if x != f][0]
+    return f, fp
+
+
+def rho(face):
+    """The element of <g> that turns the face's ports in the face's outward (register) orientation."""
+    gC, gE, g = C.native_rotations()
+    g2 = C.compose(g, g)
+    p, q, r = outward(face)
+    for name, h in (('g', g), ('g^2 = g^-1', g2)):
+        if h[p] == q and h[q] == r and h[r] == p:
+            return name, h
+    raise AssertionError('face not turned by <g>')
+
+
+# ---------------------------------------------------------------- Z6 link phases for a face defect
+@lru_cache(maxsize=None)
+def dual_path(f_from, f_to):
+    """Breadth-first path of faces from f_from to f_to, with the shared seam of each step."""
+    fs = faces()
+    def shared(x, y):
+        s = set(x) & set(y)
+        return tuple(sorted(s)) if len(s) == 2 else None
+    prev = {f_from: None}
+    queue = [f_from]
+    while queue:
+        nxt = []
+        for x in queue:
+            for y in fs:
+                if y not in prev and shared(x, y):
+                    prev[y] = x
+                    nxt.append(y)
+        queue = nxt
+    path = [f_to]
+    while prev[path[-1]] is not None:
+        path.append(prev[path[-1]])
+    path.reverse()
+    return tuple(path)
+
+
+def defect_links(k, face=None, partner=None):
+    """Z6 labels n[(a, b)] on oriented seams (n[(b, a)] = -n[(a, b)] mod 6) such that the outward-oriented face
+    classes are k on `face`, -k on `partner`, 0 elsewhere (a Dirac string along a dual path)."""
+    f, fp = axis_faces()
+    face = face or f
+    partner = partner or fp
+    n = {}
+    for a, b in C.carrier()['seams']:
+        n[(a, b)] = 0
+        n[(b, a)] = 0
+    path = dual_path(face, partner)
+    for x, y in zip(path[:-1], path[1:]):
+        u, v = sorted(set(x) & set(y))
+        ox = outward(x)
+        if not traverses(ox, u, v):
+            u, v = v, u
+        n[(u, v)] = (n[(u, v)] + k) % 6
+        n[(v, u)] = (n[(v, u)] - k) % 6
+    return n
+
+
+def face_class(n, face):
+    p, q, r = outward(face)
+    return (n[(p, q)] + n[(q, r)] + n[(r, p)]) % 6
+
+
+# ---------------------------------------------------------------- Z[omega] numbers and sparse matrices
+# A number x + y omega (x, y integers), omega = exp(2 pi i/3), omega^2 = -1 - omega.
+SIXTH = {0: (1, 0), 1: (1, 1), 2: (0, 1), 3: (-1, 0), 4: (-1, -1), 5: (0, -1)}  # exp(i pi n/3)
+
+
+def zw_mul(x, y):
+    return (x[0] * y[0] - x[1] * y[1], x[0] * y[1] + x[1] * y[0] - x[1] * y[1])
+
+
+def zw_conj(x):
+    # conj(omega) = omega^2 = -1 - omega
+    return (x[0] - x[1], -x[1])
+
+
+def zw_complex(x):
+    w = complex(-0.5, 3 ** 0.5 / 2)
+    return x[0] + x[1] * w
+
+
+class ZW:
+    """Sparse matrix A + B omega with integer A, B (scipy CSR, int64 / object-free)."""
+
+    def __init__(self, A, B):
+        self.A = sp.csr_matrix(A, dtype=np.int64)
+        self.B = sp.csr_matrix(B, dtype=np.int64)
+
+    def __matmul__(self, o):
+        AC, BD = self.A @ o.A, self.B @ o.B
+        return ZW(AC - BD, self.A @ o.B + self.B @ o.A - BD)
+
+    def __sub__(self, o):
+        return ZW(self.A - o.A, self.B - o.B)
+
+    def H(self):
+        """Conjugate transpose: conj(A + B omega) = (A - B) - B omega."""
+        return ZW((self.A - self.B).T, (-self.B).T)
+
+    def is_zero(self):
+        a, b = self.A.copy(), self.B.copy()
+        a.eliminate_zeros(); b.eliminate_zeros()
+        return a.nnz == 0 and b.nnz == 0
+
+    def dot_vec(self, v):
+        """Apply to an integer vector (real): returns (A v, B v)."""
+        return self.A @ v, self.B @ v
+
+
+def zw_scalar_identity(c):
+    I = sp.identity(DIM, dtype=np.int64, format='csr')
+    return ZW(c * I, 0 * I)
+
+
+def walk_with_links(n):
+    """120 W_s as a ZW matrix, W_s = Q_s R; address (a, b) uses the link s = exp(i pi n[(a,b)]/3):
+    v = |m,0> - |p,1>, m = (|a> - s|b>)/sqrt2, p = (|a> + s|b>)/sqrt2, U_k = I - v v^dag."""
+    car = C.carrier()
+    adr = car['addresses']
+    rowsA, colsA, valsA = [], [], []
+    rowsB, colsB, valsB = [], [], []
+    def add(i, j, z):
+        if z[0]:
+            rowsA.append(i); colsA.append(j); valsA.append(z[0])
+        if z[1]:
+            rowsB.append(i); colsB.append(j); valsB.append(z[1])
+    for i in range(DIM):
+        add(i, i, (2, 0))
+    for k, (a, b) in enumerate(adr):
+        s = SIXTH[n[(a, b)] % 6]
+        ms = zw_mul((-1, 0), s)
+        sites = [C.idx(a, 0, k), C.idx(b, 0, k), C.idx(a, 1, k), C.idx(b, 1, k)]
+        u = [(1, 0), ms, (-1, 0), ms]  # 2 v = sqrt2 u: 2 v v^dag = u u^dag
+        for si, ui in zip(sites, u):
+            for sj, uj in zip(sites, u):
+                z = zw_mul(ui, zw_conj(uj))
+                add(si, sj, (-z[0], -z[1]))
+    Q2 = ZW(sp.csr_matrix((valsA, (rowsA, colsA)), shape=(DIM, DIM)),
+            sp.csr_matrix((valsB, (rowsB, colsB)), shape=(DIM, DIM)))
+    _, R60, _ = C.walk_integer()
+    zero = 0 * R60
+    return Q2 @ ZW(R60, zero)
+
+
+def port_phase_operator(phi):
+    """Diagonal ZW operator multiplying every basis state at port x by the sixth root exp(i pi phi[x]/3)."""
+    A = np.zeros(DIM, dtype=np.int64)
+    B = np.zeros(DIM, dtype=np.int64)
+    for x in range(12):
+        z = SIXTH[phi[x] % 6]
+        for r in (0, 1):
+            for k in range(N_ADDR):
+                A[C.idx(x, r, k)] = z[0]
+                B[C.idx(x, r, k)] = z[1]
+    return ZW(sp.diags(A, dtype=np.int64), sp.diags(B, dtype=np.int64))

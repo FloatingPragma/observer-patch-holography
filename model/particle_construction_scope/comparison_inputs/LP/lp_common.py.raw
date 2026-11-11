@@ -1,0 +1,263 @@
+"""Worker LP (step L1): exact two-load walk engine with class-3 link signs.
+
+The public checkout is imported read only through FR's resolver (work/FR/fr_common.py, manifest hash guard).
+Run every script of this directory as
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=../FR /tmp/oph-completion-venv/bin/python -B <script>
+
+Model (FR's hexagon model and its twelve-port version):
+  ports, seams with a reference orientation, two loads (multisets of two ports), a four-valued record, one address
+  register over the oriented seams (address k = 2 s + o), the public local unitary `local_repair_unitary`, W = Q R.
+  Frames: 'FP' the public law (unitary of the addressed orientation), 'FN' the unitary of the reference orientation
+  at both addresses. A class-3 link sign -1 on a seam conjugates the local unitary by (-1)^(n_b).
+States are dictionaries {(configuration index, record, address): Fraction}.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import os
+import sys
+from fractions import Fraction as Fr
+
+sys.dont_write_bytecode = True
+os.environ.setdefault('PYTHONDONTWRITEBYTECODE', '1')
+
+import numpy as np  # noqa: E402
+import sympy as sp  # noqa: E402
+
+import fr_common as FC  # noqa: E402  (work/FR, read only)
+
+NAMES = ['00', '10', '01', '11', '20', '02']
+HEX = [2, 3, 9, 1, 0, 10]                                    # screen sense around the f axis
+HEX_SEAMS = [(2, 3), (3, 9), (9, 1), (1, 0), (0, 10), (10, 2)]
+HEX_TYPES = ['C', 'E', 'C', 'E', 'C', 'E']
+ORBIT_A = {2, 9, 0}
+ORBIT_B = {3, 1, 10}
+FACE_F = (4, 5, 11)
+FACE_FP = (6, 7, 8)
+
+
+def load_U24():
+    """The public local unitary as exact fractions (source order 00,10,01,11,20,02; record 0..3)."""
+    FC.rer_root()
+    from model.coherent_seam_repair.common import local_repair_unitary
+    U = local_repair_unitary()
+    assert sp.simplify(U * U) == sp.eye(24) and U == U.T
+    out = [[Fr(0)] * 24 for _ in range(24)]
+    for i in range(24):
+        for j in range(24):
+            v = sp.nsimplify(U[i, j])
+            out[i][j] = Fr(int(v.p), int(v.q))
+    return out
+
+
+U24 = load_U24()
+# nonzero rows per column, for speed
+U24_COL = [[(row, U24[row][col]) for row in range(24) if U24[row][col]] for col in range(24)]
+
+
+class Model:
+    def __init__(self, ports, seams, frame='FP', signs=None, ref_tail=None):
+        """seams: list of pairs in their reference orientation. signs: {seam index: -1} class-3 link signs.
+        ref_tail: for frame 'FN' the set of ports that are reference tails (default: first port of each seam)."""
+        self.ports = list(ports)
+        self.pidx = {p: i for i, p in enumerate(self.ports)}
+        self.seams = [tuple(s) for s in seams]
+        self.frame = frame
+        self.signs = dict(signs or {})
+        self.NA = 2 * len(self.seams)
+        n = len(self.ports)
+        self.cfg = [c for c in itertools.product(range(3), repeat=n) if sum(c) == 2]
+        self.ci = {c: i for i, c in enumerate(self.cfg)}
+        self.ncr = len(self.cfg) * 4
+        self.seam_set = {frozenset(s): i for i, s in enumerate(self.seams)}
+        if frame == 'FN':
+            if ref_tail is None:
+                self.ref = list(self.seams)
+            else:
+                self.ref = [(a, b) if a in ref_tail else (b, a) for a, b in self.seams]
+        self._img = {}
+
+    # ------------------------------------------------------------------ configurations
+    def cfg_of(self, *ports):
+        c = [0] * len(self.ports)
+        for p in ports:
+            c[self.pidx[p]] += 1
+        return tuple(c)
+
+    def ports_of(self, cfg):
+        return tuple(self.ports[i] for i in range(len(self.ports)) for _ in range(cfg[i]))
+
+    def is_double(self, cfg):
+        return max(cfg) == 2
+
+    def seam_of(self, cfg):
+        """Seam index when the two loads sit on the two ends of one seam, else None."""
+        pp = self.ports_of(cfg)
+        if pp[0] == pp[1]:
+            return None
+        return self.seam_set.get(frozenset(pp))
+
+    def sector(self, cfg, rec):
+        if not self.is_double(cfg) and rec in (0, 1):
+            return 'hard-core'
+        if self.is_double(cfg) and rec == 0:
+            return 'cycle'
+        if self.seam_of(cfg) is not None and rec in (2, 3):
+            return 'cycle'
+        return 'idle'
+
+    # ------------------------------------------------------------------ the event
+    def pair_at(self, k):
+        s, o = divmod(k, 2)
+        if self.frame == 'FP':
+            x, y = self.seams[s]
+            return (x, y) if o == 0 else (y, x)
+        return self.ref[s]
+
+    def local(self, c_index, rec, k):
+        """Images of (configuration, record) under the event at address k: list of (c', rec', amplitude)."""
+        key = (c_index, rec, k)
+        hit = self._img.get(key)
+        if hit is not None:
+            return hit
+        cfg = self.cfg[c_index]
+        a, b = self.pair_at(k)
+        ia, ib = self.pidx[a], self.pidx[b]
+        sgn = self.signs.get(k // 2, 1)
+        col = 4 * NAMES.index(f'{cfg[ia]}{cfg[ib]}') + rec
+        gcol = sgn if (cfg[ib] % 2) else 1
+        out = []
+        for row, u in U24_COL[col]:
+            s2, r2 = divmod(row, 4)
+            na, nb = int(NAMES[s2][0]), int(NAMES[s2][1])
+            c2 = list(cfg)
+            c2[ia], c2[ib] = na, nb
+            grow = sgn if (nb % 2) else 1
+            out.append((self.ci[tuple(c2)], r2, u * gcol * grow))
+        self._img[key] = out
+        return out
+
+    def Qstep(self, state):
+        new = {}
+        for (c, rec, k), amp in state.items():
+            for c2, r2, u in self.local(c, rec, k):
+                key = (c2, r2, k)
+                v = new.get(key, 0) + amp * u
+                if v:
+                    new[key] = v
+                else:
+                    new.pop(key, None)
+        return new
+
+    def Rstep(self, state):
+        groups = {}
+        for (c, rec, k), amp in state.items():
+            groups.setdefault((c, rec), {})[k] = amp
+        new = {}
+        for (c, rec), g in groups.items():
+            mean = sum(g.values(), Fr(0)) / self.NA
+            for k in range(self.NA):
+                v = 2 * mean - g.get(k, 0)
+                if v:
+                    new[(c, rec, k)] = v
+        return new
+
+    def W(self, state):
+        return self.Qstep(self.Rstep(state))
+
+    def Winv(self, state):
+        return self.Rstep(self.Qstep(state))
+
+    def embed(self, amps, rec=0):
+        """A |v>: amps {configuration: amplitude} with a record value and the uniform address (unnormalized: the
+        true state is this / sqrt(NA) when sum |amp|^2 = 1)."""
+        return {(self.ci[c], rec, k): Fr(a) for c, a in amps.items() for k in range(self.NA)}
+
+    # ------------------------------------------------------------------ discriminant
+    def D(self):
+        n = self.ncr
+        D = [[Fr(0)] * n for _ in range(n)]
+        for c in range(len(self.cfg)):
+            for rec in range(4):
+                j = 4 * c + rec
+                for k in range(self.NA):
+                    for c2, r2, u in self.local(c, rec, k):
+                        D[4 * c2 + r2][j] += u / self.NA
+        return D
+
+    def sector_index(self, name):
+        return [4 * c + rec for c in range(len(self.cfg)) for rec in range(4)
+                if self.sector(self.cfg[c], rec) == name]
+
+
+# ---------------------------------------------------------------------- exact linear algebra on fractions
+def nullspace(M):
+    """Exact basis of the kernel of a rectangular matrix of fractions (list of rows)."""
+    rows = [list(r) for r in M]
+    ncol = len(rows[0]) if rows else 0
+    piv = []
+    r = 0
+    for c in range(ncol):
+        p = next((i for i in range(r, len(rows)) if rows[i][c] != 0), None)
+        if p is None:
+            continue
+        rows[r], rows[p] = rows[p], rows[r]
+        inv = 1 / rows[r][c]
+        rows[r] = [x * inv for x in rows[r]]
+        for i in range(len(rows)):
+            if i != r and rows[i][c] != 0:
+                f = rows[i][c]
+                rows[i] = [x - f * y for x, y in zip(rows[i], rows[r])]
+        piv.append(c)
+        r += 1
+        if r == len(rows):
+            break
+    free = [c for c in range(ncol) if c not in piv]
+    basis = []
+    for f in free:
+        v = [Fr(0)] * ncol
+        v[f] = Fr(1)
+        for i, c in enumerate(piv):
+            v[c] = -rows[i][f]
+        basis.append(v)
+    return basis
+
+
+def sub(M, idx):
+    return [[M[i][j] for j in idx] for i in idx]
+
+
+def minus_identity(M):
+    return [[M[i][j] - (1 if i == j else 0) for j in range(len(M))] for i in range(len(M))]
+
+
+def closed(D, idx):
+    s = set(idx)
+    n = len(D)
+    return all(D[i][j] == 0 for j in idx for i in range(n) if i not in s)
+
+
+def eigs(M):
+    A = np.array([[float(x) for x in row] for row in M])
+    return np.linalg.eigvalsh((A + A.T) / 2)
+
+
+def fstr(x):
+    return str(x)
+
+
+def hexagon(frame='FP', hol=1, sign_seam=0):
+    """FR's hexagon model. hol = -1 puts one class-3 sign on the seam `sign_seam`."""
+    signs = {sign_seam: -1} if hol == -1 else {}
+    return Model(HEX, HEX_SEAMS, frame=frame, signs=signs, ref_tail=ORBIT_A)
+
+
+def carrier_model(signs=None):
+    car = FC.carrier()
+    return Model(list(range(12)), [tuple(s) for s in car['seams']], frame='FP', signs=signs)
+
+
+def jdump(obj, path):
+    with open(path, 'w') as fh:
+        json.dump(obj, fh, indent=1, default=str)

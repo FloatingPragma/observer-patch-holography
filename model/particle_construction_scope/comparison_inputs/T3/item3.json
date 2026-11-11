@@ -1,0 +1,273 @@
+{
+ "note": "T3 item 3: the zero-phase copies of the CF-1 period as species.\n\nFor each class of zero-phase node per two-tick sublattice (p mod pi): position, chirality per arrow block, exact image\nidentity W2(p* + q) = W2(R q) (R a diagonal reflection, checked on random q with and without mass), velocity map\nR = J(p*) J(0)^-1, the Dirac partner under the mass step (W2(p*) = exp(-2 i theta beta) exactly; beta pairs the two\narrow blocks at the same momentum), the phase each copy receives from member B (5 pi/16) and member C (pi/16), and the\ncolour one-loop coefficient b0 = 11 - 4 k_c for k_c light Dirac points per quark species.\npython t3_item3.py -> item3.json (local, a few CPU s)\n",
+ "copies": [
+  {
+   "class": "origin",
+   "p_star_over_pi": [
+    0,
+    0,
+    0
+   ],
+   "reflection_R_diag": [
+    1,
+    1,
+    1
+   ],
+   "image_identity_residual_massless": 0.0,
+   "image_identity_residual_theta": 0.0,
+   "chirality_block_+1": 1,
+   "velocity_map_block_+1": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "chirality_block_-1": -1,
+   "velocity_map_block_-1": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "W2_at_p_star_minus_exp(-2i theta beta)": 2.220446049250313e-16,
+   "rest_phase_per_tick_theta": 0.15793499999999988,
+   "beta_within_block_norm": 2.2371143170757382e-17,
+   "beta_across_blocks_singular_values": [
+    1.0,
+    1.0
+   ],
+   "member_B_5pi16_phase_per_period": 0.0,
+   "member_C_pi16_phase_per_period": 0.0
+  },
+  {
+   "class": "A1 (pi/2,0,pi/2)",
+   "p_star_over_pi": [
+    0.5,
+    0,
+    0.5
+   ],
+   "reflection_R_diag": [
+    1,
+    -1,
+    -1
+   ],
+   "image_identity_residual_massless": 1.0838898772828417e-15,
+   "image_identity_residual_theta": 1.1430445635548515e-15,
+   "chirality_block_+1": 1,
+   "velocity_map_block_+1": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -1.0,
+     -0.0
+    ],
+    [
+     0.0,
+     0.0,
+     -1.0
+    ]
+   ],
+   "chirality_block_-1": -1,
+   "velocity_map_block_-1": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     -1.0
+    ]
+   ],
+   "W2_at_p_star_minus_exp(-2i theta beta)": 2.220446049250313e-16,
+   "rest_phase_per_tick_theta": 0.15793499999999988,
+   "beta_within_block_norm": 2.2371143170757382e-17,
+   "beta_across_blocks_singular_values": [
+    1.0,
+    1.0
+   ],
+   "member_B_5pi16_phase_per_period": 1.9888850048873867,
+   "member_C_pi16_phase_per_period": 1.5707963267948963
+  },
+  {
+   "class": "A2 (0,pi/2,pi/2)",
+   "p_star_over_pi": [
+    0,
+    0.5,
+    0.5
+   ],
+   "reflection_R_diag": [
+    1,
+    1,
+    -1
+   ],
+   "image_identity_residual_massless": 1.0881460057406233e-15,
+   "image_identity_residual_theta": 1.0778315928076987e-15,
+   "chirality_block_+1": -1,
+   "velocity_map_block_+1": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     -1.0
+    ]
+   ],
+   "chirality_block_-1": 1,
+   "velocity_map_block_-1": [
+    [
+     1.0,
+     0.0,
+     -0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     -1.0
+    ]
+   ],
+   "W2_at_p_star_minus_exp(-2i theta beta)": 2.220446049250313e-16,
+   "rest_phase_per_tick_theta": 0.15793499999999988,
+   "beta_within_block_norm": 2.2371143170757382e-17,
+   "beta_across_blocks_singular_values": [
+    1.0,
+    1.0
+   ],
+   "member_B_5pi16_phase_per_period": 1.9888850048873867,
+   "member_C_pi16_phase_per_period": 1.5707963267948966
+  },
+  {
+   "class": "A3 (pi/2,pi/2,0)",
+   "p_star_over_pi": [
+    0.5,
+    0.5,
+    0
+   ],
+   "reflection_R_diag": [
+    1,
+    -1,
+    1
+   ],
+   "image_identity_residual_massless": 1.0429598422709816e-15,
+   "image_identity_residual_theta": 1.0429598422709816e-15,
+   "chirality_block_+1": -1,
+   "velocity_map_block_+1": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "chirality_block_-1": 1,
+   "velocity_map_block_-1": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     -1.0,
+     0.0
+    ],
+    [
+     0.0,
+     -0.0,
+     1.0
+    ]
+   ],
+   "W2_at_p_star_minus_exp(-2i theta beta)": 2.220446049250313e-16,
+   "rest_phase_per_tick_theta": 0.15793499999999988,
+   "beta_within_block_norm": 2.2371143170757382e-17,
+   "beta_across_blocks_singular_values": [
+    1.0,
+    1.0
+   ],
+   "member_B_5pi16_phase_per_period": 1.9888850048873867,
+   "member_C_pi16_phase_per_period": 1.5707963267948966
+  }
+ ],
+ "corner_image_residual_theta": 1.324147507406233e-15,
+ "corner_phase_member_B_5pi16": {
+  "(0, 0, 0)": 0.0,
+  "(0, 0, 1)": 2.3561944901923453,
+  "(0, 1, 0)": 2.3561944901923457,
+  "(0, 1, 1)": 1.5707963267948963,
+  "(1, 0, 0)": 2.3561944901923453,
+  "(1, 0, 1)": 1.5707963267948961,
+  "(1, 1, 0)": 1.5707963267948963,
+  "(1, 1, 1)": 0.7853981633974484
+ },
+ "corner_phase_member_C_pi16": {
+  "(0, 0, 0)": 0.0,
+  "(0, 0, 1)": 0.0,
+  "(0, 1, 0)": 0.0,
+  "(0, 1, 1)": 0.0,
+  "(1, 0, 0)": 0.0,
+  "(1, 0, 1)": 0.0,
+  "(1, 1, 0)": 0.0,
+  "(1, 1, 1)": 0.0
+ },
+ "b0": {
+  "CF-1 period, full lattice (32 zero-phase Dirac points)": -117,
+  "CF-1 period, one two-tick sublattice (4)": -5,
+  "member C (one per sublattice, 8 corner images)": -21,
+  "member B (one in the full zone)": 7,
+  "reading the four cones as generations (8 flavours, 6 + 2)": 5.666666666666667
+ }
+}

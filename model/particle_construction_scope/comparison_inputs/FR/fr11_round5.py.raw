@@ -1,0 +1,247 @@
+"""FR round 5 (ROUND5_REGISTER.md): entries to the double-load cycle, two hexagons on one carrier, the clock phase on
+the plain-law pair transport. EXACT (Fractions, Laurent polynomials in z); mpmath for the evaluations at given phases.
+Writes fr11_round5.json. Runs in seconds.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+
+import fr_common as FC
+import fr9_hexagon as X
+
+OUT = 'fr11_round5.json'
+mp.mp.dps = 30
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'FR round 5', 'provenance': FC.provenance()}
+    U = X.U24
+    NM = X.NAMES
+
+    # ---------------- item 2: entries
+    leak = []
+    for src in ('00', '10', '01', '11'):
+        for rec in (0, 1):
+            col = 4 * NM.index(src) + rec
+            for row in range(24):
+                if U[row][col] and (NM[row // 4] in ('20', '02') or row % 4 in (2, 3)):
+                    leak.append((src, rec, NM[row // 4], row % 4))
+    from model.coherent_seam_repair.program import Observer
+    obs = Observer()
+    try:
+        obs.index(0, 2, 0)
+        rec_values = 'accepts record value 2'
+    except ValueError:
+        rec_values = 'record values 0 and 1 only (index rejects 2)'
+    st = obs.embedded_port(2)
+    qt, _ = obs.quarter_turn(st, obs.index(2, 0, 0))
+    diag_qt = sum(1 for a, b in zip(st.amplitudes, qt.amplitudes) if a != b) == 1
+    r4 = json.load(open('fr10_round4.json'))['item1_phase_count']['occupation_weights_of_S_per_tick (FN)']
+    avg = {k: str(sum(Fr(r4[str(n)][k]) for n in range(1, 7)) / 6) for k in ('double', 'I', 'F', 'B')}
+    out['item2_entries'] = {
+        'N1_glue_seam_shared_occupations': {'transitions from (no double, record 0 or 1) into a double or record 2, 3': leak,
+                                            'weight_per_tick': '0'},
+        'N2_detectors_and_quarter_turns': {'program record': rec_values,
+                                           'quarter-turn changes one diagonal amplitude only': diag_qt,
+                                           'weight_per_tick': '0 (diagonal operations conserve the weight of every record value)'},
+        'N3_class_3_flux': {'weight_per_tick': '0 (round 4 Q5: the both-ends-loaded seam is kept under the gauge sign)'},
+        'N4_labelled_loads_read_jointly (DECLARED model)': {
+            'coincidence on one shared port': str(Fr(1, 144)), 'on some port of a carrier': str(Fr(1, 12)),
+            'on a hexagon (two uniform loads)': str(Fr(1, 6))},
+        'occupation_of_the_cycle': {'tracial, two loads on a carrier': '12/78 = 2/13', 'tracial, two loads on a hexagon':
+                                    str(Fr(6, 21)), 'period average inside the cycle (state S)': avg},
+    }
+    print('item 2', json.dumps(out['item2_entries'], indent=1))
+
+    # ---------------- item 3: two hexagons on one carrier
+    car = FC.carrier()
+    seams = car['seams']
+    adj = car['adj']
+    faces = FC.faces()
+    gC, gE, g = FC.native_rotations()
+    f = (4, 5, 11)
+    axes = []
+    for fa in faces:
+        anti = next(fb for fb in faces if not (set(fa) & set(fb)) and all(not (adj[x] & set(fb)) for x in fa))
+        if tuple(sorted((fa, anti))) not in axes:
+            axes.append(tuple(sorted((fa, anti))))
+    assert len(axes) == 10
+
+    def hexagon(axis):
+        return sorted(set(range(12)) - set(axis[0]) - set(axis[1]))
+
+    def hseams(axis):
+        hp = set(hexagon(axis))
+        return {tuple(sorted(s)) for s in seams if s[0] in hp and s[1] in hp}
+    ax1 = next(a for a in axes if f in a)
+    E1 = {tuple(sorted(s)) for s in ((2, 10), (g[2], g[10]), (g[g[2]], g[g[10]]))}
+    shared = {}
+    choice = None
+    for ax in axes:
+        if ax == ax1:
+            continue
+        sp_ports = sorted(set(hexagon(ax)) & set(hexagon(ax1)))
+        s_seams = sorted(hseams(ax) & hseams(ax1))
+        shared[str(ax)] = {'shared_ports': len(sp_ports), 'shared_seams': len(s_seams)}
+        rot = next(h for h in car['rotations'] if tuple(sorted(h[i] for i in f)) in ax)
+        E2 = {tuple(sorted((rot[a], rot[b]))) for a, b in E1}
+        C2 = hseams(ax) - E2
+        for d in sorted(E2):
+            ok = not (set(d) & {2, 10}) and all(tuple(sorted((x, yv))) not in {tuple(sorted(s)) for s in seams}
+                                                for x in d for yv in (2, 10))
+            if ok and choice is None:
+                choice = (ax, d, sorted(C2), s_seams, sp_ports)
+    ax2, dB, C2, s_seams, sp_ports = choice
+    # one tick, one address register over the sixty addresses, four loads (two symmetric double loads)
+    addrs = [(a, b) for s in seams for (a, b) in (s, s[::-1])]
+
+    def local12(cfg, rec, a, b):
+        col = 4 * NM.index(f'{cfg[a]}{cfg[b]}') + rec
+        res = []
+        for row in range(24):
+            u = U[row][col]
+            if u:
+                c2 = list(cfg)
+                c2[a], c2[b] = int(NM[row // 4][0]), int(NM[row // 4][1])
+                res.append((tuple(c2), row % 4, u))
+        return res
+
+    def cfg12(*ports):
+        c = [0] * 12
+        for p in ports:
+            c[p] += 1
+        return tuple(c)
+
+    def one_tick(addr_list):
+        n = len(addr_list)
+        w = {}
+        for xa in (2, 10):
+            for xb in dB:
+                cfg = cfg12(xa, xa, xb, xb)
+                for (a, b) in addr_list:
+                    for c2, r2, u in local12(cfg, 0, a, b):
+                        if r2 == 0:
+                            key = 'no event'
+                        else:
+                            moved_from = a if r2 == 2 else b
+                            seam = tuple(sorted((a, b)))
+                            if moved_from in (2, 10):
+                                key = 'A in-dimer' if seam == (2, 10) else 'A forward (2,3)' if seam == (2, 3) else \
+                                    'A backward (0,10)' if seam == (0, 10) else 'A other seam'
+                            else:
+                                key = 'B in-dimer (hold)' if seam == tuple(sorted(dB)) else \
+                                    'B C-type' if seam in C2 else 'B other seam'
+                        w[key] = w.get(key, Fr(0)) + Fr(1, 4) * u * u / n
+        return w
+    w60 = one_tick(addrs)
+    union = sorted(hseams(ax1) | hseams(ax2))
+    addrs_u = [(a, b) for s in union for (a, b) in (s, s[::-1])]
+    wu = one_tick(addrs_u)
+    out['item3_two_hexagons'] = {
+        'hexagon pairs: shared ports and seams by second axis': shared,
+        'chosen second axis': str(ax2), 'hexagon 2': hexagon(ax2), 'dimer of B': list(dB),
+        'shared ports': sp_ports, 'shared seams': [list(s) for s in s_seams],
+        'J1_sixty_addresses_one_tick': {k: str(v) for k, v in sorted(w60.items())},
+        'J1_count P(A forward) + P(B in-dimer) (exclusive reads)': str(w60['A forward (2,3)'] + w60['B in-dimer (hold)']),
+        'J1_ratio hold : forward : backward': f"{w60['B in-dimer (hold)']} : {w60['A forward (2,3)']} : {w60['A backward (0,10)']}",
+        'J2_union_addresses': len(addrs_u),
+        'J2_union_one_tick': {k: str(v) for k, v in sorted(wu.items())},
+        'J2_count': str(wu['A forward (2,3)'] + wu['B in-dimer (hold)']),
+        'separate instances (round 4)': '2/9',
+        'J3': 'two address registers: independent reads at tick 1 give 2/9 when no seam joins the two dimers (stated)',
+    }
+    print('item 3', json.dumps(out['item3_two_hexagons'], indent=1)[:3000])
+
+    # ---------------- item 4: clock phase on the plain-law pair transport
+    dbl = [(X.cfg_of(2, 2), X.cfg_of(10, 10)), (X.cfg_of(3, 3), X.cfg_of(9, 9)), (X.cfg_of(1, 1), X.cfg_of(0, 0))]
+
+    def clock(state):
+        new = {}
+        for (cfg, rec, k), poly in state.items():
+            s, o = divmod(k, 2)
+            sh = 0
+            if rec in (2, 3) and X.TYPES[s] == 'C':
+                sh = 1 if ((rec == 2) == (o == 0)) else -1
+            X.lp_add(new, (cfg, rec, k), poly, Fr(1), sh)
+        return new
+    st = {}
+    for cfg in dbl[0]:
+        for k in range(12):
+            st[(cfg, 0, k)] = {0: Fr(1)}
+    rows = {}
+    polys = {}
+    for tick in range(1, 9):
+        st = clock(X.Qstep(X.Rstep(st), 'FP'))
+        comp = []
+        for j in range(3):
+            acc = {}
+            for cfg in dbl[j]:
+                for k in range(12):
+                    for p, c in st.get((cfg, 0, k), {}).items():
+                        acc[p] = acc.get(p, Fr(0)) + c / 24
+            comp.append({p: c for p, c in acc.items() if c})
+        polys[tick] = comp
+        rows[tick] = {'r': X.poly_str(comp[0]), 't+ (to d1)': X.poly_str(comp[1]), 't- (to d2)': X.poly_str(comp[2])}
+    w3 = mp.e ** (2j * mp.pi / 3)
+
+    def evalp(poly, th):
+        return sum(mp.mpf(c.numerator) / c.denominator * mp.e ** (1j * th * p) for p, c in poly.items())
+    evals = {}
+    for name, th in (('theta = 2/9', mp.mpf(2) / 9), ('theta = 8/27', mp.mpf(8) / 27)):
+        ev = {}
+        for tick in (2, 4, 6, 8):
+            r, tp, tm = (evalp(pp, th) for pp in polys[tick])
+            lam = [r + tp * w3 ** k + tm * w3 ** (-k) for k in range(3)]
+            mods = [abs(l) for l in lam]
+            ev[tick] = {'|lambda_k|, k = 0, 1, 2': [mp.nstr(m, 10) for m in mods],
+                        '|lambda_1| / |lambda_2|': mp.nstr(mods[1] / mods[2], 10)}
+        evals[name] = ev
+    pred2 = {name: mp.nstr((1 - mp.cos(th + 2 * mp.pi / 3)) / (1 - mp.cos(th + 4 * mp.pi / 3)), 10)
+             for name, th in (('theta = 2/9', mp.mpf(2) / 9), ('theta = 8/27', mp.mpf(8) / 27))}
+    # C(theta) at the registered phases (energy reading m ~ lambda^2)
+    a_, b_ = mp.sqrt(mp.mpf(1) / 6), mp.sqrt(mp.mpf(1) / 12)
+    circ = {}
+    for name, th in (('theta = 2/9 (count at ticks 1 and 5)', mp.mpf(2) / 9),
+                     ('theta = 8/27 (period average of the count)', mp.mpf(8) / 27),
+                     ('theta = 4/27 (period average, one step per two ticks)', mp.mpf(4) / 27)):
+        lam = [a_ + 2 * b_ * mp.cos(th + 2 * mp.pi * k / 3) for k in range(3)]
+        m = sorted(l * l for l in lam)
+        circ[name] = {'lambda_k': [mp.nstr(l, 12) for l in lam], 'all_positive': all(l > 0 for l in lam),
+                      'm2/m1': mp.nstr(m[1] / m[0], 12), 'm3/m1': mp.nstr(m[2] / m[0], 12),
+                      'Q': mp.nstr(sum(m) / sum(abs(l) for l in lam) ** 2, 12)}
+    out['item4_clock_on_pair_transport'] = {
+        'C1_dimer_circulant_rows (Laurent polynomials in z)': rows,
+        'C1_evaluations': evals, 'C1_two_tick_prediction_ratio (1 - cos(theta + 2pi/3))/(1 - cos(theta + 4pi/3))': pred2,
+        'C2_C(theta)_energy_reading': circ, 'pi/12': mp.nstr(mp.pi / 12, 10),
+    }
+    for t, r in rows.items():
+        if t <= 4:
+            print('item 4 tick', t, r)
+    print('item 4 evals', json.dumps(evals, indent=1))
+    print('item 4 two-tick prediction', pred2)
+    print('item 4 C(theta)', json.dumps(circ, indent=1))
+
+    # ---------------- NOT BLIND, read last
+    ref = json.load(open(FC.rer_root() + '/code/particles/data/particle_reference_values.json'))['entries']
+    me, mmu, mtau = (mp.mpf(str(ref[k]['api_value'])) for k in ('electron', 'muon', 'tau'))
+    out['NOT_BLIND'] = {'measured m_mu/m_e': mp.nstr(mmu / me, 12), 'measured m_tau/m_e': mp.nstr(mtau / me, 10),
+                        'C(2/9)': [circ['theta = 2/9 (count at ticks 1 and 5)']['m2/m1'],
+                                   circ['theta = 2/9 (count at ticks 1 and 5)']['m3/m1']],
+                        'C(8/27)': [circ['theta = 8/27 (period average of the count)']['m2/m1'],
+                                    circ['theta = 8/27 (period average of the count)']['m3/m1']],
+                        'C(4/27)': [circ['theta = 4/27 (period average, one step per two ticks)']['m2/m1'],
+                                    circ['theta = 4/27 (period average, one step per two ticks)']['m3/m1']]}
+    print('NOT BLIND', out['NOT_BLIND'])
+    out['seconds'] = round(time.time() - t0, 2)
+    FC.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

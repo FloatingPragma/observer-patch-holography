@@ -1,0 +1,344 @@
+{
+ "checks": {
+  "seam_dot_is_phi": true,
+  "unit_dot_is_1_over_sqrt5": true,
+  "faces_counterclockwise_from_outside": true,
+  "faces_clockwise_from_outside": false,
+  "B_C_is_zero": true,
+  "W_Bt_is_zero": true,
+  "W_Wt_is_8I": true,
+  "Wc_Bt_is_zero": true,
+  "Wc_Wct_is_8I": true,
+  "W_Wct_is_zero": true,
+  "projectors_idempotent": true,
+  "projectors_sum_to_identity": true,
+  "P3_is_Wt_W_over_8": true,
+  "P3prime_is_Wct_Wc_over_8": true,
+  "Pcyc_B_is_zero": true,
+  "Pcyc_rank_19": true,
+  "Pcyc_rational": true,
+  "Pgrad_fixes_gradients": true,
+  "W_C_columns_parallel_to_face_centroids": true,
+  "A_equals_WC_omega_over_lambda": true,
+  "V_C_is_zero": true,
+  "V_Vt_scalar": true,
+  "V_Wt_is_zero": true,
+  "V_is_minus_U_B": true,
+  "U_L_is_slow_band": true,
+  "U_Ut_is_4_norm2_I": true,
+  "W_rotation_covariant": true,
+  "projectors_rotation_invariant": true
+ },
+ "K_eigenvalue_axial_triplet": "3 + (-1)*sqrt5",
+ "K_eigenvalue_conjugate_triplet": "3 + (1)*sqrt5",
+ "projector_traces": {
+  "3": "3",
+  "3'": "3",
+  "5": "5",
+  "4a": "4",
+  "4b": "4",
+  "grad": "11"
+ },
+ "W_C_column_over_raw_centroid": [
+  "2 + (-4/5)*sqrt5"
+ ],
+ "face_column_norm_squared": "18/5 + (-6/5)*sqrt5",
+ "face_column_norm": 0.9574541383273939,
+ "face_column_sign_vs_outward_normal": 1,
+ "Vraw_Vrawt_over_norm2": "20 + (-4)*sqrt5",
+ "rotation_trace_classes": {
+  "-1.0": 15,
+  "-0.618034": 12,
+  "0.0": 20,
+  "1.618034": 12,
+  "3.0": 1
+ },
+ "all_checks_true": true,
+ "seams": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   0,
+   7
+  ],
+  [
+   0,
+   10
+  ],
+  [
+   0,
+   11
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   1,
+   7
+  ],
+  [
+   1,
+   8
+  ],
+  [
+   1,
+   9
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   2,
+   10
+  ],
+  [
+   2,
+   11
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   6
+  ],
+  [
+   3,
+   8
+  ],
+  [
+   3,
+   9
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   4,
+   9
+  ],
+  [
+   4,
+   11
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   5,
+   11
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   6,
+   8
+  ],
+  [
+   6,
+   10
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   7,
+   10
+  ],
+  [
+   8,
+   9
+  ],
+  [
+   10,
+   11
+  ]
+ ],
+ "faces": [
+  [
+   0,
+   11,
+   5
+  ],
+  [
+   0,
+   5,
+   1
+  ],
+  [
+   0,
+   1,
+   7
+  ],
+  [
+   0,
+   7,
+   10
+  ],
+  [
+   0,
+   10,
+   11
+  ],
+  [
+   1,
+   5,
+   9
+  ],
+  [
+   5,
+   11,
+   4
+  ],
+  [
+   11,
+   10,
+   2
+  ],
+  [
+   10,
+   7,
+   6
+  ],
+  [
+   7,
+   1,
+   8
+  ],
+  [
+   3,
+   9,
+   4
+  ],
+  [
+   3,
+   4,
+   2
+  ],
+  [
+   3,
+   2,
+   6
+  ],
+  [
+   3,
+   6,
+   8
+  ],
+  [
+   3,
+   8,
+   9
+  ],
+  [
+   4,
+   9,
+   5
+  ],
+  [
+   2,
+   4,
+   11
+  ],
+  [
+   6,
+   2,
+   10
+  ],
+  [
+   8,
+   6,
+   7
+  ],
+  [
+   9,
+   8,
+   1
+  ]
+ ],
+ "port_vectors_raw": [
+  [
+   "-1",
+   "1/2 + (1/2)*sqrt5",
+   "0"
+  ],
+  [
+   "1",
+   "1/2 + (1/2)*sqrt5",
+   "0"
+  ],
+  [
+   "-1",
+   "-1/2 + (-1/2)*sqrt5",
+   "0"
+  ],
+  [
+   "1",
+   "-1/2 + (-1/2)*sqrt5",
+   "0"
+  ],
+  [
+   "0",
+   "-1",
+   "1/2 + (1/2)*sqrt5"
+  ],
+  [
+   "0",
+   "1",
+   "1/2 + (1/2)*sqrt5"
+  ],
+  [
+   "0",
+   "-1",
+   "-1/2 + (-1/2)*sqrt5"
+  ],
+  [
+   "0",
+   "1",
+   "-1/2 + (-1/2)*sqrt5"
+  ],
+  [
+   "1/2 + (1/2)*sqrt5",
+   "0",
+   "-1"
+  ],
+  [
+   "1/2 + (1/2)*sqrt5",
+   "0",
+   "1"
+  ],
+  [
+   "-1/2 + (-1/2)*sqrt5",
+   "0",
+   "-1"
+  ],
+  [
+   "-1/2 + (-1/2)*sqrt5",
+   "0",
+   "1"
+  ]
+ ],
+ "raw_norm_squared": "5/2 + (1/2)*sqrt5"
+}

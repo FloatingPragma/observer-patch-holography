@@ -1,0 +1,263 @@
+"""PM Parts B, C, D: PMNS, J, delta and the splitting ratio for every candidate of CANDIDATES.md.
+
+No measured value enters. Run from this directory with the KD and D1 libraries on the path (no RER import):
+
+    PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=../KD:../D1 /tmp/oph-completion-venv/bin/python -B pm_compute.py results.json
+
+Exact inputs: the second-index matrices of D1 (Q(zeta_60), evaluated at 40 digits); the circulant (closed form).
+"""
+import itertools
+import json
+import sys
+
+import mpmath as mp
+
+import pm_lib as L
+
+mp.mp.dps = 40
+out, checks, entries = {}, {}, []
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+def c60(x):
+    return mp.fsum(mp.mpf(c.numerator) / c.denominator * mp.exp(2j * mp.pi * e / 60) for e, c in enumerate(x.c) if c)
+
+
+def record(cid, orient, rows_vecs, cols_vecs, masses=None, labelling=None, extra=None):
+    U = L.pmns(rows_vecs, cols_vecs)
+    ok(f'{cid} {orient} {labelling}: U unitary', mp.mnorm(L.dagger(U) * U - mp.eye(3), 1) < mp.mpf(10) ** -25)
+    e = {'id': cid, 'orientation': orient, 'labelling': labelling}
+    e.update(L.params(U))
+    if masses is not None:
+        e['masses_ascending'] = [float(m) for m in sorted(masses)]
+        r = L.ratio(masses, labelling)
+        e['r'] = None if r is None else float(r)
+    else:
+        e['r'] = None
+    if extra:
+        e.update(extra)
+    entries.append(e)
+    return e
+
+
+# ---------------------------------------------------------------------------------------------- self-test
+Ut = L.pdg_matrix(mp.mpf('0.3'), mp.mpf('0.45'), mp.mpf('0.022'), mp.radians(212))
+pt = L.params(Ut)
+ok('params() recovers the PDG angles and delta', abs(pt['sin2_theta12'] - 0.3) < 1e-12 and abs(pt['sin2_theta23'] - 0.45) < 1e-12
+   and abs(pt['sin2_theta13'] - 0.022) < 1e-12 and abs(pt['delta_deg'] - 212) < 1e-9)
+
+# ---------------------------------------------------------------------------------------------- framework I
+S = L.shift_counter()
+Fc = L.fourier_counter()
+f = [L.col(Fc, k) for k in range(3)]
+for k in range(3):
+    ok(f'counter: S f_{k} = w^{k} f_{k}', mp.norm(S * f[k] - L.W ** k * f[k]) < mp.mpf(10) ** -30)
+orients = {'+2/9': L.THETA, '-2/9': -L.THETA}
+rows_of = {}
+for name, t in orients.items():
+    rk = L.lepton_rows(t)
+    rows_of[name] = rk
+    Ce = L.circulant(S, t)
+    for k in range(3):
+        ok(f'counter: C_e({name}) f_{k} = lambda_{k} f_{k}', mp.norm(Ce * f[k] - L.lam(t, k) * f[k]) < mp.mpf(10) ** -30)
+
+lam2 = {k: L.lam(L.THETA, k) ** 2 for k in range(3)}           # same set of values at -2/9 (k = 1, 2 exchanged)
+le, lmu, ltau = sorted(lam2.values())
+
+# ---------------------------------------------------------------------------------------------- Part B
+B = {}
+for cid, reading, xval in (('B1', 'linear', mp.mpf(0)), ('B2', 'A-clock square', mp.mpf(0))):
+    for name, t in orients.items():
+        rk = rows_of[name]
+        rows_vecs = [f[rk['e']], f[rk['mu']], f[rk['tau']]]
+        T = {k: xval + L.lam(t, k) ** 2 for k in range(3)}
+        mass = {k: (abs(T[k]) if reading == 'linear' else T[k] ** 2) for k in range(3)}
+        asc = sorted(range(3), key=lambda k: mass[k])
+        for lab in ('NO', 'IO'):
+            cols = L.label_columns([f[k] for k in asc], lab)
+            record(cid, name, rows_vecs, cols, masses=list(mass.values()), labelling=lab,
+                   extra={'reading': reading, 'x': float(xval)})
+# B3: limits x -> +infinity and x -> -infinity (both readings give the same limits; B algebra in theorems.json)
+lim = {'x->+inf': {'NO': (lmu - le) / (ltau - le), 'IO': (ltau - lmu) / (lmu - le),
+                   'ascending_characters': 'e, mu, tau'},
+       'x->-inf': {'NO': (ltau - lmu) / (ltau - le), 'IO': (lmu - le) / (ltau - lmu),
+                   'ascending_characters': 'tau, mu, e'}}
+for side, d in lim.items():
+    for name, t in orients.items():
+        rk = rows_of[name]
+        rows_vecs = [f[rk['e']], f[rk['mu']], f[rk['tau']]]
+        order = [rk['e'], rk['mu'], rk['tau']] if side == 'x->+inf' else [rk['tau'], rk['mu'], rk['e']]
+        for lab in ('NO', 'IO'):
+            cols = L.label_columns([f[k] for k in order], lab)
+            e = record('B3', name, rows_vecs, cols, masses=None, labelling=lab,
+                       extra={'reading': 'both (limit)', 'x': side})
+            e['r'] = float(d[lab])
+# numerical check of the B3 limits on the linear and the square reading at abs(x) = 1e8
+for side, xv in (('x->+inf', mp.mpf(10) ** 8), ('x->-inf', -mp.mpf(10) ** 8)):
+    for reading in ('linear', 'square'):
+        ms = [abs(xv + v) if reading == 'linear' else (xv + v) ** 2 for v in (le, lmu, ltau)]
+        for lab in ('NO', 'IO'):
+            ok(f'B3 limit {side} {reading} {lab}', abs(L.ratio(ms, lab) - lim[side][lab]) < mp.mpf(10) ** -6)
+# r(x) table and the permutation on each interval (linear and square readings, NO labelling)
+grid = [mp.mpf(v) for v in ('-10', '-1', '-0.9436', '-0.9', '-0.5', '-0.1', '-0.0561', '-0.03', '-0.001', '-0.00027', '0',
+                            '0.001', '0.01', '0.1', '0.2', '0.3', '0.4', '0.5', '1', '2', '10', '100')]
+table = []
+for xv in grid:
+    row = {'x': float(xv)}
+    for reading in ('linear', 'square'):
+        T = {'e': xv + le, 'mu': xv + lmu, 'tau': xv + ltau}
+        ms = {kk: (abs(v) if reading == 'linear' else v ** 2) for kk, v in T.items()}
+        asc = sorted(ms, key=lambda kk: ms[kk])
+        row[reading] = {'ascending': asc, 'r_NO': float(L.ratio(list(ms.values()), 'NO')),
+                        'r_IO': float(L.ratio(list(ms.values()), 'IO'))}
+    table.append(row)
+B['r_of_x_table'] = table
+B['limits'] = {s: {k: (float(v) if not isinstance(v, str) else v) for k, v in d.items()} for s, d in lim.items()}
+B['lambda_squared'] = {'e': mp.nstr(le, 20), 'mu': mp.nstr(lmu, 20), 'tau': mp.nstr(ltau, 20)}
+out['B'] = B
+
+# ---------------------------------------------------------------------------------------------- Part C1, C2 (framework I)
+basis_vectors = {}
+e_n = [mp.matrix([1 if i == n else 0 for i in range(3)]) for n in range(3)]
+for name, t in orients.items():
+    rk = rows_of[name]
+    rows_vecs = [f[rk['e']], f[rk['mu']], f[rk['tau']]]
+    for perm in itertools.permutations(range(3)):
+        record('C1', name, rows_vecs, [e_n[p] for p in perm], labelling=None,
+               extra={'columns': f'counter states {perm}'})
+    for m in range(3):
+        u = L.normalize(mp.matrix([1, 1, 1]))
+        s_m = L.normalize(2 * e_n[m] - e_n[(m + 1) % 3] - e_n[(m - 1) % 3])
+        a_m = L.normalize(e_n[(m + 1) % 3] - e_n[(m - 1) % 3])
+        # the three vectors are eigenvectors of R_m and of S + S^-1
+        Rm = mp.zeros(3, 3)
+        for n in range(3):
+            Rm[(2 * m - n) % 3, n] = 1
+        for v, rv in ((u, 1), (s_m, 1), (a_m, -1)):
+            ok(f'C2: R_{m} eigenvector', mp.norm(Rm * v - rv * v) < mp.mpf(10) ** -30)
+        vecs = {'u': u, 's': s_m, 'a': a_m}
+        for perm in itertools.permutations(('u', 's', 'a')):
+            record('C2', name, rows_vecs, [vecs[p] for p in perm], labelling=None,
+                   extra={'columns': f'{perm}', 'fixed_counter_state': m})
+
+# ---------------------------------------------------------------------------------------------- framework II (second index)
+import d1lib as d
+import d1cover as dc
+from d1lib import C60, frame, torsor, canonical_ops
+
+f0, p00 = 1, 0                                                   # D1 item 4
+fr = frame(f0)
+to = torsor(f0, p00)
+ops = canonical_ops(f0)
+gCp = next(g for g in fr['T'] if to['right'][g] == ops['C+'])
+Rint = to['rhoB'][gCp]
+R = mp.matrix([[Rint[i][j] for j in range(3)] for i in range(3)])
+ok('II: C+ on the second index has order three and is a signed permutation', mp.mnorm(R * R * R - mp.eye(3), 1) < 1e-30
+   and mp.mnorm(R - mp.eye(3), 1) > 0.5)
+fII = [L.eigvec_of(R, k) for k in range(3)]
+M3 = mp.matrix([[-1, 0, 0], [0, -1, 2], [0, 2, 1]])
+A0 = dc.second_index_matrix(f0, p00, 0, "3")
+A0m = mp.matrix([[c60(A0[i][j]) for j in range(3)] for i in range(3)])
+ok('II: second_index_matrix at flux 0 equals M3 in the body axes (n, s, l)', mp.mnorm(A0m - M3, 1) < mp.mpf(10) ** -30)
+phi = (1 + mp.sqrt(5)) / 2
+copies = {'slow': L.normalize(mp.matrix([0, 1, phi])), 'middle': mp.matrix([1, 0, 0]),
+          'fast': L.normalize(mp.matrix([0, phi, -1]))}
+levels = {'slow': mp.sqrt(5), 'middle': mp.mpf(-1), 'fast': -mp.sqrt(5)}
+for nm, v in copies.items():
+    ok(f'II: M3 {nm} eigenvector', mp.norm(M3 * v - levels[nm] * v) < mp.mpf(10) ** -30)
+Kc = {nm: 1 - (5 - lv) / 60 for nm, lv in levels.items()}
+mass_readings = {'a_rest_phase': {nm: mp.acos(k) for nm, k in Kc.items()},
+                 'b_correction_probability': {nm: 1 - k for nm, k in Kc.items()}}
+out['II'] = {'C+_on_second_index': [[int(x) for x in r] for r in Rint], 'frame': f0, 'base_port': p00,
+             'kernel_levels_K': {nm: mp.nstr(k, 15) for nm, k in Kc.items()},
+             'rest_phases': {nm: mp.nstr(v, 15) for nm, v in mass_readings['a_rest_phase'].items()}}
+
+
+def rows_II(name, e_axial=None):
+    if e_axial is None:
+        rk = rows_of[name]
+        return [fII[rk['e']], fII[rk['mu']], fII[rk['tau']]], rk
+    mu_k, tau_k = e_axial
+    return [fII[0], fII[mu_k], fII[tau_k]], {'e': 0, 'mu': mu_k, 'tau': tau_k}
+
+
+for name, t in orients.items():
+    Ce2 = L.circulant(R, t)
+    for k in range(3):
+        ok(f'II: C_e({name}) on f_{k} has lambda_{k}', mp.norm(Ce2 * fII[k] - L.lam(t, k) * fII[k]) < mp.mpf(10) ** -30)
+    rows_vecs, rk = rows_II(name)
+    for mr, ms in mass_readings.items():
+        asc = sorted(ms, key=lambda nm: ms[nm])
+        for lab in ('NO', 'IO'):
+            record('C3', name, rows_vecs, L.label_columns([copies[nm] for nm in asc], lab), masses=list(ms.values()),
+                   labelling=lab, extra={'mass_reading': mr, 'ascending_copies': asc})
+
+# twisted triplet kernels, k = 2 and 4
+twisted = {}
+for kflux in (2, 4):
+    Ak = dc.second_index_matrix(f0, p00, kflux, "3")
+    Am = mp.matrix([[c60(Ak[i][j]) for j in range(3)] for i in range(3)])
+    ok(f'C4: A_{kflux} Hermitian', mp.mnorm(Am - L.dagger(Am), 1) < mp.mpf(10) ** -30)
+    E, V = mp.eighe(Am)
+    lv = [mp.re(E[i]) for i in range(3)]
+    vecs = [L.normalize(L.col(V, i)) for i in range(3)]
+    for i in range(3):
+        ok(f'C4: A_{kflux} eigenpair {i}', mp.norm(Am * vecs[i] - lv[i] * vecs[i]) < mp.mpf(10) ** -28)
+    rest = [mp.acos(1 - (5 - x) / 60) for x in lv]
+    twisted[kflux] = {'levels': lv, 'vecs': vecs, 'rest': rest}
+    out['II'][f'A_{kflux}'] = {'levels': [mp.nstr(x, 15) for x in lv], 'rest_phases': [mp.nstr(x, 15) for x in rest],
+                               'real_in_body_axes': bool(max(abs(mp.im(Am[i, j])) for i in range(3) for j in range(3)) < 1e-30)}
+    closed = {2: sorted([(mp.sqrt(5) + 5) / 2, (mp.sqrt(5) - 3) / 2, -mp.sqrt(5)]),
+              4: sorted([(mp.sqrt(5) + 3) / 2, (mp.sqrt(5) - 5) / 2, -mp.sqrt(5)])}[kflux]
+    ok(f'C4: A_{kflux} levels equal D1 closed forms', max(abs(a_ - b_) for a_, b_ in zip(sorted(lv), closed)) < mp.mpf(10) ** -30)
+    for name, t in orients.items():
+        rows_vecs, rk = rows_II(name)
+        asc = sorted(range(3), key=lambda i: rest[i])
+        for lab in ('NO', 'IO'):
+            record('C4', name, rows_vecs, L.label_columns([vecs[i] for i in asc], lab), masses=rest, labelling=lab,
+                   extra={'flux': kflux, 'ascending_levels': [mp.nstr(lv[i], 10) for i in asc]})
+
+# ---------------------------------------------------------------------------------------------- Part D (DECLARED e axial)
+for assign in ((1, 2), (2, 1)):
+    rows_vecs, rk = rows_II(None, e_axial=assign)
+    tag = f'e=f0, mu=f{assign[0]}, tau=f{assign[1]}'
+    for mr, ms in mass_readings.items():
+        asc = sorted(ms, key=lambda nm: ms[nm])
+        for lab in ('NO', 'IO'):
+            record('D1', tag, rows_vecs, L.label_columns([copies[nm] for nm in asc], lab), masses=list(ms.values()),
+                   labelling=lab, extra={'mass_reading': mr, 'ascending_copies': asc})
+    for kflux, tw in twisted.items():
+        asc = sorted(range(3), key=lambda i: tw['rest'][i])
+        for lab in ('NO', 'IO'):
+            record('D2', tag, rows_vecs, L.label_columns([tw['vecs'][i] for i in asc], lab), masses=tw['rest'], labelling=lab,
+                   extra={'flux': kflux})
+
+# exact cross-check of D1 against closed forms: e row of the kernel copies = ((1+phi)^2, 3 phi^2... )/(3(phi+2))
+d1e = [e for e in entries if e['id'] == 'D1' and e['labelling'] == 'NO' and e['mass_reading'] == 'a_rest_phase'][0]
+ok('D1: sin^2 theta13 = (2 - phi)/(3(2 + phi)) and sin^2 theta12 = (3 - phi)/4 (theta12 = 36 degrees)',
+   abs(d1e['sin2_theta13'] - float((2 - phi) / (3 * (2 + phi)))) < 1e-14 and abs(d1e['sin2_theta12'] - float((3 - phi) / 4)) < 1e-14)
+ok('D1: theta23 = 45 degrees and abs(J) = 1/(6 sqrt15)', abs(d1e['sin2_theta23'] - 0.5) < 1e-14 and
+   abs(abs(d1e['J']) - float(1 / (6 * mp.sqrt(15)))) < 1e-14)
+# A2 on every framework-II real basis: rows e and mu have equal moduli (C3)
+for e in entries:
+    if e['id'] in ('C1', 'C2', 'C3'):
+        ok(f"A2 holds on {e['id']} {e['orientation']}", all(abs(e['abs_U_squared'][0][i] - e['abs_U_squared'][1][i]) < 1e-12 for i in range(3)))
+
+out['entries'] = entries
+out['checks'] = checks
+out['count_of_evaluated_tuples'] = len(entries)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'results.json', 'w'), indent=1)
+for e in entries:
+    if e['id'] in ('C1', 'C2'):
+        continue
+    print(e['id'], e['orientation'], e['labelling'], e.get('mass_reading', e.get('reading', e.get('flux', ''))),
+          'r=%s' % (None if e['r'] is None else round(e['r'], 6)),
+          's12^2=%s s23^2=%s s13^2=%s J=%.5f delta=%s' % (
+              None if e['sin2_theta12'] is None else round(e['sin2_theta12'], 5),
+              None if e['sin2_theta23'] is None else round(e['sin2_theta23'], 5),
+              round(e['sin2_theta13'], 5), e['J'], None if e.get('delta_deg') is None else round(e['delta_deg'], 2)))
+print('evaluated tuples:', len(entries), 'checks:', len(checks))

@@ -1,0 +1,74 @@
+"""Item 5, second interaction test (coordinator's note): two quanta on a line with an on-site phase exp(i chi) when they
+share a cell. One-body tick on the line (spin +1 along the axis): U1 = exp(-i theta Y) (P^+ T + P^- T^*), P^+- = (1 +- X)/2.
+Two-body tick U2 = V_chi (U1 x U1). Total momentum K is conserved; in the basis |K; y, c1, c2> (y = x1 - x2) the block is
+    U_K = V_chi (M x M) sum_{d1, d2 = +-1} P^{d1} x P^{d2} x (y -> y + d1 - d2) e^{-i K d2}.
+The bound pair of two positive-branch quanta is the isolated eigenphase between the band of (+,-) pairs and the two-quanta
+threshold 2 E(K/2). It is found by a dense solve on a ring of 240 relative cells and refined by shift-invert on 2400 cells
+(its eigenphase does not depend on the ring length, so K is a continuous parameter). Relativistic form with one rest phase:
+    r(K) = (omega_b(K)^2 - omega_b(0)^2)/K^2      (1 for sqrt(M^2 + K^2); 1 - M^2/3 for a quantum of this tick, cos w = cos M cos K)
+"""
+import json, sys, time
+from multiprocessing import Pool
+import numpy as np
+import scipy.sparse as sp
+from scipy.sparse.linalg import eigs
+
+X = np.array([[0, 1], [1, 0]], complex); Y = np.array([[0, -1j], [1j, 0]]); I2 = np.eye(2)
+PPM = {+1: (I2 + X) / 2, -1: (I2 - X) / 2}
+
+def block(L, theta, chi, K):
+    M = np.cos(theta) * I2 - 1j * np.sin(theta) * Y
+    S = sp.csr_matrix((4 * L, 4 * L), dtype=complex); idx = np.arange(L)
+    for d1 in (1, -1):
+        for d2 in (1, -1):
+            sh = sp.csr_matrix((np.ones(L), ((idx + d1 - d2) % L, idx)), shape=(L, L))
+            S = S + np.exp(-1j * K * d2) * sp.kron(sh, np.kron(PPM[d1], PPM[d2]))
+    V = np.ones(4 * L, complex); V[:4] = np.exp(1j * chi)
+    return (sp.diags(V) @ sp.kron(sp.identity(L), np.kron(M, M)) @ S).tocsc()
+
+def describe(v, L, K):
+    v = v / np.linalg.norm(v); w = np.abs(v.reshape(L, 4)) ** 2; ys = np.minimum(np.arange(L), L - np.arange(L))
+    sw = v.reshape(L, 2, 2)                                   # exchange: (y, c1, c2) -> e^{-iKy} (-y, c2, c1)
+    yy = ((np.arange(L) + L // 2) % L) - L // 2
+    ex = np.exp(-1j * K * yy)[:, None, None] * np.transpose(sw, (0, 2, 1))
+    ex = ex[(-np.arange(L)) % L]
+    return dict(exchange_parity=float(np.real(np.vdot(sw, ex))), weight_same_cell=float(w[0].sum()), rms_separation=float(np.sqrt((w.sum(axis=1) * ys ** 2).sum())),
+                weight_beyond_quarter_ring=float(w[ys > L // 4].sum()))
+
+def job(args):
+    theta, chi, K = args
+    thr = 2 * np.arccos(np.cos(theta) * np.cos(K / 2))
+    k = np.linspace(-np.pi, np.pi, 20001); E = lambda q: np.arccos(np.cos(theta) * np.cos(q)); top = float((E(k) - E(K - k)).max())
+    lam, V = np.linalg.eig(block(240, theta, chi, K).toarray()); om = -np.angle(lam)
+    cand = [j for j in range(len(om)) if top + 1e-4 < om[j] < thr - 1e-7]
+    if not cand: return dict(theta=theta, chi=chi, K=K, threshold=float(thr), band_top_plus_minus=top, omega=None)
+    j = max(cand, key=lambda j: np.abs(V[:48, j]).sum() + np.abs(V[-48:, j]).sum())
+    L = 2400
+    lam2, V2 = eigs(block(L, theta, chi, K), k=4, sigma=np.exp(-1j * om[j]) * (1 + 1e-7))
+    i = int(np.argmin(np.abs(-np.angle(lam2) - om[j])))
+    d = describe(V2[:, i], L, K)
+    d.update(theta=theta, chi=chi, K=K, threshold=float(thr), band_top_plus_minus=top, omega=float(-np.angle(lam2[i])), omega_dense_240=float(om[j]),
+             modulus_defect=float(abs(abs(lam2[i]) - 1)))
+    return d
+
+if __name__ == '__main__':
+    t0 = time.time()
+    thetas = (0.157935, 0.0789675, 0.03948375); chis = (0.5, 1.0); ratios = (0.0, 0.25, 0.5, 1.0, 2.0)
+    jobs = [(th, chi, r * th) for th in thetas for chi in chis for r in ratios]
+    with Pool(12) as pool: rows = pool.map(job, jobs, chunksize=1)
+    out = dict(rows=rows, families=[])
+    for th in thetas:
+        for chi in chis:
+            fam = sorted([r for r in rows if r['theta'] == th and r['chi'] == chi], key=lambda r: r['K'])
+            if any(f['omega'] is None for f in fam): print(f'theta={th} chi={chi}: no isolated level at some K'); continue
+            M0 = fam[0]['omega']
+            rr = [(f['omega'] ** 2 - M0 ** 2) / f['K'] ** 2 for f in fam[1:]]
+            rt = [(f['threshold'] ** 2 - fam[0]['threshold'] ** 2) / f['K'] ** 2 for f in fam[1:]]
+            out['families'].append(dict(theta=th, chi=chi, rest_phase=M0, rest_phase_over_theta=M0 / th, binding_over_theta=(2 * th - M0) / th, exchange_parity=fam[0]['exchange_parity'],
+                                        weight_same_cell=fam[0]['weight_same_cell'], rms_separation=fam[0]['rms_separation'], K_over_theta=list(ratios[1:]),
+                                        omega=[f['omega'] for f in fam], r=rr, r_threshold=rt, r_free_quantum_same_rest_phase=1 - M0 ** 2 / 3, one_minus_theta2_over_3=1 - th ** 2 / 3))
+            print(f"theta={th:.6f} chi={chi}: bound pair rest phase {M0:.7f} = {M0/th:.5f} theta, exchange {fam[0]['exchange_parity']:+.2f}, same-cell weight {fam[0]['weight_same_cell']:.4f}, rms separation {fam[0]['rms_separation']:.1f} cells")
+            print('     r(K) - 1 at K/theta = 0.25, 0.5, 1, 2: ' + ', '.join('%+.6f' % (v - 1) for v in rr) + '   two-quanta threshold: ' + ', '.join('%+.6f' % (v - 1) for v in rt)
+                  + f'   [-theta^2/3 = {-th**2/3:+.6f}; quantum with the pair rest phase: {-M0**2/3:+.6f}]')
+    out['seconds'] = time.time() - t0
+    json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'item5_onsite.json', 'w'), indent=1)

@@ -1,0 +1,117 @@
+{
+  "schema": "s9.protocol.v1",
+  "title": "Frozen, blinded comparison protocol for a particle map (labels and rest-mass ratios)",
+  "status": "specification consumed by s9_harness.py; every numeric parameter below is read by the harness",
+  "input_labels": {
+    "NATIVE": "produced by the reference repair rule",
+    "DECLARED": "an extension or convention someone chooses",
+    "IMPORTED": "taken from established physics or mathematics",
+    "CALIBRATED": "fitted to data"
+  },
+  "frozen_object": {
+    "schema": "s9.frozen_particle_map.v1",
+    "required_fields": {
+      "id": "short name",
+      "lineage": "name shared by every revision of the same map; the custody log counts looks per lineage and target table",
+      "objects": "law, wiring, readout, evaluator: each {id, origin, sha256 of the defining files or null, note}",
+      "classes": "one row per model state: id, labels {charge3, colour, isospin, spin2} with null for a label the model does not supply, multiplicity (number of distinct copies the model produces, with origin), observable (the map asserts a physical one-particle state), in_reach (the state would have been seen below the declared reach), log_mass (natural log of the mass in model units, or null), tau (stated theoretical error in natural-log units, or null), design (coefficients of the free continuous parameters), sector",
+      "mapping": "list of {class, particle, exposure}; exposure is one of anchor, selector, exposed, blind",
+      "assignment_rule": "frozen | sorted (mass rank inside each label group) | optimized (the assignment was chosen by minimising the mass statistic)",
+      "unit": "{kind: anchor_particle, particle} | {kind: external, ln_value_GeV, ln_sigma, origin} | {kind: fitted}",
+      "free_parameters": "list of {id, prior_width (natural-log units), origin}; each acts linearly on log masses through the class design rows",
+      "choices": "every discrete choice: {id, chosen, menu (all alternatives including the chosen one), origin, target_informed, enumerable (the evaluator can produce outputs for every alternative), sector}",
+      "constants": "every numeric constant of the law that is not proved from NATIVE objects: {id, kind (integer | rational | named | real_digits), value, derived (true only with a proof reference), origin}",
+      "tau_policy": "{kind: stated} | {kind: grid} (exploratory only: the harness mixes over the protocol grid and charges its size)",
+      "frozen_utc": "declared freeze time; the custody log time is authoritative"
+    },
+    "completeness_rules": [
+      "a choice without a menu, a constant without a derivation flag, or a mass without tau makes the map UNSCORABLE under the primary rule; the harness still reports the exploratory statistics",
+      "anchors and selectors are listed per target; a target used to fit a parameter or to pick a menu member is a calibration row and is never scored",
+      "the evaluator code is part of the frozen object: its bytes are hashed into the lock record"
+    ]
+  },
+  "label_alphabet": {
+    "charge3": [-3, -2, -1, 0, 1, 2, 3],
+    "colour": ["1", "3", "8"],
+    "isospin": ["1:0", "2:+1", "2:-1", "3:+2", "3:0", "3:-2", "mix"],
+    "spin2": [0, 1, 2],
+    "note": "charge3 = 3 x electric charge of the particle; colour of the particle (3 for quarks); isospin = weak multiplet dimension and 2 x T3 of the left-handed component for elementary rows (mix for the neutral gauge mixtures), strong isospin for hadron rows; spin2 = 2 x spin. IMPORTED conventions."
+  },
+  "targets": {
+    "rule": "one hash-pinned table; masses from REPO/pdg_data/particle_masses.json (bytes pinned by sha256), labels IMPORTED from the Standard Model assignment, one mass definition per particle stated in the table; the table hash is written into the lock record before any comparison",
+    "tiers": ["elementary", "hadron"],
+    "window_rule": "tier_span",
+    "window_note": "null spectra are uniform in natural log between the lightest and the heaviest mass-bearing row of the elementary tier"
+  },
+  "statistics": {
+    "discrete": {
+      "per_pair": "for each mapped pair and each label: match, mismatch or missing (the model supplies no value)",
+      "census": "multiset comparison of label tuples: matched = sum over tuples of min(model multiplicity, particle count); unmatched_model; unmatched_particles; family count is the multiplicity of a tuple",
+      "kill": "any mismatch on a mapped pair, or an unmatched observable in-reach model state, rejects the map"
+    },
+    "mass": {
+      "residual": "r_i = y_i - x_i - d_i.theta, with x_i the natural log of the model mass, y_i the natural log of the measured mass, d_i the design row of the mapped class and theta the free parameters at their weighted least-squares values",
+      "error": "sigma_i^2 = tau_i^2 + eps_i^2, eps_i the relative experimental error (plus the unit error for an external unit)",
+      "chi2": "sum of (r_i/sigma_i)^2 with n - k degrees of freedom",
+      "evidence_bits": "Lambda = sum_i [log2(W/(sigma_i sqrt(2 pi))) - z_i^2/(2 ln 2)] + (k/2) log2(2 pi) - (1/2) log2 det(D^T S^-1 D) - sum_j log2 W_j : the base-2 log likelihood ratio of the map (free parameters integrated over uniform priors of width W_j) against independent log-uniform masses in the window W. Its null expectation of 2^Lambda is at most one, so P_null(Lambda >= b) <= 2^-b for any selection made before the data.",
+      "fit_p": "right tail of chi2 under the map's own stated errors (rejection of the stated-error model)",
+      "too_good_p": "Fisher combination of the per-row probabilities P(|Z| <= |r_i|/eps_i) with experimental errors only; a small value means agreement below the experimental resolution, the signature of constants fitted to central values"
+    },
+    "counts": "unmatched model states and unmatched particles are reported per tier and enter the kill rule, never the evidence sum"
+  },
+  "nulls": {
+    "i_menu": "the full Cartesian menu of declared discrete choices: rank of the chosen member, fraction of members at least as good, the menu-averaged likelihood ratio (uniform prior on the menu), and the replay of the menu maximum on random target spectra",
+    "ii_assignments": "all injective assignments of classes to particles that preserve the label tuples (enumerated up to the cap, sampled above it), free parameters refitted for each; the count N_assign is charged when the assignment was not frozen blind",
+    "iii_random_spectra": "model spectra drawn independently log-uniform in the window, with the same number of classes per label group, the same stated errors, the same free parameters refitted and the same assignment rule replayed",
+    "discrete_random_labels": "each class receives an independent uniform label tuple from the alphabet; distribution of the census match count",
+    "discrete_random_bijection": "classes assigned to particles by a uniform random bijection; distribution of the number of exact pairs"
+  },
+  "classification": {
+    "calibration": "exposure anchor or selector: the target fixed the unit, a parameter or a menu member; not scored",
+    "postdiction": "exposure exposed, or blind without custody precedence (lock time later than the target's first_public_utc): scored with every selection cost",
+    "prediction": "exposure blind and the lock record of this exact candidate hash precedes the first_public_utc of the target row: scored without menu, assignment or constant cost",
+    "refined_measurement": "a later measurement that improves the precision at least by the factor below is scored as a prediction inside the window given by the earlier value and four of its standard errors"
+  },
+  "look_elsewhere": {
+    "enumerated": "menu-averaged likelihood ratio when the evaluator returns every member; otherwise best member minus log2(menu size)",
+    "assignment": "log2(N_assign) when the assignment is not blind",
+    "constants": "universal code length for every non-derived constant: integer n >= 1 costs log2(2.865064) + log2 n + log2 log2 n + ... (positive terms); zero is coded as n+1 after a one-bit flag; a sign costs one bit; a rational costs numerator plus denominator; a named constant costs log2 of the dictionary size; real_digits costs log2(10) per significant digit",
+    "tau_grid": "log2(grid size) per sector when tau is not stated",
+    "looks": "log2(number of distinct frozen candidates of the same lineage that the custody log shows compared against the same target table)",
+    "net_bits": "G = Lambda - all costs above; P_null(G >= g) <= 2^-g",
+    "tiers": "tier 1 charges enumerated menus only (an upper bound on the evidence); tier 2 adds the constant code lengths (the primary rule for postdictions)"
+  },
+  "custody": {
+    "steps": [
+      "1. write the candidate file; run freeze: the harness validates completeness, hashes the canonical JSON, the harness and evaluator bytes, the protocol bytes and the target-table bytes (bytes only, never parsed) and appends a lock record to the hash-chained log",
+      "2. anchor the lock record hash outside the machine (the repository practice is an OpenTimestamps proof upgraded to a Bitcoin attestation); the harness records the field and does not perform it",
+      "3. optional dry run with compare --blind: the target masses are replaced by a keyed scramble so that the pipeline is exercised without exposure; a blind run is logged and never counts as a look",
+      "4. run compare once: the harness recomputes all four hashes, refuses if any differs from the lock record, counts the looks of the lineage, runs the statistics and the nulls with the seed derived from the lock record, writes the result and appends its hash to the log",
+      "5. a changed candidate is a new freeze of the same lineage; its comparison carries the look count; results are published whatever the outcome"
+    ],
+    "seed_rule": "the Monte Carlo seed is the first 8 bytes of sha256(lock record hash || target table hash); it cannot be chosen after the result is seen"
+  },
+  "label_dictionary": {
+    "named_constants": ["pi", "e", "phi", "sqrt2", "sqrt3", "sqrt5", "sqrtpi", "ln2", "2pi", "4pi", "4pi2", "exp(-2pi)", "exp(-pi)", "gamma_E", "zeta3", "1/sqrt2"]
+  },
+  "parameters": {
+    "bits_required": 10.0,
+    "p_required": 0.001,
+    "fit_p_kill": 0.001,
+    "too_good_p_flag": 0.01,
+    "refined_precision_factor": 3.0,
+    "tau_grid": [1e-08, 1e-07, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0],
+    "n_null": 4000,
+    "n_null_menu_replay": 400,
+    "assignment_enumeration_cap": 50000,
+    "assignment_samples": 20000,
+    "universal_code_c0": 2.865064
+  },
+  "verdicts": {
+    "REJECTED": "a label mismatch on a mapped pair, an unmatched observable in-reach model state, or fit_p below fit_p_kill with stated errors",
+    "UNSCORABLE": "tau not stated, a choice without menu, or a constant without derivation flag; exploratory numbers only",
+    "CONFIRMED_PREDICTION": "prediction rows only: Lambda at least bits_required and fit_p above fit_p_kill",
+    "SUPPORTED_POSTDICTION": "postdiction rows: tier-2 net bits at least bits_required, replay p at most p_required where a replay exists, no too-good flag",
+    "NO_EVIDENCE": "none of the above: the selection freedom is not smaller than the agreement"
+  }
+}

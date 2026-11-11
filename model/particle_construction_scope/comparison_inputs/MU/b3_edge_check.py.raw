@@ -1,0 +1,59 @@
+"""Check of b3_edge.py on a finite port set: the half-filled section state on the N = 2562 and N = 10242 point sets,
+cap = ports with x > 0 (ports on the boundary circle get weight 1/2), float64 (2j = 15 and 31 only: the
+entanglement energies stay below 14). Compares the arc effect with the closed form and repeats the flow readout.
+Writes edge_check.json.
+"""
+import json
+import numpy as np
+from scipy.special import gammaln, xlogy
+from mu_lib import icosphere
+
+out = {}
+for L in (4, 5):
+    U, F = icosphere(L)
+    N = len(U)
+    th = np.arccos(np.clip(U[:, 2], -1, 1)); ph = np.arctan2(U[:, 1], U[:, 0])
+    wt = np.where(U[:, 0] > 1e-9, 1.0, np.where(U[:, 0] < -1e-9, 0.0, 0.5))
+    for j2 in (15, 31):
+        j = j2 / 2
+        nF = (j2 + 1) // 2
+        m = np.arange(nF) + 0.5
+        k = j + m
+        lc = 0.5 * (gammaln(j2 + 1) - gammaln(k + 1) - gammaln(j2 - k + 1))[None, :] + xlogy(k[None, :], np.cos(th / 2)[:, None]) + xlogy((j2 - k)[None, :], np.sin(th / 2)[:, None])
+        amp = np.exp(lc) * np.exp(1j * np.outer(ph, m))                  # <u_p|m> up to a port phase; columns m in F
+        S = (j2 + 1) / N * amp.conj().T @ amp                              # ~ identity on the filled space
+        M = (j2 + 1) / N * (amp.conj().T * wt) @ amp
+        w, V = np.linalg.eigh(S); Sih = (V / np.sqrt(w)) @ V.conj().T
+        Mn = Sih @ M @ Sih
+        nu, Q = np.linalg.eigh(Mn)
+        eps = np.log((1 - nu) / nu)
+        # closed form
+        from math import lgamma, pi, sin
+        Mc = np.zeros((nF, nF))
+        for a in range(nF):
+            for b in range(nF):
+                mu = (m[a] + m[b]) / 2
+                It = (j2 + 1) / (4 * pi) * np.exp(0.5 * (2 * lgamma(j2 + 1) - lgamma(j + m[a] + 1) - lgamma(j - m[a] + 1) - lgamma(j + m[b] + 1) - lgamma(j - m[b] + 1))
+                                                 + lgamma(j + mu + 1) + lgamma(j - mu + 1) - lgamma(j2 + 2)) * 2
+                Mc[a, b] = It * (pi if a == b else 2 * sin((a - b) * pi / 2) / (a - b))
+        # flow of the shallow edge packet, readout on the equator
+        q = np.arange(nF)
+        logA = 0.5 * (gammaln(j2 + 1) - gammaln(j + m + 1) - gammaln(j - m + 1)) - j * np.log(2.0)
+        A = np.exp(logA - logA.max())
+        phi = np.linspace(-np.pi / 2, np.pi / 2, 4001)[1:-1]
+        Wc = A[None, :] * np.exp(1j * np.outer(phi, m))
+        s_of = lambda p: np.log(np.sin((p + np.pi / 2) / 2) / np.sin((np.pi / 2 - p) / 2))
+        TS = np.linspace(0, 0.20, 11)
+        f = (q + 1.0) ** 2 * np.exp(-(q + 1.0) / 0.5); f = f / np.linalg.norm(f)
+        # the packet is defined in the orthonormalized frame S^(1/2) f ; S is close to the identity
+        coef = Q.conj().T @ (np.linalg.inv(Sih) @ f)
+        sm = []
+        for t in TS:
+            ft = Sih @ (Q @ (np.exp(-1j * t * eps) * coef))
+            wv = np.abs(Wc @ ft) ** 2; wv /= wv.sum()
+            sm.append(float(wv @ s_of(phi)))
+        slope = np.polyfit(TS, sm, 1)[0] / (2 * np.pi)
+        out[f'N{N}_2j{j2}'] = {'frame_defect': float(np.abs(S - np.eye(nF)).max()), 'max_abs_difference_to_closed_form': float(np.abs(M - Mc).max()),
+                               'eps_range': [float(eps.min()), float(eps.max())], 'slope_over_2pi_shallow_edge_packet': float(slope)}
+        print(N, j2, out[f'N{N}_2j{j2}'], flush=True)
+json.dump(out, open('edge_check.json', 'w'), indent=1)

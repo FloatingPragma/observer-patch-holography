@@ -1,0 +1,390 @@
+{
+ "A_energy_clock_identity": {
+  "symbolic_seam": {
+   "U_unitary": true,
+   "U_hermitian (a reflection)": true,
+   "<psi,0|U|psi,0> - (|psi|^2 - |<m|psi>|^2)": "0",
+   "P(record 1) - |<m|psi>|^2": "0",
+   "statement": "for every blank-record input and every link phase s: <I - Re U> = P(record 1) (EXACT)"
+  },
+  "FR_object_rows": [
+   {
+    "link phase s": "1",
+    "<W> on the prepared object": "5/6",
+    "1 - Re<W>": "1/6",
+    "P(record 1)": "1/6",
+    "P(record 1, address +)": "1/12",
+    "identity on 6 random blank inputs, consensus address": true,
+    "control, address + only (no consensus)": {
+     "1 - Re<W>": "1.00000000000",
+     "P(record 1)": "0.130185758514"
+    }
+   },
+   {
+    "link phase s": "exp(I*pi/3)",
+    "<W> on the prepared object": "5/6",
+    "1 - Re<W>": "1/6",
+    "P(record 1)": "1/6",
+    "P(record 1, address +)": "1/12",
+    "identity on 6 random blank inputs, consensus address": true,
+    "control, address + only (no consensus)": {
+     "1 - Re<W>": "1.00000000000",
+     "P(record 1)": "0.00848819893380"
+    }
+   },
+   {
+    "link phase s": "-1",
+    "<W> on the prepared object": "5/6",
+    "1 - Re<W>": "1/6",
+    "P(record 1)": "1/6",
+    "P(record 1, address +)": "1/12",
+    "identity on 6 random blank inputs, consensus address": true,
+    "control, address + only (no consensus)": {
+     "1 - Re<W>": "1.00000000000",
+     "P(record 1)": "0.619349845201"
+    }
+   }
+  ],
+  "two independent objects": {
+   "1 - <W_C x W_E> = P(at least one record 1)": "11/36",
+   "sum of read probabilities": "1/3"
+  },
+  "read counts": {
+   "P(R+) [C record 1 at the screen address]": "1/12",
+   "P(E record 1)": "1/6",
+   "P(H) [E agrees, active]": "1/6",
+   "P(R+ xor H) (FR, flag reads)": "2/9",
+   "P(R+ xor E record 1) (energy-clock reads)": "2/9",
+   "variance per carrier": "14/81",
+   "note": "the agreeing and repairing halves of an active seam weigh 1/6 each, so both read conventions give 2/9"
+  },
+  "observation: tr(M^dag M) against P(R+ xor H) at seam activity alpha": {
+   "tr(M^dag M) = sum of the three family rates": "-alpha_act*(alpha_act - 1)",
+   "P(R+ xor H)": "-alpha_act*(alpha_act - 3)/4",
+   "equal exactly when alpha =": "[1/3]",
+   "both at alpha = 1/3": [
+    "2/9",
+    "2/9"
+   ],
+   "tr C^2 = 3 a^2 + 6 b^2": "1",
+   "status": "EXACT identity found after computing; an observation, no derivation"
+  }
+ },
+ "B_modular_routes": {
+  "per read type": {
+   "C repair, one orientation": {
+    "p": "0.083333333",
+    "modular energy per read log((1-p)/p)": "2.3978952728",
+    "modular parameter per tick giving one radian per read 1/log((1-p)/p)": "0.417032391424",
+    "Euclidean weight per read against the counting reference p/(1-p)": "0.0909090909091"
+   },
+   "E hold or E repair": {
+    "p": "0.16666667",
+    "modular energy per read log((1-p)/p)": "1.60943791243",
+    "modular parameter per tick giving one radian per read 1/log((1-p)/p)": "0.62133493456",
+    "Euclidean weight per read against the counting reference p/(1-p)": "0.2"
+   },
+   "exclusive read X": {
+    "p": "0.22222222",
+    "modular energy per read log((1-p)/p)": "1.2527629685",
+    "modular parameter per tick giving one radian per read 1/log((1-p)/p)": "0.798235600148",
+    "Euclidean weight per read against the counting reference p/(1-p)": "0.285714285714"
+   }
+  },
+  "one nat per read needs p = 1/(1+e)": "0.268941421369995",
+  "one nat per read: status": "p = 1/(1+e) is transcendental (e is transcendental), so no algebraic read probability carries one nat of modular energy (EXACT)",
+  "area law: crossing counts are integers of a deterministic population": [
+   323,
+   2164,
+   17754,
+   129830,
+   907080,
+   6496004
+  ],
+  "area law: modular Hamiltonian of a deterministic count": "a scalar; its modular flow is the identity (EXACT)",
+  "M8 flag weights (H, R+)": [
+   "1/9",
+   "1/18"
+  ],
+  "M8 modular gap log(P(H)/P(R+))": "0.69314718056",
+  "delta readings NOT BLIND": {
+   "M1 delta = log(7/2)": {
+    "Q": "0.422403397594",
+    "mu/e": "14.0738107955",
+    "tau/e": "25.5235590384",
+    "min eigenvalue of C": "-0.15694629"
+   },
+   "M8 delta = log 2": {
+    "Q": "0.44962720085",
+    "mu/e": "14.3919924409",
+    "tau/e": "40.8924840508",
+    "min eigenvalue of C": "-0.13329249"
+   }
+  }
+ },
+ "C_weak_kick_clock": {
+  "rows": [
+   {
+    "N": 1,
+    "theta_N": "0.205334030970278",
+    "theta_N - 2/9": "-0.0168882",
+    "series -35/(2187 N^2)": "-0.0160037",
+    "Z_N (current branches, hold = 1)": "0.917110764911",
+    "exp(-7/(81 N))": "0.917209149035",
+    "|A0^N - exp(iPJ)|": "0.0844523",
+    "bound 1/N": "1.0",
+    "Q": "0.613697385038",
+    "mu/e": "19.0554183465",
+    "tau/e": "278.089391276"
+   },
+   {
+    "N": 2,
+    "theta_N": "0.218167184001747",
+    "theta_N - 2/9": "-0.00405504",
+    "series -35/(2187 N^2)": "-0.00400091",
+    "Z_N (current branches, hold = 1)": "0.9576828609",
+    "exp(-7/(81 N))": "0.957710368031",
+    "|A0^N - exp(iPJ)|": "0.0425028",
+    "bound 1/N": "0.5",
+    "Q": "0.639052154021",
+    "mu/e": "48.6263281322",
+    "tau/e": "746.403171046"
+   },
+   {
+    "N": 3,
+    "theta_N": "0.220433391427661",
+    "theta_N - 2/9": "-0.00178883",
+    "series -35/(2187 N^2)": "-0.00177818",
+    "Z_N (current branches, hold = 1)": "0.971595354266",
+    "exp(-7/(81 N))": "0.971604369773",
+    "|A0^N - exp(iPJ)|": "0.0284593",
+    "bound 1/N": "0.333333",
+    "Q": "0.647999177477",
+    "mu/e": "72.1909686959",
+    "tau/e": "1137.14508856"
+   },
+   {
+    "N": 10,
+    "theta_N": "0.222062099670503",
+    "theta_N - 2/9": "-0.000160123",
+    "series -35/(2187 N^2)": "-0.000160037",
+    "Z_N (current branches, hold = 1)": "0.991394996221",
+    "exp(-7/(81 N))": "0.991395259223",
+    "|A0^N - exp(iPJ)|": "0.00860648",
+    "bound 1/N": "0.1",
+    "Q": "0.66095467951",
+    "mu/e": "143.183545571",
+    "tau/e": "2356.51946711"
+   },
+   {
+    "N": 100,
+    "theta_N": "0.22222062184783",
+    "theta_N - 2/9": "-1.60037e-6",
+    "series -35/(2187 N^2)": "-1.60037e-6",
+    "Z_N (current branches, hold = 1)": "0.999136175514",
+    "exp(-7/(81 N))": "0.99913617578",
+    "|A0^N - exp(iPJ)|": "0.000863826",
+    "bound 1/N": "0.01",
+    "Q": "0.666091032407",
+    "mu/e": "198.759870735",
+    "tau/e": "3335.26158398"
+   },
+   {
+    "N": 302,
+    "theta_N": "0.222222046751109",
+    "theta_N - 2/9": "-1.75471e-7",
+    "series -35/(2187 N^2)": "-1.75471e-7",
+    "Z_N (current branches, hold = 1)": "0.999713882807",
+    "exp(-7/(81 N))": "0.999713882817",
+    "|A0^N - exp(iPJ)|": "0.000286117",
+    "bound 1/N": "0.00331126",
+    "Q": "0.666475949159",
+    "mu/e": "204.067191034",
+    "tau/e": "3429.45606539"
+   },
+   {
+    "N": 1000,
+    "theta_N": "0.222222206218563",
+    "theta_N - 2/9": "-1.60037e-8",
+    "series -35/(2187 N^2)": "-1.60037e-8",
+    "Z_N (current branches, hold = 1)": "0.999913583981",
+    "exp(-7/(81 N))": "0.999913583981",
+    "|A0^N - exp(iPJ)|": "8.6416e-5",
+    "bound 1/N": "0.001",
+    "Q": "0.666609058476",
+    "mu/e": "205.948565582",
+    "tau/e": "3462.87280649"
+   },
+   {
+    "N": 4000,
+    "theta_N": "0.222222221221994",
+    "theta_N - 2/9": "-1.00023e-9",
+    "series -35/(2187 N^2)": "-1.00023e-9",
+    "Z_N (current branches, hold = 1)": "0.999978395295",
+    "exp(-7/(81 N))": "0.999978395295",
+    "|A0^N - exp(iPJ)|": "2.16047e-5",
+    "bound 1/N": "0.00025",
+    "Q": "0.666652263686",
+    "mu/e": "206.564436371",
+    "tau/e": "3473.81473783"
+   },
+   {
+    "N": 10000,
+    "theta_N": "0.222222222062186",
+    "theta_N - 2/9": "-1.60037e-10",
+    "series -35/(2187 N^2)": "-1.60037e-10",
+    "Z_N (current branches, hold = 1)": "0.999991358062",
+    "exp(-7/(81 N))": "0.999991358062",
+    "|A0^N - exp(iPJ)|": "8.64194e-6",
+    "bound 1/N": "0.0001",
+    "Q": "0.6666609054",
+    "mu/e": "206.687928692",
+    "tau/e": "3476.00894857"
+   },
+   {
+    "N": 100000,
+    "theta_N": "0.222222222220622",
+    "theta_N - 2/9": "-1.60037e-12",
+    "series -35/(2187 N^2)": "-1.60037e-12",
+    "Z_N (current branches, hold = 1)": "0.999999135803",
+    "exp(-7/(81 N))": "0.999999135803",
+    "|A0^N - exp(iPJ)|": "8.64197e-7",
+    "bound 1/N": "1.0e-5",
+    "Q": "0.666666090535",
+    "mu/e": "206.762075117",
+    "tau/e": "3477.3264093"
+   },
+   {
+    "N": 1000000,
+    "theta_N": "0.222222222222206",
+    "theta_N - 2/9": "-1.60037e-14",
+    "series -35/(2187 N^2)": "-1.60037e-14",
+    "Z_N (current branches, hold = 1)": "0.99999991358",
+    "exp(-7/(81 N))": "0.99999991358",
+    "|A0^N - exp(iPJ)|": "8.64197e-8",
+    "bound 1/N": "1.0e-6",
+    "Q": "0.666666609054",
+    "mu/e": "206.769491866",
+    "tau/e": "3477.45819393"
+   }
+  ],
+  "limit N -> infinity": {
+   "theta": "2/9 exactly",
+   "Z": 1,
+   "Q": "0.666666666667",
+   "mu/e": "206.770315973",
+   "tau/e": "3477.4728371",
+   "min eigenvalue of C": "0.016472781"
+  },
+  "N that would give delta = target (FIT, no weight)": {
+   "N": "302.27844",
+   "Q": "0.666476124783",
+   "mu/e": "204.069657483",
+   "tau/e": "3429.49986535",
+   "min eigenvalue of C": "0.016584846"
+  },
+  "smallest N allowed by measured Q at 2 sigma (NOT BLIND)": {
+   "N_min": "4876.2404",
+   "phase correction at N_min": "-6.73053e-10"
+  },
+  "records kept (per-realization delta = k/N), sd = sqrt(14/(81 N))": {
+   "N for sd = 1.75e-7": "5.63421e+12"
+  },
+  "measured (NOT BLIND)": {
+   "mu/e": "206.768282708",
+   "tau/e": "3477.370086",
+   "Q": "0.6666646026",
+   "sigma_Q": "4.875e-6"
+  }
+ },
+ "D_mass_clocks": {
+  "eigenvalues of C(2/9)": [
+   "0.971401565834",
+   "0.0164727810509",
+   "0.236870524507"
+  ],
+  "K1 energy clock m = lambda^2": {
+   "Q": "0.666666666667",
+   "mu/e": "206.770315973",
+   "tau/e": "3477.4728371"
+  },
+  "K2 Floquet m = arccos(1 - c lambda^2), c = 1e-6": {
+   "Q": "0.478035347948",
+   "mu/e": "14.3795103497",
+   "tau/e": "58.9701058491"
+  },
+  "K3 Euclidean transfer m = -log(1 - c lambda^2), c = 1e-6": {
+   "Q": "0.666666711428",
+   "mu/e": "206.770321745",
+   "tau/e": "3477.47447734"
+  },
+  "K3 at c = 1e-2": {
+   "Q": "0.667116102726",
+   "mu/e": "206.82806404",
+   "tau/e": "3493.97912841"
+  },
+  "K4 modular m = -log(lambda^2 / sum)": {
+   "Q": "0.4832081332",
+   "mu/e": "49.6372518589",
+   "tau/e": "141.512947933"
+  },
+  "walk rest phases omega = arccos(c)": [
+   "0.3047084374",
+   "0.4961982595",
+   "0.4510268118",
+   "0.5856855435",
+   "0.3672080206"
+  ],
+  "energy-clock values 1 - c": [
+   "0.04606553371",
+   "0.120601133",
+   "0.1",
+   "0.1666666667",
+   "0.06666666667"
+  ],
+  "min |det| over the 10 triples (zero would mean affine)": "0.000221047",
+  "DR memory pole, leading term in y": "2*y**2/omega",
+  "measured (NOT BLIND)": {
+   "mu/e": "206.768282708",
+   "tau/e": "3477.370086",
+   "Q": "0.6666646026",
+   "sigma_Q": "4.875e-6"
+  }
+ },
+ "E_refinement": {
+  "two half ticks / one tick, energy clock": "2*(cos(omega/2) - 1)/(cos(omega) - 1)",
+  "closed form": "1/(2 cos^2(omega/4))",
+  "values at the walk rest phases": [
+   "0.5029127378",
+   "0.5077737743",
+   "0.5064113104",
+   "0.5108747069",
+   "0.5042375925"
+  ],
+  "Floquet ratio": 1,
+  "reading": "the per-tick read probability of a coherent mode scales as the square of the tick at fixed frequency (Zeno), so a read-count action is a per-index accrual; the Floquet phase is a proper-length accrual"
+ },
+ "F_DR_forms": {
+  "odd part (E_- - E_+)/2": "theta",
+  "even part E_H - (E_+ + E_-)/2": "0",
+  "epsilon_N = theta_N/(2/9) - 1, leading": "-(315/4374) N^-2 = -0.0720165 N^-2",
+  "N for epsilon = -7.8817e-7 (D5 size)": "302.27758"
+ },
+ "G_virtual_excitation": {
+  "toy: random J-blind dressing, theta = 2/9, one tick": {
+   "kept": {
+    "odd phase (theta_eff)": 0.2222222222222222,
+    "even phase": -2.7755575615628914e-17,
+    "|amp R+|/|amp H|": 0.9999999999999998,
+    "|amp R-|/|amp H|": 1.0
+   },
+   "absent": {
+    "odd phase (theta_eff)": 0.22312661960982116,
+    "even phase": -4.9389694160600905e-05,
+    "|amp R+|/|amp H|": 0.999292460331873,
+    "|amp R-|/|amp H|": 1.0007968275799328
+   }
+  },
+  "exact statement": "if [V, J] = 0 and [H_0, J] = 0 then exp(-i(H_0 + V - theta J)t) = exp(i theta J t) exp(-i(H_0 + V)t): every flag keeps its clock phase at every order (EXACT)"
+ }
+}

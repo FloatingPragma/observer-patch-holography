@@ -1,0 +1,230 @@
+{
+ "calibration_reference_builder_equals_model_record_laws": {
+  "C": true,
+  "E": true,
+  "records_C": 6,
+  "records_E": 10
+ },
+ "T1_one_quantum_instrument_is_reference_x_identity": {
+  "C,d=2": {
+   "equal_to_reference_tensor_identity_all_30_seams": true,
+   "record_values": 4
+  },
+  "C,d=3": {
+   "equal_to_reference_tensor_identity_all_30_seams": true,
+   "record_values": 4
+  },
+  "C,d=5": {
+   "equal_to_reference_tensor_identity_all_30_seams": true,
+   "record_values": 4
+  },
+  "E,d=2": {
+   "equal_to_reference_tensor_identity_all_30_seams": true,
+   "record_values": 6
+  },
+  "E,d=3": {
+   "equal_to_reference_tensor_identity_all_30_seams": true,
+   "record_values": 6
+  },
+  "E,d=5": {
+   "equal_to_reference_tensor_identity_all_30_seams": true,
+   "record_values": 6
+  }
+ },
+ "T2_two_labelled_quanta_positions": {
+  "C": {
+   "kraus_commute_with_exchange": true,
+   "symmetric_restriction_is_reference_78": true,
+   "antisymmetric_restriction_is_fermionic_66": true,
+   "leak_out_of_sym_or_anti": "0",
+   "complete": true
+  },
+  "E": {
+   "kraus_commute_with_exchange": true,
+   "symmetric_restriction_is_reference_78": true,
+   "antisymmetric_restriction_is_fermionic_66": true,
+   "leak_out_of_sym_or_anti": "0",
+   "complete": true
+  }
+ },
+ "T3_two_quanta_internal_labels_ride_along": {
+  "C,d=2": {
+   "kraus_is_position_kraus_x_identity": true,
+   "seams": 30
+  },
+  "C,d=3": {
+   "kraus_is_position_kraus_x_identity": true,
+   "seams": 5
+  },
+  "E,d=2": {
+   "kraus_is_position_kraus_x_identity": true,
+   "seams": 30
+  },
+  "E,d=3": {
+   "kraus_is_position_kraus_x_identity": true,
+   "seams": 5
+  }
+ },
+ "T4_fock_spaces_d2": {
+  "bose": {
+   "dimension": 300,
+   "leak_out_of_fock_space": "0",
+   "complete": true,
+   "one_event_effects_diagonal": true,
+   "effect_values": [
+    0.0,
+    0.5
+   ]
+  },
+  "fermi": {
+   "dimension": 276,
+   "leak_out_of_fock_space": "0",
+   "complete": true,
+   "one_event_effects_diagonal": true,
+   "effect_values": [
+    0.0,
+    0.5
+   ]
+  }
+ },
+ "T5_exchange_loop": {
+  "face": [
+   0,
+   2,
+   1
+  ],
+  "configs": [
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ]
+  ],
+  "sign_product": -1
+ },
+ "T5_gauge_invariant_witness": {
+  "faces_times_spectators": 180,
+  "difference_of_right_hand_sides_mod_1": [
+   "1/2"
+  ],
+  "reading": "the difference is 1/2 for every face and spectator: no diagonal unitary, with or without record phases, maps the fermionic instrument to the reference instrument on the binary shell"
+ },
+ "T5_sign_identification_GF2": {
+  "equations": 600,
+  "unknowns": 126,
+  "rank_homogeneous": 114,
+  "rank_augmented": 115,
+  "solvable": false
+ },
+ "T5_coherent_counterexample": {
+  "seam": [
+   0,
+   2
+  ],
+  "spectators": [
+   1,
+   3
+  ],
+  "record": [
+   0,
+   1
+  ],
+  "input": "(|0,1> + |0,3>)/sqrt2",
+  "fermionic_amplitudes": [
+   "-1/2*sqrt2",
+   "1/2*sqrt2"
+  ],
+  "reference_amplitudes": [
+   "1/2*sqrt2",
+   "1/2*sqrt2"
+  ],
+  "post_record_state_reference": "(|2,1> + |2,3>)/sqrt2",
+  "post_record_state_fermionic": "(-1/2*sqrt2)|2,1> + (1/2*sqrt2)|2,3>, normalised",
+  "probability_of_plus_readout_reference": "1",
+  "probability_of_plus_readout_fermionic": "0"
+ },
+ "numerical_block_structure_d2": {
+  "bose": {
+   "adapted_basis_is_unitary": true,
+   "dimension": 300,
+   "blocks": "ref78 x C^3 + ferm66 x C^1",
+   "max_deviation_all_seams_records": 2.220446049250313e-16
+  },
+  "fermi": {
+   "adapted_basis_is_unitary": true,
+   "dimension": 276,
+   "blocks": "ref78 x C^1 + ferm66 x C^3",
+   "max_deviation_all_seams_records": 2.220446049250313e-16
+  }
+ },
+ "numerical_instrument_shadow_one_quantum_entangled_inputs": {
+  "C,d=2": {
+   "max_deviation_of_reduced_load_and_reference_state_over_record_words": 6.938893903907228e-18,
+   "max_deviation_of_record_word_probability": 5.551115123125783e-17,
+   "trials": 40,
+   "word_length": 4
+  },
+  "C,d=3": {
+   "max_deviation_of_reduced_load_and_reference_state_over_record_words": 6.938893903907228e-18,
+   "max_deviation_of_record_word_probability": 1.1102230246251565e-16,
+   "trials": 40,
+   "word_length": 4
+  },
+  "E,d=2": {
+   "max_deviation_of_reduced_load_and_reference_state_over_record_words": 6.938893903907228e-18,
+   "max_deviation_of_record_word_probability": 5.551115123125783e-17,
+   "trials": 40,
+   "word_length": 4
+  },
+  "E,d=3": {
+   "max_deviation_of_reduced_load_and_reference_state_over_record_words": 6.938893903907228e-18,
+   "max_deviation_of_record_word_probability": 5.551115123125783e-17,
+   "trials": 40,
+   "word_length": 4
+  }
+ },
+ "numerical_instrument_shadow_two_quanta_d2": {
+  "bose": {
+   "max_dev_symmetric_register_state": 2.6020852139652106e-18,
+   "max_dev_antisymmetric_register_state": 8.67652345061259e-19,
+   "max_dev_record_word_probability": 1.6653345369377348e-16,
+   "trials": 12,
+   "word_length": 4
+  },
+  "fermi": {
+   "max_dev_symmetric_register_state": 8.679428548322406e-19,
+   "max_dev_antisymmetric_register_state": 1.735304690122518e-18,
+   "max_dev_record_word_probability": 1.6653345369377348e-16,
+   "trials": 12,
+   "word_length": 4
+  }
+ },
+ "numerical_covariance_60_rotations": {
+  "max_deviation_instrument_and_apparatus": 1.0536712247235717e-08,
+  "record_map": "a seam whose image is listed in reversed order has coin -> 1 - coin and current -> -current"
+ },
+ "split_of_a_double_load": {
+  "kraus": "K = (1/sqrt2) |a b>_sym <a a| x inclusion of Sym^2(C^d) (bosons) or Lambda^2(C^d) (fermions) into C^d x C^d",
+  "covariant_isometries_dimension": {
+   "bosons d=2, U(2)": 1,
+   "bosons d=2, SU(2)": 1,
+   "bosons d=3, U(3)": 1,
+   "bosons d=3, SU(2) spin 1": 2,
+   "fermions d=2, SU(2)": 1,
+   "fermions d=3, SU(2) spin 1": 1
+  },
+  "reading": "one intertwiner: the split is fixed up to a phase; two (spin 1 under rotations only): one relative phase between the spin-2 and spin-0 parts is free unless the hop commutes with every one-body internal operator"
+ },
+ "seconds": 55.4
+}

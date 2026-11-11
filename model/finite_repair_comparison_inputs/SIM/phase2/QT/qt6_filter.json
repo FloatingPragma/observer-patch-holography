@@ -1,0 +1,179 @@
+{
+ "task": "QT filter limit",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "hexagon": {
+  "class 0": {
+   "blank preparations": 56,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "1/3",
+    "double+single": "5/11",
+    "separated": "1"
+   },
+   "limit weight kept per preparation": {
+    "one triple preparation": "1/18",
+    "uniform separated and double+single states fixed by D exactly": true,
+    "one separated preparation": "1/20",
+    "one double+single preparation": "1/66"
+   },
+   "total kept": "59/33",
+   "mean kept weight per preparation": "59/1848",
+   "share of the triple in what is kept": "11/59"
+  },
+  "class 1": {
+   "blank preparations": 56,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "0",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {},
+   "total kept": "0",
+   "mean kept weight per preparation": "0",
+   "share of the triple in what is kept": "nothing is kept"
+  },
+  "class 2": {
+   "blank preparations": 56,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "1/3",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {
+    "one triple preparation": "1/18"
+   },
+   "total kept": "1/3",
+   "mean kept weight per preparation": "1/168",
+   "share of the triple in what is kept": "1"
+  },
+  "class 3": {
+   "blank preparations": 56,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "0",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {},
+   "total kept": "0",
+   "mean kept weight per preparation": "0",
+   "share of the triple in what is kept": "nothing is kept"
+  },
+  "class 4": {
+   "blank preparations": 56,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "1/3",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {
+    "one triple preparation": "1/18"
+   },
+   "total kept": "1/3",
+   "mean kept weight per preparation": "1/168",
+   "share of the triple in what is kept": "1"
+  },
+  "class 5": {
+   "blank preparations": 56,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "0",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {},
+   "total kept": "0",
+   "mean kept weight per preparation": "0",
+   "share of the triple in what is kept": "nothing is kept"
+  }
+ },
+ "carrier": {
+  "class 0": {
+   "blank preparations": 364,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "1/6",
+    "double+single": "33/133",
+    "separated": "1"
+   },
+   "limit weight kept per preparation": {
+    "one triple preparation": "1/72",
+    "uniform separated and double+single states fixed by D exactly": true,
+    "one separated preparation": "1/220",
+    "one double+single preparation": "1/532"
+   },
+   "total kept": "1129/798",
+   "mean kept weight per preparation": "1129/290472",
+   "share of the triple in what is kept": "133/1129"
+  },
+  "class 1": {
+   "blank preparations": 364,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "0",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {},
+   "total kept": "0",
+   "mean kept weight per preparation": "0",
+   "share of the triple in what is kept": "nothing is kept"
+  },
+  "class 2": {
+   "blank preparations": 364,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "1/6",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {
+    "one triple preparation": "1/72"
+   },
+   "total kept": "1/6",
+   "mean kept weight per preparation": "1/2184",
+   "share of the triple in what is kept": "1"
+  },
+  "class 3": {
+   "blank preparations": 364,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "0",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {},
+   "total kept": "0",
+   "mean kept weight per preparation": "0",
+   "share of the triple in what is kept": "nothing is kept"
+  },
+  "class 4": {
+   "blank preparations": 364,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "1/6",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {
+    "one triple preparation": "1/72"
+   },
+   "total kept": "1/6",
+   "mean kept weight per preparation": "1/2184",
+   "share of the triple in what is kept": "1"
+  },
+  "class 5": {
+   "blank preparations": 364,
+   "limit weight kept, summed over the preparations of each type": {
+    "triple": "0",
+    "double+single": "0",
+    "separated": "0"
+   },
+   "limit weight kept per preparation": {},
+   "total kept": "0",
+   "mean kept weight per preparation": "0",
+   "share of the triple in what is kept": "nothing is kept"
+  }
+ },
+ "note": "class 0 uses the uniform double+single and separated consensus states verified exactly in qt1b_exact.json (carrier) and qt1_hexagon.json; classes 1 to 5 have no consensus state of these two types",
+ "seconds": 9.98
+}

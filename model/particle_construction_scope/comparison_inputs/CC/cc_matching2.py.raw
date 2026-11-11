@@ -1,0 +1,61 @@
+"""CC rows D6, D7 (registered 09:43): requirements that follow from BF's constants. Source only.
+
+D6  equal bare couplings at the cell, matched there, equal matched couplings at M_U: required slope differences.
+D7  two-block plaquette action (separate weights on the triplet and doublet blocks of the code): the U(1) bare
+    value it implies against the one the chain's equal continuum value needs.
+Reads cc_matching.json and work/BF/bf_lib.py (generators). Writes cc_matching2.json.
+"""
+import json
+import os
+import sys
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'BF'))
+import bf_lib as L          # noqa: E402  (read only)
+import cc_lib as C          # noqa: E402
+
+m = json.load(open(os.path.join(HERE, 'cc_matching.json')))
+LMU = m['ln(E_cell/M_U)']
+out = {'ln(E_cell/M_U)': LMU}
+
+# ---------------------------------------------------------------- D6
+links = (0.0, -22 / 3, -11.0)
+d6 = {'links alone (0, -22/3, -11)': {'b1 - b2': links[0] - links[1], 'b2 - b3': links[1] - links[2]}}
+for k, v in m['D1_shifts'].items():
+    d12, d23 = v['delta_1 - delta_2'], v['delta_2 - delta_3']
+    need12, need23 = -2 * np.pi * d12 / LMU, -2 * np.pi * d23 / LMU
+    # split at M_U when only the links run between the cell and M_U
+    s12 = d12 + (links[0] - links[1]) / (2 * np.pi) * LMU
+    s23 = d23 + (links[1] - links[2]) / (2 * np.pi) * LMU
+    d6[k] = {'required b1 - b2': need12, 'required b2 - b3': need23,
+             'split of 1/alpha at M_U with the links alone (1-2, 2-3)': [s12, s23]}
+    print('D6', k, 'required b1-b2 %.3f, b2-b3 %.3f | split at M_U with links alone %.3f, %.3f' % (need12, need23, s12, s23))
+out['D6_required_slope_differences'] = d6
+
+# ---------------------------------------------------------------- D7
+T5 = L.T5
+Y = T5[11]                              # sqrt(3/5) Y on the code, tr_5(T T) = 1/2
+tri = float(np.trace((Y @ Y)[:3, :3]).real)
+dou = float(np.trace((Y @ Y)[3:, 3:]).real)
+kap = 0.5
+c3, c2 = tri / kap, dou / kap           # 1/g_1^2 = c3 w_3 + c2 w_2
+# check that the block weights act as stated on the non-abelian generators
+t3 = float(np.trace((T5[0] @ T5[0])[:3, :3]).real) / kap
+t2 = float(np.trace((T5[8] @ T5[8])[3:, 3:]).real) / kap
+out['D7_block_stiffness'] = {'hypercharge generator on the triplet block (share)': c3, 'on the doublet block (share)': c2,
+                             'gluon generator on the triplet block (share)': t3, 'W generator on the doublet block (share)': t2}
+d7 = {}
+for k, v in m['D3_bare_equivalents_of_the_chain_value'].items():
+    b1, b2, b3 = v['bare (1/alpha_1, 1/alpha_2, 1/alpha_3) at spacing 1/M_U']
+    implied = c3 * b3 + c2 * b2
+    d7[k] = {'needed bare (1/alpha_1, 1/alpha_2, 1/alpha_3)': [b1, b2, b3], 'U(1) value implied by the two block weights': implied,
+             'implied minus needed': implied - b1}
+    print('D7', k, 'needed U(1) %.3f, implied %.3f, difference %.3f' % (b1, implied, implied - b1))
+out['D7_two_block_action'] = d7
+out['checks'] = {'D7_shares_are_2/5_and_3/5': bool(abs(c3 - 0.4) < 1e-14 and abs(c2 - 0.6) < 1e-14),
+                 'D7_nonabelian_generators_live_on_one_block': bool(abs(t3 - 1) < 1e-14 and abs(t2 - 1) < 1e-14)}
+print(out['checks'])
+json.dump(out, open(os.path.join(HERE, 'cc_matching2.json'), 'w'), indent=1, default=C.jsonable)

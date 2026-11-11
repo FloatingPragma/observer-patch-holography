@@ -1,0 +1,154 @@
+"""MG block 4b: rates that complete block 4.
+
+    python b6_bands.py           (box B, about two minutes)
+
+1. Rule S on the sphere: the transverse polarization is a complex field with the Z3 phases of the transport; lowest
+   eigenvalue of that twisted Laplacian at levels 2 to 5 (decay rate per sweep = lambda / 2).
+2. Ancestral transports: the sixteen level-0 rules pulled back to finer levels (siblings share the parent's chart):
+   holonomy group at levels 1 and 2 (they are flat away from the twelve cone points).
+3. Flat honeycomb (two-carrier cell): Bloch bands of the port Laplacian twisted by the chart transport, internal
+   space spin 1/2 (lifted transports) and spin 1 (polarization). Lowest band: minimum over the zone, where it sits,
+   its curvature. Calibration: untwisted F has the band touching of report S3 at K (0.176035).
+Writes b6_bands.json.
+"""
+import json
+import math
+import sys
+
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as sla
+from scipy.optimize import minimize
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+
+out = {}
+RT = np.stack(M.ROT_MATS)
+
+# ----------------------------------------------------------------------------- 1. transverse rate of rule S
+rows_out = []
+for kind in ('F', 'B'):
+    for level in (2, 3, 4, 5):
+        mesh = S.build_mesh(level)
+        W, base = M.wiring(kind, level)
+        T = M.transports(mesh, W, base, M.E60)
+        N = mesh.N; n = 12 * N
+        m = np.zeros((N, 3), dtype=np.int64)
+        m[T == M.RPOW[1]] = 1; m[T == M.RPOW[2]] = 2
+        assert ((T == M.RPOW[0]) | (T == M.RPOW[1]) | (T == M.RPOW[2])).all()
+        ia, ib = S.intra_seams(N)
+        A = sp.coo_matrix((np.ones(ia.size), (ia, ib)), shape=(n, n)); A = (A + A.T).tocsr()
+        c = np.repeat(np.arange(N), 3); k = np.tile(np.arange(3), N)
+        d = mesh.nbr[c, k]; k2 = mesh.nbk[c, k]
+        x = 12 * c + W[c, k]; y = 12 * d + W[d, k2]
+        G = sp.coo_matrix((np.exp(2j * np.pi * m[c, k] / 3), (y, x)), shape=(n, n)).tocsr()       # hop x -> y multiplies by omega^m
+        assert abs(G - G.conj().T).max() < 1e-12
+        deg = np.asarray(A.sum(axis=1)).ravel() + np.bincount(x, minlength=n)
+        L = (sp.diags(deg) - A - G).tocsc()
+        w = np.sort(sla.eigsh(L, k=6, sigma=-1e-4, which='LM', tol=1e-11, return_eigenvectors=False))
+        Ls = (sp.diags(deg) - A - abs(G)).tocsc()
+        ws = np.sort(sla.eigsh(Ls, k=3, sigma=-1e-4, which='LM', tol=1e-11, return_eigenvectors=False))
+        rows_out.append({'wiring': kind, 'level': level, 'carriers': N, 'lowest_twisted': [float(v) for v in w], 'N_times_lowest': float(N * w[0]),
+                         'transverse_decay_rate_per_sweep': float(w[0] / 2), 'scalar_lambda_2': float(ws[1]), 'N_times_scalar_lambda_2': float(N * ws[1]),
+                         'cone_density_per_carrier': 12 / N})
+        print('S transverse', kind, level, [round(float(v), 7) for v in w[:4]], 'N*lam', round(N * w[0], 4), 'scalar N*lam2', round(N * ws[1], 4), flush=True)
+out['rule_S_transverse'] = rows_out
+
+# ----------------------------------------------------------------------------- 2. ancestral transports
+anc = {}
+for g in M.RULES16:
+    name = M.rule_name(g, M.TOP)
+    mesh0 = S.build_mesh(0); W0, base = M.wiring('Fnat', 0)
+    Tprev = M.transports(mesh0, W0, base, g); mprev = mesh0
+    row = {'0': len(M.holonomy_group(mesh0, Tprev))}
+    for level in (1, 2, 3):
+        mf = S.build_mesh(level)
+        Tf = np.empty((mf.N, 3), dtype=np.int64)
+        for c in range(mf.N):
+            for k in range(3):
+                d = int(mf.nbr[c, k]); P, Qp = c // 4, d // 4
+                Tf[c, k] = M.E60 if P == Qp else Tprev[P, int(np.where(mprev.nbr[P] == Qp)[0][0])]
+        row[str(level)] = len(M.holonomy_group(mf, Tf))
+        hol = M.vertex_holonomies(mf, Tf)
+        row[f'curved_vertices_{level}'] = int(sum(1 for v, (nn, c0, H) in hol.items() if H != M.E60))
+        Tprev, mprev = Tf, mf
+    anc[name] = row
+out['ancestral_rules_group_order_by_level'] = anc
+print('ancestral', {k: [v['0'], v['1'], v['2'], v['3'], v['curved_vertices_3']] for k, v in anc.items()}, flush=True)
+
+# ----------------------------------------------------------------------------- 3. flat honeycomb bands
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, 3 ** 0.5 / 2])
+DELTA = (np.zeros(2), A1, A2)
+ADJ = np.zeros((12, 12))
+for a, b in S.SEAMS:
+    ADJ[a, b] = ADJ[b, a] = 1
+
+
+def bloch(q, ports, Us):
+    d = Us[0].shape[0]
+    L = np.zeros((24 * d, 24 * d), complex)
+    I = np.eye(d)
+    Lc = np.diag(ADJ.sum(axis=1)) - ADJ
+    for blk in (0, 12):
+        L[blk * d:(blk + 12) * d, blk * d:(blk + 12) * d] = np.kron(Lc, I)
+    for k in range(3):
+        u, dn = ports[k], 12 + ports[k]
+        L[u * d:(u + 1) * d, u * d:(u + 1) * d] += I; L[dn * d:(dn + 1) * d, dn * d:(dn + 1) * d] += I
+        ph = np.exp(-1j * (q @ DELTA[k]))
+        L[u * d:(u + 1) * d, dn * d:(dn + 1) * d] -= ph * Us[k].conj().T
+        L[dn * d:(dn + 1) * d, u * d:(u + 1) * d] -= np.conj(ph) * Us[k]
+    return L
+
+
+def flat_transports(g):
+    rt = M.ODD_LIFT[M.R3]
+    rp = [M.ONE, rt, int(M.BMUL[rt, rt])]
+    return [int(M.BMUL[rp[k], M.BMUL[2 * g, M.BINV[rp[k]]]]) for k in range(3)]
+
+
+def analyse(ports, Us, label):
+    H = lambda q: bloch(np.asarray(q, float), ports, Us)
+    grid = [np.array([x, y]) * 4 / 3 for x in np.linspace(-np.pi, np.pi, 41) for y in np.linspace(-np.pi, np.pi, 41)]
+    low = lambda q: float(np.linalg.eigvalsh(H(q))[0])
+    q0 = min(grid, key=low)
+    r = minimize(low, q0, method='Nelder-Mead', options={'xatol': 1e-10, 'fatol': 1e-14, 'maxiter': 4000})
+    qm = r.x; ev = np.linalg.eigvalsh(H(qm))
+    h = 1e-3
+    dirs = [np.array([math.cos(t), math.sin(t)]) for t in np.radians([0, 30, 60, 90, 120, 150])]
+    curv = [(low(qm + h * e) + low(qm - h * e) - 2 * low(qm)) / h ** 2 for e in dirs]
+    ev0 = np.linalg.eigvalsh(H(np.zeros(2)))
+    K = np.array([2 * np.pi / 3, 2 * np.pi / 3 ** 0.5])
+    evK = np.linalg.eigvalsh(H(K))
+    return {'case': label, 'internal_dimension': int(Us[0].shape[0]), 'lowest_band_minimum': float(ev[0]), 'at_q': [float(v) for v in qm],
+            'multiplicity_at_minimum': int((ev < ev[0] + 1e-7).sum()), 'curvature_by_direction': [float(c) for c in curv],
+            'levels_at_zero': [float(v) for v in ev0[:8]], 'levels_at_K': [float(v) for v in evK[:8]]}
+
+
+bands = []
+I1 = [np.eye(1, dtype=complex)] * 3
+cal = analyse(M.TOP, I1, 'F untwisted (calibration against S3: 0.176035 at K)')
+cal['two_lowest_at_K'] = cal['levels_at_K'][:2]
+bands.append(cal)
+print('calibration F untwisted, levels at K', cal['levels_at_K'][:3], flush=True)
+calB = analyse(M.BELT, I1, 'face_axis untwisted (calibration against S3: 0.183005 at K)')
+bands.append(calB)
+print('calibration B untwisted, levels at K', calB['levels_at_K'][:3], flush=True)
+for wname, ports in (('F', M.TOP), ('face_axis', M.BELT)):
+    rules = {'S': M.E60}
+    for i in range(3):
+        rules[f'R{i}'] = M.crosswise_rule(ports, i)
+    if wname == 'face_axis':
+        rules['roll'] = M.crosswise_rule(M.TOP, 0)
+    for rname, g in rules.items():
+        tl = flat_transports(g)
+        for rep, Us in (('spin 1/2', [M.B2[a] for a in tl]), ('spin 1 (polarization)', [RT[a // 2].astype(complex) for a in tl])):
+            r = analyse(ports, Us, f'{wname} {rname} {rep}')
+            r.update({'wiring': wname, 'rule': rname, 'internal': rep, 'decay_rate_per_sweep': r['lowest_band_minimum'] / 2})
+            bands.append(r)
+            print(wname, rname, rep, 'minimum', round(r['lowest_band_minimum'], 6), 'at q', [round(v, 4) for v in r['at_q']], 'mult', r['multiplicity_at_minimum'],
+                  'curvature', [round(c, 5) for c in r['curvature_by_direction'][:3]], flush=True)
+out['flat_bands'] = bands
+json.dump(out, open('b6_bands.json', 'w'), indent=1)
+print('written b6_bands.json')

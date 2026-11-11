@@ -1,0 +1,119 @@
+{
+ "schema": "fz.looks_L0.v1",
+ "definition": "L0(row) = number of distinct candidate values or readings of the row compared against its measured value in the record, counted from files read by FZ before the freeze. Lower bounds. seen_values lists values already counted, so that the first harness run does not count them again.",
+ "rows": {
+  "L1": {"L0": 10, "items": [
+    {"n": 1, "what": "declared determinant weight 6^-14/2 at E* compared with the measured lepton product", "cite": "RL/CAMPAIGN.md row DA; RL/SPECTRUM.md row e, mu, tau (scale)"},
+    {"n": 4, "what": "LS round 1: four directions for y_J, all failed", "cite": "RL/CAMPAIGN.md row LS"},
+    {"n": 1, "what": "LS round 1: measured exponent of prod m_k / v^3 read (13.9985)", "cite": "RL/CAMPAIGN.md row LS"},
+    {"n": 3, "what": "LS round 2: the lepton target and two lepton running-mass products", "cite": "RL/reports/LS2.md line 41 (seen in a search)"},
+    {"n": 1, "what": "class-3 rest phases in GeV against the measured masses", "cite": "RL/MATCH.md, masses from the data"}],
+   "flags": [], "seen_values": []},
+  "L2": {"L0": 10, "same_as": "L1", "flags": [], "seen_values": []},
+  "L3": {"L0": 10, "same_as": "L1", "flags": [], "seen_values": ["1776.969 MeV"]},
+  "L4": {"L0": 5, "items": [
+    {"n": 1, "what": "Q = 2/3 with delta = 2/9 (lead L40)", "cite": "RL/MATCH.md; RL/SPECTRUM.md"},
+    {"n": 1, "what": "dressing -0.79 ppm in delta, mu/e exact, tau 1776.969 MeV", "cite": "RL/SPECTRUM.md row e, mu, tau (ratios)"},
+    {"n": 1, "what": "repository MCPR completed response, ratios within 0.09 ppm", "cite": "RL/MATCH.md, lane table"},
+    {"n": 1, "what": "Brannen fit delta = 0.2222248(63); delta = 2/9 exact gives m_e/m_mu 1.0e-5 low", "cite": "RL/reports/LIT.md B2"},
+    {"n": 1, "what": "rest phases of the data: e, mu, tau equal (1 : 1 : 1)", "cite": "RL/MATCH.md, masses from the data"}],
+   "flags": ["TARGET-INFORMED-FORM", "SELECTION-FREEDOM"], "seen_values": ["206.7703"]},
+  "L5": {"L0": 5, "same_as": "L4", "flags": ["TARGET-INFORMED-FORM", "SELECTION-FREEDOM"], "seen_values": ["3477.47"]},
+  "L6": {"L0": 5, "same_as": "L4", "flags": ["TARGET-INFORMED-FORM", "SELECTION-FREEDOM"], "seen_values": []},
+  "L7": {"L0": 4, "items": [
+    {"n": 1, "what": "Q = 2/3 (lead L40)", "cite": "RL/MATCH.md; RL/SPECTRUM.md"},
+    {"n": 1, "what": "measured Q = 0.6666645(51), 0.43 sigma from 2/3", "cite": "RL/reports/LIT.md B2"},
+    {"n": 1, "what": "repository circulant identity Q = 2/3 iff abs(b)/a = 1/sqrt2", "cite": "RL/MATCH.md"},
+    {"n": 1, "what": "data ratios 1 : 1 : 1 (Q = 1/3)", "cite": "RL/MATCH.md"}],
+   "flags": ["TARGET-INFORMED-FORM"], "seen_values": ["2/3"]},
+  "Q1": {"L0": 54, "items": [
+    {"n": 30, "what": "DF: 30 readings, all excluded", "cite": "RL/CAMPAIGN.md row DF; RL/SPECTRUM.md row u, d, s, c, b"},
+    {"n": 2, "what": "repository comparison-branch textures diag(6^-6, 6^-3, 1), diag(6^-6, 6^-4, 6^-2)", "cite": "RL/MATCH.md, lane table"},
+    {"n": 1, "what": "repository integer-exponent family for charm and up, removed", "cite": "RL/MATCH.md, lane table"},
+    {"n": 1, "what": "class-1 and class-4 rest phases in GeV", "cite": "RL/MATCH.md"},
+    {"n": 9, "what": "QM: looks before registration", "cite": "RL/work/QM/CANDIDATES.md line 19 (seen in a search)"},
+    {"n": 7, "what": "LS round 2: seven quark-ratio estimates", "cite": "RL/reports/LS2.md line 41 (seen in a search)"},
+    {"n": 4, "what": "R7 readings V, V4, H, C for up and down", "cite": "RL/reports/R7.md results 5 to 7"}],
+   "flags": [], "seen_values": []},
+  "Q2": {"L0": 54, "same_as": "Q1", "flags": [], "seen_values": []},
+  "Q3": {"L0": 50, "same_as": "Q1 without the R7 item", "flags": [], "seen_values": []},
+  "Q4": {"L0": 50, "same_as": "Q1 without the R7 item", "flags": [], "seen_values": []},
+  "Q5": {"L0": 50, "same_as": "Q1 without the R7 item", "flags": [], "seen_values": []},
+  "Q6": {"L0": 3, "items": [
+    {"n": 1, "what": "double criticality, 172.63 GeV", "cite": "RL/MATCH.md; RL/SPECTRUM.md"},
+    {"n": 1, "what": "class-1 rest phase in GeV for the top", "cite": "RL/MATCH.md"},
+    {"n": 1, "what": "R7 clock ceiling against the top", "cite": "RL/reports/R7.md row clock ceiling"}],
+   "flags": ["TARGET-INFORMED-FORM"], "seen_values": ["172.63"]},
+  "Q7": {"L0": 73, "items": [
+    {"n": 25, "what": "R7 V4 class scan, m_u/m_d 0.564 to 0.507", "cite": "RL/reports/R7.md result 5"},
+    {"n": 1, "what": "R7 reading C, m_u/m_d = 1", "cite": "RL/reports/R7.md result 7"},
+    {"n": 1, "what": "R7 reading H, u = d", "cite": "RL/reports/R7.md result 6"},
+    {"n": 30, "what": "DF readings", "cite": "RL/CAMPAIGN.md row DF"},
+    {"n": 9, "what": "QM looks before registration", "cite": "RL/work/QM/CANDIDATES.md line 19"},
+    {"n": 7, "what": "LS round 2 quark-ratio estimates", "cite": "RL/reports/LS2.md line 41"}],
+   "flags": [], "seen_values": []},
+  "Q8": {"L0": 46, "items": [
+    {"n": 30, "what": "DF readings", "cite": "RL/CAMPAIGN.md row DF"},
+    {"n": 9, "what": "QM looks before registration", "cite": "RL/work/QM/CANDIDATES.md line 19"},
+    {"n": 7, "what": "LS round 2 quark-ratio estimates", "cite": "RL/reports/LS2.md line 41"}],
+   "flags": [], "seen_values": []},
+  "C1": {"L0": 30, "items": [
+    {"n": 30, "what": "DF: 30 readings, V_CKM = 1 in all", "cite": "RL/SPECTRUM.md row u, d, s, c, b"}],
+   "flags": [], "seen_values": ["0"]},
+  "C2": {"L0": 30, "same_as": "C1", "flags": [], "seen_values": ["0"]},
+  "C3": {"L0": 30, "same_as": "C1", "flags": [], "seen_values": ["0"]},
+  "C4": {"L0": 30, "same_as": "C1", "flags": [], "seen_values": ["0"]},
+  "C5": {"L0": 30, "same_as": "C1", "flags": [], "seen_values": ["0"]},
+  "N1": {"L0": 7, "items": [
+    {"n": 1, "what": "Dirac with the common lepton amplitude, m_nu = m_e", "cite": "RL/SPECTRUM.md row neutrinos"},
+    {"n": 1, "what": "declared seesaw at M_U with y = 1, 1.2 to 2.5 meV", "cite": "RL/SPECTRUM.md row neutrinos"},
+    {"n": 5, "what": "R7 neutrino against electron, readings V, V4, H, C, M3", "cite": "RL/reports/R7.md results 5 to 7, scoreboard"}],
+   "flags": [], "seen_values": []},
+  "N2": {"L0": 7, "same_as": "N1", "flags": [], "seen_values": []},
+  "N3": {"L0": 1, "items": [
+    {"n": 1, "what": "circulant splitting ratio 0.0035", "cite": "RL/SPECTRUM.md row neutrinos (DG2)"}],
+   "flags": [], "seen_values": ["0.0035"]},
+  "N4": {"L0": 4, "items": [
+    {"n": 1, "what": "golden-ratio pattern (theta12 31.72 deg, theta23 45 deg, theta13 0)", "cite": "RL/reports/R7.md result 10"},
+    {"n": 1, "what": "pairs of icosahedral axes for theta13", "cite": "RL/SPECTRUM.md row neutrinos (DG2)"},
+    {"n": 2, "what": "literature GR1 and GR2 pulls", "cite": "RL/reports/LIT.md B1"}],
+   "flags": [], "seen_values": []},
+  "N5": {"L0": 4, "same_as": "N4", "flags": [], "seen_values": []},
+  "N6": {"L0": 4, "same_as": "N4", "flags": [], "seen_values": []},
+  "N7": {"L0": 0, "items": [], "flags": [], "seen_values": []},
+  "N8": {"L0": 7, "same_as": "N1", "flags": [], "seen_values": []},
+  "N9": {"L0": 0, "items": [], "flags": [], "seen_values": []},
+  "E1": {"L0": 2, "items": [
+    {"n": 2, "what": "D10 strict branch under the zero-selector law and the carrier value law", "cite": "RL/MATCH.md, lane table"}],
+   "flags": [], "seen_values": ["80.330", "80.321"]},
+  "E2": {"L0": 2, "same_as": "E1", "flags": [], "seen_values": ["91.119", "91.124"]},
+  "E3": {"L0": 1, "items": [
+    {"n": 1, "what": "double criticality, 125.77 GeV", "cite": "RL/MATCH.md; RL/SPECTRUM.md"}],
+   "flags": ["TARGET-INFORMED-FORM"], "seen_values": ["125.77"]},
+  "E4": {"L0": 1, "items": [
+    {"n": 1, "what": "fixed point P = phi + sqrt(pi) alpha(P), P = 1.6309721", "cite": "RL/MATCH.md, lane table"}],
+   "flags": ["SELECTION-FREEDOM"], "seen_values": []},
+  "E5": {"L0": 1, "items": [
+    {"n": 1, "what": "3/8 of the chart against the weak mixing angle", "cite": "RL/reports/R7.md result 10"}],
+   "flags": [], "seen_values": []},
+  "E5o": {"L0": 1, "same_as": "E5", "flags": [], "seen_values": []},
+  "E6": {"L0": 2, "items": [
+    {"n": 1, "what": "nucleon lane tests alpha_3(m_Z) alone (factor 5.23)", "cite": "RL/SPECTRUM.md row proton, neutron"},
+    {"n": 1, "what": "census B: alpha_s Landau pole above m_Z", "cite": "RL/SPECTRUM.md row W, Z"}],
+   "flags": [], "seen_values": []},
+  "H0": {"L0": 1, "items": [
+    {"n": 1, "what": "m_N = c_N Lambda^(3), 0.944 GeV with c_N = 2.775", "cite": "RL/SPECTRUM.md row proton, neutron"}],
+   "flags": [], "seen_values": ["0.944"]},
+  "H1": {"L0": 1, "same_as": "H0", "flags": [], "seen_values": []},
+  "H2": {"L0": 1, "same_as": "H0", "flags": [], "seen_values": []},
+  "H3": {"L0": 0, "items": [], "flags": [], "seen_values": []},
+  "H4": {"L0": 0, "items": [], "flags": [], "seen_values": []},
+  "H5": {"L0": 0, "items": [], "flags": [], "seen_values": []},
+  "G1": {"L0": 0, "items": [], "flags": [], "seen_values": []},
+  "G2": {"L0": 0, "items": [], "flags": [], "seen_values": []}
+ },
+ "flag_definitions": {
+  "TARGET-INFORMED-FORM": "the form or a scale of the row's mechanism was found from the measured values: lepton circulant and phase 2/9 (Koide 1982, Brannen; RL/reports/LIT.md B2; RL/MATCH.md: the phase is known only from the measured masses so far; repository: circulant architecture historically target-informed); Higgs and top boundary scale identified after the implied scale was computed (RL/MATCH.md, lane table)",
+  "SELECTION-FREEDOM": "the chain has declared discrete choices whose menu exceeds the residual: fine-structure and lepton chains, 22 declared discrete choices, 2.4 percent of neighbouring maps do as well (RL/briefs/TASK_S9.md citing P7a)"
+ }
+}

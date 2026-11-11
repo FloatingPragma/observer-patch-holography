@@ -1,0 +1,64 @@
+"""Item 5, exact: one charged quantum with quantum Z2 links on the 3 x 2 x 1 torus, Gauss sector with one static
+compensating charge (G_c = -1 at one cell, +1 elsewhere). The complete forward tick F_eps F_kappa M S is restricted to the
+sector (dimension 128 gauge classes x 6 cells x 4 = 3072), diagonalized, and the eigenphase of the dressed one-quantum level
+(largest overlap with links flat, quantum at kinetic momentum p) is compared with second-order perturbation theory
+(selfenergy.dense, including the vacuum term). `python item5_exact.py out.json alt` does the same for the alternating
+pair (two-tick operator; shifts are per tick; selfenergy_alt.dense_alt). A static U(1) twist sets p = (p1, 0, 0) continuously.
+"""
+import json, sys, time
+from multiprocessing import Pool
+import numpy as np
+from qlink import QLink
+from selfenergy import coin_on_axis, dense
+from selfenergy_alt import dense_alt
+ALT = False
+
+SHAPE, TH, KAP, STATIC = (3, 2, 1), 0.157935, -0.06, (1, 0, 0)
+
+def sector_matrix(eps, p1, kappa=KAP):
+    q = QLink(SHAPE, theta=TH, eps=eps, kappa=kappa, twist=(-p1, 0.0, 0.0))
+    g = np.ones(q.N); g[q.cid[STATIC]] = -1
+    stars = [q.star(c) for c in q.cells]
+    orbit = {0}
+    for s in stars: orbit |= {o ^ s for o in orbit}
+    orbit = sorted(orbit); canon = np.min(np.arange(q.NZ)[:, None] ^ np.array(orbit)[None, :], axis=1)
+    reps = np.unique(canon); nrm = np.sqrt(len(orbit))
+    dim = len(reps) * q.N * 4; U = np.empty((dim, dim), complex)
+    for a, z in enumerate(reps):
+        for x in range(q.N):
+            for k in range(4):
+                e = np.zeros((q.NZ, q.N, 4), complex); e[z, x, k] = 1
+                b = nrm * q.project(e, g)
+                U[:, (a * q.N + x) * 4 + k] = nrm * (q.two(b) if ALT else q.tick(b))[reps].reshape(-1)
+    return q, reps, U
+
+def _set(v):
+    global ALT
+    ALT = v
+
+def job(args):
+    eps, p1 = args; t0 = time.time()
+    q, reps, U = sector_matrix(eps, p1)
+    coin, E = coin_on_axis(p1, TH)
+    b0 = np.zeros(U.shape[0], complex); a0 = int(np.where(reps == 0)[0][0])
+    for x in range(q.N): b0[(a0 * q.N + x) * 4:(a0 * q.N + x) * 4 + 4] = coin / np.sqrt(q.N)
+    lam, V = np.linalg.eig(U)
+    ov = np.abs(V.conj().T @ b0) ** 2 / np.sum(np.abs(V) ** 2, axis=0)
+    j = int(np.argmax(ov)); near = np.abs(lam - lam[j]) < 1e-8
+    w0 = E + KAP * len(q.plaq); per = 2 if ALT else 1
+    dw = ((-np.angle(lam[j]) - per * w0 + np.pi) % (2 * np.pi) - np.pi) / per
+    sig, info = (dense_alt if ALT else dense)(SHAPE, TH, KAP, (p1, 0.0, 0.0), coin, E)
+    pt = sig + info['vacuum_shift_per_eps2']
+    return dict(eps=eps, p1=p1, sector_dimension=int(U.shape[0]), unitarity=float(np.abs(U.conj().T @ U - np.eye(len(U))).max()),
+                overlap_of_dressed_level=float(ov[near].sum()), levels_at_that_phase=int(near.sum()), E_free=E,
+                shift_exact_over_eps2=float(dw / eps ** 2), shift_second_order_over_eps2=float(pt), sigma_second_order=float(sig),
+                vacuum_term=float(info['vacuum_shift_per_eps2']), omega_exact=float(-np.angle(lam[j])), seconds=time.time() - t0)
+
+if __name__ == '__main__':
+    ALT = len(sys.argv) > 2 and sys.argv[2] == 'alt'
+    jobs = [(eps, p1) for p1 in (0.1, 0.2, 0.3) for eps in (0.01, 0.02, 0.04)] if not ALT else [(0.005, 0.1), (0.01, 0.1), (0.005, 0.3), (0.01, 0.3)]
+    with Pool(9 if not ALT else 4, initializer=_set, initargs=(ALT,)) as pool: rows = pool.map(job, jobs)
+    for r in rows:
+        print(f"p1={r['p1']} eps={r['eps']}: exact shift/eps^2 = {r['shift_exact_over_eps2']:+.6f}   second order = {r['shift_second_order_over_eps2']:+.6f}"
+              f"   (sigma {r['sigma_second_order']:+.6f}, vacuum {r['vacuum_term']:+.6f}; overlap {r['overlap_of_dressed_level']:.6f}, levels {r['levels_at_that_phase']}, unitarity {r['unitarity']:.1e}, {r['seconds']:.0f} s)")
+    json.dump(rows, open(sys.argv[1] if len(sys.argv) > 1 else 'item5_exact.json', 'w'), indent=1)

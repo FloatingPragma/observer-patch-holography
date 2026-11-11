@@ -1,0 +1,388 @@
+"""LC addendum 6 (X1 to X8 of CANDIDATES.md): worker LK's crossing and worker LK's kick on the sixty-address carrier.
+
+Crossing (LK, `work/LK/lk_common.py`, `cross_e`): two ticks (Q R_2)^2 of a seam's own walk with a two-orientation
+address register; the object's address register of sixty is a spectator. Kick (LK): the commutator of the oriented
+toggle T(eta) = exp(i eta J (x) Z_F Z_I) with the tick of the pair, h = 2 eta.
+EXACT (Fractions); mpmath for the phases at given N. Writes lc9_crossing.json. Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc9_crossing.py
+"""
+from __future__ import annotations
+
+import itertools
+import sys
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+
+import lc_common as L
+import lc2_configs as C2
+
+OUT = 'lc9_crossing.json'
+mp.mp.dps = 30
+FP = L.frame_plain()
+Z = Fr(0)
+AIDX = {pair: k for k, pair in enumerate(L.ADDR)}
+
+
+def cross(state, a, b, frame):
+    """Two ticks of the walk of the seam {a, b} with its own two-orientation address, started at orientation (a, b):
+    R_2 turns the orientation, Q acts at the seam address (b, a); R_2 turns it back, Q acts at (a, b). The address
+    register of sixty in the keys is a spectator."""
+    for (x, y) in ((b, a), (a, b)):
+        pa, pb = frame[AIDX[(x, y)]]
+        new = {}
+        for (cfg, regs), amp in state.items():
+            rec, k = regs[0]
+            for c2, r2, u in L.local(cfg, rec, pa, pb):
+                L.add(new, (c2, ((r2, k),) + regs[1:]), amp * u)
+        state = new
+    return state
+
+
+def dl_probs(port, flags, addr=None, nports=12):
+    """Tick-1 weights of flag classes for a double load at `port`; flags: dict name -> predicate(final cfg, record, address pair)."""
+    addr = L.ADDR if addr is None else addr
+    br, n2 = C2.tick1_generic([{port: 2}], addr, nports)
+    w = {name: Z for name in flags}
+    for (ci, k, c2, r2, u, und) in br:
+        for name, pred in flags.items():
+            if not und and pred(c2, r2, addr[k]):
+                w[name] += u * u / n2
+    return w
+
+
+def phases(c1, c2, Ns=(2, 10, 100, 1000, 10 ** 6)):
+    rows = {}
+    a1, a2 = mp.mpf(c1.numerator) / c1.denominator, mp.mpf(c2.numerator) / c2.denominator
+    for N in Ns:
+        z = mp.exp(-1j / mp.mpf(N))
+        amp = ((1 - a1 * (1 - z)) * (1 - a2 * (1 - z))) ** (N // 2)
+        rows[N] = {'phase per unit clock time': mp.nstr(-mp.arg(amp), 12), 'modulus': mp.nstr(abs(amp), 12)}
+    return rows
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC addendum 6: crossing and kick of worker LK on sixty addresses', 'provenance': L.provenance()}
+    f = L.F0
+
+    # ---------------- X1: the crossing on every seam, three frames
+    x1 = {}
+    for name, frame in (('FP plain law', FP), ('FE echo frame', L.frame_sorted()), ('FS(F0) screen frame', L.frame_screen(f))):
+        crossed = returned = other = 0
+        crossed_seams = set()
+        for (a, b) in L.ADDR:                       # ordered: the double starts at a and the seam is {a, b}
+            st, n2 = L.uniform([L.cfg_of(a, a)])
+            end = cross(st, a, b, frame)
+            target, _ = L.uniform([L.cfg_of(b, b)])
+            if end == target:
+                crossed += 1
+                crossed_seams.add(tuple(sorted((a, b))))
+            elif end == st:
+                returned += 1
+            else:
+                other += 1
+        x1[name] = {'starts (30 seams x 2 ends)': 60, 'crossed with amplitude one': crossed, 'returned to its port': returned,
+                    'other': other, 'seams that cross': len(crossed_seams)}
+    nosense = sorted(s for s in L.SEAMS if L.screen_sign(f, s[0], s[1]) == 0)
+    x1['seams without screen sense about F0'] = [list(s) for s in nosense]
+    out['X1_crossing_on_every_seam'] = x1
+    print('X1', x1)
+
+    # ---------------- X2: the carrier's own walk does not cross
+    a = 2
+    st, n2 = L.uniform([L.cfg_of(a, a)])
+    st = L.W(L.W(st, FP), FP)
+    wn = {}
+    for (cfg, regs), amp in st.items():
+        if regs[0][0] == 0 and max(cfg) == 2 and cfg[a] != 2:
+            p = cfg.index(2)
+            wn[p] = wn.get(p, Z) + amp * amp / n2
+    out['X2_two_ticks_of_the_sixty_address_walk'] = {
+        'weight on the blank double at each neighbour of port 2': {str(k): str(v) for k, v in sorted(wn.items())},
+        'total on the five neighbours': str(sum(wn.values(), Z))}
+    print('X2', out['X2_two_ticks_of_the_sixty_address_walk'])
+
+    # ---------------- X3: one object with both registers written out: key (cfg, record, address of sixty, orientation)
+    a, b = 2, 10
+    stx = {(L.cfg_of(a, a), 0, k, 0): Fr(1) for k in range(L.NA)}
+    for _ in range(2):
+        new = {}
+        for (cfg, rec, k, o), amp in stx.items():
+            o2 = 1 - o                                             # R_2
+            pa, pb = (a, b) if o2 == 0 else (b, a)                 # Q at the seam address of the orientation register
+            for c2, r2, u in L.local(cfg, rec, pa, pb):
+                L.add(new, (c2, r2, k, o2), amp * u)
+        stx = new
+    out['X3_both_registers_on_one_object'] = {
+        'final state is the blank double at the other end, every address of sixty with amplitude one, orientation back at its start':
+            stx == {(L.cfg_of(b, b), 0, k, 0): Fr(1) for k in range(L.NA)}}
+    print('X3', out['X3_both_registers_on_one_object'])
+
+    # ---------------- X4, X8: round coefficients at the two ends of the seam, and the phases
+    E, Cs = L.seam_types(f)
+    d = (2, 10)
+    tail_, head_ = (d if L.screen_sign(f, d[0], d[1]) > 0 else d[::-1])
+    fwd = next(s for s in Cs if head_ in s)
+    flags = {
+        'record 2': lambda c2, r2, ad: r2 == 2,
+        'record 3': lambda c2, r2, ad: r2 == 3,
+        'written': lambda c2, r2, ad: r2 in (2, 3),
+        'forward C': lambda c2, r2, ad: r2 in (2, 3) and tuple(sorted(ad)) == fwd,
+        'in-dimer': lambda c2, r2, ad: r2 in (2, 3) and tuple(sorted(ad)) == tuple(sorted(d)),
+    }
+    w2, w10 = dl_probs(2, flags), dl_probs(10, flags)
+    hexs = [(2, 3), (3, 9), (9, 1), (1, 0), (0, 10), (10, 2)]
+    haddr = [pair for s in hexs for pair in (s, s[::-1])]
+    h2, h10 = dl_probs(2, flags, haddr), dl_probs(10, flags, haddr)
+
+    def coeff(pA, qB):
+        return pA + qB - 2 * pA * qB
+    x4 = {}
+    for name, (c_a, c_b) in (
+            ('record flags (RD-rec), sixty addresses', (coeff(w2['record 2'], w2['written']), coeff(w10['record 2'], w2['written']))),
+            ("FR's hexagon flags (RD-FR), sixty addresses", (coeff(w2['forward C'], w2['in-dimer']), coeff(w10['forward C'], w2['in-dimer']))),
+            ('RD-mix1 (A record 2, B in-dimer), sixty addresses', (coeff(w2['record 2'], w2['in-dimer']), coeff(w10['record 2'], w2['in-dimer']))),
+            ("control: FR's hexagon flags on the hexagon of twelve addresses (LK)", (coeff(h2['forward C'], h2['in-dimer']), coeff(h10['forward C'], h2['in-dimer'])))):
+        x4[name] = {'coefficient with A at port 2': str(c_a), 'with A at port 10': str(c_b), 'mean': str((c_a + c_b) / 2),
+                    'c (1 - c) at the two ends (weight of the outcome no over abs(1 - z)^2)': [str(c_a * (1 - c_a)), str(c_b * (1 - c_b))],
+                    'phase per unit clock time, N rounds with the crossing between rounds': phases(c_a, c_b)}
+    rec2_all = {str(dl_probs(p, flags)['record 2']) for p in range(12)}
+    x4['record 2 weight of a double load at each of the twelve ports'] = sorted(rec2_all)
+    out['X4_X8_round_coefficients_and_phases'] = x4
+    for k, v in x4.items():
+        print('X4', k, v if not isinstance(v, dict) else {kk: vv for kk, vv in v.items() if 'phase' not in kk},
+              '' if not isinstance(v, dict) else {N: r['phase per unit clock time'] for N, r in v['phase per unit clock time, N rounds with the crossing between rounds'].items()})
+
+    # ---------------- X5: the crossing in the configurations of the table
+    x5 = {}
+    # two cells: object A alone in its cell (X1). One cell with two double loads (G1a):
+    g1a = {}
+    for (pa, pb) in itertools.permutations(range(12), 2):
+        dist = L.port_distance(pa, pb)
+        if dist < 2:
+            continue
+        for q in sorted(L.ADJ[pa]):
+            st, n2 = L.uniform([L.cfg_of(pa, pa, pb, pb)])
+            try:
+                end = cross(st, pa, q, FP)
+                ok = end == L.uniform([L.cfg_of(q, q, pb, pb)])[0]
+            except L.Undefined:
+                ok = False
+            key = f'from port distance {dist}'
+            row = g1a.setdefault(key, {'crossings': 0, 'defined with amplitude one': 0, 'landing distance to B': {}})
+            row['crossings'] += 1
+            row['defined with amplitude one'] += int(ok)
+            ld = L.port_distance(q, pb)
+            row['landing distance to B'][ld] = row['landing distance to B'].get(ld, 0) + 1
+    x5['G1a one cell, two double loads on non-adjacent ports, A crosses one of its five seams'] = g1a
+    # G1c: a clean choice of two symmetric double loads in one cell; A crosses its own E seam
+    g1c = None
+    for fA in L.FACES:
+        for fB in L.FACES:
+            if fA == fB or g1c:
+                continue
+            for dA in L.seam_types(fA)[0]:
+                for dB in L.seam_types(fB)[0]:
+                    if set(dA) & set(dB) or any(y in L.ADJ[x] for x in dA for y in dB):
+                        continue
+                    cfgs = [L.cfg_of(x, x, y, y) for x in dA for y in dB]
+                    st, n2 = L.uniform(cfgs)
+                    end = cross(st, dA[0], dA[1], FP)
+                    g1c = {'faces': [fA, fB], 'dimers': [dA, dB], 'state after the crossing of A equals the state before': end == st}
+                    break
+                if g1c:
+                    break
+    x5['G1c one cell, two symmetric double loads (a clean choice), A crosses its E seam'] = g1c
+    # G6: one double load on the seam (2, 10) held by two carriers: statistics at the far end
+    others = [p for p in range(12) if p not in (2, 10)]
+    ymap = {2: 2, 10: 10, **{p: 12 + i for i, p in enumerate(others)}}
+    frameX = tuple(L.ADDR)
+    frameY = tuple((ymap[p], ymap[q]) for (p, q) in L.ADDR)
+    g6 = {}
+    for port in (2, 10):
+        cfg0 = tuple(2 if p == port else 0 for p in range(22))
+        S = {(cfg0, ((0, k1), (0, k2))): Fr(1) for k1 in range(60) for k2 in range(60)}
+        n2 = Fr(len(S))
+        st2 = L.Qstep(L.Qstep(S, frameX, reg=0), frameY, reg=1)
+        wR = sum((amp * amp for (cfg, regs), amp in st2.items() if regs[0][0] == 2), Z) / n2
+        wH = sum((amp * amp for (cfg, regs), amp in st2.items() if regs[1][0] in (2, 3)), Z) / n2
+        wj = sum((amp * amp for (cfg, regs), amp in st2.items() if regs[0][0] == 2 and regs[1][0] in (2, 3)), Z) / n2
+        g6[f'double at port {port}, the carrier of the defect first'] = {'P(R+)': str(wR), 'P(H)': str(wH), 'count': str(wR + wH - 2 * wj)}
+    cfg2 = tuple(2 if p == 2 else 0 for p in range(22))
+    st, _ = {(cfg2, ((0, k),)): Fr(1) for k in range(60)}, None
+    end = cross(st, 2, 10, tuple(list(frameX)))
+    g6['crossing along the shared seam: blank double at port 10'] = end == {(tuple(2 if p == 10 else 0 for p in range(22)), ((0, k),)): Fr(1) for k in range(60)}
+    x5['G6 one double load on a seam held by two carriers'] = g6
+    x5['two cells (G2a, G2b, G2c, G2d, G2e, G7, A12)'] = 'object A is alone in its cell: X1 applies, amplitude one on every seam (plain law)'
+    x5['native pairs (G2f, G1d, G1e, A5)'] = 'no double load in the cell: the crossing has no object'
+    x5['rows marked not defined (G1b, G1c at separation 5, G3c, G5b)'] = 'the tick is outside the local completion before any crossing'
+    out['X5_crossing_by_configuration'] = x5
+    print('X5', {k: v for k, v in x5.items()})
+
+    # ---------------- X6: LK's round on the carrier, branch by branch (two cells, double loads, record flags)
+    stA, nA = L.uniform([L.cfg_of(2, 2)])
+    wA = L.Qstep(stA, FP)                                          # tick of a cell from the uniform blank double
+    same, zero, kicked = True, Z, Z
+    for (cfgA, regsA), ampA in wA.items():
+        fA = int(regsA[0][0] == 2)                                 # flag F of A: record 2
+        for (cfgB, regsB), ampB in wA.items():
+            iB = int(regsB[0][0] in (2, 3))                        # flag I of B: written record
+            zf, zi = 1 - 2 * fA, 1 - 2 * iB
+            exp_toggle = 1 - zf * zi                               # exponent of exp(-i eta j): T^-1 on the unflagged pair, then T
+            exp_kick = 2 * (fA ^ iB)                               # exponent of exp(-i eta j) for exp(-2 i eta j Qx)
+            same &= exp_toggle == exp_kick
+            wgt = (ampA * ampB) ** 2 / (nA * nA)
+            if exp_kick:
+                kicked += wgt
+            else:
+                zero += wgt
+    c_port = set()
+    for p in range(12):
+        wp = dl_probs(p, flags)
+        c_port.add(str(coeff(wp['record 2'], wp['written'])))
+    out['X6_round_with_the_oriented_toggle'] = {
+        'branches compared (60 x 60 address pairs)': len(wA) ** 2,
+        'T(eta)^-1, tick, T(eta) equals tick, exp(-2 i eta j Qx) on every branch': same,
+        'weight of the branches with Qx = 1 (the coefficient c)': str(kicked), 'weight with Qx = 0': str(zero),
+        'one round on the returned state': '1 - c (1 - z), z = exp(-2 i eta j), c = 2/9; the hold flag (j = 0) keeps amplitude 1',
+        'coefficient for a double load at each of the twelve ports': sorted(c_port),
+        'weight of the outcome no over abs(1 - z)^2': str(kicked * (1 - kicked)),
+        'non-return content (lc3_round.json)': 'blank record, the double at the same port, non-uniform address; the reset restores the address consensus',
+    }
+    print('X6', out['X6_round_with_the_oriented_toggle'])
+
+    # ---------------- X7: non-return of object A in the symmetric state (LK's correction to CK2), sixty addresses
+    def nonreturn(cfgs, pred, frame):
+        S, n2 = L.uniform(cfgs)
+        w = L.W(S, frame)
+        v = L.Winv(L.restrict(w, pred), frame)
+        s = L.dot(S, v) / n2
+        perp = dict(v)
+        for k, cc in S.items():
+            L.add(perp, k, -s * cc)
+        tot = L.norm2(perp) / n2
+        uni_by_cfg = {}
+        for cfg in cfgs:
+            mean = sum((perp.get((cfg, ((0, k),)), Z) for k in range(L.NA)), Z) / L.NA
+            uni_by_cfg[str(L.ports_of(cfg))] = (mean, L.NA * mean * mean / n2)
+        signs = [m for m, _ in uni_by_cfg.values()]
+        anti = len(signs) == 2 and signs[0] == -signs[1] and signs[0] != 0
+        uni = sum((wv for _, wv in uni_by_cfg.values()), Z)
+        return {'s': str(s), 'norm^2 of the non-return': str(tot), 'part with uniform address': str(uni),
+                'that part is antisymmetric in the two double locations': anti, 'part with non-uniform address': str(tot - uni)}
+    Sd = [L.cfg_of(2, 2), L.cfg_of(10, 10)]
+    x7 = {
+        'hexagon forward flag, sixty addresses, FS(F0)': nonreturn(
+            Sd, lambda cfg, regs: regs[0][0] in (2, 3) and tuple(sorted(L.ports_of(cfg))) == fwd, L.frame_screen(f)),
+        'hexagon forward flag, sixty addresses, FP': nonreturn(
+            Sd, lambda cfg, regs: regs[0][0] in (2, 3) and tuple(sorted(L.ports_of(cfg))) == fwd, FP),
+        'record 2 flag, sixty addresses, FP': nonreturn(Sd, lambda cfg, regs: regs[0][0] == 2, FP),
+        'record 2 flag, double at one port, FP': nonreturn([L.cfg_of(2, 2)], lambda cfg, regs: regs[0][0] == 2, FP),
+    }
+    out['X7_non_return_of_object_A'] = x7
+    print('X7', x7)
+
+    # ---------------- X9: the crossing with the sixty-address register alone
+    a, b = 2, 10
+    ka, kb = AIDX[(a, b)], AIDX[(b, a)]
+
+    def r_seam(state):
+        """Reflection about the uniform state of the two addresses of the seam {a, b}; identity on the other addresses."""
+        new = {}
+        for (cfg, regs), amp in state.items():
+            rec, k = regs[0]
+            k2 = kb if k == ka else ka if k == kb else k
+            L.add(new, (cfg, ((rec, k2),)), amp)
+        return new
+
+    def two_seam_ticks(state):
+        for _ in range(2):
+            state = L.Qstep(r_seam(state), FP)
+        return state
+    x9 = {}
+    dbl_a, dbl_b = L.cfg_of(a, a), L.cfg_of(b, b)
+    for name, addrs in (('consensus over sixty addresses', list(range(L.NA))), ('address uniform on the two addresses of the seam', [ka, kb]),
+                        ('address (2, 10)', [ka]), ('address (10, 2)', [kb])):
+        st = {(dbl_a, ((0, k),)): Fr(1) for k in addrs}
+        n2 = Fr(len(addrs))
+        end = two_seam_ticks(st)
+        w_cross = sum((amp * amp for (cfg, regs), amp in end.items() if cfg == dbl_b and regs[0][0] == 0), Z) / n2
+        w_back = sum((amp * amp for (cfg, regs), amp in end.items() if cfg == dbl_a and regs[0][0] == 0), Z) / n2
+        on_seam = sum((amp * amp for (cfg, regs), amp in end.items() if regs[0][1] in (ka, kb)), Z) / n2
+        x9[name] = {'weight on the blank double at the other end': str(w_cross), 'weight back at the port': str(w_back),
+                    'weight of the final address on the seam': str(on_seam)}
+    out['X9_crossing_with_the_sixty_address_register_alone'] = x9
+    print('X9', x9)
+
+    # ---------------- X10: the twelve-address register as a sub-register of the sixty
+    hex_k = [AIDX[pair] for pair in haddr]
+
+    def r_sub(state, subset):
+        """Reflection about the uniform state of an address subset; identity on the other addresses."""
+        sub = set(subset)
+        groups = {}
+        for (cfg, regs), amp in state.items():
+            groups.setdefault((cfg, regs[0][0]), {})[regs[0][1]] = amp
+        new = {}
+        for (cfg, rec), g in groups.items():
+            mean = sum((g.get(k, Z) for k in subset), Z) / len(subset)
+            for k in set(g) | sub:
+                val = (2 * mean - g.get(k, Z)) if k in sub else g.get(k, Z)
+                if val:
+                    new[(cfg, ((rec, k),))] = val
+        return new
+
+    def w_hex(state):
+        return L.Qstep(r_sub(state, hex_k), FP)
+
+    def w_hex_inv(state):
+        return r_sub(L.Qstep(state, FP), hex_k)
+
+    def prep(cfgs, addrs):
+        return {(c, ((0, k),)): Fr(1) for c in cfgs for k in addrs}, Fr(len(cfgs) * len(addrs))
+
+    def hex_weights(cfgs, addrs):
+        st, n2 = prep(cfgs, addrs)
+        w = w_hex(st)
+        res = {'forward C': Z, 'backward C': Z, 'in-dimer': Z, 'record 2': Z, 'record 3': Z, 'off the hexagon': Z, 'blank': Z}
+        bwd = next(sm for sm in Cs if tail_ in sm)
+        for (cfg, regs), amp in w.items():
+            wgt = amp * amp / n2
+            rec, k = regs[0]
+            if rec not in (2, 3):
+                res['blank'] += wgt
+                continue
+            res[f'record {rec}'] += wgt
+            seam = tuple(sorted(L.ADDR[k]))
+            res['forward C' if seam == fwd else 'backward C' if seam == bwd else 'in-dimer' if seam == tuple(sorted(d)) else 'off the hexagon'] += wgt
+        back = w_hex_inv(w) == st
+        on_hex = sum((amp * amp for (cfg, regs), amp in w.items() if regs[0][1] in set(hex_k)), Z) / n2
+        return res, back, on_hex
+    x10 = {}
+    for prep_name, addrs in (('address prepared on the twelve hexagon addresses', hex_k), ('consensus over sixty addresses', list(range(L.NA)))):
+        rows = {}
+        for obj, cfgs in (('double at port 2', [L.cfg_of(2, 2)]), ('double at port 10', [L.cfg_of(10, 10)]),
+                          ('symmetric double on (2,10)', [L.cfg_of(2, 2), L.cfg_of(10, 10)])):
+            res, back, on_hex = hex_weights(cfgs, addrs)
+            rows[obj] = {**{k: str(v) for k, v in res.items()}, 'W_hex^-1 W_hex = 1': back, 'weight of the address on the hexagon after the tick': str(on_hex)}
+        pa2, pa10 = Fr(rows['double at port 2']['forward C']), Fr(rows['double at port 10']['forward C'])
+        qb = Fr(rows['double at port 2']['in-dimer'])
+        ps, qs = Fr(rows['symmetric double on (2,10)']['forward C']), Fr(rows['symmetric double on (2,10)']['in-dimer'])
+        r2s, wr = Fr(rows['double at port 2']['record 2']), Fr(rows['double at port 2']['record 2']) + Fr(rows['double at port 2']['record 3'])
+        rows['coefficients (hexagon flags): A at port 2, A at port 10, mean'] = [str(coeff(pa2, qb)), str(coeff(pa10, qb)), str((coeff(pa2, qb) + coeff(pa10, qb)) / 2)]
+        rows['count of two symmetric doubles (hexagon flags)'] = str(coeff(ps, qs))
+        rows['count with record flags (double at port 2 in each cell)'] = str(coeff(r2s, wr))
+        x10[prep_name] = rows
+    x10['weight of the consensus over sixty on the hexagon addresses'] = str(Fr(len(hex_k), L.NA))
+    out['X10_twelve_address_register_as_a_sub_register'] = x10
+    print('X10', {k: (v if not isinstance(v, dict) else {kk: vv for kk, vv in v.items() if 'coeff' in kk or 'count' in kk or kk == 'symmetric double on (2,10)'}) for k, v in x10.items()})
+
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

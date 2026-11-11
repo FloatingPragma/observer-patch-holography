@@ -1,0 +1,57 @@
+"""Fresh structural source/reference/record proof with immutable prerequisites."""
+from pathlib import Path
+import argparse,hashlib,json,sys
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]/'reverse-engineering-reality'
+sys.path.insert(0,str(HERE))
+from structure import calculate
+from model.particle_common_contract.provenance import import_closure
+PARENTS=(
+ 'model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json',
+ 'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json',
+ 'model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/results.json',
+ 'model/affine_gauss_mobile/results.json',
+ 'model/affine_gauss_spectrum/results.json',
+ 'model/affine_gauss_full_spectrum/results.json')
+
+def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def certificate():
+    pins={};receipts={}
+    for relative in PARENTS:
+        path=ROOT/relative;value=json.loads(path.read_text())
+        for source,expected in value['input_sha256'].items():
+            if digest(ROOT/source)!=expected:raise ValueError('changed frozen source: '+source)
+            if source in pins and pins[source]!=expected:raise ValueError('inconsistent inherited source')
+            pins[source]=expected
+        pins[relative]=digest(path);receipts[relative]=digest(path)
+    value=calculate()
+    seeds={'model/coherent_defect_wave/physical_attachment/chiral.py',
+      'model/coherent_defect_wave/chiral_source/model.py',
+      'model/coherent_defect_wave/chiral_joint/oriented_links/rotations.py',
+      'model/particle_common_contract/provenance.py'}
+    for relative in import_closure(seeds):pins[relative]=digest(ROOT/relative)
+    value['prerequisite_receipts']=receipts
+    value['input_sha256']=dict(sorted(pins.items()))
+    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['scope_boundaries']={'declared_new_Hamiltonian_and_enlarged_reference':True,
+      'original_uniform_native_lattice_H_preserved':False,
+      'each_original_intrablock_H_preserved':True,
+      'whole_bin_native_H_replaced_by_center':False,
+      'entire_native_complement_retained':True,
+      'selected_native_eigenvectors_or_full_native_source_evolution_numerically_executed':False,
+      'finite_spectral_and_state_synthesis_services_declared':True,
+      'efficient_native_gate_implementation_proved':False,
+      'unpenalized_full_charged_ground_identified':False,
+      'penalty_alternative_is_separate_Hamiltonian':True,
+      'continuous_physical_spin_Dirac_or_SM_identification':False}
+    return value
+
+def main():
+    p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True)
+    g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');a=p.parse_args()
+    value=certificate();path=HERE/'results.json'
+    if a.write:path.write_text(json.dumps(value,indent=2,sort_keys=True)+'\n')
+    elif json.loads(path.read_text())!=value:raise ValueError('fresh native field join differs')
+    print(json.dumps({'check':'PASS','receipt_sha256':digest(path),'source_pins':len(value['input_sha256'])}))
+if __name__=='__main__':main()

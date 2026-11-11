@@ -1,0 +1,105 @@
+"""Worker LK, statement R6 and A3: the round executed on the public one-load program with its own methods only.
+
+Run from RL/work/LK:
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_public_round.py
+EXACT (Fractions and sympy I). The public checkout is imported read only. Writes lk_public_round.json.
+
+Round: embedded_port(0) -> step -> quarter_turn on every register address with record 1 and nonzero amplitude
+-> inverse_step -> embedded_return_measurement(state, 0). The quarter-turns are the kick exp(-i h j Pi) with
+h j = -pi/2 on the flag Pi = "record 1".
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+import time
+from fractions import Fraction as F
+
+sys.dont_write_bytecode = True
+import lk_common as L  # noqa: E402  (puts the public checkout on the path)
+import sympy as s  # noqa: E402
+from model.coherent_seam_repair.program import Observer, State  # noqa: E402
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T0 = time.time()
+OUT = {'provenance': L.provenance(), 'program': 'model/coherent_seam_repair/program.py, Observer(fibre=1)'}
+
+ob = Observer()
+D = ob.address_count
+port = 0
+s0 = ob.embedded_port(port)
+s1 = ob.step(s0)
+flagged = [i for i, x in enumerate(s1.amplitudes) if x != 0 and (i // D) % 2 == 1]
+p = sum((s1.amplitudes[i] ** 2 for i in flagged), F(0)) / s1.norm_denominator
+s2, records = s1, []
+for i in flagged:
+    s2, rec = ob.quarter_turn(s2, i)
+    records.append(rec)
+s3 = ob.inverse_step(s2)
+amp = s.nsimplify(ob.embedded_return_amplitude(s3, port))
+branches = ob.embedded_return_measurement(s3, port)
+norms = {str(rec['outcome']): s.nsimplify(st.norm_squared()) for rec, st in branches}
+expected = (1 - p) + p * s.I
+OUT['R6 strong round on the public program'] = {
+    'operations used': ['Observer.embedded_port', 'Observer.step', 'Observer.quarter_turn', 'Observer.inverse_step',
+                        'Observer.embedded_return_amplitude', 'Observer.embedded_return_measurement'],
+    'inverse_step(step(prepared)) equals prepared': ob.inverse_step(s1).amplitudes == s0.amplitudes,
+    'register addresses with record 1 and nonzero amplitude': len(flagged),
+    'P(record 1) after one step': str(p),
+    'quarter-turn records kept': len(records),
+    'return amplitude': str(amp), 'expected 1 - p + p exp(-i h j), h j = -pi/2': str(s.nsimplify(expected)),
+    'equal': s.simplify(amp - expected) == 0,
+    'norm squared of the yes branch': str(norms['True']), 'norm squared of the no branch': str(norms['False']),
+    'expected no weight 4 sin^2(pi/4) p (1 - p)': str(2 * p * (1 - p)),
+    'phase of the return amplitude': float(s.arg(amp)), 'arctan(p/(1 - p))': float(s.atan(p / (1 - p))),
+}
+
+# the no branch: blank record at the prepared port, non-uniform address (what a reset has to restore)
+no_state = [st for rec, st in branches if rec['outcome'] is False][0]
+w_port_blank = sum((abs(no_state.amplitudes[ob.index(port, 0, k)]) ** 2 for k in range(D)), F(0)) / no_state.norm_denominator
+w_rec1 = sum((abs(x) ** 2 for i, x in enumerate(no_state.amplitudes) if (i // D) % 2 == 1), F(0)) / no_state.norm_denominator
+w_other_blank = s.nsimplify(norms['False'] - w_port_blank - w_rec1)
+OUT['R6 no branch'] = {
+    'weight at the prepared port with blank record (non-uniform address)': str(s.nsimplify(w_port_blank)),
+    'weight at the neighbour ports with blank record': str(w_other_blank),
+    'weight with record 1': str(s.nsimplify(w_rec1)),
+    'total weight': str(norms['False']),
+    'reading': 'the complement has a blank record; the load sits at the prepared port with a non-uniform address or at '
+               'a neighbour port; the public preparation embedded_port(port) restores the prepared state',
+}
+
+# ------------------------------------------------------------------ A3: the public event on one seam, both addresses
+a, b = ob.addresses[0]
+k_ab = ob.addresses.index((a, b))
+k_ba = ob.addresses.index((b, a))
+
+
+def block(k):
+    basis = [(a, 0), (b, 0), (a, 1), (b, 1)]
+    M = s.zeros(4, 4)
+    for col, (pt, par) in enumerate(basis):
+        img = ob.repair(ob.basis_state(pt, par, k))
+        for row, (pt2, par2) in enumerate(basis):
+            M[row, col] = img.amplitudes[ob.index(pt2, par2, k)]
+        assert sum(x * x for x in img.amplitudes) == 1
+    return M
+
+
+U_ab, U_ba = block(k_ab), block(k_ba)
+m0 = s.Matrix([1, -1, 0, 0]) / s.sqrt(2)                   # |m,0> = (|a,0> - |b,0>)/sqrt2
+p1 = s.Matrix([0, 0, 1, 1]) / s.sqrt(2)                    # |p,1> = (|a,1> + |b,1>)/sqrt2
+K = p1 * m0.T + m0 * p1.T
+OUT['A3 public event on one seam'] = {
+    'seam': [a, b],
+    'address (a,b): U = 1 - K^2 + K': (U_ab - (s.eye(4) - K * K + K)).applyfunc(s.simplify) == s.zeros(4, 4),
+    'address (b,a): U = 1 - K^2 - K': (U_ba - (s.eye(4) - K * K - K)).applyfunc(s.simplify) == s.zeros(4, 4),
+    'K^3 = K': (K ** 3 - K).applyfunc(s.simplify) == s.zeros(4, 4),
+    'statement': 'on the two addresses of one seam the public event is Q = 1 - K^2 + sigma_z(o) K, K the exchange of '
+                 '|m,0> and |p,1>; the two orientations apply the exchange with opposite signs',
+}
+
+OUT['seconds'] = round(time.time() - T0, 2)
+with open(os.path.join(HERE, 'lk_public_round.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print(json.dumps({k: v for k, v in OUT.items() if k != 'provenance'}, indent=1, default=str))

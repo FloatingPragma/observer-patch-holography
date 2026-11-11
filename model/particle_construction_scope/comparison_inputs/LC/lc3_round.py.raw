@@ -1,0 +1,230 @@
+"""LC item 1b: CK2's weak round (tick, kick on the exclusive-read projector, inverse tick, return test) on the
+sixty-address carrier (section 5 of CANDIDATES.md). EXACT (Fractions); mpmath for the phases at given N.
+Writes lc3_round.json. Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc3_round.py
+"""
+from __future__ import annotations
+
+import sys
+import time
+from fractions import Fraction as Fr
+
+import mpmath as mp
+
+import lc_common as L
+
+OUT = 'lc3_round.json'
+mp.mp.dps = 40
+FP = L.frame_plain()
+Z = Fr(0)
+
+
+def split_nonreturn(v, S, n2, s):
+    """v = W^-1 Pi W S (unnormalized, norm n2 convention of S). Returns the squared norm of v - s S and its split."""
+    perp = dict(v)
+    for k, c in S.items():
+        L.add(perp, k, -s * c)
+    tot = L.norm2(perp) / n2
+    parts = {'written record (1, 2 or 3)': Z, 'blank record, initial configuration': Z,
+             'blank record, other configuration': Z}
+    init_cfgs = {cfg for (cfg, regs) in S}
+    for (cfg, regs), c in perp.items():
+        written = any(r != 0 for (r, k) in regs)
+        key = 'written record (1, 2 or 3)' if written else \
+            'blank record, initial configuration' if cfg in init_cfgs else 'blank record, other configuration'
+        parts[key] += c * c / n2
+    # uniform-address component of the blank-record part on the initial configurations (invisible to an address test)
+    uni = Z
+    if all(len(regs) == 1 for (cfg, regs) in S):
+        for cfg in init_cfgs:
+            mean = sum((perp.get((cfg, ((0, k),)), Z) for k in range(L.NA)), Z) / L.NA
+            uni += L.NA * mean * mean / n2
+    return tot, parts, uni
+
+
+def one_object(name, cfgs, frame, flags, later=12):
+    """flags: dict label -> predicate(cfg, regs). Returns per-flag s, non-return data and forward-only weights."""
+    S, n2 = L.uniform(cfgs)
+    w = L.W(S, frame)
+    back = L.Winv(w, frame)
+    res = {'object': name, 'W^-1 W S = S': back == S}
+    for lab, pred in flags.items():
+        part = L.restrict(w, pred)
+        p_direct = L.norm2(part) / n2
+        v = L.Winv(part, frame)
+        s = L.dot(S, v) / n2
+        tot, parts, uni = split_nonreturn(v, S, n2, s)
+        res[lab] = {'weight after one tick': str(p_direct), '<S|W^-1 Pi W|S>': str(s), 'equal': p_direct == s,
+                    'norm^2 of the non-return vector': str(tot), 's (1 - s)': str(s * (1 - s)),
+                    'split': {k: str(x) for k, x in parts.items()},
+                    'blank-record part on the initial configuration with uniform address': str(uni)}
+    if later:
+        st = dict(S)
+        rows = {lab: [] for lab in flags}
+        for n in range(1, later + 1):
+            st = L.W(st, frame)
+            for lab, pred in flags.items():
+                rows[lab].append(L.norm2(L.restrict(st, pred)) / n2)
+        res['forward only: flag weights at ticks 1 to %d' % later] = {lab: [str(x) for x in v] for lab, v in rows.items()}
+        res['_rows'] = rows
+    return res
+
+
+def phases(P):
+    Pm = mp.mpf(P.numerator) / P.denominator
+    rows = []
+    for N in (1, 2, 6, 10, 100, 1000, 10 ** 4, 10 ** 6):
+        z = (1 - Pm * (1 - mp.exp(-1j / mp.mpf(N)))) ** N
+        rows.append({'N': N, 'phase per unit clock time': mp.nstr(-mp.arg(z), 15), 'amplitude kept': mp.nstr(abs(z), 12)})
+    return rows
+
+
+def pair_summary(A, B, labA, labB):
+    sA, sB = Fr(A[labA]['<S|W^-1 Pi W|S>']), Fr(B[labB]['<S|W^-1 Pi W|S>'])
+    P = sA * (1 - sB) + (1 - sA) * sB
+    nA, nB = Fr(A[labA]['norm^2 of the non-return vector']), Fr(B[labB]['norm^2 of the non-return vector'])
+    tot = (1 - 2 * sB) ** 2 * nA + (1 - 2 * sA) ** 2 * nB + 4 * nA * nB
+    out = {'s_A (R+)': str(sA), 's_B (H)': str(sB), 'P = <Qx>': str(P),
+           'zero-return amplitude of one round': f'1 - P + P exp(-i h j), P = {P}',
+           'state after a zero return': 'the initial pair (the return test projects on it): round n + 1 starts as round 1',
+           'non-return weight per round': f'4 sin^2(h j/2) * {tot}', 'P (1 - P)': str(P * (1 - P)),
+           'equal': tot == P * (1 - P), 'N rounds': phases(P), 'limit of the phase per unit clock time': str(P),
+           'one strong kick (no return read between rounds), phase at t = 1':
+               mp.nstr(mp.arg(1 - mp.mpf(P.numerator) / P.denominator * (1 - mp.exp(1j))), 12)}
+    if '_rows' in A and '_rows' in B:
+        pa, qb = A['_rows'][labA], B['_rows'][labB]
+        cnt = [p + q - 2 * p * q for p, q in zip(pa, qb)]
+        out['forward only: exclusive counts at ticks 1 to %d' % len(cnt)] = [str(c) for c in cnt]
+        out['forward only: the same as float'] = [round(float(c), 9) for c in cnt]
+        out['forward only: mean per tick (float)'] = round(float(sum(cnt, Z) / len(cnt)), 9)
+    return out
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC item 1b: the weak round on sixty addresses', 'provenance': L.provenance()}
+    f = L.F0
+    FS = L.frame_screen(f)
+    d = (2, 10)
+    E, C = L.seam_types(f)
+    tail_, head_ = (d if L.screen_sign(f, d[0], d[1]) > 0 else d[::-1])
+    fwd = next(s for s in C if head_ in s)
+    bwd = next(s for s in C if tail_ in s)
+
+    def rec_is(*vals):
+        return lambda cfg, regs: regs[0][0] in vals
+
+    def cfg_is(seam):
+        return lambda cfg, regs: regs[0][0] in (2, 3) and tuple(sorted(L.ports_of(cfg))) == tuple(sorted(seam))
+
+    # ---------------- (i) G2a: double loads on two carriers, flags by record
+    res = {}
+    for frame_name, frame in (('FP', FP), ('FS(F0)', FS)):
+        for obj_name, cfgs in (('DL at port 2', [L.cfg_of(2, 2)]), ('SD on (2,10)', [L.cfg_of(2, 2), L.cfg_of(10, 10)])):
+            o = one_object(obj_name, cfgs, frame, {'record 2': rec_is(2), 'record 3': rec_is(3), 'record 2 or 3': rec_is(2, 3)})
+            summ = pair_summary(o, o, 'record 2', 'record 2 or 3')
+            o.pop('_rows', None)
+            res[f'{obj_name}, {frame_name}'] = {'object': o, 'pair (A flag record 2, B flag record 2 or 3)': summ}
+            print('(i)', obj_name, frame_name, {k: summ[k] for k in ('s_A (R+)', 's_B (H)', 'P = <Qx>', 'equal',
+                                                                    'forward only: the same as float',
+                                                                    'forward only: mean per tick (float)')})
+            print('     A non-return:', o['record 2']['norm^2 of the non-return vector'], o['record 2']['split'],
+                  'uniform-address part', o['record 2']['blank-record part on the initial configuration with uniform address'])
+            print('     B non-return:', o['record 2 or 3']['norm^2 of the non-return vector'], o['record 2 or 3']['split'])
+    out['G2a double loads on two carriers, RD-rec'] = res
+
+    # ---------------- (ii) G2b: FR's hexagon flags on sixty addresses
+    o = one_object('SD on (2,10)', [L.cfg_of(2, 2), L.cfg_of(10, 10)], FS,
+                   {'forward C': cfg_is(fwd), 'backward C': cfg_is(bwd), 'in-dimer': cfg_is(d)})
+    summ = pair_summary(o, o, 'forward C', 'in-dimer')
+    o.pop('_rows', None)
+    out['G2b symmetric double loads on two carriers, RD-FR, FS(F0)'] = {'object': o, 'pair': summ}
+    print('(ii)', {k: summ[k] for k in ('s_A (R+)', 's_B (H)', 'P = <Qx>', 'equal', 'forward only: the same as float',
+                                        'forward only: mean per tick (float)')})
+
+    # ---------------- (iii) G2f: native pairs on two carriers (flags relative to the initial ports)
+    x = 2
+    y = next(p for p in range(12) if L.port_distance(x, p) == 2)
+    ports = (x, y)
+
+    def rp(first):
+        def pred(cfg, regs):
+            rec, k = regs[0]
+            a, b = L.ADDR[k]
+            return rec == 1 and ((a in ports and b not in ports) if first else (b in ports and a not in ports))
+        return pred
+
+    def agree(cfg, regs):
+        rec, k = regs[0]
+        a, b = L.ADDR[k]
+        return rec == 0 and ((a in ports) != (b in ports))
+    o = one_object(f'NP on {ports}', [L.cfg_of(*ports)], FP,
+                   {'repair, source first': rp(True), 'repair, source second': rp(False), 'agree': agree}, later=0)
+    summ = pair_summary(o, o, 'repair, source first', 'agree')
+    out['G2f native pairs on two carriers, RN-rec, FP'] = {'object': o, 'pair': summ}
+    print('(iii)', {k: summ[k] for k in ('s_A (R+)', 's_B (H)', 'P = <Qx>', 'equal')})
+    print('     A non-return:', o['repair, source first']['norm^2 of the non-return vector'], o['repair, source first']['split'])
+    print('     B non-return:', o['agree']['norm^2 of the non-return vector'], o['agree']['split'])
+
+    # ---------------- (iv) G1a: one carrier, one register, two double loads on non-adjacent ports
+    a = 2
+    b = next(p for p in range(12) if L.port_distance(a, p) == 3)
+    S, n2 = L.uniform([L.cfg_of(a, a, b, b)])
+    w = L.W(S, FP)
+
+    def qx(cfg, regs):
+        rec = regs[0][0]
+        return (rec == 2 and cfg[a] == 1) or (rec in (2, 3) and cfg[b] == 1)
+    part = L.restrict(w, qx)
+    v = L.Winv(part, FP)
+    s = L.dot(S, v) / n2
+    tot, parts, uni = split_nonreturn(v, S, n2, s)
+    out['G1a one carrier, one register, double loads on antipodal ports, RD-rec, FP'] = {
+        'ports': [a, b], 'W^-1 W S = S': L.Winv(w, FP) == S, 'P = <Qx>': str(s), 'P (1 - P)': str(s * (1 - s)),
+        'norm^2 of the non-return vector': str(tot), 'split': {k: str(x) for k, x in parts.items()},
+        'N rounds': phases(s), 'limit of the phase per unit clock time': str(s)}
+    print('(iv)', 'P', s, 'non-return', tot, parts)
+
+    # ---------------- (v) G6: one double load on a port held by two carriers, registers in sequence
+    others = [p for p in range(12) if p not in (2, 10)]
+    ymap = {2: 2, 10: 10, **{p: 12 + i for i, p in enumerate(others)}}
+    frameX = tuple(L.ADDR)
+    frameY = tuple((ymap[p], ymap[q]) for (p, q) in L.ADDR)
+    cfg0 = tuple(2 if p == 2 else 0 for p in range(22))
+    S = {(cfg0, ((0, k1), (0, k2))): Fr(1) for k1 in range(60) for k2 in range(60)}
+    n2 = Fr(len(S))
+    g6 = {}
+    for order_name, seq in (('the carrier of the defect first', ((0, frameX), (1, frameY))),
+                            ('the neighbouring carrier first', ((1, frameY), (0, frameX)))):
+        st = dict(S)
+        for reg, frame in seq:
+            st = L.W(st, frame, reg)
+
+        def qx6(cfg, regs):
+            return (regs[0][0] == 2) != (regs[1][0] in (2, 3))
+        part = L.restrict(st, qx6)
+        v = part
+        for reg, frame in reversed(seq):
+            v = L.Winv(v, frame, reg)
+        back = dict(st)
+        for reg, frame in reversed(seq):
+            back = L.Winv(back, frame, reg)
+        s = L.dot(S, v) / n2
+        perp = dict(v)
+        for k, c in S.items():
+            L.add(perp, k, -s * c)
+        tot = L.norm2(perp) / n2
+        blank = sum((c * c for (cfg, regs), c in perp.items() if all(r == 0 for (r, k) in regs)), Z) / n2
+        g6[order_name] = {'inverse round returns the state': back == S, 'P = <Qx>': str(s), 'P (1 - P)': str(s * (1 - s)),
+                          'norm^2 of the non-return vector': str(tot), 'of which blank records': str(blank),
+                          'limit of the phase per unit clock time': str(s)}
+        print('(v)', order_name, g6[order_name])
+    out['G6 one double load on a port held by two carriers'] = g6
+
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

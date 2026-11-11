@@ -1,0 +1,73 @@
+"""Worker LV: the corrected chain with options for the transmutation law. The functions `ell2`, `ell3` and the body of
+`chain` are copied from the coordinator's `work/COUPLING/closure_check.py` (2026-11-11) and extended by
+- `pref`: a prefactor c of the law, v = c E_cell exp(-2 pi/(beta alpha)); a number or a function of 1/alpha_U,
+- `law_scale`: where the law reads its coupling: 'MU' (alpha_U), 'cell' (alpha_2 run from M_U up to E_cell with the
+  chain's weak slope),
+- `anchor`: 'Ecell' or 'MU' as the law's energy unit.
+No measured value is read; E* is the unit of energy.
+"""
+import numpy as np
+from scipy.optimize import brentq
+
+pi = np.pi
+EP = 1.220890e19
+P_FWD = 1.6309721
+
+
+def ell2(t, N=120):
+    n = np.arange(0, N + 1); j = n / 2.0; d = 2 * j + 1; C = j * (j + 1)
+    w = d * np.exp(-t * C); return float((w * np.log(d)).sum() / w.sum())
+
+
+def ell3(t, N=60):
+    p, q = np.meshgrid(np.arange(N + 1), np.arange(N + 1))
+    d = (p + 1) * (q + 1) * (p + q + 2) / 2.0; C = (p * p + q * q + p * q + 3 * p + 3 * q) / 3.0
+    w = d * np.exp(-t * C); return float((w * np.log(d)).sum() / w.sum())
+
+
+def chain(P, aU, b=(33 / 5, 1.0, -3.0), beta=4.0, read="mZ", pref=1.0, law_scale="MU", anchor="Ecell"):
+    MU = EP * np.exp(-2 * pi) * P ** (1 / 6); Ecell = EP / np.sqrt(P)
+    c = pref(1.0 / aU) if callable(pref) else pref
+    if law_scale == "MU":
+        a_law = aU
+    elif law_scale == "cell":
+        a_law = 1.0 / (1.0 / aU + b[1] / (2 * pi) * np.log(MU / Ecell))
+    else:
+        raise ValueError(law_scale)
+    unit = Ecell if anchor == "Ecell" else MU
+    v = c * unit * np.exp(-2 * pi / (beta * a_law))
+
+    def al(mu):
+        return [1.0 / (1.0 / aU + bi / (2 * pi) * np.log(MU / mu)) for bi in b]
+    mu = 91.0
+    for _ in range(400):
+        a1, a2, a3 = al(mu); aY = 0.6 * a1
+        if min(a1, a2, a3) <= 0 or not np.isfinite(a1 + a2 + a3):
+            return None
+        mz = v * np.sqrt(pi * (a2 + aY)); mw = v * np.sqrt(pi * a2)
+        new = mz if read == "mZ" else mw
+        if abs(new - mu) < 1e-12 * mu:
+            break
+        mu = new
+    a1, a2, a3 = al(mu); aY = 0.6 * a1
+    if min(a1, a2, a3) <= 0:
+        return None
+    lhs = ell2(4 * pi * pi * a2) + ell3(4 * pi * pi * a3)
+    return dict(MU=MU, Ecell=Ecell, v=v, mu=mu, mz=v * np.sqrt(pi * (a2 + aY)), mw=v * np.sqrt(pi * a2), a1=a1, a2=a2,
+                a3=a3, s2=aY / (aY + a2), aem_inv=1.0 / (a2 * aY / (a2 + aY)), lhs=lhs, a_law=a_law, pref=c)
+
+
+def solve(P=P_FWD, lo=8.0, hi=80.0, n=289, **kw):
+    """all roots 1/alpha_U of the closure on [lo, hi]"""
+    xs = np.linspace(lo, hi, n)
+    vals = []
+    for x in xs:
+        c = chain(P, 1.0 / x, **kw)
+        vals.append(np.nan if c is None else c["lhs"] - P / 4)
+    roots = []
+    for i in range(len(xs) - 1):
+        if np.isfinite(vals[i]) and np.isfinite(vals[i + 1]) and vals[i] * vals[i + 1] < 0:
+            f = lambda x: chain(P, 1.0 / x, **kw)["lhs"] - P / 4
+            x = brentq(f, xs[i], xs[i + 1], xtol=1e-12)
+            roots.append((x, chain(P, 1.0 / x, **kw)))
+    return roots

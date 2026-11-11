@@ -1,0 +1,44 @@
+"""EB step 1, diagnostic A-free (CANDIDATES.md addendum 23:17), labelled FIT.
+
+For each reading cell, the t in [0.3, 6] minimizing the largest of the six deviations from the printed values
+(2.49, 4.38, 3.97) and graded (2.50, 4.17, 3.97). Used for nothing downstream.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python eb_reproduce_free_t.py [out.json]
+"""
+import itertools
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import minimize_scalar
+
+HERE = Path(__file__).parent
+sys.path.insert(0, str(HERE))
+import eb_lib as L  # noqa: E402
+from eb_reproduce import GRD, UNG, triple  # noqa: E402
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'eb_reproduce_free_t.json'
+rows = []
+for structure, k, normalized, umode in itertools.product(('S1', 'S2', 'S3', 'S4'), (1, 2), (True, False), ('Ua', 'Ub')):
+    for renorm in ((False, True) if normalized else (False,)):
+        def dev(t):
+            u = np.array(triple(structure, t, k, normalized, umode, False, False))
+            g = np.array(triple(structure, t, k, normalized, umode, True, renorm))
+            return float(max(np.max(np.abs(u - UNG)), np.max(np.abs(g - GRD))))
+        grid = np.linspace(0.3, 6.0, 115)
+        vals = [dev(t) for t in grid]
+        i = int(np.argmin(vals))
+        lo, hi = grid[max(i - 1, 0)], grid[min(i + 1, len(grid) - 1)]
+        res = minimize_scalar(dev, bounds=(lo, hi), method='bounded', options=dict(xatol=1e-8))
+        t = float(res.x)
+        rows.append(dict(structure=structure, k=k, normalized=normalized, umode=umode,
+                         graded_normalization='renormalized over odd sectors' if renorm else 'over all sectors',
+                         t_FIT=t, max_abs_deviation=dev(t),
+                         ungraded=[float(x) for x in triple(structure, t, k, normalized, umode, False, False)],
+                         graded=[float(x) for x in triple(structure, t, k, normalized, umode, True, renorm)]))
+rows.sort(key=lambda r: r['max_abs_deviation'])
+OUT.write_text(json.dumps(dict(rows=rows), indent=1) + '\n')
+for r in rows[:10]:
+    print(r['structure'], 'k', r['k'], 'norm', r['normalized'], r['umode'], r['graded_normalization'],
+          f"t={r['t_FIT']:.4f} dev={r['max_abs_deviation']:.3f}", np.round(r['ungraded'], 3), np.round(r['graded'], 3))

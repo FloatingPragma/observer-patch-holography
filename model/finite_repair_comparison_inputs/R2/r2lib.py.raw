@@ -1,0 +1,285 @@
+"""R2 library: the routing tick of CF-1 on an arbitrary internal space, and the two readouts.
+
+GenRouting(shape, J, links) is the tick of work/DIRAC/routing.py (the reference engine, imported by the scripts for
+comparison, never copied) with the spin doublet replaced by any internal space that carries three Hermitian
+involutions J_1, J_2, J_3:
+
+    Q_i = sum over links of  P(J_i = +) U(x -> x + e_i) + P(J_i = -) U(x + e_i -> x),   S_i = Q_i R.
+
+J_i = Pauli matrices: the reference engine (compared in r2_item3.py). J_i commuting: the commuting-reflection shift.
+State psi[..., x1, x2, x3, record, internal]; leading axes are batch axes (for instance the link word).
+
+Readouts:
+  cell_distribution   the complete position instrument (one projector per cell)
+  qpe                 phase estimation of the lattice translation with a clock register of M levels, all M outcomes
+"""
+import numpy as np
+
+SIG = [np.array([[0, 1], [1, 0]], complex), np.array([[0, -1j], [1j, 0]]), np.diag([1.0, -1.0]).astype(complex)]
+
+
+class GenRouting:
+    def __init__(self, shape, J, links=None):
+        self.shape = tuple(shape)
+        self.J = [np.asarray(j, complex) for j in J]
+        self.d = self.J[0].shape[0]
+        for j in self.J:
+            assert np.abs(j - j.conj().T).max() < 1e-12 and np.abs(j @ j - np.eye(self.d)).max() < 1e-12
+        self.Pp = [(np.eye(self.d) + j) / 2 for j in self.J]
+        self.Pm = [(np.eye(self.d) - j) / 2 for j in self.J]
+        self.links = links                    # None, or three arrays [..., x1, x2, x3] of link signs (x -> x + e_i)
+
+    # ---- elementary operations ----------------------------------------------------------------------------
+    def record_reflection(self, psi):
+        out = psi.copy(); out[..., 1, :] *= -1
+        return out
+
+    def seam_involution(self, psi, i):
+        ax = i - 5
+        z = None if self.links is None else self.links[i][..., None, None]
+        out = psi.copy()
+        for P, forward in ((self.Pp[i], True), (self.Pm[i], False)):
+            f = psi @ P.T                                   # part oriented forward (J_i = +1) or backward (J_i = -1)
+            nxt = np.roll(f, -1, axis=ax)                   # value at x + e_i, stored at x
+            if z is not None: nxt = z * nxt
+            a, b = (f, nxt) if forward else (nxt, f)
+            c = (a[..., 0, :] - b[..., 0, :] - a[..., 1, :] - b[..., 1, :]) / 2
+            da = np.stack([-c, c], axis=-2); db = np.stack([c, c], axis=-2)
+            here, there = (da, db) if forward else (db, da)
+            if z is not None: there = np.conj(z) * there
+            out = out + here + np.roll(there, 1, axis=ax)
+        return out
+
+    def shift(self, psi, i):
+        return self.seam_involution(self.record_reflection(psi), i)
+
+    def shift_direct(self, psi, i):
+        """P^+ T + P^- T^* with alpha_i = X_r J_i (no links)."""
+        x = psi[..., ::-1, :] @ self.J[i].T
+        return np.roll((psi + x) / 2, 1, axis=i - 5) + np.roll((psi - x) / 2, -1, axis=i - 5)
+
+    def mass(self, psi, theta):
+        """exp(-i theta Y_r); theta a number or an array over the cells."""
+        th = np.asarray(theta, float)
+        if th.ndim == 0 and th == 0: return psi
+        if th.ndim: th = th[..., None]
+        c, s = np.cos(th), np.sin(th)
+        out = np.empty_like(psi)
+        out[..., 0, :] = c * psi[..., 0, :] - s * psi[..., 1, :]
+        out[..., 1, :] = s * psi[..., 0, :] + c * psi[..., 1, :]
+        return out
+
+    def tick(self, psi, theta=0.0, reverse=False):
+        for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+            psi = self.shift(psi, i)
+        return self.mass(psi, theta)
+
+    def run(self, psi, ticks, theta=0.0):
+        """alternating order, starting with the forward order (section 8 of CF1.md)"""
+        for t in range(ticks):
+            psi = self.tick(psi, theta, reverse=bool(t % 2))
+        return psi
+
+    # ---- symbol and preparations ---------------------------------------------------------------------------
+    def symbol(self, p, theta=0.0, reverse=False):
+        X, Y = SIG[0], SIG[1]
+        n = 2 * self.d
+        out = np.eye(n, dtype=complex)
+        for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+            out = (np.cos(p[i]) * np.eye(n) - 1j * np.sin(p[i]) * np.kron(X, self.J[i])) @ out
+        return (np.cos(theta) * np.eye(n) - 1j * np.sin(theta) * np.kron(Y, np.eye(self.d))) @ out
+
+    def momentum(self, n):
+        return 2 * np.pi * np.asarray(n, float) / np.asarray(self.shape, float)
+
+    def plane_wave(self, n, coin):
+        p = self.momentum(n)
+        grid = np.meshgrid(*[np.arange(s) for s in self.shape], indexing='ij')
+        phase = np.exp(1j * sum(p[i] * grid[i] for i in range(3))) / np.sqrt(np.prod(self.shape))
+        return phase[..., None, None] * np.asarray(coin, complex).reshape(2, self.d)
+
+    def gaussian(self, centre, sigma, n0, coin):
+        """Gaussian envelope (widths sigma per axis, 0 = one cell) times a plane wave of momentum index n0, one coin."""
+        p = self.momentum(n0)
+        grid = np.meshgrid(*[np.arange(s) for s in self.shape], indexing='ij')
+        env = np.ones(self.shape)
+        for i in range(3):
+            L = self.shape[i]
+            dx = (grid[i] - centre[i] + L / 2) % L - L / 2
+            env = env * (np.exp(-dx ** 2 / (4 * sigma[i] ** 2)) if sigma[i] > 0 else (dx == 0))
+        psi = (env * np.exp(1j * sum(p[i] * grid[i] for i in range(3))))[..., None, None] * np.asarray(coin, complex).reshape(2, self.d)
+        return psi / np.linalg.norm(psi)
+
+
+def two_tick_symbols(gen, p, theta=0.0):
+    """U_rev(p) U_fwd(p) for arrays p[i] of momenta (any shape): array [..., 2d, 2d]"""
+    X, Y = SIG[0], SIG[1]
+    n = 2 * gen.d
+    eye = np.eye(n, dtype=complex)
+    al = [np.kron(X, j) for j in gen.J]
+    ms = np.cos(theta) * eye - 1j * np.sin(theta) * np.kron(Y, np.eye(gen.d))
+    def sym(order):
+        out = eye
+        for i in order:
+            out = (np.cos(p[i])[..., None, None] * eye - 1j * np.sin(p[i])[..., None, None] * al[i]) @ out
+        return ms @ out
+    return sym((2, 1, 0)) @ sym((0, 1, 2))
+
+
+def positive_phases(gen, p, theta=0.0):
+    """the d positive phases per tick of the alternating tick at one momentum, sorted"""
+    U2 = two_tick_symbols(gen, [np.asarray(x, float) for x in p], theta)
+    E = -np.angle(np.linalg.eigvals(U2)) / 2
+    return np.sort(E[E > 1e-13])
+
+
+def group_velocity(gen, p, theta=0.0, h=1e-5):
+    """gradient of the positive phases (mean over the branch, and the spread between helicities)"""
+    p = np.asarray(p, float)
+    g = []
+    for i in range(3):
+        e = np.zeros(3); e[i] = h
+        g.append((positive_phases(gen, p + e, theta) - positive_phases(gen, p - e, theta)) / (2 * h))
+    g = np.array(g)                                        # [axis, helicity]
+    return g.mean(axis=1), float(np.abs(g - g.mean(axis=1, keepdims=True)).max())
+
+
+def packet_velocity(gen, psi, theta=0.0, h=1e-5, cut=1e-7):
+    """Prediction for the velocity of a packet on the positive branch: the average of dE/dp over its momentum
+    distribution (E = mean of the d positive phases per tick of the alternating tick)."""
+    amp = np.fft.fftn(psi, axes=(-5, -4, -3))
+    w = (np.abs(amp) ** 2).sum(axis=(-2, -1))
+    w = w / w.sum()
+    sel = np.nonzero(w > cut * w.max())
+    p = [2 * np.pi * sel[i] / gen.shape[i] for i in range(3)]
+    def E(q):
+        ph = np.sort(-np.angle(np.linalg.eigvals(two_tick_symbols(gen, q, theta))) / 2, axis=-1)
+        return ph[..., gen.d:].mean(axis=-1)
+    v = []
+    for i in range(3):
+        qp = [x.copy() for x in p]; qm = [x.copy() for x in p]
+        qp[i] = qp[i] + h; qm[i] = qm[i] - h
+        v.append(float(np.sum(w[sel] * (E(qp) - E(qm)) / (2 * h)) / w[sel].sum()))
+    return v
+
+
+def branch_packet(gen, n0, sigma_p, coin0, centre, theta=0.0):
+    """A packet on the positive branch of the alternating two-tick symbol.
+
+    Momentum amplitudes: Gaussian around the momentum index n0 (standard deviation sigma_p[i] of |amplitude|^2 in
+    radians; 0 = sharp along that axis) times P_+(p) coin0, P_+ the spectral projector on the phases E > 0;
+    centred at the cell `centre`."""
+    shape = gen.shape
+    ns = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij')
+    p = [2 * np.pi * ns[i] / shape[i] for i in range(3)]
+    U2 = two_tick_symbols(gen, p, theta)
+    A = (np.conj(np.swapaxes(U2, -1, -2)) - U2) / 2j        # sum over eigenvectors of sin(2E) |k><k|
+    w, v = np.linalg.eigh(A)
+    c = np.conj(np.swapaxes(v, -1, -2)) @ np.asarray(coin0, complex)
+    spin = (v @ ((w > 1e-12) * c)[..., None])[..., 0]
+    g = np.ones(shape)
+    for i in range(3):
+        dp = (p[i] - 2 * np.pi * n0[i] / shape[i] + np.pi) % (2 * np.pi) - np.pi
+        g = g * (np.exp(-dp ** 2 / (4 * sigma_p[i] ** 2)) if sigma_p[i] > 0 else (np.abs(dp) < 1e-9))
+    amp = (g * np.exp(-1j * sum(p[i] * centre[i] for i in range(3))))[..., None] * spin
+    psi = np.fft.ifftn(amp, axes=(0, 1, 2)).reshape(shape + (2, gen.d))
+    return psi / np.linalg.norm(psi)
+
+
+def positive_branch(sym2, k=0):
+    """eigenvector of a (two-tick) symbol with phase exp(-i E), smallest E > 0 (k-th one), and E"""
+    w, v = np.linalg.eig(sym2)
+    E = -np.angle(w)
+    order = [j for j in np.argsort(E) if E[j] > 1e-12]
+    j = order[k]
+    return v[:, j] / np.linalg.norm(v[:, j]), float(E[j])
+
+
+# ---- readouts -----------------------------------------------------------------------------------------------
+def cell_distribution(psi, lattice_axes=3):
+    """P[x1, x2, x3]: the complete position instrument; batch axes in front are summed"""
+    w = np.abs(psi) ** 2
+    nb = w.ndim - lattice_axes - 2
+    return w.sum(axis=tuple(range(nb)) + (-2, -1))
+
+
+def circular_mean(P, axis):
+    """mean position along one axis of a distribution on the periodic lattice, in cells"""
+    L = P.shape[axis]
+    w = P.sum(axis=tuple(k for k in range(P.ndim) if k != axis))
+    ang = np.angle(np.sum(w * np.exp(2j * np.pi * np.arange(L) / L)))
+    return (ang % (2 * np.pi)) * L / (2 * np.pi)
+
+
+def displacement(P0, P1, axis):
+    L = P0.shape[axis]
+    return ((circular_mean(P1, axis) - circular_mean(P0, axis) + L / 2) % L) - L / 2
+
+
+def linear_mean(P, axis, ref):
+    """mean position along one axis with the coordinate unwrapped around the cell `ref` (packet away from the cut)"""
+    L = P.shape[axis]
+    w = P.sum(axis=tuple(k for k in range(P.ndim) if k != axis))
+    x = (np.arange(L) - ref + L / 2) % L - L / 2 + ref
+    return float(np.sum(w * x) / w.sum())
+
+
+def qpe(psi, axis, M, link=None):
+    """Phase estimation of the translation by one cell along `axis` (0, 1, 2).
+
+    Circuit: clock register of M levels in the uniform superposition; controlled (T^*)^k for clock value k;
+    inverse Fourier transform of the clock; the clock is read. All M outcomes are returned: P[j], with outcome j
+    reading the momentum 2 pi j / M. (T^* psi)(x) = z(x) psi(x + e): with `link` (signs z on the links x -> x + e,
+    shape [..., x1, x2, x3]) T is the gauge-covariant translation of a charged quantum."""
+    ax = axis - 5
+    z = None if link is None else link[..., None, None]
+    cur, stack = psi, []
+    for k in range(M):
+        stack.append(cur)
+        nxt = np.roll(cur, -1, axis=ax)
+        cur = nxt if z is None else z * nxt
+    amp = np.fft.fft(np.stack(stack), axis=0) / M
+    return (np.abs(amp) ** 2).sum(axis=tuple(range(1, amp.ndim)))
+
+
+def fejer(delta, M):
+    """|(1/M) sum_k exp(i k delta)|^2"""
+    delta = np.asarray(delta, float)
+    s = np.sin(delta / 2)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        out = np.where(np.abs(s) < 1e-13, 1.0, (np.sin(M * delta / 2) / (M * s)) ** 2)
+    return out
+
+
+def window(P, centre, frac):
+    """smallest half-width h (in outcomes) with sum of P over |j - centre| <= h (cyclic) at least frac"""
+    M = len(P)
+    c = int(round(centre)) % M
+    tot = P[c]; h = 0
+    while tot < frac - 1e-15 and h < M // 2:
+        h += 1
+        tot += P[(c + h) % M] + (P[(c - h) % M] if (c - h) % M != (c + h) % M else 0)
+    return h
+
+
+def central_halfwidth(P, centre, frac=0.68):
+    """Half-width, in outcomes, of the central interval that holds `frac` of the probability: the outcomes are
+    unwrapped around the outcome nearest to `centre`, each outcome is spread uniformly over its bin, and the
+    quantiles (1 - frac)/2 and (1 + frac)/2 are interpolated. One outcome with all the weight gives frac/2."""
+    M = len(P)
+    c = int(round(centre)) % M
+    order = [(c + k) % M for k in range(-(M // 2), M - M // 2)]
+    w = np.asarray(P, float)[order]
+    cum = np.concatenate([[0.0], np.cumsum(w)]) / w.sum()
+    edges = np.arange(M + 1) - 0.5 - M // 2
+    lo, hi = np.interp([(1 - frac) / 2, (1 + frac) / 2], cum, edges)
+    return float(hi - lo) / 2
+
+
+def circ_stats(P):
+    """circular mean and circular standard deviation of an outcome distribution, in units of 2 pi / len(P) -> radians"""
+    M = len(P)
+    m = np.sum(P * np.exp(2j * np.pi * np.arange(M) / M))
+    mean = np.angle(m) % (2 * np.pi)
+    R = min(1.0, abs(m))
+    return float(mean), float(np.sqrt(max(0.0, -2 * np.log(R)))) if R > 0 else float('inf')

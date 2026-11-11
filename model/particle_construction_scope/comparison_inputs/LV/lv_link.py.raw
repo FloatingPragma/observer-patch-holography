@@ -1,0 +1,134 @@
+"""Worker LV, group N of CANDIDATES.md (Addendum 2): the class-3 seam flip on GL's continuous link.
+N0: exact small models of the mechanism theta_eff = tan(theta_0) <A>. N1 to N8: <A> for candidate sector laws of the
+seam link. No measured value is read; GeV values use E* as the unit of the chain. Writes lv_link.json.
+"""
+import json
+import math
+
+import mpmath as mp
+import numpy as np
+
+import lv_chain as C
+
+pi = math.pi
+out = {}
+X_U = C.solve()[0][0]                    # 1/alpha_U of the chain (24.3166)
+G2U = 4 * pi / X_U
+S_U = (pi / 2) * X_U
+E_CELL = C.EP / math.sqrt(C.P_FWD)
+
+# ------------------------------------------------------------------------------------------------ N0: mechanism
+NQ = 60
+n = np.arange(-NQ, NQ + 1)               # link charges m = n/2 on the Cartan circle of the weak factor
+A = np.diag(((-1.0) ** n))               # shift of the link variable by z_3: eigenvalue (-1)^(2m)
+n0 = {}
+# (a) step exp(-i theta_0 tau_x (x) A) with the link in a state diagonal in the sectors
+rows = []
+for tau, th0 in ((1.0, 0.4), (0.5, 0.25), (0.3, 1.1)):
+    p = np.exp(-tau * n ** 2 / 4.0); p /= p.sum()
+    expA = float((p * (-1.0) ** n).sum())
+    # pattern operator: sum_n p_n exp(-i theta_0 (-1)^n tau_x) = cos(theta_0) - i sin(theta_0) <A> tau_x
+    flip = abs(sum(pn * (-1j) * math.sin(th0) * s for pn, s in zip(p, (-1.0) ** n)))
+    rows.append({"tau": tau, "theta_0": th0, "<A>": expA, "flip_amplitude": flip, "sin(theta_0)<A>": math.sin(th0) * expA,
+                 "2exp(-pi^2/tau)": 2 * math.exp(-pi ** 2 / tau)})
+n0["a_step_with_sector_law"] = rows
+
+
+def pendulum(g2):
+    """one link with one plaquette on the Cartan circle: H = (g^2/2)(n/2)^2 + (4/g^2)(1 - cos(psi/2)), psi period 4 pi"""
+    H = np.diag(g2 / 2 * (n / 2.0) ** 2 + 4 / g2)
+    off = -(4 / g2) / 2
+    H = H + np.diag(np.full(len(n) - 1, off), 1) + np.diag(np.full(len(n) - 1, off), -1)
+    return H
+
+
+# (b) slow pattern, fast link: H = H_link + theta_0 tau_x (x) A; sectors tau_x = +-1; splitting of the ground level
+rows = []
+for g2 in (3.0, 2.0, 1.5):
+    H = pendulum(g2)
+    w, v = np.linalg.eigh(H)
+    a00 = float(v[:, 0] @ A @ v[:, 0])
+    th0 = 1e-4
+    ep = np.linalg.eigvalsh(H + th0 * A)[0]; em = np.linalg.eigvalsh(H - th0 * A)[0]
+    rows.append({"g2": g2, "<0|A|0>": a00, "splitting/(2 theta_0)": (ep - em) / (2 * th0),
+                 "harmonic_2exp(-pi^2/g2)": 2 * math.exp(-pi ** 2 / g2), "gap_of_the_link": float(w[1] - w[0])})
+n0["b_slow_pattern_fast_link"] = rows
+n0["statement"] = ("the flip amplitude per step is sin(theta_0) <A> exactly; the first-order splitting of a slow pattern is "
+                   "2 theta_0 <0|A|0>; the identity part of the step is cos(theta_0), so theta_eff = tan(theta_0) <A>")
+out["N0_mechanism"] = n0
+
+# ------------------------------------------------------------------------------------------------ N1..N8
+mp.mp.dps = 60
+
+
+def su2_ratio(t, power):
+    """sum_n n^power (-1)^(n-1) exp(-t (n^2-1)/4) / sum_n n^power exp(-t (n^2-1)/4)"""
+    num = mp.mpf(0); den = mp.mpf(0)
+    for k in range(1, 400):
+        w = mp.mpf(k) ** power * mp.exp(-mp.mpf(t) * (k * k - 1) / 4)
+        num += (-1) ** (k - 1) * w; den += w
+    return num / den
+
+
+ng = 80
+xq, wq = np.polynomial.legendre.leggauss(ng)
+kk = pi * xq
+KX, KY, KZ = np.meshgrid(kk, kk, kk, indexing="ij")
+W3 = np.einsum("i,j,k->ijk", wq, wq, wq) / 8
+kh = np.sqrt(4 * (np.sin(KX / 2) ** 2 + np.sin(KY / 2) ** 2 + np.sin(KZ / 2) ** 2))
+cE_cont = float((W3 * kh).sum()) / 3
+cE_two = float((W3 * kh * np.sqrt(1 - kh ** 2 / 16)).sum()) / 3
+# N7 exact pendulum at g_U^2 (alternating sum of the squared amplitudes; mpmath eigenvector not needed: float64 is
+# sufficient for the size of the value, checked against the harmonic form)
+Hp = pendulum(G2U)
+wv, vv = np.linalg.eigh(Hp)
+a_pend = float(vv[:, 0] @ A @ vv[:, 0])
+t2z = 4 * pi ** 2 / 29.605231384827725
+tU = 4 * pi ** 2 / X_U
+rows = {
+    "N1_cartan_one_tick_(c_E=1,m=2)": {"<A>": 2 * math.exp(-S_U), "c_E": 1.0},
+    "N2_full_link_one_tick_(weights_d^2)": {"<A>": float(su2_ratio(G2U / 2, 2)), "c_E": 1.0,
+                                           "closed_form": 2 * (2 * S_U - 1) * math.exp(-S_U)},
+    "N3a_collar_law_weights_d_at_t2(mZ)": {"<A>": float(su2_ratio(t2z, 1)), "t": t2z},
+    "N3b_collar_law_weights_d_at_tU": {"<A>": float(su2_ratio(tU, 1)), "t": tU},
+    "N4_weights_d^2_at_full_modular_period_tU": {"<A>": float(su2_ratio(tU, 2)), "t": tU,
+                                               "leading_form": 2 * (2 * pi ** 2 / tU - 1) * math.exp(-pi ** 2 / tU)},
+    "N5_link_vacuum_continuous_time": {"<A>": 2 * math.exp(-cE_cont * S_U), "c_E": cE_cont},
+    "N6_link_vacuum_two_field_steps": {"<A>": 2 * math.exp(-cE_two * S_U), "c_E": cE_two},
+    "N7a_one_plaquette_harmonic": {"<A>": 2 * math.exp(-0.5 * S_U), "c_E": 0.5},
+    "N7b_one_plaquette_exact_ground_state": {"<A>": a_pend, "effective_c_E": -math.log(abs(a_pend) / 2) / S_U},
+    "N8_euclidean_d3": {"<A>": 2 * math.exp(-(2 / 3) * S_U), "c_E": 2 / 3},
+    "N8_euclidean_d4": {"<A>": 2 * math.exp(-0.5 * S_U), "c_E": 0.5},
+}
+for k, r in rows.items():
+    r["v_GeV_at_24.3166_unit_bare_factor"] = r["<A>"] * E_CELL
+out["N_rows_at_24.3166"] = rows
+
+# chain solved again with the law v = E_cell <A>(alpha_U)
+slopes = {"declared_(33/5,1,-3)": (33 / 5, 1.0, -3.0), "source_one_doublet_(81/10,5/6,-3)": (81 / 10, 5 / 6, -3.0),
+          "source_two_doublets_(41/5,1,-3)": (41 / 5, 1.0, -3.0)}
+pref = {"N1": lambda x: 2.0, "N2": lambda x: 2 * (pi * x - 1), "N5": lambda x: 2 * math.exp((1 - cE_cont) * (pi / 2) * x),
+        "N8_d3": lambda x: 2 * math.exp((1 / 3) * (pi / 2) * x)}
+ch = {}
+for sn, b in slopes.items():
+    ch[sn] = {}
+    for pn, pf in pref.items():
+        rr = C.solve(b=b, pref=pf, lo=6.0, hi=120.0, n=457)
+        ch[sn][pn] = [{"1/alpha_U": x, "v_GeV": c["v"], "mZ_GeV": c["mz"]} for x, c in rr]
+out["N_chain_solved_again"] = ch
+
+gU = math.sqrt(G2U)
+out["N_bare_factor_(2sqrt2/g)tan(theta_0)"] = {
+    "theta_0=g/(2sqrt2)_(=%.4f)" % (gU / (2 * math.sqrt(2))): 2 * math.sqrt(2) / gU * math.tan(gU / (2 * math.sqrt(2))),
+    "theta_0=g_(=%.4f)" % gU: 2 * math.sqrt(2) / gU * math.tan(gU),
+    "theta_0=pi/4": 2 * math.sqrt(2) / gU * 1.0,
+    "theta_0_for_unit_factor": math.atan(gU / (2 * math.sqrt(2)))}
+
+json.dump(out, open("lv_link.json", "w"), indent=1, default=float)
+print(json.dumps(out["N0_mechanism"], indent=0)[:2600])
+for k, r in rows.items():
+    print("%-44s <A> = %.4e   v = %.4g GeV   %s" % (k, r["<A>"], r["v_GeV_at_24.3166_unit_bare_factor"],
+                                                   {a: (round(b, 4) if isinstance(b, float) else b) for a, b in r.items() if a not in ("<A>", "v_GeV_at_24.3166_unit_bare_factor")}))
+for sn, d in ch.items():
+    print(sn, {pn: [(round(r["1/alpha_U"], 4), float("%.4g" % r["v_GeV"])) for r in rr] for pn, rr in d.items()})
+print(out["N_bare_factor_(2sqrt2/g)tan(theta_0)"])

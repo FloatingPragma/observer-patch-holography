@@ -1,0 +1,143 @@
+"""D3 item 5 (constructive part): a vortex of the mass phase with a declared momentum-dependent (Wilson-type) mass.
+
+Mass step M_W = exp(-i K),  K = theta(x) (cos phi(x) Z_r + sin phi(x) Y_r) + r W Z_r,
+W = sum_(i = 1, 2) (1 - (T_i^2 + T_i^-2)/2)/2 + (1 - cos 2 p_3)/2   (T_i the translation by one cell; T_i^2 stays in the
+parity class). W vanishes at the origin cone of each parity class and equals 2 at its three doubler cones
+((pi/2, pi/2, 0), (pi/2, 0, pi/2), (0, pi/2, pi/2)), where the two-tick period equals M^2 (R4 C3): the doublers get
+the mass theta e^(i phi) + 2 r, which does not wind when 2 r > theta_0. DECLARED: the term, its range (two cells),
+r. Everything else as vortex.py (symmetric frame, transverse patch, free axis 3 at wave number p_3).
+
+Checks executed here: K Hermitian; Gamma = alpha_3 still a chiral symmetry at p_3 = 0 (Gamma K Gamma = -K);
+Theta no longer commutes with the period (the doubling pairing is broken); r = 0 reproduces vortex.py's period.
+
+Per class block (dense, exact eigenvectors): count of states with |phase| below a window, Gamma of the near-zero
+states at each core, velocity d(phase)/d(p_3) from the eigenvalue at p_3 +- dq (first-order perturbation).
+
+Usage:  python wilson.py <out.json> <processes> <set>
+"""
+import json, sys, time
+import numpy as np
+import scipy.sparse as sp
+import d3lib as d3
+import vortex
+
+
+def wilson_K(cfg, theta, phi, shape2, p3):
+    L1, L2 = shape2; shape = (L1, L2, 1); N = L1 * L2
+    th = np.asarray(theta, float).ravel(); ph = np.asarray(phi, float).ravel()
+    blocks = (th[:, None, None] * (np.cos(ph)[:, None, None] * d3.ZR[None] + np.sin(ph)[:, None, None] * d3.YR[None]))
+    Kmass = sp.bsr_matrix((blocks, np.arange(N), np.arange(N + 1)), shape=(4 * N, 4 * N)).tocsr()
+    W = sp.csr_matrix((N, N), dtype=complex)
+    for i in (0, 1):
+        T = d3._translation(shape, i); T2 = (T @ T).tocsr()
+        W = W + 0.5 * (sp.identity(N) - 0.5 * (T2 + T2.conj().T))
+    W = W + 0.5 * (1 - np.cos(2 * p3)) * sp.identity(N)
+    return (Kmass + cfg['r'] * sp.kron(W, d3.ZR)).tocsr()
+
+
+def class_blocks_of_exp(K, pt, fs=(0.5, 1.0)):
+    """dense blocks of exp(-i f K) on the four parity classes (K is block diagonal by class), one dict per f"""
+    out = [dict() for _ in fs]
+    for a in (0, 1):
+        for b in (0, 1):
+            idx, _ = pt.class_index(a, b)
+            Kc = K[idx][:, idx].toarray(); Kc = (Kc + Kc.conj().T) / 2
+            e, R = np.linalg.eigh(Kc)
+            for j, f in enumerate(fs): out[j][(a, b)] = (idx, (R * np.exp(-1j * f * e)[None, :]) @ R.conj().T)
+    return out
+
+
+def apply_blocks(blocks, X):
+    Y = np.zeros_like(X)
+    for (idx, B) in blocks.values(): Y[idx] = B @ X[idx]
+    return Y
+
+
+def class_period(cfg, theta, phi, links, p3, cls):
+    L = cfg['L']; pt = d3.Patch((L, L), theta, phi, p3=p3, links=links)
+    K = wilson_K(cfg, theta, phi, (L, L), p3)
+    half, full = class_blocks_of_exp(K, pt)
+    idx, cells = pt.class_index(*cls); n4 = 4 * pt.N
+    X = np.zeros((n4, len(idx)), complex); X[idx, np.arange(len(idx))] = 1.0
+    X = apply_blocks(half, X); X = pt.fwd() @ X; X = apply_blocks(full, X); X = pt.rev() @ X; X = apply_blocks(half, X)
+    return X[idx], pt, K, idx, cells
+
+
+def analyse(cfg):
+    t0 = time.time()
+    L, n, th0 = cfg['L'], cfg['n'], cfg['theta0']
+    cores, theta, phi, links = vortex.build(cfg)
+    p3 = cfg.get('p3', 0.0); dq = 1e-4
+    out = {'config': cfg, 'classes': []}
+    # checks on the full lattice (sparse): K Hermitian, Gamma K Gamma = -K
+    pt0 = d3.Patch((L, L), theta, phi, p3=p3, links=links); K0 = wilson_K(cfg, theta, phi, (L, L), p3); G = pt0.gamma()
+    out['K_hermitian_defect'] = float(abs(K0 - K0.conj().T).max())
+    out['Gamma_K_Gamma_plus_K'] = float(abs(G @ K0 @ G + K0).max())
+    for cls in cfg.get('classes', [(0, 0)]):
+        Uc, pt, K, idx, cells = class_period(cfg, theta, phi, links, p3, cls)
+        row = {'class': list(cls), 'dimension': len(idx), 'unitarity_defect': float(np.abs(Uc.conj().T @ Uc - np.eye(len(idx))).max())}
+        if cfg['r'] == 0:   # cross-check against the sparse period of vortex.py / d3lib
+            Us = pt.period_sym()[idx][:, idx].toarray(); row['r0_against_d3lib_period'] = float(np.abs(Uc - Us).max())
+        Gc = G[idx][:, idx].toarray()
+        row['Gamma_U_Gamma_U_minus_1'] = float(np.abs(Gc @ Uc @ Gc @ Uc - np.eye(len(idx))).max()) if abs(np.sin(2 * p3)) < 1e-12 else None
+        Th = pt.theta_op()[idx][:, idx].toarray(); row['Theta_commutator'] = float(np.abs(Th @ Uc - Uc @ Th).max())
+        lam, V = np.linalg.eig(Uc); E = -np.angle(lam) / 2                          # phase per tick
+        win = cfg.get('window', 0.9) * th0
+        sel = np.nonzero(np.abs(E) < win)[0]
+        row['states_with_|phase|_below_window'] = int(len(sel)); row['window_per_tick'] = win
+        row['phases_in_window'] = sorted(float(e) for e in E[sel])
+        # Gamma and velocity of the in-window states at each core
+        Up, *_ = class_period(cfg, theta, phi, links, p3 + dq, cls); Um, *_ = class_period(cfg, theta, phi, links, p3 - dq, cls)
+        x1, x2 = pt.x1[cells], pt.x2[cells]
+        Q, _ = np.linalg.qr(V[:, sel]) if len(sel) else (np.zeros((len(idx), 0)), None)
+        row['cores'] = []
+        for ci, (c, sgn) in enumerate(cores):
+            d1 = (x1 - c[0] + L / 2) % L - L / 2; d2 = (x2 - c[1] + L / 2) % L - L / 2
+            near = np.repeat(np.hypot(d1, d2) < L / 5.0, 4).astype(float)
+            if Q.shape[1] == 0: row['cores'].append({'core': ci, 'winding': sgn * n, 'states': 0}); continue
+            wts, R = np.linalg.eigh(Q.conj().T @ (near[:, None] * Q)); B = Q @ R[:, wts > 0.5]
+            cr = {'core': ci, 'winding': sgn * n, 'states': int(B.shape[1])}
+            if B.shape[1]:
+                g = B.conj().T @ Gc @ B; g = (g + g.conj().T) / 2; gv, gR = np.linalg.eigh(g); Bg = B @ gR
+                cr['Gamma_eigenvalues'] = [round(float(v), 6) for v in gv]
+                sH = lambda X: 1j * (X - X.conj().T) / 2
+                dS = (sH(Up) - sH(Um)) / (2 * dq)
+                kv = Bg.conj().T @ dS @ Bg; kv = (kv + kv.conj().T) / 2
+                cr['velocity_per_tick_on_Gamma_eigenvectors_(diagonal)'] = [round(float(np.real(kv[j, j])) / 2, 6) for j in range(kv.shape[0])]
+                hc = B.conj().T @ sH(Uc) @ B; hc = (hc + hc.conj().T) / 2
+                cr['phases_per_tick'] = sorted(float(np.arcsin(np.clip(v, -1, 1))) / 2 for v in np.linalg.eigvalsh(hc))
+            row['cores'].append(cr)
+        out['classes'].append(row)
+    out['seconds'] = round(time.time() - t0, 1)
+    return out
+
+
+def config_sets(name):
+    S = {}
+    S['local'] = [dict(L=24, n=1, theta0=0.4, xi_c=2.0, r=0.0, classes=[(0, 0)]), dict(L=24, n=1, theta0=0.4, xi_c=2.0, r=0.5, classes=[(0, 0)])]
+    b = dict(L=48, theta0=0.4, xi_c=2.0, classes=[(0, 0), (0, 1)])
+    S['w'] = ([dict(b, n=nn, r=rr) for nn in (1, 2, 3) for rr in (0.0, 0.5)] +
+              [dict(b, n=nn, r=0.5, p3=np.pi / 2) for nn in (1, 3)] +
+              [dict(b, n=3, r=0.15), dict(b, n=3, r=1.0)])
+    return S[name]
+
+
+if __name__ == '__main__':
+    outp, procs, name = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+    cfgs = config_sets(name)
+    if procs > 1:
+        import multiprocessing as mp
+        with mp.Pool(procs) as pool: res = pool.map(analyse, cfgs)
+    else:
+        res = [analyse(c) for c in cfgs]
+    json.dump({'engine_sha256': d3.ENGINE_SHA, 'set': name, 'results': res}, open(outp, 'w'), indent=1)
+    for r in res:
+        c = r['config']
+        for row in r['classes']:
+            print(f"n={c['n']} r={c['r']} p3={round(c.get('p3', 0.0), 4)} class {row['class']} in-window {row['states_with_|phase|_below_window']}"
+                  f" | Gamma-chiral {row['Gamma_U_Gamma_U_minus_1']} Theta-comm {row['Theta_commutator']:.2e} unit {row['unitarity_defect']:.1e}"
+                  f" r0-check {row.get('r0_against_d3lib_period')}")
+            for cr in row['cores']:
+                print('    core', cr['core'], 'w', cr['winding'], 'states', cr['states'], 'Gamma', cr.get('Gamma_eigenvalues'),
+                      'v', cr.get('velocity_per_tick_on_Gamma_eigenvectors_(diagonal)'), 'phases', [round(x, 6) for x in cr.get('phases_per_tick', [])])
+        print('  K herm', r['K_hermitian_defect'], 'Gamma K Gamma + K', r['Gamma_K_Gamma_plus_K'], 's', r['seconds'])

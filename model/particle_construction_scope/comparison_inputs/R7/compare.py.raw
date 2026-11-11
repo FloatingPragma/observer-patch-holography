@@ -1,0 +1,437 @@
+"""R7: comparison of candidate CF-1 with the electron, under the frozen protocol PROTOCOL_v1.md.
+
+Run (from the public checkout, read only):
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/DIRAC:RL/work/R7 nice -n 10 \
+      /tmp/oph-completion-venv/bin/python RL/work/R7/compare.py
+Writes RL/work/R7/comparison.json. The reference engine RL/work/DIRAC/routing.py is imported by path, unchanged.
+Measured values are read from files of the public checkout; none is typed here.
+"""
+import hashlib, itertools, json, math, os, re, sys
+from fractions import Fraction as F
+import numpy as np
+
+RL = 'WORKSPACE/repair-law'
+RER = 'WORKSPACE/reverse-engineering-reality'
+HERE = os.path.join(RL, 'work', 'R7')
+sys.path.insert(0, os.path.join(RL, 'work', 'DIRAC'))
+from routing import Routing, SIG, I2                                   # noqa: E402
+
+out = {}
+def sha(p): return hashlib.sha256(open(p, 'rb').read()).hexdigest()
+def say(*a): print(*a)
+
+# ---------------------------------------------------------------------------------------------------------------
+# 0. custody: the protocol and the inputs
+frozen = open(os.path.join(HERE, 'PROTOCOL_v1.sha256')).read().split()[0]
+assert sha(os.path.join(HERE, 'PROTOCOL_v1.md')) == frozen, 'protocol changed after the freeze'
+inputs = {
+    'CF1.md': os.path.join(RL, 'candidates', 'CF1.md'),
+    'routing.py': os.path.join(RL, 'work', 'DIRAC', 'routing.py'),
+    'defect_phases.json': os.path.join(RL, 'work', 'DIRAC', 'defect_phases.json'),
+    'generations.json': os.path.join(RL, 'work', 'FAMILY', 'generations.json'),
+    'particle_map.json': os.path.join(RER, 'model', 'standard_model_source_map', 'particle_map.json'),
+    'reference_values.json': os.path.join(RER, 'model', 'particle_candidate_atlas', 'reference_values.json'),
+    'observations.json': os.path.join(RER, 'model', 'particle_comparison', 'observations.json'),
+    'neutrino_README.md': os.path.join(RER, 'code', 'particles', 'neutrino', 'README.md'),
+    'RESULTS_STATUS.md': os.path.join(RER, 'code', 'particles', 'RESULTS_STATUS.md'),
+    'calibrated_neutrino_parameters.json': os.path.join(RER, 'model', 'common_source', 'calibrated_neutrino_parameters.json'),
+    'clock_source_energy_closure_audit.json': os.path.join(RER, 'code', 'particles', 'runs', 'clock', 'clock_source_energy_closure_audit.json'),
+}
+out['custody'] = {'protocol_sha256': frozen, 'inputs_sha256': {k: sha(v) for k, v in inputs.items()}}
+say('protocol', frozen[:16], 'verified; CF1.md', out['custody']['inputs_sha256']['CF1.md'][:16])
+
+# ---------------------------------------------------------------------------------------------------------------
+# 1. reference values, read from the public checkout
+pm = {r['target']: r['internal_components'] for r in json.load(open(inputs['particle_map.json']))['rows']
+      if r['target'] in ('electron', 'up', 'down', 'electron_neutrino')}
+ref = json.load(open(inputs['reference_values.json']))
+mass = {m['target']: m for m in ref['masses']}
+GeV = lambda t: float(mass[t]['value'])
+unc = lambda t: float(mass[t]['uncertainty'])
+m_e, m_u, m_d, m_mu, m_t, M_W, M_Z = (GeV(t) for t in ('electron', 'up', 'down', 'muon', 'top', 'W_plus', 'Z'))
+assert mass['up']['confidence_level'] == '90%' and mass['down']['confidence_level'] == '90%'
+obs = json.load(open(inputs['observations.json']))
+pos_bound = float(obs['positron_electron_difference']['upper_bound'])
+txt = open(inputs['neutrino_README.md']).read()
+mk = re.search(r"KATRIN's ([0-9.]+) eV upper limit at\s+90% confidence", txt)
+m_beta_bound_eV = float(mk.group(1))
+rs = open(inputs['RESULTS_STATUS.md']).read()
+def angle(name):
+    m = re.search(r'\| %s \| [^|]*\| [^|]*\| ([0-9.]+) (?:\+([0-9.]+) -([0-9.]+)|\+- ([0-9.]+)) deg \|' % name, rs)
+    v = float(m.group(1)); up, dn = (float(m.group(2)), float(m.group(3))) if m.group(2) else (float(m.group(4)),) * 2
+    return v, up, dn
+mix_meas = {k: angle(k) for k in ('theta12', 'theta23', 'theta13')}
+nufit = json.load(open(inputs['calibrated_neutrino_parameters.json']))['oscillation_inputs']
+si = json.load(open(inputs['clock_source_energy_closure_audit.json']))['si_constants']
+c_SI, h_SI, GeV_J = float(si['c_m_s']), float(si['h_J_s']), float(si['GeV_J'])
+hbar = h_SI / (2 * math.pi)
+compton_e = hbar * c_SI / (m_e * GeV_J)                 # reduced Compton wavelength of the electron, metres
+t_compton_e = hbar / (m_e * GeV_J)                      # hbar / (m_e c^2), seconds
+out['reference'] = {'m_e_GeV': m_e, 'm_u_GeV': m_u, 'm_d_GeV': m_d, 'm_mu_GeV': m_mu, 'm_t_GeV': m_t, 'M_W_GeV': M_W,
+                    'M_Z_GeV': M_Z, 'm_beta_bound_eV': m_beta_bound_eV, 'positron_bound': pos_bound,
+                    'mixing_degrees_value_plus_minus': mix_meas, 'nufit61_sin2': nufit,
+                    'reduced_compton_e_m': compton_e, 'hbar_over_mec2_s': t_compton_e, 'dictionary': pm}
+say(f'anchor inputs: m_e = {m_e} GeV, reduced Compton wavelength {compton_e:.10e} m, hbar/(m_e c^2) = {t_compton_e:.6e} s')
+
+# ---------------------------------------------------------------------------------------------------------------
+# 2. the chart, exact (integers and rationals); convention of the simulation chart
+N = 5
+states = list(itertools.product((0, 1), repeat=N))      # occupation of (v1, v2, v3, s1, s2)
+idx = {s: i for i, s in enumerate(states)}
+def lower(k):
+    A = np.zeros((32, 32), dtype=np.int64)
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[idx[tuple(t)], idx[s]] = (-1) ** sum(s[:k])
+    return A
+a = [lower(k) for k in range(N)]; ad = [x.T for x in a]
+E = lambda i, j: ad[i] @ a[j]
+n3op = sum(E(i, i) for i in range(3)); n2op = E(3, 3) + E(4, 4)
+S3 = sum(E(i, j) @ E(j, i) for i in range(3) for j in range(3))
+S2 = sum(E(i, j) @ E(j, i) for i in (3, 4) for j in (3, 4))
+six_C3 = 3 * S3 - n3op @ n3op                          # 6 x Casimir of SU(3)  (= 8 on a triplet)
+four_C2 = 2 * S2 - n2op @ n2op                         # 4 x Casimir of SU(2)  (= 3 on a doublet)
+def labels(s):
+    i = idx[s]
+    assert not np.any(six_C3[i, :i]) and not np.any(six_C3[i, i + 1:]) and not np.any(four_C2[i, :i]) and not np.any(four_C2[i, i + 1:])
+    n3, n2 = sum(s[:3]), sum(s[3:])
+    y6 = 3 * n2 - 2 * n3; t3 = F(s[3] - s[4], 2)
+    return {'n3': n3, 'n2': n2, 'six_Y': y6, 'T3': t3, 'Q': t3 + F(y6, 6), 'C_su3': F(int(six_C3[i, i]), 6),
+            'C_su2': F(int(four_C2[i, i]), 4), 'left': (n3 + n2) % 2 == 0, 'Z2': n2 % 2, 'Q6_mod_6': y6 % 6}
+st = {'e_L': (1, 1, 1, 0, 1), 'e_R': (1, 1, 1, 0, 0), 'nu_L': (1, 1, 1, 1, 0), 'nu_R': (1, 1, 1, 1, 1),
+      'u_L': (1, 0, 0, 1, 0), 'd_L': (1, 0, 0, 0, 1), 'u_R': (1, 0, 0, 1, 1), 'd_R': (1, 0, 0, 0, 0)}
+chart = {k: labels(s) for k, s in st.items()}
+fr = lambda x: str(x) if isinstance(x, F) else x
+out['chart'] = {k: {kk: fr(vv) for kk, vv in v.items()} for k, v in chart.items()}
+D = pm['electron']
+dl, dr = D['charged_lepton_left'], D['charged_lepton_right_conjugate']
+row = {}
+row['R1'] = chart['e_L']['Q'] == F(dl['Q']) == F(-1) and chart['e_R']['Q'] == -F(dr['Q']) == F(-1)
+row['R3'] = chart['e_L']['C_su3'] == 0 == chart['e_R']['C_su3'] and dl['color_representation'] == '1' == dr['color_representation']
+row['R4'] = (chart['e_L']['C_su2'], chart['e_L']['T3']) == (F(3, 4), F(dl['T3'])) and (chart['e_R']['C_su2'], chart['e_R']['T3']) == (0, -F(dr['T3'])) \
+    and F(dl['T3']) == F(-1, 2) and F(dr['T3']) == 0 and chart['e_L']['left'] and not chart['e_R']['left']
+row['R5'] = chart['e_L']['six_Y'] == int(dl['q6Y']) == -3 and chart['e_R']['six_Y'] == -int(dr['q6Y']) == -6
+# the other first-generation rows against the dictionary (for the consequence rows)
+other = {'u_L': pm['up']['up_left'], 'd_L': pm['down']['down_left'], 'nu_L': pm['electron_neutrino']['neutrino_left']}
+conj = {'u_R': pm['up']['up_right_conjugate'], 'd_R': pm['down']['down_right_conjugate']}
+row['first_generation_labels'] = all(chart[k]['Q'] == F(v['Q']) and chart[k]['T3'] == F(v['T3']) and chart[k]['six_Y'] == int(v['q6Y']) for k, v in other.items()) \
+    and all(chart[k]['Q'] == -F(v['Q']) and chart[k]['six_Y'] == -int(v['q6Y']) for k, v in conj.items())
+row['R2_registers'] = {k: {'Z2_charge_n2_mod_2': chart[k]['Z2'], 'Q6_mod_6': chart[k]['Q6_mod_6'], 'Q': str(chart[k]['Q'])} for k in ('e_L', 'e_R')}
+row['R2_registers_equal_on_both_classes'] = chart['e_L']['Z2'] == chart['e_R']['Z2'] and chart['e_L']['Q6_mod_6'] == chart['e_R']['Q6_mod_6']
+# sum rule over the sixteen states of one handedness, exact
+def sums(sel):
+    t = sum((labels(s)['T3'] ** 2 for s in states if sel(s)), F(0)); q = sum((labels(s)['Q'] ** 2 for s in states if sel(s)), F(0))
+    return t, q, t / q
+row['R17_exact'] = {name: [str(x) for x in sums(sel)] for name, sel in
+                    (('even occupation (left-handed sixteen)', lambda s: sum(s) % 2 == 0), ('odd occupation (right-handed sixteen)', lambda s: sum(s) % 2 == 1))}
+anom = lambda sel, f: sum((f(labels(s)) for s in states if sel(s)), F(0))
+evn = lambda s: sum(s) % 2 == 0
+row['anomaly_sums_left_sixteen'] = {'Y': str(anom(evn, lambda l: F(l['six_Y'], 6))), 'Y^3': str(anom(evn, lambda l: F(l['six_Y'], 6) ** 3)),
+                                     'Y on doublets': str(anom(evn, lambda l: F(l['six_Y'], 6) if l['C_su2'] else F(0))),
+                                     'Y on triplets': str(anom(evn, lambda l: F(l['six_Y'], 6) if l['C_su3'] else F(0)))}
+say('chart rows of the electron:', out['chart']['e_L'], out['chart']['e_R'])
+say('R1 R3 R4 R5 (labels equal the dictionary):', row['R1'], row['R3'], row['R4'], row['R5'], '; first generation:', row['first_generation_labels'])
+say('R2 registers of section 8 on the electron:', row['R2_registers'], 'equal on both classes:', row['R2_registers_equal_on_both_classes'])
+say('R17 exact:', row['R17_exact'], '; anomaly sums:', row['anomaly_sums_left_sixteen'])
+
+# ---------------------------------------------------------------------------------------------------------------
+# 3. checks of the definition (C0), with the reference engine
+X, Y, Z = SIG
+Xr, Yr, Zr = (np.kron(P, I2) for P in (X, Y, Z))
+norm2 = lambda A: float(np.linalg.norm(A, 2))
+c0 = {}
+p = 0.37
+U1 = Routing.symbol((p, 0, 0), 0.0)
+c0['symbol_commutator_with_X_r'] = norm2(U1 @ Xr - Xr @ U1)
+c0['symbol_commutator_with_Z_r'] = norm2(U1 @ Zr - Zr @ U1); c0['two_abs_sin_p'] = 2 * abs(math.sin(p))
+rng = np.random.default_rng(7)
+w = Routing((4, 3, 2))
+psi = rng.normal(size=w.shape + (2, 2)) + 1j * rng.normal(size=w.shape + (2, 2)); psi /= np.linalg.norm(psi)
+flipX = lambda f: f[..., ::-1, :]
+def signZ(f):
+    g = f.copy(); g[..., 1, :] *= -1; return g
+c0['engine_shift_commutator_with_X_r'] = max(float(np.abs(w.shift(flipX(psi), i) - flipX(w.shift(psi, i))).max()) for i in range(3))
+c0['engine_shift_commutator_with_Z_r'] = max(float(np.linalg.norm(w.shift(signZ(psi), i) - signZ(w.shift(psi, i)))) for i in range(3))
+c0['mass_step_anticommutes_with_X_r'] = {'Y_r': norm2(Yr @ Xr + Xr @ Yr), 'Z_r': norm2(Zr @ Xr + Xr @ Zr)}
+# C0c: Gauss operator with the Z2 charge of reading C on a 2 x 2 x 1 lattice with eight quantum link bits
+shape = (2, 2, 1)
+cells = list(itertools.product(range(2), range(2), range(1)))
+links = [(c, i) for i in (0, 1) for c in cells]; lid = {l: k for k, l in enumerate(links)}; NZ = 2 ** len(links)
+def signs(z):
+    o = [np.ones(shape), np.ones(shape), np.ones(shape)]
+    for (c, i), k in lid.items():
+        if (z >> k) & 1: o[i][c] = -1.0
+    return o
+def star(c):
+    m = 0
+    for i in (0, 1):
+        m ^= 1 << lid[(c, i)]
+        b = list(c); b[i] = (b[i] - 1) % shape[i]; m ^= 1 << lid[(tuple(b), i)]
+    return m
+engines = [Routing(shape, signs(z)) for z in range(NZ)]; free = Routing(shape)
+PL = lambda f: (f - flipX(f)) / 2                      # X_r = -1: the charged class (e_L) in reading C
+PR = lambda f: (f + flipX(f)) / 2                      # X_r = +1: the neutral class (e_R)
+def route(Psi, reading):
+    o = np.empty_like(Psi)
+    for z in range(NZ):
+        o[z] = engines[z].tick(Psi[z]) if reading == 'V' else engines[z].tick(PL(Psi[z])) + free.tick(PR(Psi[z]))
+    return o
+def massstep(Psi, theta): return free.mass(Psi, theta, 'Y')
+def gauss(Psi, c, reading):
+    o = np.empty_like(Psi); o[np.arange(NZ) ^ star(c)] = Psi
+    sl = (slice(None),) + c
+    o[sl] = -o[sl] if reading == 'V' else o[sl][..., ::-1, :]      # V: -1 on the quantum; C: (-1)^(charged) = X_r
+    return o
+Psi = rng.normal(size=(NZ,) + shape + (2, 2)) + 1j * rng.normal(size=(NZ,) + shape + (2, 2)); Psi /= np.linalg.norm(Psi)
+theta0 = 0.087847
+g = {}
+for reading in ('V', 'C'):
+    g[reading] = {
+        'massless_routing_commutator': max(float(np.abs(route(gauss(Psi, c, reading), reading) - gauss(route(Psi, reading), c, reading)).max()) for c in cells),
+        'mass_step_commutator_over_amplitude_at_the_cell': max(
+            float(np.linalg.norm(massstep(gauss(Psi, c, reading), theta0) - gauss(massstep(Psi, theta0), c, reading))
+                  / np.linalg.norm(Psi[(slice(None),) + c])) for c in cells),
+        'routing_unitary': float(abs(np.linalg.norm(route(Psi, reading)) - 1))}
+g['two_abs_sin_theta'] = 2 * abs(math.sin(theta0)); g['lattice'] = '2 x 2 x 1, eight link bits, dimension %d' % Psi.size
+c0['gauss'] = g
+# C0d: symmetric spectrum of the two-tick alternating symbol
+def ex(pp, i): return math.cos(pp) * np.eye(4) - 1j * math.sin(pp) * np.kron(X, SIG[i])
+def massm(th, kind='Y'): return math.cos(th) * np.eye(4) - 1j * math.sin(th) * (Yr if kind == 'Y' else Zr)
+def two_tick(pv, th, kind='Y'):
+    fwd = massm(th, kind) @ ex(pv[2], 2) @ ex(pv[1], 1) @ ex(pv[0], 0)
+    rev = massm(th, kind) @ ex(pv[0], 0) @ ex(pv[1], 1) @ ex(pv[2], 2)
+    return rev @ fwd
+worst = 0.0
+for _ in range(200):
+    pv = rng.uniform(-1, 1, 3); th = rng.uniform(0, 0.5)
+    for kind in ('Y', 'Z'):
+        Ee = np.sort(-np.angle(np.linalg.eigvals(two_tick(pv, th, kind))) / 2)
+        worst = max(worst, float(np.abs(Ee + Ee[::-1]).max()))
+c0['two_tick_spectrum_asymmetry_max_over_200'] = worst
+out['C0'] = c0
+say('C0a symbol [U, X_r], [U, Z_r], 2|sin p|:', f"{c0['symbol_commutator_with_X_r']:.1e}", f"{c0['symbol_commutator_with_Z_r']:.6f}", f"{c0['two_abs_sin_p']:.6f}",
+    '; engine:', f"{c0['engine_shift_commutator_with_X_r']:.1e}", f"{c0['engine_shift_commutator_with_Z_r']:.3f}")
+say('C0b anticommutators with X_r:', c0['mass_step_anticommutes_with_X_r'])
+say('C0c Gauss:', json.dumps(g))
+say('C0d spectrum asymmetry:', f'{worst:.1e}')
+
+# ---------------------------------------------------------------------------------------------------------------
+# 4. chirality, spin (R6, R7)
+r7 = {}
+Erest = np.sort(-np.angle(np.linalg.eigvals(Routing.symbol((0, 0, 0), theta0))))
+r7['rest_phases'] = [round(float(x), 9) for x in Erest]
+r7['rest_degeneracy_two'] = bool(abs(Erest[0] - Erest[1]) < 1e-12 and abs(Erest[2] - Erest[3]) < 1e-12 and abs(Erest[3] - theta0) < 1e-12)
+nhat = np.array([0.6, -0.48, 0.64]); pv = 0.05 * nhat
+U2 = two_tick(pv, 0.0)
+hel = {}
+for chi in (+1, -1):
+    B = np.kron(np.array([[1], [chi]]) / math.sqrt(2), I2)            # 4 x 2: the X_r = chi sector
+    blk = B.conj().T @ U2 @ B
+    r7.setdefault('leak_out_of_chirality_sector', []).append(float(np.linalg.norm(U2 @ B - B @ blk)))
+    wv, vv = np.linalg.eig(blk); Ee = -np.angle(wv) / 2
+    k = int(np.argmax(Ee)); v = vv[:, k] / np.linalg.norm(vv[:, k])
+    sp = sum(nhat[i] * SIG[i] for i in range(3))
+    hel[chi] = {'E_per_tick': float(Ee[k]), 'abs_p': 0.05, 'helicity_expectation': float(np.real(v.conj() @ sp @ v))}
+r7['massless_positive_branch'] = {('X_r=+1' if chi > 0 else 'X_r=-1'): h for chi, h in hel.items()}
+r7['spinor_square'] = max(norm2((1j * s) @ (1j * s) + np.eye(2)) for s in SIG)
+r7['pass'] = bool(r7['rest_degeneracy_two'] and all(abs(h['helicity_expectation']) >= 0.99 and np.sign(h['helicity_expectation']) == chi for chi, h in hel.items()) and r7['spinor_square'] < 1e-12)
+out['R7_spin'] = r7
+out['R6_chirality'] = {'V_components_of_the_electron': 2 * 2 * 2, 'V_each_class_holds_both_chiralities': True,
+                       'C_components_of_the_electron': 1 * 2 * 2, 'C_class_is_the_X_r_eigenvalue': c0['symbol_commutator_with_X_r'] < 1e-12,
+                       'identification_right_handed_class': 'X_r = +1 (positive helicity on the positive branch)'}
+say('R7 spin:', json.dumps(r7))
+
+# ---------------------------------------------------------------------------------------------------------------
+# 5. mass rows (R11 to R16) and the unit anchor
+ph = json.load(open(inputs['defect_phases.json']))
+T = {({'1/6': 1, '1/3': 2, '1/2': 3}[r['alpha']], r['separation']): r['rest_phase'] for r in ph['rows']}
+item6 = {1: (0.042383, 0.051014, 0.056207, 0.058279, 0.059322), 2: (0.075113, 0.092788, 0.106416, 0.113080, 0.116921),
+         3: (0.087847, 0.110554, 0.132363, 0.147787, 0.171237)}        # CF1.md section 4 item 6, as printed there
+assert all(abs(T[(a, d + 1)] - item6[a][d]) < 1e-6 for a in item6 for d in range(5))
+uniform = {'uniform flux, doublet sector': ph['reference']['flux_in_every_face_k1_doublet'], 'uniform flux, triplet sector': ph['reference']['flux_in_every_face_k2_triplet']}
+def fold(x):
+    x %= 6; return min(x, 6 - x)
+def th(q6, k, d):
+    al = fold(k * q6); return 0.0 if al == 0 else T[(al, d)]
+Q6 = {'e_L': -3, 'e_R': -6, 'nu_L': -3, 'nu_R': 0, 'Q_L': 1, 'u_R': 4, 'd_R': -2}             # 3 n2 - 2 n3
+Q6_four = {'e': -6, 'nu': -3, 'u': 1, 'd': -2}                                               # 3 n(s1) - 2 n3
+assert all(Q6[k] == chart[k]['six_Y'] for k in ('e_L', 'e_R', 'nu_L', 'nu_R', 'u_R', 'd_R')) and Q6['Q_L'] == chart['u_L']['six_Y'] == chart['d_L']['six_Y']
+bound_nu = m_beta_bound_eV * 1e-9 / m_e
+r_u, r_d = m_u / m_e, m_d / m_e
+sig = lambda t: unc(t) / 1.645
+r_ud = m_u / m_d; s_ud = r_ud * math.hypot(sig('up') / m_u, sig('down') / m_d); hw_ud = r_ud * math.hypot(unc('up') / m_u, unc('down') / m_d)
+out['measured_ratios'] = {'m_beta_bound_over_m_e': bound_nu, 'm_u_over_m_e': r_u, 'm_d_over_m_e': r_d, 'm_u_over_m_d': r_ud,
+                          'sigma_m_u_over_m_d': s_ud, 'half_width_90_m_u_over_m_d': hw_ud}
+say(f'measured: m_nu/m_e < {bound_nu:.4e}; m_u/m_e = {r_u:.4f}; m_d/m_e = {r_d:.4f}; m_u/m_d = {r_ud:.4f} (sigma {s_ud:.4f}, 90 percent half-width {hw_ud:.4f})')
+
+V = []
+for k in range(1, 6):
+    for d in range(1, 6):
+        t = {n: th(q, k, d) for n, q in Q6.items()}
+        dirac = lambda aL, aR: t[aL] == t[aR] != 0.0
+        V.append({'k': k, 'd': d, 'theta': t, 'alpha_sixths': {n: fold(k * q) for n, q in Q6.items()},
+                  'dirac_e': dirac('e_L', 'e_R'), 'dirac_nu': dirac('nu_L', 'nu_R'), 'dirac_u': dirac('Q_L', 'u_R'), 'dirac_d': dirac('Q_L', 'd_R')})
+resV = {'classes_scanned': len(V), 'classes_with_a_Dirac_electron': sum(x['dirac_e'] for x in V),
+        'classes_with_theta_e_R_nonzero': sum(x['theta']['e_R'] != 0 for x in V),
+        'classes_with_a_Dirac_neutrino': sum(x['dirac_nu'] for x in V),
+        'classes_with_Dirac_up_and_down': [(x['k'], x['d']) for x in V if x['dirac_u'] and x['dirac_d']],
+        'alpha_sixths_by_k': {k: next(x['alpha_sixths'] for x in V if x['k'] == k) for k in range(1, 6)}}
+# information: anchor on the lepton-doublet pattern where it is nonzero (odd k), ratios of the other patterns
+info = []
+for x in V:
+    t = x['theta']
+    if t['e_L'] == 0: continue
+    info.append({'k': x['k'], 'd': x['d'], 'theta_e_L': t['e_L'], 'theta_e_R': t['e_R'], 'nu_L_over_e_L': t['nu_L'] / t['e_L'],
+                 'Q_L_over_e_L': t['Q_L'] / t['e_L'], 'u_R_over_e_L': t['u_R'] / t['e_L'], 'd_R_over_e_L': t['d_R'] / t['e_L'],
+                 'Q_L_MeV': 1e3 * m_e * t['Q_L'] / t['e_L'], 'u_R_MeV': 1e3 * m_e * t['u_R'] / t['e_L'], 'd_R_MeV': 1e3 * m_e * t['d_R'] / t['e_L'],
+                 'cell_m': t['e_L'] * compton_e, 'tick_s': t['e_L'] * t_compton_e, 'ceiling_MeV': 1e3 * math.pi * m_e / t['e_L']})
+resV['pattern_ratios_with_the_doublet_pattern_as_anchor'] = info
+# quarks in the classes where they are Dirac pairs
+resV['up_over_down_where_both_are_Dirac'] = sorted({round(x['theta']['u_R'] / x['theta']['d_R'], 12) for x in V if x['dirac_u'] and x['dirac_d']})
+out['V'] = resV
+say('V: classes', resV['classes_scanned'], '; Dirac electron in', resV['classes_with_a_Dirac_electron'], '; theta(e_R) nonzero in', resV['classes_with_theta_e_R_nonzero'],
+    '; Dirac neutrino in', resV['classes_with_a_Dirac_neutrino'], '; Dirac up and down in', len(resV['classes_with_Dirac_up_and_down']), 'classes with m_u/m_d =', resV['up_over_down_where_both_are_Dirac'])
+say('V: alpha in sixths by k:', resV['alpha_sixths_by_k'])
+for r in info:
+    if r['k'] == 1: say('  V k=1 d=%d: theta(e_L)=%.6f theta(e_R)=%.0f | Q_L/e_L %.4f u_R/e_L %.4f d_R/e_L %.4f | cell %.2f fm tick %.3e s ceiling %.2f MeV'
+                        % (r['d'], r['theta_e_L'], r['theta_e_R'], r['Q_L_over_e_L'], r['u_R_over_e_L'], r['d_R_over_e_L'], r['cell_m'] * 1e15, r['tick_s'], r['ceiling_MeV']))
+V4 = []
+for k in range(1, 6):
+    for d in range(1, 6):
+        t = {n: th(q, k, d) for n, q in Q6_four.items()}
+        rr = {'k': k, 'd': d, 'theta': t}
+        if t['u'] and t['d']:
+            rr['u_over_d'] = t['u'] / t['d']; rr['sigma_from_measured'] = (rr['u_over_d'] - r_ud) / s_ud; rr['half_widths_from_measured'] = (rr['u_over_d'] - r_ud) / hw_ud
+            rr['R14_pass'] = abs(rr['sigma_from_measured']) <= 3
+        V4.append(rr)
+resV4 = {'classes_scanned': len(V4), 'classes_with_theta_e_nonzero': sum(x['theta']['e'] != 0 for x in V4),
+         'classes_with_neutrino_massive_and_electron_massless': sum(x['theta']['nu'] != 0 and x['theta']['e'] == 0 for x in V4),
+         'u_over_d': [{kk: x[kk] for kk in ('k', 'd', 'u_over_d', 'sigma_from_measured', 'half_widths_from_measured', 'R14_pass')} for x in V4 if 'u_over_d' in x],
+         'classes_passing_R14_alone': [(x['k'], x['d']) for x in V4 if x.get('R14_pass')]}
+out['V4'] = resV4
+say('V4: theta_e nonzero in', resV4['classes_with_theta_e_nonzero'], 'of', resV4['classes_scanned'], '; neutrino massive with electron massless in', resV4['classes_with_neutrino_massive_and_electron_massless'])
+for x in resV4['u_over_d']:
+    if x['k'] in (1, 2, 3): say('  V4 k=%d d=%d: m_u/m_d = %.4f, %.1f sigma, %.1f half-widths from %.4f, R14 %s' % (x['k'], x['d'], x['u_over_d'], x['sigma_from_measured'], x['half_widths_from_measured'], r_ud, x['R14_pass']))
+# reading C: one common angle
+resC = {'m_nu_over_m_e': 1.0, 'R12_pass': 1.0 <= bound_nu, 'orders_of_magnitude_above_the_bound': math.log10(1.0 / bound_nu),
+        'm_u_over_m_e': 1.0, 'pred_over_meas_u': 1.0 / r_u, 'R13_up_pass': 1 / 3 <= 1.0 / r_u <= 3,
+        'm_d_over_m_e': 1.0, 'pred_over_meas_d': 1.0 / r_d, 'R13_down_pass': 1 / 3 <= 1.0 / r_d <= 3,
+        'm_u_over_m_d': 1.0, 'R14_sigma': (1.0 - r_ud) / s_ud, 'R14_half_widths': (1.0 - r_ud) / hw_ud, 'R14_pass': abs(1.0 - r_ud) / s_ud <= 3,
+        'positron_difference': 0.0, 'R15_pass': 0.0 <= pos_bound,
+        'R16_theta_upper_bound_from_top': math.pi * m_e / m_t, 'R16_cell_upper_bound_m': math.pi * m_e / m_t * compton_e,
+        'R16_theta_upper_bound_from_muon': math.pi * m_e / m_mu}
+out['C'] = resC
+say('C:', json.dumps({k: (round(v, 6) if isinstance(v, float) and abs(v) > 1e-3 else v) for k, v in resC.items()}))
+# R15 in reading V: conjugate patterns have Q6 -> -Q6, alpha -> 1 - alpha, the same table entry
+out['V']['R15_conjugate_patterns_equal_angles'] = all(th(q, k, d) == th(-q, k, d) for q in Q6.values() for k in range(1, 6) for d in range(1, 6))
+# R16 in reading V: the ceiling for the electron-doublet angles
+ceil = [r['ceiling_MeV'] for r in info]
+out['V']['R16'] = {'ceiling_MeV_min': min(ceil), 'ceiling_MeV_max': max(ceil), 'muon_MeV': 1e3 * m_mu, 'top_MeV': 1e3 * m_t, 'pass': min(ceil) >= 1e3 * m_t}
+say('V R15 conjugates equal:', out['V']['R15_conjugate_patterns_equal_angles'], '; R16 ceiling %.2f to %.2f MeV against muon %.3f MeV' % (min(ceil), max(ceil), 1e3 * m_mu))
+# the anchor table: every angle of item 6 read as the electron's rest angle
+anchor = []
+for (al, d), v in sorted(T.items()):
+    anchor.append({'class': 'flux pair, alpha = %d/6, separation %d' % (al, d), 'theta': v, 'electron_doublet_pattern_takes_it_for_odd_k': al == 3})
+for name, v in uniform.items():
+    anchor.append({'class': name, 'theta': v, 'electron_doublet_pattern_takes_it_for_odd_k': False})
+for r in anchor:
+    r.update({'tick_s': r['theta'] * t_compton_e, 'cell_m': r['theta'] * compton_e, 'ceiling_MeV': 1e3 * math.pi * m_e / r['theta']})
+out['anchor'] = {'relation': 'tick = theta_e hbar/(m_e c^2); cell = theta_e x reduced Compton wavelength; ceiling = pi m_e c^2/theta_e', 'table': anchor,
+                 'M0': 'no nonzero rest angle: the unit is not fixed by any single measured value', 'C': 'theta free: the anchor fixes cell/theta only'}
+say('anchor table (theta, cell fm, tick s, ceiling MeV):')
+for r in anchor: say('  %-44s %.6f  %7.2f  %.3e  %6.2f %s' % (r['class'], r['theta'], r['cell_m'] * 1e15, r['tick_s'], r['ceiling_MeV'], '<- electron doublet pattern' if r['electron_doublet_pattern_takes_it_for_odd_k'] else ''))
+
+# ---------------------------------------------------------------------------------------------------------------
+# 6. R17 and R18
+s2w = 1 - (M_W / M_Z) ** 2
+s2w_sig = math.hypot(2 * M_W * unc('W_plus') / M_Z ** 2, 2 * M_W ** 2 * unc('Z') / M_Z ** 3)
+out['R17'] = {'chart': 0.375, 'on_shell_from_shipped_W_and_Z': s2w, 'sigma': s2w_sig, 'difference': 0.375 - s2w, 'difference_in_sigma': (0.375 - s2w) / s2w_sig,
+              'face_value_pass': abs(0.375 - s2w) <= 3 * s2w_sig}
+phi = (1 + math.sqrt(5)) / 2
+gen = json.load(open(inputs['generations.json']))['as_mixing_angles']
+assert abs(gen['sin2_theta12'] - 1 / (1 + phi ** 2)) < 1e-12 and gen['sin2_theta23'] == 0.5 and gen['sin2_theta13'] == 0.0
+pred = {'theta12': math.degrees(math.atan(1 / phi)), 'theta23': 45.0, 'theta13': 0.0}
+r18 = {}
+for kk, pv_ in pred.items():
+    v, up, dn = mix_meas[kk]; u = up if pv_ > v else dn
+    r18[kk] = {'predicted_deg': pv_, 'measured_deg': v, 'uncertainty_used_deg': u, 'pull': (pv_ - v) / u, 'pass': abs(pv_ - v) <= 3 * u,
+               'predicted_sin2': math.sin(math.radians(pv_)) ** 2, 'measured_sin2_from_angle': math.sin(math.radians(v)) ** 2,
+               'nufit61_sin2': float(nufit['sin2_' + kk])}
+r18['pattern_pass'] = all(r18[kk]['pass'] for kk in pred)
+out['R18'] = r18
+say('R17: 3/8 against on-shell %.5f +- %.5f: difference %.4f (%.0f sigma)' % (s2w, s2w_sig, 0.375 - s2w, (0.375 - s2w) / s2w_sig))
+say('R18:', {kk: (round(v['predicted_deg'], 3), v['measured_deg'], round(v['pull'], 2), v['pass']) for kk, v in r18.items() if kk != 'pattern_pass'}, 'pattern:', r18['pattern_pass'])
+
+# ---------------------------------------------------------------------------------------------------------------
+# 7. declared extension E1: U(1) link phases, lowest Landau level, g_eff = 2 - 4 theta (E_0 - theta)/B
+def landau(theta, L, ky=0.0):
+    x = np.arange(L); B = 2 * np.pi / L
+    lk = [np.ones((L, 1, 1), complex), np.exp(1j * (B * x + ky)).reshape(L, 1, 1), np.ones((L, 1, 1), complex)]
+    eng = Routing((L, 1, 1), lk); dim = 4 * L
+    U = np.empty((dim, dim), complex)
+    for j in range(dim):
+        e = np.zeros(dim, complex); e[j] = 1
+        f = eng.tick(eng.tick(e.reshape(L, 1, 1, 2, 2), theta), theta, reverse=True)
+        U[:, j] = f.reshape(dim)
+    unit = float(np.abs(U.conj().T @ U - np.eye(dim)).max())
+    Ee = np.sort(-np.angle(np.linalg.eigvals(U)) / 2)
+    pos = Ee[Ee > 1e-9]; E0 = float(pos[0])
+    lev = []
+    for v in pos:
+        if not lev or v - lev[-1] > 1e-6: lev.append(float(v))
+        if len(lev) == 3: break
+    return {'L': L, 'B': B, 'k_2': ky, 'E0': E0, 'E0_minus_theta': E0 - theta, 'g_eff': 2 - 4 * theta * (E0 - theta) / B,
+            'first_levels': lev, 'E1_squared_minus_theta_squared_over_2B': (lev[1] ** 2 - theta ** 2) / (2 * B) if len(lev) > 1 else None,
+            'unitarity_defect': unit, 'smallest_abs_E_negative_side': float(-Ee[Ee < -1e-9][-1])}
+# validation of the reduction at fixed k_2: a constant phase on the links of axis 2 equals the symbol at p_2 = k_2
+Lv = 16; kyv = 0.3
+engv = Routing((Lv, 1, 1), [np.ones((Lv, 1, 1), complex), np.full((Lv, 1, 1), np.exp(1j * kyv)), np.ones((Lv, 1, 1), complex)])
+e0 = np.array([0.3, 0.5 - 0.2j, -0.4j, 0.6]); e0 = e0 / np.linalg.norm(e0)
+got = engv.tick(engv.plane_wave((3, 0, 0), e0), 0.2)
+want = engv.plane_wave((3, 0, 0), Routing.symbol((2 * np.pi * 3 / Lv, kyv, 0.0), 0.2) @ e0)
+e1 = {'reduction_check': float(np.abs(got - want).max()), 'theta': theta0, 'rows': [landau(theta0, L) for L in (64, 128, 256)]}
+e1['independence_of_k_2_at_L_128'] = landau(theta0, 128, 0.37)['E0'] - e1['rows'][1]['E0']
+e1['consistent_with_tree_value'] = abs(e1['rows'][-1]['g_eff'] - 2) <= 0.01
+out['E1'] = e1
+say('E1 reduction check %.1e' % e1['reduction_check'])
+for r in e1['rows']: say('  E1 L=%d B=%.5f: E0 - theta = %.3e, g_eff = %.6f, (E1^2 - theta^2)/2B = %.5f, unitarity %.1e' % (r['L'], r['B'], r['E0_minus_theta'], r['g_eff'], r['E1_squared_minus_theta_squared_over_2B'], r['unitarity_defect']))
+say('  E1 k_2 independence at L=128: %.1e ; consistent with tree value: %s' % (e1['independence_of_k_2_at_L_128'], e1['consistent_with_tree_value']))
+
+# ---------------------------------------------------------------------------------------------------------------
+# 8. scoreboard
+lab = lambda ok: 'MATCH-LABEL' if ok else 'FAIL'
+gaussC = c0['gauss']['C']['mass_step_commutator_over_amplitude_at_the_cell']
+board = [
+    ('R1 electric charge, label', 'exact on a declared chart', lab(row['R1']), lab(row['R1'])),
+    ('R2 electric charge, coupling', 'not available (Z2 and centre registers only; they differ on e_L and e_R)', 'NC: no U(1) link coupled to Q', 'NC: no U(1) link coupled to Q'),
+    ('R3 colour', 'exact on a declared chart', lab(row['R3']), lab(row['R3'])),
+    ('R4 weak isospin, both classes', 'exact on a declared chart', lab(row['R4']), lab(row['R4'])),
+    ('R5 hypercharge, both classes', 'exact on a declared chart', lab(row['R5']), lab(row['R5'])),
+    ('R6 handedness as chirality', 'computed', 'FAIL: 8 components, both chiralities in each class',
+     'MATCH-DECL in the corrected form (class = X_r eigenvalue)' if out['R6_chirality']['C_class_is_the_X_r_eigenvalue'] else 'FAIL'),
+    ('R7 spin', 'representation exact, pointer declared', 'MATCH-DECL' if r7['pass'] else 'FAIL', 'MATCH-DECL' if r7['pass'] else 'FAIL'),
+    ('R8 statistics', 'declared', 'MATCH-DECL', 'MATCH-DECL'),
+    ('R9 stability', 'exact by construction (no vertex)', 'NC: no species-changing vertex; no shipped bound', 'NC: no species-changing vertex; no shipped bound'),
+    ('R10 magnetic moment, tree level', 'not available', 'NC: no U(1) link coupled to Q; measured g not shipped', 'NC: no U(1) link coupled to Q; measured g not shipped'),
+    ('R11 mass of the electron', 'V declared; C angle not fixed',
+     'FAIL: Dirac electron in %d of %d classes; theta(e_R) = 0 in all' % (resV['classes_with_a_Dirac_electron'], resV['classes_scanned']),
+     'NC: angle not fixed; mass step fails the Gauss constraint (%.4f = 2 sin theta)' % gaussC),
+    ('R12 neutrino against electron', 'as R11', 'FAIL: doublet pattern gives ratio 1; no Dirac neutrino', 'PASS' if resC['R12_pass'] else 'FAIL: ratio 1 against bound %.1e' % bound_nu),
+    ('R13 up, down against electron', 'as R11', 'FAIL: no class passes R11',
+     'PASS' if resC['R13_up_pass'] and resC['R13_down_pass'] else 'FAIL: predicted/measured %.3f and %.3f' % (resC['pred_over_meas_u'], resC['pred_over_meas_d'])),
+    ('R14 up against down', 'as R11', 'FAIL: 1 where both are Dirac (k = 2, 4); those classes fail R11', 'PASS' if resC['R14_pass'] else 'FAIL: 1 against %.4f, %.0f sigma' % (r_ud, resC['R14_sigma'])),
+    ('R15 positron against electron', 'exact', 'MATCH (0 against bound %.0e)' % pos_bound if out['V']['R15_conjugate_patterns_equal_angles'] else 'FAIL', 'MATCH (0 against bound %.0e)' % pos_bound if resC['R15_pass'] else 'FAIL'),
+    ('R16 one clock for heavier rest energies', 'consequence of the anchor', 'PASS' if out['V']['R16']['pass'] else 'FAIL: ceiling %.1f to %.1f MeV, muon %.1f MeV' % (min(ceil), max(ceil), 1e3 * m_mu),
+     'no verdict: requires theta < %.2e, cell < %.2e m' % (resC['R16_theta_upper_bound_from_top'], resC['R16_cell_upper_bound_m'])),
+    ('R17 sum T3^2 / sum Q^2 = 3/8', 'exact on a declared chart', *(('MATCH',) * 2 if out['R17']['face_value_pass'] else ('NC without running and a breaking mechanism; face value fails (%.4f)' % s2w,) * 2)),
+    ('R18 golden-ratio mixing', 'closed forms of a declared reading', *(('MATCH',) * 2 if r18['pattern_pass'] else ('FAIL: theta13 = 0 against %.2f deg (%.0f uncertainties); theta12 pull %.1f' % (mix_meas['theta13'][0], abs(r18['theta13']['pull']), r18['theta12']['pull']),) * 2)),
+]
+out['scoreboard'] = [{'property': b[0], 'status_of_the_CF1_output': b[1], 'V_vector_like_M1': b[2], 'C_chiral_M2': b[3]} for b in board]
+out['scoreboard_marked_lines'] = {'M0': 'R11 FAIL: theta = 0 for every species; the unit cannot be anchored',
+                                  'V4': 'R11 FAIL: theta_e = 0 in %d of %d classes; neutrino massive with electron massless in %d' % (
+                                      resV4['classes_scanned'] - resV4['classes_with_theta_e_nonzero'], resV4['classes_scanned'], resV4['classes_with_neutrino_massive_and_electron_massless'])}
+say('\nSCOREBOARD  (property | status of the CF-1 output | V: vector-like, M1 | C: chiral, M2)')
+for b in board: say(' | '.join(b))
+for k, v in out['scoreboard_marked_lines'].items(): say(k, ':', v)
+json.dump(out, open(os.path.join(HERE, 'comparison.json'), 'w'), indent=1, default=str)

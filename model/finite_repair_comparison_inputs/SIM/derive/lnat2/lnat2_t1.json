@@ -1,0 +1,1145 @@
+{
+ "task": "T1",
+ "geometry": {
+  "g": [
+   [
+    0,
+    9,
+    2
+   ],
+   [
+    1,
+    3,
+    10
+   ],
+   [
+    4,
+    11,
+    5
+   ],
+   [
+    6,
+    7,
+    8
+   ]
+  ],
+  "defect_face_f": [
+   4,
+   5,
+   11
+  ],
+  "antipode_f'": [
+   6,
+   7,
+   8
+  ],
+  "outward_order_f": [
+   4,
+   5,
+   11
+  ],
+  "outward_order_f'": [
+   6,
+   7,
+   8
+  ],
+  "rho_f (turns f in its outward orientation)": "g^2 = g^-1",
+  "rho_f' (turns f' in its outward orientation)": "g",
+  "g_seen_from_outside_f": "clockwise",
+  "stabilizer_of_f_in_A5_order": 3,
+  "stabilizer_of_f_is_<g>": true,
+  "rotations_mapping_f_to_f_prime": 3,
+  "all_of_them_half_turns_inverting_g": true,
+  "g_conjugate_to_g_inverse_inside_C3": false,
+  "register_oriented_faces_equal_outward_orientation": true,
+  "register_face_f": [
+   5,
+   11,
+   4
+  ],
+  "register_face_f'": [
+   8,
+   6,
+   7
+  ]
+ },
+ "A_link_phase_defect": {
+  "0": {
+   "class_k_on_f": 0,
+   "nonzero_face_classes": {},
+   "loop_product_along_rho_f_equals_exp(i pi k/3)": true,
+   "compression_on_f_ports_in_rho_f_order_Z6_gauge": [
+    [
+     "11/12",
+     "1/60",
+     "1/60"
+    ],
+    [
+     "1/60",
+     "11/12",
+     "1/60"
+    ],
+    [
+     "1/60",
+     "1/60",
+     "11/12"
+    ]
+   ],
+   "C3_symmetric_gauge_is_circulant": true,
+   "a": "11/12",
+   "abs_b": "1/60",
+   "arg_b_along_rho_f": "pi*0/9 (mod 2 pi/3)",
+   "forward_coefficient_symmetric_gauge": "1/60",
+   "eigenvalues": [
+    "19/20",
+    "9/10",
+    "9/10"
+   ],
+   "eigenvalues_numeric": [
+    0.9,
+    0.9,
+    0.95
+   ],
+   "charpoly_matches_prediction": true,
+   "w_and_w2_split": false,
+   "abs_b_over_a": "1/55",
+   "koide_balance_1/sqrt2": false,
+   "covariant_gauge_phi_exists": true,
+   "phi": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "(D_phi Pi(g))^3 = exp(i pi c/3) I with c": [
+    0
+   ],
+   "third_turn_characters": "exp(i (pi c/3 + 2 pi j)/3), c = [0]"
+  },
+  "1": {
+   "class_k_on_f": 1,
+   "nonzero_face_classes": {
+    "[4, 5, 11]": 1,
+    "[6, 7, 8]": 5
+   },
+   "loop_product_along_rho_f_equals_exp(i pi k/3)": true,
+   "compression_on_f_ports_in_rho_f_order_Z6_gauge": [
+    [
+     "11/12",
+     "1/60",
+     "1/60"
+    ],
+    [
+     "1/60",
+     "11/12",
+     "exp(-I*pi/3)/60"
+    ],
+    [
+     "1/60",
+     "exp(I*pi/3)/60",
+     "11/12"
+    ]
+   ],
+   "C3_symmetric_gauge_is_circulant": true,
+   "a": "11/12",
+   "abs_b": "1/60",
+   "arg_b_along_rho_f": "pi*1/9 (mod 2 pi/3)",
+   "forward_coefficient_symmetric_gauge": "(-1)**(1/9)/60",
+   "eigenvalues": [
+    "cos(pi/9)/30 + 11/12",
+    "11/12 - cos(2*pi/9)/30",
+    "11/12 - cos(4*pi/9)/30"
+   ],
+   "eigenvalues_numeric": [
+    0.891131851896034,
+    0.9108783940777689,
+    0.9479897540261969
+   ],
+   "charpoly_matches_prediction": true,
+   "w_and_w2_split": true,
+   "abs_b_over_a": "1/55",
+   "koide_balance_1/sqrt2": false,
+   "covariant_gauge_phi_exists": true,
+   "phi": [
+    0,
+    5,
+    0,
+    0,
+    0,
+    5,
+    0,
+    0,
+    5,
+    5,
+    0,
+    0
+   ],
+   "(D_phi Pi(g))^3 = exp(i pi c/3) I with c": [
+    5
+   ],
+   "third_turn_characters": "exp(i (pi c/3 + 2 pi j)/3), c = [5]"
+  },
+  "2": {
+   "class_k_on_f": 2,
+   "nonzero_face_classes": {
+    "[4, 5, 11]": 2,
+    "[6, 7, 8]": 4
+   },
+   "loop_product_along_rho_f_equals_exp(i pi k/3)": true,
+   "compression_on_f_ports_in_rho_f_order_Z6_gauge": [
+    [
+     "11/12",
+     "1/60",
+     "1/60"
+    ],
+    [
+     "1/60",
+     "11/12",
+     "exp(-2*I*pi/3)/60"
+    ],
+    [
+     "1/60",
+     "exp(2*I*pi/3)/60",
+     "11/12"
+    ]
+   ],
+   "C3_symmetric_gauge_is_circulant": true,
+   "a": "11/12",
+   "abs_b": "1/60",
+   "arg_b_along_rho_f": "pi*2/9 (mod 2 pi/3)",
+   "forward_coefficient_symmetric_gauge": "(-1)**(2/9)/60",
+   "eigenvalues": [
+    "cos(2*pi/9)/30 + 11/12",
+    "11/12 - cos(pi/9)/30",
+    "cos(4*pi/9)/30 + 11/12"
+   ],
+   "eigenvalues_numeric": [
+    0.8853435793071364,
+    0.9224549392555643,
+    0.9422014814372993
+   ],
+   "charpoly_matches_prediction": true,
+   "w_and_w2_split": true,
+   "abs_b_over_a": "1/55",
+   "koide_balance_1/sqrt2": false,
+   "covariant_gauge_phi_exists": true,
+   "phi": [
+    0,
+    4,
+    0,
+    0,
+    0,
+    4,
+    0,
+    0,
+    4,
+    4,
+    0,
+    0
+   ],
+   "(D_phi Pi(g))^3 = exp(i pi c/3) I with c": [
+    4
+   ],
+   "third_turn_characters": "exp(i (pi c/3 + 2 pi j)/3), c = [4]"
+  },
+  "3": {
+   "class_k_on_f": 3,
+   "nonzero_face_classes": {
+    "[4, 5, 11]": 3,
+    "[6, 7, 8]": 3
+   },
+   "loop_product_along_rho_f_equals_exp(i pi k/3)": true,
+   "compression_on_f_ports_in_rho_f_order_Z6_gauge": [
+    [
+     "11/12",
+     "1/60",
+     "1/60"
+    ],
+    [
+     "1/60",
+     "11/12",
+     "-1/60"
+    ],
+    [
+     "1/60",
+     "-1/60",
+     "11/12"
+    ]
+   ],
+   "C3_symmetric_gauge_is_circulant": true,
+   "a": "11/12",
+   "abs_b": "1/60",
+   "arg_b_along_rho_f": "pi*3/9 (mod 2 pi/3)",
+   "forward_coefficient_symmetric_gauge": "1/120 + sqrt(3)*I/120",
+   "eigenvalues": [
+    "14/15",
+    "53/60",
+    "14/15"
+   ],
+   "eigenvalues_numeric": [
+    0.8833333333333333,
+    0.9333333333333333,
+    0.9333333333333333
+   ],
+   "charpoly_matches_prediction": true,
+   "w_and_w2_split": false,
+   "abs_b_over_a": "1/55",
+   "koide_balance_1/sqrt2": false,
+   "covariant_gauge_phi_exists": true,
+   "phi": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    3,
+    3,
+    0,
+    0
+   ],
+   "(D_phi Pi(g))^3 = exp(i pi c/3) I with c": [
+    3
+   ],
+   "third_turn_characters": "exp(i (pi c/3 + 2 pi j)/3), c = [3]"
+  },
+  "4": {
+   "class_k_on_f": 4,
+   "nonzero_face_classes": {
+    "[4, 5, 11]": 4,
+    "[6, 7, 8]": 2
+   },
+   "loop_product_along_rho_f_equals_exp(i pi k/3)": true,
+   "compression_on_f_ports_in_rho_f_order_Z6_gauge": [
+    [
+     "11/12",
+     "1/60",
+     "1/60"
+    ],
+    [
+     "1/60",
+     "11/12",
+     "exp(2*I*pi/3)/60"
+    ],
+    [
+     "1/60",
+     "exp(-2*I*pi/3)/60",
+     "11/12"
+    ]
+   ],
+   "C3_symmetric_gauge_is_circulant": true,
+   "a": "11/12",
+   "abs_b": "1/60",
+   "arg_b_along_rho_f": "pi*4/9 (mod 2 pi/3)",
+   "forward_coefficient_symmetric_gauge": "(-1)**(4/9)/60",
+   "eigenvalues": [
+    "cos(4*pi/9)/30 + 11/12",
+    "11/12 - cos(pi/9)/30",
+    "cos(2*pi/9)/30 + 11/12"
+   ],
+   "eigenvalues_numeric": [
+    0.8853435793071364,
+    0.9224549392555643,
+    0.9422014814372993
+   ],
+   "charpoly_matches_prediction": true,
+   "w_and_w2_split": true,
+   "abs_b_over_a": "1/55",
+   "koide_balance_1/sqrt2": false,
+   "covariant_gauge_phi_exists": true,
+   "phi": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0
+   ],
+   "(D_phi Pi(g))^3 = exp(i pi c/3) I with c": [
+    2
+   ],
+   "third_turn_characters": "exp(i (pi c/3 + 2 pi j)/3), c = [2]"
+  },
+  "5": {
+   "class_k_on_f": 5,
+   "nonzero_face_classes": {
+    "[4, 5, 11]": 5,
+    "[6, 7, 8]": 1
+   },
+   "loop_product_along_rho_f_equals_exp(i pi k/3)": true,
+   "compression_on_f_ports_in_rho_f_order_Z6_gauge": [
+    [
+     "11/12",
+     "1/60",
+     "1/60"
+    ],
+    [
+     "1/60",
+     "11/12",
+     "exp(I*pi/3)/60"
+    ],
+    [
+     "1/60",
+     "exp(-I*pi/3)/60",
+     "11/12"
+    ]
+   ],
+   "C3_symmetric_gauge_is_circulant": true,
+   "a": "11/12",
+   "abs_b": "1/60",
+   "arg_b_along_rho_f": "pi*5/9 (mod 2 pi/3)",
+   "forward_coefficient_symmetric_gauge": "(-1)**(5/9)/60",
+   "eigenvalues": [
+    "11/12 - cos(4*pi/9)/30",
+    "11/12 - cos(2*pi/9)/30",
+    "cos(pi/9)/30 + 11/12"
+   ],
+   "eigenvalues_numeric": [
+    0.891131851896034,
+    0.9108783940777689,
+    0.9479897540261969
+   ],
+   "charpoly_matches_prediction": true,
+   "w_and_w2_split": true,
+   "abs_b_over_a": "1/55",
+   "koide_balance_1/sqrt2": false,
+   "covariant_gauge_phi_exists": true,
+   "phi": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0
+   ],
+   "(D_phi Pi(g))^3 = exp(i pi c/3) I with c": [
+    1
+   ],
+   "third_turn_characters": "exp(i (pi c/3 + 2 pi j)/3), c = [1]"
+  }
+ },
+ "A_full_walk_checks_Zomega": {
+  "0": {
+   "W_unitary_exact": true,
+   "commutes_with_covariant_third_turn_D_phi_Pi(g)": true,
+   "commutes_with_plain_Pi(g)": true,
+   "consensus_block_equals_11/12_I_+_A_s/60": true,
+   "consensus_record1_block_zero": true
+  },
+  "1": {
+   "W_unitary_exact": true,
+   "commutes_with_covariant_third_turn_D_phi_Pi(g)": true,
+   "commutes_with_plain_Pi(g)": false,
+   "consensus_block_equals_11/12_I_+_A_s/60": true,
+   "consensus_record1_block_zero": true
+  },
+  "2": {
+   "W_unitary_exact": true,
+   "commutes_with_covariant_third_turn_D_phi_Pi(g)": true,
+   "commutes_with_plain_Pi(g)": false,
+   "consensus_block_equals_11/12_I_+_A_s/60": true,
+   "consensus_record1_block_zero": true
+  },
+  "3": {
+   "W_unitary_exact": true,
+   "commutes_with_covariant_third_turn_D_phi_Pi(g)": true,
+   "commutes_with_plain_Pi(g)": false,
+   "consensus_block_equals_11/12_I_+_A_s/60": true,
+   "consensus_record1_block_zero": true
+  },
+  "4": {
+   "W_unitary_exact": true,
+   "commutes_with_covariant_third_turn_D_phi_Pi(g)": true,
+   "commutes_with_plain_Pi(g)": false,
+   "consensus_block_equals_11/12_I_+_A_s/60": true,
+   "consensus_record1_block_zero": true
+  },
+  "5": {
+   "W_unitary_exact": true,
+   "commutes_with_covariant_third_turn_D_phi_Pi(g)": true,
+   "commutes_with_plain_Pi(g)": false,
+   "consensus_block_equals_11/12_I_+_A_s/60": true,
+   "consensus_record1_block_zero": true
+  }
+ },
+ "B_register_readout": {
+  "register_enters_W": false,
+  "compression_with_register_defect": "identical to k = 0 (round 1: 11/12, 1/60, 1/60), for every class",
+  "coupling": "record 1 at address (a,b) on the boundary of f: class(f) += +1 if f traverses a->b, -1 if b->a (the only unitary key, see E1); readout Delta = change of class(f)",
+  "R_plus_on_f_ports_rho_order": [
+   [
+    "0",
+    "-1/120",
+    "1/120"
+   ],
+   [
+    "1/120",
+    "0",
+    "-1/120"
+   ],
+   [
+    "-1/120",
+    "1/120",
+    "0"
+   ]
+  ],
+  "R_plus_equals_(S_rho - S_rho^-1)/120": true,
+  "R_minus_equals_-R_plus": true,
+  "support_on_f_ports_only": true,
+  "eigenvalues_R_plus": [
+   "-sqrt(3)*I/120",
+   "sqrt(3)*I/120",
+   "0"
+  ],
+  "reading": "the oriented repair survives the consensus, with opposite signs on the forward and backward steps: anti-Hermitian, no identity part; moduli (0, sqrt3/120, sqrt3/120)",
+  "with_link_defect_class_k": {
+   "0": {
+    "forward_steps_x120": [
+     "1",
+     "1",
+     "1"
+    ],
+    "backward_steps_x120": [
+     "-1",
+     "-1",
+     "-1"
+    ],
+    "diagonal_zero": true,
+    "backward = -conj(forward)": true,
+    "abs_eigenvalues": [
+     0.0,
+     0.014433756729740644,
+     0.014433756729740644
+    ],
+    "predicted_|sin(pi k/9 + 2 pi j/3)|/60": [
+     0.0,
+     0.014433756729740644,
+     0.014433756729740644
+    ],
+    "match": true
+   },
+   "1": {
+    "forward_steps_x120": [
+     "1",
+     "1/2 + sqrt(3)*I/2",
+     "1"
+    ],
+    "backward_steps_x120": [
+     "-1",
+     "-1/2 + sqrt(3)*I/2",
+     "-1"
+    ],
+    "diagonal_zero": true,
+    "backward = -conj(forward)": true,
+    "abs_eigenvalues": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "predicted_|sin(pi k/9 + 2 pi j/3)|/60": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "match": true
+   },
+   "2": {
+    "forward_steps_x120": [
+     "1",
+     "-1/2 + sqrt(3)*I/2",
+     "1"
+    ],
+    "backward_steps_x120": [
+     "-1",
+     "1/2 + sqrt(3)*I/2",
+     "-1"
+    ],
+    "diagonal_zero": true,
+    "backward = -conj(forward)": true,
+    "abs_eigenvalues": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "predicted_|sin(pi k/9 + 2 pi j/3)|/60": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "match": true
+   },
+   "3": {
+    "forward_steps_x120": [
+     "1",
+     "-1",
+     "1"
+    ],
+    "backward_steps_x120": [
+     "-1",
+     "1",
+     "-1"
+    ],
+    "diagonal_zero": true,
+    "backward = -conj(forward)": true,
+    "abs_eigenvalues": [
+     0.0,
+     0.014433756729740644,
+     0.014433756729740644
+    ],
+    "predicted_|sin(pi k/9 + 2 pi j/3)|/60": [
+     0.0,
+     0.014433756729740644,
+     0.014433756729740644
+    ],
+    "match": true
+   },
+   "4": {
+    "forward_steps_x120": [
+     "1",
+     "-1/2 - sqrt(3)*I/2",
+     "1"
+    ],
+    "backward_steps_x120": [
+     "-1",
+     "1/2 - sqrt(3)*I/2",
+     "-1"
+    ],
+    "diagonal_zero": true,
+    "backward = -conj(forward)": true,
+    "abs_eigenvalues": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "predicted_|sin(pi k/9 + 2 pi j/3)|/60": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "match": true
+   },
+   "5": {
+    "forward_steps_x120": [
+     "1",
+     "1/2 - sqrt(3)*I/2",
+     "1"
+    ],
+    "backward_steps_x120": [
+     "-1",
+     "-1/2 - sqrt(3)*I/2",
+     "-1"
+    ],
+    "diagonal_zero": true,
+    "backward = -conj(forward)": true,
+    "abs_eigenvalues": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "predicted_|sin(pi k/9 + 2 pi j/3)|/60": [
+     0.005700335722094479,
+     0.01071312682810899,
+     0.016413462550203466
+    ],
+    "match": true
+   }
+  }
+ },
+ "C_sign_law": {
+  "rows": {
+   "C address 2->3, load at 2": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": 1,
+    "eps(o) eps(s)": 1,
+    "law_holds": true
+   },
+   "C address 2->3, load at 3": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "-1/2",
+     "-1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": -1,
+    "eps(o) eps(s)": -1,
+    "law_holds": true
+   },
+   "C address 3->2, load at 2": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "-1/2",
+     "-1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": -1,
+    "eps(o) eps(s)": -1,
+    "law_holds": true
+   },
+   "C address 3->2, load at 3": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": 1,
+    "eps(o) eps(s)": 1,
+    "law_holds": true
+   },
+   "E address 2->10, load at 2": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": 1,
+    "eps(o) eps(s)": 1,
+    "law_holds": true
+   },
+   "E address 2->10, load at 10": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "-1/2",
+     "-1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": -1,
+    "eps(o) eps(s)": -1,
+    "law_holds": true
+   },
+   "E address 10->2, load at 2": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "-1/2",
+     "-1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": -1,
+    "eps(o) eps(s)": -1,
+    "law_holds": true
+   },
+   "E address 10->2, load at 10": {
+    "record0_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "record1_amplitudes_on_seam": [
+     "1/2",
+     "1/2"
+    ],
+    "agree_sign": 1,
+    "repair_sign": 1,
+    "eps(o) eps(s)": 1,
+    "law_holds": true
+   }
+  },
+  "all_rows_obey_repair_sign_eps_o_eps_s_and_agree_positive": true
+ },
+ "E1_gram_obstruction": {
+  "statement": "unitary on (seam x record x F) with K0 = |p><p| acting as I_F and repair from a -> T_a, from b -> T_b (outputs |p,1>): <out(a,f)|out(b,f')> = (1/2)<f|(I - T_a^dag T_b)|f'> must vanish",
+  "T_a=S, T_b=S^-1: Gram block (1/2)(I - S^-2)": [
+   [
+    "1/2",
+    "0",
+    "-1/2"
+   ],
+   [
+    "-1/2",
+    "1/2",
+    "0"
+   ],
+   [
+    "0",
+    "-1/2",
+    "1/2"
+   ]
+  ],
+  "nonzero": true,
+  "general_solution": "T_b = T_a (up to a common phase with the record environment): both source components carry the same family action; the source endpoint is not a record of the coherent law"
+ },
+ "E2_native_code_source_record": {
+  "C": {
+   "seam": [
+    2,
+    3
+   ],
+   "coloring": 0,
+   "partners_of_first_endpoint (matching, partner)": [
+    [
+     0,
+     5
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     9
+    ],
+    [
+     4,
+     7
+    ],
+    [
+     5,
+     8
+    ]
+   ],
+   "partners_of_second_endpoint (matching, partner)": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     11
+    ]
+   ],
+   "partners_shared_by_both_sources": [
+    0,
+    1,
+    5,
+    7
+   ],
+   "fraction_of_active_pairs_whose_source_is_not_recorded": "2/3"
+  },
+  "E": {
+   "seam": [
+    2,
+    10
+   ],
+   "coloring": 1,
+   "partners_of_first_endpoint (matching, partner)": [
+    [
+     0,
+     7
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     9
+    ],
+    [
+     5,
+     5
+    ]
+   ],
+   "partners_of_second_endpoint (matching, partner)": [
+    [
+     0,
+     4
+    ],
+    [
+     1,
+     8
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     5,
+     9
+    ]
+   ],
+   "partners_shared_by_both_sources": [
+    1,
+    5,
+    8,
+    9
+   ],
+   "fraction_of_active_pairs_whose_source_is_not_recorded": "2/3"
+  }
+ },
+ "E3_linear_readout_lemma": {
+  "source_keying_equals_(b+ - b-)(g_a T_a - g_b T_b)/2": true,
+  "address_keying_equals_(g_a - g_b)(b+ T+ - b- T-)/2": true,
+  "agree_equals_(b+ + b-)(g_a + g_b)/2 I": true,
+  "consensus_b+=b-_source_keyed_repair": "True (zero)",
+  "symmetric_input_g_a=g_b_address_keyed_repair": "True (zero)",
+  "one_orientation_b-=0_symmetric_input": "source keying: b+ g (S - S^-1)/2;  address keying: 0",
+  "cos_type_condition_c(S)=c(S^-1)": "source keying needs g_b = -g_a (input |m>): then agree = 0; address keying needs b- = -b+: then agree = 0",
+  "one_object_no_go": "under any fixed linear readout of one coherent seam event, the identity (agree) and an equal-sign pair of shifts (Koide form before the phase) are never both nonzero"
+ },
+ "E3_two_objects": {
+  "product_readout": "family operator = M_C M_E; the cross term (C repair) x (E agree) = M_C(repair) * M_E(agree)",
+  "consensus_on_C": "M_C(repair) = 0 for source keying, so the cross term is exactly 0 (independent objects factorize; the cancellation of round 1 persists)",
+  "one_orientation_on_C": "M_C(repair) = b+ g (S - S^-1)/2, cross term = agree_E * b+ g (S - S^-1)/2: survives, with opposite signs on S and S^-1",
+  "sum_versus_product": "a product readout multiplies the hold and the rotation factors; a I + b(S + S^-1) needs a non-product (Fourier) analyzer across the two objects' flags (as in KOIDE_SOURCE)"
+ },
+ "E4_walk_address_keyed_consensus": {
+  "formula": "(1/60) sum_k <y|K1^(k)|x> T_k, T = S on address (2,3), S^-1 on (3,2), I elsewhere (sum of I terms = 0)",
+  "entries": {
+   "2<-2": {
+    "coeff_T(2,3)": "1/120",
+    "coeff_T(3,2)": "-1/120",
+    "operator_with_T(2,3)=S,T(3,2)=S^-1": "1/120 S + (-1/120) S^-1"
+   },
+   "3<-2": {
+    "coeff_T(2,3)": "1/120",
+    "coeff_T(3,2)": "-1/120",
+    "operator_with_T(2,3)=S,T(3,2)=S^-1": "1/120 S + (-1/120) S^-1"
+   },
+   "2<-3": {
+    "coeff_T(2,3)": "-1/120",
+    "coeff_T(3,2)": "1/120",
+    "operator_with_T(2,3)=S,T(3,2)=S^-1": "-1/120 S + (1/120) S^-1"
+   },
+   "3<-3": {
+    "coeff_T(2,3)": "-1/120",
+    "coeff_T(3,2)": "1/120",
+    "operator_with_T(2,3)=S,T(3,2)=S^-1": "-1/120 S + (1/120) S^-1"
+   }
+  },
+  "result": "+-(1/120)(S - S^-1): survives the consensus for a definite source; opposite signs on S and S^-1"
+ },
+ "E5_effective_operators": {
+  "R1_one_orientation (coherent sign, source keying formal)": {
+   "eigenvalue_formula_verified": true,
+   "theta=0": {
+    "abs_lambda": [
+     0.408248290463863,
+     0.6454972243679028,
+     0.6454972243679028
+    ],
+    "Q": 0.3463292355306105,
+    "mass_ratios_m2/m1,m3/m1": [
+     2.5,
+     2.5
+    ]
+   },
+   "theta=2/9": {
+    "abs_lambda": [
+     0.42761944347770664,
+     0.5886526566865948,
+     0.686024534062471
+    ],
+    "Q": 0.34508773108087853,
+    "mass_ratios_m2/m1,m3/m1": [
+     1.8949743196360758,
+     2.5737384286834746
+    ]
+   }
+  },
+  "R2_current_aligned (needs the source record)": {
+   "eigenvalue_formula_verified": true,
+   "theta=0": {
+    "abs_lambda": [
+     0.9855985596534887,
+     0.11957315586905014,
+     0.11957315586905014
+    ],
+    "Q": 0.6666666666666667,
+    "mass_ratios_m2/m1,m3/m1": [
+     1.0,
+     67.94112549695427
+    ]
+   },
+   "theta=2/9": {
+    "abs_lambda": [
+     0.9714015658337364,
+     0.016472781050865186,
+     0.23687052450698748
+    ],
+    "Q": 0.6666666666666667,
+    "mass_ratios_m2/m1,m3/m1": [
+     206.7703159727294,
+     3477.472837104598
+    ]
+   }
+  },
+  "R0_consensus_both_orientations": {
+   "operator": "a I (rotation cancels)",
+   "Q": 0.3333333333333333,
+   "abs_b_over_a": 0
+  },
+  "k0_control": {
+   "statement": "no orientation: the half-turn average over eps = +-1 maps b -> -b on the one-orientation term, so the oriented part averages to 0: a I, Q = 1/3"
+  },
+  "abs_b_over_a_moduli": "1/sqrt2 in all readouts that keep the rotation (DA3 weights 1/6, 1/12, 1/12)",
+  "R1_Q_range_over_theta": {
+   "sum_abs_lambda_squared": "1 for every theta (3a^2 + 6b^2)",
+   "min_grid": 0.3431457505076198,
+   "max_grid": 0.34632923553061046,
+   "bounds_exact": "min 6 - 4 sqrt2 = 0.343145750508 at theta = pi/6 (mod pi/3); max at theta = 0 (mod pi/3): 0.346329235531",
+   "never_2/3": "sum |lambda_k| > sqrt(3/2) because |lambda_k| >= a = 1/sqrt6 with equality for at most one k",
+   "separates_three_copies": "for theta not in (pi/6) Z (sin^2 values distinct); at theta = 0 two copies are degenerate; theta = 2/9 separates all three"
+  }
+ },
+ "E6_class_phases": {
+  "0": {
+   "orientation": "none (control)",
+   "AB_phase_per_rho_f_step": "0",
+   "clock_sign": "undefined (A5)",
+   "total_phase": "no oriented term (k0_control)"
+  },
+  "1": {
+   "orientation": "class orientation = screen orientation of f",
+   "AB_phase_per_rho_f_step": "pi/9 (= pi 1/9 mod 2 pi/3)",
+   "clock_phase_per_rho_f_step": "+2/9",
+   "total_phase_per_rho_f_step": "2/9 + pi/9",
+   "total_numeric": 0.5712880726210882,
+   "inside_positive_chamber_|theta|<=pi/12": false
+  },
+  "2": {
+   "orientation": "class orientation = screen orientation of f",
+   "AB_phase_per_rho_f_step": "2*pi/9 (= pi 2/9 mod 2 pi/3)",
+   "clock_phase_per_rho_f_step": "+2/9",
+   "total_phase_per_rho_f_step": "2/9 + 2*pi/9",
+   "total_numeric": 0.920353923019954,
+   "inside_positive_chamber_|theta|<=pi/12": false
+  },
+  "3": {
+   "orientation": "screen (outward normal of f): rho_f = g^2 = g^-1",
+   "AB_phase_per_rho_f_step": "pi/3 = -pi/3 (mod 2pi/3): real Z2 links, conjugate characters degenerate",
+   "clock_sign": "+ on rho_f steps",
+   "total_phase_if_family_steps_are_hops_around_f": "2/9 + pi/3 (mod 2pi/3), folded |.| = pi/3 - 2/9 = 0.824975329",
+   "total_phase_if_register_is_abstract (DA3)": "2/9"
+  },
+  "4": {
+   "orientation": "class orientation = reversed screen orientation of f",
+   "AB_phase_per_rho_f_step": "-2*pi/9 (= pi 4/9 mod 2 pi/3)",
+   "clock_phase_per_rho_f_step": "-2/9",
+   "total_phase_per_rho_f_step": "-2*pi/9 - 2/9",
+   "total_numeric": -0.920353923019954,
+   "inside_positive_chamber_|theta|<=pi/12": false
+  },
+  "5": {
+   "orientation": "class orientation = reversed screen orientation of f",
+   "AB_phase_per_rho_f_step": "-pi/9 (= pi 5/9 mod 2 pi/3)",
+   "clock_phase_per_rho_f_step": "-2/9",
+   "total_phase_per_rho_f_step": "-pi/9 - 2/9",
+   "total_numeric": -0.5712880726210882,
+   "inside_positive_chamber_|theta|<=pi/12": false
+  }
+ },
+ "E7_K1_and_control": {
+  "E_agreeing_half": "weight 1/6, orientation independent (agree sign + for every o and s): the coherent counterpart of K1 (E coin 0, also 1/6), as DA3 states",
+  "readout_of_this_lane": "the one-orientation readout acts on the C object (address orientation fixed by the face orientation); it is a different record from K1",
+  "Q_one_orientation_theta=2/9": 0.34508773108087853,
+  "Q_both_orientations_amplitude_consensus": "1/3 (rotations cancel)",
+  "Q_both_orientations_weights_only": "2/3 (DA3: summing orientations changes neither ratio); 1/2 does not arise"
+ },
+ "E8_orientation_odd_readout": {
+  "analyzer": "alpha |r=0> (x) |even orientation> + beta |r=1> (x) |odd orientation>, the odd sign set by the screen (class 3) or class orientation; family action keyed on the address orientation (unitary)",
+  "one_object_definite_source": {
+   "source a": "alpha/sqrt2 I + beta/(2 sqrt2) (S + S^-1)",
+   "verified_a": true,
+   "source b": "alpha/sqrt2 I - beta/(2 sqrt2) (S + S^-1)",
+   "verified_b": true,
+   "abs_b_over_a": "beta/(2 alpha): 1/2 for the unbiased analyzer alpha = beta, so Q = 1/2; Koide balance needs beta/alpha = sqrt2 (a weighted analyzer)"
+  },
+  "two_objects_Fourier_analyzer_definite_C_source": {
+   "source a": "I/sqrt6 + (S + S^-1)/sqrt12 (Koide balance, Q = 2/3 for every clock phase)",
+   "verified_a": true,
+   "source b": "I/sqrt6 - (S + S^-1)/sqrt12 (the same with theta -> theta + pi)",
+   "verified_b": true
+  },
+  "source_sign_law": "the rotation pair carries eps(s): the source endpoint sets the sign of b, the orientation analyzer sets which shift is rho and makes the pair equal in sign",
+  "native_source_mixture": {
+   "A_clock_energy": "average over eps(s) of (a + 2 eps b x)^2 = x**2/3 + 1/6 with x = cos(theta + 2 pi k/3)",
+   "form": "1/6 + (1/3) cos^2(theta + 2 pi k/3): the quadrature spectrum (C_1 shifted by pi/2), Q in [0.343146, 0.346329], ratios <= phi^2",
+   "theta=2/9_abs_lambda": [
+    0.6955632812523121,
+    0.5658221597308474,
+    0.4427606637123902
+   ],
+   "theta=2/9_ratios": [
+    1.6331340906878984,
+    2.467943628344578
+   ],
+   "theta=2/9_Q": 0.34433910602097567
+  },
+  "coherent_symmetric_source": "gamma_a = gamma_b: the rotations cancel (address keying), the family operator is a I",
+  "conclusion": "the Koide form C_2 needs a definite or recorded source endpoint of the C repair together with the orientation-odd readout and a Fourier analyzer across the two objects; the native code puts the load on either endpoint with weight 1/2 and the coherent law records neither"
+ }
+}

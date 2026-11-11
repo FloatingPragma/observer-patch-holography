@@ -1,0 +1,48 @@
+{
+ "plain_one_tick_gram_equals_L_over_60": true,
+ "plain_discriminant_blank_block_equals_P": true,
+ "plain_t_tick_gram_equals_chebyshev_form": {
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true,
+  "5": true
+ },
+ "read_then_tick_P11_zero": true,
+ "read_then_tick_gram01_equals_4P(1-P)P": true,
+ "read_then_tick_gram10_equals_L_over_60": true,
+ "port_localized": {
+  "p1": "1/12",
+  "p2": "1459/5400"
+ },
+ "fibre5_flat": {
+  "one_tick": true,
+  "two_tick": true
+ },
+ "fibre5_central": {
+  "one_tick": true,
+  "two_tick": true
+ },
+ "doublet_level_one_tick": {
+  "one port (any)": {
+   "flat": "1/12",
+   "central": "1/12"
+  },
+  "both ends of the negative link, equal sign": {
+   "flat": "1/15",
+   "central": "1/10"
+  },
+  "both ends of the negative link, opposite sign": {
+   "flat": "1/10",
+   "central": "1/15"
+  },
+  "both ends of a positive link away from it": {
+   "flat": "1/15",
+   "central": "1/15"
+  },
+  "uniform over the twelve ports": {
+   "flat": "0",
+   "central": "1/180"
+  }
+ }
+}

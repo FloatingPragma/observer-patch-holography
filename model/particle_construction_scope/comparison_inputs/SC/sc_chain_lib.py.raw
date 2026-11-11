@@ -1,0 +1,208 @@
+#!/usr/bin/env python3
+"""Worker SC (step S14): float64 D10 chain with the scale forms as parameters.
+
+Structure follows DC's `work/DC/dc_scale.py` (validated there against the producer). The outer map uses the
+producer's Decimal Stage-5 Thomson running from `paper_math_sc.py` (unchanged copy of `work/DB/paper_math_db.py`) on a
+constructed D10Point. Parameters:
+- R: ln(E_cell/M_U) (a float, or None for the declared 2 pi - (2/3) ln P);
+- closure: "mZ" (producer: alpha_U solved from the closure read at the tree m_Z) or "cut" (alpha_U = alpha_cut(P),
+  the cut closure at E_cell, with b_above between E_cell and M_U);
+- slopes (b1, b2, b3) below M_U (D10 sign); b_above (universal) between E_cell and M_U for the cut closure;
+- law: (beta, which coupling) with which in {"U" (coupling at M_U), "cut" (coupling at E_cell), "selfSU2"}.
+No measured value is read.
+"""
+from __future__ import annotations
+
+import math
+import sys
+from decimal import Decimal
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from paper_math_sc import D10Point, PaperMathContext  # noqa: E402
+
+PI = math.pi
+K = 4 * PI ** 2
+PHI = (1 + 5 ** 0.5) / 2
+SQPI = PI ** 0.5
+MSSM = (33 / 5, 1.0, -3.0)
+
+N2, N3 = 120, 90
+_n = np.arange(N2 + 1)
+_d2 = (_n + 1).astype(float)
+_c2 = (_n / 2) * (_n / 2 + 1)
+_p, _q = np.meshgrid(np.arange(N3 + 1), np.arange(N3 + 1), indexing="ij")
+_d3 = ((_p + 1) * (_q + 1) * (_p + _q + 2) / 2).ravel().astype(float)
+_c3 = ((_p ** 2 + _q ** 2 + _p * _q + 3 * _p + 3 * _q) / 3).ravel().astype(float)
+_l2, _l3 = np.log(_d2), np.log(_d3)
+
+
+def _ellbar(t, lnd, cas):
+    logw = lnd - t * cas
+    w = np.exp(logw - logw.max())
+    return float((w * lnd).sum() / w.sum())
+
+
+def ell2(t):
+    return _ellbar(t, _l2, _c2)
+
+
+def ell3(t):
+    return _ellbar(t, _l3, _c3)
+
+
+def bisect(f, lo, hi, n=200):
+    flo = f(lo)
+    for _ in range(n):
+        mid = 0.5 * (lo + hi)
+        fm = f(mid)
+        if (fm > 0) == (flo > 0):
+            lo, flo = mid, fm
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+def alpha_cut(P):
+    return bisect(lambda a: ell2(K * a) + ell3(K * a) - P / 4, 0.005, 2.0)
+
+
+CTX = PaperMathContext(precision=30, su2_cutoff=2, su3_cutoff=2)
+
+
+class Chain:
+    def __init__(self, R=None, closure="mZ", slopes=MSSM, b_above=0.0, beta=4.0, law_coupling="U", inv_start=None,
+                 law_inv=None):
+        self.R = R
+        self.inv_start = inv_start  # optional per-factor 1/alpha_i at M_U (overrides the unified start)
+        self.law_inv = law_inv  # optional callable P -> 1/alpha used in the law (target-informed rows only)
+        self.closure = closure
+        self.B = tuple(slopes)
+        self.b_above = b_above
+        self.beta = beta
+        self.law_coupling = law_coupling
+
+    # scales in units of E*
+    def scales(self, P):
+        if self.R is None:
+            R = 2 * PI - (2 / 3) * math.log(P)
+        elif callable(self.R):
+            R = self.R(P)
+        else:
+            R = self.R
+        e_cell = P ** -0.5
+        return e_cell * math.exp(-R), e_cell, R
+
+    def run(self, aU, mu, MU):
+        start = self.inv_start if self.inv_start is not None else (1 / aU,) * 3
+        inv = [start[i] + b / (2 * PI) * math.log(MU / mu) for i, b in enumerate(self.B)]
+        if min(inv) <= 0:
+            return None
+        return [1 / x for x in inv]
+
+    def vev(self, aU, P, acut=None):
+        MU, EC, R = self.scales(P)
+        if self.law_inv is not None:
+            a = 1 / self.law_inv(P)
+        elif self.law_coupling == "U":
+            a = aU
+        elif self.law_coupling == "cut":
+            a = acut
+        elif self.law_coupling == "selfSU2":
+            # v = E_cell exp(-2 pi/(beta alpha_2(v))), alpha_2 run from the cell value with b_above above M_U and b_2 below
+            def f(x):  # x = ln(E_cell/v)
+                inv = 1 / acut + self.b_above / (2 * PI) * min(x, R) + self.B[1] / (2 * PI) * max(x - R, 0.0)
+                return x - 2 * PI * inv / self.beta
+            lo, hi = 1e-9, 400.0
+            if f(lo) * f(hi) > 0:
+                return None
+            return EC * math.exp(-bisect(f, lo, hi))
+        else:
+            raise ValueError(self.law_coupling)
+        return EC * math.exp(-2 * PI / (self.beta * a))
+
+    def tree_scale(self, aU, P, v, kind="mZ"):
+        MU, _, _ = self.scales(P)
+        mu = v / 2
+        for _ in range(200):
+            a = self.run(aU, mu, MU)
+            if a is None:
+                return None
+            new = v / 2 * math.sqrt(4 * PI * (a[1] + (0.6 * a[0] if kind == "mZ" else 0.0)))
+            if abs(new / mu - 1) < 1e-15:
+                mu = new
+                break
+            mu = new
+        return mu
+
+    def alpha_U(self, P):
+        """Unified coupling at M_U."""
+        if self.closure == "cut":
+            ac = alpha_cut(P)
+            MU, EC, R = self.scales(P)
+            inv = 1 / ac + self.b_above / (2 * PI) * R
+            return 1 / inv, ac
+        # producer's m_Z closure (law with the coupling at M_U)
+        MU, _, _ = self.scales(P)
+
+        def resid(aU):
+            v = self.vev(aU, P)
+            mz = self.tree_scale(aU, P, v)
+            if mz is None:
+                return float("nan")
+            a = self.run(aU, mz, MU)
+            if a is None:
+                return float("nan")
+            return ell2(K * a[1]) + ell3(K * a[2]) - P / 4
+
+        grid = np.geomspace(0.005, 0.3, 400)
+        vals = [resid(a) for a in grid]
+        roots = []
+        for i in range(1, len(grid)):
+            if np.isfinite(vals[i - 1]) and np.isfinite(vals[i]) and (vals[i - 1] > 0) != (vals[i] > 0):
+                roots.append(bisect(resid, grid[i - 1], grid[i]))
+        if len(roots) != 1:
+            return roots, None
+        return roots[0], None
+
+    def point(self, P):
+        aU, ac = self.alpha_U(P)
+        if isinstance(aU, list):
+            return {"status": f"alpha_U roots: {aU}"}
+        MU, EC, R = self.scales(P)
+        v = self.vev(aU, P, ac)
+        if v is None:
+            return {"status": "no transmutation root"}
+        mz = self.tree_scale(aU, P, v)
+        if mz is None:
+            return {"status": "Landau pole between M_U and the Z scale", "alpha_U": aU, "v_over_Estar": v}
+        a1, a2, a3 = self.run(aU, mz, MU)
+        aY = 0.6 * a1
+        aem = 1 / (1 / a2 + 1 / aY)
+        D = lambda x: Decimal(repr(float(x)))  # noqa: E731
+        d10 = D10Point(p=D(P), n_c=3, mu_u=D(MU), alpha_u=D(aU), mz_run=D(mz), v=D(v), alpha1_mz=D(a1),
+                       alpha2_mz=D(a2), alpha3_mz=D(a3), alpha_y_mz=D(aY), alpha_em_mz=D(aem),
+                       alpha_em_inv_mz=D(1 / aem), sin2w_mz=D(aem / a2))
+        A_T = float(d10.alpha_em_inv_mz + CTX.structured_thomson_running(d10)["total_delta_alpha_inv"])
+        return {"status": "ok", "R": R, "alpha_U": aU, "inv_alpha_U": 1 / aU,
+                "alpha_cut": ac, "v_over_Estar": v, "mZ_over_Estar": mz,
+                "mW_over_mZ_tree": math.sqrt(a2 / (a2 + aY)), "sin2w_mZ": aem / a2, "alpha_em_inv_mZ": 1 / aem,
+                "alpha3_mZ": a3, "alpha2_mZ": a2, "alpha1_mZ": a1, "L": math.log(MU / mz), "A_T": A_T}
+
+    def fixed_point(self, P0, iters=30):
+        P = P0
+        hist = []
+        for _ in range(iters):
+            pt = self.point(P)
+            if pt.get("status") != "ok":
+                return {"status": f"stopped at P = {P}: {pt.get('status')}", "dP_history": hist}
+            Pn = PHI + SQPI / pt["A_T"]
+            hist.append(abs(Pn - P))
+            P = Pn
+            if hist[-1] < 1e-14:
+                break
+        pt = self.point(P)
+        return {"P_star": P, **pt, "dP_history": hist[-3:], "iterations": len(hist)}

@@ -1,0 +1,212 @@
+{
+ "labels": {
+  "C_label_weights": {
+   "coin0_raw0": "5/12",
+   "coin0_raw1": "1/12",
+   "coin1_raw0": "5/12",
+   "coin1_raw2": "1/12"
+  },
+  "C_label_code_images": {
+   "coin0_raw0": 5,
+   "coin0_raw1": 1,
+   "coin1_raw0": 5,
+   "coin1_raw2": 1
+  },
+  "E_label_weights": {
+   "coin0_raw0": "1/3",
+   "coin0_raw4": "1/12",
+   "coin0_raw5": "1/12",
+   "coin1_raw0": "1/3",
+   "coin1_raw4": "1/12",
+   "coin1_raw6": "1/12"
+  },
+  "E_label_code_images": {
+   "coin0_raw0": 4,
+   "coin0_raw4": 1,
+   "coin0_raw5": 1,
+   "coin1_raw0": 4,
+   "coin1_raw4": 1,
+   "coin1_raw6": 1
+  },
+  "weight_of_one_code_image": "1/12"
+ },
+ "readings": {
+  "hold coin0, current both coins (Particles/04 reading) [marginal]": {
+   "p0_singlet_block": "1/6",
+   "pc_charged_block": "1/6",
+   "both_orientations_present": true,
+   "exactly_one_of_the_two_blocks": "5/18",
+   "per_branch_exclusive_P(C+ xor hold)": "2/9",
+   "per_branch_exclusive_P(C- xor hold)": "2/9",
+   "a": "sqrt(6)/6",
+   "abs_b": "sqrt(3)/6",
+   "abs_b_over_a": "sqrt(2)/2",
+   "Q": "2/3",
+   "sum_of_Fourier_probabilities_3(a^2+2|b|^2)": "1",
+   "balanced": true
+  },
+  "hold coin0, current both coins (Particles/04 reading) [exclusive]": {
+   "p0_singlet_block": "5/36",
+   "pc_charged_block": "5/36",
+   "both_orientations_present": true,
+   "exactly_one_of_the_two_blocks": "5/18",
+   "per_branch_exclusive_P(C+ xor hold)": "2/9",
+   "per_branch_exclusive_P(C- xor hold)": "2/9",
+   "a": "sqrt(5)/6",
+   "abs_b": "sqrt(10)/12",
+   "abs_b_over_a": "sqrt(2)/2",
+   "Q": "2/3",
+   "sum_of_Fourier_probabilities_3(a^2+2|b|^2)": "5/6",
+   "balanced": true
+  },
+  "hold both coins, current both coins [marginal]": {
+   "p0_singlet_block": "1/3",
+   "pc_charged_block": "1/6",
+   "both_orientations_present": true,
+   "exactly_one_of_the_two_blocks": "7/18",
+   "per_branch_exclusive_P(C+ xor hold)": "13/36",
+   "per_branch_exclusive_P(C- xor hold)": "13/36",
+   "a": "sqrt(3)/3",
+   "abs_b": "sqrt(3)/6",
+   "abs_b_over_a": "1/2",
+   "Q": "1/2",
+   "sum_of_Fourier_probabilities_3(a^2+2|b|^2)": "3/2",
+   "balanced": false
+  },
+  "hold both coins, current both coins [exclusive]": {
+   "p0_singlet_block": "5/18",
+   "pc_charged_block": "1/9",
+   "both_orientations_present": true,
+   "exactly_one_of_the_two_blocks": "7/18",
+   "per_branch_exclusive_P(C+ xor hold)": "13/36",
+   "per_branch_exclusive_P(C- xor hold)": "13/36",
+   "a": "sqrt(10)/6",
+   "abs_b": "sqrt(2)/6",
+   "abs_b_over_a": "sqrt(5)/5",
+   "Q": "7/15",
+   "sum_of_Fourier_probabilities_3(a^2+2|b|^2)": "7/6",
+   "balanced": false
+  },
+  "hold coin0, current coin0 [marginal]": {
+   "p0_singlet_block": "1/6",
+   "pc_charged_block": "1/12",
+   "both_orientations_present": false,
+   "exactly_one_of_the_two_blocks": "2/9",
+   "per_branch_exclusive_P(C+ xor hold)": "2/9",
+   "per_branch_exclusive_P(C- xor hold)": "2/9",
+   "note": "one orientation only: the operator sqrt(p0) I + sqrt(pc) R is not Hermitian; no circulant mass carrier"
+  },
+  "hold coin0, current coin0 [exclusive]": {
+   "p0_singlet_block": "11/72",
+   "pc_charged_block": "5/72",
+   "both_orientations_present": false,
+   "exactly_one_of_the_two_blocks": "2/9",
+   "per_branch_exclusive_P(C+ xor hold)": "2/9",
+   "per_branch_exclusive_P(C- xor hold)": "2/9",
+   "note": "one orientation only: the operator sqrt(p0) I + sqrt(pc) R is not Hermitian; no circulant mass carrier"
+  },
+  "hold both coins, current coin0 [marginal]": {
+   "p0_singlet_block": "1/3",
+   "pc_charged_block": "1/12",
+   "both_orientations_present": false,
+   "exactly_one_of_the_two_blocks": "13/36",
+   "per_branch_exclusive_P(C+ xor hold)": "13/36",
+   "per_branch_exclusive_P(C- xor hold)": "13/36",
+   "note": "one orientation only: the operator sqrt(p0) I + sqrt(pc) R is not Hermitian; no circulant mass carrier"
+  },
+  "hold both coins, current coin0 [exclusive]": {
+   "p0_singlet_block": "11/36",
+   "pc_charged_block": "1/18",
+   "both_orientations_present": false,
+   "exactly_one_of_the_two_blocks": "13/36",
+   "per_branch_exclusive_P(C+ xor hold)": "13/36",
+   "per_branch_exclusive_P(C- xor hold)": "13/36",
+   "note": "one orientation only: the operator sqrt(p0) I + sqrt(pc) R is not Hermitian; no circulant mass carrier"
+  }
+ },
+ "native_weights": {
+  "p_plus (coin0, raw1)": "1/12",
+  "p_minus (coin1, raw2)": "1/12",
+  "q_hold (coin0, raw4 or raw5)": "1/6",
+  "q_equals_2p": true,
+  "exclusive_partition": {
+   "hold_only": "5/36",
+   "plus_only": "5/72",
+   "minus_only": "5/72",
+   "hold_and_current": "1/36",
+   "rest": "25/36"
+  },
+  "instruments_independent": true
+ },
+ "circulant_with_native_amplitudes": {
+  "C": "sqrt(q) I + sqrt(p) (e^{i theta} R + e^{-i theta} R^2)",
+  "sum_lambda": "sqrt(6)/2",
+  "sum_lambda_squared": "1",
+  "note": "the three Fourier probabilities lambda_k^2 sum to 3(q + 2p) = 1 for every theta"
+ },
+ "phase_identity_same_menu": {
+  "P(exactly one of (coin0,raw1) and E at coin 0)": "2/9",
+  "equals_2_9": true,
+  "owner": "LNAT (phase mechanism); listed here only as the identity on the menu read above"
+ },
+ "premise_map": [
+  {
+   "id": "G1",
+   "lane": "two-state orientation register (write/verify), R_m_rep_24",
+   "native": "coin of the C instrument: (coin0, raw1) current +1, (coin1, raw2) current -1, one code image each",
+   "status": "replaced, EXACT"
+  },
+  {
+   "id": "G2",
+   "lane": "connected M6 algebra in its maximally mixed state",
+   "native": "no state is chosen: the record probabilities are the products of the C and E branch weights of the actual menu",
+   "status": "replaced, EXACT"
+  },
+  {
+   "id": "G3",
+   "lane": "admissibility event with equal ranks 2 and 2 (asymmetric block choice)",
+   "native": "hold block = two code images (raw4, raw5 at coin 0); charged block = one code image per orientation; equal weights q = 2p = 1/6 (marginal) and 10/72 = 5/72 + 5/72 (exclusive). The equality holds in the reading with the hold read at one coin value and the current at both; with the hold read at both coin values (raw4, raw6 at coin 1 included) the ratio is 1/2 and Q = 1/2",
+   "status": "replaced, EXACT, conditional on the coin reading"
+  },
+  {
+   "id": "G4",
+   "lane": "Born-Lueders conditioning",
+   "native": "marginal or exclusive reading of the same menu; both give p0 = pc in the Particles/04 coin reading",
+   "status": "replaced, EXACT"
+  },
+  {
+   "id": "G5",
+   "lane": "a = sqrt(p0), abs(b) = sqrt(pc/2); sqrt(m_k) = eigenvalue",
+   "native": "Stinespring amplitudes = square roots of record weights (phases free by the Kraus-phase theorem); the square m = lambda^2 is the product of two amplitude blocks in Y = C^2/3",
+   "status": "amplitude rule native up to phases; the square is a premise of the readout"
+  },
+  {
+   "id": "G6",
+   "lane": "regular C3 three-family carrier",
+   "native": "order-3 element gE gC of the two native half-turns",
+   "status": "LNAT"
+  },
+  {
+   "id": "G7",
+   "lane": "positive chamber",
+   "native": "delta = 2/9 < pi/12",
+   "status": "holds at the native phase"
+  },
+  {
+   "id": "G8",
+   "lane": "recoverable physical attachment",
+   "native": "none",
+   "status": "open"
+  }
+ ],
+ "checks": {
+  "q_equals_2p": true,
+  "balance_in_particles04_reading_marginal": true,
+  "balance_in_particles04_reading_exclusive": true,
+  "no_balance_when_hold_read_at_both_coins": true,
+  "fourier_probabilities_sum_to_one": true,
+  "phase_identity": true,
+  "per_branch_2_9_in_balanced_reading": true
+ },
+ "checks_pass": true
+}

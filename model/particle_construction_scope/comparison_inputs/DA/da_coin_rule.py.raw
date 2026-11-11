@@ -1,0 +1,156 @@
+"""Worker DA, second round, item 1: which rule fixes the E coin of the hold record (candidates K0-K4, CANDIDATES.md
+section 6).
+
+Run from the RER checkout (read only, no byte code written):
+  cd reverse-engineering-reality && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:../repair-law/work/DA \
+    /tmp/oph-completion-venv/bin/python ../repair-law/work/DA/da_coin_rule.py ../repair-law/work/DA/coin_rule.json
+
+Exact rationals throughout. No measured value.
+"""
+import json
+import sys
+from fractions import Fraction as F
+from itertools import product
+
+import sympy as s
+
+from model.observer import native
+from model.common_source import native_code_transport as transport
+
+C_SEAM, E_SEAM = transport.SEAMS['C'], transport.SEAMS['E']   # (2,3), (2,10)
+SHARED = (set(C_SEAM) & set(E_SEAM)).pop()                     # port 2
+MATCH = transport.code.MATCHINGS                                # six matchings of the equivariant code
+out = {'seams': {'C': C_SEAM, 'E': E_SEAM, 'shared_port': SHARED}, 'matchings': [list(map(list, m)) for m in MATCH]}
+
+
+def label(law, state, coin):
+    return transport._raw(law, state, transport.SEAMS[law], coin)  # (out_state, raw)
+
+
+# (a) meaning of the coin: where the single load ends
+meaning = {}
+for law in ('C', 'E'):
+    a, b = transport.SEAMS[law]
+    rows = {}
+    for coin in (0, 1):
+        for m in MATCH:
+            for pair in m:
+                st = tuple(int(i in pair) for i in range(12))
+                o, raw = label(law, st, coin)
+                if raw in (0,):
+                    continue
+                rows.setdefault(f'coin{coin}_raw{raw}', set()).add(
+                    ('ends_at', b if o[b] and not o[a] else a if o[a] and not o[b] else 'both',
+                     'shared_port_empty_after', o[SHARED] == 0))
+    meaning[law] = {k: sorted(map(str, v)) for k, v in rows.items()}
+out['coin_meaning'] = meaning
+
+# exact menu on independent code copies (the repository's 128-label reading) with an arbitrary coin coupling
+def menu(coin_law):
+    """coin_law(cc, ec) -> probability; C on one copy, E on another; each copy uniform over matchings x pairs."""
+    rows = []
+    for cc, ec in product((0, 1), repeat=2):
+        w_coin = coin_law(cc, ec)
+        if w_coin == 0:
+            continue
+        for mc in MATCH:
+            for pc in mc:
+                sc = tuple(int(i in pc) for i in range(12))
+                oc, rc = label('C', sc, cc)
+                for me in MATCH:
+                    for pe in me:
+                        se = tuple(int(i in pe) for i in range(12))
+                        oe, re = label('E', se, ec)
+                        w = w_coin * F(1, 36) * F(1, 36)
+                        rows.append(dict(cc=cc, rc=rc, ec=ec, re=re, oe=oe, w=w))
+    return rows
+
+
+def reading(rows, hold):
+    P = lambda f: sum((r['w'] for r in rows if f(r)), F(0))
+    plus = lambda r: r['cc'] == 0 and r['rc'] == 1
+    minus = lambda r: r['cc'] == 1 and r['rc'] == 2
+    p0, pp, pm = P(hold), P(plus), P(minus)
+    res = {'hold': str(p0), 'plus': str(pp), 'minus': str(pm)}
+    if pp == pm and pp > 0:
+        ratio = s.sqrt(s.Rational(pp.numerator, pp.denominator) / s.Rational(p0.numerator, p0.denominator))
+        res.update({'abs_b_over_a': str(s.radsimp(ratio)), 'Q': str(s.simplify((1 + 2 * ratio ** 2) / 3)),
+                    'P(plus xor hold)': str(P(lambda r: plus(r) != hold(r))),
+                    'P(minus xor hold)': str(P(lambda r: minus(r) != hold(r)))})
+    else:
+        res['note'] = 'orientations unequal: no Hermitian circulant'
+    return res
+
+
+hold_coin0 = lambda r: r['ec'] == 0 and r['re'] in (4, 5)
+hold_both = lambda r: (r['ec'] == 0 and r['re'] in (4, 5)) or (r['ec'] == 1 and r['re'] in (4, 6))
+hold_shared_empty = lambda r: r['re'] in (4, 5, 6) and r['oe'][SHARED] == 0
+indep = menu(lambda cc, ec: F(1, 4))
+shared = menu(lambda cc, ec: F(1, 2) if cc == ec else F(0))
+out['K0_hold_both_coins_independent'] = reading(indep, hold_both)
+out['K1_hold_leaves_shared_port_empty_independent'] = reading(indep, hold_shared_empty)
+out['K1_equals_E_coin0_hold'] = reading(indep, hold_shared_empty) == reading(indep, hold_coin0)
+out['K2_shared_coin_hold_both'] = reading(shared, hold_both)
+out['K2_shared_coin_hold_coin0'] = reading(shared, hold_coin0)
+out['K2_shared_coin_hold_shared_empty'] = reading(shared, hold_shared_empty)
+
+# (c) K3: one code copy, controller order C then E on the same two-load pair state (no intermediate rotation)
+seq = []
+for cc, ec in product((0, 1), repeat=2):
+    for m in MATCH:
+        for pair in m:
+            st = tuple(int(i in pair) for i in range(12))
+            o1, rc = label('C', st, cc)
+            o2, re = label('E', o1, ec)
+            seq.append(dict(cc=cc, rc=rc, ec=ec, re=re, oe=o2, w=F(1, 4) * F(1, 36)))
+P = lambda rows, f: sum((r['w'] for r in rows if f(r)), F(0))
+cur = {'plus': lambda r: r['cc'] == 0 and r['rc'] == 1, 'minus': lambda r: r['cc'] == 1 and r['rc'] == 2,
+       'none': lambda r: not ((r['cc'] == 0 and r['rc'] == 1) or (r['cc'] == 1 and r['rc'] == 2))}
+k3 = {}
+for hname, hf in (('hold E coin 0', hold_coin0), ('hold E coin 1', lambda r: r['ec'] == 1 and r['re'] in (4, 6)),
+                  ('hold both coins', hold_both)):
+    cond = {}
+    for cname, cf in cur.items():
+        pc = P(seq, cf)
+        cond[cname] = str(P(seq, lambda r: hf(r) and cf(r)) / pc) if pc else 'n/a'
+    k3[hname] = {'P(hold | C current)': cond, 'independent_of_C_current': len(set(cond.values())) == 1,
+                 'reading': reading(seq, hf)}
+out['K3_sequential_C_then_E_one_copy'] = k3
+
+# (d) K4: the coherent seam repair program; the coin as the orientation of the oriented address
+from model.coherent_seam_repair.program import Observer
+obs = Observer()
+addr = {pair: k for k, pair in enumerate(obs.addresses)}
+sign = {}
+for pair in (E_SEAM, E_SEAM[::-1], C_SEAM, C_SEAM[::-1]):
+    a, b = pair
+    k = addr[pair]
+    # antisymmetric source state (a - b)/sqrt2 with blank record at address k; one repair; read the written record
+    lo, hi = sorted(pair)
+    amps = [F(0)] * obs.dimension
+    amps[obs.index(lo, 0, k)] = F(1)
+    amps[obs.index(hi, 0, k)] = F(-1)
+    st = obs.repair(type(obs.embedded_port(0))(tuple(amps), 2))
+    written = (st.amplitudes[obs.index(lo, 1, k)], st.amplitudes[obs.index(hi, 1, k)])
+    blank_sym = [F(0)] * obs.dimension
+    blank_sym[obs.index(lo, 0, k)] = F(1); blank_sym[obs.index(hi, 0, k)] = F(1)
+    st2 = obs.repair(type(obs.embedded_port(0))(tuple(blank_sym), 2))
+    kept = (st2.amplitudes[obs.index(lo, 0, k)], st2.amplitudes[obs.index(hi, 0, k)])
+    sign[f'{a}->{b}'] = {'written_record_amplitudes_from_(lo-hi)/sqrt2': [str(x) for x in written],
+                         'blank_symmetric_state_kept': [str(x) for x in kept]}
+out['K4_coherent_orientation_signs'] = sign
+out['K4_reading'] = ('The blank (hold) branch is unchanged for both orientations; the written branch carries the sign '
+                     'of the orientation. The uniform address superposition of the program weights both orientations '
+                     'of the E seam equally, so the hold is summed over both E-coin values: reading K0.')
+checks = {
+    'coin0_leaves_shared_port_empty_both_seams': all(t.endswith('True)') for v in meaning.values() for kk, xs in v.items() if kk.startswith('coin0') for t in xs),
+    'coin1_ends_at_shared_port_both_seams': all(t.endswith('False)') for v in meaning.values() for kk, xs in v.items() if kk.startswith('coin1') for t in xs),
+    'K2_shared_coin_breaks_per_branch_phase': out['K2_shared_coin_hold_coin0']['P(plus xor hold)'] != out['K2_shared_coin_hold_coin0']['P(minus xor hold)'],
+    'K3_no_hold_reading_independent_of_C': not any(v['independent_of_C_current'] for v in k3.values()),
+    'K1_is_E_coin0': out['K1_equals_E_coin0_hold'],
+    'K1_balanced': out['K1_hold_leaves_shared_port_empty_independent'].get('Q') == '2/3',
+    'K0_unbalanced': out['K0_hold_both_coins_independent'].get('Q') == '1/2',
+}
+out['checks'] = checks
+json.dump(out, open(sys.argv[1], 'w'), indent=1, default=str)
+print(json.dumps({k: out[k] for k in out if k not in ('matchings',)}, indent=1, default=str))

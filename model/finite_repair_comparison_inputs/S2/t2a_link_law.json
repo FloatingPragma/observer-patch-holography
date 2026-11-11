@@ -1,0 +1,188 @@
+{
+ "every_classical_branch_conserves_both_Gauss_charges": {
+  "branches": 84,
+  "holds": true
+ },
+ "moving_branches_violating_separate_number_conservation": 6,
+ "binary_gauss_sectors": {
+  "count": 21,
+  "sizes": {
+   "1": 14,
+   "2": 7
+  }
+ },
+ "classical_kernels_on_sectors": [
+  [
+   [
+    "1"
+   ]
+  ],
+  [
+   [
+    "1/2",
+    "1/2"
+   ],
+   [
+    "1/2",
+    "1/2"
+   ]
+  ]
+ ],
+ "odd_sector_unitary_family": {
+  "form": "exp(i chi)/sqrt2 [[exp(i alpha), i exp(i beta)], [i exp(-i beta), exp(-i alpha)]]",
+  "unitary": true,
+  "moduli_squared": [
+   "1/2",
+   "1/2",
+   "1/2",
+   "1/2"
+  ],
+  "free_phases": 3,
+  "free_hopping_strength": 0,
+  "orthogonality_fixes_one_phase": true
+ },
+ "swap_and_shift_invariant_unitaries": {
+  "solutions": [
+   {
+    "alpha": "0",
+    "beta": "0",
+    "equals": "exp(i(chi+0)) exp(-i*(-1)*pi/4*sigma_x)"
+   },
+   {
+    "alpha": "0",
+    "beta": "pi",
+    "equals": "exp(i(chi+0)) exp(-i*(1)*pi/4*sigma_x)"
+   },
+   {
+    "alpha": "pi",
+    "beta": "0",
+    "equals": "exp(i(chi+pi)) exp(-i*(1)*pi/4*sigma_x)"
+   },
+   {
+    "alpha": "pi",
+    "beta": "pi",
+    "equals": "exp(i(chi+pi)) exp(-i*(-1)*pi/4*sigma_x)"
+   }
+  ],
+  "generic_alpha_beta_is_covariant": false,
+  "remaining_parameters": "block phase chi (U(1)) and the sign of the quarter turn"
+ },
+ "sqrt_swap_is_member_chi_pi_over_4": true,
+ "sqrt_swap_fixes_symmetric_vector": true,
+ "admissible_channel_family_real_dimension_per_odd_sector": {
+  "no_swap": 10,
+  "with_swap": 5
+ },
+ "visibility_family": [
+  {
+   "visibility": 0.0,
+   "min_choi_eigenvalue": 0.5,
+   "stay_move_coherence_abs": 0.0,
+   "classical_law_kept": true
+  },
+  {
+   "visibility": 0.25,
+   "min_choi_eigenvalue": 0.24999999999999978,
+   "stay_move_coherence_abs": 0.24999999999999994,
+   "classical_law_kept": true
+  },
+  {
+   "visibility": 0.5,
+   "min_choi_eigenvalue": -9.430259018989044e-17,
+   "stay_move_coherence_abs": 0.4999999999999999,
+   "classical_law_kept": true
+  }
+ ],
+ "collision_sector": {
+  "states": [
+   "((2, 0), 0)",
+   "((1, 1), 1)",
+   "((0, 2), 2)"
+  ],
+  "classical_kernel": [
+   [
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    1.0,
+    1.0,
+    1.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0
+   ]
+  ],
+  "row_sums": [
+   0.0,
+   3.0,
+   0.0
+  ],
+  "bistochastic": false,
+  "unitary_lift_exists": false
+ },
+ "pulse_area_scan": [
+  {
+   "tau": 0.2,
+   "P_move_when_read": 0.03946950299855745,
+   "sin2_tau": 0.039469502998557456,
+   "gauss_commutator": 5.551115123125783e-17,
+   "classical_law_ok": false
+  },
+  {
+   "tau": 0.39269908169872414,
+   "P_move_when_read": 0.14644660940672616,
+   "sin2_tau": 0.14644660940672624,
+   "gauss_commutator": 2.7755575615628914e-17,
+   "classical_law_ok": false
+  },
+  {
+   "tau": 0.7853981633974483,
+   "P_move_when_read": 0.4999999999999998,
+   "sin2_tau": 0.4999999999999999,
+   "gauss_commutator": 5.551115123125783e-17,
+   "classical_law_ok": true
+  },
+  {
+   "tau": 1.0,
+   "P_move_when_read": 0.708073418273571,
+   "sin2_tau": 0.7080734182735712,
+   "gauss_commutator": 1.1102230246251565e-16,
+   "classical_law_ok": false
+  },
+  {
+   "tau": 1.1780972450961724,
+   "P_move_when_read": 0.8535533905932733,
+   "sin2_tau": 0.8535533905932737,
+   "gauss_commutator": 2.7755575615628914e-17,
+   "classical_law_ok": false
+  },
+  {
+   "tau": 1.5707963267948966,
+   "P_move_when_read": 0.9999999999999996,
+   "sin2_tau": 1.0,
+   "gauss_commutator": 6.162975822039155e-33,
+   "classical_law_ok": false
+  },
+  {
+   "tau": 2.356194490192345,
+   "P_move_when_read": 0.4999999999999999,
+   "sin2_tau": 0.5000000000000001,
+   "gauss_commutator": 5.551115123125783e-17,
+   "classical_law_ok": true
+  }
+ ],
+ "two_events_same_seam": {
+  "P_moved_unread_unitary": 0.9999999999999993,
+  "P_moved_read_each_time": 0.5
+ },
+ "dressed_hop_commutes": {
+  "with_Na": false,
+  "with_Nb": false,
+  "with_Ga_mod_N": true,
+  "with_Gb_mod_N": true
+ }
+}

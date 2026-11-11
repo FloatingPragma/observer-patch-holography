@@ -1,0 +1,72 @@
+{
+ "symbolic_phase": {
+  "unitary_hermitian": true,
+  "record_one_gram_is_mm*": true,
+  "blank_block": true,
+  "norm_defect": "0",
+  "reversed_address_same_gram": true,
+  "orientation_average_block_diagonal": true
+ },
+ "matrix_links": {
+  "X": true,
+  "Y": true,
+  "Z (central)": true,
+  "X*Y": true
+ },
+ "flux_tables": {
+  "1": {
+   "address_block_defect_30_digits": 2.153914934711353e-137,
+   "gram_minus_Lk_over_60": 3.645729572459773e-19,
+   "levels_of_L_k": [
+    0.746745958,
+    4.273457472,
+    6.902113033
+   ],
+   "multiplicities": [
+    2,
+    4,
+    6
+   ],
+   "p_bottom": 0.01244576597066334,
+   "rest_phase_bottom": 0.1579345951796957,
+   "closed_form_top_adjacency": 4.2532540417602,
+   "closed_form_defect": 0.0
+  },
+  "2": {
+   "address_block_defect_30_digits": 6.762332219558676e-142,
+   "gram_minus_Lk_over_60": 2.1099944132660152e-19,
+   "levels_of_L_k": [
+    1.381966011,
+    5.381966011,
+    7.236067977
+   ],
+   "multiplicities": [
+    3,
+    5,
+    4
+   ],
+   "p_bottom": 0.0230327668541684,
+   "rest_phase_bottom": 0.21504293541573508,
+   "closed_form_top_adjacency": 3.618033988749895,
+   "closed_form_defect": 8.881784197001252e-16
+  },
+  "7": {
+   "address_block_defect_30_digits": 2.153914934711353e-137,
+   "gram_minus_Lk_over_60": 2.1099944132660152e-19,
+   "levels_of_L_k": [
+    2.371344439,
+    3.824429495,
+    8.077683537
+   ],
+   "multiplicities": [
+    2,
+    6,
+    4
+   ],
+   "p_bottom": 0.039522407323405534,
+   "rest_phase_bottom": 0.2820834033624713,
+   "closed_form_top_adjacency": 2.628655560595668,
+   "closed_form_defect": 0.0
+  }
+ }
+}

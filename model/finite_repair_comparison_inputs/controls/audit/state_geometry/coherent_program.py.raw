@@ -1,0 +1,59 @@
+"""Declared coherent-carrier positive control, not a near-native repair law.
+
+The exact channel identities are derived in COHERENT_PROGRAM.md. This script
+only checks their floating-point implementation on the finite 62-state carrier.
+The global Gibbs reset and quantum instruments are explicit design inputs.
+"""
+from pathlib import Path
+import json
+import numpy as np
+from checks import EDGES, FACES
+
+B=np.zeros((30,12));C=np.zeros((20,30));edge_index={e:i for i,e in enumerate(EDGES)}
+for i,(a,b) in enumerate(EDGES): B[i,a]=-1;B[i,b]=1
+for i,f in enumerate(FACES):
+    for j in range(3):
+        a,b=f[j],f[(j+1)%3]
+        C[i,edge_index[tuple(sorted((a,b)))]]=1 if a<b else -1
+D=np.zeros((62,62));D[12:42,:12]=B;D[:12,12:42]=B.T
+D[42:,12:42]=C;D[12:42,42:]=C.T
+energy,V=np.linalg.eigh(D)
+beta,tau,eta=.25,.1,.05
+p=np.exp(-beta*energy);p/=p.sum()
+sigma=(V*p)@V.T
+U=(V*np.exp(-1j*tau*energy))@V.T
+def channel(rho):
+    return (1-eta)*(U@rho@U.conj().T)+eta*np.trace(rho)*sigma
+stationary_error=float(np.linalg.norm(channel(sigma)-sigma,ord=2))
+assert stationary_error<1e-13 and min(p)>0
+K=(V*(-np.log(p)))@V.T
+modular_error=float(np.linalg.norm(K-beta*D-np.log(np.exp(-beta*energy).sum())*np.eye(62),ord=2))
+assert modular_error<1e-13
+# Any energy off-diagonal operator is traceless and has the stated damped mode.
+a,b=0,61;X=np.outer(V[:,a],V[:,b])
+lam=(1-eta)*np.exp(-1j*tau*(energy[a]-energy[b]))
+mode_error=float(np.linalg.norm(channel(X)-lam*X,ord=2));assert mode_error<1e-13
+# Complete two-click protocol: site click a prepares |a>, then idle U, site click b.
+joint=np.diag(sigma)[:,None]*(abs(U.T)**2)
+assert np.min(joint)>-1e-15 and abs(joint.sum()-1)<1e-13
+leak=float(np.sum(abs(U[12:,0])**2))
+result={
+    'status':'DECLARED finite quantum positive control; numerical implementation checks',
+    'dimension':62,
+    'declared_inputs':{'H':'full incidence D','beta':beta,'time_step':tau,'reset_probability':eta,
+                       'reset':'global energy-basis Gibbs replacement','detectors':'site projectors with complete records'},
+    'exact_channel':'C(rho)=(1-eta) U rho U* + eta tr(rho) sigma',
+    'stationary_residual_operator_norm':stationary_error,
+    'modular_relation_residual_operator_norm':modular_error,
+    'damped_mode_residual_operator_norm':mode_error,
+    'two_click_joint_probability_sum':float(joint.sum()),
+    'port_to_incidence_partner_probability_after_idle_step':leak,
+    'fixed_eta_damping_rate':float(-np.log1p(-eta)/tau),
+    'scope':{'native_T0_preserved':False,'reset_seam_local':False,'Gibbs_target_source_selected':False,
+             'quantum_instrument_derived_from_classical_repair':False,
+             'homogeneous_idle_reset_reference_stationary':True,
+             'each_detector_branch_stationary':False,
+             'fixed_eta_underdamped_IR_limit':False,'physical_particle_mass_claim':False},
+    'memory':'Finite retained horizon required; quantum log(62) capacity is not classical amplitude-simulator storage.'}
+Path(__file__).with_name('coherent_program.json').write_text(json.dumps(result,indent=2)+'\n')
+print('PASS: declared Gibbs/unitary/reset program and complete two-click protocol; no native/source-selection claim')

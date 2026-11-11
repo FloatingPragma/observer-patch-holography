@@ -1,0 +1,136 @@
+"""Link register of one carrier region and the joint tick of the public program `coherent_defect_wave`, carried by
+the family walk: U = C_4 C_3 C_2 C_1 C_0 B, B = sum_g |g><g| x W_g (the family step with the link signs of word g on
+the internal seams of the region's carrier), C_e = the permitted defect move on interior edge e, applied when the
+quantum sits on an endpoint of e. Gauss operator of the region centre: Gamma = J x D (flip the links at the centre
+port; sign of the charged levels at that port).
+"""
+import numpy as np
+
+import mv_lib as M
+import mv_walk as W
+
+
+def bit(word, e):
+    return (word >> e) & 1
+
+
+def face_flux(word):
+    return [bit(word, es[0]) ^ bit(word, es[1]) ^ bit(word, es[2]) for es in M.FACE_SEAMS]
+
+
+def region_of(port):
+    faces = [i for i, f in enumerate(M.FACES) if port in f]
+    interior = [i for i, e in enumerate(M.SEAMS) if port in e]
+    boundary = sorted({e for f in faces for e in M.FACE_SEAMS[f]} - set(interior))
+    return dict(port=port, faces=faces, interior=interior, boundary=boundary)
+
+
+def transport(word, e):
+    fs = [i for i, es in enumerate(M.FACE_SEAMS) if e in es]
+    fl = face_flux(word)
+    return word ^ (1 << e) if (fl[fs[0]] ^ fl[fs[1]]) else word
+
+
+def reachable(word0, interior):
+    seen = [word0]
+    for w in seen:
+        for e in interior:
+            v = transport(w, e)
+            if v not in seen:
+                seen.append(v)
+    return sorted(seen)
+
+
+class Joint:
+    """One region (centre port `centre` of carrier `c1`) of the link register joined to the family walk of one type."""
+
+    def __init__(self, fed, z60, charged, c1=0, centre=5, word0=1):
+        self.fed = dict(fed); self.fed['sgn'] = fed['sgn'].copy()
+        self.z60 = z60; self.charged = charged; self.c1 = c1; self.centre = centre
+        self.reg = region_of(centre)
+        self.words = reachable(word0, self.reg['interior'])
+        self.nw = len(self.words)
+        self.T = [[self.words.index(transport(w, e)) for w in self.words] for e in self.reg['interior']]
+        self.mask = sum(1 << e for e in self.reg['interior'])
+        self.partner = [self.words.index(w ^ self.mask) for w in self.words]
+        self.flux = np.array([face_flux(w) for w in self.words])          # [nw, 20]
+        self.psi = np.zeros((self.nw, 12 * fed['ncar'], 2, fed['S']), complex)
+        self.ticks = 0
+
+    def _signs(self, g):
+        w = self.words[g]
+        self.fed['sgn'][self.c1, :] = [(-1.0 if bit(w, e) else 1.0) for e in range(30)]
+
+    def wave(self, inverse=False):
+        for g in range(self.nw):
+            if not self.psi[g].any():
+                continue
+            self._signs(g)
+            (W.unstep if inverse else W.step)(self.psi[g], self.fed, self.z60, self.charged)
+        self.fed['sgn'][self.c1, :] = 1.0
+
+    def moves(self, inverse=False):
+        order = range(len(self.reg['interior']))
+        for i in (reversed(order) if inverse else order):
+            T = self.T[i]
+            for p in M.SEAMS[self.reg['interior'][i]]:
+                x = 12 * self.c1 + p
+                for g in range(self.nw):
+                    g2 = T[g]
+                    if g2 > g:
+                        tmp = self.psi[g, x].copy(); self.psi[g, x] = self.psi[g2, x]; self.psi[g2, x] = tmp
+
+    def tick(self):
+        self.wave(); self.moves(); self.ticks += 1
+
+    def untick(self):
+        self.moves(inverse=True); self.wave(inverse=True); self.ticks -= 1
+
+    def word_prob(self):
+        return np.array([float(np.vdot(self.psi[g], self.psi[g]).real) for g in range(self.nw)])
+
+    def face_prob(self):
+        """Probability that the regional flux sits on each of the region's faces (gauge invariant)."""
+        wp = self.word_prob()
+        return np.array([float(wp @ self.flux[:, f]) for f in self.reg['faces']])
+
+    def carrier_prob(self):
+        out = np.zeros(self.fed['ncar']); tmp = np.zeros(self.fed['ncar'])
+        for g in range(self.nw):
+            W.carrier_prob(self.psi[g], tmp); out += tmp
+        return out
+
+    def gauss(self, state=None):
+        """Gamma applied to a state array [nw, ports, 2, S]."""
+        s = self.psi if state is None else state
+        out = s[self.partner].copy()
+        if self.charged:
+            out[:, 12 * self.c1 + self.centre] *= -1
+        return out
+
+    def gauss_project(self, sign=1):
+        self.psi = 0.5 * (self.psi + sign * self.gauss())
+
+    def norm2(self):
+        return float(np.vdot(self.psi, self.psi).real)
+
+    def return_probability(self, ref):
+        """Covariant return instrument of the public program: on the smaller word of each gauge pair project the
+        wave on ref, on the other word on D ref. ref: array [ports, 2, S]."""
+        total = 0.0
+        x = 12 * self.c1 + self.centre
+        for g in range(self.nw):
+            canonical = self.words[g] < (self.words[g] ^ self.mask)
+            r = ref
+            if self.charged and not canonical:
+                r = ref.copy(); r[x] *= -1
+            total += abs(np.vdot(r, self.psi[g])) ** 2
+        return float(total)
+
+    def face_branch(self, f):
+        """Unnormalized branch of the complete regional face readout: keep the words with flux on face f."""
+        out = self.psi.copy()
+        for g in range(self.nw):
+            if not self.flux[g, f]:
+                out[g] = 0
+        return out

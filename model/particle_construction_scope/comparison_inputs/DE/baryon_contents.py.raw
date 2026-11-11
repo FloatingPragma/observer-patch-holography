@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""Worker DE: three-defect carrier contents that are neutral (classes add to 0 mod 6), split by colour content.
+
+Class k in Z6 = Z3 x Z2: colour part k mod 3 (1 triplet, 2 antitriplet, 0 singlet), weak part k mod 2 (RL/MATCH.md).
+EXACT enumeration; prints the neutral multisets and which are three-quark (baryon) contents.
+"""
+import itertools
+import json
+from pathlib import Path
+
+rows = []
+for c in itertools.combinations_with_replacement(range(1, 6), 3):
+    if sum(c) % 6:
+        continue
+    colour = [k % 3 for k in c]
+    kind = ('baryon' if colour.count(1) == 3 else 'antibaryon' if colour.count(2) == 3 else
+            'meson with a colourless defect' if sorted(colour) == [0, 1, 2] else 'other')
+    rows.append({'content': list(c), 'colour_parts': colour, 'weak_parts': [k % 2 for k in c], 'kind': kind})
+Path(__file__).with_suffix('.json').write_text(json.dumps(rows, indent=1) + '\n')
+for r in rows:
+    print(r['content'], r['kind'], 'weak parts', r['weak_parts'])

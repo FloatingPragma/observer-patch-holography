@@ -1,0 +1,184 @@
+"""Worker LD: model of the hadronic spectral function R(s) and the hadronic terms of the mass functionals.
+
+IMPORTED input. Every number of the model is a measured hadronic quantity held from memory (PDG values of masses and
+electronic widths, alpha_s) and is marked as such in LITERATURE.md. The model is checked against two published
+integrals: the leading hadronic term of the muon anomaly and the hadronic shift of alpha at m_Z. It serves as a size
+estimate with an uncertainty of about fifteen percent. It enters no leptonic row of the table.
+
+Model: pi pi channel from the Gounaris-Sakurai form factor of the rho, scaled to the electronic width of the rho;
+narrow omega, phi, J/psi, psi(2S), Upsilon(1S, 2S, 3S); continuum 1.25 between 1.03 and 1.40 GeV; perturbative
+continuum 3 sum Q^2 (1 + alpha_s/pi) above 1.40 GeV for u, d, s, above 3.73 GeV for charm, above 10.56 GeV for bottom.
+"""
+import math
+
+import numpy as np
+from scipy import integrate
+
+import ld_lib as L
+
+ALPHA0 = 1 / 137.035999          # used only inside the imported hadronic model (narrow-width normalization)
+GEV = 1.0
+M_PI = 0.13957
+M_RHO, G_RHO, GEE_RHO = 0.77526, 0.1491, 7.04e-6
+NARROW_UDS = [(0.78266, 0.60e-6), (1.019461, 1.27e-6)]                 # omega, phi: mass, Gamma_ee (GeV)
+NARROW_C = [(3.0969, 5.53e-6), (3.6861, 2.33e-6)]                      # J/psi, psi(2S)
+NARROW_B = [(9.4603, 1.340e-6), (10.0233, 0.612e-6), (10.3552, 0.443e-6)]
+S_PIPI_MAX = 0.99 ** 2
+S_C1, S_C2 = 1.03 ** 2, 1.40 ** 2
+R_MID = 1.25
+S_CHARM, S_BOTTOM = 3.73 ** 2, 10.56 ** 2
+ALPHA_S_MTAU, M_TAU_REF = 0.32, 1.777
+
+
+def alpha_s(s):
+    """One-loop running from alpha_s(m_tau) with 3, 4, 5 flavours; frozen below 1.40 GeV."""
+    s = max(s, S_C2)
+    def run(a0, s0, s1, nf):
+        b0 = (33 - 2 * nf) / (12 * math.pi)
+        return a0 / (1 + b0 * a0 * math.log(s1 / s0))
+    s_tau = M_TAU_REF ** 2
+    if s <= S_CHARM:
+        return run(ALPHA_S_MTAU, s_tau, s, 3)
+    a_c = run(ALPHA_S_MTAU, s_tau, S_CHARM, 3)
+    if s <= S_BOTTOM:
+        return run(a_c, S_CHARM, s, 4)
+    a_b = run(a_c, S_CHARM, S_BOTTOM, 4)
+    return run(a_b, S_BOTTOM, s, 5)
+
+
+def f_qcd(s):
+    return 1 + alpha_s(s) / math.pi
+
+
+# ---------------------------------------------------------------- Gounaris-Sakurai pion form factor
+def _k(s):
+    return 0.5 * math.sqrt(max(s - 4 * M_PI ** 2, 0.0))
+
+
+def _hfun(s):
+    k = _k(s)
+    rs = math.sqrt(s)
+    return 2 / math.pi * k / rs * math.log((rs + 2 * k) / (2 * M_PI))
+
+
+_KR = _k(M_RHO ** 2)
+_HR = _hfun(M_RHO ** 2)
+_DH = (_hfun(M_RHO ** 2 * (1 + 1e-6)) - _hfun(M_RHO ** 2 * (1 - 1e-6))) / (2e-6 * M_RHO ** 2)
+_D = (3 / math.pi * M_PI ** 2 / _KR ** 2 * math.log((M_RHO + 2 * _KR) / (2 * M_PI)) + M_RHO / (2 * math.pi * _KR)
+      - M_PI ** 2 * M_RHO / (math.pi * _KR ** 3))
+
+
+def F2_gs(s):
+    k = _k(s)
+    gam = G_RHO * (M_RHO / math.sqrt(s)) * (k / _KR) ** 3
+    f = G_RHO * M_RHO ** 2 / _KR ** 3 * (k ** 2 * (_hfun(s) - _HR) + (M_RHO ** 2 - s) * _KR ** 2 * _DH)
+    num = (M_RHO ** 2 + _D * M_RHO * G_RHO) ** 2
+    den = (M_RHO ** 2 - s + f) ** 2 + (M_RHO * gam) ** 2
+    return num / den
+
+
+_BETA_RHO3 = (1 - 4 * M_PI ** 2 / M_RHO ** 2) ** 1.5
+_GEE_GS = ALPHA0 ** 2 * _BETA_RHO3 * F2_gs(M_RHO ** 2) * G_RHO / 36
+RHO_SCALE = GEE_RHO / _GEE_GS
+
+
+def R_pipi(s):
+    if s <= 4 * M_PI ** 2 or s >= S_PIPI_MAX:
+        return 0.0
+    return 0.25 * (1 - 4 * M_PI ** 2 / s) ** 1.5 * F2_gs(s) * RHO_SCALE
+
+
+def R_uds_smooth(s):
+    """u, d, s without the narrow omega and phi."""
+    if s < S_PIPI_MAX:
+        return R_pipi(s)
+    if s < S_C1:
+        return 0.0
+    if s < S_C2:
+        return R_MID
+    return 2.0 * f_qcd(s)
+
+
+def R_c_smooth(s):
+    return (4.0 / 3.0) * f_qcd(s) if s >= S_CHARM else 0.0
+
+
+def R_b_smooth(s):
+    return (1.0 / 3.0) * f_qcd(s) if s >= S_BOTTOM else 0.0
+
+
+BREAKS_UDS = [4 * M_PI ** 2, 0.5 ** 2, M_RHO ** 2, S_PIPI_MAX, S_C1, S_C2]
+SECTORS = {'uds': (R_uds_smooth, NARROW_UDS, BREAKS_UDS, 2.0),
+           'c': (R_c_smooth, NARROW_C, [S_CHARM], 4.0 / 3.0),
+           'b': (R_b_smooth, NARROW_B, [S_BOTTOM], 1.0 / 3.0)}
+
+
+def functional(sector, kernel_s, ref_s=None, ref_breaks=(), smin=1e-14, smax=1e12):
+    """int (ds/s) (R_sector(s) - ref(s)) kernel(s): smooth part by quadrature in ln s, narrow states analytically."""
+    Rs, narrow, breaks, _ = SECTORS[sector]
+    ref = ref_s if ref_s is not None else (lambda s: 0.0)
+    pts = sorted(set([smin, smax] + [b for b in list(breaks) + list(ref_breaks) if smin < b < smax]))
+    total = 0.0
+    for lo, hi in zip(pts[:-1], pts[1:]):
+        val, _ = integrate.quad(lambda t: (Rs(math.exp(t)) - ref(math.exp(t))) * kernel_s(math.exp(t)),
+                                math.log(lo), math.log(hi), limit=400, epsabs=1e-13, epsrel=1e-9)
+        total += val
+    for mass, gee in narrow:
+        total += 9 * math.pi / ALPHA0 ** 2 * gee / mass * kernel_s(mass ** 2)
+    return total
+
+
+# ---------------------------------------------------------------- validation integrals
+def amu_kernel(s, m_mu=0.1056583755):
+    val, _ = integrate.quad(lambda x: x * x * (1 - x) / (x * x + (1 - x) * s / m_mu ** 2), 0, 1, limit=200)
+    return val
+
+
+def validation():
+    a2 = (ALPHA0 / math.pi) ** 2
+    amu = {sec: a2 / 3 * functional(sec, amu_kernel) for sec in SECTORS}
+    q2 = 91.1876 ** 2
+    dal = {sec: ALPHA0 / (3 * math.pi) * functional(sec, lambda s: q2 / (s + q2)) for sec in SECTORS}
+    return {'a_mu_had_LO_1e-10': {k: v * 1e10 for k, v in amu.items()}, 'a_mu_had_LO_total_1e-10': sum(amu.values()) * 1e10,
+            'a_mu_had_LO_published_1e-10': 693.1,
+            'delta_alpha_had_spacelike_mZ': dal, 'delta_alpha_had_total': sum(dal.values()),
+            'delta_alpha_had_published': 0.0276,
+            'rho_scale_factor': RHO_SCALE, 'GS_peak_F2': F2_gs(M_RHO ** 2), 'GS_Gamma_ee_keV': _GEE_GS * 1e6}
+
+
+# ---------------------------------------------------------------- hadronic terms of the mass functionals
+def G_of_s(M):
+    return lambda s: float(L.G_float(s / M ** 2))
+
+
+def Gdec_of_s(M):
+    return lambda s: float(L.G_float(s / M ** 2)) + 0.75 * math.log(s / M ** 2) + 0.375
+
+
+def hadronic_terms(M):
+    """All hadronic functionals for a lepton of mass M (GeV), per sector. Units: coefficient of (alpha/pi)^2."""
+    out = {}
+    G = G_of_s(M)
+    Gd = Gdec_of_s(M)
+    for sec, (Rs, narrow, breaks, N) in SECTORS.items():
+        thr = 4 * M * M
+        ref_own = lambda s, N=N: N * f_qcd(s) * float(L.R_lep(s / M ** 2, 1.0))
+        ref_massless = lambda s, N=N: N * f_qcd(s)
+        ref_step = lambda s, N=N: N * f_qcd(s) if s > M * M else 0.0
+        rec = {}
+        rec['degenerate_reference'] = functional(sec, G, ref_own, ref_breaks=[thr]) / 3
+        rec['massless_reference'] = functional(sec, G, ref_massless) / 3
+        rec['decoupled_remainder_h'] = functional(sec, Gd) / 3
+        rec['ell'] = functional(sec, lambda s: 1.0, ref_step, ref_breaks=[M * M]) + 5.0 / 3.0 * N
+        rec['P'] = functional(sec, lambda s: 1.0 / (1.0 + s / M ** 2))
+        rec['N'] = N
+        out[sec] = rec
+    return out
+
+
+if __name__ == '__main__':
+    import json
+    import sys
+    res = {'validation': validation()}
+    json.dump(res, open(sys.argv[1], 'w'), indent=1)
+    print(json.dumps(res, indent=1))

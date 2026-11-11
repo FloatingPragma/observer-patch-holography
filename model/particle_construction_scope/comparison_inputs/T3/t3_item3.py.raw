@@ -1,0 +1,76 @@
+"""T3 item 3: the zero-phase copies of the CF-1 period as species.
+
+For each class of zero-phase node per two-tick sublattice (p mod pi): position, chirality per arrow block, exact image
+identity W2(p* + q) = W2(R q) (R a diagonal reflection, checked on random q with and without mass), velocity map
+R = J(p*) J(0)^-1, the Dirac partner under the mass step (W2(p*) = exp(-2 i theta beta) exactly; beta pairs the two
+arrow blocks at the same momentum), the phase each copy receives from member B (5 pi/16) and member C (pi/16), and the
+colour one-loop coefficient b0 = 11 - 4 k_c for k_c light Dirac points per quark species.
+python t3_item3.py -> item3.json (local, a few CPU s)
+"""
+import json, itertools, os
+import numpy as np
+import t3sym as T
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TH = 0.157935
+
+
+def om(word, p):
+    return float(np.arccos(np.clip(T.cosOmega(word, np.asarray(p, float)), -1, 1)))
+
+
+if __name__ == '__main__':
+    out = {'note': __doc__}
+    rng = np.random.default_rng(7)
+    q = rng.uniform(-np.pi, np.pi, (500, 3))
+    classes = {'origin': (0, 0, 0), 'A1 (pi/2,0,pi/2)': (0.5, 0, 0.5), 'A2 (0,pi/2,pi/2)': (0, 0.5, 0.5),
+               'A3 (pi/2,pi/2,0)': (0.5, 0.5, 0)}
+    W0 = T.period_W2(0.0); Wm = T.period_W2(TH)
+    J0 = {chi: T.node_jacobian(W0, np.zeros(3), chi)[0] for chi in (1, -1)}
+    rows = []
+    for name, c in classes.items():
+        ps = np.array(c) * np.pi
+        # find the reflection R with W2(p* + q) = W2(R q)
+        best = None
+        for sgn in itertools.product((1, -1), repeat=3):
+            R = np.diag(sgn).astype(float)
+            d0 = np.abs(T.symbol(W0, ps + q) - T.symbol(W0, q @ R.T)).max()
+            dm = np.abs(T.symbol(Wm, ps + q) - T.symbol(Wm, q @ R.T)).max()
+            if best is None or d0 + dm < best[0]: best = (d0 + dm, sgn, d0, dm)
+        row = {'class': name, 'p_star_over_pi': list(c), 'reflection_R_diag': list(best[1]),
+               'image_identity_residual_massless': best[2], 'image_identity_residual_theta': best[3]}
+        for chi in (1, -1):
+            J, ph = T.node_jacobian(W0, ps, chi)
+            row['chirality_block_%+d' % chi] = int(np.sign(np.linalg.det(J)))
+            row['velocity_map_block_%+d' % chi] = np.round(J @ np.linalg.inv(J0[chi]), 6).tolist()
+        # mass step: W2(p*) with theta equals exp(-2 i theta beta)
+        Wp = T.symbol(Wm, ps)
+        row['W2_at_p_star_minus_exp(-2i theta beta)'] = float(np.abs(Wp - (np.cos(2 * TH) * T.I4 - 1j * np.sin(2 * TH) * T.BETA)).max())
+        row['rest_phase_per_tick_theta'] = om(Wm, ps) / 2
+        # beta pairs the blocks: <block +|beta|block -> is unitary 2x2, <block +|beta|block +> = 0
+        Vp, Vm = T.BLOCK[1], T.BLOCK[-1]
+        row['beta_within_block_norm'] = float(np.abs(np.conj(Vp.T) @ T.BETA @ Vp).max())
+        row['beta_across_blocks_singular_values'] = np.round(np.linalg.svd(np.conj(Vp.T) @ T.BETA @ Vm, compute_uv=False), 12).tolist()
+        # what the gapping members give this copy (phase per period, theta = 0)
+        row['member_B_5pi16_phase_per_period'] = om(T.period_B(5 * np.pi / 16), ps)
+        row['member_C_pi16_phase_per_period'] = om(T.period_C(np.pi / 16), ps)
+        rows.append(row)
+        print(name, 'R', best[1], 'res %.1e %.1e' % (best[2], best[3]), 'chi(+1,-1)', row['chirality_block_+1'], row['chirality_block_-1'],
+              '| mass check %.1e' % row['W2_at_p_star_minus_exp(-2i theta beta)'], 'rest/tick %.6f' % row['rest_phase_per_tick_theta'],
+              '| B %.4f C %.4f' % (row['member_B_5pi16_phase_per_period'], row['member_C_pi16_phase_per_period']))
+    out['copies'] = rows
+    # corner images: W2(p + pi c) = W2(p) exactly, with mass
+    corner = max(float(np.abs(T.symbol(Wm, q + np.pi * np.array(c)) - T.symbol(Wm, q)).max()) for c in itertools.product((0, 1), repeat=3))
+    out['corner_image_residual_theta'] = corner
+    out['corner_phase_member_B_5pi16'] = {str(c): om(T.period_B(5 * np.pi / 16), np.pi * np.array(c)) for c in itertools.product((0, 1), repeat=3)}
+    out['corner_phase_member_C_pi16'] = {str(c): om(T.period_C(np.pi / 16), np.pi * np.array(c)) for c in itertools.product((0, 1), repeat=3)}
+    print('corner images residual', corner)
+    print('corner phases B(5pi/16):', {k: round(v, 4) for k, v in out['corner_phase_member_B_5pi16'].items()})
+    print('corner phases C(pi/16):', {k: round(v, 4) for k, v in out['corner_phase_member_C_pi16'].items()})
+    # b0 = 11 - (2/3) * 6 * k_c
+    kc = {'CF-1 period, full lattice (32 zero-phase Dirac points)': 32, 'CF-1 period, one two-tick sublattice (4)': 4,
+          'member C (one per sublattice, 8 corner images)': 8, 'member B (one in the full zone)': 1,
+          'reading the four cones as generations (8 flavours, 6 + 2)': None}
+    out['b0'] = {k: (11 - 4 * v if v is not None else 11 - 2 * 8 / 3) for k, v in kc.items()}
+    print('b0:', out['b0'])
+    json.dump(out, open(os.path.join(HERE, 'item3.json'), 'w'), indent=1)

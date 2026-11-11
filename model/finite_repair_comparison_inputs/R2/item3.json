@@ -1,0 +1,307 @@
+{
+ "orbit_used": {
+  "pairs (face indices)": [
+   [
+    0,
+    3
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    9,
+    10
+   ],
+   [
+    8,
+    14
+   ]
+  ],
+  "separation": 2,
+  "short orbit": [
+   [
+    0,
+    1
+   ],
+   [
+    8,
+    9
+   ]
+  ],
+  "short orbit separation": 1
+ },
+ "0_engine_validation": {
+  "Q_0 (links)": 5.815852873680767e-17,
+  "Q_1 (links)": 5.721958498152797e-17,
+  "Q_2 (links)": 1.5515838457795457e-17,
+  "tick forward, theta 0.157935 (links)": 6.958382176060062e-17,
+  "tick reverse (links)": 6.206335383118183e-17,
+  "commuting pointer rho (free orbit): Q_i Q_i = 1": 3.1031676915590914e-17,
+  "commuting pointer rho (free orbit): Q_i R = P+ T + P- T*": 2.787728152484798e-17,
+  "commuting pointer rho (free orbit): tick norm": 0.0,
+  "commuting pointer rho (free orbit): [S_i, S_j]": 4.5102810375396984e-17,
+  "pointer sigma x rho: Q_i Q_i = 1": 2.443096294273727e-17,
+  "pointer sigma x rho: Q_i R = P+ T + P- T*": 1.5515838457795457e-17,
+  "pointer sigma x rho: tick norm": 0.0,
+  "pointer sigma x rho: [S_i, S_j]": 0.08019361435662153,
+  "commuting pointer rho (all 190 pairs): Q_i Q_i = 1": 6.1331736667334966e-18,
+  "commuting pointer rho (all 190 pairs): Q_i R = P+ T + P- T*": 6.938893903907228e-18,
+  "commuting pointer rho (all 190 pairs): tick norm": 2.220446049250313e-16,
+  "commuting pointer rho (all 190 pairs): [S_i, S_j]": 8.690541527449943e-18
+ },
+ "b_flux_pair_commuting_reflection_shift": {
+  "definite pair, blank record, 5 ticks: eight beams of weight 1/8 on the body diagonals (max defect)": 0.0,
+  "face syndrome after 5 ticks: weight on the four pairs of the orbit": [
+   0.25,
+   0.25,
+   0.25,
+   0.25
+  ],
+  "pair fixed by a half-turn: beams (displacement, 5 ticks)": [
+   [
+    -5,
+    -5,
+    -5
+   ],
+   [
+    -5,
+    5,
+    5
+   ],
+   [
+    5,
+    -5,
+    -5
+   ],
+   [
+    5,
+    5,
+    5
+   ]
+  ],
+  "pair fixed by a half-turn: weight per beam": [
+   0.25
+  ],
+  "packet in the sector X_r = +, character (+,-,-): P_4(x) - P_0(x - 4 (1,-1,-1)) (max)": 3.903127820947816e-18,
+  "symbol_phases": [
+   {
+    "p": [
+     0.1,
+     0.0,
+     0.0
+    ],
+    "|p|": 0.1,
+    "flux pair (commuting pointer): phases per tick": [
+     0.1
+    ],
+    "Dirac pointer: phases per tick": [
+     0.1
+    ]
+   },
+   {
+    "p": [
+     0.1,
+     0.1,
+     0.0
+    ],
+    "|p|": 0.14142135623730953,
+    "flux pair (commuting pointer): phases per tick": [
+     0.2
+    ],
+    "Dirac pointer: phases per tick": [
+     0.140946641
+    ]
+   },
+   {
+    "p": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "|p|": 0.17320508075688776,
+    "flux pair (commuting pointer): phases per tick": [
+     0.1,
+     0.3
+    ],
+    "Dirac pointer: phases per tick": [
+     0.172043495
+    ]
+   }
+  ],
+  "mass step theta: phases = arccos(cos theta cos(e.p)), e the character (max defect, 4 momenta)": 0.0,
+  "character weights unchanged by 6 ticks with mass step (max change)": 8.881784197001252e-16
+ },
+ "a_charged_quantum": [
+  {
+   "theta": 0.0,
+   "p0": [
+    0.3141592653589793,
+    0.17453292519943295,
+    0.17453292519943295
+   ],
+   "ticks": 8,
+   "velocity_measured": [
+    0.6529191638811049,
+    0.3254518067087995,
+    0.32490235964059977
+   ],
+   "velocity_predicted (dE/dp averaged over the packet)": [
+    0.6537198694495102,
+    0.32970072558227514,
+    0.32925254287519373
+   ],
+   "velocity_dE_dp_at_p0": [
+    0.7417242098128883,
+    0.3715756806701997,
+    0.3715756806646486
+   ],
+   "helicity_spread_of_dE_dp": 6.938893903907228e-12,
+   "max |measured - predicted|": 0.004350183234593963,
+   "norm_defect": 1.887379141862766e-15,
+   "cell_distribution: gauge-transformed run minus plain run (max)": 0.0,
+   "complete position instrument: outcomes, total probability": [
+    51840,
+    0.9999999999999984
+   ]
+  },
+  {
+   "theta": 0.157935,
+   "p0": [
+    0.3141592653589793,
+    0.17453292519943295,
+    0.17453292519943295
+   ],
+   "ticks": 8,
+   "velocity_measured": [
+    0.598954093371459,
+    0.29887001759123466,
+    0.3044918838795039
+   ],
+   "velocity_predicted (dE/dp averaged over the packet)": [
+    0.5991596608693206,
+    0.3015906314618669,
+    0.3073016136005516
+   ],
+   "velocity_dE_dp_at_p0": [
+    0.6835056292439633,
+    0.34241038121551876,
+    0.3424103812182943
+   ],
+   "helicity_spread_of_dE_dp": 1.3877787807814457e-12,
+   "max |measured - predicted|": 0.0028097297210477046,
+   "norm_defect": 2.3314683517128287e-15,
+   "cell_distribution: gauge-transformed run minus plain run (max)": 0.0,
+   "complete position instrument: outcomes, total probability": [
+    51840,
+    0.9999999999999958
+   ]
+  }
+ ],
+ "c_composite": {
+  "unitary V = sum_e V_e x Pi_e maps sigma_i x 1 to sigma_i x rho_i (max defect)": 0.0,
+  "V unitary": 0.0,
+  "packets": [
+   {
+    "pointer": "label carried (sigma x 1)",
+    "theta (M1, alpha 1/2, separation of the pair)": 0.110554,
+    "p0": [
+     0.39269908169872414,
+     0.2243994752564138,
+     0.2243994752564138
+    ],
+    "ticks": 6,
+    "velocity_measured": [
+     0.600996813325963,
+     0.28393650980831237,
+     0.286359998391319
+    ],
+    "velocity_predicted (dE/dp averaged over the packet)": [
+     0.6022957559943899,
+     0.2923822239634777,
+     0.29523265235384055
+    ],
+    "max |measured - predicted|": 0.00887265396252157,
+    "velocity_dE_dp_at_p0": [
+     0.6815247487294839,
+     0.3282050210648424,
+     0.328205021061026
+    ],
+    "helicity_spread_of_dE_dp": 7.632783294297951e-12,
+    "norm_defect": 3.552713678800501e-15,
+    "face syndrome: weight on the four pairs of the orbit, t = 0": [
+     1.0000000000000053,
+     3.2962013888757866e-32,
+     3.948906426818509e-32,
+     2.1870326857461876e-32
+    ],
+    "face syndrome: weight on the four pairs of the orbit, t = T": [
+     0.9999999999999915,
+     3.2962013888758e-32,
+     3.9489064268185827e-32,
+     2.1870326857461605e-32
+    ],
+    "character weights, max change": 1.5543122344752192e-15
+   },
+   {
+    "pointer": "frame-turned (sigma x rho)",
+    "theta (M1, alpha 1/2, separation of the pair)": 0.110554,
+    "p0": [
+     0.39269908169872414,
+     0.2243994752564138,
+     0.2243994752564138
+    ],
+    "ticks": 6,
+    "velocity_measured": [
+     0.600996813325963,
+     0.2839365098083138,
+     0.2863599983913196
+    ],
+    "velocity_predicted (dE/dp averaged over the packet)": [
+     0.6022957559938333,
+     0.29238222396182284,
+     0.29523265235438706
+    ],
+    "max |measured - predicted|": 0.008872653963067467,
+    "velocity_dE_dp_at_p0": [
+     0.68152474872879,
+     0.3282050210603321,
+     0.32820502106067906
+    ],
+    "helicity_spread_of_dE_dp": 5.898059818321144e-12,
+    "norm_defect": 1.7763568394002505e-15,
+    "face syndrome: weight on the four pairs of the orbit, t = 0": [
+     0.1710356897265464,
+     0.23604016073133902,
+     0.3196699788434174,
+     0.27325417069869695
+    ],
+    "face syndrome: weight on the four pairs of the orbit, t = T": [
+     0.17103568972654562,
+     0.23604016073133652,
+     0.31966997884342296,
+     0.2732541706987001
+    ],
+    "character weights, max change": 1.1657341758564144e-15
+   }
+  ],
+  "rest_phase_by_separation_class": [
+   {
+    "separation": 1,
+    "theta": 0.087847,
+    "p0": 0.2945243112740431,
+    "velocity_measured": 0.9532339385269355,
+    "velocity_predicted (dE/dp averaged over the packet)": 0.9532339489614033,
+    "velocity_dE_dp_at_p0": 0.9569249684749698
+   },
+   {
+    "separation": 5,
+    "theta": 0.171237,
+    "p0": 0.2945243112740431,
+    "velocity_measured": 0.8520420386727778,
+    "velocity_predicted (dE/dp averaged over the packet)": 0.8520420484001263,
+    "velocity_dE_dp_at_p0": 0.8591080627680951
+   }
+  ]
+ }
+}

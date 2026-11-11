@@ -1,0 +1,53 @@
+"""Block 1 control: flux 0 (all recharting phases 1, the plain parity pump) on the federation, by trajectories.
+Expected: every trajectory is absorbed in the uniform state. python b1_flux0.py <geometry> [runs=16] [procs=16]
+Writes b1_flux0_<geometry>.json"""
+import json, math, sys, time
+import multiprocessing as mp
+import numpy as np
+import capfed as CF
+import b1_fed as BF
+
+T0 = time.time()
+
+
+def one(args):
+    geometry, seed = args
+    fed, z_int, Z = BF.setup(geometry, 'flux0')
+    P, M = fed.P, fed.M
+    psi = np.zeros(P, complex)
+    e = int(np.random.default_rng(seed).integers(M))
+    psi[fed.A[e]] = CF.SQH; psi[fed.B[e]] = CF.SQH
+    R0 = np.zeros((12, 12), complex); R1 = np.zeros((3, 3, 12, 12), complex); stats = np.zeros(16); hist = np.zeros(64)
+    args2 = (fed.A, fed.B, np.ascontiguousarray(Z), fed.ptr, fed.idx, fed.nbr.astype(np.int64), fed.nbk.astype(np.int64))
+    chunk = 4 * M
+    dev = 1.0; k = 0; last_jump_time = 0.0; jumps = 0.0
+    while k < 400000:
+        CF.run_traj(*args2, psi, chunk, seed * 1000 + k, 1 << 30, R0, R1, stats, hist)
+        k += 1
+        if stats[3] + stats[4] > jumps:
+            jumps = stats[3] + stats[4]; last_jump_time = stats[0]
+        if np.all(psi != 0):
+            m = psi.mean()
+            dev = float(np.abs(psi / m - 1).max())
+            if dev < 1e-9:
+                break
+    u = np.ones(P) / math.sqrt(P)
+    ov = abs(np.vdot(u, psi)) ** 2 / np.vdot(psi, psi).real
+    return {'absorbed': bool(dev < 1e-9), 'max_relative_deviation_from_uniform': dev, 'overlap_with_uniform': float(ov),
+            'jumps_before_absorption': float(jumps), 'sweeps_total': float(stats[0] / M), 'sweeps_at_last_jump': float(last_jump_time / M)}
+
+
+if __name__ == '__main__':
+    geometry = sys.argv[1]; runs = int(sys.argv[2]) if len(sys.argv) > 2 else 16; procs = int(sys.argv[3]) if len(sys.argv) > 3 else 16
+    fed, z_int, Z = BF.setup(geometry, 'flux0')
+    with mp.Pool(min(procs, runs)) as pool:
+        res = pool.map(one, [(geometry, 77 + s) for s in range(runs)])
+    j = np.array([r['jumps_before_absorption'] for r in res]); s = np.array([r['sweeps_at_last_jump'] for r in res])
+    out = {'geometry': fed.kind, 'ports': fed.P, 'runs': runs, 'all_absorbed': all(r['absorbed'] for r in res),
+           'min_overlap_with_uniform': min(r['overlap_with_uniform'] for r in res),
+           'jumps_before_absorption_mean_sem': [float(j.mean()), float(j.std(ddof=1) / math.sqrt(runs))],
+           'expected_jumps_P_over_2_minus_1': fed.P / 2 - 1,
+           'sweeps_at_last_jump_mean_sem': [float(s.mean()), float(s.std(ddof=1) / math.sqrt(runs))],
+           'runs_detail': res, 'seconds': round(time.time() - T0, 1)}
+    json.dump(out, open('b1_flux0_%s.json' % geometry.replace(':', ''), 'w'), indent=1)
+    print(json.dumps({k: out[k] for k in out if k != 'runs_detail'}))

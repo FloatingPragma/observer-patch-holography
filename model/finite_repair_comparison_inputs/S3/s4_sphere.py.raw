@@ -1,0 +1,166 @@
+"""S3 step 4: low spectra on the icosahedral mesh, levels 0..4, for the candidate wirings.
+
+Wirings
+  F        every cell glued through the three ports of one carrier face (1,1,1)
+  B        every cell glued through the three belt ports next to one carrier face (2,2,2); the sim's `face_axis`
+  A123     non-covariant control: one (1,2,3) triple laid on every cell in the mesh's own vertex order
+  V6       sim's second wiring: carriers on mesh vertices, six belt ports in cyclic order (five ports of a
+           pentagon ring at the twelve five-valent vertices, in pentagon or pentagram order)
+  cell     reference: unit-weight Laplacian of the cell-dual graph (levels 0..6), the common low-energy operator
+
+Per wiring and level: N lambda for the 16 lowest levels, the multiplet structure, spreads of l = 1, 2, 3,
+the number of mesh rotations that lift to automorphisms of the port graph.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s4_sphere.py <which> [max_level]
+      which in {FB, A123, V6, cell};  results are merged into SCR/research/S3/s4_sphere.json
+"""
+import json
+import math
+import os
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+WHICH = sys.argv[1]
+MAXL = int(sys.argv[2]) if len(sys.argv) > 2 else 4
+PATH = S.S3 + '/s4_sphere.json'
+out = json.load(open(PATH)) if os.path.exists(PATH) else {}
+T0 = time.time()
+
+
+def mesh_rotation_action(mesh):
+    key = {tuple(np.round(v, 8) + 0.0): i for i, v in enumerate(mesh.verts)}
+    cell_of = {tuple(sorted(t)): c for c, t in enumerate(mesh.tri.tolist())}
+    acts = []
+    for M in S.ROT_MATS:
+        img = mesh.verts @ M.T
+        vp = np.array([key[tuple(np.round(p, 8) + 0.0)] for p in img])
+        gt = vp[mesh.tri]
+        gc = np.array([cell_of[tuple(sorted(t))] for t in gt.tolist()])
+        kmap = (mesh.tri[gc][:, None, :] == gt[:, :, None]).argmax(axis=2)
+        acts.append((gc, kmap, vp))
+    return acts
+
+
+def invariant_rotations(mesh, W, table, acts):
+    typ = np.array([table[tuple(t)] for t in W.tolist()])
+    n = 0
+    for gc, kmap, _ in acts:
+        Wg = np.take_along_axis(W[gc], kmap, axis=1)
+        tg = np.array([table[tuple(t)] for t in Wg.tolist()])
+        n += int((tg == typ).all())
+    return n
+
+
+def summarize(vals, N):
+    v = N * np.asarray(vals)
+    mult = S.multiplets(vals[1:], tol=1e-7)
+    return {'N_lambda_first16': v.tolist(), 'N_lambda2': float(v[1]),
+            'multiplicities_from_bottom': [m for _, m in mult][:8],
+            'N_lambda_multiplet_means': [N * x for x, _ in mult][:8],
+            'spread_l1': S.spread(vals[1:4]), 'spread_l2': S.spread(vals[4:9]), 'spread_l3': S.spread(vals[9:16]),
+            'l2_over_l1': float(np.mean(vals[4:9]) / np.mean(vals[1:4])), 'l3_over_l1': float(np.mean(vals[9:16]) / np.mean(vals[1:4]))}
+
+
+if WHICH == 'FB':
+    for name, triple in (('F', S.FACE_TRIPLE), ('B', S.BELT_TRIPLE)):
+        res = out.setdefault(name, {})
+        for level in range(MAXL + 1):
+            if str(level) in res:
+                continue
+            mesh = S.build_mesh(level)
+            W = S.uniform_wiring_mesh_order(mesh, triple)
+            L = S.port_laplacian(mesh, W)
+            vals = S.low_spectrum(L, k=16)
+            row = summarize(vals, mesh.N)
+            acts = mesh_rotation_action(mesh) if level <= 3 else None
+            if acts is not None:
+                row['mesh_rotations_lifting_group120'] = invariant_rotations(mesh, W, S.TYPE120, acts)
+                row['mesh_rotations_lifting_group60'] = invariant_rotations(mesh, W, S.TYPE60, acts)
+            row['carriers'] = mesh.N; row['ports'] = 12 * mesh.N
+            row['carrier_classes'] = len(S.type_census(W)[1])
+            res[str(level)] = row
+            print(name, level, json.dumps(row), round(time.time() - T0, 1), flush=True)
+            json.dump(out, open(PATH, 'w'), indent=1)
+
+if WHICH == 'A123':
+    res = out.setdefault('A123', {})
+    triple = S.REPS120[0]
+    for level in range(MAXL + 1):
+        if str(level) in res:
+            continue
+        mesh = S.build_mesh(level)
+        W = S.uniform_wiring_mesh_order(mesh, triple)
+        vals = S.low_spectrum(S.port_laplacian(mesh, W), k=16)
+        row = summarize(vals, mesh.N)
+        acts = mesh_rotation_action(mesh) if level <= 2 else None
+        if acts is not None:
+            row['mesh_rotations_lifting_group120'] = invariant_rotations(mesh, W, S.TYPE120, acts)
+        res[str(level)] = row
+        print('A123', level, json.dumps(row), round(time.time() - T0, 1), flush=True)
+        json.dump(out, open(PATH, 'w'), indent=1)
+
+if WHICH == 'cell':
+    res = out.setdefault('cell', {})
+    for level in range(MAXL + 1):
+        if str(level) in res:
+            continue
+        mesh = S.build_mesh(level)
+        L = S.laplacian(mesh.N, mesh.left, mesh.right)
+        vals = S.low_spectrum(L, k=16)
+        row = summarize(vals, mesh.N)
+        res[str(level)] = row
+        print('cell', level, json.dumps(row), round(time.time() - T0, 1), flush=True)
+        json.dump(out, open(PATH, 'w'), indent=1)
+
+if WHICH == 'V6':
+    # ring of six belt ports by azimuth about the axis of face TOP, and the pentagon ring around port 0
+    U = S.PORT_UNIT
+    n = U[list(S.TOP)].sum(axis=0); n /= np.linalg.norm(n)
+    ref = U[S.TOP[0]] - (U[S.TOP[0]] @ n) * n; ref /= np.linalg.norm(ref)
+    e2 = np.cross(n, ref)
+    polar = np.degrees(np.arccos(np.clip(U @ n, -1, 1)))
+    belt = [p for p in range(12) if 60 < polar[p] < 120]
+    az = np.degrees(np.arctan2(U[belt] @ e2, U[belt] @ ref)) % 360
+    belt = [belt[i] for i in np.argsort(az)]
+    n5 = U[0]
+    nb5 = [p for p in range(12) if S.DIST[0, p] == 1]
+    r5 = U[nb5[0]] - (U[nb5[0]] @ n5) * n5; r5 /= np.linalg.norm(r5)
+    f5 = np.cross(n5, r5)
+    az5 = np.degrees(np.arctan2(U[nb5] @ f5, U[nb5] @ r5)) % 360
+    pent = [nb5[i] for i in np.argsort(az5)]
+    gram = [pent[(2 * j) % 5] for j in range(5)]
+    for name, ring5 in (('V6_pentagon', pent), ('V6_pentagram', gram)):
+        res = out.setdefault(name, {})
+        for level in range(MAXL + 1):
+            if str(level) in res:
+                continue
+            mesh = S.build_mesh(level)
+            cyc = S.vertex_cycles(mesh)
+            port_to = {}
+            valence = np.zeros(mesh.V, dtype=int)
+            for v, cl in cyc.items():
+                nbrs = [int(mesh.tri[c, (i + 1) % 3]) for c, i in cl]          # ccw neighbours of v
+                valence[v] = len(nbrs)
+                ring = belt if len(nbrs) == 6 else ring5
+                for j, x in enumerate(nbrs):
+                    port_to[(v, x)] = ring[j]
+            ia, ib = S.intra_seams(mesh.V)
+            ga = np.array([12 * lo + port_to[(lo, hi)] for lo, hi in zip(mesh.edge_lo.tolist(), mesh.edge_hi.tolist())])
+            gb = np.array([12 * hi + port_to[(hi, lo)] for lo, hi in zip(mesh.edge_lo.tolist(), mesh.edge_hi.tolist())])
+            L = S.laplacian(12 * mesh.V, np.concatenate([ia, ga]), np.concatenate([ib, gb]))
+            vals = S.low_spectrum(L, k=16)
+            row = summarize(vals, mesh.V)
+            row['carriers'] = int(mesh.V); row['ports'] = 12 * int(mesh.V)
+            row['carrier_classes_by_valence'] = {int(k): int(c) for k, c in zip(*np.unique(valence, return_counts=True))}
+            row['glue_seams'] = int(ga.size)
+            res[str(level)] = row
+            print(name, level, json.dumps(row), round(time.time() - T0, 1), flush=True)
+            json.dump(out, open(PATH, 'w'), indent=1)
+print('done', WHICH, round(time.time() - T0, 1), 's')

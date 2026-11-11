@@ -1,0 +1,207 @@
+#!/usr/bin/env python3
+"""Worker DC: exact checks for the D10 forms (candidate rows of CANDIDATES.md).
+
+Every check is exact (sympy over Q(sqrt5) or symbolic) except the L/2pi identity, which is evaluated at 60 digits on
+the D10 point printed in RER `code/P_derivation/runtime/full_p_alpha_report_current.json` (a solver output, no
+measured value). Writes dc_exact.json next to this file.
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import sys
+from pathlib import Path
+
+import mpmath as mp
+import sympy as sp
+
+HERE = Path(__file__).resolve().parent
+RER = next((p for p in (Path("WORKSPACE/repair-law/reverse-engineering-reality"),
+                        Path("WORKSPACE/reverse-engineering-reality")) if p.is_dir()))
+out: dict = {}
+
+
+def check(name: str, ok: bool, detail=None):
+    out.setdefault("checks", {})[name] = {"pass": bool(ok), "detail": detail}
+    if not ok:
+        print("FAIL", name, detail, file=sys.stderr)
+
+
+# ---------------------------------------------------------------- carrier
+phi = (1 + sp.sqrt(5)) / 2
+verts = []
+for s1 in (1, -1):
+    for s2 in (1, -1):
+        verts += [(0, s1, s2 * phi), (s1, s2 * phi, 0), (s2 * phi, 0, s1)]
+assert len(verts) == 12
+A = sp.zeros(12, 12)
+fverts = [tuple(float(c) for c in v) for v in verts]
+for i, j in itertools.combinations(range(12), 2):
+    d2 = sum((fverts[i][k] - fverts[j][k]) ** 2 for k in range(3))
+    if abs(d2 - 4.0) < 1e-9:  # edge length 2; the next distance class is 2 phi
+        A[i, j] = A[j, i] = 1
+seams = sum(A[i, j] for i in range(12) for j in range(i + 1, 12))
+faces = sum(1 for i, j, k in itertools.combinations(range(12), 3) if A[i, j] and A[j, k] and A[i, k])
+deg = {sum(A[i, j] for j in range(12)) for i in range(12)}
+check("carrier_counts", seams == 30 and faces == 20 and deg == {5}, {"ports": 12, "seams": int(seams), "faces": faces, "degree": sorted(deg)})
+
+L = 5 * sp.eye(12) - A
+x = sp.symbols("x")
+cp = sp.factor(L.charpoly(x).as_expr(), extension=sp.sqrt(5))
+expected = x * (x - 6) ** 5 * (x - (5 - sp.sqrt(5))) ** 3 * (x - (5 + sp.sqrt(5))) ** 3
+check("port_laplacian_spectrum", sp.expand(cp - expected) == 0, str(cp))
+check("trace_L_equals_60", L.trace() == 60, int(L.trace()))
+costs = {"trivial": 0, "slow_triplet": 5 - sp.sqrt(5), "quintet": 6, "fast_triplet": 5 + sp.sqrt(5)}
+kernel = {k: sp.nsimplify(1 - c / 60) for k, c in costs.items()}
+rest_phase = {k: float(sp.acos(1 - c / 60)) for k, c in costs.items()}
+out["carrier"] = {
+    "costs": {k: str(v) for k, v in costs.items()},
+    "kernel_1_minus_L_over_60": {k: str(sp.simplify(v)) for k, v in kernel.items()},
+    "rest_phase_cos_omega_eq_1_minus_cost_over_60": rest_phase,
+}
+
+# ---------------------------------------------------------------- golden balance (G1, G2)
+xs = sp.symbols("x_s", positive=True)
+roots = sp.solve(sp.Eq(xs, 1 + 1 / xs), xs)
+check("G1_balance_root_is_phi", len(roots) == 1 and sp.simplify(roots[0] - phi) == 0, str(roots))
+lam_s, lam_f = 5 - sp.sqrt(5), 5 + sp.sqrt(5)
+split = lam_f - lam_s
+g2 = {
+    "split_equals_2sqrt5": sp.simplify(split - 2 * sp.sqrt(5)) == 0,
+    "fast_over_split_equals_phi": sp.simplify(lam_f / split - phi) == 0,
+    "split_over_slow_equals_phi": sp.simplify(split / lam_s - phi) == 0,
+    "fast_over_slow_equals_phi_squared": sp.simplify(lam_f / lam_s - phi ** 2) == 0,
+}
+check("G2_band_costs_carry_golden_balance", all(g2.values()), g2)
+
+# ---------------------------------------------------------------- Form 1: E_cell coefficient (E1..E5)
+a, lstar, hbarc = sp.symbols("a ell_star hbar_c", positive=True)
+P = sp.symbols("P", positive=True)
+Estar = hbarc / lstar
+k_cands = {
+    "E1_square_cell_tick": sp.Integer(1),
+    "E2_sphere_lowest_mode": sp.sqrt(8 * sp.pi),
+    "E3_disk_inverse_radius": sp.sqrt(sp.pi),
+    "E4_flat_icosahedron_slow_band": sp.sqrt(5 * sp.sqrt(3) * (5 - sp.sqrt(5))),
+    "E5_flat_icosahedron_inverse_seam": sp.sqrt(5 * sp.sqrt(3)),
+}
+e_rows = {}
+for name, k in k_cands.items():
+    E_of_a = k * hbarc / sp.sqrt(a)
+    sends_planck_area_to_Estar = sp.simplify(E_of_a.subs(a, lstar ** 2) - Estar) == 0
+    E_cell = sp.simplify(E_of_a.subs(a, P * lstar ** 2) / Estar)
+    e_rows[name] = {"k": str(k), "k_float": float(k), "E_cell_over_Estar": str(E_cell), "one_map_criterion": sends_planck_area_to_Estar}
+out["form1_E_cell"] = e_rows
+check("form1_only_E1_meets_criterion", [n for n, r in e_rows.items() if r["one_map_criterion"]] == ["E1_square_cell_tick"], None)
+check("form1_E1_gives_declared_form", e_rows["E1_square_cell_tick"]["E_cell_over_Estar"] == str(P ** sp.Rational(-1, 2)), e_rows["E1_square_cell_tick"]["E_cell_over_Estar"])
+
+# ---------------------------------------------------------------- Form 2: P/4 and the heat-kernel time
+S_area = a / (4 * lstar ** 2)
+check("A1_area_law_gives_P_over_4", sp.simplify(S_area.subs(a, P * lstar ** 2) - P / 4) == 0, str(sp.simplify(S_area.subs(a, P * lstar ** 2))))
+tq = sp.symbols("t", positive=True)
+qq = sp.symbols("q", integer=True)
+u1_dims = [1] * 41  # every irreducible representation of U(1) is one-dimensional (charges q = -20..20 shown)
+u1_ellbar = sum(sp.exp(-tq * q ** 2) * sp.log(d) for q, d in zip(range(-20, 21), u1_dims))
+check("U1_carries_no_log_dim_entropy", sp.simplify(u1_ellbar) == 0, "ellbar_U(1)(t) = sum_q exp(-t q^2) log 1 / Z = 0 for every t and every charge cutoff")
+alpha, g2s = sp.symbols("alpha g2", positive=True)
+gsq = 4 * sp.pi * alpha
+t_rows = {
+    "T1_modular_2pi_times_KS_g2_over_2": sp.simplify(2 * sp.pi * gsq / 2),
+    "T2_unit_temperature": sp.simplify(1 * gsq / 2),
+    "T3_2d_YM_disk_area_2pi": sp.simplify(gsq * (2 * sp.pi) / 2),
+}
+out["form2_heat_time"] = {k: {"t": str(v), "equals_4pi2alpha": sp.simplify(v - 4 * sp.pi ** 2 * alpha) == 0} for k, v in t_rows.items()}
+check("T1_reproduces_4pi2alpha", out["form2_heat_time"]["T1_modular_2pi_times_KS_g2_over_2"]["equals_4pi2alpha"], None)
+check("T2_does_not", not out["form2_heat_time"]["T2_unit_temperature"]["equals_4pi2alpha"], None)
+check("T3_reproduces_4pi2alpha", out["form2_heat_time"]["T3_2d_YM_disk_area_2pi"]["equals_4pi2alpha"], None)
+
+# ---------------------------------------------------------------- Form 3: beta_EW readings (B1..B5)
+levels = ("v1", "v2", "v3", "s1", "s2")
+patterns = [frozenset(c) for r in range(6) for c in itertools.combinations(levels, r)]
+assert len(patterns) == 32
+
+
+def n3(p):
+    return sum(1 for l in p if l.startswith("v"))
+
+
+def n2(p):
+    return sum(1 for l in p if l.startswith("s"))
+
+
+def six_y(p):
+    return 3 * n2(p) - 2 * n3(p)
+
+
+doublets = {}
+for p in patterns:
+    if n2(p) == 1:
+        key = frozenset(l for l in p if l.startswith("v"))
+        doublets.setdefault(key, []).append(p)
+assert all(len(v) == 2 for v in doublets.values())
+left = [k for k in doublets if (len(k) + 1) % 2 == 0]
+right = [k for k in doublets if (len(k) + 1) % 2 == 1]
+# the two members of a doublet carry the same hypercharge; complement of a left doublet is a right doublet
+same_y = all(len({six_y(p) for p in v}) == 1 for v in doublets.values())
+full = frozenset(levels)
+compl_ok = sorted(len(k) for k in right) == sorted(3 - len(k) for k in left)
+left_y = sorted(six_y(doublets[k][0]) for k in left)
+check("B1_left_doublets_per_generation_is_4", len(left) == 4 and same_y and compl_ok, {"left_doublets": len(left), "right_doublets": len(right), "left_6Y": left_y})
+
+E, gg = sp.symbols("E g", positive=True)
+lhs = E * sp.exp(-2 * sp.pi / (4 * alpha))
+rhs = (E ** 4 * sp.exp(-8 * sp.pi ** 2 / gg ** 2)) ** sp.Rational(1, 4)
+check("B2_fourth_root_of_instanton_weight", sp.simplify(sp.log(lhs) - sp.expand_log(sp.log(rhs.subs(gg, sp.sqrt(4 * sp.pi * alpha))), force=True)) == 0, None)
+Ng, Nc = 3, 3
+b_fermion_su2 = sp.Rational(Ng * (Nc + 1), 3)
+# convention of paper_math: alpha^-1(mu) = alpha^-1(mu0) + (b/2pi) ln(mu0/mu); a zero of alpha^-1 below mu0 needs b < 0
+bsym, a0, mu0, mu = sp.symbols("b a0 mu0 mu", real=True)
+landau = sp.solve(sp.Eq(1 / a0 + bsym / (2 * sp.pi) * sp.log(mu0 / mu), 0), mu)
+check("B3_fermion_part_is_plus_4_screening_sign", b_fermion_su2 == 4, {"b_fermion_su2": str(b_fermion_su2), "landau_point": str(landau), "transmutation_needs": "b = -beta_EW < 0; the fermion part is +4 (screening), so B3 has the wrong sign for a transmutation"})
+b_decl = (sp.Rational(33, 5), 1, -3)
+out["form3_readings"] = {
+    "B1_left_doublets": len(left),
+    "B2_spacetime_dimension": 4,
+    "B3_fermion_part_b_su2": str(b_fermion_su2),
+    "B4_b2_minus_b3_declared_slopes": str(b_decl[1] - b_decl[2]),
+    "B5_abs_b3_plus_1_declared_slopes": str(abs(b_decl[2]) + 1),
+}
+
+# ---------------------------------------------------------------- Form 4: M_U rewritings (U3)
+Es = sp.symbols("E_star", positive=True)
+MU = Es * sp.exp(-2 * sp.pi) * P ** sp.Rational(1, 6)
+EC = Es * P ** sp.Rational(-1, 2)
+check("U3_MU_over_Ecell", sp.simplify(MU / EC - sp.exp(-2 * sp.pi) * P ** sp.Rational(2, 3)) == 0, None)
+check("U3_MU3_Ecell", sp.simplify(MU ** 3 * EC - Es ** 4 * sp.exp(-6 * sp.pi)) == 0, None)
+check("U3_midpoint", sp.simplify(sp.sqrt(EC * MU) - sp.exp(-sp.pi) * (EC * Es ** 2) ** sp.Rational(1, 3)) == 0, None)
+check("U3_midpoint_closed_form", sp.simplify(sp.sqrt(EC * MU) - Es * sp.exp(-sp.pi) * P ** sp.Rational(-1, 6)) == 0, None)
+
+# ---------------------------------------------------------------- U0 analytic: L/2pi identity on the printed D10 point
+mp.mp.dps = 60
+rep = json.loads((RER / "code/P_derivation/runtime/full_p_alpha_report_current.json").read_text())
+d = rep["d10"]
+Pf = mp.mpf(rep["p"])
+aU = mp.mpf(d["alpha_u"])
+a1 = mp.mpf(d["alpha1_mz"])
+a2 = mp.mpf(d["alpha2_mz"])
+a3 = mp.mpf(d["alpha3_mz"])
+mz = mp.mpf(d["mz_run"])
+muu = mp.mpf(d["mu_u"])
+Lnum = mp.log(muu / mz)
+aY = 3 * a1 / 5
+L_formula = 2 * mp.pi * (1 / (4 * aU) - 1 + mp.log(Pf) / (3 * mp.pi) - mp.log(mp.pi * (a2 + aY)) / (4 * mp.pi))
+res = {
+    "L_from_report": mp.nstr(Lnum, 30),
+    "L_from_identity": mp.nstr(L_formula, 30),
+    "difference": mp.nstr(Lnum - L_formula, 5),
+    "inv_alpha_i_check": [mp.nstr(1 / ai - (1 / aU + bi * Lnum / (2 * mp.pi)), 5) for ai, bi in ((a1, mp.mpf(33) / 5), (a2, 1), (a3, -3))],
+    "MU_over_Estar_minus_form": mp.nstr(muu - mp.exp(-2 * mp.pi) * Pf ** (mp.mpf(1) / 6), 5),
+    "P_over_4": mp.nstr(Pf / 4, 20),
+}
+out["U0_identity_on_printed_point"] = res
+check("U0_L_identity", abs(Lnum - L_formula) < mp.mpf("1e-25"), res["difference"])
+
+(HERE / "dc_exact.json").write_text(json.dumps(out, indent=1, default=str) + "\n")
+n_fail = sum(1 for v in out["checks"].values() if not v["pass"])
+print(f"checks: {len(out['checks'])}, failed: {n_fail}")
+sys.exit(1 if n_fail else 0)

@@ -1,0 +1,76 @@
+"""Worker CH, addendum 5 (second run): TS-1, the 16bar half leaving the running at a free threshold M_m.
+
+Run: /tmp/oph-completion-venv/bin/python ch_threshold.py [out.json]
+
+Below M_m the slopes are the Standard Model's with n_H doublets; above M_m the source's (16bar adds (4, 4, 4)).
+Engine: functions of work/LV/lv_chain.py through ch_lib.Chain (subclass with a threshold); gate: no threshold
+reproduces rows 'SA 5/3', 'SA 1', 'SB 5/3', 'SB 1' of chain.json to relative 1e-9.
+M_m is a free parameter (no source operation fixes it). The percent columns read the reference values of
+CANDIDATES.md section 7: comparison run 4, NOT BLIND, no weight.
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+from ch_lib import Chain, load_lv, clean
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('threshold.json')
+HERE = Path(__file__).resolve().parent
+pi = np.pi
+lv = load_lv()
+prev = json.loads((HERE / 'chain.json').read_text())['rows']
+MIRROR = (4.0, 4.0, 4.0)                    # three copies of the 16bar half: complete multiplets
+
+
+class ThresholdChain(Chain):
+    def __init__(self, cc, M_m=None, **kw):
+        super().__init__(cc, **kw)
+        self.M_m = M_m
+
+    def inverse(self, x, mu):
+        L = np.log(self.MU / mu)
+        inv = [self.c[i] * x + self.b[i] / (2 * pi) * L for i in range(3)]
+        if self.M_m is not None and mu < self.M_m:
+            inv = [inv[i] - MIRROR[i] / (2 * pi) * np.log(self.M_m / mu) for i in range(3)]
+        return tuple(inv)
+
+
+B1, B2 = (81 / 10, 5 / 6, -3.0), (41 / 5, 1.0, -3.0)
+SRC = {'SA': ('one doublet, m = 2', B1, 2.0), 'SB': ('two doublets, m = 1', B2, 1.0)}
+for key, (text, b, pf) in SRC.items():
+    for cy, lab in ((5 / 3, '5/3'), (1.0, '1')):
+        r = ThresholdChain(lv, b=b, c=(0.6 * cy, 1.0, 1.0), pref=pf).solve()
+        assert len(r) == 1
+        p = prev[f'{key} {lab}']
+        for k in ('inv_alpha_U', 'v', 'sin2', 'inv_alpha_em', 'alpha_s'):
+            assert abs(r[0][k] / p[k] - 1) < 1e-9, (key, lab, k)
+REF = dict(v=246.22, m_Z=91.188, inv_alpha_2=29.58, alpha_s=0.1180, sin2=0.23122, inv_alpha_em=127.95)
+MM = [None, 300.0, 1e3, 3e3, 1e4, 1e5, 1e8, 1e12]
+rows = {}
+for key, (text, b, pf) in SRC.items():
+    for cy, lab in ((5 / 3, '5/3'), (1.0, '1')):
+        for M in MM:
+            name = f"{key} c_Y={lab} M_m={'none' if M is None else f'{M:.0e}'}"
+            sols = ThresholdChain(lv, M_m=M, b=b, c=(0.6 * cy, 1.0, 1.0), pref=pf).solve()
+            if not sols:
+                rows[name] = dict(variant=text, c_Y=cy, M_m=M, closure='no root')
+                continue
+            r = sols[0]
+            rows[name] = dict(variant=text, c_Y=cy, M_m=M, roots=len(sols), inv_alpha_U=r['inv_alpha_U'], v=r['v'], m_Z=r['m_Z'],
+                              inv_alpha_2=r['inv_alpha_2'], alpha_s=r['alpha_s'], sin2=r['sin2'], inv_alpha_em=r['inv_alpha_em'],
+                              threshold_below_m_Z=bool(M is not None and M < r['m_Z']),
+                              percent={k: 100 * (r[k] / REF[k] - 1) for k in REF})
+out = dict(gate='no threshold reproduces SA and SB of chain.json (c_Y = 5/3 and 1) to relative 1e-9', mirror_shift=MIRROR,
+           comparison_run=4, rows=rows)
+OUT.write_text(json.dumps(clean(out), indent=1))
+print(f"{'row':28s} {'1/aU':>8s} {'v':>9s} {'m_Z':>8s} {'1/a2':>7s} {'a_s':>7s} {'sin2':>7s} {'1/a_em':>7s} | % v, a_s, sin2, 1/a_em (NOT BLIND)")
+for k, r in rows.items():
+    if 'closure' in r:
+        print(f'{k:28s} no root')
+        continue
+    p = r['percent']
+    print(f"{k:28s} {r['inv_alpha_U']:8.4f} {r['v']:9.3f} {r['m_Z']:8.3f} {r['inv_alpha_2']:7.3f} {r['alpha_s']:7.4f} {r['sin2']:7.4f} {r['inv_alpha_em']:7.2f}"
+          f" | {p['v']:+7.2f} {p['alpha_s']:+6.2f} {p['sin2']:+6.2f} {p['inv_alpha_em']:+6.2f}" + ('  (threshold below m_Z)' if r['threshold_below_m_Z'] else ''))
+print('wrote', OUT)

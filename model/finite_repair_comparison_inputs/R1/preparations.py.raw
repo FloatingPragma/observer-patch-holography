@@ -1,0 +1,128 @@
+"""Prepared states of CF-1 with their circuits and success probabilities (worker R1). All outcomes are kept.
+
+    python preparations.py <section> ...     sections: packet scatter pair
+
+Results accumulate in preparations.json. Float64 (MEASURED). Declared sample values: theta = 0.157935, eps = 0.3, kappa = 0.2.
+
+P1 packet on a branch.  (1) load one quantum with blank record, spin up, Gaussian envelope and carrier wave number p0
+   (product state, declared loading apparatus).  (2) branch filter built from the tick: flag in (|0> + |1>)/sqrt2,
+   k clock periods controlled by the flag, flag measured in the basis (|0> -+ i|1>)/sqrt2. Kraus operators
+   K_+- = (1 +- i W)/2, W = (period)^k: K_+^dagger K_+ = (1 + sin(k H))/2 on the phase exp(-i H) of the period.
+   k = nearest integer to pi / (2 E2(p0)).  Ideal limit: the spectral projector of the positive branch.
+P2 a quantum and a carrier with a flux class (version 1: static label): a right-moving massless packet and one labelled cell.
+P3 a pair: two branch packets, antisymmetric; on a lattice with quantum links the complete Gauss measurement.
+"""
+import itertools, json, os, sys, time
+import numpy as np
+from cf1 import Species, OneBody, Gaussian, Joint, Sector, Lattice, branch_projectors, period_phase, class_theta, m1_theta, SIG
+
+HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'preparations.json')
+TH, EPS, KAP = 0.157935, 0.3, 0.2
+L = 256; P0 = 2 * np.pi * 12 / L; WIDTH = L / (2 * np.pi * 3.0)       # the packet of routing.py: p0 = 0.2945, 13.6 cells
+
+
+def save(key, val):
+    d = json.load(open(OUT)) if os.path.exists(OUT) else {}
+    d[key] = val; json.dump(d, open(OUT, 'w'), indent=1)
+
+
+def expect(P, psi):
+    v = psi.ravel(); return float(np.real(np.vdot(v, P @ v)))
+
+
+def sec_packet():
+    res = {}
+    for th in (0.0, TH):
+        ob = OneBody((L, 1, 1), Species(theta=th)); D = ob.matrix(0); U2 = ob.matrix(1) @ D
+        pos, neg, und = branch_projectors(U2)
+        psi0 = ob.packet((64, 0, 0), (P0, 0, 0), (WIDTH, 0, 0), [[1, 0], [0, 0]])
+        E2 = period_phase((P0, 0, 0), th); k = max(1, int(round(np.pi / (2 * E2))))
+        W = np.linalg.matrix_power(U2, k); v0 = psi0.ravel()
+        plus = (v0 + 1j * W @ v0) / 2; minus = (v0 - 1j * W @ v0) / 2
+        p1 = float(np.linalg.norm(plus) ** 2); a1 = plus / np.linalg.norm(plus)
+        plus2 = (a1 + 1j * W @ a1) / 2; p2 = float(np.linalg.norm(plus2) ** 2); a2 = plus2 / np.linalg.norm(plus2)
+        ideal = pos @ v0; s = float(np.linalg.norm(ideal) ** 2); ideal /= np.linalg.norm(ideal)
+        # the heralded packet moves with the group velocity of the branch
+        x0 = ob.w.mean_position(a2.reshape(psi0.shape)); x1 = ob.w.mean_position(ob.run(a2.reshape(psi0.shape), 60))
+        E = E2 / 2
+        r = {'theta': th, 'p0': P0, 'envelope_width_cells': WIDTH, 'period_phase_E2_at_p0': E2, 'periods_in_the_filter_k': k,
+             'ideal_projector_success_probability': s, 'undecided_modes_of_the_lattice': und,
+             'filter_round_1': {'p_plus': p1, 'p_minus': float(np.linalg.norm(minus) ** 2),
+                                'positive_branch_weight_after_plus': expect(pos, a1),
+                                'positive_branch_weight_after_minus': expect(pos, minus / np.linalg.norm(minus))},
+             'filter_round_2': {'p_plus_given_plus': p2, 'positive_branch_weight_after_plus_plus': expect(pos, a2),
+                                'p_plus_plus': p1 * p2, 'fidelity_with_the_ideal_projection': float(abs(np.vdot(ideal, a2)) ** 2)},
+             'velocity_of_the_heralded_packet_60_ticks': float(((x1 - x0 + L / 2) % L - L / 2) / 60),
+             'group_velocity_dE_dp': float(np.cos(th) * np.sin(P0) / np.sin(E))}
+        res[f'theta_{th}'] = r; print(json.dumps(r, indent=1), flush=True)
+    return res
+
+
+def sec_scatter():
+    sp = Species('lepton doublet', 0, 1); cell = (128, 0, 0); k, d = 1, 1
+    sp.theta = class_theta((L, 1, 1), {cell: (k, d)}, sp); th = m1_theta(sp.Q6, k, d)
+    ob = OneBody((L, 1, 1), sp)
+    psi = ob.packet((64, 0, 0), (P0, 0, 0), (WIDTH, 0, 0), [[.5, .5], [.5, .5]])     # X_r = +1, sigma_1 = +1: right mover
+    alpha = lambda p: p[..., ::-1, :] @ SIG[0].T
+    left0 = float(np.linalg.norm((psi - alpha(psi)) / 2) ** 2)
+    out = ob.run(psi, 128); left = (out - alpha(out)) / 2
+    res = {'species': sp.name, 'Q6': sp.Q6, 'class_label': {'cell': list(cell), 'k': k, 'separation': d}, 'theta_at_the_labelled_carrier': th,
+           'ticks': 128, 'left_moving_weight_before': left0, 'reflected_probability': float(np.linalg.norm(left) ** 2),
+           'transmitted_probability': float(np.linalg.norm(out - left) ** 2), 'sin2_theta': float(np.sin(th) ** 2),
+           'mean_position_transmitted': float(ob.w.mean_position(out - left)), 'mean_position_reflected': float(ob.w.mean_position(left))}
+    # at rest in a uniform class background: the record after one tick (CF-1 section 4, item 4)
+    u = Species('lepton doublet', 0, 1, theta=th); o2 = OneBody((8, 1, 1), u)
+    rest = o2.tick(o2.w.plane_wave((0, 0, 0), [1, 0, 0, 0]))
+    res['uniform_background_record_written_at_rest'] = float(np.sum(np.abs(rest[..., 1, :]) ** 2))
+    print(json.dumps(res, indent=1)); return res
+
+
+def sec_pair():
+    res = {}
+    # (a) eps = 0: two branch packets on a line of 64 cells, antisymmetric; correlation matrix against the two vectors
+    n = 64; sp = Species(theta=TH); G = Gaussian((n, 1, 1), sp); ob = G.ob; pos, neg, und = branch_projectors(G.period())
+    p0 = 2 * np.pi * 6 / n; w = n / (2 * np.pi * 3.0)
+    a = pos @ ob.packet((16, 0, 0), (p0, 0, 0), (w, 0, 0), [[1, 0], [0, 0]]).ravel(); sa = float(np.linalg.norm(a) ** 2); a /= np.linalg.norm(a)
+    b = pos @ ob.packet((48, 0, 0), (-p0, 0, 0), (w, 0, 0), [[1, 0], [0, 0]]).ravel(); sb = float(np.linalg.norm(b) ** 2); b /= np.linalg.norm(b)
+    ov = float(abs(np.vdot(a, b)) ** 2); C, rank = Gaussian.slater([a, b])
+    va, vb = a.reshape(ob.shape + (2, 2)), b.reshape(ob.shape + (2, 2)); Ct = C
+    for t in range(32):
+        Ct = G.tick(Ct, t); va, vb = ob.tick(va, t), ob.tick(vb, t)
+    C2, _ = Gaussian.slater([va, vb])
+    dens = np.real(np.diag(Ct)).reshape(n, 4).sum(axis=1)
+    res['slater_pair_line_64'] = {'branch_success_probabilities': [sa, sb], 'overlap_squared_(loading_failure_by_exclusion)': ov, 'rank': rank,
+                                  'ticks': 32, 'trace_C': float(np.trace(Ct).real), 'idempotence_defect': float(np.abs(Ct @ Ct - Ct).max()),
+                                  'C_rule_against_the_two_evolved_vectors': float(np.abs(Ct - C2).max()),
+                                  'quanta_in_cells_0_to_31_and_32_to_63': [float(dens[:32].sum()), float(dens[32:].sum())]}
+    print(res['slater_pair_line_64'], flush=True)
+    # (b) quantum links: product preparation (links all +1, quanta loaded at two cells), then the complete Gauss measurement
+    rows = []
+    for shape in ((4, 1, 1), (6, 1, 1), (2, 2, 1), (3, 2, 1)):
+        for N in (1, 2):
+            J = Joint(shape, [sp] * N, EPS, KAP); lat = J.lat
+            e0 = np.zeros(J.n, complex); e0[0] = 1; e1 = np.zeros(J.n, complex); e1[4 * (lat.N - 1)] = 1
+            m = e0 if N == 1 else (np.outer(e0, e1) - np.outer(e1, e0)) / np.sqrt(2)
+            Psi = J.product(0, m); S = Sector(J)
+            row = {'shape': list(shape), 'quanta': N, 'cells': lat.N, 'background_charge_at_cells': [int(c) for c in np.where(S.g < 0)[0]],
+                   'probability_of_the_declared_Gauss_outcome': float(np.linalg.norm(S.coeff(Psi)) ** 2), 'predicted_2^-(cells-1)': 2.0 ** -(lat.N - 1)}
+            if shape == (4, 1, 1):
+                tot = 0.0; probs = []
+                for g in itertools.product((1, -1), repeat=lat.N):
+                    if int(np.prod(g)) != (-1) ** N: continue
+                    pr = float(np.linalg.norm(Sector(J, g).coeff(Psi)) ** 2); probs.append(pr); tot += pr
+                row['all_allowed_outcomes'] = probs; row['total_probability'] = tot
+                if N == 2:
+                    # correction of the outcome g = (-,-,+,+) by Z on the link between cells 0 and 1 (link 0)
+                    Sg = Sector(J, (-1, -1, 1, 1)); comp = Sg.embed(Sg.coeff(Psi)); comp /= np.linalg.norm(comp)
+                    fixed = J.link_z(comp, 0)
+                    row['Z_string_correction_into_the_all_plus_sector'] = float(np.linalg.norm(S.coeff(fixed)) ** 2)
+            rows.append(row); print(row, flush=True)
+    res['gauss_measurement_after_product_preparation'] = rows
+    return res
+
+
+SECTIONS = {'packet': sec_packet, 'scatter': sec_scatter, 'pair': sec_pair}
+
+if __name__ == '__main__':
+    for name in sys.argv[1:]:
+        t0 = time.time(); save(name, SECTIONS[name]()); print(f'[{name}] {time.time() - t0:.1f} s', flush=True)

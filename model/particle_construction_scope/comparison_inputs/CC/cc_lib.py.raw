@@ -1,0 +1,186 @@
+"""CC common library (worker CC, 2026-11-11).
+
+Edge-law sums for SU(2), SU(3) and the global form G = S(U(3) x U(2)); the paper's chain (closure read at the
+electroweak anchor) with a dictionary factor f, a weight power w, matching shifts at M_U and three readings of the
+coupling inside the law for v. Float64. No measured value is used in this file.
+"""
+import numpy as np
+from scipy.optimize import brentq
+from scipy.special import ive
+
+PI = np.pi
+E_STAR = 1.220890e19                     # GeV, declared unit (value used by the coordinator's check)
+P_FWD = 1.6309720958588973               # the chain's forward root (solver output printed in RER)
+PHI = (1 + 5 ** 0.5) / 2
+FOUR_PI_SQ = 4 * PI * PI
+OMEGA_MEAN = 2.387602242859582           # Brillouin-zone mean of the lattice frequency (BF G1, bf_meanfield.json)
+
+
+# ------------------------------------------------------------------------------------------- tables
+def su2_table(N=600):
+    n = np.arange(N + 1, dtype=float)
+    return n + 1.0, n * (n + 2.0) / 4.0
+
+
+def su3_table(N=160):
+    p, q = np.meshgrid(np.arange(N + 1, dtype=float), np.arange(N + 1, dtype=float), indexing='ij')
+    d = (p + 1) * (q + 1) * (p + q + 2) / 2.0
+    C = (p * p + q * q + p * q + 3 * p + 3 * q) / 3.0
+    return d.ravel(), C.ravel()
+
+
+SU2 = su2_table()
+SU3 = su3_table()
+SU2_CHAIN = su2_table(150)               # tables for the chain (heat times above 0.3); same sums to 1e-15
+SU3_CHAIN = su3_table(50)
+
+
+def law(table, t, w=1):
+    """sector law d^w exp(-t C)/Z of one factor. Returns (mean log d, weight of the trivial label, mean C)."""
+    d, C = table
+    lw = w * np.log(d) - t * C
+    lw -= lw.max()
+    wt = np.exp(lw)
+    Z = wt.sum()
+    return float((wt * np.log(d)).sum() / Z), float(wt[0] / Z), float((wt * C).sum() / Z)
+
+
+def ell2(t, w=1):
+    return law(SU2, t, w)[0]
+
+
+def ell3(t, w=1):
+    return law(SU3, t, w)[0]
+
+
+def ell2_wilson(alpha2, n_plaq=2 * PI, w=1, N=200):
+    """SU(2) factor with the character coefficients of the Wilson fundamental-trace weight exp(beta tr U / 2),
+    beta = 4/g^2, raised to the number of plaquette units n_plaq: weights d^w (I_{2j+1}(beta)/I_1(beta))^n_plaq."""
+    g2 = 4 * PI * alpha2
+    beta = 4.0 / g2
+    n = np.arange(N + 1, dtype=float)
+    d = n + 1.0
+    lam = ive(n + 1.0, beta) / ive(1.0, beta)
+    ok = lam > 0
+    lw = np.full(N + 1, -np.inf)
+    lw[ok] = w * np.log(d[ok]) + n_plaq * np.log(lam[ok])
+    lw -= lw.max()
+    wt = np.exp(lw)
+    return float((wt * np.log(d)).sum() / wt.sum())
+
+
+def lhs_global(t1, t2, t3, w=1, N3=40, N2=80, M=400):
+    """mean of log d_R over one label R = ((p, q), n, m) of G = S(U(3) x U(2)), m = 6Y, Z6 condition
+    m = -2 (p - q) - 3 n mod 6, weights d_R^w exp(-t3 C3 - t2 C2 - t1 m^2/60)."""
+    m = np.arange(-M, M + 1)
+    S = np.array([np.exp(-t1 * (m[(m - r) % 6 == 0].astype(float)) ** 2 / 60.0).sum() for r in range(6)])
+    num = 0.0
+    den = 0.0
+    p0 = 0.0
+    for p in range(N3 + 1):
+        for q in range(N3 + 1):
+            d3 = (p + 1) * (q + 1) * (p + q + 2) / 2.0
+            C3 = (p * p + q * q + p * q + 3 * p + 3 * q) / 3.0
+            e3 = d3 ** w * np.exp(-t3 * C3)
+            if e3 < 1e-300:
+                continue
+            n = np.arange(N2 + 1)
+            d2 = n + 1.0
+            C2 = n * (n + 2.0) / 4.0
+            r = (-2 * (p - q) - 3 * n) % 6
+            wt = e3 * d2 ** w * np.exp(-t2 * C2) * S[r]
+            num += float((wt * (np.log(d3) + np.log(d2))).sum())
+            den += float(wt.sum())
+            if p == 0 and q == 0:
+                p0 = float(wt[0])
+    return num / den, p0 / den
+
+
+# -------------------------------------------------------------------------------------------- chain
+def chain(x, P=P_FWD, b=(33 / 5, 1.0, -3.0), f=1.0, w=1, delta=(0.0, 0.0, 0.0), vlaw='x', read='mZ',
+          su2='heat', beta_ew=4.0):
+    """The paper's chain at trial unified value x.
+
+    1/alpha_i(M_U) = x + delta_i (GUT-normalised for i = 1); one-loop running with slopes b down to the anchor
+    mu = m_Z(mu) (tree) or m_W(mu); v = E_cell exp(-2 pi xv / beta_ew) with xv = x ('x'), the matched SU(2) value
+    ('su2') or the mean of the three matched values ('mean'); left side of the closure with heat times
+    f 4 pi^2 alpha_i and weights d^w. Returns None when a coupling is not positive on the way."""
+    MU = E_STAR * np.exp(-2 * PI) * P ** (1 / 6)
+    Ecell = E_STAR / np.sqrt(P)
+    inv_mu = [x + d for d in delta]
+    if min(inv_mu) <= 0:
+        return None
+    xv = {'x': x, 'su2': inv_mu[1], 'mean': float(np.mean(inv_mu))}[vlaw]
+    v = Ecell * np.exp(-2 * PI * xv / beta_ew)
+
+    def al(mu):
+        inv = [inv_mu[i] + b[i] / (2 * PI) * np.log(MU / mu) for i in range(3)]
+        if min(inv) <= 0:
+            return None
+        return [1.0 / z for z in inv]
+
+    mu = min(v, MU) * 0.37
+    for _ in range(400):
+        a = al(mu)
+        if a is None:
+            return None
+        a1, a2, a3 = a
+        aY = 0.6 * a1
+        mz = v * np.sqrt(PI * (a2 + aY))
+        mw = v * np.sqrt(PI * a2)
+        new = mz if read == 'mZ' else mw
+        if not np.isfinite(new) or new <= 0:
+            return None
+        if abs(new - mu) < 1e-13 * mu:
+            mu = new
+            break
+        mu = new
+    a = al(mu)
+    if a is None:
+        return None
+    a1, a2, a3 = a
+    aY = 0.6 * a1
+    l2 = law(SU2_CHAIN, f * FOUR_PI_SQ * a2, w)[0] if su2 == 'heat' else ell2_wilson(a2, n_plaq=2 * PI * f, w=w)
+    l3 = law(SU3_CHAIN, f * FOUR_PI_SQ * a3, w)[0]
+    return dict(x=x, MU=MU, Ecell=Ecell, v=v, mu=mu, mz=v * np.sqrt(PI * (a2 + aY)), mw=v * np.sqrt(PI * a2),
+                inv_a1=1 / a1, inv_a2=1 / a2, inv_a3=1 / a3, alpha_s=a3, sin2=aY / (aY + a2),
+                inv_aem=1.0 / (a2 * aY / (a2 + aY)), ell2=l2, ell3=l3, lhs=l2 + l3, P=P,
+                inv_at_MU=inv_mu)
+
+
+def solve_chain(P=P_FWD, xlo=6.0, xhi=90.0, step=0.05, **kw):
+    """all roots x of lhs(x) = P/4 on [xlo, xhi]. Returns a list of chain dictionaries."""
+    xs = np.arange(xlo, xhi + step / 2, step)
+    vals = []
+    for xx in xs:
+        c = chain(xx, P=P, **kw)
+        vals.append(np.nan if c is None else c['lhs'] - P / 4)
+    out = []
+    for i in range(len(xs) - 1):
+        a, bb = vals[i], vals[i + 1]
+        if np.isfinite(a) and np.isfinite(bb) and a * bb < 0:
+            g = lambda z: chain(z, P=P, **kw)['lhs'] - P / 4
+            try:
+                r = brentq(g, xs[i], xs[i + 1], xtol=1e-12, rtol=1e-13)
+                out.append(chain(r, P=P, **kw))
+            except Exception:
+                pass
+    return out
+
+
+def row(c):
+    keys = ('x', 'v', 'mu', 'mz', 'mw', 'inv_a1', 'inv_a2', 'inv_a3', 'alpha_s', 'sin2', 'inv_aem', 'ell2', 'ell3',
+            'lhs')
+    return {k: float(c[k]) for k in keys}
+
+
+def jsonable(o):
+    if isinstance(o, (np.integer,)):
+        return int(o)
+    if isinstance(o, (np.floating,)):
+        return float(o)
+    if isinstance(o, (np.bool_,)):
+        return bool(o)
+    if isinstance(o, np.ndarray):
+        return o.tolist()
+    raise TypeError(type(o))

@@ -1,0 +1,445 @@
+"""GL step 2: mechanisms that make the seam transport range over the continuous group G = exp(span i X_p).
+
+M1   continuous port phases read on the code: (a) compressed port load on the leading flux multiplets equals X_p,
+     (b) Zeno limit, also with the native relaxation of the twisted carrier, (c) surjectivity of
+     theta -> exp(i sum theta_p X_p), (d) native alphabets as uniform points.
+M1b  fractional seam reflectors compressed to the code.
+M2   per-port alphabets exp(i 2 pi X_p / N) with the cover: exact witnesses, U(1)_Y image, Haar moments.
+M3   one native angle arccos(lambda) of the public walk: exact irrationality, Haar moments.
+M4   response matching on the two ports of a seam: centralizer and the algebra of the residuals.
+M6   Wilczek-Zee holonomy of the code over loops of port phases.
+M7   Galois conjugation and continuous rotations.
+Writes s2_mechanisms.json.
+"""
+import itertools
+import json
+import sys
+
+import numpy as np
+import sympy as sp
+
+import gl_lib as L
+
+rng = np.random.default_rng(20261110)
+out = {}
+
+
+# ============================================================================ M1 (a): the code as leading flux multiplets
+def coherent(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+
+
+Rg = np.linalg.qr(np.random.default_rng(1).normal(size=(3, 3)))[0]
+if np.linalg.det(Rg) < 0:
+    Rg[:, 0] *= -1
+NN = L.N @ Rg.T                       # generic orientation (no port at a pole); intrinsic data unchanged
+CHI = [coherent(u) for u in NN]
+
+
+def twisted_adjacency(k):
+    A = np.zeros((12, 12), complex)
+    for a, b in L.SEAMS:
+        z = np.vdot(CHI[a], CHI[b]); z /= abs(z)
+        A[a, b] = z ** k; A[b, a] = np.conj(z) ** k
+    return A
+
+
+def face_flux(k):
+    A = twisted_adjacency(k)
+    fl = []
+    for a, b, c in L.FACES:
+        # orient each face by the outward normal
+        if np.dot(np.cross(NN[b] - NN[a], NN[c] - NN[a]), NN[a] + NN[b] + NN[c]) < 0:
+            b, c = c, b
+        fl.append(np.angle(A[a, b] * A[b, c] * A[c, a]) / (2 * np.pi) * 20)
+    return sorted(set(np.round(fl, 6).tolist()))
+
+
+def leading(k):
+    w, v = np.linalg.eigh(twisted_adjacency(k))
+    top = w[-1]
+    sel = np.abs(w - top) < 1e-7
+    return top, v[:, sel], np.round(sorted(set(np.round(w, 6).tolist()), reverse=True), 6).tolist()
+
+
+m1a = {}
+for k in (2, 18, 7, 13):
+    top, V, spec = leading(k)
+    m1a[f'k={k}'] = {'face_flux_units_2pi_over_20': face_flux(k), 'leading_eigenvalue': top, 'leading_dimension': V.shape[1],
+                     'spectrum': spec}
+# Bargmann invariants decide unitary equivalence of the compressed loads with the X_p blocks
+triples = list(itertools.combinations(range(12), 3))
+
+
+def barg(vecs):
+    return np.array([np.vdot(vecs[p], vecs[q]) * np.vdot(vecs[q], vecs[r]) * np.vdot(vecs[r], vecs[p]) for p, q, r in triples])
+
+
+def unit_rows(V):
+    rows = V.conj()          # v_p = V^dagger |p>  has components conj(V[p, :])
+    return [rows[p] / np.linalg.norm(rows[p]) for p in range(12)]
+
+
+hel = {+1: [np.linalg.eigh(L.helicity_projector(L.N[p]))[1][:, -1] for p in range(12)],
+       -1: [np.linalg.eigh(L.helicity_projector(L.N[p]).conj())[1][:, -1] for p in range(12)]}
+spin_conv = [np.linalg.eigh(L.spin_projector(L.N[p]))[1][:, -1] for p in range(12)]
+spin_conj = [np.linalg.eigh(L.spin_projector(L.NC[p]))[1][:, -1] for p in range(12)]
+spin_conj_m = [np.linalg.eigh(L.spin_projector(L.NC[p]).conj())[1][:, -1] for p in range(12)]
+match = {}
+for k, dim in ((2, 3), (18, 3), (7, 2), (13, 2)):
+    top, V, _ = leading(k)
+    b = barg(unit_rows(V))
+    norms = [float(np.linalg.norm(V[p]) ** 2) for p in range(12)]
+    if dim == 3:
+        cands = {'helicity +1 along n_p (X_p triplet block)': hel[+1], 'helicity -1 along n_p': hel[-1]}
+    else:
+        cands = {'spin up along conjugate axis n\'_p (X_p doublet block)': spin_conj, 'spin up along convex axis n_p': spin_conv,
+                 'complex conjugate of the X_p doublet block': spin_conj_m}
+    match[f'k={k}'] = {'compressed_norm_squared_per_port': sorted(set(np.round(norms, 12).tolist())),
+                       'bargmann_defect': {name: float(np.abs(b - barg(c)).max()) for name, c in cands.items()}}
+out['M1a_code_is_leading_flux_multiplets'] = {'sectors': m1a, 'match': match}
+print('M1a', json.dumps(match, indent=None), flush=True)
+
+# the two sectors that reproduce X_p exactly (chosen by the Bargmann test above)
+def pick(kpair, want):
+    for k in kpair:
+        key = [n for n in match[f'k={k}']['bargmann_defect'] if n.endswith(want)]
+        if key and match[f'k={k}']['bargmann_defect'][key[0]] < 1e-9:
+            return k
+    return None
+
+
+kt = pick((2, 18), '(X_p triplet block)')
+kd = pick((7, 13), '(X_p doublet block)')
+print('triplet sector k =', kt, ' doublet sector k =', kd, flush=True)
+_, V3, _ = leading(kt)
+_, V2, _ = leading(kd)
+A3, A2 = twisted_adjacency(kt), twisted_adjacency(kd)
+# full space: object of load charge 2 in sector kt (+) object of load charge -3 in sector kd
+qt, qd = 2, -3
+Vfull = np.zeros((24, 5), complex); Vfull[:12, :3] = V3; Vfull[12:, 3:] = V2
+Nport = [np.diag(np.concatenate([qt * np.eye(12)[p], qd * np.eye(12)[p]])).astype(complex) for p in range(12)]
+Xc = np.array([Vfull.conj().T @ Nport[p] @ Vfull for p in range(12)])        # compressed loads in the multiplet basis
+
+
+# unitary W (block diagonal) with W Xc_p W^dagger = X_p: built from aligned vectors and checked
+def align(vs, ws):
+    p0 = 0
+    ph = []
+    for q in range(12):
+        ref = p0 if abs(np.vdot(ws[p0], ws[q])) > 1e-6 else 1
+        if q == ref:
+            ph.append(1.0)
+            continue
+        ph.append(None)
+    # phases relative to port 0 through a chain of nonorthogonal overlaps
+    phases = {0: 1.0 + 0j}
+    changed = True
+    while changed:
+        changed = False
+        for q in range(12):
+            if q in phases:
+                continue
+            for r in list(phases):
+                ov_w, ov_v = np.vdot(ws[r], ws[q]), np.vdot(vs[r], vs[q])
+                if abs(ov_w) > 1e-6:
+                    phases[q] = phases[r] * (ov_v / abs(ov_v)) / (ov_w / abs(ov_w))
+                    changed = True
+                    break
+    M = sum(np.outer(ws[q] * phases[q], vs[q].conj()) for q in range(12))
+    Uu, s, Vh = np.linalg.svd(M)
+    return Uu @ Vh
+
+
+v3 = unit_rows(V3); v2 = unit_rows(V2)
+W3 = align(v3, hel[+1]); W2 = align(v2, spin_conj)
+W = L.blk(W3, W2)
+dev_X = max(np.abs(W @ Xc[p] @ W.conj().T - L.X[p]).max() for p in range(12))
+out['M1a_code_is_leading_flux_multiplets']['compressed_load_equals_X_p_after_one_unitary'] = float(dev_X)
+out['M1a_code_is_leading_flux_multiplets']['sectors_used'] = {'triplet': kt, 'doublet': kd, 'load_charges': [qt, qd]}
+print('M1a: max |W (q P N_p P) W^+ - X_p| =', dev_X, flush=True)
+
+
+# ============================================================================ M1 (b): Zeno limit
+def zeno(theta_vec, n):
+    Nsum = sum(t * Nport[p] for p, t in enumerate(theta_vec))
+    kick = np.diag(np.exp(1j * np.diag(Nsum) / n))           # N_p diagonal in the port basis
+    step = Vfull.conj().T @ kick @ Vfull                       # P e^{i theta N / n} P in the code basis
+    M = np.linalg.matrix_power(step, n)
+    return W @ M @ W.conj().T
+
+
+zrows = []
+for label, th in [('one port, theta = 1.0', np.eye(12)[0] * 1.0), ('one port, theta = 2.5', np.eye(12)[3] * 2.5),
+                  ('twelve random phases', rng.normal(size=12))]:
+    target = L.expm_herm(sum(t * L.X[p] for p, t in enumerate(th)))
+    errs = {n: float(np.abs(zeno(th, n) - target).max()) for n in (10, 100, 1000, 10000)}
+    zrows.append({'case': label, 'error_by_n': errs, 'error_times_n_at_10000': errs[10000] * 10000})
+# with the native relaxation of the twisted carrier (heralded per load sector): kick, then m events of 1 - L_k / 60
+Kt = np.eye(12) - (5 * np.eye(12) - A3) / 60
+Kd = np.eye(12) - (5 * np.eye(12) - A2) / 60
+lt = np.linalg.eigvalsh(Kt); ld = np.linalg.eigvalsh(Kd)
+lam_t, lam_d = lt[-1], ld[-1]
+gap_t = sorted(set(np.round(lt, 9)))[-2] / lam_t
+gap_d = sorted(set(np.round(ld, 9)))[-2] / lam_d
+
+
+def zeno_relax(theta_vec, n, m):
+    Nsum = sum(t * Nport[p] for p, t in enumerate(theta_vec))
+    kick = np.diag(np.exp(1j * np.diag(Nsum) / n))
+    Rel = np.zeros((24, 24), complex)
+    Rel[:12, :12] = np.linalg.matrix_power(Kt, m) / lam_t ** m
+    Rel[12:, 12:] = np.linalg.matrix_power(Kd, m) / lam_d ** m
+    T = Rel @ kick
+    state = Vfull.copy()
+    for _ in range(n):
+        state = T @ state
+    M = Vfull.conj().T @ state
+    return W @ M @ W.conj().T
+
+
+th = np.eye(12)[0] * 1.0
+target = L.expm_herm(L.X[0])
+relax_rows = [{'n': n, 'm_events_between_kicks': m, 'error': float(np.abs(zeno_relax(th, n, m) - target).max())}
+              for n, m in [(50, 30), (50, 100), (200, 100), (200, 300), (1000, 300)]]
+out['M1b_zeno'] = {'projector_form': zrows,
+                   'native_relaxation_form': {'leading_factor_triplet_sector': lam_t, 'leading_factor_doublet_sector': lam_d,
+                                              'second_over_leading_triplet': gap_t, 'second_over_leading_doublet': gap_d,
+                                              'rows': relax_rows}}
+print('M1 zeno', json.dumps(zrows), flush=True)
+print('M1 zeno relax', relax_rows, 'leading', lam_t, lam_d, flush=True)
+
+# ============================================================================ M1 (c): surjectivity and coordinates
+Xmat = np.array([L.vec(1j * x) for x in L.X]).T     # 50 x 12
+surj = []
+for trial in range(200):
+    # random element of G as a product of exponentials of random algebra elements
+    U = L.I5.copy()
+    for _ in range(4):
+        U = U @ L.expm_herm(sum(rng.normal() * 3 * x for x in L.X))
+    T, Z = __import__('scipy.linalg', fromlist=['schur']).schur(U, output='complex')
+    ang = np.angle(np.diag(T))
+    # Z is unitary but need not be block diagonal; build the log blockwise instead
+    K = np.zeros((5, 5), complex)
+    for sl in (slice(0, 3), slice(3, 5)):
+        Ub = U[sl, sl]
+        Tb, Zb = __import__('scipy.linalg', fromlist=['schur']).schur(Ub, output='complex')
+        K[sl, sl] = (Zb * np.angle(np.diag(Tb))) @ Zb.conj().T
+    tr = np.trace(K).real
+    mshift = int(round(tr / (2 * np.pi)))
+    if mshift != 0:          # move one eigenvalue by 2 pi m so that K is traceless (still a logarithm of U)
+        w, v = np.linalg.eigh(K[:3, :3]); w[0] -= 2 * np.pi * mshift
+        K[:3, :3] = (v * w) @ v.conj().T
+    theta, res, *_ = np.linalg.lstsq(Xmat, L.vec(1j * K), rcond=None)
+    rec = L.expm_herm(sum(t * x for t, x in zip(theta, L.X)))
+    surj.append(float(np.abs(rec - U).max()))
+out['M1c_surjective'] = {'random_elements': len(surj), 'max_reconstruction_error': max(surj),
+                         'statement': 'every sampled U in G equals exp(i sum_p theta_p X_p) for twelve real port phases'}
+print('M1c max error', max(surj), flush=True)
+out['M1d_native_alphabets_as_uniform_points'] = {
+    'theta_p = pi for all p': np.round(np.diag(L.expm_herm(sum(L.X), np.pi)), 12).tolist(),
+    'theta_p = pi/3 for all p': np.round(np.diag(L.expm_herm(sum(L.X), np.pi / 3)), 12).tolist()}
+
+# ============================================================================ M1b: fractional seam reflectors on the code
+seam_gens = []
+for a, b in L.SEAMS:
+    blocks = []
+    for (A, V) in ((A3, V3), (A2, V2)):
+        v = np.zeros(12, complex); v[a] = 1; v[b] = -A[a, b]          # antisymmetric twisted seam state (|a> - z|b>)
+        v /= np.linalg.norm(v)
+        blocks.append(V.conj().T @ np.outer(v, v.conj()) @ V)
+    seam_gens.append(1j * W @ L.blk(blocks[0], blocks[1]) @ W.conj().T)
+bas = L.lie_closure(seam_gens)
+g_basis = L.lie_closure([1j * x for x in L.X])
+contains_g = L.span_dim(bas + g_basis) == len(bas)
+out['M1b_seam_reflectors'] = {'span': L.span_dim(seam_gens), 'closure': len(bas), 'centre': L.centre_dim(bas),
+                              'contains_the_response_algebra': bool(contains_g),
+                              'traceful_direction_present': bool(any(abs(np.trace(B)) > 1e-9 for B in bas))}
+print('M1b', out['M1b_seam_reflectors'], flush=True)
+
+
+# ============================================================================ M2, M3: alphabets and native angles, exact witnesses
+s5 = sp.sqrt(5)
+
+
+xs = sp.Symbol('x')
+
+
+def is_algebraic_integer(expr):
+    """an algebraic number is an algebraic integer iff its primitive integer minimal polynomial is monic."""
+    poly = sp.minimal_polynomial(expr, xs)
+    P = sp.Poly(poly, xs)
+    return abs(P.LC()) == 1, str(sp.factor(poly))
+
+
+wit = {}
+c_ov = ((1 + 1 / s5) / 2) ** 2                          # |<xi_p|xi_q>|^2, helicity-one states, adjacent ports
+for Nalph in (1, 2, 3, 4, 6):
+    a = sp.pi / Nalph                                   # rotation angle of the doublet part of exp(i 2 pi X_p / N)
+    dot = -1 / s5                                       # conjugate axes of adjacent ports
+    two_cos_half = 2 * (sp.cos(a / 2) ** 2 - sp.sin(a / 2) ** 2 * dot)
+    integral, poly = is_algebraic_integer(two_cos_half)
+    # colour part: g_p g_q acts on the span of xi_p, xi_q with eigenvalues l1, l2, l1 l2 = u^2, u = exp(i pi/N);
+    # (l1 + l2)^2 / (l1 l2) = (2 - 2 c (1 - cos(pi/N)))^2 = 2 + 2 cos(Delta), Delta = arg(l1/l2)
+    two_cos_delta = (2 - 2 * c_ov * (1 - sp.cos(a))) ** 2 - 2
+    integral_c, poly_c = is_algebraic_integer(two_cos_delta)
+    # numerical cross-check of the closed form on the actual matrices
+    p, q = L.SEAMS[0]
+    gp, gq = L.expm_herm(L.X[p], 2 * np.pi / Nalph), L.expm_herm(L.X[q], 2 * np.pi / Nalph)
+    ev = np.linalg.eigvals((gp @ gq)[:3, :3])
+    ev = ev[np.argsort(np.abs(ev - 1))][1:]             # drop the eigenvalue 1 on the complement
+    num = 2 * np.cos(np.angle(ev[0] / ev[1]))
+    evw = np.linalg.eigvals((gp @ gq)[3:, 3:])
+    numw = abs(np.sum(evw) / np.sqrt(np.prod(evw)))
+    wit[f'N={Nalph}'] = {'weak: 2cos(omega/2) of g_p g_q': float(two_cos_half), 'weak: numerical': float(numw),
+                         'weak: minimal polynomial': poly, 'weak: algebraic integer (else infinite order)': bool(integral),
+                         'colour: 2cos(Delta) of g_p g_q': float(two_cos_delta), 'colour: numerical': float(num),
+                         'colour: minimal polynomial': poly_c, 'colour: algebraic integer (else infinite order)': bool(integral_c),
+                         'U(1)_Y: det of the triplet block of a generator': f'exp(i pi/{Nalph}), finite order {2 * Nalph}'}
+    print('M2 witness', Nalph, wit[f'N={Nalph}'], flush=True)
+nat = {}
+x = sp.Symbol('x')
+for name, lam in [('14/15', sp.Rational(14, 15)), ('9/10', sp.Rational(9, 10)), ('5/6', sp.Rational(5, 6)),
+                  ('11/12 + sqrt5/60', sp.Rational(11, 12) + s5 / 60), ('11/12 - sqrt5/60', sp.Rational(11, 12) - s5 / 60)]:
+    integral, poly = is_algebraic_integer(2 * lam)
+    nat[name] = {'theta': float(sp.acos(lam)), 'minimal_polynomial_of_2cos(theta)': poly,
+                 'two_cos_theta_algebraic_integer': bool(integral),
+                 'statement': 'theta/pi irrational (2cos theta is no algebraic integer); exp(i theta X_p) has infinite order'
+                 if not integral else 'inconclusive'}
+out['M2_M3_exact_witnesses'] = {'per_port_alphabets': wit, 'native_walk_angles': nat}
+print('M3', nat, flush=True)
+
+
+# ---------------------------------------------------------------- Haar-moment demonstration
+def chi_j(Ud, j):
+    """character of spin j evaluated on the SO(3) image of a U(2) block (phase removed)."""
+    S = Ud / np.sqrt(np.linalg.det(Ud))
+    c = np.clip(np.trace(S).real / 2, -1, 1)
+    ang = 2 * np.arccos(abs(c))           # rotation angle in SO(3)
+    if abs(np.sin(ang / 2)) < 1e-12:
+        return 2 * j + 1.0
+    return np.sin((2 * j + 1) * ang / 2) / np.sin(ang / 2)
+
+
+def moments(gens, steps=400, walkers=3000):
+    Us = np.repeat(L.I5[None], walkers, axis=0)
+    idx = rng.integers(0, len(gens), size=(steps, walkers))
+    G = np.array(gens)
+    for s in range(steps):
+        Us = G[idx[s]] @ Us
+    t3 = np.einsum('wii->w', Us[:, :3, :3])
+    det3 = np.linalg.det(Us[:, :3, :3])
+    chi6 = np.array([chi_j(U[3:, 3:], 6) for U in Us])
+    res = {'E|tr_3|^4 (A5 group: 3, Haar SU(3): 2)': float(np.mean(np.abs(t3) ** 4)),
+           'E chi_6(weak SO(3)) (2I: 1, Haar: 0)': float(np.mean(chi6))}
+    for m in (1, 2, 4, 12):
+        res[f'|E det_3^{m}| (finite U(1) image of order dividing {m}: 1; dense: 0)'] = float(abs(np.mean(det3 ** m)))
+    return res
+
+
+covers = [U for U, _ in L.COVER]
+cover_gens = list(covers)
+mom = {'cover alone': moments(cover_gens)}
+for Nalph in (1, 2, 6):
+    gens = cover_gens + 10 * [L.expm_herm(L.X[p], 2 * np.pi / Nalph) for p in range(12)]
+    mom[f'cover + per-port Z_{Nalph}'] = moments(gens)
+theta_nat = float(np.arccos(14 / 15))
+mom['cover + exp(i arccos(14/15) X_0)'] = moments(cover_gens + 60 * [L.expm_herm(L.X[0], theta_nat)])
+mom['cover + uniform Z6 (native)'] = moments(cover_gens + 60 * [L.expm_herm(L.Y6, np.pi / 3)])
+out['M2_M3_Haar_moments'] = mom
+for k, v in mom.items():
+    print('moments', k, {kk: round(vv, 3) for kk, vv in v.items()}, flush=True)
+
+# ============================================================================ M4: response matching on a seam
+from scipy.linalg import null_space
+gb = g_basis
+
+
+def centralizer(ops):
+    M = np.array([np.concatenate([L.vec(B @ (1j * o) - (1j * o) @ B) for o in ops]) for B in gb]).T
+    ns = null_space(M, rcond=1e-9)
+    return [sum(c * B for c, B in zip(ns[:, k], gb)) for k in range(ns.shape[1])]
+
+
+resid = []
+dims = set()
+for a, b in L.SEAMS:
+    C = centralizer([L.X[a], L.X[b]])
+    dims.add(len(C))
+    resid += C
+bas4 = L.lie_closure(resid)
+proj_weak = max(np.abs(B[3:, 3:] - np.trace(B[3:, 3:]) / 2 * L.I2).max() for B in bas4)
+nonadj = centralizer([L.X[0], L.X[[q for q in range(12) if q != 0 and not L.ADJ[0, q] and abs(L.N[0] @ L.N[q] + 1) > 1e-6][0]]])
+out['M4_seam_matching'] = {'centralizer_dimensions_over_the_30_seams': sorted(dims),
+                           'algebra_generated_by_all_residuals': len(bas4), 'centre': L.centre_dim(bas4),
+                           'largest_traceless_weak_component_of_the_residual_algebra': float(proj_weak),
+                           'centralizer_dimension_for_a_non_adjacent_pair': len(nonadj)}
+print('M4', out['M4_seam_matching'], flush=True)
+
+# ============================================================================ M6: Wilczek-Zee holonomy over port phases
+def code_at(theta):
+    D = np.exp(1j * np.diag(sum(t * Nport[p] for p, t in enumerate(theta))))
+    return D[:, None] * Vfull
+
+
+def wz_loop(path):
+    Vprev = code_at(path[0]); H = np.eye(5, dtype=complex)
+    for th in path[1:]:
+        Vn = code_at(th)
+        O = Vn.conj().T @ Vprev
+        u, s, vh = np.linalg.svd(O)
+        H = (u @ vh) @ H
+        Vprev = Vn
+    # back in the frame of the starting point
+    return W @ (Vfull.conj().T @ code_at(path[0]) @ np.linalg.pinv(Vfull.conj().T @ code_at(path[0]))) @ H @ W.conj().T
+
+
+def square(p, q, d, m=400):
+    pts = []
+    for s in np.linspace(0, 1, m):
+        pts.append(s * d * np.eye(12)[p])
+    for s in np.linspace(0, 1, m):
+        pts.append(d * np.eye(12)[p] + s * d * np.eye(12)[q])
+    for s in np.linspace(0, 1, m):
+        pts.append((1 - s) * d * np.eye(12)[p] + d * np.eye(12)[q])
+    for s in np.linspace(0, 1, m):
+        pts.append((1 - s) * d * np.eye(12)[q])
+    return pts
+
+
+wzr = []
+for (p, q) in [(0, L.SEAMS[0][1]), (0, 5), (2, 9)]:
+    for d in (0.05, 0.1):
+        Hh = wz_loop(square(p, q, d))
+        K = -1j * __import__('scipy.linalg', fromlist=['logm']).logm(Hh)
+        pred = d * d * 1j * (L.X[p] @ L.X[q] - L.X[q] @ L.X[p])
+        # sign convention: compare both signs, report the better
+        e1, e2 = np.abs(K - pred).max(), np.abs(K + pred).max()
+        wzr.append({'ports': [p, q], 'side': d, 'holonomy_minus_identity': float(np.abs(Hh - L.I5).max()),
+                    'relative_error_against_d^2 [X_p, X_q]': float(min(e1, e2) / np.abs(pred).max()),
+                    'sign': '+' if e1 < e2 else '-'})
+# winding loop of one port phase: 0 -> 2 pi (load charges integer, so the full space returns)
+wind = []
+for p in (0, 7):
+    path = [s * np.eye(12)[p] for s in np.linspace(0, 2 * np.pi, 4001)]
+    Hh = wz_loop(path)
+    wind.append({'port': p, 'holonomy_vs_exp(-2 pi i X_p)': float(min(np.abs(Hh - L.expm_herm(L.X[p], -2 * np.pi)).max(),
+                                                                     np.abs(Hh - L.expm_herm(L.X[p], 2 * np.pi)).max()))})
+comm = [L.X[p] @ L.X[q] - L.X[q] @ L.X[p] for p in range(12) for q in range(p + 1, 12)]   # anti-Hermitian
+hb = L.lie_closure(comm)
+out['M6_wilczek_zee'] = {'small_loops': wzr, 'winding_loops': wind, 'holonomy_algebra_of_contractible_loops': len(hb),
+                         'contains_U1_Y': bool(L.span_dim(hb + [1j * L.Y6]) == len(hb))}
+print('M6', out['M6_wilczek_zee'], flush=True)
+
+# ============================================================================ M7: Galois conjugation is outer
+R5 = None
+for R, Rc, perm in L.ROTS:
+    if abs(np.trace(R) - (1 + 2 * np.cos(2 * np.pi / 5))) < 1e-9:
+        R5, R5c = R, Rc
+        break
+out['M7_galois'] = {'trace_of_a_fifth_turn': float(np.trace(R5)), 'trace_of_its_conjugate': float(np.trace(R5c)),
+                    'statement': 'unequal traces: the conjugation is no inner automorphism of SO(3); every continuous '
+                                 'automorphism of SO(3) is inner; the doublet block has no continuous extension'}
+print('M7', out['M7_galois'], flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's2_mechanisms.json', 'w'), indent=1, default=L.jsonable)

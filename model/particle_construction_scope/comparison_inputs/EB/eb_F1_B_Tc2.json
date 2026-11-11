@@ -1,0 +1,77 @@
+{
+ "L1": {
+  "base": "B",
+  "rule": "L1",
+  "mode": 2.4283289160076604,
+  "at_P_fwd": {
+   "alpha_U": 0.03158876273261946,
+   "slopes": [
+    7.21525662181675,
+    -0.1476028949263659,
+    -4.174959870670657
+   ],
+   "v_over_Estar": 1.9854711044630605e-22,
+   "mz_over_Estar": 7.029019685399185e-23
+  },
+  "closure": {
+   "P": 1.6281338695906922,
+   "alpha0_inv": 175.4925507384113,
+   "alpha_U": 0.03164669486636882,
+   "M_U_GeV": 2.4728940750801108e+16,
+   "v_GeV": 0.0026573673050874942,
+   "m_Z_GeV": 0.0009416405772360029,
+   "m_W_GeV": 0.0008521811397983973,
+   "sin2_theta_W_mZ": 0.18098188637773444,
+   "alpha_s_mZ": 0.5297894269548465,
+   "alpha_em_inv_mZ": 168.7928710319178,
+   "ln_MU_over_mZ": 44.71463755199281,
+   "slopes_at_solution": [
+    7.21525662181675,
+    -0.1476028949263659,
+    -4.174959870670657
+   ],
+   "t_at_solution": 2.4283289160076604
+  },
+  "seconds": 3.2
+ },
+ "L2": {
+  "base": "B",
+  "rule": "L2",
+  "mode": 2.4283289160076604,
+  "at_P_fwd": "no alpha_U root of the pixel closure in [0.02, 0.08]",
+  "closure": "no outer fixed point in alpha in [0.005, 0.01]",
+  "seconds": 27.2
+ },
+ "L3": {
+  "base": "B",
+  "rule": "L3",
+  "mode": 2.4283289160076604,
+  "at_P_fwd": "no alpha_U root of the pixel closure in [0.02, 0.08]",
+  "closure": "no outer fixed point in alpha in [0.005, 0.01]",
+  "seconds": 12.5
+ },
+ "L4": {
+  "base": "B",
+  "rule": "L4",
+  "mode": 2.4283289160076604,
+  "at_P_fwd": "no alpha_U root of the pixel closure in [0.02, 0.08]",
+  "closure": "no outer fixed point in alpha in [0.005, 0.01]",
+  "seconds": 13.1
+ },
+ "L5": {
+  "base": "B",
+  "rule": "L5",
+  "mode": 2.4283289160076604,
+  "at_P_fwd": "no alpha_U root of the pixel closure in [0.02, 0.08]",
+  "closure": "no outer fixed point in alpha in [0.005, 0.01]",
+  "seconds": 12.1
+ },
+ "L6": {
+  "base": "B",
+  "rule": "L6",
+  "mode": 2.4283289160076604,
+  "at_P_fwd": "no alpha_U root of the pixel closure in [0.02, 0.08]",
+  "closure": "no outer fixed point in alpha in [0.005, 0.01]",
+  "seconds": 10.4
+ }
+}

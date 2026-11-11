@@ -1,0 +1,58 @@
+"""Native total-two chain on the icosahedral carrier versus the exchange (Heisenberg) form."""
+import itertools, sys
+import numpy as np
+from model.observer import native
+from model.transported_contrast import law
+
+seams, faces = law.carrier()
+states = list(native.states())
+index = {s: i for i, s in enumerate(states)}
+n = len(states)
+T = np.zeros((n, n))
+for s in states:
+    for seam in seams:
+        for coin in (0, 1):
+            nxt, _ = native.native(s, seam, coin)
+            T[index[tuple(nxt)], index[s]] += 1 / (2 * len(seams))
+rec = [i for i, s in enumerate(states) if max(s) == 1]
+tra = [i for i, s in enumerate(states) if max(s) == 2]
+print('states', n, 'recurrent (distinct ports)', len(rec), 'doubly occupied', len(tra))
+print('mass flowing from recurrent to doubly occupied:', T[np.ix_(tra, rec)].sum())
+Trec = T[np.ix_(rec, rec)]
+# exchange form
+H = np.zeros((len(rec), len(rec)))
+pos = {states[i]: k for k, i in enumerate(rec)}
+for k, i in enumerate(rec):
+    s = states[i]
+    for a, b in seams:
+        t = list(s); t[a], t[b] = t[b], t[a]
+        H[k, k] += 1; H[pos[tuple(t)], k] -= 1
+print('T_rec == I - H/(2M):', np.allclose(Trec, np.eye(len(rec)) - H / (2 * len(seams))))
+print('T_rec symmetric:', np.allclose(Trec, Trec.T))
+ev = np.sort(np.linalg.eigvalsh(H))
+# one-quantum Laplacian
+L = np.zeros((12, 12))
+for a, b in seams:
+    L[a, a] += 1; L[b, b] += 1; L[a, b] -= 1; L[b, a] -= 1
+e1 = np.sort(np.linalg.eigvalsh(L))
+print('one-quantum levels:', np.round(e1, 6))
+vals, counts = np.unique(np.round(ev, 6), return_counts=True)
+print('two-quanta levels (value x multiplicity):', ', '.join(f'{v:g}x{c}' for v, c in zip(vals, counts)))
+left = list(np.round(ev, 6))
+ok = True
+for v in np.round(e1, 6):
+    if v in left: left.remove(v)
+    else: ok = False
+print('every one-quantum level appears among the two-quanta levels:', ok, '| remaining', len(left))
+# total-spin check: raising operator S+ maps one-quantum eigenvectors to two-quanta eigenvectors with the same level
+single = [tuple(int(p == a) for p in range(12)) for a in range(12)]
+Sp = np.zeros((len(rec), 12))
+for a in range(12):
+    for b in range(12):
+        if a != b:
+            t = [0] * 12; t[a] = 1; t[b] = 1
+            Sp[pos[tuple(t)], a] += 1
+print('H S+ == S+ L (intertwining):', np.allclose(H @ Sp, Sp @ L))
+# full chain: transient decay rate
+print('probability to leave a doubly occupied state per attempt:', sorted(set(np.round(1 - T[np.ix_(tra, tra)].diagonal(), 6))))
+print('full-chain eigenvalues of 2M(1-T) not in recurrent spectrum:', sorted(set(np.round(np.sort(np.linalg.eigvals(2*len(seams)*(np.eye(n)-T)).real), 6)) - set(np.round(ev, 6))))

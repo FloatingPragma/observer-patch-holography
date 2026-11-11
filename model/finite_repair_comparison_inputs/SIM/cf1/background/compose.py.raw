@@ -1,0 +1,195 @@
+"""Task CH, part (a)/(C): per-carrier composition of the internal register tier from stored face classes.
+
+Input is the per-face class array of a checkpoint (`classes`, int8, internal faces 20 c + f first, then the screen
+plaquettes) or, for tracked levels, the defect list of a cut (`intra_face`, `intra_cls`). Nothing is simulated.
+
+    python compose.py ckpt <run_dir_or_file> <level> <label> [out.json]
+    python compose.py cut  <cut.npz> <level> <label> [out.json]
+
+Output per snapshot:
+  faces per carrier of each class (with block standard errors, blocks = cells of level 4, 5120 blocks),
+  the census of carrier configurations (count vector over classes 1..5), the ten most frequent configurations
+  with their face separations (dual-graph distance on the twenty faces), the share of carriers that hold exactly
+  one conjugate pair, the pair decomposition, and the separation distribution per pair class.
+"""
+import json, sys
+from collections import Counter
+import numpy as np
+
+# template faces of the carrier (run.json geometry.template_faces, identical at every level)
+TF = [[0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11], [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6],
+      [7, 1, 8], [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9], [4, 9, 5], [2, 4, 11], [6, 2, 10],
+      [8, 6, 7], [9, 8, 1]]
+
+
+def dual_distance():
+    A = np.zeros((20, 20), bool)
+    for i in range(20):
+        for j in range(20):
+            if i != j and len(set(TF[i]) & set(TF[j])) == 2:
+                A[i, j] = True
+    D = np.full((20, 20), -1, int)
+    for s in range(20):
+        D[s, s] = 0; front = [s]; d = 0
+        while front:
+            d += 1; nxt = []
+            for u in front:
+                for v in np.nonzero(A[u])[0]:
+                    if D[s, v] < 0:
+                        D[s, v] = d; nxt.append(v)
+            front = nxt
+    return D
+
+
+DD = dual_distance()
+PAIRS_BY_SEP = {d: int((DD[np.triu_indices(20, 1)] == d).sum()) for d in range(1, 6)}   # 30, 60, 60, 30, 10
+
+
+def block_se(values_per_carrier, N, level, nb_level=4):
+    """mean per carrier and standard error from block means over the cells of level nb_level (hierarchical blocks)"""
+    nb = 20 * 4 ** min(nb_level, level)
+    b = np.asarray(values_per_carrier, np.float64).reshape(nb, N // nb).mean(axis=1)
+    return float(b.mean()), float(b.std(ddof=1) / np.sqrt(nb))
+
+
+def analyse(cls_carrier, level, label, screen=None):
+    """cls_carrier: int8 [N, 20] classes 0..5"""
+    N = cls_carrier.shape[0]
+    out = {'label': label, 'level': level, 'carriers': N}
+    cnt = np.stack([(cls_carrier == k).sum(axis=1).astype(np.int8) for k in range(1, 6)], axis=1)   # [N, 5]
+    # faces per carrier
+    fpc = {}
+    for k in range(1, 6):
+        m, se = block_se(cnt[:, k - 1], N, level)
+        fpc[str(k)] = {'mean': m, 'se': se, 'total': int(cnt[:, k - 1].sum())}
+    out['faces_per_carrier'] = fpc
+    out['faces_per_face'] = {k: v['mean'] / 20 for k, v in fpc.items()}
+    # sum rule check
+    s = (cls_carrier.astype(np.int64).sum(axis=1)) % 6
+    out['carriers_violating_sum_rule'] = int((s != 0).sum())
+    # configurations
+    key = cnt.astype(np.int64) @ (np.array([1, 21, 21 ** 2, 21 ** 3, 21 ** 4], np.int64))
+    u, inv, c = np.unique(key, return_inverse=True, return_counts=True)
+    order = np.argsort(-c)
+    def decode(kk):
+        v = []
+        for i in range(5):
+            v.append(int(kk % 21)); kk //= 21
+        return v
+    nnz = cnt.sum(axis=1)
+    configs = []
+    for r, idx in enumerate(order):
+        v = decode(int(u[idx]))
+        ms = []
+        for k in range(1, 6):
+            ms += [k] * v[k - 1]
+        configs.append({'multiset': ms, 'carriers': int(c[idx]), 'share': float(c[idx] / N), 'rank': r + 1})
+    out['n_distinct_configurations'] = len(configs)
+    # pair decomposition
+    c1, c2, c3, c4, c5 = [cnt[:, i].astype(np.int64) for i in range(5)]
+    decomposable = (c1 == c5) & (c2 == c4) & (c3 % 2 == 0)
+    out['carriers_with_defects'] = int((nnz > 0).sum())
+    out['share_carriers_with_defects'] = float((nnz > 0).mean())
+    out['share_pair_decomposable_among_defect_carriers'] = float(decomposable[nnz > 0].mean())
+    faces_in_dec = cnt[decomposable].sum(axis=0)
+    out['defect_faces_in_pair_decomposable_carriers_by_class'] = {str(k): float(faces_in_dec[k - 1] / max(cnt[:, k - 1].sum(), 1)) for k in range(1, 6)}
+    pp = {}
+    for name, val in (('(1,5)', np.where(decomposable, c1, 0)), ('(2,4)', np.where(decomposable, c2, 0)), ('(3,3)', np.where(decomposable, c3 // 2, 0))):
+        m, se = block_se(val, N, level)
+        pp[name] = {'mean': m, 'se': se}
+    out['pairs_per_carrier_decomposable_only'] = pp
+    ph = {}
+    for name, val in (('(1,5)', (c1 + c5) / 2), ('(2,4)', (c2 + c4) / 2), ('(3,3)', c3 / 2)):
+        m, se = block_se(val, N, level)
+        ph[name] = {'mean': m, 'se': se}
+    out['pairs_per_carrier_half_faces'] = ph
+    one_pair = (nnz == 2) & decomposable
+    out['share_carriers_exactly_one_conjugate_pair'] = float(one_pair.mean())
+    out['share_of_defect_carriers_exactly_one_conjugate_pair'] = float(one_pair.sum() / max((nnz > 0).sum(), 1))
+    for k, name in ((1, '(1,5)'), (2, '(2,4)'), (3, '(3,3)')):
+        sel = one_pair & ((c1 == 1) if k == 1 else (c2 == 1) if k == 2 else (c3 == 2))
+        out.setdefault('one_pair_carriers_by_class', {})[name] = {'carriers': int(sel.sum()), 'per_carrier': float(sel.mean())}
+    # positions: separations for one-pair carriers and the top configurations
+    rows = np.nonzero(nnz > 0)[0]
+    sub = cls_carrier[rows]
+    sep_one = {name: Counter() for name in ('(1,5)', '(2,4)', '(3,3)')}
+    top_keys = set(int(u[idx]) for idx in order[:12])
+    top_sep = {kk: Counter() for kk in top_keys}
+    keyr = key[rows]
+    # vectorised for two-face carriers
+    two = nnz[rows] == 2
+    f2 = np.argsort(sub[two] == 0, axis=1, kind='stable')[:, :2]
+    k2 = np.take_along_axis(sub[two], f2, axis=1)
+    d2 = DD[f2[:, 0], f2[:, 1]]
+    kk2 = keyr[two]
+    for kk in top_keys:
+        sel = kk2 == kk
+        if sel.any():
+            top_sep[kk].update(Counter((int(x),) for x in d2[sel]))
+    conj = (k2[:, 0].astype(int) + k2[:, 1]) % 6 == 0
+    for k, name in ((1, '(1,5)'), (2, '(2,4)'), (3, '(3,3)')):
+        sel = conj & (np.minimum(k2[:, 0], k2[:, 1]) == k)
+        sep_one[name].update(Counter(int(x) for x in d2[sel]))
+    # three or more faces: sorted pairwise distances (only for the top configurations)
+    many = np.nonzero(~two)[0]
+    for i in many:
+        kk = int(keyr[i])
+        if kk not in top_keys:
+            continue
+        f = np.nonzero(sub[i])[0]
+        ds = tuple(sorted(int(DD[a, b]) for ai, a in enumerate(f) for b in f[ai + 1:]))
+        top_sep[kk][ds] += 1
+    tops = []
+    for idx in order[:12]:
+        kk = int(u[idx]); v = decode(kk); ms = []
+        for k in range(1, 6):
+            ms += [k] * v[k - 1]
+        seps = top_sep.get(kk, Counter())
+        tops.append({'multiset': ms, 'carriers': int(c[idx]), 'share_of_all_carriers': float(c[idx] / N),
+                     'share_of_defect_carriers': float(c[idx] / max((nnz > 0).sum(), 1)) if ms else None,
+                     'separations': [{'pairwise_dual_distances': list(s_), 'carriers': int(n_)} for s_, n_ in seps.most_common(8)]})
+    out['top_configurations'] = tops
+    out['all_configurations'] = configs[:60]
+    sepd = {}
+    for name, ctr in sep_one.items():
+        tot = sum(ctr.values())
+        sepd[name] = {'carriers': tot, 'fraction': {str(d): (ctr[d] / tot if tot else None) for d in range(1, 6)},
+                      'mean': (sum(d * n for d, n in ctr.items()) / tot if tot else None)}
+    sepd['uniform_random_pair_fraction'] = {str(d): PAIRS_BY_SEP[d] / 190 for d in range(1, 6)}
+    out['separation_one_pair_carriers'] = sepd
+    if screen is not None:
+        V = len(screen)
+        out['screen'] = {'plaquettes': V, 'faces_per_carrier': {str(k): float((screen == k).sum() / N) for k in range(1, 6)},
+                         'per_plaquette': {str(k): float((screen == k).sum() / V) for k in range(1, 6)},
+                         'counts': [int((screen == k).sum()) for k in range(6)],
+                         'sum_mod6': int(screen.astype(np.int64).sum() % 6)}
+    return out
+
+
+def from_ckpt(path, level, label):
+    z = np.load(path)
+    cls = z['classes']
+    N = 20 * 4 ** level
+    a = analyse(cls[:20 * N].reshape(N, 20), level, label, screen=cls[20 * N:])
+    a['sweep'] = int(z['sweep'])
+    return a
+
+
+def from_cut(path, level, label):
+    z = np.load(path)
+    N = 20 * 4 ** level
+    cls = np.zeros(20 * N, np.int8)
+    cls[z['intra_face'] - 0] = z['intra_cls']
+    a = analyse(cls.reshape(N, 20), level, label)
+    a['depth'] = int(z['depth'])
+    return a
+
+
+if __name__ == '__main__':
+    kind, path, level, label = sys.argv[1], sys.argv[2], int(sys.argv[3]), sys.argv[4]
+    a = (from_ckpt if kind == 'ckpt' else from_cut)(path, level, label)
+    s = json.dumps(a)
+    if len(sys.argv) > 5:
+        open(sys.argv[5], 'w').write(s)
+    else:
+        print(s)

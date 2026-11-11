@@ -1,0 +1,157 @@
+"""S8 script C: Bloch bands of the port Laplacian on the flat honeycomb of carriers; dependence on the declared wiring.
+
+Own re-implementation (the simulation session's oph_defects/bloch.py was read, not imported).
+1. symmetric wiring (three belt ports around template face (0, 11, 5)): massless curvature, sheet conductance, cone at K,
+   flat bands, levels at q = 0, dynamic range of the level-independent rates;
+2. scale dependence of lambda(q)/q^2 for the massless band: analytic in q^2, no logarithm;
+3. every wiring of three glue ports per carrier, up to carrier rotations and cyclic alignment: range of the massless
+   curvature (= 2 D), anisotropy, gap or cone between the two lowest bands.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          ../research/S8/c_bloch_wirings.py
+"""
+import json
+import sys
+import time
+from itertools import permutations
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import fedlib as FL  # noqa: E402
+
+OUT = HERE / 'c_bloch_wirings.json'
+A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, 3 ** .5 / 2])
+DELTAS = (np.zeros(2), A1, A2)
+Aint = np.zeros((12, 12))
+for a, b in FL.TEMPLATE_SEAMS:
+    Aint[a, b] = Aint[b, a] = 1
+L12 = np.diag(Aint.sum(1)) - Aint
+
+
+def bloch(q, up, down):
+    """24 x 24 Bloch Laplacian: up-carrier port up[k] is glued to down-carrier port down[k] in the cell shifted by DELTAS[k]."""
+    L = np.zeros((24, 24), complex)
+    L[:12, :12] = L12; L[12:, 12:] = L12
+    for k, dl in enumerate(DELTAS):
+        u, d = up[k], 12 + down[k]
+        L[u, u] += 1; L[d, d] += 1
+        ph = np.exp(-1j * (q @ dl))
+        L[u, d] -= ph; L[d, u] -= np.conj(ph)
+    return L
+
+
+def ev(q, up, down):
+    return np.linalg.eigvalsh(bloch(np.asarray(q, float), up, down))
+
+
+res = {}
+ctrl = FL.control_ports()
+dirs = [np.array([np.cos(t), np.sin(t)]) for t in np.radians([0, 30, 60, 90, 120, 150])]
+# ---------------------------------------------------------------- 1. symmetric wiring
+ev0 = ev((0, 0), ctrl, ctrl)
+h = 1e-3
+c2 = [float(ev(h * d, ctrl, ctrl)[0] / h ** 2) for d in dirs]
+density = 24 / (3 ** .5 / 2)
+grid = [np.array([x, y]) for x in np.linspace(-np.pi, np.pi, 25) for y in np.linspace(-np.pi, np.pi, 25)]
+allv = np.array([ev(g, ctrl, ctrl) for g in grid])
+flat = (allv.max(0) - allv.min(0)) < 1e-9
+K = np.array([2 * np.pi / 3, 2 * np.pi / 3 ** .5])
+evK = ev(K, ctrl, ctrl)
+dq = 1e-3
+slope = [float((ev(K + dq * d, ctrl, ctrl)[1] - ev(K + dq * d, ctrl, ctrl)[0]) / (2 * dq)) for d in dirs]
+sym = {
+    'control_ports': list(ctrl), 'massless_curvature_c2_by_direction': c2, 'c2_mean': float(np.mean(c2)),
+    'diffusion_constant_edge2_per_sweep_c2/2': float(np.mean(c2) / 2), 'ports_per_edge2': density,
+    'sheet_conductance_c2_times_density': float(np.mean(c2) * density),
+    'spin_stiffness_sigma/2 (exchange generator, S = 1/2)': float(np.mean(c2) * density / 2),
+    '2pi_rho_s = pi sigma': float(np.pi * np.mean(c2) * density), '4pi_rho_s = 2 pi sigma': float(2 * np.pi * np.mean(c2) * density),
+    'levels_at_q0': [float(v) for v in ev0], 'flat_bands': int(flat.sum()), 'flat_levels': sorted(set(np.round(allv[0][flat], 6).tolist())),
+    'K_point_two_lowest': evK[:2].tolist(), 'K_gap': float(evK[1] - evK[0]), 'cone_slope_dlambda/dq_by_direction': slope,
+    'band0_top': float(allv[:, 0].max()), 'band1_range': [float(allv[:, 1].min()), float(allv[:, 1].max())],
+    'lambda_max_over_zone': float(allv.max()),
+}
+nonzero_levels = sorted(set(np.round(np.concatenate([ev0[1:], evK[:2]]), 9).tolist()))
+sym['level_independent_rate_dynamic_range'] = {
+    'smallest_gapped_level_at_q0': float(ev0[1]), 'cone_level_at_K': float(evK[0]), 'largest_level': float(allv.max()),
+    'max/min using q0 levels': float(allv.max() / ev0[1]), 'max/cone level': float(allv.max() / evK[0]),
+    'sqrt of max/cone level': float((allv.max() / evK[0]) ** .5),
+}
+res['symmetric_wiring'] = sym
+print(json.dumps(sym, indent=1))
+
+# ---------------------------------------------------------------- 2. scale dependence of the massless band
+rows = []
+for k in range(0, 9):
+    q = 2.0 ** (-k)
+    vals = [float(ev(q * d, ctrl, ctrl)[0] / q ** 2) for d in dirs[:2]]
+    rows.append({'q': q, 'lambda/q^2 dir 0deg': vals[0], 'dir 30deg': vals[1]})
+d0 = np.array([r['lambda/q^2 dir 0deg'] for r in rows])
+res['massless_band_scale_dependence'] = {
+    'rows': rows, 'increments_per_halving_of_q': np.diff(d0).tolist(),
+    'ratio_of_successive_increments (4 = analytic q^2 correction, 1 = logarithm)': (np.diff(d0)[:-1] / np.diff(d0)[1:]).tolist(),
+}
+print(json.dumps(res['massless_band_scale_dependence'], indent=1))
+
+# ---------------------------------------------------------------- 3. all wirings with three glue ports per carrier
+U = FL.PORT_UNIT
+
+
+def rotations():
+    def frame(a, b):
+        e1 = U[a]; e2 = U[b] - (U[b] @ e1) * e1; e2 /= np.linalg.norm(e2)
+        return np.stack([e1, e2, np.cross(e1, e2)], axis=1)
+    F0 = frame(0, int(np.flatnonzero(Aint[0])[0]))
+    perms = set()
+    for a in range(12):
+        for b in np.flatnonzero(Aint[a]):
+            R = frame(a, int(b)) @ F0.T
+            perms.add(tuple(int(v) for v in np.argmax((U @ R.T) @ U.T, axis=1)))
+    assert len(perms) == 60
+    return sorted(perms)
+
+
+rots = rotations()
+dist = np.where(Aint > 0, 1, 2).astype(int); np.fill_diagonal(dist, 0)
+for p in range(12):
+    dist[p, int(np.argmin(U @ U[p]))] = 3
+seen, classes = set(), []
+for t in permutations(range(12), 3):
+    if t in seen:
+        continue
+    orbit = {tuple(g[v] for v in t) for g in rots}
+    seen |= orbit
+    classes.append((min(orbit), (int(dist[t[0], t[1]]), int(dist[t[1], t[2]]), int(dist[t[0], t[2]]))))
+res['ordered_triple_classes'] = len(classes)
+t0 = time.time()
+zone = [np.array([x, y]) * 4 / 3 for x in np.linspace(-np.pi, np.pi, 25) for y in np.linspace(-np.pi, np.pi, 25)]
+rowsw, keyseen = [], set()
+for cu, du in classes:
+    for cd, ddn in classes:
+        for shift in range(3):
+            up = list(cu); dn = list(cd); dn = dn[shift:] + dn[:shift]
+            curv = [float(ev(h * d, up, dn)[0] / h ** 2) for d in dirs]
+            gaps = np.array([np.diff(ev(g, up, dn)[:2])[0] for g in zone])
+            i = int(np.argmin(gaps))
+            e = ev(zone[i], up, dn)
+            key = (tuple(sorted(du)), tuple(sorted(ddn)), round(float(np.mean(curv)), 6), round(float(np.ptp(curv)), 6), round(float(gaps[i]), 3))
+            if key in keyseen:
+                continue
+            keyseen.add(key)
+            rowsw.append({'up': up, 'down': dn, 'up_distances': du, 'down_distances': ddn, 'c2_mean': float(np.mean(curv)),
+                          'c2_min': float(min(curv)), 'c2_max': float(max(curv)), 'anisotropy': float(np.ptp(curv) / np.mean(curv)),
+                          'min_gap_of_lowest_pair_on_grid': float(gaps[i]), 'level_there': float(e[0])})
+c2all = np.array([r['c2_mean'] for r in rowsw]); an = np.array([r['anisotropy'] for r in rowsw]); gp = np.array([r['min_gap_of_lowest_pair_on_grid'] for r in rowsw])
+iso = an < 1e-4
+res['wiring_atlas'] = {
+    'distinct_wirings_found': len(rowsw), 'seconds': round(time.time() - t0, 1),
+    'c2_mean_min': float(c2all.min()), 'c2_mean_max': float(c2all.max()), 'ratio_max/min': float(c2all.max() / c2all.min()),
+    'isotropic_wirings': int(iso.sum()), 'isotropic_c2_values': sorted(set(np.round(c2all[iso], 6).tolist())),
+    'anisotropy_max': float(an.max()),
+    'wirings_with_grid_gap_below_0.01': int((gp < 0.01).sum()), 'largest_gap_of_lowest_pair': float(gp.max()),
+    'rows': rowsw,
+}
+print(json.dumps({k: v for k, v in res['wiring_atlas'].items() if k != 'rows'}, indent=1))
+OUT.write_text(json.dumps(res, indent=1))

@@ -1,0 +1,294 @@
+"""Carrier geometry and the reference rule (self-contained copy, verified against the repository).
+
+Port chart: the source chart of `oph_exact/carrier.py` (the one `slow_geometry.source()` returns).
+Rotation convention: a rotation is a tuple `perm` with perm[old_port] = new_port.
+"""
+from __future__ import annotations
+
+from fractions import Fraction
+from functools import lru_cache
+from itertools import combinations, combinations_with_replacement
+
+import numpy as np
+
+N_PORTS = 12
+SEAMS = ((0, 1), (0, 5), (0, 7), (0, 10), (0, 11), (1, 5), (1, 7), (1, 8), (1, 9), (2, 3),
+         (2, 4), (2, 6), (2, 10), (2, 11), (3, 4), (3, 6), (3, 8), (3, 9), (4, 5), (4, 9),
+         (4, 11), (5, 9), (5, 11), (6, 7), (6, 8), (6, 10), (7, 8), (7, 10), (8, 9), (10, 11))
+FACES = ((0, 11, 5), (0, 5, 1), (0, 1, 7), (0, 7, 10), (0, 10, 11), (1, 5, 9), (5, 11, 4),
+         (11, 10, 2), (10, 7, 6), (7, 1, 8), (3, 9, 4), (3, 4, 2), (3, 2, 6), (3, 6, 8),
+         (3, 8, 9), (4, 9, 5), (2, 4, 11), (6, 2, 10), (8, 6, 7), (9, 8, 1))
+M_SEAMS = len(SEAMS)
+SEAM_SET = frozenset(SEAMS)
+
+
+def canonical(seam):
+    a, b = seam
+    return (a, b) if a < b else (b, a)
+
+
+@lru_cache(maxsize=1)
+def adjacency():
+    a = np.zeros((N_PORTS, N_PORTS), dtype=np.int64)
+    for i, j in SEAMS:
+        a[i, j] = a[j, i] = 1
+    return a
+
+
+@lru_cache(maxsize=1)
+def neighbours():
+    a = adjacency()
+    return tuple(tuple(int(q) for q in np.nonzero(a[p])[0]) for p in range(N_PORTS))
+
+
+@lru_cache(maxsize=1)
+def antipode():
+    a = adjacency()
+    a2, a3 = a @ a, a @ a @ a
+    out = []
+    for p in range(N_PORTS):
+        far = [q for q in range(N_PORTS) if q != p and a[p, q] == 0 and a2[p, q] == 0 and a3[p, q] > 0]
+        assert len(far) == 1
+        out.append(far[0])
+    return tuple(out)
+
+
+def _cyc(face):
+    face = tuple(face)
+    k = face.index(min(face))
+    return face[k:] + face[:k]
+
+
+@lru_cache(maxsize=1)
+def rotations():
+    """The 60 proper rotations as port permutations (perm[old] = new), identity first."""
+    adj = [set(n) for n in neighbours()]
+    faces = {_cyc(f) for f in FACES}
+    found = []
+
+    def extend(assign, used):
+        p = len(assign)
+        if p == N_PORTS:
+            if all(_cyc((assign[a], assign[b], assign[c])) in faces for a, b, c in FACES):
+                found.append(tuple(assign))
+            return
+        for image in range(N_PORTS):
+            if image in used:
+                continue
+            if all((q in adj[p]) == (assign[q] in adj[image]) for q in range(p)):
+                assign.append(image)
+                used.add(image)
+                extend(assign, used)
+                assign.pop()
+                used.discard(image)
+
+    extend([], set())
+    assert len(found) == 60
+    found.sort(key=lambda g: (g != tuple(range(N_PORTS)), g))
+    return tuple(found)
+
+
+@lru_cache(maxsize=1)
+def rotation_generators():
+    """Two rotations (a five-fold and a three-fold) that generate all 60; indices into rotations()."""
+    rots = rotations()
+    ident = tuple(range(N_PORTS))
+
+    def order(g):
+        h, k = g, 1
+        while h != ident:
+            h = tuple(g[x] for x in h)
+            k += 1
+        return k
+
+    fives = [i for i, g in enumerate(rots) if order(g) == 5]
+    threes = [i for i, g in enumerate(rots) if order(g) == 3]
+    for i in fives:
+        for j in threes:
+            group = {ident}
+            frontier = [ident]
+            while frontier:
+                new = []
+                for h in frontier:
+                    for g in (rots[i], rots[j]):
+                        k = tuple(g[x] for x in h)
+                        if k not in group:
+                            group.add(k)
+                            new.append(k)
+                frontier = new
+            if len(group) == 60:
+                return (i, j)
+    raise AssertionError("no generating pair found")
+
+
+def third_ports(seam):
+    """The third ports of the two faces that contain the seam: (left of a->b, left of b->a).
+
+    'Left of a->b' is the oriented face in FACES that contains a followed by b cyclically.
+    """
+    a, b = seam
+    left = right = None
+    for f in FACES:
+        for k in range(3):
+            x, y, z = f[k], f[(k + 1) % 3], f[(k + 2) % 3]
+            if (x, y) == (a, b):
+                left = z
+            if (x, y) == (b, a):
+                right = z
+    assert left is not None and right is not None
+    return left, right
+
+
+@lru_cache(maxsize=1)
+def link_cycles():
+    """For each port the oriented five-cycle of its neighbours: nxt[p][a] = b when face (p,a,b) is oriented."""
+    nxt = [dict() for _ in range(N_PORTS)]
+    for f in FACES:
+        for k in range(3):
+            p, a, b = f[k], f[(k + 1) % 3], f[(k + 2) % 3]
+            nxt[p][a] = b
+    return tuple(nxt)
+
+
+# ---------------------------------------------------------------- bands (float and exact)
+
+S5 = 5 ** 0.5
+BANDS = (("1", 0.0, 1), ("3", 5 - S5, 3), ("5", 6.0, 5), ("3p", 5 + S5, 3))   # name, Laplacian eigenvalue, rank
+
+
+@lru_cache(maxsize=1)
+def laplacian():
+    return 5 * np.eye(N_PORTS, dtype=np.int64) - adjacency()
+
+
+@lru_cache(maxsize=1)
+def band_projectors():
+    """Float spectral projectors of the port Laplacian: {'1','3','5','3p'}; '3' is the slow triplet."""
+    lap = laplacian().astype(float)
+    out = {}
+    for name, mu, rank in BANDS:
+        proj = np.eye(N_PORTS)
+        for _, nu, _ in BANDS:
+            if nu != mu:
+                proj = proj @ (lap - nu * np.eye(N_PORTS)) / (mu - nu)
+        assert abs(np.trace(proj) - rank) < 1e-9
+        out[name] = proj
+    return out
+
+
+def q5_mul(x, y):
+    return (x[0] * y[0] + 5 * x[1] * y[1], x[0] * y[1] + x[1] * y[0])
+
+
+def q5_inv(x):
+    n = x[0] * x[0] - 5 * x[1] * x[1]
+    return (x[0] / n, -x[1] / n)
+
+
+@lru_cache(maxsize=1)
+def band_projectors_exact():
+    """Exact projectors over Q(sqrt5): dict name -> (A, B) integer-or-Fraction object arrays, P = A + sqrt5 B."""
+    lap = laplacian()
+    eig = {"1": (Fraction(0), Fraction(0)), "3": (Fraction(5), Fraction(-1)),
+           "5": (Fraction(6), Fraction(0)), "3p": (Fraction(5), Fraction(1))}
+    out = {}
+    for name, mu in eig.items():
+        a = np.array([[Fraction(int(i == j)) for j in range(N_PORTS)] for i in range(N_PORTS)], dtype=object)
+        b = np.array([[Fraction(0)] * N_PORTS for _ in range(N_PORTS)], dtype=object)
+        for other, nu in eig.items():
+            if other == name:
+                continue
+            fa = np.array([[Fraction(int(lap[i, j])) - (nu[0] if i == j else 0) for j in range(N_PORTS)]
+                           for i in range(N_PORTS)], dtype=object)
+            fb = np.array([[-(nu[1] if i == j else 0) for j in range(N_PORTS)] for i in range(N_PORTS)], dtype=object)
+            na = a.dot(fa) + 5 * b.dot(fb)
+            nb = a.dot(fb) + b.dot(fa)
+            s = q5_inv((mu[0] - nu[0], mu[1] - nu[1]))
+            a = na * s[0] + 5 * nb * s[1]
+            b = na * s[1] + nb * s[0]
+        out[name] = (a, b)
+    return out
+
+
+# ---------------------------------------------------------------- loads and the reference rule
+
+def native(loads, seam, coin):
+    """Reference rule: returns (new loads, current). Identical to model.observer.native.native."""
+    a, b = seam
+    d = loads[a] - loads[b]
+    current = (d - (2 * coin - 1) * (abs(d) % 2)) // 2
+    out = list(loads)
+    out[a] -= current
+    out[b] += current
+    return tuple(out), current
+
+
+def load_states(total, binary=False):
+    """All load tuples of the given total on twelve ports (lexicographically sorted)."""
+    out = []
+    for ports in combinations_with_replacement(range(N_PORTS), total):
+        if binary and len(set(ports)) != total:
+            continue
+        loads = [0] * N_PORTS
+        for p in ports:
+            loads[p] += 1
+        out.append(tuple(loads))
+    return tuple(sorted(set(out)))
+
+
+def on_shell(loads):
+    """Balanced shell: all loads in {n, n+1} (for totals below twelve: binary)."""
+    return max(loads) - min(loads) <= 1
+
+
+def rotate_loads(perm, loads):
+    out = [0] * N_PORTS
+    for p, v in enumerate(loads):
+        out[perm[p]] = v
+    return tuple(out)
+
+
+def reference_kernel(states):
+    """Reference Markov matrix on a list of load tuples (uniform seam, fair coin). T[y, x]."""
+    index = {s: i for i, s in enumerate(states)}
+    t = np.zeros((len(states), len(states)))
+    for x in states:
+        for seam in SEAMS:
+            for coin in (0, 1):
+                y, _ = native(x, seam, coin)
+                t[index[y], index[x]] += 1.0 / (2 * M_SEAMS)
+    return t
+
+
+def subsets():
+    """Port subsets used by T5."""
+    nb = neighbours()
+    face = FACES[1]                      # (0, 5, 1)
+    apexes = [third_ports((face[k], face[(k + 1) % 3]))[1] for k in range(3)]
+    return {"one_port": (0,), "seam": (0, 1), "face": tuple(sorted(face)),
+            "cap_5fold": tuple(sorted((0,) + nb[0])),
+            "hemisphere_3fold": tuple(sorted(set(face) | set(apexes)))}
+
+
+def verify_against_repo():
+    """Compare this copy with the pinned repository carrier; returns a dict of booleans (or the import error)."""
+    try:
+        from model.common_source import slow_geometry
+        from model.observer import native as repo_native
+    except Exception as exc:  # pragma: no cover
+        return {"repository_importable": False, "error": repr(exc)}
+    src = slow_geometry.source()
+    ok_rule = True
+    for x in load_states(2):
+        for seam in SEAMS:
+            for coin in (0, 1):
+                y, rec = repo_native.native(x, seam, coin)
+                if (tuple(y), rec[1]) != native(x, seam, coin):
+                    ok_rule = False
+    return {"repository_importable": True,
+            "seams_equal": tuple(src.seams()) == SEAMS,
+            "faces_equal": tuple(tuple(f) for f in src.oriented_faces()) == FACES,
+            "rotations_equal": set(src.rotations()) == set(rotations()),
+            "antipode_equal": tuple(src.antipode()) == antipode(),
+            "states_equal": tuple(repo_native.states()) == load_states(2),
+            "reference_rule_equal_on_78x30x2": ok_rule}

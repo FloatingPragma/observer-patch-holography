@@ -1,0 +1,176 @@
+{
+ "G1": {
+  "class3_statistics": {
+   "deg 1, Y 1/2": "boson",
+   "deg 4, Y -1/2": "fermion"
+  },
+  "anomaly_of_extra_Y_minus_half_doublets": {
+   "1": {
+    "TrY3": "-1/4",
+    "SU2sq_Y": "-1/4",
+    "Witten_odd": true
+   },
+   "2": {
+    "TrY3": "-1/2",
+    "SU2sq_Y": "-1/2",
+    "Witten_odd": false
+   }
+  }
+ },
+ "G2": {
+  "condition": "g(m) + g(-m) = 1 mod 2 for every pattern",
+  "class0_without_flux_object": "CPT inconsistent",
+  "one_copy_fields": [
+   {
+    "flux": 3,
+    "rep": "(1,2)",
+    "Y": "1/2",
+    "stat": "boson"
+   },
+   {
+    "flux": 3,
+    "rep": "(1,2)",
+    "Y": "-1/2",
+    "stat": "fermion"
+   },
+   {
+    "flux": 2,
+    "rep": "(3b,1)",
+    "Y": "1/3",
+    "stat": "fermion"
+   },
+   {
+    "flux": 1,
+    "rep": "(3,2)",
+    "Y": "1/6",
+    "stat": "fermion"
+   },
+   {
+    "flux": 2,
+    "rep": "(3b,1)",
+    "Y": "-2/3",
+    "stat": "fermion"
+   }
+  ],
+  "pair_plus3_minus3": {
+   "+3:(1,2)_1/2 -3:(1,2)_1/2": "H Lbar",
+   "+3:(1,2)_1/2 -3:(1,2)_-1/2": "H Hbar",
+   "+3:(1,2)_-1/2 -3:(1,2)_1/2": "L Lbar",
+   "+3:(1,2)_-1/2 -3:(1,2)_-1/2": "L Hbar"
+  }
+ },
+ "G3": {
+  "m=+-3, g(3)=1": {
+   "(1,2)_1/2": "boson",
+   "(1,2)_-1/2": "fermion"
+  },
+  "m=+-9, g(9)=0": {
+   "(1,2)_1/2": "fermion",
+   "(1,2)_-1/2": "boson"
+  }
+ },
+ "G4": {
+  "quantum_numbers": "fermion (1,2)_{-1/2} and boson (1,2)_{+1/2} in both readings",
+  "index_sums": [
+   "3/10",
+   "1/2",
+   "0"
+  ],
+  "reading_L": "lepton doublet and conjugate slepton",
+  "reading_H": "Higgsino of H_d and boson H_u",
+  "consequence": "one-loop slopes and anomalies identical; the reading removes one lepton doublet per unit"
+ },
+ "censuses": {
+  "Ha1": {
+   "b": [
+    "6",
+    "-4/3",
+    "-5"
+   ],
+   "b1_minus_b2": "22/3",
+   "b2_minus_b3": "11/3",
+   "mZ_chain": {
+    "status": "no closure"
+   },
+   "cut_chain": {
+    "status": "Landau pole above m_Z"
+   }
+  },
+  "Ha2": {
+   "b": [
+    "43/10",
+    "-17/6",
+    "-7"
+   ],
+   "b1_minus_b2": "107/15",
+   "b2_minus_b3": "25/6",
+   "mZ_chain": {
+    "status": "no closure"
+   },
+   "cut_chain": {
+    "status": "Landau pole above m_Z"
+   }
+  },
+  "Hb": {
+   "b": [
+    "33/5",
+    "-1/3",
+    "-5"
+   ],
+   "b1_minus_b2": "104/15",
+   "b2_minus_b3": "14/3",
+   "mZ_chain": {
+    "status": "no closure"
+   },
+   "cut_chain": {
+    "status": "Landau pole above m_Z"
+   }
+  },
+  "Hc1": {
+   "b": [
+    "6",
+    "-4/3",
+    "-5"
+   ],
+   "b1_minus_b2": "22/3",
+   "b2_minus_b3": "11/3",
+   "mZ_chain": {
+    "status": "no closure"
+   },
+   "cut_chain": {
+    "status": "Landau pole above m_Z"
+   }
+  },
+  "Hc2": {
+   "b": [
+    "8",
+    "2/3",
+    "-3"
+   ],
+   "b1_minus_b2": "22/3",
+   "b2_minus_b3": "11/3",
+   "mZ_chain": {
+    "status": "closure",
+    "P": 1.629433717417133,
+    "alpha0_inv": 155.48210862240967,
+    "alpha_U": 0.03907159047305578,
+    "M_U_GeV": 2.4732230117127676e+16,
+    "v_GeV": 33.16683808187905,
+    "m_Z_GeV": 12.133897974521153,
+    "m_W_GeV": 10.854037103450354,
+    "sin2_theta_W_mZ": 0.19983062454988162,
+    "alpha_s_mZ": 0.11411632455246326,
+    "alpha_em_inv_mZ": 146.795710217699,
+    "ln_MU_over_mZ": 35.250880629738866
+   },
+   "cut_chain": {
+    "status": "outputs",
+    "m_Z_GeV": 92.64423567940182,
+    "m_W_GeV": 82.83774759354559,
+    "sin2_theta_W_mZ": 0.20049762554047493,
+    "alpha_s_mZ": 0.1182594589714318,
+    "alpha0_inv": 147.56213451315762
+   }
+  }
+ }
+}

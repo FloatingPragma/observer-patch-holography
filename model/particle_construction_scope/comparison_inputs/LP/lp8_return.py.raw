@@ -1,0 +1,75 @@
+"""LP addendum 3 (items T1 to T3): the return test of CK2's round applied to the consensus pair.
+EXACT (Fractions). Writes lp8_return.json.
+"""
+from __future__ import annotations
+
+import json
+import sys
+import time
+from fractions import Fraction as Fr
+
+import lp_common as L
+
+OUT = 'lp8_return.json'
+
+
+def dot(u, v):
+    return sum((a * v[k] for k, a in u.items() if k in v), Fr(0))
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LP addendum 3: return test on the consensus pair', 'provenance': L.FC.provenance()}
+    res = {}
+    for hol in (-1, 1):
+        m = L.hexagon('FP', hol)
+        D = m.D()
+        idx = m.sector_index('cycle')
+        ns = L.nullspace(L.minus_identity(L.sub(D, idx)))
+        assert len(ns) == 1
+        v = {i: ns[0][t] for t, i in enumerate(idx) if ns[0][t]}
+        psi = {(i // 4, i % 4, k): a for i, a in v.items() for k in range(m.NA)}       # A v (unnormalized)
+        tau = m.embed({m.cfg_of(p, p): Fr(1) for p in L.HEX})                            # A U6 (unnormalized)
+        fixed = m.W(psi) == psi
+        n_psi, n_tau = dot(psi, psi), dot(tau, tau)
+        ov = dot(tau, psi)
+        p1 = ov * ov / (n_psi * n_tau)
+        phi = dict(psi)
+        for k, a in tau.items():
+            phi[k] = phi.get(k, Fr(0)) - ov / n_tau * a
+        phi = {k: a for k, a in phi.items() if a}
+        n_phi = dot(phi, phi)
+        rows = {}
+        st = phi
+        for n in range(1, 7):
+            st = m.W(st)
+            o = dot(tau, st)
+            rows[n] = str(o * o / (n_phi * n_tau))
+        total_one_retry = p1 + (1 - p1) * Fr(rows[3])
+        res[f'holonomy {hol:+d}'] = {
+            'consensus state is fixed by the tick': fixed, 'T1 weight of the outcome yes': str(p1),
+            'weight of the failure branch': str(n_phi / n_psi),
+            'T2 weight of yes after n ticks from the failure branch': rows,
+            'weight of the bare pair with one retry after three ticks': str(total_one_retry)}
+    out['return test on the consensus pair (FP)'] = res
+    # T3: weight kept by the iterated filter from the uniform mixture of the blank embedded preparations
+    s3 = json.load(open('lp3_stationary.json'))['FP, holonomy -1']['S8 iterated filter K+ = (2 I + W)/3 on the 21 blank preparations']
+    c3 = json.load(open('lp3b_carrier.json'))['class-3 string between f and f_prime']['iterated filter on the 78 blank preparations']
+    hex_kept = (Fr(s3['limit weight kept, hard-core preparations (EXACT)']) + Fr(s3['limit weight kept, double-load preparations (EXACT)'])) / 21
+    car_kept = (Fr(c3['limit weight kept, hard-core']) + Fr(c3['limit weight kept, double loads'])) / 78
+    out['T3 heralded native preparation'] = {
+        'hexagon, uniform mixture of the 21 blank embedded preparations, iterated filter, class-3 defect':
+            {'weight kept in the limit': str(hex_kept), 'share of the cycle sector in what is kept': s3['limit of the conditional weight of the cycle sector (EXACT)'],
+             'weight kept from one double-load preparation': str(Fr(s3['limit weight kept, double-load preparations (EXACT)']) / 6)},
+        'carrier, uniform mixture of the 78 blank embedded preparations, class-3 defect':
+            {'weight kept in the limit': str(car_kept), 'share of the cycle sector in what is kept': c3['limit of the conditional weight of the cycle sector'],
+             'weight kept from one double-load preparation': str(Fr(c3['limit weight kept, double loads']) / 12)},
+        'inputs': 'lp3_stationary.json (S8), lp3b_carrier.json'}
+    print(json.dumps(out, indent=1, default=str))
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

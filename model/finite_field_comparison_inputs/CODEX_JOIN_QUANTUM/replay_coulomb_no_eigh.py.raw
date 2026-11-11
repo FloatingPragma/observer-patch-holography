@@ -1,0 +1,20 @@
+"""Fresh exact static-Coulomb receipt replay with numerical eigensolvers disabled."""
+from pathlib import Path
+import runpy
+import sys
+import numpy as np
+import scipy.linalg
+import scipy.sparse.linalg
+
+
+def forbidden(*args,**kwargs):
+    raise AssertionError('numerical spectral oracle forbidden in exact Coulomb receipt')
+
+for module,names in ((np.linalg,('eig','eigh','eigvals','eigvalsh')),
+        (scipy.linalg,('eig','eigh','eigvals','eigvalsh')),
+        (scipy.sparse.linalg,('eigs','eigsh'))):
+    for name in names:setattr(module,name,forbidden)
+path=Path(__file__).with_name('coulomb_source')/'model.py'
+sys.argv=[str(path),'--check']
+runpy.run_path(str(path),run_name='__main__')
+print('PASS: fresh strict no-eigensolver replay')

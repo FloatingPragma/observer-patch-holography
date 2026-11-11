@@ -1,0 +1,110 @@
+"""D3 item 1: a kink of the mass field on a line of carriers (one routing axis).
+
+Mass step M(x) = exp(-i theta(x) Z_r) (phi = 0 on one side, pi on the other: the mass changes sign).
+(a) exact (sympy): the zero-phase mode for an arbitrary angle profile, cell by cell;
+(b) executed on the reference engine: counts at phase 0 and pi, labels, profile, residual of the closed form;
+(c) the alternating tick restricted to a line (two ticks);
+(d) the same line as a wall in three dimensions: item1_wall.py.
+
+Run:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python item1_line.py item1.json
+"""
+import json, sys
+import numpy as np
+import sympy as sy
+import d3lib as d3
+
+out = {'engine_sha256': d3.ENGINE_SHA}
+
+# ---------------------------------------------------------------- (a) exact closed form, arbitrary profile
+# sector sigma_1 = s (alpha_1 = s X_r), symmetric frame U_s = M^1/2 S M^1/2. Claim: for every profile theta(x),
+#   psi(x) = f_x |Y_r = gamma>,  f_x = g_x / (cos(theta_x/2) + gamma s sin(theta_x/2)),
+#   g_(x+1) = g_x (cos(theta_x/2) - gamma s sin(theta_x/2)) / (cos(theta_x/2) + gamma s sin(theta_x/2))
+# solves U_s psi = psi at every cell, and (-1)^x psi(x) solves U_s psi = -psi.
+ta, tb, tc = sy.symbols('theta_a theta_b theta_c', real=True)       # three consecutive cells x-1, x, x+1
+X = sy.Matrix([[0, 1], [1, 0]]); Y = sy.Matrix([[0, -sy.I], [sy.I, 0]]); Z = sy.Matrix([[1, 0], [0, -1]]); one = sy.eye(2)
+exact_rows = []
+for s in (1, -1):
+    for gam in (1, -1):
+        e = gam * s
+        chi = sy.Matrix([1, gam * sy.I]) / sy.sqrt(2)                # Y chi = gamma chi
+        def half(t, sign): return sy.cos(t / 2) * one - sign * sy.I * sy.sin(t / 2) * Z      # M^(sign/2)
+        def ratio(t): return (sy.cos(t / 2) - e * sy.sin(t / 2)) / (sy.cos(t / 2) + e * sy.sin(t / 2))
+        def f(t, g): return g / (sy.cos(t / 2) + e * sy.sin(t / 2))
+        ga = sy.Integer(1); gb = ga * ratio(ta); gc = gb * ratio(tb)
+        psi_a, psi_b, psi_c = f(ta, ga) * chi, f(tb, gb) * chi, f(tc, gc) * chi
+        Pp, Pm = (one + s * X) / 2, (one - s * X) / 2
+        res = Pp * half(ta, 1) * psi_a + Pm * half(tc, 1) * psi_c - half(tb, -1) * psi_b      # (S M^1/2 psi - M^-1/2 psi)(x)
+        res = sy.simplify(sy.expand_trig(res))
+        exact_rows.append({'sigma_1': s, 'Y_r': gam, 'residual_at_the_middle_cell': str(list(res)), 'is_zero': bool(res == sy.zeros(2, 1))})
+out['exact_closed_form'] = {
+    'statement': 'for every angle profile the symmetric-frame tick on a line has, in each sector sigma_1 = s, Y_r = gamma, the formal '
+                 'solution psi(x) = f_x |Y_r = gamma>, g_(x+1) = g_x tan(pi/4 - gamma s theta_x / 2), at eigenvalue +1; it is normalizable '
+                 'exactly when gamma s theta is positive on the right and negative on the left. (-1)^x anticommutes with the shift and '
+                 'commutes with the mass step, so (-1)^x psi is the same statement at eigenvalue -1 (phase pi)',
+    'rows': exact_rows, 'all_zero': all(r['is_zero'] for r in exact_rows)}
+print('(a) exact residuals all zero:', out['exact_closed_form']['all_zero'])
+
+# ---------------------------------------------------------------- (b) engine: ring with a kink and an antikink
+def ring_field(L, th0, width=0.0):
+    x = np.arange(L)
+    if width == 0: return np.where((x >= L // 4) & (x < 3 * L // 4), th0, -th0).astype(float)
+    return th0 * np.tanh((x - L / 4 + 0.5) / width) * np.tanh((3 * L / 4 - 0.5 - x) / width)
+
+def analyse(L, th0, width, label):
+    th = ring_field(L, th0, width)
+    ew = d3.EngineWalk((L, 1, 1), th.reshape(L, 1, 1), 0.0)
+    U = ew.dense(lambda p: ew.sym(p, ticks=1))                       # symmetric frame, one tick, through the engine
+    lam, vec = np.linalg.eig(U); E = -np.angle(lam)
+    win = 0.5 * th0
+    zero = np.nonzero(np.abs(E) < win)[0]; pi_ = np.nonzero(np.abs(np.abs(E) - np.pi) < win)[0]
+    ingap_other = int(np.sum((np.abs(E) < th0 * (1 - 1e-9)) & (np.abs(E) >= win)))
+    row = {'label': label, 'cells': L, 'theta0': th0, 'kink_width': width, 'modes_with_|phase|_below_theta0/2': len(zero),
+           'modes_within_theta0/2_of_pi': len(pi_), 'other_modes_inside_the_gap': ingap_other,
+           'largest_|phase|_of_the_zero_group': float(np.abs(E[zero]).max()), 'largest_distance_from_pi': float(np.abs(np.abs(E[pi_]) - np.pi).max())}
+    # labels: sigma_1 Y_r on the bound space at each wall, and X_r (handedness class)
+    Yop = np.kron(np.eye(L), d3.YR); S1 = np.kron(np.eye(L), d3.SPIN[0]); Xop = np.kron(np.eye(L), d3.XR)
+    x = np.repeat(np.arange(L), 4)
+    for name, sel in (('zero', zero), ('pi', pi_)):
+        Q, _ = np.linalg.qr(vec[:, sel])
+        for wall, centre in (('kink', L // 4 - 0.5), ('antikink', 3 * L // 4 - 0.5)):
+            Pw = np.diag((np.abs(x - centre) < L / 8).astype(float))
+            wts, R = np.linalg.eigh(Q.conj().T @ Pw @ Q); B = Q @ R[:, wts > 0.5]          # modes localized on this wall
+            row[f'{name}_{wall}_count'] = int(B.shape[1])
+            row[f'{name}_{wall}_eigenvalues_of_sigma1_Yr'] = [round(float(v), 9) for v in np.linalg.eigvalsh(B.conj().T @ (S1 @ Yop) @ B)]
+            row[f'{name}_{wall}_eigenvalues_of_sigma1'] = [round(float(v), 9) for v in np.linalg.eigvalsh(B.conj().T @ S1 @ B)]
+            row[f'{name}_{wall}_largest_|<X_r>|'] = float(np.abs(np.linalg.eigvalsh(B.conj().T @ Xop @ B)).max())
+            if name == 'zero' and wall == 'kink':
+                dens = np.sum(np.abs(B) ** 2, axis=1).reshape(L, 4).sum(axis=1) / B.shape[1]
+                c0 = L // 4
+                row['kink_density_ratio_per_cell_measured'] = [float(dens[c0 + k + 1] / dens[c0 + k]) for k in (3, 6, 9)]
+                row['kink_density_ratio_per_cell_closed_form_tan^2(pi/4-theta0/2)'] = float(np.tan(np.pi / 4 - th0 / 2) ** 2)
+                row['kink_density_at_cells_-2..3_from_the_wall'] = [float(v) for v in dens[c0 - 2:c0 + 4]]
+    # closed form executed on the engine: residual of U_s psi = psi
+    worst = 0.0
+    for s in (1, -1):
+        gam = s                                                       # kink (theta from - to +): gamma s = +1
+        g = np.zeros(L); c0 = L // 4; g[c0] = 1.0
+        for k in range(L - 1): g[(c0 + k + 1) % L] = g[(c0 + k) % L] * np.tan(np.pi / 4 - th[(c0 + k) % L] / 2)
+        closure = abs(g[(c0 - 1) % L] * np.tan(np.pi / 4 - th[(c0 - 1) % L] / 2) - 1.0)      # the recurrence closes on a balanced ring
+        fx = g / (np.cos(th / 2) + np.sin(th / 2))
+        chi_r = np.array([1, gam * 1j]) / np.sqrt(2); chi_s = np.array([1, s]) / np.sqrt(2)
+        psi = (fx[:, None, None] * chi_r[None, :, None] * chi_s[None, None, :]).reshape(L, 1, 1, 2, 2); psi = psi / np.linalg.norm(psi)
+        worst = max(worst, float(np.abs(ew.sym(psi, ticks=1) - psi).max()))
+        stag = psi * ((-1.0) ** np.arange(L)).reshape(L, 1, 1, 1, 1)
+        worst = max(worst, float(np.abs(ew.sym(stag, ticks=1) + stag).max()))
+    row['closed_form_residual_on_the_engine_(phase_0_and_pi,_both_spins)'] = worst
+    row['closed_form_recurrence_closure_defect_around_the_ring'] = float(closure)
+    # (c) the alternating tick restricted to a line: two ticks of the engine
+    U2 = ew.dense(lambda p: ew.sym(p, ticks=2))
+    E2 = -np.angle(np.linalg.eigvals(U2))
+    row['two_ticks_modes_with_|two-tick phase|_below_theta0'] = int(np.sum(np.abs(E2) < th0))
+    row['two_ticks_defect_from_square_of_one_tick'] = float(np.abs(U2 - U @ U).max())
+    return row
+
+rows = [analyse(160, 0.157935, 0.0, 'sharp kink, CF-1 sample angle'),
+        analyse(96, float(np.arccos(0.6)), 0.0, 'sharp kink, cos(theta0) = 3/5 (decay ratio exactly 1/3 per cell in amplitude)'),
+        analyse(160, 0.157935, 6.0, 'smooth kink, tanh of width 6 cells')]
+out['engine_ring'] = rows
+for r in rows: print('(b)', json.dumps(r))
+
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

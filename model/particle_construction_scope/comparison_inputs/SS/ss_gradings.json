@@ -1,0 +1,481 @@
+{
+ "T2_defect_class_gradings": {
+  "channels": {
+   "fusion": 12,
+   "split": 12,
+   "pair_birth_and_annihilation": 3
+  },
+  "solutions_(classes_1_to_5)": [
+   [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   [
+    1,
+    0,
+    1,
+    0,
+    1
+   ]
+  ],
+  "statement": "the class gradings conserved by every channel are the trivial one and k mod 2"
+ },
+ "T2_odd_class_defects_per_carrier": {
+  "compositions_L10": 30,
+  "carriers": 7218131,
+  "compositions_with_an_odd_number_of_odd-class_defects": [],
+  "reason": "classes sum to 0 mod 6 on a carrier, so their sum is even and the odd classes come in even numbers",
+  "statement": "the grading k mod 2 equals +1 on every closed carrier: it is invisible on carriers"
+ },
+ "T3_vertex_gradings": {
+  "vertex_rows": {
+   "currents": 64,
+   "toggle": 32,
+   "hopping": 120,
+   "Yukawa": 4,
+   "CPT": 37,
+   "catalogue_channels": {
+    "fusion": 12,
+    "split": 12,
+    "pair_birth_and_annihilation": 3
+   }
+  },
+  "consistent": true,
+  "dimension": 4,
+  "number_of_gradings": 16,
+  "basis": [
+   {
+    "quanta_by_block": {
+     "n3=0,n2=0": 0,
+     "n3=0,n2=1": 0,
+     "n3=0,n2=2": 0,
+     "n3=1,n2=0": 1,
+     "n3=1,n2=1": 1,
+     "n3=1,n2=2": 1,
+     "n3=2,n2=0": 1,
+     "n3=2,n2=1": 1,
+     "n3=2,n2=2": 1,
+     "n3=3,n2=0": 0,
+     "n3=3,n2=1": 0,
+     "n3=3,n2=2": 0
+    },
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ]
+   },
+   {
+    "quanta_by_block": {
+     "n3=0,n2=0": 1,
+     "n3=0,n2=1": 1,
+     "n3=0,n2=2": 1,
+     "n3=1,n2=0": 0,
+     "n3=1,n2=1": 0,
+     "n3=1,n2=2": 0,
+     "n3=2,n2=0": 0,
+     "n3=2,n2=1": 0,
+     "n3=2,n2=2": 0,
+     "n3=3,n2=0": 1,
+     "n3=3,n2=1": 1,
+     "n3=3,n2=2": 1
+    },
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ]
+   },
+   {
+    "quanta_by_block": {
+     "n3=0,n2=0": 0,
+     "n3=0,n2=1": 1,
+     "n3=0,n2=2": 0,
+     "n3=1,n2=0": 0,
+     "n3=1,n2=1": 1,
+     "n3=1,n2=2": 0,
+     "n3=2,n2=0": 0,
+     "n3=2,n2=1": 1,
+     "n3=2,n2=2": 0,
+     "n3=3,n2=0": 0,
+     "n3=3,n2=1": 1,
+     "n3=3,n2=2": 0
+    },
+    "register": [
+     1,
+     1
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ]
+   },
+   {
+    "quanta_by_block": {
+     "n3=0,n2=0": 0,
+     "n3=0,n2=1": 0,
+     "n3=0,n2=2": 0,
+     "n3=1,n2=0": 0,
+     "n3=1,n2=1": 0,
+     "n3=1,n2=2": 0,
+     "n3=2,n2=0": 0,
+     "n3=2,n2=1": 0,
+     "n3=2,n2=2": 0,
+     "n3=3,n2=0": 0,
+     "n3=3,n2=1": 0,
+     "n3=3,n2=2": 0
+    },
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 1,
+     "2": 0,
+     "3": 1,
+     "4": 0,
+     "5": 1
+    },
+    "links": [
+     0
+    ]
+   }
+  ]
+ },
+ "T3_spin_statistics": {
+  "SR1": {
+   "consistent": true,
+   "dimension": 0,
+   "solution": {
+    "quanta_by_block": {
+     "n3=0,n2=0": 1,
+     "n3=0,n2=1": 1,
+     "n3=0,n2=2": 1,
+     "n3=1,n2=0": 1,
+     "n3=1,n2=1": 1,
+     "n3=1,n2=2": 1,
+     "n3=2,n2=0": 1,
+     "n3=2,n2=1": 1,
+     "n3=2,n2=2": 1,
+     "n3=3,n2=0": 1,
+     "n3=3,n2=1": 1,
+     "n3=3,n2=2": 1
+    },
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ]
+   }
+  },
+  "SR2": {
+   "consistent": true,
+   "dimension": 0,
+   "solution": {
+    "quanta_by_block": {
+     "n3=0,n2=0": 0,
+     "n3=0,n2=1": 1,
+     "n3=0,n2=2": 0,
+     "n3=1,n2=0": 0,
+     "n3=1,n2=1": 1,
+     "n3=1,n2=2": 0,
+     "n3=2,n2=0": 0,
+     "n3=2,n2=1": 1,
+     "n3=2,n2=2": 0,
+     "n3=3,n2=0": 0,
+     "n3=3,n2=1": 1,
+     "n3=3,n2=2": 0
+    },
+    "register": [
+     1,
+     1
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ]
+   }
+  },
+  "SR3": {
+   "consistent": true,
+   "dimension": 0,
+   "solution": {
+    "quanta_by_block": {
+     "n3=0,n2=0": 1,
+     "n3=0,n2=1": 0,
+     "n3=0,n2=2": 1,
+     "n3=1,n2=0": 1,
+     "n3=1,n2=1": 0,
+     "n3=1,n2=2": 1,
+     "n3=2,n2=0": 1,
+     "n3=2,n2=1": 0,
+     "n3=2,n2=2": 1,
+     "n3=3,n2=0": 1,
+     "n3=3,n2=1": 0,
+     "n3=3,n2=2": 1
+    },
+    "register": [
+     1,
+     1
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ]
+   }
+  },
+  "SR4": {
+   "consistent": true,
+   "dimension": 0,
+   "solution": {
+    "quanta_by_block": {
+     "n3=0,n2=0": 1,
+     "n3=0,n2=1": 1,
+     "n3=0,n2=2": 1,
+     "n3=1,n2=0": 1,
+     "n3=1,n2=1": 1,
+     "n3=1,n2=2": 1,
+     "n3=2,n2=0": 1,
+     "n3=2,n2=1": 1,
+     "n3=2,n2=2": 1,
+     "n3=3,n2=0": 1,
+     "n3=3,n2=1": 1,
+     "n3=3,n2=2": 1
+    },
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "links": [
+     0
+    ]
+   },
+   "reading": "z on a closed Gauss-invariant state = (-1)^(quanta) x (-1)^(sum n2 + register quanta) x (link ends: +1 per link); Gauss law prod_x G_x = (-1)^(sum n2 + register quanta) = +1"
+  }
+ },
+ "T3_physical_visibility": {
+  "basis_decomposition": [
+   {
+    "alpha_number": 0,
+    "beta_weak_centre": 0,
+    "delta_colour": 1,
+    "linear": true,
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "trivial_on_physical_states": false
+   },
+   {
+    "alpha_number": 1,
+    "beta_weak_centre": 0,
+    "delta_colour": 1,
+    "linear": true,
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "trivial_on_physical_states": false
+   },
+   {
+    "alpha_number": 0,
+    "beta_weak_centre": 1,
+    "delta_colour": 0,
+    "linear": true,
+    "register": [
+     1,
+     1
+    ],
+    "defects": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0
+    },
+    "trivial_on_physical_states": true
+   },
+   {
+    "alpha_number": 0,
+    "beta_weak_centre": 0,
+    "delta_colour": 0,
+    "linear": true,
+    "register": [
+     0,
+     0
+    ],
+    "defects": {
+     "1": 1,
+     "2": 0,
+     "3": 1,
+     "4": 0,
+     "5": 1
+    },
+    "trivial_on_physical_states": true
+   }
+  ],
+  "rule": "beta (weak centre with odd register) is the Gauss charge, +1 on physical states; the defect grading k mod 2 is +1 on every closed carrier; alpha = (-1)^(quanta) and delta = (-1)^(coloured quanta) remain",
+  "distinct_gradings_on_physical_states": 4
+ },
+ "T4_statistics_rule_equals_spin": {
+  "SR1": {
+   "ST0": true,
+   "ST1_object": true,
+   "ST1_flux_orbit_alone_odd_vs_spin": false,
+   "ST2_all_choices_of_g": false,
+   "ST2_DB3_choice": false,
+   "ST3": false,
+   "ST4": false,
+   "ST5_trivial": true,
+   "ST5_k_mod_2": false
+  },
+  "SR2": {
+   "ST0": false,
+   "ST1_object": false,
+   "ST1_flux_orbit_alone_odd_vs_spin": false,
+   "ST2_all_choices_of_g": false,
+   "ST2_DB3_choice": false,
+   "ST3": false,
+   "ST4": false,
+   "ST5_trivial": true,
+   "ST5_k_mod_2": false
+  },
+  "SR3": {
+   "ST0": false,
+   "ST1_object": false,
+   "ST1_flux_orbit_alone_odd_vs_spin": false,
+   "ST2_all_choices_of_g": false,
+   "ST2_DB3_choice": false,
+   "ST3": false,
+   "ST4": false,
+   "ST5_trivial": true,
+   "ST5_k_mod_2": false
+  },
+  "SR4": {
+   "ST0": true,
+   "ST1_object": true,
+   "ST1_flux_orbit_alone_odd_vs_spin": false,
+   "ST2_all_choices_of_g": false,
+   "ST2_DB3_choice": false,
+   "ST3": false,
+   "ST4": false,
+   "ST5_trivial": true,
+   "ST5_k_mod_2": false
+  }
+ },
+ "T4_ST2_obstruction": {
+  "classes_with_both_degree_parities_at_one_weak_charge": [
+   0,
+   3
+  ],
+  "statement": "in these classes g(m) + deg takes both values at one flux m while z takes one value, for every choice of g; class 0 has in addition no minimal flux object"
+ },
+ "T6_NOT_BLIND": {
+  "Standard_Model_statistics": {
+   "quanta (all 32 patterns: one family and its conjugates)": 1,
+   "Higgs register quantum": 0,
+   "gauge link states": 0
+  },
+  "SR4_solution": {
+   "quanta_by_block": {
+    "n3=0,n2=0": 1,
+    "n3=0,n2=1": 1,
+    "n3=0,n2=2": 1,
+    "n3=1,n2=0": 1,
+    "n3=1,n2=1": 1,
+    "n3=1,n2=2": 1,
+    "n3=2,n2=0": 1,
+    "n3=2,n2=1": 1,
+    "n3=2,n2=2": 1,
+    "n3=3,n2=0": 1,
+    "n3=3,n2=1": 1,
+    "n3=3,n2=2": 1
+   },
+   "register": [
+    0,
+    0
+   ],
+   "defects": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0
+   },
+   "links": [
+    0
+   ]
+  },
+  "equal": true,
+  "note": "flux defects have no elementary counterpart in the Standard Model; the solution makes them bosons"
+ }
+}

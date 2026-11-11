@@ -1,0 +1,556 @@
+"""S10 common library: carrier geometry, port-response constructors, Lie-closure instrument, structure analysis.
+
+Everything here is an instrument; every law-specific declaration is made in the calling script.
+Conventions
+  ports 0..11, seams (a<b), oriented faces and the 60 rotations are read from the pinned carrier
+  (model.common_source.slow_geometry.source()).  A rotation g is a tuple with g[old] = new.
+  Band names use the SEAM (face-incidence) adjacency A:  band '3'  = eigenvalue +sqrt5 of A (span of the port
+  vectors v_p, Laplacian cost 5-sqrt5), band "3'" = eigenvalue -sqrt5 (Galois conjugate vectors), '5' = -1, '1' = 5.
+  A Lie-algebra element is an anti-Hermitian complex matrix; the real inner product is <X,Y> = Re tr(X^dag Y).
+"""
+import itertools, math, cmath, os
+import numpy as np
+
+os.environ.setdefault('OMP_NUM_THREADS', '2')
+from model.common_source import slow_geometry
+
+src = slow_geometry.source()
+SEAMS = [tuple(int(x) for x in s) for s in src.seams()]
+FACES = [tuple(int(x) for x in f) for f in src.oriented_faces()]
+ROTS = [tuple(int(x) for x in r) for r in src.rotations()]
+NP = 12
+SQ5 = math.sqrt(5.0)
+PHI = (1 + SQ5) / 2
+EIDX = {s: i for i, s in enumerate(SEAMS)}
+assert len(SEAMS) == 30 and len(FACES) == 20 and len(ROTS) == 60 and all(a < b for a, b in SEAMS)
+
+VEC = np.array([[src.q5_float(c) for c in v] for v in slow_geometry.raw_frame()])           # port vectors v_p
+VECQ = [[(c[0], c[1]) for c in v] for v in slow_geometry.raw_frame()]                       # exact (a, b): a + b sqrt5
+VECS = np.array([[float(a) - float(b) * SQ5 for (a, b) in v] for v in VECQ])               # Galois conjugates sigma(v_p)
+ADJ = np.zeros((NP, NP))
+for a, b in SEAMS:
+    ADJ[a, b] = ADJ[b, a] = 1
+LAP = 5 * np.eye(NP) - ADJ
+NBR = [[q for q in range(NP) if ADJ[p, q]] for p in range(NP)]
+DIST = np.array(src.graph_distance())
+ANTI = [int(x) for x in src.antipode()]
+
+
+def geometry_checks():
+    """Known-answer checks of the pinned geometry and of the band naming."""
+    out = {}
+    d2 = ((VEC[:, None, :] - VEC[None, :, :]) ** 2).sum(-1)
+    out['seams_are_pairs_at_squared_distance_4'] = sorted(SEAMS) == sorted(
+        (a, b) for a in range(NP) for b in range(a + 1, NP) if abs(d2[a, b] - 4) < 1e-9)
+    fe = set()
+    for f in FACES:
+        for k in range(3):
+            fe.add(tuple(sorted((f[k], f[(k + 1) % 3]))))
+    out['seams_are_the_edges_of_the_oriented_faces'] = fe == set(SEAMS)
+    out['faces_outward_oriented'] = all(np.dot(np.cross(VEC[f[1]] - VEC[f[0]], VEC[f[2]] - VEC[f[0]]), VEC[list(f)].sum(0)) > 0 for f in FACES)
+    out['A v = +sqrt5 v (band 3 = port vectors)'] = bool(np.allclose(ADJ @ VEC, SQ5 * VEC))
+    out["A sigma(v) = -sqrt5 sigma(v) (band 3')"] = bool(np.allclose(ADJ @ VECS, -SQ5 * VECS))
+    out['antipode v_p\' = -v_p'] = bool(all(np.allclose(VEC[ANTI[p]], -VEC[p]) for p in range(NP)))
+    ev = np.round(np.linalg.eigvalsh(ADJ), 9)
+    out['adjacency_spectrum'] = {str(v): int(c) for v, c in zip(*np.unique(ev, return_counts=True))}
+    return out
+
+
+# ------------------------------------------------------------------ rotations
+def rot3(g):
+    """3x3 rotation R with R v_p = v_{g[p]}."""
+    R, *_ = np.linalg.lstsq(VEC, VEC[list(g)], rcond=None)
+    R = R.T
+    assert np.allclose(R @ R.T, np.eye(3), atol=1e-9) and abs(np.linalg.det(R) - 1) < 1e-9
+    assert np.allclose(VEC @ R.T, VEC[list(g)], atol=1e-9)
+    return R
+
+
+def rot3s(g):
+    R, *_ = np.linalg.lstsq(VECS, VECS[list(g)], rcond=None)
+    return R.T
+
+
+ROT3 = [rot3(g) for g in ROTS]
+ROT3S = [rot3s(g) for g in ROTS]
+
+
+def rot_class(g):
+    """Conjugacy class label from the trace of the band-3 rotation: e, C5 (72 deg), C5^2 (144 deg), C2, C3."""
+    t = float(np.trace(rot3(g)))
+    for name, val in (('e', 3.0), ('C5', PHI), ('C5b', 1 - PHI), ('C2', -1.0), ('C3', 0.0)):
+        if abs(t - val) < 1e-6:
+            return name
+    raise ValueError(t)
+
+
+ROTCLASS = [rot_class(g) for g in ROTS]
+CHAR = {  # A5 character table, classes e, C5, C5b, C2, C3 (sizes 1, 12, 12, 15, 20)
+    '1': {'e': 1, 'C5': 1, 'C5b': 1, 'C2': 1, 'C3': 1},
+    '3': {'e': 3, 'C5': PHI, 'C5b': 1 - PHI, 'C2': -1, 'C3': 0},
+    "3'": {'e': 3, 'C5': 1 - PHI, 'C5b': PHI, 'C2': -1, 'C3': 0},
+    '4': {'e': 4, 'C5': -1, 'C5b': -1, 'C2': 0, 'C3': 1},
+    '5': {'e': 5, 'C5': 0, 'C5b': 0, 'C2': 1, 'C3': -1},
+}
+
+
+def perm_matrix(g, n=NP):
+    M = np.zeros((n, n))
+    for old, new in enumerate(g):
+        M[new, old] = 1
+    return M
+
+
+def a5_decompose(char_by_rot):
+    """Multiplicities of 1, 3, 3', 4, 5 from the list of 60 character values (ordered as ROTS)."""
+    out = {}
+    for name, tab in CHAR.items():
+        m = sum(char_by_rot[i] * tab[ROTCLASS[i]] for i in range(60)) / 60
+        out[name] = float(np.real(m))
+    return out
+
+
+# ------------------------------------------------------------------ operator helpers
+def vec(M):
+    M = np.asarray(M, complex)
+    return np.concatenate([M.real.ravel(), M.imag.ravel()])
+
+
+def unvec(v, n):
+    return (v[:n * n] + 1j * v[n * n:]).reshape(n, n)
+
+
+def comm(X, Y):
+    return X @ Y - Y @ X
+
+
+def span_rank(mats, tol=1e-9):
+    if not mats:
+        return 0
+    M = np.array([vec(m) for m in mats])
+    s = np.linalg.svd(M, compute_uv=False)
+    return int((s > tol * max(1.0, s[0])).sum())
+
+
+class Closure:
+    """Real Lie algebra generated by anti-Hermitian generators, with the dimension after every bracket depth.
+
+    V_0 = span(gens);  V_{d+1} = V_d + [gens, V_d].  Numerical rank: a direction is new when its residual after
+    projection on the current orthonormal basis has singular value > tol (generators and basis are unit-norm).
+    The smallest accepted and the largest rejected singular values are recorded (the rank gap).
+    """
+
+    def __init__(self, gens, tol=1e-8, cap=4000, chunk=400, verbose=False):
+        gens = [np.asarray(g, complex) for g in gens]
+        self.n = gens[0].shape[0]
+        for g in gens:
+            assert np.allclose(g, -g.conj().T, atol=1e-10), 'generator is not anti-Hermitian'
+        self.gens = [g / np.linalg.norm(g) for g in gens if np.linalg.norm(g) > 1e-14]
+        self.tol = tol
+        self.Q = np.zeros((0, 2 * self.n * self.n))
+        self.depth_dims = []
+        self.min_accept = np.inf
+        self.max_reject = 0.0
+        new = self._absorb(np.array([vec(g) for g in self.gens]))
+        self.depth_dims.append(self.Q.shape[0])
+        self.capped = False
+        while len(new):
+            cands = []
+            newmats = [unvec(v, self.n) for v in new]
+            added = []
+            for i in range(0, len(newmats), max(1, chunk // len(self.gens))):
+                block = []
+                for X in newmats[i:i + max(1, chunk // len(self.gens))]:
+                    for g in self.gens:
+                        block.append(vec(comm(g, X)))
+                got = self._absorb(np.array(block))
+                added.extend(got)
+                if self.Q.shape[0] >= cap:
+                    self.capped = True
+                    break
+            self.depth_dims.append(self.Q.shape[0])
+            if verbose:
+                print('   depth', len(self.depth_dims) - 1, 'dim', self.Q.shape[0], flush=True)
+            if self.capped:
+                break
+            new = added
+        self.dim = self.Q.shape[0]
+        if self.depth_dims[-1] == self.depth_dims[-2] if len(self.depth_dims) > 1 else False:
+            self.depth_dims.pop()
+
+    def _absorb(self, C):
+        """Project candidate rows on the complement of the current basis; append new orthonormal directions."""
+        if C.size == 0:
+            return []
+        if self.Q.shape[0]:
+            C = C - (C @ self.Q.T) @ self.Q
+            C = C - (C @ self.Q.T) @ self.Q
+        U, s, Vt = np.linalg.svd(C, full_matrices=False)
+        keep = s > self.tol
+        if keep.any():
+            self.min_accept = min(self.min_accept, float(s[keep].min()))
+        if (~keep).any():
+            self.max_reject = max(self.max_reject, float(s[~keep].max()))
+        newv = Vt[keep]
+        if len(newv):
+            # re-orthonormalise against Q for safety
+            if self.Q.shape[0]:
+                newv = newv - (newv @ self.Q.T) @ self.Q
+            newv, _ = np.linalg.qr(newv.T)
+            newv = newv.T
+            self.Q = np.vstack([self.Q, newv])
+        return list(newv)
+
+    def basis(self):
+        return [unvec(v, self.n) for v in self.Q]
+
+    def contains(self, X, tol=1e-7):
+        v = vec(X)
+        r = v - (v @ self.Q.T) @ self.Q
+        return bool(np.linalg.norm(r) <= tol * max(1.0, np.linalg.norm(v)))
+
+
+def a5_content(clo, rot_unitaries):
+    B = clo.basis()
+    chars = []
+    for U_ in rot_unitaries:
+        Uh = U_.conj().T
+        chars.append(sum(float(np.real(np.vdot(Bi, U_ @ Bi @ Uh))) for Bi in B))
+    return {k: round(v, 6) for k, v in a5_decompose(chars).items()}
+
+
+def structure_light(clo, rot_unitaries=None, tol=1e-7):
+    """Centre (elements of the closure commuting with every generator) and derived dimension, without the d^3 tensor."""
+    B = clo.basis()
+    d = len(B)
+    out = {'dim': d, 'depth_dims': list(clo.depth_dims), 'rank_gap': [clo.min_accept, clo.max_reject], 'light': True}
+    if d == 0:
+        return out
+    M = np.array([np.concatenate([vec(comm(Bj, g)) for g in clo.gens]) for Bj in B])     # d x (m * 2n^2)
+    s = np.linalg.svd(M, compute_uv=False)
+    rank = int((s > tol * max(1.0, s[0])).sum())
+    out['centre_dim'] = d - rank
+    out['derived_dim'] = rank          # compact (reductive): g = z + [g,g]
+    out['compact'] = True
+    if rot_unitaries is not None:
+        out['A5_content'] = a5_content(clo, rot_unitaries)
+    return out
+
+
+def structure(clo, rot_unitaries=None, want_ideals=True, tol=1e-7, light_above=64):
+    """Centre, derived algebra, Killing form, simple ideals (by root-vector ideal closure), A5 content."""
+    B = clo.basis()
+    d = len(B)
+    n = clo.n
+    Q = clo.Q
+    if d > light_above:
+        return structure_light(clo, rot_unitaries, tol)
+    out = {'dim': d, 'depth_dims': list(clo.depth_dims), 'rank_gap': [clo.min_accept, clo.max_reject]}
+    if d == 0:
+        return out
+    # structure constants c[i,j,k] = <B_k, [B_i,B_j]>
+    c = np.zeros((d, d, d))
+    worst = 0.0
+    for i in range(d):
+        Cs = np.array([vec(comm(B[i], B[j])) for j in range(d)])
+        co = Cs @ Q.T
+        worst = max(worst, float(np.abs(Cs - co @ Q).max()))
+        c[i] = co
+    out['closure_residual'] = worst
+    ad = np.transpose(c, (0, 2, 1))             # ad[i][k, j] = c[i, j, k]
+    # centre = {x : sum_i x_i c[i,j,k] = 0 for all j,k}
+    M = c.reshape(d, d * d)
+    s = np.linalg.svd(M, compute_uv=False)
+    rank = int((s > tol * max(1.0, s[0])).sum()) if s.size else 0
+    out['centre_dim'] = d - rank
+    out['derived_dim'] = int(np.linalg.matrix_rank(c.reshape(d * d, d), tol=tol)) if d else 0
+    K = ad.reshape(d, d * d) @ np.transpose(ad, (0, 2, 1)).reshape(d, d * d).T
+    kev = np.linalg.eigvalsh((K + K.T) / 2)
+    out['killing_max_eig'] = float(kev.max())
+    out['killing_negative_semidefinite'] = bool(kev.max() < 1e-7 * max(1.0, abs(kev.min())))
+    out['killing_kernel_dim'] = int((np.abs(kev) < 1e-7 * max(1.0, abs(kev).max())).sum())
+    out['compact'] = True   # subalgebra of u(n): the trace form is an invariant positive inner product
+    # centre vectors
+    U, sv, Vt = np.linalg.svd(M.T, full_matrices=True)       # M.T: (d*d) x d ; null space = centre coefficients
+    zc = Vt[rank:] if rank < d else np.zeros((0, d))
+    out['_centre_coeffs'] = zc
+    if want_ideals and d - out['centre_dim'] > 0:
+        out['simple_ideals'] = simple_ideals(clo, ad, zc, tol)
+    if rot_unitaries is not None:
+        chars = []
+        for U_ in rot_unitaries:
+            tr = 0.0
+            for i in range(d):
+                tr += float(np.real(np.vdot(B[i], U_ @ B[i] @ U_.conj().T)))
+            chars.append(tr)
+        out['A5_content'] = {k: round(v, 6) for k, v in a5_decompose(chars).items()}
+        inv_defect = 0.0
+        for U_ in rot_unitaries[:8]:
+            for i in range(0, d, max(1, d // 6)):
+                inv_defect = max(inv_defect, 0.0 if clo.contains(U_ @ B[i] @ U_.conj().T) else 1.0)
+        out['A5_invariant_span'] = inv_defect == 0.0
+    return out
+
+
+def simple_ideals(clo, ad, zc, tol=1e-7):
+    """Split the derived algebra into simple ideals.
+
+    A generic element x has distinct roots; a real vector of one root space lies in one simple ideal and the ideal
+    it generates under ad of the generators is that simple ideal.  Returns [{'dim','rank','type'}].
+    """
+    d = ad.shape[0]
+    rng = np.random.default_rng(12345)
+    Q = clo.Q
+    gen_coeffs = np.array([vec(g) for g in clo.gens]) @ Q.T        # generators in the orthonormal basis
+    ad_gens = [np.einsum('i,ikj->kj', gc, ad) for gc in gen_coeffs]
+    x = rng.standard_normal(d)
+    adx = np.einsum('i,ikj->kj', x, ad)
+    w, V = np.linalg.eigh(1j * adx)
+    order = np.argsort(-np.abs(w))
+    found = []          # list of orthonormal bases (rows)
+    total = np.zeros((0, d))
+    target = d - zc.shape[0]
+    cartan_dim = int((np.abs(w) < 1e-7 * max(1.0, np.abs(w).max())).sum()) - zc.shape[0]
+    for idx in order:
+        if abs(w[idx]) < 1e-7:
+            break
+        y = np.real(V[:, idx])
+        if np.linalg.norm(y) < 1e-6:
+            y = np.imag(V[:, idx])
+        if total.shape[0]:
+            r = y - (y @ total.T) @ total
+            if np.linalg.norm(r) < 1e-5 * np.linalg.norm(y):
+                continue
+            # a root vector lies in exactly one simple ideal: if it has a component in a found ideal it is inside it
+            if np.linalg.norm(y - r) > 1e-5 * np.linalg.norm(y):
+                continue
+        I = (y / np.linalg.norm(y))[None, :]
+        frontier = [I[0]]
+        while frontier:
+            cand = np.array([A @ f for f in frontier for A in ad_gens])
+            cand = cand - (cand @ I.T) @ I
+            cand = cand - (cand @ I.T) @ I
+            U, s, Vt = np.linalg.svd(cand, full_matrices=False)
+            newv = Vt[s > 1e-8]
+            if len(newv):
+                newv = newv - (newv @ I.T) @ I
+                newv, _ = np.linalg.qr(newv.T)
+                newv = newv.T
+                I = np.vstack([I, newv])
+            frontier = list(newv)
+        found.append(I)
+        total = np.vstack([total, I])
+        if total.shape[0] >= target:
+            break
+    res = []
+    for I in found:
+        # rank of the ideal = dimension of the centraliser of a generic element of it, inside it
+        xi = rng.standard_normal(I.shape[0]) @ I
+        adxi = np.einsum('i,ikj->kj', xi, ad)
+        R = I @ adxi @ I.T
+        s = np.linalg.svd(R, compute_uv=False)
+        rk = int((s < 1e-7 * max(1.0, s[0])).sum())
+        res.append({'dim': int(I.shape[0]), 'rank': rk, 'type': lie_type(int(I.shape[0]), rk), '_basis': I})
+    res.sort(key=lambda t: (t['dim'], t['rank']))
+    if sum(t['dim'] for t in res) != target:
+        res.append({'dim': target - sum(t['dim'] for t in res), 'rank': None, 'type': 'UNRESOLVED remainder'})
+    return res
+
+
+def lie_type(dim, rank):
+    cands = []
+    if dim == rank * (rank + 2):
+        cands.append(f'su({rank + 1})')
+    if rank >= 2 and dim == rank * (2 * rank + 1):
+        cands.append(f'so({2 * rank + 1})' if rank > 2 else 'so(5)=sp(2)')
+        if rank > 2:
+            cands.append(f'sp({rank})')
+    if rank >= 4 and dim == rank * (2 * rank - 1):
+        cands.append(f'so({2 * rank})')
+    for nm, (dm, rk) in {'g2': (14, 2), 'f4': (52, 4), 'e6': (78, 6), 'e7': (133, 7), 'e8': (248, 8)}.items():
+        if (dim, rank) == (dm, rk):
+            cands.append(nm)
+    return ' or '.join(cands) if cands else f'not simple? (dim {dim}, rank {rank})'
+
+
+def band_of_ideal(clo, struct, ideal, gens_by_port):
+    """For a 12-dim closure with independent port generators: which A-eigenband of port coefficients spans the ideal.
+
+    Returns the A-eigenvalues (with multiplicity) of the port-coefficient space of the ideal.
+    """
+    Q = clo.Q
+    G = np.array([vec(g) for g in gens_by_port]) @ Q.T          # 12 x d : port generators in the basis
+    # ideal basis rows I (m x d): solve c G = I
+    I = ideal['_basis']
+    coef, res, rk, sv = np.linalg.lstsq(G.T, I.T, rcond=None)    # G.T c = I.T  -> c: 12 x m
+    resid = float(np.abs(G.T @ coef - I.T).max())
+    Cm = coef.T                                                   # m x 12
+    # A acts on coefficient vectors; restricted spectrum
+    P = np.linalg.pinv(Cm)                                        # 12 x m
+    Ared = Cm @ ADJ @ P
+    ev = np.sort(np.real(np.linalg.eigvals(Ared)))
+    stab = float(np.abs(Cm @ ADJ - Ared @ Cm).max())
+    return {'adjacency_eigenvalues_of_port_coefficients': [round(float(x), 6) for x in ev], 'solve_residual': resid, 'invariance_residual': stab}
+
+
+def summarize(struct):
+    s = {k: v for k, v in struct.items() if not k.startswith('_')}
+    if 'simple_ideals' in s:
+        s['simple_ideals'] = [{k: v for k, v in t.items() if not k.startswith('_')} for t in s['simple_ideals']]
+    return s
+
+
+# ------------------------------------------------------------------ one-quantum operators on C^12
+def n_op(p):
+    M = np.zeros((NP, NP), complex)
+    M[p, p] = 1
+    return M
+
+
+def link_potential(n):
+    """Integer seam exponents a_e (mod 20) with flux n (in units 2 pi/20) through every oriented face.
+
+    u(a->b) = zeta^{a_e} for a<b, zeta = exp(2 pi i/20).  Dirac string through face 0 (curl = n - 20 n delta_f0).
+    Solved over the integers by elimination on the rational curl system and rounding (checked exactly).
+    """
+    curl = np.zeros((20, 30), dtype=np.int64)
+    for fi, (p, q, r) in enumerate(FACES):
+        for a, b in ((p, q), (q, r), (r, p)):
+            curl[fi, EIDX[tuple(sorted((a, b)))]] += 1 if a < b else -1
+    target = np.full(20, n, dtype=np.int64)
+    target[0] -= 20 * n
+    # integer solution: spanning-tree gauge.  Solve by integer-preserving least squares then verify.
+    sol, *_ = np.linalg.lstsq(curl.astype(float), target.astype(float), rcond=None)
+    # make integral: find integer solution via Smith-free approach: fix tree edges to 0 and solve the rest greedily
+    a = _integer_solve(curl, target)
+    assert np.array_equal(curl @ a, target)
+    return a, curl
+
+
+def _integer_solve(C, t):
+    """Integer solution of C a = t for the face-curl matrix of a sphere triangulation (dual spanning tree walk)."""
+    nf, ne = C.shape
+    a = np.zeros(ne, dtype=np.int64)
+    # dual graph: faces adjacent through seams.  Peel faces from the leaves of a dual spanning tree rooted at face 0.
+    face_of = {e: [] for e in range(ne)}
+    for f in range(nf):
+        for e in np.nonzero(C[f])[0]:
+            face_of[int(e)].append(f)
+    parent = {0: None}
+    order = [0]
+    for f in order:
+        for e in np.nonzero(C[f])[0]:
+            for g in face_of[int(e)]:
+                if g not in parent:
+                    parent[g] = (f, int(e))
+                    order.append(g)
+    assert len(order) == nf
+    resid = t.copy()
+    for f in reversed(order[1:]):
+        pf, e = parent[f]
+        # the tree seam e is the only unassigned seam of face f (all children were processed)
+        val = resid[f] * C[f, e]            # C[f,e] = +-1
+        a[e] += val
+        for g in face_of[e]:
+            resid[g] -= C[g, e] * val
+    assert np.all(resid[1:] == 0) and resid[0] == 0, resid
+    return a
+
+
+def mag_adjacency(n):
+    """Magnetic adjacency A_n (flux 2 pi n/20 per oriented face), Hermitian 12x12, and the link exponents."""
+    a, curl = link_potential(n)
+    z = cmath.exp(2j * math.pi / 20)
+    M = np.zeros((NP, NP), complex)
+    for e, (p, q) in enumerate(SEAMS):
+        M[q, p] = z ** int(a[e])           # amplitude for the move p -> q (p<q)
+        M[p, q] = z ** (-int(a[e]))
+    return M, a
+
+
+def mag_rotations(An):
+    """Unitaries U_g = P_g diag(phases) with U_g A_n U_g^dag = A_n (magnetic rotations), for the 60 rotations."""
+    out = []
+    for g in ROTS:
+        P = perm_matrix(g)
+        B = P.conj().T @ An @ P               # transported operator in the original labels
+        # find diagonal D with D^dag B D = An  i.e. B[a,b] conj(d_a) d_b = An[a,b]
+        d = np.zeros(NP, complex)
+        d[0] = 1
+        stack = [0]
+        seen = {0}
+        while stack:
+            a = stack.pop()
+            for b in NBR[a]:
+                if b not in seen:
+                    d[b] = An[a, b] / (B[a, b] * np.conj(d[a]))
+                    seen.add(b)
+                    stack.append(b)
+        D = np.diag(d)
+        U = P @ D.conj().T
+        # check
+        if not np.allclose(U @ An @ U.conj().T, An, atol=1e-9):
+            U = P @ D
+        assert np.allclose(U @ An @ U.conj().T, An, atol=1e-9), 'magnetic rotation not found'
+        out.append(U)
+    return out
+
+
+def star_ops(An):
+    """Per-port magnetic star and current: Star_p = sum_b (A[b,p]|b><p| + h.c.), Curr_p = i[A, n_p]."""
+    stars, currs = [], []
+    for p in range(NP):
+        S = np.zeros((NP, NP), complex)
+        S[:, p] = An[:, p]
+        S[p, :] = An[p, :]
+        stars.append(S)
+        N = n_op(p)
+        currs.append(1j * (An @ N - N @ An))
+    return stars, currs
+
+
+def nbr_n(p):
+    M = np.zeros((NP, NP), complex)
+    for b in NBR[p]:
+        M[b, b] = 1
+    return M
+
+
+# ------------------------------------------------------------------ two-quanta (binary, 66 states)
+PAIRS = list(itertools.combinations(range(NP), 2))
+PIDX = {c: i for i, c in enumerate(PAIRS)}
+
+
+def two_quanta_ops(link=None):
+    """Hard-core two-quanta operators on the 66 binary states.
+
+    Returns dict with n[p] (diagonal), hop[e] (Hermitian, with optional link phases u(a->b) for seam e), nn[e].
+    """
+    D = len(PAIRS)
+    nops = []
+    for p in range(NP):
+        M = np.zeros((D, D), complex)
+        for i, c in enumerate(PAIRS):
+            if p in c:
+                M[i, i] = 1
+        nops.append(M)
+    hops, nns = [], []
+    for e, (a, b) in enumerate(SEAMS):
+        u = 1.0 if link is None else link[e]
+        H = np.zeros((D, D), complex)
+        for i, c in enumerate(PAIRS):
+            if (a in c) and (b not in c):       # move a -> b
+                d = tuple(sorted((set(c) - {a}) | {b}))
+                H[PIDX[d], i] += u
+                H[i, PIDX[d]] += np.conj(u)
+        hops.append(H)
+        nns.append(nops[a] @ nops[b])
+    return {'n': nops, 'hop': hops, 'nn': nns}
+
+
+def perm_on_pairs(g):
+    D = len(PAIRS)
+    M = np.zeros((D, D))
+    for i, c in enumerate(PAIRS):
+        M[PIDX[tuple(sorted((g[c[0]], g[c[1]])))], i] = 1
+    return M

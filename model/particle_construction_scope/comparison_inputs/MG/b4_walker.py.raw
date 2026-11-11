@@ -1,0 +1,228 @@
+"""MG block 4: a tagged quantum on the federation whose internal spin is transported by the chart transport.
+
+    python b4_walker.py [levels=2,3,4] [walkers=200000] [sweeps=...]      (box B, about ten minutes, 6 processes)
+
+The quantum performs the reference walk: every attempt draws one of the |S| seams uniformly; if the quantum sits at
+an end it crosses with probability 1/2. One sweep = |S| attempts. At a glue crossing c -> c' the internal state is
+recharted by T(c -> c') (adjoint action on the polarization vector).
+
+With the tape: the accumulated rotation is a function of the list of glue seams crossed; the state is its image.
+Without the tape: m_t(x) = E[s_t ; X_t = x] evolves by the twisted transfer M = I - L_tw / (2 |S|) per attempt, L_tw the
+connection Laplacian of the port graph on R^3-valued fields. Reported: the lowest eigenvalues of L_tw (decay rate
+per sweep = lambda / 2), the polarization Pi(t) = sum_carriers |sum_{x in c} m_t(x)| from a localized start, and a
+direct simulation of walkers as a check of the operator.
+Writes b4_walker.json.
+"""
+import collections
+import json
+import math
+import multiprocessing as mp
+import sys
+import time
+
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as sla
+
+sys.dont_write_bytecode = True
+import s0_lib as S
+import mg_lib as M
+
+LEVELS = [int(x) for x in (sys.argv[1] if len(sys.argv) > 1 else '2,3,4').split(',')]
+WALKERS = int(sys.argv[2]) if len(sys.argv) > 2 else 200000
+RT = np.stack(M.ROT_MATS)
+Qf = None
+
+
+def face_normal():
+    n = M.PORT_UNIT[list(M.TOP)].sum(axis=0); n /= np.linalg.norm(n)
+    ex = M.PORT_UNIT[M.TOP[0]] - (M.PORT_UNIT[M.TOP[0]] @ n) * n; ex /= np.linalg.norm(ex)
+    return n, ex
+
+
+def transport_table(kind, rule, level):
+    """W, T for a named case."""
+    mesh = S.build_mesh(level)
+    if kind in ('F', 'B'):
+        W, base = M.wiring(kind, level)
+        if rule == 'S':
+            g = M.E60
+        elif rule == 'roll':                      # face_axis: convex carrier rolls over the top-face seam under the mesh edge
+            g = M.crosswise_rule(M.TOP, 0)
+        elif rule == 'flat':
+            return mesh, W, np.full((mesh.N, 3), M.E60, dtype=np.int64)
+        else:
+            g = M.crosswise_rule(base, int(rule[1]))
+        return mesh, W, M.transports(mesh, W, base, g)
+    if kind == 'port_pair':
+        W, _ = S.pinned_wiring(mesh)
+        N = mesh.N
+        normals = mesh.points / np.linalg.norm(mesh.points, axis=1, keepdims=True)
+        refv = np.tile(np.array([0.0, 0.0, 1.0]), (N, 1)); refv[np.abs(normals[:, 2]) > 0.9] = np.array([1.0, 0.0, 0.0])
+        tx = np.cross(refv, normals); tx /= np.linalg.norm(tx, axis=1, keepdims=True)
+        E = np.stack((tx, np.cross(normals, tx), normals), axis=2)
+        T = np.empty((N, 3), dtype=np.int64)
+        for c in range(N):
+            for k in range(3):
+                d = int(mesh.nbr[c, k])
+                T[c, k] = int(np.argmax(np.einsum('ij,gji->g', E[c].T @ E[d], RT)))
+        if rule == 'flat':
+            T[:] = M.E60
+        return mesh, W, T
+    if kind == 'random':
+        W, base = M.wiring('F', level)
+        rng = np.random.default_rng(5)
+        T = rng.integers(0, 60, size=(mesh.N, 3))
+        for c in range(mesh.N):
+            for k in range(3):
+                d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+                if c < d:
+                    T[d, k2] = M.INV[T[c, k]]
+        return mesh, W, T
+    raise ValueError(kind)
+
+
+def port_tables(mesh, W, T):
+    """nb[x, 0..5]: neighbours of port x (slot 5 = glue neighbour or -1), tg[x] = transport index of the glue crossing or -1."""
+    N = mesh.N
+    adj = [[] for _ in range(12)]
+    for a, b in S.SEAMS:
+        adj[a].append(b); adj[b].append(a)
+    nb = np.full((12 * N, 6), -1, dtype=np.int64); tg = np.full(12 * N, -1, dtype=np.int64)
+    base = (12 * np.arange(N))[:, None]
+    for p in range(12):
+        nb[base[:, 0] + p, :5] = base + np.array(adj[p])[None, :]
+    for c in range(N):
+        for k in range(3):
+            d, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+            x = 12 * c + int(W[c, k]); y = 12 * d + int(W[d, k2])
+            nb[x, 5] = y; tg[x] = T[c, k]
+    return nb, tg
+
+
+def twisted_laplacian(mesh, W, T, rep='adjoint'):
+    N = mesh.N
+    d = 3 if rep == 'adjoint' else 2
+    n = 12 * N
+    ia, ib = S.intra_seams(N)
+    A = sp.coo_matrix((np.ones(ia.size), (ia, ib)), shape=(n, n)); A = (A + A.T).tocsr()
+    rows, cols, vals = [], [], []
+    for c in range(N):
+        for k in range(3):
+            dd, k2 = int(mesh.nbr[c, k]), int(mesh.nbk[c, k])
+            x = 12 * c + int(W[c, k]); y = 12 * dd + int(W[dd, k2])
+            Rm = RT[int(T[c, k])] if rep == 'adjoint' else M.B2[int(T[c, k])]          # for spin 1/2, T holds binary indices
+            for i in range(d):
+                for j in range(d):
+                    if abs(Rm[i, j]) > 1e-15:
+                        rows.append(d * y + i); cols.append(d * x + j); vals.append(Rm[i, j])
+    G = sp.coo_matrix((np.array(vals), (rows, cols)), shape=(d * n, d * n)).tocsr()
+    deg = np.asarray(A.sum(axis=1)).ravel()
+    gl = np.zeros(n); ga, gb = S.glue_seams(mesh, W); gl[ga] += 1; gl[gb] += 1
+    L = sp.kron(sp.diags(deg + gl) - A, sp.identity(d), format='csr') - G
+    return L.tocsc(), int(ia.size + ga.size)
+
+
+def run_case(args):
+    kind, rule, level, walkers, sweeps_list = args
+    t0 = time.time()
+    mesh, W, T = transport_table(kind, rule, level)
+    N = mesh.N
+    hol = M.vertex_holonomies(mesh, T)
+    curved = sum(1 for v, (n, c0, H) in hol.items() if H != M.E60)
+    ang = float(np.mean([M.ANGLE[H] for v, (n, c0, H) in hol.items()]))
+    L, nseams = twisted_laplacian(mesh, W, T)
+    k = 8
+    try:
+        w = sla.eigsh(L, k=k, sigma=-1e-3, which='LM', tol=1e-11, return_eigenvectors=False)
+    except Exception:
+        w = sla.eigsh(L, k=k, which='SA', tol=1e-9, return_eigenvectors=False)
+    w = np.sort(w)
+    # scalar reference: lowest non-zero eigenvalue of the untwisted Laplacian (position mixing)
+    ia, ib = S.intra_seams(N); ga, gb = S.glue_seams(mesh, W)
+    Ls = S.laplacian(12 * N, np.concatenate([ia, ga]), np.concatenate([ib, gb]))
+    ws = np.sort(sla.eigsh(Ls, k=3, sigma=-1e-3, which='LM', tol=1e-11, return_eigenvectors=False))
+    res = {'wiring': kind, 'rule': rule, 'level': level, 'carriers': N, 'ports': 12 * N, 'seams': nseams,
+           'vertices': mesh.V, 'vertices_with_curvature': curved, 'curvature_density_per_vertex': curved / mesh.V,
+           'mean_holonomy_angle_deg_per_vertex': ang,
+           'lowest_eigenvalues_of_twisted_laplacian': [float(x) for x in w],
+           'decay_rate_per_sweep': float(max(w[0], 0.0) / 2), 'survival_per_sweep': float(math.exp(-max(w[0], 0.0) / 2)),
+           'scalar_lambda_2': float(ws[1]), 'position_mixing_rate_per_sweep': float(ws[1] / 2)}
+    # polarization from a localized start (carrier 0, glue port 0); s0 along the glue-face normal and transverse
+    nT, eT = face_normal()
+    x0 = 12 * 0 + int(W[0, 0])
+    carr = np.repeat(np.arange(N), 12)
+    pol = {}
+    for name, s0 in (('normal', nT), ('transverse', eT)):
+        m = np.zeros(3 * 12 * N); m[3 * x0:3 * x0 + 3] = s0
+        vals = []
+        tprev = 0.0
+        for t in sweeps_list:
+            m = sla.expm_multiply(-(t - tprev) / 2 * L, m)
+            tprev = t
+            mc = np.zeros((N, 3)); np.add.at(mc, carr, m.reshape(-1, 3))
+            vals.append(float(np.linalg.norm(mc, axis=1).sum()))
+        pol[name] = vals
+    res['sweeps'] = list(sweeps_list); res['polarization_continuous_time'] = pol
+    # direct simulation
+    if walkers > 0:
+        nb, tg = port_tables(mesh, W, T)
+        rng = np.random.default_rng(1000 + 17 * level)
+        pos = np.full(walkers, x0, dtype=np.int64); rot = np.full(walkers, M.E60, dtype=np.int64)
+        sim = {'normal': [], 'transverse': []}
+        crossings = 0
+        tcur = 0
+        for t in sweeps_list:
+            if abs(t - round(t)) > 1e-9:
+                for name in sim:
+                    sim[name].append(None)
+                continue
+            for _ in range(int(round(t)) - tcur):
+                K = rng.binomial(nseams, 3.0 / nseams, size=walkers)
+                for j in range(int(K.max())):
+                    act = np.flatnonzero(K > j)
+                    slot = rng.integers(0, 6, size=act.size)
+                    y = nb[pos[act], slot]
+                    mv = y >= 0
+                    a2 = act[mv]; s2 = slot[mv]
+                    glue = s2 == 5
+                    g = a2[glue]
+                    rot[g] = M.MUL[tg[pos[g]], rot[g]]
+                    crossings += int(glue.sum())
+                    pos[a2] = y[mv]
+            tcur = int(round(t))
+            for name, s0 in (('normal', nT), ('transverse', eT)):
+                vec = RT[rot] @ s0
+                mc = np.zeros((N, 3)); np.add.at(mc, pos // 12, vec)
+                sim[name].append(float(np.linalg.norm(mc, axis=1).sum() / walkers))
+        res['polarization_simulated'] = sim
+        res['walkers'] = walkers
+        res['glue_crossings_per_walker_per_sweep'] = crossings / walkers / max(1, tcur)
+        res['noise_floor_estimate'] = float(math.sqrt(N / walkers) * 0.92)       # sum over carriers of |sum of n unit vectors| for uncorrelated spins
+        res['distinct_accumulated_rotations_on_the_tape_register'] = int(np.unique(rot).size)
+    res['seconds'] = round(time.time() - t0, 1)
+    return res
+
+
+if __name__ == '__main__':
+    cases = []
+    for level in LEVELS:
+        sw = [0.5, 1, 2, 4, 8, 16, 32, 64, 128, 256]
+        cases += [('F', 'flat', level, WALKERS if level == 2 else 0, sw),         # known answer: trivial transport, no decay
+                  ('random', 'random', level, 0, sw),                             # negative control
+                  ('F', 'S', level, WALKERS, sw), ('F', 'R1', level, WALKERS, sw), ('F', 'R0', level, 0, sw), ('F', 'R2', level, 0, sw),
+                  ('B', 'S', level, 0, sw), ('B', 'roll', level, 0, sw), ('B', 'R0', level, 0, sw),
+                  ('port_pair', 'nearest', level, WALKERS if level == 3 else 0, sw)]
+    with mp.Pool(6) as pool:
+        out = []
+        for r in pool.imap(run_case, cases):
+            out.append(r)
+            print(r['wiring'], r['rule'], 'L', r['level'], 'curved', r['vertices_with_curvature'], '/', r['vertices'],
+                  'lowest', [round(x, 6) for x in r['lowest_eigenvalues_of_twisted_laplacian'][:4]], 'rate/sweep', round(r['decay_rate_per_sweep'], 6),
+                  'scalar l2', round(r['scalar_lambda_2'], 6), '| Pi normal', [round(x, 4) for x in r['polarization_continuous_time']['normal']],
+                  '| Pi transverse', [round(x, 4) for x in r['polarization_continuous_time']['transverse']],
+                  '| sim', {k: [None if x is None else round(x, 4) for x in v] for k, v in r.get('polarization_simulated', {}).items()},
+                  'crossings', r.get('glue_crossings_per_walker_per_sweep'), 'register', r.get('distinct_accumulated_rotations_on_the_tape_register'),
+                  'floor', r.get('noise_floor_estimate'), r['seconds'], 's', flush=True)
+            json.dump({'cases': out}, open('b4_walker.json', 'w'), indent=1)
+    print('written b4_walker.json')

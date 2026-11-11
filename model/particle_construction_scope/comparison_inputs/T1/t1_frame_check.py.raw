@@ -1,0 +1,474 @@
+"""T1 small exact check: what fixing one cubic frame does to the twelve-port load space.
+
+Exact arithmetic in Q(sqrt5) (pairs of Fractions). No imports from the public checkout: the carrier is rebuilt
+from the icosahedron's vertices and compared with the public band costs (5 - sqrt5, 6, 5 + sqrt5) and adjacency
+spectrum (5, sqrt5, -sqrt5, -1) quoted in Lean/Screen/A5FamilyBand.lean.
+
+Level: an algebraic property of the carrier table (level 1). Nothing here is a premise supplied.
+
+Run:  /tmp/oph-completion-venv/bin/python t1_frame_check.py [out.json]     (about one CPU second)
+"""
+from __future__ import annotations
+
+import itertools
+import json
+import math
+import sys
+from fractions import Fraction as Fr
+
+
+class Q5:
+    """a + b*sqrt5 with rational a, b."""
+
+    __slots__ = ("a", "b")
+
+    def __init__(self, a=0, b=0):
+        self.a = Fr(a)
+        self.b = Fr(b)
+
+    @staticmethod
+    def of(x):
+        return x if isinstance(x, Q5) else Q5(x)
+
+    def __add__(self, o):
+        o = Q5.of(o)
+        return Q5(self.a + o.a, self.b + o.b)
+
+    __radd__ = __add__
+
+    def __neg__(self):
+        return Q5(-self.a, -self.b)
+
+    def __sub__(self, o):
+        return self + (-Q5.of(o))
+
+    def __rsub__(self, o):
+        return Q5.of(o) - self
+
+    def __mul__(self, o):
+        o = Q5.of(o)
+        return Q5(self.a * o.a + 5 * self.b * o.b, self.a * o.b + self.b * o.a)
+
+    __rmul__ = __mul__
+
+    def inv(self):
+        n = self.a * self.a - 5 * self.b * self.b
+        return Q5(self.a / n, -self.b / n)
+
+    def __truediv__(self, o):
+        return self * Q5.of(o).inv()
+
+    def __eq__(self, o):
+        o = Q5.of(o)
+        return self.a == o.a and self.b == o.b
+
+    def __hash__(self):
+        return hash((self.a, self.b))
+
+    def __float__(self):
+        return float(self.a) + float(self.b) * math.sqrt(5.0)
+
+    def __repr__(self):
+        if self.b == 0:
+            return str(self.a)
+        if self.a == 0:
+            return f"({self.b})*sqrt5"
+        return f"{self.a} + ({self.b})*sqrt5"
+
+
+ZERO, ONE = Q5(0), Q5(1)
+PHI = Q5(Fr(1, 2), Fr(1, 2))
+
+
+def mat_mul(x, y):
+    return tuple(tuple(sum((x[i][k] * y[k][j] for k in range(3)), ZERO) for j in range(3)) for i in range(3))
+
+
+def mat_vec(x, v):
+    return tuple(sum((x[i][k] * v[k] for k in range(3)), ZERO) for i in range(3))
+
+
+def cross(u, v):
+    return (u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0])
+
+
+def dot(u, v):
+    return sum((u[i] * v[i] for i in range(3)), ZERO)
+
+
+def inv3(m):
+    c = [[ZERO] * 3 for _ in range(3)]
+    for i in range(3):
+        for j in range(3):
+            a = [[m[r][s] for s in range(3) if s != j] for r in range(3) if r != i]
+            c[i][j] = (a[0][0] * a[1][1] - a[0][1] * a[1][0]) * (1 if (i + j) % 2 == 0 else -1)
+    det = sum((m[0][j] * c[0][j] for j in range(3)), ZERO)
+    return tuple(tuple(c[j][i] / det for j in range(3)) for i in range(3))
+
+
+def cols(u, v, w):
+    return tuple(tuple((u[i], v[i], w[i])) for i in range(3))
+
+
+# --- carrier: twelve ports = vertices (0, +-1, +-phi) and cyclic permutations ---------------------------------
+PORTS = []
+for s1 in (1, -1):
+    for s2 in (1, -1):
+        base = (ZERO, Q5(s1), PHI * s2)
+        for k in range(3):
+            PORTS.append(tuple(base[(i - k) % 3] for i in range(3)))
+assert len(set(PORTS)) == 12
+INDEX = {p: i for i, p in enumerate(PORTS)}
+ADJ = [[1 if dot(PORTS[i], PORTS[j]) == PHI else 0 for j in range(12)] for i in range(12)]
+assert all(sum(r) == 5 for r in ADJ)
+
+# --- the sixty rotations: images of one oriented seam ----------------------------------------------------------
+u0, u1 = PORTS[0], next(PORTS[j] for j in range(12) if ADJ[0][j])
+BASE_INV = inv3(cols(u0, u1, cross(u0, u1)))
+ROT = []
+for i in range(12):
+    for j in range(12):
+        if ADJ[i][j]:
+            v0, v1 = PORTS[i], PORTS[j]
+            r = mat_mul(cols(v0, v1, cross(v0, v1)), BASE_INV)
+            perm = tuple(INDEX[mat_vec(r, p)] for p in PORTS)  # KeyError if r is not a symmetry
+            ROT.append((r, perm))
+assert len(ROT) == 60 and len({p for _, p in ROT}) == 60
+IDENT = tuple(range(12))
+
+
+def trace(r):
+    return r[0][0] + r[1][1] + r[2][2]
+
+
+def fixed_ports(perm):
+    return sum(1 for i in range(12) if perm[i] == i)
+
+
+def compose(p, q):
+    return tuple(p[q[i]] for i in range(12))
+
+
+# --- band projectors of the adjacency (eigenvalues 5, sqrt5, -sqrt5, -1) ---------------------------------------
+SQ5 = Q5(0, 1)
+EIG = {"1": Q5(5), "3": SQ5, "3p": -SQ5, "5": Q5(-1)}
+A = [[Q5(ADJ[i][j]) for j in range(12)] for i in range(12)]
+I12 = [[ONE if i == j else ZERO for j in range(12)] for i in range(12)]
+
+
+def mm(x, y):
+    return [[sum((x[i][k] * y[k][j] for k in range(12)), ZERO) for j in range(12)] for i in range(12)]
+
+
+def proj(name):
+    lam = EIG[name]
+    out = I12
+    for other, mu in EIG.items():
+        if other != name:
+            f = (lam - mu).inv()
+            out = mm(out, [[(A[i][j] - (mu if i == j else ZERO)) * f for j in range(12)] for i in range(12)])
+    return out
+
+
+P = {name: proj(name) for name in EIG}
+for name, p in P.items():
+    assert mm(p, p) == p, name
+RANK = {name: sum((P[name][i][i] for i in range(12)), ZERO) for name in P}
+assert [RANK[n] for n in ("1", "3", "3p", "5")] == [Q5(1), Q5(3), Q5(3), Q5(5)]
+
+
+def band_char(name, perm):
+    # trace of P composed with the port permutation
+    return sum((P[name][perm[i]][i] for i in range(12)), ZERO)
+
+
+COST = {name: Q5(5) - EIG[name] for name in EIG}          # Laplacian seam cost 5 - a
+KERNEL = {name: ONE - COST[name] / 60 for name in EIG}    # public walk kernel 1 - L/60, blank record
+
+# --- the frame: the Klein group of the three coordinate half-turns --------------------------------------------
+def is_diag(r, signs):
+    return all(r[i][j] == (Q5(signs[i]) if i == j else ZERO) for i in range(3) for j in range(3))
+
+
+KLEIN_SIGNS = [(1, 1, 1), (1, -1, -1), (-1, 1, -1), (-1, -1, 1)]
+V4 = [next(x for x in ROT if is_diag(x[0], s)) for s in KLEIN_SIGNS]
+V4_PERMS = {p for _, p in V4}
+INV = {p: tuple(sorted(range(12), key=lambda i: p[i])) for _, p in ROT}
+FRAME = [x for x in ROT if {compose(compose(x[1], k), INV[x[1]]) for k in V4_PERMS} == V4_PERMS]
+
+half_turns = [x for x in ROT if trace(x[0]) == Q5(-1)]
+klein_groups = set()
+for a_, b_ in itertools.combinations(half_turns, 2):
+    if compose(a_[1], b_[1]) == compose(b_[1], a_[1]):
+        klein_groups.add(frozenset((IDENT, a_[1], b_[1], compose(a_[1], b_[1]))))
+
+
+def orbits(group_perms, n=12):
+    seen, out = set(), []
+    for i in range(n):
+        if i not in seen:
+            o = {g[i] for g in group_perms}
+            seen |= o
+            out.append(sorted(o))
+    return out
+
+
+def pair_orbits(group_perms):
+    seen, count = set(), 0
+    for i in range(12):
+        for j in range(12):
+            if (i, j) not in seen:
+                count += 1
+                seen |= {(g[i], g[j]) for g in group_perms}
+    return count
+
+
+def decompose_frame(name):
+    """Multiplicities (trivial, each of the two conjugate characters of the third-turn, triplet) under the frame."""
+    n = len(FRAME)
+    m1 = sum((band_char(name, p) for _, p in FRAME), ZERO) / n
+    m3 = sum((band_char(name, p) * trace(r) for r, p in FRAME), ZERO) / n
+    # chi_E = chi_1' + chi_1'' = 2 on the Klein group, -1 on the third-turns
+    me = sum((band_char(name, p) * (Q5(2) if p in V4_PERMS else Q5(-1)) for _, p in FRAME), ZERO) / n
+    return {"trivial": str(m1), "each_of_the_two_conjugate_characters": str(me / 2), "triplet": str(m3)}
+
+
+def decompose_klein(name):
+    out = {}
+    for label, signs in zip(("trivial", "x", "y", "z"), KLEIN_SIGNS):
+        # character of the Klein group whose value on the half-turn about axis i is signs-of-that-axis-vector
+        total = ZERO
+        for (r, p), s in zip(V4, KLEIN_SIGNS):
+            if label == "trivial":
+                val = 1
+            else:
+                axis = "xyz".index(label)
+                val = s[axis]
+            total = total + band_char(name, p) * val
+        out[label] = str(total / 4)
+    return out
+
+
+def spinor_times_triplet(group):
+    """Exact character sums for (cover doublet) x (vector triplet) over the cover of `group`.
+    chi_2(+-q)^2 = 1 + tr R, so the sums need the rotation traces only."""
+    n = len(group)
+    mult_doublet = sum(((ONE + trace(r)) * trace(r) for r, _ in group), ZERO) / n
+    norm = sum(((ONE + trace(r)) * trace(r) * trace(r) for r, _ in group), ZERO) / n
+    return {"multiplicity_of_the_doublet": str(mult_doublet), "norm_squared_of_the_character": str(norm)}
+
+
+order5 = next(x for x in ROT if trace(x[0]) == PHI)
+result = {
+    "level": "algebraic property of the carrier table (level 1); nothing here is a premise supplied",
+    "carrier": {"ports": 12, "rotations": len(ROT), "klein_groups": len(klein_groups),
+                "half_turns": len(half_turns)},
+    "frame_group": {
+        "order": len(FRAME),
+        "elements_fixing_a_port": sum(1 for _, p in FRAME if p != IDENT and fixed_ports(p) > 0),
+        "port_orbits": [len(o) for o in orbits([p for _, p in FRAME])],
+        "acts_freely_and_transitively_on_ports": (
+            len(FRAME) == 12
+            and all(fixed_ports(p) == 0 for _, p in FRAME if p != IDENT)
+            and len(orbits([p for _, p in FRAME])) == 1),
+        "trace_classes": sorted({str(trace(r)) for r, _ in FRAME}),
+    },
+    "klein_group": {
+        "port_orbits": orbits(V4_PERMS),
+        "each_orbit_lies_in_one_coordinate_plane": [
+            [k for k in range(3) if all(PORTS[i][k] == ZERO for i in o)] for o in orbits(V4_PERMS)],
+    },
+    "commutant_dimension_of_the_port_space": {
+        "full_rotation_group": pair_orbits([p for _, p in ROT]),
+        "frame_group": pair_orbits([p for _, p in FRAME]),
+        "klein_group": pair_orbits(V4_PERMS),
+    },
+    "bands": {},
+    "triplets_3_and_3p": {
+        "characters_equal_on_the_frame_group": all(
+            band_char("3", p) == band_char("3p", p) for _, p in FRAME),
+        "characters_on_a_fifth_turn": [str(band_char("3", order5[1])), str(band_char("3p", order5[1]))],
+        "characters_equal_on_the_full_group": all(
+            band_char("3", p) == band_char("3p", p) for _, p in ROT),
+    },
+    "spinor_times_vector_triplet": {
+        "full_group_cover_120": spinor_times_triplet(ROT),
+        "frame_group_cover_24": spinor_times_triplet(FRAME),
+        "klein_group_cover_8": spinor_times_triplet(V4),
+        "reading": "norm 2 = two inequivalent constituents (2 + 4); norm 3 = three inequivalent doublets "
+                   "(2 + 2' + 2''); norm 9 = one doublet three times",
+    },
+}
+for name in ("1", "3", "5", "3p"):
+    k = KERNEL[name]
+    result["bands"][name] = {
+        "rank": str(RANK[name]),
+        "adjacency_eigenvalue": str(EIG[name]),
+        "seam_cost": str(COST[name]),
+        "walk_kernel_eigenvalue_blank_record": str(k),
+        "rest_phase_arccos_float": round(math.acos(float(k)), 6),
+        "under_frame_group": decompose_frame(name),
+        "under_klein_group": decompose_klein(name),
+    }
+total_frame = {key: str(sum(Fr(result["bands"][n]["under_frame_group"][key]) for n in result["bands"]))
+               for key in ("trivial", "each_of_the_two_conjugate_characters", "triplet")}
+total_klein = {key: str(sum(Fr(result["bands"][n]["under_klein_group"][key]) for n in result["bands"]))
+               for key in ("trivial", "x", "y", "z")}
+result["port_space_total"] = {"under_frame_group": total_frame, "under_klein_group": total_klein}
+
+# --- the Lie-type theorem with the frame group in the place of the sixty rotations -----------------------------
+# Countermodule: g = su(2)^4 = (R^3, cross product)^4. The frame group acts by rho(a) = (|R_a|, R_a, R_a, R_a):
+# on the first factor through its third-turn quotient (|R_a| is the cyclic permutation matrix of a), on the other
+# three by its own rotations. Every rotation of R^3 is an inner automorphism of su(2), so rho(a) is inner.
+# D(e_p) = rho(a_p) w, with a_p the unique frame element taking port 0 to port p.
+def rat(m):
+    assert all(m[i][j].b == 0 for i in range(3) for j in range(3))
+    return [[m[i][j].a for j in range(3)] for i in range(3)]
+
+
+def rmul(x, y):
+    return [[sum(x[i][k] * y[k][j] for k in range(3)) for j in range(3)] for i in range(3)]
+
+
+def rvec(x, v):
+    return [sum(x[i][k] * v[k] for k in range(3)) for i in range(3)]
+
+
+def rcross(u, v):
+    return [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]]
+
+
+FR = {p: rat(r) for r, p in FRAME}
+assert all(all(e in (0, 1, -1) for row in m for e in row) for m in FR.values())
+ABS = {p: [[abs(e) for e in row] for row in m] for p, m in FR.items()}
+ELEMENT_OF_PORT = {p[0]: p for p in FR}                     # free and transitive: port -> frame element
+assert sorted(ELEMENT_OF_PORT) == list(range(12))
+
+
+def rho(p, x):                                              # x: four vectors of R^3
+    return [rvec(ABS[p], x[0])] + [rvec(FR[p], x[k]) for k in (1, 2, 3)]
+
+
+def flat(x):
+    return [c for v in x for c in v]
+
+
+def bracket(x, y):
+    return [rcross(x[k], y[k]) for k in range(4)]
+
+
+W = [[Fr(1), Fr(2), Fr(5)], [Fr(1), Fr(3), Fr(-2)], [Fr(2), Fr(-1), Fr(7)], [Fr(-3), Fr(5), Fr(1)]]
+D_COLS = {port: rho(ELEMENT_OF_PORT[port], W) for port in range(12)}
+
+
+def det(rows):
+    m = [list(r) for r in rows]
+    n, d = len(m), Fr(1)
+    for c in range(n):
+        piv = next((r for r in range(c, n) if m[r][c] != 0), None)
+        if piv is None:
+            return Fr(0)
+        if piv != c:
+            m[c], m[piv] = m[piv], m[c]
+            d = -d
+        d *= m[c][c]
+        for r in range(c + 1, n):
+            f = m[r][c] / m[c][c]
+            if f:
+                m[r] = [m[r][k] - f * m[c][k] for k in range(n)]
+    return d
+
+
+D_DET = det([flat(D_COLS[port]) for port in range(12)])
+homomorphism = all(
+    rmul(FR[b], FR[a]) == FR[compose(b, a)] and rmul(ABS[b], ABS[a]) == ABS[compose(b, a)]
+    for b in FR for a in FR)
+equivariant = all(rho(b, D_COLS[port]) == D_COLS[b[port]] for b in FR for port in range(12))
+BASIS = [[[Fr(1 if (k, i) == (kk, ii) else 0) for ii in range(3)] for kk in range(4)]
+         for k in range(4) for i in range(3)]
+automorphism = all(rho(b, bracket(x, y)) == bracket(rho(b, x), rho(b, y)) for b in FR for x in BASIS for y in BASIS)
+proper = all(det(FR[p]) == 1 and det(ABS[p]) == 1 for p in FR)
+fixed_dim_factors = [sum(sum(ABS[p][i][i] for i in range(3)) for p in FR) / 12] + \
+                    [sum(sum(FR[p][i][i] for i in range(3)) for p in FR) / 12] * 3
+result["lie_type_theorem_with_the_frame_group"] = {
+    "statement": "A faithful, commutator-closed, compact twelve-port response on which the twelve frame rotations "
+                 "act by inner automorphisms exists with Lie type su(2)^4: the exclusion step of the finite-current "
+                 "fixed-space theorem needs rotations outside the frame group.",
+    "algebra": "su(2)^4 = four copies of (R^3, cross product); centre 0",
+    "action": "first factor through the third-turn quotient (cyclic permutation matrices), "
+              "three factors by the frame rotations",
+    "rho_is_a_homomorphism": homomorphism,
+    "rho_acts_by_proper_rotations_hence_inner_automorphisms": proper and automorphism,
+    "response_is_equivariant": equivariant,
+    "response_determinant": str(D_DET),
+    "response_is_injective_rank_12": D_DET != 0,
+    "fixed_dimension_per_factor": [str(x) for x in fixed_dim_factors],
+    "fixed_dimension_total": str(sum(fixed_dim_factors)),
+    "fixed_dimension_of_the_port_space_under_the_frame_group": total_frame["trivial"],
+    "public_exclusion_step": "Lean/Screen/A2HolonomyBridge.lean, four_factor_fixed_dimension_ne_one: factorwise "
+                             "fixed dimensions each zero or three (uses simplicity of the sixty-rotation group)",
+}
+
+# --- witness that the three triplet copies mix once the frame is distinguished ---------------------------------
+# The frame matching M pairs the two ports of each of the six frame seams (the short sides of the three golden
+# rectangles). It commutes with the frame group and not with the sixty rotations. On the three-dimensional space of
+# one Klein character (one line from each of the bands 3, 5, 3') it is a 3 x 3 real symmetric involution m.
+def partner(p):
+    v = PORTS[p]
+    k = next(i for i in range(3) if v[i] == ONE or v[i] == -ONE)   # the coordinate equal to +-1
+    return INDEX[tuple(-v[i] if i == k else v[i] for i in range(3))]
+
+
+MATCH = tuple(partner(p) for p in range(12))
+assert all(ADJ[p][MATCH[p]] == 1 and MATCH[MATCH[p]] == p for p in range(12))
+match_commutes_with_frame = all(compose(p, MATCH) == compose(MATCH, p) for _, p in FRAME)
+match_commutes_with_all = all(compose(p, MATCH) == compose(MATCH, p) for _, p in ROT)
+MM = [[ONE if MATCH[j] == i else ZERO for j in range(12)] for i in range(12)]
+
+
+def perm_matrix(perm):
+    return [[ONE if perm[j] == i else ZERO for j in range(12)] for i in range(12)]
+
+
+def klein_projector(axis):
+    acc = [[ZERO] * 12 for _ in range(12)]
+    for (r, p), s in zip(V4, KLEIN_SIGNS):
+        pm = perm_matrix(p)
+        acc = [[acc[i][j] + pm[i][j] * s[axis] for j in range(12)] for i in range(12)]
+    return [[acc[i][j] / 4 for j in range(12)] for i in range(12)]
+
+
+def tr(x):
+    return sum((x[i][i] for i in range(12)), ZERO)
+
+
+PX = klein_projector(0)
+LINE = {b: mm(P[b], PX) for b in ("3", "5", "3p")}            # rank-one projectors
+assert all(tr(LINE[b]) == ONE for b in LINE)
+diag = {b: tr(mm(LINE[b], MM)) for b in LINE}                  # m_bb
+offd = {f"{a}|{b}": tr(mm(mm(LINE[a], MM), mm(LINE[b], MM)))   # m_ab squared
+        for a, b in (("3", "5"), ("3", "3p"), ("5", "3p"))}
+trace_m = sum(diag.values(), ZERO)
+# m is an involution on a three-dimensional space with trace +-1: m = +-(1 - 2 v v^T); v_b^2 = (1 -+ m_bb)/2
+sign = 1 if trace_m == ONE else -1
+weights = {b: (ONE - diag[b] * sign) / 2 for b in diag}
+result["frame_matching_between_the_triplet_copies"] = {
+    "operator": "port permutation exchanging the two ports of each frame seam",
+    "commutes_with_the_frame_group": match_commutes_with_frame,
+    "commutes_with_all_sixty_rotations": match_commutes_with_all,
+    "diagonal_elements_m_bb": {b: str(v) for b, v in diag.items()},
+    "squared_off_diagonal_elements": {k: str(v) for k, v in offd.items()},
+    "squared_off_diagonal_elements_float": {k: round(float(v), 6) for k, v in offd.items()},
+    "trace_on_one_klein_character": str(trace_m),
+    "weights_of_its_single_odd_or_even_direction_on_the_bands_3_5_3p": {b: str(v) for b, v in weights.items()},
+    "weights_float": {b: round(float(v), 6) for b, v in weights.items()},
+    "reading": "nonzero off-diagonal elements: an operator that respects the frame group only connects the three "
+               "copies; no such operator exists under the sixty rotations (commutant dimension 4)",
+}
+
+out = sys.argv[1] if len(sys.argv) > 1 else None
+text = json.dumps(result, indent=1)
+if out:
+    with open(out, "w") as fh:
+        fh.write(text + "\n")
+print(text)

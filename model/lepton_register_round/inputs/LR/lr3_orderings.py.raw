@@ -1,0 +1,482 @@
+"""LR task 3, alternative orderings O2 to O10 of CANDIDATES.md, section 4, executed on sixty addresses.
+
+  O2  n partners in turn, every round complete
+  O3  n partners in one round, kick shared: exp(-i h J (x) (1/n) sum_l Qx_l)
+  O4  partners read one at a time inside one round of X
+  O5  one at a time with X ticked again for each partner (kick h/n each)
+  O6  control: partners read at once (H = at least one written)
+  O7  control: full kick for every partner
+  O8  control: forward only (no inverse tick), full two-load sector of a cell
+  O9  control: no return test
+  O10 control: return test without reset
+
+Brute force: complex128 arrays over 60^(n+1) addresses. Factorized form (n = 3, 6): after the tick the state is a
+product; the kick depends on the flag f of X only through one diagonal factor per partner, so the kicked state is a
+sum over f = 0, 1 of products; every factor is ticked back and tested as a vector of 60 addresses. The two forms
+are compared for n = 2 (and n = 3 on a few rounds with --full).
+
+Run from this directory:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr3_orderings.py --quick
+    python -B lr3_orderings.py --full        (box)
+Writes lr3_orderings.json (or lr3_orderings_quick.json).
+"""
+import argparse
+import json
+import math
+import os
+import sys
+import time
+from fractions import Fraction as F
+
+import numpy as np
+import scipy.sparse as sp
+
+import lr_engine as E
+from model.lepton_register_round import walk as wk
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+PF = 2.0 / 9.0
+NA = E.NA
+SEED = 20261111
+PAIR = E.Pair(2, 2)
+RP, HF = PAIR.rp, PAIR.h          # flags over the 60 addresses of a cell with a double at port 2
+U1 = np.full(NA, 1 / math.sqrt(NA))
+
+
+def refl(v, axis):
+    return 2 * v.mean(axis=axis, keepdims=True) - v
+
+
+def phase_tracker():
+    return dict(phase=0.0, logmod=0.0, first=None, dev=0.0)
+
+
+def track(tr, rel):
+    if tr['first'] is None:
+        tr['first'] = rel
+    tr['dev'] = max(tr['dev'], abs(rel - tr['first']))
+    tr['phase'] += -math.atan2(rel.imag, rel.real)
+    tr['logmod'] += math.log(abs(rel))
+
+
+def summary(tr, rounds, N, extra=None):
+    t = rounds / N
+    out = dict(N=N, rounds=rounds, clock_time=t, phase_per_unit_clock_time=tr['phase'] / t,
+               log_modulus_per_unit_clock_time=tr['logmod'] / t,
+               amplitude_of_one_round=[tr['first'].real, tr['first'].imag],
+               max_change_of_the_round_amplitude_over_the_run=tr['dev'])
+    if extra:
+        out.update(extra)
+    return out
+
+
+# ------------------------------------------------------------------------------------------ brute force, n partners
+def kick_array(n, mode, angle):
+    """Phase array over (kX, kY_0, .., kY_(n-1)) for the orderings O3 (shared), O6 (or), O7 (full)."""
+    shape = [NA] * (n + 1)
+    rp = RP.reshape([NA] + [1] * n)
+    count = np.zeros(shape)
+    anyh = np.zeros(shape, dtype=bool)
+    for l in range(n):
+        s = [1] * (n + 1)
+        s[l + 1] = NA
+        hl = HF.reshape(s)
+        count = count + (rp ^ hl)
+        anyh = anyh | hl
+    if mode == 'shared':
+        return np.exp(-1j * angle * count / n)
+    if mode == 'full':
+        return np.exp(-1j * angle * count)
+    if mode == 'or':
+        return np.exp(-1j * angle * (rp ^ anyh))
+    raise ValueError(mode)
+
+
+def brute(n, mode, N, rounds):
+    """All cells tick, one kick, all cells tick back, every cell is tested; the all-yes branch."""
+    uu = np.full([NA] * (n + 1), NA ** (-(n + 1) / 2), dtype=np.complex128)
+    ph = kick_array(n, mode, 1.0 / N)
+    psi = uu.copy()
+    g = 1.0 + 0j
+    tr = phase_tracker()
+    for _ in range(rounds):
+        out = psi
+        for ax in range(n + 1):
+            out = refl(out, ax)                       # tick of every cell
+        out = out * ph
+        for ax in range(n + 1):
+            out = refl(out, ax)                       # inverse tick of every cell
+        a = out.sum() * NA ** (-(n + 1) / 2)
+        track(tr, a * np.conj(g))
+        g = a / abs(a)
+        psi = g * uu
+    return tr
+
+
+def brute_one_at_a_time(n, N, rounds):
+    """O4: tick X; for each partner: tick it, kick exp(-i (h/n) Qx_l), tick it back, test it; tick X back, test X."""
+    uu = np.full([NA] * (n + 1), NA ** (-(n + 1) / 2), dtype=np.complex128)
+    rp = RP.reshape([NA] + [1] * n)
+    phs = []
+    for l in range(n):
+        s = [1] * (n + 1)
+        s[l + 1] = NA
+        phs.append(np.exp(-1j * (1.0 / N / n) * (rp ^ HF.reshape(s))))
+    psi = uu.copy()
+    g = 1.0 + 0j
+    tr = phase_tracker()
+    for _ in range(rounds):
+        out = refl(psi, 0)
+        for l in range(n):
+            out = refl(out, l + 1)
+            out = out * phs[l]
+            out = refl(out, l + 1)
+            out = np.broadcast_to(out.mean(axis=l + 1, keepdims=True), out.shape)    # test of partner l: yes
+        out = refl(out, 0)
+        a = out.sum() * NA ** (-(n + 1) / 2)
+        track(tr, a * np.conj(g))
+        g = a / abs(a)
+        psi = g * uu
+    return tr
+
+
+# ------------------------------------------------------------------------------------------ factorized form
+def factorized(n, mode, N, rounds):
+    """The same rounds with the state kept as a sum over the flag f of X of product vectors."""
+    angle = 1.0 / N
+    x = U1.astype(np.complex128)
+    ys = [U1.astype(np.complex128) for _ in range(n)]
+    tr = phase_tracker()
+    for _ in range(rounds):
+        xt = refl(x, 0)
+        yts = [refl(y, 0) for y in ys]
+        a = 0j
+        for f in (0, 1):
+            xf = np.where(RP == bool(f), xt, 0)
+            ax = np.vdot(U1, refl(xf, 0))
+            if mode in ('shared', 'full'):
+                step = angle / n if mode == 'shared' else angle
+                d = np.exp(-1j * step * (HF != bool(f)))
+                prod = 1.0 + 0j
+                for yt in yts:
+                    prod *= np.vdot(U1, refl(d * yt, 0))
+                a += ax * prod
+            else:                                    # 'or': expand over the partners' flags
+                # amplitude of "no partner written" and its complement, per partner
+                none = 1.0 + 0j
+                tot = 1.0 + 0j
+                for yt in yts:
+                    none *= np.vdot(U1, refl(np.where(HF, 0, yt), 0))
+                    tot *= np.vdot(U1, refl(yt, 0))
+                some = tot - none
+                z = np.exp(-1j * angle)
+                a += ax * ((none * (z if f else 1)) + some * (1 if f else z))
+        rel = a * np.conj(x[0] / abs(x[0]))
+        track(tr, rel)
+        x = (a / abs(a)) * U1
+        ys = [U1.astype(np.complex128) for _ in range(n)]
+    return tr
+
+
+def closed_shared(n, N):
+    u = np.exp(-1j / (N * n))
+    a = (11 / 12) * (5 / 6 + u / 6) ** n + (1 / 12) * (1 / 6 + 5 * u / 6) ** n
+    return -N * math.atan2(a.imag, a.real)
+
+
+# ------------------------------------------------------------------------------------------ O2 and O5
+def in_turn(n, N, rounds):
+    """O2: round m reads partner m mod n in a complete round with kick 1/N. The cells are kept as vectors of 60
+    addresses; the pair of the round is their product."""
+    x = U1.astype(np.complex128)
+    ys = [U1.astype(np.complex128) for _ in range(n)]
+    tr = phase_tracker()
+    for m in range(rounds):
+        l = m % n
+        psi = np.outer(x, ys[l])
+        g = x[0] / abs(x[0])
+        out = PAIR.round(psi, 1.0 / N)
+        a = out.sum() / NA
+        track(tr, a * np.conj(g))
+        x = (a / abs(a)) * U1
+        ys[l] = U1.astype(np.complex128)
+    return tr
+
+
+# ------------------------------------------------------------------------------------------ O8 forward only
+def two_load_sector():
+    cfgs = sorted({wk.config(a, b) for a in range(12) for b in range(a, 12)})
+    index = {c: i for i, c in enumerate(cfgs)}
+    nc = len(cfgs)
+    rows, cols, vals = [], [], []
+    for ci, cfg in enumerate(cfgs):
+        for rec in range(4):
+            for k, (a, b) in enumerate(E.ADDR):
+                col = (ci * 4 + rec) * NA + k
+                for c2, r2, u in wk.images(cfg, rec, a, b):
+                    rows.append((index[c2] * 4 + r2) * NA + k)
+                    cols.append(col)
+                    vals.append(float(u))
+    dim = nc * 4 * NA
+    Q = sp.csr_matrix((vals, (rows, cols)), shape=(dim, dim))
+    return cfgs, index, Q
+
+
+def forward_only(ticks, port=2):
+    cfgs, index, Q = two_load_sector()
+    nc = len(cfgs)
+    dim = nc * 4 * NA
+    inv = abs(Q @ Q - sp.identity(dim)).max()
+    v = np.zeros(dim)
+    ci = index[wk.config(port, port)]
+    v[(ci * 4 + 0) * NA:(ci * 4 + 0) * NA + NA] = 1 / math.sqrt(NA)
+    start = v.copy()
+    # exact comparison with the public Walk on the first ticks
+    st = E.WALK.uniform({wk.config(port, port): F(1)})
+    exact_dev = 0.0
+    recs = np.repeat(np.tile(np.arange(4), nc), NA)
+    counts, ps, qs, ret = [], [], [], []
+    exact_counts = []
+    for t in range(1, ticks + 1):
+        m = v.reshape(nc * 4, NA)
+        v = Q @ (2 * m.mean(axis=1, keepdims=True) - m).reshape(dim)
+        w2 = v * v
+        p = float(w2[recs == 2].sum())
+        q = p + float(w2[recs == 3].sum())
+        ps.append(p)
+        qs.append(q)
+        counts.append(p + q - 2 * p * q)
+        ret.append(float(v @ start))
+        if t <= 4:
+            st = E.WALK.step(st)
+            pe = sum((x * x for (c, r, k), x in st.items() if r == 2), F(0)) / NA
+            qe = sum((x * x for (c, r, k), x in st.items() if r in (2, 3)), F(0)) / NA
+            exact_counts.append(pe + qe - 2 * pe * qe)
+            dense = np.zeros(dim)
+            for (c, r, k), x in st.items():
+                dense[(index[c] * 4 + r) * NA + k] = float(x) / math.sqrt(NA)
+            exact_dev = max(exact_dev, float(np.abs(dense - v).max()))
+    counts = np.array(counts)
+    ret = np.array(ret)
+    near = np.where(np.abs(counts[1:] - PF) < 1e-3)[0] + 2
+    big = int(np.argmax(np.abs(ret[1:])) + 2)
+    return dict(
+        ticks=ticks, dimension=dim, event_is_an_involution_max_abs=float(inv), norm_after_run=float(v @ v),
+        max_abs_difference_to_the_public_Walk_ticks_1_to_4=exact_dev,
+        exact_counts_ticks_1_to_4=[str(c) for c in exact_counts],
+        counts_ticks_1_to_12=[round(float(c), 9) for c in counts[:12]],
+        weight_record_2_ticks_1_to_6=[round(x, 9) for x in ps[:6]],
+        weight_written_ticks_1_to_6=[round(x, 9) for x in qs[:6]],
+        mean_count=float(counts.mean()), mean_count_first_12=float(counts[:12].mean()),
+        min_count=float(counts.min()), max_count=float(counts.max()),
+        standard_deviation_of_the_count=float(counts.std()),
+        mean_by_decade={str(n): float(counts[:n].mean()) for n in (10, 100, 1000, 10000) if n <= ticks},
+        ticks_after_the_first_with_count_within_0_001_of_2_9=[int(x) for x in near[:20]],
+        number_of_such_ticks=int(len(near)),
+        largest_return_amplitude_after_tick_1=dict(tick=big, amplitude=float(ret[big - 1])),
+        mean_weight_record_2=float(np.mean(ps)), mean_weight_written=float(np.mean(qs)))
+
+
+# ------------------------------------------------------------------------------------------ O9 no return test
+def no_test(N, rounds):
+    psi = PAIR.uu.copy()
+    rows = []
+    marks = {1, N, 2 * N, 5 * N, 10 * N, 14 * N, 100 * N, rounds}
+    worst = 0.0
+    for n in range(1, rounds + 1):
+        psi = PAIR.round(psi, 1.0 / N)
+        a = psi.sum() / NA
+        closed = 1 - PF + PF * np.exp(-1j * n / N)
+        worst = max(worst, abs(a - closed))
+        if n in marks:
+            t = n / N
+            ph = -math.atan2(a.imag, a.real)
+            rows.append(dict(rounds=n, clock_time=t, phase=ph, phase_per_unit_clock_time=ph / t,
+                             return_weight=abs(a) ** 2))
+    return dict(N=N, rounds=rounds, rows=rows, max_abs_difference_to_one_kick_of_angle_t=worst,
+                bound_asin_2_7=math.asin(2 / 7))
+
+
+# ------------------------------------------------------------------------------------------ O10 no reset
+def reduced_no_reset(N, rounds):
+    """The pair without reset stays in span{u, xi_X} (x) {u, xi_Y}; xi the executed non-return vectors. The round
+    is a 4 x 4 unitary read from executed states; the tests dephase in this basis. Exact mean count per round."""
+    out = PAIR.round(PAIR.uu.copy(), 1.0 / N)
+    _, comp = PAIR.test(out)
+    xi_x = comp['ny'].sum(axis=1)
+    xi_x = xi_x / np.linalg.norm(xi_x)
+    xi_y = comp['yn'].sum(axis=0)
+    xi_y = xi_y / np.linalg.norm(xi_y)
+    bx = [U1.astype(np.complex128), xi_x]
+    by = [U1.astype(np.complex128), xi_y]
+    basis = [np.outer(a, b) for a in bx for b in by]              # uu, u xi, xi u, xi xi
+    V = np.zeros((4, 4), dtype=np.complex128)
+    leak = 0.0
+    counts = []
+    for c, b in enumerate(basis):
+        o = PAIR.round(b, 1.0 / N)
+        coef = np.array([np.vdot(bb, o) for bb in basis])
+        V[:, c] = coef
+        leak = max(leak, float(np.linalg.norm(o - sum(cf * bb for cf, bb in zip(coef, basis)))))
+        counts.append(PAIR.count(b))
+    pop = np.array([1.0, 0, 0, 0])
+    T = np.abs(V) ** 2                                             # tests after every round: populations only
+    cnt = np.array(counts)
+    mean_count = np.empty(rounds)
+    for n in range(rounds):
+        mean_count[n] = pop @ cnt
+        pop = T @ pop
+    return dict(V=V, counts_in_the_four_states=counts, leak=leak, mean_count=mean_count, transition=T)
+
+
+def sampled_no_reset(N, rounds, M, rng):
+    """Brute force on the 60 x 60 arrays: tests after every round, outcomes sampled, no reset. Count read per round.
+    Returns the mean count per round over the trajectories and the time-averaged count of every trajectory."""
+    acc = np.zeros(rounds)
+    per_traj = np.empty(M)
+    for i in range(M):
+        psi = PAIR.uu.copy()
+        cs = np.empty(rounds)
+        for n in range(rounds):
+            cs[n] = PAIR.count(psi)
+            out = PAIR.round(psi, 1.0 / N)
+            _, comp = PAIR.test(out)
+            w = np.array([(np.abs(comp[o]) ** 2).sum() for o in ('yy', 'ny', 'yn', 'nn')])
+            o = ('yy', 'ny', 'yn', 'nn')[int(rng.choice(4, p=w / w.sum()))]
+            psi = comp[o] / math.sqrt((np.abs(comp[o]) ** 2).sum())
+        acc += cs
+        per_traj[i] = cs.mean()
+    return acc / M, per_traj
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--quick', action='store_true')
+    ap.add_argument('--full', action='store_true')
+    args = ap.parse_args()
+    quick = args.quick
+    t0 = time.time()
+    out = {'task': 'LR task 3, alternative orderings on sixty addresses', 'mode': 'quick' if quick else 'full',
+           'labels': 'MEASURED in float64 on executed state vectors; sampled rows with standard errors; '
+                     'EXACT rows are marked'}
+    R = 10 ** 4
+
+    # O2, O5
+    o2 = []
+    for n in (2, 3):
+        for N in (1, 10, 100):
+            tr = in_turn(n, N, R)
+            th, _ = E.closed_theta(N)
+            o2.append(summary(tr, R, N, dict(n=n, O1_closed_form=th, minus_O1=tr['phase'] / (R / N) - th)))
+    out['O2_partners_in_turn'] = o2
+    o5 = []
+    for n in (2, 3):
+        for N in (1, 10):
+            tr = in_turn(n, n * N, R * n if not quick else R)     # n sub-rounds per round, kick 1/(n N)
+            rounds = R * n if not quick else R
+            th, _ = E.closed_theta(n * N)
+            o5.append(summary(tr, rounds, n * N, dict(n=n, N_rounds_of_X=N, O1_closed_form_at_nN=th,
+                                                      minus_O1_at_nN=tr['phase'] / (rounds / (n * N)) - th)))
+    out['O5_X_ticked_again_for_each_partner'] = o5
+    print('O2', [(r['n'], r['N'], r['phase_per_unit_clock_time'], r['minus_O1']) for r in o2])
+    print('O5', [(r['n'], r['N_rounds_of_X'], r['phase_per_unit_clock_time'], r['minus_O1_at_nN']) for r in o5], flush=True)
+
+    # O3, O4, O6, O7
+    rows = []
+    rb = 200 if quick else R                              # brute-force rounds for n = 2
+    for N in (1, 10, 100):
+        b3 = brute(2, 'shared', N, rb)
+        b4 = brute_one_at_a_time(2, N, rb)
+        f3 = factorized(2, 'shared', N, R)
+        rows.append(dict(n=2, N=N, O3_brute=summary(b3, rb, N), O4_brute=summary(b4, rb, N),
+                         O3_factorized=summary(f3, R, N), closed_form=closed_shared(2, N),
+                         O4_minus_O3_round_amplitude=abs(b4['first'] - b3['first']),
+                         factorized_minus_brute_round_amplitude=abs(f3['first'] - b3['first'])))
+        print('O3/O4 n=2', N, b3['phase'] / (rb / N), b4['phase'] / (rb / N), f3['phase'] / (R / N), closed_shared(2, N), flush=True)
+    for n in (3, 6):
+        for N in (1, 10, 100, 1000):
+            f3 = factorized(n, 'shared', N, R)
+            rows.append(dict(n=n, N=N, O3_factorized=summary(f3, R, N), closed_form=closed_shared(n, N)))
+            print('O3 n=%d' % n, N, f3['phase'] / (R / N), closed_shared(n, N), flush=True)
+    for N in (1000,):
+        f3 = factorized(2, 'shared', N, R)
+        rows.append(dict(n=2, N=N, O3_factorized=summary(f3, R, N), closed_form=closed_shared(2, N)))
+    if not quick:
+        b3 = brute(3, 'shared', 10, 3)
+        b4 = brute_one_at_a_time(3, 10, 3)
+        f3 = factorized(3, 'shared', 10, 3)
+        rows.append(dict(n=3, N=10, rounds=3, brute_force_check=True,
+                         O4_minus_O3_round_amplitude=abs(b4['first'] - b3['first']),
+                         factorized_minus_brute_round_amplitude=abs(f3['first'] - b3['first'])))
+        print('n=3 brute check', rows[-1], flush=True)
+    out['O3_O4_shared_kick'] = rows
+
+    ctrl = []
+    for n, lim6 in ((2, 73 / 216), (3, 563 / 1296)):
+        for N in (10, 100, 1000):
+            f6 = factorized(n, 'or', N, R)
+            f7 = factorized(n, 'full', N, R)
+            row = dict(n=n, N=N, O6_at_once=summary(f6, R, N), O6_limit=lim6, O7_full_kick=summary(f7, R, N),
+                       O7_limit=2 * n / 9)
+            if n == 2 and N == 10:
+                b6 = brute(2, 'or', N, rb)
+                b7 = brute(2, 'full', N, rb)
+                row['O6_factorized_minus_brute_round_amplitude'] = abs(f6['first'] - b6['first'])
+                row['O7_factorized_minus_brute_round_amplitude'] = abs(f7['first'] - b7['first'])
+            ctrl.append(row)
+            print('O6/O7', n, N, f6['phase'] / (R / N), lim6, f7['phase'] / (R / N), 2 * n / 9, flush=True)
+    out['O6_O7_controls'] = ctrl
+
+    # O8
+    out['O8_forward_only'] = forward_only(1000 if quick else 10000)
+    print('O8', {k: v for k, v in out['O8_forward_only'].items()}, flush=True)
+
+    # O9
+    out['O9_no_return_test'] = [no_test(N, R) for N in (10, 100)]
+    for r in out['O9_no_return_test']:
+        print('O9', r['N'], r['max_abs_difference_to_one_kick_of_angle_t'], r['rows'], flush=True)
+
+    # O10
+    rng = np.random.default_rng(SEED)
+    o10 = []
+    for N, M in ((10, 10 if quick else 150), (100, 10 if quick else 150)):
+        rounds = 1000 if quick else R
+        red = reduced_no_reset(N, rounds)
+        mean, per_traj = sampled_no_reset(N, rounds, M, rng)
+        g = 169 / (1296 * N)
+        marks = [n for n in (1, 10, 100, 1000, 2000, 5000, 10000) if n <= rounds]
+        tab = []
+        for n in marks:
+            t = (n - 1) / N
+            ex = float(red['mean_count'][n - 1])
+            f = (ex - PF) / (5 / 9)                               # exact weight of the states with count 7/9
+            se = (5 / 9) * math.sqrt(max(f * (1 - f), 0) / M)     # binomial standard error of the sampled mean
+            tab.append(dict(round=n, clock_time=t, mean_count_exact_reduced=ex,
+                            mean_count_sampled=float(mean[n - 1]), standard_error=se,
+                            deviation_over_standard_error=(float(mean[n - 1]) - ex) / se if se > 0 else None,
+                            leading_order=0.5 - (5 / 18) * math.exp(-2 * g * t)))
+        run_exact = float(red['mean_count'].mean())
+        run_samp = float(per_traj.mean())
+        run_se = float(per_traj.std(ddof=1) / math.sqrt(M))
+        tt = rounds / N
+        o10.append(dict(N=N, rounds=rounds, clock_time=tt, trajectories=M,
+                        counts_in_the_states_uu_uxi_xiu_xixi=red['counts_in_the_four_states'],
+                        leak_out_of_the_four_states=red['leak'],
+                        single_round_transition_weights_times_N2=(red['transition'] * N * N).tolist(),
+                        table=tab, running_mean_count_exact_reduced=run_exact, running_mean_count_sampled=run_samp,
+                        running_mean_standard_error=run_se,
+                        running_mean_deviation_over_standard_error=(run_samp - run_exact) / run_se if run_se > 0 else None,
+                        running_mean_leading_order=0.5 - (5 / 18) * (1 - math.exp(-2 * g * tt)) / (2 * g * tt),
+                        exact_reduced_mean_count_by_round_sampled_every_100=[float(x) for x in red['mean_count'][::100]]))
+        print('O10', N, {k: v for k, v in o10[-1].items() if k not in ('single_round_transition_weights_times_N2',
+                                                                       'exact_reduced_mean_count_by_round_sampled_every_100')}, flush=True)
+    out['O10_no_reset'] = o10
+
+    out['seconds'] = round(time.time() - t0, 1)
+    name = 'lr3_orderings_quick.json' if quick else 'lr3_orderings.json'
+    json.dump(out, open(os.path.join(HERE, name), 'w'), indent=1, default=str)
+    print('written', name, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

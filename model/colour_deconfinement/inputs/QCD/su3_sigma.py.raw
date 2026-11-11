@@ -1,0 +1,72 @@
+"""Static potential from smeared Wilson loops on a symmetric lattice.
+
+    python su3_sigma.py N BETA NTHERM NMEAS EVERY SEED OUT      (measurement run)
+    python su3_sigma.py gate                                    (gates of the smearing code)
+
+Smearing levels: 6 and 12 APE steps with coefficient 0.4. Loops up to R = 6, T = 6. Output rewritten every 10
+measurements: W[measurement, level, R-1, T-1].
+"""
+import json, os, sys, time
+import numpy as np
+import su3_lib as S
+import su3_smear as M
+
+C_APE = 0.4
+LEVELS = (6, 12)
+
+
+def gate():
+    dims = (4, 4, 4, 4); up, dn = S.neighbours(*dims); V = 256
+    S.seed_rng(21); U = S.hot_start(V); S.compound_sweeps(U, up, dn, 5.7, 5, 2); S.reunitarize(U)
+    rng = np.random.default_rng(2)
+    Us = U
+    for _ in range(4):
+        Us = M.ape_step(Us, up, dn, C_APE)
+    W0 = M.wilson_loops_st(Us, U, up, 2, 2)
+    g = S.random_su3(V, rng); Ug = S.gauge_transform(U, up, g); Ugs = Ug
+    for _ in range(4):
+        Ugs = M.ape_step(Ugs, up, dn, C_APE)
+    W1 = M.wilson_loops_st(Ugs, Ug, up, 2, 2)
+    cov = float(np.abs(Ugs - S.gauge_transform(Us, up, g)).max())
+    pt = S.plaquette(U, up)[1]; Wthin = M.wilson_loops_st(U, U, up, 2, 2)
+    out = dict(smeared_loops_gauge_invariant=float(np.abs(W0 - W1).max()), smeared_links_covariant=cov,
+               smeared_links_unitarity=list(S.unitarity_defect(Us)), temporal_links_untouched=float(np.abs(Us[:, 3] - U[:, 3]).max()),
+               zero_coefficient_is_identity=float(np.abs(M.ape_step(U, up, dn, 0.0) - U).max()),
+               thin_W11_equals_temporal_plaquette=abs(Wthin[0, 0] - pt), W_smeared=W0.tolist(), W_thin=Wthin.tolist())
+    ok = (out['smeared_loops_gauge_invariant'] < 1e-12 and cov < 1e-12 and max(out['smeared_links_unitarity']) < 1e-12
+          and out['temporal_links_untouched'] == 0 and out['zero_coefficient_is_identity'] < 1e-13 and out['thin_W11_equals_temporal_plaquette'] < 1e-13)
+    out['ok'] = bool(ok)
+    json.dump(out, open('gates_smear.json', 'w'), indent=1)
+    print(('PASS ' if ok else 'FAIL ') + json.dumps(out), flush=True)
+
+
+def main():
+    a = sys.argv
+    if a[1] == 'gate':
+        return gate()
+    N, beta, nth, nme, every, seed, out = int(a[1]), float(a[2]), int(a[3]), int(a[4]), int(a[5]), int(a[6]), a[7]
+    dims = (N, N, N, N); up, dn = S.neighbours(*dims); V = N ** 4
+    S.seed_rng(seed); U = S.cold_start(V) if beta > 5.8 else S.hot_start(V)
+    t0 = time.time()
+    for n in range(nth // 50):
+        S.compound_sweeps(U, up, dn, beta, 50, 4); S.reunitarize(U)
+    Ws = []; ps = []
+    for m in range(nme):
+        S.compound_sweeps(U, up, dn, beta, every, 4); S.reunitarize(U)
+        Us = U; lev = []
+        done = 0
+        for L in LEVELS:
+            for _ in range(L - done):
+                Us = M.ape_step(Us, up, dn, C_APE)
+            done = L
+            lev.append(M.wilson_loops_st(Us, U, up, 6, 6))
+        Ws.append(lev); a_, b_ = S.plaquette(U, up); ps.append(0.5 * (a_ + b_))
+        if (m + 1) % 10 == 0 or m + 1 == nme:
+            meta = dict(N=N, beta=beta, ntherm=nth, nmeas=nme, done=m + 1, every=every, seed=seed, c_ape=C_APE, levels=list(LEVELS),
+                        seconds=time.time() - t0)
+            np.savez(out + '.tmp.npz', W=np.array(Ws), plaq=np.array(ps), meta=json.dumps(meta)); os.replace(out + '.tmp.npz', out)
+    print('done', out, time.time() - t0, flush=True)
+
+
+if __name__ == '__main__':
+    main()

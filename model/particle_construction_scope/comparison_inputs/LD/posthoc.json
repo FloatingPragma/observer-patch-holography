@@ -1,0 +1,49 @@
+{
+ "needed_coefficient_alpha_P": -1.8214519270324878,
+ "hadronic_remainder_muon_minus_electron_IMPORTED": -0.162533071040885,
+ "abar_squared_over_a_squared_at_M_mu": 1.0165174472654859,
+ "looks": [
+  {
+   "label": "H15 R4 with the remainder of the heavier families added, two-loop order",
+   "coefficient_of_a2": -1.8680359358177614,
+   "ln_mu_over_e_shift_ppm": -10.085027639986778,
+   "mu_over_e_residual_ppm": -0.2514946351796002,
+   "residual_in_sigma_of_measurement": -11.304589961814985
+  },
+  {
+   "label": "H15 the same with abar(M_mu)^2",
+   "coefficient_of_a2": -1.8988911208776638,
+   "ln_mu_over_e_shift_ppm": -10.251606552201228,
+   "mu_over_e_residual_ppm": -0.41807354739404895,
+   "residual_in_sigma_of_measurement": -18.792249877600987
+  },
+  {
+   "label": "H16 R2 with the lighter family decoupled at the own scale (minus 89/288), no hadronic remainder",
+   "coefficient_of_a2": -1.8609399019906605,
+   "ln_mu_over_e_shift_ppm": -10.046718046521026,
+   "mu_over_e_residual_ppm": -0.2131850417138484,
+   "residual_in_sigma_of_measurement": -9.582588037500065
+  },
+  {
+   "label": "H16 the same with the hadronic remainder",
+   "coefficient_of_a2": -2.0234729730315455,
+   "ln_mu_over_e_shift_ppm": -10.924190734508528,
+   "mu_over_e_residual_ppm": -1.0906577297013504,
+   "residual_in_sigma_of_measurement": -49.02465777909325
+  },
+  {
+   "label": "H17 R2 with abar(M_mu)^2 and the three-loop species term, hadronic remainder included",
+   "coefficient_of_a2": -1.7409828374984286,
+   "ln_mu_over_e_shift_ppm": -9.39910185894151,
+   "mu_over_e_residual_ppm": 0.43443114586566905,
+   "residual_in_sigma_of_measurement": 19.527517822182087
+  },
+  {
+   "label": "H14 mean of the leptonic coefficients of R2 and R4, hadronic remainder, abar(M_mu)^2",
+   "coefficient_of_a2": -1.8208272871168008,
+   "ln_mu_over_e_shift_ppm": -9.830160740551467,
+   "mu_over_e_residual_ppm": 0.0033722642557116253,
+   "residual_in_sigma_of_measurement": 0.15158201934001878
+  }
+ ]
+}

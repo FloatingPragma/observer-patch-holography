@@ -1,0 +1,17 @@
+"""Size of the lumped pair sector versus the contrast cap (states with max|d| > cap are frozen)."""
+import sys, time, json
+from pathlib import Path
+import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import s1lib as S, s1an as A, s1laws, s1c
+C = {'octa': S.octahedron, 'tetra': S.tetrahedron}[sys.argv[1]]()
+init = A.pair_initial(C)
+laws = s1laws.named()
+for name in sys.argv[2].split(','):
+    for dcap in [int(v) for v in sys.argv[3].split(',')]:
+        t0 = time.time()
+        ch = s1c.build_chain(C, laws[name], init, cap=400000, tcap=400000 * 24, dcap=dcap)
+        if ch['overflow']:
+            print(json.dumps(dict(law=name, dcap=dcap, overflow=True, sec=round(time.time() - t0, 1))), flush=True); continue
+        print(json.dumps(dict(law=name, dcap=dcap, n=ch['n'], frozen=int((ch['flags'] > 0).sum()), maxd=int(ch['maxd'].max()),
+                              nnz=int(ch['T'].nnz), sec=round(time.time() - t0, 1))), flush=True)

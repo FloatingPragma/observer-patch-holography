@@ -1,0 +1,58 @@
+"""D3 item 3: table of the overlaps of the three bound profiles of a winding-3 core with a localized source.
+
+Reads the vortex.py result of set 'item3' (n = 3, theta_0 = 0.3, L = 96, core sizes xi_c = 0..8; core 0, the smooth
+Gamma = +1 modes of the origin cone). For each core size, source width w and offset d: the three eigenvalues of the
+3 x 3 overlap matrices (right-handed component X_r = +1, left-handed component X_r = -1, record-blind density),
+their ratios r1 = O_2/O_1, r2 = O_3/O_2 (descending), and q = r2/r1 (q = 1 for a geometric sequence).
+Also the three pair splittings of the near-zero group (phase per tick) and the small-r exponents of the radial
+profiles (|right|^2 ~ r^(2l) near the core gives the angular momentum l of each overlap eigenmode).
+
+Usage:  python item3_table.py <item3.json> [<out.json>]
+"""
+import json, sys
+import numpy as np
+
+d = json.load(open(sys.argv[1]))
+table = []
+for r in d['results']:
+    c = r['config']
+    for row in r['classes']:
+        for cr in row['cores']:
+            nz = cr.get('near_zero_group', {})
+            info = cr.get('smooth_modes_plus') or cr.get('smooth_modes_minus')
+            ent = {'xi_c': c['xi_c'], 'class': row['class'], 'core': cr['core'], 'group_residual': cr.get('group_residual_of_U'),
+                   'pair_splittings_per_tick': nz.get('pair_phases_per_tick_from_the_off_diagonal_block'),
+                   'group_phases_per_tick': nz.get('phases_per_tick'), 'n_plus': nz.get('n_plus'), 'n_minus': nz.get('n_minus'),
+                   'smooth_plus': nz.get('plus_smooth')}
+            if info is None: table.append(ent); continue
+            ent['angular_content_right'] = info['angular_content_right_component']
+            ent['angular_content_left'] = info['angular_content_left_component']
+            rows = []
+            for e in info['overlaps']:
+                rr = {'width': e['width'], 'offset': e['offset']}
+                for key, lab in (('right_component_weights', 'R'), ('left_component_weights', 'L'), ('density_weights', 'D')):
+                    v = sorted(e[key], reverse=True); rr[lab] = v
+                    r1, r2 = v[1] / v[0], v[2] / v[1]; rr[lab + '_ratios'] = [r1, r2]; rr[lab + '_q'] = r2 / r1
+                rows.append(rr)
+            ent['overlaps'] = rows
+            # small-r exponent of |right|^2 for each overlap eigenmode (ordered by core weight): slope of log between
+            # the first two radial bins (r = 1 and 3 cells)
+            prof = info['radial_profiles_[r, |right|^2, |left|^2]_modes_by_core_weight']
+            ex = []
+            for p in prof:
+                (ra, ua, la), (rb, ub, lb) = p[0], p[1]
+                ex.append({'right_exponent': float(np.log(ub / ua) / np.log(rb / ra)) if ua > 0 and ub > 0 else None,
+                           'left_exponent': float(np.log(lb / la) / np.log(rb / ra)) if la > 0 and lb > 0 else None})
+            ent['small_r_exponents_r1_to_r3'] = ex
+            table.append(ent)
+
+for ent in table:
+    if ent.get('class') != [0, 0]: continue
+    ps = ent['pair_splittings_per_tick']
+    print(f"xi_c={ent['xi_c']}: gres={ent['group_residual']:.1e} n+/n-={ent['n_plus']}/{ent['n_minus']} pair splittings "
+          f"{[float(f'{x:.3g}') for x in ps] if ps else None}")
+    print('   exponents', [(None if e['right_exponent'] is None else round(e['right_exponent'], 2), None if e['left_exponent'] is None else round(e['left_exponent'], 2)) for e in ent.get('small_r_exponents_r1_to_r3', [])])
+    for rr in ent.get('overlaps', []):
+        print(f"   w={rr['width']:<4} d={rr['offset']:<4} R {[float(f'{x:.3e}') for x in rr['R']]} ratios {[round(x, 4) for x in rr['R_ratios']]} q={rr['R_q']:.3f}"
+              f" | D {[float(f'{x:.3e}') for x in rr['D']]} q={rr['D_q']:.3f}")
+if len(sys.argv) > 2: json.dump({'source': sys.argv[1], 'rows': table}, open(sys.argv[2], 'w'), indent=1)

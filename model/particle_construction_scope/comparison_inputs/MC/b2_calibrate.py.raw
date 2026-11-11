@@ -1,0 +1,118 @@
+"""Block 2: imported facts on small examples, and calibration of the causal-order instrument.
+
+Usage: python b2_calibrate.py [--seeds 16] [--procs 12]
+Writes results/b2_calibrate.json.
+"""
+import argparse, json, math, os, time
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+
+
+def imported_facts():
+    import sympy as sp
+    t, x, y, z = sp.symbols('t x y z', real=True)
+    X = sp.Matrix([[t + z, x - sp.I * y], [x + sp.I * y, t - z]])
+    out = {'det_is_minkowski_form': bool(sp.simplify(X.det() - (t ** 2 - x ** 2 - y ** 2 - z ** 2)) == 0)}
+    ev = list(X.eigenvals().keys())
+    r = sp.sqrt(x ** 2 + y ** 2 + z ** 2)
+    out['eigenvalues_are_t_pm_r'] = bool(sp.simplify(sum(ev) - 2 * t) == 0 and sp.simplify(ev[0] * ev[1] - (t ** 2 - r ** 2)) == 0)
+    # Loewner order against the cone on random pairs, and the effect interval as a diamond
+    rng = np.random.default_rng(1)
+    agree = 0; tot = 0; eff = 0
+    for _ in range(20000):
+        p = rng.normal(size=4); q = rng.normal(size=4)
+        d = q - p
+        cone = d[0] >= np.linalg.norm(d[1:])
+        w = np.linalg.eigvalsh(L.point_to_herm2(q) - L.point_to_herm2(p))
+        agree += int(cone == (w[0] >= 0)); tot += 1
+        e = rng.random(4) * np.array([1, 1, 1, 1]) - np.array([0, .5, .5, .5])
+        E = L.point_to_herm2(e)
+        w = np.linalg.eigvalsh(E)
+        is_effect = (w[0] >= 0) and (w[1] <= 1)
+        in_d = (e[0] >= np.linalg.norm(e[1:])) and (1 - e[0] >= np.linalg.norm(e[1:]))
+        eff += int(is_effect == in_d)
+    out['loewner_equals_cone_random_pairs'] = [agree, tot]
+    out['effect_interval_equals_diamond_random_points'] = [eff, tot]
+    out['flat_ordering_fraction_pairs'] = {str(d): L.ordering_fraction_flat(d) for d in (2, 3, 4)}
+    out['flat_ordering_fraction_exact'] = {'2': '1/2', '3': '8/35', '4': '1/10'}
+    out['brief_formula_with_4_in_denominator'] = {str(d): L.chi(2, d) for d in (2, 3, 4)}
+    out['note'] = ('Gamma(d+1)Gamma(d/2)/(4 Gamma(3d/2)) is R/N^2 (1/4, 4/35, 1/20); the fraction of related pairs among '
+                   'unordered pairs is twice that (1/2, 8/35, 1/10).')
+    out['flat_interval_fraction'] = {str(d): L.interval_fraction_flat(d) for d in (2, 3, 4)}
+    return out
+
+
+def one(args):
+    kind, N, par, seed = args
+    kid = {'sprinkle': 1, 'percolation': 2, 'chains': 3, 'shuffled': 4}[kind]
+    rng = np.random.default_rng([seed, N, kid, int(par * 1000) if kind == 'sprinkle' else 0])
+    if kind == 'sprinkle':
+        P = L.sprinkle_diamond(N, par, rng)
+        R = L.relation_cone(P)
+    elif kind == 'percolation':
+        R = L.transitive_percolation(N, par, rng)
+    elif kind == 'chains':
+        R = L.disjoint_chains(N, par)
+    elif kind == 'shuffled':
+        # same number of relations as a d = 4 sprinkling, placed at random among pairs i < j, no closure:
+        # a random relation of the same density (generally not transitive)
+        P = L.sprinkle_diamond(N, 4, rng)
+        C2 = int(L.relation_cone(P).sum())
+        iu = np.triu_indices(N, 1)
+        pick = rng.choice(iu[0].size, C2, replace=False)
+        R = np.zeros((N, N), bool); R[iu[0][pick], iu[1][pick]] = True
+    st = L.order_stats(R, check_transitive=True)
+    st.update({'kind': kind, 'par': par, 'seed': seed})
+    return st
+
+
+def tune_percolation(N, target, rng):
+    lo, hi = 0.0, 0.2
+    for _ in range(18):
+        mid = (lo + hi) / 2
+        r = np.mean([L.order_stats(L.transitive_percolation(N, mid, rng), intervals=False)['r'] for _ in range(3)])
+        lo, hi = (mid, hi) if r < target else (lo, mid)
+    return (lo + hi) / 2
+
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--seeds', type=int, default=16)
+    ap.add_argument('--procs', type=int, default=12)
+    a = ap.parse_args()
+    t0 = time.time()
+    res = {'imported_facts': imported_facts()}
+    print(json.dumps(res['imported_facts'], indent=1), flush=True)
+    jobs = []
+    sizes = (250, 500, 1000, 2000, 4000)
+    for N in sizes:
+        for d in (2, 3, 4):
+            jobs += [('sprinkle', N, d, s) for s in range(a.seeds)]
+    rng = np.random.default_rng(7)
+    pstar = {N: tune_percolation(N, 0.1, rng) for N in (500, 1000, 2000)}
+    res['percolation_p_for_r_0.1'] = pstar
+    for N in (500, 1000, 2000):
+        jobs += [('percolation', N, pstar[N], s) for s in range(a.seeds)]
+        jobs += [('chains', N, 10, 0), ('chains', N, 12, 0)]
+        jobs += [('shuffled', N, 0, s) for s in range(4)]
+    with Pool(a.procs) as pool:
+        rows = pool.map(one, jobs, chunksize=1)
+    table = {}
+    for kind, N, par in sorted({(r['kind'], r['N'], r['par']) for r in rows}, key=str):
+        sel = [r for r in rows if (r['kind'], r['N'], r['par']) == (kind, N, par)]
+        s = L.summarize(sel)
+        s['transitive_all'] = all(r.get('transitive', True) for r in sel)
+        ab = np.array([r['abund'] for r in sel if r['abund']])
+        if ab.size:
+            s['abund_mean'] = [float(v) for v in ab.mean(axis=0)]
+        table[f'{kind}|N={N}|par={par if kind != "percolation" else round(par, 6)}'] = s
+    res['table'] = table
+    res['seconds'] = time.time() - t0
+    os.makedirs('results', exist_ok=True)
+    json.dump(res, open('results/b2_calibrate.json', 'w'), indent=1)
+    print(f'{"case":44s} {"r":>18s} {"d_r":>14s} {"d_m":>14s} {"links":>8s} {"height":>8s} trans')
+    for k, s in table.items():
+        f = lambda key, n=4: f'{s[key][0]:.{n}f}+-{s[key][1]:.{n}f}' if key in s else '-'
+        print(f'{k:44s} {f("r"):>18s} {f("d_r", 3):>14s} {f("d_m", 3):>14s} {s.get("links", [float("nan")])[0]:8.4f} {s.get("height", [0])[0]:8.1f} {s["transitive_all"]}')
+    print('seconds', round(res['seconds'], 1))

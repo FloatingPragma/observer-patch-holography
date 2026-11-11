@@ -1,0 +1,33 @@
+"""Ensemble scan in the coupling on a symmetric lattice: Wilson loops against area and perimeter.
+
+    python su3_t0scan.py N OUT.json
+
+Pure SU(3), Wilson action, lattice N^4, loops up to 4 x 4, one process, the betas in sequence.
+"""
+import json, sys, time
+import numpy as np
+import su3_lib as S
+
+BETAS = [3.0, 4.0, 5.0, 5.3, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.2, 6.5, 7.0, 8.0]
+
+
+def main():
+    N = int(sys.argv[1]); outf = sys.argv[2]; dims = (N, N, N, N); up, dn = S.neighbours(*dims); V = N ** 4
+    out = dict(lattice=f'{N}^4', n_or=4, ntherm=150, nmeas_sweeps=450, every=3, Rmax=4, points=[])
+    for ib, beta in enumerate(BETAS):
+        S.seed_rng(5200 + ib); U = S.cold_start(V) if beta >= 5.6 else S.hot_start(V); t0 = time.time(); Ws = []; ps = []; Ls = []
+        for n in range(600):
+            S.compound_sweeps(U, up, dn, beta, 1, 4)
+            if (n + 1) % 50 == 0:
+                S.reunitarize(U)
+            if n >= 150 and (n - 150) % 3 == 0:
+                Ws.append(S.wilson_loops(U, up, 4)); a, b = S.plaquette(U, up); ps.append(0.5 * (a + b)); Ls.append(abs(S.polyakov(U, up, N)))
+        W = np.array(Ws); nb = 10; m = len(W) // nb; Wb = W[:nb * m].reshape(nb, m, 4, 4).mean(1)
+        out['points'].append(dict(beta=beta, W=W.mean(0).tolist(), W_err=(Wb.std(0, ddof=1) / np.sqrt(nb)).tolist(),
+                                  W_blocks=Wb.tolist(), plaq=float(np.mean(ps)), absL=float(np.mean(Ls)), seconds=time.time() - t0))
+        json.dump(out, open(outf, 'w'))
+        print('beta', beta, 'done', round(time.time() - t0, 1), flush=True)
+
+
+if __name__ == '__main__':
+    main()

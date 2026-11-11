@@ -1,0 +1,145 @@
+"""Worker R5: the complete CF-1 tick (section 8) for ONE charged quantum with quantum Z2 links, vectorized over the link word.
+
+State Psi[z, c, k]: z the link word (bit l = 1 means Z_l = -1), c the cell index, k = 2*record + spin.
+    tick = F . M . S,   S = S_3 S_2 S_1 (forward) or S_1 S_2 S_3 (reverse),  S_i = P_i^+ T_z + P_i^- T_z^*,
+    F = prod_l exp(-i eps X_l) . prod_p exp(-i kappa W_p)      (kappa factor first, as in work/DIRAC/interaction_check.py)
+An optional static U(1) twist A_i (the same phase exp(-i A_i) on every link of axis i) shifts the momentum of the quantum.
+The routing part is validated against the reference engine work/DIRAC/routing.py in `selftest()`.
+"""
+import itertools
+import numpy as np
+from r5lib import Routing, ALPHA, BETA
+
+I4 = np.eye(4, dtype=complex)
+PP = [(I4 + a) / 2 for a in ALPHA]; PM = [(I4 - a) / 2 for a in ALPHA]
+
+
+class QLink:
+    def __init__(self, shape, theta=0.0, eps=0.0, kappa=0.0, twist=(0.0, 0.0, 0.0)):
+        self.shape = tuple(shape); self.cells = list(itertools.product(*[range(s) for s in shape])); self.N = len(self.cells)
+        self.cid = {c: k for k, c in enumerate(self.cells)}
+        self.dirs = [i for i in range(3) if shape[i] > 1]
+        self.links = [(c, i) for i in self.dirs for c in self.cells]; self.lid = {l: k for k, l in enumerate(self.links)}
+        self.NL = len(self.links); self.NZ = 2 ** self.NL
+        z = np.arange(self.NZ)
+        self.sgn = [1.0 - 2.0 * ((z >> l) & 1) for l in range(self.NL)]
+        self.flip = [z ^ (1 << l) for l in range(self.NL)]
+        self.plaq = []
+        for i, j in itertools.combinations(self.dirs, 2):
+            for c in self.cells:
+                self.plaq.append([self.lid[(c, i)], self.lid[(self.nb(c, i), j)], self.lid[(self.nb(c, j), i)], self.lid[(c, j)]])
+        self.W = [np.prod([self.sgn[l] for l in p], axis=0) for p in self.plaq]
+        self.Wsum = np.sum(self.W, axis=0) if self.plaq else np.zeros(self.NZ)
+        self.theta = np.broadcast_to(np.asarray(theta, float), (self.N,)).copy()
+        self.eps, self.kappa, self.twist = eps, kappa, tuple(twist)
+
+    def nb(self, c, i, d=1):
+        c = list(c); c[i] = (c[i] + d) % self.shape[i]; return tuple(c)
+
+    # ---- the steps -------------------------------------------------------------------------------------------
+    def shift(self, Psi, i, inverse=False):
+        if self.shape[i] == 1: return Psi
+        out = np.zeros_like(Psi); ph = np.exp(1j * self.twist[i])
+        for c in self.cells:
+            x, y, l = self.cid[c], self.cid[self.nb(c, i)], self.lid[(c, i)]
+            s = self.sgn[l][:, None]
+            if not inverse:
+                out[:, y] += (ph * s) * (Psi[:, x] @ PP[i].T); out[:, x] += (np.conj(ph) * s) * (Psi[:, y] @ PM[i].T)
+            else:
+                out[:, x] += (np.conj(ph) * s) * (Psi[:, y] @ PP[i].T); out[:, y] += (ph * s) * (Psi[:, x] @ PM[i].T)
+        return out
+
+    def mass(self, Psi, inverse=False, power=1.0):
+        th = self.theta * (-power if inverse else power)
+        if not np.any(th): return Psi
+        return np.cos(th)[None, :, None] * Psi - 1j * np.sin(th)[None, :, None] * (Psi @ BETA.T)
+
+    def field_kappa(self, Psi, inverse=False, power=1.0):
+        if self.kappa == 0 or not self.plaq: return Psi
+        return np.exp((1j if inverse else -1j) * power * self.kappa * self.Wsum)[:, None, None] * Psi
+
+    def field_eps(self, Psi, inverse=False):
+        if self.eps == 0: return Psi
+        c, s = np.cos(self.eps), (-1 if inverse else 1) * np.sin(self.eps)
+        for l in range(self.NL): Psi = c * Psi - 1j * s * Psi[self.flip[l]]
+        return Psi
+
+    def route(self, Psi, reverse=False):
+        for i in ((2, 1, 0) if reverse else (0, 1, 2)): Psi = self.shift(Psi, i)
+        return Psi
+
+    def tick(self, Psi, reverse=False):
+        return self.field_eps(self.field_kappa(self.mass(self.route(Psi, reverse))))
+
+    def tick_inv(self, Psi, reverse=False):
+        Psi = self.mass(self.field_kappa(self.field_eps(Psi, True), True), True)
+        for i in ((0, 1, 2) if reverse else (2, 1, 0)): Psi = self.shift(Psi, i, inverse=True)
+        return Psi
+
+    def two(self, Psi):                                   # the alternating pair: forward, then reverse
+        return self.tick(self.tick(Psi), reverse=True)
+
+    def two_inv(self, Psi):
+        return self.tick_inv(self.tick_inv(Psi, reverse=True))
+
+    # ---- operators -------------------------------------------------------------------------------------------
+    def star(self, c):
+        m = 0
+        for i in self.dirs: m ^= (1 << self.lid[(c, i)]) ^ (1 << self.lid[(self.nb(c, i, -1), i)])
+        return m
+
+    def gauss(self, Psi, c):
+        out = np.empty_like(Psi); out[np.arange(self.NZ) ^ self.star(c)] = Psi; out[:, self.cid[c]] *= -1
+        return out
+
+    def project(self, Psi, g):
+        """projection on the Gauss sector G_c = g[c]"""
+        for c in self.cells: Psi = (Psi + g[self.cid[c]] * self.gauss(Psi, c)) / 2
+        return Psi
+
+    def op_cell(self, Psi, c, V):
+        out = Psi.copy(); out[:, self.cid[c]] = Psi[:, self.cid[c]] @ V.T; return out
+
+    def op_X(self, Psi, l): return Psi[self.flip[l]]
+    def op_Z(self, Psi, l): return self.sgn[l][:, None, None] * Psi
+
+    def spatial(self, Psi, perm, sign, t, u):
+        """the unitary of the lattice symmetry x -> rho x + t, rho e_i = sign[i] e_perm[i], with coin lift u (4x4);
+        the link from c to c + e_i is carried to the link between the images (the segment is carried along)"""
+        def R(c):
+            out = [0, 0, 0]
+            for i in range(3): out[perm[i]] = (sign[i] * c[i] + t[perm[i]]) % self.shape[perm[i]]
+            return tuple(out)
+        zmap = np.zeros(self.NZ, dtype=np.int64); z = np.arange(self.NZ)
+        for (c, i), l in self.lid.items():
+            a = R(c); j = perm[i]
+            l2 = self.lid[(a, j)] if sign[i] > 0 else self.lid[(self.nb(a, j, -1), j)]
+            zmap |= ((z >> l) & 1) << l2
+        cmap = [self.cid[R(c)] for c in self.cells]
+        out = np.empty_like(Psi)
+        out[np.ix_(zmap, cmap)] = Psi @ u.T
+        return out
+
+    def random(self, seed=0):
+        rng = np.random.default_rng(seed)
+        Psi = rng.normal(size=(self.NZ, self.N, 4)) + 1j * rng.normal(size=(self.NZ, self.N, 4))
+        return Psi / np.linalg.norm(Psi)
+
+    def signs(self, z):
+        out = [np.ones(self.shape, complex) * np.exp(-1j * self.twist[i]) for i in range(3)]
+        for (c, i), l in self.lid.items():
+            if (z >> l) & 1: out[i][c] *= -1
+        return out
+
+
+def selftest(shape=(3, 2, 1), seed=1):
+    """routing + mass of this file against the reference engine, link word by link word"""
+    q = QLink(shape, theta=0.0, twist=(0.37, -0.21, 0.0)); Psi = q.random(seed); rng = np.random.default_rng(seed); worst = 0.0
+    for z in rng.integers(0, q.NZ, size=6):
+        eng = Routing(shape, q.signs(int(z)))
+        for rev in (False, True):
+            want = eng.tick(Psi[z].reshape(shape + (2, 2)), 0.0, reverse=rev).reshape(q.N, 4)
+            P = np.zeros_like(Psi); P[z] = Psi[z]
+            worst = max(worst, np.abs(q.route(P, rev)[z] - want).max(), np.abs(np.delete(q.route(P, rev), z, axis=0)).max())
+    inv = max(np.abs(q.tick_inv(q.tick(Psi, r), r) - Psi).max() for r in (False, True))
+    return float(worst), float(inv)

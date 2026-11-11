@@ -1,0 +1,146 @@
+"""Worker CH, addendum 4 (second run): chain rows V14 (GL's equal bare couplings at M_U with BF's matched shifts),
+V15 (no doublet below M_U), V16 (trace N10) and the fit FA'.
+
+Run: /tmp/oph-completion-venv/bin/python ch_chain3.py [out.json]
+
+Engine: functions ell2, ell3 and constant EP of work/LV/lv_chain.py through ch_lib.Chain; additive shifts at M_U through
+the subclass ShiftChain. Gate: rows 'SA 5/3' and 'SB 5/3' of chain.json reproduced to relative 1e-9. BF's matched
+couplings are read from work/BF/bf_running.json (read only). No measured value is read.
+"""
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+from scipy.optimize import brentq
+
+from ch_lib import Chain, load_lv, clean, RL
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('chain3.json')
+HERE = Path(__file__).resolve().parent
+pi = np.pi
+lv = load_lv()
+prev = json.loads((HERE / 'chain.json').read_text())['rows']
+bf = json.loads((RL / 'work/BF/bf_running.json').read_text())['cell_couplings']
+BARE = bf['bare equal (cut closure)']['inv_alpha_1_2_3'][0]
+SHIFT = {k: [m - BARE for m in v['inv_alpha_1_2_3']] for k, v in bf.items() if v.get('kind') == 'computed matching'}
+SH = {'H5': SHIFT['full register, F=5, Hamiltonian (xi = inf)'], 'H15': SHIFT['full register, F=15, Hamiltonian (xi = inf)']}
+
+
+class ShiftChain(Chain):
+    """1/alpha_i(M_U) = c_i x + d_i; the law for v reads x + law_shift."""
+
+    def __init__(self, cc, shifts=(0.0, 0.0, 0.0), law_shift=0.0, **kw):
+        super().__init__(cc, **kw)
+        self.d = tuple(map(float, shifts))
+        self.law_shift = float(law_shift)
+
+    def inverse(self, x, mu):
+        L = np.log(self.MU / mu)
+        return tuple(self.c[i] * x + self.d[i] + self.b[i] / (2 * pi) * L for i in range(3))
+
+    def point(self, x):
+        xl = x + self.law_shift
+        pf = self.pref(xl) if callable(self.pref) else self.pref
+        v = pf * self.Ecell * np.exp(-2 * pi * xl / self.beta)
+        mu = 91.0
+        for _ in range(400):
+            i1, i2, i3 = self.inverse(x, mu)
+            if min(i1, i2, i3) <= 0:
+                return None
+            a1, a2 = 1 / i1, 1 / i2
+            new = v * np.sqrt(pi * (a2 + 0.6 * a1))
+            if not np.isfinite(new) or new <= 0:
+                return None
+            if abs(new - mu) < 1e-13 * mu:
+                mu = new
+                break
+            mu = new
+        i1, i2, i3 = self.inverse(x, mu)
+        if min(i1, i2, i3) <= 0:
+            return None
+        a1, a2, a3 = 1 / i1, 1 / i2, 1 / i3
+        aY = 0.6 * a1
+        lhs = self.cc.ell2(4 * pi * pi * a2) + self.cc.ell3(4 * pi * pi * a3)
+        m1, m2, m3 = self.inverse(x, self.MU)
+        return dict(x=x, x_law=xl, M_U=self.MU, E_cell=self.Ecell, prefactor=pf, v=v, mu=mu, m_Z=v * np.sqrt(pi * (a2 + aY)),
+                    m_W=v * np.sqrt(pi * a2), inv_alpha_1=i1, inv_alpha_2=i2, inv_alpha_3=i3, alpha_s=a3, inv_alpha_Y=i1 / 0.6,
+                    sin2=aY / (aY + a2), inv_alpha_em=1 / a2 + 1 / aY, lhs=lhs, inv_alpha_1_MU=m1, inv_alpha_2_MU=m2,
+                    inv_alpha_3_MU=m3, c_Y_eff_at_M_U=(m1 / 0.6) / m2, c_3_eff_at_M_U=m3 / m2)
+
+
+# ----------------------------------------------------------------------------- gate
+B1, B2 = (81 / 10, 5 / 6, -3.0), (41 / 5, 1.0, -3.0)
+SRC = {'SA': ('one doublet, m = 2', B1, 2.0), 'SB': ('two doublets, m = 1', B2, 1.0)}
+gates = {}
+for key, (text, b, pf) in SRC.items():
+    r = ShiftChain(lv, b=b, pref=pf).solve()
+    assert len(r) == 1
+    r = r[0]
+    p = prev[f'{key} 5/3']
+    for k in ('inv_alpha_U', 'v', 'm_Z', 'sin2', 'inv_alpha_em', 'alpha_s', 'inv_alpha_1', 'inv_alpha_2'):
+        kk = 'x' if k == 'inv_alpha_U' else k
+        assert abs(r[kk] / p[k] - 1) < 1e-9, (key, k, r[kk], p[k])
+    gates[f'{key} 5/3 of chain.json'] = 'reproduced to relative 1e-9'
+
+rows = {}
+
+
+def put(key, text, status, ch, weight=True):
+    sols = ch.solve()
+    if not sols:
+        rows[key] = dict(variant=text, status=status, slopes=list(ch.b), closure='no root', carries_weight=weight)
+        return None
+    r = sols[0]
+    if 'x' not in r:                                          # plain Chain rows
+        r = dict(r)
+        r['x'] = r['inv_alpha_U']
+        r['x_law'] = r['inv_alpha_U']
+        r['c_Y_eff_at_M_U'] = r['inv_alpha_Y_MU'] / r['inv_alpha_U']
+        r['c_3_eff_at_M_U'] = ch.c[2] / ch.c[1]
+    rows[key] = dict(variant=text, status=status, slopes=list(ch.b), roots=len(sols), other_roots=[s.get('x', s.get('inv_alpha_U')) for s in sols[1:]],
+                     carries_weight=weight, **r)
+    return r
+
+
+# V14: GL's equal bare couplings at M_U with BF's matched shifts
+for key, (text, b, pf) in SRC.items():
+    for tr, label in (('H5', '5-trace Hamiltonian'), ('H15', '15-trace Hamiltonian')):
+        d = SH[tr]
+        put(f'V14-{tr} {key}', f'{text}; equal bare couplings at M_U, BF shifts ({label}); law reads the bare coupling',
+            'source action plus computed matching', ShiftChain(lv, b=b, pref=pf, shifts=d, law_shift=0.0))
+        put(f'V14-{tr}w {key}', f'{text}; equal bare couplings at M_U, BF shifts ({label}); law reads 1/alpha_2(M_U)',
+            'source action plus computed matching', ShiftChain(lv, b=b, pref=pf, shifts=d, law_shift=d[1]))
+# V15: no doublet below M_U (the register's induced mass on file read as a threshold above M_U)
+B0H = (8.0, 2 / 3, -3.0)
+for pf in (2.0, 1.0):
+    for cy, lab in ((5 / 3, '5/3'), (1.0, '1')):
+        put(f'V15 m={int(pf)} c_Y={lab}', f'no doublet below M_U, prefactor {int(pf)}, c_Y = {lab}',
+            "the register's induced mass read as a threshold above M_U", Chain(lv, b=B0H, c=(0.6 * cy, 1.0, 1.0), pref=pf))
+# V16: trace N10 (native link sectors of the fifteen-state module): T_Y : T_2 : T_3 = 8 : 10 : 9
+for key, (text, b, pf) in SRC.items():
+    put(f'V16 {key}', f'{text}; trace N10, c = (0.6 x 4/5, 1, 9/10)', 'native link sectors of the fifteen-state module',
+        Chain(lv, b=b, c=(0.6 * 0.8, 1.0, 0.9), pref=pf))
+# FA': c_Y solved so that 1/alpha_1(m_Z) equals the declared chain's value (fit)
+target = prev['V0']['inv_alpha_1']
+f = lambda cy: Chain(lv, b=B1, c=(0.6 * cy, 1.0, 1.0), pref=2.0).solve()[0]['inv_alpha_1'] - target
+cyf = brentq(f, 0.5, 2.0, xtol=1e-12)
+put("FA'", "one doublet, m = 2; c_Y fitted on the declared 1/alpha_1(m_Z) = %.5f" % target, 'fit', Chain(lv, b=B1, c=(0.6 * cyf, 1.0, 1.0), pref=2.0), weight=False)
+rows["FA'"]['c_Y_fitted'] = cyf
+
+out = dict(gates=gates, bare_reference=BARE, shifts_used=SH,
+           hypercharge_minus_weak_shift_for_every_matched_row={k: v[0] - v[1] for k, v in SHIFT.items()},
+           weak_minus_colour_shift_for_every_matched_row={k: v[1] - v[2] for k, v in SHIFT.items()}, rows=rows)
+assert all(v > 0 for v in out['hypercharge_minus_weak_shift_for_every_matched_row'].values())
+OUT.write_text(json.dumps(clean(out), indent=1))
+cols = ('x', 'x_law', 'v', 'm_Z', 'm_W', 'inv_alpha_1', 'inv_alpha_2', 'alpha_s', 'sin2', 'inv_alpha_em', 'c_Y_eff_at_M_U', 'c_3_eff_at_M_U')
+print('gates:', gates)
+print('shifts (1/alpha_1, 1/alpha_2, 1/alpha_3), matched minus bare:', {k: [round(x, 5) for x in v] for k, v in SHIFT.items()})
+print(f"{'row':22s} " + ' '.join(f'{c[:11]:>11s}' for c in cols))
+for k, r in rows.items():
+    if 'closure' in r:
+        print(f'{k:22s} no root   {r["variant"]}')
+        continue
+    print(f'{k:22s} ' + ' '.join(f'{r[c]:11.5f}' for c in cols) + f"   roots {r['roots']}  {r['variant']}")
+print("FA' c_Y =", cyf)
+print('wrote', OUT)

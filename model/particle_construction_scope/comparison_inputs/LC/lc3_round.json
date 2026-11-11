@@ -1,0 +1,1049 @@
+{
+ "task": "LC item 1b: the weak round on sixty addresses",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "G2a double loads on two carriers, RD-rec": {
+  "DL at port 2, FP": {
+   "object": {
+    "object": "DL at port 2",
+    "W^-1 W S = S": true,
+    "record 2": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 3": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 2 or 3": {
+     "weight after one tick": "1/6",
+     "<S|W^-1 Pi W|S>": "1/6",
+     "equal": true,
+     "norm^2 of the non-return vector": "5/36",
+     "s (1 - s)": "5/36",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "5/36",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "forward only: flag weights at ticks 1 to 12": {
+     "record 2": [
+      "1/12",
+      "1279/5400",
+      "118753/405000",
+      "24125657/109350000",
+      "899442443/6150937500",
+      "484795794293/2767921875000",
+      "524037166240663/2075941406250000",
+      "87420475800646229/350315112304687500",
+      "47523798609827365421/315283601074218750000",
+      "5786273139304473505711/70938810241699218750000",
+      "12324227228345060451743/88673512802124023437500",
+      "910151530300302502679949127/3591277268486022949218750000"
+     ],
+     "record 3": [
+      "1/12",
+      "1279/5400",
+      "118753/405000",
+      "24125657/109350000",
+      "899442443/6150937500",
+      "484795794293/2767921875000",
+      "524037166240663/2075941406250000",
+      "87420475800646229/350315112304687500",
+      "47523798609827365421/315283601074218750000",
+      "5786273139304473505711/70938810241699218750000",
+      "12324227228345060451743/88673512802124023437500",
+      "910151530300302502679949127/3591277268486022949218750000"
+     ],
+     "record 2 or 3": [
+      "1/6",
+      "1279/2700",
+      "118753/202500",
+      "24125657/54675000",
+      "899442443/3075468750",
+      "484795794293/1383960937500",
+      "524037166240663/1037970703125000",
+      "87420475800646229/175157556152343750",
+      "47523798609827365421/157641800537109375000",
+      "5786273139304473505711/35469405120849609375000",
+      "12324227228345060451743/44336756401062011718750",
+      "910151530300302502679949127/1795638634243011474609375000"
+     ]
+    }
+   },
+   "pair (A flag record 2, B flag record 2 or 3)": {
+    "s_A (R+)": "1/12",
+    "s_B (H)": "1/6",
+    "P = <Qx>": "2/9",
+    "zero-return amplitude of one round": "1 - P + P exp(-i h j), P = 2/9",
+    "state after a zero return": "the initial pair (the return test projects on it): round n + 1 starts as round 1",
+    "non-return weight per round": "4 sin^2(h j/2) * 14/81",
+    "P (1 - P)": "14/81",
+    "equal": true,
+    "N rounds": [
+     {
+      "N": 1,
+      "phase per unit clock time": "0.205334030970278",
+      "amplitude kept": "0.917110764911"
+     },
+     {
+      "N": 2,
+      "phase per unit clock time": "0.218167184001747",
+      "amplitude kept": "0.9576828609"
+     },
+     {
+      "N": 6,
+      "phase per unit clock time": "0.221777012442412",
+      "amplitude kept": "0.985698740144"
+     },
+     {
+      "N": 10,
+      "phase per unit clock time": "0.222062099670503",
+      "amplitude kept": "0.991394996221"
+     },
+     {
+      "N": 100,
+      "phase per unit clock time": "0.22222062184783",
+      "amplitude kept": "0.999136175514"
+     },
+     {
+      "N": 1000,
+      "phase per unit clock time": "0.222222206218563",
+      "amplitude kept": "0.999913583981"
+     },
+     {
+      "N": 10000,
+      "phase per unit clock time": "0.222222222062186",
+      "amplitude kept": "0.999991358062"
+     },
+     {
+      "N": 1000000,
+      "phase per unit clock time": "0.222222222222206",
+      "amplitude kept": "0.99999991358"
+     }
+    ],
+    "limit of the phase per unit clock time": "2/9",
+    "one strong kick (no return read between rounds), phase at t = 1": "0.20533403097",
+    "forward only: exclusive counts at ticks 1 to 12": [
+     "2/9",
+     "3544109/7290000",
+     "21968948741/41006250000",
+     "1396558119030851/2989355625000000",
+     "1670156990267713063/4729254016113281250",
+     "771380700784515373161401/1915347876525878906250000",
+     "541287887258135961594223132931/1077383180545806884765625000000",
+     "3831548939790769192613650102976921/7670042369315363466739654541015625",
+     "8979094337516812584592670816437016305259/24850937276581777632236480712890625000000",
+     "274372542334184509505392632555978826111321979/1258078699626952492631971836090087890625000000",
+     "333868906952912060193196130564138634531591913/982873984083556634868727996945381164550781250",
+     "1623079068125950627148740238653724642147853472590375371/3224318104786107540686862193979322910308837890625000000"
+    ],
+    "forward only: the same as float": [
+     0.222222222,
+     0.486160357,
+     0.535746349,
+     0.467176975,
+     0.353154427,
+     0.402736605,
+     0.502409818,
+     0.499547298,
+     0.361318136,
+     0.218088536,
+     0.339686381,
+     0.503386767
+    ],
+    "forward only: mean per tick (float)": 0.407636156
+   }
+  },
+  "SD on (2,10), FP": {
+   "object": {
+    "object": "SD on (2,10)",
+    "W^-1 W S = S": true,
+    "record 2": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 3": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 2 or 3": {
+     "weight after one tick": "1/6",
+     "<S|W^-1 Pi W|S>": "1/6",
+     "equal": true,
+     "norm^2 of the non-return vector": "5/36",
+     "s (1 - s)": "5/36",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "5/36",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "forward only: flag weights at ticks 1 to 12": {
+     "record 2": [
+      "1/12",
+      "803/3375",
+      "1817479/6075000",
+      "4313011/18225000",
+      "53123808097/307546875000",
+      "14003622907729/69198046875000",
+      "4130356978635629/15569560546875000",
+      "28225942503917173/116771704101562500",
+      "26106722728535137823/197052250671386718750",
+      "3079420458083739314621/44336756401062011718750",
+      "2759387988701576591111117/19951540380477905273437500",
+      "1418450304489246664463887/5542094550132751464843750"
+     ],
+     "record 3": [
+      "1/12",
+      "803/3375",
+      "1817479/6075000",
+      "4313011/18225000",
+      "53123808097/307546875000",
+      "14003622907729/69198046875000",
+      "4130356978635629/15569560546875000",
+      "28225942503917173/116771704101562500",
+      "26106722728535137823/197052250671386718750",
+      "3079420458083739314621/44336756401062011718750",
+      "2759387988701576591111117/19951540380477905273437500",
+      "1418450304489246664463887/5542094550132751464843750"
+     ],
+     "record 2 or 3": [
+      "1/6",
+      "1606/3375",
+      "1817479/3037500",
+      "4313011/9112500",
+      "53123808097/153773437500",
+      "14003622907729/34599023437500",
+      "4130356978635629/7784780273437500",
+      "28225942503917173/58385852050781250",
+      "26106722728535137823/98526125335693359375",
+      "3079420458083739314621/22168378200531005859375",
+      "2759387988701576591111117/9975770190238952636718750",
+      "1418450304489246664463887/2771047275066375732421875"
+     ]
+    }
+   },
+   "pair (A flag record 2, B flag record 2 or 3)": {
+    "s_A (R+)": "1/12",
+    "s_B (H)": "1/6",
+    "P = <Qx>": "2/9",
+    "zero-return amplitude of one round": "1 - P + P exp(-i h j), P = 2/9",
+    "state after a zero return": "the initial pair (the return test projects on it): round n + 1 starts as round 1",
+    "non-return weight per round": "4 sin^2(h j/2) * 14/81",
+    "P (1 - P)": "14/81",
+    "equal": true,
+    "N rounds": [
+     {
+      "N": 1,
+      "phase per unit clock time": "0.205334030970278",
+      "amplitude kept": "0.917110764911"
+     },
+     {
+      "N": 2,
+      "phase per unit clock time": "0.218167184001747",
+      "amplitude kept": "0.9576828609"
+     },
+     {
+      "N": 6,
+      "phase per unit clock time": "0.221777012442412",
+      "amplitude kept": "0.985698740144"
+     },
+     {
+      "N": 10,
+      "phase per unit clock time": "0.222062099670503",
+      "amplitude kept": "0.991394996221"
+     },
+     {
+      "N": 100,
+      "phase per unit clock time": "0.22222062184783",
+      "amplitude kept": "0.999136175514"
+     },
+     {
+      "N": 1000,
+      "phase per unit clock time": "0.222222206218563",
+      "amplitude kept": "0.999913583981"
+     },
+     {
+      "N": 10000,
+      "phase per unit clock time": "0.222222222062186",
+      "amplitude kept": "0.999991358062"
+     },
+     {
+      "N": 1000000,
+      "phase per unit clock time": "0.222222222222206",
+      "amplitude kept": "0.99999991358"
+     }
+    ],
+    "limit of the phase per unit clock time": "2/9",
+    "one strong kick (no return read between rounds), phase at t = 1": "0.20533403097",
+    "forward only: exclusive counts at ticks 1 to 12": [
+     "2/9",
+     "5551139/11390625",
+     "4977658778309/9226406250000",
+     "40351405220129/83037656250000",
+     "9431406889522152394841/23646270080566406250000",
+     "530666061249768943499718809/1197092422828674316406250000",
+     "31171033523342295572907358805609/60602803905701637268066406250000",
+     "837644862153455569491855333898723/1704453859847858548164367675781250",
+     "6353460763718316230130378481039272063217/19414794747329513775184750556945800781250",
+     "185831611344428978348001241256723003173518343/982873984083556634868727996945381164550781250",
+     "8419077147324594804504341912751197043309162506984/24878997722115027320114677422679960727691650390625",
+     "7767776020604720590452125642775354009960704686837/15357406001305572419823874952271580696105957031250"
+    ],
+    "forward only: the same as float": [
+     0.222222222,
+     0.487342793,
+     0.539501366,
+     0.485941042,
+     0.398853894,
+     0.443295815,
+     0.514349692,
+     0.491444727,
+     0.327248413,
+     0.189069621,
+     0.338400977,
+     0.505800004
+    ],
+    "forward only: mean per tick (float)": 0.411955881
+   }
+  },
+  "DL at port 2, FS(F0)": {
+   "object": {
+    "object": "DL at port 2",
+    "W^-1 W S = S": true,
+    "record 2": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 3": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 2 or 3": {
+     "weight after one tick": "1/6",
+     "<S|W^-1 Pi W|S>": "1/6",
+     "equal": true,
+     "norm^2 of the non-return vector": "5/36",
+     "s (1 - s)": "5/36",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "5/36",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "forward only: flag weights at ticks 1 to 12": {
+     "record 2": [
+      "1/12",
+      "6511/27000",
+      "1925981/6075000",
+      "77821229/273375000",
+      "38759156113/153773437500",
+      "9814839368243/34599023437500",
+      "472134293672957/1556956054687500",
+      "759297687505017841/3503151123046875000",
+      "58118223708261171341/788209002685546875000",
+      "901947661941070685459/35469405120849609375000",
+      "2545695431439313986939253/19951540380477905273437500",
+      "293977556832135349551614912/1122274146401882171630859375"
+     ],
+     "record 3": [
+      "1/12",
+      "6511/27000",
+      "1925981/6075000",
+      "77821229/273375000",
+      "38759156113/153773437500",
+      "9814839368243/34599023437500",
+      "472134293672957/1556956054687500",
+      "759297687505017841/3503151123046875000",
+      "58118223708261171341/788209002685546875000",
+      "901947661941070685459/35469405120849609375000",
+      "2545695431439313986939253/19951540380477905273437500",
+      "293977556832135349551614912/1122274146401882171630859375"
+     ],
+     "record 2 or 3": [
+      "1/6",
+      "6511/13500",
+      "1925981/3037500",
+      "77821229/136687500",
+      "38759156113/76886718750",
+      "9814839368243/17299511718750",
+      "472134293672957/778478027343750",
+      "759297687505017841/1751575561523437500",
+      "58118223708261171341/394104501342773437500",
+      "901947661941070685459/17734702560424804687500",
+      "2545695431439313986939253/9975770190238952636718750",
+      "587955113664270699103229824/1122274146401882171630859375"
+     ]
+    }
+   },
+   "pair (A flag record 2, B flag record 2 or 3)": {
+    "s_A (R+)": "1/12",
+    "s_B (H)": "1/6",
+    "P = <Qx>": "2/9",
+    "zero-return amplitude of one round": "1 - P + P exp(-i h j), P = 2/9",
+    "state after a zero return": "the initial pair (the return test projects on it): round n + 1 starts as round 1",
+    "non-return weight per round": "4 sin^2(h j/2) * 14/81",
+    "P (1 - P)": "14/81",
+    "equal": true,
+    "N rounds": [
+     {
+      "N": 1,
+      "phase per unit clock time": "0.205334030970278",
+      "amplitude kept": "0.917110764911"
+     },
+     {
+      "N": 2,
+      "phase per unit clock time": "0.218167184001747",
+      "amplitude kept": "0.9576828609"
+     },
+     {
+      "N": 6,
+      "phase per unit clock time": "0.221777012442412",
+      "amplitude kept": "0.985698740144"
+     },
+     {
+      "N": 10,
+      "phase per unit clock time": "0.222062099670503",
+      "amplitude kept": "0.991394996221"
+     },
+     {
+      "N": 100,
+      "phase per unit clock time": "0.22222062184783",
+      "amplitude kept": "0.999136175514"
+     },
+     {
+      "N": 1000,
+      "phase per unit clock time": "0.222222206218563",
+      "amplitude kept": "0.999913583981"
+     },
+     {
+      "N": 10000,
+      "phase per unit clock time": "0.222222222062186",
+      "amplitude kept": "0.999991358062"
+     },
+     {
+      "N": 1000000,
+      "phase per unit clock time": "0.222222222222206",
+      "amplitude kept": "0.99999991358"
+     }
+    ],
+    "limit of the phase per unit clock time": "2/9",
+    "one strong kick (no return read between rounds), phase at t = 1": "0.20533403097",
+    "forward only: exclusive counts at ticks 1 to 12": [
+     "2/9",
+     "89454629/182250000",
+     "5065848118889/9226406250000",
+     "9899640175335809/18683472656250000",
+     "741956079994864014839/1477891880035400390625",
+     "79178410589220143144788663/149636552853584289550781250",
+     "82102117276931365954300957319/151507009764254093170166015625",
+     "1418417931782106071316876811994354969/3068016947726145386695861816406250000",
+     "30979252433204541848233696118671222292969/155318357978636110201478004455566406250000",
+     "23180150679512244744777933818659459819553069/314519674906738123157992959022521972656250000",
+     "7903085916979675467757906797203068337758282985654/24878997722115027320114677422679960727691650390625",
+     "644079019281321033825736587332505828069306448311929024/1259499259682073258080805544523173011839389801025390625"
+    ],
+    "forward only: the same as float": [
+     0.222222222,
+     0.490834727,
+     0.549059729,
+     0.529860822,
+     0.50203678,
+     0.529138162,
+     0.541903093,
+     0.462324021,
+     0.199456477,
+     0.073700161,
+     0.317660945,
+     0.511377053
+    ],
+    "forward only: mean per tick (float)": 0.410797849
+   }
+  },
+  "SD on (2,10), FS(F0)": {
+   "object": {
+    "object": "SD on (2,10)",
+    "W^-1 W S = S": true,
+    "record 2": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 3": {
+     "weight after one tick": "1/12",
+     "<S|W^-1 Pi W|S>": "1/12",
+     "equal": true,
+     "norm^2 of the non-return vector": "11/144",
+     "s (1 - s)": "11/144",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "11/144",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "record 2 or 3": {
+     "weight after one tick": "1/6",
+     "<S|W^-1 Pi W|S>": "1/6",
+     "equal": true,
+     "norm^2 of the non-return vector": "5/36",
+     "s (1 - s)": "5/36",
+     "split": {
+      "written record (1, 2 or 3)": "0",
+      "blank record, initial configuration": "5/36",
+      "blank record, other configuration": "0"
+     },
+     "blank-record part on the initial configuration with uniform address": "0"
+    },
+    "forward only: flag weights at ticks 1 to 12": {
+     "record 2": [
+      "1/12",
+      "6511/27000",
+      "1925981/6075000",
+      "77821229/273375000",
+      "38759156113/153773437500",
+      "9814839368243/34599023437500",
+      "472134293672957/1556956054687500",
+      "759297687505017841/3503151123046875000",
+      "58118223708261171341/788209002685546875000",
+      "901947661941070685459/35469405120849609375000",
+      "2545695431439313986939253/19951540380477905273437500",
+      "293977556832135349551614912/1122274146401882171630859375"
+     ],
+     "record 3": [
+      "1/12",
+      "6511/27000",
+      "1925981/6075000",
+      "77821229/273375000",
+      "38759156113/153773437500",
+      "9814839368243/34599023437500",
+      "472134293672957/1556956054687500",
+      "759297687505017841/3503151123046875000",
+      "58118223708261171341/788209002685546875000",
+      "901947661941070685459/35469405120849609375000",
+      "2545695431439313986939253/19951540380477905273437500",
+      "293977556832135349551614912/1122274146401882171630859375"
+     ],
+     "record 2 or 3": [
+      "1/6",
+      "6511/13500",
+      "1925981/3037500",
+      "77821229/136687500",
+      "38759156113/76886718750",
+      "9814839368243/17299511718750",
+      "472134293672957/778478027343750",
+      "759297687505017841/1751575561523437500",
+      "58118223708261171341/394104501342773437500",
+      "901947661941070685459/17734702560424804687500",
+      "2545695431439313986939253/9975770190238952636718750",
+      "587955113664270699103229824/1122274146401882171630859375"
+     ]
+    }
+   },
+   "pair (A flag record 2, B flag record 2 or 3)": {
+    "s_A (R+)": "1/12",
+    "s_B (H)": "1/6",
+    "P = <Qx>": "2/9",
+    "zero-return amplitude of one round": "1 - P + P exp(-i h j), P = 2/9",
+    "state after a zero return": "the initial pair (the return test projects on it): round n + 1 starts as round 1",
+    "non-return weight per round": "4 sin^2(h j/2) * 14/81",
+    "P (1 - P)": "14/81",
+    "equal": true,
+    "N rounds": [
+     {
+      "N": 1,
+      "phase per unit clock time": "0.205334030970278",
+      "amplitude kept": "0.917110764911"
+     },
+     {
+      "N": 2,
+      "phase per unit clock time": "0.218167184001747",
+      "amplitude kept": "0.9576828609"
+     },
+     {
+      "N": 6,
+      "phase per unit clock time": "0.221777012442412",
+      "amplitude kept": "0.985698740144"
+     },
+     {
+      "N": 10,
+      "phase per unit clock time": "0.222062099670503",
+      "amplitude kept": "0.991394996221"
+     },
+     {
+      "N": 100,
+      "phase per unit clock time": "0.22222062184783",
+      "amplitude kept": "0.999136175514"
+     },
+     {
+      "N": 1000,
+      "phase per unit clock time": "0.222222206218563",
+      "amplitude kept": "0.999913583981"
+     },
+     {
+      "N": 10000,
+      "phase per unit clock time": "0.222222222062186",
+      "amplitude kept": "0.999991358062"
+     },
+     {
+      "N": 1000000,
+      "phase per unit clock time": "0.222222222222206",
+      "amplitude kept": "0.99999991358"
+     }
+    ],
+    "limit of the phase per unit clock time": "2/9",
+    "one strong kick (no return read between rounds), phase at t = 1": "0.20533403097",
+    "forward only: exclusive counts at ticks 1 to 12": [
+     "2/9",
+     "89454629/182250000",
+     "5065848118889/9226406250000",
+     "9899640175335809/18683472656250000",
+     "741956079994864014839/1477891880035400390625",
+     "79178410589220143144788663/149636552853584289550781250",
+     "82102117276931365954300957319/151507009764254093170166015625",
+     "1418417931782106071316876811994354969/3068016947726145386695861816406250000",
+     "30979252433204541848233696118671222292969/155318357978636110201478004455566406250000",
+     "23180150679512244744777933818659459819553069/314519674906738123157992959022521972656250000",
+     "7903085916979675467757906797203068337758282985654/24878997722115027320114677422679960727691650390625",
+     "644079019281321033825736587332505828069306448311929024/1259499259682073258080805544523173011839389801025390625"
+    ],
+    "forward only: the same as float": [
+     0.222222222,
+     0.490834727,
+     0.549059729,
+     0.529860822,
+     0.50203678,
+     0.529138162,
+     0.541903093,
+     0.462324021,
+     0.199456477,
+     0.073700161,
+     0.317660945,
+     0.511377053
+    ],
+    "forward only: mean per tick (float)": 0.410797849
+   }
+  }
+ },
+ "G2b symmetric double loads on two carriers, RD-FR, FS(F0)": {
+  "object": {
+   "object": "SD on (2,10)",
+   "W^-1 W S = S": true,
+   "forward C": {
+    "weight after one tick": "1/60",
+    "<S|W^-1 Pi W|S>": "1/60",
+    "equal": true,
+    "norm^2 of the non-return vector": "59/3600",
+    "s (1 - s)": "59/3600",
+    "split": {
+     "written record (1, 2 or 3)": "0",
+     "blank record, initial configuration": "59/3600",
+     "blank record, other configuration": "0"
+    },
+    "blank-record part on the initial configuration with uniform address": "1/3600"
+   },
+   "backward C": {
+    "weight after one tick": "1/60",
+    "<S|W^-1 Pi W|S>": "1/60",
+    "equal": true,
+    "norm^2 of the non-return vector": "59/3600",
+    "s (1 - s)": "59/3600",
+    "split": {
+     "written record (1, 2 or 3)": "0",
+     "blank record, initial configuration": "59/3600",
+     "blank record, other configuration": "0"
+    },
+    "blank-record part on the initial configuration with uniform address": "1/3600"
+   },
+   "in-dimer": {
+    "weight after one tick": "1/30",
+    "<S|W^-1 Pi W|S>": "1/30",
+    "equal": true,
+    "norm^2 of the non-return vector": "29/900",
+    "s (1 - s)": "29/900",
+    "split": {
+     "written record (1, 2 or 3)": "0",
+     "blank record, initial configuration": "29/900",
+     "blank record, other configuration": "0"
+    },
+    "blank-record part on the initial configuration with uniform address": "0"
+   },
+   "forward only: flag weights at ticks 1 to 12": {
+    "forward C": [
+     "1/60",
+     "109/2250",
+     "783277/12150000",
+     "5433329/91125000",
+     "678229991/12301875000",
+     "1454439303361/23066015625000",
+     "209269432444999/3113912109375000",
+     "56205548118570961/1167717041015625000",
+     "24799231957657069237/1576418005371093750000",
+     "618557361427332613/591156752014160156250",
+     "13344741521555926691749/798061615219116210937500",
+     "15241931604052067924311202/374091382133960723876953125"
+    ],
+    "backward C": [
+     "1/60",
+     "109/2250",
+     "783277/12150000",
+     "5433329/91125000",
+     "678229991/12301875000",
+     "1454439303361/23066015625000",
+     "209269432444999/3113912109375000",
+     "56205548118570961/1167717041015625000",
+     "24799231957657069237/1576418005371093750000",
+     "618557361427332613/591156752014160156250",
+     "13344741521555926691749/798061615219116210937500",
+     "15241931604052067924311202/374091382133960723876953125"
+    ],
+    "in-dimer": [
+     "1/30",
+     "109/1125",
+     "783277/6075000",
+     "5433329/45562500",
+     "678229991/6150937500",
+     "1454439303361/11533007812500",
+     "209269432444999/1556956054687500",
+     "56205548118570961/583858520507812500",
+     "24799231957657069237/788209002685546875000",
+     "618557361427332613/295578376007080078125",
+     "13344741521555926691749/399030807609558105468750",
+     "30483863208104135848622404/374091382133960723876953125"
+    ]
+   }
+  },
+  "pair": {
+   "s_A (R+)": "1/60",
+   "s_B (H)": "1/30",
+   "P = <Qx>": "11/225",
+   "zero-return amplitude of one round": "1 - P + P exp(-i h j), P = 11/225",
+   "state after a zero return": "the initial pair (the return test projects on it): round n + 1 starts as round 1",
+   "non-return weight per round": "4 sin^2(h j/2) * 2354/50625",
+   "P (1 - P)": "2354/50625",
+   "equal": true,
+   "N rounds": [
+    {
+     "N": 1,
+     "phase per unit clock time": "0.0420595718876437",
+     "amplitude kept": "0.97839115363"
+    },
+    {
+     "N": 2,
+     "phase per unit clock time": "0.0471506685312619",
+     "amplitude kept": "0.988615480521"
+    },
+    {
+     "N": 6,
+     "phase per unit clock time": "0.0486947850663893",
+     "amplitude kept": "0.996139043929"
+    },
+    {
+     "N": 10,
+     "phase per unit clock time": "0.0488189839844277",
+     "amplitude kept": "0.997679156063"
+    },
+    {
+     "N": 100,
+     "phase per unit clock time": "0.0488881896867762",
+     "amplitude kept": "0.999767534594"
+    },
+    {
+     "N": 1000,
+     "phase per unit clock time": "0.0488888818968525",
+     "amplitude kept": "0.999976750889"
+    },
+    {
+     "N": 10000,
+     "phase per unit clock time": "0.0488888888189685",
+     "amplitude kept": "0.999997675064"
+    },
+    {
+     "N": 1000000,
+     "phase per unit clock time": "0.0488888888888819",
+     "amplitude kept": "0.999999976751"
+    }
+   ],
+   "limit of the phase per unit clock time": "11/225",
+   "one strong kick (no return read between rounds), phase at t = 1": "0.0420595718876",
+   "forward only: exclusive counts at ticks 1 to 12": [
+    "11/225",
+    "344113/2531250",
+    "6524088803771/36905625000000",
+    "341813014821509/2075941406250000",
+    "5797629507207983669/37834032128906250000",
+    "23045696085542974775822429/133010269203186035156250000",
+    "444941269503534924680664108749/2424112156228065490722656250000",
+    "46065068613950262868756975406755229/340890771969571709632873535156250000",
+    "28705464927378951484079135663025764800331/621273431914544440805912017822265625000000",
+    "547731314654994463042396309734934356337/174733152725965623976662755012512207031250",
+    "1952340588438439558870879696703403332734709156/39806396355384043712183483876287937164306640625",
+    "16176359864363000264982900200934984205326989628479534/139944362186897028675645060502574779093265533447265625"
+   ],
+   "forward only: the same as float": [
+    0.048888889,
+    0.135945877,
+    0.176777627,
+    0.164654462,
+    0.153238478,
+    0.173262532,
+    0.183548137,
+    0.135131463,
+    0.046204237,
+    0.003134673,
+    0.049045901,
+    0.115591365
+   ],
+   "forward only: mean per tick (float)": 0.11545197
+  }
+ },
+ "G2f native pairs on two carriers, RN-rec, FP": {
+  "object": {
+   "object": "NP on (2, 0)",
+   "W^-1 W S = S": true,
+   "repair, source first": {
+    "weight after one tick": "1/12",
+    "<S|W^-1 Pi W|S>": "1/12",
+    "equal": true,
+    "norm^2 of the non-return vector": "11/144",
+    "s (1 - s)": "11/144",
+    "split": {
+     "written record (1, 2 or 3)": "0",
+     "blank record, initial configuration": "5/144",
+     "blank record, other configuration": "1/24"
+    },
+    "blank-record part on the initial configuration with uniform address": "0"
+   },
+   "repair, source second": {
+    "weight after one tick": "1/12",
+    "<S|W^-1 Pi W|S>": "1/12",
+    "equal": true,
+    "norm^2 of the non-return vector": "11/144",
+    "s (1 - s)": "11/144",
+    "split": {
+     "written record (1, 2 or 3)": "0",
+     "blank record, initial configuration": "5/144",
+     "blank record, other configuration": "1/24"
+    },
+    "blank-record part on the initial configuration with uniform address": "0"
+   },
+   "agree": {
+    "weight after one tick": "1/6",
+    "<S|W^-1 Pi W|S>": "1/6",
+    "equal": true,
+    "norm^2 of the non-return vector": "5/36",
+    "s (1 - s)": "5/36",
+    "split": {
+     "written record (1, 2 or 3)": "0",
+     "blank record, initial configuration": "1/18",
+     "blank record, other configuration": "1/12"
+    },
+    "blank-record part on the initial configuration with uniform address": "0"
+   }
+  },
+  "pair": {
+   "s_A (R+)": "1/12",
+   "s_B (H)": "1/6",
+   "P = <Qx>": "2/9",
+   "zero-return amplitude of one round": "1 - P + P exp(-i h j), P = 2/9",
+   "state after a zero return": "the initial pair (the return test projects on it): round n + 1 starts as round 1",
+   "non-return weight per round": "4 sin^2(h j/2) * 14/81",
+   "P (1 - P)": "14/81",
+   "equal": true,
+   "N rounds": [
+    {
+     "N": 1,
+     "phase per unit clock time": "0.205334030970278",
+     "amplitude kept": "0.917110764911"
+    },
+    {
+     "N": 2,
+     "phase per unit clock time": "0.218167184001747",
+     "amplitude kept": "0.9576828609"
+    },
+    {
+     "N": 6,
+     "phase per unit clock time": "0.221777012442412",
+     "amplitude kept": "0.985698740144"
+    },
+    {
+     "N": 10,
+     "phase per unit clock time": "0.222062099670503",
+     "amplitude kept": "0.991394996221"
+    },
+    {
+     "N": 100,
+     "phase per unit clock time": "0.22222062184783",
+     "amplitude kept": "0.999136175514"
+    },
+    {
+     "N": 1000,
+     "phase per unit clock time": "0.222222206218563",
+     "amplitude kept": "0.999913583981"
+    },
+    {
+     "N": 10000,
+     "phase per unit clock time": "0.222222222062186",
+     "amplitude kept": "0.999991358062"
+    },
+    {
+     "N": 1000000,
+     "phase per unit clock time": "0.222222222222206",
+     "amplitude kept": "0.99999991358"
+    }
+   ],
+   "limit of the phase per unit clock time": "2/9",
+   "one strong kick (no return read between rounds), phase at t = 1": "0.20533403097"
+  }
+ },
+ "G1a one carrier, one register, double loads on antipodal ports, RD-rec, FP": {
+  "ports": [
+   2,
+   1
+  ],
+  "W^-1 W S = S": true,
+  "P = <Qx>": "1/4",
+  "P (1 - P)": "3/16",
+  "norm^2 of the non-return vector": "3/16",
+  "split": {
+   "written record (1, 2 or 3)": "0",
+   "blank record, initial configuration": "3/16",
+   "blank record, other configuration": "0"
+  },
+  "N rounds": [
+   {
+    "N": 1,
+    "phase per unit clock time": "0.233353373062024",
+    "amplitude kept": "0.909732578674"
+   },
+   {
+    "N": 2,
+    "phase per unit clock time": "0.246032013687067",
+    "amplitude kept": "0.954093460709"
+   },
+   {
+    "N": 6,
+    "phase per unit clock time": "0.249565217742134",
+    "amplitude kept": "0.984491999433"
+   },
+   {
+    "N": 10,
+    "phase per unit clock time": "0.249843652298986",
+    "amplitude kept": "0.990667841905"
+   },
+   {
+    "N": 100,
+    "phase per unit clock time": "0.249998437490234",
+    "amplitude kept": "0.99906293834"
+   },
+   {
+    "N": 1000,
+    "phase per unit clock time": "0.249999984374999",
+    "amplitude kept": "0.999906254393"
+   },
+   {
+    "N": 10000,
+    "phase per unit clock time": "0.24999999984375",
+    "amplitude kept": "0.999990625044"
+   },
+   {
+    "N": 1000000,
+    "phase per unit clock time": "0.249999999999984",
+    "amplitude kept": "0.99999990625"
+   }
+  ],
+  "limit of the phase per unit clock time": "1/4"
+ },
+ "G6 one double load on a port held by two carriers": {
+  "the carrier of the defect first": {
+   "inverse round returns the state": true,
+   "P = <Qx>": "2/9",
+   "P (1 - P)": "14/81",
+   "norm^2 of the non-return vector": "14/81",
+   "of which blank records": "14/81",
+   "limit of the phase per unit clock time": "2/9"
+  },
+  "the neighbouring carrier first": {
+   "inverse round returns the state": true,
+   "P = <Qx>": "17/72",
+   "P (1 - P)": "935/5184",
+   "norm^2 of the non-return vector": "935/5184",
+   "of which blank records": "935/5184",
+   "limit of the phase per unit clock time": "17/72"
+  }
+ },
+ "seconds": 3.11
+}

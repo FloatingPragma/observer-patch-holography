@@ -1,0 +1,679 @@
+{
+ "task": "QT checks C1, C2, N",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "primes": {
+  "2147483647": {
+   "prime": true,
+   "p mod 6": 1,
+   "sixth root": 1513477736
+  },
+  "2147483629": {
+   "prime": true,
+   "p mod 6": 1,
+   "sixth root": 1264980375
+  }
+ },
+ "C2_and_N": {
+  "T-A": {
+   "dimension": 40,
+   "records": 4,
+   "real symmetric": true,
+   "involution": true,
+   "conserves the load": true,
+   "equals the public completion on totals 0 to 2 (576 entries)": true,
+   "totals 0 to 2 closed": true,
+   "scaled form rational and similar to it": true,
+   "N: configuration weights after one event on a blank record": {
+    "(0, 0)": {
+     "(0, 0)": "1"
+    },
+    "(1, 0)": {
+     "(0, 1)": "1/2",
+     "(1, 0)": "1/2"
+    },
+    "(0, 1)": {
+     "(0, 1)": "1/2",
+     "(1, 0)": "1/2"
+    },
+    "(1, 1)": {
+     "(1, 1)": "1"
+    },
+    "(2, 0)": {
+     "(1, 1)": "1"
+    },
+    "(0, 2)": {
+     "(1, 1)": "1"
+    },
+    "(2, 1)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(1, 2)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(3, 0)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(0, 3)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    }
+   },
+   "N: equal to the native rule over the two coins, by seam state": {
+    "(0, 0)": true,
+    "(1, 0)": true,
+    "(0, 1)": true,
+    "(1, 1)": true,
+    "(2, 0)": true,
+    "(0, 2)": true,
+    "(2, 1)": true,
+    "(1, 2)": true,
+    "(3, 0)": true,
+    "(0, 3)": true
+   },
+   "N: all total-three states pass": true,
+   "N: all states of totals 0 to 2 pass": true
+  },
+  "T-B": {
+   "dimension": 40,
+   "records": 4,
+   "real symmetric": true,
+   "involution": true,
+   "conserves the load": true,
+   "equals the public completion on totals 0 to 2 (576 entries)": true,
+   "totals 0 to 2 closed": true,
+   "scaled form rational and similar to it": true,
+   "N: configuration weights after one event on a blank record": {
+    "(0, 0)": {
+     "(0, 0)": "1"
+    },
+    "(1, 0)": {
+     "(0, 1)": "1/2",
+     "(1, 0)": "1/2"
+    },
+    "(0, 1)": {
+     "(0, 1)": "1/2",
+     "(1, 0)": "1/2"
+    },
+    "(1, 1)": {
+     "(1, 1)": "1"
+    },
+    "(2, 0)": {
+     "(1, 1)": "1"
+    },
+    "(0, 2)": {
+     "(1, 1)": "1"
+    },
+    "(2, 1)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(1, 2)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(3, 0)": {
+     "(2, 1)": "1"
+    },
+    "(0, 3)": {
+     "(1, 2)": "1"
+    }
+   },
+   "N: equal to the native rule over the two coins, by seam state": {
+    "(0, 0)": true,
+    "(1, 0)": true,
+    "(0, 1)": true,
+    "(1, 1)": true,
+    "(2, 0)": true,
+    "(0, 2)": true,
+    "(2, 1)": true,
+    "(1, 2)": true,
+    "(3, 0)": false,
+    "(0, 3)": false
+   },
+   "N: all total-three states pass": false,
+   "N: all states of totals 0 to 2 pass": true
+  },
+  "T-C": {
+   "dimension": 60,
+   "records": 6,
+   "real symmetric": true,
+   "involution": true,
+   "conserves the load": true,
+   "equals the public completion on totals 0 to 2 (576 entries)": true,
+   "totals 0 to 2 closed": true,
+   "scaled form rational and similar to it": true,
+   "N: configuration weights after one event on a blank record": {
+    "(0, 0)": {
+     "(0, 0)": "1"
+    },
+    "(1, 0)": {
+     "(0, 1)": "1/2",
+     "(1, 0)": "1/2"
+    },
+    "(0, 1)": {
+     "(0, 1)": "1/2",
+     "(1, 0)": "1/2"
+    },
+    "(1, 1)": {
+     "(1, 1)": "1"
+    },
+    "(2, 0)": {
+     "(1, 1)": "1"
+    },
+    "(0, 2)": {
+     "(1, 1)": "1"
+    },
+    "(2, 1)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(1, 2)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(3, 0)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    },
+    "(0, 3)": {
+     "(1, 2)": "1/2",
+     "(2, 1)": "1/2"
+    }
+   },
+   "N: equal to the native rule over the two coins, by seam state": {
+    "(0, 0)": true,
+    "(1, 0)": true,
+    "(0, 1)": true,
+    "(1, 1)": true,
+    "(2, 0)": true,
+    "(0, 2)": true,
+    "(2, 1)": true,
+    "(1, 2)": true,
+    "(3, 0)": true,
+    "(0, 3)": true
+   },
+   "N: all total-three states pass": true,
+   "N: all states of totals 0 to 2 pass": true
+  }
+ },
+ "C1_two_loads_against_LP": {
+  "hexagon": {
+   "class 0": {
+    "states in the components of (separated, double)": [
+     30,
+     18
+    ],
+    "fixed vectors on the components (separated, double)": [
+     2,
+     1
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     2,
+     1
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     1,
+     1
+    ],
+    "the same, exact": [
+     1,
+     1
+    ],
+    "modular nullity (separated, double)": [
+     2,
+     1
+    ],
+    "lowest A (separated, double)": [
+     -0.0,
+     -0.0
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0,
+     0.0
+    ],
+    "agrees with LP": true
+   },
+   "class 1": {
+    "states in the components of (separated, double)": [
+     30,
+     18
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0040450047,
+     0.0033731665
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0040450047,
+     0.0033731665
+    ],
+    "agrees with LP": true
+   },
+   "class 2": {
+    "states in the components of (separated, double)": [
+     30,
+     18
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0159780042,
+     0.0033731665
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0159780042,
+     0.0033731665
+    ],
+    "agrees with LP": true
+   },
+   "class 3": {
+    "states in the components of (separated, double)": [
+     30,
+     18
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     1
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     1
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     1
+    ],
+    "the same, exact": [
+     0,
+     1
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     1
+    ],
+    "lowest A (separated, double)": [
+     0.0351649472,
+     -0.0
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0351649472,
+     0.0
+    ],
+    "agrees with LP": true
+   },
+   "class 4": {
+    "states in the components of (separated, double)": [
+     30,
+     18
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0159780042,
+     0.0033731665
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0159780042,
+     0.0033731665
+    ],
+    "agrees with LP": true
+   },
+   "class 5": {
+    "states in the components of (separated, double)": [
+     30,
+     18
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0040450047,
+     0.0033731665
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0040450047,
+     0.0033731665
+    ],
+    "agrees with LP": true
+   }
+  },
+  "carrier": {
+   "class 0": {
+    "states in the components of (separated, double)": [
+     132,
+     72
+    ],
+    "fixed vectors on the components (separated, double)": [
+     1,
+     1
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     1,
+     1
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     1,
+     1
+    ],
+    "the same, exact": [
+     1,
+     1
+    ],
+    "modular nullity (separated, double)": [
+     1,
+     1
+    ],
+    "lowest A (separated, double)": [
+     -0.0,
+     -0.0
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     -0.0,
+     -0.0
+    ],
+    "agrees with LP": true,
+    "faces with flux": {},
+    "LP faces with flux": {}
+   },
+   "class 1": {
+    "states in the components of (separated, double)": [
+     132,
+     72
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0031991632,
+     0.0011444553
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0031991632,
+     0.0011444553
+    ],
+    "agrees with LP": true,
+    "faces with flux": {
+     "[4, 5, 11]": 1,
+     "[6, 7, 8]": 5
+    },
+    "LP faces with flux": {
+     "[4, 5, 11]": 1,
+     "[6, 7, 8]": 5
+    }
+   },
+   "class 2": {
+    "states in the components of (separated, double)": [
+     132,
+     72
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0124287216,
+     0.0011444553
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0124287216,
+     0.0011444553
+    ],
+    "agrees with LP": true,
+    "faces with flux": {
+     "[4, 5, 11]": 2,
+     "[6, 7, 8]": 4
+    },
+    "LP faces with flux": {
+     "[4, 5, 11]": 2,
+     "[6, 7, 8]": 4
+    }
+   },
+   "class 3": {
+    "states in the components of (separated, double)": [
+     132,
+     72
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     1
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     1
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     1
+    ],
+    "the same, exact": [
+     0,
+     1
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     1
+    ],
+    "lowest A (separated, double)": [
+     0.0266654996,
+     -0.0
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0266654996,
+     -0.0
+    ],
+    "agrees with LP": true,
+    "faces with flux": {
+     "[4, 5, 11]": 3,
+     "[6, 7, 8]": 3
+    },
+    "LP faces with flux": {
+     "[4, 5, 11]": 3,
+     "[6, 7, 8]": 3
+    }
+   },
+   "class 4": {
+    "states in the components of (separated, double)": [
+     132,
+     72
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0124287216,
+     0.0011444553
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0124287216,
+     0.0011444553
+    ],
+    "agrees with LP": true,
+    "faces with flux": {
+     "[4, 5, 11]": 4,
+     "[6, 7, 8]": 2
+    },
+    "LP faces with flux": {
+     "[4, 5, 11]": 4,
+     "[6, 7, 8]": 2
+    }
+   },
+   "class 5": {
+    "states in the components of (separated, double)": [
+     132,
+     72
+    ],
+    "fixed vectors on the components (separated, double)": [
+     0,
+     0
+    ],
+    "LP fixed vectors (hard-core, cycle)": [
+     0,
+     0
+    ],
+    "consensus states on the blank cyclic subspace (separated, double), float": [
+     0,
+     0
+    ],
+    "the same, exact": [
+     0,
+     0
+    ],
+    "modular nullity (separated, double)": [
+     0,
+     0
+    ],
+    "lowest A (separated, double)": [
+     0.0031991632,
+     0.0011444553
+    ],
+    "LP lowest A (hard-core, cycle)": [
+     0.0031991632,
+     0.0011444553
+    ],
+    "agrees with LP": true,
+    "faces with flux": {
+     "[4, 5, 11]": 5,
+     "[6, 7, 8]": 1
+    },
+    "LP faces with flux": {
+     "[4, 5, 11]": 5,
+     "[6, 7, 8]": 1
+    }
+   }
+  },
+  "all rows agree with LP": true
+ },
+ "seconds": 32.32
+}

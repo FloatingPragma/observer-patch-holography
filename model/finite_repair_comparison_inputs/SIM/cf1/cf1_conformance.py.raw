@@ -1,0 +1,216 @@
+"""Conformance suite of the executable CF-1 (requested by the theory session before any run above 64^3).
+
+    python cf1_conformance.py out.json [node_exchange_dir]
+
+Items (a) to (j) of the request; float64. The result file carries the hashes of the engines. With a second argument
+the browser engine is compared too: this script writes ten random cases to <dir>/cases.json, expects <dir>/node.json
+from `node cf1_conformance_node.mjs <dir>` and compares.
+"""
+import hashlib, json, os, subprocess, sys, time
+import numpy as np
+from cf1_lib import Engine, Routing, SIG, positive_coin, phases, symbol_order, HERE
+
+out = {'suite': 'CF-1 conformance, items (a) to (j)', 'float': 'float64', 'items': {}}
+def sha(p): return hashlib.sha256(open(p, 'rb').read()).hexdigest()
+out['hashes'] = {'cf1_lib.py': sha(os.path.join(HERE, 'cf1_lib.py')), 'ref/routing.py': sha(os.path.join(HERE, 'ref', 'routing.py'))}
+rng = np.random.default_rng(20261110)
+def rand_state(shape):
+    psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); return psi / np.linalg.norm(psi)
+ok_all = True
+def item(key, value, bound, text):
+    global ok_all
+    good = bool(value <= bound); ok_all &= good
+    out['items'][key] = {'value': float(value), 'bound': bound, 'pass': good, 'what': text}
+    print(('ok   ' if good else 'FAIL ') + key + f': {value:.3e} (bound {bound:g})  {text}', flush=True)
+
+# (a) seam identities on random states, without and with links
+shape = (6, 4, 4); psi = rand_state(shape)
+e0 = Engine(shape)
+item('a1', max(np.abs(e0.seam_involution(e0.seam_involution(psi, i), i) - psi).max() for i in range(3)), 1e-14, 'Q_i Q_i = 1')
+item('a2', max(np.abs(e0.shift(psi, i) - e0.shift_direct(psi, i)).max() for i in range(3)), 1e-14, 'Q_i R = P+ T + P- T* (reference engine)')
+item('a3', max(np.abs(e0.shift(psi, i) - e0.shift_fast(psi, i)).max() for i in range(3)), 1e-14, 'fast shift of this engine equals the seam form')
+zs = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]; ez = Engine(shape, zs)
+item('a4', max(np.abs(ez.shift(psi, i) - ez.shift_fast(psi, i)).max() for i in range(3)), 1e-14, 'the same with a random Z2 link field')
+zp = [np.exp(2j * np.pi * rng.random(shape)) for _ in range(3)]; ep = Engine(shape, zp)
+item('a5', max(np.abs(ep.shift(psi, i) - ep.shift_fast(psi, i)).max() for i in range(3)), 1e-14, 'the same with random link phases')
+item('a6', max(np.abs(ep.shift_inverse(ep.shift_fast(psi, i), i) - psi).max() for i in range(3)), 1e-14, 'inverse shift with link phases')
+
+# (b) closed form on the spin doublet, both orders, 1,000 random momenta; four-component tick as the direct sum
+def closed(p, reverse):
+    c, s = np.cos(p), np.sin(p); sg = -1 if reverse else 1
+    u = c[0] * c[1] * c[2] + sg * s[0] * s[1] * s[2]
+    n = (s[0] * c[1] * c[2] - sg * c[0] * s[1] * s[2], c[0] * s[1] * c[2] + sg * s[0] * c[1] * s[2], c[0] * c[1] * s[2] - sg * s[0] * s[1] * c[2])
+    return u * np.eye(2) - 1j * (n[0] * SIG[0] + n[1] * SIG[1] + n[2] * SIG[2])
+def two(p, reverse, sign=1):
+    o = np.eye(2, dtype=complex)
+    for i in ((2, 1, 0) if reverse else (0, 1, 2)):
+        o = (np.cos(p[i]) * np.eye(2) - 1j * sign * np.sin(p[i]) * SIG[i]) @ o
+    return o
+h = 2 ** -0.5; B = np.kron(np.array([[h, h], [h, -h]]), np.eye(2))       # to the arrow basis of the record (eigenvectors of X_r)
+w2 = w4 = 0.0
+for _ in range(1000):
+    p = rng.uniform(-np.pi, np.pi, 3)
+    for rev in (False, True):
+        w2 = max(w2, np.abs(two(p, rev) - closed(p, rev)).max())
+        S4 = B.T @ symbol_order(p, 0.0, 'Y', rev) @ B
+        direct = np.zeros((4, 4), complex); direct[:2, :2] = closed(p, rev); direct[2:, 2:] = closed(-p, rev)
+        w4 = max(w4, np.abs(S4 - direct).max())
+item('b1', w2, 1e-13, 'two-component tick against the closed form u - i sigma.n, both orders, 1,000 momenta')
+item('b2', w4, 1e-13, 'four-component massless tick = direct sum over the two arrow states of the record (the second at -p)')
+
+# (c) one axis exactly; alternating order: both helicities equal
+w = 0.0; wh = 0.0
+for _ in range(300):
+    th = rng.uniform(0, 0.6); p = rng.uniform(-1.2, 1.2)
+    E = np.sort(np.abs(np.angle(np.linalg.eigvals(symbol_order((p, 0, 0), th)))))
+    w = max(w, np.abs(E - np.arccos(np.cos(th) * np.cos(p))).max())
+    q = rng.uniform(-0.8, 0.8, 3); ph = phases(q, th); wh = max(wh, abs(ph[0] - ph[1]))
+item('c1', w, 1e-12, 'one axis: cos E = cos(theta) cos(p)')
+item('c2', wh, 1e-7, 'alternating order: the two helicities have equal phase per tick (eigenphases of a degenerate pair)')
+
+# (d) inverse tick at 32^3 with random links and random rest angles: 200 forward, 200 inverse
+shape = (32, 32, 32); psi0 = rand_state(shape)
+links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]; theta = rng.uniform(0, 0.3, size=shape)
+ed = Engine(shape, links); psi = psi0.copy(); t0 = time.time()
+for t in range(200): psi = ed.step(psi, theta, 'Y', t)
+drift200 = abs(np.linalg.norm(psi) - 1)
+for t in reversed(range(200)): psi = ed.step_inverse(psi, theta, 'Y', t)
+item('d1', np.abs(psi - psi0).max() / np.abs(psi0).max(), 1e-11, '200 ticks forward and 200 inverse, 32^3, random Z2 links and rest angles: relative return error')
+out['ticks_per_second_32cubed_numpy'] = 400 / (time.time() - t0)
+
+# (e) gauge covariance
+shape = (8, 8, 8); psi = rand_state(shape)
+links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]; g = rng.choice([-1.0, 1.0], size=shape)
+lg = [g * links[i] * np.roll(g, -1, axis=i) for i in range(3)]
+a = Engine(shape, links); b = Engine(shape, lg); pa = psi.copy(); pb = g[..., None, None] * psi
+for t in range(6): pa = a.step(pa, 0.1, 'Y', t); pb = b.step(pb, 0.1, 'Y', t)
+item('e1', np.abs(pa - g[..., None, None] * pb).max(), 0.0, 'gauge covariance, random Z2 transformation and Z2 links (a relabelling: exactly zero)')
+links = [np.exp(2j * np.pi * rng.random(shape)) for _ in range(3)]; g = np.exp(2j * np.pi * rng.random(shape))
+lg = [g * links[i] * np.conj(np.roll(g, -1, axis=i)) for i in range(3)]
+a = Engine(shape, links); b = Engine(shape, lg); pa = psi.copy(); pb = g[..., None, None] * psi
+for t in range(6): pa = a.step(pa, 0.1, 'Y', t); pb = b.step(pb, 0.1, 'Y', t)
+item('e2', np.abs(g[..., None, None] * pa - pb).max(), 1e-13, 'gauge covariance with link phases')
+
+# (f) translation covariance (uniform angle, no links)
+a = Engine(shape); pa = psi.copy(); pb = np.roll(psi, (1, 2, 3), axis=(0, 1, 2))
+for t in range(6): pa = a.step(pa, 0.1, 'Y', t); pb = a.step(pb, 0.1, 'Y', t)
+item('f1', np.abs(np.roll(pa, (1, 2, 3), axis=(0, 1, 2)) - pb).max(), 0.0, 'translation covariance (exactly zero)')
+# sublattices: (x1 - x2) mod 2 and (x2 - x3) mod 2 are conserved
+grid = np.indices(shape); lab = ((grid[0] - grid[1]) % 2) * 2 + ((grid[1] - grid[2]) % 2)
+pa = np.where((lab == 0)[..., None, None], psi, 0); pa /= np.linalg.norm(pa)
+for t in range(7): pa = a.step(pa, 0.1, 'Y', t)
+item('f2', float(np.sum(np.abs(pa[lab != 0]) ** 2)), 0.0, 'a state on one of the four body-centred sublattices stays on it (weight elsewhere)')
+
+# (g) norm drift per 1,000 ticks, float64 and complex64
+shape = (16, 16, 16); psi = rand_state(shape); theta = rng.uniform(0, 0.3, size=shape); eg = Engine(shape)
+p64 = psi.copy(); p32 = psi.astype(np.complex64); th32 = theta.astype(np.float32)
+for t in range(1000): p64 = eg.step(p64, theta, 'Y', t)
+item('g1', abs(np.linalg.norm(p64) - 1), 1e-12, 'norm drift over 1,000 ticks, float64')
+cs, sn = np.cos(th32)[..., None], np.sin(th32)[..., None]
+def step32(q, t, inverse=False):
+    order = (2, 1, 0) if t % 2 else (0, 1, 2)
+    if inverse:
+        new = np.empty_like(q); new[..., 0, :] = cs * q[..., 0, :] + sn * q[..., 1, :]; new[..., 1, :] = -sn * q[..., 0, :] + cs * q[..., 1, :]; q = new
+        for i in reversed(order):
+            x = q[..., ::-1, :] @ SIG[i].T.astype(np.complex64); q = 0.5 * (np.roll(q + x, -1, axis=i) + np.roll(q - x, 1, axis=i))
+        return q
+    for i in order:
+        x = q[..., ::-1, :] @ SIG[i].T.astype(np.complex64); q = 0.5 * (np.roll(q + x, 1, axis=i) + np.roll(q - x, -1, axis=i))
+    new = np.empty_like(q); new[..., 0, :] = cs * q[..., 0, :] - sn * q[..., 1, :]; new[..., 1, :] = sn * q[..., 0, :] + cs * q[..., 1, :]
+    return new
+q = p32.copy()
+for t in range(1000): q = step32(q, t)
+out['complex64'] = {'norm_drift_1000_ticks': float(abs(np.linalg.norm(q.astype(np.complex128)) - 1))}
+q = p32.copy()
+for t in range(200): q = step32(q, t)
+for t in reversed(range(200)): q = step32(q, t, True)
+out['complex64']['return_error_200_ticks'] = float(np.abs(q - p32).max() / np.abs(p32).max())
+print('     complex64:', out['complex64'], flush=True)
+
+# (h) record statistics
+e1 = Engine((64, 2, 2)); wr = 0.0
+for th in (0.087847, 0.157935, 0.3):
+    wr = max(wr, abs(Routing.record_probability(e1.step(e1.plane_wave((0, 0, 0), (1, 0, 0, 0)), th, 'Y', 0)) - np.sin(th) ** 2))
+e3 = Engine((16, 16, 16))
+for n in ((1, 0, 0), (1, 2, 0), (1, 2, 3), (3, 1, 2)):
+    p = e3.momentum(n); c, s = np.cos(p), np.sin(p)
+    blank = (c[0] * c[1] * c[2]) ** 2 + (s[0] * s[1] * c[2]) ** 2 + (s[0] * c[1] * s[2]) ** 2 + (c[0] * s[1] * s[2]) ** 2
+    wr = max(wr, abs(Routing.record_probability(e3.step(e3.plane_wave(n, (1, 0, 0, 0)), 0.0, 'Y', 0)) - (1 - blank)))
+item('h1', wr, 1e-13, 'record after one tick: sin^2(theta) at rest; 1 - (c1c2c3)^2 - (s1s2c3)^2 - (s1c2s3)^2 - (c1s2s3)^2 massless')
+
+# (i) packets
+e2 = Engine((256, 1, 1)); wp = 0.0
+for th in (0.0, 0.087847, 0.157935):
+    psi = e2.branch_packet(12, 3.0, th); x0 = e2.mean_position(psi); psi = e2.run(psi, 60, th, alternating=False); x1 = e2.mean_position(psi)
+    wgt = np.array([np.exp(-((((n - 12 + 128) % 256) - 128) ** 2) / 9.0) for n in range(256)])
+    ps = 2 * np.pi * np.arange(256) / 256; E = np.arccos(np.cos(th) * np.cos(ps)); vg = np.where(E > 1e-12, np.cos(th) * np.sin(ps) / np.maximum(np.sin(E), 1e-300), 1.0)
+    wp = max(wp, abs(((x1 - x0 + 128) % 256 - 128) / 60 - np.sum(wgt * vg) / np.sum(wgt)))
+item('i1', wp, 2e-4, 'packet velocity against dE/dp averaged over the packet weights (three rest angles)')
+
+# (k) the binding reference executable of the theory session (work/R1/cf1.py) against this engine
+try:
+    sys.path.insert(0, os.path.join(HERE, '..', '..', 'R1'))
+    import cf1 as R1
+    out['hashes']['R1/cf1.py'] = sha(os.path.join(HERE, '..', '..', 'R1', 'cf1.py'))
+    wk = 0.0
+    for k in range(6):
+        shape = tuple(int(x) for x in rng.integers(2, 5, 3)); psi = rand_state(shape)
+        links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]; theta = rng.uniform(0, 0.4, size=shape); kind = 'Z' if k % 2 else 'Y'
+        ob = R1.OneBody(shape, R1.Species(theta=theta, kind=kind, charged=True), links); en = Engine(shape, links); a = psi.copy(); b = psi.copy()
+        for t in range(5): a = ob.tick(a, t); b = en.step(b, theta, kind, t)
+        wk = max(wk, np.abs(a - b).max())
+    item('k1', wk, 1e-13, 'reference executable work/R1/cf1.py (OneBody.tick) against this engine: six random cases with link signs and angle fields, five ticks')
+except Exception as e:
+    out['items']['k1'] = {'pass': False, 'what': 'reference executable not importable: ' + repr(e)}; print('k1 skipped:', repr(e)); ok_all = False
+
+# (l) closed form of the period phase and the half-step frame
+wl = 0.0
+for _ in range(500):
+    th = rng.uniform(0, 0.5); p = rng.uniform(-0.7, 0.7, 3)
+    rho = 0.5 * np.arccos(np.clip(np.prod(np.cos(2 * p)), -1, 1)); want = np.arccos(np.cos(th) * np.cos(rho))
+    wl = max(wl, np.abs(phases(p, th, 'Y') - want).max(), np.abs(phases(p, th, 'Z') - want).max())
+item('l1', wl, 1e-7, 'closed form: cos w = cos(theta) cos(rho), cos 2 rho = product of cos 2 p_i, both helicities, both mass kinds')
+# half-step frame: the period is a product of two reflections, R P R = P^-1 with R the reflection about the blank record
+shape = (8, 6, 6); psi = rand_state(shape); links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)]; thf = rng.uniform(0, 0.4, size=shape); eh = Engine(shape, links)
+def period(q, half):
+    for t in (0, 1): q = eh.step_half(q, thf, 'Y', t) if half else eh.step(q, thf, 'Y', t)
+    return q
+def defect(half):
+    q = eh.record_reflection(period(eh.record_reflection(period(psi, half)), half)); return float(np.abs(q - psi).max() / np.abs(psi).max())
+item('l2', defect(True), 1e-13, 'half-step frame: R P R = P^-1 for the two-tick period, random angle field and link signs')
+out['reflection_defect_with_the_mass_step_at_the_end'] = defect(False)
+print('     the same with the mass step at the end (not a product of two reflections):', round(out['reflection_defect_with_the_mass_step_at_the_end'], 4), flush=True)
+# the two frames are conjugate: (M^(1/2) S M^(1/2))^n = M^(-1/2) (M S)^n M^(1/2)
+e2f = Engine((10, 10, 10)); th = 0.157935; psi0 = e2f.gaussian((5, 5, 5), 2.0); bq = psi0.copy()
+for t in range(6): bq = e2f.step_half(bq, th, 'Y', t)
+cq = e2f.mass_field(psi0, th / 2, 'Y')
+for t in range(6): cq = e2f.step(cq, th, 'Y', t)
+cq = e2f.mass_field(cq, -th / 2, 'Y')
+item('l3', float(np.abs(cq - bq).max()), 1e-13, 'half-step frame equals the end frame conjugated by half a mass step (six ticks)')
+out['note_on_rest'] = 'A blank record is not a rest state of the tick: a blank packet oscillates along the spin axis with amplitude of order 1/(2 theta) (the record rotates between blank and written). In the half-step frame its position is even in time.'
+
+# (j) browser engine against this engine
+if len(sys.argv) > 2:
+    d = sys.argv[2]; os.makedirs(d, exist_ok=True); cases = []; want = []
+    for k in range(10):
+        shape = tuple(int(x) for x in rng.integers(2, 6, 3)); psi = rand_state(shape)
+        links = [rng.choice([-1.0, 1.0], size=shape) for _ in range(3)] if k % 2 else None
+        if k in (3, 7): links = [np.exp(2j * np.pi * rng.integers(0, 3, size=shape) / 3) for _ in range(3)]      # Z3 link phases
+        theta = rng.uniform(0, 0.4, size=shape) if k % 3 else float(rng.uniform(0, 0.4)); kind = 'Z' if k % 4 == 3 else 'Y'
+        cases.append({'shape': shape, 're': psi.real.ravel().tolist(), 'im': psi.imag.ravel().tolist(), 'links': None if links is None else [np.real(l).ravel().tolist() for l in links], 'links_im': None if links is None or not np.iscomplexobj(links[0]) else [np.imag(l).ravel().tolist() for l in links],
+                      'theta': theta if np.isscalar(theta) else theta.ravel().tolist(), 'kind': kind, 'ticks': 5})
+        en = Engine(shape, links); q = psi.copy()
+        for t in range(5): q = en.step(q, theta, kind, t)
+        want.append(q)
+    json.dump(cases, open(os.path.join(d, 'cases.json'), 'w'))
+    node = os.environ.get('CF1_NODE_SCRIPT')
+    if node: subprocess.run(['node', node, d], check=True)
+    got = json.load(open(os.path.join(d, 'node.json')))
+    wj = 0.0; exact = 0
+    for q, g in zip(want, got['states']):
+        diff = np.abs(q.ravel() - (np.array(g['re']) + 1j * np.array(g['im']))).max(); wj = max(wj, diff); exact += int(diff == 0)
+    item('j1', wj, 1e-12, f'browser engine against this engine, ten random cases with link signs, Z3 link phases and angle fields, five ticks ({exact} of 10 bit for bit)')
+    out['hashes']['cf1_engine.js'] = got['engine_sha256']
+out['all_pass'] = ok_all
+json.dump(out, open(sys.argv[1], 'w'), indent=1)
+print('ALL PASS' if ok_all else 'SOME FAILED', '->', sys.argv[1])

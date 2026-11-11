@@ -1,0 +1,133 @@
+"""Worker UH, Addendum 3: GL's functional (seam cost 1 - Re tr W/d around a plaquette) on the toggle transport of the
+unbounded register, statements S1 to S5 of CANDIDATES.md. The register enters through its Higgs-state eigenvalue
+beta (any complex doublet, DEFINITION.md D1 and D4): toggle angle theta = g_t beta, transport exp(-i K_theta).
+Pattern space and link lift as in work/YC/yc_functional.py (rebuilt here; gl_lib imported read only).
+Writes yc_functional_check.json. No measured value is read."""
+import itertools
+import json
+import math
+import sys
+
+import numpy as np
+from scipy.linalg import expm
+
+sys.path.insert(0, "WORKSPACE/repair-law/work/GL")
+import gl_lib as L  # noqa: E402
+
+rng = np.random.default_rng(23)
+NL, DIM = 5, 32
+
+
+def annihilator(i):
+    a = np.zeros((DIM, DIM), complex)
+    for s in range(DIM):
+        if s >> i & 1:
+            a[s ^ (1 << i), s] = (-1) ** bin(s & ((1 << i) - 1)).count("1")
+    return a
+
+
+A = [annihilator(i) for i in range(NL)]
+AD = [a.conj().T for a in A]
+dLam = lambda T: sum(T[i, j] * AD[i] @ A[j] for i in range(NL) for j in range(NL))
+TG = [dLam(T) for T in L.TBASIS]
+N3 = np.array([bin(s & 0b00111).count("1") for s in range(DIM)])
+S1 = np.array([(s >> 3) & 1 for s in range(DIM)])
+P_half = np.diag((N3 % 2 == 1).astype(float)).astype(complex)       # one family: n3 odd, 16 patterns
+P_all = np.eye(DIM, dtype=complex)
+
+
+def K_of(theta):
+    """theta in C^2 on the doublet levels (s1, s2)"""
+    return sum(theta[k] * AD[3 + k] + np.conj(theta[k]) * A[3 + k] for k in range(2))
+
+
+def cost(P, W):
+    return 1 - np.trace(P @ W @ P).real / np.trace(P).real
+
+
+def rand_link(scale):
+    c = rng.normal(size=12) * scale
+    return L.expm_herm(sum(ci * T for ci, T in zip(c, L.TBASIS))), expm(1j * sum(ci * T for ci, T in zip(c, TG)))
+
+
+def rand_theta(amp):
+    v = rng.normal(size=2) + 1j * rng.normal(size=2)
+    return amp * v / np.linalg.norm(v)
+
+
+def plaquette(theta, thetap, UF):
+    return UF @ expm(-1j * K_of(thetap)) @ UF.conj().T @ expm(1j * K_of(theta))
+
+
+out = {}
+# ---------------------------------------------------------------- S1: exact four-sphere form at every amplitude
+k2 = max(float(abs(K_of(t) @ K_of(t) - np.linalg.norm(t) ** 2 * np.eye(DIM)).max())
+         for t in (rand_theta(a) for a in (0.1, 1.0, 2.7)))
+worst = 0.0
+for P in (P_half, P_all):
+    for _ in range(40):
+        a, ap = rng.uniform(0.01, 3.0, size=2)
+        th, thp = rand_theta(a), rand_theta(ap)
+        U5, UF = rand_link(1.0)
+        uthp = (U5[3:, 3:] @ thp)
+        pred = 1 - (math.cos(a) * math.cos(ap) + math.sin(a) * math.sin(ap) * (np.vdot(th, uthp).real / (a * ap)))
+        worst = max(worst, abs(cost(P, plaquette(th, thp, UF)) - pred))
+out["S1"] = {"K_theta_squared_equals_norm_squared_defect": k2,
+             "max_deviation_from_1_minus_n_dot_Un_prime_(80_random_plaquettes_amplitudes_up_to_3)": worst,
+             "form": "cost = 1 - cos|t'| cos|t| - sin|t'| sin|t| Re<t^, U t'^>: chordal distance on a unit 4-sphere"}
+# ---------------------------------------------------------------- S2: covariantly constant amplitude costs nothing
+z = 0.0
+for amp in (1e-2, 0.5, 1.0, 3.0):
+    th = rand_theta(amp)
+    U5, UF = rand_link(1.0)
+    thp = U5[3:, 3:].conj().T @ th
+    z = max(z, abs(cost(P_half, plaquette(th, thp, UF))), abs(cost(P_all, plaquette(th, thp, UF))))
+out["S2"] = {"max_cost_of_covariantly_constant_amplitudes_0.01_to_3": z,
+             "statement": "GL's functional has no term without a difference of the register amplitude: "
+                          "no mass term and no quartic at tree level"}
+# ---------------------------------------------------------------- S3: Hessian, radial and angular, and y/g
+I = np.eye(DIM)
+rows = []
+for a0 in (1e-3, 0.3, 1.0):
+    th0 = rand_theta(a0)
+    rad = th0 / a0
+    ang = np.array([-np.conj(rad[1]), np.conj(rad[0])])          # orthogonal direction of the doublet
+    eps = 1e-4
+    hr = 2 * cost(P_half, plaquette(th0, th0 + eps * rad, I)) / eps ** 2
+    ha = 2 * cost(P_half, plaquette(th0, th0 + eps * ang, I)) / eps ** 2
+    hp = 2 * cost(P_half, plaquette(th0, th0 + eps * 1j * rad, I)) / eps ** 2     # phase direction
+    rows.append({"base_amplitude": a0, "H_radial": hr, "H_angular": ha, "H_phase": hp,
+                 "sin2_over_a2": (math.sin(a0) / a0) ** 2})
+hg = {"family_half_16": [float(np.trace(P_half @ T @ T @ P_half).real / 16) for T in TG],
+      "all_32": [float(np.trace(T @ T).real / 32) for T in TG]}
+HG = hg["family_half_16"][0]
+out["S3"] = {"hessian_rows": rows, "H_gauge_family_half_min_max": [min(hg["family_half_16"]), max(hg["family_half_16"])],
+             "H_gauge_all_32_min_max": [min(hg["all_32"]), max(hg["all_32"])],
+             "y_over_g_at_small_amplitude": math.sqrt(2 * HG / 1.0),
+             "statement": "the toggle amplitude g_t and the register amplitude beta enter only through theta = g_t beta; "
+                          "at small theta the functional is the kinetic term of a full linear doublet (radial mode "
+                          "included) with unit Hessian: y/g = sqrt(2 H_g) = 1/2 for every amplitude"}
+# ---------------------------------------------------------------- S4: leg-dependent amplitudes, the sum rule
+s4 = []
+for trial in range(5):
+    f = {"t": rng.uniform(0.2, 2.0), "b": rng.uniform(0.01, 2.0), "nu": rng.uniform(0.01, 2.0), "tau": rng.uniform(0.01, 2.0)}
+    leg = lambda s: ("t" if S1[s] else "b") if N3[s] == 1 else (("nu" if S1[s] else "tau") if N3[s] == 3 else None)
+    F = np.diag([f[leg(s)] if leg(s) else 0.0 for s in range(DIM)]).astype(complex)
+    Kf = lambda th: F @ (th * AD[4] + np.conj(th) * A[4])          # neutral component, amplitude by leg
+    th0 = 1e-3 * np.exp(1j * rng.uniform(0, 2 * math.pi))
+    eps = 1e-4
+    W = expm(-1j * Kf(th0 + eps)) @ expm(1j * Kf(th0))
+    Hf = 2 * cost(P_half, W) / eps ** 2
+    Hf_trace = float(np.trace(P_half @ Kf(1.0) @ Kf(1.0) @ P_half).real / 16)
+    ysq = {k: 2 * f[k] ** 2 * HG / Hf_trace for k in f}            # y_leg^2 / g^2
+    total = 3 * ysq["t"] + 3 * ysq["b"] + ysq["nu"] + ysq["tau"]
+    s4.append({"f": f, "H_f_finite_difference": Hf, "H_f_trace": Hf_trace,
+               "sum_over_Dirac_species_colour_counted_of_y2_over_g2": total})
+out["S4"] = {"rows": s4, "statement": "sum over Dirac species (colour counted) of y^2 = 2 g^2 per family for every "
+                                      "choice of the four leg amplitudes; equal amplitudes give y = g/2 on every leg"}
+out["S5"] = {"formula": "with a kinetic term of the register's own, Z_own |d theta|^2 beside the functional's "
+                        "Z_func = beta_lat H_theta/2: y^2 -> s y^2, s = Z_func/(Z_func + Z_own); the oscillator energy "
+                        "omega N of the audit's memory gives Z_own = 1/(2 omega g_t^2) per unit of theta and a mass term omega^2"}
+json.dump(out, open("yc_functional_check.json", "w"), indent=1, default=float)
+for k, v in out.items():
+    print(k, json.dumps(v, default=float)[:900])

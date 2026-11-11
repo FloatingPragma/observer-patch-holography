@@ -1,0 +1,104 @@
+"""T3: mass ratios from the operators of T1 and T2, compared with measurement only in the last block.
+
+Formulas (written before evaluation), A-clock readout m_k ~ |lambda_k|^2 (T2):
+  C_1(theta) = a I + b(e^{i theta} S - e^{-i theta} S^2): |lambda_k|^2 = 1/6 + (1/3) sin^2(theta + 2 pi k/3), in [1/6, 1/2],
+      so every mass ratio is at most 3 for every theta.
+  C_2(theta) = a I + b(e^{i theta} S + e^{-i theta} S^2): lambda_k = 1/sqrt6 + (2/sqrt12) cos(theta + 2 pi k/3), Q = 2/3.
+  Link-defect walk compression (T1 A): lambda in [53/60, 19/20], ratios at most (57/53)^2.
+  Class 3 with family steps as hops around f: C_2 at theta = 2/9 + pi/3.
+MEASURED (brief): m_mu/m_e = 206.7682830(46), m_tau/m_e = 3477.23 +- 0.23.
+"""
+from __future__ import annotations
+
+import json
+
+import mpmath as mp
+
+mp.mp.dps = 40
+OUT = 'lnat2_t3.json'
+a, b = 1 / mp.sqrt(6), 1 / mp.sqrt(12)
+
+
+def lam1(t):
+    return [abs(a + 2j * b * mp.sin(t + 2 * mp.pi * k / 3)) for k in range(3)]
+
+
+def lam2(t):
+    return [a + 2 * b * mp.cos(t + 2 * mp.pi * k / 3) for k in range(3)]
+
+
+def ratios(lams):
+    m = sorted(abs(x) ** 2 for x in lams)
+    return m[1] / m[0], m[2] / m[0]
+
+
+def Q(lams):
+    return mp.fsum(abs(x) ** 2 for x in lams) / mp.fsum(abs(x) for x in lams) ** 2
+
+
+def main():
+    out = {'task': 'T3'}
+    th = mp.mpf(2) / 9
+    # what the coherent law gives (one-orientation readout, T1 D4) at every clock phase
+    grid = [lam1(mp.pi * j / 6000) for j in range(6001)]
+    maxratio = max(ratios(l)[1] for l in grid)
+    jmax = max(range(6001), key=lambda j: ratios(grid[j])[1])
+    rfun = lambda t: ratios(lam1(t))[1]
+    tmax = mp.findroot(lambda t: mp.diff(rfun, t), mp.pi * jmax / 6000)
+    rmax = rfun(tmax)
+    out['C_1_coherent_law'] = {
+        'theta=2/9': {'abs_lambda': [str(x) for x in lam1(th)], 'Q': str(Q(lam1(th))),
+                      'ratios': [str(r) for r in ratios(lam1(th))]},
+        'max_ratio_over_theta_grid': str(maxratio),
+        'max_ratio_refined': str(rmax), 'phi_squared': str((3 + mp.sqrt(5)) / 2), 'theta_at_max': str(tmax),
+        'bounds': 'every ratio <= 3 = (1/2)/(1/6) (EXACT, |lambda|^2 in [1/6, 1/2]); the supremum over theta is '
+                  '(3 + sqrt5)/2 = phi^2 (agreement to 40 digits)',
+        'status': 'no clock phase brings any mass ratio of C_1 above phi^2 = 2.618034',
+    }
+    # native source mixture under the orientation-odd readout (T1 E8): |lambda|^2 = 1/6 + (1/3) cos^2(theta + 2 pi k/3)
+    lmix = lambda t: [mp.sqrt(mp.mpf(1) / 6 + mp.cos(t + 2 * mp.pi * k / 3) ** 2 / 3) for k in range(3)]
+    out['native_mixture_odd_readout'] = {'theta=2/9': {'abs_lambda': [str(x) for x in lmix(th)], 'Q': str(Q(lmix(th))),
+                                                       'ratios': [str(r) for r in ratios(lmix(th))]},
+                                         'bound': 'ratios <= phi^2 for every theta (C_1 shifted by pi/2)'}
+    # one object, unbiased odd readout (T1 E8): lambda_k ~ 1 + cos(theta + 2 pi k/3), |b|/a = 1/2, Q = 1/2
+    lone = lambda t: [1 + mp.cos(t + 2 * mp.pi * k / 3) for k in range(3)]
+    out['one_object_unbiased_odd_readout'] = {'theta=2/9': {'lambda': [str(x) for x in lone(th)], 'Q': str(Q(lone(th))),
+                                                            'ratios': [str(r) for r in ratios(lone(th))]}}
+    lw = [mp.mpf(19) / 20, mp.mpf(53) / 60]
+    out['link_defect_walk_compression'] = {'max_ratio': str((lw[0] / lw[1]) ** 2), 'status': 'EXACT bound (57/53)^2'}
+    out['controls'] = {'k=0 and both-orientation consensus': 'a I: ratios 1, 1, Q = 1/3'}
+    # conditional target: C_2 at 2/9 (needs a current record; T1 D4)
+    L2 = lam2(th)
+    out['C_2_conditional'] = {'theta': '2/9', 'lambda': [str(x) for x in L2], 'Q': str(Q(L2)),
+                              'ratios': [str(r) for r in ratios(L2)],
+                              'status': 'CONDITIONAL on a current record, the two premises of T2 and the A-clock'}
+    t3 = th + mp.pi / 3
+    L3 = lam2(t3)
+    out['class3_hops_around_f'] = {'theta': '2/9 + pi/3', 'lambda_signed': [str(x) for x in L3],
+                                   'negative_eigenvalue': any(x < 0 for x in L3),
+                                   'Q_with_abs': str(Q(L3)), 'ratios': [str(r) for r in ratios(L3)]}
+    # ---------------- comparison with measurement (only here)
+    MU, MU_S = mp.mpf('206.7682830'), mp.mpf('0.0000046')
+    TAU, TAU_S = mp.mpf('3477.23'), mp.mpf('0.23')
+    def pulls(r):
+        return {'mu_e': str(r[0]), 'mu_e_ppm': str((r[0] / MU - 1) * 10 ** 6), 'mu_e_pull_sigma': str((r[0] - MU) / MU_S),
+                'tau_e': str(r[1]), 'tau_e_pull_sigma': str((r[1] - TAU) / TAU_S)}
+    fit = mp.findroot(lambda t: ratios(lam2(t))[0] - MU, mp.mpf('0.2222'))
+    out['MEASURED_comparison'] = {
+        'C_1_coherent_law_theta=2/9': pulls(ratios(lam1(th))),
+        'C_1_any_theta': 'excluded: every ratio <= phi^2 = 2.618034 against 206.77 and 3477.2',
+        'C_2_conditional_theta=2/9': pulls(ratios(L2)),
+        'C_2_theta_fitted_to_mu_e_with_Q=2/3': {'theta': str(fit), 'shift_from_2/9': str(fit - th),
+                                                'shift_ppm': str((fit / th - 1) * 10 ** 6),
+                                                'tau_e': str(ratios(lam2(fit))[1]),
+                                                'tau_e_pull_sigma': str((ratios(lam2(fit))[1] - TAU) / TAU_S)},
+        'class3_hops_around_f': pulls(ratios(L3)),
+        'native_mixture_odd_readout_theta=2/9': pulls(ratios(lmix(th))),
+        'one_object_unbiased_odd_readout_theta=2/9': pulls(ratios(lone(th))),
+    }
+    json.dump(out, open(OUT, 'w'), indent=1)
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == '__main__':
+    main()

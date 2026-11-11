@@ -1,0 +1,177 @@
+"""NM step 3: U_PMNS, J and the spectrum for every candidate of CANDIDATES.md part C. No measured value enters.
+
+Run in this directory:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B nm3_mixing.py [out.json]
+Reads work/PM/pm_lib.py (read only): the register, the charged circulant, the PMNS parametrization.
+"""
+import json
+import sys
+from pathlib import Path
+
+import mpmath as mp
+
+RL = Path('WORKSPACE/repair-law')
+sys.path.insert(0, str(RL / 'work/PM'))
+import pm_lib as L  # noqa: E402
+
+mp.mp.dps = 40
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('mixing.json')
+out, checks, entries = {}, {}, []
+EPS = mp.mpf(10) ** -25
+
+
+def ok(name, cond):
+    assert cond, name
+    checks[name] = True
+
+
+a, b, TH = L.A_HOLD, L.B_STEP, L.THETA
+S = L.shift_counter()
+Sinv = L.dagger(S)
+Fc = L.fourier_counter()
+f = [L.col(Fc, k) for k in range(3)]
+I3 = mp.eye(3)
+
+
+def unit(i, j):
+    M = mp.zeros(3, 3)
+    M[i, j] = 1
+    return M
+
+
+D0 = unit(0, 0)
+E10, E01 = unit(1, 0), unit(0, 1)
+P0 = unit(0, 0) + unit(1, 2) + unit(2, 1)               # mirror fixing position 0
+Z2 = mp.diag([1, -1, 1])
+
+
+def step(theta, up=S, down=Sinv):
+    return mp.exp(1j * theta) * up + mp.exp(-1j * theta) * down
+
+
+def Ce(theta):
+    return a * I3 + b * step(theta)
+
+
+def herm_eig(H):
+    E, Q = mp.eigh(H)
+    order = sorted(range(3), key=lambda i: E[i])
+    return [E[i] for i in order], [L.col(Q, i) for i in order]
+
+
+def is_eigvec(H, v):
+    w = H * v
+    lam = (L.dagger(v) * w)[0]
+    return mp.norm(w - lam * v) < EPS
+
+
+# ---------------------------------------------------------------- theorems
+perm_algebra = [I3, S, Sinv, P0, S * P0, Sinv * P0]
+ok('TH-P every permutation of the three positions fixes f_0', all(mp.norm(M * f[0] - f[0]) < EPS for M in perm_algebra))
+out['TH_P'] = {'statement': 'f_0 = (1,1,1)/sqrt3 is a common eigenvector of the six position permutations, hence of every '
+                            'operator in their algebra and of Y Y^dag for every such Y; with tau on f_0 the tau row and '
+                            'one column of U_PMNS are unit vectors: two of the three angles are 0 or 90 degrees',
+               'holds': True}
+
+# ---------------------------------------------------------------- Dirac candidates
+DIRAC = {
+    'C0': lambda t: Ce(t),
+    'C1': lambda t: a * P0 + b * step(t),
+    'C2': lambda t: a * I3 + 2 * b * mp.cos(t) * P0,
+    'C3': lambda t: a * D0 + b * step(t),
+    'C4': lambda t: a * (I3 - D0) + b * step(t),
+    'C5': lambda t: a * I3 + b * step(t, E10, E01),
+    'C6': lambda t: a * D0 + b * step(t, E10, E01),
+    'C7': lambda t: Z2 * Ce(t),
+    'C8': lambda t: a * (I3 + P0) / 2 + b * step(t),
+    'C9': lambda t: a * (I3 - P0) / 2 + b * step(t),
+}
+DESCR = {'C0': 'source as it stands', 'C1': 'hold carries the half-turn', 'C2': 'repairs carry the half-turn',
+         'C3': 'hold at the E position', 'C4': 'hold off the E position', 'C5': 'repair on the C link only',
+         'C6': 'hold and repair local', 'C7': 'frame sign of the distinguished axis', 'C8': 'hold on the half-turn-even half',
+         'C9': 'hold on the half-turn-odd half'}
+rk = L.lepton_rows(TH)                                    # charged characters at theta_e = +2/9
+rows = [f[rk['e']], f[rk['mu']], f[rk['tau']]]
+ok('tau on f_0, e on f_1, mu on f_2 at +2/9', rk == {'e': 1, 'mu': 2, 'tau': 0})
+
+
+def analyse(cid, kind, H, sv_from, extra):
+    """H: Hermitian operator whose eigenvectors are the left neutrino basis; sv_from(E) -> masses (linear reading)."""
+    E, V = herm_eig(H)
+    masses = [sv_from(e) for e in E]
+    gaps = [abs(masses[1] - masses[0]), abs(masses[2] - masses[1])]
+    scale = max(masses)
+    degenerate = min(gaps) < mp.mpf(10) ** -20 * (scale if scale else 1)
+    tau_decoupled = is_eigvec(H, f[0])
+    for lab in ('NO', 'IO'):
+        e = {'id': cid, 'kind': kind, 'labelling': lab, 'tau_character_is_an_eigenvector': bool(tau_decoupled),
+             'degenerate_pair': bool(degenerate), 'masses_linear_over_heaviest': [float(m / scale) for m in masses],
+             'masses_linear': [float(m) for m in masses]}
+        e.update(extra)
+        if degenerate:
+            e['note'] = 'degenerate pair: the mixing inside the pair and the splitting ratio are undefined'
+        else:
+            cols = L.label_columns(V, lab)
+            U = L.pmns(rows, cols)
+            ok(f'{cid} {extra} {lab} unitary', mp.mnorm(L.dagger(U) * U - I3, 1) < EPS)
+            e.update(L.params(U))
+            r1 = L.ratio(masses, lab)
+            r2 = L.ratio([m ** 2 for m in masses], lab)
+            e['r_linear'] = None if r1 is None else float(r1)
+            e['r_square'] = None if r2 is None else float(r2)
+        entries.append(e)
+
+
+for cid, build in DIRAC.items():
+    for rel, tnu in (('theta_nu = +theta_e', TH), ('theta_nu = -theta_e', -TH)):
+        Y = build(tnu)
+        H = Y * L.dagger(Y)
+        analyse(cid, 'Dirac: ' + DESCR[cid], H, lambda e: mp.sqrt(max(e, mp.mpf(0))), {'relative_phase': rel})
+        if cid in ('C1', 'C2', 'C8', 'C9'):
+            ok(f'TH-P on {cid} {rel}', is_eigvec(H, f[0]))
+
+# ---------------------------------------------------------------- Majorana candidates (seesaw with Y = C_e(theta))
+MAJ = {'M1': (I3, 'pairing at one position'), 'M2': (P0, 'pairing with the half-turn image'),
+       'M3': (Z2, 'pairing with the frame sign'), 'M4': (I3 + D0, 'pairing doubled at the E position')}
+Y = Ce(TH)
+for mid, (MR, descr) in MAJ.items():
+    m = Y * mp.inverse(MR) * Y.T                          # light Majorana matrix up to the factor v^2 / M
+    ok(f'{mid} symmetric', mp.mnorm(m - m.T, 1) < EPS)
+    H = m * L.dagger(m)                                    # left basis: eigenvectors of m m^dag
+    analyse(mid, 'Majorana seesaw: ' + descr, H, lambda e: mp.sqrt(max(e, mp.mpf(0))), {'relative_phase': 'Y = C_e(+2/9)'})
+# TH-M: a third-turn-covariant pairing (alpha + beta (S + S^-1)) gives a degenerate pair
+thm = []
+for alpha, beta in ((1, 0), (1, mp.mpf('0.3')), (mp.mpf('0.2') + 0.5j, 1), (0, 1)):
+    MR = alpha * I3 + beta * (S + Sinv)
+    m = Y * mp.inverse(MR) * Y.T
+    E, _ = herm_eig(m * L.dagger(m))
+    sv = sorted(mp.sqrt(max(e, mp.mpf(0))) for e in E)
+    lam = [L.lam(TH, k) for k in range(3)]
+    mu0, mu1 = alpha + 2 * beta, alpha - beta
+    pred = sorted([abs(lam[0] ** 2 / mu0), abs(lam[1] * lam[2] / mu1), abs(lam[1] * lam[2] / mu1)])
+    thm.append(max(abs(x - y) for x, y in zip(sv, pred)) < EPS)
+ok('TH-M degenerate pair with masses lambda_1 lambda_2 / abs(alpha - beta) and lambda_0^2 / abs(alpha + 2 beta)', all(thm))
+out['TH_M'] = {'statement': 'for M_R = alpha + beta (S + S^-1) the light masses are lambda_0^2/abs(alpha + 2 beta) on f_0 and '
+                            'lambda_1 lambda_2/abs(alpha - beta) twice on (f_1, f_2): the electron and muon characters form a '
+                            'degenerate pair for every alpha, beta', 'holds': True}
+m2 = Y * mp.inverse(P0) * Y.T
+diag_in_characters = all(abs((L.dagger(f[i]) * (m2 * L.dagger(m2)) * f[j])[0]) < EPS for i in range(3) for j in range(3) if i != j)
+ok('M2 is diagonal in the charged basis with masses lambda_k^2', diag_in_characters)
+out['M2_note'] = 'pairing a copy with its half-turn image is the identity pairing of the characters: masses lambda_k^2, U a permutation'
+
+out['entries'] = entries
+out['count'] = {'Dirac_tuples': sum(e['id'].startswith('C') for e in entries), 'Majorana_tuples': sum(e['id'].startswith('M') for e in entries)}
+out['conventions'] = {'rows': 'e = f_1, mu = f_2, tau = f_0 (theta_e = +2/9); theta_e = -2/9 with the opposite relative sign is the '
+                              'complex conjugate: same moduli, J reversed',
+                      'masses': 'linear reading: singular values of Y (Dirac) or of Y M_R^-1 Y^T (Majorana); square reading: their squares',
+                      'a, b, theta': '6^(-1/2), 12^(-1/2), 2/9'}
+out['checks'] = checks
+OUT.write_text(json.dumps(out, indent=1) + '\n')
+for e in entries:
+    if e.get('degenerate_pair'):
+        print(e['id'], e['relative_phase'], e['labelling'], 'DEGENERATE', [round(x, 5) for x in e['masses_linear_over_heaviest']])
+        continue
+    fmt = lambda v: 'None' if v is None else f'{v:.4f}'
+    print(e['id'], e['relative_phase'], e['labelling'], 's12', fmt(e['sin2_theta12']), 's23', fmt(e['sin2_theta23']), 's13', fmt(e['sin2_theta13']),
+          'J', f"{e['J']:.5f}", 'delta', fmt(e.get('delta_deg')), 'r_lin', fmt(e['r_linear']), 'r_sq', fmt(e['r_square']),
+          'm', [round(x, 5) for x in e['masses_linear_over_heaviest']], 'tau_dec', e['tau_character_is_an_eigenvector'])
+print(len(checks), 'checks pass;', out['count'])

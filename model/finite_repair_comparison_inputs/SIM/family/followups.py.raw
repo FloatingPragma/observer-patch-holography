@@ -1,0 +1,51 @@
+"""Two follow-ups requested by the theory session. (1) The secular drift of a blank spin-up packet (R3, result 8) in this
+engine, in both frames. (2) For one point source of mass: the arrow state (handedness class) and the cone content of
+the lifted copy and of the copies that stay massless."""
+import json, sys
+import numpy as np
+sys.path.insert(0, 'cf1')
+from cf1_lib import Engine
+out = {}
+# (1) drift: line of 2048 cells along axis 3, width 6, theta 0.157935, slope of the centre over ticks 200..600
+shape = (1, 1, 2048); Lz = 2048; z = np.arange(Lz) - Lz // 2; env = np.exp(-z ** 2 / (2 * 6.0 ** 2)); env /= np.linalg.norm(env)
+eng = Engine(shape); th = 0.157935; rows = {}
+for name, stepper in (('mass step at the end', lambda q, t: eng.step(q, th, 'Y', t)), ('half-step frame', lambda q, t: eng.step_half(q, th, 'Y', t))):
+    psi = np.zeros(shape + (2, 2), complex); psi[0, 0, :, 0, 0] = env; ts, xs = [], []
+    for t in range(600):
+        psi = stepper(psi, t)
+        if t % 2 == 1: ts.append(t + 1); xs.append(float(np.sum(np.sum(np.abs(psi) ** 2, axis=(0, 1, 3, 4)) * z)))
+    ts, xs = np.array(ts), np.array(xs); sel = ts >= 200; slope, icpt = np.polyfit(ts[sel], xs[sel], 1)
+    rows[name] = {'slope_cells_per_tick_ticks_200_to_600': float(slope), 'intercept_cells': float(icpt), 'centre_after_4_ticks': float(xs[1]), 'centre_after_64_ticks': float(xs[31])}
+    print('drift,', name, rows[name])
+out['drift_of_a_blank_spin_up_packet'] = rows
+# (2) one point source on 8^3: arrow and cone content of the lifted states
+L = 8; shape = (L, L, L); N = 4 * L ** 3; e2 = Engine(shape); theta_d = 0.171237; thf = np.zeros(shape); thf[2, 2, 2] = theta_d
+P = np.zeros((N, N), complex)
+for n in range(N):
+    q = np.zeros(N, complex); q[n] = 1; q = q.reshape(shape + (2, 2))
+    for t in (0, 1): q = e2.step_half(q, thf, 'Y', t)
+    P[:, n] = q.reshape(-1)
+w, U = np.linalg.eig(P); ph = np.angle(w) / 2
+lift = np.where((np.abs(ph) > 1e-9) & (np.abs(ph) < 0.02))[0]; zero = np.where(np.abs(ph) <= 1e-9)[0]
+Xr = lambda v: float(np.real(np.vdot(v.reshape(shape + (2, 2)), v.reshape(shape + (2, 2))[..., ::-1, :])) / np.real(np.vdot(v, v)))
+def cone_weights(v):
+    f = np.fft.fftn(v.reshape(shape + (2, 2)), axes=(0, 1, 2)); wgt = np.sum(np.abs(f) ** 2, axis=(-1, -2)); wgt /= wgt.sum(); res = {}
+    for name, k in (('origin', (0, 0, 0)), ('axis 1', (0, 2, 2)), ('axis 2', (2, 0, 2)), ('axis 3', (2, 2, 0))):       # index 2 of 8 is wave number pi/2
+        tot = 0.0
+        for a in (0, 4):
+            for b in (0, 4):
+                for c in (0, 4): tot += wgt[(k[0] + a) % L, (k[1] + b) % L, (k[2] + c) % L]
+        res[name] = float(tot)
+    return res
+rowsL = []
+for j in lift:
+    v = U[:, j]; rowsL.append({'phase_per_tick': float(ph[j]), 'arrow_expectation_X_record': Xr(v), 'weight_on_cones': cone_weights(v)})
+out['one_point_source'] = {'lifted_states': rowsL, 'count_zero': int(len(zero))}
+# arrow content of the zero space of the source's lattice: project the arrow operator into the zero space
+Z = U[:, zero]; Zq, _ = np.linalg.qr(Z)
+Xmat = Zq.conj().T @ (Zq.reshape(shape + (2, 2) + (Zq.shape[1],))[..., ::-1, :, :]).reshape(N, -1)
+ev = np.linalg.eigvalsh((Xmat + Xmat.conj().T) / 2)
+out['one_point_source']['zero_space_arrow_eigenvalues'] = {'plus': int((ev > 0.5).sum()), 'minus': int((ev < -0.5).sum()), 'other': int(((ev >= -0.5) & (ev <= 0.5)).sum())}
+print('lifted:', [(round(r['phase_per_tick'], 5), round(r['arrow_expectation_X_record'], 3), {k: round(x, 3) for k, x in r['weight_on_cones'].items()}) for r in rowsL[:4]])
+print('zero space arrow content', out['one_point_source']['zero_space_arrow_eigenvalues'])
+json.dump(out, open('family/followups.json', 'w'), indent=1)

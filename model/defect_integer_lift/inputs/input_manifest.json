@@ -1,0 +1,126 @@
+{
+  "schema": "oph.scientific_comparison_inputs.v1",
+  "scope": "Source and numerical comparison inputs. Checksum admission does not validate their physical interpretations or transfer their construction to the owning source. Source text is inert .raw data; executable verified results are linked in README.md.",
+  "files": [
+    {
+      "path": "census_L4.json",
+      "source": "work/SIM/phase2/IL/census_L4.json",
+      "sha256": "6f70861a2933d74d4b4acddb36b56b0596296eaf4adc7784a827daf53b562c26",
+      "bytes": 615906
+    },
+    {
+      "path": "census_L5.json",
+      "source": "work/SIM/phase2/IL/census_L5.json",
+      "sha256": "dc3e72a6fb676008bedd45cf1e3d049017b8bc03082aa1f53d68efec1ec59d47",
+      "bytes": 586652
+    },
+    {
+      "path": "census_L6.json",
+      "source": "work/SIM/phase2/IL/census_L6.json",
+      "sha256": "671fa3a043ddb5da45758c8f31290edf71dbdbcb5d6354d62ff48f9c061f979f",
+      "bytes": 660319
+    },
+    {
+      "path": "census_L7.json",
+      "source": "work/SIM/phase2/IL/census_L7.json",
+      "sha256": "d3935b69c9c7f79fc8c522ecf3b1eb8c913a57042d0b579b1c16ce17c0f76067",
+      "bytes": 627984
+    },
+    {
+      "path": "crosscheck.jsonl",
+      "source": "work/SIM/phase2/IL/crosscheck.jsonl",
+      "sha256": "a39edb66efc99a0876d5de2a830d893edff1cf74de4de3f3012f32118d8d10bc",
+      "bytes": 1519
+    },
+    {
+      "path": "gate_control_L4.json",
+      "source": "work/SIM/phase2/IL/gate_control_L4.json",
+      "sha256": "d2d1ec84146ef5751f40f1ebf118f486caa745f5e2deb6f08541f37883261483",
+      "bytes": 506
+    },
+    {
+      "path": "il_crosscheck.py.raw",
+      "source": "work/SIM/phase2/IL/il_crosscheck.py",
+      "sha256": "4497e63df8516b07b27d0299c6a46c47392e58cc548443ed6e86472a719acc64",
+      "bytes": 3986
+    },
+    {
+      "path": "il_gate_control.py.raw",
+      "source": "work/SIM/phase2/IL/il_gate_control.py",
+      "sha256": "e7c0ed875ca7c06308f47a698853a15aed28f582078057e4402a7ce619f60ece",
+      "bytes": 2662
+    },
+    {
+      "path": "il_history.py.raw",
+      "source": "work/SIM/phase2/IL/il_history.py",
+      "sha256": "669d821cbde632945327edc4b3f346882f67720d33f489257fc746c57ce38731",
+      "bytes": 5408
+    },
+    {
+      "path": "il_lift.py.raw",
+      "source": "work/SIM/phase2/IL/il_lift.py",
+      "sha256": "c354da1e739710729ba7beacde7075a85593dc36cb3c256ef089cb94f829acd7",
+      "bytes": 38523
+    },
+    {
+      "path": "il_package_data.py.raw",
+      "source": "work/SIM/phase2/IL/il_package_data.py",
+      "sha256": "69d018c3a3a18b785381ef772b5620c4756306990658a713db4161c6d1c6fcc0",
+      "bytes": 5610
+    },
+    {
+      "path": "il_record_check.py.raw",
+      "source": "work/SIM/phase2/IL/il_record_check.py",
+      "sha256": "bbbc8eeb32a311d9df32b92db7d9314d7b5f6cbc0a9aa3c909cbe3c361d2c3b3",
+      "bytes": 2160
+    },
+    {
+      "path": "il_reference_check.py.raw",
+      "source": "work/SIM/phase2/IL/il_reference_check.py",
+      "sha256": "2d84785ce62fead8706317c233fcfa39573836585dbfa394b6ced58e2b85ae19",
+      "bytes": 3176
+    },
+    {
+      "path": "il_site.py.raw",
+      "source": "work/SIM/phase2/IL/il_site.py",
+      "sha256": "5f31b9a2b7594cf69033a251ca774399143535f9e7113b4bada21ec7c4a27296",
+      "bytes": 20653
+    },
+    {
+      "path": "il_site_text.py.raw",
+      "source": "work/SIM/phase2/IL/il_site_text.py",
+      "sha256": "09e83d8275adc336b5205cc5d3f50333b60d82955f196969892e8212150d4b51",
+      "bytes": 16359
+    },
+    {
+      "path": "il_summary.json",
+      "source": "work/SIM/phase2/IL/il_summary.json",
+      "sha256": "d33122d5a014ae9bccb73e2460f1693fe0459f97d1263830365ac120f48e0c12",
+      "bytes": 230397
+    },
+    {
+      "path": "record_check.jsonl",
+      "source": "work/SIM/phase2/IL/record_check.jsonl",
+      "sha256": "e34579c785a78b0c324df91b1bcc569d27c7a7478e8af6dd4b9ca0c754630d24",
+      "bytes": 1440
+    },
+    {
+      "path": "reference_check_L1.json",
+      "source": "work/SIM/phase2/IL/reference_check_L1.json",
+      "sha256": "a3e7b5a9c87b360396971efc62765269a906014637bbcc11951736db82619efb",
+      "bytes": 1186
+    },
+    {
+      "path": "reference_check_L1_200.json",
+      "source": "work/SIM/phase2/IL/reference_check_L1_200.json",
+      "sha256": "c76e87bf695d516c348759e4b710026e4af8ada7b81911d61d304e89585a339d",
+      "bytes": 1186
+    },
+    {
+      "path": "reference_check_L2.json",
+      "source": "work/SIM/phase2/IL/reference_check_L2.json",
+      "sha256": "1497c30e3f4f1ec049634762aa13a4e2d2d37163df4e75abe7344c0f89177144",
+      "bytes": 1189
+    }
+  ]
+}

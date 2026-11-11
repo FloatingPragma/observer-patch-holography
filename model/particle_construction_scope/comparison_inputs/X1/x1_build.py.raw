@@ -1,0 +1,489 @@
+"""Worker X1: build candidates.json and CANDIDATES.md from the check files of this directory and the cited reports.
+
+  python RL/work/X1/x1_build.py        (reads carrier_checks.json and family_checks.json next to it)
+
+Every number written here comes from carrier_checks.json or family_checks.json (computed by x1_carrier.py and
+x1_family.py), or is quoted with its source file. Nothing is fitted.
+"""
+import json, os
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+RER = os.path.join(os.path.dirname(RL), 'reverse-engineering-reality')
+C = json.load(open(os.path.join(HERE, 'carrier_checks.json')))
+F = json.load(open(os.path.join(HERE, 'family_checks.json')))
+R2 = json.load(open(os.path.join(RL, 'work/R2/item2.json')))
+R2C = json.load(open(os.path.join(RL, 'work/R2/charges.json')))
+SW, LR, PT = C['scalar_walk'], C['link_register'], C['patterns']
+CEN = C['census_shadows_L10_sweep300']
+Z2PH = {r['separation']: r['rest_phase'] for r in C['doublet_level_with_one_Z2_flux_pair']['rows']}
+
+# ---- agreement of the cited R2 files with this directory's own counts (no recomputation of R2's results)
+assert R2['pairs_by_separation'] == LR['pairs_by_separation'] and R2['rotation_group_orbits_on_pairs'] == LR['rotation_content_of_the_190_pairs']['1']
+assert all(a['pairs fixed by each half-turn'] == [LR['pairs_fixed_by_a_half_turn']] * 3 for a in R2['A_half_turns_on_faces_and_pairs'])
+assert R2C['2_pattern_charges']['patterns with odd n2 (Z2-charged)'] == PT['counts']['Z2_odd_states']
+assert R2C['2_pattern_charges']['number of patterns with Q6 = 0'] == PT['counts']['states'] - PT['counts']['states_with_Q6_nonzero']
+klein = {'trivial': (190 + 3 * LR['pairs_fixed_by_a_half_turn']) // 4, 'each_sign': (190 - LR['pairs_fixed_by_a_half_turn']) // 4}
+assert klein == {'trivial': 55, 'each_sign': 45}
+
+def content_str(c, order=('1', '2', "2'", '3', "3'", '4', '4s', '5', '6')):
+    return ' + '.join((f'{c[k]} x ' if c[k] > 1 else '') + k for k in order if c.get(k))
+
+NAMES = {(0, 0): 'empty pattern (conjugate of the right-handed neutrino)', (1, 0): 'down quark, right-handed',
+         (2, 0): 'up antiquark', (3, 0): 'electron, right-handed', (0, 1): 'antilepton doublet (gauge numbers of the Higgs doublet)',
+         (1, 1): 'quark doublet, left-handed', (2, 1): 'antiquark doublet', (3, 1): 'lepton doublet, left-handed',
+         (0, 2): 'positron (charged antilepton)', (1, 2): 'up quark, right-handed', (2, 2): 'down antiquark',
+         (3, 2): 'right-handed neutrino (full pattern)'}
+MAPROW = {(1, 1): 'Quark doublet, left-handed (3 colours)', (1, 2): 'Up quark, right-handed', (1, 0): 'Down quark, right-handed',
+          (3, 1): 'Lepton doublet, left-handed', (3, 0): 'Electron, right-handed', (3, 2): 'Right-handed neutrino'}
+AUDIT = {(1, 0): ['wave-triplet-j0..2'], (0, 1): ['wave-doublet-j3..4'], (2, 0): ['aux-even-n3=2-n2=0', 'up_right_conjugate'],
+         (1, 1): ['aux-even-n3=1-n2=1', 'up_left', 'down_left'],
+         (0, 2): ['aux-even-n3=0-n2=2', 'charged_lepton_right_conjugate', 'particle_primary_regional_fermion:regional_endpoint_irrep'],
+         (3, 1): ['aux-even-n3=3-n2=1', 'neutrino_left', 'charged_lepton_left'], (2, 2): ['aux-even-n3=2-n2=2', 'down_right_conjugate']}
+rows = []
+for r in PT['rows']:
+    key = (r['n3'], r['n2']); odd = bool(r['Z2_link_charge']); cc = content_str(r['cover_content_of_internal_factor'])
+    rows.append({
+        'id': f"pattern_{r['n3']}{r['n2']}", 'type': 'matter-like', 'name': NAMES[key],
+        'labels': {'n3': r['n3'], 'n2': r['n2'], 'N': r['N'], 'Q6': r['Q6'], 'Q6_mod_6': r['Q6'] % 6, 'Z2_link_charge': r['Z2_link_charge'],
+                   'triality': r['triality'], 'handedness_class_convention': r['handedness_class_convention'], 'conjugate_pattern': r['conjugate']},
+        'multiplet_dimension': r['states'], 'components_per_cell_in_CF1 (states x record x pointer)': 4 * r['states'],
+        'gauge': {'SU3': r['SU3'], 'SU2': r['SU2'], 'Y': r['Y'], 'electric_charges': r['electric_charges']},
+        'sees_Z2_flux_of_the_working_law': odd,
+        'centre_flux_classes_seen_under_declared_Z6_reading': r['centre_flux_classes_seen'],
+        'cover_content_of_internal_factor': cc, 'sign_of_full_turn_on_internal_factor': r['sign_under_cover_centre'],
+        'spin_candidates': (['1/2 native: the occupied spinor level is a spinor of the frame half-turns (R2 result 4); it is the same two states as the weak index',
+                             '1/2 by the declared pointer of CF-1'] if odd else
+                            ['1/2 by the declared pointer of CF-1 only: the internal factor has integer content']),
+        'travels': {'CF1_routing': ('yes: on the cone, gauge covariant, held by the Gauss constraint (R2)' if odd else
+                                    'yes: the same routing with link sign 1; no Gauss constraint applies'),
+                    'one_carrier_public_walk': 'no: the walk stays on the carrier'},
+        'stable': 'pattern kept exactly by the public tick and by CF-1 with M0, M1, M3; M2 changes n2 by one and breaks the Gauss constraint (R7)',
+        'protected_by': ('commutant U(3) x U(2) of the central links; Gauss constraint G_x for the Z2 charge' if odd else
+                         'commutant U(3) x U(2) of the central links; no gauged charge in the working law'),
+        'created_or_destroyed_by': 'declared preparation; the declared toggle of the neutral spinor level (M2); nothing in the idle tick',
+        'rest_phase_M1_on_a_carrier_with_one_Z2_pair_by_separation': ({str(d): Z2PH[d] for d in range(1, 6)} if odd else 0.0),
+        'executed_as': ('one-quantum wave of the public walk' if key in ((1, 0), (0, 1)) else
+                        'occupation pattern: representation level; occupations executed in the audit species package'),
+        'audit_source_ids': AUDIT.get(key, []), 'map_row': MAPROW.get(key, 'Antiparticles'),
+        'standard_model_multiplet': NAMES[key]})
+TOWER = [('walk_uniform_blank', 'uniform load, blank record', '1', 1, '+', 0.0, '1 (in the stationary space of dimension 38)'),
+         ('walk_slow_triplet', 'slow triplet: blank 3, recorded 3\'', "3 and 3'", 3, '-', None, '12 = 2 triplets x rotation plane'),
+         ('walk_quintet_recorded', 'quintet, recorded', '5', 5, '+', None, '10'),
+         ('walk_quintet_blank', 'quintet, blank', '5', 5, '+', None, '10'),
+         ('walk_fast_triplet', "fast triplet: blank 3', recorded 3", "3' and 3", 3, '-', None, '12'),
+         ('walk_uniform_recorded', 'uniform load, recorded', '1', 1, '+', None, '2')]
+osc = {r['sector']: r for r in SW['oscillatory']}
+ANG = {'walk_slow_triplet': osc['slow triplet, blank']['rest_phase'], 'walk_quintet_recorded': osc['quintet, recorded']['rest_phase'],
+       'walk_quintet_blank': osc['quintet, blank']['rest_phase'], 'walk_fast_triplet': osc['fast triplet, blank']['rest_phase'],
+       'walk_uniform_recorded': osc['uniform, recorded']['rest_phase'], 'walk_uniform_blank': 0.0}
+assert osc['slow triplet, blank']['rest_phase'] == osc['slow triplet, recorded']['rest_phase']
+assert osc['fast triplet, blank']['rest_phase'] == osc['fast triplet, recorded']['rest_phase']
+for tid, name, irrep, d, parity, _, dims in TOWER:
+    rows.append({'id': tid, 'type': 'matter-like (internal sector of a quantum on its carrier)', 'name': name,
+                 'labels': {'rotation_irrep': irrep, 'antipodal_parity': parity, 'rest_phase_per_tick': ANG[tid]},
+                 'multiplet_dimension': d, 'walk_dimensions': dims,
+                 'gauge': 'none of its own: the sector multiplies the pattern of the quantum',
+                 'spin_candidates': ['integer content only: ' + irrep],
+                 'travels': {'CF1_routing': 'as a Dirac species with this mass angle under option M3 (declared: the shift is controlled by the address reflection; KD)'
+                             if ANG[tid] else 'massless under option M3 (KD)',
+                             'one_carrier_public_walk': 'no'},
+                 'stable': 'exact invariant sector of the public walk with flat links',
+                 'protected_by': 'rotation symmetry of the carrier and the spectral decomposition of W',
+                 'created_or_destroyed_by': 'a link sign changes the sectors of the spinor levels (rest phases of CF-1 item 6)',
+                 'map_row': None, 'standard_model_multiplet': None})
+rows += [
+ {'id': 'z2_flux_pair', 'type': 'field-like', 'name': 'Z2 face-flux pair of a carrier (the regional flux of the audit)',
+  'labels': {'face_pair': '190 positions', 'separation_classes': LR['pairs_by_separation'], 'regional_parity': 'with a held boundary',
+             'gauge_copies_per_position': LR['gauge_copies_per_flux_pattern']},
+  'multiplet_dimension': 190, 'gauge': 'neutral: annihilated by all twelve port responses and by the native currents (R2 result 3; audit field_identity_audit)',
+  'seen_by': 'patterns with n2 = 1 (sign -1 around it); invisible to the others',
+  'spin_candidates': [f"integer content only: {content_str(LR['rotation_content_of_the_190_pairs'])}",
+                      f"no spinor pointer: the frame half-turns commute on the pairs, {klein['trivial']} trivial and {klein['each_sign']} of each sign character (R2 result 1)"],
+  'travels': {'CF1_routing': 'no: static in CF-1 as defined; with a declared code-moving gate on four body-diagonal lines without a cone (R2)',
+              'one_carrier': 'inside a region, when a wave of any level occupies an endpoint of the seam (audit joint program) or addresses the seam (work/JOIN); only waves on spinor levels are changed by it',
+              'audit_mobile_flux': 'a complete inside and exterior pair is moved between cells by a declared exchange'},
+  'stable': 'number of defects kept by the permitted moves; the parity of a region is protected only with its boundary held; one boundary link flip erases the pair',
+  'protected_by': 'regional parity with a held boundary; Gauss sign of the region',
+  'created_or_destroyed_by': 'one link flip creates, moves or removes an adjacent pair; the idle tick only moves',
+  'map_row': 'defect class 3 of the universe runs: weak-centre flux', 'standard_model_multiplet': None},
+ {'id': 'z2_plaquette_flux', 'type': 'field-like', 'name': 'Z2 flux through a plaquette of the cubic lattice of carriers',
+  'labels': {'independent_fluxes_on_a_periodic_patch_of_N_carriers': '2 N - 2', 'torus_holonomies': 3},
+  'multiplet_dimension': None, 'gauge': 'neutral', 'seen_by': 'patterns with n2 = 1',
+  'spin_candidates': ['none: a closed line of plaquettes, no pointer (R2)'],
+  'travels': {'CF1_routing': 'no (R2)'}, 'stable': 'static at eps = 0; at eps > 0 no flux label is conserved (R2 result 7d)',
+  'protected_by': 'nothing at eps > 0', 'created_or_destroyed_by': 'one link flip makes a closed line of four plaquettes',
+  'map_row': None, 'standard_model_multiplet': None},
+ {'id': 'port_responses', 'type': 'field-like (operators, no excitation)', 'name': 'the twelve port responses on the five levels',
+  'labels': {'algebra': '8 + 3 + 1', 'sum': 'the internal charge'}, 'multiplet_dimension': 12,
+  'gauge': 'adjoint 8, adjoint 3 and the centre', 'spin_candidates': ['none: no travelling state'],
+  'travels': {'CF1_routing': 'no: the only link field of the working law is Z2'}, 'stable': 'not applicable',
+  'protected_by': 'carrier symmetry', 'created_or_destroyed_by': 'not applicable',
+  'map_row': 'Gluons (8), W (3), B (1); Photon and Z', 'standard_model_multiplet': 'gauge bosons, at the level of the algebra only'},
+ {'id': 'neutral_spinor_toggle', 'type': 'field-like (operator, no excitation)', 'name': 'toggle of the neutral spinor level (option M2)',
+  'labels': {'changes': 'n2 by one'}, 'multiplet_dimension': 2, 'gauge': '(1, 2, 1/2) as the multiplet of the two spinor levels',
+  'spin_candidates': ['none: no travelling state'], 'travels': {'CF1_routing': 'no'},
+  'stable': 'breaks the Gauss constraint: the commutator with G_x has norm 2 |sin theta| (R7)', 'protected_by': 'nothing',
+  'created_or_destroyed_by': 'declared', 'map_row': 'Higgs', 'standard_model_multiplet': 'Higgs doublet, at representation level only'},
+ {'id': 'z3_colour_centre_flux', 'type': 'field-like', 'name': 'colour-centre flux (classes 2 and 4 of the universe runs)',
+  'labels': {'status': 'not an object of the working law: its link register is Z2'}, 'multiplet_dimension': None, 'gauge': 'neutral',
+  'seen_by': 'patterns with n3 = 1 or 2 (under the declared Z6 reading)', 'spin_candidates': [],
+  'travels': {'CF1_routing': 'no register'}, 'stable': 'no register; as a static link phase it enters the public walk and M1 (CF-1 item 6, alpha = 1/3)',
+  'protected_by': 'nothing in the working law', 'created_or_destroyed_by': 'a declared Z6 or Z3 link alphabet would be needed',
+  'map_row': 'defect classes 2 and 4: colour-centre flux', 'standard_model_multiplet': None},
+ {'id': 'z6_generating_flux', 'type': 'field-like', 'name': 'generating centre flux (classes 1 and 5 of the universe runs)',
+  'labels': {'status': 'not an object of the working law; its reduction modulo 2 is z2_flux_pair'}, 'multiplet_dimension': None,
+  'gauge': 'neutral', 'seen_by': 'every pattern with Q6 nonzero modulo 6 (under the declared Z6 reading)', 'spin_candidates': [],
+  'travels': {'CF1_routing': 'no register'}, 'stable': 'no register', 'protected_by': 'nothing in the working law',
+  'created_or_destroyed_by': 'a declared Z6 link alphabet would be needed',
+  'map_row': 'defect classes 1 and 5: the generating flux', 'standard_model_multiplet': None},
+ {'id': 'quantum_carrying_z2_pair', 'type': 'composite', 'name': 'a quantum on a carrier that holds a Z2 flux pair',
+  'labels': {'pattern': 'of the quantum', 'pair_label': 'separation class 1 to 5'}, 'multiplet_dimension': 'that of the pattern',
+  'gauge': 'the charges of the quantum', 'spin_candidates': ['as the quantum'],
+  'travels': {'CF1_routing': 'yes with one added declared gate (the seam reflector conjugated by a swap of the two link codes); R2 result 5c'},
+  'stable': 'pattern and pair label kept in the one-composite sector (R2)',
+  'protected_by': 'charges of the quantum and the pair label',
+  'rest_phase_M1_by_separation': {'patterns with n2 = 1': {str(d): Z2PH[d] for d in range(1, 6)}, 'patterns with n2 even': 0.0},
+  'created_or_destroyed_by': 'declared preparation', 'map_row': None, 'standard_model_multiplet': None},
+ {'id': 'mobile_flux_pair', 'type': 'composite', 'name': 'complete inside and exterior flux pair moved between cells (audit mobile_flux)',
+  'labels': {'regional_parity': 'moves with the object'}, 'multiplet_dimension': 5, 'gauge': 'neutral singlet under the native currents (audit)',
+  'spin_candidates': ['declared two-lane coin of the audit; no rotation of the carrier acts on the five-position code (R2 result 2)'],
+  'travels': {'audit_two_lane_route': 'yes, one object, rest-frequency magnitude two in source units', 'CF1_routing': 'no'},
+  'stable': 'total number of pairs kept by the idle update', 'protected_by': 'pair number under gates that move whole codes',
+  'created_or_destroyed_by': 'a declared reversible preparation', 'map_row': None, 'standard_model_multiplet': None},
+ {'id': 'neutral_composites_of_patterns', 'type': 'composite', 'name': 'neutral composites listed by the audit (weak-pair trion, colour-singlet trion, colour determinant with singlet hole)',
+  'labels': {'total_Q6': 0, 'source': 'primary Wilson source of the audit, a different tuple'}, 'multiplet_dimension': None,
+  'gauge': 'colour singlet, weak singlet, Q6 = 0', 'spin_candidates': ['cube irreps of the audit source: G1 + H (trions), E + T1 + T2 (determinant)'],
+  'travels': {'CF1_routing': 'no rule for two quanta in one cell'}, 'stable': 'no binding in the working law',
+  'protected_by': 'total pattern only', 'created_or_destroyed_by': 'not defined', 'map_row': None,
+  'standard_model_multiplet': 'neutron-type and sterile-type comparisons of the audit; none identified'}]
+
+R4 = json.load(open(os.path.join(RL, 'work/R4/item6_chirality.json')))
+wz = R4['weyl_points_over_the_zone']['forward, chi=+1']; hw = R4['ordered_massive_tick_near_half_way_point'][0]
+for chi in (1, -1):
+    cz = R4['weyl_points_over_the_zone'][f'forward, chi={chi:+d}']['classes']
+    assert all(cz[f'corner | phase {ph}']['sign_det_J'] == [chi] and cz[f'half-way point | phase {ph}']['sign_det_J'] == [-chi] for ph in ('0', 'pi'))
+rows.append(
+ {'id': 'mirror_cone', 'type': 'matter-like (copy in momentum space)', 'name': 'the cones of a pattern away from zero momentum',
+  'labels': {'ordered_tick_cones_per_arrow_sector_over_the_zone': wz['points'], 'by_phase_and_winding': wz['counts'],
+             'corner_cones_winding': 'equal to the arrow label', 'half_way_cones_winding': 'opposite to the arrow label'},
+  'multiplet_dimension': 'that of the pattern', 'gauge': 'the charges of the pattern',
+  'spin_candidates': ['as the quantum; opposite handedness at the half-way points'],
+  'travels': {'CF1_routing': 'yes'},
+  'stable': (f"half-way cones stay closed under the declared mass step of the ordered tick: smallest phase {hw['smallest_phase']:.6f} at |q| = {hw['|q|']} "
+             f"against cos(theta) |q| = {hw['cos(theta)|q|']:.6f} (work/R4/item6_chirality.json)"),
+  'protected_by': 'zero signed sum of the windings in each arrow sector (reports/R4.md C2, C3)',
+  'created_or_destroyed_by': 'a preparation restricted to small momentum excludes them; no step of CF-1 gaps them',
+  'map_row': None, 'standard_model_multiplet': None})
+
+labels_one_carrier = [
+ {'label': 'internal charge', 'group_and_values': 'U(1): +2 on a vector level, -3 on a spinor level; on patterns Q6 = 3 n2 - 2 n3 is the lifted public charge with the sign reversed',
+  'operator': 'Q5 = diag(2, 2, 2, -3, -3) on the code',
+  'commutes_with_tick': 'EXACT: model/coherent_seam_repair/gauge_walk.py (any block-unitary link); executed test_model.py::test_complex_mixed_charge_state_preserves_norm_inverse_and_charges',
+  'sector_dimensions': 'one quantum: 4,320 and 2,880 of 7,200', 'rotation_cover': 'vector 3 on the three levels, spinor 2\' on the two',
+  'port_responses': 'Q5 is the sum of the twelve responses and commutes with each', 'created_or_destroyed_by': 'nothing in the tick'},
+ {'label': 'pattern (n3, n2)', 'group_and_values': 'U(3) x U(2), the commutant of the central links on the code; twelve patterns, 32 states',
+  'operator': 'occupations N3 and N2 of the vector and spinor levels',
+  'commutes_with_tick': 'EXACT: every level projector commutes with the public reflector of a central link (here); executed witness: the same test keeps the norm of every level; occupation lift: species/test_species.py (N and Q5)',
+  'sector_dimensions': ', '.join(str(r['states']) for r in PT['rows']),
+  'rotation_cover': 'content ' + ', '.join(content_str(r['cover_content_of_internal_factor']) for r in PT['rows']) + '; a full turn is (-1)^n2',
+  'port_responses': 'colour and weak multiplet of the pattern (candidate rows)',
+  'created_or_destroyed_by': 'declared preparation; the declared toggle M2',
+  'note': 'With flat links the tick commutes with U(5) on the code and the multiplets are 1, 5, 10, 10, 5, 1 by N. The split of the five levels into three and two is made by the link sign diag(1, 1, 1, -1, -1) alone: the exchange of a vector level with a spinor level commutes with the flat public reflector and not with the reflector of a central link (exact, here).'},
+ {'label': 'link word up to gauge', 'group_and_values': f"Z2^19: {LR['flux_patterns']:,} flux patterns, {LR['gauge_copies_per_flux_pattern']:,} gauge copies each; 190 pairs in separation classes 30, 60, 60, 30, 10",
+  'operator': 'face sign = product of the three link signs of a face',
+  'commutes_with_tick': 'static-link walk: the register is untouched; joint tick: defects move, their number is kept (audit PROOF.md)',
+  'sector_dimensions': '7,200 wave dimensions per link word',
+  'rotation_cover': f"faces permuted: 20 faces = {content_str(LR['rotation_content_of_the_20_faces'])}; 190 pairs = {content_str(LR['rotation_content_of_the_190_pairs'])}; integer content; the frame half-turns commute (R2)",
+  'port_responses': 'annihilated by all twelve (R2, audit)', 'created_or_destroyed_by': 'one link flip creates, moves or removes an adjacent pair'},
+ {'label': 'regional parity with a held boundary', 'group_and_values': 'Z2', 'operator': 'sum of the face bits of a region = sum of its boundary link bits',
+  'commutes_with_tick': 'EXACT: python -m model.coherent_seam_repair.protection --check (executed, PASS); test_protection.py (12 passed)',
+  'sector_dimensions': 'audit sector: ten link words (five positions, two gauge copies), 72,000 with the wave',
+  'rotation_cover': 'none: 0 of 59 rotations keep the five-position code (R2 result 2)', 'port_responses': 'annihilated',
+  'created_or_destroyed_by': 'a flip of a boundary link erases the pair (audit counterexample)'},
+ {'label': 'interior Gauss sign', 'group_and_values': 'Z2', 'operator': 'star of a port on the links times -1 on the spinor levels at that port',
+  'commutes_with_tick': 'EXACT: audit GAUSS.md; test_gauss.py (4 passed, executed)', 'sector_dimensions': '36,000 and 36,000',
+  'rotation_cover': 'not applicable', 'port_responses': 'commutes (central)', 'created_or_destroyed_by': 'nothing in the tick'},
+ {'label': 'rotations and inversion of the carrier', 'group_and_values': '60 rotations (cover of order 120) and the antipodal map',
+  'operator': 'permutation of ports and addresses',
+  'commutes_with_tick': 'EXACT here: 60 W commutes with all 120 symmetries in integers',
+  'sector_dimensions': f"1,440 = {content_str(SW['rotation_content_total'])}",
+  'rotation_cover': 'integer content on the scalar walk', 'port_responses': 'trivial: the walk register is blind to the code',
+  'created_or_destroyed_by': 'nothing'},
+ {'label': 'spectral sectors of the walk (record sectors)', 'group_and_values': 'phases of W: 1, -1 and seven oscillating sectors',
+  'operator': 'spectral projectors of W',
+  'commutes_with_tick': 'by definition; rotation content EXACT here',
+  'sector_dimensions': (f"+1: 38 = {content_str(SW['stationary_plus_one']['rotation_content'])}; -1: 1,356 = "
+                        f"{content_str(SW['stationary_minus_one']['rotation_content'])}; oscillating: 46"),
+  'rotation_cover': 'integer content', 'port_responses': 'trivial', 'created_or_destroyed_by': 'nothing',
+  'note': f"The record value is not a label: the largest entry of 60 [W, Z_r] is {SW['checks']['max_abs_entry_of_60_times_commutator_W_Zr']}."},
+ {'label': 'occupation number', 'group_and_values': 'U(1), with the declared exclusion', 'operator': 'number of occupied wave modes',
+  'commutes_with_tick': 'audit species/PROOF.md; species/test_species.py (14 passed, executed)', 'sector_dimensions': 'exterior powers of 7,200',
+  'rotation_cover': 'not applicable', 'port_responses': 'commutes', 'created_or_destroyed_by': 'nothing in the tick'}]
+
+fa = F['arrow_state_X_r']; fs = F['sublattice_classes']; fh = F['frame_half_turns_on_the_pointer']; ft = F['translations']
+sub_max = max(fs['max_commutator_with_tick (mass Y, mass Z with links, reverse order)'].values())
+ht_max = max(fh['max_commutator_with_tick'].values())
+wp = F['cited']['weyl_points_over_the_zone']['forward, chi=+1']
+labels_family = [
+ {'label': 'pattern, Q6, occupation number', 'fate': 'survive: carried from carrier to carrier; the routing is blind to the pattern', 'evidence': 'CF1.md section 8; reports/R2.md'},
+ {'label': 'Z2 charge n2 mod 2', 'fate': 'becomes a gauged current: G_x = g_x, the charge parity of a region equals the electric flux through its boundary',
+  'evidence': f"work/DIRAC/interaction_check.json (commutator {F['cited']['gauss_constraint']['commutator_with_Gauss']}); reports/R2.md, corrections C1 and C2"},
+ {'label': 'colour, weak isospin, Q6 beyond its parity', 'fate': 'global labels with conserved currents; not gauged: the working law has no U(1), SU(2), SU(3) or Z3 link', 'evidence': 'CF1.md sections 8 and 11'},
+ {'label': 'face fluxes of a carrier, regional parity', 'fate': 'stay inside the carrier and static: no operator of the tick moves them', 'evidence': 'reports/R2.md, correction C3'},
+ {'label': 'walk sectors of a carrier', 'fate': 'stay internal; option M3 uses them as the mass step', 'evidence': 'reports/KD.md'},
+ {'label': 'Z2 link field between carriers', 'fate': 'new: 2 N + 1 bits on a periodic patch of N carriers (2 N - 2 plaquette fluxes, 3 torus holonomies); static at eps = 0, no conserved flux label at eps > 0',
+  'evidence': 'work/CUBIC/gauge_count.json (169 = 21 x 8 + 1, 568 = 21 x 27 + 1); reports/R2.md result 7d'},
+ {'label': 'momentum', 'fate': 'new: label of the free tick; with link signs the covariant translation is the readout',
+  'evidence': f"here: commutator {ft['axis_1']} (free), bare shift with link signs {ft['bare_shift_with_link_signs_axis_1']:.3f}; reports/R2.md"},
+ {'label': 'arrow state of the record X_r', 'fate': 'new: conserved by the massless tick only; no arrow sector is chiral over the zone',
+  'evidence': (f"here: commutator {fa['massless_forward']:.0e} (massless), {fa['mass_step_Y_theta_0.157935']:.4f} with either declared mass step; "
+               f"reports/R4.md C2, work/R4/item6_chirality.json: {wp['points']} cones per arrow sector over the zone for the ordered tick, signed sum {wp['signed_sum']['phase 0']}")},
+ {'label': 'sublattice class (x1 - x2, x2 - x3 modulo 2)', 'fate': 'new: four exact copies of the travelling quantum',
+  'evidence': f'here: commutator at most {sub_max:.0e} for every tick of the engine'},
+ {'label': 'pointer', 'fate': 'new, declared register: the three half-turns of the frame act through the quaternion group, a full turn is -1',
+  'evidence': f"here: commutator with the tick at most {ht_max:.0e}; group relations {fh['U1_U2_plus_U2_U1']}; exact in reports/R4.md result 4 (the other sixteen elements of the frame stabilizer's cover fix no tick)"},
+ {'label': 'pair label of a quantum carrying a flux pair', 'fate': 'new with one declared gate', 'evidence': 'reports/R2.md result 5c'}]
+
+H = json.load(open(os.path.join(RL, 'work/SIM/cf1/runs/H_background_from_runs.json')))['part_a_densities']['checkpoint_composition']['L10_000300']
+fpc = {k: round(H['faces_per_carrier'][k]['mean'], 5) for k in '12345'}
+classes = []
+for k in range(1, 6):
+    odd = k % 2 == 1; z3 = k % 3
+    classes.append({
+        'class': k, 'conjugate': (6 - k) % 6, 'reduction_mod_2': k % 2, 'reduction_mod_3': z3,
+        'link_value_on_vector_levels': ['1', 'omega^2', 'omega'][z3], 'link_value_on_spinor_levels': -1 if odd else 1,
+        'object_of_the_working_law': ('z2_flux_pair, exactly' if k == 3 else
+                                      'none; its reduction modulo 2 is z2_flux_pair, so the working register cannot tell it from class 3' if odd else
+                                      'none; flat for the working register'),
+        'patterns_that_see_it': [f"({r['n3']},{r['n2']})" for r in PT['rows'] if k in r['centre_flux_classes_seen']],
+        'runs_L10_sweep_300_faces_per_carrier': fpc[str(k)],
+        'runs_behaviour': {1: 'hops at zero cost (0.335 hops per sweep), annihilates with class 5, decays with e-folding 109 sweeps',
+                           5: 'as class 1', 2: 'frozen after the quench, pairs with class 4 at separation 2 or more',
+                           4: 'as class 2', 3: 'frozen after the quench, pairs at separation 2 or more'}[k],
+        'working_law_behaviour': ('moved when a wave of any level is at an endpoint of the seam; changes waves on spinor levels only; number kept by the permitted moves; no cost function' if k == 3 else
+                                  'no register')})
+compare = {
+ 'classes': classes,
+ 'reduction': 'The thirty-bit register of the working law is the Z6 register of the runs reduced modulo 2: the face bit is the class modulo 2. The reading of a class as a centre flux is declared (reports/CH.md).',
+ 'missed_by_the_earlier_catalogue': [
+   'every charged object: the twelve patterns. The register of the runs never changes a load, so no load or current record detects a defect (oph_defects/DATASET.md)',
+   'the two-way coupling: in the working law the link sign enters the wave step and the wave moves the defect (audit joint program)',
+   'the Gauss constraint and the electric string that ends on a charged quantum (R2)',
+   'labels of motion: momentum, arrow state, pointer, sublattice class',
+   'the internal walk sectors of a carrier (tower) and the composite of a quantum with a flux pair'],
+ 'added_by_the_earlier_catalogue': [
+   'the Z3 part of the register: classes 2 and 4, and the generator classes 1 and 5, with Z6 fusion and splitting',
+   'a cost table (0, 5, 8, 10, 8, 5) and an acceptance rule: frozen classes 2, 3, 4, free hopping and annihilation of classes 1 and 5',
+   'pair creation in the quench; densities set by the preparation (reports/CH.md, preparation scan)',
+   'a screen tier between carriers; its counterpart in CF-1 is z2_plaquette_flux'],
+ 'shadows_of_the_stored_census_L10_sweep_300': CEN}
+
+audit_catalogue = {
+ 'protected_entries_on_the_working_tuple': 0,
+ 'protected_entries': [
+  {'id': 'bare_native_source', 'domain': 'complete all-seam C/E on H66 or H78', 'row': None, 'note': 'exclusion: only scalar charges; consistent with every label here needing an added register (code, links, record)'},
+  {'id': 'ordered_exchange_charge', 'domain': 'H66 with a coherent orientation bit', 'row': None, 'note': 'analogue only: a two-valued X label of an owned bit, like the arrow state'},
+  {'id': 'selected_spin_charge', 'domain': 'eight-site selected spin cube', 'row': None},
+  {'id': 'single_occupancy_spin_memory', 'domain': 'eight-site one-particle-per-site spin code', 'row': None},
+  {'id': 'joint_positive_field_canonical_sector', 'domain': 'protected spin interaction family', 'row': None},
+  {'id': 'common_hidden_spin_factor', 'domain': 'six-site Weyl/contact field', 'row': None},
+  {'id': 'cube_eta_range', 'domain': 'eight-site Weyl/contact field', 'row': None},
+  {'id': 'compact_opposite_texture_cores', 'domain': 'prescribed two-core texture in a cubic two-spin field', 'row': None},
+  {'id': 'one_hole_spin_readout', 'domain': 'two-flavour CAR repair with one empty site', 'row': None},
+  {'id': 'centered_full_CAR_charge_response', 'domain': 'original Weyl/contact action', 'row': None, 'note': 'analogue: the occupation number of the declared exclusion'},
+  {'id': 'kinetic_Weyl_nodes_and_free_fields', 'domain': 'original cubic Weyl symbol', 'row': None,
+   'note': 'analogue: the cones of the routing tick (16 per arrow sector over the zone, signed sum 0; work/R4)'}],
+ 'excitation_ids': [
+  {'id': 'up_left', 'row': 'pattern_11'}, {'id': 'down_left', 'row': 'pattern_11'}, {'id': 'up_right_conjugate', 'row': 'pattern_20'},
+  {'id': 'down_right_conjugate', 'row': 'pattern_22'}, {'id': 'neutrino_left', 'row': 'pattern_31'}, {'id': 'charged_lepton_left', 'row': 'pattern_31'},
+  {'id': 'charged_lepton_right_conjugate', 'row': 'pattern_02'},
+  {'id': 'particle_primary_regional_fermion:regional_endpoint_irrep', 'row': 'pattern_02', 'note': 'same gauge numbers; primary Wilson source, a different tuple'},
+  {'id': 'particle_primary_regional_fermion:internal_pair_probe_irreps', 'row': None, 'note': 'pair apparatus, total Q6 increment 0'},
+  {'id': 'particle_primary_composite_spin:weak_pair_charge_six:0,2,0,0,1', 'row': 'neutral_composites_of_patterns'},
+  {'id': 'particle_primary_composite_spin:weak_pair_charge_six:0,-2,0,0,-1', 'row': 'neutral_composites_of_patterns'},
+  {'id': 'particle_primary_composite_spin:color_triple:1,0,0,2,0', 'row': 'neutral_composites_of_patterns'},
+  {'id': 'particle_primary_composite_spin:color_triple:-1,0,0,-2,0', 'row': 'neutral_composites_of_patterns'},
+  {'id': 'particle_primary_composite_spin:color_determinant_charge_six_hole:0,0,0,3,-1', 'row': 'neutral_composites_of_patterns'},
+  {'id': 'particle_primary_composite_spin:color_determinant_charge_six_hole:0,0,0,-3,1', 'row': 'neutral_composites_of_patterns'},
+  {'id': 'particle_primary_reduced_sector:isolated_A1u_cluster', 'row': None, 'note': 'neutral collective line of the primary Wilson source; no counterpart in the working law'}],
+ 'note': 'All eleven protected entries are defined on other source domains than the working tuple; the sixteen excitation records carry protected_defect_id = null.'}
+ids = json.load(open(os.path.join(RER, 'model/particle_candidate_confirmation/results.json')))
+assert sorted(e['id'] for e in audit_catalogue['protected_entries']) == sorted(ids['protected_catalogue_ids'])
+assert sorted(e['id'] for e in audit_catalogue['excitation_ids']) == sorted(ids['source_excitation_ids'])
+assert all(e['row'] is None or any(r['id'] == e['row'] for r in rows) for e in audit_catalogue['excitation_ids'])
+
+no_candidate = [
+ {'standard_model_object': 'second and third generation of every matter multiplet',
+  'reason': 'no label repeats a gauge multiplet three times with distinct rest phases. The three-fold objects of the working law are degenerate multiplets of its symmetries (the three vector levels; the triplets 3 and 3\' of the carrier rotations in the walk), and the copies found carry equal charges: four sublattice classes with equal phases, and mirror cones of the opposite winding in every arrow sector (reports/R4.md)',
+  'inputs_on_file': 'the conjugate triplet of the carrier, unused by the code (work/FAMILY/GENERATIONS.md); not protected as a generation label'},
+ {'standard_model_object': 'gluons, W, B, photon and Z as travelling quanta', 'reason': 'the twelve responses are operators; the only link field is Z2, so no vector excitation and no U(1) link coupled to the charge'},
+ {'standard_model_object': 'Higgs as a travelling scalar', 'reason': 'only the declared toggle; the gauge numbers (1, 2, 1/2) are those of the one-spinor-level quantum, which the chart reads as the antilepton doublet'}]
+
+MAP_ROWS = [
+ {'map_row': 'Quark doublet, left-handed (3 colours)', 'candidates': ['pattern_11'], 'status': 'object of the working law; Z2-charged, travels'},
+ {'map_row': 'Up quark, right-handed', 'candidates': ['pattern_12'], 'status': 'object of the working law; Z2-even'},
+ {'map_row': 'Down quark, right-handed', 'candidates': ['pattern_10'], 'status': 'object of the working law; Z2-even; executed as a one-quantum wave'},
+ {'map_row': 'Lepton doublet, left-handed', 'candidates': ['pattern_31'], 'status': 'object of the working law; Z2-charged, travels'},
+ {'map_row': 'Electron, right-handed', 'candidates': ['pattern_30'], 'status': 'object of the working law; Z2-even; blind to every centre flux'},
+ {'map_row': 'Right-handed neutrino', 'candidates': ['pattern_32'], 'status': 'object of the working law; Z2-even; blind to every centre flux'},
+ {'map_row': 'Antiparticles', 'candidates': ['pattern_21', 'pattern_20', 'pattern_22', 'pattern_01', 'pattern_02', 'pattern_00'], 'status': 'objects of the working law; pattern_01 executed as a one-quantum wave'},
+ {'map_row': 'Gluons (8), W (3), B (1)', 'candidates': ['port_responses'], 'status': 'operators; no travelling excitation'},
+ {'map_row': 'Photon and Z', 'candidates': ['port_responses'], 'status': 'operators; no U(1) link in the working law'},
+ {'map_row': 'Higgs', 'candidates': ['neutral_spinor_toggle'], 'status': 'declared operator; breaks the Gauss constraint (R7)'},
+ {'map_row': 'defect class 3 of the universe runs: weak-centre flux', 'candidates': ['z2_flux_pair'], 'status': 'object of the working law'},
+ {'map_row': 'defect classes 2 and 4: colour-centre flux', 'candidates': ['z3_colour_centre_flux'], 'status': 'not an object of the working law'},
+ {'map_row': 'defect classes 1 and 5: the generating flux', 'candidates': ['z6_generating_flux'], 'status': 'not an object of the working law; its reduction modulo 2 is z2_flux_pair'},
+ {'map_row': 'Second and third generation', 'candidates': [], 'status': 'no candidate'}]
+assert all(any(r['id'] == c for r in rows) for m in MAP_ROWS for c in m['candidates'])
+corrections = [
+ f"CF1.md section 12 and the coordinator's note say that 30 patterns have nonzero charge modulo 6. Exact count: {PT['counts']['states_with_Q6_nonzero']} of 32 states have Q6 nonzero; "
+ f"{PT['counts']['states_with_Q6_nonzero_modulo_6']} have Q6 nonzero modulo 6. The four singlets (0,0), (3,0), (0,2), (3,2) see no centre flux of any class (as in reports/CH.md).",
+ 'Of the three flux rows of MAP.md only class 3 is an object of the working law: its Z2 face flux. Classes 1 and 5 reduce to it modulo 2; classes 2 and 4 are flat for its register. CF-1 version 1 carries a class label k per carrier as a static declared background only.',
+ 'work/FAMILY/FAMILY.md uses 6Y = 2 n3 - 3 n2; MAP.md, the audit and the simulation chart use Q6 = 3 n2 - 2 n3. The two differ by conjugation of every name. This table uses Q6 = 3 n2 - 2 n3.',
+ 'The native spinor of the carrier is the spinor doublet of the code. In the chart the same two states are the weak index. A pattern with n2 = 1 therefore has a native pointer or a weak doublet index, not both; patterns with n2 even have no native pointer.']
+
+out = {
+ 'schema': 'oph.repair_law.x1.candidates.v1', 'built': '2026-11-10', 'worker': 'X1',
+ 'status': 'best guess; a candidate list of protected objects of the working law with labels checked on operators. No particle is identified and no mass is given.',
+ 'working_law': {'carrier': 'pinned twelve-port source: 12 ports, 30 seams, 20 faces, 60 rotations, cover of order 120',
+                 'local_state': 'port x five-level code x two-state record x sixty addresses (7,200), thirty link bits',
+                 'programs': ['model/coherent_seam_repair', 'model/coherent_defect_wave', 'repair-law/candidates/CF1.md section 8 with the corrections of sections 11 and 12'],
+                 'scheduler': 'address reflection; sorted interior edges (joint program); three axes in alternating order (CF-1)',
+                 'declared': ['five-level code', 'exclusion on occupations', 'cubic family and frame', 'pointer', 'record reflection', 'mass step', 'preparations and readouts'],
+                 'clock': 'one tick'},
+ 'conventions': {'Q6': '3 n2 - 2 n3 = six times the hypercharge; the lifted public charge Q5 with the sign reversed',
+                 'handedness_class': 'even occupation is called left (simulation chart); nothing supplies chirality',
+                 'cover_irreps': 'of the cover of order 120: 1, 2, 2\', 3, 3\', 4, 4s, 5, 6; spinorial: 2, 2\', 4s, 6; the code is 3 + 2\''},
+ 'corrections_stated_first': corrections,
+ 'labels_one_carrier': labels_one_carrier, 'labels_family': labels_family, 'candidates': rows,
+ 'standard_model_multiplets_without_candidate': no_candidate,
+ 'counts': {**PT['counts'], 'anomaly_sums_even_class': PT['anomaly_sums_even_class'], 'anomaly_sums_odd_class': PT['anomaly_sums_odd_class']},
+ 'universe_run_classes': compare, 'audit_catalogue': audit_catalogue, 'map_rows': MAP_ROWS, 'three_plus_two_split': C['three_plus_two_split'],
+ 'public_checks_executed_by_X1': {
+   'python -m model.coherent_seam_repair.protection --check': 'PASS',
+   'pytest model/coherent_defect_wave/test_model.py::test_complex_mixed_charge_state_preserves_norm_inverse_and_charges ::test_multilink_q_matches_literal_central_sign_on_each_address': '2 passed',
+   'pytest model/coherent_defect_wave/test_gauss.py': '4 passed', 'pytest model/coherent_seam_repair/test_protection.py': '12 passed',
+   'pytest model/coherent_seam_repair/test_repair.py': '7 passed', 'pytest model/coherent_defect_wave/species/test_species.py': '14 passed',
+   'pytest model/coherent_defect_wave/mobile_flux/test_mobile.py': '6 passed',
+   'pytest model/coherent_defect_wave/field_identity_audit/test_identity.py': '6 passed'},
+ 'evidence': {'own_checks': ['work/X1/carrier_checks.json (x1_carrier.py)', 'work/X1/family_checks.json (x1_family.py)', 'work/X1/family_chart_rerun.json (work/FAMILY/family_chart.py, identical to the stored file)'],
+              'cited': ['reports/R2.md, work/R2/item2.json, work/R2/charges.json', 'reports/R4.md, work/R4/item6_chirality.json', 'reports/R7.md, CF1.md section 11', 'reports/KD.md',
+                        'reports/CH.md, work/SIM/cf1/runs/H_background_from_runs.json', 'work/CUBIC/gauge_count.json', 'work/DIRAC/interaction_check.json, defect_phases.json',
+                        'RER model/coherent_seam_repair (PROOF.md, PROTECTION.md), model/coherent_defect_wave (PROOF.md, GAUSS.md, species, mobile_flux, field_identity_audit), model/particle_candidate_confirmation/CATALOGUE.md']}}
+json.dump(out, open(os.path.join(HERE, 'candidates.json'), 'w'), indent=1)
+
+# ------------------------------------------------------------------ CANDIDATES.md
+def row(*cells): return '| ' + ' | '.join(str(c) for c in cells) + ' |'
+L = []
+A = L.append
+A('# Protected objects of the working law: candidate table (worker X1, 2026-11-10)')
+A('')
+A('Status: best guess. Labels are checked on operators (instrument level: they commute with the tick); the pattern chart is')
+A('representation level; nothing here identifies a particle or gives a mass. Machine table: [candidates.json](candidates.json).')
+A('Tuple: pinned twelve-port carrier; state port x five-level code x two-state record x sixty addresses (7,200) plus thirty')
+A('link bits; public seam reflector; address reflection; one tick. Family: CF-1 section 8 with the corrections of sections 11')
+A('and 12. Declared: the code, exclusion, the cubic family, the pointer, the record reflection, the mass step, preparations.')
+A('Convention: Q6 = 3 n2 - 2 n3 (six times the hypercharge); cover irreps 1, 2, 2\', 3, 3\', 4, 4s, 5, 6 (spinorial: 2, 2\', 4s, 6).')
+A('')
+A('## Corrections, stated first')
+A('')
+for i, c in enumerate(corrections, 1): A(f'{i}. {c}')
+A('')
+A('## 1. Conserved labels on one carrier')
+A('')
+A(row('Label', 'Group and values', 'Operator', 'Commutes with the tick', 'Sectors', 'Rotations', 'Twelve port responses', 'Created or destroyed by'))
+A(row(*['---'] * 8))
+for l in labels_one_carrier:
+    A(row(l['label'], l['group_and_values'], l['operator'], l['commutes_with_tick'], l['sector_dimensions'], l['rotation_cover'], l['port_responses'], l['created_or_destroyed_by']))
+A('')
+for l in labels_one_carrier:
+    if 'note' in l: A(f"- {l['label']}: {l['note']}")
+A('- Oscillating sectors (rotation irrep, record block, rest phase per tick): ' +
+  '; '.join(f"{r['sector']} ({r['rotation_irrep']}, {r['rest_phase']})" for r in SW['oscillatory']) + '. Triplets are odd and the quintets even under the antipodal map.')
+A("- The audit's eleven protected-object entries (CATALOGUE.md) are all defined on other source domains; none is an object of this tuple. Of its sixteen excitation records, seven are components of the patterns (1,1), (2,0), (2,2), (3,1), (0,2); the other nine belong to the primary Wilson source. Every `protected_defect_id` is null. Row by row: candidates.json, key `audit_catalogue`.")
+A('')
+A('## 2. The family (CF-1): what survives, what becomes a current, what is new')
+A('')
+A(row('Label', 'On the family', 'Evidence')); A(row('---', '---', '---'))
+for l in labels_family: A(row(l['label'], l['fate'], l['evidence']))
+A('')
+A('## 3. Candidate list')
+A('')
+A(row('ID', 'Type', 'Labels', 'States', 'Colour, weak, Y; electric', 'Spin candidates', 'Travels (working tick)', 'Stable', 'Row of MAP.md'))
+A(row(*['---'] * 9))
+for r in rows:
+    if r['id'].startswith('pattern_'):
+        lb = r['labels']; g = r['gauge']; odd = lb['Z2_link_charge']
+        A(row(r['id'], 'matter', f"({lb['n3']},{lb['n2']}), Q6 {lb['Q6']:+d}, Z2 {'odd' if odd else 'even'}, triality {lb['triality']}", r['multiplet_dimension'],
+              f"({g['SU3']}, {g['SU2']}, {g['Y']}); {', '.join(g['electric_charges'])}",
+              (f"1/2 native (content {r['cover_content_of_internal_factor']}, full turn -1) or declared pointer" if odd else
+               f"1/2 by declared pointer only (content {r['cover_content_of_internal_factor']}, full turn +1)"),
+              'yes, on the cone; Gauss constraint' if odd else 'yes, same routing; no Gauss constraint',
+              'pattern kept (M0, M1, M3)', r['map_row']))
+tw = [r for r in rows if r['id'].startswith('walk_')]
+for r in tw:
+    A(row(r['id'], 'matter (internal sector)', f"{r['name']}; rest phase {r['labels']['rest_phase_per_tick']}", r['multiplet_dimension'], 'none of its own',
+          f"integer: {r['labels']['rotation_irrep']}", ('under option M3 (declared), with this mass angle' if r['labels']['rest_phase_per_tick'] else 'under option M3 (declared), massless'), 'invariant sector of W', 'none'))
+MD = {
+ 'z2_flux_pair': ('field', '190 positions on a carrier, separation classes 30, 60, 60, 30, 10; regional parity', 190,
+                  'neutral; seen by n2 = 1 only', 'integer only; no spinor pointer (R2)',
+                  'no between carriers (R2); inside a region when a wave is at an endpoint of the seam', 'number kept by permitted moves; parity only with a held boundary'),
+ 'z2_plaquette_flux': ('field', '2 N - 2 fluxes and 3 holonomies on N carriers; closed lines', '', 'neutral; seen by n2 = 1 only', 'none', 'no (R2)',
+                       'static at eps = 0; not protected at eps > 0'),
+ 'port_responses': ('field (operators)', '8 + 3 + 1; their sum is the charge', 12, 'adjoints and centre', 'none', 'no: no travelling state', 'not applicable'),
+ 'neutral_spinor_toggle': ('field (operator)', 'changes n2 by one (M2)', 2, '(1, 2, 1/2) as a multiplet', 'none', 'no', 'breaks the Gauss constraint (R7)'),
+ 'z3_colour_centre_flux': ('field', 'not an object of the working law (register is Z2)', '', 'neutral; would be seen by n3 = 1, 2', '', 'no register', 'no register'),
+ 'z6_generating_flux': ('field', 'not an object of the working law; modulo 2 it is z2_flux_pair', '', 'neutral', '', 'no register', 'no register'),
+ 'quantum_carrying_z2_pair': ('composite', 'pattern of the quantum and the separation class of the pair', 'as the pattern', 'charges of the quantum',
+                              'as the quantum', 'yes with one added declared gate (R2)', 'pattern and pair label kept'),
+ 'mobile_flux_pair': ('composite', 'complete inside and exterior pair (audit mobile_flux)', 5, 'neutral', 'declared two-lane coin', 'by the declared exchange of the audit; not in CF-1',
+                      'pair number kept'),
+ 'neutral_composites_of_patterns': ('composite', 'audit trions and determinant, total Q6 = 0; other tuple', '', 'singlets', 'cube irreps of the audit source', 'no rule', 'no binding'),
+ 'mirror_cone': ('matter (copy)', '16 cones per arrow sector over the zone (ordered tick): winding equal to the arrow label at the corners, opposite at the half-way points', 'as the pattern', 'charges of the pattern',
+                 'as the quantum, opposite handedness at half-way points', 'yes', 'half-way cones stay closed under the declared mass step (R4)')}
+for r in rows:
+    if r['id'] in MD:
+        m = MD[r['id']]; A(row(r['id'], m[0], m[1], m[2], m[3], m[4], m[5], m[6], r['map_row'] or 'none'))
+A('')
+A(f"Rest phase (option M1) of a pattern with n2 = 1 on a carrier with one Z2 pair, by separation 1 to 5: {', '.join(str(Z2PH[d]) for d in range(1, 6))} (float64, equal to CF-1 item 6 at alpha = 1/2 to 2e-15); patterns with n2 even: 0.")
+A(f"Counts: {PT['counts']['Z2_odd_states']} of 32 states are Z2-odd (4 of 12 patterns); {PT['counts']['states_with_nonzero_triality']} have nonzero triality; anomaly sums vanish on each handedness class and sum T3^2 / sum Q^2 = {PT['anomaly_sums_even_class']['sum_T3_squared_over_sum_Q_squared']} (exact).")
+A('')
+A('Standard Model multiplets without a candidate:')
+for n_ in no_candidate: A(f"- {n_['standard_model_object']}: {n_['reason']}.")
+A('')
+A('Candidates without a Standard Model row: the right-handed neutrino pattern and the empty pattern; the Z2 flux pair; the plaquette flux; the six walk sectors; the quantum carrying a pair; the mirror cones.')
+A('')
+A('## 4. The catalogue of the universe runs (Z6 register, classes 1 to 5)')
+A('')
+A(row('Class', 'mod 2, mod 3', 'Phase on a vector level, a spinor level (omega = exp(2 pi i/3))', 'Object of the working law', 'Runs: faces per carrier (L10, sweep 300), behaviour', 'Working law'))
+A(row(*['---'] * 6))
+for c in classes:
+    A(row(c['class'], f"{c['reduction_mod_2']}, {c['reduction_mod_3']}", f"{c['link_value_on_vector_levels']}, {c['link_value_on_spinor_levels']:+d}", c['object_of_the_working_law'],
+          f"{c['runs_L10_sweep_300_faces_per_carrier']}; {c['runs_behaviour']}", c['working_law_behaviour']))
+A('')
+A(f"- {compare['reduction']}")
+A(f"- Shadows of the stored census (level 10, sweep 300, {CEN['carriers']:,} carriers, exact counts): {CEN['share_of_carriers_with_a_Z2_flux'] * 100:.2f} percent of the carriers hold a Z2 flux "
+  f"({CEN['carriers_by_number_of_Z2_odd_faces (classes 1, 3, 5)']['2']:,} with two odd faces, {CEN['carriers_by_number_of_Z2_odd_faces (classes 1, 3, 5)']['4']:,} with four, "
+  f"{CEN['carriers_by_number_of_Z2_odd_faces (classes 1, 3, 5)']['6']} with six); {CEN['share_of_defect_carriers_flat_in_Z2'] * 100:.2f} percent of the carriers with defects "
+  f"({CEN['share_with_defects_but_flat_in_Z2 (invisible to the working register)'] * 100:.2f} percent of all) hold only classes 2 and 4 and are flat for the working register. "
+  f"Odd faces per carrier: {CEN['Z2_odd_faces_per_carrier']}, of which class 3: {CEN['of_which_class_3']}.")
+A('- Missed by the earlier catalogue: ' + '; '.join(compare['missed_by_the_earlier_catalogue']) + '.')
+A('- Added by the earlier catalogue: ' + '; '.join(compare['added_by_the_earlier_catalogue']) + '.')
+A('')
+A('## 5. What the map should say (best guess)')
+A('')
+A('1. Matter rows stay on the patterns. Add the column Z2 charge (n2 mod 2). The travelling protected object is the Z2-charged quantum: (1,1), (3,1), (2,1), (0,1). The singlet patterns travel on the same routing without a gauged charge and without a native pointer.')
+A('2. One flux row: the Z2 flux pair of a carrier, equal to class 3. Classes 2 and 4 and classes 1 and 5 are marked as not objects of the working law; keeping them needs a declared Z6 link.')
+A('3. New rows: the quantum carrying a flux pair; the plaquette flux between carriers (unprotected once the field step is on); the six walk sectors (lattice-scale tower under M3); the mirror cones.')
+A('4. No candidate: generations two and three; travelling gauge bosons; a travelling Higgs.')
+A('5. Spin: by the declared pointer. The native spinor exists on the four Z2-odd patterns only and coincides with their weak index.')
+A('')
+A('## Evidence')
+A('')
+A('- Own checks (run from RER, each under 10 CPU seconds): `x1_carrier.py` -> `carrier_checks.json` (integers, GF(2), Q(sqrt5); float64 only for the sector cross-check, defect '
+  f"{SW['float_character_defect']:.0e}, and the rest phases); `x1_family.py` -> `family_checks.json` (float64, defects printed); `x1_build.py` -> this file and `candidates.json`.")
+A('- Public checks executed: ' + '; '.join(f'`{k}`: {v}' for k, v in out['public_checks_executed_by_X1'].items()) + '.')
+A('- Cited: ' + '; '.join(out['evidence']['cited']) + '.')
+open(os.path.join(HERE, 'CANDIDATES.md'), 'w').write('\n'.join(L) + '\n')
+print('rows', len(rows), '| pattern rows', sum(r['id'].startswith('pattern_') for r in rows), '| md lines', len(L),
+      '| md words', sum(len(x.split()) for x in L))

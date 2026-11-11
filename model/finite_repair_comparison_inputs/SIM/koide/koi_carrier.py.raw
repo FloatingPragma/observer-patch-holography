@@ -1,0 +1,191 @@
+"""Task KOI: exact geometry of the twelve-port carrier with one cubic frame fixed (shared by the band and the second index).
+
+Ports v_p (unnormalised, Q(sqrt5)): (0, s1, s2 phi), (s1, s2 phi, 0), (s1 phi, 0, s2), order of work/DESIGN/torsor.py.
+|v|^2 = phi + 2; seams: v.w = phi; distance two: v.w = -phi; antipodes: v.w = -(phi + 2).
+Frame group T (order 12): the rotations diag(e) C^k, e an even sign pattern, C the cyclic permutation of the frame axes;
+eight of them are thirds of a turn about the four body diagonals (+-1, +-1, +-1).
+Band (adjacency eigenvalue sqrt5): load f(p) = v_p . x; an operator O on the twelve ports acts on the band coordinates x
+as V^T O V / (4 (phi + 2)); a rotation g acts on x as the matrix g itself (orthonormal band basis = the frame axes).
+"""
+import itertools
+from collections import deque
+from fractions import Fraction as Fr
+
+from koide_lib import QF, ZERO, ONE, PHI, R5, zeta, mzeros, mmul, mT, mH, madd, mscale, mtrace, meq
+
+V = []
+for s1 in (1, -1):
+    for s2 in (1, -1):
+        V += [(ZERO, QF(s1), PHI * s2), (QF(s1), PHI * s2, ZERO), (PHI * s1, ZERO, QF(s2))]
+N = 12
+W = PHI + 2                                                            # |v|^2
+
+
+def dot(u, w):
+    return sum((a * b for a, b in zip(u, w)), ZERO)
+
+
+DOT = [[dot(V[p], V[q]) for q in range(N)] for p in range(N)]
+assert all(DOT[p][p] == W for p in range(N))
+SEAMS = [(p, q) for p in range(N) for q in range(p + 1, N) if DOT[p][q] == PHI]
+ANTI = {p: next(q for q in range(N) if DOT[p][q] == -W) for p in range(N)}
+assert len(SEAMS) == 30
+
+
+def dist(p, q):
+    if p == q: return 0
+    if DOT[p][q] == PHI: return 1
+    if DOT[p][q] == -PHI: return 2
+    return 3
+
+
+def cross(u, w):
+    return (u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0])
+
+
+FACES = []
+for f in itertools.combinations(range(N), 3):
+    if all(dist(a, b) == 1 for a, b in itertools.combinations(f, 2)):
+        a, b, c = f
+        nrm = cross(tuple(x - y for x, y in zip(V[b], V[a])), tuple(x - y for x, y in zip(V[c], V[a])))
+        cen = tuple(V[a][i] + V[b][i] + V[c][i] for i in range(3))
+        FACES.append((a, b, c) if dot(nrm, cen).sign() > 0 else (a, c, b))
+assert len(FACES) == 20
+SEAM_FACES = {e: [i for i, f in enumerate(FACES) if set(e) <= set(f)] for e in SEAMS}
+DUAL = {i: [] for i in range(20)}
+for e, (f, g) in SEAM_FACES.items():
+    DUAL[f].append((g, e)); DUAL[g].append((f, e))
+
+
+def face_centre(i):
+    a, b, c = FACES[i]
+    return tuple(V[a][k] + V[b][k] + V[c][k] for k in range(3))
+
+
+def face_dist(f1, f2):
+    seen = {f1: 0}; q = deque([f1])
+    while q:
+        f = q.popleft()
+        for g, _ in DUAL[f]:
+            if g not in seen: seen[g] = seen[f] + 1; q.append(g)
+    return seen[f2]
+
+
+def dual_paths(f1, f2):
+    """all shortest dual paths from f1 to f2, each a list of (face left, face entered, seam crossed)"""
+    d = face_dist(f1, f2); out = []
+    def rec(f, acc):
+        if len(acc) == d:
+            if f == f2: out.append(list(acc))
+            return
+        for g, e in DUAL[f]:
+            if face_dist(g, f2) == d - len(acc) - 1:
+                acc.append((f, g, e)); rec(g, acc); acc.pop()
+    rec(f1, [])
+    return out
+
+
+def orient(e, f):
+    """+1 if the seam e = (a, b), a < b, is traversed a -> b in the orientation of face f (family_band.py convention)"""
+    a, b = e; i = f.index(a)
+    return 1 if f[(i + 1) % 3] == b else -1
+
+
+# ------------------------------------------------------------------------------------------------ frame group
+def imat(rows):
+    return [[QF(x) for x in r] for r in rows]
+
+
+C3 = imat([[0, 0, 1], [1, 0, 0], [0, 1, 0]])                           # C e1 = e2, C e2 = e3, C e3 = e1
+SIGNS = [imat([[1, 0, 0], [0, 1, 0], [0, 0, 1]]), imat([[1, 0, 0], [0, -1, 0], [0, 0, -1]]),
+         imat([[-1, 0, 0], [0, 1, 0], [0, 0, -1]]), imat([[-1, 0, 0], [0, -1, 0], [0, 0, 1]])]
+GROUP = []
+for D in SIGNS:
+    M = imat([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+    for k in range(3):
+        GROUP.append(mmul(D, M)); M = mmul(C3, M)
+
+
+def apply(g, v):
+    return tuple(sum((g[i][j] * v[j] for j in range(3)), ZERO) for i in range(3))
+
+
+def port_perm(g):
+    out = []
+    for p in range(N):
+        w = apply(g, V[p])
+        out.append(next(q for q in range(N) if all(a == b for a, b in zip(V[q], w))))
+    return out
+
+
+PERM = [port_perm(g) for g in GROUP]
+assert all(sorted(P) == list(range(N)) for P in PERM)
+I3 = imat([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+
+
+def order(g):
+    M = g
+    for k in range(1, 7):
+        if meq(M, I3): return k
+        M = mmul(M, g)
+    return None
+
+
+TURNS = [i for i, g in enumerate(GROUP) if order(g) == 3]             # the eight thirds of a turn
+HALF = [i for i, g in enumerate(GROUP) if order(g) == 2]
+
+
+def turn_axis(g):
+    """body diagonal fixed by a third-turn g (as an integer triple), sense: g rotates by +2 pi/3 about it"""
+    for s in itertools.product((1, -1), repeat=3):
+        v = tuple(QF(x) for x in s)
+        if all(a == b for a, b in zip(apply(g, v), v)):
+            # orientation: g e_i is e_j; sense from det[axis, x, g x] for x perpendicular-ish
+            x = (QF(1), QF(-1), ZERO) if s[0] * s[1] > 0 else (QF(1), QF(1), ZERO)
+            gx = apply(g, x)
+            det = dot(v, cross(x, gx))
+            return s if det.sign() > 0 else tuple(-t for t in s)
+    return None
+
+
+# ------------------------------------------------------------------------------------------------ band
+def band(O):
+    """3 x 3 matrix of a 12 x 12 port operator on the band, in the frame axes"""
+    VT = [[V[p][i] for p in range(N)] for i in range(3)]
+    Vm = [list(V[p]) for p in range(N)]
+    return mscale(mmul(mmul(VT, O), Vm), (W * 4).inv())
+
+
+def diag_ports(weights):
+    O = mzeros(N)
+    for p, w in weights.items(): O[p][p] = QF.lift(w)
+    return O
+
+
+def adjacency():
+    A = mzeros(N)
+    for p, q in SEAMS: A[p][q] = ONE; A[q][p] = ONE
+    return A
+
+
+def flux_laplacian(path, num, den):
+    """phase-coupled port Laplacian with a string of link phases along a dual path (family_band.py convention):
+    crossing seam e from face g into face f puts exp(2 pi i alpha orient(e, g)) on e; alpha = num/den"""
+    z = {}
+    for g, f, e in path:
+        z[e] = z.get(e, ONE) * zeta(num * orient(e, FACES[g]), den)
+    L = mzeros(N)
+    for a, b in SEAMS:
+        zz = z.get((a, b), ONE)
+        L[a][a] = L[a][a] + 1; L[b][b] = L[b][b] + 1
+        L[a][b] = L[a][b] - zz.conj(); L[b][a] = L[b][a] - zz
+    return L
+
+
+def face_flux(L, f):
+    """holonomy of the link phases around face f (product of -L[a][b]-type transports), as a QF"""
+    a, b, c = f
+    w = ONE
+    for x, y in ((a, b), (b, c), (c, a)):
+        w = w * (-L[x][y])                                             # L[x][y] = -conj(z_xy) for x < y, -z for x > y
+    return w

@@ -1,0 +1,421 @@
+{
+ "bare_fifth_moments_in_units_of_-i/32": {
+  "own (closed + exchange)": "31",
+  "closed loop (spectator)": "20",
+  "exchange": "11",
+  "down loop": "60",
+  "up loop": "60"
+ },
+ "Rayleigh_Schroedinger": {
+  "own": "-I*(18*Delta_l**2 - 12*Delta_l*Delta_s + Delta_s**2)/(32*Delta_l**2*Delta_s**2*(Delta_l - Delta_s)**2)",
+  "closed": "-I*(3*Delta_l - 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l - Delta_s)**2)",
+  "exchange": "-I*(6*Delta_l**2 - 4*Delta_l*Delta_s + Delta_s**2)/(32*Delta_l**2*Delta_s**2*(Delta_l - Delta_s)**2)",
+  "down": "-3*I*(3*Delta_l - 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l - Delta_s)**2)",
+  "up": "-3*I*(3*Delta_l + 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l + Delta_s)**2)"
+ },
+ "x": {
+  "definition": "T = X 1 + sigma Y_e Y_e^dag, Y_e = y_J C_e with tr C_e^2 = 1, x = X / (sigma y_J^2)",
+  "lepton_channel_bare": "20/11",
+  "lepton_channel_RS_of_rho=Delta_l/Delta_s": "4*rho*(3*rho - 2)/(6*rho**2 - 4*rho + 1)",
+  "all_channels_equal_unit_Yukawas_bare": "140/11",
+  "all_channels_equal_unit_Yukawas_RS": "4*rho*(3*rho + 1)*(7*rho**2 - rho - 2)/((rho + 1)**2*(6*rho**2 - 4*rho + 1))",
+  "general_bare (q_d = tr Y_d Y_d^dag / y_J^2, q_u likewise; colour included in the loop)": "60*q_d/11 + 60*q_u/11 + 20/11",
+  "general_RS": "4*rho*(3*q_u*(rho - 1)**2*(3*rho + 2) + (3*q_d + 1)*(rho + 1)**2*(3*rho - 2))/((rho + 1)**2*(6*rho**2 - 4*rho + 1))",
+  "limits_of_the_lepton_channel": {
+   "rho -> infinity": "2",
+   "rho = 1 (audit point; the double pole cancels)": "4/3",
+   "zero at rho": "2/3",
+   "rho -> 0": "0"
+  }
+ },
+ "splitting_ratio": {
+  "lepton channel, bare (20/11)": {
+   "x": 1.8181818181818181,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.0477203008644823,
+    "r_IO": 19.95544206311342,
+    "masses_over_heaviest": [
+     0.6584297609302253,
+     0.678647095945794,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.029763122547896446,
+    "r_IO": 32.59862522457935,
+    "masses_over_heaviest": [
+     0.43352975007863365,
+     0.4605618808356597,
+     1.0
+    ]
+   }
+  },
+  "all channels at equal unit Yukawas, bare": {
+   "x": 12.727272727272727,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.05719945007801748,
+    "r_IO": 16.482685561417895,
+    "masses_over_heaviest": [
+     0.9309957587073074,
+     0.9350800778432745,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.053350148800745546,
+    "r_IO": 17.74409017554653,
+    "masses_over_heaviest": [
+     0.866753102730995,
+     0.8743747519793842,
+     1.0
+    ]
+   }
+  },
+  "lepton channel, RS, rho = 2": {
+   "x": 1.8823529411764706,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.048032913861341606,
+    "r_IO": 19.81905759219058,
+    "masses_over_heaviest": [
+     0.6661860057727427,
+     0.6859442533664358,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.030417992464887997,
+    "r_IO": 31.875279364813995,
+    "masses_over_heaviest": [
+     0.44380379428744066,
+     0.4705195187264371,
+     1.0
+    ]
+   }
+  },
+  "all channels, RS, rho = 2": {
+   "x": 8.784313725490197,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.05635177917593613,
+    "r_IO": 16.745668630583886,
+    "masses_over_heaviest": [
+     0.9030267291049185,
+     0.9087665181175113,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.05094636895708975,
+    "r_IO": 18.628484236870015,
+    "masses_over_heaviest": [
+     0.815457273477928,
+     0.825856584451425,
+     1.0
+    ]
+   }
+  },
+  "lepton channel, RS, rho = 4": {
+   "x": 1.9753086419753085,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.048456677786902325,
+    "r_IO": 19.63699051754424,
+    "masses_over_heaviest": [
+     0.676816585318499,
+     0.69594561536481,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.03131965915603727,
+    "r_IO": 30.928827673951137,
+    "masses_over_heaviest": [
+     0.45808069016219305,
+     0.48434029954550417,
+     1.0
+    ]
+   }
+  },
+  "all channels, RS, rho = 4": {
+   "x": 10.8879012345679,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.05687724119600513,
+    "r_IO": 16.581724763229843,
+    "masses_over_heaviest": [
+     0.9202681083026877,
+     0.9249873905512219,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.052430325889109196,
+    "r_IO": 18.072931229056493,
+    "masses_over_heaviest": [
+     0.8468933911590073,
+     0.8556016726787589,
+     1.0
+    ]
+   }
+  },
+  "lepton channel, RS, rho = 1/2": {
+   "x": -2.0,
+   "linear": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.9236216261839804,
+    "r_IO": 0.08269444072199049,
+    "masses_over_heaviest": [
+     0.5282611714467522,
+     0.9720780652240469,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.8838592039873794,
+    "r_IO": 0.13140191954631603,
+    "masses_over_heaviest": [
+     0.27905986525829496,
+     0.9449357648897265,
+     1.0
+    ]
+   }
+  },
+  "all channels, RS, rho = 1/2": {
+   "x": -3.3333333333333335,
+   "linear": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.9316312523673167,
+    "r_IO": 0.07338606069617695,
+    "masses_over_heaviest": [
+     0.7169720650207563,
+     0.9832477484109173,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.9111877975175318,
+    "r_IO": 0.09746860386457205,
+    "masses_over_heaviest": [
+     0.5140489420201275,
+     0.9667761347551387,
+     1.0
+    ]
+   }
+  },
+  "lepton channel, RS, rho = 1/4": {
+   "x": -3.3333333333333335,
+   "linear": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.9316312523673167,
+    "r_IO": 0.07338606069617695,
+    "masses_over_heaviest": [
+     0.7169720650207563,
+     0.9832477484109173,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.9111877975175318,
+    "r_IO": 0.09746860386457205,
+    "masses_over_heaviest": [
+     0.5140489420201275,
+     0.9667761347551387,
+     1.0
+    ]
+   }
+  },
+  "all channels, RS, rho = 1/4": {
+   "x": -5.413333333333333,
+   "linear": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.935495158929028,
+    "r_IO": 0.0689526187872723,
+    "masses_over_heaviest": [
+     0.8257271664481907,
+     0.9896848968176363,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "tau",
+     "mu",
+     "e"
+    ],
+    "r_NO": 0.9240790388237394,
+    "r_IO": 0.0821585145713297,
+    "masses_over_heaviest": [
+     0.6818253534105578,
+     0.9794761949889353,
+     1.0
+    ]
+   }
+  },
+  "lepton channel, RS, rho = 1": {
+   "x": 1.3333333333333333,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.04464001785724935,
+    "r_IO": 21.401424730559427,
+    "masses_over_heaviest": [
+     0.5856967199970661,
+     0.6102190795348279,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.023778747675960665,
+    "r_IO": 41.05435936438986,
+    "masses_over_heaviest": [
+     0.3430406478153216,
+     0.37236732502833264,
+     1.0
+    ]
+   }
+  },
+  "lepton channel, RS, rho -> infinity": {
+   "x": 2.0,
+   "linear": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.04856388291498102,
+    "r_IO": 19.591434209465145,
+    "masses_over_heaviest": [
+     0.6795274769019736,
+     0.6984960509217781,
+     1.0
+    ]
+   },
+   "square": {
+    "ascending_characters": [
+     "e",
+     "mu",
+     "tau"
+    ],
+    "r_NO": 0.03155030745627913,
+    "r_IO": 30.695412204326402,
+    "masses_over_heaviest": [
+     0.46175759186476223,
+     0.48789673315331933,
+     1.0
+    ]
+   }
+  }
+ },
+ "lambda_squared": {
+  "e": "0.000271352515549743",
+  "mu": "0.0561076453802154",
+  "tau": "0.943621002104235"
+ },
+ "count": {
+  "values_of_x": 12,
+  "readings_per_value": 4
+ },
+ "checks": {
+  "X0 the extended code reproduces NU3 lepton channel (bare and Rayleigh-Schroedinger)": true,
+  "X0 every lower moment vanishes": true,
+  "X1 closed loop of one lepton family equals one colour of the down loop": true,
+  "X2 the spectator sees the down loop of NU3 exactly (family-blind hops)": true,
+  "X1 bare x of the lepton channel is 20/11": true
+ }
+}

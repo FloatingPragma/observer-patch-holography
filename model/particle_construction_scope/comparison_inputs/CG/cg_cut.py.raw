@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+"""Worker CG, check C9: per-cell weight power on one patch's side of a gauge-constrained cut (SU(2)).
+
+N cells cross the cut; one interior vertex joins the N half-links (Gauss law there). The extended space for
+cell labels (j_c) has dimension dim Inv(V_j1 x ... x V_jN) x prod_c d_jc (interior pairing times free edge indices).
+Counts (all at heat weight exp(-t C2) per cell, t = 1.3335, the source chain's t2 at the anchor):
+  A: edge index and interior pairing counted (tracial state of the extended space);
+  B: interior pairing only (the count of work/CA E12);
+  C: edge index only, each cell's flux ending on a fixed interior state (the one-cell law).
+Output: the fitted power of the per-cell marginal over j = 0..2. No measured value.
+Run:  python cg_cut.py   (writes cg_cut.json)
+"""
+import json
+import math
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+t = 1.3335
+nmax = 8                                     # twice-spin cutoff per cell; weight of n = 8 is exp(-t*20) ~ 3e-12
+n_lab = np.arange(nmax + 1)
+d = n_lab + 1.0
+C = n_lab * (n_lab + 2) / 4.0
+
+
+def fuse(vec, cell_w):
+    """vec over twice-spin J; multiply by sum_n cell_w[n] [V_n] with Clebsch-Gordan multiplicity one."""
+    Jmax = len(vec) - 1 + nmax
+    new = np.zeros(Jmax + 1)
+    for J, a in enumerate(vec):
+        if a == 0.0:
+            continue
+        for n, b in enumerate(cell_w):
+            for Jp in range(abs(J - n), J + n + 1, 2):
+                new[Jp] += a * b
+    return new / new.max()
+
+
+def marginal_power(N, count):
+    if count == "A":
+        cell = d * np.exp(-t * C)            # edge index d, heat weight
+        own = d * np.exp(-t * C)
+    elif count == "B":
+        cell = np.exp(-t * C)
+        own = np.exp(-t * C)
+    else:
+        raise ValueError(count)
+    vec = np.array([1.0])
+    for _ in range(N - 1):
+        vec = fuse(vec, cell)
+    m = np.array([vec[n] if n < len(vec) else 0.0 for n in range(nmax + 1)])
+    p = own * m
+    p = p / p.sum()
+    y = np.log(p[:3] / np.exp(-t * C[:3]))
+    slope = float(np.polyfit(np.log(d[:3]), y, 1)[0])
+    return slope, p[:4].tolist()
+
+
+out = {"t": t, "rows": {}}
+for count in ("A", "B"):
+    rows = {}
+    for N in (2, 4, 8, 16, 32, 64, 128):
+        s, p = marginal_power(N, count)
+        rows[str(N)] = {"fitted_power_j_0_to_1": s, "marginal_j_0_to_3/2": p}
+    out["rows"][count] = rows
+law1 = d * np.exp(-t * C)
+out["rows"]["C"] = {"law": (law1 / law1.sum())[:4].tolist(), "power": 1}
+out["statement"] = ("counting the free edge index and the interior pairing of each cell gives a per-cell marginal "
+                    "whose power tends to 2; either count alone gives power 1 (A, B, C of this file)")
+(HERE / "cg_cut.json").write_text(json.dumps(out, indent=1) + "\n")
+for k in ("A", "B"):
+    print(k, {N: round(v["fitted_power_j_0_to_1"], 4) for N, v in out["rows"][k].items()})
+print("C", out["rows"]["C"])

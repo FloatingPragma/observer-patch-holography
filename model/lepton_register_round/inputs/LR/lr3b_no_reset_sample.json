@@ -1,0 +1,39 @@
+{
+ "task": "LR addendum 1, O10b",
+ "N": 100,
+ "rounds": 10000,
+ "trajectories": 450,
+ "seed": 20261112,
+ "running_mean_count_exact": 0.2554878189915444,
+ "running_mean_count_sampled": 0.25790814814814816,
+ "standard_error": 0.004930686581353531,
+ "deviation_over_standard_error": 0.49087061541424837,
+ "trajectories_with_a_non_return": 62,
+ "fraction_with_a_non_return": 0.13777777777777778,
+ "leading_order_fraction": 0.15872737692669792,
+ "first_sample": {
+  "trajectories": 150,
+  "running_mean": 0.24014037037037042,
+  "standard_error": 0.006089082723260744
+ },
+ "union": {
+  "trajectories": 600,
+  "running_mean": 0.25346620370370376,
+  "standard_error": 0.003999077705254132,
+  "deviation_over_standard_error": -0.5055203816581373
+ },
+ "mean_count_at_rounds": {
+  "1": 0.22222222222222404,
+  "1000": 0.22839506172839696,
+  "2000": 0.23456790123456986,
+  "5000": 0.256790123456792,
+  "10000": 0.2975308641975329
+ },
+ "exact_mean_count_at_rounds": {
+  "1": 0.2222222222222223,
+  "1000": 0.22936605691828868,
+  "2000": 0.2363330444883873,
+  "5000": 0.2561762408719925,
+  "10000": 0.2859854897880152
+ }
+}

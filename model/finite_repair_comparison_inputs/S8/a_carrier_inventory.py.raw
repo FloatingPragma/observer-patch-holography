@@ -1,0 +1,233 @@
+"""S8 script A: exact dimensionless inventory of the reference rule on ONE carrier (12 ports, 30 seams, 20 faces).
+
+Everything is exact (fractions / sympy) except the many-body gaps (float eigenvalues of exact rational matrices) and
+the permutation-schedule average (Monte Carlo over seam orders, error quoted).
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          ../research/S8/a_carrier_inventory.py
+Writes a_carrier_inventory.json next to this file.
+"""
+from fractions import Fraction as F
+from itertools import combinations
+from math import comb, log, exp, sqrt
+from pathlib import Path
+import json
+import sys
+
+import numpy as np
+import sympy as sp
+
+from model.observer import native
+from model.transported_contrast import law
+
+OUT = Path(__file__).resolve().parent / 'a_carrier_inventory.json'
+seams, faces = law.carrier()
+V, M = 12, len(seams)
+assert M == 30 and len(faces) == 20
+res = {}
+
+# ------------------------------------------------------------------ 1. one-quantum operator (mean map of loads)
+L = sp.zeros(V, V)
+for a, b in seams:
+    L[a, a] += 1; L[b, b] += 1; L[a, b] -= 1; L[b, a] -= 1
+x = sp.symbols('x')
+cp = sp.factor(L.charpoly(x).as_expr())
+res['laplacian_charpoly'] = str(cp)
+levels = {'0': (sp.Integer(0), 1), '5-sqrt5': (5 - sp.sqrt(5), 3), '6': (sp.Integer(6), 5), '5+sqrt5': (5 + sp.sqrt(5), 3)}
+assert sp.expand(cp - x * (x**2 - 10 * x + 20)**3 * (x - 6)**5) == 0
+res['mean_map'] = {}
+for name, (lam, mult) in levels.items():
+    lam_f = float(lam)
+    res['mean_map'][name] = {
+        'multiplicity': mult, 'lambda': lam_f,
+        'factor_per_attempt_exact': str(sp.nsimplify(1 - lam / 60)), 'factor_per_attempt': 1 - lam_f / 60,
+        'factor_per_sweep_uniform_random': (1 - lam_f / 60) ** 30,
+        'factor_per_sweep_poisson': exp(-lam_f / 2),
+        'rate_per_sweep_poisson': lam_f / 2,
+        'rate_per_sweep_uniform_random': -30 * log(1 - lam_f / 60),
+    }
+
+# permutation schedule (each seam exactly once per sweep, uniformly random order): mean one-sweep map, Monte Carlo
+Lf = np.array(L.tolist(), float)
+proj = []
+for a, b in seams:
+    Pm = np.eye(V)
+    Pm[a, a] = Pm[b, b] = .5; Pm[a, b] = Pm[b, a] = .5
+    proj.append(Pm)
+rng = np.random.default_rng(8)
+w, U = np.linalg.eigh(Lf)
+groups = {'5-sqrt5': U[:, 1:4], '6': U[:, 4:9], '5+sqrt5': U[:, 9:12]}
+acc = {k: [] for k in groups}
+for trial in range(20000):
+    T = np.eye(V)
+    for k in rng.permutation(M):
+        T = proj[k] @ T
+    for k, B in groups.items():
+        acc[k].append(np.trace(B.T @ T @ B) / B.shape[1])
+for k in groups:
+    v = np.array(acc[k])
+    res['mean_map'][k]['factor_per_sweep_permutation_schedule'] = float(v.mean())
+    res['mean_map'][k]['factor_per_sweep_permutation_schedule_stderr'] = float(v.std(ddof=1) / sqrt(v.size))
+
+# ------------------------------------------------------------------ 2. many-quanta chains (exclusion form) and state counts
+def chain(n):
+    """Transition matrix of the reference rule on binary states with n quanta, built from native.native."""
+    states = [tuple(1 if p in c else 0 for p in range(V)) for c in combinations(range(V), n)]
+    idx = {s: i for i, s in enumerate(states)}
+    T = np.zeros((len(states), len(states)))
+    for s in states:
+        for seam in seams:
+            for coin in (0, 1):
+                t, _ = native.native(s, seam, coin)
+                T[idx[tuple(t)], idx[s]] += 1 / (2 * M)
+    return states, T
+
+gap_exact = float((5 - sp.sqrt(5)) / 60)
+res['exclusion_chain'] = {}
+for n in range(1, 7):
+    states, T = chain(n)
+    assert np.allclose(T, T.T) and np.allclose(T.sum(0), 1)
+    ev = np.sort(np.linalg.eigvalsh(T))[::-1]
+    odd = sum(1 for s in states for (a, b) in seams if s[a] != s[b]) / (len(states) * M)
+    res['exclusion_chain'][str(n)] = {
+        'states': len(states), 'log_states': log(len(states)),
+        'gap_per_attempt': float(1 - ev[1]), 'gap_equals_(5-sqrt5)/60': bool(abs(1 - ev[1] - gap_exact) < 1e-12),
+        'smallest_eigenvalue': float(ev[-1]),
+        'P_odd_seam_per_attempt': odd, 'P_load_moves_per_attempt (kappa)': str(F(n * (V - n), V * (V - 1))),
+        'load_moving_events_per_sweep': float(F(M * n * (V - n), V * (V - 1))),
+    }
+
+# full 78-state family: the doubly loaded port
+st78 = list(native.states())
+i78 = {s: i for i, s in enumerate(st78)}
+T78 = np.zeros((78, 78))
+for s in st78:
+    for seam in seams:
+        for coin in (0, 1):
+            t, _ = native.native(s, seam, coin)
+            T78[i78[tuple(t)], i78[s]] += 1 / (2 * M)
+dbl = [i for i, s in enumerate(st78) if max(s) == 2]
+stay = sorted(set(np.round(T78[dbl, dbl], 12)))
+res['double_load'] = {
+    'states': len(dbl), 'stay_probability_per_attempt': stay, 'exact': '5/6 = 1 - degree/M',
+    'survival_per_sweep_uniform_random': (5 / 6) ** 30, 'exponent_per_sweep_uniform_random': -30 * log(5 / 6),
+    'survival_per_sweep_poisson': exp(-5), 'survival_per_sweep_permutation_schedule': 0.0,
+    'exponent_per_attempt': -log(5 / 6),
+}
+assert stay == [round(5 / 6, 12)]
+
+res['state_counts'] = {
+    'total_two_all (78)': log(78), 'total_two_binary (66)': log(66), 'half_filling (924)': log(924),
+    'all_binary 2^12': 12 * log(2), 'rotations (60)': log(60), 'incidence automorphisms (120)': log(120),
+    'per_port_entropy_at_filling_n/12': {str(n): log(comb(12, n)) / 12 for n in range(1, 7)},
+}
+
+# ------------------------------------------------------------------ 3. coherence multipliers: one-quantum coherence |p><q| per attempt
+def coh(g, m):
+    adjacent = (21 + 8 * g + m) / 30       # 21 seams miss both ports, 8 touch one, 1 touches both
+    distant = (20 + 10 * g) / 30
+    return adjacent, distant
+res['coherence_factor_per_attempt'] = {}
+for name, g, m in (('C0 (g=1/sqrt2, m=1/2)', 2 ** -.5, .5), ('C (g=1/2, m=0)', .5, 0.), ('E (g=0, m=0)', 0., 0.)):
+    a_, d_ = coh(g, m)
+    res['coherence_factor_per_attempt'][name] = {
+        'adjacent_ports': a_, 'non_adjacent_ports': d_,
+        'per_sweep_adjacent': a_ ** 30, 'per_sweep_non_adjacent': d_ ** 30,
+        'exponent_per_sweep_adjacent': -30 * log(a_), 'exponent_per_sweep_non_adjacent': -30 * log(d_),
+    }
+
+# ------------------------------------------------------------------ 4. resistance distances and transported-contrast releases (exact)
+def frac_pinv_solve(lap, rhs):
+    """Zero-sum solution of lap y = rhs (rhs zero-sum), exact."""
+    A = sp.Matrix(lap)
+    n = A.rows
+    A2 = A.copy(); A2[n - 1, :] = sp.ones(1, n)
+    b = sp.Matrix(list(rhs[:-1]) + [0])
+    return A2.LUsolve(b)
+
+Lq = sp.Matrix(L)
+dist = [[None] * V for _ in range(V)]
+adj = {p: set() for p in range(V)}
+for a, b in seams:
+    adj[a].add(b); adj[b].add(a)
+for s in range(V):
+    d = {s: 0}; fr = [s]
+    while fr:
+        nx = []
+        for u in fr:
+            for v in adj[u]:
+                if v not in d:
+                    d[v] = d[u] + 1; nx.append(v)
+        fr = nx
+    for t in range(V):
+        dist[s][t] = d[t]
+Rport = {}
+for t in range(1, V):
+    rhs = [0] * V; rhs[0] = 1; rhs[t] = -1
+    y = frac_pinv_solve(Lq, rhs)
+    Rport.setdefault(dist[0][t], set()).add(sp.nsimplify(y[0] - y[t]))
+res['port_resistance_distance'] = {str(k): [str(v) for v in sorted(vs)] for k, vs in sorted(Rport.items())}
+# single-quantum commute time between ports in attempts: 2M * V * R
+res['one_quantum_commute_time_attempts'] = {str(k): float(2 * M * V * list(vs)[0]) for k, vs in sorted(Rport.items())}
+
+# dual graph (faces; dodecahedron): release per sweep of a unit charge pair = (1/2) q^T D^+ q
+nf = len(faces)
+seam_faces = {}
+for f, face in enumerate(faces):
+    for p, r in zip(face, face[1:] + face[:1]):
+        seam_faces.setdefault((min(p, r), max(p, r)), []).append(f)
+D = sp.zeros(nf, nf)
+fadj = {f: set() for f in range(nf)}
+for s_, (f1, f2) in seam_faces.items():
+    D[f1, f1] += 1; D[f2, f2] += 1; D[f1, f2] -= 1; D[f2, f1] -= 1
+    fadj[f1].add(f2); fadj[f2].add(f1)
+dd = {0: 0}; fr = [0]
+while fr:
+    nx = []
+    for u in fr:
+        for v in fadj[u]:
+            if v not in dd:
+                dd[v] = dd[u] + 1; nx.append(v)
+    fr = nx
+rel = {}
+for t in range(1, nf):
+    rhs = [0] * nf; rhs[0] = 1; rhs[t] = -1
+    y = frac_pinv_solve(D, rhs)
+    rel.setdefault(dd[t], set()).add(sp.nsimplify((y[0] - y[t]) / 2))
+res['transported_contrast_unit_pair_release_per_sweep'] = {str(k): [str(v) for v in sorted(vs)] for k, vs in sorted(rel.items())}
+assert [str(list(rel[k])[0]) for k in range(1, 6)] == ['19/60', '9/20', '8/15', '17/30', '7/12']
+# single seam with unit offset: release (1/2)(1 - R_seam) with R_seam = 11/30
+res['seam_release_check'] = str(sp.Rational(1, 2) * (1 - sp.Rational(11, 30)))
+
+# ------------------------------------------------------------------ 5. persistence (survival) exponents at half filling and total two
+def persistence(n, kind):
+    states, T = chain(n)
+    if kind == 'port_stays_empty':
+        keep = [i for i, s in enumerate(states) if s[0] == 0]
+    elif kind == 'port_stays_occupied':
+        keep = [i for i, s in enumerate(states) if s[0] == 1]
+    elif kind == 'adjacent_pair_stays_occupied':
+        a, b = seams[0]
+        keep = [i for i, s in enumerate(states) if s[a] == 1 and s[b] == 1]
+    sub = T[np.ix_(keep, keep)]
+    mu = float(np.max(np.linalg.eigvalsh(sub)))
+    return {'top_eigenvalue_per_attempt': mu, 'exponent_per_attempt': -log(mu), 'exponent_per_sweep': -30 * log(mu)}
+res['persistence'] = {}
+for n in (2, 6):
+    for kind in ('port_stays_empty', 'port_stays_occupied', 'adjacent_pair_stays_occupied'):
+        res['persistence'][f'n={n} {kind}'] = persistence(n, kind)
+
+# ------------------------------------------------------------------ 6. dynamic range of rates on one carrier
+lam = [float(5 - sp.sqrt(5)), 6.0, float(5 + sp.sqrt(5))]
+res['dynamic_range'] = {
+    'one_quantum lambda_max/lambda_min': lam[-1] / lam[0], 'exact': '(5+sqrt5)/(5-sqrt5) = phi^2',
+    'six_quanta chain: largest/smallest nonzero rate': None,
+}
+states, T = chain(6)
+ev = np.sort(1 - np.linalg.eigvalsh(T))
+nz = ev[ev > 1e-12]
+res['dynamic_range']['six_quanta chain: largest/smallest nonzero rate'] = float(nz[-1] / nz[0])
+res['dynamic_range']['six_quanta chain: largest rate per attempt'] = float(nz[-1])
+res['dynamic_range']['six_quanta chain: number of distinct rates'] = int(len(set(np.round(nz, 9))))
+
+OUT.write_text(json.dumps(res, indent=1, default=str))
+print(json.dumps(res, indent=1, default=str))

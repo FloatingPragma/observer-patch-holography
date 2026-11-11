@@ -1,0 +1,65 @@
+"""CM Appendix 1: reading O (and F2) with the one-orientation readout C_1(theta) of LNAT2 T1 D4.
+
+C_1 = sqrt(q) 1 + sqrt(p)(e^{i theta} S - e^{-i theta} S^-1) on each orbit (closure signs as in orbit.json).
+Reads no measured value. Needs orbit.json. Writes app1.json.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B cm_app1.py
+"""
+import json
+import os
+
+import mpmath as mp
+
+import cm_frames_lib as FL
+
+mp.mp.dps = 50
+HERE = os.path.dirname(os.path.abspath(__file__))
+orb = json.load(open(os.path.join(HERE, 'orbit.json')))
+OUT = {'measured_values_read': False, 'A1_O': {}, 'A1_F2': {}}
+
+
+def c1(S, q, p, th):
+    return mp.sqrt(q) * mp.eye(S.rows) + mp.sqrt(p) * (mp.exp(1j * th) * S - mp.exp(-1j * th) * S.H)
+
+
+POINTS = {'N': (mp.mpf(1) / 6, mp.mpf(1) / 12, mp.mpf(2) / 9), 'N0': (mp.mpf(1) / 6, mp.mpf(1) / 12, mp.mpf(0))}
+for lname, rec in orb['lifts'].items():
+    up = rec['legs']['up']['per_colour']['0']
+    dn = rec['legs']['down']['per_colour']['0']
+    Du = mp.diag([FL.parse(x) for x in up['t_n']])
+    Dd = mp.diag([FL.parse(x) for x in dn['t_n']])
+    SL, SR = FL.shift(3, up['closure_L']), FL.shift(3, up['closure_R'])
+    for pname, (q, p, th) in POINTS.items():
+        CL, CR = c1(SL, q, p, th), c1(SR, q, p, th)
+        for form in ('O2', 'O3'):
+            frames, spec = {}, {}
+            for sec, D in (('up', Du), ('down', Dd)):
+                Y = CR * D if form == 'O2' else CR * D * CL
+                E, Q = FL.herm_eig(Y.H * Y)
+                frames[sec] = Q
+                spec[sec] = FL.spectrum_summary(E)
+            V = frames['up'].H * frames['down']
+            isp, perm = FL.perm_check(V)
+            OUT['A1_O'][f'{form}|{pname}|{lname}'] = {'V': FL.ckm(V), 'is_permutation': isp, 'permutation': perm,
+                                                     'spectra': spec}
+    # A1-F2: port-uniform, positions x u_R / d_R, Y = C_1R T
+    q, p, th = POINTS['N']
+    S3 = FL.shift(3, 1)
+    CR = c1(S3, q, p, th)
+    fr = {}
+    for sec in ('up', 'down'):
+        Y = CR                      # T_s is +-1 times the identity map of positions onto the right orbit
+        E, Q = FL.herm_eig(Y.H * Y)
+        fr[sec] = Q
+    V = fr['up'].H * fr['down']
+    isp, perm = FL.perm_check(V)
+    OUT['A1_F2'][lname] = {'V': FL.ckm(V), 'is_permutation': isp, 'permutation': perm}
+
+with open(os.path.join(HERE, 'app1.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+for k, r in OUT['A1_O'].items():
+    v = r['V']
+    print('A1-O', k, 'perm', r['is_permutation'], 's12 %.6f s23 %.6f s13 %.6f J %.6e' % (v['s12'], v['s23'], v['s13'], v['J']),
+          '| up', r['spectra']['up'].get('y1_over_y3'), r['spectra']['up'].get('y2_over_y3'),
+          '| down', r['spectra']['down'].get('y1_over_y3'), r['spectra']['down'].get('y2_over_y3'))
+for k, r in OUT['A1_F2'].items():
+    print('A1-F2', k, r['is_permutation'], r['permutation'], r['V']['J'])

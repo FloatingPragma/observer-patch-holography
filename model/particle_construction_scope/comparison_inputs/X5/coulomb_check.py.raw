@@ -1,0 +1,18 @@
+"""X5: static part of the link-phase field. Two opposite unit link charges at distance r on an axis: the electric
+term (eps/2) sum E^2 with div E = rho gives the phase eps (G(0) - G(r)) per field step, G the lattice Green function
+of minus the Laplacian. Checked: G(r1) - G(r2) against (1/r1 - 1/r2) / (4 pi) on a periodic lattice of 128^3 cells."""
+import json, sys
+import numpy as np
+L = 128
+k = 2 * np.pi * np.fft.fftfreq(L)
+s1 = 4 * np.sin(k / 2) ** 2
+s = s1[:, None, None] + s1[None, :, None] + s1[None, None, :]
+s[0, 0, 0] = np.inf
+G = np.fft.ifftn(1 / s).real                                           # G(x) = (1/V) sum_k exp(i k x) / s(k)
+rows = []
+for r1, r2 in ((4, 8), (8, 16), (6, 12)):
+    rows.append({'r1': r1, 'r2': r2, 'G(r1) - G(r2)': float(G[r1, 0, 0] - G[r2, 0, 0]), '(1/r1 - 1/r2) / (4 pi)': float((1 / r1 - 1 / r2) / (4 * np.pi))})
+    rows[-1]['ratio'] = rows[-1]['G(r1) - G(r2)'] / rows[-1]['(1/r1 - 1/r2) / (4 pi)']
+out = {'lattice': [L, L, L], 'rows': rows, 'reading': 'Coulomb phase eps / (4 pi r) per field step: with speed sqrt(eps kappa) the coupling of the unit link charge is sqrt(eps/kappa) / (4 pi)'}
+for r in rows: print(r)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'coulomb_check.json', 'w'), indent=1)

@@ -1,0 +1,60 @@
+{
+ "channel": "d",
+ "couplings": [
+  0,
+  1,
+  0
+ ],
+ "first_order_mixing_norm_squared_<s3|V|s>^2": "6",
+ "three_fermion_state_terms": 12,
+ "fermion_number_census": {
+  "3": 12
+ },
+ "gauss_checks_passed": 96,
+ "targets": {
+  "0": {
+   "bare_V_moments_k0_to_k3": [
+    "0",
+    "0",
+    "0",
+    "0"
+   ],
+   "tagged_third_moment": "0",
+   "RS_third_order_amplitude": "0",
+   "first_image_classes": {
+    "(1, 0)": 1100,
+    "(0, 1)": 792
+   },
+   "nonzero_middle_kinetic_summands": []
+  },
+  "1": {
+   "bare_V_moments_k0_to_k3": [
+    "0",
+    "0",
+    "0",
+    "-3*I/16"
+   ],
+   "tagged_third_moment": "-3*I*r_0_1**2/16",
+   "RS_third_order_amplitude": "-3*I/(16*Delta_l**2)",
+   "first_image_classes": {
+    "(1, 0)": 1100,
+    "(0, 1)": 792
+   },
+   "nonzero_middle_kinetic_summands": [
+    {
+     "path": [
+      0
+     ],
+     "contribution": "-3*I/32"
+    },
+    {
+     "path": [
+      12
+     ],
+     "contribution": "-3*I/32"
+    }
+   ]
+  }
+ },
+ "seconds": 17.2
+}

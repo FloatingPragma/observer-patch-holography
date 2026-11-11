@@ -1,0 +1,300 @@
+"""T2: the audit's spectral clock against the CF-1 tick: what each regulator gives up, in numbers.
+
+  S  splitting identity   on a lattice with antiperiodic links, the routing sub-step of the reference engine
+                          (work/DIRAC/routing.py, imported unchanged) equals exp(-i alpha_i P_i), P_i the audit's
+                          spectral momentum operator (chiral_regulator/PROOF.md). The CF-1 tick is the product of
+                          the three axis exponentials; the audit's clock is the exponential of their sum.
+  W  degree and cones     winding number of two-component block symbols over the zone (FFT quadrature) and the census
+                          of the points where the symbol is +1 or -1, with chirality signs:
+                          ordered tick, alternating period, and a tick with exponentially decaying couplings
+                          V(k) = (b - i s.sigma)/sqrt(b^2 + s^2), b = sum cos k_i - 2, s_i = sin k_i.
+  V  couplings of V       decay of the hopping amplitudes, weight leaving a cube in one tick, phase against |k|
+  R  filled branch        the period of the CF-1 tick with antiperiodic links (the audit's device against zero modes):
+                          distance of the spectrum from the cuts at phase 0 and pi, closed form and engine
+  M  massive pair         the two handedness blocks V and V^dagger joined by the toggle exp(-i theta beta): distance of
+                          the spectrum from both cuts, against the CF-1 period
+  P  polar form           on the register of the reference engine, diag(V, V^dagger) is the unitary part of
+                          S_1 + S_2 + S_3 - 2, S_i the routing sub-steps (symbol: sum_i exp(-i k_i alpha_i) - 2)
+
+Run from the public checkout:
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/DIRAC python RL/work/T2/t2_regulators.py [part ...] [out.json]
+All float64; every number carries its defect (MEASURED). The degree statement for strictly local ticks is ARGUED in
+COMPARISON.md; this file checks it on the three symbols.
+"""
+import itertools, json, os, sys
+import numpy as np
+from scipy.linalg import expm
+from routing import Routing, SIG
+
+out = {}
+parts = [a for a in sys.argv[1:] if not a.endswith('.json')] or list('SWVRMP')
+dest = next((a for a in sys.argv[1:] if a.endswith('.json')), None)
+I2 = np.eye(2, dtype=complex); SX = SIG[0]
+
+
+def spectral_P(N):
+    """one-axis momentum operator of the audit's antiperiodic menu, spacing 1 (L = N)"""
+    n = np.arange(-N // 2, N // 2); pn = 2 * np.pi * (n + 0.5) / N
+    F = np.exp(2j * np.pi * np.outer(np.arange(N), n + 0.5) / N) / np.sqrt(N)
+    return F @ np.diag(pn) @ F.conj().T
+
+
+def antiperiodic_links(shape):
+    links = []
+    for i in range(3):
+        z = np.ones(shape)
+        idx = [slice(None)] * 3; idx[i] = shape[i] - 1
+        z[tuple(idx)] = -1.0                                            # the link from x = N - 1 to x + e_i = 0
+        links.append(z)
+    return links
+
+
+def matrix_of(f, shape):
+    D = int(np.prod(shape)) * 4
+    M = np.zeros((D, D), complex)
+    for j in range(D):
+        e = np.zeros(D, complex); e[j] = 1
+        M[:, j] = f(e.reshape(tuple(shape) + (2, 2))).ravel()
+    return M
+
+
+def kron_all(*ms):
+    o = np.eye(1, dtype=complex)
+    for m in ms: o = np.kron(o, m)
+    return o
+
+
+# =============================================================================================== S
+if 'S' in parts:
+    res = {}
+    for shape in ((4, 4, 4), (6, 4, 2)):
+        w = Routing(shape, antiperiodic_links(shape))
+        eye = [np.eye(n, dtype=complex) for n in shape]
+        gens = []; sub = []
+        for i in range(3):
+            sp_ = [eye[0], eye[1], eye[2]]; sp_[i] = spectral_P(shape[i])
+            G = kron_all(*sp_, SX, SIG[i])                              # alpha_i P_i, alpha_i = X_r sigma_i
+            gens.append(G)
+            S_engine = matrix_of(lambda psi, i=i: w.shift(psi, i), shape)
+            sub.append(float(np.abs(S_engine - expm(-1j * G)).max()))
+        T_engine = matrix_of(lambda psi: w.tick(psi, 0.0), shape)
+        prod = expm(-1j * gens[2]) @ expm(-1j * gens[1]) @ expm(-1j * gens[0])
+        unsplit = expm(-1j * sum(gens))
+        res['x'.join(map(str, shape))] = {
+            'substep_minus_exp(-i alpha_i P_i)_per_axis': sub,
+            'forward_tick_minus_product_of_the_three_exponentials': float(np.abs(T_engine - prod).max()),
+            'forward_tick_minus_exponential_of_the_sum_(operator_norm)': float(np.linalg.norm(T_engine - unsplit, 2)),
+        }
+    # the cost of splitting, mode by mode (symbols): ordered and alternating against exp(-i t alpha.p)
+    AL = [np.kron(SX, s) for s in SIG]
+    def E_(p, order):
+        U = np.eye(4, dtype=complex)
+        for i in order: U = (np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * AL[i]) @ U
+        return U
+    def exact(p, t=1.0):
+        n = np.linalg.norm(p)
+        return np.cos(t * n) * np.eye(4) - 1j * np.sin(t * n) * sum(p[i] * AL[i] for i in range(3)) / n
+    rng = np.random.default_rng(11); rows = []
+    for P in (0.4, 0.2, 0.1, 0.05):
+        e1 = e2 = 0.0
+        for _ in range(300):
+            p = rng.uniform(-P, P, 3)
+            e1 = max(e1, np.linalg.norm(E_(p, (0, 1, 2)) - exact(p), 2))
+            e2 = max(e2, np.linalg.norm(E_(p, (2, 1, 0)) @ E_(p, (0, 1, 2)) - exact(p, 2.0), 2))
+        rows.append({'window_|p_i|<=': P, 'one_ordered_tick': e1, 'ratio_to_P^2': e1 / P ** 2, 'alternating_period': e2, 'ratio_to_P^3': e2 / P ** 3})
+    res['splitting_error_of_the_symbol'] = rows
+    out['S_splitting'] = res
+    print('S', json.dumps(res, indent=1))
+
+# =============================================================================================== W
+def nvec(U):
+    """U = n0 - i n.sigma  ->  (n0, n1, n2, n3); U has shape (..., 2, 2)"""
+    n0 = 0.5 * (U[..., 0, 0] + U[..., 1, 1]).real
+    ns = [(0.5j * np.einsum('...ab,ba->...', U, s)).real for s in SIG]
+    return np.stack([n0, *ns], axis=-1)
+
+def rot(p, i):
+    c, s = np.cos(p)[..., None, None], np.sin(p)[..., None, None]
+    return c * I2 - 1j * s * SIG[i]
+
+def U_ord(p1, p2, p3): return rot(p3, 2) @ rot(p2, 1) @ rot(p1, 0)
+def U_alt(p1, p2, p3): return (rot(p1, 0) @ rot(p2, 1) @ rot(p3, 2)) @ U_ord(p1, p2, p3)
+def U_wil(k1, k2, k3):
+    b = np.cos(k1) + np.cos(k2) + np.cos(k3) - 2.0
+    s = [np.sin(k1), np.sin(k2), np.sin(k3)]
+    nrm = np.sqrt(b * b + s[0] ** 2 + s[1] ** 2 + s[2] ** 2)
+    return ((b / nrm)[..., None, None] * I2 - 1j * sum((s[i] / nrm)[..., None, None] * SIG[i] for i in range(3)))
+
+def degree(Ufun, G):
+    k = 2 * np.pi * np.arange(G) / G
+    K = np.meshgrid(k, k, k, indexing='ij')
+    n = nvec(Ufun(*K))
+    unit = float(np.abs(np.sum(n * n, axis=-1) - 1).max())
+    freq = np.fft.fftfreq(G, 1.0 / G)
+    d = []
+    for ax in range(3):
+        shp = [1, 1, 1, 1]; shp[ax] = G
+        d.append(np.fft.ifft(1j * freq.reshape(shp) * np.fft.fft(n, axis=ax), axis=ax).real)
+    M = np.stack([n, d[0], d[1], d[2]], axis=-2)
+    return float(np.linalg.det(M).sum() * (2 * np.pi / G) ** 3 / (2 * np.pi ** 2)), unit
+
+def census(Ufun, points):
+    rows = {'+1': [], '-1': []}; h = 1e-5
+    for p in points:
+        U = Ufun(*[np.array(x) for x in p]); n = nvec(U)
+        if abs(abs(n[0]) - 1) > 1e-9: continue
+        J = np.zeros((3, 3))
+        for i in range(3):
+            dp = np.zeros(3); dp[i] = h
+            J[:, i] = (nvec(Ufun(*[np.array(x) for x in (np.array(p) + dp)]))[1:] - nvec(Ufun(*[np.array(x) for x in (np.array(p) - dp)]))[1:]) / (2 * h)
+        det = np.linalg.det(J)
+        sign = int(np.sign(det)) if abs(det) > 1e-6 else 0
+        rows['+1' if n[0] > 0 else '-1'].append(sign if n[0] > 0 else -sign)
+    return {k_: {'points': len(v), 'chirality_plus': v.count(1), 'chirality_minus': v.count(-1), 'degenerate': v.count(0), 'sum': int(sum(v))} for k_, v in rows.items()}
+
+if 'W' in parts:
+    quarter = [np.pi / 2 * np.array(t) for t in itertools.product(range(-1, 3), repeat=3)]     # the 64 points of (pi/2) Z^3
+    corners = [np.pi * np.array(t) for t in itertools.product(range(2), repeat=3)]
+    res = {}
+    for name, f, G, pts in (('ordered_tick_block', U_ord, 48, quarter), ('alternating_period_block', U_alt, 48, quarter),
+                            ('exponentially_local_tick_V', U_wil, 96, corners)):
+        dg, unit = degree(f, G)
+        res[name] = {'degree_by_quadrature': dg, 'grid': G, 'unit_vector_defect': unit, 'census': census(f, pts)}
+    out['W_degree'] = res
+    print('W', json.dumps(res, indent=1))
+
+# =============================================================================================== V
+if 'V' in parts:
+    G = 64
+    k = 2 * np.pi * np.arange(G) / G
+    K = np.meshgrid(k, k, k, indexing='ij')
+    Vk = U_wil(*K)
+    Vr = np.fft.ifftn(Vk, axes=(0, 1, 2))                               # hopping amplitudes V(r), r on the torus
+    amp = np.sqrt(np.sum(np.abs(Vr) ** 2, axis=(-1, -2)) / 2)           # root mean square over the two components
+    r = np.fft.fftfreq(G, 1.0 / G).astype(int)
+    R1, R2, R3 = np.meshgrid(r, r, r, indexing='ij')
+    cheb = np.maximum(np.maximum(np.abs(R1), np.abs(R2)), np.abs(R3))
+    total = float(np.sum(amp ** 2))
+    leak = {int(R): float(np.sum(amp[cheb > R] ** 2)) for R in (1, 2, 3, 4, 6, 8, 12)}
+    shell = {int(R): float(amp[cheb == R].max()) for R in range(0, 13)}
+    rate = float(np.polyfit(np.arange(3, 13), np.log([shell[R] for R in range(3, 13)]), 1)[0])
+    def phase(kv):
+        U = U_wil(*[np.array(x) for x in kv]); return float(np.arccos(np.clip(nvec(U)[0], -1, 1)))
+    disp = []
+    for kv in ((0.1, 0, 0), (0.1, 0.1, 0), (0.1, 0.1, 0.1), (0.3, 0.3, 0.3)):
+        kk = float(np.linalg.norm(kv)); ph = phase(kv)
+        p = np.array(kv); ord_ph = float(np.arccos(np.clip(nvec(U_ord(*[np.array(x) for x in kv]))[0], -1, 1)))
+        alt_ph = float(np.arccos(np.clip(nvec(U_alt(*[np.array(x) for x in kv]))[0], -1, 1)) / 2)
+        disp.append({'k': kv, '|k|': kk, 'phase_V': ph, 'phase_V_minus_|k|': ph - kk, 'ordered_tick_minus_|k|': ord_ph - kk, 'alternating_per_tick_minus_|k|': alt_ph - kk})
+    on_axis = float(np.abs(U_wil(np.array(0.7), np.array(0.0), np.array(0.0)) - rot(np.array(0.7), 0)).max())
+    out['V_couplings'] = {
+        'grid': G, 'total_weight': total,
+        'largest_rms_amplitude_on_the_shell_|r|_inf=R': shell, 'fitted_decay_rate_per_cell_R=3..12': rate,
+        'weight_outside_the_cube_|r|_inf<=R_after_one_tick': leak,
+        'on_axis_symbol_equals_the_pure_shift_defect': on_axis,
+        'phase_per_tick': disp,
+        'for_comparison': {'CF-1 tick': 'zero amplitude beyond one cell per axis (strict cone, reports/R1.md result 5)',
+                           'spectral clock': 'amplitudes 1/(a r) along an axis, weight 2/(pi^2 R) beyond R cells at half-integer times (t2_repro.py part E)'},
+    }
+    print('V', json.dumps(out['V_couplings'], indent=1))
+
+# =============================================================================================== R
+if 'R' in parts:
+    th = 0.157935
+    def E2(p, theta):
+        return np.arccos(np.clip(np.cos(theta) ** 2 * np.prod(np.cos(2 * p), axis=-1) - np.sin(theta) ** 2, -1, 1))
+    rows = []
+    for L in (4, 8, 12, 16, 32, 64, 128):
+        for bc, off in (('antiperiodic', 0.5), ('periodic', 0.0)):
+            m = (np.arange(L) + off) * 2 * np.pi / L
+            P = np.stack(np.meshgrid(m, m, m, indexing='ij'), axis=-1)
+            for theta in (th, 0.0):
+                e = E2(P, theta)
+                rows.append({'L': L, 'links': bc, 'theta': theta, 'distance_from_phase_0': float(e.min()),
+                             'distance_from_phase_pi': float(np.pi - e.max()),
+                             'momenta_on_the_cut_at_pi': int(np.sum(np.pi - e < 1e-9)), 'momenta_on_the_cut_at_0': int(np.sum(e < 1e-9)),
+                             '2_sqrt3_pi_cos(theta)/L': float(2 * np.sqrt(3) * np.pi * np.cos(theta) / L)})
+    # engine: the period on 4 x 4 x 4, both link choices
+    eng = {}
+    for bc, links in (('antiperiodic', antiperiodic_links((4, 4, 4))), ('periodic', None)):
+        w = Routing((4, 4, 4), links)
+        Dm = matrix_of(lambda psi: w.tick(w.tick(psi, th, reverse=False), th, reverse=True), (4, 4, 4))
+        ph = np.angle(np.linalg.eigvals(Dm))
+        m = (np.arange(4) + (0.5 if links is not None else 0.0)) * 2 * np.pi / 4
+        P = np.stack(np.meshgrid(m, m, m, indexing='ij'), axis=-1)
+        pred = np.sort(np.concatenate([s * E2(P, th).ravel() for s in (1, 1, -1, -1)]))
+        on_pi = int(np.sum(np.abs(np.abs(ph) - np.pi) < 1e-7))
+        ph_f = np.where(np.abs(np.abs(ph) - np.pi) < 1e-7, np.pi, ph)
+        pred_f = np.where(np.abs(np.abs(pred) - np.pi) < 1e-7, np.pi, pred)
+        eng[bc] = {'unitarity_defect': float(np.abs(Dm.conj().T @ Dm - np.eye(256)).max()),
+                   'eigenphases_against_closed_form_defect': float(np.abs(np.sort(ph_f) - np.sort(pred_f)).max()),
+                   'modes_at_phase_pi': on_pi, 'modes_with_phase_in_(-pi,0)': int(np.sum((ph < -1e-7) & (ph > -np.pi + 1e-7))),
+                   'smallest_distance_from_pi': float((np.pi - np.abs(ph)).min()), 'smallest_distance_from_0': float(np.abs(ph).min())}
+    out['R_filled_branch'] = {'closed_form': rows, 'engine_4x4x4_theta_0.157935': eng}
+    print('R', json.dumps(out['R_filled_branch'], indent=1))
+
+# =============================================================================================== M
+if 'M' in parts:
+    # Dirac pair of the two handedness blocks with the toggle as mass step: exp(-i theta beta) diag(V, V^dagger),
+    # beta = tau_x. Distance of the spectrum from the cuts at phase 0 and pi over the zone, against the CF-1 period.
+    th = 0.157935; G = 48
+    k = 2 * np.pi * np.arange(G) / G
+    K = np.meshgrid(k, k, k, indexing='ij')
+    Vk = U_wil(*K)
+    Z = np.zeros_like(Vk)
+    Dk = np.block([[Vk, Z], [Z, np.conj(np.swapaxes(Vk, -1, -2))]])
+    beta = np.kron(SIG[0], I2)
+    Mk = np.cos(th) * np.eye(4) - 1j * np.sin(th) * beta
+    ph = np.angle(np.linalg.eigvals(Mk @ Dk))
+    AL = [np.kron(SIG[2], s) for s in SIG]
+    small = []
+    for kv in ((0.05, 0.0, 0.0), (0.05, 0.05, 0.05), (0.2, 0.1, 0.0)):
+        U = Mk @ np.block([[U_wil(*[np.array(x) for x in kv]), np.zeros((2, 2))], [np.zeros((2, 2)), U_wil(*[np.array(x) for x in kv]).conj().T]])
+        e = np.abs(np.angle(np.linalg.eigvals(U)))
+        small.append({'k': kv, 'phases': sorted(float(x) for x in e), 'sqrt(k^2+theta^2)': float(np.sqrt(np.dot(kv, kv) + th * th))})
+    # CF-1 alternating period, closed form of reports/R3.md: cos E2 = cos^2(theta) prod cos 2p_i - sin^2(theta)
+    P = np.stack(np.meshgrid(k / 2, k / 2, k / 2, indexing='ij'), axis=-1)
+    e2 = np.arccos(np.clip(np.cos(th) ** 2 * np.prod(np.cos(2 * P), axis=-1) - np.sin(th) ** 2, -1, 1))
+    out['M_massive_pair'] = {
+        'theta': th, 'grid': G,
+        'exponentially_local_tick_with_toggle': {'distance_from_phase_0': float(np.abs(ph).min()), 'distance_from_phase_pi': float((np.pi - np.abs(ph)).min()),
+                                                  'low_momentum_phases': small},
+        'CF1_alternating_period_(two_ticks)': {'distance_from_phase_0': float(e2.min()), 'distance_from_phase_pi': float(np.pi - e2.max()), '2_theta': 2 * th},
+    }
+    print('M', json.dumps(out['M_massive_pair'], indent=1))
+
+# =============================================================================================== P
+if 'P' in parts:
+    from scipy.linalg import polar
+    th = 0.157935; res = {}
+    for shape in ((4, 4, 4), (6, 4, 2)):
+        w = Routing(shape, antiperiodic_links(shape))
+        S = [matrix_of(lambda psi, i=i: w.shift(psi, i), shape) for i in range(3)]
+        Dn = S[0] + S[1] + S[2] - 2 * np.eye(S[0].shape[0])
+        sv = np.linalg.svd(Dn, compute_uv=False)
+        Vt, _ = polar(Dn)
+        Xr = matrix_of(lambda psi: psi[..., ::-1, :].copy(), shape)                     # arrow operator X_r
+        ph = np.sort(np.abs(np.angle(np.linalg.eigvals(Vt))))
+        ks = [(np.arange(n) + 0.5) * 2 * np.pi / n for n in shape]
+        K = np.meshgrid(*ks, indexing='ij')
+        b = np.cos(K[0]) + np.cos(K[1]) + np.cos(K[2]) - 2
+        s2 = np.sin(K[0]) ** 2 + np.sin(K[1]) ** 2 + np.sin(K[2]) ** 2
+        pred = np.sort(np.repeat(np.arccos(b / np.sqrt(b * b + s2)).ravel(), 4))
+        Mm = matrix_of(lambda psi: w.mass(psi, th, 'Z'), shape)
+        phm = np.angle(np.linalg.eigvals(Mm @ Vt))
+        res['x'.join(map(str, shape))] = {
+            'smallest_singular_value_of_S1+S2+S3-2': float(sv.min()),
+            'unitarity_defect': float(np.abs(Vt.conj().T @ Vt - np.eye(len(Vt))).max()),
+            'commutator_with_the_arrow_X_r': float(np.abs(Vt @ Xr - Xr @ Vt).max()),
+            'eigenphases_against_arccos(b/sqrt(b^2+s^2))_defect': float(np.abs(ph - pred).max()),
+            'with_the_engine_mass_step_Z_r_theta_0.157935': {'distance_from_phase_0': float(np.abs(phm).min()),
+                                                              'distance_from_phase_pi': float((np.pi - np.abs(phm)).min())},
+        }
+    out['P_polar_form'] = res
+    print('P', json.dumps(res, indent=1))
+
+if dest:
+    old = {}
+    if os.path.exists(dest): old = json.load(open(dest))
+    old.update(out)
+    json.dump(old, open(dest, 'w'), indent=1, default=str)

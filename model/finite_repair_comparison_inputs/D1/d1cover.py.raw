@@ -1,0 +1,228 @@
+"""Worker D1: the cover of a frame group (24 elements) and the flux sectors in the gauge of the frame group. Exact.
+
+For a base port p0 of frame f:
+  H      = stabilizer of p0 in the 120-element cover (cyclic of order 10), generator z (a tenth of a turn about p0)
+  nhat   = a lift of the half-turn about the long axis of p0 (it exchanges p0 and its frame partner)
+  phases : for a lift shat in the frame cover of a generator s (s p0 adjacent to p0), shat = h1 nhat h2 with
+           h1 = z^m1, h2 = z^m2, and the hop amplitude of flux k is t_k(shat) = zeta_20^(k e(shat)),
+           e(shat) = 5 - 2 (m1 + m2) mod 20   (the factor i^k makes the operator Hermitian; with this sign of the
+           character the flux through every face, counterclockwise seen from outside, is exactly 2 pi k/20).
+  A_k[p][q] = t_k(s(p)^-1 s(q)) for adjacent ports, s a section into the frame cover.
+This is the Hecke operator of the neighbour double coset on the representation induced from the character k of H,
+written in the gauge in which the 24 implementers of the frame cover are signed permutations.
+"""
+from fractions import Fraction as F
+from functools import lru_cache
+
+import kdlib as kd
+from kdlib import K, ONE, ZERO
+
+import d1lib as d
+from d1lib import C60, C0, C1, IU, W3, Z20, S5, frame, torsor, pmul, pinv, IDP
+
+QID = (ONE, ZERO, ZERO, ZERO)
+
+
+def qpow(q, n):
+    out = QID
+    for _ in range(n):
+        out = kd.qmul(out, q)
+    return out
+
+
+@lru_cache(maxsize=None)
+def frame_cover(f):
+    """The 24 lifts of the frame group, with characters. Exact."""
+    fr = frame(f)
+    quats, _ = kd.cover()
+    Tset = set(fr['T'])
+    Q = tuple(q for q, perm in quats.items() if perm in Tset)
+    assert len(Q) == 24
+    perm = {q: quats[q] for q in Q}
+    rho = fr['rho']
+    def kappa(g):
+        M = rho[g]
+        m = next(m for m in range(3) if M[m % 3][0] != 0)
+        assert all(M[(i + m) % 3][i] != 0 for i in range(3))
+        return m
+    kap = {q: kappa(perm[q]) for q in Q}
+    chi3 = {q: sum(rho[perm[q]][i][i] for i in range(3)) for q in Q}
+    chi2 = {}
+    for q in Q:
+        U = kd.spinor_lift(q)
+        tr = U[0][0] + U[1][1]
+        assert tr.is_rational() and tr == K(2) * q[0]
+        chi2[q] = tr.a
+    # conjugacy classes
+    classes = []
+    seen = set()
+    for q in Q:
+        if q in seen:
+            continue
+        cl = {kd.qmul(kd.qmul(g, q), kd.qinv(g)) for g in Q}
+        seen |= cl
+        classes.append(tuple(cl))
+    return {'Q': Q, 'perm': perm, 'kappa': kap, 'chi3': chi3, 'chi2': chi2, 'classes': tuple(classes)}
+
+
+IRREPS = ("1", "1'", "1''", "2", "2'", "2''", "3")
+
+
+def irreducible_characters(f):
+    """Dict name -> {q: C60}."""
+    fc = frame_cover(f)
+    out = {}
+    for name in IRREPS:
+        tw = {"1": 0, "1'": 1, "1''": 2, "2": 0, "2'": 1, "2''": 2, "3": 0}[name]
+        base = name.rstrip("'")
+        ch = {}
+        for q in fc['Q']:
+            b = {'1': F(1), '2': fc['chi2'][q], '3': F(fc['chi3'][q])}[base]
+            ch[q] = C60.root(20 * tw * fc['kappa'][q]) * b
+        out[name] = ch
+    return out
+
+
+def multiplicities(f, chi):
+    """Decompose a character (dict q -> number, C60 or rational) under the frame cover: dict irrep -> integer."""
+    fc = frame_cover(f)
+    irr = irreducible_characters(f)
+    out = {}
+    for name in IRREPS:
+        s = C0
+        for q in fc['Q']:
+            x = C60.lift(chi[q])
+            if not x.is_zero():
+                s = s + x * irr[name][q].conj()
+        s = s * F(1, 24)
+        assert s.is_rational() and s.c[0].denominator == 1, (name, s)
+        out[name] = int(s.c[0])
+    return out
+
+
+@lru_cache(maxsize=None)
+def flux_data(f, p0):
+    """Exponents e(shat) of the hop amplitudes, a section, and the generator lifts. Exact."""
+    fr = frame(f); to = torsor(f, p0); fc = frame_cover(f)
+    quats, _ = kd.cover()
+    V = kd.carrier()['V']
+    H = [q for q, perm in quats.items() if perm[p0] == p0]
+    assert len(H) == 10
+    z = next(q for q in H if q[0] == kd.PHI * K(F(1, 2)) and kd.vdot(q[1:], V[p0]).sign() > 0)
+    dlog = {}
+    cur = QID
+    for m in range(10):
+        dlog[cur] = m
+        cur = kd.qmul(cur, z)
+    assert cur == QID and len(dlog) == 10 and set(dlog) == set(H)
+    assert qpow(z, 5) == kd.qneg(QID)
+    B0 = to['B0']
+    HL = ((-1, 0, 0), (0, -1, 0), (0, 0, 1))
+    h_l = next(g for g in fr['T'] if to['rhoB'][g] == HL)
+    # canonical lift of the half-turn: the quaternion (0, -l) with l the unit long axis of the base port pointing
+    # toward it (n . v_p0 < 0). With the lift taken from dictionary order the sign varied between frames and base
+    # ports (30 of 60 each way), which changed the sign of A_k for odd k and broke the frame-independence check.
+    nhat = next(q for q in fc['Q'] if fc['perm'][q] == h_l and kd.vdot(q[1:], V[p0]).sign() < 0)
+    Fp0 = h_l[p0]
+    lifts = {}                                                     # shat -> exponent mod 20
+    for q in fc['Q']:
+        g = fc['perm'][q]
+        if g not in to['S']:
+            continue
+        target = g[p0]
+        cands = [h for h in H if quats[h][Fp0] == target]
+        assert len(cands) == 2
+        es = set()
+        for h1 in cands:
+            h2 = kd.qmul(kd.qmul(kd.qinv(nhat), kd.qinv(h1)), q)
+            assert h2 in dlog
+            assert kd.qmul(kd.qmul(h1, nhat), h2) == q
+            es.add((5 - 2 * (dlog[h1] + dlog[h2])) % 20)
+        assert len(es) == 1
+        lifts[q] = es.pop()
+    assert len(lifts) == 10
+    for q, e in lifts.items():
+        assert lifts[kd.qneg(q)] == (e + 10) % 20                  # t(-s) = (-1)^k t(s)
+        assert lifts[kd.qinv(q)] == (-e) % 20                      # Hermitian
+    # a section port -> frame cover
+    section = {}
+    for q in fc['Q']:
+        p = fc['perm'][q][p0]
+        if p not in section:
+            section[p] = q
+    return {'H': tuple(H), 'z': z, 'nhat': nhat, 'lifts': lifts, 'section': section}
+
+
+def twisted_adjacency(f, p0, k):
+    """12x12 matrix over Q(zeta_60) (entries: 0 or 20th roots of unity)."""
+    fd = flux_data(f, p0)
+    A = d.adjacency()
+    sec = fd['section']
+    M = [[C0] * 12 for _ in range(12)]
+    for p in range(12):
+        sp_inv = kd.qinv(sec[p])
+        for q in range(12):
+            if A[p][q]:
+                e = fd['lifts'][kd.qmul(sp_inv, sec[q])]
+                M[p][q] = C60.root(3 * ((k * e) % 20))
+    return tuple(tuple(r) for r in M)
+
+
+def implementers(f, p0, k):
+    """Dict q -> (perm, signs): (U psi)(g p) = sign^k psi(p)-type signed permutation of the frame cover element q,
+    returned as a 12x12 integer matrix."""
+    fc = frame_cover(f); fd = flux_data(f, p0)
+    sec = fd['section']
+    out = {}
+    for q in fc['Q']:
+        g = fc['perm'][q]
+        M = [[0] * 12 for _ in range(12)]
+        qi = kd.qinv(q)
+        for p in range(12):
+            # psi'(p) = f(q^-1 s(p)) = eps^k psi(g^-1 p),  q^-1 s(p) = eps s(g^-1 p)
+            x = kd.qmul(qi, sec[p])
+            src = pinv(g)[p]
+            if x == sec[src]:
+                eps = 1
+            else:
+                assert x == kd.qneg(sec[src])
+                eps = -1
+            M[p][src] = eps if k % 2 else 1
+        out[q] = M
+    return out
+
+
+def spinor(q):
+    """The doublet of the five-level code on the frame cover: U(sigma(q)) of kdlib, as a C60 matrix."""
+    U = kd.spinor_lift(q)
+    return tuple(tuple(C60.lift(x) for x in r) for r in U)
+
+
+def second_index_matrix(f, p0, k, irrep):
+    """m_rho(k) = sum over the five generators of t_k(shat) chi(s) rho(shat): the kernel on the second index."""
+    fc = frame_cover(f); fd = flux_data(f, p0); fr = frame(f); to = torsor(f, p0)
+    tw = {"1": 0, "1'": 1, "1''": 2, "2": 0, "2'": 1, "2''": 2, "3": 0}[irrep]
+    base = irrep.rstrip("'")
+    dim = int(base)
+    if (dim == 2) != (k % 2 == 1):
+        raise ValueError('doublets belong to odd flux, singlets and the triplet to even flux')
+    M = [[C0] * dim for _ in range(dim)]
+    done = set()
+    for q, e in fd['lifts'].items():
+        g = fc['perm'][q]
+        if g in done:
+            continue
+        done.add(g)
+        t = C60.root(3 * ((k * e) % 20)) * C60.root(20 * tw * fc['kappa'][q])
+        if dim == 1:
+            R = ((C1,),)
+        elif dim == 2:
+            R = spinor(q)
+        else:
+            R = tuple(tuple(C60.lift(x) for x in r) for r in to['rhoB'][g])
+        for i in range(dim):
+            for j in range(dim):
+                if not R[i][j].is_zero():
+                    M[i][j] = M[i][j] + t * R[i][j]
+    assert len(done) == 5
+    return tuple(tuple(r) for r in M)

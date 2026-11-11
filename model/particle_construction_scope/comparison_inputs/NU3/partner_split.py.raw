@@ -1,0 +1,88 @@
+"""N5 (two-cell part): F_k = D_{0,sigma} P_particle(0) V^k Omega for k = 1, 2, 3.
+
+V is the audit's off-diagonal source action restricted to the Yukawa words on cells 0 and 4 and the
+kinetic words joining cells 0 and 4 (both edges). The remainder of F_k carries raw lepton number -1.
+Usage (from the RER root): partner_split.py y_u y_d y_e out.json
+"""
+import json
+import sys
+import time
+from collections import Counter, defaultdict
+
+import sympy as s
+
+from nu3_lib import config_for, energy_class, norm2
+from model.coherent_defect_wave.chiral_joint.periodic_family.model import (
+    local_yukawa, kinetic_terms, apply_state)
+from model.coherent_defect_wave.chiral_joint.peter_weyl_links.model import hopping_column
+from model.coherent_defect_wave.chiral_joint.model import sequence
+
+yu, yd, ye = (int(x) for x in sys.argv[1:4])
+out_path = sys.argv[4]
+config = config_for(yu, yd, ye)
+cells = (0, 4)
+terms = tuple(t for t in kinetic_terms(config) if {t.left_cell, t.right_cell} == set(cells))
+start = time.time()
+
+
+def vrestricted(key):
+    mask, links, scalars = key
+    out = defaultdict(lambda: s.Integer(0))
+    for cell in cells:
+        offset = 30 * cell
+        local = (mask >> offset) & ((1 << 30) - 1)
+        for (target, h), value in local_yukawa(local, scalars[cell],
+                                               (config.y_up, config.y_down, config.y_lepton)).items():
+            new = list(scalars)
+            new[cell] = h
+            out[mask ^ ((local ^ target) << offset), links, tuple(new)] += value
+    for target, value in hopping_column(key, terms).items():
+        out[target] += value
+    return {k: s.expand(v) for k, v in out.items() if s.expand(v) != 0}
+
+
+def lepton(mask):
+    total = 0
+    for cell in range(8):
+        for spin in (0, 1):
+            base = 30 * cell + 15 * spin
+            total += -(mask >> (base + 9) & 1) + (mask >> (base + 10) & 1) + (mask >> (base + 11) & 1)
+    return total
+
+
+def d0(state, spin):
+    out = defaultdict(lambda: s.Integer(0))
+    for (mask, links, scalars), value in state.items():
+        if scalars[0] == 1:
+            mode, sign = 15 * spin + 11, 1
+        elif scalars[0] == 2:
+            mode, sign = 15 * spin + 10, -1
+        else:
+            continue
+        step = sequence(mask, ((mode, False),))
+        if step is None:
+            continue
+        new = list(scalars)
+        new[0] = 0
+        out[step[0], links, tuple(new)] += sign * value * step[1] / s.sqrt(2)
+    return {k: s.expand(v) for k, v in out.items() if s.expand(v) != 0}
+
+
+omega = {(0, (0,) * 24, (0,) * 8): s.Integer(1)}
+powers = [omega]
+for k in range(3):
+    powers.append(apply_state(powers[-1], vrestricted))
+log = {'couplings': [yu, yd, ye], 'cells': cells, 'kinetic_terms': len(terms),
+       'image_terms': [len(p) for p in powers]}
+for k in (1, 2, 3):
+    for spin in (0, 1):
+        f = d0(powers[k], spin)
+        log['F%d_spin%d' % (k, spin)] = {
+            'norm_squared': str(norm2(f)), 'terms': len(f),
+            'remainder_raw_lepton_numbers': sorted({lepton(m) for (m, _, _) in f}),
+            'remainder_classes': dict(Counter(str(energy_class(key)) for key in f))}
+        print(k, spin, log['F%d_spin%d' % (k, spin)], flush=True)
+log['seconds'] = round(time.time() - start, 1)
+with open(out_path, 'w') as handle:
+    json.dump(log, handle, indent=1)
+print('wrote', out_path, log['seconds'])

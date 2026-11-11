@@ -1,0 +1,427 @@
+{
+ "walk_frequency_table": [
+  {
+   "flux": 0,
+   "levels": [
+    {
+     "multiplet": "1",
+     "dimension": 1,
+     "adjacency_eigenvalue": "5",
+     "transfer_eigenvalue": "1",
+     "transfer_float": 1.0,
+     "walk_frequency": "0.0",
+     "record_one_block_frequency": "0.585685543457151"
+    },
+    {
+     "multiplet": "3",
+     "dimension": 3,
+     "adjacency_eigenvalue": "1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + 1/60*sqrt5)",
+     "transfer_float": 0.9539344662916631,
+     "walk_frequency": "0.304708437370273",
+     "record_one_block_frequency": "0.496198259502073"
+    },
+    {
+     "multiplet": "5",
+     "dimension": 5,
+     "adjacency_eigenvalue": "-1",
+     "transfer_eigenvalue": "9/10",
+     "transfer_float": 0.9,
+     "walk_frequency": "0.451026811796262",
+     "record_one_block_frequency": "0.367208020557837"
+    },
+    {
+     "multiplet": "3'",
+     "dimension": 3,
+     "adjacency_eigenvalue": "-1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + -1/60*sqrt5)",
+     "transfer_float": 0.8793988670416701,
+     "walk_frequency": "0.496198259502073",
+     "record_one_block_frequency": "0.304708437370273"
+    }
+   ],
+   "lowest_walk_frequency": 0.0,
+   "zero_mode": true
+  },
+  {
+   "flux": 1,
+   "levels": [
+    {
+     "multiplet": "2",
+     "dimension": 2,
+     "adjacency_eigenvalue": "1*sqrt5*r",
+     "transfer_eigenvalue": "11/12 + 1/60*sqrt5*r",
+     "transfer_float": 0.9875542340293366,
+     "walk_frequency": "0.157934595179695",
+     "record_one_block_frequency": "0.562772581612055"
+    },
+    {
+     "multiplet": "4s",
+     "dimension": 4,
+     "adjacency_eigenvalue": "(3/2 + -1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (1/40 + -1/120*sqrt5)*r",
+     "transfer_float": 0.9287757088000893,
+     "walk_frequency": "0.379700434720413",
+     "record_one_block_frequency": "0.440455334427779"
+    },
+    {
+     "multiplet": "6",
+     "dimension": 6,
+     "adjacency_eigenvalue": "-1*r",
+     "transfer_eigenvalue": "11/12 + -1/60*r",
+     "transfer_float": 0.8849647827901616,
+     "walk_frequency": "0.484377950104924",
+     "record_one_block_frequency": "0.322744392001652"
+    }
+   ],
+   "lowest_walk_frequency": 0.157934595179695,
+   "zero_mode": false
+  },
+  {
+   "flux": 2,
+   "levels": [
+    {
+     "multiplet": "3",
+     "dimension": 3,
+     "adjacency_eigenvalue": "(5/2 + 1/2*sqrt5)",
+     "transfer_eigenvalue": "(23/24 + 1/120*sqrt5)",
+     "transfer_float": 0.9769672331458316,
+     "walk_frequency": "0.215042935415735",
+     "record_one_block_frequency": "0.542605674359434"
+    },
+    {
+     "multiplet": "5",
+     "dimension": 5,
+     "adjacency_eigenvalue": "(-3/2 + 1/2*sqrt5)",
+     "transfer_eigenvalue": "(107/120 + 1/120*sqrt5)",
+     "transfer_float": 0.9103005664791649,
+     "walk_frequency": "0.426786746318426",
+     "record_one_block_frequency": "0.394905910066982"
+    },
+    {
+     "multiplet": "4",
+     "dimension": 4,
+     "adjacency_eigenvalue": "-1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + -1/60*sqrt5)",
+     "transfer_float": 0.8793988670416701,
+     "walk_frequency": "0.496198259502073",
+     "record_one_block_frequency": "0.304708437370273"
+    }
+   ],
+   "lowest_walk_frequency": 0.215042935415735,
+   "zero_mode": false
+  },
+  {
+   "flux": 3,
+   "levels": [
+    {
+     "multiplet": "4s",
+     "dimension": 4,
+     "adjacency_eigenvalue": "(1/2 + 1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (1/120 + 1/120*sqrt5)*r",
+     "transfer_float": 0.9679613922862542,
+     "walk_frequency": "0.253815536574348",
+     "record_one_block_frequency": "0.524904225563861"
+    },
+    {
+     "multiplet": "6",
+     "dimension": 6,
+     "adjacency_eigenvalue": "(1/2 + -1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (1/120 + -1/120*sqrt5)*r",
+     "transfer_float": 0.8970738249235842,
+     "walk_frequency": "0.457694076015622",
+     "record_one_block_frequency": "0.358969035659421"
+    },
+    {
+     "multiplet": "2'",
+     "dimension": 2,
+     "adjacency_eigenvalue": "(-5/2 + 1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (-1/24 + 1/120*sqrt5)*r",
+     "transfer_float": 0.8728557406567389,
+     "walk_frequency": "0.509772099832232",
+     "record_one_block_frequency": "0.282083403362471"
+    }
+   ],
+   "lowest_walk_frequency": 0.253815536574348,
+   "zero_mode": false
+  },
+  {
+   "flux": 4,
+   "levels": [
+    {
+     "multiplet": "5",
+     "dimension": 5,
+     "adjacency_eigenvalue": "(3/2 + 1/2*sqrt5)",
+     "transfer_eigenvalue": "(113/120 + 1/120*sqrt5)",
+     "transfer_float": 0.960300566479165,
+     "walk_frequency": "0.282718674616381",
+     "record_one_block_frequency": "0.509409207338842"
+    },
+    {
+     "multiplet": "3'",
+     "dimension": 3,
+     "adjacency_eigenvalue": "(-5/2 + 1/2*sqrt5)",
+     "transfer_eigenvalue": "(7/8 + 1/120*sqrt5)",
+     "transfer_float": 0.8936338998124983,
+     "walk_frequency": "0.465418327503957",
+     "record_one_block_frequency": "0.34904593074942"
+    },
+    {
+     "multiplet": "4",
+     "dimension": 4,
+     "adjacency_eigenvalue": "-1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + -1/60*sqrt5)",
+     "transfer_float": 0.8793988670416701,
+     "walk_frequency": "0.496198259502073",
+     "record_one_block_frequency": "0.304708437370273"
+    }
+   ],
+   "lowest_walk_frequency": 0.282718674616381,
+   "zero_mode": false
+  },
+  {
+   "flux": 5,
+   "levels": [
+    {
+     "multiplet": "6",
+     "dimension": 6,
+     "adjacency_eigenvalue": "1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + 1/60*sqrt5)",
+     "transfer_float": 0.9539344662916631,
+     "walk_frequency": "0.304708437370273",
+     "record_one_block_frequency": "0.496198259502073"
+    },
+    {
+     "multiplet": "6",
+     "dimension": 6,
+     "adjacency_eigenvalue": "-1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + -1/60*sqrt5)",
+     "transfer_float": 0.8793988670416701,
+     "walk_frequency": "0.496198259502073",
+     "record_one_block_frequency": "0.304708437370273"
+    }
+   ],
+   "lowest_walk_frequency": 0.304708437370273,
+   "zero_mode": false
+  },
+  {
+   "flux": 6,
+   "levels": [
+    {
+     "multiplet": "4",
+     "dimension": 4,
+     "adjacency_eigenvalue": "1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + 1/60*sqrt5)",
+     "transfer_float": 0.9539344662916631,
+     "walk_frequency": "0.304708437370273",
+     "record_one_block_frequency": "0.496198259502073"
+    },
+    {
+     "multiplet": "3'",
+     "dimension": 3,
+     "adjacency_eigenvalue": "(5/2 + -1/2*sqrt5)",
+     "transfer_eigenvalue": "(23/24 + -1/120*sqrt5)",
+     "transfer_float": 0.9396994335208351,
+     "walk_frequency": "0.34904593074942",
+     "record_one_block_frequency": "0.465418327503957"
+    },
+    {
+     "multiplet": "5",
+     "dimension": 5,
+     "adjacency_eigenvalue": "(-3/2 + -1/2*sqrt5)",
+     "transfer_eigenvalue": "(107/120 + -1/120*sqrt5)",
+     "transfer_float": 0.8730327668541684,
+     "walk_frequency": "0.509409207338842",
+     "record_one_block_frequency": "0.282718674616381"
+    }
+   ],
+   "lowest_walk_frequency": 0.304708437370273,
+   "zero_mode": false
+  },
+  {
+   "flux": 7,
+   "levels": [
+    {
+     "multiplet": "2'",
+     "dimension": 2,
+     "adjacency_eigenvalue": "(5/2 + -1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (1/24 + -1/120*sqrt5)*r",
+     "transfer_float": 0.9604775926765945,
+     "walk_frequency": "0.282083403362471",
+     "record_one_block_frequency": "0.509772099832232"
+    },
+    {
+     "multiplet": "6",
+     "dimension": 6,
+     "adjacency_eigenvalue": "(-1/2 + 1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (-1/120 + 1/120*sqrt5)*r",
+     "transfer_float": 0.9362595084097491,
+     "walk_frequency": "0.358969035659421",
+     "record_one_block_frequency": "0.457694076015622"
+    },
+    {
+     "multiplet": "4s",
+     "dimension": 4,
+     "adjacency_eigenvalue": "(-1/2 + -1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (-1/120 + -1/120*sqrt5)*r",
+     "transfer_float": 0.8653719410470792,
+     "walk_frequency": "0.524904225563861",
+     "record_one_block_frequency": "0.253815536574348"
+    }
+   ],
+   "lowest_walk_frequency": 0.282083403362471,
+   "zero_mode": false
+  },
+  {
+   "flux": 8,
+   "levels": [
+    {
+     "multiplet": "4",
+     "dimension": 4,
+     "adjacency_eigenvalue": "1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + 1/60*sqrt5)",
+     "transfer_float": 0.9539344662916631,
+     "walk_frequency": "0.304708437370273",
+     "record_one_block_frequency": "0.496198259502073"
+    },
+    {
+     "multiplet": "5",
+     "dimension": 5,
+     "adjacency_eigenvalue": "(3/2 + -1/2*sqrt5)",
+     "transfer_eigenvalue": "(113/120 + -1/120*sqrt5)",
+     "transfer_float": 0.9230327668541685,
+     "walk_frequency": "0.394905910066982",
+     "record_one_block_frequency": "0.426786746318426"
+    },
+    {
+     "multiplet": "3",
+     "dimension": 3,
+     "adjacency_eigenvalue": "(-5/2 + -1/2*sqrt5)",
+     "transfer_eigenvalue": "(7/8 + -1/120*sqrt5)",
+     "transfer_float": 0.8563661001875017,
+     "walk_frequency": "0.542605674359434",
+     "record_one_block_frequency": "0.215042935415735"
+    }
+   ],
+   "lowest_walk_frequency": 0.304708437370273,
+   "zero_mode": false
+  },
+  {
+   "flux": 9,
+   "levels": [
+    {
+     "multiplet": "6",
+     "dimension": 6,
+     "adjacency_eigenvalue": "1*r",
+     "transfer_eigenvalue": "11/12 + 1/60*r",
+     "transfer_float": 0.9483685505431718,
+     "walk_frequency": "0.322744392001652",
+     "record_one_block_frequency": "0.484377950104924"
+    },
+    {
+     "multiplet": "4s",
+     "dimension": 4,
+     "adjacency_eigenvalue": "(-3/2 + 1/2*sqrt5)*r",
+     "transfer_eigenvalue": "11/12 + (-1/40 + 1/120*sqrt5)*r",
+     "transfer_float": 0.904557624533244,
+     "walk_frequency": "0.440455334427779",
+     "record_one_block_frequency": "0.379700434720413"
+    },
+    {
+     "multiplet": "2",
+     "dimension": 2,
+     "adjacency_eigenvalue": "-1*sqrt5*r",
+     "transfer_eigenvalue": "11/12 + -1/60*sqrt5*r",
+     "transfer_float": 0.8457790993039966,
+     "walk_frequency": "0.562772581612055",
+     "record_one_block_frequency": "0.157934595179695"
+    }
+   ],
+   "lowest_walk_frequency": 0.322744392001652,
+   "zero_mode": false
+  },
+  {
+   "flux": 10,
+   "levels": [
+    {
+     "multiplet": "3'",
+     "dimension": 3,
+     "adjacency_eigenvalue": "1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + 1/60*sqrt5)",
+     "transfer_float": 0.9539344662916631,
+     "walk_frequency": "0.304708437370273",
+     "record_one_block_frequency": "0.496198259502073"
+    },
+    {
+     "multiplet": "5",
+     "dimension": 5,
+     "adjacency_eigenvalue": "1",
+     "transfer_eigenvalue": "14/15",
+     "transfer_float": 0.9333333333333333,
+     "walk_frequency": "0.367208020557837",
+     "record_one_block_frequency": "0.451026811796262"
+    },
+    {
+     "multiplet": "3",
+     "dimension": 3,
+     "adjacency_eigenvalue": "-1*sqrt5",
+     "transfer_eigenvalue": "(11/12 + -1/60*sqrt5)",
+     "transfer_float": 0.8793988670416701,
+     "walk_frequency": "0.496198259502073",
+     "record_one_block_frequency": "0.304708437370273"
+    },
+    {
+     "multiplet": "1",
+     "dimension": 1,
+     "adjacency_eigenvalue": "-5",
+     "transfer_eigenvalue": "5/6",
+     "transfer_float": 0.8333333333333334,
+     "walk_frequency": "0.585685543457151",
+     "record_one_block_frequency": "0.0"
+    }
+   ],
+   "lowest_walk_frequency": 0.304708437370273,
+   "zero_mode": false
+  }
+ ],
+ "discriminant": {
+  "record_0_block": "T_k = 1 - (5 - A_k)/60 (twisted transfer of flux k)",
+  "record_1_block": "1 - (5 + A_k)/60 (gauge equivalent to the twisted transfer of flux k + 10)",
+  "cross_blocks": "zero (opposite orientations cancel)",
+  "checked_for_flux": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "local_reflector_trace": 22,
+  "blank_record_blocks_equal_CAP_rows": true
+ },
+ "walk_flux_1": {
+  "dimension": 1440,
+  "first_event_population_shadow_all_144_source_matrix_units": true,
+  "second_event_return_probability": "643/900",
+  "second_event_return_float": 0.7144444444444444,
+  "native_two_event_return_probability": "101/120",
+  "difference": "-229/1800",
+  "all_time_population_shadow": false,
+  "W_plus_one_multiplicity": 36,
+  "W_minus_one_multiplicity": 1356,
+  "oscillatory_dimension": 48,
+  "A_cyclic_subspace_dimension": 48,
+  "blank_record_cyclic_subspace_dimension": 24,
+  "count_rule": "two reflections with ranges of dimension 24 (address-uniform) and 60 (local reflectors); no discriminant eigenvalue equals 1 or -1 for flux k != 0",
+  "trace_W": -1276,
+  "heralded_reference": "rho_W = ((5/4) 1 + (W + W^dagger)/2)/524, success probability 131/810 (same numbers as the flux-0 walk: Tr U_kappa = 22)",
+  "reduced_reference_on_source_and_record": "Tr_address rho_W = (75 - 58 diag(T_k, T_k^(1)))/524: blank-record block (17 + (29/30)(5 - A_k))/524, record-one block (17 + (29/30)(5 + A_k))/524",
+  "reduced_reference_on_source": "1/12 (tracial); the flux dependence sits in the source-record correlation"
+ },
+ "seconds": 3.5743727684020996
+}

@@ -1,0 +1,600 @@
+{
+ "artifact": "HD_rows",
+ "reads_measured_values": false,
+ "imports": {
+  "I1_ALPHA17_Lambda3": {
+   "value": 341.0,
+   "err": [
+    12.0
+   ],
+   "ref": "ALPHA 17, Bruno et al., PRL 119 (2017) 102001, arXiv:1706.03821, eq. (17)",
+   "scheme": "MSbar Nf=3",
+   "scale": "f_piK = (2 f_K + f_pi)/3 = 147.6 MeV (PDG) via mu*_ref = 478(7) MeV"
+  },
+  "I1b_ALPHA22_Lambda3": {
+   "value": 336.0,
+   "err": [
+    12.0
+   ],
+   "ref": "ALPHA 22, Dalla Brida et al., EPJC 82 (2022) 1092, arXiv:2209.14204 (as quoted in FLAG 2024 eq. (330))",
+   "scheme": "MSbar Nf=3",
+   "scale": "sqrt(t0)"
+  },
+  "I1c_FLAG24_Lambda3": {
+   "value": 338.0,
+   "err": [
+    10.0
+   ],
+   "ref": "FLAG 2024, arXiv:2411.04268, eqs. (393), (402)",
+   "scheme": "MSbar Nf=2+1 average",
+   "scale": "r0 = 0.472 fm, [r0 Lambda]^(3) = 0.809(23)"
+  },
+  "I2_BMW08_mN_Xi": {
+   "value": 936.0,
+   "err": [
+    25.0,
+    22.0
+   ],
+   "ref": "BMW 08, Durr et al., Science 322 (2008) 1224, arXiv:0906.3599, Table 1",
+   "scheme": "Nf=2+1",
+   "scale": "M_Xi; quark masses from M_pi/M_Xi, M_K/M_Xi"
+  },
+  "I2_BMW08_mN_Omega": {
+   "value": 953.0,
+   "err": [
+    29.0,
+    19.0
+   ],
+   "ref": "BMW 08, Table 1",
+   "scheme": "Nf=2+1",
+   "scale": "M_Omega; quark masses from M_pi/M_Omega, M_K/M_Omega"
+  },
+  "I3_BMW08_mrho_Xi": {
+   "value": 775.0,
+   "err": [
+    29.0,
+    13.0
+   ],
+   "ref": "BMW 08, Table 1",
+   "scheme": "Nf=2+1",
+   "scale": "M_Xi; finite-volume resonance correction"
+  },
+  "I3_BMW08_mrho_Omega": {
+   "value": 778.0,
+   "err": [
+    30.0,
+    33.0
+   ],
+   "ref": "BMW 08, Table 1",
+   "scheme": "Nf=2+1",
+   "scale": "M_Omega; finite-volume resonance correction"
+  },
+  "I4_BMW13_B_2GeV": {
+   "value": 2682.0,
+   "err": [
+    36.0,
+    39.0
+   ],
+   "ref": "BMW 13, Borsanyi et al., PRD 88 (2013) 014513, arXiv:1205.0788, eq. (34)",
+   "scheme": "MSbar 2 GeV, SU(2) LO",
+   "scale": "f_pi = 130.41 MeV, M_pi = 134.8 MeV; m_ud from BMW 10"
+  },
+  "I4b_BMW13_f": {
+   "value": 122.72,
+   "err": [
+    0.07,
+    0.35
+   ],
+   "ref": "BMW 13, eq. (17)",
+   "scheme": "SU(2) chiral limit, f = sqrt2 F",
+   "scale": "f_pi"
+  },
+  "I4b_BMW13_Lambda3_NLO": {
+   "value": 653.0,
+   "err": [
+    32.0,
+    101.0
+   ],
+   "ref": "BMW 13, eq. (18)",
+   "scheme": "SU(2) NLO scale (l3bar)",
+   "scale": "f_pi"
+  },
+  "I5_BMW14_np_total": {
+   "value": 1.51,
+   "err": [
+    0.16,
+    0.23
+   ],
+   "ref": "BMW 14, Borsanyi et al., Science 347 (2015) 1452, arXiv:1406.4088, Table 1",
+   "scheme": "Nf=1+1+1+1 QCD+QED",
+   "scale": "M_Omega"
+  },
+  "I5_BMW14_np_QCD": {
+   "value": 2.52,
+   "err": [
+    0.17,
+    0.24
+   ],
+   "ref": "BMW 14, Table 1",
+   "scheme": "QCD part",
+   "scale": "M_Omega"
+  },
+  "I5_BMW14_np_QED": {
+   "value": -1.0,
+   "err": [
+    0.07,
+    0.14
+   ],
+   "ref": "BMW 14, Table 1",
+   "scheme": "QED part",
+   "scale": "M_Omega"
+  },
+  "I6_FLAG24_sigma_piN": {
+   "value": 42.2,
+   "err": [
+    2.4
+   ],
+   "ref": "FLAG 2024 eq. (445) (BMW 11A, BMW 15, chiQCD 15A, RQCD 22, Mainz 23)",
+   "scheme": "Nf=2+1",
+   "scale": "various"
+  },
+  "I6_FLAG24_sigma_s": {
+   "value": 44.9,
+   "err": [
+    6.4
+   ],
+   "ref": "FLAG 2024 eq. (447)",
+   "scheme": "Nf=2+1",
+   "scale": "various"
+  },
+  "I7_FLAG24_m_ud_2p1": {
+   "value": 3.387,
+   "err": [
+    0.039
+   ],
+   "ref": "FLAG 2024 Table 1",
+   "scheme": "MSbar 2 GeV",
+   "scale": "from measured M_pi (NOT BLIND)"
+  },
+  "I7_FLAG24_m_s_2p1": {
+   "value": 92.4,
+   "err": [
+    1.0
+   ],
+   "ref": "FLAG 2024 Table 1",
+   "scheme": "MSbar 2 GeV",
+   "scale": "from measured M_K (NOT BLIND)"
+  },
+  "I7_FLAG24_ms_over_mud_2p1p1": {
+   "value": 27.227,
+   "err": [
+    0.081
+   ],
+   "ref": "FLAG 2024 Table 1",
+   "scheme": "ratio",
+   "scale": "NOT BLIND"
+  },
+  "I7_FLAG24_mu_over_md_2p1p1": {
+   "value": 0.465,
+   "err": [
+    0.024
+   ],
+   "ref": "FLAG 2024 Table 1",
+   "scheme": "ratio",
+   "scale": "NOT BLIND"
+  },
+  "I7_FLAG24_m_u_2p1p1": {
+   "value": 2.14,
+   "err": [
+    0.08
+   ],
+   "ref": "FLAG 2024 Table 1",
+   "scheme": "MSbar 2 GeV",
+   "scale": "NOT BLIND"
+  },
+  "I7_FLAG24_m_d_2p1p1": {
+   "value": 4.7,
+   "err": [
+    0.05
+   ],
+   "ref": "FLAG 2024 Table 1",
+   "scheme": "MSbar 2 GeV",
+   "scale": "NOT BLIND"
+  }
+ },
+ "lambda3": {
+  "GeV": 0.3400216627247194,
+  "over_Estar": 2.7850308120267957e-20,
+  "corner_range_GeV": [
+   0.325109202884305,
+   0.35465390053474294
+  ]
+ },
+ "ratio_rows": {
+  "C-1 (primary): BMW 08 Xi set / ALPHA 17": {
+   "c_N": {
+    "value": 2.7448680351906156,
+    "err": 0.13735925369459803,
+    "rel_err": 0.050042206741301214,
+    "numerator": "I2_BMW08_mN_Xi",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "c_rho": {
+    "value": 2.272727272727273,
+    "err": 0.12281060152245891,
+    "rel_err": 0.05403666466988192,
+    "numerator": "I3_BMW08_mrho_Xi",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "m_N_over_Estar": 7.644542052953315e-20,
+   "m_rho_over_Estar": 6.329615481879081e-20,
+   "m_N_GeV": 0.9333145932854467,
+   "m_N_err_import_GeV": 0.04670512183186378,
+   "m_N_threshold_corner_range_GeV": [
+    0.8923818589434295,
+    0.9734781551334879
+   ],
+   "m_rho_GeV": 0.7727765061925441,
+   "m_rho_err_import_GeV": 0.04175826492988943,
+   "m_rho_threshold_corner_range_GeV": [
+    0.7388845520097842,
+    0.8060315921244159
+   ]
+  },
+  "C-2: BMW 08 Omega set / ALPHA 17": {
+   "c_N": {
+    "value": 2.7947214076246336,
+    "err": 0.14145441351088928,
+    "rel_err": 0.05061485310305691,
+    "numerator": "I2_BMW08_mN_Omega",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "c_rho": {
+    "value": 2.281524926686217,
+    "err": 0.15346439947891133,
+    "rel_err": 0.06726395915463851,
+    "numerator": "I3_BMW08_mrho_Omega",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "m_N_over_Estar": 7.783385231265503e-20,
+   "m_rho_over_Estar": 6.354117219228291e-20,
+   "m_N_GeV": 0.9502658198728962,
+   "m_N_err_import_GeV": 0.048097564881722586,
+   "m_N_threshold_corner_range_GeV": [
+    0.9085896491165475,
+    0.9911588481220236
+   ],
+   "m_rho_GeV": 0.7757678991197411,
+   "m_rho_err_import_GeV": 0.05218122027986999,
+   "m_rho_threshold_corner_range_GeV": [
+    0.7417447502756285,
+    0.8091517144165103
+   ]
+  },
+  "C-3: BMW 08 Xi set / FLAG 2024": {
+   "c_N": {
+    "value": 2.769230769230769,
+    "err": 0.12813977680436875,
+    "rel_err": 0.046272697179355386,
+    "numerator": "I2_BMW08_mN_Xi",
+    "denominator": "I1c_FLAG24_Lambda3"
+   },
+   "c_rho": {
+    "value": 2.2928994082840237,
+    "err": 0.11594231665373218,
+    "rel_err": 0.050565810359950294,
+    "numerator": "I3_BMW08_mrho_Xi",
+    "denominator": "I1c_FLAG24_Lambda3"
+   },
+   "m_N_over_Estar": 7.712393017920357e-20,
+   "m_rho_over_Estar": 6.385795500949014e-20,
+   "m_N_GeV": 0.9415984506222999,
+   "m_N_err_import_GeV": 0.043570299970195896,
+   "m_N_threshold_corner_range_GeV": [
+    0.9003024079873061,
+    0.9821184937885189
+   ],
+   "m_rho_GeV": 0.779635469265259,
+   "m_rho_err_import_GeV": 0.03942289928875794,
+   "m_rho_threshold_corner_range_GeV": [
+    0.7454426989211136,
+    0.8131857186817331
+   ]
+  },
+  "C-4: BMW 08 Xi set / ALPHA 22": {
+   "c_N": {
+    "value": 2.7857142857142856,
+    "err": 0.1404329719305871,
+    "rel_err": 0.050411836077646655,
+    "numerator": "I2_BMW08_mN_Xi",
+    "denominator": "I1b_ALPHA22_Lambda3"
+   },
+   "c_rho": {
+    "value": 2.306547619047619,
+    "err": 0.125428097582,
+    "rel_err": 0.054379149403292894,
+    "numerator": "I3_BMW08_mrho_Xi",
+    "denominator": "I1b_ALPHA22_Lambda3"
+   },
+   "m_N_over_Estar": 7.758300119217502e-20,
+   "m_rho_over_Estar": 6.423806188454663e-20,
+   "m_N_GeV": 0.9472032033045754,
+   "m_N_err_import_GeV": 0.04775025261721207,
+   "m_N_threshold_corner_range_GeV": [
+    0.9056613508919925,
+    0.9879644372039267
+   ],
+   "m_rho_GeV": 0.7842761565823141,
+   "m_rho_err_import_GeV": 0.04264827029222999,
+   "m_rho_threshold_corner_range_GeV": [
+    0.749879857843263,
+    0.8180261098643624
+   ]
+  },
+  "C-R: repository constant 2.775 (reference only)": {
+   "c_N": {
+    "value": 2.775,
+    "err": 0.105
+   },
+   "m_N_GeV": 0.9435601140610963,
+   "m_N_over_Estar": 7.728460503374357e-20
+  }
+ },
+ "feynman_hellmann": {
+  "formula": "m_N(m_ud, m_s) = m_N* + sigma_piN (m_ud/m_ud* - 1) + sigma_s (m_s/m_s* - 1)",
+  "sigma_piN_MeV": 42.2,
+  "sigma_s_MeV": 44.9,
+  "dm_N_per_10pct_in_both_MeV": 8.709999999999999,
+  "relative_dm_N_per_10pct": 0.009305555555555555,
+  "chiral_limit_drop_linear_MeV": -87.1,
+  "note": "linear in the quark masses; the m_pi^3 term and higher are dropped (ARGUED small for factors near 1)"
+ },
+ "gmor": {
+  "B_over_Lambda3": {
+   "value": 7.865102639296188,
+   "err": 0.3175401572443181,
+   "rel_err": 0.04037330112614186,
+   "numerator": "I4_BMW13_B_2GeV",
+   "denominator": "I1_ALPHA17_Lambda3"
+  },
+  "f_over_Lambda3": {
+   "value": 0.35988269794721406,
+   "err": 0.012707675800394665,
+   "rel_err": 0.03531060501902364,
+   "numerator": "I4b_BMW13_f",
+   "denominator": "I1_ALPHA17_Lambda3"
+  },
+  "Lambda3NLO_over_Lambda3": {
+   "value": 1.9149560117302054,
+   "err": 0.3179223253633237,
+   "rel_err": 0.16602069364302202,
+   "numerator": "I4b_BMW13_Lambda3_NLO",
+   "denominator": "I1_ALPHA17_Lambda3"
+  },
+  "B_in_D10_unit_GeV": 2.674305276914069,
+  "B_over_Estar": 2.1904553190193154e-19,
+  "pion_LO": "M_pi^2 = 2 B m_ud, B = (B/Lambda3) Lambda3",
+  "pion_NLO": "M_pi^2 = chi [1 + chi/(16 pi^2 f^2) ln(chi/Lambda_3NLO^2)], chi = 2 B m_ud",
+  "kaon_LO": "M_K^2 = B (m_s + m_ud); M_K0^2 - M_K+^2 = B (m_d - m_u) + EM",
+  "ratio_LO": "M_K^2/M_pi^2 = (m_s/m_ud + 1)/2 (B and Lambda drop out)",
+  "scale_note": "B, f, Lambda_3NLO are quoted by BMW 13 with the f_pi scale; dividing by the ALPHA 17 Lambda mixes two scale settings (ARGUED, inside the quoted errors only if both reproduce nature)",
+  "pion_value": null,
+  "kaon_value": null,
+  "status": "OPEN: QM supplies no quark mass (reports/QM.md: x = 1/2 in every sector, Y_u proportional to Y_d proportional to the lepton circulant)",
+  "pion_LO_GeV_for_m_ud_1MeV": 0.07313419551638028,
+  "kaon_LO_GeV_for_ms_plus_mud_100MeV": 0.517136855862553
+ },
+ "qm_furthest_in_meson_language": {
+  "source_row": "QM B1-S1 (x = 1/2, Y_u = Y_d = lepton circulant), down sector P1",
+  "m_s_over_m_d": 206.7703159727291,
+  "m_u_over_m_d": 1.0,
+  "m_s_over_m_ud": 206.7703159727291,
+  "MK_over_Mpi_LO": 10.192406878964583
+ },
+ "np_splitting": {
+  "formula": "m_n - m_p = Delta_QCD (m_d - m_u)/(m_d - m_u)_ref + Delta_QED alpha/alpha_ref",
+  "Delta_QCD_MeV": 2.52,
+  "Delta_QED_MeV": -1.0,
+  "m_d_minus_m_u_ref_MeV": 2.56,
+  "slope_dDelta_d(md-mu)": 0.984375,
+  "value": null,
+  "status": "OPEN: m_d - m_u from QM (none); alpha from the P fixed point (CONDITIONAL)",
+  "qm_furthest_mu_equals_md": {
+   "alpha0_inverse_from_P_fwd": 136.99483517741376,
+   "m_n_minus_m_p_MeV": -1.0003004784781333,
+   "err_MeV": 0.15652475842498528,
+   "note": "Delta_QCD = 0 at m_u = m_d; the QED part alone remains (proton heavier than neutron)"
+  }
+ },
+ "rows": [
+  {
+   "particle": "Lambda_MSbar^(3)",
+   "value_GeV": 0.3400216627247194,
+   "over_Estar": 2.7850308120267957e-20,
+   "threshold_corner_range_GeV": [
+    0.325109202884305,
+    0.35465390053474294
+   ],
+   "status": "CONDITIONAL (D10 alpha_3; thresholds IMPORTED)"
+  },
+  {
+   "particle": "nucleon (isospin average)",
+   "c": {
+    "value": 2.7448680351906156,
+    "err": 0.13735925369459803,
+    "rel_err": 0.050042206741301214,
+    "numerator": "I2_BMW08_mN_Xi",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "value_GeV": 0.9333145932854467,
+   "import_err_GeV": 0.04670512183186378,
+   "threshold_corner_range_GeV": [
+    0.8923818589434295,
+    0.9734781551334879
+   ],
+   "over_Estar": 7.644542052953315e-20,
+   "relative_change_for_b3_minus_0.01_held (Delta_b3 = 3.99)": 0.033291460529873085,
+   "status": "CONDITIONAL x IMPORTED: Lambda^(3) from the D10 alpha_3 (declared slopes (33/5, 1, -3), unification at M_U, pixel closure) with IMPORTED heavy thresholds; c_h IMPORTED from lattice QCD at the physical point (quark masses tuned to measured M_pi, M_K; MeV unit from M_Xi or f_piK). Valid only if the derived gauge sector is QCD; source prerequisites: SU(3) links (GL: M1 declared), one cone per species (T3 member B, declared seam weight), weak coupling at the cell scale (open: the source's cut coupling fails, cut rows)"
+  },
+  {
+   "particle": "proton",
+   "c": {
+    "value": 2.7448680351906156,
+    "err": 0.13735925369459803,
+    "rel_err": 0.050042206741301214,
+    "numerator": "I2_BMW08_mN_Xi",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "value_GeV": 0.9333145932854467,
+   "import_err_GeV": 0.04670512183186378,
+   "threshold_corner_range_GeV": [
+    0.8923818589434295,
+    0.9734781551334879
+   ],
+   "over_Estar": 7.644542052953315e-20,
+   "relative_change_for_b3_minus_0.01_held (Delta_b3 = 3.99)": 0.033291460529873085,
+   "splitting": "m_p = m_N - Delta/2, Delta OPEN (QM); |Delta/2| of order 1e-3 m_N",
+   "status": "CONDITIONAL x IMPORTED: Lambda^(3) from the D10 alpha_3 (declared slopes (33/5, 1, -3), unification at M_U, pixel closure) with IMPORTED heavy thresholds; c_h IMPORTED from lattice QCD at the physical point (quark masses tuned to measured M_pi, M_K; MeV unit from M_Xi or f_piK). Valid only if the derived gauge sector is QCD; source prerequisites: SU(3) links (GL: M1 declared), one cone per species (T3 member B, declared seam weight), weak coupling at the cell scale (open: the source's cut coupling fails, cut rows)"
+  },
+  {
+   "particle": "neutron",
+   "c": {
+    "value": 2.7448680351906156,
+    "err": 0.13735925369459803,
+    "rel_err": 0.050042206741301214,
+    "numerator": "I2_BMW08_mN_Xi",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "value_GeV": 0.9333145932854467,
+   "import_err_GeV": 0.04670512183186378,
+   "threshold_corner_range_GeV": [
+    0.8923818589434295,
+    0.9734781551334879
+   ],
+   "over_Estar": 7.644542052953315e-20,
+   "relative_change_for_b3_minus_0.01_held (Delta_b3 = 3.99)": 0.033291460529873085,
+   "splitting": "m_n = m_N + Delta/2, Delta OPEN (QM)",
+   "status": "CONDITIONAL x IMPORTED: Lambda^(3) from the D10 alpha_3 (declared slopes (33/5, 1, -3), unification at M_U, pixel closure) with IMPORTED heavy thresholds; c_h IMPORTED from lattice QCD at the physical point (quark masses tuned to measured M_pi, M_K; MeV unit from M_Xi or f_piK). Valid only if the derived gauge sector is QCD; source prerequisites: SU(3) links (GL: M1 declared), one cone per species (T3 member B, declared seam weight), weak coupling at the cell scale (open: the source's cut coupling fails, cut rows)"
+  },
+  {
+   "particle": "n - p splitting",
+   "value_GeV": null,
+   "formula": "m_n - m_p = Delta_QCD (m_d - m_u)/(m_d - m_u)_ref + Delta_QED alpha/alpha_ref",
+   "status": "OPEN: m_d - m_u from QM (none); alpha from the P fixed point (CONDITIONAL)"
+  },
+  {
+   "particle": "pion",
+   "value_GeV": null,
+   "formula": "M_pi = sqrt(2 B m_ud) [NLO: BMW 13 form], B = 7.8651 Lambda^(3) = 2.6743 GeV (D10 unit)",
+   "status": "OPEN: m_ud from QM (none)"
+  },
+  {
+   "particle": "kaon",
+   "value_GeV": null,
+   "formula": "M_K = sqrt(B (m_s + m_ud)) at LO",
+   "status": "OPEN: m_s, m_ud from QM (none)"
+  },
+  {
+   "particle": "rho(770)",
+   "c": {
+    "value": 2.272727272727273,
+    "err": 0.12281060152245891,
+    "rel_err": 0.05403666466988192,
+    "numerator": "I3_BMW08_mrho_Xi",
+    "denominator": "I1_ALPHA17_Lambda3"
+   },
+   "value_GeV": 0.7727765061925441,
+   "import_err_GeV": 0.04175826492988943,
+   "threshold_corner_range_GeV": [
+    0.7388845520097842,
+    0.8060315921244159
+   ],
+   "over_Estar": 6.329615481879081e-20,
+   "relative_change_for_b3_minus_0.01_held (Delta_b3 = 3.99)": 0.033291460529873085,
+   "status": "CONDITIONAL x IMPORTED: Lambda^(3) from the D10 alpha_3 (declared slopes (33/5, 1, -3), unification at M_U, pixel closure) with IMPORTED heavy thresholds; c_h IMPORTED from lattice QCD at the physical point (quark masses tuned to measured M_pi, M_K; MeV unit from M_Xi or f_piK). Valid only if the derived gauge sector is QCD; source prerequisites: SU(3) links (GL: M1 declared), one cone per species (T3 member B, declared seam weight), weak coupling at the cell scale (open: the source's cut coupling fails, cut rows)"
+  }
+ ],
+ "cut_rows": [
+  {
+   "start": "DC cut closure",
+   "b3": -7.0,
+   "colour_scale_GeV": 4443047738678.373,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 12195579716724.213,
+   "m_N_order_over_Estar": 9.989088639068262e-07,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "DC cut closure",
+   "b3": -5.0,
+   "colour_scale_GeV": 13018832655.43217,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 35734977611.391525,
+   "m_N_order_over_Estar": 2.926960974112601e-09,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "DC cut closure",
+   "b3": -3.0,
+   "colour_scale_GeV": 15995.010504872194,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 43904.193057361794,
+   "m_N_order_over_Estar": 3.596080598574057e-15,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "GL 5-trace MSbar",
+   "b3": -7.0,
+   "colour_scale_GeV": 1054100606095683.0,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 2893367059547094.5,
+   "m_N_order_over_Estar": 0.00023698832441349053,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "GL 5-trace MSbar",
+   "b3": -5.0,
+   "colour_scale_GeV": 27533001691973.227,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 75574456257146.45,
+   "m_N_order_over_Estar": 6.1901111709087155e-06,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "GL 5-trace MSbar",
+   "b3": -3.0,
+   "colour_scale_GeV": 5573402281.909213,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 15298253770.871035,
+   "m_N_order_over_Estar": 1.2530409909963512e-09,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "GL 15-trace MSbar",
+   "b3": -7.0,
+   "colour_scale_GeV": 3256463313182970.5,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 8938562056126863.0,
+   "m_N_order_over_Estar": 0.0007321348452342918,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "GL 15-trace MSbar",
+   "b3": -5.0,
+   "colour_scale_GeV": 133555980166231.73,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 366593540866841.3,
+   "m_N_order_over_Estar": 3.0026742961689922e-05,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  },
+  {
+   "start": "GL 15-trace MSbar",
+   "b3": -3.0,
+   "colour_scale_GeV": 77470558507.65009,
+   "kind": "one-loop pole above m_Z",
+   "m_N_order_GeV": 212646459716.01312,
+   "m_N_order_over_Estar": 1.7417329755750786e-08,
+   "status": "EXCLUDED as a light-hadron sector (colour scale far above 1 GeV)"
+  }
+ ]
+}

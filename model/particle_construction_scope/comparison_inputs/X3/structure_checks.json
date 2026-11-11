@@ -1,0 +1,280 @@
+{
+ "faces equal the template faces of the universe runs (compose.py TF, oph_defects.geometry.BASE_FACES)": {
+  "ok": true,
+  "value": null
+ },
+ "every oriented face is counterclockwise seen from outside (exact raw frame)": {
+  "ok": true,
+  "value": null
+ },
+ "unordered face pairs at separation 1..5": {
+  "ok": true,
+  "value": [
+   30,
+   60,
+   60,
+   30,
+   10
+  ]
+ },
+ "60 rotations act on faces as 60 distinct permutations": {
+  "ok": true,
+  "value": null
+ },
+ "inversion sends separation d to 5 - d": {
+  "ok": true,
+  "value": null
+ },
+ "frames are the five matchings of item1.json, in its order": {
+  "ok": true,
+  "value": null
+ },
+ "rotations permute the five frames by 60 distinct even permutations": {
+  "ok": true,
+  "value": null
+ },
+ "the three edges of every face lie in three different frames": {
+  "ok": true,
+  "value": null
+ },
+ "faces <-> ordered pairs (L, R) of distinct frames is a bijection": {
+  "ok": true,
+  "value": null
+ },
+ "equivariance: (L, R)(g f) = (pi_g L, pi_g R) for all 60 rotations": {
+  "ok": true,
+  "value": null
+ },
+ "inversion swaps L and R": {
+  "ok": true,
+  "value": null
+ },
+ "faces with a common L (common R) frame: five tetrahedra of four faces, pairwise separation 3": {
+  "ok": true,
+  "value": null
+ },
+ "each frame has a stabiliser of order 12 with face orbits 4 (L = frame), 4 (R = frame), 12 (frame of an edge)": {
+  "ok": true,
+  "value": null
+ },
+ "ordered pairs: 7 rotation orbits (separation, chirality, size)": {
+  "ok": true,
+  "value": [
+   [
+    1,
+    0,
+    60
+   ],
+   [
+    2,
+    -1,
+    60
+   ],
+   [
+    2,
+    1,
+    60
+   ],
+   [
+    3,
+    -1,
+    60
+   ],
+   [
+    3,
+    1,
+    60
+   ],
+   [
+    4,
+    0,
+    60
+   ],
+   [
+    5,
+    0,
+    20
+   ]
+  ]
+ },
+ "unordered pairs: 6 rotation orbits (separation, size)": {
+  "ok": true,
+  "value": [
+   [
+    1,
+    30
+   ],
+   [
+    2,
+    60
+   ],
+   [
+    3,
+    30
+   ],
+   [
+    3,
+    30
+   ],
+   [
+    4,
+    30
+   ],
+   [
+    5,
+    10
+   ]
+  ]
+ },
+ "(separation, chirality) is constant on every orbit of ordered pairs and separates the orbits": {
+  "ok": true,
+  "value": null
+ },
+ "unordered pairs: (separation, chirality at separation 3) separates the 6 orbits": {
+  "ok": true,
+  "value": null
+ },
+ "arc pattern on the five frames per (separation, chirality)": {
+  "ok": true,
+  "value": {
+   "1,+0": "disjoint, odd",
+   "2,-1": "path, second to first",
+   "2,+1": "path, first to second",
+   "3,-1": "common head",
+   "3,+1": "common tail",
+   "4,+0": "disjoint, even",
+   "5,+0": "two-cycle"
+  }
+ },
+ "turns of the shortest dual path per (separation, chirality); None = path not unique": {
+  "ok": true,
+  "value": {
+   "1,+0": "",
+   "2,-1": "R",
+   "2,+1": "L",
+   "3,-1": "RL",
+   "3,+1": "LR",
+   "4,+0": null,
+   "5,+0": null
+  }
+ },
+ "separation 2: chi(g, f) = -chi(f, g); separation 3: chi(g, f) = chi(f, g)": {
+  "ok": true,
+  "value": null
+ },
+ "inversion of both faces: chi -> -chi at separations 2 and 3": {
+  "ok": true,
+  "value": null
+ },
+ "inversion with exchange of the two faces (geometric reflection of a conjugate pair): chi kept at 2, reversed at 3": {
+  "ok": true,
+  "value": null
+ },
+ "stabiliser orders of unordered pairs (separation, chi): 2, 1, 2, 2, 2, 6": {
+  "ok": true,
+  "value": {
+   "1,+0": 2,
+   "2,+0": 1,
+   "3,-1": 2,
+   "3,+1": 2,
+   "4,+0": 2,
+   "5,+0": 6
+  }
+ },
+ "with one declared frame: orbits of faces, ordered pairs, unordered pairs, and of the adjacent ones": {
+  "ok": true,
+  "value": [
+   3,
+   33,
+   19,
+   5,
+   3
+  ]
+ },
+ "per frame: the three half-turns commute on faces, multiply to each other, fix no face, 5 orbits of 4 faces; the lifts q and -q act alike (central sign acts as +1)": {
+  "ok": true,
+  "value": null
+ },
+ "the five faces at a port are the five arcs of one directed five-cycle of the frames (12 ports, 12 distinct cycles; antipode = reversed cycle)": {
+  "ok": true,
+  "value": null
+ },
+ "audit region (five faces at port 5) against its exterior partner (0,1,7): (separation, chirality, face)": {
+  "ok": true,
+  "value": [
+   [
+    1,
+    0,
+    [
+     0,
+     5,
+     1
+    ]
+   ],
+   [
+    2,
+    -1,
+    [
+     0,
+     11,
+     5
+    ]
+   ],
+   [
+    2,
+    1,
+    [
+     1,
+     5,
+     9
+    ]
+   ],
+   [
+    3,
+    -1,
+    [
+     5,
+     11,
+     4
+    ]
+   ],
+   [
+    3,
+    1,
+    [
+     4,
+     9,
+     5
+    ]
+   ]
+  ]
+ },
+ "relative to one frame the twenty faces fall into five classes of four (the orbits of its Klein group): three axial, permuted cyclically by the stabiliser of the frame and kept by the inversion; two corner, kept by the stabiliser and exchanged by the inversion": {
+  "ok": true,
+  "value": null
+ },
+ "the third-turns about a face keep its L and R and permute its three edge frames cyclically": {
+  "ok": true,
+  "value": null
+ },
+ "number of shortest dual paths at separation 1..5": {
+  "ok": true,
+  "value": {
+   "1": [
+    1
+   ],
+   "2": [
+    1
+   ],
+   "3": [
+    1
+   ],
+   "4": [
+    2
+   ],
+   "5": [
+    6
+   ]
+  }
+ }
+}

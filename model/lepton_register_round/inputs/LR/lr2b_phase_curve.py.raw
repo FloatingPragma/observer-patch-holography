@@ -1,0 +1,36 @@
+"""LR task 3, ordering O1 at more values of N, for the curve on the site. The same execution as section C of
+lr2_phase_run.py (E2, all return tests yes, at least 10^4 rounds each).
+
+Run from this directory (about half a minute):
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr2b_phase_curve.py
+Writes lr2b_phase_curve.json.
+"""
+import json
+import os
+
+import lr_engine as E
+from lr2_phase_run import run_all_yes
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+NS = (1, 2, 3, 4, 5, 6, 8, 10, 13, 16, 20, 25, 32, 40, 50, 64, 80, 100, 128, 160, 200, 250, 320, 400, 500, 640, 800,
+      1000, 2000, 5000, 10000)
+
+
+def main():
+    rows = []
+    for N in NS:
+        r = run_all_yes(N, max(10 ** 4, N), 1, count_every=1000)
+        th, lm = E.closed_theta(N)
+        rows.append(dict(N=N, rounds=r['rounds'], phase_per_unit_clock_time=r['phase_per_unit_clock_time'],
+                         closed_form_phase=th, executed_minus_closed_form=r['phase_per_unit_clock_time'] - th,
+                         deviation_from_2_9=r['phase_per_unit_clock_time'] - 2 / 9,
+                         log_modulus_per_unit_clock_time=r['log_modulus_per_unit_clock_time'],
+                         max_deviation_of_the_count_read_from_2_9=r['max_deviation_of_the_count_read_from_2_9']))
+    out = dict(task='LR task 3, O1 at more N', label='MEASURED in float64 on executed state vectors', rows=rows,
+               max_abs_executed_minus_closed_form=max(abs(r['executed_minus_closed_form']) for r in rows))
+    json.dump(out, open(os.path.join(HERE, 'lr2b_phase_curve.json'), 'w'), indent=1)
+    print(len(rows), 'values of N; largest distance from the closed form', out['max_abs_executed_minus_closed_form'])
+
+
+if __name__ == '__main__':
+    main()

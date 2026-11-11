@@ -1,0 +1,151 @@
+"""Shared exact tools for worker CG (collar sector chain). Pure Python Fractions; no measured value."""
+from __future__ import annotations
+
+from fractions import Fraction as F
+
+
+# ------------------------------------------------------------------ label sets
+def su2_labels(nmax):
+    """SU(2) labels n = 2j = 0..nmax with d = n+1 and E12 = 12 C2 = 3 n (n+2) (an integer)."""
+    return [dict(lab=n, d=n + 1, E12=3 * n * (n + 2)) for n in range(nmax + 1)]
+
+
+def su3_labels(nmax, shape="square"):
+    """SU(3) labels (p,q) with d=(p+1)(q+1)(p+q+2)/2 and E12 = 12 C2 = 4 (p^2+q^2+pq+3p+3q)."""
+    out = []
+    for p in range(nmax + 1):
+        for q in range(nmax + 1):
+            if shape == "triangle" and p + q > nmax:
+                continue
+            out.append(dict(lab=(p, q), d=(p + 1) * (q + 1) * (p + q + 2) // 2,
+                            E12=4 * (p * p + q * q + p * q + 3 * p + 3 * q)))
+    return out
+
+
+def su2_fuse(n):
+    """n (x) 1/2 = n+1 (+) n-1, multiplicity one each (Clebsch-Gordan)."""
+    out = {n + 1: 1}
+    if n >= 1:
+        out[n - 1] = 1
+    return out
+
+
+def su3_fuse(lab, conj=False):
+    """(p,q) (x) 3 and (p,q) (x) 3bar by the Pieri rule, multiplicity one each."""
+    p, q = lab
+    if not conj:
+        out = {(p + 1, q): 1}
+        if p >= 1:
+            out[(p - 1, q + 1)] = 1
+        if q >= 1:
+            out[(p, q - 1)] = 1
+    else:
+        out = {(p, q + 1): 1}
+        if q >= 1:
+            out[(p + 1, q - 1)] = 1
+        if p >= 1:
+            out[(p - 1, q)] = 1
+    return out
+
+
+# ------------------------------------------------------------------ exact linear algebra
+def solve_stationary(K):
+    """Exact stationary row vector pi of a rational stochastic matrix K (list of lists of Fractions).
+
+    Solves pi (K - I) = 0 with sum(pi) = 1 by Gauss-Jordan over the rationals; raises if the
+    solution is not unique (reducible chain).
+    """
+    n = len(K)
+    # unknowns pi_0..pi_{n-1}; equations: sum_i pi_i (K_ij - delta_ij) = 0 for j, plus sum pi = 1
+    rows = []
+    for j in range(n):
+        rows.append([K[i][j] - (1 if i == j else 0) for i in range(n)] + [F(0)])
+    rows.append([F(1)] * n + [F(1)])
+    m = len(rows)
+    piv_cols = []
+    r = 0
+    for c in range(n):
+        piv = None
+        for k in range(r, m):
+            if rows[k][c] != 0:
+                piv = k
+                break
+        if piv is None:
+            continue
+        rows[r], rows[piv] = rows[piv], rows[r]
+        inv = 1 / rows[r][c]
+        rows[r] = [x * inv for x in rows[r]]
+        for k in range(m):
+            if k != r and rows[k][c] != 0:
+                f = rows[k][c]
+                rows[k] = [a - f * b for a, b in zip(rows[k], rows[r])]
+        piv_cols.append(c)
+        r += 1
+    if len(piv_cols) != n:
+        raise ArithmeticError("stationary law not unique (reducible chain)")
+    for k in range(r, m):
+        if rows[k][n] != 0:
+            raise ArithmeticError("inconsistent stationary system")
+    pi = [F(0)] * n
+    for k, c in enumerate(piv_cols):
+        pi[c] = rows[k][n]
+    return pi
+
+
+def metropolis_kernel(labels, proposal, y):
+    """Kernel of the source's chain (S-c): K_ab = q_ab min(1, y^(E12_b - E12_a)), y = exp(-beta/12) rational.
+
+    `proposal[a][b]` are Fractions over label indices; moves leaving the truncated set are absent from
+    `proposal` and their mass stays on the diagonal (rejection), which keeps detailed balance.
+    """
+    n = len(labels)
+    K = [[F(0)] * n for _ in range(n)]
+    for a in range(n):
+        tot = F(0)
+        for b, qab in proposal[a].items():
+            if b == a or qab == 0:
+                continue
+            dE = labels[b]["E12"] - labels[a]["E12"]
+            acc = F(1) if dE <= 0 else y ** dE
+            K[a][b] = qab * acc
+            tot += K[a][b]
+        if tot > 1:
+            raise ArithmeticError("proposal row exceeds one")
+        K[a][a] = 1 - tot
+    return K
+
+
+def weight_power_check(labels, pi, y):
+    """Return the list of w in {0,1,2} with pi_R/pi_0 = d_R^w y^(E12_R - E12_0) exactly for every R,
+    and the same test for the exponent: whether the law is exactly a power of d times y^E12."""
+    hits = []
+    for w in (0, 1, 2):
+        ok = True
+        for i, lab in enumerate(labels):
+            lhs = pi[i] / pi[0]
+            rhs = F(lab["d"]) ** w * y ** (lab["E12"] - labels[0]["E12"]) / F(labels[0]["d"]) ** w
+            if lhs != rhs:
+                ok = False
+                break
+        if ok:
+            hits.append(w)
+    return hits
+
+
+def detailed_balance_measure(labels, proposal):
+    """Return the w in {0,1,2} for which d_a^w q_ab = d_b^w q_ba holds exactly on every proposal edge."""
+    hits = []
+    for w in (0, 1, 2):
+        ok = True
+        for a in range(len(labels)):
+            for b, qab in proposal[a].items():
+                qba = proposal[b].get(a, F(0))
+                if F(labels[a]["d"]) ** w * qab != F(labels[b]["d"]) ** w * qba:
+                    ok = False
+        if ok:
+            hits.append(w)
+    return hits
+
+
+def fstr(x):
+    return str(x) if isinstance(x, F) else repr(x)

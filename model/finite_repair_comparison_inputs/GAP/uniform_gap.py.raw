@@ -1,0 +1,63 @@
+"""Uniform gap lemma for flux inside every carrier, checked on federations with wiring F.
+
+Lemma. Let every carrier carry the same internal connection (flux k per face) and let the glue seams carry arbitrary
+unit phases. The connection Laplacian of the federation is the direct sum of the internal carrier Laplacians plus
+one positive semidefinite term per glue seam. Hence its lowest eigenvalue is at least the lowest eigenvalue of one
+carrier, 5 - a_top(k), for every wiring, every glue rule and every size.
+
+Contrast (audit, model/coherent_seam_repair/PROTECTION.md): with a bounded number of frustrated links the lowest
+eigenvalue is at most 4/N and vanishes with the volume.
+"""
+import sys, json
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as sla
+sys.path.insert(0, 'WORKSPACE/repair-law/work/S3')
+import s0_lib as L
+
+V = np.asarray(L.base_vertices(), float); V = V / np.linalg.norm(V, axis=1)[:, None]
+R = np.linalg.qr(np.random.default_rng(3).normal(size=(3, 3)))[0]
+if np.linalg.det(R) < 0: R[:, 0] *= -1
+V = V @ R.T
+def spinor(u):
+    th, ph = np.arccos(np.clip(u[2], -1, 1)), np.arctan2(u[1], u[0])
+    return np.array([np.cos(th / 2), np.exp(1j * ph) * np.sin(th / 2)])
+chi = [spinor(u) for u in V]
+seams = [tuple(int(x) for x in e) for e in L.SEAMS]
+def link(a, b, k):
+    z = np.vdot(chi[b], chi[a]); return (z / abs(z)) ** k
+
+def carrier_lap(k):
+    A = np.zeros((12, 12), complex)
+    for a, b in seams:
+        A[b, a] = link(a, b, k); A[a, b] = np.conj(A[b, a])
+    return 5 * np.eye(12) - A
+out = {}
+for k in (0, 1, 2, 7):
+    Lc = carrier_lap(k)
+    carrier_min = float(np.linalg.eigvalsh(Lc)[0])
+    row = {'carrier_lowest': carrier_min}
+    for level in (0, 1, 2):
+        mesh = L.build_mesh(level)
+        cen = np.arange(12); cen[0], cen[11], cen[5] = 11, 5, 0      # central child turned by a third of a turn
+        W = L.natural_tower(level, L.FACE_TRIPLE, cen)[level]
+        N = mesh.N; n = 12 * N
+        ga, gb = L.glue_seams(mesh, W)
+        for rule, phases in (('glue phase 1', np.ones(len(ga), complex)),
+                             ('random glue phases', np.exp(2j * np.pi * np.random.default_rng(level + 7).random(len(ga)))),
+                             ('glue phase -1', -np.ones(len(ga), complex))):
+            rows, cols, vals = [], [], []
+            for c in range(N):
+                for i in range(12):
+                    for j in range(12):
+                        if Lc[i, j] != 0:
+                            rows.append(12 * c + i); cols.append(12 * c + j); vals.append(Lc[i, j])
+            for a, b, z in zip(ga, gb, phases):
+                rows += [a, b, b, a]; cols += [a, b, a, b]; vals += [1, 1, -z, -np.conj(z)]
+            H = sp.coo_matrix((vals, (rows, cols)), shape=(n, n)).tocsc()
+            lo = sla.eigsh(H, k=6, sigma=-0.01, which='LM', return_eigenvectors=False)
+            lo = np.sort(lo.real)
+            row[f'level {level}, {rule}'] = [float(x) for x in lo[:4]]
+            print(f'k={k} level {level} ({n} ports) {rule:20s}: lowest eigenvalues {np.round(lo[:4], 6)}   carrier bound {carrier_min:.6f}   bound holds: {lo[0] >= carrier_min - 1e-9}', flush=True)
+    out[f'k={k}'] = row
+json.dump(out, open('WORKSPACE/repair-law/work/GAP/uniform_gap.json', 'w'), indent=1)

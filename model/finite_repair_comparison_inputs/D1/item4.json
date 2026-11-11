@@ -1,0 +1,2195 @@
+{
+ "arithmetic": "Q(sqrt5) and Q(zeta_60); floats are printed values of exact numbers",
+ "conventions": "CANDIDATES.md: rows sector 1, columns sector 2, each basis ordered by level (largest adjacency level first); sin^2 t13 = |V13|^2, sin^2 t12 = |V12|^2/(1-|V13|^2), sin^2 t23 = |V23|^2/(1-|V13|^2), J = Im(V11 V22 V12* V21*)",
+ "M1": {
+  "statement": "V = identity for every pair of anchors and every frame; J = 0. Anchors are coordinates of one canonical operator (item 1b)."
+ },
+ "M2": {
+  "per_element": {
+   "identity": {
+    "abs_V_squared_exact": [
+     [
+      "1",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "1"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      1.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "sin2_theta12": "0",
+    "sin2_theta23": "0",
+    "sin2_theta13": "0",
+    "theta12_deg": 0.0,
+    "theta23_deg": 0.0,
+    "theta13_deg": 0.0,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "identity",
+    "kind": "identity",
+    "second_anchor_port": 0,
+    "anchors_on_seams_of_the_same_frame_axis": true
+   },
+   "C+": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + 1/10*sqrt5",
+      "3/10 + -1/10*sqrt5"
+     ],
+     [
+      "1/2 + -1/10*sqrt5",
+      "0",
+      "1/2 + 1/10*sqrt5"
+     ],
+     [
+      "3/10 + 1/10*sqrt5",
+      "1/2 + -1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.72360679775,
+      0.07639320225
+     ],
+     [
+      0.27639320225,
+      0.0,
+      0.72360679775
+     ],
+     [
+      0.52360679775,
+      0.27639320225,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + 1/22*sqrt5",
+    "sin2_theta23": "15/22 + 1/22*sqrt5",
+    "sin2_theta13": "3/10 + -1/10*sqrt5",
+    "theta12_deg": 62.26769855229806,
+    "theta23_deg": 62.26769855229806,
+    "theta13_deg": 16.045057135335764,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "C+",
+    "kind": "third of a turn",
+    "second_anchor_port": 5,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "third of a turn (other) [anchor 9]": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + 1/10*sqrt5",
+      "3/10 + -1/10*sqrt5"
+     ],
+     [
+      "1/2 + -1/10*sqrt5",
+      "0",
+      "1/2 + 1/10*sqrt5"
+     ],
+     [
+      "3/10 + 1/10*sqrt5",
+      "1/2 + -1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.72360679775,
+      0.07639320225
+     ],
+     [
+      0.27639320225,
+      0.0,
+      0.72360679775
+     ],
+     [
+      0.52360679775,
+      0.27639320225,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + 1/22*sqrt5",
+    "sin2_theta23": "15/22 + 1/22*sqrt5",
+    "sin2_theta13": "3/10 + -1/10*sqrt5",
+    "theta12_deg": 62.26769855229806,
+    "theta23_deg": 62.26769855229806,
+    "theta13_deg": 16.045057135335764,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "third of a turn (other)",
+    "kind": "third of a turn",
+    "second_anchor_port": 9,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "P (antipode)": {
+    "abs_V_squared_exact": [
+     [
+      "1",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "1"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      1.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "sin2_theta12": "0",
+    "sin2_theta23": "0",
+    "sin2_theta13": "0",
+    "theta12_deg": 0.0,
+    "theta23_deg": 0.0,
+    "theta13_deg": 0.0,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "P (antipode)",
+    "kind": "half-turn",
+    "second_anchor_port": 3,
+    "anchors_on_seams_of_the_same_frame_axis": true
+   },
+   "third of a turn (other) [anchor 6]": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + 1/10*sqrt5",
+      "3/10 + -1/10*sqrt5"
+     ],
+     [
+      "1/2 + -1/10*sqrt5",
+      "0",
+      "1/2 + 1/10*sqrt5"
+     ],
+     [
+      "3/10 + 1/10*sqrt5",
+      "1/2 + -1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.72360679775,
+      0.07639320225
+     ],
+     [
+      0.27639320225,
+      0.0,
+      0.72360679775
+     ],
+     [
+      0.52360679775,
+      0.27639320225,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + 1/22*sqrt5",
+    "sin2_theta23": "15/22 + 1/22*sqrt5",
+    "sin2_theta13": "3/10 + -1/10*sqrt5",
+    "theta12_deg": 62.26769855229806,
+    "theta23_deg": 62.26769855229806,
+    "theta13_deg": 16.045057135335764,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "third of a turn (other)",
+    "kind": "third of a turn",
+    "second_anchor_port": 6,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "C+^-1": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + -1/10*sqrt5",
+      "3/10 + 1/10*sqrt5"
+     ],
+     [
+      "1/2 + 1/10*sqrt5",
+      "0",
+      "1/2 + -1/10*sqrt5"
+     ],
+     [
+      "3/10 + -1/10*sqrt5",
+      "1/2 + 1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.27639320225,
+      0.52360679775
+     ],
+     [
+      0.72360679775,
+      0.0,
+      0.27639320225
+     ],
+     [
+      0.07639320225,
+      0.72360679775,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + -1/22*sqrt5",
+    "sin2_theta23": "15/22 + -1/22*sqrt5",
+    "sin2_theta13": "3/10 + 1/10*sqrt5",
+    "theta12_deg": 49.61382244080325,
+    "theta23_deg": 49.61382244080325,
+    "theta13_deg": 46.353072891203695,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "C+^-1",
+    "kind": "third of a turn",
+    "second_anchor_port": 1,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "third of a turn (other) [anchor 4]": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + -1/10*sqrt5",
+      "3/10 + 1/10*sqrt5"
+     ],
+     [
+      "1/2 + 1/10*sqrt5",
+      "0",
+      "1/2 + -1/10*sqrt5"
+     ],
+     [
+      "3/10 + -1/10*sqrt5",
+      "1/2 + 1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.27639320225,
+      0.52360679775
+     ],
+     [
+      0.72360679775,
+      0.0,
+      0.27639320225
+     ],
+     [
+      0.07639320225,
+      0.72360679775,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + -1/22*sqrt5",
+    "sin2_theta23": "15/22 + -1/22*sqrt5",
+    "sin2_theta13": "3/10 + 1/10*sqrt5",
+    "theta12_deg": 49.61382244080325,
+    "theta23_deg": 49.61382244080325,
+    "theta13_deg": 46.353072891203695,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "third of a turn (other)",
+    "kind": "third of a turn",
+    "second_anchor_port": 4,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "C-^-1": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + 1/10*sqrt5",
+      "3/10 + -1/10*sqrt5"
+     ],
+     [
+      "1/2 + -1/10*sqrt5",
+      "0",
+      "1/2 + 1/10*sqrt5"
+     ],
+     [
+      "3/10 + 1/10*sqrt5",
+      "1/2 + -1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.72360679775,
+      0.07639320225
+     ],
+     [
+      0.27639320225,
+      0.0,
+      0.72360679775
+     ],
+     [
+      0.52360679775,
+      0.27639320225,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + 1/22*sqrt5",
+    "sin2_theta23": "15/22 + 1/22*sqrt5",
+    "sin2_theta13": "3/10 + -1/10*sqrt5",
+    "theta12_deg": 62.26769855229806,
+    "theta23_deg": 62.26769855229806,
+    "theta13_deg": 16.045057135335764,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "C-^-1",
+    "kind": "third of a turn",
+    "second_anchor_port": 10,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "F P (passage nu of item 3)": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "0",
+      "4/5"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "4/5",
+      "0",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.0,
+      0.8
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.8,
+      0.0,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "0",
+    "sin2_theta23": "0",
+    "sin2_theta13": "4/5",
+    "theta12_deg": 0.0,
+    "theta23_deg": 0.0,
+    "theta13_deg": 63.43494882292201,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "F P (passage nu of item 3)",
+    "kind": "half-turn",
+    "second_anchor_port": 8,
+    "anchors_on_seams_of_the_same_frame_axis": true
+   },
+   "third of a turn (other) [anchor 2]": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + -1/10*sqrt5",
+      "3/10 + 1/10*sqrt5"
+     ],
+     [
+      "1/2 + 1/10*sqrt5",
+      "0",
+      "1/2 + -1/10*sqrt5"
+     ],
+     [
+      "3/10 + -1/10*sqrt5",
+      "1/2 + 1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.27639320225,
+      0.52360679775
+     ],
+     [
+      0.72360679775,
+      0.0,
+      0.27639320225
+     ],
+     [
+      0.07639320225,
+      0.72360679775,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + -1/22*sqrt5",
+    "sin2_theta23": "15/22 + -1/22*sqrt5",
+    "sin2_theta13": "3/10 + 1/10*sqrt5",
+    "theta12_deg": 49.61382244080325,
+    "theta23_deg": 49.61382244080325,
+    "theta13_deg": 46.353072891203695,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "third of a turn (other)",
+    "kind": "third of a turn",
+    "second_anchor_port": 2,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "C-": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "1/2 + -1/10*sqrt5",
+      "3/10 + 1/10*sqrt5"
+     ],
+     [
+      "1/2 + 1/10*sqrt5",
+      "0",
+      "1/2 + -1/10*sqrt5"
+     ],
+     [
+      "3/10 + -1/10*sqrt5",
+      "1/2 + 1/10*sqrt5",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.27639320225,
+      0.52360679775
+     ],
+     [
+      0.72360679775,
+      0.0,
+      0.27639320225
+     ],
+     [
+      0.07639320225,
+      0.72360679775,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "15/22 + -1/22*sqrt5",
+    "sin2_theta23": "15/22 + -1/22*sqrt5",
+    "sin2_theta13": "3/10 + 1/10*sqrt5",
+    "theta12_deg": 49.61382244080325,
+    "theta23_deg": 49.61382244080325,
+    "theta13_deg": 46.353072891203695,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "C-",
+    "kind": "third of a turn",
+    "second_anchor_port": 7,
+    "anchors_on_seams_of_the_same_frame_axis": false
+   },
+   "F (frame partner)": {
+    "abs_V_squared_exact": [
+     [
+      "1/5",
+      "0",
+      "4/5"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "4/5",
+      "0",
+      "1/5"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.2,
+      0.0,
+      0.8
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      0.8,
+      0.0,
+      0.2
+     ]
+    ],
+    "sin2_theta12": "0",
+    "sin2_theta23": "0",
+    "sin2_theta13": "4/5",
+    "theta12_deg": 0.0,
+    "theta23_deg": 0.0,
+    "theta13_deg": 63.43494882292201,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "right_translation": "F (frame partner)",
+    "kind": "half-turn",
+    "second_anchor_port": 11,
+    "anchors_on_seams_of_the_same_frame_axis": true
+   }
+  },
+  "classes_by_abs_V_squared": [
+   {
+    "members": [
+     "identity",
+     "P (antipode)"
+    ],
+    "abs_V_squared": [
+     [
+      "1",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "1"
+     ]
+    ]
+   },
+   {
+    "members": [
+     "C+",
+     "third of a turn (anchor 9)",
+     "third of a turn (anchor 6)",
+     "C-^-1"
+    ],
+    "abs_V_squared": [
+     [
+      "1/5",
+      "1/2 + 1/10*sqrt5",
+      "3/10 + -1/10*sqrt5"
+     ],
+     [
+      "1/2 + -1/10*sqrt5",
+      "0",
+      "1/2 + 1/10*sqrt5"
+     ],
+     [
+      "3/10 + 1/10*sqrt5",
+      "1/2 + -1/10*sqrt5",
+      "1/5"
+     ]
+    ]
+   },
+   {
+    "members": [
+     "C+^-1",
+     "third of a turn (anchor 4)",
+     "third of a turn (anchor 2)",
+     "C-"
+    ],
+    "abs_V_squared": [
+     [
+      "1/5",
+      "1/2 + -1/10*sqrt5",
+      "3/10 + 1/10*sqrt5"
+     ],
+     [
+      "1/2 + 1/10*sqrt5",
+      "0",
+      "1/2 + -1/10*sqrt5"
+     ],
+     [
+      "3/10 + -1/10*sqrt5",
+      "1/2 + 1/10*sqrt5",
+      "1/5"
+     ]
+    ]
+   },
+   {
+    "members": [
+     "F P (passage nu of item 3)",
+     "F (frame partner)"
+    ],
+    "abs_V_squared": [
+     [
+      "1/5",
+      "0",
+      "4/5"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "4/5",
+      "0",
+      "1/5"
+     ]
+    ]
+   }
+  ]
+ },
+ "M3a": {
+  "statement": "the consensus projector is zero on the triplet second index: no heavy copy, the three copies are degenerate at zero under a consensus mass; the mixing is undefined (any basis)"
+ },
+ "M3b": {
+  "abs_V_squared_exact": [
+   [
+    "1",
+    "0",
+    "0"
+   ],
+   [
+    "0",
+    "1",
+    "0"
+   ],
+   [
+    "0",
+    "0",
+    "1"
+   ]
+  ],
+  "abs_V_squared": [
+   [
+    1.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    1.0
+   ]
+  ],
+  "sin2_theta12": "0",
+  "sin2_theta23": "0",
+  "sin2_theta13": "0",
+  "theta12_deg": 0.0,
+  "theta23_deg": 0.0,
+  "theta13_deg": 0.0,
+  "J_exact": "0",
+  "J": 0.0,
+  "J_squared_exact": "0",
+  "statement": "kernel and consensus projector commute on the singlet space: V = 1, J = 0; the consensus projector gives one heavy state (the uniform one) and two massless ones (1prime, 1second)"
+ },
+ "M4b": {
+  "abs_V_squared_exact": [
+   [
+    "1/3",
+    "1/3",
+    "1/3"
+   ],
+   [
+    "1/3",
+    "1/3",
+    "1/3"
+   ],
+   [
+    "1/3",
+    "1/3",
+    "1/3"
+   ]
+  ],
+  "abs_V_squared": [
+   [
+    0.333333333333,
+    0.333333333333,
+    0.333333333333
+   ],
+   [
+    0.333333333333,
+    0.333333333333,
+    0.333333333333
+   ],
+   [
+    0.333333333333,
+    0.333333333333,
+    0.333333333333
+   ]
+  ],
+  "sin2_theta12": "1/2",
+  "sin2_theta23": "1/2",
+  "sin2_theta13": "1/3",
+  "theta12_deg": 45.00000000000001,
+  "theta23_deg": 45.00000000000001,
+  "theta13_deg": 35.264389682754654,
+  "J_exact": "-0.096225044865 (in Q(zeta_60), not in Q(sqrt5))",
+  "J": -0.09622504486493762,
+  "J_squared_exact": "1/108",
+  "statement": "kernel (or consensus projector) on the singlet space against one golden rectangle (a frame axis), completed by the other two rectangles: the three-point Fourier matrix (trimaximal); |J| = 1/(6 sqrt3), the largest value a 3 x 3 unitary allows; the sign of J follows the order of 1prime and 1second"
+ },
+ "M4a": {
+  "abs_V_squared_exact": [
+   [
+    "1/2 + 1/10*sqrt5",
+    "0",
+    "1/2 + -1/10*sqrt5"
+   ],
+   [
+    "0",
+    "1",
+    "0"
+   ],
+   [
+    "1/2 + -1/10*sqrt5",
+    "0",
+    "1/2 + 1/10*sqrt5"
+   ]
+  ],
+  "abs_V_squared": [
+   [
+    0.72360679775,
+    0.0,
+    0.27639320225
+   ],
+   [
+    0.0,
+    1.0,
+    0.0
+   ],
+   [
+    0.27639320225,
+    0.0,
+    0.72360679775
+   ]
+  ],
+  "sin2_theta12": "0",
+  "sin2_theta23": "0",
+  "sin2_theta13": "1/2 + -1/10*sqrt5",
+  "theta12_deg": 0.0,
+  "theta23_deg": 0.0,
+  "theta13_deg": 31.717474411460998,
+  "J_exact": "0",
+  "J": 0.0,
+  "J_squared_exact": "0",
+  "statement": "kernel copies (slow, middle, fast) against the axis lines ordered (long, normal, short): one angle arctan(1/phi) = 31.717 degrees, two zeros, J = 0; which of the three standard angles carries it follows the order of the lines"
+ },
+ "M6_C+": {
+  "abs_V_squared_exact": [
+   [
+    "1/3 + 2/15*sqrt5",
+    "1/3 + -1/15*sqrt5",
+    "1/3 + -1/15*sqrt5"
+   ],
+   [
+    "1/3",
+    "1/3",
+    "1/3"
+   ],
+   [
+    "1/3 + -2/15*sqrt5",
+    "1/3 + 1/15*sqrt5",
+    "1/3 + 1/15*sqrt5"
+   ]
+  ],
+  "abs_V_squared": [
+   [
+    0.631475730333,
+    0.184262134833,
+    0.184262134833
+   ],
+   [
+    0.333333333333,
+    0.333333333333,
+    0.333333333333
+   ],
+   [
+    0.035190936333,
+    0.482404531833,
+    0.482404531833
+   ]
+  ],
+  "sin2_theta12": "11/19 + -3/19*sqrt5",
+  "sin2_theta23": "10/19 + -1/19*sqrt5",
+  "sin2_theta13": "1/3 + -1/15*sqrt5",
+  "theta12_deg": 28.377097676698423,
+  "theta23_deg": 39.735184561535,
+  "theta13_deg": 25.420458321546246,
+  "J_exact": "0.043033148291 (in Q(zeta_60), not in Q(sqrt5))",
+  "J": 0.04303314829119352,
+  "J_squared_exact": "1/540",
+  "statement": "kernel copies against the eigenvectors of C+ on the second index (eigenvalues 1, w, w^2 in this order)"
+ },
+ "M6_C-": {
+  "abs_V_squared_exact": [
+   [
+    "1/3 + 2/15*sqrt5",
+    "1/3 + -1/15*sqrt5",
+    "1/3 + -1/15*sqrt5"
+   ],
+   [
+    "1/3",
+    "1/3",
+    "1/3"
+   ],
+   [
+    "1/3 + -2/15*sqrt5",
+    "1/3 + 1/15*sqrt5",
+    "1/3 + 1/15*sqrt5"
+   ]
+  ],
+  "abs_V_squared": [
+   [
+    0.631475730333,
+    0.184262134833,
+    0.184262134833
+   ],
+   [
+    0.333333333333,
+    0.333333333333,
+    0.333333333333
+   ],
+   [
+    0.035190936333,
+    0.482404531833,
+    0.482404531833
+   ]
+  ],
+  "sin2_theta12": "11/19 + -3/19*sqrt5",
+  "sin2_theta23": "10/19 + -1/19*sqrt5",
+  "sin2_theta13": "1/3 + -1/15*sqrt5",
+  "theta12_deg": 28.377097676698423,
+  "theta23_deg": 39.735184561535,
+  "theta13_deg": 25.420458321546246,
+  "J_exact": "-0.043033148291 (in Q(zeta_60), not in Q(sqrt5))",
+  "J": -0.04303314829119352,
+  "J_squared_exact": "1/540",
+  "statement": "kernel copies against the eigenvectors of C- on the second index (eigenvalues 1, w, w^2 in this order)"
+ },
+ "M5_odd_doublets (MEASURED, float64 of exact matrices)": {
+  "2": {
+   "1 vs 7": {
+    "abs_V_squared": [
+     [
+      0.5,
+      0.5
+     ],
+     [
+      0.5,
+      0.5
+     ]
+    ],
+    "angle_deg": 44.99999999999999,
+    "levels": [
+     [
+      4.253254,
+      -1.902113
+     ],
+     [
+      2.628656,
+      1.175571
+     ]
+    ]
+   },
+   "7 vs 11": {
+    "abs_V_squared": [
+     [
+      0.5,
+      0.5
+     ],
+     [
+      0.5,
+      0.5
+     ]
+    ],
+    "angle_deg": 45.00000000000004,
+    "levels": [
+     [
+      2.628656,
+      1.175571
+     ],
+     [
+      1.902113,
+      -4.253254
+     ]
+    ]
+   },
+   "1 vs 11": {
+    "abs_V_squared": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ],
+    "angle_deg": 90.0,
+    "levels": [
+     [
+      4.253254,
+      -1.902113
+     ],
+     [
+      1.902113,
+      -4.253254
+     ]
+    ]
+   },
+   "1 vs 3": {
+    "abs_V_squared": [
+     [
+      0.5,
+      0.5
+     ],
+     [
+      0.5,
+      0.5
+     ]
+    ],
+    "angle_deg": 44.99999999999999,
+    "levels": [
+     [
+      4.253254,
+      -1.902113
+     ],
+     [
+      -1.175571,
+      -2.628656
+     ]
+    ]
+   },
+   "3 vs 7": {
+    "abs_V_squared": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0
+     ]
+    ],
+    "angle_deg": 1.6682360166118708e-15,
+    "levels": [
+     [
+      -1.175571,
+      -2.628656
+     ],
+     [
+      2.628656,
+      1.175571
+     ]
+    ]
+   }
+  },
+  "2'": {
+   "1 vs 7": {
+    "abs_V_squared": [
+     [
+      0.8,
+      0.2
+     ],
+     [
+      0.2,
+      0.8
+     ]
+    ],
+    "angle_deg": 26.565051177077994,
+    "levels": [
+     [
+      0.726543,
+      -1.902113
+     ],
+     [
+      1.175571,
+      -3.077684
+     ]
+    ]
+   },
+   "7 vs 11": {
+    "abs_V_squared": [
+     [
+      0.2,
+      0.8
+     ],
+     [
+      0.8,
+      0.2
+     ]
+    ],
+    "angle_deg": 63.434948822921996,
+    "levels": [
+     [
+      1.175571,
+      -3.077684
+     ],
+     [
+      1.902113,
+      -0.726543
+     ]
+    ]
+   },
+   "1 vs 11": {
+    "abs_V_squared": [
+     [
+      0.0,
+      1.0
+     ],
+     [
+      1.0,
+      0.0
+     ]
+    ],
+    "angle_deg": 90.0,
+    "levels": [
+     [
+      0.726543,
+      -1.902113
+     ],
+     [
+      1.902113,
+      -0.726543
+     ]
+    ]
+   },
+   "1 vs 3": {
+    "abs_V_squared": [
+     [
+      0.2,
+      0.8
+     ],
+     [
+      0.8,
+      0.2
+     ]
+    ],
+    "angle_deg": 63.434948822921996,
+    "levels": [
+     [
+      0.726543,
+      -1.902113
+     ],
+     [
+      3.077684,
+      -1.175571
+     ]
+    ]
+   },
+   "3 vs 7": {
+    "abs_V_squared": [
+     [
+      0.4,
+      0.6
+     ],
+     [
+      0.6,
+      0.4
+     ]
+    ],
+    "angle_deg": 50.76847951640774,
+    "levels": [
+     [
+      3.077684,
+      -1.175571
+     ],
+     [
+      1.175571,
+      -3.077684
+     ]
+    ]
+   }
+  }
+ },
+ "M5": {
+  "gauge": "frame gauge: section into the frame cover; for even k the bundle is trivial on the frame cover and the identification of the port spaces of two flux sectors is canonical",
+  "antiunitary_symmetry": "P o K (antipode with complex conjugation) commutes with every A_k, k even: J = 0 for every pair",
+  "tri_bimaximal": {
+   "flux 0 against k": {
+    "2": true,
+    "4": true,
+    "6": true,
+    "8": true,
+    "12": true,
+    "14": true,
+    "16": true,
+    "18": true
+   },
+   "other pairs (False = not tri-bimaximal)": {
+    "2 vs 4": false,
+    "2 vs 8": false,
+    "4 vs 8": false,
+    "2 vs 6": false,
+    "4 vs 18": false,
+    "2 vs 18": false
+   },
+   "twisted eigenvectors (columns, levels descending) in the flux-0 eigenbasis (slow, middle, fast), squared moduli": {
+    "2": [
+     [
+      "0",
+      "1/2",
+      "1/2"
+     ],
+     [
+      "2/3",
+      "1/6",
+      "1/6"
+     ],
+     [
+      "1/3",
+      "1/3",
+      "1/3"
+     ]
+    ],
+    "4": [
+     [
+      "1/6",
+      "1/6",
+      "2/3"
+     ],
+     [
+      "1/2",
+      "1/2",
+      "0"
+     ],
+     [
+      "1/3",
+      "1/3",
+      "1/3"
+     ]
+    ]
+   }
+  },
+  "pairs": {
+   "0 vs 2": {
+    "abs_V_squared_exact": [
+     [
+      "0",
+      "2/3",
+      "1/3"
+     ],
+     [
+      "1/2",
+      "1/6",
+      "1/3"
+     ],
+     [
+      "1/2",
+      "1/6",
+      "1/3"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.0,
+      0.666666666667,
+      0.333333333333
+     ],
+     [
+      0.5,
+      0.166666666667,
+      0.333333333333
+     ],
+     [
+      0.5,
+      0.166666666667,
+      0.333333333333
+     ]
+    ],
+    "sin2_theta12": "1",
+    "sin2_theta23": "1/2",
+    "sin2_theta13": "1/3",
+    "theta12_deg": 90.0,
+    "theta23_deg": 45.00000000000001,
+    "theta13_deg": 35.264389682754654,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     -1.0,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ]
+   },
+   "0 vs 4": {
+    "abs_V_squared_exact": [
+     [
+      "1/6",
+      "1/2",
+      "1/3"
+     ],
+     [
+      "1/6",
+      "1/2",
+      "1/3"
+     ],
+     [
+      "2/3",
+      "0",
+      "1/3"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.166666666667,
+      0.5,
+      0.333333333333
+     ],
+     [
+      0.166666666667,
+      0.5,
+      0.333333333333
+     ],
+     [
+      0.666666666667,
+      0.0,
+      0.333333333333
+     ]
+    ],
+    "sin2_theta12": "3/4",
+    "sin2_theta23": "1/2",
+    "sin2_theta13": "1/3",
+    "theta12_deg": 59.99999999999999,
+    "theta23_deg": 45.00000000000001,
+    "theta13_deg": 35.264389682754654,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     -1.0,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ]
+   },
+   "0 vs 6": {
+    "abs_V_squared_exact": [
+     [
+      "1/3",
+      "1/2",
+      "1/6"
+     ],
+     [
+      "1/3",
+      "1/2",
+      "1/6"
+     ],
+     [
+      "1/3",
+      "0",
+      "2/3"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.333333333333,
+      0.5,
+      0.166666666667
+     ],
+     [
+      0.333333333333,
+      0.5,
+      0.166666666667
+     ],
+     [
+      0.333333333333,
+      0.0,
+      0.666666666667
+     ]
+    ],
+    "sin2_theta12": "3/5",
+    "sin2_theta23": "1/5",
+    "sin2_theta13": "1/6",
+    "theta12_deg": 50.768479516407744,
+    "theta23_deg": 26.56505117707799,
+    "theta13_deg": 24.094842552110702,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     -1.0,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     1.381966011,
+     -2.618033989
+    ]
+   },
+   "0 vs 8": {
+    "abs_V_squared_exact": [
+     [
+      "1/3",
+      "2/3",
+      "0"
+     ],
+     [
+      "1/3",
+      "1/6",
+      "1/2"
+     ],
+     [
+      "1/3",
+      "1/6",
+      "1/2"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.333333333333,
+      0.666666666667,
+      0.0
+     ],
+     [
+      0.333333333333,
+      0.166666666667,
+      0.5
+     ],
+     [
+      0.333333333333,
+      0.166666666667,
+      0.5
+     ]
+    ],
+    "sin2_theta12": "2/3",
+    "sin2_theta23": "1/2",
+    "sin2_theta13": "0",
+    "theta12_deg": 54.735610317245346,
+    "theta23_deg": 45.00000000000001,
+    "theta13_deg": 0.0,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     -1.0,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     0.381966011,
+     -3.618033989
+    ]
+   },
+   "2 vs 4": {
+    "abs_V_squared_exact": [
+     [
+      "1/12",
+      "1/4",
+      "2/3"
+     ],
+     [
+      "1/36",
+      "3/4",
+      "2/9"
+     ],
+     [
+      "8/9",
+      "0",
+      "1/9"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.083333333333,
+      0.25,
+      0.666666666667
+     ],
+     [
+      0.027777777778,
+      0.75,
+      0.222222222222
+     ],
+     [
+      0.888888888889,
+      0.0,
+      0.111111111111
+     ]
+    ],
+    "sin2_theta12": "3/4",
+    "sin2_theta23": "2/3",
+    "sin2_theta13": "2/3",
+    "theta12_deg": 59.99999999999999,
+    "theta23_deg": 54.735610317245346,
+    "theta13_deg": 54.735610317245346,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ]
+   },
+   "2 vs 6": {
+    "abs_V_squared_exact": [
+     [
+      "0",
+      "1/4",
+      "3/4"
+     ],
+     [
+      "8/9",
+      "1/12",
+      "1/36"
+     ],
+     [
+      "1/9",
+      "2/3",
+      "2/9"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.0,
+      0.25,
+      0.75
+     ],
+     [
+      0.888888888889,
+      0.083333333333,
+      0.027777777778
+     ],
+     [
+      0.111111111111,
+      0.666666666667,
+      0.222222222222
+     ]
+    ],
+    "sin2_theta12": "1",
+    "sin2_theta23": "1/9",
+    "sin2_theta13": "3/4",
+    "theta12_deg": 90.0,
+    "theta23_deg": 19.47122063449069,
+    "theta13_deg": 59.99999999999999,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     1.381966011,
+     -2.618033989
+    ]
+   },
+   "2 vs 8": {
+    "abs_V_squared_exact": [
+     [
+      "2/3",
+      "1/3",
+      "0"
+     ],
+     [
+      "2/9",
+      "4/9",
+      "1/3"
+     ],
+     [
+      "1/9",
+      "2/9",
+      "2/3"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.666666666667,
+      0.333333333333,
+      0.0
+     ],
+     [
+      0.222222222222,
+      0.444444444444,
+      0.333333333333
+     ],
+     [
+      0.111111111111,
+      0.222222222222,
+      0.666666666667
+     ]
+    ],
+    "sin2_theta12": "1/3",
+    "sin2_theta23": "1/3",
+    "sin2_theta13": "0",
+    "theta12_deg": 35.264389682754654,
+    "theta23_deg": 35.264389682754654,
+    "theta13_deg": 0.0,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     0.381966011,
+     -3.618033989
+    ]
+   },
+   "4 vs 6": {
+    "abs_V_squared_exact": [
+     [
+      "2/9",
+      "1/3",
+      "4/9"
+     ],
+     [
+      "2/3",
+      "0",
+      "1/3"
+     ],
+     [
+      "1/9",
+      "2/3",
+      "2/9"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.222222222222,
+      0.333333333333,
+      0.444444444444
+     ],
+     [
+      0.666666666667,
+      0.0,
+      0.333333333333
+     ],
+     [
+      0.111111111111,
+      0.666666666667,
+      0.222222222222
+     ]
+    ],
+    "sin2_theta12": "3/5",
+    "sin2_theta23": "3/5",
+    "sin2_theta13": "4/9",
+    "theta12_deg": 50.768479516407744,
+    "theta23_deg": 50.768479516407744,
+    "theta13_deg": 41.810314895778596,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     1.381966011,
+     -2.618033989
+    ]
+   },
+   "4 vs 8": {
+    "abs_V_squared_exact": [
+     [
+      "2/9",
+      "1/36",
+      "3/4"
+     ],
+     [
+      "2/3",
+      "1/12",
+      "1/4"
+     ],
+     [
+      "1/9",
+      "8/9",
+      "0"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.222222222222,
+      0.027777777778,
+      0.75
+     ],
+     [
+      0.666666666667,
+      0.083333333333,
+      0.25
+     ],
+     [
+      0.111111111111,
+      0.888888888889,
+      0.0
+     ]
+    ],
+    "sin2_theta12": "1/9",
+    "sin2_theta23": "1",
+    "sin2_theta13": "3/4",
+    "theta12_deg": 19.47122063449069,
+    "theta23_deg": 90.0,
+    "theta13_deg": 59.99999999999999,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     0.381966011,
+     -3.618033989
+    ]
+   },
+   "6 vs 8": {
+    "abs_V_squared_exact": [
+     [
+      "1/9",
+      "2/9",
+      "2/3"
+     ],
+     [
+      "0",
+      "3/4",
+      "1/4"
+     ],
+     [
+      "8/9",
+      "1/36",
+      "1/12"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.111111111111,
+      0.222222222222,
+      0.666666666667
+     ],
+     [
+      0.0,
+      0.75,
+      0.25
+     ],
+     [
+      0.888888888889,
+      0.027777777778,
+      0.083333333333
+     ]
+    ],
+    "sin2_theta12": "2/3",
+    "sin2_theta23": "3/4",
+    "sin2_theta13": "2/3",
+    "theta12_deg": 54.735610317245346,
+    "theta23_deg": 59.99999999999999,
+    "theta13_deg": 54.735610317245346,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     1.381966011,
+     -2.618033989
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     0.381966011,
+     -3.618033989
+    ]
+   },
+   "2 vs 18": {
+    "abs_V_squared_exact": [
+     [
+      "0",
+      "1/3",
+      "2/3"
+     ],
+     [
+      "1/3",
+      "4/9",
+      "2/9"
+     ],
+     [
+      "2/3",
+      "2/9",
+      "1/9"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.0,
+      0.333333333333,
+      0.666666666667
+     ],
+     [
+      0.333333333333,
+      0.444444444444,
+      0.222222222222
+     ],
+     [
+      0.666666666667,
+      0.222222222222,
+      0.111111111111
+     ]
+    ],
+    "sin2_theta12": "1",
+    "sin2_theta23": "2/3",
+    "sin2_theta13": "2/3",
+    "theta12_deg": 90.0,
+    "theta23_deg": 54.735610317245346,
+    "theta13_deg": 54.735610317245346,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ]
+   },
+   "4 vs 16": {
+    "abs_V_squared_exact": [
+     [
+      "4/9",
+      "1/3",
+      "2/9"
+     ],
+     [
+      "1/3",
+      "0",
+      "2/3"
+     ],
+     [
+      "2/9",
+      "2/3",
+      "1/9"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.444444444444,
+      0.333333333333,
+      0.222222222222
+     ],
+     [
+      0.333333333333,
+      0.0,
+      0.666666666667
+     ],
+     [
+      0.222222222222,
+      0.666666666667,
+      0.111111111111
+     ]
+    ],
+    "sin2_theta12": "3/7",
+    "sin2_theta23": "6/7",
+    "sin2_theta13": "2/9",
+    "theta12_deg": 40.893394649130904,
+    "theta23_deg": 67.7923457014035,
+    "theta13_deg": 28.125505702055708,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ]
+   },
+   "4 vs 18": {
+    "abs_V_squared_exact": [
+     [
+      "3/4",
+      "1/36",
+      "2/9"
+     ],
+     [
+      "1/4",
+      "1/12",
+      "2/3"
+     ],
+     [
+      "0",
+      "8/9",
+      "1/9"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.75,
+      0.027777777778,
+      0.222222222222
+     ],
+     [
+      0.25,
+      0.083333333333,
+      0.666666666667
+     ],
+     [
+      0.0,
+      0.888888888889,
+      0.111111111111
+     ]
+    ],
+    "sin2_theta12": "1/28",
+    "sin2_theta23": "6/7",
+    "sin2_theta13": "2/9",
+    "theta12_deg": 10.893394649130906,
+    "theta23_deg": 67.7923457014035,
+    "theta13_deg": 28.125505702055708,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ]
+   },
+   "4 vs 14": {
+    "abs_V_squared_exact": [
+     [
+      "0",
+      "0",
+      "1"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "1",
+      "0",
+      "0"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.0,
+      0.0,
+      1.0
+     ],
+     [
+      0.0,
+      1.0,
+      0.0
+     ],
+     [
+      1.0,
+      0.0,
+      0.0
+     ]
+    ],
+    "sin2_theta12": null,
+    "sin2_theta23": null,
+    "sin2_theta13": "1",
+    "theta12_deg": null,
+    "theta23_deg": null,
+    "theta13_deg": 90.0,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.618033989,
+     -1.381966011,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     1.381966011,
+     -2.618033989
+    ]
+   },
+   "14 vs 18": {
+    "abs_V_squared_exact": [
+     [
+      "0",
+      "8/9",
+      "1/9"
+     ],
+     [
+      "1/4",
+      "1/12",
+      "2/3"
+     ],
+     [
+      "3/4",
+      "1/36",
+      "2/9"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.0,
+      0.888888888889,
+      0.111111111111
+     ],
+     [
+      0.25,
+      0.083333333333,
+      0.666666666667
+     ],
+     [
+      0.75,
+      0.027777777778,
+      0.222222222222
+     ]
+    ],
+    "sin2_theta12": "1",
+    "sin2_theta23": "3/4",
+    "sin2_theta13": "1/9",
+    "theta12_deg": 90.0,
+    "theta23_deg": 59.99999999999999,
+    "theta13_deg": 19.47122063449069,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     1.381966011,
+     -2.618033989
+    ],
+    "levels_sector_2": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ]
+   },
+   "0 vs 14": {
+    "abs_V_squared_exact": [
+     [
+      "1/3",
+      "1/2",
+      "1/6"
+     ],
+     [
+      "1/3",
+      "1/2",
+      "1/6"
+     ],
+     [
+      "1/3",
+      "0",
+      "2/3"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.333333333333,
+      0.5,
+      0.166666666667
+     ],
+     [
+      0.333333333333,
+      0.5,
+      0.166666666667
+     ],
+     [
+      0.333333333333,
+      0.0,
+      0.666666666667
+     ]
+    ],
+    "sin2_theta12": "3/5",
+    "sin2_theta23": "1/5",
+    "sin2_theta13": "1/6",
+    "theta12_deg": 50.768479516407744,
+    "theta23_deg": 26.56505117707799,
+    "theta13_deg": 24.094842552110702,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     -1.0,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     2.236067977,
+     1.381966011,
+     -2.618033989
+    ]
+   },
+   "0 vs 18": {
+    "abs_V_squared_exact": [
+     [
+      "0",
+      "2/3",
+      "1/3"
+     ],
+     [
+      "1/2",
+      "1/6",
+      "1/3"
+     ],
+     [
+      "1/2",
+      "1/6",
+      "1/3"
+     ]
+    ],
+    "abs_V_squared": [
+     [
+      0.0,
+      0.666666666667,
+      0.333333333333
+     ],
+     [
+      0.5,
+      0.166666666667,
+      0.333333333333
+     ],
+     [
+      0.5,
+      0.166666666667,
+      0.333333333333
+     ]
+    ],
+    "sin2_theta12": "1",
+    "sin2_theta23": "1/2",
+    "sin2_theta13": "1/3",
+    "theta12_deg": 90.0,
+    "theta23_deg": 45.00000000000001,
+    "theta13_deg": 35.264389682754654,
+    "J_exact": "0",
+    "J": 0.0,
+    "J_squared_exact": "0",
+    "levels_sector_1": [
+     2.236067977,
+     -1.0,
+     -2.236067977
+    ],
+    "levels_sector_2": [
+     3.618033989,
+     -0.381966011,
+     -2.236067977
+    ]
+   }
+  },
+  "L13_reading (DECLARED)": {
+   "u_R": 4,
+   "d_R": 18,
+   "e_R": 14,
+   "nu_R": 0,
+   "rule": "charge q = 6Y, flux k = 11 q mod 20 (lead L13, base flux k0 = 11)"
+  }
+ },
+ "checks": {
+  "kernel eigenbasis on the second index: (0,1,phi) sqrt5, (1,0,0) -1, (0,phi,-1) -sqrt5": true,
+  "M1: with a port-diagonal coupling the copies of two anchors coincide (item1b.json, 60 cases): V = 1, J = 0": true,
+  "M2: every right translation gives a real orthogonal mixing (J = 0 exactly)": true,
+  "M2: P keeps the copies (V = 1); F and F P give the 1/5, 4/5 plane; the eight thirds of a turn give two classes of four": true,
+  "M3a: the uniform port state is orthogonal to the triplet-isotypic part (sum over ports of every matrix coefficient is 0)": true,
+  "singlet space: kernel 2J - 1 has the uniform state (5) and the two left characters (-1, -1)": true,
+  "singlet space: the consensus projector J/3 has the same eigenvectors (1, 0, 0)": true,
+  "M4b: |V|^2 = 1/3 everywhere and J^2 = 1/108 exactly": true,
+  "M4a: one angle with sin^2 = (5 - sqrt5)/10, real": true,
+  "frame gauge: A_(k+10) = -A_k and A_(20-k) = conj(A_k) on the triplet second index (k even)": true,
+  "frame gauge: the twisted adjacency A_k (k even) in the port basis is the same for all twelve base ports": true,
+  "M5: |V|^2 and J of the flux pairs do not depend on the frame or the base port (checked in two more gauges)": true,
+  "M5: the antipode with complex conjugation commutes with A_k for every even k: all flux pairs have J = 0": true,
+  "M5: flux 0 against every even flux k != 0, 10 is exactly the tri-bimaximal pattern up to the order of rows and columns": true,
+  "M5: flux 0 against flux 10 is the identity up to order (A_10 = -A_0)": true
+ },
+ "counts": {
+  "M2 right translations computed": 12,
+  "M6 cases": 2,
+  "base ports with the same twisted adjacency in the port basis (k = 2, 4)": 24,
+  "M5 flux pairs": 17,
+  "M5 pairs recomputed in another frame or base port": 6,
+  "even k with P conj(A_k) P = A_k (exact)": 10
+ }
+}

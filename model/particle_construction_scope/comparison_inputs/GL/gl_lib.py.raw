@@ -1,0 +1,225 @@
+"""GL common library: carrier, rotations, cover of order 120, port responses on the five-level code, Lie tools.
+
+Conventions (as worker X5 and the audit's encoded overlap):
+  ports m_p = cyclic permutations of (0, +-1, +-phi); n_p = m_p / |m_p|; Galois conjugate n'_p = sigma(m_p) / |sigma(m_p)|
+  (phi -> 1 - phi). Code C^5 = triplet (indices 0, 1, 2) + doublet (indices 3, 4).
+  X_p = diag( P_p / 2 , -Q_p / 2 ), P_p = (1 - n n^T + i [n]_x) / 2 (helicity-one projector along n_p),
+  Q_p = (1 + n'_p . sigma) / 2.  sum_p X_p = diag(2, 2, 2, -3, -3) = 6Y on the code.
+  Implementer of a rotation a: U_a = R_a (+) S_a, S_a in SU(2) a lift of the conjugate rotation R'_a.
+"""
+import itertools
+import numpy as np
+
+PHI = (1 + 5 ** 0.5) / 2
+PHIC = (1 - 5 ** 0.5) / 2              # Galois conjugate of phi
+SIG = np.array([[[0, 1], [1, 0]], [[0, -1j], [1j, 0]], [[1, 0], [0, -1]]], dtype=complex)
+I2, I3, I5 = np.eye(2, dtype=complex), np.eye(3, dtype=complex), np.eye(5, dtype=complex)
+
+
+def _ports(golden):
+    out = []
+    for cyc in range(3):
+        for s1, s2 in itertools.product((1, -1), repeat=2):
+            v = [0.0, float(s1), golden * s2]
+            out.append(np.array([v[(i - cyc) % 3] for i in range(3)]))
+    return np.array(out)
+
+
+M_RAW = _ports(PHI)                     # |m|^2 = phi + 2
+MC_RAW = _ports(PHIC)                   # Galois conjugates, |m'|^2 = 3 - phi
+N = M_RAW / np.linalg.norm(M_RAW, axis=1)[:, None]
+NC = MC_RAW / np.linalg.norm(MC_RAW, axis=1)[:, None]
+SEAMS = [(p, q) for p in range(12) for q in range(p + 1, 12) if abs(M_RAW[p] @ M_RAW[q] - PHI) < 1e-9]
+FACES = [f for f in itertools.combinations(range(12), 3)
+         if all(abs(M_RAW[a] @ M_RAW[b] - PHI) < 1e-9 for a, b in itertools.combinations(f, 2))]
+ADJ = np.zeros((12, 12))
+for _p, _q in SEAMS:
+    ADJ[_p, _q] = ADJ[_q, _p] = 1.0
+assert len(SEAMS) == 30 and len(FACES) == 20
+
+
+def cross(u):
+    return np.array([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]], dtype=complex)
+
+
+def helicity_projector(n):
+    n = np.asarray(n, float)
+    return (I3 - np.outer(n, n) + 1j * cross(n)) / 2
+
+
+def spin_projector(n):
+    return (I2 + n[0] * SIG[0] + n[1] * SIG[1] + n[2] * SIG[2]) / 2
+
+
+def blk(t=None, d=None):
+    Z = np.zeros((5, 5), complex)
+    if t is not None:
+        Z[:3, :3] = t
+    if d is not None:
+        Z[3:, 3:] = d
+    return Z
+
+
+X = np.array([blk(helicity_projector(N[p]) / 2, -spin_projector(NC[p]) / 2) for p in range(12)])
+Y6 = np.diag([2, 2, 2, -3, -3]).astype(complex)          # 6Y on the code; = sum_p X_p
+
+
+# ----------------------------------------------------------------------------- rotations and the cover
+def _frame(v0, v1):
+    return np.column_stack([v0, v1, np.cross(v0, v1)])
+
+
+def _rotations():
+    B = _frame(N[0], N[1]); Bc = _frame(NC[0], NC[1])
+    nb = [q for q in range(12) if abs(M_RAW[0] @ M_RAW[q] - PHI) < 1e-9]
+    q1 = 1 if 1 in nb else nb[0]
+    B = _frame(N[0], N[q1]); Bc = _frame(NC[0], NC[q1])
+    rots = []
+    for a, b in [(a, b) for a in range(12) for b in range(12) if ADJ[a, b]]:
+        R = _frame(N[a], N[b]) @ np.linalg.inv(B)
+        Rc = _frame(NC[a], NC[b]) @ np.linalg.inv(Bc)
+        perm = [int(np.argmin(np.linalg.norm(N - R @ N[p], axis=1))) for p in range(12)]
+        assert np.allclose(R @ R.T, np.eye(3)) and abs(np.linalg.det(R) - 1) < 1e-9
+        assert np.allclose(Rc @ Rc.T, np.eye(3)) and abs(np.linalg.det(Rc) - 1) < 1e-9
+        assert all(np.allclose(R @ N[p], N[perm[p]]) and np.allclose(Rc @ NC[p], NC[perm[p]]) for p in range(12))
+        rots.append((R, Rc, perm))
+    return rots
+
+
+ROTS = _rotations()
+assert len(ROTS) == 60
+
+
+def su2_lift(R):
+    """S in SU(2) with S sigma_i S^dagger = sum_j R_ji sigma_j (one of the two lifts)."""
+    M = np.zeros((4, 4))
+    # quaternion from rotation matrix (robust branch)
+    tr = np.trace(R)
+    if tr > -0.9:
+        w = np.sqrt(1 + tr) / 2
+        x, y, z = (R[2, 1] - R[1, 2]) / (4 * w), (R[0, 2] - R[2, 0]) / (4 * w), (R[1, 0] - R[0, 1]) / (4 * w)
+    else:
+        i = int(np.argmax(np.diag(R))); j, k = (i + 1) % 3, (i + 2) % 3
+        s = np.sqrt(1 + R[i, i] - R[j, j] - R[k, k]) * 2
+        q = np.zeros(3); q[i] = s / 4; q[j] = (R[j, i] + R[i, j]) / s; q[k] = (R[k, i] + R[i, k]) / s
+        w = (R[k, j] - R[j, k]) / s
+        x, y, z = q
+    S = w * I2 - 1j * (x * SIG[0] + y * SIG[1] + z * SIG[2])
+    for i in range(3):
+        lhs = S @ SIG[i] @ S.conj().T
+        rhs = sum(R[j, i] * SIG[j] for j in range(3))
+        assert np.allclose(lhs, rhs, atol=1e-9), 'lift'
+    return S
+
+
+def cover_on_code():
+    """rho(2I): the 120 matrices R_a (+) (+-S'_a), S'_a a lift of the conjugate rotation."""
+    out = []
+    for R, Rc, perm in ROTS:
+        S = su2_lift(Rc)
+        for sgn in (1, -1):
+            out.append((blk(R.astype(complex), sgn * S), perm))
+    return out
+
+
+COVER = cover_on_code()
+
+
+# ----------------------------------------------------------------------------- Lie tools
+def vec(A):
+    return np.concatenate([A.real.ravel(), A.imag.ravel()])
+
+
+def lie_closure(gens, tol=1e-9, max_dim=200):
+    """Orthonormal (Frobenius) basis of the real Lie algebra generated by anti-Hermitian matrices."""
+    basis_v, basis = [], []
+
+    def add(A):
+        v = vec(A)
+        if basis_v:
+            Bm = np.array(basis_v)
+            v = v - Bm.T @ (Bm @ v)
+        nv = np.linalg.norm(v)
+        if nv > tol:
+            basis_v.append(v / nv)
+            d = A.shape[0]
+            basis.append((v[:d * d] + 1j * v[d * d:]).reshape(d, d) / nv)
+            return True
+        return False
+
+    frontier = [g for g in gens if add(g)]
+    while frontier and len(basis) < max_dim:
+        new = []
+        for A in frontier:
+            for B in list(basis):
+                C = A @ B - B @ A
+                if add(C):
+                    new.append(basis[-1])
+        frontier = new
+    return basis
+
+
+def span_dim(mats, tol=1e-9):
+    return int(np.linalg.matrix_rank(np.array([vec(m) for m in mats]), tol=tol)) if len(mats) else 0
+
+
+def centre_dim(basis, tol=1e-8):
+    k = len(basis)
+    rows = []
+    for B in basis:
+        rows.append(np.array([vec(A @ B - B @ A) for A in basis]).T)
+    M = np.concatenate(rows, axis=0)
+    return k - int(np.linalg.matrix_rank(M, tol=tol))
+
+
+def expm_herm(H, t=1.0):
+    """exp(i t H) for Hermitian H."""
+    w, v = np.linalg.eigh((H + H.conj().T) / 2)
+    return (v * np.exp(1j * t * w)) @ v.conj().T
+
+
+def logm_unitary(U):
+    """Hermitian K with U = exp(i K), principal branch."""
+    w, v = np.linalg.eig(U)
+    # unitary: use Schur for stability
+    from scipy.linalg import schur
+    T, Z = schur(U, output='complex')
+    ang = np.angle(np.diag(T))
+    return (Z * ang) @ Z.conj().T
+
+
+# ----------------------------------------------------------------------------- trace-orthonormal generators
+def gellmann():
+    L = []
+    for i, j in [(0, 1), (0, 2), (1, 2)]:
+        A = np.zeros((3, 3), complex); A[i, j] = A[j, i] = 1; L.append(A)
+        A = np.zeros((3, 3), complex); A[i, j] = -1j; A[j, i] = 1j; L.append(A)
+    L.append(np.diag([1, -1, 0]).astype(complex))
+    L.append(np.diag([1, 1, -2]).astype(complex) / np.sqrt(3))
+    return L
+
+
+GLUONS = [blk(l / 2) for l in gellmann()]                       # tr_5 = 1/2
+WEAK = [blk(d=s / 2) for s in SIG]                               # tr_5 = 1/2
+Y5 = np.diag([-1 / 3, -1 / 3, -1 / 3, 1 / 2, 1 / 2]).astype(complex)   # hypercharge Y (6Y = -2, 3)
+BGUT = np.sqrt(3 / 5) * Y5                                       # tr_5 = 1/2: GUT-normalized U(1)
+TBASIS = GLUONS + WEAK + [BGUT]                                  # 12 Hermitian, tr(T_a T_b) = delta/2
+
+
+def jsonable(o):
+    if isinstance(o, (np.integer,)):
+        return int(o)
+    if isinstance(o, (np.floating,)):
+        return float(o)
+    if isinstance(o, (np.bool_,)):
+        return bool(o)
+    if isinstance(o, np.ndarray):
+        return o.tolist()
+    if isinstance(o, complex):
+        return [o.real, o.imag]
+    raise TypeError(type(o))
+
+
+def coords(Hm):
+    """coefficients of a Hermitian traceless block matrix in TBASIS (tr(T_a T_b) = delta/2)."""
+    return np.array([2 * np.trace(Hm @ T).real for T in TBASIS])

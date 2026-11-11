@@ -1,0 +1,328 @@
+"""GL steps 3c and 4: the audit's Peter-Weyl links as the cutoff of G, graded link states (GL-G), the plaquette trace
+form on the native matter, bare couplings, the global-form correction to the cut closure, b-coefficient candidates.
+
+Run from RER with PYTHONPATH=.:<this dir>. Reads (never writes) model/coherent_defect_wave/chiral_joint/peter_weyl_links.
+GL-G  all Z2 gradings of link sectors and link-operator degrees that respect every retained Clebsch-Gordan channel
+      (GF(2) system on the audit's 37 channels; then on the menu M_2 of sectors two hops from the vacuum).
+PW    menu growth M_n (sectors reachable by n native link operators), dimensions sum d^2, first adjoint sectors.
+TR    trace form of the native 15 (the audit's actual current matrices) against its 5bar part: ratio per current pair.
+Z6    <log d> over the irreducible representations of G = S(U(3) x U(2)) against ellbar_SU2 + ellbar_SU3.
+B     candidates B1 (t = 4 pi^2 alpha), B2 (t = 2 pi alpha), B3 (two-sided d^2 weights, t = 2 pi alpha) at P_fwd.
+K     one-loop coefficients of the field contents K1 to K3 and the universality test K4 (exact rationals).
+CUR   currents gauged by native operations: the load-charge argument, with the closure of the seam reflectors.
+Writes s5_links_couplings.json.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as Fr
+
+import numpy as np
+
+out = {}
+RECEIPT = 'model/coherent_defect_wave/chiral_joint/peter_weyl_links/results.json'
+rec = json.load(open(RECEIPT))
+chans = rec['complete_native_Clebsch_derivation']['channels']
+sectors = sorted({c['source'] for c in chans} | {c['target'] for c in chans} | {0})
+fields = sorted({c['field'] for c in chans})
+
+
+# ============================================================================ GL-G on the audit's 37 channels
+def gf2_nullspace(rows, nvar):
+    A = np.array(rows, dtype=np.uint8) % 2
+    A = A.copy(); piv = []; r = 0
+    for c in range(nvar):
+        p = next((i for i in range(r, A.shape[0]) if A[i, c]), None)
+        if p is None:
+            continue
+        A[[r, p]] = A[[p, r]]
+        for i in range(A.shape[0]):
+            if i != r and A[i, c]:
+                A[i] ^= A[r]
+        piv.append(c); r += 1
+        if r == A.shape[0]:
+            break
+    free = [c for c in range(nvar) if c not in piv]
+    basis = []
+    for f in free:
+        v = np.zeros(nvar, dtype=np.uint8); v[f] = 1
+        for i, c in enumerate(piv):
+            if A[i, f]:
+                v[c] = 1
+        basis.append(v)
+    return basis
+
+
+def solve_gradings(channel_list, sector_list, field_list):
+    """variables: eps(sector) for sector != 0, delta(field); eps(0) = 0."""
+    sv = [s for s in sector_list if s != 0]
+    var = {('e', s): k for k, s in enumerate(sv)}
+    var.update({('d', f): len(sv) + k for k, f in enumerate(field_list)})
+    rows = []
+    for f, s, t in channel_list:
+        row = [0] * len(var)
+        if t != 0:
+            row[var[('e', t)]] ^= 1
+        if s != 0:
+            row[var[('e', s)]] ^= 1
+        row[var[('d', f)]] ^= 1
+        rows.append(row)
+    basis = gf2_nullspace(rows, len(var))
+    sols = []
+    for coeffs in itertools.product((0, 1), repeat=len(basis)):
+        v = np.zeros(len(var), dtype=np.uint8)
+        for c, b in zip(coeffs, basis):
+            if c:
+                v ^= b
+        sols.append({'odd_sectors': sorted(s for s in sv if v[var[('e', s)]]),
+                     'odd_link_operators': sorted(f for f in field_list if v[var[('d', f)]])})
+    return sols
+
+
+ch37 = [(c['field'], c['source'], c['target']) for c in chans]
+sol37 = solve_gradings(ch37, sectors, fields)
+out['GLG_audit_119_links'] = {'sectors_6Y': sectors, 'native_link_operators_6Y': fields, 'channels': len(ch37),
+                              'gradings': sol37,
+                              'parity_of_6Y_for_each_sector': {s: s % 2 for s in sectors}}
+print('GL-G on 37 channels:', sol37, flush=True)
+
+
+# ============================================================================ PW menus of G-irreps (p, q, n2, y)
+def su3_dim(p, q):
+    return (p + 1) * (q + 1) * (p + q + 2) // 2
+
+
+def su3_c2(p, q):
+    return Fr(p * p + q * q + p * q + 3 * p + 3 * q, 3)
+
+
+def times_fund(p, q):
+    return [(a, b) for a, b in ((p + 1, q), (p - 1, q + 1), (p, q - 1)) if a >= 0 and b >= 0]
+
+
+def times_antifund(p, q):
+    return [(a, b) for a, b in ((p, q + 1), (p + 1, q - 1), (p - 1, q)) if a >= 0 and b >= 0]
+
+
+def su3_times(p, q, f):
+    if f == (0, 0):
+        return [(p, q)]
+    if f == (1, 0):
+        return times_fund(p, q)
+    if f == (0, 1):
+        return times_antifund(p, q)
+    raise ValueError(f)
+
+
+def su2_times(n, m):
+    return [n] if m == 0 else [k for k in (n - 1, n + 1) if k >= 0]
+
+
+# native blocks as G-irreps: (SU(3) Dynkin, 2j, 6Y), with the audit's labels
+NATIVE = {-4: ((0, 1), 0, -4), 1: ((1, 0), 1, 1), 6: ((0, 0), 0, 6), -3: ((0, 0), 1, -3), 2: ((0, 1), 0, 2)}
+FIELDS = {}
+for lab, (su3, n2, y) in NATIVE.items():
+    FIELDS[lab] = (su3, n2, y)
+    FIELDS[-lab] = ((su3[1], su3[0]), n2, -y)
+assert all(((-2 * ((s3[0] - s3[1]) % 3) - 3 * n2 - y) % 6) == 0 for s3, n2, y in FIELDS.values())
+
+
+def tensor(irrep, field):
+    (p, q), n2, y = irrep
+    (fs, fn, fy) = field
+    return [((a, b), k, y + fy) for a, b in su3_times(p, q, fs) for k in su2_times(n2, fn)]
+
+
+vac = ((0, 0), 0, 0)
+menus = [{vac}]
+channels_all = []
+for n in range(1, 4):
+    new = set(menus[-1])
+    for s_ in menus[-1]:
+        for lab, f in FIELDS.items():
+            for t in tensor(s_, f):
+                new.add(t)
+    menus.append(new)
+
+
+def dim_irrep(r):
+    (p, q), n2, y = r
+    return su3_dim(p, q) * (n2 + 1)
+
+
+menu_rows = []
+for n, M in enumerate(menus):
+    adj = sorted([r for r in M if r[2] == 0 and r != vac and ((r[0] == (1, 1) and r[1] == 0) or (r[0] == (0, 0) and r[1] == 2))])
+    menu_rows.append({'n_hops': n, 'sectors': len(M), 'dimension_sum_d^2': int(sum(dim_irrep(r) ** 2 for r in M)),
+                      'adjoint_sectors_present': [str(a) for a in adj]})
+out['PW_menu_growth'] = menu_rows
+print('PW menus', menu_rows, flush=True)
+assert menu_rows[1]['dimension_sum_d^2'] == 119
+# GL-G on M_2: channels field (x) s -> t for s in M_1, all fields (native and dual), t in M_2
+M1, M2 = menus[1], menus[2]
+lab_of = {}
+for r in M2:
+    lab_of[r] = r
+chan2 = []
+for s_ in M1:
+    for lab, f in FIELDS.items():
+        for t in tensor(s_, f):
+            chan2.append((lab, s_, t))
+# field operators: the native label and its dual carry the same link-operator degree (U and U^dagger)
+fl2 = sorted(set(abs(l) for l, _, _ in chan2))
+chan2n = [(abs(l), s_, t) for l, s_, t in chan2]
+sec2 = sorted(M2, key=str)
+sec_index = {r: k for k, r in enumerate(sec2)}
+ch_idx = [(f, sec_index[s_] if s_ != vac else 0, sec_index[t] if t != vac else 0) for f, s_, t in chan2n]
+# relabel the vacuum as 0 and the rest as 1..
+order = [vac] + [r for r in sec2 if r != vac]
+idx2 = {r: k for k, r in enumerate(order)}
+ch_idx = [(f, idx2[s_], idx2[t]) for f, s_, t in chan2n]
+sol2 = solve_gradings(ch_idx, list(range(len(order))), fl2)
+sol2_named = []
+for s in sol2:
+    odd = [order[k] for k in s['odd_sectors']]
+    sol2_named.append({'number_of_odd_sectors': len(odd),
+                       'odd_sectors_all_have_odd_6Y': all(r[2] % 2 == 1 for r in odd),
+                       'odd_sectors_all_have_odd_2j': all(r[1] % 2 == 1 for r in odd),
+                       'adjoint_sectors_odd': [str(r) for r in odd if r[2] == 0],
+                       'odd_link_operators_abs_6Y': s['odd_link_operators']})
+out['GLG_menu_M2'] = {'sectors': len(order), 'channels': len(ch_idx), 'gradings': sol2_named}
+print('GL-G on M_2:', sol2_named, flush=True)
+
+# ============================================================================ TR: trace form of the native 15
+from model.coherent_defect_wave.physical_attachment.chiral import representation
+cur = [np.array(t.tolist(), dtype=complex) for t in representation()[2]]
+fivebar = [12, 13, 14, 10, 11]          # d^c (+) L = the 5bar inside Lambda^2 + Lambda^4
+G15 = np.array([[np.trace(a @ b) for b in cur] for a in cur]).real
+G5b = np.array([[np.trace(a[np.ix_(fivebar, fivebar)] @ b[np.ix_(fivebar, fivebar)]) for b in cur] for a in cur]).real
+ratio = G15 / np.where(abs(G5b) > 1e-12, G5b, np.nan)
+out['TR_trace_form_native_15'] = {'currents': len(cur), 'Gram_15_equals_4_Gram_5bar_defect': float(np.abs(G15 - 4 * G5b).max()),
+                                  'ratio_values': sorted(set(np.round(ratio[np.isfinite(ratio)], 9).tolist()))}
+print('TR', out['TR_trace_form_native_15'], flush=True)
+
+# ============================================================================ Z6 correction and B candidates
+P = 1.63097209585889737696
+budget = P / 4
+j2 = np.arange(0, 241)
+d2 = j2 + 1.0; c2_2 = j2 * (j2 + 2) / 4.0
+pp, qq = np.meshgrid(np.arange(0, 91), np.arange(0, 91), indexing='ij')
+d3 = ((pp + 1) * (qq + 1) * (pp + qq + 2) / 2.0).ravel(); c2_3 = ((pp ** 2 + qq ** 2 + pp * qq + 3 * pp + 3 * qq) / 3.0).ravel()
+tri = ((pp - qq) % 3).ravel()
+
+
+def ellbar(d, c2, t, power=1):
+    w = d ** power * np.exp(-t * (c2 - c2.min()))
+    return float(np.sum(w * np.log(d)) / np.sum(w))
+
+
+def ell_sum(t, power=1):
+    return ellbar(d2, c2_2, t, power) + ellbar(d3, c2_3, t, power)
+
+
+ys = np.arange(-600, 601)
+
+
+def ell_G(t):
+    """<log(d3 d2)> over irreducible representations of S(U(3) x U(2)); U(1) Casimir (3/5)(y/6)^2."""
+    theta = {}
+    for c in range(6):
+        sel = ys[(ys - c) % 6 == 0]
+        theta[c] = np.sum(np.exp(-t * 0.6 * (sel / 6.0) ** 2))
+    num = den = 0.0
+    w3 = d3 * np.exp(-t * c2_3); w2 = d2 * np.exp(-t * c2_2)
+    for n2 in (0, 1):
+        sel2 = (j2 % 2) == n2
+        W2 = w2[sel2]; L2 = np.log(d2[sel2])
+        for tau in range(3):
+            sel3 = tri == tau
+            W3 = w3[sel3]; L3 = np.log(d3[sel3])
+            c = (-2 * tau - 3 * n2) % 6
+            th = theta[c]
+            num += th * (np.sum(W3) * np.sum(W2 * L2) + np.sum(W3 * L3) * np.sum(W2))
+            den += th * np.sum(W3) * np.sum(W2)
+    return float(num / den)
+
+
+def solve(f, lo, hi):
+    for _ in range(200):
+        mid = (lo + hi) / 2
+        if (f(lo) - budget) * (f(mid) - budget) <= 0:
+            hi = mid
+        else:
+            lo = mid
+    return (lo + hi) / 2
+
+
+tB = solve(lambda t: ell_sum(t), 0.05, 20.0)
+tB3 = solve(lambda t: ell_sum(t, power=2), 0.05, 20.0)
+tG = solve(ell_G, 0.05, 20.0)
+alpha_U = 0.0411242474418166851
+cand = {
+    'B1 (t = 4 pi^2 alpha; DC computed it first)': {'t': tB, 'alpha': tB / (4 * np.pi ** 2), 'inv_alpha': 4 * np.pi ** 2 / tB},
+    'B2 (t = 2 pi alpha)': {'t': tB, 'alpha': tB / (2 * np.pi), 'inv_alpha': 2 * np.pi / tB},
+    'B3 (two-sided d^2 weights, t = 2 pi alpha)': {'t': tB3, 'alpha': tB3 / (2 * np.pi), 'inv_alpha': 2 * np.pi / tB3},
+    'B1 with the global form of G (Z6 constraint, U(1) Casimir)': {'t': tG, 'alpha': tG / (4 * np.pi ** 2), 'inv_alpha': 4 * np.pi ** 2 / tG}}
+for v in cand.values():
+    v['ratio_to_alpha_U_of_D10'] = v['alpha'] / alpha_U
+out['B_candidates_at_P_fwd'] = cand
+out['Z6_correction'] = {'ellbar_G_minus_ellbar_sum_at_t_B1': ell_G(tB) - ell_sum(tB),
+                        'relative_shift_of_inv_alpha': (4 * np.pi ** 2 / tG) / (4 * np.pi ** 2 / tB) - 1}
+print('B', json.dumps(cand), flush=True)
+print('Z6', out['Z6_correction'], flush=True)
+
+# edge-sector weight of the cut (one-sided law d_R exp(-t C2), t of B1) captured by the menus M_n
+def c2_full(r):
+    (p, q), n2, y = r
+    return float(su3_c2(p, q)) + n2 * (n2 + 2) / 4.0 + 0.6 * (y / 6.0) ** 2
+
+
+def total_weight(t):
+    tot = 0.0
+    th = {c: np.sum(np.exp(-t * 0.6 * (ys[(ys - c) % 6 == 0] / 6.0) ** 2)) for c in range(6)}
+    w3 = d3 * np.exp(-t * c2_3); w2 = d2 * np.exp(-t * c2_2)
+    for n2 in (0, 1):
+        W2 = np.sum(w2[(j2 % 2) == n2])
+        for tau in range(3):
+            tot += th[(-2 * tau - 3 * n2) % 6] * np.sum(w3[tri == tau]) * W2
+    return float(tot)
+
+
+Wtot = total_weight(tB)
+menu_weight = {}
+for n, M in enumerate(menus):
+    menu_weight[f'M_{n}'] = float(sum(dim_irrep(r) * np.exp(-tB * c2_full(r)) for r in M) / Wtot)
+out['PW_edge_weight_captured_at_cut_coupling'] = menu_weight
+print('menu weight', menu_weight, flush=True)
+
+# scale relations
+R = 2 * np.pi - (2 / 3) * np.log(P)
+out['scale_relations'] = {'ln(E_cell/M_U) = 2 pi - (2/3) ln P': R, 'E_cell/M_U': float(np.exp(R)),
+                          'inv_alpha_U(D10)': 1 / alpha_U,
+                          'b_above needed with B1 (DC)': (1 / alpha_U - 4 * np.pi ** 2 / tB) * 2 * np.pi / R}
+
+# ============================================================================ K: one-loop coefficients (D10 sign convention)
+def b_content(kc, ng, higgs=0, gauge=True, dirac_family=Fr(8, 3)):
+    g = (Fr(0), Fr(-22, 3), Fr(-11)) if gauge else (Fr(0), Fr(0), Fr(0))
+    m = dirac_family * kc * ng
+    h = (Fr(1, 10) * higgs, Fr(1, 6) * higgs, Fr(0))
+    return tuple(g[i] + m + h[i] for i in range(3))
+
+
+rows = {'K1 links only': b_content(0, 0)}
+for kc, ng in ((1, 1), (4, 1), (1, 3), (4, 3)):
+    rows[f'K2 links + vector-like family, k_c = {kc}, n_g = {ng}'] = b_content(kc, ng)
+    rows[f'K3 = K2 + one Higgs doublet, k_c = {kc}, n_g = {ng}'] = b_content(kc, ng, higgs=1)
+rows['K2 with 32 Dirac patterns per copy (complements independent), k_c = 1, n_g = 1'] = b_content(1, 1, dirac_family=Fr(16, 3))
+kout = {}
+for k, b in rows.items():
+    kout[k] = {'b1_b2_b3': [str(x) for x in b], 'float': [float(x) for x in b], 'universal': b[0] == b[1] == b[2],
+               'b1-b2': str(b[0] - b[1]), 'b2-b3': str(b[1] - b[2])}
+out['K_one_loop_coefficients'] = {'convention': 'alpha^-1(low) = alpha^-1(high) + (b/2pi) ln(high/low); U(1) GUT normalized',
+                                  'rows': kout,
+                                  'K4': 'b1 - b2 = 22/3 and b2 - b3 = 11/3 for every content with 12 gauged currents and '
+                                        'complete SU(5) multiplets: no common coefficient exists'}
+for k, v in kout.items():
+    print('K', k, v['b1_b2_b3'], 'universal', v['universal'], flush=True)
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 's5_links_couplings.json', 'w'), indent=1,
+          default=lambda o: o.tolist() if hasattr(o, 'tolist') else (str(o) if isinstance(o, Fr) else o))

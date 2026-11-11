@@ -1,0 +1,130 @@
+"""Item 4 of TASK_R6: a resonance on a line. Configuration of the simulation session's run E: background rest angle
+0.087847, two slabs of 4 cells at 0.171237, 12 background cells between them. Second configuration (declared here, for
+a narrow line): the same with slabs of 12 cells.
+
+Exact:   complex phase E_r - i Gamma/2 of the tick with outgoing waves on both sides, from the transfer matrix
+         T(lambda, theta) = [[1/lambda, sin], [sin, lambda]]/cos per cell (link amplitudes (right mover leaving x, left
+         mover leaving x+1)); cross-check by harmonic inversion of the engine's return amplitude.
+Records: (1) clock register, offsets 0 and 1/2: position and width of the line (decaying line convolved with the
+             clock kernel), window +-1.5 fitted widths, two passes;
+         (2) survival: complete position readout at declared times, fraction found inside the structure, binomial
+             fit of A exp(-Gamma t).
+Preparation: positive-branch packet of the background (engine `packet` with `branch_projected`), centred in the gap.
+Run: python resonance.py [4] [12]   (writes resonance.json, resonance_records.npz)"""
+import json, sys
+import numpy as np
+from scipy.optimize import minimize
+from r6lib import Field, routing, qpe_probs, fit_line, sample
+
+TH_BG, TH_S, GAP, SEED = 0.087847, 0.171237, 12, 20261110
+CONF = {4: dict(L=1024, T=512, times=list(range(60, 111, 5)), n_surv=5000, prony=(10, 110, 4)),
+        12: dict(L=2560, T=2048, times=list(range(100, 601, 25)), n_surv=2000, prony=(150, 800, 4))}
+NCLOCK = 4000
+
+
+def Tm(lam, th): return np.array([[1 / lam, np.sin(th)], [np.sin(th), lam]]) / np.cos(th)
+
+
+def uvec(z, lam, th): return np.array([np.sin(th), np.cos(th) * z - 1 / lam])
+
+
+def outgoing(E, slab):
+    lam = np.exp(-1j * E); C = np.cos(E) / np.cos(TH_BG); z = C + 1j * np.sqrt(1 - C * C + 0j)       # z = e^{ip}, p > 0: leaves to the right
+    Ts = np.linalg.matrix_power(Tm(lam, TH_S), slab); Tb = np.linalg.matrix_power(Tm(lam, TH_BG), GAP)
+    v = Ts @ Tb @ Ts @ uvec(1 / z, lam, TH_BG); w = uvec(z, lam, TH_BG)
+    return w[0] * v[1] - w[1] * v[0]
+
+
+def poles(slab, lo=0.089, hi=0.30):
+    Er = np.linspace(lo, hi, 400); Ei = -np.geomspace(1e-5, 0.12, 200)
+    F = np.array([[abs(outgoing(a + 1j * b, slab)) for a in Er] for b in Ei]); found = []
+    for i in range(1, len(Ei) - 1):
+        for j in range(1, len(Er) - 1):
+            if F[i, j] == F[i - 1:i + 2, j - 1:j + 2].min():
+                E = Er[j] + 1j * Ei[i]
+                for _ in range(80):
+                    h = 1e-8; step = outgoing(E, slab) / ((outgoing(E + h, slab) - outgoing(E - h, slab)) / (2 * h)); E -= step
+                    if abs(step) < 1e-15: break
+                if abs(outgoing(E, slab)) < 1e-9 and E.imag < 0 and lo < E.real < hi and not any(abs(E - q) < 1e-8 for q in found): found.append(E)
+    return sorted(found, key=lambda q: q.real)
+
+
+def pencil(y, rank):
+    """complex frequencies of y_t = sum_j a_j exp(-i (E_j - i G_j/2) t), strongest first"""
+    y = np.asarray(y, complex); n = len(y); m = n // 2
+    Y = np.array([y[i:i + m + 1] for i in range(n - m)]); U, s, Vh = np.linalg.svd(Y, full_matrices=False)
+    V = Vh[:rank].T; z = np.linalg.eigvals(np.linalg.pinv(V[:-1]) @ V[1:])            # rows of Vh span (1, z, ..., z^m)
+    a = np.linalg.lstsq(np.vander(z, n, increasing=True).T, y, rcond=None)[0]; o = np.argsort(-np.abs(a))
+    return [(float(-np.angle(z[k])), float(-2 * np.log(abs(z[k]))), float(abs(a[k]))) for k in o]
+
+
+def survival_fit(times, k, n):
+    times, k, n = np.asarray(times, float), np.asarray(k, float), np.asarray(n, float)
+
+    def nll(x):
+        p = np.clip(np.exp(x[0] - np.exp(x[1]) * times), 1e-300, 1 - 1e-12)
+        return float(-np.sum(k * np.log(p) + (n - k) * np.log(1 - p)))
+    best = min((minimize(nll, [np.log(0.5), np.log(g0)], method='Nelder-Mead', options={'xatol': 1e-10, 'fatol': 1e-12, 'maxiter': 4000}) for g0 in (0.003, 0.01, 0.03, 0.1)), key=lambda r: r.fun)
+    x = best.x; h = [1e-3, 1e-3]; H = np.empty((2, 2))
+    for i in range(2):
+        for j in range(2):
+            ei = np.zeros(2); ei[i] = h[i]; ej = np.zeros(2); ej[j] = h[j]
+            H[i, j] = (nll(x + ei + ej) - nll(x + ei - ej) - nll(x - ei + ej) + nll(x - ei - ej)) / (4 * h[i] * h[j])
+    g = float(np.exp(x[1])); se = float(g * np.sqrt(np.linalg.inv(H)[1, 1]))
+    return g, se, float(np.exp(x[0]))
+
+
+def clock_fit(h, T):
+    lo, hi = TH_BG, 0.30                                                       # declared search range: above the band edge of the background
+    a = fit_line(h, T, lo, hi, halfwidth=8, gamma_free=True)
+    hw = int(np.clip(round(1.5 * a['gamma'] / (2 * np.pi / T)), 4, 60))
+    b = fit_line(h, T, lo, hi, halfwidth=hw, gamma_free=True); b['halfwidth_bins_second_pass'] = hw; b['first_pass'] = {'phase': a['phase'], 'gamma': a['gamma']}
+    return b
+
+
+slabs = [int(a) for a in sys.argv[1:]] or [4, 12]
+try:
+    out = json.load(open('resonance.json')); store = dict(np.load('resonance_records.npz'))
+except FileNotFoundError:
+    out, store = {'background': TH_BG, 'slab_angle': TH_S, 'gap_cells': GAP, 'configs': {}}, {}
+for slab in slabs:
+    cf = CONF[slab]; L, T = cf['L'], cf['T']; idx = lambda a, b: np.arange(a, b) % L
+    theta = np.full((L, 1, 1), TH_BG); theta[idx(-6 - slab, -6)] = TH_S; theta[idx(6, 6 + slab)] = TH_S
+    inside = np.zeros(L, bool); inside[idx(-6 - slab, 6 + slab)] = True
+    f = Field((L, 1, 1), theta, direct=True)
+    psi0 = f.w.packet(0, L / (2 * np.pi * 4.0 * np.sqrt(2)), lambda p: routing.branch_projected(p, TH_BG))
+    ps = poles(slab); pole = ps[0]
+    row = {'slab_cells': slab, 'lattice': L, 'poles': [{'E_r': float(E.real), 'Gamma': float(-2 * E.imag), 'defect': float(abs(outgoing(E, slab)))} for E in ps],
+           'lifetime_ticks': float(1 / (-2 * pole.imag)), 'quality_E_over_Gamma': float(pole.real / (-2 * pole.imag)),
+           'E_r_minus_band_edge_over_Gamma': float((pole.real - TH_BG) / (-2 * pole.imag))}
+    # exact evolution: return amplitude and survival curve
+    tmax = max(T, max(cf['times']) + 1); c = np.empty(tmax, complex); pin = np.empty(tmax); psi = psi0; Pt = {}
+    for t in range(tmax):
+        c[t] = np.vdot(psi0, psi); pin[t] = float(np.sum(np.abs(psi[inside]) ** 2))
+        if t in cf['times']: Pt[t] = np.abs(psi) ** 2
+        psi = f.tick(psi, t)
+    t0, t1, rank = cf['prony']; row['harmonic_inversion_of_return_amplitude'] = [{'E_r': a, 'Gamma': b, 'amplitude': w} for a, b, w in pencil(c[t0:t1], rank)[:2]]
+    row['harmonic_inversion_window'] = [t0, t1, rank]
+    # (1) clock
+    P, info = qpe_probs(c[:T], (0.0, 0.5)); seed = SEED + 500 + slab; h = sample(P, NCLOCK, seed); store[f'clock_slab{slab}'] = h; store[f'clock_exactP_slab{slab}'] = P
+    fit = clock_fit(h, T); inf = clock_fit(P * 1e9, T)
+    row['clock'] = {'T': T, 'records': NCLOCK, 'seed': seed, **info, **fit, 'at_infinite_records': {'phase': inf['phase'], 'gamma': inf['gamma']},
+                    'pull_E_vs_pole': (fit['phase'] - pole.real) / fit['se'], 'pull_Gamma_vs_pole': (fit['gamma'] + 2 * pole.imag) / fit['gamma_se']}
+    # (2) survival
+    ks = []
+    for j, t in enumerate(cf['times']):
+        hj = sample(Pt[t], cf['n_surv'], seed + 1000 + j); store[f'survival_slab{slab}_t{t}'] = hj
+        ks.append(int(hj[inside].sum()))
+    g, se, A = survival_fit(cf['times'], ks, [cf['n_surv']] * len(ks))
+    ginf, _, Ainf = survival_fit(cf['times'], [pin[t] * 1e9 for t in cf['times']], [1e9] * len(ks))
+    row['survival'] = {'times': cf['times'], 'records_per_time': cf['n_surv'], 'records': cf['n_surv'] * len(ks), 'seed_first': seed + 1000, 'found_inside': ks,
+                       'exact_P_inside': [float(pin[t]) for t in cf['times']], 'Gamma': g, 'se': se, 'A': A, 'Gamma_at_infinite_records': ginf,
+                       'pull_vs_pole': (g + 2 * pole.imag) / se,
+                       'exact_local_rate_min_max_in_window': [float(min(-np.log(pin[t + 5] / pin[t]) / 5 for t in cf['times'])), float(max(-np.log(pin[t + 5] / pin[t]) / 5 for t in cf['times']))]}
+    out['configs'][str(slab)] = row
+    cl, sv = row['clock'], row['survival']
+    print(f"slab {slab}: pole E_r={pole.real:.6f} Gamma={-2 * pole.imag:.6f} | inversion {row['harmonic_inversion_of_return_amplitude'][0]['E_r']:.6f} {row['harmonic_inversion_of_return_amplitude'][0]['Gamma']:.6f}")
+    print(f"  clock T={T} N={NCLOCK}: E_r={cl['phase']:.6f}+-{cl['se']:.6f} Gamma={cl['gamma']:.6f}+-{cl['gamma_se']:.6f} (infinite records: {inf['phase']:.6f}, {inf['gamma']:.6f}) weight={cl['weight']:.3f} window bins +-{cl['halfwidth_bins_second_pass']}")
+    print(f"  survival N={sv['records']}: Gamma={g:.6f}+-{se:.6f} (infinite records {ginf:.6f}; exact local rate {sv['exact_local_rate_min_max_in_window'][0]:.5f}..{sv['exact_local_rate_min_max_in_window'][1]:.5f})")
+np.savez_compressed('resonance_records.npz', **store)
+json.dump(out, open('resonance.json', 'w'), indent=1)

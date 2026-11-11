@@ -1,0 +1,146 @@
+"""T1: the P -> gauge -> v -> W, Z and P -> criticality -> H, t chain at P_C, P_fwd and P_br.
+
+Preregistered in PREREGISTRATION.md section 1 (formulas F1 to F11, gates V1 to V4).
+Writes t1_chain.json next to this file. Reads the private repository copy only.
+"""
+from __future__ import annotations
+
+import json
+import math
+import sys
+from pathlib import Path
+
+import lewlib as L
+
+OUT = L.LANE / "t1_chain.json"
+
+
+def ppm(a, b):
+    return 1e6 * (a / b - 1.0)
+
+
+def d11_engine_rows(chain: dict) -> dict:
+    """The repository's D11 scan engine (one- and two-loop SM, top Yukawa only) on this pixel's chart."""
+    cal = L.REPO / "code" / "particles" / "calibration"
+    if str(cal) not in sys.path:
+        sys.path.insert(0, str(cal))
+    scan = L.load_module("lew_d11scan", cal / "derive_d11_criticality_boundary_scan.py")
+    if not scan.TWO_LOOP_AVAILABLE:
+        raise RuntimeError("two-loop D11 engine not importable")
+    scan.ALPHA_Y_MZ = 0.6 * float(chain["alpha1"])
+    scan.ALPHA_2_MZ = float(chain["alpha2"])
+    scan.ALPHA_3_MZ = float(chain["alpha3"])
+    scan.MU_Z_OVER_E = float(chain["muZ_over_E"])
+    p = float(chain["P"])
+    au = float(chain["alpha_U"])
+    scales = scan.source_scales(p, au)
+    v = scales["v_transmutation_gev"]
+    mz = scales["mz_run_gev"]
+    rows = {}
+    for name in ("mu_U_gauge_unification", "log_midpoint_half_turn", "E_cell_pixel_energy", "E_star"):
+        rows[name] = {"one_loop": scan.run_boundary(scales[name], v, mz, loops=1),
+                      "two_loop": scan.run_boundary(scales[name], v, mz, loops=2)}
+    return {"scales_GeV": scales, "rows": rows}
+
+
+def main() -> int:
+    L.compile_drivers()
+    frozen = json.loads((L.AUDIT / "inputs.json").read_text())
+    ref = json.loads((L.AUDIT / "pdg2026_reference.json").read_text())["masses"]
+    refs = {k: float(ref[k]["central"]) for k in ("W", "Z", "H", "t")}
+    result = {"schema": "lew.t1_chain.v1", "preregistration_sha256":
+              "b8645e7f378fd585af77852b3c2f9d972e3617c344bc45494bf3b83e417cf8d7",
+              "references_compare_only_GeV": refs, "gates": {}, "pixels": {}}
+
+    chains = {name: L.d10_chain(p) for name, p in (("P_C", L.P_C), ("P_fwd", L.P_FWD), ("P_br", L.P_BR))}
+
+    # Gate V1 at P_br
+    bp = frozen["boundary_packet"]
+    cb = chains["P_br"]
+    v1 = {"alpha_U_rel": float(cb["alpha_U"]) / float(bp["alpha_U_decimal"]) - 1.0,
+          "Q0_rel": float(cb["muZ_over_E"]) * L.E_STAR_BRANCH / bp["Q0_GeV"] - 1.0,
+          "v_rel": float(cb["v_over_E"]) * L.E_STAR_BRANCH / bp["v_GeV"] - 1.0,
+          "g_rel": [float(cb[k]) / bp["gauge_Q0"][i] - 1.0 for i, k in enumerate(("g1_GUT", "g2", "g3"))]}
+    v1["pass"] = abs(v1["alpha_U_rel"]) < 1e-13 and all(abs(x) < 1e-12 for x in
+                                                         [v1["Q0_rel"], v1["v_rel"], *v1["g_rel"]])
+    result["gates"]["V1"] = v1
+
+    # Gate V3: frozen yt, lambda through the readout
+    pkb = L.packet_from_chain(cb)
+    pkb["yt"], pkb["lambda"] = frozen["couplings_Q0"]["yt"], frozen["couplings_Q0"]["lambda"]
+    out_frozen = L.readout(pkb)
+    v3 = {k: out_frozen[k] / frozen["imported_readouts"][k]["value_GeV"] - 1.0 for k in ("W", "Z", "H", "t")}
+    v3["pass"] = max(abs(x) for x in v3.values()) < 1e-9
+    result["gates"]["V3"] = v3
+
+    for name, chain in chains.items():
+        pk = L.packet_from_chain(chain)
+        crit = L.solve_criticality(pk, pk["mu_c"], loops=2)
+        pk["yt"], pk["lambda"] = crit["yt_Q0"], crit["lambda_Q0"]
+        out = L.readout(pk)
+        row = {"chain": chain, "packet_Q0": pk,
+               "criticality": {"mu_c_GeV": pk["mu_c"], "yt_Q0": crit["yt_Q0"], "lambda_Q0": crit["lambda_Q0"],
+                               "boundary_lambda": crit["boundary"]["lambda"],
+                               "boundary_beta_lambda": crit["boundary"]["beta_lambda"],
+                               "boundary_yt": crit["boundary"]["yt"],
+                               "newton_iterations": len(crit["iterations"])},
+               "smdr_outputs_GeV": out,
+               "residual_percent_compare_only": {k: 100.0 * (out[k] / refs[k] - 1.0) for k in refs},
+               "strict_chart": L.strict_chart(chain),
+               "d11_engine": d11_engine_rows(chain)}
+        if name == "P_br":
+            v2 = {"yt_rel": crit["yt_Q0"] / frozen["couplings_Q0"]["yt"] - 1.0,
+                  "lambda_rel": crit["lambda_Q0"] / frozen["couplings_Q0"]["lambda"] - 1.0}
+            v2["pass"] = abs(v2["yt_rel"]) < 1e-6 and abs(v2["lambda_rel"]) < 1e-6
+            result["gates"]["V2"] = v2
+            row["smdr_outputs_frozen_yt_lambda_GeV"] = out_frozen
+        result["pixels"][name] = row
+
+    # Gate V4: strict chart at P_fwd against the repository artifact
+    art = json.loads((L.REPO / "code" / "particles" / "runs" / "calibration"
+                      / "wzh_residual_elimination_boundary.json").read_text())
+    sc = result["pixels"]["P_fwd"]["strict_chart"]
+    two = art["two_law_display"]
+    v4 = {"MW_zero_rel": sc["zero_selector_law"]["MW_GeV"] / two["zero_selector_law"]["MW_GeV"] - 1.0,
+          "MZ_zero_rel": sc["zero_selector_law"]["MZ_GeV"] / two["zero_selector_law"]["MZ_GeV"] - 1.0,
+          "MW_carrier_rel": sc["carrier_value_law"]["MW_GeV"] / two["nonzero_carrier_law"]["MW_GeV"] - 1.0,
+          "MZ_carrier_rel": sc["carrier_value_law"]["MZ_GeV"] / two["nonzero_carrier_law"]["MZ_GeV"] - 1.0}
+    v4["pass"] = max(abs(x) for x in v4.values()) < 1e-12
+    result["gates"]["V4"] = v4
+
+    # What P_fwd changes
+    pf, pc, pb = (result["pixels"][k] for k in ("P_fwd", "P_C", "P_br"))
+    change = {}
+    for label, other in (("P_C_to_P_fwd", pc), ("P_br_to_P_fwd", pb)):
+        d = {"alpha_U_ppm": ppm(float(pf["chain"]["alpha_U"]), float(other["chain"]["alpha_U"])),
+             "v_ppm": ppm(float(pf["chain"]["v_over_E"]), float(other["chain"]["v_over_E"])),
+             "Q0_ppm": ppm(float(pf["chain"]["muZ_over_E"]), float(other["chain"]["muZ_over_E"])),
+             "g1_ppm": ppm(float(pf["chain"]["g1_GUT"]), float(other["chain"]["g1_GUT"])),
+             "g2_ppm": ppm(float(pf["chain"]["g2"]), float(other["chain"]["g2"])),
+             "g3_ppm": ppm(float(pf["chain"]["g3"]), float(other["chain"]["g3"])),
+             "yt_Q0_ppm": ppm(pf["criticality"]["yt_Q0"], other["criticality"]["yt_Q0"]),
+             "lambda_Q0_ppm": ppm(pf["criticality"]["lambda_Q0"], other["criticality"]["lambda_Q0"])}
+        for k in ("W", "Z", "H", "t"):
+            d[k + "_ppm"] = ppm(pf["smdr_outputs_GeV"][k], other["smdr_outputs_GeV"][k])
+            d[k + "_MeV"] = 1e3 * (pf["smdr_outputs_GeV"][k] - other["smdr_outputs_GeV"][k])
+        for law in ("zero_selector_law", "carrier_value_law"):
+            for k in ("MW_GeV", "MZ_GeV"):
+                d[f"strict_{law}_{k}_ppm"] = ppm(pf["strict_chart"][law][k], other["strict_chart"][law][k])
+        lm = "log_midpoint_half_turn"
+        for k in ("mt_pole_gev", "mh_tree_gev"):
+            d[f"d11_two_loop_midpoint_{k}_ppm"] = ppm(pf["d11_engine"]["rows"][lm]["two_loop"][k],
+                                                       other["d11_engine"]["rows"][lm]["two_loop"][k])
+        change[label] = d
+    result["what_P_fwd_changes"] = change
+    result["all_gates_pass"] = all(g["pass"] for g in result["gates"].values())
+    OUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"gates": {k: g["pass"] for k, g in result["gates"].items()},
+                      "outputs": {k: result["pixels"][k]["smdr_outputs_GeV"] for k in result["pixels"]},
+                      "residual_percent": {k: result["pixels"][k]["residual_percent_compare_only"]
+                                           for k in result["pixels"]},
+                      "change": change}, indent=1))
+    return 0 if result["all_gates_pass"] else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

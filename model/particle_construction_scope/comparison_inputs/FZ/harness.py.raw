@@ -1,0 +1,911 @@
+"""FZ harness: frozen comparison of the full source-derived spectrum.
+
+Protocol: PROTOCOL.md (SHA-256 in PROTOCOL.sha256), references.json, looks_L0.json (frozen with it).
+Reads the current values from RL/work/OM/obstruction_map.json (when it exists), RL/SPECTRUM.md and the lane
+result files named in registry.json; writes scoreboard.json and SCOREBOARD.md; keeps the look ledger.
+
+Run (from anywhere):
+  /tmp/oph-completion-venv/bin/python -I RL/work/FZ/harness.py
+Options: --ledger PATH (default RL/work/FZ/looks_ledger.json), --out-dir DIR (default RL/work/FZ).
+Every run that compares a value not compared before adds one look to that row (PROTOCOL.md section 6).
+"""
+import argparse
+import datetime
+import hashlib
+import json
+import math
+import os
+import re
+import sys
+from decimal import Decimal, InvalidOperation
+from fractions import Fraction
+
+FZ = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.abspath(os.path.join(FZ, "..", ".."))
+RER = "WORKSPACE/reverse-engineering-reality"
+
+CLASS_ORDER = {"OPEN": 0, "FIT": 1, "CONDITIONAL": 2, "SOURCE": 3}
+ROW_ORDER = ["L1", "L2", "L3", "L4", "L5", "L6", "L7",
+             "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q6i", "Q7", "Q8",
+             "C1", "C2", "C3", "C4", "C5",
+             "N1", "N2", "N3", "N4", "N5", "N6", "N7", "N8", "N9",
+             "E1", "E2", "E3", "E4", "E5", "E5o", "E6",
+             "H0", "H1", "H2", "H3", "H4", "H5", "G1", "G2"]
+OBSERVABLE = {
+    "L1": "m_e (pole)", "L2": "m_mu (pole)", "L3": "m_tau (pole)", "L4": "m_mu/m_e", "L5": "m_tau/m_e",
+    "L6": "m_tau/m_mu", "L7": "Koide Q",
+    "Q1": "m_u, MSbar 2 GeV", "Q2": "m_d, MSbar 2 GeV", "Q3": "m_s, MSbar 2 GeV", "Q4": "m_c(m_c)",
+    "Q5": "m_b(m_b)", "Q6": "m_t (pole; MSbar if stated)", "Q6i": "m_t direct (information)", "Q7": "m_u/m_d",
+    "Q8": "m_s/m_ud",
+    "C1": "sin theta12 (CKM)", "C2": "sin theta23 (CKM)", "C3": "sin theta13 (CKM)", "C4": "delta (CKM), rad",
+    "C5": "J (CKM)",
+    "N1": "Delta m^2_21 [eV^2]", "N2": "Delta m^2_31 [eV^2]", "N3": "Delta m^2_21/Delta m^2_31",
+    "N4": "sin^2 theta12 (PMNS)", "N5": "sin^2 theta23 (PMNS)", "N6": "sin^2 theta13 (PMNS)",
+    "N7": "delta_CP (PMNS), deg", "N8": "m_beta [eV]", "N9": "Dirac or Majorana",
+    "E1": "M_W", "E2": "M_Z", "E3": "M_H", "E4": "1/alpha(0)", "E5": "sin^2 theta_W, MSbar at M_Z",
+    "E5o": "sin^2 theta_W, on-shell", "E6": "alpha_s(M_Z), MSbar n_f = 5",
+    "H0": "nucleon, isospin average", "H1": "m_p", "H2": "m_n", "H3": "m_n - m_p", "H4": "m_pi0",
+    "H5": "m_rho(770)0", "G1": "photon mass", "G2": "gluon mass",
+}
+GROUPS = [("Charged leptons", "L"), ("Quarks", "Q"), ("CKM", "C"), ("Neutrinos", "N"),
+          ("Electroweak and couplings", "E"), ("Hadrons", "H"), ("Massless", "G")]
+LANES = ["EB", "GL", "LS", "TR", "QM", "NU3", "FR", "SS", "CK", "DR", "CM", "PM", "SC", "HT", "LW", "HD", "OM"]
+OM_ALIASES = {
+    "electron": "L1", "e": "L1", "e-": "L1", "muon": "L2", "mu": "L2", "tau": "L3",
+    "up": "Q1", "u": "Q1", "up quark": "Q1", "down": "Q2", "d": "Q2", "down quark": "Q2",
+    "strange": "Q3", "s": "Q3", "charm": "Q4", "c": "Q4", "bottom": "Q5", "b": "Q5", "top": "Q6", "t": "Q6",
+    "w": "E1", "w boson": "E1", "w+": "E1", "z": "E2", "z boson": "E2", "z0": "E2", "higgs": "E3", "h": "E3",
+    "proton": "H1", "p": "H1", "neutron": "H2", "n": "H2", "nucleon": "H0", "pi0": "H4", "pion": "H4",
+    "rho": "H5", "rho0": "H5", "photon": "G1", "gamma": "G1", "gluon": "G2", "g": "G2",
+}
+
+
+# ---------------------------------------------------------------- files and custody
+
+class Files:
+    def __init__(self):
+        self.read = {}       # token -> {"path", "sha256", "fallback"}
+        self.cache = {}
+
+    def resolve(self, token):
+        if token.startswith("RL/"):
+            return os.path.join(RL, token[3:]), False
+        if token.startswith("FZ/"):
+            return os.path.join(FZ, token[3:]), False
+        if token.startswith("RER/"):
+            for base in (RER, os.path.join(RL, "reverse-engineering-reality")):
+                p = os.path.join(base, token[4:])
+                if os.path.exists(p):
+                    return p, base != RER
+            fb = os.path.join(FZ, "lane_copies", "rer_" + os.path.basename(token))
+            return fb, True
+        return token, False
+
+    def text(self, token):
+        if token not in self.cache:
+            path, fb = self.resolve(token)
+            with open(path, "rb") as f:
+                raw = f.read()
+            self.read[token] = {"path": path, "sha256": hashlib.sha256(raw).hexdigest(), "fallback_copy": fb}
+            self.cache[token] = raw.decode("utf-8")
+        return self.cache[token]
+
+    def json(self, token):
+        return json.loads(self.text(token))
+
+
+def sha256_path(p):
+    with open(p, "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()
+
+
+def check_freeze():
+    proto = os.path.join(FZ, "PROTOCOL.md")
+    want = open(os.path.join(FZ, "PROTOCOL.sha256")).read().split()[0]
+    got = sha256_path(proto)
+    if got != want:
+        raise SystemExit(f"PROTOCOL.md changed: {got} != {want}")
+    frozen = dict(re.findall(r"^- `([^`]+)`: `([0-9a-f]{64})`$", open(proto, encoding="utf-8").read(), re.M))
+    for name in ("build_references.py", "references.json", "looks_L0.json"):
+        if sha256_path(os.path.join(FZ, name)) != frozen[name]:
+            raise SystemExit(f"{name} changed after the freeze")
+    refs = json.load(open(os.path.join(FZ, "references.json")))
+    for name, meta in refs["sources"].items():
+        if sha256_path(os.path.join(FZ, "sources", name)) != meta["sha256"]:
+            raise SystemExit(f"source copy {name} changed after the freeze")
+    return got, frozen
+
+
+# ---------------------------------------------------------------- SPECTRUM.md
+
+def parse_spectrum(text):
+    rows = {}
+    in_values = False
+    for line in text.splitlines():
+        if line.startswith("## "):
+            in_values = line.strip() == "## Values"
+            continue
+        if not in_values or not line.startswith("| "):
+            continue
+        cells = [c.strip() for c in line.strip().strip("|").split(" | ")]
+        if len(cells) < 4 or cells[0] in ("Particles", "---"):
+            continue
+        rows[cells[0]] = {"mechanism": cells[1], "value": cells[2], "status": " | ".join(cells[3:])}
+    return rows
+
+
+def norm(s):
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def leading_status_word(text):
+    m = re.search(r"\b(SOURCE|CONDITIONAL|FIT|OPEN|EXCLUDED)\b", text, re.I)
+    return m.group(1).upper() if m else None
+
+
+# ---------------------------------------------------------------- numbers
+
+def decimals_of(text):
+    t = text.strip()
+    if "/" in t:
+        return None  # exact rational
+    m = re.fullmatch(r"([+-]?\d*\.?\d*)(?:[eE]([+-]?\d+))?", t)
+    if not m:
+        return None
+    mant, exp = m.group(1), int(m.group(2) or 0)
+    d = len(mant.split(".")[1]) if "." in mant else 0
+    return d - exp
+
+
+def to_fraction(text):
+    try:
+        return Fraction(text.strip())
+    except (ValueError, ZeroDivisionError):
+        try:
+            return Fraction(Decimal(text.strip()))
+        except (InvalidOperation, ValueError):
+            return None
+
+
+def same_value(a, b):
+    """Equal within the rounding of the shorter decimal string (PROTOCOL.md section 6)."""
+    if a.startswith("[") or b.startswith("["):
+        if not (a.startswith("[") and b.startswith("[")):
+            return False
+        pa = [x.strip() for x in a.strip("[]").split(",")]
+        pb = [x.strip() for x in b.strip("[]").split(",")]
+        return len(pa) == len(pb) and all(same_value(x, y) for x, y in zip(pa, pb))
+    fa, fb = to_fraction(a), to_fraction(b)
+    if fa is None or fb is None:
+        return a.strip() == b.strip()
+    da, db = decimals_of(a), decimals_of(b)
+    ds = [d for d in (da, db) if d is not None]
+    if not ds:
+        return fa == fb
+    u = Fraction(1, 2) * Fraction(10) ** (-min(ds))
+    return abs(fa - fb) <= u * (1 + Fraction(1, 10 ** 9))
+
+
+def fmt(x, sig=10):
+    if x is None:
+        return ""
+    if isinstance(x, str):
+        return x
+    if x == 0:
+        return "0"
+    return f"{x:.{sig}g}"
+
+
+class Val:
+    def __init__(self, num=None, text=None, lo=None, hi=None, rank=3, string=None, errors=None, quotes=None):
+        self.num, self.text, self.lo, self.hi = num, text, lo, hi
+        self.rank, self.string = rank, string
+        self.errors = errors or []
+        self.quotes = quotes or []  # (file, text, present)
+
+    @property
+    def is_interval(self):
+        return self.lo is not None and self.hi is not None
+
+    @property
+    def has_value(self):
+        return self.num is not None or self.is_interval
+
+
+# ---------------------------------------------------------------- value specs
+
+class Evaluator:
+    def __init__(self, files, spectrum, registry):
+        self.files, self.spectrum = files, spectrum
+        self.lines = {ln["id"]: ln for ln in registry["lines"]}
+        self.vals = {}
+
+    def quote_present(self, q):
+        try:
+            return norm(q["text"]) in norm(self.files.text(q["file"]))
+        except FileNotFoundError:
+            return False
+
+    def line_val(self, lid):
+        if lid not in self.vals:
+            self.vals[lid] = Val(errors=["cycle"])
+            self.vals[lid] = self.ev(self.lines[lid]["value"])
+        return self.vals[lid]
+
+    def ev(self, spec):
+        try:
+            return self._ev(spec)
+        except Exception as e:  # an extractor failure is reported, never hidden
+            return Val(errors=[f"{type(e).__name__}: {e}"])
+
+    def _num_val(self, text, rank):
+        text = text.strip()
+        fr = to_fraction(text)
+        if fr is None:
+            return Val(string=text, text=text, rank=rank)
+        return Val(num=float(fr), text=text, rank=rank)
+
+    def _ev(self, spec):
+        if "spectrum" in spec:
+            s = spec["spectrum"]
+            row = self.spectrum.get(s["particles"])
+            if row is None:
+                return Val(errors=[f"SPECTRUM.md row '{s['particles']}' not found"])
+            m = re.search(s["regex"], row[s["column"]], re.M)
+            if not m:
+                return Val(errors=[f"SPECTRUM.md extractor failed: {s['regex']!r} on row '{s['particles']}'"])
+            return self._num_val(m.group(s.get("group", 1)), 2)
+        if "json" in spec:
+            s = spec["json"]
+            d = self.files.json(s["file"])
+            for part in [p for p in s["pointer"].split("/") if p]:
+                part = part.replace("~1", "/").replace("~0", "~")  # RFC 6901
+                d = d[int(part)] if isinstance(d, list) else d[part]
+            text = d if isinstance(d, str) else repr(d)
+            return self._num_val(text, 3)
+        if "text" in spec:
+            s = spec["text"]
+            m = re.search(s["regex"], self.files.text(s["file"]))
+            if not m:
+                return Val(errors=[f"text extractor failed: {s['regex']!r} in {s['file']}"])
+            return self._num_val(m.group(s.get("group", 1)), 3)
+        if "const" in spec:
+            q = spec.get("quote")
+            rank = 2 if q and q["file"] == "RL/SPECTRUM.md" else 3
+            v = self._num_val(spec["const"], rank)
+            if q:
+                present = self.quote_present(q)
+                v.quotes.append((q["file"], q["text"], present))
+                if not present:
+                    v.errors.append(f"quote for constant not found in {q['file']}: {q['text']!r}")
+            return v
+        if "none" in spec:
+            return Val(rank=3)
+        if "line" in spec:
+            return self.line_val(spec["line"])
+        if "op" in spec:
+            args = [self.ev(a) for a in spec["args"]]
+            errs = [e for a in args for e in a.errors]
+            quotes = [q for a in args for q in a.quotes]
+            rank = max([a.rank for a in args] or [3])
+            if errs or any(not a.has_value for a in args):
+                return Val(errors=errs or ["missing argument value"], rank=rank, quotes=quotes)
+            op = spec["op"]
+            if op == "interval":
+                lo, hi = args[0].num, args[1].num
+                return Val(lo=lo, hi=hi, text=f"[{fmt(lo, 12)}, {fmt(hi, 12)}]", rank=rank, quotes=quotes)
+            x = [a.num for a in args]
+            if op == "div":
+                r = x[0] / x[1]
+            elif op == "mul":
+                r = math.prod(x)
+            elif op == "avg":
+                r = sum(x) / len(x)
+            elif op == "square":
+                r = x[0] ** 2
+            elif op == "sin2deg":
+                r = math.sin(math.radians(x[0])) ** 2
+            elif op == "q_over_1pq":
+                r = x[0] / (1 + x[0])
+            elif op == "onshell":
+                r = 1 - (x[0] / x[1]) ** 2
+            elif op == "sin2_from_couplings":
+                r = x[1] / (x[0] + x[1])
+            elif op == "koide_from_ratios":
+                r = (1 + x[0] + x[1]) / (1 + math.sqrt(x[0]) + math.sqrt(x[1])) ** 2
+            else:
+                return Val(errors=[f"unknown op {op}"])
+            return Val(num=r, text=fmt(r, 12), rank=rank, quotes=quotes)
+        return Val(errors=[f"unknown spec {spec}"])
+
+
+# ---------------------------------------------------------------- verdicts (PROTOCOL.md sections 2 and 3)
+
+def scale_problem(row, line):
+    sc = line.get("scale")
+    need = None
+    if row in ("Q1", "Q2", "Q3"):
+        need = ["2 GeV"]
+    elif row == "Q4":
+        need = ["m_c"]
+    elif row == "Q5":
+        need = ["m_b"]
+    elif row in ("Q7", "Q8"):
+        need = ["2 GeV", "common <= m_t"]
+    elif row.startswith("C"):
+        need = ["low", "<= m_t", "M_Z"]
+    elif row in ("N1", "N2"):
+        need = ["low", None]
+    elif row == "E4":
+        need = ["q2=0"]
+    elif row in ("E5", "E6"):
+        need = ["M_Z"]
+    if need is None or sc in need:
+        return None
+    missing = {"E4": "transport to q^2 = 0", "E5": "running to M_Z", "E6": "running to M_Z"}.get(
+        row, "conversion to the reference scale")
+    return f"{missing} (value stated at: {sc})"
+
+
+def evaluate(row, ref, val, line):
+    """Return dict with verdict, z, rel, sigma_ref, sigma_th, ref_used, notes."""
+    out = {"verdict": None, "z": None, "rel": None, "sigma_ref": None, "sigma_th": 0.0, "ref_used": None,
+           "notes": []}
+    if line.get("nc_reason"):
+        out["verdict"], out["missing"] = "NC", line["nc_reason"]
+        return out
+    if val.errors:
+        out["verdict"], out["missing"] = "NC", "extraction failed: " + "; ".join(val.errors)
+        return out
+    if not val.has_value and val.string is None:
+        out["verdict"], out["missing"] = "OPEN", "no value"
+        return out
+    if ref["kind"] == "none":
+        out["verdict"], out["missing"] = "NC", "a measurement"
+        return out
+    sp = scale_problem(row, line)
+    if sp:
+        out["verdict"], out["missing"] = "NC", sp
+        return out
+    if val.string is not None:
+        out["verdict"], out["missing"] = "NC", "non-numeric value against a numeric reference"
+        return out
+    definition = (line.get("definition") or "").lower()
+    if ref["kind"] == "upper_limit":
+        p = val.lo if val.is_interval else val.num
+        out["ref_used"] = f"< {fmt(ref['limit'])} {ref['unit']}"
+        out["verdict"] = "BOUND-MET" if p <= ref["limit"] else "FAIL"
+        return out
+    # two-sided rows
+    R, sm, sp_ = ref["central"], ref["sigma_minus"], ref["sigma_plus"]
+    used = "primary reference"
+    if row == "Q6" and definition == "msbar":
+        alt = ref["alternate_msbar"]
+        R, sm, sp_ = alt["central"], alt["sigma_minus"], alt["sigma_plus"]
+        used = "MSbar m_t(m_t) reference"
+    elif row == "Q6" and definition not in ("pole", ""):
+        out["verdict"], out["missing"] = "NC", f"top mass definition '{definition}' has no reference"
+        return out
+    if row in ("E1", "E2") and definition == "complex_pole":
+        R = R - ref["pole_shift_GeV"]
+        used = "PDG mass minus Gamma^2/(2M)"
+    if row in ("E1", "E2", "E3") and definition == "tree":
+        out["notes"].append("tree-level value compared as it stands")
+    if row in ("E1", "E2") and definition != "complex_pole":
+        out["notes"].append(f"complex-pole shift of the reference would be -{fmt(ref['pole_shift_GeV'], 3)} GeV")
+    if row == "E5" and definition == "onshell":
+        out["notes"].append("on-shell value: compare with row E5o")
+    st = line.get("sigma_th") or {}
+    s_th = float(st.get("value", 0.0)) if st.get("origin") else 0.0
+    out["sigma_th"] = s_th
+    out["ref_used"] = f"{fmt(R)} -{fmt(sm, 3)} +{fmt(sp_, 3)} ({used})"
+    circular = row == "N7"
+
+    def zof(p):
+        d = p - R
+        if circular:
+            d = (d + 180.0) % 360.0 - 180.0
+        s = sp_ if d > 0 else sm
+        return d / math.sqrt(s * s + s_th * s_th), s, d
+
+    if val.is_interval:
+        lo_ok = val.lo <= R + 3 * math.sqrt(sp_ ** 2) and val.hi >= R - 3 * math.sqrt(sm ** 2)
+        za, _, _ = zof(val.lo)
+        zb, _, _ = zof(val.hi)
+        z = za if abs(za) < abs(zb) else zb
+        out["z"] = z
+        out["verdict"] = "MATCH" if lo_ok else "FAIL"
+        out["notes"].append("interval value; z of the nearer end")
+        return out
+    z, s, d = zof(val.num)
+    out["z"], out["sigma_ref"] = z, s
+    out["rel"] = (d / R) if R != 0 else None
+    out["verdict"] = "MATCH" if abs(z) <= 3 else "FAIL"
+    if out["verdict"] == "FAIL" and row in ("N5", "N7"):
+        out["notes"].append("indicative (octant or non-Gaussian profile)")
+    exact_int = bool(val.text) and "." not in val.text and "e" not in val.text.lower()
+    dec = decimals_of(val.text) if (val.text and not exact_int) else None
+    s_tot = math.sqrt(s * s + s_th * s_th)
+    if dec is not None and s_tot > 0:
+        u = 0.5 * 10 ** (-dec)
+        if u > s_tot:
+            out["notes"].append(f"value rounded to {dec} decimals: rounding {fmt(u, 2)} = {fmt(u / s_tot, 3)} sigma")
+    return out
+
+
+def standing(verdict, cls, flags):
+    if verdict not in ("MATCH", "BOUND-MET"):
+        return ""
+    if cls == "FIT":
+        return "CALIBRATION"
+    if cls in ("SOURCE", "CONDITIONAL"):
+        return "POSTDICTION, TARGET-INFORMED" if "TARGET-INFORMED-FORM" in flags else "POSTDICTION"
+    return ""
+
+
+# ---------------------------------------------------------------- OM map (tolerant reader; schema not seen yet)
+
+UNIT_SCALE = {"GeV": {"GeV": 1.0, "MeV": 1e-3, "keV": 1e-6, "eV": 1e-9, "meV": 1e-12},
+              "eV": {"GeV": 1e9, "MeV": 1e6, "keV": 1e3, "eV": 1.0, "meV": 1e-3},
+              "1": {"1": 1.0, "": 1.0}}
+
+
+def read_om(files, token, rules):
+    """OM map adapter (schema fz-read 2026-11-10: by_target -> rows -> mass.values[] with status, kind, unit, value).
+
+    For each registry rule (row, target, kinds, optional quantity/value regex) every matching entry of the target's
+    first OM row becomes an OM line, in OM's own order. Returns (lines, info) or (None, info) if the map is absent.
+    """
+    path, _ = files.resolve(token)
+    if not os.path.exists(path):
+        return None, {}
+    d = files.json(token)
+    orows = {r["id"]: r for r in d.get("rows", [])}
+    info = {"built_utc": d.get("built_utc"), "schema": d.get("schema"), "unparsed": [], "target_status": {}}
+    lines = []
+    for rule in rules:
+        bt = d.get("by_target", {}).get(rule["target"])
+        if not bt:
+            info["unparsed"].append(f"target {rule['target']} absent")
+            continue
+        info["target_status"][rule["target"]] = bt.get("status")
+        orow = orows.get(bt["rows"][0], {})
+        items = orow.get("status_items", [])
+        for i, ent in enumerate(orow.get("mass", {}).get("values", [])):
+            if ent.get("kind") not in rule["kinds"]:
+                continue
+            q = str(ent.get("quantity", ""))
+            if rule.get("quantity_regex") and not re.search(rule["quantity_regex"], q):
+                continue
+            raw = ent.get("value")
+            text, lo, hi, string = None, None, None, None
+            if rule.get("value_regex"):
+                m = re.search(rule["value_regex"], str(raw))
+                if not m:
+                    continue
+                if rule.get("interval"):
+                    lo, hi = m.group(rule["groups"][0]), m.group(rule["groups"][1])
+                else:
+                    text = m.group(rule.get("group", 1))
+                    if to_fraction(text) is None:
+                        string, text = text, None
+            elif isinstance(raw, (int, float)):
+                text = repr(raw)
+            elif isinstance(raw, str):
+                m = re.fullmatch(r"\s*([0-9.eE+-]+)\s+to\s+([0-9.eE+-]+)\s*", raw)
+                if m:
+                    lo, hi = m.group(1), m.group(2)
+                elif to_fraction(raw) is not None:
+                    text = raw
+                else:
+                    string = raw
+            unit = str(ent.get("unit", ""))
+            scale = UNIT_SCALE[rule.get("row_unit", "GeV")].get(unit)
+            if string is None and scale is None:
+                info["unparsed"].append(f"{rule['row']}: unit '{unit}' of '{q[:50]}'")
+                continue
+            if string is not None and rule.get("strings") is not True:
+                info["unparsed"].append(f"{rule['row']}: non-numeric '{string[:50]}' ({ent.get('status')})")
+                continue
+            val = Val(rank=1)
+            if string is not None:
+                val.string, val.text = string, string
+            elif lo is not None:
+                val.lo, val.hi = float(to_fraction(lo)) * scale, float(to_fraction(hi)) * scale
+                val.text = f"[{fmt(val.lo, 12)}, {fmt(val.hi, 12)}]"
+            else:
+                fr = to_fraction(text)
+                val.num = float(fr) * scale
+                val.text = text if scale == 1.0 else fmt(val.num, 12)
+            status = str(ent.get("status", "OPEN")).upper()
+            lines.append({"id": f"{rule['row']}.om{i}", "row": rule["row"], "val": val, "om_status": status,
+                          "target_status": bt.get("status"), "ignore_target_status": rule.get("ignore_target_status", False),
+                          "reading": f"OM: {q[:100]} ({ent.get('report', '')})", "om_items": items,
+                          "definition": rule.get("definition"), "scale": rule.get("scale")})
+    return lines, info
+
+
+# ---------------------------------------------------------------- main
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ledger", default=os.path.join(FZ, "looks_ledger.json"))
+    ap.add_argument("--out-dir", default=FZ)
+    args = ap.parse_args()
+
+    proto_sha, frozen = check_freeze()
+    files = Files()
+    refs = json.load(open(os.path.join(FZ, "references.json")))["rows"]
+    looks0 = json.load(open(os.path.join(FZ, "looks_L0.json")))
+    registry = json.load(open(os.path.join(FZ, "registry.json")))
+    added_path = os.path.join(FZ, "looks_added.json")
+    added = json.load(open(added_path)) if os.path.exists(added_path) else {"entries": []}
+    ledger = json.load(open(args.ledger)) if os.path.exists(args.ledger) else {"schema": "fz.looks_ledger.v1", "rows": {}}
+    now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    spectrum_text = files.text("RL/SPECTRUM.md")
+    spectrum = parse_spectrum(spectrum_text)
+    ev = Evaluator(files, spectrum, registry)
+    rowcfg = registry["rows"]
+    om_lines, om_info = read_om(files, registry["paths"]["OM_MAP"], registry.get("om_map", []))
+    om_stale = False
+    if om_lines is not None and om_info.get("built_utc"):
+        spec_mtime = datetime.datetime.fromtimestamp(os.path.getmtime(os.path.join(RL, "SPECTRUM.md")),
+                                                     datetime.timezone.utc)
+        om_built = datetime.datetime.strptime(om_info["built_utc"], "%Y-%m-%dT%H:%M:%SZ").replace(
+            tzinfo=datetime.timezone.utc)
+        om_stale = om_built < spec_mtime
+        om_info["spectrum_mtime_utc"] = spec_mtime.strftime("%Y-%m-%dT%H:%M:%SZ")
+        om_info["older_than_spectrum"] = om_stale
+
+    # evaluate registry lines
+    results = {}
+    for ln in registry["lines"]:
+        res = {"id": ln["id"], "row": ln["row"], "reading": ln["reading"], "reading_key": ln.get("reading_key"),
+               "definition": ln.get("definition"), "scale": ln.get("scale"), "flags": [], "notes": list(filter(None, [ln.get("notes")]))}
+        val = ev.line_val(ln["id"])
+        base = registry_line_inputs(ln, ev.lines)
+        inputs, lowered, excluded = base
+        # quotes of inputs
+        changed = False
+        for inp in inputs:
+            q = inp.get("quote")
+            inp["quote_present"] = ev.quote_present(q) if q else None
+            if q and not inp["quote_present"]:
+                changed = True
+        stated = min((inp["class"] for inp in inputs), key=lambda c: CLASS_ORDER[c]) if inputs else "OPEN"
+        status_from = rowcfg.get(ln["row"], {}).get("status_from")
+        if changed:
+            res["flags"].append("STATUS-CHANGED")
+            if status_from and status_from in spectrum:
+                w = leading_status_word(spectrum[status_from]["status"]) or "OPEN"
+                stated = "CONDITIONAL" if w == "EXCLUDED" else w
+        applied = stated
+        applied_by = []
+        for lw in lowered:
+            if ev.quote_present(lw["quote"]):
+                if CLASS_ORDER[lw["to"]] < CLASS_ORDER[applied]:
+                    applied = lw["to"]
+                applied_by.append(lw["item"])
+            else:
+                res["flags"].append("LOWERING-QUOTE-MISSING")
+        if excluded:
+            if ev.quote_present(excluded):
+                res["flags"].append("EXCLUDED")
+            else:
+                res["flags"].append("EXCLUSION-QUOTE-MISSING")
+        for (qf, qt, present) in val.quotes:
+            if not present:
+                res["flags"].append("VALUE-QUOTE-MISSING")
+        if not val.has_value and val.string is None:
+            applied = "OPEN"
+        for nq in ln.get("notes_quoted", []):
+            if ev.quote_present(nq["quote"]):
+                res["notes"].append(nq["text"])
+        lnx = dict(ln)
+        st = ln.get("sigma_th")
+        if st and "value_spec" in st:
+            sv = ev.ev(st["value_spec"])
+            lnx["sigma_th"] = {"value": sv.num, "origin": st["origin"]} if sv.num is not None else None
+            if sv.num is not None:
+                res["notes"].append(f"sigma_th {fmt(sv.num, 3)} from the lane: {st['origin']}")
+        verdict = evaluate(ln["row"], refs[ln["row"]], val, lnx)
+        vnotes = verdict.pop("notes", [])
+        res.update({
+            "value": val.num if not val.is_interval else [val.lo, val.hi], "value_text": val.text or val.string,
+            "rank": val.rank, "errors": val.errors, "class_stated": stated, "class": applied,
+            "lowered_by": applied_by, "inputs": inputs, **verdict,
+        })
+        res["notes"] += vnotes
+        results[ln["id"]] = res
+
+    # OM lines (precedence 1): a value equal to a registry line of the same row is that reading (inputs inherited)
+    om_results = {}
+    for ln in om_lines or []:
+        row, val = ln["row"], ln["val"]
+        match = None
+        for r in results.values():
+            if r["row"] == row and r["value_text"] and val.text and same_value(val.text, r["value_text"]):
+                match = r
+                break
+        flags = ["OM-OLDER-THAN-SPECTRUM"] if om_stale else []
+        if match:
+            cls_st, cls, inputs, lowered = match["class_stated"], match["class"], match["inputs"], match["lowered_by"]
+            flags += [f for f in match["flags"] if f not in flags]
+            reading = match["reading"] + " (OM map)"
+            match["notes"].append(f"also in the OM map as {ln['id']}")
+        else:
+            st = ln["om_status"]
+            cls_st = cls = st if st in CLASS_ORDER else "CONDITIONAL"
+            if st == "EXCLUDED":
+                flags.append("EXCLUDED")
+            flags.append("OM-ONLY-READING")
+            inputs = [{"item": f"OM status {st}; named items: {', '.join(ln['om_items'])}", "class": cls,
+                       "quote": None, "lanes": ["OM"]}]
+            lowered, reading = [], ln["reading"]
+        verdict = evaluate(row, refs[row], val, {"definition": ln["definition"], "scale": ln["scale"]})
+        vnotes = verdict.pop("notes", [])
+        om_results[ln["id"]] = {"id": ln["id"], "row": row, "reading": reading, "reading_key": "om",
+                                "definition": ln["definition"], "scale": ln["scale"], "flags": flags,
+                                "notes": vnotes,
+                                "value": val.num if not val.is_interval else [val.lo, val.hi],
+                                "value_text": val.text, "rank": 1, "errors": [], "class_stated": cls_st,
+                                "class": cls, "lowered_by": lowered, "inputs": inputs, **verdict,
+                                "om_status": ln["om_status"], "duplicate_of": match["id"] if match else None,
+                                "target_status": ln["target_status"],
+                                "ignore_target_status": ln["ignore_target_status"]}
+
+    # conflicts within one reading
+    by_key = {}
+    for r in results.values():
+        if r["reading_key"] and r["value_text"] and r["value"] is not None:
+            by_key.setdefault((r["row"], r["reading_key"]), []).append(r)
+    for group in by_key.values():
+        for i in range(len(group)):
+            for j in range(i + 1, len(group)):
+                a, b = group[i], group[j]
+                if not same_value(a["value_text"], b["value_text"]):
+                    for x, y in ((a, b), (b, a)):
+                        x["flags"].append("CONFLICT")
+                        x["notes"].append(f"differs from {y['id']} ({y['value_text']}) beyond rounding")
+
+    # rows: primary selection, looks, flags
+    lo_rows = looks0["rows"]
+    rows_out = {}
+    for row in ROW_ORDER:
+        cfg = rowcfg.get(row, {})
+        ref = refs.get(row) or refs.get("Q6i")
+        row_flags = list(lo_rows.get(row, {}).get("flags", []))
+        lines = [r for r in results.values() if r["row"] == row]
+        oml = [r for r in om_results.values() if r["row"] == row]
+        for r in lines + oml:
+            for f in row_flags:
+                if f not in r["flags"]:
+                    r["flags"].append(f)
+            r["standing"] = standing(r["verdict"], r["class"], r["flags"])
+        status_from = cfg.get("status_from")
+        word = leading_status_word(spectrum[status_from]["status"]) if status_from in spectrum else None
+        primary = None
+        why = ""
+        if row == "Q6i" and "Q6" in rows_out and rows_out["Q6"]["primary"].get("value") is not None:
+            q6 = rows_out["Q6"]["primary"]
+            val = Val(num=q6["value"], text=q6["value_text"], rank=q6["rank"])
+            primary = dict(q6, id="Q6i.info", row="Q6i", flags=list(q6["flags"]) + ["INFORMATION"], notes=[])
+            primary.update(evaluate("Q6i", refs["Q6i"], val, {"definition": "pole"}))
+            primary["standing"] = ""
+            why = "the Q6 primary value against the direct (Monte Carlo) mass"
+        elif oml and not oml[0]["ignore_target_status"] and oml[0]["target_status"] in ("OPEN", "EXCLUDED"):
+            primary = open_line(row, f"OM map status {oml[0]['target_status']} for this target; missing: "
+                                     f"{cfg.get('open_missing', '')}", cfg)
+            why = "OM map (precedence 1), target status " + oml[0]["target_status"]
+        elif oml and any(r["om_status"] in ("SOURCE", "CONDITIONAL") for r in oml):
+            primary = next(r for r in oml if r["om_status"] in ("SOURCE", "CONDITIONAL"))
+            why = "OM map (precedence 1)" + (", built before the last SPECTRUM.md change" if om_stale else "")
+            cands = [r for r in lines if registry_line(registry, r["id"]).get("primary_candidate")]
+            if cands:
+                best = sorted(cands, key=lambda r: r["rank"])[0]
+                if best["value_text"] and primary["value_text"] and not same_value(best["value_text"], primary["value_text"]):
+                    for x, y in ((primary, best), (best, primary)):
+                        x["flags"].append("CONFLICT")
+                        x["notes"].append(f"differs from {y['id']} ({y['value_text']})")
+        elif word in ("OPEN", "EXCLUDED"):
+            primary = open_line(row, f"lane status {word} in SPECTRUM.md row '{status_from}'; missing: {cfg.get('open_missing', '')}", cfg)
+            why = f"SPECTRUM.md status {word}"
+        else:
+            cands = [r for r in lines if registry_line(registry, r["id"]).get("primary_candidate")]
+            if cands:
+                primary = sorted(cands, key=lambda r: r["rank"])[0]
+                why = {1: "OM map", 2: "SPECTRUM.md (precedence 2)", 3: "lane result file (precedence 3)"}[primary["rank"]]
+            else:
+                primary = open_line(row, f"no value; missing: {cfg.get('open_missing', '')}", cfg)
+                why = "no value line"
+        secondary = [r for r in lines + oml if r is not primary and not (r.get("duplicate_of") and r.get("rank") == 1)]
+        # looks
+        L0 = int(lo_rows.get(row, {}).get("L0", 0))
+        seen = list(lo_rows.get(row, {}).get("seen_values", []))
+        L_added = sum(e["n"] for e in added.get("entries", []) if row in e["rows"])
+        led = ledger["rows"].setdefault(row, [])
+        for r in [primary] + secondary:
+            if r.get("verdict") not in ("MATCH", "FAIL", "BOUND-MET") or not r.get("value_text"):
+                continue
+            known = seen + [e["value"] for e in led]
+            if not any(same_value(r["value_text"], k) for k in known):
+                led.append({"value": r["value_text"], "line": r["id"], "run_utc": now})
+        L = L0 + L_added + len(led)
+        rows_out[row] = {
+            "observable": OBSERVABLE[row], "reference": ref, "primary": primary, "primary_from": why,
+            "secondary": secondary, "flags": row_flags,
+            "looks": {"L0": L0, "L_added": L_added, "L_run": len(led), "L": L,
+                      "bits": round(math.log2(L), 2) if L > 0 else 0.0},
+            "lane_status_word": word, "information_only": bool(cfg.get("information_only")),
+        }
+
+    # summary of primary lines
+    summary = {}
+    for row, ro in rows_out.items():
+        if ro["information_only"]:
+            continue
+        p = ro["primary"]
+        key = f"{p['verdict']} / {p['class']}"
+        summary.setdefault(key, []).append(row)
+
+    # lane map: rows whose primary line names the lane in an input or whose missing items name it
+    lane_map = {ln: {"value_or_class_rows": [], "open_rows": []} for ln in LANES}
+    for row, ro in rows_out.items():
+        cfg = rowcfg.get(row, {})
+        named = set()
+        for r in [ro["primary"]] + ro["secondary"]:
+            for inp in r.get("inputs", []):
+                named.update(inp.get("lanes", []))
+        for ln in LANES:
+            if ln in named or (ln in cfg.get("lanes", []) and ro["primary"]["verdict"] != "OPEN"):
+                lane_map[ln]["value_or_class_rows"].append(row)
+            if ro["primary"]["verdict"] == "OPEN" and ln in cfg.get("lanes", []):
+                lane_map[ln]["open_rows"].append(row)
+    lane_map["OM"]["value_or_class_rows"] = [r for r in ROW_ORDER if r != "Q6i"]
+
+    os.makedirs(args.out_dir, exist_ok=True)
+    with open(args.ledger, "w") as f:
+        json.dump(ledger, f, indent=1)
+        f.write("\n")
+    meta = {
+        "run_utc": now, "protocol_sha256": proto_sha, "frozen": frozen,
+        "registry_sha256": sha256_path(os.path.join(FZ, "registry.json")),
+        "looks_added_sha256": sha256_path(added_path) if os.path.exists(added_path) else None,
+        "ledger": os.path.abspath(args.ledger), "rer_checkout_present": os.path.isdir(RER),
+        "om_map_present": om_lines is not None, "om_map": om_info,
+        "files_read": files.read,
+    }
+    board = {"schema": "fz.scoreboard.v1", "meta": meta, "summary_primary": summary, "rows": rows_out,
+             "lane_map": lane_map}
+    with open(os.path.join(args.out_dir, "scoreboard.json"), "w") as f:
+        json.dump(board, f, indent=1, default=str)
+        f.write("\n")
+    with open(os.path.join(args.out_dir, "SCOREBOARD.md"), "w") as f:
+        f.write(render_md(board))
+    print_console(board)
+
+
+def registry_line(registry, lid):
+    for ln in registry["lines"]:
+        if ln["id"] == lid:
+            return ln
+    return {}
+
+
+def registry_line_inputs(ln, all_lines):
+    """Inputs, lowering entries and exclusion of a line, following inherit_inputs."""
+    seen = set()
+    src = ln
+    lowered = list(ln.get("lowered_by", [])) + list(ln.get("extra_lowered_by", []))
+    excluded = ln.get("excluded")
+    while "inputs" not in src and src.get("inherit_inputs") and src["id"] not in seen:
+        seen.add(src["id"])
+        src = all_lines[src["inherit_inputs"]]
+        lowered += list(src.get("lowered_by", [])) + list(src.get("extra_lowered_by", []))
+        if excluded is None:
+            excluded = src.get("excluded")
+    inputs = [dict(i) for i in src.get("inputs", [])]
+    return inputs, lowered, excluded
+
+
+def open_line(row, why, cfg):
+    return {"id": f"{row}.open", "row": row, "reading": "no live value", "reading_key": None, "definition": None,
+            "scale": None, "flags": [], "notes": [], "value": None, "value_text": None, "rank": 0, "errors": [],
+            "class_stated": "OPEN", "class": "OPEN", "lowered_by": [], "inputs": [], "verdict": "OPEN",
+            "missing": why, "z": None, "rel": None, "sigma_ref": None, "sigma_th": 0.0, "ref_used": None,
+            "standing": ""}
+
+
+# ---------------------------------------------------------------- output
+
+def ref_text(ref):
+    if ref is None:
+        return ""
+    if ref["kind"] == "none":
+        return "none: " + (ref.get("quoted") or "")
+    if ref["kind"] == "upper_limit":
+        return f"< {fmt(ref['limit'])} {ref['unit']}"
+    return f"{fmt(ref['central'])} -{fmt(ref['sigma_minus'], 3)} +{fmt(ref['sigma_plus'], 3)} {ref['unit']}"
+
+
+def line_md(row, r, primary):
+    val = r.get("value_text") or ""
+    z = "" if r.get("z") is None else f"{r['z']:+.3g}"
+    rel = "" if r.get("rel") is None else f"{r['rel']:+.3g}"
+    cls = r["class"] if r["class"] == r["class_stated"] else f"{r['class_stated']} -> {r['class']}"
+    flags = ", ".join(sorted(set(r.get("flags", []))))
+    extra = r.get("missing") or ""
+    if r.get("lowered_by"):
+        extra = (extra + "; " if extra else "") + "lowered: " + "; ".join(r["lowered_by"])
+    if r.get("notes"):
+        extra = (extra + "; " if extra else "") + "; ".join(r["notes"])
+    tag = "P" if primary else "s"
+    return (f"| {row} | {tag} | {r['reading']} | {val} | {z} | {rel} | **{r['verdict']}** | {cls} | {flags} | "
+            f"{r.get('standing', '')} | {extra} |")
+
+
+def render_md(board):
+    m = board["meta"]
+    out = ["# FZ scoreboard: the full source-derived spectrum against measurement", "",
+           f"Run {m['run_utc']} under `PROTOCOL.md` (SHA-256 `{m['protocol_sha256']}`); registry SHA-256 "
+           f"`{m['registry_sha256']}`. Generated by `harness.py`; do not edit by hand. Exposure of every row: "
+           "retrospective known data (PROTOCOL.md section 0). RER checkout present: "
+           f"{m['rer_checkout_present']} (the checkout at `RL/reverse-engineering-reality` or the byte copies in "
+           f"`lane_copies/` are used when it is absent). OM map present: {m['om_map_present']}"
+           + (f", built {m['om_map'].get('built_utc')}; older than SPECTRUM.md ({m['om_map'].get('spectrum_mtime_utc')}): "
+              f"{m['om_map'].get('older_than_spectrum')}. Precedence: OM map, then SPECTRUM.md, then lane files "
+              "(PROTOCOL.md section 5); rebuild the OM map after every SPECTRUM.md change."
+              if m['om_map_present'] else "."), "",
+           "Columns: P primary line, s secondary line. z = (value - reference)/sqrt(sigma_ref^2 + sigma_th^2), "
+           "sigma_th = 0 unless the lane ships one with its origin. Class: stated by the lane -> applied after "
+           "the cited lowering (never raised). Standing: POSTDICTION, POSTDICTION TARGET-INFORMED, CALIBRATION "
+           "(PROTOCOL.md section 7). Derived rows are correlated with their parents; the counts below are not "
+           "independent tests.", "", "## Summary of primary lines", "",
+           "| Verdict / class | Rows |", "| --- | --- |"]
+    for k in sorted(board["summary_primary"]):
+        out.append(f"| {k} | {', '.join(board['summary_primary'][k])} |")
+    out.append("")
+    for title, prefix in GROUPS:
+        out += [f"## {title}", "",
+                "| Row | Observable | Reference | Primary from | Looks L (bits) |", "| --- | --- | --- | --- | --- |"]
+        rows = [r for r in ROW_ORDER if r.startswith(prefix)]
+        for row in rows:
+            ro = board["rows"][row]
+            lk = ro["looks"]
+            out.append(f"| {row} | {ro['observable']} | {ref_text(ro['reference'])} | {ro['primary_from']} | "
+                       f"{lk['L']} ({lk['bits']}) = {lk['L0']} + {lk['L_added']} + {lk['L_run']} |")
+        out += ["", "| Row | | Reading | Value | z | rel. dev. | Verdict | Class | Flags | Standing | Notes |",
+                "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+        for row in rows:
+            ro = board["rows"][row]
+            out.append(line_md(row, ro["primary"], True))
+            for s in ro["secondary"]:
+                out.append(line_md(row, s, False))
+        out.append("")
+    out += ["## Rows each lane can change (from the registry; PROTOCOL.md section 9 has the frozen table)", "",
+            "| Lane | Rows with a value or class that names the lane | OPEN rows the lane is expected to fill |",
+            "| --- | --- | --- |"]
+    for ln, d in board["lane_map"].items():
+        out.append(f"| {ln} | {', '.join(d['value_or_class_rows'])} | {', '.join(d['open_rows'])} |")
+    out += ["", "## Files read", "", "| File | SHA-256 | Copy used |", "| --- | --- | --- |"]
+    for tok, d in sorted(m["files_read"].items()):
+        out.append(f"| `{tok}` | `{d['sha256'][:16]}...` | {'yes' if d['fallback_copy'] else ''} |")
+    out.append("")
+    return "\n".join(out)
+
+
+def print_console(board):
+    print(f"run {board['meta']['run_utc']}  protocol {board['meta']['protocol_sha256'][:16]}")
+    for row in ROW_ORDER:
+        ro = board["rows"][row]
+        p = ro["primary"]
+        z = "" if p.get("z") is None else f"z={p['z']:+.3g}"
+        print(f"{row:4s} {ro['observable'][:30]:30s} {str(p.get('value_text') or ''):>22s} {p['verdict']:9s} "
+              f"{p['class']:11s} {z:14s} L={ro['looks']['L']:<4d} {p.get('standing', '')}"
+              + (f"  [{(p.get('missing') or '')[:70]}]" if p['verdict'] in ('NC', 'OPEN') else ""))
+    print("summary:", json.dumps(board["summary_primary"]))
+
+
+if __name__ == "__main__":
+    main()

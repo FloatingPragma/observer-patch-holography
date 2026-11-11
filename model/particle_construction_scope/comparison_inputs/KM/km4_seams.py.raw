@@ -1,0 +1,109 @@
+"""Item 4, dependence on the defect: which seam is flipped, how far apart the two flux faces are, which phase.
+
+Honeycomb federation, bridge gluing, lattice Green function method of km4_tmatrix.py.
+  A. all thirty template seams, families H (N = 16, 64, 256) and T (N = 32, 128, 512): spread of E0.
+  B. the two flux faces at dual distance 1..5 inside one carrier (a string of flipped seams along a shortest dual
+     path), family T, n = 1, 2, 4, 8, 16, 32, 64; charge phases 1/2 (central sign), 1/3, 1/6.
+     n = 1 is every up carrier (N = 2); the isolated-carrier values of work/DIRAC/defect_phases.json are printed
+     beside it.
+usage: python km4_seams.py <out.json> <processes>
+"""
+import json, sys, time
+from collections import deque
+import numpy as np
+from multiprocessing import Pool
+import km_lib as K
+import km4_tmatrix as T
+
+
+def seam_task(task):
+    fam, n, seam = task
+    tpl = K.Template('scalar', 'bridge')
+    defects = K.honeycomb_family(n, seam, -1.0) if fam == 'H' else [((0, 0), 0, seam, -1.0)]
+    fo = T.Folded(tpl, n, (0.0, 0.0), defects)
+    E0 = fo.lowest(); d = len(defects)
+    return {'family': fam, 'n': n, 'seam': seam, 'N': 2 * n * n / d, 'E0': E0, 'N_E0': 2 * n * n / d * E0}
+
+
+# dual graph of the template carrier
+FACE_OF = {e: [i for i, f in enumerate(K.F) if set(K.E[e]) <= set(f)] for e in range(30)}
+DUAL = {i: [] for i in range(20)}
+for e, (f, g) in FACE_OF.items():
+    DUAL[f].append((g, e)); DUAL[g].append((f, e))
+
+
+def dual_path(f1, f2):
+    prev = {f1: None}; q = deque([f1])
+    while q:
+        f = q.popleft()
+        if f == f2: break
+        for g, e in DUAL[f]:
+            if g not in prev:
+                prev[g] = (f, e); q.append(g)
+    path = []; f = f2
+    while prev[f] is not None:
+        f, e = prev[f]; path.append((e, f))
+    return path[::-1]                                      # list of (seam crossed, face left)
+
+
+def orient(e, f):
+    """+1 if the seam (a, b), a < b, runs a -> b along the outward orientation of face f (vertices by geometry)."""
+    a, b = K.E[e]; tri = list(K.F[f])
+    c = [v for v in tri if v not in (a, b)][0]
+    nrm = np.cross(K.PV[b] - K.PV[a], K.PV[c] - K.PV[a])
+    return 1 if nrm @ (K.PV[a] + K.PV[b] + K.PV[c]) > 0 else -1
+
+
+def string_defects(dist, alpha):
+    f1 = FACE_OF[0][0]
+    f2 = next(f for f in range(20) if len(dual_path(f1, f)) == dist)
+    out = []
+    for e, f in dual_path(f1, f2):
+        w = np.exp(2j * np.pi * alpha * orient(e, f))
+        out.append(((0, 0), 0, e, -1.0 if abs(alpha - 0.5) < 1e-12 else w))
+    return out
+
+
+def isolated(defects):
+    L = np.zeros((12, 12), complex)
+    ph = {e: w for _, _, e, w in defects}
+    for e, (a, b) in enumerate(K.E):
+        z = ph.get(e, 1.0)
+        L[a, a] += 1; L[b, b] += 1; L[b, a] -= z; L[a, b] -= np.conj(z)
+    return float(np.linalg.eigvalsh(L)[0])
+
+
+def string_task(task):
+    n, dist, aname, alpha = task
+    tpl = K.Template('scalar', 'bridge')
+    defects = string_defects(dist, alpha)
+    if n == 1:
+        E0 = float(np.linalg.eigvalsh(tpl.cell_matrix((0, 0), [(t, e, w) for _, t, e, w in defects]))[0])
+    else:
+        E0 = T.Folded(tpl, n, (0.0, 0.0), defects).lowest()
+    born = sum(abs(1 - w) ** 2 for *_, w in defects) / (24 * n * n)
+    return {'n': n, 'N': 2 * n * n, 'separation': dist, 'alpha': aname, 'flipped_seams': len(defects), 'E0': E0, 'N_E0': 2 * n * n * E0,
+            'first_order_E': float(born), 'isolated_carrier': isolated(defects)}
+
+
+if __name__ == '__main__':
+    outp, procs = sys.argv[1], int(sys.argv[2])
+    out = {}
+    with Pool(procs) as pool:
+        res = pool.map(seam_task, [(fam, n, s) for fam in ('H', 'T') for n in (4, 8, 16) for s in range(30)])
+        out['A_seams'] = res
+        for fam in ('H', 'T'):
+            for n in (4, 8, 16):
+                v = np.array([r['N_E0'] for r in res if r['family'] == fam and r['n'] == n]); N = [r['N'] for r in res if r['family'] == fam and r['n'] == n][0]
+                print(f'A family {fam} n={n:3d} N={N:5.0f}: N E0 over the 30 seams: min {v.min():.6f} max {v.max():.6f} mean {v.mean():.6f} spread {(v.max() - v.min()) / v.mean():.3%}; seam 0: {v[0]:.6f}; '
+                      f'1/(N E0) in [{1 / v.max():.4f}, {1 / v.min():.4f}]; distinct values {len(set(np.round(v, 9)))}', flush=True)
+        json.dump(out, open(outp, 'w'), indent=1)
+        tasks = [(n, d, an, al) for n in (1, 2, 4, 8, 16, 32, 64) for an, al in (('1/2', 0.5), ('1/3', 1 / 3), ('1/6', 1 / 6)) for d in (1, 2, 3, 4, 5)]
+        res = pool.map(string_task, tasks)
+        out['B_strings'] = res
+        for an in ('1/2', '1/3', '1/6'):
+            for d in (1, 2, 3, 4, 5):
+                rs = sorted([r for r in res if r['alpha'] == an and r['separation'] == d], key=lambda r: r['n'])
+                print(f"B alpha {an} separation {d} ({rs[0]['flipped_seams']} seams): isolated carrier {rs[0]['isolated_carrier']:.6f}; N E0 at N = " +
+                      ', '.join(f"{r['N']}: {r['N_E0']:.5f}" for r in rs), flush=True)
+        json.dump(out, open(outp, 'w'), indent=1)

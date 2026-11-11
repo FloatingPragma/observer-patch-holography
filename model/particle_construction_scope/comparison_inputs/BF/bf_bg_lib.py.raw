@@ -1,0 +1,173 @@
+"""BF background-field library: one-loop vacuum energy of a charged link field in a uniform flux.
+
+Field: complex link field W of charge q under the background generator, effective flux phi = q * (flux) per
+plaquette of the flux plane (directions 1 and 2). Landau gauge: background phase on the 2-links, theta_x = phi x.
+Fourier in direction 2 (k2), Bloch in direction 1 with magnetic cell n (phi n = 2 pi).
+
+Plaquette form (derived in CANDIDATES.md, section D; checked against finite differences in bf_bg_validate.py):
+  b1 = xi a_x,  b2 = v_{x+1},  b3 = -xi exp(i theta_{x+1}) a_x,  b4 = -exp(i phi) v_x,   theta_x = phi x + k2
+  Q_x = C |b1 + b2 + b3 + b4|^2 - 2 S sum_{l<m} Im(b_l conj(b_m))
+with a = W_1, v = W_2 (W_2 rescaled by xi when direction 2 is time with step a/xi; xi = 1 for a space-like plane).
+Gauge direction (chi_x - chi_{x+1}, xi (1 - exp(i theta_x)) chi_x); gauge fixing |a_x - a_{x-1} + xi (1 - exp(-i theta_x)) v_x|^2.
+The two free directions separate: the physical one-loop spectrum is lambda_i + (free-direction Laplacian), lambda_i the
+eigenvalues of the gauge-fixed two-dimensional operator on (a, v); the other two components cancel the ghosts.
+"""
+import numpy as np
+from scipy.linalg import eig_banded
+from scipy.special import ellipe, ellipk, ellipkm1
+
+_GLX, _GLW = np.polynomial.legendre.leggauss(16)
+_NP = 24                                                   # panels in the mapped variable
+
+
+def local_blocks(n, phi, C, S, xi, k2, bloch):
+    """3 x 3 plaquette blocks on (a_x, v_x, v_{x+1}) and gauge-fixing rows on (a_{x-1}, a_x, v_x), all x."""
+    x = np.arange(n)
+    th1 = phi * (x + 1) + k2
+    th0 = phi * x + k2
+    wrap_fwd = np.where(x == n - 1, bloch, 1.0 + 0j)        # v_{x+1} at the cell boundary
+    wrap_bwd = np.where(x == 0, np.conj(bloch), 1.0 + 0j)   # a_{x-1} at the cell boundary
+    B = np.zeros((n, 4, 3), complex)
+    B[:, 0, 0] = xi
+    B[:, 1, 2] = wrap_fwd
+    B[:, 2, 0] = -xi * np.exp(1j * th1)
+    B[:, 3, 1] = -np.exp(1j * phi)
+    s = B.sum(axis=1)
+    M = C * np.einsum('xi,xj->xij', s.conj(), s)
+    for l in range(4):
+        for m in range(l + 1, 4):
+            X = np.einsum('xi,xj->xij', B[:, m].conj(), B[:, l])
+            M += -2 * S * (X - np.conj(np.swapaxes(X, 1, 2))) / 2j
+    Gr = np.zeros((n, 3), complex)
+    Gr[:, 0] = -wrap_bwd
+    Gr[:, 1] = 1.0
+    Gr[:, 2] = xi * (1 - np.exp(-1j * th0))
+    return M, Gr
+
+
+def _order(n):
+    order = np.empty(n, int)
+    order[0::2] = np.arange((n + 1) // 2)
+    order[1::2] = n - 1 - np.arange(n // 2)
+    pos = np.empty(n, int)
+    pos[order] = np.arange(n)
+    return pos
+
+
+def assemble(n, phi, C, S, xi=1.0, k2=0.0, kappa1=0.0, gauge_fix=True, dense=False):
+    """Hermitian matrix of the two-dimensional operator. Returns dense (2n x 2n) or upper banded storage (u = 5)."""
+    M, Gr = local_blocks(n, phi, C, S, xi, k2, np.exp(1j * kappa1))
+    pos = _order(n) if not dense else np.arange(n)
+    x = np.arange(n)
+    ip = np.stack([2 * pos[x], 2 * pos[x] + 1, 2 * pos[(x + 1) % n] + 1], axis=1)       # plaquette block indices
+    ig = np.stack([2 * pos[(x - 1) % n], 2 * pos[x], 2 * pos[x] + 1], axis=1)           # gauge-fixing indices
+    rows = [np.repeat(ip[:, :, None], 3, axis=2).ravel()]
+    cols = [np.repeat(ip[:, None, :], 3, axis=1).ravel()]
+    vals = [M.ravel()]
+    if gauge_fix:
+        GG = np.einsum('xi,xj->xij', Gr.conj(), Gr)
+        rows.append(np.repeat(ig[:, :, None], 3, axis=2).ravel())
+        cols.append(np.repeat(ig[:, None, :], 3, axis=1).ravel())
+        vals.append(GG.ravel())
+    rows, cols, vals = np.concatenate(rows), np.concatenate(cols), np.concatenate(vals)
+    N = 2 * n
+    if dense:
+        A = np.zeros((N, N), complex)
+        np.add.at(A, (rows, cols), vals)
+        return A
+    u = 5
+    if n < 8:
+        raise ValueError('banded storage needs n >= 8')
+    keep = cols >= rows
+    assert np.all(np.abs(cols - rows) <= u), 'bandwidth'
+    ab = np.zeros((u + 1, N), complex)
+    np.add.at(ab, (u + rows[keep] - cols[keep], cols[keep]), vals[keep])
+    return ab
+
+
+def spectrum(n, phi, C, S, xi=1.0, k2=0.0, kappa1=0.0):
+    if n < 8:
+        return np.linalg.eigvalsh(assemble(n, phi, C, S, xi, k2, kappa1, dense=True))
+    ab = assemble(n, phi, C, S, xi, k2, kappa1)
+    return eig_banded(ab, lower=False, eigvals_only=True, overwrite_a_band=True, check_finite=False)
+
+
+def gauge_mode(n, phi, xi, k2, kappa1, chi):
+    """the gauge direction of a site function chi (dense ordering)."""
+    x = np.arange(n)
+    bl = np.exp(1j * kappa1)
+    chi_next = np.roll(chi, -1) * np.where(x == n - 1, bl, 1.0)
+    w = np.zeros(2 * n, complex)
+    w[0::2] = chi - chi_next
+    w[1::2] = xi * (1 - np.exp(1j * (phi * x + k2))) * chi
+    return w
+
+
+# ------------------------------------------------------------------------------------ free-direction integrals
+def F(lam, xi):
+    """int_{-pi}^{pi} dk/(2 pi) f(sqrt(lam + 4 sin^2(k/2))), real part (zero where the argument is negative);
+    f(w) = 2 xi asinh(w / (2 xi)) for finite xi and f(w) = w for xi = inf. Vectorized over lam."""
+    lam = np.atleast_1d(np.asarray(lam, float))
+    if lam.size > 4000:                                    # keep the node arrays small
+        return np.concatenate([F(lam[i:i + 4000], xi) for i in range(0, lam.size, 4000)])
+    out = np.empty_like(lam)
+    f = (lambda w: w) if np.isinf(xi) else (lambda w: 2 * xi * np.arcsinh(w / (2 * xi)))
+    u = (np.arange(_NP)[:, None] + (_GLX[None, :] + 1) / 2).ravel() / _NP        # composite nodes in (0, 1)
+    wu = np.tile(_GLW / 2, _NP) / _NP
+    pos = lam >= 0
+    if pos.any():
+        l = np.maximum(lam[pos], 1e-20)
+        r = np.sqrt(l) / 2
+        T = np.arcsinh((np.pi / 2) / r)
+        t = T[:, None] * u[None, :]
+        th = r[:, None] * np.sinh(t)
+        w = np.sqrt(l[:, None] + 4 * np.sin(th) ** 2)
+        out[pos] = (2 / np.pi) * np.sum(f(w) * r[:, None] * np.cosh(t) * wu[None, :], axis=1) * T
+    neg = ~pos
+    if neg.any():
+        l = np.minimum(lam[neg], -1e-20)
+        th0 = np.arcsin(np.sqrt(-l) / 2)
+        T = np.arccosh((np.pi / 2) / th0)
+        t = T[:, None] * u[None, :]
+        ch1 = 2 * np.sinh(t / 2) ** 2                                      # cosh t - 1
+        w2 = 4 * np.sin(th0[:, None] * ch1) * np.sin(th0[:, None] * (ch1 + 2))
+        w = np.sqrt(np.maximum(w2, 0.0))
+        out[neg] = (2 / np.pi) * np.sum(f(w) * th0[:, None] * np.sinh(t) * wu[None, :], axis=1) * T
+    return out
+
+
+def F_inf_closed(lam):
+    """closed form of F(lam, inf) by complete elliptic integrals."""
+    lam = np.atleast_1d(np.asarray(lam, float))
+    out = np.empty_like(lam)
+    pos = lam >= 0
+    out[pos] = (2 / np.pi) * np.sqrt(lam[pos] + 4) * ellipe(4 / (lam[pos] + 4))
+    k2 = 1 + lam[~pos] / 4
+    out[~pos] = (4 / np.pi) * (ellipe(k2) - (1 - k2) * ellipkm1(-lam[~pos] / 4))
+    return out
+
+
+# ------------------------------------------------------------------------------------ references at zero flux
+def references(xis):
+    """per complex field at zero flux: magnetic reference 2 xi (J - ln xi^2) (2 <omega> for xi = inf) and electric
+    reference 2 xi J, J(xi) = int d^4k/(2 pi)^4 ln(khat_x^2 + khat_y^2 + khat_z^2 + xi^2 khat_t^2); also the
+    space-like plaquette fluctuation w_sigma(xi) and the time-like one w_tau(xi) = (1 - w_sigma/xi)/xi."""
+    import mpmath as mp
+    mp.mp.dps = 30
+    br = [0, 0.01, 0.1, 0.5, 2, 10, 50, 200, 1000, 10000, mp.inf]
+    ive = lambda z: mp.exp(-z) * mp.besseli(0, z)
+    om = mp.quad(lambda t: t ** mp.mpf(-1.5) * (1 - ive(2 * t) ** 3), br) / (2 * mp.sqrt(mp.pi))
+    out = {}
+    for xi in xis:
+        if np.isinf(xi):
+            out[xi] = {'magnetic': float(2 * om), 'electric': None, 'w_sigma': float(om / 3), 'w_tau': 0.0}
+            continue
+        x2 = mp.mpf(xi) ** 2
+        J = mp.quad(lambda t: (mp.exp(-t) - ive(2 * t) ** 3 * ive(2 * x2 * t)) / t, br)
+        # w_sigma = (1/3) int d^3k omega / sqrt(1 + omega^2/(4 xi^2)) = (2 xi / 3) * d/ds int d^4k ln(s w^2 + xi^2 kt^2) at s = 1
+        #         = (2 xi / 3) int_0^inf dt [3 * (-d/dt' of spatial heat kernel)]: use s-derivative of the heat-kernel form
+        dJ = mp.quad(lambda t: -3 * ive(2 * t) ** 2 * (mp.exp(-2 * t) * (mp.besseli(1, 2 * t) - mp.besseli(0, 2 * t))) * 2 * ive(2 * x2 * t), br)
+        ws = 2 * mp.mpf(xi) / 3 * dJ
+        out[xi] = {'magnetic': float(2 * xi * (J - mp.log(x2))), 'electric': float(2 * xi * J), 'J': float(J),
+                   'w_sigma': float(ws), 'w_tau': float((1 - ws / xi) / xi)}
+    return out, float(om)

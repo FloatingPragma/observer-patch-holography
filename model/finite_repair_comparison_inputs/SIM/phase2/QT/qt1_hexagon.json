@@ -1,0 +1,5387 @@
+{
+ "task": "QT selection table, hexagon, three loads",
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "canonical_checkout_present": true,
+  "coherent_seam_repair_manifest_hashes_match": true,
+  "program.py_sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "walk.py_sha256": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+  "slow_geometry.py_sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "laws": {
+  "T-A": {
+   "class 0": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 61,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 2,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 2,
+      "fixed vectors on these components (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9999999999999994,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4545454545,
+        "separated, record 2": 0.2727272727,
+        "separated, record 3": 0.2727272727
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 2,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 2,
+      "fixed vectors on these components (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     },
+     "triple": {
+      "components": 1,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 13,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 13,
+      "fixed vectors on these components (exact)": 13,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000009,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 13,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.3333333333,
+        "double+single, record 3": 0.3333333333,
+        "triple, record 0": 0.3333333333
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 2,
+      "largest eigenvalue": 0.9999999999999994,
+      "smallest eigenvalue": 0.23355001403821968,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 0.9999999999999994,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4545454545,
+          "separated, record 2": 0.2727272727,
+          "separated, record 3": 0.2727272727
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       2,
+       2
+      ],
+      "fixed vectors (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 2,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.28287072704466754,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       2,
+       2
+      ],
+      "fixed vectors (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 30,
+      "blank preparations by type": {
+       "triple": 6
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 13,
+      "largest eigenvalue": 1.0000000000000009,
+      "smallest eigenvalue": 0.4999999999999999,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000009,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 13,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.3333333333,
+          "double+single, record 3": 0.3333333333,
+          "triple, record 0": 0.3333333333
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       13,
+       13
+      ],
+      "fixed vectors (exact)": 13,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 3,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 3
+   },
+   "class 1": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 61,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4493265085,
+        "separated, record 2": 0.2753367457,
+        "separated, record 3": 0.2753367457
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0048208447
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0045482664
+     },
+     "triple": {
+      "components": 1,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 12,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 12,
+      "fixed vectors on these components (exact)": 12,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9924427425980344,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "double+single, record 2": 0.3359309423,
+        "double+single, record 3": 0.3359309423,
+        "triple, record 0": 0.3281381153
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0075572574
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9990869825613795,
+      "smallest eigenvalue": 0.2380552797794971,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+        "lowest A": 0.0048208447,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4493265085,
+          "separated, record 2": 0.2753367457,
+          "separated, record 3": 0.2753367457
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9954517336039043,
+      "smallest eigenvalue": 0.287520086665194,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+        "lowest A": 0.0045482664,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 30,
+      "blank preparations by type": {
+       "triple": 6
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 12,
+      "largest eigenvalue": 1.0000000000000009,
+      "smallest eigenvalue": 0.5075572574019656,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9924427425980344,
+        "lowest A": 0.0075572574,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "double+single, record 2": 0.3359309423,
+          "double+single, record 3": 0.3359309423,
+          "triple, record 0": 0.3281381153
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       12,
+       12
+      ],
+      "fixed vectors (exact)": 12,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 0,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 0
+   },
+   "class 2": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 61,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 1,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 1,
+      "fixed vectors on these components (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4441236877,
+        "separated, record 2": 0.2779381561,
+        "separated, record 3": 0.2779381561
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0185310716
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0179350476
+     },
+     "triple": {
+      "components": 1,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 13,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 13,
+      "fixed vectors on these components (exact)": 13,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 13,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.3333333333,
+        "double+single, record 3": 0.3333333333,
+        "triple, record 0": 0.3333333333
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999986,
+      "smallest eigenvalue": 0.25120658839665433,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+        "lowest A": 0.0185310716,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4441236877,
+          "separated, record 2": 0.2779381561,
+          "separated, record 3": 0.2779381561
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9820649523523213,
+      "smallest eigenvalue": 0.3012099595938587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+        "lowest A": 0.0179350476,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 30,
+      "blank preparations by type": {
+       "triple": 6
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 13,
+      "largest eigenvalue": 1.0000000000000004,
+      "smallest eigenvalue": 0.5,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 13,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.3333333333,
+          "double+single, record 3": 0.3333333333,
+          "triple, record 0": 0.3333333333
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       13,
+       13
+      ],
+      "fixed vectors (exact)": 13,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 1,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 1
+   },
+   "class 3": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 61,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9825752703696619,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "double+single, record 0": 0.4215059847,
+        "separated, record 2": 0.2892470077,
+        "separated, record 3": 0.2892470077
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0174247296
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9606691541990976,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 4,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0393308458
+     },
+     "triple": {
+      "components": 1,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 12,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 12,
+      "fixed vectors on these components (exact)": 12,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9924427425980344,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "double+single, record 2": 0.3359309423,
+        "double+single, record 3": 0.3359309423,
+        "triple, record 0": 0.3281381153
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0075572574
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.999086982561379,
+      "smallest eigenvalue": 0.26400629555966587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9825752703696619,
+        "lowest A": 0.0174247296,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "double+single, record 0": 0.4215059847,
+          "separated, record 2": 0.2892470077,
+          "separated, record 3": 0.2892470077
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9606691541990976,
+      "smallest eigenvalue": 0.32308352488589265,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9606691541990976,
+        "lowest A": 0.0393308458,
+        "its state": {
+         "dimension of the eigenspace": 4,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 30,
+      "blank preparations by type": {
+       "triple": 6
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 12,
+      "largest eigenvalue": 1.000000000000001,
+      "smallest eigenvalue": 0.5075572574019657,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9924427425980344,
+        "lowest A": 0.0075572574,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "double+single, record 2": 0.3359309423,
+          "double+single, record 3": 0.3359309423,
+          "triple, record 0": 0.3281381153
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       12,
+       12
+      ],
+      "fixed vectors (exact)": 12,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 0,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 0
+   },
+   "class 4": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 61,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 1,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 1,
+      "fixed vectors on these components (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4441236877,
+        "separated, record 2": 0.2779381561,
+        "separated, record 3": 0.2779381561
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0185310716
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0179350476
+     },
+     "triple": {
+      "components": 1,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 13,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 13,
+      "fixed vectors on these components (exact)": 13,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 13,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.3333333333,
+        "double+single, record 3": 0.3333333333,
+        "triple, record 0": 0.3333333333
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999986,
+      "smallest eigenvalue": 0.25120658839665433,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+        "lowest A": 0.0185310716,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4441236877,
+          "separated, record 2": 0.2779381561,
+          "separated, record 3": 0.2779381561
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9820649523523213,
+      "smallest eigenvalue": 0.3012099595938587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+        "lowest A": 0.0179350476,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 30,
+      "blank preparations by type": {
+       "triple": 6
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 13,
+      "largest eigenvalue": 1.0000000000000004,
+      "smallest eigenvalue": 0.5,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 13,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.3333333333,
+          "double+single, record 3": 0.3333333333,
+          "triple, record 0": 0.3333333333
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       13,
+       13
+      ],
+      "fixed vectors (exact)": 13,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 1,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 1
+   },
+   "class 5": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 61,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4493265085,
+        "separated, record 2": 0.2753367457,
+        "separated, record 3": 0.2753367457
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0048208447
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0045482664
+     },
+     "triple": {
+      "components": 1,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 12,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 12,
+      "fixed vectors on these components (exact)": 12,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9924427425980344,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "double+single, record 2": 0.3359309423,
+        "double+single, record 3": 0.3359309423,
+        "triple, record 0": 0.3281381153
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0075572574
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9990869825613795,
+      "smallest eigenvalue": 0.2380552797794971,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+        "lowest A": 0.0048208447,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4493265085,
+          "separated, record 2": 0.2753367457,
+          "separated, record 3": 0.2753367457
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9954517336039043,
+      "smallest eigenvalue": 0.287520086665194,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+        "lowest A": 0.0045482664,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 30,
+      "blank preparations by type": {
+       "triple": 6
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 12,
+      "largest eigenvalue": 1.0000000000000009,
+      "smallest eigenvalue": 0.5075572574019656,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9924427425980344,
+        "lowest A": 0.0075572574,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "double+single, record 2": 0.3359309423,
+          "double+single, record 3": 0.3359309423,
+          "triple, record 0": 0.3281381153
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       12,
+       12
+      ],
+      "fixed vectors (exact)": 12,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 0,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 0
+   }
+  },
+  "T-B": {
+   "class 0": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 66,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 2,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 2,
+      "fixed vectors on these components (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9999999999999994,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4545454545,
+        "separated, record 2": 0.2727272727,
+        "separated, record 3": 0.2727272727
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 2,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 2,
+      "fixed vectors on these components (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 6,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 6,
+      "fixed vectors on these components (exact)": 6,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.4,
+        "double+single, record 3": 0.4,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 2,
+      "largest eigenvalue": 0.9999999999999994,
+      "smallest eigenvalue": 0.23355001403821968,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 0.9999999999999994,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4545454545,
+          "separated, record 2": 0.2727272727,
+          "separated, record 3": 0.2727272727
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       2,
+       2
+      ],
+      "fixed vectors (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 2,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.28287072704466754,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       2,
+       2
+      ],
+      "fixed vectors (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 8,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 8
+   },
+   "class 1": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 66,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4493265085,
+        "separated, record 2": 0.2753367457,
+        "separated, record 3": 0.2753367457
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0048208447
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0045482664
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 6,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 6,
+      "fixed vectors on these components (exact)": 6,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.4,
+        "double+single, record 3": 0.4,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9990869825613795,
+      "smallest eigenvalue": 0.2380552797794971,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+        "lowest A": 0.0048208447,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4493265085,
+          "separated, record 2": 0.2753367457,
+          "separated, record 3": 0.2753367457
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9954517336039043,
+      "smallest eigenvalue": 0.287520086665194,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+        "lowest A": 0.0045482664,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999996,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 0.9999999999999996,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 2": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 66,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 1,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 1,
+      "fixed vectors on these components (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4441236877,
+        "separated, record 2": 0.2779381561,
+        "separated, record 3": 0.2779381561
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0185310716
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0179350476
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 6,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 6,
+      "fixed vectors on these components (exact)": 6,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.4,
+        "double+single, record 3": 0.4,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999986,
+      "smallest eigenvalue": 0.25120658839665433,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+        "lowest A": 0.0185310716,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4441236877,
+          "separated, record 2": 0.2779381561,
+          "separated, record 3": 0.2779381561
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9820649523523213,
+      "smallest eigenvalue": 0.3012099595938587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+        "lowest A": 0.0179350476,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999996,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 0.9999999999999996,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 3": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 66,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9825752703696619,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "double+single, record 0": 0.4215059847,
+        "separated, record 2": 0.2892470077,
+        "separated, record 3": 0.2892470077
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0174247296
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9606691541990976,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 4,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0393308458
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 6,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 6,
+      "fixed vectors on these components (exact)": 6,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.4,
+        "double+single, record 3": 0.4,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.999086982561379,
+      "smallest eigenvalue": 0.26400629555966587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9825752703696619,
+        "lowest A": 0.0174247296,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "double+single, record 0": 0.4215059847,
+          "separated, record 2": 0.2892470077,
+          "separated, record 3": 0.2892470077
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9606691541990976,
+      "smallest eigenvalue": 0.32308352488589265,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9606691541990976,
+        "lowest A": 0.0393308458,
+        "its state": {
+         "dimension of the eigenspace": 4,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 4": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 66,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 1,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 1,
+      "fixed vectors on these components (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4441236877,
+        "separated, record 2": 0.2779381561,
+        "separated, record 3": 0.2779381561
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0185310716
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0179350476
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 6,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 6,
+      "fixed vectors on these components (exact)": 6,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.4,
+        "double+single, record 3": 0.4,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999986,
+      "smallest eigenvalue": 0.25120658839665433,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+        "lowest A": 0.0185310716,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4441236877,
+          "separated, record 2": 0.2779381561,
+          "separated, record 3": 0.2779381561
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9820649523523213,
+      "smallest eigenvalue": 0.3012099595938587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+        "lowest A": 0.0179350476,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999996,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 0.9999999999999996,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 5": {
+    "states": 224,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 66,
+    "components without a blank preparation": 58,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4493265085,
+        "separated, record 2": 0.2753367457,
+        "separated, record 3": 0.2753367457
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0048208447
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0045482664
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 30,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 6,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 6,
+      "fixed vectors on these components (exact)": 6,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.4,
+        "double+single, record 3": 0.4,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9990869825613795,
+      "smallest eigenvalue": 0.2380552797794971,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+        "lowest A": 0.0048208447,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4493265085,
+          "separated, record 2": 0.2753367457,
+          "separated, record 3": 0.2753367457
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9954517336039043,
+      "smallest eigenvalue": 0.287520086665194,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+        "lowest A": 0.0045482664,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999996,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 0.9999999999999996,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 5,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.4,
+          "double+single, record 3": 0.4,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   }
+  },
+  "T-C": {
+   "class 0": {
+    "states": 336,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 154,
+    "components without a blank preparation": 146,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 2,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 2,
+      "fixed vectors on these components (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9999999999999994,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4545454545,
+        "separated, record 2": 0.2727272727,
+        "separated, record 3": 0.2727272727
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 2,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "modular nullity (upper bound, exact)": 2,
+      "fixed vectors on these components (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 54,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 30,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 30,
+      "fixed vectors on these components (exact)": 30,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 5,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.2,
+        "double+single, record 3": 0.2,
+        "double+single, record 4": 0.2,
+        "double+single, record 5": 0.2,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 2,
+      "largest eigenvalue": 0.9999999999999994,
+      "smallest eigenvalue": 0.23355001403821968,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 0.9999999999999994,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4545454545,
+          "separated, record 2": 0.2727272727,
+          "separated, record 3": 0.2727272727
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       2,
+       2
+      ],
+      "fixed vectors (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 2,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.28287072704466754,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       2,
+       2
+      ],
+      "fixed vectors (exact)": 2,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 8,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 8
+   },
+   "class 1": {
+    "states": 336,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 154,
+    "components without a blank preparation": 146,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4493265085,
+        "separated, record 2": 0.2753367457,
+        "separated, record 3": 0.2753367457
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0048208447
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0045482664
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 54,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 30,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 30,
+      "fixed vectors on these components (exact)": 30,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 5,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.2,
+        "double+single, record 3": 0.2,
+        "double+single, record 4": 0.2,
+        "double+single, record 5": 0.2,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9990869825613795,
+      "smallest eigenvalue": 0.2380552797794971,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+        "lowest A": 0.0048208447,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4493265085,
+          "separated, record 2": 0.2753367457,
+          "separated, record 3": 0.2753367457
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9954517336039043,
+      "smallest eigenvalue": 0.287520086665194,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+        "lowest A": 0.0045482664,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000004,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000007,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 2": {
+    "states": 336,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 154,
+    "components without a blank preparation": 146,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 1,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 1,
+      "fixed vectors on these components (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4441236877,
+        "separated, record 2": 0.2779381561,
+        "separated, record 3": 0.2779381561
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0185310716
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0179350476
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 54,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 30,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 30,
+      "fixed vectors on these components (exact)": 30,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 5,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.2,
+        "double+single, record 3": 0.2,
+        "double+single, record 4": 0.2,
+        "double+single, record 5": 0.2,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999986,
+      "smallest eigenvalue": 0.25120658839665433,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+        "lowest A": 0.0185310716,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4441236877,
+          "separated, record 2": 0.2779381561,
+          "separated, record 3": 0.2779381561
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9820649523523213,
+      "smallest eigenvalue": 0.3012099595938587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+        "lowest A": 0.0179350476,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000004,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000007,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 3": {
+    "states": 336,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 154,
+    "components without a blank preparation": 146,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9825752703696619,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "double+single, record 0": 0.4215059847,
+        "separated, record 2": 0.2892470077,
+        "separated, record 3": 0.2892470077
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0174247296
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9606691541990976,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 4,
+       "dimension on the cyclic subspace": 2,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0393308458
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 54,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 30,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 30,
+      "fixed vectors on these components (exact)": 30,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 5,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.2,
+        "double+single, record 3": 0.2,
+        "double+single, record 4": 0.2,
+        "double+single, record 5": 0.2,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.999086982561379,
+      "smallest eigenvalue": 0.26400629555966587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9825752703696619,
+        "lowest A": 0.0174247296,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "double+single, record 0": 0.4215059847,
+          "separated, record 2": 0.2892470077,
+          "separated, record 3": 0.2892470077
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9606691541990976,
+      "smallest eigenvalue": 0.32308352488589265,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9606691541990976,
+        "lowest A": 0.0393308458,
+        "its state": {
+         "dimension of the eigenspace": 4,
+         "dimension on the cyclic subspace": 2,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000002,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000002,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 4": {
+    "states": 336,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 154,
+    "components without a blank preparation": 146,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 1,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 1,
+      "fixed vectors on these components (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4441236877,
+        "separated, record 2": 0.2779381561,
+        "separated, record 3": 0.2779381561
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0185310716
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0179350476
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 54,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 30,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 30,
+      "fixed vectors on these components (exact)": 30,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 5,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.2,
+        "double+single, record 3": 0.2,
+        "double+single, record 4": 0.2,
+        "double+single, record 5": 0.2,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 1,
+      "largest eigenvalue": 0.9999999999999986,
+      "smallest eigenvalue": 0.25120658839665433,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9814689283886529,
+        "lowest A": 0.0185310716,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4441236877,
+          "separated, record 2": 0.2779381561,
+          "separated, record 3": 0.2779381561
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       1,
+       1
+      ],
+      "fixed vectors (exact)": 1,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9820649523523213,
+      "smallest eigenvalue": 0.3012099595938587,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9820649523523213,
+        "lowest A": 0.0179350476,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000004,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000007,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   },
+   "class 5": {
+    "states": 336,
+    "configurations": 56,
+    "addresses": 12,
+    "components": 154,
+    "components without a blank preparation": 146,
+    "by type": {
+     "double+single": {
+      "components": 1,
+      "states in these components": 96,
+      "blank preparations": 30,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 1,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 0": 0.4493265085,
+        "separated, record 2": 0.2753367457,
+        "separated, record 3": 0.2753367457
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0048208447
+     },
+     "separated": {
+      "components": 1,
+      "states in these components": 40,
+      "blank preparations": 20,
+      "fixed vectors on these components (float)": 0,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "modular nullity (upper bound, exact)": 0,
+      "fixed vectors on these components (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 2,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "separated, record 0": 1.0
+       }
+      },
+      "lowest A on the cyclic subspace": 0.0045482664
+     },
+     "triple": {
+      "components": 6,
+      "states in these components": 54,
+      "blank preparations": 6,
+      "fixed vectors on these components (float)": 30,
+      "consensus states on the blank cyclic subspace (float)": 6,
+      "modular nullity (upper bound, exact)": 30,
+      "fixed vectors on these components (exact)": 30,
+      "consensus states on the blank cyclic subspace (exact)": 6,
+      "exact available": true,
+      "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+      "state at the largest eigenvalue": {
+       "dimension of the eigenspace": 5,
+       "dimension on the cyclic subspace": 1,
+       "weights by content and record": {
+        "double+single, record 2": 0.2,
+        "double+single, record 3": 0.2,
+        "double+single, record 4": 0.2,
+        "double+single, record 5": 0.2,
+        "triple, record 0": 0.2
+       }
+      },
+      "lowest A on the cyclic subspace": -0.0
+     }
+    },
+    "component list": [
+     {
+      "states": 96,
+      "blank preparations by type": {
+       "double+single": 30
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9990869825613795,
+      "smallest eigenvalue": 0.2380552797794971,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "double+single": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9951791553423768,
+        "lowest A": 0.0048208447,
+        "its state": {
+         "dimension of the eigenspace": 1,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 0": 0.4493265085,
+          "separated, record 2": 0.2753367457,
+          "separated, record 3": 0.2753367457
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 40,
+      "blank preparations by type": {
+       "separated": 20
+      },
+      "hermitian defect": 0.0,
+      "fixed vectors (float)": 0,
+      "largest eigenvalue": 0.9954517336039043,
+      "smallest eigenvalue": 0.287520086665194,
+      "consensus states on the blank cyclic subspace (float)": 0,
+      "by type": {
+       "separated": {
+        "consensus states (float)": 0,
+        "largest eigenvalue on the cyclic subspace": 0.9954517336039043,
+        "lowest A": 0.0045482664,
+        "its state": {
+         "dimension of the eigenspace": 2,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "separated, record 0": 1.0
+         }
+        },
+        "consensus states (exact)": 0
+       }
+      },
+      "nullity modulo the primes": [
+       0,
+       0
+      ],
+      "fixed vectors (exact)": 0,
+      "consensus states on the blank cyclic subspace (exact)": 0
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000004,
+      "smallest eigenvalue": 0.5833333333333333,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000004,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 7.757919228897728e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0000000000000007,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0000000000000007,
+        "lowest A": -0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333334,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     },
+     {
+      "states": 9,
+      "blank preparations by type": {
+       "triple": 1
+      },
+      "hermitian defect": 6.938893903907228e-18,
+      "fixed vectors (float)": 5,
+      "largest eigenvalue": 1.0,
+      "smallest eigenvalue": 0.5833333333333335,
+      "consensus states on the blank cyclic subspace (float)": 1,
+      "by type": {
+       "triple": {
+        "consensus states (float)": 1,
+        "largest eigenvalue on the cyclic subspace": 1.0,
+        "lowest A": 0.0,
+        "its state": {
+         "dimension of the eigenspace": 5,
+         "dimension on the cyclic subspace": 1,
+         "weights by content and record": {
+          "double+single, record 2": 0.2,
+          "double+single, record 3": 0.2,
+          "double+single, record 4": 0.2,
+          "double+single, record 5": 0.2,
+          "triple, record 0": 0.2
+         }
+        },
+        "consensus states (exact)": 1
+       }
+      },
+      "nullity modulo the primes": [
+       5,
+       5
+      ],
+      "fixed vectors (exact)": 5,
+      "consensus states on the blank cyclic subspace (exact)": 1
+     }
+    ],
+    "consensus states on the cyclic subspace of all blank preparations (float)": 6,
+    "consensus states on the cyclic subspace of all blank preparations (exact)": 6
+   }
+  }
+ },
+ "double+single and separated blocks equal for the three laws": true,
+ "C3_gauge": {
+  "class-2 phase on each hexagon seam": {
+   "0": {
+    "largest spectral difference to seam 0": 0.0,
+    "consensus states (triple, double+single, separated), float": [
+     1,
+     0,
+     0
+    ]
+   },
+   "1": {
+    "largest spectral difference to seam 0": 1.6653345369377348e-15,
+    "consensus states (triple, double+single, separated), float": [
+     1,
+     0,
+     0
+    ]
+   },
+   "2": {
+    "largest spectral difference to seam 0": 1.5543122344752192e-15,
+    "consensus states (triple, double+single, separated), float": [
+     1,
+     0,
+     0
+    ]
+   },
+   "3": {
+    "largest spectral difference to seam 0": 2.220446049250313e-15,
+    "consensus states (triple, double+single, separated), float": [
+     1,
+     0,
+     0
+    ]
+   },
+   "4": {
+    "largest spectral difference to seam 0": 2.1094237467877974e-15,
+    "consensus states (triple, double+single, separated), float": [
+     1,
+     0,
+     0
+    ]
+   },
+   "5": {
+    "largest spectral difference to seam 0": 1.887379141862766e-15,
+    "consensus states (triple, double+single, separated), float": [
+     1,
+     0,
+     0
+    ]
+   }
+  },
+  "largest spectral difference between conjugate classes": {
+   "classes 1 and 5": 0.0,
+   "classes 2 and 4": 0.0
+  }
+ },
+ "seconds": 11.54
+}

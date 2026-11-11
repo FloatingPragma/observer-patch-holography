@@ -1,0 +1,169 @@
+"""Worker QT: consensus analysis of one model (CANDIDATES.md section 4).
+
+For every connected component of the basis states that contains a blank-record preparation:
+  float64   eigenvalues of the true discriminant; fixed vectors; rank of the fixed space on the blank coordinates of
+            each content type; largest eigenvalue on the cyclic subspace of each type and its state (MEASURED);
+  modular   nullity of D~ - I modulo two primes with a primitive sixth root of unity (EXACT upper bound of the
+            number of fixed vectors; zero proves that none exists);
+  exact     kernel of D~ - I over Q or Q(w) and its rank on the blank coordinates (EXACT), for components up to
+            `exact_limit` states.
+"""
+from __future__ import annotations
+
+from fractions import Fraction as Fr
+
+import numpy as np
+
+import qt_common as Q
+
+TOL = 1e-9
+
+
+def blank_types(m):
+    """{state index: content type} for the blank-record basis states."""
+    return {m.sidx(c, 0): m.ctype(m.cfg[c]) for c in range(len(m.cfg))}
+
+
+def analyse(m, types=None, exact_limit=160, do_mod=True, keep_vectors=False):
+    D = m.Dsparse()
+    comps = m.components()
+    bt = blank_types(m)
+    all_types = sorted(set(bt.values()))
+    tau = m.tau_vec()
+    out = {'states': m.ncr, 'configurations': len(m.cfg), 'addresses': m.NA, 'components': len(comps),
+           'components without a blank preparation': 0, 'by type': {}, 'component list': []}
+    per_type = {t: {'components': 0, 'states in these components': 0, 'blank preparations': 0,
+                    'fixed vectors on these components (float)': 0,
+                    'consensus states on the blank cyclic subspace (float)': 0,
+                    'modular nullity (upper bound, exact)': 0,
+                    'fixed vectors on these components (exact)': 0,
+                    'consensus states on the blank cyclic subspace (exact)': 0,
+                    'exact available': True,
+                    'largest eigenvalue on the cyclic subspace': None} for t in all_types}
+    total_blank_rank_float = 0
+    total_blank_rank_exact = 0
+    exact_all = True
+    vectors = []
+    for idx in comps:
+        btypes = sorted({bt[j] for j in idx if j in bt})
+        if not btypes:
+            out['components without a blank preparation'] += 1
+            continue
+        if types is not None and not (set(btypes) & set(types)):
+            continue
+        n = len(idx)
+        pos = {s: t for t, s in enumerate(idx)}
+        row = {'states': n, 'blank preparations by type': {t: sum(1 for j in idx if bt.get(j) == t) for t in btypes}}
+        # ---------------- float
+        M = m.Dfloat(D, idx)
+        herm = float(np.abs(M - M.conj().T).max())
+        ev, V = np.linalg.eigh((M + M.conj().T) / 2)
+        fixed = np.abs(ev - 1) < TOL
+        nfix = int(fixed.sum())
+        row['hermitian defect'] = herm
+        row['fixed vectors (float)'] = nfix
+        row['largest eigenvalue'] = float(ev.max())
+        row['smallest eigenvalue'] = float(ev.min())
+        blank_rows_all = [pos[j] for j in idx if j in bt]
+        V1 = V[:, fixed]
+        rk_all = int(np.linalg.matrix_rank(V1[blank_rows_all, :], tol=1e-7)) if nfix else 0
+        row['consensus states on the blank cyclic subspace (float)'] = rk_all
+        total_blank_rank_float += rk_all
+        row['by type'] = {}
+        for t in btypes:
+            rows_t = [pos[j] for j in idx if bt.get(j) == t]
+            rk = int(np.linalg.matrix_rank(V1[rows_t, :], tol=1e-7)) if nfix else 0
+            # largest eigenvalue with weight on the blank rows of the type
+            order = np.argsort(-ev)
+            lam, state = None, None
+            i = 0
+            while i < n:
+                j = i
+                while j + 1 < n and abs(ev[order[j + 1]] - ev[order[i]]) < TOL:
+                    j += 1
+                cols = order[i:j + 1]
+                B = V[np.ix_(rows_t, cols)]                       # blank rows of the type on the eigenspace
+                sv = np.linalg.svd(B, compute_uv=False)
+                if sv.size and sv.max() > 1e-7:
+                    lam = float(ev[order[i]])
+                    # the part of the eigenspace reached from the blank preparations of the type
+                    Uc, s, _ = np.linalg.svd(B.conj().T @ B)
+                    r = max(1, int((s > 1e-13).sum()))
+                    psi = V[:, cols] @ Uc[:, :r]
+                    wt = {}
+                    for tt, jst in enumerate(idx):
+                        c, rec = divmod(jst, m.nrec)
+                        key = f'{m.ctype(m.cfg[c])}, record {rec}'
+                        wt[key] = wt.get(key, 0.0) + float((np.abs(psi[tt, :]) ** 2).sum()) / r
+                    state = {'dimension of the eigenspace': int(len(cols)), 'dimension on the cyclic subspace': r,
+                             'weights by content and record': {k: round(v, 10) for k, v in sorted(wt.items()) if v > 1e-12}}
+                    break
+                i = j + 1
+            row['by type'][t] = {'consensus states (float)': rk, 'largest eigenvalue on the cyclic subspace': lam,
+                                 'lowest A': None if lam is None else round(1 - lam, 10), 'its state': state}
+            pt = per_type[t]
+            pt['components'] += 1
+            pt['states in these components'] += n
+            pt['blank preparations'] += len(rows_t)
+            pt['fixed vectors on these components (float)'] += nfix
+            pt['consensus states on the blank cyclic subspace (float)'] += rk
+            if lam is not None and (pt['largest eigenvalue on the cyclic subspace'] is None
+                                    or lam > pt['largest eigenvalue on the cyclic subspace']):
+                pt['largest eigenvalue on the cyclic subspace'] = lam
+                pt['state at the largest eigenvalue'] = state
+        # ---------------- modular
+        if do_mod:
+            nul = []
+            for p in Q.PRIMES:
+                wp = Q.sixth_root_mod(p)
+                nul.append(n - Q.mod_rank(m.Dmod(D, idx, p, wp), p))
+            row['nullity modulo the primes'] = nul
+            for t in btypes:
+                per_type[t]['modular nullity (upper bound, exact)'] += min(nul)
+        # ---------------- exact
+        if n <= exact_limit:
+            ns = Q.nullspace(Q.minus_identity(m.Dexact(D, idx)))
+            row['fixed vectors (exact)'] = len(ns)
+            rk_all_e = Q.rank_exact([[v[t] for v in ns] for t in blank_rows_all]) if ns else 0
+            row['consensus states on the blank cyclic subspace (exact)'] = rk_all_e
+            total_blank_rank_exact += rk_all_e
+            for t in btypes:
+                rows_t = [pos[j] for j in idx if bt.get(j) == t]
+                rk_e = Q.rank_exact([[v[tt] for v in ns] for tt in rows_t]) if ns else 0
+                row['by type'][t]['consensus states (exact)'] = rk_e
+                per_type[t]['fixed vectors on these components (exact)'] += len(ns)
+                per_type[t]['consensus states on the blank cyclic subspace (exact)'] += rk_e
+            if keep_vectors:
+                for v in ns:
+                    vectors.append({idx[t]: v[t] for t in range(n) if v[t] != 0})
+        else:
+            exact_all = False
+            for t in btypes:
+                per_type[t]['exact available'] = False
+        out['component list'].append(row)
+    for t, pt in per_type.items():
+        lam = pt['largest eigenvalue on the cyclic subspace']
+        pt['lowest A on the cyclic subspace'] = None if lam is None else round(1 - lam, 10)
+        if not pt['exact available']:
+            pt['fixed vectors on these components (exact)'] = None
+            pt['consensus states on the blank cyclic subspace (exact)'] = None
+    out['by type'] = per_type
+    out['consensus states on the cyclic subspace of all blank preparations (float)'] = total_blank_rank_float
+    out['consensus states on the cyclic subspace of all blank preparations (exact)'] = total_blank_rank_exact if exact_all else None
+    if keep_vectors:
+        out['_vectors'] = vectors
+    return out
+
+
+def summary_line(res):
+    """Compact per-type summary: (consensus float, consensus exact, modular nullity, fixed on components, lowest A)."""
+    s = {}
+    for t, pt in res['by type'].items():
+        if pt['components'] == 0:
+            continue
+        s[t] = {'consensus': pt['consensus states on the blank cyclic subspace (float)'],
+                'consensus exact': pt['consensus states on the blank cyclic subspace (exact)'],
+                'modular nullity': pt['modular nullity (upper bound, exact)'],
+                'fixed on components': pt['fixed vectors on these components (float)'],
+                'lowest A': pt['lowest A on the cyclic subspace']}
+    return s

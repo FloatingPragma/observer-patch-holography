@@ -1,0 +1,56 @@
+{
+ "convention": "6Y = 3 n2 - 2 n3, even occupation left-handed, Q = T3 + Y",
+ "linear_operators": [
+  {
+   "level": "v1",
+   "conserves_colour": false,
+   "conserves_electric_charge": false,
+   "conserves_weak_isospin": true,
+   "changes_handedness": true,
+   "square_is_identity": true
+  },
+  {
+   "level": "v2",
+   "conserves_colour": false,
+   "conserves_electric_charge": false,
+   "conserves_weak_isospin": true,
+   "changes_handedness": true,
+   "square_is_identity": true
+  },
+  {
+   "level": "v3",
+   "conserves_colour": false,
+   "conserves_electric_charge": false,
+   "conserves_weak_isospin": true,
+   "changes_handedness": true,
+   "square_is_identity": true
+  },
+  {
+   "level": "s1",
+   "conserves_colour": true,
+   "conserves_electric_charge": false,
+   "conserves_weak_isospin": false,
+   "changes_handedness": true,
+   "square_is_identity": true
+  },
+  {
+   "level": "s2",
+   "conserves_colour": true,
+   "conserves_electric_charge": true,
+   "conserves_weak_isospin": false,
+   "changes_handedness": true,
+   "square_is_identity": true
+  }
+ ],
+ "pairs_of_the_neutral_operator": {
+  "nu^c_L (Q = 0.0) with Lbar_R (Q = 0.0)": 1,
+  "Lbar_R (Q = 1.0) with e^c_L (Q = 1.0)": 1,
+  "d_R (Q = -0.3333) with Q_L (Q = -0.3333)": 1,
+  "Q_L (Q = 0.6667) with u_R (Q = 0.6667)": 1,
+  "u^c_L (Q = -0.6667) with Qbar_R (Q = -0.6667)": 1,
+  "Qbar_R (Q = 0.3333) with d^c_L (Q = 0.3333)": 1,
+  "e_R (Q = -1.0) with L_L (Q = -1.0)": 1,
+  "L_L (Q = 0.0) with nu_R (Q = 0.0)": 1
+ },
+ "reading": "The only operators linear in the level operators that conserve colour and electric charge are those of the neutral doublet level. They change n2 by one, exchange the two handedness classes, break weak isospin and square to the identity: one common Dirac mass for the up type, down type, charged lepton and neutrino of the chart. Separate masses need more structure than one occupation algebra and one amplitude."
+}

@@ -1,0 +1,82 @@
+{
+  "classification": "DECLARED encoded-controller candidate, not an accepted repair law",
+  "added_state": "five-level carrier memory C3 direct_sum C2; optional two-charge comparison reference",
+  "added_operations": "carrier-local encoded endpoint-sum phase pulses; reversible pulse control and a clock; reference preparation and complete readout",
+  "source_input_cases": 78,
+  "balanced_inputs": 66,
+  "seams": 30,
+  "coins": 2,
+  "exact_classical_transition_rows": 4680,
+  "complete_Kraus_effect_max_residual": 3.3560602507587394e-16,
+  "unitarity_max_residual": 3.3560602507587394e-16,
+  "protected_block_label_commutator_max_residual": 0.0,
+  "native_load_and_coin_shadow": "exact by Kraus block formula for every source input, including double loads",
+  "central_reference_total_charge": 2,
+  "central_reference_record": [
+    {
+      "t": 0.0,
+      "probability": 0.9999999999999997,
+      "analytic": 1.0
+    },
+    {
+      "t": 0.3141592653589793,
+      "probability": 0.4999999999999998,
+      "analytic": 0.5000000000000001
+    },
+    {
+      "t": 0.6283185307179586,
+      "probability": 3.0814879110195774e-33,
+      "analytic": 3.749399456654644e-33
+    },
+    {
+      "t": 0.2,
+      "probability": 0.7701511529340695,
+      "analytic": 0.7701511529340699
+    }
+  ],
+  "central_controller": {
+    "endpoint_sum_identity": "sum_edges(Xa+Xb)=5Q",
+    "pair_commutator_sum": 3.8421121871855055,
+    "finite_products": [
+      {
+        "rounds": 1,
+        "actual_operator_error": 0.006107234529917608,
+        "commutator_bound": 0.07684224374371013,
+        "coarse_exact_bound": 0.6960000000000002
+      },
+      {
+        "rounds": 2,
+        "actual_operator_error": 0.0030470264309339387,
+        "commutator_bound": 0.03842112187185506,
+        "coarse_exact_bound": 0.3480000000000001
+      },
+      {
+        "rounds": 4,
+        "actual_operator_error": 0.0015215504238842714,
+        "commutator_bound": 0.01921056093592753,
+        "coarse_exact_bound": 0.17400000000000004
+      },
+      {
+        "rounds": 8,
+        "actual_operator_error": 0.0007602457598188234,
+        "commutator_bound": 0.009605280467963766,
+        "coarse_exact_bound": 0.08700000000000002
+      }
+    ],
+    "conditional_activity_history_compiler_proved": false
+  },
+  "acceptance": {
+    "T0_diagonal_coin_shadow": true,
+    "T2_local_encoded_algebra_template": true,
+    "T3_local_encoded_centre": true,
+    "T4_encoded_sector_label": true,
+    "full_A1_A2_from_native_histories": false,
+    "T5_faithful_nontracial_geometric_reference": false,
+    "T6_transport": false,
+    "T7_consensus": false,
+    "T8_memory_federation": false,
+    "T9_without_reference_readout": false,
+    "T10_mass_hook": false
+  },
+  "no_native_band_selection_or_source_derivation_claim": true
+}

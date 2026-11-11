@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+"""Worker DE: conditions the source must meet for a nucleon at a scale far below E*.
+
+1. Colour beta function with k_c light Dirac copies (cones) per coloured species: asymptotic freedom above m_t,
+   two-loop infrared fixed point (Banks-Zaks) for the light flavours, and the declared MSSM-like packet of D10.
+2. Sensitivity of the inherited Lambda^(3) to the inherited alpha_3(m_Z,run) (RER chain, read only).
+
+SU(3), Dirac flavours in the fundamental: b0 = 11 - 2 nf/3, b1 = 102 - 38 nf/3 (IMPORTED, standard).
+Run from RER/code/particles with PYTHONPATH=.:<this directory>. Reads no measured hadron mass.
+"""
+from __future__ import annotations
+
+import json
+import math
+from fractions import Fraction as F
+from pathlib import Path
+
+from qcd.derive_lambda_qcd_source_transmutation import (
+    ALPHA_3_MZ, MZ_RUN_GEV, MB_MB_GEV, MC_MC_GEV, chain as repo_chain,
+)
+
+HERE = Path(__file__).resolve().parent
+
+
+def b0(nf: int) -> Fraction:
+    return F(11) - F(2, 3) * nf
+
+
+def b1(nf: int) -> Fraction:
+    return F(102) - F(38, 3) * nf
+
+
+Fraction = F
+
+
+def main() -> None:
+    rows = []
+    for kc in (1, 2, 3, 4):
+        nf_top = 2 * 3 * kc            # two quark types x three generations x copies
+        nf_low = 3 * kc                # u, d, s and their copies below m_c
+        b1_low = b1(nf_low)
+        bz = None if b1_low >= 0 else float(-b0(nf_low) / b1_low) * 4 * math.pi  # alpha_* at two loops
+        mssm = F(9) - 6 * kc           # 3 N_c - (quark superfields) with copies; RER packet has -b3 = 3 at kc = 1
+        rows.append({
+            'copies_per_coloured_species_k_c': kc,
+            'nf_above_m_t': nf_top, 'b0_above_m_t': str(b0(nf_top)),
+            'asymptotically_free_above_m_t': b0(nf_top) > 0,
+            'nf_below_m_c': nf_low, 'b0_below_m_c': str(b0(nf_low)), 'b1_below_m_c': str(b1_low),
+            'two_loop_infrared_fixed_point_alpha_below_m_c': bz,
+            'declared_MSSM_like_packet_b0': str(mssm),
+            'declared_packet_asymptotically_free': mssm > 0,
+        })
+
+    # cone count of the current routing tick (R3, R4, CF1.md): per species and parity class of cells, four
+    # zero-phase cones in each arrow block (handedness +, -, +, -), i.e. eight Weyl cones = four Dirac copies,
+    # and four further phase-pi cones per block that no mass angle gaps (not counted here).
+    current_kc = 4
+
+    lam = repo_chain(ALPHA_3_MZ, MZ_RUN_GEV, MB_MB_GEV, MC_MC_GEV)['lambda3_gev']
+    eps = 1e-4
+    lam_up = repo_chain(ALPHA_3_MZ * (1 + eps), MZ_RUN_GEV, MB_MB_GEV, MC_MC_GEV)['lambda3_gev']
+    sens = (math.log(lam_up) - math.log(lam)) / math.log(1 + eps)
+
+    out = {
+        'copy_table': rows,
+        'current_tick_dirac_copies_per_species_per_parity_class_zero_phase': current_kc,
+        'current_tick_asymptotically_free_above_m_t': b0(2 * 3 * current_kc) > 0,
+        'largest_kc_with_asymptotic_freedom_three_generations': max(r['copies_per_coloured_species_k_c'] for r in rows
+                                                                   if r['asymptotically_free_above_m_t']),
+        'kc_required_by_declared_packet': [r['copies_per_coloured_species_k_c'] for r in rows
+                                           if r['declared_packet_asymptotically_free']],
+        'inherited_lambda3_gev': lam,
+        'dln_lambda3_dln_alpha3': sens,
+    }
+    (HERE / 'structural_conditions.json').write_text(json.dumps(out, indent=2, sort_keys=True) + '\n')
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == '__main__':
+    main()

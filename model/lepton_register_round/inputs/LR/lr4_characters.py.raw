@@ -1,0 +1,572 @@
+"""LR task 4: the three characters of the face third-turn on the executed register (CANDIDATES.md, section 6).
+
+Register on sixty addresses: cells X and Y (each standing with two loads), the register F with three positions.
+Register tick U = K T V (W (x) W); analyzer Phi over the flags hold, repair +, repair -; mass round
+U, exp(-i h |Phi><Phi|), U^-1, return test. Two standing objects:
+  DL  blank doubles at port 2, record flags (R+ record 2, R- record 3, H record written), V = 1;
+  NP  native pairs on two non-adjacent ports with the oriented record, flags of FR (agree, repair first, repair second).
+
+Forms of execution:
+  F1  every factor through Walk.step and Walk.inverse_step of the public package. After the tick the state is a
+      product; the gate adds a multiple of Phi, a sum of three products; every factor is ticked back and tested;
+  F2  complex128 arrays over (position, address of X, address of Y) for DL, with the register F explicit.
+
+Sections: A phase of the current from executed phase rounds; B one-round compression; C executed rest rates;
+D the same with the executed phase; E long run from a definite position and per character; F the readout
+(phase estimation, clock register of T levels) on the executed amplitudes.
+
+No measured value is read here.
+
+Run from this directory:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lr4_characters.py --quick
+    python -B lr4_characters.py --full        (box)
+Writes lr4_characters.json (or lr4_characters_quick.json).
+"""
+import argparse
+import cmath
+import json
+import math
+import os
+import sys
+import time
+
+import numpy as np
+
+import lr_engine as E
+from model.lepton_register_round import walk as wk
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+NA = E.NA
+SQ = math.sqrt(NA)
+W3 = cmath.exp(2j * math.pi / 3)
+NAMES = {0: 'tau', 1: 'electron', 2: 'muon'}
+THETA = 2.0 / 9.0
+PAIR = E.Pair(2, 2)
+
+
+def y_formula(theta=THETA, scale=2.0 / 9.0):
+    """scale * c_k^2, c_k = (1 + sqrt2 cos(theta + 2 pi k/3))/sqrt6; scale 2/9 gives (1/27)(1 + sqrt2 cos)^2."""
+    return [scale * (1 + math.sqrt(2) * math.cos(theta + 2 * math.pi * k / 3)) ** 2 / 6 for k in range(3)]
+
+
+def koide(y):
+    return sum(y) / sum(math.sqrt(v) for v in y) ** 2
+
+
+# ------------------------------------------------------------------------------------------ A: executed phase
+def executed_kappa(Np):
+    """Amplitude left on the branch j = +1 by Np phase rounds with kick -1/Np (reversed sign, phase +theta j) on the
+    standing pair, all tests yes. One unit of clock time."""
+    psi = PAIR.uu.copy()
+    g = 1.0 + 0j
+    phase = 0.0
+    logmod = 0.0
+    for _ in range(Np):
+        out = PAIR.round(psi, -1.0 / Np)
+        a = out.sum() / NA
+        rel = a * np.conj(g)
+        phase += math.atan2(rel.imag, rel.real)
+        logmod += math.log(abs(rel))
+        g = a / abs(a)
+        psi = g * PAIR.uu
+    return cmath.exp(logmod + 1j * phase), phase, math.exp(logmod)
+
+
+# ------------------------------------------------------------------------------------------ F1: public Walk factors
+class Factors:
+    def __init__(self, kind, kp, km):
+        self.kind, self.kp, self.km = kind, complex(kp), complex(km)
+        if kind == 'DL':
+            self.ports = (2,)
+            cfg0 = wk.config(2, 2)
+        else:
+            nb = {q for a, b in E.ADDR for q in (a, b) if 2 in (a, b)} - {2}
+            other = min(p for p in range(12) if p != 2 and p not in nb)
+            self.ports = (2, other)
+            cfg0 = wk.config(2, other)
+        self.cfg0 = cfg0
+        self.D = {(cfg0, 0, k): 1.0 / SQ for k in range(NA)}
+        vt = self.oriented(E.WALK.step(self.D))
+        self.b_idle = self.branch(vt, 'idle')
+        self.b_plus = self.branch(vt, 'plus')
+        self.b_minus = self.branch(vt, 'minus')
+        self.b_hold = self.branch(vt, 'hold')
+        self.weights = {lab: sum(abs(v) ** 2 for k, v in vt.items() if self.label(k) == lab)
+                        for lab in ('idle', 'plus', 'minus', 'agree')}
+        self.weights['hold'] = sum(abs(v) ** 2 for k, v in vt.items() if self.hold(k))
+
+    def label(self, key):
+        cfg, rec, k = key
+        if self.kind == 'DL':
+            return {0: 'idle', 2: 'plus', 3: 'minus'}.get(rec, 'other')
+        a, b = E.ADDR[k]
+        touched = (a in self.ports) + (b in self.ports)
+        if touched == 0:
+            return 'idle'
+        if touched == 1 and rec == 0:
+            return 'agree'
+        if touched == 1 and rec == 1:
+            return 'plus' if a in self.ports else 'minus'
+        return 'other'
+
+    def hold(self, key):
+        return key[1] in (2, 3) if self.kind == 'DL' else self.label(key) == 'agree'
+
+    def oriented(self, state):
+        """V: the sign of the repair with the load at the second port of the address is reversed (NP only)."""
+        if self.kind == 'DL':
+            return dict(state)
+        return {k: (-v if self.label(k) == 'minus' else v) for k, v in state.items()}
+
+    def branch(self, vt, lab):
+        part = {k: v for k, v in vt.items() if (self.hold(k) if lab == 'hold' else self.label(k) == lab)}
+        n = math.sqrt(sum(abs(v) ** 2 for v in part.values()))
+        return {k: v / n for k, v in part.items()}
+
+    def dress(self, state, k, adjoint=False):
+        """K T on a ticked state of X in the character k (after V)."""
+        fp, fm = self.kp * W3 ** k, self.km * W3 ** (-k)
+        if adjoint:
+            fp, fm = fp.conjugate(), fm.conjugate()
+        out = {}
+        for key, v in state.items():
+            lab = self.label(key)
+            out[key] = v * (fp if lab == 'plus' else fm if lab == 'minus' else 1.0)
+        return out
+
+    def tick_x(self, state, k):
+        return self.dress(self.oriented(E.WALK.step(state)), k)
+
+    def untick_x(self, state, k):
+        return E.WALK.inverse_step(self.oriented(self.dress(state, k, adjoint=True)))
+
+    def tick_y(self, state):
+        return self.oriented(E.WALK.step(state))
+
+    def untick_y(self, state):
+        return E.WALK.inverse_step(self.oriented(state))
+
+    def round(self, k, h, phase=1.0):
+        """One mass round on D (x) D (x) v_k. Returns the amplitude on yes/yes, the compression eigenvalue
+        <Phi|U|D D v_k> and the weight outside the standing states before the test."""
+        dx = {key: v * phase for key, v in self.D.items()}
+        xk = self.tick_x(dx, k)
+        y0 = self.tick_y(self.D)
+        s3 = math.sqrt(3)
+        c = (E.cdot(self.b_idle, xk) * E.cdot(self.b_hold, y0) + E.cdot(self.b_plus, xk) * E.cdot(self.b_idle, y0)
+             + E.cdot(self.b_minus, xk) * E.cdot(self.b_idle, y0)) / s3
+        amp = E.cdot(self.D, self.untick_x(xk, k)) * E.cdot(self.D, self.untick_y(y0))
+        e = (cmath.exp(-1j * h) - 1) * c / s3
+        for bx, by in ((self.b_idle, self.b_hold), (self.b_plus, self.b_idle), (self.b_minus, self.b_idle)):
+            amp += e * E.cdot(self.D, self.untick_x(bx, k)) * E.cdot(self.D, self.untick_y(by))
+        return amp, c
+
+
+def f1_run(kind, kp, km, Nm, rounds):
+    """Mass rounds through the public Walk for the three characters; the executed state carries its phase."""
+    fac = Factors(kind, kp, km)
+    res = {}
+    for k in range(3):
+        g = 1.0 + 0j
+        phase = 0.0
+        logmod = 0.0
+        first = None
+        dev = 0.0
+        c1 = None
+        for _ in range(rounds):
+            a, c = fac.round(k, 1.0 / Nm, g)
+            rel = a * g.conjugate()
+            if first is None:
+                first, c1 = rel, c
+            dev = max(dev, abs(rel - first))
+            phase += -math.atan2(rel.imag, rel.real)
+            logmod += math.log(abs(rel))
+            g = a / abs(a)
+        t = rounds / Nm
+        res[k] = dict(rate=phase / t, log_modulus_per_unit=logmod / t, round_amplitude=first,
+                      compression_eigenvalue=c1, one_round_weight=abs(c1) ** 2, max_change_of_round_amplitude=dev)
+    return fac, res
+
+
+# ------------------------------------------------------------------------------------------ F2: arrays, DL
+class Register:
+    """DL register with the register F explicit: psi[f, kX, kY]."""
+
+    def __init__(self, kp, km):
+        self.kp, self.km = complex(kp), complex(km)
+        rp, rm, h = PAIR.rp, PAIR.rm, PAIR.h
+        self.rp, self.rm = rp, rm
+        bx_blank = (~(rp | rm)) / math.sqrt(50)
+        bx_p, bx_m = rp / math.sqrt(5), rm / math.sqrt(5)
+        by_blank, by_w = (~h) / math.sqrt(50), h / math.sqrt(10)
+        self.phi = ((np.outer(bx_blank, by_w) + np.outer(bx_p, by_blank) + np.outer(bx_m, by_blank))
+                    / math.sqrt(3)).astype(np.complex128)
+        self.uu = PAIR.uu
+
+    def U(self, psi):
+        psi = PAIR.reflect(psi)
+        out = psi.copy()
+        out[:, self.rp, :] = self.kp * np.roll(psi[:, self.rp, :], 1, axis=0)       # R x_j = x_(j+1)
+        out[:, self.rm, :] = self.km * np.roll(psi[:, self.rm, :], -1, axis=0)
+        return out
+
+    def Udag(self, psi):
+        out = psi.copy()
+        out[:, self.rp, :] = np.conj(self.kp) * np.roll(psi[:, self.rp, :], -1, axis=0)
+        out[:, self.rm, :] = np.conj(self.km) * np.roll(psi[:, self.rm, :], 1, axis=0)
+        return PAIR.reflect(out)
+
+    def gate(self, psi, h):
+        c = np.tensordot(psi, np.conj(self.phi), axes=([1, 2], [0, 1]))
+        return psi + (np.exp(-1j * h) - 1) * c[:, None, None] * self.phi
+
+    def round(self, psi, h):
+        return self.Udag(self.gate(self.U(psi), h))
+
+    def start(self, fvec):
+        return np.asarray(fvec, dtype=np.complex128)[:, None, None] * self.uu
+
+    def compression(self):
+        """M[f', f] = <Phi (x) x_f'| U |D D x_f>."""
+        M = np.zeros((3, 3), dtype=np.complex128)
+        for f in range(3):
+            e = np.zeros(3)
+            e[f] = 1
+            M[:, f] = np.tensordot(self.U(self.start(e)), np.conj(self.phi), axes=([1, 2], [0, 1]))
+        return M
+
+    def return_operator(self, h):
+        """G[f', f] = <D D x_f'| round |D D x_f>, and the largest weight left outside D D."""
+        G = np.zeros((3, 3), dtype=np.complex128)
+        for f in range(3):
+            e = np.zeros(3)
+            e[f] = 1
+            out = self.round(self.start(e), h)
+            G[:, f] = out.sum(axis=(1, 2)) / NA
+        return G
+
+
+CHAR = np.array([[W3 ** (-(j * k)) for k in range(3)] for j in range(3)]) / math.sqrt(3)     # columns v_k
+
+
+def char_round_fast(kp, km, k, h, psi, phi, rp, rm):
+    """One mass round of the DL register in the character k on a 60 x 60 array."""
+    fp, fm = kp * W3 ** k, km * W3 ** (-k)
+    t = PAIR.reflect(psi)
+    t[rp, :] *= fp
+    t[rm, :] *= fm
+    c = np.vdot(phi, t)
+    t = t + (cmath.exp(-1j * h) - 1) * c * phi
+    t[rp, :] *= fp.conjugate()
+    t[rm, :] *= fm.conjugate()
+    return PAIR.reflect(t)
+
+
+def long_character_run(kp, km, Nm, units):
+    """Per character: Nm x units mass rounds in the all-yes branch; cumulative amplitude g_k(s) at every unit."""
+    reg = Register(kp, km)
+    g_all = np.empty((3, units + 1), dtype=np.complex128)
+    info = {}
+    h = 1.0 / Nm
+    for k in range(3):
+        psi = PAIR.uu.copy()
+        g = 1.0 + 0j
+        cum_phase = 0.0
+        cum_log = 0.0
+        first = None
+        dev = 0.0
+        g_all[k, 0] = 1.0
+        for s in range(1, units + 1):
+            for _ in range(Nm):
+                out = char_round_fast(reg.kp, reg.km, k, h, psi, reg.phi, reg.rp, reg.rm)
+                a = out.sum() / NA
+                rel = a * g.conjugate()
+                if first is None:
+                    first = rel
+                d = abs(rel - first)
+                if d > dev:
+                    dev = d
+                cum_phase += math.atan2(rel.imag, rel.real)
+                cum_log += math.log(abs(rel))
+                g = a / abs(a)
+                psi = g * PAIR.uu
+            g_all[k, s] = cmath.exp(cum_log + 1j * cum_phase)
+        info[k] = dict(rate=-cum_phase / units, log_modulus_per_unit=cum_log / units,
+                       round_amplitude=first, max_change_of_round_amplitude=dev)
+    return g_all, info
+
+
+def definite_position_run(kp, km, Nm, marks):
+    """F explicit, start at the position x_0. Position probabilities and character phases at the marks."""
+    reg = Register(kp, km)
+    f = np.array([1, 0, 0], dtype=np.complex128)
+    rows = []
+    h = 1.0 / Nm
+    logmod = 0.0
+    leak = 0.0
+    s_prev = 0
+    for s in marks:
+        for _ in range((s - s_prev) * Nm):
+            out = reg.round(reg.start(f), h)
+            a = out.sum(axis=(1, 2)) / NA
+            leak = max(leak, float((np.abs(out) ** 2).sum() - (np.abs(a) ** 2).sum()))
+            n = np.linalg.norm(a)
+            logmod += math.log(n)
+            f = a / n
+        s_prev = s
+        amp = CHAR.conj().T @ f
+        rows.append(dict(units=s, position_probabilities=[float(x) for x in np.abs(f) ** 2],
+                         character_weights={NAMES[k]: float(abs(amp[k]) ** 2) for k in range(3)},
+                         character_phases={NAMES[k]: float(np.angle(amp[k])) for k in range(3)},
+                         log_norm=logmod))
+    return rows, leak
+
+
+# ------------------------------------------------------------------------------------------ F: readout
+def outcome_distribution(g, T):
+    """P(m) = T^-2 sum_(t,t') exp(2 pi i m (t - t')/T) g(t - t'), g(-s) = conj g(s), for one character."""
+    c = (T - np.arange(T)) * g[:T]
+    c[0] = T / 2.0
+    p = 2.0 * np.real(np.fft.ifft(c) * T) / (T * T)
+    return p
+
+
+def readout_scan(g_all, Tmax, Ts=None):
+    """g_all[k, s] for k = 0 (tau), 1 (electron), 2 (muon). Scan the number of clock levels T."""
+    Ts = list(range(2, Tmax + 1)) if Ts is None else Ts
+    rows = np.empty((len(Ts), 4))
+    neg = 0.0
+    for i, T in enumerate(Ts):
+        P = np.array([outcome_distribution(g_all[k], T) for k in range(3)])
+        neg = min(neg, float(P.min()))
+        P = np.maximum(P, 0)
+        p_id = P.max(axis=0).sum() / 3
+        p_me = np.maximum(P[2], P[1]).sum() / 2
+        p_tm = np.maximum(P[0], P[2]).sum() / 2
+        p_te = np.maximum(P[0], P[1]).sum() / 2
+        rows[i] = (p_id, p_me, p_tm, p_te)
+    return np.array(Ts), rows, neg
+
+
+def thresholds(Ts, col, levels=(0.95, 0.99, 0.999)):
+    """Smallest T with the value at least c for every larger scanned T; also the first T that reaches c."""
+    out = {}
+    for c in levels:
+        ok = col >= c
+        first = int(Ts[np.argmax(ok)]) if ok.any() else None
+        stable = None
+        if ok[-1]:
+            bad = np.where(~ok)[0]
+            stable = int(Ts[0]) if len(bad) == 0 else int(Ts[bad[-1] + 1])
+        out[str(c)] = dict(first=first, for_every_larger_T=stable)
+    return out
+
+
+def scan_summary(g_all, Tmax, label):
+    Ts, rows, neg = readout_scan(g_all, Tmax)
+    pick = [T for T in (8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096) if T <= Tmax]
+    tab = [dict(clock_levels=T, p_all_three_identified=float(rows[T - 2, 0]),
+                p_muon_from_electron=float(rows[T - 2, 1]), p_tau_from_muon=float(rows[T - 2, 2]),
+                p_tau_from_electron=float(rows[T - 2, 3])) for T in pick]
+    curve_T = [int(T) for T in Ts if T <= 64 or T % 8 == 0]
+    return dict(setting=label, scan_limit=Tmax, table=tab,
+                muon_from_electron=thresholds(Ts, rows[:, 1]), tau_from_muon=thresholds(Ts, rows[:, 2]),
+                all_three=thresholds(Ts, rows[:, 0]), most_negative_probability_before_clipping=neg,
+                curve=dict(T=curve_T, p_all_three=[round(float(rows[T - 2, 0]), 6) for T in curve_T],
+                           p_muon_from_electron=[round(float(rows[T - 2, 1]), 6) for T in curve_T],
+                           p_tau_from_muon=[round(float(rows[T - 2, 2]), 6) for T in curve_T]))
+
+
+def cplx(z):
+    return [float(np.real(z)), float(np.imag(z))]
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--quick', action='store_true')
+    ap.add_argument('--full', action='store_true')
+    args = ap.parse_args()
+    quick = args.quick
+    t0 = time.time()
+    out = {'task': 'LR task 4: the three characters on the executed register', 'mode': 'quick' if quick else 'full',
+           'characters': 'k = 0 tau (trivial), k = 1 electron, k = 2 muon; R v_k = w^k v_k',
+           'labels': 'MEASURED in float64 on executed state vectors unless marked'}
+    yf = y_formula()
+    out['formula_y_k'] = {NAMES[k]: yf[k] for k in range(3)}
+
+    # ---------------- A
+    Nps = [1, 10, 100, 1000] if quick else [1, 10, 100, 1000, 10 ** 4, 10 ** 5, 10 ** 6]
+    kappas = {}
+    A = []
+    for Np in Nps:
+        kap, ph, mod = executed_kappa(Np)
+        kappas[Np] = kap
+        th, lm = E.closed_theta(Np)
+        A.append(dict(N_p=Np, phase=ph, modulus=mod, phase_minus_closed_form=ph - th,
+                      modulus_minus_closed_form=mod - math.exp(lm), phase_minus_2_9=ph - THETA))
+        print('A', A[-1], flush=True)
+    out['A_executed_phase_of_the_current'] = A
+    k_closed = cmath.exp(1j * THETA)
+
+    # ---------------- B
+    reg = Register(k_closed, k_closed.conjugate())
+    M = reg.compression()
+    R1 = np.roll(np.eye(3), 1, axis=0)
+    z = k_closed
+    C = math.sqrt(1 / 6) * np.eye(3) + math.sqrt(1 / 12) * (z * R1 + z.conjugate() * R1.T)
+    dl_dev = float(np.abs(M - math.sqrt(5 / 18) * C).max())
+    mu = CHAR.conj().T @ M @ CHAR
+    offdiag = float(np.abs(mu - np.diag(np.diag(mu))).max())
+    G = reg.return_operator(0.01)
+    Gc = CHAR.conj().T @ G @ CHAR
+    g_off = float(np.abs(Gc - np.diag(np.diag(Gc))).max())
+    B = dict(DL=dict(max_abs_M_minus_sqrt_5_18_C=dl_dev, off_diagonal_in_the_character_basis=offdiag,
+                     return_operator_off_diagonal_in_the_character_basis=g_off,
+                     return_operator_minus_1_plus_e_minus_1_MdagM=float(np.abs(
+                         G - (np.eye(3) + (np.exp(-0.01j) - 1) * M.conj().T @ M)).max()),
+                     trace_MdagM=float(np.real(np.trace(M.conj().T @ M)))))
+    for kind, scale in (('DL', 5 / 18), ('NP', 2 / 9)):
+        fac, res = f1_run(kind, k_closed, k_closed.conjugate(), 100, 3)
+        ws = [res[k]['one_round_weight'] for k in range(3)]
+        target = y_formula(THETA, scale)
+        B.setdefault(kind, {}).update(
+            ports=list(fac.ports), flag_weights={k: float(v) for k, v in fac.weights.items()},
+            one_round_weights_F1={NAMES[k]: ws[k] for k in range(3)},
+            formula={NAMES[k]: target[k] for k in range(3)},
+            max_abs_weight_minus_formula=max(abs(ws[k] - target[k]) for k in range(3)),
+            sum_of_weights=sum(ws), muon_over_electron=ws[2] / ws[1], tau_over_electron=ws[0] / ws[1],
+            koide_Q=koide(ws))
+        if kind == 'DL':
+            B['DL']['F1_minus_F2_compression_eigenvalues'] = max(
+                abs(res[k]['compression_eigenvalue'] - mu[k, k]) for k in range(3))
+        print('B', kind, {k: v for k, v in B[kind].items()}, flush=True)
+    out['B_one_round_compression'] = B
+
+    # ---------------- C: executed rest rates, closed phase inserted
+    Cc = {}
+    for kind, scale in (('DL', 5 / 18), ('NP', 2 / 9)):
+        target = y_formula(THETA, scale)
+        rows = []
+        for Nm, rounds in ((1, 200), (10, 1000), (100, 2000 if quick else 10000), (1000, 2000 if quick else 10000)):
+            if quick and Nm == 1000:
+                continue
+            fac, res = f1_run(kind, k_closed, k_closed.conjugate(), Nm, rounds)
+            rows.append(dict(N_m=Nm, rounds=rounds, rates={NAMES[k]: res[k]['rate'] for k in range(3)},
+                             log_modulus_per_unit={NAMES[k]: res[k]['log_modulus_per_unit'] for k in range(3)},
+                             max_change_of_round_amplitude=max(res[k]['max_change_of_round_amplitude'] for k in range(3))))
+            print('C', kind, rows[-1], flush=True)
+        byN = {r['N_m']: r['rates'] for r in rows}
+        lim = {}
+        pairs = [(a, b) for a, b in ((10, 100), (100, 1000)) if a in byN and b in byN]
+        for a, b in pairs:
+            lim[f'{a},{b}'] = {n: (100 * byN[b][n] - byN[a][n]) / 99 for n in byN[a]}
+        best = lim[f'{pairs[-1][0]},{pairs[-1][1]}']
+        Cc[kind] = dict(rows=rows, limit_by_Richardson=lim,
+                        limit_minus_formula={NAMES[k]: best[NAMES[k]] - target[k] for k in range(3)},
+                        formula={NAMES[k]: target[k] for k in range(3)},
+                        ratios_of_the_limits=dict(muon_over_electron=best['muon'] / best['electron'],
+                                                  tau_over_electron=best['tau'] / best['electron']))
+        print('C limit', kind, Cc[kind]['limit_minus_formula'], Cc[kind]['ratios_of_the_limits'], flush=True)
+    out['C_executed_rest_rates'] = Cc
+
+    # ---------------- D: executed phase of the current in the register tick
+    D = []
+    for Np in Nps:
+        kap = kappas[Np]
+        row = dict(N_p=Np, kappa=cplx(kap))
+        for kind, scale in (('DL', 5 / 18), ('NP', 2 / 9)):
+            fac, res = f1_run(kind, kap, kap.conjugate(), 100, 2)
+            ws = [res[k]['one_round_weight'] for k in range(3)]
+            n0 = abs(res[0]['round_amplitude'] - (cmath.exp(-0.01j) - 1) * ws[0])     # weight kept by the tick
+            rate = [w / n0 for w in ws]
+            ordered = sorted(rate)
+            row[kind] = dict(one_round_weights={NAMES[k]: ws[k] for k in range(3)}, kept_weight_n0=n0,
+                             rates_limit={NAMES[k]: rate[k] for k in range(3)},
+                             muon_over_electron=rate[2] / rate[1], tau_over_electron=rate[0] / rate[1],
+                             koide_Q=koide(rate), sum_of_rates=sum(rate),
+                             order_is_electron_muon_tau=bool(rate[1] < rate[2] < rate[0]),
+                             middle_over_lowest=ordered[1] / ordered[0], highest_over_lowest=ordered[2] / ordered[0])
+        D.append(row)
+        print('D', Np, {k: (v if k == 'N_p' else {kk: vv for kk, vv in v.items() if kk in (
+            'muon_over_electron', 'tau_over_electron', 'koide_Q', 'kept_weight_n0')} if isinstance(v, dict) else v)
+            for k, v in row.items()}, flush=True)
+    out['D_with_the_executed_phase'] = D
+
+    # ---------------- E: long runs
+    marks = [4, 8, 16, 32, 64, 128, 256] + ([] if quick else [512])
+    Nm_pos = 16 if quick else 1024
+    rows, leak = definite_position_run(k_closed, k_closed.conjugate(), Nm_pos, marks)
+    yl = np.array(y_formula(THETA, 5 / 18))
+    amp0 = CHAR.conj().T @ np.array([1, 0, 0])
+    per_round = 1 + (np.exp(-1j / Nm_pos) - 1) * yl             # closed all-yes amplitude of one mass round
+    for r in rows:
+        ft = CHAR @ (np.exp(-1j * yl * r['units']) * amp0)
+        fa = CHAR @ (per_round ** (Nm_pos * r['units']) * amp0)
+        pa = np.abs(fa) ** 2 / (np.abs(fa) ** 2).sum()
+        r['position_probabilities_of_exp_minus_itY'] = [float(x) for x in np.abs(ft) ** 2]
+        r['max_abs_difference_to_exp_minus_itY'] = float(np.abs(np.abs(ft) ** 2 - np.array(r['position_probabilities'])).max())
+        r['max_abs_difference_to_the_closed_all_yes_form'] = float(np.abs(pa - np.array(r['position_probabilities'])).max())
+    out['E_definite_position'] = dict(
+        object='DL', N_m=Nm_pos, rounds=marks[-1] * Nm_pos, rows=rows,
+        beat_periods=dict(tau_muon=2 * math.pi / (yl[0] - yl[2]), muon_electron=2 * math.pi / (yl[2] - yl[1]),
+                          tau_electron=2 * math.pi / (yl[0] - yl[1])),
+        largest_weight_outside_the_standing_cells_before_a_test=leak,
+        note='all-yes branch: the character k keeps the modulus abs(1 - y_k + y_k exp(-i/N_m))^(N_m t)')
+    print('E position', [(r['units'], [round(x, 4) for x in r['position_probabilities']],
+                          round(r['max_abs_difference_to_exp_minus_itY'], 5),
+                          r['max_abs_difference_to_the_closed_all_yes_form']) for r in rows], flush=True)
+
+    long_runs = {}
+    settings = [(16, 1024)] if quick else [(16, 4096), (128, 4096), (1024, 2048)]
+    for Nm, units in settings:
+        g_all, info = long_character_run(k_closed, k_closed.conjugate(), Nm, units)
+        long_runs[Nm] = (g_all, units)
+        out.setdefault('E_per_character_long_runs', []).append(dict(
+            object='DL', N_m=Nm, units=units, rounds_per_character=Nm * units,
+            rates={NAMES[k]: info[k]['rate'] for k in range(3)},
+            log_modulus_per_unit={NAMES[k]: info[k]['log_modulus_per_unit'] for k in range(3)},
+            max_change_of_round_amplitude=max(info[k]['max_change_of_round_amplitude'] for k in range(3)),
+            g_at_512_units={NAMES[k]: cplx(g_all[k, min(512, units)]) for k in range(3)}))
+        print('E long', Nm, units, out['E_per_character_long_runs'][-1]['rates'],
+              out['E_per_character_long_runs'][-1]['max_change_of_round_amplitude'], flush=True)
+
+    # ---------------- F: readout
+    Fr = []
+    s = np.arange(4097)
+    # fixture check: pure phases with the formula rates (sum 2/9)
+    g_pure = np.array([np.exp(-1j * yf[k] * s) for k in range(3)])
+    fx = scan_summary(g_pure, 4096 if not quick else 1024, 'closed formula, rates y_k (sum 2/9), unit modulus: the fixture of LEPTON_READOUT')
+    fx['fixture_values'] = {'32': 0.666388, '512': 0.999777}
+    Fr.append(fx)
+    g_pure_dl = np.array([np.exp(-1j * yl[k] * s) for k in range(3)])
+    Fr.append(scan_summary(g_pure_dl, 4096 if not quick else 1024, 'closed formula, rates (5/4) y_k (sum 5/18), unit modulus'))
+    for Nm, (g_all, units) in long_runs.items():
+        Fr.append(scan_summary(g_all, units, f'executed DL register, {Nm} mass rounds per unit, phase 2/9 inserted'))
+    # NP: executed round amplitude through the public Walk, raised to the number of rounds
+    for Nm in ((16,) if quick else (16, 128, 1024)):
+        fac, res = f1_run('NP', k_closed, k_closed.conjugate(), Nm, 50 if quick else 200)
+        g_np = np.array([res[k]['round_amplitude'] ** (Nm * s) for k in range(3)])
+        Fr.append(scan_summary(g_np, 4096 if not quick else 1024,
+                               f'executed NP register (round amplitude through the public Walk), {Nm} mass rounds per unit, phase 2/9 inserted'))
+    for f in Fr:
+        print('F', f['setting'], [(r['clock_levels'], round(r['p_all_three_identified'], 6)) for r in f['table']],
+              'mu/e', f['muon_from_electron'], 'tau/mu', f['tau_from_muon'], flush=True)
+    out['F_readout'] = Fr
+
+    out['seconds'] = round(time.time() - t0, 1)
+    name = 'lr4_characters_quick.json' if quick else 'lr4_characters.json'
+
+    def enc(o):
+        if isinstance(o, complex):
+            return [o.real, o.imag]
+        if isinstance(o, (np.floating, np.integer)):
+            return o.item()
+        if isinstance(o, np.ndarray):
+            return o.tolist()
+        return str(o)
+    json.dump(out, open(os.path.join(HERE, name), 'w'), indent=1, default=enc)
+    print('written', name, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

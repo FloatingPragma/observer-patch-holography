@@ -1,0 +1,147 @@
+"""DG round 2, item 2 (and F4): neutrino masses, ratio of splittings and mixing from the generation circulant.
+No measured value enters; the comparison is in dg2_compare.py (NOT BLIND).
+
+Circulant (SPECTRUM.md item 4, DA): lambda_k = sqrt(q) + 2 sqrt(p) cos(delta + 2 pi k/3), q = 1/6, p = 1/12, with
+mass m_k proportional to lambda_k^2 (DA's A-clock square; sum lambda_k^2 = 3q + 6p = 1 at these weights).
+Phase candidates N1 (2/9), N2 (-2/9), N3 (DA's second coin reading: q = 1/3, p = 1/12, phase 13/36).
+Charged-lepton scale: the repository's MCPR conditional masses (T2, declared), read from
+code/particles/runs/leptons/charged_mcpr_completion_conditional.json if present, else from MASS_CANDIDATE_STATUS.md.
+Ratio y_nu/y_e = 1 (junction.json, linear class).
+
+Mixing (candidates U0 to U4b): bases of the rank-three band (R^3, frame axes x, y, z). C3 axes: (1,1,1)/sqrt3 (frame
+body diagonal), (0, 1/phi, phi)/sqrt3 (cos sqrt5/3), (1,1,-1)/sqrt3 (cos 1/3). C5 (port) axes: (0, 1, phi) and
+(0, -1, phi) normalized (cos 0.7947 and 0.1876 with (1,1,1)). Eigenbasis of the turn by 2 pi/3 (C3) or 2 pi/5 (C5)
+about the axis: axial mode k = 0, eigenvalue exp(+2 pi i/m) mode k = 1, exp(-2 pi i/m) mode k = 2.
+
+    python dg2_circulant.py [out.json]
+"""
+import json, os, re, sys
+import numpy as np
+import mpmath as mp
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/reverse-engineering-reality'
+phi = (1 + np.sqrt(5)) / 2
+
+# charged-lepton scale (declared, T2)
+status = open(os.path.join(RER, 'code/particles/MASS_CANDIDATE_STATUS.md')).read()
+mev = re.search(r'masses_MeV_display: `\["([0-9.e+-]+)", "([0-9.e+-]+)", "([0-9.e+-]+)"\]`', status)
+m_l = [mp.mpf(x) for x in mev.groups()]
+M_l = sum(m_l)
+junction = json.load(open(os.path.join(HERE, 'junction.json')))
+r_nu_e = mp.mpf(1)                                         # linear class, J1/J2
+
+
+def circ(q, p, delta):
+    lam = [mp.sqrt(q) + 2 * mp.sqrt(p) * mp.cos(delta + 2 * mp.pi * k / 3) for k in range(3)]
+    w = [x ** 2 for x in lam]
+    tot = sum(w)
+    frac = [x / tot for x in w]
+    Q = sum(w) / sum(abs(x) for x in lam) ** 2
+    return lam, frac, Q
+
+
+phases = {'N1': (mp.mpf(1) / 6, mp.mpf(1) / 12, mp.mpf(2) / 9),
+          'N2': (mp.mpf(1) / 6, mp.mpf(1) / 12, -mp.mpf(2) / 9),
+          'N3': (mp.mpf(1) / 3, mp.mpf(1) / 12, mp.mpf(13) / 36)}
+mass_rows = {}
+for nm, (q, p, d) in phases.items():
+    lam, frac, Q = circ(q, p, d)
+    m = [r_nu_e * M_l * f for f in frac]
+    order = sorted(range(3), key=lambda k: m[k])           # ascending: nu1, nu2, nu3 as Fourier indices
+    ms = [m[k] for k in order]
+    R = (ms[1] ** 2 - ms[0] ** 2) / (ms[2] ** 2 - ms[0] ** 2)
+    mass_rows[nm] = {'q': mp.nstr(q, 6), 'p': mp.nstr(p, 6), 'delta': mp.nstr(d, 12), 'Q': mp.nstr(Q, 12),
+                     'lambda_k': [mp.nstr(x, 12) for x in lam], 'mass_fraction_k': [mp.nstr(x, 12) for x in frac],
+                     'ascending_order_of_k': order, 'masses_MeV_ascending': [mp.nstr(x, 10) for x in ms],
+                     'ratios_to_lightest': [mp.nstr(x / ms[0], 10) for x in ms],
+                     'ratio_of_splittings (m2^2-m1^2)/(m3^2-m1^2)': mp.nstr(R, 10)}
+assert mass_rows['N1']['ascending_order_of_k'] == [1, 2, 0] and mass_rows['N2']['ascending_order_of_k'] == [2, 1, 0]
+assert mass_rows['N1']['masses_MeV_ascending'] == mass_rows['N2']['masses_MeV_ascending']
+
+# F4: seesaw with circulant Dirac masses r m_l,k and one common M: light masses proportional to m_D,k^2
+frac1 = circ(*phases['N1'])[1]
+lt = sorted([f ** 2 for f in frac1])
+R_f4 = (lt[1] ** 2 - lt[0] ** 2) / (lt[2] ** 2 - lt[0] ** 2)
+f4 = {'light_mass_ratios_to_lightest': [mp.nstr(x / lt[0], 10) for x in lt],
+      'ratio_of_splittings': mp.nstr(R_f4, 10)}
+
+
+# ------------------------------------------------------------------------------------------- bases and mixing
+def rot(axis, ang):
+    u = np.asarray(axis, float); u = u / np.linalg.norm(u)
+    K = np.array([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]])
+    return np.eye(3) + np.sin(ang) * K + (1 - np.cos(ang)) * K @ K
+
+
+def eigbasis(axis, m):
+    R = rot(axis, 2 * np.pi / m)
+    w, V = np.linalg.eig(R)
+    cols = {}
+    for kk, target in ((0, 1.0), (1, np.exp(2j * np.pi / m)), (2, np.exp(-2j * np.pi / m))):
+        j = int(np.argmin(np.abs(w - target)))
+        v = V[:, j] / np.linalg.norm(V[:, j])
+        cols[kk] = v
+    B = np.stack([cols[0], cols[1], cols[2]], axis=1)       # columns: k = 0, 1, 2
+    assert np.allclose(B.conj().T @ B, np.eye(3), atol=1e-12)
+    return B
+
+
+P = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)     # x -> y -> z
+assert np.allclose(P, rot((1, 1, 1), 2 * np.pi / 3))
+axes = {'C3 (1,1,1)': (1, 1, 1), 'C3 (0,1/phi,phi)': (0, 1 / phi, phi), 'C3 (1,1,-1)': (1, 1, -1),
+        'C5 (0,1,phi)': (0, 1, phi), 'C5 (0,-1,phi)': (0, -1, phi)}
+cosines = {k: float(np.dot(np.array(v) / np.linalg.norm(v), np.array([1, 1, 1]) / np.sqrt(3))) for k, v in axes.items()}
+assert abs(cosines['C3 (0,1/phi,phi)'] - np.sqrt(5) / 3) < 1e-12 and abs(cosines['C3 (1,1,-1)'] - 1 / 3) < 1e-12
+basis = {'C3 (1,1,1)': eigbasis(axes['C3 (1,1,1)'], 3), 'C3 (0,1/phi,phi)': eigbasis(axes['C3 (0,1/phi,phi)'], 3),
+         'C3 (1,1,-1)': eigbasis(axes['C3 (1,1,-1)'], 3), 'C5 (0,1,phi)': eigbasis(axes['C5 (0,1,phi)'], 5),
+         'C5 (0,-1,phi)': eigbasis(axes['C5 (0,-1,phi)'], 5), 'frame axes': np.eye(3)}
+lep_order = [1, 2, 0]                                       # e, mu, tau as Fourier indices (N1 circulant)
+nu_orders = {'N1': [1, 2, 0], 'N2': [2, 1, 0], 'N3': mass_rows['N3']['ascending_order_of_k']}
+
+
+def angles(U2):
+    s13 = U2[0, 2]
+    return {'sin2_theta12': float(U2[0, 1] / (1 - s13)), 'sin2_theta23': float(U2[1, 2] / (1 - s13)),
+            'sin2_theta13': float(s13)}
+
+
+mix = {}
+pairs = {'U0': ('C3 (1,1,1)', 'C3 (1,1,1)'), 'U2 (= U4a)': ('C3 (1,1,1)', 'C5 (0,1,phi)'),
+         'U3a': ('C3 (1,1,1)', 'C3 (0,1/phi,phi)'), 'U3b': ('C3 (1,1,1)', 'C3 (1,1,-1)'),
+         'U4b': ('C3 (1,1,1)', 'C5 (0,-1,phi)')}
+for nm, (bl, bn) in pairs.items():
+    for no, ordn in nu_orders.items():
+        Bl = basis[bl][:, lep_order]
+        Bn = basis[bn][:, ordn]
+        U = Bl.conj().T @ Bn
+        U2 = np.abs(U) ** 2
+        assert np.allclose(U2.sum(0), 1) and np.allclose(U2.sum(1), 1)
+        mix[f'{nm}, {no}'] = {'charged_lepton_basis': bl, 'neutrino_basis': bn,
+                              'cos_between_axes': cosines[bn], 'abs_U_squared': np.round(U2, 6).tolist(), **angles(U2)}
+# U1: lead L32 literally: frame axes against the port's fifth-turn eigenbasis
+Bp = basis['C5 (0,1,phi)']
+U1 = np.abs(np.eye(3).T @ Bp) ** 2                           # rows x, y, z; columns axial, circular+, circular-
+gr = sorted(np.round(U1[:, 0], 6).tolist())
+assert np.allclose(sorted(U1[:, 0]), sorted([0, 1 / (1 + phi ** 2), phi ** 2 / (1 + phi ** 2)]))
+row_zero = int(np.argmin(U1[:, 0]))
+# golden-ratio reading of L32: the axis with zero axial weight is the row with U_e3 = 0
+rows_gr = [int(np.argmax(U1[:, 0])), row_zero]
+mix['U1 (lead L32)'] = {'rows': 'frame axes x, y, z', 'columns': 'port (0,1,phi): axial, circular+, circular-',
+                        'abs_U_squared': np.round(U1, 6).tolist(),
+                        'golden_ratio_reading': {'sin2_theta12': float(1 / (1 + phi ** 2)), 'sin2_theta23': 0.5,
+                                                 'sin2_theta13': 0.0,
+                                                 'note': 'tan(theta12) = 1/phi; theta13 = 0 (lead L32)'}}
+out = {'charged_lepton_scale_MeV (MCPR, T2 declared)': [mp.nstr(x, 12) for x in m_l],
+       'y_nu_over_y_e': mp.nstr(r_nu_e, 3),
+       'masses_and_splittings': mass_rows, 'F4_seesaw_with_circulant_Dirac_masses': f4,
+       'axis_cosines_with_(1,1,1)': cosines, 'mixing': mix,
+       'statement': 'With y_nu/y_e = 1 and the same circulant (N1 or N2) the three neutrino masses equal the charged-lepton '
+                    'masses of the circulant: N1 and N2 differ only in which circular mode is lightest. Mixing from two '
+                    'different symmetry axes depends only on the angle between the axes.'}
+print(json.dumps({k: v for k, v in out.items() if k != 'mixing'}, indent=1))
+for k, v in mix.items():
+    print(k, {kk: (round(vv, 5) if isinstance(vv, float) else vv) for kk, vv in v.items() if kk.startswith('sin2') or kk == 'cos_between_axes'})
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

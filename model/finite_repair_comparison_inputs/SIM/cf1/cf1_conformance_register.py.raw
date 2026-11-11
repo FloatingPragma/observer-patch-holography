@@ -1,0 +1,72 @@
+"""Conformance items for the chiral mass step with R8's Higgs register (cf1_register.py), separate from cf1_conformance.py.
+
+    python cf1_conformance_register.py [runs/conformance_register.json]
+
+(m1) WITHOUT the register the toggle exp(-i theta Z_r) (option M2, kind 'Z', chiral reading) does not commute with the
+     Gauss operator of section 8: on a state with the quantum on one cell the commutator has norm 2 sin(theta),
+     0.175468 at theta = 0.087847 (R8, result 2). The item passes when the commutator is that large.
+(m2) WITH the register (K = Z_r x X_h, G_x extended by (-1)^(h_x)) the complete tick commutes with every G_x
+     (R8: 1.8e-16). Executed for the tick of this engine: half-step frame, alternating order (both parities), field step
+     eps = 0.3, kappa = 0.2, 2 x 2 x 1 cells, eight quantum links, four Higgs bits; state and seed as R8 (seed 7).
+"""
+import hashlib, json, os, sys
+import numpy as np
+from cf1_register import RegisterLattice, HERE
+
+out = {'suite': 'CF-1 conformance, register items (m1), (m2)', 'float': 'float64', 'items': {}}
+def sha(p): return hashlib.sha256(open(p, 'rb').read()).hexdigest()
+out['hashes'] = {f: sha(os.path.join(HERE, f)) for f in ('cf1_register.py', 'cf1_lib.py', 'ref/routing.py')}
+out['hashes']['R1/cf1.py'] = sha(os.path.join(HERE, '..', '..', 'R1', 'cf1.py'))
+ok_all = True
+def item(key, value, bound, text, at_least=False):
+    """at_least=False: pass when value <= bound; at_least=True: pass when value >= bound (a test that must not commute)"""
+    global ok_all
+    good = bool(value >= bound) if at_least else bool(value <= bound); ok_all &= good
+    out['items'][key] = {'value': float(value), 'bound': bound, 'bound_is': 'lower' if at_least else 'upper', 'pass': good, 'what': text}
+    print(('ok   ' if good else 'FAIL ') + key + f': {value:.6e} ({"lower" if at_least else "upper"} bound {bound:.6g})  {text}', flush=True)
+
+rl = RegisterLattice((2, 2, 1), eps=0.3, kappa=0.2)
+rs = RegisterLattice((2, 2, 1), eps=0.3, kappa=0.2, seam=True)       # the same tick with the seam form of the shift (R8's routing)
+rng = np.random.default_rng(7)
+Psi = rl.random_state(rng)                         # the state of r8_gauss.py (same seed, same draws)
+ci = 1                                             # R8: cells[1]
+loc = rl.localize(Psi, ci)
+info = {}
+th = 0.087847
+plain = float(np.linalg.norm(rl.mass(rl.gauss(loc, ci, False), th, False) - rl.gauss(rl.mass(loc, th, False), ci, False)))
+item('m1', plain, 2 * np.sin(th) - 1e-12, 'no register: [exp(-i theta Z_r), G_x] on a state with the quantum on cell x has norm 2 sin(theta) '
+     '(theta 0.087847, 2 x 2 x 1, eight quantum links): the toggle moves the Z2 charge', at_least=True)
+out['items']['m1']['two_sin_theta'] = float(2 * np.sin(th))
+out['items']['m1']['R8_value'] = 0.17546811261721132
+for th_ in (0.087847, 0.157935):
+    row = {}
+    l_ = rl.localize(Psi, ci)
+    row['mass_step_plain_on_occupied_cell'] = float(np.linalg.norm(rl.mass(rl.gauss(l_, ci, False), th_, False) - rl.gauss(rl.mass(l_, th_, False), ci, False)))
+    row['mass_step_lifted_extended_Gauss_on_occupied_cell'] = float(np.linalg.norm(rl.mass(rl.gauss(l_, ci, True), th_) - rl.gauss(rl.mass(l_, th_), ci, True)))
+    for t in (0, 1):
+        row[f'tick_t{t}_plain_max_over_cells'] = rl.commutator(lambda P: rl.tick(P, th_, t, register=False), Psi, False)
+        row[f'tick_t{t}_register_max_over_cells'] = rl.commutator(lambda P: rl.tick(P, th_, t, register=True), Psi, True)
+        row[f'tick_t{t}_register_unitarity'] = float(abs(np.linalg.norm(rl.tick(Psi, th_, t)) - 1))
+    row['R8_frame_tick_register_max_over_cells'] = rl.commutator(lambda P: rl.tick_end(P, th_, True), Psi, True)
+    row['tick_t0_register_seam_form_shift_max_over_cells'] = rs.commutator(lambda P: rs.tick(P, th_, 0, register=True), Psi, True)
+    row['R8_frame_tick_register_seam_form_shift_max_over_cells'] = rs.commutator(lambda P: rs.tick_end(P, th_, True), Psi, True)
+    info[f'theta_{th_}'] = row
+    print(th_, row, flush=True)
+m2 = max(v for r in info.values() for k, v in r.items() if k.startswith('tick_t') and k.endswith('register_max_over_cells'))
+item('m2', m2, 1e-14, 'with the Higgs register: the complete tick (half-step frame, both axis orders, field step eps 0.3, kappa 0.2) '
+     'commutes with every extended G_x; max over cells, ticks t = 0, 1 and theta 0.087847, 0.157935 (R8: 1.8e-16)')
+out['items']['m2']['R8_value'] = [1.7569653407636823e-16, 1.779672461458249e-16]
+# the same on further small lattices (one random state each), recorded, not an item
+more = {}
+for shape in ((2, 1, 1), (3, 1, 1), (4, 1, 1)):      # 3 x 2 x 1 (twelve links) takes about 100 s: run once, see reports/CR.md
+    r2 = RegisterLattice(shape, eps=0.3, kappa=0.2); P = r2.random_state(np.random.default_rng(11))
+    more[str(shape)] = {'links': r2.NL, 'higgs_bits': len(r2.cells),
+                        'register': max(r2.commutator(lambda Q: r2.tick(Q, 0.157935, t), P, True) for t in (0, 1)),
+                        'plain': max(r2.commutator(lambda Q: r2.tick(Q, 0.157935, t, register=False), P, False) for t in (0, 1))}
+    print(shape, more[str(shape)], flush=True)
+out['details'] = info
+out['further_lattices_theta_0.157935'] = more
+out['all_pass'] = ok_all
+dest = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, 'runs', 'conformance_register.json')
+json.dump(out, open(dest, 'w'), indent=1)
+print('ALL PASS' if ok_all else 'SOME FAILED', '->', dest)

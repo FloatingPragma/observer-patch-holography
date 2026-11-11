@@ -1,0 +1,28 @@
+{
+  "actual_raw_lepton_current": "L=N_L-N_ec, scalar charge zero",
+  "all_native_gauge_generators_commute": 12,
+  "bare_empty_local_state_H_variance": "28",
+  "bare_empty_local_state_stationary": false,
+  "charge_selection_rule": "charge-changing Majorana matrix elements vanish between states of fixed equal raw L",
+  "checked_report_sha256": "07fe848bbb79c924f78c78f8cb2799015fe1354fe6425d0be557c5c876e33bd0",
+  "finite_counterexample": {
+    "H": "diag(0,m,m), m>0",
+    "ground_to_doublet_energy_gap": "m",
+    "implied_gaplessness_from_scalar_onsite_block_and_charge_conservation": false,
+    "onsite_spin_flip": "0",
+    "pi_rotations": "1 direct-sum (-i sigma_x), 1 direct-sum (-i sigma_z)",
+    "raw_L": "diag(0,1,1)"
+  },
+  "hopping_preserves_raw_L_by_complete_native_irrep_blocks": 5,
+  "raw_L_commutes_with_full_H_at_all_hopping_coefficients": true,
+  "scope": {
+    "NU3_fifth_order_amplitudes_recomputed_here": false,
+    "NU3_mass_or_velocity_dictionary_admitted": false,
+    "relativistic_continuum_anomaly_matching_theorem_proved": false
+  },
+  "separate_native_Yukawa_charge_commutators": {
+    "charged_lepton": "0",
+    "down": "0",
+    "up": "0"
+  }
+}

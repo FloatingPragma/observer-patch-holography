@@ -1,0 +1,94 @@
+"""Worker LK, task 2: the weak kick as a word of the public source controls.
+
+Run from RL/work/LK (about 50 CPU seconds; the first use of each native generator is a sympy solve):
+  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lk_kick_word.py
+Public pieces (read only): `model/observer/source_scalar/compiler.py` (pauli_rotation: exp(i angle P) compiled to the
+twelve-port source controls) and `model/common_source/native_matter_attachment.py` (execute_word: the declared ideal
+continuous-current service). These are the pieces the public weak round of `KOIDE_SOURCE.md` uses for its own kick.
+
+Encoded bits, little endian: q0 = orientation of the C address (0 is +), q1 = record of the C object,
+q2 = forward flag of object A, q3 = in-dimer flag of object B.
+  J (x) Qx = (1/4) Z0 (1 - Z1) (1 - Z2 Z3) = (1/4) (Z0 - Z0 Z1 - Z0 Z2 Z3 + Z0 Z1 Z2 Z3).
+Writes lk_kick_word.json.
+"""
+from __future__ import annotations
+
+import cmath
+import json
+import math
+import os
+import sys
+import time
+
+sys.dont_write_bytecode = True
+import lk_common as L  # noqa: E402  (puts the public checkout on the path)
+import numpy as np  # noqa: E402
+from model.common_source import native_matter_attachment as matter  # noqa: E402
+from model.observer.source_scalar import compiler  # noqa: E402
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+T0 = time.time()
+OUT = {'provenance': L.provenance()}
+
+
+def bits(i):
+    return [(i >> q) & 1 for q in range(4)]
+
+
+def ideal(fn):
+    return np.diag([fn(*bits(i)) for i in range(16)])
+
+
+def jval(o, r):
+    return (1 - 2 * o) * r
+
+
+def kick_word(h):
+    """exp(-i h J (x) Qx) as four tensor-Z rotations."""
+    w = []
+    w += compiler.pauli_rotation(['Z', 'I', 'I', 'I'], -h / 4)
+    w += compiler.pauli_rotation(['Z', 'Z', 'I', 'I'], +h / 4)
+    w += compiler.pauli_rotation(['Z', 'I', 'Z', 'Z'], +h / 4)
+    w += compiler.pauli_rotation(['Z', 'Z', 'Z', 'Z'], -h / 4)
+    return w
+
+
+def toggle_word(eta):
+    """T(eta) = exp(+i eta J (x) Z_F Z_I) as two tensor-Z rotations (statement K6)."""
+    return compiler.pauli_rotation(['Z', 'I', 'Z', 'Z'], +eta / 2) + compiler.pauli_rotation(['Z', 'Z', 'Z', 'Z'], -eta / 2)
+
+
+def oriented_toggle_word(eta):
+    """exp(-i eta sigma_z(o) Z_r Z_F Z_I): one tensor-Z rotation (statement K5)."""
+    return compiler.pauli_rotation(['Z', 'Z', 'Z', 'Z'], -eta)
+
+
+rows = {}
+for name, h in (('h = 2 atan(1/64) (the finite control of KOIDE_SOURCE)', 2 * math.atan(1 / 64)), ('h = pi/2 (strong kick)', math.pi / 2)):
+    word = kick_word(h)
+    U = matter.execute_word(word, 4)
+    target = ideal(lambda o, r, fa, fb: cmath.exp(-1j * h * jval(o, r) * (fa ^ fb)))
+    tw = toggle_word(h / 2)
+    UT = matter.execute_word(tw, 4)
+    targetT = ideal(lambda o, r, fa, fb: cmath.exp(1j * (h / 2) * jval(o, r) * (1 - 2 * fa) * (1 - 2 * fb)))
+    ow = oriented_toggle_word(h / 2)
+    UO = matter.execute_word(ow, 4)
+    targetO = ideal(lambda o, r, fa, fb: cmath.exp(-1j * (h / 2) * (1 - 2 * o) * (1 - 2 * r) * (1 - 2 * fa) * (1 - 2 * fb)))
+    rows[name] = {
+        'kick exp(-i h J (x) Qx): native pulses': len(word),
+        'kick: operator-norm distance to the ideal diagonal': float(np.linalg.norm(U - target, 2)),
+        'toggle T(h/2) = exp(+i (h/2) J (x) Z_F Z_I): native pulses': len(tw),
+        'toggle: distance': float(np.linalg.norm(UT - targetT, 2)),
+        'oriented toggle exp(-i (h/2) Z0 Z1 Z2 Z3): native pulses': len(ow),
+        'oriented toggle: distance': float(np.linalg.norm(UO - targetO, 2)),
+        'pulse kinds used': sorted({e['kind'] for e in word}),
+    }
+    print(name, rows[name], flush=True)
+OUT['words'] = rows
+OUT['reading'] = ('the kick is a word of four tensor-Z rotations of the public source-control compiler on four encoded '
+                  'bits; the coherent load of the four bits into the processor code and the analogue angle are specified '
+                  'apparatus of that service, as for the kick of KOIDE_SOURCE')
+OUT['seconds'] = round(time.time() - T0, 2)
+with open(os.path.join(HERE, 'lk_kick_word.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+print('written lk_kick_word.json', OUT['seconds'], 's')

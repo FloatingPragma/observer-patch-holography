@@ -1,0 +1,87 @@
+"""Item 4: scattering from a slab of w cells with mass angle theta1 in a background theta0, on a line.
+
+Exact formula of the discrete tick (PROOFS.md, Theorem 4; transfer matrix in SU(1,1)), with cos E = cos(theta0) cos(p0),
+cos k1 = cos E / cos(theta1):
+    T = 1 / (1 + S^2 sin^2(w k1)/sin^2(k1)),   S = sin E (sin theta1 - sin theta0) / (cos theta0 cos theta1 sin p0)
+Continuum Dirac formula for a mass barrier m0 -> m1 of width w, E^2 = p0^2 + m0^2, k1^2 = E^2 - m1^2:
+    T = 1 / (1 + (E (m1 - m0)/(p0 k1))^2 sin^2(w k1))
+Executed: (a) direct stationary solve of the tick on a ring section (independent of the formula); (b) a packet of the
+reference engine through one defect cell; (c) comparison with run C of the simulation session if readable.
+"""
+import json, os, sys
+import numpy as np
+from r5lib import Routing, tick, branch
+
+def T_lattice(p0, th0, th1, w):
+    E = np.arccos(np.cos(th0) * np.cos(p0))
+    k1 = np.arccos(complex(np.cos(E) / np.cos(th1)))
+    S = np.sin(E) * (np.sin(th1) - np.sin(th0)) / (np.cos(th0) * np.cos(th1) * np.sin(p0))
+    return float(1 / (1 + S ** 2 * abs(np.sin(w * k1) / np.sin(k1)) ** 2))
+
+def T_continuum(p0, m0, m1, w):
+    E = np.hypot(p0, m0); k1 = np.sqrt(complex(E * E - m1 * m1))
+    return float(1 / (1 + (E * (m1 - m0) / p0) ** 2 * abs(np.sin(w * k1) / k1) ** 2))
+
+def T_transfer(p0, th0, th1, w):
+    """independent: product of the one-cell transfer matrices (r(x), l(x+1)) = M_x (r(x-1), l(x)), read in the Bloch basis"""
+    E = np.arccos(np.cos(th0) * np.cos(p0))
+    M = lambda th: np.array([[np.exp(1j * E), np.sin(th)], [np.sin(th), np.exp(-1j * E)]]) / np.cos(th)
+    lam, V = np.linalg.eig(M(th0))
+    if th0 == 0: V = np.eye(2, dtype=complex); lam = np.array([np.exp(1j * E), np.exp(-1j * E)])
+    order = np.argsort(-np.angle(lam))                       # first: e^{+i p0} (right mover)
+    V = V[:, order]
+    Mt = np.linalg.inv(V) @ np.linalg.matrix_power(M(th1), w) @ V
+    return float(1 / abs(Mt[1, 1]) ** 2 * abs(np.linalg.det(Mt)))
+
+out = {}
+th0, th1 = 0.087847, 0.171237
+rows = []
+for w in (1, 4, 16):
+    for p0 in (0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6):
+        a, b, c = T_lattice(p0, th0, th1, w), T_transfer(p0, th0, th1, w), T_continuum(p0, th0, th1, w)
+        rows.append(dict(cells=w, p0=p0, T_formula=a, T_transfer_matrix=b, T_continuum=c))
+out['table'] = rows
+print('closed formula against the transfer-matrix product, max abs difference: %.2e' % max(abs(r['T_formula'] - r['T_transfer_matrix']) for r in rows))
+for w in (1, 4, 16):
+    print(f'slab of {w}: ' + '  '.join(f"p0={r['p0']}: T {r['T_formula']:.6f} (continuum {r['T_continuum']:.6f})" for r in rows if r['cells'] == w))
+print('one cell in a massless background, formula against cos^2(theta1): %.2e' % max(abs(T_lattice(p, 0.0, 0.3, 1) - np.cos(0.3) ** 2) for p in (0.05, 0.3, 1.0)))
+
+# (b) executed with the reference engine: a packet through one defect cell
+L, xd = 1024, 512
+res = []
+for p_target, w_cells in ((0.1, 1), (0.3, 1), (0.3, 4)):
+    eng = Routing((L, 1, 1)); n0 = int(round(p_target * L / (2 * np.pi)))
+    theta = np.full((L, 1, 1), th0); theta[xd:xd + w_cells] = th1
+    def coin(p):                                             # positive branch, spin +1 along axis 1, smooth in p
+        U2 = (np.cos(th0) * np.eye(2) - 1j * np.sin(th0) * np.array([[0, -1j], [1j, 0]])) @ (np.cos(p[0]) * np.eye(2) - 1j * np.sin(p[0]) * np.array([[0, 1], [1, 0]]))
+        lam, v = np.linalg.eig(U2); r = v[:, int(np.argmax(-np.angle(lam)))]; r = r * np.exp(-1j * np.angle(r[0])) / np.linalg.norm(r)
+        return np.kron(r, np.array([1, 1]) / np.sqrt(2))
+    psi = eng.packet(n0, 6.0, coin)
+    psi = np.roll(psi, 300, axis=0)                          # centre at cell 300
+    ticks = 430 if p_target > 0.2 else 560
+    for _ in range(ticks): psi = tick(eng, psi, theta)
+    prob = np.sum(np.abs(psi) ** 2, axis=(1, 2, 3, 4))
+    Tm = float(prob[xd + w_cells:xd + 500].sum()); Rm = float(prob[:xd].sum())
+    # packet average of the formula over the momentum weights of the prepared packet
+    wts = np.array([np.exp(-(((n - n0 + L / 2) % L) - L / 2) ** 2 / 6.0 ** 2) for n in range(L)])
+    ps = 2 * np.pi * np.arange(L) / L; sel = (wts > 1e-12) & (np.abs(np.sin(ps)) > 1e-9)
+    Tavg = float(sum(wt * T_lattice(p, th0, th1, w_cells) for wt, p in zip(wts[sel], ps[sel])) / wts[sel].sum())
+    res.append(dict(p0=float(2 * np.pi * n0 / L), cells=w_cells, ticks=ticks, T_measured=Tm, R_measured=Rm, T_formula_packet_average=Tavg))
+    print(f"engine packet p0={2*np.pi*n0/L:.4f} slab {w_cells}: T measured {Tm:.6f}, R measured {Rm:.6f}, formula averaged over the packet {Tavg:.6f}")
+out['engine_packets'] = res
+
+# (c) run C of the simulation session
+p = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'simruns', 'C_barrier.json')
+if os.path.exists(p):
+    d = json.load(open(p)); cmp_rows = []
+    for slab in d['slabs']:
+        w = slab['cells']
+        dl = max(abs(T_lattice(r['p'], d['theta0'], d['theta1'], w) - r['T_lattice']) for r in slab['stationary'])
+        dc = max(abs(T_continuum(r['p'], d['theta0'], d['theta1'], w) - r['T_lattice']) for r in slab['stationary'])
+        prs = slab['packets']
+        cmp_rows.append(dict(cells=w, stationary_points=len(slab['stationary']), max_abs_my_formula_minus_their_T_lattice=dl,
+                             max_abs_continuum_minus_their_T_lattice=dc, packet_keys=list(prs[0].keys())))
+        print(f"run C slab {w}: {len(slab['stationary'])} stationary points, max |formula - their T_lattice| = {dl:.2e}, max |continuum - their T_lattice| = {dc:.2e}")
+    print('run C packet row keys:', cmp_rows[0]['packet_keys'])
+    out['run_C_comparison'] = cmp_rows
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else 'item4_barrier.json', 'w'), indent=1)

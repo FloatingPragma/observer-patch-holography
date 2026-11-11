@@ -1,0 +1,132 @@
+"""Block 6: checks that decide the candidate's gates and the federation interface.
+
+1 A curved transport with its holonomy record is the flat one: the Levi-Civita spin on (port, area counter) has the
+  full M_2 protected (float; the counter must run with the sign of the frame's flux).
+2 Commutants of the holonomy groups that the federation wirings produce (worker MG, block 1): Z_3 (glue-triple rule
+  S) and the icosahedral group (rolling rules), on the spinor, the vector and 2 + 3 (float, exact dimensions).
+3 Modular invariance of the one-event effect span: maximum-entropy states exp(-sum v_p P_p)/Z on 2 + 3, mixed against
+  same realization (float).
+4 Every rank-one effect of the spinor is a port effect conjugated by at most three own-axis pulses (float, optimizer).
+"""
+import json, time
+import numpy as np
+from scipy.linalg import expm
+from scipy.optimize import minimize
+from mt_lib import herm_projector, herm_spin, port_projectors, znum, Z, integer_table
+from carrier_tools import C
+
+t0 = time.time()
+out = {}
+rng = np.random.default_rng(11)
+sx = np.array([[0, 1], [1, 0]], complex); sy = np.array([[0, -1j], [1j, 0]]); sz = np.diag([1, -1]).astype(complex)
+theta = np.arccos(1 / np.sqrt(5))
+
+# ---------------------------------------------------------------- 1: Levi-Civita transport on the cover by the area counter
+TAB = integer_table()
+def rot3(p, q):
+    k = np.cross(C.N[p], C.N[q]); k /= np.linalg.norm(k)
+    K = np.array([[0, -k[2], k[1]], [k[2], 0, -k[0]], [-k[1], k[0], 0]])
+    return expm(theta * K)
+def bloch_transfer(counter_sign):
+    """Bloch-vector transfer on (port, counter mod 20); counter_sign = 0 means no counter."""
+    nA = 20 if counter_sign else 1
+    n = 12 * nA
+    M = np.zeros((3 * n, 3 * n))
+    idx = lambda p, a: p * nA + a
+    for p in range(12):
+        for a in range(nA):
+            i = idx(p, a)
+            M[3 * i:3 * i + 3, 3 * i:3 * i + 3] = (1 - 5 / 60) * np.eye(3)
+            for q in C.nbr[p]:
+                j = idx(q, (a + counter_sign * TAB[(p, q)]) % nA)
+                M[3 * j:3 * j + 3, 3 * i:3 * i + 3] = rot3(p, q) / 60
+    return M
+res1 = {}
+for label, sgn in (('no counter', 0), ('counter +', 1), ('counter -', -1)):
+    M = bloch_transfer(sgn)
+    ev = np.linalg.eigvalsh((M + M.T) / 2)
+    res1[label] = {'protected_Bloch_directions': int((np.abs(ev - 1) < 1e-9).sum()), 'protected_internal_algebra_dimension': 1 + int((np.abs(ev - 1) < 1e-9).sum()),
+                   'next_factor': round(float(np.sort(ev[np.abs(ev - 1) > 1e-9])[-1]), 9), 'symmetry_defect': float(np.abs(M - M.T).max())}
+out['1_levi_civita_spin_with_area_counter'] = res1
+out['1_reading'] = ('the geodesic-rotation transport has holonomy Z_20; on the cover (port, area counter mod 20) it is flat, and the '
+                    'unread law protects the full M_2 there: (Levi-Civita spin, counter) is unitarily (ambient spin) x (counter)')
+print('1', res1, flush=True)
+
+# ---------------------------------------------------------------- 2: commutants of federation holonomy groups
+def rep(j2, axis, angle):
+    Jx, Jy, Jz = herm_spin(j2)
+    return expm(-1j * angle * (axis[0] * Jx + axis[1] * Jy + axis[2] * Jz))
+def commutant_dim(gens):
+    d = gens[0].shape[0]
+    rows = [np.kron(g, np.eye(d)) - np.kron(np.eye(d), g.T) for g in gens]
+    s = np.linalg.svd(np.concatenate(rows), compute_uv=False)
+    return int((s < 1e-9).sum())
+f = C.F[0]
+face_axis = C.N[list(f)].sum(0); face_axis /= np.linalg.norm(face_axis)
+res2 = {}
+groups = {'Z_3 about the glue-face axis (rule S)': [(face_axis, 2 * np.pi / 3)],
+          'all 60 rotations (rolling rules, level >= 1)': [(C.N[0], 2 * np.pi / 5), (C.N[C.nbr[0][0]], 2 * np.pi / 5)],
+          'Z_5 about one port axis': [(C.N[0], 2 * np.pi / 5)], 'trivial': [(C.N[0], 0.0)]}
+for gname, gl in groups.items():
+    row = {}
+    for tname, js in (('spinor', [1]), ('vector', [2]), ('2 + 3', [1, 2])):
+        gens = []
+        for ax, ang in gl:
+            blocks = [rep(j2, ax, ang) for j2 in js]
+            d = sum(b.shape[0] for b in blocks); G = np.zeros((d, d), complex); o = 0
+            for b in blocks:
+                G[o:o + b.shape[0], o:o + b.shape[0]] = b; o += b.shape[0]
+            gens.append(G)
+        row[tname] = commutant_dim(gens)
+    res2[gname] = row
+out['2_commutant_dimension_of_holonomy_groups'] = res2
+out['2_reading'] = ('dimension of the internal algebra protected by the unread law when frame changes have this holonomy; '
+                    'full protection is d^2 = 4, 9 (and 13 on the block algebra of 2 + 3, 25 in M_5)')
+print('2', res2, flush=True)
+
+# ---------------------------------------------------------------- 3: modular invariance of the one-event span
+def span_distance(Ps, X):
+    A = np.array([np.concatenate([P.real.ravel(), P.imag.ravel()]) for P in Ps]).T
+    b = np.concatenate([X.real.ravel(), X.imag.ravel()])
+    sol = np.linalg.lstsq(A, b, rcond=None)[0]
+    return float(np.linalg.norm(A @ sol - b))
+res3 = {}
+for name, blocks in (('spinor great + vector convex', [(1, 'great', 1), (2, 'convex', 1)]), ('spinor convex + vector convex', [(1, 'convex', 1), (2, 'convex', 1)])):
+    Ps = port_projectors(blocks, exact=False)
+    worst = 0.0
+    for trial in range(20):
+        v = rng.normal(size=12)
+        K = sum(v[p] * Ps[p] for p in range(12))
+        t = rng.uniform(0.2, 3.0)
+        U = expm(-1j * t * K)
+        worst = max(worst, max(span_distance(Ps, U @ Ps[q] @ U.conj().T) for q in range(12)))
+    res3[name] = {'max_distance_of_modular_orbit_from_one_event_span': worst}
+out['3_modular_orbit_of_port_effects_for_maximum_entropy_states'] = res3
+print('3', res3, flush=True)
+
+# ---------------------------------------------------------------- 4: arbitrary rank-one spinor effects by three own-axis pulses
+P = [herm_projector(1, C.N[p], 1) for p in range(12)]
+a, b = 0, C.nbr[0][0]
+def effect(angles, start):
+    U = expm(1j * angles[0] * P[a]) @ expm(1j * angles[1] * P[b]) @ expm(1j * angles[2] * P[a])
+    return U @ P[start] @ U.conj().T
+worst = 0.0
+for trial in range(60):
+    m = rng.normal(size=3); m /= np.linalg.norm(m)
+    target = (np.eye(2) + m[0] * sx + m[1] * sy + m[2] * sz) / 2
+    best = 1.0
+    for start in (b, a, C.nbr[0][1]):
+        for attempt in range(12):
+            r = minimize(lambda x: np.linalg.norm(effect(x, start) - target) ** 2, rng.uniform(0, 2 * np.pi, 3), method='BFGS')
+            best = min(best, np.sqrt(max(r.fun, 0)))
+            if best < 1e-7:
+                break
+        if best < 1e-7:
+            break
+    worst = max(worst, best)
+out['4_any_spinor_projector_from_a_port_effect_and_three_pulses'] = {'targets': 60, 'max_residual': float(worst),
+    'pulses': 'exp(i x1 P_a) exp(i x2 P_b) exp(i x3 P_a) on two adjacent ports'}
+print('4', out['4_any_spinor_projector_from_a_port_effect_and_three_pulses'], flush=True)
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('b6_candidate.json', 'w'), indent=1)
+print('written b6_candidate.json', out['seconds'], 's')

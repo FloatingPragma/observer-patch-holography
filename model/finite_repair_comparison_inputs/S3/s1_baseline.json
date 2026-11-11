@@ -1,0 +1,354 @@
+{
+ "max_level": 4,
+ "levels": {
+  "0": {
+   "carriers": 20,
+   "ports": 240,
+   "seams": 630,
+   "glue_seams": 30,
+   "seam_arrays_equal_pinned_builder": true,
+   "cells_repaired_by_assignment": 0,
+   "degree_histogram": {
+    "5": 180,
+    "6": 60
+   },
+   "N_lambda2": 0.8828506139799708,
+   "N_lambda2_claimed": 0.882851,
+   "N_lambda_triplet": [
+    0.8828506139799708,
+    0.890840863759579,
+    0.891046855336018
+   ],
+   "spread_l1": 0.009227444121975823,
+   "spread_l2": 0.036094687152224116,
+   "spread_l3": 0.6015569740106301,
+   "N_lambda_first16": [
+    2.2148755565274938e-14,
+    0.8828506139799708,
+    0.890840863759579,
+    0.891046855336018,
+    2.3377298202343963,
+    2.3792701777328533,
+    2.3792701777328573,
+    2.3798376802524683,
+    2.423633307129172,
+    3.576666949421301,
+    3.621665067839517,
+    3.660093784947582,
+    3.7077918907535246,
+    6.199521942966335,
+    6.271680456947845,
+    6.45488552360558
+   ],
+   "carrier_classes_by_distance_pattern": {
+    "(1, 2, 2)": 8,
+    "(2, 2, 2)": 12
+   },
+   "ordered_types_under_120": 4,
+   "ordered_types_under_60": 4,
+   "port_label_usage": [
+    10,
+    6,
+    10,
+    6,
+    0,
+    0,
+    0,
+    0,
+    14,
+    0,
+    14,
+    0
+   ],
+   "mesh_rotations_leaving_type_field_invariant_120": 1,
+   "mesh_rotations_leaving_type_field_invariant_60": 1,
+   "seconds": 0.1
+  },
+  "1": {
+   "carriers": 80,
+   "ports": 960,
+   "seams": 2520,
+   "glue_seams": 120,
+   "seam_arrays_equal_pinned_builder": true,
+   "cells_repaired_by_assignment": 0,
+   "degree_histogram": {
+    "5": 720,
+    "6": 240
+   },
+   "N_lambda2": 0.8252662242109192,
+   "N_lambda2_claimed": 0.825266,
+   "N_lambda_triplet": [
+    0.8252662242109192,
+    0.8347873515877791,
+    0.8365724460921891
+   ],
+   "spread_l1": 0.013585801536315117,
+   "spread_l2": 0.02662613551026677,
+   "spread_l3": 0.19825267908358693,
+   "N_lambda_first16": [
+    7.042725040767896e-14,
+    0.8252662242109192,
+    0.8347873515877791,
+    0.8365724460921891,
+    2.40059791872702,
+    2.41224287926672,
+    2.4237214113273344,
+    2.443577256533769,
+    2.465275009054478,
+    4.228629623772765,
+    4.281353118254692,
+    4.29735994372775,
+    5.00604763249041,
+    5.042702132430591,
+    5.061584692585535,
+    5.165608188032157
+   ],
+   "carrier_classes_by_distance_pattern": {
+    "(1, 2, 3)": 24,
+    "(2, 2, 2)": 56
+   },
+   "ordered_types_under_120": 7,
+   "ordered_types_under_60": 7,
+   "port_label_usage": [
+    52,
+    36,
+    52,
+    36,
+    0,
+    0,
+    0,
+    0,
+    32,
+    0,
+    32,
+    0
+   ],
+   "mesh_rotations_leaving_type_field_invariant_120": 1,
+   "mesh_rotations_leaving_type_field_invariant_60": 1,
+   "seconds": 0.8
+  },
+  "2": {
+   "carriers": 320,
+   "ports": 3840,
+   "seams": 10080,
+   "glue_seams": 480,
+   "seam_arrays_equal_pinned_builder": true,
+   "cells_repaired_by_assignment": 0,
+   "degree_histogram": {
+    "5": 2880,
+    "6": 960
+   },
+   "N_lambda2": 0.8174727058294639,
+   "N_lambda2_claimed": 0.817473,
+   "N_lambda_triplet": [
+    0.8174727058294639,
+    0.8302863249918929,
+    0.8366370659842188
+   ],
+   "spread_l1": 0.023141672351759617,
+   "spread_l2": 0.03416662450382852,
+   "spread_l3": 0.15323885263285272,
+   "N_lambda_first16": [
+    -5.656933255160368e-14,
+    0.8174727058294639,
+    0.8302863249918929,
+    0.8366370659842188,
+    2.4253323595675997,
+    2.452132331047237,
+    2.456386321545005,
+    2.4720695333406093,
+    2.509487544330936,
+    4.498748030669435,
+    4.543037078248976,
+    4.574236455708338,
+    5.1172464449610935,
+    5.163060602937647,
+    5.1856547318099935,
+    5.250325694285842
+   ],
+   "carrier_classes_by_distance_pattern": {
+    "(1, 2, 3)": 104,
+    "(2, 2, 2)": 216
+   },
+   "ordered_types_under_120": 7,
+   "ordered_types_under_60": 7,
+   "port_label_usage": [
+    200,
+    168,
+    200,
+    168,
+    0,
+    0,
+    0,
+    0,
+    112,
+    0,
+    112,
+    0
+   ],
+   "mesh_rotations_leaving_type_field_invariant_120": 1,
+   "mesh_rotations_leaving_type_field_invariant_60": 1,
+   "seconds": 1.5
+  },
+  "3": {
+   "carriers": 1280,
+   "ports": 15360,
+   "seams": 40320,
+   "glue_seams": 1920,
+   "seam_arrays_equal_pinned_builder": true,
+   "cells_repaired_by_assignment": 0,
+   "degree_histogram": {
+    "5": 11520,
+    "6": 3840
+   },
+   "N_lambda2": 0.816553385509648,
+   "N_lambda2_claimed": 0.816553,
+   "N_lambda_triplet": [
+    0.816553385509648,
+    0.8307658494375192,
+    0.8369445584233614
+   ],
+   "spread_l1": 0.024624405388987632,
+   "spread_l2": 0.03436143994707727,
+   "spread_l3": 0.14528102492539813,
+   "N_lambda_first16": [
+    -7.788908407135864e-15,
+    0.816553385509648,
+    0.8307658494375192,
+    0.8369445584233614,
+    2.436635138369884,
+    2.462321983513459,
+    2.4660828304378866,
+    2.4835174397597872,
+    2.5216467436786827,
+    4.555900158718099,
+    4.607226699235129,
+    4.638080227905619,
+    5.1678791722077815,
+    5.205340075243809,
+    5.2423296033405204,
+    5.275927094165088
+   ],
+   "carrier_classes_by_distance_pattern": {
+    "(1, 2, 3)": 428,
+    "(2, 2, 2)": 852
+   },
+   "ordered_types_under_120": 7,
+   "ordered_types_under_60": 7,
+   "port_label_usage": [
+    776,
+    716,
+    776,
+    716,
+    0,
+    0,
+    0,
+    0,
+    428,
+    0,
+    428,
+    0
+   ],
+   "mesh_rotations_leaving_type_field_invariant_120": 1,
+   "mesh_rotations_leaving_type_field_invariant_60": 1,
+   "seconds": 3.4
+  },
+  "4": {
+   "carriers": 5120,
+   "ports": 61440,
+   "seams": 161280,
+   "glue_seams": 7680,
+   "seam_arrays_equal_pinned_builder": true,
+   "cells_repaired_by_assignment": 0,
+   "degree_histogram": {
+    "5": 46080,
+    "6": 15360
+   },
+   "N_lambda2": 0.8157977003963369,
+   "N_lambda2_claimed": 0.815798,
+   "N_lambda_triplet": [
+    0.8157977003963369,
+    0.8315612184960903,
+    0.8384729727560518
+   ],
+   "spread_l1": 0.027365413287876523,
+   "spread_l2": 0.03823882319534542,
+   "spread_l3": 0.14642348524390622,
+   "N_lambda_first16": [
+    -1.2140635718971282e-12,
+    0.8157977003963369,
+    0.8315612184960903,
+    0.8384729727560518,
+    2.435432201184086,
+    2.465705320102632,
+    2.4709850427008933,
+    2.4890653104861444,
+    2.530198608558055,
+    4.569835112495389,
+    4.621851175342989,
+    4.654123975341561,
+    5.176637166954819,
+    5.217340971782289,
+    5.268682821981059,
+    5.2979023302817225
+   ],
+   "carrier_classes_by_distance_pattern": {
+    "(1, 2, 3)": 1868,
+    "(2, 2, 2)": 3252
+   },
+   "ordered_types_under_120": 7,
+   "ordered_types_under_60": 7,
+   "port_label_usage": [
+    3086,
+    2966,
+    3086,
+    2966,
+    0,
+    0,
+    0,
+    0,
+    1628,
+    0,
+    1628,
+    0
+   ],
+   "mesh_rotations_leaving_type_field_invariant_120": 1,
+   "mesh_rotations_leaving_type_field_invariant_60": 1,
+   "seconds": 13.2
+  }
+ },
+ "carrier_checks": {
+  "seams_equal_pinned": true,
+  "rotations_equal_pinned_set": true,
+  "automorphisms_equal_pinned_set": true,
+  "antipode_equal_pinned": true,
+  "ordered_triple_types_under_60": 22,
+  "ordered_triple_types_under_120": 14
+ },
+ "ancestry": {
+  "0->1": {
+   "fine_seams": 2520,
+   "to_coarse_seam": 2444,
+   "to_non_seam": 74,
+   "collapsed": 2
+  },
+  "1->2": {
+   "fine_seams": 10080,
+   "to_coarse_seam": 9796,
+   "to_non_seam": 280,
+   "collapsed": 4
+  },
+  "2->3": {
+   "fine_seams": 40320,
+   "to_coarse_seam": 39272,
+   "to_non_seam": 1042,
+   "collapsed": 6
+  },
+  "3->4": {
+   "fine_seams": 161280,
+   "to_coarse_seam": 157228,
+   "to_non_seam": 4040,
+   "collapsed": 12
+  }
+ }
+}

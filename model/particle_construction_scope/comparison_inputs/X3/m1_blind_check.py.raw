@@ -1,0 +1,55 @@
+"""Is the M1 rest phase of work/DIRAC/defect_phases.py blind to the chirality label? Float64 (MEASURED).
+
+Same construction as defect_phases.py (phase string along a shortest dual path, phase-coupled port Laplacian,
+rest phase arccos(1 - lambda_min/60)), evaluated for all 380 ordered face pairs and alpha = 1/6, 1/3, 1/2, and
+grouped by (separation, chirality).
+"""
+import json, sys
+from collections import defaultdict
+import numpy as np
+import x3lib as X
+
+
+def orient(e, f):
+    a, b = e; i = f.index(a)
+    return 1 if f[(i + 1) % 3] == b else -1
+
+
+def laplacian(ph):
+    L = np.zeros((12, 12), complex)
+    for a, b in X.SEAMS:
+        z = ph.get((a, b), 1.0)
+        v = np.zeros(12, complex); v[a] = 1; v[b] = -z
+        L += np.outer(v, v.conj())
+    return L
+
+
+def string(f, g, alpha):
+    ph, cur = {}, f
+    while cur != g:
+        nxt = next(v for v in X.NEIGHBOUR[cur] if X.SEP[v][g] == X.SEP[cur][g] - 1)
+        e = next(e for e in X.FACE_EDGES[cur] if e in X.FACE_EDGES[nxt])
+        ph[e] = ph.get(e, 1.0) * np.exp(2j * np.pi * alpha * orient(e, X.FACES[cur]))
+        cur = nxt
+    return ph
+
+
+ref = {'1/6': [0.042383, 0.051014, 0.056207, 0.058279, 0.059322], '1/3': [0.075113, 0.092788, 0.106416, 0.113080, 0.116921],
+       '1/2': [0.087847, 0.110554, 0.132363, 0.147787, 0.171237]}          # CF1.md section 4 item 6
+out = {}
+for name, alpha in (('1/6', 1 / 6), ('1/3', 1 / 3), ('1/2', 1 / 2)):
+    spec = defaultdict(list)
+    for f in range(20):
+        for g in range(20):
+            if f != g:
+                spec[(X.SEP[f][g], X.CHI[f][g])].append(np.linalg.eigvalsh(laplacian(string(f, g, alpha))))
+    spread = max(float(np.ptp(np.array(v), axis=0).max()) for v in spec.values())
+    between = max(float(np.abs(np.mean(spec[(d, 1)], axis=0) - np.mean(spec[(d, -1)], axis=0)).max()) for d in (2, 3))
+    rest = {d: float(np.arccos(1 - np.mean([s[0] for k, v in spec.items() if k[0] == d for s in v]) / 60)) for d in range(1, 6)}
+    dev = max(abs(rest[d] - ref[name][d - 1]) for d in range(1, 6))
+    out[name] = {'spread_of_the_whole_spectrum_within_a_type': spread, 'difference_between_the_two_chiralities': between,
+                 'rest_phase_by_separation': rest, 'largest_deviation_from_CF1_item_6': dev}
+    print(f'alpha {name}: spectrum spread within a type {spread:.1e}; between chiralities {between:.1e}; rest phases '
+          + ', '.join(f'{rest[d]:.6f}' for d in range(1, 6)) + f'; deviation from CF1 item 6 {dev:.1e}')
+if len(sys.argv) > 1:
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)

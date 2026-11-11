@@ -1,0 +1,2637 @@
+{
+ "task": "D1: the ports as the elements of the frame group, and the second index (briefs/TASK_D1.md)",
+ "labels": "EXACT unless marked; item 6 NOT BLIND",
+ "item1_certificate": {
+  "status": "EXACT, integers and Q(sqrt5); all five frames x twelve base ports",
+  "checks": 49,
+  "statement": {
+   "group": "rotation group of a cubic frame: order 12, simply transitive on the twelve ports (all five frames)",
+   "generators": "F = exchange of the two ports of each frame seam (right translation by the half-turn about the long axis of the base port); C+ and C- = thirds of a turn of every port inside its face of the first and of the second inscribed tetrahedron (right translations by the thirds of a turn about n+s+l and -n+s+l)",
+   "adjacency": "A = F + C+ + C+^-1 + C- + C-^-1; kernel = 1 - (5 - A)/60",
+   "port_space": "1 + 1' + 1'' + 3 x 3: three Klein-invariant functions (on the three golden rectangles) and nine matrix coefficients rho(g_p)_ij",
+   "second_action": "right translations = the centralizer of the frame rotations in the permutations of the ports (12 elements, canonical as a set). Canonical with names: F, P (antipode), F P, C+, C-. The labelling of the right translations by group elements depends on the base port through conjugation: R_(a p0)(k) = R_p0(a^-1 k a).",
+   "kernel_on_second_index": "singlets: 5, -1, -1 (A = 2J - 1 on the rectangles). Triplet: M3 = [[-1,0,0],[0,-1,2],[0,2,1]] in the body axes (normal, short, long) of the base port, for every frame and base port. In fixed frame coordinates M3 takes six values (base ports p and P p agree).",
+   "commuting_part": "of the twelve right translations only the identity and P commute with the kernel",
+   "M3_eigenvectors": "(0,1,phi): sqrt5, the port itself (slow band); (1,0,0): -1, the normal of the rectangle (triplet inside the quintet); (0,phi,-1): -sqrt5, the conjugate port (fast band)",
+   "mixing_angle": "tan = 1/phi between the slow eigenvector and the long axis; squared components (1/2+1/10*r5) and (1/2+-1/10*r5)",
+   "kernel_levels_triplet": {
+    "slow (second index along the port, (0,1,phi))": "11/12 + sqrt5/60",
+    "middle (second index along the normal of the rectangle)": "9/10",
+    "fast (second index along the conjugate port, (0,phi,-1))": "11/12 - sqrt5/60"
+   },
+   "kernel_levels_singlets": [
+    "1",
+    "9/10",
+    "9/10"
+   ]
+  },
+  "canonical": {
+   "second_index_space": "the multiplicity space of the frame triplet in the port space; as a subspace of the port space the triplet-isotypic part (rank 9) of the frame group",
+   "kernel_copies": "slow = the sqrt5 eigenspace of the adjacency (the 3 of the sixty rotations); fast = the -sqrt5 eigenspace (the 3prime); middle = the 5 of the rotations intersected with the triplet-isotypic part of the frame group. Slow and fast do not depend on the frame; the middle copy depends on the frame and on nothing else",
+   "axis_lines_of_the_second_index": "the joint eigenspaces of the right Klein group {1, F, P, FP}: normal line = P-even = the middle copy; long line = F-even; short line = FP-even",
+   "mixing_angle_copies_vs_lines": "squared overlaps (5 + sqrt5)/10 and (5 - sqrt5)/10 in the P-odd plane; the middle copy is a line"
+  },
+  "base_port_dependent": {
+   "bijection_lines_to_frame_axes": "fixed by the golden rectangle of the base port (three cyclic choices per frame)",
+   "signs": "fixed by the base port inside its rectangle",
+   "group_labels_of_the_right_translations": "R_(a p0)(k) = R_p0(a^-1 k a)",
+   "matrix_M3_in_frame_coordinates": "six values; a coordinate expression of one canonical operator"
+  },
+  "M3_in_frame_coordinates_six_values": [
+   [
+    [
+     -1,
+     -2,
+     0
+    ],
+    [
+     -2,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     -1
+    ]
+   ],
+   [
+    [
+     -1,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     -2
+    ],
+    [
+     0,
+     -2,
+     1
+    ]
+   ],
+   [
+    [
+     -1,
+     0,
+     0
+    ],
+    [
+     0,
+     -1,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   [
+    [
+     -1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     -1
+    ]
+   ],
+   [
+    [
+     1,
+     0,
+     -2
+    ],
+    [
+     0,
+     -1,
+     0
+    ],
+    [
+     -2,
+     0,
+     -1
+    ]
+   ],
+   [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     -1,
+     0
+    ],
+    [
+     2,
+     0,
+     -1
+    ]
+   ]
+  ]
+ },
+ "item2_cover": {
+  "status": "EXACT, Q(zeta_60); 26 checks after the canonical lift of the half-turn",
+  "decompositions": {
+   "load space (12 ports)": {
+    "1": 1,
+    "1'": 1,
+    "1''": 1,
+    "2": 0,
+    "2'": 0,
+    "2''": 0,
+    "3": 3
+   },
+   "port space at odd flux (k = 1, 3, 5, 7, 9)": {
+    "1": 0,
+    "1'": 0,
+    "1''": 0,
+    "2": 2,
+    "2'": 2,
+    "2''": 2,
+    "3": 0
+   },
+   "port space at even flux (k = 0, 2, ..., 10)": {
+    "1": 1,
+    "1'": 1,
+    "1''": 1,
+    "2": 0,
+    "2'": 0,
+    "2''": 0,
+    "3": 3
+   },
+   "public walk (1440 = 12 ports x 2 records x 60 ordered seams)": {
+    "1": 120,
+    "1'": 120,
+    "1''": 120,
+    "2": 0,
+    "2'": 0,
+    "2''": 0,
+    "3": 360
+   },
+   "five-level code": {
+    "1": 0,
+    "1'": 0,
+    "1''": 0,
+    "2": 1,
+    "2'": 0,
+    "2''": 0,
+    "3": 1
+   },
+   "load space x spin doublet": {
+    "1": 0,
+    "1'": 0,
+    "1''": 0,
+    "2": 4,
+    "2'": 4,
+    "2''": 4,
+    "3": 0
+   },
+   "triplet x doublet": {
+    "1": 0,
+    "1'": 0,
+    "1''": 0,
+    "2": 1,
+    "2'": 1,
+    "2''": 1,
+    "3": 0
+   }
+  },
+  "answer": {
+   "where_the_doublets_occur": "2, 2', 2'' occur (i) twice each in the port space of every odd flux sector; (ii) once each in triplet x doublet: the quark-doublet patterns of the code and every triplet copy of the load space tensored with a spin doublet; (iii) once each in (1 + 1' + 1'') x doublet. They do not occur in the load space, in the public walk or in the five-level code itself (3 + 2).",
+   "kernel_on_multiplicity": "yes, in every flux sector, by Schur: 2x2 Hermitian matrices on the doublets, a number on each singlet, a 3x3 Hermitian matrix on the triplet",
+   "second_index_dimension": "three for the triplet (even flux), two for each doublet (odd flux), one for each singlet"
+  },
+  "second_index_levels_by_flux": {
+   "0": {
+    "1": [
+     5.0
+    ],
+    "1'": [
+     -1.0
+    ],
+    "1''": [
+     -1.0
+    ],
+    "3": [
+     2.23606797749979,
+     -1.0,
+     -2.23606797749979
+    ]
+   },
+   "1": {
+    "2": [
+     4.2532540417602,
+     -1.9021130325903068
+    ],
+    "2'": [
+     0.7265425280053606,
+     -1.902113032590307
+    ],
+    "2''": [
+     0.7265425280053611,
+     -1.9021130325903073
+    ]
+   },
+   "2": {
+    "1": [
+     -2.2360679774997894
+    ],
+    "1'": [
+     -0.38196601125010526
+    ],
+    "1''": [
+     -0.38196601125010526
+    ],
+    "3": [
+     3.618033988749895,
+     -0.3819660112501056,
+     -2.2360679774997894
+    ]
+   },
+   "3": {
+    "2": [
+     -1.1755705045849465,
+     -2.628655560595668
+    ],
+    "2'": [
+     3.0776835371752536,
+     -1.1755705045849458
+    ],
+    "2''": [
+     3.0776835371752522,
+     -1.1755705045849465
+    ]
+   },
+   "4": {
+    "1": [
+     -2.2360679774997894
+    ],
+    "1'": [
+     2.618033988749895
+    ],
+    "1''": [
+     2.618033988749895
+    ],
+    "3": [
+     2.618033988749896,
+     -1.3819660112501047,
+     -2.2360679774997894
+    ]
+   },
+   "5": {
+    "2": [
+     2.236067977499789,
+     -2.2360679774997902
+    ],
+    "2'": [
+     2.236067977499789,
+     -2.236067977499789
+    ],
+    "2''": [
+     2.236067977499789,
+     -2.236067977499789
+    ]
+   },
+   "6": {
+    "1": [
+     2.2360679774997894
+    ],
+    "1'": [
+     -2.618033988749895
+    ],
+    "1''": [
+     -2.618033988749895
+    ],
+    "3": [
+     2.2360679774997894,
+     1.3819660112501047,
+     -2.618033988749896
+    ]
+   },
+   "7": {
+    "2": [
+     2.628655560595668,
+     1.1755705045849465
+    ],
+    "2'": [
+     1.175570504584946,
+     -3.077683537175253
+    ],
+    "2''": [
+     1.1755705045849458,
+     -3.0776835371752536
+    ]
+   },
+   "8": {
+    "1": [
+     2.2360679774997894
+    ],
+    "1'": [
+     0.38196601125010526
+    ],
+    "1''": [
+     0.38196601125010526
+    ],
+    "3": [
+     2.2360679774997894,
+     0.3819660112501056,
+     -3.618033988749895
+    ]
+   },
+   "9": {
+    "2": [
+     1.9021130325903068,
+     -4.2532540417602
+    ],
+    "2'": [
+     1.9021130325903073,
+     -0.7265425280053611
+    ],
+    "2''": [
+     1.902113032590307,
+     -0.7265425280053606
+    ]
+   },
+   "10": {
+    "1": [
+     -5.0
+    ],
+    "1'": [
+     1.0
+    ],
+    "1''": [
+     1.0
+    ],
+    "3": [
+     2.23606797749979,
+     1.0,
+     -2.23606797749979
+    ]
+   }
+  }
+ },
+ "item3_tick": {
+  "status": "EXACT (integers, Q(sqrt5)); composition with the CF-1 routing ARGUED",
+  "checks": 14,
+  "walk": {
+   "dimension": 1440,
+   "trace_W": -1276,
+   "discriminant": "diag(1 - L/60, 1 - (5 + A)/60)",
+   "symmetry": "W and R commute with all sixty rotations acting on ports and addresses"
+  },
+  "per_tick_on_second_index": {
+   "basis": "x = rest component (blank record, uniform address), y = component along Q hat; second index in body axes (normal, short, long) of the base port",
+   "map": "(x, y) -> (-y, x + 2 K3 y), first index untouched",
+   "K3_blank": [
+    [
+     "9/10",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "9/10",
+     "1/30"
+    ],
+    [
+     "0",
+     "1/30",
+     "14/15"
+    ]
+   ],
+   "K3_record_set": [
+    [
+     "14/15",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "14/15",
+     "-1/30"
+    ],
+    [
+     "0",
+     "-1/30",
+     "9/10"
+    ]
+   ],
+   "eigenphases_per_tick": {
+    "slow (0,1,phi)": 0.3047084373702735,
+    "middle (1,0,0)": 0.45102681179626236,
+    "fast (0,phi,-1)": 0.4961982595020731
+   },
+   "mixed_axes": "short and long (entry 2/60); the normal axis is a level"
+  },
+  "conserved": "all sixty rotations of the internal register (first index, and the rotation multiplet: slow = 3, fast = 3prime, middle inside 5); not conserved: the axis lines of the second index",
+  "passage_between_carriers": {
+   "relabelling": "nu = F P for every frame (the right translation by the half-turn about the short axis of the base port); on the seam of each axis it agrees with the left half-turn about the short axis of the seam ports",
+   "first_index": "unchanged",
+   "second_index": "multiplied by diag(-1, +1, -1) in (normal, short, long): the axis lines are kept up to sign",
+   "kernel_copies_squared_moduli": [
+    [
+     "1/5",
+     "0",
+     "4/5"
+    ],
+    [
+     "0",
+     "1",
+     "0"
+    ],
+    [
+     "4/5",
+     "0",
+     "1/5"
+    ]
+   ]
+  }
+ },
+ "item4_mixing": {
+  "status": "EXACT unless marked",
+  "checks": 15,
+  "conventions": "CANDIDATES.md: rows sector 1, columns sector 2, each basis ordered by level (largest adjacency level first); sin^2 t13 = |V13|^2, sin^2 t12 = |V12|^2/(1-|V13|^2), sin^2 t23 = |V23|^2/(1-|V13|^2), J = Im(V11 V22 V12* V21*)",
+  "M1_anchors_port_diagonal": {
+   "statement": "V = identity for every pair of anchors and every frame; J = 0. Anchors are coordinates of one canonical operator (item 1b)."
+  },
+  "M2_right_translations_classes": [
+   {
+    "members": [
+     "identity",
+     "P (antipode)"
+    ],
+    "abs_V_squared": [
+     [
+      "1",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "1"
+     ]
+    ]
+   },
+   {
+    "members": [
+     "C+",
+     "third of a turn (anchor 9)",
+     "third of a turn (anchor 6)",
+     "C-^-1"
+    ],
+    "abs_V_squared": [
+     [
+      "1/5",
+      "1/2 + 1/10*sqrt5",
+      "3/10 + -1/10*sqrt5"
+     ],
+     [
+      "1/2 + -1/10*sqrt5",
+      "0",
+      "1/2 + 1/10*sqrt5"
+     ],
+     [
+      "3/10 + 1/10*sqrt5",
+      "1/2 + -1/10*sqrt5",
+      "1/5"
+     ]
+    ]
+   },
+   {
+    "members": [
+     "C+^-1",
+     "third of a turn (anchor 4)",
+     "third of a turn (anchor 2)",
+     "C-"
+    ],
+    "abs_V_squared": [
+     [
+      "1/5",
+      "1/2 + -1/10*sqrt5",
+      "3/10 + 1/10*sqrt5"
+     ],
+     [
+      "1/2 + 1/10*sqrt5",
+      "0",
+      "1/2 + -1/10*sqrt5"
+     ],
+     [
+      "3/10 + -1/10*sqrt5",
+      "1/2 + 1/10*sqrt5",
+      "1/5"
+     ]
+    ]
+   },
+   {
+    "members": [
+     "F P (passage nu of item 3)",
+     "F (frame partner)"
+    ],
+    "abs_V_squared": [
+     [
+      "1/5",
+      "0",
+      "4/5"
+     ],
+     [
+      "0",
+      "1",
+      "0"
+     ],
+     [
+      "4/5",
+      "0",
+      "1/5"
+     ]
+    ]
+   }
+  ],
+  "M2_angles": {
+   "identity": {
+    "theta12_23_13_deg": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "J": 0.0
+   },
+   "C+": {
+    "theta12_23_13_deg": [
+     62.26769855229806,
+     62.26769855229806,
+     16.045057135335764
+    ],
+    "J": 0.0
+   },
+   "third of a turn (other) [anchor 9]": {
+    "theta12_23_13_deg": [
+     62.26769855229806,
+     62.26769855229806,
+     16.045057135335764
+    ],
+    "J": 0.0
+   },
+   "P (antipode)": {
+    "theta12_23_13_deg": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "J": 0.0
+   },
+   "third of a turn (other) [anchor 6]": {
+    "theta12_23_13_deg": [
+     62.26769855229806,
+     62.26769855229806,
+     16.045057135335764
+    ],
+    "J": 0.0
+   },
+   "C+^-1": {
+    "theta12_23_13_deg": [
+     49.61382244080325,
+     49.61382244080325,
+     46.353072891203695
+    ],
+    "J": 0.0
+   },
+   "third of a turn (other) [anchor 4]": {
+    "theta12_23_13_deg": [
+     49.61382244080325,
+     49.61382244080325,
+     46.353072891203695
+    ],
+    "J": 0.0
+   },
+   "C-^-1": {
+    "theta12_23_13_deg": [
+     62.26769855229806,
+     62.26769855229806,
+     16.045057135335764
+    ],
+    "J": 0.0
+   },
+   "F P (passage nu of item 3)": {
+    "theta12_23_13_deg": [
+     0.0,
+     0.0,
+     63.43494882292201
+    ],
+    "J": 0.0
+   },
+   "third of a turn (other) [anchor 2]": {
+    "theta12_23_13_deg": [
+     49.61382244080325,
+     49.61382244080325,
+     46.353072891203695
+    ],
+    "J": 0.0
+   },
+   "C-": {
+    "theta12_23_13_deg": [
+     49.61382244080325,
+     49.61382244080325,
+     46.353072891203695
+    ],
+    "J": 0.0
+   },
+   "F (frame partner)": {
+    "theta12_23_13_deg": [
+     0.0,
+     0.0,
+     63.43494882292201
+    ],
+    "J": 0.0
+   }
+  },
+  "M3a_consensus_on_triplet": {
+   "statement": "the consensus projector is zero on the triplet second index: no heavy copy, the three copies are degenerate at zero under a consensus mass; the mixing is undefined (any basis)"
+  },
+  "M3b_consensus_on_singlets": {
+   "abs_V_squared": [
+    [
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "J": 0.0,
+   "statement": "kernel and consensus projector commute on the singlet space: V = 1, J = 0; the consensus projector gives one heavy state (the uniform one) and two massless ones (1prime, 1second)"
+  },
+  "M4a_frame_axis_on_triplet": {
+   "abs_V_squared_exact": [
+    [
+     "1/2 + 1/10*sqrt5",
+     "0",
+     "1/2 + -1/10*sqrt5"
+    ],
+    [
+     "0",
+     "1",
+     "0"
+    ],
+    [
+     "1/2 + -1/10*sqrt5",
+     "0",
+     "1/2 + 1/10*sqrt5"
+    ]
+   ],
+   "theta12_deg": 0.0,
+   "theta23_deg": 0.0,
+   "theta13_deg": 31.717474411460998,
+   "J": 0.0,
+   "statement": "kernel copies (slow, middle, fast) against the axis lines ordered (long, normal, short): one angle arctan(1/phi) = 31.717 degrees, two zeros, J = 0; which of the three standard angles carries it follows the order of the lines"
+  },
+  "M4b_frame_axis_on_singlets": {
+   "abs_V_squared": [
+    [
+     0.333333333333,
+     0.333333333333,
+     0.333333333333
+    ],
+    [
+     0.333333333333,
+     0.333333333333,
+     0.333333333333
+    ],
+    [
+     0.333333333333,
+     0.333333333333,
+     0.333333333333
+    ]
+   ],
+   "theta12_deg": 45.00000000000001,
+   "theta23_deg": 45.00000000000001,
+   "theta13_deg": 35.264389682754654,
+   "J": -0.09622504486493762,
+   "J_squared_exact": "1/108",
+   "statement": "kernel (or consensus projector) on the singlet space against one golden rectangle (a frame axis), completed by the other two rectangles: the three-point Fourier matrix (trimaximal); |J| = 1/(6 sqrt3), the largest value a 3 x 3 unitary allows; the sign of J follows the order of 1prime and 1second"
+  },
+  "M6_third_of_a_turn_eigenbasis": {
+   "abs_V_squared_exact": [
+    [
+     "1/3 + 2/15*sqrt5",
+     "1/3 + -1/15*sqrt5",
+     "1/3 + -1/15*sqrt5"
+    ],
+    [
+     "1/3",
+     "1/3",
+     "1/3"
+    ],
+    [
+     "1/3 + -2/15*sqrt5",
+     "1/3 + 1/15*sqrt5",
+     "1/3 + 1/15*sqrt5"
+    ]
+   ],
+   "theta12_deg": 28.377097676698423,
+   "theta23_deg": 39.735184561535,
+   "theta13_deg": 25.420458321546246,
+   "J": 0.04303314829119352,
+   "J_squared_exact": "1/540",
+   "statement": "kernel copies against the eigenvectors of C+ on the second index (eigenvalues 1, w, w^2 in this order)"
+  },
+  "M5_flux_sectors": {
+   "gauge": "frame gauge: section into the frame cover; for even k the bundle is trivial on the frame cover and the identification of the port spaces of two flux sectors is canonical",
+   "antiunitary_symmetry": "P o K (antipode with complex conjugation) commutes with every A_k, k even: J = 0 for every pair",
+   "tri_bimaximal": {
+    "flux 0 against k": {
+     "2": true,
+     "4": true,
+     "6": true,
+     "8": true,
+     "12": true,
+     "14": true,
+     "16": true,
+     "18": true
+    },
+    "other pairs (False = not tri-bimaximal)": {
+     "2 vs 4": false,
+     "2 vs 8": false,
+     "4 vs 8": false,
+     "2 vs 6": false,
+     "4 vs 18": false,
+     "2 vs 18": false
+    },
+    "twisted eigenvectors (columns, levels descending) in the flux-0 eigenbasis (slow, middle, fast), squared moduli": {
+     "2": [
+      [
+       "0",
+       "1/2",
+       "1/2"
+      ],
+      [
+       "2/3",
+       "1/6",
+       "1/6"
+      ],
+      [
+       "1/3",
+       "1/3",
+       "1/3"
+      ]
+     ],
+     "4": [
+      [
+       "1/6",
+       "1/6",
+       "2/3"
+      ],
+      [
+       "1/2",
+       "1/2",
+       "0"
+      ],
+      [
+       "1/3",
+       "1/3",
+       "1/3"
+      ]
+     ]
+    }
+   },
+   "L13_reading": {
+    "u_R": 4,
+    "d_R": 18,
+    "e_R": 14,
+    "nu_R": 0,
+    "rule": "charge q = 6Y, flux k = 11 q mod 20 (lead L13, base flux k0 = 11)"
+   },
+   "pairs": {
+    "0 vs 2": {
+     "abs_V_squared_exact": [
+      [
+       "0",
+       "2/3",
+       "1/3"
+      ],
+      [
+       "1/2",
+       "1/6",
+       "1/3"
+      ],
+      [
+       "1/2",
+       "1/6",
+       "1/3"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      90.0,
+      45.00000000000001,
+      35.264389682754654
+     ],
+     "J": 0.0
+    },
+    "0 vs 4": {
+     "abs_V_squared_exact": [
+      [
+       "1/6",
+       "1/2",
+       "1/3"
+      ],
+      [
+       "1/6",
+       "1/2",
+       "1/3"
+      ],
+      [
+       "2/3",
+       "0",
+       "1/3"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      59.99999999999999,
+      45.00000000000001,
+      35.264389682754654
+     ],
+     "J": 0.0
+    },
+    "0 vs 6": {
+     "abs_V_squared_exact": [
+      [
+       "1/3",
+       "1/2",
+       "1/6"
+      ],
+      [
+       "1/3",
+       "1/2",
+       "1/6"
+      ],
+      [
+       "1/3",
+       "0",
+       "2/3"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      50.768479516407744,
+      26.56505117707799,
+      24.094842552110702
+     ],
+     "J": 0.0
+    },
+    "0 vs 8": {
+     "abs_V_squared_exact": [
+      [
+       "1/3",
+       "2/3",
+       "0"
+      ],
+      [
+       "1/3",
+       "1/6",
+       "1/2"
+      ],
+      [
+       "1/3",
+       "1/6",
+       "1/2"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      54.735610317245346,
+      45.00000000000001,
+      0.0
+     ],
+     "J": 0.0
+    },
+    "2 vs 4": {
+     "abs_V_squared_exact": [
+      [
+       "1/12",
+       "1/4",
+       "2/3"
+      ],
+      [
+       "1/36",
+       "3/4",
+       "2/9"
+      ],
+      [
+       "8/9",
+       "0",
+       "1/9"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      59.99999999999999,
+      54.735610317245346,
+      54.735610317245346
+     ],
+     "J": 0.0
+    },
+    "2 vs 6": {
+     "abs_V_squared_exact": [
+      [
+       "0",
+       "1/4",
+       "3/4"
+      ],
+      [
+       "8/9",
+       "1/12",
+       "1/36"
+      ],
+      [
+       "1/9",
+       "2/3",
+       "2/9"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      90.0,
+      19.47122063449069,
+      59.99999999999999
+     ],
+     "J": 0.0
+    },
+    "2 vs 8": {
+     "abs_V_squared_exact": [
+      [
+       "2/3",
+       "1/3",
+       "0"
+      ],
+      [
+       "2/9",
+       "4/9",
+       "1/3"
+      ],
+      [
+       "1/9",
+       "2/9",
+       "2/3"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      35.264389682754654,
+      35.264389682754654,
+      0.0
+     ],
+     "J": 0.0
+    },
+    "4 vs 6": {
+     "abs_V_squared_exact": [
+      [
+       "2/9",
+       "1/3",
+       "4/9"
+      ],
+      [
+       "2/3",
+       "0",
+       "1/3"
+      ],
+      [
+       "1/9",
+       "2/3",
+       "2/9"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      50.768479516407744,
+      50.768479516407744,
+      41.810314895778596
+     ],
+     "J": 0.0
+    },
+    "4 vs 8": {
+     "abs_V_squared_exact": [
+      [
+       "2/9",
+       "1/36",
+       "3/4"
+      ],
+      [
+       "2/3",
+       "1/12",
+       "1/4"
+      ],
+      [
+       "1/9",
+       "8/9",
+       "0"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      19.47122063449069,
+      90.0,
+      59.99999999999999
+     ],
+     "J": 0.0
+    },
+    "6 vs 8": {
+     "abs_V_squared_exact": [
+      [
+       "1/9",
+       "2/9",
+       "2/3"
+      ],
+      [
+       "0",
+       "3/4",
+       "1/4"
+      ],
+      [
+       "8/9",
+       "1/36",
+       "1/12"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      54.735610317245346,
+      59.99999999999999,
+      54.735610317245346
+     ],
+     "J": 0.0
+    },
+    "2 vs 18": {
+     "abs_V_squared_exact": [
+      [
+       "0",
+       "1/3",
+       "2/3"
+      ],
+      [
+       "1/3",
+       "4/9",
+       "2/9"
+      ],
+      [
+       "2/3",
+       "2/9",
+       "1/9"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      90.0,
+      54.735610317245346,
+      54.735610317245346
+     ],
+     "J": 0.0
+    },
+    "4 vs 16": {
+     "abs_V_squared_exact": [
+      [
+       "4/9",
+       "1/3",
+       "2/9"
+      ],
+      [
+       "1/3",
+       "0",
+       "2/3"
+      ],
+      [
+       "2/9",
+       "2/3",
+       "1/9"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      40.893394649130904,
+      67.7923457014035,
+      28.125505702055708
+     ],
+     "J": 0.0
+    },
+    "4 vs 18": {
+     "abs_V_squared_exact": [
+      [
+       "3/4",
+       "1/36",
+       "2/9"
+      ],
+      [
+       "1/4",
+       "1/12",
+       "2/3"
+      ],
+      [
+       "0",
+       "8/9",
+       "1/9"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      10.893394649130906,
+      67.7923457014035,
+      28.125505702055708
+     ],
+     "J": 0.0
+    },
+    "4 vs 14": {
+     "abs_V_squared_exact": [
+      [
+       "0",
+       "0",
+       "1"
+      ],
+      [
+       "0",
+       "1",
+       "0"
+      ],
+      [
+       "1",
+       "0",
+       "0"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      null,
+      null,
+      90.0
+     ],
+     "J": 0.0
+    },
+    "14 vs 18": {
+     "abs_V_squared_exact": [
+      [
+       "0",
+       "8/9",
+       "1/9"
+      ],
+      [
+       "1/4",
+       "1/12",
+       "2/3"
+      ],
+      [
+       "3/4",
+       "1/36",
+       "2/9"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      90.0,
+      59.99999999999999,
+      19.47122063449069
+     ],
+     "J": 0.0
+    },
+    "0 vs 14": {
+     "abs_V_squared_exact": [
+      [
+       "1/3",
+       "1/2",
+       "1/6"
+      ],
+      [
+       "1/3",
+       "1/2",
+       "1/6"
+      ],
+      [
+       "1/3",
+       "0",
+       "2/3"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      50.768479516407744,
+      26.56505117707799,
+      24.094842552110702
+     ],
+     "J": 0.0
+    },
+    "0 vs 18": {
+     "abs_V_squared_exact": [
+      [
+       "0",
+       "2/3",
+       "1/3"
+      ],
+      [
+       "1/2",
+       "1/6",
+       "1/3"
+      ],
+      [
+       "1/2",
+       "1/6",
+       "1/3"
+      ]
+     ],
+     "theta12_23_13_deg": [
+      90.0,
+      45.00000000000001,
+      35.264389682754654
+     ],
+     "J": 0.0
+    }
+   }
+  },
+  "M5_odd_doublets_MEASURED": {
+   "2": {
+    "1 vs 7": {
+     "abs_V_squared": [
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.5,
+       0.5
+      ]
+     ],
+     "angle_deg": 44.99999999999999,
+     "levels": [
+      [
+       4.253254,
+       -1.902113
+      ],
+      [
+       2.628656,
+       1.175571
+      ]
+     ]
+    },
+    "7 vs 11": {
+     "abs_V_squared": [
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.5,
+       0.5
+      ]
+     ],
+     "angle_deg": 45.00000000000004,
+     "levels": [
+      [
+       2.628656,
+       1.175571
+      ],
+      [
+       1.902113,
+       -4.253254
+      ]
+     ]
+    },
+    "1 vs 11": {
+     "abs_V_squared": [
+      [
+       0.0,
+       1.0
+      ],
+      [
+       1.0,
+       0.0
+      ]
+     ],
+     "angle_deg": 90.0,
+     "levels": [
+      [
+       4.253254,
+       -1.902113
+      ],
+      [
+       1.902113,
+       -4.253254
+      ]
+     ]
+    },
+    "1 vs 3": {
+     "abs_V_squared": [
+      [
+       0.5,
+       0.5
+      ],
+      [
+       0.5,
+       0.5
+      ]
+     ],
+     "angle_deg": 44.99999999999999,
+     "levels": [
+      [
+       4.253254,
+       -1.902113
+      ],
+      [
+       -1.175571,
+       -2.628656
+      ]
+     ]
+    },
+    "3 vs 7": {
+     "abs_V_squared": [
+      [
+       1.0,
+       0.0
+      ],
+      [
+       0.0,
+       1.0
+      ]
+     ],
+     "angle_deg": 1.6682360166118708e-15,
+     "levels": [
+      [
+       -1.175571,
+       -2.628656
+      ],
+      [
+       2.628656,
+       1.175571
+      ]
+     ]
+    }
+   },
+   "2'": {
+    "1 vs 7": {
+     "abs_V_squared": [
+      [
+       0.8,
+       0.2
+      ],
+      [
+       0.2,
+       0.8
+      ]
+     ],
+     "angle_deg": 26.565051177077994,
+     "levels": [
+      [
+       0.726543,
+       -1.902113
+      ],
+      [
+       1.175571,
+       -3.077684
+      ]
+     ]
+    },
+    "7 vs 11": {
+     "abs_V_squared": [
+      [
+       0.2,
+       0.8
+      ],
+      [
+       0.8,
+       0.2
+      ]
+     ],
+     "angle_deg": 63.434948822921996,
+     "levels": [
+      [
+       1.175571,
+       -3.077684
+      ],
+      [
+       1.902113,
+       -0.726543
+      ]
+     ]
+    },
+    "1 vs 11": {
+     "abs_V_squared": [
+      [
+       0.0,
+       1.0
+      ],
+      [
+       1.0,
+       0.0
+      ]
+     ],
+     "angle_deg": 90.0,
+     "levels": [
+      [
+       0.726543,
+       -1.902113
+      ],
+      [
+       1.902113,
+       -0.726543
+      ]
+     ]
+    },
+    "1 vs 3": {
+     "abs_V_squared": [
+      [
+       0.2,
+       0.8
+      ],
+      [
+       0.8,
+       0.2
+      ]
+     ],
+     "angle_deg": 63.434948822921996,
+     "levels": [
+      [
+       0.726543,
+       -1.902113
+      ],
+      [
+       3.077684,
+       -1.175571
+      ]
+     ]
+    },
+    "3 vs 7": {
+     "abs_V_squared": [
+      [
+       0.4,
+       0.6
+      ],
+      [
+       0.6,
+       0.4
+      ]
+     ],
+     "angle_deg": 50.76847951640774,
+     "levels": [
+      [
+       3.077684,
+       -1.175571
+      ],
+      [
+       1.175571,
+       -3.077684
+      ]
+     ]
+    }
+   }
+  }
+ },
+ "item5_hierarchy": {
+  "status": "EXACT closed forms, logarithms at 40 digits",
+  "flux0": {
+   "H0 kernel K": {
+    "values": [
+     0.953934466291663,
+     0.9,
+     0.87939886704167
+    ],
+    "spread": 1.08475744288907,
+    "r": 2.51337546506878
+   },
+   "H0c correction probability 1 - K": {
+    "values": [
+     0.0460655337083368,
+     0.1,
+     0.12060113295833
+    ],
+    "spread": 2.61803398874989,
+    "r": 0.241668489486173
+   },
+   "H0w rest phase arccos K": {
+    "values": [
+     0.304708437370273,
+     0.451026811796262,
+     0.496198259502073
+    ],
+    "spread": 1.62843623164628,
+    "r": 0.243385350170046
+   },
+   "H1 powers K^n": {
+    "values": [
+     0.953934466291663,
+     0.9,
+     0.87939886704167
+    ],
+    "spread": 1.08475744288907,
+    "r": 2.51337546506878
+   },
+   "H1 powers K^10": {
+    "values": [
+     0.624001170333672,
+     0.3486784401,
+     0.276604357612398
+    ],
+    "spread": 2.25593398354221,
+    "r": 2.51337546506878
+   },
+   "H1 powers K^100": {
+    "values": [
+     0.00895063901609836,
+     2.65613988875875e-05,
+     2.62174336042829e-06
+    ],
+    "spread": 3414.00274000739,
+    "r": 2.51337546506878
+   },
+   "H1i inverse powers K^-n": {
+    "values": [
+     1.04829004018212,
+     1.11111111111111,
+     1.13714042339404
+    ],
+    "spread": 1.08475744288907,
+    "r": 0.397871314452668
+   },
+   "H1r rates -log K": {
+    "values": [
+     0.0471603035079738,
+     0.105360515657826,
+     0.128516710567312
+    ],
+    "spread": 2.72510355124375,
+    "r": 0.247153804836687
+   },
+   "H2 resolvent (5 - A)^-1": {
+    "values": [
+     0.361803398874989,
+     0.166666666666667,
+     0.138196601125011
+    ],
+    "spread": 2.61803398874989,
+    "r": 4.13789982353995
+   },
+   "H3 log(5 - A)": {
+    "values": [
+     1.01665431171739,
+     1.79175946922806,
+     1.9790779618366
+    ],
+    "spread": 1.94665771740389,
+    "r": 0.175465547062581
+   },
+   "H3n -log of the resolvent normalized on the second index": {
+    "values": [
+     0.611189203609228,
+     1.38629436111989,
+     1.57361285372843
+    ],
+    "spread": 2.57467383984509,
+    "r": 0.154752787024567
+   },
+   "H4 projector on the slowest level": {
+    "values": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "spread": null,
+    "r": null
+   }
+  },
+  "flux2": {
+   "H0 kernel K": {
+    "values": [
+     0.976967233145832,
+     0.910300566479165,
+     0.87939886704167
+    ],
+    "spread": 1.11094893314155,
+    "r": 2.04649421240783
+   },
+   "H0c correction probability 1 - K": {
+    "values": [
+     0.0230327668541684,
+     0.0896994335208351,
+     0.12060113295833
+    ],
+    "spread": 5.23606797749979,
+    "r": 0.217737460075988
+   },
+   "H0w rest phase arccos K": {
+    "values": [
+     0.215042935415735,
+     0.426786746318426,
+     0.496198259502073
+    ],
+    "spread": 2.30743808692339,
+    "r": 0.21984362258264
+   },
+   "H1 powers K^n": {
+    "values": [
+     0.976967233145832,
+     0.910300566479165,
+     0.87939886704167
+    ],
+    "spread": 1.11094893314155,
+    "r": 2.04649421240783
+   },
+   "H1 powers K^10": {
+    "values": [
+     0.792136417760412,
+     0.390704245058447,
+     0.276604357612398
+    ],
+    "spread": 2.86378864236991,
+    "r": 2.04649421240783
+   },
+   "H1 powers K^100": {
+    "values": [
+     0.0972746776876222,
+     8.2886022469119e-05,
+     2.62174336042829e-06
+    ],
+    "spread": 37103.0510292706,
+    "r": 2.04649421240783
+   },
+   "H1i inverse powers K^-n": {
+    "values": [
+     1.0235757823525,
+     1.09853825958581,
+     1.13714042339404
+    ],
+    "spread": 1.11094893314155,
+    "r": 0.488640521892039
+   },
+   "H1r rates -log K": {
+    "values": [
+     0.0233021657353133,
+     0.0939804411716644,
+     0.128516710567312
+    ],
+    "spread": 5.51522601062577,
+    "r": 0.22442681139388
+   },
+   "H2 resolvent (5 - A)^-1": {
+    "values": [
+     0.723606797749979,
+     0.18580570704268,
+     0.138196601125011
+    ],
+    "spread": 5.23606797749979,
+    "r": 4.59268698941841
+   },
+   "H3 log(5 - A)": {
+    "values": [
+     0.323507131157447,
+     1.68305373702095,
+     1.9790779618366
+    ],
+    "spread": 6.1175713646739,
+    "r": 0.0982456473105851
+   },
+   "H3n -log of the resolvent normalized on the second index": {
+    "values": [
+     0.370017656941451,
+     1.72956426280495,
+     2.0255884876206
+    ],
+    "spread": 5.47430223834189,
+    "r": 0.102453421776829
+   },
+   "H4 projector on the slowest level": {
+    "values": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "spread": null,
+    "r": null
+   }
+  },
+  "powers_shape": {
+   "rates_c = -log K (slow, middle, fast)": [
+    0.0471603035079738,
+    0.105360515657826,
+    0.128516710567312
+   ],
+   "r for masses proportional to K^n (slow heaviest)": 2.51337546506878,
+   "r for masses proportional to K^-n (slow lightest)": 0.397871314452668,
+   "note": "K^n = exp(-n c): the spread grows without bound, the shape r is fixed by the three rates"
+  },
+  "decision": "only K^n at many events and the projector on the slowest level are far from the identity; the powers fix r at 2.513375 (K^n) or 0.397871 (K^-n) for every n; the projector leaves two copies degenerate at zero"
+ },
+ "item6_comparison_NOT_BLIND": {
+  "measured": {
+   "r leptons": 0.5293783221811986,
+   "r up quarks (u at 2 GeV, c at m_c, t pole; as shipped)": 0.769214671142704,
+   "r down quarks (d, s at 2 GeV, b at m_b; as shipped)": 1.2761484088503106,
+   "CKM angles deg": {
+    "12": 13.003466199369875,
+    "23": 2.397381940018274,
+    "13": 0.21382834550537572
+   },
+   "CKM J": 3.1169935287554706e-05,
+   "PMNS deg (value, +, -)": {
+    "theta12_deg": [
+     33.68,
+     0.73,
+     0.7
+    ],
+    "theta23_deg": [
+     43.3,
+     1.0,
+     0.9
+    ],
+    "theta13_deg": [
+     8.56,
+     0.11,
+     0.11
+    ],
+    "delta_cp_deg": [
+     212.0,
+     26.0,
+     41.0
+    ]
+   },
+   "PMNS J (central values)": -0.017764921505851194
+  },
+  "mixing": {
+   "M2 identity, P (antipode)": {
+    "angles_deg_fixed_order": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "PMNS_pulls_fixed_order": [
+     -48.114285714285714,
+     -48.11111111111111,
+     -77.81818181818183
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       0.0,
+       90.0,
+       0.0
+      ],
+      "pulls": [
+       -48.114285714285714,
+       46.7,
+       -77.81818181818183
+      ],
+      "chi2": 10551.543911283523,
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       2,
+       1
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       90.0,
+       90.0,
+       0.0
+      ],
+      "relative_deviation_of_sines": [
+       3.4442469223590058,
+       22.906287353573994,
+       -1.0
+      ],
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       2,
+       0,
+       1
+      ]
+     }
+    }
+   },
+   "M2 C+, third of a turn (anchor 9)": {
+    "angles_deg_fixed_order": [
+     62.26769855229806,
+     62.26769855229806,
+     16.04505713533576
+    ],
+    "PMNS_pulls_fixed_order": [
+     39.16123089355899,
+     18.96769855229806,
+     68.04597395759781
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       27.732301447701957,
+       27.732301447701957,
+       16.04505713533576
+      ],
+      "pulls": [
+       -8.496712217568634,
+       -17.29744283588671,
+       68.04597395759781
+      ],
+      "chi2": 5001.650219007028,
+      "passes": false,
+      "row_order": [
+       0,
+       2,
+       1
+      ],
+      "column_order": [
+       1,
+       0,
+       2
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       27.732301447701957,
+       27.732301447701957,
+       16.04505713533576
+      ],
+      "relative_deviation_of_sines": [
+       1.0680908723833888,
+       10.12457870415937,
+       73.06034358253508
+      ],
+      "passes": false,
+      "row_order": [
+       0,
+       2,
+       1
+      ],
+      "column_order": [
+       1,
+       0,
+       2
+      ]
+     }
+    }
+   },
+   "M2 C+^-1, third of a turn (anchor 4)": {
+    "angles_deg_fixed_order": [
+     49.61382244080324,
+     49.61382244080324,
+     46.353072891203695
+    ],
+    "PMNS_pulls_fixed_order": [
+     21.82715402849759,
+     6.313822440803243,
+     343.57338992003355
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       27.732301447701957,
+       27.732301447701957,
+       16.04505713533576
+      ],
+      "pulls": [
+       -8.496712217568634,
+       -17.29744283588671,
+       68.04597395759781
+      ],
+      "chi2": 5001.650219007028,
+      "passes": false,
+      "row_order": [
+       2,
+       0,
+       1
+      ],
+      "column_order": [
+       1,
+       2,
+       0
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       27.732301447701957,
+       27.732301447701957,
+       16.04505713533576
+      ],
+      "relative_deviation_of_sines": [
+       1.0680908723833888,
+       10.12457870415937,
+       73.06034358253508
+      ],
+      "passes": false,
+      "row_order": [
+       2,
+       0,
+       1
+      ],
+      "column_order": [
+       1,
+       2,
+       0
+      ]
+     }
+    }
+   },
+   "M2 F P (passage nu of item 3), F (frame partner)": {
+    "angles_deg_fixed_order": [
+     0.0,
+     0.0,
+     63.43494882292201
+    ],
+    "PMNS_pulls_fixed_order": [
+     -48.114285714285714,
+     -48.11111111111111,
+     498.8631711174728
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       26.56505117707799,
+       90.0,
+       0.0
+      ],
+      "pulls": [
+       -10.1642126041743,
+       46.7,
+       -77.81818181818183
+      ],
+      "chi2": 8339.87063935046,
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       2,
+       0,
+       1
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       90.0,
+       90.0,
+       26.56505117707799
+      ],
+      "relative_deviation_of_sines": [
+       3.4442469223590058,
+       22.906287353573994,
+       118.83215313503696
+      ],
+      "passes": false,
+      "row_order": [
+       0,
+       2,
+       1
+      ],
+      "column_order": [
+       1,
+       2,
+       0
+      ]
+     }
+    }
+   },
+   "M4a": {
+    "angles_deg_fixed_order": [
+     0.0,
+     0.0,
+     31.717474411459662
+    ],
+    "PMNS_pulls_fixed_order": [
+     -48.114285714285714,
+     -48.11111111111111,
+     210.52249464963327
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       31.717474411459662,
+       90.0,
+       0.0
+      ],
+      "pulls": [
+       -2.803607983629054,
+       46.7,
+       -77.81818181818183
+      ],
+      "chi2": 8244.419639213473,
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       2,
+       1
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       90.0,
+       90.0,
+       31.717474411459662
+      ],
+      "relative_deviation_of_sines": [
+       3.4442469223590058,
+       22.906287353573994,
+       139.87114472645058
+      ],
+      "passes": false,
+      "row_order": [
+       0,
+       2,
+       1
+      ],
+      "column_order": [
+       1,
+       0,
+       2
+      ]
+     }
+    }
+   },
+   "M4b": {
+    "angles_deg_fixed_order": [
+     44.99999999995703,
+     44.99999999995703,
+     35.2643896827344
+    ],
+    "PMNS_pulls_fixed_order": [
+     15.506849315009635,
+     1.6999999999570363,
+     242.76717893394903
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       44.99999999995703,
+       44.99999999995703,
+       35.2643896827344
+      ],
+      "pulls": [
+       15.506849315009635,
+       1.6999999999570363,
+       242.76717893394903
+      ],
+      "chi2": 59179.25554322629,
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       1,
+       2
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       44.99999999995703,
+       44.99999999995703,
+       35.2643896827344
+      ],
+      "relative_deviation_of_sines": [
+       2.1425571360651405,
+       15.904297900693699,
+       153.70264447731432
+      ],
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       1,
+       2
+      ]
+     }
+    }
+   },
+   "M6_C+": {
+    "angles_deg_fixed_order": [
+     28.377097676662665,
+     39.73518456150104,
+     25.420458321520574
+    ],
+    "PMNS_pulls_fixed_order": [
+     -7.575574747624765,
+     -3.960906042776615,
+     153.27689383200521
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       44.99999999997031,
+       35.9999999999714,
+       10.812316963515524
+      ],
+      "pulls": [
+       15.506849315027827,
+       -8.111111111142884,
+       20.475608759232035
+      ],
+      "chi2": 725.5030531974242,
+      "passes": false,
+      "row_order": [
+       2,
+       1,
+       0
+      ],
+      "column_order": [
+       1,
+       2,
+       0
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       44.99999999997031,
+       35.9999999999714,
+       10.812316963515524
+      ],
+      "relative_deviation_of_sines": [
+       2.1425571360658684,
+       13.051763143487195,
+       49.26593624976333
+      ],
+      "passes": false,
+      "row_order": [
+       2,
+       1,
+       0
+      ],
+      "column_order": [
+       1,
+       2,
+       0
+      ]
+     }
+    }
+   },
+   "M5 flux 0 against even flux k != 0, 10 (tri-bimaximal, standard order)": {
+    "angles_deg_fixed_order": [
+     35.264389682754654,
+     45.00000000000001,
+     0.0
+    ],
+    "PMNS_pulls_fixed_order": [
+     2.1703968256913075,
+     1.70000000000001,
+     -77.81818181818183
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       35.264389682754654,
+       45.00000000000001,
+       0.0
+      ],
+      "pulls": [
+       2.1703968256913075,
+       1.70000000000001,
+       -77.81818181818183
+      ],
+      "chi2": 6063.270043868575,
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       1,
+       2
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       39.23152048359226,
+       26.56505117707799,
+       24.094842552110702
+      ],
+      "relative_deviation_of_sines": [
+       1.8107885517695923,
+       9.691216722447,
+       108.39128897745526
+      ],
+      "passes": false,
+      "row_order": [
+       1,
+       2,
+       0
+      ],
+      "column_order": [
+       2,
+       1,
+       0
+      ]
+     }
+    }
+   },
+   "M5 2 vs 4": {
+    "angles_deg_fixed_order": [
+     60.000000000049624,
+     54.735610317245346,
+     54.73561031726561
+    ],
+    "PMNS_pulls_fixed_order": [
+     36.05479452061593,
+     11.435610317245349,
+     419.77827561150553
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       28.560825217799227,
+       17.02386618496269,
+       9.594068226899202
+      ],
+      "pulls": [
+       -7.31310683171539,
+       -29.195704238930343,
+       9.400620244538192
+      ],
+      "chi2": 994.2423385211988,
+      "passes": false,
+      "row_order": [
+       1,
+       0,
+       2
+      ],
+      "column_order": [
+       1,
+       2,
+       0
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       28.560825217799227,
+       17.02386618496269,
+       9.594068226899202
+      ],
+      "relative_deviation_of_sines": [
+       1.124756427419106,
+       5.99904427167124,
+       43.65880671686317
+      ],
+      "passes": false,
+      "row_order": [
+       1,
+       0,
+       2
+      ],
+      "column_order": [
+       1,
+       2,
+       0
+      ]
+     }
+    }
+   },
+   "M5 4 vs 18": {
+    "angles_deg_fixed_order": [
+     10.893394649173437,
+     67.79234570141855,
+     28.125505702040392
+    ],
+    "PMNS_pulls_fixed_order": [
+     -32.55229335832366,
+     24.492345701418557,
+     177.86823365491264
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       28.560825217799227,
+       17.02386618496269,
+       9.594068226899202
+      ],
+      "pulls": [
+       -7.31310683171539,
+       -29.195704238930343,
+       9.400620244538192
+      ],
+      "chi2": 994.2423385211988,
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       2,
+       1
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       28.560825217799227,
+       17.02386618496269,
+       9.594068226899202
+      ],
+      "relative_deviation_of_sines": [
+       1.124756427419106,
+       5.99904427167124,
+       43.65880671686317
+      ],
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       2,
+       1
+      ]
+     }
+    }
+   },
+   "M5 2 vs 8": {
+    "angles_deg_fixed_order": [
+     35.2643896827344,
+     35.2643896827344,
+     0.0
+    ],
+    "PMNS_pulls_fixed_order": [
+     2.1703968256635573,
+     -8.92845590807289,
+     -77.81818181818183
+    ],
+    "best_of_36": {
+     "PMNS": {
+      "angles_deg": [
+       35.2643896827344,
+       35.2643896827344,
+       0.0
+      ],
+      "pulls": [
+       2.1703968256635573,
+       -8.92845590807289,
+       -77.81818181818183
+      ],
+      "chi2": 6140.0973687708565,
+      "passes": false,
+      "row_order": [
+       0,
+       1,
+       2
+      ],
+      "column_order": [
+       0,
+       1,
+       2
+      ]
+     },
+     "CKM": {
+      "angles_deg": [
+       29.99999999998139,
+       29.99999999998139,
+       19.471220634480563
+      ],
+      "relative_deviation_of_sines": [
+       1.2221234611782528,
+       10.953143676780273,
+       88.3176134333244
+      ],
+      "passes": false,
+      "row_order": [
+       2,
+       1,
+       0
+      ],
+      "column_order": [
+       2,
+       1,
+       0
+      ]
+     }
+    }
+   }
+  },
+  "J": {
+   "kernel-type pairs (M2, M4a, M5): J = 0": {
+    "CKM": "fails: J_CKM = 3.117e-05 (relative precision a few percent)",
+    "PMNS": "not decided: delta = 212 +26 -41 deg includes 180 deg at 0.8 sigma, so J = 0 is allowed by the phase alone"
+   },
+   "M4b trimaximal: abs J = 0.096225": {
+    "CKM": "fails (factor 3100)",
+    "PMNS": "fails: abs J_PMNS <= 0.0335 for any phase at the measured angles"
+   },
+   "M6: abs J = 0.043033": {
+    "CKM": "fails (factor 1400)",
+    "PMNS": "fails: abs J_PMNS <= 0.0335 for any phase at the measured angles"
+   }
+  },
+  "mass_shapes": {
+   "triplet second index, flux 0: H0 kernel K": {
+    "r": 2.51337546506878,
+    "against leptons": 3.747786903537934,
+    "against up quarks": 2.267456484332318,
+    "against down quarks": 0.9695009198288265,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H0c correction probability 1 - K": {
+    "r": 0.241668489486173,
+    "against leptons": -0.5434862377997915,
+    "against up quarks": -0.68582438875332,
+    "against down quarks": -0.8106266576754239,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H0w rest phase arccos K": {
+    "r": 0.243385350170046,
+    "against leptons": -0.5402430738621392,
+    "against up quarks": -0.6835924231547927,
+    "against down quarks": -0.8092813120463682,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H1 powers K^n": {
+    "r": 2.51337546506878,
+    "against leptons": 3.747786903537934,
+    "against up quarks": 2.267456484332318,
+    "against down quarks": 0.9695009198288265,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H1 powers K^10": {
+    "r": 2.51337546506878,
+    "against leptons": 3.747786903537934,
+    "against up quarks": 2.267456484332318,
+    "against down quarks": 0.9695009198288265,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H1 powers K^100": {
+    "r": 2.51337546506878,
+    "against leptons": 3.747786903537934,
+    "against up quarks": 2.267456484332318,
+    "against down quarks": 0.9695009198288265,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H1i inverse powers K^-n": {
+    "r": 0.397871314452668,
+    "against leptons": -0.24841781806758167,
+    "against up quarks": -0.48275646658999405,
+    "against down quarks": -0.6882248869384144,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H1r rates -log K": {
+    "r": 0.247153804836687,
+    "against leptons": -0.5331244320350357,
+    "against up quarks": -0.6786933295623072,
+    "against down quarks": -0.8063283211242263,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H2 resolvent (5 - A)^-1": {
+    "r": 4.13789982353995,
+    "against leptons": 6.816526763866251,
+    "against up quarks": 4.3793823477039355,
+    "against down quarks": 2.2424910730154086,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H3 log(5 - A)": {
+    "r": 0.175465547062581,
+    "against leptons": -0.6685441399647611,
+    "against up quarks": -0.7718900150436304,
+    "against down quarks": -0.8625038076718217,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H3n -log of the resolvent normalized on the second index": {
+    "r": 0.154752787024567,
+    "against leptons": -0.7076707138536789,
+    "against up quarks": -0.7988171666114031,
+    "against down quarks": -0.8787344904782786,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 0: H4 projector on the slowest level": {
+    "r": null,
+    "verdict": "no hierarchy shape (two levels coincide or vanish)"
+   },
+   "triplet second index, flux 2: H0 kernel K": {
+    "r": 2.04649421240783,
+    "against leptons": 2.8658443813408443,
+    "against up quarks": 1.6604981537438284,
+    "against down quarks": 0.6036490726431485,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H0c correction probability 1 - K": {
+    "r": 0.217737460075988,
+    "against leptons": -0.5886921489742083,
+    "against up quarks": -0.7169353780622398,
+    "against down quarks": -0.8293792018499252,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H0w rest phase arccos K": {
+    "r": 0.21984362258264,
+    "against leptons": -0.5847135906948024,
+    "against up quarks": -0.7141973095026228,
+    "against down quarks": -0.827728796229352,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H1 powers K^n": {
+    "r": 2.04649421240783,
+    "against leptons": 2.8658443813408443,
+    "against up quarks": 1.6604981537438284,
+    "against down quarks": 0.6036490726431485,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H1 powers K^10": {
+    "r": 2.04649421240783,
+    "against leptons": 2.8658443813408443,
+    "against up quarks": 1.6604981537438284,
+    "against down quarks": 0.6036490726431485,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H1 powers K^100": {
+    "r": 2.04649421240783,
+    "against leptons": 2.8658443813408443,
+    "against up quarks": 1.6604981537438284,
+    "against down quarks": 0.6036490726431485,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H1i inverse powers K^-n": {
+    "r": 0.488640521892039,
+    "against leptons": -0.07695403945009982,
+    "against up quarks": -0.3647540274210568,
+    "against down quarks": -0.6170974171160406,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H1r rates -log K": {
+    "r": 0.22442681139388,
+    "against leptons": -0.5760559093746533,
+    "against up quarks": -0.7082390393562261,
+    "against down quarks": -0.8241373731789805,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H2 resolvent (5 - A)^-1": {
+    "r": 4.59268698941841,
+    "against leptons": 7.675623456765573,
+    "against up quarks": 4.970618036439373,
+    "against down quarks": 2.598865898015724,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H3 log(5 - A)": {
+    "r": 0.0982456473105851,
+    "against leptons": -0.8144131650389775,
+    "against up quarks": -0.8722779855919328,
+    "against down quarks": -0.9230139326827237,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H3n -log of the resolvent normalized on the second index": {
+    "r": 0.102453421776829,
+    "against leptons": -0.8064646445009498,
+    "against up quarks": -0.8668077643076806,
+    "against down quarks": -0.9197166872862931,
+    "verdict": "fails for all three sectors"
+   },
+   "triplet second index, flux 2: H4 projector on the slowest level": {
+    "r": null,
+    "verdict": "no hierarchy shape (two levels coincide or vanish)"
+   }
+  },
+  "powers_fitted_to_the_lepton_spread": {
+   "n fitted to m_tau/m_e (FIT, one number)": 100.22605298585387,
+   "masses rising with K^-n: m_mu/m_e, m_tau/m_mu": [
+    341.44190476442964,
+    10.184368226426514
+   ],
+   "masses rising with K^n: m_mu/m_e, m_tau/m_mu": [
+    10.184368226426514,
+    341.44190476442964
+   ],
+   "measured m_mu/m_e, m_tau/m_mu": [
+    206.76828270846718,
+    16.81771517615364
+   ],
+   "flux 2: n fitted to m_tau/m_e (FIT, one number)": 77.49909081190138,
+   "flux 2: masses rising with K^-n: m_mu/m_e, m_tau/m_mu": [
+    239.2483386866153,
+    14.53456314531971
+   ]
+  },
+  "verdict": "the second index is a canonical label; no native function of the kernel or of the flux sectors on it gives a measured mass ratio, mass shape, mixing angle set or rephasing invariant"
+ }
+}

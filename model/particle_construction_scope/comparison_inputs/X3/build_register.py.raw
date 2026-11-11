@@ -1,0 +1,307 @@
+"""Build register.json: the extended register rule, the shape tables and the null counts. Exact integer enumeration.
+
+A shape = an orbit of class words (20 classes, one per template face) under the 60 rotations of the carrier.
+Its id is its rank in the sorted list of canonical keys of its composition; the canonical key of a word is the
+minimum over the rotations of the base-6 integer of the rotated word (face 0 most significant).
+"""
+import itertools, json, sys
+from collections import Counter, defaultdict
+import numpy as np
+import x3lib as X
+
+POW = np.array([6 ** (19 - f) for f in range(20)], dtype=np.int64)
+WG = np.stack([POW[np.array(g)] for g in X.ROT_FACES])            # [60, 20]: weight of face f after rotation g
+INV = np.array(X.INVERSION_FACES)
+SEP = np.array(X.SEP)
+
+
+def canon(words):
+    """canonical keys of an int array [n, 20]"""
+    words = np.asarray(words, dtype=np.int64)
+    best = words @ WG[0]
+    for g in range(1, 60):
+        np.minimum(best, words @ WG[g], out=best)
+    return best
+
+
+def all_words(composition):
+    return np.array(list(X.placements(composition)), dtype=np.int64)
+
+
+def mirror(words):
+    """bare mirror image: classes move with the faces under the inversion"""
+    out = np.zeros_like(words)
+    out[:, INV] = words
+    return out
+
+
+def conj(words):
+    return (6 - words) % 6
+
+
+def nonadjacent(words):
+    out = np.ones(len(words), bool)
+    for f in range(20):
+        for g in X.NEIGHBOUR[f]:
+            out &= ~((words[:, f] != 0) & (words[:, g] != 0))
+    return out
+
+
+def describe(word):
+    """faces by class, arcs, separations"""
+    cls = sorted(set(int(c) for c in word if c))
+    faces = [[f for f in range(20) if word[f] == k] for k in cls]
+    flat = [(k, f) for k, fs in zip(cls, faces) for f in fs]
+    seps = sorted(int(SEP[a][b]) for (_, a), (_, b) in itertools.combinations(flat, 2))
+    return cls, faces, seps
+
+
+def table(composition):
+    words = all_words(composition)
+    keys = canon(words)
+    uniq, first, counts = np.unique(keys, return_index=True, return_counts=True)
+    idx = {int(k): i for i, k in enumerate(uniq)}
+    na = nonadjacent(words)
+    mkeys = canon(mirror(words[first]))
+    self_conj = sorted((6 - k) % 6 for k in composition) == sorted(composition)
+    rows = []
+    for i, k in enumerate(uniq):
+        w = X.key_word(int(k))
+        cls, faces, seps = describe(w)
+        rows.append({'id': i, 'key': int(k), 'faces': faces, 'arcs': [[list(X.LR[f]) for f in fs] for fs in faces],
+                     'separations': seps, 'multiplicity': int(counts[i]), 'stabiliser': 60 // int(counts[i]),
+                     'non_adjacent': bool(na[first[i]]), 'mirror': idx[int(mkeys[i])]})
+    if self_conj:
+        ckeys = canon(conj(words[first]))
+        for r, ck in zip(rows, ckeys):
+            r['conjugate'] = idx[int(ck)]
+    total = len(words)
+    tot_na = int(na.sum())
+    assert sum(r['multiplicity'] for r in rows) == total
+    assert sum(r['multiplicity'] for r in rows if r['non_adjacent']) == tot_na
+    info = {'composition': list(composition), 'placements': total, 'placements_non_adjacent': tot_na,
+            'shapes': len(rows), 'shapes_non_adjacent': sum(1 for r in rows if r['non_adjacent']),
+            'achiral_shapes': sum(1 for r in rows if r['mirror'] == r['id']),
+            'mirror_pairs': sum(1 for r in rows if r['mirror'] > r['id']),
+            'multiplicity_histogram': dict(sorted(Counter(r['multiplicity'] for r in rows).items())),
+            'self_conjugate_composition': self_conj}
+    return info, rows, words, keys
+
+
+def conjugate_table(rows, composition):
+    """Table of the conjugate composition with the same shape ids: shape i is the conjugate of shape i."""
+    out = []
+    for r in rows:
+        w = np.array([X.key_word(r['key'])], dtype=np.int64)
+        ck = int(canon(conj(w))[0])
+        cw = X.key_word(ck)
+        cls, faces, seps = describe(cw)
+        out.append({'id': r['id'], 'key': ck, 'faces': faces, 'arcs': [[list(X.LR[f]) for f in fs] for fs in faces],
+                    'separations': seps, 'multiplicity': r['multiplicity'], 'stabiliser': r['stabiliser'],
+                    'non_adjacent': r['non_adjacent'], 'mirror': r['mirror']})
+        assert seps == r['separations']
+    return out
+
+
+def coarse(rows, total, tot_na):
+    c, cn = Counter(), Counter()
+    for r in rows:
+        c[tuple(r['separations'])] += r['multiplicity']
+        if r['non_adjacent']:
+            cn[tuple(r['separations'])] += r['multiplicity']
+    return [{'separations': list(k), 'placements': v, 'shapes': sum(1 for r in rows if tuple(r['separations']) == k),
+             'null': v / total, 'null_non_adjacent': (cn[k] / tot_na if k in cn else 0.0)} for k, v in sorted(c.items())]
+
+
+def compact(rows, with_conj):
+    """row arrays for the long tables: [id, key, multiplicity, non_adjacent, mirror(, conjugate), faces...]"""
+    out = []
+    for r in rows:
+        row = [r['id'], r['key'], r['multiplicity'], int(r['non_adjacent']), r['mirror']]
+        if with_conj:
+            row.append(r['conjugate'])
+        row.append([f for fs in r['faces'] for f in fs])
+        out.append(row)
+    return out
+
+
+if __name__ == '__main__':
+    reg = {
+        'name': 'extended defect register X3',
+        'status': 'rule and null counts; exact integer enumeration on the pinned public carrier; a relabelling of stored data, not a law',
+        'conventions': {
+            'face': 'template face f = 0..19 of the universe runs (face 20 c + f), equal to slow_geometry.source().oriented_faces()',
+            'frame': 'frame index 0..4 in the order of work/KD/item1.json (kdlib.frames())',
+            'frame_pair': 'a face is the ordered pair (L, R) of the two frames none of whose seams is an edge of the face, '
+                          'ordered so that (L, R, c, d, e) is an even permutation of (0,1,2,3,4), c, d, e the frames of the '
+                          'three edges of the face in its orientation order. Rotations act on (L, R) by even permutations of '
+                          'the frames; the inversion exchanges L and R.',
+            'class_word': 'the 20 classes of a carrier, face 0 first',
+            'key': 'base-6 integer of a class word, face 0 most significant',
+            'canonical_key': 'minimum over the 60 rows g of tables.rotations of the key of the rotated word w\'[g[f]] = w[f]',
+            'separation': 'dual-graph distance of two faces, 1..5',
+            'chirality': 'chi(f, g) = tables.chirality[f][g]. Separation 2: +1 if R(f) = L(g), -1 if L(f) = R(g); the shortest '
+                         'dual path from f to g turns left (+1) or right (-1) at its middle face, seen from outside; '
+                         'chi(g, f) = -chi(f, g). Separation 3: +1 if L(f) = L(g), -1 if R(f) = R(g); the path turns left then '
+                         'right (+1) or right then left (-1); chi(g, f) = chi(f, g). Zero at separations 1, 4, 5.',
+            'pair_order': 'for a conjugate pair (k, 6 - k) with k = 1 or 2 the first face is the face of class k; '
+                          'for (3, 3) the pair is unordered and chi is used at separation 3 only',
+            'mirror': 'bare mirror image of a shape: classes move with the faces under the inversion of the carrier',
+            'conjugate': 'every class k replaced by 6 - k on the same faces',
+            'handedness_sums': 'h3 = sum of chi(f, g) over the unordered pairs of defect faces of a carrier at separation 3; '
+                               'h2 = sum of chi(f, g) over the pairs at separation 2 with class(f) < class(g). Both are '
+                               'rotation invariant. Mirror: h2 -> -h2, h3 -> -h3. Conjugation: h2 -> -h2, h3 -> h3. '
+                               'For one conjugate pair they are the chirality of the pair.',
+            'frame_class': 'tables.frame_class[f][F]: position of face f relative to frame F. 0, 1, 2: the face has an edge '
+                           'in frame F, on axis 0, 1, 2 of that frame (order of item1.json); 3: L = F; 4: R = F. Four faces '
+                           'per class; the classes are the orbits of the Klein group of the frame.',
+        },
+        'tables': {
+            'faces': [list(f) for f in X.FACES],
+            'frame_pair': [list(p) for p in X.LR],
+            'edge_frames': [list(p) for p in X.EDGE_FRAMES],
+            'separation': X.SEP,
+            'chirality': X.CHI,
+            'rotations': [list(g) for g in X.ROT_FACES],
+            'rotation_frame_permutations': [list(g) for g in X.ROT_FRAMES],
+            'inversion': list(X.INVERSION_FACES),
+            'frame_matchings': [[list(e) for e in fr['matching']] for fr in X.FRAMES],
+            'frame_class': X.FRAME_CLASS,
+        },
+        'rule': {
+            'per_defect': ['class k (1..5); equivalently triality k mod 3 and weak parity k mod 2',
+                           'L = tables.frame_pair[f][0]', 'R = tables.frame_pair[f][1]',
+                           'only where one frame F is declared (candidate CF-1): tables.frame_class[f][F]'],
+            'per_carrier': ['composition: the sorted multiset of nonzero classes',
+                            'shape: the id of canonical_key(class word) in the table of the composition '
+                            '(pairs: the type 0..19 = class pair, separation, chirality)',
+                            'h2, h3: the handedness sums (defined for every composition, no table needed)'],
+            'pair_from_frame_pairs': 'first face (a, b), second face (c, d): (b, a) = (c, d): separation 5; a = c: 3, chi +1; '
+                                     'b = d: 3, chi -1; b = c: 2, chi +1; a = d: 2, chi -1; all four distinct, e the fifth '
+                                     'frame: separation 1 if (a, b, c, d, e) is an odd permutation, 4 if even',
+        },
+    }
+    # ---- pairs
+    pairs = []
+    pid = 0
+    arcname = {(1, 0): 'disjoint, odd', (2, 1): 'path, first to second', (2, -1): 'path, second to first', (3, 1): 'common tail',
+               (3, -1): 'common head', (4, 0): 'disjoint, even', (5, 0): 'two-cycle'}
+    turns = {(1, 0): '', (2, 1): 'L', (2, -1): 'R', (3, 1): 'LR', (3, -1): 'RL', (4, 0): 'two paths', (5, 0): 'six paths'}
+    # exact decompositions computed by irreps.py (multiplicities of 1, 3, 3', 4, 5; the spinorial 2, 2', 4', 6 are 0)
+    IRR = json.load(open(sys.argv[2]))
+    keep = lambda m: {n: m[n] for n in ('1', '3', "3'", '4', '5')}
+    assert all(all(m[n] == 0 for n in ('2', "2'", "4'", '6')) for m in IRR.values() if isinstance(m, dict))
+    irr_reg = keep(IRR['flags (port, face at the port) (60)'])
+
+    def irr_pair(k, d, chi, n):
+        name = (f'charged pair (k, -k), separation {d}, chi {chi:+d} ({n})' if k < 3
+                else f'neutral pair (3, 3), separation {d}, chi {chi:+d} ({n})')
+        return keep(IRR[name])
+    for k in (1, 2, 3):
+        comp = (k, 6 - k)
+        info, rows, words, keys = table(comp)
+        kinds = [(1, 0), (2, 1), (2, -1), (3, 1), (3, -1), (4, 0), (5, 0)] if k < 3 else [(1, 0), (2, 0), (3, 1), (3, -1), (4, 0), (5, 0)]
+        bykind = {}
+        for r in rows:
+            if k < 3:
+                f, g = r['faces'][0][0], r['faces'][1][0]
+                kind = (X.SEP[f][g], X.CHI[f][g])
+            else:
+                f, g = r['faces'][0]
+                kind = (X.SEP[f][g], X.CHI[f][g] if X.SEP[f][g] == 3 else 0)
+            assert kind not in bykind
+            bykind[kind] = r
+        assert set(bykind) == set(kinds)
+        ids = {kind: pid + i for i, kind in enumerate(kinds)}
+        for kind in kinds:
+            r = bykind[kind]
+            d, chi = kind
+            mk = (d, -chi)                       # bare mirror: chi -> -chi
+            ck = (d, -chi) if (k < 3 and d == 2) else kind    # conjugation exchanges the two faces
+            row = {'type': ids[kind], 'classes': list(comp), 'separation': d, 'chirality': chi,
+                   'arcs': arcname[(d, chi)] if (k < 3 or d != 2) else 'path',
+                   'turns': turns[(d, chi)] if (k < 3 or d != 2) else 'L or R',
+                   'placements': r['multiplicity'], 'null': r['multiplicity'] / info['placements'],
+                   'null_non_adjacent': (r['multiplicity'] / info['placements_non_adjacent'] if d > 1 else 0.0),
+                   'key': r['key'], 'faces': [f for fs in r['faces'] for f in fs],
+                   'mirror': ids[mk], 'conjugate': ids[ck], 'irreps': irr_pair(k, d, chi, r['multiplicity'])}
+            assert sum(v * {'1': 1, '3': 3, "3'": 3, '4': 4, '5': 5}[n] for n, v in row['irreps'].items()) == r['multiplicity']
+            assert rows[r['mirror']] is bykind[mk] and rows[r['conjugate']] is bykind[ck]
+            pairs.append(row)
+        pid += len(kinds)
+        reg.setdefault('pair_totals', {})['{%d,%d}' % comp] = {'placements': info['placements'],
+                                                              'placements_non_adjacent': info['placements_non_adjacent'], 'types': len(kinds),
+                                                              'types_non_adjacent': len(kinds) - 1}
+    reg['pairs'] = pairs
+    assert len(pairs) == 20
+    # ---- triples
+    reg['triples'] = {}
+    for comp, cname in (((2, 2, 2), '{4,4,4}'), ((1, 2, 3), '{3,4,5}')):
+        info, rows, words, keys = table(comp)
+        name = '{' + ','.join(map(str, comp)) + '}'
+        info['coarse_by_separations'] = coarse(rows, info['placements'], info['placements_non_adjacent'])
+        info['shape_rows'] = rows
+        reg['triples'][name] = info
+        crow = conjugate_table(rows, comp)
+        cinfo = {k: v for k, v in info.items() if k not in ('shape_rows', 'composition')}
+        cinfo['composition'] = sorted((6 - k) % 6 for k in comp)
+        cinfo['note'] = f'shape i is the conjugate of shape i of {name}: same multiplicity, separations and mirror partner'
+        cinfo['shape_rows'] = crow
+        reg['triples'][cname] = cinfo
+    # ---- quadruples
+    reg['quadruples'] = {}
+    for comp in ((2, 2, 4, 4), (2, 3, 3, 4)):
+        info, rows, words, keys = table(comp)
+        name = '{' + ','.join(map(str, comp)) + '}'
+        info['coarse_by_separations'] = coarse(rows, info['placements'], info['placements_non_adjacent'])
+        info['shape_row_columns'] = ['id', 'key', 'multiplicity', 'non_adjacent', 'mirror', 'conjugate', 'faces (by class, ascending)']
+        info['shape_rows'] = compact(rows, True)
+        reg['quadruples'][name] = info
+    # ---- single face and the audit region
+    reg['single_face'] = {'placements': 20, 'types_under_rotation': 1, 'irreps': keep(IRR['single face (20)']),
+                          'with_one_declared_frame': {'types': 3, 'faces': {'L = frame': 4, 'R = frame': 4, 'frame of an edge': 12},
+                                                      'classes_under_the_Klein_group_of_the_frame': {'axis 0': 4, 'axis 1': 4, 'axis 2': 4, 'L corner': 4, 'R corner': 4}}}
+    reg['representations'] = {
+        'statement': "every placement space is a permutation module of the rotation group; the cover acts through it; "
+                     "multiplicities of the spinorial 2, 2', 4', 6 are 0 in every space; 3 and 3' occur equally often",
+        'spaces': {k: (keep(v) if isinstance(v, dict) else v) for k, v in IRR.items()}}
+    reg['held_region'] = {'region': 'the five faces at one port (audit: port 5)', 'placements': 5,
+                          'group': 'the five rotations about the port', 'representation': 'regular: each character of C5 once',
+                          'against_the_exterior_partner': 'the five positions are five different pair types: separation 1; 2 with chi +1 and -1; 3 with chi +1 and -1',
+                          'all_regions': {'placements': 60, 'irreps': irr_reg}}
+    # ---- type counts
+    reg['type_counts'] = {
+        'single face, rotations': 5, 'single face, one declared frame': 15,
+        'one conjugate pair, rotations': 20, 'one conjugate pair, rotations, separation >= 2': 17,
+        'one conjugate pair, rotations and mirror and conjugation (class pair x separation)': 15,
+        'one conjugate pair, one declared frame': 85, 'one conjugate pair, one declared frame, separation >= 2': 72,
+        'triple {2,2,2} (and {4,4,4})': reg['triples']['{2,2,2}']['shapes'],
+        'triple {2,2,2}, pairwise non-adjacent': reg['triples']['{2,2,2}']['shapes_non_adjacent'],
+        'triple {1,2,3} (and {3,4,5})': reg['triples']['{1,2,3}']['shapes'],
+        'triple {1,2,3}, pairwise non-adjacent': reg['triples']['{1,2,3}']['shapes_non_adjacent'],
+        'quadruple {2,2,4,4}': reg['quadruples']['{2,2,4,4}']['shapes'],
+        'quadruple {2,2,4,4}, pairwise non-adjacent': reg['quadruples']['{2,2,4,4}']['shapes_non_adjacent'],
+        'quadruple {2,3,3,4}': reg['quadruples']['{2,3,3,4}']['shapes'],
+        'quadruple {2,3,3,4}, pairwise non-adjacent': reg['quadruples']['{2,3,3,4}']['shapes_non_adjacent'],
+    }
+    json.dump(reg, open(sys.argv[1], 'w'), indent=None, separators=(',', ':'))
+    # ---- print the short tables
+    print('PAIRS')
+    for p in pairs:
+        print(f"  type {p['type']:2d} {{{p['classes'][0]},{p['classes'][1]}}} d={p['separation']} chi={p['chirality']:+d} placements {p['placements']:3d} "
+              f"null {p['null']:.6f} null(d>=2) {p['null_non_adjacent']:.6f} mirror {p['mirror']:2d} conj {p['conjugate']:2d} arcs: {p['arcs']}")
+    for name in ('{2,2,2}', '{1,2,3}'):
+        t = reg['triples'][name]
+        print(f"TRIPLE {name}: placements {t['placements']} (non-adjacent {t['placements_non_adjacent']}), shapes {t['shapes']} "
+              f"(non-adjacent {t['shapes_non_adjacent']}), achiral {t['achiral_shapes']}, mirror pairs {t['mirror_pairs']}, multiplicities {t['multiplicity_histogram']}")
+        if name == '{2,2,2}':
+            for r in t['shape_rows']:
+                print(f"  shape {r['id']:2d} faces {r['faces'][0]} arcs {r['arcs'][0]} sep {r['separations']} mult {r['multiplicity']} "
+                      f"mirror {r['mirror']} nonadj {r['non_adjacent']}")
+        for c in t['coarse_by_separations']:
+            print(f"    separations {c['separations']}: placements {c['placements']} shapes {c['shapes']} null {c['null']:.5f} null(non-adj) {c['null_non_adjacent']:.5f}")
+    for name, t in reg['quadruples'].items():
+        print(f"QUADRUPLE {name}: placements {t['placements']} (non-adjacent {t['placements_non_adjacent']}), shapes {t['shapes']} "
+              f"(non-adjacent {t['shapes_non_adjacent']}), achiral {t['achiral_shapes']}, mirror pairs {t['mirror_pairs']}, multiplicities {t['multiplicity_histogram']}, "
+              f"separation signatures {len(t['coarse_by_separations'])}")
+    print('TYPE COUNTS', json.dumps(reg['type_counts'], indent=1))

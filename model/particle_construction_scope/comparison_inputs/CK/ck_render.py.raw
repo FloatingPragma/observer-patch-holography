@@ -1,0 +1,46 @@
+"""CK: render STATEMENTS.md from statements_check.json (lines found in the current checkout)."""
+import json
+import os
+import subprocess
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+d = json.load(open(os.path.join(HERE, 'statements_check.json')))
+try:
+    head = subprocess.run(['git', '-C', d['RER'], 'log', '-1', '--format=%h %cd', '--date=iso'], capture_output=True,
+                          text=True).stdout.strip()
+except OSError:
+    head = 'unknown'
+READING = {
+    'S1': 'Action or weight per read. The stack declares one nat per crossing read as an area calibration, proves that a '
+          'supplied path law fixes its action only up to the trade of multiplier against action scale, names one radian '
+          'per event as a separate input, and proves the weak-round limit whose logical generator is the effect of the '
+          'read.',
+    'S2': 'Modular normalization. Every faithful reference is Gibbs for its own modular Hamiltonian at beta = 1, beta is '
+          'free against the modular Hamiltonian alone, a binary record has modular frequency log(P(0)/P(1)), and a '
+          'commutative record algebra has identity flow.',
+    'S3': 'Bisognano-Wichmann and Unruh. The factor 2 pi is a supplied receipt or a declared premise; finite incidence '
+          'supplies neither the state nor the normalization; wedge thermality is typed as not evaluable.',
+    'S4': 'KMS and Euclidean continuation. The finite KMS identity is proved in Lean; it selects no state and no '
+          'temperature; the unitary continuation of a Euclidean generator is refused as native time.',
+    'S5': 'Modular parameter as a tick. Every map from the modular parameter to a count or a duration is a declared '
+          'dictionary; the corpus holds no source-derived clock.',
+    'S6': 'Rest mass and its clock. Rest mass is the coherent rest angular frequency of the declared clock exp(-itH); '
+          'the coherent-defect clock has the onsite term I - Re U and refuses Floquet phases as energies; the lepton '
+          'lane reads the eigenvalues of the weak-kick generator Y; counts and relaxation rates carry no mass reading '
+          'from a unit choice alone.',
+    'S7': 'Refinement and accrual. A per-index accrual and a proper-length accrual are both declared; refinement '
+          'invariance selects the proper-length form.',
+}
+out = ['# Stack statements bearing on the clock premise (worker CK, step S4)', '',
+       f"Checkout: `{d['RER']}` at `{head}`. Every row was matched by `ck_statements.py`: the quoted phrase occurs at the",
+       'given line of the current tree. Status words are the files\' own. Entries: '
+       f"{len(d['entries'])}, unmatched: {d['missing']}.", '']
+for grp in ('S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7'):
+    out += [f'## {grp}', '', READING[grp], '', '| File and line | Quoted phrase | Status |', '| --- | --- | --- |']
+    for e in d['entries']:
+        if e['group'] == grp:
+            phrase = e['phrase'].replace('|', '\\|')
+            out.append(f"| `{e['file']}:{e['found']}` | {phrase} | {e['tag']} |")
+    out.append('')
+open(os.path.join(HERE, 'STATEMENTS.md'), 'w').write('\n'.join(out))
+print('wrote STATEMENTS.md', len(d['entries']), 'entries')

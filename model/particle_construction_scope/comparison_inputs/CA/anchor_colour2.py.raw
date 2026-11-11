@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""Worker CA, second run: check E13 of CANDIDATES.md (Addendum 5).
+
+Colour on collars below the anchor while the weak and hypercharge labels of each factor are kept.
+(a) class probabilities at the anchor, P_A(k), k = triality (p - q) mod 3, from the full tower d exp(-t3A C3);
+(b) the class-restricted hidden index h_k(t) is monotone decreasing in t on [t3A, 20 t3A], limits 0 and ln 3;
+(c) the colour term sum_k P_A(k) h_k(t) at t / t3A = 1, 1.5, 2, 4, 20;
+(d) every component of (p, q) x (1, 1) keeps the triality of (p, q); the IMPORTED list of the seven components is
+    checked by triality and by the dimension sum 8 d(p, q) for p, q from 2 to 30.
+Input: t3A from anchor_chain.json (G1_detail). No measured value is read. Writes anchor_colour2.json.
+"""
+import json
+import math
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+T3A = json.loads((HERE / "anchor_chain.json").read_text())["G1_detail"]["t1_t2_t3_at_anchor"][2]
+
+p, q = np.meshgrid(np.arange(91), np.arange(91), indexing="ij")
+p, q = p.ravel(), q.ravel()
+D3 = ((p + 1) * (q + 1) * (p + q + 2) / 2).astype(float)
+C3 = ((p ** 2 + q ** 2 + p * q + 3 * p + 3 * q) / 3).astype(float)
+TRI = (p - q) % 3
+LND = np.log(D3)
+
+
+def class_law(t, k):
+    """normalised law d exp(-t C3) restricted to triality k (log-sum-exp)."""
+    m = TRI == k
+    lw = LND[m] - t * C3[m]
+    w = np.exp(lw - lw.max())
+    return m, w / w.sum()
+
+
+def h(t, k):
+    m, w = class_law(t, k)
+    return float((w * LND[m]).sum())
+
+
+# (a) class probabilities at the anchor
+lw = LND - T3A * C3
+w = np.exp(lw - lw.max()); w /= w.sum()
+PA = [float(w[TRI == k].sum()) for k in range(3)]
+full_tower = float((w * LND).sum())
+
+# (b) monotonicity on a log grid
+grid = T3A * np.exp(np.linspace(0.0, math.log(20.0), 400))
+mono = {}
+for k in range(3):
+    vals = np.array([h(t, k) for t in grid])
+    lim = 0.0 if k == 0 else math.log(3.0)
+    d = np.diff(vals)
+    mono[str(k)] = {"h_at_t3A": float(vals[0]), "h_at_20_t3A": float(vals[-1]), "limit": lim,
+                    "largest_increase_on_grid": float(d.max()),
+                    "non_increasing_within_1e-15": bool(d.max() <= 1e-15),
+                    "strictly_decreasing_where_excess_above_1e-12":
+                        bool(np.all(d[(vals[:-1] - lim) > 1e-12] < 0)),
+                    "excess_over_limit_at_t3A": float(vals[0] - lim)}
+
+# (c) the colour term along the relaxation
+lim_c = (PA[1] + PA[2]) * math.log(3.0)
+term = {}
+for f in (1.0, 1.5, 2.0, 4.0, 20.0):
+    c = sum(PA[k] * h(f * T3A, k) for k in range(3))
+    term[str(f)] = {"colour_term": c, "minus_limit": c - lim_c}
+
+# (d) triality of the components of (p, q) x (1, 1)
+def dim(a, b):
+    return (a + 1) * (b + 1) * (a + b + 2) // 2
+
+
+ok_tri, ok_dim = True, True
+for a in range(2, 31):
+    for b in range(2, 31):
+        comps = [(a + 1, b + 1), (a + 2, b - 1), (a - 1, b + 2), (a, b), (a, b), (a + 1, b - 2), (a - 2, b + 1),
+                 (a - 1, b - 1)]
+        ok_tri &= all((x - y) % 3 == (a - b) % 3 for x, y in comps)
+        ok_dim &= sum(dim(x, y) for x, y in comps) == 8 * dim(a, b)
+
+out = {
+    "inputs": {"t3_anchor": T3A, "measured_values_read": "none", "tower": "p, q up to 90"},
+    "a_class_probabilities_at_anchor": {"P0": PA[0], "P1": PA[1], "P2": PA[2], "P1_minus_P2": PA[1] - PA[2],
+                                        "P1_plus_P2": PA[1] + PA[2]},
+    "b_monotonicity": mono,
+    "c_colour_term": {"full_tower_at_anchor": full_tower,
+                      "class_sum_at_t3A_minus_full_tower": term["1.0"]["colour_term"] - full_tower,
+                      "limit_A1c": lim_c, "along_relaxation": term,
+                      "band_width_in_left_side": full_tower - lim_c},
+    "d_adjoint_keeps_triality": {"triality_kept_p_q_2_to_30": bool(ok_tri),
+                                 "dimension_sum_equals_8d_p_q_2_to_30": bool(ok_dim)},
+}
+(HERE / "anchor_colour2.json").write_text(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

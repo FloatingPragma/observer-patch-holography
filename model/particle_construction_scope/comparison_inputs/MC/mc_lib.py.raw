@@ -1,0 +1,262 @@
+"""Causal-order instrument for worker MC (repair-law search).
+
+Points of Herm(2) are stored as rows (t, x, y, z): X = t + x.sigma, det X = t^2 - |x|^2. The Loewner order
+X <= Y (Y - X positive semidefinite) is the closed forward cone: dt >= |dx|.
+
+Statistics of a finite strict partial order R (R[i, j] true iff i < j):
+  r      ordering fraction = related pairs / C(N, 2)                 flat diamond: Gamma(d+1) Gamma(d/2) / (2 Gamma(3d/2))
+  m      mean interval fraction = C_3 / (C_2 (N - 2))                flat diamond: chi_3 / chi_2
+  links  related pairs with nothing between, as a fraction of related pairs
+  height longest chain (number of elements)
+  abundances  N_k = number of related pairs with exactly k elements between, k = 0..kmax
+Dimension estimators: d_r inverts r, d_m inverts m (both exact in the continuum limit of a uniform sprinkling).
+"""
+import math
+import numpy as np
+from scipy.special import gammaln
+from scipy.optimize import brentq
+
+
+# ----------------------------------------------------------------------------- continuum references
+def chi(k, d):
+    """<C_k> = N^k chi_k(d) for a Poisson sprinkling of a flat causal diamond (Meyer 1988)."""
+    return math.exp(-math.log(k) + (k - 1) * (gammaln(d + 1) - math.log(2.0)) + gammaln(d / 2) + gammaln(d)
+                    - gammaln(k * d / 2) - gammaln((k + 1) * d / 2))
+
+
+def ordering_fraction_flat(d):
+    return 2.0 * chi(2, d)
+
+
+def interval_fraction_flat(d):
+    return chi(3, d) / chi(2, d)
+
+
+def _invert(f, y, lo=0.2, hi=80.0):
+    if not (y == y) or y <= 0:
+        return float('inf')
+    if y >= f(lo):
+        return lo
+    if y <= f(hi):
+        return hi
+    return brentq(lambda d: f(d) - y, lo, hi, xtol=1e-10)
+
+
+def dim_from_r(r):
+    return _invert(ordering_fraction_flat, r)
+
+
+def dim_from_m(m):
+    return _invert(interval_fraction_flat, m)
+
+
+# ----------------------------------------------------------------------------- relations
+def relation_cone(P, tol=1e-11, chunk=400):
+    """R[i, j] = P[j] - P[i] in the closed forward cone, i != j as points. P: [N, D], column 0 = time.
+    Relative tolerance on the null boundary: dt >= |dx| (1 - tol) - tol * scale."""
+    P = np.asarray(P, float)
+    N = P.shape[0]
+    R = np.zeros((N, N), bool)
+    scale = float(np.abs(P).max()) if N else 1.0
+    for s in range(0, N, chunk):
+        d = P[None, :, :] - P[s:s + chunk, None, :]
+        dt = d[:, :, 0]
+        dx = np.sqrt((d[:, :, 1:] ** 2).sum(axis=2))
+        R[s:s + chunk] = (dt >= dx * (1 - tol) - tol * scale) & ((dt > tol * scale) | (dx > tol * scale)) & (dt > 0)
+    return R
+
+
+def relation_loewner(mats, tol=1e-10):
+    """General Loewner order on a list of Hermitian matrices (any dimension): X_i <= X_j, strict."""
+    n = len(mats)
+    R = np.zeros((n, n), bool)
+    tr = np.array([np.trace(m).real for m in mats])
+    for i in range(n):
+        for j in range(n):
+            if i != j and tr[j] > tr[i]:
+                w = np.linalg.eigvalsh(mats[j] - mats[i])
+                R[i, j] = w[0] >= -tol * max(1.0, abs(w[-1]))
+    return R
+
+
+def herm2_to_point(X):
+    """2 x 2 Hermitian -> (t, x, y, z) with X = t + x.sigma."""
+    return np.array([(X[0, 0] + X[1, 1]).real / 2, X[0, 1].real, -X[0, 1].imag, (X[0, 0] - X[1, 1]).real / 2])
+
+
+def point_to_herm2(p):
+    t, x, y, z = p
+    return np.array([[t + z, x - 1j * y], [x + 1j * y, t - z]])
+
+
+# exact relation for integer axis counts: X = (n, sum_a m_a u_a), u_a the six icosahedral axes (unit vectors)
+def axis_gram_signs(U6):
+    """Integer matrix S with u_a . u_b = S_ab / sqrt5 for a != b (S_ab = +-1), from the six unit axes."""
+    G = U6 @ U6.T
+    S = np.rint(G * 5 ** 0.5).astype(np.int64)
+    np.fill_diagonal(S, 0)
+    assert np.allclose(G - np.eye(6), S / 5 ** 0.5, atol=1e-12)
+    return S
+
+
+def relation_axis_counts(n, m, S, chunk=300):
+    """Exact Loewner relation for points (n_i, m_i in Z^6): dn > 0 and dn^2 >= |sum dm_a u_a|^2 = I1 + I2/sqrt5.
+    Sign of A - B/sqrt5 with A = dn^2 - I1, B = I2 decided in integers. Identical points are unrelated."""
+    n = np.asarray(n, np.int64); m = np.asarray(m, np.int64)
+    N = n.size
+    R = np.zeros((N, N), bool)
+    for s in range(0, N, chunk):
+        dn = n[None, :] - n[s:s + chunk, None]
+        dm = m[None, :, :] - m[s:s + chunk, None, :]
+        I1 = (dm * dm).sum(axis=2)
+        I2 = np.einsum('ija,ab,ijb->ij', dm, S, dm)
+        A = dn * dn - I1
+        B = I2
+        # A >= B / sqrt5  <=>  sqrt5 A >= B
+        ok = np.where(A >= 0,
+                      np.where(B <= 0, True, 5 * A * A >= B * B),
+                      np.where(B >= 0, False, 5 * A * A <= B * B))
+        R[s:s + chunk] = ok & (dn > 0)
+    return R
+
+
+# ----------------------------------------------------------------------------- statistics
+def order_stats(R, intervals=True, kmax=8, check_transitive=False):
+    R = np.asarray(R, bool)
+    N = R.shape[0]
+    C2 = int(R.sum())
+    pairs = N * (N - 1) // 2
+    out = {'N': int(N), 'C2': C2, 'r': C2 / pairs if pairs else float('nan')}
+    out['d_r'] = dim_from_r(out['r'])
+    if N == 0 or C2 == 0:
+        out.update({'m': float('nan'), 'd_m': float('nan'), 'links': float('nan'), 'height': int(N > 0), 'abund': []})
+        return out
+    # a strict partial order must be antisymmetric
+    out['antisymmetric'] = bool(not (R & R.T).any())
+    indeg = R.sum(axis=0)
+    order = np.argsort(indeg, kind='stable')
+    L = np.ones(N, np.int32)
+    for j in order:
+        pr = R[:, j]
+        if indeg[j]:
+            L[j] = 1 + L[pr].max()
+    out['height'] = int(L.max())
+    if intervals:
+        Rf = R.astype(np.float32)
+        B = Rf @ Rf
+        if check_transitive:
+            out['transitive'] = bool(not ((B > 0.5) & ~R).any())
+        between = np.rint(B[R]).astype(np.int64)
+        C3 = int(between.sum())
+        out['C3'] = C3
+        out['m'] = C3 / (C2 * (N - 2)) if N > 2 else float('nan')
+        out['d_m'] = dim_from_m(out['m'])
+        ab = np.bincount(np.minimum(between, kmax + 1), minlength=kmax + 2)[:kmax + 1]
+        out['links'] = float(ab[0] / C2)
+        out['abund'] = [float(a / C2) for a in ab]
+    return out
+
+
+def summarize(rows, keys=('r', 'd_r', 'm', 'd_m', 'links', 'height', 'N')):
+    """Mean and standard error over a list of stats dictionaries."""
+    out = {}
+    for k in keys:
+        v = np.array([row[k] for row in rows if k in row and row[k] == row[k] and abs(row[k]) != float('inf')], float)
+        if v.size:
+            out[k] = [float(v.mean()), float(v.std(ddof=1) / np.sqrt(v.size)) if v.size > 1 else 0.0]
+    out['samples'] = len(rows)
+    return out
+
+
+# ----------------------------------------------------------------------------- controls
+def sprinkle_diamond(N, d, rng):
+    """N uniform points of the causal diamond between (0, 0) and (1, 0) in d spacetime dimensions."""
+    out = np.zeros((0, d))
+    while out.shape[0] < N:
+        k = int((N - out.shape[0]) * 4 * 2 ** d + 64)
+        t = rng.random(k)
+        x = rng.random((k, d - 1)) - 0.5
+        ok = np.sqrt((x ** 2).sum(axis=1)) <= np.minimum(t, 1 - t)
+        out = np.vstack([out, np.column_stack([t, x])[ok]])
+    return out[:N]
+
+
+def transitive_percolation(N, p, rng):
+    """Random graph order: i < j linked with probability p, then transitive closure."""
+    A = np.triu(rng.random((N, N)) < p, 1)
+    R = np.zeros((N, N), bool)
+    for j in range(N):
+        pr = np.nonzero(A[:, j])[0]
+        if pr.size:
+            R[:, j] = A[:, j] | R[:, pr].any(axis=1)
+    return R
+
+
+def disjoint_chains(N, k):
+    lab = np.arange(N) % k
+    pos = np.arange(N) // k
+    return (lab[:, None] == lab[None, :]) & (pos[:, None] < pos[None, :])
+
+
+def in_diamond(P, p, q, tol=1e-12):
+    """Mask of points of P inside the closed causal diamond between tips p and q (coordinates (t, x...))."""
+    a = P - p[None, :]
+    b = q[None, :] - P
+    return (a[:, 0] >= np.sqrt((a[:, 1:] ** 2).sum(axis=1)) - tol) & (b[:, 0] >= np.sqrt((b[:, 1:] ** 2).sum(axis=1)) - tol)
+
+
+# ----------------------------------------------------------------------------- interval profiles
+DEFAULT_BINS = ((16, 32), (32, 64), (64, 128), (128, 256), (256, 512), (512, 1024), (1024, 2048))
+
+
+def interval_profile(R, rng, bins=DEFAULT_BINS, per_bin=24):
+    """Statistics of order intervals (the elements strictly between a related pair), binned by cardinality.
+    Returns {bin: {'available': count of intervals in the bin, 'rows': [stats, ...]}}."""
+    R = np.asarray(R, bool)
+    Rf = R.astype(np.float32)
+    B = Rf @ Rf
+    out = {}
+    for lo, hi in bins:
+        idx = np.argwhere(R & (B >= lo - 0.5) & (B < hi - 0.5))
+        if len(idx) == 0:
+            continue
+        pick = idx[rng.choice(len(idx), min(per_bin, len(idx)), replace=False)]
+        rows = []
+        for i, j in pick:
+            mem = np.nonzero(R[i] & R[:, j])[0]
+            rows.append(order_stats(R[np.ix_(mem, mem)]))
+        out[f'{lo}-{hi}'] = {'available': int(len(idx)), 'rows': rows}
+    return out
+
+
+def profile_means(profile, keys=('N', 'r', 'd_r', 'm', 'd_m', 'links', 'height')):
+    """Per-bin means of one population (one seed)."""
+    out = {}
+    for b, v in profile.items():
+        out[b] = {k: float(np.mean([row[k] for row in v['rows'] if row[k] == row[k] and abs(row[k]) != float('inf')] or [float('nan')]))
+                  for k in keys}
+        out[b]['available'] = v['available']
+    return out
+
+
+def across_seeds(list_of_means):
+    """Mean and standard error across seeds of per-seed bin means."""
+    out = {}
+    bins = sorted({b for m in list_of_means for b in m}, key=lambda s: int(s.split('-')[0]))
+    for b in bins:
+        rows = [m[b] for m in list_of_means if b in m]
+        out[b] = {'seeds': len(rows)}
+        for k in rows[0]:
+            v = np.array([r[k] for r in rows], float)
+            v = v[np.isfinite(v)]
+            if v.size:
+                out[b][k] = [float(v.mean()), float(v.std(ddof=1) / np.sqrt(v.size)) if v.size > 1 else float('nan')]
+    return out
+
+
+def dedup_rows(A, decimals=None):
+    """Unique rows (floats rounded to `decimals` for the comparison); returns the kept row indices (first occurrences)."""
+    A = np.asarray(A)
+    key = np.round(A, decimals) if decimals is not None else A
+    _, idx = np.unique(key, axis=0, return_index=True)
+    return np.sort(idx)

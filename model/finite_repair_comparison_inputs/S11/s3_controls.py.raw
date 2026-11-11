@@ -1,0 +1,141 @@
+"""S11 instrument calibration on systems with known answers.
+
+C1. Free fermions on a ring (hopping 1, half filling): interval of l sites. Known: speed 2, entropy
+    (1/3) log((N/pi) sin(pi l/N)) + 0.72602, modular generator = conformal profile times energy density.
+C2. Plain honeycomb (hopping 1, half filling) on a 64 x 64 torus, discs centred on a mesh vertex and on a cell
+    centre. Known: Dirac speed sqrt(3)/2 mesh edges per unit time; profile 2 pi (r0^2 - r^2)/(2 r0 v).
+C3. The same with a staggered potential (gapped): the geometric form must fail.
+
+Readouts per region: entropy S, zero-parameter relative entropy D(v_known), fitted speed and D_min, free
+radial profile fit, direct K where double precision allows.
+"""
+from __future__ import annotations
+
+import json
+import signal
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+import scipy.sparse as sp
+
+signal.alarm(230)
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import geom as G  # noqa: E402
+import gauss as GS  # noqa: E402
+import flat as FL  # noqa: E402
+
+out = {}
+t0 = time.time()
+
+# ------------------------------------------------------------------------------------------------ C1 ring
+rows = []
+for N in (402, 1602):
+    Nf = N // 2
+    for stagger in (0.0, 0.1):
+        k = 2 * np.pi * np.arange(N) / N
+        if stagger == 0.0:
+            # translation invariant: C_ij from the filled momenta |k| < pi/2 (N_f odd, unique ground state)
+            d = np.arange(N)
+            c = np.where(d == 0, Nf / N, np.sin(np.pi * Nf * d / N) / (N * np.sin(np.pi * np.maximum(d, 1) / N)))
+            Cfull = None
+        else:
+            h = np.zeros((N, N))
+            idx = np.arange(N)
+            h[idx, (idx + 1) % N] = -1; h[(idx + 1) % N, idx] = -1
+            h[idx, idx] = stagger * (-1.0) ** idx
+            ev, U = np.linalg.eigh(h)
+            Cfull = U[:, :Nf] @ U[:, :Nf].T
+        for l in (16, 32, 64, 128):
+            sites = np.arange(1, l + 1)
+            if Cfull is None:
+                CA = c[np.abs(sites[:, None] - sites[None, :])]
+            else:
+                CA = Cfull[np.ix_(sites, sites)]
+            hA = sp.diags([-np.ones(l - 1), -np.ones(l - 1)], [1, -1]).tocsr()
+            if stagger:
+                hA = hA + sp.diags(stagger * (-1.0) ** sites)
+            a, b = 0.5, l + 0.5
+            g = 2 * np.pi * (N / np.pi) * np.sin(np.pi * (sites - a) / N) * np.sin(np.pi * (b - sites) / N) / np.sin(np.pi * l / N)
+            bw = GS.FermionBW(hA, None, g, CA=CA)
+            fit = bw.fit()
+            row = {'N': N, 'l': l, 'stagger': stagger, 'S': bw.S, 'S_cft': (1 / 3) * np.log((N / np.pi) * np.sin(np.pi * l / N)) + 0.726024,
+                   'D_at_v=2': bw.D(0.5), 'v_fit': 1 / fit['u'], 'D_min': fit['D_min']}
+            rows.append(row)
+            print(row, flush=True)
+out['ring'] = rows
+
+# ------------------------------------------------------------------------------------------------ C2/C3 honeycomb torus
+N = 64
+V_DIRAC = 3 ** 0.5 / 2
+hc_rows, profiles, two_point, direct = [], [], [], []
+for stagger in (0.0, 0.866, 0.2):
+    T = FL.Torus(N, lambda q: G.bloch_honeycomb(q, 1.0, stagger), 2)
+    Creal = T.real(T.band_projector([0]))
+    Hreal = T.real(T.H)
+    assert np.abs(Creal.imag).max() < 1e-12
+    gap = float(T.ev[..., 1].min() - T.ev[..., 0].max())
+    # two-point function |C|^2 against distance
+    m = np.arange(N); m = np.where(m > N // 2, m - N, m)
+    M1, M2 = np.meshgrid(m, m, indexing='ij')
+    dd, yy = [], []
+    for s in (0, 1):
+        for sp_ in (0, 1):
+            pos = FL.carrier_position(M1, M2, np.full_like(M1, s)) - FL.carrier_position(0, 0, np.array(sp_))
+            dd.append(np.linalg.norm(pos, axis=-1).ravel()); yy.append((np.abs(Creal[:, :, s, sp_]) ** 2).ravel())
+    dd = np.concatenate(dd); yy = np.concatenate(yy)
+    pl = GS.power_law_fit(dd, yy, 2.0, 16.0, nbins=10)
+    two_point.append({'stagger': stagger, 'gap': gap, 'fit_of_mean_|C|^2': pl})
+    print('two-point', stagger, gap, pl['exponent'], pl['rms_log_residual'], flush=True)
+    for centre_name, centre in (('mesh_vertex', np.zeros(2)), ('cell_centre', G.UP_POS)):
+        for rho in (2.05, 3.05, 4.05, 6.05, 8.05, 10.05):
+            cells, r, pos = FL.disc(centre, rho)
+            n = cells.shape[0]
+            CA = FL.gather(Creal, cells, 1)
+            hA = FL.gather(Hreal, cells, 1)
+            r0 = rho                                  # nominal radius; the area radius is reported
+            g = 2 * np.pi * (r0 ** 2 - r ** 2) / (2 * r0)
+            bw = GS.FermionBW(sp.csr_matrix(hA), None, g, CA=CA)
+            fit = bw.fit()
+            row = {'stagger': stagger, 'centre': centre_name, 'rho': rho, 'carriers': n, 'r0_area': FL.area_radius(n), 'cut_seams': FL.cut_bonds(cells),
+                   'S': bw.S, 'D_at_v_dirac': bw.D(1 / V_DIRAC), 'v_fit': (1 / fit['u']) if fit['u'] else None, 'D_min': fit['D_min'],
+                   'v_fit_over_v_dirac': (1 / fit['u'] / V_DIRAC) if fit['u'] else None}
+            hc_rows.append(row)
+            print(row, flush=True)
+            if rho in (4.05, 8.05) and centre_name == 'mesh_vertex':
+                # free profile in radial bins of equal width in r
+                nb = 8 if rho < 5 else 12
+                bins = GS.shell_bins(r, nb); nb = int(bins.max()) + 1
+                beta0 = np.array([g[bins == b].mean() for b in range(nb)]) / V_DIRAC
+                beta, Dfree, nit = GS.fermion_profile_fit(sp.csr_matrix(hA), None, bins, beta0, bw.S, maxiter=80, CA=CA)
+                rmid = np.array([r[bins == b].mean() for b in range(nb)])
+                chm = np.array([g[bins == b].mean() for b in range(nb)]) / V_DIRAC
+                profiles.append({'stagger': stagger, 'rho': rho, 'carriers': n, 'r0': r0, 'bin_mean_radius': rmid.tolist(), 'beta_fit': beta.tolist(),
+                                 'beta_known_form': chm.tolist(), 'ratio': (beta / chm).tolist(), 'D_free_profile': Dfree, 'iterations': nit,
+                                 'D_one_parameter': fit['D_min'], 'S': bw.S})
+                print('profile', stagger, rho, np.round(beta / chm, 3).tolist(), Dfree, flush=True)
+            if rho in (2.05, 3.05) and centre_name == 'mesh_vertex':
+                K, eps, margin = GS.direct_K(CA)
+                dist = np.linalg.norm(pos[:, None, :] - pos[None, :, :], axis=2)
+                shells = sorted(set(np.round(dist[np.triu_indices(n, 1)], 6).tolist()))[:8]
+                w_tot = float((K ** 2).sum())
+                wk = [{'distance': float(s), 'weight_fraction': float((K[np.abs(dist - s) < 1e-5] ** 2).sum() / w_tot)} for s in [0.0] + shells]
+                nn = np.abs(dist - 1 / 3 ** 0.5) < 1e-6
+                iu = np.triu(nn, 1)
+                rm = np.linalg.norm((pos[:, None, :] + pos[None, :, :]) / 2 - centre, axis=2)[iu]
+                ratio = K[iu] / hA[iu]                                  # K_ij / h_ij on nearest-neighbour bonds
+                known = 2 * np.pi * (r0 ** 2 - rm ** 2) / (2 * r0) / V_DIRAC
+                Kbw = 0.5 * (g[:, None] + g[None, :]) * hA / V_DIRAC
+                direct.append({'stagger': stagger, 'rho': rho, 'carriers': n, 'spectrum_margin': margin, 'max_abs_eps': float(np.abs(eps).max()),
+                               'weight_of_K_by_pair_distance': wk,
+                               'nn_bond_K_over_h_vs_known_profile': {'mean_ratio': float(np.mean(ratio / known)), 'std_ratio': float(np.std(ratio / known)),
+                                                                     'radius': rm.tolist(), 'K_over_h': ratio.tolist(), 'known': known.tolist()},
+                               'relative_Frobenius_distance_K_vs_known_form': float(np.linalg.norm(K - Kbw) / np.linalg.norm(K))})
+                print('direct', stagger, rho, margin, [round(x['weight_fraction'], 4) for x in wk], direct[-1]['relative_Frobenius_distance_K_vs_known_form'],
+                      direct[-1]['nn_bond_K_over_h_vs_known_profile']['mean_ratio'], flush=True)
+out['honeycomb'] = {'N': N, 'v_dirac': V_DIRAC, 'rows': hc_rows, 'profiles': profiles, 'two_point': two_point, 'direct_K': direct}
+out['seconds'] = time.time() - t0
+(HERE / 'out' / 's3_controls.json').write_text(json.dumps(out, indent=1))
+print('written', out['seconds'])

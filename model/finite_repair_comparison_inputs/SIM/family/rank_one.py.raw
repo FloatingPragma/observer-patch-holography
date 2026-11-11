@@ -1,0 +1,38 @@
+"""Design hypothesis D2: a point-like source of mass is rank one on the copies of the tick.
+
+Lattice 8^3, one quantum, two-tick period in the half-step frame. Without any mass step the period has 128 states of
+phase zero (32 rest points x 4 components). A source is a cell with rest angle theta_d (mass step exp(-i theta Y_record)
+on that cell only). For n = 1, 2, 4, ... source cells, all on one of the four independent lattices (all coordinates of
+equal parity), this script gives the phases per tick of the states that grow out of the 128 rest states: how many are
+lifted, to which values, and the ratios between them. Exact diagonalisation; nothing fitted; not masses.
+"""
+import json, sys
+import numpy as np
+sys.path.insert(0, 'cf1')
+from cf1_lib import Engine
+L = 8; shape = (L, L, L); N = 4 * L ** 3; eng = Engine(shape); theta_d = 0.171237
+rng = np.random.default_rng(3)
+cells0 = [(a, b, c) for a in range(L) for b in range(L) for c in range(L) if (a - b) % 2 == 0 and (b - c) % 2 == 0]
+def period_matrix(th):
+    P = np.zeros((N, N), complex); basis = np.zeros(shape + (2, 2), complex).reshape(-1)
+    for n in range(N):
+        basis[:] = 0; basis[n] = 1; q = basis.reshape(shape + (2, 2)).copy()
+        for t in (0, 1): q = eng.step_half(q, th, 'Y', t)
+        P[:, n] = q.reshape(-1)
+    return P
+out = {'lattice': L, 'theta_d': theta_d, 'rows': []}
+for n_src in (0, 1, 2, 4, 8, 16, 32, 128):
+    th = np.zeros(shape)
+    if n_src:
+        pick = rng.choice(len(cells0), size=n_src, replace=False) if n_src < len(cells0) else np.arange(len(cells0))
+        for k in pick: th[cells0[k]] = theta_d
+    w = np.angle(np.linalg.eigvals(period_matrix(th))) / 2            # phase per tick
+    low = np.sort(np.abs(w))[:128]
+    lifted = low[low > 1e-9]
+    vals, counts = np.unique(np.round(lifted, 6), return_counts=True)
+    row = {'sources': int(n_src), 'share_of_the_cells_of_that_lattice': n_src / len(cells0), 'rest_states_left_at_zero': int((low <= 1e-9).sum()), 'lifted': int(len(lifted)),
+           'largest_lifted_phase': float(lifted.max()) if len(lifted) else 0.0, 'distinct_lifted_phases': [[float(v), int(c)] for v, c in zip(vals[-8:], counts[-8:])],
+           'sum_of_lifted_phases': float(lifted.sum()), 'uniform_prediction_for_that_lattice': theta_d * n_src / len(cells0)}
+    out['rows'].append(row)
+    print(n_src, 'sources: at zero', row['rest_states_left_at_zero'], 'lifted', row['lifted'], 'largest', round(row['largest_lifted_phase'], 5), 'top values', [(round(v, 5), c) for v, c in zip(vals[-5:], counts[-5:])], 'density x angle on that lattice', round(row['uniform_prediction_for_that_lattice'], 5), flush=True)
+json.dump(out, open('family/rank_one.json', 'w'), indent=1)

@@ -1,0 +1,217 @@
+"""Independent float64 implementation of the declared D10 chain with the one-loop slopes as an argument.
+
+The equations are those of RER/code/P_derivation/paper_math.py (copied verbatim as paper_math_db.py with the
+slope constant made a constructor argument). This file re-implements them in float64 for speed and for the
+diagnostic scans of state sets without a closure; `crosscheck.py` compares it with the copied producer.
+
+Chain (energy unit E* = 1):
+  M_U = exp(-2 pi) P^(1/6),  E_cell = P^(-1/2),  v = E_cell exp(-2 pi / (4 alpha_U)),
+  1/alpha_i(mu) = 1/alpha_U + (b_i/(2 pi)) ln(M_U/mu),
+  m_Z = (v/2) sqrt(4 pi (alpha_2 + (3/5) alpha_1)) at mu = m_Z (first sign change of a 260-point log scan),
+  pixel closure  ellbar_SU2(4 pi^2 alpha_2(m_Z)) + ellbar_SU3(4 pi^2 alpha_3(m_Z)) = P/4  (first sign change
+  of a 41-point scan of alpha_U in [0.02, 0.08]),
+  alpha_em^-1(m_Z) = 1/alpha_2 + 5/(3 alpha_1),  Thomson transport with the internal Stage-5 masses,
+  outer closure P = phi + sqrt(pi) alpha(0)  (first sign change of a 61-point scan of alpha in [0.005, 0.01]).
+Admissibility added here and stated in the output: all three couplings positive and finite at m_Z.
+"""
+from __future__ import annotations
+
+import math
+from functools import lru_cache
+
+import numpy as np
+from scipy.optimize import brentq
+
+PI = math.pi
+PHI = (1 + math.sqrt(5)) / 2
+SQRT_PI = math.sqrt(PI)
+BETA_EW = 4.0
+N_C, N_G = 3, 3
+E_STAR_GEV = 1.220890e19   # IMPORTED declared external unit (RER code/particles/calibration/legacy_d10)
+
+
+@lru_cache(maxsize=None)
+def _su2_tables(cut=120):
+    n = np.arange(cut + 1)
+    j = n / 2.0
+    return (n + 1.0), j * (j + 1.0), np.log(n + 1.0)
+
+
+@lru_cache(maxsize=None)
+def _su3_tables(cut=90):
+    p, q = np.meshgrid(np.arange(cut + 1), np.arange(cut + 1), indexing='ij')
+    dim = ((p + 1) * (q + 1) * (p + q + 2) // 2).astype(float).ravel()
+    c2 = ((p * p + q * q + p * q + 3 * p + 3 * q) / 3.0).ravel()
+    return dim, c2, np.log(dim)
+
+
+def _ellbar(t, dim, c2, lnd):
+    x = -t * c2
+    x = x - x.max()
+    w = dim * np.exp(x)
+    return float((w * lnd).sum() / w.sum())
+
+
+def ellbar_su2(t):
+    return _ellbar(t, *_su2_tables())
+
+
+def ellbar_su3(t):
+    return _ellbar(t, *_su3_tables())
+
+
+class Chain:
+    def __init__(self, b, lwin=50.0):
+        self.b = tuple(float(x) for x in b)
+        self.lwin = lwin          # producer window: m_Z scanned over ln(M_U/mu) in [0, 50]
+
+    @staticmethod
+    def mu_u(p):
+        return math.exp(-2 * PI) * p ** (1.0 / 6.0)
+
+    @staticmethod
+    def v_of(alpha_u, p):
+        return p ** -0.5 * math.exp(-2 * PI / (BETA_EW * alpha_u))
+
+    def inv_alphas(self, alpha_u, mu, mu_u):
+        lg = math.log(mu_u / mu)
+        return tuple(1.0 / alpha_u + bi / (2 * PI) * lg for bi in self.b)
+
+    def mz_root(self, alpha_u, p, mu_u):
+        """First sign change of f(mu) = m_Z(mu) - mu on the producer's 260-point log grid."""
+        v = self.v_of(alpha_u, p)
+
+        def f(mu):
+            i1, i2, _ = self.inv_alphas(alpha_u, mu, mu_u)
+            s = 1.0 / i2 + 0.6 / i1
+            if s <= 0:
+                return float('nan')
+            return v / 2 * math.sqrt(4 * PI * s) - mu
+
+        lo, hi = math.log(mu_u) - self.lwin, math.log(mu_u)
+        npts = 260 if self.lwin <= 50.0 else int(260 * self.lwin / 50.0)
+        prev_mu = prev_val = None
+        for k in range(npts):
+            mu = math.exp(lo + (hi - lo) * k / (npts - 1.0))
+            val = f(mu)
+            if prev_val is not None and val == val and prev_val == prev_val and val * prev_val < 0:
+                return brentq(f, prev_mu, mu, xtol=1e-300, rtol=1e-15, maxiter=400), v
+            prev_mu, prev_val = mu, val
+        return None, v
+
+    def d10_at(self, alpha_u, p):
+        mu_u = self.mu_u(p)
+        mz, v = self.mz_root(alpha_u, p, mu_u)
+        if mz is None:
+            return dict(status='no m_Z root', alpha_u=alpha_u)
+        i1, i2, i3 = self.inv_alphas(alpha_u, mz, mu_u)
+        ok = min(i1, i2, i3) > 0
+        out = dict(alpha_u=alpha_u, mu_u=mu_u, mz=mz, v=v, inv1=i1, inv2=i2, inv3=i3, positive=ok)
+        if ok:
+            out['pixel_residual'] = ellbar_su2(4 * PI * PI / i2) + ellbar_su3(4 * PI * PI / i3) - p / 4
+        else:
+            out['pixel_residual'] = float('nan')
+            out['status'] = 'coupling not positive at m_Z (Landau pole above m_Z)'
+        return out
+
+    def solve_alpha_u(self, p, lo=0.02, hi=0.08, n=40):
+        prev = None
+        for k in range(n + 1):
+            a = lo + (hi - lo) * k / n
+            d = self.d10_at(a, p)
+            r = d.get('pixel_residual', float('nan'))
+            if r != r:
+                continue          # as the producer: a failed point is skipped and the last valid point is kept
+            if prev is not None and r * prev[1] < 0:
+                def g(x):
+                    rr = self.d10_at(x, p).get('pixel_residual', float('nan'))
+                    if rr != rr:
+                        raise ValueError('inadmissible point inside the alpha_U bracket')
+                    return rr
+                root = brentq(g, prev[0], a, xtol=1e-300, rtol=1e-15, maxiter=400)
+                return self.d10_at(root, p)
+            prev = (a, r)
+        return None
+
+    # ---------------------------------------------------------------- Thomson readout (Stage-5 masses)
+    @staticmethod
+    @lru_cache(maxsize=None)
+    def _stage5():
+        delta = BETA_EW / (2 * N_C * N_G)
+        roots = sorted(1 + math.sqrt(2) * math.cos(delta + 2 * PI * k / 3) for k in range(3))
+        sq = [r * r for r in roots]
+        eps = 1.0 / 6.0
+        n_tau, n_mu = N_G, N_G + 1
+        best = None
+        for n_e in range(n_mu + 1, n_mu + 8):
+            ex = (n_e, n_mu, n_tau)
+            err = max(abs(math.log((sq[i] / sq[j]) / eps ** (ex[i] - ex[j])))
+                      for i in range(3) for j in range(i + 1, 3))
+            if best is None or err < best[0]:
+                best = (err, n_e)
+        return sq, (best[1], n_mu, n_tau)
+
+    def lepton_masses(self, v):
+        sq, n_e = self._stage5()
+        lg = sum(math.log(sq[i] * math.sqrt(2) * 6.0 ** n_e[i] / v) for i in range(3)) / 3
+        scale = math.exp(-lg) * 2 ** (1 / 6)
+        return [scale * s for s in sq]
+
+    @staticmethod
+    def quark_masses(v):
+        pref, e = v / math.sqrt(2), 1 / 6
+        return dict(u=pref * e ** 6, c=pref * e ** 3, t=pref, d=pref * e ** 6, s=pref * e ** 4, b=pref * e ** 2)
+
+    @staticmethod
+    def kernel(q, m, q2, n):
+        a = (q * q / (m * m)) / 4
+        sa = math.sqrt(a)
+        integ = -5 / 18 + 1 / (6 * a) + (2 * a - 1) * math.sqrt(1 + a) * math.asinh(sa) / (6 * a * sa)
+        return 2 * n * q2 / PI * integ
+
+    def alpha0_inv(self, d):
+        mz, v = d['mz'], d['v']
+        a3 = 1 / d['inv3']
+        lep = sum(self.kernel(mz, m, 1.0, 1.0) for m in self.lepton_masses(v))
+        qm = self.quark_masses(v)
+        qk = (self.kernel(mz, qm['u'], 4 / 9, 3) + self.kernel(mz, qm['d'], 1 / 9, 3) + self.kernel(mz, qm['s'], 1 / 9, 3)
+              + self.kernel(mz, qm['c'], 4 / 9, 3) + self.kernel(mz, qm['b'], 1 / 9, 3))
+        anchor = d['inv2'] + 5 * d['inv1'] / 3
+        return anchor + lep + (1 - N_C * a3 / PI) * qk, anchor
+
+    # ---------------------------------------------------------------- outer closure
+    def inner_alpha(self, alpha):
+        p = PHI + SQRT_PI * alpha
+        d = self.solve_alpha_u(p)
+        if d is None:
+            return None, None, p
+        a0inv, _ = self.alpha0_inv(d)
+        return 1 / a0inv, d, p
+
+    def closure(self, lo=0.005, hi=0.01, n=60):
+        prev = None
+        for k in range(n + 1):
+            a = lo + (hi - lo) * k / n
+            ia, d, p = self.inner_alpha(a)
+            r = (ia - a) if ia is not None else float('nan')
+            if prev is not None and r == r and prev[1] == prev[1] and r * prev[1] <= 0:
+                def g(x):
+                    y, _, _ = self.inner_alpha(x)
+                    if y is None:
+                        raise ValueError('no D10 point inside the closure bracket')
+                    return y - x
+                root = brentq(g, prev[0], a, xtol=1e-300, rtol=1e-14, maxiter=200)
+                ia, d, p = self.inner_alpha(root)
+                return root, d, p
+            prev = (a, r)
+        return None
+
+
+def readout(alpha, d, p):
+    a1, a2, a3 = 1 / d['inv1'], 1 / d['inv2'], 1 / d['inv3']
+    ay = 0.6 * a1
+    aem = 1 / (1 / a2 + 1 / ay)
+    return dict(
+        P=p, alpha0_inv=1 / alpha, alpha_U=d['alpha_u'], M_U_GeV=d['mu_u'] * E_STAR_GEV, v_GeV=d['v'] * E_STAR_GEV,
+        m_Z_GeV=d['mz'] * E_STAR_GEV, m_W_GeV=0.5 * d['v'] * math.sqrt(4 * PI * a2) * E_STAR_GEV,
+        sin2_theta_W_mZ=aem / a2, alpha_s_mZ=a3, alpha_em_inv_mZ=1 / aem, ln_MU_over_mZ=math.log(d['mu_u'] / d['mz']))

@@ -1,0 +1,6 @@
+"""write carrier_xyz of the display level (7) for the load-gradient reading in traj.py"""
+import numpy as np
+from oph_defects import fedgeom as FG
+g = FG.build(7)
+np.savez('out/disp7.npz', carrier_xyz=g.carrier_xyz)
+print(g.carrier_xyz.shape)

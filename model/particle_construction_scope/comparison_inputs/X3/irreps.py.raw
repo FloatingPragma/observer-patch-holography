@@ -1,0 +1,143 @@
+"""Exact decomposition of placement spaces into irreducible representations of the rotation group (order 60) and
+of its cover (order 120). Arithmetic: kdlib.K over Q(sqrt5, i); every multiplicity is an exact inner product.
+
+Characters, from the 120 cover lifts of kdlib.cover():
+  1                         trivial
+  3   = trace R(q)          the port-frame triplet (the code triplet)
+  3'  = Galois conjugate    the conjugate triplet
+  4   = fixed frames - 1    (permutation of the five frames)
+  5   = fixed axes - 1      (permutation of the six port axes)
+  2   = 2 w                 spinor;  2' = Galois conjugate (the code doublet, kdlib.spinor_lift)
+  4'  = t^3 - 2 t,  6 = t^5 - 4 t^3 + 3 t   with t = 2 w  (spin 3/2 and 5/2)
+"""
+import itertools, json, sys
+from fractions import Fraction as Fr
+import kdlib
+from kdlib import K
+import x3lib as X
+
+quats, rotm = kdlib.cover()
+QS = list(quats)
+assert len(QS) == 120
+PORT = [quats[q] for q in QS]
+FACEP = [X.face_perm(p) for p in PORT]
+FRAMEP = [X.frame_perm(p) for p in PORT]
+AXES = sorted({frozenset((p, X.ANTIPODE_PORT[p])) for p in range(12)})
+assert len(AXES) == 6
+
+
+def chars(q, port):
+    R = rotm[q]
+    c3 = kdlib.trace(R)
+    t = K(2) * q[0]
+    fr = sum(1 for i, j in enumerate(X.frame_perm(port)) if i == j)
+    ax = sum(1 for a in AXES if frozenset(port[p] for p in a) == a)
+    return {'1': K(1), '3': c3, "3'": c3.gal(), '4': K(fr - 1), '5': K(ax - 1),
+            '2': t, "2'": t.gal(), "4'": t * t * t - K(2) * t, '6': t * t * t * t * t - K(4) * t * t * t + K(3) * t}
+
+
+CH = [chars(q, p) for q, p in zip(QS, PORT)]
+NAMES = ['1', '3', "3'", '4', '5', '2', "2'", "4'", '6']
+DIMS = {'1': 1, '3': 3, "3'": 3, '4': 4, '5': 5, '2': 2, "2'": 2, "4'": 4, '6': 6}
+
+
+def inner(a, b):
+    s = K(0)
+    for x, y in zip(a, b):
+        s = s + x * y.conj()
+    return s * K(Fr(1, 120))
+
+
+def check_table():
+    for a, b in itertools.product(NAMES, repeat=2):
+        v = inner([c[a] for c in CH], [c[b] for c in CH])
+        assert v == K(1 if a == b else 0), (a, b, v)
+    ident = next(i for i, p in enumerate(PORT) if p == tuple(range(12)) and QS[i][0] == K(1))
+    assert all(CH[ident][n] == K(DIMS[n]) for n in NAMES)
+    # the code representation of kdlib (3 + 2') has character 3 + 2'
+    for i, q in enumerate(QS):
+        assert kdlib.trace(kdlib.code_lift(q, rotm[q])) == CH[i]['3'] + CH[i]["2'"]
+    return True
+
+
+def decompose(fixed_points):
+    """fixed_points: list of 120 integers (number of placements fixed by each cover element)."""
+    out = {}
+    for n in NAMES:
+        v = inner([K(x) for x in fixed_points], [c[n] for c in CH])
+        assert v.is_rational() and v.a.denominator == 1 and v.a >= 0, (n, v)
+        out[n] = int(v.a)
+    assert sum(out[n] * DIMS[n] for n in NAMES) == fixed_points[next(i for i, p in enumerate(PORT) if p == tuple(range(12)))]
+    return out
+
+
+def fixed_counts(items, act):
+    """items: iterable of hashable placements; act(face_perm, item) -> item."""
+    items = list(items)
+    cache = {}
+    res = []
+    for fp in FACEP:
+        if fp not in cache:
+            cache[fp] = sum(1 for x in items if act(fp, x) == x)
+        res.append(cache[fp])
+    return res
+
+
+if __name__ == '__main__':
+    assert check_table()
+    print('character table of the cover: 9 irreducible characters orthonormal, exact; code = 3 + 2\' checked on 120 lifts')
+    F = range(20)
+    act_o = lambda g, x: tuple(g[f] for f in x)
+    act_u = lambda g, x: frozenset(g[f] for f in x)
+    spaces = {}
+    spaces['single face (20)'] = fixed_counts([(f,) for f in F], act_o)
+    # seams, ports, frames through the port permutation
+    def fc_ports(items, act):
+        cache, res = {}, []
+        for p in PORT:
+            if p not in cache:
+                cache[p] = sum(1 for x in items if act(p, x) == x)
+            res.append(cache[p])
+        return res
+    spaces['seams (30)'] = fc_ports([frozenset(e) for e in X.SEAMS], lambda p, x: frozenset(p[v] for v in x))
+    spaces['ports (12)'] = fc_ports(list(range(12)), lambda p, x: p[x])
+    spaces['port axes (6)'] = fc_ports(AXES, lambda p, x: frozenset(p[v] for v in x))
+    spaces['frames (5)'] = [sum(1 for i, j in enumerate(fp) if i == j) for fp in FRAMEP]
+    spaces['flags (port, face at the port) (60)'] = fc_ports([(p, f) for p in range(12) for f in F if p in X.FACES[f]],
+                                                              lambda p, x: (p[x[0]], X.face_perm(p)[x[1]]))
+    for d, chi in ((1, 0), (2, 1), (2, -1), (3, 1), (3, -1), (4, 0), (5, 0)):
+        items = [(f, g) for f in F for g in F if f != g and X.SEP[f][g] == d and X.CHI[f][g] == chi]
+        spaces[f'charged pair (k, -k), separation {d}, chi {chi:+d} ({len(items)})'] = fixed_counts(items, act_o)
+    for d, chi in ((1, 0), (2, 0), (3, 1), (3, -1), (4, 0), (5, 0)):
+        items = [frozenset((f, g)) for f in F for g in F if f < g and X.SEP[f][g] == d and (X.CHI[f][g] == chi or d != 3)]
+        spaces[f'neutral pair (3, 3), separation {d}, chi {chi:+d} ({len(items)})'] = fixed_counts(items, act_u)
+    spaces['charged pair, all separations (380)'] = fixed_counts([(f, g) for f in F for g in F if f != g], act_o)
+    spaces['charged pair, separations 2..5 (320)'] = fixed_counts([(f, g) for f in F for g in F if f != g and X.SEP[f][g] > 1], act_o)
+    spaces['neutral pair, all separations (190)'] = fixed_counts([frozenset(p) for p in itertools.combinations(F, 2)], act_u)
+    spaces['neutral pair, separations 2..5 (160)'] = fixed_counts([frozenset(p) for p in itertools.combinations(F, 2) if X.SEP[p[0]][p[1]] > 1], act_u)
+    tri = [frozenset(t) for t in itertools.combinations(F, 3)]
+    spaces['triple {2,2,2}, all placements (1140)'] = fixed_counts(tri, act_u)
+    nonadj = lambda t: all(X.SEP[a][b] > 1 for a, b in itertools.combinations(t, 2))
+    tri2 = [t for t in tri if nonadj(t)]
+    spaces[f'triple {{2,2,2}}, pairwise non-adjacent ({len(tri2)})'] = fixed_counts(tri2, act_u)
+    otri = [t for t in itertools.permutations(F, 3)]
+    spaces['triple {1,2,3}, all placements (6840)'] = fixed_counts(otri, act_o)
+    otri2 = [t for t in otri if nonadj(t)]
+    spaces[f'triple {{1,2,3}}, pairwise non-adjacent ({len(otri2)})'] = fixed_counts(otri2, act_o)
+    res = {}
+    for name, fx in spaces.items():
+        m = decompose(fx)
+        res[name] = m
+        assert all(m[n] == 0 for n in ('2', "2'", "4'", '6'))
+        print(f"{name}: " + ' + '.join(f"{m[n]} x {n}" for n in ('1', '3', "3'", '4', '5') if m[n]) + '   [2, 2\', 4\', 6: 0]')
+    # the audit region under its own stabiliser: characters of the fifth-turns about port 5
+    c5 = [fp for fp, p in zip(X.ROT_FACES, X.ROT_PORTS) if p[5] == 5]
+    region = [f for f in F if 5 in X.FACES[f]]
+    assert len(c5) == 5 and all(len({g[f] for g in c5}) == 5 and {g[f] for g in c5} == set(region) for f in region)
+    res['audit region (five faces at port 5) under the five rotations about port 5'] = 'one free orbit: each of the five characters of C5 once'
+    print('audit region: the five rotations about port 5 permute its five faces freely: regular representation of C5')
+    # equal multiplicities of 3 and 3'
+    assert all(m['3'] == m["3'"] for m in res.values() if isinstance(m, dict))
+    print("3 and 3' occur with equal multiplicity in every space above")
+    if len(sys.argv) > 1:
+        json.dump(res, open(sys.argv[1], 'w'), indent=1)

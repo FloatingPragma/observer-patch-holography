@@ -1,0 +1,671 @@
+{
+ "built_by": "build_references.py",
+ "conventions": {
+  "Z90": 1.6448536269514722,
+  "sigma_rule": "90 percent half-widths divided by Z90; no stated CL read as 68.27"
+ },
+ "information_only": {
+  "abs_Vus_direct": "0.22431 +- 0.00085 (PDG 2026, LIT B3)",
+  "flag_2024_mu_over_md_nf2p1p1": "0.465(24) (RER code/particles/data/flag_2024_light_quark_ratio_fixture.json)",
+  "koide_LIT_B2": "Q = 0.6666645 +- 0.0000051 with PDG 2026 masses (LIT B2)"
+ },
+ "rows": {
+  "C1": {
+   "central": 0.22517,
+   "kind": "value",
+   "quoted": "sin theta12 = 0.22517 +- 0.00068",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.00068,
+   "sigma_plus": 0.00068,
+   "source": {
+    "file": "pdg2026_ckm_review.txt",
+    "pointer": "Eq. (12.28) and the sentence before it"
+   },
+   "unit": "1"
+  },
+  "C2": {
+   "central": 0.04189,
+   "kind": "value",
+   "quoted": "sin theta23 = 0.04189 +0.00081 -0.00069",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.00069,
+   "sigma_plus": 0.00081,
+   "source": {
+    "file": "pdg2026_ckm_review.txt",
+    "pointer": "Eq. (12.28) and the sentence before it"
+   },
+   "unit": "1"
+  },
+  "C3": {
+   "central": 0.003763,
+   "kind": "value",
+   "quoted": "sin theta13 = 0.003763 +0.000088 -0.000083",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 8.3e-05,
+   "sigma_plus": 8.8e-05,
+   "source": {
+    "file": "pdg2026_ckm_review.txt",
+    "pointer": "Eq. (12.28) and the sentence before it"
+   },
+   "unit": "1"
+  },
+  "C4": {
+   "central": 1.154,
+   "kind": "value",
+   "quoted": "delta = 1.154 +- 0.025",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.025,
+   "sigma_plus": 0.025,
+   "source": {
+    "file": "pdg2026_ckm_review.txt",
+    "pointer": "Eq. (12.28) and the sentence before it"
+   },
+   "unit": "rad"
+  },
+  "C5": {
+   "central": 3.16e-05,
+   "kind": "value",
+   "quoted": "J = 3.16 +0.13 -0.11 x 10^-5",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 1.1e-06,
+   "sigma_plus": 1.3e-06,
+   "source": {
+    "file": "pdg2026_ckm_review.txt",
+    "pointer": "Eq. (12.28) and the sentence before it"
+   },
+   "unit": "1"
+  },
+  "E1": {
+   "central": 80.3625,
+   "definition": "PDG mass of the running-width Breit-Wigner; complex-pole mass = PDG mass - Gamma^2/(2 M) (widths from rer_wz_pdg_2026_target_fixture.json)",
+   "kind": "value",
+   "pole_shift_GeV": 0.02849338932960025,
+   "quoted": "80.3625 +-0.0077 GeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.0077,
+   "sigma_plus": 0.0077,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S043M",
+    "pointer": "/entries/w_boson"
+   },
+   "unit": "GeV"
+  },
+  "E2": {
+   "central": 91.1879,
+   "definition": "PDG mass of the running-width Breit-Wigner; complex-pole mass = PDG mass - Gamma^2/(2 M) (widths from rer_wz_pdg_2026_target_fixture.json)",
+   "kind": "value",
+   "pole_shift_GeV": 0.03414663705381964,
+   "quoted": "91.1879+-0.0020 GeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.002,
+   "sigma_plus": 0.002,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S044M",
+    "pointer": "/entries/z_boson"
+   },
+   "unit": "GeV"
+  },
+  "E3": {
+   "central": 125.13,
+   "kind": "value",
+   "quoted": "125.13+-0.11 GeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.11,
+   "sigma_plus": 0.11,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S126M",
+    "pointer": "/entries/higgs"
+   },
+   "unit": "GeV"
+  },
+  "E4": {
+   "central": 137.035999177,
+   "kind": "value",
+   "quoted": "137.035999177(21), CODATA 2022",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 2.1e-08,
+   "sigma_plus": 2.1e-08,
+   "source": {
+    "file": "rer_codata_2022_alpha_fixture.json",
+    "pointer": "/inverse_fine_structure_constant"
+   },
+   "unit": "1"
+  },
+  "E5": {
+   "central": 0.23122,
+   "kind": "value",
+   "quoted": "MSbar s^2_Z(M_Z) = 0.23122 +- 0.00006 (PDG 2026 Table 10.2)",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 6e-05,
+   "sigma_plus": 6e-05,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "A4"
+   },
+   "unit": "1"
+  },
+  "E5o": {
+   "central": 0.22342,
+   "kind": "value",
+   "quoted": "on-shell s^2_W = 0.22342 +- 0.00009 (PDG 2026 Table 10.2)",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 9e-05,
+   "sigma_plus": 9e-05,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "A4"
+   },
+   "unit": "1"
+  },
+  "E6": {
+   "central": 0.118,
+   "kind": "value",
+   "quoted": "alpha_s(m_Z^2) = 0.1180 +- 0.0009 (PDG world average, MSbar, n_f = 5)",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.0009,
+   "sigma_plus": 0.0009,
+   "source": {
+    "file": "pdg2026_qcd_review.txt",
+    "pointer": "Eq. (9.25)"
+   },
+   "unit": "1"
+  },
+  "G1": {
+   "kind": "upper_limit",
+   "limit": 1.0000000000000002e-27,
+   "quoted": "<1 E-18 eV",
+   "quoted_cl_percent": null,
+   "source": {
+    "file": "rer_particle_reference_values.json",
+    "pointer": "/entries/photon"
+   },
+   "unit": "GeV"
+  },
+  "G2": {
+   "kind": "none",
+   "quoted": "no direct free-particle mass measurement",
+   "source": {
+    "file": "rer_particle_reference_values.json",
+    "pointer": "/entries/gluon"
+   },
+   "unit": null
+  },
+  "H0": {
+   "central": 0.938918755665,
+   "kind": "value",
+   "note": "isospin average; the row for a lane value that has no isospin breaking",
+   "quoted": "0.938918755665 +- 2.9e-10 GeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 2.890069203323685e-10,
+   "sigma_plus": 2.890069203323685e-10,
+   "source": {
+    "derived": "(H1 + H2)/2"
+   },
+   "unit": "GeV"
+  },
+  "H1": {
+   "central": 0.9382720894300001,
+   "kind": "value",
+   "quoted": "938.27208943+-0.00000029 MeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 2.9e-10,
+   "sigma_plus": 2.9e-10,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S016M",
+    "pointer": "/entries/proton"
+   },
+   "unit": "GeV"
+  },
+  "H2": {
+   "central": 0.9395654219,
+   "kind": "value",
+   "quoted": "939.5654219+-0.0000005 MeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 5e-10,
+   "sigma_plus": 5e-10,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S017M",
+    "pointer": "/entries/neutron"
+   },
+   "unit": "GeV"
+  },
+  "H3": {
+   "central": 0.0012933324699999638,
+   "kind": "value",
+   "quoted": "0.00129333247 +- 5.8e-10 GeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 5.78013840664737e-10,
+   "sigma_plus": 5.78013840664737e-10,
+   "source": {
+    "derived": "H2 - H1"
+   },
+   "unit": "GeV"
+  },
+  "H4": {
+   "central": 0.1349768,
+   "kind": "value",
+   "quoted": "134.9768+-0.0005 MeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 5e-07,
+   "sigma_plus": 5e-07,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S009M",
+    "pointer": "/entries/neutral_pion"
+   },
+   "unit": "GeV"
+  },
+  "H5": {
+   "central": 0.7752600000000001,
+   "kind": "value",
+   "quoted": "775.26+-0.23 MeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.00023,
+   "sigma_plus": 0.00023,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "M009M0",
+    "pointer": "/entries/rho_770_0"
+   },
+   "unit": "GeV"
+  },
+  "L1": {
+   "central": 0.0005109989506900001,
+   "kind": "value",
+   "quoted": "0.51099895069+-0.00000000016 MeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 1.6e-13,
+   "sigma_plus": 1.6e-13,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S003M",
+    "pointer": "/entries/electron"
+   },
+   "unit": "GeV"
+  },
+  "L2": {
+   "central": 0.10565837550000001,
+   "kind": "value",
+   "quoted": "105.6583755+-0.0000023 MeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 2.3e-09,
+   "sigma_plus": 2.3e-09,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S004M",
+    "pointer": "/entries/muon"
+   },
+   "unit": "GeV"
+  },
+  "L3": {
+   "central": 1.7769300000000001,
+   "kind": "value",
+   "quoted": "1776.93+-0.09 MeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 8.999999999999999e-05,
+   "sigma_plus": 8.999999999999999e-05,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "S035M",
+    "pointer": "/entries/tau"
+   },
+   "unit": "GeV"
+  },
+  "L4": {
+   "central": 206.76828270846718,
+   "kind": "value",
+   "quoted": "206.7682827 +- 4.5e-06",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 4.501453310247954e-06,
+   "sigma_plus": 4.501453310247954e-06,
+   "source": {
+    "derived": "L2 / L1",
+    "propagation": "first order, uncorrelated, larger side"
+   },
+   "unit": "1"
+  },
+  "L5": {
+   "central": 3477.365261906346,
+   "kind": "value",
+   "quoted": "3477.365262 +- 0.176",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.1761256062858702,
+   "sigma_plus": 0.1761256062858702,
+   "source": {
+    "derived": "L3 / L1",
+    "propagation": "first order, uncorrelated, larger side"
+   },
+   "unit": "1"
+  },
+  "L6": {
+   "central": 16.817691844978253,
+   "kind": "value",
+   "quoted": "16.81769184 +- 0.000852",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.0008518019313310274,
+   "sigma_plus": 0.0008518019313310274,
+   "source": {
+    "derived": "L3 / L2",
+    "propagation": "first order, uncorrelated, larger side"
+   },
+   "unit": "1"
+  },
+  "L7": {
+   "central": 0.6666644634026366,
+   "kind": "value",
+   "quoted": "0.666664463 +- 5.1e-06",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 5.080824236439059e-06,
+   "sigma_plus": 5.080824236439059e-06,
+   "source": {
+    "derived": "Koide Q of L1, L2, L3",
+    "propagation": "first order, uncorrelated"
+   },
+   "unit": "1"
+  },
+  "N1": {
+   "central": 7.53e-05,
+   "kind": "value",
+   "quoted": "7.530 +0.096 -0.097 x 10^-5 eV^2",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 9.7e-07,
+   "sigma_plus": 9.6e-07,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "A5"
+   },
+   "unit": "eV^2"
+  },
+  "N2": {
+   "central": 0.002511,
+   "kind": "value",
+   "note": "normal ordering",
+   "quoted": "2.511 +0.021 -0.020 x 10^-3 eV^2",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 2e-05,
+   "sigma_plus": 2.1e-05,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "A5"
+   },
+   "unit": "eV^2"
+  },
+  "N3": {
+   "central": 0.02998805256869773,
+   "kind": "value",
+   "quoted": "0.02999 +0.00045 -0.00046",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.0004605720448536851,
+   "sigma_plus": 0.00045079693805825076,
+   "source": {
+    "derived": "N1 / N2",
+    "propagation": "first order, uncorrelated"
+   },
+   "unit": "1"
+  },
+  "N4": {
+   "central": 0.3096,
+   "kind": "value",
+   "quoted": "0.3096 +0.0057 -0.0073 (NuFIT 6.1)",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.0073,
+   "sigma_plus": 0.0057,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "B1"
+   },
+   "unit": "1"
+  },
+  "N5": {
+   "central": 0.47,
+   "kind": "value",
+   "note": "octant: without SK 0.561 +0.012 -0.015; a FAIL near the other octant is marked indicative",
+   "quoted": "0.470 +0.017 -0.013 (NuFIT 6.0, with SK)",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.013,
+   "sigma_plus": 0.017,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "B1"
+   },
+   "unit": "1"
+  },
+  "N6": {
+   "central": 0.02215,
+   "kind": "value",
+   "quoted": "0.02215 +- 0.00056 (NuFIT 6.0)",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.00056,
+   "sigma_plus": 0.00056,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "B1"
+   },
+   "unit": "1"
+  },
+  "N7": {
+   "central": 212.0,
+   "kind": "value",
+   "note": "compared on the circle; Gaussian extension of the one-sigma errors; a FAIL is marked indicative",
+   "quoted": "212 +26 -41 deg (NuFIT 6.0)",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 41.0,
+   "sigma_plus": 26.0,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "B1"
+   },
+   "unit": "deg"
+  },
+  "N8": {
+   "kind": "upper_limit",
+   "limit": 0.45,
+   "quoted": "m_nu < 0.45 eV, 90% CL (KATRIN)",
+   "quoted_cl_percent": 90.0,
+   "source": {
+    "file": "rl_LIT.md",
+    "pointer": "A5"
+   },
+   "unit": "eV"
+  },
+  "N9": {
+   "kind": "none",
+   "quoted": "no measurement decides Dirac against Majorana",
+   "source": null,
+   "unit": null
+  },
+  "Q1": {
+   "central": 0.00216,
+   "kind": "value",
+   "quoted": "2.16+-0.07 MeV",
+   "quoted_cl_percent": 90.0,
+   "sigma_minus": 4.2556978233823844e-05,
+   "sigma_plus": 4.2556978233823844e-05,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "Q002M",
+    "pointer": "/entries/up_quark"
+   },
+   "unit": "GeV"
+  },
+  "Q2": {
+   "central": 0.0047,
+   "kind": "value",
+   "quoted": "4.70+-0.07 MeV",
+   "quoted_cl_percent": 90.0,
+   "sigma_minus": 4.2556978233823844e-05,
+   "sigma_plus": 4.2556978233823844e-05,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "Q001M",
+    "pointer": "/entries/down_quark"
+   },
+   "unit": "GeV"
+  },
+  "Q3": {
+   "central": 0.09290000000000001,
+   "kind": "value",
+   "quoted": "92.9 +-0.7 MeV",
+   "quoted_cl_percent": 90.0,
+   "sigma_minus": 0.0004255697823382384,
+   "sigma_plus": 0.0004255697823382384,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "Q003M",
+    "pointer": "/entries/strange_quark"
+   },
+   "unit": "GeV"
+  },
+  "Q4": {
+   "central": 1.2729,
+   "kind": "value",
+   "quoted": "1.2729+-0.0045 GeV",
+   "quoted_cl_percent": 90.0,
+   "sigma_minus": 0.002735805743602961,
+   "sigma_plus": 0.002735805743602961,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "Q004M",
+    "pointer": "/entries/charm_quark"
+   },
+   "unit": "GeV"
+  },
+  "Q5": {
+   "central": 4.186,
+   "kind": "value",
+   "quoted": "4.186+-0.006 GeV",
+   "quoted_cl_percent": 90.0,
+   "sigma_minus": 0.003647740991470615,
+   "sigma_plus": 0.003647740991470615,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "Q005M",
+    "pointer": "/entries/bottom_quark"
+   },
+   "unit": "GeV"
+  },
+  "Q6": {
+   "alternate_msbar": {
+    "central": 162.5,
+    "kind": "value",
+    "note": "m_t(m_t) MSbar from cross sections; used when the lane states MSbar",
+    "quoted": "162.5 +2.1 -1.5",
+    "quoted_cl_percent": 68.27,
+    "sigma_minus": 1.5,
+    "sigma_plus": 2.1,
+    "source": {
+     "file": "rer_pdg_2026_conditional_quark_comparison.json",
+     "pointer": "/criticality_top_comparison"
+    },
+    "unit": "GeV"
+   },
+   "central": 172.1,
+   "definition": "pole mass from cross-section measurements",
+   "kind": "value",
+   "quoted": "172.1+-0.6 GeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.6,
+   "sigma_plus": 0.6,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "Q007TP4",
+    "pointer": "/entries/top_quark"
+   },
+   "unit": "GeV"
+  },
+  "Q6i": {
+   "central": 172.6,
+   "definition": "direct measurements (Monte Carlo mass); information line",
+   "kind": "value",
+   "quoted": "172.60+-0.27 GeV",
+   "quoted_cl_percent": 68.27,
+   "sigma_minus": 0.27,
+   "sigma_plus": 0.27,
+   "source": {
+    "edition": "2026",
+    "file": "rer_particle_reference_values.json",
+    "pdg_summary_id": "Q007TP",
+    "pointer": "/entries/top_quark_direct_aux"
+   },
+   "unit": "GeV"
+  },
+  "Q7": {
+   "central": 0.462,
+   "kind": "value",
+   "quoted": "0.462 +- 0.020 (90%)",
+   "quoted_cl_percent": 90.0,
+   "sigma_minus": 0.012159136638235384,
+   "sigma_plus": 0.012159136638235384,
+   "source": {
+    "file": "rer_pdg_2026_conditional_quark_comparison.json",
+    "pointer": "/light_quantities/0"
+   },
+   "unit": "1"
+  },
+  "Q8": {
+   "central": 27.33,
+   "kind": "value",
+   "quoted": "27.33 +0.18 -0.14 (90%), m_ud = (m_u + m_d)/2",
+   "quoted_cl_percent": 90.0,
+   "sigma_minus": 0.08511395646764769,
+   "sigma_plus": 0.10943222974411844,
+   "source": {
+    "file": "rer_pdg_2026_conditional_quark_comparison.json",
+    "pointer": "/light_quantities/1"
+   },
+   "unit": "1"
+  }
+ },
+ "schema": "fz.references.v1",
+ "sources": {
+  "pdg2026_ckm_review.txt": {
+   "origin": "pdftotext of https://pdg.lbl.gov/2026/reviews/rpp2026-rev-ckm-matrix.pdf (PDF SHA-256 c6b23ae8572345c3ab739e233ea47a25e879f8534c9021a10e9ca1bd3bb8d433)",
+   "sha256": "397ebb54833ac48200b1c75bf0cab744e28fbeafa0ca209c3e6909c9b443efae"
+  },
+  "pdg2026_qcd_review.txt": {
+   "origin": "pdftotext of https://pdg.lbl.gov/2026/reviews/rpp2026-rev-qcd.pdf (PDF SHA-256 c04c628d76b18610c5fa2a919c6081918a25b55fb971b6af5829f4ca2baa386f)",
+   "sha256": "0a338efc1b5f7633bf1edc04f17fdc188cabfc1618bb3f20e0b311d45f66f0a1"
+  },
+  "rer_codata_2022_alpha_fixture.json": {
+   "origin": "RER/code/P_derivation/codata_2022_alpha_fixture.json",
+   "sha256": "e5a967c2895c51ce11574da0d5fda9630b05d9162335a1e9e06da12cfecc9930"
+  },
+  "rer_particle_reference_values.json": {
+   "origin": "RER/code/particles/data/particle_reference_values.json",
+   "sha256": "1c47e0ebf7f02d41a29c4ea133336de02ddc1064c1992ccd91580de44eb408d2"
+  },
+  "rer_pdg_2026_conditional_quark_comparison.json": {
+   "origin": "RER/code/particles/data/pdg_2026_conditional_quark_comparison.json",
+   "sha256": "3ac4c0dc31f9d13eb51e54c868ecfa9068416328f974e1762202a4b62ef1c3ac"
+  },
+  "rer_wz_pdg_2026_target_fixture.json": {
+   "origin": "RER/code/particles/calibration/wz_pdg_2026_target_fixture.json",
+   "sha256": "25ecaade15003f0862789e049be555552a87d7a2e145432eb3ec49a3ffdb49f4"
+  },
+  "rl_LIT.md": {
+   "origin": "RL/reports/LIT.md",
+   "sha256": "99ed252dedaf115f385d9647cdd3a6a37edcbacb7dd24d1bc84d2857cdae5ac3"
+  }
+ }
+}

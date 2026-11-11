@@ -1,0 +1,216 @@
+"""Task X3-CENSUS: the extended register of worker X3 (repair-law/work/X3, copied read-only to observer/x3/,
+sha256 in the output) applied to the per-face classes of stored checkpoints. Nothing is simulated.
+
+    python x3census.py <ckpt.npz> <level> <out.json>
+
+Face indexing: the checkpoint member `classes` holds face 20 c + f (template face f of carrier c, internal faces first);
+X3 states that its face index is the same template face f. Verified here: (i) X3's face list equals the template faces
+of the runs (compose.TF), (ii) X3's separation table equals the dual-graph distance computed from the template (all 400
+entries), (iii) faces sharing a template seam come out at separation 1 (30 seams), (iv) X3's 60 rotations equal the
+proper rotations computed independently from the port vectors (compositions.template_symmetries), (v) the class total is
+0 mod 6 on every carrier.
+
+Tests (errors: z = (a - b) / sqrt(a + b), Poisson; carriers are uncorrelated to 0.1 to 1 percent, CO part 6):
+- conjugation C: every class k -> 6 - k on the same faces (X3 field `conjugate`; {2,2,2} shape s <-> {4,4,4} shape s);
+- bare mirror M: the inversion of the carrier with the classes carried along (X3 field `mirror`);
+- M C: mirror with conjugation, the symmetry of the twist rule (a reflection reverses every face orientation and so
+  sends class k to 6 - k; CO part g).
+"""
+import json, sys, hashlib
+from pathlib import Path
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE / 'x3')); sys.path.insert(0, str(HERE)); sys.path.insert(0, str(HERE.parent / 'background'))
+from x3_register import Register, handedness  # noqa: E402
+from compose import DD, TF  # noqa: E402
+
+
+def z(a, b):
+    return float((a - b) / np.sqrt(a + b)) if a + b > 0 else 0.0
+
+
+def main(ck, L, outp):
+    regp = HERE / 'x3' / 'register.json'
+    reg = Register(str(regp))
+    R = reg.raw
+    out = {'level': L, 'checkpoint': ck,
+           'register_sha256': hashlib.sha256(open(regp, 'rb').read()).hexdigest(),
+           'reader_sha256': hashlib.sha256(open(HERE / 'x3' / 'x3_register.py', 'rb').read()).hexdigest(), 'verification': {}}
+    # ---------------- verification of the face map
+    V = out['verification']
+    V['faces_equal_template'] = R['tables']['faces'] == [list(f) for f in TF]
+    V['separation_equals_dual_distance'] = bool((reg.sep == DD).all())
+    tmpl = json.load(open(HERE / 'template.json'))
+    adj_ok = 0
+    for a, b in tmpl['template_seams']:
+        fs = [i for i, f in enumerate(TF) if a in f and b in f]
+        adj_ok += int(len(fs) == 2 and reg.sep[fs[0], fs[1]] == 1)
+    V['seams_with_both_faces_at_separation_1'] = f'{adj_ok} of 30'
+    import compositions as CP
+    rot, _ = CP.template_symmetries()
+    V['rotations_equal_independent_computation'] = sorted(map(tuple, rot.tolist())) == sorted(map(tuple, reg.rot.tolist()))
+    V['chirality_antisymmetric_at_2_symmetric_at_3'] = bool(((reg.chi * (reg.sep == 2)) == -(reg.chi * (reg.sep == 2)).T).all()
+                                                             and ((reg.chi * (reg.sep == 3)) == (reg.chi * (reg.sep == 3)).T).all())
+    N = 20 * 4 ** L
+    zz = np.load(ck)
+    W = zz['classes'][:20 * N].reshape(N, 20).astype(np.int8) % 6
+    tot = W.astype(np.int64).sum(1) % 6
+    V['carriers_with_class_total_nonzero_mod6'] = int((tot != 0).sum())
+    has = np.nonzero((W != 0).any(1))[0]
+    out['carriers'] = N; out['carriers_with_defects'] = int(len(has))
+    print('verification', V, 'defect carriers', len(has), flush=True)
+    # ---------------- classification (keys in chunks; unique keys mapped through the table)
+    keys = np.empty(len(has), np.int64)
+    for lo in range(0, len(has), 1_000_000):
+        keys[lo:lo + 1_000_000] = reg.canonical_keys(W[has[lo:lo + 1_000_000]])
+    uk, inv, cnt = np.unique(keys, return_inverse=True, return_counts=True)
+    first = np.full(len(uk), -1, np.int64); first[inv[::-1]] = np.arange(len(inv))[::-1]
+    comp_of = []; shape_of = []
+    for i, k in enumerate(uk.tolist()):
+        if k in reg.shape:
+            c, s = reg.shape[k]
+        else:
+            ms = sorted(int(x) for x in W[has[first[i]]] if x)
+            c, s = '{' + ','.join(map(str, ms)) + '}', -1
+        comp_of.append(c); shape_of.append(s)
+    # cross-check against the reader's own classify on a sample
+    smp = has[np.linspace(0, len(has) - 1, 20000).astype(np.int64)]
+    c2, s2, _ = reg.classify(W[smp])
+    pos = np.searchsorted(uk, reg.canonical_keys(W[smp]))
+    V['sample_matches_reader_classify'] = bool(all(comp_of[p] == c and shape_of[p] == s for p, c, s in zip(pos, c2, s2.tolist())))
+    table = {}
+    for i in range(len(uk)):
+        table.setdefault(comp_of[i], {}).setdefault(shape_of[i], 0)
+        table[comp_of[i]][shape_of[i]] += int(cnt[i])
+    comps = {c: sum(v.values()) for c, v in table.items()}
+    out['compositions'] = dict(sorted(comps.items(), key=lambda kv: -kv[1])[:40])
+    tabled = ['{1,5}', '{2,4}', '{3,3}'] + list(R['triples']) + list(R['quadruples'])
+    unclassified = {c: v.get(-1, 0) for c, v in table.items() if c in tabled and v.get(-1, 0)}
+    out['tabled_compositions_with_unknown_shape'] = unclassified
+    out['carriers_in_compositions_without_table'] = int(sum(n for c, n in comps.items() if c not in tabled))
+    out['compositions_without_table_top'] = {c: n for c, n in sorted(comps.items(), key=lambda kv: -kv[1]) if c not in tabled}
+    out['compositions_without_table_top'] = dict(list(out['compositions_without_table_top'].items())[:12])
+    # ---------------- pairs
+    P = {}
+    rows = R['pairs']
+    for name in ('{1,5}', '{2,4}', '{3,3}'):
+        tt = table.get(name, {})
+        n_all = sum(tt.values())
+        prs = [p for p in rows if '{%d,%d}' % tuple(p['classes']) == name]
+        n_na = sum(tt.get(p['type'], 0) for p in prs if p['separation'] > 1)
+        lst = []
+        for p in prs:
+            n = tt.get(p['type'], 0)
+            lst.append({'type': p['type'], 'separation': p['separation'], 'chirality': p['chirality'], 'count': n,
+                        'share': n / n_all if n_all else None, 'null_non_adjacent_expected': p['null_non_adjacent'] * n_na,
+                        'mirror_type': p['mirror'], 'conjugate_type': p['conjugate']})
+        P[name] = {'carriers': n_all, 'non_adjacent': n_na, 'types': lst}
+    # check pair_labels against the type table on the one-pair carriers
+    kk, dd, cc = reg.pair_labels(W[has])
+    out['pairs'] = P
+    # ---------------- triples {2,2,2}, {4,4,4}, {1,2,3}, {3,4,5}
+    T = {}
+    for name in R['triples']:
+        tr = R['triples'][name]; tt = table.get(name, {})
+        n_all = sum(tt.values()); na = sum(tt.get(r['id'], 0) for r in tr['shape_rows'] if r['non_adjacent'])
+        T[name] = {'carriers': n_all, 'non_adjacent': na,
+                   'shapes': [{'id': r['id'], 'separations': r['separations'], 'non_adjacent': r['non_adjacent'], 'mirror': r['mirror'],
+                               'multiplicity': r['multiplicity'], 'count': tt.get(r['id'], 0), 'share': tt.get(r['id'], 0) / n_all if n_all else None,
+                               'null_non_adjacent_expected': (r['multiplicity'] / tr['placements_non_adjacent'] * na) if r['non_adjacent'] else 0.0}
+                              for r in tr['shape_rows']]}
+        if n_all:
+            ex = [s for s in T[name]['shapes'] if s['non_adjacent']]
+            T[name]['chi2_against_uniform_non_adjacent'] = [float(sum((s['count'] - s['null_non_adjacent_expected']) ** 2 / s['null_non_adjacent_expected'] for s in ex)), len(ex) - 1]
+            T[name]['non_adjacent_shapes_occupied'] = f"{sum(1 for s in ex if s['count'] > 0)} of {len(ex)}"
+            T[name]['adjacent_shapes_occupied'] = {s['id']: s['count'] for s in T[name]['shapes'] if not s['non_adjacent'] and s['count']}
+    out['triples'] = T
+    Q = {}
+    for name in R['quadruples']:
+        tt = table.get(name, {})
+        Q[name] = {'carriers': sum(tt.values()), 'shapes_occupied': len([s for s in tt if s >= 0]),
+                   'non_adjacent_shapes_in_table': R['quadruples'][name]['shapes_non_adjacent'],
+                   'adjacent_shapes_occupied': sum(1 for s in tt if s >= 0 and not reg.rows[(name, s)]['non_adjacent'])}
+    out['quadruples'] = Q
+    # ---------------- tests
+    tests = {'conjugation': [], 'bare_mirror': [], 'mirror_with_conjugation': []}
+    for name in ('{1,5}', '{2,4}', '{3,3}'):
+        cnts = {p['type']: p['count'] for p in P[name]['types']}
+        for p in P[name]['types']:
+            t = p['type']
+            for kind, partner in (('conjugation', p['conjugate_type']), ('bare_mirror', p['mirror_type']),
+                                  ('mirror_with_conjugation', [q for q in P[name]['types'] if q['type'] == p['mirror_type']][0]['conjugate_type'])):
+                if partner > t:
+                    a, b = cnts[t], cnts[partner]
+                    tests[kind].append({'what': f'{name} type {t} vs {partner} (d={p["separation"]})', 'counts': [a, b], 'z': z(a, b),
+                                        'relative_difference': (a - b) / (a + b) * 2 if a + b else None,
+                                        'relative_error': 2 / np.sqrt(a + b) if a + b else None})
+    t2 = {s['id']: s['count'] for s in T['{2,2,2}']['shapes']}; t4 = {s['id']: s['count'] for s in T['{4,4,4}']['shapes']}
+    mir = {r['id']: r['mirror'] for r in R['triples']['{2,2,2}']['shape_rows']}
+    for s in t2:
+        if t2[s] + t4[s]:
+            tests['conjugation'].append({'what': f'{{2,2,2}} vs {{4,4,4}} shape {s}', 'counts': [t2[s], t4[s]], 'z': z(t2[s], t4[s])})
+        if mir[s] > s:
+            for nm, tt in (('{2,2,2}', t2), ('{4,4,4}', t4)):
+                tests['bare_mirror'].append({'what': f'{nm} shape {s} vs {mir[s]}', 'counts': [tt[s], tt[mir[s]]], 'z': z(tt[s], tt[mir[s]])})
+        if t2[s] + t4[mir[s]]:
+            tests['mirror_with_conjugation'].append({'what': f'{{2,2,2}} shape {s} vs {{4,4,4}} shape {mir[s]}', 'counts': [t2[s], t4[mir[s]]], 'z': z(t2[s], t4[mir[s]])})
+    # {1,2,3} vs {3,4,5}
+    m123 = {r['id']: r['mirror'] for r in R['triples']['{1,2,3}']['shape_rows']}
+    a1 = {s['id']: s['count'] for s in T['{1,2,3}']['shapes']}; a3 = {s['id']: s['count'] for s in T['{3,4,5}']['shapes']}
+    # conjugate of a {1,2,3} shape: classes 1->5, 2->4, 3->3 on the same faces; find its id in the {3,4,5} table by key
+    conj_id = {}
+    for r in R['triples']['{1,2,3}']['shape_rows']:
+        w = np.zeros(20, np.int64)
+        f = r['faces'][0]
+        key = r['key']
+        digits = [(key // 6 ** (19 - i)) % 6 for i in range(20)]
+        w = np.array([(6 - d_) % 6 for d_ in digits])
+        ck_ = int(reg.canonical_keys(w[None])[0])
+        conj_id[r['id']] = reg.shape[ck_][1]
+    m345 = {r['id']: r['mirror'] for r in R['triples']['{3,4,5}']['shape_rows']}
+    sums = {'conjugation': [0.0, 0], 'bare_mirror': [0.0, 0], 'mirror_with_conjugation': [0.0, 0]}
+    for s in a1:
+        c_ = conj_id[s]
+        if a1[s] + a3[c_]:
+            sums['conjugation'][0] += z(a1[s], a3[c_]) ** 2; sums['conjugation'][1] += 1
+        if m123[s] > s and a1[s] + a1[m123[s]]:
+            sums['bare_mirror'][0] += z(a1[s], a1[m123[s]]) ** 2; sums['bare_mirror'][1] += 1
+        mc = m345[c_]
+        if a1[s] + a3[mc]:
+            sums['mirror_with_conjugation'][0] += z(a1[s], a3[mc]) ** 2; sums['mirror_with_conjugation'][1] += 1
+    out['triples_123_345_chi2'] = sums
+    summ = {}
+    for kind, lst in tests.items():
+        zs = np.array([t['z'] for t in lst])
+        j = int(np.argmax(np.abs(zs)))
+        summ[kind] = {'tests': len(lst), 'chi2': float((zs ** 2).sum()), 'largest_abs_z': float(zs[j]), 'at': lst[j]['what'],
+                      'counts_at_largest': lst[j]['counts']}
+    out['tests'] = tests; out['tests_summary'] = summ
+    # ---------------- chirality census
+    def pc(name, t):
+        return [p['count'] for p in P[name]['types'] if p['type'] == t][0]
+    out['chirality_census'] = {
+        '(2,4) d=2': {'left_chi+1': pc('{2,4}', 8), 'right_chi-1': pc('{2,4}', 9)},
+        '(2,4) d=3': {'LR_chi+1': pc('{2,4}', 10), 'RL_chi-1': pc('{2,4}', 11)},
+        '(3,3) d=3': {'LR_chi+1': pc('{3,3}', 16), 'RL_chi-1': pc('{3,3}', 17)},
+        '(1,5) d=2': {'left_chi+1': pc('{1,5}', 1), 'right_chi-1': pc('{1,5}', 2)},
+        '(1,5) d=3': {'LR_chi+1': pc('{1,5}', 3), 'RL_chi-1': pc('{1,5}', 4)}}
+    for k, v in out['chirality_census'].items():
+        a, b = list(v.values())
+        v['z'] = z(a, b); v['relative_difference'] = (a - b) / (a + b) if a + b else None; v['relative_error'] = 1 / np.sqrt(a + b) if a + b else None
+    # pair_labels consistency and handedness on one-pair carriers
+    one = kk > 0
+    tp_one = np.array([shape_of[i] for i in inv[one]])
+    sep_t = {p['type']: p['separation'] for p in rows}; chi_t = {p['type']: p['chirality'] for p in rows}
+    V['pair_labels_match_types'] = bool(all(sep_t[t] == d_ and chi_t[t] == c_ for t, d_, c_ in zip(tp_one.tolist(), dd[one].tolist(), cc[one].tolist())))
+    h2, h3 = handedness(reg, W[has[one][:2_000_000]])
+    ch = cc[one][:2_000_000]; dd1 = dd[one][:2_000_000]; k1 = kk[one][:2_000_000]
+    V['h2_equals_chi_at_d2_one_pair_sample'] = bool((h2[(dd1 == 2) & (k1 != 3)] == ch[(dd1 == 2) & (k1 != 3)]).all())
+    V['h3_equals_chi_at_d3_one_pair_sample'] = bool((h3[dd1 == 3] == ch[dd1 == 3]).all())
+    json.dump(out, open(outp, 'w'), indent=1, default=lambda o: o.tolist() if hasattr(o, 'tolist') else (int(o) if isinstance(o, np.integer) else float(o)))
+    print(json.dumps(out['tests_summary'], indent=1)); print(out['chirality_census']); print(V)
+
+
+if __name__ == '__main__':
+    main(sys.argv[1], int(sys.argv[2]), sys.argv[3])

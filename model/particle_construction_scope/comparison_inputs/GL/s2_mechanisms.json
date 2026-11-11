@@ -1,0 +1,459 @@
+{
+ "M1a_code_is_leading_flux_multiplets": {
+  "sectors": {
+   "k=2": {
+    "face_flux_units_2pi_over_20": [
+     2.0
+    ],
+    "leading_eigenvalue": 3.6180339887498953,
+    "leading_dimension": 3,
+    "spectrum": [
+     3.618034,
+     -0.381966,
+     -2.236068
+    ]
+   },
+   "k=18": {
+    "face_flux_units_2pi_over_20": [
+     -2.0
+    ],
+    "leading_eigenvalue": 3.6180339887499016,
+    "leading_dimension": 3,
+    "spectrum": [
+     3.618034,
+     -0.381966,
+     -2.236068
+    ]
+   },
+   "k=7": {
+    "face_flux_units_2pi_over_20": [
+     7.0
+    ],
+    "leading_eigenvalue": 2.6286555605956696,
+    "leading_dimension": 2,
+    "spectrum": [
+     2.628656,
+     1.175571,
+     -3.077684
+    ]
+   },
+   "k=13": {
+    "face_flux_units_2pi_over_20": [
+     -7.0
+    ],
+    "leading_eigenvalue": 2.62865556059567,
+    "leading_dimension": 2,
+    "spectrum": [
+     2.628656,
+     1.175571,
+     -3.077684
+    ]
+   }
+  },
+  "match": {
+   "k=2": {
+    "compressed_norm_squared_per_port": [
+     0.25
+    ],
+    "bargmann_defect": {
+     "helicity +1 along n_p (X_p triplet block)": 7.301351988545592e-16,
+     "helicity -1 along n_p": 0.445406545764643
+    }
+   },
+   "k=18": {
+    "compressed_norm_squared_per_port": [
+     0.25
+    ],
+    "bargmann_defect": {
+     "helicity +1 along n_p (X_p triplet block)": 0.445406545764643,
+     "helicity -1 along n_p": 9.50197851991224e-16
+    }
+   },
+   "k=7": {
+    "compressed_norm_squared_per_port": [
+     0.166666666667
+    ],
+    "bargmann_defect": {
+     "spin up along conjugate axis n'_p (X_p doublet block)": 2.0407899217551514e-15,
+     "spin up along convex axis n_p": 0.7380524097582755,
+     "complex conjugate of the X_p doublet block": 0.3804226065180619
+    }
+   },
+   "k=13": {
+    "compressed_norm_squared_per_port": [
+     0.166666666667
+    ],
+    "bargmann_defect": {
+     "spin up along conjugate axis n'_p (X_p doublet block)": 0.3804226065180625,
+     "spin up along convex axis n_p": 0.738052409758275,
+     "complex conjugate of the X_p doublet block": 2.8108601893111292e-15
+    }
+   }
+  },
+  "compressed_load_equals_X_p_after_one_unitary": 1.110244708456852e-15,
+  "sectors_used": {
+   "triplet": 2,
+   "doublet": 7,
+   "load_charges": [
+    2,
+    -3
+   ]
+  }
+ },
+ "M1b_zeno": {
+  "projector_form": [
+   {
+    "case": "one port, theta = 1.0",
+    "error_by_n": {
+     "10": 0.04626614777618209,
+     "100": 0.0047530873926573914,
+     "1000": 0.00047664205171572415,
+     "10000": 4.767759692066231e-05
+    },
+    "error_times_n_at_10000": 0.47677596920662313
+   },
+   {
+    "case": "one port, theta = 2.5",
+    "error_by_n": {
+     "10": 0.2484714137928942,
+     "100": 0.029226739529491317,
+     "1000": 0.0029741327577356784,
+     "10000": 0.0002979361553524189
+    },
+    "error_times_n_at_10000": 2.979361553524189
+   },
+   {
+    "case": "twelve random phases",
+    "error_by_n": {
+     "10": 0.3750951850506776,
+     "100": 0.047557672721376884,
+     "1000": 0.004878862352842498,
+     "10000": 0.0004891433869370265
+    },
+    "error_times_n_at_10000": 4.891433869370265
+   }
+  ],
+  "native_relaxation_form": {
+   "leading_factor_triplet_sector": 0.9769672331458316,
+   "leading_factor_doublet_sector": 0.9604775926765945,
+   "second_over_leading_triplet": 0.9317616140193719,
+   "second_over_leading_doublet": 0.9747853725466878,
+   "rows": [
+    {
+     "n": 50,
+     "m_events_between_kicks": 30,
+     "error": 0.01919739457124455
+    },
+    {
+     "n": 50,
+     "m_events_between_kicks": 100,
+     "error": 0.010408852881852667
+    },
+    {
+     "n": 200,
+     "m_events_between_kicks": 100,
+     "error": 0.0026194933320379528
+    },
+    {
+     "n": 200,
+     "m_events_between_kicks": 300,
+     "error": 0.00238157572917834
+    },
+    {
+     "n": 1000,
+     "m_events_between_kicks": 300,
+     "error": 0.0004769110405063965
+    }
+   ]
+  }
+ },
+ "M1c_surjective": {
+  "random_elements": 200,
+  "max_reconstruction_error": 9.86178685430226e-15,
+  "statement": "every sampled U in G equals exp(i sum_p theta_p X_p) for twelve real port phases"
+ },
+ "M1d_native_alphabets_as_uniform_points": {
+  "theta_p = pi for all p": [
+   [
+    1.0,
+    -0.0
+   ],
+   [
+    1.0,
+    -0.0
+   ],
+   [
+    1.0,
+    -0.0
+   ],
+   [
+    -1.0,
+    -0.0
+   ],
+   [
+    -1.0,
+    -0.0
+   ]
+  ],
+  "theta_p = pi/3 for all p": [
+   [
+    -0.5,
+    0.866025403784
+   ],
+   [
+    -0.5,
+    0.866025403784
+   ],
+   [
+    -0.5,
+    0.866025403784
+   ],
+   [
+    -1.0,
+    -0.0
+   ],
+   [
+    -1.0,
+    -0.0
+   ]
+  ]
+ },
+ "M1b_seam_reflectors": {
+  "span": 13,
+  "closure": 13,
+  "centre": 2,
+  "contains_the_response_algebra": true,
+  "traceful_direction_present": true
+ },
+ "M2_M3_exact_witnesses": {
+  "per_port_alphabets": {
+   "N=1": {
+    "weak: 2cos(omega/2) of g_p g_q": 0.8944271909999159,
+    "weak: numerical": 0.8944271909999155,
+    "weak: minimal polynomial": "5*x**2 - 4",
+    "weak: algebraic integer (else infinite order)": false,
+    "colour: 2cos(Delta) of g_p g_q": -1.9910835055998655,
+    "colour: numerical": -1.9910835055998652,
+    "colour: minimal polynomial": "625*x**2 + 700*x - 1084",
+    "colour: algebraic integer (else infinite order)": false,
+    "U(1)_Y: det of the triplet block of a generator": "exp(i pi/1), finite order 2"
+   },
+   "N=2": {
+    "weak: 2cos(omega/2) of g_p g_q": 1.4472135954999579,
+    "weak: numerical": 1.447213595499958,
+    "weak: minimal polynomial": "5*x**2 - 10*x + 4",
+    "weak: algebraic integer (else infinite order)": false,
+    "colour: 2cos(Delta) of g_p g_q": -1.0921980673998823,
+    "colour: numerical": -1.0921980673998826,
+    "colour: minimal polynomial": "625*x**2 - 200*x - 964",
+    "colour: algebraic integer (else infinite order)": false,
+    "U(1)_Y: det of the triplet block of a generator": "exp(i pi/2), finite order 4"
+   },
+   "N=3": {
+    "weak: 2cos(omega/2) of g_p g_q": 1.723606797749979,
+    "weak: numerical": 1.723606797749979,
+    "weak: minimal polynomial": "5*x**2 - 15*x + 11",
+    "weak: algebraic integer (else infinite order)": false,
+    "colour: 2cos(Delta) of g_p g_q": 0.1797368876500715,
+    "colour: numerical": 0.1797368876500709,
+    "colour: minimal polynomial": "625*x**2 - 1175*x + 191",
+    "colour: algebraic integer (else infinite order)": false,
+    "U(1)_Y: det of the triplet block of a generator": "exp(i pi/3), finite order 6"
+   },
+   "N=4": {
+    "weak: 2cos(omega/2) of g_p g_q": 1.8380926106696676,
+    "weak: numerical": 1.8380926106696678,
+    "weak: minimal polynomial": "25*x**4 - 100*x**3 + 110*x**2 - 36",
+    "weak: algebraic integer (else infinite order)": false,
+    "colour: 2cos(Delta) of g_p g_q": 0.867191195445814,
+    "colour: numerical": 0.8671911954458137,
+    "colour: minimal polynomial": "390625*x**4 - 687500*x**3 - 1142500*x**2 + 2679600*x - 1237104",
+    "colour: algebraic integer (else infinite order)": false,
+    "U(1)_Y: det of the triplet block of a generator": "exp(i pi/4), finite order 8"
+   },
+   "N=6": {
+    "weak: 2cos(omega/2) of g_p g_q": 1.925940664663655,
+    "weak: numerical": 1.9259406646636552,
+    "weak: minimal polynomial": "25*x**4 - 100*x**3 + 95*x**2 + 40*x - 59",
+    "weak: algebraic integer (else infinite order)": false,
+    "colour: 2cos(Delta) of g_p g_q": 1.4584840207873482,
+    "colour: numerical": 1.4584840207873482,
+    "colour: minimal polynomial": "390625*x**4 - 906250*x**3 - 1035625*x**2 + 3635050*x - 2054639",
+    "colour: algebraic integer (else infinite order)": false,
+    "U(1)_Y: det of the triplet block of a generator": "exp(i pi/6), finite order 12"
+   }
+  },
+  "native_walk_angles": {
+   "14/15": {
+    "theta": 0.36720802055783713,
+    "minimal_polynomial_of_2cos(theta)": "15*x - 28",
+    "two_cos_theta_algebraic_integer": false,
+    "statement": "theta/pi irrational (2cos theta is no algebraic integer); exp(i theta X_p) has infinite order"
+   },
+   "9/10": {
+    "theta": 0.4510268117962624,
+    "minimal_polynomial_of_2cos(theta)": "5*x - 9",
+    "two_cos_theta_algebraic_integer": false,
+    "statement": "theta/pi irrational (2cos theta is no algebraic integer); exp(i theta X_p) has infinite order"
+   },
+   "5/6": {
+    "theta": 0.585685543457151,
+    "minimal_polynomial_of_2cos(theta)": "3*x - 5",
+    "two_cos_theta_algebraic_integer": false,
+    "statement": "theta/pi irrational (2cos theta is no algebraic integer); exp(i theta X_p) has infinite order"
+   },
+   "11/12 + sqrt5/60": {
+    "theta": 0.3047084373702733,
+    "minimal_polynomial_of_2cos(theta)": "45*x**2 - 165*x + 151",
+    "two_cos_theta_algebraic_integer": false,
+    "statement": "theta/pi irrational (2cos theta is no algebraic integer); exp(i theta X_p) has infinite order"
+   },
+   "11/12 - sqrt5/60": {
+    "theta": 0.49619825950207297,
+    "minimal_polynomial_of_2cos(theta)": "45*x**2 - 165*x + 151",
+    "two_cos_theta_algebraic_integer": false,
+    "statement": "theta/pi irrational (2cos theta is no algebraic integer); exp(i theta X_p) has infinite order"
+   }
+  }
+ },
+ "M2_M3_Haar_moments": {
+  "cover alone": {
+   "E|tr_3|^4 (A5 group: 3, Haar SU(3): 2)": 2.954840946348992,
+   "E chi_6(weak SO(3)) (2I: 1, Haar: 0)": 1.0040530178837492,
+   "|E det_3^1| (finite U(1) image of order dividing 1: 1; dense: 0)": 1.0000000000000606,
+   "|E det_3^2| (finite U(1) image of order dividing 2: 1; dense: 0)": 1.0000000000001212,
+   "|E det_3^4| (finite U(1) image of order dividing 4: 1; dense: 0)": 1.0000000000002427,
+   "|E det_3^12| (finite U(1) image of order dividing 12: 1; dense: 0)": 1.000000000000728
+  },
+  "cover + per-port Z_1": {
+   "E|tr_3|^4 (A5 group: 3, Haar SU(3): 2)": 1.9460638425827277,
+   "E chi_6(weak SO(3)) (2I: 1, Haar: 0)": -0.031092726611775968,
+   "|E det_3^1| (finite U(1) image of order dividing 1: 1; dense: 0)": 0.014666666666667025,
+   "|E det_3^2| (finite U(1) image of order dividing 2: 1; dense: 0)": 1.0000000000000457,
+   "|E det_3^4| (finite U(1) image of order dividing 4: 1; dense: 0)": 1.0000000000000915,
+   "|E det_3^12| (finite U(1) image of order dividing 12: 1; dense: 0)": 1.0000000000002742
+  },
+  "cover + per-port Z_2": {
+   "E|tr_3|^4 (A5 group: 3, Haar SU(3): 2)": 1.9633112774789303,
+   "E chi_6(weak SO(3)) (2I: 1, Haar: 0)": 0.030927449373444597,
+   "|E det_3^1| (finite U(1) image of order dividing 1: 1; dense: 0)": 0.01425170555095496,
+   "|E det_3^2| (finite U(1) image of order dividing 2: 1; dense: 0)": 0.01733333333333424,
+   "|E det_3^4| (finite U(1) image of order dividing 4: 1; dense: 0)": 1.0000000000001055,
+   "|E det_3^12| (finite U(1) image of order dividing 12: 1; dense: 0)": 1.0000000000003162
+  },
+  "cover + per-port Z_6": {
+   "E|tr_3|^4 (A5 group: 3, Haar SU(3): 2)": 1.8703395118247326,
+   "E chi_6(weak SO(3)) (2I: 1, Haar: 0)": -0.007747069419425347,
+   "|E det_3^1| (finite U(1) image of order dividing 1: 1; dense: 0)": 0.03667315024615888,
+   "|E det_3^2| (finite U(1) image of order dividing 2: 1; dense: 0)": 0.029632939629931264,
+   "|E det_3^4| (finite U(1) image of order dividing 4: 1; dense: 0)": 0.010503967504392754,
+   "|E det_3^12| (finite U(1) image of order dividing 12: 1; dense: 0)": 1.0000000000001485
+  },
+  "cover + exp(i arccos(14/15) X_0)": {
+   "E|tr_3|^4 (A5 group: 3, Haar SU(3): 2)": 2.1313358780856135,
+   "E chi_6(weak SO(3)) (2I: 1, Haar: 0)": 0.0005025528844119804,
+   "|E det_3^1| (finite U(1) image of order dividing 1: 1; dense: 0)": 0.23991850579240054,
+   "|E det_3^2| (finite U(1) image of order dividing 2: 1; dense: 0)": 0.009206443524389162,
+   "|E det_3^4| (finite U(1) image of order dividing 4: 1; dense: 0)": 0.017336514918343374,
+   "|E det_3^12| (finite U(1) image of order dividing 12: 1; dense: 0)": 0.0071003508994524015
+  },
+  "cover + uniform Z6 (native)": {
+   "E|tr_3|^4 (A5 group: 3, Haar SU(3): 2)": 3.148117516385514,
+   "E chi_6(weak SO(3)) (2I: 1, Haar: 0)": 1.0128497167604176,
+   "|E det_3^1| (finite U(1) image of order dividing 1: 1; dense: 0)": 1.0000000000000235,
+   "|E det_3^2| (finite U(1) image of order dividing 2: 1; dense: 0)": 1.0000000000000469,
+   "|E det_3^4| (finite U(1) image of order dividing 4: 1; dense: 0)": 1.0000000000000941,
+   "|E det_3^12| (finite U(1) image of order dividing 12: 1; dense: 0)": 1.0000000000002824
+  }
+ },
+ "M4_seam_matching": {
+  "centralizer_dimensions_over_the_30_seams": [
+   2
+  ],
+  "algebra_generated_by_all_residuals": 9,
+  "centre": 1,
+  "largest_traceless_weak_component_of_the_residual_algebra": 9.977558282367612e-16,
+  "centralizer_dimension_for_a_non_adjacent_pair": 2
+ },
+ "M6_wilczek_zee": {
+  "small_loops": [
+   {
+    "ports": [
+     0,
+     2
+    ],
+    "side": 0.05,
+    "holonomy_minus_identity": 0.00027949392972139814,
+    "relative_error_against_d^2 [X_p, X_q]": 0.015387107784655312,
+    "sign": "-"
+   },
+   {
+    "ports": [
+     0,
+     2
+    ],
+    "side": 0.1,
+    "holonomy_minus_identity": 0.00111780079289947,
+    "relative_error_against_d^2 [X_p, X_q]": 0.030766357099649016,
+    "sign": "-"
+   },
+   {
+    "ports": [
+     0,
+     5
+    ],
+    "side": 0.05,
+    "holonomy_minus_identity": 0.00024031586772823085,
+    "relative_error_against_d^2 [X_p, X_q]": 0.016238920757842702,
+    "sign": "-"
+   },
+   {
+    "ports": [
+     0,
+     5
+    ],
+    "side": 0.1,
+    "holonomy_minus_identity": 0.0009540484780086078,
+    "relative_error_against_d^2 [X_p, X_q]": 0.032465270696790054,
+    "sign": "-"
+   },
+   {
+    "ports": [
+     2,
+     9
+    ],
+    "side": 0.05,
+    "holonomy_minus_identity": 0.00022496077006142076,
+    "relative_error_against_d^2 [X_p, X_q]": 0.01738321750677934,
+    "sign": "-"
+   },
+   {
+    "ports": [
+     2,
+     9
+    ],
+    "side": 0.1,
+    "holonomy_minus_identity": 0.0008949317218008585,
+    "relative_error_against_d^2 [X_p, X_q]": 0.034752977321528544,
+    "sign": "-"
+   }
+  ],
+  "winding_loops": [
+   {
+    "port": 0,
+    "holonomy_vs_exp(-2 pi i X_p)": 4.927841197068354e-06
+   },
+   {
+    "port": 7,
+    "holonomy_vs_exp(-2 pi i X_p)": 5.977274307229161e-06
+   }
+  ],
+  "holonomy_algebra_of_contractible_loops": 11,
+  "contains_U1_Y": false
+ },
+ "M7_galois": {
+  "trace_of_a_fifth_turn": 1.618033988749895,
+  "trace_of_its_conjugate": -0.6180339887498949,
+  "statement": "unequal traces: the conjugation is no inner automorphism of SO(3); every continuous automorphism of SO(3) is inner; the doublet block has no continuous extension"
+ }
+}

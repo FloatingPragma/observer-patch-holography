@@ -1,0 +1,196 @@
+"""YC step 3: run the cell-scale Yukawas of the registered readings down to the electroweak scale.
+Reads yc_functional.json (r per reading, generation factors) and LEW's P_fwd packet; reads no measured value.
+Rows as registered in CANDIDATES.md section 5. Writes yc_run.json.
+
+Frames
+  D-a / D-b / D-c  declared D10 chart: packet gauge couplings at Q0, two-loop Standard Model to E_cell; the cell value
+                   of y is r times g_2(E_cell) (D-a), the source's g (D-b), g_1 GUT or g_3 of the chart (D-c).
+  S1               source frame: g_1 = g_2 = g_3 = g_source at E_cell, two-loop Standard Model downward.
+  S2               HT's rebuilt chart (census BE one-loop slopes, bare matching) for the gauge couplings, Standard
+                   Model two-loop Yukawa and quartic terms.
+Quartic lambda(E_cell) = 0 (declared). v attached through G_F at tree level: v_F = v_source of the packet;
+m_f = y_f(mu) v_F / sqrt2 at mu = m_f; quarks converted with HT's three-loop QCD pole formula.
+"""
+import json
+import math
+import sys
+import time
+
+import numpy as np
+
+sys.path.insert(0, "WORKSPACE/repair-law/work/HT")
+import htlib as H  # noqa: E402  (read only)
+import yc_rge as R  # noqa: E402
+
+t_start = time.time()
+F = json.load(open("yc_functional.json"))
+pk = R.packet()
+E_STAR = pk["E_star"]
+E_CELL = H.e_cell(H.P_FWD, E_STAR)
+ALPHA_CELL = H.alpha_cell(H.P_FWD)
+G_SRC = math.sqrt(4 * math.pi * ALPHA_CELL)
+V_F = pk["v"]
+Q0 = pk["Q0"]
+T_C, T_0, T_LOW = math.log(E_CELL), math.log(Q0), math.log(20.0)
+r = F["r_per_family"]
+gen = F["generations"]
+GEN = {"G1": [0.0, 0.0, 1.0], "G3a": gen["G3a factors y_k / (r g), k = 1, 2, 3"],
+       "G3b": gen["G3b factors y_k / (r g), k = 1, 2, 3"]}
+SQ2 = math.sqrt(2.0)
+
+
+LEGS = (1.0, 1.0, 1.0)       # multipliers of the (up, down, charged-lepton) legs; changed only by yc_addendum.py
+
+
+def cell_state(rv, g_ref, gname, gauge, nu=False):
+    f1, f2, f3 = (f * rv * g_ref for f in GEN[gname])
+    u, d, e = LEGS
+    return R.vec(gp=gauge[0], g=gauge[1], g3=gauge[2], yt=u * f3, yb=d * f3, ytau=e * f3, yc=u * f2, ys=d * f2, ymu=e * f2,
+                 yu=u * f1, yd=d * f1, ye=e * f1, k=0.0, ynu=f3 if nu else 0.0)
+
+
+def g_ref_of(kind, gauge):
+    return {"g2": gauge[1], "source": G_SRC, "g1": math.sqrt(5 / 3) * gauge[0], "g3": gauge[2]}[kind]
+
+
+def readout(sol, t_end, gauge_fn=None, nu=False):
+    out = {}
+    x0 = sol.sol(T_0) if t_end <= T_0 else None
+    for name, key, nl in (("yt", "t", 5), ("yb", "b", 4), ("ytau", "tau", None), ("ynu", "nu", None)):
+        if name == "ynu" and not nu:
+            continue
+        m = R.self_consistent_mass(sol, name, V_F, t_end, T_C - 1.0, gauge_fn)
+        if m is None:
+            out[key] = None
+            continue
+        row = {"m_running_at_m_GeV": m["m_running_GeV"], "y_at_m": m["y_at_m"]}
+        if nl is not None:
+            row["alpha_s_at_m"] = m["alpha_s_at_m"]
+            row["m_pole_GeV"] = R.top_pole_from_msbar(m["m_running_GeV"], m["alpha_s_at_m"], nl)
+        out[key] = row
+    if x0 is not None:
+        g = gauge_fn(Q0) if gauge_fn is not None else x0[:3]
+        out["at_Q0"] = {n: float(x0[R.IDX[n]]) for n in R.NAMES[3:]}
+        out["at_Q0"].update({"gY": float(g[0]), "g2": float(g[1]), "g3": float(g[2])})
+        out["y_J_at_Q0 (sum of the three charged-lepton Yukawas)"] = float(sum(x0[R.IDX[n]] for n in ("ye", "ymu", "ytau")))
+        out["tree masses at Q0, second and first family (y v_F / sqrt2), GeV"] = {
+            n: float(x0[R.IDX[n]] * V_F / SQ2) for n in ("yc", "ys", "ymu", "yu", "yd", "ye")}
+        out["m_H tree from lambda(Q0) (by-product), GeV"] = float(math.sqrt(max(0.0, 2 * x0[R.IDX["k"]])) * V_F)
+    ts = np.linspace(t_end, T_C, 400)
+    out["min lambda on the trajectory"] = float(min(sol.sol(t)[R.IDX["k"]] for t in ts))
+    return out
+
+
+def d_row(rv, gname, kind, nu=False):
+    """Declared chart: solve for the gauge couplings at the cell such that the packet is met at Q0."""
+    up = R.run(R.vec(gp=pk["gY"], g=pk["g2"], g3=pk["g3"], yt=0.95, k=0.13), T_0, T_C, rtol=1e-9, atol=1e-12, dense=False)
+    gc = np.array(up.y[:3, -1])
+    target = np.array([pk["gY"], pk["g2"], pk["g3"]])
+
+    def resid(g):
+        s = R.run(cell_state(rv, g_ref_of(kind, g), gname, g, nu), T_C, T_0, dense=False)
+        return s.y[:3, -1] - target
+
+    for it in range(12):
+        f = resid(gc)
+        if np.abs(f).max() < 1e-12:
+            break
+        J = np.zeros((3, 3))
+        for j in range(3):
+            d = np.zeros(3); d[j] = 1e-6
+            J[:, j] = (resid(gc + d) - f) / 1e-6
+        gc = gc - np.linalg.solve(J, f)
+    xc = cell_state(rv, g_ref_of(kind, gc), gname, gc, nu)
+    sol = R.run(xc, T_C, T_LOW)
+    row = {"cell": {"gY": gc[0], "g1_GUT": math.sqrt(5 / 3) * gc[0], "g2": gc[1], "g3": gc[2], "g_ref": g_ref_of(kind, gc),
+                    "y_third_family": float(xc[R.IDX["yt"]]), "y_second": float(xc[R.IDX["yc"]]), "y_first": float(xc[R.IDX["yu"]]),
+                    "y_J_cell": float(xc[R.IDX["ye"]] + xc[R.IDX["ymu"]] + xc[R.IDX["ytau"]])},
+           "gauge_residual_at_Q0": float(np.abs(f).max()), "newton_iterations": it}
+    row.update(readout(sol, T_LOW, nu=nu))
+    return row
+
+
+def s1_row(rv, gname):
+    gauge = (math.sqrt(3 / 5) * G_SRC, G_SRC, G_SRC)
+    xc = cell_state(rv, G_SRC, gname, gauge)
+    sol = R.run(xc, T_C, T_LOW, stop_g3=3.5)
+    t_end = float(sol.t[-1])
+    xe = sol.y[:, -1]
+    row = {"cell": {"g": G_SRC, "y_third_family": float(xc[R.IDX["yt"]])},
+           "integration ended at mu (GeV)": math.exp(t_end), "reached_20_GeV": bool(t_end <= T_LOW + 1e-9),
+           "g3 at the end": float(xe[2]), "alpha_3 at the end": float(xe[2] ** 2 / (4 * math.pi)),
+           "couplings at the end": {n: float(xe[R.IDX[n]]) for n in R.NAMES}}
+    # scale where alpha_3 = 1 on the same trajectory
+    ts = np.linspace(T_C, t_end, 4000)
+    a3 = np.array([sol.sol(t)[2] ** 2 / (4 * math.pi) for t in ts])
+    i = int(np.argmax(a3 >= 1.0)) if (a3 >= 1.0).any() else None
+    row["mu where alpha_3 = 1 (GeV)"] = float(math.exp(ts[i])) if i else None
+    j = int(np.argmax(a3 >= 0.3)) if (a3 >= 0.3).any() else None
+    if j:
+        xj = sol.sol(ts[j])
+        row["at alpha_3 = 0.3"] = {"mu_GeV": float(math.exp(ts[j])), **{n: float(xj[R.IDX[n]]) for n in ("yt", "yb", "ytau", "g", "gp")}}
+    return row
+
+
+def s2_row(rv, gname):
+    b = H.CENSUS["BE"]
+
+    def gauge_fn(mu):
+        x1, x2, x3 = H.inv_alphas_rebuilt(mu, H.P_FWD, b, "bare", e_star=E_STAR)
+        return (math.sqrt(4 * math.pi * 0.6 / x1), math.sqrt(4 * math.pi / x2), math.sqrt(4 * math.pi / x3))
+    gc = gauge_fn(E_CELL)
+    xc = cell_state(rv, G_SRC, gname, gc)
+    sol = R.run(xc, T_C, T_LOW, gauge_fn=gauge_fn)
+    row = {"cell": {"gY": gc[0], "g2": gc[1], "g3": gc[2], "y_third_family": float(xc[R.IDX["yt"]])},
+           "chart": "census BE one-loop slopes (43/5, 3, -1), bare matching (HT part2_extra b); declared"}
+    row.update(readout(sol, T_LOW, gauge_fn=gauge_fn))
+    return row
+
+
+rows = {}
+
+
+def add(name, fn, *a, **kw):
+    t0 = time.time()
+    try:
+        rows[name] = fn(*a, **kw)
+    except Exception as e:  # a row that fails is recorded as failed
+        rows[name] = {"failed": repr(e)}
+    rows[name]["seconds"] = time.time() - t0
+    rw = rows[name]
+    def g(k):
+        v = rw.get(k)
+        return (v or {}).get("m_pole_GeV", (v or {}).get("m_running_at_m_GeV")) if isinstance(v, dict) else None
+    print(name, "y3_cell=%s" % (rw.get("cell", {}).get("y_third_family")), "t=%s b=%s tau=%s nu=%s yJ=%s" % (
+        g("t"), g("b"), g("tau"), g("nu"), rw.get("y_J_at_Q0 (sum of the three charged-lepton Yukawas)")),
+        "end=%s" % rw.get("integration ended at mu (GeV)"), "%.1fs" % rw["seconds"], flush=True)
+
+
+def main():
+    # primary set
+    for gname in ("G1", "G3a"):
+        add(f"F1 {gname} D-a", d_row, r["F1"], gname, "g2")
+        add(f"F1 {gname} D-b", d_row, r["F1"], gname, "source")
+        add(f"F1 {gname} S1", s1_row, r["F1"], gname)
+        add(f"F1 {gname} S2", s2_row, r["F1"], gname)
+    # scan on D-a
+    for fid in ("F1b", "F2", "F4", "F7"):
+        add(f"{fid} G1 D-a", d_row, r[fid], "G1", "g2")
+    add("F1 G3b D-a", d_row, r["F1"], "G3b", "g2")
+    # spread D-c
+    add("F1 G1 D-c g1", d_row, r["F1"], "G1", "g1")
+    add("F1 G1 D-c g3", d_row, r["F1"], "G1", "g3")
+    # neutrino variation N1 (one-loop neutrino Yukawa terms)
+    add("F1 G1 D-a N1", d_row, r["F1"], "G1", "g2", nu=True)
+    add("F1 G3a D-a N1", d_row, r["F1"], "G3a", "g2", nu=True)
+
+    out = {"inputs": {"E_cell_GeV": E_CELL, "E_star_GeV": E_STAR, "Q0_GeV": Q0, "v_F_GeV": V_F, "alpha_cell": ALPHA_CELL,
+                      "inverse_alpha_cell": 1 / ALPHA_CELL, "g_source": G_SRC, "packet_gauge_Q0": [pk["gY"], pk["g2"], pk["g3"]],
+                      "r": r, "generation_factors": GEN},
+           "rows": rows, "seconds": time.time() - t_start}
+    json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else "yc_run.json", "w"), indent=1, default=float)
+    print("total seconds", out["seconds"])
+
+
+if __name__ == "__main__":
+    main()

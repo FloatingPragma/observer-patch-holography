@@ -1,0 +1,288 @@
+"""Worker HR: reference Monte Carlo of the lattice SU(2) Higgs system of SPEC.md (numpy only).
+
+Action (SPEC.md, section 5):
+  S = beta_G sum_P (1 - tr V_P / 2) + sum_x [rho_x^2 + lambda_L (rho_x^2 - 1)^2]
+      - 2 kappa_H sum_(x,mu) Re Phi_x^dag V_(x,mu) Phi_(x+mu),        rho^2 = Phi^dag Phi.
+Variables: links V as unit quaternions (a0, a1, a2, a3), V = a0 + i a.sigma; the doublet as a quaternion
+phi = phi0 + i phi.sigma = rho * alpha (alpha in SU(2)); Phi is the second column of that matrix, so that
+Re Phi_x^dag V Phi_y = (1/2) tr(phi_x^dag V phi_y) = dot(phi_x, V phi_y).
+Gauge transformation: phi_x -> g_x phi_x, V_(x,mu) -> g_x V_(x,mu) g_(x+mu)^dag. Measure: Haar per link, flat per phi.
+Updates: Kennedy-Pendleton heat bath for the links, Bunk-type heat bath for phi, one global rescaling of phi.
+Direction 0 is the Euclidean time direction (extent T), directions 1 to 3 have extent L.
+"""
+import numpy as np
+
+QCONJ = np.array([1.0, -1.0, -1.0, -1.0])
+
+
+def qmul(a, b):
+    """quaternion product for arrays of shape (..., 4)"""
+    a0, a1, a2, a3 = a[..., 0], a[..., 1], a[..., 2], a[..., 3]
+    b0, b1, b2, b3 = b[..., 0], b[..., 1], b[..., 2], b[..., 3]
+    out = np.empty(np.broadcast(a, b).shape)
+    out[..., 0] = a0 * b0 - a1 * b1 - a2 * b2 - a3 * b3
+    out[..., 1] = a0 * b1 + b0 * a1 - (a2 * b3 - a3 * b2)
+    out[..., 2] = a0 * b2 + b0 * a2 - (a3 * b1 - a1 * b3)
+    out[..., 3] = a0 * b3 + b0 * a3 - (a1 * b2 - a2 * b1)
+    return out
+
+
+def qc(a):
+    return a * QCONJ
+
+
+def random_su2(n, rng):
+    v = rng.normal(size=(n, 4))
+    return v / np.linalg.norm(v, axis=1)[:, None]
+
+
+def kp_x0(k, rng):
+    """x0 in [-1, 1] with density sqrt(1 - x0^2) exp(k x0) (Kennedy and Pendleton)"""
+    n = k.size
+    x0 = np.empty(n)
+    todo = np.arange(n)
+    while todo.size:
+        kk = k[todo]
+        r = 1.0 - rng.random((3, todo.size))
+        delta = -(np.log(r[0]) + np.cos(2 * np.pi * r[1]) ** 2 * np.log(r[2])) / kk
+        acc = rng.random(todo.size) ** 2 <= 1.0 - 0.5 * delta
+        x0[todo[acc]] = 1.0 - delta[acc]
+        todo = todo[~acc]
+    return x0
+
+
+def su2_heatbath(W, rng):
+    """U with density exp((1/2) tr(U W)) dU (Haar), W a positive multiple of an SU(2) element (n, 4)"""
+    k = np.linalg.norm(W, axis=1)
+    k = np.maximum(k, 1e-12)
+    What = W / k[:, None]
+    n = k.size
+    x0 = kp_x0(k, rng)
+    r = np.sqrt(np.maximum(0.0, 1.0 - x0 * x0))
+    ct = 2.0 * rng.random(n) - 1.0
+    st = np.sqrt(np.maximum(0.0, 1.0 - ct * ct))
+    ph = 2.0 * np.pi * rng.random(n)
+    X = np.stack([x0, r * st * np.cos(ph), r * st * np.sin(ph), r * ct], axis=1)
+    return qmul(X, qc(What))
+
+
+def bunk_alpha(lam, kb2):
+    """largest root of a^3 - (1 - 2 lam) a^2 - 4 lam a - 2 lam kb2 = 0 (Newton from above)"""
+    a = 2.0 + 4.0 * lam + np.cbrt(2.0 * lam * kb2)
+    c2 = 1.0 - 2.0 * lam
+    for _ in range(60):
+        f = ((a - c2) * a - 4.0 * lam) * a - 2.0 * lam * kb2
+        fp = (3.0 * a - 2.0 * c2) * a - 4.0 * lam
+        step = f / fp
+        a = a - step
+        if np.max(np.abs(step)) < 1e-13:
+            break
+    return a
+
+
+class Lattice:
+    def __init__(self, L, beta, kappa, lam, seed, T=None, frozen_links=False):
+        self.L, self.T = int(L), int(T or L)
+        assert self.L % 2 == 0 and self.T % 2 == 0
+        self.dims = (self.T, self.L, self.L, self.L)
+        self.V = int(np.prod(self.dims))
+        self.beta, self.kappa, self.lam = float(beta), float(kappa), float(lam)
+        self.rng = np.random.default_rng(seed)
+        self.frozen_links = frozen_links
+        idx = np.arange(self.V).reshape(self.dims)
+        self.up = [np.roll(idx, -1, axis=m).ravel() for m in range(4)]
+        self.dn = [np.roll(idx, +1, axis=m).ravel() for m in range(4)]
+        par = np.indices(self.dims).sum(0).ravel() % 2
+        self.sub = [np.nonzero(par == p)[0] for p in (0, 1)]
+        self.U = np.zeros((4, self.V, 4))
+        self.U[..., 0] = 1.0
+        self.phi = self.rng.normal(size=(self.V, 4)) * np.sqrt(0.5)
+        self.acc_scale = [0, 0]
+        self.acc_phi = [0, 0]
+        self.scale_step = 1.0 / np.sqrt(self.V)
+
+    # ------------------------------------------------------------------ starts
+    def hot_links(self):
+        for m in range(4):
+            self.U[m] = random_su2(self.V, self.rng)
+
+    def gauge_transform(self, g):
+        """phi_x -> g_x phi_x, V_(x,mu) -> g_x V g_(x+mu)^dag"""
+        self.phi = qmul(g, self.phi)
+        for m in range(4):
+            self.U[m] = qmul(qmul(g, self.U[m]), qc(g[self.up[m]]))
+
+    # ------------------------------------------------------------------ updates
+    def staple_sum(self, m, s):
+        U, up, dn = self.U, self.up, self.dn
+        A = np.zeros((s.size, 4))
+        xm = up[m][s]
+        for n in range(4):
+            if n == m:
+                continue
+            # forward: U_(x+m,n) U_(x+n,m)^dag U_(x,n)^dag
+            A += qmul(qmul(U[n][xm], qc(U[m][up[n][s]])), qc(U[n][s]))
+            # backward: U_(x+m-n,n)^dag U_(x-n,m)^dag U_(x-n,n)
+            xd = dn[n][s]
+            A += qmul(qmul(qc(U[n][dn[n][xm]]), qc(U[m][xd])), U[n][xd])
+        return A
+
+    def update_links(self):
+        for m in range(4):
+            for p in (0, 1):
+                s = self.sub[p]
+                W = self.beta * self.staple_sum(m, s)
+                if self.kappa != 0.0:
+                    W += 2.0 * self.kappa * qmul(self.phi[self.up[m][s]], qc(self.phi[s]))
+                self.U[m][s] = su2_heatbath(W, self.rng)
+
+    def neighbour_sum(self, s):
+        b = np.zeros((s.size, 4))
+        for m in range(4):
+            b += qmul(self.U[m][s], self.phi[self.up[m][s]])
+            xd = self.dn[m][s]
+            b += qmul(qc(self.U[m][xd]), self.phi[xd])
+        return b
+
+    def update_phi(self, ntry=4):
+        lam, rng = self.lam, self.rng
+        for p in (0, 1):
+            s = self.sub[p]
+            kb = self.kappa * self.neighbour_sum(s)
+            n = s.size
+            if lam == 0.0:
+                self.phi[s] = kb + rng.normal(size=(n, 4)) * np.sqrt(0.5)
+                continue
+            alpha = bunk_alpha(lam, (kb * kb).sum(1))
+            v = 1.0 + (alpha - 1.0) / (2.0 * lam)
+            centre = kb / alpha[:, None]
+            sig = np.sqrt(0.5 / alpha)
+            todo = np.arange(n)
+            for _ in range(ntry):
+                prop = centre[todo] + rng.normal(size=(todo.size, 4)) * sig[todo, None]
+                r2 = (prop * prop).sum(1)
+                acc = rng.random(todo.size) < np.exp(-lam * (r2 - v[todo]) ** 2)
+                self.phi[s[todo[acc]]] = prop[acc]
+                todo = todo[~acc]
+                if not todo.size:
+                    break
+            self.acc_phi[0] += n - todo.size
+            self.acc_phi[1] += n
+
+    def hop_sum(self):
+        """sum over links of Re Phi_x^dag V Phi_(x+mu)"""
+        h = 0.0
+        for m in range(4):
+            h += float((self.phi * qmul(self.U[m], self.phi[self.up[m]])).sum())
+        return h
+
+    def update_scale(self):
+        """Metropolis move phi -> c phi on the whole lattice, c = exp(s); Jacobian c^(4V)"""
+        r2 = (self.phi * self.phi).sum(1)
+        R2, R4 = float(r2.sum()), float((r2 * r2).sum())
+        H = self.hop_sum()
+        s = self.rng.uniform(-self.scale_step, self.scale_step)
+        c2 = np.exp(2.0 * s)
+        dS = (c2 - 1.0) * (R2 - 2.0 * self.kappa * H) + self.lam * ((c2 * c2 - 1.0) * R4 - 2.0 * (c2 - 1.0) * R2)
+        self.acc_scale[1] += 1
+        if np.log(self.rng.random()) < -dS + 4.0 * self.V * s:
+            self.phi *= np.exp(s)
+            self.acc_scale[0] += 1
+
+    def sweep(self):
+        if not self.frozen_links:
+            self.update_links()
+        self.update_phi()
+        self.update_scale()
+
+    # ------------------------------------------------------------------ observables
+    def plaquette(self):
+        U, up = self.U, self.up
+        tot = 0.0
+        for m in range(4):
+            for n in range(m + 1, 4):
+                P = qmul(qmul(U[m], U[n][up[m]]), qc(qmul(U[n], U[m][up[n]])))
+                tot += float(P[:, 0].sum())
+        return tot / (6.0 * self.V)
+
+    def measure(self):
+        """plaquette, L_phi, L_alpha, rho2, rho4 (lattice averages)"""
+        r2 = (self.phi * self.phi).sum(1)
+        rho = np.sqrt(r2)
+        alpha = self.phi / np.maximum(rho, 1e-300)[:, None]
+        lphi = lalpha = 0.0
+        for m in range(4):
+            t = qmul(self.U[m], self.phi[self.up[m]])
+            d = (self.phi * t).sum(1)
+            lphi += float(d.sum())
+            lalpha += float((d / (rho * rho[self.up[m]])).sum())
+        return np.array([self.plaquette(), lphi / (4.0 * self.V), lalpha / (4.0 * self.V),
+                         float(r2.mean()), float((r2 * r2).mean())])
+
+    def slice_ops(self):
+        """time-slice operators: W-channel (vector part of alpha_x^dag V alpha_(x+i), i spatial; 9 components),
+        and the scalar channel (slice averages of rho^2 and of the spatial L_alpha)"""
+        r2 = (self.phi * self.phi).sum(1)
+        rho = np.sqrt(r2)
+        alpha = self.phi / np.maximum(rho, 1e-300)[:, None]
+        T = self.T
+        W = np.empty((T, 9))
+        la = np.zeros(T)
+        for i in (1, 2, 3):
+            w = qmul(qc(alpha), qmul(self.U[i], alpha[self.up[i]]))
+            W[:, 3 * (i - 1):3 * i] = w[:, 1:].reshape(T, -1, 3).mean(1)
+            la += w[:, 0].reshape(T, -1).mean(1) / 3.0
+        return W, r2.reshape(T, -1).mean(1), la
+
+
+def run_point(lat, ntherm, nmeas, corr=False):
+    """thermalize, measure every sweep; returns means, susceptibilities, series and (optionally) correlators"""
+    for _ in range(ntherm):
+        lat.sweep()
+    rows = np.empty((nmeas, 5))
+    T = lat.T
+    cw = np.zeros(T); cs = np.zeros(T); cl = np.zeros(T); ms = 0.0; ml = 0.0
+    for i in range(nmeas):
+        lat.sweep()
+        rows[i] = lat.measure()
+        if corr:
+            W, S, La = lat.slice_ops()
+            for t in range(T):
+                cw[t] += float((W * np.roll(W, -t, axis=0)).sum()) / (9.0 * T)
+                cs[t] += float((S * np.roll(S, -t)).sum()) / T
+                cl[t] += float((La * np.roll(La, -t)).sum()) / T
+            ms += float(S.mean()); ml += float(La.mean())
+    out = summarize(rows, lat)
+    if corr:
+        out["corr_W"] = (cw / nmeas).tolist()
+        out["corr_rho2_connected"] = (cs / nmeas - (ms / nmeas) ** 2).tolist()
+        out["corr_Lalpha_connected"] = (cl / nmeas - (ml / nmeas) ** 2).tolist()
+    return out, rows
+
+
+def blocked_error(x, nb=10):
+    n = (len(x) // nb) * nb
+    if n < nb:
+        return float("nan")
+    b = np.asarray(x[:n]).reshape(nb, -1).mean(1)
+    return float(b.std(ddof=1) / np.sqrt(nb))
+
+
+def summarize(rows, lat):
+    names = ["plaq", "L_phi", "L_alpha", "rho2", "rho4"]
+    out = {"beta_G": lat.beta, "kappa_H": lat.kappa, "lambda_L": lat.lam, "L": lat.L, "T": lat.T, "nmeas": int(len(rows))}
+    for j, nm in enumerate(names):
+        out[nm] = float(rows[:, j].mean())
+        out[nm + "_err"] = blocked_error(rows[:, j])
+    V = lat.V
+    out["chi_plaq"] = float(6 * V * rows[:, 0].var())
+    out["chi_L_phi"] = float(4 * V * rows[:, 1].var())
+    out["chi_L_alpha"] = float(4 * V * rows[:, 2].var())
+    out["chi_rho2"] = float(V * rows[:, 3].var())
+    # Schwinger-Dyson: <rho^2> - 8 kappa <L_phi> + 2 lambda <rho^4 - rho^2> = 2
+    sd = rows[:, 3] - 8.0 * lat.kappa * rows[:, 1] + 2.0 * lat.lam * (rows[:, 4] - rows[:, 3]) - 2.0
+    out["sd_residual"] = float(sd.mean())
+    out["sd_residual_err"] = blocked_error(sd)
+    out["acc_scale"] = lat.acc_scale[0] / max(1, lat.acc_scale[1])
+    out["acc_phi"] = lat.acc_phi[0] / max(1, lat.acc_phi[1]) if lat.acc_phi[1] else 1.0
+    return out

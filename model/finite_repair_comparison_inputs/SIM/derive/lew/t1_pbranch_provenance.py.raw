@@ -1,0 +1,67 @@
+"""Provenance check for the comparison-branch pixel P_br = 1.630971465307864.
+
+Hypothesis read from inputs.json (source_ancestry): P_br is the forward root of the declared
+MCPR/six-quark pixel-feedback map of model/pixel_mass_closure, with the top transport kernel
+evaluated at m_t = y_t(Q0) v/sqrt2, y_t from the criticality packet, instead of the six-power y_t = 1.
+No measured quantity enters. Writes t1_pbranch_provenance.json.
+"""
+from __future__ import annotations
+
+import json
+
+import lewlib as L
+
+C = L.CLOSURE
+ICC = L.ICC
+
+
+def transport_with_top(b, pixel, alpha_u, mz, v, a3, yt):
+    leptons = [v * x for x in C.mass_coefficients(b, pixel, alpha_u)]
+    lepton = sum((ICC.transport_kernel_exact(b, mz, m, b.one, b.one) for m in leptons), b.zero)
+    quarks = ICC.quark_masses(b, v, {"n_u": (6, 3, 0), "n_d": (6, 4, 2)})
+    quarks["t"] = quarks["t"] * yt
+    quark = b.zero
+    for name, numerator in (("u", 4), ("d", 1), ("s", 1), ("c", 4), ("b", 1), ("t", 4)):
+        quark += ICC.transport_kernel_exact(b, mz, quarks[name], b.num(numerator) / b.num(9), b.num(3))
+    return lepton + (b.one - b.num(3) * a3 / b.pi) * quark
+
+
+class TopPoint(C.Point):
+    def __init__(self, yt, dps=40, cutoff=30):
+        super().__init__("mssm_beta4_proxy", dps, cutoff)
+        self.yt = self.b.num(yt)
+
+    def inner(self, alpha, mode=None):
+        b = self.b
+        p = b.phi + alpha * b.sqrt_pi
+        u, mu = self.solve_alpha_u(p)
+        mz = self.solve_mz(u, p, mu)
+        a = [ICC.alpha_run(b, u, coef, mz, mu) for coef in b.b_mssm]
+        v = ICC.v_transmutation(b, u, p)
+        a0 = ICC.alpha_em_inv(b, a[0], a[1])
+        delta = transport_with_top(b, p, u, mz, v, a[2], self.yt)
+        return {"p": p, "alpha_u": u, "alpha_inv": a0 + delta, "g": b.one / (a0 + delta)}
+
+
+def solve(yt):
+    pt = TopPoint(yt)
+    alpha = pt.fixed_point(None)
+    row = pt.inner(alpha)
+    return {k: pt.b.ctx.nstr(row[k], 20) for k in ("p", "alpha_u", "alpha_inv")}
+
+
+def main():
+    frozen = json.loads((L.AUDIT / "inputs.json").read_text())
+    yt_frozen = frozen["couplings_Q0"]["yt"]
+    out = {"P_br_frozen": L.P_BR,
+           "six_power_top_yt_1": solve("1"),
+           "criticality_top_yt_frozen": solve(repr(yt_frozen)),
+           "yt_frozen": yt_frozen}
+    out["P_br_rel_diff_criticality_top"] = float(out["criticality_top_yt_frozen"]["p"]) / float(L.P_BR) - 1.0
+    out["P_br_rel_diff_six_power_top"] = float(out["six_power_top_yt_1"]["p"]) / float(L.P_BR) - 1.0
+    (L.LANE / "t1_pbranch_provenance.json").write_text(json.dumps(out, indent=2) + "\n")
+    print(json.dumps(out, indent=1))
+
+
+if __name__ == "__main__":
+    main()

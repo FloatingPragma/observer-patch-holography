@@ -1,0 +1,69 @@
+"""Cross-check of the package's reference implementation against the public engine at small levels.
+
+    python il_reference_check.py --sim <simulator checkout> --level 1 --sweeps 300
+
+The public engine is imported read only and run from the declared preparation. The reference implementation of
+rer_package/defect_integer_lift/model.py runs the same schedule in pure Python. Compared: final loads, register,
+classes, and every applied twist (sweep, position, seam, current, depth). Prints the digests the package stores.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+import time
+from pathlib import Path
+
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--sim', required=True)
+    ap.add_argument('--level', type=int, default=1)
+    ap.add_argument('--sweeps', type=int, default=300)
+    args = ap.parse_args()
+    sys.path.insert(0, str(HERE / 'rer_package'))
+    sys.path.insert(0, str(Path(args.sim).resolve()))
+    from defect_integer_lift import model as M
+    from oph_defects import fedgeom as FG
+    from oph_defects.universe import COSTS, Engine, prepare_loads, schedule_seed
+
+    t0 = time.time()
+    fed = M.Federation(args.level)
+    ref = M.run(fed, args.sweeps)
+    t_ref = time.time() - t0
+    geo = FG.build(args.level)
+    loads, _ = prepare_loads('exact06', args.level, geo.ports)
+    eng = Engine(geo, loads, schedule_seed(args.level, 1), COSTS['binding'], 5, track_intra=False, backend='sequential',
+                 register=True, track=False)
+    tw = []
+    for s in range(args.sweeps):
+        seq, coin = eng.draw()
+        for lo in range(0, geo.seams, eng.chunk):
+            hi = min(geo.seams, lo + eng.chunk)
+            n = eng.run_chunk(seq[lo:hi], coin[lo:hi], lo, s)
+            idx = np.flatnonzero(eng.o_twist[:n] > 0)
+            for i in idx.tolist():
+                tw.append((s, lo + i, int(seq[lo + i]), int(eng.o_cur[i]), int(eng.o_dep[i])))
+    same = dict(
+        loads_initial=ref['loads_initial'] == loads.tolist(), loads=ref['loads'] == eng.x.tolist(),
+        register=ref['register'] == eng.reg.tolist(), classes=ref['classes'] == eng.cls.tolist(),
+        twists=[t[:5] for t in ref['twists']] == tw,
+        seams=fed.seams == geo.seams, faces=fed.faces == geo.faces)
+    out = dict(level=args.level, sweeps=args.sweeps, carriers=fed.carriers, seams=fed.seams, applied_twists=len(tw),
+               equal=same, all_equal=all(same.values()),
+               digests=dict(loads=M.digest(ref['loads']), register=M.digest(ref['register']), classes=M.digest(ref['classes']),
+                            twists=M.twist_digest(ref['twists'])),
+               engine_digests=dict(loads=M.digest(eng.x.tolist()), register=M.digest(eng.reg.tolist()),
+                                   classes=M.digest(eng.cls.tolist())),
+               reference_seconds=round(t_ref, 2), gates=M.gates(fed, ref), max_abs_j=ref['max_abs_j'],
+               depth=[ref['depth_min'], ref['depth_max']])
+    print(json.dumps(out, indent=1))
+    return 0 if out['all_equal'] else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,352 @@
+{
+ "M1_basis": {
+  "number_of_generators": 12,
+  "max_defect_of_tr_TaTb_minus_delta_over_2": 1.1102230246251565e-16
+ },
+ "M1_action": {
+  "cost_over_eps2_min_max_over_12_directions": [
+   0.04999999902999264,
+   0.049999999474081847
+  ],
+  "expected": 0.05,
+  "beta_5_times_g2": 10,
+  "Gaussian_form": "S = beta_5 (1 - Re tr5 U_P / 5) = sum_a eps_a^2 / (2 g^2) + O(eps^4), beta_5 = 10 / g^2"
+ },
+ "M1_classes_wilson_cost": [
+  {
+   "k": 0,
+   "det_minus_1": 0.0,
+   "max_commutator_with_basis": 0.0,
+   "wilson_cost_c_k": 0.0
+  },
+  {
+   "k": 1,
+   "det_minus_1": 5.703597753175951e-16,
+   "max_commutator_with_basis": 0.0,
+   "wilson_cost_c_k": 1.7
+  },
+  {
+   "k": 2,
+   "det_minus_1": 1.1799823241321026e-15,
+   "max_commutator_with_basis": 0.0,
+   "wilson_cost_c_k": 0.9000000000000001
+  },
+  {
+   "k": 3,
+   "det_minus_1": 1.579233453346408e-15,
+   "max_commutator_with_basis": 0.0,
+   "wilson_cost_c_k": 0.8000000000000002
+  },
+  {
+   "k": 4,
+   "det_minus_1": 2.0062933157993566e-15,
+   "max_commutator_with_basis": 0.0,
+   "wilson_cost_c_k": 0.8999999999999996
+  },
+  {
+   "k": 5,
+   "det_minus_1": 2.3599646482642044e-15,
+   "max_commutator_with_basis": 0.0,
+   "wilson_cost_c_k": 1.7000000000000004
+  }
+ ],
+ "M1_classes_wilson_cost_exact": [
+  "0",
+  "17/10",
+  "9/10",
+  "4/5",
+  "9/10",
+  "17/10"
+ ],
+ "M1_geodesics": [
+  {
+   "k": 0,
+   "trH2_over_pi2": "8",
+   "H_over_2pi": [
+    "-1",
+    "0",
+    "0",
+    "0",
+    "1"
+   ],
+   "beta_k_=_8pi2/trH2": "1",
+   "Gaussian_cost_times_g2_over_pi2": "8",
+   "exponent_as_multiple_of_1/alpha": 6.283185307179586
+  },
+  {
+   "k": 1,
+   "trH2_over_pi2": "10/3",
+   "H_over_2pi": [
+    "1/3",
+    "1/3",
+    "1/3",
+    "-1/2",
+    "-1/2"
+   ],
+   "beta_k_=_8pi2/trH2": "12/5",
+   "Gaussian_cost_times_g2_over_pi2": "10/3",
+   "exponent_as_multiple_of_1/alpha": 2.6179938779914944
+  },
+  {
+   "k": 2,
+   "trH2_over_pi2": "8/3",
+   "H_over_2pi": [
+    "-1/3",
+    "-1/3",
+    "2/3",
+    "0",
+    "0"
+   ],
+   "beta_k_=_8pi2/trH2": "3",
+   "Gaussian_cost_times_g2_over_pi2": "8/3",
+   "exponent_as_multiple_of_1/alpha": 2.0943951023931953
+  },
+  {
+   "k": 3,
+   "trH2_over_pi2": "2",
+   "H_over_2pi": [
+    "0",
+    "0",
+    "0",
+    "-1/2",
+    "1/2"
+   ],
+   "beta_k_=_8pi2/trH2": "4",
+   "Gaussian_cost_times_g2_over_pi2": "2",
+   "exponent_as_multiple_of_1/alpha": 1.5707963267948966
+  },
+  {
+   "k": 4,
+   "trH2_over_pi2": "8/3",
+   "H_over_2pi": [
+    "-2/3",
+    "1/3",
+    "1/3",
+    "0",
+    "0"
+   ],
+   "beta_k_=_8pi2/trH2": "3",
+   "Gaussian_cost_times_g2_over_pi2": "8/3",
+   "exponent_as_multiple_of_1/alpha": 2.0943951023931953
+  },
+  {
+   "k": 5,
+   "trH2_over_pi2": "10/3",
+   "H_over_2pi": [
+    "-1/3",
+    "-1/3",
+    "-1/3",
+    "1/2",
+    "1/2"
+   ],
+   "beta_k_=_8pi2/trH2": "12/5",
+   "Gaussian_cost_times_g2_over_pi2": "10/3",
+   "exponent_as_multiple_of_1/alpha": 2.6179938779914944
+  }
+ ],
+ "M1_geodesics_note": "k = 0 row: the shortest closed loop (tr H^2 = 8 pi^2, cost 8 pi^2/g^2 = 2 pi/alpha). Class 3: H = pi (0,0,0,1,-1), a half turn of the weak factor, eps = 2 pi along a trace-normalised weak generator; cost (2 pi)^2/(2 g^2) = 2 pi/(4 alpha).",
+ "M1_class3_alternatives": {
+  "class3_through_hypercharge_trH2_over_pi2": "30"
+ },
+ "M1_centre_rule": {
+  "SU(2)": "beta = 2N/(N-1) = 4",
+  "SU(3)": "beta = 3",
+  "class 1 of G through hypercharge": "12/5"
+ },
+ "M1_class3_check": {
+  "exp(iH3)_minus_z3": 1.2246467991473532e-16,
+  "trH3^2_over_pi2": 2.0,
+  "eps_along_T3": 6.283185307179586
+ },
+ "M1_casimir": {
+  "doublet_block": 0.9,
+  "triplet_block": 1.4,
+  "C_H_exact": "3/4 + 3/20 = 9/10",
+  "sum_of_squared_charges_of_the_neutral_level_over_the_4_broken_directions": 0.9
+ },
+ "M2_icosahedral_surface": {
+  "corners_seams_faces": [
+   12,
+   30,
+   20
+  ],
+  "rank_of_face_seam_incidence": 19,
+  "every_seam_in_two_faces": true,
+  "with_opposite_orientation": true,
+  "variance_of_one_face_flux_over_g2": 0.95,
+  "expected_1_minus_1_over_20": 0.95,
+  "max_deviation_of_all_diagonal_entries": 8.881784197001252e-16,
+  "one_seam_at_2pi_gives_face_fluxes": [
+   -2.0,
+   0.0,
+   2.0
+  ],
+  "pair_configuration_lies_in_the_range": 8.439520814317986e-15,
+  "action_of_the_conjugate_pair_times_g2": 39.47841760435743,
+  "expected_2_x_(2pi)^2/2": 39.47841760435743,
+  "statement": "joint density of (+2 pi, -2 pi) on the two faces of one seam relative to the vacuum = exp(-4 pi^2/g^2) = (exp(-2 pi^2/g^2))^2; one face alone cannot carry the flux (class sum zero)"
+ },
+ "M2_cubic_plaquette_variance": {
+  "2": {
+   "L": 64,
+   "variance_over_g2": 0.999755859375,
+   "two_over_d_times_(1 - L^-d)": 0.999755859375,
+   "plaquettes_per_link": 2
+  },
+  "3": {
+   "L": 24,
+   "variance_over_g2": 0.6666184413580246,
+   "two_over_d_times_(1 - L^-d)": 0.6666184413580247,
+   "plaquettes_per_link": 4
+  },
+  "4": {
+   "L": 12,
+   "variance_over_g2": 0.499975887345679,
+   "two_over_d_times_(1 - L^-d)": 0.499975887345679,
+   "plaquettes_per_link": 6
+  }
+ },
+ "M2_rule": "single-plaquette flux variance per generator = 2 g^2/d; a full 2 pi flux on one plaquette has Gaussian weight exp(-(pi d/4)/alpha); d = 2 reproduces the action cost because the plaquettes of a two-dimensional complex are independent",
+ "M2_link_vacuum": {
+  "mean_khat": 2.387602299784322,
+  "plaquette_variance_over_g2_continuous_time": 0.7958674332614407,
+  "plaquette_variance_over_g2_two_field_steps": 1.0622100866045432,
+  "exponent_times_alpha_continuous": 1.9736909203054342,
+  "exponent_times_alpha_two_steps": 1.4788000477533574
+ },
+ "M3_heat_kernel_weights": {
+  "g2_=_4pi/24.3166_(main)": {
+   "1": {
+    "W_k": "2.2517043864e-28",
+    "minus_ln_W_k": 63.66069516931072
+   },
+   "2": {
+    "W_k": "8.54784477877e-19",
+    "minus_ln_W_k": 41.60343758837185
+   },
+   "3": {
+    "W_k": "3.88922567961e-15",
+    "minus_ln_W_k": 33.18056631117922
+   },
+   "4": {
+    "W_k": "8.54784477877e-19",
+    "minus_ln_W_k": 41.60343758837185
+   },
+   "5": {
+    "W_k": "2.2517043864e-28",
+    "minus_ln_W_k": 63.66069516931072
+   },
+   "SU2_factor_exact": "3.88922567961e-15",
+   "SU2_closed_form_2(2S-1)exp(-S)": "3.88922567961e-15",
+   "S_=_pi^2/tau_=_2pi^2/g^2": 38.196425960140786,
+   "per_orientation_Cartan_weight_exp(-S)": "2.57930664549e-17",
+   "Cartan_form_ratio": "5.15861329098e-17",
+   "Cartan_form_over_exp(-S)": "2.0",
+   "nonabelian_density_factor_W3_over_exp(-S)": "150.785703841"
+  },
+  "g2_=_4pi/16.2453_(retired)": {
+   "1": {
+    "W_k": "3.45182971271e-19",
+    "minus_ln_W_k": 42.51021232491959
+   },
+   "2": {
+    "W_k": "8.20866129479e-12",
+    "minus_ln_W_k": 25.525831263641038
+   },
+   "3": {
+    "W_k": "8.27869701122e-10",
+    "minus_ln_W_k": 20.912165339720854
+   },
+   "4": {
+    "W_k": "8.20866129479e-12",
+    "minus_ln_W_k": 25.525831263641038
+   },
+   "5": {
+    "W_k": "3.45182971271e-19",
+    "minus_ln_W_k": 42.51021232491959
+   },
+   "SU2_factor_exact": "8.27869701122e-10",
+   "SU2_closed_form_2(2S-1)exp(-S)": "8.27869701122e-10",
+   "S_=_pi^2/tau_=_2pi^2/g^2": 25.518057567681137,
+   "per_orientation_Cartan_weight_exp(-S)": "8.27272160201e-12",
+   "Cartan_form_ratio": "1.6545443204e-11",
+   "Cartan_form_over_exp(-S)": "2.0",
+   "nonabelian_density_factor_W3_over_exp(-S)": "100.072230271"
+  }
+ },
+ "M3_lowest_sectors_(C, d, class, (p,q), n, 6Y)": [
+  [
+   "0.0",
+   "1",
+   "0",
+   "(0, 0)",
+   "1",
+   "0"
+  ],
+  [
+   "0.6",
+   "1",
+   "0",
+   "(0, 0)",
+   "1",
+   "-6"
+  ],
+  [
+   "0.6",
+   "1",
+   "0",
+   "(0, 0)",
+   "1",
+   "6"
+  ],
+  [
+   "0.9",
+   "2",
+   "3",
+   "(0, 0)",
+   "2",
+   "-3"
+  ],
+  [
+   "0.9",
+   "2",
+   "3",
+   "(0, 0)",
+   "2",
+   "3"
+  ],
+  [
+   "1.4",
+   "3",
+   "2",
+   "(0, 1)",
+   "1",
+   "2"
+  ],
+  [
+   "1.4",
+   "3",
+   "4",
+   "(1, 0)",
+   "1",
+   "-2"
+  ],
+  [
+   "1.5999999999999999",
+   "3",
+   "2",
+   "(0, 1)",
+   "1",
+   "-4"
+  ],
+  [
+   "1.5999999999999999",
+   "3",
+   "4",
+   "(1, 0)",
+   "1",
+   "4"
+  ]
+ ],
+ "M3_relation_to_the_closure": "collar heat time t = 4 pi^2 alpha = 2 pi x (g^2/2): the collar's law is the 2 pi-fold convolution of the unit-face law; exponent of the unit face = pi^2/(g^2/2) = 2 pi^3/t = 2 pi/(4 alpha)"
+}

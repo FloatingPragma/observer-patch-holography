@@ -1,0 +1,112 @@
+"""D3 item 5: which defect in which lattice leaves modes that move in three dimensions with one handedness.
+
+The coin of CF-1 (record x spin, four components) has exactly five anticommuting Hermitian matrices:
+alpha_i = X_r sigma_i (i = 1, 2, 3), Z_r, Y_r. A wall in four dimensions needs four hopping generators and one mass:
+DECLARED here, a fourth routing axis with alpha_4 = Y_r and a real mass exp(-i theta(x_4) Z_r) changing sign across
+two walls (kink, antikink) on a ring of L_4 cells. Axes 1, 2, 3 enter as coin operators exp(-i p_i alpha_i)
+(transverse momenta); period of two ticks in the symmetric frame, S_fwd = S_4 S_3 S_2 S_1, S_rev = S_1 S_2 S_3 S_4.
+Optional DECLARED Wilson-type term r W Z_r with W = sum_(i=1..4) (1 - cos 2 p_i)/2 (axis 4 in position space, range
+two cells): zero at the origin cone of each parity class, 2 at the doublers with two quarter momenta, 4 with four.
+
+Checks: the fourth shift reproduces the routing engine's form P^+ T + P^- T^dagger with alpha_4; Clifford relations
+(exact, integer matrices); the period is unitary.
+Readouts at transverse momentum p_perp in (pi/2) Z^3: number of zero-phase states per wall; near p_perp, the
+three-dimensional cone of the wall states and its handedness o = sign(i tr(A_1 A_2 A_3 tau)) where A_i = d(sin H)/dp_i
+on the bound pair and tau the third Pauli matrix of that pair's own frame (equivalently the sign of the triple
+product of the Bloch vectors): o = +1 or -1 is the handedness of a two-component Weyl cone.
+
+Usage: python wall4d.py <out.json>
+"""
+import json, sys, itertools
+import numpy as np
+import d3lib as d3
+
+X, Y, Z = d3.SIG[0], d3.SIG[1], d3.SIG[2]; I2 = np.eye(2)
+ALPHA = [np.kron(X, d3.SIG[k]) for k in range(3)] + [np.kron(Y, I2)]       # alpha_4 = Y_r
+BETA = np.kron(Z, I2)                                                      # mass generator Z_r
+
+
+def clifford_check():
+    mats = ALPHA + [BETA]; worst = 0.0
+    for a, b in itertools.combinations_with_replacement(range(5), 2):
+        ac = mats[a] @ mats[b] + mats[b] @ mats[a]
+        worst = max(worst, float(np.abs(ac - (2 * np.eye(4) if a == b else 0)).max()))
+    return worst
+
+
+def line_ops(L, theta, r):
+    """S_4 on the ring (alpha_4 = Y_r) and the mass generator K = theta(x) Z_r + r W_4-part (position space)"""
+    T = np.roll(np.eye(L), 1, axis=0)                                      # T |x> = |x + 1>
+    Pp, Pm = (np.eye(4) + ALPHA[3]) / 2, (np.eye(4) - ALPHA[3]) / 2
+    S4 = np.kron(T, Pp) + np.kron(T.T, Pm)
+    W4 = 0.5 * (np.eye(L) - 0.5 * (T @ T + T.T @ T.T))
+    K = np.kron(np.diag(theta), BETA) + r * np.kron(W4, BETA)
+    return S4, K
+
+
+def period(L, theta, r, p):
+    S4, K0 = line_ops(L, theta, r)
+    Wt = sum(0.5 * (1 - np.cos(2 * pi)) for pi in p)                       # transverse Wilson part
+    K = K0 + r * Wt * np.kron(np.eye(L), BETA)
+    e, R = np.linalg.eigh(K)
+    M = (R * np.exp(-1j * e)) @ R.conj().T; Mh = (R * np.exp(-0.5j * e)) @ R.conj().T
+    C = [np.kron(np.eye(L), np.cos(p[i]) * np.eye(4) - 1j * np.sin(p[i]) * ALPHA[i]) for i in range(3)]
+    fwd = S4 @ C[2] @ C[1] @ C[0]; rev = C[0] @ C[1] @ C[2] @ S4
+    return Mh @ rev @ M @ fwd @ Mh
+
+
+def analyse(L, th0, r, label):
+    x = np.arange(L); theta = np.where((x >= L // 4) & (x < 3 * L // 4), th0, -th0).astype(float)
+    kink = np.abs(np.repeat(x, 4) - (L // 4 - 0.5)) < L / 8
+    out = {'label': label, 'cells': L, 'theta0': th0, 'r': r, 'points': []}
+    U0 = period(L, theta, r, (0.0, 0.0, 0.0))
+    out['unitarity_defect'] = float(np.abs(U0.conj().T @ U0 - np.eye(4 * L)).max())
+    tot = {'zero_states_per_wall': 0, 'orientation_sum_at_kink': 0}
+    dq = 1e-5
+    for k in itertools.product(range(4), repeat=3):                       # p_perp in (pi/2) Z^3, 64 points
+        p = tuple(np.pi / 2 * np.array(k))
+        U = period(L, theta, r, p); lam, V = np.linalg.eig(U); E = -np.angle(lam)
+        sel = np.abs(E) < 0.3 * th0                                           # in-gap states near zero (two-tick phase)
+        row = {'p_perp_over_pi/2': list(k), 'zero_phase_states': int(sel.sum())}
+        if sel.any():
+            Q, _ = np.linalg.qr(V[:, sel])
+            row['phases_in_gap'] = sorted(round(float(e), 8) for e in E[sel])
+            row['orientation_by_x4_class'] = []
+            for cls in (0, 1):
+                P = np.diag((kink & (np.repeat(x, 4) % 2 == cls)).astype(float))
+                w, R = np.linalg.eigh(Q.conj().T @ P @ Q); B = Q @ R[:, w > 0.5]
+                if B.shape[1] != 2: row['orientation_by_x4_class'].append({'class': cls, 'states': int(B.shape[1])}); continue
+                B, _ = np.linalg.qr(P @ B)
+                A = []
+                for i in range(3):
+                    pp = list(p); pm = list(p); pp[i] += dq; pm[i] -= dq
+                    sH = lambda W: 1j * (W - W.conj().T) / 2
+                    A.append(B.conj().T @ (sH(period(L, theta, r, pp)) - sH(period(L, theta, r, pm))) @ B / (2 * dq))
+                pa = [np.array([np.real(np.trace(a @ sg)) / 2 for sg in d3.SIG]) for a in A]
+                trip = float(np.dot(pa[0], np.cross(pa[1], pa[2])))
+                o = int(np.sign(trip)) if abs(trip) > 1e-6 else 0
+                row['orientation_by_x4_class'].append({'class': cls, 'states': 2, 'orientation': o,
+                                                       'speeds_per_tick': [round(float(np.linalg.norm(v)) / 2, 6) for v in pa]})
+                tot['orientation_sum_at_kink'] += o
+            tot['zero_states_per_wall'] += int(sel.sum()) // 2
+        out['points'].append(row)
+    out['totals_over_the_64_transverse_points'] = tot
+    return out
+
+
+if __name__ == '__main__':
+    res = {'engine_sha256': d3.ENGINE_SHA, 'clifford_defect': clifford_check()}
+    # the fourth shift against the engine's form (axis 0 of the engine with alpha replaced): direct check
+    L = 8; S4, _ = line_ops(L, np.zeros(L), 0.0)
+    psi = np.random.default_rng(1).normal(size=(L, 4)) + 0j
+    plus = (psi + psi @ ALPHA[3].T) / 2; minus = (psi - psi @ ALPHA[3].T) / 2
+    res['S4_against_P+T+P-T*'] = float(np.abs((S4 @ psi.ravel()).reshape(L, 4) - (np.roll(plus, 1, 0) + np.roll(minus, -1, 0))).max())
+    rows = [analyse(64, 0.3, 0.0, 'native mass step, real mass kink along axis 4'),
+            analyse(64, 0.3, 0.5, 'with the Wilson-type term r = 0.5 (2r > theta_0)')]
+    res['rows'] = rows
+    for r in rows:
+        print(r['label'], '| unitarity', f"{r['unitarity_defect']:.1e}", '| totals', r['totals_over_the_64_transverse_points'])
+        print('   points with in-gap states:', [(p['p_perp_over_pi/2'], p['zero_phase_states'], [o.get('orientation') for o in p.get('orientation_by_x4_class', [])]) for p in r['points'] if p['zero_phase_states']][:20])
+        print('   in-gap phases at p_perp = 0:', r['points'][0].get('phases_in_gap'), 'speeds', [o.get('speeds_per_tick') for o in r['points'][0].get('orientation_by_x4_class', [])])
+    print('clifford', res['clifford_defect'], 'S4 check', res['S4_against_P+T+P-T*'])
+    if len(sys.argv) > 1: json.dump(res, open(sys.argv[1], 'w'), indent=1)

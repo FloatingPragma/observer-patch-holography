@@ -1,0 +1,85 @@
+"""Scorecard of the covariant agreement pump on the actual carrier (numerical, tolerances printed)."""
+import itertools, json, sys
+import numpy as np
+import cap
+
+n, M = cap.N, cap.M
+out = {'describe': cap.describe()}
+
+def channel(rows_by_seam, rho):
+    new = np.zeros_like(rho)
+    for rows in rows_by_seam:
+        for _, K in rows:
+            new += K @ rho @ K.conj().T
+    return new / len(rows_by_seam)
+
+def reference_transition(seam, states):
+    """Native population transition matrix of one event on the sector (uniform coin)."""
+    from model.observer import native
+    idx = {s: i for i, s in enumerate(states)}
+    T = np.zeros((len(states), len(states)))
+    for s, i in idx.items():
+        for coin in (0, 1):
+            nxt, _ = native.native(s, seam, coin)
+            T[idx[tuple(nxt)], i] += .5
+    return T
+
+for total in (1, 2):
+    states = cap.space(total); d = len(states)
+    rows_by_seam = [cap.instrument(seam, total) for seam in cap.SEAMS]
+    comp = max(np.abs(sum(K.conj().T @ K for _, K in rows) - np.eye(d)).max() for rows in rows_by_seam)
+    # population lumping on every matrix unit against the native transition
+    lump = 0.0
+    for seam, rows in zip(cap.SEAMS, rows_by_seam):
+        T = reference_transition(seam, states)
+        Ks = [K for _, K in rows]
+        for i in range(d):
+            for j in range(d):
+                diag = sum(K[:, i] * K[:, j].conj() for K in Ks)       # diagonal of sum K E_ij K^dagger
+                target = T[:, i] if i == j else 0
+                lump = max(lump, np.abs(diag - target).max())
+    # stationary state by iteration from a full-rank start
+    rng = np.random.default_rng(5)
+    X = rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d)); rho = X @ X.conj().T; rho /= np.trace(rho).real
+    for it in range(1, 20001):
+        new = channel(rows_by_seam, rho); step = np.linalg.norm(new - rho); rho = new
+        if step < 1e-14: break
+    rho = (rho + rho.conj().T) / 2
+    ev, evec = np.linalg.eigh(rho)
+    levels = []
+    for val in sorted(set(np.round(ev, 10)), reverse=True):
+        sel = np.abs(ev - val) < 1e-9
+        levels.append((float(val), int(sel.sum())))
+    shell = [i for i, s in enumerate(states) if max(s) == 1]
+    print(f'total load {total}: dimension {d}; completeness defect {comp:.1e}; population lumping defect on all {d*d} matrix units {lump:.1e}')
+    print(f'   stationary state: iterations {it}, last step {step:.1e}; rank {int((ev > 1e-10).sum())}; diagonal on the binary shell min/max {rho.diagonal().real[shell].min():.6f}/{rho.diagonal().real[shell].max():.6f}; weight outside the shell {1 - rho.diagonal().real[shell].sum():.1e}')
+    print('   levels (value x multiplicity):', ', '.join(f'{v:.6f} x{m}' for v, m in levels[:9]))
+    lead = levels[0]
+    print(f'   leading level: multiplicity {lead[1]}, total weight {lead[0]*lead[1]:.4f}, modular gap to the next level {np.log(levels[0][0]/levels[1][0]):.4f}')
+    out[f'total_{total}'] = dict(dimension=d, completeness_defect=float(comp), lumping_defect=float(lump), levels=levels[:12],
+                                 leading_weight=lead[0] * lead[1])
+    if total == 1:
+        # tomography: real span of history effects by depth
+        effs = [np.eye(d, dtype=complex)]; prev = 0
+        for depth in range(1, 6):
+            new = [K.conj().T @ E @ K for E in effs for rows in rows_by_seam for _, K in rows]
+            vecs = np.array([np.concatenate([X.real.ravel(), X.imag.ravel()]) for X in new])
+            rank = int(np.linalg.matrix_rank(vecs, tol=1e-9))
+            u, s, vt = np.linalg.svd(vecs, full_matrices=False)
+            effs = [(row[:d * d] + 1j * row[d * d:]).reshape(d, d) for row in vt[:rank]]
+            print(f'   history effects, depth {depth}: real span {rank} of {d*d}')
+            out.setdefault('effect_span', []).append(rank)
+            if rank == prev or rank == d * d: break
+            prev = rank
+        # covariance: every rotation is implemented by a monomial unitary (permutation times port phases)
+        rots = [tuple(int(v) for v in r) for r in cap._src.rotations()]
+        worst = 0.0
+        for r in rots:
+            Pm = np.zeros((d, d)); 
+            for p in range(n): Pm[r[p], p] = 1
+            cand = Pm @ rho @ Pm.T
+            # the stationary state is covariant up to port rephasing: compare spectra of blocks via invariants
+            worst = max(worst, abs(np.sort(np.linalg.eigvalsh(cand)) - np.sort(ev)).max(), np.abs(np.abs(cand) - np.abs(rho)).max())
+        print(f'   rotation covariance up to port rephasing (moduli of the stationary density under the 60 rotations): defect {worst:.1e}')
+        out['rotation_defect'] = float(worst)
+json.dump(out, open(sys.argv[1], 'w'), indent=1)

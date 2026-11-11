@@ -1,0 +1,54 @@
+{
+ "source": "repair-law/SPECTRUM.md (theory session), status words: SOURCE, CONDITIONAL, FIT, OPEN",
+ "read": "2026-11-10 23:06",
+ "rows": [
+  {
+   "particles": "e, mu, tau (ratios)",
+   "mechanism": "native circulant, Q = 2/3, delta = 2/9",
+   "value": "mu/e 206.7703, tau/e 3477.47 (measured 206.7683, 3477.37)",
+   "status": "Q = 2/3 SOURCE: the coherent seam event's agreeing and repair branches weigh 1/2 each on an active seam (agree 1/6, repair 1/12 + 1/12), so abs(b)/a = 1/sqrt2 with no coin (`reports/DA3.md`, LNAT). delta = 2/9 CONDITIONAL on premise B (one nat per read gives one radian per read) and on a two-object register (C repair components as g and g^-1, E agreeing half as identity, read independently in one tick; LNAT2 builds it); one object alone gives P(xor) = 1/4 (excluded). Dressing -0.79 ppm in delta brings mu/e exact and tau to 1776.969 MeV (+0.43 sigma), not derived"
+  },
+  {
+   "particles": "e, mu, tau (scale)",
+   "mechanism": "determinant weight at E*",
+   "value": "",
+   "status": "CONDITIONAL (declared weight 6^-14/2); DA"
+  },
+  {
+   "particles": "W, Z",
+   "mechanism": "D10 strict branch from P",
+   "value": "80.330, 91.119 GeV",
+   "status": "CONDITIONAL: slopes (33/5, 1, -3) are not yet the source's. Under the CF-1 period both cloud halves are degenerate, so the source census is B (every Weyl multiplet with a boson partner, one Higgs doublet, b = (61/10, -7/6, -5)): the matter half of supersymmetry (`reports/DB2.md`). Class 3 holds L and a Y = +1/2 boson doublet per copy. Missing: one gluino plus one wino (conjugate pairs cannot supply them; GL tests odd adjoint link states) and the Higgs pair with Higgsinos (DB round 3); with census B the closure has an alpha_s Landau pole above m_Z; E_cell DERIVED (DC); M_U reduced to R(P) = 2 pi - (2/3) ln P, the same item as the criticality midpoint; the m_Z reading of the pixel closure is retired (only the cut-scale coupling enters one cell's closure, `reports/DC2.md`); the cut closure fixes 1/alpha(E_cell) = 16.2453 and reproduces the chain exactly if the unified coupling runs from E_cell to M_U with b_above = +8.5131, which GL and DB now target; law selection (LEW)"
+  },
+  {
+   "particles": "Higgs, top",
+   "mechanism": "double criticality at E* exp(-pi) P^(-1/6)",
+   "value": "125.77, 172.63 GeV",
+   "status": "CONDITIONAL: boundary scale (LEW)"
+  },
+  {
+   "particles": "u, d, s, c, b",
+   "mechanism": "the lepton circulant moved to the junction 1 + 3 -> 4",
+   "value": "Y_u proportional to Y_d, Q = 2/3, V_CKM = 1",
+   "status": "EXCLUDED in all 30 readings tried (`reports/DF.md`, `DF2.md`): Z6 cannot tell up from down; phases cannot raise Q above the native 2/3; a Higgs on one face drops out of the observables. The quark class flux lifts the family degeneracy at order one. Needed from the source: a branch-magnitude law of the junction with x = p/q = 0.832 (up, Htilde leg) and 0.622 (down, H leg) against the native 1/2 (post hoc observation: near 5/6 and 1/phi, no weight yet). Worker QM"
+  },
+  {
+   "particles": "neutrinos",
+   "mechanism": "B - L = N - (2/3) n_v is conserved by every operation of the source, so the 16-state content gives Dirac neutrinos and forbids the Majorana pairing (EXACT, `reports/DG.md`)",
+   "value": "Dirac with the common lepton amplitude: m_nu = m_e (excluded); a declared seesaw at M_U with y = 1 gives 1.2 to 2.5 meV, a factor 20 to 40 below the measured floor 0.05 eV",
+   "status": "OPEN. Round 2 (`reports/DG2.md`): both neutrino and electron junctions toggle s2 and are the two adjoint halves of one vertex, so y_nu/y_e = 1 in the source (excluded: m_nu = m_e); the only operator that separates them has degree five and forces y_nu - y_e = 3 (y_d - y_u), a relation to test against QM; Majorana through the Higgs memory is impossible at every order (B - L of every memory product is 0), a singlet register with B - L = -2 would be new; circulant splitting ratio 0.0035 against 0.030; no pair of icosahedral axes gives theta13"
+  },
+  {
+   "particles": "proton, neutron",
+   "mechanism": "m_N = c_N Lambda^(3); Lambda^(3)/E* = 2.785e-20 from the D10 coupling",
+   "value": "0.944 GeV with c_N = 2.775",
+   "status": "CONDITIONAL. c_N is a number of SU(3) with three light quarks only; the repository's 2.775 equals 0.938/0.338 (the world Lambda), so the lane tests alpha_3(m_Z) alone (factor 5.23). Prerequisites the source must supply (`reports/DE.md`): SU(3) matrix links, and one cone per quark species, since four cones per species give b0 = -5 and no asymptotic freedom"
+  },
+  {
+   "particles": "photon, gluon",
+   "mechanism": "class 0, no defect",
+   "value": "0",
+   "status": "conditional classical modes"
+  }
+ ]
+}

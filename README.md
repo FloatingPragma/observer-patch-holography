@@ -80,7 +80,9 @@ proof shows that the whole class of laws cannot work.
   register, analyzer and clock give muon/electron 206.770 and tau/electron
   3477.47 (measured 206.768 and 3477.37). With the measured electron mass,
   those ratios give 105.659 and 1776.99 MeV. The comparisons are postdictions;
-  the register preparation, physical clock and absolute mass scale require
+  [Complete measurement cycles](model/lepton_cycle/README.md) retain all
+  outcomes and bound finite-round errors, including untouched references.
+  Fresh preparation, the physical clock and absolute mass scale require
   attachment to the same observer process.
 - **Defect production and lattice particle physics.** The universe runs
   produce balanced pairs of quark and lepton centre classes. Separate lattice
@@ -88,6 +90,10 @@ proof shows that the whole class of laws cannot work.
   binding of quenched Wilson quarks. Their actions, preparations and physical
   scales are declared separately; these results do not constitute one
   source-derived cosmological cooling history.
+  An [exact closed-cell population law](model/native_abundance_epochs/README.md)
+  gives persistent class share 1007/13824 for independent uniform initial
+  loads and zero flux, with a finite relaxation bound;
+  its classical classes have no cosmological abundance assignment.
   [Interactive viewer](https://particles.floatingpragma.ai/).
 - **The gauge group and its couplings.** Phases on the carrier's ports give
   (SU(3)×SU(2)×U(1))/Z6 on the declared code. A conditional coupling chain
@@ -133,7 +139,7 @@ proof shows that the whole class of laws cannot work.
   supplies conserved crystal momentum, position backaction and finite
   uncertainty. Physical chiral refinement and particle mass identification
   require their own same-state derivations. The
-  [illustrated atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) explains
+  [illustrated field atlas](docs/research/OPH_FINITE_FIELD_RECORDS.svg) explains
   these finite measurements and the remaining physical connections.
 - **Thermal records, work and pressure.** One interacting quantum-flux
   control has a [certified thermal preparation](model/particle_field_state_response/PROOF.md)

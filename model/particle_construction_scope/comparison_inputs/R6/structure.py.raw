@@ -1,0 +1,76 @@
+"""Structure of the alternating tick that the instruments rest on (exact matrix identities, float64 defects printed):
+ 1. rest points of the two-tick symbol: besides p in {0, pi}^3 the 24 momenta with two components +-pi/2 and one in
+    {0, pi}: there S_fwd = +-i sigma_k, S_rev = its inverse, so the two ticks equal M^2 exactly;
+ 2. the count on a 24^3 grid for the alternating order and for the fixed order; cone speeds at the extra points;
+ 3. one lighter cell on a line: sin E_b = sin(theta0) cos(theta_d) / sqrt(1 + sin^2(theta0) - 2 sin(theta0) sin(theta_d)),
+    bound iff sin(theta_d) < sin(theta0); checked against the ring operator;
+ 4. n cells at angle 0: tan(n E) sin E = sqrt(sin^2 theta0 - sin^2 E), checked on a ring of 1024 cells.
+Run: python structure.py [points] [grid] [cell] [ring]   (each part below 20 CPU seconds; merges into structure.json)"""
+import json, itertools, sys
+import numpy as np
+from scipy.optimize import brentq
+from r6lib import Field, routing, dense
+
+SIG = routing.SIG; X = SIG[0]; I4 = np.eye(4)
+parts = sys.argv[1:] or ['points', 'grid', 'cell', 'ring']
+try: out = json.load(open('structure.json'))
+except FileNotFoundError: out = {}
+ex = lambda p, i: np.cos(p) * I4 - 1j * np.sin(p) * np.kron(X, SIG[i])
+M = lambda th: np.cos(th) * I4 - 1j * np.sin(th) * np.kron(SIG[1], np.eye(2))
+fwd = lambda p: ex(p[2], 2) @ ex(p[1], 1) @ ex(p[0], 0); rev = lambda p: ex(p[0], 0) @ ex(p[1], 1) @ ex(p[2], 2)
+th = 0.171237; h = np.pi / 2
+if 'points' in parts:
+    # 1. identities at the extra rest points
+    worst = 0.0; pts = []
+    for k in range(3):                                    # axis k carries 0 or pi, the other two +-pi/2
+        for a in (0.0, np.pi):
+            for s1, s2 in itertools.product((h, -h), repeat=2):
+                p = [0.0, 0.0, 0.0]; p[k] = a; o = [i for i in range(3) if i != k]; p[o[0]] = s1; p[o[1]] = s2
+                F, Rv = fwd(p), rev(p); sk = np.kron(np.eye(2), SIG[k])
+                worst = max(worst, np.abs(Rv @ F - I4).max(), np.abs(M(th) @ Rv @ M(th) @ F - M(2 * th)).max(), min(np.abs(F - 1j * sk).max(), np.abs(F + 1j * sk).max()))
+                pts.append(p)
+    out['extra_rest_points'] = {'count': len(pts), 'max_defect_of_Srev_Sfwd_eq_1_and_two_ticks_eq_M2_and_Sfwd_eq_pm_i_sigma_k': float(worst)}
+    # fixed order at p = (pi/2, pi/2, pi/2): the tick is M X_r, eigenvalues +-1 for every angle (the gap is closed there);
+    # alternating order at the same point: the two ticks equal -1
+    c8 = (h, h, h); Uf = M(th) @ fwd(c8)
+    out['corner_points_pm_half_pi_cubed'] = {'fixed_order_tick_squared_minus_1': float(np.abs(Uf @ Uf - I4).max()),
+                                             'fixed_order_tick_minus_M_Xr': float(np.abs(Uf - M(th) @ np.kron(X, np.eye(2))).max()),
+                                             'alternating_two_ticks_plus_1': float(np.abs(M(th) @ rev(c8) @ M(th) @ fwd(c8) + I4).max())}
+if 'grid' in parts:
+    # 2. counts on a grid, speeds
+    n = 24; g = 2 * np.pi * np.arange(n) / n
+    ph = lambda W: np.min(np.abs(np.angle(np.linalg.eigvals(W)))) / 2
+    alt = sum(ph(M(th) @ rev(p) @ M(th) @ fwd(p)) < th + 1e-9 for p in itertools.product(g, repeat=3))
+    fix = sum(ph(M(th) @ fwd(p) @ M(th) @ fwd(p)) < th + 1e-9 for p in itertools.product(g, repeat=3))
+    out['rest_points_on_24_cubed_grid'] = {'alternating_order_two_tick_phase_le_2theta': int(alt), 'fixed_order_two_tick_phase_le_2theta': int(fix), 'grid_momenta': n ** 3,
+                                           'note': 'fixed order: 8 rest points p in {0,pi}^3 plus the 8 points (+-pi/2)^3 where the phase is 0 for every angle'}
+    sp = []
+    for p0 in ((0, 0, 0), (0, h, h), (h, 0, h), (h, h, 0)):
+        for d in ((1, 0, 0), (0, 1, 0), (0, 0, 1), (1, 1, 1), (1, -2, 3)):
+            q = 0.01; dn = np.array(d) / np.linalg.norm(d); e = np.sort(np.abs(np.angle(np.linalg.eigvals(rev(np.array(p0) + q * dn) @ fwd(np.array(p0) + q * dn))))) / 2
+            sp.append(float(e.max() / q)); sp.append(float(e.min() / q))
+    out['massless_cone_speeds_at_four_points_five_directions'] = {'min': min(sp), 'max': max(sp)}
+if 'cell' in parts:
+    # 3. one cell of angle theta_d on a line
+    rows = []
+    for t0, td in ((0.6, -0.4), (0.5, 0.0), (0.45, 0.2), (0.7, -1.2), (0.5, 0.45), (0.4, 0.6)):
+        L = 256; theta = np.full((L, 1, 1), t0); theta[L // 2] = td; f = Field((L, 1, 1), theta)
+        C = dense(f.C, (L, 1, 1), inner=(2,)); top = np.linalg.eigvalsh((C + C.conj().T) / 2)[-1]; S, D = np.sin(t0), np.sin(td) * np.sin(t0)
+        bound = np.sin(td) < np.sin(t0); formula = float(np.arcsin(np.sqrt((S * S - D * D) / (1 + S * S - 2 * D)))) if bound else None
+        rows.append({'theta0': t0, 'theta_d': td, 'ring_256_lowest_phase': float(np.arccos(top)), 'closed_form': formula,
+                     'defect': None if formula is None else abs(formula - float(np.arccos(top))), 'band_edge_minus_lowest': float(t0 - np.arccos(top))})
+    out['one_cell_on_a_line'] = rows
+    out['one_cell_native_angles'] = []
+    for t0, td in ((0.157935, 0.087847), (0.157935, 0.042383), (0.087847, 0.042383), (0.171237, 0.0)):
+        S, D = np.sin(t0), np.sin(td) * np.sin(t0)
+        out['one_cell_native_angles'].append({'theta0': t0, 'theta_d': td, 'E_bound': float(np.arcsin(np.sqrt((S * S - D * D) / (1 + S * S - 2 * D))))})
+if 'ring' in parts:
+    # 4. cavity equation on a long ring
+    L = 1024; rows = []
+    for ncav in (1, 8):
+        theta = np.full((L, 1, 1), th); theta[L // 2:L // 2 + ncav] = 0.0; f = Field((L, 1, 1), theta, direct=True)
+        C = dense(f.C, (L, 1, 1), inner=(2,)); top = np.linalg.eigvalsh((C + C.conj().T) / 2)[-1]
+        root = brentq(lambda E: np.tan(ncav * E) * np.sin(E) - np.sqrt(np.sin(th) ** 2 - np.sin(E) ** 2), 1e-9, min(th, np.pi / (2 * ncav)) - 1e-12, xtol=1e-15)
+        rows.append({'cells': ncav, 'ring_1024': float(np.arccos(top)), 'equation': float(root), 'defect': abs(float(np.arccos(top)) - root)})
+    out['cavity_equation_ring_1024'] = rows
+json.dump(out, open('structure.json', 'w'), indent=1); print(json.dumps({k: out[k] for k in out if k not in ('one_cell_on_a_line',)}, indent=1))

@@ -1,0 +1,59 @@
+{
+ "field_tick_vs_engine_forward": 0.0,
+ "field_tick_vs_engine_reverse": 0.0,
+ "shift_on_one_cell_axis_is_identity": 6.206335383118183e-17,
+ "shift_vs_shift_direct": 5.551115123125783e-17,
+ "two_reflections": {
+  "line_UsR_squared_minus_1": 1.5700924586837752e-16,
+  "line_engine_frame_defect": 0.17449269978332466,
+  "line_record_identity_defect": 1.1102230246251565e-16,
+  "3d_UsR_squared_minus_1": 2.0490308144984482e-16,
+  "3d_engine_frame_defect": 0.07429356785394645,
+  "3d_fixed_order_defect": 0.18993824656448535,
+  "3d_record_identity_defect": 2.7755575615628914e-16
+ },
+ "line_ring_10": {
+  "C_hermitian_defect": 9.71445146547012e-17,
+  "W_unitary_defect": 5.551115123125783e-16,
+  "cos_phases_of_W_vs_eig_C_each_twice": 6.661338147750939e-16
+ },
+ "3d_4x4x4": {
+  "C_hermitian_defect": 1.1102230246251565e-16,
+  "W_unitary_defect": 1.6653345369377348e-15,
+  "cos_phases_of_W_vs_eig_C_each_twice": 3.1086244689504383e-15
+ },
+ "frames_one_axis": [
+  {
+   "p": 0.0,
+   "engine_frame": 0.024736760605389565,
+   "symmetric_frame": 0.02473676060538956,
+   "sin2E": 0.02473676060538954,
+   "defect_sym": 2.0816681711721685e-17,
+   "defect_engine_formula": 2.42861286636753e-17
+  },
+  {
+   "p": 0.09817477042468103,
+   "engine_frame": 0.03386881048500938,
+   "symmetric_frame": 0.03410646544439185,
+   "sin2E": 0.034106465444391776,
+   "defect_sym": 7.632783294297951e-17,
+   "defect_engine_formula": 9.020562075079397e-17
+  },
+  {
+   "p": 0.2945243112740431,
+   "engine_frame": 0.10483305859891151,
+   "symmetric_frame": 0.10691750652651423,
+   "sin2E": 0.10691750652651422,
+   "defect_sym": 1.3877787807814457e-17,
+   "defect_engine_formula": 1.3877787807814457e-17
+  }
+ ],
+ "parity_classes": {
+  "weight_outside_opposite_class_after_one_tick": 8.519665671285215e-33,
+  "weight_outside_own_class_after_two_ticks": 2.1706443583414188e-32
+ },
+ "ms_per_tick_256_public": 0.246,
+ "ms_per_tick_256_direct": 0.164,
+ "ms_per_tick_24_public": 36.306,
+ "ms_per_tick_24_direct": 16.942
+}

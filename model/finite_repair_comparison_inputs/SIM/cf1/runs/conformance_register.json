@@ -1,0 +1,81 @@
+{
+ "suite": "CF-1 conformance, register items (m1), (m2)",
+ "float": "float64",
+ "items": {
+  "m1": {
+   "value": 0.17546811261721132,
+   "bound": 0.1754681126162113,
+   "bound_is": "lower",
+   "pass": true,
+   "what": "no register: [exp(-i theta Z_r), G_x] on a state with the quantum on cell x has norm 2 sin(theta) (theta 0.087847, 2 x 2 x 1, eight quantum links): the toggle moves the Z2 charge",
+   "two_sin_theta": 0.17546811261721132,
+   "R8_value": 0.17546811261721132
+  },
+  "m2": {
+   "value": 0.0,
+   "bound": 1e-14,
+   "bound_is": "upper",
+   "pass": true,
+   "what": "with the Higgs register: the complete tick (half-step frame, both axis orders, field step eps 0.3, kappa 0.2) commutes with every extended G_x; max over cells, ticks t = 0, 1 and theta 0.087847, 0.157935 (R8: 1.8e-16)",
+   "R8_value": [
+    1.7569653407636823e-16,
+    1.779672461458249e-16
+   ]
+  }
+ },
+ "hashes": {
+  "cf1_register.py": "030de6abd601c9d5da670e480323cc1c039626545bdf2d46d7414bf8f7b4f230",
+  "cf1_lib.py": "df8fbe4df1f206180df0c1a00d690239be73f329ada978aa4c3d3b71e1c81baf",
+  "ref/routing.py": "692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891",
+  "R1/cf1.py": "096e24b9111daa7ffe29532c774aec2b52162500564b4524a3a001b784735779"
+ },
+ "details": {
+  "theta_0.087847": {
+   "mass_step_plain_on_occupied_cell": 0.17546811261721132,
+   "mass_step_lifted_extended_Gauss_on_occupied_cell": 0.0,
+   "tick_t0_plain_max_over_cells": 0.062128351076847735,
+   "tick_t0_register_max_over_cells": 0.0,
+   "tick_t0_register_unitarity": 6.661338147750939e-16,
+   "tick_t1_plain_max_over_cells": 0.06212835107684773,
+   "tick_t1_register_max_over_cells": 0.0,
+   "tick_t1_register_unitarity": 2.220446049250313e-16,
+   "R8_frame_tick_register_max_over_cells": 0.0,
+   "tick_t0_register_seam_form_shift_max_over_cells": 1.754962580963366e-16,
+   "R8_frame_tick_register_seam_form_shift_max_over_cells": 1.7569653407636823e-16
+  },
+  "theta_0.157935": {
+   "mass_step_plain_on_occupied_cell": 0.3145584880774297,
+   "mass_step_lifted_extended_Gauss_on_occupied_cell": 0.0,
+   "tick_t0_plain_max_over_cells": 0.11161677520142735,
+   "tick_t0_register_max_over_cells": 0.0,
+   "tick_t0_register_unitarity": 4.440892098500626e-16,
+   "tick_t1_plain_max_over_cells": 0.11161677520142739,
+   "tick_t1_register_max_over_cells": 0.0,
+   "tick_t1_register_unitarity": 2.220446049250313e-16,
+   "R8_frame_tick_register_max_over_cells": 0.0,
+   "tick_t0_register_seam_form_shift_max_over_cells": 1.753587319143308e-16,
+   "R8_frame_tick_register_seam_form_shift_max_over_cells": 1.779672461458249e-16
+  }
+ },
+ "further_lattices_theta_0.157935": {
+  "(2, 1, 1)": {
+   "links": 2,
+   "higgs_bits": 2,
+   "register": 0.0,
+   "plain": 0.1577709075870066
+  },
+  "(3, 1, 1)": {
+   "links": 3,
+   "higgs_bits": 3,
+   "register": 0.0,
+   "plain": 0.12900902597790662
+  },
+  "(4, 1, 1)": {
+   "links": 4,
+   "higgs_bits": 4,
+   "register": 0.0,
+   "plain": 0.11198932419629205
+  }
+ },
+ "all_pass": true
+}

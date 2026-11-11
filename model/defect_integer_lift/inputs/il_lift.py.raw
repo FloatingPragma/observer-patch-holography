@@ -1,0 +1,688 @@
+"""Integer lift of the Z6 defect register of a universe run, with its exact gates and the census.
+
+    python il_lift.py --run <SIM>/runs/universe/L5 --history history_L5.npz --out census_L5.json
+
+Inputs: a stored run directory (read only) and the twist history written by il_history.py. The lift itself is built
+here from the twist list alone, with the seam and face tables of the run manifest. No simulator module is imported.
+
+Definitions (CANDIDATES.md section 0): integer link n_s per seam, zero at the start, every applied twist adds its
+integer current j. Face value m_f = sum of n_s over the seams the face traverses a to b minus the sum over the seams
+it traverses b to a. An applied twist adds j to its plus face and subtracts j from its minus face.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import sys
+import time
+from collections import Counter, defaultdict
+from pathlib import Path
+
+import numpy as np
+
+A_SET = frozenset((0, 1, -1, 2, -2, 3, -3, 4, -4, 6, -6))      # 6Y on the 32 patterns of the five-level code
+MINIMAL = {0: (0,), 1: (1,), 2: (2,), 3: (3, -3), 4: (-2,), 5: (-1,)}
+TYPES = ('births', 'moves', 'annihilations', 'fusions', 'splits', 'exchanges')
+CAT_COLUMNS = ('cls', 'birth_sweep', 'birth_depth', 'death_sweep', 'death_depth', 'birth_face', 'last_face', 'hops',
+               'partner', 'parent1', 'parent2', 'cause', 'child1', 'child2')
+NULL_SEED = 20261111
+
+
+def sha256(path) -> str:
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+class StoredRun:
+    """The stored run, read only: manifest tables, glue faces, cut files, catalogue."""
+
+    def __init__(self, path):
+        self.path = Path(path)
+        self.meta = json.loads((self.path / 'run.json').read_text())
+        g = self.meta['geometry']
+        self.level, self.N, self.P, self.S = g['level'], g['carriers'], g['ports'], g['seams']
+        self.SI, self.F, self.FI = g['intra_seams'], g['faces'], g['intra_faces']
+        self.tfaces = np.asarray(g['template_faces'], np.int64)
+        self.tplus = np.asarray(g['template_face_plus'], np.int64)
+        self.tminus = np.asarray(g['template_face_minus'], np.int64)
+        with np.load(self.path / 'geometry.npz') as z:
+            self.glue_fp = z['glue_fp'].astype(np.int64)
+            self.glue_fm = z['glue_fm'].astype(np.int64)
+        self.cuts = self.meta['cuts']
+        self.end = self.meta['end']
+
+    def seam_faces(self, seam):
+        s = np.asarray(seam, np.int64)
+        intra = s < self.SI
+        c, k = np.divmod(np.where(intra, s, 0), 30)
+        g = np.where(intra, 0, s - self.SI)
+        fp = np.where(intra, 20 * c + self.tplus[k], self.glue_fp[g])
+        fm = np.where(intra, 20 * c + self.tminus[k], self.glue_fm[g])
+        return fp, fm
+
+    def cut_state(self, entry):
+        """Class of every face on a stored cut (zero where the cut lists no defect), and the loads if stored."""
+        with np.load(self.path / entry['file']) as z:
+            cls = np.zeros(self.F, np.int64)
+            cls[z['screen_face']] = z['screen_cls']
+            if 'intra_face' in z.files:
+                cls[z['intra_face']] = z['intra_cls']
+            loads = z['loads'].astype(np.int64) if 'loads' in z.files else None
+            has_intra = 'intra_face' in z.files
+        return cls, loads, has_intra
+
+    def catalogue(self):
+        with np.load(self.path / 'catalogue.npz') as z:
+            return {k: z[k] for k in CAT_COLUMNS}
+
+
+def face_values_pre_post(fp, fm, j, F):
+    """Value of both faces of every applied twist before and after it (schedule order), from prefix sums per face."""
+    E = j.size
+    face2 = np.concatenate([fp, fm])
+    step2 = np.concatenate([j, -j])
+    eidx2 = np.concatenate([np.arange(E), np.arange(E)])
+    order = np.lexsort((eidx2, face2))
+    fs, vs = face2[order], step2[order]
+    cs = np.cumsum(vs)
+    first = np.r_[True, fs[1:] != fs[:-1]]
+    start = np.flatnonzero(first)
+    grp = np.cumsum(first) - 1
+    offset = np.r_[0, cs[start[1:] - 1]]
+    post_sorted = cs - offset[grp]
+    pre_sorted = post_sorted - vs
+    post2 = np.empty(2 * E, np.int64)
+    pre2 = np.empty(2 * E, np.int64)
+    post2[order] = post_sorted
+    pre2[order] = pre_sorted
+    return pre2[:E], pre2[E:], post2[:E], post2[E:], (order, fs, first)
+
+
+def event_types(k1, k2, n1, n2):
+    """Index into TYPES for every applied twist, from the classes of its two faces before and after."""
+    t = np.full(k1.size, -1, np.int64)
+    flat1, flat2 = k1 == 0, k2 == 0
+    t[flat1 & flat2] = 0
+    one = flat1 ^ flat2
+    emptied = np.where(flat2, n1 == 0, n2 == 0)
+    t[one & emptied] = 1
+    t[one & ~emptied] = 4
+    both = ~flat1 & ~flat2
+    t[both & (n1 == 0) & (n2 == 0)] = 2
+    t[both & ((n1 == 0) ^ (n2 == 0))] = 3
+    t[both & (n1 != 0) & (n2 != 0)] = 5
+    assert (t >= 0).all()
+    return t
+
+
+def rebuild_identities(fp, fm, pre_p, pre_m, post_p, post_m, depth, sweep, F):
+    """The identity rule of the run (pre and post classes of the two faces decide), rebuilt from the twist list.
+
+    Every identity also gets its integer value at birth, its current value and the number of moves that changed
+    the value. Returns the catalogue columns and the three integer columns."""
+    f1l, f2l = fp.tolist(), fm.tolist()
+    a1, a2, b1, b2 = pre_p.tolist(), pre_m.tolist(), post_p.tolist(), post_m.tolist()
+    dl, sl = depth.tolist(), sweep.tolist()
+    face_id = [-1] * F
+    cls, bs, bd, ds, dd, bface, lface, hops = [], [], [], [], [], [], [], []
+    partner, p1, p2, cause, c1, c2 = [], [], [], [], [], []
+    mb, mc, shed = [], [], []
+
+    def new(klass, face, q1, q2, value, s, d):
+        i = len(cls)
+        cls.append(klass); bs.append(s); bd.append(d); ds.append(-1); dd.append(-1); bface.append(face)
+        lface.append(face); hops.append(0); partner.append(-1); p1.append(q1); p2.append(q2); cause.append(0)
+        c1.append(-1); c2.append(-1); mb.append(value); mc.append(value); shed.append(0)
+        face_id[face] = i
+        return i
+
+    def die(i, why, other, s, d):
+        ds[i] = s; dd[i] = d; cause[i] = why; partner[i] = other
+
+    for e in range(len(f1l)):
+        f1 = f1l[e]; f2 = f2l[e]
+        v1 = a1[e]; v2 = a2[e]; w1 = b1[e]; w2 = b2[e]
+        k1 = v1 % 6; k2 = v2 % 6; n1 = w1 % 6; n2 = w2 % 6
+        if k1 and not k2:
+            i = face_id[f1]
+            if mc[i] != v1:
+                raise AssertionError('identity value differs from its face value')
+            if not n1:                                   # move from the plus face to the minus face
+                face_id[f2] = i; face_id[f1] = -1; hops[i] += 1; lface[i] = f2
+                if w2 != v1:
+                    shed[i] += 1
+                    mc[i] = w2
+            else:                                        # split of the defect on the plus face
+                s = sl[e]; d = dl[e]
+                die(i, 3, -1, s, d)
+                h = new(n1, f1, i, -1, w1, s, d); w = new(n2, f2, i, -1, w2, s, d)
+                partner[h] = w; partner[w] = h; c1[i] = h; c2[i] = w
+        elif k2 and not k1:
+            i = face_id[f2]
+            if mc[i] != v2:
+                raise AssertionError('identity value differs from its face value')
+            if not n2:                                   # move from the minus face to the plus face
+                face_id[f1] = i; face_id[f2] = -1; hops[i] += 1; lface[i] = f1
+                if w1 != v2:
+                    shed[i] += 1
+                    mc[i] = w1
+            else:                                        # split of the defect on the minus face
+                s = sl[e]; d = dl[e]
+                die(i, 3, -1, s, d)
+                h = new(n2, f2, i, -1, w2, s, d); w = new(n1, f1, i, -1, w1, s, d)
+                partner[h] = w; partner[w] = h; c1[i] = h; c2[i] = w
+        elif not k1:                                     # pair birth
+            s = sl[e]; d = dl[e]
+            h = new(n1, f1, -1, -1, w1, s, d); w = new(n2, f2, -1, -1, w2, s, d)
+            partner[h] = w; partner[w] = h
+        else:
+            s = sl[e]; d = dl[e]
+            i1 = face_id[f1]; i2 = face_id[f2]
+            if mc[i1] != v1 or mc[i2] != v2:
+                raise AssertionError('identity value differs from its face value')
+            if not n1 and not n2:
+                die(i1, 1, i2, s, d); die(i2, 1, i1, s, d); face_id[f1] = -1; face_id[f2] = -1
+            elif not n1:
+                die(i1, 2, i2, s, d); die(i2, 2, i1, s, d); face_id[f1] = -1
+                h = new(n2, f2, i1, i2, w2, s, d); c1[i1] = h; c1[i2] = h
+            elif not n2:
+                die(i1, 2, i2, s, d); die(i2, 2, i1, s, d); face_id[f2] = -1
+                h = new(n1, f1, i1, i2, w1, s, d); c1[i1] = h; c1[i2] = h
+            else:
+                die(i1, 4, i2, s, d); die(i2, 4, i1, s, d)
+                h = new(n1, f1, i1, i2, w1, s, d); w = new(n2, f2, i2, i1, w2, s, d)
+                c1[i1] = h; c2[i1] = w; c1[i2] = h; c2[i2] = w
+    cols = dict(cls=cls, birth_sweep=bs, birth_depth=bd, death_sweep=ds, death_depth=dd, birth_face=bface, last_face=lface,
+                hops=hops, partner=partner, parent1=p1, parent2=p2, cause=cause, child1=c1, child2=c2)
+    cols = {k: np.asarray(v, np.int64) for k, v in cols.items()}
+    return cols, np.asarray(mb, np.int64), np.asarray(mc, np.int64), np.asarray(shed, np.int64), np.asarray(face_id, np.int64)
+
+
+def fmt(v) -> str:
+    return f'{int(v):+d}' if v else '0'
+
+
+class Words:
+    """Composition and integer word of a carrier from the sorted values of its twenty faces (cached)."""
+
+    def __init__(self):
+        self.cache = {}
+
+    def describe(self, row):
+        key = row.tobytes()
+        hit = self.cache.get(key)
+        if hit is None:
+            vals = [int(v) for v in row.tolist()]
+            defects = sorted(((v % 6, -v) for v in vals if v % 6), key=lambda t: t)
+            hidden = sorted((v for v in vals if v and v % 6 == 0), reverse=True)
+            comp = '{' + ','.join(str(k) for k, _ in defects) + '}'
+            word = '(' + ','.join(fmt(-nv) for _, nv in defects)
+            word += ('|' + ','.join(fmt(h) for h in hidden) if hidden else '') + ')'
+            dv = [-nv for _, nv in defects]
+            hit = dict(composition=comp, word=word, hidden=bool(hidden),
+                       in_A=all(v in A_SET for v in dv) and all(h in A_SET for h in hidden),
+                       minimal=all(-nv in MINIMAL[k] for k, nv in defects),
+                       defect_total=sum(dv), max_abs=max([abs(v) for v in vals] or [0]))
+            self.cache[key] = hit
+        return hit
+
+
+def carrier_words(m_intra, N, words: Words):
+    """Counter of (composition, word) over the carriers that hold a nonzero value."""
+    rows = np.sort(m_intra.reshape(N, 20), axis=1)
+    busy = rows.any(axis=1)
+    out = Counter()
+    if busy.any():
+        if int(np.abs(rows).max()) > 120:
+            raise AssertionError('face value outside the int8 range')
+        uniq, cnt = np.unique(rows[busy].astype(np.int8), axis=0, return_counts=True)
+        for row, n in zip(uniq, cnt.tolist()):
+            d = words.describe(row)
+            out[(d['composition'], d['word'])] += n
+    return out, int(busy.sum())
+
+
+def value_hist(m):
+    vals, cnt = np.unique(m[m != 0], return_counts=True)
+    return {int(v): int(n) for v, n in zip(vals.tolist(), cnt.tolist())}
+
+
+def by_class(hist):
+    out = {str(k): {} for k in range(6)}
+    for v, n in sorted(hist.items()):
+        out[str(v % 6)][fmt(v)] = n
+    return out
+
+
+def reading_summary(hist):
+    """Shares of the defect faces (nonzero class) and of the hidden values under the readings."""
+    defect = {v: n for v, n in hist.items() if v % 6}
+    hidden = {v: n for v, n in hist.items() if v % 6 == 0}
+    nd = sum(defect.values())
+    out = dict(defect_faces=nd, hidden_faces=sum(hidden.values()),
+               defect_in_A=sum(n for v, n in defect.items() if v in A_SET),
+               defect_minimal=sum(n for v, n in defect.items() if v in MINIMAL[v % 6]),
+               defect_abs4=sum(n for v, n in defect.items() if abs(v) == 4),
+               defect_abs5=sum(n for v, n in defect.items() if abs(v) == 5),
+               defect_abs7plus=sum(n for v, n in defect.items() if abs(v) >= 7),
+               hidden_abs6=sum(n for v, n in hidden.items() if abs(v) == 6),
+               hidden_abs12plus=sum(n for v, n in hidden.items() if abs(v) >= 12),
+               max_abs=max([abs(v) for v in hist] or [0]))
+    return out
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--run', required=True)
+    ap.add_argument('--history', required=True)
+    ap.add_argument('--out', required=True)
+    ap.add_argument('--skip-loads', action='store_true')
+    ap.add_argument('--stored-end-classes-sha256', default='', help='sha256 of the int8 class array of the stored final checkpoint')
+    ap.add_argument('--stored-end-register-sha256', default='', help='sha256 of the int8 register array of the stored final checkpoint')
+    args = ap.parse_args()
+    t0 = time.time()
+    run = StoredRun(args.run)
+    hz = np.load(args.history)
+    hmeta = json.loads(bytes(hz['meta']).decode())
+    cfg = run.meta['config']
+    assert hmeta['level'] == run.level and hmeta['sweeps'] == run.meta['sweeps'] and hmeta['seed'] == cfg['seed']
+    assert hmeta['cost'] == cfg['cost_table'] and hmeta['kappa'] == cfg['kappa'] and cfg['prep'] == 'exact06'
+    N, F, FI, S = run.N, run.F, run.FI, run.S
+    seam = hz['ev_seam'].astype(np.int64)
+    j = hz['ev_j'].astype(np.int64)
+    depth = hz['ev_depth'].astype(np.int64)
+    sweep = hz['ev_sweep'].astype(np.int64)
+    pos = hz['ev_pos'].astype(np.int64)
+    E = int(j.size)
+    fp, fm = run.seam_faces(seam)
+    assert (fp != fm).all()
+    gpos = sweep * S + pos
+    assert (np.diff(gpos) > 0).all(), 'the twist list is not in schedule order'
+    gates = {}
+    out = {'schema': 'il.census.v1', 'level': run.level, 'carriers': N, 'faces': F, 'intra_faces': FI,
+           'screen_plaquettes': F - FI, 'sweeps': run.meta['sweeps'], 'applied_twists': E}
+
+    # ---- stored per-sweep counts against the history
+    with np.load(run.path / 'stats.npz') as z:
+        stored_applied = z['twists_accepted'].astype(np.int64)
+        end_depth = int(z['depth_max'][-1])
+    same_counts = bool((stored_applied == hz['sweep_applied']).all())
+
+    # ---- G4, G5
+    band_at = int(run.meta['totals']['attempts_to_balanced_class'])
+    after_band = gpos >= band_at
+    gates['G5_current_bound'] = dict(
+        passed=bool(np.abs(j).max() <= 3 and (np.abs(j[after_band]) == 1).all()),
+        max_abs_j=int(np.abs(j).max()), applied_by_abs_j={str(a): int((np.abs(j) == a).sum()) for a in (1, 2, 3)},
+        applied_after_band=int(after_band.sum()), max_abs_j_after_band=int(np.abs(j[after_band]).max()) if after_band.any() else 0,
+        attempts_to_band=band_at)
+    pre_p, pre_m, post_p, post_m, (order, fs, first) = face_values_pre_post(fp, fm, j, F)
+    gates['G4_twist_conserves_pair_sum'] = dict(passed=bool(((pre_p + pre_m) == (post_p + post_m)).all()), twists=E)
+    d2 = np.concatenate([depth, depth])[order]
+    inc = np.diff(d2) > 0
+    assert bool(inc[~first[1:]].all()), 'depth does not increase along the twists of one face'
+
+    # ---- event types and identities (G6)
+    k1, k2, n1, n2 = pre_p % 6, pre_m % 6, post_p % 6, post_m % 6
+    etype = event_types(k1, k2, n1, n2)
+    type_counts = {name: int((etype == i).sum()) for i, name in enumerate(TYPES)}
+    tracked_all = bool(cfg['track_intra'])
+    if tracked_all:
+        stored_types = run.meta['tracker_totals']
+    else:                                         # the stored tracker covers the screen tier only
+        scr = fp >= FI
+        stored_types = run.meta['tracker_totals']
+        type_counts_screen = {name: int(((etype == i) & scr).sum()) for i, name in enumerate(TYPES)}
+    t1 = time.time()
+    if tracked_all:
+        cols, m_birth, m_last, shed, face_id = rebuild_identities(fp, fm, pre_p, pre_m, post_p, post_m, depth, sweep, F)
+        cat = run.catalogue()
+        same_cat = {c: bool(cols[c].size == cat[c].size and (cols[c] == cat[c].astype(np.int64)).all()) for c in CAT_COLUMNS}
+        ids = int(cols['cls'].size)
+    else:
+        sel = np.flatnonzero(fp >= FI)
+        cols, m_birth, m_last, shed, face_id = rebuild_identities(
+            fp[sel] - FI, fm[sel] - FI, pre_p[sel], pre_m[sel], post_p[sel], post_m[sel], depth[sel], sweep[sel], F - FI)
+        cat = run.catalogue()
+        for c in ('birth_face', 'last_face'):
+            cols[c] = cols[c] + FI
+        same_cat = {c: bool(cols[c].size == cat[c].size and (cols[c] == cat[c].astype(np.int64)).all()) for c in CAT_COLUMNS}
+        ids = int(cols['cls'].size)
+    print(f'identities rebuilt: {ids} in {time.time() - t1:.0f}s', flush=True)
+    gates['G6_twist_list_reproduces_the_run'] = dict(
+        passed=bool(same_counts and all(same_cat.values())
+                    and (type_counts if tracked_all else type_counts_screen) == {k: int(v) for k, v in stored_types.items()}),
+        applied_per_sweep_equal_stats=same_counts, identities=ids, identities_stored=int(cat['cls'].size),
+        catalogue_columns_equal=same_cat, event_types=type_counts, event_types_stored=stored_types,
+        tiers_tracked='both' if tracked_all else 'screen only')
+
+    # ---- cuts: G1, G2, G3 and the census on every stored cut and at the end
+    by_depth = np.argsort(depth, kind='stable')
+    dsorted = depth[by_depth]
+    entries = list(run.cuts) + [dict(run.end, depth=None)]
+    cut_depths = [c['depth'] for c in run.cuts]
+    bounds = np.searchsorted(dsorted, np.asarray(cut_depths, np.int64), side='right').tolist() + [E]
+    words = Words()
+    m = np.zeros(F, np.int64)
+    rng = np.random.default_rng(NULL_SEED)
+    sgn = np.sign(j)
+    j_null = np.where(rng.integers(0, 2, size=E).astype(bool), j - 6 * sgn, j)       # N2: the other representative
+    m_null = np.zeros(F, np.int64)
+    series = dict(depth=[], k=[], unsettled=[], intra=[], screen=[], carriers_busy=[], words=[], null_intra=[], null_screen=[])
+    g1 = g2 = g3 = True
+    g1_detail = dict(cuts=0, faces_compared=0, mismatches=0, intra_compared_on=0)
+    g2_detail = dict(carrier_cuts=0, nonzero_totals=0)
+    g3_detail = dict(cuts=0, nonzero_totals=0)
+    # loads (item h)
+    tf = run.tfaces
+    do_loads = not args.skip_loads
+    ports3 = None
+    pools = {name: np.zeros((5, 216), np.int64) for name in ('early', 'late')}
+    load_series = []
+    lo = 0
+    for q, entry in enumerate(entries):
+        hi = bounds[q]
+        sl = by_depth[lo:hi]
+        np.add.at(m, fp[sl], j[sl]); np.add.at(m, fm[sl], -j[sl])
+        np.add.at(m_null, fp[sl], j_null[sl]); np.add.at(m_null, fm[sl], -j_null[sl])
+        lo = hi
+        cls, loads, has_intra = run.cut_state(entry)
+        mine = m % 6
+        if has_intra:
+            bad = int((mine != cls).sum()); compared = F
+            g1_detail['intra_compared_on'] += 1
+        else:
+            bad = int((mine[FI:] != cls[FI:]).sum()); compared = F - FI
+        g1 &= bad == 0
+        g1_detail['cuts'] += 1; g1_detail['faces_compared'] += compared; g1_detail['mismatches'] += bad
+        tot = m[:FI].reshape(N, 20).sum(axis=1)
+        nz = int(np.count_nonzero(tot))
+        g2 &= nz == 0
+        g2_detail['carrier_cuts'] += N; g2_detail['nonzero_totals'] += nz
+        st = int(m[FI:].sum())
+        g3 &= st == 0
+        g3_detail['cuts'] += 1; g3_detail['nonzero_totals'] += int(st != 0)
+        assert ((m_null % 6) == mine).all() and not m_null[:FI].reshape(N, 20).sum(axis=1).any() and int(m_null[FI:].sum()) == 0
+        wc, busy = carrier_words(m[:FI], N, words)
+        series['depth'].append(entry['depth']); series['k'].append(entry.get('k'))
+        series['unsettled'].append(entry['unsettled_ports'])
+        series['intra'].append(value_hist(m[:FI])); series['screen'].append(value_hist(m[FI:]))
+        series['null_intra'].append(value_hist(m_null[:FI])); series['null_screen'].append(value_hist(m_null[FI:]))
+        series['carriers_busy'].append(busy); series['words'].append(wc)
+        # ---- item (h): loads on the three ports of every internal face
+        if do_loads and loads is not None and q < len(entries) - 1:
+            if ports3 is None:
+                ports3 = (12 * np.arange(N, dtype=np.int64)[:, None, None] + tf[None, :, :]).reshape(-1, 3)
+            nxt = by_depth[hi:bounds[q + 1]]
+            touched = np.zeros(F, bool)
+            touched[fp[nxt]] = True; touched[fm[nxt]] = True
+            xs = np.sort(loads[ports3], axis=1)
+            code = xs[:, 0] * 36 + xs[:, 1] * 6 + xs[:, 2]
+            ki = mine[:FI]
+            group = np.zeros(FI, np.int64)
+            group[(ki == 1) | (ki == 5)] = 1
+            group[(ki == 2) | (ki == 4)] = 2
+            group[(ki == 3) & ~touched[:FI]] = 3
+            group[(ki == 3) & touched[:FI]] = 4
+            table = np.bincount(group * 216 + code, minlength=5 * 216).reshape(5, 216)
+            if int((ki != 0).sum()):
+                pools['late' if entry['unsettled_ports'] == 0 else 'early'] += table
+            load_series.append(dict(depth=entry['depth'], unsettled=entry['unsettled_ports'], table=table))
+    gates['G1_value_mod_6_is_the_stored_class'] = dict(passed=bool(g1), **g1_detail)
+    gates['G2_stokes_carrier_total_zero'] = dict(passed=bool(g2), **g2_detail)
+    gates['G3_stokes_screen_total_zero'] = dict(passed=bool(g3), **g3_detail)
+    # end state against the engine's own final classes and the direct curl of the integer link
+    n_link = np.bincount(seam, weights=j.astype(np.float64), minlength=S).astype(np.int64)
+    afp, afm = run.seam_faces(np.arange(S, dtype=np.int64))
+    curl = np.bincount(afp, weights=n_link.astype(np.float64), minlength=F).astype(np.int64) \
+        - np.bincount(afm, weights=n_link.astype(np.float64), minlength=F).astype(np.int64)
+    gates['G1b_end_state'] = dict(
+        passed=bool((curl == m).all() and ((m % 6) == hz['final_classes'].astype(np.int64)).all()
+                    and ((n_link % 6) == hz['final_register'].astype(np.int64)).all()),
+        curl_of_integer_link_equals_accumulated_values=bool((curl == m).all()),
+        link_mod_6_equals_engine_register=bool(((n_link % 6) == hz['final_register'].astype(np.int64)).all()),
+        value_mod_6_equals_engine_classes=bool(((m % 6) == hz['final_classes'].astype(np.int64)).all()),
+        integer_link_range=[int(n_link.min()), int(n_link.max())])
+    if args.stored_end_classes_sha256:
+        mine_cls = hashlib.sha256(np.ascontiguousarray((m % 6).astype(np.int8)).tobytes()).hexdigest()
+        mine_reg = hashlib.sha256(np.ascontiguousarray((n_link % 6).astype(np.int8)).tobytes()).hexdigest()
+        gates['G1c_end_state_against_stored_checkpoint'] = dict(
+            passed=bool(mine_cls == args.stored_end_classes_sha256
+                        and (not args.stored_end_register_sha256 or mine_reg == args.stored_end_register_sha256)),
+            classes_sha256=mine_cls, stored_classes_sha256=args.stored_end_classes_sha256,
+            register_sha256=mine_reg, stored_register_sha256=args.stored_end_register_sha256, faces=int(F), seams=int(S))
+    out['gates'] = gates
+    out['all_gates_pass'] = all(g['passed'] for g in gates.values())
+    print('gates:', {k: v['passed'] for k, v in gates.items()}, flush=True)
+
+    # ---- end state: histograms, words, readings
+    end_i, end_s = series['intra'][-1], series['screen'][-1]
+    out['end'] = dict(
+        internal=dict(values_by_class=by_class(end_i), summary=reading_summary(end_i)),
+        screen=dict(values_by_class=by_class(end_s), summary=reading_summary(end_s)),
+        null_N2=dict(internal=dict(values_by_class=by_class(series['null_intra'][-1]), summary=reading_summary(series['null_intra'][-1])),
+                     screen=dict(values_by_class=by_class(series['null_screen'][-1]), summary=reading_summary(series['null_screen'][-1])),
+                     seed=NULL_SEED))
+    end_words = series['words'][-1]
+    comp_tot = Counter()
+    for (comp, word), n in end_words.items():
+        comp_tot[comp] += n
+    desc = {(d['composition'], d['word']): d for d in words.cache.values()}
+    table = {}
+    for (comp, word), n in sorted(end_words.items(), key=lambda kv: (-comp_tot[kv[0][0]], -kv[1])):
+        d = desc[(comp, word)]
+        table.setdefault(comp, dict(carriers=comp_tot[comp], words=[]))['words'].append(
+            dict(word=word, count=n, in_A=d['in_A'], minimal=d['minimal'], hidden=d['hidden'], defect_total=d['defect_total']))
+    for comp, row in table.items():
+        ws = row['words']
+        row['share_all_in_A_no_hidden'] = sum(w['count'] for w in ws if w['in_A'] and not w['hidden']) / row['carriers']
+        row['share_all_in_A'] = sum(w['count'] for w in ws if w['in_A']) / row['carriers']
+        row['share_minimal_no_hidden'] = sum(w['count'] for w in ws if w['minimal'] and not w['hidden']) / row['carriers']
+        row['share_with_hidden'] = sum(w['count'] for w in ws if w['hidden']) / row['carriers']
+        row['share_defect_total_nonzero'] = sum(w['count'] for w in ws if w['defect_total']) / row['carriers']
+    out['end']['carriers_with_a_nonzero_value'] = series['carriers_busy'][-1]
+    out['end']['words'] = table
+
+    # ---- time series over the cuts (compact)
+    def pack(hists):
+        keys = sorted({v for h in hists for v in h})
+        return {f'{v % 6}:{fmt(v)}': [h.get(v, 0) for h in hists] for v in keys}
+    key_comps = ('{4,4,4}', '{2,2,2}', '{3,3}', '{1,5}', '{2,4}', '{1,2,3}', '{3,4,5}', '{2,2,4,4}', '{2,3,3,4}', '{}')
+    wkeys = sorted({kw for wc in series['words'] for kw in wc if kw[0] in key_comps})
+    out['cuts'] = dict(
+        depth=series['depth'], k=series['k'], unsettled_ports=series['unsettled'],
+        internal=pack(series['intra']), screen=pack(series['screen']),
+        null_N2_internal_summary=[reading_summary(h) for h in series['null_intra']],
+        internal_summary=[reading_summary(h) for h in series['intra']],
+        screen_summary=[reading_summary(h) for h in series['screen']],
+        carriers_with_a_nonzero_value=series['carriers_busy'],
+        words={f'{c} {w}': [wc.get((c, w), 0) for wc in series['words']] for c, w in wkeys})
+
+    # ---- (c) events: transfer between defect faces and flat faces
+    def_before = np.where(k1 != 0, pre_p, 0) + np.where(k2 != 0, pre_m, 0)
+    def_after = np.where(n1 != 0, post_p, 0) + np.where(n2 != 0, post_m, 0)
+    transfer = def_before - def_after                      # what the flat faces gain, a multiple of 6
+    assert not (transfer % 6).any()
+    ev = {}
+    for i, name in enumerate(TYPES):
+        sel = etype == i
+        vals, cnt = np.unique(transfer[sel], return_counts=True)
+        n = int(sel.sum())
+        ev[name] = dict(count=n, defect_sum_conserved=int((transfer[sel] == 0).sum()),
+                        share_conserved=(float((transfer[sel] == 0).mean()) if n else None),
+                        transfer_to_flat_faces={fmt(v): int(c) for v, c in zip(vals.tolist(), cnt.tolist())},
+                        after_band=dict(count=int((sel & after_band).sum()),
+                                        defect_sum_conserved=int((sel & after_band & (transfer == 0)).sum())))
+    # births: the pair of values; moves: value before and after per class
+    sel = etype == 0
+    pairs = Counter(zip(post_p[sel].tolist(), post_m[sel].tolist()))
+    ev['births']['pairs_plus_minus'] = {f'({fmt(a)},{fmt(b)})': n for (a, b), n in sorted(pairs.items(), key=lambda kv: -kv[1])}
+    ev['births']['on_two_faces_of_value_zero'] = int((sel & (pre_p == 0) & (pre_m == 0)).sum())
+    sel = etype == 1
+    src = np.where(k1 != 0, pre_p, pre_m)[sel]
+    dst = np.where(k1 != 0, post_m, post_p)[sel]
+    left = np.where(k1 != 0, post_p, post_m)[sel]
+    mv = Counter(zip(src.tolist(), dst.tolist(), left.tolist()))
+    ev['moves']['value_before_after_left_behind'] = [
+        dict(cls=int(a % 6), before=fmt(a), after=fmt(b), left_behind=fmt(c), count=n)
+        for (a, b, c), n in sorted(mv.items(), key=lambda kv: -kv[1])]
+    ev['moves']['by_class'] = {str(k): dict(moves=int((src % 6 == k).sum()), value_kept=int(((src % 6 == k) & (src == dst)).sum()))
+                               for k in range(1, 6)}
+    # reactions with their integer lifts (fusions, splits, annihilations, exchanges)
+    lifts = {}
+    for i in (2, 3, 4, 5):
+        sel = np.flatnonzero(etype == i)
+        rows = Counter()
+        for a, b, c, d in zip(pre_p[sel].tolist(), pre_m[sel].tolist(), post_p[sel].tolist(), post_m[sel].tolist()):
+            ins = tuple(sorted((v for v in (a, b) if v % 6), key=lambda v: (v % 6, -v)))
+            outs = tuple(sorted((v for v in (c, d) if v % 6), key=lambda v: (v % 6, -v)))
+            flat_in = tuple(sorted(v for v in (a, b) if v and v % 6 == 0))
+            flat_out = tuple(sorted(v for v in (c, d) if v and v % 6 == 0))
+            rows[(ins, outs, flat_in, flat_out)] += 1
+        agg = {}
+        for (ins, outs, fi, fo), n in rows.items():
+            z6 = ' + '.join(str(v % 6) for v in ins) + ' -> ' + (' + '.join(str(v % 6) for v in outs) or '0')
+            lift = ' + '.join(fmt(v) for v in ins) + (' [flat ' + ','.join(fmt(v) for v in fi) + ']' if fi else '') + ' -> ' \
+                + (' + '.join(fmt(v) for v in outs) or '0') + (' [flat ' + ','.join(fmt(v) for v in fo) + ']' if fo else '')
+            agg.setdefault(z6, Counter())[lift] += n
+        lifts[TYPES[i]] = {z6: dict(count=sum(c.values()), lifts=dict(sorted(c.items(), key=lambda kv: -kv[1])))
+                           for z6, c in sorted(agg.items(), key=lambda kv: -sum(kv[1].values()))}
+    ev['integer_lifts_of_reactions'] = lifts
+    out['events'] = ev
+
+    # ---- (c), (d) identities with their values
+    life = np.where(cols['death_depth'] >= 0, cols['death_depth'], end_depth) - cols['birth_depth']
+    alive = cols['death_depth'] < 0
+    tier = (cols['birth_face'] >= FI).astype(np.int64)
+    idn = {}
+    for tname, tv in (('internal', 0), ('screen', 1)):
+        rows = {}
+        for k in range(1, 6):
+            sel_k = (tier == tv) & (cols['cls'] == k)
+            if not sel_k.any():
+                continue
+            per_value = {}
+            for v in np.unique(m_birth[sel_k]).tolist():
+                s = sel_k & (m_birth == v)
+                n = int(s.sum())
+                moved = s & (cols['hops'] > 0)
+                per_value[fmt(v)] = dict(
+                    identities=n, alive_at_end=int((s & alive).sum()), lifetime_depth_median=float(np.median(life[s])),
+                    lifetime_depth_mean=float(life[s].mean()), moved=int(moved.sum()), hops_mean=float(cols['hops'][s].mean()),
+                    hops_total=int(cols['hops'][s].sum()), value_changing_moves=int(shed[s].sum()),
+                    identities_with_a_value_change=int((shed[s] > 0).sum()),
+                    moved_and_value_constant=int((moved & (shed == 0)).sum()),
+                    value_at_end_or_death={fmt(a): int(b) for a, b in zip(*np.unique(m_last[s], return_counts=True))})
+            sel_m = sel_k & (cols['hops'] > 0)
+            rows[str(k)] = dict(identities=int(sel_k.sum()), moved=int(sel_m.sum()),
+                                moved_and_value_constant=int((sel_m & (shed == 0)).sum()),
+                                born_non_minimal=int((sel_k & ~np.isin(m_birth, MINIMAL[k])).sum()),
+                                by_value_at_birth=per_value)
+        idn[tname] = rows
+    out['identities'] = dict(total=ids, depth_at_end=end_depth, tiers=idn)
+
+    # ---- (d) hidden values on flat faces: creation, removal, later fate
+    tp2 = np.concatenate([etype, etype])
+    pre2 = np.concatenate([pre_p, pre_m]); post2 = np.concatenate([post_p, post_m])
+    made = (post2 % 6 == 0) & (post2 != 0) & (pre2 != post2)
+    gone = (pre2 % 6 == 0) & (pre2 != 0) & (post2 != pre2)
+    ab2 = np.concatenate([after_band, after_band])
+    hid = dict(created={TYPES[i]: int((made & (tp2 == i)).sum()) for i in range(6)},
+               removed_or_changed={TYPES[i]: int((gone & (tp2 == i)).sum()) for i in range(6)},
+               created_after_band=int((made & ab2).sum()), created_total=int(made.sum()),
+               created_values={fmt(v): int(c) for v, c in zip(*np.unique(post2[made], return_counts=True))},
+               created_from_defect_value={fmt(v): int(c) for v, c in zip(*np.unique(pre2[made], return_counts=True))})
+    # later fate of a created hidden value: the next twist on the same face
+    made_s = made[order]
+    nxt_same = np.r_[~first[1:], False]                    # the next touch belongs to the same face
+    post_s = post2[order]
+    nxt_post = np.r_[post_s[1:], 0]
+    cur = post_s
+    hid['fate_of_created'] = dict(
+        never_touched_again=int((made_s & ~nxt_same).sum()),
+        next_twist_puts_a_defect_on_it=int((made_s & nxt_same & (nxt_post % 6 != 0)).sum()),
+        next_twist_returns_it_to_zero=int((made_s & nxt_same & (nxt_post == 0)).sum()),
+        next_twist_leaves_another_hidden_value=int((made_s & nxt_same & (nxt_post % 6 == 0) & (nxt_post != 0)).sum()))
+    hid['at_end'] = dict(internal={fmt(v): n for v, n in end_i.items() if v % 6 == 0},
+                         screen={fmt(v): n for v, n in end_s.items() if v % 6 == 0},
+                         flat_faces_internal=int((m[:FI] % 6 == 0).sum()), flat_faces_screen=int((m[FI:] % 6 == 0).sum()))
+    out['hidden'] = hid
+
+    # ---- null N1: free accumulation of every nonzero current, end state
+    free = hz['free_current'].astype(np.int64)
+    m1 = np.bincount(afp, weights=free.astype(np.float64), minlength=F).astype(np.int64) \
+        - np.bincount(afm, weights=free.astype(np.float64), minlength=F).astype(np.int64)
+    kcls = m % 6
+    out['null_N1'] = dict(
+        nonzero_currents=int(hz['sweep_nonzero'].sum()), free_link_abs_max=int(np.abs(free).max()),
+        internal=dict(std=float(m1[:FI].std()), abs_max=int(np.abs(m1[:FI]).max()),
+                      share_mod_6_equal_to_stored_class=float((m1[:FI] % 6 == kcls[:FI]).mean()),
+                      share_abs_at_most_6=float((np.abs(m1[:FI]) <= 6).mean()), share_zero=float((m1[:FI] == 0).mean()),
+                      share_in_A=float(np.isin(m1[:FI], sorted(A_SET)).mean()),
+                      carrier_total_zero=bool(not m1[:FI].reshape(N, 20).sum(axis=1).any())),
+        screen=dict(std=float(m1[FI:].std()), abs_max=int(np.abs(m1[FI:]).max()),
+                    share_mod_6_equal_to_stored_class=float((m1[FI:] % 6 == kcls[FI:]).mean()),
+                    share_abs_at_most_6=float((np.abs(m1[FI:]) <= 6).mean()), share_zero=float((m1[FI:] == 0).mean()),
+                    total_zero=bool(int(m1[FI:].sum()) == 0)))
+
+    # ---- (h) loads
+    if do_loads and load_series:
+        a_, b_, c_ = np.divmod(np.arange(216), 36)[0], (np.arange(216) // 6) % 6, np.arange(216) % 6
+        h_par = (a_ % 2 == b_ % 2) & (b_ % 2 == c_ % 2)
+        h_double = (a_ == b_) & (c_ == a_ + 2)
+        h_two = ((a_ == 2).astype(int) + (b_ == 2).astype(int) + (c_ == 2).astype(int)) == 1
+        names = ('flat', 'class 1 and 5', 'class 2 and 4', 'class 3 at rest', 'class 3 moving')
+
+        def describe(tab):
+            rows = {}
+            for g, name in enumerate(names):
+                n = int(tab[g].sum())
+                row = dict(faces=n)
+                if n:
+                    for label, mask in (('H_par', h_par), ('H_double', h_double), ('H_two', h_two)):
+                        p = float(tab[g][mask].sum() / n)
+                        row[label] = dict(share=p, count=int(tab[g][mask].sum()), binomial_error=float(np.sqrt(max(p * (1 - p), 0) / n)))
+                    top = np.argsort(-tab[g])[:12]
+                    row['triples'] = {f'({a_[t]},{b_[t]},{c_[t]})': int(tab[g][t]) for t in top if tab[g][t]}
+                rows[name] = row
+            return rows
+        res = {pool: describe(tab) for pool, tab in pools.items()}
+        late = pools['late']
+        band = [2 * 36 + 2 * 6 + 2, 2 * 36 + 2 * 6 + 3, 2 * 36 + 3 * 6 + 3, 3 * 36 + 3 * 6 + 3]
+        obs = np.stack([late[3][band], late[0][band]]).astype(float)
+        chi = None
+        if obs.sum(axis=1).min() > 0:
+            expd = obs.sum(axis=1, keepdims=True) * obs.sum(axis=0, keepdims=True) / obs.sum()
+            chi = float(((obs - expd) ** 2 / expd).sum())
+        res['late_chi_square_class3_rest_against_flat'] = dict(
+            chi_square=chi, degrees_of_freedom=3, triples=['(2,2,2)', '(2,2,3)', '(2,3,3)', '(3,3,3)'],
+            class3_rest=late[3][band].tolist(), flat=late[0][band].tolist(),
+            late_faces_outside_band_triples=int(late.sum() - late[:, band].sum()))
+        res['per_cut'] = dict(
+            depth=[r['depth'] for r in load_series], unsettled_ports=[r['unsettled'] for r in load_series],
+            class3_rest_faces=[int(r['table'][3].sum()) for r in load_series],
+            class3_moving_faces=[int(r['table'][4].sum()) for r in load_series],
+            class3_rest_H_par=[int(r['table'][3][h_par].sum()) for r in load_series],
+            class3_rest_H_double=[int(r['table'][3][h_double].sum()) for r in load_series],
+            class3_moving_H_par=[int(r['table'][4][h_par].sum()) for r in load_series],
+            class3_moving_H_double=[int(r['table'][4][h_double].sum()) for r in load_series],
+            flat_faces=[int(r['table'][0].sum()) for r in load_series],
+            flat_H_par=[int(r['table'][0][h_par].sum()) for r in load_series],
+            flat_H_double=[int(r['table'][0][h_double].sum()) for r in load_series])
+        res['cuts_pooled'] = dict(early=int(sum(1 for r in load_series if r['unsettled'] > 0 and r['table'][1:].sum())),
+                                  late=int(sum(1 for r in load_series if r['unsettled'] == 0)))
+        out['loads'] = res
+
+    out['custody'] = dict(
+        run_directory=run.path.name, run_json_sha256=sha256(run.path / 'run.json'),
+        run_manifest_sha256=sha256(run.path / 'MANIFEST.sha256'), catalogue_sha256=sha256(run.path / 'catalogue.npz'),
+        end_cut_sha256=sha256(run.path / 'cuts/end.npz'), history_sha256=sha256(args.history), history_meta=hmeta,
+        simulator_commit=run.meta['provenance']['simulator_commit'], run_config=cfg)
+    out['seconds'] = round(time.time() - t0, 1)
+    Path(args.out).write_text(json.dumps(out, indent=1, default=int) + '\n')
+    print(f'written {args.out} in {out["seconds"]}s; all gates pass: {out["all_gates_pass"]}', flush=True)
+    return 0 if out['all_gates_pass'] else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

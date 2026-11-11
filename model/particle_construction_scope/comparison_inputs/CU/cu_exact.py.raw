@@ -1,0 +1,210 @@
+"""CU exact checks (Parts A, B, C1 to C3 of CANDIDATES.md). Symbolic with sympy; no measured value.
+
+Writes cu_exact.json. Each check is a boolean plus the closed form it certifies.
+"""
+import json
+import os
+
+import sympy as sp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+pi = sp.pi
+out, checks = {}, {}
+
+
+def ok(name, cond, note=None):
+    checks[name] = bool(cond)
+    if note is not None:
+        out[name] = note
+
+
+# ------------------------------------------------------------------ Part A: the period factor
+s, r, a, D, eps, z, x, K, W, t = sp.symbols('s r a D eps z x K W t', positive=True)
+
+# A1 half-line under the 2 pi-normalised flow v -> exp(-2 pi t) v at t = -1
+ok('A1_unit_time_image_of_half_line', sp.simplify(sp.exp(-2 * pi * (-1)) * a - sp.exp(2 * pi) * a) == 0,
+   'sigma_{-1}(M_a) = M_{exp(2 pi) a}; supports between: (a, exp(2 pi) a]; ratio exp(2 pi)')
+
+# A2 conformal modulus of the annulus under the dilation z -> exp(s) z
+ok('A2_modulus_one_ratio', sp.simplify(sp.log(sp.exp(2 * pi) * a / a) - 2 * pi) == 0,
+   'dilation rapidity ln(r_out/r_in); rapidity 2 pi at r_out/r_in = exp(2 pi)')
+
+# A3 hyperbolic translation of the unit disc with fixed points -1 and +1
+aa = sp.tanh(s / 2)
+bb = sp.tanh(r / 2)
+T = lambda zz, c: (zz + c) / (1 + c * zz)
+cc = sp.tanh((s + r) / 2)
+group = sp.simplify((T(T(z, bb), aa) - T(z, cc)).rewrite(sp.exp))
+ok('A3_group_law', group == 0)
+ok('A3_fixed_points', sp.simplify(T(1, aa) - 1) == 0 and sp.simplify(T(-1, aa) + 1) == 0)
+dT = sp.diff(T(z, aa), z)
+ok('A3_dilation_exp_s_at_p_minus', sp.simplify((dT.subs(z, -1) - sp.exp(s)).rewrite(sp.exp)) == 0)
+ok('A3_contraction_exp_minus_s_at_p_plus', sp.simplify((dT.subs(z, 1) - sp.exp(-s)).rewrite(sp.exp)) == 0,
+   'the flow dilates by exp(s) about p- and contracts by exp(-s) about p+ (the stack normalisation v -> exp(-s) v)')
+# axis coordinate: disc of diameter D = 2, x = 1 + z the distance from p-; u = ln(x/(D - x))
+u = lambda zz: sp.log((1 + zz) / (1 - zz))
+ok('A3_axis_coordinate_shifts_by_s', sp.simplify((u(T(z, aa)) - u(z) - s).rewrite(sp.exp)) == 0 or
+   abs(sp.N((u(T(z, aa)) - u(z) - s).subs({z: sp.Rational(1, 7), s: sp.Rational(13, 5)}), 40)) < 1e-35)
+# resolved axis x in [eps, D - eps]: (a) end to end, (b) end to centre
+sol_a = sp.solve(sp.Eq(2 * sp.log((D - eps) / eps), 2 * pi), D)
+sol_b = sp.solve(sp.Eq(sp.log((D - eps) / eps), 2 * pi), D)
+ok('A3a_end_to_end', sp.simplify(sol_a[0] - eps * (sp.exp(pi) + 1)) == 0, 'D = (exp(pi) + 1) eps')
+ok('A3b_end_to_centre', sp.simplify(sol_b[0] - eps * (sp.exp(2 * pi) + 1)) == 0, 'D = (exp(2 pi) + 1) eps')
+
+# A4 horodisc at p+ with apex z = 1 - d (disc of diameter 2): image of the central horodisc (d = 1) after rapidity 2 pi
+d_img = sp.simplify(1 - T(sp.Integer(0), sp.tanh(pi)))
+ok('A4_central_horodisc_image', sp.simplify((d_img - 2 / (sp.exp(2 * pi) + 1)).rewrite(sp.exp)) == 0,
+   'image diameter D/(exp(2 pi) + 1)')
+
+# A5 sphere of K equal-area cells: polar cell cap with 1 - cos(theta) = 2/K
+cos_th = 1 - 2 / K
+tan2 = sp.simplify((1 - cos_th) / (1 + cos_th))
+ok('A5_stereographic_radius', sp.simplify(tan2 - 1 / (K - 1)) == 0, 'tan^2(theta/2) = 1/(K - 1)')
+ok('A5_pole_to_pole_rapidity', sp.simplify(sp.log(1 / tan2) - sp.log(K - 1)) == 0, 'rapidity = ln(K - 1)')
+Ka = sp.solve(sp.Eq(sp.log(K - 1), 2 * pi), K)[0]
+Kb = sp.solve(sp.Eq(sp.log(K - 1) / 2, 2 * pi), K)[0]
+ok('A5a_one_period_between_polar_cells', sp.simplify(Ka - (sp.exp(2 * pi) + 1)) == 0, 'K = exp(2 pi) + 1')
+ok('A5b_one_period_each_side_of_equator', sp.simplify(Kb - (sp.exp(4 * pi) + 1)) == 0, 'K = exp(4 pi) + 1')
+ok('A5_midpoint_identity', sp.simplify((Ka - 1) ** 2 - (Kb - 1)) == 0, '(K_a - 1)^2 = K_b - 1')
+sizes = {'area map sqrt(K)': sp.sqrt(K), 'radius': sp.sqrt(K / (4 * pi)), 'diameter': 2 * sp.sqrt(K / (4 * pi)),
+         'geodesic width pi r': pi * sp.sqrt(K / (4 * pi)), 'circumference': 2 * pi * sp.sqrt(K / (4 * pi))}
+A5 = {}
+for lab, Kval in (('a: K = exp(2 pi) + 1', Ka), ('b: K = exp(4 pi) + 1', Kb)):
+    A5[lab] = {'K': float(Kval), 'capacity_nats_at_P_fwd': float(Kval) * 1.6309721 / 4,
+               'R = ln(size/l_cell)': {k: float(sp.log(v.subs(K, Kval))) for k, v in sizes.items()},
+               'size_in_cells': {k: float(v.subs(K, Kval)) for k, v in sizes.items()}}
+out['A5_closed_screen'] = A5
+levels = {}
+for m in range(0, 11):
+    Km = 20 * 4 ** m
+    levels[f'm={m}'] = {'K': Km, 'rapidity': float(sp.log(Km - 1)), 'periods': float(sp.log(Km - 1) / (2 * pi))}
+levels['12 ports'] = {'K': 12, 'rapidity': float(sp.log(11)), 'periods': float(sp.log(11) / (2 * pi))}
+out['A5_icosahedral_levels_equal_area'] = levels
+out['A5_first_level_one_period'] = min(m for m in range(11) if sp.log(20 * 4 ** m - 1) >= 2 * pi)
+out['A5_first_level_one_period_each_side'] = min(m for m in range(11) if sp.log(20 * 4 ** m - 1) >= 4 * pi)
+
+# A6 self-dual nome
+Wsol = sp.solve(sp.Eq(2 * pi ** 2 / W, 2 * W), W)
+ok('A6_self_dual_width', Wsol == [pi], 'W = pi, q = exp(-2 pi)')
+ok('A6_nome_value', sp.simplify(sp.exp(-2 * pi ** 2 / pi) - sp.exp(-2 * pi)) == 0)
+
+# A7, A8
+out['A7_local_temperature_R'] = float(sp.log(2 * pi))
+ok('A8_diamond_clock_remaining', sp.simplify((1 - sp.tanh(pi) - 2 / (sp.exp(2 * pi) + 1)).rewrite(sp.exp)) == 0,
+   'remaining proper time on the axis after one period: 2/(exp(2 pi) + 1) of the half-height')
+
+# ------------------------------------------------------------------ Part B: reference lengths
+P = sp.symbols('P', positive=True)
+ls, lc = sp.symbols('l_star l_cell', positive=True)
+subs_cell = {lc: ls * sp.sqrt(P)}
+lnP = sp.symbols('lnP', real=True)
+
+
+def decompose(expr):
+    """R - 2 pi = ln(expr/l_cell) for the direct reading, written as ln(kappa) - c ln P."""
+    e = sp.simplify((expr / lc).subs(subs_cell))
+    e = sp.powsimp(sp.expand_power_base(e, force=True), force=True)
+    c = -sp.simplify(sp.diff(sp.log(e), P) * P)
+    kappa = sp.simplify(e * P ** c)
+    return sp.nsimplify(c), kappa
+
+
+B_rows = [
+    ('B1 cell side', lc, 'direct', 'STACK'),
+    ('B2 Planck length (area-law unit)', ls, 'direct', 'STACK'),
+    ('B3a dual length l*^2/l_cell', ls ** 2 / lc, 'direct', 'ADDED PREMISE'),
+    ('B3b l_cell P', lc ** 3 / ls ** 2, 'direct', 'ADDED PREMISE'),
+    ('B4a (l*^2 l_cell)^(1/3)', (ls ** 2 * lc) ** sp.Rational(1, 3), 'direct', 'ADDED PREMISE'),
+    ('B4b (l*^2 l_cell)^(1/3), two-sided', (ls ** 2 * lc) ** sp.Rational(1, 3), 'two-sided', 'ADDED PREMISE'),
+    ('B5 (l*^4/l_cell)^(1/3)', (ls ** 4 / lc) ** sp.Rational(1, 3), 'direct', 'ADDED PREMISE'),
+    ('B6 (l_cell^2 l*)^(1/3)', (lc ** 2 * ls) ** sp.Rational(1, 3), 'direct', 'ADDED PREMISE'),
+    ('B7a two-sided, l_cell', lc, 'two-sided', 'STACK'),
+    ('B7b two-sided, sqrt(l* l_cell)', sp.sqrt(ls * lc), 'two-sided', 'ADDED PREMISE'),
+    ('B7c two-sided, l*', ls, 'two-sided', 'ADDED PREMISE'),
+    ('B8 brick wall g=192', ls * sp.sqrt(sp.Integer(192) / (90 * pi)), 'direct', 'ADDED PREMISE'),
+    ('B8 brick wall g=196', ls * sp.sqrt(sp.Integer(196) / (90 * pi)), 'direct', 'ADDED PREMISE'),
+    ('B8 brick wall g=200', ls * sp.sqrt(sp.Integer(200) / (90 * pi)), 'direct', 'ADDED PREMISE'),
+    ('B9 Bekenstein 8 pi l*^2/l_cell', 8 * pi * ls ** 2 / lc, 'direct', 'ADDED PREMISE'),
+    ('B10 square inradius', lc / 2, 'direct', 'CONSTANT'),
+    ('B10 square circumradius', lc / sp.sqrt(2), 'direct', 'CONSTANT'),
+    ('B10 equal-area disc radius', lc / sp.sqrt(pi), 'direct', 'CONSTANT'),
+    ('B10 triangle inradius', lc * sp.sqrt(4 / sp.sqrt(3)) / (2 * sp.sqrt(3)), 'direct', 'CONSTANT'),
+    ('B10 triangle circumradius', lc * sp.sqrt(4 / sp.sqrt(3)) / sp.sqrt(3), 'direct', 'CONSTANT'),
+    ('B10 triangle side', lc * sp.sqrt(4 / sp.sqrt(3)), 'direct', 'CONSTANT'),
+    ('B11 l_cell P^(-2/3)', lc * (ls ** 2 / lc ** 2) ** sp.Rational(2, 3), 'direct', 'ADDED PREMISE'),
+    ('B12 sqrt(8 pi) l*', sp.sqrt(8 * pi) * ls, 'direct', 'ADDED PREMISE'),
+]
+P_FWD = sp.Float('1.6309721', 30)
+Btab = {}
+for name, expr, reading, status in B_rows:
+    c, kappa = decompose(expr)
+    if reading == 'two-sided':                      # L_U = (exp(pi) eps_b)^2 / l_cell
+        c, kappa = 2 * c, kappa ** 2
+    Rsym = 2 * pi + sp.log(kappa) - c * sp.log(P)
+    Btab[name] = {'reading': reading, 'c': str(c), 'kappa': str(sp.simplify(kappa)), 'kappa_value': float(kappa),
+                  'R_at_P_fwd': float(Rsym.subs(P, P_FWD)), 'status': status,
+                  'gives_declared_form': bool(c == sp.Rational(2, 3) and sp.simplify(kappa - 1) == 0)}
+out['B_reference_lengths'] = Btab
+out['B_count'] = {'rows': len(B_rows), 'rows_with_declared_form': [k for k, v in Btab.items() if v['gives_declared_form']],
+                  'STACK_rows': {k: v['c'] for k, v in Btab.items() if v['status'] == 'STACK'}}
+ok('B_no_STACK_row_gives_declared_form', not any(v['gives_declared_form'] and v['status'] == 'STACK' for v in Btab.values()))
+ok('B_target_reference_identities',
+   sp.simplify(((ls ** 4 / lc) ** sp.Rational(1, 3)).subs(subs_cell) - ls * P ** sp.Rational(-1, 6)) == 0 and
+   sp.simplify((lc * P ** sp.Rational(-2, 3)).subs(subs_cell) - ls * P ** sp.Rational(-1, 6)) == 0 and
+   sp.simplify((((ls ** 2 * lc) ** sp.Rational(1, 3)) ** 2 / lc).subs(subs_cell) - ls * P ** sp.Rational(-1, 6)) == 0,
+   'l_ref = (l*^4/l_cell)^(1/3) = l_cell P^(-2/3) = d^2/l_cell with d = (l*^2 l_cell)^(1/3); l_ref^3 l_cell = l*^4')
+
+# ------------------------------------------------------------------ Part C: census and the window
+F = sp.Rational
+# Weyl family 16: (name, dim3, T3, dim2, T2, Y)
+fam = [('Q', 3, F(1, 2), 2, F(1, 2), F(1, 6)), ('u^c', 3, F(1, 2), 1, 0, F(-2, 3)), ('d^c', 3, F(1, 2), 1, 0, F(1, 3)),
+       ('L', 1, 0, 2, F(1, 2), F(-1, 2)), ('e^c', 1, 0, 1, 0, F(1)), ('nu^c', 1, 0, 1, 0, F(0))]
+b3 = F(2, 3) * sum(T3 * d2 for _, d3, T3, d2, T2, Y in fam)
+b2 = F(2, 3) * sum(T2 * d3 for _, d3, T3, d2, T2, Y in fam)
+b1 = F(2, 3) * F(3, 5) * sum(Y ** 2 * d3 * d2 for _, d3, T3, d2, T2, Y in fam)
+ok('C2_one_weyl_family_is_universal', (b1, b2, b3) == (F(4, 3), F(4, 3), F(4, 3)), 'one 16: (4/3, 4/3, 4/3)')
+copy = tuple(2 * v for v in (b1, b2, b3))
+three = tuple(3 * v for v in copy)
+links = (F(0), -F(11, 3) * 2, -F(11, 3) * 3)
+doublet = (F(1, 3) * F(3, 5) * 2 * F(1, 4), F(1, 3) * F(1, 2), F(0))
+ok('C2_three_copies', three == (8, 8, 8), 'three copies of 16 + 16bar: (8, 8, 8)')
+ok('C2_links', links == (0, -F(22, 3), -11))
+ok('C2_doublet', doublet == (F(1, 10), F(1, 6), 0))
+nH = sp.symbols('n_H')
+tot = tuple(sp.simplify(three[i] + links[i] + nH * doublet[i]) for i in range(3))
+ok('C2_sum_matches_COUPLING_FIX', sp.simplify(tot[0] - (8 + nH / 10)) == 0 and sp.simplify(tot[1] - (F(2, 3) + nH / 6)) == 0
+   and tot[2] == -3, 'source census (8 + n_H/10, 2/3 + n_H/6, -3)')
+# C1 lemma
+bi, bj, Rw, Ai, Aj = sp.symbols('b_i b_j R A_i A_j')
+diff_M = (Ai + bi / (2 * pi) * Rw) - (Aj + bj / (2 * pi) * Rw)
+ok('C1_difference_lemma', sp.simplify(diff_M - (Ai - Aj) - (bi - bj) * Rw / (2 * pi)) == 0,
+   'differences at M_U and at E_cell agree for every R exactly when b_i = b_j')
+Rf = float((2 * pi - F(2, 3) * sp.log(P_FWD)))
+shift = lambda b: [float(v) * Rf / float(2 * pi) for v in b]
+out['C3_window_shifts_at_R_declared'] = {
+    'R': Rf, 'R_over_2pi': Rf / float(2 * pi),
+    'links (0, -22/3, -11)': shift(links), 'three copies (8, 8, 8)': shift(three),
+    'one doublet (1/10, 1/6, 0)': shift(doublet), 'two doublets': shift([2 * v for v in doublet]),
+    'differential part of links: d(1/a1 - 1/a2), d(1/a2 - 1/a3)': [float(F(22, 3)) * Rf / float(2 * pi), float(F(11, 3)) * Rf / float(2 * pi)]}
+ok('C7_adjoint_cancellation_count', F(11, 3) == F(2, 3) * 4 + F(1, 6) * 6, 'per factor: 4 Weyl and 6 real adjoints, 4 n_W + n_r = 22')
+
+# ------------------------------------------------------------------ Part F: unregistered looks (no weight)
+out['F_looks_no_weight'] = {
+    'F1 zeta(3) 192/(180 pi)': float(sp.zeta(3) * 192 / (180 * pi)), 'F1 P_fwd/4': float(P_FWD / 4),
+    'F1 ratio': float(sp.zeta(3) * 192 / (180 * pi) / (P_FWD / 4)),
+    'F2 exp(P/5)': float(sp.exp(P_FWD / 5)), 'F2 P^(2/3)': float(P_FWD ** F(2, 3)),
+    'F3 16.2453 + 8': 24.2453, 'F3 engine 1/alpha_U': 24.3166}
+
+out['checks'] = checks
+out['all_checks_pass'] = all(checks.values())
+out['number_of_checks'] = len(checks)
+json.dump(out, open(os.path.join(HERE, 'cu_exact.json'), 'w'), indent=1)
+print('checks:', len(checks), 'pass:', sum(checks.values()))
+for k, v in checks.items():
+    if not v:
+        print('FAILED', k)
+print(json.dumps(out['B_reference_lengths'], indent=1))
+print(json.dumps(out['A5_closed_screen'], indent=1))
+print(json.dumps(out['C3_window_shifts_at_R_declared'], indent=1))
+print(json.dumps(out['F_looks_no_weight'], indent=1))
+print('first levels', out['A5_first_level_one_period'], out['A5_first_level_one_period_each_side'])

@@ -1,0 +1,262 @@
+"""LC item 1: one-object statistics on the sixty-address carrier (S1 to S11 of CANDIDATES.md). EXACT (Fractions).
+Writes lc1_port.json. Run from RL/work/LC:
+    PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lc1_port.py
+"""
+from __future__ import annotations
+
+import sys
+import time
+from fractions import Fraction as Fr
+
+import sympy as sp
+
+import lc_common as L
+
+OUT = 'lc1_port.json'
+FP = L.frame_plain()
+
+
+def tick1(cfgs, frame):
+    st, n2 = L.uniform(cfgs)
+    return L.Qstep(st, frame), n2          # the reflection fixes the uniform address state
+
+
+def rec_class(cfg, regs):
+    return f'record {regs[0][0]}'
+
+
+def dl_stats(a, frame):
+    """Double load at port a: weights by record value and by receiving port."""
+    st, n2 = tick1([L.cfg_of(a, a)], frame)
+    by_rec = L.weights(st, n2, rec_class)
+    by_port = {}
+    for (cfg, regs), amp in st.items():
+        if regs[0][0] in (2, 3):
+            b = next(p for p in L.ports_of(cfg) if p != a)
+            by_port[b] = by_port.get(b, Fr(0)) + amp * amp / n2
+    return by_rec, by_port
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'LC item 1: one-object statistics on sixty addresses', 'provenance': L.provenance()}
+
+    # ---------------- S1 address statistics
+    tail = {a: Fr(sum(1 for (x, y) in L.ADDR if x == a), L.NA) for a in range(12)}
+    head = {a: Fr(sum(1 for (x, y) in L.ADDR if y == a), L.NA) for a in range(12)}
+    touch = {a: Fr(sum(1 for (x, y) in L.ADDR if a in (x, y)), L.NA) for a in range(12)}
+    out['S1_address_statistics'] = {
+        'P(tail = a) for the twelve ports': sorted({str(v) for v in tail.values()}),
+        'P(head = a)': sorted({str(v) for v in head.values()}),
+        'P(address touches a)': sorted({str(v) for v in touch.values()}),
+        'P(address touches one of two non-adjacent ports)': str(Fr(20, 60)),
+    }
+    print('S1', out['S1_address_statistics'])
+
+    # ---------------- S2 double load, plain law, every port
+    s2 = {}
+    for a in range(12):
+        by_rec, by_port = dl_stats(a, FP)
+        s2[a] = (tuple(sorted((k, str(v)) for k, v in by_rec.items())), tuple(sorted(str(v) for v in by_port.values())))
+    vals = set(s2.values())
+    out['S2_double_load_plain_law'] = {
+        'identical on the twelve ports': len(vals) == 1,
+        'weights by record': dict(s2[0][0]), 'emission weight to each of the five neighbours': list(s2[0][1]),
+    }
+    print('S2', out['S2_double_load_plain_law'])
+
+    # ---------------- S3, S4 double load in the screen frame of every face; seam senses at every port
+    s3_vals, sense_counts, s4_vals = set(), set(), set()
+    for f in L.FACES:
+        fr = L.frame_screen(f)
+        for a in range(12):
+            by_rec, _ = dl_stats(a, fr)
+            s3_vals.add(tuple(sorted((k, str(v)) for k, v in by_rec.items())))
+            sg = [L.screen_sign(f, a, b) for b in sorted(L.ADJ[a])]
+            sense_counts.add((sg.count(1), sg.count(-1), sg.count(0)))
+            s4_vals.add((str(Fr(2 * sg.count(1), 60)), str(Fr(2 * sg.count(-1), 60)), str(Fr(2 * sg.count(0), 60))))
+    out['S3_double_load_screen_frames'] = {
+        'cases (faces x ports)': 240, 'distinct weight tables': [dict(v) for v in s3_vals],
+        '(forward, backward, without sense) seams at a port, all faces and ports': sorted(sense_counts),
+    }
+    out['S4_transport_sense'] = {'(forward, backward, no sense) emission weights': sorted(s4_vals)}
+    print('S3', out['S3_double_load_screen_frames'])
+    print('S4', out['S4_transport_sense'])
+
+    # ---------------- S5, S6 symmetric double load on the E-type seams of the hexagon of F0 (FR's object)
+    f = L.F0
+    E, C = L.seam_types(f)
+    rho = FC_rho(f)
+    s5 = {}
+    for d in E:
+        tail_, head_ = (d if L.screen_sign(f, d[0], d[1]) > 0 else d[::-1])     # screen orientation tail -> head
+        fwd = next(s for s in C if head_ in s)                                   # C seam at the screen head
+        bwd = next(s for s in C if tail_ in s)
+        sector = set(d) | {x for x in range(12) if d[0] in L.ADJ[x] and d[1] in L.ADJ[x]}
+        nxt = {rho[x] for x in sector}
+        prv = {x for x in range(12) if rho[x] in sector}
+        for frame_name, frame in (('FP', FP), ('FS', L.frame_screen(f))):
+            st, n2 = tick1([L.cfg_of(d[0], d[0]), L.cfg_of(d[1], d[1])], frame)
+
+            def cls_fr(cfg, regs):
+                if regs[0][0] not in (2, 3):
+                    return 'blank'
+                pts = tuple(sorted(L.ports_of(cfg)))
+                return 'in-dimer' if pts == tuple(sorted(d)) else 'forward C' if pts == fwd else \
+                    'backward C' if pts == bwd else 'off the hexagon'
+
+            def cls_sector(cfg, regs):
+                if regs[0][0] not in (2, 3):
+                    return 'blank'
+                outside = [p for p in L.ports_of(cfg) if p not in d]
+                if not outside:
+                    return 'same sector'
+                recv = outside[0]
+                return 'same sector' if recv in sector else 'next sector' if recv in nxt else \
+                    'previous sector' if recv in prv else 'other'
+            w_fr = L.weights(st, n2, cls_fr)
+            w_sec = L.weights(st, n2, cls_sector)
+            w_rec = L.weights(st, n2, rec_class)
+            s5[f'dimer {d} {frame_name}'] = {'FR classes': {k: str(v) for k, v in sorted(w_fr.items())},
+                                             'sector classes': {k: str(v) for k, v in sorted(w_sec.items())},
+                                             'records': {k: str(v) for k, v in sorted(w_rec.items())},
+                                             'screen tail, head': [tail_, head_], 'forward C': fwd, 'backward C': bwd,
+                                             'sector ports': sorted(sector)}
+    out['S5_S6_symmetric_double_on_hexagon_dimers'] = s5
+    print('S5/S6', {k: (v['FR classes'], v['sector classes'], v['records']) for k, v in s5.items()})
+
+    # ---------------- S7, S8 native pair; S9 one load (plain law)
+    def pair_stats(ports):
+        st, n2 = tick1([L.cfg_of(*ports)], FP)
+        w = {}
+        for (cfg, regs), amp in st.items():
+            rec, k = regs[0]
+            a, b = L.ADDR[k]
+            la, lb = a in ports, b in ports
+            if la and lb:
+                lab = 'both ends loaded (kept)'
+            elif not la and not lb:
+                lab = 'inactive'
+            elif rec == 0:
+                lab = 'agree'
+            elif rec == 1:
+                lab = 'repair, source at the first endpoint' if la else 'repair, source at the second endpoint'
+            else:
+                lab = f'record {rec}'
+            w[lab] = w.get(lab, Fr(0)) + amp * amp / n2
+        return {k: str(v) for k, v in sorted(w.items())}
+    by_dist = {}
+    for x in range(12):
+        for y in range(x + 1, 12):
+            by_dist.setdefault(L.port_distance(x, y), set()).add(tuple(sorted(pair_stats((x, y)).items())))
+    out['S7_S8_native_pair'] = {f'port distance {d}': [dict(v) for v in vals] for d, vals in sorted(by_dist.items())}
+    one = {tuple(sorted(pair_stats((x,)).items())) for x in range(12)}
+    out['S9_one_load'] = [dict(v) for v in one]
+    print('S7/S8', out['S7_S8_native_pair'])
+    print('S9', out['S9_one_load'])
+
+    # ---------------- S11 pairs of the native matching code
+    try:
+        from model.common_source import native_code_transport as transport
+        codes = {'C code': transport.code.MATCHINGS, 'E code': transport.PAIR_CODES['E'].MATCHINGS}
+        s11 = {}
+        for name, matchings in codes.items():
+            dists = {}
+            for m in matchings:
+                for pair in m:
+                    d = L.port_distance(*sorted(pair))
+                    dists[d] = dists.get(d, 0) + 1
+            # coherent logical states: uniform superposition over the six pairs of a matching
+            logical = []
+            for m in matchings:
+                st, n2 = tick1([L.cfg_of(*sorted(pair)) for pair in m], FP)
+                w = {}
+                for (cfg, regs), amp in st.items():
+                    w[f'record {regs[0][0]}'] = w.get(f'record {regs[0][0]}', Fr(0)) + amp * amp / n2
+                logical.append(tuple(sorted((k, str(v)) for k, v in w.items())))
+            s11[name] = {'matchings': len(matchings), 'pairs per matching': sorted({len(m) for m in matchings}),
+                         'pairs by port distance': dists,
+                         'record weights of the six logical states after one tick': [dict(v) for v in set(logical)]}
+        out['S11_matching_code'] = s11
+    except Exception as exc:  # noqa: BLE001
+        out['S11_matching_code'] = f'import failed: {type(exc).__name__}: {exc}'
+    print('S11', out['S11_matching_code'])
+
+    # ---------------- S10 discriminant of the double load in an echo frame, and return amplitudes in both frames
+    a0 = 2
+    res10 = {}
+    for frame_name, frame in (('FE', L.frame_sorted()), ('FS(F0)', L.frame_screen(L.F0)), ('FP', FP)):
+        # discriminant D = A^dag Q A on (cfg, rec); Krylov space of |a0 a0, blank>
+        def applyD(vec):
+            new = {}
+            for (cfg, rec), amp in vec.items():
+                for k in range(L.NA):
+                    aa, bb = frame[k]
+                    for c2, r2, u in L.local(cfg, rec, aa, bb):
+                        L.add(new, (c2, r2), amp * u / L.NA)
+            return new
+        e0 = {(L.cfg_of(a0, a0), 0): Fr(1)}
+        kry = [e0]
+        keys = set(e0)
+        basis_rows = []
+        dim = 0
+        max_dim = 8 if frame_name != 'FP' else 6
+        while len(kry) <= max_dim:
+            nxt = applyD(kry[-1])
+            kry.append(nxt)
+            keys |= set(nxt)
+        keys = sorted(keys)
+        M = sp.Matrix([[sp.Rational(v.get(k, Fr(0)).numerator, v.get(k, Fr(0)).denominator) for k in keys] for v in kry])
+        dim = M.rank()
+        row = {'Krylov dimension reached (cap %d)' % max_dim: dim}
+        if dim <= max_dim:
+            # minimal polynomial of D on the cyclic space: solve D^dim e0 = sum c_j D^j e0
+            A_ = sp.Matrix([[M[j, i] for j in range(dim)] for i in range(len(keys))])
+            b_ = sp.Matrix([M[dim, i] for i in range(len(keys))])
+            sol = (A_.T * A_).LUsolve(A_.T * b_)
+            assert (A_ * sol - b_).applyfunc(sp.simplify) == sp.zeros(len(keys), 1)
+            x = sp.Symbol('x')
+            poly = sp.factor(x ** dim - sum(sol[j] * x ** j for j in range(dim)))
+            row['minimal polynomial of the discriminant on the cyclic space of the double load'] = str(poly)
+            row['its roots'] = [str(r) for r in sp.roots(sp.Poly(sp.expand(poly), x)).keys()]
+        # return amplitudes <A a0a0| W^n |A a0a0> by the walk itself, ticks 1 to 12
+        st, n2 = L.uniform([L.cfg_of(a0, a0)])
+        rets, w2, w3, wdbl = [], [], [], []
+        for n in range(1, 13):
+            st = L.W(st, frame)
+            ret = sum((amp for (cfg, regs), amp in st.items() if cfg == L.cfg_of(a0, a0) and regs[0][0] == 0), Fr(0)) / n2
+            rets.append(ret)
+            w = L.weights(st, n2, rec_class)
+            w2.append(w.get('record 2', Fr(0)))
+            w3.append(w.get('record 3', Fr(0)))
+            wdbl.append(sum((amp * amp for (cfg, regs), amp in st.items() if max(cfg) == 2 and regs[0][0] == 0), Fr(0)) / n2)
+        row['return amplitude, ticks 1 to 12'] = [str(r) for r in rets]
+        row['return amplitude as float'] = [round(float(r), 9) for r in rets]
+        row['weight of record 2, ticks 1 to 12'] = [str(v) for v in w2]
+        row['weight of record 3, ticks 1 to 12'] = [str(v) for v in w3]
+        row['record 2 equals record 3 at every tick'] = w2 == w3
+        row['weight on blank doubles (any port), ticks 1 to 12 (float)'] = [round(float(v), 9) for v in wdbl]
+        # prediction S10 for the echo frame
+        if frame_name != 'FP':
+            pred = [sp.Rational(1, 6) + sp.Rational(5, 6) * sp.chebyshevt(n, sp.Rational(4, 5)) for n in range(1, 13)]
+            row['equals 1/6 + (5/6) T_n(4/5)'] = [sp.Rational(r.numerator, r.denominator) for r in rets] == pred
+        counts = [3 * p - 4 * p * p for p in w2]
+        row['forward-only exclusive count of two such objects (RD-rec), ticks 1 to 12'] = [str(c) for c in counts]
+        row['the same as float'] = [round(float(c), 9) for c in counts]
+        row['mean over ticks 1 to 12 (float)'] = round(float(sum(counts, Fr(0)) / 12), 9)
+        res10[frame_name] = row
+        print('S10', frame_name, {k: v for k, v in row.items() if 'ticks' not in k or 'float' in k})
+    out['S10_later_ticks_double_load'] = res10
+
+    out['seconds'] = round(time.time() - t0, 2)
+    L.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+def FC_rho(f):
+    import fr_common as FC
+    return FC.stabilizer_turn(f)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

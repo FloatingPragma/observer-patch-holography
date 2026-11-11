@@ -1,0 +1,95 @@
+{
+ "constant_link_phase_is_symbol_at_p_minus_A": 3.417008968066607e-16,
+ "bound_check": {
+  "config": {
+   "L": 64,
+   "B0": 0.004,
+   "theta0": 0.08,
+   "theta1": 0.02,
+   "phi0": 0.03,
+   "p0": [
+    0.12,
+    0.04
+   ],
+   "sigma": 6.0
+  },
+  "sup_norms": {
+   "F12": 0.004,
+   "d1F12": 0.00039269908169872416,
+   "theta": 0.1,
+   "d2theta": 0.001963495408493621,
+   "d22theta": 0.00019276571095877654,
+   "d1phi": 0.002945243112740431,
+   "d11phi": 0.00028914856643816474
+  },
+  "rows": [
+   {
+    "n": 4,
+    "error_ordered": 0.061339809888767804,
+    "error_alternating": 0.03804913900802284,
+    "error_alternating_half_step_frame": 0.012421962690060854,
+    "bound": 0.2246285838282875,
+    "reference_norm_drift": 4.440892098500626e-16
+   },
+   {
+    "n": 8,
+    "error_ordered": 0.07707292572888746,
+    "error_alternating": 0.051462078389001235,
+    "error_alternating_half_step_frame": 0.014728727722846318,
+    "bound": 0.5679535552884504,
+    "reference_norm_drift": 8.881784197001252e-16
+   },
+   {
+    "n": 16,
+    "error_ordered": 0.08748552006539247,
+    "error_alternating": 0.048573089025699366,
+    "error_alternating_half_step_frame": 0.023758207108087872,
+    "bound": 1.6743105945398444,
+    "reference_norm_drift": 4.440892098500626e-16
+   },
+   {
+    "n": 32,
+    "error_ordered": 0.1481398179489375,
+    "error_alternating": 0.060698355757803454,
+    "error_alternating_half_step_frame": 0.044692292316540184,
+    "bound": 6.011178592415003,
+    "reference_norm_drift": 4.440892098500626e-16
+   }
+  ],
+  "initial": {
+   "N1_0": [
+    0.1460977595798151,
+    0.09465770248678113
+   ],
+   "N12_0": 0.01411555564904918,
+   "per_tick": 0.18784933101296886
+  }
+ },
+ "scaling": [
+  {
+   "eps": 1.0,
+   "L": 32,
+   "n": 8,
+   "error_ordered": 0.348906887550432,
+   "error_alternating_half_step_frame": 0.28290763751358183,
+   "bound": 6.012662103087716
+  },
+  {
+   "eps": 0.5,
+   "L": 64,
+   "n": 16,
+   "error_ordered": 0.16388501312401751,
+   "error_alternating_half_step_frame": 0.06341070247527716,
+   "bound": 3.0063307278637676
+  },
+  {
+   "eps": 0.25,
+   "L": 128,
+   "n": 32,
+   "error_ordered": 0.07962407819644791,
+   "error_alternating_half_step_frame": 0.01529907235813302,
+   "bound": 1.5031653281595732
+  }
+ ],
+ "seconds": 35.59592270851135
+}

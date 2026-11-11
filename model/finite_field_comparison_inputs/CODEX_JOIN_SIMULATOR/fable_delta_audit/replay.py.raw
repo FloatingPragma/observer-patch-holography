@@ -1,0 +1,199 @@
+"""Execute unchanged Fable scripts in disposable copies; retain original evidence.
+
+The comparison is an audit, not a replacement for any scientific receipt.
+No app, report, public model, or original work file is written.
+"""
+from __future__ import annotations
+
+import argparse
+from concurrent.futures import ThreadPoolExecutor
+import hashlib
+import json
+import math
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
+
+HERE = Path(__file__).resolve().parent
+RL = HERE.parents[2]
+WORK = RL / 'work'
+RER = RL / 'reverse-engineering-reality'
+REPORTS = ['PM', 'SS', 'FR', 'DR', 'CM', 'LW', 'DC3', 'FZ', 'HT', 'DR2', 'LNAT3', 'CM2']
+OUTPUTS = {
+    'CM': ['r2.json', 'x8.json', 'r2_compare.json'],
+    'DR': ['register.json'],
+    'SIM/derive/lnat3': ['lnat3_t1.json', 'lnat3_t2.json', 'lnat3_t3.json', 'lnat3_t4.json'],
+}
+
+CHILD = r'''
+import hashlib,json,os,pathlib,runpy,sys
+program=pathlib.Path(sys.argv[1]).resolve(); audit=pathlib.Path(sys.argv[2]); args=sys.argv[3:]
+seen=set()
+def hook(event,args):
+    if event=='open' and isinstance(args[0],str):
+        p=pathlib.Path(args[0]).resolve()
+        if p.suffix in {'.py','.json','.md','.npy','.npz'}: seen.add(str(p))
+sys.addaudithook(hook)
+sys.path.insert(0,str(program.parent));sys.argv=[str(program),*args]
+runpy.run_path(str(program),run_name='__main__')
+for module in tuple(sys.modules.values()):
+    path=getattr(module,'__file__',None)
+    if path and str(path).endswith('.py'):seen.add(str(pathlib.Path(path).resolve()))
+paths=sorted(seen)
+rows={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in paths if pathlib.Path(p).is_file()}
+audit.write_text(json.dumps(rows,sort_keys=True))
+'''
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def canonical(value):
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+
+def differences(old, new, path=()):
+    """Report every leaf difference, without a permissive numerical comparator."""
+    if type(old) is not type(new):
+        return [{'path': list(path), 'old': old, 'fresh': new}]
+    if isinstance(old, float) and math.isnan(old) and math.isnan(new):
+        return []  # Recorded separately as undefined source numeric leaves.
+    if isinstance(old, dict):
+        if set(old) != set(new):
+            return [{'path': list(path), 'old_keys': sorted(old), 'fresh_keys': sorted(new)}]
+        return sum((differences(old[k], new[k], (*path, k)) for k in sorted(old)), [])
+    if isinstance(old, list):
+        if len(old) != len(new):
+            return [{'path': list(path), 'old_length': len(old), 'fresh_length': len(new)}]
+        return sum((differences(a, b, (*path, i)) for i, (a, b) in enumerate(zip(old, new))), [])
+    return [] if old == new else [{'path': list(path), 'old': old, 'fresh': new}]
+
+
+def nonfinite_leaves(value, path=()):
+    if isinstance(value, float) and not math.isfinite(value):
+        return [{'path': list(path), 'value': str(value)}]
+    if isinstance(value, dict):
+        return sum((nonfinite_leaves(v, (*path, k)) for k, v in value.items()), [])
+    if isinstance(value, list):
+        return sum((nonfinite_leaves(v, (*path, i)) for i, v in enumerate(value)), [])
+    return []
+
+
+def stage(destination):
+    for name in ('CM', 'DR', 'FR', 'SIM/derive/lnat', 'SIM/derive/lnat3'):
+        target = destination / name
+        target.mkdir(parents=True)
+        for source in (WORK / name).glob('*.py'):
+            shutil.copyfile(source, target / source.name)
+
+
+def execute_group(name, destination):
+    jobs = {
+        'CM': [('cm_r2.py', []), ('cm_r2_x8.py', []), ('cm_r2_compare.py', [])],
+        'DR': [('dr_register.py', ['register.json'])],
+        'SIM/derive/lnat3': [(f't{i}_{suffix}.py', []) for i, suffix in
+                           [(1, 'source'), (2, 'analyzer'), (3, 'assemble'), (4, 'fr_multitick')]],
+    }
+    env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', FR_RER=str(RER),
+               PYTHONPATH=os.pathsep.join([str(RER), str(destination / 'FR')]),
+               OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1')
+    custody = {}
+    for script, args in jobs[name]:
+        cwd = destination / name
+        audit = cwd / (script + '.inputs.json')
+        command = [sys.executable, '-B', '-c', CHILD, str(cwd / script), str(audit), *args]
+        run = subprocess.run(command, cwd=cwd, env=env, text=True, capture_output=True, timeout=360)
+        if run.returncode:
+            raise RuntimeError(f'{name}/{script}:\n{run.stdout}\n{run.stderr}')
+        custody.update(json.loads(audit.read_text()))
+    return custody
+
+
+def run():
+    import mpmath, numpy, scipy, sympy
+    explicit = {f'reports/{name}.md': sha(RL / f'reports/{name}.md') for name in REPORTS}
+    for name in ('SPECTRUM.md', 'work/HT/part1_c1.py', 'work/HT/part1_c1_oscillator.py',
+                 'work/HT/part1_c1.json', 'work/HT/part1_c1_oscillator.json'):
+        explicit[name] = sha(RL / name)
+    for name, outputs in OUTPUTS.items():
+        for output in outputs:
+            explicit[f'work/{name}/{output}'] = sha(WORK / name / output)
+    for path in HERE.glob('*.py'):
+        explicit[str(path.relative_to(RL))] = sha(path)
+    with tempfile.TemporaryDirectory(prefix='oph-fable-audit-') as td:
+        destination = Path(td)
+        stage(destination)
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            records = list(pool.map(lambda name: execute_group(name, destination), OUTPUTS))
+        for custody in records:
+            for path, digest in custody.items():
+                p = Path(path)
+                if p.is_relative_to(destination):
+                    relative = p.relative_to(destination)
+                    original = WORK / relative
+                    # Generated outputs have their own fresh hashes below.
+                    if p.suffix == '.py':
+                        assert sha(original) == digest, 'copied executable differed'
+                        explicit[str(original.relative_to(RL))] = digest
+                elif p.is_relative_to(RER) or p.is_relative_to(WORK):
+                    explicit[str(p.relative_to(RL))] = digest
+        fresh, comparisons = {}, {}
+        for name, outputs in OUTPUTS.items():
+            for output in outputs:
+                key = name + '/' + output
+                raw = (destination / key).read_bytes()
+                value = json.loads(raw)
+                original = json.loads((WORK / key).read_text())
+                fresh[key] = value
+                comparisons[key] = {'original_sha256': sha(WORK / key),
+                                    'fresh_byte_sha256': hashlib.sha256(raw).hexdigest(),
+                                    'retained_nonfinite_numeric_leaves': nonfinite_leaves(original),
+                                    'fresh_nonfinite_numeric_leaves': nonfinite_leaves(value),
+                                    'leaf_differences': differences(original, value)}
+        sys.path.insert(0, str(HERE))
+        from exact_controls import controls, summarize
+        exact = controls(RER, WORK)
+        for name in exact.pop('input_paths'):
+            explicit[str(Path(name).relative_to(RL))] = sha(name)
+        result = {'schema': 'oph.fable_material_delta_audit.v1',
+                  'scope': 'Unchanged producer replay in disposable copies; no source receipt renewal, physical-status promotion, or app mutation.',
+                  'environment': {'python': sys.version.split()[0], 'numpy': numpy.__version__,
+                                  'scipy': scipy.__version__, 'sympy': sympy.__version__, 'mpmath': mpmath.__version__},
+                  'producer_comparisons': comparisons, 'findings': summarize(fresh, exact),
+                  'exact_controls': exact, 'input_sha256': dict(sorted(explicit.items()))}
+    for name, digest in explicit.items():
+        assert sha(RL / name) == digest, 'source changed during replay: ' + name
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--write', action='store_true')
+    parser.add_argument('--check', action='store_true')
+    args = parser.parse_args()
+    if args.write == args.check:
+        parser.error('choose exactly one of --write/--check')
+    result = run()
+    path = HERE / 'results.json'
+    if args.write:
+        path.write_text(json.dumps(result, indent=2, ensure_ascii=False, allow_nan=False) + '\n')
+    else:
+        saved = json.loads(path.read_text())
+        # Timings and fresh JSON byte hashes may vary. Every scientific leaf
+        # difference is retained for inspection rather than silently admitted.
+        for value in (result, saved):
+            for row in value['producer_comparisons'].values():
+                row.pop('fresh_byte_sha256')
+                row['leaf_differences'] = [d for d in row['leaf_differences']
+                    if d['path'] != ['seconds']]
+        if canonical(result) != canonical(saved):
+            raise ValueError('audit differs; inspect exact source/environment/result differences')
+    print('PASS: material Fable replay and exact finite-scope controls')
+
+
+if __name__ == '__main__':
+    main()

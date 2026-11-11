@@ -1,0 +1,70 @@
+"""Item 5 on the cubic family: random against periodic placement of the flipped private seam at equal density.
+
+S x S x S cells of the edge-sharing cubic federation (6 ports per cell, kernel 1 - L/120), one flipped private
+seam (row PRIVATE[0] of the seam table) in each defect cell. Reported as in km5_controls.py: kernel bottom, the
+spectral measure of the uniform preparation over the lowest levels, and its record series.
+
+usage: python km5_cubic_random.py <out.json> <processes> <S> <realizations> <k>
+"""
+import json, sys
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+from multiprocessing import Pool
+import km4_cubic as C
+
+NA = C.NA
+
+
+def matrix(S, defect_cells, seam):
+    ncell = S ** 3
+    idx = np.arange(ncell); x, y, z = idx // (S * S), (idx // S) % S, idx % S
+    rows, cols, vals = [], [], []
+    flag = np.zeros(ncell, bool); flag[list(defect_cells)] = True
+    for s, r in enumerate(C.SEAMS):
+        w = 2.0 if r['shared'] else 1.0
+        o = r['cell_offset_of_to']
+        tgt = (((x + o[0]) % S) * S + ((y + o[1]) % S)) * S + ((z + o[2]) % S)
+        a = 6 * idx + r['from_class']; b = 6 * tgt + r['to_class']
+        sg = np.where(flag, -1.0, 1.0) if s == seam else np.ones(ncell)
+        rows += [a, b, a, b]; cols += [a, b, b, a]; vals += [np.full(ncell, w), np.full(ncell, w), -w * sg, -w * sg]
+    return sp.coo_matrix((np.concatenate(vals), (np.concatenate(rows), np.concatenate(cols))), shape=(6 * ncell, 6 * ncell)).tocsc()
+
+
+def case(task):
+    S, dens, seed, kk = task
+    ncell = S ** 3; seam = C.PRIVATE[0]
+    if seed < 0:
+        m = int(round(dens ** (-1 / 3)))
+        cells = [((i * m) * S + (j * m)) * S + (k * m) for i in range(S // m) for j in range(S // m) for k in range(S // m)]
+    else:
+        rng = np.random.default_rng(seed + 1000 * round(1 / dens))
+        cells = rng.choice(ncell, size=int(round(ncell * dens)), replace=False).tolist()
+    L = matrix(S, cells, seam)
+    w, U = spla.eigsh(L, k=kk, sigma=-0.05 * dens, which='LM', tol=1e-10)
+    o = np.argsort(w); w, U = w[o], U[:, o]
+    wt = abs(U.sum(0)) ** 2 / L.shape[0]
+    cap = float(wt.sum()); cum = np.cumsum(wt) / cap
+    q25, q50, q75 = (float(w[np.searchsorted(cum, v)]) for v in (0.25, 0.5, 0.75))
+    om = np.arccos(1 - w / NA)
+    ts = np.arange(1, 20001, 4)
+    amp = wt / (1 + np.cos(om))
+    pt = np.array([(amp * np.sin(t * om) ** 2).sum() for t in ts])
+    first = next((i for i in range(1, len(pt) - 1) if pt[i] >= pt[i - 1] and pt[i] > pt[i + 1]), int(np.argmax(pt)))
+    return {'S': S, 'density': dens, 'seed': seed, 'defects': len(cells), 'E_min': float(w[0]), 'E_second': float(w[1]), 'uniform_weight_captured': cap,
+            'uniform_weight_on_lowest': float(wt[0]), 'participation_levels': float(cap ** 2 / (wt ** 2).sum()), 'E_q25': q25, 'E_median': q50, 'E_q75': q75,
+            'E_mean_captured': float((w * wt).sum() / cap), 'first_order_E': 4.0 * len(cells) / L.shape[0],
+            'record_first_maximum_t': int(ts[first]), 'record_first_maximum_height': float(pt[first]), 'E_top_captured': float(w[-1])}
+
+
+if __name__ == '__main__':
+    outp, procs, S, R, kk = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5])
+    tasks = [(S, d, s, kk) for d in (1 / 64, 1 / 512) for s in [-1] + list(range(R))]
+    res = []
+    with Pool(procs, maxtasksperchild=1) as pool:
+        for r in pool.imap_unordered(case, tasks):
+            res.append(r)
+            print(f"cubic S={r['S']} density 1/{round(1 / r['density'])} seed {r['seed']:3d} ({'periodic' if r['seed'] < 0 else 'random'}, {r['defects']} defects): E_min={r['E_min']:.6e} "
+                  f"captured={r['uniform_weight_captured']:.4f} weight on lowest={r['uniform_weight_on_lowest']:.4f} levels={r['participation_levels']:.2f} quartiles {r['E_q25']:.4e} {r['E_median']:.4e} {r['E_q75']:.4e} "
+                  f"first-order {r['first_order_E']:.4e}; record first max {r['record_first_maximum_height']:.4f} at t={r['record_first_maximum_t']}", flush=True)
+            json.dump({'rows': sorted(res, key=lambda r: (r['density'], r['seed']))}, open(outp, 'w'), indent=1)

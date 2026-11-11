@@ -1,0 +1,213 @@
+"""S3 step 10: the staggered (mass-shell) wirings and the twelve five-valent vertices.
+
+flat     Mass-shell parameters of the two isotropic staggered wirings on the flat lattice: half gap m and slope v
+         from (lambda_1 - lambda_0)^2 = 4 (m^2 + v^2 k^2) near K (cross-check of the simulation session's lead L6).
+frustr   The cell graph of the icosahedral mesh is not two-colourable: exact minimum number of same-colour
+         neighbour pairs at level 0 (all 2^20 colourings), and the count for the rotation-covariant colouring
+         (up/down inside each base face) at levels 1..5.
+walls    Icosahedral mesh, level L: staggered wiring (up cells F, down cells B inside each base face). Levels inside
+         the flat gap window and the share of their weight on cells that touch a base edge (the same-class walls).
+octa     Control on a mesh whose cell graph IS two-colourable (octahedral tower, 8*4^L cells, six four-valent
+         vertices): the same staggered wiring without any wall. Levels inside the flat gap window.
+
+Run:  cd SCR/rer-edit && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. nice -n 10 /tmp/oph-completion-venv/bin/python \
+          SCR/research/S3/s10_mass_shell.py flat|frustr|walls|octa [level]
+Merges into SCR/research/S3/s10_mass_shell.json
+"""
+import json
+import math
+import os
+import sys
+import time
+
+import numpy as np
+import scipy.sparse.linalg as sla
+
+sys.dont_write_bytecode = True
+sys.path.insert(0, '/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/research/S3')
+import s0_lib as S  # noqa: E402
+
+WHICH = sys.argv[1]
+PATH = S.S3 + '/s10_mass_shell.json'
+out = json.load(open(PATH)) if os.path.exists(PATH) else {}
+T0 = time.time()
+F, B = S.FACE_TRIPLE, S.BELT_TRIPLE
+WINDOW = (0.16961303410167172, 0.19060178417474383)          # two lowest levels at K of the flat F-up / B-down wiring
+MID = 0.5 * (WINDOW[0] + WINDOW[1])
+
+
+def save():
+    json.dump(out, open(PATH, 'w'), indent=1)
+
+
+if WHICH == 'flat':
+    A1 = np.array([1.0, 0.0]); A2 = np.array([0.5, math.sqrt(3) / 2]); DELTA = (np.zeros(2), A1, A2)
+    KPT = np.array([2 * math.pi / 3, 2 * math.pi / math.sqrt(3)])
+
+    def bands(q, pu, pd):
+        q = np.atleast_2d(q)
+        L = np.zeros((q.shape[0], 24, 24), complex)
+        L[:, :12, :12] = S.LCAR; L[:, 12:, 12:] = S.LCAR
+        for k in range(3):
+            u, d = pu[k], 12 + pd[k]
+            L[:, u, u] += 1; L[:, d, d] += 1
+            ph = np.exp(-1j * (q @ DELTA[k]))
+            L[:, u, d] -= ph; L[:, d, u] -= np.conj(ph)
+        return np.linalg.eigvalsh(L)
+
+    cache = json.load(open(S.S3 + '/s3_flat_pairs_cache.json'))
+    res = {}
+    for name, key in (('F up / B down (1,1,1)/(2,2,2)', '3,10'), ('(1,2,2) up / (1,1,2) down', '2,11'),
+                      ('(1,1,2) up / (1,2,2) down', '4,9'), ('(1,1,2) up / (1,2,2) down, second', '5,8')):
+        r = cache[key]
+        pu, pd = tuple(r['up_triple']), tuple(r['down_triple'])
+        q0 = np.array(r['at_q'])
+        e0 = bands(q0, pu, pd)[0]
+        m = 0.5 * (e0[1] - e0[0])
+        vs = []
+        for ang in (0, 30, 60, 90, 120, 150):
+            k = 2e-3
+            e = bands(q0 + k * np.array([math.cos(math.radians(ang)), math.sin(math.radians(ang))]), pu, pd)[0]
+            g = 0.5 * (e[1] - e[0])
+            vs.append(math.sqrt(max(g * g - m * m, 0.0)) / k)
+        w = [S.star_arms(pu)[i] + S.star_arms(pd)[i] for i in range(3)]
+        res[name] = {'up_triple': list(pu), 'down_triple': list(pd), 'gap_minimum_at_q': q0.tolist(), 'distance_to_K': r['distance_to_K'],
+                     'half_gap_m': float(m), 'mid_gap_level': float(0.5 * (e0[0] + e0[1])), 'slope_v_by_direction': vs,
+                     'massless_c2': r['c2_mean_exact_formula'], 'massless_anisotropy': r['c2_anisotropy_pm'],
+                     'bond_conductances': r['bond_conductances']}
+        print(name, json.dumps(res[name]), flush=True)
+    out['flat'] = res
+    save()
+
+if WHICH == 'frustr':
+    res = {}
+    m0 = S.build_mesh(0)
+    l, r = m0.left, m0.right
+    best = 99
+    cols = np.arange(1 << 20, dtype=np.int64)
+    same = np.zeros(cols.size, dtype=np.int8)
+    for a, b in zip(l.tolist(), r.tolist()):
+        same += (((cols >> a) ^ (cols >> b)) & 1) == 0
+    res['level0_minimum_same_colour_neighbour_pairs_over_all_colourings'] = int(same.min())
+    res['level0_colourings_attaining_minimum'] = int((same == same.min()).sum())
+    res['level0_dual_edges'] = int(l.size)
+    rows = {}
+    for level in range(0, 6):
+        mesh = S.build_mesh(level)
+        x = np.arange(mesh.N); par = np.zeros(mesh.N, dtype=int)
+        for _ in range(level):
+            par += (x % 4 == 3); x //= 4
+        up = par % 2 == 0
+        rows[level] = {'cells': int(mesh.N), 'dual_edges': int(mesh.left.size), 'same_class_pairs_covariant_colouring': int(np.sum(up[mesh.left] == up[mesh.right])),
+                       'thirty_times_two_to_level': 30 * 2 ** level, 'lower_bound_six_times_two_to_level': 6 * 2 ** level,
+                       'five_valent_vertices': 12}
+    res['covariant_colouring'] = rows
+    out['frustration'] = res
+    print(json.dumps(res), flush=True)
+    save()
+
+
+def staggered_levels(mesh, up, label, k):
+    WF = S.uniform_wiring_mesh_order(mesh, F); WB = S.uniform_wiring_mesh_order(mesh, B)
+    W = np.where(up[:, None], WF, WB)
+    L = S.port_laplacian(mesh, W)
+    vals, vecs = sla.eigsh(L, k=k, sigma=MID, which='LM', tol=1e-11)
+    o = np.argsort(vals); vals, vecs = vals[o], vecs[:, o]
+    inside = (vals > WINDOW[0]) & (vals < WINDOW[1])
+    covered = bool(vals.min() < WINDOW[0] and vals.max() > WINDOW[1])
+    return W, vals, vecs, inside, covered
+
+
+if WHICH == 'walls':
+    level = int(sys.argv[2]) if len(sys.argv) > 2 else 4
+    mesh = S.build_mesh(level)
+    x = np.arange(mesh.N); par = np.zeros(mesh.N, dtype=int)
+    for _ in range(level):
+        par += (x % 4 == 3); x //= 4
+    up = par % 2 == 0
+    k = {2: 40, 3: 60, 4: 160, 5: 420}[level]
+    W, vals, vecs, inside, covered = staggered_levels(mesh, up, 'ico', k)
+    wall_edge = up[mesh.left] == up[mesh.right]
+    wall_cell = np.zeros(mesh.N, bool)
+    wall_cell[mesh.left[wall_edge]] = True; wall_cell[mesh.right[wall_edge]] = True
+    wcell = (vecs ** 2).reshape(mesh.N, 12, -1).sum(axis=1)             # weight per cell, per level
+    share = wcell[wall_cell].sum(axis=0)
+    row = {'cells': int(mesh.N), 'ports': 12 * int(mesh.N), 'window': list(WINDOW), 'window_covered_by_computed_levels': covered,
+           'levels_inside_window': int(inside.sum()), 'same_class_dual_edges': int(wall_edge.sum()),
+           'cells_touching_a_wall': int(wall_cell.sum()), 'area_share_of_wall_cells': float(wall_cell.mean()),
+           'mean_weight_share_on_wall_cells_inside_window': float(share[inside].mean()) if inside.any() else None,
+           'min_weight_share_on_wall_cells_inside_window': float(share[inside].min()) if inside.any() else None,
+           'mean_weight_share_on_wall_cells_outside_window': float(share[~inside].mean()),
+           'multiplicities_inside_window': [n for _, n in S.multiplets(vals[inside], 1e-7)] if inside.any() else []}
+    out.setdefault('walls', {})[str(level)] = row
+    print(level, json.dumps(row), round(time.time() - T0, 1), flush=True)
+    save()
+
+if WHICH == 'octa':
+    level = int(sys.argv[2]) if len(sys.argv) > 2 else 4
+    # octahedral tower with the same subdivision rule
+    verts = np.array([(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)], float)
+    tri = np.array([(0, 2, 4), (2, 1, 4), (1, 3, 4), (3, 0, 4), (2, 0, 5), (1, 2, 5), (3, 1, 5), (0, 3, 5)], dtype=np.int64)
+    for i, (a, b, c) in enumerate(tri.tolist()):                      # orient the base faces outward
+        if np.dot(np.cross(verts[b] - verts[a], verts[c] - verts[a]), verts[a] + verts[b] + verts[c]) < 0:
+            tri[i] = (a, c, b)
+    for _ in range(level):
+        vl = [p for p in verts]
+        mid = {}
+
+        def midpoint(i, j):
+            key = (min(i, j), max(i, j))
+            if key not in mid:
+                p = verts[key[0]] + verts[key[1]]
+                mid[key] = len(vl)
+                vl.append(p / np.linalg.norm(p))
+            return mid[key]
+        faces = []
+        for a, b, c in tri.tolist():
+            ab = midpoint(a, b); bc = midpoint(b, c); ca = midpoint(c, a)
+            faces.extend(((a, ab, ca), (b, bc, ab), (c, ca, bc), (ab, bc, ca)))
+        verts = np.asarray(vl); tri = np.asarray(faces, dtype=np.int64)
+    m = S.Mesh()
+    m.level, m.verts, m.tri = level, verts, tri
+    N, V = tri.shape[0], verts.shape[0]
+    m.N, m.V = N, V
+    nrm = np.cross(verts[tri[:, 1]] - verts[tri[:, 0]], verts[tri[:, 2]] - verts[tri[:, 0]])
+    assert (np.einsum('ij,ij->i', nrm, verts[tri].sum(axis=1)) > 0).all()
+    me = np.concatenate((tri[:, (0, 1)], tri[:, (1, 2)], tri[:, (2, 0)]), axis=0)
+    kk = np.concatenate((np.full(N, 2), np.full(N, 0), np.full(N, 1)))
+    keys = np.minimum(me[:, 0], me[:, 1]) * V + np.maximum(me[:, 0], me[:, 1])
+    fid = np.tile(np.arange(N, dtype=np.int64), 3)
+    order = np.argsort(keys, kind='stable')
+    sk, sf, skk = keys[order], fid[order], kk[order]
+    assert (sk[0::2] == sk[1::2]).all()
+    m.left, m.right, m.kl, m.kr = sf[0::2], sf[1::2], skk[0::2], skk[1::2]
+    # two-colouring of the cells
+    import scipy.sparse as sp
+    import scipy.sparse.csgraph as csg
+    A = sp.coo_matrix((np.ones(m.left.size), (m.left, m.right)), shape=(N, N)); A = (A + A.T).tocsr()
+    dist = csg.shortest_path(A, method='D', unweighted=True, indices=0)
+    up = (dist.astype(int) % 2 == 0)
+    proper = bool((up[m.left] != up[m.right]).all())
+    valence = np.bincount(tri.ravel(), minlength=V)
+    k = {2: 30, 3: 40, 4: 80, 5: 200}[level]
+    W, vals, vecs, inside, covered = staggered_levels(m, up, 'octa', k)
+    row = {'cells': int(N), 'ports': 12 * int(N), 'vertex_valences': {int(a): int(b) for a, b in zip(*np.unique(valence, return_counts=True))},
+           'cell_graph_two_colourable': proper, 'same_class_dual_edges': int((up[m.left] == up[m.right]).sum()),
+           'window': list(WINDOW), 'window_covered_by_computed_levels': covered, 'levels_inside_window': int(inside.sum()),
+           'levels_inside_window_values': [[float(x), int(n)] for x, n in S.multiplets(vals[inside], 1e-7)] if inside.any() else [],
+           'gap_edges_seen': [float(vals[vals < MID].max()), float(vals[vals > MID].min())]}
+    # same mesh, uniform F: levels in a window of the same width around its own crossing level
+    lamK = 0.17603491419128936
+    LF = S.port_laplacian(m, S.uniform_wiring_mesh_order(m, F))
+    vf = np.sort(sla.eigsh(LF, k=k, sigma=lamK, which='LM', tol=1e-11, return_eigenvectors=False))
+    half = 0.5 * (WINDOW[1] - WINDOW[0])
+    row['uniform_F_levels_within_same_half_width_of_its_crossing'] = int(np.sum(np.abs(vf - lamK) < half))
+    row['uniform_F_window_covered'] = bool(vf.min() < lamK - half and vf.max() > lamK + half)
+    for nm, WW in (('staggered', W), ('uniform_F', S.uniform_wiring_mesh_order(m, F))):
+        low = S.low_spectrum(S.port_laplacian(m, WW), k=16)
+        row[f'low_spectrum_{nm}'] = {'N_lambda_first9': (N * low[:9]).tolist(), 'multiplicities': [n for _, n in S.multiplets(low[1:], 1e-7)][:6],
+                                     'spread_l1': S.spread(low[1:4]), 'spread_l2': S.spread(low[4:9])}
+    out.setdefault('octahedral_control', {})[str(level)] = row
+    print(level, json.dumps(row), round(time.time() - T0, 1), flush=True)
+    save()
+print('done', WHICH, round(time.time() - T0, 1))

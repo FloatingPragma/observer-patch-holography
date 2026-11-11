@@ -44,8 +44,18 @@ def production_checks(prod):
         v = np.array([np.nan if x is None else x for x in p['V_t2']])
         e = np.array([np.nan if x is None else x for x in p['V_t2_err']])
         on_axis = [k for k in range(len(r)) if abs(r[k] - round(r[k])) < 1e-9 and np.isfinite(v[k])]
-        rise = all(v[b] - v[a] > 3 * np.hypot(e[a], e[b]) for a, b in zip(on_axis[:-1], on_axis[1:]))
+        rise = (len(on_axis) >= 2 and len(p['on_axis_increments']) == len(on_axis) - 1
+                and all(row['value'] > 3 * row['stat'] for row in p['on_axis_increments']))
         checks[f'5_potential.{label}.rises_at_every_on_axis_step'] = bool(rise)
+        joint = res['chiral']['joint']
+        cov = np.array(joint['covariance'])
+        checks[f'8_covariance.{label}.paired_matrix_positive_semidefinite'] = bool(
+            np.allclose(cov, cov.T, atol=1e-14) and np.linalg.eigvalsh(cov).min() > -1e-12)
+        checks[f'8_covariance.{label}.shared_scale_cancels_in_mass_ratio'] = bool(
+            joint['scale_cancelled_ratio_max_error'] < 1e-12)
+        checks[f'8_covariance.{label}.contrasts_match_joint_variance'] = all(
+            abs(c['stat'] ** 2 - c['variance_from_covariance']) < 1e-12 for c in joint['contrasts'].values())
+
         checks[f'5_potential.{label}.string_tension_five_sigma'] = bool(p['sigma_over_err'] > 5)
         checks[f'5_potential.{label}.every_fit_has_positive_string_tension'] = bool(
             all(f['sigma'] > 5 * f['sigma_err'] for f in p['fits'].values()))
@@ -165,7 +175,8 @@ def certificate():
                 all_checks_pass=bool(all(checks.values())), checks=checks, gate_numbers=numbers, production=prod,
                 melting=melt, production_gates=gates, headline=headline(prod, melt), measured=MEASURED,
                 convention=CONVENTION, literature=LITERATURE,
-                input_sha256={TABLES.name: hashlib.sha256(TABLES.read_bytes()).hexdigest()})
+                input_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in
+                              [TABLES, *sorted(TABLES.parent.glob('*.py'))]})
 
 
 def close(a, b, rtol=1e-6, atol=1e-9, path=''):

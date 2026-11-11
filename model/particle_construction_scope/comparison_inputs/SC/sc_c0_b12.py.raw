@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+"""Worker SC: C0 (validation of the float chain on the producer's printed point) and B12 (P-dependence of
+alpha_cut/alpha_U^D10 against the constant t_half(SU(3))). No measured value is read. Writes sc_c0_b12.json."""
+from __future__ import annotations
+
+import json
+import math
+
+import numpy as np
+
+from sc_chain_lib import PHI, Chain, alpha_cut, bisect, _l3, _c3
+
+P_FWD = 1.63097209585889737696451390350695562847912625483895268486516
+PRINTED = {"alpha_U": 0.0411242474418166851408899338896597194, "v_over_Estar": 2.0198114078576330591337426182670149e-17,
+           "alpha_inv": 136.994835177412937295289429464436}
+
+decl = Chain()
+pt = decl.point(P_FWD)
+c0 = {"alpha_U_rel_dev": pt["alpha_U"] / PRINTED["alpha_U"] - 1,
+      "v_rel_dev": pt["v_over_Estar"] / PRINTED["v_over_Estar"] - 1,
+      "A_T_rel_dev": pt["A_T"] / PRINTED["alpha_inv"] - 1}
+assert abs(c0["alpha_U_rel_dev"]) < 1e-10 and abs(c0["A_T_rel_dev"]) < 1e-9, c0
+
+
+def p_trivial3(t):
+    logw = _l3 - t * _c3
+    m = logw.max()
+    return float(np.exp(-m) / np.exp(logw - m).sum())
+
+
+t_half3 = bisect(lambda t: p_trivial3(t) - 0.5, 0.01, 20.0)
+rows = {}
+for name, P in (("P_fwd - 0.01", P_FWD - 0.01), ("P_fwd", P_FWD), ("P_fwd + 0.01", P_FWD + 0.01), ("phi", PHI)):
+    aU, _ = decl.alpha_U(P)
+    ac = alpha_cut(P)
+    rows[name] = {"P": P, "alpha_U_D10": aU, "alpha_cut": ac, "ratio": ac / aU, "ratio_minus_t_half3_rel": ac / aU / t_half3 - 1}
+P1, P2 = P_FWD - 0.01, P_FWD + 0.01
+slope = (math.log(rows["P_fwd + 0.01"]["ratio"]) - math.log(rows["P_fwd - 0.01"]["ratio"])) / (P2 - P1)
+window = 2 * abs(rows["P_fwd"]["ratio_minus_t_half3_rel"]) / abs(slope)
+out = {"C0_validation_vs_README_printed_point": c0, "C0_point": pt, "B12": {"t_half_SU3": t_half3, "rows": rows,
+       "dln_ratio_dP": slope, "P_width_of_agreement_at_this_level": window,
+       "reading": "t_half(SU(3)) is a constant; the ratio moves with P"}}
+open("sc_c0_b12.json", "w").write(json.dumps(out, indent=1) + "\n")
+print(json.dumps(out, indent=1))

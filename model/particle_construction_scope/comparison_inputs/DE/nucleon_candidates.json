@@ -1,0 +1,97 @@
+{
+  "N0": {
+    "m_baryon_gev": [
+      3.3985182396e+18,
+      4.2824303906999997e+18
+    ],
+    "m_baryon_over_E_star": [
+      0.278364,
+      0.350763
+    ],
+    "theta4_per_tick": [
+      0.092788,
+      0.116921
+    ]
+  },
+  "check_4loop_alpha_mc_matches_repository": 0.0,
+  "dln_muL_dln_alpha3": 5.232501697231633,
+  "four_loop_threshold_corners": [
+    {
+      "N1_m_N_gev": 1.7289041529207965,
+      "N2_m_N_gev": 2.3052055372277285,
+      "landau_scale_gev": 0.5763013843069321,
+      "mb": 3.5,
+      "mc": 1.0
+    },
+    {
+      "N1_m_N_gev": 1.8248984329907003,
+      "N2_m_N_gev": 2.433197910654267,
+      "landau_scale_gev": 0.6082994776635667,
+      "mb": 3.5,
+      "mc": 1.6
+    },
+    {
+      "N1_m_N_gev": 1.7856629938563469,
+      "N2_m_N_gev": 2.3808839918084623,
+      "landau_scale_gev": 0.5952209979521156,
+      "mb": 5.0,
+      "mc": 1.0
+    },
+    {
+      "N1_m_N_gev": 1.8860204388070763,
+      "N2_m_N_gev": 2.514693918409435,
+      "landau_scale_gev": 0.6286734796023588,
+      "mb": 5.0,
+      "mc": 1.6
+    }
+  ],
+  "loop_orders": {
+    "1": {
+      "N1_m_N_gev": 0.43638146778733145,
+      "N1_over_repo_lambda3": 1.2833931352798091,
+      "N2_m_N_gev": 0.5818419570497753,
+      "N2_over_repo_lambda3": 1.7111908470397454,
+      "alpha_s_mb_5f": 0.2135012867154193,
+      "alpha_s_mc_3f": 0.32218474014895204,
+      "landau_scale_gev": 0.14546048926244382,
+      "mu_L_over_repo_lambda3": 0.42779771175993636
+    },
+    "2": {
+      "N1_m_N_gev": 1.1977981753594649,
+      "N1_over_repo_lambda3": 3.5227113642144587,
+      "N2_m_N_gev": 1.59706423381262,
+      "N2_over_repo_lambda3": 4.696948485619279,
+      "alpha_s_mb_5f": 0.22513536859478991,
+      "alpha_s_mc_3f": 0.37897434847188405,
+      "landau_scale_gev": 0.399266058453155,
+      "mu_L_over_repo_lambda3": 1.1742371214048197
+    },
+    "3": {
+      "N1_m_N_gev": 1.5428467397874177,
+      "N1_over_repo_lambda3": 4.53749542727371,
+      "N2_m_N_gev": 2.0571289863832236,
+      "N2_over_repo_lambda3": 6.049993903031613,
+      "alpha_s_mb_5f": 0.22591248850124773,
+      "alpha_s_mc_3f": 0.389300779626971,
+      "landau_scale_gev": 0.5142822465958059,
+      "mu_L_over_repo_lambda3": 1.5124984757579032
+    },
+    "4": {
+      "N1_m_N_gev": 1.8082073947842137,
+      "N1_over_repo_lambda3": 5.317918218193449,
+      "N2_m_N_gev": 2.410943193045618,
+      "N2_over_repo_lambda3": 7.090557624257932,
+      "alpha_s_mb_5f": 0.22619773334833324,
+      "alpha_s_mc_3f": 0.3943151306666752,
+      "landau_scale_gev": 0.6027357982614046,
+      "mu_L_over_repo_lambda3": 1.772639406064483
+    }
+  },
+  "reads_measured_hadron_mass": false,
+  "repository_alpha_s_mc_3f": 0.3943151306666752,
+  "repository_lambda3_gev": 0.3400216627247194,
+  "roots": {
+    "j0_minus_j1_at_x_MIT": 1.902445384560636e-08,
+    "tan_minus_2x_at_x_threshold": -3.197531128762421e-11
+  }
+}

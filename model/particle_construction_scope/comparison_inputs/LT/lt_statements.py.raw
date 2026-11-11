@@ -1,0 +1,155 @@
+"""LT: stack statements bearing on the unit of the clock (step L3).
+
+Run from RL/work/LT:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lt_statements.py
+Reads the public checkout (read only). Each entry is (file, phrase, status); the phrase must occur on one line of the
+current tree. Writes statements_check.json and STATEMENTS.md in this directory.
+"""
+import json
+import os
+import subprocess
+import sys
+
+sys.dont_write_bytecode = True
+HERE = os.path.dirname(os.path.abspath(__file__))
+RL = os.path.dirname(os.path.dirname(HERE))
+RER = os.environ.get('LT_RER', os.path.join(os.path.dirname(RL), 'reverse-engineering-reality'))
+if not os.path.isdir(RER):
+    RER = os.path.join(RL, 'reverse-engineering-reality')
+
+SECTIONS = [
+    ('U1', 'The tick and its edge gate. One seven-layer cycle (one onsite U in every cell, one root-SWAP on every edge) '
+           'is the clock tick; the edge gate is E = a I + b S with a = (1 - i)/2, b = (1 + i)/2.', [
+        ('model/coherent_defect_wave/spatial/PROOF.md', 'One complete seven-layer cycle is the clock tick.', 'declared'),
+        ('model/coherent_defect_wave/spatial/PROOF.md', 'The coefficients specify an exact square-root SWAP gate.', 'model, exact'),
+        ('model/coherent_defect_wave/mobile_flux/PROOF.md', 'Onsite U_F at both cells followed by E is one declared clock tick.', 'declared'),
+        ('model/coherent_defect_wave/spatial/family.py', 'A = (1-s.I)/2', 'code'),
+        ('model/coherent_defect_wave/spatial/family.py', 'def exchange(state, inverse=False):', 'code'),
+        ('model/coherent_defect_wave/PREPARATION.md', 'One autonomous clock tick is one complete `U`.', 'declared'),
+    ]),
+    ('U2', 'The declared positive clock. One generator, one dimensionless t; onsite coefficient one, hopping coefficient '
+           'pi/4; at unit t the hopping term is the edge gate of the tick; the onsite term is a replacement clock and '
+           'exp(-i A) = U is not asserted; a change of a coefficient is a different architecture.', [
+        ('model/coherent_defect_wave/energy/PROOF.md', 'The continuous evolution is `exp(-it H_Lambda)`. These formulas, coefficient', 'declared'),
+        ('model/coherent_defect_wave/energy/PROOF.md', 'one and coefficient `pi/4`, and dimensionless t define the architecture.', 'declared'),
+        ('model/coherent_defect_wave/energy/PROOF.md', 'The edge choice reproduces the existing root-SWAP:', 'model, exact'),
+        ('model/coherent_defect_wave/energy/PROOF.md', '`exp[-i(pi/4)(I-S)]=(1-i)I/2+(1+i)S/2`, and exterior lifting preserves the', 'model, exact'),
+        ('model/coherent_defect_wave/energy/PROOF.md', 'identity. The onsite positive functional is a declared replacement clock;', 'declared'),
+        ('model/coherent_defect_wave/energy/PROOF.md', '`exp(-i A_x)=U_F,x` is not asserted.', 'refused'),
+        ('model/coherent_defect_wave/energy/PROOF.md', 'fixed circuit cone; the strict cone of a finite gate cycle is not assigned', 'refused'),
+        ('model/coherent_defect_wave/energy/PROOF.md', r'\le\frac{t^2}{2n}\sum_{r<s}\|[H_r,H_s]\|', 'model, exact'),
+        ('model/coherent_defect_wave/energy/PROOF.md', 'At fixed spacing, these energy laws are defined without an energy-logarithm', 'model'),
+        ('model/coherent_defect_wave/energy/PROOF.md', 'ambiguity. A change in the functional or coefficients is a different', 'model'),
+        ('model/coherent_defect_wave/energy/model.py', 'This is a specified continuous clock, not a logarithm of the discrete tick.', 'code'),
+    ]),
+    ('U3', 'Units of the stack. One time convention exp(-itH) with hbar = 1; a phase per tick theta is the energy '
+           '(hbar/tau) theta; "unit time" is one tick; seconds per source time unit are a comparison input.', [
+        ('model/coherent_defect_wave/spectroscopy/PROOF.md', '`H_n=(hbar/tau) sum_a (theta_a+2 pi n_a) P_a`', 'model'),
+        ('model/coherent_defect_wave/spectroscopy/PROOF.md', 'both exponentiate to `diag(1,-i)` at unit time, yet their positive gaps', 'model'),
+        ('model/coherent_defect_wave/spectroscopy/PROOF.md', 'continuous-clock or refinement condition may exclude them; positivity,', 'model'),
+        ('model/particle_common_contract/PROOF.md', 'The sole source time convention is', 'declared'),
+        ('model/particle_primary_mass_readout/PROOF.md', 'The primary clock is `exp(-itH)` in source action units with hbar=1', 'declared'),
+        ('model/particle_primary_mass_readout/PROOF.md', 'GeV per source energy =hbar_GeV_s/T.', 'declared dictionary'),
+        ('model/clock_defect_energy/SI_UNITS.md', 'seconds per unit of one specified model clock', 'declared dictionary'),
+        ('paper/executable_observer_construction.tex', 'For a coherent rest angular frequency', 'conditional'),
+    ]),
+    ('U4', 'Rate statements. The generator I - P belongs to the unit-rate attempt clock; the port chain obeys '
+           'E[K_12^N] = exp(-tL) for N ~ Poisson(60 t); the value of I - Re U on a coherent mode is the recorded '
+           'quadratic variation per event; the stack subdivides a trigger by scaling both angles by 1/n; no action '
+           'unit follows.', [
+        ('model/native_modular_dynamics/PROOF.md', 'native attempts with a unit-rate total-attempt Poisson clock gives the distinct local generator J, while discrete', 'model'),
+        ('model/native_modular_dynamics/PROOF.md', 'attempt reconstruction gives H. Changing that clock changes the operator.', 'model'),
+        ('model/observer/coherent_continuation.py', 'E[K_12^N]=exp(-t*L), N~Poisson(60*t)', 'code, identity'),
+        ('model/observer/coherent_continuation.py', '"Poisson_parameter_is_a_physical_clock": False,', 'code, refused'),
+        ('model/observer/COHERENT_CONTINUATION.md', '`A_12` has uniform amplitudes and `A_12* S_12 A_12=K_12=I-L/60`.', 'model, exact'),
+        ('model/native_correlation_sectors/PROOF.md', 'operator I-P is the generator only after the specified Poissonization of', 'model'),
+        ('model/OBSERVER_RELATIVE_RECOVERY.md', 'Poissonization is a scheduler extension, not an inferred physical clock.', 'declared'),
+        ('model/clock_defect_energy/MODE_ENERGY.md', 'This is exactly `1-cos(theta)` for its existing coherent wave phase', 'model, exact'),
+        ('model/clock_defect_energy/MODE_ENERGY.md', 'evolution, determine an action unit, or undo the negative bare-activity', 'refused'),
+        ('model/clock_defect_energy/MODE_ENERGY.md', 'each trigger into n repeated pairs, scaling both angles by `1/n` and keeping', 'model'),
+        ('model/clock_defect_energy/MODE_ENERGY.md', 'Subdivision is a compiler/control refinement', 'model'),
+        ('model/clock_defect_energy/ENERGY.md', 'Action per event times events per time has energy', 'hypothesis'),
+    ]),
+    ('U5', 'Lean. The step clock is exp(-i mass n stepDuration); the step duration is one declared positive real and '
+           'is not forced; the committed instance has stepDuration 1; refinement invariance selects accrual by proper '
+           'length; the SI calibration of the tick is an import.', [
+        ('Lean/Geometry/CommonWorldInstrumentJoin.lean', 'Join 3, the declared step-to-clock dictionary.', 'Lean, declared'),
+        ('Lean/Geometry/CommonWorldInstrumentJoin.lean', 'carries one positive real `stepDuration` identifying evolution step `n`', 'Lean, declared'),
+        ('Lean/Geometry/CommonWorldInstrumentJoin.lean', 'theorem stepClock_eq_exp', 'Lean'),
+        ('Lean/Geometry/CommonWorldInstrumentJoin.lean', '  stepDuration := 1', 'Lean, instance'),
+        ('Lean/Geometry/SourceClockRateAlongWorldlines.lean', 'forced, `joined_stepDuration_not_forced`', 'Lean'),
+        ('Lean/Geometry/SourceClockRateAlongWorldlines.lean', '(`indexAccrual_not_refinementInvariant`, through', 'Lean'),
+        ('Lean/Geometry/ProperTimeInternalAction.lean', 'theorem refinementInvariant_iff_b_zero', 'Lean, declared refinement'),
+        ('Lean/Geometry/ProperTimeInternalAction.lean', 'theorem restPath_properLength', 'Lean'),
+        ('Lean/Thermodynamics/PhysicalCalibrationImport.lean', 'to the laboratory frequency `m / (2 * pi * tau)` hertz exactly; the', 'Lean, conditional on a declared tick'),
+        ('Lean/Thermodynamics/PhysicalCalibrationImport.lean', 'on a declared tick, and no theorem selects one.  No source-derived clock', 'Lean module statement'),
+    ]),
+    ('U6', 'The lepton lane. The mass round has the weak-kick angle clock t = N h, with no equality to native-attempt '
+           'time; its masses carry a common Higgs factor; the phase needs an angular unit and a control map as separate '
+           'inputs; the papers declare the normalized current coupling and one unit of control time per tick; the public '
+           'program has the inverse step and a quarter turn as its phase gate.', [
+        ('model/standard_model_source_map/KOIDE_SOURCE.md', 'V_h=exp(-ih X tensor P_U).', 'model'),
+        ('model/standard_model_source_map/KOIDE_SOURCE.md', 'contraction telescoping gives', 'model, exact'),
+        ('model/standard_model_source_map/KOIDE_SOURCE.md', 'is asserted. The time `t=Nh` in (9) is the accumulated weak-kick angle.', 'declared clock'),
+        ('model/standard_model_source_map/KOIDE_SOURCE.md', 'and uncomputation. Their duration does not disappear when `h` shrinks.', 'model'),
+        ('model/standard_model_source_map/KOIDE_SOURCE.md', 'No equality between this angle clock and global native-attempt time or', 'refused'),
+        ('model/standard_model_source_map/KOIDE_SOURCE.md', 'Its quadratic action masses are a common Higgs factor times the singular', 'model'),
+        ('model/charged_lepton_response/PHASE_AND_PREMISES.md', 'one radian per selected event to turn an event frequency into the number', 'separate input'),
+        ('model/charged_lepton_response/PHASE_AND_PREMISES.md', '2/9 as an angle. That angular unit and the event-to-coherent-control map', 'separate input'),
+        ('paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex', 'physical energy. The construction additionally declares the normalized current', 'declared'),
+        ('paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex', r'coupling $J\otimes X$ and one unit of control time per tick. Its $N$ weak rounds', 'declared'),
+        ('paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex', 'With that coupling and the chosen unit duration, the oriented current carries the phase', 'declared'),
+        ('paper/deriving_the_particle_zoo_from_observer_consistency.tex', 'Declared register and analyzer on the coherent law; energy clock with unit time per tick', 'declared'),
+        ('paper/deriving_the_particle_zoo_from_observer_consistency.tex', 'setting a probability equal to an angle in radians is an additional rule', 'paper'),
+        ('paper/executable_observer_construction.tex', 'so the energy clock reads read probabilities, and the read count becomes the phase', 'paper'),
+        ('extra/koide_identity_from_positive_c3_face_circulants.tex', 'at unit clock time per tick', 'paper'),
+        ('model/coherent_seam_repair/program.py', '    def inverse_step(self, state):', 'code'),
+        ('model/coherent_seam_repair/program.py', 'Optional basis-selective apparatus phase; absent from idle evolution.', 'code, apparatus'),
+        ('paper/executable_observer_construction.tex', 'it is not the walk quasienergy. Optional basis quarter-turns', 'paper, apparatus'),
+    ]),
+]
+
+
+def find(path, phrase):
+    full = os.path.join(RER, path)
+    if not os.path.isfile(full):
+        return None
+    with open(full, encoding='utf-8', errors='replace') as fh:
+        for n, line in enumerate(fh, 1):
+            if phrase in line:
+                return n
+    return None
+
+
+def main():
+    head = subprocess.run(['git', '-C', RER, 'log', '-1', '--format=%h %ci'], capture_output=True, text=True).stdout.strip()
+    out = {'checkout': RER, 'head': head, 'sections': {}}
+    total = unmatched = 0
+    md = ['# Stack statements bearing on the unit of the clock (worker LT, step L3)', '',
+          f'Checkout: `{RER}` at `{head}`. Every row was matched by `lt_statements.py`: the quoted phrase occurs at the '
+          'given line of the current tree. Status words are the files\' own or describe the kind of file.']
+    rows_md = []
+    for sid, summary, entries in SECTIONS:
+        rows = []
+        for path, phrase, status in entries:
+            n = find(path, phrase)
+            total += 1
+            unmatched += n is None
+            rows.append({'file': path, 'line': n, 'phrase': phrase, 'status': status})
+        out['sections'][sid] = {'summary': summary, 'rows': rows}
+        rows_md += ['', f'## {sid}', '', summary, '', '| File and line | Quoted phrase | Status |', '| --- | --- | --- |']
+        for r in rows:
+            phrase = r['phrase'].strip().replace('|', '\\|')
+            rows_md.append(f"| `{r['file']}:{r['line']}` | {phrase} | {r['status']} |")
+    out['entries'], out['unmatched'] = total, unmatched
+    md[2] += f' Entries: {total}, unmatched: {unmatched}.'
+    json.dump(out, open(os.path.join(HERE, 'statements_check.json'), 'w'), indent=1)
+    open(os.path.join(HERE, 'STATEMENTS.md'), 'w').write('\n'.join(md + rows_md) + '\n')
+    print('entries', total, 'unmatched', unmatched)
+    for sid, sec in out['sections'].items():
+        for r in sec['rows']:
+            if r['line'] is None:
+                print('UNMATCHED', sid, r['file'], '|', r['phrase'])
+
+
+if __name__ == '__main__':
+    main()

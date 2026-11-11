@@ -1,0 +1,169 @@
+{
+ "rows": [
+  {
+   "k": 0,
+   "j": "0",
+   "dim": 1,
+   "predicted": 5.0,
+   "exact": "5",
+   "L13": 5.0,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 0,
+   "j": "1",
+   "dim": 3,
+   "predicted": 2.23606797749979,
+   "exact": "sqrt(5)",
+   "L13": 2.23606797749979,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 0,
+   "j": "2",
+   "dim": 5,
+   "predicted": -1.0,
+   "exact": "-1",
+   "L13": -1.0,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 0,
+   "j": "3",
+   "dim": 3,
+   "predicted": -2.23606797749979,
+   "exact": "-sqrt(5)",
+   "L13": -2.23606797749979,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 1,
+   "j": "1/2",
+   "dim": 2,
+   "predicted": 4.2532540417602,
+   "exact": "sqrt(10*sqrt(5) + 50)/2",
+   "L13": 4.2533,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 1,
+   "j": "3/2",
+   "dim": 4,
+   "predicted": 0.7265425280053609,
+   "exact": "sqrt(5 - 2*sqrt(5))",
+   "L13": 0.7265,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 1,
+   "j": "5/2",
+   "dim": 6,
+   "predicted": -1.902113032590307,
+   "exact": "-sqrt(2*sqrt(5) + 10)/2",
+   "L13": -1.9021,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 2,
+   "j": "1",
+   "dim": 3,
+   "predicted": 3.618033988749895,
+   "exact": "sqrt(5)/2 + 5/2",
+   "L13": 3.618,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 2,
+   "j": "2",
+   "dim": 5,
+   "predicted": -0.38196601125010515,
+   "exact": "-3/2 + sqrt(5)/2",
+   "L13": -0.382,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 2,
+   "j": "3",
+   "dim": 4,
+   "predicted": -2.23606797749979,
+   "exact": "-sqrt(5)",
+   "L13": -2.2361,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 3,
+   "j": "3/2",
+   "dim": 4,
+   "predicted": 3.0776835371752536,
+   "exact": "sqrt(2*sqrt(5) + 5)",
+   "L13": 3.0777,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 3,
+   "j": "5/2",
+   "dim": 6,
+   "predicted": -1.1755705045849463,
+   "exact": "-sqrt(10 - 2*sqrt(5))/2",
+   "L13": -1.1756,
+   "aliased": false,
+   "match": true
+  },
+  {
+   "k": 3,
+   "j": "7/2",
+   "dim": 2,
+   "predicted": -2.1927300437924515,
+   "exact": "(-8*sqrt(2) + sqrt(10))*sqrt(sqrt(5) + 5)/10",
+   "L13": -2.6287,
+   "aliased": true,
+   "match": false
+  },
+  {
+   "k": 4,
+   "j": "2",
+   "dim": 5,
+   "predicted": 2.618033988749895,
+   "exact": "sqrt(5)/2 + 3/2",
+   "L13": null,
+   "aliased": false,
+   "match": null
+  },
+  {
+   "k": 5,
+   "j": "5/2",
+   "dim": 6,
+   "predicted": 2.2270327288232137,
+   "exact": "sqrt(10)*(sqrt(5) + 5)**(5/2)/200",
+   "L13": null,
+   "aliased": true,
+   "match": null
+  }
+ ],
+ "local_coin_rest_phases": {
+  "spinor k=1": {
+   "lambda0": 0.8506508083520399,
+   "omega0_deg": 31.71747441146101
+  },
+  "vector k=2": {
+   "lambda0": 0.7236067977499789,
+   "omega0_deg": 43.646927108796305
+  },
+  "scalar triplet k=0": {
+   "lambda0": 0.4472135954999579,
+   "omega0_deg": 63.43494882292201
+  }
+ },
+ "lazy_series": "x**2/3 + 2*x"
+}

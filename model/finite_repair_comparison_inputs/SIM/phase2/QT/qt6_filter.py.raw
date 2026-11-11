@@ -1,0 +1,79 @@
+"""QT supplement added after the hash (no candidate, no row, no measured value): the limit of the iterated public
+filter K+ = (2 I + W)/3 on the blank three-load preparations, law T-A (the statement of LP item 1 for the pair).
+
+The filter keeps of a blank preparation b, in the limit, its squared overlap with the consensus states. EXACT from
+the consensus states: the triple's from the exact kernel, the class-0 uniform states of qt1b_exact.py.
+Writes qt6_filter.json.
+"""
+from __future__ import annotations
+
+import sys
+import time
+from fractions import Fraction as Fr
+
+import qt_common as Q
+from qt2_analyzer import fixed_with_blank, consensus_projection
+from qt1b_exact import apply_D
+
+OUT = 'qt6_filter.json'
+
+
+def true_norm2(m, v):
+    return sum((m.tau2(*divmod(j, m.nrec)) * Q.norm2(a) for j, a in v.items()), Fr(0))
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'QT filter limit', 'provenance': Q.FC.provenance()}
+    law = Q.Law('T-A')
+    for geo in ('hexagon', 'carrier'):
+        rows = {}
+        for k in range(6):
+            m = Q.hexagon(law, k) if geo == 'hexagon' else Q.carrier(law, k)
+            nprep = len(m.cfg)
+            kept = {'triple': Fr(0), 'double+single': Fr(0), 'separated': Fr(0)}
+            per = {}
+            if k in (0, 2, 4):
+                res, vecs, withb = fixed_with_blank(m, ('triple',))
+                v, info = consensus_projection(m, vecs)
+                n2 = true_norm2(m, v)
+                w = {Q.norm2(a) / n2 for j, a in v.items() if j % m.nrec == 0}
+                assert len(w) == 1
+                per['one triple preparation'] = str(next(iter(w)))
+                kept['triple'] = sum((Q.norm2(a) for j, a in v.items() if j % m.nrec == 0), Fr(0)) / n2
+            if k == 0:
+                D = m.Dsparse()
+                # uniform separated state: all blank separated configurations
+                sep = {m.sidx(c, 0): Fr(1) for c in range(len(m.cfg)) if m.ctype(m.cfg[c]) == 'separated'}
+                # uniform double+single state: blank double+single plus the separated configurations with an adjacent pair, records 2, 3
+                ds = {m.sidx(c, 0): Fr(1) for c in range(len(m.cfg)) if m.ctype(m.cfg[c]) == 'double+single'}
+                nds = len(ds)
+                for c in range(len(m.cfg)):
+                    if m.ctype(m.cfg[c]) == 'separated':
+                        pp = m.ports_of(m.cfg[c])
+                        if any(frozenset((a, b)) in m.seam_set for a in pp for b in pp if a < b):
+                            ds[m.sidx(c, 2)] = Fr(1)
+                            ds[m.sidx(c, 3)] = Fr(1)
+                assert apply_D(D, sep) == sep and apply_D(D, ds) == ds, 'uniform states fixed exactly'
+                per['uniform separated and double+single states fixed by D exactly'] = True
+                kept['separated'] = Fr(1)
+                per['one separated preparation'] = str(Fr(1, len(sep)))
+                kept['double+single'] = Fr(nds, len(ds))
+                per['one double+single preparation'] = str(Fr(1, len(ds)))
+            total = sum(kept.values(), Fr(0))
+            rows[f'class {k}'] = {
+                'blank preparations': nprep, 'limit weight kept, summed over the preparations of each type': {t: str(x) for t, x in kept.items()},
+                'limit weight kept per preparation': per, 'total kept': str(total),
+                'mean kept weight per preparation': str(total / nprep),
+                'share of the triple in what is kept': str(kept['triple'] / total) if total else 'nothing is kept'}
+            print(geo, 'class', k, rows[f'class {k}'], flush=True)
+        out[geo] = rows
+    out['note'] = ('class 0 uses the uniform double+single and separated consensus states verified exactly in qt1b_exact.json (carrier) and '
+                   'qt1_hexagon.json; classes 1 to 5 have no consensus state of these two types')
+    out['seconds'] = round(time.time() - t0, 2)
+    Q.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,913 @@
+"""T1: build ledger.json and LEDGER.md.
+
+Reads (read only) the premise register of the public checkout for ids, names, types, dispositions, the register's
+own implementation status and the consuming theorems (evidence paths with role conditional_consumer, else
+statement). The classification of what candidate CF-1 and the audit's coherent packets supply is written by hand
+below, row by row, with the file behind every non-empty cell.
+
+Run from anywhere:
+  /tmp/oph-completion-venv/bin/python WORKSPACE/repair-law/work/T1/build_ledger.py
+"""
+from __future__ import annotations
+
+import collections
+import json
+import os
+
+RL = "WORKSPACE/repair-law"
+RER = "WORKSPACE/reverse-engineering-reality"
+HERE = os.path.join(RL, "work", "T1")
+
+LEVELS = ("nothing", "label-level shadow", "executed on one carrier", "executed on a family", "proof")
+
+# shorthand for citations
+CF1 = "RL/candidates/CF1.md"
+R1, R2, R3, R4, R7 = (f"RL/reports/R{i}.md" for i in (1, 2, 3, 4, 7))
+KD, KM = "RL/reports/KD.md", "RL/reports/KM.md"
+MAP = "RL/work/MAP/source_map.json"
+MAPMD = "RL/MAP.md"
+T1C = "RL/work/T1/frame_check.json"
+CSRP = "RER/model/coherent_seam_repair/PREMISES.md"
+CSRPROOF = "RER/model/coherent_seam_repair/PROOF.md"
+CDW = "RER/model/coherent_defect_wave/"
+PPATH = CDW + "PARTICLE_PATH.md"
+SMSM = "RER/model/standard_model_source_map/"
+
+NOT_USED = "not used by the candidate's mass chain"
+
+# id: (statement, level, by, relation, supply, cites, premise_status, mass, steps, note)
+H = {
+"PR-01": ("Repair moves close every local mismatch, complete to local diamonds and strictly lower a well-founded "
+          "measure, so repair terminates with agreeing endpoints.",
+          "nothing", "-", "-",
+          "The tick of CF-1 and the audit's seam repair are unitary: no accepted step lowers a measure and nothing "
+          "terminates.", [CF1, CSRPROOF], "cannot be met as it stands", "none", [],
+          "The consensus theorems hold for terminating repair contracts, not for a reversible tick."),
+"PR-02": ("Public records are the span of the orthogonal projectors of a partition in a finite complex matrix "
+          "algebra, read through the trace pairing.",
+          "executed on a family", "both", "row",
+          "Records of CF-1 are projector families on one finite Hilbert space with all outcomes kept (cell, record, "
+          "Gauss sector); the audit's programs use complete Kraus instruments.", [R1, R2, CSRP],
+          "adopted as declared semantics", "direct", ["A1", "F1"], ""),
+"PR-03": ("A frame valuation is additive on coexistent effect sums across contexts; the finite Busch-Gleason "
+          "theorem then forces the Born trace form.",
+          "executed on one carrier", "audit", "part",
+          "Finite events of the coherent seam program have additive probabilities and chart-equivalent experiments "
+          "agree; implementation independence and joint refinement for all coexistent effects are not shown. CF-1 "
+          "uses Born weights by declaration.", [CSRP, KM],
+          "adopted as declared semantics", "direct", ["B4", "F1"],
+          "The rest phase is read as a probability: cos(omega) = 1 - p."),
+"PR-04": ("One declared phase-sensitive effect (the Pauli-Y projector of the committed two-level fixture) completes "
+          "its tomography; it is an effect, not an instrument.",
+          "nothing", "-", "-",
+          "Not the fixture of the row. In CF-1 the handedness class is the arrow state of the record and the mass "
+          "step turns about Y_r; reading either needs a phase-sensitive record effect, which is declared apparatus.",
+          [R7, R2], "unmet", "direct", ["F1"], ""),
+"PR-05": ("The path-space reference is an initial law times the uniform-step counting weight; no theorem selects it.",
+          "nothing", "-", "-", "No path-space reference law in a unitary circuit.", [], NOT_USED, "none", [], ""),
+"PR-06": ("One real velocity curvature of the Legendre extension is a representation choice beyond the "
+          "realized-history law.",
+          "nothing", "-", "-",
+          "Inertia in CF-1 is the curvature of the tick's dispersion (inertial mass tan(theta)), not this route.",
+          [R3], NOT_USED, "none", [], ""),
+"PR-07": ("One common faithful reference serves both projections and the transition feasible set is the fibre of the "
+          "repaired visible datum; Gibbs states, conditional resampling and the four-law package follow.",
+          "executed on a family", "both", "analog",
+          "A faithful stationary heralded reference of the tick exists (filter (2 + W)/3: exact success 281/1080 in "
+          "the joint program on one carrier; four small lattices in CF-1). It is not an information projection and "
+          "no repaired-visible fibre is defined.", [CSRP, CDW + "README.md", R1], "unmet", "none", [], ""),
+"PR-08": ("One uniform low-temperature tail bound holds across a declared indexed family.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-09": ("Equal weights on the twenty faces, shared one third to each port, give the port-dual weight 1/12.",
+          "nothing", "-", "-",
+          "The chart takes its algebra from the five-level code; the bracket-variety route is not consumed.",
+          [], NOT_USED, "none", [], ""),
+"PR-10": ("The port-dual measure is read as the carrier inner product and the verdict is the nearest classified "
+          "compact family.", "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-11": ("Classical Lie inputs: reductive splitting, surjective exponential on compact connected groups, "
+          "classification of compact simple Lie algebras (dimensions 3, 8, 10 below twelve).",
+          "nothing", "-", "-",
+          "External mathematics; nothing to construct. The theorem that consumes it needs the sixty rotations "
+          "acting by inner automorphisms: with the frame group alone the exclusion of su(2)^4 fails (exact "
+          "countermodule).", [T1C], "import", "direct", ["D2"], ""),
+"PR-12": ("A matter candidate is a stratum of the compact locus with a graded module of zero abelian charges and "
+          "dimension at most twelve (frozen grammar).",
+          "nothing", "-", "-", "The chart is the charged class of PR-59; neither class contains the other.",
+          [], NOT_USED, "none", [], ""),
+"PR-13": ("Koide balance rho/a = 1/sqrt2 on a positive face circulant makes the Koide quotient 2/3.",
+          "nothing", "-", "-",
+          "No generation triplet in CF-1. The audit's source map excludes balanced Koide for its four "
+          "charged-lepton rows.", [SMSM + "SOURCE_MASSES.md"], "unmet", "direct", ["E4"], ""),
+"PR-14": ("The hadronic vacuum-polarization payload (KNT19) is a pinned empirical import.",
+          "nothing", "-", "-", "", [], "import", "unit", ["F4"], ""),
+"PR-15": ("Internal charges, gaps and step order carry no laboratory units; measured clock and energy standards are "
+          "an empirical attachment.",
+          "executed on a family", "CF-1", "row",
+          "Anchor analysis with the electron mass: no nonzero electron angle under M0 and M3; cell 34 to 66 fm and a "
+          "ceiling of 9 to 18 MeV under M1; under M2 the anchor fixes cell/theta only. The audit's mass instrument "
+          "reads rest energy two in source units.", [R7, CDW + "mass_instrument/PROOF.md"],
+          "import; nothing to anchor yet", "unit", ["F4", "F5"], ""),
+"PR-16": ("Promotion of the finite event order and Lorentz carrier to a continuum needs a source-selected refinement "
+          "family with dense isotropic link directions, calibrated volume, manifold tests and a unique Lorentzian "
+          "limit.",
+          "proof", "CF-1", "part",
+          "For the free tick: exact two-tick phase, 0 <= E - w <= (2/9) E^3 (1 + 3.1 E^2) for E <= 1/2, and a "
+          "strict cone of one cell per axis per tick. One lattice, six link directions, angular dependence at "
+          "relative order |p|^2.", [R3, "RL/work/R3/THEOREM.md", R1],
+          "cannot be met as it stands", "direct", ["B1"], ""),
+"PR-17": ("P and N are the two proposed fundamental numerical parameters.",
+          "nothing", "-", "-", "No P or N enters CF-1; every mass angle is free or at the lattice scale.",
+          [CF1], "unmet", "unit", ["D4", "F4"], ""),
+"PR-18": ("A source on the three-dimensional completion carrier is read through one radial strength profile "
+          "(spherical symmetry).", "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-19": ("Radial strength times shell content is the constant source charge (Gauss normalization).",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-20": ("The seam move law is an A2-natural, A3-unique projection on the sixty directed seams; the weight is then "
+          "1/60 on each.",
+          "executed on one carrier", "audit", "part",
+          "The public internal walk reflects the address about the uniform state of the sixty directed seams "
+          "(kernel 1 - L/60). On the family the routing addresses the twelve directed frame seams only, in a fixed "
+          "axis order.", ["RER/model/coherent_seam_repair/walk.py", KM, CF1],
+          "violated on the family", "criterion", ["D3", "E5"],
+          "The routing weights are natural under the Klein group of the frame only."),
+"PR-21": ("A transverse carrier mode evolves by the first-order oscillator lift of the spatial symbol.",
+          "nothing", "-", "-",
+          "No link wave in CF-1: at eps = 0 plaquette fluxes are static, at eps > 0 no flux label is conserved.",
+          [R2], "unmet", "criterion", ["D3"], ""),
+"PR-22": ("A readout frequency is identified with the carrier symbol at a positive chart scale; physical length and "
+          "frequency consume PR-15.",
+          "executed on a family", "CF-1", "analog",
+          "CF-1 reads the phase per period of two ticks as the frequency of its own symbol (351 cases on 64^3, "
+          "5e-11); three candidate mass readouts (theta, tan theta, sin theta) agree to first order only.",
+          [R3, R1], "unmet", "direct", ["B4", "F4"], ""),
+"PR-23": ("The finite first-law pairings satisfy the typed modular flow package (entropy differential equals the "
+          "modular pairing, 2 pi split, edge term).",
+          "executed on one carrier", "audit", "analog",
+          "The faithful reference of the coherent seam walk is nontracial and its modular generator is a function "
+          "of W + W*; equality with the walk clock and any geometric normalization are open.", [CSRP],
+          "unmet", "none", [], ""),
+"PR-24": ("The reconstructed stress obeys the weak Ward identity under chart steps (null translations).",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-25": ("On the null cone geometry and stress quadratic charges match up to the coupling; one universal stress "
+          "source.", "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-26": ("First-order bulk entropy variation balances the area variation over 4G; MaxEnt family conditions.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-27": ("Small-ball area identity with the coefficient 4 pi l^4/15, a cofinal shrinking family, Bianchi identity.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-28": ("An Einstein-admissible tower exists with refinement naturality and kappa = 8 pi G.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-29": ("The layered readout graph has shellCoeff n^2 outward boundary edges at shell n up to a declared depth.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-30": ("Within one shell every outward boundary edge carries the same flux.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-31": ("Vertex outflow equals a source supported in the layer-zero ball (steady Gauss).",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-32": ("The joint index space of two observers is the Cartesian product of their label alphabets.",
+          "nothing", "-", "-",
+          "Neighbouring carriers of the family share a seam (two ports); the engine uses the cell index as an "
+          "independent register with no port-level realization.", [KD], NOT_USED, "none", [], ""),
+"PR-33": ("The region system is the four-region diamond with slot-factor algebras.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-34": ("Two observers are the two tensor factors of the joint carrier.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-35": ("The carrier loop classes realized by the source are the six-axis gluing classes, whose image generates "
+          "the Z6 tensor-action kernel.",
+          "label-level shadow", "CF-1", "part",
+          "The chart assigns a flux of class k the phase exp(2 pi i k Q6/6); the tick gauges only the Z2 part (link "
+          "signs for patterns with n2 odd). Classes of order three and six need a declared link register.",
+          [CF1, MAPMD], "unmet", "none", [], ""),
+"PR-36": ("The family multiplicity object is one complete faithful band of the port adjacency, without a "
+          "source-visible splitting projector, of dimension 3 to 5; the lowest seam cost selects (the rank-three "
+          "band, cost 5 - sqrt5).",
+          "label-level shadow", "CF-1", "part",
+          "Section 8 has no load register. Under option M3 the selected band is the slow triplet of the carrier "
+          "walk, rest phase 0.304708 for every pattern; candidate G-a resolves it along the frame axes.",
+          [CF1, MAP, T1C], "cannot be met as it stands", "direct", ["E4"],
+          "The seam cost is the M3 rest phase (cos omega = 1 - cost/60), so the excluded trivial band is the only "
+          "massless sector. After frame fixing the port space is the regular representation of the frame group "
+          "(three equivalent triplets, costs 5 - sqrt5, 6, 5 + sqrt5; not multiplicity free), and the exchange of "
+          "the two ports of each frame seam connects the slow and the fast triplet (squared element 4/5): the "
+          "band is not invariant under a law that distinguishes the frame seams. In M3 as defined the load "
+          "register keeps all sixty rotations, so the band is exactly degenerate and no axis is preferred."),
+"PR-37": ("The P-closure map (running, matching, tree-level m_Z closure, continuation masses) is a declared "
+          "selection.", "nothing", "-", "-", "", [], NOT_USED, "unit", ["D4"], ""),
+"PR-38": ("The screen detuning reading of P and the electromagnetic return reading are the same typed quantity.",
+          "nothing", "-", "-", "", [], NOT_USED, "unit", ["D4"], ""),
+"PR-39": ("The Thomson endpoint transport attaches to the physical Thomson scheme by a declared readback contract.",
+          "nothing", "-", "-", "", [], NOT_USED, "unit", ["D4"], ""),
+"PR-40": ("The charged-lepton kappa closure assumes an anchor gap coherent with the hadronic payload across the "
+          "three charged channels.",
+          "nothing", "-", "-", "Premise of the public lepton lane, not of CF-1.", [], NOT_USED, "direct", ["E4"], ""),
+"PR-41": ("The conditional Higgs and top rows consume declared selection premises.",
+          "nothing", "-", "-", "Premise of the public electroweak rows, not of CF-1.", [], NOT_USED, "direct",
+          ["E3", "E5"], ""),
+"PR-42": ("The modular weight of the declared reference splits as 2 pi B + Z with Z the edge record of a horizon.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-43": ("A continuous real-parameter group of star automorphisms of one finite matrix algebra is supplied; a "
+          "self-adjoint generator then represents it.",
+          "executed on a family", "audit", "row",
+          "The audit's graded flux field, spectral left-Weyl field and positive Hamiltonian have specified "
+          "continuous clocks. CF-1 has a discrete tick: reference and branches belong to the period of two ticks, "
+          "which equals -1 at 32 wave vectors, so no gapped logarithm exists.",
+          [CDW + "many_body_route/PROOF.md", CDW + "chiral_regulator/PROOF.md", CDW + "energy/PROOF.md", R1],
+          "cannot be met as it stands", "criterion", ["B2", "C2"],
+          "Clauses C4 and Q1 of the particle criterion."),
+"PR-44": ("Locality helpers are read on a supplied bipartite split with a designated local factor and a normalized "
+          "local operation.",
+          "executed on a family", "both", "row",
+          "Cells are declared factors; the tick is a product of local gates with a strict cone (commutators "
+          "outside the cone below 5e-16); even gates on disjoint cells commute in the audit's occupation circuit.",
+          [R1, R4, CDW + "species/PROOF.md"], "unmet; declared instance", "criterion", ["A1", "B2"], ""),
+"PR-45": ("The variational surface is supplied with kernel, Lagrangian, derivative data and an invariance law.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-46": ("Selecting the physical global group among the four quotients needs a complete character category, an "
+          "instanton normalization and a flux attachment.",
+          "nothing", "-", "-", "", [], "unmet", "none", [], ""),
+"PR-47": ("The parity-graded exterior table is attached to a physical Lorentzian Spin structure, odd-Weyl typing "
+          "and fermion parity.",
+          "executed on a family", "both", "part",
+          "Spin: at rest the 24 lifts of the frame group act and the rest branch is the faithful doublet (pointer "
+          "declared). Chirality: the arrow label is a handedness near p = 0 only; each arrow sector holds equal "
+          "numbers of both handedness at each phase (64 cones). The audit's left-Weyl field uses a long-range "
+          "spectral derivative; Dirac times its module is vector-like.",
+          [R4, R3, CDW + "chiral_regulator/PROOF.md", CDW + "physical_attachment/PROOF.md"],
+          "cannot be met as it stands", "direct", ["B2", "B3", "D5", "E3"], ""),
+"PR-48": ("One complex weak doublet of hypercharge one half is the physical scalar carrier, with a gauge-covariant "
+          "kinetic action.",
+          "executed on one carrier", "audit", "part",
+          "On one site: actual invariant pair tensors couple the matter occupations to a five-state charged scalar "
+          "(320-state lepton/scalar response, gauge-singlet ground). No scalar kinetic action; the cutoff is not "
+          "canonical. In CF-1 the doublet is the two spinor levels, a label.",
+          [CDW + "chiral_higgs/PROOF.md", MAPMD], "unmet", "direct", ["E3"], ""),
+"PR-49": ("The scalar has the quadratic-plus-quartic potential, a stable broken branch and a vacuum tied to the "
+          "electroweak scale.",
+          "nothing", "-", "-",
+          "No potential and no broken state. The audit's quantum ground has charged scalar expectation zero; the "
+          "neutral background of its dictionary is a separate input.", [PPATH], "unmet", "direct", ["E3", "E5"], ""),
+"PR-50": ("The up, down and charged-lepton interaction lines are selected with complete Yukawa matrices, family "
+          "labels and chiral attachment.",
+          "executed on a family", "audit", "part",
+          "At a declared neutral background the audit's dictionary gives E^2 = p^2 + |v y|^2 per paired channel, "
+          "with three free coefficients and one family. In CF-1 the toggle (M2) has one declared angle, gives "
+          "1 : 1 : 1 : 1 and breaks the Gauss constraint by 2|sin theta|.",
+          [CDW + "chiral_particle_map/PROOF.md", R7, R1],
+          "violated by the candidate's own mass step; coefficients absent", "direct", ["E3", "E4"], ""),
+"PR-51": ("The screen-load line and the electroweak scalar order-unit line are identified by one positive readout "
+          "tied to the capacity action.", "nothing", "-", "-", "", [], "unmet", "unit", ["D4", "F4"], ""),
+"PR-52": ("Finite informational order, Lorentz target and event placements are identified with one effective "
+          "physical spacetime (faithful embedding, volume, dimension, clocks, unique limit).",
+          "executed on a family", "CF-1", "part",
+          "Position by cell projectors, a strict cone and a covariant momentum readout on a declared lattice. No "
+          "embedding theorem, volume calibration, rods or limit.", [R1, R2], "unmet", "criterion", ["B1"], ""),
+"PR-53": ("A finite-carrier propagation action is identified with a physical field sector, a frame and boost law, "
+          "calibrated scales, a cofinal domain and a wave-packet readout.",
+          "executed on a family", "CF-1", "part",
+          "Packets on the cone with velocity dE/dp (1e-8 on a line), phase estimation of momentum, a frozen "
+          "comparison protocol. No boost law, unit or cofinal domain; labels only against the electron.",
+          [R2, R3, R7], "unmet", "criterion", ["B1", "F5"], ""),
+"PR-54": ("The compact bracket and matter representation are realized by one source-produced gauge connection, "
+          "current algebra, field strength, covariant matter operator and local action.",
+          "executed on a family", "both", "part",
+          "CF-1: one Z2 link field with exact continuity, [U, G_x] = 0 for M0 and M1, covariant translation; the "
+          "quantum ends the electric string. Audit: sixty-state quantum links with endpoint Ward identities and "
+          "one Gauss-invariant gauge/Higgs Hamiltonian on a finite control. No non-abelian link dynamics, no "
+          "selected coefficients.", [R1, R2, R4, CDW + "chiral_source/PROOF.md", PPATH],
+          "unmet", "direct", ["C3", "D2", "D3", "E5"], ""),
+"PR-55": ("The ten one-generation Weyl labels carry baryon and lepton numbers.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-56": ("Dimension-six baryon operators are four-field multisets filtered by charge, triality, weak and Lorentz "
+          "parity.", "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-57": ("Fields, labels and census are attached to a physical proton state and an effective action.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-58": ("A time-indexed or Cauchy-region interface is realized with net-compatible evolution whose slice algebra "
+          "generates the evolved regional algebra.",
+          "executed on a family", "CF-1", "analog",
+          "The tick maps the algebra of a cell set into that of its one-step neighbourhood (gate locality, argued "
+          "and measured). No time-slice generation statement.", [R1, "RL/work/R1/DEFINITION.md"],
+          "unmet", "criterion", ["A1"], ""),
+"PR-59": ("Five-mode carrier C^3 + C^2 with charges 6Y = (-2, 3); exterior degrees zero and five omitted; ten "
+          "isotypic rows; masks selected by vanishing anomaly sums.",
+          "executed on a family", "both", "row",
+          "Audit: thirty source slots per cell carry every occupation of the fifteen charge states with the twelve "
+          "currents. CF-1: the same five levels with Q6 = 3 n2 - 2 n3 as a chart of 32 patterns, anomaly sums zero; "
+          "it keeps degrees zero and five as the neutral singlet and its conjugate.",
+          [CDW + "chiral_source/PROOF.md", CDW + "field_identity_audit/PROOF.md", MAP, CF1],
+          "adopted as declared grammar; one deviation (degrees zero and five kept)", "direct", ["D1", "E6"], ""),
+"PR-60": ("Every step of an admissible scheduler on the two-register repair carrier does not increase the defect "
+          "mismatch.", "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-61": ("Every step writes at most one of the two registers.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-62": ("The expected capacity spend of every step is at most one unit.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-63": ("The first register is the shared record and the second the private defect flag.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-64": ("A phase-sensitive measurement is a family of completely positive outcome maps with trace-preserving sum, "
+          "matching the declared effects and the recorded outcome.",
+          "executed on a family", "both", "analog",
+          "Complete instruments with all outcomes kept: phase estimation of the covariant translation with a clock "
+          "register, the record after one tick, the audit's reservoir, energy/charge and battery records. All on "
+          "declared coherent services.", [R2, KM, CDW + "mass_instrument/PROOF.md"],
+          "unmet; declared instance", "direct", ["F1"], ""),
+"PR-65": ("One source construction supplies the common preparation, selects the instrument, produces the outcomes "
+          "and binds custody to one run.",
+          "executed on one carrier", "audit", "part",
+          "Receipts bind implementation, heralded preparation and every detector complement of the joint program. "
+          "Coherent preparation remains a declared service; nothing of this kind exists for the family tick.",
+          [CDW + "README.md", CSRP], "unmet", "direct", ["F1"], ""),
+"PR-66": ("The temporal Maxwell packet is the Euler-Lagrange system of one declared discrete action with kinetic "
+          "term (h/2)|E|^2 and step h.",
+          "executed on a family", "CF-1", "analog",
+          "Z2 field step: link flips with angle eps and plaquette phases with angle kappa, both declared; executed "
+          "with quantum links on small lattices. No U(1) link, no wave.", [R1, CF1],
+          "unmet", "criterion", ["D3", "E5"], ""),
+"PR-67": ("One declared complex doublet with 6Y = 3 and a four-parameter weak-hypercharge action with declared "
+          "couplings.",
+          "label-level shadow", "CF-1", "part",
+          "The two spinor levels of the chart are a doublet with 6Y = 3 and the twelve port responses close on "
+          "8 + 3 + 1; no couplings.", [MAPMD, MAP], "unmet", "direct", ["E3", "E5"], ""),
+"PR-68": ("Declared quartic potential lambda (|h|^2 - r^2)^2 and chosen point (0, r).",
+          "nothing", "-", "-", "", [], "unmet", "direct", ["E3", "E5"], ""),
+"PR-69": ("One doublet-singlet Yukawa line with one declared real coefficient y; no family matrices.",
+          "label-level shadow", "CF-1", "part",
+          "Option M2: one declared angle read as the toggle of the neutral doublet level, the only operator that "
+          "conserves colour and electric charge. It breaks the Gauss constraint.", [CF1, R7],
+          "unmet; the declared instance breaks the candidate's constraint", "direct", ["E3"], ""),
+"PR-70": ("The physical position action is homogeneous with support on the complete thirty-direction edge orbit and "
+          "equal weights.",
+          "nothing", "-", "-",
+          "The routing of CF-1 is supported on the three frame axes; its dispersion has a cubic term at relative "
+          "order |p|^2: 2 |p|^4 (1 - sum n_i^4)/(6E).", [R3], "violated on the family", "criterion", ["B1", "D3"], ""),
+"PR-71": ("The compared observable lives in a continuous field sector read on the operator sector of the committed "
+          "symbol.", "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-72": ("The finite patch embeds cofinally into the compared regime.",
+          "nothing", "-", "-", "", [], "unmet", "none", [], ""),
+"PR-73": ("One declared positive carrier scale fills the coefficient slot (C4 = -a^2/20 and two more).",
+          "nothing", "-", "-", "Neighbouring object: the cell length under an anchor.", [R7], "unmet", "unit",
+          ["F4"], ""),
+"PR-74": ("One coherent frame carries the comparison and a boost transport connects it to the source frame.",
+          "nothing", "-", "-", "No boost on a fixed lattice; no Lorentz covariance of states or apparatus.", [R3],
+          "cannot be met as it stands", "criterion", ["B1"], ""),
+"PR-75": ("Nuisance isolation and coverage rules are fixed before exposure.",
+          "nothing", "-", "-",
+          "Neighbouring object: the comparison protocol of R7, frozen by hash before its numbers; retrospective, "
+          "not blind.", [R7], "unmet", "unit", ["F5"], ""),
+"PR-76": ("A source theorem fixes a positive lower bound for the admissible scales.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-77": ("Pathwise weak fairness along a canonical adaptive repair run.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-78": ("Work-conserving choice: when some site has an effective repair, the selected site has one.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-79": ("Bounded waste: one genuine record change within q + 1 attempts.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-80": ("The attempt budget is at least (q + 1) times the initial mismatch count.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-81": ("Every semantic commit declares the register versions it depends on; the support is sound and complete.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-82": ("A rank strictly increasing along authenticated parent edges witnesses acyclicity.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-84": ("Pathwise weak fairness for fixed node attempts.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+"PR-85": ("Bounded waste between fixed node changes.",
+          "nothing", "-", "-", "", [], NOT_USED, "none", [], ""),
+}
+
+PAPER = "RER/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+ZOO = "RER/paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+BASIS = "RER/paper/tex_fragments/PREMISE_BASIS.tex"
+
+# Premises of the finite theorems that are not rows of the register.
+OUTSIDE = [
+ ("A1-carrier", "A1", "Twelve ports, thirty seams, twenty faces, oriented, with no preferred labels.",
+  "Lie-type theorem; every screen theorem", "executed on one carrier", "both",
+  "The pinned carrier. On the family one of its five frames is singled out by the arrangement.",
+  [CF1, CSRP], "met for one carrier; the clause 'no preferred labels' fails on the family", "direct", ["A3", "D2"]),
+ ("A1-federation", "A1", "Carriers join through typed seams and coherent triple overlaps and refine to an oriented "
+  "spherical support with mesh tending to zero (degree-one bridge).",
+  "categorical route; refinement naturality of every response clause", "nothing", "-",
+  "The cubic family is bipartite: every port lies in exactly two carriers, so no three carriers overlap and the "
+  "nerve is a graph; one spacing, no refinement. The audit's packets use one carrier or declared cubic boxes.",
+  [CF1, CSRP, CDW + "species/PROOF.md"], "cannot be met as it stands", "direct", ["A3"]),
+ ("A1-central-ports", "A1", "Twelve pairwise-orthogonal central port projections summing to one.",
+  "A1 carrier algebra", "nothing", "-",
+  "The coherent position projectors are not central in the walk algebra (the audit's own finding).",
+  [CSRP], "violated by the coherent programs", "none", []),
+ ("A1-response", "A1", "An injective map from the twelve port functions into u(H), closed under commutators, "
+  "complete for the quotient-visible response, positive definite, natural under refinement.",
+  "Lie-type theorem (Theorem 'finite-current fixed-space')", "executed on one carrier", "audit",
+  "The declared geometric code response has an exact rank-twelve Gram and Lie image s(u(3) + u(2)). In CF-1 the "
+  "twelve lifted port responses on the 32 patterns close on 8 + 3 + 1 (labels); the tick applies none of them. "
+  "Completeness and naturality are unproved.", [CSRP, R2, MAPMD], "unmet; declared instance", "direct", ["D2"]),
+ ("A2-agreement", "A2", "The interpretation of accepted data is natural under every overlap restriction, "
+  "recharting, seam translation, federation and refinement map.",
+  "all agreement statements", "proof", "audit",
+  "Finite agreement theorem of the coherent seam program: the whole history law of every adaptive protocol in its "
+  "grammar is equal in two charts, for one carrier and the implemented frame groupoid. CF-1: exact covariance of "
+  "the tick under Z2 link gauge and translations; under rotations only the Klein group of the frame fixes it.",
+  [CSRP, R1, R4], "met on one carrier inside a declared grammar; unmet on the family", "direct", ["D2"]),
+ ("A2-holonomy", "A2", "For every one of the sixty proper carrier automorphisms a closed path of accepted "
+  "transports and a projective implementer inside the response group (times its centralizer).",
+  "Lie-type theorem; Lean/Screen/A2HolonomyBridge.lean", "executed on one carrier", "audit",
+  "A source-generated 120-lift controller with recorded inverses acts on one carrier (apparatus service). In the "
+  "family the transport across a shared seam is the lift of a half-turn and every plaquette has central holonomy; "
+  "the tick commutes with four of the sixty rotations.", [CSRP, KD, R1, R4, T1C],
+  "cannot be met as it stands", "direct", ["A3", "D2"]),
+ ("A3-projection", "A3", "The realized state is the information projection of a reference onto the agreement "
+  "constraints, with an A1-generated cover and natural positive weights.",
+  "edge-sector weighting; four-law package", "nothing", "-",
+  "The heralded filter with weight 1/2 is not an information projection.", [CSRP], "unmet", "none", []),
+ ("matter-image", "paper", "Declared matrix current, declared fermionic spin category, conjugate projector pair "
+  "(Proposition 'conditional matter image').",
+  "hypercharge lattice, N_c = 3, Z6 kernel", "label-level shadow", "CF-1",
+  "The chart reproduces the charges of both handedness classes of all species; spin category and projector choice "
+  "are declarations.", [MAP, R7], "unmet", "direct", ["D1"]),
+ ("generation-window", "paper", "One-Higgs quark branch, intrinsic CKM CP capability, weak-sector ultraviolet "
+  "completability (Proposition 'conditional generation window').",
+  "3 <= N_g <= 5", "nothing", "-", "No mixing matrix and no running in CF-1.", [R7], "unmet", "direct", ["E4"]),
+ ("declared-completion", "paper", "A declared physical attachment of the rank-three band to the matter packet "
+  "(Corollary 'declared minimal completion').",
+  "N_g = 3", "nothing", "-", "See PR-36.", [CF1], "unmet", "direct", ["E4"]),
+ ("C1", "criterion", "A stated background and phase.", "carrier-mode receipt", "executed on a family", "CF-1",
+  "Empty matter sector with flat Gauss-invariant links; stationary under every tick at eps = 0.", [R1],
+  "met inside the declared program", "criterion", ["A1", "C2"]),
+ ("C2", "criterion", "A quadratic action with positive kinetic coefficient.", "carrier-mode receipt", "nothing", "-",
+  "No action for any link mode; the Z2 field step has declared angles.", [CF1], "unmet", "criterion", ["D3"]),
+ ("C3", "criterion", "A gauge fixing or constraint reduction with a physical projector.", "carrier-mode receipt",
+  "executed on a family", "CF-1",
+  "Constraint reduction without gauge fixing: sectors G_x = g_x of the Z2 link field, preserved by the tick for M0 "
+  "and M1; broken by the chiral mass step.", [R1, R2, R4], "met for Z2 with M0, M1; violated with M2", "criterion",
+  ["C3", "E3"]),
+ ("C4", "criterion", "A positive reduced Hamiltonian.", "carrier-mode receipt", "executed on a family", "audit",
+  "Audit: a declared local Wilson clock with a unique filled sea and gap two (free). CF-1: excitations of the "
+  "empty state have both signs of the phase and no gapped filled branch exists.",
+  [CDW + "many_body_route/PROOF.md", R1, R4], "cannot be met by the tick as it stands", "criterion", ["B2", "C2"]),
+ ("Q1", "criterion", "A positive-energy quantization with a physical Hilbert space.", "quantum-particle receipt",
+  "executed on a family", "audit", "As C4.", [CDW + "many_body_route/PROOF.md", R4],
+  "cannot be met by the tick as it stands", "criterion", ["B2", "C2"]),
+ ("Q2", "criterion", "A two-point function whose spectral measure contains a pole with positive residue.",
+  "quantum-particle receipt", "proof", "audit",
+  "Audit: a controlled massive free Dirac field and vacuum limit of the declared Wilson clock. CF-1: the one-body "
+  "shell is exact, with 32 cones at phase zero and 32 at phase pi per species.",
+  [CDW + "many_body_route/PROOF.md", R3], "unmet for the candidate (one cone per species is open)", "criterion",
+  ["B2", "F1"]),
+ ("Q3", "criterion", "Asymptotic-state hypotheses of the phase, including a deconfined sector for a coloured "
+  "carrier.", "quantum-particle receipt", "nothing", "-", "No interacting tick; composites are open.", [CF1],
+  "unmet", "criterion", ["F2", "F3"]),
+]
+
+GAUGE_FIXINGS = [
+ {"place": "Carrier chart and its holonomy (premise A2; Lean/Screen/A2HolonomyBridge.lean; hypothesis H2 of "
+           "Lean/Screen/A5OPH.lean)",
+  "fixed": "nothing: every one of the sixty proper rechartings needs a closed path and an implementer inside the "
+           "response group",
+  "residual": "all sixty rotations (cover of order 120)",
+  "threefold_label": "none: 3 and 3' are irreducible, the five frames are one orbit",
+  "cf1": "CF-1 keeps the twelve rotations of one frame in its arrangement and four in its tick. Not the same: the "
+         "stack retains what CF-1 removes."},
+ {"place": "Cover over a Klein four-subgroup (Lean/Screen/ExteriorSelection.lean, "
+           "no_klein_section_of_unique_involution)",
+  "fixed": "nothing can be: the transport double cover has no section over any Klein four-subgroup",
+  "residual": "the quaternion group over each frame",
+  "threefold_label": "the three anticommuting lifts of the half-turns",
+  "cf1": "Same object as the spin pointer of CF-1 (quaternion lifts sigma_1..3). In the stack it is an obstruction "
+         "statement, not a choice of frame."},
+ {"place": "Port-frame chart (Lean/Screen/PortFrameGram.lean; A1 'no preferred labels'; the port projectors of "
+           "RER/paper/tex_fragments/SOURCE_FLAVOR_ORBIT.tex are written in the coordinates of one cubic frame)",
+  "fixed": "coordinates only",
+  "residual": "everything; all statements are invariant",
+  "threefold_label": "none",
+  "cf1": "Same coordinates, different status: a convention in the stack, the arrangement of carriers in CF-1."},
+ {"place": "Tree gauge of seam connections (Lean/Screen/SeamU1HolonomyClassification.lean)",
+  "fixed": "the eleven tree seams of one carrier",
+  "residual": "one constant port phase, acting trivially; invariants are the nineteen chord holonomies",
+  "threefold_label": "none",
+  "cf1": "Same count as the nineteen face-flux bits per carrier of CF-1."},
+ {"place": "Temporal gauge of the carrier-mode evolution (Lean/Screen/CarrierModeOscillators.lean, "
+           "CarrierEvolutionFlow.lean, ScaledMaxwellStability.lean); in the action of PR-66 the scalar potential "
+           "is the Gauss multiplier",
+  "fixed": "the scalar potential, set to zero",
+  "residual": "time-independent port gauge; the Gauss constraint is kept",
+  "threefold_label": "none",
+  "cf1": "The link field of CF-1 is of this kind by construction (links on spatial edges, G_x as constraint)."},
+ {"place": "Constraint reduction of the particle criterion (clause C3 of the gauge-structure paper)",
+  "fixed": "radiation gauge or a physical projector of rank two per generator",
+  "residual": "global charge rotations",
+  "threefold_label": "none",
+  "cf1": "CF-1 reduces by Gauss sector without fixing a gauge, for Z2 only; it has no gauge-boson mode."},
+ {"place": "Centre (deck) quotient (Lean/Screen/Z6Descent.lean, GlobalFormCharacterDescent.lean; PR-35, PR-46)",
+  "fixed": "the kernel Z6 generated by (omega I_3, -I_2, exp(i pi/3)); four admissible global forms, none selected",
+  "residual": "the quotient group after the full kernel",
+  "threefold_label": "colour triality only (2t + 3d + q = 0 mod 6 on every row); the diagonal generator fixes all "
+                     "three family copies",
+  "cf1": "A different group of order three: the third-turn of the frame is a rotation of the vector levels, not "
+         "central."},
+ {"place": "Family frame (Proposition 'complete family orbit', RER/paper/tex_fragments/SOURCE_FLAVOR_ORBIT.tex)",
+  "fixed": "nothing by symmetry: U(3)^5 with one common unitary on the quark doublet; only coefficient matrices "
+           "fix it",
+  "residual": "rephasings; invariants are singular spectra, mixing overlaps and tr[H_u, H_d]^3",
+  "threefold_label": "the family index, never a conserved charge",
+  "cf1": "Closest in content. The family factor of the stack is gauge trivial; the axes of CF-1 are directions of "
+         "space and of the colour block."},
+ {"place": "Seam schedule (PR-20)",
+  "fixed": "nothing: equal weight on the sixty directed seams",
+  "residual": "all sixty rotations",
+  "threefold_label": "none",
+  "cf1": "CF-1 fixes an axis order; that step reduces twelve to four."},
+]
+
+VIOLATIONS = [
+ ("A2-holonomy", "The Lie-type theorem's premise. The family realizes the frame group (the tick: its Klein group). "
+  "With the frame group in the place of the sixty rotations the theorem's conclusion is not forced: su(2)^4 "
+  "satisfies the response clauses with the frame group acting by inner automorphisms (exact countermodule). "
+  "Smallest input that removes it: one endogenous closed path whose "
+  "holonomy leaves the frame; the frame group is maximal, so one more rotation generates all sixty."),
+ ("PR-47 with C4, Q1, PR-43", "One chiral cone per species and a positive Hamiltonian. The local tick is vector-like "
+  "over the zone, has both signs of the phase and no gapped logarithm."),
+ ("PR-48, PR-49, PR-50 (PR-67 to PR-69)", "The mass step itself. The toggle breaks the candidate's Gauss constraint "
+  "by 2|sin theta|; there is no scalar register, no state of it and one amplitude for all species."),
+ ("PR-54 with A1-response", "Only the Z2 centre is gauged and has a constraint. The twelve port responses are "
+  "labels: the tick applies none of them; no link dynamics."),
+ ("PR-36", "No load register in the binding definition. Where the band exists (M3) it is the 0.304708 sector, "
+  "degenerate, and the band the rule excludes is the only massless one."),
+ ("A1-federation", "No triple overlaps (the cubic family is bipartite), no spherical support, no refinement."),
+ ("PR-16, PR-52, PR-53, PR-74, PR-70, PR-20", "One lattice with six link directions: cubic term at relative order "
+  "|p|^2, no boost transport, routing weights on the frame seams only."),
+ ("PR-15, PR-17", "Nothing to anchor: the electron is massless or its angle is free."),
+ ("PR-59", "The chart keeps exterior degrees zero and five, which the declared grammar omits (minor)."),
+ ("PR-01, A1-central-ports", "A unitary tick has no terminating repair; coherent port projectors are not central. "
+  "Neither is on the mass chain."),
+]
+
+
+def load_register():
+    with open(os.path.join(RER, "tracking", "premise_register.json")) as fh:
+        reg = json.load(fh)
+    groups = {}
+    for g in reg["model_supply"]["groups"]:
+        for p in g["premises"]:
+            groups.setdefault(p, []).append(f'{g["id"]} {g["title"]}')
+    sml = {}
+    for r in reg["sm_coverage"]["rows"]:
+        for p in r["premises"] + r["open_premises"]:
+            sml.setdefault(p, []).append(r["id"])
+    return reg, groups, sml
+
+
+def consumers(row):
+    roles = row["evidence_roles"]
+    cc = [p for p in row["evidence"] if roles.get(p) == "conditional_consumer"]
+    lean = [p for p in cc if p.startswith("Lean/")]
+    if lean:
+        return lean[:3]
+    if cc:
+        return cc[:2]
+    st = [p for p in row["evidence"] if roles.get(p) == "statement"]
+    lean_st = [p for p in st if p.startswith("Lean/")]
+    return (lean_st or st)[:2]
+
+
+def short(path):
+    return path.replace("Lean/", "").replace(".lean", "")
+
+
+def main():
+    reg, groups, sml = load_register()
+    ids = [r["id"] for r in reg["rows"]]
+    assert set(ids) == set(H), sorted(set(ids) ^ set(H))
+    rows = []
+    for r in reg["rows"]:
+        st, level, by, rel, supply, cites, status, mass, steps, note = H[r["id"]]
+        assert level in LEVELS, (r["id"], level)
+        assert mass in ("direct", "criterion", "unit", "none"), r["id"]
+        assert (level == "nothing") or cites, r["id"]
+        rows.append({
+            "id": r["id"], "name": r["name"], "type": r["type"], "disposition": r["disposition"],
+            "register_implementation_status": r["discharge"]["status"],
+            "statement": st,
+            "consumed_by": consumers(r),
+            "theorem_group": groups.get(r["id"], []),
+            "standard_model_rows": sml.get(r["id"], []),
+            "supply_level": level, "supplied_by": by, "relation_to_the_row": rel,
+            "supply": supply, "cite": cites,
+            "premise_status_for_the_candidate": status,
+            "rest_mass_dependence": mass, "mass_steps": steps, "note": note,
+        })
+    outside = [dict(zip(("id", "source", "statement", "consumed_by", "supply_level", "supplied_by", "supply",
+                         "cite", "premise_status_for_the_candidate", "rest_mass_dependence", "mass_steps"), o))
+               for o in OUTSIDE]
+    for o in outside:
+        assert o["supply_level"] in LEVELS, o["id"]
+    with open(os.path.join(HERE, "frame_check.json")) as fh:
+        check = json.load(fh)
+
+    level_count = collections.Counter(r["supply_level"] for r in rows)
+    mass_count = collections.Counter(r["rest_mass_dependence"] for r in rows)
+    status_count = collections.Counter(r["premise_status_for_the_candidate"] for r in rows)
+    mass_rows = [r for r in rows if r["rest_mass_dependence"] != "none"]
+    ledger = {
+        "schema": "repair-law.T1.premise-ledger.v1",
+        "date": "2026-11-10",
+        "paths": {"RL": RL, "RER": RER},
+        "register": {"file": "RER/tracking/premise_register.json", "schema": reg["schema"], "rows": len(rows),
+                     "ids": "PR-01 to PR-85 without PR-83 (retired)",
+                     "caution": "The register is not the whole premise set: A1 to A3 and result-specific "
+                                "declarations are in RER/claims/axiom_registry.yaml and "
+                                "RER/claims/assumption_dictionary.md; see 'premises_outside_the_register'."},
+        "candidate": "CF-1 (RL/candidates/CF1.md, sections 8 to 12) with the audit's coherent packets "
+                     "(RER/model/coherent_seam_repair, RER/model/coherent_defect_wave)",
+        "reading_rule": "The level says what exists, not that the premise is supplied. Every construction counted "
+                        "is a declared program; none is a shadow of the committed rule beyond level 1.",
+        "levels": list(LEVELS),
+        "summary": {
+            "by_supply_level": {k: level_count.get(k, 0) for k in LEVELS},
+            "by_rest_mass_dependence": dict(mass_count),
+            "by_premise_status": dict(status_count),
+            "rows_on_which_a_rest_mass_depends": [r["id"] for r in mass_rows],
+            "of_these_at_nothing_or_label_level": [r["id"] for r in mass_rows
+                                                   if r["supply_level"] in ("nothing", "label-level shadow")],
+        },
+        "rows": rows,
+        "premises_outside_the_register": outside,
+        "gauge_fixings": GAUGE_FIXINGS,
+        "frame_fixing_exact": check,
+        "violated_or_unmeetable_most_damaging_first": [{"premise": a, "why": b} for a, b in VIOLATIONS],
+    }
+    with open(os.path.join(HERE, "ledger.json"), "w") as fh:
+        json.dump(ledger, fh, indent=1)
+        fh.write("\n")
+
+    # ------------------------------------------------------------------ LEDGER.md
+    def cell(s):
+        return str(s).replace("|", "\\|").replace("\n", " ")
+
+    L = []
+    w = L.append
+    w("# T1: premise ledger of the finite theorem stack for candidate CF-1\n")
+    w("Generated by `build_ledger.py` in this directory; machine form `ledger.json`; exact frame check "
+      "`frame_check.json` (`t1_frame_check.py`). RL = `" + RL + "`, RER = `" + RER + "`.\n")
+    w("## 1. Scope and reading rules\n")
+    w("- Tuple of every statement: candidate CF-1 as bound by sections 8 to 12 of `RL/candidates/CF1.md` (cubic "
+      "family of one frame; modes cell, record, spin, pattern; Z2 link bits; alternating schedule; declared "
+      "preparations and instruments; clock in ticks), together with the audit's coherent packets in the public "
+      "checkout. All are declared programs. Nothing below is a shadow of the committed rule above level 1, and no "
+      "cell says that a premise is supplied by the law.")
+    w("- The register (`RER/tracking/premise_register.json`, schema " + reg["schema"] + ") has 84 rows with ids "
+      "PR-01 to PR-85; PR-83 is retired. The task named PR-01 to PR-84.")
+    w("- The register is not the whole premise set. A1 to A3 and the declarations of single results are outside it; "
+      "section 5 lists those the mass chain meets.")
+    w("- Level: nothing, label-level shadow, executed on one carrier, executed on a family, proof. It says what "
+      "exists. 'Relation' says whether that is the row's own object (row), part of its clauses (part) or a "
+      "neighbouring construction (analog). 'Status' says whether the premise holds for the candidate.")
+    w("- Rest mass: direct (ingredient of the state, clock, charge or mass mechanism), criterion (through clauses "
+      "C1 to C4, Q1 to Q3 of the particle criterion or the dispersion test), unit (scale, calibration, "
+      "comparison), none. Steps are those of `RL/MASS_STEPS.md`.\n")
+    w("## 2. Counts\n")
+    w("| Supply level | Rows |\n| --- | --- |")
+    for k in LEVELS:
+        w(f"| {k} | {level_count.get(k, 0)} |")
+    w("")
+    w("| Rest mass dependence | Rows |\n| --- | --- |")
+    for k in ("direct", "criterion", "unit", "none"):
+        w(f"| {k} | {mass_count.get(k, 0)} |")
+    w("")
+    w(f"A rest mass depends on {len(mass_rows)} rows. Of these, "
+      f"{len(ledger['summary']['of_these_at_nothing_or_label_level'])} stand at nothing or label level: "
+      + ", ".join(ledger["summary"]["of_these_at_nothing_or_label_level"]) + ".\n")
+    w("## 3. Rows on which a rest mass depends\n")
+    w("| Row | Premise | Mass | Steps | Level (by; relation) | Status for the candidate |\n| --- | --- | --- | --- | --- | --- |")
+    for r in mass_rows:
+        w(f"| {r['id']} | {cell(r['name'])} | {r['rest_mass_dependence']} | {', '.join(r['mass_steps'])} | "
+          f"{r['supply_level']} ({r['supplied_by']}; {r['relation_to_the_row']}) | "
+          f"{cell(r['premise_status_for_the_candidate'])} |")
+    w("")
+    w("## 4. The ledger, all 84 rows\n")
+    w("| Row | Statement | Consumed by | Level (by; relation) | What is supplied | Status | Mass | Files |\n"
+      "| --- | --- | --- | --- | --- | --- | --- | --- |")
+    for r in rows:
+        cons = "; ".join(short(c) for c in r["consumed_by"])
+        if r["theorem_group"]:
+            cons += " [" + "; ".join(g.split(" ")[0] for g in r["theorem_group"]) + "]"
+        sup = r["supply"] + ((" " + r["note"]) if r["note"] else "")
+        w(f"| {r['id']} | {cell(r['statement'])} | {cell(cons)} | {r['supply_level']} ({r['supplied_by']}; "
+          f"{r['relation_to_the_row']}) | {cell(sup)} | {cell(r['premise_status_for_the_candidate'])} | "
+          f"{r['rest_mass_dependence']} | {cell('; '.join(r['cite']))} |")
+    w("")
+    w("Groups in brackets are those of the model and theorem crosswalk of the register (`model_supply`): "
+      + "; ".join(f"{g['id']} {g['title']}" for g in reg["model_supply"]["groups"]) + ".\n")
+    w("## 5. Premises of the finite theorems outside the register\n")
+    w("Sources: `" + BASIS + "` (A1 to A3), `" + PAPER + "` (propositions and the particle criterion).\n")
+    w("| Clause | Statement | Consumed by | Level (by) | What is supplied | Status | Mass | Files |\n"
+      "| --- | --- | --- | --- | --- | --- | --- | --- |")
+    for o in outside:
+        w(f"| {o['id']} | {cell(o['statement'])} | {cell(o['consumed_by'])} | {o['supply_level']} "
+          f"({o['supplied_by']}) | {cell(o['supply'])} | {cell(o['premise_status_for_the_candidate'])} | "
+          f"{o['rest_mass_dependence']} | {cell('; '.join(o['cite']))} |")
+    w("")
+    fc = check
+    lt = fc["lie_type_theorem_with_the_frame_group"]
+    w("## 6. Gauge fixing\n")
+    w("### 6.1 Every place where the stack fixes a gauge, a chart or a frame\n")
+    w("| Place | What is fixed | Residual group | Threefold label | Against CF-1 |\n| --- | --- | --- | --- | --- |")
+    for g in GAUGE_FIXINGS:
+        w(f"| {cell(g['place'])} | {cell(g['fixed'])} | {cell(g['residual'])} | {cell(g['threefold_label'])} | "
+          f"{cell(g['cf1'])} |")
+    w("")
+    w("**Answer.** The frame fixing of CF-1 is none of them. The stack never reduces the sixty rechartings: premise "
+      "A2 quantifies over all of them and asks for an implementer of each. CF-1 reduces sixty to twelve by the "
+      "arrangement of carriers and twelve to four by the axis order of the tick (`RL/reports/R1.md` result 4, "
+      "`R4.md` result 4). In the stack's terms this is a breaking of A2 on the family, not a gauge choice: no "
+      "implementer exists in the candidate for a rotation that leaves the frame.\n")
+    w("### 6.2 What the frame fixing does to the load space (EXACT, `frame_check.json`; level 1)\n")
+    w("The first two bullets below and the mixing numbers reproduce lead L38 of this session "
+      "(`RL/work/DESIGN/DESIGN.md`, part A) with independent code (band projectors and characters, no shared "
+      "file). What is added here is the relation to the theorem stack (6.3, 7.5).\n")
+    w("| Band of the sixty rotations | Rank | Seam cost | Walk kernel (blank record) | Rest phase | Under the frame "
+      "group (12) | Under its Klein group (4) |\n| --- | --- | --- | --- | --- | --- | --- |")
+    names = {"1": "1 (uniform load)", "3": "3 (slow triplet)", "5": "5 (quintet)", "3p": "3' (fast triplet)"}
+    for key in ("1", "3", "5", "3p"):
+        b = fc["bands"][key]
+        fr = b["under_frame_group"]
+        parts = []
+        if fr["trivial"] != "0":
+            parts.append("trivial")
+        if fr["each_of_the_two_conjugate_characters"] != "0":
+            parts.append("the two conjugate characters of the third-turn")
+        if fr["triplet"] != "0":
+            parts.append("triplet")
+        kl = b["under_klein_group"]
+        kparts = [(c if kl[c] == "1" else f"{c} ({kl[c]} times)") for c in ("trivial", "x", "y", "z")
+                  if kl[c] != "0"]
+        w(f"| {names[key]} | {b['rank']} | {cell(b['seam_cost'])} | {cell(b['walk_kernel_eigenvalue_blank_record'])} "
+          f"| {b['rest_phase_arccos_float']} | {' + '.join(parts)} | {', '.join(kparts)} |")
+    w("")
+    w("- The frame group acts freely and transitively on the twelve ports (no rotation of the frame fixes a port; "
+      "one orbit). The port load space is therefore its regular representation: one trivial line, the two conjugate "
+      "characters of the third-turn, and the triplet three times. Commutant dimension of the port space: "
+      f"{fc['commutant_dimension_of_the_port_space']['full_rotation_group']} under the sixty rotations (multiplicity "
+      f"free), {fc['commutant_dimension_of_the_port_space']['frame_group']} under the frame group, "
+      f"{fc['commutant_dimension_of_the_port_space']['klein_group']} under its Klein group.")
+    w("- The triplet is the only faithful irreducible representation of the frame group. Rank three then needs "
+      "neither the window nor the cost comparison with the quintet. It occurs three times (slow band, fast band, "
+      "inside the quintet) at three different costs, and the three copies are equivalent: a law that respects the "
+      "frame group only can mix them. Under the sixty rotations they cannot mix (3 and 3' differ on a fifth-turn: "
+      + " against ".join(fc["triplets_3_and_3p"]["characters_on_a_fifth_turn"]) + ").")
+    w("- The Klein group of the frame has three orbits of four ports, the three golden rectangles, one in each "
+      "coordinate plane; every one of its four characters occurs three times.")
+    w("- Reading, not a result: the stack's specified current lets the colour block act on this triplet. With that "
+      "role the regular representation is three singlet lines and three triplets (3 x 1 + 3 x 3 = 12). The three "
+      "singlet lines are inequivalent (characters 1, w, w* of the third-turn; costs 0, 6, 6); the three triplets "
+      "are equivalent (costs 5 - sqrt5, 6, 5 + sqrt5). In CF-1 colour is a pattern label, not the load index, and "
+      "all these rest phases are at the lattice scale.")
+    w("- Spinor times vector triplet: one doublet and one quartet under the cover of order 120 (norm "
+      f"{fc['spinor_times_vector_triplet']['full_group_cover_120']['norm_squared_of_the_character']}); three "
+      "inequivalent doublets under the cover of the frame group, of order 24 (norm "
+      f"{fc['spinor_times_vector_triplet']['frame_group_cover_24']['norm_squared_of_the_character']}), two of them "
+      "complex conjugates; one doublet three times under the quaternion group that fixes the tick (norm "
+      f"{fc['spinor_times_vector_triplet']['klein_group_cover_8']['norm_squared_of_the_character']}).\n")
+    w("**Does a threefold label survive?**\n")
+    fm = fc["frame_matching_between_the_triplet_copies"]
+    w("| Symmetry of the law on the register concerned | Threefold label | Protected | Consequence |\n"
+      "| --- | --- | --- | --- |")
+    w("| sixty rotations (the stack under A2; the load register of CF-1 under M3, ARGUED from section 10: the "
+      "carrier walk with flat links is covariant and the routing touches it only through the invariant address "
+      "reflection) | none | | bands 1, 3, 3', 5 are separately invariant and each is exactly degenerate; no "
+      "axis is preferred |")
+    w("| frame group, 12 (a port-level law that distinguishes the frame seams; cell and spin of CF-1 at rest and in "
+      "the spectrum) | (i) the character of the third-turn: 1, w, w* | yes; w and w* are conjugate | one value and "
+      "a degenerate pair, the pattern of the public proposition on real cyclic averaging (`" + ZOO + "`, 'Real "
+      "cyclic averaging forces a repeated eigenvalue') |")
+    w("| | (ii) the multiplicity three of the triplet (the second index of lead L38) | no | different costs and "
+      "mixing: the exchange of the two "
+      "ports of each frame seam connects the slow and the fast triplet with squared element "
+      + fm["squared_off_diagonal_elements"]["3|3p"] + " on every axis character and leaves the triplet of the "
+      "quintet alone; its even direction has weights " + str(fm["weights_float"]["3"]) + " and "
+      + str(fm["weights_float"]["3p"]) + " on the two (the numbers of lead L32) |")
+    w("| Klein group, 4 (the tick of CF-1 on cell and spin) | the axis character of a vector triplet | conserved "
+      "if the register is not coupled to the spin; with the spin the three doublets are equivalent | three values "
+      "possible, no mixing. A conserved additive label on mixed mass eigenstates is excluded by the public "
+      "proposition on defect labels (same paper, 'Flavor, neutrinos and conserved defect labels') |")
+    w("")
+    w("### 6.3 The Lie-type theorem under the frame group (EXACT countermodule)\n")
+    w("Statement: " + lt["statement"] + "\n")
+    w("- Algebra: " + lt["algebra"] + ". Action of the frame group: " + lt["action"] + ".")
+    w(f"- Checked: homomorphism {lt['rho_is_a_homomorphism']}; proper rotations and automorphisms of the bracket "
+      f"{lt['rho_acts_by_proper_rotations_hence_inner_automorphisms']}; response equivariant "
+      f"{lt['response_is_equivariant']}; determinant of the response {lt['response_determinant']} (rank 12); fixed "
+      f"dimensions per factor {', '.join(lt['fixed_dimension_per_factor'])}, total {lt['fixed_dimension_total']}, "
+      "equal to the fixed dimension of the port space.")
+    w("- The public exclusion step (`Lean/Screen/A2HolonomyBridge.lean`, `four_factor_fixed_dimension_ne_one`) "
+      "assumes factorwise fixed dimensions zero or three, which uses the simplicity of the sixty-rotation group. The "
+      "frame group has a quotient of order three, which acts on one factor with fixed dimension one.")
+    w("- Consequence: a candidate whose realized rechartings are those of one frame does not obtain "
+      "u(1) + su(2) + su(3) from the theorem. Smallest input that restores the premise: one endogenous closed path "
+      "whose holonomy leaves the frame (the frame group is a maximal subgroup).\n")
+    w("### 6.4 What the theorems say on the arrangement of carriers (step A3)\n")
+    w("- A1 asks for a federation with typed seams and coherent triple overlaps that refines to an oriented "
+      "spherical support. No theorem of the stack places carriers on a cubic lattice. Three dimensions enter the "
+      "stack through the rank-three port frame and declared radial layers (PR-18, PR-19, PR-29 to PR-31).")
+    w("- Cubic boxes occur in the public checkout as declared architecture only: the audit's occupation circuit "
+      "(`" + CDW + "species/PROOF.md`) and the cube with supplied quaternion links of "
+      "`RER/paper/tex_fragments/CUBE_ETA_PROTECTION.tex`, whose text states that its hidden-spin census is neither a "
+      "Lorentz-spin identification nor a family count. Its links are the lifts that CF-1 uses.")
+    w("- In the cubic family every port lies in exactly two carriers, so no three carriers overlap: the nerve has "
+      "no triangle and A1's triple-overlap and spherical-support clauses have no instance (ARGUED).")
+    w("- The construction contract of the public checkout allows a declared arrangement. Adopting it does not "
+      "supply A1's federation clause or A2's holonomy, and by 6.3 it forfeits the Lie-type theorem unless a "
+      "recharting outside the frame is added.\n")
+    w("## 7. Families in the stack\n")
+    w("### 7.1 What is proved\n")
+    w("`RER/Lean/Screen/A5FamilyBand.lean` (kernel `decide` over Z[sqrt5], standard axioms only): the listed "
+      "adjacency equals the incidence; four band projectors of ranks 1, 3, 3, 5 (eigenvalues 5, sqrt5, -sqrt5, -1), "
+      "idempotent, symmetric, complete; each fixed by the sixty listed rotations and by the three refinement maps "
+      "(with their cocycle); kernels of the band actions of orders 60, 1, 1 (trivial band, the triplets, the "
+      "quintet); strict cost order 5 - sqrt5 < 6 < 5 + sqrt5; among candidates with trivial kernel and dimension 3 "
+      "to 5 the rank-three band is the unique cost minimizer (`family_band_selected`); without both exclusions the "
+      "trivial band minimizes (`trivial_band_without_faithfulness`); 3 x 15 = 45; the three-copy anomaly sums "
+      "vanish and the diagonal Z6 generator fixes every field of the three copies. The proposition 'conditional "
+      "screen-band selection' of the gauge-structure paper states the same implication.\n")
+    w("### 7.2 What is assumed\n")
+    w("Row PR-36 and the two interface clauses of `RER/code/a5_closure/family_band_attachment_certificate.py`: (R) "
+      "the family multiplicity object is one complete band realized in the screen coefficient space, without a "
+      "source-visible splitting projector, with faithful rotation action; (S) admissible bands are compared by the "
+      "Laplacian seam cost. The window 3 to 5 is the proposition 'conditional generation window' (one-Higgs quark "
+      "branch, CP capability for the lower edge, positive SU(2) one-loop coefficient for the upper). The "
+      "fifteen-state generation is an import. The paper states that neither clause is derived from A1 to A3, that "
+      "the window does not explain triplication, and that chirality, spin, locality and the matter-pole "
+      "identification are open. The particle paper states that equivalent triplets on spatial, colour and family "
+      "factors do not identify those factors, and its construction uses a gauge-trivial family factor.\n")
+    w("### 7.3 How the band sits in CF-1\n")
+    w("- Binding definition (section 8): a quantum has cell, record, spin and pattern. There is no load register, "
+      "so the band has no state: one generation.")
+    w("- Option M3 (section 10): the internal walk of the carrier is the mass step. The seam cost of the public "
+      "rule is then the rest phase: cos(omega) = 1 - cost/60 on a blank record. The band that PR-36 selects is the "
+      "lightest massive multiplet, 0.304708 per tick for every pattern, three states exactly degenerate (the load "
+      "register keeps all sixty rotations). The band that PR-36 excludes by its faithfulness clause is the uniform load state, rest phase "
+      "0, the only massless sector and the one on which CF-1 places its species.")
+    w("- CF-1's 'family chart' and 'family module' mean the 32 patterns of the five levels (one generation of "
+      "species). The stack's 'family band' means the generation triplet. The two words name different factors.\n")
+    w("### 7.4 Compatibility\n")
+    w("Not compatible as one object. A quantum is on the uniform load state (massless, no family label) or on the "
+      "band (family label, lattice-scale rest phase, degenerate). With both kept every species has a massless copy "
+      "and three degenerate copies with Compton length of about three cells; the lighter fourth copy contradicts the "
+      "declared completion (N_g = 3) and the excluded-band receipt that the paper requires for a physical "
+      "identification.\n")
+    w("What has to give, for the candidate: the realization clause of PR-36, that the families are the load band "
+      "on which the carrier's walk acts. Reasons: the Lean file proves that the trivial band wins on cost once the "
+      "two exclusions are dropped, so the exclusion of the massless band is a declaration; the rest phases are exact "
+      "consequences of the public walk; the row's disposition is 'remove'. The other way out keeps PR-36 and removes "
+      "the internal walk from the tick on the family register; the cost order then has no operational meaning in "
+      "the candidate, and a reason is needed why the uniform load state is not populated. Under either choice "
+      "the three states of the band are exactly degenerate in CF-1 as defined, and nothing in the tick refers to "
+      "the frame axes on the load register: a resolution of the band along the axes (candidate G-a of "
+      "`RL/work/MAP/source_map.json`) needs a port-level routing, which does not exist "
+      "(`RL/reports/KD.md`, 'does not establish').\n")
+    w("Not blind: the rest phases of the three triplet copies are in the ratio 1 : 1.480 : 1.628 "
+      "(0.304708, 0.451027, 0.496198); the measured charged-lepton ratios shipped in "
+      "`RER/model/particle_candidate_atlas/reference_values.json` are 1 : 206.77 : 3477.2. No fit was made.\n")
+    w("### 7.5 The second index of lead L38 against the public family theorem\n")
+    w("- L38 reads the generation in the multiplicity of the triplet (the second, seam-broken index). The stack's "
+      "family band is one level of that index (the slow band) with the rotation triplet as the family label. The "
+      "two identifications use different factors of the same nine-dimensional space.")
+    w("- Against row PR-36 the second index fails two clauses by construction: the rotations act trivially on it "
+      "(the faithfulness clause excludes it), and its middle level is the triplet inside the quintet, which is "
+      "not a complete band. It keeps what the public flavour construction requires and the band lacks: the "
+      "family factor is untouched by the rotations, its three levels differ, and the seams fix a frame on it "
+      "with no parameter. A candidate that adopts L38 does not consume the public band-selection theorem; PR-36 is "
+      "then replaced, which its disposition ('remove') allows, and the replacement is a new declared premise.")
+    w("- The index exists only where the law distinguishes a frame. Under the sixty rotations the three levels "
+      "are inequivalent or not separate (3, part of 5, 3'), and no operator natural under all rechartings "
+      "connects them. Mixing between the three levels is therefore equivalent to a visible frame, that is to a "
+      "failure of A2-naturality on the register that carries the index.")
+    w("- By 6.3 the Lie-type theorem needs the sixty rotations as inner automorphisms of the response. Both can "
+      "hold only on different registers: all sixty rechartings realized on the register that carries the gauge "
+      "response (the five-level code; the audit's 120-lift controller does this on one carrier as apparatus), and "
+      "the frame visible only on a register that the response does not touch (premise A2 calls such a factor "
+      "response-silent). In CF-1 as defined neither half exists: the closed paths of the family have central "
+      "holonomy only, and no step of the tick distinguishes the frame seams on the load register; the port-level "
+      "family walk of section 3 of CF-1, a different program with a different clock, is where shared and private "
+      "seams differ (ARGUED).\n")
+    w("## 8. What the candidate violates or cannot meet as it stands, most damaging first\n")
+    for i, (a, b) in enumerate(VIOLATIONS, 1):
+        w(f"{i}. **{a}.** {b}")
+    w("")
+    w("## 9. Evidence\n")
+    w("- `" + HERE + "/t1_frame_check.py` -> `frame_check.json` (exact, Q(sqrt5) and rationals, under one CPU "
+      "second): `cd " + HERE + " && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python "
+      "t1_frame_check.py frame_check.json`")
+    w("- `" + HERE + "/build_ledger.py` -> `ledger.json`, `LEDGER.md`: `/tmp/oph-completion-venv/bin/python "
+      + HERE + "/build_ledger.py`")
+    w("- Read, not rebuilt: the register and its crosswalk, `Lean/Screen/A5FamilyBand.lean`, the docstrings of "
+      "`A5OPH`, `A2HolonomyBridge`, `SMStructureComposition`, `SMStructureAdequacySurface`, "
+      "`MatterGrammarIndexBridge`, `GlobalFormCharacterDescent`, `ChargedCurrentDictionary`, `BaryonDimensionSix`, "
+      "`ExteriorSelection`, `SeamU1HolonomyClassification`, `PortFrameGram`; the gauge-structure paper (premises, "
+      "Lie-type theorem, executable current, matter, families, particle criterion); `SOURCE_FLAVOR_ORBIT.tex`, "
+      "`CUBE_ETA_PROTECTION.tex`; the audit's `PREMISES.md`, `PARTICLE_PATH.md`, `README.md` and the heads of "
+      "eight packet proofs.")
+    with open(os.path.join(HERE, "LEDGER.md"), "w") as fh:
+        fh.write("\n".join(L) + "\n")
+
+    print(json.dumps(ledger["summary"], indent=1))
+    print("rows", len(rows), "outside", len(outside))
+
+
+if __name__ == "__main__":
+    main()

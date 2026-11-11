@@ -1,0 +1,50 @@
+"""Part 3: the single comparison with measured values (NOT BLIND), run after Parts 0 to 2 are on file.
+Measured values are read here only: LEW's stored compare-only references (PDG 2026 from the audit package) and DC's
+stored measured electroweak values. Writes part3_not_blind.json."""
+import glob
+import json
+import sys
+
+sys.path.insert(0, ".")
+LEW = "WORKSPACE/repair-law/work/SIM/derive/lew/"
+refs = json.load(open(LEW + "t1_chain.json"))["references_compare_only_GeV"]
+dcnb = json.load(open("WORKSPACE/repair-law/work/DC/dc_not_blind.json"))
+out = {"references_GeV": refs, "dc_measured_file": "RL/work/DC/dc_not_blind.json"}
+
+
+def pct(x, k):
+    return 100 * (x / refs[k] - 1)
+
+
+d11 = json.load(open("part2_d11.json"))["rows"]
+out["D11_engine_two_loop"] = {n: {"mu_c": r["mu_c_GeV"], "H_pct": pct(r["two_loop"]["mh_tree"], "H"),
+                                  "t_pct": pct(r["two_loop"]["mt_pole"], "t")} for n, r in d11.items()}
+sm = {}
+for f in sorted(glob.glob("part2_smdr_*.json")):
+    r = json.load(open(f))
+    sm[r["name"]] = {lp: {a: {k: pct(r[lp][a][k], k) for k in ("W", "Z", "H", "t")} for a in ("A1", "A2")}
+                     for lp in ("2", "3")}
+lewk1 = json.load(open(LEW + "t4_criticality.json"))["candidates"]
+for key in ("K1_E_cell_single_anchor", "K2_E_star_uv_edge", "K4_log_midpoint_post_exposure"):
+    sm["LEW " + key] = {lp: {a: {k: pct(lewk1[key][lp][a][k], k) for k in ("W", "Z", "H", "t")}
+                             for a in ("A1", "A2")} for lp in ("2", "3")}
+out["SMDR_percent"] = sm
+c1 = json.load(open("part1_c1.json"))["nonlinear_end_flow"]["rows"]
+# triviality-side Higgs at the measured top: interpolate each lambda(E_cell) curve in m_t
+import numpy as np  # noqa: E402
+tri = {}
+for lam0 in (1.0, 2.0, 4.0):
+    rr = sorted([r for r in c1 if r["lambda_E_cell"] == lam0], key=lambda r: r["mt_pole"])
+    tri[str(lam0)] = float(np.interp(refs["t"], [r["mt_pole"] for r in rr], [r["mh_tree"] for r in rr]))
+out["C1a_nonlinear_end_mH_at_measured_mt_GeV"] = tri
+ex = json.load(open("part2_extra.json"))["b_rebuilt_chain_boundary_at_cell"]
+out["rebuilt_chain_boundary_at_cell"] = {k: {"t_pct": pct(v["mt_pole"], "t"), "H_pct": pct(v["mh_tree"], "H")}
+                                         for k, v in ex.items()}
+p0 = json.load(open("part0_rebuilt.json"))
+out["rebuilt_chain_hierarchy"] = {"v_over_E*_range": [p0["R0a_hierarchy"]["min_v_over_E*"],
+                                                       p0["R0a_hierarchy"]["max_v_over_E*"]],
+                                  "dc_measured_record": {k: v for k, v in dcnb.items() if "measured" in k.lower()}}
+be = p0["R0b_coupling_sector"]["rows"]
+out["rebuilt_chain_BE_at_D10_Q0"] = {k: be[k]["packet_at_D10_Q0_91.588_GeV"] for k in ("BE_bare", "BE_5trace")}
+json.dump(out, open("part3_not_blind.json", "w"), indent=1)
+print(json.dumps(out, indent=1)[:6000])

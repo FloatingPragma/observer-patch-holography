@@ -1,0 +1,164 @@
+"""Block 3B: candidate CAP (covariant agreement pump), one-load space C^12.
+
+A history h = ((seam_1, row_1), ..., (seam_n, row_n)) of recorded rows has the Kraus operator K_h and the effect
+E_h = K_h^+ K_h on C^12. Maps to Herm(2):
+  compression  e_h = V^+ E_h V, V = W / sqrt6 the 12 x 2 isometry onto the spinor doublet (W rows <chi_p|)
+  diagonal     x_h = (1/6) sum_p (E_h)_pp Pi_p   (lead L18 applied to the port diagonal of the effect)
+Both are positive unital maps, so they are monotone for the Loewner order; they are not injective (144 -> 4 real
+dimensions) and they add relations.
+
+python b3b_cap.py [--procs 12 --seeds 8]     writes results/b3b_cap.json
+"""
+import argparse, json, os, sys, time
+from multiprocessing import Pool
+import numpy as np
+import mc_lib as L
+import cap_copy as cap
+
+SEAMS = cap.SEAMS
+INST = [cap.instrument(seam, 1) for seam in SEAMS]
+SP = np.array(cap.SPINORS)                       # row p = chi_p (components)
+W = SP.conj()                                    # row p = <chi_p|
+V = W / np.sqrt(6)
+PIp = np.array([np.outer(SP[p], SP[p].conj()) for p in range(12)])
+
+
+def channel_matrix():
+    S = np.zeros((144, 144), complex)
+    for rows in INST:
+        for _, K in rows:
+            S += np.kron(K, K.conj()) / len(INST)
+    return S
+
+
+def stationary():
+    w, v = np.linalg.eig(channel_matrix())
+    i = int(np.argmin(abs(w - 1)))
+    rho = v[:, i].reshape(12, 12); rho = rho / np.trace(rho); rho = (rho + rho.conj().T) / 2
+    return rho, sorted(abs(w))[-2]
+
+
+def checks():
+    rho, second = stationary()
+    lev, vec = np.linalg.eigh(rho)
+    P2 = vec[:, -2:] @ vec[:, -2:].conj().T
+    out = {'V_isometry_defect': float(np.linalg.norm(V.conj().T @ V - np.eye(2))),
+           'stationary_levels_top': [float(x) for x in lev[::-1][:6]],
+           'second_eigenvalue_modulus': float(second),
+           'doublet_projector_minus_VVdag': float(np.linalg.norm(P2 - V @ V.conj().T)),
+           'doublet_projector_minus_conjugate_frame': float(np.linalg.norm(P2 - V.conj() @ V.T)),
+           'completeness_defect': float(max(np.linalg.norm(sum(K.conj().T @ K for _, K in rows) - np.eye(12)) for rows in INST)),
+           'row_ranks': {lab: int(np.linalg.matrix_rank(K)) for lab, K in INST[0]}}
+    return rho, out
+
+
+def sample(K, T, rho0, rng):
+    E12, keys = [np.eye(12, dtype=complex)], [()]
+    ncorr = 0
+    for k in range(K):
+        Kop = np.eye(12, dtype=complex); rho = rho0.copy(); hist = ()
+        for t in range(T):
+            e = int(rng.integers(len(SEAMS)))
+            rows = INST[e]
+            pr = np.array([np.trace(Kr @ rho @ Kr.conj().T).real for _, Kr in rows]); pr = np.maximum(pr, 0); pr /= pr.sum()
+            i = int(rng.choice(len(rows), p=pr))
+            lab, Kr = rows[i]
+            ncorr += lab == 'corrected'
+            Kop = Kr @ Kop
+            rho = Kr @ rho @ Kr.conj().T; rho /= np.trace(rho).real
+            hist = hist + ((e, lab),)
+            E12.append(Kop.conj().T @ Kop); keys.append(hist)
+    return E12, keys, ncorr / (K * T)
+
+
+def loewner12(E, tol=1e-9):
+    n = len(E)
+    A = np.array(E)
+    tr = np.einsum('nii->n', A).real
+    R = np.zeros((n, n), bool)
+    for i in range(n):
+        js = np.nonzero(tr > tr[i] * (1 + 1e-13) + 1e-300)[0]
+        if js.size:
+            w = np.linalg.eigvalsh(A[js] - A[i][None])
+            R[i, js] = w[:, 0] >= -tol * np.maximum(np.abs(w[:, -1]), 1e-300)
+    return R
+
+
+def run_one(a):
+    K, T, seed, start = a
+    rng = np.random.default_rng([seed, K, T, 31, start])
+    rho0 = RHO if start == 0 else np.eye(12) / 12
+    E12, keys, corr_rate = sample(K, T, rho0, rng)
+    uniq = {}
+    ids = [uniq.setdefault(k, len(uniq)) for k in keys]
+    first = [ids.index(i) for i in range(len(uniq))]
+    E12 = [E12[i] for i in first]; hk = [keys[i] for i in first]
+    N = len(E12)
+    rank = np.array([np.linalg.matrix_rank(E, tol=1e-10 * max(np.trace(E).real, 1e-300)) for E in E12])
+    comp = np.array([L.herm2_to_point(V.conj().T @ E @ V) for E in E12])
+    diag = np.array([L.herm2_to_point(sum(E[p, p].real * PIp[p] for p in range(12)) / 6) for E in E12])
+    R12 = loewner12(E12)
+    Rc = L.relation_cone(comp)
+    Rd = L.relation_cone(diag)
+    index = {k: i for i, k in enumerate(hk)}
+    Rp = np.zeros((N, N), bool)
+    for i, k in enumerate(hk):
+        for n in range(len(k)):
+            j = index.get(k[:n])
+            if j is not None:
+                Rp[i, j] = True
+    st = {'K': K, 'T': T, 'seed': seed, 'start': start, 'points': N, 'corrected_rate': float(corr_rate)}
+    for name, R in (('c12', R12), ('compressed', Rc), ('diagonal', Rd)):
+        s = L.order_stats(R, check_transitive=True)
+        st[name] = {k: s.get(k) for k in ('r', 'd_r', 'm', 'd_m', 'links', 'height', 'transitive', 'antisymmetric')}
+    relc = (comp[:, 0] ** 2 - (comp[:, 1:] ** 2).sum(axis=1)) / np.maximum(comp[:, 0] ** 2, 1e-300)
+    st.update({'tree_in_c12': bool(not (Rp & ~R12).any()), 'c12_in_compressed': bool(not (R12 & ~Rc).any()),
+               'c12_in_diagonal': bool(not (R12 & ~Rd).any()),
+               'tree_pairs': int(Rp.sum()), 'c12_pairs': int(R12.sum()), 'compressed_pairs': int(Rc.sum()), 'diagonal_pairs': int(Rd.sum()),
+               'c12_extra_over_tree': float((R12 & ~Rp).sum() / max(1, R12.sum())),
+               'compressed_added_fraction': float((Rc & ~R12).sum() / max(1, Rc.sum())),
+               'diagonal_added_fraction': float((Rd & ~R12).sum() / max(1, Rd.sum())),
+               'rank_one_fraction': float((rank == 1).mean()), 'rank_mean': float(rank.mean()),
+               'compressed_null_fraction': float((relc < 1e-9).mean()),
+               'compressed_zero_fraction': float((comp[:, 0] < 1e-12).mean()),
+               'compressed_median_rapidity': float(np.median(np.arctanh(np.minimum(np.linalg.norm(comp[:, 1:], axis=1) / np.maximum(comp[:, 0], 1e-300), 1 - 1e-16)))),
+               'profile_compressed': L.profile_means(L.interval_profile(Rc, rng)),
+               'profile_c12': L.profile_means(L.interval_profile(R12, rng))})
+    return st
+
+
+RHO, CHECKS = checks()
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--procs', type=int, default=12)
+    ap.add_argument('--seeds', type=int, default=8)
+    a = ap.parse_args()
+    t0 = time.time()
+    print(json.dumps(CHECKS), flush=True)
+    shapes = ((200, 10), (50, 40), (20, 100))
+    jobs = [(K, T, s, st) for st in (0, 1) for K, T in shapes for s in range(a.seeds)]
+    with Pool(a.procs) as pool:
+        rows = pool.map(run_one, jobs, chunksize=1)
+    out = {'checks': CHECKS, 'table': {}}
+    for st in (0, 1):
+        for K, T in shapes:
+            sel = [r for r in rows if (r['K'], r['T'], r['start']) == (K, T, st)]
+            d = {}
+            for name in ('c12', 'compressed', 'diagonal'):
+                d[name] = L.summarize([r[name] for r in sel], keys=('r', 'd_r', 'm', 'd_m', 'links', 'height'))
+                d[name]['transitive_all'] = all(r[name]['transitive'] for r in sel)
+            d.update(L.summarize(sel, keys=('points', 'corrected_rate', 'c12_extra_over_tree', 'compressed_added_fraction', 'diagonal_added_fraction',
+                                            'rank_one_fraction', 'rank_mean', 'compressed_null_fraction', 'compressed_zero_fraction',
+                                            'compressed_median_rapidity', 'tree_pairs', 'c12_pairs', 'compressed_pairs', 'diagonal_pairs')))
+            d['tree_in_c12_all'] = all(r['tree_in_c12'] for r in sel)
+            d['c12_in_compressed_all'] = all(r['c12_in_compressed'] for r in sel)
+            d['c12_in_diagonal_all'] = all(r['c12_in_diagonal'] for r in sel)
+            d['profile_compressed'] = L.across_seeds([r['profile_compressed'] for r in sel])
+            d['profile_c12'] = L.across_seeds([r['profile_c12'] for r in sel])
+            out['table'][f'start={"stationary" if st == 0 else "uniform"}|K={K}|T={T}'] = d
+    out['seconds'] = time.time() - t0
+    os.makedirs('results', exist_ok=True)
+    json.dump(out, open('results/b3b_cap.json', 'w'), indent=1, default=float)
+    print(json.dumps(out, default=float)[:3000])
+    print('seconds', round(out['seconds'], 1))

@@ -1,0 +1,104 @@
+{
+ "bare_fifth_moment_per_channel_h_1_4": {
+  "e": "-31*I/32",
+  "d": "-15*I/8",
+  "u": "-15*I/8"
+ },
+ "bare_fifth_moment_general": "-2*I*h**3*(60*y_d**2 + 31*y_e**2 + 60*y_u**2)",
+ "cross_terms": "absent (exact for u,e; counting argument for the others; per-channel sum equals the audit total)",
+ "RS_fifth_order_per_channel_h_1_4": {
+  "e": "-I*(18*Delta_l**2 - 12*Delta_l*Delta_s + Delta_s**2)/(32*Delta_l**2*Delta_s**2*(Delta_l - Delta_s)**2)",
+  "d": "-3*I*(3*Delta_l - 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l - Delta_s)**2)",
+  "u": "-3*I*(3*Delta_l + 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l + Delta_s)**2)"
+ },
+ "RS_fifth_order_total_both_edges": "64*h**3*(-3*I*y_d**2*(3*Delta_l - 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l - Delta_s)**2) - 3*I*y_u**2*(3*Delta_l + 2*Delta_s)/(8*Delta_l*Delta_s**2*(Delta_l + Delta_s)**2) - I*y_e**2*(18*Delta_l**2 - 12*Delta_l*Delta_s + Delta_s**2)/(32*Delta_l**2*Delta_s**2*(Delta_l - Delta_s)**2))",
+ "RS_leading_form_Delta_l_to_infinity": "-36*I*h**3*(2*y_d**2 + y_e**2 + 2*y_u**2) / (Delta_s^2 Delta_l^2)",
+ "RS_leading_form_Delta_s_to_infinity": "-2*I*h**3*y_e**2 / (Delta_s^2 Delta_l^2)",
+ "pole_at_audit_point": "e and d channels carry (Delta_l - Delta_s)^-2; the audit sets Delta_s = Delta_l = 1",
+ "three_fermion_RS_third_order_both_edges": "-12*I*h**3/Delta_l**2",
+ "three_fermion_first_order_mixing_norm_squared": {
+  "e": "3",
+  "d": "6"
+ },
+ "elementary_hop_per_edge": "h (e^c: two entries of modulus 1/4 at h = 1/4)",
+ "eps_K_definition": "|t_nu per edge| / h",
+ "eps_K_general": "h**2*Abs((12*Delta_l*y_d**2*(Delta_l + Delta_s)**2*(3*Delta_l - 2*Delta_s) + 12*Delta_l*y_u**2*(Delta_l - Delta_s)**2*(3*Delta_l + 2*Delta_s) + y_e**2*(Delta_l + Delta_s)**2*(18*Delta_l**2 - 12*Delta_l*Delta_s + Delta_s**2))/(Delta_l - Delta_s)**2)/(Delta_l**2*Delta_s**2*(Delta_l + Delta_s)**2)",
+ "eps_three_fermion_general": "6*h**2/Delta_l**2",
+ "sample_points_unit_couplings_h_1_4": [
+  {
+   "Delta_s": 1,
+   "Delta_l": 1,
+   "eps_K": "pole (Delta_l - Delta_s)^2 in the e and d channels"
+  },
+  {
+   "Delta_s": 1,
+   "Delta_l": 2,
+   "eps_K": [
+    "499/192",
+    2.5989583333333335
+   ],
+   "eps_three_fermion": [
+    "3/32",
+    0.09375
+   ]
+  },
+  {
+   "Delta_s": 2,
+   "Delta_l": 1,
+   "eps_K": [
+    "7/96",
+    0.07291666666666667
+   ],
+   "eps_three_fermion": [
+    "3/8",
+    0.375
+   ]
+  },
+  {
+   "Delta_s": 1,
+   "Delta_l": 4,
+   "eps_K": [
+    "24073/57600",
+    0.4179340277777778
+   ],
+   "eps_three_fermion": [
+    "3/128",
+    0.0234375
+   ]
+  },
+  {
+   "Delta_s": 4,
+   "Delta_l": 1,
+   "eps_K": [
+    "331/28800",
+    0.011493055555555555
+   ],
+   "eps_three_fermion": [
+    "3/8",
+    0.375
+   ]
+  },
+  {
+   "Delta_s": 1,
+   "Delta_l": 10,
+   "eps_K": [
+    "921001/15681600",
+    0.05873131568207326
+   ],
+   "eps_three_fermion": [
+    "3/800",
+    0.00375
+   ]
+  }
+ ],
+ "kappa_for_eps_K_1e-7_at_Delta_l_2Delta_s": "0.00700277503978963",
+ "leading_term_equals_mixing_times_three_fermion_hop": {
+  "e": "-9*I/16 = 3 x -3*I/16",
+  "d": "-9*I/8 = 6 x -3*I/16"
+ },
+ "vacuum_relative_second_order_onsite_shift_of_HL": "(Delta_l*(18*y_d**2 + 7*y_e**2 + 12*y_u**2) - 6*Delta_s*h**2)/(Delta_l*Delta_s)",
+ "vacuum_relative_shift_at_unit_couplings_h_1_4": "293/8",
+ "partner_vertex_bare_norm_x_neighbour_unit": "3*sqrt(3)/2",
+ "charged_mass_vertex_norm_unit": "2",
+ "partner_to_charged_vertex_bare_ratio_unit": "3*sqrt(3)/4"
+}

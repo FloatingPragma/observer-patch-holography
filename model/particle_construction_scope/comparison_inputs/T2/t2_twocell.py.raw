@@ -1,0 +1,216 @@
+"""T2: independent construction of the audit's two-cell lepton / quantum-link / two-Higgs control
+(RER/model/coherent_defect_wave/chiral_joint and its subdirectory two_cell, read as specification only).
+
+Nothing of the audit's code is imported. Carrier: twelve lepton modes (per cell and spin: e^c, L_1, L_2), one
+six-state link (blank, e^c channel, four doublet channels |a,b>), two five-state scalar memories
+(vac, p_1, p_2, ap_1, ap_2): 2^12 * 6 * 5^2 = 614400 states, sparse operators by Kronecker products.
+
+  H = H_hop + H_Y(left) + H_Y(right) + N_H(left) + N_H(right) + P_link
+  H_hop = sum_(spin; a,b) (i/2)(-1)^spin c*_(left,spin,a) U_ab c_(right,spin,b) + h.c.,   U_ab = |a,b><0|
+  H_Y   = sum_k A_k phi_k* + h.c.,  A_k = c_(e,up) c_(L_k,dn) - c_(e,dn) c_(L_k,up),  phi_k = |vac><p_k| + |ap_k><vac|
+
+Gauss generators per cell: hypercharge and weak isospin of matter, scalar and the link end (left end: dual
+representation on a, right end: direct representation on b), plus a static boundary hypercharge q at the right cell.
+
+Checks: [H, every generator] = 0; dimensions of the diagonal sectors and of the full Gauss kernels; complete spectrum
+of every conserved block (L, 2Sz) of every boundary sector; ground, gap and the charged levels the audit reports.
+The committed control of chiral_joint (left Yukawa off): |H Omega|^2 and |R H^2 Omega|^2.
+
+Run:  /tmp/oph-completion-venv/bin/python t2_twocell.py [out.json]      (float64 for the spectra; counts exact)
+"""
+import itertools, json, sys
+import numpy as np
+import scipy.sparse as sp
+from scipy.linalg import null_space
+
+NM = 12; DF = 2 ** NM
+# mode index: cell * 6 + spin * 3 + kind, kind 0 = e^c, 1 = L_1, 2 = L_2; cell 0 = left, 1 = right; spin 0 = up
+def mode(cell, spin, kind): return cell * 6 + spin * 3 + kind
+
+def annihilator(k):
+    rows, cols, vals = [], [], []
+    for s in range(DF):
+        if s >> k & 1:
+            rows.append(s ^ (1 << k)); cols.append(s); vals.append((-1) ** bin(s & ((1 << k) - 1)).count('1'))
+    return sp.csr_matrix((vals, (rows, cols)), shape=(DF, DF), dtype=complex)
+
+c = [annihilator(k) for k in range(NM)]; cd = [x.conj().T.tocsr() for x in c]
+num = [(cd[k] @ c[k]).diagonal().real for k in range(NM)]
+IF = sp.identity(DF, format='csr', dtype=complex)
+def unit(n, i, j):
+    M = np.zeros((n, n), complex); M[i, j] = 1; return sp.csr_matrix(M)
+I6 = sp.identity(6, format='csr', dtype=complex); I5 = sp.identity(5, format='csr', dtype=complex)
+def emb(F=None, Lk=None, HL=None, HR=None):
+    return sp.kron(sp.kron(sp.kron(IF if F is None else F, I6 if Lk is None else Lk), I5 if HL is None else HL), I5 if HR is None else HR, format='csr')
+
+# link basis: 0 blank, 1 = |e,e>, 2 + 2*(a-1) + (b-1) = |a,b>, a, b in {1, 2}
+def lk(a, b): return 1 if (a, b) == ('e', 'e') else 2 + 2 * (a - 1) + (b - 1)
+# scalar basis: 0 vac, 1 p_1, 2 p_2, 3 ap_1, 4 ap_2
+phi = {1: unit(5, 0, 1) + unit(5, 3, 0), 2: unit(5, 0, 2) + unit(5, 4, 0)}
+NH = sp.diags([0, 1, 1, 1, 1]).astype(complex).tocsr()
+
+def yukawa(cell):
+    H = None
+    for k in (1, 2):
+        A = c[mode(cell, 0, 0)] @ c[mode(cell, 1, k)] - c[mode(cell, 1, 0)] @ c[mode(cell, 0, k)]
+        t = emb(F=A, **{('HL' if cell == 0 else 'HR'): phi[k].conj().T.tocsr()})
+        t = t + t.conj().T
+        H = t if H is None else H + t
+    return H
+
+def hopping():
+    H = None
+    for spin in (0, 1):
+        coef = 0.5j * (-1) ** spin
+        chans = [(0, 0, lk('e', 'e'))] + [(a, b, lk(a, b)) for a in (1, 2) for b in (1, 2)]
+        for ka, kb, l in chans:
+            t = coef * emb(F=cd[mode(0, spin, ka)] @ c[mode(1, spin, kb)], Lk=unit(6, l, 0))
+            H = t if H is None else H + t
+    return H + H.conj().T
+
+Plink = sp.diags([0, 1, 1, 1, 1, 1]).astype(complex).tocsr()
+def hamiltonian(yl=1.0, yr=1.0):
+    return (hopping() + yl * yukawa(0) + yr * yukawa(1) + emb(HL=NH) + emb(HR=NH) + emb(Lk=Plink)).tocsr()
+
+# ---- diagonal labels on the 614400 basis states (index = ((mask*6 + link)*5 + hl)*5 + hr)
+def diag_field(fm, fl, fhl, fhr):
+    return (fm[:, None, None, None] + fl[None, :, None, None] + fhl[None, None, :, None] + fhr[None, None, None, :]).reshape(-1)
+z6 = np.zeros(6); z5 = np.zeros(5); zF = np.zeros(DF)
+occ = lambda cell, kind: num[mode(cell, 0, kind)] + num[mode(cell, 1, kind)]
+# twice the hypercharge and twice T3 of the scalar and of the two link ends
+Ys = np.array([0, 1, 1, -1, -1.0]); Ts = np.array([0, 1, -1, -1, 1.0])
+YlL = np.array([0, -2, 1, 1, 1, 1.0]); YlR = np.array([0, 2, -1, -1, -1, -1.0])
+TlL = np.array([0, 0, -1, -1, 1, 1.0]); TlR = np.array([0, 0, 1, -1, 1, -1.0])
+twoY = [diag_field(2 * occ(0, 0) - occ(0, 1) - occ(0, 2), YlL, Ys, z5), diag_field(2 * occ(1, 0) - occ(1, 1) - occ(1, 2), YlR, z5, Ys)]
+twoT3 = [diag_field(occ(0, 1) - occ(0, 2), TlL, Ts, z5), diag_field(occ(1, 1) - occ(1, 2), TlR, z5, Ts)]
+Lnum = diag_field(sum(occ(cl, 1) + occ(cl, 2) - occ(cl, 0) for cl in (0, 1)), z6, z5, z5)
+twoSz = diag_field(sum(num[mode(cl, 0, k)] - num[mode(cl, 1, k)] for cl in (0, 1) for k in range(3)), z6, z5, z5)
+# weak raising operator per cell
+Tp_s = unit(5, 1, 2) - unit(5, 4, 3)
+Tp_lL = -(unit(6, lk(2, 1), lk(1, 1)) + unit(6, lk(2, 2), lk(1, 2)))          # dual representation on a
+Tp_lR = unit(6, lk(1, 1), lk(1, 2)) + unit(6, lk(2, 1), lk(2, 2))             # direct representation on b
+def Tplus(cell):
+    m = sum(cd[mode(cell, s, 1)] @ c[mode(cell, s, 2)] for s in (0, 1))
+    return (emb(F=m) + emb(**{('HL' if cell == 0 else 'HR'): Tp_s}) + emb(Lk=(Tp_lL if cell == 0 else Tp_lR))).tocsr()
+
+out = {}
+H = hamiltonian(); TP = [Tplus(0), Tplus(1)]
+herm = abs(H - H.conj().T).max()
+def cnorm(G): return float(abs(H @ G - G @ H).max()) if not isinstance(G, np.ndarray) else float(abs(H.multiply(G[:, None]) - H.multiply(G[None, :])).max())
+comm = {'T+_left': cnorm(TP[0]), 'T+_right': cnorm(TP[1])}
+for name, d in (('2Y_left', twoY[0]), ('2Y_right', twoY[1]), ('2T3_left', twoT3[0]), ('2T3_right', twoT3[1]), ('L', Lnum), ('2Sz', twoSz)):
+    Hc = H.tocoo(); comm[name] = float(np.abs(Hc.data * (d[Hc.row] - d[Hc.col])).max())
+out['model'] = {'dimension': H.shape[0], 'nonzeros': int(H.nnz), 'hermiticity_defect': float(herm), 'commutators_with_H': comm}
+print('model', json.dumps(out['model']))
+
+def sector(q):
+    """complete spectrum of every (L, 2Sz) block of the Gauss kernel with boundary hypercharge q at the right cell"""
+    sel = np.nonzero((twoY[0] == 0) & (twoY[1] + 2 * q == 0) & (twoT3[0] == 0) & (twoT3[1] == 0))[0]
+    blocks = {}
+    for i in sel: blocks.setdefault((int(Lnum[i]), int(twoSz[i])), []).append(i)
+    res = {'diagonal_dimension': int(len(sel)), 'blocks': len(blocks),
+           'largest_diagonal_block': max((len(v), k) for k, v in blocks.items())}
+    levels = []; leak = 0.0; phys = 0
+    for key, idx in sorted(blocks.items()):
+        idx = np.array(idx)
+        Hcols = H[:, idx].tocsc()
+        inside = np.zeros(H.shape[0], bool); inside[idx] = True
+        rows = np.unique(Hcols.indices)
+        leak = max(leak, float(abs(Hcols[~inside[np.arange(H.shape[0])]]).max()) if (~inside[rows]).any() else 0.0)
+        Hb = Hcols[idx].toarray()
+        stack = []
+        for T in TP:
+            Tc = T[:, idx].tocsc(); r = np.unique(Tc.indices)
+            if len(r): stack.append(Tc[r].toarray())
+        if stack:
+            Bk = null_space(np.vstack(stack), rcond=1e-10)
+        else:
+            Bk = np.eye(len(idx))
+        if Bk.shape[1] == 0: continue
+        phys += Bk.shape[1]
+        ev = np.linalg.eigvalsh(Bk.conj().T @ Hb @ Bk)
+        levels += [(float(e), key) for e in ev]
+    levels.sort()
+    res.update({'physical_dimension': phys, 'leak_of_H_out_of_the_diagonal_blocks': leak,
+                'lowest_levels': [{'energy': e, 'L': k[0], '2Sz': k[1]} for e, k in levels[:6]]})
+    return res, levels
+
+neutral, lev0 = sector(0)
+neutral['ground'] = lev0[0][0]; neutral['gap_to_the_next_physical_level'] = lev0[1][0] - lev0[0][0]
+out['boundary_0'] = neutral
+print('q=0', json.dumps(neutral))
+for q in (-1, 1):
+    r, lev = sector(q)
+    r['lowest_level_with_L=3'] = min((e for e, k in lev if k[0] == 3), default=None)
+    r['excitation_of_the_lowest_level_above_the_neutral_ground'] = lev[0][0] - lev0[0][0]
+    out[f'boundary_{q:+d}'] = r
+    print(f'q={q:+d}', json.dumps(r))
+
+# ---- probe records on the neutral ground (the audit's READOUT_PROOF.md): right-cell spin-up e^c added or removed,
+#      setting probability 1/2, energy window = lowest level of the destination block
+def block(q, key):
+    idx = np.nonzero((twoY[0] == 0) & (twoY[1] + 2 * q == 0) & (twoT3[0] == 0) & (twoT3[1] == 0) & (Lnum == key[0]) & (twoSz == key[1]))[0]
+    stack = []
+    for T in TP:
+        Tc = T[:, idx].tocsc(); r = np.unique(Tc.indices)
+        if len(r): stack.append(Tc[r].toarray())
+    Bk = null_space(np.vstack(stack), rcond=1e-10) if stack else np.eye(len(idx))
+    w, v = np.linalg.eigh(Bk.conj().T @ H[:, idx].tocsc()[idx].toarray() @ Bk)
+    return idx, Bk, w, v
+i0, B0, w0, v0 = block(0, (2, 0))
+g = np.zeros(H.shape[0], complex); g[i0] = B0 @ v0[:, 0]
+probe = emb(F=cd[mode(1, 0, 0)])                                       # creator of the right-cell spin-up e^c
+rec = {}
+for name, op, q, key in (('addition', probe, -1, (1, 1)), ('removal', probe.conj().T.tocsr(), +1, (3, -1))):
+    x = op @ g
+    idx, Bk, w, v = block(q, key)
+    inside = np.zeros(H.shape[0], bool); inside[idx] = True
+    comp = Bk.conj().T @ x[idx]
+    win = np.abs(w - w[0]) < 1e-7
+    rec[name] = {'image_outside_the_destination_block': float(np.linalg.norm(x[~inside])),
+                 'image_outside_the_Gauss_kernel_of_that_block': float(abs(np.linalg.norm(x[idx]) ** 2 - np.linalg.norm(comp) ** 2)),
+                 'energy_transfer_of_the_first_line': float(w[0] - w0[0]), 'levels_in_the_window': int(win.sum()),
+                 'probability_of_the_first_line': float(0.5 * np.linalg.norm(v[:, win].conj().T @ comp) ** 2),
+                 'total_probability_of_this_outcome': float(0.5 * np.linalg.norm(x) ** 2)}
+out['probe_records_right_cell_spin_up'] = rec
+# ---- content of the neutral ground: occupations per cell, scalar and link registers (diagonal expectations)
+pg = np.abs(g) ** 2
+def dexp(fm=zF, fl=z6, fhl=z5, fhr=z5): return float(pg @ diag_field(fm, fl, fhl, fhr))
+occN = np.array([0, 1, 1, 1, 1.0]); par = np.array([0, 1, 1, 0, 0.0]); anti = np.array([0, 0, 0, 1, 1.0])
+out['neutral_ground_content'] = {
+    'N_L_left': dexp(fm=occ(0, 1) + occ(0, 2)), 'N_L_right': dexp(fm=occ(1, 1) + occ(1, 2)),
+    'N_ec_left': dexp(fm=occ(0, 0)), 'N_ec_right': dexp(fm=occ(1, 0)),
+    'scalar_particle_left': dexp(fhl=par), 'scalar_antiparticle_left': dexp(fhl=anti),
+    'scalar_particle_right': dexp(fhr=par), 'scalar_antiparticle_right': dexp(fhr=anti),
+    'link_excited': dexp(fl=np.array([0, 1, 1, 1, 1, 1.0])), 'link_e_channel': dexp(fl=np.array([0, 1, 0, 0, 0, 0.0])),
+    'weight_on_one_doublet_lepton_and_one_scalar_particle_per_cell_no_e^c_blank_link': float(pg[(diag_field(occ(0, 1) + occ(0, 2), z6, z5, z5) == 1)
+        & (diag_field(occ(1, 1) + occ(1, 2), z6, z5, z5) == 1) & (diag_field(occ(0, 0) + occ(1, 0), z6, z5, z5) == 0)
+        & (diag_field(zF, np.array([0, 1, 1, 1, 1, 1.0]), z5, z5) == 0) & (diag_field(zF, z6, par, z5) == 1) & (diag_field(zF, z6, z5, par) == 1)].sum()),
+    'energy_of_two_decoupled_cells': -4.0, 'ground': float(w0[0])}
+print('content', json.dumps(out['neutral_ground_content']))
+print('probe', json.dumps(rec))
+
+# ---- the filled singlet shell: both e^c modes of both cells occupied, no doublet lepton, blank link, empty scalars
+mask = sum(1 << mode(cl, sp_, 0) for cl in (0, 1) for sp_ in (0, 1))
+shell = np.zeros(H.shape[0], complex); ish = mask * 6 * 25; shell[ish] = 1
+out['filled_singlet_shell'] = {'|H psi|': float(np.linalg.norm(H @ shell)), 'hypercharge_per_cell': [float(twoY[0][ish] / 2), float(twoY[1][ish] / 2)],
+                               '2T3_per_cell': [float(twoT3[0][ish]), float(twoT3[1][ish])], '|T+ psi|': [float(np.linalg.norm(T @ shell)) for T in TP],
+                               'L': float(Lnum[ish]), '2Sz': float(twoSz[ish])}
+print('shell', json.dumps(out['filled_singlet_shell']))
+
+# ---- the committed control of chiral_joint: left Yukawa off; Omega = empty matter, blank link, scalar vacua
+Hc = hamiltonian(yl=0.0, yr=1.0)
+Om = np.zeros(Hc.shape[0], complex); Om[0] = 1
+h1 = Hc @ Om; h2 = Hc @ h1
+left_any = diag_field(sum(num[mode(0, s, k)] for s in (0, 1) for k in range(3)), z6, z5, z5) > 0
+out['committed_control'] = {'|H Omega|^2': float(np.vdot(h1, h1).real), '|R H Omega|^2': float(np.vdot(h1[left_any], h1[left_any]).real),
+                            '|R H^2 Omega|^2': float(np.vdot(h2[left_any], h2[left_any]).real)}
+print('control', json.dumps(out['committed_control']))
+out['audit_values_two_cell_README_and_SPECTRUM_PROOF'] = {
+    'diagonal_dimension_q0': 4140, 'diagonal_dimension_q-1': 2496, 'largest_diagonal_block': '642 at L=2, 2Sz=0',
+    'physical_dimension_q0': 1053, 'physical_dimension_q-1': 718, 'physical_dimension_q+1': 783,
+    'neutral_ground': -4.55482663484, 'gap_at_least': 0.394804412, 'q-1_lowest': -3.50278278709, 'q+1_ground_L4': -3.71236223433,
+    'q+1_lowest_L3': -3.64502800307, 'control': {'|H Omega|^2': 4, '|R H^2 Omega|^2': 3},
+    'first_addition_record': {'transfer': [1.052043840289116, 1.052043855190277], 'probability': [0.21838924288749695, 0.21838925033807755]},
+    'first_removal_record': {'transfer': [0.9097986244596541, 0.9097986393608153], 'probability': [0.23089293390512466, 0.23089294135570526]}}
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1, default=str)

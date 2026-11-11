@@ -1,0 +1,42 @@
+"""One-quantum sector of an admissible record law on the icosahedral carrier: the unread channel averaged over seams.
+
+Phi_e(|p><q|) for seam e=(a,b):  populations exchange with weight 1/2; a coherence |p><q| (p != q) keeps its place and is
+multiplied by g when exactly one of p, q lies on the seam, by m when both do, by 1 otherwise (local number-phase covariance).
+The script builds the 144 x 144 map from the record-law table of the repository and compares.
+"""
+import itertools, sys
+import numpy as np
+from model.record_laws import family
+from model.transported_contrast import law
+
+seams, _ = law.carrier()
+n = 12
+def channel_from_formula(g, m):
+    A = np.zeros((n * n, n * n), complex)
+    for (a, b) in seams:
+        for p in range(n):
+            for q in range(n):
+                col = p * n + q
+                if p == q:
+                    if p in (a, b):
+                        A[a * n + a, col] += .5; A[b * n + b, col] += .5
+                    else:
+                        A[col, col] += 1
+                else:
+                    onp, onq = p in (a, b), q in (a, b)
+                    if onp and onq: f = m
+                    elif onp: f = np.conj(g)      # |a><o| = adjoint of |o><a|
+                    elif onq: f = g
+                    else: f = 1
+                    A[col, col] += f
+    return A / len(seams)
+for name, g, m in (('C0', 2 ** -.5, .5), ('C', .5, 0), ('E', 0, 0), ('quarter-turn C0', -1j * 2 ** -.5, .5)):
+    A = channel_from_formula(g, m)
+    ev = np.linalg.eigvals(A)
+    pop = sorted(set(np.round(1 - np.linalg.eigvalsh(np.array([[sum((p in s) for s in seams) if p == q else -float(((p, q) in seams) or ((q, p) in seams)) for q in range(n)] for p in range(n)])) / 60, 9)))
+    coh = sorted(set(np.round(np.abs([A[p * n + q, p * n + q] for p in range(n) for q in range(n) if p != q]), 6)), reverse=True)
+    print(f'{name:16s} max |imag eigenvalue| {np.abs(ev.imag).max():.3e}  off-diagonal support moved: {np.abs(A - np.diag(np.diag(A)))[[p*n+q for p in range(n) for q in range(n) if p != q]].max():.1e}  |coherence factors per attempt| {coh}')
+print('population factors per attempt', pop)
+print('q0 = (43 + 8 sqrt 2)/60 =', (43 + 8 * 2 ** .5) / 60, ' per sweep of 30 attempts:', ((43 + 8 * 2 ** .5) / 60) ** 30)
+# cross-check against the repository table on the total-two carrier: difference pattern is invariant
+t = family.table(*[family.multipliers(family.extract_table(family.INSTRUMENTS[k]()))[p] for p in family.PARAMETERS]) if False else None

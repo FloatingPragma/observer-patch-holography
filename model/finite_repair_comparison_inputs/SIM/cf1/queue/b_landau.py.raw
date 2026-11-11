@@ -1,0 +1,297 @@
+"""Run B (QUEUE_BRIEF.md): uniform field through link phases on 128 x 128 x 2.
+
+Links of axis 2 (index 1) carry z = exp(i B x1), x1 the coordinate along axis 1 (index 0); B = 2 pi k / 128, k = 1, 2, 4.
+Convention of the transport: EngineC (cq_common.py), checked against the public seam form Routing.seam_involution.
+All preparations are uniform along axis 3 (p3 = 0 sector; the lattice has two cells there).
+
+(i)  Spectral lines. Preparation: one cell column (x1, x2) = (64, 64), blank record, spin up or spin down. Executed:
+     return amplitude a(s) = <psi0| U2^s |psi0>, U2 = two ticks (time independent), s = 0..S. Lines: peaks of the
+     windowed (Blackman-Harris), zero-padded transform of a(s), folded to |phase| per tick, listed in increasing order.
+     Exact reference: in the Landau gauge p2 is conserved; for each of the 128 values of p2 the two-tick operator on
+     128 cells x 4 components is a dense 512 x 512 matrix (built from the symbol factors, checked against the engine);
+     its Schur form gives the eigenphases and the weights of the preparation. Eigenphases are grouped into clusters
+     (levels) by gaps; level n = n-th cluster in |phase|.
+(ii) Packet: Gaussian of amplitude width sqrt(2)/sqrt(B) (density width = magnetic length 1/sqrt(B)), kinetic momentum
+     p0 along axis 1, centred at (64, 64), coin positive_coin((p0,0,0), theta), projected on the eigenstates of U2 with phase >= 0
+     (positive branch, zero modes included). Executed for 600 ticks; mean position every tick; circle fit -> radius;
+     dominant frequency of z(t) = <x1> + i <x2> (matrix pencil on two-tick samples) -> period.
+`python b_landau.py out.json [quick]`
+"""
+import json, sys, time
+import numpy as np
+from multiprocessing import Pool
+from scipy.linalg import schur
+from cq_common import EngineC, SIG, I2, BLANK_UP, BLANK_DOWN, matrix_pencil, selftest, positive_coin
+
+L = 128
+SHAPE = (L, L, 2)
+THETAS = (0.0, 0.087847)
+KS = (1, 2, 4)
+P0S = (0.3, 0.6, 0.9)          # 0.3 is the requested momentum; 0.6 and 0.9 are added rows (semiclassical trend)
+QUICK = len(sys.argv) > 2 and sys.argv[2] == 'quick'
+S_TWO = 512 if QUICK else 4096   # two-tick samples of the return amplitude
+T_ORBIT = 120 if QUICK else 600
+CENTRE = (64, 64)
+
+X = SIG[0]; Y = SIG[1]
+ALPHA = [np.kron(X, SIG[i]) for i in range(3)]
+PP = [(np.eye(4) + a) / 2 for a in ALPHA]; PM = [(np.eye(4) - a) / 2 for a in ALPHA]
+
+
+def links_for(k):
+    B = 2 * np.pi * k / L
+    x1 = np.arange(L)[:, None, None] * np.ones(SHAPE)
+    return B, [np.ones(SHAPE, complex), np.exp(1j * B * x1), np.ones(SHAPE, complex)]
+
+
+def block_two_tick(p2, B, theta):
+    """two-tick operator in the sector p2 (canonical), p3 = 0, on 128 cells along axis 1 x 4 components"""
+    Tf = np.roll(np.eye(L), 1, axis=0)                 # Tf[x+1, x] = 1
+    A1 = np.kron(Tf, PP[0]) + np.kron(Tf.T, PM[0])
+    q = p2 + B * np.arange(L)                          # kinetic momentum along axis 2 at x1
+    A2 = np.zeros((4 * L, 4 * L), complex)
+    for x in range(L):
+        A2[4 * x:4 * x + 4, 4 * x:4 * x + 4] = np.cos(q[x]) * np.eye(4) - 1j * np.sin(q[x]) * ALPHA[1]
+    Mm = np.kron(np.eye(L), np.cos(theta) * np.eye(4) - 1j * np.sin(theta) * np.kron(Y, I2))
+    fwd = Mm @ A2 @ A1
+    rev = Mm @ A1 @ A2
+    return rev @ fwd
+
+
+def check_block(k, theta, seed=1):
+    B, links = links_for(k)
+    e = EngineC(SHAPE, links)
+    rng = np.random.default_rng(seed)
+    m = 5; p2 = 2 * np.pi * m / L
+    phi = rng.normal(size=(L, 4)) + 1j * rng.normal(size=(L, 4))
+    x2 = np.arange(L)
+    psi = (phi[:, None, None, :] * np.exp(1j * p2 * x2)[None, :, None, None] * np.ones((1, 1, 2, 1))).reshape(L, L, 2, 2, 2)
+    out = e.two_ticks(psi, theta)
+    want_phi = block_two_tick(p2, B, theta) @ phi.reshape(-1)
+    want = (want_phi.reshape(L, 4)[:, None, None, :] * np.exp(1j * p2 * x2)[None, :, None, None] * np.ones((1, 1, 2, 1))).reshape(L, L, 2, 2, 2)
+    return float(np.abs(out - want).max() / np.abs(want).max())
+
+
+def spectrum(k, theta, need_vectors=False):
+    B, _ = links_for(k)
+    om, vecs = [], []
+    for m in range(L):
+        T, Z = schur(block_two_tick(2 * np.pi * m / L, B, theta), output='complex')
+        om.append(-np.angle(np.diag(T)))
+        if need_vectors: vecs.append(Z)
+    return np.array(om), vecs
+
+
+def cluster(E, w, gap=2e-3):
+    """E sorted |phase| per tick with weights w; consecutive values closer than gap form one group"""
+    order = np.argsort(E); E = E[order]; w = w[order]
+    cuts = np.where(np.diff(E) > gap)[0] + 1
+    out = []
+    for a, b in zip(np.r_[0, cuts], np.r_[cuts, len(E)]):
+        ww = w[a:b]
+        out.append({'count': int(b - a), 'min': float(E[a]), 'max': float(E[b - 1]), 'mean': float(E[a:b].mean()),
+                    'weight': float(ww.sum()), 'weighted_centroid': float((E[a:b] * ww).sum() / ww.sum()) if ww.sum() > 1e-14 else None})
+    return out
+
+
+def distinct(E, w, emax=1.6, dec=5):
+    """distinct eigenphases (rounded to 1e-dec) below emax with multiplicity and summed weight"""
+    r = np.round(E, dec); sel = r < emax
+    vals, inv = np.unique(r[sel], return_inverse=True)
+    mult = np.bincount(inv); wt = np.bincount(inv, weights=w[sel])
+    return [[float(v), int(m), float(x)] for v, m, x in zip(vals, mult, wt)]
+
+
+def voronoi_stats(E, w, centres):
+    """spectral measure of the preparation inside the cell of each relativistic level (boundaries at the midpoints)"""
+    out = []
+    for n, c in enumerate(centres):
+        lo = 0.0 if n == 0 else 0.5 * (centres[n - 1] + c)
+        hi = 0.5 * (c + centres[n + 1]) if n + 1 < len(centres) else c + 0.5 * (c - centres[n - 1])
+        sel = (E >= lo) & (E < hi)
+        ww = w[sel]; W = ww.sum()
+        if W > 1e-14:
+            m = float((E[sel] * ww).sum() / W); sd = float(np.sqrt(((E[sel] - m) ** 2 * ww).sum() / W))
+            imax = np.argmax(ww); top = float(E[sel][imax])
+        else:
+            m = sd = top = None
+        out.append({'n': n, 'window': [float(lo), float(hi)], 'weight': float(W), 'weighted_mean': m, 'weighted_std': sd,
+                    'eigenphase_count': int(sel.sum()), 'eigenphase_min': float(E[sel].min()) if sel.any() else None,
+                    'eigenphase_max': float(E[sel].max()) if sel.any() else None})
+    return out
+
+
+def lines_from_signal(a, nmax=12, pad=16, rel=1e-4):
+    S = len(a)
+    n = np.arange(S); N = S - 1
+    win = 0.35875 - 0.48829 * np.cos(2 * np.pi * n / N) + 0.14128 * np.cos(4 * np.pi * n / N) - 0.01168 * np.cos(6 * np.pi * n / N)
+    F = np.fft.fft(a * win, pad * S)                  # F(f) = sum a(s) e^{-2 pi i f s / (pad S)}; a ~ e^{-i om s} peaks at -om
+    spec = np.abs(F)
+    om = -2 * np.pi * np.fft.fftfreq(pad * S)
+    pk = [i for i in range(len(spec)) if spec[i] > spec[i - 1] and spec[i] >= spec[(i + 1) % len(spec)] and spec[i] > rel * spec.max()]
+    res = []
+    for i in pk:
+        y0, y1, y2 = np.log(spec[i - 1]), np.log(spec[i]), np.log(spec[(i + 1) % len(spec)])
+        d = 0.5 * (y0 - y2) / (y0 - 2 * y1 + y2)
+        dom = om[1] - om[0]
+        o = om[i] + d * dom
+        res.append((abs(o) / 2, float(spec[i] / win.sum()) ** 2, float(o / 2)))
+    res.sort()
+    merged = []                                       # merge +E and -E peaks (and coincident peaks) within 2 resolution bins
+    res_bin = 2 * np.pi / S / 2 * 2
+    for E, wgt, s in res:
+        if merged and abs(E - merged[-1]['abs_phase']) < res_bin:
+            merged[-1]['signed'].append(s); merged[-1]['peak_weight'] += wgt
+            merged[-1]['abs_phase'] = float(np.mean(np.abs(merged[-1]['signed'])))
+        else:
+            merged.append({'abs_phase': float(E), 'signed': [s], 'peak_weight': wgt})
+    return merged[:nmax]
+
+
+def job_lines(args):
+    k, theta, spin = args
+    t0 = time.time()
+    B, links = links_for(k)
+    e = EngineC(SHAPE, links)
+    coin = BLANK_UP if spin == 'up' else BLANK_DOWN
+    psi0 = np.zeros(SHAPE + (2, 2), complex)
+    psi0[CENTRE[0], CENTRE[1], :, :, :] = coin.reshape(2, 2) / np.sqrt(2)
+    psi = psi0.copy(); a = [1.0 + 0j]
+    for s in range(S_TWO):
+        psi = e.two_ticks(psi, theta); a.append(np.vdot(psi0, psi))
+    a = np.array(a)
+    norm_err = abs(np.linalg.norm(psi) - 1)
+    # exact: block spectrum and weights
+    om_all, wt_all = [], []
+    v = np.zeros(4 * L, complex); v[4 * CENTRE[0]:4 * CENTRE[0] + 4] = coin
+    for m in range(L):
+        T, Z = schur(block_two_tick(2 * np.pi * m / L, B, theta), output='complex')
+        om_all.append(-np.angle(np.diag(T))); wt_all.append(np.abs(Z.conj().T @ v) ** 2 / L)
+    om_all = np.concatenate(om_all); wt_all = np.concatenate(wt_all)
+    recon = np.array([np.sum(wt_all * np.exp(-1j * om_all * s)) for s in range(0, len(a), max(1, len(a) // 64))])
+    recon_err = float(np.abs(recon - a[::max(1, len(a) // 64)][:len(recon)]).max())
+    E_abs = np.abs(om_all) / 2
+    lines = lines_from_signal(a, nmax=40)
+    rel = [float(np.sqrt(theta ** 2 + 2 * n * B)) for n in range(6)]
+    vor = voronoi_stats(E_abs, wt_all, rel)
+    rows = []
+    for n in range(6):
+        v_ = vor[n]
+        inside = [q for q in lines if v_['window'][0] <= q['abs_phase'] < v_['window'][1]]
+        strongest = max(inside, key=lambda q: q['peak_weight']) if inside else None
+        rows.append({'n': n, 'relativistic_sqrt_theta2_2nB': rel[n], 'exact_spectral_measure_in_window': v_,
+                     'executed_strongest_line_in_window': strongest['abs_phase'] if strongest else None,
+                     'executed_lines_in_window': [round(q['abs_phase'], 7) for q in inside],
+                     'relative_error_executed_vs_relativistic': ((strongest['abs_phase'] / rel[n] - 1) if rel[n] > 0 else strongest['abs_phase']) if strongest else None,
+                     'relative_error_exact_weighted_mean_vs_relativistic': ((v_['weighted_mean'] / rel[n] - 1) if rel[n] > 0 else v_['weighted_mean']) if v_['weighted_mean'] is not None else None})
+    levels = distinct(E_abs, wt_all)
+    return {'k': k, 'B': B, 'theta': theta, 'coin': 'blank record, spin ' + spin, 'two_tick_samples': S_TWO,
+            'norm_drift': float(norm_err), 'executed_vs_exact_reconstruction_max_abs': recon_err,
+            'levels': rows, 'executed_lines_all': lines, 'exact_distinct_eigenphases_mult_weight': levels, 'seconds': time.time() - t0,
+            'return_amplitude_first_64_real': [float(x.real) for x in a[:64]], 'return_amplitude_first_64_imag': [float(x.imag) for x in a[:64]]}
+
+
+def circle_fit(x, y):
+    A = np.c_[2 * x, 2 * y, np.ones_like(x)]
+    c, *_ = np.linalg.lstsq(A, x * x + y * y, rcond=None)
+    return float(c[0]), float(c[1]), float(np.sqrt(c[2] + c[0] ** 2 + c[1] ** 2))
+
+
+def job_orbit(args):
+    k, theta, p0 = args
+    t0 = time.time()
+    B, links = links_for(k)
+    e = EngineC(SHAPE, links)
+    w = np.sqrt(2.0) / np.sqrt(B)
+    g1 = ((np.arange(L) - CENTRE[0] + L / 2) % L) - L / 2
+    g2 = ((np.arange(L) - CENTRE[1] + L / 2) % L) - L / 2
+    p2c = -B * CENTRE[0]                                # canonical p2 such that the kinetic p2 is 0 at the centre
+    env = np.exp(-(g1[:, None] ** 2 + g2[None, :] ** 2) / (2 * w * w)) * np.exp(1j * (p0 * g1[:, None] + p2c * g2[None, :]))
+    phi2d = env[:, :, None] * positive_coin((p0, 0, 0), theta)[None, None, :]     # (x1, x2, 4)
+    phi2d /= np.linalg.norm(phi2d)
+    F = np.fft.fft(phi2d, axis=1) / np.sqrt(L)             # components e^{i p2 x2}/sqrt(L), p2 = 2 pi m / L
+    om_all, wt_all = [], []
+    Fp = np.zeros_like(F)
+    for m in range(L):
+        T, Z = schur(block_two_tick(2 * np.pi * m / L, B, theta), output='complex')
+        om = -np.angle(np.diag(T))
+        c = Z.conj().T @ F[:, m, :].reshape(-1)
+        om_all.append(om); wt_all.append(np.abs(c) ** 2)
+        sel = om >= -1e-10
+        Fp[:, m, :] = (Z[:, sel] @ c[sel]).reshape(L, 4)
+    om_all = np.concatenate(om_all); wt_all = np.concatenate(wt_all)
+    kept = float(np.linalg.norm(Fp) ** 2)
+    phi_p = np.fft.ifft(Fp * np.sqrt(L), axis=1)
+    psi = np.repeat(phi_p[:, :, None, :], 2, axis=2).reshape(L, L, 2, 2, 2)
+    psi /= np.linalg.norm(psi)
+    # level content of the projected packet (positive branch)
+    sel = om_all >= -1e-10
+    E_rel_lv = [float(np.sqrt(theta ** 2 + 2 * n * B)) for n in range(8)]
+    lev = voronoi_stats(np.abs(om_all[sel]) / 2, wt_all[sel] / wt_all[sel].sum(), E_rel_lv)
+    traj = []
+    for t in range(T_ORBIT + 1):
+        rho = np.sum(np.abs(psi) ** 2, axis=(2, 3, 4))
+        traj.append((float((rho.sum(1) * g1).sum()), float((rho.sum(0) * g2).sum()), float(np.sqrt((rho * (g1[:, None] ** 2 + g2[None, :] ** 2)).sum()))))
+        if t < T_ORBIT: psi = e.step(psi, theta, 'Y', t)
+    traj = np.array(traj)
+    xc, yc, R = circle_fit(traj[:, 0], traj[:, 1])
+    z = traj[::2, 0] + 1j * traj[::2, 1]
+    zc = z - z.mean(); S = len(zc); hann = 0.5 - 0.5 * np.cos(2 * np.pi * np.arange(S) / (S - 1)); pad = 64
+    Fz = np.fft.fft(zc * hann, pad * S); omz = -2 * np.pi * np.fft.fftfreq(pad * S)   # z ~ e^{-i om s} peaks at om
+    i = int(np.argmax(np.abs(Fz))); y0, y1, y2 = np.log(np.abs(Fz[i - 1])), np.log(np.abs(Fz[i])), np.log(np.abs(Fz[(i + 1) % len(Fz)]))
+    om_dom = (omz[i] + 0.5 * (y0 - y2) / (y0 - 2 * y1 + y2) * (omz[1] - omz[0])) / 2      # per tick, signed (sign = sense of circulation)
+    amp_dom = float(np.abs(Fz[i]) / hann.sum())
+    period = 2 * np.pi / abs(om_dom)
+    E_rel = float(np.hypot(p0, theta)); E_lat = float(np.arccos(np.cos(theta) * np.cos(p0)))
+    # quantum references from the level content (ARGUED weighting: cross terms of neighbouring levels ~ sqrt(w_n w_n+1))
+    Wn = [q['weight'] for q in lev]; En_lat = [q['weighted_mean'] for q in lev]; En_cont = E_rel_lv
+    num_l = num_c = den = 0.0
+    for n in range(len(lev) - 1):
+        if En_lat[n] is None or En_lat[n + 1] is None: continue
+        cw = np.sqrt(Wn[n] * Wn[n + 1]) * np.sqrt(n + 1)
+        num_l += cw * (En_lat[n + 1] - En_lat[n]); num_c += cw * (En_cont[n + 1] - En_cont[n]); den += cw
+    E_mean_lat = float(sum(w_ * e_ for w_, e_ in zip(Wn, En_lat) if e_ is not None) / sum(w_ for w_, e_ in zip(Wn, En_lat) if e_ is not None))
+    return {'k': k, 'B': B, 'theta': theta, 'p0': p0, 'width_amplitude': float(w), 'magnetic_length': float(1 / np.sqrt(B)),
+            'positive_branch_weight_kept': kept, 'level_content_of_packet': lev[:8],
+            'n_star_semiclassical_p0^2_over_2B': float(p0 * p0 / (2 * B)),
+            'circle_fit_radius': R, 'circle_fit_centre': [xc, yc], 'radius_classical_p0_over_B': float(p0 / B),
+            'radius_ratio': R / (p0 / B),
+            'oscillation_amplitude_dominant_component': amp_dom,
+            'dominant_angular_frequency_per_tick_signed': float(om_dom), 'period_measured': float(period),
+            'period_relativistic_2piE_over_B': float(2 * np.pi * E_rel / B), 'period_with_lattice_E_on_axis': float(2 * np.pi * E_lat / B),
+            'period_ratio_measured_over_relativistic': float(period / (2 * np.pi * E_rel / B)),
+            'mean_level_phase_of_packet_lattice': E_mean_lat, 'period_2pi_Emean_over_B': float(2 * np.pi * E_mean_lat / B),
+            'quantum_reference_angular_frequency_lattice_levels': float(num_l / den) if den > 0 else None,
+            'quantum_reference_angular_frequency_continuum_levels_sqrt_theta2_2nB': float(num_c / den) if den > 0 else None,
+            'trajectory_every_2_ticks': [[round(a, 6) for a in r] for r in traj[::2].tolist()], 'seconds': time.time() - t0}
+
+
+if __name__ == '__main__':
+    t_start = time.time()
+    out = {'run': 'B', 'brief': 'repair-law/work/SIM/cf1/QUEUE_BRIEF.md', 'program': 'CF-1 routing tick, alternating order, mass option M1 (kind Y)',
+           'lattice': list(SHAPE), 'field': 'links of axis 2 carry exp(i B x1); forward transport x -> x+e2 multiplies by conj(z), backward by z (public seam form)',
+           'B_values': {str(k): 2 * np.pi * k / L for k in KS}, 'units': 'cells and ticks; phases in radians per tick',
+           'seed': 'none (deterministic preparations); block check seed 1', 'clock': 'ticks; return amplitude sampled every two ticks (time-independent two-tick operator), phases halved',
+           'preparation_lines': 'one cell column (64,64,both x3) with blank record, spin up or down',
+           'preparation_orbit': 'Gaussian amplitude exp(-r^2/(2 w^2)), w = sqrt(2/B), kinetic momentum p0 along axis 1, coin = positive_coin((p0,0,0), theta) (blank spin-up projected on the one-axis positive branch), then projected on the eigenstates of U2 with phases >= 0'}
+    out['selftest_complex_links'] = selftest()
+    out['block_against_engine_relative'] = {f'k{k}_theta{th}': check_block(k, th) for k in KS for th in THETAS}
+    print('checks', out['selftest_complex_links'], out['block_against_engine_relative'], flush=True)
+    jobs_l = [(k, th, sp) for k in KS for th in THETAS for sp in ('up', 'down')]
+    jobs_o = [(k, th, p0) for k in KS for th in THETAS for p0 in P0S]
+    with Pool(min(30, len(jobs_l) + len(jobs_o))) as pool:
+        rl = pool.map_async(job_lines, jobs_l)
+        ro = pool.map_async(job_orbit, jobs_o)
+        out['lines'] = rl.get(); out['orbits'] = ro.get()
+    for r in out['lines']:
+        print('lines k', r['k'], 'theta', r['theta'], r['coin'], 'recon', f"{r['executed_vs_exact_reconstruction_max_abs']:.1e}",
+              [(q['n'], round(q['relativistic_sqrt_theta2_2nB'], 6), q['executed_strongest_line_in_window'],
+                q['exact_spectral_measure_in_window']['weighted_mean'], q['exact_spectral_measure_in_window']['weighted_std']) for q in r['levels']], flush=True)
+    for r in out['orbits']:
+        print('orbit k', r['k'], 'theta', r['theta'], 'p0', r['p0'], 'R', round(r['circle_fit_radius'], 4), 'p0/B', round(r['radius_classical_p0_over_B'], 4),
+              'T', round(r['period_measured'], 3), '2piE/B', round(r['period_relativistic_2piE_over_B'], 3),
+              'om', round(abs(r['dominant_angular_frequency_per_tick_signed']), 5), 'q-ref lattice', r['quantum_reference_angular_frequency_lattice_levels'],
+              'q-ref continuum', r['quantum_reference_angular_frequency_continuum_levels_sqrt_theta2_2nB'], flush=True)
+    out['seconds'] = time.time() - t_start
+    json.dump(out, open(sys.argv[1], 'w'), indent=1)
+    print('written', sys.argv[1], out['seconds'])

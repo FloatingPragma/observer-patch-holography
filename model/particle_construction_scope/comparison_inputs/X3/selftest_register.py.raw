@@ -1,0 +1,93 @@
+"""Self-test of register.json through the standalone reader (numpy only, no model import).
+
+For every tabulated composition: enumerate all placements, classify them with the reader, and compare the number of
+placements per shape with the multiplicity in the table; check mirror and conjugate partners; check pair labels.
+"""
+import itertools, json, sys
+from collections import Counter
+import numpy as np
+from x3_register import Register, handedness
+
+reg = Register(sys.argv[1])
+R = reg.raw
+
+
+def placements(comp):
+    groups = [(k, len(list(v))) for k, v in itertools.groupby(sorted(comp))]
+
+    def rec(i, free):
+        if i == len(groups):
+            yield ()
+            return
+        k, n = groups[i]
+        for sub in itertools.combinations(free, n):
+            rest = [f for f in free if f not in sub]
+            for more in rec(i + 1, rest):
+                yield tuple((f, k) for f in sub) + more
+    out = []
+    for a in rec(0, list(range(20))):
+        w = [0] * 20
+        for f, k in a:
+            w[f] = k
+        out.append(w)
+    return np.array(out, dtype=np.int64)
+
+
+total = 0
+for comp in ((1, 5), (2, 4), (3, 3), (2, 2, 2), (4, 4, 4), (1, 2, 3), (3, 4, 5), (2, 2, 4, 4), (2, 3, 3, 4)):
+    name = '{' + ','.join(map(str, comp)) + '}'
+    W = placements(comp)
+    c, s, keys = reg.classify(W)
+    assert set(c) == {name}, set(c)
+    cnt = Counter(s.tolist())
+    for sid, n in cnt.items():
+        row = reg.rows[(name, sid)]
+        mult = row['placements'] if 'placements' in row else row['multiplicity']
+        assert n == mult, (name, sid, n, mult)
+    # mirror partner: classes move with the faces under the inversion
+    M = np.zeros_like(W); M[:, reg.inv] = W
+    cm, sm, _ = reg.classify(M)
+    assert all(reg.rows[(name, a)]['mirror'] == b for a, b in zip(s.tolist(), sm.tolist()))
+    # conjugate partner
+    C = (6 - W) % 6
+    cc, sc, _ = reg.classify(C)
+    cname = '{' + ','.join(map(str, sorted((6 - k) % 6 for k in comp))) + '}'
+    assert set(cc) == {cname}
+    if cname == name:
+        assert all(reg.rows[(name, a)]['conjugate'] == b for a, b in zip(s.tolist(), sc.tolist()))
+    else:
+        assert (s == sc).all()                       # conjugate compositions share shape ids
+    # non-adjacency flag
+    na = np.ones(len(W), bool)
+    for f in range(20):
+        for g in range(20):
+            if reg.sep[f, g] == 1:
+                na &= ~((W[:, f] != 0) & (W[:, g] != 0))
+    if len(comp) > 2:
+        assert all(bool(reg.rows[(name, a)]['non_adjacent']) == b for a, b in zip(s.tolist(), na.tolist()))
+    if len(comp) == 2:
+        k, d, chi = reg.pair_labels(W)
+        for a, kk, dd, ch in zip(s.tolist(), k.tolist(), d.tolist(), chi.tolist()):
+            row = reg.rows[(name, a)]
+            assert (min(row['classes']), row['separation'], row['chirality']) == (kk, dd, ch)
+    # handedness sums: constant on shapes, odd under the mirror; h2 odd and h3 even under conjugation
+    h2, h3 = handedness(reg, W)
+    per = {}
+    for a, x, y in zip(s.tolist(), h2.tolist(), h3.tolist()):
+        assert per.setdefault(a, (x, y)) == (x, y)
+    m2, m3 = handedness(reg, M)
+    c2, c3 = handedness(reg, C)
+    assert (m2 == -h2).all() and (m3 == -h3).all() and (c2 == -h2).all() and (c3 == h3).all()
+    if len(comp) == 2:
+        assert (h3 == np.where(d == 3, chi, 0)).all() and (h2 == np.where(d == 2, chi, 0)).all()
+    # how far (separations, h2, h3) goes toward the complete shape
+    sig = {}
+    for a in per:
+        row = reg.rows[(name, a)]
+        fs = row['faces'] if len(comp) == 2 or isinstance(row['faces'][0], int) else [f for g in row['faces'] for f in g]
+        seps = tuple(sorted(int(reg.sep[x, y]) for x, y in itertools.combinations(fs, 2)))
+        sig.setdefault((seps,) + per[a], []).append(a)
+    total += len(W)
+    print(f'{name}: {len(W)} placements, {len(cnt)} shapes, multiplicities, mirror, conjugate and labels agree with the table; '
+          f'(sorted separations, h2, h3) takes {len(sig)} values on the {len(cnt)} shapes')
+print('placements classified:', total)

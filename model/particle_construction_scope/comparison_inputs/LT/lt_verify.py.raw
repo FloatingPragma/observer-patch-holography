@@ -1,0 +1,74 @@
+"""LT (step L3): reads the json files of this directory and checks the registered predictions.
+
+Run from RL/work/LT:  PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B lt_verify.py
+Prints one line per check and exits with status 1 if a check fails. Writes nothing.
+"""
+import json
+import os
+import sys
+
+sys.dont_write_bytecode = True
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def load(name):
+    return json.load(open(os.path.join(HERE, name)))
+
+
+an, rf, sp, st = load('lt_anchor.json'), load('lt_refine.json'), load('lt_spectrum.json'), load('statements_check.json')
+d1 = an['D1 edge anchor']
+rows = {r['tau']: r for r in d1['rows']}
+d3, d4, d5 = an['D3 onsite anchor'], an['D4 rate matching, action form'], an['D5 rate matching, record form']
+d11 = {r['rule']: r for r in an['D11 the declared pair from two conditions']['rules']}
+d13, d13v, d14 = (an['D13 the declared functional on a quarter-turn gate'], an['D13 (v) the round tick, quarter turn, inverse tick'],
+                  an['D14 the kick inside a joint onsite unitary'])
+d6 = {r['tau']: r for r in rf['D6 refinement of the tick']['rows']}
+cand = {r['id']: r for r in sp['candidates']}
+checks = [
+    ('statements: 65 entries, none unmatched', st['entries'] == 65 and st['unmatched'] == 0),
+    ('D1: edge gate at tau = 1, 5, -3, 9, -7', all(rows[k]['equals the tick edge gate E'] for k in ('1', '5', '-3', '9', '-7'))),
+    ('D1: no edge gate at tau = -1, 3, 2, 1/2, pi/2, 2/pi, 4/5, 0, 4',
+     not any(rows[k]['equals the tick edge gate E'] for k in ('-1', '3', '2', '1/2', 'pi/2', '2/pi', '4/5', '0', '4'))),
+    ('D1: inverse gate at tau = -1, 3; S at tau = 2', rows['-1']['equals E^-1'] and rows['3']['equals E^-1'] and rows['2']['equals S']),
+    ('D1: symbolic family 1 + 4 n', d1['exp(-i pi (1 + 4 n)/2) = -i for integer n (symbolic)']),
+    ('D2: principal branch admits tau = 1 alone', an['D2 principal branch']['members of 1 + 4 Z with |tau| pi/2 < pi'] == [1]),
+    ('D3: Q and R are involutions, W is none', d3['(a) repair Q is an involution'] and d3['(a) address reflection R is an involution']
+     and not d3['(a) tick W = Q R is an involution']),
+    ('D3: I - Re W is a scalar on a consensus plane and W x is no multiple of x',
+     all(m['(I - Re W) x = (ell/60) x'] and not m['W x proportional to x'] for m in d3['(b) rational consensus modes on the program'])),
+    ('D4: identity 1 - <W> = P(record 1) = 1/12 on twelve ports', d4['(i) 1 - <psi|W psi> and P(record 1), twelve ports'] == [['1/12', '1/12']]),
+    ('D4: identity on random blank consensus inputs', d4['(i) equal on six random blank consensus inputs']),
+    ('D4: consensus block equals K_12 = I - L/60', d4['(ii) consensus block A^dag W A equals K_12 = I - L/60']),
+    ('D4: consensus sector invariant, (I - Re W) A = A L/60', d4['(ii) (I - Re W) A = A L/60 on all twelve ports (the consensus sector is invariant)']),
+    ('D5: record weight sin^2(tau) times the tick value', d5['as a multiple of the tick value'] == 'sin(tau)**2'),
+    ('D6: edge layer reproduced for tau = 1, 5, -3, 9 and for no other tested value',
+     all(d6[k]['edge layer of the refined clock equals E'] for k in ('1', '5', '-3', '9'))
+     and not any(d6[k]['edge layer of the refined clock equals E'] for k in ('pi/2', '2/pi', '2', '1/2', '4/5'))),
+    ('D6: every table entry within tau^2/N', all(v['within bound'] for r in d6.values() for v in r['parts'].values())),
+    ('D6: pair numbers 1/12, 1/6, 2/9', list(rf['pair numbers (FR hexagon model)'].values())[:3] == ['1/12', '1/6', '2/9']),
+    ('D10: <S|W|S> = 2/3', rf['D10 cross term of the joint tick']['<S|W|S>'] == '2/3'),
+    ('D11: declared pair satisfies (a) and (b) at kappa = 1', d11['declared pair']['(a) and (b) agree']
+     and d11['declared pair']['kappa = c_r times the duration of (b)'] == '1'),
+    ('D11: both uniform rules give kappa = pi/2', all(d11[k]['kappa = c_r times the duration of (b)'] == 'pi/2' and not d11[k]['(a) and (b) agree']
+                                                    for k in d11 if k != 'declared pair')),
+    ('D13: I - Re of the quarter turn is the projector; count gate gives X + J (x) X',
+     d13['(i) I - Re(I + (i - 1) Q) = Q for a projector Q'] and d13['(ii) functional equals X (x) I + J (x) X']
+     and d13['(iv) program quarter turn: psi - (V psi + V^3 psi)/2 = Pi_address psi, V^4 = I']),
+    ('D13: edge gate is a quarter turn on the swap-odd projector', d13['(iii) E = I + (-i - 1) Pi_-, a quarter turn on the swap-odd projector']
+     and d13['(iii) I - Re E = Pi_- = (I - S)/2']),
+    ('D13 (v): round on the public program', all(r['psi - (R psi + R^-1 psi)/2 = W^-1 Pi_1 W psi']
+                                               and r['expectation of I - Re R'] == r['1 - <psi|W psi>'] for r in d13v['public program rows'])
+     and d13v['I - Re(W^-1 (-i)^(X (x) (I + J)) W) = X_W (x) (I + J) for a generic tick on the flag']),
+    ('D14: odd coefficient c, even phase s', d14['odd coefficient on a flagged read'] == 'c' and d14['even phase on a flagged read'] == 's'),
+    ('spectrum: kappa = 1 gives 206.770316 and 3477.4728 inside the chamber',
+     cand['B1']['in positive chamber'] and cand['B1']['ratio middle/smallest'].startswith('206.770315')
+     and cand['B1']['ratio largest/smallest'].startswith('3477.47283')),
+    ('spectrum: kappa = pi/2 and the strong quarter turn lie outside the chamber',
+     not cand['B2']['in positive chamber'] and not cand['B23']['in positive chamber']),
+]
+bad = 0
+for name, ok in checks:
+    print(('pass  ' if ok else 'FAIL  ') + name)
+    bad += not ok
+print(f'{len(checks) - bad} of {len(checks)} checks pass')
+sys.exit(1 if bad else 0)

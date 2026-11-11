@@ -1,0 +1,53 @@
+{
+ "A_toggle": {
+  "toggle_squares_to_identity": true,
+  "abs_matrix_element_e_R_e_L": 1,
+  "abs_matrix_element_positron_pair": 1,
+  "abs_matrix_elements_u_d_nu_pairs": [
+   1,
+   1,
+   1
+  ],
+  "toggle_anticommutes_with_occupation_parity": true,
+  "toggle_anticommutes_with_Z2_charge_n2_mod_2": true,
+  "toggle_commutes_with_charge_on_the_four_other_levels": true,
+  "isospin_raising_commutes_with_occupation_parity": true,
+  "isospin_raising_commutes_with_occupation_of_s2": false,
+  "s2_occupied_in_the_left_class": {
+   "e": true,
+   "d": true,
+   "u": false,
+   "nu": false
+  }
+ },
+ "B_full_lattice": [
+  {
+   "L": 8,
+   "flux_per_plaquette": 0.7853981633974483,
+   "mass_kind": "Y",
+   "E0_minus_theta": -3.608224830031759e-16,
+   "states_within_1e-9_of_theta": 48,
+   "next_level": 0.7892468337205282
+  },
+  {
+   "L": 8,
+   "flux_per_plaquette": 0.7853981633974483,
+   "mass_kind": "Z",
+   "E0_minus_theta": -3.191891195797325e-16,
+   "states_within_1e-9_of_theta": 48,
+   "next_level": 0.7892468337205282
+  },
+  {
+   "L": 12,
+   "flux_per_plaquette": 0.5235987755982988,
+   "mass_kind": "Y",
+   "E0_minus_theta": -1.0685896612017132e-15,
+   "states_within_1e-9_of_theta": 48,
+   "next_level": 0.20372563357517606
+  }
+ ],
+ "B_control_no_field": {
+  "L": 8,
+  "states_within_1e-9_of_theta": 16
+ }
+}

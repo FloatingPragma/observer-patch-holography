@@ -1,0 +1,77 @@
+"""Worker UH: one SMDR row (two or three loops) with a boundary condition at E_cell and the G_F attachment
+(HT's gated routine in smdrlib.py, LEW's packet and drivers, read only).
+
+Usage: uh_smdr_row.py <label> <quartic> <yukawa> <loops> <out.json>
+  quartic: 'zero' (lambda(E_cell) = 0) | a regulator of uhlib.regulators() (lambda = induced value) | 'fix:<value>'
+  yukawa : 'crit' (beta_lambda(E_cell) = 0) | 'veltman' | 'ratio:<r>' (y_t(E_cell) = r * y_ref) | 'abs:<y>' | 'g2:<r>' (r * g2(E_cell))
+  y_ref = one-loop critical Yukawa (X/16)^(1/4) at E_cell on the SMDR chart of the same loop order.
+No measured value is read."""
+import json
+import math
+import sys
+import time
+
+sys.path.insert(0, ".")
+import smdrlib as S  # noqa: E402
+import uhlib as U  # noqa: E402
+
+label, quartic, yukawa, loops, outpath = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4]), sys.argv[5]
+P_FWD = 1.63097209585889737696451390350695562847912625483895268486516
+t0 = time.time()
+pk = S.packet_p_fwd()
+mu = pk["E_star"] / math.sqrt(P_FWD)
+regs = U.regulators()
+
+
+def lam_target(row):
+    if quartic == "zero":
+        return 0.0
+    if quartic.startswith("fix:"):
+        return float(quartic[4:])
+    return U.lam_ind(row["yt"], row["g2"], row["gY"], regs[quartic])
+
+
+def residual(y, l):
+    row = S.rg_to(pk, mu, loops, y, l)
+    r1 = row["lambda"] - lam_target(row)
+    if yukawa == "crit":
+        r2 = row["beta_lambda"]
+    elif yukawa == "veltman":
+        r2 = row["yt"] - U.y_veltman(row["g2"], row["gY"], regs[quartic if quartic in regs else "B1"])
+    elif yukawa.startswith("ratio:"):
+        r2 = row["yt"] - float(yukawa[6:]) * U.y_crit_1loop(row["g2"], row["gY"])
+    elif yukawa.startswith("abs:"):
+        r2 = row["yt"] - float(yukawa[4:])
+    elif yukawa.startswith("g2:"):                      # y_t(E_cell) = r * g2(E_cell)
+        r2 = row["yt"] - float(yukawa[3:]) * row["g2"]
+    else:
+        raise ValueError(yukawa)
+    return [r1, r2], row
+
+
+x = [pk["yt"], pk["lambda"]]
+row = None
+for it in range(16):
+    f, row = residual(*x)
+    if abs(f[0]) < 1e-13 and abs(f[1]) < 1e-13:
+        break
+    h = 1e-7
+    fy, _ = residual(x[0] + h, x[1])
+    fl, _ = residual(x[0], x[1] + h)
+    j = [[(fy[0] - f[0]) / h, (fl[0] - f[0]) / h], [(fy[1] - f[1]) / h, (fl[1] - f[1]) / h]]
+    det = j[0][0] * j[1][1] - j[0][1] * j[1][0]
+    dy = (f[0] * j[1][1] - f[1] * j[0][1]) / det
+    dl = (j[0][0] * f[1] - j[1][0] * f[0]) / det
+    x = [x[0] - dy, x[1] - dl]
+pk["yt"], pk["lambda"] = x
+gf = S.attach_gf(pk)
+res = {"label": label, "quartic": quartic, "yukawa": yukawa, "loops": loops, "mu_c_GeV": mu,
+       "yt_Q0": x[0], "lambda_Q0": x[1], "residuals": f, "iterations": it,
+       "boundary": {k: row[k] for k in ("lambda", "beta_lambda", "yt", "g2", "gY", "g3")},
+       "y_crit_1loop_at_boundary": U.y_crit_1loop(row["g2"], row["gY"]),
+       "GF": gf, "seconds": time.time() - t0}
+json.dump(res, open(outpath, "w"), indent=1)
+o = gf["outputs_GeV"]
+print(label, "lam_b=%.4e beta_b=%.3e y_b=%.5f (%.4f y_c)" % (row["lambda"], row["beta_lambda"], row["yt"],
+                                                           row["yt"] / res["y_crit_1loop_at_boundary"]),
+      "v(Q0)=%.5f W=%.5f Z=%.5f H=%.5f t=%.5f sec=%.0f" % (gf["v_Q0_GeV"], o["W"], o["Z"], o["H"], o["t"], res["seconds"]))

@@ -1,0 +1,193 @@
+"""Exact carrier data for the covariant agreement pump (CAP): spinors, link phases, binary cover, Kraus rows.
+
+Frame: port 0 at the north pole, its five neighbours on the upper ring in the cyclic order of the oriented faces,
+antipodes below. In this frame the twelve spin-1/2 coherent states have components in Q(zeta_20) and every
+link phase z_ab = <chi_b|chi_a>/|<chi_b|chi_a>| is a 20th root of unity. CAP is defined up to a port rephasing and
+a common rotation of the spinor frame leaves every overlap unchanged, so this frame is CAP's frame up to a port
+rephasing (checked against the float code in t1_instrument.py).
+"""
+import itertools
+from fractions import Fraction as F
+from cyc import Cyc, ZERO, ONE, Z, SQRT5, R18, I_UNIT, q5
+from model.common_source import slow_geometry
+
+_src = slow_geometry.source()
+SEAMS = tuple(tuple(int(v) for v in e) for e in _src.seams())
+FACES = tuple(tuple(int(v) for v in f) for f in _src.oriented_faces())
+ROTATIONS = tuple(tuple(int(v) for v in r) for r in _src.rotations())
+ANTIPODE = tuple(int(v) for v in _src.antipode())
+N, M = 12, len(SEAMS)
+NBR = {p: sorted({b for a, b in SEAMS if a == p} | {a for a, b in SEAMS if b == p}) for p in range(N)}
+ADJ = {(a, b) for a, b in SEAMS} | {(b, a) for a, b in SEAMS}
+
+# ---- geometry in the five-fold frame
+_next = {}
+for f in FACES:
+    if 0 in f:
+        i = f.index(0); _next[f[(i + 1) % 3]] = f[(i + 2) % 3]
+RING = [min(_next)]
+while len(RING) < 5:
+    RING.append(_next[RING[-1]])
+assert _next[RING[-1]] == RING[0] and sorted(RING) == NBR[0]
+
+Z5 = Z ** 4                                   # exp(2 pi i / 5)
+COS_HALF = R18 / SQRT5                        # cos(theta/2), cos(theta) = 1/sqrt5
+SIN_HALF = (Z ** 3 + Z ** -3) / SQRT5         # sin(theta/2)
+assert COS_HALF * COS_HALF == q5(F(1, 2), F(1, 10)) and SIN_HALF * SIN_HALF == q5(F(1, 2), F(-1, 10))
+assert COS_HALF.sign() > 0 and SIN_HALF.sign() > 0
+
+SPINOR = [None] * N                           # chi_p = (cos(theta/2), e^{i phi} sin(theta/2))
+VECTOR = [None] * N                           # u_p as (x + i y, z) with x + i y in the field and z real
+SPINOR[0] = (ONE, ZERO); VECTOR[0] = (ZERO, ONE)
+SPINOR[ANTIPODE[0]] = (ZERO, ONE); VECTOR[ANTIPODE[0]] = (ZERO, -ONE)
+for j, p in enumerate(RING):
+    e = Z5 ** j
+    SPINOR[p] = (COS_HALF, e * SIN_HALF); VECTOR[p] = (e * 2 / SQRT5, ONE / SQRT5)
+    q = ANTIPODE[p]
+    SPINOR[q] = (SIN_HALF, -e * COS_HALF); VECTOR[q] = (-e * 2 / SQRT5, -ONE / SQRT5)
+assert all(s is not None for s in SPINOR)
+
+
+def braket(x, y):
+    """<x|y> for two-component spinors."""
+    return x[0].conj() * y[0] + x[1].conj() * y[1]
+
+
+def dot(p, q):
+    (wp, zp), (wq, zq) = VECTOR[p], VECTOR[q]
+    re = (wp.conj() * wq + wp * wq.conj()) / 2          # x_p x_q + y_p y_q
+    return re + zp * zq
+
+
+def triple(a, b, c):
+    """det(u_a, u_b, u_c), exact and real."""
+    def xyz(p):
+        w, z = VECTOR[p]
+        return (w + w.conj()) / 2, (w - w.conj()) / (I_UNIT * 2), z
+    A, B, C = xyz(a), xyz(b), xyz(c)
+    return (A[0] * (B[1] * C[2] - B[2] * C[1]) - A[1] * (B[0] * C[2] - B[2] * C[0]) + A[2] * (B[0] * C[1] - B[1] * C[0]))
+
+
+# ---- link phases: z_ab = <chi_b|chi_a> / cos(theta/2) = zeta^LINK[(a, b)]
+LINK = {}
+for a, b in ADJ:
+    w = braket(SPINOR[b], SPINOR[a]) / COS_HALF
+    m = w.root_of_unity_exponent()
+    assert m is not None, 'link phase is not a 20th root of unity'
+    LINK[(a, b)] = m
+assert all((LINK[(a, b)] + LINK[(b, a)]) % 20 == 0 for a, b in ADJ)
+
+
+def link(a, b, k=1):
+    return Z ** ((k * LINK[(a, b)]) % 20)
+
+
+def face_flux(f, k=1):
+    a, b, c = f
+    return (k * (LINK[(a, b)] + LINK[(b, c)] + LINK[(c, a)])) % 20
+
+
+# ---- binary cover: lifts g in SU(2) with g chi_p = zeta^t(p) chi_{g p}
+def _lifts(perm):
+    t = {0: 0}; stack = [0]
+    while stack:
+        a = stack.pop()
+        for b in NBR[a]:
+            if b not in t:
+                t[b] = (t[a] + LINK[(perm[a], perm[b])] - LINK[(a, b)]) % 20
+                stack.append(b)
+    s, n = 0, ANTIPODE[0]
+    col0 = SPINOR[perm[s]]; col1 = tuple(x * Z ** t[n] for x in SPINOR[perm[n]])
+    det = col0[0] * col1[1] - col0[1] * col1[0]
+    d = det.root_of_unity_exponent()
+    assert d is not None and d % 2 == 0, 'lift determinant'
+    out = []
+    for t0 in ((-d // 2) % 20, (-d // 2 + 10) % 20):
+        tt = tuple((t[p] + t0) % 20 for p in range(N))
+        G = ((col0[0] * Z ** t0, col1[0] * Z ** t0), (col0[1] * Z ** t0, col1[1] * Z ** t0))
+        out.append((perm, tt, G))
+    return out
+
+
+COVER = [lift for perm in ROTATIONS for lift in _lifts(perm)]      # 120 triples (perm, t, G)
+
+
+def apply_su2(G, x):
+    return (G[0][0] * x[0] + G[0][1] * x[1], G[1][0] * x[0] + G[1][1] * x[1])
+
+
+# ---- state spaces and Kraus rows (sparse: dict (row, col) -> Cyc)
+def space(total):
+    if total == 1:
+        return [tuple(int(p == q) for p in range(N)) for q in range(N)]
+    if total == 2:
+        binary = [tuple(int(p in c) for p in range(N)) for c in itertools.combinations(range(N), 2)]
+        double = [tuple(2 * int(p == q) for p in range(N)) for q in range(N)]
+        return binary + double
+    raise ValueError
+
+
+HALF = Cyc.of(F(1, 2))
+
+
+def instrument(seam, total, k=1):
+    """[(label, sparse matrix)] for the oriented seam (a, b); the same rows as work/FLUXPUMP/cap.py."""
+    a, b = seam
+    z = link(a, b, k); zc = z.conj()
+    states = space(total); index = {s: i for i, s in enumerate(states)}
+    keep, corr, split_a, split_b = {}, {}, {}, {}
+    for s, i in index.items():
+        xa, xb = s[a], s[b]
+        if (xa, xb) in ((0, 0), (1, 1)):
+            keep[(i, i)] = ONE
+        elif (xa, xb) == (1, 0):
+            t = list(s); t[a], t[b] = 0, 1; j = index[tuple(t)]       # i: load at a, j: load at b
+            keep[(i, i)] = HALF; keep[(j, i)] = z * HALF; keep[(i, j)] = zc * HALF; keep[(j, j)] = HALF
+            corr[(i, i)] = HALF; corr[(j, i)] = z * HALF; corr[(i, j)] = -zc * HALF; corr[(j, j)] = -HALF
+        elif (xa, xb) == (0, 1):
+            pass                                                       # filled from its partner
+        elif (xa, xb) in ((2, 0), (0, 2)):
+            t = list(s); t[a], t[b] = 1, 1
+            (split_a if xa == 2 else split_b)[(index[tuple(t)], i)] = ONE
+        else:
+            raise ArithmeticError
+    rows = [('keep', keep), ('corrected', corr), ('split_a', split_a), ('split_b', split_b)]
+    return [(label, K) for label, K in rows if K]
+
+
+def implementer(lift, total, k=1):
+    """Monomial implementer of a cover element on the sector: list over columns of (row, exponent)."""
+    perm, t, _ = lift
+    states = space(total); index = {s: i for i, s in enumerate(states)}
+    out = []
+    for s in states:
+        img = [0] * N; e = 0
+        for p in range(N):
+            if s[p]:
+                img[perm[p]] = s[p]; e += k * t[p] * s[p]
+        out.append((index[tuple(img)], e % 20))
+    return out
+
+
+def conj_sparse(K, U):
+    """U K U^dagger for a monomial U given as column list (row, exponent)."""
+    return {(U[i][0], U[j][0]): v * Z ** ((U[i][1] - U[j][1]) % 20) for (i, j), v in K.items()}
+
+
+def sp_eq(A, B):
+    keys = set(A) | set(B)
+    return all(A.get(key, ZERO) == B.get(key, ZERO) for key in keys)
+
+
+def sp_dense(K, d):
+    out = [[ZERO] * d for _ in range(d)]
+    for (i, j), v in K.items():
+        out[i][j] = v
+    return out
+
+
+def twisted_adjacency(k=1):
+    A = [[ZERO] * N for _ in range(N)]
+    for a, b in ADJ:
+        A[b][a] = link(a, b, k)               # hop a -> b carries z_ab^k
+    return A

@@ -1,0 +1,168 @@
+"""Sphere federations for the runs: geometry, the two gluings, distances, start states."""
+import numpy as np
+
+import mv_lib as M
+import mv_walk as W
+
+
+def build(level, gluing='bridge'):
+    """Federation on the geodesic sphere of `oph_defects.fedgeom` (cells = carriers).
+
+    bridge  three glue seams per carrier (control gluing face_axis): slot k = bridge port P[k], register 66.
+    seam    two carriers share the control-face seam that faces the neighbour: two glue seams per neighbour with
+            crossed endpoints, (c, T[k+1]) - (c', T[k'+2]) and (c, T[k+2]) - (c', T[k'+1]); six glue seams per
+            carrier, register 72; slot 2k for the seam at port T[k+1] of bond k, 2k + 1 for the one at T[k+2].
+    Frame rule (both): frames turn with the carriers. In the equivariant template gauge the bridge link is 1 and the
+    shared-seam links are z_T and conj(z_T), z_T the template link T[1] -> T[2] (set per type by `glue_links`).
+    """
+    fed = W.from_fedgeom(level)
+    tri = fed['tri']
+    ca = fed['ga'] // 12; cb = fed['gb'] // 12
+    ka = fed['sa']; kb = fed['sb']
+    rows = np.arange(ca.size)
+    assert (tri[ca, (ka + 1) % 3] == tri[cb, (kb + 2) % 3]).all() and (tri[ca, (ka + 2) % 3] == tri[cb, (kb + 1) % 3]).all(), \
+        'crossed endpoints: corner k+1 of a cell is corner k\'+2 of its neighbour'
+    fed['bond_ca'] = ca; fed['bond_cb'] = cb; fed['bond_ka'] = ka; fed['bond_kb'] = kb
+    fed['edge_angle'] = float(np.mean(np.arccos(np.clip(np.einsum('ij,ij->i', fed['mesh_xyz'][tri[ca, (ka + 1) % 3]],
+                                                                 fed['mesh_xyz'][tri[ca, (ka + 2) % 3]]), -1, 1))))
+    val = np.bincount(tri.ravel(), minlength=fed['vertices'])
+    fed['five_valent'] = np.flatnonzero(val == 5)
+    if gluing == 'seam':
+        T = np.array(M.TOP)
+        ga = np.concatenate([12 * ca + T[(ka + 1) % 3], 12 * ca + T[(ka + 2) % 3]])
+        gb = np.concatenate([12 * cb + T[(kb + 2) % 3], 12 * cb + T[(kb + 1) % 3]])
+        sa = np.concatenate([2 * ka, 2 * ka + 1]); sb = np.concatenate([2 * kb + 1, 2 * kb])
+        used = np.zeros((fed['ncar'], 6), int)
+        np.add.at(used, (ga // 12, sa), 1); np.add.at(used, (gb // 12, sb), 1)
+        assert (used == 1).all()
+        fed.update(ga=ga.astype(np.int64), gb=gb.astype(np.int64), sa=sa.astype(np.int64), sb=sb.astype(np.int64), S=72,
+                   gz=np.ones(ga.size, complex), gsg=np.ones(ga.size), gluing='seam', crossed_first=np.arange(ga.size) < ca.size)
+    return fed
+
+
+def glue_links(fed, name):
+    """Glue links of the type in the equivariant gauge (frames turn with the carriers)."""
+    n = fed['ga'].size
+    if fed['gluing'] == 'bridge' or M.TYPES[name]['j'] == 0:
+        return np.ones(n, complex)
+    chi = M.type_frames(name)
+    zT = M.link(chi, M.TOP[1], M.TOP[2])
+    assert all(abs(M.link(chi, M.TOP[(k + 1) % 3], M.TOP[(k + 2) % 3]) - zT) < 1e-12 for k in range(3))
+    return np.where(fed['crossed_first'], zT, np.conj(zT)).astype(complex)
+
+
+def typed(fed, name):
+    """Copy of the federation dict with the glue links of the type; returns (fed, z60, charged)."""
+    f = dict(fed); f['gz'] = glue_links(fed, name)
+    return f, M.template_links(name), M.TYPES[name]['charged']
+
+
+def start_carrier(fed):
+    """The carrier farthest from the twelve five-valent mesh vertices."""
+    x = fed['carrier_xyz']; v = fed['mesh_xyz'][fed['five_valent']]
+    return int(np.argmax(np.arccos(np.clip(x @ v.T, -1, 1)).min(axis=1)))
+
+
+def distances(fed, c0):
+    """Geodesic angle of every carrier from carrier c0, in mesh edges."""
+    x = fed['carrier_xyz']
+    return np.arccos(np.clip(x @ x[c0], -1, 1)) / fed['edge_angle']
+
+
+def neighbours(fed):
+    nb = [[] for _ in range(fed['ncar'])]
+    for a, b, ka, kb in zip(fed['bond_ca'], fed['bond_cb'], fed['bond_ka'], fed['bond_kb']):
+        nb[int(a)].append((int(b), int(ka), int(kb))); nb[int(b)].append((int(a), int(kb), int(ka)))
+    return nb
+
+
+def label_alignment(fed, c0):
+    """n_c in Z3 with psi_c = u3^{n_c} psi_{c0} along a breadth-first tree: the locally parallel frame field.
+    Around a five-valent mesh vertex the field has holonomy u3 (a third of a turn); the tree hides it on the cut."""
+    nb = neighbours(fed)
+    n = np.full(fed['ncar'], -1); n[c0] = 0
+    queue = [c0]
+    for c in queue:
+        for c2, k, k2 in nb[c]:
+            if n[c2] < 0:
+                n[c2] = (n[c] + k2 - k) % 3; queue.append(c2)
+    return n
+
+
+def section_amplitudes(name, power=0):
+    """Amplitudes s[p] on the twelve ports of the section of u3^power psi0, psi0 the top state along the control
+    axis (helicity +j about the cell normal); normalized. Scalar: the uniform state."""
+    t = M.TYPES[name]
+    if t['j'] == 0:
+        return np.ones(12, complex) / np.sqrt(12)
+    chi = M.type_frames(name)
+    rho, n, ang = M.third_turn(t['axes'])
+    psi0 = M.axis_state(t['j'], t['j'], n)
+    u3 = M.spin_rot(t['j'], n, ang) * (-1) ** int(round(2 * t['j']))
+    psi = np.linalg.matrix_power(u3, power) @ psi0
+    s = np.array([np.vdot(chi[p], psi) for p in range(12)])
+    return s / np.linalg.norm(s)
+
+
+def carrier_state(fed, name, c0):
+    psi = W.new_state(fed)
+    s = section_amplitudes(name)
+    for p in range(12):
+        W.embed(psi, 12 * c0 + p, s[p])
+    return psi
+
+
+def packet_state(fed, name, c0, sigma_edges, q0, z60=None, charged=False, one_way=512, w_center=None, direction=(0.3, 0.5, 0.8)):
+    """Gaussian packet of carrier sections around c0: envelope exp(-d^2 / 4 sigma^2), phase exp(i q0 u), u the
+    coordinate (mesh edges) along the tangent direction; the sections follow the locally parallel frame field.
+
+    The embedded state A y is an equal mixture of the two frequency signs of the walk (a displacement without a
+    velocity) and splits into two halves that move in opposite directions. one_way = T > 0 applies the declared
+    preparation F = sum_{t < T} h_t exp(i w t) W^t (Hann weights h_t): a filter in the walk clock that keeps the walk
+    eigenvalues near exp(-i w) and removes those near exp(+i w) and the bands far from w. w = w_center, or the mean
+    frequency arccos <y|K|y> of the packet. The packet then moves along +direction where the group speed is positive.
+    Returns (psi, direction, w, amplitude kept by the preparation)."""
+    x = fed['carrier_xyz']; x0 = x[c0]
+    e = np.asarray(direction, float); e = e - (e @ x0) * x0; e /= np.linalg.norm(e)
+    cosd = np.clip(x @ x0, -1, 1); d = np.arccos(cosd)
+    t = x - cosd[:, None] * x0[None, :]
+    nt = np.linalg.norm(t, axis=1); nt[nt < 1e-12] = 1
+    u = d * ((t / nt[:, None]) @ e) / fed['edge_angle']
+    de = d / fed['edge_angle']
+    amp = np.exp(-de ** 2 / (4 * sigma_edges ** 2)) * np.exp(1j * q0 * u)
+    amp[de > 6 * sigma_edges] = 0
+    align = label_alignment(fed, c0)
+    S3 = [section_amplitudes(name, k) for k in range(3)]
+    psi = W.new_state(fed)
+    for c in np.flatnonzero(amp):
+        s = S3[int(align[c])]
+        for p in range(12):
+            W.embed(psi, 12 * int(c) + p, amp[c] * s[p])
+    psi /= np.linalg.norm(psi)
+    w = w_center; kept = 1.0
+    if one_way and z60 is not None:
+        if w is None:
+            nxt = psi.copy(); W.step(nxt, fed, z60, charged)
+            w = float(np.arccos(np.clip(np.vdot(psi, nxt).real, -1, 1)))
+        acc = np.zeros_like(psi); hs = 0.0
+        for k in range(one_way):
+            h = 0.5 * (1 - np.cos(2 * np.pi * (k + 0.5) / one_way)); hs += h
+            acc += (h * np.exp(1j * w * k)) * psi
+            W.step(psi, fed, z60, charged)
+        kept = float(np.linalg.norm(acc)) / hs
+        psi = acc / np.linalg.norm(acc)
+    return psi, e, w, kept
+
+
+def radial_summary(prob, dist):
+    """rms radius, quantile radii (50, 90, 99, 99.9 percent) and probability on the start carrier, per frame."""
+    order = np.argsort(dist); ds = dist[order]
+    out = {'rms': [], 'r50': [], 'r90': [], 'r99': [], 'r999': [], 'start': [], 'within_1_edge': [], 'within_3_edges': []}
+    for p in prob:
+        ps = p[order]; c = np.cumsum(ps); tot = c[-1]
+        out['rms'].append(float(np.sqrt((p * dist ** 2).sum() / tot)))
+        for q, key in ((0.5, 'r50'), (0.9, 'r90'), (0.99, 'r99'), (0.999, 'r999')):
+            out[key].append(float(ds[min(int(np.searchsorted(c, q * tot)), ds.size - 1)]))
+        out['start'].append(float(ps[0] / tot))
+        out['within_1_edge'].append(float(ps[ds <= 1.0].sum() / tot)); out['within_3_edges'].append(float(ps[ds <= 3.0].sum() / tot))
+    return out

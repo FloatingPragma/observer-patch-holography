@@ -1,0 +1,107 @@
+{
+ "extra_rest_points": {
+  "count": 24,
+  "max_defect_of_Srev_Sfwd_eq_1_and_two_ticks_eq_M2_and_Sfwd_eq_pm_i_sigma_k": 2.7383934913210134e-16
+ },
+ "rest_points_on_24_cubed_grid": {
+  "alternating_order_two_tick_phase_le_2theta": 32,
+  "fixed_order_two_tick_phase_le_2theta": 16,
+  "grid_momenta": 13824,
+  "note": "fixed order: 8 rest points p in {0,pi}^3 plus the 8 points (+-pi/2)^3 where the phase is 0 for every angle"
+ },
+ "massless_cone_speeds_at_four_points_five_directions": {
+  "min": 0.999977777333339,
+  "max": 1.0000000000000044
+ },
+ "one_cell_on_a_line": [
+  {
+   "theta0": 0.6,
+   "theta_d": -0.4,
+   "ring_256_lowest_phase": 0.4029951084603488,
+   "closed_form": 0.40299510846035047,
+   "defect": 1.6653345369377348e-15,
+   "band_edge_minus_lowest": 0.19700489153965117
+  },
+  {
+   "theta0": 0.5,
+   "theta_d": 0.0,
+   "ring_256_lowest_phase": 0.44705298058319304,
+   "closed_form": 0.4470529805832044,
+   "defect": 1.1379786002407855e-14,
+   "band_edge_minus_lowest": 0.05294701941680696
+  },
+  {
+   "theta0": 0.45,
+   "theta_d": 0.2,
+   "ring_256_lowest_phase": 0.4365868861149796,
+   "closed_form": 0.4365868861149962,
+   "defect": 1.659783421814609e-14,
+   "band_edge_minus_lowest": 0.013413113885020422
+  },
+  {
+   "theta0": 0.7,
+   "theta_d": -1.2,
+   "ring_256_lowest_phase": 0.14483718407866011,
+   "closed_form": 0.14483718407866011,
+   "defect": 0.0,
+   "band_edge_minus_lowest": 0.5551628159213399
+  },
+  {
+   "theta0": 0.5,
+   "theta_d": 0.45,
+   "ring_256_lowest_phase": 0.4993327530928362,
+   "closed_form": 0.4993354100372459,
+   "defect": 2.656944409706874e-06,
+   "band_edge_minus_lowest": 0.0006672469071637988
+  },
+  {
+   "theta0": 0.4,
+   "theta_d": 0.6,
+   "ring_256_lowest_phase": 0.4001505113404265,
+   "closed_form": null,
+   "defect": null,
+   "band_edge_minus_lowest": -0.00015051134042648462
+  }
+ ],
+ "one_cell_native_angles": [
+  {
+   "theta0": 0.157935,
+   "theta_d": 0.087847,
+   "E_bound": 0.15754830098777864
+  },
+  {
+   "theta0": 0.157935,
+   "theta_d": 0.042383,
+   "E_bound": 0.15689208293652795
+  },
+  {
+   "theta0": 0.087847,
+   "theta_d": 0.042383,
+   "E_bound": 0.08775635545539409
+  },
+  {
+   "theta0": 0.171237,
+   "theta_d": 0.0,
+   "E_bound": 0.1687802446542177
+  }
+ ],
+ "cavity_equation_ring_1024": [
+  {
+   "cells": 1,
+   "ring_1024": 0.1687802446542127,
+   "equation": 0.1687802446542177,
+   "defect": 4.9960036108132044e-15
+  },
+  {
+   "cells": 8,
+   "ring_1024": 0.10940915751866036,
+   "equation": 0.10940915751866473,
+   "defect": 4.371503159461554e-15
+  }
+ ],
+ "corner_points_pm_half_pi_cubed": {
+  "fixed_order_tick_squared_minus_1": 1.6816232162093648e-16,
+  "fixed_order_tick_minus_M_Xr": 8.532912188645525e-17,
+  "alternating_two_ticks_plus_1": 1.6816232162093643e-16
+ }
+}

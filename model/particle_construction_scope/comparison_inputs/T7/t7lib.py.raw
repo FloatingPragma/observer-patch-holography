@@ -1,0 +1,122 @@
+"""Worker T7 (round 6, step F3): common tools.
+
+The routing tick is the reference engine work/DIRAC/routing.py, imported by path and not modified. On box B the
+verbatim copy routing_ref_copy.py (same SHA-256) is imported instead. `Eng` adds the fast form of the shift
+S_i = P_i^+ (zT_i)^dagger-convention of the engine, checked against Routing.shift in `selftest`.
+
+Conventions (those of the engine and of work/SIM/cf1/cf1_lib.py, whose runs H2, H3, H3b are reproduced here):
+  psi[x1, x2, x3, record, spin]; link z_i(x) on the link from x to x + e_i;
+  (S_i psi)(x) = P_i^+ conj(z_i(x - e_i)) psi(x - e_i) + P_i^- z_i(x) psi(x + e_i),  P_i^(+-) = (1 +- X_r sigma_i)/2;
+  tick t even: S_3 S_2 S_1 (axis 1 first), t odd: S_1 S_2 S_3. No rest angle anywhere in this file (option M0).
+"""
+import hashlib, importlib.util, os, sys
+import numpy as np
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REF_PATH = 'WORKSPACE/repair-law/work/DIRAC/routing.py'
+REF_COPY = os.path.join(HERE, 'routing_ref_copy.py')
+REF_SHA256 = '692285e9ecef2542d290c720e8bfd7af53d2d908086b45e4205e4febf5719891'
+
+
+def _load_reference():
+    path = REF_PATH if os.path.exists(REF_PATH) else REF_COPY
+    sha = hashlib.sha256(open(path, 'rb').read()).hexdigest()
+    if sha != REF_SHA256:
+        raise RuntimeError(f'reference engine changed: {path} has sha256 {sha}')
+    spec = importlib.util.spec_from_file_location('routing', path)
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    return mod, path
+
+
+routing, ENGINE_FILE = _load_reference()
+Routing, SIG = routing.Routing, routing.SIG
+OMEGA = np.exp(2j * np.pi / 3)
+
+
+class Eng(Routing):
+    """massless routing tick with a static link field, alternating order of the axes"""
+
+    def shift_fast(self, psi, i):
+        x = psi[..., ::-1, :] @ SIG[i].T                      # alpha_i psi, alpha_i = X_r sigma_i
+        if self.links is None:
+            return 0.5 * (np.roll(psi + x, 1, axis=i) + np.roll(psi - x, -1, axis=i))
+        z = self.links[i][..., None, None]
+        return 0.5 * (np.roll(np.conj(z) * (psi + x), 1, axis=i) + z * np.roll(psi - x, -1, axis=i))
+
+    def step(self, psi, t):
+        for i in ((2, 1, 0) if t % 2 == 1 else (0, 1, 2)):
+            psi = self.shift_fast(psi, i)
+        return psi
+
+
+def positive_coin(p0):
+    """projection of the blank spin-up state on the branch exp(-i E), E = p0 > 0, of the one-axis massless symbol
+    (the coin of runs H2, H3: cf1_lib.positive_coin((p0, 0, 0), 0.0))"""
+    U = Routing.symbol((p0, 0.0, 0.0), 0.0)
+    e0 = np.array([1, 0, 0, 0], complex)
+    v = (U - np.exp(1j * p0) * np.eye(4)) @ e0 / (np.exp(-1j * p0) - np.exp(1j * p0))
+    return v / np.linalg.norm(v)
+
+
+def gaussian(shape, centre, width, p, coin):
+    grids = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij')
+    d = [((grids[i] - centre[i] + shape[i] / 2) % shape[i]) - shape[i] / 2 for i in range(3)]
+    env = np.exp(-(d[0] ** 2 + d[1] ** 2 + d[2] ** 2) / (2 * width ** 2)) * np.exp(1j * (p[0] * d[0] + p[1] * d[1] + p[2] * d[2]))
+    psi = env[..., None, None] * np.asarray(coin, complex).reshape(2, 2)
+    return psi / np.linalg.norm(psi)
+
+
+def window_mask(shape, start, t, width):
+    """the window of runs H2, H3: within 2.5 widths of the free packet's centre along axis 1 (periodic) and within
+    2.5 widths of the start in the transverse plane (not periodic)"""
+    g = np.meshgrid(*[np.arange(s) for s in shape], indexing='ij', sparse=True)
+    dx = ((g[0] - (start[0] + t) + shape[0] / 2) % shape[0]) - shape[0] / 2
+    dy = g[1] - start[1]; dz = g[2] - start[2]
+    return (np.abs(dx) <= 2.5 * width) & (np.sqrt(dy ** 2 + dz ** 2) <= 2.5 * width + 0 * dx)
+
+
+def h2_links(shape, seed, q3=0.2676 / 12, q2=0.0409 / 12):
+    """the placement of run H2 (same generator calls in the same order): independent links, a Z3 phase with
+    probability q3 (omega or its conjugate), a sign with probability q2"""
+    rng = np.random.default_rng(seed)
+    u3 = [np.where(rng.random(shape) < q3, np.where(rng.random(shape) < 0.5, OMEGA, np.conj(OMEGA)), 1.0 + 0j) for _ in range(3)]
+    u2 = [np.where(rng.random(shape) < q2, -1.0, 1.0) for _ in range(3)]
+    return u3, u2
+
+
+def plaquettes_per_carrier(u):
+    n = 0
+    for i in range(3):
+        for j in range(i + 1, 3):
+            W = u[i] * np.roll(u[j], -1, axis=i) * np.conj(np.roll(u[i], -1, axis=j)) * np.conj(u[j])
+            n += np.sum(np.abs(W - 1) > 1e-9)
+    return float(n / u[0].size)
+
+
+def fit_rate(ts, ratio, floor=1e-3):
+    """the fit of runs H2, H3: slope of log(ratio) against t over the points with ratio > floor"""
+    ts = np.asarray(ts, float); ratio = np.asarray(ratio, float); ok = ratio > floor
+    if ok.sum() < 3: return float('nan')
+    return float(-np.polyfit(ts[ok], np.log(ratio[ok]), 1)[0])
+
+
+def selftest():
+    """fast shift against the reference engine's shift (Q_i R), with Z3 and Z2 link phases; gauge covariance"""
+    rng = np.random.default_rng(7); shape = (6, 4, 4); out = {}
+    links = [np.exp(2j * np.pi * rng.integers(0, 3, shape) / 3) * rng.choice([-1.0, 1.0], shape) for _ in range(3)]
+    psi = rng.normal(size=shape + (2, 2)) + 1j * rng.normal(size=shape + (2, 2)); psi /= np.linalg.norm(psi)
+    for name, lk in (('flat', None), ('Z6 links', links)):
+        e = Eng(shape, lk)
+        out[f'fast shift against reference shift, {name}'] = float(max(np.abs(e.shift_fast(psi, i) - e.shift(psi, i)).max() for i in range(3)))
+    e = Eng(shape, links)
+    out['step norm'] = float(abs(np.linalg.norm(e.step(e.step(psi, 0), 1)) - 1))
+    g = np.exp(2j * np.pi * rng.integers(0, 6, shape) / 6)
+    lg = [g * links[i] * np.conj(np.roll(g, -1, axis=i)) for i in range(3)]
+    out['gauge covariance of two ticks'] = float(np.abs(Eng(shape, lg).step(Eng(shape, lg).step(g[..., None, None] * psi, 0), 1)
+                                                        - g[..., None, None] * e.step(e.step(psi, 0), 1)).max())
+    out['engine file'] = ENGINE_FILE
+    return out
+
+
+if __name__ == '__main__':
+    for k, v in selftest().items(): print(k, v)

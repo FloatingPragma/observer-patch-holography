@@ -1,0 +1,108 @@
+"""CM round 3 library: bond junctions on FR's generation register (CANDIDATES.md R3-B). mpmath, 50 digits.
+
+F basis (x_0, x_1, x_2) = (4, 5, 11), R x_j = x_{j+1} (rho_f). No source import, no measured value.
+"""
+import mpmath as mp
+
+mp.mp.dps = 50
+W = mp.exp(2j * mp.pi / 3)
+R = mp.zeros(3, 3)
+for _j in range(3):
+    R[(_j + 1) % 3, _j] = 1
+HOLD = mp.sqrt(mp.mpf(1) / 6)
+REP = mp.sqrt(mp.mpf(1) / 12)
+CHARS = [mp.matrix([W ** (-(j * k)) / mp.sqrt(3) for j in range(3)]) for k in range(3)]
+DEFICIT = mp.sqrt(mp.mpf(6) / 7) - 1
+BONDS = {'C': (0, 2), 'PB1': (0, 2), 'PB2': (1, 0), 'PB3': (2, 1)}     # (a, c): forward hop x_c -> x_a
+BOND_NAMES = {(0, 2): '11->4', (1, 0): '4->5', (2, 1): '5->11'}
+
+
+def bond(a, c, alpha):
+    B = mp.zeros(3, 3)
+    B[a, c] = mp.exp(1j * alpha)
+    B[c, a] = mp.exp(-1j * alpha)
+    return B
+
+
+def base_native(th):
+    """(operator, hold, hop modulus, hop phase) of FR's family part C(theta)."""
+    return HOLD * mp.eye(3) + REP * (mp.exp(1j * th) * R + mp.exp(-1j * th) * R.H), HOLD, REP, th
+
+
+def base_chart(r, d):
+    """Measured-chart base in units of its hold: 1 + (r/2)(e^{i d} R + h.c.)."""
+    r, d = mp.mpf(r), mp.mpf(d)
+    return mp.eye(3) + (r / 2) * (mp.exp(1j * d) * R + mp.exp(-1j * d) * R.H), mp.mpf(1), r / 2, d
+
+
+def junction(weight, obj, pb, base, th):
+    """Sector operator for the junction recorded by obj ('C' or 'E'); pb names E's partner bond."""
+    Y0, hold, h, alpha = base
+    a, c = BONDS['C'] if obj == 'C' else BONDS[pb]
+    if weight == 'WB3':
+        return Y0 + DEFICIT * h * bond(a, c, alpha)
+    if weight == 'WBR':
+        return Y0 + hold / mp.sqrt(2) * bond(a, c, th if obj == 'C' else 0)
+    if weight == 'WBR+':
+        return Y0 + hold / mp.sqrt(2) * bond(a, c, th)
+    if weight == 'WBR-':
+        return Y0 + hold / mp.sqrt(2) * bond(a, c, th if obj == 'C' else -th)
+    raise ValueError(weight)
+
+
+def frame(Y):
+    E, Q = mp.eighe(Y * Y.H)
+    idx = sorted(range(3), key=lambda i: mp.re(E[i]))
+    Qs = mp.matrix(3, 3)
+    for cc, i in enumerate(idx):
+        for rr in range(3):
+            Qs[rr, cc] = Q[rr, i]
+    return [mp.re(E[i]) for i in idx], Qs
+
+
+def dominant(Q):
+    out = []
+    for cc in range(3):
+        col = mp.matrix([Q[rr, cc] for rr in range(3)])
+        ov = [abs((CHARS[k].H * col)[0]) ** 2 for k in range(3)]
+        k = max(range(3), key=lambda i: ov[i])
+        out.append((k, float(ov[k])))
+    return out
+
+
+def analyse(Yu, Yd):
+    Eu, Qu = frame(Yu)
+    Ed, Qd = frame(Yd)
+    V = Qu.H * Qd
+    a = [[abs(V[i, j]) for j in range(3)] for i in range(3)]
+    J = mp.im(V[0, 0] * V[1, 1] * mp.conj(V[0, 1]) * mp.conj(V[1, 0]))
+    s13 = a[0][2]
+    c13 = mp.sqrt(1 - s13 ** 2)
+    out = {'abs_V': [[float(x) for x in row] for row in a], 'V12': float(a[0][1]), 'V23': float(a[1][2]),
+           'V13': float(a[0][2]), 'J': float(J), 'J_30': mp.nstr(J, 30)}
+    tiny = mp.mpf('1e-40')
+    if c13 > tiny and a[0][1] > tiny and a[1][2] > tiny and s13 > tiny:
+        s12, s23 = a[0][1] / c13, a[1][2] / c13
+        if s12 < 1 and s23 < 1:
+            c12, c23 = mp.sqrt(1 - s12 ** 2), mp.sqrt(1 - s23 ** 2)
+            den = c12 * c23 * c13 ** 2 * s12 * s23 * s13
+            sind = J / den
+            cosd = (s12 ** 2 * s23 ** 2 + c12 ** 2 * c23 ** 2 * s13 ** 2 - a[2][0] ** 2) / (2 * s12 * s23 * c12 * c23 * s13)
+            out.update({'s12': float(s12), 's23': float(s23), 's13': float(s13), 'sin_delta': float(sind),
+                        'cos_delta': float(cosd), 'delta_deg': float(mp.degrees(mp.atan2(sind, cosd))),
+                        'V13_over_V23': float(a[0][2] / a[1][2])})
+    du, dd = dominant(Qu), dominant(Qd)
+    out.update({'spectra': {'up': [float(Eu[0] / Eu[2]), float(Eu[1] / Eu[2])],
+                            'down': [float(Ed[0] / Ed[2]), float(Ed[1] / Ed[2])]},
+                'chars_up': [k for k, _ in du], 'chars_down': [k for k, _ in dd],
+                'char_overlaps_up': [o for _, o in du], 'char_overlaps_down': [o for _, o in dd],
+                'same_characters': [k for k, _ in du] == [k for k, _ in dd]})
+    return out
+
+
+ASSIGN = {'A': {'up': 'C', 'down': 'E'}, 'B': {'up': 'E', 'down': 'C'}}
+
+
+def reading(weight, pb, an, base_u, base_d, th):
+    asg = ASSIGN[an]
+    return analyse(junction(weight, asg['up'], pb, base_u, th), junction(weight, asg['down'], pb, base_d, th))

@@ -1,0 +1,85 @@
+"""YC step 4: comparison with measurement. NOT BLIND. The only script of this worker that reads measured values.
+Run after yc_run.json, yc_addendum.json and the yc_smdr_*.json files are on file. Writes yc_compare.json.
+
+References: LEW's stored table (pdg2026_reference.json of the audit package: t, b as m_b(m_b), tau), LS's needed
+lepton scale and running lepton masses at m_Z (work/LS/compare.json; the running masses are IMPORTED there).
+IMPORTED here from memory: m_b(m_Z) = 2.86 GeV (five-flavour QCD running of m_b(m_b)), used only in the reduction.
+"""
+import glob
+import json
+import math
+import sys
+from pathlib import Path
+
+import yc_rge as R
+
+RER = next(p for p in (Path("WORKSPACE/reverse-engineering-reality"),
+                       Path("WORKSPACE/repair-law/reverse-engineering-reality"),
+                       Path("/tmp/claude-501/lew_repo")) if (p / "model/particle_spectrum_audit/pdg2026_reference.json").exists())
+ref = json.load(open(RER / "model/particle_spectrum_audit/pdg2026_reference.json"))["masses"]
+ls = json.load(open("WORKSPACE/repair-law/work/LS/compare.json"))
+
+
+def gev(row):
+    return float(row["central"]) * {"GeV": 1.0, "MeV": 1e-3}[row["unit"]]
+
+
+M = {"t": gev(ref["t"]), "b": gev(ref["b"]), "tau": gev(ref["tau"])}
+YJ = {"running at m_Z": ls["needed_NOT_BLIND"]["yJ_run_mZ"], "pole": ls["needed_NOT_BLIND"]["yJ_pole"]}
+rows = dict(json.load(open("yc_run.json"))["rows"])
+rows.update(json.load(open("yc_addendum.json"))["rows"])
+smdr = {}
+for f in sorted(glob.glob("yc_smdr_*.json")):
+    d = json.load(open(f))
+    smdr[d["row"]] = d["history"][-1]
+
+table = {}
+for name, rw in rows.items():
+    if "t" not in rw:
+        table[name] = {"no low-energy value": f"flow ends at {rw.get('integration ended at mu (GeV)'):.3e} GeV"}
+        continue
+    e = {"y_third_family_cell": rw["cell"]["y_third_family"]}
+    t, b, tau = rw.get("t"), rw.get("b"), rw.get("tau")
+    if t:
+        e["m_t pole (tree G_F, QCD)"] = t["m_pole_GeV"]; e["m_t / measured"] = t["m_pole_GeV"] / M["t"]
+    if name in smdr:
+        e["m_t pole (SMDR, G_F attached)"] = smdr[name]["t"]; e["m_t SMDR / measured"] = smdr[name]["t"] / M["t"]
+    if b:
+        e["m_b(m_b)"] = b["m_running_at_m_GeV"]; e["m_b / measured m_b(m_b)"] = b["m_running_at_m_GeV"] / M["b"]
+    if tau:
+        e["m_tau"] = tau["m_running_at_m_GeV"]; e["m_tau / measured"] = tau["m_running_at_m_GeV"] / M["tau"]
+    yj = rw.get("y_J_at_Q0 (sum of the three charged-lepton Yukawas)")
+    if yj:
+        e["y_J at Q0"] = yj; e["y_J / needed (running at m_Z)"] = yj / YJ["running at m_Z"]
+    table[name] = e
+
+# ---- reduction: measured third-family Yukawas run up to E_cell on the declared chart
+pk = R.packet()
+vF = pk["v"]
+import yc_run as Y  # noqa: E402  (constants only)
+yb0 = math.sqrt(2) * 2.86 / vF
+ytau0 = math.sqrt(2) * ls["measured"]["running_mZ_GeV_IMPORTED"][2] / vF
+yt0 = pk["yt"]                    # packet value: gives t = 171.99 GeV with the G_F attachment (LW)
+x0 = R.vec(gp=pk["gY"], g=pk["g2"], g3=pk["g3"], yt=yt0, yb=yb0, ytau=ytau0, k=pk["lambda"])
+sol = R.run(x0, Y.T_0, Y.T_C, dense=False)
+xc = sol.y[:, -1]
+g2c = xc[R.IDX["g"]]
+yt, yb, ytau = (xc[R.IDX[n]] for n in ("yt", "yb", "ytau"))
+red = {"inputs at Q0": {"y_t (packet; m_t 171.99 under G_F)": yt0, "y_b from m_b(m_Z) = 2.86 GeV (IMPORTED)": yb0,
+                        "y_tau from LS's running mass": ytau0},
+       "at E_cell": {"y_t": yt, "y_b": yb, "y_tau": ytau, "g_2": g2c, "g_1 GUT": math.sqrt(5 / 3) * xc[0], "g_3": xc[2]},
+       "ratios to g_2(E_cell)": {"y_t": yt / g2c, "y_b": yb / g2c, "y_tau": ytau / g2c},
+       "F1 value r = 1/2 over needed": {"top": 0.5 / (yt / g2c), "bottom": 0.5 / (yb / g2c), "tau": 0.5 / (ytau / g2c)},
+       "share of the one-family sum rule (3 y_t^2 + 3 y_b^2 + y_tau^2) / (2 g_2^2)": (3 * yt ** 2 + 3 * yb ** 2 + ytau ** 2) / (2 * g2c ** 2),
+       "top alone: y_t / (sqrt(2/3) g_2)": yt / (math.sqrt(2 / 3) * g2c),
+       "degree rule needs": {"y_b / y_t": yb / yt, "y_tau / y_t": ytau / yt, "y_b / y_tau (rule: 1)": yb / ytau},
+       "source frame": {"y_t needed for criticality at the cell (HT)": 0.6452496246189794, "over g_source": 0.6452496246189794 / Y.G_SRC,
+                        "F1 r = 1/2 over needed": 0.5 * Y.G_SRC / 0.6452496246189794,
+                        "top alone sqrt(2/3) g over needed": math.sqrt(2 / 3) * Y.G_SRC / 0.6452496246189794}}
+out = {"NOT_BLIND": True, "references_GeV": M, "y_J_needed": YJ, "rows": table, "reduction": red,
+       "reference_file": str(RER / "model/particle_spectrum_audit/pdg2026_reference.json")}
+json.dump(out, open(sys.argv[1] if len(sys.argv) > 1 else "yc_compare.json", "w"), indent=1, default=float)
+print("references", M, YJ)
+for k, v in table.items():
+    print(k, {a: (round(b, 4) if isinstance(b, float) else b) for a, b in v.items()})
+print(json.dumps(red, indent=1, default=float))

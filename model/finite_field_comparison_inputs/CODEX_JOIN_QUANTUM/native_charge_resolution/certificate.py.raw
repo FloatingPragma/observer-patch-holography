@@ -1,0 +1,48 @@
+"""Exact root, full-source residual and refined charge-selection receipt."""
+from pathlib import Path
+import argparse,hashlib,json,sys,importlib.util
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]/'reverse-engineering-reality'
+sys.path.insert(0,str(ROOT))
+spec=importlib.util.spec_from_file_location('native_resolution',HERE/'bounds.py')
+b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
+PARENT='model/native_abelian_field_join/results.json'
+PARENT_SHA='f6aadcd79eec889de0c3243925c950e482bd456ea5c22fcab6a8406978472327'
+
+def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+def validate(pins):
+    for name,sha in pins.items():
+        relative=Path(name)
+        if relative.is_absolute() or '..' in relative.parts:raise ValueError('repository-relative source required')
+        if digest(ROOT/relative)!=sha:raise ValueError('changed native source: '+name)
+
+def certificate():
+    if digest(ROOT/PARENT)!=PARENT_SHA:raise ValueError('frozen native join changed')
+    parent=json.loads((ROOT/PARENT).read_text());validate(parent['input_sha256'])
+    from model.native_abelian_field_join.certificate import certificate as replay_join
+    if replay_join()!=parent:raise ValueError('fresh native source/reference/G1 replay differs')
+    value=b.calculate();pins=dict(parent['input_sha256']);pins[PARENT]=PARENT_SHA
+    value['input_sha256']=dict(sorted(pins.items()))
+    value['owned_source_sha256']={p.name:digest(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')}
+    value['fresh_replay']={'full_native_reference_Gauss_and_G1_source':True,
+      'actual_local_CAR_target_annihilator_and_positive_weights':True,
+      'neutral_and_all9_charged_roots_refined_exactly':True,
+      'full_source_residual_weight_transfer_and_neutral_shift_exact':True,
+      'full_native_eigensolver_used':False}
+    return value
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__);group=parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--write',action='store_true');group.add_argument('--check',action='store_true');args=parser.parse_args()
+    path=HERE/'results.json'
+    if args.check:
+        expected=json.loads(path.read_text());validate(expected['input_sha256'])
+        for name,sha in expected['owned_source_sha256'].items():
+            if digest(HERE/name)!=sha:raise ValueError('owned source changed: '+name)
+    fresh=certificate()
+    if args.write:path.write_text(json.dumps(fresh,indent=2,sort_keys=True)+'\n')
+    elif fresh!=expected:raise ValueError('fresh refined-window receipt differs')
+    print('PASS: exact native roots, nested full-H weights, neutral shift and explicit refined selection')
+
+if __name__=='__main__':main()

@@ -1,0 +1,201 @@
+"""Walk-level helpers of worker KD (exact, over Q(sqrt5, i)).
+
+Coin = (record) x (spinor doublet), index 2*record + spinor. beta = tau_x x 1 is the bare record flip,
+Z_r = tau_z x 1 the reflection about the blank record. The public reflector is taken from
+model/coherent_seam_repair/gauge_walk.py (function local) and re-indexed.
+"""
+import sympy as s
+
+from kdlib import (K, ZERO, ONE, I, F, mat, eye, zeros, mm, madd, msub, mscale, dag, kron, meq, SX, SY, SZ, E2, P0, P1,
+                   is_unitary)
+from model.coherent_seam_repair.gauge_walk import local as public_local
+
+half = K(F(1, 2))
+BETA = kron(SX, E2)
+ZR = kron(SZ, E2)
+PLUS = mat([[half, half], [half, half]])          # |+><+| of the record (eigenstates of the flip)
+MINUS = mat([[half, -half], [-half, half]])       # |-><-|
+PM = mat([[half, -half], [half, -half]])          # |+><-|
+MP = mat([[half, half], [-half, -half]])          # |-><+|
+RX = kron(mat([[half * (ONE + I), half * (ONE - I)], [half * (ONE - I), half * (ONE + I)]]), E2)    # sqrt(tau_x) x 1
+
+
+def XG(G):
+    """|+><-| x G + |-><+| x G^*: the local reflection that belongs to the reflector with link G."""
+    return madd(kron(PM, G), kron(MP, dag(G)))
+
+
+def Cu(u):
+    """Record-controlled lift |0><0| x 1 + |1><1| x u."""
+    return madd(kron(P0, E2), kron(P1, u))
+
+
+def to_K(e):
+    e = s.nsimplify(s.simplify(e))
+    re, im = e.as_real_imag()
+
+    def q5(x):
+        x = s.nsimplify(x)
+        a = x.subs(s.sqrt(5), 0)
+        b = s.simplify((x - a) / s.sqrt(5))
+        assert a.is_Rational and b.is_Rational, x
+        return F(int(a.p), int(a.q)), F(int(b.p), int(b.q))
+    (a, b), (c, d) = q5(re), q5(im)
+    return K(a, b, c, d)
+
+
+def to_sym(x):
+    r5 = s.sqrt(5)
+    return s.Rational(x.a.numerator, x.a.denominator) + s.Rational(x.b.numerator, x.b.denominator) * r5 + s.I * (
+        s.Rational(x.c.numerator, x.c.denominator) + s.Rational(x.d.numerator, x.d.denominator) * r5)
+
+
+_PUB = {}
+
+
+def public_reflector(G):
+    """8x8 over K in the basis (site in {x, x+1}) x (record) x (spinor): gauge_walk.local(G) re-indexed."""
+    if G in _PUB:
+        return _PUB[G]
+    U, m, p = public_local(s.Matrix([[to_sym(x) for x in r] for r in G]))
+    Uk = [[ZERO] * 8 for _ in range(8)]
+    for site in range(2):
+        for fib in range(2):
+            for rec in range(2):
+                i = (site * 2 + fib) * 2 + rec                 # public order: site, fibre, record
+                i2 = (site * 2 + rec) * 2 + fib                # ours: site, record, spinor
+                for site2 in range(2):
+                    for fib2 in range(2):
+                        for rec2 in range(2):
+                            j = (site2 * 2 + fib2) * 2 + rec2
+                            j2 = (site2 * 2 + rec2) * 2 + fib2
+                            Uk[i2][j2] = to_K(U[i, j])
+    _PUB[G] = tuple(tuple(r) for r in Uk)
+    return _PUB[G]
+
+
+def embed_link(U8, x, y, L, dim=4):
+    n = dim * L
+    Mx = [[ONE if i == j else ZERO for j in range(n)] for i in range(n)]
+    idx = [dim * x + c for c in range(dim)] + [dim * y + c for c in range(dim)]
+    for a, ia in enumerate(idx):
+        for b, ib in enumerate(idx):
+            Mx[ia][ib] = U8[a][b]
+    return tuple(tuple(r) for r in Mx)
+
+
+def shift(L):
+    T = [[ZERO] * L for _ in range(L)]
+    for x in range(L):
+        T[(x + 1) % L][x] = ONE
+    return tuple(tuple(r) for r in T)
+
+
+def cond_shift(alpha, L):
+    """P+_alpha T + P-_alpha T^* on a ring of L sites."""
+    n = len(alpha)
+    T = shift(L)
+    Pp = mscale(half, madd(eye(n), alpha)); Pm = mscale(half, msub(eye(n), alpha))
+    return madd(kron(T, Pp), kron(dag(T), Pm))
+
+
+def ring_Q(G, L):
+    U8 = public_reflector(G)
+    links = [embed_link(U8, x, (x + 1) % L, L) for x in range(L)]
+    Q = eye(4 * L)
+    for U in links:
+        Q = mm(Q, U)
+    return U8, links, Q
+
+
+def su2(a, b, c, d, n):
+    """a + i (b sx + c sy + d sz) over n: an exact element of SU(2) when a^2+b^2+c^2+d^2 = n^2."""
+    assert a * a + b * b + c * c + d * d == n * n
+    return mat([[K(F(a, n), 0, F(d, n)), K(F(c, n), 0, F(b, n))], [K(F(-c, n), 0, F(b, n)), K(F(a, n), 0, F(-d, n))]])
+
+
+PH = K(F(3, 5), 0, F(4, 5))                        # exp(i t) with cos t = 3/5, sin t = 4/5
+
+
+def rot_beta(c, sn):
+    """exp(-i theta beta) for cos theta = c, sin theta = sn."""
+    return msub(mscale(c, eye(4)), mscale(K(0, 0, sn), BETA))
+
+
+# ---- sparse position-space execution on a 3-torus: vectors are dicts {(x, y, z, coin): K} ---------------------
+def apply_coin(vec, Mx, where=None):
+    new = {}
+    for (x, y, z, c), v in vec.items():
+        M_ = Mx if where is None else where((x, y, z))
+        for r in range(len(M_)):
+            if not M_[r][c].is_zero():
+                key = (x, y, z, r)
+                new[key] = new.get(key, ZERO) + M_[r][c] * v
+    return {k: v for k, v in new.items() if not v.is_zero()}
+
+
+def apply_links(vec, L, axis, D8, dim=4):
+    """Product over the equally oriented links (x -> x + e_axis) of the two-site operator D8 (they must commute)."""
+    sites = {key[:3] for key in vec}
+    touched = set()
+    for xs in sites:
+        for d in (0, -1):
+            a = list(xs); a[axis] = (a[axis] + d) % L
+            touched.add(tuple(a))
+    cur = dict(vec)
+    for a in sorted(touched):
+        b = list(a); b[axis] = (b[axis] + 1) % L; b = tuple(b)
+        amp = [cur.get(a + (c,), ZERO) for c in range(dim)] + [cur.get(b + (c,), ZERO) for c in range(dim)]
+        if all(x.is_zero() for x in amp):
+            continue
+        res = [sum((D8[r][c] * amp[c] for c in range(2 * dim) if not D8[r][c].is_zero() and not amp[c].is_zero()), ZERO)
+               for r in range(2 * dim)]
+        for c in range(dim):
+            cur[a + (c,)] = res[c]; cur[b + (c,)] = res[dim + c]
+    return {k: v for k, v in cur.items() if not v.is_zero()}
+
+
+_PROJ = {}
+
+
+def _projectors(alpha, link):
+    key = (alpha, link)
+    if key not in _PROJ:
+        n = len(alpha)
+        Pp = mscale(half, madd(eye(n), alpha)); Pm = mscale(half, msub(eye(n), alpha))
+        if link is None:
+            _PROJ[key] = {(1, 1): Pp, (-1, 1): Pm, (1, -1): Pm, (-1, -1): Pp}
+        else:
+            Lk, Ld = link, dag(link)
+            # (hop direction, sign of the control at the arrival site): projector times the link of that hop
+            _PROJ[key] = {(1, 1): mm(Pp, Lk), (-1, 1): mm(Pm, Ld), (1, -1): mm(Pm, Lk), (-1, -1): mm(Pp, Ld)}
+    return _PROJ[key]
+
+
+def apply_cond_shift(vec, L, axis, alpha, sign=None, link=None, alpha_sign=None):
+    """P+ T + P- T^* along `axis`. Optional: sign(x) multiplies the forward hop from x (and the backward hop into x);
+    link (a coin matrix) is applied on the forward hop and its adjoint on the backward hop;
+    alpha_sign(x) in {1, -1} multiplies the control involution at the arrival site x."""
+    new = {}
+    n = len(alpha)
+    table = _projectors(alpha, link)
+    for (x, y, z, c), v in vec.items():
+        pos = (x, y, z)
+        for sgn in (1, -1):
+            q = list(pos); q[axis] = (q[axis] + sgn) % L; q = tuple(q)
+            a_s = 1 if alpha_sign is None else alpha_sign(q)
+            Mx = table[(sgn, a_s)]
+            fac = v
+            if sign is not None:
+                if (sign(pos) if sgn == 1 else sign(q)) == -1:
+                    fac = -v
+            for r in range(n):
+                m_ = Mx[r][c]
+                if not m_.is_zero():
+                    key = q + (r,)
+                    new[key] = new.get(key, ZERO) + m_ * fac
+    return {k: v for k, v in new.items() if not v.is_zero()}
+
+
+def same(a, b):
+    return set(a) == set(b) and all(a[k] == b[k] for k in a)

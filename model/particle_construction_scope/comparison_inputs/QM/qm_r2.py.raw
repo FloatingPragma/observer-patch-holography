@@ -1,0 +1,210 @@
+"""QM round 2 (CANDIDATES.md section H): one carrier with the seam record bit and R8's register.
+
+Reads no measured value. Writes r2.json and values2.json.
+Run: cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/QM /tmp/oph-completion-venv/bin/python -B RL/work/QM/qm_r2.py
+
+Source numbers (family cell, read only): the k-resolved first order w_{s,k}, the k-resolved second-order transfer of
+leg s's scalar quantum to the conjugate legs, T_{s,k}, and the interference X_s between the two Higgs members (EXACT,
+integer arithmetic); the reduced scalar populations of the unique ground (MEASURED, float64).
+Member index k from the scalar matrix element of each word: memory indices 1, 3 (H_1, Hbar_1) are k = 0 (charged,
+s1 slot); 2, 4 (H_2, Hbar_2) are k = 1 (neutral, s2 slot).
+"""
+import json
+import math
+import os
+from collections import defaultdict
+from fractions import Fraction as Fr
+
+import numpy as np
+import scipy.sparse as sp
+from scipy.sparse.linalg import eigsh
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+from model.coherent_defect_wave.chiral_joint.family_cell import model as fc  # noqa: E402
+
+LEGS = ('up', 'down', 'charged_lepton')
+SHORT = {'up': 'up', 'down': 'down', 'charged_lepton': 'lepton'}
+
+
+def member(row, col):
+    idx = row if row else col
+    assert idx in (1, 2, 3, 4)
+    return (idx - 1) % 2
+
+
+def column_part_k(key, channel, part, k):
+    mask, scalar = key
+    out = defaultdict(int)
+    for ch, word, row, value in fc.terms().get(scalar, ()):
+        if ch != channel:
+            continue
+        creation = word[0][1]
+        if (part == '+') != creation or member(row, scalar) != k:
+            continue
+        m, v = mask, value
+        for mode, cr in reversed(word):
+            if bool((m >> mode) & 1) == cr:
+                break
+            if (m & ((1 << mode) - 1)).bit_count() % 2:
+                v = -v
+            m ^= 1 << mode
+        else:
+            out[(m, row)] += v
+    return {kk: x for kk, x in out.items() if x}
+
+
+def main():
+    keys, h, phase, depth, digest = fc.graph()
+    index = {k: j for j, k in enumerate(keys)}
+    n = len(keys)
+    i0 = index[(0, 0)]
+    M = {}
+    for ch in LEGS:
+        for part in ('+', '-'):
+            for k in (0, 1):
+                rows, cols, vals = [], [], []
+                for j, key in enumerate(keys):
+                    for tgt, v in column_part_k(key, ch, part, k).items():
+                        rows.append(index[tgt]); cols.append(j); vals.append(v)
+                M[(ch, part, k)] = sp.csr_matrix((np.array(vals, dtype=np.int64), (rows, cols)), shape=(n, n))
+    NH = sp.diags(np.array([1 if key[1] else 0 for key in keys], dtype=np.int64), dtype=np.int64)
+    D = (NH + sum(M.values()) - h).tocsr(); D.eliminate_zeros()
+    assert D.nnz == 0, 'member split does not reproduce the packet Hamiltonian'
+    out = {'measured_values_read': False, 'member_split_reproduces_packet_H': True}
+
+    # ---------------- exact k-resolved first and second order
+    first, second = {}, {}
+    for ch in LEGS:
+        v = {k: M[(ch, '+', k)][:, i0].toarray().ravel().astype(np.int64) for k in (0, 1)}
+        w = {k: int(v[k] @ v[k]) for k in (0, 1)}
+        first[SHORT[ch]] = w
+        T = {0: 0, 1: 0}
+        X = 0
+        by_partner = {}
+        for ch2 in LEGS:
+            u = {k: M[(ch2, '+', k)] @ v[k] for k in (0, 1)}
+            # cross-member creation (k' != k) must vanish: the scalar quantum of member k is absorbed only by member k
+            for k in (0, 1):
+                assert not np.any(M[(ch2, '+', 1 - k)] @ v[k])
+            t = {k: int(u[k] @ u[k]) for k in (0, 1)}
+            x = int(2 * (u[0] @ u[1]))
+            if t[0] or t[1] or x:
+                by_partner[SHORT[ch2]] = {'T_k0': t[0], 'T_k1': t[1], 'X': x}
+            T[0] += t[0]; T[1] += t[1]; X += x
+        wt = w[0] + w[1]
+        second[SHORT[ch]] = {'w': wt, 'T_k0': T[0], 'T_k1': T[1], 'X': X, 'by_partner': by_partner,
+                             'per_unit_leg_state': {'T_k0': str(Fr(T[0], wt)), 'T_k1': str(Fr(T[1], wt)), 'X': str(Fr(X, wt))}}
+    out['first_order_by_member'] = first
+    out['second_order_by_member'] = second
+
+    # ---------------- ground state and reduced scalar populations (MEASURED)
+    H = (NH + sum(M.values())).astype(float).tocsc()
+    vals, vecs = eigsh(H, k=1, which='SA', tol=1e-13)
+    G = vecs[:, 0]
+    scal = np.array([key[1] for key in keys])
+    pops = {r: float(np.sum(G[scal == r] ** 2)) for r in range(5)}
+    out['ground_energy'] = float(vals[0])
+    out['ground_scalar_populations'] = {'0': pops[0], 'H_1 (k0)': pops[1], 'H_2 (k1)': pops[2],
+                                        'Hbar_1 (k0)': pops[3], 'Hbar_2 (k1)': pops[4]}
+
+    # ---------------- readings
+    def f_W1(version):
+        if version == 'H':
+            up = {0: pops[1] + pops[0], 1: pops[2] + pops[0]}
+            dn = {0: pops[0] + pops[3], 1: pops[0] + pops[4]}
+        else:
+            up = {0: pops[1], 1: pops[2]}
+            dn = {0: pops[0], 1: pops[0]}
+        return {'up': up, 'down': dn, 'lepton': dict(dn)}
+
+    def f_W2(rule):
+        f = {}
+        for s_ in ('up', 'down', 'lepton'):
+            d = second[s_]
+            wt = d['w']
+            f[s_] = {0: Fr(d['T_k0'], wt), 1: Fr(d['T_k1'], wt), 'X': Fr(d['X'], wt)}
+        return f, rule
+
+    readings = {}
+    for version in ('H', 'R'):
+        f = f_W1(version)
+        for assign in ('A1', 'A2'):
+            ag, rp = (1, 0) if assign == 'A1' else (0, 1)
+            readings[f'W1-{version}-{assign}'] = {s_: (f[s_][ag], f[s_][rp]) for s_ in f}
+    for rule in ('a', 'b', 'c'):
+        f, _ = f_W2(rule)
+        for assign in ('A1', 'A2'):
+            ag, rp = (1, 0) if assign == 'A1' else (0, 1)
+            r = {}
+            for s_ in f:
+                X = f[s_]['X']
+                fa = f[s_][ag] + {'a': 0, 'b': X / 2, 'c': X}[rule]
+                fr = f[s_][rp] + {'a': X, 'b': X / 2, 'c': 0}[rule]
+                r[s_] = (fa, fr)
+            readings[f'W2{rule}-{assign}'] = r
+
+    R3 = np.array([[0, 0, 1], [1, 0, 0], [0, 1, 0]], float)
+
+    def spectrum(q, p, delta):
+        C = math.sqrt(q) * np.eye(3) + math.sqrt(p) * (np.exp(1j * delta) * R3 + np.exp(-1j * delta) * (R3 @ R3))
+        lam, vec = np.linalg.eigh(C)
+        y = lam ** 2
+        o = np.argsort(y)
+        y, vec = y[o], vec[:, o]
+        return {'y_sorted': y.tolist(), 'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2],
+                'koide_Q': y.sum() / np.sqrt(y).sum() ** 2, 'trace': float(y.sum()), 'y3': float(y[2])}, vec
+
+    values = {'measured_values_read': False}
+    for name, r in readings.items():
+        fref = r['lepton'][0]
+        rec = {'f_agree_repair': {s_: [str(a) if isinstance(a, Fr) else a, str(b) if isinstance(b, Fr) else b]
+                                  for s_, (a, b) in r.items()}}
+        xs, w8, spec, vecs_ = {}, {}, {}, {}
+        for s_, (fa, fr) in r.items():
+            q = float(Fr(1, 6) * (fa / fref)) if isinstance(fa, Fr) else (1 / 6) * fa / fref
+            p = float(Fr(1, 12) * (fr / fref)) if isinstance(fr, Fr) else (1 / 12) * fr / fref
+            xs[s_] = p / q if q > 0 else float('inf')
+            if isinstance(fa, Fr) and isinstance(fr, Fr):
+                rec.setdefault('x_exact', {})[s_] = str(Fr(1, 2) * fr / fa)
+            w8[s_] = {'q': q, 'p': p, 'N_trace': 3 * (q + 2 * p)}
+            for ph, d in (('P1', 2 / 9), ('P2', p + q - 2 * p * q)):
+                sp_, v_ = spectrum(q, p, d)
+                sp_['delta'] = d
+                spec[f'{s_}|{ph}'] = sp_
+                vecs_[(s_, ph)] = v_
+        rec['x'] = xs
+        rec['lepton_control_x_e_is_half'] = abs(xs['lepton'] - 0.5) < 1e-12
+        rec['weights'] = w8
+        rec['normalizations'] = {'N_u_over_N_d': w8['up']['N_trace'] / w8['down']['N_trace'],
+                                 'N_e_over_N_u': w8['lepton']['N_trace'] / w8['up']['N_trace'],
+                                 'y3u_over_y3d_P1': spec['up|P1']['y3'] / spec['down|P1']['y3'],
+                                 'y3u_over_y3d_P2': spec['up|P2']['y3'] / spec['down|P2']['y3'],
+                                 'trace_e_over_u_P1': spec['lepton|P1']['trace'] / spec['up|P1']['trace']}
+        rec['spectra'] = spec
+        mix = {}
+        for ph in ('P1', 'P2'):
+            A = np.abs(vecs_[('up', ph)].conj().T @ vecs_[('down', ph)])
+            mix[ph] = {'V_abs': np.round(A, 12).tolist(), 'is_identity': bool(np.allclose(np.diag(A), 1, atol=1e-9))}
+        rec['mixing'] = mix
+        values[name] = rec
+    out['readings_summary'] = {k: {'x': v['x'], 'normalizations': v['normalizations']} for k, v in values.items()
+                               if k != 'measured_values_read'}
+    with open(os.path.join(HERE, 'r2.json'), 'w') as fh:
+        json.dump(out, fh, indent=1, default=str)
+    with open(os.path.join(HERE, 'values2.json'), 'w') as fh:
+        json.dump(values, fh, indent=1, default=str)
+    print('first order by member', first)
+    for s_, d in second.items():
+        print('second', s_, {k: d[k] for k in ('w', 'T_k0', 'T_k1', 'X')}, d['by_partner'])
+    print('ground', out['ground_energy'], 'scalar populations', out['ground_scalar_populations'])
+    for k, v in values.items():
+        if k == 'measured_values_read':
+            continue
+        nz = v['normalizations']
+        print(f"{k:12s} x_u={v['x']['up']:.4f} x_d={v['x']['down']:.4f} x_e={v['x']['lepton']:.4f} lep_ok={v['lepton_control_x_e_is_half']} "
+              f"| N_u/N_d={nz['N_u_over_N_d']:.4f} N_e/N_u={nz['N_e_over_N_u']:.4f} y3u/y3d(P1)={nz['y3u_over_y3d_P1']:.4f} "
+              f"| exact {v.get('x_exact', '')}")
+
+
+if __name__ == '__main__':
+    main()

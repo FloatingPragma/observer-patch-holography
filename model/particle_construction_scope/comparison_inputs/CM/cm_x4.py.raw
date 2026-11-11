@@ -1,0 +1,75 @@
+"""CM exact statement X4: character bases of third turns about two different face axes of the carrier.
+
+For every ordered pair of the ten face axes, V = U_1^dag U_2 with U_a the eigenvectors of the third turn about axis a
+on C^3 (ordered by the character 1, w, w^2); J = Im(V11 V22 conj(V12) conj(V21)) over all six orderings of each basis.
+mpmath, 40 digits. Reads no measured value. Writes x4.json.
+Run from the RER checkout: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B RL/work/CM/cm_x4.py
+"""
+import itertools
+import json
+import os
+
+import mpmath as mp
+
+from model.common_source import slow_geometry as sg
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+S5 = mp.sqrt(5)
+V = [[mp.mpf(a.numerator) / a.denominator + mp.mpf(b.numerator) / b.denominator * S5 if hasattr(a, 'numerator')
+      else mp.mpf(a) + mp.mpf(b) * S5 for (a, b) in row] for row in sg.raw_frame()]
+src = sg.source()
+seams = {tuple(sorted(int(v) for v in e)) for e in src.seams()}
+adj = {i: {j for j in range(12) if tuple(sorted((i, j))) in seams} for i in range(12)}
+faces = [t for t in itertools.combinations(range(12), 3) if t[1] in adj[t[0]] and t[2] in adj[t[0]] and t[2] in adj[t[1]]]
+assert len(faces) == 20
+axes = []
+for f in faces:
+    c = [sum(V[p][i] for p in f) for i in range(3)]
+    n = mp.sqrt(sum(x * x for x in c))
+    u = [x / n for x in c]
+    if not any(all(abs(u[i] + a[i]) < 1e-30 for i in range(3)) for a in axes):
+        axes.append(u)
+assert len(axes) == 10
+
+
+def third_turn(u):
+    """Rotation by 2 pi/3 about the unit axis u (Rodrigues)."""
+    c, s = mp.cos(2 * mp.pi / 3), mp.sin(2 * mp.pi / 3)
+    K = mp.matrix([[0, -u[2], u[1]], [u[2], 0, -u[0]], [-u[1], u[0], 0]])
+    return mp.eye(3) + s * K + (1 - c) * K * K
+
+
+def char_basis(u):
+    R = third_turn(u)
+    E, Q = mp.eig(R)
+    w = mp.exp(2j * mp.pi / 3)
+    order = []
+    for target in (1, w, w ** 2):
+        order.append(min(range(3), key=lambda i: abs(E[i] - target)))
+    B = mp.matrix(3, 3)
+    for c, i in enumerate(order):
+        col = [Q[r, i] for r in range(3)]
+        nrm = mp.sqrt(sum(abs(x) ** 2 for x in col))
+        for r in range(3):
+            B[r, c] = col[r] / nrm
+    return B
+
+
+bases = [char_basis(u) for u in axes]
+maxJ = mp.mpf(0)
+angles = set()
+for a, b in itertools.permutations(range(10), 2):
+    Vm = bases[a].H * bases[b]
+    cosang = sum(axes[a][i] * axes[b][i] for i in range(3))
+    angles.add(mp.nstr(abs(cosang), 12))
+    for p in itertools.permutations(range(3)):
+        for r in itertools.permutations(range(3)):
+            W = mp.matrix([[Vm[p[i], r[j]] for j in range(3)] for i in range(3)])
+            J = mp.im(W[0, 0] * W[1, 1] * mp.conj(W[0, 1]) * mp.conj(W[1, 0]))
+            maxJ = max(maxJ, abs(J))
+out = {'measured_values_read': False, 'face_axes': 10, 'ordered_pairs': 90, 'orderings_per_pair': 36,
+       'abs_cos_between_axes': sorted(angles), 'max_abs_J': mp.nstr(maxJ, 8)}
+with open(os.path.join(HERE, 'x4.json'), 'w') as fh:
+    json.dump(out, fh, indent=1)
+print(out)

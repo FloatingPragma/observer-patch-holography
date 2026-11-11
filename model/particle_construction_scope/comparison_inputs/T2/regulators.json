@@ -1,0 +1,582 @@
+{
+ "S_splitting": {
+  "4x4x4": {
+   "substep_minus_exp(-i alpha_i P_i)_per_axis": [
+    4.441434166503682e-16,
+    4.441434166503682e-16,
+    3.331391796911832e-16
+   ],
+   "forward_tick_minus_product_of_the_three_exponentials": 3.7495717880881845e-16,
+   "forward_tick_minus_exponential_of_the_sum_(operator_norm)": 1.8570536473730659
+  },
+  "6x4x2": {
+   "substep_minus_exp(-i alpha_i P_i)_per_axis": [
+    7.771562964270762e-16,
+    4.441434166503682e-16,
+    4.440892098500626e-16
+   ],
+   "forward_tick_minus_product_of_the_three_exponentials": 4.308824046522781e-16,
+   "forward_tick_minus_exponential_of_the_sum_(operator_norm)": 1.8188659450725324
+  },
+  "splitting_error_of_the_symbol": [
+   {
+    "window_|p_i|<=": 0.4,
+    "one_ordered_tick": 0.22000683363913884,
+    "ratio_to_P^2": 1.3750427102446174,
+    "alternating_period": 0.2343094804360477,
+    "ratio_to_P^3": 3.6610856318132448
+   },
+   {
+    "window_|p_i|<=": 0.2,
+    "one_ordered_tick": 0.06012152133886535,
+    "ratio_to_P^2": 1.5030380334716333,
+    "alternating_period": 0.035803749763992754,
+    "ratio_to_P^3": 4.4754687204990935
+   },
+   {
+    "window_|p_i|<=": 0.1,
+    "one_ordered_tick": 0.014777794108321052,
+    "ratio_to_P^2": 1.477779410832105,
+    "alternating_period": 0.0046218104266417875,
+    "ratio_to_P^3": 4.621810426641787
+   },
+   {
+    "window_|p_i|<=": 0.05,
+    "one_ordered_tick": 0.0038215469500736715,
+    "ratio_to_P^2": 1.5286187800294684,
+    "alternating_period": 0.0006354499929173616,
+    "ratio_to_P^3": 5.083599943338891
+   }
+  ]
+ },
+ "W_degree": {
+  "ordered_tick_block": {
+   "degree_by_quadrature": 8.719671245021577e-17,
+   "grid": 48,
+   "unit_vector_defect": 5.551115123125783e-16,
+   "census": {
+    "+1": {
+     "points": 8,
+     "chirality_plus": 4,
+     "chirality_minus": 4,
+     "degenerate": 0,
+     "sum": 0
+    },
+    "-1": {
+     "points": 8,
+     "chirality_plus": 4,
+     "chirality_minus": 4,
+     "degenerate": 0,
+     "sum": 0
+    }
+   }
+  },
+  "alternating_period_block": {
+   "degree_by_quadrature": 8.913441717133168e-16,
+   "grid": 48,
+   "unit_vector_defect": 9.992007221626409e-16,
+   "census": {
+    "+1": {
+     "points": 32,
+     "chirality_plus": 16,
+     "chirality_minus": 16,
+     "degenerate": 0,
+     "sum": 0
+    },
+    "-1": {
+     "points": 32,
+     "chirality_plus": 16,
+     "chirality_minus": 16,
+     "degenerate": 0,
+     "sum": 0
+    }
+   }
+  },
+  "exponentially_local_tick_V": {
+   "degree_by_quadrature": 0.9999999999999997,
+   "grid": 96,
+   "unit_vector_defect": 6.661338147750939e-16,
+   "census": {
+    "+1": {
+     "points": 1,
+     "chirality_plus": 1,
+     "chirality_minus": 0,
+     "degenerate": 0,
+     "sum": 1
+    },
+    "-1": {
+     "points": 7,
+     "chirality_plus": 4,
+     "chirality_minus": 3,
+     "degenerate": 0,
+     "sum": 1
+    }
+   }
+  }
+ },
+ "V_couplings": {
+  "grid": 64,
+  "total_weight": 1.0000000000000004,
+  "largest_rms_amplitude_on_the_shell_|r|_inf=R": {
+   "0": 0.7227196153347524,
+   "1": 0.2546064598901699,
+   "2": 0.03633075288269981,
+   "3": 0.009294569782788212,
+   "4": 0.002830124297162118,
+   "5": 0.0009481628867755674,
+   "6": 0.00033938332939243153,
+   "7": 0.00012776594174212976,
+   "8": 5.006313159662153e-05,
+   "9": 2.02580798883594e-05,
+   "10": 8.413651444295818e-06,
+   "11": 3.569061297441411e-06,
+   "12": 1.5403622322822207e-06
+  },
+  "fitted_decay_rate_per_cell_R=3..12": -0.9581389308396348,
+  "weight_outside_the_cube_|r|_inf<=R_after_one_tick": {
+   "1": 0.014187264681503964,
+   "2": 0.0012083316600180862,
+   "3": 0.00014141195234273858,
+   "4": 1.9960555333951532e-05,
+   "6": 5.504675621325913e-07,
+   "8": 1.9358043674017793e-08,
+   "12": 3.3919310097175013e-11
+  },
+  "on_axis_symbol_equals_the_pure_shift_defect": 1.1102230246251565e-16,
+  "phase_per_tick": [
+   {
+    "k": [
+     0.1,
+     0,
+     0
+    ],
+    "|k|": 0.1,
+    "phase_V": 0.09999999999999945,
+    "phase_V_minus_|k|": -5.551115123125783e-16,
+    "ordered_tick_minus_|k|": -5.551115123125783e-16,
+    "alternating_per_tick_minus_|k|": -2.7755575615628914e-16
+   },
+   {
+    "k": [
+     0.1,
+     0.1,
+     0
+    ],
+    "|k|": 0.14142135623730953,
+    "phase_V": 0.14165552314205818,
+    "phase_V_minus_|k|": 0.000234166904748645,
+    "ordered_tick_minus_|k|": -0.00011805754118610068,
+    "alternating_per_tick_minus_|k|": -0.00047471525932821224
+   },
+   {
+    "k": [
+     0.1,
+     0.1,
+     0.1
+    ],
+    "|k|": 0.17320508075688776,
+    "phase_V": 0.17377691584157523,
+    "phase_V_minus_|k|": 0.000571835084687472,
+    "ordered_tick_minus_|k|": -0.006171268457840801,
+    "alternating_per_tick_minus_|k|": -0.0011615855059067537
+   },
+   {
+    "k": [
+     0.3,
+     0.3,
+     0.3
+    ],
+    "|k|": 0.5196152422706632,
+    "phase_V": 0.5338135820480542,
+    "phase_V_minus_|k|": 0.014198339777390934,
+    "ordered_tick_minus_|k|": -0.0633704350283456,
+    "alternating_per_tick_minus_|k|": -0.032739604593235216
+   }
+  ],
+  "for_comparison": {
+   "CF-1 tick": "zero amplitude beyond one cell per axis (strict cone, reports/R1.md result 5)",
+   "spectral clock": "amplitudes 1/(a r) along an axis, weight 2/(pi^2 R) beyond R cells at half-integer times (t2_repro.py part E)"
+  }
+ },
+ "R_filled_branch": {
+  "closed_form": [
+   {
+    "L": 4,
+    "links": "antiperiodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 1.595535610862707,
+    "distance_from_phase_pi": 1.546057042727086,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 2.6868376895176014
+   },
+   {
+    "L": 4,
+    "links": "antiperiodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 1.5707963267948966,
+    "distance_from_phase_pi": 1.5707963267948966,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 2.7206990463513265
+   },
+   {
+    "L": 4,
+    "links": "periodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.31586999999999976,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 2.6868376895176014
+   },
+   {
+    "L": 4,
+    "links": "periodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.0,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 32,
+    "2_sqrt3_pi_cos(theta)/L": 2.7206990463513265
+   },
+   {
+    "L": 8,
+    "links": "antiperiodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 1.244992041118768,
+    "distance_from_phase_pi": 1.1922776767630494,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 1.3434188447588007
+   },
+   {
+    "L": 8,
+    "links": "antiperiodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 1.2094292028881886,
+    "distance_from_phase_pi": 1.2094292028881886,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 1.3603495231756633
+   },
+   {
+    "L": 8,
+    "links": "periodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.31586999999999976,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 1.3434188447588007
+   },
+   {
+    "L": 8,
+    "links": "periodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.0,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 32,
+    "2_sqrt3_pi_cos(theta)/L": 1.3603495231756633
+   },
+   {
+    "L": 12,
+    "links": "antiperiodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.916356006753191,
+    "distance_from_phase_pi": 0.8523858642156057,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.8956125631725338
+   },
+   {
+    "L": 12,
+    "links": "antiperiodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.8638445989076778,
+    "distance_from_phase_pi": 0.8638445989076775,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.9068996821171088
+   },
+   {
+    "L": 12,
+    "links": "periodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.31586999999999976,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.8956125631725338
+   },
+   {
+    "L": 12,
+    "links": "periodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.0,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 32,
+    "2_sqrt3_pi_cos(theta)/L": 0.9068996821171088
+   },
+   {
+    "L": 16,
+    "links": "antiperiodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.7312551118601403,
+    "distance_from_phase_pi": 0.6537473963381228,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.6717094223794003
+   },
+   {
+    "L": 16,
+    "links": "antiperiodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.6622991332013008,
+    "distance_from_phase_pi": 0.6622991332013006,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.6801747615878316
+   },
+   {
+    "L": 16,
+    "links": "periodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.31586999999999976,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.6717094223794003
+   },
+   {
+    "L": 16,
+    "links": "periodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.0,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 32,
+    "2_sqrt3_pi_cos(theta)/L": 0.6801747615878316
+   },
+   {
+    "L": 32,
+    "links": "antiperiodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.46150902543081673,
+    "distance_from_phase_pi": 0.3336445571155786,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.3358547111897002
+   },
+   {
+    "L": 32,
+    "links": "antiperiodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.3378895800091965,
+    "distance_from_phase_pi": 0.3378895800091959,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.3400873807939158
+   },
+   {
+    "L": 32,
+    "links": "periodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.31586999999999976,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.3358547111897002
+   },
+   {
+    "L": 32,
+    "links": "periodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.0,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 32,
+    "2_sqrt3_pi_cos(theta)/L": 0.3400873807939158
+   },
+   {
+    "L": 64,
+    "links": "antiperiodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.35826750380109795,
+    "distance_from_phase_pi": 0.167652216334071,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.1679273555948501
+   },
+   {
+    "L": 64,
+    "links": "antiperiodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.16977014112327599,
+    "distance_from_phase_pi": 0.16977014112327593,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.1700436903969579
+   },
+   {
+    "L": 64,
+    "links": "periodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.31586999999999976,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.1679273555948501
+   },
+   {
+    "L": 64,
+    "links": "periodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.0,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 32,
+    "2_sqrt3_pi_cos(theta)/L": 0.1700436903969579
+   },
+   {
+    "L": 128,
+    "links": "antiperiodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.3270116236786603,
+    "distance_from_phase_pi": 0.08392932093469518,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.08396367779742504
+   },
+   {
+    "L": 128,
+    "links": "antiperiodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.08498768849440229,
+    "distance_from_phase_pi": 0.0849876884944023,
+    "momenta_on_the_cut_at_pi": 0,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.08502184519847895
+   },
+   {
+    "L": 128,
+    "links": "periodic",
+    "theta": 0.157935,
+    "distance_from_phase_0": 0.31586999999999976,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 0,
+    "2_sqrt3_pi_cos(theta)/L": 0.08396367779742504
+   },
+   {
+    "L": 128,
+    "links": "periodic",
+    "theta": 0.0,
+    "distance_from_phase_0": 0.0,
+    "distance_from_phase_pi": 0.0,
+    "momenta_on_the_cut_at_pi": 32,
+    "momenta_on_the_cut_at_0": 32,
+    "2_sqrt3_pi_cos(theta)/L": 0.08502184519847895
+   }
+  ],
+  "engine_4x4x4_theta_0.157935": {
+   "antiperiodic": {
+    "unitarity_defect": 1.3322676295501878e-15,
+    "eigenphases_against_closed_form_defect": 6.661338147750939e-16,
+    "modes_at_phase_pi": 0,
+    "modes_with_phase_in_(-pi,0)": 128,
+    "smallest_distance_from_pi": 1.5460570427270854,
+    "smallest_distance_from_0": 1.5955356108627063
+   },
+   "periodic": {
+    "unitarity_defect": 1.3322676295501878e-15,
+    "eigenphases_against_closed_form_defect": 8.326672684688674e-16,
+    "modes_at_phase_pi": 128,
+    "modes_with_phase_in_(-pi,0)": 64,
+    "smallest_distance_from_pi": 0.0,
+    "smallest_distance_from_0": 0.31586999999999943
+   }
+  }
+ },
+ "M_massive_pair": {
+  "theta": 0.157935,
+  "grid": 48,
+  "exponentially_local_tick_with_toggle": {
+   "distance_from_phase_0": 0.15793499999999996,
+   "distance_from_phase_pi": 0.15793499999999971,
+   "low_momentum_phases": [
+    {
+     "k": [
+      0.05,
+      0.0,
+      0.0
+     ],
+     "phases": [
+      0.1655978257964892,
+      0.16559782579648927,
+      0.16559782579648927,
+      0.16559782579648946
+     ],
+     "sqrt(k^2+theta^2)": 0.1656606900414217
+    },
+    {
+     "k": [
+      0.05,
+      0.05,
+      0.05
+     ],
+     "phases": [
+      0.17998150466194854,
+      0.17998150466194865,
+      0.1799815046619487,
+      0.1799815046619487
+     ],
+     "sqrt(k^2+theta^2)": 0.1801206934946676
+    },
+    {
+     "k": [
+      0.2,
+      0.1,
+      0.0
+     ],
+     "phases": [
+      0.2734708802787087,
+      0.27347088027870875,
+      0.27347088027870875,
+      0.27347088027870886
+     ],
+     "sqrt(k^2+theta^2)": 0.2737580395623113
+    }
+   ]
+  },
+  "CF1_alternating_period_(two_ticks)": {
+   "distance_from_phase_0": 0.31586999999999976,
+   "distance_from_phase_pi": 0.0,
+   "2_theta": 0.31587
+  }
+ },
+ "P_polar_form": {
+  "4x4x4": {
+   "smallest_singular_value_of_S1+S2+S3-2": 1.230739056730315,
+   "unitarity_defect": 2.2204460498325855e-15,
+   "commutator_with_the_arrow_X_r": 1.4443094314299298e-15,
+   "eigenphases_against_arccos(b/sqrt(b^2+s^2))_defect": 2.6645352591003757e-15,
+   "with_the_engine_mass_step_Z_r_theta_0.157935": {
+    "distance_from_phase_0": 1.4732935647647185,
+    "distance_from_phase_pi": 0.3281545830972732
+   }
+  },
+  "6x4x2": {
+   "smallest_singular_value_of_S1+S2+S3-2": 1.39004177329591,
+   "unitarity_defect": 1.7763568413472436e-15,
+   "commutator_with_the_arrow_X_r": 1.1342042900742852e-15,
+   "eigenphases_against_arccos(b/sqrt(b^2+s^2))_defect": 3.552713678800501e-15,
+   "with_the_engine_mass_step_Z_r_theta_0.157935": {
+    "distance_from_phase_0": 1.8789165561079308,
+    "distance_from_phase_pi": 0.38680123155886736
+   }
+  }
+ }
+}

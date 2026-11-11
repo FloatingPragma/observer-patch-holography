@@ -1,0 +1,142 @@
+"""Worker LS, exact part: X1 (circulant normalization), the missing premise quoted from the
+repository's artifacts, X3 (the declared MCPR determinant law on the native shape).
+
+Reads no measured lepton mass. Run from RER:
+  cd RER && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B RL/work/LS/ls_exact.py
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import mpmath as mp
+import sympy as s
+
+HERE = Path(__file__).resolve().parent
+RER = Path("WORKSPACE/reverse-engineering-reality")
+RUNS = RER / "code" / "particles" / "runs" / "leptons"
+LEW = Path("WORKSPACE/repair-law/work/SIM/derive/lew/t1_chain.json")
+mp.mp.dps = 60
+
+
+def circulant_exact():
+    q, p = s.Rational(1, 6), s.Rational(1, 12)
+    d = s.Rational(2, 9)
+    w = s.exp(2 * s.pi * s.I / 3)
+    R = s.Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+    C = s.sqrt(q) * s.eye(3) + s.sqrt(p) * (s.exp(s.I * d) * R + s.exp(-s.I * d) * R**2)
+    herm = s.simplify(C - C.H) == s.zeros(3)
+    C2 = C * C
+    tr_C2 = s.simplify(s.trace(C2))
+    frob = s.simplify(sum(abs(x) ** 2 for x in C))
+    # eigenvalues lambda_k = sqrt(q) + 2 sqrt(p) cos(d + 2 pi k/3)
+    lam = [s.sqrt(q) + 2 * s.sqrt(p) * s.cos(d + 2 * s.pi * k / 3) for k in range(3)]
+    e1 = s.simplify(sum(lam))
+    e2_formula = s.simplify((e1**2 - (3 * q + 6 * p)) / 2)
+    detC_formula = q ** s.Rational(3, 2) + 2 * p ** s.Rational(3, 2) * s.cos(3 * d) - 3 * s.sqrt(q) * p
+    detC_direct = s.N(C.det(), 50)
+    lam_num = [s.N(x, 50) for x in lam]
+    prod_num = lam_num[0] * lam_num[1] * lam_num[2]
+    # numeric eigen check against the matrix
+    def _mpc(x):
+        z = s.N(x, 50)
+        return mp.mpc(str(s.re(z)), str(s.im(z)))
+
+    Cn = mp.matrix([[_mpc(C[i, j]) for j in range(3)] for i in range(3)])
+    ev = sorted(mp.re(x) for x in mp.eig(Cn)[0])
+    lam_sorted = sorted(mp.mpf(str(x)) for x in lam_num)
+    eig_err = max(abs(a - b) for a, b in zip(ev, lam_sorted))
+    sq = sorted(mp.mpf(str(x)) ** 2 for x in lam_num)
+    det_rho = sq[0] * sq[1] * sq[2]
+    out = {
+        "C_hermitian": bool(herm),
+        "tr_C2": str(tr_C2),
+        "frobenius_C": str(frob),
+        "row_weight": str(q + 2 * p),
+        "e1": str(e1),
+        "e2": str(e2_formula),
+        "detC_cycle_cover_formula": "q^(3/2) + 2 p^(3/2) cos(3 delta) - 3 q^(1/2) p",
+        "detC_formula_value": mp.nstr(mp.mpf(str(s.N(detC_formula, 50))), 30),
+        "detC_matrix_value": mp.nstr(mp.mpf(str(s.re(detC_direct))), 30),
+        "detC_eigen_product": mp.nstr(mp.mpf(str(prod_num)), 30),
+        "eigen_check_max_abs_err": mp.nstr(eig_err, 3),
+        "lambda_sq_sorted": [mp.nstr(x, 30) for x in sq],
+        "sum_lambda_sq": mp.nstr(sum(sq), 30),
+        "det_rho": mp.nstr(det_rho, 30),
+        "log_det_rho_over_3": mp.nstr(mp.log(det_rho) / 3, 30),
+        "ratios": {"mu_e": mp.nstr(sq[1] / sq[0], 15), "tau_e": mp.nstr(sq[2] / sq[0], 15)},
+        "Q": mp.nstr(sum(sq) / sum(mp.sqrt(x) for x in sq) ** 2, 20),
+        "statement": (
+            "C^2 is positive with trace 1, so Y_e = y_J C^2 with y_J = tr Y_e; "
+            "mu = (1/3) log|det Y_e| = log y_J + (1/3) log det(C^2); M = sum m_k = v y_J/sqrt2"
+        ),
+    }
+    assert herm and tr_C2 == 1 and frob == 1 and e2_formula == s.Rational(1, 4)
+    assert abs(mp.mpf(out["detC_formula_value"]) - mp.mpf(out["detC_matrix_value"])) < mp.mpf("1e-25")
+    assert eig_err < mp.mpf("1e-25")
+    return out, sq, det_rho
+
+
+def premise_quotes():
+    und = json.loads((RUNS / "charged_absolute_scale_underdetermination_theorem.json").read_text())
+    mod = json.loads((RUNS / "charged_current_oph_moduli_independence.json").read_text())
+    tl = json.loads((RUNS / "charged_trace_lift_theorem.json").read_text())
+    route = json.loads((RUNS / "charged_post_promotion_absolute_closure_route.json").read_text())
+    return {
+        "underdetermination": {
+            "theorem_statement": und["theorem_statement"],
+            "next_exact_missing_object": und["next_exact_missing_object"],
+            "minimal_new_theorem": und["minimal_new_theorem"],
+            "on_fill": und["future_single_slot_only"]["on_fill"],
+        },
+        "moduli_independence": {
+            "remaining_spectral_modulus": mod["extended_centered_candidate_scope"]["remaining_spectral_modulus"],
+            "independent_inputs_not_supplied": mod["independent_inputs_not_supplied"],
+            "claim_boundary": mod["claim_boundary"],
+            "categorical_form": mod["theorem"]["categorical_form"],
+            "excluded_scope": mod["scope"]["excluded"],
+            "why_excluded": mod["scope"]["why_excluded"],
+        },
+        "trace_lift": {
+            "missing_source_object_class": tl["missing_source_object_class"],
+            "uncentered_lift_constant": tl["uncentered_lift_constant"],
+        },
+        "route": {
+            "post_promotion_single_slot": route["post_promotion_single_slot"]["id"],
+            "must_emit": route["post_promotion_single_slot"]["must_emit"],
+            "A_ch": route["induced_once_post_promotion_slot_exists"]["charged_absolute_anchor"],
+        },
+    }
+
+
+def mcpr_reference(det_rho):
+    chain = json.loads(LEW.read_text())["pixels"]["P_fwd"]["chain"]
+    v_over_E = mp.mpf(chain["v_over_E"])
+    estar = mp.mpf("1.22089e19")
+    v = v_over_E * estar
+    # declared law |det Y_e| = sqrt2 6^-14 (chi = 0, kappa = 0 on the native shape)
+    det_Y = mp.sqrt(2) / mp.mpf(6) ** 14
+    yJ = (det_Y / det_rho) ** (mp.mpf(1) / 3)
+    # with the MCPR kappa (exp(3 kappa) on det M): kappa from the chain lepton coefficients
+    t = [mp.mpf(x) for x in chain["lepton_masses_over_v"]]
+    yJ_chain = mp.sqrt(2) * sum(t)
+    return {
+        "status": "DECLARED, target-informed (MCPR); reference row only",
+        "v_source_GeV": mp.nstr(v, 12),
+        "det_Y_declared": mp.nstr(det_Y, 15),
+        "yJ_native_shape": mp.nstr(yJ, 15),
+        "mu_native_shape": mp.nstr(mp.log(det_Y) / 3, 15),
+        "yJ_MCPR_full_chain": mp.nstr(yJ_chain, 15),
+    }
+
+
+def main():
+    circ, sq, det_rho = circulant_exact()
+    out = {"X1": circ, "premise": premise_quotes(), "X3": mcpr_reference(det_rho)}
+    (HERE / "exact.json").write_text(json.dumps(out, indent=1) + "\n")
+    print(json.dumps({"X1": {k: circ[k] for k in ("tr_C2", "e2", "det_rho", "log_det_rho_over_3", "ratios", "Q")},
+                      "X3": out["X3"]}, indent=1))
+
+
+if __name__ == "__main__":
+    main()

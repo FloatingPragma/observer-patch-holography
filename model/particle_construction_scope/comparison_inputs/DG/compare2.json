@@ -1,0 +1,339 @@
+{
+ "exposure": "NOT BLIND",
+ "measured": {
+  "sin2_theta12": 0.3088,
+  "sin2_theta23": 0.47,
+  "sin2_theta13": 0.02248,
+  "ratio_of_splittings": 0.030015929908403027
+ },
+ "measured_source": "NuFIT 6.1 normal ordering (RER calibrated packet)",
+ "dirac_with_the_circulant": {
+  "N1": {
+   "lightest_mass_eV_at_y_ratio_1": "510941.0",
+   "over_KATRIN": "1.13542e+6",
+   "ratio_of_splittings": 0.003535401712,
+   "measured_ratio": 0.030015929908403027,
+   "relative_difference": -0.8822158193069922,
+   "y_nu_over_y_e_for_m3_at_sqrt_dm31": "2.82026e-11",
+   "dm21_then_eV2": "8.87739e-6",
+   "dm21_then_over_measured": "0.117784"
+  },
+  "N2": {
+   "lightest_mass_eV_at_y_ratio_1": "510941.0",
+   "over_KATRIN": "1.13542e+6",
+   "ratio_of_splittings": 0.003535401712,
+   "measured_ratio": 0.030015929908403027,
+   "relative_difference": -0.8822158193069922,
+   "y_nu_over_y_e_for_m3_at_sqrt_dm31": "2.82026e-11",
+   "dm21_then_eV2": "8.87739e-6",
+   "dm21_then_over_measured": "0.117784"
+  },
+  "N3": {
+   "lightest_mass_eV_at_y_ratio_1": "2.14227e+7",
+   "over_KATRIN": "4.76059e+7",
+   "ratio_of_splittings": 0.03499753003,
+   "measured_ratio": 0.030015929908403027,
+   "relative_difference": 0.16596521036659162,
+   "y_nu_over_y_e_for_m3_at_sqrt_dm31": "3.19676e-11",
+   "dm21_then_eV2": "8.78624e-5",
+   "dm21_then_over_measured": "1.16575"
+  }
+ },
+ "F4_seesaw_with_circulant_Dirac_masses": {
+  "ratio_of_splittings": 1.249964791e-05,
+  "measured": 0.030015929908403027
+ },
+ "mixing": {
+  "U0, N1": {
+   "sin2_theta12": {
+    "value": 0.0,
+    "measured": 0.3088,
+    "difference": -0.3088
+   },
+   "sin2_theta23": {
+    "value": 0.0,
+    "measured": 0.47,
+    "difference": -0.47
+   },
+   "sin2_theta13": {
+    "value": 0.0,
+    "measured": 0.02248,
+    "difference": -0.02248
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U0, N2": {
+   "sin2_theta12": {
+    "value": 1.0,
+    "measured": 0.3088,
+    "difference": 0.6912
+   },
+   "sin2_theta23": {
+    "value": 0.0,
+    "measured": 0.47,
+    "difference": -0.47
+   },
+   "sin2_theta13": {
+    "value": 0.0,
+    "measured": 0.02248,
+    "difference": -0.02248
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U0, N3": {
+   "sin2_theta12": {
+    "value": 0.0,
+    "measured": 0.3088,
+    "difference": -0.3088
+   },
+   "sin2_theta23": {
+    "value": 0.0,
+    "measured": 0.47,
+    "difference": -0.47
+   },
+   "sin2_theta13": {
+    "value": 0.0,
+    "measured": 0.02248,
+    "difference": -0.02248
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U2 (= U4a), N1": {
+   "sin2_theta12": {
+    "value": 0.012923,
+    "measured": 0.3088,
+    "difference": -0.295877
+   },
+   "sin2_theta23": {
+    "value": 0.225884,
+    "measured": 0.47,
+    "difference": -0.244116
+   },
+   "sin2_theta13": {
+    "value": 0.184262,
+    "measured": 0.02248,
+    "difference": 0.161782
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U2 (= U4a), N2": {
+   "sin2_theta12": {
+    "value": 0.987077,
+    "measured": 0.3088,
+    "difference": 0.678277
+   },
+   "sin2_theta23": {
+    "value": 0.225884,
+    "measured": 0.47,
+    "difference": -0.244116
+   },
+   "sin2_theta13": {
+    "value": 0.184262,
+    "measured": 0.02248,
+    "difference": 0.161782
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U2 (= U4a), N3": {
+   "sin2_theta12": {
+    "value": 0.012923,
+    "measured": 0.3088,
+    "difference": -0.295877
+   },
+   "sin2_theta23": {
+    "value": 0.225884,
+    "measured": 0.47,
+    "difference": -0.244116
+   },
+   "sin2_theta13": {
+    "value": 0.184262,
+    "measured": 0.02248,
+    "difference": 0.161782
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U3a, N1": {
+   "sin2_theta12": {
+    "value": 0.020843,
+    "measured": 0.3088,
+    "difference": -0.287957
+   },
+   "sin2_theta23": {
+    "value": 0.285714,
+    "measured": 0.47,
+    "difference": -0.184286
+   },
+   "sin2_theta13": {
+    "value": 0.222222,
+    "measured": 0.02248,
+    "difference": 0.199742
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U3a, N2": {
+   "sin2_theta12": {
+    "value": 0.979157,
+    "measured": 0.3088,
+    "difference": 0.670357
+   },
+   "sin2_theta23": {
+    "value": 0.285714,
+    "measured": 0.47,
+    "difference": -0.184286
+   },
+   "sin2_theta13": {
+    "value": 0.222222,
+    "measured": 0.02248,
+    "difference": 0.199742
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U3a, N3": {
+   "sin2_theta12": {
+    "value": 0.020843,
+    "measured": 0.3088,
+    "difference": -0.287957
+   },
+   "sin2_theta23": {
+    "value": 0.285714,
+    "measured": 0.47,
+    "difference": -0.184286
+   },
+   "sin2_theta13": {
+    "value": 0.222222,
+    "measured": 0.02248,
+    "difference": 0.199742
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U3b, N1": {
+   "sin2_theta12": {
+    "value": 0.2,
+    "measured": 0.3088,
+    "difference": -0.1088
+   },
+   "sin2_theta23": {
+    "value": 0.8,
+    "measured": 0.47,
+    "difference": 0.33
+   },
+   "sin2_theta13": {
+    "value": 0.444444,
+    "measured": 0.02248,
+    "difference": 0.421964
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U3b, N2": {
+   "sin2_theta12": {
+    "value": 0.8,
+    "measured": 0.3088,
+    "difference": 0.4912
+   },
+   "sin2_theta23": {
+    "value": 0.8,
+    "measured": 0.47,
+    "difference": 0.33
+   },
+   "sin2_theta13": {
+    "value": 0.444444,
+    "measured": 0.02248,
+    "difference": 0.421964
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U3b, N3": {
+   "sin2_theta12": {
+    "value": 0.2,
+    "measured": 0.3088,
+    "difference": -0.1088
+   },
+   "sin2_theta23": {
+    "value": 0.8,
+    "measured": 0.47,
+    "difference": 0.33
+   },
+   "sin2_theta13": {
+    "value": 0.444444,
+    "measured": 0.02248,
+    "difference": 0.421964
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U4b, N1": {
+   "sin2_theta12": {
+    "value": 0.318785,
+    "measured": 0.3088,
+    "difference": 0.009985
+   },
+   "sin2_theta23": {
+    "value": 0.932011,
+    "measured": 0.47,
+    "difference": 0.462011
+   },
+   "sin2_theta13": {
+    "value": 0.482405,
+    "measured": 0.02248,
+    "difference": 0.459925
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U4b, N2": {
+   "sin2_theta12": {
+    "value": 0.681215,
+    "measured": 0.3088,
+    "difference": 0.372415
+   },
+   "sin2_theta23": {
+    "value": 0.932011,
+    "measured": 0.47,
+    "difference": 0.462011
+   },
+   "sin2_theta13": {
+    "value": 0.482405,
+    "measured": 0.02248,
+    "difference": 0.459925
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U4b, N3": {
+   "sin2_theta12": {
+    "value": 0.318785,
+    "measured": 0.3088,
+    "difference": 0.009985
+   },
+   "sin2_theta23": {
+    "value": 0.932011,
+    "measured": 0.47,
+    "difference": 0.462011
+   },
+   "sin2_theta13": {
+    "value": 0.482405,
+    "measured": 0.02248,
+    "difference": 0.459925
+   },
+   "theta13_within_a_factor_two": false
+  },
+  "U1 (lead L32)": {
+   "sin2_theta12": {
+    "value": 0.276393,
+    "measured": 0.3088,
+    "difference": -0.032407
+   },
+   "sin2_theta23": {
+    "value": 0.5,
+    "measured": 0.47,
+    "difference": 0.03
+   },
+   "sin2_theta13": {
+    "value": 0.0,
+    "measured": 0.02248,
+    "difference": -0.02248
+   },
+   "theta13_within_a_factor_two": false
+  }
+ },
+ "summary": {
+  "any_mixing_try_with_theta13_within_a_factor_two": false
+ }
+}

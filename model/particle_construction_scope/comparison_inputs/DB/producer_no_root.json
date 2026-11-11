@@ -1,0 +1,68 @@
+{
+ "A": {
+  "outcome": "exception",
+  "type": "InvalidOperation",
+  "message": "[<class 'decimal.InvalidOperation'>]",
+  "b": [
+   "41/10",
+   "-19/6",
+   "-7"
+  ],
+  "seconds": 1.0
+ },
+ "B": {
+  "outcome": "exception",
+  "type": "Overflow",
+  "message": "[<class 'decimal.Overflow'>]",
+  "b": [
+   "61/10",
+   "-7/6",
+   "-5"
+  ],
+  "seconds": 3.9
+ },
+ "BnoH": {
+  "outcome": "exception",
+  "type": "Overflow",
+  "message": "[<class 'decimal.Overflow'>]",
+  "b": [
+   "6",
+   "-4/3",
+   "-5"
+  ],
+  "seconds": 3.1
+ },
+ "S": {
+  "outcome": "exception",
+  "type": "Overflow",
+  "message": "[<class 'decimal.Overflow'>]",
+  "b": [
+   "23/5",
+   "-1",
+   "-5"
+  ],
+  "seconds": 2.4
+ },
+ "A2": {
+  "outcome": "exception",
+  "type": "InvalidOperation",
+  "message": "[<class 'decimal.InvalidOperation'>]",
+  "b": [
+   "21/5",
+   "-3",
+   "-7"
+  ],
+  "seconds": 1.0
+ },
+ "B0": {
+  "outcome": "exception",
+  "type": "Overflow",
+  "message": "[<class 'decimal.Overflow'>]",
+  "b": [
+   "11/2",
+   "-7/6",
+   "-5"
+  ],
+  "seconds": 3.6
+ }
+}

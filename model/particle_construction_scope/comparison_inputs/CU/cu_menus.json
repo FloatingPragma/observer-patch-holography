@@ -1,0 +1,291 @@
+{
+ "couplings": {
+  "chain": 24.31655445402154,
+  "matter-only window": 16.73178012359921
+ },
+ "rows": {
+  "chain: 1/alpha = 24.3166, F = 5, M1": {
+   "states": 119,
+   "sectors": 11,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((1, 0), 0, -2)": 0.0,
+    "((0, 0), 1, 3)": 0.43021330369286115
+   },
+   "stiffness per factor": {
+    "SU3": 0.0,
+    "SU2": 0.034255897039525404,
+    "U1": 0.02055353822371524
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.34152281427685055,
+    0.15613194915824663,
+    0.4976547634350972
+   ],
+   "weight on the vacuum sector": 0.3982572704594044
+  },
+  "chain: 1/alpha = 24.3166, F = 5, M2": {
+   "states": 3380,
+   "sectors": 48,
+   "product state with u > 0 wins": true,
+   "colour ordered": true,
+   "u per block": {
+    "((1, 0), 0, -2)": 0.4656971053767058,
+    "((0, 0), 1, 3)": 0.6206538291031344
+   },
+   "stiffness per factor": {
+    "SU3": 0.047034242504974774,
+    "SU2": 0.14838764979202046,
+    "U1": 0.10784628687720219
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    1.3626240576822464,
+    0.7583675179614484,
+    0.2362570932778417,
+    2.3572486689215366
+   ],
+   "weight on the vacuum sector": 0.035873214003065125
+  },
+  "chain: 1/alpha = 24.3166, F = 5, M3": {
+   "states": 45500,
+   "sectors": 140,
+   "product state with u > 0 wins": true,
+   "colour ordered": true,
+   "u per block": {
+    "((1, 0), 0, -2)": 0.6206312127718201,
+    "((0, 0), 1, 3)": 0.737279282708758
+   },
+   "stiffness per factor": {
+    "SU3": 0.14836602227173762,
+    "SU2": 0.2954800216725072,
+    "U1": 0.23663442191219936
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    2.639907808101909,
+    1.249349161496295,
+    0.34599380852411366,
+    4.235250778122317
+   ],
+   "weight on the vacuum sector": 0.00481041721811857
+  },
+  "chain: 1/alpha = 24.3166, F = 15, M1": {
+   "states": 119,
+   "sectors": 11,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.704803728389187,
+    "((0, 0), 1, -3)": 0.0,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "stiffness per factor": {
+    "SU3": 0.0,
+    "SU2": 0.0,
+    "U1": 0.07402766073993619
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    4.800918750425955e-207,
+    0.2758068852611698,
+    0.2758068852611698
+   ],
+   "weight on the vacuum sector": 0.5403218578980504
+  },
+  "chain: 1/alpha = 24.3166, F = 15, M2": {
+   "states": 3380,
+   "sectors": 48,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.8116951597721087,
+    "((0, 0), 1, -3)": 0.6385863265119093,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "stiffness per factor": {
+    "SU3": 0.0,
+    "SU2": 0.041573680031662036,
+    "U1": 0.1551688222663216
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.6120091842875717,
+    0.4446216809358725,
+    1.0566308652234442
+   ],
+   "weight on the vacuum sector": 0.1611811504761299
+  },
+  "chain: 1/alpha = 24.3166, F = 15, M3": {
+   "states": 45500,
+   "sectors": 140,
+   "product state with u > 0 wins": true,
+   "colour ordered": true,
+   "u per block": {
+    "((0, 1), 0, -4)": 0.5683213821170989,
+    "((1, 0), 1, 1)": 0.47857005237523537,
+    "((0, 0), 0, 6)": 0.7963399582213657,
+    "((0, 0), 1, -3)": 0.725336090217617,
+    "((0, 1), 0, 2)": 0.611522379333625
+   },
+   "stiffness per factor": {
+    "SU3": 0.08726916317702343,
+    "SU2": 0.10853938935958728,
+    "U1": 0.22050190920786483
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    2.391655778934644,
+    0.9989441943160313,
+    0.43005512781021604,
+    3.820655101060891
+   ],
+   "weight on the vacuum sector": 0.007953644145290779
+  },
+  "matter-only window: 1/alpha = 16.7318, F = 5, M1": {
+   "states": 119,
+   "sectors": 11,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((1, 0), 0, -2)": 0.0,
+    "((0, 0), 1, 3)": 0.41671594415901575
+   },
+   "stiffness per factor": {
+    "SU3": 0.0,
+    "SU2": 0.03015507896454905,
+    "U1": 0.01809304737872943
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.2929124629770945,
+    0.12766971887520767,
+    0.4205821818523021
+   ],
+   "weight on the vacuum sector": 0.49430467223089364
+  },
+  "matter-only window: 1/alpha = 16.7318, F = 5, M2": {
+   "states": 3380,
+   "sectors": 48,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((1, 0), 0, -2)": 0.0,
+    "((0, 0), 1, 3)": 0.6568545259178074
+   },
+   "stiffness per factor": {
+    "SU3": 4.0814528576053255e-255,
+    "SU2": 0.18615589204783153,
+    "U1": 0.11169353522869892
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    4.474928622853387e-127,
+    0.776002873057603,
+    0.317382298394882,
+    1.093385171452485
+   ],
+   "weight on the vacuum sector": 0.15516935610739493
+  },
+  "matter-only window: 1/alpha = 16.7318, F = 5, M3": {
+   "states": 45500,
+   "sectors": 140,
+   "product state with u > 0 wins": true,
+   "colour ordered": true,
+   "u per block": {
+    "((1, 0), 0, -2)": 0.5986340461443568,
+    "((0, 0), 1, 3)": 0.7402865274851755
+   },
+   "stiffness per factor": {
+    "SU3": 0.12842383994813655,
+    "SU2": 0.30033046106543493,
+    "U1": 0.23156781261851556
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    2.219068973166364,
+    1.1878157318579392,
+    0.351753537408182,
+    3.7586382424324847
+   ],
+   "weight on the vacuum sector": 0.009374720376672172
+  },
+  "matter-only window: 1/alpha = 16.7318, F = 15, M1": {
+   "states": 119,
+   "sectors": 11,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.6962528647155326,
+    "((0, 0), 1, -3)": 0.0,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "stiffness per factor": {
+    "SU3": 0.0,
+    "SU2": 0.0,
+    "U1": 0.0705000191627691
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.0,
+    0.2476382705826617,
+    0.2476382705826617
+   ],
+   "weight on the vacuum sector": 0.5872695490288972
+  },
+  "matter-only window: 1/alpha = 16.7318, F = 15, M2": {
+   "states": 3380,
+   "sectors": 48,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.8138430243522894,
+    "((0, 0), 1, -3)": 0.5819176491019005,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "stiffness per factor": {
+    "SU3": 0.0,
+    "SU2": 0.028667256050042996,
+    "U1": 0.14880882240917126
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.4164452041853437,
+    0.40845444278888965,
+    0.8248996469742333
+   ],
+   "weight on the vacuum sector": 0.24530302674695503
+  },
+  "matter-only window: 1/alpha = 16.7318, F = 15, M3": {
+   "states": 45500,
+   "sectors": 140,
+   "product state with u > 0 wins": true,
+   "colour ordered": false,
+   "u per block": {
+    "((0, 1), 0, -4)": 0.0,
+    "((1, 0), 1, 1)": 0.0,
+    "((0, 0), 0, 6)": 0.868681592182422,
+    "((0, 0), 1, -3)": 0.7159351220107617,
+    "((0, 1), 0, 2)": 0.0
+   },
+   "stiffness per factor": {
+    "SU3": 0.0,
+    "SU2": 0.06568023259581328,
+    "U1": 0.2102379777195058
+   },
+   "mean Casimir (SU3, SU2, U1, total)": [
+    0.0,
+    0.7774577299605456,
+    0.5556768356983877,
+    1.3331345656589333
+   ],
+   "weight on the vacuum sector": 0.13873439889942055
+  }
+ },
+ "seconds": 0.3
+}

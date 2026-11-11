@@ -1,0 +1,88 @@
+"""Part 2 extras (conditional rows; no measured value read). Writes part2_extra.json.
+(a) lambda(E_cell) on the criticality trajectory of each boundary scale below E_cell (run up from mu_c): the value a
+    class-3 register at the cell would have to supply for criticality below the cell.
+(b) rebuilt chain with the boundary at the cell (C2a after GL): lambda = 0, y_t = y_crit from the source's own
+    couplings at E_cell; gauge couplings of the rebuilt chart (census BE, the only one on record reaching Q0); SM
+    two-loop betas for y_t and lambda (portal couplings of census B set to zero: DECLARED); v = D10 v (DECLARED)."""
+import json
+import math
+import sys
+
+import numpy as np
+
+sys.path.insert(0, ".")
+import d11_scan_copy as D  # noqa: E402
+import htlib as H  # noqa: E402
+
+root = json.load(open("R_P_source_audit_pixel_certificate.json"))
+p, au = float(root["P_cand"]), float(root["alpha_U_P_cand"])
+sc = D.source_scales(p, au)
+v, mz, ec = sc["v_transmutation_gev"], sc["mz_run_gev"], sc["E_cell_pixel_energy"]
+out = {}
+
+
+def rk4(gauge, t0, t1, y, lam, n=12000, record=False):
+    dt = (t1 - t0) / n
+    traj = []
+
+    def der(t, yv, lv):
+        gy, g2, g3 = gauge(math.exp(t))
+        d = D._beta_2loop_engine(math.sqrt(5 / 3) * gy, g2, g3, yv, lv)
+        return d[3], d[4]
+    for i in range(n + 1):
+        t = t0 + i * dt
+        if record:
+            traj.append((t, y, lam))
+        if i == n:
+            break
+        k1 = der(t, y, lam)
+        k2 = der(t + dt / 2, y + dt / 2 * k1[0], lam + dt / 2 * k1[1])
+        k3 = der(t + dt / 2, y + dt / 2 * k2[0], lam + dt / 2 * k2[1])
+        k4 = der(t + dt, y + dt * k3[0], lam + dt * k3[1])
+        y += dt / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0])
+        lam += dt / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])
+    return y, lam, traj
+
+
+def d11_gauge(mu):
+    return D.gauge_couplings(mu, mz)
+
+
+# (a)
+d11rows = json.load(open("part2_d11.json"))["rows"]
+gap = {}
+for name, row in d11rows.items():
+    mu = row["mu_c_GeV"]
+    if mu >= ec:
+        continue
+    gy, g2, g3 = d11_gauge(mu)
+    y0 = D.solve_two_loop_critical_yukawa(gy, g2, g3)
+    y1, l1, _ = rk4(d11_gauge, math.log(mu), math.log(ec), y0, 0.0, n=6000)
+    gap[name] = {"mu_c_GeV": mu, "yt_mu_c": y0, "yt_E_cell": y1, "lambda_E_cell": l1}
+out["a_lambda_at_E_cell_on_criticality_trajectories"] = gap
+
+# (b)
+rows = {}
+for matching in ("bare", "5trace"):
+    b = H.CENSUS["BE"]
+
+    def gauge(mu, b=b, matching=matching):
+        x1, x2, x3 = H.inv_alphas_rebuilt(mu, H.P_FWD, b, matching, e_star=D.E_STAR_DISPLAY_GEV)
+        return (math.sqrt(4 * math.pi * 0.6 / x1), math.sqrt(4 * math.pi / x2), math.sqrt(4 * math.pi / x3))
+    gy, g2, g3 = gauge(ec)
+    y0 = D.solve_two_loop_critical_yukawa(gy, g2, g3)
+    _, _, traj = rk4(gauge, math.log(ec), math.log(50.0), y0, 0.0, n=12000, record=True)
+    ln_mu = np.array([t for t, _, _ in traj])[::-1]
+    ys = np.array([y for _, y, _ in traj])[::-1]
+    ls = np.array([l for _, _, l in traj])[::-1]
+    mu_g = 173.0
+    for _ in range(12):
+        mu_g = float(np.interp(math.log(mu_g), ln_mu, ys)) * v / math.sqrt(2)
+    y_mt, l_mt = float(np.interp(math.log(mu_g), ln_mu, ys)), float(np.interp(math.log(mu_g), ln_mu, ls))
+    a_s = gauge(mu_g)[2] ** 2 / (4 * math.pi)
+    rows[f"BE_{matching}"] = {"yt_E_cell": y0, "yt_mt": y_mt, "lambda_mt": l_mt, "alpha_s_mt": a_s,
+                              "mt_msbar": mu_g, "mt_pole": D.top_pole_from_msbar(mu_g, a_s),
+                              "mh_tree": math.sqrt(max(0.0, 2 * l_mt)) * v, "min_lambda": float(ls.min())}
+out["b_rebuilt_chain_boundary_at_cell"] = rows
+json.dump(out, open("part2_extra.json", "w"), indent=1)
+print(json.dumps(out, indent=1))

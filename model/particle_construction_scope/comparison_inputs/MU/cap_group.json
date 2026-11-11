@@ -1,0 +1,37 @@
+{
+ "real_Lie_algebra_generated_by_log_E_C": {
+  "traceless_parts (boost generators n.sigma of the six port axes)": 6,
+  "with_the_identity": 7,
+  "real_span_of_the_generators": 4
+ },
+ "jorgensen": {
+  "star": {
+   "eta": 0.6032309699031076,
+   "min_J": 0.37505683604718687,
+   "max_J": 0.40319036210033277
+  },
+  "all_but_antipode": {
+   "eta": 0.09116077839697571,
+   "min_J": 0.008316044185608717,
+   "max_J": 0.00832987550378883
+  },
+  "face": {
+   "eta": 1.0839368632782487,
+   "min_J": 1.2945564141853279,
+   "max_J": 1.666973371853856
+  },
+  "seam": {
+   "eta": 1.2585027561639648,
+   "min_J": 1.8042260651806137,
+   "max_J": 2.618033988749896
+  },
+  "statement": "a pair of hyperbolic elements with four distinct fixed points and J = |tr^2 A - 4| + |tr[A,B] - 2| < 1 generates a non-discrete group (IMPORTED: Jorgensen inequality); with the six axes not on one circle the closure is SL(2,C) (ARGUED: the identity component of the closure has an Ad-invariant Lie algebra, sl(2,C) is simple as a real Lie algebra)",
+  "min_J_over_pairs_of_11_port_caps": 0.008329875503787498
+ },
+ "schottky_threshold_eta_for_port_axes": 2.51700551232793,
+ "words_in_star_boosts_up_to_length_6": {
+  "elements_within_0.25_of_identity": 78,
+  "closest": 0.17106107458417816,
+  "real_rank_of_their_logarithms (6 = sl(2,C))": 6
+ }
+}

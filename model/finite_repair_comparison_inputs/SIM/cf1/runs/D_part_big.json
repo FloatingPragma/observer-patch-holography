@@ -1,0 +1,670 @@
+{
+ "run": "D addition",
+ "theta0": 0.171237,
+ "rows": [
+  {
+   "L": 48,
+   "side": 8,
+   "block_r": [
+    0,
+    0,
+    0
+   ],
+   "block_dimension": 55296,
+   "cavity_cells_in_block": 64,
+   "cavity_volume_fraction": 0.004629629629629629,
+   "lowest_16": [
+    {
+     "abs_phase": 0.16993247872216238,
+     "weight_in_cavity": 0.01341996668423201
+    },
+    {
+     "abs_phase": 0.1699324787221677,
+     "weight_in_cavity": 0.012754263949743421
+    },
+    {
+     "abs_phase": 0.16993247872218303,
+     "weight_in_cavity": 0.012788097351986927
+    },
+    {
+     "abs_phase": 0.16993247872222816,
+     "weight_in_cavity": 0.013045726191848397
+    },
+    {
+     "abs_phase": 0.16993320844238718,
+     "weight_in_cavity": 0.013842985069394369
+    },
+    {
+     "abs_phase": 0.1699332084424025,
+     "weight_in_cavity": 0.012070707596581954
+    },
+    {
+     "abs_phase": 0.16993320844241716,
+     "weight_in_cavity": 0.013188059528122152
+    },
+    {
+     "abs_phase": 0.1699332084424643,
+     "weight_in_cavity": 0.012871205523966702
+    },
+    {
+     "abs_phase": 0.16993741760590883,
+     "weight_in_cavity": 0.012922454969144664
+    },
+    {
+     "abs_phase": 0.16993741760592065,
+     "weight_in_cavity": 0.01277738946168047
+    },
+    {
+     "abs_phase": 0.16993741760592798,
+     "weight_in_cavity": 0.013353218999034185
+    },
+    {
+     "abs_phase": 0.1699374176059894,
+     "weight_in_cavity": 0.012796245072863947
+    },
+    {
+     "abs_phase": 0.1699460535888583,
+     "weight_in_cavity": 0.012151933409947458
+    },
+    {
+     "abs_phase": 0.16994605358886214,
+     "weight_in_cavity": 0.013610819927288789
+    },
+    {
+     "abs_phase": 0.16994605358886547,
+     "weight_in_cavity": 0.012352139514434387
+    },
+    {
+     "abs_phase": 0.16994605358893808,
+     "weight_in_cavity": 0.013426756292016893
+    }
+   ],
+   "lowest_abs_phase": 0.16993247872216238,
+   "bound": true,
+   "binding_theta0_minus_E": 0.001304521277837617,
+   "eigen_residual": 5.986439069715328e-14,
+   "seconds": 612.4543716907501
+  },
+  {
+   "L": 48,
+   "side": 8,
+   "block_r": [
+    1,
+    1,
+    1
+   ],
+   "block_dimension": 55296,
+   "cavity_cells_in_block": 64,
+   "cavity_volume_fraction": 0.004629629629629629,
+   "lowest_16": [
+    {
+     "abs_phase": 0.16993247872216638,
+     "weight_in_cavity": 0.013479633091536485
+    },
+    {
+     "abs_phase": 0.16993247872216705,
+     "weight_in_cavity": 0.013438245260659482
+    },
+    {
+     "abs_phase": 0.1699324787221837,
+     "weight_in_cavity": 0.012082707196506538
+    },
+    {
+     "abs_phase": 0.169932478722232,
+     "weight_in_cavity": 0.01300594147202999
+    },
+    {
+     "abs_phase": 0.16993320844239368,
+     "weight_in_cavity": 0.012700297303020283
+    },
+    {
+     "abs_phase": 0.1699332084424025,
+     "weight_in_cavity": 0.013850791147050867
+    },
+    {
+     "abs_phase": 0.169933208442416,
+     "weight_in_cavity": 0.012329108572343489
+    },
+    {
+     "abs_phase": 0.16993320844246546,
+     "weight_in_cavity": 0.013092447011212236
+    },
+    {
+     "abs_phase": 0.1699374176059105,
+     "weight_in_cavity": 0.013010111641958217
+    },
+    {
+     "abs_phase": 0.16993741760592082,
+     "weight_in_cavity": 0.012833082461232416
+    },
+    {
+     "abs_phase": 0.16993741760592398,
+     "weight_in_cavity": 0.012854673246481273
+    },
+    {
+     "abs_phase": 0.16993741760599856,
+     "weight_in_cavity": 0.01315154606904689
+    },
+    {
+     "abs_phase": 0.16994605358884782,
+     "weight_in_cavity": 0.012467006625219611
+    },
+    {
+     "abs_phase": 0.16994605358885848,
+     "weight_in_cavity": 0.013356603136803005
+    },
+    {
+     "abs_phase": 0.16994605358886597,
+     "weight_in_cavity": 0.013376770420748524
+    },
+    {
+     "abs_phase": 0.16994605358893858,
+     "weight_in_cavity": 0.012341232600584095
+    }
+   ],
+   "lowest_abs_phase": 0.16993247872216638,
+   "bound": true,
+   "binding_theta0_minus_E": 0.0013045212778336202,
+   "eigen_residual": 2.0974372365966063e-13,
+   "seconds": 614.839765548706
+  },
+  {
+   "L": 48,
+   "side": 12,
+   "block_r": [
+    0,
+    0,
+    0
+   ],
+   "block_dimension": 55296,
+   "cavity_cells_in_block": 216,
+   "cavity_volume_fraction": 0.015625,
+   "lowest_16": [
+    {
+     "abs_phase": 0.16340301272641278,
+     "weight_in_cavity": 0.1179570364747982
+    },
+    {
+     "abs_phase": 0.16340301272642435,
+     "weight_in_cavity": 0.13221580981062578
+    },
+    {
+     "abs_phase": 0.16340301272645946,
+     "weight_in_cavity": 0.1298473550423433
+    },
+    {
+     "abs_phase": 0.16340578228836114,
+     "weight_in_cavity": 0.12211257346903895
+    },
+    {
+     "abs_phase": 0.16340578228836428,
+     "weight_in_cavity": 0.12523898918667417
+    },
+    {
+     "abs_phase": 0.163405782288403,
+     "weight_in_cavity": 0.12360984148767977
+    },
+    {
+     "abs_phase": 0.16344609627067477,
+     "weight_in_cavity": 0.12288875390890755
+    },
+    {
+     "abs_phase": 0.16344609627069498,
+     "weight_in_cavity": 0.12511668754461266
+    },
+    {
+     "abs_phase": 0.16344609627072698,
+     "weight_in_cavity": 0.12446062912316948
+    },
+    {
+     "abs_phase": 0.16352569169893988,
+     "weight_in_cavity": 0.12032822797977298
+    },
+    {
+     "abs_phase": 0.16352569169895007,
+     "weight_in_cavity": 0.12834893512732667
+    },
+    {
+     "abs_phase": 0.16352569169899378,
+     "weight_in_cavity": 0.1256062185013042
+    },
+    {
+     "abs_phase": 0.1933527798924839,
+     "weight_in_cavity": 0.19282649534979257
+    },
+    {
+     "abs_phase": 0.19335277989249347,
+     "weight_in_cavity": 0.17617584746503007
+    },
+    {
+     "abs_phase": 0.19335749925505008,
+     "weight_in_cavity": 0.17962523274920525
+    },
+    {
+     "abs_phase": 0.1933574992550573,
+     "weight_in_cavity": 0.19382372872921327
+    }
+   ],
+   "lowest_abs_phase": 0.16340301272641278,
+   "bound": true,
+   "binding_theta0_minus_E": 0.007833987273587223,
+   "eigen_residual": 3.447581148329034e-12,
+   "seconds": 457.6614902019501
+  },
+  {
+   "L": 48,
+   "side": 12,
+   "block_r": [
+    1,
+    1,
+    1
+   ],
+   "block_dimension": 55296,
+   "cavity_cells_in_block": 216,
+   "cavity_volume_fraction": 0.015625,
+   "lowest_16": [
+    {
+     "abs_phase": 0.16340301272642385,
+     "weight_in_cavity": 0.13217751216344167
+    },
+    {
+     "abs_phase": 0.16340301272644234,
+     "weight_in_cavity": 0.12243782677462192
+    },
+    {
+     "abs_phase": 0.16340301272645982,
+     "weight_in_cavity": 0.12114893111110432
+    },
+    {
+     "abs_phase": 0.16340578228836203,
+     "weight_in_cavity": 0.12662487760800625
+    },
+    {
+     "abs_phase": 0.16340578228837083,
+     "weight_in_cavity": 0.12272532604694472
+    },
+    {
+     "abs_phase": 0.1634057822884061,
+     "weight_in_cavity": 0.12548010552201783
+    },
+    {
+     "abs_phase": 0.16344609627067977,
+     "weight_in_cavity": 0.12070758465885102
+    },
+    {
+     "abs_phase": 0.1634460962706976,
+     "weight_in_cavity": 0.12536602416966403
+    },
+    {
+     "abs_phase": 0.1634460962707263,
+     "weight_in_cavity": 0.12438216643795894
+    },
+    {
+     "abs_phase": 0.16352569169894385,
+     "weight_in_cavity": 0.12304488991652465
+    },
+    {
+     "abs_phase": 0.16352569169895215,
+     "weight_in_cavity": 0.12834029607438713
+    },
+    {
+     "abs_phase": 0.16352569169899223,
+     "weight_in_cavity": 0.11975157390776713
+    },
+    {
+     "abs_phase": 0.19335277989248817,
+     "weight_in_cavity": 0.1788327992563979
+    },
+    {
+     "abs_phase": 0.19335277989249863,
+     "weight_in_cavity": 0.1964472972596532
+    },
+    {
+     "abs_phase": 0.1933574992550439,
+     "weight_in_cavity": 0.18189130540832535
+    },
+    {
+     "abs_phase": 0.19335749925505877,
+     "weight_in_cavity": 0.18419103737861817
+    }
+   ],
+   "lowest_abs_phase": 0.16340301272642385,
+   "bound": true,
+   "binding_theta0_minus_E": 0.007833987273576148,
+   "eigen_residual": 3.686916703470135e-12,
+   "seconds": 457.4835932254791
+  },
+  {
+   "L": 48,
+   "side": 16,
+   "block_r": [
+    0,
+    0,
+    0
+   ],
+   "block_dimension": 55296,
+   "cavity_cells_in_block": 512,
+   "cavity_volume_fraction": 0.037037037037037035,
+   "lowest_16": [
+    {
+     "abs_phase": 0.14616316434003956,
+     "weight_in_cavity": 0.3454868300514827
+    },
+    {
+     "abs_phase": 0.14616316434005247,
+     "weight_in_cavity": 0.37938616408798786
+    },
+    {
+     "abs_phase": 0.14616316434005247,
+     "weight_in_cavity": 0.3768248129364629
+    },
+    {
+     "abs_phase": 0.14616316434009466,
+     "weight_in_cavity": 0.3596325709013699
+    },
+    {
+     "abs_phase": 0.14616651087420318,
+     "weight_in_cavity": 0.371947750264256
+    },
+    {
+     "abs_phase": 0.14616651087421398,
+     "weight_in_cavity": 0.36444645860241
+    },
+    {
+     "abs_phase": 0.14616651087422072,
+     "weight_in_cavity": 0.36244518973975326
+    },
+    {
+     "abs_phase": 0.1461665108742552,
+     "weight_in_cavity": 0.3623235752296846
+    },
+    {
+     "abs_phase": 0.14625107872410736,
+     "weight_in_cavity": 0.36693360093667926
+    },
+    {
+     "abs_phase": 0.14625107872411122,
+     "weight_in_cavity": 0.3699714435326487
+    },
+    {
+     "abs_phase": 0.14625107872412257,
+     "weight_in_cavity": 0.35618611165885494
+    },
+    {
+     "abs_phase": 0.1462510787241863,
+     "weight_in_cavity": 0.3657576595211518
+    },
+    {
+     "abs_phase": 0.14641868687879442,
+     "weight_in_cavity": 0.3546122178558716
+    },
+    {
+     "abs_phase": 0.14641868687879617,
+     "weight_in_cavity": 0.36450867866682374
+    },
+    {
+     "abs_phase": 0.14641868687880097,
+     "weight_in_cavity": 0.368231364509097
+    },
+    {
+     "abs_phase": 0.1464186868788371,
+     "weight_in_cavity": 0.3666490871512395
+    }
+   ],
+   "lowest_abs_phase": 0.14616316434003956,
+   "bound": true,
+   "binding_theta0_minus_E": 0.025073835659960436,
+   "eigen_residual": 4.8029764803757764e-14,
+   "seconds": 585.9699001312256
+  },
+  {
+   "L": 48,
+   "side": 16,
+   "block_r": [
+    1,
+    1,
+    1
+   ],
+   "block_dimension": 55296,
+   "cavity_cells_in_block": 512,
+   "cavity_volume_fraction": 0.037037037037037035,
+   "lowest_16": [
+    {
+     "abs_phase": 0.1461631643400311,
+     "weight_in_cavity": 0.35220968945220876
+    },
+    {
+     "abs_phase": 0.1461631643400492,
+     "weight_in_cavity": 0.3659760320798356
+    },
+    {
+     "abs_phase": 0.14616316434005633,
+     "weight_in_cavity": 0.37133479107159745
+    },
+    {
+     "abs_phase": 0.14616316434008678,
+     "weight_in_cavity": 0.3717931017585059
+    },
+    {
+     "abs_phase": 0.1461665108742022,
+     "weight_in_cavity": 0.3594030871975884
+    },
+    {
+     "abs_phase": 0.14616651087421223,
+     "weight_in_cavity": 0.3614736454520166
+    },
+    {
+     "abs_phase": 0.14616651087421745,
+     "weight_in_cavity": 0.372503181288141
+    },
+    {
+     "abs_phase": 0.14616651087425672,
+     "weight_in_cavity": 0.3677781683737066
+    },
+    {
+     "abs_phase": 0.1462510787241008,
+     "weight_in_cavity": 0.3713906437776477
+    },
+    {
+     "abs_phase": 0.1462510787241143,
+     "weight_in_cavity": 0.36494381950806143
+    },
+    {
+     "abs_phase": 0.14625107872412352,
+     "weight_in_cavity": 0.3584338647726794
+    },
+    {
+     "abs_phase": 0.14625107872419188,
+     "weight_in_cavity": 0.3640706431669912
+    },
+    {
+     "abs_phase": 0.14641868687877807,
+     "weight_in_cavity": 0.3680426685204821
+    },
+    {
+     "abs_phase": 0.1464186868787827,
+     "weight_in_cavity": 0.3656128814177194
+    },
+    {
+     "abs_phase": 0.1464186868787973,
+     "weight_in_cavity": 0.361303435040919
+    },
+    {
+     "abs_phase": 0.14641868687884693,
+     "weight_in_cavity": 0.35906483261194005
+    }
+   ],
+   "lowest_abs_phase": 0.1461631643400311,
+   "bound": true,
+   "binding_theta0_minus_E": 0.0250738356599689,
+   "eigen_residual": 5.178809753995986e-14,
+   "seconds": 589.8505349159241
+  },
+  {
+   "L": 64,
+   "side": 16,
+   "block_r": [
+    0,
+    0,
+    0
+   ],
+   "block_dimension": 131072,
+   "cavity_cells_in_block": 512,
+   "cavity_volume_fraction": 0.015625,
+   "lowest_16": [
+    {
+     "abs_phase": 0.14859645040271627,
+     "weight_in_cavity": 0.4090622133198417
+    },
+    {
+     "abs_phase": 0.14859645040271874,
+     "weight_in_cavity": 0.39747212818951727
+    },
+    {
+     "abs_phase": 0.14859645040272706,
+     "weight_in_cavity": 0.39002644969771283
+    },
+    {
+     "abs_phase": 0.1485964504027739,
+     "weight_in_cavity": 0.3937889710302961
+    },
+    {
+     "abs_phase": 0.148600135104528,
+     "weight_in_cavity": 0.401640723939989
+    },
+    {
+     "abs_phase": 0.1486001351045367,
+     "weight_in_cavity": 0.3979841367148975
+    },
+    {
+     "abs_phase": 0.1486001351045515,
+     "weight_in_cavity": 0.3875707770861773
+    },
+    {
+     "abs_phase": 0.1486001351045972,
+     "weight_in_cavity": 0.40307191360923844
+    },
+    {
+     "abs_phase": 0.14869610404067657,
+     "weight_in_cavity": 0.39041123129318844
+    },
+    {
+     "abs_phase": 0.14869610404068034,
+     "weight_in_cavity": 0.40813579218252094
+    },
+    {
+     "abs_phase": 0.1486961040406904,
+     "weight_in_cavity": 0.3968419403888251
+    },
+    {
+     "abs_phase": 0.14869610404075234,
+     "weight_in_cavity": 0.39287979589494143
+    },
+    {
+     "abs_phase": 0.14888637332007904,
+     "weight_in_cavity": 0.3842085040363725
+    },
+    {
+     "abs_phase": 0.1488863733200796,
+     "weight_in_cavity": 0.40285608597188594
+    },
+    {
+     "abs_phase": 0.14888637332008414,
+     "weight_in_cavity": 0.38427281736789476
+    },
+    {
+     "abs_phase": 0.1488863733201407,
+     "weight_in_cavity": 0.41273499730954116
+    }
+   ],
+   "lowest_abs_phase": 0.14859645040271627,
+   "bound": true,
+   "binding_theta0_minus_E": 0.022640549597283732,
+   "eigen_residual": 5.550877910795117e-14,
+   "seconds": 1449.92338514328
+  },
+  {
+   "L": 64,
+   "side": 16,
+   "block_r": [
+    1,
+    1,
+    1
+   ],
+   "block_dimension": 131072,
+   "cavity_cells_in_block": 512,
+   "cavity_volume_fraction": 0.015625,
+   "lowest_16": [
+    {
+     "abs_phase": 0.1485964504027121,
+     "weight_in_cavity": 0.4005096013118412
+    },
+    {
+     "abs_phase": 0.14859645040272879,
+     "weight_in_cavity": 0.39703121302539574
+    },
+    {
+     "abs_phase": 0.14859645040273353,
+     "weight_in_cavity": 0.39311591708181765
+    },
+    {
+     "abs_phase": 0.14859645040278244,
+     "weight_in_cavity": 0.39970942230511347
+    },
+    {
+     "abs_phase": 0.14860013510453823,
+     "weight_in_cavity": 0.3970158303424905
+    },
+    {
+     "abs_phase": 0.14860013510454412,
+     "weight_in_cavity": 0.40079778141578665
+    },
+    {
+     "abs_phase": 0.14860013510455605,
+     "weight_in_cavity": 0.40214633690700957
+    },
+    {
+     "abs_phase": 0.14860013510460268,
+     "weight_in_cavity": 0.39030528949070686
+    },
+    {
+     "abs_phase": 0.14869610404066538,
+     "weight_in_cavity": 0.3933204700736785
+    },
+    {
+     "abs_phase": 0.14869610404068018,
+     "weight_in_cavity": 0.40045670206521256
+    },
+    {
+     "abs_phase": 0.14869610404068434,
+     "weight_in_cavity": 0.3934641331412325
+    },
+    {
+     "abs_phase": 0.1486961040407476,
+     "weight_in_cavity": 0.4010243588253314
+    },
+    {
+     "abs_phase": 0.14888637332007335,
+     "weight_in_cavity": 0.39668415335492946
+    },
+    {
+     "abs_phase": 0.1488863733200775,
+     "weight_in_cavity": 0.41499201803144004
+    },
+    {
+     "abs_phase": 0.1488863733201061,
+     "weight_in_cavity": 0.39396187777586616
+    },
+    {
+     "abs_phase": 0.1488863733201411,
+     "weight_in_cavity": 0.3784308656638977
+    }
+   ],
+   "lowest_abs_phase": 0.1485964504027121,
+   "bound": true,
+   "binding_theta0_minus_E": 0.022640549597287896,
+   "eigen_residual": 5.345229880677642e-14,
+   "seconds": 1435.707525253296
+  }
+ ]
+}

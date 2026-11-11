@@ -1,0 +1,185 @@
+"""Worker CH, direction 1: mass terms between the 32 pattern fields (CANDIDATES.md section 3, MT-1 to MT-5).
+
+Run: /tmp/oph-completion-venv/bin/python ch_massterm.py [out.json]
+
+MT-1  bilinears invariant under the twelve currents, on explicit 32 x 32 matrices:
+        hop type      M with [dGamma(T), M] = 0                (psi_q^dag M psi_p)
+        pairing type  K with dGamma(T)^T K + K dGamma(T) = 0   (psi^T K psi)
+MT-2  Lorentz admissibility for a handedness function chi: hop needs chi(q) = -chi(p), pairing needs chi(p) = chi(q).
+MT-3  charges of every admissible bilinear under N (quanta), n (degree), B - L, X = 5(B - L) - 4Y, Z6 class.
+MT-4  the same for the reading with both handedness states in every pattern.
+MT-5  thresholds: rest angles of a pattern block on file (CF-1 section 10) against M_U of the chain.
+No measured value is read.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+from ch_lib import PATTERNS, MULTIPLETS, NAME, INDEX, clean, load_engine, P0
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('massterm.json')
+out = {}
+
+# ----------------------------------------------------------------------------- level operators on the 32 patterns
+states = [p['bits'] for p in PATTERNS]
+
+
+def ann(k):
+    A = np.zeros((32, 32))
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[INDEX[tuple(t)], INDEX[s]] = (-1) ** sum(s[:k])
+    return A
+
+
+c = [ann(k) for k in range(5)]
+cd = [a.T for a in c]
+for i, j in itertools.product(range(5), repeat=2):                     # canonical anticommutators
+    assert np.allclose(c[i] @ cd[j] + cd[j] @ c[i], np.eye(32) * (i == j)) and np.allclose(c[i] @ c[j] + c[j] @ c[i], 0)
+
+
+def dgamma(T):
+    return sum(T[i, j] * cd[i] @ c[j] for i in range(5) for j in range(5))
+
+
+# twelve Hermitian generators of s(u(3) + u(2)) on the code: Gell-Mann, Pauli, 6Y = diag(-2, -2, -2, 3, 3)
+def E(i, j, n=5):
+    M = np.zeros((n, n), complex); M[i, j] = 1; return M
+
+
+gens = []
+for a, b in ((0, 1), (0, 2), (1, 2)):
+    gens += [E(a, b) + E(b, a), -1j * E(a, b) + 1j * E(b, a)]
+gens += [E(0, 0) - E(1, 1), (E(0, 0) + E(1, 1) - 2 * E(2, 2)) / np.sqrt(3)]
+gens += [E(3, 4) + E(4, 3), -1j * E(3, 4) + 1j * E(4, 3), E(3, 3) - E(4, 4)]
+gens += [np.diag([-2, -2, -2, 3, 3]).astype(complex)]
+assert len(gens) == 12 and all(abs(np.trace(g)) < 1e-12 for g in gens)
+G = [dgamma(g) for g in gens]
+six_y = np.real(np.diag(G[-1]))
+assert all(abs(six_y[i] - PATTERNS[i]['Q6']) < 1e-12 for i in range(32))   # same hypercharge as match.py
+
+sel = {m: [i for i, p in enumerate(PATTERNS) if p['multiplet'] == m] for m in MULTIPLETS}
+for g in G:                                                             # the currents preserve the 12 multiplets
+    for m in MULTIPLETS:
+        rest = [i for i in range(32) if i not in sel[m]]
+        assert np.allclose(g[np.ix_(rest, sel[m])], 0)
+
+
+def nullity(rows, tol=1e-9):
+    s = np.linalg.svd(rows, compute_uv=False)
+    return int(rows.shape[1] - (s > tol).sum())
+
+
+def invariants(m, mp, kind):
+    """Dimension of the invariant maps on the block (m, mp). kind 'hop': T_m M - M T_mp = 0 (M: mp -> m);
+    kind 'pair': T_m^T K + K T_mp = 0."""
+    a, b = sel[m], sel[mp]
+    da, db = len(a), len(b)
+    rows = []
+    for g in G:
+        Ta, Tb = g[np.ix_(a, a)], g[np.ix_(b, b)]
+        if kind == 'hop':
+            op = np.kron(Ta, np.eye(db)) - np.kron(np.eye(da), Tb.T)
+        else:
+            op = np.kron(Ta.T, np.eye(db)) + np.kron(np.eye(da), Tb.T)
+        rows += [op.real, op.imag]
+    return nullity(np.vstack(rows))
+
+
+def charges(m):
+    p = PATTERNS[sel[m][0]]
+    return dict(N=1, n=p['degree'], BL=p['BL'], X=p['X'], k=p['k'], sixY=p['Q6'])
+
+
+hop, pair = [], []
+for m, mp in itertools.product(MULTIPLETS, repeat=2):
+    d = invariants(m, mp, 'hop')
+    if d:
+        cm, cp = charges(m), charges(mp)
+        hop.append(dict(to=m, frm=mp, dim=d, same_multiplet=(m == mp), dN=0, dn=cm['n'] - cp['n'], dBL=cm['BL'] - cp['BL'],
+                        dX=cm['X'] - cp['X'], dclass=(cm['k'] - cp['k']) % 6))
+    d = invariants(m, mp, 'pair')
+    if d:
+        cm, cp = charges(m), charges(mp)
+        pair.append(dict(a=m, b=mp, dim=d, dN=-2, dn=-(cm['n'] + cp['n']), dBL=-(cm['BL'] + cp['BL']),
+                         dX=-(cm['X'] + cp['X']), dclass=(-(cm['k'] + cp['k'])) % 6))
+out['MT1'] = dict(hop_invariants=sum(h['dim'] for h in hop), pairing_invariants=sum(p['dim'] for p in pair),
+                  hop_blocks=hop, pairing_blocks=pair)
+assert sum(h['dim'] for h in hop) == 14 and sum(p['dim'] for p in pair) == 14
+# off-diagonal hops: only between the two singlets; pairings: only a multiplet with its conjugate, or a singlet with itself
+assert sorted((h['to'], h['frm']) for h in hop if not h['same_multiplet']) == [((0, 0), (3, 2)), ((3, 2), (0, 0))]
+conj = lambda m: (3 - m[0], 2 - m[1])
+assert all(p['b'] == conj(p['a']) or (p['a'] == p['b'] and p['a'] in ((0, 0), (3, 2))) for p in pair)
+assert all(h['dclass'] == 0 for h in hop) and all(p['dclass'] == 0 for p in pair)       # the Z6 class rule is implied
+
+# ----------------------------------------------------------------------------- MT-2, MT-3: two handedness functions
+HAND = {'degree parity (complement = CPT partner; two families)': lambda m: -(-1) ** (m[0] + m[1]),
+        '(-1)^n2 (complement = mirror partner; family and mirror family)': lambda m: (-1) ** m[1]}
+mt2 = {}
+for label, chi in HAND.items():
+    adm = []
+    for h in hop:
+        if not h['same_multiplet'] and chi(h['to']) == -chi(h['frm']):
+            adm.append(dict(kind='hop', fields=[NAME[h['frm']], NAME[h['to']]], dN=h['dN'], dn=h['dn'], dBL=h['dBL'], dX=h['dX']))
+    seen = set()
+    for p in pair:
+        key = frozenset((p['a'], p['b']))
+        if key in seen:
+            continue
+        seen.add(key)
+        if chi(p['a']) == chi(p['b']):
+            adm.append(dict(kind='pairing', fields=[NAME[p['a']], NAME[p['b']]], dN=p['dN'], dn=p['dn'], dBL=p['dBL'], dX=p['dX']))
+    for a in adm:
+        a['conserves'] = dict(N=(a['dN'] == 0), degree=(a['dn'] == 0), B_minus_L=(a['dBL'] == 0), X=(a['dX'] == 0))
+    mt2[label] = dict(admissible=adm, count=len(adm),
+                      conserving_B_minus_L=[a['fields'] for a in adm if a['conserves']['B_minus_L']],
+                      conserving_B_minus_L_and_N=[a['fields'] for a in adm if a['conserves']['B_minus_L'] and a['conserves']['N']],
+                      conserving_all=[a['fields'] for a in adm if all(a['conserves'].values())])
+out['MT2_MT3'] = mt2
+d = mt2['degree parity (complement = CPT partner; two families)']
+m = mt2['(-1)^n2 (complement = mirror partner; family and mirror family)']
+assert d['conserving_B_minus_L'] == [] and len(m['conserving_B_minus_L']) == 6 and m['conserving_B_minus_L_and_N'] == []
+
+# ----------------------------------------------------------------------------- MT-4: both handedness states per pattern
+mt4 = []
+for h in hop:
+    mt4.append(dict(kind='hop between the two handedness states', fields=[NAME[h['frm']], NAME[h['to']]],
+                    dN=0, dn=h['dn'], dBL=h['dBL'], conserves_all=(h['dn'] == 0 and h['dBL'] == 0)))
+out['MT4'] = dict(dirac_masses_within_one_pattern_multiplet=sum(1 for x in mt4 if x['conserves_all']),
+                  note='each of the 12 multiplets admits its own mass angle; this is the mass step M1 of CF-1 section 9',
+                  rows=mt4)
+
+# ----------------------------------------------------------------------------- MT-5: thresholds on file
+cc = load_engine()
+Ecell, MU = cc.EP / np.sqrt(P0), cc.EP * np.exp(-2 * np.pi) * P0 ** (1 / 6)
+s5 = np.sqrt(5)
+kernel = {'uniform load, blank record': 1.0, 'slow triplet': 11 / 12 + s5 / 60, 'quintet, recorded': 14 / 15,
+          'quintet, blank': 9 / 10, 'fast triplet': 11 / 12 - s5 / 60, 'uniform load, recorded': 5 / 6}
+thr = []
+for name, lam in kernel.items():
+    th = float(np.arccos(lam))
+    thr.append(dict(sector=name, kernel_eigenvalue=lam, rest_angle_per_tick=th, rest_energy_GeV=th * Ecell,
+                    over_M_U=th * Ecell / MU))
+out['MT5'] = dict(E_cell_GeV=Ecell, M_U_GeV=MU, rows=thr,
+                  statement='a pattern block is massless (uniform load) or sits between 118 and 227 M_U; no rest angle on file lies between m_Z and M_U')
+assert all(t['over_M_U'] > 100 for t in thr if t['rest_angle_per_tick'] > 0)
+
+OUT.write_text(json.dumps(clean(out), indent=1))
+print('MT-1: hop invariants', out['MT1']['hop_invariants'], ' pairing invariants', out['MT1']['pairing_invariants'])
+print('  off-diagonal hops:', [(NAME[h['frm']], NAME[h['to']], 'dBL', str(h['dBL'])) for h in hop if not h['same_multiplet']])
+for label, v in mt2.items():
+    print('MT-2/3:', label)
+    for a in v['admissible']:
+        print('   ', a['kind'], a['fields'], 'dN', a['dN'], 'dn', a['dn'], 'dBL', str(a['dBL']), 'dX', a['dX'])
+    print('    conserving B - L:', v['conserving_B_minus_L'])
+    print('    conserving B - L and N:', v['conserving_B_minus_L_and_N'])
+print('MT-4: Dirac masses within one multiplet (both handedness states present):', out['MT4']['dirac_masses_within_one_pattern_multiplet'])
+print('MT-5:')
+for t in thr:
+    print(f"    {t['sector']:26s} angle {t['rest_angle_per_tick']:.6f}  {t['rest_energy_GeV']:.3e} GeV  = {t['over_M_U']:.1f} M_U")
+print('wrote', OUT)

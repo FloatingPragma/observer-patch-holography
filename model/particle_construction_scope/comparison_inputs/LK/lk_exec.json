@@ -1,0 +1,189 @@
+{
+ "provenance": {
+  "repository_root_used": "WORKSPACE/reverse-engineering-reality",
+  "model/coherent_seam_repair/program.py sha256": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+  "model/coherent_seam_repair/common.py sha256": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+  "model/common_source/slow_geometry.py sha256": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+ },
+ "variant 1: native frame, pair in S x S, return test with T_sym": [
+  {
+   "N": 1,
+   "eta": 0.5,
+   "zero-return amplitudes (phi_H, phi_+, phi_-)": [
+    [
+     1.000000000000013,
+     0.0
+    ],
+    [
+     0.8978449568595923,
+     -0.18699355217953517
+    ],
+    [
+     0.8978449568595923,
+     0.18699355217953517
+    ]
+   ],
+   "largest difference to the kick of CK2 with h = 2 eta": 1.3100631690576847e-14,
+   "largest difference to exp(-i (2/9) J)": 0.0844522892448498,
+   "phase of phi_+ per unit clock time": 0.20533403097027947,
+   "probability of a recorded no within the unit clock time (phi_H, phi_+, phi_-)": [
+    0.0,
+    0.15890784488508783,
+    0.15890784488508783
+   ]
+  },
+  {
+   "N": 10,
+   "eta": 0.05,
+   "zero-return amplitudes (phi_H, phi_+, phi_-)": [
+    [
+     1.000000000000131,
+     0.0
+    ],
+    [
+     0.9670516524941012,
+     -0.21834637606222862
+    ],
+    [
+     0.9670516524941012,
+     0.21834637606222862
+    ]
+   ],
+   "largest difference to the kick of CK2 with h = 2 eta": 1.3100631690576847e-13,
+   "largest difference to exp(-i (2/9) J)": 0.008606480619320392,
+   "phase of phi_+ per unit clock time": 0.22206209967050194,
+   "probability of a recorded no within the unit clock time (phi_H, phi_+, phi_-)": [
+    0.0,
+    0.017135961468798495,
+    0.017135961468798495
+   ]
+  },
+  {
+   "N": 100,
+   "eta": 0.005,
+   "zero-return amplitudes (phi_H, phi_+, phi_-)": [
+    [
+     1.00000000000131,
+     0.0
+    ],
+    [
+     0.9745678546872382,
+     -0.2202057988156142
+    ],
+    [
+     0.9745678546872382,
+     0.2202057988156142
+    ]
+   ],
+   "largest difference to the kick of CK2 with h = 2 eta": 1.3100631690576847e-12,
+   "largest difference to exp(-i (2/9) J)": 0.0008638259667107819,
+   "phase of phi_+ per unit clock time": 0.222220621847828,
+   "probability of a recorded no within the unit clock time (phi_H, phi_+, phi_-)": [
+    0.0,
+    0.001726902779671774,
+    0.001726902779671774
+   ]
+  }
+ ],
+ "variant 2: plain law, pair in D2 x D2, public-form return detectors, crossing of A between rounds": [
+  {
+   "N": 2,
+   "eta": 0.25,
+   "zero-return amplitudes (phi_H, phi_+, phi_-)": [
+    [
+     0.9999999999999989,
+     0.0
+    ],
+    [
+     0.9356448970479131,
+     -0.20764375362036291
+    ],
+    [
+     0.9356448970479131,
+     0.20764375362036291
+    ]
+   ],
+   "largest difference to the kick of CK2 with h = 2 eta": 2.331633557619269e-15,
+   "largest difference to exp(-i (2/9) J)": 0.04176044133589057,
+   "phase of phi_+ per unit clock time": 0.2183864667457683,
+   "probability of a recorded no within the unit clock time (phi_H, phi_+, phi_-)": [
+    0.0,
+    0.08145269821064162,
+    0.08145269821064162
+   ]
+  },
+  {
+   "N": 10,
+   "eta": 0.05,
+   "zero-return amplitudes (phi_H, phi_+, phi_-)": [
+    [
+     0.9999999999999944,
+     0.0
+    ],
+    [
+     0.9671989269592706,
+     -0.21838835150699787
+    ],
+    [
+     0.9671989269592706,
+     0.21838835150699787
+    ]
+   ],
+   "largest difference to the kick of CK2 with h = 2 eta": 8.200821523359856e-15,
+   "largest difference to exp(-i (2/9) J)": 0.00845344774459935,
+   "phase of phi_+ per unit clock time": 0.22207068099642496,
+   "probability of a recorded no within the unit clock time (phi_H, phi_+, phi_-)": [
+    0.0,
+    0.0168327636149077,
+    0.0168327636149077
+   ]
+  },
+  {
+   "N": 100,
+   "eta": 0.005,
+   "zero-return amplitudes (phi_H, phi_+, phi_-)": [
+    [
+     0.9999999999999445,
+     0.0
+    ],
+    [
+     0.9745828754507145,
+     -0.22020928061233738
+    ],
+    [
+     0.9745828754507145,
+     0.22020928061233738
+    ]
+   ],
+   "largest difference to the kick of CK2 with h = 2 eta": 9.467494786854777e-14,
+   "largest difference to exp(-i (2/9) J)": 0.0008484070522020051,
+   "phase of phi_+ per unit clock time": 0.2222207075825055,
+   "probability of a recorded no within the unit clock time (phi_H, phi_+, phi_-)": [
+    0.0,
+    0.0016960916105951403,
+    0.0016960916105951403
+   ]
+  }
+ ],
+ "crossing": {
+  "two ticks of the plain law on the E seam map the blank double at port 2 to port 10": true,
+  "and back": true,
+  "equal to X_E on the blank doubles": true
+ },
+ "R9 block families (native frame)": {
+  "family of the blank double at port 2": [
+   "loads [2, 10] record 2",
+   "loads [2, 2] record 0",
+   "loads [2, 3] record 2"
+  ],
+  "family of the blank double at port 10": [
+   "loads [0, 10] record 3",
+   "loads [10, 10] record 0",
+   "loads [2, 10] record 3"
+  ],
+  "disjoint": true,
+  "X_E maps the blank double at port 2 into the other family": true,
+  "reading": "in the native frame Q and R, the register detectors, the quarter-turns and the address mean act inside each family; T_sym connects the two families"
+ },
+ "seconds": 40.03
+}

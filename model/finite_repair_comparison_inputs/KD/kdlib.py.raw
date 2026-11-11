@@ -1,0 +1,509 @@
+"""Exact arithmetic over Q(sqrt5, i) and the carrier data used by worker KD.
+
+A number is (a + b r) + i (c + d r), r = sqrt5, with rational a, b, c, d. Matrices are tuples of tuples.
+Everything here is exact; no floating point is used for any identity.
+
+Carrier: the pinned public icosahedron (model.common_source.slow_geometry), its sixty rotations, its exact
+raw frame over Q(sqrt5), and the 120 cover lifts in the convention of model/coherent_seam_repair/holonomy.py
+(code = real triplet R(q) plus Galois-conjugate spinor doublet U(sigma(q))), recomputed independently here.
+"""
+from fractions import Fraction as F
+from functools import lru_cache
+from itertools import combinations
+from math import isqrt
+
+
+# ----------------------------------------------------------------------------------------------------------
+# the field
+# ----------------------------------------------------------------------------------------------------------
+class K:
+    __slots__ = ('a', 'b', 'c', 'd')
+
+    def __init__(self, a=0, b=0, c=0, d=0):
+        self.a = F(a); self.b = F(b); self.c = F(c); self.d = F(d)
+
+    # helpers ------------------------------------------------------------------------------------------
+    @staticmethod
+    def lift(x):
+        if isinstance(x, K):
+            return x
+        if isinstance(x, (int, F)):
+            return K(x)
+        if isinstance(x, tuple) and len(x) == 2:          # a Q(sqrt5) pair of the carrier module
+            return K(x[0], x[1])
+        raise TypeError(type(x))
+
+    def __add__(self, o):
+        o = K.lift(o); return K(self.a + o.a, self.b + o.b, self.c + o.c, self.d + o.d)
+    __radd__ = __add__
+
+    def __neg__(self):
+        return K(-self.a, -self.b, -self.c, -self.d)
+
+    def __sub__(self, o):
+        o = K.lift(o); return K(self.a - o.a, self.b - o.b, self.c - o.c, self.d - o.d)
+
+    def __rsub__(self, o):
+        return K.lift(o) - self
+
+    def __mul__(self, o):
+        o = K.lift(o)
+        a, b, c, d = self.a, self.b, self.c, self.d
+        e, f, g, h = o.a, o.b, o.c, o.d
+        # (a+br)(e+fr) - (c+dr)(g+hr)  +  i[(a+br)(g+hr) + (c+dr)(e+fr)]
+        return K(a * e + 5 * b * f - c * g - 5 * d * h, a * f + b * e - c * h - d * g,
+                 a * g + 5 * b * h + c * e + 5 * d * f, a * h + b * g + c * f + d * e)
+    __rmul__ = __mul__
+
+    def conj(self):                      # complex conjugation
+        return K(self.a, self.b, -self.c, -self.d)
+
+    def gal(self):                       # sqrt5 -> -sqrt5
+        return K(self.a, -self.b, self.c, -self.d)
+
+    def norm2(self):                     # x * conj(x), an element of Q(sqrt5)
+        return self * self.conj()
+
+    def inv(self):
+        n = self.norm2()                 # real: a + b r
+        assert n.c == 0 and n.d == 0
+        den = n.a * n.a - 5 * n.b * n.b
+        if den == 0:
+            raise ZeroDivisionError
+        ninv = K(n.a / den, -n.b / den)
+        return self.conj() * ninv
+
+    def __truediv__(self, o):
+        return self * K.lift(o).inv()
+
+    def __eq__(self, o):
+        o = K.lift(o)
+        return self.a == o.a and self.b == o.b and self.c == o.c and self.d == o.d
+
+    def __hash__(self):
+        return hash((self.a, self.b, self.c, self.d))
+
+    def is_zero(self):
+        return self.a == 0 and self.b == 0 and self.c == 0 and self.d == 0
+
+    def is_real(self):
+        return self.c == 0 and self.d == 0
+
+    def is_rational(self):
+        return self.b == 0 and self.c == 0 and self.d == 0
+
+    def sign(self):                      # exact sign of a real element
+        assert self.is_real()
+        a, b = self.a, self.b
+        if b == 0:
+            return (a > 0) - (a < 0)
+        if a >= 0 and b > 0:
+            return 1
+        if a <= 0 and b < 0:
+            return -1
+        dd = a * a - 5 * b * b
+        return ((dd > 0) - (dd < 0)) * (1 if a > 0 else -1)
+
+    def __float__(self):
+        assert self.is_real()
+        return float(self.a) + float(self.b) * 5 ** 0.5
+
+    def __complex__(self):
+        r5 = 5 ** 0.5
+        return complex(float(self.a) + float(self.b) * r5, float(self.c) + float(self.d) * r5)
+
+    def __repr__(self):
+        def part(x, y):
+            if y == 0:
+                return str(x)
+            if x == 0:
+                return f'{y}*r5'
+            return f'({x}+{y}*r5)'
+        re, im = part(self.a, self.b), part(self.c, self.d)
+        if self.c == 0 and self.d == 0:
+            return re
+        if self.a == 0 and self.b == 0:
+            return f'{im}*i'
+        return f'{re}+{im}*i'
+
+
+ZERO, ONE, I = K(0), K(1), K(0, 0, 1)
+R5 = K(0, 1)
+PHI = K(F(1, 2), F(1, 2))
+
+
+def _rat_sqrt(x):
+    if x < 0:
+        return None
+    n, d = isqrt(x.numerator), isqrt(x.denominator)
+    return F(n, d) if n * n == x.numerator and d * d == x.denominator else None
+
+
+def real_sqrt(x):
+    """Positive square root of a real element of Q(sqrt5) when it lies in Q(sqrt5); else None."""
+    x = K.lift(x)
+    assert x.is_real()
+    if x.is_zero():
+        return ZERO
+    a, b = x.a, x.b
+    if b == 0:
+        r = _rat_sqrt(a)
+        if r is not None:
+            return K(r)
+        r = _rat_sqrt(a / 5)
+        if r is not None:
+            return K(0, r)
+    d = _rat_sqrt(a * a - 5 * b * b)
+    if d is not None:
+        for s in (1, -1):
+            r = _rat_sqrt((a + s * d) / 2)
+            if r:
+                y = K(r, b / (2 * r))
+                if y.sign() < 0:
+                    y = -y
+                if y * y == x:
+                    return y
+    return None
+
+
+# ----------------------------------------------------------------------------------------------------------
+# matrices (tuples of tuples of K)
+# ----------------------------------------------------------------------------------------------------------
+def mat(rows):
+    return tuple(tuple(K.lift(x) for x in row) for row in rows)
+
+
+def eye(n):
+    return tuple(tuple(ONE if i == j else ZERO for j in range(n)) for i in range(n))
+
+
+def zeros(n, m=None):
+    m = n if m is None else m
+    return tuple(tuple(ZERO for _ in range(m)) for _ in range(n))
+
+
+def mm(*ms):
+    out = ms[0]
+    for B in ms[1:]:
+        A = out
+        n, k, m = len(A), len(B), len(B[0])
+        cols = list(zip(*B))
+        res = []
+        for i in range(n):
+            row = A[i]
+            nz = [(t, row[t]) for t in range(k) if not row[t].is_zero()]
+            r = []
+            for j in range(m):
+                col = cols[j]
+                s = ZERO
+                for t, x in nz:
+                    y = col[t]
+                    if not y.is_zero():
+                        s = s + x * y
+                r.append(s)
+            res.append(tuple(r))
+        out = tuple(res)
+    return out
+
+
+def madd(A, B):
+    return tuple(tuple(x + y for x, y in zip(r, s)) for r, s in zip(A, B))
+
+
+def msub(A, B):
+    return tuple(tuple(x - y for x, y in zip(r, s)) for r, s in zip(A, B))
+
+
+def mscale(c, A):
+    c = K.lift(c)
+    return tuple(tuple(c * x for x in r) for r in A)
+
+
+def dag(A):
+    return tuple(tuple(A[i][j].conj() for i in range(len(A))) for j in range(len(A[0])))
+
+
+def transpose(A):
+    return tuple(zip(*A))
+
+
+def kron(*ms):
+    out = ms[0]
+    for B in ms[1:]:
+        A = out
+        out = tuple(tuple(A[i][j] * B[k][l] for j in range(len(A[0])) for l in range(len(B[0])))
+                    for i in range(len(A)) for k in range(len(B)))
+    return out
+
+
+def dsum(*ms):
+    n = sum(len(m) for m in ms)
+    out = [[ZERO] * n for _ in range(n)]
+    o = 0
+    for m in ms:
+        for i, row in enumerate(m):
+            for j, x in enumerate(row):
+                out[o + i][o + j] = x
+        o += len(m)
+    return tuple(tuple(r) for r in out)
+
+
+def is_zero(A):
+    return all(x.is_zero() for r in A for x in r)
+
+
+def meq(A, B):
+    return len(A) == len(B) and all(x == y for r, s in zip(A, B) for x, y in zip(r, s))
+
+
+def trace(A):
+    s = ZERO
+    for i in range(len(A)):
+        s = s + A[i][i]
+    return s
+
+
+def comm(A, B):
+    return msub(mm(A, B), mm(B, A))
+
+
+def anti(A, B):
+    return madd(mm(A, B), mm(B, A))
+
+
+def is_hermitian(A):
+    return meq(A, dag(A))
+
+
+def is_unitary(A):
+    return meq(mm(dag(A), A), eye(len(A)))
+
+
+def is_involution(A):
+    return meq(mm(A, A), eye(len(A)))
+
+
+def rank(A):
+    """Exact rank by fraction-free elimination over the field."""
+    rows = [list(r) for r in A]
+    rk, ncol = 0, len(rows[0]) if rows else 0
+    for col in range(ncol):
+        piv = next((i for i in range(rk, len(rows)) if not rows[i][col].is_zero()), None)
+        if piv is None:
+            continue
+        rows[rk], rows[piv] = rows[piv], rows[rk]
+        pinv = rows[rk][col].inv()
+        for i in range(rk + 1, len(rows)):
+            if not rows[i][col].is_zero():
+                f = rows[i][col] * pinv
+                rows[i] = [x - f * y for x, y in zip(rows[i], rows[rk])]
+        rk += 1
+        if rk == len(rows):
+            break
+    return rk
+
+
+def nullity_of_linear_map(columns):
+    """columns: list of images (flat tuples) of a basis; returns dim of the kernel."""
+    A = tuple(zip(*columns))
+    return len(columns) - rank(A)
+
+
+# Pauli matrices and the record operators
+SX = mat([[0, 1], [1, 0]])
+SY = mat([[0, -I], [I, 0]])
+SZ = mat([[1, 0], [0, -1]])
+E2 = eye(2)
+P0 = mat([[1, 0], [0, 0]])        # record blank
+P1 = mat([[0, 0], [0, 1]])        # record set
+
+
+# ----------------------------------------------------------------------------------------------------------
+# the carrier
+# ----------------------------------------------------------------------------------------------------------
+@lru_cache(maxsize=1)
+def carrier():
+    from model.common_source import slow_geometry
+    c = slow_geometry.source()
+    seams = tuple(tuple(sorted(int(v) for v in e)) for e in c.seams())
+    V = tuple(tuple(K.lift(x) for x in v) for v in slow_geometry.raw_frame())      # exact raw frame, |v|^2 = phi+2
+    rots = tuple(tuple(int(x) for x in p) for p in c.rotations())
+    return {'seams': seams, 'V': V, 'rotations': rots}
+
+
+def vdot(x, y):
+    s = ZERO
+    for a, b in zip(x, y):
+        s = s + a * b
+    return s
+
+
+def vcross(a, b):
+    return tuple(a[(i + 1) % 3] * b[(i + 2) % 3] - a[(i + 2) % 3] * b[(i + 1) % 3] for i in range(3))
+
+
+def vadd(a, b):
+    return tuple(x + y for x, y in zip(a, b))
+
+
+def vsub(a, b):
+    return tuple(x - y for x, y in zip(a, b))
+
+
+def vscale(c, a):
+    return tuple(K.lift(c) * x for x in a)
+
+
+def rotation_matrix(perm):
+    """The 3x3 matrix over Q(sqrt5) with R v_p = v_perm[p] for all twelve ports (checked exactly)."""
+    V = carrier()['V']
+    base = (V[0], V[1], V[4])
+    det = vdot(base[0], vcross(base[1], base[2]))
+    dual = tuple(vscale(det.inv(), vcross(base[(i + 1) % 3], base[(i + 2) % 3])) for i in range(3))
+    tg = (V[perm[0]], V[perm[1]], V[perm[4]])
+    R = tuple(tuple(sum((tg[k][i] * dual[k][j] for k in range(3)), ZERO) for j in range(3)) for i in range(3))
+    for p in range(12):
+        img = tuple(sum((R[i][j] * V[p][j] for j in range(3)), ZERO) for i in range(3))
+        assert all(x == y for x, y in zip(img, V[perm[p]])), 'not a linear map of the frame'
+    assert meq(mm(R, transpose(R)), eye(3)), 'not orthogonal'
+    return R
+
+
+def det3(R):
+    return vdot(R[0], vcross(R[1], R[2]))
+
+
+def quaternion_of(R):
+    """One of the two unit quaternions (w, x, y, z) over Q(sqrt5) of a proper rotation (holonomy.py's recipe)."""
+    tr = R[0][0] + R[1][1] + R[2][2]
+    w2 = (ONE + tr) * K(F(1, 4))
+    if not w2.is_zero():
+        w = real_sqrt(w2)
+        assert w is not None
+        den = (w * K(4)).inv()
+        q = (w,) + tuple((R[(i + 2) % 3][(i + 1) % 3] - R[(i + 1) % 3][(i + 2) % 3]) * den for i in range(3))
+    else:
+        j = next(i for i in range(3) if not (ONE + R[i][i]).is_zero())
+        x = real_sqrt((ONE + R[j][j]) * K(F(1, 2)))
+        assert x is not None
+        v = [ZERO] * 3
+        v[j] = x
+        for k in range(3):
+            if k != j:
+                v[k] = (R[j][k] + R[k][j]) * (x * K(4)).inv()
+        q = (ZERO,) + tuple(v)
+    assert sum((x * x for x in q), ZERO) == ONE
+    return q
+
+
+def qmul(q, r):
+    w, x = q[0], q[1:]
+    v, y = r[0], r[1:]
+    xy = vcross(x, y)
+    return (w * v - vdot(x, y),) + tuple(w * y[i] + v * x[i] + xy[i] for i in range(3))
+
+
+def qneg(q):
+    return tuple(-x for x in q)
+
+
+def qinv(q):
+    return (q[0],) + tuple(-x for x in q[1:])
+
+
+def qrotate(q, v):
+    return qmul(qmul(q, (ZERO,) + tuple(v)), qinv(q))[1:]
+
+
+def spinor_lift(q):
+    """U(sigma(q)) on the doublet, the convention of holonomy.py: [[w+ix, y+iz], [-y+iz, w-ix]] after sqrt5 -> -sqrt5."""
+    w, x, y, z = (c.gal() for c in q)
+    return ((w + I * x, y + I * z), (-y + I * z, w - I * x))
+
+
+def code_lift(q, R=None):
+    """The five-level implementer R(q) + U(sigma(q))."""
+    if R is None:
+        R = rotation_of_quaternion(q)
+    return dsum(R, spinor_lift(q))
+
+
+def rotation_of_quaternion(q):
+    cols = [qrotate(q, tuple(ONE if i == j else ZERO for i in range(3))) for j in range(3)]
+    return tuple(tuple(cols[j][i] for j in range(3)) for i in range(3))
+
+
+def doublet_response(p):
+    """Unnormalised radial response of port p on the doublet: w.sigma' with w = sigma(v_p), sigma' = (sz, sy, sx).
+    The code response is Q_p = (1 + this / |w|)/2 with |w|^2 = 3 - phi the same for all ports."""
+    w = tuple(x.gal() for x in carrier()['V'][p])
+    return madd(madd(mscale(w[0], SZ), mscale(w[1], SY)), mscale(w[2], SX))
+
+
+def triplet_response(p):
+    """Unnormalised data of the spin-one coherent projector of port p: (v v^T, [v]_x).
+    The code response is P_p = (1 - v v^T/|v|^2 + i [v]_x/|v|)/2 with |v|^2 = phi + 2 the same for all ports."""
+    v = carrier()['V'][p]
+    outer = tuple(tuple(v[i] * v[j] for j in range(3)) for i in range(3))
+    x, y, z = v
+    cr = ((ZERO, -z, y), (z, ZERO, -x), (-y, x, ZERO))
+    return outer, cr
+
+
+@lru_cache(maxsize=1)
+def cover():
+    """All 120 lifts: dict quaternion -> port permutation, plus rotation matrices; exact."""
+    car = carrier()
+    out = {}
+    rot = {}
+    for perm in car['rotations']:
+        R = rotation_matrix(perm)
+        assert det3(R) == ONE
+        q = quaternion_of(R)
+        for p in range(12):
+            assert all(a == b for a, b in zip(qrotate(q, car['V'][p]), car['V'][perm[p]]))
+        for h in (q, qneg(q)):
+            assert h not in out
+            out[h] = perm
+            rot[h] = R
+    assert len(out) == 120
+    return out, rot
+
+
+def compose(p, r):
+    return tuple(p[r[i]] for i in range(12))
+
+
+IDP = tuple(range(12))
+
+
+@lru_cache(maxsize=1)
+def frames():
+    """The five Klein four-groups, their frame matchings, axes and lifts. Exact."""
+    car = carrier()
+    seams, V, rots = car['seams'], car['V'], car['rotations']
+    half = [p for p in rots if p != IDP and compose(p, p) == IDP]
+    assert len(half) == 15
+    kleins = [t for t in combinations(half, 3)
+              if all(compose(g, h) == compose(h, g) for g, h in combinations(t, 2))]
+    assert len(kleins) == 5
+    quats, rotm = cover()
+    out = []
+    for trio in kleins:
+        match = tuple(sorted(e for e in seams if any(g[e[0]] == e[1] and g[e[1]] == e[0] for g in trio)))
+        rows = []
+        for g in trio:
+            flipped = [e for e in seams if g[e[0]] == e[1] and g[e[1]] == e[0]]
+            assert len(flipped) == 2
+            mid = vadd(V[flipped[0][0]], V[flipped[0][1]])              # on the axis; |mid| = 2 phi
+            assert vdot(mid, mid) == K(4) * PHI * PHI
+            n = vscale((K(2) * PHI).inv(), mid)                           # unit axis over Q(sqrt5)
+            R = rotation_matrix(g)
+            # R = 2 n n^T - 1
+            assert meq(R, tuple(tuple(K(2) * n[i] * n[j] - (ONE if i == j else ZERO) for j in range(3))
+                                 for i in range(3)))
+            q = (ZERO,) + n
+            assert quats[q] == g and quats[qneg(q)] == g
+            rows.append({'perm': g, 'axis': n, 'R': R, 'q': q, 'u': spinor_lift(q), 'flipped': tuple(flipped)})
+        out.append({'matching': match, 'half_turns': rows})
+    return out

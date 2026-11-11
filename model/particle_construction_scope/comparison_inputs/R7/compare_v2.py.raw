@@ -1,0 +1,164 @@
+"""R7, rows and columns added by PROTOCOL_v2.md: R6b (cones over the zone), column M3, reading H, scoreboard v2.
+
+  cd RER && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=.:RL/work/DIRAC:RL/work/R7 nice -n 10 \
+      /tmp/oph-completion-venv/bin/python RL/work/R7/compare_v2.py
+Reads RL/work/R7/comparison.json (the version-1 output, unchanged) and writes RL/work/R7/comparison_v2.json.
+"""
+import hashlib, itertools, json, math, os, sys
+from fractions import Fraction as F
+import numpy as np
+
+RL = 'WORKSPACE/repair-law'
+HERE = os.path.join(RL, 'work', 'R7')
+sys.path.insert(0, os.path.join(RL, 'work', 'DIRAC'))
+from routing import Routing, SIG, I2                                   # noqa: E402
+
+sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
+out = {}
+for v in ('v1', 'v2'):
+    assert sha(os.path.join(HERE, 'PROTOCOL_%s.md' % v)) == open(os.path.join(HERE, 'PROTOCOL_%s.sha256' % v)).read().split()[0]
+files = {'CF1.md': os.path.join(RL, 'candidates', 'CF1.md'), 'H_background_from_runs.json': os.path.join(RL, 'work', 'SIM', 'cf1', 'runs', 'H_background_from_runs.json'),
+         'KD_item4_v2.json': os.path.join(RL, 'work', 'KD', 'item4_v2.json'), 'comparison.json': os.path.join(HERE, 'comparison.json')}
+out['custody'] = {k: sha(p) for k, p in files.items()}
+v1 = json.load(open(files['comparison.json']))
+m_e = v1['reference']['m_e_GeV']; compton = v1['reference']['reduced_compton_e_m']; m_mu = v1['reference']['m_mu_GeV']; m_t = v1['reference']['m_t_GeV']
+mr = v1['measured_ratios']; r_u, r_d, r_ud, s_ud, bound_nu = mr['m_u_over_m_e'], mr['m_d_over_m_e'], mr['m_u_over_m_d'], mr['sigma_m_u_over_m_d'], mr['m_beta_bound_over_m_e']
+theta0 = 0.087847
+
+# ---------------------------------------------------------------------------------------------------------------
+# R6b: cones of the routing over the whole zone
+X, Y, Z = SIG; al = [np.kron(X, s) for s in SIG]; I4 = np.eye(4)
+exs = lambda p, i: np.cos(p)[:, None, None] * I4 - 1j * np.sin(p)[:, None, None] * al[i]
+mm = lambda th, kind: math.cos(th) * I4 - 1j * math.sin(th) * np.kron(Y if kind == 'Y' else Z, I2)
+n = 32; g = -math.pi + 2 * math.pi * np.arange(n) / n
+P = np.stack(np.meshgrid(g, g, g, indexing='ij'), -1).reshape(-1, 3)
+e = [exs(P[:, i], i) for i in range(3)]
+fwd0 = e[2] @ e[1] @ e[0]; rev0 = e[0] @ e[1] @ e[2]; two0 = rev0 @ fwd0
+def e1(pp, i, chi): return math.cos(pp) * np.eye(2) - 1j * chi * math.sin(pp) * SIG[i]
+def sector(p, chi, which):
+    f = e1(p[2], 2, chi) @ e1(p[1], 1, chi) @ e1(p[0], 0, chi); r = e1(p[0], 0, chi) @ e1(p[1], 1, chi) @ e1(p[2], 2, chi)
+    return r @ f if which == 'two' else f
+def chirality(p, chi, which, h=1e-5):
+    A = np.zeros((3, 3)); per = 2 if which == 'two' else 1
+    for i in range(3):
+        q = np.array(p, float); q[i] += h
+        H = 1j * (sector(q, chi, which) - np.eye(2)) / per / h
+        for j in range(3): A[i, j] = np.real(np.trace(SIG[j] @ H)) / 2
+    return int(round(float(np.linalg.det(A))))
+r6b = {'grid': '32^3, all multiples of pi/16'}
+pts = P[np.abs(two0 - I4).max(axis=(1, 2)) < 1e-9]
+key = lambda p: tuple(round(float(x % math.pi) / math.pi, 6) % 1.0 for x in p)
+groups = {}
+for p in pts: groups.setdefault(key(p), []).append(p)
+r6b['two_tick_alternating_massless'] = {
+    'momenta_with_symbol_identity': int(len(pts)),
+    'cones_per_sublattice': len(groups), 'copies_of_each_cone_over_the_eight_sublattices': sorted({len(v) for v in groups.values()}),
+    'chirality_by_cone_X_r_plus': {str(k): sorted({chirality(p, +1, 'two') for p in v}) for k, v in sorted(groups.items())},
+    'chirality_by_cone_X_r_minus': {str(k): sorted({chirality(p, -1, 'two') for p in v}) for k, v in sorted(groups.items())}}
+tot = {chi: sum(chirality(v[0], chi, 'two') for v in groups.values()) for chi in (+1, -1)}
+r6b['two_tick_alternating_massless']['net_chirality_per_sublattice'] = {'X_r=+1': tot[+1], 'X_r=-1': tot[-1]}
+one_pts = P[np.abs(fwd0 - I4).max(axis=(1, 2)) < 1e-9]
+# in one X_r sector the single ordered tick is the identity at these momenta (the 4 x 4 symbol is then X_r-block diagonal)
+sec = {chi: [p for p in P[(np.abs(P / (math.pi / 2) - np.round(P / (math.pi / 2))).max(axis=1) < 1e-9)] if np.abs(sector(p, chi, 'one') - np.eye(2)).max() < 1e-9] for chi in (+1, -1)}
+r6b['single_ordered_tick_massless'] = {'momenta_with_symbol_identity_in_sector_X_r_plus': len(sec[+1]),
+                                       'chirality_counts_X_r_plus': {s: [chirality(p, +1, 'one') for p in sec[+1]].count(s) for s in (1, -1)},
+                                       'momenta_with_4x4_symbol_identity': int(len(one_pts))}
+for kind in ('Y', 'Z'):
+    m = mm(theta0, kind); fw = m @ fwd0; tw = (m @ rev0) @ fw
+    E2 = (np.abs(np.angle(np.linalg.eigvals(tw))) / 2).min(axis=1); E1 = np.abs(np.angle(np.linalg.eigvals(fw))).min(axis=1)
+    r6b['with_mass_step_' + kind] = {'theta': theta0, 'two_tick_min_rest_phase': float(E2.min()), 'momenta_at_the_minimum': int((np.abs(E2 - E2.min()) < 1e-9).sum()),
+                                     'momenta_below_theta': int((E2 < theta0 - 1e-9).sum()),
+                                     'single_ordered_tick_min_phase': float(E1.min()), 'single_ordered_tick_momenta_with_phase_zero': int((E1 < 1e-9).sum())}
+w = Routing((8, 8, 8))
+coin = np.kron(np.array([1, 1j]) / math.sqrt(2), np.array([0.6, 0.8j]))
+psi = w.plane_wave((2, 2, 0), coin)
+r6b['engine_two_ticks_at_momentum_(pi/2,pi/2,0)_against_exp(-2i theta)'] = float(np.abs(w.tick(w.tick(psi, theta0), theta0, reverse=True) - np.exp(-2j * theta0) * psi).max())
+r6b['pass'] = len(groups) == 1
+out['R6b'] = r6b
+print('R6b:', json.dumps(r6b))
+
+# ---------------------------------------------------------------------------------------------------------------
+# column M3: the tower of CF1 section 10
+s5 = math.sqrt(5)
+lam = {'slow triplet (either record)': 11 / 12 + s5 / 60, 'quintet, recorded': 14 / 15, 'quintet, blank': 9 / 10,
+       'fast triplet (either record)': 11 / 12 - s5 / 60, 'uniform load, recorded': 5 / 6}
+printed = (0.304708, 0.367208, 0.451027, 0.496198, 0.585686)                                   # CF1.md section 10
+ang = {k: math.acos(v) for k, v in lam.items()}
+assert all(abs(a - b) < 1e-6 for a, b in zip(ang.values(), printed))
+kd = json.load(open(files['KD_item4_v2.json']))['planes']
+assert sorted(F(x['cos_omega']) for x in kd) == sorted([F(9, 10), F(14, 15), F(1), F(5, 6)])        # worker KD's exact planes
+adj = (5.0, s5, -1.0, -s5)                                                                      # adjacency spectrum of the icosahedron
+assert all(min(abs(1 - (5 - a) / 60 - v) for a in adj) < 1e-12 for v in (1.0, lam['slow triplet (either record)'], lam['quintet, blank'], lam['fast triplet (either record)']))
+a0 = min(ang.values())
+m3 = {'theta_electron_patterns': 0.0, 'tower': [{'sector': k, 'kernel_eigenvalue': lam[k], 'mass_angle': ang[k], 'ratio_to_the_lowest': ang[k] / a0,
+                                                 'reduced_compton_length_cells': 1 / ang[k], 'ceiling_over_rest_energy': math.pi / ang[k]} for k in lam],
+      'largest_ratio_inside_the_tower': max(ang.values()) / a0, 'assigned_particles': 0}
+out['M3'] = m3
+print('M3 tower:', [(t['sector'], round(t['mass_angle'], 6), round(t['ratio_to_the_lowest'], 4), round(t['reduced_compton_length_cells'], 2)) for t in m3['tower']])
+
+# ---------------------------------------------------------------------------------------------------------------
+# reading H: option M1 on the flux content of the committed runs (simulation session's file)
+Hf = json.load(open(files['H_background_from_runs.json']))
+out['H'] = {'declared_readings': Hf['declared_readings'], 'units': Hf['units'], 'tables': {}}
+for name in ('L10_end_300_sweeps_half_faces', 'limit_classes_1_5_gone_half_faces'):
+    pats = {tuple(p['pattern_n3_n2']): p for p in Hf['part_d_tables'][name]['patterns']}
+    t = {'e_L': pats[(3, 1)]['d1'], 'e_R': pats[(3, 0)]['d1'], 'nu_L': pats[(3, 1)]['d1'], 'nu_R': pats[(3, 2)]['d1'],
+         'Q_L': pats[(1, 1)]['d1'], 'u_R': pats[(1, 2)]['d1'], 'd_R': pats[(1, 0)]['d1']}
+    dirac = lambda aL, aR: t[aL] == t[aR] != 0.0
+    conj = {'e_L': (0, 1), 'e_R': (0, 2), 'Q_L': (2, 1), 'u_R': (2, 0), 'd_R': (2, 2), 'nu_R': (0, 0)}
+    rr = {'theta_at_separation_1': t, 'standard_errors': {'lepton doublet': pats[(3, 1)]['d1_se'], 'quark doublet': pats[(1, 1)]['d1_se'], 'quark singlet': pats[(1, 2)]['d1_se']},
+          'lepton_doublet_band_separation_2_to_5': pats[(3, 1)]['band_d2_to_d5'],
+          'dirac_e': dirac('e_L', 'e_R'), 'dirac_nu': dirac('nu_L', 'nu_R'), 'dirac_u': dirac('Q_L', 'u_R'), 'dirac_d': dirac('Q_L', 'd_R'),
+          'information_only': {'nu_L_over_e_L': t['nu_L'] / t['e_L'], 'Q_L_over_e_L': t['Q_L'] / t['e_L'], 'u_R_over_e_L': t['u_R'] / t['e_L'],
+                               'pred_over_meas_up_with_Q_L': t['Q_L'] / t['e_L'] / r_u, 'pred_over_meas_down_with_Q_L': t['Q_L'] / t['e_L'] / r_d,
+                               'pred_over_meas_up_with_u_R': t['u_R'] / t['e_L'] / r_u, 'pred_over_meas_down_with_d_R': t['d_R'] / t['e_L'] / r_d,
+                               'u_over_d_left_partners': 1.0, 'u_R_over_d_R': t['u_R'] / t['d_R'], 'u_over_d_sigma_from_measured': (1.0 - r_ud) / s_ud},
+          'R15_conjugate_patterns_equal': all(pats[c]['d1'] == t[k] for k, c in conj.items()),
+          'anchor_on_the_lepton_doublet': {'cell_m': t['e_L'] * compton, 'ceiling_MeV': 1e3 * math.pi * m_e / t['e_L'], 'muon_MeV': 1e3 * m_mu, 'top_MeV': 1e3 * m_t}}
+    rr['R16_pass'] = rr['anchor_on_the_lepton_doublet']['ceiling_MeV'] >= 1e3 * m_t
+    out['H']['tables'][name] = rr
+    print('H', name, ':', json.dumps({k: (round(v, 6) if isinstance(v, float) else v) for k, v in t.items()}), '| Dirac e, nu, u, d:', rr['dirac_e'], rr['dirac_nu'], rr['dirac_u'], rr['dirac_d'])
+    print('   information only:', json.dumps({k: round(v, 4) for k, v in rr['information_only'].items()}), '| anchor: cell %.3f fm, ceiling %.1f MeV' % (rr['anchor_on_the_lepton_doublet']['cell_m'] * 1e15, rr['anchor_on_the_lepton_doublet']['ceiling_MeV']))
+Hp = out['H']['tables']['L10_end_300_sweeps_half_faces']; Hl = out['H']['tables']['limit_classes_1_5_gone_half_faces']
+
+# ---------------------------------------------------------------------------------------------------------------
+# scoreboard, version 2
+old = {b['property'].split(' ')[0]: b for b in v1['scoreboard']}
+def line(rid, name, status, H, M3):
+    b = old[rid]; return (b['property'] if name is None else name, b['status_of_the_CF1_output'] if status is None else status, b['V_vector_like_M1'], H, b['C_chiral_M2'], M3)
+sameV = lambda rid: old[rid]['V_vector_like_M1']
+inf = Hp['information_only']
+board = [
+    line('R1', None, None, sameV('R1'), 'MATCH-LABEL'),
+    line('R2', None, None, sameV('R2'), 'NC: no U(1) link coupled to Q'),
+    line('R3', None, None, sameV('R3'), 'MATCH-LABEL'),
+    line('R4', None, None, sameV('R4'), 'MATCH-LABEL'),
+    line('R5', None, None, sameV('R5'), 'MATCH-LABEL'),
+    line('R6', None, None, sameV('R6'), 'FAIL (argued, not executed): the chirality register is the address reflection, +1 for both classes on the uniform load state'),
+    ('R6b cones and chirality over the zone (added after its result)', 'computed', *(('MATCH',) * 3 if r6b['pass'] else (
+        'FAIL: %d cones per sublattice, net chirality %d in each X_r sector' % (len(groups), tot[+1]),) * 3), 'same form of routing, not executed'),
+    line('R7', None, None, sameV('R7'), 'MATCH-DECL (not re-executed)'),
+    line('R8', None, None, sameV('R8'), 'MATCH-DECL'),
+    line('R9', None, None, sameV('R9'), 'NC: no species-changing vertex; no shipped bound'),
+    line('R10', None, None, sameV('R10'), 'NC: no U(1) link coupled to Q; measured g not shipped'),
+    line('R11', None, 'V, H declared; C angle not fixed; M3 exact zero',
+         'FAIL: theta(e_L) = %.4f (limit %.4f), theta(e_R) = 0; no Dirac electron' % (Hp['theta_at_separation_1']['e_L'], Hl['theta_at_separation_1']['e_L']),
+         'FAIL as it stands: massless in the native program; a nonzero mass needs a state that the program does not yet supply'),
+    line('R12', None, None, 'FAIL: nu_L has the angle of e_L (ratio 1), nu_R has 0', 'bound met trivially (0)'),
+    line('R13', None, None, 'FAIL by the structure rule; for information quark doublet / lepton doublet = %.2f (predicted/measured %.2f up, %.2f down)' % (
+        inf['Q_L_over_e_L'], inf['pred_over_meas_up_with_Q_L'], inf['pred_over_meas_down_with_Q_L']), 'FAIL: up and down massless'),
+    line('R14', None, None, 'FAIL: up and down share the doublet pattern and the singlet class: 1 against %.4f' % r_ud, 'NC: 0/0'),
+    line('R15', None, None, 'MATCH (conjugate patterns equal)' if Hp['R15_conjugate_patterns_equal'] else 'FAIL', 'MATCH (0 = 0)'),
+    line('R16', None, None, 'PASS' if Hp['R16_pass'] else 'FAIL: ceiling %.0f MeV (above the muon, below the top)' % Hp['anchor_on_the_lepton_doublet']['ceiling_MeV'],
+         'NC: no assigned particle has a nonzero angle; the unit cannot be anchored'),
+    line('R17', None, None, sameV('R17'), old['R17']['V_vector_like_M1']),
+    line('R18', None, None, sameV('R18'), old['R18']['V_vector_like_M1']),
+    ('T1 tower of M3', 'exact kernel eigenvalues (worker KD)', 'not applicable', 'not applicable', 'not applicable',
+     'NC: five angles %.4f to %.4f, ratios to the lowest up to %.4f, no assigned particle' % (a0, max(ang.values()), m3['largest_ratio_inside_the_tower'])),
+]
+out['scoreboard_v2'] = [{'property': b[0], 'status_of_the_CF1_output': b[1], 'V_M1_class_table': b[2], 'H_M1_flux_content_of_the_runs': b[3], 'C_M2': b[4], 'M3': b[5]} for b in board]
+out['M0_line'] = v1['scoreboard_marked_lines']['M0']
+print('\nSCOREBOARD v2  (property | status | V | H | C | M3)')
+for b in board: print(' | '.join(b))
+print('M0:', out['M0_line'])
+json.dump(out, open(os.path.join(HERE, 'comparison_v2.json'), 'w'), indent=1, default=str)

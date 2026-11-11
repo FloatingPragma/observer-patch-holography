@@ -1,0 +1,69 @@
+{
+ "N_predicted": 6.380467472191436e-12,
+ "v_source_GeV": 246.596754973931,
+ "scales": {
+  "S1_own": {
+   "products_GeV3": {
+    "e": 9.593879436264282e-05,
+    "u": 0.4745122776,
+    "d": 0.00183821935
+   },
+   "R_u": 4945.9895838004,
+   "R_d": 19.16033406727671,
+   "R_u_over_R_d": 258.13691799077185,
+   "worst_quark_factor": 8.506332342094591,
+   "excluded_at_this_scale": true,
+   "best_Z6_only_compromise_factor": 16.066639909787355,
+   "over_N_with_v_source": {
+    "e": 1.0027200190360253,
+    "u": 4959.44276962032,
+    "d": 19.212450540676308
+   },
+   "L7_unregistered_miss": {
+    "u": 3.816349987500309,
+    "d": 1.140756819849103e-05
+   }
+  },
+  "S2_MZ": {
+   "products_GeV3": {
+    "e": 8.72763416438365e-05,
+    "u": 0.134978521,
+    "d": 0.00046095500000000003
+   },
+   "R_u": 1546.5648359876259,
+   "R_d": 5.281557307719176,
+   "R_u_over_R_d": 292.82364005163186,
+   "worst_quark_factor": 7.343791515583618,
+   "excluded_at_this_scale": true,
+   "best_Z6_only_compromise_factor": 17.11209046410262,
+   "over_N_with_v_source": {
+    "e": 0.9121829759888973,
+    "u": 1410.7501146509735,
+    "d": 4.817746662811186
+   },
+   "L7_unregistered_miss": {
+    "u": 1.1933370648052668,
+    "d": 3.1445028552473756e-06
+   }
+  },
+  "S3_2e16": {
+   "products_GeV3": {
+    "e": 7.848801963810226e-05,
+    "u": 0.008347199999999999,
+    "d": 2.5079999999999997e-05
+   },
+   "R_u": 106.34998867964589,
+   "R_d": 0.3195392126803621,
+   "R_u_over_R_d": 332.82296650717706,
+   "worst_quark_factor": 4.666735435201915,
+   "excluded_at_this_scale": true,
+   "best_Z6_only_compromise_factor": 18.243436258204678,
+   "L7_unregistered_miss": {
+    "u": 0.08206017645034405,
+    "d": 1.9024539697190437e-07
+   }
+  }
+ },
+ "D1_D2_excluded": true,
+ "every_Z6_label_construction_misses_a_quark_sector_by_more_than_3": true
+}

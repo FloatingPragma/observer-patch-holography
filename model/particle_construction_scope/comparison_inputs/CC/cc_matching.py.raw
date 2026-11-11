@@ -1,0 +1,118 @@
+"""CC section D: what BF's matching constants imply for a collar (lattice) description that starts at M_U.
+
+Reads BF's matched cell couplings (`work/BF/bf_running.json`) and the electric and magnetic constants
+(`work/BF/bf_speed.json`), read only. Source only: no measured value is read. Writes cc_matching.json.
+"""
+import json
+import os
+import sys
+import time
+
+import numpy as np
+
+sys.dont_write_bytecode = True
+import cc_lib as C
+
+t0 = time.time()
+HERE = os.path.dirname(os.path.abspath(__file__))
+BF = os.path.join(os.path.dirname(HERE), 'BF')
+run = json.load(open(os.path.join(BF, 'bf_running.json')))
+spd = json.load(open(os.path.join(BF, 'bf_speed.json')))
+BARE = 16.2453
+out = {}
+
+# ------------------------------------------------------------------ D1: shifts per trace and clock
+keys = {
+    ('5', 'Hamiltonian'): 'full register, F=5, Hamiltonian (xi = inf)',
+    ('5', 'step a/2'): 'full register, F=5, CF-1 field step (xi = 2)',
+    ('5', 'isotropic'): 'full register, F=5, isotropic Euclidean (xi = 1)',
+    ('15', 'Hamiltonian'): 'full register, F=15, Hamiltonian (xi = inf)',
+    ('15', 'step a/2'): 'full register, F=15, CF-1 field step (xi = 2)',
+    ('15', 'isotropic'): 'full register, F=15, isotropic Euclidean (xi = 1)',
+}
+DELTA = {}
+d1 = {}
+for (F, clock), k in keys.items():
+    vals = run['cell_couplings'][k]['inv_alpha_1_2_3']
+    dl = [v - BARE for v in vals]
+    DELTA[(F, clock)] = dl
+    d1[f'F={F}, {clock}'] = {'matched (1/alpha_1, 1/alpha_2, 1/alpha_3) at bare 16.2453': vals,
+                             'delta (U1, SU2, SU3)': dl,
+                             'delta_1 - delta_2': dl[0] - dl[1], 'delta_2 - delta_3': dl[1] - dl[2]}
+xi_key = {'Hamiltonian': 'xi=inf', 'step a/2': 'xi=2.0', 'isotropic': 'xi=1.0'}
+for (F, clock) in list(DELTA):
+    r = spd['rows'].get(f'F={F}, {xi_key[clock]}')
+    if r is None:
+        continue
+    em = {}
+    for fac in ('U1', 'SU2', 'SU3'):
+        em[fac] = {'magnetic 4 pi delta_sigma': 4 * np.pi * r[fac]['delta_sigma'],
+                   'electric 4 pi delta_tau': 4 * np.pi * r[fac]['delta_tau'],
+                   'mean': 2 * np.pi * (r[fac]['delta_sigma'] + r[fac]['delta_tau']),
+                   'wave_speed_minus_1 at g^2 = 0.77354': r[fac]['c_minus_1']}
+    d1[f'F={F}, {clock}']['electric_and_magnetic_parts (in 1/alpha)'] = em
+out['D1_shifts'] = d1
+for k, v in d1.items():
+    print('D1', k, [round(z, 3) for z in v['delta (U1, SU2, SU3)']], 'd1-d2', round(v['delta_1 - delta_2'], 3),
+          'd2-d3', round(v['delta_2 - delta_3'], 3), flush=True)
+
+# reference chain (equal continuum couplings at M_U)
+ref = C.solve_chain()[0]
+xU = ref['x']
+LMU = float(np.log(ref['Ecell'] / ref['MU']))
+out['reference_chain'] = C.row(ref)
+out['ln(E_cell/M_U)'] = LMU
+
+# ------------------------------------------------------------------ D3: bare couplings equivalent to equal continuum couplings
+d3 = {}
+for (F, clock), dl in DELTA.items():
+    d3[f'F={F}, {clock}'] = {'bare (1/alpha_1, 1/alpha_2, 1/alpha_3) at spacing 1/M_U': [xU - z for z in dl],
+                             'spread (max - min)': max(dl) - min(dl)}
+out['D3_bare_equivalents_of_the_chain_value'] = d3
+print('D3', json.dumps(d3['F=5, Hamiltonian']), flush=True)
+
+# ------------------------------------------------------------------ D4: where the matched pairs meet for equal bare couplings
+SLOPES = {'declared (33/5, 1, -3)': (33 / 5, 1.0, -3.0), 'source, two doublets (41/5, 1, -3)': (41 / 5, 1.0, -3.0)}
+d4 = {}
+for (F, clock), dl in DELTA.items():
+    for sname, b in SLOPES.items():
+        l23 = 2 * np.pi * (dl[1] - dl[2]) / (b[1] - b[2])
+        l12 = 2 * np.pi * (dl[0] - dl[1]) / (b[0] - b[1])
+        d4[f'F={F}, {clock}, {sname}'] = {
+            'ln(mu a) where 1/alpha_2 = 1/alpha_3': l23, 'mu a': float(np.exp(l23)),
+            'ln(mu a) where 1/alpha_1 = 1/alpha_2': l12, 'mu a (1,2)': float(np.exp(l12)),
+            'in units of ln(E_cell/M_U)': [l23 / LMU, l12 / LMU],
+            'both_above_the_lattice_scale': bool(l23 > 0 and l12 > 0)}
+out['D4_meeting_scales_for_equal_bare_couplings'] = d4
+print('D4', json.dumps(d4['F=5, Hamiltonian, declared (33/5, 1, -3)']), flush=True)
+print('D4', json.dumps(d4['F=15, Hamiltonian, declared (33/5, 1, -3)']), flush=True)
+
+# ------------------------------------------------------------------ D5: the chain with equal bare couplings at 1/a = M_U
+d5 = {}
+for (F, clock) in (('5', 'Hamiltonian'), ('15', 'Hamiltonian'), ('5', 'isotropic')):
+    dl = tuple(DELTA[(F, clock)])
+    for sname, b in SLOPES.items():
+        for vlaw in ('x', 'su2', 'mean'):
+            roots = C.solve_chain(delta=dl, vlaw=vlaw, b=b, xlo=6.0, xhi=120.0, step=0.1)
+            key = f'F={F}, {clock} | {sname} | v-law coupling: ' + {'x': 'bare', 'su2': 'matched SU(2)', 'mean': 'mean of matched'}[vlaw]
+            if not roots:
+                d5[key] = {'roots': 0}
+            else:
+                rr = []
+                for c in roots:
+                    z = C.row(c)
+                    z['x_bare'] = z.pop('x')
+                    z['matched (1/alpha_1, 1/alpha_2, 1/alpha_3) at M_U'] = [float(q) for q in c['inv_at_MU']]
+                    rr.append(z)
+                d5[key] = {'roots': len(roots), 'rows': rr}
+            if d5[key]['roots']:
+                z = d5[key]['rows'][0]
+                print('D5', key, '| x_b', round(z['x_bare'], 4), '| v', '%.5g' % z['v'], '| mZ', '%.5g' % z['mz'], '| alpha_s',
+                      round(z['alpha_s'], 5), '| sin2', round(z['sin2'], 5), '| 1/aem', round(z['inv_aem'], 3), flush=True)
+            else:
+                print('D5', key, '| no root', flush=True)
+out['D5_chain_with_equal_bare_couplings_at_M_U'] = d5
+
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open(os.path.join(HERE, 'cc_matching.json'), 'w'), indent=1, default=C.jsonable)
+print('seconds', out['seconds'])

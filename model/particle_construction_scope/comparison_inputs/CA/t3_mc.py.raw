@@ -1,0 +1,135 @@
+"""Sampled histories (box B): estimate character-weighted ordered counts of one quantum from simulated native
+histories, compare with the exact finite-lag values and with the predicted sampling error, then run the
+reconstruction of ca_corr.gns on the sampled numbers.
+
+The simulation uses the branch table of model.observer.native.native (60 branches per port) and the counter table
+theta; nothing else.  MEASURED.  Usage: python t3_mc.py --k 1 --lag 80 --n2 2e8 --n3 6e8 --procs 12 --out t3_mc.json
+"""
+import argparse
+import json
+import time
+import multiprocessing as mp
+import numpy as np
+import ca_core as c
+import ca_corr as cc
+
+ap = argparse.ArgumentParser()
+ap.add_argument('--k', type=int, default=1)
+ap.add_argument('--lag', type=int, default=80)
+ap.add_argument('--n2', type=float, default=2e8)
+ap.add_argument('--n3', type=float, default=6e8)
+ap.add_argument('--procs', type=int, default=12)
+ap.add_argument('--batch', type=int, default=2000000)
+ap.add_argument('--out', default='t3_mc.json')
+args = ap.parse_args()
+
+STATES = c.sector('one')
+BR = c.branches(STATES)
+NXT = np.zeros((12, 60), dtype=np.int8)
+INC = np.zeros((12, 60), dtype=np.int8)
+for x, rows in enumerate(BR):
+    for b, (y, e, j) in enumerate(rows):
+        NXT[x, b] = y
+        INC[x, b] = (j * int(c.THETA[e])) % 20
+
+
+def worker(task):
+    seed, nwalk, lag, r = task
+    rng = np.random.default_rng(seed)
+    pos0 = rng.integers(0, 12, nwalk, dtype=np.int8)
+    pos = pos0.copy()
+    cnt = np.zeros(nwalk, dtype=np.int8)
+    marks = [pos0.astype(np.int64)]
+    for t in range(r * lag):
+        b = rng.integers(0, 60, nwalk, dtype=np.int8)
+        cnt = (cnt + INC[pos, b]) % 20
+        pos = NXT[pos, b]
+        if (t + 1) % lag == 0 and (t + 1) < r * lag:
+            marks.append(pos.astype(np.int64))
+    closed = pos == pos0
+    idx = np.zeros(int(closed.sum()), dtype=np.int64)
+    for mk in marks:
+        idx = idx * 12 + mk[closed]
+    idx = idx * 20 + cnt[closed].astype(np.int64)
+    return np.bincount(idx, minlength=12 ** r * 20), nwalk
+
+
+def run(r, n):
+    tasks = [(1000 * r + i, args.batch, args.lag, r) for i in range(int(np.ceil(n / args.batch)))]
+    hist = np.zeros(12 ** r * 20, dtype=np.int64)
+    total = 0
+    with mp.Pool(args.procs) as pool:
+        for h, nw in pool.imap_unordered(worker, tasks):
+            hist += h
+            total += nw
+    return hist.reshape((12,) * r + (20,)), total
+
+
+def symmetrize(T):
+    out = np.zeros_like(T)
+    for rot in c.ROTS:
+        ix = np.ix_(*([list(rot)] * T.ndim))
+        out += T[ix]
+    return out / len(c.ROTS)
+
+
+if __name__ == '__main__':
+    t0 = time.time()
+    k, lag = args.k, args.lag
+    sec = cc.Sector('one')
+    sp = sec.spectrum(k)
+    ph = c.OMEGA ** (k * np.arange(20))
+    exact = cc.counts(sec, k, lag, orders=(2, 3))
+    lim = cc.limits(sec, k, orders=(2, 3))
+    res = {'schema': 'repair_law.CA.t3_mc.v1', 'k': k, 'lag': lag, 'procs': args.procs}
+    est = {}
+    for r, n, key in ((2, args.n2, 'G'), (3, args.n3, 'T3')):
+        hist, total = run(r, n)
+        ncl = int(hist.sum())
+        num = hist @ ph
+        den = num.sum()
+        Chist = num / den                                         # indexed by history order (p_1, ..., p_r)
+        # operator order: C(p1, p2) -> G[p2, p1] = G[p1, p2]^T ; C(p1, p2, p3) -> T3[p3, p2, p1]
+        E = Chist.T if r == 2 else np.transpose(Chist, (2, 1, 0))
+        chi = abs(den) / ncl
+        fw = hist.sum(axis=-1) / ncl
+        fw = fw.T if r == 2 else np.transpose(fw, (2, 1, 0))
+        sigma = np.sqrt(np.maximum(fw * (1 - 2 * exact[key].real) + np.abs(exact[key]) ** 2, 0) / ncl) / chi
+        zs = np.abs(E - exact[key]) / np.maximum(sigma, 1e-300)
+        est[key] = E
+        res[key] = {'samples': total, 'closed_histories': ncl, 'attempts': total * r * lag,
+                    'mean_character_measured': float(chi),
+                    'mean_character_exact': float(exact['Z'][r] / np.trace(np.linalg.matrix_power(sec.P(0), r * lag)).real),
+                    'rms_error_over_predicted_sigma': float(np.sqrt((zs ** 2).mean())),
+                    'max_abs_error_to_exact_finite_lag': float(np.abs(E - exact[key]).max()),
+                    'median_predicted_sigma': float(np.median(sigma)),
+                    'max_abs_error_to_limit': float(np.abs(E - lim[key]).max()),
+                    'scale_of_limit': float(np.abs(lim[key]).max())}
+        print(f"r = {r}: samples {total:.3e}, closed {ncl:.3e}, mean character {chi:.4f} (exact "
+              f"{res[key]['mean_character_exact']:.4f}); rms |estimate - exact finite-lag value| / predicted sigma = "
+              f"{res[key]['rms_error_over_predicted_sigma']:.3f}; max error to the exact finite-lag value "
+              f"{res[key]['max_abs_error_to_exact_finite_lag']:.2e}, to the limit {res[key]['max_abs_error_to_limit']:.2e} "
+              f"(scale {res[key]['scale_of_limit']:.2e})", flush=True)
+    # reconstruction on the sampled numbers, symmetrized over the 60 rotations (the counts are rotation invariant)
+    G = symmetrize(est['G'])
+    T3 = symmetrize(est['T3'])
+    G = (G + G.conj().T) / 2
+    T3 = (T3 + np.transpose(T3, (2, 1, 0)).conj()) / 2            # tau(n_a n_b n_c)^* = tau(n_c n_b n_a)
+    w = np.sort(np.linalg.eigvalsh(G))[::-1]
+    res['G_eigenvalues_sampled'] = [float(x) for x in w]
+    res['G_eigenvalues_limit'] = [float(x) for x in np.sort(np.linalg.eigvalsh(lim['G']))[::-1]]
+    print('eigenvalues of the sampled two-point matrix:', np.round(w, 6).tolist(), flush=True)
+    rows = []
+    for tol in (0.05, 0.1, 0.2, 0.3):
+        r_, w_, sep, W, L = cc.gns(G, T3, thresh=tol * w[0])
+        ops = [(x + x.conj().T) / 2 for x in L]
+        got = c.lie_data(ops, tol=tol, centre_tol=tol)
+        rows.append({'tolerance': tol, 'gns_rank': r_, 'kept_over_dropped': sep, 'lie': list(got)})
+        print(f'   tolerance {tol}: GNS rank {r_} (kept/dropped {sep:.1f}); (span, closure, centre) = {got}', flush=True)
+    res['reconstruction_from_samples'] = rows
+    m_est = 144 * float(np.mean(np.diag(G).real))
+    res['multiplet_dimension_from_coincident_two_point'] = m_est
+    print(f'multiplet dimension from the coincident two-point value, 144 G_pp = {m_est:.4f} (limit {sp["m"]})')
+    res['seconds'] = round(time.time() - t0, 1)
+    json.dump(res, open(args.out, 'w'), indent=1)
+    print('wrote', args.out, 'in %.0f s' % (time.time() - t0))

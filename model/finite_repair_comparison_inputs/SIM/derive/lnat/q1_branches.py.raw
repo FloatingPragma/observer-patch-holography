@@ -1,0 +1,281 @@
+"""Q1: one-tick Kraus branches of one seam event in the coherent program, and the native records.
+
+EXACT throughout (sympy rationals and square roots). Writes q1_branches.json.
+
+Formulas (written before evaluation):
+  one load, oriented address k=(a,b), blank record:  U_k = I - v v^T, v = |m,0> - |p,1>,
+      m = (|a>-|b>)/sqrt2, p = (|a>+|b>)/sqrt2;  K0 = <0|U_k|0> = I - |m><m|,  K1 = <1|U_k|0> = |p><m|.
+      reversed address (b,a): K0 unchanged, K1 -> -K1.
+  walk tick on A|x> (uniform address, blank record): K_{r,k} = K_r^{(k)} / sqrt60, record-1 effect L/60.
+  two loads (native matching code), local completion common.local_repair_unitary (24-dim):
+      K0 = |00><00| + |11><11| + |+><+|, K1 = |+><-|, K2 = |11><20|, K3 = |11><02| on the seam.
+"""
+from __future__ import annotations
+
+import json
+from fractions import Fraction as F
+from itertools import combinations
+
+import numpy as np
+import sympy as s
+
+import lnat_common as C
+
+OUT = 'q1_branches.json'
+
+
+def one_load_kraus(a, b, n=12):
+    e = s.eye(n)
+    m = (e[:, a] - e[:, b]) / s.sqrt(2)
+    p = (e[:, a] + e[:, b]) / s.sqrt(2)
+    K0 = s.eye(n) - m * m.T
+    K1 = p * m.T
+    return K0, K1, m, p
+
+
+def check_one_load_against_walk():
+    """Extract K_{r,k} from the exact integer walk W on A|x> and compare with the formula."""
+    _, _, W120 = C.walk_integer()
+    adr = C.carrier()['addresses']
+    ok = True
+    for x in range(12):
+        v = C.embed_port(x)  # unnormalised (norm^2 60)
+        out = W120 @ v       # = 120 * W * v ; W A|x> = Q A|x> since R A = A
+        for k, (a, b) in enumerate(adr):
+            K0, K1, m, p = one_load_kraus(a, b)
+            for r, K in ((0, K0), (1, K1)):
+                col = K[:, x]
+                got = [F(int(out[C.idx(y, r, k)]), 120) for y in range(12)]
+                want = [F(str(s.nsimplify(col[y]))) for y in range(12)]
+                ok &= got == want
+    return ok
+
+
+def matchings(choice):
+    from model.common_source import native_gauge_object as obj
+    return obj.equivariant_matchings(choice)
+
+
+def native_label(pair_ports, seam, coin, law):
+    """Native rule model/observer/native.py on a binary two-load state, raw code as native_code_transport._raw."""
+    from model.observer import native
+    loads = tuple(int(i in pair_ports) for i in range(12))
+    out, (_, current) = native.native(loads, seam, coin)
+    raw = {0: 0, 1: 1, -1: 2}[current]
+    if law == 'E':
+        raw += 4 * ((loads[seam[0]] + loads[seam[1]]) % 2)
+    return raw, current, out
+
+
+def coherent_seam_on_pair(pair_ports, seam, orientation=+1):
+    """Coherent one-seam event on a binary pair state. Returns {record: {pair: amplitude}} (sympy)."""
+    a, b = seam
+    i, j = sorted(pair_ports)
+    res = {0: {}, 1: {}}
+    inside = [q for q in (i, j) if q in (a, b)]
+    if len(inside) == 0:
+        res[0][(i, j)] = s.Integer(1)
+        return res
+    if len(inside) == 2:
+        res[0][(i, j)] = s.Integer(1)  # |11> kept by K0
+        return res
+    q = inside[0]
+    partner = j if q == i else i
+    # |10> (load at a) or |01> (load at b);  K0 -> |+>/sqrt2 , K1 -> (+/-)|+>/sqrt2
+    sign = 1 if q == a else -1
+    for r, amp in ((0, s.Rational(1, 2)), (1, sign * orientation * s.Rational(1, 2))):
+        for end in (a, b):
+            key = tuple(sorted((end, partner)))
+            res[r][key] = res[r].get(key, 0) + amp
+    return res
+
+
+def code_analysis(choice, seam, law):
+    """Native record weights and coherent branch decomposition on all six logical code states."""
+    M = matchings(choice)
+    rows = []
+    # native weights per logical state (coin fair, pair uniform within the matching)
+    for logical, matching in enumerate(M):
+        native_w = {}
+        for pair in matching:
+            for coin in (0, 1):
+                raw, cur, _ = native_label(pair, seam, coin, law)
+                native_w[(coin, raw)] = native_w.get((coin, raw), F(0)) + F(1, 12)
+        # coherent: amplitude 1/sqrt6 per pair
+        comp = {}  # (record, class) -> output vector dict
+        for pair in matching:
+            br = coherent_seam_on_pair(pair, seam)
+            a, b = seam
+            if a in pair:
+                cls = 'from_first_endpoint'
+            elif b in pair:
+                cls = 'from_second_endpoint'
+            else:
+                cls = 'inactive'
+            for r, vec in br.items():
+                if not vec:
+                    continue
+                key = (r, cls)
+                d = comp.setdefault(key, {})
+                for kk, amp in vec.items():
+                    d[kk] = d.get(kk, 0) + amp / s.sqrt(6)
+        weights = {f'record{r}_{cls}': str(s.nsimplify(sum(v**2 for v in d.values())))
+                   for (r, cls), d in comp.items()}
+        # overall amplitude sign of each active component relative to the hold component of the same source
+        rows.append({'logical': logical, 'native_weights': {f'{k[0]},{k[1]}': str(v) for k, v in sorted(native_w.items())},
+                     'coherent_component_weights': weights})
+    return rows, M
+
+
+def code_effects(choice, seam):
+    """Effects of the coherent record-1 branch and of the active record-0 part, restricted to the 6-dim code.
+
+    Code vectors c_L = sum_{pair in matching L} |pair>/sqrt6. Effect matrix E_LL' = <K c_L, K c_L'>.
+    """
+    M = matchings(choice)
+    a, b = seam
+
+    def branch_vec(L, r, cls_filter=None):
+        d = {}
+        for pair in M[L]:
+            if cls_filter == 'active' and not (a in pair or b in pair):
+                continue
+            for kk, amp in coherent_seam_on_pair(pair, seam)[r].items():
+                d[kk] = d.get(kk, 0) + amp / s.sqrt(6)
+        return d
+
+    def gram(vecs):
+        G = s.zeros(6, 6)
+        for i in range(6):
+            for j in range(6):
+                G[i, j] = s.nsimplify(sum(vecs[i].get(k, 0) * vecs[j].get(k, 0) for k in set(vecs[i]) | set(vecs[j])))
+        return G
+
+    E1 = gram([branch_vec(L, 1) for L in range(6)])
+    E0a = gram([branch_vec(L, 0, 'active') for L in range(6)])
+    E0 = gram([branch_vec(L, 0) for L in range(6)])
+    return E1, E0a, E0
+
+
+def native_branch_effects(choice, seam, law, labels):
+    """Native effect of a set of (coin, raw) labels on the 6-dim code (native branches are diagonal in pair basis
+    with the coin a classical fair bit; the output pair state after the native move is recorded)."""
+    M = matchings(choice)
+    G = s.zeros(6, 6)
+    for L in range(6):
+        for Lp in range(6):
+            tot = 0
+            for coin in (0, 1):
+                outs_L, outs_Lp = {}, {}
+                for pair in M[L]:
+                    raw, cur, out = native_label(pair, seam, coin, law)
+                    if (coin, raw) in labels:
+                        outs_L[(raw, out)] = outs_L.get((raw, out), 0) + 1 / s.sqrt(6)
+                for pair in M[Lp]:
+                    raw, cur, out = native_label(pair, seam, coin, law)
+                    if (coin, raw) in labels:
+                        outs_Lp[(raw, out)] = outs_Lp.get((raw, out), 0) + 1 / s.sqrt(6)
+                tot += s.Rational(1, 2) * sum(outs_L.get(k, 0) * outs_Lp.get(k, 0) for k in set(outs_L) | set(outs_Lp))
+            G[L, Lp] = s.nsimplify(tot)
+    return G
+
+
+def main():
+    out = {'question': 'Q1', 'labels': 'EXACT unless stated'}
+    gC, gE, g = C.native_rotations()
+    out['rotations'] = {'gC': C.cycles(gC), 'gE': C.cycles(gE), 'g=gE.gC': C.cycles(g)}
+
+    # A. one load, one oriented address
+    K0, K1, m, p = one_load_kraus(2, 3)
+    K0r, K1r, _, _ = one_load_kraus(3, 2)
+    assert K0 == K0r and K1 == -K1r
+    assert s.simplify(K0.T * K0 + K1.T * K1 - s.eye(12)) == s.zeros(12)
+    e = s.eye(12)
+    out['A_one_load'] = {
+        'formula': 'K0 = I - |m><m|, K1 = |p><m|, m=(|a>-|b>)/sqrt2, p=(|a>+|b>)/sqrt2; reversed address: K1 -> -K1',
+        'K0|a>': 'p/sqrt2', 'K1^(a,b)|a>': '+p/sqrt2', 'K1^(a,b)|b>': '-p/sqrt2',
+        'K1^(b,a)|a>': '-p/sqrt2', 'K1^(b,a)|b>': '+p/sqrt2',
+        'checked_seam': [2, 3],
+        'K0|2>': [str(x) for x in (K0 * e[:, 2]).T], 'K1|2>': [str(x) for x in (K1 * e[:, 2]).T],
+        'K1|3>': [str(x) for x in (K1 * e[:, 3]).T],
+        'completeness': True,
+        'matches_exact_walk_columns_all_ports_all_addresses': check_one_load_against_walk(),
+    }
+
+    # B. one walk tick on the embedded state A|x>
+    adj = C.carrier()['adj']
+    L = np.diag(adj.sum(1)) - adj
+    out['B_walk_tick'] = {
+        'branches': 'K_{r,k} = K_r^(k)/sqrt60 for record r in {0,1} and oriented address k (60); sum K^dag K = I',
+        'record1_effect': 'sum_k K_{1,k}^dag K_{1,k} = (1/60) sum_k |m_k><m_k| = L/60',
+        'record1_probability_localised_port': str(F(int(L[2, 2]), 60)),
+        'per_seam_record1_probability_localised_endpoint': '1/60 (two orientations, 1/120 each)',
+        'C_seam_(2,3)_record1_from_port2': {'address (2,3)': '+1/sqrt120', 'address (3,2)': '-1/sqrt120', 'weight': '1/60'},
+        'E_seam_(2,10)_record1_from_port2': {'address (2,10)': '+1/sqrt120', 'address (10,2)': '-1/sqrt120', 'weight': '1/60'},
+        'consensus_over_address': 'A^dag Q A = diag(P, P_sign): the parity-1 <- parity-0 block is (1/60) sum_k |p_k><m_k| = 0, '
+                                  'because the two orientations of each seam enter with opposite signs',
+    }
+    # exact check of the cancellation
+    _, _, W120 = C.walk_integer()
+    cancel = True
+    for x in range(12):
+        o = W120 @ C.embed_port(x)
+        for y in range(12):
+            cancel &= sum(int(o[C.idx(y, 1, k)]) for k in range(60)) == 0
+    out['B_walk_tick']['consensus_cross_parity_block_zero_checked'] = cancel
+
+    # C. native code (two loads): C seam (2,3) on coloring 0, E seam (2,10) on coloring 1
+    res = {}
+    for law, choice, seam in (('C', 0, (2, 3)), ('E', 1, (2, 10))):
+        rows, M = code_analysis(choice, seam, law)
+        E1, E0a, E0 = code_effects(choice, seam)
+        res[law] = {'seam': list(seam), 'coloring': choice, 'matchings': [list(map(list, mm)) for mm in M],
+                    'per_logical_state': rows,
+                    'coherent_record1_effect_on_code': [[str(x) for x in E1.row(i)] for i in range(6)],
+                    'coherent_record1_effect_is_scalar_on_code': E1 == E1[0, 0] * s.eye(6),
+                    'coherent_active_record0_effect_on_code': [[str(x) for x in E0a.row(i)] for i in range(6)],
+                    'coherent_active_record0_effect_is_scalar_on_code': E0a == E0a[0, 0] * s.eye(6)}
+        if law == 'C':
+            for name, labels in (('native_(0,1)', {(0, 1)}), ('native_(1,2)', {(1, 2)}),
+                                 ('native_current_both', {(0, 1), (1, 2)})):
+                G = native_branch_effects(choice, seam, law, labels)
+                res[law][name + '_effect_on_code'] = [[str(x) for x in G.row(i)] for i in range(6)]
+                res[law][name + '_effect_is_scalar'] = G == G[0, 0] * s.eye(6)
+        else:
+            G = native_branch_effects(choice, seam, law, {(0, 4), (0, 5)})
+            res[law]['native_E_effect_on_code'] = [[str(x) for x in G.row(i)] for i in range(6)]
+            res[law]['native_E_effect_is_scalar'] = G == G[0, 0] * s.eye(6)
+    out['C_native_code'] = res
+
+    # cross-check against the repository's native record table
+    try:
+        from model.common_source import native_repair_mass as nrm
+        recs = nrm.native_records()
+        def marg(sel):
+            return str(sum(r[-1] for r in recs if sel(r)))
+        out['C_native_code']['repository_native_records'] = {
+            'P(coin0,raw1)': marg(lambda r: (r[0], r[1]) == (0, 1)),
+            'P(coin1,raw2)': marg(lambda r: (r[0], r[1]) == (1, 2)),
+            'P(coin1,raw1)': marg(lambda r: (r[0], r[1]) == (1, 1)),
+            'P(E=(coin0,raw4|5))': marg(lambda r: r[2] == 0 and r[3] in (4, 5)),
+            'P(C current and E)': marg(lambda r: (r[0], r[1]) == (0, 1) and r[2] == 0 and r[3] in (4, 5)),
+        }
+    except Exception as exc:  # pragma: no cover
+        out['C_native_code']['repository_native_records'] = f'import failed: {exc!r}'
+
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps({k: v for k, v in out.items() if k != 'C_native_code'}, indent=1, default=str)[:3000])
+    for law in ('C', 'E'):
+        r = out['C_native_code'][law]
+        print(law, 'logical0 native', r['per_logical_state'][0]['native_weights'])
+        print(law, 'logical0 coherent', r['per_logical_state'][0]['coherent_component_weights'])
+        print(law, 'record1 scalar', r['coherent_record1_effect_is_scalar_on_code'],
+              'active record0 scalar', r['coherent_active_record0_effect_is_scalar_on_code'])
+        print(law, 'record1 effect', r['coherent_record1_effect_on_code'])
+    print(out['C_native_code'].get('repository_native_records'))
+    print({k: v for k, v in out['C_native_code']['C'].items() if k.endswith('scalar')})
+    print({k: v for k, v in out['C_native_code']['E'].items() if k.endswith('scalar')})
+
+
+if __name__ == '__main__':
+    main()

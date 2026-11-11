@@ -1,0 +1,138 @@
+"""R8, coordinator's third note: (1) the record-independent Gauss charge of workers R1 and R4; (2) a class-3 face
+of the carrier as the register that takes the toggled charge.
+
+(1) Exact on the 32 patterns: the Z2 charge of the four levels other than the neutral doublet level, (-1)^(n_s1),
+    against the toggle, the twelve generators and the public central link sign (-1)^(n2).
+(2) A. Kinematics of faces on the real carrier (exact): every seam lies in two faces with opposite orientation, so
+       the face classes of every link word sum to 0 mod 6; sampled on random Z6 words.
+    B. Smallest closed carrier, a tetrahedron with six Z2 seams (64 link words), one quantum with a handedness bit
+       (R neutral, L charged), all operators as integer matrices:
+         additive face charge, pair-parity charge, the step exp(-i theta (toggle x pair creation/annihilation)),
+         the port constraints of the carrier.
+    C. Real carrier (float): port state of a left pattern with a class-3 pair made by one flipped seam, against
+       the uniform state (the overlap asked for), and the coherent amplitudes available from a pair density.
+"""
+import itertools, json, sys
+import numpy as np
+from r8_common import *
+from model.common_source import slow_geometry
+
+out = {}
+# ---------------------------------------------------------------- (1) record-independent charge
+Zs1 = np.diag([(-1) ** s[3] for s in states]).astype(np.int64)        # (-1)^(n_s1): the four other levels
+Zn2 = np.diag([(-1) ** (s[3] + s[4]) for s in states]).astype(np.int64)   # public central link sign on patterns
+Zn0 = np.diag([(-1) ** s[4] for s in states]).astype(np.int64)
+Qem6 = 3 * gens['su2_T3'] + gens['u1_Y']                              # 6 Q_em = 6 n_s1 - 2 n3
+expo = (np.diag(Qem6).real.astype(int) + 2 * np.array([s[0] + s[1] + s[2] for s in states]))  # 6 (Q + n3/3) = 6 n_s1
+same_on_partners = all(Zs1[idx[s], idx[s]] == Zs1[idx[s[:4] + (1,)], idx[s[:4] + (1,)]] for s in states if s[4] == 0)
+out['record_independent_charge'] = {
+    'commutes_with_toggle': comm0(Zs1, G0), 'equal_on_both_handedness_classes': bool(same_on_partners),
+    'equals_exp_i_pi_(Q_em + n3/3)': bool(np.array_equal(np.diag(Zs1), (-1) ** (expo // 6))),
+    'generators_it_fails_to_commute_with': [k for k, T in gens.items() if not comm0(Zs1, T)],
+    'central_link_sign_(-1)^n2_commutes_with_all_twelve': bool(all(comm0(Zn2, T) for T in gens.values())),
+    'central_link_sign_anticommutes_with_toggle': acomm0(Zn2, G0),
+    'central_sign_equals_record_independent_times_neutral_level_parity': bool(np.array_equal(Zn2, Zs1 @ Zn0)),
+    'link_matrix_on_one_load': 'diag(1,1,1,-1,1), against the public central link diag(1,1,1,-1,-1)'}
+# with the Higgs bit both factors are conserved by the lifted toggle K = G0 x X_h
+Xh = np.array([[0, 1], [1, 0]]); Zh = np.diag([1, -1])
+Klift = np.kron(G0, Xh)
+out['record_independent_charge']['lifted_toggle_conserves_(-1)^n_s1_and_(-1)^(n0+h)_separately'] = bool(
+    np.array_equal(Klift @ np.kron(Zs1, np.eye(2, dtype=int)), np.kron(Zs1, np.eye(2, dtype=int)) @ Klift)
+    and np.array_equal(Klift @ np.kron(Zn0, Zh), np.kron(Zn0, Zh) @ Klift))
+print('(1)', json.dumps(out['record_independent_charge']))
+
+# ---------------------------------------------------------------- (2) A. faces of the real carrier
+src = slow_geometry.source()
+seams = [tuple(sorted(int(v) for v in e)) for e in src.seams()]
+faces = [tuple(int(v) for v in f) for f in src.oriented_faces()]
+cnt = {e: [0, 0] for e in seams}
+for f in faces:
+    for i in range(3):
+        a_, b_ = f[i], f[(i + 1) % 3]
+        cnt[(min(a_, b_), max(a_, b_))][0 if a_ < b_ else 1] += 1
+rng = np.random.default_rng(1)
+worst = 0
+for _ in range(500):
+    wd = {e: int(rng.integers(0, 6)) for e in seams}
+    tot = 0
+    for f in faces:
+        for i in range(3):
+            a_, b_ = f[i], f[(i + 1) % 3]
+            tot += wd[(min(a_, b_), max(a_, b_))] * (1 if a_ < b_ else -1)
+    worst = max(worst, tot % 6)
+out['A_face_kinematics'] = {'every_seam_in_two_faces_with_opposite_orientation': bool(all(v == [1, 1] for v in cnt.values())),
+                            'class_sum_mod_6_over_the_20_faces_on_500_random_Z6_words': worst,
+                            'consequence': 'no link word differs from another by one class-3 face; faces change in pairs or by fusion'}
+print('(2A)', out['A_face_kinematics'])
+
+# ---------------------------------------------------------------- (2) B. tetrahedron, Z2 seams
+ports = range(4)
+tse = list(itertools.combinations(ports, 2)); tfa = list(itertools.combinations(ports, 3))
+NW = 2 ** len(tse)
+fmask = [sum(1 << tse.index(e) for e in itertools.combinations(f, 2)) for f in tfa]
+flux = np.array([[bin(z & m).count('1') % 2 for m in fmask] for z in range(NW)])
+N3 = flux.sum(axis=1)
+P = np.diag((-1) ** (N3 // 2)).astype(np.int64)                       # parity of the number of class-3 pairs
+I_w = np.eye(NW, dtype=np.int64)
+def Xs(s):
+    M = np.zeros((NW, NW), np.int64)
+    M[np.arange(NW) ^ (1 << s), np.arange(NW)] = 1
+    return M
+s0 = 0
+adj = [k for k, f in enumerate(tfa) if set(tse[s0]) <= set(f)]
+same = np.diag((flux[:, adj[0]] == flux[:, adj[1]]).astype(np.int64))
+A = Xs(s0) @ same                                                      # creates or annihilates a pair on the two faces at s0
+Mv = Xs(s0) @ (I_w - same)                                             # moves one flux across s0
+Xc, Zc, I2 = np.array([[0, 1], [1, 0]]), np.diag([1, -1]), np.eye(2, dtype=np.int64)
+K = np.kron(Xc, A); Kmove = np.kron(Xc, Mv); Kbare = np.kron(Xc, Xs(s0))
+Id = np.eye(2 * NW, dtype=np.int64)
+Ure, Uim = 101 * Id - 2 * (K @ K), -20 * K                             # 101 exp(-i theta K), cos = 99/101, sin = 20/101
+G_plain = np.kron(Zc, I_w)                                             # matter part of G_x; additive face charge adds 1
+G_pair = np.kron(Zc, P)
+star = [np.linalg.multi_dot([Xs(tse.index(e)) for e in tse if p in e]) for p in ports]      # flip of the three seams at a port
+Gam = [np.kron(Zc if p == 0 else I2, star[p]) for p in ports]         # port constraints, the quantum at port 0
+Gam0_mod = np.kron(Zc, star[0] @ P)
+c0 = lambda X_, Y_: not np.any(X_ @ Y_ - Y_ @ X_)
+ac0 = lambda X_, Y_: not np.any(X_ @ Y_ + Y_ @ X_)
+out['B_tetrahedron'] = {
+    'link_words': NW, 'words_with_an_odd_number_of_class3_faces': int((N3 % 2 == 1).sum()),
+    'product_of_face_signs_is_one_on_every_word': bool(np.all(flux.sum(axis=1) % 2 == 0)),
+    'additive_face_charge': 'identically trivial: G_x unchanged',
+    'toggle_times_any_seam_flip_anticommutes_with_G_x': ac0(Kbare, G_plain),
+    'pair_operator_A_hermitian': bool(np.array_equal(A, A.T)), 'A_cubed_equals_A': bool(np.array_equal(A @ A @ A, A)),
+    'A_anticommutes_with_pair_parity': ac0(A, P),
+    'K_cubed_equals_K': bool(np.array_equal(K @ K @ K, K)),
+    'step_unitary_(U U* = 101^2)': bool(np.array_equal(Ure @ Ure + Uim @ Uim, 101 ** 2 * Id) and not np.any(Ure @ Uim - Uim @ Ure)),
+    'step_commutes_with_G_x_times_pair_parity': bool(c0(Ure, G_pair) and c0(Uim, G_pair)),
+    'step_commutes_with_plain_G_x': bool(c0(Ure, G_plain) and c0(Uim, G_plain)),
+    'flux_move_instead_of_pair_fails_with_pair_parity': ac0(Kmove, G_pair),
+    'port_constraints_product_is_matter_parity': bool(np.array_equal(np.linalg.multi_dot(Gam), G_plain)),
+    'step_commutes_with_port_constraints_(ports 0..3)': [bool(c0(Uim, g_)) for g_ in Gam],
+    'modified_port_constraint_Gamma0_times_pair_parity': {
+        'involution': bool(np.array_equal(Gam0_mod @ Gam0_mod, Id)), 'commutes_with_the_others': bool(all(c0(Gam0_mod, g_) for g_ in Gam[1:])),
+        'commutes_with_the_step': bool(c0(Uim, Gam0_mod) and c0(Ure, Gam0_mod))},
+    'pair_parity_as_product_over_faces': 'prod_f i^(flux_f): a single class-3 face would carry half a unit (a Z4 charge)',
+    'topological_spin_of_(flux 3, charge 3)_in_the_Z6_double': 'exp(2 pi i 9/6) = -1'}
+for k, v in out['B_tetrahedron'].items(): print('(2B)', k, v)
+
+# ---------------------------------------------------------------- (2) C. overlaps on the real carrier
+def lap(neg):
+    Lm = np.zeros((12, 12))
+    for a_, b_ in seams:
+        v = np.zeros(12); v[a_] = 1; v[b_] = 1 if (a_, b_) in neg else -1
+        Lm += np.outer(v, v)
+    return Lm
+lam, vec = np.linalg.eigh(lap({seams[0]}))
+x = vec[:, 0]; u = np.ones(12) / np.sqrt(12)
+dens = {'0.040': 0.040, '0.00008': 0.00008, '0': 0.0}
+out['C_carrier'] = {
+    'right_patterns_blind_to_class_3': bool(all((3 * Q6[i]) % 6 == 0 for i, s in enumerate(states) if sum(s) % 2 == 1 and sum(s[:3]) % 2 == 1)),
+    'left_patterns_see_class_3': bool(all((3 * Q6[i]) % 6 == 3 for i, s in enumerate(states) if sum(s) % 2 == 0 and sum(s[:3]) % 2 == 1)),
+    'overlap_(right, pair present) with (left, pair absent)': 1.0,
+    'one_flipped_seam_lambda_min': float(lam[0]), 'next_level': float(lam[1]),
+    'overlap_(right, no pair) with (left, pair made by one flipped seam)': float(abs(x @ u)),
+    'its_square': float((x @ u) ** 2),
+    'register_expectation_in_a_state_diagonal_in_flux': 0.0,
+    'coherent_amplitude_sqrt(p(1-p))_for_the_supplied_pair_densities': {k: float(np.sqrt(p * (1 - p))) for k, p in dens.items()}}
+print('(2C)', json.dumps(out['C_carrier']))
+if len(sys.argv) > 1: json.dump(out, open(sys.argv[1], 'w'), indent=1)

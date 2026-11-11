@@ -1,0 +1,66 @@
+"""Task CO: collect the per-level outputs of events.py, traj.py, hops.py, correlates.py, compositions.py into
+repair-law/work/SIM/cf1/runs/O_observer_cards.json, add the observer cards (summary table per class and tier) and the
+composition cards. Run locally after `box.sh pull`.
+"""
+import json
+from pathlib import Path
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE / 'out'
+DEST = HERE.parent / 'runs' / 'O_observer_cards.json'
+
+
+def load(name):
+    p = OUT / name
+    return json.load(open(p)) if p.exists() else None
+
+
+def main():
+    levels = {}
+    for L in (5, 6, 7, 8, 9, 10):
+        d = {}
+        for key, name in (('events', f'events_L{L}.json'), ('trajectories', f'traj_L{L}.json'),
+                          ('correlates', f'corr_L{L}.json'), ('composition_history', f'comphist_L{L}.json')):
+            v = load(name)
+            if v is not None:
+                d[key] = v
+        if L == 6 and load('traj_L6g.json'):
+            d['trajectories_with_carrier_load_gradient'] = load('traj_L6g.json')
+        hops = {}
+        for name in sorted(OUT.glob(f'hops_L{L}_*.json')):
+            hops[name.stem] = json.load(open(name))
+        if hops:
+            d['hops'] = hops
+        cen = {}
+        for name in sorted(OUT.glob(f'census_L{L}_*.json')):
+            cen[name.stem] = json.load(open(name))
+        if cen:
+            d['census'] = cen
+        if d:
+            levels[str(L)] = d
+    # asymmetry 444 vs 222 at the end of every level
+    ends = {5: 'census_L5_600', 6: 'census_L6_500', 7: 'census_L7_400', 8: 'census_L8_300', 9: 'census_L9_300', 10: 'census_L10_300'}
+    rows = []
+    for L, nm in ends.items():
+        c = load(nm + '.json')
+        a = c['asymmetry_444_vs_222']
+        rows.append({'level': L, 'sweep': c['sweep'], 'N444': a['n_a'], 'N222': a['n_b'], 'A': a['A'], 'err': a['err']})
+    na = sum(r['N444'] for r in rows); nb = sum(r['N222'] for r in rows)
+    A = (na - nb) / (na + nb)
+    w = np.array([1 / r['err'] ** 2 for r in rows]); x = np.array([r['A'] for r in rows])
+    chi2 = float((((x - (w * x).sum() / w.sum()) ** 2) * w).sum())
+    asym = {'definition': '(N444 - N222) / (N444 + N222), carriers whose twenty faces carry exactly three class-4 (three class-2) faces and nothing else; error sqrt((1 - A^2) / (N444 + N222))',
+            'per_level': rows, 'pooled': {'N444': na, 'N222': nb, 'A': A, 'err': float(np.sqrt((1 - A * A) / (na + nb)))},
+            'weighted_mean': {'A': float((w * x).sum() / w.sum()), 'err': float(1 / np.sqrt(w.sum())), 'chi2_between_levels': chi2, 'dof': len(rows) - 1}}
+    cards = json.load(open(HERE / 'cards.json'))
+    comp = json.load(open(HERE / 'composition_cards.json'))
+    comp['asymmetry_444_vs_222'] = asym
+    out = {'task': 'CO observer property cards', 'labels': 'EXACT, MEASURED (with error), ARGUED',
+           'summary_table': cards, 'compositions': comp, 'levels': levels}
+    json.dump(out, open(DEST, 'w'), indent=1, default=float)
+    print('wrote', DEST, DEST.stat().st_size, 'asymmetry', asym['pooled'], asym['weighted_mean'])
+
+
+if __name__ == '__main__':
+    main()

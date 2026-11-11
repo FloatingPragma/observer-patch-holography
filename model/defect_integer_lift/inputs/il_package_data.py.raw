@@ -1,0 +1,81 @@
+"""Write the imported run counts of the candidate package from il_summary.json (public fields only).
+
+    python il_package_data.py
+
+Output: rer_package/defect_integer_lift/imported_census.json. The package imports these counts and checks arithmetic
+on them. It does not recompute them.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+KEY_COMPS = ('{2,4}', '{1,5}', '{3,3}', '{2,2,4,4}', '{4,4,4}', '{2,2,2}', '{2,3,3,4}')
+
+
+def main():
+    summary = json.loads((HERE / 'il_summary.json').read_text())['levels']
+    ref = json.loads((HERE / 'reference_check_L1_200.json').read_text())
+    out = {
+        'source': {
+            'repository': 'https://github.com/muellerberndt/oph-physics-sim',
+            'commit': summary['L5']['custody']['simulator_commit'],
+            'program': 'python -m oph_defects.universe --level L --sweeps N --schedule 1 --records 0:2 --series-every 1',
+            'law': 'law C on the exact federation, preparation exact06, register cost (0,5,8,10,8,5), kappa 5',
+            'engine_files_sha256': summary['L5']['custody']['engine_files_sha256'],
+            'kernel_core_sha256': summary['L5']['custody']['kernel_core_sha256'],
+            'status': 'imported run counts, not recomputed by this package',
+            'method': 'the twist list of each run is regenerated with the public engine from the declared preparation; '
+                      'the integer lift, the classes on every stored cut and the identities are rebuilt from that list and '
+                      'compared with the stored run files'},
+        'reference_cross_check': {
+            'level': ref['level'], 'sweeps': ref['sweeps'], 'applied_twists': ref['applied_twists'],
+            'public_engine_equal': ref['equal'], 'digests': ref['digests'],
+            'status': 'the reference implementation of this package and the public engine give the same loads, register, '
+                      'classes and applied twists at this size'},
+        'runs': {}}
+    for name, d in summary.items():
+        run = dict(d['custody']['run'])
+        row = {
+            'run': run, 'carriers': d['carriers'], 'applied_twists': d['applied_twists'],
+            'run_files_sha256': {'run.json': d['custody']['run_json_sha256'], 'MANIFEST.sha256': d['custody']['run_manifest_sha256'],
+                                 'catalogue.npz': d['custody']['catalogue_sha256'], 'cuts/end.npz': d['custody']['end_cut_sha256']},
+            'gates': d['gates'], 'all_gates_pass': d['all_gates_pass'],
+            'end': {tier: {'values_by_class': d['end'][tier]['values_by_class'], 'defect_faces': d['end'][tier]['defect_faces'],
+                           'flat_faces': d['end'][tier]['flat_faces'], 'hidden_faces': d['end'][tier]['hidden_faces'],
+                           'null_N2': d['end'][tier]['null_N2']} for tier in ('internal', 'screen')},
+            'null_N1_end': {tier: {k: d['null_N1_end'][tier][k] for k in ('std', 'abs_max', 'share_mod_6_equal_to_stored_class')}
+                            for tier in ('internal', 'screen')},
+            'words_end': {c: {'carriers': d['words_end'][c]['carriers'],
+                              'words': {w['word']: w['count'] for w in d['words_end'][c]['words']},
+                              'words_total': d['words_end'][c]['words_total']} for c in KEY_COMPS if c in d['words_end']},
+            'words_at_peak': {c: d['words_at_peak'][c] for c in ('{1,2,3}', '{3,4,5}') if d['words_at_peak'].get(c)},
+            'events': {k: {'count': v['count'], 'defect_sum_conserved': v['defect_sum_conserved']} for k, v in d['events'].items()},
+            'births_on_two_faces_of_value_zero': d['events']['births']['on_two_faces_of_value_zero'],
+            'moves_by_class': d['events']['moves']['by_class'],
+            'two_lifts': [{k: t[k] for k in ('reaction', 'kind', 'minimal_lift', 'minimal_count', 'other_lift', 'other_count')}
+                          for t in d['two_lifts']],
+            'identities_internal': {k: {'identities': r['identities'], 'moved': r['moved'],
+                                        'moved_and_value_constant': r['moved_and_value_constant'],
+                                        'by_value_at_birth': {v: {q: x[q] for q in ('identities', 'alive_at_end', 'moved', 'hops_total',
+                                                                                    'value_changing_moves', 'lifetime_depth_median')}
+                                                              for v, x in r['by_value_at_birth'].items()}}
+                                    for k, r in d['identities'].get('internal', {}).items()},
+            'time': d['time'],
+            'hidden': {'created_by_event_kind': d['hidden']['created'], 'fate_of_created': d['hidden']['fate_of_created'],
+                       'created_total': d['hidden']['created_total']},
+        }
+        if 'loads' in d:
+            row['loads'] = {pool: {g: {'faces': r['faces'], **{h: {'count': r[h]['count']} for h in ('H_par', 'H_double', 'H_two') if h in r}}
+                                   for g, r in d['loads'][pool].items()} for pool in ('early', 'late')}
+            row['loads']['late_band_triples'] = d['loads']['late_chi_square_class3_rest_against_flat']
+            row['loads']['cuts_pooled'] = d['loads']['cuts_pooled']
+        out['runs'][name] = row
+    p = HERE / 'rer_package' / 'defect_integer_lift' / 'imported_census.json'
+    p.write_text(json.dumps(out, indent=1, sort_keys=True) + '\n')
+    print('written', p.name, p.stat().st_size, 'bytes')
+
+
+if __name__ == '__main__':
+    main()

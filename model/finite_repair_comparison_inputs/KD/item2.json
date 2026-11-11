@@ -1,0 +1,84 @@
+{
+ "a_translation": {
+  "link": "identity on the five-level fibre for every pair of neighbouring carriers",
+  "holonomy_of_every_closed_path": "identity"
+ },
+ "b_radial": {
+  "seam_direction_of_axis": {
+   "0": 2,
+   "1": 0,
+   "2": 1
+  },
+  "link_on_axis_i": "code lift R(q)+U(sigma q) of the half-turn about the seam direction j(i)",
+  "quaternions": {
+   "0": [
+    "0",
+    "0",
+    "0",
+    "1"
+   ],
+   "1": [
+    "0",
+    "1",
+    "0",
+    "0"
+   ],
+   "2": [
+    "0",
+    "0",
+    "1",
+    "0"
+   ]
+  },
+  "doublet_blocks": {
+   "0": [
+    [
+     "0",
+     "1*i"
+    ],
+    [
+     "1*i",
+     "0"
+    ]
+   ],
+   "1": [
+    [
+     "1*i",
+     "0"
+    ],
+    [
+     "0",
+     "-1*i"
+    ]
+   ],
+   "2": [
+    [
+     "0",
+     "1"
+    ],
+    [
+     "-1",
+     "0"
+    ]
+   ]
+  },
+  "plaquette_holonomy": "diag(1,1,1,-1,-1)",
+  "central_bit_gauge": "b1 = x2+x3, b2 = x3, b3 = 0 (mod 2)",
+  "sign_left_open": "one central bit per shared seam: the bit of the public link register (PROTECTION.md)",
+  "adjacent_glue_port_pairs_around_plaquettes": 12
+ },
+ "checks": {
+  "every port lies in exactly two carriers (home and one axis neighbour)": true,
+  "the six shared seams are the six seams of the frame matching, one per axis and side": true,
+  "shared seam on axis i is parallel to axis j(i) = i-1 (mod 3)": true,
+  "relabelling of the two shared ports from a carrier to its +e_i neighbour = half-turn about the seam direction (restricted to those ports); the other two half-turns of the frame do not give it": true,
+  "per cell: 6 ports, 27 seams (30 of the home carrier, the 3 shared pairs identified)": true,
+  "radial matching at the two shared ports, within the 120 cover values: exactly the two lifts of the half-turn about the seam direction (they differ by the central element)": true,
+  "radial matching on the doublet within all 2x2 matrices: the intertwiner space is one-dimensional (unitary solution unique up to a phase)": true,
+  "the three radial transports anticommute on the doublet and commute on the triplet; holonomy of every elementary plaquette = diag(1,1,1,-1,-1)": true,
+  "recharting by cover values turns the radial transport into central link bits b1 = x2+x3, b2 = x3, b3 = 0 (mod 2), with flux 1 through every plaquette": true,
+  "with the central bits b1 = x2+x3, b2 = x3, b3 = 0 on the links the radial transport still matches the responses and is flat: it recharts to identity links (carriers labelled through Klein rotations)": true,
+  "translation transport: at each of the six shared ports of a cell the two carriers hold different radial code responses (so a common frame and a common response at a shared port exclude each other)": true,
+  "ports of different shared seams of one carrier are adjacent (closed 4-seam paths around a plaquette exist)": true
+ }
+}

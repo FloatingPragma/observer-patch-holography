@@ -1,0 +1,153 @@
+{
+  "schema": "oph.scientific_comparison_inputs.v1",
+  "scope": "Source and numerical comparison inputs. Checksum admission does not validate their physical interpretations or transfer their construction to the owning source. Source text is inert .raw data; executable verified results are linked in README.md.",
+  "files": [
+    {
+      "path": "EW/code/ew_assemble.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_assemble.py",
+      "sha256": "f1376752274aaa2d029633bc1d6d8729a190c8554bdc54356011ed43134b2311",
+      "bytes": 23546,
+      "original_source_sha256": "98e0b51fcbae49bd94d9dcd009396d82920b1eeada1040a144f6e1090390191b",
+      "original_source_bytes": 23575,
+      "adaptation": "Machine-local workspace/home prefixes and compute-host metadata replaced by symbolic labels; numerical data unchanged."
+    },
+    {
+      "path": "EW/code/ew_docs.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_docs.py",
+      "sha256": "478122764785dc0cf1e15001bafec4c6bfa2a588341627e2cc29497b4ff6e8e3",
+      "bytes": 23564
+    },
+    {
+      "path": "EW/code/ew_gate_or.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_gate_or.py",
+      "sha256": "d89e25df2fc089027a9c8dde4e780ce0701c2199092ba884425bcd465f06ab9b",
+      "bytes": 1451
+    },
+    {
+      "path": "EW/code/ew_gates.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_gates.py",
+      "sha256": "fc8b26874a20de08bde5bfecdfdc7252cf452a51376486264c45fc603ae66419",
+      "bytes": 4586
+    },
+    {
+      "path": "EW/code/ew_oph.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_oph.py",
+      "sha256": "768acae706f0c069295e0576c2a62e64772fbc669dab2b986bfe0afadcde1f9a",
+      "bytes": 6636
+    },
+    {
+      "path": "EW/code/ew_plot.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_plot.py",
+      "sha256": "ada4fa2ce357166e1bf36b6f07149e38a128d8d6c48cd1295ebc00c18b7ab22a",
+      "bytes": 1803
+    },
+    {
+      "path": "EW/code/ew_quick.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_quick.py",
+      "sha256": "2a13016c49abedfd5d60ff01912a34aa16373522e443fbb8a3ab6da45d3691c1",
+      "bytes": 1219
+    },
+    {
+      "path": "EW/code/ew_report.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_report.py",
+      "sha256": "608c889965b2064d0c644ebd5f146915b999b395905fb72ccbf29cca6058e842",
+      "bytes": 19377
+    },
+    {
+      "path": "EW/code/ew_run.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_run.py",
+      "sha256": "2cf9ea40e206bfabb879cee3a5081e101054f0d6baaff9aaa3ef4428869c9836",
+      "bytes": 3790
+    },
+    {
+      "path": "EW/code/ew_valid.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_valid.py",
+      "sha256": "c05961cf3d7521b32422f95d08ada46d8bf14843c06a2e32793ead9a14e5db33",
+      "bytes": 9323
+    },
+    {
+      "path": "EW/code/ew_wham.py.raw",
+      "source": "work/SIM/phase2/EW/code/ew_wham.py",
+      "sha256": "42af300c1eadd5d5e995d2032bda3438307e64926f4ff484bd91e5239bb1291e",
+      "bytes": 7561
+    },
+    {
+      "path": "EW/code/ewlat.py.raw",
+      "source": "work/SIM/phase2/EW/code/ewlat.py",
+      "sha256": "4e6bcf666970553270099e23cc25244cd1703a3221a44aab07b8371ab16f20e1",
+      "bytes": 19507
+    },
+    {
+      "path": "EW/code/ewmap.py.raw",
+      "source": "work/SIM/phase2/EW/code/ewmap.py",
+      "sha256": "db2c6f8e100594928f05618cd2143de0f07165aeba6af2a21ae3d1c4230c94b4",
+      "bytes": 10130
+    },
+    {
+      "path": "EW/data/ew_transition.json",
+      "source": "work/SIM/phase2/EW/data/ew_transition.json",
+      "bytes": 44034,
+      "sha256": "8efb7583bb0502914994ec1e864abade28731770153e09edfd25ea627b32bf8d"
+    },
+    {
+      "path": "EW/data/gate_or.json",
+      "source": "work/SIM/phase2/EW/data/gate_or.json",
+      "sha256": "80b3ef5e3b2fa0bd746874ba7658e0c92147db1baa3b2bbba8f976caf5822ab3",
+      "bytes": 1262
+    },
+    {
+      "path": "EW/data/gates.json",
+      "source": "work/SIM/phase2/EW/data/gates.json",
+      "sha256": "ef5dabc50452564c74205e039d0b4eaa253b7c8e37b82203878097aeeab94b63",
+      "bytes": 2745
+    },
+    {
+      "path": "EW/data/oph_set_b12_L24.json",
+      "source": "work/SIM/phase2/EW/data/oph_set_b12_L24.json",
+      "sha256": "04defc4c648722d3561c051830082f2678b43a3258f43df66823bba85dee7a6f",
+      "bytes": 21763
+    },
+    {
+      "path": "EW/data/oph_set_b6_L12.json",
+      "source": "work/SIM/phase2/EW/data/oph_set_b6_L12.json",
+      "sha256": "f8056669da01f860eee93a20281b4ad46004245d8b793dac662dcd72f7d99f83",
+      "bytes": 30665
+    },
+    {
+      "path": "EW/data/oph_set_b6_L18.json",
+      "source": "work/SIM/phase2/EW/data/oph_set_b6_L18.json",
+      "sha256": "5afca4fda652a0b46ae7327abb7fcbcd3831280cfc5d6819340be960b89c78d0",
+      "bytes": 30712
+    },
+    {
+      "path": "EW/data/oph_set_b8_L16.json",
+      "source": "work/SIM/phase2/EW/data/oph_set_b8_L16.json",
+      "sha256": "761c2236e0c7a3c52d959031a9a6da8215f0337733323bea325dd1011e54b83c",
+      "bytes": 26286
+    },
+    {
+      "path": "EW/data/oph_set_b8_L24.json",
+      "source": "work/SIM/phase2/EW/data/oph_set_b8_L24.json",
+      "sha256": "e71fcac49848a0cc9534e349b5142ca8ad0585a6e05cd21a6aba444f69e9d8bf",
+      "bytes": 53597
+    },
+    {
+      "path": "EW/data/oph_set_b8_L32.json",
+      "source": "work/SIM/phase2/EW/data/oph_set_b8_L32.json",
+      "sha256": "5dc8b4b653975da641d0915350bed7ff1faebcfdc4567110529dfc324da52538",
+      "bytes": 16949
+    },
+    {
+      "path": "EW/data/oph_set_x36_b8_L24.json",
+      "source": "work/SIM/phase2/EW/data/oph_set_x36_b8_L24.json",
+      "sha256": "4768277b279452667c1db9c516938dff3c4b52140abf0754b36c3b2de5754702",
+      "bytes": 18280
+    },
+    {
+      "path": "EW/data/valid_analysis.json",
+      "source": "work/SIM/phase2/EW/data/valid_analysis.json",
+      "sha256": "2b85e8ec6031b40518de40dcec57234c28f8ac99d5003dbc19dc1afab73de7c7",
+      "bytes": 207140
+    }
+  ]
+}

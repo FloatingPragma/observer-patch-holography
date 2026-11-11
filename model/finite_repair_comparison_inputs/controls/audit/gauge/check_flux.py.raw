@@ -1,0 +1,125 @@
+"""Independent local gauge audit. Exact algebraic Gram; numerical flux-band comparison.
+
+Run from oph-meta with /tmp/oph-completion-venv/bin/python.
+No imported construction or artifact is modified.
+"""
+from pathlib import Path
+import itertools,json,hashlib
+import sympy as s
+import numpy as np
+
+HERE=Path(__file__).resolve().parent
+ROOT=HERE.parents[2]
+r=s.sqrt(5); phi=(1+r)/2
+V=[]
+for a in (1,-1):
+ for b in (1,-1):V.extend([(0,a,b*phi),(a,b*phi,0),(b*phi,0,a)])
+V=s.Matrix(V);Vn=np.asarray(V.evalf(),float)
+E=[(i,j) for i in range(12) for j in range(i+1,12)
+   if s.simplify(sum((V[i,k]-V[j,k])**2 for k in range(3))-4)==0]
+F=[t for t in itertools.combinations(range(12),3) if all(tuple(sorted(e)) in E for e in itertools.combinations(t,2))]
+F=[(a,b,c) if np.cross(Vn[b]-Vn[a],Vn[c]-Vn[a])@(Vn[a]+Vn[b]+Vn[c])>0 else (a,c,b) for a,b,c in F]
+A=s.zeros(12);P=s.zeros(12)
+for i,j in E:A[i,j]=A[j,i]=1
+for i in range(12):
+ for j in range(12):
+  if all(s.simplify(V[i,k]+V[j,k])==0 for k in range(3)):P[i,j]=1
+I=s.eye(12);J=s.ones(12);N=J-I-A-P
+assert len(E)==30 and len(F)==20
+# The normalized 3 and 3' frames. Their neighbor scalar products have opposite signs.
+T=(V*V.T/(phi+2)).applyfunc(s.simplify)
+Ts=T.applyfunc(lambda x:s.simplify(x.xreplace({r:-r})))
+assert T==I-P+(A-N)/r
+assert Ts==I-P-(A-N)/r
+
+def exact_gram(q3,q2):
+ # For spin1 and spin1/2 rank-one projectors: tr(PpPq)=((1+t)/2)^2 and (1+t')/2.
+ G=s.Matrix(12,12,lambda i,j:s.simplify(q3*q3*(1+T[i,j])**2/64+q2*q2*(1+Ts[i,j])/72))
+ aa=s.simplify(G[0,0]); b=next(G[i,j] for i,j in E)
+ c=next(G[i,j] for i in range(12) for j in range(12) if N[i,j]==1)
+ assert (G-aa*I-b*A-c*N).applyfunc(s.simplify)==s.zeros(12)
+ eig={}
+ # N=J-I-A-P and antipode is + on 1,5; - on 3,3'.
+ for name,mul,lam,p,j in [('1',1,5,1,12),('3',3,r,-1,0),("3prime",3,-r,-1,0),('5',5,-1,1,0)]:
+  val=s.simplify(aa+b*lam+c*(j-1-lam-p));assert val.is_positive
+  eig[name]={'multiplicity':mul,'gram_eigenvalue':str(val)}
+ return G,{'charges':[q3,q2],'gram_eigenvalues':eig,'exact_rank':12,
+   'sum_generator_over_i':[q3,q2],'trace_of_each_generator_over_i':str(s.Rational(q3,4)+s.Rational(q2,6)),
+   'trace_balanced':s.Rational(q3,4)+s.Rational(q2,6)==0}
+G1,raw=exact_gram(1,1);Gc,charged=exact_gram(2,-3)
+# Independent magnetic adjacency from oriented face-edge incidence.
+B=np.zeros((20,30));edge={e:i for i,e in enumerate(E)}
+for f,(a,b,c) in enumerate(F):
+ for u,v in [(a,b),(b,c),(c,a)]:B[f,edge[tuple(sorted((u,v)))]]=1 if u<v else -1
+assert np.linalg.matrix_rank(B)==19
+
+def flux(k):
+ target=np.ones(20)*(2*np.pi*k/20);target[0]-=2*np.pi*k
+ theta=np.linalg.lstsq(B,target,rcond=None)[0]
+ H=np.zeros((12,12),complex)
+ for (a,b),t in zip(E,theta):H[b,a]=np.exp(1j*t);H[a,b]=np.exp(-1j*t)
+ ev,U=np.linalg.eigh(H);return theta,H,ev,U
+
+def band(k,d,top):
+ theta,H,ev,U=flux(k);cols=np.arange(12-d,12) if top else np.arange(d);Q=U[:,cols]
+ assert np.ptp(ev[cols])<1e-11
+ X=[np.outer(Q[p].conj(),Q[p]) for p in range(12)]
+ return X,{'flux_label':k,'band_dimension':d,'eigenvalue':float(np.mean(ev[cols])),
+ 'band_residual':float(np.linalg.norm(H@Q-Q*np.mean(ev[cols]))),
+ 'one_step_local_port_leakage_max':float(max(np.linalg.norm((np.eye(12)-Q@Q.conj().T)@np.diag(np.arange(12)==p)@Q) for p in range(12)))}
+X3,d3=band(2,3,True);X2,d2=band(3,2,False)
+def gram(xs):return np.array([[np.trace(x@y).real for y in xs] for x in xs])
+Gnum=gram(X3)+gram(X2)
+err=float(np.max(np.abs(Gnum-np.array(G1.evalf(),float))))
+assert err<1e-12
+# Check actual matrix closure by projecting every commutator onto the 12-generator span.
+gens=[]
+for x,y in zip(X3,X2):
+ D=np.zeros((5,5),complex);D[:3,:3]=x;D[3:,3:]=y;gens.append(1j*D)
+vec=lambda x:np.r_[x.real.ravel(),x.imag.ravel()]
+M=np.stack([vec(x) for x in gens],axis=1);sv=np.linalg.svd(M,compute_uv=False)
+worst=0
+for x,y in itertools.combinations(gens,2):
+ z=vec(x@y-y@x);coef=np.linalg.lstsq(M,z,rcond=None)[0];worst=max(worst,np.linalg.norm(z-M@coef))
+assert sv[-1]>0.1 and worst<1e-12
+# Native local load cannot preserve a proper homogeneous magnetic band.
+leak_exact={'triplet':str(s.sqrt(s.Rational(3,12)*(1-s.Rational(3,12)))),
+            'doublet':str(s.sqrt(s.Rational(2,12)*(1-s.Rational(2,12))))}
+# Edge differences kill the common centre; edge sums retain all twelve directions
+# on a connected non-bipartite graph (the explicit carrier has triangles).
+Bdiff=s.zeros(30,12);Bsum=s.zeros(30,12)
+for e,(a,b) in enumerate(E):Bdiff[e,a]=-1;Bdiff[e,b]=1;Bsum[e,a]=Bsum[e,b]=1
+assert Bdiff.rank()==11 and Bsum.rank()==12
+# Exact control: su2^4 is a compact 12D algebra with zero centre, so T2/T3 numbers alone do not identify type.
+su2=s.Matrix([[0,s.I],[s.I,0]]),s.Matrix([[0,1],[-1,0]]),s.diag(s.I,-s.I)
+D=[]
+for b in range(4):
+ for x in su2:
+  m=s.zeros(8);m[2*b:2*b+2,2*b:2*b+2]=x;D.append(m)
+assert all(x.conjugate().T==-x for x in D)
+# Cross factors commute; each factor is nonabelian and centre free.
+assert all(D[3*b+i]*D[3*c+j]==D[3*c+j]*D[3*b+i] for b in range(4) for c in range(b) for i in range(3) for j in range(3))
+# Spectral flux alias, without using unphysical same-gauge matrix comparison.
+_,H2,ev2,_=flux(2);_,H22,ev22,_=flux(22)
+W2=np.exp(1j*(B@flux(2)[0]));W22=np.exp(1j*(B@flux(22)[0]));assert np.max(np.abs(W2-W22))<1e-12
+# Test the stated common-base-flux, highest-adjacency-band identification rule.
+charges=[-4,-3,1,2,6];target=[3,2,6,3,1];matches=[];scan=[]
+for k0 in range(20):
+ dims=[]
+ for charge in charges:
+  _,_,vals,_=flux(charge*k0)
+  dims.append(int(np.sum(np.abs(vals-vals[-1])<1e-8)))
+ scan.append({'base_flux':k0,'top_band_dimensions':dims})
+ if dims==target:matches.append(k0)
+assert matches==[]
+out={'status':'EXACT template Gram + MEASURED magnetic-band attachment',
+ 'raw_load_template':raw,'charge_weighted_template':charged,
+ 'magnetic_bands':[d3,d2],'actual_band_Gram_vs_exact_template_error':err,
+ 'actual_generator_smallest_singular_value':float(sv[-1]),'actual_commutator_span_max_residual':float(worst),
+ 'exact_native_band_leakage':leak_exact,'edge_difference_rank':11,'edge_sum_rank':12,
+ 'exact_dimension_center_counterexample':{'algebra':'su(2)^4','dimension':12,'centre':0,'qualifies_for_full_A5_inner_port_hypotheses':False},
+ 'face_edge_incidence_rank':19,'flux_label_alias_2_22_face_holonomy_error':float(np.max(np.abs(W2-W22))),
+ 'common_base_flux_top_band_scan':{'charges':charges,'target_dimensions':target,'rows':scan,'complete_matches':matches,'status':'MEASURED eigenvalue multiplicities; exact local algebra proof is separate'},
+ 'scope':{'native_band_selection_proved':False,'local_port_operations_preserve_selected_bands':False,'source_owned_endogenous_closed_histories_proved':False,'physical_gauge_field_or_species_identified':False}}
+(HERE/'results.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

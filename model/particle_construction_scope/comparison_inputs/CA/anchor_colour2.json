@@ -1,0 +1,75 @@
+{
+ "inputs": {
+  "t3_anchor": 4.671712575940568,
+  "measured_values_read": "none",
+  "tower": "p, q up to 90"
+ },
+ "a_class_probabilities_at_anchor": {
+  "P0": 0.9883072204578924,
+  "P1": 0.005846389771053703,
+  "P2": 0.005846389771053702,
+  "P1_minus_P2": 8.673617379884035e-19,
+  "P1_plus_P2": 0.011692779542107404
+ },
+ "b_monotonicity": {
+  "0": {
+   "h_at_t3A": 1.3625042438886763e-05,
+   "h_at_20_t3A": 3.0697084989590447e-121,
+   "limit": 0.0,
+   "largest_increase_on_grid": -2.1914479897973572e-120,
+   "non_increasing_within_1e-15": true,
+   "strictly_decreasing_where_excess_above_1e-12": true,
+   "excess_over_limit_at_t3A": 1.3625042438886763e-05
+  },
+  "1": {
+   "h_at_t3A": 1.0987336840193977,
+   "h_at_20_t3A": 1.0986122886681098,
+   "limit": 1.0986122886681098,
+   "largest_increase_on_grid": 2.220446049250313e-16,
+   "non_increasing_within_1e-15": true,
+   "strictly_decreasing_where_excess_above_1e-12": true,
+   "excess_over_limit_at_t3A": 0.0001213953512879673
+  },
+  "2": {
+   "h_at_t3A": 1.0987336840193975,
+   "h_at_20_t3A": 1.0986122886681098,
+   "limit": 1.0986122886681098,
+   "largest_increase_on_grid": 2.220446049250313e-16,
+   "non_increasing_within_1e-15": true,
+   "strictly_decreasing_where_excess_above_1e-12": true,
+   "excess_over_limit_at_t3A": 0.00012139535128774526
+  }
+ },
+ "c_colour_term": {
+  "full_tower_at_anchor": 0.012860716470547708,
+  "class_sum_at_t3A_minus_full_tower": 3.469446951953614e-18,
+  "limit_A1c": 0.012845831293646269,
+  "along_relaxation": {
+   "1.0": {
+    "colour_term": 0.012860716470547711,
+    "minus_limit": 1.4885176901442351e-05
+   },
+   "1.5": {
+    "colour_term": 0.012845856756580757,
+    "minus_limit": 2.5462934488337807e-08
+   },
+   "2.0": {
+    "colour_term": 0.012845831428891152,
+    "minus_limit": 1.352448830010955e-10
+   },
+   "4.0": {
+    "colour_term": 0.01284583129364627,
+    "minus_limit": 1.734723475976807e-18
+   },
+   "20.0": {
+    "colour_term": 0.012845831293646269,
+    "minus_limit": 0.0
+   }
+  },
+  "band_width_in_left_side": 1.4885176901438882e-05
+ },
+ "d_adjoint_keeps_triality": {
+  "triality_kept_p_q_2_to_30": true,
+  "dimension_sum_equals_8d_p_q_2_to_30": true
+ }
+}

@@ -1,0 +1,511 @@
+{
+ "version": "1",
+ "date": "2026-11-10",
+ "convention": "6Y = 3 n2 - 2 n3; T3 = +1/2 on s1, -1/2 on s2; Q = T3 + Y; left = even occupation",
+ "program": "candidate CF-1 (repair-law/candidates/CF1.md)",
+ "fermion_types": [
+  {
+   "name": "up-type quark",
+   "symbol": "u",
+   "group": "quark",
+   "colours": 3,
+   "electric_charge": "2/3",
+   "spin": "1/2 (frame cover; declared pointer)",
+   "statistics": "antisymmetric (declared; forced only with the filled reference)",
+   "left": {
+    "pattern": {
+     "n3": 1,
+     "n2": 1,
+     "six_Y": 1,
+     "T3": "1/2",
+     "Q": "2/3",
+     "colour": "triplet",
+     "weak": "doublet",
+     "handedness": "left",
+     "Q6_mod_6": 1,
+     "Z2_charge": 1,
+     "Z3_charge": 1,
+     "levels": [
+      "v1",
+      "s1"
+     ]
+    },
+    "weak_partner": "d"
+   },
+   "right": {
+    "pattern": {
+     "n3": 1,
+     "n2": 2,
+     "six_Y": 4,
+     "T3": "0",
+     "Q": "2/3",
+     "colour": "triplet",
+     "weak": "singlet",
+     "handedness": "right",
+     "Q6_mod_6": 4,
+     "Z2_charge": 0,
+     "Z3_charge": 1,
+     "levels": [
+      "v1",
+      "s1",
+      "s2"
+     ]
+    }
+   },
+   "mass_link": "toggle of the neutral doublet level s2 joins left and right",
+   "antiparticle_left": {
+    "n3": 2,
+    "n2": 0,
+    "six_Y": -4,
+    "T3": "0",
+    "Q": "-2/3",
+    "colour": "antitriplet",
+    "weak": "singlet",
+    "handedness": "left",
+    "Q6_mod_6": 2,
+    "Z2_charge": 0,
+    "Z3_charge": 2,
+    "levels": [
+     "v2",
+     "v3"
+    ]
+   },
+   "antiparticle_right": {
+    "n3": 2,
+    "n2": 1,
+    "six_Y": -1,
+    "T3": "-1/2",
+    "Q": "-2/3",
+    "colour": "antitriplet",
+    "weak": "doublet",
+    "handedness": "right",
+    "Q6_mod_6": 5,
+    "Z2_charge": 1,
+    "Z3_charge": 2,
+    "levels": [
+     "v2",
+     "v3",
+     "s2"
+    ]
+   },
+   "flux_seen_left": {
+    "1": "1/6",
+    "2": "1/3",
+    "3": "1/2",
+    "4": "2/3",
+    "5": "5/6"
+   },
+   "flux_seen_right": {
+    "1": "2/3",
+    "2": "1/3",
+    "3": "0",
+    "4": "2/3",
+    "5": "1/3"
+   }
+  },
+  {
+   "name": "down-type quark",
+   "symbol": "d",
+   "group": "quark",
+   "colours": 3,
+   "electric_charge": "-1/3",
+   "spin": "1/2 (frame cover; declared pointer)",
+   "statistics": "antisymmetric (declared; forced only with the filled reference)",
+   "left": {
+    "pattern": {
+     "n3": 1,
+     "n2": 1,
+     "six_Y": 1,
+     "T3": "-1/2",
+     "Q": "-1/3",
+     "colour": "triplet",
+     "weak": "doublet",
+     "handedness": "left",
+     "Q6_mod_6": 1,
+     "Z2_charge": 1,
+     "Z3_charge": 1,
+     "levels": [
+      "v1",
+      "s2"
+     ]
+    },
+    "weak_partner": "u"
+   },
+   "right": {
+    "pattern": {
+     "n3": 1,
+     "n2": 0,
+     "six_Y": -2,
+     "T3": "0",
+     "Q": "-1/3",
+     "colour": "triplet",
+     "weak": "singlet",
+     "handedness": "right",
+     "Q6_mod_6": 4,
+     "Z2_charge": 0,
+     "Z3_charge": 1,
+     "levels": [
+      "v1"
+     ]
+    }
+   },
+   "mass_link": "toggle of the neutral doublet level s2 joins left and right",
+   "antiparticle_left": {
+    "n3": 2,
+    "n2": 2,
+    "six_Y": 2,
+    "T3": "0",
+    "Q": "1/3",
+    "colour": "antitriplet",
+    "weak": "singlet",
+    "handedness": "left",
+    "Q6_mod_6": 2,
+    "Z2_charge": 0,
+    "Z3_charge": 2,
+    "levels": [
+     "v2",
+     "v3",
+     "s1",
+     "s2"
+    ]
+   },
+   "antiparticle_right": {
+    "n3": 2,
+    "n2": 1,
+    "six_Y": -1,
+    "T3": "1/2",
+    "Q": "1/3",
+    "colour": "antitriplet",
+    "weak": "doublet",
+    "handedness": "right",
+    "Q6_mod_6": 5,
+    "Z2_charge": 1,
+    "Z3_charge": 2,
+    "levels": [
+     "v2",
+     "v3",
+     "s1"
+    ]
+   },
+   "flux_seen_left": {
+    "1": "1/6",
+    "2": "1/3",
+    "3": "1/2",
+    "4": "2/3",
+    "5": "5/6"
+   },
+   "flux_seen_right": {
+    "1": "2/3",
+    "2": "1/3",
+    "3": "0",
+    "4": "2/3",
+    "5": "1/3"
+   }
+  },
+  {
+   "name": "neutrino",
+   "symbol": "nu",
+   "group": "lepton",
+   "colours": 1,
+   "electric_charge": "0",
+   "spin": "1/2 (frame cover; declared pointer)",
+   "statistics": "antisymmetric (declared; forced only with the filled reference)",
+   "left": {
+    "pattern": {
+     "n3": 3,
+     "n2": 1,
+     "six_Y": -3,
+     "T3": "1/2",
+     "Q": "0",
+     "colour": "singlet",
+     "weak": "doublet",
+     "handedness": "left",
+     "Q6_mod_6": 3,
+     "Z2_charge": 1,
+     "Z3_charge": 0,
+     "levels": [
+      "v1",
+      "v2",
+      "v3",
+      "s1"
+     ]
+    },
+    "weak_partner": "e"
+   },
+   "right": {
+    "pattern": {
+     "n3": 3,
+     "n2": 2,
+     "six_Y": 0,
+     "T3": "0",
+     "Q": "0",
+     "colour": "singlet",
+     "weak": "singlet",
+     "handedness": "right",
+     "Q6_mod_6": 0,
+     "Z2_charge": 0,
+     "Z3_charge": 0,
+     "levels": [
+      "v1",
+      "v2",
+      "v3",
+      "s1",
+      "s2"
+     ]
+    }
+   },
+   "mass_link": "toggle of the neutral doublet level s2 joins left and right",
+   "antiparticle_left": {
+    "n3": 0,
+    "n2": 0,
+    "six_Y": 0,
+    "T3": "0",
+    "Q": "0",
+    "colour": "singlet",
+    "weak": "singlet",
+    "handedness": "left",
+    "Q6_mod_6": 0,
+    "Z2_charge": 0,
+    "Z3_charge": 0,
+    "levels": []
+   },
+   "antiparticle_right": {
+    "n3": 0,
+    "n2": 1,
+    "six_Y": 3,
+    "T3": "-1/2",
+    "Q": "0",
+    "colour": "singlet",
+    "weak": "doublet",
+    "handedness": "right",
+    "Q6_mod_6": 3,
+    "Z2_charge": 1,
+    "Z3_charge": 0,
+    "levels": [
+     "s2"
+    ]
+   },
+   "flux_seen_left": {
+    "1": "1/2",
+    "2": "0",
+    "3": "1/2",
+    "4": "0",
+    "5": "1/2"
+   },
+   "flux_seen_right": {
+    "1": "0",
+    "2": "0",
+    "3": "0",
+    "4": "0",
+    "5": "0"
+   }
+  },
+  {
+   "name": "charged lepton",
+   "symbol": "e",
+   "group": "lepton",
+   "colours": 1,
+   "electric_charge": "-1",
+   "spin": "1/2 (frame cover; declared pointer)",
+   "statistics": "antisymmetric (declared; forced only with the filled reference)",
+   "left": {
+    "pattern": {
+     "n3": 3,
+     "n2": 1,
+     "six_Y": -3,
+     "T3": "-1/2",
+     "Q": "-1",
+     "colour": "singlet",
+     "weak": "doublet",
+     "handedness": "left",
+     "Q6_mod_6": 3,
+     "Z2_charge": 1,
+     "Z3_charge": 0,
+     "levels": [
+      "v1",
+      "v2",
+      "v3",
+      "s2"
+     ]
+    },
+    "weak_partner": "nu"
+   },
+   "right": {
+    "pattern": {
+     "n3": 3,
+     "n2": 0,
+     "six_Y": -6,
+     "T3": "0",
+     "Q": "-1",
+     "colour": "singlet",
+     "weak": "singlet",
+     "handedness": "right",
+     "Q6_mod_6": 0,
+     "Z2_charge": 0,
+     "Z3_charge": 0,
+     "levels": [
+      "v1",
+      "v2",
+      "v3"
+     ]
+    }
+   },
+   "mass_link": "toggle of the neutral doublet level s2 joins left and right",
+   "antiparticle_left": {
+    "n3": 0,
+    "n2": 2,
+    "six_Y": 6,
+    "T3": "0",
+    "Q": "1",
+    "colour": "singlet",
+    "weak": "singlet",
+    "handedness": "left",
+    "Q6_mod_6": 0,
+    "Z2_charge": 0,
+    "Z3_charge": 0,
+    "levels": [
+     "s1",
+     "s2"
+    ]
+   },
+   "antiparticle_right": {
+    "n3": 0,
+    "n2": 1,
+    "six_Y": 3,
+    "T3": "1/2",
+    "Q": "1",
+    "colour": "singlet",
+    "weak": "doublet",
+    "handedness": "right",
+    "Q6_mod_6": 3,
+    "Z2_charge": 1,
+    "Z3_charge": 0,
+    "levels": [
+     "s1"
+    ]
+   },
+   "flux_seen_left": {
+    "1": "1/2",
+    "2": "0",
+    "3": "1/2",
+    "4": "0",
+    "5": "1/2"
+   },
+   "flux_seen_right": {
+    "1": "0",
+    "2": "0",
+    "3": "0",
+    "4": "0",
+    "5": "0"
+   }
+  }
+ ],
+ "bosons": [
+  {
+   "name": "gluon",
+   "count": 8,
+   "source": "the eight traceless combinations of the port responses on the three vector levels",
+   "charge": "0",
+   "colour": "octet",
+   "acts_on": "patterns with n3 = 1 or 2",
+   "travelling_excitation": "open (worker X5): needs a link variable in the colour group",
+   "mass": "zero by gauge invariance, if it travels"
+  },
+  {
+   "name": "W+",
+   "count": 1,
+   "source": "the response that moves a quantum from s2 to s1 (weak raising)",
+   "charge": "+1",
+   "colour": "singlet",
+   "acts_on": "left-handed patterns only (exactly one spinor level occupied); annihilates right-handed ones",
+   "travelling_excitation": "open (X5)",
+   "mass": "from the state that fixes the neutral doublet level (open, R8)"
+  },
+  {
+   "name": "W-",
+   "count": 1,
+   "source": "the response that moves a quantum from s1 to s2 (weak lowering)",
+   "charge": "-1",
+   "colour": "singlet",
+   "acts_on": "left-handed patterns only",
+   "travelling_excitation": "open (X5)",
+   "mass": "as W+"
+  },
+  {
+   "name": "Z",
+   "count": 1,
+   "source": "the neutral combination of T3 and Y orthogonal to the electric charge",
+   "charge": "0",
+   "colour": "singlet",
+   "acts_on": "every pattern with T3 or Y",
+   "travelling_excitation": "open (X5)",
+   "mass": "from the same state; mixing angle open (representation level: sum T3^2 / sum Q^2 = 3/8)"
+  },
+  {
+   "name": "photon",
+   "count": 1,
+   "source": "the electric charge Q = T3 + Y, the combination the neutral toggle leaves unbroken",
+   "charge": "0",
+   "colour": "singlet",
+   "acts_on": "every charged pattern, equally on both handedness classes",
+   "travelling_excitation": "open (X5): needs a U(1) link phase; with one, the lowest Landau level sits at the rest phase (g = 2)",
+   "mass": "zero"
+  },
+  {
+   "name": "Higgs",
+   "count": 1,
+   "source": "the two spinor levels as a multiplet (charges of a doublet with 6Y = 3); its neutral member s2 is the toggle that joins left and right",
+   "charge": "0",
+   "colour": "singlet",
+   "acts_on": "every fermion type through the toggle",
+   "travelling_excitation": "open (R8, X5): the excitation of the register that takes the toggled charge",
+   "mass": "open"
+  }
+ ],
+ "generations": {
+  "required": "three copies of every fermion type with identical charges and different masses",
+  "public_theorem": "Lean/Screen/A5FamilyBand.lean and the gauge-structure paper, Proposition \"conditional screen-band selection\": the twelve-port load space has bands of ranks 1, 3, 3, 5 with costs 5 - sqrt5 < 6 < 5 + sqrt5; if one faithful band carries the families and lower cost selects, it is the rank-three band of cost 5 - sqrt5; tensored with the fifteen states of a generation it is a conditional rank-45 candidate",
+  "candidates": [
+   {
+    "id": "G-a",
+    "label": "the rank-three load band resolved along the three axes of the gauge-fixed cubic frame",
+    "status": "best guess; uses the public theorem; the three axes carry three different characters of the frame half-turns; masses equal unless the symmetry between the axes is broken"
+   },
+   {
+    "id": "G-b",
+    "label": "the three further cones of the routing tick, labelled by the frame axes ((0,pi/2,pi/2), (pi/2,0,pi/2), (pi/2,pi/2,0) in two-tick wave number)",
+    "status": "exact objects of the tick (workers R3, R4); two of them are mirror copies; the tick treats axis 2 differently from axes 1 and 3"
+   },
+   {
+    "id": "G-c",
+    "label": "the three characters of the Z3 holonomy of the port-to-port frame rule on the spherical federation",
+    "status": "two of the three are complex conjugates and degenerate"
+   },
+   {
+    "id": "G-d",
+    "label": "separation classes of a flux pair carried by the quantum",
+    "status": "four classes occur (2 to 5), not three"
+   }
+  ],
+  "mixing": "between a port basis and a frame basis the squared overlaps are 0.7236, 0.2764, 0 and 0.1382, 0.3618, 1/2 (lead L32); third angle zero",
+  "owner": "worker X4 scores the candidates; T5 computes the mass matrices they allow"
+ },
+ "checks": {
+  "charges": {
+   "u": "2/3",
+   "d": "-1/3",
+   "nu": "0",
+   "e": "-1"
+  },
+  "left_doublets_right_singlets": true,
+  "patterns_covered": 32,
+  "anomaly_sums": {
+   "sum_Y": "0",
+   "sum_Y3": "0",
+   "doublets_Y": "0",
+   "triplets_Y": "0"
+  },
+  "sum_T3sq_over_sum_Qsq": "3/8"
+ },
+ "status_note": "Best-guess map. Labels are exact; spin and statistics are declared; no mass is derived; no particle is identified by a measurement."
+}

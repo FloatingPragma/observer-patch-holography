@@ -1,0 +1,210 @@
+"""Worker CH, addendum 4 (second run): CK-1, MT-6, MT-7 of CANDIDATES.md.
+
+Run: /tmp/oph-completion-venv/bin/python ch_r2_checks.py [out.json]
+
+CK-1  census coefficients from the pattern charges (ch_lib, asserted against work/MATCH/match.json) against the exact
+      values on file in work/DB (b_coefficients.json, copies.json, higgs_pair.json), read only.
+MT-6  the operations of the source on the 32-dimensional pattern space of one quantum against the complement map.
+MT-7  every mass source on file and the scale at which a pattern or the register leaves the running.
+No measured value is read.
+"""
+import itertools
+import json
+import sys
+from fractions import Fraction as F
+from pathlib import Path
+
+import numpy as np
+
+from ch_lib import PATTERNS, INDEX, RL, slopes, check_against_match, clean, load_lv, P0
+
+OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).with_name('r2_checks.json')
+out = {}
+assert check_against_match() == 32
+
+# ----------------------------------------------------------------------------- CK-1: censuses on file
+EVEN = [p for p in PATTERNS if p['degree'] % 2 == 0]               # one family in left-handed notation (Q, u^c, d^c, L, e^c, nu^c)
+ODD = [p for p in PATTERNS if p['degree'] % 2 == 1]                # its mirror
+assert {p['multiplet'] for p in EVEN} == {(1, 1), (3, 1), (2, 0), (2, 2), (0, 2), (0, 0)}
+NO_E = [p for p in EVEN if p['multiplet'] != (0, 2)]               # family without e^c
+LAMBDA1_4 = [p for p in PATTERNS if p['degree'] in (1, 4)]          # the native five and its conjugate
+ADJ = (F(0), F(4, 3), F(2))                                         # Weyl fermions in the adjoints of SU(2) and SU(3)
+H = (F(1, 10), F(1, 6), F(0))                                       # one complex scalar doublet, |Y| = 1/2
+WD = (F(1, 5), F(1, 3), F(0))                                       # one Weyl doublet, |Y| = 1/2
+ES = (F(1, 5), F(0), F(0))                                          # one complex scalar singlet, |Y| = 1
+
+
+def add(*terms):
+    return tuple(sum(t[i] for t in terms) for i in range(3))
+
+
+def scal(k, t):
+    return tuple(k * x for x in t)
+
+
+def S(**kw):
+    return slopes(**kw)
+
+
+ZERO = (F(0), F(0), F(0))
+mine = {
+    'A': S(weyl_patterns=EVEN, copies=3, n_h=1),
+    'A1': S(weyl_patterns=EVEN, copies=1, n_h=1),
+    'A2': S(weyl_patterns=EVEN, copies=3, n_h=2),
+    'A4': S(weyl_patterns=EVEN, copies=4, n_h=1),
+    'A5': S(weyl_patterns=EVEN, copies=5, n_h=1),
+    'B': S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=3, n_h=1),
+    'B4': S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=4, n_h=1),
+    'B5': S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=5, n_h=1),
+    'B0': S(weyl_patterns=EVEN, scalar_patterns=NO_E, copies=3, n_h=1),
+    'B1': add(S(weyl_patterns=EVEN, copies=3, n_h=1), S(scalar_patterns=NO_E, copies=1, links=False)),
+    'BnoH': S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=3, n_h=0),
+    'C': add(S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=3, n_h=1), ADJ),
+    'D': add(S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=3, n_h=2), ADJ, scal(2, WD)),
+    'D0': add(S(weyl_patterns=EVEN, scalar_patterns=NO_E, copies=3, n_h=2), ADJ, scal(2, WD)),
+    'D1': add(S(weyl_patterns=EVEN, copies=3, n_h=2), ADJ, scal(2, WD), S(scalar_patterns=NO_E, copies=1, links=False)),
+    'D1E': add(S(weyl_patterns=EVEN, copies=3, n_h=2), ADJ, scal(2, WD), S(scalar_patterns=NO_E, copies=1, links=False), ES),
+    'S': add(S(weyl_patterns=EVEN, copies=3, n_h=2), ADJ, scal(2, WD)),
+    'A5D': add(S(weyl_patterns=EVEN, copies=3, n_h=1), S(weyl_patterns=LAMBDA1_4, copies=1, links=False)),
+    'AHD': add(S(weyl_patterns=EVEN, copies=3, n_h=1), scal(2, WD)),
+    'T2': S(weyl_patterns=PATTERNS, copies=3, cones=2, n_h=1),
+    'T2_1': S(weyl_patterns=PATTERNS, copies=1, cones=2, n_h=1),
+    'Ha1': S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=3, n_h=0),
+    'Ha2': S(weyl_patterns=EVEN, copies=3, n_h=3),
+    'Hc1': S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=3, n_h=0),
+    'Hc2': S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=4, n_h=0),
+}
+# Hb (DB3, G3) = census B plus two scalar doublets and two Weyl doublets, Higgs taken from the class-3 scalars
+mine['Hb'] = add(S(weyl_patterns=EVEN, scalar_patterns=EVEN, copies=3, n_h=0), scal(2, H), scal(2, WD))
+DB = RL / 'work/DB'
+ref = {}
+for k, v in json.loads((DB / 'b_coefficients.json').read_text())['sets'].items():
+    ref[k] = tuple(F(v[x]) for x in ('b1', 'b2', 'b3'))
+for k, v in json.loads((DB / 'copies.json').read_text()).items():
+    ref[k] = tuple(F(x) for x in v['b'])
+for k, v in json.loads((DB / 'higgs_pair.json').read_text())['censuses'].items():
+    ref[k] = tuple(F(x) for x in v['b'])
+ck1 = {}
+for k, r in ref.items():
+    if k not in mine:
+        ck1[k] = dict(on_file=[str(x) for x in r], from_patterns=None, equal=None)
+        continue
+    ck1[k] = dict(on_file=[str(x) for x in r], from_patterns=[str(x) for x in mine[k]], equal=(tuple(mine[k]) == r))
+out['CK1'] = dict(rows=ck1, all_equal=all(v['equal'] for v in ck1.values() if v['equal'] is not None),
+                  not_expressed=[k for k, v in ck1.items() if v['equal'] is None])
+assert out['CK1']['all_equal'], {k: v for k, v in ck1.items() if v['equal'] is False}
+# the readings of the first run, for the record
+out['CK1']['source_readings'] = {
+    'CEN-1 (32 Weyl blocks per copy, 3 copies) n_H = 0, 1, 2, 3': [[str(x) for x in S(weyl_patterns=PATTERNS, copies=3, n_h=n)] for n in range(4)],
+    'CEN-2 (16 Weyl blocks per copy, complements as holes) n_H = 1': [str(x) for x in S(weyl_patterns=EVEN, copies=3, n_h=1)]}
+
+# ----------------------------------------------------------------------------- MT-6: operations against the complement map
+states = [p['bits'] for p in PATTERNS]
+
+
+def ann(k):
+    A = np.zeros((32, 32))
+    for s in states:
+        if s[k]:
+            t = list(s); t[k] = 0
+            A[INDEX[tuple(t)], INDEX[s]] = (-1) ** sum(s[:k])
+    return A
+
+
+c = [ann(k) for k in range(5)]
+cd = [a.T for a in c]
+n3 = np.diag([float(p['n3']) for p in PATTERNS])
+deg = np.diag([float(p['degree']) for p in PATTERNS])
+
+
+def E(i, j, n=5):
+    M = np.zeros((n, n), complex); M[i, j] = 1; return M
+
+
+gens = []
+for a, b in ((0, 1), (0, 2), (1, 2)):
+    gens += [E(a, b) + E(b, a), -1j * E(a, b) + 1j * E(b, a)]
+gens += [E(0, 0) - E(1, 1), (E(0, 0) + E(1, 1) - 2 * E(2, 2)) / np.sqrt(3)]
+gens += [E(3, 4) + E(4, 3), -1j * E(3, 4) + 1j * E(4, 3), E(3, 3) - E(4, 4)]
+gens += [np.diag([-2, -2, -2, 3, 3]).astype(complex)]
+currents = [sum(g[i, j] * cd[i] @ c[j] for i in range(5) for j in range(5)) for g in gens]
+level_numbers = [cd[k] @ c[k] for k in range(5)]
+toggles = [cd[3], cd[4], c[3], c[4]]                                # c^dag_{s_k} and adjoints: the eight channel toggles summed
+diagonal = [np.diag((-1.0) ** np.diag(deg)), np.eye(32)]            # native tick (-1)^n; routing label, M0, M1, M3 act as identity
+ops = {'twelve currents': currents, 'five level numbers': level_numbers, 'level toggles and adjoints': toggles,
+       'diagonal steps': diagonal}
+comm_norm = {k: max(float(np.abs(o @ n3 - n3 @ o).max()) for o in v) for k, v in ops.items()}
+Cm = np.zeros((32, 32))
+for p in PATTERNS:
+    q = tuple(1 - x for x in p['bits'])
+    Cm[INDEX[q], INDEX[p['bits']]] = 1
+assert np.allclose(Cm @ n3 @ Cm.T, 3 * np.eye(32) - n3)
+assert all(p['n3'] != 3 - p['n3'] for p in PATTERNS)
+allops = [o for v in ops.values() for o in v]
+rng = np.random.default_rng(20261111)
+worst = 0.0
+for _ in range(400):                                                # random words of length 1 to 8 in the operations
+    W = np.eye(32, dtype=complex)
+    for _ in range(int(rng.integers(1, 9))):
+        W = allops[int(rng.integers(len(allops)))] @ W
+    worst = max(worst, max(abs(W[INDEX[tuple(1 - x for x in p['bits'])], INDEX[p['bits']]]) for p in PATTERNS))
+massterm = json.loads((Path(__file__).with_name('massterm.json')).read_text())
+pairs = massterm['MT1']['pairing_blocks']
+compl_pairs = [p for p in pairs if tuple(p['b']) == (3 - p['a'][0], 2 - p['a'][1])]
+out['MT6'] = dict(
+    max_commutator_with_n3=comm_norm,
+    complement_map='C n3 C^T = 3 - n3; n3 differs from 3 - n3 on all 32 patterns',
+    largest_complement_element_of_400_random_words=worst,
+    statement=('every operation on file commutes with n3, the number of occupied vector levels of the quantum; the '
+               'associative algebra they generate has no matrix element between a pattern and its complement (EXACT); '
+               'a bilinear that joins a 16 pattern with a 16bar pattern is therefore a pairing of two quanta'),
+    current_invariant_pairings_with_the_complement=len(compl_pairs),
+    their_change_of_N=sorted({p['dN'] for p in compl_pairs}),
+    their_Z6_class=sorted({p['dclass'] for p in compl_pairs}),
+    their_change_of_B_minus_L=sorted({str(p['dBL']) for p in compl_pairs}),
+    conserved_by_every_operation=['N (number of quanta; every operation acts on one quantum)', 'n3 per quantum', 'B - L = N - (2/3) n3'],
+    verdict='no mass term pairs a 16 with a 16bar: the current-invariant pairings change N by 2, and no operation on file changes N')
+assert all(v < 1e-12 for v in comm_norm.values()) and worst < 1e-12
+assert all(p['dN'] == -2 and p['dclass'] == 0 for p in compl_pairs)
+
+# ----------------------------------------------------------------------------- MT-7: thresholds on file
+lv = load_lv()
+Ecell = lv.EP / np.sqrt(P0)
+MU = lv.EP * np.exp(-2 * np.pi) * P0 ** (1 / 6)
+mt5 = massterm['MT5']['rows']
+tower = [r['rest_energy_GeV'] for r in mt5 if r['rest_angle_per_tick'] > 0]
+doublet = json.loads((Path(__file__).with_name('doublet.json')).read_text())
+one_reg = doublet['DO4']['one register']
+rows = [
+    dict(source='pairing of a pattern with its complement (vector-like mass)', acts_on='16 with 16bar',
+         scale='none: no such operation (MT-6)', between_mZ_and_MU=False),
+    dict(source='toggle with the register (mass step of the chiral reading)', acts_on='each species and its mirror alike',
+         scale='g |beta| per species, an electroweak-scale mass; with one register a mirror species has its partner angle (DO-4)',
+         one_register_species_equal_conjugate=one_reg['species_and_conjugate_equal'],
+         one_register_angles=sorted(set(one_reg['mass_angle_per_species'].values())),
+         between_mZ_and_MU=False),
+    dict(source='M3 internal walk (CF-1 section 10)', acts_on='load multiplets of the carrier other than the uniform load',
+         scale_GeV=[min(tower), max(tower)], over_M_U=[min(tower) / MU, max(tower) / MU], between_mZ_and_MU=False),
+    dict(source='M1 rest phases on flux carriers (MATCH; option, excluded as the chart mass step by CF-1 section 9)',
+         acts_on='patterns of nonzero class on carriers with a flux pair', per_tick=[0.042, 0.171],
+         scale_GeV=[0.042 * Ecell, 0.171 * Ecell], over_M_U=[0.042 * Ecell / MU, 0.171 * Ecell / MU], between_mZ_and_MU=False),
+    dict(source="register's induced mass term (LV: +0.25 to +0.96 E_cell^2, IMPORTED from reports/LV.md)", acts_on='the doublet',
+         scale_GeV=[0.5 * Ecell, np.sqrt(0.96) * Ecell], over_M_U=[0.5 * Ecell / MU, np.sqrt(0.96) * Ecell / MU],
+         between_mZ_and_MU=False, chain_row='V15 (no doublet below M_U)'),
+]
+out['MT7'] = dict(E_cell_GeV=Ecell, M_U_GeV=MU, rows=rows,
+                  statement='no mass source on file places a threshold between m_Z and M_U; the 16bar patterns leave the running only '
+                            'at their toggle masses, which with one register equal those of their partner species')
+OUT.write_text(json.dumps(clean(out), indent=1))
+print('CK-1: all censuses expressible from pattern charges equal the values on file:', out['CK1']['all_equal'])
+for k, v in ck1.items():
+    print(f"   {k:5s} on file ({', '.join(v['on_file'])})  from patterns {v['from_patterns']}  equal {v['equal']}")
+print('MT-6: max |[op, n3]| per family:', comm_norm)
+print('      largest complement element over 400 random words:', worst)
+print('      current-invariant pairings with the complement:', len(compl_pairs), 'dN', out['MT6']['their_change_of_N'],
+      'class', out['MT6']['their_Z6_class'], 'd(B-L)', out['MT6']['their_change_of_B_minus_L'])
+print('MT-7:')
+for r in rows:
+    print('   ', r['source'], '|', r.get('scale', ''), '|', [f'{x:.3e}' for x in r.get('scale_GeV', [])], '|',
+          [round(x, 1) for x in r.get('over_M_U', [])])
+print('wrote', OUT)

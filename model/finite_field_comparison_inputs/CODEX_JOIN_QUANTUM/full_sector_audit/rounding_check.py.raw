@@ -1,0 +1,74 @@
+"""Full-carrier floating executor against an independent invariant control."""
+from pathlib import Path
+import sys,math,json
+from fractions import Fraction as F
+import numpy as np
+import mpmath as mp
+HERE=Path(__file__).resolve().parent
+TARGET=HERE.parents[1]/'CODEX_MOBILE_SPECTRAL'
+sys.path.insert(0,str(TARGET))
+import full_sector as full
+import certify_trial as certify
+
+def check():
+    mp.mp.dps=90;mp.iv.dps=90
+    field=np.zeros((42,30))
+    for e in range(42):field[e,e%3]=.25
+    omega=np.diag([1+j/64 for j in range(30)])
+    coeffs=full.peierls_coefficients(mp.iv.mpf(1)/16)
+    rounded=[full.rounded_float(c) for c in coeffs]
+    charges,_=full.parent.parent.charge_geometry()
+    energies=[F(row['total_energy_above_actual_neutral_ground']) for row in charges]
+    energy=np.array(list(map(float,energies)))
+    error=np.array([np.nextafter(float(abs(F.from_float(v)-r)),np.inf) for v,r in zip(energy,energies)])
+    frame={'field':field,'field_error':np.zeros_like(field),
+           'omega':omega,'omega_error':np.zeros_like(omega),
+           'peierls':np.array([[x for x,e in rounded]]*2),
+           'peierls_error':np.array([[e for x,e in rounded]]*2),
+           'static_energy':energy,'static_energy_error':error}
+    op=full.ActualOperator(frame)
+    words=full.occupations();index={w:j for j,w in enumerate(words)}
+    small=[w for w in words if all(j<3 for j in w)];assert len(small)==20
+    local={w:j for j,w in enumerate(small)}
+    Ds=[]
+    for mode in range(3):
+        D=mp.zeros(20)
+        for j,w in enumerate(small):
+            if len(w)<3:
+                i=local[tuple(sorted(w+(mode,)))];v=mp.sqrt(w.count(mode)+1)/4
+                D[i,j]=v;D[j,i]=-v
+        Ds.append(mp.expm(D))
+    vector=np.zeros((13,5456));exact=mp.zeros(13,20)
+    for y in range(13):
+        for j,w in enumerate(small):
+            value=F(((20*y+j)*17)%11-5,64)
+            vector[y,index[w]]=float(value);exact[y,j]=mp.mpf(value.numerator)/value.denominator
+    result=op.apply(vector)
+    expected=mp.zeros(13,20)
+    for y in range(13):
+        e=mp.mpf(energies[y].numerator)/energies[y].denominator
+        for j,w in enumerate(small):expected[y,j]=(e+sum(1+mp.mpf(k)/64 for k in w))*exact[y,j]
+    for e,(u,v) in enumerate(full.parent.actual_edges()):
+        W=Ds[e%3]
+        for i in range(20):
+            expected[v,i]-=sum(W[i,j]*exact[u,j] for j in range(20))/24
+            expected[u,i]-=sum(W[j,i]*exact[v,j] for j in range(20))/24
+    observed=mp.sqrt(sum((mp.mpf(float(result[y,index[w]]))-expected[y,j])**2 for y in range(13) for j,w in enumerate(small)))
+    mask=np.ones(5456,dtype=bool);mask[[index[w] for w in small]]=False
+    assert np.count_nonzero(result[:,mask])==0
+    norm=mp.sqrt(sum(exact[y,j]**2 for y in range(13) for j in range(20)))
+    assert mp.mpf('.5')<norm<2
+    budget=certify.evaluation_budget(frame,op)
+    bound=F(budget['H_apply_norm_error_per_unit_input'])
+    bound_mp=mp.mpf(bound.numerator)/bound.denominator
+    assert observed<bound_mp*norm
+    report={'full_executor_dimension':70928,'invariant_control_dimension':260,
+      'no_unexpected_output_outside_control':True,
+      'independent_high_precision_exponential_error':str(observed),
+      'certified_float_budget_times_input_norm':str(bound_mp*norm),
+      'literal_executor_and_rounding_budget_control_passed':True,
+      'control_source_is_declared_test_member_not_native_trial':True}
+    (HERE/'rounding_control.json').write_text(json.dumps(report,indent=2)+'\n')
+    print(json.dumps(report,indent=2))
+    return report
+if __name__=='__main__':check()

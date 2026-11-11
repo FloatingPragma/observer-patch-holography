@@ -1,0 +1,113 @@
+"""Minimal private copy of LEW's SMDR interface (RL/work/SIM/derive/lew/lewlib.py and t3_vev_attachment.py), with
+the scratch input files in this worker's scratchpad. Uses LEW's compiled SMDR drivers (read only) and LEW's P_fwd
+packet (t1_chain.json, read only)."""
+from __future__ import annotations
+
+import json
+import math
+import subprocess
+from pathlib import Path
+
+BIN = Path("/tmp/claude-501/lew_smdr/bin")
+WORK = Path("/private/tmp/claude-501/-Users-muellerberndt-Projects-oph-meta/ffc7e197-dc34-420e-b416-eceb3c5d7773/scratchpad/ht_smdr")
+LEW = Path("WORKSPACE/repair-law/work/SIM/derive/lew")
+ORDER_Y = ("yu", "yc", "yt", "yd", "ys", "yb", "ye", "ymu", "ytau")
+LOOPS_V = 5
+
+
+def packet_p_fwd() -> dict:
+    t1 = json.loads((LEW / "t1_chain.json").read_text())
+    return dict(t1["pixels"]["P_fwd"]["packet_Q0"])
+
+
+def invoke(name: str, *args) -> dict:
+    WORK.mkdir(parents=True, exist_ok=True)
+    argv = [format(x, ".18g") if isinstance(x, float) else str(x) for x in args]
+    done = subprocess.run([str(BIN / name), *argv], cwd=WORK, check=True, capture_output=True, text=True,
+                          timeout=300)
+    return json.loads(done.stdout.strip().splitlines()[-1])
+
+
+def write_input_dat(pk: dict, name: str) -> str:
+    names = {"Q": pk["Q0"], "v": pk["v"], "gp": pk["gY"], "g": pk["g2"], "g3": pk["g3"],
+             **{k: pk[k] for k in ORDER_Y}, "lambda": pk["lambda"],
+             "m2": -pk["lambda"] * pk["v"] ** 2, "Lambda": 0.0}
+    WORK.mkdir(parents=True, exist_ok=True)
+    (WORK / name).write_text("\n".join(f"SMDR_{k}_in = {x!r};" for k, x in names.items()) + "\n")
+    return name
+
+
+def rg_to(pk: dict, q_final: float, loops: int, yt=None, lam=None, name: str = "h.dat") -> dict:
+    tmp = dict(pk)
+    if tmp.get("yt") is None:
+        tmp["yt"] = 0.95
+    if tmp.get("lambda") is None:
+        tmp["lambda"] = 0.13
+    write_input_dat(tmp, name)
+    args = [q_final, loops, name]
+    if yt is not None:
+        args += [yt, lam]
+    return invoke("rg", *args)
+
+
+def solve_criticality(pk: dict, mu_c: float, loops: int = 2, guess=(0.96, 0.14), max_iter: int = 14) -> dict:
+    x = [guess[0], guess[1]]
+
+    def residual(y, l):
+        r = rg_to(pk, mu_c, loops, y, l)
+        return [r["lambda"], r["beta_lambda"]], r
+
+    row = None
+    for _ in range(max_iter):
+        f, row = residual(*x)
+        if abs(f[0]) < 1e-13 and abs(f[1]) < 1e-14:
+            break
+        h = 1e-7
+        fy, _ = residual(x[0] + h, x[1])
+        fl, _ = residual(x[0], x[1] + h)
+        j = [[(fy[0] - f[0]) / h, (fl[0] - f[0]) / h], [(fy[1] - f[1]) / h, (fl[1] - f[1]) / h]]
+        det = j[0][0] * j[1][1] - j[0][1] * j[1][0]
+        dy = (f[0] * j[1][1] - f[1] * j[0][1]) / det
+        dl = (j[0][0] * f[1] - j[1][0] * f[0]) / det
+        x = [x[0] - dy, x[1] - dl]
+        if abs(dy) < 1e-15 and abs(dl) < 1e-15:
+            f, row = residual(*x)
+            break
+    return {"yt_Q0": x[0], "lambda_Q0": x[1], "boundary": row}
+
+
+def native_args(pk: dict) -> list:
+    return [pk["Q0"], pk["v"], pk["gY"], pk["g2"], pk["g3"], *[pk[k] for k in ORDER_Y], pk["lambda"]]
+
+
+def readout(pk: dict) -> dict:
+    native = native_args(pk)
+    matched = invoke("heavy", "match", *native)["rows"][2]
+    shifts = invoke("wz", "light", *native)["delta_complex_pole_squared_GeV2"]
+    out = {"H": matched["higgs"]["mass_GeV"], "t": matched["top_QCD4_EW2"]["mass_GeV"]}
+    for key in ("W", "Z"):
+        row = matched[key]
+        ps = complex(row["mass_GeV"], -row["width_GeV"] / 2) ** 2 + complex(*shifts[key])
+        out[key] = math.sqrt(ps.real + ps.imag ** 2 / ps.real)
+    out["GF_local"] = matched["GF_local_chiral_external_legs_GeVm2"]
+    return out
+
+
+def attach_gf(pk: dict, eta0: float = 1.008723, tol: float = 1e-10, max_readouts: int = 4) -> dict:
+    """v(Q0) such that SMDR's G_F = 1/(sqrt2 v_source^2) (the condition of LEW's control F). Newton steps with the
+    tree-level slope d ln G_F/d ln v = -2, started at LW's converged factor eta0; at most max_readouts readouts."""
+    vs = pk["v"]
+    target = 1.0 / (math.sqrt(2.0) * vs * vs)
+    vq = vs * eta0
+    hist = []
+    for _ in range(max_readouts):
+        new = dict(pk)
+        new["v"] = vq
+        o = readout(new)
+        f = o["GF_local"] / target - 1
+        hist.append((vq, f))
+        if abs(f) < tol:
+            break
+        vq = vq * (1 + f / 2)
+    return {"rule": "GF", "v_Q0_GeV": hist[-1][0], "GF_rel_residual": hist[-1][1], "outputs_GeV": o,
+            "history": hist}

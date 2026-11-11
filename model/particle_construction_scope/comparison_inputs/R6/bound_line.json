@@ -1,0 +1,534 @@
+{
+ "theta0": 0.171237,
+ "cells": 256,
+ "rows": {
+  "1": {
+   "cavity_cells": 1,
+   "E_infinite_line": 0.1687802446542177,
+   "E_ring_256": 0.16877452974954402,
+   "kramers_partner": 0.16877452974954402,
+   "next_levels_ring": [
+    0.17199601549868287,
+    0.17297672057610997,
+    0.17686636499543268
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 2.7755575615628914e-16,
+   "weight_in_cavity": 0.02804172977809733,
+   "record_write_probability_of_bound_profile_minus_sin2E": 4.0939474033052647e-16,
+   "clock": {
+    "T": 16384,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.1687747224727119,
+    "systematic_vs_ring": 1.9272316789664679e-07,
+    "records": 2000,
+    "seed": 20261211,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.17047000960605718
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "all parameters",
+    "phase": 0.16877067088000774,
+    "se": 3.952603142413214e-06,
+    "weight": 0.40866371998950257,
+    "background_per_clock_bin": 4.0806312216476395e-05,
+    "modal_phase": 0.16873788666742054,
+    "window_phase": [
+     0.16490293469770642,
+     0.17046361505379187
+    ],
+    "window_index": [
+     860,
+     889
+    ],
+    "records_in_window": 806,
+    "clock_bin_per_tick": 0.0003834951969714103,
+    "gamma_upper_95": 4.458540498687659e-06,
+    "pull_vs_ring": -0.9762856014721999,
+    "exact_probability_in_window": 0.4192484494677978
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262211,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 458552.0,
+    "hazard": 0.0285681885587676,
+    "E_estimate": 0.16983656380831375,
+    "se": 0.0007383728313964564,
+    "E_of_exact_window_hazard": 0.16944070463967476,
+    "exact_first_hazard_as_phase": 0.17160518577258205,
+    "exact_last_hazard_as_phase": 0.16912541436946793,
+    "runs_never_written": 9,
+    "pull_vs_ring": 1.4383439010901091
+   }
+  },
+  "2": {
+   "cavity_cells": 2,
+   "E_infinite_line": 0.16222181346053735,
+   "E_ring_256": 0.16222178704673829,
+   "kramers_partner": 0.1622217870467802,
+   "next_levels_ring": [
+    0.17181853374722061,
+    0.17298342861912755,
+    0.17620308161146092
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 2.1649348980190553e-15,
+   "weight_in_cavity": 0.09916796430518063,
+   "record_write_probability_of_bound_profile_minus_sin2E": 1.3284512379030389e-14,
+   "clock": {
+    "T": 4096,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.16222183927326467,
+    "systematic_vs_ring": 5.2226526381371485e-08,
+    "records": 2000,
+    "seed": 20261212,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.16816903842422873
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "all parameters",
+    "phase": 0.16225387977808559,
+    "se": 1.428354737225358e-05,
+    "weight": 0.4698056733443753,
+    "background_per_clock_bin": 1.4757938954280296e-15,
+    "modal_phase": 0.16260196351587797,
+    "window_phase": [
+     0.14726215563702155,
+     0.16797089627347772
+    ],
+    "window_index": [
+     192,
+     219
+    ],
+    "records_in_window": 923,
+    "clock_bin_per_tick": 0.0015339807878856412,
+    "gamma_upper_95": 2.9786140301378418e-05,
+    "pull_vs_ring": 2.246832002646707,
+    "exact_probability_in_window": 0.4657656845367289
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262212,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 720988.0,
+    "hazard": 0.02596991905551826,
+    "E_estimate": 0.16185764745874856,
+    "se": 0.0005888517717509114,
+    "E_of_exact_window_hazard": 0.1623661283265352,
+    "exact_first_hazard_as_phase": 0.1683683143117793,
+    "exact_last_hazard_as_phase": 0.16225318057423838,
+    "runs_never_written": 25,
+    "pull_vs_ring": -0.6183892202735182
+   }
+  },
+  "3": {
+   "cavity_cells": 3,
+   "E_infinite_line": 0.15329662250694395,
+   "E_ring_256": 0.15329662229944807,
+   "kramers_partner": 0.15329662229944951,
+   "next_levels_ring": [
+    0.1717697966013195,
+    0.17298996279354956,
+    0.17590238893083676
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 5.551115123125783e-16,
+   "weight_in_cavity": 0.1867207978451157,
+   "record_write_probability_of_bound_profile_minus_sin2E": -3.157196726277789e-16,
+   "clock": {
+    "T": 4096,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.15329669080601094,
+    "systematic_vs_ring": 6.850656286694345e-08,
+    "records": 2000,
+    "seed": 20261213,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.16816903842422873
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "all parameters",
+    "phase": 0.1533281048062894,
+    "se": 1.6676571071389647e-05,
+    "weight": 0.43545114799187373,
+    "background_per_clock_bin": 0.00022287061091296416,
+    "modal_phase": 0.15339807878856412,
+    "window_phase": [
+     0.1380582709097077,
+     0.16797089627347772
+    ],
+    "window_index": [
+     180,
+     219
+    ],
+    "records_in_window": 871,
+    "clock_bin_per_tick": 0.0015339807878856412,
+    "gamma_upper_95": 3.15650145155828e-05,
+    "pull_vs_ring": 1.887828541403796,
+    "exact_probability_in_window": 0.44358357184916214
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262213,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 1146045.0,
+    "hazard": 0.02327221007901086,
+    "E_estimate": 0.15315030793850057,
+    "se": 0.00046705622947722697,
+    "E_of_exact_window_hazard": 0.1535483546392738,
+    "exact_first_hazard_as_phase": 0.16545702567257634,
+    "exact_last_hazard_as_phase": 0.15331952050152953,
+    "runs_never_written": 79,
+    "pull_vs_ring": -0.3132692633417422
+   }
+  },
+  "4": {
+   "cavity_cells": 4,
+   "E_infinite_line": 0.14356185962565554,
+   "E_ring_256": 0.14356185962163565,
+   "kramers_partner": 0.14356185962164653,
+   "next_levels_ring": [
+    0.17174894588547357,
+    0.1729961963627834,
+    0.17575332553303882
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 6.661338147750939e-16,
+   "weight_in_cavity": 0.27225024713512513,
+   "record_write_probability_of_bound_profile_minus_sin2E": 2.3002433291452462e-15,
+   "clock": {
+    "T": 4096,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.14356180493278692,
+    "systematic_vs_ring": -5.4688848727391104e-08,
+    "records": 2000,
+    "seed": 20261214,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.16816903842422873
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "all parameters",
+    "phase": 0.14356478288263075,
+    "se": 1.511582167503019e-05,
+    "weight": 0.4071065156521456,
+    "background_per_clock_bin": 1.6677134309419811e-16,
+    "modal_phase": 0.14342720366730746,
+    "window_phase": [
+     0.12808739578845105,
+     0.15876701154616385
+    ],
+    "window_index": [
+     167,
+     207
+    ],
+    "records_in_window": 806,
+    "clock_bin_per_tick": 0.0015339807878856412,
+    "gamma_upper_95": 1.921505479541646e-05,
+    "pull_vs_ring": 0.19339080983810228,
+    "exact_probability_in_window": 0.4128014089420723
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262214,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 1879164.0,
+    "hazard": 0.020659718896275152,
+    "E_estimate": 0.1442344700299229,
+    "se": 0.00036474358500623963,
+    "E_of_exact_window_hazard": 0.14394117987819513,
+    "exact_first_hazard_as_phase": 0.16251486589756242,
+    "exact_last_hazard_as_phase": 0.14358371776863565,
+    "runs_never_written": 209,
+    "pull_vs_ring": 1.84406370923768
+   }
+  },
+  "5": {
+   "cavity_cells": 5,
+   "E_infinite_line": 0.13397694665706417,
+   "E_ring_256": 0.13397694665686866,
+   "kramers_partner": 0.13397694665688278,
+   "next_levels_ring": [
+    0.1717382894688144,
+    0.17300197748960905,
+    0.1756729341874179
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 1.3322676295501878e-15,
+   "weight_in_cavity": 0.34802066863972214,
+   "record_write_probability_of_bound_profile_minus_sin2E": 4.170275236248244e-15,
+   "clock": {
+    "T": 4096,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.13397701503463894,
+    "systematic_vs_ring": 6.837777027923764e-08,
+    "records": 2000,
+    "seed": 20261215,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.16816903842422873
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "all parameters",
+    "phase": 0.13397087557437776,
+    "se": 1.5929184436013963e-05,
+    "weight": 0.38201854923895123,
+    "background_per_clock_bin": 3.92634094508605e-05,
+    "modal_phase": 0.1342233189399936,
+    "window_phase": [
+     0.11888351106113719,
+     0.14956312681885
+    ],
+    "window_index": [
+     155,
+     195
+    ],
+    "records_in_window": 758,
+    "clock_bin_per_tick": 0.0015339807878856412,
+    "gamma_upper_95": 4.357358590740143e-05,
+    "pull_vs_ring": -0.3811295245708498,
+    "exact_probability_in_window": 0.388987851833901
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262215,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 3016920.0,
+    "hazard": 0.017827121700277105,
+    "E_estimate": 0.13391816914405144,
+    "se": 0.00028786449810052874,
+    "E_of_exact_window_hazard": 0.13439218623752544,
+    "exact_first_hazard_as_phase": 0.15954515428644114,
+    "exact_last_hazard_as_phase": 0.1339919135967546,
+    "runs_never_written": 610,
+    "pull_vs_ring": -0.2041846535611654
+   }
+  },
+  "6": {
+   "cavity_cells": 6,
+   "E_infinite_line": 0.12500359075810416,
+   "E_ring_256": 0.12500359075808562,
+   "kramers_partner": 0.1250035907580945,
+   "next_levels_ring": [
+    0.17173246206079607,
+    0.17300711662295612,
+    0.17562817079418927
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 6.38378239159465e-16,
+   "weight_in_cavity": 0.4125974394354929,
+   "record_write_probability_of_bound_profile_minus_sin2E": 5.724587470723463e-16,
+   "clock": {
+    "T": 4096,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.1250036342094502,
+    "systematic_vs_ring": 4.345136458971943e-08,
+    "records": 2000,
+    "seed": 20261216,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.16816903842422873
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "background fixed at its fitted value (flat direction)",
+    "phase": 0.12502884450276483,
+    "se": 1.8108723598625856e-05,
+    "weight": 0.36721745386133753,
+    "background_per_clock_bin": 1.7452173928594767e-17,
+    "modal_phase": 0.12501943421267975,
+    "window_phase": [
+     0.10967962633382335,
+     0.14035924209153616
+    ],
+    "window_index": [
+     143,
+     183
+    ],
+    "records_in_window": 727,
+    "clock_bin_per_tick": 0.0015339807878856412,
+    "gamma_upper_95": 5.778324129598405e-06,
+    "pull_vs_ring": 1.3945623799308735,
+    "exact_probability_in_window": 0.3723949555156106
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262216,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 4607958.0,
+    "hazard": 0.015619065972389505,
+    "E_estimate": 0.12530390518166704,
+    "se": 0.00023292480916493866,
+    "E_of_exact_window_hazard": 0.12539624578603645,
+    "exact_first_hazard_as_phase": 0.1565513042666937,
+    "exact_last_hazard_as_phase": 0.12501288132525476,
+    "runs_never_written": 1443,
+    "pull_vs_ring": 1.2893191783995723
+   }
+  },
+  "7": {
+   "cavity_cells": 7,
+   "E_infinite_line": 0.11680832094333803,
+   "E_ring_256": 0.11680832094333544,
+   "kramers_partner": 0.11680832094334687,
+   "next_levels_ring": [
+    0.17172929896491132,
+    0.17301136815312343,
+    0.17560400447562918
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 8.604228440844963e-16,
+   "weight_in_cavity": 0.4670022201749396,
+   "record_write_probability_of_bound_profile_minus_sin2E": 3.8163916471489756e-17,
+   "clock": {
+    "T": 4096,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.11680832953113368,
+    "systematic_vs_ring": 8.587798236425748e-09,
+    "records": 2000,
+    "seed": 20261217,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.16816903842422873
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "all parameters",
+    "phase": 0.11678354786814567,
+    "se": 1.5613763763559776e-05,
+    "weight": 0.37022001579139935,
+    "background_per_clock_bin": 4.666936736253013e-16,
+    "modal_phase": 0.11658253987930872,
+    "window_phase": [
+     0.10124273200045232,
+     0.13192234775816514
+    ],
+    "window_index": [
+     132,
+     172
+    ],
+    "records_in_window": 733,
+    "clock_bin_per_tick": 0.0015339807878856412,
+    "gamma_upper_95": 4.868339916572037e-05,
+    "pull_vs_ring": -1.58661777934629,
+    "exact_probability_in_window": 0.3615607214125207
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262217,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 6844580.0,
+    "hazard": 0.013619973760259942,
+    "E_estimate": 0.11697119926989732,
+    "se": 0.0001911158042556132,
+    "E_of_exact_window_hazard": 0.11715695844832523,
+    "exact_first_hazard_as_phase": 0.1535368136831604,
+    "exact_last_hazard_as_phase": 0.11681409537095268,
+    "runs_never_written": 3129,
+    "pull_vs_ring": 0.852249384587963
+   }
+  },
+  "8": {
+   "cavity_cells": 8,
+   "E_infinite_line": 0.10940915751866473,
+   "E_ring_256": 0.10940915751866442,
+   "kramers_partner": 0.10940915751870002,
+   "next_levels_ring": [
+    0.17172776118638888,
+    0.1730144023977668,
+    0.17559274695569663
+   ],
+   "C_hermitian_defect": 9.71445146547012e-17,
+   "eigen_residual": 3.885780586188048e-16,
+   "weight_in_cavity": 0.5128742049238028,
+   "record_write_probability_of_bound_profile_minus_sin2E": -5.204170427930421e-17,
+   "clock": {
+    "T": 4096,
+    "offsets": [
+     0.0,
+     0.5
+    ],
+    "phase_at_infinite_records": 0.10940919687340811,
+    "systematic_vs_ring": 3.935474368610414e-08,
+    "records": 2000,
+    "seed": 20261218,
+    "packet_sigma": 12.0,
+    "search_range_phase": [
+     0.03,
+     0.16816903842422873
+    ],
+    "negative_mass_clipped": 0.0,
+    "se_from": "all parameters",
+    "phase": 0.1094234549332789,
+    "se": 1.662922802306949e-05,
+    "weight": 0.351260007151898,
+    "background_per_clock_bin": 0.00018314674694344928,
+    "modal_phase": 0.10967962633382335,
+    "window_phase": [
+     0.09433981845496693,
+     0.12501943421267975
+    ],
+    "window_index": [
+     123,
+     163
+    ],
+    "records_in_window": 703,
+    "clock_bin_per_tick": 0.0015339807878856412,
+    "gamma_upper_95": 4.996188961966497e-05,
+    "pull_vs_ring": 0.859776208170547,
+    "exact_probability_in_window": 0.3548366730656029
+   },
+   "first_write": {
+    "runs": 1000000,
+    "seed": 20262218,
+    "max_reads": 400,
+    "window_from_read": 150,
+    "reads_in_window": 9594601.0,
+    "hazard": 0.011997163821611758,
+    "E_estimate": 0.10975176766262978,
+    "se": 0.00016141970335997572,
+    "E_of_exact_window_hazard": 0.10971151898079697,
+    "exact_first_hazard_as_phase": 0.15050525483394403,
+    "exact_last_hazard_as_phase": 0.10941288270443121,
+    "runs_never_written": 5913,
+    "pull_vs_ring": 2.1224803220045523
+   }
+  }
+ }
+}

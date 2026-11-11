@@ -1,0 +1,124 @@
+"""Worker DR (S5): shared three-family construction (same operators as dr_clock.py; imported read only from RER).
+
+Mode number inside cell c: 18 c + 6 f + 3 spin + i, with i = 0 (e^c, native 9), 1 (L1, 10), 2 (L2, 11).
+Periodic two-cell key: (mask over 36 modes, link01, link10, scalar_left, scalar_right); unit penalties.
+"""
+from collections import defaultdict
+from functools import lru_cache
+from itertools import product
+
+import numpy as np
+
+from model.coherent_defect_wave.chiral_joint.model import sequence, active_terms
+
+NF = 3
+_, CS, FIELDS, LABELS = active_terms()
+PHI = [np.array(f.tolist(), dtype=int) for f in FIELDS]
+CK = [np.array(c.tolist(), dtype=int) for c in CS]
+
+
+def mode(cell, f, spin, i):
+    return 18 * cell + 6 * f + 3 * spin + i
+
+
+def local_yukawa_f(mask, scalar, cell, ys):
+    res = defaultdict(lambda: 0)
+    for f in range(NF):
+        if ys[f] == 0:
+            continue
+        for k in range(2):
+            c = CK[k]
+            phid = PHI[k].T
+            for i, j in product(range(3), repeat=2):
+                if c[i, j] == 0:
+                    continue
+                ann = ((mode(cell, f, 0, i), False), (mode(cell, f, 1, j), False))
+                cre = ((mode(cell, f, 1, j), True), (mode(cell, f, 0, i), True))
+                for matrix, ops in ((phid, ann), (PHI[k], cre)):
+                    step = sequence(mask, ops)
+                    if step is None:
+                        continue
+                    for dest in range(5):
+                        if matrix[dest, scalar] != 0:
+                            res[step[0], dest] += ys[f] * int(c[i, j]) * int(step[1]) * int(matrix[dest, scalar])
+    return res
+
+
+def hop_f(mask, link, site):
+    res = defaultdict(lambda: 0)
+    for label, (a, b) in enumerate(LABELS[1:], 1):
+        for spin in range(2):
+            coef = 1j * (-1) ** (spin + site) / 4
+            for f in range(NF):
+                tgt = mode(site, f, spin, a); org = mode(1 - site, f, spin, b)
+                if link == 0:
+                    st = sequence(mask, ((tgt, True), (org, False)))
+                    if st:
+                        res[st[0], label] += coef * int(st[1])
+                if link == label:
+                    st = sequence(mask, ((org, True), (tgt, False)))
+                    if st:
+                        res[st[0], 0] += np.conj(coef) * int(st[1])
+    return res
+
+
+def make_parts(ys):
+    ys = tuple(ys)
+
+    @lru_cache(maxsize=None)
+    def parts(key):
+        mask, l01, l10, hl, hr = key
+        h0 = int(l01 != 0) + int(l10 != 0) + int(hl != 0) + int(hr != 0)
+        vy, vh = defaultdict(complex), defaultdict(complex)
+        for (tm, lk), v in hop_f(mask, l01, 0).items():
+            vh[tm, lk, l10, hl, hr] += v
+        for (tm, lk), v in hop_f(mask, l10, 1).items():
+            vh[tm, l01, lk, hl, hr] += v
+        lm, rm = mask & ((1 << 18) - 1), mask >> 18
+        for (tm, h2), v in local_yukawa_f(lm, hl, 0, ys).items():
+            vy[tm | (rm << 18), l01, l10, h2, hr] += v
+        for (tm, h2), v in local_yukawa_f(mask, hr, 1, ys).items():
+            vy[tm, l01, l10, hl, h2] += v
+        return h0, {k: v for k, v in vy.items() if v != 0}, {k: v for k, v in vh.items() if v != 0}
+    return parts
+
+
+def rs_recursion(seed, parts, amax, bmax):
+    """Two-parameter Rayleigh-Schroedinger recursion for H = H0 + lam V_Y + mu V_h around a seed with H0 = 0.
+    Returns {(a, b): E_ab}. Intermediate normalization; R = -Q/H0; asserts no degenerate intermediate state."""
+    psi = {(0, 0): {seed: 1.0 + 0j}}
+    E = {(0, 0): 0j}
+
+    def apply(letter, vec):
+        outv = defaultdict(complex)
+        for k, amp in vec.items():
+            h0, vy, vh = parts(k)
+            for t, v in (vy if letter == 'Y' else vh).items():
+                outv[t] += amp * v
+        return outv
+
+    order = sorted(((a, b) for a in range(amax + 1) for b in range(bmax + 1) if (a, b) != (0, 0)),
+                   key=lambda x: (x[0] + x[1], x))
+    for (a, b) in order:
+        acc = defaultdict(complex)
+        if a > 0:
+            for k, v in apply('Y', psi[a - 1, b]).items():
+                acc[k] += v
+        if b > 0:
+            for k, v in apply('h', psi[a, b - 1]).items():
+                acc[k] += v
+        E[a, b] = acc.get(seed, 0j)
+        for (c, d), e_cd in E.items():
+            if (c, d) == (0, 0) or c > a or d > b or abs(e_cd) == 0:
+                continue
+            for k, v in psi[a - c, b - d].items():
+                acc[k] -= e_cd * v
+        new = {}
+        for k, v in acc.items():
+            if k == seed or abs(v) < 1e-300:
+                continue
+            h0 = parts(k)[0]
+            assert h0 > 0, ('degenerate intermediate state', k)
+            new[k] = -v / h0
+        psi[a, b] = new
+    return E, {key: len(v) for key, v in psi.items()}

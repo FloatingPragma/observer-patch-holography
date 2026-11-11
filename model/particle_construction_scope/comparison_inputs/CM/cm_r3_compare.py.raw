@@ -1,0 +1,178 @@
+"""CM round 3: NOT BLIND comparison, conditional base, scan S2 on the conditional base, FITs (CANDIDATES.md R3-C, R3-D).
+
+The only round-3 script that reads measured values: the brief's CKM numbers (abs V_us 0.2250, abs V_cb 0.0418,
+abs V_ub 0.00369, J 3.1e-5; ratio 0.0883; delta 65.7 degrees) and RER
+model/common_source/calibrated_matter_results.json (Yukawas at M_Z for the charts, CKM sines and delta).
+Native and conditional bases are kept separate.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B cm_r3_compare.py
+"""
+import itertools
+import json
+import math
+import os
+
+import mpmath as mp
+import numpy as np
+
+import cm_r3_lib as L
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = 'WORKSPACE/repair-law/reverse-engineering-reality'
+r3 = json.load(open(os.path.join(HERE, 'r3.json')))
+assert r3['measured_values_read'] is False
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+ck = cal['CKM']
+s12m, s23m, s13m, dm = (float(ck['sin_theta12']), float(ck['sin_theta23']), float(ck['sin_theta13']),
+                        float(ck['delta_radians']))
+J_file = math.sqrt(1 - s12m ** 2) * math.sqrt(1 - s23m ** 2) * (1 - s13m ** 2) * s12m * s23m * s13m * math.sin(dm)
+T = {'V12': 0.2250, 'V23': 0.0418, 'V13': 0.00369, 'J': 3.1e-5, 'ratio': 0.00369 / 0.0418, 'delta_deg': 65.7}
+W3c = complex(-0.5, 3 ** 0.5 / 2)
+TH = mp.mpf(2) / 9
+KAPPA = L.DEFICIT / mp.sqrt(2)
+
+
+def chart(ys):
+    """Circulant chart of a measured triple (DF's convention, as in RL/work/QM/qm_compare.py)."""
+    y = np.sort(np.array([float(v) for v in ys]))
+    sq = np.sqrt(y)
+    best = None
+    for perm in itertools.permutations(range(3)):
+        z = sum(sq[perm[k]] * W3c ** (-k) for k in range(3)) * 2 / (3 * sq.mean())
+        d = math.atan2(z.imag, z.real)
+        if 0 <= d <= math.pi / 3 + 1e-12:
+            best = (abs(z), d)
+    r, d = best
+    return {'y1_over_y3': float(y[0] / y[2]), 'y2_over_y3': float(y[1] / y[2]), 'r': float(r), 'delta': float(d)}
+
+
+CH = {'up': chart(yuk['up']), 'down': chart(yuk['down'])}
+BU = L.base_chart(CH['up']['r'], CH['up']['delta'])
+BD = L.base_chart(CH['down']['r'], CH['down']['delta'])
+BN = L.base_native(TH)
+
+
+def vd(pred, meas):
+    if pred is None or not (pred == pred):
+        return 'fails (undefined)'
+    if abs(pred) < 1e-12:
+        return 'fails (exact zero)'
+    rel = pred / meas - 1
+    return ('passes' if abs(rel) <= 0.10 else 'fails') + f' ({100 * rel:+.1f} percent)'
+
+
+def judge(r):
+    out = {'V12': [r['V12'], T['V12'], vd(r['V12'], T['V12'])], 'V23': [r['V23'], T['V23'], vd(r['V23'], T['V23'])],
+           'V13': [r['V13'], T['V13'], vd(r['V13'], T['V13'])], 'J': [abs(r['J']), T['J'], vd(abs(r['J']), T['J'])],
+           'ratio': [r.get('V13_over_V23'), T['ratio'], vd(r.get('V13_over_V23'), T['ratio'])],
+           'delta': [abs(r['delta_deg']) if r.get('delta_deg') is not None else None, T['delta_deg'],
+                     vd(abs(r['delta_deg']) if r.get('delta_deg') is not None else None, T['delta_deg'])],
+           'sign_J': '+' if r['J'] > 0 else '-'}
+    out['all_four_pass'] = all(out[k][2].startswith('passes') for k in ('V12', 'V23', 'V13', 'J'))
+    out['passes'] = [k for k in ('V12', 'V23', 'V13', 'J', 'ratio', 'delta') if out[k][2].startswith('passes')]
+    return out
+
+
+OUT = {'NOT_BLIND': True, 'measured': {'targets': T, 'file_CKM': {'s12': s12m, 's23': s23m, 's13': s13m, 'delta': dm,
+                                                                  'J': J_file}, 'charts_MZ': CH},
+       'native_verdicts': {k: judge(r) for k, r in r3['native'].items()}, 'conditional': {}}
+
+# ------------------------------------------------------------------------------------------ conditional readings
+for pb in ('PB3', 'PB2'):
+    for an in ('A', 'B'):
+        r = L.reading('WB3', pb, an, BU, BD, TH)
+        r['verdict'] = judge(r)
+        OUT['conditional'][f'primary|WB3|{pb}|{an}'] = r
+for pb in ('PB3', 'PB2', 'PB1'):
+    for wt in ('WBR', 'WBR+', 'WBR-'):
+        for an in ('A', 'B'):
+            r = L.reading(wt, pb, an, BU, BD, TH)
+            r['verdict'] = judge(r)
+            OUT['conditional'][f'secondary|{wt}|{pb}|{an}'] = r
+for an in ('A', 'B'):
+    r = L.reading('WB3', 'PB1', an, BU, BD, TH)
+    r['verdict'] = judge(r)
+    OUT['conditional'][f'secondary|WB3|PB1|{an}'] = r
+
+
+# ------------------------------------------------------------------------------------------ S2 conditional and FITs
+def s2_point(pb, alpha, bu, bd):
+    Yu = bu[0] + KAPPA * bu[1] * L.bond(*L.BONDS['C'], alpha)
+    Yd = bd[0] + KAPPA * bd[1] * L.bond(*L.BONDS[pb], alpha)
+    return L.analyse(Yu, Yd)
+
+
+OUT['scan_S2_alpha_conditional_A'] = {}
+for pb in ('PB3', 'PB2'):
+    rows = []
+    for i in range(36):
+        al = mp.pi * i / 36
+        r = s2_point(pb, al, BU, BD)
+        rows.append({'alpha': float(al), 'V12': r['V12'], 'V23': r['V23'], 'V13': r['V13'],
+                     'V13_over_V23': r.get('V13_over_V23'), 'delta_deg': r.get('delta_deg'), 'J': r['J'],
+                     'same_characters': r['same_characters']})
+    OUT['scan_S2_alpha_conditional_A'][pb] = rows
+
+OUT['fit'] = {}
+for base_name, (bu, bd) in (('native', (BN, BN)), ('conditional', (BU, BD))):
+    for pb in ('PB3', 'PB2'):
+        def f(al):
+            r = s2_point(pb, al, bu, bd)
+            return (r.get('V13_over_V23') or 1e9) - T['ratio'], r
+        n = 360
+        grid = [mp.pi * i / n for i in range(n + 1)]
+        vals = [f(al)[0] for al in grid]
+        roots = []
+        for i in range(n):
+            if vals[i] == 0 or vals[i] * vals[i + 1] < 0:
+                if abs(vals[i]) > 1e6 or abs(vals[i + 1]) > 1e6:
+                    continue
+                lo, hi = grid[i], grid[i + 1]
+                flo = vals[i]
+                for _ in range(60):
+                    mid = (lo + hi) / 2
+                    fm = f(mid)[0]
+                    if (fm < 0) == (flo < 0):
+                        lo = mid
+                    else:
+                        hi = mid
+                roots.append((lo + hi) / 2)
+        fits = []
+        for al in roots:
+            r = f(al)[1]
+            r['alpha_FIT'] = float(al)
+            r['verdict'] = judge(r)
+            fits.append(r)
+        OUT['fit'][f'{base_name}|{pb}'] = fits
+
+for label, block in (('native', OUT['native_verdicts']), ('conditional', {k: v['verdict'] for k, v in OUT['conditional'].items()})):
+    OUT[f'summary_{label}'] = {
+        'readings': len(block), 'all_four_pass': sum(1 for v in block.values() if v['all_four_pass']),
+        'element_passes': {k: [n for n, v in block.items() if k in v['passes']]
+                           for k in ('V12', 'V23', 'V13', 'J', 'ratio', 'delta')}}
+with open(os.path.join(HERE, 'r3_compare.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+print('charts', CH)
+print('targets', T, 'J_file', J_file)
+for label in ('native', 'conditional'):
+    print('summary', label, json.dumps(OUT[f'summary_{label}']))
+for k, v in OUT['native_verdicts'].items():
+    if k.startswith('primary'):
+        print('native', k, {x: v[x][2] for x in ('V12', 'V23', 'V13', 'J', 'ratio', 'delta')})
+for k, r in OUT['conditional'].items():
+    print(f"cond {k:26s} V12 {r['V12']:.5f} V23 {r['V23']:.5f} V13 {r['V13']:.5f} ratio {r.get('V13_over_V23', float('nan')):.4f}"
+          f" J {r['J']:+.3e} delta {r.get('delta_deg', float('nan')):+8.2f} same {r['same_characters']} {r['chars_up']} {r['chars_down']}"
+          f" | y up {r['spectra']['up'][0]:.2e} {r['spectra']['up'][1]:.2e} down {r['spectra']['down'][0]:.2e} {r['spectra']['down'][1]:.2e}")
+for k, v in OUT['conditional'].items():
+    if k.startswith('primary'):
+        print('cond verdict', k, {x: v['verdict'][x][2] for x in ('V12', 'V23', 'V13', 'J', 'ratio', 'delta')})
+for pb, rows in OUT['scan_S2_alpha_conditional_A'].items():
+    for s in rows[::3]:
+        print('S2c', pb, 'alpha %.4f V13/V23 %s delta %s J %+.3e V12 %.5f V23 %.5f same %s' % (
+            s['alpha'], s['V13_over_V23'] and round(s['V13_over_V23'], 4), s['delta_deg'] and round(s['delta_deg'], 2),
+            s['J'], s['V12'], s['V23'], s['same_characters']))
+for k, fits in OUT['fit'].items():
+    for r in fits:
+        print(f"FIT {k:18s} alpha {r['alpha_FIT']:.6f} V12 {r['V12']:.5f} V23 {r['V23']:.5f} V13 {r['V13']:.5f} ratio {r['V13_over_V23']:.4f}"
+              f" J {r['J']:+.3e} delta {r['delta_deg']:+8.2f}", {x: r['verdict'][x][2] for x in ('V12', 'V23', 'J', 'delta')})

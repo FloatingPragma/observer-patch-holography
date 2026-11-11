@@ -1,0 +1,115 @@
+{
+ "1": {
+  "states_total": 12,
+  "closed_class": 12,
+  "class_closed": true,
+  "class_absorbing": true,
+  "transition_symmetric": true,
+  "kappa": "1/12",
+  "kappa_float": 0.08333333333333333,
+  "mean_current_zero": true,
+  "mean_coin_zero": true,
+  "mean_moves_per_attempt_per_seam": "1/360",
+  "moves_per_sweep_per_seam": "1/12",
+  "EXACT_Sigma_RR_per_sweep_equals_kappa_Pcyc": true,
+  "EXACT_Sigma_SS_per_sweep_equals_identity": true,
+  "EXACT_Sigma_RS_per_sweep_equals_kappa_Pcyc": true,
+  "EXACT_Sigma_RK_zero": true,
+  "EXACT_Sigma_SK_zero": false,
+  "EXACT_poisson_solution_is_Bt_Lplus_x": true,
+  "rate_per_sweep_per_unit_direction": {
+   "P3": 0.08333333333333334,
+   "P3p": 0.08333333333333333,
+   "P4a": 0.08333333333333334,
+   "P4b": 0.08333333333333334,
+   "P5": 0.08333333333333327,
+   "Pgrad": 3.0170098112685216e-18
+  },
+  "axial_cov_per_sweep": [
+   [
+    0.666666666667,
+    -0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    0.666666666667,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.666666666667
+   ]
+  ],
+  "axial_cov_expected_8kappa": 0.6666666666666666,
+  "conjugate_axial_cov_per_sweep_diag": 0.6666666666666666,
+  "axial_diffusion_constant_per_sweep": 0.3333333333333333,
+  "moves_record_cov_per_sweep_eigenvalues": {
+   "0.0763888889": 1,
+   "0.0833333333": 18,
+   "0.1151638343": 3,
+   "0.1388888889": 5,
+   "0.3015028324": 3
+  },
+  "seconds": 0.2
+ },
+ "2": {
+  "states_total": 78,
+  "closed_class": 66,
+  "class_closed": true,
+  "class_absorbing": true,
+  "transition_symmetric": true,
+  "kappa": "5/33",
+  "kappa_float": 0.15151515151515152,
+  "mean_current_zero": true,
+  "mean_coin_zero": true,
+  "mean_moves_per_attempt_per_seam": "1/198",
+  "moves_per_sweep_per_seam": "5/33",
+  "EXACT_Sigma_RR_per_sweep_equals_kappa_Pcyc": true,
+  "EXACT_Sigma_SS_per_sweep_equals_identity": true,
+  "EXACT_Sigma_RS_per_sweep_equals_kappa_Pcyc": true,
+  "EXACT_Sigma_RK_zero": true,
+  "EXACT_Sigma_SK_zero": false,
+  "EXACT_poisson_solution_is_Bt_Lplus_x": true,
+  "rate_per_sweep_per_unit_direction": {
+   "P3": 0.1515151515151515,
+   "P3p": 0.1515151515151515,
+   "P4a": 0.15151515151515152,
+   "P4b": 0.15151515151515152,
+   "P5": 0.15151515151515138,
+   "Pgrad": -7.450554916238199e-18
+  },
+  "axial_cov_per_sweep": [
+   [
+    1.212121212121,
+    -0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    1.212121212121,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    1.212121212121
+   ]
+  ],
+  "axial_cov_expected_8kappa": 1.2121212121212122,
+  "conjugate_axial_cov_per_sweep_diag": 1.2121212121212117,
+  "axial_diffusion_constant_per_sweep": 0.6060606060606061,
+  "moves_record_cov_per_sweep_eigenvalues": {
+   "0.1333166374": 1,
+   "0.1578282828": 5,
+   "0.1583178726": 4,
+   "0.1590147779": 5,
+   "0.1602693603": 4,
+   "0.1929397756": 3,
+   "0.2217828895": 5,
+   "0.4070602244": 3
+  },
+  "seconds": 2.8
+ }
+}

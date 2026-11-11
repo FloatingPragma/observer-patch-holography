@@ -1,0 +1,385 @@
+"""Blocks 1 and 2: the typed tuple as a program, and its shadows.
+
+Exact checks (amplitudes in Q(sqrt2)):
+  T1  one quantum: the framed instrument equals (reference instrument) x (identity on the internal label), all 30 seams, laws C, E.
+  T2  two labelled quanta: every Kraus operator commutes with the exchange of the two quanta; its restriction to the
+      position-symmetric vectors is the reference instrument on the 78 load states (double loads included); its
+      restriction to the antisymmetric vectors is the reference rule on two spinless fermions (66 states, hop signs).
+  T3  two labelled quanta with internal labels: Kraus = (position Kraus) x (identity on both labels).
+  T4  Fock spaces (bosons 300, fermions 276 for d = 2) are invariant; completeness; history effects are diagonal.
+  T5  the fermionic register is not equivalent to the reference binary register: exchange loop with sign -1, and the
+      GF(2) system for a diagonal identification (with record phases) has no solution.
+Numerical checks (float, stated defects): shadows on random entangled inputs and record words; block structure
+bosons = ref78 x Sym^2(C^d) + ferm66 x Lambda^2(C^d); covariance under the 60 rotations; split intertwiners.
+"""
+import itertools, json, sys, time
+from fractions import Fraction as Fr
+import numpy as np
+import framed as fq
+from framed import S, ROOT_HALF, SEAMS, STATES78, BIN66, IDX66, IDX78
+from model.record_laws import family
+from model.predictions import observer_instrument as oi
+from carrier_tools import C, su2, spin_rep
+
+rng = np.random.default_rng(20261110)
+out = {}
+t0 = time.time()
+HALF = S(Fr(1, 2))
+
+
+def same(d1, d2):
+    keys = set(d1) | set(d2)
+    return all(d1.get(k, S()) == d2.get(k, S()) for k in keys)
+
+
+# ---------------------------------------------------------------- calibration: my reference builder against the repository
+st, kr = fq.reference_instrument(family.SEAM, 2, 'C')
+repoC = family.INSTRUMENTS['C']()
+okC = all(same({(y, i): a for i, (y, a) in repoC[('coin_current', c, j)].items()}, kr[(c, j)]) for (c, j) in kr) and len(repoC) == len(kr)
+st, krE = fq.reference_instrument(family.SEAM, 2, 'E')
+repoE = family.INSTRUMENTS['E']()
+okE = all(same({(y, i): a for i, (y, a) in repoE[('coin_contrast', c, d)].items()}, krE[(c, d)]) for (c, d) in krE) and len(repoE) == len(krE)
+out['calibration_reference_builder_equals_model_record_laws'] = {'C': bool(okC), 'E': bool(okE), 'records_C': len(kr), 'records_E': len(krE)}
+print('calibration: reference builder == model.record_laws.family on seam', family.SEAM, ': C', okC, ' E', okE, flush=True)
+
+# ---------------------------------------------------------------- T1: one quantum
+res = {}
+for law in ('C', 'E'):
+    for d in (2, 3, 5):
+        ok = True; nrec = set()
+        for seam in SEAMS:
+            basis, k1 = fq.labelled_instrument(seam, 1, law, d)
+            _, kref = fq.reference_instrument(seam, 1, law)
+            idx = {x: i for i, x in enumerate(basis)}
+            ok &= set(k1) == set(kref)
+            for rec in kref:
+                expect = {}
+                for (o, i), a in kref[rec].items():
+                    for s in range(d):
+                        expect[(idx[((o, s),)], idx[((i, s),)])] = a
+                ok &= same(expect, k1[rec]); nrec.add(rec)
+        res[f'{law},d={d}'] = {'equal_to_reference_tensor_identity_all_30_seams': bool(ok), 'record_values': len(nrec)}
+out['T1_one_quantum_instrument_is_reference_x_identity'] = res
+print('T1', res, flush=True)
+
+# ---------------------------------------------------------------- T2: two labelled quanta, positions only
+symv, antv = fq.sym_vectors(), fq.anti_vectors()
+res = {}
+for law in ('C', 'E'):
+    okx = oks = oka = True; leak = S(); comp = True
+    for seam in SEAMS:
+        basis, k2 = fq.labelled_instrument(seam, 2, law, 1)
+        idx = {x: i for i, x in enumerate(basis)}
+        flip = [idx[(x[1], x[0])] for x in basis]
+        _, kref = fq.reference_instrument(seam, 2, law)
+        _, kfer = fq.fermion_instrument(seam, law)
+        gram = {}
+        for rec, br in k2.items():
+            okx &= all(br.get((flip[o], flip[i]), S()) == a for (o, i), a in br.items())
+            ms, l1 = fq.restrict(br, basis, symv); ma, l2 = fq.restrict(br, basis, antv)
+            leak = leak + l1 + l2
+            oks &= same(ms, kref.get(rec, {})); oka &= same(ma, kfer.get(rec, {}))
+            cols = {}
+            for (o, i), a in br.items():
+                cols.setdefault(o, []).append((i, a))
+            for o, lst in cols.items():
+                for (i, a), (l, b) in itertools.product(lst, repeat=2):
+                    gram[(i, l)] = gram.get((i, l), S()) + a.conj() * b
+        comp &= all((v == 1) if i == l else (not v) for (i, l), v in gram.items()) and all(gram.get((i, i)) == 1 for i in range(len(basis)))
+        oks &= set(k for k in k2 if fq.restrict(k2[k], basis, symv)[0]) == set(kref)
+    res[law] = {'kraus_commute_with_exchange': bool(okx), 'symmetric_restriction_is_reference_78': bool(oks),
+                'antisymmetric_restriction_is_fermionic_66': bool(oka), 'leak_out_of_sym_or_anti': str(leak), 'complete': bool(comp)}
+out['T2_two_labelled_quanta_positions'] = res
+print('T2', res, flush=True)
+
+# ---------------------------------------------------------------- T3: internal labels ride along (d = 2 all seams; d = 3 five seams)
+res = {}
+for law in ('C', 'E'):
+    for d, seams in ((2, SEAMS), (3, SEAMS[:5])):
+        ok = True
+        for seam in seams:
+            bpos, kpos = fq.labelled_instrument(seam, 2, law, 1)
+            bint, kint = fq.labelled_instrument(seam, 2, law, d)
+            ipos = {x: i for i, x in enumerate(bpos)}; iint = {x: i for i, x in enumerate(bint)}
+            for rec in kpos:
+                expect = {}
+                for (o, i), a in kpos[rec].items():
+                    (q1, _), (q2, _) = bpos[o]; (p1, _), (p2, _) = bpos[i]
+                    for s1 in range(d):
+                        for s2 in range(d):
+                            expect[(iint[((q1, s1), (q2, s2))], iint[((p1, s1), (p2, s2))])] = a
+                ok &= same(expect, kint[rec])
+            ok &= set(kpos) == set(kint)
+        res[f'{law},d={d}'] = {'kraus_is_position_kraus_x_identity': bool(ok), 'seams': len(seams)}
+out['T3_two_quanta_internal_labels_ride_along'] = res
+print('T3', res, flush=True)
+
+# ---------------------------------------------------------------- T4: Fock spaces, completeness, diagonal effects (d = 2)
+res = {}
+fock_num = {}
+for stat in ('bose', 'fermi'):
+    labels, vecs = fq.fock_basis(2, stat)
+    n = len(labels)
+    leak = S(); comp = True; diag_effects = True; values = set()
+    for law in ('C', 'E'):
+        for seam in SEAMS:
+            basis, k2 = fq.labelled_instrument(seam, 2, law, 2)
+            tot = np.zeros((n, n), complex)
+            mats = []
+            for rec, br in sorted(k2.items()):
+                m, l = fq.restrict(br, basis, vecs); leak = leak + l
+                K = fq.dense(m, n); mats.append((rec, K))
+                eff = K.conj().T @ K; tot += eff
+                diag_effects &= np.allclose(eff, np.diag(np.diag(eff)), atol=1e-14)
+                values |= set(np.round(np.real(np.diag(eff)), 12).tolist())
+            comp &= np.allclose(tot, np.eye(n), atol=1e-13)
+            if law == 'C':
+                fock_num[(stat, seam)] = mats
+    res[stat] = {'dimension': n, 'leak_out_of_fock_space': str(leak), 'complete': bool(comp),
+                 'one_event_effects_diagonal': bool(diag_effects), 'effect_values': sorted(values)}
+out['T4_fock_spaces_d2'] = res
+print('T4', res, flush=True)
+
+# ---------------------------------------------------------------- T5: the fermionic register is not the reference register
+# (i) an exchange loop of hops with sign product -1
+f0 = C.F[0]
+u, v, w = f0
+def cfg(*ports): return tuple(int(k in ports) for k in range(12))
+loop = [cfg(u, v), cfg(w, v), cfg(w, u), cfg(v, u)]
+sign = 1
+for x, y in zip(loop[:-1], loop[1:]):
+    sign *= fq.hop_sign(x, y)
+out['T5_exchange_loop'] = {'face': list(f0), 'configs': [[p for p in range(12) if x[p]] for x in loop], 'sign_product': sign}
+print('T5 exchange loop on face', f0, 'sign product', sign, flush=True)
+# (ii) no identification by a diagonal unitary, even with one free phase per record: a gauge-invariant witness.
+# Equations for phases (in units of a full turn): theta(x) - theta(y) + eps(seam, direction) = [hop sign is -1]/2.
+# Take a face (p, q, r). Three hops p->q, q->r, r->p with the other quantum (a) on the third port of the face,
+# (b) on a port t outside the face. In both sums all theta cancel (theta is a function of the unordered pair) and the
+# same three eps remain. The two right-hand sides differ by 1/2.
+def half_if_minus(x, y): return Fr(1, 2) if fq.hop_sign(x, y) == -1 else Fr(0)
+wit = []
+for face in C.F:
+    p, q, r = face
+    exch = half_if_minus(cfg(p, r), cfg(q, r)) + half_if_minus(cfg(q, p), cfg(r, p)) + half_if_minus(cfg(r, q), cfg(p, q))
+    for t in range(12):
+        if t not in face:
+            far = half_if_minus(cfg(p, t), cfg(q, t)) + half_if_minus(cfg(q, t), cfg(r, t)) + half_if_minus(cfg(r, t), cfg(p, t))
+            wit.append((exch - far) % 1)
+out['T5_gauge_invariant_witness'] = {'faces_times_spectators': len(wit), 'difference_of_right_hand_sides_mod_1': sorted({str(w) for w in wit}),
+    'reading': 'the difference is 1/2 for every face and spectator: no diagonal unitary, with or without record phases, '
+               'maps the fermionic instrument to the reference instrument on the binary shell'}
+print('T5 witness: difference mod 1 over', len(wit), 'cases:', sorted({str(w) for w in wit}), flush=True)
+# redundancy over GF(2), with one unknown per configuration and one per (seam, direction)
+rows = []
+for e, (a, b) in enumerate(SEAMS):
+    for x in BIN66:
+        if x[a] + x[b] == 1:
+            y = list(x); y[a], y[b] = x[b], x[a]; y = tuple(y)
+            row = [0] * (66 + 60 + 1)
+            row[IDX66[x]] ^= 1; row[IDX66[y]] ^= 1; row[66 + 2 * e + (0 if x[a] else 1)] ^= 1
+            row[-1] = int(fq.hop_sign(x, y) == -1)
+            rows.append(row)
+M = np.array(rows, dtype=np.uint8)
+def gf2_rank(A):
+    A = A.copy(); r = 0
+    for c in range(A.shape[1]):
+        piv = next((i for i in range(r, A.shape[0]) if A[i, c]), None)
+        if piv is None: continue
+        A[[r, piv]] = A[[piv, r]]
+        for i in range(A.shape[0]):
+            if i != r and A[i, c]: A[i] ^= A[r]
+        r += 1
+    return r
+r1, r2 = gf2_rank(M[:, :-1]), gf2_rank(M)
+out['T5_sign_identification_GF2'] = {'equations': len(rows), 'unknowns': 126, 'rank_homogeneous': r1, 'rank_augmented': r2, 'solvable': bool(r1 == r2)}
+print('T5 GF(2): equations', len(rows), 'rank', r1, 'augmented', r2, 'solvable', r1 == r2, flush=True)
+# (iii) explicit coherent counterexample under the sorted identification
+ports = sorted(range(12))
+found = None
+for (a, b) in SEAMS:
+    for q in range(12):
+        for r in range(12):
+            if len({a, b, q, r}) == 4:
+                x, x2 = cfg(a, q), cfg(a, r); y, y2 = cfg(b, q), cfg(b, r)
+                if fq.hop_sign(x, y) * fq.hop_sign(x2, y2) == -1:
+                    found = (a, b, q, r); break
+        if found: break
+    if found: break
+a, b, q, r = found
+_, kfer = fq.fermion_instrument((a, b), 'C'); _, kref = fq.reference_instrument((a, b), 2, 'C')
+x, x2, y, y2 = cfg(a, q), cfg(a, r), cfg(b, q), cfg(b, r)
+amp_f = [str(kfer[(0, 1)][(IDX66[y], IDX66[x])]), str(kfer[(0, 1)][(IDX66[y2], IDX66[x2])])]
+amp_r = [str(kref[(0, 1)][(IDX78[y], IDX78[x])]), str(kref[(0, 1)][(IDX78[y2], IDX78[x2])])]
+out['T5_coherent_counterexample'] = {'seam': [a, b], 'spectators': [q, r], 'record': [0, 1],
+    'input': f'(|{a},{q}> + |{a},{r}>)/sqrt2', 'fermionic_amplitudes': amp_f, 'reference_amplitudes': amp_r,
+    'post_record_state_reference': f'(|{b},{q}> + |{b},{r}>)/sqrt2', 'post_record_state_fermionic': f'({amp_f[0]})|{b},{q}> + ({amp_f[1]})|{b},{r}>, normalised',
+    'probability_of_plus_readout_reference': '1', 'probability_of_plus_readout_fermionic': '0'}
+print('T5 counterexample', out['T5_coherent_counterexample'], flush=True)
+
+# ---------------------------------------------------------------- numerical: block structure of the Fock spaces
+def decompose(stat):
+    """Unitary from the Fock basis (d = 2) to [ref78 x X] + [ferm66 x Y]; X = triplet (bose) / singlet (fermi)."""
+    labels, vecs = fq.fock_basis(2, stat)
+    basis = fq.labelled_space(2, 2); idx = {x: i for i, x in enumerate(basis)}
+    Vf = np.zeros((len(basis), len(labels)), complex)
+    for k, v in enumerate(vecs):
+        for x, a in v.items():
+            Vf[idx[x], k] = fq.s_float(a)
+    trip = [np.array([1, 0, 0, 0.]), np.array([0, 1, 1, 0.]) / 2 ** .5, np.array([0, 0, 0, 1.])]
+    sing = [np.array([0, 1, -1, 0.]) / 2 ** .5]
+    def lift(posvec, intvec):
+        w = np.zeros(len(basis), complex)
+        for x, a in posvec.items():
+            (p, _), (q, _) = x
+            for s1 in range(2):
+                for s2 in range(2):
+                    w[idx[((p, s1), (q, s2))]] += fq.s_float(a) * intvec[2 * s1 + s2]
+        return w
+    first, second = (trip, sing) if stat == 'bose' else (sing, trip)
+    cols = [lift(pv, iv) for pv in symv for iv in first] + [lift(pv, iv) for pv in antv for iv in second]
+    W = np.array(cols).T                       # labelled space <- adapted basis
+    U = Vf.conj().T @ W                        # Fock <- adapted
+    return U, len(first), len(second)
+res = {}
+for stat in ('bose', 'fermi'):
+    U, d1, d2 = decompose(stat)
+    unit = np.linalg.norm(U.conj().T @ U - np.eye(U.shape[1])); sq = U.shape[0] == U.shape[1]
+    dev = 0.0
+    for seam in SEAMS:
+        kS = dict(fq.kraus_num(seam, 'S', 'C')); kA = dict(fq.kraus_num(seam, 'A', 'C'))
+        for rec, K in fock_num[(stat, seam)]:
+            Kad = U.conj().T @ K @ U
+            expect = np.zeros_like(Kad)
+            expect[:78 * d1, :78 * d1] = np.kron(kS[rec], np.eye(d1))
+            if rec in kA:
+                expect[78 * d1:, 78 * d1:] = np.kron(kA[rec], np.eye(d2))
+            dev = max(dev, np.abs(Kad - expect).max())
+    res[stat] = {'adapted_basis_is_unitary': bool(sq and unit < 1e-12), 'dimension': int(U.shape[0]),
+                 'blocks': f'ref78 x C^{d1} + ferm66 x C^{d2}', 'max_deviation_all_seams_records': float(dev)}
+out['numerical_block_structure_d2'] = res
+print('block structure', res, flush=True)
+
+# ---------------------------------------------------------------- numerical: shadows on random entangled inputs
+def random_state(n, k=3):
+    A = rng.normal(size=(n, k)) + 1j * rng.normal(size=(n, k))
+    rho = A @ A.conj().T
+    return rho / np.trace(rho)
+def ptrace_internal(rho, npos, d):
+    return np.einsum('aibi->ab', rho.reshape(npos, d, npos, d))
+res = {}
+for law in ('C', 'E'):
+    for d in (2, 3):
+        dev_state = dev_prob = 0.0
+        for trial in range(40):
+            rho = random_state(12 * d * 3, 6)          # position x internal x reference(3)
+            full = rho
+            # reduced position x reference state
+            T = full.reshape(12, d, 3, 12, d, 3)
+            pos = np.einsum('aircis->arcs', T).reshape(36, 36)
+            cur_new, cur_ref = full, pos
+            for step in range(4):
+                seam = SEAMS[rng.integers(30)]
+                newK = fq.instrument(seam, 1, law, d)
+                refK = fq.kraus_num(seam, 1, law)
+                pick = rng.integers(len(newK))
+                rec, K = newK[pick]; rec2, Kr = refK[pick]
+                assert rec == rec2
+                Kn = np.kron(K, np.eye(3)); Krn = np.kron(Kr, np.eye(3))
+                cur_new = Kn @ cur_new @ Kn.conj().T; cur_ref = Krn @ cur_ref @ Krn.conj().T
+                dev_prob = max(dev_prob, abs(np.trace(cur_new) - np.trace(cur_ref)))
+                T = cur_new.reshape(12, d, 3, 12, d, 3)
+                dev_state = max(dev_state, np.abs(np.einsum('aircis->arcs', T).reshape(36, 36) - cur_ref).max())
+        res[f'{law},d={d}'] = {'max_deviation_of_reduced_load_and_reference_state_over_record_words': float(dev_state),
+                               'max_deviation_of_record_word_probability': float(dev_prob), 'trials': 40, 'word_length': 4}
+out['numerical_instrument_shadow_one_quantum_entangled_inputs'] = res
+print('shadow N=1', res, flush=True)
+
+res = {}
+for stat in ('bose', 'fermi'):
+    U, d1, d2 = decompose(stat)
+    n = U.shape[0]
+    dev_pop = dev_prob = dev_S = dev_A = 0.0
+    for trial in range(12):
+        rho = random_state(n, 5)
+        ad = U.conj().T @ rho @ U
+        rS = np.einsum('aibi->ab', ad[:78 * d1, :78 * d1].reshape(78, d1, 78, d1))
+        rA = np.einsum('aibi->ab', ad[78 * d1:, 78 * d1:].reshape(66, d2, 66, d2))
+        cur = rho
+        for step in range(4):
+            seam = SEAMS[rng.integers(30)]
+            mats = fock_num[(stat, seam)]
+            kS = dict(fq.kraus_num(seam, 'S', 'C')); kA = dict(fq.kraus_num(seam, 'A', 'C'))
+            rec, K = mats[rng.integers(len(mats))]
+            cur = K @ cur @ K.conj().T
+            rS = kS[rec] @ rS @ kS[rec].conj().T
+            rA = kA[rec] @ rA @ kA[rec].conj().T if rec in kA else rA * 0
+            ad = U.conj().T @ cur @ U
+            nS = np.einsum('aibi->ab', ad[:78 * d1, :78 * d1].reshape(78, d1, 78, d1))
+            nA = np.einsum('aibi->ab', ad[78 * d1:, 78 * d1:].reshape(66, d2, 66, d2))
+            dev_S = max(dev_S, np.abs(nS - rS).max()); dev_A = max(dev_A, np.abs(nA - rA).max())
+            dev_prob = max(dev_prob, abs(np.trace(cur) - np.trace(rS) - np.trace(rA)))
+    res[stat] = {'max_dev_symmetric_register_state': float(dev_S), 'max_dev_antisymmetric_register_state': float(dev_A),
+                 'max_dev_record_word_probability': float(dev_prob), 'trials': 12, 'word_length': 4}
+out['numerical_instrument_shadow_two_quanta_d2'] = res
+print('shadow N=2', res, flush=True)
+
+# ---------------------------------------------------------------- covariance under the 60 rotations (one quantum, d = 2, law C)
+dev = 0.0
+from mt_lib import herm_projector
+for Rm, perm in C.rot:
+    P = C.perm_matrix(perm); Ua = su2(Rm)
+    G = np.kron(P, Ua)
+    for seam in SEAMS[:10]:
+        a, b = seam; a2, b2 = perm[a], perm[b]
+        flipped = a2 > b2
+        img = (min(a2, b2), max(a2, b2))
+        src = dict(fq.instrument(seam, 1, 'C', 2)); dst = dict(fq.instrument(img, 1, 'C', 2))
+        for (coin, j), K in src.items():
+            rec2 = (1 - coin, -j) if flipped else (coin, j)
+            dev = max(dev, np.abs(G @ K @ G.conj().T - dst[rec2]).max())
+    # apparatus covariance: port-axis projectors
+    for p in range(12):
+        Pi = herm_projector(1, C.N[p], 1); Pi2 = herm_projector(1, C.N[perm[p]], 1)
+        dev = max(dev, np.abs(Ua @ Pi @ Ua.conj().T - Pi2).max())
+out['numerical_covariance_60_rotations'] = {'max_deviation_instrument_and_apparatus': float(dev),
+    'record_map': 'a seam whose image is listed in reversed order has coin -> 1 - coin and current -> -current'}
+print('covariance', out['numerical_covariance_60_rotations'], flush=True)
+
+# ---------------------------------------------------------------- the split of a double load: intertwiners
+def intertwiner_count(d, group, sym=True, samples=6):
+    """dim Hom_G(Sym^2 or Lambda^2 (C^d), C^d x C^d)."""
+    F = np.zeros((d * d, d * d))
+    for i in range(d):
+        for j in range(d):
+            F[i * d + j, j * d + i] = 1
+    Pp = (np.eye(d * d) + (1 if sym else -1) * F) / 2
+    w, v = np.linalg.eigh(Pp); B = v[:, w > .5]                       # d^2 x k isometry onto the subspace
+    k = B.shape[1]
+    rows = []
+    for _ in range(samples):
+        if group == 'U(d)':
+            g = np.linalg.qr(rng.normal(size=(d, d)) + 1j * rng.normal(size=(d, d)))[0]
+        else:                                                         # SU(2) in the spin (d-1)/2 representation
+            ax = rng.normal(size=3); ax /= np.linalg.norm(ax); ang = rng.uniform(0, 2 * np.pi)
+            from scipy.linalg import expm
+            from mt_lib import herm_spin
+            Jx, Jy, Jz = herm_spin(d - 1)
+            g = expm(-1j * ang * (ax[0] * Jx + ax[1] * Jy + ax[2] * Jz))
+        G2 = np.kron(g, g); Gs = B.conj().T @ G2 @ B
+        # X Gs = G2 X  for X: (d^2 x k)
+        rows.append(np.kron(np.eye(d * d), Gs.T) - np.kron(G2, np.eye(k)))
+    s = np.linalg.svd(np.concatenate(rows), compute_uv=False)
+    return int((s < 1e-9).sum())
+out['split_of_a_double_load'] = {
+    'kraus': 'K = (1/sqrt2) |a b>_sym <a a| x inclusion of Sym^2(C^d) (bosons) or Lambda^2(C^d) (fermions) into C^d x C^d',
+    'covariant_isometries_dimension': {
+        'bosons d=2, U(2)': intertwiner_count(2, 'U(d)'), 'bosons d=2, SU(2)': intertwiner_count(2, 'SU(2)'),
+        'bosons d=3, U(3)': intertwiner_count(3, 'U(d)'), 'bosons d=3, SU(2) spin 1': intertwiner_count(3, 'SU(2)'),
+        'fermions d=2, SU(2)': intertwiner_count(2, 'SU(2)', sym=False), 'fermions d=3, SU(2) spin 1': intertwiner_count(3, 'SU(2)', sym=False)},
+    'reading': 'one intertwiner: the split is fixed up to a phase; two (spin 1 under rotations only): one relative phase '
+               'between the spin-2 and spin-0 parts is free unless the hop commutes with every one-body internal operator'}
+print('split', out['split_of_a_double_load'], flush=True)
+
+out['seconds'] = round(time.time() - t0, 1)
+json.dump(out, open('b12_tuple_shadows.json', 'w'), indent=1)
+print('written b12_tuple_shadows.json', out['seconds'], 's')

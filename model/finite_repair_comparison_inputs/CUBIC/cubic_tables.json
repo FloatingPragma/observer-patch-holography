@@ -1,0 +1,750 @@
+{
+ "units": "seam length 2, lattice constant 2*phi; wave vector in radians per lattice constant",
+ "port_classes": [
+  {
+   "class": 0,
+   "axis_of_shared_seam": 2,
+   "position_in_cell_0": [
+    0.0,
+    1.0,
+    1.618033988749895
+   ],
+   "held_by": [
+    {
+     "carrier_cell": [
+      0,
+      0,
+      0
+     ],
+     "home_vertex": 0,
+     "radial_direction": [
+      0.0,
+      0.5257311121191336,
+      0.85065080835204
+     ]
+    },
+    {
+     "carrier_cell": [
+      0,
+      0,
+      1
+     ],
+     "home_vertex": 3,
+     "radial_direction": [
+      0.0,
+      0.5257311121191336,
+      -0.85065080835204
+     ]
+    }
+   ]
+  },
+  {
+   "class": 1,
+   "axis_of_shared_seam": 1,
+   "position_in_cell_0": [
+    1.0,
+    1.618033988749895,
+    0.0
+   ],
+   "held_by": [
+    {
+     "carrier_cell": [
+      0,
+      0,
+      0
+     ],
+     "home_vertex": 1,
+     "radial_direction": [
+      0.5257311121191336,
+      0.85065080835204,
+      0.0
+     ]
+    },
+    {
+     "carrier_cell": [
+      0,
+      1,
+      0
+     ],
+     "home_vertex": 4,
+     "radial_direction": [
+      0.5257311121191336,
+      -0.85065080835204,
+      0.0
+     ]
+    }
+   ]
+  },
+  {
+   "class": 2,
+   "axis_of_shared_seam": 0,
+   "position_in_cell_0": [
+    1.618033988749895,
+    0.0,
+    1.0
+   ],
+   "held_by": [
+    {
+     "carrier_cell": [
+      0,
+      0,
+      0
+     ],
+     "home_vertex": 2,
+     "radial_direction": [
+      0.85065080835204,
+      0.0,
+      0.5257311121191336
+     ]
+    },
+    {
+     "carrier_cell": [
+      1,
+      0,
+      0
+     ],
+     "home_vertex": 8,
+     "radial_direction": [
+      -0.85065080835204,
+      0.0,
+      0.5257311121191336
+     ]
+    }
+   ]
+  },
+  {
+   "class": 3,
+   "axis_of_shared_seam": 0,
+   "position_in_cell_0": [
+    1.618033988749895,
+    0.0,
+    -1.0
+   ],
+   "held_by": [
+    {
+     "carrier_cell": [
+      0,
+      0,
+      0
+     ],
+     "home_vertex": 5,
+     "radial_direction": [
+      0.85065080835204,
+      0.0,
+      -0.5257311121191336
+     ]
+    },
+    {
+     "carrier_cell": [
+      1,
+      0,
+      0
+     ],
+     "home_vertex": 11,
+     "radial_direction": [
+      -0.85065080835204,
+      0.0,
+      -0.5257311121191336
+     ]
+    }
+   ]
+  },
+  {
+   "class": 4,
+   "axis_of_shared_seam": 2,
+   "position_in_cell_0": [
+    0.0,
+    -1.0,
+    1.618033988749895
+   ],
+   "held_by": [
+    {
+     "carrier_cell": [
+      0,
+      0,
+      0
+     ],
+     "home_vertex": 6,
+     "radial_direction": [
+      0.0,
+      -0.5257311121191336,
+      0.85065080835204
+     ]
+    },
+    {
+     "carrier_cell": [
+      0,
+      0,
+      1
+     ],
+     "home_vertex": 9,
+     "radial_direction": [
+      0.0,
+      -0.5257311121191336,
+      -0.85065080835204
+     ]
+    }
+   ]
+  },
+  {
+   "class": 5,
+   "axis_of_shared_seam": 1,
+   "position_in_cell_0": [
+    -1.0,
+    1.618033988749895,
+    0.0
+   ],
+   "held_by": [
+    {
+     "carrier_cell": [
+      0,
+      0,
+      0
+     ],
+     "home_vertex": 7,
+     "radial_direction": [
+      -0.5257311121191336,
+      0.85065080835204,
+      0.0
+     ]
+    },
+    {
+     "carrier_cell": [
+      0,
+      1,
+      0
+     ],
+     "home_vertex": 10,
+     "radial_direction": [
+      -0.5257311121191336,
+      -0.85065080835204,
+      0.0
+     ]
+    }
+   ]
+  }
+ ],
+ "seams": [
+  {
+   "from_class": 0,
+   "to_class": 1,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 0,
+   "to_class": 1,
+   "cell_offset_of_to": [
+    0,
+    0,
+    1
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     1
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 0,
+   "to_class": 2,
+   "cell_offset_of_to": [
+    -1,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 0,
+   "to_class": 2,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 0,
+   "to_class": 3,
+   "cell_offset_of_to": [
+    -1,
+    0,
+    1
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     1
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 0,
+   "to_class": 3,
+   "cell_offset_of_to": [
+    0,
+    0,
+    1
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     1
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 0,
+   "to_class": 4,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     1
+    ]
+   ],
+   "shared": true
+  },
+  {
+   "from_class": 0,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 0,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    0,
+    0,
+    1
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     1
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 1,
+   "to_class": 2,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 1,
+   "to_class": 2,
+   "cell_offset_of_to": [
+    0,
+    1,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 1,
+   "to_class": 3,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 1,
+   "to_class": 3,
+   "cell_offset_of_to": [
+    0,
+    1,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 1,
+   "to_class": 4,
+   "cell_offset_of_to": [
+    0,
+    1,
+    -1
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 1,
+   "to_class": 4,
+   "cell_offset_of_to": [
+    0,
+    1,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 1,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0
+    ]
+   ],
+   "shared": true
+  },
+  {
+   "from_class": 2,
+   "to_class": 3,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "shared": true
+  },
+  {
+   "from_class": 2,
+   "to_class": 4,
+   "cell_offset_of_to": [
+    0,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 2,
+   "to_class": 4,
+   "cell_offset_of_to": [
+    1,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 2,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    1,
+    -1,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 2,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    1,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 3,
+   "to_class": 4,
+   "cell_offset_of_to": [
+    0,
+    0,
+    -1
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 3,
+   "to_class": 4,
+   "cell_offset_of_to": [
+    1,
+    0,
+    -1
+   ],
+   "owning_carrier_cells": [
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 3,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    1,
+    -1,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 3,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    1,
+    0,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     1,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 4,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    0,
+    -1,
+    0
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "shared": false
+  },
+  {
+   "from_class": 4,
+   "to_class": 5,
+   "cell_offset_of_to": [
+    0,
+    -1,
+    1
+   ],
+   "owning_carrier_cells": [
+    [
+     0,
+     0,
+     1
+    ]
+   ],
+   "shared": false
+  }
+ ],
+ "ports_per_cell": 6,
+ "seams_per_cell": 27,
+ "port_degree": 9,
+ "table_against_cubic_fed_max_difference": 1.4210854715202004e-14,
+ "load_branch": {
+  "shared_seam_counted_twice": {
+   "100": {
+    "curvature_D": 0.5555555553717135,
+    "quartic_C": -0.010287915559864351
+   },
+   "110": {
+    "curvature_D": 0.5555555554767758,
+    "quartic_C": -0.011059605290353634
+   },
+   "111": {
+    "curvature_D": 0.5555555546456118,
+    "quartic_C": -0.011316120712400941
+   },
+   "walk": {
+    "address_register": 120,
+    "kernel": "1 - L/120",
+    "speed_in_lattice_constants_per_tick": 0.09622504484901644,
+    "note": "cos(omega) = 1 - lambda/NA; the quantum uses the oriented seams of the two carriers that hold its port"
+   }
+  },
+  "shared_seam_counted_once": {
+   "100": {
+    "curvature_D": 0.5333333327233045,
+    "quartic_C": -0.01007356603119545
+   },
+   "110": {
+    "curvature_D": 0.53333333357896,
+    "quartic_C": -0.010629834040934023
+   },
+   "111": {
+    "curvature_D": 0.5333333323556545,
+    "quartic_C": -0.010814007080530215
+   },
+   "walk": {
+    "address_register": 118,
+    "kernel": "1 - L/118",
+    "speed_in_lattice_constants_per_tick": 0.0950765376539312,
+    "note": "cos(omega) = 1 - lambda/NA; the quantum uses the oriented seams of the two carriers that hold its port"
+   }
+  }
+ },
+ "frame": "home carrier vertices (0,+-1,+-phi), (+-1,+-phi,0), (+-phi,0,+-1); shared seams centred on the coordinate axes"
+}

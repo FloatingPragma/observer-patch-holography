@@ -52,7 +52,11 @@ compares with [results.json](results.json). It does not rerun the production.
 - [recorded_tables.json](recorded_tables.json): the reduced outputs of the production. Jackknife samples of the
   Wilson loops and of the hadron correlators, the Polyakov-loop correlators and the gates of the compiled kernels.
   The configurations and the raw measurement files are not stored.
-- [certificate.py](certificate.py) and [results.json](results.json): the derived numbers and 68 named checks.
+- [certificate.py](certificate.py) and [results.json](results.json): the derived numbers and 74 named checks.
 - [production/](production/): the compiled kernel and the run drivers. They need numba. The check and the tests
   run without it.
 - `test_hadron_binding.py`: gates. They run in under a minute.
+
+The receipt retains the joint mass/scale jackknife covariance and correlated nucleon-minus-rho contrasts.
+Every replica deletes the same gauge stream across masses and scales; shared-scale cancellation and the
+potential-rise errors are checked using those paired replicas. Independent-error values are labeled controls.

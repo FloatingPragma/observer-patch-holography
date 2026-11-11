@@ -1,0 +1,399 @@
+{
+ "gate": {
+  "alpha_cell_P_fwd": 0.06155627294861436,
+  "inv_alpha_cell_P_fwd": 16.245298035421587,
+  "decimal_lhs_minus_P_over_4_at_float_root": -1.1102230246251565e-16,
+  "DC_inv_alpha_P_fwd": 16.2453,
+  "DC_alpha_at_phi": 0.0617696,
+  "alpha_cell_phi": 0.06176957520920222,
+  "pass": true
+ },
+ "R0a_hierarchy": {
+  "formula": "v/E* = P^(-1/2) exp(-2 pi/(4 alpha_cell(P))); the slopes do not enter",
+  "outer_map_range_of_P_for_alpha0_in_(0,1/50]": [
+   1.618033988749895,
+   1.6534830657680053
+  ],
+  "rows": [
+   {
+    "P": 1.6,
+    "inv_alpha_cell": 16.110909913617274,
+    "v_over_E*": 8.077328508059869e-12,
+    "v_GeV_display": 98615306.43840751
+   },
+   {
+    "P": 1.605,
+    "inv_alpha_cell": 16.13262769149498,
+    "v_over_E*": 7.794254956596266e-12,
+    "v_GeV_display": 95159289.39089777
+   },
+   {
+    "P": 1.61,
+    "inv_alpha_cell": 16.154336542895187,
+    "v_over_E*": 7.521243798653789e-12,
+    "v_GeV_display": 91826123.11262432
+   },
+   {
+    "P": 1.615,
+    "inv_alpha_cell": 16.176036589208525,
+    "v_over_E*": 7.257930848803654e-12,
+    "v_GeV_display": 88611361.29963608
+   },
+   {
+    "P": 1.62,
+    "inv_alpha_cell": 16.19772795085446,
+    "v_over_E*": 7.003965395125588e-12,
+    "v_GeV_display": 85510722.14471735
+   },
+   {
+    "P": 1.625,
+    "inv_alpha_cell": 16.219410747292372,
+    "v_over_E*": 6.759009687647551e-12,
+    "v_GeV_display": 82520082.09179895
+   },
+   {
+    "P": 1.6300000000000001,
+    "inv_alpha_cell": 16.241085097032464,
+    "v_over_E*": 6.522738446794336e-12,
+    "v_GeV_display": 79635469.83465564
+   },
+   {
+    "P": 1.635,
+    "inv_alpha_cell": 16.262751117646527,
+    "v_over_E*": 6.294838391035947e-12,
+    "v_GeV_display": 76853060.55001186
+   },
+   {
+    "P": 1.6400000000000001,
+    "inv_alpha_cell": 16.284408925778582,
+    "v_over_E*": 6.075007782959995e-12,
+    "v_GeV_display": 74169170.35558437
+   },
+   {
+    "P": 1.645,
+    "inv_alpha_cell": 16.30605863715529,
+    "v_over_E*": 5.862955993026985e-12,
+    "v_GeV_display": 71580250.98401366
+   },
+   {
+    "P": 1.6500000000000001,
+    "inv_alpha_cell": 16.327700366596304,
+    "v_over_E*": 5.658403080295166e-12,
+    "v_GeV_display": 69082884.66397496
+   },
+   {
+    "P": 1.655,
+    "inv_alpha_cell": 16.349334228024418,
+    "v_over_E*": 5.46107938943416e-12,
+    "v_GeV_display": 66673779.20015748
+   },
+   {
+    "P": 1.6600000000000001,
+    "inv_alpha_cell": 16.370960334475583,
+    "v_over_E*": 5.270725163373531e-12,
+    "v_GeV_display": 64349763.244129
+   },
+   {
+    "P": 1.665,
+    "inv_alpha_cell": 16.392578798108808,
+    "v_over_E*": 5.087090170959454e-12,
+    "v_GeV_display": 62107781.74843289
+   },
+   {
+    "P": 1.6700000000000002,
+    "inv_alpha_cell": 16.41418973021588,
+    "v_over_E*": 4.9099333490198986e-12,
+    "v_GeV_display": 59944891.59659729
+   },
+   {
+    "P": 1.675,
+    "inv_alpha_cell": 16.435793241230986,
+    "v_over_E*": 4.73902245826217e-12,
+    "v_GeV_display": 57858257.40202212
+   },
+   {
+    "P": 1.6800000000000002,
+    "inv_alpha_cell": 16.457389440740172,
+    "v_over_E*": 4.574133752451207e-12,
+    "v_GeV_display": 55845147.46900959
+   },
+   {
+    "P": 1.685,
+    "inv_alpha_cell": 16.478978437490692,
+    "v_over_E*": 4.415051660339876e-12,
+    "v_GeV_display": 53902929.909482606
+   },
+   {
+    "P": 1.6900000000000002,
+    "inv_alpha_cell": 16.500560339400213,
+    "v_over_E*": 4.261568479844189e-12,
+    "v_GeV_display": 52029068.90920008
+   },
+   {
+    "P": 1.695,
+    "inv_alpha_cell": 16.522135253565896,
+    "v_over_E*": 4.113484083976707e-12,
+    "v_GeV_display": 50221121.13752701
+   },
+   {
+    "P": 1.7000000000000002,
+    "inv_alpha_cell": 16.543703286273374,
+    "v_over_E*": 3.970605638072353e-12,
+    "v_GeV_display": 48476732.295072265
+   },
+   {
+    "P": 1.618033988749895,
+    "inv_alpha_cell": 16.189199887050922,
+    "v_over_E*": 7.1027319169217455e-12,
+    "v_GeV_display": 86716552.86004172
+   },
+   {
+    "P": 1.6309682094039593,
+    "inv_alpha_cell": 16.245281192651586,
+    "v_over_E*": 6.4779634254786536e-12,
+    "v_GeV_display": 79088816.01917367
+   },
+   {
+    "P": 1.6309720958588974,
+    "inv_alpha_cell": 16.245298035421587,
+    "v_over_E*": 6.47778432511676e-12,
+    "v_GeV_display": 79086629.40053438
+   },
+   {
+    "P": 1.6534830657680053,
+    "inv_alpha_cell": 16.34277162368375,
+    "v_over_E*": 5.52019659023547e-12,
+    "v_GeV_display": 67395535.2692569
+   }
+  ],
+  "min_v_over_E*": 3.970605638072353e-12,
+  "max_v_over_E*": 8.077328508059869e-12
+ },
+ "R0b_coupling_sector": {
+  "v_cell_GeV_display": 79086629.40053438,
+  "D10_Q0_GeV": 91.58833750192969,
+  "rows": {
+   "SM_bare": {
+    "b": [
+     4.1,
+     -3.1666666666666665,
+     -7.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_2": 95872.73262730405,
+     "alpha_3": 4443055573562.145
+    },
+    "source_only_Q0_GeV": null,
+    "packet_at_source_Q0": null,
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "SM_5trace": {
+    "b": [
+     4.1,
+     -3.1666666666666665,
+     -7.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_2": 246463806.94385386,
+     "alpha_3": 1054102329248014.0
+    },
+    "source_only_Q0_GeV": null,
+    "packet_at_source_Q0": null,
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "B_bare": {
+    "b": [
+     6.1,
+     -1.1666666666666667,
+     -5.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_2": 9.634382563528517e-20,
+     "alpha_3": 13018864795.871769
+    },
+    "source_only_Q0_GeV": null,
+    "packet_at_source_Q0": null,
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "B_5trace": {
+    "b": [
+     6.1,
+     -1.1666666666666667,
+     -5.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_2": 1.7365837282977622e-10,
+     "alpha_3": 27533064703985.34
+    },
+    "source_only_Q0_GeV": null,
+    "packet_at_source_Q0": null,
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "B4_bare": {
+    "b": [
+     8.1,
+     0.8333333333333334,
+     -3.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_3": 15995.076318132302
+    },
+    "source_only_Q0_GeV": 35077802.90342686,
+    "packet_at_source_Q0": {
+     "inv_alpha_1": 50.1900777512535,
+     "inv_alpha_2": 19.737559323058615,
+     "inv_alpha_3": 3.6731573999282876,
+     "alpha_3": 0.27224534402460493,
+     "sin2w": 0.1909082167464863,
+     "inv_alpha_em": 103.38768890848112
+    },
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "B4_5trace": {
+    "b": [
+     8.1,
+     0.8333333333333334,
+     -3.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_3": 5573423540.734296
+    },
+    "source_only_Q0_GeV": null,
+    "packet_at_source_Q0": null,
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "D_bare": {
+    "b": [
+     6.6,
+     1.0,
+     -3.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_3": 15995.076318132302
+    },
+    "source_only_Q0_GeV": 35072176.1981133,
+    "packet_at_source_Q0": {
+     "inv_alpha_1": 43.904175941570585,
+     "inv_alpha_2": 20.43603711211083,
+     "inv_alpha_3": 3.6730808053538624,
+     "alpha_3": 0.27225102114345145,
+     "sin2w": 0.21831119040942012,
+     "inv_alpha_em": 93.60966368139515
+    },
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "D_5trace": {
+    "b": [
+     6.6,
+     1.0,
+     -3.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_3": 5573423540.734296
+    },
+    "source_only_Q0_GeV": null,
+    "packet_at_source_Q0": null,
+    "packet_at_D10_Q0_91.588_GeV": null,
+    "reaches_D10_Q0_without_pole": false
+   },
+   "BE_bare": {
+    "b": [
+     8.6,
+     3.0,
+     -1.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_3": 4.477672396155733e-26
+    },
+    "source_only_Q0_GeV": 30078588.750768926,
+    "packet_at_source_Q0": {
+     "inv_alpha_1": 52.495883926754146,
+     "inv_alpha_2": 28.890851253328293,
+     "inv_alpha_3": 12.030113629452686,
+     "alpha_3": 0.08312473437921263,
+     "sin2w": 0.2482373303450874,
+     "inv_alpha_em": 116.38399113125188
+    },
+    "packet_at_D10_Q0_91.588_GeV": {
+     "inv_alpha_1": 69.88155191876785,
+     "inv_alpha_2": 34.95561915751912,
+     "inv_alpha_3": 10.008524328055742,
+     "alpha_3": 0.09991482932172281,
+     "sin2w": 0.2308446334725104,
+     "inv_alpha_em": 151.42487235546554
+    },
+    "reaches_D10_Q0_without_pole": true
+   },
+   "BE_5trace": {
+    "b": [
+     8.6,
+     3.0,
+     -1.0
+    ],
+    "landau_poles_below_E_cell_GeV": {
+     "alpha_3": 1.894346887760855e-09
+    },
+    "source_only_Q0_GeV": 32092203.876843996,
+    "packet_at_source_Q0": {
+     "inv_alpha_1": 48.95143875799685,
+     "inv_alpha_2": 24.90260293161475,
+     "inv_alpha_3": 5.947383941406004,
+     "alpha_3": 0.16814115413635006,
+     "sin2w": 0.23385287336758234,
+     "inv_alpha_em": 106.48833419494282
+    },
+    "packet_at_D10_Q0_91.588_GeV": {
+     "inv_alpha_1": 66.42579999981909,
+     "inv_alpha_2": 30.998310341552738,
+     "inv_alpha_3": 3.9154814714266744,
+     "alpha_3": 0.25539643267310175,
+     "sin2w": 0.21874781502117358,
+     "inv_alpha_em": 141.7079770079179
+    },
+    "reaches_D10_Q0_without_pole": true
+   }
+  },
+  "b3_bound_for_no_alpha3_pole_above_D10_Q0": {
+   "bare": -2.604759896328342,
+   "5trace": -1.6278056019256166
+  }
+ },
+ "R0d_boundary_data_at_E_cell": {
+  "bare": {
+   "g1_g2_g3": [
+    0.8795106250131035,
+    0.8795106250131035,
+    0.8795106250131035
+   ],
+   "yt_crit_1loop": 0.6426171406114072,
+   "yt_crit_2loop": 0.6452496246189794,
+   "lambda": 0.0
+  },
+  "5trace": {
+   "g1_g2_g3": [
+    0.99123668336409,
+    1.0112639397254046,
+    1.1125605833608652
+   ],
+   "yt_crit_1loop": 0.7358366208458559,
+   "yt_crit_2loop": 0.7389907420374107,
+   "lambda": 0.0
+  },
+  "D11_chart_at_E_cell": {
+   "inv_alpha_1_2_3": [
+    33.65104983990168,
+    49.35501471833069,
+    52.1079396000692
+   ],
+   "yt_crit_1loop": 0.38696983820721087
+  }
+ },
+ "seconds": 17.644286155700684
+}

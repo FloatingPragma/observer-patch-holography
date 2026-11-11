@@ -1,0 +1,182 @@
+{
+ "a_central_element_lift": {
+  "half-turn squared, 2 quanta": {
+   "one_body_power_is_minus_one": true,
+   "antisymmetric_lift_equals_(-1)^k_defect": 0.0,
+   "symmetric_lift_equals_(-1)^k_defect": 0.0,
+   "dimensions_antisymmetric_symmetric": [
+    6,
+    10
+   ]
+  },
+  "third of a turn cubed, 2 quanta": {
+   "one_body_power_is_minus_one": true,
+   "antisymmetric_lift_equals_(-1)^k_defect": 0.0,
+   "symmetric_lift_equals_(-1)^k_defect": 0.0,
+   "dimensions_antisymmetric_symmetric": [
+    6,
+    10
+   ]
+  },
+  "half-turn squared, 3 quanta": {
+   "one_body_power_is_minus_one": true,
+   "antisymmetric_lift_equals_(-1)^k_defect": 2.7755575615628914e-17,
+   "symmetric_lift_equals_(-1)^k_defect": 2.7755575615628914e-17,
+   "dimensions_antisymmetric_symmetric": [
+    4,
+    20
+   ]
+  },
+  "third of a turn cubed, 3 quanta": {
+   "one_body_power_is_minus_one": true,
+   "antisymmetric_lift_equals_(-1)^k_defect": 2.7755575615628914e-17,
+   "symmetric_lift_equals_(-1)^k_defect": 2.7755575615628914e-17,
+   "dimensions_antisymmetric_symmetric": [
+    4,
+    20
+   ]
+  }
+ },
+ "b_exchange_by_executed_routing": {
+  "1_ring_4x1x1": {
+   "one_body_amplitudes_after_two_ticks": [
+    [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      0.9999999999999993,
+      -9.185520264200627e-34
+     ]
+    ],
+    [
+     [
+      0.9999999999999993,
+      -9.185520264200627e-34
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ]
+   ],
+   "one_quantum_round_trip_four_ticks": [
+    0.9999999999999988,
+    1.1431286591582003e-34
+   ],
+   "two_quantum_return_amplitude_antisymmetric": [
+    -0.9999999999999987,
+    1.837104052840124e-33
+   ],
+   "symmetric": [
+    0.9999999999999987,
+    -1.837104052840124e-33
+   ],
+   "exchange_sign_antisymmetric": [
+    -1.0,
+    1.951416918755947e-33
+   ],
+   "exchange_sign_symmetric": [
+    1.0,
+    -1.951416918755947e-33
+   ]
+  },
+  "2_ring_4x1x1_Z2_holonomy_-1": {
+   "one_body_amplitudes_after_two_ticks": [
+    [
+     [
+      0.0,
+      0.0
+     ],
+     [
+      -0.9999999999999993,
+      9.185520264200627e-34
+     ]
+    ],
+    [
+     [
+      0.9999999999999993,
+      -9.185520264200627e-34
+     ],
+     [
+      0.0,
+      0.0
+     ]
+    ]
+   ],
+   "one_quantum_round_trip_four_ticks": [
+    -0.9999999999999988,
+    -1.1431286591582003e-34
+   ],
+   "two_quantum_return_amplitude_antisymmetric": [
+    0.9999999999999987,
+    -1.837104052840124e-33
+   ],
+   "symmetric": [
+    -0.9999999999999987,
+    1.837104052840124e-33
+   ],
+   "exchange_sign_antisymmetric": [
+    -1.0,
+    1.951416918755947e-33
+   ],
+   "exchange_sign_symmetric": [
+    1.0,
+    -1.951416918755947e-33
+   ]
+  },
+  "3_torus_2x2x2_mass_one_tick": {
+   "one_quantum_round_trip_two_ticks": [
+    0.95052647878922,
+    -0.3106435467228714
+   ],
+   "exp(-2 i theta)": [
+    0.9505264787892208,
+    -0.31064354672287153
+   ],
+   "exchange_sign_antisymmetric": [
+    -0.9999999999999998,
+    -6.47378058714332e-17
+   ],
+   "exchange_sign_symmetric": [
+    0.9999999999999998,
+    6.47378058714332e-17
+   ]
+  },
+  "4_contractible_exchange_6x6x6_blank_records_two_cells_apart": {
+   "1_tick": {
+    "probability_both_quanta_in_one_cell": {
+     "distinguishable": 0.062499999999999944,
+     "antisymmetric": 2.7755575615628914e-17,
+     "symmetric": 0.12499999999999986
+    },
+    "total_probability_check": {
+     "antisymmetric": 0.9999999999999991,
+     "symmetric": 0.9999999999999991
+    },
+    "cells_(1,1,1)_and_(1,-1,1)": {
+     "distinguishable": 0.031249999999999972,
+     "antisymmetric": 0.06249999999999993,
+     "symmetric": 1.3877787807814457e-17
+    }
+   },
+   "2_ticks": {
+    "probability_both_quanta_in_one_cell": {
+     "distinguishable": 0.019531249999999948,
+     "antisymmetric": 0.011718749999999969,
+     "symmetric": 0.027343749999999927
+    },
+    "total_probability_check": {
+     "antisymmetric": 0.9999999999999974,
+     "symmetric": 0.9999999999999973
+    },
+    "cells_(1,1,1)_and_(1,-1,1)": {
+     "distinguishable": 0.0,
+     "antisymmetric": 0.0,
+     "symmetric": 0.0
+    }
+   }
+  }
+ }
+}

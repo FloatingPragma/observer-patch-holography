@@ -1,0 +1,111 @@
+"""Run D, 3D part by dense diagonalisation per two-tick sublattice (complete spectrum, no Lanczos convergence question).
+
+Two ticks move a quantum by a vector with components in {-2, 0, 2}, so the two-tick operator U2 (alternating order,
+time independent) is block diagonal over the eight sublattices x = r + 2Z^3, r in {0,1}^3. U2 is built as a sparse matrix
+from the shift and mass factors (checked against the executed engine on a random state), each block is restricted and the
+Hermitian A = (U2 + U2^dagger)/2 (eigenvalues cos 2E) is diagonalised densely. All states with |E| < theta0 are listed
+with the weight inside the cavity. Background theta0 = 0.171237, cavity at theta = 0 (cube of side s at the centre).
+`python d_dense.py out.json L1 [L2 ...]`
+"""
+import json, sys, time, itertools
+import numpy as np
+import scipy.sparse as sp
+from multiprocessing import Pool
+from cq_common import EngineC, SIG, I2
+
+TH0 = 0.171237
+X = SIG[0]; Y = SIG[1]
+
+
+def cyc(L):
+    return sp.csr_matrix((np.ones(L), ((np.arange(L) + 1) % L, np.arange(L))), shape=(L, L))
+
+
+def shift_op(L, i):
+    C = cyc(L)                                          # C[x+1, x] = 1
+    I = sp.identity(L, format='csr')
+    mats = [I, I, I]; mats[i] = C
+    T = sp.kron(sp.kron(mats[0], mats[1]), mats[2], format='csr')
+    a = np.kron(X, SIG[i]); Pp = (np.eye(4) + a) / 2; Pm = (np.eye(4) - a) / 2
+    return (sp.kron(T, sp.csr_matrix(Pp)) + sp.kron(T.T, sp.csr_matrix(Pm))).tocsr()
+
+
+def mass_op(th):
+    c = np.cos(th).reshape(-1); s = np.sin(th).reshape(-1)
+    b = np.kron(Y, I2)
+    return (sp.kron(sp.diags(c), sp.identity(4)) - 1j * sp.kron(sp.diags(s), sp.csr_matrix(b))).tocsr()
+
+
+def two_tick(L, th):
+    S = [shift_op(L, i) for i in range(3)]; M = mass_op(th)
+    fwd = M @ S[2] @ S[1] @ S[0]
+    rev = M @ S[0] @ S[1] @ S[2]
+    return (rev @ fwd).tocsr()
+
+
+def cavity(L, s):
+    th = np.full((L, L, L), TH0); c = L // 2 - s // 2
+    if s: th[c:c + s, c:c + s, c:c + s] = 0.0
+    return th, c
+
+
+def job(args):
+    L, s, r = args
+    t0 = time.time()
+    th, c = cavity(L, s)
+    U = two_tick(L, th)
+    g = np.array(list(itertools.product(range(L), repeat=3)))
+    cells = np.where(np.all(g % 2 == np.array(r), axis=1))[0]
+    idx = (cells[:, None] * 4 + np.arange(4)[None, :]).reshape(-1)
+    Ub = U[idx][:, idx].toarray()
+    leak = float(np.abs(U[idx].toarray()).sum() - np.abs(Ub).sum())      # amplitude leaving the block (must be 0)
+    A = 0.5 * (Ub + Ub.conj().T)
+    w, V = np.linalg.eigh(A)
+    E = np.arccos(np.clip(w, -1, 1)) / 2
+    incav = np.zeros(len(idx), bool)
+    if s:
+        gx = g[cells]
+        inside = np.all((gx >= c) & (gx < c + s), axis=1)
+        incav = np.repeat(inside, 4)
+    wc = np.sum(np.abs(V[incav, :]) ** 2, axis=0) if s else np.zeros(len(w))
+    sel = E < TH0 - 1e-10
+    rows = []
+    for v in sorted({round(float(x), 10) for x in E[sel]}):
+        m = sel & (np.abs(E - v) < 1e-8)
+        rows.append({'abs_phase': v, 'multiplicity_in_A': int(m.sum()), 'mean_weight_in_cavity': float(wc[m].mean())})
+    nxt = sorted({round(float(x), 8) for x in E[~sel]})[:3]
+    return {'L': L, 'side': s, 'sublattice_r': list(r), 'cavity_cells_in_this_sublattice': int(np.sum(np.all((g[cells] >= c) & (g[cells] < c + s), axis=1))) if s else 0,
+            'block_dimension': len(idx), 'block_leak': leak, 'states_below_theta0': rows, 'lowest_phases_at_or_above_theta0': nxt,
+            'seconds': time.time() - t0}
+
+
+if __name__ == '__main__':
+    t0 = time.time()
+    Ls = [int(x) for x in sys.argv[2:]]
+    # check the sparse U2 against the engine
+    chk = {}
+    for L in Ls:
+        th, _ = cavity(L, 3)
+        rng = np.random.default_rng(3)
+        psi = rng.normal(size=(L, L, L, 2, 2)) + 1j * rng.normal(size=(L, L, L, 2, 2))
+        e = EngineC((L, L, L))
+        chk[str(L)] = float(np.abs(two_tick(L, th) @ psi.reshape(-1) - e.two_ticks(psi, th).reshape(-1)).max())
+    print('sparse U2 against engine', chk, flush=True)
+    jobs = [(L, s, r) for L in Ls for s in (0, 1, 2, 3, 4) for r in itertools.product((0, 1), repeat=3)]
+    with Pool(16) as pool:
+        res = pool.map(job, jobs)
+    summary = []
+    for L in Ls:
+        for s in (0, 1, 2, 3, 4):
+            rr = [x for x in res if x['L'] == L and x['side'] == s]
+            allst = {}
+            for x in rr:
+                for q in x['states_below_theta0']:
+                    allst.setdefault(q['abs_phase'], []).append((tuple(x['sublattice_r']), q['multiplicity_in_A'], q['mean_weight_in_cavity']))
+            summary.append({'L': L, 'side': s, 'cavity_volume_fraction': s ** 3 / L ** 3,
+                            'states_below_theta0': [{'abs_phase': k, 'total_multiplicity_in_A': sum(m for _, m, _ in v),
+                                                     'by_sublattice': [{'r': list(r_), 'multiplicity': m, 'mean_weight_in_cavity': w_} for r_, m, w_ in v]} for k, v in sorted(allst.items())],
+                            'max_block_leak': max(x['block_leak'] for x in rr)})
+            print('L', L, 's', s, [(k, sum(m for _, m, _ in v), round(max(w_ for _, _, w_ in v), 5)) for k, v in sorted(allst.items())], 'leak', summary[-1]['max_block_leak'], flush=True)
+    json.dump({'sparse_U2_against_engine': chk, 'blocks': res, 'summary': summary, 'seconds': time.time() - t0}, open(sys.argv[1], 'w'), indent=1)
+    print('written', sys.argv[1])

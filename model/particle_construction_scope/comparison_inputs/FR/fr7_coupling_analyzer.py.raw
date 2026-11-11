@@ -1,0 +1,242 @@
+"""FR round 2, goal 5: derived consensus (D1 to D6), the law's double-load current record (T1), the dimer chain (T2, A1)
+and the junction double load (A2) of ROUND2_REGISTER.md. EXACT (sympy). Writes fr7_coupling_analyzer.json.
+
+Multi-load model: occupation configurations on a few ports, one four-valued record, one address register, the law's
+local unitary `model.coherent_seam_repair.common.local_repair_unitary` (source order 00,10,01,11,20,02; record 0..3) at
+the addressed seam, the law's reflection 2 A A^dag - 1 on the address register.
+"""
+from __future__ import annotations
+
+import itertools
+import sys
+
+import sympy as sp
+
+import fr_common as FC
+import fr2_register as R2
+
+OUT = 'fr7_coupling_analyzer.json'
+y = sp.Symbol('y')
+z = R2.z
+a13, a23 = R2.a13, R2.a23
+NAMES = ['00', '10', '01', '11', '20', '02']
+
+
+def nz(x):
+    return sp.nsimplify(sp.expand(sp.simplify(x)))
+
+
+# ------------------------------------------------------------------ part D: derived consensus on the round-1 register
+def part_D(out):
+    W, V = R2.obj_ops(1)
+    Vnat_E = sp.diag(*[(-1 if ((i // 2) % 2 == 1 and i % 2 == 0) else 1) for i in range(12)])
+    fl = R2.flags()
+    pC = R2.psi((a13, 0, a23))                                              # C load at port 2 (native = screen tail)
+    pE_nat2 = (Vnat_E * W * FC.obj_state(0, a13, a23)).applyfunc(sp.nsimplify)   # E native frame, load at port 2
+    pE_nat10 = (Vnat_E * W * FC.obj_state(a13, 0, a23)).applyfunc(sp.nsimplify)  # E native frame, load at port 10
+    pE_scr2 = R2.psi((0, a13, a23))                                         # E screen frame, load at port 2
+    C_t = R2.C_target()
+
+    def d1(pC_, pE_):
+        nC = (fl['C_idle'] + fl['C_agree']) / sp.sqrt(2)
+        nE = (fl['E_idle'] + fl['E_repair']) / sp.sqrt(2)
+        Phi = {k: c / sp.sqrt(3) for k, c in R2.add_vec(R2.prod_vec(nC, fl['E_agree']), R2.prod_vec(fl['C_rep+'], nE),
+                                                        R2.prod_vec(fl['C_rep-'], nE)).items()}
+        return R2.compress(Phi, pC_, pE_), nz((nC.T * pC_)[0]), nz((nE.T * pE_)[0])
+
+    def d2(pC_, pE_):
+        nC = pC_.multiply_elementwise(sp.Matrix([1 if ((i // 2) % 2) == 0 else 0 for i in range(12)]))
+        nE = pE_ - (fl['E_agree'].T * pE_)[0] * fl['E_agree']
+        Phi = {k: c / sp.sqrt(3) for k, c in R2.add_vec(R2.prod_vec(R2.unit(nC), fl['E_agree']),
+                                                        R2.prod_vec(fl['C_rep+'], R2.unit(nE)),
+                                                        R2.prod_vec(fl['C_rep-'], R2.unit(nE))).items()}
+        return R2.compress(Phi, pC_, pE_)
+    res = {}
+    M, cC, cE = d1(pC, pE_nat2)
+    res['D1_both_loads_at_port_2_native_frame'] = {
+        **R2.summarize(M, 'D1'), 'no_read_overlaps (C, E)': [str(cC), str(cE)],
+        'equals_(1/2) C(theta)': (M - C_t / 2).applyfunc(sp.simplify) == sp.zeros(3, 3)}
+    for name, pE_ in (('E native frame, load at 2', pE_nat2), ('E native frame, load at 10', pE_nat10),
+                      ('E screen frame, load at 2', pE_scr2)):
+        M2 = d2(pC, pE_)
+        res[f'D2_matched_branch_states ({name})'] = {
+            'equals_sqrt(5/18) C(theta)': (M2 - sp.sqrt(sp.Rational(5, 18)) * C_t).applyfunc(sp.simplify) == sp.zeros(3, 3)}
+    PhiC = (fl['C_idle'] + fl['C_agree'] + fl['C_rep+'] + fl['C_rep-']) / 2
+    PhiE = (fl['E_idle'] + fl['E_agree'] + fl['E_repair']) / sp.sqrt(3)
+    M3 = R2.compress(R2.prod_vec(PhiC, PhiE), pC, pE_nat2)
+    res['D3_all_outcomes'] = {**R2.summarize(M3, 'D3'),
+                              '(b/a)^2': str(nz((M3[1, 0].subs(z, 1) / M3[0, 0]) ** 2))}
+    for name, pE_ in (('D4_E_screen_frame_load_at_2', pE_scr2), ('D5_E_native_frame_load_at_10', pE_nat10)):
+        M4, cC4, cE4 = d1(pC, pE_)
+        res[name] = {**R2.summarize(M4, name), 'no_read_overlaps (C, E)': [str(cC4), str(cE4)],
+                     '(b/a)^2': str(nz((M4[1, 0].subs(z, 1) / M4[0, 0]) ** 2))}
+    aC_, aE_ = sp.symbols('alpha_C alpha_E', positive=True)
+    pCa = R2.psi((sp.sqrt(aC_), 0, sp.sqrt(1 - aC_)))
+    pEa = (Vnat_E * W * FC.obj_state(0, sp.sqrt(aE_), sp.sqrt(1 - aE_)))
+    M6, _, _ = d1(pCa, pEa)
+    res['D6_activities'] = {'(b/a)^2': str(sp.simplify((M6[1, 0].subs(z, 1) / M6[0, 0]) ** 2)),
+                            '(b/a)^2 at equal activity': str(sp.simplify(((M6[1, 0].subs(z, 1) / M6[0, 0]) ** 2).subs(
+                                aE_, aC_)))}
+    out['D_derived_consensus'] = res
+    for k, v in res.items():
+        print('D', k, {kk: vv for kk, vv in v.items() if kk not in ('matrix', 'label')})
+
+
+# ------------------------------------------------------------------ multi-load walk on a few ports
+class Chain:
+    def __init__(self, ports, addresses, loads=2):
+        from model.coherent_seam_repair.common import local_repair_unitary
+        self.U = local_repair_unitary()
+        self.ports = ports
+        self.addr = addresses                      # list of (name, a, b) with a, b port labels
+        self.N = len(addresses)
+        self.loads = loads
+
+    def Q(self, state):
+        new = {}
+        for (cfg, rec, k), amp in state.items():
+            _, a, b = self.addr[k]
+            ia, ib = self.ports.index(a), self.ports.index(b)
+            src = NAMES.index(f'{cfg[ia]}{cfg[ib]}')
+            col = 4 * src + rec
+            for row in range(24):
+                u = self.U[row, col]
+                if u == 0:
+                    continue
+                s2, r2 = divmod(row, 4)
+                c2 = list(cfg)
+                c2[ia], c2[ib] = int(NAMES[s2][0]), int(NAMES[s2][1])
+                key = (tuple(c2), r2, k)
+                new[key] = new.get(key, 0) + amp * u
+        return {k: nz(v) for k, v in new.items() if nz(v) != 0}
+
+    def R(self, state):
+        new = {}
+        groups = {}
+        for (cfg, rec, k), amp in state.items():
+            groups.setdefault((cfg, rec), {})[k] = amp
+        for (cfg, rec), g in groups.items():
+            mean = sum(g.values()) / self.N
+            for k in range(self.N):
+                v = 2 * mean - g.get(k, 0)
+                if nz(v) != 0:
+                    new[(cfg, rec, k)] = nz(v)
+        return new
+
+    def phase(self, state, ph):
+        """ph: dict address index -> phase applied when record == 1."""
+        return {(cfg, rec, k): nz(amp * (ph.get(k, 1) if rec == 1 else 1)) for (cfg, rec, k), amp in state.items()}
+
+    def uniform(self, cfg):
+        return {(cfg, 0, k): 1 / sp.sqrt(self.N) for k in range(self.N)}
+
+
+def part_chain(out):
+    # T1: the law's local unitary in the total-two sector
+    from model.coherent_seam_repair.common import local_repair_unitary
+    U = local_repair_unitary()
+
+    def img(src, rec):
+        v = sp.zeros(24, 1)
+        v[4 * NAMES.index(src) + rec] = 1
+        o = U * v
+        return [(NAMES[i // 4], i % 4, str(o[i])) for i in range(24) if o[i] != 0]
+    out['T1_double_load_record'] = {
+        '|20,0> ->': img('20', 0), '|02,0> ->': img('02', 0), '|11,0> ->': img('11', 0),
+        '|11,2> ->': img('11', 2), '|11,3> ->': img('11', 3),
+        'reading': 'a doubly loaded endpoint emits one load across the seam with amplitude one; record values 2 and 3 are '
+                   'orthogonal records of the emitting endpoint; a seam with both ends loaded is kept with a blank record',
+    }
+    print('T1', {k: v for k, v in out['T1_double_load_record'].items() if k != 'reading'})
+
+    # T2 / A1: dimer chain 0 - 10 - 2 - 3 with seams C' = (0,10), E = (10,2), C = (2,3); screen orientations 0->10, 10->2, 2->3
+    ports = [0, 10, 2, 3]
+    addrs = [("C'+", 0, 10), ("C'-", 10, 0), ('E+', 10, 2), ('E-', 2, 10), ('C+', 2, 3), ('C-', 3, 2)]
+    ch = Chain(ports, addrs)
+    cfg0 = (0, 1, 1, 0)                           # one load at 10, one at 2: the E-kept configuration
+    st1 = ch.Q(ch.R(ch.uniform(cfg0)))
+    table = {}
+    for (cfg, rec, k), amp in sorted(st1.items(), key=lambda t: (t[0][2], t[0][1], t[0][0])):
+        table[f'{addrs[k][0]} rec {rec} loads {cfg}'] = str(amp)
+    cls = {}
+    for (cfg, rec, k), amp in st1.items():
+        name = addrs[k][0][:-1]
+        key = f'{name} record {rec}'
+        cls[key] = cls.get(key, 0) + amp ** 2
+    cls = {k: str(nz(v)) for k, v in sorted(cls.items())}
+    out['T2_dimer_chain_one_tick'] = {
+        'ports': ports, 'addresses (name, first, second)': addrs, 'preparation': 'loads at 10 and 2, blank record, uniform address',
+        'branch_amplitudes': table, 'class_weights': cls,
+        'hold : forward : backward': f"{cls.get('E record 0')} : {cls.get('C record 1')} : {cls.get(chr(67) + chr(39) + ' record 1')}",
+        'sources': 'C repair: the load at port 2, screen tail of C (forward); C\' repair: the load at port 10, screen '
+                   'head of C\' (backward); both definite',
+        'P(R+ xor H) with exclusive reads (one address per tick)': str(nz(sp.sympify(cls.get('E record 0')) +
+                                                                          sp.sympify(cls.get('C record 1')))),
+    }
+    print('T2 class weights', cls)
+    # compression in sector y (forward step phase y on C repair, backward step phase 1/y on C' repair)
+    ph = {4: y, 5: y, 0: 1 / y, 1: 1 / y}
+    st1p = ch.phase(st1, ph)
+
+    def amp_of(state, vec):
+        return nz(sum(sp.conjugate(c) * state.get(k, 0) for k, c in vec.items()))
+    s6 = 1 / sp.sqrt(2)
+    # record signs: plain law; 'away' frame = record written at the address whose first port is the source
+    flagsets = {
+        'three-flag Fourier zero, away-from-dimer frame, loads returned to {10,2}': [
+            {(cfg0, 0, 2): s6, (cfg0, 0, 3): s6},                               # E addressed, kept
+            {(cfg0, 1, 4): s6, (cfg0, 1, 5): -s6},                              # C repair (source 2): + at C+, - at C-
+            {(cfg0, 1, 0): -s6, (cfg0, 1, 1): s6}],                             # C' repair (source 10): + at C'-, - at C'+
+        'three-flag Fourier zero, screen frame, loads returned': [
+            {(cfg0, 0, 2): s6, (cfg0, 0, 3): s6},
+            {(cfg0, 1, 4): s6, (cfg0, 1, 5): -s6},
+            {(cfg0, 1, 0): s6, (cfg0, 1, 1): -s6}],
+    }
+    # flags with the repaired load in its agreeing state (as the round-1 flags |p_C, 1, +->)
+    cfgF, cfgB = (0, 1, 0, 1), (1, 0, 1, 0)        # the load from 2 found at 3; the load from 10 found at 0
+    h = sp.Rational(1, 2)
+    flagsets['three-flag Fourier zero, away frame, repaired load in its agreeing state'] = [
+        {(cfg0, 0, 2): s6, (cfg0, 0, 3): s6},
+        {(cfg0, 1, 4): h, (cfgF, 1, 4): h, (cfg0, 1, 5): -h, (cfgF, 1, 5): -h},
+        {(cfg0, 1, 0): -h, (cfgB, 1, 0): -h, (cfg0, 1, 1): h, (cfgB, 1, 1): h}]
+    comp = {}
+    for name, fs in flagsets.items():
+        lam = sum(amp_of(st1p, f_) for f_ in fs) / sp.sqrt(3)
+        comp[name] = str(nz(lam))
+    # fully native projector: uniform address (x) record (|0> + |1>)/sqrt2 (x) load return, in the away frame
+    u = 1 / sp.sqrt(6)
+    vec0 = {(cfg0, 0, k): u for k in range(6)}
+    vec1 = {(cfg0, 1, 4): u, (cfg0, 1, 5): -u, (cfg0, 1, 0): -u, (cfg0, 1, 1): u, (cfg0, 1, 2): u, (cfg0, 1, 3): u}
+    lam_nat = (amp_of(st1p, vec0) + amp_of(st1p, vec1)) / sp.sqrt(2)
+    comp['uniform address (x) record (|0>+|1>)/sqrt2 (x) load return, away frame'] = str(nz(lam_nat))
+    comp['law consensus, record 0 block (uniform address, loads returned)'] = str(nz(amp_of(st1p, vec0)))
+    out['A1_dimer_chain_analyzers (lambda in sector y = z w^k)'] = comp
+    for k, v in comp.items():
+        print('A1', k, '->', v)
+    # two-tick return detector on the chain (record reused, phases each tick)
+    st2 = ch.phase(ch.Q(ch.R(st1p)), ph)
+    ret2 = amp_of(st2, {(cfg0, 0, k): u for k in range(6)})
+    out['A1_two_tick_return (uniform address, blank record, loads returned)'] = str(nz(ret2))
+    print('A1 two-tick return', nz(ret2))
+
+    # A2: junction double load: ports 3, 2, 10; seams C = (2,3), E = (2,10); both loads at port 2
+    ports2 = [3, 2, 10]
+    addrs2 = [('C+', 2, 3), ('C-', 3, 2), ('E-', 2, 10), ('E+', 10, 2)]
+    ch2 = Chain(ports2, addrs2)
+    stj = ch2.Q(ch2.R(ch2.uniform((0, 2, 0))))
+    out['A2_junction_double_load_one_tick'] = {
+        f'{addrs2[k][0]} rec {rec} loads (n3,n2,n10)={cfg}': str(amp) for (cfg, rec, k), amp in sorted(
+            stj.items(), key=lambda t: t[0][2])}
+    print('A2', out['A2_junction_double_load_one_tick'])
+
+
+def main():
+    out = {'task': 'FR round 2 goal 5: coupling and analyzer', 'provenance': FC.provenance()}
+    part_D(out)
+    part_chain(out)
+    FC.jdump(out, OUT)
+    print('written', OUT)
+
+
+if __name__ == '__main__':
+    sys.exit(main())

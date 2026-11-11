@@ -1,0 +1,22 @@
+"""Addendum 1: criticality at a scale with v attached through G_F (LEW's control F routine), SMDR.
+Usage: part2_gf.py <label> <mu_c_GeV> <loops> <out.json>. Conditional rows; no measured value is read."""
+import json
+import sys
+import time
+
+sys.path.insert(0, ".")
+import smdrlib as S  # noqa: E402
+
+label, mu, loops, outpath = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+t0 = time.time()
+pk = S.packet_p_fwd()
+crit = S.solve_criticality(pk, mu, loops=loops, guess=(pk["yt"], pk["lambda"]))
+pk["yt"], pk["lambda"] = crit["yt_Q0"], crit["lambda_Q0"]
+gf = S.attach_gf(pk)
+res = {"label": label, "mu_c_GeV": mu, "loops": loops, "yt_Q0": crit["yt_Q0"], "lambda_Q0": crit["lambda_Q0"],
+       "boundary_lambda": crit["boundary"]["lambda"], "boundary_beta_lambda": crit["boundary"]["beta_lambda"],
+       "GF": gf, "seconds": time.time() - t0}
+json.dump(res, open(outpath, "w"), indent=1)
+o = gf["outputs_GeV"]
+print(label, loops, "mu=%.4e" % mu, "lam_b=%.1e" % res["boundary_lambda"], "v(Q0)=%.5f" % gf["v_Q0_GeV"],
+      "W=%.5f Z=%.5f H=%.5f t=%.5f" % (o["W"], o["Z"], o["H"], o["t"]), "sec=%.0f" % res["seconds"])

@@ -1,0 +1,799 @@
+{
+ "measured": {
+  "pole_GeV": [
+   0.0005109989506900001,
+   0.10565837550000001,
+   1.7769299999999995
+  ],
+  "running_mZ_GeV_IMPORTED": [
+   0.000486570161,
+   0.1027181359,
+   1.74624
+  ],
+  "M_pole": 1.8830993744506894,
+  "M_run_mZ": 1.849444706061
+ },
+ "needed_NOT_BLIND": {
+  "yJ_pole": 0.010799431139821737,
+  "yJ_run_mZ": 0.010606424186105336,
+  "M_over_v_pole": 0.007636350991925116,
+  "mu_pole": -8.245130370386097,
+  "ln_det_Ye_measured_pole": -24.73534265108388,
+  "T_needed_b_alpha_U": 33.0692806601521,
+  "T_needed_b_alpha_cut": 22.09278137625762,
+  "N_needed_n_yJ": 4.528261818477922,
+  "N_needed_n_M_over_v": 4.874835408757895,
+  "class_ratio_needed_yJe_over_trYu_Q0_native_up": 0.010400492242551053,
+  "class_ratio_needed_at_mu_c": 0.02429361209121211,
+  "PH11_needed_b_for_M_eq_Ecell_exp(-2pi/(b alpha_U))": 3.547276456633237,
+  "Z6_exponent_n_with_det_Ye_eq_sqrt2_6^-n": 13.998483988573485,
+  "ratios_native_vs_measured": {
+   "mu_e": [
+    206.77031597272938,
+    206.76828270846718
+   ],
+   "tau_e": [
+    3477.4728371045985,
+    3477.365261906345
+   ]
+  }
+ },
+ "rows": [
+  {
+   "id": "R1",
+   "weight": "structural",
+   "scheme": "running_mZ",
+   "M_GeV": 76.12884815634362,
+   "M_over_measured": 41.163084198653884,
+   "M_over_pole": 40.42741938595292,
+   "M_over_running_mZ": 41.163084198653884,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.02065775445312826,
+    4.271410415560388,
+    71.8367799863301
+   ],
+   "note": "tr Y_e = tr Y_u at mu_c, up sector on the native circulant"
+  },
+  {
+   "id": "R2",
+   "weight": "structural",
+   "scheme": "running_mZ",
+   "M_GeV": 177.82280520285877,
+   "M_over_measured": 96.1492953101533,
+   "M_over_pole": 94.43091937446513,
+   "M_over_running_mZ": 96.1492953101533,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.04825266551390768,
+    9.977218894837113,
+    167.79733364250777
+   ],
+   "note": "same at Q0 without running (control)"
+  },
+  {
+   "id": "H1",
+   "weight": "structural",
+   "scheme": "running_mZ",
+   "M_GeV": 38.06442407817181,
+   "M_over_measured": 20.581542099326942,
+   "M_over_pole": 20.21370969297646,
+   "M_over_running_mZ": 20.581542099326942,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.01032887722656413,
+    2.135705207780194,
+    35.91838999316505
+   ],
+   "note": "y_J/y_J^u = |<B>| = 1/2 (two-level memory, coherent state)"
+  },
+  {
+   "id": "T0",
+   "weight": "structural",
+   "scheme": "running_mZ",
+   "M_GeV": 13.759791097457159,
+   "M_over_measured": 7.439958087075311,
+   "M_over_pole": 7.306991486559739,
+   "M_over_running_mZ": 7.439958087075311,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0037337539277339606,
+    0.7720294794019704,
+    12.984027864127455
+   ],
+   "note": "y_J(E_cell) = g_cut p, one current amplitude sqrt(p) per class-3 leg"
+  },
+  {
+   "id": "T(alpha_U,4)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 4.8426834577357185e-15,
+   "M_over_measured": 2.6184526857522567e-15,
+   "M_over_pole": 2.571655815640827e-15,
+   "M_over_running_mZ": 2.6184526857522567e-15,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    1.3140743382677154e-18,
+    2.717115661352708e-16,
+    4.56965781726218e-15
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(4 alpha_U))"
+  },
+  {
+   "id": "T(alpha_U,12)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 0.0005547066318823726,
+   "M_over_measured": 0.0002999314497289311,
+   "M_over_pole": 0.00029457108817965784,
+   "M_over_running_mZ": 0.0002999314497289311,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    1.5052103995340714e-07,
+    3.112328299170982e-05,
+    0.0005234328278507093
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(12 alpha_U))"
+  },
+  {
+   "id": "T(alpha_U,20)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 0.09033557502280846,
+   "M_over_measured": 0.048844701724123314,
+   "M_over_pole": 0.047971751384156165,
+   "M_over_running_mZ": 0.048844701724123314,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    2.451278552607162e-05,
+    0.005068516408597576,
+    0.08524254582868482
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(20 alpha_U))"
+  },
+  {
+   "id": "T(alpha_U,24)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 0.3227064732843092,
+   "M_over_measured": 0.17448830572048765,
+   "M_over_pole": 0.17136985846986671,
+   "M_over_running_mZ": 0.17448830572048765,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    8.756721330988328e-05,
+    0.01810630036493596,
+    0.30451260570606337
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(24 alpha_U))"
+  },
+  {
+   "id": "T(alpha_U,30)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 1.152806830236071,
+   "M_over_measured": 0.6233259239695529,
+   "M_over_pole": 0.6121858707389519,
+   "M_over_running_mZ": 0.6233259239695529,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0003128170333274835,
+    0.0646812768227756,
+    1.087812736379968
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(30 alpha_U))"
+  },
+  {
+   "id": "T(alpha_U,32)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 1.584870409368511,
+   "M_over_measured": 0.8569439271012396,
+   "M_over_pole": 0.841628663293899,
+   "M_over_running_mZ": 0.8569439271012396,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0004300585724024966,
+    0.08892334690244513,
+    1.4955170038936634
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(32 alpha_U))"
+  },
+  {
+   "id": "T(alpha_U,60)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 14.711408960460957,
+   "M_over_measured": 7.954500565628553,
+   "M_over_pole": 7.81233808478767,
+   "M_over_running_mZ": 7.954500565628553,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.003991977828702112,
+    0.8254225169968659,
+    13.881994465635389
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(60 alpha_U))"
+  },
+  {
+   "id": "T(alpha_cut,4)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 1.5531083185284128e-09,
+   "M_over_measured": 8.397700744653605e-10,
+   "M_over_pole": 8.247617409896189e-10,
+   "M_over_running_mZ": 8.397700744653605e-10,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    4.2143984915391655e-13,
+    8.714125077305473e-11,
+    1.4655456279062042e-09
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(4 alpha_cut))"
+  },
+  {
+   "id": "T(alpha_cut,12)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 0.03796953215948552,
+   "M_over_measured": 0.02053023376965625,
+   "M_over_pole": 0.02016331834349499,
+   "M_over_running_mZ": 0.02053023376965625,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    1.0303128065723266e-05,
+    0.002130381045657096,
+    0.035828847985762705
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(12 alpha_cut))"
+  },
+  {
+   "id": "T(alpha_cut,20)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 1.1404649590795446,
+   "M_over_measured": 0.6166526392176057,
+   "M_over_pole": 0.6056318506357237,
+   "M_over_running_mZ": 0.6166526392176057,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0003094680355425693,
+    0.0639888034925969,
+    1.076166687551405
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(20 alpha_cut))"
+  },
+  {
+   "id": "T(alpha_cut,24)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 2.669891551453013,
+   "M_over_measured": 1.4436179371587832,
+   "M_over_pole": 1.4178176614985256,
+   "M_over_running_mZ": 1.4436179371587832,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0007244817887317815,
+    0.14980132837255863,
+    2.5193657412917223
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(24 alpha_cut))"
+  },
+  {
+   "id": "T(alpha_cut,30)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 6.250363800982865,
+   "M_over_measured": 3.379589441359979,
+   "M_over_pole": 3.3191895689552395,
+   "M_over_running_mZ": 3.379589441359979,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0016960519404977544,
+    0.3506931956428815,
+    5.897974553399486
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(30 alpha_cut))"
+  },
+  {
+   "id": "T(alpha_cut,32)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 7.731401279368977,
+   "M_over_measured": 4.1803906080736715,
+   "M_over_pole": 4.105678852781877,
+   "M_over_running_mZ": 4.1803906080736715,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.002097935185881274,
+    0.43379072127497775,
+    7.2955126229081175
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(32 alpha_cut))"
+  },
+  {
+   "id": "T(alpha_cut,60)",
+   "weight": "menu",
+   "scheme": "running_mZ",
+   "M_GeV": 34.255368684161525,
+   "M_over_measured": 18.521975040345804,
+   "M_over_pole": 18.19095112500582,
+   "M_over_running_mZ": 18.521975040345804,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.009295280463531124,
+    1.921988078499469,
+    32.324085325198524
+   ],
+   "note": "y_J(E_cell) = exp(-2 pi/(60 alpha_cut))"
+  },
+  {
+   "id": "N1",
+   "weight": "structural",
+   "scheme": "pole",
+   "M_GeV": 1.174897419575489,
+   "M_over_measured": 0.623916844493782,
+   "M_over_pole": 0.623916844493782,
+   "M_over_running_mZ": 0.6352703683030455,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.000318811370314711,
+    0.06592072777567162,
+    1.1086578804295029
+   ],
+   "note": "y_J = exp(-5), five levels read"
+  },
+  {
+   "id": "N1'",
+   "weight": "structural",
+   "scheme": "pole",
+   "M_GeV": 1.6615558651608098,
+   "M_over_measured": 0.8823516632761321,
+   "M_over_pole": 0.8823516632761321,
+   "M_over_running_mZ": 0.8984079706279182,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.00045086736373781545,
+    0.09322598726185961,
+    1.5678790105352123
+   ],
+   "note": "M/v = exp(-5)"
+  },
+  {
+   "id": "N2(yJ,1)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 64.14722558753658,
+   "M_over_measured": 34.06470548387744,
+   "M_over_pole": 34.06470548387744,
+   "M_over_running_mZ": 34.68458688022048,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0174065110287149,
+    3.599149785390179,
+    60.53066929111769
+   ],
+   "note": "y_J = exp(-1)"
+  },
+  {
+   "id": "N2(M/v,1)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 90.71787641450067,
+   "M_over_measured": 48.174768493544626,
+   "M_over_pole": 48.174768493544626,
+   "M_over_running_mZ": 49.05141317131572,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.024616523970405466,
+    5.089966439511005,
+    85.60329345101925
+   ],
+   "note": "M/v = exp(-1)"
+  },
+  {
+   "id": "N2(yJ,2)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 23.598445501841404,
+   "M_over_measured": 12.5317048170786,
+   "M_over_pole": 12.5317048170786,
+   "M_over_running_mZ": 12.759746438757851,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.006403497549988185,
+    1.3240532117416555,
+    22.26798879254976
+   ],
+   "note": "y_J = exp(-2)"
+  },
+  {
+   "id": "N2(M/v,2)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 33.373241679626474,
+   "M_over_measured": 17.722506911968804,
+   "M_over_pole": 17.722506911968804,
+   "M_over_running_mZ": 18.045006466133152,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.009055913081816178,
+    1.8724940093487048,
+    31.491691757195955
+   ],
+   "note": "M/v = exp(-2)"
+  },
+  {
+   "id": "N2(yJ,3)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 8.681382943732151,
+   "M_over_measured": 4.610156565032347,
+   "M_over_pole": 4.610156565032347,
+   "M_over_running_mZ": 4.694048389379539,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.002355715100232353,
+    0.4870919556167736,
+    8.191935273015146
+   ],
+   "note": "y_J = exp(-3)"
+  },
+  {
+   "id": "N2(M/v,3)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 12.277329499180475,
+   "M_over_measured": 6.5197459389321075,
+   "M_over_pole": 6.5197459389321075,
+   "M_over_running_mZ": 6.6383868946961275,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.00333148424383569,
+    0.688852049756075,
+    11.585145965180564
+   ],
+   "note": "M/v = exp(-3)"
+  },
+  {
+   "id": "N2(yJ,4)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 3.1937023059354743,
+   "M_over_measured": 1.6959818208569557,
+   "M_over_pole": 1.6959818208569557,
+   "M_over_running_mZ": 1.7268438983166534,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0008666191546326063,
+    0.17919111643140362,
+    3.013644570349438
+   ],
+   "note": "y_J = exp(-4)"
+  },
+  {
+   "id": "N2(M/v,4)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 4.516577115236176,
+   "M_over_measured": 2.398480492594124,
+   "M_over_pole": 2.398480492594124,
+   "M_over_running_mZ": 2.4421260611006375,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0012255845618937384,
+    0.2534145071140674,
+    4.261937023560215
+   ],
+   "note": "M/v = exp(-4)"
+  },
+  {
+   "id": "N2(yJ,5)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 1.174897419575489,
+   "M_over_measured": 0.623916844493782,
+   "M_over_pole": 0.623916844493782,
+   "M_over_running_mZ": 0.6352703683030455,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.000318811370314711,
+    0.06592072777567162,
+    1.1086578804295029
+   ],
+   "note": "y_J = exp(-5)"
+  },
+  {
+   "id": "N2(M/v,5)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 1.6615558651608098,
+   "M_over_measured": 0.8823516632761321,
+   "M_over_pole": 0.8823516632761321,
+   "M_over_running_mZ": 0.8984079706279182,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.00045086736373781545,
+    0.09322598726185961,
+    1.5678790105352123
+   ],
+   "note": "M/v = exp(-5)"
+  },
+  {
+   "id": "N2(yJ,6)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 0.4322206061472006,
+   "M_over_measured": 0.22952618008982226,
+   "M_over_pole": 0.22952618008982226,
+   "M_over_running_mZ": 0.23370290808410074,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.00011728414875047764,
+    0.024250880495728856,
+    0.40785244150272126
+   ],
+   "note": "y_J = exp(-6)"
+  },
+  {
+   "id": "N2(M/v,6)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 0.6112522431504911,
+   "M_over_measured": 0.3245990368027161,
+   "M_over_pole": 0.3245990368027161,
+   "M_over_running_mZ": 0.33050582217856816,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.000165864833814309,
+    0.03429592409654892,
+    0.5767904542201279
+   ],
+   "note": "M/v = exp(-6)"
+  },
+  {
+   "id": "N2(yJ,7)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 0.15900507505221426,
+   "M_over_measured": 0.08443796286565966,
+   "M_over_pole": 0.08443796286565966,
+   "M_over_running_mZ": 0.08597449522611995,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    4.314642710059404e-05,
+    0.008921400364684163,
+    0.1500405282604295
+   ],
+   "note": "y_J = exp(-7)"
+  },
+  {
+   "id": "N2(M/v,7)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 0.22486713362499322,
+   "M_over_measured": 0.11941331226377164,
+   "M_over_pole": 0.11941331226377164,
+   "M_over_running_mZ": 0.12158629716695972,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    6.101826237360214e-05,
+    0.012616765391096619,
+    0.212189349971523
+   ],
+   "note": "M/v = exp(-7)"
+  },
+  {
+   "id": "N2(yJ,8)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 0.05849469815363181,
+   "M_over_measured": 0.03106299059267387,
+   "M_over_pole": 0.03106299059267387,
+   "M_over_running_mZ": 0.03162824925878183,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    1.5872683490310908e-05,
+    0.0032819997806267116,
+    0.05519682568951479
+   ],
+   "note": "y_J = exp(-8)"
+  },
+  {
+   "id": "N2(M/v,8)",
+   "weight": "menu",
+   "scheme": "pole",
+   "M_GeV": 0.08272399545578656,
+   "M_over_measured": 0.04392970258402725,
+   "M_over_pole": 0.04392970258402725,
+   "M_over_running_mZ": 0.04472909905588607,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    2.24473642632532e-05,
+    0.0046414486014678185,
+    0.07806009949005549
+   ],
+   "note": "M/v = exp(-8)"
+  },
+  {
+   "id": "PH1",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.9135279853022087,
+   "M_over_measured": 1.0161587918642878,
+   "M_over_pole": 1.0161587918642878,
+   "M_over_running_mZ": 1.034650010909326,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.0005192406323865863,
+    0.10736354962445425,
+    1.8056451950453678
+   ],
+   "note": "y_J = (2/9)^3"
+  },
+  {
+   "id": "PH2",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.9370783665448021,
+   "M_over_measured": 1.0286649726650028,
+   "M_over_pole": 1.0286649726650028,
+   "M_over_running_mZ": 1.0473837688667356,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.0005256310875789194,
+    0.10868490606378256,
+    1.8278678293934407
+   ],
+   "note": "y_J = exp(-9/2)"
+  },
+  {
+   "id": "PH3",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.8514928927869094,
+   "M_over_measured": 0.9832157123024908,
+   "M_over_pole": 0.9832157123024908,
+   "M_over_running_mZ": 1.001107460374023,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.0005024072539801987,
+    0.10388290665247699,
+    1.7471075788804522
+   ],
+   "note": "M/v = P^-10"
+  },
+  {
+   "id": "PH4",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.8130803094685841,
+   "M_over_measured": 0.9628171163284835,
+   "M_over_pole": 0.9628171163284835,
+   "M_over_running_mZ": 0.9803376675857124,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.000491983902868007,
+    0.10172766704951441,
+    1.7108606585162016
+   ],
+   "note": "|det Y_e| = (1/12)^10"
+  },
+  {
+   "id": "PH7",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.8681572346509894,
+   "M_over_measured": 0.992065134744119,
+   "M_over_pole": 0.992065134744119,
+   "M_over_running_mZ": 1.0101179173016985,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.0005069291650649976,
+    0.10481790363628145,
+    1.7628324018496428
+   ],
+   "note": "M/v = 1/132"
+  },
+  {
+   "id": "PH8",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.9265371482338325,
+   "M_over_measured": 1.0230671702048726,
+   "M_over_pole": 1.0230671702048726,
+   "M_over_running_mZ": 1.0416841022173764,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.0005227707014732789,
+    0.10809346312491525,
+    1.817920914407444
+   ],
+   "note": "M/v = 2^-7 (DA B2)"
+  },
+  {
+   "id": "PH9",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.8836291105318619,
+   "M_over_measured": 1.0002813107414084,
+   "M_over_pole": 1.0002813107414084,
+   "M_over_running_mZ": 1.0184836044888679,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.0005111274975055458,
+    0.10568599416157215,
+    1.777431988872784
+   ],
+   "note": "y_J = 7/648 (DA S6)"
+  },
+  {
+   "id": "PH10",
+   "weight": "post hoc fit",
+   "scheme": "pole",
+   "M_GeV": 1.4720213881435562,
+   "M_over_measured": 0.781701384491699,
+   "M_over_pole": 0.781701384491699,
+   "M_over_running_mZ": 0.7959261411381741,
+   "pass_5_percent": false,
+   "masses_GeV": [
+    0.0003994367066157788,
+    0.082591654038051,
+    1.3890302973988895
+   ],
+   "note": "y_J = (v/E_cell)^(1/8)"
+  },
+  {
+   "id": "X3",
+   "weight": "declared",
+   "scheme": "pole",
+   "M_GeV": 1.8814254988076071,
+   "M_over_measured": 0.9991111060489993,
+   "M_over_pole": 0.9991111060489993,
+   "M_over_running_mZ": 1.0172921053772517,
+   "pass_5_percent": true,
+   "masses_GeV": [
+    0.0005105295419208744,
+    0.10556235469639198,
+    1.7753526145692942
+   ],
+   "note": "MCPR |det Y_e| = sqrt2 6^-14 on the native shape (DECLARED)"
+  },
+  {
+   "id": "PH5",
+   "weight": "post hoc coincidence",
+   "scheme": "pole",
+   "M_GeV": 1.7408376606637883,
+   "M_over_measured": 0.9244534219929845,
+   "M_over_pole": 0.9244534219929845,
+   "M_over_running_mZ": 0.9412758624027608,
+   "pass_5_percent": false,
+   "masses_GeV": null,
+   "note": "tr Y_e = 1 - y_t(pole, D11 at P_fwd)"
+  },
+  {
+   "id": "PH6",
+   "weight": "post hoc coincidence, not source",
+   "scheme": "pole",
+   "M_GeV": 1.8871202281221926,
+   "M_over_measured": 1.0021352318024512,
+   "M_over_pole": 1.0021352318024512,
+   "M_over_running_mZ": 1.020371261675314,
+   "pass_5_percent": true,
+   "masses_GeV": null,
+   "note": "M = 2 m_N with the repository's external c_N"
+  }
+ ],
+ "passing": [
+  "PH1",
+  "PH2",
+  "PH3",
+  "PH4",
+  "PH7",
+  "PH8",
+  "PH9",
+  "X3",
+  "PH6"
+ ],
+ "passing_structural": []
+}

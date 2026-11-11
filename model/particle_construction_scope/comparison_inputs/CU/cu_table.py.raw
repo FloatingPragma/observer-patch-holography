@@ -1,0 +1,49 @@
+"""CU: chain outputs of every registered row of Parts A and B (engine at P = 1.6309721). No measured value.
+
+Reads cu_exact.json (the R of each row), solves the closure at the electroweak anchor for each R with the declared
+slopes (33/5, 1, -3) and with the source slopes for two doublets (41/5, 1, -3), m_Z reading. Writes cu_table.json.
+"""
+import json
+import os
+
+import numpy as np
+
+import cu_chain as C
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ex = json.load(open(os.path.join(HERE, 'cu_exact.json')))
+P = C.P_FWD
+rows = {}
+
+
+def outputs(R):
+    o = {}
+    for lab, b in (('declared slopes', C.B_DECL), ('source slopes, two doublets', C.B_SRC2)):
+        r = C.solve(P, R, b=b)
+        o[lab] = C.row(r[0]) if len(r) == 1 else ('no root' if not r else [C.row(x) for x in r])
+    return o
+
+
+# Part B
+for name, v in ex['B_reference_lengths'].items():
+    rows[name] = {'part': 'B', 'c': v['c'], 'kappa': v['kappa_value'], 'status': v['status'], 'R': v['R_at_P_fwd'],
+                  'E_cell_over_M_U': float(np.exp(v['R_at_P_fwd'])), **outputs(v['R_at_P_fwd'])}
+# Part A: closed screen with the five size conventions; the other constructions
+for lab, v in ex['A5_closed_screen'].items():
+    for conv, R in v['R = ln(size/l_cell)'].items():
+        rows[f'A5{lab[0]} {conv} (K = {v["K"]:.1f})'] = {'part': 'A', 'R': R, 'E_cell_over_M_U': float(np.exp(R)), **outputs(R)}
+extra = {'A3a end to end, D = (exp(pi) + 1) l_cell': float(np.log(np.exp(np.pi) + 1)),
+         'A3b, A4, A8: D = (exp(2 pi) + 1) l_cell': float(np.log(np.exp(2 * np.pi) + 1)),
+         'A6 one half-collar at the self-dual width, exp(pi) l_cell': float(np.pi),
+         'A7 local temperature, 2 pi l_cell': float(np.log(2 * np.pi))}
+for lab, R in extra.items():
+    rows[lab] = {'part': 'A', 'R': R, 'E_cell_over_M_U': float(np.exp(R)), **outputs(R)}
+json.dump({'P': P, 'rows': rows}, open(os.path.join(HERE, 'cu_table.json'), 'w'), indent=1)
+hdr = f"{'row':52s} {'R':>7s} {'1/aU':>8s} {'v':>9s} {'mZ':>8s} {'1/a2':>7s} {'a3':>8s} {'sin2':>8s} {'1/aem':>8s}"
+print(hdr)
+for k, r in rows.items():
+    d = r['declared slopes']
+    if isinstance(d, dict):
+        print(f"{k[:52]:52s} {r['R']:7.4f} {d['inv_aU']:8.4f} {d['v']:9.3f} {d['mz']:8.3f} {d['inv_a2']:7.3f} {d['a3']:8.5f} {d['s2']:8.5f} {d['inv_aem']:8.3f}")
+    else:
+        print(f"{k[:52]:52s} {r['R']:7.4f} {d}")
