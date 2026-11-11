@@ -1,0 +1,79 @@
+{
+  "all_eight_status_updates_applied": true,
+  "all_required_wording_corrections_applied": false,
+  "applied_ids": [
+    "exec-axial-circulation",
+    "exec-coherent-screen",
+    "exec-incident-fields",
+    "exec-integer-lift",
+    "exec-joint-clocks",
+    "exec-modular-phase",
+    "exec-temporal-hilbert",
+    "measurement"
+  ],
+  "identity_of_external_site_editor": "not inferred",
+  "live_completed": 58,
+  "live_completed_percent": 24.680851063829788,
+  "live_status_counts": {
+    "computation": 9,
+    "conditional": 75,
+    "diagnostic": 23,
+    "exectheorem": 20,
+    "frozen": 8,
+    "open": 53,
+    "premise": 1,
+    "rejected": 8,
+    "theorem": 38
+  },
+  "live_total": 235,
+  "new_empirical_observations": 0,
+  "physical_completion_gates_accepted": [],
+  "remaining_text_corrections": [
+    {
+      "current_name": "Joint screen–reference interference under feedback (untouched reference alone unchanged)",
+      "current_summary": "A logical qubit with untouched reference evolves through two native incident-clock ticks with record-controlled feedback; comparison bound below 7.779e-10. C and E: identical classical records, different reference coherences.",
+      "current_value": null,
+      "current_why": "Measured: the coherence of an untouched reference qubit after two incident-clock ticks with record feedback. A single twelve-port carrier already supports an observer, repair, clocks and coherent records - federations are optional.",
+      "evidence": [
+        "model/finite_observable_closures/PROOF.md",
+        "model/finite_observable_closures/results.json"
+      ],
+      "id": "exec-coherent-screen",
+      "reason": "The title is corrected, but summary and explanation attribute a change to the untouched reference alone.",
+      "replacement_summary": "The record-corrected joint screen-reference interference readout has completed P_C(+)=61/72 and P_E(+)=809/1089, difference 101/968. Both outcomes of all 21 capped words are retained. The untouched reference marginal is I2/2 for both laws.",
+      "replacement_why": "A joint screen-reference observable distinguishes the two declared feedback laws after record correction. The untouched reference marginal remains I2/2 under both laws and cannot distinguish them by itself. Theorem and execution for the declared finite source, preparation, apparatus and retained timeout/error law; no physical identification or hardware accuracy claim.",
+      "status": "exectheorem",
+      "status_change_required": false
+    },
+    {
+      "current_name": "Integer lift of the face register",
+      "current_summary": "Proved and executed: the exact face-lift identities — lift mod 6 equals the stored class on every face of every stored cut (levels 4–7), and 0 of 68,515,840 carrier states have nonzero total. Diagnostic only (not promoted): 99.7% of defect faces hold a 6Y value of a Standard Model multiplet.",
+      "current_value": "exact identities",
+      "current_why": "Most defect faces already carry a Standard Model hypercharge, but the lift is not a conserved label inside a class.",
+      "evidence": [
+        "model/finite_current_readout_closure/PROOF.md",
+        "model/finite_current_readout_closure/results.json"
+      ],
+      "id": "exec-integer-lift",
+      "reason": "The value and diagnostic label are corrected, but the explanation asserts physical hypercharge and the summary does not distinguish imported large-run counts from the executed finite reference.",
+      "replacement_summary": "Kernel-checked integer incidence identities give m=B n, m mod6=class and zero total on each closed carrier. All 2592 native load/coin/class contexts and the 80-carrier, 200-sweep reference attach the theorem to accepted twists, rejected branches and consistent cuts. The large-run 99.7-percent census is an imported diagnostic.",
+      "replacement_why": "Exact incidence and accepted-twist identities attach integer lifts to the declared native source. The imported 99.7-percent population census is a separate diagnostic; no conserved physical hypercharge or particle identity is proved. Promote the exact lift and Stokes identities only. The 99.7-percent census is not a theorem or a conserved particle hypercharge.",
+      "status": "exectheorem",
+      "status_change_required": false
+    }
+  ],
+  "schema": "oph.observable_score_bridge.live_verification.v1",
+  "score_increase_from_remaining_text_corrections": 0,
+  "source_asset_sha256": "aa3870e9c1af03b6338f847233551913f37690e5eaa9f9c11f7d1d546d764479",
+  "source_bindings": {
+    "model/observable_score_bridge/LIVE_VERIFICATION.md": "e3a3bda2050947c48a7fbd04ab29d041e3bd36380b596fbfe93b7d96ba27b574",
+    "model/observable_score_bridge/live_status.json": "03a6359d6dd9db634b4bc2d29a670f2ecd39eeadd9a94d8462ee13f5b81ff10a",
+    "model/observable_score_bridge/results.json": "6e2c8b8f4323a95fa04a1ce06d3d0fb1843016e8a012b63f4f8eba724cec2b17",
+    "model/observable_score_bridge/test_live.py": "cb0617f09235f86dd1be89beb0cc5ac2d3056b455608557f5dd85735e6c5b3dd",
+    "model/observable_score_bridge/verify_live.py": "c9dc6292e48b846be2c64132476303c1faf58c46266ae50bc6869e31a53eccbb"
+  },
+  "source_javascript_asset": "https://status.floatingpragma.ai/assets/Ledger-BZWJ4ygD.js",
+  "source_url": "https://status.floatingpragma.ai/",
+  "status_changes_needed": 0,
+  "website_written_by_this_package": false
+}
