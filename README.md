@@ -2,7 +2,7 @@
 
 **Physics from the records observers can share.**
 
-[Main paper](https://philpapers.org/rec/MUEFOC) · [Book](https://oph-book.floatingpragma.io/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Lean library](Lean/) · [Reproduce](REPRODUCE.md) · [Pragma Research](https://floatingpragma.io/) · [Français](README_FR.md)
+[Main paper](https://philpapers.org/rec/MUEFOC) · [Book](https://oph-book.floatingpragma.ai/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Lean library](Lean/) · [Reproduce](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [Français](README_FR.md)
 
 [![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
 [![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
@@ -289,7 +289,7 @@ the [observer workflow](.github/workflows/observer-model.yml).
 
 The [Lean library](Lean/) builds with Lake, the [documentation index](docs/README.md)
 lists the registers and policies, and the [book](book/) gives a longer road
-in. The textbooks at [learn.floatingpragma.io](https://learn.floatingpragma.io/)
+in. The textbooks at [learn.floatingpragma.ai](https://learn.floatingpragma.ai/)
 and the interactive simulation at
 [simulation.floatingpragma.io](https://simulation.floatingpragma.io/) are
 the gentlest introductions.
@@ -320,7 +320,7 @@ The [license map](LICENSE) gives the directory-specific terms.
 
 [Cadence](https://github.com/muellerberndt/cadence) is the related learning-machine
 project. Its capability evidence is separate from OPH's physics evidence.
-[Pragma Research](https://floatingpragma.io/) brings the projects together.
+[Pragma Research](https://floatingpragma.ai/) brings the projects together.
 
 OPH's official TEO (Theory Of Everything) memecoin was deployed by the Base
 community and lives on Base at

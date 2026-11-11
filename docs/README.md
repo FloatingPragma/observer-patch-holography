@@ -10,7 +10,7 @@ states a result that its code package verifies.
 
 If you are new to OPH, the strongest starting material lives outside this
 directory. The [technical paper](https://philpapers.org/rec/MUEFOC)
-states the primary technical account. The [OPH textbooks](https://learn.floatingpragma.io/) work through
+states the primary technical account. The [OPH textbooks](https://learn.floatingpragma.ai/) work through
 the basic derivations with the math taught along the way. The
 [interactive simulation](https://simulation.floatingpragma.io/) renders real
 run data from declared candidate models; it does not demonstrate that a
@@ -53,7 +53,7 @@ physical universe has been reconstructed.
 ## Three Reading Routes
 
 - **First encounter:** the [technical paper](https://philpapers.org/rec/MUEFOC),
-  [textbooks](https://learn.floatingpragma.io/), and the
+  [textbooks](https://learn.floatingpragma.ai/), and the
   [simulation](https://simulation.floatingpragma.io/) above, then the
   repository [README](../README.md), the [basis](BASIS.md) and the
   [paper set](PAPER_SET.md).

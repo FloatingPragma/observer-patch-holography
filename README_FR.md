@@ -2,7 +2,7 @@
 
 **La physique à partir des registres que les observateurs peuvent partager.**
 
-[Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.io/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.io/) · [English](README.md)
+[Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.ai/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [English](README.md)
 
 [![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
 [![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
@@ -264,7 +264,7 @@ sources utilisés par le [workflow de l’observateur](.github/workflows/observe
 
 La [bibliothèque Lean](Lean/) se compile avec Lake, l’[index de la documentation](docs/README.md)
 donne les registres et les politiques, et le [livre](book/) offre un chemin
-d’accès plus long. Les manuels sur [learn.floatingpragma.io](https://learn.floatingpragma.io/)
+d’accès plus long. Les manuels sur [learn.floatingpragma.ai](https://learn.floatingpragma.ai/)
 et la simulation interactive sur
 [simulation.floatingpragma.io](https://simulation.floatingpragma.io/) sont
 les introductions les plus accessibles.
@@ -299,7 +299,7 @@ répertoire.
 [Cadence](https://github.com/muellerberndt/cadence) est le projet associé de
 machines apprenantes. Ses éléments de preuve sur les capacités sont distincts
 des éléments de preuve physiques d’OPH.
-[Pragma Research](https://floatingpragma.io/) réunit les projets.
+[Pragma Research](https://floatingpragma.ai/) réunit les projets.
 
 Le memecoin officiel TEO (Theory Of Everything) d’OPH a été déployé par la
 communauté Base et se trouve sur Base à l’adresse
