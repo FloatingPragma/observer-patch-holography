@@ -81,14 +81,46 @@ muon/electron and tau/electron ratios is
  \qquad \det=263.82944.
 \]
 The two shape parameters are locally identifiable from the two ratios; the
-common normalization cancels. The rounded comparison value $206.768283$
-leaves a muon/electron residual of $+9.83213$ parts per million. No parameter
+common normalization cancels. The CODATA 2022 comparison value
+$206.7682827\pm0.0000046$ leaves a muon/electron residual of $+9.83358$
+parts per million, or $442.02$ experimental standard uncertainties. No parameter
 or round count is adjusted to cancel it. Fixed individual flag marginals
 $1/12$ and $1/6$ permit an exclusive phase anywhere in $[1/12,1/4]$;
 independence fixes their joint probability to $1/72$ and the phase to $2/9$.
 Thus the full preparation, rather than the marginals alone, supplies that
 phase premise. The executable source arrays, complete instruments and
 finite-history checks are in \texttt{model/lepton\_cycle} \cite{ophrepo}.
+
+The same fixed shape gives $m_\tau/m_e=3477.47283710$. Dividing the
+Particle Data Group 2024 average $m_\tau c^2=1776.93\pm0.09$ MeV by the
+CODATA 2022 electron energy $0.51099895069\pm0.00000000016$ MeV gives
+$3477.36526191$ \cite{pwnavas2024review}. The electron and direct muon-ratio
+inputs are listed in the \href{https://physics.nist.gov/cuu/Constants/Table/allascii.txt}{2022 CODATA table}.
+The selected tables supply no cross-edition covariance. For $r=t/e$, put
+$a=u_t/e$ and $b=t u_e/e^2$. All positive-semidefinite covariances give
+$|a-b|\le u_r\le a+b$ under linear propagation. Here this range is
+$[0.17612452,0.17612670]$, so the tau residual is $30.93584$ parts per
+million or $[0.610783,0.610791]$ experimental standard uncertainties.
+These reference-only discrepancies supply neither a joint significance nor
+a physical-theory error. The mass-pole interpretation is unproved.
+The comparison is retrospective; measured masses and Koide relations were
+known during architecture development. The executable comparison freezes
+both ratios and selects its finite round counts from a channel-accuracy
+target independent of the mass residuals.
+
+Preparation uncertainty has a separate, finite statement. For a fixed
+analyzer projector and independent source states at trace distance at most
+$\eta$, the compressed effects differ in operator norm by at most $\eta$.
+This follows by applying the variational trace-distance bound to the source
+effect induced by each unit register vector. Weyl's inequality bounds each
+ordered rate by $\eta$. If $\eta<e_e$ and twice $\eta$ is below all spectral
+separations, the mode labels are preserved and
+\[
+ \frac{e_j-\eta}{e_e+\eta}\le\frac{e'_j}{e'_e}
+ \le\frac{e_j+\eta}{e_e-\eta}.
+\]
+These are fixed-analyzer effect-rate bounds. Complete-channel distance and
+source preparation errors are not adjustable physical mass corrections.
 
 \subsection{An exact finite population and its symmetry}
 \label{sec:finite-population-dynamics}
@@ -155,3 +187,325 @@ dynamical asymmetry from selection. Class conjugation alone does not identify
 baryon number or predict the baryon-to-photon ratio. Reproduction is supplied
 by \texttt{model/native\_abundance\_epochs} and
 \texttt{model/charge\_conjugation\_dynamics} \cite{ophrepo}.
+
+\subsection{Species information in a centre-class census}
+\label{sec:species-identifiability}
+
+For a declared five-bit exterior-code component, let $n_3$ and $n_2$
+count colour and weak occupations. Its centre class is
+$k=(3n_2-2n_3)\bmod6$. The matrix $A_{kj}=1_{k(j)=k}$ pushes component
+populations $x\ge0$ to the six-class census $c=Ax$. The full 32-component
+menu has multiplicities $(4,6,6,4,6,6)$, rank six and nullity 26.
+Removing exterior degrees zero and five, the two right-neutrino labels,
+gives 30 components and nullity 24. Adding four Higgs and twelve gauge
+internal components gives nullities 42 and 40, respectively; physical
+helicity multiplicities are a separate count.
+
+An aggregate $w\cdot x$ is identifiable from every census precisely when
+$w$ is constant within each class. Necessity follows by exchanging two unit
+populations in that class; sufficiency follows by summing the shared
+coefficient against $c_k$. More generally the sharp nonnegative bounds are
+\[
+ \sum_k c_k\min_{j:k(j)=k}w_j\ \le w\cdot x\le
+ \sum_k c_k\max_{j:k(j)=k}w_j.
+\]
+Assigning all class population to a minimizing or maximizing component
+attains either endpoint. Thus the quark-labelled total
+$q=c_1+c_2+c_4+c_5$ is identified on this declared component dictionary.
+With bosons admitted, the lepton total spans $[0,c_0+c_3]$, the gauge
+total $[0,c_0]$ and the Higgs total $[0,c_3]$. These are separate marginal
+bounds; their endpoints need not occur together.
+
+One additional fermion/boson bit within classes zero and three suffices
+for all four totals. To distinguish also up/down and charged/neutral
+lepton aggregates requires three label values in the boson extension:
+the electron, neutrino and Higgs signatures in class three prove the lower
+bound. Class-dependent signature labels attain it. This is a minimal
+information theorem for the declared dictionary, not a physical decoder.
+Native face-flux events, including zero flux, do not by themselves count
+code quanta or thermal particles.
+
+Uniform component weights give quark/lepton counts $24:8$ in the full
+fermion menu and $24:6$ in the restricted one. They supply no occupation
+probability law. For an explicit comparison, a massless ideal Standard
+Model gas at one common temperature of $1$ TeV, zero chemical potentials,
+three active-neutrino families and no populated right-handed neutrinos has
+90 fermionic and 28 bosonic helicity states. Number densities weight
+fermions by $3/4$ relative to bosons; energy densities use $7/8$
+\cite{pwnavas2024review}. This ideal-gas benchmark uses the thermodynamic
+conventions of \href{https://doi.org/10.1088/1475-7516/2018/05/035}{Saikawa and Shirai (2018)};
+it omits their interacting equation-of-state corrections.
+The effective totals are therefore $191/2$ and
+$427/4$. Quark and lepton fractions among all particles are $108/191$ and
+$27/191$ by number, versus $252/427$ and $63/427$ by energy. Their
+fermion-only split is $80\%:20\%$. These are ideal-gas reference values
+with interactions, masses and thermal-mass corrections omitted. No run
+temperature, equilibration law or early-Universe abundance match is
+inferred. The rational maps, extremizers, minimum labels and thermal
+counting receipt are in \texttt{model/native\_abundance\_epochs} \cite{ophrepo}.
+
+\subsection{Scalar response of localized defect modes}
+\label{sec:defect-scalar-overlap}
+
+A Yukawa coefficient can be defined operationally through the response of
+a fermionic creation--propagation--detection amplitude to a scalar
+intervention. In canonical field coordinates, the convention
+\[
+ M(h)=M(0)+\frac{h}{\sqrt2}Y_{\mathrm{eff}}+O(h^2)
+\]
+defines the zero-scalar-momentum mass-kernel vertex. Its derivation requires
+the source intervention and field normalizations. Charge and topology
+constrain allowed tensor channels, whereas their amplitudes depend on the
+mode profiles and dynamics. This definition supplies no independent
+interaction coefficient when the complete source specifies its
+response. An on-shell particle interpretation requires the associated
+propagation and state.
+
+There is a finite overlap calculation on the specified compact texture
+with cores at $(0,0,\pm1)$, texture amplitude $M=64$, and radius-three
+exterior box. Its complete 686-row Hamiltonian has four isolated modes.
+Let $W$ be an orthonormal frame for their entire spectral subspace and
+$C=D_{\mathrm{stagger}}i\sigma_2$ its particle--hole pairing map. The
+source identities give
+\[
+ C\overline W=WS,\qquad
+ S=W^\dagger C\overline W,\qquad S^T=-S,
+ \qquad S^\dagger S=I_4.
+\]
+The unit local scalar insertion at site $x$ has pairing kernel $P_xC$.
+Its complete band response is
+\[
+ B_x=W^\dagger P_xW,\qquad
+ Y_x=W^\dagger P_xC\overline W=B_xS.
+\]
+The same spatial factor can multiply a unit symmetric internal Higgs
+tensor. No family coefficient is inserted in this spatial calculation.
+All 343 site kernels are retained. A change $W\mapsto WU$ gives
+$Y_x\mapsto U^\dagger Y_x\overline U$, so the singular spectra are
+independent of a basis choice inside the band.
+
+For a complete orthonormal complement $Q$, define
+$L_x=Q^\dagger P_xC\overline W$. Every cross-site leakage obeys
+\[
+ L_x^\dagger L_y
+   =S^\dagger(\delta_{xy}B_x-B_xB_y)S.
+\]
+Thus a real scalar profile $f$ gives $Y[f]=\sum_x f_xY_x$ with
+\[
+ L[f]^\dagger L[f]
+  =S^\dagger\left(\sum_x f_x^2B_x-B[f]^2\right)S,
+ \qquad B[f]=\sum_x f_xB_x.
+\]
+The uniform profile has $Y[1]=S$, four unit singular values, and zero
+leakage. A uniform interaction on this carrier supplies no spatial
+hierarchy.
+
+For the specified 27-site intervention
+$f_x=1_{\|x-(0,0,1)\|_\infty\le1}$, the numerical singular values are
+\[
+ (0.999999981366,\ 0.999999981366,\
+  0.000061031430055,\ 0.000061031430055).
+\]
+The largest-to-smallest ratio is approximately $16385$. The weaker
+channel reaches the patch through the opposite core's spatial tail.
+The first-hop transfer Gram is $I_2/4$, yielding leading strength
+$1/(4M^2)$. Complete controls at $M=32,64,128$ give
+$M^2y_{\mathrm{weak}}=0.2499389,0.2499847,0.2499962$.
+These values are numerical diagnostics, with no outward error interval
+asserted for the ratio. No measured mass selects the profile or source
+parameters.
+
+The exterior resolvent supplies the normalization explicitly. In core and
+exterior coordinates, $h=\left(\begin{smallmatrix}0&B^\dagger\\B&D\end{smallmatrix}\right)$
+and an actual band eigenvector is
+\[
+ \psi=(u,-(D-E)^{-1}Bu),\qquad
+ \|\psi\|^2=u^\dagger\bigl[I+B^\dagger(D-E)^{-2}B\bigr]u.
+\]
+Every band mode is reconstructed with this norm. Complete 1372-row Nambu
+interventions also retain their complementary Schur response; the
+nonzero spatial band Hamiltonian is kept. Dividing $f$ by its Euclidean
+norm rescales every strength together. This coordinate normalization does
+not determine a physical Higgs kinetic residue.
+
+The result exhibits two different scalar-response strengths, each repeated
+twice, for modes carrying the same internal current representation.
+A dynamical scalar Hamiltonian must determine which contraction $Y[f]$
+describes its collective mode. The specified profile is an intervention,
+and the four spatial modes have no three-generation assignment. Physical
+Yukawa values and relativistic masses are not inferred from these finite
+overlaps. The complete site kernels, complement identities and spectral
+controls are reproduced by \texttt{model/defect\_mode\_overlap} \cite{ophrepo}.
+
+\subsection{Dynamical scalar selection and native contact response}
+
+On the same compact texture, declare the scalar stiffness and its positive
+frequency operator
+\[
+ K=I+L_{\mathrm{graph}}+M^2\operatorname{diag}(|n_x|^2),
+ \qquad \Omega=\sqrt K.
+\]
+The scalar carrier consists of its blank and all site-labelled particle
+and antiparticle doublets, with one global excitation cap. Its dimension
+is $1+4(343)=1373$. Each of the 343 spatial scalar modes is retained.
+For the scalar blank, the literal finite matrix units give
+\[
+ D_\phi(z)=(z-\Omega)^{-1}-(z+\Omega)^{-1}
+          =2\Omega(z^2-K)^{-1}.
+\]
+Consequently $q=(2\Omega)^{-1/2}\phi$ has response $(z^2-K)^{-1}$.
+A unit coupling to a ladder coordinate $\phi_j$ becomes
+$\sqrt{2\omega_j}$ times that coupling in the coordinate $q_j$.
+This normalization belongs to the blank reference; an interacting ground
+requires its own response.
+
+The lowest scalar mode is unique, positive and even under exchange of the
+two cores. Its stiffness eigenvalue is approximately $6.99829101533$.
+Its two doubled overlap strengths are $0.706890884$ and $0.706804630$,
+with ratio $1.000122033$. Thus the large hierarchy of the specified local
+probe is absent for this selected scalar mode.
+
+The interaction can also select a scalar response without imposing a
+classical profile. Fill every negative spatial fermion mode with all
+fifteen native labels and take the scalar blank. The resulting Slater sea
+is a global gauge singlet because all twelve native generators are
+traceless. Retain its conjugate sea as an idle reference. Let $P$ be the
+complete negative spectral projector and define the spatial pair Gram
+\[
+ G_{xy}=D_xD_y\det(P_{xy}).
+\]
+The full unit up, down and lepton tensors have exact internal Gram
+$\operatorname{diag}(6,6,2)$. Wick contraction gives
+$\|H_Y|s\rangle\|^2=56\operatorname{Tr}G\simeq29.01797916$.
+The complete scalar mode probabilities in this first interaction image
+put approximately $0.964506587$ in the odd bound mode and $0.000411883$
+in the even lowest mode. The dominant reduced response profile has four
+equal spatial strengths near $0.706847830$. These are first-image records,
+not a dressed Higgs pole or a selected vacuum expectation.
+
+The orthonormal pair $|s\rangle$, $H_Y|s\rangle/\|H_Y|s\rangle\|$
+gives a two-dimensional Rayleigh--Ritz matrix for the full law, retaining
+all native channels and scalar states. The numerical upper-bound estimate
+is $E_{\mathrm{ground}}-E_{\mathrm{sea}}\le-2.46785318$. Independently,
+the complete certified spatial gap and operator bounds prove the strict
+rational inequality
+\[
+ E_{\mathrm{ground}}\le E_{\mathrm{sea}}
+ -\frac{1456224000}{169057134218809}.
+\]
+The ground is taken in the same global singlet domain. The full sea is
+therefore not its ground. A complete spectral instrument has success
+operator $H_Y/(28\cdot343)$ and failure effect
+$I-H_Y^2/(28\cdot343)^2$; every scalar mode and the original failure
+probability are retained. These statements are reproduced by
+\texttt{model/defect\_scalar\_modes} \cite{ophrepo}.
+
+For the one-site texture-free native control, all thirty fermion modes
+and the five-state scalar are retained. The equation-of-motion insertion
+\[
+ \mathcal K_{ab}=\{[c_a,H],c_b\}
+\]
+is the exact contact pairing derivative. Contraction with the actual
+scalar Gram reconstructs all its components from scalar--fermion
+three-point records. The lepton-only 320-state control has scalar first
+moment $Z_H=14/5$. With all quark vertices active, the local native-current singlet ground is
+different. Writing $\Delta=\sqrt{1+4\lambda}$,
+$e=(1-\Delta)/2$ and $n=(1-1/\Delta)/2$, it has
+\[
+ Z_H=2-\frac74 n-\frac34 e\simeq9.58523463744.
+\]
+Here $\lambda$ is the selected source root, approximately $137.35663135$.
+All 900 fermion pairs give 56 nonzero oriented contact components.
+The three unit native channels have canonical contact modulus
+$\sqrt{Z_H}\simeq3.09600301$. Their complete scalar-pulse responses differ:
+the normalized pair-pointer slopes are approximately $-0.2108914572$
+for either quark channel and $-0.1983104425$ for the charged lepton.
+This is a state-specific contact and intervention result, without an
+on-shell Yukawa or observed family assignment. The corresponding exact
+spectral records and finite pulse controls are given by
+\texttt{model/defect\_family\_vertices} \cite{ophrepo}.
+
+The same local source also has a complete Higgs-dressed neutral-composite
+spectrum, despite its elementary neutral contact nullspace. All nine target
+roots are retained on the 26-dimensional target in each of four
+spin/addition/removal settings. The resulting 44 original records comprise
+36 success energies, four failures and four zero-weight outside outcomes.
+The minimum success energy lies in the exact interval
+\[
+ \left[\frac{6301896140017}{70368744177664},
+       \frac{25207584560069}{281474976710656}\right],
+\]
+approximately $0.089555330476$ source units. This gapped local composite
+has no physical neutrino species or dispersion assignment.
+
+The common finite construction has full CAR action on thirty native
+fermion modes per site and retains the global scalar cap. Its texture-free
+three-site member executes a scalar preparation and pair detection on all
+ninety fermion modes. The literal supports of $H^n\psi$, for $n=0,1,2,3$,
+have $1,11,664,7799$ coordinates, with coincident amplitudes combined in
+exact arithmetic. If $P_R$ detects a complete right-site pair, then
+\[
+ P_R\psi=P_RH\psi=0,\qquad
+ \|P_RH^2\psi\|^2=8(2/3-\sqrt2/2)^2>0.
+\]
+The spectral Taylor remainder is bounded by
+$t^3\|H^3\psi\|/6$. At $t=10^{-4}$ this gives a rigorous receiver
+probability between approximately $2.70\times10^{-19}$ and
+$3.90\times10^{-19}$, with exact radical endpoints and the complete
+complementary outcome retained. The dual charged preparation reference
+is retained throughout. This is a finite interaction event, without a
+particle mass or finite-speed interpretation; $\sqrt K$ directly couples
+the outer scalar sites. The full source columns and error bounds are
+reproduced by \texttt{model/defect\_mass\_join} \cite{ophrepo}.
+
+\subsection{Propagation tests and a common energy unit}
+
+A periodic extension of the compact texture gives exact supercell momentum
+labels. For even cell side $L\ge6$, the hopping norm is at most three and
+the on-site spectrum has four zero entries and all other entries $\pm M$.
+Ordered-eigenvalue bounds therefore give exactly four bands in $[-3,3]$
+and a complement with $|E|\ge M-3$, at every Bloch phase when $M\ge8$.
+The complete Bloch spectra for $L=6,8$ and $M=8,64$ are retained. Direct
+construction of a two-cell ring verifies the Fourier intertwiner on all
+rows. Filled-sea additions and removals, each scaled by the inverse square
+root of the one-body dimension, give a complete energy and crystal-momentum
+instrument by the canonical anticommutation identity.
+
+The low bands are nearly flat and depend strongly on direction. In the
+$L=6$, $M=8$ control, positive-band secants of $E^2$ against $p_z^2$ are
+negative between Bloch phases zero and $\pi/2$ along the third axis.
+These numerical controls do not
+establish relativistic rest masses from the zero-momentum gaps. The
+periodic geometry also differs from an isolated moving defect and from
+the interacting source. The construction and complete complementary
+spectra are reproduced by \texttt{model/defect\_dispersion} \cite{ophrepo}.
+
+For a fixed source clock, a GeV conversion multiplies every energy by one
+positive constant $a$. A positive source interval $[x_-,x_+]$ and positive target
+interval $[y_-,y_+]$ permit exactly
+\[
+ a\in[y_-/x_+,\ y_+/x_-].
+\]
+A common scale exists for independent interval anchors precisely when
+these intervals intersect. This exact feasibility calculation is distinct
+from a likelihood. The equal native up/down record-zero bins cannot
+both match the unequal fixed running quark parameters at a common scale
+through one such conversion. A physical quark comparison also needs its
+renormalization scheme and scale map.
+
+For the separate fixed lepton effects, the sole electron anchor
+$0.00051099895069\,\mathrm{GeV}$ gives
+\[
+ m_\mu^{\mathrm{conditional}}=0.10565941450\,\mathrm{GeV},\qquad
+ m_\tau^{\mathrm{conditional}}=1.77698497081\,\mathrm{GeV}.
+\]
+These values use the effect-to-mass assignment and supply no propagation
+proof for it. Their anchor-only uncertainty is not a theory error. The
+complete target catalogue retains all nine charged fermions, three
+neutrino mass eigenstates and five boson types, together with the extra
+source modes. Empirical running-action parameters, optional neutrino
+coefficients and tree-level bosonic coefficients are distinguished from
+source-derived observer rest masses. Global current labels alone supply
+no propagating gauge bosons. The exact common-scale test and conditional
+GeV table are reproduced by \texttt{model/defect\_mass\_catalogue}
+\cite{ophrepo}.

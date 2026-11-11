@@ -75,7 +75,9 @@ def certificate():
     checks['exact_limit_inside_finite_epoch_interval']=lo<=exact<=hi
     checks['nonzero_persistent_defect_lower_bound']=lo>0
     checks['persistent_interval_width_below_1e_8']=hi-lo<F(1,10**8)
-    source_paths=[str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md')]
+    # Bind this population law's owning files, independently of other package calculations.
+    source_paths=[f'model/native_abundance_epochs/{name}' for name in
+                  ('__init__.py','__main__.py','certificate.py','model.py','test_epochs.py','PROOF.md','README.md')]
     source_paths+=['model/defect_integer_lift/model.py','model/defect_integer_lift/federation.json']
     return dict(schema='oph.native_abundance_epochs.v1',
         scope='Exact native repair and register dynamics on a declared closed two-face triangular cell; no transfer to the full federation or physical thermal abundances.',

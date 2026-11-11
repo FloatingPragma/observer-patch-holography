@@ -67,7 +67,10 @@ def report():
     with mp.workdps(60):
         lam=sensitivity.spectrum(mp.mpf(2)/9,mp.sqrt(2),mp.sqrt(mp.mpf(5)/108))
         rates=[mp.nstr(x*x,25) for x in lam]
-    files = [p for p in sorted(HERE.iterdir()) if p.suffix in ('.py','.md')]
+    # Bind this producer's inputs explicitly; independent comparison extensions
+    # have their own receipts and must not introduce a circular receipt graph.
+    files = [HERE/p for p in ('PROOF.md','README.md','__init__.py','__main__.py',
+        'certificate.py','composition.py','instrument.py','sensitivity.py','test_cycle.py')]
     files += [ROOT/p for p in ('model/lepton_register_round/rounds.py','model/lepton_register_round/walk.py',
         'model/lepton_register_round/carrier.py','model/coherent_seam_repair/common.py',
         'model/coherent_seam_repair/program.py','Lean/EventAlgebra/SlotLocalitySurface.lean')]

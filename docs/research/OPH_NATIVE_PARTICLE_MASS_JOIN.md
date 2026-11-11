@@ -169,6 +169,26 @@ states and every later common detector history agree within `5.193e-6`,
 including the same retained environment. Their initial setting labels and
 different original success rates are not identified by this comparison.
 
+## Source Yukawa coefficients and complete family response
+
+Four finite calculations distinguish a Higgs interaction coefficient from
+an occupation response, a controller generator and a charged-addition cost.
+Each keeps its own source, reference and clock.
+
+| Calculation | Derived result | Physical scope |
+| --- | --- | --- |
+| [Native Higgs coefficient extraction](../../model/yukawa_source_operator/PROOF.md), [receipt](../../model/yukawa_source_operator/results.json) | Exact tensor duals recover all 27 complex family coefficients from both real Higgs-component derivatives. The existing trial action gives `aF,bF,JF`, each with largest/smallest ratio below `3/2`. Complete occupation three-point records and normalized CAR/composite overlaps are also computed. | The trial specifies its coefficient map and canonical fermion metric; a physical Higgs kinetic residue is not supplied. A composite overlap can be nonzero in a free action with zero Higgs derivative. |
+| [Full family response](../../model/yukawa_source_dynamics/PROOF.md), [receipt](../../model/yukawa_source_dynamics/results.json) | The twelve-port mean-occupation and completion matrices commute. Compressed noncommutativity comes from intermediate complement ports. Exact elimination and residue normalization give a rank-one zero-frequency coefficient; the full projected response retains nine positive relaxation poles and two conserved directions. Complete cyclic records give a dissipative channel and zero oriented three-record phase. | These are first-moment and specified record-routing responses. The three compressed rates are not three fermion masses; retaining quantum records alone does not select a Yukawa phase. |
+| [Higgs blocking and running](../../model/yukawa_source_running/PROOF.md), [receipt](../../model/yukawa_source_running/results.json) | In the declared no-hopping charged-lepton join, Pauli blocking gives addition costs quadratic in small Yukawa singular values. Both resolved spectral lines and the complete blocked effect reconstruct `abs(g)*sigma_i(Y)` and a common reference offset. Minimal Standard Model one-loop infrared running contracts charged-lepton ratios and preserves rank. | The finite inverse assumes its specified cyclic preparation and line pairing. It does not separate `g` from `Y`; the scalar energy, interaction, hopping and source-to-running match are declared. |
+| [Ordered feedback](../../model/yukawa_source_feedback/PROOF.md), [receipt](../../model/yukawa_source_feedback/results.json) | The [complete-memory theorem](../../model/particle_memory_response/PROOF.md) fixes the nonzero imaginary Hermitian `J` and its accompanying noise. The full 432-dimensional Schur calculation gives the exact next coefficient `Y_3` in `H_coh(h)=X tensor Y+h I tensor J+h^2 X tensor Y_3+O(h^3)`. | The projector pulses and coherent clock are supplied. The first correction has the identity Nambu factor and no projection onto the Yukawa-shaped term. The finite slow-subspace generator is not asserted to be a Lindblad generator. |
+
+No empirical mass selects a coefficient, phase or repetition count in these
+producers. Their outputs do not jointly constitute a physical Yukawa
+construction. That identification requires the Higgs variation of the same
+source inverse fermion propagator, fermion and Higgs kinetic residues, and a
+shared physical field and clock map. Neither the charged-fermion spectrum
+nor neutrino masses follow from these finite results.
+
 ## Elementary and Higgs-composite response at the same native energy
 
 The [finite centroid experiment](../../model/native_charge_centroid/PROOF.md)
@@ -585,6 +605,15 @@ or finite round count is adjusted to the measured muon residual. This
 distinguishes a complete conditional calculation from an independent mass
 prediction.
 
+The [frozen experimental comparison](../../model/lepton_cycle/COMPARISON.md)
+gives a muon residual `+9.833581 ppm`, corresponding to `442.016`
+experimental standard uncertainties. The tau reference from PDG 2024 and
+CODATA 2022 gives `+30.935835 ppm`, or `[0.610783,0.610791]` experimental
+standard uncertainties over all compatible input covariances. There is no
+joint likelihood or assigned theory error. The preparation theorem bounds
+fixed-analyzer effect-rate ratios separately; a channel error cannot be
+substituted for a physical mass correction.
+
 These results belong to the defect register and the declared coupling chain;
 the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
 reproduces the stored class on every stored cut of the runs; it is not a
@@ -600,9 +629,27 @@ PDG 2024. The latter is not a joint significance with a complete theory error. T
 of the declared chain at `161.13 GeV`, first-order [colour deconfinement](../../model/colour_deconfinement/README.md)
 of the colour links and [quenched quark binding](../../model/quenched_hadron_binding/README.md)
 on the same links with `m_N/m_rho = 1.45 +- 0.13`; none is a blind prediction.
+The [crossover covariance calculation](../../model/electroweak_crossover/comparison_budget.json)
+keeps `161.1298 GeV` and gives a statistical standard-deviation range
+`[0.11810,0.13680] GeV` under independent run sets, or `[0,0.27631] GeV`
+without that premise. It supplies no combined significance with the
+separate one-percent reduction allowance or finite-design spread.
 The absolute lepton scale, the quark masses, the mixing matrices, the neutrino
 masses and the sector law behind the electroweak scale ([seam class balance](../../model/seam_class_balance/README.md))
 are open.
+
+A separate [calibrated matter extension](../../model/common_source/calibrated_matter_results.json)
+supplies six quark running-mass parameters in GeV at the common scale
+`mu=M_Z=91.1876 GeV`, in the tadpole-free pure MSbar Standard Model scheme.
+They are calculated as `y_q v/sqrt(2)` from empirical Yukawa and Higgs-scale
+inputs with retained external matching ancestry. This permits a calibrated
+comparison display; it does not derive six masses from native defects.
+The [native quark response](../../model/native_quark_response/PROOF.md)
+instead gives complete spectral bins and original probabilities on its own
+Hamiltonian and reference. Equal-coupling local up/down responses coincide,
+while the dominant interacting bins are nearly equal. A common conversion
+factor preserves their ratio. Physical running-mass identification requires
+flavour, propagation and renormalization maps, in addition to a GeV anchor.
 
 The quenched hadron comparison includes the potential-fit variation in its
 scale error: `m_rho/sqrt(sigma) = 1.3326 +- 0.1220` and
@@ -610,3 +657,115 @@ scale error: `m_rho/sqrt(sigma) = 1.3326 +- 0.1220` and
 common scale. The errors cover retained statistical and fit-window variation;
 one lattice spacing and volume, omitted sea quarks and chiral extrapolation
 prevent interpreting them as complete physical uncertainties.
+
+## Defect response and the effective Yukawa vertex
+
+In the observer description, a particle field summarizes coherent defect
+creation, propagation and detection records. Its Yukawa coefficient is the
+normalized response of that fermionic record amplitude to a scalar-field
+intervention. Charge and topology restrict the permitted transition tensors;
+the defect wave profiles and dynamics determine their amplitudes. A common
+charge label does not supply the internal response of each family mode.
+
+For a canonical effective mass kernel and a canonical neutral Higgs
+coordinate `h`, the convention
+`M(h)=M(0)+h Y_eff/sqrt(2)+O(h^2)` defines the zero-scalar-momentum vertex.
+Its calculation requires the actual scalar insertion and both fermionic
+normalizations. A Higgs density insertion, a change of scalar excitation
+cost and a change of the primitive interaction coefficient are different
+experiments. An interacting pole mass also depends on propagation and
+self-energy; a static response coefficient alone does not determine it.
+
+The [complete localized-mode calculation](../../model/defect_mode_overlap/PROOF.md)
+gives an explicit overlap mechanism on the compact two-core source. For its
+complete four-mode frame `W`, scalar site projector `P_x` and source pairing
+map `C`, every local vertex is
+
+`Y_x=W^dagger P_x C conjugate(W)=B_x S`,
+`B_x=W^dagger P_x W`, `S=W^dagger C conjugate(W)`.
+
+All 343 site insertions and the full complementary response are retained.
+The uniform scalar profile has four unit singular values. A specified
+27-site probe around one core has two doubled strengths approximately
+`0.999999981366` and `0.000061031430055`, a ratio `16384.99999855`.
+The weak response comes from the other core's one-hop spatial tail, with
+leading strength `1/(4M^2)` at source texture amplitude `M`. Complete
+controls at `M=32,64,128` verify that scaling numerically. No family matrix
+or measured mass enters this calculation.
+
+The probe profile is an intervention, not a derived Higgs vacuum or scalar
+normal mode. Euclidean profile normalization supplies no physical scalar
+kinetic residue. The calculation exhibits two distinct strengths, with
+complete leakage and resolvent normalization, and establishes no
+three-generation or observed-mass assignment. A source-selected scalar
+collective mode would choose a contraction `sum_x f_x Y_x`; deriving that
+mode is the corresponding dynamical problem.
+
+### Scalar modes selected by the dynamics
+
+The [scalar mode calculation](../../model/defect_scalar_modes/PROOF.md)
+uses the complete stiffness `K=I+L_graph+M^2 diag(|n|^2)` and frequency
+`Omega=sqrt(K)` on the same compact texture. Its lowest mode spans both
+cores. The two doubled unit-ladder strengths are approximately
+`0.706890884` and `0.706804630`, a ratio `1.000122033`. The canonical blank
+coordinate is `(2 Omega)^(-1/2) phi`; the corresponding vertex strengths
+multiply the ladder overlap by `sqrt(2 omega)`. This reference-specific
+normalization does not transfer to the interacting ground.
+
+The full unit native interaction acting on the filled free sea gives a
+complete quantum backreaction calculation. About `96.4507%` of its scalar
+first-image weight lies in the odd bound mode, with `0.04119%` in the lowest
+even mode. Every other mode and the original preparation failure are
+retained. The dominant response profile has four equal spatial strengths
+near `0.706847830`. A strict rational variational bound proves that the
+interacting singlet ground is below the filled free sea; the numerical
+two-vector Ritz estimate lowers it by `2.46785318` source units. Thus the
+chosen patch hierarchy is not the selected hierarchy of either tested
+scalar response, and the free sea is not the interacting vacuum.
+
+### Native contact vertices and physical masses
+
+The [complete contact calculation](../../model/yukawa_defect_vertex/PROOF.md)
+uses a genuine scalar insertion in the lepton-only 320-state control.
+Its scalar first moment is `Z_H=14/5`, and its normalized equation-of-motion
+contact coefficient is `sqrt(14/5)`. The
+[full native calculation](../../model/defect_family_vertices/PROOF.md)
+includes quarks and has a different ground and scalar moment,
+`Z_H=9.58523463744`. All 900 fermion pairs give 56 nonzero oriented contact
+components. Primitive unit up, down and charged-lepton channels have the
+same canonical contact modulus `sqrt(Z_H)=3.09600301`; their genuine scalar
+pulse responses differ. Neither contact normalization is a measured
+on-shell Yukawa hierarchy. The scalar occupation-cost susceptibility in
+[defect_scalar_response](../../model/defect_scalar_response/PROOF.md)
+is a distinct complete energy-moment experiment.
+
+The [common source](../../model/defect_mass_join/PROOF.md) joins the spatial
+texture, all native fermion channels and every scalar mode on one clock.
+Its local controls have explicit embeddings. An empty quark sector is an
+invariant lepton-only control only when the quark vertices are disabled.
+The complete interacting ground and its propagating particle poles are
+separate calculations from those control embeddings.
+
+The [periodic propagation control](../../model/defect_dispersion/PROOF.md)
+gives exactly four isolated bands for every supercell momentum, retaining
+all complementary rows. Selected complete Bloch spectra have strongly
+directional, nearly flat low bands. Their zero-momentum energies do not
+establish relativistic rest masses. The
+[one-scale calibration and target catalogue](../../model/defect_mass_catalogue/PROOF.md)
+accounts for all seventeen Standard Model target types without assigning
+unproved physical masses. It excludes assigning the equal native up/down
+record-zero bins to the unequal running quark masses through one GeV factor.
+
+With the measured electron as the sole scale anchor, the fixed lepton ratios
+give conditional values `m_mu=0.10565941450 GeV` and
+`m_tau=1.77698497081 GeV`. These are consequences of the effect-to-mass
+assignment; the source-to-rest-mass bridge is unproved. The calibrated
+quark, neutrino and boson action parameters retain their empirical inputs
+and conventions in the catalogue. They are not source-derived observer
+rest masses.
+
+The full native source also gives a complete Higgs-dressed neutral-composite
+response: 36 success-energy records, four failures and four zero outside
+outcomes. Its minimum success gap is enclosed near `0.089555330476` source
+units. This local gapped spectrum coexists with the elementary neutral
+contact nullspace; it is not identified with an observed neutrino mass.

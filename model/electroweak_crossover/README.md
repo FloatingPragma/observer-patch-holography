@@ -10,7 +10,7 @@ declared chain in its phase diagram.
 | --- | --- | --- |
 | `x` of the declared chain at the transition | 0.2961 | map imported, inputs declared |
 | kind of transition | crossover | endpoint `x_c = 0.0983(15)` imported |
-| pseudo-critical temperature | 161.13 +- 0.13 +- 1.6 GeV | measured; second error from the reduction |
+| pseudo-critical temperature | 161.13 GeV; statistical SD range 0.118 to 0.137 GeV | linearized, independent run sets; reduction allowance 1.6 GeV separate |
 | Standard Model lattice result (not blind) | 159.5 +- 1.5 GeV | imported |
 | Higgs mass below which the chain gives a first-order transition | 72.5 GeV | imported endpoint, this map |
 | cosmic time at the transition | 9.02e-12 s | radiation era, `g* = 106.75` |
@@ -24,6 +24,7 @@ From the repository root:
 ```sh
 python -m model.electroweak_crossover --write
 python -m model.electroweak_crossover --check
+python -m model.electroweak_crossover.comparison_budget --check
 python -m pytest -q -W error model/electroweak_crossover
 python -m model.electroweak_crossover.simulate --n 24 --beta-G 8 --x 0.296 --y -0.09 --sweeps 20000 --out run.npz
 ```
@@ -34,7 +35,7 @@ python -m model.electroweak_crossover.simulate --n 24 --beta-G 8 --x 0.296 --y -
 - [reduction.py](reduction.py): the map from four-dimensional parameters and temperature to `(g3^2, x, y)`.
 - [reweight.py](reweight.py): multi-histogram reweighting with block jackknife.
 - [production.json](production.json): the lattice measurements of the production runs. The raw series are not stored.
-- [certificate.py](certificate.py) and [results.json](results.json): the derived numbers and 47 named checks.
+- [certificate.py](certificate.py) and [results.json](results.json): the derived numbers and 51 named checks.
 - `test_lattice.py`, `test_reduction.py`, `test_results.py`: gates. They run in under a minute.
 
 The production used 53 runs at the chain's point and the validation runs listed in `production.json`.
@@ -44,3 +45,9 @@ A matched-volume comparison at physical side eight gives a linear cutoff interce
 This is finite design sensitivity, not an infinite-volume error bound. The susceptibility growth exponent
 falls from `0.227` to `0.089` across the declared point's measured volumes, while the first-order control
 approaches volume scaling. The [receipt](results.json) exposes each fit and its residual degrees of freedom.
+
+The temperature conversion reuses the reference ensemble. Its paired peak covariance is absent from the
+retained summaries. The [covariance calculation](comparison_budget.json) therefore gives a range conditional
+on the marginal error estimates and independent run sets. Allowing cross-set covariance gives zero to
+`0.2763 GeV`. Neither range supplies nonlinear confidence coverage. The one-percent reduction allowance
+and cutoff sensitivity are separate from these statistical estimates; no combined significance is assigned.

@@ -187,8 +187,14 @@ midpoint `m_H = 125.84`, `m_t = 171.99 GeV`. They enter the map as its physical 
 - **7.4** Result.
 
 \[
-T_c = 161.13 \pm 0.13\ (\text{lattice}) \pm 1.6\ (\text{reduction, one percent})\ \text{GeV} .
+T_c = 161.13\ \text{GeV},\qquad
+\sigma_{T,\mathrm{linear}}\in[0.11810,0.13680]\ \text{GeV}.
 \]
+
+  This statistical range assumes independent run sets and permits every covariance of the shared
+  reference peaks compatible with their retained marginal errors. It is conditional on those variance
+  estimates and linearization. The separate reduction allowance is one percent, `1.6113 GeV`; it has
+  no calibrated confidence coverage. The covariance calculation is given below.
 
   The susceptibility in the normalization of 2.3 peaks at 9.54(13) on `24^3`. It exceeds 80 percent of
   its maximum over 1.9 GeV. It
@@ -198,7 +204,8 @@ T_c = 161.13 \pm 0.13\ (\text{lattice}) \pm 1.6\ (\text{reduction, one percent})
   product form at `mu = pi T`: 161.82; hypercharge dropped from the map:
   162.86; tree-level reduction: 139.2.
 - **7.6** NOT BLIND. Standard Model lattice result: `159.5 +- 1.5 GeV` (D'Onofrio and Rummukainen 2016, abstract).
-  Difference: +1.63 GeV, +0.74 combined standard deviations. The same pipeline with
+  Difference: +1.63 GeV. No combined significance is assigned: the lattice standard deviation is
+  unidentified and the reduction allowance is not a calibrated standard deviation. The same pipeline with
   Standard Model inputs gives 159.76 GeV; the published continuum position of the maximum is 159.58 GeV.
 
 ## 8. The source as built with one doublet
@@ -209,11 +216,14 @@ and top masses are not derived. DECLARED assumptions:
 
 | Assumption | m_H, m_t (GeV) | x at the transition | T_c (GeV) |
 | --- | --- | --- | --- |
-| A: quartic and top couplings of the declared row | 113.75, 155.46 | 0.2930 | 145.11 +- 0.11 +- 1.5 |
-| B: masses of the declared row | 125.84, 171.99 | 0.3600 | 149.33 +- 0.10 +- 1.5 |
+| A: quartic and top couplings of the declared row | 113.75, 155.46 | 0.2930 | 145.11; linearized SD 0.10755 to 0.12407 |
+| B: masses of the declared row | 125.84, 171.99 | 0.3600 | 149.33; linearized SD 0.10421 |
 
 Both are crossovers. Row A is reweighted from the runs at `x = 0.296`. Row B uses runs at `x = 0.36` on `24^3`,
 `beta_G = 8`, with the continuum shift of 7.3.
+The statistical entries assume independent run sets. Their separate one-percent reduction allowances
+are `1.4511 GeV` and `1.4933 GeV`. Row B's temperature peak and the reference peaks belong to different
+run sets, so that assumption fixes its linearized variance from the retained marginal errors.
 
 ## 9. The endpoint as a Higgs mass
 
@@ -234,8 +244,8 @@ EXACT relation with DECLARED inputs. Radiation era, `t = 1/(2H)`, `H^2 = (8 pi/3
 
 - The chain's couplings are declared forms. This package does not derive them.
 - The Higgs mass term is an input through `m_H`. The package says nothing about its origin.
-- The reduction is perturbative. Its truncation dominates the error of `T_c`.
-- The three-dimensional U(1) field is not simulated. The published simulation with that field has its maximum at y = -0.082 at `beta_G = 8`; this simulation has -0.090. The difference corresponds to +0.3 GeV. It is not applied and lies inside the error of the reduction.
+- The reduction is perturbative. Its one-percent allowance is a declared estimate, without a remainder or coverage theorem.
+- The three-dimensional U(1) field is not simulated. The published simulation with that field has its maximum at y = -0.082 at `beta_G = 8`; this simulation has -0.090. The difference corresponds to +0.3 GeV. It is not applied and is smaller than the reduction allowance; that comparison does not bound the omitted field's effect.
 - The endpoint value `x_c` is imported. The runs here show the first-order signal at `x = 0.036` and its weakening
   with `x` at one lattice spacing; they do not determine `x_c`.
 - No real-time quantity is computed: no sphaleron rate, no nucleation.
@@ -260,3 +270,62 @@ At `beta_G=8`, the adjacent-volume effective exponent is
 gives `2.16336 +- 0.03170` and `2.88122 +- 0.08832` for sides 8 to 12 and 12 to 16. These are measured
 finite-volume responses, not fitted asymptotic critical exponents. The peak temperature shifts by
 `0.24438 GeV` from side 16 to 24 and `0.03071 GeV` from side 24 to 32 at the common cutoff.
+
+## Covariance of the shared reference peaks
+
+The retained producer `inputs/EW/code/ew_oph.py.raw` evaluates the peak in `y` and each temperature peak
+on the same delete-one-block samples. Its `ew_wham.py.raw` helper returns the full estimate and each
+coordinate's jackknife error, discarding the paired deletion vectors. The eleven retained numerical EW
+inputs contain JSON summaries and curves; they contain no raw simulation series, paired peak replicas or
+cross-covariance matrix. `comparison_budget.py` verifies their manifest and records that input boundary.
+
+Let `Y_i` denote the six peak estimates at `x=0.296`, and let `r` identify the `(beta_G,L)=(8,24)` reference.
+The fixed weighted least-squares design gives an intercept `Y_c=sum_i w_i Y_i`. The weights are computed
+as exact rationals from the serialized design and marginal errors; they preserve a constant exactly and
+annihilate the cutoff and volume-offset columns. The temperature computation is the implicit equation
+
+```
+y(T_c) = y(T_lat) + sum_i w_i Y_i - Y_r.
+```
+
+With the reduction parameters held fixed, its first variation is
+
+```
+delta T_c = [y'(T_lat) delta T_lat + sum_i (w_i-delta_ir) delta Y_i] / y'(T_c).
+```
+
+In particular, `T_lat`, `Y_r` and the fitted intercept are not independent measurements. If the control
+`y'(T_lat) delta T_lat = delta Y_r` holds exactly, the two reference terms cancel before propagation.
+The physical temperature and `y` scans use different susceptibility normalizations and peak fits, so
+this control is not imposed on the retained production. The receipt retains `0.125474 GeV` as the
+uncorrected independence control, without assigning it to the unidentified statistical error.
+
+For coefficients `a_i` and supplied marginal standard deviations `s_i`, any positive-semidefinite
+covariance matrix with diagonal `s_i^2` is a Gram matrix of vectors of lengths `s_i`. The variance of
+`sum_i a_i X_i` is the squared length of their weighted sum. Writing `l_i=abs(a_i)s_i`, the sharp bounds are
+
+```
+max(0, 2 max_i l_i - sum_i l_i)^2 <= variance <= (sum_i l_i)^2.
+```
+
+The upper bound aligns every weighted vector. The lower bound follows from the reverse triangle
+inequality and is attained by opposing the longest vector to the others, or by a closed planar polygon
+when no length exceeds the sum of the others. These Gram constructions prove attainability. If distinct
+run sets are independent, apply this argument separately to each set and add the variances. Only the
+two peaks from the reference set then share an unspecified covariance. This is a statistical sampling
+assumption, not a consequence of the marginal error table.
+
+For the declared row the resulting linearized standard deviation lies in `[0.1180963,0.1367957] GeV`.
+Allowing unspecified cross-set covariance widens the sharp range to `[0,0.2763059] GeV`. The corresponding
+ranges for Standard Model inputs are `[0.1169101,0.1352495]` and `[0,0.2732030] GeV`.
+The coefficient and variance arithmetic uses exact rationals; square-root endpoints have integer-square
+enclosures. The reduction derivatives use a five-point numerical stencil with a reported step-halving
+check, not a rigorous derivative remainder bound. The variance estimates themselves have sampling error.
+These results therefore identify covariance-compatible delta-method ranges, without nonlinear confidence
+coverage, a distributional law or a rigorous total uncertainty for the physical comparison.
+
+`comparison_budget.json` retains the exact influence weights, both covariance domains, numerical derivative
+diagnostics, input hashes and cancellation controls. The one-percent reduction estimate, `0.3489639 GeV`
+finite-design displacement, finite-volume limit and omitted hypercharge simulation keep separate scopes.
+The null primary error and pull fields prevent an unidentified standard deviation or a declared allowance
+from becoming a combined significance through a scalar fallback.

@@ -1,0 +1,3535 @@
+{
+  "actual_scalar_intervention": {
+    "complete_preparation_and_pointer_records": [
+      {
+        "energy": "0",
+        "probability": "3/160",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1",
+        "probability": "99/160",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(5)/2",
+        "probability": "1/16",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(5)/2",
+        "probability": "1/16",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "-1",
+        "probability": "11/160",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "2",
+        "probability": "11/160",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(13)/2",
+        "probability": "1/40",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(13)/2",
+        "probability": "1/40",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(17)/2",
+        "probability": "1/160",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(17)/2",
+        "probability": "1/160",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(21)/2",
+        "probability": "1/80",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(21)/2",
+        "probability": "1/80",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "3",
+        "probability": "1/160",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "pointer": "minus",
+        "probability": "3*sqrt(2)/12800 + 1/320",
+        "stage": "ground_then_scalar_pulse"
+      },
+      {
+        "pointer": "plus",
+        "probability": "1/320 - 3*sqrt(2)/12800",
+        "stage": "ground_then_scalar_pulse"
+      }
+    ],
+    "conditional_pointer_probabilities": {
+      "minus": "3*sqrt(2)/80 + 1/2",
+      "plus": "1/2 - 3*sqrt(2)/80"
+    },
+    "derivative_of_pair_expectation_at_zero_pulse": "-3/10",
+    "full_finite_pulse_expectation": "-3*sin(theta)*cos(sqrt(2)*theta)/20 - 3*sqrt(2)*sin(sqrt(2)*theta)/40",
+    "intervention": "X=sum_k phi_k^dagger tensor |k dual><0| + h.c.",
+    "pair_expectation": "-3*sqrt(2)/40",
+    "pair_pointer": "A=i(B-B^dagger)/8, B=sum_k P_k tensor |0><k dual|",
+    "pointer_effects": "(I +/- A)/2",
+    "pointer_norm_bound": "1",
+    "pulse_angle": "sqrt(2)*pi/4",
+    "quantum_reference_coherences_retained": true,
+    "scalar_cost_or_interaction_coefficient_differentiated": false,
+    "scalar_reference_dimension": 3,
+    "source_and_scalar_reference_dimension": 960,
+    "total_Gauss_operator_identities": 24
+  },
+  "complete_records": {
+    "all_preparation_records": [
+      {
+        "energy": "0",
+        "ground": false,
+        "probability": "3/160"
+      },
+      {
+        "energy": "1",
+        "ground": false,
+        "probability": "99/160"
+      },
+      {
+        "energy": "1/2 - sqrt(5)/2",
+        "ground": false,
+        "probability": "1/16"
+      },
+      {
+        "energy": "1/2 + sqrt(5)/2",
+        "ground": false,
+        "probability": "1/16"
+      },
+      {
+        "energy": "-1",
+        "ground": false,
+        "probability": "11/160"
+      },
+      {
+        "energy": "2",
+        "ground": false,
+        "probability": "11/160"
+      },
+      {
+        "energy": "1/2 - sqrt(13)/2",
+        "ground": false,
+        "probability": "1/40"
+      },
+      {
+        "energy": "1/2 + sqrt(13)/2",
+        "ground": false,
+        "probability": "1/40"
+      },
+      {
+        "energy": "1/2 - sqrt(17)/2",
+        "ground": false,
+        "probability": "1/160"
+      },
+      {
+        "energy": "1/2 + sqrt(17)/2",
+        "ground": false,
+        "probability": "1/160"
+      },
+      {
+        "energy": "1/2 - sqrt(21)/2",
+        "ground": false,
+        "probability": "1/80"
+      },
+      {
+        "energy": "1/2 + sqrt(21)/2",
+        "ground": false,
+        "probability": "1/80"
+      },
+      {
+        "energy": "-2",
+        "ground": true,
+        "probability": "1/160"
+      },
+      {
+        "energy": "3",
+        "ground": false,
+        "probability": "1/160"
+      }
+    ],
+    "fermion_reference": "coherent direct sum of all six dual addition and six removal modes",
+    "ground_conditional_records": [
+      {
+        "branch": "addition",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1",
+        "gap": "3",
+        "probability": "1/60",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "sqrt(5)/50 + 1/20",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "1/20 - sqrt(5)/50",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "3/20",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "8*sqrt(21)/315 + 7/60",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "7/60 - 8*sqrt(21)/315",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1",
+        "gap": "3",
+        "probability": "1/60",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "sqrt(5)/50 + 1/20",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "1/20 - sqrt(5)/50",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "3/20",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "8*sqrt(21)/315 + 7/60",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "7/60 - 8*sqrt(21)/315",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "removal",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "fermion"
+      },
+      {
+        "branch": "addition",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1",
+        "gap": "3",
+        "probability": "3/20",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "sqrt(13)/52 + 1/10",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "1/10 - sqrt(13)/52",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "addition",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1",
+        "gap": "3",
+        "probability": "3/20",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "sqrt(13)/52 + 1/10",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "1/10 - sqrt(13)/52",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "removal",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1",
+        "gap": "3",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "3/25",
+        "probe": "scalar"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "3",
+        "gap": "5",
+        "probability": "9/50",
+        "probe": "scalar"
+      }
+    ],
+    "scalar_reference": "coherent dual doublet in each orientation, plus no-operation branch",
+    "unconditional_preparation_and_probe_records": [
+      {
+        "energy": "0",
+        "ground": false,
+        "probability": "3/160",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1",
+        "ground": false,
+        "probability": "99/160",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(5)/2",
+        "ground": false,
+        "probability": "1/16",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(5)/2",
+        "ground": false,
+        "probability": "1/16",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "-1",
+        "ground": false,
+        "probability": "11/160",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "2",
+        "ground": false,
+        "probability": "11/160",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(13)/2",
+        "ground": false,
+        "probability": "1/40",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(13)/2",
+        "ground": false,
+        "probability": "1/40",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(17)/2",
+        "ground": false,
+        "probability": "1/160",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(17)/2",
+        "ground": false,
+        "probability": "1/160",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(21)/2",
+        "ground": false,
+        "probability": "1/80",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(21)/2",
+        "ground": false,
+        "probability": "1/80",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "3",
+        "ground": false,
+        "probability": "1/160",
+        "probe": "fermion",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "branch": "addition",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1",
+        "gap": "3",
+        "probability": "1/9600",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "sqrt(5)/8000 + 1/3200",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "1/3200 - sqrt(5)/8000",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "3/3200",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "sqrt(21)/6300 + 7/9600",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "7/9600 - sqrt(21)/6300",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1",
+        "gap": "3",
+        "probability": "1/9600",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "sqrt(5)/8000 + 1/3200",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "1/3200 - sqrt(5)/8000",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "3/3200",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "sqrt(21)/6300 + 7/9600",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "7/9600 - sqrt(21)/6300",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "fermion",
+        "stage": "ground_then_probe"
+      },
+      {
+        "energy": "0",
+        "ground": false,
+        "probability": "3/160",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1",
+        "ground": false,
+        "probability": "99/160",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(5)/2",
+        "ground": false,
+        "probability": "1/16",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(5)/2",
+        "ground": false,
+        "probability": "1/16",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "-1",
+        "ground": false,
+        "probability": "11/160",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "2",
+        "ground": false,
+        "probability": "11/160",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(13)/2",
+        "ground": false,
+        "probability": "1/40",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(13)/2",
+        "ground": false,
+        "probability": "1/40",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(17)/2",
+        "ground": false,
+        "probability": "1/160",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(17)/2",
+        "ground": false,
+        "probability": "1/160",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 - sqrt(21)/2",
+        "ground": false,
+        "probability": "1/80",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "1/2 + sqrt(21)/2",
+        "ground": false,
+        "probability": "1/80",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "energy": "3",
+        "ground": false,
+        "probability": "1/160",
+        "probe": "scalar",
+        "stage": "preparation_other_energy"
+      },
+      {
+        "branch": "addition",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1",
+        "gap": "3",
+        "probability": "3/3200",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "sqrt(13)/8320 + 1/1600",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "1/1600 - sqrt(13)/8320",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "addition",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1",
+        "gap": "3",
+        "probability": "3/3200",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "sqrt(13)/8320 + 1/1600",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "1/1600 - sqrt(13)/8320",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "removal",
+        "energy": "3",
+        "gap": "5",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "0",
+        "gap": "2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1",
+        "gap": "3",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "-1",
+        "gap": "1",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "2",
+        "gap": "4",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "probability": "0",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "-2",
+        "gap": "0",
+        "probability": "3/4000",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      },
+      {
+        "branch": "no_operation",
+        "energy": "3",
+        "gap": "5",
+        "probability": "9/8000",
+        "probe": "scalar",
+        "stage": "ground_then_probe"
+      }
+    ]
+  },
+  "construction": {
+    "CAR_modes": 6,
+    "dimension": 320,
+    "ground_energy": "-2",
+    "ground_preparation_probability": "1/160",
+    "ground_rank": 2,
+    "measured_mass_inputs": [],
+    "primitive_interaction_coefficient": "1",
+    "scalar_levels": 5,
+    "scalar_number_energy": "1",
+    "source": "existing 320-state unit lepton-Higgs interaction",
+    "supplied_family_matrix": false
+  },
+  "schema": "oph.yukawa_defect_vertex.v1",
+  "scope": {
+    "actual_charged_Higgs_insertion": true,
+    "complete_source_and_quantum_references_retained": true,
+    "equation_of_motion_contact_vertex_not_full_1PI_vertex": true,
+    "normalization_derived_from_full_addition_and_removal_records": true,
+    "on_shell_pole_residue_or_relativistic_Higgs_kinetic_normalization": false,
+    "primitive_unit_interaction_forced_by_native_idle_repair": false,
+    "scalar_high_frequency_z_inverse_squared_normalization": true,
+    "scalar_high_frequency_z_inverse_term_exactly_zero": true,
+    "three_family_hierarchy_or_physical_particle_masses": false
+  },
+  "source_files_sha256": {
+    "model/coherent_defect_wave/chiral_higgs/model.py": "eb1a89b1b747adf7e87a7f5f8122d1501a039d804eced30eeca509b23ad97bb2",
+    "model/coherent_defect_wave/physical_attachment/chiral.py": "05d52fb0f8f7d65687a020d2864583546ed32f154b4cfb1e57849a0a0283b6ef",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/yukawa_defect_vertex/PROOF.md": "3e7219ff71ceb9d5bfb856b1d2ad59123f61b783319f720b3f0b6e30f2527059",
+    "model/yukawa_defect_vertex/vertex.py": "283500905f8619836983279229bb52480b7780110da5bbad74cd998286162e8f"
+  },
+  "two_points": {
+    "fermion": [
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "0",
+        "gap": "2",
+        "rank": 6,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "1/20",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/20",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1",
+        "gap": "3",
+        "rank": 198,
+        "removal": [
+          [
+            "1/20",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/20",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "3*sqrt(5)/100 + 3/40",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "3*sqrt(5)/100 + 3/40",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "3*sqrt(5)/100 + 3/40",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "3*sqrt(5)/100 + 3/40"
+          ]
+        ],
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "rank": 20,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "3*sqrt(5)/100 + 3/40",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "3*sqrt(5)/100 + 3/40",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "3*sqrt(5)/100 + 3/40",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "3*sqrt(5)/100 + 3/40"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "3/40 - 3*sqrt(5)/100",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "3/40 - 3*sqrt(5)/100",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "3/40 - 3*sqrt(5)/100",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "3/40 - 3*sqrt(5)/100"
+          ]
+        ],
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "rank": 20,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "3/40 - 3*sqrt(5)/100",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "3/40 - 3*sqrt(5)/100",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "3/40 - 3*sqrt(5)/100",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "3/40 - 3*sqrt(5)/100"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "9/20",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "9/20",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "-1",
+        "gap": "1",
+        "rank": 22,
+        "removal": [
+          [
+            "9/20",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "9/20",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "2",
+        "gap": "4",
+        "rank": 22,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "rank": 8,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "rank": 8,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "4*sqrt(21)/105 + 7/40",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "4*sqrt(21)/105 + 7/40",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "4*sqrt(21)/105 + 7/40",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "4*sqrt(21)/105 + 7/40"
+          ]
+        ],
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "rank": 4,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "4*sqrt(21)/105 + 7/40",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "4*sqrt(21)/105 + 7/40",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "4*sqrt(21)/105 + 7/40",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "4*sqrt(21)/105 + 7/40"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "7/40 - 4*sqrt(21)/105",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "7/40 - 4*sqrt(21)/105",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "7/40 - 4*sqrt(21)/105",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "7/40 - 4*sqrt(21)/105"
+          ]
+        ],
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "rank": 4,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "7/40 - 4*sqrt(21)/105",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "7/40 - 4*sqrt(21)/105",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "7/40 - 4*sqrt(21)/105",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "7/40 - 4*sqrt(21)/105"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "-2",
+        "gap": "0",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "3",
+        "gap": "5",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "fermion_CAR_sum": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "scalar": [
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "0",
+        "gap": "2",
+        "rank": 6,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "3/10",
+            "0"
+          ],
+          [
+            "0",
+            "3/10"
+          ]
+        ],
+        "energy": "1",
+        "gap": "3",
+        "rank": 198,
+        "removal": [
+          [
+            "3/10",
+            "0"
+          ],
+          [
+            "0",
+            "3/10"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 - sqrt(5)/2",
+        "gap": "5/2 - sqrt(5)/2",
+        "rank": 20,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 + sqrt(5)/2",
+        "gap": "sqrt(5)/2 + 5/2",
+        "rank": 20,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "-1",
+        "gap": "1",
+        "rank": 22,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "2",
+        "gap": "4",
+        "rank": 22,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "sqrt(13)/26 + 1/5",
+            "0"
+          ],
+          [
+            "0",
+            "sqrt(13)/26 + 1/5"
+          ]
+        ],
+        "energy": "1/2 - sqrt(13)/2",
+        "gap": "5/2 - sqrt(13)/2",
+        "rank": 8,
+        "removal": [
+          [
+            "sqrt(13)/26 + 1/5",
+            "0"
+          ],
+          [
+            "0",
+            "sqrt(13)/26 + 1/5"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "1/5 - sqrt(13)/26",
+            "0"
+          ],
+          [
+            "0",
+            "1/5 - sqrt(13)/26"
+          ]
+        ],
+        "energy": "1/2 + sqrt(13)/2",
+        "gap": "sqrt(13)/2 + 5/2",
+        "rank": 8,
+        "removal": [
+          [
+            "1/5 - sqrt(13)/26",
+            "0"
+          ],
+          [
+            "0",
+            "1/5 - sqrt(13)/26"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 - sqrt(17)/2",
+        "gap": "5/2 - sqrt(17)/2",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 + sqrt(17)/2",
+        "gap": "sqrt(17)/2 + 5/2",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 - sqrt(21)/2",
+        "gap": "5/2 - sqrt(21)/2",
+        "rank": 4,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "1/2 + sqrt(21)/2",
+        "gap": "sqrt(21)/2 + 5/2",
+        "rank": 4,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "-2",
+        "gap": "0",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      },
+      {
+        "addition": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ],
+        "energy": "3",
+        "gap": "5",
+        "rank": 2,
+        "removal": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0"
+          ]
+        ]
+      }
+    ],
+    "scalar_commutator_sum": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "scalar_first_moment": [
+      [
+        "14/5",
+        "0"
+      ],
+      [
+        "0",
+        "14/5"
+      ]
+    ]
+  },
+  "vertex": {
+    "all_fermion_component_pairs_checked": 36,
+    "nonzero_components": [
+      {
+        "left": 0,
+        "mixed_three_point": [
+          [
+            "-7/10",
+            "0"
+          ]
+        ],
+        "right": 4,
+        "source_coefficients": [
+          [
+            "-1",
+            "0"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "-sqrt(70)/5",
+            "0"
+          ]
+        ]
+      },
+      {
+        "left": 0,
+        "mixed_three_point": [
+          [
+            "0",
+            "-7/10"
+          ]
+        ],
+        "right": 5,
+        "source_coefficients": [
+          [
+            "0",
+            "-1"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "0",
+            "-sqrt(70)/5"
+          ]
+        ]
+      },
+      {
+        "left": 1,
+        "mixed_three_point": [
+          [
+            "-7/10",
+            "0"
+          ]
+        ],
+        "right": 3,
+        "source_coefficients": [
+          [
+            "-1",
+            "0"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "-sqrt(70)/5",
+            "0"
+          ]
+        ]
+      },
+      {
+        "left": 2,
+        "mixed_three_point": [
+          [
+            "0",
+            "-7/10"
+          ]
+        ],
+        "right": 3,
+        "source_coefficients": [
+          [
+            "0",
+            "-1"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "0",
+            "-sqrt(70)/5"
+          ]
+        ]
+      },
+      {
+        "left": 3,
+        "mixed_three_point": [
+          [
+            "7/10",
+            "0"
+          ]
+        ],
+        "right": 1,
+        "source_coefficients": [
+          [
+            "1",
+            "0"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "sqrt(70)/5",
+            "0"
+          ]
+        ]
+      },
+      {
+        "left": 3,
+        "mixed_three_point": [
+          [
+            "0",
+            "7/10"
+          ]
+        ],
+        "right": 2,
+        "source_coefficients": [
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "0",
+            "sqrt(70)/5"
+          ]
+        ]
+      },
+      {
+        "left": 4,
+        "mixed_three_point": [
+          [
+            "7/10",
+            "0"
+          ]
+        ],
+        "right": 0,
+        "source_coefficients": [
+          [
+            "1",
+            "0"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "sqrt(70)/5",
+            "0"
+          ]
+        ]
+      },
+      {
+        "left": 5,
+        "mixed_three_point": [
+          [
+            "0",
+            "7/10"
+          ]
+        ],
+        "right": 0,
+        "source_coefficients": [
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "spectrally_normalized_coefficients": [
+          [
+            "0",
+            "sqrt(70)/5"
+          ]
+        ]
+      }
+    ],
+    "normalized_unit_coefficient": "sqrt(70)/5",
+    "scalar_covariance": [
+      [
+        "7/10",
+        "0"
+      ],
+      [
+        "0",
+        "7/10"
+      ]
+    ],
+    "scalar_first_moment": "14/5"
+  }
+}

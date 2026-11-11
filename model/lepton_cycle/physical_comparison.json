@@ -1,0 +1,236 @@
+{
+  "architecture": {
+    "balance": "sqrt(2)",
+    "effect_eigenvalues_k0_k1_k2": [
+      "0.2621169450289541407393589",
+      "0.00007537569876381753410561485",
+      "0.01558545705005981950431322"
+    ],
+    "log_ratio_jacobian_theta_balance": [
+      [
+        "56.14388274527039637725465",
+        "32.61133431214913598431401"
+      ],
+      [
+        "51.22679357809863342733842",
+        "34.45439529605011510080945"
+      ]
+    ],
+    "mode_assignment": {
+      "electron": 1,
+      "muon": 2,
+      "tau": 0
+    },
+    "muon_electron_ratio": "206.7703159727293886125503",
+    "physical_pole_mass_map_proved": false,
+    "tau_electron_ratio": "3477.472837104598532313001",
+    "theta": "2/9"
+  },
+  "experimental_inputs": {
+    "covariance": {
+      "availability": "These selected primary tables provide marginal uncertainties, not a cross-edition joint covariance for the two comparison ratios. No zero covariance or joint likelihood is assumed.",
+      "tau_MeV_electron_MeV": null,
+      "two_comparison_ratios": null
+    },
+    "electron_MeV": {
+      "edition": "2022 CODATA adjustment",
+      "locator": "page 2, electron mass energy equivalent",
+      "role": "reference denominator and optional calibrated energy display only",
+      "source": "https://physics.nist.gov/cuu/pdf/all.pdf",
+      "standard_uncertainty": "0.00000000016",
+      "unit": "MeV",
+      "value": "0.51099895069"
+    },
+    "muon_electron_ratio": {
+      "edition": "2022 CODATA adjustment",
+      "locator": "muon-electron mass ratio",
+      "role": "comparison only; published direct ratio includes its adjustment uncertainty",
+      "source": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+      "standard_uncertainty": "0.0000046",
+      "unit": "1",
+      "value": "206.7682827"
+    },
+    "schema": "oph.lepton_comparison_inputs.v1",
+    "selection": "Frozen CODATA 2022 direct muon/electron ratio and electron energy; PDG 2024 tau average. Retrospective comparison, not a prospective test.",
+    "tau_MeV": {
+      "edition": "S. Navas et al. (Particle Data Group), Phys. Rev. D 110, 030001 (2024)",
+      "locator": "page 1, tau mass OUR AVERAGE",
+      "role": "comparison only",
+      "source": "https://pdg.lbl.gov/2024/listings/rpp2024-list-tau.pdf",
+      "standard_uncertainty": "0.09",
+      "unit": "MeV",
+      "value": "1776.93"
+    }
+  },
+  "exposure": {
+    "architectural_choices": [
+      "independent fresh source pairs",
+      "equal analyzer weights",
+      "theta=2/9",
+      "balance=sqrt(2)",
+      "squared-eigenvalue rate interpretation",
+      "electron/muon/tau mode assignment"
+    ],
+    "comparison_type": "conditional retrospective postdiction",
+    "empirical_calibrations": [
+      "electron energy only for the explicitly calibrated MeV display"
+    ],
+    "parameters_fitted_in_this_comparison": [],
+    "phase_displacement_applied": false,
+    "prior_empirical_exposure": "Particle masses and Koide relations were known during architecture development; no blind parameter-selection claim.",
+    "target_selected_round_count": false,
+    "targets_read_by_architecture": [],
+    "unproved_physical_maps": [
+      "register effect rates to physical interacting lepton mass poles",
+      "declared time to a physical energy clock"
+    ]
+  },
+  "implementation": {
+    "declared_time": "1",
+    "designs": {
+      "mass": {
+        "certified_total_error": "87250061/87250122000000",
+        "maximum_combined_channel_and_fresh_pair_error_per_cycle": "1/1077162000000",
+        "rounds": 538581,
+        "target_trace_distance": "1/1000000"
+      },
+      "weak": {
+        "certified_total_error": "700001/700002000000",
+        "maximum_combined_channel_and_fresh_pair_error_per_cycle": "1/691360000000",
+        "rounds": 345680,
+        "target_trace_distance": "1/1000000"
+      }
+    },
+    "preparation_error_examples": [
+      {
+        "cycle": "weak",
+        "declared_time": "1",
+        "ideal_half_diamond_bound": "7/14000040",
+        "implemented_half_diamond_bound": "7/14000040",
+        "per_cycle_channel_error": "0",
+        "per_fresh_pair_preparation_error": "0",
+        "rounds": 345680
+      },
+      {
+        "cycle": "weak",
+        "declared_time": "1",
+        "ideal_half_diamond_bound": "7/14000040",
+        "implemented_half_diamond_bound": "3699854321/4375012500000000",
+        "per_cycle_channel_error": "0",
+        "per_fresh_pair_preparation_error": "1/1000000000000",
+        "rounds": 345680
+      },
+      {
+        "cycle": "weak",
+        "declared_time": "1",
+        "ideal_half_diamond_bound": "7/14000040",
+        "implemented_half_diamond_bound": "1534229321/43750125000000",
+        "per_cycle_channel_error": "0",
+        "per_fresh_pair_preparation_error": "1/10000000000",
+        "rounds": 345680
+      },
+      {
+        "cycle": "mass",
+        "declared_time": "1",
+        "ideal_half_diamond_bound": "349/698000976",
+        "implemented_half_diamond_bound": "349/698000976",
+        "per_cycle_channel_error": "0",
+        "per_fresh_pair_preparation_error": "0",
+        "rounds": 538581
+      },
+      {
+        "cycle": "mass",
+        "declared_time": "1",
+        "ideal_half_diamond_bound": "349/698000976",
+        "implemented_half_diamond_bound": "45308128978441/43625061000000000000",
+        "per_cycle_channel_error": "0",
+        "per_fresh_pair_preparation_error": "1/1000000000000",
+        "rounds": 538581
+      },
+      {
+        "cycle": "mass",
+        "declared_time": "1",
+        "ideal_half_diamond_bound": "349/698000976",
+        "implemented_half_diamond_bound": "23713753978441/436250610000000000",
+        "per_cycle_channel_error": "0",
+        "per_fresh_pair_preparation_error": "1/10000000000",
+        "rounds": 538581
+      }
+    ],
+    "round_selection": "Ceiling of twice the proved coefficient divided by the declared channel accuracy; no target masses consumed.",
+    "scope": "Arbitrary untouched reference, complete channels and independent fresh preparation. Conditional service design, not measured hardware accuracy. Channel distance does not identify an additive physical mass or ratio correction.",
+    "target_half_diamond_error": "1/1000000"
+  },
+  "muon": {
+    "reference_only_standardized_discrepancy": "442.0158107366549022391304",
+    "reference_ratio": "206.7682827",
+    "reference_standard_uncertainty": "0.0000046",
+    "relative_residual_ppm": "9.83358135415133740093688",
+    "residual_ratio": "0.0020332727293886125503"
+  },
+  "preparation_sensitivity": [
+    {
+      "effect_operator_norm_bound": "1.0e-10",
+      "muon_electron_rate_ratio_interval": [
+        "206.7700403268067181852346",
+        "206.7705916193834520296163"
+      ],
+      "scope": "Fixed analyzer; source independent of register/reference. These are limiting effect-rate enclosures, not finite-channel mass-error bars or physical mass uncertainties.",
+      "source_pair_trace_distance_bound": "1.0e-10",
+      "tau_electron_rate_ratio_interval": [
+        "3477.468222264166785722213",
+        "3477.477451957275197703589"
+      ]
+    },
+    {
+      "effect_operator_norm_bound": "1.0e-8",
+      "muon_electron_rate_ratio_interval": [
+        "206.7427550003725930312054",
+        "206.7978842590162104162176"
+      ],
+      "scope": "Fixed analyzer; source independent of register/reference. These are limiting effect-rate enclosures, not finite-channel mass-error bars or physical mass uncertainties.",
+      "source_pair_trace_distance_bound": "1.0e-8",
+      "tau_electron_rate_ratio_interval": [
+        "3477.011413665651231300972",
+        "3477.934382992735986346391"
+      ]
+    }
+  ],
+  "schema": "oph.lepton_physical_comparison.v1",
+  "source_bindings": {
+    "model/lepton_cycle/COMPARISON.md": "d1ab0db27269276db8f7dce68cacf789cc2999abd644d73af65ebecd94f448e4",
+    "model/lepton_cycle/PROOF.md": "a3a98448a7eaebe311d361b34113c9857c196c70b7ac6effc0ae7b41ebbe12fe",
+    "model/lepton_cycle/compare.py": "4d5b0917fd8d5530d64efd190dc96c60caf93f795e09f5f78ff18327993159cf",
+    "model/lepton_cycle/composition.py": "542761d2e068af18caadc2d69c432b107cb60288a12a54ed12bda5ad199767f7",
+    "model/lepton_cycle/experimental_inputs.json": "7062d3dbdb8ece9afcbb89334966c3f325fb5c3c28f1d02f1b01341e8b597ce3",
+    "model/lepton_cycle/results.json": "945eab36a9d72b330b5d4de7a5e4a63cf8b70d104d0612c45beb7e3c32a1503c",
+    "model/lepton_cycle/sensitivity.py": "dad50887024d3158a710bf7083097dc0261c6040f66ee6ded153cdccac3824c3",
+    "model/lepton_cycle/test_compare.py": "13adb867544274cb258da94fbaa60c65684748ec91729ced78783adec13fe7d1"
+  },
+  "tau": {
+    "candidate_minus_reference_MeV": "0.05497081342714778565756964",
+    "conditional_one_standard_uncertainty_input_box_ratio": [
+      "3477.189135211313516535374",
+      "3477.541388601489423884747"
+    ],
+    "electron_calibrated_candidate_MeV": "1776.984970813427147785658",
+    "reference_only_standardized_discrepancy_range": [
+      "0.6107830400070182727116626",
+      "0.6107905917540617336087915"
+    ],
+    "reference_ratio": "3477.365261906346322795029",
+    "reference_ratio_linearized_sd_range": [
+      "0.1761245174770558294208233",
+      "0.1761266950879536746694364"
+    ],
+    "relative_residual_ppm": "30.93583507912398668353263",
+    "residual_ratio": "0.1075751982522095179717005"
+  },
+  "uncertainty_contract": {
+    "interpretation": "Standardized discrepancies divide by reference uncertainty only. They are not a physical-theory significance or a joint fit. Input boxes have no asserted frequentist coverage.",
+    "joint_chi_squared": null,
+    "joint_covariance_available": false,
+    "physical_theory_standard_uncertainty": null,
+    "sigma_range_method": "Linearized covariance-compatible PSD/Cauchy bounds using the supplied marginal uncertainties."
+  }
+}

@@ -22,6 +22,7 @@
     "WQ-04",
     "WQ-05",
     "WQ-07",
+    "WQ-21",
     "WQ-08",
     "WQ-09",
     "WQ-19",
@@ -40,10 +41,10 @@
     "WQ-18"
   ],
   "first_batch": [
-    "WQ-01",
-    "WQ-04",
-    "WQ-07",
-    "WQ-08"
+    "WQ-05",
+    "WQ-09",
+    "WQ-20",
+    "WQ-16"
   ],
   "tasks": [
     {
@@ -52,7 +53,7 @@
       "gate": "CP-12",
       "issue": 1148,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "tracking/premise_register.json",
@@ -98,7 +99,21 @@
         ]
       },
       "scope_boundary": "This inventory supports a complete statement of assumptions. It does not derive all physical assumptions or prove consistency merely by counting rows.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/completion/assumption_closure.json",
+          "sha256": "7097544b46ec64984fbbe8c0dc34fb51983c7d8aa92fd084e1b6fad4f0579206",
+          "independent_check": "model/completion/test_assumption_closure.py",
+          "scope": "Typed disclosure covers 84 canonical rows, 10 joint assumptions, 16 baseline claims, 134 named inputs, 66 imports, 33 services and 8 finite applications. Six source joins remain unproved; no canonical discharge, common physical realization or gate acceptance follows."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/completion/ASSUMPTION_CLOSURE.md": "28b40da9e14e411e3eaf01384e859ea251713b4b1bc1f77e45d7e35c1be16de1",
+        "model/completion/assumption_closure.json": "7097544b46ec64984fbbe8c0dc34fb51983c7d8aa92fd084e1b6fad4f0579206",
+        "model/completion/assumption_closure.py": "fb77add5d71eca2a4072b12c1e0713a20652e3497ed548f7e2ca239a6918bb1f",
+        "model/completion/test_assumption_closure.py": "8f9f1a4f96549e6f5db3b78b4c97b74929a29368851107e466a2229c2db22862"
+      }
     },
     {
       "id": "WQ-02",
@@ -236,7 +251,7 @@
       "gate": "CP-07",
       "issue": 1143,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/lepton_cycle/sensitivity.py",
@@ -289,7 +304,22 @@
         ]
       },
       "scope_boundary": "This finalizes a conditional retrospective comparison, not the physical mass derivation.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/lepton_cycle/physical_comparison.json",
+          "sha256": "d880464e668b4187e2190dc39160bd11f1441bc465b7b07d1bc985d9469e4c26",
+          "independent_check": "model/lepton_cycle/test_compare.py",
+          "scope": "Fixed theta=2/9 and balance=sqrt(2) give muon residual 9.833581 ppm and tau 30.935835 ppm against frozen primary references. Covariance availability, reference-only discrepancies, independent finite execution design, preparation bounds and empirical exposure are explicit; no physical mass-map or theory-error claim."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/lepton_cycle/COMPARISON.md": "d1ab0db27269276db8f7dce68cacf789cc2999abd644d73af65ebecd94f448e4",
+        "model/lepton_cycle/compare.py": "4d5b0917fd8d5530d64efd190dc96c60caf93f795e09f5f78ff18327993159cf",
+        "model/lepton_cycle/experimental_inputs.json": "7062d3dbdb8ece9afcbb89334966c3f325fb5c3c28f1d02f1b01341e8b597ce3",
+        "model/lepton_cycle/physical_comparison.json": "d880464e668b4187e2190dc39160bd11f1441bc465b7b07d1bc985d9469e4c26",
+        "model/lepton_cycle/test_compare.py": "13adb867544274cb258da94fbaa60c65684748ec91729ced78783adec13fe7d1"
+      }
     },
     {
       "id": "WQ-05",
@@ -416,7 +446,7 @@
       "gate": "CP-11",
       "issue": 1147,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/electroweak_crossover/finite_size.py",
@@ -468,7 +498,21 @@
         ]
       },
       "scope_boundary": "This is a conditional effective-theory benchmark; its source-to-physical coupling derivation is a separate task.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/electroweak_crossover/comparison_budget.json",
+          "sha256": "9ddee9eb0f48671f392f85757bb32e806b6e0054d9f169162334af72d205821a",
+          "independent_check": "model/electroweak_crossover/test_comparison_budget.py",
+          "scope": "Shared-reference PSD covariance propagation gives statistical SD 0.11810–0.13680 GeV under independent run sets, or 0–0.27631 GeV without that premise. Central Tc 161.1298 GeV is unchanged; reduction allowance and finite-design spread are separate. No missing covariance, nonlinear coverage or combined significance is invented."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/electroweak_crossover/PROOF.md": "2d620b55e0d21604e4e53dbb36ecf8c3c666ffc4585d4d2f35baff63056c3abf",
+        "model/electroweak_crossover/comparison_budget.json": "9ddee9eb0f48671f392f85757bb32e806b6e0054d9f169162334af72d205821a",
+        "model/electroweak_crossover/comparison_budget.py": "8c011257c50dea0a184d906b93c192c46160337a49d461780ce4301dc8350078",
+        "model/electroweak_crossover/test_comparison_budget.py": "0c0b539df1e6d5da12f383a27cab843992cdb5ced0d82043b06500108638ccf7"
+      }
     },
     {
       "id": "WQ-08",
@@ -476,7 +520,7 @@
       "gate": "CP-05",
       "issue": 1141,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/defect_particle_classes/PROOF.md",
@@ -527,7 +571,21 @@
         ]
       },
       "scope_boundary": "A thermal benchmark is a comparison input; class counting alone supplies neither a temperature nor physical species abundances.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/native_abundance_epochs/species_identifiability_results.json",
+          "sha256": "516f27341cfd8540320b5812b3f7eca25e904bc4592c214e09c09e70a0429cea",
+          "independent_check": "model/native_abundance_epochs/test_species_identifiability.py",
+          "scope": "Exact 32/30-component maps and boson extensions have explicit nullspaces, sharp aggregate bounds and attaining indistinguishable populations. One extra bit resolves family totals; three labels resolve all selected species aggregates. The ideal 1 TeV comparison distinguishes number/energy weights; no native particle decoder or cosmological abundance match is claimed."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/native_abundance_epochs/SPECIES_PROOF.md": "f15cd8f84ef084e5a09927813688e52b419535ade18563a0c018cb656a2221aa",
+        "model/native_abundance_epochs/species_identifiability.py": "231dc52cb3bb9e2d89fd3ccbd76b361f9bbd895d9a6940c57990e92dc646d788",
+        "model/native_abundance_epochs/species_identifiability_results.json": "516f27341cfd8540320b5812b3f7eca25e904bc4592c214e09c09e70a0429cea",
+        "model/native_abundance_epochs/test_species_identifiability.py": "0d4f594dfac239bbaf2cbe9507be9ef3722451bdcf90d5137b40bf4ab20e85c2"
+      }
     },
     {
       "id": "WQ-09",
@@ -599,7 +657,7 @@
       "depends_on": [
         "WQ-01"
       ],
-      "status": "blocked",
+      "status": "ready",
       "blocked_by": [],
       "source_paths": [
         "model/particle_common_contract/PROOF.md",
@@ -659,7 +717,7 @@
       "depends_on": [
         "WQ-01"
       ],
-      "status": "blocked",
+      "status": "ready",
       "blocked_by": [],
       "source_paths": [
         "model/particle_primary_odd_sum_rules/PROOF.md",
@@ -725,7 +783,7 @@
       "depends_on": [
         "WQ-01"
       ],
-      "status": "blocked",
+      "status": "ready",
       "blocked_by": [],
       "source_paths": [
         "model/particle_primary_odd_sum_rules/PROOF.md",
@@ -784,7 +842,7 @@
       "depends_on": [
         "WQ-01"
       ],
-      "status": "blocked",
+      "status": "ready",
       "blocked_by": [],
       "source_paths": [
         "model/particle_joint_reconstruction/DEPENDENCIES.md",
@@ -855,7 +913,7 @@
       "depends_on": [
         "WQ-01"
       ],
-      "status": "blocked",
+      "status": "ready",
       "blocked_by": [],
       "source_paths": [
         "model/particle_primary_gravity_premises/premises.json",
@@ -1014,7 +1072,7 @@
       "depends_on": [
         "WQ-01"
       ],
-      "status": "blocked",
+      "status": "ready",
       "blocked_by": [],
       "source_paths": [
         "model/conditional_standard_model/PROOF.md",
@@ -1166,7 +1224,8 @@
         "WQ-16",
         "WQ-17",
         "WQ-19",
-        "WQ-20"
+        "WQ-20",
+        "WQ-21"
       ],
       "status": "blocked",
       "blocked_by": [],
@@ -1324,6 +1383,11 @@
           "positive",
           "negative",
           "inconclusive"
+        ],
+        "WQ-21": [
+          "positive",
+          "negative",
+          "inconclusive"
         ]
       }
     },
@@ -1437,6 +1501,89 @@
       },
       "scope_boundary": "Correlated fitting improves finite-ensemble inference; omitted sea quarks and the physical scale/refinement remain separate requirements. This task does not consume PR-14, the separate empirical hadronic vacuum-polarization transport payload.",
       "completion_evidence": []
+    },
+    {
+      "id": "WQ-21",
+      "title": "Calibrate native quark spectral bins and test the mass dictionary",
+      "gate": "CP-06",
+      "issue": 1142,
+      "depends_on": [
+        "WQ-01"
+      ],
+      "status": "completed",
+      "blocked_by": [],
+      "source_paths": [
+        "model/native_quark_response/PROOF.md",
+        "model/native_quark_response/results.json",
+        "model/native_quark_response/full.py",
+        "model/native_quark_response/research_reference.json",
+        "model/common_source/calibrated_matter_parameters.json",
+        "model/common_source/calibrated_matter_results.json",
+        "model/particle_joint_reconstruction/dependencies.json"
+      ],
+      "premise_ids": [],
+      "reused_theorems": [
+        {
+          "path": "model/native_quark_response/PROOF.md",
+          "anchor": "",
+          "role": "Reuse complete native bins, original probabilities, actual-neutral reference subtraction and exact local flavour-degeneracy controls."
+        }
+      ],
+      "exact_prompt": "Freeze the actual native_quark_response uc, dc and Q complete spectral bins on their stated Hamiltonian/reference/clock. Calculate scale-free interval ratios before applying any measured anchor. Implement an explicit single-anchor GeV projection of source excitation energies relative to the actual ground, with the reference cost4 subtracted exactly once; retain all other spectral bins and failure probabilities. Keep unnamed source energies separate from physical quark masses. Test the candidate dictionary that assigns the dominant uc/dc bins to up/down: their near-equal energy ratio cannot match the calibrated common-MZ up/down ratio through one multiplicative scale. Certify that bounded obstruction if it survives replay; do not promote exact local measure equality to equality of full interacting spectra. Bind comparison-only pure-MSbar tadpole-free values at mu=MZ=91.1876GeV to the empirical Yukawa/v packet, with all input ancestry and no fabricated joint matching uncertainty. State the smallest propagation/dispersion, three-family and renormalized-observable witnesses needed to replace a calibrated source-energy table by six physical running quark masses. A negative direct-dictionary result is valid completion and motivates a source or observable change, not a fitted offset or six independent claimed predictions.",
+      "outputs": [
+        {
+          "path": "model/defect_mass_catalogue/calibration.py",
+          "description": "Exact common-clock scale feasibility and signed energy conversion."
+        },
+        {
+          "path": "model/defect_mass_catalogue/results.json",
+          "description": "Complete native quark bin conversion, retained original probabilities and excluded record-zero dictionary; all-family target inventory."
+        },
+        {
+          "path": "model/defect_mass_catalogue/test_calibration.py",
+          "description": "Exact scale cancellation, incompatible clocks/conventions, unchanged reference subtraction and failure accounting."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m unittest model.defect_mass_catalogue.test_calibration",
+          "expected": "All exact arithmetic and inherited complete-record controls pass."
+        },
+        {
+          "command": "python3 -m model.defect_mass_catalogue.catalogue --check",
+          "expected": "Frozen comparison, complete bin conversion and negative dictionary verdict reproduce."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The declared dictionary meets its ratio and source-observable conditions with explicit calibration ancestry, or a sharper bounded constructive map is proved."
+        ],
+        "fail": [
+          "Exact interval separation excludes the proposed common-scale quark dictionary; retain the obstruction and its source scope."
+        ],
+        "inconclusive": [
+          "Record the exact missing spectral or renormalization witness and bounded computations; no physical mass claim follows."
+        ]
+      },
+      "scope_boundary": "A calibrated source-energy display is permitted immediately. Physical running quark masses require a renormalization scheme/scale, flavour attachment and source-to-observable map; six empirical Yukawas are six supplied inputs.",
+      "completion_evidence": [
+        {
+          "path": "model/defect_mass_catalogue/results.json",
+          "sha256": "965915c2d0a76e54e6efc1a5dcda02aed192cd6fe3b5fa596958f5e1a895df73",
+          "independent_check": "model/defect_mass_catalogue/test_calibration.py",
+          "scope": "The proposed dominant uc/dc-bin dictionary fails an exact one-scale feasibility test at the frozen common-MZ calibration. All native bins, reference-subtracted intervals and original failure/outside probabilities are retained. This does not exclude other source dictionaries or derive physical quark masses."
+        }
+      ],
+      "completion_outcome": "negative",
+      "completion_bindings": {
+        "model/defect_mass_catalogue/PROOF.md": "eb68f0da96eed710c2673f752df029a098eebd8053413bac8b0c1db529150ea0",
+        "model/defect_mass_catalogue/README.md": "7100c7bf7e700ad591d37772832855f3e56ed0c9dbb0cea59b0c15f572909402",
+        "model/defect_mass_catalogue/__init__.py": "62e8a81c23e82894a434edab0f28008150b5eb986dd0dbdaea2b701959e0f6b7",
+        "model/defect_mass_catalogue/calibration.py": "ad001ffda40c3bf433f48d1b566a965472fb41b039204d23fcd8038ea64d2591",
+        "model/defect_mass_catalogue/catalogue.py": "310000c2369770ee2efe618a5edf26738b64e7a14608fb8c4b5b70091f6c392f",
+        "model/defect_mass_catalogue/results.json": "965915c2d0a76e54e6efc1a5dcda02aed192cd6fe3b5fa596958f5e1a895df73",
+        "model/defect_mass_catalogue/test_calibration.py": "6c6a40f67654800d5d05c2a420419209f206f769665e8fd7fd96667b9823588a"
+      }
     }
   ]
 }

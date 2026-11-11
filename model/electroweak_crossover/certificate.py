@@ -16,6 +16,7 @@ import numpy as np
 from . import lattice as lt
 from . import reduction as rd
 from . import finite_size
+from . import comparison_budget
 
 HERE = Path(__file__).parent
 
@@ -409,10 +410,34 @@ def certificate(production: dict | None = None) -> dict:
     for k, g in prod.get("gates", {}).items():
         checks["0_gates." + k] = bool(g.get("ok"))
     out["gates"] = prod.get("gates", {})
+    budget = comparison_budget.analyse(prod, rows_out, fit_y, fs)
+    out["comparison_budget"] = budget
+    for name, row in rows_out.items():
+        if name not in budget['rows']:
+            continue
+        item = budget['rows'][name]
+        row['T_c_err_lattice_independence_control'] = row['T_c_err_lattice']
+        row['T_c_err_total_independence_control'] = row['T_c_err_total']
+        row['T_c_err_lattice'] = None
+        row['T_c_err_total'] = None
+        row['T_c_err_lattice_range'] = item['independent_run_sets']['sd_range_GeV']
+        row['T_c_err_lattice_unrestricted_range'] = item['unrestricted_cross_set_covariance']['sd_range_GeV']
+        row['statistical_error_scope'] = ('Delta-method SD range conditional on supplied marginal estimates and '
+            'independence of separately simulated sets; within-set covariance unretained. '
+            'The unrestricted range also permits cross-set covariance. No nonlinear coverage is certified.')
+        row['reduction_allowance_scope'] = 'Declared one-percent estimate, not a calibrated standard deviation'
+    if 'comparison_not_blind' in out:
+        comparison = out['comparison_not_blind']
+        comparison['independence_control'] = {key: comparison[key] for key in ('err', 'pull')}
+        comparison['err'] = comparison['pull'] = None
+        comparison['uncertainty_scope'] = ('A unique statistical SD is unidentified; the reduction allowance '
+            'has no calibrated probabilistic coverage. No combined significance is assigned.')
+    checks.update({'9_covariance.'+name: ok for name, ok in budget['checks'].items()})
     out["checks"] = checks
     out["all_checks_pass"] = all(checks.values())
     out["input_sha256"] = {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest()
                            for name in ("production.json", "lattice.py", "reduction.py", "reweight.py", "kernels.py",
-                                        "finite_size.py", "certificate.py")
+                                        "finite_size.py", "certificate.py", "comparison_budget.py")
                            if (HERE / name).exists()}
+    out['input_sha256'].update(budget['input_sha256'])
     return json.loads(json.dumps(out))

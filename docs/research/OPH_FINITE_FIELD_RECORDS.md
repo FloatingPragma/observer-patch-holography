@@ -19,6 +19,18 @@ value inserted to fit a target. The finite matrix apparatus below is an
 explicit service. Calling it an output of the passive local repair interpreter
 would require a separate implementation proof.
 
+The [joined defect and scalar source](../../model/defect_mass_join/PROOF.md)
+retains all native fermion channels and scalar profiles on one declared
+clock. Its [selected scalar modes](../../model/defect_scalar_modes/PROOF.md)
+and full filled-sea backreaction give nearly equal spatial strengths,
+whereas a separately chosen local probe gives a large overlap hierarchy.
+The [native contact vertices](../../model/defect_family_vertices/PROOF.md)
+have explicit state-dependent scalar normalization. Their physical
+propagation and family assignments are not supplied by their charge labels.
+The [mass catalogue](../../model/defect_mass_catalogue/README.md) separates
+conditional electron-anchored GeV values from empirical action parameters
+and unproved physical masses.
+
 ## Which source each result uses
 
 | Source | State and clock | Established result | Boundary |
@@ -237,6 +249,14 @@ oriented-current cycle and `349/(1296N)` for the mass-read cycle, including
 arbitrary untouched references. Preparation and coherent services are
 declared; the estimates do not attach a physical mass or duration.
 
+The [fixed comparison](../../model/lepton_cycle/COMPARISON.md) uses CODATA
+2022 and the PDG 2024 tau average. The muon ratio differs by `+9.833581 ppm`,
+or `442.016` experimental standard uncertainties; the tau ratio differs by
+`+30.935835 ppm`, or approximately `0.61079` experimental standard uncertainties.
+These are reference-only discrepancies. No joint likelihood or physical-theory
+uncertainty is supplied. Finite round counts follow a declared channel-accuracy
+target; no parameter or round count is selected to cancel either residual.
+
 The [bounded record observer](../../model/repair_sector_bridge/RECORD_OBSERVER.md)
 reconstructs native pair distance from a known preparation and complete
 addressed current records. Its exact quotient reaches 1% total-variation
@@ -255,6 +275,20 @@ and exhaustive native branch checks give zero mean odd class imbalance for
 symmetric preparation, fair coins and an equivariant scheduler. These are
 complete classical population records, with no thermal-history, baryon-number
 or physical species-abundance identification.
+
+The [species inverse problem](../../model/native_abundance_epochs/SPECIES_PROOF.md)
+has rank six and nullity 26 for the 32-component grammar, or nullity 24
+after the charged-exterior restriction to 30 components. It proves sharp
+aggregate bounds and a minimal extra-label requirement: a fermion/boson
+bit within classes zero and three identifies quark/lepton/Higgs/gauge
+totals on the declared component dictionary. A three-valued label resolves
+all selected up/down and charged/neutral aggregates. The executable
+rejects native face-flux counts as species counts without a decoder.
+The separate massless, equilibrium Standard Model benchmark at `1 TeV`
+has number fractions `108/191` quarks and `27/191` leptons among all
+particles, with three active-neutrino families and no populated right-handed
+neutrinos. Its fermion-only split is `80%:20%`; uniform full-code counting
+gives `75%:25%` instead. Neither counting rule is a measured run abundance.
 
 These results belong to the defect register and the declared coupling chain;
 the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
@@ -279,6 +313,55 @@ pair births in the large classical repair runs do not compute the early
 universe's quantum species distribution, reheating, baryon excess or nuclear
 abundances. The viewer keeps those run counts and the three lattice
 comparisons distinct from these quantum-source records.
+
+GeV units can also be displayed in the explicitly
+[calibrated quark comparison](../../model/common_source/calibrated_matter_results.json).
+Its six common-scale running parameters consume empirical Yukawas and a
+Higgs scale. The [native quark bins](../../model/native_quark_response/PROOF.md)
+have their own complete source records; assigning one energy unit to them
+cannot change scale-free ratios or establish a physical flavour dictionary.
+
+The Yukawa calculations retain a separate source distinction. The
+[native coefficient dual](../../model/yukawa_source_operator/PROOF.md)
+([receipt](../../model/yukawa_source_operator/results.json)) recovers every
+family coefficient from a supplied Higgs derivative, including the existing
+trial action; its physical Higgs kinetic normalization is not derived.
+The [complete family response](../../model/yukawa_source_dynamics/PROOF.md)
+([receipt](../../model/yukawa_source_dynamics/results.json)) retains the
+complement that produces the compressed commutator. Its twelve-port mean-occupation and
+completion matrices commute, and its normalized zero-frequency Schur matrix
+has rank one. The cyclic source also retains all quantum records and has
+zero oriented three-record phase. These are response records, not a
+three-generation mass assignment.
+
+The [finite Higgs join](../../model/yukawa_source_running/PROOF.md)
+([receipt](../../model/yukawa_source_running/results.json)) derives its
+no-hopping Pauli-blocking thresholds and a coupling inverse using both
+resolved spectral lines and every blocked creation outcome. It recovers
+`abs(g)*sigma_i(Y)`, with the common reference offset, within that declared
+preparation. Conditional minimal Standard Model running preserves rank and
+contracts charged-lepton ratios toward the infrared. The distinct
+[correlated feedback calculation](../../model/yukawa_source_feedback/PROOF.md)
+([receipt](../../model/yukawa_source_feedback/results.json)) uses the [complete-memory theorem](../../model/particle_memory_response/PROOF.md)
+for the all-lag coherent correction and noise, and derives the exact next
+correction to its family coefficient on the full 432-dimensional channel. The accompanying dissipation and the
+supplied logical pulses and clock remain part of that result. Neither
+construction supplies the physical Higgs/fermion matching needed to identify
+these coefficients or addition costs with measured Yukawas or masses.
+
+The [electroweak covariance budget](../../model/electroweak_crossover/PROOF.md)
+retains the central value `161.1298 GeV`. Shared-reference covariance is
+absent from the stored marginals. Conditional on independent run sets,
+linear propagation gives a compatible statistical standard-deviation
+range `[0.11810,0.13680] GeV`; allowing arbitrary cross-set covariance gives
+`[0,0.27631] GeV`. The `1.6113 GeV` reduction allowance and `0.348964 GeV`
+finite-design spread are separate. No combined Gaussian error or standardized
+agreement follows from these inputs.
+
+The [typed assumption inventory](../../model/completion/assumption_closure.json)
+binds canonical premises, joint-field assumptions and apparatus/interpretation
+inputs to an audited revision and named source domains. Disclosure of a
+primitive or calibration supplies no physical derivation or canonical discharge.
 
 The quenched hadron comparison includes the potential-fit variation in its
 scale error: `m_rho/sqrt(sigma) = 1.3326 +- 0.1220` and

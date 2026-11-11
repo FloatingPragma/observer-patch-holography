@@ -161,12 +161,12 @@
       "0"
     ],
     "comparison_only": {
-      "linear_phase_displacement_for_residual_diagnostic": "-0.0000001751229452709475895628256",
+      "linear_phase_displacement_for_residual_diagnostic": "-0.0000001751487877926569289931888",
       "phase_displacement_applied": false,
-      "reference_convention": "Rounded CODATA central value used by the retained paper table; no uncertainty supplied here.",
-      "reference_muon_ratio": "206.768283",
+      "reference_convention": "CODATA 2022 direct central ratio; experimental_inputs.json and physical_comparison.json supply the experimental uncertainty contract.",
+      "reference_muon_ratio": "206.7682827",
       "reference_used_to_select_parameters": false,
-      "relative_residual_ppm": "9.832130440376160353081414"
+      "relative_residual_ppm": "9.833581354151337401127034"
     },
     "exclusive_count_input_derivatives": {
       "dtheta_d_forward_probability_at_independence": "2/3",
@@ -251,14 +251,14 @@
     "Lean/EventAlgebra/SlotLocalitySurface.lean": "36619cf280b2f5cb8d6510b44b2ca17e547cad9640d47dbaf864ac23e97a4f30",
     "model/coherent_seam_repair/common.py": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
     "model/coherent_seam_repair/program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
-    "model/lepton_cycle/PROOF.md": "3aff945e1fdd27d5036b90933b27d72727952f58bf69a5c312fc43b3000773bb",
-    "model/lepton_cycle/README.md": "2ffc77fe02f436b9d27d1b3bf457de5446870cfd28488c60586810977bced8a0",
+    "model/lepton_cycle/PROOF.md": "a3a98448a7eaebe311d361b34113c9857c196c70b7ac6effc0ae7b41ebbe12fe",
+    "model/lepton_cycle/README.md": "140b9d90e548cf7793854ba92afa7de9120724b98e0b0d1dc143cc3173e03868",
     "model/lepton_cycle/__init__.py": "aaaf87869230232102ef73d973833229a1ea6307fe88d677be9fcb6284a808c3",
     "model/lepton_cycle/__main__.py": "2163ee77c77b12b7e53d7c99294c256ed98e9d63c9fb1ffb4fe8383f9b2e6486",
-    "model/lepton_cycle/certificate.py": "7dd740bcb0fc7e7d10163c37097c8c635776ee988afd771c0a160695d451cb11",
+    "model/lepton_cycle/certificate.py": "302d1c4109b6d86ed94bff912a8d2564ac054df32ce84ae9009a1a2f6cf88c18",
     "model/lepton_cycle/composition.py": "542761d2e068af18caadc2d69c432b107cb60288a12a54ed12bda5ad199767f7",
     "model/lepton_cycle/instrument.py": "18d6fceae8b68a8982a8b1505d97c2bd80a38cb0d50097768b05e7bc114a14b1",
-    "model/lepton_cycle/sensitivity.py": "e7418131bac66b0e418f1080a2cd5b184d42be0c2f23e1776bb558c321930c4d",
+    "model/lepton_cycle/sensitivity.py": "dad50887024d3158a710bf7083097dc0261c6040f66ee6ded153cdccac3824c3",
     "model/lepton_cycle/test_cycle.py": "00371f93843b354c151afb8d2105aa0dc580262fab8481de8757dbed7b7879f2",
     "model/lepton_register_round/carrier.py": "a156c39dc746e9347a30d1f8d37b7d3383f00106fed58a877375ed783eed0fd4",
     "model/lepton_register_round/rounds.py": "a4a62cb8448144aa80ab6dd0c0505953b8303f0a4800d18a8c79e1a8bcd4a30b",
@@ -290,12 +290,12 @@
         "0"
       ],
       "comparison_only": {
-        "linear_phase_displacement_for_residual_diagnostic": "-0.0000001751229452709475895628256",
+        "linear_phase_displacement_for_residual_diagnostic": "-0.0000001751487877926569289931888",
         "phase_displacement_applied": false,
-        "reference_convention": "Rounded CODATA central value used by the retained paper table; no uncertainty supplied here.",
-        "reference_muon_ratio": "206.768283",
+        "reference_convention": "CODATA 2022 direct central ratio; experimental_inputs.json and physical_comparison.json supply the experimental uncertainty contract.",
+        "reference_muon_ratio": "206.7682827",
         "reference_used_to_select_parameters": false,
-        "relative_residual_ppm": "9.832130440376160353081414"
+        "relative_residual_ppm": "9.833581354151337401127034"
       },
       "exclusive_count_input_derivatives": {
         "dtheta_d_forward_probability_at_independence": "2/3",

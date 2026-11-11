@@ -2,8 +2,8 @@
 from __future__ import annotations
 import mpmath as mp
 
-# The retained comparison's rounded CODATA central ratio is comparison-only.
-MUON_REFERENCE = '206.768283'
+# CODATA 2022 direct ratio; comparison.py supplies the full uncertainty contract.
+MUON_REFERENCE = '206.7682827'
 
 
 def spectrum(theta, balance, normalization=1):
@@ -65,7 +65,7 @@ def report():
                 'positive_chamber_phase_margin': fmt(mp.pi / 12 - theta),
                 'koide_positive_chamber': '1/3 + balance^2/6',
                 'comparison_only': {'reference_muon_ratio': MUON_REFERENCE,
-                    'reference_convention': 'Rounded CODATA central value used by the retained paper table; no uncertainty supplied here.',
+                    'reference_convention': 'CODATA 2022 direct central ratio; experimental_inputs.json and physical_comparison.json supply the experimental uncertainty contract.',
                     'relative_residual_ppm': fmt(residual * 10**6),
                     'linear_phase_displacement_for_residual_diagnostic': fmt(-mp.log(1 + residual) / jac[0, 0]),
                     'phase_displacement_applied': False, 'reference_used_to_select_parameters': False},

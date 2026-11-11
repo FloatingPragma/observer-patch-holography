@@ -208,10 +208,14 @@ The exclusive phase is `p_F+p_H-2p_FH`. Fixed marginals `1/12,1/6` allow
 the fresh cells selects `p_FH=1/72` and phase `2/9`. Thus the reset and
 preparation map supply a premise that marginal counts alone do not supply.
 
-The comparison-only rounded reference `206.768283` gives a muon/electron
-residual of `+9.83213044 ppm`. The linear phase displacement diagnostic is
-`-1.75122945e-7`; it is not applied. Finite-round diagnostic phases and ratio
+The comparison-only CODATA 2022 reference `206.7682827` gives a muon/electron
+residual of `+9.83358135 ppm`. The linear phase displacement diagnostic is
+approximately `-1.75149e-7`; it is not applied. Finite-round diagnostic phases and ratio
 biases are reported for fixed round counts. Selecting a round count to
 cancel the measured residual would be calibration. These calculations
 supply neither an uncertainty for the physical theory nor a mass-pole
 interpretation of the register rates.
+
+The [fixed comparison](COMPARISON.md) propagates the published experimental
+uncertainties, retains missing covariance and proves preparation-error
+enclosures separately from the complete-channel implementation budget.

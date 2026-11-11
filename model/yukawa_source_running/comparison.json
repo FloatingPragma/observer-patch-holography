@@ -1,0 +1,71 @@
+{
+  "common_scale": {
+    "matching_reexecuted_here": true,
+    "mu": "M_Z",
+    "reference_MZ_GeV": "91.1876",
+    "reference_mass_convention": "LEP-only Breit-Wigner Z input of the pinned SMDR1.3 reference, not an asserted tree-level action pole",
+    "scheme": "MSbar Standard Model"
+  },
+  "comparisons": {
+    "conditional_one_loop_IR": {
+      "adjacent_ratios": [
+        195.0281969319391,
+        16.05712840731279
+      ],
+      "ratio_divided_by_empirical_ratio": [
+        0.9257764478700314,
+        0.9452955791842493
+      ]
+    },
+    "native_full_hopping": {
+      "adjacent_ratios": [
+        39016.935353862355,
+        449.0270938635834
+      ],
+      "ratio_divided_by_empirical_ratio": [
+        185.20891023403567,
+        26.434572608255777
+      ]
+    },
+    "native_no_hopping": {
+      "adjacent_ratios": [
+        38083.8457208984,
+        388.8766785339299
+      ],
+      "ratio_divided_by_empirical_ratio": [
+        180.7796409307298,
+        22.89347109527774
+      ]
+    },
+    "source_Y": {
+      "adjacent_ratios": [
+        195.11703756904413,
+        18.347071533650116
+      ],
+      "ratio_divided_by_empirical_ratio": [
+        0.92619816416921,
+        1.0801063036799314
+      ]
+    }
+  },
+  "conclusions": {
+    "all_positive_no_hopping_g_over_scalar_excluded_by_exact_ratio_bounds": true,
+    "continuum_matching_required_before_physical_mass_comparison": true,
+    "one_loop_minimal_SM_IR_cannot_raise_source_middle_over_small_ratio_to_comparison": true
+  },
+  "empirical_adjacent_ratios": [
+    210.66446157778995,
+    16.986357242006168
+  ],
+  "empirical_file": "model/common_source/calibrated_matter_parameters.json",
+  "empirical_input_role": "comparison only; absent from source/threshold/running producer",
+  "empirical_running_yukawas": [
+    2.77713593658984e-06,
+    0.00058504384681003,
+    0.0099377637841527
+  ],
+  "empirical_sha256": "2e48d4199d48e9c9d4520d060f68043a4ff569cd87fdad6990ae5bc7b99539f8",
+  "matching_of_finite_addition_frequency_to_running_mass_proved": false,
+  "no_fitting_or_selection_performed": true,
+  "schema": "oph.yukawa_source_running.empirical_comparison.v1"
+}

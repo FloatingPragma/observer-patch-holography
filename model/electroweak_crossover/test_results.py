@@ -25,7 +25,9 @@ def test_declared_chain_is_a_crossover():
     assert row['kind'] == 'crossover'
     assert row['x_at_T_c'] > X_C['value'] + 5 * X_C['err']
     assert 150.0 < row['T_c'] < 170.0
-    assert row['T_c_err_lattice'] < 1.0 < row['truncation_error'] < 2.0
+    assert row['T_c_err_lattice'] is None
+    assert 0 < row['T_c_err_lattice_range'][0] <= row['T_c_err_lattice_range'][1] < 1.0
+    assert 1.0 < row['truncation_error'] < 2.0
 
 
 def test_peak_grows_at_the_first_order_point_and_saturates_in_the_crossover():

@@ -12,9 +12,14 @@ an independent energy unit require a separate attachment.
 memory, stationary reference families and parameter sensitivities.
 [The receipt](results.json) records exact identities and native numerical
 checks. The muon/electron residual is reported without changing a parameter.
+The [fixed experimental comparison](COMPARISON.md) reports both ratios,
+published marginal uncertainties and a separate finite execution budget.
+Its [receipt](physical_comparison.json) retains empirical exposure and the
+unproved physical mass interpretation.
 
 ```sh
 python3 -m model.lepton_cycle --check
+python3 -m model.lepton_cycle.compare --check
 python3 -m pytest -q model/lepton_cycle
 ```
 
