@@ -819,7 +819,7 @@ A wrong reference, omitted center term or unsupported scaling is rejected.
 
 **Task closure**
 
-- Pass: The specified open-boundary variation and its stress/boundary identity are derived on the declared extension, with every physical-selection and scaling premise still explicit.
+- Pass: The specified open-boundary variation and its stress/boundary identity are derived on the declared extension, with every physical-selection and scaling premise explicit.
 - Fail: A certified flat-action, stress or boundary mismatch excludes that proposed variation.
 - Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
 
