@@ -733,7 +733,7 @@
     "model/completion/adaptive_reference.py": "b7acada7572f55c81fa8754658d3f7d592ee007dc38d2a421ba6d19de8247804",
     "model/completion/campaign.json": "c2255052cbec88a0e12a8d065e57d055169e78a58db66e770ed8b2f346ea368f",
     "model/completion/common_action_campaign.json": "dd0ae22c9c5184453501f70f383dda08562eeba0c2fa2f4c398c07fe83b8e8d6",
-    "model/completion/component_interfaces.json": "3ca0ab1b97257ed25992df615d4dbd8f5455603464942a2718cbe1ee053166ce",
+    "model/completion/component_interfaces.json": "5dabeac14907f4a756c35fc7890ac718978f3430a74662055106e5e432fcbe4d",
     "model/completion/continuing_spectrum_campaign.json": "c2da42adec941688f95f57584e4a7e88e90f1b932817d321b46344a02f48b082",
     "model/completion/continuum_field_campaign.json": "f7fd154f99dd54acf3212091847d81cb46b8a40943ea3fc9a9b759e803138679",
     "model/completion/defect_algebra.py": "1a19f00c64e89a65eb18bd335f59776ee522c1e6c35ae53508ee4b57aa9c7cf3",
@@ -744,7 +744,7 @@
     "model/completion/dynamics_response_campaign.json": "826bf32ac429ca5834e7a880979c5c7072236b05c2a1bb5517ca2ffc18a3f790",
     "model/completion/dynamics_response_campaign.py": "17cb029f6864e3ec060c8384e4bb7a7fe30d6873bf2ab5870a2d166abc8f3512",
     "model/completion/family.py": "8aa8384f1a86af9531a4eeea7517b2d710bba4cce9b139660bfff482bf5e6d10",
-    "model/completion/finite_attachment_map.json": "03a017db3fadea0281c5d5f22dca045bcfbc7d2083cc14d8cedcc226dc1335cf",
+    "model/completion/finite_attachment_map.json": "9ef44a6439750e21a528526159346c9fdc7d406f7cfc3e4260f4660b7d6a6739",
     "model/completion/finite_attachment_map.py": "29d24723e5c8634af5e971c0054ce49c29ef6da56876ffc7dbea985aa9ddeef6",
     "model/completion/ground_response_campaign.json": "11383b9d22ddcf0b0a68af0ec3cf66b8465d71a00c7d03cc2d2acc3476c7048c",
     "model/completion/independent_program_review.py": "ec4e30b6e7c858538fa391db84a40a770f829c54d987dd2b147d22fdd40153ac",
@@ -2082,7 +2082,7 @@
     "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
     "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89",
-    "tools/test_completion_program.py": "750c3d046a356df9731e27f611866e800980852f3e34410c2373d22fb6d5fe77",
+    "tools/test_completion_program.py": "70f1bcd7125d8b606df49aa8a58782f5da541764f2c85d31a5503de15b1cc434",
     "model/prepared_regional_entropy/entropy.py": "61b231d3f2fc64ac55f1d7395c79b06f85d41df11e08383c246bc02889ebc5b5",
     "model/quadratic_conservation/__init__.py": "60c8dc3ef7b265b380a9c3115157e82d4ba0fa1bfc3ac0b3184556edd916495e",
     "model/prepared_regional_entropy/__init__.py": "af067784029049290377e51f0b0d7df3993507740f743db17eb940fb8805b48c",
@@ -2158,7 +2158,7 @@
     "model/completion/current_custody_renewal.py": "9b8004ddb4ae0d1d0d2136d589a83864ad80ff7bccb80e2a0a5221e0c0df3da9",
     "model/completion/custody_authority_20261111.json": "9537d11b1c352da10f0531f9bee002cc9695a307a86f1aefe831a386b45b19d4",
     "model/completion/custody_renewal_20261111.json": "f45377db7656c0fadf2e4e7e2815ccebf5382bef77638061fafb18af20c9d5c4",
-    "tools/build_completion_program_current.py": "ec0a32805d7f9476b4324e977c95c08ad4faa9e3ad77bf18d6b6bfd126dbe686",
+    "tools/build_completion_program_current.py": "4c14b03203f10ae1ce101d7eb5f89de42b3f74f9123b80ed23e710bbdb320e20",
     "model/completion/custody_authority_r2063.json": "0f47735b000df58b670f9ae4b217f5dcfe8e404868adb3b502f9aa8b37d41f81",
     "model/completion/custody_renewal_r2063.json": "ef4f730f270c8697b470483cd9280b7b0ffd7a76ff959a120040b02343fd6ff2",
     "model/completion/r2063_custody_renewal.py": "a19fc6ab5e88a9b75a5a2221f06e61d61acde2f6faeb9ad57688408337649fcc",
@@ -5330,12 +5330,6 @@
     "physical_class_clauses_changed": false,
     "canonical_physical_premises_discharged": [],
     "tests": "model/completion/test_program_class_v2.py"
-  },
-  "current_source_custody_renewal": {
-    "date": "2026-11-11",
-    "path": "model/completion/field_current_records_custody_current.json",
-    "role": "CUSTODY_ONLY_NO_NEW_MATHEMATICAL_ACCEPTANCE",
-    "sha256": "e9e1117b1daa0e9db54b903a972ed07f4927f5d3546eb3050071e960f4efcad6"
   },
   "current_interpreter_custody_successor": {
     "role": "CURRENT_CUSTODY_SUCCESSOR_NO_NEW_CLASS_OR_MATHEMATICAL_ACCEPTANCE",

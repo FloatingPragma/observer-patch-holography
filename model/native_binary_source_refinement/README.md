@@ -21,8 +21,8 @@ python -m pytest -q -W error --noconftest model/native_binary_source_refinement
 
 Use the repository's pinned Lean toolchain. The strict verifier fails without
 Lean. It enrolls `tools.strict_json` itself and rejects source modules loaded
-before its enrollment; `--noconftest` keeps the plugins of `model/conftest.py`,
-which import that module, out of the run. The `Native binary source refinement` workflow executes the strict
+before its enrollment, so run the package on its own: another collected test
+module that imports `tools.strict_json` first disables the kernel tests. The `Native binary source refinement` workflow executes the strict
 receipt replay and every kernel-dependent test; the no-Lean observer
 regression runs the Python controls and skips those kernel tests. Receipt-only
 verification uses `python -m model.native_binary_source_refinement --check
