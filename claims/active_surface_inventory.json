@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1845,
+  "surface_count": 1867,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -382,6 +382,11 @@
     },
     {
       "path": "paper/tex_fragments/FINITE_MATTER_FIELD_CONNECTIONS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/FINITE_PARTICLE_RECORD_DYNAMICS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -2086,6 +2091,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/charge_conjugation_dynamics/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/charge_conjugation_dynamics/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/charged_composite_search/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2911,6 +2926,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/colour_deconfinement/inputs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/common_source/CALIBRATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3471,6 +3491,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/defect_integer_lift/inputs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/defect_localization_readout/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3487,6 +3512,11 @@
     },
     {
       "path": "model/defect_particle_classes/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/defect_particle_classes/inputs/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3517,6 +3547,11 @@
     },
     {
       "path": "model/electroweak_crossover/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/electroweak_crossover/inputs/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3771,6 +3806,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/finite_field_comparison_inputs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/finite_instrument_calibration/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3782,6 +3822,11 @@
     },
     {
       "path": "model/finite_modular_inclusion/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/finite_repair_comparison_inputs/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3807,6 +3852,11 @@
     },
     {
       "path": "model/gauge_defect_transport/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/gauge_higgs_comparison_inputs/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4056,12 +4106,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/lepton_cycle/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lepton_cycle/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/lepton_register_round/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/lepton_register_round/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lepton_register_round/inputs/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4221,6 +4286,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_abundance_epochs/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_abundance_epochs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_action/INCIDENT_REFINEMENT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4317,6 +4392,21 @@
     },
     {
       "path": "model/native_charge_resolution/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charged_cluster_minmax/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charged_cluster_minmax/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charged_cluster_minmax/self_energy/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5651,6 +5741,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_construction_scope/comparison_inputs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_defect_attachment/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6886,6 +6981,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/quenched_hadron_binding/inputs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/radial_current_map/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -7041,6 +7141,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/repair_band_inputs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/repair_coherence_lifetime/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -7062,6 +7167,11 @@
     },
     {
       "path": "model/repair_sector_bridge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/repair_sector_bridge/RECORD_OBSERVER.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
