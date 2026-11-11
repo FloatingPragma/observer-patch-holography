@@ -2,9 +2,11 @@
 
 The executable constructions connect native charged probes to positive
 transfer records, source-energy bins, prepared finite field interactions and
-controlled local observations. The particle species are identified at the
-level of centre classes by the [defect-class certificate](../../model/defect_particle_classes/README.md);
-these field constructions add charged-sector energies and complete records,
+controlled local observations. A protected defect carries the centre class
+`6Y mod 6` of a Standard Model multiplet, exactly, by the
+[defect-class certificate](../../model/defect_particle_classes/README.md);
+the class carries no generation, weak isospin component or rest mass.
+These field constructions add charged-sector energies and complete records,
 and they produce no source-derived GeV mass. The [typed claim supplement](../../claims/addenda/field_record_addenda.json)
 states the scope of each result; the [executable index](../../model/field_record_addenda/README.md)
 links its proofs, exact receipts and replay commands.
@@ -215,11 +217,26 @@ that one source satisfy every theorem's mutually different domain. A theorem
 about a supplied geometry, free field or calibrated detector remains conditional
 until this same source supplies that particular premise.
 
+## Defect register, lepton ratios and lattice results
+
+These results belong to the defect register and the declared coupling chain;
+the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
+reproduces the stored class on every stored cut of the runs. The [lepton register](../../model/lepton_register_round/README.md)
+gives `m_mu/m_e = 206.770316` and `m_tau/m_e = 3477.4728` with no measured mass
+as input; the absolute lepton scale is open. The lattice packages measure the
+[electroweak crossover](../../model/electroweak_crossover/README.md) of the
+declared chain at `161.13 GeV`, first-order [colour deconfinement](../../model/colour_deconfinement/README.md)
+of the colour links at `beta_c = 5.69105(39)` for `N_t = 4`, and
+[quenched quark binding](../../model/quenched_hadron_binding/README.md) on the
+same links with `m_N/m_rho = 1.45 +- 0.13`; none is a blind prediction. The
+sector law behind the electroweak scale ([seam class balance](../../model/seam_class_balance/README.md))
+is open.
+
 Gravity and a cosmological thermal history are separate tasks. Class-register
 pair births in the large classical repair runs do not compute the early
-universe's quantum species distribution, reheating or nuclear abundances.
-The viewer keeps those run counts and imported cosmological comparisons
-distinct from these quantum-source records.
+universe's quantum species distribution, reheating, baryon excess or nuclear
+abundances. The viewer keeps those run counts and the three lattice
+comparisons distinct from these quantum-source records.
 
 ## A relevant external ground-state theorem
 

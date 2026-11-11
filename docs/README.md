@@ -290,6 +290,20 @@ order:
   reproduces both certified alpha roots and the conditional tau window, verified by
   [`code/independent_postdictions`](../code/independent_postdictions/).
 
+**Defect register and particle classes.** The
+[defect-class certificate](../model/defect_particle_classes/README.md)
+identifies each protected defect class with the centre class `6Y mod 6` of a
+Standard Model multiplet, and the [integer lift](../model/defect_integer_lift/README.md)
+checks the register on the stored runs. The [lepton register](../model/lepton_register_round/README.md)
+gives the charged-lepton ratios `206.770316` and `3477.4728` with no measured
+mass as input. On the lattice, the declared coupling chain gives the
+[electroweak crossover](../model/electroweak_crossover/README.md), the colour
+links give [deconfinement](../model/colour_deconfinement/README.md) and
+[hadron binding](../model/quenched_hadron_binding/README.md), and the
+[seam class balance](../model/seam_class_balance/README.md) measures the sector
+law behind the electroweak scale. The pinned notes below state the boundaries
+of their own source constructions.
+
 **Field and particle construction.** The source-pinned
 [field reconstruction guide](research/OPH_FIELD_RECONSTRUCTION.md) records
 the transient-collision test, conditional response constructions and their

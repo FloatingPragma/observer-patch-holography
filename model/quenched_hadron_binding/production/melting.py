@@ -1,0 +1,64 @@
+"""Polyakov loop correlators at finite temperature (one stream). Needs numba.
+
+    python -m model.quenched_hadron_binding.production.melting NS NT BETA STREAM NTHERM NMEAS OUT.npz
+
+Measures after every compound sweep (1 heat bath + 4 overrelaxation): the correlator
+C(r) = < L(x) L(x + r)^* > averaged over the volume by Fourier transform and binned in r^2, block means of 100
+measurements, and the volume-averaged loop.
+"""
+import json
+import os
+import sys
+import time
+
+import numpy as np
+
+from ...colour_deconfinement import su3_numba as S
+
+
+def main():
+    if not S.AVAILABLE:
+        raise SystemExit('the production needs numba')
+    a = sys.argv
+    ns, nt, beta, stream, ntherm, nmeas, out = int(a[1]), int(a[2]), float(a[3]), int(a[4]), int(a[5]), int(a[6]), a[7]
+    dims = (ns, ns, ns, nt)
+    up, dn = S.neighbours(*dims)
+    V = ns ** 3 * nt
+    seed = 9000 + 131 * ns + 17 * nt + int(round(beta * 1000)) + stream
+    S.seed_rng(seed)
+    start = 'cold' if stream % 2 == 0 else 'hot'
+    U = S.cold_start(V) if start == 'cold' else S.hot_start(V)
+    # r^2 classes with every component at most ns / 2 (minimal image)
+    c = np.arange(ns); c = np.minimum(c, ns - c)
+    # site index of the spatial lattice: x = i0 + ns (i1 + ns i2) -> array axes (i2, i1, i0)
+    r2 = (c[:, None, None] ** 2 + c[None, :, None] ** 2 + c[None, None, :] ** 2).ravel()
+    keys = np.unique(r2)
+    idx = np.searchsorted(keys, r2)
+    cnt = np.bincount(idx, minlength=len(keys))
+    blocks = []; Ls = []; absL = []
+    acc = np.zeros(len(keys)); nacc = 0
+    t0 = time.time()
+    for n in range(ntherm + nmeas):
+        S.compound_sweeps(U, up, dn, beta, 1, 4)
+        if (n + 1) % 50 == 0:
+            S.reunitarize(U)
+        if n < ntherm:
+            continue
+        L = S.polyakov_field(U, up, nt).reshape(ns, ns, ns)
+        F = np.fft.fftn(L)
+        C = np.fft.ifftn(np.abs(F) ** 2).real / L.size
+        acc += np.bincount(idx, weights=C.ravel(), minlength=len(keys)) / cnt
+        nacc += 1
+        Ls.append(L.mean()); absL.append(abs(L.mean()))
+        if nacc == 100 or n + 1 == ntherm + nmeas:
+            blocks.append(acc / nacc); acc[:] = 0.0; nacc = 0
+            meta = dict(ns=ns, nt=nt, beta=beta, stream=stream, seed=seed, start=start, ntherm=ntherm, done=len(Ls),
+                        seconds=time.time() - t0)
+            tmp = out + '.tmp.npz'
+            np.savez(tmp, r2=keys, blocks=np.array(blocks), L=np.array(Ls), meta=json.dumps(meta))
+            os.replace(tmp, out)
+    print('done', out, time.time() - t0, flush=True)
+
+
+if __name__ == '__main__':
+    main()

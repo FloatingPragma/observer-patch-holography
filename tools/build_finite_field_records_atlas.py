@@ -50,7 +50,7 @@ def render():
     height = 815+515*len(names)
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="{height}" viewBox="0 0 3600 {height}" role="img" aria-labelledby="title desc">',
         '<title id="title">Finite records: from an OPH source to a detector</title>',
-        '<desc id="desc">Five distinct finite constructions: charged transfer and energy, interacting cube preparation, revised spatial field records, charged finite clusters, and charged spatial records. Complete outcomes and exact error bounds are retained. Physical particle identities and GeV masses remain unproved.</desc>',
+        '<desc id="desc">Five distinct finite constructions: charged transfer and energy, interacting cube preparation, revised spatial field records, charged finite clusters, and charged spatial records. Complete outcomes and exact error bounds are retained. These constructions assign no particle species and no GeV mass.</desc>',
         '<metadata>'+escape(json.dumps({'receipt_sha256': hashes, 'physical_particle_identifications': [], 'source_derived_masses_GeV': []}, sort_keys=True))+'</metadata>',
         '<defs><linearGradient id="bg"><stop stop-color="#102139"/><stop offset="1" stop-color="#070d18"/></linearGradient><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#7296ba"/></marker></defs>',
         f'<rect width="3600" height="{height}" fill="url(#bg)"/>',

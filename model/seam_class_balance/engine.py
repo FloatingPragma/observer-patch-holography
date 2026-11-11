@@ -1,0 +1,349 @@
+"""Monte Carlo engine for SU(2) links on a generic complex, PROOF.md section 5 (optional, needs numba).
+
+The production runs use these kernels compiled. Without numba the module imports and the functions run as plain
+Python. The check and the tests of the package do not import it.
+
+Links: unit quaternions (a0, a1, a2, a3), V = a0 + i a.sigma. Product convention of SU(2) matrices.
+Plaquette weight k(V), a class function of x = tr V / 2 = cos(theta/2):
+  kind 0  Wilson            ln k = beta x                       par = beta
+  kind 1  SU(2) heat kernel ln k = ln K_tau(theta), tau = g2/2  par = g2   (dual form, images k = -1, 0, 1)
+  kind 2  Cartan circle     ln k = ln sum_n exp(-(theta - 4 pi n)^2/(2 g2))   par = g2   (links stay on the circle)
+Twisted plaquette P0: ln W = (1 - lam) ln k(x) + lam ln k(-x).   D(x) = ln k(-x) - ln k(x).
+Doublet (compact gauge-Higgs form): n = (n0, q) on the unit four-sphere per site, log-weight
+  beta_H sum_links [n0_a n0_b + dot(q_a, V q_b)] + h sum_sites |q|^2.
+"""
+import math
+
+import numpy as np
+
+try:
+    from numba import njit
+    AVAILABLE = True
+except Exception:                                  # pragma: no cover
+    AVAILABLE = False
+
+    def njit(*args, **kwargs):
+        if len(args) == 1 and callable(args[0]) and not kwargs:
+            return args[0]
+        return lambda f: f
+
+PI = math.pi
+TWO_PI = 2.0 * math.pi
+
+
+@njit(cache=True)
+def lnk(x, kind, par):
+    if kind == 0:
+        return par * x
+    if x > 1.0:
+        x = 1.0
+    if x < -1.0:
+        x = -1.0
+    g2 = par
+    if x >= 0.0:
+        th = 2.0 * math.acos(x)
+        de = TWO_PI - th
+    else:
+        de = 2.0 * math.acos(-x)
+        th = TWO_PI - de
+    if kind == 2:
+        return -th * th / (2.0 * g2) + math.log(1.0 + math.exp(-4.0 * PI * de / g2) + math.exp(-4.0 * PI * (TWO_PI + th) / g2))
+    # kind 1: K proportional to exp(-th^2/(2 g2)) * br / sin(th/2),
+    # br = th/2 - (2 pi - th/2) exp(-4 pi de/g2) + (2 pi + th/2) exp(-4 pi (2 pi + th)/g2)
+    if th < 1e-6:
+        return -th * th / (2.0 * g2)
+    if de < 1e-7:
+        return -th * th / (2.0 * g2) + math.log(2.0 * (4.0 * PI * PI / g2 - 1.0))
+    u = 4.0 * PI * de / g2
+    br = -de - (PI + 0.5 * de) * math.expm1(-u) + (TWO_PI + 0.5 * th) * math.exp(-4.0 * PI * (TWO_PI + th) / g2)
+    s = math.sin(0.5 * de) if de < 1.0 else math.sin(0.5 * th)
+    return -th * th / (2.0 * g2) + math.log(br / s)
+
+
+@njit(cache=True)
+def lnk_norm(kind, par):
+    """constant c with ln K_tau = lnk + c for the character normalisation K = sum_j d_j chi_j exp(-tau C_j)"""
+    if kind == 1:
+        tau = 0.5 * par
+        return 0.25 * tau + 0.5 * math.log(4.0 * PI / tau) - math.log(tau)
+    return 0.0
+
+
+@njit(cache=True)
+def dfun(x, kind, par):
+    return lnk(-x, kind, par) - lnk(x, kind, par)
+
+
+@njit(cache=True)
+def qm(a0, a1, a2, a3, b0, b1, b2, b3):
+    return (a0 * b0 - a1 * b1 - a2 * b2 - a3 * b3,
+            a0 * b1 + b0 * a1 - (a2 * b3 - a3 * b2),
+            a0 * b2 + b0 * a2 - (a3 * b1 - a1 * b3),
+            a0 * b3 + b0 * a3 - (a1 * b2 - a2 * b1))
+
+
+@njit(cache=True)
+def staple(U, pl, ps, pn, p, k):
+    """c with x_p = dot(U_l, c) for the link at position k of plaquette p"""
+    n = pn[p]
+    r0, r1, r2, r3 = 1.0, 0.0, 0.0, 0.0
+    for a in range(1, n):
+        i = (k + a) % n
+        l = pl[p, i]
+        if ps[p, i] > 0:
+            r0, r1, r2, r3 = qm(r0, r1, r2, r3, U[l, 0], U[l, 1], U[l, 2], U[l, 3])
+        else:
+            r0, r1, r2, r3 = qm(r0, r1, r2, r3, U[l, 0], -U[l, 1], -U[l, 2], -U[l, 3])
+    if ps[p, k] > 0:
+        return (r0, -r1, -r2, -r3)
+    return (r0, r1, r2, r3)
+
+
+@njit(cache=True)
+def plaq_x(U, pl, ps, pn, p):
+    r0, r1, r2, r3 = 1.0, 0.0, 0.0, 0.0
+    for i in range(pn[p]):
+        l = pl[p, i]
+        if ps[p, i] > 0:
+            r0, r1, r2, r3 = qm(r0, r1, r2, r3, U[l, 0], U[l, 1], U[l, 2], U[l, 3])
+        else:
+            r0, r1, r2, r3 = qm(r0, r1, r2, r3, U[l, 0], -U[l, 1], -U[l, 2], -U[l, 3])
+    return r0
+
+
+@njit(cache=True)
+def lnw_p(x, p, P0, lam, kind, par):
+    if p == P0:
+        return (1.0 - lam) * lnk(x, kind, par) + lam * lnk(-x, kind, par)
+    return lnk(x, kind, par)
+
+
+@njit(cache=True)
+def update_link(U, nf, l, pl, ps, pn, lp_ptr, lp_idx, lp_pos, tail, head, kind, par, P0, lam, beta_h, nhit, step, cs, ws):
+    """multi-hit Metropolis for one link; returns the number of accepted hits"""
+    a0 = lp_ptr[l]
+    npl = lp_ptr[l + 1] - a0
+    u0, u1, u2, u3 = U[l, 0], U[l, 1], U[l, 2], U[l, 3]
+    for a in range(npl):
+        p = lp_idx[a0 + a]
+        c = staple(U, pl, ps, pn, p, lp_pos[a0 + a])
+        cs[a, 0] = c[0]; cs[a, 1] = c[1]; cs[a, 2] = c[2]; cs[a, 3] = c[3]
+        ws[a] = lnw_p(u0 * c[0] + u1 * c[1] + u2 * c[2] + u3 * c[3], p, P0, lam, kind, par)
+    m0 = m1 = m2 = m3 = 0.0
+    hop = 0.0
+    if beta_h != 0.0:
+        ta, hb = tail[l], head[l]
+        # dot(q_a, V q_b) = dot(V, q_a conj(q_b))
+        m0, m1, m2, m3 = qm(nf[ta, 1], nf[ta, 2], nf[ta, 3], nf[ta, 4], nf[hb, 1], -nf[hb, 2], -nf[hb, 3], -nf[hb, 4])
+        hop = beta_h * (u0 * m0 + u1 * m1 + u2 * m2 + u3 * m3)
+    acc = 0
+    for _ in range(nhit):
+        if kind == 2:
+            eta = step * (2.0 * np.random.random() - 1.0)
+            r0, r1, r2, r3 = math.cos(eta), 0.0, 0.0, math.sin(eta)
+        else:
+            r1 = step * (2.0 * np.random.random() - 1.0)
+            r2 = step * (2.0 * np.random.random() - 1.0)
+            r3 = step * (2.0 * np.random.random() - 1.0)
+            nr = 1.0 / math.sqrt(1.0 + r1 * r1 + r2 * r2 + r3 * r3)
+            r0 = nr; r1 *= nr; r2 *= nr; r3 *= nr
+        v0, v1, v2, v3 = qm(r0, r1, r2, r3, u0, u1, u2, u3)
+        dl = 0.0
+        for a in range(npl):
+            p = lp_idx[a0 + a]
+            cs[a, 4] = lnw_p(v0 * cs[a, 0] + v1 * cs[a, 1] + v2 * cs[a, 2] + v3 * cs[a, 3], p, P0, lam, kind, par)
+            dl += cs[a, 4] - ws[a]
+        hopn = 0.0
+        if beta_h != 0.0:
+            hopn = beta_h * (v0 * m0 + v1 * m1 + v2 * m2 + v3 * m3)
+            dl += hopn - hop
+        if dl >= 0.0 or math.log(np.random.random()) < dl:
+            u0, u1, u2, u3 = v0, v1, v2, v3
+            for a in range(npl):
+                ws[a] = cs[a, 4]
+            hop = hopn
+            acc += 1
+    nr = 1.0 / math.sqrt(u0 * u0 + u1 * u1 + u2 * u2 + u3 * u3)
+    U[l, 0] = u0 * nr; U[l, 1] = u1 * nr; U[l, 2] = u2 * nr; U[l, 3] = u3 * nr
+    return acc
+
+
+@njit(cache=True)
+def update_site(U, nf, s, sl_ptr, sl_idx, sl_dir, tail, head, beta_h, h, nhit, step):
+    """multi-hit Metropolis for the doublet at one site: log-weight beta_H n.B + h |q|^2"""
+    b0 = b1 = b2 = b3 = b4 = 0.0
+    for a in range(sl_ptr[s], sl_ptr[s + 1]):
+        l = sl_idx[a]
+        if sl_dir[a] > 0:
+            o = head[l]
+            t = qm(U[l, 0], U[l, 1], U[l, 2], U[l, 3], nf[o, 1], nf[o, 2], nf[o, 3], nf[o, 4])
+        else:
+            o = tail[l]
+            t = qm(U[l, 0], -U[l, 1], -U[l, 2], -U[l, 3], nf[o, 1], nf[o, 2], nf[o, 3], nf[o, 4])
+        b0 += nf[o, 0]
+        b1 += t[0]; b2 += t[1]; b3 += t[2]; b4 += t[3]
+    c0, c1, c2, c3, c4 = nf[s, 0], nf[s, 1], nf[s, 2], nf[s, 3], nf[s, 4]
+    w = beta_h * (c0 * b0 + c1 * b1 + c2 * b2 + c3 * b3 + c4 * b4) + h * (c1 * c1 + c2 * c2 + c3 * c3 + c4 * c4)
+    acc = 0
+    for _ in range(nhit):
+        d0 = c0 + step * np.random.normal(); d1 = c1 + step * np.random.normal(); d2 = c2 + step * np.random.normal()
+        d3 = c3 + step * np.random.normal(); d4 = c4 + step * np.random.normal()
+        nr = 1.0 / math.sqrt(d0 * d0 + d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4)
+        d0 *= nr; d1 *= nr; d2 *= nr; d3 *= nr; d4 *= nr
+        wn = beta_h * (d0 * b0 + d1 * b1 + d2 * b2 + d3 * b3 + d4 * b4) + h * (d1 * d1 + d2 * d2 + d3 * d3 + d4 * d4)
+        if wn >= w or math.log(np.random.random()) < wn - w:
+            c0, c1, c2, c3, c4 = d0, d1, d2, d3, d4
+            w = wn
+            acc += 1
+    nf[s, 0] = c0; nf[s, 1] = c1; nf[s, 2] = c2; nf[s, 3] = c3; nf[s, 4] = c4
+    return acc
+
+
+@njit(cache=True)
+def sweep(U, nf, links, sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail, head,
+          kind, par, P0, lam, beta_h, h, nhit, step, stepn):
+    cs = np.empty((16, 5))
+    ws = np.empty(16)
+    acc = 0
+    for i in range(links.size):
+        acc += update_link(U, nf, links[i], pl, ps, pn, lp_ptr, lp_idx, lp_pos, tail, head, kind, par, P0, lam, beta_h,
+                           nhit, step, cs, ws)
+    accn = 0
+    if beta_h != 0.0 or h != 0.0:
+        for i in range(sites.size):
+            accn += update_site(U, nf, sites[i], sl_ptr, sl_idx, sl_dir, tail, head, beta_h, h, nhit, stepn)
+    return acc, accn
+
+
+@njit(cache=True)
+def total_logweight(U, nf, pl, ps, pn, tail, head, kind, par, P0, lam, beta_h, h):
+    tot = 0.0
+    for p in range(pl.shape[0]):
+        tot += lnw_p(plaq_x(U, pl, ps, pn, p), p, P0, lam, kind, par)
+    if beta_h != 0.0 or h != 0.0:
+        for l in range(tail.size):
+            a, b = tail[l], head[l]
+            t = qm(U[l, 0], U[l, 1], U[l, 2], U[l, 3], nf[b, 1], nf[b, 2], nf[b, 3], nf[b, 4])
+            tot += beta_h * (nf[a, 0] * nf[b, 0] + nf[a, 1] * t[0] + nf[a, 2] * t[1] + nf[a, 3] * t[2] + nf[a, 4] * t[3])
+        for s in range(nf.shape[0]):
+            tot += h * (nf[s, 1] ** 2 + nf[s, 2] ** 2 + nf[s, 3] ** 2 + nf[s, 4] ** 2)
+    return tot
+
+
+@njit(cache=True)
+def seed_rng(seed):
+    np.random.seed(seed)
+
+
+@njit(cache=True)
+def run_node(U, nf, all_links, all_sites, near_links, near_sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx,
+             sl_dir, tail, head, kind, par, P0, lam, beta_h, h, nhit, step, stepn, ntherm, ncyc, nloc, ahalf, nblock):
+    """thermalize, then ncyc cycles of (one full sweep, nloc local sweeps each followed by a measurement of D at P0).
+    returns per block: mean D, mean exp(+a D), mean exp(-a D), mean exp(+2a D), mean exp(-2a D), mean x_P0, mean D^2"""
+    for _ in range(ntherm):
+        sweep(U, nf, all_links, all_sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail, head,
+              kind, par, P0, lam, beta_h, h, nhit, step, stepn)
+        for _j in range(nloc):
+            sweep(U, nf, near_links, near_sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail, head,
+                  kind, par, P0, lam, beta_h, h, nhit, step, stepn)
+    out = np.zeros((nblock, 7))
+    per = ncyc // nblock
+    acc = 0
+    for b in range(nblock):
+        for _ in range(per):
+            a, _an = sweep(U, nf, all_links, all_sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail,
+                           head, kind, par, P0, lam, beta_h, h, nhit, step, stepn)
+            acc += a
+            for _j in range(nloc):
+                sweep(U, nf, near_links, near_sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail,
+                      head, kind, par, P0, lam, beta_h, h, nhit, step, stepn)
+                x = plaq_x(U, pl, ps, pn, P0)
+                d = dfun(x, kind, par)
+                out[b, 0] += d
+                out[b, 1] += math.exp(ahalf * d)
+                out[b, 2] += math.exp(-ahalf * d)
+                out[b, 3] += math.exp(2.0 * ahalf * d)
+                out[b, 4] += math.exp(-2.0 * ahalf * d)
+                out[b, 5] += x
+                out[b, 6] += d * d
+        out[b] /= per * nloc
+    return out, acc / (per * nblock * all_links.size * nhit)
+
+
+@njit(cache=True)
+def run_untwisted(U, nf, all_links, all_sites, pmask, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail,
+                  head, kind, par, beta_h, h, nhit, step, stepn, ntherm, ncyc, nblock, nmax):
+    """untwisted ensemble. per block: [0] mean x over the masked plaquettes, [1] mean exp(D) (direct estimator of <A>),
+    [2] mean x over all plaquettes, [3] mean |q|^2, [4] mean n0, [5] mean of dot(q_a, V q_b)/(|q_a||q_b|) over links,
+    [6 + n] mean chi_n(x) / k(x), n = 1..nmax (k in the engine's normalisation), masked plaquettes"""
+    P0 = -1
+    for _ in range(ntherm):
+        sweep(U, nf, all_links, all_sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail, head,
+              kind, par, P0, 0.0, beta_h, h, nhit, step, stepn)
+    out = np.zeros((nblock, 7 + nmax))
+    per = ncyc // nblock
+    nmask = 0
+    for p in range(pl.shape[0]):
+        if pmask[p]:
+            nmask += 1
+    for b in range(nblock):
+        for _ in range(per):
+            sweep(U, nf, all_links, all_sites, pl, ps, pn, lp_ptr, lp_idx, lp_pos, sl_ptr, sl_idx, sl_dir, tail, head,
+                  kind, par, P0, 0.0, beta_h, h, nhit, step, stepn)
+            sx = 0.0
+            for p in range(pl.shape[0]):
+                x = plaq_x(U, pl, ps, pn, p)
+                sx += x
+                if pmask[p]:
+                    lk = lnk(x, kind, par)
+                    out[b, 0] += x / nmask
+                    out[b, 1] += math.exp(lnk(-x, kind, par) - lk) / nmask
+                    ik = math.exp(-lk) / nmask
+                    c_prev = 0.0
+                    c_cur = 1.0
+                    if kind == 2:
+                        # characters of the circle: cos(m theta/2) = T_m(x), m = 0..nmax-1 stored at index 7 + m
+                        t_prev = 1.0
+                        t_cur = x
+                        out[b, 7] += ik
+                        for n in range(1, nmax):
+                            out[b, 7 + n] += t_cur * ik
+                            t_prev, t_cur = t_cur, 2.0 * x * t_cur - t_prev
+                    else:
+                        for n in range(1, nmax + 1):
+                            out[b, 6 + n] += c_cur * ik
+                            c_prev, c_cur = c_cur, 2.0 * x * c_cur - c_prev
+            out[b, 2] += sx / pl.shape[0]
+            if beta_h != 0.0 or h != 0.0:
+                s2 = 0.0
+                s0 = 0.0
+                for s in range(nf.shape[0]):
+                    s2 += nf[s, 1] ** 2 + nf[s, 2] ** 2 + nf[s, 3] ** 2 + nf[s, 4] ** 2
+                    s0 += nf[s, 0]
+                out[b, 3] += s2 / nf.shape[0]
+                out[b, 4] += s0 / nf.shape[0]
+                la = 0.0
+                for l in range(tail.size):
+                    a, bb = tail[l], head[l]
+                    t = qm(U[l, 0], U[l, 1], U[l, 2], U[l, 3], nf[bb, 1], nf[bb, 2], nf[bb, 3], nf[bb, 4])
+                    na = math.sqrt(nf[a, 1] ** 2 + nf[a, 2] ** 2 + nf[a, 3] ** 2 + nf[a, 4] ** 2)
+                    nb = math.sqrt(nf[bb, 1] ** 2 + nf[bb, 2] ** 2 + nf[bb, 3] ** 2 + nf[bb, 4] ** 2)
+                    la += (nf[a, 1] * t[0] + nf[a, 2] * t[1] + nf[a, 3] * t[2] + nf[a, 4] * t[3]) / (na * nb + 1e-300)
+                out[b, 5] += la / tail.size
+        out[b] /= per
+    return out
+
+
+def cold(cx, pole=True):
+    U = np.zeros((cx["nlink"], 4)); U[:, 0] = 1.0
+    nf = np.zeros((cx["nsite"], 5))
+    if pole:
+        nf[:, 0] = 1.0
+    else:
+        nf[:, 1] = 1.0
+    return U, nf
+
+
+def args_of(cx):
+    return (cx["pl"], cx["ps"], cx["pn"], cx["lp_ptr"], cx["lp_idx"], cx["lp_pos"], cx["sl_ptr"], cx["sl_idx"],
+            cx["sl_dir"], cx["tail"], cx["head"])

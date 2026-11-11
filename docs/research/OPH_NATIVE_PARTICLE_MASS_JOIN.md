@@ -83,12 +83,17 @@ energy line is useful same-source evidence. It does not transfer a continuum
 FMS pole identity, produce a scalar expectation in a gauge-invariant finite
 reference or establish an observed rest mass.
 
-The [centre-class witnesses](../../model/particle_catalogue_correspondence/PROOF.md)
-show why a defect label cannot replace this map. Centre triality and weak
-parity omit full representations and integer hypercharge; even a complete
-gauge representation does not fix physical fermion parity. Local charged
+The [defect-class certificate](../../model/defect_particle_classes/README.md)
+fixes what a defect label carries: flux class `k` is the centre class
+`6Y mod 6` of a Standard Model multiplet on all 32 matter patterns. With a
+spin doublet per quantum, the Gauss law and antisymmetric occupation, quanta
+are fermions and defects, links and the Higgs register are bosons. The
+[centre-class witnesses](../../model/particle_catalogue_correspondence/PROOF.md)
+show what the label omits, so it cannot replace this map. Centre triality
+and weak parity omit full representations and integer hypercharge; a complete
+gauge representation alone does not fix physical fermion parity. Local charged
 CAR operators, topological winding backgrounds and fermions bound to those
-backgrounds remain distinct objects until an explicit operator map joins them.
+backgrounds are distinct objects until an explicit operator map joins them.
 
 <a id="one-quantum-hamiltonian-physical-subspace-and-clock"></a>
 <a id="a-complete-two-cell-physical-ground-and-boundary-sectors"></a>
@@ -549,3 +554,19 @@ including all cloud and outside outcomes. The block constructions provide
 an independent neutral propagation route, whose explicit architecture and
 relativistic comparison are given in the
 [field guide](OPH_FIELD_RECONSTRUCTION.md#moving-neutral-blocks-and-the-relativistic-comparison).
+
+## Defect register, lepton ratios and lattice results
+
+These results belong to the defect register and the declared coupling chain;
+the finite sources above keep their own boundaries. The [integer lift](../../model/defect_integer_lift/README.md)
+reproduces the stored class on every stored cut of the runs; it is not a
+conserved label of the member inside a class. The [lepton register](../../model/lepton_register_round/README.md)
+gives `m_mu/m_e = 206.770316` and `m_tau/m_e = 3477.4728` with no measured mass
+as input: `+9.83 ppm` from the CODATA 2022 ratio and `+0.61` standard deviations
+from the PDG 2024 tau mass. The lattice packages measure the [electroweak crossover](../../model/electroweak_crossover/README.md)
+of the declared chain at `161.13 GeV`, first-order [colour deconfinement](../../model/colour_deconfinement/README.md)
+of the colour links and [quenched quark binding](../../model/quenched_hadron_binding/README.md)
+on the same links with `m_N/m_rho = 1.45 +- 0.13`; none is a blind prediction.
+The absolute lepton scale, the quark masses, the mixing matrices, the neutrino
+masses and the sector law behind the electroweak scale ([seam class balance](../../model/seam_class_balance/README.md))
+are open.

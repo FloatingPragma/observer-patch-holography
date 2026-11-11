@@ -11,7 +11,7 @@ def test_every_named_check_passes():
     failed = [name for name, ok in VALUE['checks'].items() if not ok]
     assert not failed and VALUE['all_checks_pass']
     assert {name.split('.')[0] for name in VALUE['checks']} == {
-        '1_register', '2_double_loads', '3_weak_round', '4_clock_unit', '5_kick', '6_carrier', '7_classes'}
+        '1_register', '2_double_loads', '3_weak_round', '4_clock_unit', '5_kick', '6_carrier', '7_classes', '8_rounds'}
 
 
 def test_register_compression_and_read_count():
@@ -102,5 +102,5 @@ def test_completion_is_the_public_operator():
 def test_receipt_matches_recomputation():
     stored = json.loads(Path(__file__).with_name('results.json').read_text())
     for key in ('checks', 'register', 'double_loads', 'weak_round', 'clock_unit', 'kick', 'carrier', 'classes',
-                'premises'):
+                'rounds', 'premises'):
         assert stored[key] == json.loads(json.dumps(VALUE[key], sort_keys=True)), key

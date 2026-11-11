@@ -4,12 +4,13 @@ import hashlib
 from pathlib import Path
 
 from model.particle_common_contract.provenance import import_closure
-from . import carrier, classes, clock, hexagon, kick, register
+from . import carrier, classes, clock, hexagon, kick, register, rounds
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
 SCHEMA = 'oph.lepton_register_round.v1'
-SECTIONS = ('1_register', '2_double_loads', '3_weak_round', '4_clock_unit', '5_kick', '6_carrier', '7_classes')
+SECTIONS = ('1_register', '2_double_loads', '3_weak_round', '4_clock_unit', '5_kick', '6_carrier', '7_classes',
+            '8_rounds')
 
 
 def result():
@@ -24,8 +25,9 @@ def result():
     kck, c5 = kick.result()
     car, c6 = carrier.result()
     cls, c7 = classes.result()
+    rnd8, c8 = rounds.result()
     checks = {}
-    for prefix, group in zip(SECTIONS, (c1, c2, c3, c4, c5, c6, c7)):
+    for prefix, group in zip(SECTIONS, (c1, c2, c3, c4, c5, c6, c7, c8)):
         for name, ok in group.items():
             checks[f'{prefix}.{name}'] = bool(ok)
     return dict(
@@ -38,6 +40,7 @@ def result():
                'rounds are declared constructions on the public law; the lepton scale and a source of the double '
                'load are outside this package.'),
         register=reg, double_loads=dbl, weak_round=rnd, clock_unit=clk, kick=kck, carrier=car, classes=cls,
+        rounds=rnd8,
         premises=PREMISES, checks=checks, all_checks_pass=all(checks.values()))
 
 
@@ -65,6 +68,9 @@ PREMISES = {
                      'public completion at the addressed seam in the order of the address'),
     'P8_flux': ('a class-k flux through the hexagon is the link phase exp(i pi k/3) on the hexagon seam (2, 3), '
                 'entering as the gauge conjugation of the completion at both addresses of that seam'),
+    'P9_return_test_and_shared_kick': ('the return test of a cell is the projector on its uniform address state, '
+                                       'and a cell is prepared in that state again after a "no"; with n partners '
+                                       'the kick is the generator (1/n) sum_l Qx_l'),
 }
 
 

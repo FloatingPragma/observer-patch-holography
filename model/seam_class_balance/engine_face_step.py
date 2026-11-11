@@ -1,0 +1,89 @@
+"""the engine with a twist weight per plaquette (second reading: A at the midpoint of the face step).
+
+ln W_lam = sum_p [(1 - lam t_p) ln k(x_p) + lam t_p ln k(-x_p)],  t_p = 1 on the time-like plaquette above the seam,
+t_p = 1/2 on the faces of the seam in the same time slice, 0 elsewhere.  D = sum_p t_p (ln k(-x_p) - ln k(x_p)).
+At lam = 1 this is <Omega| A |Omega> for the transfer matrix exp(-W_mag/2) K exp(-W_mag/2) (PROOF.md section 2).
+With t = 1 on one plaquette alone it reduces to engine. No doublet here.
+"""
+import math
+
+import numpy as np
+
+from .engine import dfun, lnk, njit, plaq_x, qm, staple
+
+
+@njit(cache=True)
+def lnw_t(x, t, lam, kind, par):
+    if t != 0.0:
+        return (1.0 - lam * t) * lnk(x, kind, par) + lam * t * lnk(-x, kind, par)
+    return lnk(x, kind, par)
+
+
+@njit(cache=True)
+def update_link(U, l, pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, lam, nhit, step, cs, ws):
+    a0 = lp_ptr[l]
+    npl = lp_ptr[l + 1] - a0
+    u0, u1, u2, u3 = U[l, 0], U[l, 1], U[l, 2], U[l, 3]
+    for a in range(npl):
+        p = lp_idx[a0 + a]
+        c = staple(U, pl, ps, pn, p, lp_pos[a0 + a])
+        cs[a, 0] = c[0]; cs[a, 1] = c[1]; cs[a, 2] = c[2]; cs[a, 3] = c[3]
+        ws[a] = lnw_t(u0 * c[0] + u1 * c[1] + u2 * c[2] + u3 * c[3], tw[p], lam, kind, par)
+    for _ in range(nhit):
+        if kind == 2:
+            eta = step * (2.0 * np.random.random() - 1.0)
+            r0, r1, r2, r3 = math.cos(eta), 0.0, 0.0, math.sin(eta)
+        else:
+            r1 = step * (2.0 * np.random.random() - 1.0)
+            r2 = step * (2.0 * np.random.random() - 1.0)
+            r3 = step * (2.0 * np.random.random() - 1.0)
+            nr = 1.0 / math.sqrt(1.0 + r1 * r1 + r2 * r2 + r3 * r3)
+            r0 = nr; r1 *= nr; r2 *= nr; r3 *= nr
+        v0, v1, v2, v3 = qm(r0, r1, r2, r3, u0, u1, u2, u3)
+        dl = 0.0
+        for a in range(npl):
+            p = lp_idx[a0 + a]
+            cs[a, 4] = lnw_t(v0 * cs[a, 0] + v1 * cs[a, 1] + v2 * cs[a, 2] + v3 * cs[a, 3], tw[p], lam, kind, par)
+            dl += cs[a, 4] - ws[a]
+        if dl >= 0.0 or math.log(np.random.random()) < dl:
+            u0, u1, u2, u3 = v0, v1, v2, v3
+            for a in range(npl):
+                ws[a] = cs[a, 4]
+    nr = 1.0 / math.sqrt(u0 * u0 + u1 * u1 + u2 * u2 + u3 * u3)
+    U[l, 0] = u0 * nr; U[l, 1] = u1 * nr; U[l, 2] = u2 * nr; U[l, 3] = u3 * nr
+
+
+@njit(cache=True)
+def sweep(U, links, pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, lam, nhit, step):
+    cs = np.empty((16, 5))
+    ws = np.empty(16)
+    for i in range(links.size):
+        update_link(U, links[i], pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, lam, nhit, step, cs, ws)
+
+
+@njit(cache=True)
+def run_node(U, all_links, near_links, pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, twp, lam, nhit, step,
+             ntherm, ncyc, nloc, ahalf, nblock):
+    for _ in range(ntherm):
+        sweep(U, all_links, pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, lam, nhit, step)
+        for _j in range(nloc):
+            sweep(U, near_links, pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, lam, nhit, step)
+    out = np.zeros((nblock, 7))
+    per = ncyc // nblock
+    for b in range(nblock):
+        for _ in range(per):
+            sweep(U, all_links, pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, lam, nhit, step)
+            for _j in range(nloc):
+                sweep(U, near_links, pl, ps, pn, lp_ptr, lp_idx, lp_pos, kind, par, tw, lam, nhit, step)
+                d = 0.0
+                for i in range(twp.size):
+                    d += tw[twp[i]] * dfun(plaq_x(U, pl, ps, pn, twp[i]), kind, par)
+                out[b, 0] += d
+                out[b, 1] += math.exp(ahalf * d)
+                out[b, 2] += math.exp(-ahalf * d)
+                out[b, 3] += math.exp(2.0 * ahalf * d)
+                out[b, 4] += math.exp(-2.0 * ahalf * d)
+                out[b, 5] += plaq_x(U, pl, ps, pn, twp[0])
+                out[b, 6] += d * d
+        out[b] /= per * nloc
+    return out

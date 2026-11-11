@@ -43,6 +43,12 @@ jobs:
       - run: python -m pytest -q -W error model/defect_integer_lift
       - run: python -m model.electroweak_crossover --check
       - run: python -m pytest -q -W error model/electroweak_crossover
+      - run: python -m model.colour_deconfinement --check
+      - run: python -m pytest -q -W error model/colour_deconfinement
+      - run: python -m model.quenched_hadron_binding --check
+      - run: python -m pytest -q -W error model/quenched_hadron_binding
+      - run: python -m model.seam_class_balance --check
+      - run: python -m pytest -q -W error model/seam_class_balance
       - run: python -m model.native_quantum_service_bridge --check
       - run: python -m pytest -q -W error model/native_quantum_service_bridge
       - run: python -m model.coherent_defect_wave --check

@@ -440,7 +440,14 @@ independently occupiable fermion families. Those require the declared
 `F(K tensor C3)` algebra, rather than `F(K) tensor C3`. Nor does an XOR
 probability alone determine a coherent phase. A controller can declare that
 coupling and prove its consequence, while retaining the controller and clock
-as architecture inputs.
+as architecture inputs. The [charged-lepton register](../../model/lepton_register_round/README.md)
+is such a declared construction: its weak round (tick, kick, inverse tick,
+return test, reset) turns the exclusive read count `2/9` into the phase per
+unit of the declared clock in the limit of many rounds, and the three
+characters are the eigenvectors of the executed round, with ratios
+`206.770316` and `3477.4728` and no measured mass as input. The operation that
+creates the pair, the source event for the kick, the rule of one partner per
+unit of clock time and the number of phase rounds are open.
 
 Cooling, dissipation and coherent Hamiltonian filtering have different
 channels. For a rank-three projector P,
@@ -488,3 +495,20 @@ For a Standard Model comparison, the decisive identification is a populated
 physical current/spin channel with a controlled threshold or resonance and
 an independent unit scale. These are precise source calculations, not a
 requirement to prove the uniqueness of the chosen architecture.
+
+## Defect register, coupling chain and lattice results
+
+These results belong to the defect register and the declared coupling chain;
+the source programs above keep their own boundaries. A protected defect of
+flux class `k` carries the centre class `6Y mod 6` of a Standard Model
+multiplet ([certificate](../../model/defect_particle_classes/README.md)), and
+the [integer lift](../../model/defect_integer_lift/README.md) reproduces the
+stored class on every stored cut of the runs. The class carries no generation,
+weak isospin component or rest mass. The forms of the coupling chain are
+declared and their derivation is open. With them as inputs the lattice gives the
+[electroweak crossover](../../model/electroweak_crossover/README.md) at `161.13 GeV`.
+With continuous links declared on the seams, the colour links give first-order
+[colour deconfinement](../../model/colour_deconfinement/README.md) and
+[quenched quark binding](../../model/quenched_hadron_binding/README.md). None of
+these comparisons is blind. The sector law behind the electroweak scale
+([seam class balance](../../model/seam_class_balance/README.md)) is open.

@@ -1,0 +1,154 @@
+"""driver for the staged measurement of <A> = Z[twisted plaquette]/Z (PROOF.md section 5).
+
+Usage: python -m model.seam_class_balance.staged <tasks.json> <process index> <number of processes> <output directory>
+A task is a dict: name, cx (complex name of complexes.build), kind (0 Wilson, 1 heat kernel, 2 Cartan circle),
+par (beta for kind 0, g^2 otherwise), N (stages), ncyc, nloc, ntherm, nhit, seed, optional beta_h, h, start
+("pole" or "equator"), untw_cyc (sweeps of the untwisted run), nshell.
+Output: <output directory>/<name>.json. Existing outputs are skipped. Reads no measured value.
+"""
+import json
+import math
+import os
+import sys
+import time
+
+import numpy as np
+
+from . import complexes as C
+from . import engine as E
+
+NBLOCK = 20
+NMAX = 40
+
+
+def jack(fun, blocks):
+    """jackknife value and error of fun(mean over blocks)"""
+    nb = blocks.shape[0]
+    full = fun(blocks.mean(0))
+    tot = blocks.sum(0)
+    vals = np.array([fun((tot - blocks[b]) / (nb - 1)) for b in range(nb)])
+    return float(full), float(math.sqrt((nb - 1) / nb * ((vals - vals.mean()) ** 2).sum()))
+
+
+def estimate(nodes, N):
+    """nodes: array (N+1, NBLOCK, 7) of run_node outputs. Returns the estimators of ln<A>."""
+    res = {}
+    tot, var = 0.0, 0.0
+    steps = []
+    for k in range(N + 1):
+        b = nodes[k]
+        if k == 0:
+            v, e = jack(lambda m: math.log(m[1]), b)
+        elif k == N:
+            v, e = jack(lambda m: -math.log(m[2]), b)
+        else:
+            v, e = jack(lambda m: math.log(m[1]) - math.log(m[2]), b)
+        tot += v; var += e * e
+        steps.append(v)
+    res["lnA"] = tot; res["lnA_err"] = math.sqrt(var)
+    m = nodes.mean(1)
+    res["lnA_forward"] = float(np.log(m[:N, 3]).sum())
+    res["lnA_backward"] = float(-np.log(m[1:, 4]).sum())
+    d = m[:, 0]
+    derr = nodes[:, :, 0].std(1, ddof=1) / math.sqrt(nodes.shape[1])
+    if N % 2 == 0:
+        wts = np.ones(N + 1); wts[1:-1:2] = 4.0; wts[2:-1:2] = 2.0; wts /= 3.0 * N
+    else:
+        wts = np.ones(N + 1); wts[0] = wts[-1] = 0.5; wts /= N
+    res["lnA_TI"] = float((wts * d).sum()); res["lnA_TI_err"] = float(math.sqrt(((wts * derr) ** 2).sum()))
+    res["D_mean"] = d.tolist(); res["D_err"] = derr.tolist()
+    res["D_std"] = np.sqrt(np.maximum(m[:, 6] - m[:, 0] ** 2, 0.0)).tolist()
+    res["x_P0"] = m[:, 5].tolist()
+    return res
+
+
+def tune(U, nf, cx, kind, par, beta_h, h, nhit, step, stepn, rounds=24):
+    links = np.arange(cx["nlink"]); sites = np.arange(cx["nsite"])
+    a = E.args_of(cx)
+    for _ in range(rounds):
+        acc, accn = E.sweep(U, nf, links, sites, *a, kind, par, -1, 0.0, beta_h, h, nhit, step, stepn)
+        r = acc / (links.size * nhit)
+        step *= min(1.5, max(0.6, (r + 0.1) / 0.55))
+        step = min(step, 1.5)
+        if beta_h != 0.0 or h != 0.0:
+            rn = accn / (sites.size * nhit)
+            stepn *= min(1.5, max(0.6, (rn + 0.1) / 0.55))
+            stepn = min(stepn, 1.0)
+    return step, stepn
+
+
+def run_task(t):
+    t0 = time.time()
+    cx = C.build(t["cx"])
+    kind, par = int(t["kind"]), float(t["par"])
+    beta_h, h = float(t.get("beta_h", 0.0)), float(t.get("h", 0.0))
+    N, ncyc, nloc, ntherm, nhit = int(t["N"]), int(t["ncyc"]), int(t["nloc"]), int(t["ntherm"]), int(t.get("nhit", 4))
+    E.seed_rng(int(t["seed"]))
+    U, nf = E.cold(cx, pole=(t.get("start", "pole") == "pole"))
+    g2 = 4.0 / par if kind == 0 else par
+    step = 0.5 * math.sqrt(g2) / 2.0
+    stepn = 0.3 / math.sqrt(max(beta_h, 1.0))
+    step, stepn = tune(U, nf, cx, kind, par, beta_h, h, nhit, step, stepn)
+    a = E.args_of(cx)
+    links = np.arange(cx["nlink"]); sites = np.arange(cx["nsite"])
+    P0 = cx["P0"]
+    near = C.shells(cx, P0, int(t.get("nshell", 2)))
+    nsites = np.unique(np.concatenate([cx["tail"][near], cx["head"][near]]))
+    iso = t["cx"].startswith("cub") and "_T" not in t["cx"]
+    pmask = np.ones(cx["nplaq"], np.bool_) if (iso or t["cx"] in ("ico2", "pair2")) else (cx["ptype"] == cx["ptype"][P0])
+    out = {"task": t, "complex": {k: cx[k] for k in ("name", "nsite", "nlink", "nplaq")}, "step": step, "stepn": stepn,
+           "near_links": int(near.size), "g2": g2, "x": 4.0 * math.pi / g2, "S": 2.0 * math.pi ** 2 / g2}
+    # untwisted ensemble: direct estimator, sector law, plaquette, doublet observables
+    uc = int(t.get("untw_cyc", 0))
+    if uc > 0:
+        ub = E.run_untwisted(U, nf, links, sites, pmask, *a, kind, par, beta_h, h, nhit, step, stepn,
+                             int(t.get("untw_therm", 200)), uc, NBLOCK, NMAX)
+        out["untwisted_blocks"] = ub.tolist()
+        m = ub.mean(0); e = ub.std(0, ddof=1) / math.sqrt(NBLOCK)
+        out["plaq_masked"] = [float(m[0]), float(e[0])]
+        out["A_direct"] = [float(m[1]), float(e[1])]
+        out["plaq_all"] = [float(m[2]), float(e[2])]
+        out["q2"] = [float(m[3]), float(e[3])]
+        out["n0"] = [float(m[4]), float(e[4])]
+        out["L_alpha"] = [float(m[5]), float(e[5])]
+    out["t_untwisted"] = time.time() - t0
+    # staged ratio
+    nodes = np.zeros((N + 1, NBLOCK, 7))
+    accs = []
+    if N > 0:
+        ahalf = 0.5 / N
+        for k in range(N + 1):
+            lam = k / N
+            nodes[k], acc = E.run_node(U, nf, links, sites, near, nsites, *a, kind, par, P0, lam, beta_h, h, nhit, step,
+                                       stepn, ntherm, ncyc, nloc, ahalf, NBLOCK)
+            accs.append(acc)
+        out.update(estimate(nodes, N))
+        out["nodes"] = nodes.tolist()
+        out["acceptance"] = accs
+        if beta_h != 0.0 or h != 0.0:
+            out["q2_end"] = float((nf[:, 1:] ** 2).sum(1).mean())
+    out["seconds"] = time.time() - t0
+    return out
+
+
+if __name__ == "__main__":
+    if not E.AVAILABLE:
+        raise SystemExit("the staged Monte Carlo needs numba")
+    tasks = json.load(open(sys.argv[1]))
+    i, n, od = int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+    os.makedirs(od, exist_ok=True)
+    for j, t in enumerate(tasks):
+        if j % n != i:
+            continue
+        fn = os.path.join(od, t["name"] + ".json")
+        if os.path.exists(fn):
+            continue
+        r = run_task(t)
+        json.dump(r, open(fn + ".tmp", "w"))
+        os.replace(fn + ".tmp", fn)
+        msg = "%s lnA %.4f +- %.4f (fwd %.4f bwd %.4f TI %.4f) " % (
+            t["name"], r.get("lnA", float("nan")), r.get("lnA_err", float("nan")), r.get("lnA_forward", float("nan")),
+            r.get("lnA_backward", float("nan")), r.get("lnA_TI", float("nan")))
+        if "A_direct" in r:
+            msg += "direct %.4e +- %.1e plaq %.5f " % (r["A_direct"][0], r["A_direct"][1], r["plaq_all"][0])
+        print(msg + "%.0fs" % r["seconds"], flush=True)

@@ -381,6 +381,98 @@ emission across an E-type seam `1/6`, across a C-type seam from the orbit
 independent objects count `2/9`, and the inverse tick restores the double
 (`uniform_double_tick_weights_2_3_1_6_1_12_1_12_count_2_9`).
 
+## 8. Many rounds on the sixty-address carrier
+
+Two cells X and Y hold a blank double at port 2, and again at port 10, with independent registers over the sixty
+addresses. The flags are the records of section 6: `R+` is record 2 of X and `H` is a written record of Y. The
+event maps each state `|D, 0, k>` of the blank double to one basis state and back
+(`event_maps_each_blank_double_address_to_one_basis_state`). The checks below are in `rounds.py`.
+
+### The complete record of the return tests
+
+The round of section 3 maps the standing pair to `|start> + (z - 1)|X>`, `z = exp(-i h j)`. Each cell is tested by
+the projector on its uniform address state. `|X>` lies on blank doubles with `<start|X> = <X|X> = 2/9`
+(`yes_amplitude_overlap_and_norm_are_2_9`). Its four test components have the weights
+
+| X | Y | Weight in `X` |
+| --- | --- | --- |
+| yes | yes | `4/81` |
+| no | yes | `11/324` |
+| yes | no | `125/1296` |
+| no | no | `55/1296` |
+
+(`test_outcome_weights_4_81_11_324_125_1296_55_1296`), and the three "no" weights sum to `14/81 = P (1 - P)`
+(`no_weights_sum_to_14_81`). The vector `|X>` does not depend on `j`. Each outcome therefore acts on the clocked
+system as a function of `J`: yes on both cells as `1 - P + P z_J`, and an outcome with a "no" as
+`(z_J - 1) sqrt(weight)`. A "no" removes the branch `j = 0`. With every outcome kept and the address register of a
+cell prepared again after its "no", the coherence between the branches `j` and `j'` is multiplied per round by
+
+```
+(1 - P + P z)(1 - P + P/w) + P (1 - P)(z - 1)(1/w - 1) = 1 - P + P z/w,   z = exp(-i h j), w = exp(-i h j')
+```
+
+(`complete_record_multiplier_is_1_minus_P_plus_P_z_over_w`). With `N` rounds per unit clock time the multiplier is
+`(1 - P + P exp(-i (j - j')/N))^N`, which tends to `exp(-i P (j - j'))`. The limit phase `P = 2/9` per unit clock
+time holds on the complete record, with no selection of the returned branch. The expected number of rounds with a
+reset per unit clock time is `N 4 sin^2(1/(2N)) 14/81` on a branch with `abs(j) = 1`.
+
+### The round without the reset
+
+A cell whose test said no keeps the blank double at its port with a non-uniform address. Its next tick reads the
+flag of X with weight `11/12` and the flag of Y with weight `5/6`, the complements of `1/12` and `1/6`
+(`not_returned_cells_read_11_12_and_5_6`). The count of the pair in the four test states (both returned, X not, Y
+not, neither) is `2/9, 7/9, 7/9, 2/9` (`counts_without_reset_are_2_9_7_9_7_9_2_9`). Each single non-return changes
+the count to `1 - 2/9`. The reset of the address consensus is part of the round.
+
+### Partners that share the kick
+
+With `n` partner cells and the generator `G = (1/n) sum_l Qx_l`, `Qx_l` the exclusive read of X and the partner `l`,
+the yes amplitude of one round is
+
+```
+(11/12)(5/6 + u/6)^n + (1/12)(1/6 + 5u/6)^n,   u = exp(-i h j/n)
+```
+
+(`shared_kick_polynomial_is_the_product_form`; for two partners by a sum over all `60^3` address triples,
+`two_partner_polynomial_by_enumeration_of_216000_triples`). The mean of `G` is `2/9` for `n = 1, 2, 3, 6`
+(`shared_kick_generator_has_mean_2_9_for_1_2_3_6_partners`), so the phase per unit clock time tends to `2/9` for
+every number of partners. Reading each partner in turn inside one round of X is the same operator, because the
+kicks are diagonal in the records and the test of a partner commutes with every operation on the other cells.
+Partners read at once, with `H` the event that at least one partner is written, give the count
+`1/12 + (5/6)(1 - (5/6)^n)`: `2/9, 73/216, 563/1296` for `n = 1, 2, 3`
+(`partners_read_at_once_count_73_216_and_563_1296`). The phases per unit clock time at `N = 1` are
+`0.205334030970` (`n = 1`), `0.215732955808` (`n = 2`) and `0.217602641007` (`n = 3`)
+(`shared_kick_phases_at_N_1_and_10`).
+
+### Forward only on sixty addresses
+
+Without the inverse tick the count `p + q - 2 p q`, `p` the weight of record 2 and `q` the weight of a written
+record after `t` ticks, is `2/9`, `3544109/7290000`, `21968948741/41006250000` and
+`1396558119030851/2989355625000000` at ticks 1 to 4 (`forward_only_counts_on_sixty_addresses`), that is `0.2222`,
+`0.4862`, `0.5357`, `0.4672`.
+
+### The register tick with record flags
+
+On the two cells the analyzer of section 1 reads `phi_H` = Y written and X blank, `phi_+-` = record 2 (3) of X and
+Y blank. Inside each branch all amplitudes are equal and positive. The compression is
+`M = a I + b (z R + z^-1 R^-1)` with `3 a^2 = P(X blank) P(Y written)` and `3 b^2 = P(X record 2) P(Y blank)`:
+`a^2 = 5/108`, `b^2 = 5/216`, `M = sqrt(5/18) C(theta)` and `tr M^dag M = 5/18`
+(`double_load_register_has_a2_5_108_b2_5_216_trace_5_18`, `compression_on_sixty_addresses_is_sqrt_5_18_C` within
+`1e-14`). For a native pair on two non-adjacent ports in each cell with the oriented record, `a^2 = 1/27`,
+`b^2 = 1/54`, `M = (sqrt2/3) C(theta)` and `tr M^dag M = 2/9`
+(`native_pair_register_has_a2_1_27_b2_1_54_trace_2_9`). Both have `(b/a)^2 = 1/2`
+(`both_registers_are_balanced`). The round "tick, gate `exp(-i h |Phi><Phi|)`, inverse tick, return test" acts on
+the register F in the returned branch as `1 + (exp(-i h) - 1) M^dag M`, which is diagonal on the three characters
+(`mass_round_return_operator_is_1_plus_e_minus_1_M_dag_M`, within `1e-13`).
+
+### Ten thousand rounds
+
+The round is executed on complex arrays over the `60 x 60` addresses of the pair, with the projected state carried
+from round to round. The first five rounds agree with the same rounds through `Walk.step` and `Walk.inverse_step`
+on dictionaries within `1e-12`. After `10^4` rounds at `N = 100` the phase per unit clock time equals
+`100 atan(P sin(1/100)/(1 - P + P cos(1/100))) = 0.222220621848` within `1e-11`, and the count read by every
+checked round is `2/9` within `1e-14` (`ten_thousand_rounds_keep_the_phase_and_the_count`).
+
 ## Premises
 
 The exact checks above use these declared constructions; the program does not
@@ -405,6 +497,9 @@ derive them.
 - P7. Two cells with independent sixty-address registers, each with two
   loads moved by the completion at the addressed seam.
 - P8. The class-k flux as the link phase `w^k` on one hexagon seam.
+- P9. The return test of a cell is the projector on its uniform address
+  state, and a cell is prepared in that state again after a "no". With
+  partners, the kick is the generator `(1/n) sum_l Qx_l`.
 
 The public program executes one load per carrier; the two-load walks apply
 its local completion at the addressed seam. A source operation that puts two

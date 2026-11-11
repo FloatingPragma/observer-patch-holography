@@ -1,0 +1,100 @@
+"""Measurements on the saved configurations of one stream: plaquette, smeared Wilson loops, hadron correlators.
+
+    python -m model.quenched_hadron_binding.production.measure NS NT CFGDIR OUTDIR STREAM NCFG KAPPA1,KAPPA2,...
+        [--point] [--nohad] [--first K]
+
+Writes OUTDIR/meas_SS_K.npz for every configuration. Parameters are those of PROOF.md, sections 3 and 4. Needs numba.
+"""
+import json
+import os
+import sys
+import time
+
+import numpy as np
+
+from ...colour_deconfinement import su3_numba as S
+from . import kernel as H
+
+APE_ALPHA, APE_STEPS = 0.5, 12
+SMEAR_S, SMEAR_N = 3.0, 20
+TMAX_LOOP = 6
+TOL, MAXIT = 1e-10, 4000
+
+
+def classes_for(ns):
+    if ns <= 8:
+        return H.displacement_classes(4, diag2=(1, 2, 3), diag3=(1, 2), with_210=True)
+    if ns <= 12:
+        return H.displacement_classes(6, diag2=(1, 2, 3, 4), diag3=(1, 2, 3), with_210=True)
+    return H.displacement_classes(8, diag2=(1, 2, 3, 4, 5), diag3=(1, 2, 3, 4), with_210=True)
+
+
+def main():
+    if not H.AVAILABLE:
+        raise SystemExit('the production needs numba')
+    a = sys.argv
+    ns, nt, cfgdir, outdir, stream, ncfg = int(a[1]), int(a[2]), a[3], a[4], int(a[5]), int(a[6])
+    kappas = [float(k) for k in a[7].split(',')]
+    point = '--point' in a
+    nohad = '--nohad' in a
+    first = int(a[a.index('--first') + 1]) if '--first' in a else 0
+    os.makedirs(outdir, exist_ok=True)
+    dims = (ns, ns, ns, nt)
+    up, dn = S.neighbours(*dims)
+    V = ns ** 3 * nt
+    even, odd = H.parity_sites(dims)
+    allsites = np.arange(V, dtype=np.int64)
+    classes = classes_for(ns)
+    for k in range(first, ncfg):
+        fn = os.path.join(cfgdir, f'cfg_{stream:02d}_{k}.npy')
+        outfn = os.path.join(outdir, f'meas_{stream:02d}_{k}.npz')
+        if os.path.exists(outfn) or not os.path.exists(fn):
+            continue
+        t0 = time.time()
+        U = np.load(fn)
+        e1, e2 = S.unitarity_defect(U)
+        ps, pt = S.plaquette(U, up)
+        Vs = H.ape_smear(U, up, dn, APE_ALPHA, APE_STEPS)
+        t_ape = time.time() - t0
+        W = H.wilson_loops_classes(U, Vs, up, dn, classes, TMAX_LOOP)
+        t_loop = time.time() - t0 - t_ape
+        kw = dict(W=W, r=np.array([c['r'] for c in classes]), ps=ps, pt=pt, unitarity=np.array([e1, e2]),
+                  kappas=np.array(kappas))
+        meta = dict(ns=ns, nt=nt, stream=stream, cfg=k, ape=[APE_ALPHA, APE_STEPS], smear=[SMEAR_S, SMEAR_N],
+                    classes=[c['name'] for c in classes], tol=TOL, t_ape=t_ape, t_loop=t_loop, kappa=kappas)
+        if not nohad:
+            Uf = H.fermion_links(U, dims)
+            types = [('S', (SMEAR_S, SMEAR_N))] + ([('P', None)] if point else [])
+            tsolve = {}
+            for ik, kap in enumerate(kappas):
+                for src, sm in types:
+                    t1 = time.time()
+                    P, st = H.propagator(Uf, Vs, up, dn, dims, kap, even, odd, allsites, smear=sm, tol=TOL, maxit=MAXIT)
+                    tsolve[f'{src}{ik}'] = time.time() - t1
+                    kw[f'iters_{src}_{ik}'] = np.array([s['iterations'] for s in st])
+                    kw[f'resid_{src}_{ik}'] = np.array([s['true_residual'] for s in st])
+                    kw[f'fallback_{src}_{ik}'] = np.array([s['fallback'] for s in st])
+                    m = H.meson_correlators(P, dims)
+                    cp, cm = H.nucleon_correlators(P, dims)
+                    kw[f'pion_{src}P_{ik}'] = m['pion']; kw[f'rho_{src}P_{ik}'] = m['rho']
+                    kw[f'nucp_{src}P_{ik}'] = cp; kw[f'nucm_{src}P_{ik}'] = cm
+                    if src == 'S':
+                        Pss = H.smear_sink(P, Vs, up, dn, SMEAR_S, SMEAR_N)
+                        m = H.meson_correlators(Pss, dims)
+                        cp, cm = H.nucleon_correlators(Pss, dims)
+                        kw['pion_SS_%d' % ik] = m['pion']; kw['rho_SS_%d' % ik] = m['rho']
+                        kw['nucp_SS_%d' % ik] = cp; kw['nucm_SS_%d' % ik] = cm
+                        del Pss
+                    del P
+            meta['t_solve'] = tsolve
+        meta['seconds'] = time.time() - t0
+        kw['meta'] = json.dumps(meta)
+        tmp = outfn + '.tmp.npz'
+        np.savez(tmp, **kw)
+        os.replace(tmp, outfn)
+        print('done', outfn, json.dumps(meta), flush=True)
+    print('stream finished', stream, flush=True)
+
+
+if __name__ == '__main__':
+    main()

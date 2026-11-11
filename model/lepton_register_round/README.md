@@ -25,5 +25,5 @@ python -m pytest -q -W error model/lepton_register_round
 ```
 
 [PROOF.md](PROOF.md) states each check and separates exact computation from
-declared premises. [results.json](results.json) holds the tables, the 80 named
+declared premises. [results.json](results.json) holds the tables, the 99 named
 checks and the input hashes.

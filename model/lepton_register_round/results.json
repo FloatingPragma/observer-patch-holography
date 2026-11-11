@@ -134,7 +134,26 @@
   "7_classes.consensus_states_by_class_0_2_1_class_3_0_1_others_none": true,
   "7_classes.its_blank_record_part_is_the_uniform_double_with_weight_1_3": true,
   "7_classes.sectors_closed_and_discriminant_hermitian_for_every_class": true,
-  "7_classes.uniform_double_tick_weights_2_3_1_6_1_12_1_12_count_2_9": true
+  "7_classes.uniform_double_tick_weights_2_3_1_6_1_12_1_12_count_2_9": true,
+  "8_rounds.both_registers_are_balanced": true,
+  "8_rounds.complete_record_multiplier_is_1_minus_P_plus_P_z_over_w": true,
+  "8_rounds.compression_on_sixty_addresses_is_sqrt_5_18_C": true,
+  "8_rounds.counts_without_reset_are_2_9_7_9_7_9_2_9": true,
+  "8_rounds.double_load_register_has_a2_5_108_b2_5_216_trace_5_18": true,
+  "8_rounds.event_maps_each_blank_double_address_to_one_basis_state": true,
+  "8_rounds.forward_only_counts_on_sixty_addresses": true,
+  "8_rounds.mass_round_return_operator_is_1_plus_e_minus_1_M_dag_M": true,
+  "8_rounds.native_pair_register_has_a2_1_27_b2_1_54_trace_2_9": true,
+  "8_rounds.no_weights_sum_to_14_81": true,
+  "8_rounds.not_returned_cells_read_11_12_and_5_6": true,
+  "8_rounds.partners_read_at_once_count_73_216_and_563_1296": true,
+  "8_rounds.shared_kick_generator_has_mean_2_9_for_1_2_3_6_partners": true,
+  "8_rounds.shared_kick_phases_at_N_1_and_10": true,
+  "8_rounds.shared_kick_polynomial_is_the_product_form": true,
+  "8_rounds.ten_thousand_rounds_keep_the_phase_and_the_count": true,
+  "8_rounds.test_outcome_weights_4_81_11_324_125_1296_55_1296": true,
+  "8_rounds.two_partner_polynomial_by_enumeration_of_216000_triples": true,
+  "8_rounds.yes_amplitude_overlap_and_norm_are_2_9": true
  },
  "classes": {
   "class_3_blank_record_weight": "1/3",
@@ -438,19 +457,21 @@
   "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
   "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
   "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
-  "model/lepton_register_round/PROOF.md": "d22bd319794081455b01d3571ebbf18461569005b50583b0d0efc4cc03312378",
-  "model/lepton_register_round/README.md": "0346b3b0c2876d85a278b621f204d3cbc474e4bf6bcf2d8abdbd16cefb40019a",
+  "model/lepton_register_round/PROOF.md": "1343c36d3e88b11a6508896c908966fb083fb94cc2b61f9761357affc69b216a",
+  "model/lepton_register_round/README.md": "943aefe27ff1ef1e5cc6b7a03ea29f800c29148dbe79ae19d31b7a1261640c56",
   "model/lepton_register_round/__init__.py": "39b6387f90cfd6f307698efd6ef32bcaaa13e0a491d89f588a5a654c80dd3026",
   "model/lepton_register_round/__main__.py": "65c567edbb4a39d11a09027307fb7ded0d8d1c5a7e0dd27c776397f69f577f83",
   "model/lepton_register_round/carrier.py": "a156c39dc746e9347a30d1f8d37b7d3383f00106fed58a877375ed783eed0fd4",
-  "model/lepton_register_round/certificate.py": "5802932a105cf9026a4f6d708d2e1eb8c7052d80906c989e17f27e0c0b2f0215",
+  "model/lepton_register_round/certificate.py": "e6a9cafcebf537d327c095e954f2857c0b4356f581c29c23b2695c4d932e3e91",
   "model/lepton_register_round/classes.py": "c6fd8a0bab9ea4d80e8c6cabfdb1d07071a0249b891bb6379ef6c6ade578d653",
   "model/lepton_register_round/clock.py": "0e2b4c02d66fe38242a58d21506aa754af376457941528a0f6b37535095dd936",
   "model/lepton_register_round/geometry.py": "0081952733f65b43dde97758758f705f57a2776df31aca2800c4e913b7d28cd3",
   "model/lepton_register_round/hexagon.py": "7b0bb8d38b6c01b15a8b8e67f18deb7232834ffec5c1d21febd933e363ed26cc",
   "model/lepton_register_round/kick.py": "7ba1765964900575ebcf64f60dd7ddd6aa0d98cc0c20b035f69b1c8829b8e8ce",
   "model/lepton_register_round/register.py": "b738d2fb3261abf3c8e1213a4cc36388da1a8d3e284d7a4997a1ee8817690eec",
-  "model/lepton_register_round/test_round.py": "b2c1e78ab093d2b9dca95503551d12e3ed90eabdf259a7a65b26fa94d10998f8",
+  "model/lepton_register_round/rounds.py": "a4a62cb8448144aa80ab6dd0c0505953b8303f0a4800d18a8c79e1a8bcd4a30b",
+  "model/lepton_register_round/test_round.py": "29a8b6434fe8118ce71c49482891ac573f6dc15516a3aa895177f86c1bb849a5",
+  "model/lepton_register_round/test_rounds.py": "f8a829e5bbdc868023fd86d4fc7286dd9ae2d56bb96c3a1e306a6e9489c6cd3b",
   "model/lepton_register_round/walk.py": "fec6a98a5a5361992491e0bea86783f42d2f5515719b98f01fdd2e0f0faa380f",
   "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
   "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
@@ -584,7 +605,8 @@
   "P5_declared_clock": "the clock H = sum_x (I - Re U_x) + sum_edges (pi/4) dGamma(I - S_xy) with evolution exp(-i t H), as declared in model/coherent_defect_wave/energy",
   "P6_oriented_toggle": "the named interaction T(eta) = exp(i eta J (x) Z_F Z_I) between the clocked register and the flags of the pair",
   "P7_two_cells": "two cells with independent sixty-address registers, each holding two loads moved by the public completion at the addressed seam in the order of the address",
-  "P8_flux": "a class-k flux through the hexagon is the link phase exp(i pi k/3) on the hexagon seam (2, 3), entering as the gauge conjugation of the completion at both addresses of that seam"
+  "P8_flux": "a class-k flux through the hexagon is the link phase exp(i pi k/3) on the hexagon seam (2, 3), entering as the gauge conjugation of the completion at both addresses of that seam",
+  "P9_return_test_and_shared_kick": "the return test of a cell is the projector on its uniform address state, and a cell is prepared in that state again after a \"no\"; with n partners the kick is the generator (1/n) sum_l Qx_l"
  },
  "register": {
   "b_over_a_squared": "1/2",
@@ -1112,6 +1134,91 @@
    "theta": "2/9"
   },
   "trace_of_M_dag_M": "2/9"
+ },
+ "rounds": {
+  "at_once_counts": {
+   "1": "2/9",
+   "2": "73/216",
+   "3": "563/1296",
+   "6": "178483/279936"
+  },
+  "counts_in_the_four_test_states": [
+   "2/9",
+   "7/9",
+   "7/9",
+   "2/9"
+  ],
+  "double_load_register": {
+   "a^2": "5/108",
+   "b^2": "5/216",
+   "trace": "5/18"
+  },
+  "executed_rounds": {
+   "N": 100,
+   "closed_form": "0.22222062184782973",
+   "phase_per_unit_clock_time": "0.222220621848",
+   "rounds": 10000
+  },
+  "forward_only_counts": [
+   "2/9",
+   "3544109/7290000",
+   "21968948741/41006250000",
+   "1396558119030851/2989355625000000"
+  ],
+  "native_pair_register": {
+   "a^2": "1/27",
+   "b^2": "1/54",
+   "trace": "2/9"
+  },
+  "read_weights_of_a_cell_after_a_no": {
+   "X": "11/12",
+   "Y": "5/6"
+  },
+  "shared_kick_generator_means": {
+   "1": "2/9",
+   "2": "2/9",
+   "3": "2/9",
+   "6": "2/9"
+  },
+  "shared_kick_phases": {
+   "n=1, N=1": "0.2053340309703",
+   "n=1, N=10": "0.2220620996705",
+   "n=2, N=1": "0.2157329558082",
+   "n=2, N=10": "0.2221586232468",
+   "n=3, N=1": "0.2176026410072"
+  },
+  "shared_kick_polynomials": {
+   "1": [
+    "7/9",
+    "2/9"
+   ],
+   "2": [
+    "23/36",
+    "5/18",
+    "1/12"
+   ],
+   "3": [
+    "43/81",
+    "35/108",
+    "5/54",
+    "17/324"
+   ],
+   "6": [
+    "14323/46656",
+    "955/2592",
+    "2875/15552",
+    "625/11664",
+    "125/5184",
+    "265/7776",
+    "1303/46656"
+   ]
+  },
+  "test_outcome_weights": {
+   "both_no": "55/1296",
+   "x_no": "11/324",
+   "y_no": "125/1296",
+   "yes_yes": "4/81"
+  }
  },
  "schema": "oph.lepton_register_round.v1",
  "scope": "The charged-lepton generation register on the coherent seam law: the 432-state tick and its compression (sqrt2/3) C(theta), the read count 2/9 of two independent objects, the weak round with the inverse tick, the unit of the declared clock, the kick as the commutator of the oriented toggle with the tick of the pair, the counts on the sixty-address carrier, and the selection of the pair on one port by a class-3 flux. The register, its preparation, its analyzer, the kick and the fresh rounds are declared constructions on the public law; the lepton scale and a source of the double load are outside this package.",
