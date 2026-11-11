@@ -41,9 +41,9 @@ explained in the [assumption dictionary](../claims/assumption_dictionary.md).
 | --- | ---: |
 | Canonical premise IDs represented in this crosswalk | 84/84 |
 | Model criteria represented | 12/12 |
-| Registered claims | 392 |
-| Unique ordinary `assumptions` names | 923 |
-| Unique `imported_results` names | 1193 |
+| Registered claims | 400 |
+| Unique ordinary `assumptions` names | 931 |
+| Unique `imported_results` names | 1213 |
 | Workgroups | 27 |
 | Assumption names explicitly linked by optional group fields | 33 |
 | Claims explicitly linked by optional group fields | 20 |
@@ -58,7 +58,7 @@ a global completeness or proof claim.
 | --- | ---: |
 | `consumed` | 60 |
 | `open` | 34 |
-| `boundary` | 20 |
+| `boundary` | 21 |
 
 These role sets overlap. They record metadata on existing claims; `consumed`
 does not mean discharged, and `boundary` does not mean an unproved antecedent.
@@ -71,7 +71,7 @@ the ordinary-assumption inventory:
 | `null_decision_assumptions` | 1 | 2 | 2 | 0 |
 | `threshold_kinematic_assumptions` | 1 | 6 | 6 | 0 |
 
-Existing claim classifications: `explicit_edges`: 176; `explicit_non_consumer`: 216.
+Existing claim classifications: `explicit_edges`: 181; `explicit_non_consumer`: 219.
 
 ## What the current implementation does with each premise
 
@@ -8394,9 +8394,9 @@ anchors are not proofs. No entry silently discharges a canonical premise.
 
 | Coverage | Count |
 | --- | ---: |
-| Canonical claims retained | 392 |
+| Canonical claims retained | 400 |
 | Claims with restricted bindings | 67 |
-| Claims with open common-model mapping | 325 |
+| Claims with open common-model mapping | 333 |
 | Tracked Lean source modules retained | 681 |
 | Lean modules referenced by canonical evidence | 481 |
 | Public theorem/lemma declarations | 12880 |

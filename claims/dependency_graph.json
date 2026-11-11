@@ -392,7 +392,15 @@
     "OPH-NATIVE-ROOTED-REFINEMENT",
     "OPH-NATIVE-FAIR-LOCAL-PREPARATION",
     "OPH-NATIVE-FAIR-LOCAL-READOUT",
-    "OPH-NATIVE-FAIR-LOCAL-CLOCK"
+    "OPH-NATIVE-FAIR-LOCAL-CLOCK",
+    "OPH-PARTICLE-DEFECT-CENTRE-CLASSES",
+    "OPH-GAUGE-PORT-PHASE-GLOBAL-FORM",
+    "OPH-PARTICLE-DEFECT-INTEGER-LIFT",
+    "OPH-LEPTON-GENERATION-REGISTER",
+    "OPH-EW-COUPLING-CHAIN-DECLARED",
+    "OPH-EW-SEAM-CLASS-BALANCE",
+    "OPH-EW-LATTICE-CROSSOVER",
+    "OPH-COLOUR-LATTICE-DECONFINEMENT-AND-BINDING"
   ],
   "edges": [
     {
@@ -3379,6 +3387,66 @@
       "from": "OPH-NATIVE-FAIR-LOCAL-READOUT",
       "to": "OPH-NATIVE-FAIR-LOCAL-CLOCK",
       "role": "supplies uniform E incident-record decoding and the state-dependent erasure budget; no input weight is inferred from clock compilation"
+    },
+    {
+      "from": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
+      "to": "OPH-PARTICLE-DEFECT-CENTRE-CLASSES",
+      "role": "supplies the five-level carrier with its hypercharges and the one-generation exterior content; the class rule, the reactions and the grading are computed in this row's own certificate"
+    },
+    {
+      "from": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
+      "to": "OPH-GAUGE-PORT-PHASE-GLOBAL-FORM",
+      "role": "supplies the five-level carrier and its hypercharges; the port phases and their group are this row's own statement"
+    },
+    {
+      "from": "OPH-PARTICLE-DEFECT-CENTRE-CLASSES",
+      "to": "OPH-GAUGE-PORT-PHASE-GLOBAL-FORM",
+      "role": "supplies the class rule k = 6Y mod 6 by which the order-six central alphabet acts on the code patterns"
+    },
+    {
+      "from": "OPH-PARTICLE-DEFECT-CENTRE-CLASSES",
+      "to": "OPH-PARTICLE-DEFECT-INTEGER-LIFT",
+      "role": "supplies the class table and the values 6Y of the multiplets used by the hypercharge reading; the lift, its gates and its census are this row's own"
+    },
+    {
+      "from": "OPH-KOIDE-CIRCULANT-IDENTITY",
+      "to": "OPH-LEPTON-GENERATION-REGISTER",
+      "role": "supplies the exact positive-chamber identity Q = 2/3 at |b|/a = 1/sqrt2; the balance and the phase are computed here as read counts of the declared register"
+    },
+    {
+      "from": "OPH-PARTICLE-DEFECT-CENTRE-CLASSES",
+      "to": "OPH-LEPTON-GENERATION-REGISTER",
+      "role": "supplies the reading of class 3 as the lepton-doublet centre class; the selection of the pair by a class-3 link phase is computed in this row's own certificate"
+    },
+    {
+      "from": "OPH-ALPHA-PIXEL",
+      "to": "OPH-EW-COUPLING-CHAIN-DECLARED",
+      "role": "supplies the declared pixel closure map and its fixed point P; no source selection of the map and no physical endpoint is transferred"
+    },
+    {
+      "from": "OPH-GAUGE-PORT-PHASE-GLOBAL-FORM",
+      "to": "OPH-EW-COUPLING-CHAIN-DECLARED",
+      "role": "supplies the count 4 of the transmutation exponent and the equal bare couplings of the plaquette action; the other forms of the chain are declared here"
+    },
+    {
+      "from": "OPH-EW-COUPLING-CHAIN-DECLARED",
+      "to": "OPH-EW-SEAM-CLASS-BALANCE",
+      "role": "supplies the transmutation form v = E_cell exp(-2 pi/(4 alpha_U)) and the chain coupling 1/alpha_U = 24.3166 at which the ensembles are evaluated"
+    },
+    {
+      "from": "OPH-EW-COUPLING-CHAIN-DECLARED",
+      "to": "OPH-EW-LATTICE-CROSSOVER",
+      "role": "supplies the couplings, the vacuum value and the tree masses used as inputs; the chain is declared and its derivation is open"
+    },
+    {
+      "from": "OPH-GAUGE-PORT-PHASE-GLOBAL-FORM",
+      "to": "OPH-COLOUR-LATTICE-DECONFINEMENT-AND-BINDING",
+      "role": "supplies the seam cost 1 - Re tr_5(U)/5 and the declared continuous links"
+    },
+    {
+      "from": "OPH-PARTICLE-DEFECT-CENTRE-CLASSES",
+      "to": "OPH-COLOUR-LATTICE-DECONFINEMENT-AND-BINDING",
+      "role": "supplies the class table that identifies flux classes 2 and 4 with the colour centre and classes 1, 2, 4, 5 with the quarks"
     }
   ]
 }
