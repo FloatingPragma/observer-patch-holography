@@ -19,9 +19,14 @@ from model.native_binary_source_refinement import source_profile as profile
 from tools import strict_json
 
 HAS_LAKE = shutil.which('lake') is not None
-if os.environ.get('OPH_REQUIRE_KERNEL_TESTS') == '1' and not HAS_LAKE:
-    raise RuntimeError('The declared kernel test job must install Lean')
-needs_kernel = pytest.mark.skipif(not HAS_LAKE, reason='executed by native-binary-source-refinement.yml with Lean')
+# The receiving epoch rejects source modules loaded before its enrollment.
+# The plugins of model/conftest.py load tools.strict_json first, so a run
+# collected with that conftest has no accepting epoch for the kernel tests.
+ACCEPTING = cert._PYTHON_EPOCH._problem is None
+if os.environ.get('OPH_REQUIRE_KERNEL_TESTS') == '1' and not (HAS_LAKE and ACCEPTING):
+    raise RuntimeError('The declared kernel test job must install Lean and run with --noconftest')
+needs_kernel = pytest.mark.skipif(not (HAS_LAKE and ACCEPTING),
+    reason='executed by native-binary-source-refinement.yml with Lean and --noconftest')
 
 
 @pytest.fixture(scope='module')
