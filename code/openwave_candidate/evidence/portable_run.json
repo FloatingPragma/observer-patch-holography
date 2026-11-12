@@ -1,0 +1,2520 @@
+{
+  "candidate_python_sha256": {
+    "__init__.py": "844f2f63fede8ca1b17ff2524cc380a9c1f702b92c00fde61b04368119ef06e2",
+    "charge.py": "84f678758e7fb7e0cb60782cdfada558f72185421fe083fcf0a08debececc950",
+    "conjugation.py": "344c5d9215318e155f8227ce83f85f89d41d678f856a68b49a57a97606e06a27",
+    "dispersion.py": "ce81d78943d5580e6e7a4536ea4d7e1a5ee2bed5acee8ba06caaaa24bf765bbd",
+    "leptons.py": "18ec0cc98783260de38f6bf05079b72cc8437de1973d92356ae5888b75b6703b",
+    "runner.py": "5c9b3cb01e6beb4aef2b755fe089ec10c014116c911706d830e1155e6b0aee83",
+    "spin.py": "07875e4c23eebdfd41404eaf57a06c5d45669b0309f8d2ae270b050730d18b1b"
+  },
+  "jobs": [
+    {
+      "command": "python -m oph_openwave.charge",
+      "exit_code": 0,
+      "result": {
+        "algebraically_allowed_coloured_daughters": [
+          {
+            "Q": "-2/3",
+            "T3": "0",
+            "Y": "-2/3",
+            "colour_singlet": false,
+            "k": 2,
+            "mask": 3,
+            "n2": 0,
+            "n3": 2,
+            "occupation": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-1/3",
+            "T3": "0",
+            "Y": "-1/3",
+            "colour_singlet": false,
+            "k": 4,
+            "mask": 1,
+            "n2": 0,
+            "n3": 1,
+            "occupation": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "centre_multiplicities": [
+          4,
+          6,
+          6,
+          4,
+          6,
+          6
+        ],
+        "checks": {
+          "all_charges_in_one_third_integer_lattice": true,
+          "all_eight_colour_singlet_weights_integral": true,
+          "complete_32_occupation_patterns": true,
+          "electron_k0_has_equal_class_solutions": true,
+          "equal_class_halves_of_odd_k_absent": true,
+          "exact_Z6_kernel_on_all_patterns": true,
+          "half_unit_charge_absent_from_entire_code": true,
+          "unequal_fractional_split_is_algebraically_allowed": true
+        },
+        "colour_singlet_masks": [
+          0,
+          7,
+          8,
+          15,
+          16,
+          23,
+          24,
+          31
+        ],
+        "computational_pass": true,
+        "criterion_rows": [
+          1,
+          12
+        ],
+        "electric_weights": {
+          "-1": 2,
+          "-1/3": 6,
+          "-2/3": 6,
+          "0": 4,
+          "1": 2,
+          "1/3": 6,
+          "2/3": 6
+        },
+        "electron_charge_and_class": {
+          "Q": "-1",
+          "k": 0
+        },
+        "equal_class_halves": {
+          "0": [
+            0,
+            3
+          ],
+          "1": [],
+          "2": [
+            1,
+            4
+          ],
+          "3": [],
+          "4": [
+            2,
+            5
+          ],
+          "5": []
+        },
+        "full_criterion_met": false,
+        "mutations": {
+          "changed_weak_hypercharge_rejected": true,
+          "half_electric_normalization_rejected": true,
+          "missing_code_weight_rejected": true
+        },
+        "parameter_ancestry": {
+          "declared": [
+            "five internal levels decomposed as three colour plus two weak levels",
+            "exterior occupation code",
+            "hypercharges (-1/3,-1/3,-1/3,1/2,1/2)",
+            "T3=(b_s1-b_s2)/2",
+            "electric generator Q=T3+Y and its unit normalization"
+          ],
+          "empirical_calibrations_used": [],
+          "observed_particle_names_used_as_inputs": false
+        },
+        "patterns": [
+          {
+            "Q": "0",
+            "T3": "0",
+            "Y": "0",
+            "colour_singlet": true,
+            "k": 0,
+            "mask": 0,
+            "n2": 0,
+            "n3": 0,
+            "occupation": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-1/3",
+            "T3": "0",
+            "Y": "-1/3",
+            "colour_singlet": false,
+            "k": 4,
+            "mask": 1,
+            "n2": 0,
+            "n3": 1,
+            "occupation": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-1/3",
+            "T3": "0",
+            "Y": "-1/3",
+            "colour_singlet": false,
+            "k": 4,
+            "mask": 2,
+            "n2": 0,
+            "n3": 1,
+            "occupation": [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-2/3",
+            "T3": "0",
+            "Y": "-2/3",
+            "colour_singlet": false,
+            "k": 2,
+            "mask": 3,
+            "n2": 0,
+            "n3": 2,
+            "occupation": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-1/3",
+            "T3": "0",
+            "Y": "-1/3",
+            "colour_singlet": false,
+            "k": 4,
+            "mask": 4,
+            "n2": 0,
+            "n3": 1,
+            "occupation": [
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-2/3",
+            "T3": "0",
+            "Y": "-2/3",
+            "colour_singlet": false,
+            "k": 2,
+            "mask": 5,
+            "n2": 0,
+            "n3": 2,
+            "occupation": [
+              1,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-2/3",
+            "T3": "0",
+            "Y": "-2/3",
+            "colour_singlet": false,
+            "k": 2,
+            "mask": 6,
+            "n2": 0,
+            "n3": 2,
+            "occupation": [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "-1",
+            "T3": "0",
+            "Y": "-1",
+            "colour_singlet": true,
+            "k": 0,
+            "mask": 7,
+            "n2": 0,
+            "n3": 3,
+            "occupation": [
+              1,
+              1,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "Q": "1",
+            "T3": "1/2",
+            "Y": "1/2",
+            "colour_singlet": true,
+            "k": 3,
+            "mask": 8,
+            "n2": 1,
+            "n3": 0,
+            "occupation": [
+              0,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "2/3",
+            "T3": "1/2",
+            "Y": "1/6",
+            "colour_singlet": false,
+            "k": 1,
+            "mask": 9,
+            "n2": 1,
+            "n3": 1,
+            "occupation": [
+              1,
+              0,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "2/3",
+            "T3": "1/2",
+            "Y": "1/6",
+            "colour_singlet": false,
+            "k": 1,
+            "mask": 10,
+            "n2": 1,
+            "n3": 1,
+            "occupation": [
+              0,
+              1,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "1/3",
+            "T3": "1/2",
+            "Y": "-1/6",
+            "colour_singlet": false,
+            "k": 5,
+            "mask": 11,
+            "n2": 1,
+            "n3": 2,
+            "occupation": [
+              1,
+              1,
+              0,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "2/3",
+            "T3": "1/2",
+            "Y": "1/6",
+            "colour_singlet": false,
+            "k": 1,
+            "mask": 12,
+            "n2": 1,
+            "n3": 1,
+            "occupation": [
+              0,
+              0,
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "1/3",
+            "T3": "1/2",
+            "Y": "-1/6",
+            "colour_singlet": false,
+            "k": 5,
+            "mask": 13,
+            "n2": 1,
+            "n3": 2,
+            "occupation": [
+              1,
+              0,
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "1/3",
+            "T3": "1/2",
+            "Y": "-1/6",
+            "colour_singlet": false,
+            "k": 5,
+            "mask": 14,
+            "n2": 1,
+            "n3": 2,
+            "occupation": [
+              0,
+              1,
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "0",
+            "T3": "1/2",
+            "Y": "-1/2",
+            "colour_singlet": true,
+            "k": 3,
+            "mask": 15,
+            "n2": 1,
+            "n3": 3,
+            "occupation": [
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          },
+          {
+            "Q": "0",
+            "T3": "-1/2",
+            "Y": "1/2",
+            "colour_singlet": true,
+            "k": 3,
+            "mask": 16,
+            "n2": 1,
+            "n3": 0,
+            "occupation": [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "-1/3",
+            "T3": "-1/2",
+            "Y": "1/6",
+            "colour_singlet": false,
+            "k": 1,
+            "mask": 17,
+            "n2": 1,
+            "n3": 1,
+            "occupation": [
+              1,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "-1/3",
+            "T3": "-1/2",
+            "Y": "1/6",
+            "colour_singlet": false,
+            "k": 1,
+            "mask": 18,
+            "n2": 1,
+            "n3": 1,
+            "occupation": [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "-2/3",
+            "T3": "-1/2",
+            "Y": "-1/6",
+            "colour_singlet": false,
+            "k": 5,
+            "mask": 19,
+            "n2": 1,
+            "n3": 2,
+            "occupation": [
+              1,
+              1,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "-1/3",
+            "T3": "-1/2",
+            "Y": "1/6",
+            "colour_singlet": false,
+            "k": 1,
+            "mask": 20,
+            "n2": 1,
+            "n3": 1,
+            "occupation": [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "-2/3",
+            "T3": "-1/2",
+            "Y": "-1/6",
+            "colour_singlet": false,
+            "k": 5,
+            "mask": 21,
+            "n2": 1,
+            "n3": 2,
+            "occupation": [
+              1,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "-2/3",
+            "T3": "-1/2",
+            "Y": "-1/6",
+            "colour_singlet": false,
+            "k": 5,
+            "mask": 22,
+            "n2": 1,
+            "n3": 2,
+            "occupation": [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "-1",
+            "T3": "-1/2",
+            "Y": "-1/2",
+            "colour_singlet": true,
+            "k": 3,
+            "mask": 23,
+            "n2": 1,
+            "n3": 3,
+            "occupation": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "Q": "1",
+            "T3": "0",
+            "Y": "1",
+            "colour_singlet": true,
+            "k": 0,
+            "mask": 24,
+            "n2": 2,
+            "n3": 0,
+            "occupation": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "Q": "2/3",
+            "T3": "0",
+            "Y": "2/3",
+            "colour_singlet": false,
+            "k": 4,
+            "mask": 25,
+            "n2": 2,
+            "n3": 1,
+            "occupation": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "Q": "2/3",
+            "T3": "0",
+            "Y": "2/3",
+            "colour_singlet": false,
+            "k": 4,
+            "mask": 26,
+            "n2": 2,
+            "n3": 1,
+            "occupation": [
+              0,
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "Q": "1/3",
+            "T3": "0",
+            "Y": "1/3",
+            "colour_singlet": false,
+            "k": 2,
+            "mask": 27,
+            "n2": 2,
+            "n3": 2,
+            "occupation": [
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "Q": "2/3",
+            "T3": "0",
+            "Y": "2/3",
+            "colour_singlet": false,
+            "k": 4,
+            "mask": 28,
+            "n2": 2,
+            "n3": 1,
+            "occupation": [
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "Q": "1/3",
+            "T3": "0",
+            "Y": "1/3",
+            "colour_singlet": false,
+            "k": 2,
+            "mask": 29,
+            "n2": 2,
+            "n3": 2,
+            "occupation": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "Q": "1/3",
+            "T3": "0",
+            "Y": "1/3",
+            "colour_singlet": false,
+            "k": 2,
+            "mask": 30,
+            "n2": 2,
+            "n3": 2,
+            "occupation": [
+              0,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "Q": "0",
+            "T3": "0",
+            "Y": "0",
+            "colour_singlet": true,
+            "k": 0,
+            "mask": 31,
+            "n2": 2,
+            "n3": 3,
+            "occupation": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "schema": "oph.openwave.charge.v1",
+        "scope": {
+          "charge_conservation_does_not_establish_a_transition": true,
+          "does_not_license": "No integrated winding charge, energetic protection against fractionation, isolation/confinement theorem, physical quark identification or electric coupling value is computed.",
+          "electron_modular_no_halving_argument_refuted": true,
+          "licenses": "Exact charge-lattice and centre statements on the declared 32-weight code, plus the tensor-product implication: total colour triality zero implies integral electric weight.",
+          "official_OpenWave_cell_assigned": false
+        },
+        "source_refs": [
+          "model/defect_particle_classes/model.py",
+          "model/defect_particle_classes/PROOF.md",
+          "model/defect_integer_lift/PROOF.md",
+          "model/native_quantum_gauss/PROOF.md"
+        ]
+      },
+      "task": "charge",
+      "verdict": "PASS_SCOPED_COMPUTATION",
+      "wall_seconds": 0.004872417077422142
+    },
+    {
+      "command": "python -m oph_openwave.spin",
+      "exit_code": 0,
+      "result": {
+        "Casimir_multiplicities": {
+          "15/4": 4,
+          "3/4": 2
+        },
+        "ambient_masks": [
+          19,
+          35,
+          21,
+          37,
+          25,
+          41,
+          22,
+          38,
+          26,
+          42,
+          28,
+          44
+        ],
+        "binary_cube_characters": [
+          {
+            "G1": "-2",
+            "H": "-4",
+            "quaternion": [
+              "-1",
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "2",
+            "H": "4",
+            "quaternion": [
+              "1",
+              "0",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "-1",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "1",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "-1",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "1",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "0",
+              "-1"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "-1/2",
+              "-1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "-1/2",
+              "-1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "-1/2",
+              "1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "-1/2",
+              "1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "1/2",
+              "-1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "1/2",
+              "-1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "1/2",
+              "1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "-1",
+            "H": "1",
+            "quaternion": [
+              "-1/2",
+              "1/2",
+              "1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "-1/2",
+              "-1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "-1/2",
+              "-1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "-1/2",
+              "1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "-1/2",
+              "1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "1/2",
+              "-1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "1/2",
+              "-1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "1/2",
+              "1/2",
+              "-1/2"
+            ]
+          },
+          {
+            "G1": "1",
+            "H": "-1",
+            "quaternion": [
+              "1/2",
+              "1/2",
+              "1/2",
+              "1/2"
+            ]
+          },
+          {
+            "G1": "-sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "-sqrt(2)/2",
+              "-sqrt(2)/2",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "-sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "-sqrt(2)/2",
+              "sqrt(2)/2",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "sqrt(2)/2",
+              "-sqrt(2)/2",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "sqrt(2)/2",
+              "sqrt(2)/2",
+              "0",
+              "0"
+            ]
+          },
+          {
+            "G1": "-sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "-sqrt(2)/2",
+              "0",
+              "-sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "-sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "-sqrt(2)/2",
+              "0",
+              "sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "sqrt(2)/2",
+              "0",
+              "-sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "sqrt(2)/2",
+              "0",
+              "sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "-sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "-sqrt(2)/2",
+              "0",
+              "0",
+              "-sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "-sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "-sqrt(2)/2",
+              "0",
+              "0",
+              "sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "sqrt(2)/2",
+              "0",
+              "0",
+              "-sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "sqrt(2)",
+            "H": "0",
+            "quaternion": [
+              "sqrt(2)/2",
+              "0",
+              "0",
+              "sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "-sqrt(2)/2",
+              "-sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "-sqrt(2)/2",
+              "sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "sqrt(2)/2",
+              "-sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "sqrt(2)/2",
+              "sqrt(2)/2",
+              "0"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "-sqrt(2)/2",
+              "0",
+              "-sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "-sqrt(2)/2",
+              "0",
+              "sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "sqrt(2)/2",
+              "0",
+              "-sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "sqrt(2)/2",
+              "0",
+              "sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "-sqrt(2)/2",
+              "-sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "-sqrt(2)/2",
+              "sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "sqrt(2)/2",
+              "-sqrt(2)/2"
+            ]
+          },
+          {
+            "G1": "0",
+            "H": "0",
+            "quaternion": [
+              "0",
+              "0",
+              "sqrt(2)/2",
+              "sqrt(2)/2"
+            ]
+          }
+        ],
+        "checks": {
+          "all_36_composite_pairs_on_all_4096_Fock_states_anticommute": true,
+          "all_48_binary_cube_characters_G1_plus_H": true,
+          "all_spin_commutators_and_kernel_invariance": true,
+          "double_turn_identity": true,
+          "exact_12_weight_ambient_space": true,
+          "full_turn_minus_identity": true,
+          "six_dimensional_native_weak_singlet_kernel": true,
+          "spin_half_projector_rank_two": true,
+          "spin_three_halves_projector_rank_four": true,
+          "uniform_eight_site_orbit_invariant": true
+        },
+        "computational_pass": true,
+        "criterion_rows": [
+          7
+        ],
+        "exchange_basis_comparisons": 147456,
+        "full_criterion_met": false,
+        "kernel_basis": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "kernel_gram": [
+          [
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "2",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "2",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ],
+        "mutations": {
+          "central_sign_erasure_rejected": true,
+          "commuting_creator_replacement_rejected": true
+        },
+        "native_central_charges": [
+          -3,
+          -3,
+          -3,
+          -3,
+          6,
+          6
+        ],
+        "nonzero_exchange_comparisons": 3600,
+        "parameter_ancestry": {
+          "declared": [
+            "the primary source spinor action on each fermion",
+            "exterior CAR quantization",
+            "native weak doublet and charge-six singlet representations",
+            "weak-pair/charge-six occupation sector",
+            "uniform cube orbital preparation"
+          ],
+          "empirical_calibrations_used": []
+        },
+        "schema": "oph.openwave.spin.v1",
+        "scope": {
+          "continuous_spatial_rotation_symmetry_derived": false,
+          "does_not_license": "The CAR and spinor action are inputs. No classical emergence of anticommutation, relativistic spin-statistics theorem, physical electron assignment, source-Hamiltonian persistence, mass or laboratory interference experiment is supplied.",
+          "full_primary_Hamiltonian_executed": false,
+          "licenses": "Exact double-cover sign and graded disjoint-support exchange of the computed finite gauge-singlet composite kernel, including its two-dimensional G1 component.",
+          "official_OpenWave_cell_assigned": false,
+          "same_site_free_CAR_claimed": false
+        },
+        "source_refs": [
+          "model/particle_primary_composite_spin/model.py",
+          "model/particle_primary_composite_spin/PROOF.md",
+          "model/native_quantum_gauss/algebra.py",
+          "model/cubic_particle_channels/group.py"
+        ],
+        "source_restriction": "positive weak-pair/charge-six composite, native increment (0,2,0,0,1), canonical equivalent spin and weak charts",
+        "spin_generators": [
+          [
+            [
+              "0",
+              "1/2",
+              "-1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "1/2",
+              "0",
+              "0",
+              "-1",
+              "0",
+              "0"
+            ],
+            [
+              "-1/2",
+              "0",
+              "0",
+              "1/2",
+              "-1/2",
+              "0"
+            ],
+            [
+              "0",
+              "-1/2",
+              "1/2",
+              "0",
+              "0",
+              "-1/2"
+            ],
+            [
+              "0",
+              "0",
+              "-1",
+              "0",
+              "0",
+              "1/2"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "-1",
+              "1/2",
+              "0"
+            ]
+          ],
+          [
+            [
+              "0",
+              "-I/2",
+              "I",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "I/2",
+              "0",
+              "0",
+              "I",
+              "0",
+              "0"
+            ],
+            [
+              "-I/2",
+              "0",
+              "0",
+              "-I/2",
+              "I/2",
+              "0"
+            ],
+            [
+              "0",
+              "-I/2",
+              "I/2",
+              "0",
+              "0",
+              "I/2"
+            ],
+            [
+              "0",
+              "0",
+              "-I",
+              "0",
+              "0",
+              "-I/2"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "-I",
+              "I/2",
+              "0"
+            ]
+          ],
+          [
+            [
+              "3/2",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1/2",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1/2",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "-1/2",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "-1/2",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "-3/2"
+            ]
+          ]
+        ]
+      },
+      "task": "spin",
+      "verdict": "PASS_SCOPED_COMPUTATION",
+      "wall_seconds": 2.30334679200314
+    },
+    {
+      "command": "python -m oph_openwave.leptons",
+      "exit_code": 0,
+      "result": {
+        "checks": {
+          "circulant_coefficients_exact": true,
+          "complete_source_probability_retained": true,
+          "exclusive_read_count_exact": true,
+          "three_characters_of_declared_C3": true,
+          "unitarity_exact_integer": true
+        },
+        "computational_pass": true,
+        "criterion_rows": [
+          2,
+          11
+        ],
+        "evidence": {
+          "balance_squared": "1/2",
+          "coefficient_A": [
+            [
+              [
+                32,
+                0,
+                0
+              ],
+              [
+                0,
+                32,
+                0
+              ],
+              [
+                0,
+                0,
+                32
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "coefficient_B": [
+            [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                16
+              ],
+              [
+                16,
+                0,
+                0
+              ],
+              [
+                0,
+                16,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                16,
+                0
+              ],
+              [
+                0,
+                0,
+                16
+              ],
+              [
+                16,
+                0,
+                0
+              ]
+            ]
+          ],
+          "complete_tick_dimension": 432,
+          "exclusive_count": "2/9",
+          "repair_plus_agree_joint": [
+            "1/12",
+            "1/6",
+            "1/72"
+          ]
+        },
+        "full_criterion_met": false,
+        "inputs": {
+          "declared_phase": "2/9",
+          "electron_anchor_MeV": "0.51099895069",
+          "electron_anchor_standard_uncertainty_MeV": "0.00000000016",
+          "empirical_exposure": "Particle masses and Koide relations were known during architecture development.",
+          "mode_assignment": {
+            "electron": 1,
+            "muon": 2,
+            "tau": 0
+          },
+          "muon_electron_reference": "206.7682827",
+          "muon_electron_reference_standard_uncertainty": "0.0000046",
+          "off_diagonal_to_diagonal_squared": "1/2",
+          "prospective_or_blind_prediction": false,
+          "reference_editions": [
+            "CODATA2022",
+            "PDG2024"
+          ],
+          "squared_eigenvalue_interpretation": "declared effect-rate to free-mass compiler",
+          "tau_reference_MeV": "1776.93",
+          "tau_reference_standard_uncertainty_MeV": "0.09"
+        },
+        "mutations": {
+          "exact_muon_agreement_rejected": true,
+          "oriented_record_removed_rejected": true
+        },
+        "results": {
+          "electron_calibrated_electron_GeV": "0.00051099895069",
+          "electron_calibrated_muon_GeV": "0.105659414495904464236338458356",
+          "electron_calibrated_tau_GeV": "1.77698497081342714778565768489",
+          "koide_ratio": "0.666666666666666666666666666667",
+          "muon_electron_ratio": "206.770315972729388612550339318",
+          "muon_reference_only_standardized_discrepancy": "442.015810736654902247677777191",
+          "muon_relative_residual_ppm": "9.83358135415133740112703356644",
+          "tau_electron_ratio": "3477.47283710459853231300122552",
+          "tau_reference_only_discrepancy_high": "0.610790591754061733610071966982",
+          "tau_reference_only_discrepancy_low": "0.610783040007018272712943079272",
+          "tau_relative_residual_ppm": "30.9358350791239866835974893537"
+        },
+        "schema": "oph.openwave.leptons.v1",
+        "scope": {
+          "absolute_GeV_scale_derived": false,
+          "complete_phase_and_mass_cycle_reexecuted": false,
+          "conditional_source": "Two independent seam objects, declared preparation/analyzer/orientation and C3 register.",
+          "full_native_432_state_tick_rebuilt": true,
+          "joint_covariance_or_chi_square_available": false,
+          "muon_residual_cause_derived": false,
+          "physical_mass_poles_derived": false,
+          "physical_theory_uncertainty_available": false,
+          "three_physical_mass_minima_proved": false
+        },
+        "source_refs": [
+          "model/lepton_register_round/register.py",
+          "model/lepton_register_round/kick.py",
+          "model/lepton_register_round/certificate.py",
+          "model/lepton_cycle/experimental_inputs.json",
+          "model/lepton_cycle/compare.py",
+          "model/lepton_mass_compiler/PROOF.md"
+        ]
+      },
+      "task": "leptons",
+      "verdict": "PASS_SCOPED_COMPUTATION",
+      "wall_seconds": 0.1265294160693884
+    },
+    {
+      "command": "python -m oph_openwave.conjugation",
+      "exit_code": 0,
+      "result": {
+        "checks": {
+          "all_1296_conjugate_preparation_pairs_have_zero_odd_mean": true,
+          "complete_branch_conjugation": true,
+          "fair_kernel_equivariant": true,
+          "full_local_class_and_load_records_retained": true
+        },
+        "computational_pass": true,
+        "criterion_rows": [
+          8
+        ],
+        "evidence": {
+          "accepted_twists": 1536,
+          "complete_local_branches": 2592,
+          "fair_kernel_TV_defect_exact": "0",
+          "no_operations": 792,
+          "rejected_nonzero_twists": 264,
+          "state_count": 1296
+        },
+        "full_criterion_met": false,
+        "mutation_evidence": {
+          "asymmetric_cost_detected_branches": 20,
+          "biased_coin_probability": "3/4",
+          "biased_kernel_TV_defect_exact": "1/2",
+          "biased_kernel_witness": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "biased_odd_class_mean_witness": {
+            "odd_mean": "-1/4",
+            "state": [
+              0,
+              1,
+              0,
+              5
+            ]
+          },
+          "coin_not_complemented_changed_targets": 1296,
+          "coin_not_complemented_detected_branches": 2592,
+          "first_asymmetric_cost_witness": {
+            "coin": 1,
+            "state": [
+              0,
+              1,
+              3,
+              1
+            ],
+            "target_mismatch": true
+          }
+        },
+        "mutations": {
+          "asymmetric_cost_changes_actual_targets": true,
+          "biased_coin_changes_kernel": true,
+          "uncomplemented_coin_changes_actual_targets": true
+        },
+        "schema": "oph.openwave.conjugation.v1",
+        "scope": {
+          "all_finite_times_statement": "The exact local intertwining supplies the premise of the cited finite-kernel Lean theorem; this script does not compile Lean.",
+          "annihilation_to_radiation_computed": false,
+          "clock": "One complete local attempt; no physical duration.",
+          "cosmological_baryogenesis_computed": false,
+          "ensemble_premises": "Conjugation-symmetric initial preparation, fair independent coins and equivariant schedule.",
+          "federated_dynamics_reexecuted": false,
+          "particle_antiparticle_physical_dictionary_derived": false,
+          "source": "Declared classical integer-load repair with Z6 register and supplied cost table."
+        },
+        "source_refs": [
+          "model/defect_integer_lift/model.py",
+          "model/charge_conjugation_dynamics/symmetry.py",
+          "Lean/Dynamics/ChargeConjugation.lean"
+        ]
+      },
+      "task": "conjugation",
+      "verdict": "PASS_SCOPED_COMPUTATION",
+      "wall_seconds": 0.15562537498772144
+    },
+    {
+      "command": "python -m oph_openwave.dispersion",
+      "exit_code": 0,
+      "result": {
+        "checks": {
+          "all_ports_unit": true,
+          "all_vertex_normalizations_equal": true,
+          "direct_cosine_matches_stable_sine": true,
+          "direct_symbol_remainder_bounds": true,
+          "exact_angular_reconstruction": true,
+          "i6_all_vertices_one": true,
+          "i6_spherical_mean_zero": true,
+          "legendre_matches_harmonic": true,
+          "length_halving_identity": true,
+          "normalization_nonzero": true,
+          "quadratic_isotropic": true,
+          "quartic_isotropic": true,
+          "remainder_decays_at_least_200fold_per_k_halving": true,
+          "sextic_nonconstant": true,
+          "sextic_remainder_harmonic": true,
+          "twelve_unique_ports": true
+        },
+        "classification": "definition-only local mathematical recompute",
+        "file_audit_scope": "Original implementation-phase read declaration in repository-relative paths, not runtime filesystem reads. Scientific packet and own artifacts were read during implementation and final review; standard installed Python libraries are excluded.",
+        "files_read": [
+          "certification/DEFINITION_ONLY.md",
+          "candidate/oph_openwave/dispersion.py",
+          "candidate/tests/test_dispersion.py",
+          "candidate/methods/dispersion.md",
+          "certification/recompute_a.json"
+        ],
+        "full_criterion_met": false,
+        "mutations": {
+          "one_port_removed_rejected_by_quadratic_isotropy": true,
+          "one_weight_doubled_rejected_by_quadratic_isotropy": true
+        },
+        "outputs": {
+          "I6_homogeneous": {
+            "expression": "-5*x**6/16 + x**4*y**2*(75/32 - 105*sqrt(5)/32) + x**4*z**2*(75/32 + 105*sqrt(5)/32) + x**2*y**4*(75/32 + 105*sqrt(5)/32) - 225*x**2*y**2*z**2/8 + x**2*z**4*(75/32 - 105*sqrt(5)/32) - 5*y**6/16 + y**4*z**2*(75/32 - 105*sqrt(5)/32) + y**2*z**4*(75/32 + 105*sqrt(5)/32) - 5*z**6/16",
+            "monomials": {
+              "0,0,6": "-5/16",
+              "0,2,4": "75/32 + 105*sqrt(5)/32",
+              "0,4,2": "75/32 - 105*sqrt(5)/32",
+              "0,6,0": "-5/16",
+              "2,0,4": "75/32 - 105*sqrt(5)/32",
+              "2,2,2": "-225/8",
+              "2,4,0": "75/32 + 105*sqrt(5)/32",
+              "4,0,2": "75/32 + 105*sqrt(5)/32",
+              "4,2,0": "75/32 - 105*sqrt(5)/32",
+              "6,0,0": "-5/16"
+            }
+          },
+          "I6_usage": "Evaluate the homogeneous polynomial on n with n dot n = 1.",
+          "I6_vertex_denominator": "132/25",
+          "a_to_a_over_2_at_fixed_k_and_n": {
+            "quadratic_multiplier": "1",
+            "quartic_multiplier": "1/4",
+            "remainder_bound_multiplier": "1/64",
+            "scale_free_ratios": "unchanged",
+            "sextic_multiplier": "1/16"
+          },
+          "broken_control_quadratics": {
+            "one_port_removed": {
+              "expression": "x**2*(7/2 - sqrt(5)/10)/4 - sqrt(5)*x*z/10 + y**2 + z**2*(sqrt(5)/10 + 7/2)/4",
+              "monomials": {
+                "0,0,2": "sqrt(5)/40 + 7/8",
+                "0,2,0": "1",
+                "1,0,1": "-sqrt(5)/10",
+                "2,0,0": "7/8 - sqrt(5)/40"
+              }
+            },
+            "one_weight_doubled": {
+              "expression": "x**2 + y**2*(9/2 - sqrt(5)/10)/4 + sqrt(5)*y*z/10 + z**2*(sqrt(5)/10 + 9/2)/4",
+              "monomials": {
+                "0,0,2": "sqrt(5)/40 + 9/8",
+                "0,1,1": "sqrt(5)/10",
+                "0,2,0": "9/8 - sqrt(5)/40",
+                "2,0,0": "1"
+              }
+            }
+          },
+          "coefficients": {
+            "c2": "1",
+            "c4": "-1/20",
+            "c6_angular": "2/7875",
+            "c6_isotropic": "1/840"
+          },
+          "direct_symbol": {
+            "B10": "a^8*k^10*sum_u(u dot n)^10/(2*10!)",
+            "analytic_absolute_bound": "B8 = a^6*k^8*sum_u(u dot n)^8/(2*8!)",
+            "analytic_interval": "-B8 <= omega_squared - truncation <= -B8+B10 when max|a*k*u dot n| <= 1",
+            "decimal_precision": 80,
+            "rows": [
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99873126625197102580734990023077263",
+                "absolute_bound_B8": "0.0000000091022222222222222222222222222222222",
+                "direction": "axis",
+                "k": "0.4",
+                "next_bound_B10": "1.1558377425044091710758377425044092e-11",
+                "signed_error": "-0.0000000090906739257068296037931226474338771",
+                "symbol": "0.15872454202043718540428150731798846367723402873487285924206582444",
+                "truncation": "0.15872455111111111111111111111111111111111111111111111111111111111"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99968260893561597472878850328205842",
+                "absolute_bound_B8": "3.5555555555555555555555555555555556e-11",
+                "direction": "axis",
+                "k": "0.2",
+                "next_bound_B10": "1.1287477954144620811287477954144621e-14",
+                "signed_error": "-3.5544270539933012434801369005584299e-11",
+                "symbol": "0.03992007107556684057117809867630974210552681165739858439281417091",
+                "truncation": "0.039920071111111111111111111111111111111111111111111111111111111111"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99992063924946746892865610029789306",
+                "absolute_bound_B8": "1.3888888888888888888888888888888889e-13",
+                "direction": "axis",
+                "k": "0.1",
+                "next_bound_B10": "1.1022927689594356261022927689594356e-17",
+                "signed_error": "-1.3887786656242603735120223615248515e-13",
+                "symbol": "0.0099950011109722332445486850737599088749586259641781770240333516564",
+                "truncation": "0.0099950011111111111111111111111111111111111111111111111111111111111"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99998015900071881658724792237477255",
+                "absolute_bound_B8": "5.4253472222222222222222222222222222e-16",
+                "direction": "axis",
+                "k": "0.05",
+                "next_bound_B10": "1.0764577821869488536155202821869489e-20",
+                "signed_error": "-5.4252395779118859406860238844117434e-16",
+                "symbol": "0.0024996875173605685871533199225170425087226699367662099284314569113",
+                "truncation": "0.0024996875173611111111111111111111111111111111111111111111111111111"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99999503969944981376002108143469192",
+                "absolute_bound_B8": "2.1192762586805555555555555555555556e-18",
+                "direction": "axis",
+                "k": "0.025",
+                "next_bound_B10": "1.0512283029169422398589065255731922e-23",
+                "signed_error": "-2.1192657464333636257595932884951526e-18",
+                "symbol": "0.00062498046902126524184536467774748535151782261595848737366472279963",
+                "truncation": "0.00062498046902126736111111111111111111111111111111111111111111111111"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99968260893561597472878850328205842",
+                "absolute_bound_B8": "0.00000000014222222222222222222222222222222222",
+                "direction": "axis",
+                "k": "0.4",
+                "next_bound_B10": "4.5149911816578483245149911816578483e-14",
+                "signed_error": "-0.0000000001421770821597320497392054760223372",
+                "symbol": "0.15968028430226736228471239470523896842210724662959433757125668364",
+                "truncation": "0.15968028444444444444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99992063924946746892865610029789306",
+                "absolute_bound_B8": "5.5555555555555555555555555555555556e-13",
+                "direction": "axis",
+                "k": "0.2",
+                "next_bound_B10": "4.4091710758377425044091710758377425e-17",
+                "signed_error": "-5.5551146624970414940480894460994059e-13",
+                "symbol": "0.039980004443888932978194740295039635499834503856712708096133406625",
+                "truncation": "0.039980004444444444444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99998015900071881658724792237477255",
+                "absolute_bound_B8": "2.1701388888888888888888888888888889e-15",
+                "direction": "axis",
+                "k": "0.1",
+                "next_bound_B10": "4.3058311287477954144620811287477954e-20",
+                "signed_error": "-2.1700958311647543762744095537646974e-15",
+                "symbol": "0.0099987500694422743486132796900681700348906797470648397137258276452",
+                "truncation": "0.0099987500694444444444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999503969944981376002108143469192",
+                "absolute_bound_B8": "8.4771050347222222222222222222222222e-18",
+                "direction": "axis",
+                "k": "0.05",
+                "next_bound_B10": "4.204913211667768959435626102292769e-23",
+                "signed_error": "-8.4770629857334545030383731539806105e-18",
+                "symbol": "0.0024999218760850609673814587109899414060712904638339494946588911985",
+                "truncation": "0.0024999218760850694444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999875992169180580212061605086598",
+                "absolute_bound_B8": "3.3113691541883680555555555555555556e-20",
+                "direction": "axis",
+                "k": "0.025",
+                "next_bound_B10": "4.1063605582693056244488536155202822e-26",
+                "signed_error": "-3.3113650478313095231921163401698602e-20",
+                "symbol": "0.00062499511720445417695579396613134921252328104274584248496307122406",
+                "truncation": "0.00062499511720445421006944444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99887824550264265658791612359223336",
+                "absolute_bound_B8": "0.0000000077537448559670781893004115226337449",
+                "direction": "diagonal",
+                "k": "0.4",
+                "next_bound_B10": "8.7044570731813530167439632460208592e-12",
+                "signed_error": "-0.0000000077450470578035357524143540881791868",
+                "symbol": "0.15872429052655788046806918585725085009241809833469791334869912768",
+                "truncation": "0.15872429827160493827160493827160493827160493827160493827160493827"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99971940037316509589440721772221524",
+                "absolute_bound_B8": "3.0288065843621399176954732510288066e-11",
+                "direction": "diagonal",
+                "k": "0.2",
+                "next_bound_B10": "8.5004463605286650554140266074422453e-15",
+                "signed_error": "-3.0279567023648128007336778281627589e-11",
+                "symbol": "0.039920067130214260136845699153157048878866237946535241747999441852",
+                "truncation": "0.03992006716049382716049382716049382716049382716049382716049382716"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99992984002539748130269916928280775",
+                "absolute_bound_B8": "1.1831275720164609053497942386831276e-13",
+                "direction": "diagonal",
+                "k": "0.1",
+                "next_bound_B10": "8.3012171489537744681777603588303177e-18",
+                "signed_error": "-1.1830445638160566908416708278551738e-13",
+                "symbol": "0.0099950010492644115930011103802985489665971986717698480480202133885",
+                "truncation": "0.0099950010493827160493827160493827160493827160493827160493827160494"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99998245937702413343239648398377355",
+                "absolute_bound_B8": "4.6215920781893004115226337448559671e-16",
+                "direction": "diagonal",
+                "k": "0.05",
+                "next_bound_B10": "8.1066573720251703790798441004202321e-21",
+                "signed_error": "-4.6215110125851086413614645888846273e-16",
+                "symbol": "0.0024996875163961427871703464274074687918127164755387585544126689036",
+                "truncation": "0.0024996875163966049382716049382716049382716049382716049382716049383"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99999561480492192662517633599214575",
+                "absolute_bound_B8": "1.8053094055426954732510288065843621e-18",
+                "direction": "diagonal",
+                "k": "0.025",
+                "next_bound_B10": "7.9166575898683304483201602543166329e-24",
+                "signed_error": "-1.8053014889087758878526613626220571e-18",
+                "symbol": "0.00062498046900619514685900491838460597449913120510334755196329626304",
+                "truncation": "0.00062498046900619695216049382716049382716049382716049382716049382716"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99971940037316509589440721772221524",
+                "absolute_bound_B8": "0.00000000012115226337448559670781893004115226",
+                "direction": "diagonal",
+                "k": "0.4",
+                "next_bound_B10": "3.4001785442114660221656106429768981e-14",
+                "signed_error": "-0.00000000012111826809459251202934711312651036",
+                "symbol": "0.15968026852085704054738279661262819551546495178614096699199776741",
+                "truncation": "0.15968026864197530864197530864197530864197530864197530864197530864"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99992984002539748130269916928280775",
+                "absolute_bound_B8": "4.7325102880658436213991769547325103e-13",
+                "direction": "diagonal",
+                "k": "0.2",
+                "next_bound_B10": "3.3204868595815097872711041435321271e-17",
+                "signed_error": "-4.7321782552642267633666833114206951e-13",
+                "symbol": "0.039980004197057646372004441521194195866388794687079392192080853554",
+                "truncation": "0.039980004197530864197530864197530864197530864197530864197530864198"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99998245937702413343239648398377355",
+                "absolute_bound_B8": "1.8486368312757201646090534979423868e-15",
+                "direction": "diagonal",
+                "k": "0.1",
+                "next_bound_B10": "3.2426629488100681516319376401680928e-20",
+                "signed_error": "-1.8486044050340434565445858355538509e-15",
+                "symbol": "0.0099987500655845711486813857096298751672508659021550342176506756144",
+                "truncation": "0.0099987500655864197530864197530864197530864197530864197530864197531"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999561480492192662517633599214575",
+                "absolute_bound_B8": "7.2212376221707818930041152263374486e-18",
+                "direction": "diagonal",
+                "k": "0.05",
+                "next_bound_B10": "3.1666630359473321793280641017266532e-23",
+                "signed_error": "-7.2212059556351035514106454504882286e-18",
+                "symbol": "0.0024999218760247805874360196735384238979965248204133902078531850522",
+                "truncation": "0.0024999218760247878086419753086419753086419753086419753086419753086"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999890369877207999392030424538066",
+                "absolute_bound_B8": "2.8207959461604616769547325102880658e-20",
+                "direction": "diagonal",
+                "k": "0.025",
+                "next_bound_B10": "3.0924443710423165813750625993424347e-26",
+                "signed_error": "-2.8207928537184021894652371295739294e-20",
+                "symbol": "0.00062499511720351228130210232701350896954515956845823730593874398117",
+                "truncation": "0.0006249951172035123095100308641975308641975308641975308641975308642"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99841054104314125432856214676838007",
+                "absolute_bound_B8": "0.000000012806323505508093021669966053862645",
+                "direction": "generic",
+                "k": "0.4",
+                "next_bound_B10": "2.0377666194772355518967291309902241e-11",
+                "signed_error": "-0.000000012785968379907832493008803714572235",
+                "symbol": "0.15872523284413334730405351455427582911810769998320205255556184616",
+                "truncation": "0.15872524563010172721188600756307954369034314578456109782670999159"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99960230530616112930717069429316842",
+                "absolute_bound_B8": "5.0024701193390988365898304897900956e-11",
+                "direction": "generic",
+                "k": "0.2",
+                "next_bound_B10": "1.9900064643332378436491495419826407e-14",
+                "signed_error": "-5.0004806635165501747402483505446076e-11",
+                "symbol": "0.03992008191296553285252021712077063436471553534259075811146956091",
+                "truncation": "0.039920081962970339487685718868173117870161611652883767153542343619"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99990055568871423508411212795406654",
+                "absolute_bound_B8": "1.9540898903668354830429025350742561e-13",
+                "direction": "generic",
+                "k": "0.1",
+                "next_bound_B10": "1.9433656878254275816886225995924226e-17",
+                "signed_error": "-1.9538955672434974772178829615986869e-13",
+                "symbol": "0.0099950012804760219977707396095934166705614064968993161472688011442",
+                "truncation": "0.009995001280671411554495089357315204966721275182076308861774099119"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99997513763206956296706250359736761",
+                "absolute_bound_B8": "7.6331636342454511056363380276338129e-16",
+                "direction": "generic",
+                "k": "0.05",
+                "next_bound_B10": "1.8978180545170191227427955074144751e-20",
+                "signed_error": "-7.6329738557227032633390954066951949e-16",
+                "symbol": "0.0024996875200097275081534135008817161680643504052250224303732974018",
+                "truncation": "0.0024996875200104908055389857712080500776050199247199423259652202987"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99999378432738175186331484182235352",
+                "absolute_bound_B8": "2.9817045446271293381391945420444582e-18",
+                "direction": "generic",
+                "k": "0.025",
+                "next_bound_B10": "1.8533379438642764870535112377094484e-23",
+                "signed_error": "-2.9816860113278355932620657009404282e-18",
+                "symbol": "0.00062498046906266093715053532483953252039687749589553623504043762246",
+                "truncation": "0.00062498046906266391883654665267512578246257843632374909884320656717"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99960230530616112930717069429316842",
+                "absolute_bound_B8": "0.00000000020009880477356395346359321959160382",
+                "direction": "generic",
+                "k": "0.4",
+                "next_bound_B10": "7.9600258573329513745965981679305628e-14",
+                "signed_error": "-0.00000000020001922654066200698960993402178431",
+                "symbol": "0.15968032765186213141008086848308253745886214137036303244587824364",
+                "truncation": "0.15968032785188135795074287547269247148064644661153506861416937447"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99990055568871423508411212795406654",
+                "absolute_bound_B8": "7.8163595614673419321716101402970244e-13",
+                "direction": "generic",
+                "k": "0.2",
+                "next_bound_B10": "7.7734627513017103267544903983696902e-17",
+                "signed_error": "-7.8155822689739899088715318463947474e-13",
+                "symbol": "0.039980005121904087991082958438373666682245625987597264589075204577",
+                "truncation": "0.039980005122685646217980357429260819866885100728305235447096396476"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99997513763206956296706250359736761",
+                "absolute_bound_B8": "3.0532654536981804422545352110535252e-15",
+                "direction": "generic",
+                "k": "0.1",
+                "next_bound_B10": "7.5912722180680764909711820296579006e-20",
+                "signed_error": "-3.053189542289081305335638162678078e-15",
+                "symbol": "0.009998750080038910032613654003526864672257401620900089721493189607",
+                "truncation": "0.0099987500800419632221559430848322003104200796988797693038608811949"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999378432738175186331484182235352",
+                "absolute_bound_B8": "1.1926818178508517352556778168177833e-17",
+                "direction": "generic",
+                "k": "0.05",
+                "next_bound_B10": "7.4133517754571059482140449508377935e-23",
+                "signed_error": "-1.1926744045311342373048262803761713e-17",
+                "symbol": "0.0024999218762506437486021412993581300815875099835821449401617504899",
+                "truncation": "0.0024999218762506556753461866107005031298503137452949963953728262687"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999844607680565074239659823900826",
+                "absolute_bound_B8": "4.6589133509798895908424914719444659e-20",
+                "direction": "generic",
+                "k": "0.025",
+                "next_bound_B10": "7.2396013432198300275527782723025328e-26",
+                "signed_error": "-4.6589061113863730397685172829233788e-20",
+                "symbol": "0.00062499511720704144833822305192846496371873832303644583700530399629",
+                "truncation": "0.00062499511720704149492728416579219536140391115227023431867770041045"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99823564628594653179756360929624623",
+                "absolute_bound_B8": "0.000000016384",
+                "direction": "port",
+                "k": "0.4",
+                "next_bound_B10": "2.8942177072310405643738977072310406e-11",
+                "signed_error": "-0.000000016355092828748947976971282174709698",
+                "symbol": "0.15872590008935161569549646747316226973474621708818301267058845447",
+                "truncation": "0.15872591644444444444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99955851104968231788833579616949186",
+                "absolute_bound_B8": "6.4e-11",
+                "direction": "port",
+                "k": "0.2",
+                "next_bound_B10": "2.8263844797178130511463844797178131e-14",
+                "signed_error": "-6.3971744707179668344853490954847479e-11",
+                "symbol": "0.039920092380472699737264776099590953489596965186483773047035311414",
+                "truncation": "0.039920092444444444444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99988960270917720289788766888471893",
+                "absolute_bound_B8": "2.5e-13",
+                "direction": "port",
+                "k": "0.1",
+                "next_bound_B10": "2.7601410934744268077601410934744268e-17",
+                "signed_error": "-2.4997240067729430072447191722117973e-13",
+                "symbol": "0.0099950014441944720437671501437199725272232647107539227744256381251",
+                "truncation": "0.0099950014444444444444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99997239911114402488437909196521525",
+                "absolute_bound_B8": "9.765625e-16",
+                "direction": "port",
+                "k": "0.05",
+                "next_bound_B10": "2.6954502865961199294532627865961199e-20",
+                "signed_error": "-9.7653554600697658680115145699728052e-16",
+                "symbol": "0.0024996875225684679088984374678576432929874471639242676734147852295",
+                "truncation": "0.0024996875225694444444444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "1.0",
+                "abs_error_over_B8": "0.99999309967989657307914096380776396",
+                "absolute_bound_B8": "3.814697265625e-18",
+                "direction": "port",
+                "k": "0.025",
+                "next_bound_B10": "2.6322756705040233686067019400352734e-23",
+                "signed_error": "-3.8146709429927695201078070213614042e-18",
+                "symbol": "0.00062498046910264375477350145167492433663742308304019660817666066794",
+                "truncation": "0.00062498046910264756944444444444444444444444444444444444444444444444"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99955851104968231788833579616949186",
+                "absolute_bound_B8": "0.000000000256",
+                "direction": "port",
+                "k": "0.4",
+                "next_bound_B10": "1.1305537918871252204585537918871252e-13",
+                "signed_error": "-0.00000000025588697882871867337941396381938992",
+                "symbol": "0.15968036952189079894905910439836381395838786074593509218814124566",
+                "truncation": "0.15968036977777777777777777777777777777777777777777777777777777778"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99988960270917720289788766888471893",
+                "absolute_bound_B8": "1.0e-12",
+                "direction": "port",
+                "k": "0.2",
+                "next_bound_B10": "1.1040564373897707231040564373897707e-16",
+                "signed_error": "-9.9988960270917720289788766888471893e-13",
+                "symbol": "0.0399800057767778881750686005748798901088930588430156910977025525",
+                "truncation": "0.039980005777777777777777777777777777777777777777777777777777777778"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99997239911114402488437909196521525",
+                "absolute_bound_B8": "3.90625e-15",
+                "direction": "port",
+                "k": "0.1",
+                "next_bound_B10": "1.078180114638447971781305114638448e-19",
+                "signed_error": "-3.9061421840279063472046058279891221e-15",
+                "symbol": "0.0099987500902738716355937498714305731719497886556970706936591409182",
+                "truncation": "0.0099987500902777777777777777777777777777777777777777777777777777778"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999309967989657307914096380776396",
+                "absolute_bound_B8": "1.52587890625e-17",
+                "direction": "port",
+                "k": "0.05",
+                "next_bound_B10": "1.0529102682016093474426807760141093e-22",
+                "signed_error": "-1.5258683771971078080431228085445617e-17",
+                "symbol": "0.0024999218764105750190940058066996973465496923321607864327066426718",
+                "truncation": "0.0024999218764105902777777777777777777777777777777777777777777777778"
+              },
+              {
+                "a": "0.5",
+                "abs_error_over_B8": "0.99999827491385597493108976070748523",
+                "absolute_bound_B8": "5.9604644775390625e-20",
+                "direction": "port",
+                "k": "0.025",
+                "next_bound_B10": "1.0282326837906341283619929453262787e-25",
+                "signed_error": "-5.9604541952243803437417135280816867e-20",
+                "symbol": "0.00062499511720954041348573582553397434036064249696091084029875860468",
+                "truncation": "0.00062499511720954047309027777777777777777777777777777777777777777778"
+              }
+            ]
+          },
+          "expansion": "omega_squared = c2*k^2 + c4*a^2*k^4 + (c6_isotropic + c6_angular*I6(n))*a^4*k^6 + O(a^6*k^8)",
+          "first_nonconstant_angular_degree": 6,
+          "harmonic_sextic_moment": {
+            "expression": "-4*x**6/35 + x**4*y**2*(6/7 - 6*sqrt(5)/5) + x**4*z**2*(6/7 + 6*sqrt(5)/5) + x**2*y**4*(6/7 + 6*sqrt(5)/5) - 72*x**2*y**2*z**2/7 + x**2*z**4*(6/7 - 6*sqrt(5)/5) - 4*y**6/35 + y**4*z**2*(6/7 - 6*sqrt(5)/5) + y**2*z**4*(6/7 + 6*sqrt(5)/5) - 4*z**6/35",
+            "monomials": {
+              "0,0,6": "-4/35",
+              "0,2,4": "6/7 + 6*sqrt(5)/5",
+              "0,4,2": "6/7 - 6*sqrt(5)/5",
+              "0,6,0": "-4/35",
+              "2,0,4": "6/7 - 6*sqrt(5)/5",
+              "2,2,2": "-72/7",
+              "2,4,0": "6/7 + 6*sqrt(5)/5",
+              "4,0,2": "6/7 + 6*sqrt(5)/5",
+              "4,2,0": "6/7 - 6*sqrt(5)/5",
+              "6,0,0": "-4/35"
+            }
+          },
+          "legendre_P6": "231*t**6/16 - 315*t**4/16 + 105*t**2/16 - 5/16",
+          "legendre_sum_homogeneous": {
+            "expression": "-33*x**6/20 + x**4*y**2*(99/8 - 693*sqrt(5)/40) + x**4*z**2*(99/8 + 693*sqrt(5)/40) + x**2*y**4*(99/8 + 693*sqrt(5)/40) - 297*x**2*y**2*z**2/2 + x**2*z**4*(99/8 - 693*sqrt(5)/40) - 33*y**6/20 + y**4*z**2*(99/8 - 693*sqrt(5)/40) + y**2*z**4*(99/8 + 693*sqrt(5)/40) - 33*z**6/20",
+            "monomials": {
+              "0,0,6": "-33/20",
+              "0,2,4": "99/8 + 693*sqrt(5)/40",
+              "0,4,2": "99/8 - 693*sqrt(5)/40",
+              "0,6,0": "-33/20",
+              "2,0,4": "99/8 - 693*sqrt(5)/40",
+              "2,2,2": "-297/2",
+              "2,4,0": "99/8 + 693*sqrt(5)/40",
+              "4,0,2": "99/8 + 693*sqrt(5)/40",
+              "4,2,0": "99/8 - 693*sqrt(5)/40",
+              "6,0,0": "-33/20"
+            }
+          },
+          "moment_polynomials": {
+            "2": {
+              "expression": "4*x**2 + 4*y**2 + 4*z**2",
+              "monomials": {
+                "0,0,2": "4",
+                "0,2,0": "4",
+                "2,0,0": "4"
+              }
+            },
+            "4": {
+              "expression": "12*x**4/5 + 24*x**2*y**2/5 + 24*x**2*z**2/5 + 12*y**4/5 + 24*y**2*z**2/5 + 12*z**4/5",
+              "monomials": {
+                "0,0,4": "12/5",
+                "0,2,2": "24/5",
+                "0,4,0": "12/5",
+                "2,0,2": "24/5",
+                "2,2,0": "24/5",
+                "4,0,0": "12/5"
+              }
+            },
+            "6": {
+              "expression": "8*x**6/5 + x**4*y**2*(6 - 6*sqrt(5)/5) + x**4*z**2*(6*sqrt(5)/5 + 6) + x**2*y**4*(6*sqrt(5)/5 + 6) + x**2*z**4*(6 - 6*sqrt(5)/5) + 8*y**6/5 + y**4*z**2*(6 - 6*sqrt(5)/5) + y**2*z**4*(6*sqrt(5)/5 + 6) + 8*z**6/5",
+              "monomials": {
+                "0,0,6": "8/5",
+                "0,2,4": "6*sqrt(5)/5 + 6",
+                "0,4,2": "6 - 6*sqrt(5)/5",
+                "0,6,0": "8/5",
+                "2,0,4": "6 - 6*sqrt(5)/5",
+                "2,4,0": "6*sqrt(5)/5 + 6",
+                "4,0,2": "6*sqrt(5)/5 + 6",
+                "4,2,0": "6 - 6*sqrt(5)/5",
+                "6,0,0": "8/5"
+              }
+            }
+          },
+          "moment_sphere_averages": {
+            "2": "4",
+            "4": "12/5",
+            "6": "12/7"
+          },
+          "omega_homogeneous_polynomials": {
+            "2": {
+              "expression": "x**2 + y**2 + z**2",
+              "monomials": {
+                "0,0,2": "1",
+                "0,2,0": "1",
+                "2,0,0": "1"
+              }
+            },
+            "4": {
+              "expression": "-a**2*x**4/20 - a**2*x**2*y**2/10 - a**2*x**2*z**2/10 - a**2*y**4/20 - a**2*y**2*z**2/10 - a**2*z**4/20",
+              "monomials": {
+                "0,0,4": "-a**2/20",
+                "0,2,2": "-a**2/10",
+                "0,4,0": "-a**2/20",
+                "2,0,2": "-a**2/10",
+                "2,2,0": "-a**2/10",
+                "4,0,0": "-a**2/20"
+              }
+            },
+            "6": {
+              "expression": "a**4*x**6/900 + a**4*x**4*y**2*(5 - sqrt(5))/1200 + a**4*x**4*z**2*(sqrt(5) + 5)/1200 + a**4*x**2*y**4*(sqrt(5) + 5)/1200 + a**4*x**2*z**4*(5 - sqrt(5))/1200 + a**4*y**6/900 + a**4*y**4*z**2*(5 - sqrt(5))/1200 + a**4*y**2*z**4*(sqrt(5) + 5)/1200 + a**4*z**6/900",
+              "monomials": {
+                "0,0,6": "a**4/900",
+                "0,2,4": "sqrt(5)*a**4/1200 + a**4/240",
+                "0,4,2": "-sqrt(5)*a**4/1200 + a**4/240",
+                "0,6,0": "a**4/900",
+                "2,0,4": "-sqrt(5)*a**4/1200 + a**4/240",
+                "2,4,0": "sqrt(5)*a**4/1200 + a**4/240",
+                "4,0,2": "sqrt(5)*a**4/1200 + a**4/240",
+                "4,2,0": "-sqrt(5)*a**4/1200 + a**4/240",
+                "6,0,0": "a**4/900"
+              }
+            }
+          },
+          "omega_rotational_parts": {
+            "2": "x**2 + y**2 + z**2",
+            "4": "-a**2*x**4/20 - a**2*x**2*y**2/10 - a**2*x**2*z**2/10 - a**2*y**4/20 - a**2*y**2*z**2/10 - a**2*z**4/20",
+            "6": "a**4*x**6/840 + a**4*x**4*y**2/280 + a**4*x**4*z**2/280 + a**4*x**2*y**4/280 + a**4*x**2*y**2*z**2/140 + a**4*x**2*z**4/280 + a**4*y**6/840 + a**4*y**4*z**2/280 + a**4*y**2*z**4/280 + a**4*z**6/840"
+          },
+          "scale_free_ratios": {
+            "c2*c6_angular/c4^2": "32/315",
+            "c2*c6_isotropic/c4^2": "10/21",
+            "c6_angular/c6_isotropic": "16/75"
+          }
+        },
+        "scientific_input_files_read": [
+          "certification/DEFINITION_ONLY.md"
+        ],
+        "scope": "No physical identification of the scalar variable, field, or length a is supplied or inferred. No empirical prediction, external certification, experimental comparison, or physical lattice-scale claim is made.",
+        "target_values_not_provided": true
+      },
+      "task": "dispersion",
+      "verdict": "PASS_SCOPED_COMPUTATION",
+      "wall_seconds": 1.5422300409991294
+    }
+  ],
+  "machine": "workstation",
+  "official_openwave_admission": false,
+  "official_openwave_cells_awarded": 0,
+  "openwave_criteria_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
+  "schema": "oph.openwave_candidate.run.v1",
+  "source_basis_commit": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "verdict": "PASS_SCOPED_COMPUTATIONS_NO_PHYSICAL_PROMOTION",
+  "versions": {
+    "mpmath": "1.3.0",
+    "numpy": "2.5.4",
+    "python": "3.12.6",
+    "sympy": "1.14.0"
+  },
+  "written_utc": "2026-11-12T08:26:00.578319+00:00"
+}

@@ -1,0 +1,40 @@
+{
+  "auditor_sha256": "0497f401a6d30973c255ab789bbda51ea561b6e44325226a30a2828025b18dd3",
+  "checks": {
+    "all_saved_records_match_direct_source_spectrum": true,
+    "both_raw_success_weights_one_half": true,
+    "rational_total_weight_encloses_one_half": true,
+    "uc_dc_resolvents_equal_within_declared_tolerance": true
+  },
+  "computational_pass": true,
+  "diagnostics": {
+    "comparison_seed": 917346,
+    "energy_shift_control_difference": 0.0002820070957319299,
+    "max_energy_difference": 1.2434497875801753e-14,
+    "max_metric_Hermiticity_error": 3.552713678800501e-15,
+    "max_resolvent_difference": 4.5102810375396984e-17,
+    "max_weight_difference": 3.3306690738754696e-16,
+    "raw_success_weights": {
+      "dc": 0.49999999999999983,
+      "uc": 0.5000000000000001
+    },
+    "source_dimension": 16,
+    "target_dimensions": {
+      "dc": 26,
+      "uc": 26
+    }
+  },
+  "method": "Direct metric-orthonormal Hamiltonian diagonalization and17 independent complex resolvent solves; different from exact polynomial/residue producer.",
+  "mutations": {
+    "true_down_energy_translation_detected": true
+  },
+  "receipt_sha256": "ebc8abf4ed840195a9086820edb108eaa3b8c1968a3cc999b8e70e3c26511d95",
+  "schema": "oph.openwave.native_quark_adversarial_review.v1",
+  "scope": "Independent floating audit on the actual pinned finite Gram/Hamiltonian/probe blocks; exact interval validity remains with the producer proof. Raw successful spectral measures have weight1/2, with pump failure1/2 retained in the source instrument. No physical quark mass scale or confinement follows.",
+  "source_commit": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "verdicts": {
+    "distinct_physical_quark_masses_or_confinement": "NOT_ESTABLISHED",
+    "equal_native_up_down_measures": "CONFIRMED",
+    "rational_receipt_spectral_record_consistency": "CONFIRMED"
+  }
+}

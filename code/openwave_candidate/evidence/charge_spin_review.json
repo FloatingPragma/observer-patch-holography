@@ -1,0 +1,140 @@
+{
+  "claims": [
+    {
+      "claim": "All 32 charge/centre weights and absence of half-unit electric weights",
+      "evidence": "Independent generating-polynomial census matches every joint charge/centre multiplicity.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "claim": "Odd-centre modular no-halving proves electron indivisibility",
+      "evidence": "Electron-like singlet has k=0; 2j=0 admits j=0,3. Charge fractions and dynamical isolation require separate arguments.",
+      "origin": "Initial WORK_ITEMS item 8 shortcut, not the corrected candidate claim",
+      "verdict": "REFUTED"
+    },
+    {
+      "claim": "Full OpenWave charge/quark criteria",
+      "evidence": "Electric generator and normalization declared; no topological integral or confinement/energetic-fractionation experiment.",
+      "verdict": "QUALIFIED"
+    },
+    {
+      "claim": "Actual six-state kernel decomposes as spin 1/2 plus spin 3/2",
+      "evidence": "Independent spin 1 tensor spin 1/2 Casimir and all 48 projected characters match.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "claim": "Full turn minus identity and double turn identity",
+      "evidence": "Independent vector tensor spinor rotations give the central sign; phase-erasure mutation fails.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "claim": "All 36 disjoint composite pairs anticommute on all 4096 states",
+      "evidence": "147456 independent wedge comparisons, 3600 nonzero products; commuting mutation fails.",
+      "verdict": "CONFIRMED"
+    },
+    {
+      "claim": "Derived physical electron spin-statistics",
+      "evidence": "CAR/spinor action are inputs. Both spin sectors occur; no electron assignment, Hamiltonian persistence or continuum spin-statistics theorem.",
+      "verdict": "QUALIFIED"
+    }
+  ],
+  "computational_pass": true,
+  "diagnostics": {
+    "Casimir_multiplicities": {
+      "15/4": 4,
+      "3/4": 2
+    },
+    "binary_cube_character_comparisons": 96,
+    "electron_equal_class_halves": [
+      0,
+      3
+    ],
+    "exchange_basis_comparisons": 147456,
+    "joint_charge_centre_census": [
+      {
+        "centre": 0,
+        "electric_charge_thirds": "-3",
+        "multiplicity": 1
+      },
+      {
+        "centre": 3,
+        "electric_charge_thirds": "-3",
+        "multiplicity": 1
+      },
+      {
+        "centre": 2,
+        "electric_charge_thirds": "-2",
+        "multiplicity": 3
+      },
+      {
+        "centre": 5,
+        "electric_charge_thirds": "-2",
+        "multiplicity": 3
+      },
+      {
+        "centre": 1,
+        "electric_charge_thirds": "-1",
+        "multiplicity": 3
+      },
+      {
+        "centre": 4,
+        "electric_charge_thirds": "-1",
+        "multiplicity": 3
+      },
+      {
+        "centre": 0,
+        "electric_charge_thirds": "0",
+        "multiplicity": 2
+      },
+      {
+        "centre": 3,
+        "electric_charge_thirds": "0",
+        "multiplicity": 2
+      },
+      {
+        "centre": 2,
+        "electric_charge_thirds": "1",
+        "multiplicity": 3
+      },
+      {
+        "centre": 5,
+        "electric_charge_thirds": "1",
+        "multiplicity": 3
+      },
+      {
+        "centre": 1,
+        "electric_charge_thirds": "2",
+        "multiplicity": 3
+      },
+      {
+        "centre": 4,
+        "electric_charge_thirds": "2",
+        "multiplicity": 3
+      },
+      {
+        "centre": 0,
+        "electric_charge_thirds": "3",
+        "multiplicity": 1
+      },
+      {
+        "centre": 3,
+        "electric_charge_thirds": "3",
+        "multiplicity": 1
+      }
+    ],
+    "maximum_exact_character_difference": 0,
+    "nonzero_exchange_comparisons": 3600
+  },
+  "mutation_witness": {
+    "left_column": 0,
+    "occupied": [],
+    "right_column": 0
+  },
+  "mutations": {
+    "central_phase_erasure_rejected": true,
+    "commuting_creators_rejected": true,
+    "halved_electric_normalization_rejected": true
+  },
+  "official_OpenWave_icons_assigned": false,
+  "reviewer_implementation": "Separate agent; Laurent-polynomial charge census, vector tensor spinor representation and permutation-inversion exterior products.",
+  "schema": "oph.openwave.charge_spin_adversarial_review.v1"
+}

@@ -1,0 +1,261 @@
+{
+  "checks": {
+    "A_declares_definition_only_scientific_input": true,
+    "A_declares_no_target_values": true,
+    "A_internal_checks_pass": true,
+    "B_declares_no_target_values": true,
+    "B_implementation_hash_matches": true,
+    "B_internal_checks_pass": true,
+    "B_packet_hash_matches": true,
+    "all_saved_numerical_rows_reproduced_with_bounds": true,
+    "exact_AB_math_agreement": true,
+    "modified_nonheadline_sextic_coefficient_rejected": true,
+    "pinned_RER_coefficients_ratios_normalization_agree": true,
+    "receipt_provenance_paths_relative": true,
+    "source_physical_comparison_unarmed": true
+  },
+  "classification": "post-seal local cross-method mathematical audit",
+  "direct_symbol_audit": {
+    "A_signed_refinement_interpretation": "For these arguments, whose magnitudes are below one, the alternating cosine series gives -B8 <= error <= -B8+B10. This extra refinement is not needed for B's valid absolute bound.",
+    "absolute_bound_interpretation": "Taylor's degree-seven remainder gives |error| <= sum |a*k*u.n|^8/(2*a^2*8!) for all real arguments; |u.n| <= 1 yields a^6*k^8/6720.",
+    "decimal_precision": 130,
+    "passed": true,
+    "precision_note": "Analytic bounds are mathematical statements; archived decimal values are finite-precision computations, independently reproduced here at 130 digits with tolerances respecting their stored significant digits.",
+    "receipts": {
+      "A": {
+        "checks": {
+          "all_arguments_below_one": true,
+          "alternating_signed_interval_holds": true,
+          "analytic_absolute_bounds_hold": true,
+          "at_least_200fold_decay_on_halving_k": true,
+          "cosine_sine_identity": true,
+          "next_bounds_reproduced": true,
+          "saved_directional_bounds_reproduced": true,
+          "saved_errors_reproduced": true,
+          "saved_ratios_reproduced": true,
+          "saved_symbols_reproduced": true,
+          "saved_truncations_reproduced": true
+        },
+        "maximum_absolute_argument": "0.4",
+        "maximum_error_over_B8": "0.999998903698772079993920304245",
+        "minimum_error_decay_factor_on_halving_k": "255.661197042721665422332970992",
+        "passed": true,
+        "rows_rechecked": 40
+      },
+      "B": {
+        "checks": {
+          "all_arguments_below_one": true,
+          "analytic_absolute_bounds_hold": true,
+          "at_least_200fold_decay_on_halving_k": true,
+          "cosine_sine_identity": true,
+          "directional_bound_below_uniform": true,
+          "saved_directional_bounds_reproduced": true,
+          "saved_errors_reproduced": true,
+          "saved_ratios_reproduced": true,
+          "saved_symbols_reproduced": true,
+          "saved_truncations_reproduced": true,
+          "uniform_bounds_reproduced": true
+        },
+        "maximum_absolute_argument": "0.28",
+        "maximum_error_over_B8": "0.999999462812193533948863123615",
+        "minimum_error_decay_factor_on_halving_k": "255.833895824945198606208348887",
+        "passed": true,
+        "rows_rechecked": 50
+      }
+    }
+  },
+  "empirical_prediction_validated": false,
+  "exact_AB_comparison": {
+    "checks": {
+      "I6_A_map_consistency": true,
+      "I6_B_map_consistency": true,
+      "I6_all_coefficients": true,
+      "I6_expression": true,
+      "P6_polynomial": true,
+      "harmonic_sextic_moment": true,
+      "legendre_sum_homogeneous": true,
+      "length_halving_eighth_order_remainder_bound_multiplier": true,
+      "length_halving_quadratic_term_multiplier": true,
+      "length_halving_quartic_term_multiplier": true,
+      "length_halving_sextic_I6_term_multiplier": true,
+      "length_halving_sextic_isotropic_term_multiplier": true,
+      "moment_2_A_map_consistency": true,
+      "moment_2_B_map_consistency": true,
+      "moment_2_all_coefficients": true,
+      "moment_2_expression": true,
+      "moment_4_A_map_consistency": true,
+      "moment_4_B_map_consistency": true,
+      "moment_4_all_coefficients": true,
+      "moment_4_expression": true,
+      "moment_6_A_map_consistency": true,
+      "moment_6_B_map_consistency": true,
+      "moment_6_all_coefficients": true,
+      "moment_6_expression": true,
+      "nonconstant_part_2": true,
+      "nonconstant_part_4": true,
+      "nonconstant_part_6": true,
+      "normalized_c2": true,
+      "normalized_c4": true,
+      "normalized_c6_angular": true,
+      "normalized_c6_isotropic": true,
+      "ratio_c2*c6_angular/c4^2": true,
+      "ratio_c2*c6_isotropic/c4^2": true,
+      "ratio_c6_angular/c6_isotropic": true,
+      "removed_port_quadratic": true,
+      "rotational_part_2": true,
+      "rotational_part_4": true,
+      "rotational_part_6": true,
+      "spherical_mean_2": true,
+      "spherical_mean_4": true,
+      "spherical_mean_6": true,
+      "symbol_2_A_map_consistency": true,
+      "symbol_2_B_map_consistency": true,
+      "symbol_2_all_coefficients": true,
+      "symbol_2_expression": true,
+      "symbol_4_A_map_consistency": true,
+      "symbol_4_B_map_consistency": true,
+      "symbol_4_all_coefficients": true,
+      "symbol_4_expression": true,
+      "symbol_6_A_map_consistency": true,
+      "symbol_6_B_map_consistency": true,
+      "symbol_6_all_coefficients": true,
+      "symbol_6_expression": true,
+      "vertex_normalization": true
+    },
+    "coefficient_map_comparisons": {
+      "I6_all_coefficients": {
+        "mismatching_coefficient_differences": {},
+        "monomial_count": 10,
+        "passed": true
+      },
+      "moment_2_all_coefficients": {
+        "mismatching_coefficient_differences": {},
+        "monomial_count": 3,
+        "passed": true
+      },
+      "moment_4_all_coefficients": {
+        "mismatching_coefficient_differences": {},
+        "monomial_count": 6,
+        "passed": true
+      },
+      "moment_6_all_coefficients": {
+        "mismatching_coefficient_differences": {},
+        "monomial_count": 9,
+        "passed": true
+      },
+      "symbol_2_all_coefficients": {
+        "mismatching_coefficient_differences": {},
+        "monomial_count": 3,
+        "passed": true
+      },
+      "symbol_4_all_coefficients": {
+        "mismatching_coefficient_differences": {},
+        "monomial_count": 6,
+        "passed": true
+      },
+      "symbol_6_all_coefficients": {
+        "mismatching_coefficient_differences": {},
+        "monomial_count": 9,
+        "passed": true
+      }
+    },
+    "convention_adjustment": "A includes a^(degree-2) in each omega polynomial; B factors it outside. The comparison restores this factor symbolically.",
+    "passed": true,
+    "total_compared_polynomial_coefficient_entries": 46
+  },
+  "exact_math_agreement": true,
+  "external_blind_certification": false,
+  "full_criterion_met": false,
+  "inputs": {
+    "comparison_implementation": {
+      "path": "openwave-tuning/candidate/audits/compare_dispersion.py",
+      "sha256": "07191fa08b2ae610acd5d82087ecdc24bef1599f5aa0e93e7f3fe07d3657f578"
+    },
+    "definition_packet": {
+      "path": "openwave-tuning/certification/DEFINITION_ONLY.md",
+      "sha256": "425f99ca1edf7892da4643622dc09eeb0a487ffa049611e124247e742d366020"
+    },
+    "implementation_a": {
+      "path": "openwave-tuning/candidate/oph_openwave/dispersion.py",
+      "sha256": "ce81d78943d5580e6e7a4536ea4d7e1a5ee2bed5acee8ba06caaaa24bf765bbd"
+    },
+    "implementation_b": {
+      "path": "openwave-tuning/candidate/audits/dispersion_oracle.py",
+      "sha256": "493f35f93c29b9a0ff6877aa135985ca790093713b50449790d962c93432ad8e"
+    },
+    "recompute_a": {
+      "path": "openwave-tuning/certification/recompute_a.json",
+      "sha256": "5b43305bcb0a70e67b43a4285d105c8727010147961374acb78be7c8bb1f48c6"
+    },
+    "recompute_b": {
+      "path": "openwave-tuning/certification/recompute_b.json",
+      "sha256": "a4c06452bc009522dcd24f3b548450c1b6d8b87ac93a703030cd8ba703323131"
+    }
+  },
+  "method_provenance": {
+    "A": "Context-isolated from OPH sources, target values, and B during initial implementation. It directly expanded twelve-port moments over Q(sqrt(5)), used exact spherical monomial averages and a generated Legendre polynomial, then evaluated 40 original-symbol rows at 80 digits.",
+    "B": "Context-isolated from OPH sources, target values, and A during initial implementation. It eliminated sign pairs into a binomial moment generator, used exact spherical monomial averages and homogenized Legendre vertex normalization, then evaluated 50 original-symbol rows at 110 digits.",
+    "B_nonprovenance_content_sha256": "aa9060fff6f878a2bd9e5bec5df69c0d07ae91d17b50d4b1a630e750c84d6943",
+    "B_provenance_revision": "Absolute task-content paths were replaced with repository-relative paths; equality of every non-provenance field before and after regeneration was checked.",
+    "comparison_phase": "Only after both implementations and receipts were saved did the comparison agent read A and the pinned RER reference. This script is explicitly informed by those artifacts.",
+    "shared_dependencies": "Both are local agent implementations using SymPy and mpmath; this is computational cross-checking, not an organizationally independent external review."
+  },
+  "modified_coefficient_control": {
+    "failing_checks": [
+      "symbol_6_expression",
+      "symbol_6_all_coefficients"
+    ],
+    "mutation": "Add 1/1000000 to B's x^4*y^2 coefficient in H6, updating both its expression and coefficient map, while leaving the four headline coefficients unchanged.",
+    "rejected": true,
+    "sextic_coefficient_comparison": {
+      "mismatching_coefficient_differences": {
+        "4,2,0": "-a**4/1000000"
+      },
+      "monomial_count": 9,
+      "passed": false
+    }
+  },
+  "packet_sha256": "425f99ca1edf7892da4643622dc09eeb0a487ffa049611e124247e742d366020",
+  "physical_scope": {
+    "packet": "Defines an equal-weight twelve-direction scalar symbol and a positive mathematical length. It supplies no physical field identification or physical lattice-scale mapping.",
+    "reference_branch": "primitive twelve-port scalar propagation branch",
+    "reference_branch_premises": {
+      "equal_weights": "proper-carrier covariance and transitivity force one equal coefficient on the primitive orbit",
+      "exclusivity": "the fitted intrinsic coefficients isolate the carrier term from source, medium, gravitational, and instrumental effects",
+      "finite_scale": "a is finite and strictly positive",
+      "frame": "one carrier rest frame is transported coherently over the experiment; its constant orientation in SO(3)/A5 is profiled",
+      "normalization": "the continuum quadratic term is k^2, fixing the common coefficient to 1/(2 a^2)",
+      "physical_sector": "the tested sector realizes this scalar symbol; a photon test also requires equal action on both transverse polarizations",
+      "support": "the complete primitive twelve-port orbit is the sole intrinsic directional support through the displayed derivative order"
+    },
+    "reference_bridge_open": "issue #655 must derive or reject the physical sector bridge; a derivation broadens the scope without changing this target",
+    "reference_comparison_permitted": false,
+    "reference_comparison_state": "UNARMED_PENDING_DATASET_SPECIFIC_PREREGISTRATION",
+    "reference_spin_language": "spin six denotes spherical-harmonic rank j=6, not particle spin",
+    "reference_type": "prospective conditional physical-branch prediction",
+    "scope_of_possible_physical_failure": "failure rejects the primitive twelve-port physical propagation branch; it rejects OPH as a whole only if issue #655 proves that branch is forced and exclusive",
+    "this_audit": "Establishes agreement for the declared scalar operator only. It supplies no physical-sector bridge, dataset-specific preregistration, external referee approval, or empirical result; it does not map a to an OpenWave geometric parameter."
+  },
+  "pinned_RER_input": {
+    "commit": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+    "declared_receipt_sha256": "sha256:92cc654f2fae04ac1fb90d3f646eae599e6106f217df74641fda2e921bfc0f92",
+    "git_blob_id": "568297bc2e75897f19744ad706254ab324c03c84",
+    "path": "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json",
+    "repository": "reverse-engineering-reality",
+    "sha256": "8ac97d7c46199717ed031610efdda65c40f6a251e78715d6bc05888d598e66d8"
+  },
+  "pinned_reference_math_comparison": {
+    "checks": {
+      "B0_over_C4_squared": true,
+      "B0_over_a4": true,
+      "B6_over_B0": true,
+      "B6_over_C4_squared": true,
+      "B6_over_a4": true,
+      "C4_over_a2": true,
+      "I6_normalization": true
+    },
+    "coverage": "The pinned RER receipt states scalar coefficients, scale-free ratios, and I6 normalization; full Cartesian-polynomial agreement is separately established between A and B.",
+    "passed": true
+  },
+  "status": "passed"
+}

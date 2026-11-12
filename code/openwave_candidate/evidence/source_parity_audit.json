@@ -1,0 +1,26 @@
+{
+  "alternative_eigenvalue_ratio_relative_error": 2.0761170560490427e-14,
+  "auditor_source_sha256": "e97bb2a3ec6dec4066bc5988a19388dedaa3ffc5c1ffae76ea618753ecb31dde",
+  "changed_phase_Koide_ratio": 0.6666666666666666,
+  "checks": {
+    "all_2592_branches_match_literal_native_law": true,
+    "all_432_squared_tick_entries_match_native_observer": true,
+    "changed_phase_preserves_Koide_while_changing_ratios": true,
+    "independent_Hermitian_spectrum_matches": true
+  },
+  "conjugation_mismatches": 0,
+  "mutations": {
+    "changed_phase_detected_by_spectrum": true,
+    "changed_tick_entry_detected": true,
+    "missing_oriented_record_detected": true
+  },
+  "schema": "oph.openwave.source_parity_audit.v1",
+  "scope": "Two declared finite sources; source-code parity and alternative diagonalization, with no empirical prediction, annihilation or physical mass identification.",
+  "source_commit": "3bcacf1276ddb3ead35be2b9adcd63b6643e2d35",
+  "verdicts": {
+    "Koide_identity_fixes_phase": "REFUTED",
+    "conditional_lepton_coefficients": "CONFIRMED",
+    "native_tick_and_class_conjugation": "CONFIRMED",
+    "physical_mass_and_annihilation_claims": "NOT_ESTABLISHED"
+  }
+}
