@@ -703,3 +703,44 @@ The supplied ratio `m_pi/m_rho=0.1780` and rho anchor `0.77526 GeV` give
 scale gives `0.10540200085 GeV`. These are conditional calibrations with
 distinct scale choices. The observed charged-neutral split, quark loops,
 physical-limit control and native source/clock transfer are unproved.
+
+## Quantum fields, native family choices and common lapse
+
+The [complete native Higgs action](../../model/openwave_full_higgs_floor/PROOF.md)
+sets all three family matrices equal to the charged analyzer coefficient.
+This explicit choice gives an exact positive charged-sector floor while
+retaining neutral zero modes and all spatial valleys. It also gives equal
+up, down and lepton family spectra. The native invariant tensor lines permit
+other family matrices; the floor does not select the unequal physical quark
+masses or a Higgs vacuum.
+
+The [neutral family construction](../../model/openwave_neutrino_oscillation/PROOF.md)
+uses the native record-memory family matrix and a specified port pulse to
+define a symmetric neutral coefficient. The actual weak-current frame then
+fixes complete oscillation records. Its angles are comparison-model outputs,
+not measured PMNS values. The [weak contact construction](../../model/openwave_weak_decay/PROOF.md)
+uses the full native current contraction with declared contact strength and
+resonant finite momenta. Its charged-to-charged plus neutral-pair transition
+is a dynamical consequence, without a selected Fermi constant or physical
+lifetime. The separate [larger neutral source](../../model/openwave_neutral_transfer/PROOF.md)
+retains literal antiperiodic native paths and has nonzero prepared-composite
+transport; no neutral mass or family tensor transfers between these members.
+
+The [quantum rotational member](../../model/openwave_quantum_rotational/PROOF.md)
+retains every native Clifford block and complete matter/photon shells. Its
+positive kernel, trap, global charge minus one, transverse coupling and
+single empirical electron anchor are stated inputs. Exact rotation covariance
+and isolated-band continuation give eight identical dressed spin-half
+doublets in the lowest charged band. The complete preparation selects one
+line. This source supplies joint localized energy, current and field records;
+it does not identify its global charge with the chiral source's physical
+current or inherit that source's three-family spectrum.
+
+The [energy–lapse extension](../../model/openwave_energy_lapse/PROOF.md)
+uses the complete native excitation operator with a declared exponential
+lapse coupling, geometry-dependent ground counterterm, stiffness and static
+minimum-preparation service. Its [clock/wave construction](../../model/openwave_lapse_observations/PROOF.md)
+adds explicit isotropic field gluing. Universal positive energy response and
+all seven clock ratios follow on that architecture. Physical Newton strength,
+dynamical geometry, covariant stress and nonlinear Einstein matching require
+their own source attachments.

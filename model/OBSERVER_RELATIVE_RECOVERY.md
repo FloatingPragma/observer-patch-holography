@@ -1161,13 +1161,44 @@ joins preparation, evolution and complete observations within each declared sour
 | [Angular torque](openwave_angular_torque/PROOF.md) | A distinct rotational regulator has an actual spatial-plus-spin generator and exact Maxwell torque balance. Axial Jz=1/2 is distinct from an unproved dressed full quantum Casimir. |
 | [Magnetic analytic limit](openwave_rotational_g_limit/PROOF.md) | Finite kinetic identities give static error below0.001832 and precession error below0.004863 from g=2 at declared m=16384. This is a supplied low-momentum family without physical mass or alpha calibration. |
 | [Autonomous Coulomb motion](openwave_autonomous_coulomb/PROOF.md) | All eighteen physical states, including circulation, obey exact continuity under actual native axial hopping and Green energy. The force contribution is-19sqrt(2)/5120 on the stated input. Other hopping and Yukawa coefficients are zero by declaration. |
-| [Exact neutral flatness](openwave_neutral_dispersion/PROOF.md) | Plane parity and link inversion pair all eight odd-sector momenta at every order. Dressed positions commute with H. This closes the former dispersion uncertainty as an exact obstruction on the periodic side-two member, not a moving mass. |
+| [Exact neutral flatness](openwave_neutral_dispersion/PROOF.md) | Plane parity and link inversion pair all eight odd-sector momenta at every order. Dressed positions commute with H. This is an exact dispersion obstruction on the periodic side-two member, not a moving mass. |
 | [Useful neutral preparation](openwave_neutral_preparation/PROOF.md) | Known local states and three degree10182 filter applications give success above0.99999999999639 and reduced stationarity error below4.000002e-16. Complete410624 factorized records retain all failures and recipes; local services remain declared. |
 | [Native-current radiation](openwave_radiative_pair/PROOF.md) | A full-CAR native-current Hamiltonian gives exact nonzero pair-to-two-transverse-quanta amplitudes and a positive full-evolution lower bound. Time50 probabilities0.03544/0.02865 at photon caps1/2 retain finite-cutoff differences, vacuum output and measurement work. Physical rates and outgoing scattering remain open. |
 | [Larger colour boxes](openwave_coupling_volume/PROOF.md) | Independent side10 histories extend the side6/8 calculation to2400 records, with common-block covariance, influence autocorrelation, hot/cold and split-history controls. Volume and sampling effects remain distinct from continuum running. |
 
-The new high-success neutral recipe changes the preparation, not the source or
+The high-success neutral recipe changes the preparation, not the source or
 its exact flatness. The smaller spectral and symmetry arguments avoid full-carrier
 diagonalization while preserving complements and failure outcomes. The separate
 rotational, axial Coulomb, finite radiation and thermal-colour actions do not
 supply a common interacting physical universe without their composition proofs.
+
+
+## Quantum particle fields and common energy response
+
+The [finite source derivation](../paper/tex_fragments/QUANTUM_PARTICLE_SOURCE_JOINS.tex)
+keeps each carrier and action explicit. The results below strengthen the
+construction of particle observations without identifying the different
+members as one interacting physical universe.
+
+| Source construction | Consequence and remaining input |
+| --- | --- |
+| [Factorized kinetic compiler](openwave_factorized_compiler/PROOF.md) | Exact Fourier and spin factorization replaces the fifth-power volume error estimate by a linear-volume bound. A prepared-state energy inequality gives at most 6.564×10^27 cycles for the same large near-rest packet and complete records, about 1.966×10^34 fewer than the global-norm bound. This remains a large analytic resource bound with supplied controls. |
+| [Complete native Higgs action](openwave_full_higgs_floor/PROOF.md) | All seven native charged pairs give H−E_ground≥e_min·abs(Q) on the full Fock carrier. All neutral zero modes and eight spatial valleys remain. The common family choice gives equal quark and lepton spectra, which fails unequal observed quark masses. |
+| [Larger neutral source](openwave_neutral_transfer/PROOF.md) | The literal side-four antiperiodic PW119 source has a nonzero third-order transfer between prepared gauge-singlet spin-half packets. A full-source remainder bounds a positive complete-record probability. The side-two isolated ground and its static energy are not transferred. |
+| [Neutral family evolution](openwave_neutrino_oscillation/PROOF.md) | Native family operators and the actual charged-current frame give three-flavour oscillation records with retained chirality-filter failures. The neutral architecture and pulse are declared; measured PMNS angles are not inferred. |
+| [Native weak conversion](openwave_weak_decay/PROOF.md) | The full weak-current contraction has a nonzero heavy-to-light charged transition with two neutral outputs, retaining quark spectators, momentum, energy and complementary records. It establishes a finite mechanism, without a physical muon lifetime. |
+| [Quantum rotational source](openwave_quantum_rotational/PROOF.md) | A localized charged interacting band has exact total J²=3/4, nonzero Maxwell angular share, complete position/field records and a same-source current. One electron calibration is used for all photon caps. Global charge, positive Dirac kernel, trap and coupling are declared. |
+| [Common energy–lapse source](openwave_energy_lapse/PROOF.md) | Positive native excitation energies couple universally to the declared lapse. Convexity certifies attractive finite-separation energy differences on the full dyadic geometry carrier; stiffness and geometry preparation are supplied. |
+| [Native clocks and wave geometry](openwave_lapse_observations/PROOF.md) | Every native transition shares the same lapse ratio, with complete clock and wave records, positive ray delay and an independently checked static first-order curvature relation. Isotropic gluing is a choice; physical G, dynamical geometry and nonlinear Einstein matching remain open. |
+
+The quantum rotational member uses 160 matter CAR modes and complete
+three-mode photon shells. Eight identical spin-half doublets form its
+16-dimensional lowest charged band, below every multi-fermion sector. The
+preparation selects one spin-up line in one retained native copy. Quantizing both matter and field gives an actual
+rotation representation; the half-integer Casimir belongs to their coupled
+state, while the Maxwell factor alone has integer angular spectra. At photon
+cap two, the certified magnetic coefficient lies between
+1.998275353408213 and 1.9982753545060563. This is a finite-source current
+result with a supplied coupling, not an electron anomalous-moment prediction.
+Cap comparisons preserve one common energy unit and expose their finite
+cutoff dependence; no infinite-photon limit is claimed.

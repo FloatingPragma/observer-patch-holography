@@ -20,7 +20,7 @@ frequency, a measured particle identity and an absolute energy standard
 are separate statements.
 
 The [localized charged construction](../../model/openwave_localized_rest_packet/PROOF.md)
-now joins spatial concentration to the calibrated light free branch: its
+joins spatial concentration to the calibrated light free branch: its
 mean energy is within`0.003014ppm` above`0.00051099895069 GeV` and its outside
 probability stays below`1.103e-7` through source time`10^9`. Exact local moments
 prove this on a huge finite carrier; smaller carriers execute the complete
@@ -28,13 +28,32 @@ records. This strengthens the conditional mass join while retaining the
 external electron anchor and controlled compiler.
 
 The [periodic neutral symmetry](../../model/openwave_neutral_dispersion/PROOF.md)
-settles its previously unresolved dispersion as exactly flat at all eight
+establishes dispersion that is exactly flat at all eight
 momenta. Its ground-relative energy therefore has no moving relativistic mass
 interpretation on that member. Separately declared rotational and quantum
-radiation extensions now supply exact torque balance, an analytic magnetic
+radiation extensions supply exact torque balance, an analytic magnetic
 response near`g=2`, and current-derived pair-to-radiation conversion. Their
 source boundaries and preparation services are stated in the
-[updated recovery guide](../../model/OBSERVER_RELATIVE_RECOVERY.md#localized-particles-and-autonomous-finite-interactions).
+[recovery guide](../../model/OBSERVER_RELATIVE_RECOVERY.md#localized-particles-and-autonomous-finite-interactions).
+
+The [quantum rotational member](../../model/openwave_quantum_rotational/PROOF.md)
+puts the localized charged ground, full dressed `J²=3/4`, actual current and
+quantized Maxwell field on one finite source. The cap-two static magnetic
+coefficient is enclosed near `1.998275354`. Global charge, trap, coupling and
+one electron energy anchor are explicit; this member does not inherit the
+cubic source's three-family spectrum. The
+[all-channel Higgs member](../../model/openwave_full_higgs_floor/PROOF.md)
+separately gives a complete charged-sector gap, with neutral zero modes
+retained and equal quark/lepton family matrices declared.
+
+A [common energy–lapse action](../../model/openwave_energy_lapse/PROOF.md)
+and its [clock/wave instruments](../../model/openwave_lapse_observations/PROOF.md)
+join positive-energy attraction, universal native clock ratios and finite
+wave propagation. The geometry energy, lapse coupling, stiffness and
+isotropic gluing are architectural inputs. The static linearized curvature
+comparison does not close physical stress, nonlinear Einstein or measured
+Newton-strength premises. Counterexamples for the reciprocal scalar action
+retain their original source domain.
 
 This guide owns the common dependency map and [source catalogue](#source-catalogue).
 The [native mass join](OPH_NATIVE_PARTICLE_MASS_JOIN.md) treats currents,
