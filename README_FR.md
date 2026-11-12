@@ -106,15 +106,15 @@ de lois échoue.
   +9,83 ppm pour le muon et de 0,61 écart-type pour le tau. Un compilateur
   sur l’espace fermionique complet réalise ces coefficients ; leur
   identification aux masses physiques en interaction est distincte.
-- **Un mécanisme cohérent concret de saveur.** Une impulsion de phase sur
-  un projecteur natif de famille produit un contraste CP exact non nul,
-  avec les dix-huit issues du courant conservées. Les masses de la source
-  restent inchangées ; cette architecture déclarée ne donne ni ajustement
-  CKM ni séparation des masses physiques des quarks. Un instrument de
-  neutrinos calibré fournit séparément les enveloppes de masse sur toute
-  la phase de Majorana, en conservant les échecs.
-  [Transport de saveur](model/native_flavour_transport/PROOF.md),
-  [Lecture des masses de neutrinos](model/neutrino_mass_observables/PROOF.md).
+- **Masses et oscillations de neutrinos calibrées.** Un tenseur de Dirac
+  déclaré utilise six paramètres d’oscillation mesurés et une masse minimale
+  choisie de 0,001 eV. Ses masses sont 0,001, 0,00871206 et 0,05013980 eV.
+  Le courant faible natif et les lectures complètes actives/stériles
+  reproduisent la loi d’oscillation correspondante à moins de 4,1×10⁻⁹
+  en variation totale sur l’intervalle de phase déclaré. Ce sont des
+  registres finis calibrés, sans prédiction indépendante des masses ni
+  identification d’un faisceau physique.
+  [Registres neutres natifs](model/openwave_neutrino_calibration/PROOF.md).
 - **Populations exactes et comptages thermiques de particules.** La cellule
   native fermée possède des lois complètes d’absorption des classes. Une
   source quantique calibrée donne des registres complets de nombres de
@@ -126,12 +126,13 @@ de lois échoue.
   pas une histoire commune de refroidissement cosmique.
   [Résultats sur les particules et la cosmologie](model/particle_cosmology_results/README.md),
   [Visualiseur interactif](https://particles.floatingpragma.ai/).
-- **Le groupe de jauge et ses couplages.** Le support orienté admet
-  (SU(3)×SU(2)×U(1))/Z6. Une chaîne conditionnelle de couplages donne
-  l’échelle électrofaible 246,6 GeV et le couplage fort 0,1183 avec ses
-  entrées de raccordement déclarées. Les extensions neutres de Dirac et de
-  Majorana ont des hypothèses distinctes ; la symétrie de jauge seule ne
-  sélectionne ni leurs masses ni leurs mélanges.
+- **Le groupe de jauge et les courants natifs.** Sous les prémisses de
+  courant complet, le support orienté admet (SU(3)×SU(2)×U(1))/Z6 et une
+  représentation de matière sans anomalies. Les instruments natifs de
+  charge, spin et Gauss conservent toutes leurs issues. Les couplages
+  physiques et un continuum chiral en interaction exigent leur raccordement
+  à la même source.
+  [Article sur la jauge](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
 - **Un observateur qui fonctionne.** Un observateur à douze ports conserve ses
   registres et s’en sert pour choisir sa prochaine réparation. Des observateurs
   qui se chevauchent lisent une référence commune et son horloge, un processus
@@ -149,13 +150,25 @@ de lois échoue.
   la règle de Born et la borne de Tsirelson sur les registres achevés ; un
   support tridimensionnel dans sa réponse lente ; l’algèbre de Lie de jauge du
   Modèle standard et une représentation de matière sans anomalies
-  conditionnelle ; un ordre causal de dimension (1+3) avec un temps propre lu
-  dans les comptages ; et l’équation d’Einstein à partir d’un bilan nul.
-- **Des spectres certifiés.** Un cube en interaction spécifié possède 228 raies
-  chargées et 138 raies composites, chaque poids étant démontré positif, et des
-  sources quantiques complètes donnent des registres d’énergie qui conservent
-  les échecs de préparation.
-  [Comparaison des masses](model/particle_spectrum_audit/README.md).
+  conditionnelle ; un ordre causal de dimension (1+3) et des horloges locales déclarées ; et l’équation d’Einstein à partir d’un bilan nul.
+- **Masses des hadrons et réponse axiale sur une seule source.** Quatre
+  entrées déclarées ajustent le proton à 0,93827208943 GeV, le neutron à
+  0,93956542194 GeV, le pion chargé à 0,13957039 GeV et la magnitude axiale
+  à 1,2753, sans renormaliser le courant natif. Une action positive commune
+  réunit ces états calibrés et six branches de Dirac, avec des bornes sur
+  les fenêtres spectrales des nucléons. La dépendance au graphe, un canal
+  nucléaire supplémentaire et l’identification des pôles physiques
+  contraignent l’interprétation.
+  [État axial natif](model/openwave_axial_state/PROOF.md),
+  [Source commune de masse](model/openwave_common_mass_source/PROOF.md).
+- **Émission et horloges natives.** Les calculs complets certifient un
+  contraste de parité d’impulsion bêta et une fenêtre finie d’émission
+  mésonique. Deux facteurs d’horloge de la source native à huit niveaux
+  ont une limite commune de sonde faible. Les échecs, le travail et la
+  rétroaction sont conservés ; ces registres finis ne déterminent ni les
+  durées de vie physiques ni le temps propre d’Einstein.
+  [Courant sortant](model/openwave_beta_outgoing/PROOF.md),
+  [Horloges natives](model/openwave_joint_native_clocks/PROOF.md).
 - **Les champs libres et le côté matière de la gravitation.** Une action originale sur le cube possède un fondamental sur réseau infini à énergie d’excitation positive et un champ de spin continu à propagation finie. Son continuum chargé est démontrablement libre pour
   `U=o(c^(2/7))`, avec des énergies de Weyl sans masse dans les huit vallées, et à
   couplage nul les variations d’entropie régionale convergent vers la réponse de

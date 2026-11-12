@@ -1,4 +1,5 @@
 \subsection{Native calibrated states, complete currents and common mass records}
+\label{sec:native-calibrated-currents}
 
 A common positive native-current architecture admits calibrated composite
 states, massive neutral families and complete outgoing records. Exact
@@ -104,7 +105,7 @@ ring source with $p_k=2\sin(2\pi k/L)$ and $G=1/64$.  All charged,
 neutral and reverse pair channels are retained.  Their complete first
 current column agrees with an independent Gaussian covariance contraction,
 including off-site correlations.  The full Fock interaction has norm at
-most54 on the three-quark domain, so the two-step Duhamel remainder is
+most $54$ on the three-quark domain, so the two-step Duhamel remainder is
 $(54Gt)^2/2$ without a multipair truncation.
 For a polarized native neutron preparation, the actual proton/light-electron
 positive-minus-negative momentum terminal probability is strictly below
@@ -124,6 +125,7 @@ records and proof are in \texttt{model/openwave\_beta\_outgoing}.
 
 
 \subsection{A calibrated neutral family tensor and its native oscillation records}
+\label{sec:calibrated-neutral-records}
 A common neutral multiplier of the charged hierarchy fails a scale-independent test. The ratio of the solar to atmospheric squared-mass gaps lies below the normal-ordering range of the NuFIT 6.0 comparison, while the inverted assignment gives its complement, close to one. Exact analyzer intervals exclude both assignments for every positive common multiplier.
 
 An explicit Dirac family tensor uses the six normal-ordering oscillation parameters in table 1 of NuFIT 6.0\footnote{I. Esteban et al., JHEP 12 (2024) 216, \href{https://arxiv.org/abs/2410.05380}{arXiv:2410.05380}.}, including IceCube24 and Super-Kamiokande atmospheric data, as calibration inputs. With the declared lightest mass $0.001\,\mathrm{eV}$, its masses are
@@ -145,9 +147,11 @@ vector satisfies
  \|b(t)-b_1(t)\|\leq\lambda^3t^3/6.
 \]
 This follows from unitarity and two substitutions in the exact memory
-equation; it retains every return and subsequent emission.  A128-site
+equation; it retains every return and subsequent emission.  A 128-site
 calculation at source time $1/10$ certifies a strictly positive
-infinite-line light-channel probability after local-coefficient,
+infinite-line light-channel probability above $7.8898788951\times10^{-8}$
+(and original-input probability above $1.8935709348\times10^{-8}$)
+after local-coefficient,
 binary64, Taylor-tail, cubic-feedback and finite-volume errors are
 included.  The original preparation succeeds with probability greater
 than $6/25$ and its failure is retained.  Full-source energy is conserved;
@@ -160,11 +164,14 @@ complete records are in
 
 
 \paragraph{One positive semileptonic mass source.}
+\label{sec:common-source-masses}
 A declared two-cell, three-family extension retains all $192$ native
 fermion modes, the four-input strong action, the charged analyzer tensor
 and the oscillation-calibrated Dirac neutral tensor. Its actual
-semileptonic current has coefficient $G=1/64$. The complete
-one-quark/one-family local current has exact norm $6$, giving
+semileptonic current has coefficient $G=1/64$. Its lepton spatial
+kinetic coefficient is zero; the massive Dirac branches belong to the
+full on-site family operator. The complete one-quark/one-family local
+current has exact norm $6$, giving
 $|V|\leq18N_Q$ and
 $H\geq(m_{\min}-18|G|)N_{\rm colourful}+H_L$.
 The retained coefficients obey $m_{\min}-18|G|>1$.
@@ -193,6 +200,7 @@ intertwiner and complete instrument are in
 
 
 \subsection{Two native clocks and a controlled common-clock limit}
+\label{sec:joint-native-clocks}
 The actual eight-level native energy admits an exact Jordan--Wigner representation as three normal fermion occupations. Two occupations therefore supply independently prepared clock bits within the same source cell. Their joint Ramsey instrument retains all settings, both clock outputs and the spectator complement. They share one fixed quantum geometry and scalar-wave source of dimension $80000$.
 
 Complete records resolve a finite response difference. At event 16, the difference between the two background-induced phases after normalization by their respective bare gaps lies in
@@ -201,7 +209,7 @@ Complete records resolve a finite response difference. At event 16, the differen
 \]
 corresponding to $31.37$--$32.87$ parts per million relative to the second clock response. An exact dyadic partial-transpose witness in the vacuum-field controls also certifies correlations that entangle the clocks through their common geometry. Mean wave-arrival delays measured by both clocks are positive and use the same receiver law. These finite source effects are distinguished from a measured equivalence-principle violation.
 
-There is nevertheless a controlled common-clock limit. For the declared probe family $H_\lambda=H_{\rm env}+\lambda B(a n_a+c n_c)$, with $B=\exp(Q_{\rm right})$, both normalized clock phases converge to the same integral of the Heisenberg-evolved $B$. For $0<\lambda\leq10^{-3}$ and source parameter at most $8$, their disagreement is bounded by $1500\lambda/(1-600\lambda^2)$, uniformly over arbitrary environment states and passive references. This follows from the exact finite Duhamel remainder and the complete joint instrument. No physical time or gravitational constant calibration is assumed.
+There is nevertheless a controlled common-clock limit. For the declared probe family $H_\lambda=H_{\rm env}+\lambda B(a n_a+c n_c)$, with $B=\exp(Q_{\rm right})$, both normalized clock phases converge to the same integral of the Heisenberg-evolved $B$. For $0<\lambda\leq10^{-3}$ and source parameter at most $8$, their disagreement is bounded by $1500\lambda/(1-600\lambda^2)$, uniformly over arbitrary environment states and passive references initially independent of the two prepared $|+\rangle$ clocks. This follows from the exact finite Duhamel remainder and the complete joint instrument. No physical time or gravitational constant calibration is assumed.
 
 
 \paragraph{A complete native kinetic kernel in OpenWave.}

@@ -1275,8 +1275,15 @@ python3 -m venv .venv-model
 . .venv-model/bin/activate
 python3 -m pip install -r model/requirements.txt
 python3 -m model.verify_current
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -m pytest -q -W error model
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -m pytest -q -W error -p tools.completion_contract_inputs model
 ```
+
+The explicit test plugin supplies the two authenticated documentary inputs of
+the finite completion and clock contracts. Every current executable, receipt
+and test is retained. This tests their finite premise, without claiming that
+the current hypothesis prose is validated or equivalent. The native-control
+producer also executes on its current inputs with an exact complete scientific
+comparison.
 
 `model.verify_current` preserves the original artifact checks and replay order.
 It routes the protected-readout experiment through its

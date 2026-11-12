@@ -12,6 +12,10 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
+      - 'tools/check_completion_current_code.py'
+      - 'tools/test_completion_current_code.py'
+      - 'tools/completion_contract_inputs.py'
+      - 'tools/finite_contract_command.py'
       - 'model/completion/**'
       - 'pytest.ini'
       - 'tools/check_retained_completion_custody.py'
@@ -150,6 +154,10 @@ on:
       - 'tools/build_completion_program.py'
       - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
+      - 'tools/check_completion_current_code.py'
+      - 'tools/test_completion_current_code.py'
+      - 'tools/completion_contract_inputs.py'
+      - 'tools/finite_contract_command.py'
       - 'model/completion/**'
       - 'pytest.ini'
       - 'tools/check_retained_completion_custody.py'
@@ -324,7 +332,7 @@ jobs:
 
   program-contract:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -343,7 +351,10 @@ jobs:
         run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py tools/test_diagnostic_parent_custody.py tools/test_numeric_evidence_medium.py
       # The old source-record CLIs belong to the separately executed 73-case
       # authority. Current science and current publication are checked separately.
-      - run: python -m pytest -q --durations=10 -W error tools/test_completion_program.py model/completion model/clock_defect_energy
+      - name: Check the exact documentary input boundary and current-code execution
+        run: python -m pytest -q -W error tools/test_completion_current_code.py
+      - name: Run current completion code with authenticated finite-contract documentary inputs
+        run: python -m pytest -q --durations=10 -W error -p tools.completion_contract_inputs tools/test_completion_program.py model/completion model/clock_defect_energy
       - run: python -m model.completion.acceptance_audit --check
       - run: python -m model.completion.program_class_v2 --check
       - run: python -m model.completion.independent_program_review

@@ -396,3 +396,24 @@ neutral law and do not constitute a prospective FZ-03 verdict.
 ## Dispersion coefficients
 
 - The frozen dispersion rows FZ-11 and FZ-12 share the quadratic coefficient delta_gamma2 = -a^2/20. With the natural scale a = sqrt(P) l_P it is -5.47 x 10^-58 eV^-2, 5.47 times the photon-only Pierre Auger 2022 bound delta_gamma2 > -1 x 10^-58 eV^-2. The bound is scenario- and interaction-dependent and predates both freezes, so this retrospective exposure decides nothing under the frozen rules (`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; [frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).
+
+## Native calibrated masses and currents
+
+The [native split-site construction](../model/openwave_axial_state/PROOF.md) uses the following empirical inputs. Its native current is unchanged; the axial datum selects the state through a source coefficient. The displayed agreements are calibrations, not independent predictions.
+
+| Calibration input | Value |
+| --- | ---: |
+| proton rest energy | 0.93827208943 GeV |
+| neutron rest energy | 0.93956542194 GeV |
+| charged pion rest energy | 0.13957039 GeV |
+| Axial magnitude | 1.2753 |
+
+The certified native axial interval is [1.2752999999, 1.2753000001]. The inherited electron unit is 0.00051099895069 GeV. Graph changes alter the axial response. The [three-mass-input control](../model/openwave_calibrated_hadrons/PROOF.md) fails its held-out neutral-pion, vector-meson and Delta comparisons and its native axial test. The [spin-current constraints](../model/openwave_hadron_spin_constraints/PROOF.md) retain the failed common-force comparisons. The [nuclear channel census](../model/openwave_nuclear_distance/PROOF.md) excludes bound deuteron identification for the tested four-input channels; a separate binding fit retains an extra unassigned bound channel.
+
+The [calibrated neutral construction](../model/openwave_neutrino_calibration/PROOF.md) takes six oscillation data, normal ordering and a declared lightest mass of 0.001 eV. Its conditional mass eigenvalues are 1e-12, 8.7120606058e-12, 5.0139804547e-11 GeV. Native production, free propagation and absorption have a complete-record total-variation distance from the calibrated relativistic vacuum oscillation law of at most 0.0000000041 for absolute atmospheric phase at most 64*pi. The interaction is switched off during this flight protocol. The lightest mass is declared and no physical baseline clock is calibrated; the fitted mixing phase supplies the CP contrast.
+
+The [common finite semileptonic source](../model/openwave_common_mass_source/PROOF.md) has charged threshold 0.00051099895069 GeV. For each proton/neutron-labelled preparation, a window of half-width 0.000255499475345 GeV around its coupled mean has conditional probability at least 0.96475419 and original probability at least 0.04244024. Preparation failure is an explicit third outcome. These are finite interacting energy records, without identified physical pole masses; the matter source has zero lepton spatial kinetic coefficient and contains no photons.
+
+The [beta current](../model/openwave_beta_outgoing/PROOF.md) certifies momentum-sign parity contrast, distinct from group velocity, and the [meson memory calculation](../model/openwave_meson_memory_window/PROOF.md) certifies a finite emission window on its declared reference. Neither calculation supplies a physical decay lifetime. The calibrated strong/free beta endpoint is 0.00078233355931 GeV in its free-channel comparison; contact shifts prevent equating it with a physical interacting endpoint.
+
+The [unfitted common-scale control](../model/openwave_composite_scale/PROOF.md) rejects its physical nucleon/pion assignments and forces equal weak-flavour baryon energies. The separate [vectorlike balanced-current control](../model/openwave_baryon_ordering/PROOF.md) has rejected nucleon masses and a closed ground beta threshold. These source-specific failures coexist with the calibrated constructions; no pooled physical spectrum follows from their separate comparisons.

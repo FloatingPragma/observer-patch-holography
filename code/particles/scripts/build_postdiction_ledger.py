@@ -7390,6 +7390,168 @@ def _render_finite_spectrum_comparison(row: dict[str, Any]) -> list[str]:
     ]
 
 
+def _native_current_comparisons() -> dict[str, Any]:
+    """Project complete owner receipts without pooling their source domains."""
+    names = (
+        "axial_state", "calibrated_hadrons", "neutrino_calibration",
+        "common_mass_source", "hadron_spin_constraints", "nuclear_distance",
+        "composite_scale", "baryon_ordering", "beta_outgoing",
+        "meson_memory_window",
+    )
+    receipts: dict[str, Any] = {}
+    pins: dict[str, str] = {}
+    for name in names:
+        relative = f"model/openwave_{name}/results.json"
+        path = REPO / relative
+        receipt = json.loads(path.read_text(encoding="utf-8"))
+        sources = receipt["source_sha256"]
+        if not sources:
+            raise ValueError(f"missing native comparison source inventory: {relative}")
+        for source, expected in sources.items():
+            if hashlib.sha256((REPO / source).read_bytes()).hexdigest() != expected:
+                raise ValueError(f"native comparison source drift: {source}")
+        pins[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+        receipts[name] = receipt
+    axial = receipts["axial_state"]
+    neutral = receipts["neutrino_calibration"]
+    common = receipts["common_mass_source"]
+    fits = axial["three_mass_fits"]
+    for fit in fits:
+        lower, upper = map(Fraction, fit["same_source_energy_GeV_interval"])
+        target = Fraction(fit["target_GeV"])
+        if not lower <= target <= upper or fit["role"] != "calibration input":
+            raise ValueError("native hadron calibration/interval mismatch")
+    if axial["native_current_changed"] or axial["effective_axial_multiplier_installed"]:
+        raise ValueError("native-current comparison changed its current domain")
+    catalogue = neutral["calibrated_neutral_catalogue"]
+    if catalogue["independent_neutrino_mass_or_mixing_prediction"]:
+        raise ValueError("calibrated neutrino input mislabeled as independent prediction")
+    windows = [row for row in common["complete_coupled_baryon_energy_records"]
+               ["complete_energy_window_instrument_bounds"]
+               if row["half_width_electron_units"] == "1/2"]
+    if {row["assigned_channel"] for row in windows} != {"proton", "neutron"}:
+        raise ValueError("incomplete common-source nucleon window comparison")
+    return {
+        "scope": "Distinct declared native constructions; calibrations are not predictions and source transfers require proofs.",
+        "source_sha256": pins,
+        "four_input_axial_member": {
+            "input_ancestry": axial["input_ancestry"],
+            "three_mass_fits": fits,
+            "native_ground_axial_interval_rational": axial["current_ground_certificate"]
+                ["native_ground_axial_interval_rational"],
+            "independent_prediction": False,
+        },
+        "three_input_hadron_control": {
+            "held_out_comparisons": receipts["calibrated_hadrons"]["held_out_comparisons"],
+            "strong_free_beta_available_energy_GeV": receipts["calibrated_hadrons"]
+                ["exact_beta_available_energy_GeV"],
+            "interacting_physical_pole_endpoint_claimed": False,
+        },
+        "calibrated_neutrinos": {
+            "input_ancestry": catalogue["calibration_inputs"],
+            "rows": catalogue["rows"],
+            "uniform_exact_complete_record_TV_bound": neutral["complete_flight"]
+                ["uniform_exact_complete_record_TV_bound"],
+            "declared_protocol": neutral["complete_flight"]["declared_protocol"],
+            "phase_domain_absolute_upper": neutral["complete_flight"]["phase_domain_absolute_upper"],
+            "independent_prediction": False,
+        },
+        "common_finite_source": {
+            "positivity": common["positivity"],
+            "energy_window_records": windows,
+            "physical_nucleon_pole_mass_claimed": False,
+        },
+        "four_input_nuclear_exclusions": receipts["nuclear_distance"]
+            ["certified_four_input_unbound_channels"],
+    }
+
+
+def _directed_decimal(value: str, places: int, *, upper: bool = False) -> str:
+    """Display a rational bound with outward decimal rounding."""
+    scaled = Fraction(value) * 10**places
+    rounded = (-(-scaled.numerator // scaled.denominator) if upper
+               else scaled.numerator // scaled.denominator)
+    sign = "-" if rounded < 0 else ""
+    whole, remainder = divmod(abs(rounded), 10**places)
+    return f"{sign}{whole}.{remainder:0{places}d}" if places else f"{sign}{whole}"
+
+
+
+def _render_native_current_comparisons(rows: dict[str, Any]) -> list[str]:
+    axial = rows["four_input_axial_member"]
+    ancestry = axial["input_ancestry"]
+    neutral = rows["calibrated_neutrinos"]
+    common = rows["common_finite_source"]
+    lines = ["## Native calibrated masses and currents", "",
+        "The [native split-site construction](../model/openwave_axial_state/PROOF.md) "
+        "uses the following empirical inputs. Its native current is unchanged; "
+        "the axial datum selects the state through a source coefficient. "
+        "The displayed agreements are calibrations, not independent predictions.", "",
+        "| Calibration input | Value |", "| --- | ---: |"]
+    for name in ("proton", "neutron", "charged_pion"):
+        lines.append(f"| {name.replace('_', ' ')} rest energy | "
+                     f"{ancestry['mass_calibration_targets_GeV'][name]} GeV |")
+    lines.append(f"| Axial magnitude | {ancestry['axial_calibration_target_magnitude']} |")
+    lower, upper = axial["native_ground_axial_interval_rational"]
+    lines += ["", f"The certified native axial interval is "
+        f"[{_directed_decimal(lower, 10)}, {_directed_decimal(upper, 10, upper=True)}]. "
+        f"The inherited electron unit is {ancestry['electron_unit_GeV']} GeV. "
+        "Graph changes alter the axial response. The "
+        "[three-mass-input control](../model/openwave_calibrated_hadrons/PROOF.md) "
+        "fails its held-out neutral-pion, vector-meson and Delta comparisons and "
+        "its native axial test. The [spin-current constraints](../model/openwave_hadron_spin_constraints/PROOF.md) "
+        "retain the failed common-force comparisons. The "
+        "[nuclear channel census](../model/openwave_nuclear_distance/PROOF.md) "
+        "excludes bound deuteron identification for the tested four-input channels; "
+        "a separate binding fit retains an extra unassigned bound channel.", "",
+        "The [calibrated neutral construction](../model/openwave_neutrino_calibration/PROOF.md) "
+        "takes six oscillation data, normal ordering and a declared lightest mass "
+        f"of {neutral['input_ancestry']['declared_lightest_mass_eV']} eV. "
+        "Its conditional mass eigenvalues are " + ", ".join(
+            f"{row['conditional_mass_GeV']:.11g}" for row in neutral["rows"])
+        + " GeV. Native production, free propagation and absorption have a "
+        "complete-record total-variation distance from the calibrated relativistic "
+        "vacuum oscillation law of at most "
+        + _directed_decimal(neutral["uniform_exact_complete_record_TV_bound"], 10, upper=True)
+        + " for absolute atmospheric phase at most "
+        + neutral["phase_domain_absolute_upper"] + ". "
+        "The interaction is switched off during this flight protocol. "
+        "The lightest mass is declared and no physical baseline clock is calibrated; "
+        "the fitted mixing phase supplies the CP contrast.", ""]
+    threshold = common["positivity"]["full_charge_plus_and_minus_one_threshold_GeV_exact"]
+    conditional = min(Fraction(row["conditional_inside_probability_lower"])
+                      for row in common["energy_window_records"])
+    original = min(Fraction(row["original_inside_probability_lower"])
+                   for row in common["energy_window_records"])
+    half_width = common["energy_window_records"][0]["half_width_GeV"]
+    lines += ["The [common finite semileptonic source](../model/openwave_common_mass_source/PROOF.md) "
+        f"has charged threshold {_directed_decimal(threshold, 14)} GeV. "
+        "For each proton/neutron-labelled preparation, a window of half-width "
+        f"{_directed_decimal(half_width, 15)} GeV around its coupled mean has "
+        f"conditional probability at least {_directed_decimal(str(conditional), 8)} "
+        f"and original probability at least {_directed_decimal(str(original), 8)}. "
+        "Preparation failure is an explicit third outcome. These are finite "
+        "interacting energy records, without identified physical pole masses; "
+        "the matter source has zero lepton spatial kinetic coefficient and contains no photons.", "",
+        "The [beta current](../model/openwave_beta_outgoing/PROOF.md) "
+        "certifies momentum-sign parity contrast, distinct from group velocity, "
+        "and the [meson memory calculation](../model/openwave_meson_memory_window/PROOF.md) "
+        "certifies a finite emission window on its declared reference. Neither "
+        "calculation supplies a physical decay lifetime. The calibrated strong/free "
+        "beta endpoint is " + _directed_decimal(rows["three_input_hadron_control"]
+            ["strong_free_beta_available_energy_GeV"], 14) + " GeV in its "
+        "free-channel comparison; contact shifts "
+        "prevent equating it with a physical interacting endpoint.", "",
+        "The [unfitted common-scale control](../model/openwave_composite_scale/PROOF.md) "
+        "rejects its physical nucleon/pion assignments and forces equal weak-flavour "
+        "baryon energies. The separate "
+        "[vectorlike balanced-current control](../model/openwave_baryon_ordering/PROOF.md) "
+        "has rejected nucleon masses and a closed ground beta threshold. "
+        "These source-specific failures coexist with the calibrated constructions; "
+        "no pooled physical spectrum follows from their separate comparisons.", ""]
+    return lines
+
+
 def build(
     out_path: Path = DEFAULT_OUT,
     md_path: Path | None = DEFAULT_MD,
@@ -7499,6 +7661,7 @@ def build(
         ),
         "finite_model_witnesses": _observer_particle_contracts(),
         "particle_reconstruction_decisions": _particle_reconstruction_decisions(),
+        "native_current_comparisons": _native_current_comparisons(),
         "executable_completion_program": completion_program_view(REPO),
         "principal_results": _principal_results(sections),
         "retrospective_tilt_comparison": _retrospective_tilt_reference(),
@@ -8209,6 +8372,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
         "(`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; "
         "[frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).")
     add("")
+    lines.extend(_render_native_current_comparisons(ledger["native_current_comparisons"]))
     return "\n".join(lines)
 
 

@@ -413,8 +413,8 @@ def test_heat_kernel_formula_and_finite_diagnostics_keep_their_conditions() -> N
     dictionary = _text("claims/assumption_dictionary.md")
     assert "Gauge and spacetime paper shared finite-diagnostic fragment" not in dictionary
     assert "depart from the ansatz at every finite coupling" in dictionary
-    assert "earlier truncated SU3 numerical table" in claim["statement"]
-    assert "withheld" in claim["statement"]
+    assert "No SU3 numerical table or weak-coupling extrapolation is claimed" in claim["statement"]
+    assert "no committed producer, input fixture, receipt or regression test" in claim["statement"]
 
 
 def test_maxent_locality_and_markov_alignment_hypotheses_are_not_inferred() -> None:
@@ -478,9 +478,10 @@ def test_particle_exact_formulae_preserve_degeneracy_and_domain_boundaries() -> 
     # Guard the actual compact construction, without requiring a survey of
     # every separate mass prescription to be repeated in its main narrative.
     particle = " ".join(_text("paper/deriving_the_particle_zoo_from_observer_consistency.tex").split())
-    assert "complete accounting of the displayed model's assignments, not a complete catalogue of nature" in particle
-    assert "cannot be removed to retain the zero-mode mass list" in particle
-    assert "the positive quartic coupling changes the spectral poles" in particle
+    assert "These assignments do not form a complete catalogue of observed species." in particle
+    assert r"nonzero $A=W^\dagger hW$ that contributes to its energy" in particle
+    assert "Its quartic interaction changes spectral poles" in particle
+    assert "cannot be read from a zero-mode or quadratic mass table" in particle
     assert "does not count or remove spatial regulator valleys or doublers" in particle
     assert "no certified running-to-pole, confinement, or laboratory-clock map" in particle
 
