@@ -529,6 +529,35 @@ momentum, active forcing, nonstationary preparation or different records.
 The passive source matching and acoustic initial data used by a conditional
 CMB transport calculation are additional physical inputs.
 
+\paragraph{Finite collision and expansion controls.}
+A declared quantum bath acts on the calibrated source with $180$ fermion
+modes and $56$ boson modes at global occupation cap two. Whole-colour
+fermion collisions have the form
+$\Phi_g(X)=X/2+\tau_g\operatorname{Tr}_g(X)/2$; the capped boson instrument
+retains creation, removal, hold and forbidden-zero records. Complete
+Kraus identities give the finite Gibbs fixed point. A two-sweep vacuum
+replacement subchannel and the fermion collision factors give an explicit
+reference-inclusive contraction bound for the terminal source marginal.
+The full bath archive retains its information about the input. This
+constructive finite collision law, including its supplied temperature and
+services, is implemented in \path{model/quantum_thermal_relaxation}; it is
+not a photon Thomson kernel or a derivation of cosmological thermalization.
+
+On the same fermion mass kernel, the prescribed replacement
+$p\mapsto p/a(t)$ gives $90$ disjoint canonical pairs. Their exact signed
+two-mode unitaries lift to the full fermion space, preserving pair coherence,
+all twelve species and complete number records. Outward interval products
+and a midpoint-evolution comparison bound the continuous cubic ramp from
+$a=1$ to $a=4$. On the supplied initial vacuum, the total mean particle
+number lies in $[0,0.2282]$ at duration $8$ and in $[2.6040,2.6109]$ at
+duration $1$, in the declared $\mathrm{GeV}^{-1}$ parameter. The sudden
+quench gives approximately $3.28341935$. The massless mode has exactly
+zero production. These bounds sum local pair errors with their actual
+multiplicities, as reproduced by \path{model/expanding_quadratic_particles}.
+They establish suppressed production for the slower declared ramp.
+The expansion function, calibrated masses and clock remain inputs;
+Einstein backreaction and observed cosmic abundances are not inferred.
+
 The hierarchy and its acoustic consequences are standard plasma physics
 under the stated imports. A physical OPH CMB prediction additionally needs
 the source-level photon and polarized collision limits, blackbody

@@ -254,3 +254,189 @@ temperature or cosmological abundance identification. Complete words,
 factorized laws, logarithms of underflowed probabilities and independent
 energy, charge and momentum controls are reproduced by
 \path{model/thermal_particle_records} \cite{ophrepo}.
+
+\subsection{Certified equilibration within each bath component}
+
+The reversible $1296$-state bath has a quantitative equilibration bound
+without assuming that its numerical eigensolver returns exact eigenvectors.
+On a component let $\pi$ be its normalized Gibbs law and
+$S=\operatorname{diag}(\sqrt\pi)P\operatorname{diag}(\pi^{-1/2})$.
+Its diagonal entries are rational at the four declared $q$ values, and
+its off-diagonal entries are rational multiples of square roots of
+rational powers of $q$. Integer square-root enclosures therefore bound
+every matrix entry. For a numerical eigenbasis $V$ and diagonal $D$, let
+\[
+ \|V^*V-I\|\leq\epsilon\leq\tfrac12,
+ \qquad \|S-VDV^*\|\leq\rho.
+\]
+Both bounds include matrix-entry and floating dot-product rounding.
+The polar unitary $U$ satisfies $\|V-U\|\leq\epsilon$ and
+$\|V\|+1<3$, so
+\[
+ \|S-UDU^*\|\leq\rho+3\|D\|\epsilon.
+\]
+Weyl's inequality encloses every eigenvalue. Laziness gives nonnegative
+eigenvalues. A certified lower spectral gap $g>0$ consequently implies
+\[
+ \operatorname{TV}(pP^n,\pi)
+ \leq\min\left\{1,\frac12\sqrt{\pi_{\min}^{-1}-1}(1-g)^n\right\}
+\]
+for every initial law supported in that component. The global bound is
+the component-weighted sum; no mixing between the $26$ components occurs.
+
+All $56$ nontrivial component/temperature cases have positive certified
+gaps. The minima at $q=1,3/4,1/2,1/4$ are approximately
+$1.3663280\times10^{-2}$, $3.2004108\times10^{-3}$,
+$9.2784406\times10^{-5}$ and $1.8385806\times10^{-7}$.
+The twelve singleton components require zero equilibration steps.
+At the final cut of the six-setting cooling schedule, the $32$-attempt
+and $256$-attempt protocols have total-variation distance from their
+component-weighted Gibbs laws in
+$[0.0965537485972,0.0965537485982]$ and
+$[0.0015552032635,0.0015552032709]$, respectively.
+These bounds concern terminal state marginals; the complete attempt
+archive retains its initial-state information. The exact component weights,
+all original records, gap enclosures and rounding bounds are reproduced by
+\path{model/native_bath_mixing} \cite{ophrepo}. Its cost temperature and
+attempt count have no identified GeV or cosmic-time conversion.
+
+\subsection{Quantum thermal collisions on the calibrated particle source}
+
+A different supplied bath acts directly on the calibrated source with
+$180$ fermionic modes and $56$ globally capped bosonic modes. For a whole
+fermionic colour group $g$ of rank $r_g$, its Gibbs density is scalar on
+each occupation subspace. Declare the collision
+\[
+ \Phi_g(X)=\tfrac12X+\tfrac12\tau_g\operatorname{Tr}_g X.
+\]
+The public flag records hold or replacement. A replacement transfers the
+old group and its reference correlations into a quantum bath register
+and supplies a Gibbs purification. The complete dilation has Kraus
+coordinates $\sqrt{\tau_g(a)/2}|a\rangle\langle b|$, in addition to
+$I/\sqrt2$. Keeping $a,b$ coherently in the bath preserves whole-colour
+covariance; the public pointer does not measure a colour component.
+
+On the actual capped boson space let $\Pi_n$ project onto total number
+$n=0,1,2$, and set $q_j=e^{-E_j/T}$, $Q=\sum_jq_j$. With a positive
+dyadic $\alpha\leq1/(Q+2)$, use
+\[
+ K_{n,j,-}=\sqrt\alpha\,a_j\Pi_n,\quad
+ K_{n,j,+}=\sqrt{\alpha q_j}\,a_j^\dagger\Pi_n,\quad
+ K_{n,0}=\sqrt{I-\alpha R}\,\Pi_n,
+ \qquad R=N+\mathbf1_{N<2}\sum_jq_j(N_j+1).
+\]
+Since $R\leq Q+2$, the Kraus adjoint products sum to identity on all
+$1653$ states. There are $339$ fine quantum-coordinate operators,
+including $112$ exact zeros, and $171$ public number/group records.
+Mode coordinates inside a colour group are retained as quantum bath
+coordinates. Every occupation edge satisfies Gibbs detailed balance.
+
+Two boson sweeps dominate the completely positive vacuum replacement
+map with coefficient $\delta=2\alpha^2$: on number sectors $0,1,2$,
+the retained two-hold, removal/hold and two-removal paths have coefficients
+$(1-\alpha Q)^2$, $\alpha(1-\alpha Q)$ and $2\alpha^2$.
+All are at least $\delta$. After $n$ fermion sweeps the probability that
+all $84$ groups have been replaced is $(1-2^{-n})^{84}$. Thus, for every
+source/reference state, the unhalved terminal trace distance to
+$\tau\otimes\rho_R$ is at most
+\[
+ \min\{2,\;2[1-(1-2^{-n})^{84}]+2(1-\delta)^{\lfloor n/2\rfloor}\}.
+\]
+The complete archive retains the transferred information and is not
+asserted to converge to an input-independent state. Sufficient sweep
+budgets for error below $10^{-6}$ at $T=0.1,1,10,100\,\mathrm{GeV}$ are
+$82$, $4648$, $23914$ and $42158$. These are proved budgets, distinct
+from the executed $32$- and $256$-sweep thermal schedules.
+
+The schedules start at supplied $100\,\mathrm{GeV}$ Gibbs equilibrium
+and use $10,1,0.1,1,10,100\,\mathrm{GeV}$. They retain every fermion
+group occupation factor and all $1653$ boson populations at each cut.
+Whole-group replacement can produce non-Gaussian fermion factors; their
+count laws are not replaced by binomials with the same mean. Rational
+Boltzmann enclosures and positive sparse recurrences bound the complete
+source-state numerical $L^1$ error by $2.12\times10^{-11}$ across the
+executed cuts. At fixed Hamiltonian, Gibbs preservation gives
+$\Delta S-\beta Q=D(\rho\Vert\tau)-D(\Phi\rho\Vert\tau)\geq0$,
+also with an untouched reference. The collision service and bath
+preparation are supplied; native repair preparation and a physical clock
+are separate premises. The complete channel and records are reproduced
+by \path{model/quantum_thermal_relaxation} \cite{ophrepo}.
+
+\subsection{Pair production under a declared expansion}
+
+A supplied scale factor can also change the actual two-momentum fermion
+Hamiltonian while preserving its mass kernel: replace $p_z=\pm1$ by
+$p_z=\pm1/a$. The exact parent mass-basis transformation splits the
+$360$-dimensional Nambu symbol into $90$ physical pairs. Each literal
+block is $p\sigma_z+s m\sigma_x$, with an exactly checked sign
+$s=\pm1$; its particle-hole partner has the opposite sign. The named
+positive-energy columns fix their phases. For positive-mass Bogoliubov
+matrix $S$ and $D_s=\operatorname{diag}(1,s)$, the even Fock unitary is
+$D_sXSXD_s$, where $X$ exchanges the two coordinates. A fixed
+exterior-algebra permutation from the original modes to these pairs
+retains the sign of every occupied inversion. The product of the
+disjoint even pair unitaries therefore defines the complete source
+unitary, including arbitrary references.
+
+A sudden change $a=1\to4$ gives vacuum pair probability
+\[
+ c_m=\frac12\left[1-
+ \frac{m^2+1/4}{\sqrt{m^2+1}\sqrt{m^2+1/16}}\right].
+\]
+The executed smooth-ramp comparisons use
+$a(s)=1+3(3s^2-2s^3)$, durations $\tau=1,8$ in the declared
+$\mathrm{GeV}^{-1}$ parameter, and $64,256,1024$ exact midpoint
+constant segments. All twelve fermion types and their canonical
+conjugate partners are retained. The massless mode has exactly zero
+production. On initial occupation $f$, a pair with Bogoliubov coefficients
+$(\alpha,\beta)$ has probabilities
+\[
+ ((1-f)^2-(1-2f)c,\ f(1-f),\ f(1-f),\ f^2+(1-2f)c),
+ \qquad c=|\beta|^2,
+\]
+in order $00,10,01,11$, and even coherence
+$\rho_{00,11}=s(1-2f)\alpha^*\beta^*$. This specifies the full Gaussian
+output for the supplied vacuum and $1\,\mathrm{GeV}$ thermal inputs.
+The final instantaneous number projectors have physical momentum
+$\pm1/4$, with the same charge, colour and helicity group lineage.
+Their joint law is the product of all $90$ two-group count polynomials;
+all $181$ total-number outcomes and $84$ group marginals are retained.
+
+Directed integer bounds enclose every pulse. Exact dyadic product centers
+with accumulated operator errors avoid interval wrapping: if the current
+error is $e$, the next pulse-center error is $\varepsilon$ and product
+rounding contributes $r$, unitarity of the ideal pulse gives
+$e'\leq e+\varepsilon(1+e)+r$. Displayed count probabilities come from
+consistent pair parameters, with independently bounded interval laws.
+These floating point diagnostics are neither arbitrary interval midpoints
+nor renormalized outputs; their comparison tolerance is not a certified
+rounding bound. The interval laws enclose the exact ideal probabilities.
+The vacuum mean total count is about $3.28341935$ for the quench,
+$2.60741353$ for the $\tau=1$, $1024$-segment protocol and
+$0.03359484$ for the $\tau=8$, $1024$-segment protocol.
+
+The finite pulses also have a controlled continuous-ramp comparison.
+Put $h=\tau/N$, $M_1=9/(2\tau)$ and $M_2=117/(2\tau^2)$.
+A centered interaction-picture Dyson expansion bounds each pair's
+operator error by
+\[
+ \delta_m\leq N\left[
+ h^3\left(\frac{M_2}{24}+\frac{2mM_1}{12}\right)
+ +\frac32\left(\frac{M_1h^2}{4}\right)^2\right].
+\]
+The linear midpoint term cancels, the commutator has norm at most
+$2mM_1|t-t_c|$, and the higher Dyson terms obey this bound when
+$M_1h^2/4<1$. The full Fock bound sums over all $90$ pair multiplicities;
+twice that sum bounds reference-extended unhalved trace distance,
+capped at two. A single-pair error is not a full-source error. For mean counts,
+$0\leq N_{\rm pair}\leq2$ gives the sharper direct bound
+$|\Delta\langle N\rangle|\leq\sum_{\rm pairs}\min(2,2\delta_m)$,
+without a factor of $180$. At $1024$ segments the exact continuous-ramp
+vacuum mean lies in $[0,0.2282]$ for $\tau=8$ and in
+$[2.6040,2.6109]$ for $\tau=1$, both strictly below the quench mean.
+This certifies slower-ramp suppression for the two declared profiles.
+The scale law and evolution parameter are supplied. No boson production,
+Einstein backreaction, interacting pole matching or physical cosmological
+abundance is inferred. Complete states, phase checks and interval count
+laws are reproduced by \path{model/expanding_quadratic_particles}
+\cite{ophrepo}.

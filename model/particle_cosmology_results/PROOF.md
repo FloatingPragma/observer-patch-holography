@@ -32,6 +32,16 @@ the latter's probe intervention.
 | Flavour identifiability | Exact parameter quotient, counterexample to forced alignment and complete CP readout | No source selection of empirical flavour coordinates |
 | Finite-frequency vertex | Connected three-point response, amputation and complete invariant pointer | Local unit interaction; no on-shell physical Yukawa identification |
 | Reversible bath | Exact detailed balance, heat/entropy identity and cooling experiment | Explicitly changed law, temperature schedule and component weights |
+| Lepton event timeline | Complete native histories, waiting/reset controls and exact unit-rescaling freedom | Declared coherent services and wire map; no absolute energy-clock calibration |
+| Lossless lepton archive | Exact history ranks and at most two quantum archive qubits with every classical return | Prepared source span and supplied ideal coherent compression controls |
+| Quantum electric sectors | Actual Casimir projectors, nonclosure witnesses and full stationary density family | Source family weights are free; coupling-chain scale is imported |
+| Finite particle spectroscopy | Complete finite pointer records and conditional energy/mass intervals | Calibrated coefficients, finite exposure, common energy reference and apparatus |
+| Neutrino mass observables | Exact current-weighted mass norms and attained Majorana-phase envelope | Oscillation calibration, normal rank-two input and declared logical readout |
+| Coherent flavour transport | Explicit native projector word with nonzero invariant CP contrast | Changed down-vertex architecture, common up/down singular spectrum and supplied coherent services |
+| Quantum thermal relaxation | Whole-colour collision dilation, exact Gibbs fixed point and reference-safe source mixing | Declared bath; complete archived histories retain the input information |
+| Expanding particle source | Full Bogoliubov occupation factors and massless controls | Prescribed scale factor and source clock; no gravitational expansion selection |
+| Native bath mixing | Certified component spectral gaps and cooling-lag intervals | Fixed component weights, supplied cost temperature and attempt clock |
+| Paired quark and hadron scales | Correlated potential/hadron calibration and bare Wilson coefficients in GeV | Quenched finite lattice and chosen scale conventions; no physical renormalized quark masses |
 
 The native thermal obstruction and the reversible bath are compatible:
 the latter adds missing reverse transitions. They do not make the
@@ -59,7 +69,7 @@ the target algebraic vector exactly.
 
 ## Verification
 
-The comparison requires all eleven scientific receipts, their complete
+The comparison requires all twenty-one scientific receipts, their complete
 input bindings, the actual two-parent thermal detector consumer, and the
 seventeen-record finite-vertex pointer. Mutation controls reject changed
 input bytes, forged receipt success and physical-promotion flags. Each

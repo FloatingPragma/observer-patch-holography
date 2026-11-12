@@ -139,6 +139,42 @@ and complete heat/entropy records under supplied temperatures and component
 weights. This construction does not reinterpret the unchanged repair law
 as a thermal sampler or attach native attempts to cosmic time.
 
+The [certified bath mixing calculation](../../model/native_bath_mixing/PROOF.md)
+bounds every nontrivial component gap at four declared cost temperatures,
+including eigenbasis nonorthogonality and arithmetic error. All twenty-six
+component weights remain explicit. At the final cooling cut, increasing
+from thirty-two to 256 attempts per setting reduces the executed
+state-marginal distance from Gibbs equilibrium from about 0.09655 to
+0.001555. The complete record archive is not an input-independent Gibbs
+state, and the supplied cost temperature has no GeV identification.
+
+The [quantum collision construction](../../model/quantum_thermal_relaxation/PROOF.md)
+acts on the actual calibrated particle source: 180 fermionic modes and
+56 bosonic modes with global occupation cap two. Whole-colour replacements
+and capped quantum jumps retain all bath coordinates and arbitrary
+reference correlations. Its exact finite Gibbs density is fixed, with a
+proved source/reference contraction bound and complete thirty-two- and
+256-sweep cooling laws. Sufficient sweep budgets for unhalved terminal
+trace error below one part per million are 82, 4648, 23914 and 42158 at
+supplied temperatures 0.1, 1, 10 and 100 GeV. These budgets are distinct
+from the executed schedules; native preparation and clock attachment are
+separate premises.
+
+The [declared expansion calculation](../../model/expanding_quadratic_particles/PROOF.md)
+uses that source's unchanged calibrated fermion mass kernel at momenta
+scaled by 1/a. Its exact ninety-pair factorization retains phases,
+fermionic permutation signs, full Gaussian states and correlated number
+laws for all twelve fermion types. A scale change from one to four gives
+vacuum mean count about 3.283419 for a quench, 2.607414 for the duration-one
+1024-segment cubic ramp and 0.033595 for duration eight. The massless mode
+has exactly zero production. Interval arithmetic encloses the exact finite
+pulse laws, and a separate bound controls the continuous-ramp comparison.
+Local pair-observable bounds certify continuous-ramp vacuum means in
+[0, 0.2282] for duration eight and [2.6040, 2.6109] for duration one,
+strictly below the quench, without a factor of 180 in the error bound.
+The duration is a supplied GeV-inverse parameter; the calculation derives
+neither physical cosmic time nor observed cosmological abundances.
+
 The [species identifiability theorem](../../model/native_abundance_epochs/SPECIES_PROOF.md)
 gives a finite shortcut for designing the missing readout. On a declared
 component dictionary, a fermion/boson bit within centre classes zero and

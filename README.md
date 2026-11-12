@@ -82,6 +82,14 @@ proof shows that the whole class of laws cannot work.
   retrospective comparison has a muon residual of +9.83 ppm and a tau
   discrepancy of 0.61 standard deviations. A full fermion compiler realizes
   these coefficients; the interacting physical mass identification is separate.
+- **A concrete coherent flavour mechanism.** One phase pulse on a native
+  family projector produces an exact nonzero CP contrast, read with all
+  eighteen current outcomes retained. The source masses remain unchanged;
+  this is a declared coherent architecture, without a fitted CKM matrix or
+  physical quark mass splittings. A separate calibrated neutrino instrument
+  gives complete Majorana-phase mass envelopes with failures retained.
+  [Flavour transport](model/native_flavour_transport/PROOF.md),
+  [Neutrino mass readout](model/neutrino_mass_observables/PROOF.md).
 - **Exact populations and thermal particle counts.** The native closed cell
   has complete class-absorption laws. A calibrated quantum source supplies
   complete particle-count records under a declared thermal preparation;

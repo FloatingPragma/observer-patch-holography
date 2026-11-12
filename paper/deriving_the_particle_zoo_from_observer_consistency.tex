@@ -3927,6 +3927,260 @@ replace the interacting record law. Stable neutral shells, charged inclusive
 thresholds, resonance line shapes and scheme-dependent confined parameters
 then require their respective physical definitions, as described below.
 
+\subsection{Quantum electric sectors and their stationary freedom}
+\label{sec:native-quantum-sector-measure}
+
+The configured native link has dimension $60$: an invariant vacuum and
+all five spaces $V_r^*\otimes V_r$, with $d_r=1,2,3,3,6$.
+Its matter and static dual reference admit ten exact Gauss singlets
+$a_r=A_r/\sqrt{d_r}$ and $b_r=B_r/d_r$. Direct action of the ambient
+Hamiltonian and all twelve current generators gives
+\[
+ H_r=\begin{pmatrix}0&\sqrt{d_r}\\\sqrt{d_r}&1\end{pmatrix},
+ \qquad U_r=(I+ihH_r/2)^{-1}(I-ihH_r/2),\quad h=1/8.
+\]
+This is the declared native Cayley service. Its complete position
+instrument has operators $P_aU,P_bU$, retaining both outcomes and
+arbitrary reference inputs. On this invariant carrier the actual weak
+Casimir gives
+$P_{1/2}=|b_2\rangle\langle b_2|+|b_6\rangle\langle b_6|$ and
+$P_0=I-P_{1/2}$. These are weak $\mathrm{SU}(2)$ electric sectors.
+
+The adjoint image $U^*P_{1/2}U$ has nonzero off-diagonal entries and
+therefore does not lie in $\operatorname{span}(P_0,P_{1/2})$.
+The states $(a_2\pm b_2)/\sqrt2$ have identical initial electric
+probabilities and distinct next electric records. Even diagonal states
+in the same $j=0$ sector can have different exits. Retaining the family
+and endpoint labels instead gives the exact closed kernels
+\[
+ K_r=\begin{pmatrix}1-p_r&p_r\\p_r&1-p_r\end{pmatrix},\qquad
+ p_r=\frac{1024d_r}{(d_r+256)^2+256}.
+\]
+The full stationary quantum family is
+$\bigoplus_{d=1,2,3,6} M_d\otimes I_2/2$: the $d=1,2,6$ matrices
+are nonnegative scalars, $M_3$ is any positive $2\times2$ matrix on
+the two distinct $d=3$ copies, and $\sum_d\operatorname{tr}M_d=1$.
+All twenty-five fixed-block equations are checked exactly. The fixed
+operator space has dimension seven, including the surviving copy
+coherences. The centre balance is
+\[
+ \langle(-1)^{2j}\rangle=1-w_2-w_6\in[0,1].
+\]
+It is $3/5$ for a declared tracial preparation and tends to zero for
+the native $a_6$ preparation. These are conditional inputs to the
+imported scale formula $v=E_{\rm cell}b\langle(-1)^{2j}\rangle$;
+the channel selects neither the family weights nor a physical coupling.
+The exact calculation is in
+\texttt{model/quantum\_sector\_measure/PROOF.md}.
+
+\subsection{Conditional neutrino mass norms with complete phase records}
+\label{sec:neutrino-complete-mass-norms}
+
+The calibrated rank-two Weinberg kernel is
+$M_\nu=\overline U\operatorname{diag}(0,m_2,m_3)U^*$.
+Its actual weak-current mass frame supplies the weights $|U_{ei}|^2$.
+Consequently
+\[
+ m_\beta^2=(M_\nu^*M_\nu)_{ee}
+       =\sum_i |U_{ei}|^2m_i^2,\qquad
+ m_{ee}=|(M_\nu)_{ee}|.
+\]
+For the retained normal-ordering packet,
+\begin{align*}
+ m_\beta&=8.8993443986\times10^{-12}\ {\rm GeV},\\
+ m_{ee}&\in[1.4941387506,3.7470789224]\times10^{-12}\ {\rm GeV},\\
+ \sum_i m_i&=5.8791468982\times10^{-11}\ {\rm GeV}.
+\end{align*}
+The printed zero Majorana phases give
+$m_{ee}=3.2748590233\times10^{-12}\ {\rm GeV}$.
+Writing $a=m_2s_{12}^2c_{13}^2$ and $b=m_3s_{13}^2$,
+$m_{ee}^2=a^2+b^2+2ab\cos(\alpha_{31}-\alpha_{21}-2\delta)$.
+The two phase endpoints are attained explicitly, while $m_\beta$
+and the oscillation generator remain unchanged.
+
+The actual $180$-dimensional zero-momentum Nambu symbol has an invariant
+six-coordinate neutral block
+$H_\nu=\left(\begin{smallmatrix}0&M_\nu^*\\M_\nu&0\end{smallmatrix}\right)$.
+The Takagi frame proves that $C=H_\nu/m_3$ is a Hermitian contraction.
+With $F=\sqrt{I-C^2}$, the block matrix
+$\left(\begin{smallmatrix}C&F\\F&-C\end{smallmatrix}\right)$ is unitary.
+Six success operators $|z\rangle\langle z|C$, one failure F and the
+identity on the full $174$-coordinate spectator complement form a
+complete eight-record logical instrument. On an electron input,
+\[
+ P({\rm success},\overline\nu_\alpha)
+   =\frac{|(M_\nu)_{\alpha e}|^2}{m_3^2},\qquad
+ P({\rm failure})=1-\frac{m_\beta^2}{m_3^2}
+   =\frac{633281684707}{653906250000}.
+\]
+The complete isometry retains reference correlations; forgetting its
+records need not give the identity channel. This apparatus reads two
+conditional mass norms, without a nuclear matrix element, decay-rate
+calculation, native pulse compilation or source selection of the
+calibrated masses and phases. The construction is in
+\texttt{model/neutrino\_mass\_observables/PROOF.md}.
+
+\subsection{A coherent native-family word with nonzero CP contrast}
+\label{sec:native-family-word-cp}
+
+Retain the unchanged positive native family coefficient Y and the
+actual geometric rank-one projectors $P_2,P_3,P_{10}$.
+Predeclare the chronological word $(2,3,10)$ and pulses
+$T_k=I+(-i-1)P_k$. The parent's coherent feedback service realizes
+these pulses on a prepared $X=+1$ auxiliary state. Set
+\[
+ V=T_{10}T_3T_2,\qquad Y_u=Y_e=Y,\qquad Y_d=VY.
+\]
+Transport enters the down Yukawa vertex in both Higgs components;
+it is not a basis change of only half of the weak doublet.
+All seventy-two internal Higgs Ward identities, the full neutral
+$45$-coordinate kernel and the $90$-mode antisymmetric CAR pairing
+are retained. The native positive singular values remain approximately
+$0.00206415351504$, $0.06365982535695$ and $0.93427602112801$.
+Their squared polynomial has strictly positive exact discriminant D.
+Thus the three families are nondegenerate, and
+\[
+ J=\frac{\operatorname{tr}[Y^2,VY^2V^*]^3}{6iD}
+   =-0.0241058965648816\ldots
+\]
+is an exact nonzero element of $\mathbb Q(\sqrt5)$.
+Complex-conjugating every pulse reverses its sign. All forty words of
+length zero through three in the declared alphabet are retained as
+controls; no empirical mass or mixing target selects the primary word.
+
+There is also an exact one-pulse shortcut. In Y's real mass eigenframe,
+write a normalized native rank-one projector as $pp^T$ and set
+$a=p_0^2$, $b=p_1^2$, $c=p_2^2$. Direct expansion gives
+\[
+ J\bigl(I+(e^{-i\phi}-1)pp^T\bigr)
+       =-2abc\sin\phi(1-\cos\phi).
+\]
+For the actual port-two projector, the positive product $abc$ is computed
+without fitting eigenvectors:
+\[
+ abc=\frac{\det[\operatorname{tr}(P_2Y^{i+j})]_{i,j=0}^{2}}
+              {\operatorname{disc}\det(xI-Y)}>0.
+\]
+Its quarter-turn pulse therefore has nonzero $J=-2abc$ and agrees exactly
+with the commutator calculation. The identity word has zero contrast,
+so one pulse is minimal within the prescribed alphabet. This simplifies
+the declared coherent control without selecting physical quark masses
+or the measured CKM matrix.
+
+For the ordered real eigenframe F of Y, the complete source mass frame
+gives $V_m=F^TVF$ in each of the three colour copies of the actual weak
+current. Its eighteen-record two-current instrument has Kraus rows
+\[
+ K_{rs,\pm}=\frac1{\sqrt2}
+    \bigl((V_m)_{r0}(V_m)_{s1},\ \mp i(V_m)_{r1}(V_m)_{s0}\bigr).
+\]
+All nine output family pairs and both path-Y outcomes are retained;
+$\sum K^*K=I$ and $P(01,-)-P(01,+)=J$ on the plus path input.
+The result supplies a concrete coherent flavour architecture with
+nonzero CP response. Its unchanged up/down singular spectra do not
+supply physical quark splittings, a CKM fit or a GeV calibration.
+The word is a declared addition to the static coefficient service,
+not an output forced by the unchanged real memory. Exact invariants,
+full-source frames and complete-record formulas are in
+\texttt{model/native\_flavour\_transport/PROOF.md}.
+
+\subsection{Finite spectroscopy and conditional mass scales}
+\label{sec:finite-spectroscopy-scales}
+The calibrated two-momentum quadratic source admits a complete thirty-two-outcome
+phase detector which measures charge, color Casimir, helicity and momentum
+without first measuring the energy or family label. For the exact common
+source projectors $P_g$, a coarse class $a$ and pointer outcome $y$, its
+Kraus operator is
+\[
+ K_{a,y}=\sum_{g\in a} A_y(\phi_a(E_g))P_g,
+ \qquad
+ A_y(\phi)=\frac1{32}\sum_{j=0}^{31}
+ e^{2\pi i j(\phi-y/32)}.
+\]
+The declared phase window is $[1/4,1/2]$; the range and coherent evolution
+parameter retain the parent calibration. The complete instrument has
+$8{,}010$ original probe/detector records, including $6{,}533$ zero weights,
+the vacuum and the full many-excitation complement. It preserves whole
+color fibers and coherence between unresolved families. Exact-family
+lookup before the phase pointer would instead change an unresolved
+neutrino/reference output by half trace distance approximately $1/2$.
+
+The six-bin confidence half-width gives ideal coverage at least $65/72$
+for all states and untouched references. Empty confidence sets remain
+inconclusive records. The stable identity
+$E-1=m^2/(\sqrt{1+m^2}+1)$ and rational mass-frame intervals avoid
+binary64 cancellation of neutrino splittings. For all seventeen target
+types the receipt retains conditional GeV coefficients, their calibration
+ancestry and sufficient ideal precision plans. The parallel-pointer neutrino plans use
+$80,85,80$ pointer qubits, with a largest coherent exposure approximately
+$2.431\times10^{26}\,\mathrm{GeV}^{-1}$; these plans are not executed.
+Only the thirty-two-outcome instrument is evaluated, and it does not
+resolve the three neutrino species. Source-parameter errors, physical clock attachment
+and hardware precision remain separate from the ideal confidence theorem.
+See \path{model/finite_particle_spectroscopy}.
+
+The complete phase instrument also admits an exact sequential realization
+with one reusable quantum qubit and all $n$ original classical bits retained.
+Within a fixed coarse class set $U=e^{2\pi i\phi_a(H)}$.
+Read low bits first, and let $r=\sum_{\ell<j}b_\ell2^\ell$. The next
+binary source Kraus operator is
+\[
+ K_{b_j\mid r}=\frac12\left[I+(-1)^{b_j}
+ e^{-2\pi i r/2^{j+1}}U^{2^{n-1-j}}\right].
+\]
+For a full word $y=\sum_jb_j2^j$, the polynomial identity
+$\prod_{\ell=0}^{n-1}(1+z^{2^\ell})=\sum_{k=0}^{2^n-1}z^k$
+gives $\prod_jK_{b_j\mid r_j}=A_y(U)$ exactly. Thus every original
+source/reference output is preserved, including its quantum coherence;
+no history is erased or selected. Known-bit feedback recycles the measured
+pointer while retaining that bit in the archive. All $112\times32$
+source-energy/outcome amplitudes are checked against the full pointer.
+The executed equivalent law uses one qubit, five bits and five sequential
+source services. An $n$-bit precision plan can likewise replace $n$
+simultaneous pointer qubits by one reusable qubit and $n$ retained bits,
+without reducing its cumulative coherent exposure or physical-control
+requirements. The large precision plans remain unexecuted.
+
+\paragraph{Preserving quantum archives at small dimension.}
+The actual prepared lepton instrument has outcome-conditioned environment
+ranks $1,2,1,2$. Exact nonzero-minor certificates imply complete one-, two-
+and four-round rank counts $(2,2,0)$, $(4,8,4)$ and $(16,64,176)$.
+The four-round $48$-qubit padded archive admits a reversible representation
+in at most two quantum archive qubits plus all eight original classical
+bits. Every source vector, family/reference correlation and history weight
+is reconstructed. Twenty-eight small complete orthogonal gates and native
+address services implement the compression, costing at most $1{,}767{,}798$
+additional native pulses. No unknown archive is erased and no autonomous
+reset or thermodynamic work identity is inferred. See
+\path{model/lepton_archive_compression}.
+
+\paragraph{Paired hadron scales and bare Wilson GeV coordinates.}
+The retained thirty-two stream-deletion chains propagate the critical and
+ratio-tuned hopping parameters together with the potential and correlated
+hadron fits. The inverse spacing is $1.400072\pm0.019676\,\mathrm{GeV}$
+under the empirical rho anchor, $1.077787\pm0.005391\,\mathrm{GeV}$ under
+the conventional $\sqrt\sigma=0.440\,\mathrm{GeV}$ assignment, and
+$1.162478\pm0.004107\,\mathrm{GeV}$ under an explicit $r_0=0.5\,$fm
+benchmark. Separate crossed-fit allowances are $0.028178$, $0.095230$
+and $0.028464\,\mathrm{GeV}$, respectively. These allowances are not
+confidence intervals or complete model uncertainties. The rho/string
+scale ratio is $1.299025\pm0.017142$ statistically, with a separate
+$0.129481$ fit allowance; this is a conditional scale-compatibility result,
+not a discrepancy significance with full physical errors.
+
+For every original hopping coordinate and every paired deletion, define
+$a m_q=(1/\kappa-1/\kappa_c)/2$ and multiply by the chosen inverse spacing.
+The rho-anchored bare Wilson values at
+$\kappa=0.16,0.165,0.1663,0.1675$ are respectively
+$0.236947$, $0.104364$, $0.071199$, $0.041041\,\mathrm{GeV}$.
+At the pion/rho-ratio-tuned coordinate the value is
+$0.00483755\pm0.00006981\,\mathrm{GeV}$ statistically, with a separate
+$0.00013899\,\mathrm{GeV}$ fit allowance. These are bare action parameters,
+not renormalized MSbar masses or identified physical quark masses. External
+anchor errors and quenched, volume and continuum effects remain unbounded.
+The full paired covariance and all fit variants are retained in
+\path{model/paired_hadron_quark_scale}.
+
 \section{Comparison with the measured spectrum}
 \label{sec:comparison}
 

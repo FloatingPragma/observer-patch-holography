@@ -916,3 +916,59 @@ that contrast. This is one measurable real direction for a source flavour
 relation to fix. The construction retains a common charge reference;
 native pulse compilation and a physical Standard Model family assignment
 are not supplied by these orbit counts or detector identities.
+
+### Coherent native-family transport
+
+The [native transport construction](../../model/native_flavour_transport/PROOF.md)
+uses the unchanged positive record-memory coefficient Y and the actual
+geometric projectors P2, P3 and P10. Its predeclared chronological word
+(2,3,10) applies `T_k=I+(-i-1)P_k`, then sets `Yd=T10*T3*T2*Y` with
+`Yu=Ye=Y`. Both down Higgs components retain the native Ward identities.
+All forty prescribed words of lengths zero through three are retained.
+The primary word has exact `J=-0.0241058965648816...`, and all three
+colour copies of the actual weak current produce its complete eighteen
+original CP records. The source singular values remain
+`0.00206415351504, 0.06365982535695, 0.93427602112801`.
+
+A single native rank-one pulse also suffices. In the real mass frame,
+`V=I+(exp(-i phi)-1)pp^T` has
+`J=-2 p0^2 p1^2 p2^2 sin(phi)(1-cos(phi))`. For port2 the three nonzero
+weights are certified by the exact source Krylov determinant divided by
+the discriminant of Y. This gives a constructive coherent CP mechanism
+without fitted mixing angles. The transport is a declared addition to
+the static coefficient service. Its equal up/down singular spectra do
+not give physical quark mass splittings or a measured CKM fit.
+
+### Conditional neutrino mass norms and their complete readout
+
+The [same-kernel neutrino instrument](../../model/neutrino_mass_observables/PROOF.md)
+extracts the calibrated Weinberg block and actual weak-current weights.
+It gives `m_beta=8.8993443986e-12 GeV`, mass sum
+`5.8791468982e-11 GeV`, and the full remaining-Majorana-phase range
+`m_ee=[1.4941387506e-12,3.7470789224e-12] GeV`. The printed zero-phase
+packet gives `m_ee=3.2748590233e-12 GeV`. Column-phase changes leave
+oscillation and beta-mass norms unchanged while changing the electron
+lepton-number-violating matrix element.
+
+A certified contraction of the actual six-coordinate neutral block of
+the 180-dimensional Nambu generator has a unitary binary-flag dilation.
+Six success records, the failure record and the full 174-coordinate
+spectator complement form eight complete outcomes. On the electron input,
+`P(failure)=633281684707/653906250000` and the electron-conjugate success
+probability is `abs(M_ee)^2/m3^2`. The calibration and logical probe
+normalization remain inputs. This is not a nuclear decay-rate calculation
+or a derivation of the unknown absolute neutrino mass and Majorana phase.
+
+### Electric-sector measures on an admitted quantum source
+
+The [quantum sector calculation](../../model/quantum_sector_measure/PROOF.md)
+uses the actual 60-dimensional link and its ten-dimensional invariant
+Gauss-singlet carrier. Complete native Cayley/position evolution fails
+to close on its two weak SU(2) electric labels: both coherent and diagonal
+same-sector inputs give explicit witnesses. Retaining the family label
+closes the exact transition law. The full stationary quantum family has
+six real affine degrees of freedom, including coherences between the two
+d=3 copies. Its centre balance is `1-w_2-w_6`, hence 3/5 for the tracial
+preparation and zero in the native d=6 preparation's limit. These are
+conditional inputs to the imported scale formula `v=E_cell*b*balance`;
+no free family weight or physical gauge coupling is selected.

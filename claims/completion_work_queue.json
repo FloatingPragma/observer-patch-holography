@@ -41,9 +41,9 @@
     "WQ-18"
   ],
   "first_batch": [
-    "WQ-03",
-    "WQ-06",
-    "WQ-19"
+    "WQ-17",
+    "WQ-10",
+    "WQ-11"
   ],
   "tasks": [
     {
@@ -216,7 +216,7 @@
       "depends_on": [
         "WQ-02"
       ],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/lepton_register_round/PROOF.md",
@@ -242,18 +242,26 @@
       "exact_prompt": "Execute the bounded weak and mass-read lepton cycles on one retained native-attempt timeline using the existing clocked-observer adapters. Retain waiting periods, preparation, reset, timeouts, all outcomes and the quantum reference. Demonstrate the effects of idling and correlated resets. Distinguish attempt count, successful-current count, cycle count and Hamiltonian parameter; sharing a timeline does not require identical clock and field generators. On this actual protocol, prove any energy-clock conversion claimed, or exhibit rescaling freedom that leaves all records unchanged. Do not fit a measured mass to determine the clock.",
       "outputs": [
         {
-          "path": "model/lepton_cycle/clock_energy_join.py",
-          "description": "Explicit finite generator comparison or rescaling counterexample."
+          "path": "model/lepton_clock_energy/timeline.py",
+          "description": "Executable complete source calculation and retained controls."
         },
         {
-          "path": "model/lepton_cycle/clock_energy_join_results.json",
-          "description": "Declared source pair, clock map, errors and unresolved normalization."
+          "path": "model/lepton_clock_energy/PROOF.md",
+          "description": "Finite theorem with its actual source domain and scope."
+        },
+        {
+          "path": "model/lepton_clock_energy/results.json",
+          "description": "Fresh source-bound exact results and complete records."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/lepton_cycle",
-          "expected": "Clock comparison controls preserve complete channels and expose normalization freedom."
+          "command": "python3 -m pytest -q model/lepton_clock_energy",
+          "expected": "All targeted positive and rejection controls pass."
+        },
+        {
+          "command": "python3 -m model.lepton_clock_energy --check",
+          "expected": "Fresh execution matches the source-bound retained receipt."
         }
       ],
       "closure": {
@@ -268,7 +276,24 @@
         ]
       },
       "scope_boundary": "An internal clock comparison does not supply an independently calibrated SI or GeV unit.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/lepton_clock_energy/results.json",
+          "sha256": "f16128a39630c446799ef847485d1ff9fa9941a954bfc8d0e0579684efe72d07",
+          "independent_check": "model/lepton_clock_energy/test_timeline.py",
+          "scope": "The complete lepton attempt clock joins the native phase and mass services on one retained timeline, with 7632 clock/current/timeout records. Exact ordered histories retain the effects of continuing without reset; its total variation contrast is approximately 0.00234192393460. At the stated three-attempt cap the q=1 timeout is 15806/16875. All six mass/current affine-curvature comparisons are nonzero, excluding the proposed single affine generator identification while allowing distinct generators on one clock. Simultaneous inverse rescaling of energy and time preserves every record, so this finite experiment does not select an absolute GeV or SI unit."
+        }
+      ],
+      "completion_outcome": "negative",
+      "completion_bindings": {
+        "model/lepton_clock_energy/PROOF.md": "2c7e1357199225eb15d0b205afa1d2093c2715069330c86a2181a13540bc1103",
+        "model/lepton_clock_energy/README.md": "61c48a5bbb30681ab67ebc51ba14be79975448722f7632c072ffba4e7ad1af9d",
+        "model/lepton_clock_energy/__init__.py": "b5c00960250b8b6597eb23d72dbb8e3a8d302002ce7be434e36fc1dc08108bf6",
+        "model/lepton_clock_energy/__main__.py": "5a1b310752f1667f16b307e92a4c25e8c5a859061d629158314abac2cc69fa3b",
+        "model/lepton_clock_energy/results.json": "f16128a39630c446799ef847485d1ff9fa9941a954bfc8d0e0579684efe72d07",
+        "model/lepton_clock_energy/test_timeline.py": "20eb0a28073213ff5104a8b9eb32f6c0d29d7cc6db4335ff78fc4f49b1b6d43a",
+        "model/lepton_clock_energy/timeline.py": "f48bbb551ebbaa4ec91b4548c1a37a011522c2c1a0141f126950409d9feb7c3a"
+      }
     },
     {
       "id": "WQ-04",
@@ -435,7 +460,7 @@
       "gate": "CP-07",
       "issue": 1143,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/seam_class_balance/PROOF.md",
@@ -461,18 +486,26 @@
       "exact_prompt": "Fix one admitted source, operation set, electric-sector projectors and finite cutoff (with any required tail bound) before extraction. Derive sector transitions from the actual quantum channel and branch multiplicities, retaining no-ops and rejected outputs. For arbitrary within-sector states and coherences, prove adjoint preservation E*(P_j)=sum_i K_ij P_i; alternatively declare a restricted dephased or conditional-state family and prove its closure. Classical strong lumpability alone does not establish quantum sector closure. Solve stationary measures and remaining sector freedom exactly, or give a sector-preservation/nonclosure witness. Do not substitute the classical distance quotient for electric SU(2) sectors or identify finite-group and SU(2) labels without a map. Propagate only admitted measures through one coupling output, with no empirical target selection.",
       "outputs": [
         {
-          "path": "model/seam_class_balance/coupling_measure.py",
-          "description": "Exact microscopic measure and connectivity calculation."
+          "path": "model/quantum_sector_measure/measure.py",
+          "description": "Executable complete source calculation and retained controls."
         },
         {
-          "path": "model/seam_class_balance/coupling_measure_results.json",
-          "description": "Selected versus free weights and their coupling consequences."
+          "path": "model/quantum_sector_measure/PROOF.md",
+          "description": "Finite theorem with its actual source domain and scope."
+        },
+        {
+          "path": "model/quantum_sector_measure/results.json",
+          "description": "Fresh source-bound exact results and complete records."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/seam_class_balance model/repair_sector_bridge",
-          "expected": "Stationary, reducible-sector and wrong-proposal controls all behave as declared."
+          "command": "python3 -m pytest -q model/quantum_sector_measure",
+          "expected": "All targeted positive and rejection controls pass."
+        },
+        {
+          "command": "python3 -m model.quantum_sector_measure --check",
+          "expected": "Fresh execution matches the source-bound retained receipt."
         }
       ],
       "closure": {
@@ -487,7 +520,24 @@
         ]
       },
       "scope_boundary": "A finite sector measure does not by itself establish four-dimensional running or physical renormalization matching.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/quantum_sector_measure/results.json",
+          "sha256": "ed65c8c044e06df58bcd86f46e5cc32349a7f7cb888eab9cc23ef8877aca3e81",
+          "independent_check": "model/quantum_sector_measure/test_measure.py",
+          "scope": "The configured 60-dimensional quantum link has a ten-dimensional invariant Gauss-singlet carrier with actual weak SU(2) electric sectors. Its complete Cayley/position channel fails closure on the two electric labels, with both coherent and same-sector diagonal witnesses. Keeping family and endpoint labels gives exact kernels p_d=1024d/((d+256)^2+256). The full fixed-operator space has dimension seven, including coherences between the two d=3 copies; its stationary density family has affine dimension six. The centre balance is 1-w_2-w_6, equal to 3/5 for a tracial preparation and zero in the limit of the native d=6 input. This determines conditional inputs to the imported v=E_cell*b*balance formula without selecting the free family weights or a physical coupling."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/quantum_sector_measure/PROOF.md": "8788e92af59fe784d4feeabba7f5b2db08c90c340f3d88c226b487eab2211398",
+        "model/quantum_sector_measure/README.md": "0d626f319a2b0d3329fdee7bc919324962c3b02ddd76c7ecbdfd9669d0fa9504",
+        "model/quantum_sector_measure/__init__.py": "e4a518fb346db79fa715ecd6344d217b4f7cf4e2b83c61bccaa279166bd6a540",
+        "model/quantum_sector_measure/__main__.py": "dadc7733b1d9a45473b8664b1da39a34a9ca67f8d699c04fb0e61e6de9fdbd77",
+        "model/quantum_sector_measure/measure.py": "c6ef754877f39a195aea5c45d4c85c5e88e6c2d2ae19749a32b8b6bcdb02a27d",
+        "model/quantum_sector_measure/results.json": "ed65c8c044e06df58bcd86f46e5cc32349a7f7cb888eab9cc23ef8877aca3e81",
+        "model/quantum_sector_measure/test_measure.py": "9c4203d7b922efc90649b17952f85db337aceb3b59b7965f4b250be33b07a1fe"
+      }
     },
     {
       "id": "WQ-07",
@@ -1239,7 +1289,14 @@
         "model/repair_sector_bridge/RECORD_OBSERVER.md",
         "Lean/Tower/OperationalObserver.lean",
         "Lean/QFT/OperationalOverlapEvidence.lean",
-        "model/CONSTRUCTION.md"
+        "model/CONSTRUCTION.md",
+        "model/finite_particle_spectroscopy/PROOF.md",
+        "model/finite_particle_spectroscopy/README.md",
+        "model/finite_particle_spectroscopy/__init__.py",
+        "model/finite_particle_spectroscopy/__main__.py",
+        "model/finite_particle_spectroscopy/results.json",
+        "model/finite_particle_spectroscopy/spectroscopy.py",
+        "model/finite_particle_spectroscopy/test_spectroscopy.py"
       ],
       "premise_ids": [
         "PR-02",
@@ -1259,6 +1316,11 @@
           "path": "Lean/QFT/OperationalOverlapEvidence.lean",
           "anchor": "operationalObservers_share_visible_event_record",
           "role": "Reuse overlap agreement only after both maps refer to the same retained event."
+        },
+        {
+          "path": "model/finite_particle_spectroscopy/PROOF.md",
+          "anchor": "One reusable pointer qubit gives the same complete instrument",
+          "role": "Reuse the exact adaptive phase-pointer identity as a resource control: one reusable quantum qubit retains all n classical bits and n sequential source services, with unchanged coherent exposure. This does not instantiate the addressed operational observer or discharge its supplied apparatus, clock and archive obligations."
         }
       ],
       "exact_prompt": "Instantiate the operational-observer interface on the bounded addressed-record implementation and construct two observers sharing one actual event record. Include all no-ops, source halt at capacity and overlap maps. Separate the 298-bit mutable-register budget from immutable program, apparatus, initial-state knowledge and external archive/clock resources. Give a bounded self-description/readback test if the declared source supports it; otherwise provide an observational-indistinguishability witness explaining why the records cannot recover that specification. Do not promote overlap agreement to unique reconstruction of the underlying program. Bind the Lean generator and control/readback maps to the actual executable continuation table; the generic zero-generator ConsensusTower adapter or a purely declared structural instance does not establish that binding.",
@@ -1497,7 +1559,7 @@
       "gate": "CP-02",
       "issue": 1138,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/lepton_cycle/instrument.py",
@@ -1519,18 +1581,26 @@
       "exact_prompt": "Construct outcome-conditioned environment compression from the actual lepton Gram matrices, preserving every classical outcome and untouched quantum reference. Prove exact instrument equivalence for one, two and four rounds with independent fresh sources. Report minimal quantum environment ranks and retained storage, while counting the compression service itself. Include a countercontrol that compresses nonorthogonal states incorrectly. Do not erase history, discard a rejected branch or equate information dimension with physical work.",
       "outputs": [
         {
-          "path": "model/lepton_cycle/environment_compression.py",
-          "description": "Exact outcome-conditioned compression isometries."
+          "path": "model/lepton_archive_compression/compression.py",
+          "description": "Executable complete source calculation and retained controls."
         },
         {
-          "path": "model/lepton_cycle/environment_compression_results.json",
-          "description": "Reference-inclusive instrument equivalence and bounded storage counts."
+          "path": "model/lepton_archive_compression/PROOF.md",
+          "description": "Finite theorem with its actual source domain and scope."
+        },
+        {
+          "path": "model/lepton_archive_compression/results.json",
+          "description": "Fresh source-bound exact results and complete records."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/lepton_cycle",
-          "expected": "Complete instruments and reference correlations survive compression; lossy controls fail."
+          "command": "python3 -m pytest -q model/lepton_archive_compression",
+          "expected": "All targeted positive and rejection controls pass."
+        },
+        {
+          "command": "python3 -m model.lepton_archive_compression --check",
+          "expected": "Fresh execution matches the source-bound retained receipt."
         }
       ],
       "closure": {
@@ -1545,7 +1615,24 @@
         ]
       },
       "scope_boundary": "Quantum environment compression is a finite resource improvement; it does not provide autonomous reset or a physical work budget.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/lepton_archive_compression/results.json",
+          "sha256": "e3815beb503e42aafc13c2ea01114ba909b086701b1c772a9b73d333392a29b2",
+          "independent_check": "model/lepton_archive_compression/test_compression.py",
+          "scope": "The actual complete lepton archive has rank-one/rank-two/rank-three history counts (2,2,0), (4,8,4) and (16,64,176) after one, two and four rounds. Outcome-controlled isometries retain the original return labels and every external reference while reducing four-round quantum archive storage from 48 padded qubits to at most two, together with eight original classical bits. Twenty-eight small native compressors and explicit address services implement the bounded compression. No record erasure, autonomous blank source or hardware precision is inferred."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/lepton_archive_compression/PROOF.md": "8c7ec9fd8f971458bfd0a1244f7ed2af2b590bfecac0ab777196610396b1af17",
+        "model/lepton_archive_compression/README.md": "b2d05f5103cb993767703ee1e5f0c66e462fdd9db4fd01047d6a8d7697f0cada",
+        "model/lepton_archive_compression/__init__.py": "4087a4244e050b0a4e1d8f178216dafbe2eba774b2739e40f43564d44eed851c",
+        "model/lepton_archive_compression/__main__.py": "e14a784111941210eb7d7ec867326346da98a4568f7bfa3efe9b3cf42c4ef809",
+        "model/lepton_archive_compression/compression.py": "e40443d1c24baac96d1b0951c38c5a42229c7cd1f0d1609b8fd5c201cc02f73f",
+        "model/lepton_archive_compression/results.json": "e3815beb503e42aafc13c2ea01114ba909b086701b1c772a9b73d333392a29b2",
+        "model/lepton_archive_compression/test_compression.py": "0186f7b901d828626cb97dafaa16b0f31568d6006f69cb853793b70e7113d65c"
+      }
     },
     {
       "id": "WQ-20",

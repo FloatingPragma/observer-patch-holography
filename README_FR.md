@@ -90,6 +90,15 @@ de lois échoue.
   +9,83 ppm pour le muon et de 0,61 écart-type pour le tau. Un compilateur
   sur l’espace fermionique complet réalise ces coefficients ; leur
   identification aux masses physiques en interaction est distincte.
+- **Un mécanisme cohérent concret de saveur.** Une impulsion de phase sur
+  un projecteur natif de famille produit un contraste CP exact non nul,
+  avec les dix-huit issues du courant conservées. Les masses de la source
+  restent inchangées ; cette architecture déclarée ne donne ni ajustement
+  CKM ni séparation des masses physiques des quarks. Un instrument de
+  neutrinos calibré fournit séparément les enveloppes de masse sur toute
+  la phase de Majorana, en conservant les échecs.
+  [Transport de saveur](model/native_flavour_transport/PROOF.md),
+  [Lecture des masses de neutrinos](model/neutrino_mass_observables/PROOF.md).
 - **Populations exactes et comptages thermiques de particules.** La cellule
   native fermée possède des lois complètes d’absorption des classes. Une
   source quantique calibrée donne des registres complets de nombres de

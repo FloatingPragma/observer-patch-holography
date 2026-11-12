@@ -40,6 +40,19 @@ their unresolved rank-three or rank-eight spaces. Seventeen conditional
 GeV rest coefficients retain their empirical Yukawa, background and
 neutrino ancestry; they are not independent mass predictions.
 
+The [finite spectroscopy instrument](../../model/finite_particle_spectroscopy/PROOF.md)
+replaces an exact energy label with an executed 32-bin phase pointer.
+Its 8,010 complete records preserve unresolved family coherence and have
+ideal mass-confidence coverage at least 65/72. All seventeen types have
+conditional GeV precision budgets. Exact adaptive readout uses one reusable
+pointer qubit and retained classical bits, preserving the complete complex
+Kraus amplitudes. The unexecuted neutrino plans use up to 85 sequential
+bits and services with the same coherent exposure budget. The [neutral mass contraction](../../model/neutrino_mass_observables/PROOF.md)
+uses the actual calibrated Weinberg kernel and weak current to read
+current-weighted mass norms and an attained Majorana-phase envelope.
+These instruments retain their failures and reference extensions; neither
+supplies interacting physical mass matching or a laboratory clock.
+
 The [thermal number instrument](../../model/thermal_particle_records/PROOF.md)
 uses those same mode groups on the actual finite Gibbs preparation. It
 retains all fermion occupations and all 1653 capped boson words, including
@@ -47,6 +60,24 @@ their helicity-frame rotation and quantum references. The continuum
 free-gas comparison is a separately declared extension. Its high-temperature
 energy count 106.75 and quark/lepton fractions follow from the supplied
 particle menu; they do not validate an early-Universe population history.
+
+The [quantum collision bath](../../model/quantum_thermal_relaxation/PROOF.md)
+acts on this same full fermion space and capped boson source. Whole-colour
+collisions and complete creation/removal instruments have an exact finite
+Gibbs fixed point and reference-safe terminal relaxation bounds. The
+complete bath archive retains input information. The
+[prescribed expansion calculation](../../model/expanding_quadratic_particles/PROOF.md)
+instead evolves the actual fermion mass kernel with a supplied scale
+factor, retaining pair coherence and complete occupation laws. Supplied
+baths and expansion histories are distinct interventions; neither is an
+output of unchanged descending repair or a prediction of cosmic abundances.
+
+The [native coherent flavour construction](../../model/native_flavour_transport/PROOF.md)
+provides a separate mechanism for nonzero CP response. A single phase pulse
+on a native family projector suffices by an exact rank-one identity, and
+the full current-loop instrument retains eighteen outcomes. This declared
+vertex transport preserves its native singular values; it does not split
+the equal up/down spectra or fit the observed mixing matrix.
 
 The [finite-frequency vertex](../../model/frequency_yukawa_vertex/PROOF.md)
 computes all six time orderings on the unchanged 320-state lepton/Higgs
