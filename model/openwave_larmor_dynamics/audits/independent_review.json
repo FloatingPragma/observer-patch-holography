@@ -1,0 +1,19 @@
+{
+  "current_energy_derivative_comparisons": 9,
+  "exact_fixed_state_contraction_upper": "2983591576655921889/4906135284039680000",
+  "full_signed_matrix_dimension": 108,
+  "independent_matrix_error": 1.3744210972364778e-12,
+  "maximum_current_derivative_error": 8.653849139020342e-10,
+  "maximum_independent_density_continuity_error": 3.401153704073736e-10,
+  "random_states_with_both_D_signs": 3,
+  "schema": "oph.larmor_independent_review.v1",
+  "scope": "The nonlinear quasistatic law is a semiclassical state-dependent construction, not an arbitrary-reference CP channel; no long-time interval error or continuum g is inferred.",
+  "source_sha256": {
+    "model/openwave_larmor_dynamics/PROOF.md": "765cc7622ea4f84371f46ae3f16e29523e321cab8d1756a77970339c9fe68a79",
+    "model/openwave_larmor_dynamics/audits/independent_review.py": "9e697e7f5419c30b8143436845a1ca8c0528582097e42d4f0d45243d9de8bda6",
+    "model/openwave_larmor_dynamics/dynamics.py": "892e8c46d7d28ad9d92c2fea963c15fd4ba5be3ddea4dd99b053acd5d7f0a338",
+    "model/openwave_larmor_dynamics/experiment.py": "d777b090d9bc6470cd9b702e2c668f7eb52938052f42c4d96170c4093d90fd7b",
+    "model/openwave_larmor_dynamics/results.json": "18ccba6f5ceb10123c5e65279c33722ca38dfb74d0dfe96332d12571afe7f69f"
+  },
+  "verdict": "PASS"
+}

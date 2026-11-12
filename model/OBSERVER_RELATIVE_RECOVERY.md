@@ -1130,7 +1130,7 @@ checks; their architecture and physical interpretation are stated separately.
 | [Reference binding](openwave_reference_binding/PROOF.md) | Exact singlet compression and native strings bound the constrained unscreened-charge separation cost. Screened clouds and noninvariance under hopping are retained. |
 | [Coherent lepton compiler](openwave_lepton_phase_cycle/PROOF.md) | Four-phase averaging and an exact fourth-order word identity give full-reference trace error at most (14s)^5|t|^5/(10n^4). At one rest site, 15229 cycles suffice for 10^-12 at t=1, using declared phase/parity services. |
 | [Native free beats](openwave_native_beat_clock/PROOF.md) | A single coherent preparation and common full-H herald give fixed-observable free oscillations. The ground beat includes the reference energy; the interchannel beat cancels it. No passive self-starting or physical Compton clock is inferred. |
-| [Intrinsic magnetic field](openwave_intrinsic_magnetic/PROOF.md) | The declared positive-kernel, confined Wilson construction computes a stationary current and its transverse Maxwell field. Finite bound-energy g values reach 1.78875065; continuum g=2 and time-dependent Larmor response are not established. |
+| [Intrinsic magnetic field](openwave_intrinsic_magnetic/PROOF.md) | The declared positive-kernel, confined Wilson construction computes a stationary current and its transverse Maxwell field. The finite coarse member gives bound-energy g=1.78875065. Its time evolution and separate spacing family are specified below; no physical continuum g is inferred. |
 | [Neutral sector](openwave_neutral_candidate/PROOF.md) | An actual gauge-singlet probe and conserved raw lepton number give a positive protected energy threshold. A declared periodic boundary permits zero momentum; the electron-calibrated interval is 30.4–66.2 keV, without an observed-neutrino identification. |
 | [Native-current Coulomb energy](openwave_current_coulomb/PROOF.md) | Native Gauss flux determines the longitudinal quadratic readout. Replacing the unit-link penalty gives path-independent static trial energies and the computed Green profile. Original ground/clock bounds and a physical fine-structure constant are not inferred. |
 | [Metric observations](openwave_metric_observables/PROOF.md) | Separated native clocks, complete scalar-wave records and metric ray delays are computed. Their nonuniversal clock ratios and Einstein-residual control preserve the stress/device hypotheses of the regional theorem. |
@@ -1144,3 +1144,29 @@ and the magnetic, Coulomb, scalar-wave and atomic constructions retain their
 own actions and inputs. Their individual results do not constitute a common
 interacting physical spectrum. The owning [paper derivation](../paper/tex_fragments/SOURCE_PARTICLE_OBSERVABLE_JOINS.tex)
 states the equations and observation boundaries.
+
+
+## Stationary bands, kinetic branches and complete field records
+
+The [spectral derivation](../paper/tex_fragments/FINITE_SPECTRAL_DYNAMICS.tex)
+uses finite isolation, exact invariant factors and complete instruments to
+connect source spectra to specified observer records. Its declared members
+have separate boundary, field and calibration inputs.
+
+| Construction | Supported result and boundary |
+| --- | --- |
+| [Stationary neutral band](openwave_neutral_stationary/PROOF.md) | Periodic link-penalty-two source: rank1024 isolated band and a unique physical ground. A degree167608 polynomial instrument prepares a stationary reduced density with success about2.85e-126. Complete position/occupation records and localized leakage bounds retain every failure. The electron-calibrated66.1638659224keV energy has no established relativistic mass or named-particle identification. |
+| [Magnetic evolution](openwave_larmor_dynamics/PROOF.md) | The full absolute-kernel derivative gives a unique fixed-state self-field and actual spin/dipole precession. Nonlinear quasistatic evolution is distinct from a quantum channel with arbitrary references. |
+| [Magnetic refinement](openwave_magnetic_refinement/PROOF.md) | Fixed-volume static factors reach1.927376964. A separate tiny-coupling member on that finest grid gives an enclosed finite-duration precession normalization near1.92095. Finite regulator and confinement effects do not supply precision physical g. |
+| [Pinned Coulomb minimum](openwave_pinned_coulomb/PROOF.md) | Complete native multiplicities and nonempty flux factors give an exact constrained minimum; unknown charged rest energy cancels from all separation differences. The Green force follows with supplied coupling and explicit pinning. |
+| [Kinetic compiler](openwave_kinetic_phase_cycle/PROOF.md) | Homogeneous Weyl evolution is retained throughout coherent phase compilation. Exterior spatial inversion and charged-leg parity implement inverse segments, with full-reference error control and exact free spectators. |
+| [Charged mass branches](openwave_lepton_mass_shell/PROOF.md) | Three native charged spin frames have exact free mass shells and complete rest/spatial records. Electron calibration gives0.00051099895069,0.1056594144959,1.7769849708134GeV. Eight valleys,39 massless internal coefficients and a zero-energy charge-one singlet are retained. |
+| [Spin and frame records](openwave_spin_frame_records/PROOF.md) | Proper cube rotations preserve the same full kinetic source. An oriented frame returns at2pi, a two-copy observer tensor atpi and an odd amplitude at4pi. Excess spin1/2 does not remove occupied-sea fluctuations or prove total Noether angular momentum. |
+| [Scale coupling](openwave_scale_coupling/PROOF.md) | Four fresh pure-colour Wilson ensembles give normalized finite coupling-squared values1.56186,2.73542,4.13672 at side8. Correlated errors and the large side6 long-loop shift are retained; physical scale, core onset and continuum running are unassigned. |
+| [Fractional-charge strings](openwave_quark_strings/PROOF.md) | Actual Gauss-constrained quark-hole strings carry2/3 and-1/3, with measured centre phases and positive full-H arrival bounds. The supplied filled preparation and internal gauge holonomy do not prove spatial fractional winding or low-energy quark masses. |
+
+The exact minimum cancellation, active-factor compiler and finite isolated-band
+bounds replace much larger spectral calculations within their stated domains.
+The free charged spectrum and its rotation experiment share one source.
+The neutral, magnetic, pinned-force and thermal-colour members require their
+own composition proof before a joint interacting physical interpretation.

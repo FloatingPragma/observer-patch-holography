@@ -1,0 +1,17 @@
+{
+  "actual_nonself_hopping_word_counts": [
+    24,
+    576,
+    3240
+  ],
+  "independent_exact_Green_minimum_differences": 8,
+  "independent_large_box_force_max_error": 1.0408340855860843e-17,
+  "native_local_hypercharge_Ward_words": 112,
+  "proof_review": "Gauge multiplicity factorization and nonempty native character flux saturate the full pinned tensor lower bound. The unknown complete charged minimum cancels. Pinning is a constraint; no invariance, unrestricted screened force or physical alpha follows.",
+  "source_sha256": {
+    "model/openwave_pinned_coulomb/PROOF.md": "76356eb3470f41df57dfed084376dae7f26d19172a67af599e0a71e9400d8be9",
+    "model/openwave_pinned_coulomb/results.json": "15ddee2283f5369b79007057fc4844803f343ad3f23299865e3a8183fd12e1f1",
+    "model/openwave_pinned_coulomb/source.py": "9718a25ac19864498991e9ee1597761a34bb72b24d91329a1e10d4edc0de6f0b"
+  },
+  "verdict": "PASS"
+}
