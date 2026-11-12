@@ -10,10 +10,10 @@ sys.path.insert(0, str(ROOT))
 from model.completion import custody_renewal, program_class_v2
 from tools import renew_canonical_live_receipts as renewal, strict_json
 
-# Existing supplement seal, preserved independently of live review hashes.
-# These bytes are the accepted-main class at c01d0b366645823ac0dbbb3977c69d8e4c1c82b8.
-SEALED_PARENT = '6d39bfd75dda28a7affb199f7cb5f70d39feedf5'
-SEALED_CLASS_SHA256 = '3b7291e1d404b426b60391f5042c6d91b869f6039c1158ed26dc457f921513d2'
+# Declared supplement seal, preserved independently of live review hashes.
+# The parent Git blob binds this exact reviewed class.
+SEALED_PARENT = '355b3e598d7c95d60316a2ce6886f71b6d8d40e5'
+SEALED_CLASS_SHA256 = '611357b197f90e2d9198ad7f5e33e67cf4adbded157e8f65ab3b24eddd91bd95'
 ADOPTION_SEMANTICS = {
     'status': 'ADOPTED_AFTER_REVIEW', 'changes_current_registry': True,
     'independent_review': {
