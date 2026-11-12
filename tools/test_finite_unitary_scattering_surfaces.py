@@ -26,6 +26,13 @@ OBSERVATION_EVIDENCE = [
     "code/qft/finite_unitary_scattering_no_go.py",
     "code/qft/test_finite_unitary_scattering_no_go.py",
     "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
+    "model/frequency_yukawa_vertex/PROOF.md",
+    "model/frequency_yukawa_vertex/README.md",
+    "model/frequency_yukawa_vertex/__init__.py",
+    "model/frequency_yukawa_vertex/__main__.py",
+    "model/frequency_yukawa_vertex/results.json",
+    "model/frequency_yukawa_vertex/test_vertex.py",
+    "model/frequency_yukawa_vertex/vertex.py",
 ]
 
 POSTDICTION_ARTIFACTS = [

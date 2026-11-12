@@ -2690,7 +2690,7 @@
   "physical_premise_promotions": [],
   "same_source_join": {
     "package": "model/thermal_particle_records",
-    "receipt_sha256": "1a103bd5f990fbd988ae751e6387ae2b50d27e48545e19f6d3f3b23a7c976cde",
+    "receipt_sha256": "f34a2a7740bb5a146ea70542f2ba93d5c4bf17ec0e20723e8163ba1522e696e1",
     "source_domain": "calibrated_quadratic",
     "task": "join",
     "title": "Thermal particle-number records"
@@ -3147,7 +3147,7 @@
     "model/expanding_quadratic_particles/__init__.py": "f645bb95cdbba4664ed1eb6a1c314549482fcfe3579794678994d867d115f695",
     "model/expanding_quadratic_particles/__main__.py": "6e10dd82bf73fd48623d426deb803bcb216966a6ee11a75879fcd866b067dd71",
     "model/expanding_quadratic_particles/production.py": "3d53596488097bd62222cab307e3253e6bfe72a395c8eb57241a7fd6787db8b5",
-    "model/expanding_quadratic_particles/results.json": "423a9ad996fec9a7ef5ed4b6e687eba512ff0e06d0bb6389e5b13888a75aad92",
+    "model/expanding_quadratic_particles/results.json": "3ac5ec21b12dd5822a37e51b1ae308ad6694a286b748bef8e37cb3462d108492",
     "model/expanding_quadratic_particles/test_production.py": "1f12a9640517dbf6049138e9a8391d13eb712c92ef675cb6317d8d98c7cee6ff",
     "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
     "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
@@ -3416,7 +3416,7 @@
     "model/quantum_thermal_relaxation/__init__.py": "a1bab2666a8db8f68df1f6b8b752b13d738fc18610a59b7c9a7078140cf4992b",
     "model/quantum_thermal_relaxation/__main__.py": "13879c7b532f8be1c7eb6246b3dd56ad44a048cbf0b5dbeecf7fdb07ca98aefd",
     "model/quantum_thermal_relaxation/relaxation.py": "745e22ec4d2cceba2778e507f6c19fba037879b5d31303f6b6a8842ed5f499c0",
-    "model/quantum_thermal_relaxation/results.json": "51b90af6a2c04e6f20750193f1cbd20fda67f1d3f115eb9de73925b1e01b363c",
+    "model/quantum_thermal_relaxation/results.json": "7106df0c58ea2a58e4a21c59555f27e85f3d544399dd1b8a19d3588f6e84e3fa",
     "model/quantum_thermal_relaxation/test_relaxation.py": "d1c7c32efeefef69b86df386449da94f5193dd3641b3ceaaaacbfbcfc4df67c6",
     "model/quenched_hadron_binding/PROOF.md": "bfb4acf1c861dd1cea8da5ebebadeba6fc7e50db7ea2f8300e1236302712fa9f",
     "model/quenched_hadron_binding/__init__.py": "cb098824af49bfde59c18ccf34a0ed3a03ebbaae2c84c40c654dd8ad76c289ae",
@@ -3464,8 +3464,8 @@
     "model/thermal_particle_records/README.md": "3fce16a3f08f16ba05f2be5215225123d73bad8ad3b85a2ee5bc6d433956c4a7",
     "model/thermal_particle_records/__init__.py": "670c0d7cbc8133e0f0d0df66a4065b58f87f18789ace5988b366fd3a50ad9601",
     "model/thermal_particle_records/__main__.py": "d93ba1b2c18f5397a808927230e0e669236ddc85294b9fb09fc84d290a8329ad",
-    "model/thermal_particle_records/records.py": "eaeb199212d711fa34f41f3c6dd667f4482e62b9e6443b29fade98989fa0aac8",
-    "model/thermal_particle_records/results.json": "1a103bd5f990fbd988ae751e6387ae2b50d27e48545e19f6d3f3b23a7c976cde",
+    "model/thermal_particle_records/records.py": "616230fd9130afb0e62aa385196a827dac02cb9c02148ba5431057c07e05d59e",
+    "model/thermal_particle_records/results.json": "f34a2a7740bb5a146ea70542f2ba93d5c4bf17ec0e20723e8163ba1522e696e1",
     "model/thermal_particle_records/test_records.py": "31002baba022d6cb811c0e2c3c2869f27c5ec24546748cacc6e2fbd3d9de2e1c",
     "model/yukawa_defect_vertex/PROOF.md": "3e7219ff71ceb9d5bfb856b1d2ad59123f61b783319f720b3f0b6e30f2527059",
     "model/yukawa_defect_vertex/__init__.py": "8908cae179c26f869332034409e695ccaaf0c19c098b5067f97cfb36f6cb50dd",
@@ -3600,14 +3600,14 @@
     },
     {
       "package": "model/quantum_thermal_relaxation",
-      "receipt_sha256": "51b90af6a2c04e6f20750193f1cbd20fda67f1d3f115eb9de73925b1e01b363c",
+      "receipt_sha256": "7106df0c58ea2a58e4a21c59555f27e85f3d544399dd1b8a19d3588f6e84e3fa",
       "source_domain": "calibrated_quadratic_with_declared_bath",
       "task": "T17",
       "title": "Complete quantum bath and source relaxation"
     },
     {
       "package": "model/expanding_quadratic_particles",
-      "receipt_sha256": "423a9ad996fec9a7ef5ed4b6e687eba512ff0e06d0bb6389e5b13888a75aad92",
+      "receipt_sha256": "3ac5ec21b12dd5822a37e51b1ae308ad6694a286b748bef8e37cb3462d108492",
       "source_domain": "calibrated_quadratic_with_declared_expansion",
       "task": "T18",
       "title": "Particle production under a declared expansion"

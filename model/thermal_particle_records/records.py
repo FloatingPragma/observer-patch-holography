@@ -148,11 +148,24 @@ def binomial_records(rank,energy,temperature):
     return rows
 
 
+def same_law(fresh,stored):
+    """Identical structure, text and flags; libm exp/log results agree to round-off."""
+    if isinstance(fresh,dict) and isinstance(stored,dict):
+        return fresh.keys()==stored.keys() and all(same_law(fresh[k],stored[k]) for k in fresh)
+    if isinstance(fresh,(list,tuple)) and isinstance(stored,(list,tuple)):
+        return len(fresh)==len(stored) and all(same_law(a,b) for a,b in zip(fresh,stored))
+    if isinstance(fresh,float) or isinstance(stored,float):
+        return (isinstance(fresh,(int,float)) and isinstance(stored,(int,float))
+                and not isinstance(fresh,bool) and not isinstance(stored,bool)
+                and math.isclose(fresh,stored,rel_tol=1e-12,abs_tol=0.))
+    return fresh==stored
+
+
 def count_law(temperature):
     _,thermal_receipt,source,groups=inputs()
     control=thermal.finite_source_gibbs(temperature)
     stored=next(r for r in thermal_receipt['finite_source_Gibbs_controls'] if r['temperature_GeV']==temperature)
-    if control!=stored:raise ArithmeticError('fresh finite Gibbs law differs from its frozen source')
+    if not same_law(control,stored):raise ArithmeticError('fresh finite Gibbs law differs from its frozen source')
     fgroups=[g for g in groups if g['source_sector']=='fermion'];bgroups=[g for g in groups if g['source_sector']=='boson']
     fmode=source['mode_inventory']['fermion_modes'];bmode=source['mode_inventory']['boson_modes']
     mode_to_group={i:j for j,g in enumerate(bgroups) for i in g['mode_indices']};classes=defaultdict(list)
