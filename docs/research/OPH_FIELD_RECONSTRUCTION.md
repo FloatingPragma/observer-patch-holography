@@ -19,6 +19,23 @@ Standard Model mass in GeV.** A finite source energy, a continuum rest
 frequency, a measured particle identity and an absolute energy standard
 are separate statements.
 
+The [localized charged construction](../../model/openwave_localized_rest_packet/PROOF.md)
+now joins spatial concentration to the calibrated light free branch: its
+mean energy is within`0.003014ppm` above`0.00051099895069 GeV` and its outside
+probability stays below`1.103e-7` through source time`10^9`. Exact local moments
+prove this on a huge finite carrier; smaller carriers execute the complete
+records. This strengthens the conditional mass join while retaining the
+external electron anchor and controlled compiler.
+
+The [periodic neutral symmetry](../../model/openwave_neutral_dispersion/PROOF.md)
+settles its previously unresolved dispersion as exactly flat at all eight
+momenta. Its ground-relative energy therefore has no moving relativistic mass
+interpretation on that member. Separately declared rotational and quantum
+radiation extensions now supply exact torque balance, an analytic magnetic
+response near`g=2`, and current-derived pair-to-radiation conversion. Their
+source boundaries and preparation services are stated in the
+[updated recovery guide](../../model/OBSERVER_RELATIVE_RECOVERY.md#localized-particles-and-autonomous-finite-interactions).
+
 This guide owns the common dependency map and [source catalogue](#source-catalogue).
 The [native mass join](OPH_NATIVE_PARTICLE_MASS_JOIN.md) treats currents,
 spectral measures and charged transport; [field selection](OPH_PARTICLE_FIELD_SELECTION.md)

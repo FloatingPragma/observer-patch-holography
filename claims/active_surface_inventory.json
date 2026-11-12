@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2029,
+  "surface_count": 2051,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -472,6 +472,11 @@
     },
     {
       "path": "paper/tex_fragments/LATTICE_WEYL_RESPONSE.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/LOCALIZED_PARTICLE_DYNAMICS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -5741,6 +5746,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_angular_torque/PAPER_RESULT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_angular_torque/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_angular_torque/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_atomic_refinement/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5756,12 +5776,37 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_autonomous_coulomb/PAPER_RESULT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_autonomous_coulomb/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_autonomous_coulomb/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_charge_protection/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/openwave_charge_protection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_coupling_volume/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_coupling_volume/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5881,6 +5926,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_localized_rest_packet/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_localized_rest_packet/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_magnetic_refinement/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5981,6 +6036,36 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_neutral_dispersion/PAPER_RESULT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_neutral_dispersion/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_neutral_dispersion/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_neutral_preparation/PAPER_RESULT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_neutral_preparation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_neutral_preparation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_neutral_stationary/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6036,6 +6121,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_radiative_pair/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_radiative_pair/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_reference_binding/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6047,6 +6142,21 @@
     },
     {
       "path": "model/openwave_reference_binding/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_rotational_g_limit/PAPER_RESULT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_rotational_g_limit/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_rotational_g_limit/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
