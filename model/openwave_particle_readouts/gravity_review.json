@@ -1,0 +1,78 @@
+{
+  "Poisson_Phi_to_Psi_error_ratio": "4",
+  "capacity_histories": [
+    {
+      "a": "1/3",
+      "exponent": -2,
+      "recovered_capacity_ratio": "9"
+    },
+    {
+      "a": "1",
+      "exponent": -2,
+      "recovered_capacity_ratio": "1"
+    },
+    {
+      "a": "3",
+      "exponent": -2,
+      "recovered_capacity_ratio": "1/9"
+    },
+    {
+      "a": "1/3",
+      "exponent": 0,
+      "recovered_capacity_ratio": "1"
+    },
+    {
+      "a": "1",
+      "exponent": 0,
+      "recovered_capacity_ratio": "1"
+    },
+    {
+      "a": "3",
+      "exponent": 0,
+      "recovered_capacity_ratio": "1"
+    },
+    {
+      "a": "1/3",
+      "exponent": 3,
+      "recovered_capacity_ratio": "1/27"
+    },
+    {
+      "a": "1",
+      "exponent": 3,
+      "recovered_capacity_ratio": "1"
+    },
+    {
+      "a": "3",
+      "exponent": 3,
+      "recovered_capacity_ratio": "27"
+    }
+  ],
+  "countercontrols": {
+    "decoder_constant_two_fails": true,
+    "decreasing_capacity_is_phantom": true,
+    "dropping_spatial_residuals_misses_factor_four": true,
+    "missing_each_probe_loses_rank": true,
+    "rescaled_capacity_amplitude_cannot_be_identified_from_density": true
+  },
+  "deleted_probe_rank_checks": 10,
+  "exact_decoder_norm": "17/8",
+  "independent_curvature_method": "Christoffel derivatives on independent quadratic Phi/Psi",
+  "lapse_area_response_ratio": "-99/200",
+  "native_complete_thermal_update_lapse_diagnostic": 0.00031039303625721507,
+  "reviewed_sha256": {
+    "model/openwave_gravity_capacity/PROOF.md": "96027fbcb80169f18dbe9a0ea2d6840d685fc203d53f993e5843be10b9a30a0f",
+    "model/openwave_gravity_capacity/Transfer.lean": "fb966aa40bf4266f63bd002242a5c4cb02e1915c0f957d459823ec2d84ae69e6",
+    "model/openwave_gravity_capacity/capacity.py": "d46579f4776d9a8d433713d9ae9b05d9ebe6f614f28a2846e7b5dd3959e0efea",
+    "model/openwave_gravity_capacity/response.py": "79c978a9ddf90e380262bef3b9108f4f6102940db84824754ae3a5e38aac38de",
+    "model/openwave_gravity_capacity/results.json": "58e4c22da1e5cb50a2c1be12f202aa88306b72865dbc492332039451f9ec7168"
+  },
+  "reviewer_source_sha256": "12548ef6dd131d77412ecbf6e60b15fd147a32d9779fda89d015567ed0aad00e",
+  "schema": "oph.independent_gravity_capacity_review.v1",
+  "scope": {
+    "Lean_kernel_rerun_by_this_audit": false,
+    "cosmic_capacity_or_numeric_Lambda_selected": false,
+    "native_Newton_force_proved": false,
+    "spatial_gravitational_redshift_proved": false
+  },
+  "verdict": "PASS_SCOPED_MATHEMATICAL_CONSEQUENCES"
+}

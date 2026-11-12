@@ -1,0 +1,116 @@
+{
+  "algebra": {
+    "dimension": 16,
+    "exact_Clifford_and_mass_anticommutation": true,
+    "joint_sector_ranks": {
+      "beta_-1_spin_-1": 4,
+      "beta_-1_spin_1": 4,
+      "beta_1_spin_-1": 4,
+      "beta_1_spin_1": 4
+    },
+    "native_valley_labels": 8,
+    "spin_generator": "Sigma_z=-i gamma_x gamma_y; S_z=Sigma_z/2"
+  },
+  "checks": {
+    "coherent_spin_phase_matches_energy_response": true,
+    "every_native_spin_valley_row_retained": true,
+    "external_field_response_converges_toward_g2": true,
+    "floating_diagnostics_are_not_interval_certificates": true,
+    "positive_branch_uniform_sqrt_remainder": true,
+    "spin_curvature_derived_from_source_square": true
+  },
+  "complete_matrix_oracle": {
+    "all_signed_spectra_and_multiplicities_checked": true,
+    "full_square_residual": 0.0,
+    "omitted_spin_curvature_detected": true,
+    "unreduced_matrix_rows": 144
+  },
+  "current_gauge_controls": {
+    "current_finite_difference_max_error": 6e-12,
+    "gauge_covariant_field_and_preparation_response": true,
+    "link_current_is_derivative_of_actual_Peierls_H": true,
+    "untransformed_preparation_in_changed_gauge_rejected": true
+  },
+  "inputs": {
+    "charge_normalization": 1,
+    "external_field": "uniform imposed Peierls curvature; no source magnetostatics",
+    "g_or_Pauli_coefficient_input": null,
+    "mass_coefficient": 64,
+    "space": "finite gauged envelope extension of all native folded kinetic matrices; open xy, pz=0"
+  },
+  "mutations": {
+    "omitted_Pauli_cross_term_rejected_by_full_H_square": true,
+    "scalar_current_omits_magnetic_response": true,
+    "zero_link_flux_removes_curvature": true
+  },
+  "refinement_rows": [
+    {
+      "coherent_spin_phase_g": 1.9580226231,
+      "coherent_spin_visibility_lower_diagnostic": 0.999999999981,
+      "external_field_B": 0.001953125,
+      "g_analytic_sqrt_truncation_bound": "33/288230376151711744",
+      "g_from_nonrelativistic_curvature": 1.958032358752,
+      "g_from_positive_branch": 1.9580226262,
+      "grid": 33,
+      "mass_coefficient": 64.0,
+      "phase_measurement_time": 10.0,
+      "positive_branch_energy_splitting": 2.987705423e-05,
+      "source_probability_norm_error": 0.0,
+      "spacing": 1.0,
+      "spatial_rows": 1089,
+      "spin_curvature_over_qB": 0.979016179376,
+      "unreduced_spin_valley_spatial_rows": 17424
+    },
+    {
+      "coherent_spin_phase_g": 1.9894155875,
+      "coherent_spin_visibility_lower_diagnostic": 0.999999999999,
+      "external_field_B": 0.001953125,
+      "g_analytic_sqrt_truncation_bound": "33/17592186044416",
+      "g_from_nonrelativistic_curvature": 1.98942578454,
+      "g_from_positive_branch": 1.9894155906,
+      "grid": 65,
+      "mass_coefficient": 64.0,
+      "phase_measurement_time": 10.0,
+      "positive_branch_energy_splitting": 3.035607285e-05,
+      "source_probability_norm_error": 0.0,
+      "spacing": 0.5,
+      "spatial_rows": 4225,
+      "spin_curvature_over_qB": 0.99471289227,
+      "unreduced_spin_valley_spatial_rows": 67600
+    },
+    {
+      "coherent_spin_phase_g": 1.9973409514,
+      "coherent_spin_visibility_lower_diagnostic": 1.0,
+      "external_field_B": 0.001953125,
+      "g_analytic_sqrt_truncation_bound": "33/1073741824",
+      "g_from_nonrelativistic_curvature": 1.997351268938,
+      "g_from_positive_branch": 1.9973409558,
+      "grid": 129,
+      "mass_coefficient": 64.0,
+      "phase_measurement_time": 10.0,
+      "positive_branch_energy_splitting": 3.047700433e-05,
+      "source_probability_norm_error": 0.0,
+      "spacing": 0.25,
+      "spatial_rows": 16641,
+      "spin_curvature_over_qB": 0.998675634469,
+      "unreduced_spin_valley_spatial_rows": 266256
+    }
+  ],
+  "schema": "oph.native_gauged_magnetic_response.v1",
+  "scope": {
+    "anomalous_g_minus_2_calculated": false,
+    "derived_response_of_declared_gauged_source": true,
+    "physical_electron_or_measured_magnetic_moment_identified": false,
+    "primitive_repair_gauge_extension_transfer_proved": false,
+    "stationary_self_sourced_magnetic_dipole": false
+  },
+  "source_sha256": {
+    "model/native_mass_channels/algebra.py": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086",
+    "model/openwave_magnetic_response/PROOF.md": "14483e5d842aa1eccc3b6ccb584466511b57858368a47ba1206ec074a14646fb",
+    "model/openwave_magnetic_response/__init__.py": "fb6ec04f3d920d33355ce377f87bda52a105b0b1e6ae7a2216a123ef9722f857",
+    "model/openwave_magnetic_response/__main__.py": "43dc41ec393afc53739bbce2994a98d286ed63f5e8a9da23e21659fd7e6d7a47",
+    "model/openwave_magnetic_response/response.py": "87a01ba0fe35f75284ee2f0c1390fb3809e8b48db4577e31603b32e43efb730b",
+    "model/openwave_magnetic_response/test_response.py": "95c4b7c252eecb2e1908355e89dd8c163b4d74503e10faf6b16c19e278e1ab47"
+  },
+  "verdict": "PASS_CONDITIONAL_NATIVE_SPIN_CURVATURE_RESPONSE"
+}

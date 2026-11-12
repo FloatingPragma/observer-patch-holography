@@ -1011,6 +1011,62 @@ per test. These are conditional design budgets, not power guarantees or
 tests of the existing aggregate means. Fresh random-setting records,
 coordinate calibration and conditional detector-error bounds remain needed.
 
+## Finite source response bounds
+
+The [prepared charged-line calculation](openwave_particle_readouts/PROOF.md)
+uses the complete interacting-source projector and preparation errors to
+bound the complement of the single-charge-at-origin projector `Pi_0` in
+the physical one-reference sector. Here `Pi_y` requires all other matter
+cells to be gauge singlets and retains every link state. The complement
+is `Pi_cloud + sum_{y != 0} Pi_y`, with `Pi_cloud = I - sum_y Pi_y`:
+all remote single-charge and multi-charged-cell cloud outcomes are retained.
+Neutral local or link excitations need not be outside `Pi_0`. The
+specified compensated excitation retains `Pi_0` probability above
+0.999548 at one million source-time units, without diagonalizing the full
+carrier. A coherent reference reads the native full-turn spin sign. The
+fixed compensator, small hopping coefficient and one electron energy
+calibration remain explicit; no free physical electron is identified.
+
+The [field calculation](openwave_field_observables/PROOF.md) reuses exact
+finite-occupation identities `[H,a_j] = -omega_j a_j` for transverse
+Heisenberg propagation, without assuming canonical coordinate commutators
+on the finite carrier. One
+incidence stencil supplies its electrostatic Green operator and force.
+A Dirichlet consumer with supplied matter kinetics has bound levels;
+reflection sectors reduce its largest computation from 857375 sites to
+110592 even-sector rows. The separate sixteen-row massive-wave calculation
+retains all valleys and finite-spacing boost errors. These declared field
+and matter constructions do not establish an interacting physical join.
+
+The [metric and capacity calculation](openwave_gravity_capacity/PROOF.md)
+extracts a positive lapse response from the complete reciprocal scalar
+source. The matched regional Einstein theorem gives a conditional
+exterior-force error bound directly from its entropy/area error budget.
+The capacity density law determines normalized expansion histories while
+leaving cosmic capacity and its physical horizon attachment unselected.
+The reciprocal source, regional Einstein implication and cosmological
+comparison have distinct premises.
+
+The [complete charge calculation](openwave_charge_protection/PROOF.md)
+proves spectral charge quantization and branchwise conservation on every
+Fock sector from the actual native current and colour-centre relation.
+This concerns the specified guarded record law and does not exclude
+charge-coherent states or other external interventions. It excludes
+half-unit charge eigenvalues independently of the protected texture degree.
+The proposed identity between that current and texture winding has an exact
+counterexample and is unnecessary for the direct finite proof.
+
+The [magnetic response](openwave_magnetic_response/PROOF.md) derives the
+spin-curvature term from the native kinetic matrices under a declared
+Peierls extension. Finite energy and coherent phase responses approach
+`g=2` without an inserted Pauli coefficient. The external field, mass and
+physical electron interpretation remain separate inputs. The
+[native scalar force](openwave_native_force/PROOF.md) uses the actual local
+geometry derivative and a declared positive spatial elastic action to
+certify attraction including the full nonlinear matter remainder. Opposite
+geometry-charge signs for positive-energy source states rule out universal
+gravity from that scalar extension.
+
 ## Reused mathematical contracts
 
 The construction uses the existing native transfer positivity and cylinder

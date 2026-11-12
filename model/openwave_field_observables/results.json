@@ -1,0 +1,726 @@
+{
+  "jobs": [
+    {
+      "checks": {
+        "Gauss_and_magnetic_divergence_preserved": true,
+        "real_space_matches_exact_propagator": true,
+        "second_order_time_refinement": true,
+        "spatial_shell_bound": true,
+        "two_transverse_polarizations": true
+      },
+      "finite_quantum_shortcut": {
+        "complete_dimension": 10,
+        "exact_coordinate_equations": true,
+        "exact_positive_boundary_completion": true,
+        "modes": 2,
+        "omitted_boundary_completion_detected": true,
+        "total_cutoff": 3
+      },
+      "identities": {
+        "curl_adjoint_pairing": true,
+        "curl_gradient_zero": true,
+        "magnetic_divergence_curl_zero": true
+      },
+      "mutations": {
+        "changed_speed_rejected": true,
+        "longitudinal_contamination_rejected": true,
+        "missing_cutoff_completion_rejected": true
+      },
+      "observed_mode_rows": [
+        {
+          "analytic_shell_error_upper": 0.102808379178,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.212282e-05,
+          "grid": 8,
+          "lattice_frequency": 1.378144552325,
+          "polarization": 0,
+          "speed_ratio": 0.974495358404,
+          "squared_shell_defect": 0.100717592896,
+          "time_evolution_error": 2.4347986e-05
+        },
+        {
+          "analytic_shell_error_upper": 0.102808379178,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.212282e-05,
+          "grid": 8,
+          "lattice_frequency": 1.378144552325,
+          "polarization": 1,
+          "speed_ratio": 0.974495358404,
+          "squared_shell_defect": 0.100717592896,
+          "time_evolution_error": 2.4347986e-05
+        },
+        {
+          "analytic_shell_error_upper": 0.045692612968,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.2580805e-05,
+          "grid": 12,
+          "lattice_frequency": 1.398114055428,
+          "polarization": 0,
+          "speed_ratio": 0.988615929465,
+          "squared_shell_defect": 0.045277088015,
+          "time_evolution_error": 2.5327153e-05
+        },
+        {
+          "analytic_shell_error_upper": 0.045692612968,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.2580805e-05,
+          "grid": 12,
+          "lattice_frequency": 1.398114055428,
+          "polarization": 1,
+          "speed_ratio": 0.988615929465,
+          "squared_shell_defect": 0.045277088015,
+          "time_evolution_error": 2.5327153e-05
+        },
+        {
+          "analytic_shell_error_upper": 0.025702094795,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.2735109e-05,
+          "grid": 16,
+          "lattice_frequency": 1.405144000284,
+          "polarization": 0,
+          "speed_ratio": 0.993586851144,
+          "squared_shell_defect": 0.025570338467,
+          "time_evolution_error": 2.5676454e-05
+        },
+        {
+          "analytic_shell_error_upper": 0.025702094795,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.2735109e-05,
+          "grid": 16,
+          "lattice_frequency": 1.405144000284,
+          "polarization": 1,
+          "speed_ratio": 0.993586851144,
+          "squared_shell_defect": 0.025570338467,
+          "time_evolution_error": 2.5676454e-05
+        },
+        {
+          "analytic_shell_error_upper": 0.011423153242,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.284331e-05,
+          "grid": 24,
+          "lattice_frequency": 1.410178326499,
+          "polarization": 0,
+          "speed_ratio": 0.99714665735,
+          "squared_shell_defect": 0.011397087473,
+          "time_evolution_error": 2.5928052e-05
+        },
+        {
+          "analytic_shell_error_upper": 0.011423153242,
+          "continuum_frequency": 1.414213562373,
+          "energy_error": 2.284331e-05,
+          "grid": 24,
+          "lattice_frequency": 1.410178326499,
+          "polarization": 1,
+          "speed_ratio": 0.99714665735,
+          "squared_shell_defect": 0.011397087473,
+          "time_evolution_error": 2.5928052e-05
+        }
+      ],
+      "scope": "Finite cochain field expectations; a periodic extension of the declared field architecture. The continuum speed is a normalization input. No transfer of interacting open-cube ground or photon particle identity.",
+      "source_stencil": {
+        "all_six_cube_face_stencils_equal": true,
+        "boundary_extension": "periodic cubic family; not the open-cube interacting ground",
+        "provider": "model.native_wilson_maxwell.field.cochains"
+      },
+      "task": "transverse_waves",
+      "time_refinement_error_ratios": [
+        4.000655641,
+        4.000163866
+      ]
+    },
+    {
+      "Gauss_max_error": 0.0,
+      "alpha_prediction": null,
+      "checks": {
+        "declared_coupling_squared_scaling": true,
+        "minimum_field_energy": true,
+        "near_inverse_square_force": true,
+        "potential_and_force_without_fit": true,
+        "same_cochain_Gauss_minimizer": true
+      },
+      "continuum_coefficient": "g^2/(4 pi), conditional on the declared electric energy and charge normalization",
+      "field_Green_energy_error": 0.0,
+      "force_log_slopes": [
+        2.092193059,
+        2.0532991352,
+        2.0394384519
+      ],
+      "inputs": {
+        "coupling_g": 1.0,
+        "geometry": "periodic cubic Gauss source with zero total charge",
+        "lattice_spacing": 1.0
+      },
+      "mutations": {
+        "altered_Gauss_solution_rejected": true,
+        "hidden_coupling_change_rejected": true
+      },
+      "orientation_controls": [
+        {
+          "force_amplitude_ratio": 1.0284187257,
+          "point": [
+            8,
+            0,
+            0
+          ],
+          "radius": 8.0
+        },
+        {
+          "force_amplitude_ratio": 0.9935063163,
+          "point": [
+            6,
+            6,
+            0
+          ],
+          "radius": 8.485281374
+        },
+        {
+          "force_amplitude_ratio": 0.9835135611,
+          "point": [
+            5,
+            5,
+            5
+          ],
+          "radius": 8.660254038
+        }
+      ],
+      "potential_force_rows": [
+        {
+          "Green_difference_r_2r": 0.0102694238084,
+          "force_amplitude_ratio": 1.1494469484,
+          "grid": 64,
+          "potential_amplitude_ratio": 1.0323950846,
+          "radial_force": 0.0057168801143,
+          "radius_sites": 4
+        },
+        {
+          "Green_difference_r_2r": 0.0066483217791,
+          "force_amplitude_ratio": 1.0529507449,
+          "grid": 64,
+          "potential_amplitude_ratio": 1.0025433053,
+          "radial_force": 0.002327532165,
+          "radius_sites": 6
+        },
+        {
+          "Green_difference_r_2r": 0.0048730964665,
+          "force_amplitude_ratio": 1.0208868896,
+          "grid": 64,
+          "potential_amplitude_ratio": 0.9797941798,
+          "radial_force": 0.0012693687096,
+          "radius_sites": 8
+        },
+        {
+          "Green_difference_r_2r": 0.0102916623306,
+          "force_amplitude_ratio": 1.1501772536,
+          "grid": 96,
+          "potential_amplitude_ratio": 1.0346307447,
+          "radial_force": 0.0057205123546,
+          "radius_sites": 4
+        },
+        {
+          "Green_difference_r_2r": 0.0067005526564,
+          "force_amplitude_ratio": 1.0554592619,
+          "grid": 96,
+          "potential_amplitude_ratio": 1.010419536,
+          "radial_force": 0.002333077205,
+          "radius_sites": 6
+        },
+        {
+          "Green_difference_r_2r": 0.0049715017257,
+          "force_amplitude_ratio": 1.0269787665,
+          "grid": 96,
+          "potential_amplitude_ratio": 0.9995797311,
+          "radial_force": 0.001276943337,
+          "radius_sites": 8
+        },
+        {
+          "Green_difference_r_2r": 0.0102969778595,
+          "force_amplitude_ratio": 1.1503536608,
+          "grid": 128,
+          "potential_amplitude_ratio": 1.0351651199,
+          "radial_force": 0.0057213897321,
+          "radius_sites": 4
+        },
+        {
+          "Green_difference_r_2r": 0.0067127641438,
+          "force_amplitude_ratio": 1.0560596761,
+          "grid": 128,
+          "potential_amplitude_ratio": 1.0122609849,
+          "radial_force": 0.0023344044118,
+          "radius_sites": 6
+        },
+        {
+          "Green_difference_r_2r": 0.004993840839,
+          "force_amplitude_ratio": 1.0284187257,
+          "grid": 128,
+          "potential_amplitude_ratio": 1.0040712763,
+          "radial_force": 0.0012787337794,
+          "radius_sites": 8
+        }
+      ],
+      "scope": "A force-level computation on the declared Gauss field architecture. The full interacting charged-particle state, observed e and alpha, and source-selected three-dimensional geometry are not identified by this calculation.",
+      "source_pair_energy_g1": 0.22423986733,
+      "source_pair_energy_g2": 0.896959469321,
+      "task": "electrostatic_force"
+    },
+    {
+      "boost_refinement": [
+        {
+          "boosted_momentum": [
+            0.047931374062,
+            0.2,
+            -0.1
+          ],
+          "bound": 7.105325513e-05,
+          "energy_difference": 6.917951417e-05,
+          "spacing": 0.5
+        },
+        {
+          "boosted_momentum": [
+            0.047931374062,
+            0.2,
+            -0.1
+          ],
+          "bound": 1.776331378e-05,
+          "energy_difference": 1.731093106e-05,
+          "spacing": 0.25
+        },
+        {
+          "boosted_momentum": [
+            0.047931374062,
+            0.2,
+            -0.1
+          ],
+          "bound": 4.44082845e-06,
+          "energy_difference": 4.32873666e-06,
+          "spacing": 0.125
+        },
+        {
+          "boosted_momentum": [
+            0.047931374062,
+            0.2,
+            -0.1
+          ],
+          "bound": 1.11020711e-06,
+          "energy_difference": 1.08224692e-06,
+          "spacing": 0.0625
+        }
+      ],
+      "checks": {
+        "boost_error_vanishes_with_spacing": true,
+        "complete_spectrum_and_signed_branches": true,
+        "direct_exponential_matches_squared_wave_law": true,
+        "finite_spacing_shell_bound": true
+      },
+      "full_folded_dimension": 16,
+      "mass_coefficients": [
+        2,
+        1,
+        2,
+        2
+      ],
+      "maximum_direct_time_error": 0.0,
+      "mutations": {
+        "unreported_energy_shift_rejected": true
+      },
+      "retained_valleys": 8,
+      "rows": [
+        {
+          "energy": 1.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.5,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.5,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.134491903039,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.002941666667,
+          "spacing": 0.5,
+          "squared_shell_defect": 0.002928121939,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.028625247328,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.002941666667,
+          "spacing": 0.5,
+          "squared_shell_defect": 0.002928121939,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.938604179504,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.25,
+          "spacing": 0.5,
+          "squared_shell_defect": 0.241813835209,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.268603815509,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.25,
+          "spacing": 0.5,
+          "squared_shell_defect": 0.241813835209,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.25,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.25,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.135458247386,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.000735416667,
+          "spacing": 0.25,
+          "squared_shell_defect": 0.000734568442,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.028843349276,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.000735416667,
+          "spacing": 0.25,
+          "squared_shell_defect": 0.000734568442,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.984444132404,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.0625,
+          "spacing": 0.25,
+          "squared_shell_defect": 0.061981485369,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.28564267754,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.0625,
+          "spacing": 0.25,
+          "squared_shell_defect": 0.061981485369,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.125,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.125,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.135700752344,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.000183854167,
+          "spacing": 0.125,
+          "squared_shell_defect": 0.000183801126,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.028898109812,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.000183854167,
+          "spacing": 0.125,
+          "squared_shell_defect": 0.000183801126,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.996098072685,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.015625,
+          "spacing": 0.125,
+          "squared_shell_defect": 0.015592484222,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.290029065684,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.015625,
+          "spacing": 0.125,
+          "squared_shell_defect": 0.015592484222,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.0625,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.0,
+          "momentum": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.0,
+          "spacing": 0.0625,
+          "squared_shell_defect": 0.0,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.135761436118,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": -1,
+          "shell_error_upper": 4.5963542e-05,
+          "spacing": 0.0625,
+          "squared_shell_defect": 4.5960226e-05,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.028911814675,
+          "momentum": [
+            0.4,
+            -0.3,
+            0.2
+          ],
+          "sector": 1,
+          "shell_error_upper": 4.5963542e-05,
+          "spacing": 0.0625,
+          "squared_shell_defect": 4.5960226e-05,
+          "supplied_rest_coefficient": 5
+        },
+        {
+          "energy": 1.999023707698,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": -1,
+          "shell_error_upper": 0.00390625,
+          "spacing": 0.0625,
+          "squared_shell_defect": 0.003904216062,
+          "supplied_rest_coefficient": 1
+        },
+        {
+          "energy": 5.291133695527,
+          "momentum": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "sector": 1,
+          "shell_error_upper": 0.00390625,
+          "spacing": 0.0625,
+          "squared_shell_defect": 0.003904216062,
+          "supplied_rest_coefficient": 5
+        }
+      ],
+      "scope": "Moving free one-body modes of the declared native mass-channel family. Coefficients are supplied; no Yukawa derivation or identified moving charged defect is claimed. Finite spacing has a preferred lattice frame.",
+      "signed_energy_rank_per_mass": 4,
+      "source": "model.native_mass_channels.algebra.folded_generators",
+      "task": "moving_mass_shell"
+    },
+    {
+      "checks": {
+        "exact_parity_reduction": true,
+        "negative_ground_and_excited_states": true,
+        "source_grid_refinement_reduces_second_shell_splitting": true,
+        "three_cubic_odd_sectors_equal": true
+      },
+      "hydrogen_precision_match_claimed": false,
+      "hydrogen_reference_spacing": 0.375,
+      "mutations": {
+        "repulsive_sign_has_no_negative_level": true
+      },
+      "rows": [
+        {
+          "even_excited_energy": -0.1136539793,
+          "even_reduced_dimension": 9261,
+          "full_spatial_dimension": 68921,
+          "grid": 41,
+          "ground_energy": -0.7584870826,
+          "ground_to_odd_spacing": 0.6859898288,
+          "length": 32.0,
+          "maximum_eigen_residual": 6e-12,
+          "odd_axis_energy": -0.0724972538,
+          "second_shell_splitting": 0.0411567254,
+          "spacing": 0.7619047619047619
+        },
+        {
+          "even_excited_energy": -0.0868957918,
+          "even_reduced_dimension": 32768,
+          "full_spatial_dimension": 250047,
+          "grid": 63,
+          "ground_energy": -0.5670254494,
+          "ground_to_odd_spacing": 0.4957490221,
+          "length": 32.0,
+          "maximum_eigen_residual": 3e-12,
+          "odd_axis_energy": -0.0712764272,
+          "second_shell_splitting": 0.0156193646,
+          "spacing": 0.5
+        },
+        {
+          "even_excited_energy": -0.0766068319,
+          "even_reduced_dimension": 110592,
+          "full_spatial_dimension": 857375,
+          "grid": 95,
+          "ground_energy": -0.4911620284,
+          "ground_to_odd_spacing": 0.4203958625,
+          "length": 32.0,
+          "maximum_eigen_residual": 5e-12,
+          "odd_axis_energy": -0.0707661659,
+          "second_shell_splitting": 0.005840666,
+          "spacing": 0.3333333333333333
+        }
+      ],
+      "scope": "Conditional bound-state consumer of the computed finite Gauss Green potential. Kinetic law and mass are supplied; no physical hydrogen identification, relativistic atom, or measured atomic spectrum is claimed.",
+      "supplied_parameters": {
+        "box_length": 32.0,
+        "coupling_squared": "4*pi",
+        "kinetic_law": "nonrelativistic nearest-neighbour Laplacian",
+        "mass": 1.0
+      },
+      "task": "Green_bound_levels"
+    }
+  ],
+  "schema": "oph.finite_field_observables.v1",
+  "source_basis_commit": "d88d4854744037accdee6a24cae21b1d7623daf1",
+  "source_sha256": {
+    "model/maxwell_local_selection/PROOF.md": "f3083d9c2a60e5a19a85ce510f1df5cc0fec3ee8b5a874b39915ddba65d1bb3c",
+    "model/native_mass_channels/algebra.py": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086",
+    "model/native_wilson_maxwell/field.py": "d879dc9bf4351f0b2f04dd5fc400cfbb536df75ade09e734778a79e461f1d6bd",
+    "model/openwave_field_observables/PROOF.md": "db68f6177343584f7cebf6b71de2732db85e456d03986efb9fde3ad31483b3df",
+    "model/openwave_field_observables/__init__.py": "f4a705d7f939370cefc95baaba023ec00338658d145d191b07254a6290dae45c",
+    "model/openwave_field_observables/__main__.py": "7b2c541a122505314d1e78f25020af0745430d5736b47fdd768b47d6bf889750",
+    "model/openwave_field_observables/electrostatic.py": "fa3aa2c42987ab1c200c2509b444cec465724239ba8db84f1510d7d11a806234",
+    "model/openwave_field_observables/lattice.py": "36fcf1b1fa6347e4893ea0a5b991194cec49ae46851444fa6456d6aad5a9c592",
+    "model/openwave_field_observables/mass_shell.py": "92382567d703f2170a08603a1e0e7e5423b7b593dbf68f54019b2bc805070010",
+    "model/openwave_field_observables/orbitals.py": "634d4169e60d23e1acf6b28436c881a9beb06ca4085a9354248ee9143ccc16d2",
+    "model/openwave_field_observables/test_observables.py": "682b25cfaade354a4c810aa5ff7ea4455397ccfc39efb7197e4b3925b7446d30",
+    "model/openwave_field_observables/waves.py": "80a6d786556f90b9d85edc5b7551fbbda44e43e90710177a5c6f70b6e3f31818",
+    "model/source_mass_shell/PROOF.md": "cc283f0afecabf948d72fb8a3a5d1302322b1ae7c29ac4e3bf27f8b2e18a20ce"
+  },
+  "verdict": "PASS_SCOPED_FIELD_OBSERVABLES"
+}

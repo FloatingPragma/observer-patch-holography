@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "conditional_probability_normalization": true,
+    "full_cloud_complement_included": true,
+    "native_spin_relative_phase_and_reference_cancellation": true,
+    "purification_norm_bound": true,
+    "source_and_reference_energy_separated_explicitly": true,
+    "two_endpoint_survival_errors": true
+  },
+  "independent_finite_unitary_cases": 128,
+  "maximum_bound_violation": 0.0,
+  "mutations": {
+    "dephased_pointer_loses_deterministic_record": true,
+    "missing_line_probability_denominator_rejected": true,
+    "rotated_reference_changes_pointer_record": true
+  },
+  "review_code_sha256": "28fa6af90095442646eed3c6069548e065f748705763480917705cde7e7c4811",
+  "schema": "oph.prepared_line_independent_review.v1",
+  "scope": "The source proof supports the specified prepared charged line at finite time. No unbound electron, self-starting rigid clock, apolar local tensor, or laboratory spin identity follows.",
+  "source_sha256": {
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/local.py": "e58ae5e7348fb489d9a522bdfe397592c15d257bdb8e4923a4cb1b468b5cf3dd",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/transfer.py": "5b660671a5ed688cfefbc833f1b4665de45447b46ce3d3f2ddb5313e7b8b73eb",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md": "74f363f3c02348bb70170808c7c09dc5f369d9b50a8d81d78090a58c265c1a75",
+    "model/openwave_particle_readouts/PROOF.md": "ba8671d6d047a23e8845cba973741230fb602c75249812a7a832cfa9b67d96f2",
+    "model/openwave_particle_readouts/readouts.py": "f18f236b1a1ee2140afb38164242ce18489312eaf99f0c02ccf52f03537e506e",
+    "model/openwave_particle_readouts/results.json": "ba6ae89c5bdb2602f2c71bb4bbd7ab5f548b7bede25ab46c731eb0b8f4d694fd"
+  },
+  "verdict": "PASS_PREPARED_LINE_BOUNDS_WITH_DECLARED_APPARATUS"
+}

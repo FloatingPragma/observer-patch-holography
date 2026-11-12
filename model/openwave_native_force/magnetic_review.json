@@ -1,0 +1,52 @@
+{
+  "complete_square_max_error": 3.552713894278012e-15,
+  "controls": {
+    "all_signed_branches_and_valley_multiplicities_retained": true,
+    "deleted_curvature_rejected": true,
+    "nonunit_charge_and_field_sign_changes_checked": true,
+    "scalar_spin_current_rejected": true
+  },
+  "direct_1089_row_spectral_g": 1.9580226261520544,
+  "full_signed_spectrum_max_error": 5.861977570020827e-14,
+  "independent_complete_spectrum_cases": 2,
+  "independent_link_matrix_max_error": 0.0,
+  "internal_dimension": 16,
+  "joint_sector_ranks": {
+    "(-1, -1)": 4,
+    "(-1, 1)": 4,
+    "(1, -1)": 4,
+    "(1, 1)": 4
+  },
+  "largest_unreduced_direct_matrix": 400,
+  "matrix_function_error_to_analytic_bound_max_ratio": 0.0009597248737234605,
+  "nonunit_charge_current_derivative_error": 1.7612847483922178e-11,
+  "reported_g_error": 4.794564745225216e-11,
+  "scalar_sqrt_tail": {
+    "scalar_interval_samples": 1000,
+    "sixth_order_term_deletion_detected": true,
+    "worst_error_over_bound": 0.9991881765083092
+  },
+  "schema": "oph.independent_magnetic_response_audit.v1",
+  "scope": {
+    "analytic_tail_includes_floating_roundoff": false,
+    "anomalous_magnetic_moment_computed": false,
+    "declared_gauged_envelope_response_confirmed": true,
+    "finest_16641_row_response_independently_repeated": false,
+    "physical_electron_or_Bohr_magneton_identified": false,
+    "self_sourced_stationary_dipole_computed": false,
+    "spin_pointer_is_in_positive_branch_frame": true
+  },
+  "source_sha256": {
+    "model/native_mass_channels/algebra.py": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086",
+    "model/openwave_magnetic_response/PAPER_RESULT.md": "5053ffd242eaa16b31b34cfc65f07308c7f704494ec43ab2222e4f139912ea94",
+    "model/openwave_magnetic_response/PROOF.md": "14483e5d842aa1eccc3b6ccb584466511b57858368a47ba1206ec074a14646fb",
+    "model/openwave_magnetic_response/README.md": "65bd70c4c8d0f269e07abcc014d6f87de92f7ec3a9a94fb5fe68f1013dfedc38",
+    "model/openwave_magnetic_response/__init__.py": "fb6ec04f3d920d33355ce377f87bda52a105b0b1e6ae7a2216a123ef9722f857",
+    "model/openwave_magnetic_response/__main__.py": "43dc41ec393afc53739bbce2994a98d286ed63f5e8a9da23e21659fd7e6d7a47",
+    "model/openwave_magnetic_response/response.py": "87a01ba0fe35f75284ee2f0c1390fb3809e8b48db4577e31603b32e43efb730b",
+    "model/openwave_magnetic_response/results.json": "9c737cc84dd192764e866759492e204a1aff9b04eb37c2763709443807fc8e0e",
+    "model/openwave_magnetic_response/test_response.py": "95c4b7c252eecb2e1908355e89dd8c163b4d74503e10faf6b16c19e278e1ab47",
+    "model/openwave_native_force/audits/magnetic_review.py": "aa61aca7f48a91ae802ae6773163504a52be1b7fa1ee9e59a5f3f629b8376940"
+  },
+  "verdict": "PASS_CONDITIONAL_SPIN_CURVATURE_RESPONSE"
+}

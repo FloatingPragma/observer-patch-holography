@@ -1,0 +1,65 @@
+{
+  "Dirichlet_Green_sparse_inverse_error": 4.440892098500626e-16,
+  "all_eight_parity_sectors_compared": true,
+  "alternative_mass_profile": [
+    0.8,
+    0.3,
+    0.4,
+    0.0
+  ],
+  "complete_small_grid_dimension": 343,
+  "full_spectrum_vs_eight_reduced_spectra_error": 6.217248937900877e-15,
+  "incidence_errors": {
+    "adjoint": 8.881784197001252e-16,
+    "curl": 8.881784197001252e-16,
+    "gradient": 0.0
+  },
+  "independent_mass_momenta": 24,
+  "maximum_parity_intertwining_error": 1.6653345369377348e-16,
+  "maximum_remainder_to_analytic_bound_ratio": 0.9998615723190122,
+  "maximum_signed_spectrum_error": 1.9984014443252818e-15,
+  "mutations": {
+    "Gauss_amplitude_change_detected": true,
+    "cutoff_completion_deletion_detected": true,
+    "repulsive_atomic_sign_detected": true,
+    "unreported_energy_origin_detected": true
+  },
+  "periodic_Green_dense_inverse_error": 2.498001805406602e-16,
+  "quantum_cutoff": {
+    "complete_Heisenberg_equations_exact": true,
+    "cutoff": 2,
+    "dimension": 10,
+    "independent_modes": 3,
+    "omitted_boundary_term_detected": true,
+    "positive_top_boundary_correction_exact": true
+  },
+  "review_notes": [
+    "Time reversal and energy conservation fix the reciprocal Ampere block once Faraday curl is supplied.",
+    "The positive top-cutoff energy completion is essential; canonical commutation at the finite boundary is not assumed.",
+    "Periodic field and Dirichlet atom use the same interior stencil but distinct boundary conditions; atom also supplies a kinetic mass and g squared equal to 4pi.",
+    "Finite cubic split levels and the observed 0.42040 versus 0.375 spacing remain a numerical refinement diagnostic, not a measured hydrogen match."
+  ],
+  "schema": "oph.independent_field_observables_audit.v1",
+  "scope": {
+    "complete_interacting_particle_source_join_established": false,
+    "finest_95_grid_atomic_solve_repeated_by_this_auditor": false,
+    "finite_lattice_exact_Lorentz_invariance": false,
+    "free_field_and_declared_bound_state_results_confirmed": true,
+    "source_selected_physical_alpha_or_atomic_mass_derived": false
+  },
+  "source_sha256": {
+    "model/openwave_field_observables/PAPER_RESULT.md": "72814a34d0267ef55775fa959769dc0785d4166b85333937da28044fd45c3254",
+    "model/openwave_field_observables/PROOF.md": "db68f6177343584f7cebf6b71de2732db85e456d03986efb9fde3ad31483b3df",
+    "model/openwave_field_observables/README.md": "3718796abd1ee8179eef9306e2381a62b887192cfa52cbff905fae4c75147dc9",
+    "model/openwave_field_observables/__init__.py": "f4a705d7f939370cefc95baaba023ec00338658d145d191b07254a6290dae45c",
+    "model/openwave_field_observables/__main__.py": "7b2c541a122505314d1e78f25020af0745430d5736b47fdd768b47d6bf889750",
+    "model/openwave_field_observables/electrostatic.py": "fa3aa2c42987ab1c200c2509b444cec465724239ba8db84f1510d7d11a806234",
+    "model/openwave_field_observables/lattice.py": "36fcf1b1fa6347e4893ea0a5b991194cec49ae46851444fa6456d6aad5a9c592",
+    "model/openwave_field_observables/mass_shell.py": "92382567d703f2170a08603a1e0e7e5423b7b593dbf68f54019b2bc805070010",
+    "model/openwave_field_observables/orbitals.py": "634d4169e60d23e1acf6b28436c881a9beb06ca4085a9354248ee9143ccc16d2",
+    "model/openwave_field_observables/test_observables.py": "682b25cfaade354a4c810aa5ff7ea4455397ccfc39efb7197e4b3925b7446d30",
+    "model/openwave_field_observables/waves.py": "80a6d786556f90b9d85edc5b7551fbbda44e43e90710177a5c6f70b6e3f31818",
+    "model/openwave_gravity_capacity/field_review.py": "44932435bc35720012ec7a75dc750ba1205e2c2b865906bdd9b83c3c1e6ccef0"
+  },
+  "verdict": "PASS_SCOPED_CONSEQUENCES"
+}

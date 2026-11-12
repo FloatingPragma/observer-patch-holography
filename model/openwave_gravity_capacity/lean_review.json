@@ -1,0 +1,35 @@
+{
+  "command": "cd Lean && lake env lean ../model/openwave_gravity_capacity/Transfer.lean",
+  "exit_code": 0,
+  "fresh_local_source_checked": true,
+  "imported_library_rebuilt_in_this_command": false,
+  "physical_gravity_or_global_capacity_premise_derived": false,
+  "schema": "oph.gravity_capacity.Lean_kernel_audit.v1",
+  "source_sha256": {
+    "Lean/ObserverPatchHolography/EinsteinBranch/FixedCapacityWLaw.lean": "af9370c79bd0a18f6c8a9eee5bb9e3fe5f94fe04c6bf377c2d12eb4fef1f5e00",
+    "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean": "f0631f3c7a5ed129984d8831cc957aed870a0e63a19a4dd31e0c358081d11ecc",
+    "model/openwave_gravity_capacity/Transfer.lean": "fb966aa40bf4266f63bd002242a5c4cb02e1915c0f957d459823ec2d84ae69e6"
+  },
+  "theorems": {
+    "OPH.GravityCapacityTransfer.capacity_epoch_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OPH.GravityCapacityTransfer.density_scale_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OPH.GravityCapacityTransfer.lapse_area_response": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "OPH.GravityCapacityTransfer.poisson_source_error_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}
