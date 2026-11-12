@@ -1,0 +1,22 @@
+{
+  "all64_native_clock_blocks_checked": 64,
+  "boundary_corrected_Ehrenfest_residuals": [
+    6.094224431197561e-14,
+    6.543651116570666e-14
+  ],
+  "clock_ratio_spread_ppm": 87.89913005791128,
+  "complete_hit_timeout_records_retained": true,
+  "energy_error_max": 2.0872234385548035e-14,
+  "finite_difference_force_error_max": 1.8451367260197346e-07,
+  "full196_wave_blocks_recomputed": 2,
+  "harmonic_projection_and_induced_mass_stiffness_exact": true,
+  "independent_native_delay": 0.010055142252510585,
+  "independent_transverse_bending": -0.0018466453137704342,
+  "scope": "Independent numerical controls of exact source identities and positive interval margins. Harmonic geometry, scalar metric, cap and preparation remain declared; no physical G, Einstein law, continuum, observed lensing or universal finite-strength redshift inferred.",
+  "source_sha256": {
+    "model/openwave_current_averaging/audits/gravity_review.py": "d39ca574be032ca543827eb64ce10bee5d1efa88715b53e2875cd323a4b5adc7",
+    "model/openwave_dynamic_stress/results.json": "7a221f5e757d949756216a12e5d2960150ec7bcbea897ebef3f1807a8d2c4799",
+    "model/openwave_dynamic_wave/results.json": "2127b46cc39d0aa9639ca2db9aa510992747a82598a68e09fae7959ed2e0c81b"
+  },
+  "verdict": "PASS_INDEPENDENT_AUTONOMOUS_WAVE_STRESS_REVIEW"
+}
