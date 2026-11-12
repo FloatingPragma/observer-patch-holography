@@ -41,9 +41,9 @@
     "WQ-18"
   ],
   "first_batch": [
-    "WQ-09",
-    "WQ-20",
-    "WQ-16"
+    "WQ-03",
+    "WQ-06",
+    "WQ-19"
   ],
   "tasks": [
     {
@@ -120,7 +120,7 @@
       "gate": "CP-02",
       "issue": 1138,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/lepton_cycle/instrument.py",
@@ -128,7 +128,8 @@
         "model/lepton_cycle/PROOF.md",
         "model/lepton_register_round/PROOF.md",
         "model/native_quantum_service_bridge/finite_compiler.py",
-        "model/native_quantum_service_bridge/PROOF.md"
+        "model/native_quantum_service_bridge/PROOF.md",
+        "model/observer/source_scalar/compiler.py"
       ],
       "premise_ids": [
         "PR-64",
@@ -149,22 +150,30 @@
       "exact_prompt": "Compile the existing 60-address Householder preparation through the admitted finite compiler, using an explicitly padded 64-state register. Certify every input column, padding behavior and an untouched entangled reference. Then execute at most three complete lepton cycles with actual preparation, analyzer, kick, inverse tick, return and SWAP/archive maps, retaining all four outcomes. Count the compiled tape, independent fresh-pair, routing, analog-control and archive resources separately. Compare the complete channel with the existing instrument and include a correlated-source countercontrol. Any supplied coherent load or reset remains an explicit primitive; do not call it autonomous.",
       "outputs": [
         {
-          "path": "model/lepton_cycle/service_execution.py",
-          "description": "Bounded controller and complete record execution."
+          "path": "model/lepton_service_compiler/service.py",
+          "description": "Literal padded native pulse execution and complete bounded controller."
         },
         {
-          "path": "model/lepton_cycle/service_execution_results.json",
-          "description": "Source-bound channel equality/error and resource receipt."
+          "path": "model/lepton_service_compiler/PROOF.md",
+          "description": "Full-input word and quantum-archive identities with service boundaries."
         },
         {
-          "path": "model/lepton_cycle/test_service_execution.py",
-          "description": "Reference, failure, capacity and correlation controls."
+          "path": "model/lepton_service_compiler/results.json",
+          "description": "Source-bound complete record factors, diagnostics and finite resources."
+        },
+        {
+          "path": "model/lepton_service_compiler/test_service.py",
+          "description": "Padding, reference, failure and coherent-preparation countercontrols."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/lepton_cycle",
-          "expected": "Executed controller agrees with the full channel; unsafe reuse and missing failures fail."
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.lepton_service_compiler.test_service",
+          "expected": "Exact source identities, padded native words and complete archive controls pass."
+        },
+        {
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.lepton_service_compiler --check",
+          "expected": "Fresh source execution reproduces the retained complete service receipt."
         }
       ],
       "closure": {
@@ -180,7 +189,24 @@
         ]
       },
       "scope_boundary": "Finite declared-service execution does not establish an autonomous apparatus, physical work unit or laboratory duration.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/lepton_service_compiler/results.json",
+          "sha256": "554867d297ebd7ffab966af30aaf1013649697a9d456867eef218925d25c31b0",
+          "independent_check": "model/lepton_service_compiler/test_service.py",
+          "scope": "An ideal real-angle recipe of native six-level response pulses implements the complete padded 64-state Householder preparation, phase and reflection words and the 4096-address analyzer, using declared coherent load/export, routing and blank services. Literal numerical replay supplies software diagnostics, not a certified error bound for the binary floating pulse word. An exact all-input conjugation identity permits a low-rank kick replay, with independent full-word columns and retained floating residuals. Up to three complete lepton cycles retain all four returns, every zero-weight proper-code failure and full source/family quantum archive factors. Three cycles use four fresh pairs including the active pair, thirty-six archived source qubits and six return bits. A uniform-histogram correlation control distinguishes the required pure coherent preparation. Exact ideal-word equality and numerical software diagnostics are separate from hardware accuracy, autonomous preparation and a physical energy clock."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/lepton_service_compiler/PROOF.md": "0a4f35246580ec0bd73a5bf3bdbd21c01d26fc925fac4fa3e447c76f916f2429",
+        "model/lepton_service_compiler/README.md": "cc727a34acbe5ae18cc4765864ba88ba3f3e589357e49a5512ae4d6d886754bd",
+        "model/lepton_service_compiler/__init__.py": "4ca853891516d0e9cbc0d04d2f16a9ee2aab878b9c4edbc80df2bf776ee761ea",
+        "model/lepton_service_compiler/__main__.py": "6e049d4272cb2183ebad6e66565360a7710b2b7677218b0a2895f78a406a8867",
+        "model/lepton_service_compiler/results.json": "554867d297ebd7ffab966af30aaf1013649697a9d456867eef218925d25c31b0",
+        "model/lepton_service_compiler/service.py": "6ab90711e2bb3045e737089313e241e3b7d61c828dd495c7f1d29b9046a1b9b5",
+        "model/lepton_service_compiler/test_service.py": "c58f74828d9f76e3c5a0e7bb638f34b294b8369a1549f19389de76654a7b307a"
+      }
     },
     {
       "id": "WQ-03",
@@ -190,7 +216,7 @@
       "depends_on": [
         "WQ-02"
       ],
-      "status": "blocked",
+      "status": "ready",
       "blocked_by": [],
       "source_paths": [
         "model/lepton_register_round/PROOF.md",
@@ -616,7 +642,7 @@
       "gate": "CP-02",
       "issue": 1138,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/native_abundance_epochs/model.py",
@@ -644,18 +670,26 @@
       "exact_prompt": "For the unchanged exact 1296-state kernel, test finite-temperature Gibbs stationarity and detailed balance in every conserved-load sector. Use the proved nonpositive cost drift and strict-descent edges to prove an all-positive-temperature result where possible: a full-support law with strictly negative mean drift cannot be stationary. Characterize exceptional/recurrent sectors exactly and retain their free weights. Identify the minimum missing reverse moves, bath and temperature-readout premises without implementing a substituted thermal sampler as the native law. Attempt time and cosmic time remain distinct.",
       "outputs": [
         {
-          "path": "model/native_abundance_epochs/thermal_admission.py",
-          "description": "Exact stationarity and detailed-balance existence test."
+          "path": "model/native_thermal_admission/thermal.py",
+          "description": "Executable source calculation and complete retained controls."
         },
         {
-          "path": "model/native_abundance_epochs/thermal_admission_results.json",
-          "description": "Thermal admission or obstruction and required extra services."
+          "path": "model/native_thermal_admission/PROOF.md",
+          "description": "Exact construction, accepted domain and mathematical boundary."
+        },
+        {
+          "path": "model/native_thermal_admission/results.json",
+          "description": "Fresh reproducible result with source provenance."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/native_abundance_epochs model/charge_conjugation_dynamics",
-          "expected": "Absorbing, reverse-edge and sector-weight countercontrols prevent a false Gibbs claim."
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.native_thermal_admission.test_thermal",
+          "expected": "All targeted positive and rejection controls pass."
+        },
+        {
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.native_thermal_admission --check",
+          "expected": "Fresh execution matches the source-bound retained receipt."
         }
       ],
       "closure": {
@@ -670,7 +704,25 @@
         ]
       },
       "scope_boundary": "Neither a finite Gibbs law nor its obstruction establishes expansion, freeze-out or a physical early-Universe mixture.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/native_thermal_admission/results.json",
+          "sha256": "ffc3a1377c8b7a1eda6f6fded51a185e52430637507e8c1d6afe12f262392d42",
+          "independent_check": "model/native_thermal_admission/test_thermal.py",
+          "scope": "On the unchanged 1296-state closed-cell kernel, exact nonpositive cost drift and strict-descent edges exclude every full-support finite-temperature Gibbs stationary law and detailed balance in load sectors 1 through 14. Loads zero and fifteen have identity kernels. All stationary laws are mixtures of 46 closed-class uniform laws, with 66 recurrent and 1230 transient states and 45 free mixture dimensions. The generic stationary-Lyapunov obstruction is proved in Lean; restricted recurrent Gibbs weights are supplied choices. No bath, physical temperature or cosmic clock is inferred."
+        }
+      ],
+      "completion_outcome": "negative",
+      "completion_bindings": {
+        "model/native_thermal_admission/PROOF.md": "9195807b67dc536ecbe8dd7ff856cc0fb91367ea718e3363e5c126562ce09864",
+        "model/native_thermal_admission/README.md": "90c516d4b0f7d7cea124bd3e975f942ff64e2bc1aefae7f08f4d8bc579f2e2fd",
+        "model/native_thermal_admission/__init__.py": "a0bad39b7e1c96786144a6446753c862b1bd46bf5d0246130c0dc706a0eed98d",
+        "model/native_thermal_admission/__main__.py": "5093f23f8778c250241dcf60dee70ace2f02960ef40a848514e22cd12265d232",
+        "model/native_thermal_admission/results.json": "ffc3a1377c8b7a1eda6f6fded51a185e52430637507e8c1d6afe12f262392d42",
+        "model/native_thermal_admission/test_thermal.py": "00ec8651e618510fea5fe16cec65673db6cb7470fa137b65be1bad349ded94e3",
+        "model/native_thermal_admission/thermal.py": "76c5c304be58f2281e99048e3da7c41d435d58d3f07daa18f3e455bd21790bfb",
+        "Lean/Dynamics/StationaryLyapunov.lean": "d5a2bab8e19bf1e735e4b089ca61abc71b0889cb5172832a93d47de20ede9791"
+      }
     },
     {
       "id": "WQ-10",
@@ -1095,7 +1147,7 @@
       "depends_on": [
         "WQ-01"
       ],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/conditional_standard_model/PROOF.md",
@@ -1121,18 +1173,26 @@
       "exact_prompt": "Enumerate the independent Yukawa, mixing and neutrino parameters consumed by the declared conditional candidate, quotienting only proved field-redefinition symmetries. Identify which combinations the native source actually constrains and which are fitted or free. Test one proposed additional source relation symbolically against the full parameter family and provide a counterexample if it fails. Output the smallest source equation and observable needed to constrain one remaining direction, without selecting masses or mixing angles from targets.",
       "outputs": [
         {
-          "path": "model/particle_joint_reconstruction/flavour_identifiability.py",
-          "description": "Parameter and source-constraint rank calculation."
+          "path": "model/source_flavour_identifiability/flavour.py",
+          "description": "Exact family-orbit, native constraint and complete phase-readout calculation."
         },
         {
-          "path": "model/particle_joint_reconstruction/flavour_identifiability_results.json",
-          "description": "Remaining physical flavour freedom and one bounded discriminating relation."
+          "path": "model/source_flavour_identifiability/PROOF.md",
+          "description": "Parameter classification and a full-source counterexample to universal alignment."
+        },
+        {
+          "path": "model/source_flavour_identifiability/results.json",
+          "description": "Source-bound invariant counts, parameter ancestry and eighteen-record phase contrast."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/particle_joint_reconstruction",
-          "expected": "Basis changes preserve observables; target substitutions cannot masquerade as source equations."
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.source_flavour_identifiability.test_flavour",
+          "expected": "All exact ranks, native Ward identities, conjugation controls and complete phase instruments pass."
+        },
+        {
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.source_flavour_identifiability --check",
+          "expected": "Fresh execution matches the bound parameter and readout receipt."
         }
       ],
       "closure": {
@@ -1147,7 +1207,24 @@
         ]
       },
       "scope_boundary": "Parameter identifiability narrows the spectrum task; it does not itself derive quark Yukawas, oscillations or all generations.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/source_flavour_identifiability/results.json",
+          "sha256": "6e27d0a211f317252d1cd7bd068cda2ae6c62ea9140c757c04cbac838c823b64",
+          "independent_check": "model/source_flavour_identifiability/test_flavour.py",
+          "scope": "The proposed universal alignment relation is refuted, so the existing negative closure criterion applies. Positive results comprise exact parameter classification and an unconditional phase readout. Exact full-source family-coordinate orbits leave 13 generic charged invariants, 22 with a generic symmetric neutral kernel and 20 on its rank-two stratum. The calibrated zero-lightest-mass packet has nineteen empirical flavour coordinates and one independent unmeasured Majorana phase. All 27 complex charged family coefficients satisfy the native gauge/Higgs identities, so these identities impose no additional linear family constraint. The common-feature trial is aligned, but an exact admitted counterexample has J=51840/830297. A complete eighteen-record instrument built from actual native weak-current family blocks reads J as an unconditional signed joint-path contrast. Coordinate equivalence transports all apparatus/reference frames; it does not derive physical Yukawas, native pulse control or a Standard Model family assignment."
+        }
+      ],
+      "completion_outcome": "negative",
+      "completion_bindings": {
+        "model/source_flavour_identifiability/PROOF.md": "0ccaa441b838f8f2f887c741a6d46a0fb8d56f2d0ffd7c10dabb544a9b01dc89",
+        "model/source_flavour_identifiability/README.md": "8650f8e67fd0e4f4d9c044f12bc55dee2217a6ba0f01bd670d1d7b56f3c06002",
+        "model/source_flavour_identifiability/__init__.py": "d10eaed4c6a6ab51b0fa9aefca1c634e2a85022cc55b9cf5789fa676fb7b2200",
+        "model/source_flavour_identifiability/__main__.py": "5f07aaaf75c28623ee82847920856927a34363e902513915679cf67277b59206",
+        "model/source_flavour_identifiability/flavour.py": "02d1910afc0d9abc3f297a4cd79c720911029955d49f922235c6342e5a018dcb",
+        "model/source_flavour_identifiability/results.json": "6e27d0a211f317252d1cd7bd068cda2ae6c62ea9140c757c04cbac838c823b64",
+        "model/source_flavour_identifiability/test_flavour.py": "cf8f7e33cc2e9ad5b893ac45b1de9ab864c4ad3d4d02fd3ac232af49d80d9801"
+      }
     },
     {
       "id": "WQ-17",
@@ -1476,7 +1553,7 @@
       "gate": "CP-11",
       "issue": 1147,
       "depends_on": [],
-      "status": "ready",
+      "status": "completed",
       "blocked_by": [],
       "source_paths": [
         "model/quenched_hadron_binding/analysis.py",
@@ -1497,18 +1574,26 @@
       "exact_prompt": "Add a separately labelled correlated fit to the hadron correlators using the retained paired jackknife time covariance. Predeclare covariance-rank, conditioning and fit-window rules, refit every replica, and propagate through the existing mass/scale chain. Retain the diagonal-time fit as a control and include synthetic correlated data with known parameters plus a singular-covariance rejection. Report changes and fit sensitivity without claiming to bound quenching, volume or continuum effects. Use no measured hadron mass to select a fit rule.",
       "outputs": [
         {
-          "path": "model/quenched_hadron_binding/correlated_fits.py",
-          "description": "Covariance-aware fitting with fixed conditioning rules."
+          "path": "model/correlated_hadron_spectrum/fit.py",
+          "description": "Executable source calculation and complete retained controls."
         },
         {
-          "path": "model/quenched_hadron_binding/correlated_fit_results.json",
-          "description": "Paired replica propagation and diagonal-fit comparison."
+          "path": "model/correlated_hadron_spectrum/PROOF.md",
+          "description": "Exact construction, accepted domain and mathematical boundary."
+        },
+        {
+          "path": "model/correlated_hadron_spectrum/results.json",
+          "description": "Fresh reproducible result with source provenance."
         }
       ],
       "validation": [
         {
-          "command": "python3 -m pytest -q model/quenched_hadron_binding",
-          "expected": "Synthetic correlated inputs recover known parameters; singular inputs reject and empirical targets do not affect the fit rule."
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.correlated_hadron_spectrum.test_fit",
+          "expected": "All targeted positive and rejection controls pass."
+        },
+        {
+          "command": "VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.correlated_hadron_spectrum --check",
+          "expected": "Fresh execution matches the source-bound retained receipt."
         }
       ],
       "closure": {
@@ -1523,7 +1608,24 @@
         ]
       },
       "scope_boundary": "Correlated fitting improves finite-ensemble inference; omitted sea quarks and the physical scale/refinement remain separate requirements. This task does not consume PR-14, the separate empirical hadronic vacuum-polarization transport payload.",
-      "completion_evidence": []
+      "completion_evidence": [
+        {
+          "path": "model/correlated_hadron_spectrum/results.json",
+          "sha256": "c5d5f6609956b2988f4844ef5c74dec14ce0de798e73244c0f70b9112d3b84bb",
+          "independent_check": "model/correlated_hadron_spectrum/test_fit.py",
+          "scope": "The retained 32 paired Wilson streams admit all 48 declared time-covariance fits and every reestimated 31-stream jackknife replica under fixed full-rank and 10^8 conditioning rules. Propagating paired hadron and potential scales gives rho-anchored nucleon 1.130525 +/- 0.030231 statistical +/- 0.053203 fit-sensitivity GeV; the pion 0.13799628 GeV is fixed by the supplied ratio and rho anchor. The conventional string anchor gives pion 0.106231 +/- 0.001401 +/- 0.011761 GeV, rho 0.596801 +/- 0.007873 +/- 0.066072 GeV and nucleon 0.870287 +/- 0.024191 +/- 0.076896 GeV. Diagonal-time controls and the unresolved lightest nucleon flag are retained. Chiral fits use diagonal mass-error weights; sea, volume, continuum, calibration and native-clock uncertainties are not bounded."
+        }
+      ],
+      "completion_outcome": "positive",
+      "completion_bindings": {
+        "model/correlated_hadron_spectrum/PROOF.md": "31886bcd9b40ddbc20d37cb3fd0698a01e9d41c0419b63c1d25805ff2cf60c58",
+        "model/correlated_hadron_spectrum/README.md": "58b5336a3170431fc2e877cecd5eead22e4623926c62c97b8be6151bc11eadb2",
+        "model/correlated_hadron_spectrum/__init__.py": "27cdd2dcc3274fd47e858544963c60e40a8086474aee60f66eb8361a17c03b84",
+        "model/correlated_hadron_spectrum/__main__.py": "8c6ae36e6807cbf8ee490e6fe7d632a2c175be79c868f010797c352f4d8064f5",
+        "model/correlated_hadron_spectrum/fit.py": "58f8573ad522d694233f91d8935a55a3b905e03ff5320e4ba86f8b1f3b2e84ab",
+        "model/correlated_hadron_spectrum/results.json": "c5d5f6609956b2988f4844ef5c74dec14ce0de798e73244c0f70b9112d3b84bb",
+        "model/correlated_hadron_spectrum/test_fit.py": "45de38e21b0027b3cd778aeea5927e8a971db55baca5e984a12e4e69a450dd83"
+      }
     },
     {
       "id": "WQ-21",

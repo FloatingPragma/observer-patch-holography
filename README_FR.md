@@ -1,6 +1,6 @@
 # Holographie des parcelles d’observateur
 
-**L’OPH est une description rigoureuse, cohérente et complète de l’Univers computationnel unifié et auto-créateur que nous habitons.**
+**OPH développe une théorie exécutable d’un univers autoréférentiel d’observateurs, associant des constructions finies démontrées à des tests quantitatifs de leur interprétation physique.**
 
 [Article principal](https://philpapers.org/rec/MUEFOC) · [Livre](https://oph-book.floatingpragma.ai/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Bibliothèque Lean](Lean/) · [Reproduire](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [English](README.md)
 
@@ -63,8 +63,9 @@ intemporelle et les horloges qu’elle contient.
 Le pari concret est un programme. Une seule loi locale de réparation et de
 mémoire, sur un réseau de supports à douze ports, doit produire des observateurs
 dont les registres ressemblent à notre monde : des champs quantiques en 3+1
-dimensions, et la gravitation. Les particules sont les nœuds de ce réseau : dans
-l’univers primordial simulé, elles émergent sous forme de quarks et de leptons.
+dimensions, et la gravitation. Le programme crée des défauts de flux et des
+registres de champs quantiques. Identifier leurs excitations aux quarks et
+leptons observés fait partie du test physique.
 
 L’[hypothèse](docs/OPH_EXECUTABLE_HYPOTHESIS.md) dit ce qui
 compterait comme un succès, et le [programme d’achèvement](docs/COMPLETION_PROGRAM.md)
@@ -74,27 +75,38 @@ de lois échoue.
 
 ## Points forts
 
-- **Les familles de particules sont identifiées.** Chaque défaut protégé porte
-  une classe de flux à six valeurs, et c’est exactement la classe que le Modèle
-  standard donne à ses particules : quarks gauches et droits, leptons avec le
-  Higgs, champs neutres. Quarks et leptons sont des fermions, et aucune charge
-  de couleur n’est jamais seule.
+- **Des registres exacts de nombres quantiques.** Une construction fermionique
+  déclarée réalise les quinze poids internes d’une génération du Modèle
+  standard. Ses six classes de flux correspondent à l’hypercharge modulo
+  le centre. Des lectures complètes calibrées conservent charge, couleur,
+  hélicité, impulsion et énergie, avec les références quantiques qui
+  compensent la charge. Le lien avec les particules observées exige leur
+  source physique et leur dynamique.
   [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
 - **Les masses du muon et du tau à partir de celle de l’électron.** Un registre
-  de génération dans la même loi de réparation donne muon/électron 206,770 et
-  tau/électron 3477,47 (mesurés 206,768 et 3477,37). À partir de la seule masse
-  de l’électron : 105,659 et 1776,99 MeV (mesurés 105,658 et 1776,93).
-- **Quarks et leptons émergent dans l’univers primordial.** Les premiers
-  défauts sont des paires équilibrées des classes de quarks et de leptons, dans
-  des proportions proches de celles d’un plasma chaud du Modèle standard. Sur
-  réseau, le modèle refroidit comme notre univers : transition électrofaible
-  continue à 161 GeV (Modèle standard : 159,5 ± 1,5), couleur qui se déconfine,
-  quarks qui se lient en hadrons.
+  de génération à phase fixée donne les rapports 206,770316 et 3477,4728.
+  Un étalonnage par l’électron les convertit en coefficients libres de
+  105,6594 et 1776,985 MeV. La comparaison rétrospective donne un écart de
+  +9,83 ppm pour le muon et de 0,61 écart-type pour le tau. Un compilateur
+  sur l’espace fermionique complet réalise ces coefficients ; leur
+  identification aux masses physiques en interaction est distincte.
+- **Populations exactes et comptages thermiques de particules.** La cellule
+  native fermée possède des lois complètes d’absorption des classes. Une
+  source quantique calibrée donne des registres complets de nombres de
+  particules sous une préparation thermique déclarée ; son extension
+  distincte en gaz idéal a un décompte énergétique relativiste de 106,75.
+  Des comparaisons indépendantes sur réseaux euclidiens donnent une transition
+  électrofaible continue vers 161 GeV, le déconfinement de la couleur et la
+  liaison des hadrons. Elles conservent leurs entrées fournies et ne constituent
+  pas une histoire commune de refroidissement cosmique.
+  [Résultats sur les particules et la cosmologie](model/particle_cosmology_results/README.md),
   [Visualiseur interactif](https://particles.floatingpragma.ai/).
-- **Le groupe de jauge et ses couplages.** Des phases sur les ports du support
-  donnent (SU(3)×SU(2)×U(1))/Z6, et les neutrinos sortent comme particules de
-  Dirac. Une chaîne de couplages donne l’échelle électrofaible 246,6 GeV et le
-  couplage fort 0,1183.
+- **Le groupe de jauge et ses couplages.** Le support orienté admet
+  (SU(3)×SU(2)×U(1))/Z6. Une chaîne conditionnelle de couplages donne
+  l’échelle électrofaible 246,6 GeV et le couplage fort 0,1183 avec ses
+  entrées de raccordement déclarées. Les extensions neutres de Dirac et de
+  Majorana ont des hypothèses distinctes ; la symétrie de jauge seule ne
+  sélectionne ni leurs masses ni leurs mélanges.
 - **Un observateur qui fonctionne.** Un observateur à douze ports conserve ses
   registres et s’en sert pour choisir sa prochaine réparation. Des observateurs
   qui se chevauchent lisent une référence commune et son horloge, un processus

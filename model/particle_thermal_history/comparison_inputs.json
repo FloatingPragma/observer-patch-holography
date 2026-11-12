@@ -1,0 +1,102 @@
+{
+  "data_url": "https://arxiv.org/src/1803.01038v2/anc/standardmodel2018.dat",
+  "paper_url": "https://arxiv.org/abs/1803.01038",
+  "samples": [
+    {
+      "g_entropy": 10.546771,
+      "g_entropy_error": 0.010546771,
+      "g_rho": 10.544401,
+      "g_rho_error": 0.010544401,
+      "requested_temperature_GeV": 0.001,
+      "source_data_row": 1189,
+      "temperature_GeV": 0.00099807909
+    },
+    {
+      "g_entropy": 10.743133,
+      "g_entropy_error": 0.010859421,
+      "g_rho": 10.745441,
+      "g_rho_error": 0.010906854,
+      "requested_temperature_GeV": 0.01,
+      "source_data_row": 1630,
+      "temperature_GeV": 0.010006565
+    },
+    {
+      "g_entropy": 17.314917,
+      "g_entropy_error": 1.5197782,
+      "g_rho": 17.725223,
+      "g_rho_error": 1.6590769,
+      "requested_temperature_GeV": 0.1,
+      "source_data_row": 2070,
+      "temperature_GeV": 0.099801015
+    },
+    {
+      "g_entropy": 68.743712,
+      "g_entropy_error": 5.2843238,
+      "g_rho": 69.767232,
+      "g_rho_error": 5.45202,
+      "requested_temperature_GeV": 1,
+      "source_data_row": 2511,
+      "temperature_GeV": 1.0005874
+    },
+    {
+      "g_entropy": 79.884489,
+      "g_entropy_error": 6.6559353,
+      "g_rho": 80.162229,
+      "g_rho_error": 6.7045064,
+      "requested_temperature_GeV": 5,
+      "source_data_row": 2819,
+      "temperature_GeV": 5.0055289
+    },
+    {
+      "g_entropy": 80.891148,
+      "g_entropy_error": 6.9518157,
+      "g_rho": 81.010393,
+      "g_rho_error": 6.9874901,
+      "requested_temperature_GeV": 10,
+      "source_data_row": 2951,
+      "temperature_GeV": 9.9794121
+    },
+    {
+      "g_entropy": 92.489327,
+      "g_entropy_error": 6.165481,
+      "g_rho": 93.340107,
+      "g_rho_error": 6.339037,
+      "requested_temperature_GeV": 50,
+      "source_data_row": 3259,
+      "temperature_GeV": 49.922913
+    },
+    {
+      "g_entropy": 100.93855,
+      "g_entropy_error": 3.9080603,
+      "g_rho": 101.76043,
+      "g_rho_error": 4.0517215,
+      "requested_temperature_GeV": 100,
+      "source_data_row": 3392,
+      "temperature_GeV": 100.05182
+    },
+    {
+      "g_entropy": 103.896,
+      "g_entropy_error": 3.1348872,
+      "g_rho": 104.3905,
+      "g_rho_error": 3.2185178,
+      "requested_temperature_GeV": 160,
+      "source_data_row": 3482,
+      "temperature_GeV": 160.15305
+    },
+    {
+      "g_entropy": 104.16868,
+      "g_entropy_error": 1.7373242,
+      "g_rho": 104.17285,
+      "g_rho_error": 1.7761582,
+      "requested_temperature_GeV": 1000,
+      "source_data_row": 3832,
+      "temperature_GeV": 997.87227
+    }
+  ],
+  "schema": "oph.particle_thermal_history.reference.v1",
+  "selection": "nearest log-temperature row to the declared target menu; no interpolation or parameter fitting",
+  "source_rows": 10000,
+  "source_sha256": "a4bf5f18dacb084a00e7202a29c689b4ae385950cfeb00be69c98aeb30e8014b",
+  "source_size_bytes": 545033,
+  "title": "Saikawa and Shirai, Primordial gravitational waves, precisely: The role of thermodynamics in the Standard Model"
+}

@@ -360,8 +360,9 @@ single-field slow roll has no universal positive tensor floor.
 Given a completed source map, the transfer calculation must declare the
 background species, equations of state, collision terms, recombination model,
 initial modes, gauge convention, numerical tolerances, and observable
-projection. The finite particle comparison computes no particle abundance or
-early-Universe population distribution, so those background species densities are
+projection. The finite particle calculations provide native class populations,
+calibrated finite Gibbs counts and conditional free-gas fractions. They do not
+derive physical cosmological species densities, so those background densities are
 imported~\cite{ophparticles}. An equation of state needs its own strain response:
 identical fixed-volume records admit \(H_\alpha(V)=Q(V/V_0)^{-\alpha}\) with
 \(p/\rho=\alpha\), and an additive energy offset changes \(p/\rho\) while leaving
@@ -392,33 +393,52 @@ cosmological comparison nor a falsification verdict.
 \section{Thermal history on the model's link action}
 \label{sec:thermal-history}
 
-The executable model has its own unit of time. One tick is one radian of phase at the
-cell energy, \(\hbar/E_{\rm cell}=6.885\times10^{-44}\) s with
-\(E_{\rm cell}=E_*P^{-1/2}=9.56\times10^{18}\) GeV. The stored runs cover the first few
-hundred ticks. In them every defect class appears in pairs on the first consistent slice,
-class and conjugate stay balanced, and the classes of left-handed quarks, right-handed
-quarks and leptons take \(24.1\), \(19.6\) and \(12.7\) percent of all defect identities per
-class, against \(21.4\), \(21.4\) and \(14.3\) percent for equal occupation of the Standard
-Model states of each class \cite{ophparticles}.
+The stored defect runs count attempted repairs. A separately declared cell energy
+\(E_{\rm cell}=E_*P^{-1/2}=9.56\times10^{18}\) GeV gives the phase-time unit
+\(\tau_{\rm cell}=\hbar/E_{\rm cell}=6.885\times10^{-44}\) s. Identifying one repair
+attempt with this unit requires an additional clock map. In the retained finite
+census, every defect class appears in pairs on the first consistent slice, and
+class and conjugate stay balanced. The classes assigned left-handed quark,
+right-handed quark and lepton labels by the centre-class dictionary take
+\(24.1\), \(19.6\) and \(12.7\) percent of all defect identities per class, against
+\(21.4\), \(21.4\) and \(14.3\) percent for equal occupation of the Standard Model
+states of each class. These imported class counts do not determine physical
+particle abundances~\cite{ophparticles}.
 
-Later epochs are reached by lattice ensembles whose extent of \(N_t\) ticks in the time
-direction is read as the temperature \(T=E_{\rm cell}/N_t\). In the radiation era with the
-model's own content, twelve gauge bosons, one Higgs doublet and fifteen gauge-charged
-fermion states per copy in three copies, the count of relativistic states is
-\(g_*=106.75\) and the standard relation \(t=2.42\,\mathrm s\,g_*^{-1/2}(\mathrm{MeV}/T)^2\)
-converts a temperature into a time. Three measurements use the model's link action.
+Independent Euclidean lattice ensembles use \(T=1/(aN_t)\) in units
+\(\hbar=c=k_B=1\), with supplied lattice spacing \(a\). Choosing
+\(a=E_{\rm cell}^{-1}\) gives the diagnostic conversion
+\(T=E_{\rm cell}/N_t\). The Euclidean extent \(N_t\) counts neither native repair
+attempts nor elapsed cosmic time. A supplied relativistic Standard Model thermal
+census gives \(g_*=106.75\). Under the additional radiation-dominated Friedmann
+relation,
+\[
+ t=2.42\,\mathrm s\,g_*^{-1/2}(\mathrm{MeV}/T)^2,
+\]
+temperature has a conditional cosmic-time conversion. The ensemble comparisons
+below do not construct a common cooling trajectory.
 \begin{itemize}
 \item With the couplings of the declared coupling chain and the published reduction to the
 three-dimensional \(\mathrm{SU}(2)\) and Higgs theory \cite{klrs1996reduction}, the electroweak
-transition is a crossover at \(T_c=161.13\pm0.13\pm1.6\) GeV, which is
-\(9.0\times10^{-12}\) s or \(1.3\times10^{32}\) ticks after the first. The Standard Model
-lattice value is \(159.5\pm1.5\) GeV \cite{donofrio2016crossover}.
+transition has crossover central value \(T_c=161.1298\) GeV. Paired peak replicas
+are absent, so a statistical standard deviation is not identified. At fixed
+linearized fit, the supplied marginal variances and independence between distinct
+lattice sets give compatible standard deviations \([0.11810,0.13680]\) GeV;
+without that independence the range is \([0,0.27631]\) GeV. These covariance ranges
+are not confidence intervals. The separate one-percent reduction allowance is
+\(1.6113\) GeV and has no supplied probability law. With the declared thermal
+census and Friedmann equation, the central temperature corresponds to
+\(9.0\times10^{-12}\) s, or \(1.3\times10^{32}\) supplied phase-time units
+\(\tau_{\rm cell}\). This does not identify the elapsed repair count. The Standard
+Model lattice value is \(159.5\pm1.5\) GeV \cite{donofrio2016crossover}.
 \item Restricted to colour, the seam cost of the links is the Wilson plaquette action. At
 \(N_t=4\) the links deconfine in a first-order transition with
 \(T_c/\sqrt\sigma=0.614(18)\); the published value for the same theory at this lattice
 spacing is \(0.598(3)\) \cite{boyd1996thermodynamics}.
 \item Quenched Wilson quarks on the same links bind, with a linearly rising static
-potential and \(m_N/m_\rho=1.45\pm0.13\) against the measured \(1.21\), and the binding
+potential. The diagonal-time control gives \(m_N/m_\rho=1.45\pm0.13\) against the
+measured \(1.21\); complete correlated fits and their distinct uncertainty terms
+are given in the particle comparison~\cite{ophparticles}. The binding signal
 melts above the transition.
 \end{itemize}
 The crossover takes the chain's declared couplings as inputs, and the colour and hadron

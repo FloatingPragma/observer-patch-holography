@@ -1,6 +1,6 @@
 # Observer Patch Holography
 
-**OPH is a rigorous, consistent and complete description of the unified, self-creating computational Universe we inhabit.**
+**OPH develops an executable theory of a self-referential observer universe, combining proved finite constructions with quantitative tests of its physical interpretation.**
 
 [Main paper](https://philpapers.org/rec/MUEFOC) · [Book](https://oph-book.floatingpragma.ai/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Lean library](Lean/) · [Reproduce](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [Français](README_FR.md)
 
@@ -57,9 +57,9 @@ and the clocks inside it.
 
 The concrete bet is a program. One local repair and memory law on a network
 of twelve-port carriers should produce observers whose records look like our
-world: quantum fields in 3+1 dimensions, and gravity. Particles are the knots
-in that network: in the simulated early universe they emerge as quarks and
-leptons.
+world: quantum fields in 3+1 dimensions, and gravity. The program creates
+flux defects and quantum field records. Identifying their excitations with
+observed quarks and leptons is part of the physical test.
 
 The [hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md) says
 what would count as success, and the
@@ -69,25 +69,33 @@ proof shows that the whole class of laws cannot work.
 
 ## Highlights
 
-- **The particle families are identified.** Every protected defect carries a
-  six-valued flux class, and it is exactly the class the Standard Model gives
-  its particles: left- and right-handed quarks, leptons with the Higgs, and
-  neutral fields. Quarks and leptons come out as fermions, and no colour
-  charge ever sits alone.
+- **Exact particle quantum-number records.** A declared fermion construction
+  realizes the fifteen internal weights of a Standard Model generation.
+  Its six flux classes match hypercharge modulo the centre. Complete
+  calibrated readouts retain charge, colour, helicity, momentum and energy,
+  including the quantum references that compensate charge. Connecting these
+  fields to observed particles requires their physical source and dynamics.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
 - **The muon and tau masses from the electron mass.** A generation register
-  in the same repair law gives muon/electron 206.770 and tau/electron 3477.47
-  (measured 206.768 and 3477.37). From the electron mass alone that is 105.659
-  and 1776.99 MeV (measured 105.658 and 1776.93).
-- **Quarks and leptons emerge in the early universe.** The first defects are
-  balanced pairs of the quark and lepton classes, in shares close to a hot
-  Standard Model plasma. On the lattice the model cools like our universe: an
-  electroweak crossover at 161 GeV (Standard Model: 159.5 ± 1.5), colour that
-  deconfines, quarks that bind into hadrons.
+  with fixed phase gives ratios 206.770316 and 3477.4728. One electron anchor
+  converts them to free coefficients 105.6594 and 1776.985 MeV. The
+  retrospective comparison has a muon residual of +9.83 ppm and a tau
+  discrepancy of 0.61 standard deviations. A full fermion compiler realizes
+  these coefficients; the interacting physical mass identification is separate.
+- **Exact populations and thermal particle counts.** The native closed cell
+  has complete class-absorption laws. A calibrated quantum source supplies
+  complete particle-count records under a declared thermal preparation;
+  its separate ideal-gas extension has relativistic energy count 106.75.
+  Independent Euclidean lattice comparisons give an electroweak crossover
+  near 161 GeV, colour deconfinement and hadron binding. These results retain
+  their supplied inputs and do not constitute a shared cosmic cooling history.
+  [Particle and cosmology results](model/particle_cosmology_results/README.md),
   [Interactive viewer](https://particles.floatingpragma.ai/).
-- **The gauge group and its couplings.** Phases on the carrier's ports give
-  (SU(3)×SU(2)×U(1))/Z6, and neutrinos come out as Dirac particles. A coupling
-  chain gives the electroweak scale 246.6 GeV and the strong coupling 0.1183.
+- **The gauge group and its couplings.** The oriented carrier supports
+  (SU(3)×SU(2)×U(1))/Z6. A conditional coupling chain gives the electroweak
+  scale 246.6 GeV and strong coupling 0.1183 with its declared matching
+  inputs. Dirac and Majorana neutral extensions have separate assumptions;
+  gauge symmetry alone does not select their masses or mixing.
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,

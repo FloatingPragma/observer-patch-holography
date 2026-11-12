@@ -1830,6 +1830,75 @@ at ticks one to four. Without the reset a cell that failed its test reads the co
 weight and the count changes to $7/9$. The source events that create the pair and apply the
 kick are declared operations of this protocol \cite{ophparticles,ophrepo}.
 
+\paragraph{Exact active-space reduction of the free mass compiler.}
+The separately specified neutral-background fermion compiler admits an exact
+reduction of its analyzer coordinates. For each of its three channels the
+rank-one native effect acts inside the span of the blank vector and its
+inverse-tick image. Its exterior-algebra isometry preserves all ninety
+physical fermion modes, twelve active ancillary modes per site and the
+complete quantum archive. The remaining ancillary coordinates stay in
+vacuum. The resulting $102$ modes per site reproduce the original
+$324{,}000$-mode source, including arbitrary physical occupations,
+flag-independent hopping and untouched references. Twelve ancillary modes
+are minimal within number-preserving fermionic embeddings that fix the
+physical modes; this is not a minimum over all dilations.
+
+If $e_k$ are the three native effect eigenvalues and $L$ is the number of
+sites, the exact off-diagonal leakage norm satisfies
+\[
+ B^2=L\left(6-2\sum_{k=0}^2e_k^2\right).
+\]
+For $N$ committed rounds over dimensionless time $t$, the unhalved trace
+distance between complete output histories is at most
+\[
+ \min\{2,2B^2t^2/N\}\le\min\{2,12Lt^2/N\}.
+\]
+The bound includes every nonvacuum flag and its quantum archive. It follows
+from the second-order block-Duhamel estimate for the vacuum compression,
+the exact leakage operator on every physical occupation, and telescoping
+of the committed channel. At one site and $t=1$, a sufficient round count
+for error $10^{-12}$ is $11{,}724{,}207{,}179{,}903$. This is a proved
+resource bound, not an executed precision campaign. The implementation and
+full-occupation controls are in
+\path{model/lepton_compiler_compression} \cite{ophrepo}.
+
+\paragraph{Native words for a bounded coherent lepton cycle.}
+The six-level processor also implements the padded preparation and coherent
+services of a specified lepton cycle at phase $2/9$ and kick angle $1/7$.
+Each sixty-address register is embedded in sixty-four coordinates, with
+padding retained. A compiled real preparation word $V$ and the complete
+blank-phase word implement the Householder
+$V(I-2\ket0\bra0)V^\dagger$ on every input. The two-address analyzer
+preparation word $W$ acts on all $4096$ coordinates. The exact identity
+\[
+ W e^{-ih\ket0\bra0}W^\dagger
+ =I+(e^{-ih}-1)\ket\phi\bra\phi,\qquad \ket\phi=W\ket0,
+\]
+allows its execution through the actual source-prepared vector without
+materializing a dense kick. The amplitude-tree compiler and commuting
+phase expansion establish the identity on arbitrary inputs and references.
+Literal pulse replay on independent columns is an additional numerical
+control, not an all-input precision certificate.
+
+Both return-test outcomes on each address remain in the output. A compiled
+SWAP moves the entire old source into a fresh archive register, preserving
+its correlations with the family and reference. Up to three cycles retain
+all $4$, $16$ and $64$ original histories and their full quantum archive
+factors. Proper-code complement failures are part of the instrument and
+have zero weight on the ideal invariant-code trajectory. Coherent loading
+and export, routing, fresh blanks and binary readout are supplied services.
+The target equalities use the ideal real-angle synthesis recipe. Its
+binary64 angle tape approximates that recipe; the reported residuals
+include angle representation, synthesis and matrix-execution rounding,
+without a certified numerical tolerance. The conjugation identity itself
+holds for any unitary preparation word, but its prepared vector need not
+equal the target analyzer after angle rounding. Hardware errors require
+separate complete-channel bounds. These words
+implement the stated cycle without identifying its clock or coefficients
+with interacting physical particle masses
+\cite{ophparticles,ophrepo}; the executable and complete archive are in
+\path{model/lepton_service_compiler}.
+
 \subsection{The local event clock}
 \label{sec:local-tick}
 

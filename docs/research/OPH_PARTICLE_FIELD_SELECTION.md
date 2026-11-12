@@ -93,6 +93,31 @@ The [assumption inventory](../../model/completion/assumption_closure.json)
 records the preparation, analyzer, clock and physical-map obligations with
 their exact audited source domains; declarations are not implementation proofs.
 
+The [native service compiler](../../model/lepton_service_compiler/PROOF.md)
+implements full padded preparation and a specified coherent lepton cycle
+with words of the six-level source. The exact rank-one conjugation identity
+reduces the 4096-coordinate kick to its source-executed preparation vector.
+All return histories through three cycles and full quantum archive factors
+are retained. Coherent code loading/export, routing, fresh blanks and
+binary readout remain supplied services. Numerical execution residuals do
+not constitute hardware precision certificates.
+
+The [active-span reduction](../../model/lepton_compiler_compression/PROOF.md)
+is an exact full-Fock and archive isometry for the fixed neutral mass
+compiler. It retains ninety physical and twelve ancillary modes per site.
+Its leakage norm is additive in site count, giving complete-output error
+at most `12 V t²/N`. This reduction changes coordinates and computational
+cost without selecting a physical Higgs background, interaction or clock.
+
+The [flavour quotient](../../model/source_flavour_identifiability/PROOF.md)
+leaves thirteen charged invariants, twenty-two with a generic symmetric
+neutral kernel and twenty on the rank-two stratum. An exact admitted
+counterexample with `J=51840/830297` excludes forced family alignment from
+the tested native gauge identities. An eighteen-record current-loop
+instrument measures that CP invariant. A physical Yukawa prediction needs
+additional source information selecting a surviving invariant, rather than
+a repetition of gauge covariance.
+
 The [native closed-cell population](../../model/native_abundance_epochs/PROOF.md)
 is a separate classical source. Its exact persistence and relaxation are
 proved on its stated geometry and complete attempted-event clock. The
@@ -101,6 +126,18 @@ rules out a nonzero mean odd class imbalance under the specified symmetric
 preparation and dynamics. A physical matter asymmetry needs a particle
 dictionary and a symmetry-breaking mechanism or preparation; asymmetric
 postselection alone does not supply it.
+
+The [stationary-class calculation](../../model/native_thermal_admission/PROOF.md)
+classifies all forty-six closed classes and applies a Lean stationary-drift
+theorem to exclude a full-support finite-temperature Gibbs law in every
+nontrivial load sector. The [absorption calculation](../../model/native_freezeout_response/PROOF.md)
+gives exact all-state class probabilities and hitting moments. For the
+uniform zero-flux input the mean is `5557709/1125000` native attempts.
+The [thermal bath](../../model/native_thermal_completion/PROOF.md) explicitly
+changes the law by adding 3924 reverse edges. It has exact detailed balance
+and complete heat/entropy records under supplied temperatures and component
+weights. This construction does not reinterpret the unchanged repair law
+as a thermal sampler or attach native attempts to cosmic time.
 
 The [species identifiability theorem](../../model/native_abundance_epochs/SPECIES_PROOF.md)
 gives a finite shortcut for designing the missing readout. On a declared

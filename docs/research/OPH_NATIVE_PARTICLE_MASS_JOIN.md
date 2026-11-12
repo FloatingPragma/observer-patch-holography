@@ -651,7 +651,7 @@ while the dominant interacting bins are nearly equal. A common conversion
 factor preserves their ratio. Physical running-mass identification requires
 flavour, propagation and renormalization maps, in addition to a GeV anchor.
 
-The quenched hadron comparison includes the potential-fit variation in its
+The diagonal-time quenched hadron control includes potential-fit variation in its
 scale error: `m_rho/sqrt(sigma) = 1.3326 +- 0.1220` and
 `m_N/sqrt(sigma) = 1.9317 +- 0.182`. The within-spectrum ratio cancels that
 common scale. The errors cover retained statistical and fit-window variation;
@@ -739,6 +739,21 @@ on-shell Yukawa hierarchy. The scalar occupation-cost susceptibility in
 [defect_scalar_response](../../model/defect_scalar_response/PROOF.md)
 is a distinct complete energy-moment experiment.
 
+The [finite-frequency vertex](../../model/frequency_yukawa_vertex/PROOF.md)
+calculates all six fermionic time orderings on that same 320-state control,
+using full propagators to amputate the three-point function. The native
+component `Gamma_(0,4,0)` is `474925/2394532` at imaginary frequencies
+`(1,2)` and `11640331925/26140075569` at `(2,3)`, in source-clock units.
+These differ from its primitive unit contact. All 72 components at `(1,2)`
+are retained, including 64 exact zeros. Scalar normalization multiplies
+the amputated coefficient by `sqrt(14/5)`. A gauge-invariant contraction
+of the ordered responses has norm at most eight; dividing by eight gives
+four complete quadrature effects. Ground preparation from `I_320/320`
+succeeds with probability `1/160`, and the four pointer outcomes plus
+thirteen failed energies give seventeen original records. This declared
+finite apparatus has no selected physical mass shell, spacetime momentum
+or Standard Model renormalization convention.
+
 The [common source](../../model/defect_mass_join/PROOF.md) joins the spatial
 texture, all native fermion channels and every scalar mode on one clock.
 Its local controls have explicit embeddings. An empty quark sector is an
@@ -769,6 +784,18 @@ unproved. The calibrated
 quark, neutrino and boson action parameters retain their empirical inputs
 and conventions in the catalogue. They are not source-derived observer
 rest masses.
+
+An [exact active-mode reduction](../../model/lepton_compiler_compression/PROOF.md)
+keeps all ninety physical modes and twelve ancillary modes per site.
+Its full Fock-space isometry intertwines the original Hamiltonian, common
+Weyl hopping and vacuum/nonvacuum records, and reconstructs every exported
+quantum archive. The exact leakage norm is
+`B^2=V_sites*(6-2 sum_k e_k^2)`. Retaining every committed history bounds
+complete unhalved trace error by `min(2,2 B^2 t^2/N)`, hence by
+`min(2,12 V_sites t^2/N)`. At one site and unit time, the rigorous
+`10^-12` example requires `11724207179903` rounds. That resource count is
+not an executed experiment. The reduction retains the phase, neutral
+background, free coefficients and empirical electron anchor.
 
 The full native source also gives a complete Higgs-dressed neutral-composite
 response: 36 success-energy records, four failures and four zero outside
@@ -801,9 +828,32 @@ These mechanisms remove exact equality in their declared extensions
 without supplying the observed quark hierarchy.
 
 For composites, the [pion conversion](../../model/pion_mass_readout/PROOF.md)
-replays the archived quenched correlator fit. A supplied rho anchor and
-pion/rho tuning ratio give the degenerate triplet `0.13799628 GeV`;
-the alternative conventional string scale gives `0.10540200085 GeV`.
+identifies the degenerate charge triplet in the retained quenched source.
+The [correlated fit](../../model/correlated_hadron_spectrum/PROOF.md)
+reconstructs all thirty-two paired streams and refits each outer jackknife
+replica with its thirty-one-stream time covariance. All forty-eight
+predeclared windows and their replicas pass the full-rank and `10^8`
+conditioning limit, without a pseudoinverse or dropped replica. The
+conditional GeV values and separate statistical and fit-sensitivity errors
+are:
+
+| Scale input | Channel | GeV | Statistical error, GeV | Fit sensitivity, GeV |
+| --- | --- | ---: | ---: | ---: |
+| `m_rho=0.77526 GeV` | Pion | 0.13799628 | 0 | 0 |
+| Same | Rho | 0.77526 | 0 | 0 |
+| Same | Nucleon | 1.130525 | 0.030231 | 0.053203 |
+| `sqrt(sigma)=0.44 GeV` | Pion | 0.106231 | 0.001401 | 0.011761 |
+| Same | Rho | 0.596801 | 0.007873 | 0.066072 |
+| Same | Nucleon | 0.870287 | 0.024191 | 0.076896 |
+
+The supplied pion/rho tuning ratio is `0.1780`. Rho-anchored pion and rho
+entries are calibration identities; zero conditional fit errors do not
+express physical accuracy. The diagonal-time control gives nucleon
+`1.127499 GeV` with the rho anchor and pion `0.10540200085 GeV` with the
+string anchor. Chiral regression retains diagonal mass-error weights;
+its full errors-in-variables covariance is not fitted. Statistical and
+specified fit variations exclude sea quarks, finite-volume and continuum
+extrapolation, calibration uncertainty and transfer to the native clock.
 The observed charged-neutral split requires electromagnetic and
 nondegenerate light-quark terms. The native observer/source/clock transfer
 and controlled physical limit are independent obligations.
@@ -817,3 +867,52 @@ inputs and the W/Z/Higgs Hessians. Running action parameters, free compiled
 lepton masses and quenched composite energies have distinct source and
 comparison conventions. Extra sterile, valley and complementary modes
 are source candidates, without an observed-particle assignment.
+
+The [joint identity and mass instrument](../../model/particle_joint_mass_identity/PROOF.md)
+groups the actual commuting charge, colour Casimir, helicity, momentum and
+energy projectors before applying a species dictionary. Its 84 fermion
+groups have total rank 180, and 28 boson groups have total rank 56.
+Adding vacuum and the entire many-excitation complement gives 114
+projectors on the full `2^180 * 1653` source. A complete mixed fermion/boson
+probe retains 570 records, with 113 positive and 457 zero on its declared
+vacuum. Colour-triplet and colour-adjoint projectors retain their coherent
+dual references. Exact rational energy enclosures resolve the optional
+neutrino energies at one GeV momentum only in the specified extremely fine
+binning; no physical detector precision is inferred. Separately, each
+compiled lepton has sixty joint spin/charge/energy records; forgetting spin
+recovers its original thirty-six. The two instruments retain their distinct
+calibrations and source clocks.
+
+### Family freedom and a complete phase readout
+
+The [native family calculation](../../model/source_flavour_identifiability/PROOF.md)
+checks all 540 commutators between the family-coordinate generators and
+the twelve actual full currents. Transporting all preparation, detector
+and reference frames under `U(3)^5` gives an exact orbit rank 41 on 54
+charged real coefficients, hence thirteen generic invariants: nine
+singular values, three quark mixing angles and one CP phase. A generic
+complex symmetric neutral kernel gives twenty-two invariants; its rank-two
+stratum gives twenty. The supplied zero-lightest-mass normal-ordering
+packet has nineteen empirical flavour coordinates and one independent
+unmeasured Majorana-phase choice. The common phase on both massive neutral
+columns is redundant; their relative phase changes a lepton-number-violating
+invariant while leaving oscillation probabilities unchanged.
+
+All twenty-seven complex charged family coefficients embed injectively in
+the native gauge-admissible pairing tensors. Their Ward identities impose
+no additional linear family constraints. The specified common-feature
+trial satisfies `[Yu Yu^dagger,Yd Yd^dagger]=0`; an exact full-source
+counterexample disproves that alignment as a consequence of gauge symmetry.
+It uses `Yu=diag(1,2,4)`, `Yd=V diag(2,3,5)`, `Ye=diag(1,3,7)`, mixing
+sines `3/5,5/13,8/17` and phase `pi/2`, without measured targets. Its
+invariant is `J=51840/830297`.
+
+The actual weak-raising current supplies `V` in all three quark colour
+blocks. A declared coherent two-current instrument retains every output
+family pair and both path-quadrature outcomes, giving eighteen complete
+records with `J=P((0,1),Y_minus)-P((0,1),Y_plus)`. Conjugating `V` leaves
+the masses and incoherent `abs(V_ij)^2` probabilities unchanged and reverses
+that contrast. This is one measurable real direction for a source flavour
+relation to fix. The construction retains a common charge reference;
+native pulse compilation and a physical Standard Model family assignment
+are not supplied by these orbit counts or detector identities.

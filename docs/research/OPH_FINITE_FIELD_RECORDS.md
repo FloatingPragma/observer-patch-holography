@@ -31,6 +31,31 @@ The [mass catalogue](../../model/defect_mass_catalogue/README.md) separates
 conditional electron-anchored GeV values from empirical action parameters
 and unproved physical masses.
 
+The [joint particle instrument](../../model/particle_joint_mass_identity/PROOF.md)
+measures charge, colour Casimir, spin or helicity, momentum and energy on
+the actual calibrated quadratic source. It resolves 112 joint groups and
+retains 570 original probe records, including vacuum and the whole
+many-excitation complement. Colour components remain coherent within
+their unresolved rank-three or rank-eight spaces. Seventeen conditional
+GeV rest coefficients retain their empirical Yukawa, background and
+neutrino ancestry; they are not independent mass predictions.
+
+The [thermal number instrument](../../model/thermal_particle_records/PROOF.md)
+uses those same mode groups on the actual finite Gibbs preparation. It
+retains all fermion occupations and all 1653 capped boson words, including
+their helicity-frame rotation and quantum references. The continuum
+free-gas comparison is a separately declared extension. Its high-temperature
+energy count 106.75 and quark/lepton fractions follow from the supplied
+particle menu; they do not validate an early-Universe population history.
+
+The [finite-frequency vertex](../../model/frequency_yukawa_vertex/PROOF.md)
+computes all six time orderings on the unchanged 320-state lepton/Higgs
+source and amputates the actual full external propagators. Its seventeen
+preparation/pointer records retain the original ground probability 1/160.
+This connected response is frequency dependent and distinct from the unit
+bare contact. Spatial momentum, a physical renormalization prescription
+and observed Yukawa matching are separate attachments.
+
 ## Which source each result uses
 
 | Source | State and clock | Established result | Boundary |

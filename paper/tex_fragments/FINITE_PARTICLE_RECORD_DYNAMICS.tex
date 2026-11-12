@@ -673,15 +673,76 @@ specified unaliased phase window. The positive electron denominator is
 certified before forming ratios.
 
 One empirical electron anchor gives the three free coefficients
-$0.00051099895069$, $0.1056594144959$ and
-$1.7769849708134\,\mathrm{GeV}$. The fixed phase $2/9$, scalar
+\[
+ (0.00051099895069,\ 0.1056594144959,\ 1.7769849708134)\,\mathrm{GeV}.
+\]
+The fixed phase $2/9$, scalar
 background and ancillary preparation are construction inputs. The
-rigorous one-site error example at $t=1$, $\epsilon=10^{-12}$ requires
-$108\times10^{12}$ rounds; this round count is not executed.
+uncompressed norm estimate certifies one-site error $\epsilon=10^{-12}$
+at $t=1$ with $108\times10^{12}$ rounds; this round count is not executed.
+Section~\ref{sec:particle-compiler-compression} gives a sharper bound
+and an exact reduction of the same compiler.
 Physical clock matching, a selected interacting Higgs vacuum, mirror
 removal and observed Standard Model identification are not inferred.
 The construction, complete finite controls and error budgets are
 reproduced by \texttt{model/lepton\_mass\_compiler} \cite{ophrepo}.
+
+\subsection{Exact active-mode compression and a leakage bound}
+\label{sec:particle-compiler-compression}
+
+The same neutral compiler admits an exact reduction of its ancillary
+coordinates. For character $k$, let $p$ be the blank address,
+$v_k=U_k^\dagger p$, $\lambda_k=\langle p,v_k\rangle>0$ and
+$e_k=\lambda_k^2\in(0,1)$. Then
+\[
+ a_k=\frac{v_k-\lambda_kp}{\sqrt{1-e_k}},\qquad
+ B_k=(p,a_k),\qquad
+ v_kv_k^\dagger=B_k
+ \begin{pmatrix}e_k&\sqrt{e_k(1-e_k)}\\
+ \sqrt{e_k(1-e_k)}&1-e_k\end{pmatrix}B_k^\dagger.
+\]
+The two spin-oriented pairing blocks per character need twelve ancillary
+fermion modes in total. Retaining all ninety physical modes gives $102$
+modes per site. The exterior lift $\Gamma(T)$ uses $B_k$ on a left field
+and $\overline B_k$ on its conjugate right field, fixes the physical
+modes, and satisfies
+$H_{\rm original}\Gamma(T)=\Gamma(T)H_{\rm compressed}$.
+The common Weyl hopping preserves these position-independent spans.
+Every omitted address mode starts and stays in vacuum. This identity
+holds on the complete physical occupation space and with arbitrary
+untouched references. Twelve ancillary modes are minimal among
+number-preserving mode embeddings that fix the physical modes and
+reproduce this first-order coupling.
+
+The ancillary isometry also intertwines vacuum/nonvacuum flags and
+reconstructs the full quantum archive after every round. It preserves
+coherence within each committed history. For one oriented pair with kick
+$\mathcal V$, let $P$ project onto fresh ancillary vacuum. On its physical
+range the leakage form is
+\[
+ P\mathcal V^2P-(P\mathcal VP)^2
+ =(1-e^2)I-e(1-e)(n_L+n_R).
+\]
+Its maximum is $1-e^2$. Distinct pairs and sites emit into orthogonal
+ancillary sectors, so for $V$ sites the full off-diagonal norm obeys
+\[
+ B^2:=\|(I-P)HP\|^2=V\Bigl(6-2\sum_k e_k^2\Bigr)<6V.
+\]
+The kinetic term preserves $P$. Block Duhamel integration therefore
+gives vacuum-branch operator error at most $B^2h^2/2$ in one round of
+duration $h$, independently of the kinetic norm. Telescoping $N$ rounds
+and retaining every nonvacuum output gives the complete unhalved bound
+\[
+ \|\rho_{\rm actual}-\rho_{\rm ideal}\|_1
+ \le \min\{2,2B^2t^2/N\}\le\min\{2,12Vt^2/N\}.
+\]
+Per-round half-diamond implementation error $\eta$ adds $2N\eta$.
+The sharper one-site bound at $t=1$ certifies error $10^{-12}$ with
+$11724207179903$ rounds; this resource count is not an executed campaign.
+The free masses, Ramsey inversion and positive ratio-denominator guard
+are unchanged. Complete finite occupation and quantum-archive controls
+are reproduced by \texttt{model/lepton\_compiler\_compression}
+\cite{ophrepo}.
 
 \subsection{Complete calibrated quadratic spectrum}
 
@@ -695,8 +756,11 @@ including the small neutral amplitudes. The quadratic dispersion obeys
 $E^2-|p|^2=m^2$ in this declared action.
 
 Differentiating the actual gauge-Higgs action gives tree coefficients
-approximately $80.8480001663$, $92.2264476377$ and
-$131.279873449\,\mathrm{GeV}$ for $W$, $Z$ and the scalar, with zero
+approximately
+\[
+ (80.8480001663,\ 92.2264476377,\ 131.279873449)\,\mathrm{GeV}
+\]
+for $W$, $Z$ and the scalar, with zero
 photon and gluon rest coefficients. A global total-occupation cap two
 on the $56$ boson modes has dimension $1653$ and preserves colour
 rotations. The complete boson instrument retains $375$ pointer/energy
@@ -715,6 +779,182 @@ modes are classified as source modes, without declaring undiscovered
 particles. The complete finite construction and input ancestry are
 reproduced by \texttt{model/conditional\_particle\_spectrum}
 \cite{ophrepo}.
+
+\subsection{Joint quantum-number and mass records}
+
+On the same calibrated two-momentum source, electric charge, colour
+Casimir, spin about $z$ and momentum have commuting Nambu lifts
+\[
+ Q_N=\operatorname{diag}(Q,-Q^T),\quad
+ C_N=\operatorname{diag}(C,C^T),\quad
+ S_N=\operatorname{diag}(S,-S^T),\quad
+ P_N=\operatorname{diag}(P,-P^T).
+\]
+Their commutators with the actual $360$-dimensional Hamiltonian vanish.
+At the declared momenta $\pm(0,0,1\,\mathrm{GeV})$, write helicity as
+$h=S_NP_N/|P_N|$. Grouping by the measured tuple
+$(Q,C,2h,P_z,E)$ gives $84$ fermion projectors of total rank $180$.
+Colour-triplet components occupy rank-three projectors. Circular
+polarization similarly gives $28$ boson projectors of total rank $56$,
+with rank-eight adjoint gluon groups and no longitudinal massless
+oscillator. The adjoint Casimir is exactly $3I_8$. Species names enter
+only as a comparison dictionary after this grouping.
+
+These $112$ one-excitation projectors, the vacuum and the entire
+many-excitation complement sum to identity on the full
+$2^{180}\times1653$-dimensional source. A fair mixture of the complete
+fermion and boson probes, composed with these $114$ projectors, retains
+$570$ pointer/projector records. On the declared vacuum, $113$ are
+positive and $457$ are zero. Fermion and boson group probabilities are
+respectively rank$/360$ and rank$/116$, and the boson no-operation
+vacuum has probability $1/58$. Charge and colour references are
+retained. Within a rank-$r$ colour group their conditional output is
+coherently entangled; dephasing its colour coordinates changes that
+density by unhalved trace norm $2(1-1/r)$.
+
+Exact mass frames attach $E^2=p^2+m^2$ to these projectors. Rational
+square-root enclosures distinguish the optional neutrino energies even
+when binary64 subtraction would lose their mass differences. At momentum
+one GeV, energy bins of half-width $10^{-6}\,\mathrm{GeV}$ merge these
+neutral energies, whereas half-width $10^{-26}\,\mathrm{GeV}$ resolves
+them in the fixed input packet. This is an arithmetic and instrument
+definition, without a physical detector-precision claim. Opposite-helicity
+Majorana records do not add sterile species.
+
+Separately, the compiled lepton's literal sixteen-state Dirac block has
+fifteen nonzero joint charge/spin/energy projectors. Each family has
+sixty complete reservoir and detector records; forgetting spin recovers
+the original thirty-six exactly. Momentum is zero and no rest-frame
+helicity is assigned. Both constructions are reproduced by
+\texttt{model/particle\_joint\_mass\_identity} \cite{ophrepo}.
+The calibrated Yukawa packet and electron-anchored compiler retain
+their separate input ancestry and clocks.
+
+\subsection{Family invariants and an interference measurement}
+
+The native three-family source has forty-five internal coordinates and
+ninety spin-resolved fermion modes. Its twelve gauge currents commute
+with all forty-five generators of family-coordinate $U(3)^5$.
+With canonical kinetic terms, the charged kernels transform as
+\[
+ Y_u\mapsto U_Q^\dagger Y_uU_u,\qquad
+ Y_d\mapsto U_Q^\dagger Y_dU_d,\qquad
+ Y_e\mapsto U_L^\dagger Y_eU_e.
+\]
+This is equivalence under a change of coordinates when preparations,
+detectors and references transform together. The exact generic tangent
+rank is $41$ on the $54$ real charged coefficients, leaving thirteen
+invariants: nine singular values, three quark mixing angles and one
+charge-conjugation/parity (CP) phase. A complex symmetric neutral kernel
+transforms as $M_\nu\mapsto U_L^TM_\nu U_L$. Its generic extension has
+$66$ real coefficients and orbit rank $44$, leaving twenty-two
+invariants. On the rank-two neutral stratum the corresponding count is
+$64-44=20$: a zero mass also removes one independent Majorana phase.
+The supplied normal-ordering, zero-lightest-mass packet consequently has
+nineteen empirical flavour coordinates and one independent unmeasured
+Majorana-phase choice.
+
+The native current and Higgs identities admit all twenty-seven complex
+charged family coefficients: their embedding has positive diagonal
+Gram matrix, and the full ninety-mode pairing is antisymmetric.
+They impose no additional linear family restriction. The specified
+common-feature trial has $[Y_uY_u^\dagger,Y_dY_d^\dagger]=0$.
+This alignment is not forced by those identities. An exact admitted
+counterexample uses
+\[
+ Y_u=\operatorname{diag}(1,2,4),\quad
+ Y_d=V\operatorname{diag}(2,3,5),\quad
+ Y_e=\operatorname{diag}(1,3,7),
+\]
+where $V$ has mixing sines $3/5,5/13,8/17$ and phase $\pi/2$. It gives
+\[
+ J=\operatorname{Im}(V_{00}V_{11}\overline{V_{01}V_{10}})
+   =\frac{51840}{830297}.
+\]
+The actual native weak-raising current has this $V$ block in all three
+colour copies of the mass frame. No measured flavour target selects
+the counterexample.
+
+A declared two-path current instrument prepares family pairs $(0,1)$
+and $(1,0)$ in distinct colour registers and applies $V\otimes V$.
+For every output pair $(r,s)$, put $a_{rs}=V_{r0}V_{s1}$ and
+$b_{rs}=V_{r1}V_{s0}$. Its eighteen Kraus rows are
+\[
+ K_{rs,+}=\frac{(a_{rs},-ib_{rs})}{\sqrt2},\qquad
+ K_{rs,-}=\frac{(a_{rs},+ib_{rs})}{\sqrt2},\qquad
+ \sum_{r,s,\pm}K_{rs,\pm}^\dagger K_{rs,\pm}=I_2.
+\]
+On the equal path superposition,
+$p_{rs,\pm}=|a_{rs}\mp ib_{rs}|^2/4$ and
+$J=p_{01,-}-p_{01,+}$. Every other outcome and the path reference are
+retained. Conjugating $V$ preserves its singular-value and incoherent
+probability data but reverses this contrast. Thus one real signed
+contrast supplies information absent from masses and $|V_{ij}|^2$.
+The instrument is a coherent current service with a common charge
+reference, without a native pulse compilation or laboratory flavour
+assignment. Exact orbit calculations, full-source identities and complete
+records are reproduced by
+\texttt{model/source\_flavour\_identifiability} \cite{ophrepo}.
+
+\subsection{A finite-frequency amputated scalar--fermion response}
+
+The literal $320$-state lepton/scalar control permits a full three-point
+calculation with six fermion fields and two scalar fields. Its ground
+projector $P_0$ has rank two and energy $-2$. Preparing the marginal
+$I_{320}/320$ of a source/dual-reference entangled state and measuring
+the complete energy gives $\rho_0=P_0/2$ with probability $1/160$.
+All other energy outcomes and the quantum reference are retained.
+Define $R(z)=(z-H-2)^{-1}$ and $O=(c_i,c_j,\phi_k^\dagger)$.
+For $\omega_1+\omega_2+\omega_3=0$, the complete ordered transform is
+\[
+ T_{ij,k}=\sum_{(a,b,c)\in S_3}\operatorname{sgn}_F(a,b,c)
+ \operatorname{Tr}\!\left[
+ \rho_0O_aR(i\omega_a)O_bR(-i\omega_c)O_c\right],
+\]
+where the sign changes exactly when the fermions exchange order.
+This follows by integrating the two positive Euclidean time intervals.
+All one-point functions vanish, so the transform is connected. The
+full resolvent retains every intermediate state, including $198$
+scalar-occupied dark states.
+
+The complete two-point functions used for amputation are
+\[
+ \begin{split}
+ G_{ij}(z)&=\operatorname{Tr}\rho_0
+  [c_iR(z)c_j^\dagger-c_j^\dagger R(-z)c_i],\\
+ D_{ab}(z)&=\operatorname{Tr}\rho_0
+  [\phi_aR(z)\phi_b^\dagger+\phi_b^\dagger R(-z)\phi_a].
+ \end{split}
+\]
+In the native frame, $G$ is diagonal and $D$ is scalar on the doublet.
+Equal addition/removal matrices give $D(z)=D(-z)$, fixing the conjugate
+scalar-leg convention. At each specified nonzero imaginary frequency,
+\[
+ \Gamma_{ij,k}(\omega_1,\omega_2)=
+ \frac{T_{ij,k}}{G_{ii}(i\omega_1)G_{jj}(i\omega_2)
+                         D_{kk}(-i(\omega_1+\omega_2))}.
+\]
+The exact denominators are nonzero. All seventy-two components at
+$(1,2)$ are retained, of which eight are nonzero. In particular,
+\[
+ \Gamma_{04,0}(1,2)=\frac{474925}{2394532},\qquad
+ \Gamma_{04,0}(2,3)=\frac{11640331925}{26140075569}.
+\]
+These differ from the primitive unit contact. Canonical scalar
+normalization $\phi/\sqrt{14/5}$ multiplies $\Gamma$ by $\sqrt{14/5}$.
+
+Summing the four native oriented scalar/pair components and all six
+orders at $(1,2)$ gives an operator of norm at most eight. Its quotient
+$B$ by eight commutes with all twelve native currents. The four effects
+$(I\pm\operatorname{Re}B)/4$ and
+$(I\pm\operatorname{Im}B)/4$ are positive and sum to identity.
+Their declared square-root instrument gives four successful pointer
+records alongside thirteen failed preparation energies, hence seventeen
+original records of total weight one. This finite response has no
+selected physical mass shell, spacetime momentum or renormalized
+Standard Model coupling. Exact full-source resolvents, signs,
+propagators and pointer effects are reproduced by
+\texttt{model/frequency\_yukawa\_vertex} \cite{ophrepo}.
 
 \subsection{A neutral scalar occupation pole}
 
@@ -789,3 +1029,54 @@ finite-volume and continuum control, and transfer to the native observer
 source and clock are independent physical obligations. The flavour
 identities, full fit replay and conditional conversions are reproduced
 by \texttt{model/pion\_mass\_readout} \cite{ophrepo}.
+
+\subsection{Correlated hadron fits and paired GeV uncertainties}
+
+The retained thirty-two Wilson streams also support a fit with the full
+time covariance in each declared window. If $j_i$ is its leave-one-stream
+correlator mean, the compatible stream mean is
+$x_i=32\overline j-31j_i$. For $m$ included streams, the covariance of
+their mean is
+\[
+ C=\frac{1}{m(m-1)}\sum_i(x_i-\overline x)(x_i-\overline x)^T.
+\]
+Every outer jackknife replica refits with its own thirty-one-stream
+covariance. The prescribed rules require enough streams, positive
+diagonal entries, full correlation rank and condition number at most
+$10^8$. All forty-eight windows and all their replicas pass. No
+pseudoinverse, shrinkage or discarded replica supplies an accepted fit.
+The maximum replica condition number is approximately $4.50\times10^7$.
+At fixed decay coefficient $m$, the amplitude is profiled exactly as
+$A=f^TC^{-1}y/(f^TC^{-1}f)$; a bounded numerical search over
+$0.02\le m\le3$ supplies the fitted coefficient. The fit window and
+search rule do not use empirical hadron masses.
+
+Paired stream labels propagate through the chiral extrapolation and
+potential-scale conversion. The table gives GeV central values with
+statistical errors and the separate variation across the specified
+hadron-window, sink, chiral-subset and potential fits:
+\[
+\begin{array}{cc|rrr}
+ \text{calibration}&\text{channel}&m\;(\mathrm{GeV})&
+ \sigma_{\rm stat}\;(\mathrm{GeV})&\Delta_{\rm fit}\;(\mathrm{GeV})\\ \hline
+ m_\rho=0.77526&\pi&0.13799628&0&0\\
+ &\rho&0.77526&0&0\\
+ &N&1.130525&0.030231&0.053203\\
+ \sqrt\sigma=0.44&\pi&0.106231&0.001401&0.011761\\
+ &\rho&0.596801&0.007873&0.066072\\
+ &N&0.870287&0.024191&0.076896
+\end{array}
+\]
+The rho-anchored pion and rho values are fixed calibration identities;
+their vanishing conditional fit errors do not express physical accuracy.
+The correlated nucleon ratio is $1.458252\pm0.038995$. Independent
+diagonal-time fits are retained as controls, including the rho-anchored
+nucleon value $1.127499\,\mathrm{GeV}$. The inherited lightest nucleon
+quality flag is also retained.
+
+This calculation treats the time covariance explicitly; the chiral
+regression uses diagonal mass-error weights and is not a fully correlated
+errors-in-variables fit. Its errors exclude sea quarks, continuum and
+finite-volume extrapolation, anchor uncertainty and native-clock
+matching. The same quenched finite source supplies all results in
+\texttt{model/correlated\_hadron\_spectrum} \cite{ophrepo}.

@@ -1,0 +1,256 @@
+\section{Native populations and conditional thermal laws}
+\label{sec:native-thermal-records}
+
+The native population process, a reversible bath extension and a calibrated
+free particle gas have separate dynamical laws. Their observation counts,
+costs and temperature parameters are kept distinct. The finite constructions
+below give complete probability records; their interpretation as an
+early-Universe history requires a physical state, energy and clock map.
+
+\subsection{Stationary native populations and the thermal obstruction}
+
+Consider the closed triangular cell with three loads $x_i\in\{0,\ldots,5\}$
+and opposite face classes $k,-k\in\mathbb Z_6$. Its unchanged native
+seam repair and register acceptance give $1296$ states and $7776$ original
+seam/coin records, each attempted event having weight $1/6$. Rejected
+twists retain their load repair, and no-operation records count as attempts.
+The conserved total load is $M=\sum_i x_i$. The native cost
+\[
+ E(x,k)=5\sum_i x_i^2+2\bigl(C(k)+C(-k)\bigr),\qquad
+ C=(0,5,8,10,8,5),
+\]
+does not increase on any positive transition of the row kernel $K$.
+
+\begin{proposition}[Full-support equilibrium obstruction]
+In every sector $1\leq M\leq14$, no full-support probability law is
+stationary for $K$. In particular, $\exp(-E/T)/Z_M(T)$ is neither
+stationary nor detailed-balanced for any finite $T>0$. The endpoint
+sectors $M=0,15$ have identity dynamics on their six flux states.
+\end{proposition}
+\begin{proof}
+The pointwise drift $d=KE-E$ is nonpositive. Each nontrivial sector has
+an executed strict-descent edge, so $d(s)<0$ for some state $s$. A
+stationary law would satisfy
+$\sum_s p(s)d(s)=\langle pK,E\rangle-\langle p,E\rangle=0$,
+contradicting full support. A strict-descent edge also has zero reverse
+probability. The generic finite push/pull argument is kernel-checked in
+\path{Lean/Dynamics/StationaryLyapunov.lean}; the source supplies its
+exact drift premises.
+\end{proof}
+
+The positive-edge graph has $46$ closed classes: $36$ absorbing states
+$(q,q,q,k)$ and ten three-state classes of balanced load permutations
+with zero flux. Each three-state kernel is
+$\frac12I_3+\frac16\mathbf1\mathbf1^T$. Thus all stationary measures form
+the simplex of arbitrary mixtures of the $46$ class-uniform laws. There
+are $66$ recurrent states and $1230$ transient states. Gibbs weights
+restricted to this recurrent set are stationary at every positive
+temperature, but their inter-class weights are an additional choice.
+The classification and every original attempt record are reproduced by
+\path{model/native_thermal_admission} \cite{ophrepo}.
+
+\subsection{Exact absorption, lifetimes and boundary response}
+
+Let $\tau$ be the first attempted-event count at which a closed class
+is reached. For class $c$, write $h_c(s)=\Pr_s(X_\tau\in c)$,
+$t(s)=\mathbb E_s\tau$, $g(s)=\mathbb E_s\tau^2$ and
+$u_c(s)=\mathbb E_s[\tau\mathbf1_{X_\tau\in c}]$.
+Their boundary values on closed states are $h_c=\mathbf1_c$ and
+$t=g=u_c=0$. On transient states,
+\[
+ h_c=Kh_c,\qquad t=1+Kt,\qquad g=2t-1+Kg,\qquad u_c=h_c+Ku_c.
+\]
+Ordering by load square and register cost reduces exact rational
+elimination to native blocks of at most six states. The source survival
+bound $\Pr_s(\tau>n)\leq25^{-\lfloor n/32\rfloor}$ proves uniqueness
+and finiteness; all equations are verified on every original state.
+
+For independent uniform initial loads and initial flux zero, the limiting
+oriented-face distribution, in class order $0,\ldots,5$, is
+\[
+ \left(\frac{12817}{13824},\frac{499}{27648},\frac{25}{1728},
+       \frac1{128},\frac{25}{1728},\frac{499}{27648}\right).
+\]
+The exact mean lifetime is $5557709/1125000$ attempts, approximately
+$4.94019$, and the largest mean over all starting states is $15$.
+The second moment is $177070889/2812500$. All $46$ terminal probabilities
+and their conditional lifetimes, including zero-probability classes,
+are retained. These are relaxation lifetimes, with no particle-decay
+width assignment.
+
+After absorption the face class is fixed. Coupling each trajectory to
+its eventual class gives
+\[
+ \operatorname{TV}\bigl(\operatorname{class}(p_n),
+          \operatorname{class}(p_\infty)\bigr)
+ \leq\Pr(\tau>n)\leq25^{-\lfloor n/32\rfloor}.
+\]
+The three-state recurrent kernels contract their nonconstant modes by
+$1/2$. Splitting at $m=\lfloor n/2\rfloor$ consequently gives the full
+state bound
+$\operatorname{TV}(p_n,p_\infty)\leq25^{-\lfloor m/32\rfloor}
++\frac23\,2^{-(n-m)}$.
+For example, $96$ attempts guarantee face-class error at most $1/15625$
+for every initial law. This source-count criterion quantifies cessation
+of native class changes without a cosmic temperature or time.
+
+Absorption is affine in preparation and contracts total variation.
+The supplied asymmetric input $(0,1,5,1)$ gives terminal oriented
+contrast $\Pr(k=1)-\Pr(k=5)=-91/384$. Averaging the two opposite faces
+is even for every state, so that contrast is an oriented record and
+is not baryon number. A separate control resets to this input with
+probability $1/10$ after eight attempts from $(0,1,5,0)$. Both original
+reset/no-reset branch vectors, of masses $1/10$ and $9/10$, are propagated
+independently and sum exactly to every saved marginal. Relaxation counts
+for this supplied boundary operation start after the reset.
+The complete distributions and bounds are reproduced by
+\path{model/native_freezeout_response} \cite{ophrepo}.
+
+\subsection{A declared reversible bath and its cooling records}
+
+A thermal extension can be constructed explicitly on the same states.
+For $x\ne y$ set $s_{xy}=\max(K_{xy},K_{yx})$ and
+$\Lambda=2\max_x\sum_{y\ne x}s_{xy}=12$.
+The symmetric support adds $3924$ reverse edges to $4104$ native directed
+nonidentity edges. It has $26$ connected components: the fourteen
+nontrivial load sectors and twelve endpoint singletons. This reverse
+support is necessary for full-support detailed balance; its rates are
+declared choices.
+
+For $0<q\leq1$ and $\beta=-\log(q)/2$, propose $y$ with probability
+$s_{xy}/\Lambda$ and accept with probability
+$\min\{1,q^{(E_y-E_x)/2}\}$. Keep rejected proposals and idle records.
+The $17352$ complete records per attempt give
+\[
+ \frac{P_{xy}}{P_{yx}}=e^{-\beta(E_y-E_x)}.
+\]
+Hence each component has its Gibbs equilibrium, while component weights
+are conserved and free. Exact rational checks use
+$q=1,3/4,1/2,1/4$. The construction is a bath extension; the obstruction
+for unchanged native repair is unaffected.
+
+For $p'=pP$, let $Q=\sum_{xy}p_xP_{xy}(E_y-E_x)$ be heat into the
+system and let $S$ use natural logarithms. Detailed balance gives
+\[
+ S(p')-S(p)-\beta Q
+ =\sum_{xy}p_xP_{xy}\log\frac{p_xP_{xy}}{p'_yP_{yx}}\geq0.
+\]
+The right side is relative entropy between normalized forward and
+reverse joint laws. Accepted records reverse their endpoints; rejected
+proposal labels and idle marks are retained. The identity therefore
+holds for the complete marked law as well.
+
+Two executed schedules use $q=3/4,1/2,1/4,1/2,3/4,1$ with $32$ or $256$
+attempts per setting, retaining full state laws and finite-time departures
+from Gibbs equilibrium. Exact coefficient-rounding errors and positive
+sparse-sum bounds give final probability $L^1$ error below
+$9.1\times10^{-13}$ and $7.3\times10^{-12}$, respectively, assuming
+binary64 products and sums without overflow or underflow, without
+renormalization. The cost,
+bath inverse temperature and event count have no physical calibration.
+The records and entropy identity are reproduced by
+\path{model/native_thermal_completion} \cite{ophrepo}.
+
+\subsection{Conditional thermodynamics of the calibrated spectrum}
+
+The separate calibrated quadratic menu contains $17$ particle types,
+with $90$ fermionic and $28$ bosonic degrees per momentum. Antiparticles
+and both neutrino helicities are counted once; no populated sterile
+species is added. On its two actual nonzero momenta the fermion
+partition function has $180$ canonical factors. The global boson
+occupation cap of two gives $1+56+56\cdot57/2=1653$ states. Complete
+Gibbs enumeration has high-temperature mean total boson number
+$3248/1653<2$. It differs from an uncapped Bose gas even on those same
+momenta. All energies are excitation energies above the selected
+quadratic vacuum.
+
+For a declared continuum free-gas extension, put
+$y=m/T$, $\epsilon=\sqrt{x^2+y^2}$ and
+$f=(e^\epsilon\pm1)^{-1}$, with plus for fermions. Per degree,
+\[
+ \frac{n}{T^3}=\frac1{2\pi^2}\int_0^\infty x^2f\,dx,\qquad
+ \frac{\rho}{T^4}=\frac1{2\pi^2}\int_0^\infty x^2\epsilon f\,dx,
+ \qquad
+ \frac{P}{T^4}=\frac1{6\pi^2}\int_0^\infty\frac{x^4f}{\epsilon}\,dx.
+\]
+At zero chemical potential, $s=(\rho+P)/T=dP/dT$.
+Differentiation at fixed mass gives positive heat capacity and
+$0<c_s^2=(dP/dT)/(d\rho/dT)\leq1/3$; integration by parts gives
+$\rho-3P\geq0$. Independent fugacity series check the numerical
+quadrature. Its reported errors are numerical estimates, with no
+certified interval or physical-accuracy claim.
+
+The massless limit gives $g_{\rho}=g_s=427/4=106.75$ and number count
+$191/2$. Quark/lepton number fractions are $108/191$ and $27/191$;
+their energy fractions are $252/427$ and $63/427$. These are conditional
+ideal-gas counts. With the additional assumptions $a^3s=\mathrm{constant}$
+and a flat Friedmann density law, the same curve gives
+$a(T)/a(T_*)=[s(T_*)/s(T)]^{1/3}$ and
+$H(T)/H(T_*)=[\rho(T)/\rho(T_*)]^{1/2}$. Neither cosmological equation
+is derived from these particle counts.
+
+The charged-fermion coefficients are held at the supplied renormalization
+scale $\mu=91.1876\,\mathrm{GeV}$; the bosons use a supplied tree background
+and the neutrinos an optional Weinberg prescription. The calculation
+supplies no thermal pole matching or temperature running. It omits
+confinement and hadron replacement, a thermal Higgs
+background and neutrino decoupling. Compared at the same tabulated
+temperatures with the interacting equation of state of Saikawa and
+Shirai \cite{pwsaikawa2018thermodynamics}, the ideal energy count is
+about $6.52\%$ higher near $10\,\mathrm{GeV}$ and $2.44\%$ higher near
+$1\,\mathrm{TeV}$. Near $10\,\mathrm{MeV}$ it is about $4.56$ times
+the tabulated count, exposing the inadmissible low-temperature free
+coloured gas. The comparison is not a native nucleosynthesis or relic
+abundance prediction. Its complete finite-source controls, conditional
+curves and input ancestry are reproduced by
+\path{model/particle_thermal_history} \cite{ophrepo}.
+
+\subsection{Complete finite thermal number records}
+
+On the same calibrated quadratic source, the simultaneous one-particle
+energy, charge, colour Casimir, helicity and momentum eigenspaces give
+$84$ fermion groups and $28$ boson groups. For a group $g$, define
+$N_g=\sum_{j\in g}\beta_j^\dagger\beta_j$ using the source's canonical
+quasiparticle fields. If $L_g=\{0,\ldots,r_g\}$ for a fermion group of
+rank $r_g$, and $L_g=\{0,1,2\}$ for capped bosons, then
+\[
+ \Pi_{g,n}=\prod_{\ell\in L_g\setminus\{n\}}
+              \frac{N_g-\ell I}{n-\ell}
+\]
+are complete orthogonal projections. The $N_g$ commute, so products of
+these projections define a joint instrument on every occupation,
+including every untouched reference. Each group contains whole colour
+fibers. Its number projections therefore commute with the global colour
+action and preserve coherence within each colour fiber. They do not
+measure a many-body total colour Casimir.
+
+The fermion count law has $2^{132}$ outcomes, represented by $84$ complete
+binomial factors. The boson count law has $435$ nonzero-rank outcomes,
+whose projector ranks sum to $1653$. All count vectors with total boson
+occupation above two have the exact zero effect. To attach the helicity
+labels, the calculation constructs the actual circular-polarization
+rotation and its full $1653$-dimensional symmetric-Fock lift. This
+rotation commutes with the excitation energy and charge, hence leaves
+the finite Gibbs state invariant. Thus the original occupation weights
+can be pushed forward to joint group counts without measuring colour
+coordinates or substituting a different thermal state.
+
+At the supplied temperatures $T=0.1,1,10,100\,\mathrm{GeV}$, complete
+group and species count laws retain every occupation and its original
+weight. Count fractions mean $\mathbb E[N_g]/\mathbb E[N_{\rm total}]$,
+with empty trials retained. Before any additional particle probe,
+\[
+ \Pr(N_{\rm total}\leq1)=
+ \frac{1+\sum_{i\in F}e^{-E_i/T}+\sum_{j\in B}e^{-E_j/T}}
+      {Z_F Z_{B,\leq2}}.
+\]
+The many-excitation probability is about $1.98\times10^{-5}$ at
+$0.1\,\mathrm{GeV}$; at $1\,\mathrm{GeV}$ the complementary
+vacuum-or-one-excitation probability is about $2.79\times10^{-18}$.
+The complete number instrument therefore handles thermal preparations
+far outside a one-particle sector. These are finite calibrated count
+measurements under a declared number-readout service, without a native
+temperature or cosmological abundance identification. Complete words,
+factorized laws, logarithms of underflowed probabilities and independent
+energy, charge and momentum controls are reproduced by
+\path{model/thermal_particle_records} \cite{ophrepo}.
