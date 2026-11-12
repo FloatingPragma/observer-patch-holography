@@ -1071,3 +1071,11 @@ use declared native extensions and retain their full source clocks and
 failed records. They supply mechanisms rather than measured neutrino masses,
 PMNS parameters or a muon decay rate. No neutral energy from the flat
 side-two source is reassigned as a moving neutrino mass.
+
+### Bound native composites and one common scale
+
+A [positive native-current action](../../model/openwave_native_composites/PROOF.md) retains the full fifteen-coordinate internal module and both spin states. Exact colour contractions reduce its three-quark and quark/conjugate sectors to120 and64 dimensions, with full-Fock positivity controlling the complement. At declared m=1, U=1, J=1/4, t=1/8 the spin-half baryon energy is3.544903181009 and the spin-zero meson energy2.229589021818. Variational fragment gaps are at least55/24 and67/24. Complete preparation records include failures, both neutral meson combinations and the higher-spin multiplets.
+
+The [common electron conversion](../../model/openwave_composite_scale/PROOF.md) preserves the inherited conditional lepton family values but rejects the light physical hadron assignment. Bound-source energies are below0.00183 GeV for the baryon and0.00115 GeV for the meson. Equal light-family number energies force proton-like/neutron-like degeneracy. Family-independent binding cancels from the light/second-family meson difference, leaving0.105148416 GeV against the charged-kaon-minus-pion comparison0.35410661 GeV. These stationary finite-source energies have no established relativistic pole interpretation. The architecture differs from the Weyl/Higgs pairing action and from the phenomenological hadron transmutation estimate.
+
+A separate [native-current attachment](../../model/openwave_native_quantum_charge/PROOF.md) derives the dressed positive Dirac block charge from the literal native current and a full-module neutral reference. Its [infinite-photon extension](../../model/openwave_infinite_photon/PROOF.md) controls the field at fixed complete matter shells; it does not supply a spatial continuum or an observed-particle dictionary.

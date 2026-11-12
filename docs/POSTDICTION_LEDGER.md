@@ -396,3 +396,9 @@ neutral law and do not constitute a prospective FZ-03 verdict.
 ## Dispersion coefficients
 
 - The frozen dispersion rows FZ-11 and FZ-12 share the quadratic coefficient delta_gamma2 = -a^2/20. With the natural scale a = sqrt(P) l_P it is -5.47 x 10^-58 eV^-2, 5.47 times the photon-only Pierre Auger 2022 bound delta_gamma2 > -1 x 10^-58 eV^-2. The bound is scenario- and interaction-dependent and predates both freezes, so this retrospective exposure decides nothing under the frozen rules (`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; [frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).
+
+## Native-current composite mass comparison
+
+The [positive native-current source](../model/openwave_native_composites/PROOF.md) binds colour-singlet mesons and three-quark states. Its fixed architectural values m=1, U=1, J=1/4 and t=1/8 are not fitted to hadrons. One electron anchor puts the light spin-zero meson below0.00115 GeV and the spin-half baryon below0.00183 GeV, far below the charged-pion and proton comparison values. These specific physical assignments are rejected by the [common-scale calculation](../model/openwave_composite_scale/results.json). This result has a distinct action and input ancestry from the transmutation estimate above.
+
+Exact weak flavour symmetry forces equal charge-zero and charge-one baryon energies. Family-independent binding cancels from the light/second-family meson difference, giving0.105148416 GeV against the charged kaon-minus-pion comparison0.35410661 GeV. Retuning a common binding correction cannot change these exact identities. The retained neutral singlet, spin-one and spin-three-halves composites are conditional model states, without an established observed or extra-particle assignment.

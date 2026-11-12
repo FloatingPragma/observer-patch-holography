@@ -1201,4 +1201,22 @@ cap two, the certified magnetic coefficient lies between
 1.998275353408213 and 1.9982753545060563. This is a finite-source current
 result with a supplied coupling, not an electron anomalous-moment prediction.
 Cap comparisons preserve one common energy unit and expose their finite
-cutoff dependence; no infinite-photon limit is claimed.
+cutoff dependence; the finite-cap receipt itself supplies no infinite-photon theorem.
+
+## Native composites and quantum geometry
+
+The [source derivation](../paper/tex_fragments/NATIVE_COMPOSITES_AND_QUANTUM_GEOMETRY.tex) joins complete measurements within each specified action. Exact native-current intertwiners, colour sectors and padded photon moments avoid full-carrier enumeration.
+
+| Construction | Supported result and boundary |
+| --- | --- |
+| [Native electric charge](openwave_native_quantum_charge/PROOF.md) | A neutral full-current reference and exact particle-hole map attach the dressed positive Dirac block to actual native electric charge, retaining all1800 modes of the two declared conjugate native copies. The global charge-one ground band has two spin-half doublets; no local longitudinal gauge completion is implied. |
+| [Quantum Larmor response](openwave_quantum_larmor/PROOF.md) | Same-Hamiltonian current and finite-time magnetic records include quantum Maxwell degrees of freedom and complementary outputs. Trap, coupling and regulator remain declared. |
+| [Infinite photon field](openwave_infinite_photon/PROOF.md) | Fourteen padded moments and a global square-root remainder enclose the infinite-field ground energy at fixed matter shells. Photon completion does not remove the spatial regulator. |
+| [Neutral production and flight](openwave_neutral_flight/PROOF.md) | Native source/receiver currents, spatial evolution, flavour mixing and recoil share one declared action; failures and which-path controls remain in the complete experiment. |
+| [Inclusive weak decay](openwave_inclusive_decay/PROOF.md) | A declared positive-frequency native-current member computes the inclusive three-body spectral law and finite-time survival control, with ultraviolet and weak coefficients retained as inputs. |
+| [Native bound composites](openwave_native_composites/PROOF.md) | Exact colour-singlet sectors of dimension120 and64 give baryon and meson binding margins at least55/24 and67/24. Full-Fock positivity retains all complementary modes. |
+| [One-scale comparison](openwave_composite_scale/PROOF.md) | All energies share one electron calibration. The physical light-hadron assignment fails; exact flavour degeneracy and cancellation of common binding corrections constrain any replacement. |
+| [Quantum geometry](openwave_quantum_geometry/PROOF.md) | Autonomous mediator evolution retains all64 native energy sectors and permits an entanglement witness between initially separate native clocks. Inertia, stiffness and cutoff are declared. |
+| [Wave-packet bending](openwave_wave_deflection/PROOF.md) | Complete two-dimensional scalar-wave evolution gives transverse deflection with metric controls and an independent second-order solver. The static profile and isotropic metric are supplied, without transfer from the distinct quantum-geometry source. |
+
+The composite stationary energies are not running quark masses or relativistic hadron poles. The geometry, confined quantum-field and positive-current constructions require explicit composition before their individual records can support one interacting physical universe.
