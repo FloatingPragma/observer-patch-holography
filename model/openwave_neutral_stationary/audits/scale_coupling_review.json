@@ -1,0 +1,186 @@
+{
+  "all_four_bare_betas_equal_six": true,
+  "combined_volumes": [
+    {
+      "blocked_errors": [
+        0.0060281750970876975,
+        0.09034167802992077
+      ],
+      "independent_g_squared": [
+        1.559755766947172,
+        2.751568261590088,
+        5.434210800579197
+      ],
+      "scale_differences": [
+        1.191812494642916,
+        2.682642538989109
+      ],
+      "side": 6
+    },
+    {
+      "blocked_errors": [
+        0.004103266196762068,
+        0.03693871531181202
+      ],
+      "independent_g_squared": [
+        1.5618595190987987,
+        2.7354210559385854,
+        4.136723139836299
+      ],
+      "scale_differences": [
+        1.1735615368397867,
+        1.4013020838977135
+      ],
+      "side": 8
+    }
+  ],
+  "finite_volume_long_loop_shift": 1.297487660742898,
+  "fresh_closed_loop_traces": 4860,
+  "fresh_noncommuting_loop_maximum_difference": 1.3877787807814457e-17,
+  "independent_block_statistics": [
+    {
+      "independent_covariance_maximum_difference": 8.526512829121202e-14,
+      "raw_file": "N6_b6.0_cold_3101.npz",
+      "side": 6,
+      "start": "cold"
+    },
+    {
+      "independent_covariance_maximum_difference": 7.549516567451064e-14,
+      "raw_file": "N6_b6.0_hot_3102.npz",
+      "side": 6,
+      "start": "hot"
+    },
+    {
+      "independent_covariance_maximum_difference": 3.2862601528904634e-14,
+      "raw_file": "N8_b6.0_cold_3103.npz",
+      "side": 8,
+      "start": "cold"
+    },
+    {
+      "independent_covariance_maximum_difference": 2.042810365310288e-14,
+      "raw_file": "N8_b6.0_hot_3104.npz",
+      "side": 8,
+      "start": "hot"
+    }
+  ],
+  "independent_fundamental_Casimir": "4/3",
+  "independent_fundamental_generator_trace_checks": 64,
+  "independent_seam_cost_maximum_difference": 1.1102230246251565e-16,
+  "input_sha256": {
+    "model/openwave_scale_coupling/PAPER_RESULT.md": "f1ea9ad409b7d046472ede3052c22fe91c8e89fe98f1c2c1cc1ec011a5759986",
+    "model/openwave_scale_coupling/PROOF.md": "b289873085757dd0ee04e6c0f3c7c4178390b2d3f9e743db5de89915a67049cf",
+    "model/openwave_scale_coupling/README.md": "e06807d4323906d9025df1d8f6b0b478332ee07c7f346c144c5818162929c590",
+    "model/openwave_scale_coupling/__init__.py": "53943e51552cf097b41a57b7fd1b46586bade5610f26e2c9c230d19d0c4cd23f",
+    "model/openwave_scale_coupling/__main__.py": "e81a6d4d0e5b63494d923aec1ea60a5b71ae7baea7d30e664eb758e18fecbbe1",
+    "model/openwave_scale_coupling/analysis.py": "597d23a59e6f55de95ff1948500b217accc20d94364a8632d94eb5fd6379799a",
+    "model/openwave_scale_coupling/coupling.py": "22c37667370aaba37e1e6a79c431142f7175b5bf51aebfb4fa3990f52931cb31",
+    "model/openwave_scale_coupling/data/N6_b6.0_cold_3101.npz": "29702dee33825f651455f4f3ffb5401876a51a9479d1406ac194ebccdc4b8d68",
+    "model/openwave_scale_coupling/data/N6_b6.0_hot_3102.npz": "9b1ff218f2b05da0287692f15fa37670aa57824ad974f397bd12154ea4bbdc27",
+    "model/openwave_scale_coupling/data/N8_b6.0_cold_3103.npz": "48b031a5cd41db135fe4abaa42a9b2e440a64500053a5c4215cae246f745a554",
+    "model/openwave_scale_coupling/data/N8_b6.0_hot_3104.npz": "5ddc8a10898ec363c0ea184a31a303447ebef0b3df1330936c422bf826042243",
+    "model/openwave_scale_coupling/production.py": "08e7b2ba8edd94d1c5a7a7f243017952d092b31e5e1ecfaaddc1e6340ac249f3",
+    "model/openwave_scale_coupling/results.json": "66619d29016752883cd8a4b44ca64b2f71f77d0c5b3e9a4684000bee95ae698e",
+    "model/openwave_scale_coupling/test_coupling.py": "9dc4218e1b97411ec2d7f61b548e27e5d6718b6a6f12f0b609f56ebd21e9ae03"
+  },
+  "nonpositive_or_nonfinite_means_rejected": [
+    true,
+    true,
+    true
+  ],
+  "raw_records_retained": 1600,
+  "schema": "oph.scale_coupling.independent_review.v1",
+  "scope": "Finite declared pure-SU3 ensemble scale trend with Gaussian finite-volume normalization. No rigorous mixing, continuum beta function, physical GeV scale or PW119 particle-source equivalence follows.",
+  "tree_current_green_controls": [
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "independent_value": 0.32921810699588483,
+      "rectangle": [
+        1,
+        1
+      ],
+      "side": 3
+    },
+    {
+      "absolute_difference": 2.220446049250313e-16,
+      "independent_value": 0.54320987654321,
+      "rectangle": [
+        2,
+        1
+      ],
+      "side": 3
+    },
+    {
+      "absolute_difference": 3.3306690738754696e-16,
+      "independent_value": 0.7572016460905351,
+      "rectangle": [
+        2,
+        2
+      ],
+      "side": 3
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "independent_value": 0.6419753086419754,
+      "rectangle": [
+        3,
+        2
+      ],
+      "side": 3
+    },
+    {
+      "absolute_difference": 5.736309634098342e-31,
+      "independent_value": 0.0,
+      "rectangle": [
+        3,
+        3
+      ],
+      "side": 3
+    },
+    {
+      "absolute_difference": 3.885780586188048e-16,
+      "independent_value": 0.3320312499999996,
+      "rectangle": [
+        1,
+        1
+      ],
+      "side": 4
+    },
+    {
+      "absolute_difference": 0.0,
+      "independent_value": 0.5669642857142856,
+      "rectangle": [
+        2,
+        1
+      ],
+      "side": 4
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "independent_value": 0.8749999999999997,
+      "rectangle": [
+        2,
+        2
+      ],
+      "side": 4
+    },
+    {
+      "absolute_difference": 4.440892098500626e-16,
+      "independent_value": 1.0836309523809526,
+      "rectangle": [
+        3,
+        2
+      ],
+      "side": 4
+    },
+    {
+      "absolute_difference": 4.440892098500626e-16,
+      "independent_value": 1.20703125,
+      "rectangle": [
+        3,
+        3
+      ],
+      "side": 4
+    }
+  ],
+  "verdict": "PASS"
+}

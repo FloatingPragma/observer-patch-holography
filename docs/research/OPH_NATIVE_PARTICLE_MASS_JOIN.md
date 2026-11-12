@@ -39,6 +39,33 @@ specified source-energy column subtracts it.
 <a id="complete-finite-higgs-experiment-and-its-source-boundary"></a>
 <a id="common-localized-states-native-currents-and-pixel-dependent-masses"></a>
 
+## Compiled charged branches and a stationary neutral band
+
+The [kinetic compiler](../../model/openwave_kinetic_phase_cycle/PROOF.md)
+retains the native homogeneous Weyl motion throughout the coherent analyzer
+cycle. Exact native charge, spin and Hamiltonian intertwiners give three
+free charged branches with `E_k(p)^2=sum sin(ap_i)^2/a^2+e_k^2` and complete
+rest and spatial records. The [branch spectrum](../../model/openwave_lepton_mass_shell/PROOF.md)
+retains every one of eight valleys and39 massless internal coefficients.
+A native colour-singlet three-quark zero mode has unit charge and zero
+energy, so the branch minima do not constitute a global charged-sector gap.
+
+One empirical electron anchor gives branch energies
+`0.00051099895069`, `0.1056594144959`, `1.7769849708134 GeV`.
+The phase2/9 and family architecture are retrospective inputs. The muon
+residual is approximately9.83ppm; the kinetic extension does not fit it
+away. These are source-defined free rest branches, without a selected
+interacting Higgs vacuum or physical lepton identification.
+
+A distinct [periodic link-penalty-two source](../../model/openwave_neutral_stationary/PROOF.md)
+has a rank1024 neutral band and a unique physical ground. An explicit
+polynomial accept/fail instrument prepares a stationary zero-momentum
+density within7.02e-13 in unhalved trace norm of the uniform band density,
+and retains its original rare success and every occupation
+complement. Electron calibration through a separate local charged gap
+gives `6.61638659224e-5 GeV`. This neutral excitation energy has no proved
+relativistic dispersion, neutrino flavour or dark-matter identification.
+
 ## Gauge currents, chirality and physical parity
 
 The [sitewise chiral source](../../model/coherent_defect_wave/chiral_source/PROOF.md)
