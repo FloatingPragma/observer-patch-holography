@@ -1,6 +1,28 @@
 import numpy as np
 from . import decay as d
 
+def test_complete_parent_eigenpairs_and_symmetry_across_lapack_drivers():
+    native=d.sector('meson')
+    ids=[i for i,(q,a)in enumerate(native['labels'])if q[2]==1 and a[2]==0]
+    labels=[native['labels'][i]for i in ids]
+    shift=1/d.mass_data()[0]-1
+    H=native['h'][np.ix_(ids,ids)]+shift*np.eye(16)
+    columns=[]
+    for xa in range(2):
+        v=np.zeros(16)
+        for xq,aq in((0,xa),(1,1-xa)):
+            for sq,sa in((0,1),(1,0)):
+                v[labels.index(((xq,sq,1),(aq,sa,0)))]=(1 if sq==0 else -1)/2
+        columns.append(v)
+    B=np.array(columns).T
+    for driver in('evr','evd','ev','evx'):
+        e,U=d._shifted_eigensystem(H,shift,driver=driver)
+        assert len(e)==16 and np.linalg.norm(H@U-U*e)<2e-12
+        assert np.max(abs(e-np.linalg.eigvalsh(H)))<2e-12
+        assert abs(e[0]-(shift+(181-np.sqrt(5473))/48))<2e-12
+        assert e[1]-e[0]>1/50
+        assert np.linalg.norm(U[:,0]-B@(B.T@U[:,0]))<2e-12
+
 def test_full_current_form_factor_and_reference_shift():
     v=d.construction();p=v['initial'];r=v['target']
     assert abs(np.vdot(r,v['V']@p)-v['C'][0,1]/np.sqrt(2))<2e-12

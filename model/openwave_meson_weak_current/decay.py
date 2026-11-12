@@ -18,6 +18,11 @@ ETA=(1,-1,-1,-1)
 
 def _lepton_index(weak,x,spin,f):return weak*12+x*6+spin*3+f
 
+def _shifted_eigensystem(H,shift,*,driver=None):
+    """Solve the complete block after removing its known scalar offset."""
+    e,U=eigh(H-shift*np.eye(len(H)),driver=driver)
+    return e+shift,U
+
 def _restricted_current(a,masks):
     lookup={b:i for i,b in enumerate(masks)};out=np.zeros((len(masks),len(masks)),complex)
     for j,mask in enumerate(masks):
@@ -121,7 +126,7 @@ def construction(zero_word=False,contact_resonance=True):
     H=H0+G*V
     lookup={v:i for i,v in enumerate(keep)}
     hadron_initial=[i for i,(f,xq,sq,w,xa,sa)in enumerate(hadron_labels)if f==1 and w==1]
-    eh,Uh=eigh(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)])
+    eh,Uh=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)],mass[1]-1)
     assert eh[1]-eh[0]>1e-5
     initial=np.zeros(len(keep),complex)
     for i,z in zip(hadron_initial,Uh[:,0]):
@@ -129,7 +134,7 @@ def construction(zero_word=False,contact_resonance=True):
         else:assert abs(z)<1e-12
     assert abs(np.vdot(initial,initial)-1)<1e-12
     hadron_final=[i for i,(f,xq,sq,w,xa,sa)in enumerate(hadron_labels)if f==0 and w==0]
-    ef,Uf=eigh(Hh.toarray()[np.ix_(hadron_final,hadron_final)])
+    ef,Uf=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_final,hadron_final)],mass[0]-1)
     final_h=np.zeros(96,complex);final_h[hadron_final]=Uf[:,0]
     final_l=np.zeros(49,complex)
     for k,label in enumerate(lepton_labels):
