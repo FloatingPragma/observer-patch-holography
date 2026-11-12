@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1914,
+  "surface_count": 1939,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -392,6 +392,11 @@
     },
     {
       "path": "paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/FINITE_THERMAL_RECORDS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -3386,6 +3391,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/correlated_hadron_spectrum/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/correlated_hadron_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/coupled_reconstruction/DERIVATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3941,6 +3956,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/frequency_yukawa_vertex/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/frequency_yukawa_vertex/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/full_fock_energy/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4211,6 +4236,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/lepton_compiler_compression/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lepton_compiler_compression/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/lepton_cycle/COMPARISON.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4247,6 +4282,16 @@
     },
     {
       "path": "model/lepton_register_round/inputs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lepton_service_compiler/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/lepton_service_compiler/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4826,6 +4871,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_freezeout_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_freezeout_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_gauge_strings/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5247,6 +5302,26 @@
     },
     {
       "path": "model/native_spin_observer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermal_admission/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermal_admission/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermal_completion/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_thermal_completion/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5906,6 +5981,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_cosmology_results/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_cosmology_results/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_defect_attachment/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6097,6 +6182,16 @@
     },
     {
       "path": "model/particle_identification/UNCERTAINTY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_joint_mass_identity/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_joint_mass_identity/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6961,6 +7056,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/particle_thermal_history/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_thermal_history/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/particle_transport/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -7651,6 +7756,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_flavour_identifiability/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_flavour_identifiability/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_mass_shell/CALIBRATION_PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -8102,6 +8217,16 @@
     },
     {
       "path": "model/support_refinement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/thermal_particle_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/thermal_particle_records/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

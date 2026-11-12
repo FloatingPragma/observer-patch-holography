@@ -195,7 +195,7 @@
         ".pyc"
       ]
     },
-    "file_count": 947,
+    "file_count": 948,
     "files": [
       {
         "byte_count": 42558,
@@ -251,6 +251,11 @@
         "byte_count": 96706,
         "path": "Lean/Dynamics/StarWedderburn.lean",
         "sha256": "sha256:eb08c41dc8433f0b9bd42748fc090e6747f966809fc0861bf12b8efb1d56b5e8"
+      },
+      {
+        "byte_count": 1749,
+        "path": "Lean/Dynamics/StationaryLyapunov.lean",
+        "sha256": "sha256:d5a2bab8e19bf1e735e4b089ca61abc71b0889cb5172832a93d47de20ede9791"
       },
       {
         "byte_count": 36803,
@@ -4933,7 +4938,7 @@
         "sha256": "sha256:e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
       }
     ],
-    "files_sha256": "sha256:e474f183da7141c42f8977a6f47c94fd15c739e94c923e2e16b04d74130280cc",
+    "files_sha256": "sha256:d0b48e331e68f225c19c1ca329d3ca8583ec81cc373857967f8b87f80af359be",
     "staleness_rule": "any added, removed, renamed, or byte-changed included file below an audited directory invalidates the committed inventory"
   },
   "audited_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f",
@@ -7842,7 +7847,7 @@
     ],
     "through_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f"
   },
-  "inventory_sha256": "sha256:089d979a18bcf91c4d792317ef8570aaf3e31bdbfad31311139b4110ecfa7fb3",
+  "inventory_sha256": "sha256:fd438b8f31d836da16c5018405a710d59b1d7ea0224439d8890b37285979007c",
   "minimal_missing_fields": [
     {
       "field": "perturbation_families",
