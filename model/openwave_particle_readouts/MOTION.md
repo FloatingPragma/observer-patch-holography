@@ -220,14 +220,30 @@ Gauss constraints.
 ## Joint charge and flux at the terminal clock settings
 
 The [native charge/flux theorem](../openwave_native_charge_flux/PROOF.md)
-holds on every joint-physical vector in the e^c arrival effect P_e.
-It is independent of the preparation probability. Since `A_e<=P_e`,
-the same constraints hold after the local atom refinement. The
+fixes the e^c flux atom on every joint-physical vector in P_e within
+the one-particle e^c reference sector. Let R_ec be the projector onto
+that sector of the complete reference Fock space. The actual pump B_ec
+on reference vacuum has range in R_ec. The full H, its energy-bin
+projector, S0 and A_e commute with R_ec, so the successful preparation
+and every subsequent arrival remain in that sector.
+
+The inclusion `A_e<=P_e` holds on the complete carrier: both effects
+are identity on the reference, and A_e only adds the local energy tag
+at the arrival cell. The fixed flux atom requires joint physicality
+and R_ec in addition to this inclusion. It is independent of the
+preparation probability and holds after the local atom refinement. The
 arrival matter-plus-scalar current has `Y=Q=-1`; the fixed reference
 has `Y=Q=+1`. Every other source cell is a true gauge singlet. For
 each of the 256 cell subsets S, the outward central hypercharge flux is
 
 `F_S=1_(0 in S)-1_(y in S)`.
+
+There is no fixed e^c flux atom on the other reference sectors of P_e.
+For example, a physical L-pump arrival in the same geometric effect
+has reference `Y=-1/2` and arrival source `Y=+1/2`, hence
+`F_S=-(1_(0 in S)-1_(y in S))/2`. The complete reference carrier
+and these other sectors are retained; the specified e^c pump gives
+them zero weight on its successful branch.
 
 `motion.ec_flux_attachment` regenerates the actual native route
 compiler and endpoint constraints, matches all six routes to this

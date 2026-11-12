@@ -77,6 +77,9 @@ def test_same_native_flux_refines_every_time_and_retains_all_failures(monkeypatc
     assert attached['regenerated_complete_endpoint_Ward_identities'] == 1416
     assert attached['regenerated_additive_factor_basis_Gauss_comparisons'] == 24840
     assert not attached['other_preparation_arrival_probability_transferred']
+    assert 'invariant one-particle ec reference sector' in attached['all_state_domain']
+    assert not attached['arrival_effect_restricts_the_complete_reference_carrier']
+    assert not attached['fixed_ec_flux_atom_asserted_in_other_reference_sectors']
     value = family_certificate('ec')
     for row in value['clock_records']:
         assert row['joint_native_charge_flux_six_route_probability_from_original_input'] == row['six_route_probability_from_original_input']
@@ -92,6 +95,69 @@ def test_same_native_flux_refines_every_time_and_retains_all_failures(monkeypatc
     monkeypatch.setattr(motion.native_flux, 'cut_flux_six', lambda mask, links: -full_flux(mask, links))
     with pytest.raises(ArithmeticError, match='full native cut flux'):
         ec_flux_attachment.__wrapped__()
+
+
+def test_physical_L_arrival_rejects_unrestricted_ec_flux_atom():
+    from collections import defaultdict
+    from .motion import native_flux
+    from model.coherent_defect_wave.chiral_joint.interacting_charged_response.model import FAMILIES
+
+    indices = FAMILIES['L']
+    dimension = len(indices)
+    gauges = native_flux.representation()[2]
+    reference_y = gauges[11][indices[0], indices[0]]
+    assert reference_y == -s.Rational(1, 2)
+    # This conjugate arrival irrep is present in the actual selected L atom,
+    # and the complete native first-hop image has strictly positive norm.
+    assert atom_first_hop('L')['moment'][0] > 0
+    label_index = {label: index for index, label in enumerate(native_flux.labels())}
+    def factor_action(vector, factor, operator):
+        output = defaultdict(lambda: s.Integer(0))
+        for coordinate, amplitude in vector.items():
+            for (row, column), value in operator.todok().items():
+                if column == coordinate[factor]:
+                    target = list(coordinate)
+                    target[factor] = row
+                    output[tuple(target)] += value*amplitude
+        return {key: value for key, value in output.items() if value}
+
+    supported = {}
+    for origin_endpoint in (0, 1):
+        entries = {}
+        for a, native_a in enumerate(indices):
+            for b, native_b in enumerate(indices):
+                label = ((1, native_a, native_b) if origin_endpoint == 0
+                         else (-1, native_b, native_a))
+                link_index = label_index[label]
+                entries[a, link_index, b] = s.Rational(1, dimension)
+        assert sum(value**2 for value in entries.values()) == 1
+        supported[origin_endpoint] = {link for _, link, _ in entries}
+        # Exact singlets of all twelve native endpoint currents, with the
+        # actual L reference and its conjugate arrival-source representation.
+        for current, gauge in enumerate(gauges):
+            reference = s.ImmutableSparseMatrix(gauge.extract(indices, indices))
+            reference_image = factor_action(entries, 0, reference)
+            origin_image = factor_action(entries, 1, native_flux.current(current, origin_endpoint))
+            assert origin_image == {key: -value for key, value in reference_image.items()}
+            arrival_image = factor_action(entries, 1, native_flux.current(current, 1-origin_endpoint))
+            assert arrival_image == factor_action(entries, 2, reference.T)
+    terms = {term.path[0]: term for term in native_flux.kinetic_terms(native_flux.Configuration())}
+    edges = {edge: (left, right) for edge, left, right in native_flux.graph()[0]}
+    for route in native_flux.routes():
+        edge, arrival = route['edge'], route['arrival']
+        origin_endpoint = 0 if edges[edge][0] == 0 else 1
+        key = (1 << (30*arrival+indices[0]), (0,)*24, (0,)*8)
+        # Regenerate the actual PW119 refilling column, including both
+        # periodic orientations, rather than choosing a flux label by hand.
+        image = native_flux.pw.hopping_column(key, (terms[edge],))
+        assert sum(s.conjugate(amplitude)*amplitude for amplitude in image.values()) == s.Rational(1, 16)
+        for (_, links, _), amplitude in image.items():
+            assert amplitude != 0 and links[edge] in supported[origin_endpoint]
+            for mask in range(256):
+                ec_flux = (mask & 1)-((mask >> arrival) & 1)
+                assert native_flux.cut_flux_six(mask, links) == 6*reference_y*ec_flux
+            assert native_flux.cut_flux_six(1 << arrival, links) == 3
+            assert native_flux.cut_flux_six(1 << arrival, links) != -6
 
 
 @pytest.mark.parametrize('seed', [11, 23, 37])

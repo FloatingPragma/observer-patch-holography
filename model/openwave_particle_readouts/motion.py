@@ -117,7 +117,7 @@ def validate_ec_pole_source(factor, weight, blocks):
 
 @lru_cache(maxsize=1)
 def ec_flux_attachment():
-    """Apply the all-state native Gauss identity to each atom-resolved subeffect."""
+    """Attach the fixed flux atom on the invariant one-ec-reference sector."""
     endpoints = native_flux.endpoint_certificate()
     census = native_flux.gauss_cut_census()
     if (not endpoints['hypercharge_is_central_on_matter_scalar_and_both_link_endpoints']
@@ -155,7 +155,10 @@ def ec_flux_attachment():
             'regenerated_complete_endpoint_Ward_identities': endpoints['full_endpoint_Ward_identities'],
             'regenerated_additive_factor_basis_Gauss_comparisons': census['independent_cell_Gauss_comparisons'],
             'regenerated_route_cut_identities': 6*256,
-            'all_state_domain': 'every joint-physical vector in each native ec arrival effect P_e; the atom-resolved A_e is a subeffect',
+            'all_state_domain': 'every joint-physical vector in P_e within the invariant one-particle ec reference sector; A_e<=P_e on the complete carrier',
+            'reference_sector': 'B_ec on reference vacuum populates exactly one ec reference particle; H, its energy projector, S0 and A_e preserve that sector',
+            'arrival_effect_restricts_the_complete_reference_carrier': False,
+            'fixed_ec_flux_atom_asserted_in_other_reference_sectors': False,
             'routes': rows,
             'complete_refinement': 'for every coarse record r, jointly measure the commuting central-Y cut-flux and total-charge projectors, retaining all outcomes; sum_(k,l) p(r,k,l)=p(r)',
             'joint_probability': 'p(r,k,l)=Tr[R_(S,l) Pi_(S,k) K_r rho_in K_r^dagger Pi_(S,k) R_(S,l)]',
