@@ -143,6 +143,22 @@ def pytest_runtest_protocol(item, nextitem):
                               outcome="failed", longrepr=str(error), when="call", duration=0)]
     for report in reports:
         item.ihook.pytest_runtest_logreport(report=report)
+    # The preceding ordinary item can retain collectors shared with this
+    # item. Its fixtures still need the ordinary transition to the next item,
+    # even though this item's own setup/call/teardown ran in the child.
+    # Do not invoke the whole parent teardown hook: setup-dependent hooks
+    # (including pytest's logging stash) were never entered for this item.
+    from _pytest.outcomes import Exit
+    from _pytest.runner import CallInfo
+    if item.session.shouldfail or item.session.shouldstop:
+        nextitem = None
+    boundary = CallInfo.from_call(
+        lambda: item.session._setupstate.teardown_exact(nextitem),
+        when="teardown", reraise=(Exit,) if item.config.getoption("usepdb", False)
+        else (Exit, KeyboardInterrupt))
+    if boundary.excinfo is not None:
+        report = item.ihook.pytest_runtest_makereport(item=item, call=boundary)
+        item.ihook.pytest_runtest_logreport(report=report)
     item.ihook.pytest_runtest_logfinish(nodeid=item.nodeid, location=item.location)
     return True
 

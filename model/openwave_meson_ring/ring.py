@@ -55,6 +55,17 @@ def hadron():
         qops.append(row)
     return dict(native=native,Hh=Hh,hadron_labels=hadron_labels,measured_hadron=measured_hadron,qops=qops,raising=raising,mass=mass,C=C,q_two=q)
 
+def hadron_eigensystem(d,family,weak,*,driver=None):
+ """Remove only the known family scalar before the complete block solve.
+
+ The scalar changes every eigenvalue equally. Removing it avoids amplifying
+ its roundoff through the small reflection gap; no state is projected out.
+ """
+ rows=[i for i,h in enumerate(d['hadron_labels'])if h[0]==family and h[3]==weak]
+ H=d['Hh'].toarray()[np.ix_(rows,rows)];shift=d['mass'][family]-1
+ e,U=eigh(H-shift*np.eye(len(rows)),driver=driver)
+ return rows,e+shift,U
+
 def li(L,weak,x,spin,f):return weak*(6*L)+x*6+spin*3+f
 
 def restricted(a,masks):
@@ -114,11 +125,11 @@ def construction(L,recenter=False):
  assert norm(H0.tocsr()[keep][:,other])<3e-12 and norm(V[keep][:,other])<3e-12
  H0=H0.tocsr()[keep][:,keep];V=V[keep][:,keep];H=H0+G*V
  where={int(v):i for i,v in enumerate(keep)};initial=np.zeros(len(keep),complex)
- parentrows=[i for i,h in enumerate(d['hadron_labels'])if h[0]==1 and h[3]==1];e,U=eigh(d['Hh'].toarray()[np.ix_(parentrows,parentrows)])
+ parentrows,e,U=hadron_eigensystem(d,1,1)
  for k,z in zip(parentrows,U[:,0]):
   if k*nlep in where:initial[where[k*nlep]]=z
   else:assert abs(z)<1e-12
- finalrows=[i for i,h in enumerate(d['hadron_labels'])if h[0]==0 and h[3]==0];ef,Fh=eigh(d['Hh'].toarray()[np.ix_(finalrows,finalrows)]);fh=np.zeros(96,complex);fh[finalrows]=Fh[:,0];fl=np.zeros(nlep,complex)
+ finalrows,ef,Fh=hadron_eigensystem(d,0,0);fh=np.zeros(96,complex);fh[finalrows]=Fh[:,0];fl=np.zeros(nlep,complex)
  for k,label in enumerate(lepton):
   if label is None:continue
   f,xe,se,xn,sn=label

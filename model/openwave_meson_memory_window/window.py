@@ -6,7 +6,7 @@ import numpy as np
 import scipy.sparse as sp
 from scipy.linalg import eigh
 from scipy.sparse.linalg import expm_multiply
-from model.openwave_meson_ring.ring import hadron,singlets,G,BAR,ETA,construction,reduction,finite_volume_bound
+from model.openwave_meson_ring.ring import hadron,hadron_eigensystem,singlets,G,BAR,ETA,construction,reduction,finite_volume_bound
 
 def operator(factor,A):
  out=np.ones((1,1),complex)
@@ -15,8 +15,8 @@ def operator(factor,A):
 
 @lru_cache(None)
 def local():
- d=hadron();labels=d['hadron_labels'];S=singlets().T;target=[i for i,x in enumerate(labels)if x[0]==0 and x[3]==0];parent=[i for i,x in enumerate(labels)if x[0]==1 and x[3]==1]
- e,U=eigh(d['Hh'].toarray()[np.ix_(parent,parent)]);p=np.zeros(96,complex);p[parent]=U[:,0]
+ d=hadron();labels=d['hadron_labels'];S=singlets().T;target=[i for i,x in enumerate(labels)if x[0]==0 and x[3]==0]
+ parent,e,U=hadron_eigensystem(d,1,1);p=np.zeros(96,complex);p[parent]=U[:,0]
  blocks={};H=d['Hh'].toarray()
  for xq,xa,yq,ya in product(range(2),repeat=4):
   rows=[next(i for i in target if labels[i]==(0,xq,sq,0,xa,sa))for sq,sa in product(range(2),repeat=2)];cols=[next(i for i in target if labels[i]==(0,yq,sq,0,ya,sa))for sq,sa in product(range(2),repeat=2)]
