@@ -27,6 +27,19 @@ def _shifted_eigensystem(H,shift,*,native=None,driver=None):
     e,U=eigh(native,driver=driver)
     return e+shift,U
 
+def _complete_eigensystem(H,*,driver=None):
+    """Retain every eigenpair while respecting exact disconnected components."""
+    count,labels=sp.csgraph.connected_components(sp.csr_matrix(H!=0),directed=False)
+    if count==1:return eigh(H,driver=driver)
+    assert np.count_nonzero(H*(labels[:,None]!=labels[None,:]))==0
+    e=np.empty(len(H));U=np.zeros(H.shape,dtype=np.result_type(H.dtype,float))
+    for component in range(count):
+        ids=np.flatnonzero(labels==component)
+        values,vectors=eigh(H[np.ix_(ids,ids)],driver=driver)
+        e[ids]=values;U[np.ix_(ids,ids)]=vectors
+    order=np.argsort(e,kind='stable')
+    return e[order],U[:,order]
+
 def _restricted_current(a,masks):
     lookup={b:i for i,b in enumerate(masks)};out=np.zeros((len(masks),len(masks)),complex)
     for j,mask in enumerate(masks):
@@ -216,7 +229,7 @@ def spin_parity_reduction(d):
 
 def explore(zero_word=False,contact_resonance=True):
     d=construction(zero_word,contact_resonance);B,h,_=spin_parity_reduction(d)
-    w,U=eigh(h);frame=U.conj().T@B.conj().T@d['initial'];rows=[]
+    w,U=_complete_eigensystem(h);frame=U.conj().T@B.conj().T@d['initial'];rows=[]
     for t in(0.,32.,128.,256.,512.,720.,1024.):
         psi=B@U@(np.exp(-1j*t*w)*frame);p=abs(psi)**2
         emission=sum(p[k]for k,i in enumerate(d['keep'])if i%49!=0)
@@ -243,17 +256,12 @@ def momentum_readout(d):
 def complete_records(d,time,eigen=None):
     B,h,residual=spin_parity_reduction(d)
     if d['zero_word']:
-        # Exact invariant evolution, embedded in every original outcome below.
+        # Validate the declared source and preparation before complete evolution.
         family=np.array([d['hadron_labels'][int(v)//49][0]==1 for v in d['keep']])
         assert np.count_nonzero(d['H'][family][:,~family].data)==0
         assert np.count_nonzero(d['H'][~family][:,family].data)==0
         assert np.count_nonzero(d['initial'][~family])==0
-        columns=np.flatnonzero(np.any(B[family]!=0,axis=0))
-        assert np.count_nonzero(B[~family][:,columns])==0
-        B=B[:,columns];h=h[np.ix_(columns,columns)]
-        w,U=eigh(h)
-    else:
-        w,U=eigh(h)if eigen is None else eigen
+    w,U=_complete_eigensystem(h)if eigen is None else eigen
     initial=B.conj().T@d['initial'];state=B@U@(np.exp(-1j*time*w)*(U.conj().T@initial))
     p=abs(state)**2;T=momentum_readout(d);out=T@state;pm=abs(out)**2;weight=d['success']
     assert abs(p.sum()-1)<3e-12 and abs(pm.sum()-1)<3e-12
@@ -294,7 +302,7 @@ def complete_records(d,time,eigen=None):
 
 
 def certificate():
-    d=construction();B,h,residual=spin_parity_reduction(d);eigen=eigh(h)
+    d=construction();B,h,residual=spin_parity_reduction(d);eigen=_complete_eigensystem(h)
     times=(0.,32.,128.,256.,512.,720.,1024.)
     rows=[complete_records(d,t,eigen)for t in times]
     assert rows[5]['conditional_total_lepton_pair_probability']>.99
@@ -335,7 +343,7 @@ def certificate():
                               for v in d['keep']],
             'complete_records':rows,'zero_port_word_control':zero_row,'untuned_free_gap_box_control':untuned_row,
             'zero_port_exact_family_offblock_nonzero_count':0,
-            'zero_port_light_emission_exact':'0 by exact family-block conservation; numerical eigensolver leakage is retained in the floating record',
+            'zero_port_light_emission_exact':'0 by exact family-block conservation; the complete block eigensystem preserves exact cross-family zeros',
             'zero_contact_control':'all lepton-pair probabilities exactly0; the bound parent evolves by phase only',
             'architecture_inputs':['positive hadron action','native family-label mapping and port word','weak contactG','filled neutral reference','two-site outgoing frequency chosen for source resonance','spectral preparation and complete position/momentum apparatus'],
             'empirical_hadron_mass_lifetime_or_mixing_inputs':[],

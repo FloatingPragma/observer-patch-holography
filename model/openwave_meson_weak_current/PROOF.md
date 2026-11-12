@@ -153,7 +153,18 @@ not outward enclosures of every arithmetic error.
 ## Controls and scope
 
 Deleting the coherent port word makes the family current diagonal and
-exactly eliminates light-family conversion. Setting `G=0` eliminates all
+exactly eliminates light-family conversion. The reduced matrix then has
+three exactly disconnected 50-dimensional components, one per quark family.
+The numerical spectral construction uses the graph of exactly nonzero
+matrix entries, with no magnitude cutoff. A simultaneous row and column
+permutation makes these components a direct sum. Solving every component,
+embedding all its eigenvectors and sorting all 150 eigenvalues therefore
+retains the complete operator and eigenspace. No probability is clipped or
+component discarded. A preparation in one family has exactly zero support
+in the other families at every time. With the declared nontrivial port word
+the same graph has one component containing all 150 states.
+
+Setting `G=0` eliminates all
 lepton-pair emission. The uncompensated free-gap box retains its source
 detuning and its separate complete record law. Neither control uses
 experimental target values. The fixed action's physical kaon/pion assignment
