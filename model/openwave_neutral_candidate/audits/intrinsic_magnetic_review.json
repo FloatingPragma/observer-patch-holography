@@ -1,0 +1,36 @@
+{
+  "input_sha256": {
+    "model/openwave_intrinsic_magnetic/PROOF.md": "9c025baa4761ba8032043e1e80bc1e3299e850c45a04e66d9fe3e48ea2e8ac8c",
+    "model/openwave_intrinsic_magnetic/checks.py": "676b2d9a73c36ebffbfde637c5460daeed3a7c690792bbb5c703c6066324ee16",
+    "model/openwave_intrinsic_magnetic/experiment.py": "fbef000994a96b64f29663e843c70873460133f5b93bf3a0017f7af50b39072b",
+    "model/openwave_intrinsic_magnetic/results.json": "dc8ef78bf522e0d3a8586755f73697a3eb355d5b3ce848259e593d8d37db192d",
+    "model/openwave_intrinsic_magnetic/solver.py": "a549ac66f63742e35a98af4c94ae18d6ca60f0834ba42ba7a17b55b0d33e282f",
+    "model/openwave_neutral_candidate/audits/intrinsic_magnetic_review.py": "58265bbc7001290a1dfe41af5f525f5763d275b17b6689e44081971704e6ed4a"
+  },
+  "positive_kernel": {
+    "Sylvester_vs_absolute_kernel_finite_difference_error": 1.1615753232481664e-07,
+    "all_signed_spectrum_minimum_absolute_eigenvalue": 5.496205179255144,
+    "both_signs_and_copy_degeneracies_retained": true,
+    "complete_native_spatial_dimension": 432,
+    "exact_reduction_numerical_operator_error": 1.8727707878030175e-14,
+    "incorrect_positive_only_derivative_rejected": true
+  },
+  "schema": "oph.independent_intrinsic_magnetic_review.v1",
+  "scope": "The exact finite minimizer-existence proof does not identify the displayed floating stationary branch. The architecture retains confinement, Wilson mass, transverse-only Maxwell feedback and supplied coefficients; no unconfined electron, anomaly or precision g is inferred.",
+  "stationary": {
+    "complete_energy_field_variation": -1.7763568394002502e-10,
+    "current_continuity_residual": 7.656334596940719e-17,
+    "direct_incidence_Maxwell_residual": 3.585540913782575e-11,
+    "g_bound_excitation": 0.9714589752173671,
+    "g_supplied_mass": 0.9146064870770769,
+    "global_minimizer_or_numerical_interval_certificate_claimed": false,
+    "independent_small_stationary_grid": 3,
+    "moment": [
+      9.8430576067349e-12,
+      -6.710726394268027e-14,
+      -0.02848886835778182
+    ],
+    "positive_kernel_eigenstate_residual": 7.44002585812541e-15
+  },
+  "verdict": "PASS_INDEPENDENT_INTRINSIC_MAGNETIC_REVIEW"
+}

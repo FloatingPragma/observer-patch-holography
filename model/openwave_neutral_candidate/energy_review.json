@@ -1,0 +1,42 @@
+{
+  "input_sha256": {
+    "model/openwave_energy_resolved_transport/PROOF.md": "c14e87d257e42682564cfe2bbe7fda521f3a4e068b52b7592c290b85df157367",
+    "model/openwave_energy_resolved_transport/response.py": "a5235097b9fbccfefb34a80f112c60696b97b13324a90c42a68b2c20e17d36bc",
+    "model/openwave_energy_resolved_transport/results.json": "c2905fc708e6d826d3243593a632af7aa73348f16689cf9e90763ada02031fe0",
+    "model/openwave_neutral_candidate/audits/energy_review.py": "7202f2a4a6205fd09316593b63a530bac50f198230928fc1d0bd33fcb6409bc7"
+  },
+  "native_residues": {
+    "direct_up_down_residues": [
+      0.2799676833188225,
+      0.5599353666376433
+    ],
+    "floating_calculation_is_independent_diagnostic_not_interval_certificate": true,
+    "generalized_native_eigenproblem_dimensions": [
+      17,
+      7
+    ],
+    "pump_weight": 0.4199515249782329,
+    "residue_ratio_error": 1.6653345369377348e-15
+  },
+  "projector_controls": {
+    "independent_Hermitian_examples": 45,
+    "largest_commutator_identity_error": 4.534609970004489e-17,
+    "no_filter_control_is_zero": true,
+    "positive_time_zero_dressing_examples": 45,
+    "time_comparisons": 135,
+    "wrong_leading_sign_rejected": true
+  },
+  "records": {
+    "complete_outcomes": 17,
+    "exact_probability_sum": "1",
+    "positive_example_checked": true
+  },
+  "schema": "oph.independent_energy_filtered_arrival_review.v1",
+  "scope": "Positive t=0 energy-filter dressing is supported. These checks do not establish propagation, a free electron or a relativistic mass shell.",
+  "spin": {
+    "direct_CG_first_hop_axes": 3,
+    "triplet_Gram_rank": 3,
+    "wrong_exchange_coefficient_rejected": true
+  },
+  "verdict": "PASS_INDEPENDENT_ENERGY_FILTERED_ARRIVAL_REVIEW"
+}

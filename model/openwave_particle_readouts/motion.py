@@ -8,6 +8,8 @@ from model.coherent_defect_wave.chiral_joint.charged_ground_exchange.resolvent i
 from model.coherent_defect_wave.chiral_joint.family_cell.quotient import add, mul, divide, evaluate, outward, sqrt_interval
 from model.coherent_defect_wave.chiral_joint.interacting_charged_response.local import positive_response
 from model.coherent_defect_wave.chiral_joint.interacting_charged_transport.algebra import coefficient, routes
+from model.openwave_energy_resolved_transport import response as energy_resolved
+from model.openwave_native_charge_flux import algebra as native_flux
 
 
 TIME = s.Integer(3)
@@ -95,6 +97,75 @@ def sampling_budget(early, late):
             'exp_three_partial_sum_lower': exponential_partial_sum}
 
 
+def validate_ec_pole_source(factor, weight, blocks):
+    """Regenerate the shared atomic result; transfer no preparation bound."""
+    actual = energy_resolved.native_pole_residue()
+    native_factor = s.Poly(s.sympify(actual['selected_atomic_pole_polynomial']), factor.gen)
+    if (native_factor != factor
+            or actual['pump_pole_weight_interval'] != outward(weight, 100)
+            or actual['native_removed_spin_target_dimensions'] != [block['H'].rows for block in blocks]
+            or actual['actual_selected_target_spin'] != 1
+            or not actual['exact_residue_difference_divisible_by_selected_polynomial']):
+        raise ArithmeticError('the regenerated native ec atom does not match the shared spectral source')
+    if not energy_resolved.tagged_spin_effects()['all_three_axes_exact']:
+        raise ArithmeticError('the shared ec tagged-hop contraction failed')
+    return {'provider': 'model/openwave_energy_resolved_transport/response.py',
+            'complete_native_pole_and_weight_regenerated_and_equal': True,
+            'all_three_ec_tagged_hop_contractions_regenerated': True,
+            'preparation_or_timeline_probability_bound_transferred': False}
+
+
+@lru_cache(maxsize=1)
+def ec_flux_attachment():
+    """Apply the all-state native Gauss identity to each atom-resolved subeffect."""
+    endpoints = native_flux.endpoint_certificate()
+    census = native_flux.gauss_cut_census()
+    if (not endpoints['hypercharge_is_central_on_matter_scalar_and_both_link_endpoints']
+            or endpoints['complete_119_state_interior_hypercharge_endpoint_sum'] != '0'
+            or census['independent_cell_Gauss_comparisons'] != 24840):
+        raise ArithmeticError('the complete native Gauss-cut operator identity failed')
+    provider = native_flux.route_certificate()
+    available = {row['edge']: row for row in provider['actual_routes']}
+    actual_routes = routes()
+    if set(available) != {row['edge'] for row in actual_routes}:
+        raise ArithmeticError('charge flux and motion require the same actual six routes')
+    rows = []
+    for route in actual_routes:
+        attached = available[route['edge']]
+        if any(attached[key] != value for key, value in route.items()):
+            raise ArithmeticError('a charge-flux route belongs to a different native source')
+        links = [0]*24
+        links[route['edge']] = attached['forced_full_link_basis_index']
+        for mask in range(256):
+            expected = (mask & 1)-((mask >> route['arrival']) & 1)
+            if (native_flux.cut_flux_six(mask, links) != 6*expected
+                    or s.Rational(attached['all_256_cut_fluxes'][mask]) != expected):
+                raise ArithmeticError('the full native cut flux disagrees with the attached charge')
+        if (attached['arrival_source_matter_plus_scalar_Y_and_Q'] != '-1'
+                or attached['origin_reference_Y_and_Q'] != '1'
+                or not attached['all_twelve_current_constraints_checked_at_both_endpoints']):
+            raise ArithmeticError('the arrival requires the complete native origin/reference constraint')
+        rows.append({'edge': route['edge'], 'arrival': route['arrival'],
+                     'arrival_source_matter_plus_scalar_Y_and_Q': '-1',
+                     'reference_Y_and_Q': '1',
+                     'three_half_cube_fluxes': attached['three_half_cube_fluxes'],
+                     'all_256_cut_fluxes': f'1_(0 in S)-1_({route["arrival"]} in S)',
+                     'charge_flux_mismatch_probability': '0'})
+    return {'provider': 'model/openwave_native_charge_flux/algebra.py',
+            'regenerated_complete_endpoint_Ward_identities': endpoints['full_endpoint_Ward_identities'],
+            'regenerated_additive_factor_basis_Gauss_comparisons': census['independent_cell_Gauss_comparisons'],
+            'regenerated_route_cut_identities': 6*256,
+            'all_state_domain': 'every joint-physical vector in each native ec arrival effect P_e; the atom-resolved A_e is a subeffect',
+            'routes': rows,
+            'complete_refinement': 'for every coarse record r, jointly measure the commuting central-Y cut-flux and total-charge projectors, retaining all outcomes; sum_(k,l) p(r,k,l)=p(r)',
+            'joint_probability': 'p(r,k,l)=Tr[R_(S,l) Pi_(S,k) K_r rho_in K_r^dagger Pi_(S,k) R_(S,l)]',
+            'all_branch_charge_flux_mismatch_probability': '0 for k != l',
+            'all_preparation_failures_and_complete_nonarrival_refined': True,
+            'other_preparation_arrival_probability_transferred': False,
+            'arbitrary_nonarrival_Q_measurement_assumed': False,
+            'unconditioned_mean_flux_or_origin_return_inferred': False}
+
+
 @lru_cache(maxsize=2)
 def atom_first_hop(family):
     """Derive both local residues from the complete native charged resolvents."""
@@ -140,9 +211,10 @@ def atom_first_hop(family):
         moment = mul(weight_cubed, (s.Rational(1, 4),)*2)
     if not 0 < moment[0] <= moment[1] < 225:
         raise ArithmeticError('the full selected-route moment must be positive')
+    common_source = validate_ec_pole_source(factor, weight, positive['blocks']) if family == 'ec' else None
     return {'family': family, 'atom': atom, 'weight': weight, 'spin_residue': spin,
             'spin_to_weight_ratio': ratio, 'selected_factor': factor,
-            'cube_energy': x, 'moment': moment}
+            'cube_energy': x, 'moment': moment, 'shared_ec_atomic_source': common_source}
 
 
 @lru_cache(maxsize=2)
@@ -195,6 +267,17 @@ def family_certificate(family):
     rows.append({'record': 'position_prepared_complete_nonarrival',
                  'exact_probability': 'q(s-sum_edge r_edge)',
                  'probability_interval': outward((q*(success_low-6*upper), success_high), 160)})
+    flux = ec_flux_attachment() if family == 'ec' else None
+    if flux is not None:
+        flux_routes = {row['edge']: row for row in flux['routes']}
+        for row in rows:
+            if row['record'] == 'line_prepared_charged_arrival':
+                row['joint_native_charge_flux_atom'] = flux_routes[row['edge']]
+                row['joint_atom_probability_equals_actual_arrival_probability'] = True
+            else:
+                row['joint_native_flux_refinement'] = 'all central-Y cut-flux and charge outcomes retained; physical mismatches have zero probability'
+        for row in times:
+            row['joint_native_charge_flux_six_route_probability_from_original_input'] = row['six_route_probability_from_original_input']
     return {
         'family': family,
         'selected_atomic_energy_interval': outward(local['atom'], 80),
@@ -205,6 +288,8 @@ def family_certificate(family):
         'exact_atom_route_moment': 'w^3(1/12+x/648)' if family == 'ec' else 'w^3/4',
         'atom_route_moment_interval': outward(local['moment'], 100),
         'atom_route_moment_decimal': str(s.N(local['moment'][0], 16)),
+        'shared_ec_atomic_source': local['shared_ec_atomic_source'],
+        'joint_native_charge_flux': flux,
         'prepared_line_to_atomic_atom_vector_error_upper': str(epsilon),
         'position_success_probability_conditional_on_physical_preparation': outward((success_low, success_high), 100),
         'position_failure_probability_before_line_renormalization_upper': str(epsilon**2),
@@ -258,6 +343,12 @@ def certificate():
         'complete_arrival_complement_retained': True,
         'exact_zero_hopping_kernel': 'P_edge exp(-it H0) S0=0 for every input and all real t',
         'exact_no_operation_arrival_probability': '0',
+        'energy_filter_measurement_order': {
+            'this_preparation': 'S0 P_I(H) B_r Psi, with S0 after the full-H energy filter',
+            'energy_resolved_transport_preparation': 'P_I(H) B_ec P0 Psi, whose energy filter creates a positive time-zero tagged tail',
+            'same_atomic_ec_result_different_explicit_preparation': True,
+            'time_zero_dressing_probability_or_preparation_error_bound_transferred': False,
+        },
         'full_hopping_norm_upper': '360',
         'selected_edge_norm_upper': '15',
         'actual_atomic_arrival_detuning': '1, the unchanged nonblank-link energy',

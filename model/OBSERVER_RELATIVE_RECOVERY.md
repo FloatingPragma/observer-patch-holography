@@ -1037,6 +1037,8 @@ This is a finite off-resonant excursion, without a charged dispersion
 relation or a transport claim for the untouched energy-selected line.
 Original arrival probabilities are of order $10^{-22}$; the independent
 complete-preparation sampling budget and its failure guarantee are retained.
+The $e^c$ arrival events also retain the same native charge and all regional
+Gauss-flux records, with exactly those original probabilities.
 
 The [field calculation](openwave_field_observables/PROOF.md) reuses exact
 finite-occupation identities `[H,a_j] = -omega_j a_j` for transverse
@@ -1078,7 +1080,9 @@ zero static spectral splitting. The nonzero current and diamagnetic
 operators cancel in the full spectral response. Paired complete records
 and blank-link arrival laws retain this invariance; a fixed coherent-state
 quench is a different experiment. No electromagnetic magnetic moment is
-identified by that result. The
+identified by that result. The same conjugation applies when the link
+penalty is replaced by the native longitudinal Coulomb energy, without
+transferring the original preparation or transport bounds. The
 [native scalar force](openwave_native_force/PROOF.md) uses the actual local
 geometry derivative and a declared positive spatial elastic action to
 certify attraction including the full nonlinear matter remainder. Opposite
@@ -1109,3 +1113,34 @@ and the [phase-lift bridge](../Lean/QFT/SourcePhaseLiftBridge.lean) attach on
 known active supports. Detector constraints use
 [positive state expectations](../Lean/EventAlgebra/StateExpectation.lean)
 and [complete Kraus instruments](../Lean/Dynamics/ChoiCPTP.lean).
+
+## Source particle and field observations
+
+The complete eight-cell gauge source connects actual central charge to regional
+Gauss flux, energy-filtered arrival, reference binding and coherent free beats.
+All matter, scalar, link and reference contributions and every failed preparation
+are retained. The following results have executable producers and independent
+checks; their architecture and physical interpretation are stated separately.
+
+| Construction | Result and domain |
+| --- | --- |
+| [Native charge and flux](openwave_native_charge_flux/PROOF.md) | Six charged routes satisfy all 256 regional Gauss identities. The noncentral weak current is not silently substituted for central hypercharge. |
+| [Filtered arrival](openwave_energy_resolved_transport/PROOF.md) | Complete seventeen-output pole-tagged arrivals have positive probability at time zero. They measure virtual dressing rather than demonstrated propagation. |
+| [Prepared charged motion](openwave_particle_readouts/MOTION.md) | Energy selection followed by a retained blank-link position measurement has zero initial arrival and positive later arrivals. The time-three lower bound exceeds the time-six upper bound; original probabilities, energy disturbance and sampling costs are retained. |
+| [Reference binding](openwave_reference_binding/PROOF.md) | Exact singlet compression and native strings bound the constrained unscreened-charge separation cost. Screened clouds and noninvariance under hopping are retained. |
+| [Coherent lepton compiler](openwave_lepton_phase_cycle/PROOF.md) | Four-phase averaging and an exact fourth-order word identity give full-reference trace error at most (14s)^5|t|^5/(10n^4). At one rest site, 15229 cycles suffice for 10^-12 at t=1, using declared phase/parity services. |
+| [Native free beats](openwave_native_beat_clock/PROOF.md) | A single coherent preparation and common full-H herald give fixed-observable free oscillations. The ground beat includes the reference energy; the interchannel beat cancels it. No passive self-starting or physical Compton clock is inferred. |
+| [Intrinsic magnetic field](openwave_intrinsic_magnetic/PROOF.md) | The declared positive-kernel, confined Wilson construction computes a stationary current and its transverse Maxwell field. Finite bound-energy g values reach 1.78875065; continuum g=2 and time-dependent Larmor response are not established. |
+| [Neutral sector](openwave_neutral_candidate/PROOF.md) | An actual gauge-singlet probe and conserved raw lepton number give a positive protected energy threshold. A declared periodic boundary permits zero momentum; the electron-calibrated interval is 30.4–66.2 keV, without an observed-neutrino identification. |
+| [Native-current Coulomb energy](openwave_current_coulomb/PROOF.md) | Native Gauss flux determines the longitudinal quadratic readout. Replacing the unit-link penalty gives path-independent static trial energies and the computed Green profile. Original ground/clock bounds and a physical fine-structure constant are not inferred. |
+| [Metric observations](openwave_metric_observables/PROOF.md) | Separated native clocks, complete scalar-wave records and metric ray delays are computed. Their nonuniversal clock ratios and Einstein-residual control preserve the stress/device hypotheses of the regional theorem. |
+| [Atomic refinement](openwave_atomic_refinement/PROOF.md) | Separate volume and spacing tests reach a first gap 0.383407843476 versus 0.375 and second-shell splitting 0.000410646363. The finite-volume eigenvalue comparison is exact; a continuum uncertainty is not certified. |
+
+The conditional lepton ratios are approximately 1:206.7703:3477.4728. The
+compiler reduction changes their resource cost, not their values or empirical
+ancestry. The muon discrepancy is approximately 9.83 parts per million. The
+neutral energy interval is a threshold in a separately declared boundary member,
+and the magnetic, Coulomb, scalar-wave and atomic constructions retain their
+own actions and inputs. Their individual results do not constitute a common
+interacting physical spectrum. The owning [paper derivation](../paper/tex_fragments/SOURCE_PARTICLE_OBSERVABLE_JOINS.tex)
+states the equations and observation boundaries.

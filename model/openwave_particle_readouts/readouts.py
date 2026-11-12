@@ -232,6 +232,9 @@ def certificate():
     seed_paths = [str(p.relative_to(ROOT)) for p in HERE.iterdir() if p.suffix in ('.py','.md')]
     seed_paths += ['model/coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md',
                   'model/coherent_defect_wave/chiral_joint/interacting_charge_localization/PROOF.md',
+                  'model/openwave_energy_resolved_transport/PROOF.md',
+                  'model/openwave_native_charge_flux/PROOF.md',
+                  'model/openwave_current_coulomb/PROOF.md',
                   'model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json',
                   'model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/results.json']
     pins = {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()

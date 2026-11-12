@@ -19,14 +19,20 @@ an explicit position preparation and subsequent charged arrivals under the
 same clock. Both channels have a strictly positive arrival probability at
 source time three that exceeds its upper bound at time six. This is a
 finite, off-resonant flux excursion with retained position-measurement
-disturbance, rather than a dispersion relation for a free electron.
+disturbance. Unlike the [energy-filtered dressing tail](../openwave_energy_resolved_transport/PROOF.md),
+this preparation has exactly zero arrival at time zero. The native
+charge/flux identities attach joint records to its charged-singlet arrivals.
+No dispersion relation for a free electron is inferred.
 
 The [static-response theorem](MAGNETIC.md) proves that this source absorbs
 arbitrary central hypercharge link backgrounds by unitary conjugation.
 Its spectrum and complete paired preparation/readout laws are unchanged.
 The current operator is nonzero, and a fixed-state control responds to a
 background quench. The result identifies why the separate free-envelope
-magnetic response cannot be transferred to this interacting source.
+and intrinsic Maxwell-envelope magnetic responses cannot be transferred
+to this interacting source. Replacing its link penalty by the declared
+longitudinal Coulomb energy also preserves this conjugation identity;
+that replacement alone does not produce static hypercharge splitting.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.openwave_particle_readouts --write

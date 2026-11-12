@@ -11,6 +11,7 @@ from model.coherent_defect_wave.chiral_joint.peter_weyl_links.model import (
 )
 from .magnetic import (
     COUPLING, PROFILE, background_hopping_column, coordinate_checks,
+    coulomb_extension_checks,
     fixed_preparation_control, full_source_checks, generator_value, phase,
     plaquette_checks, source_column, validate_profile,
 )
@@ -69,6 +70,15 @@ def test_fixed_physical_preparation_is_distinct_from_paired_apparatus():
     assert s.Rational(row['fixed_state_energy_mean_change']) != 0
     assert row['paired_state_energy_mean_change'] == '0'
     assert not row['all_fixed_preparation_magnetic_responses_inferred_zero']
+
+
+def test_actual_longitudinal_Coulomb_replacement_retains_static_conjugacy():
+    row = coulomb_extension_checks()
+    assert row['complete_basis_and_reference_columns'] == 21
+    assert row['reference_occupations'] == [0, 1, 30]
+    assert row['all_119_link_labels_preserve_density_energy']
+    assert row['same_static_current_Ward_and_spectral_invariance']
+    assert not row['original_ground_preparation_energy_bins_or_transport_transferred']
 
 
 def test_zero_angle_recovers_actual_source():

@@ -1,0 +1,45 @@
+{
+  "continuum_or_outward_rounded_enclosure_claimed": false,
+  "finite_grid_checks": [
+    {
+      "all_parity_dimensions": 125,
+      "fixed_plane_normalization_mutation": 1.0000000000000004,
+      "full_dimension": 125,
+      "full_spectrum_error": 8.881784197001252e-15,
+      "grid": 5,
+      "maximum_block_error": 1.3322676295501878e-15,
+      "repulsive_potential_has_positive_lowest_level": true
+    },
+    {
+      "all_parity_dimensions": 343,
+      "fixed_plane_normalization_mutation": 1.0000000000000004,
+      "full_dimension": 343,
+      "full_spectrum_error": 1.7763568394002505e-14,
+      "grid": 7,
+      "maximum_block_error": 8.881784197001252e-16,
+      "repulsive_potential_has_positive_lowest_level": true
+    }
+  ],
+  "fixed_spacing_all_parity_domain_comparison": true,
+  "independent_method": "Direct sparse graph assembly and linear solve; full dense spectra versus eight independently normalized reflection-orbit frames.",
+  "maximum_nested_potential_change": -0.08566247067514286,
+  "mutation_controls": [
+    "repulsive charge sign",
+    "wrong central-plane orbit normalization"
+  ],
+  "review_conclusion": "Exact Dirichlet domain ordering and parity reduction are correct. Executed negative finite levels and separate spacing/volume diagnostics support hydrogen-like quantized standing waves. Supplied mass/kinetic/coupling, numerical eigenvalue indexing and physical precision/particle attachment are explicit limitations.",
+  "schema": "oph.independent_atomic_refinement_review.v1",
+  "source_sha256": {
+    "model/openwave_atomic_refinement/PAPER_RESULT.md": "6951cdff81b352c5a4edfa90e01b6a3caaf20eb498597adbb4469fdf5d29012c",
+    "model/openwave_atomic_refinement/PROOF.md": "c4aaa631095ec4dc72ec060b8666618232aa67c5ace12e78f0394b3fe5909cdd",
+    "model/openwave_atomic_refinement/README.md": "6069f416bf5ff5561c00860bb46d8296dbae076d71e2ff15c317892ddadfa2c4",
+    "model/openwave_atomic_refinement/__init__.py": "bd4835314aa4db28a525b75e075cf7de0acf0eec7fb4a58582fe82fb3d560206",
+    "model/openwave_atomic_refinement/__main__.py": "94cbad4c8b34bf51ed775bbc7ae588a950095e170496de259a529ea94ba2af49",
+    "model/openwave_atomic_refinement/refinement.py": "598404f6b36a9d29ae5b5973b23082ec0c3a30bbded8967052f7cf2865aa8787",
+    "model/openwave_atomic_refinement/results.json": "9528a504096278f4c851418802d7a31121911f93f42a4957eee53f202ac5a7c6",
+    "model/openwave_atomic_refinement/test_refinement.py": "bc79c6880eb8cfd6586dec87b96a1d543f3ec47252eefd06cb53e478de7ae414",
+    "model/openwave_current_coulomb/audits/atomic_review.py": "4c37485b94643bd6c10c6d435f3b0da0788e417dff1814b69c4c54ca5204f083",
+    "model/openwave_field_observables/orbitals.py": "634d4169e60d23e1acf6b28436c881a9beb06ca4085a9354248ee9143ccc16d2"
+  },
+  "verdict": "PASS"
+}

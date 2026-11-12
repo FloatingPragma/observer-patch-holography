@@ -1,0 +1,16 @@
+{
+  "all_pass": true,
+  "high_precision_native_clock_eigenvalues_and_Ramsey_probabilities_inside_certified_intervals": 14,
+  "independent_Christoffel_curvature_and_nonzero_vacuum_residual": true,
+  "independent_complete_field_evolution_cases": 6,
+  "independent_sparse_geometry_reproduces_all_dyadic_integers": true,
+  "reviewed_sha256": {
+    "model/openwave_metric_observables/PROOF.md": "f76e08bfa21ac6cdda4873fa662b5b455b4b14c1263a0caa52dd7227c3e19bf7",
+    "model/openwave_metric_observables/clocks.py": "d959e54a8feb7908927dd8ae3a266e01e334a412759be2a14dbb27565d301084",
+    "model/openwave_metric_observables/geometry.py": "e586eef8d9cc58bcf904540e255c521d5738a71e9a438828c248a603d757be83",
+    "model/openwave_metric_observables/results.json": "f0849b4c7bbb2686045b190139f94b8ea6ebd931023809a77c1d1d7ec9e3c84a",
+    "model/openwave_metric_observables/waves.py": "8b39e22ea0b0318f07b8bfcc0d37cb8677893066c40833a831097d20988ea4f3"
+  },
+  "schema": "oph.independent_metric_observables_review.v1",
+  "scope": "Declared static geometry and separate finite scalar field. Fixed-coordinate native clocks fail a common lapse ratio; no same-proper-device or physical Einstein/light transfer is asserted."
+}

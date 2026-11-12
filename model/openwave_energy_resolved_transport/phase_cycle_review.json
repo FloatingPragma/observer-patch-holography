@@ -1,0 +1,32 @@
+{
+  "all_pass": true,
+  "arbitrary_Fock_monomial_root_of_unity_argument_checked": true,
+  "complete32dimensional_Ramsey_POVM_and_charge_compensation_verified": true,
+  "diagnostic_source_unitary_error": 1.7766757358507917e-13,
+  "direct_complete_Ramsey_probabilities": [
+    0.49501664446044286,
+    0.004983355539691002,
+    0.29966733269884593,
+    0.20033266730128785
+  ],
+  "exact_all16Fock_Z4_selection_and_negative_segment_control": true,
+  "exact_minimal_declared_budget_rounds": 15229,
+  "fractional_time_radius_regression_fixed_and_verified": true,
+  "generic_fractional_time_rounding_bug_reported_to_owner": true,
+  "independent_exact_noncommuting_matrix_series_degrees": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "rational_local_Taylor_and_complete_trace_constants_verified": true,
+  "reviewed_sha256": {
+    "model/openwave_lepton_phase_cycle/PROOF.md": "9613bc4bc3953c070c547885f481aeca00860b617f4c105ecb656d4cabe3c83d",
+    "model/openwave_lepton_phase_cycle/compiler.py": "15eb885c4c73bb026ba5259a151971487b8cd3efbd6b9fbafd43a3915956a5c6",
+    "model/openwave_lepton_phase_cycle/results.json": "f43a4865426ae43ce65103c970ce3b245512b91e8103fe4db3a8053b1567c714"
+  },
+  "schema": "oph.independent_lepton_phase_cycle_review.v1",
+  "scientific_t1_result_affected_by_rounding_bug": false,
+  "source_clock_boundary": "A new declared coherent controller at zero kinetic term; source-duration overhead and ancillary services retained; not autonomous laboratory evolution."
+}

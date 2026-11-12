@@ -271,12 +271,74 @@ def fixed_preparation_control(coupling=COUPLING):
         'all_fixed_preparation_magnetic_responses_inferred_zero': False}
 
 
+@lru_cache(maxsize=4)
+def coulomb_extension_checks(coupling=COUPLING):
+    """The actual density-quadratic replacement retains link conjugacy.
+
+    This operator statement transfers no preparation or charged energy bin
+    from the unit-link-penalty Hamiltonian to the replacement Hamiltonian.
+    """
+    from model.openwave_current_coulomb.source import (
+        changed_column, coulomb_diagonal,
+    )
+
+    all_fixtures = tuple(fixtures())
+    selected = tuple(all_fixtures[index] for index in (0, 1, 2, 3, 12, 13, 14))
+    reference_masks = (0, 1 << 9, (1 << 30)-1)
+    columns = entries = 0
+    changed_energy_values = set()
+    for reference_mask in reference_masks:
+        for key in selected:
+            h = changed_column(key, reference_mask=reference_mask,
+                               coupling=coupling)
+            native_hopping = hopping_column(key, kinetic_terms())
+            phased_hopping = background_hopping_column(key)
+            changed = defaultdict(lambda: s.Integer(0), h)
+            for target, value in native_hopping.items():
+                changed[target] -= coupling*value
+            for target, value in phased_hopping.items():
+                changed[target] += coupling*value
+            expected = {target: phase(target)*s.conjugate(phase(key))*value
+                        for target, value in h.items()}
+            assert clean(changed) == expected
+            changed_energy_values.add(coulomb_diagonal(key, reference_mask))
+            columns += 1
+            entries += len(h)
+    # Exhaust all link labels while holding the actual density fixed. The
+    # operator identity holds on every basis state because native_density
+    # acts only on matter, scalar and reference factors.
+    key = selected[-1]
+    reference = 1 << 9
+    energy = coulomb_diagonal(key, reference)
+    for label in range(119):
+        links = (label, *key[1][1:])
+        assert coulomb_diagonal((key[0], links, key[2]), reference) == energy
+    assert len(changed_energy_values) > 1
+    return {
+        'actual_alternative_source': 'openwave_current_coulomb.source.changed_column',
+        'Hamiltonian': 'H_local+lambda T+4 N_ref+kappa rho^T G rho/2, with no unit-link penalty',
+        'tested_hopping_coefficient': str(coupling),
+        'tested_positive_Coulomb_coefficient': '1',
+        'complete_basis_and_reference_columns': columns,
+        'actual_H_prime_entries_checked': entries,
+        'reference_occupations': [0, 1, 30],
+        'all_119_link_labels_preserve_density_energy': True,
+        'operator_identity': '[K_e,rho_x]=0, hence [K_e,rho^T G rho]=0',
+        'arbitrary_positive_Coulomb_coefficient': True,
+        'same_link_conjugacy_for_every_real_background': True,
+        'same_static_current_Ward_and_spectral_invariance': True,
+        'removing_linear_link_penalty_removes_this_obstruction': False,
+        'original_ground_preparation_energy_bins_or_transport_transferred': False,
+    }
+
+
 def certificate(coupling=COUPLING):
     return {'schema': 'oph.same_source_hypercharge_background.v1',
         'coordinate_covariance': coordinate_checks(),
         'full_source_controls': full_source_checks(coupling),
         'plaquette_control': plaquette_checks(),
         'fixed_preparation_control': fixed_preparation_control(coupling),
+        'longitudinal_Coulomb_alternative': coulomb_extension_checks(coupling),
         'static_current_ward': {
             'all_real_angles_and_all_integer_profiles': True,
             'arbitrary_real_link_angles_by_independent_commuting_generators': True,
@@ -308,5 +370,6 @@ def certificate(coupling=COUPLING):
             'emergent_electromagnetic_direction_or_photon_identified': False,
             'all_magnetic_observables_vanish': False,
             'free_envelope_g_two_transferred_to_prepared_line': False,
+            'intrinsic_positive_Wilson_kernel_and_Maxwell_field_transferred': False,
             'observed_electron_identified': False},
         'verdict': 'PASS_SAME_SOURCE_STATIC_HYPERCHARGE_RESPONSE_OBSTRUCTION'}

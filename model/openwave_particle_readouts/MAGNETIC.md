@@ -148,6 +148,31 @@ from the executed source. A consequence derived through virtual hopping
 from the unchanged source inherits (1); naming it an effective plaquette
 term does not remove the conjugation identity.
 
+The explicitly different longitudinal Coulomb construction uses
+\[
+ H'=H_{\mathrm{local}}+\lambda T+4N_{\rm ref}
+       +\frac{\kappa}{2}\rho^*G\rho,\qquad \kappa>0,
+\]
+where the density \(\rho\) includes the actual matter, scalar and
+reference hypercharges and \(G\) is the finite graph pseudoinverse.
+Its implementation is
+[`openwave_current_coulomb/source.py`](../openwave_current_coulomb/source.py).
+Every \(\rho_x\) acts on factors distinct from the quantum links, so
+\([K_e,\rho_x]=0\). The density-quadratic energy therefore commutes
+with \(V(A)\), and
+\[
+ H'(A)=V(A)H'(0)V(A)^\dagger.
+\]
+The static current identities (2)–(4) hold with \(H'\) as well.
+Replacing the unit-link binding cost by this longitudinal energy does
+not remove the static hypercharge spectral obstruction. The executor
+checks the actual alternative column action on 21 complete source and
+reference inputs, including vacuum, single-particle and filled-reference
+occupations. It also exhausts all 119 link labels at fixed density.
+The operator proof holds for every positive \(\kappa\), independently
+of these fixtures. It transfers no ground, physical preparation,
+charged energy bin or transport probability from \(H\) to \(H'\).
+
 The folded 16-component free-envelope calculation of a response tending
 to \(g=2\) uses a prescribed classical connection and a Clifford mass
 operator. It has no transfer theorem to this interacting state with its
@@ -155,6 +180,17 @@ retained quantum links. The exact static hypercharge splitting here is
 zero. Calling that result an electromagnetic \(g\) would require a photon
 direction, a physical field intervention and an energy-to-mass relation
 on this same source. Those identifications are not made by this theorem.
+
+The separate
+[`intrinsic magnetic construction`](../openwave_intrinsic_magnetic/PROOF.md)
+uses the positive kernel \(|D_W(A)|\), a confining scalar mass well,
+a Wilson regulator and a semiclassical transverse Maxwell field with
+energy proportional to \(\|CA\|^2\). Its stationary numerical current
+and self-consistent field belong to that stated construction. Its
+classical connection and Maxwell energy do not satisfy the independent
+PW119 link-conjugation premises used here. Neither its preparation
+nor its intrinsic dipole is transferred to the interacting charged line
+or to the longitudinal Coulomb alternative.
 
 `magnetic.py` executes all 59 full coordinate matrices, their 1,156
 nonzero entries, central endpoint-current commutators, occupied 240-mode

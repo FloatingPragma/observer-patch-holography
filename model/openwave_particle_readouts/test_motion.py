@@ -4,7 +4,8 @@ import pytest
 import sympy as s
 from scipy.linalg import expm
 
-from .motion import atom_first_hop, detuned_arrival_bounds, family_certificate, sampling_budget, spin_effects
+from .motion import (atom_first_hop, detuned_arrival_bounds, ec_flux_attachment,
+                     family_certificate, sampling_budget, spin_effects, validate_ec_pole_source)
 
 
 def physical_matrix(matrix, gram):
@@ -53,6 +54,44 @@ def test_native_three_axis_contractions_and_unfiltered_limit():
     for exact in selected:
         assert (exact.subs(c, 2*w)-w**3*s.eye(4)/4).applyfunc(s.expand) == s.zeros(4)
         assert (exact-exact.H).applyfunc(s.expand) == s.zeros(4)
+
+
+def test_shared_ec_atom_rejects_a_different_native_weight(monkeypatch):
+    from . import motion
+    from model.coherent_defect_wave.chiral_joint.interacting_charged_response.local import positive_response
+    actual = atom_first_hop('ec')
+    local = positive_response('ec')
+    assert actual['shared_ec_atomic_source']['complete_native_pole_and_weight_regenerated_and_equal']
+    assert not actual['shared_ec_atomic_source']['preparation_or_timeline_probability_bound_transferred']
+    changed = dict(motion.energy_resolved.native_pole_residue())
+    changed['pump_pole_weight_interval'] = ['1/4', '1/4']
+    monkeypatch.setattr(motion.energy_resolved, 'native_pole_residue', lambda: changed)
+    with pytest.raises(ArithmeticError, match='shared spectral source'):
+        validate_ec_pole_source(actual['selected_factor'], actual['weight'], local['blocks'])
+
+
+def test_same_native_flux_refines_every_time_and_retains_all_failures(monkeypatch):
+    from . import motion
+    attached = ec_flux_attachment()
+    assert attached['regenerated_route_cut_identities'] == 1536
+    assert attached['regenerated_complete_endpoint_Ward_identities'] == 1416
+    assert attached['regenerated_additive_factor_basis_Gauss_comparisons'] == 24840
+    assert not attached['other_preparation_arrival_probability_transferred']
+    value = family_certificate('ec')
+    for row in value['clock_records']:
+        assert row['joint_native_charge_flux_six_route_probability_from_original_input'] == row['six_route_probability_from_original_input']
+    for row in value['complete_records']['records']:
+        if row['record'] == 'line_prepared_charged_arrival':
+            atom = row['joint_native_charge_flux_atom']
+            assert atom['arrival_source_matter_plus_scalar_Y_and_Q'] == '-1'
+            assert list(map(s.Rational, atom['three_half_cube_fluxes'])).count(-1) == 1
+            assert row['joint_atom_probability_equals_actual_arrival_probability']
+        else:
+            assert 'all central-Y cut-flux and charge outcomes retained' in row['joint_native_flux_refinement']
+    full_flux = motion.native_flux.cut_flux_six
+    monkeypatch.setattr(motion.native_flux, 'cut_flux_six', lambda mask, links: -full_flux(mask, links))
+    with pytest.raises(ArithmeticError, match='full native cut flux'):
+        ec_flux_attachment.__wrapped__()
 
 
 @pytest.mark.parametrize('seed', [11, 23, 37])

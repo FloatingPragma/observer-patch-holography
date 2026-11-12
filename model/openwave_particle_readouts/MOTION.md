@@ -43,6 +43,17 @@ original total-energy bin holds at every subsequent source time.
 It does not make the post-position state exactly supported in that bin.
 The earlier successful energy record is a retained preparation result.
 
+The measurement order differs from the
+[energy-filtered arrival experiment](../openwave_energy_resolved_transport/PROOF.md).
+That preparation applies `P_I(H) B_ec P0` and has a strictly positive
+tagged arrival at time zero, created by the energy filter. Here S0
+follows the filter: `S0 P_I(H) B_r`. It removes the initial flux tail
+on its successful branch and produces the exact zero-arrival kernel
+used below. The source Hamiltonian and local atomic e^c result agree;
+the two preparations have different complete record laws. None of the
+other experiment's preparation errors or arrival probabilities enters
+the bounds in this calculation.
+
 ## Arrival at the same local charged atom
 
 For each of the six actual links incident to zero, let A_e require:
@@ -109,6 +120,16 @@ by its isolating interval in the complete target annihilator.
 root's irreducible factor. It gives
 
 `c_ec=-2 w_ec/3`, `c_L=2 w_L`.
+
+The e^c identity and its tagged-hop coefficient are the shared native
+atomic result of the energy-filtered arrival package.
+`motion.validate_ec_pole_source` regenerates that calculation from
+the complete native transfer blocks and requires exact equality of
+the selected polynomial, outward atom-weight interval and native
+block dimensions. It also executes the provider's three exact tagged
+spin contractions. The generic two-residue contraction here includes
+the L channel. This use of the local atom transfers no preparation
+or clock probability bound between the experiments.
 
 The signed residue is also independently enclosed by outward interval
 arithmetic before applying these identities. The pump normalization is
@@ -195,6 +216,45 @@ and position failure retain their actual source states. Every source
 copy, reference occupation, scalar/link memory and preparation
 environment is retained. All branches preserve their stated joint
 Gauss constraints.
+
+## Joint charge and flux at the terminal clock settings
+
+The [native charge/flux theorem](../openwave_native_charge_flux/PROOF.md)
+holds on every joint-physical vector in the e^c arrival effect P_e.
+It is independent of the preparation probability. Since `A_e<=P_e`,
+the same constraints hold after the local atom refinement. The
+arrival matter-plus-scalar current has `Y=Q=-1`; the fixed reference
+has `Y=Q=+1`. Every other source cell is a true gauge singlet. For
+each of the 256 cell subsets S, the outward central hypercharge flux is
+
+`F_S=1_(0 in S)-1_(y in S)`.
+
+`motion.ec_flux_attachment` regenerates the actual native route
+compiler and endpoint constraints, matches all six routes to this
+experiment, and checks all 1536 route/cut identities against the
+complete link currents. It also executes the complete endpoint Ward
+identities and the 24840 Gauss-compiler comparisons on the additive
+factor basis, which extend to all simultaneous occupations. The receipt
+stores their formula and the
+three half-cube flux values per route. It does not duplicate the
+provider's full boundary-spectrum fixture.
+
+For any coarse record r with actual Kraus operator K_r, let Pi_(S,k)
+be the full spectral projector for `6F_S=k`, and let R_(S,l) project
+onto `6(rho_source,S^Y+1_(0 in S)Y_ref)=l`. These commuting projectors
+define the retained refinement
+
+`p(r,k,l)=Tr[R_(S,l) Pi_(S,k) K_r rho_in K_r^dagger Pi_(S,k) R_(S,l)]`.
+
+The joint Gauss constraint gives zero weight when `k!=l`, on every
+arrival, failure and nonarrival branch. Summing over the full spectrum
+returns the original coarse probability. On an e^c A_e outcome the
+displayed flux atom is certain, so its joint charge/flux probability
+is exactly `q r_e(t)`. Thus the same original-input time-three versus
+time-six bounds apply to these joint charge/flux events. This is no
+inference about the unconditioned mean flux or a proved return of the
+charge to the origin. No Q measurement on arbitrary nonarrival states
+is assumed; the complete cut refinement uses central Y.
 
 The result concerns a line-conditioned position preparation. It does
 not assert positive motion of the original line without that

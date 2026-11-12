@@ -1,0 +1,45 @@
+{
+  "Green_profile": {
+    "alpha_or_common_physical_length_inferred": false,
+    "independent_real_Fourier_grid": 32,
+    "largest_Fourier_vs_fft_error": 1.1449174941446927e-16,
+    "ratio_to_continuum_step_force": 1.0886604627832048,
+    "static_step_force_three_to_four": 0.007219403916694057,
+    "unit_kappa_pair_energy_at_three": 0.22513956645641137
+  },
+  "cochains": {
+    "exact_cochain_controls": [
+      {
+        "nearest_unit_pair_energy": "7/48",
+        "projected_dimension": 7,
+        "side": 2
+      },
+      {
+        "nearest_unit_pair_energy": "21/128",
+        "projected_dimension": 63,
+        "side": 4
+      }
+    ],
+    "new_quadratic_cost_difference": "0",
+    "nonneutral_full_carrier_is_not_a_physical_Gauss_solution": true,
+    "nonzero_transverse_path_difference_retained": true,
+    "unit_link_cost_difference": 2
+  },
+  "input_sha256": {
+    "model/openwave_current_coulomb/PROOF.md": "8b7e243fdd7698ff99e2d5a14033c46b9f1c8fc3a30d82623b32e1c831b496d9",
+    "model/openwave_current_coulomb/result.py": "ff05c06ca86625dabeb7b76f457f534d4d30e0473f32a269abe7930bb02e926d",
+    "model/openwave_current_coulomb/results.json": "0d4466f13145d714d0d3a49d5a3575a6cd14d6037ab221e732b38724ac3c63e3",
+    "model/openwave_current_coulomb/source.py": "d40fcb42bae529533985b9ac561ef7a138bfb6817e1f4be8499b16aa65b119cf",
+    "model/openwave_neutral_candidate/audits/coulomb_review.py": "7775117e21a4ec9850a1a841ab65dcab05d240f8bc7da15d2f4f021752356fe1"
+  },
+  "native_operator": {
+    "changed_full_H_reconstructed_from_original_column": true,
+    "different_spin_axis_physical_column_constraints": 96,
+    "independent_full_current_Gauss_columns": 96,
+    "independent_kappa_scaling_checked": true,
+    "local_density_commutator_unchanged": true
+  },
+  "schema": "oph.independent_native_current_coulomb_review.v1",
+  "scope": "The native-current Gauss quadratic is a valid original-source observable. The original unscreened domain has the retained linear link-cost obstruction. Removing that penalty defines a distinct source with Coulomb static trial energies, without transferring the original interacting ground or transport probabilities; kappa and physical unit conversion are not derived.",
+  "verdict": "PASS_INDEPENDENT_NATIVE_CURRENT_COULOMB_REVIEW"
+}

@@ -39,6 +39,8 @@
     "model/coherent_defect_wave/chiral_joint/atomic_momentum_response/model.py": "e1306180ed2773c190b756430410707c3792a17b1a88a1255ffefffc6455fe11",
     "model/coherent_defect_wave/chiral_joint/atomic_reference_control/__init__.py": "27443f05998272468c10a85c7680d7f20e40612f895ce10e0be1c361c30af187",
     "model/coherent_defect_wave/chiral_joint/atomic_reference_control/ground_exchange.py": "15354bfb20e0ea4b6e447bcb4dcaa20c55176387048176f6c383371c928b9011",
+    "model/coherent_defect_wave/chiral_joint/atomic_reference_control/lattice.py": "dff13baeea0746d848adbbeca6d3e8aca66d937542c17d3e8c54b352b82084b8",
+    "model/coherent_defect_wave/chiral_joint/atomic_reference_control/local_bound.py": "c6f97020f4d77dfc081b82505e663bd11f00c437140cdb6183b94518583554d0",
     "model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/__init__.py": "96f17efc781245c158b9442887302f23a4a9613572d72f1cf17bc94eb673befe",
     "model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/cube.py": "ca411cce4edaef4606de8d8899a8057a129c845582ae59d0b3c7ebe357b4770c",
     "model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/momentum.py": "a3434e937cf63fe9914f508e9cae2334b02071607b0d5b4e082ab9baf2d4feda",
@@ -66,6 +68,8 @@
     "model/coherent_defect_wave/chiral_joint/higgs_composites/model.py": "a3fdfaccdaa78b8ba78e83613b1ec823d4ec4099356a4603c844cd7bb863accc",
     "model/coherent_defect_wave/chiral_joint/higgs_composites/periodic_bridge.py": "fb3e2e610d757a4b7c7d9ba9b23b661251cc00c0aec7a2eeb5f7c322600f4250",
     "model/coherent_defect_wave/chiral_joint/interacting_charge_localization/PROOF.md": "122f5c2ca3370dc85685c77aa2d21f47c6c52dd1298203d64f56e8be12514da1",
+    "model/coherent_defect_wave/chiral_joint/interacting_charge_localization/__init__.py": "3bc24f487317fd8a5465a10ae38bcde7ec422f89f8e88de737ee430df7e3100d",
+    "model/coherent_defect_wave/chiral_joint/interacting_charge_localization/geometry.py": "4019e44a09ef3a6d1349b73adc389e518766cfc9a6dc45e910c788bd80ff5c61",
     "model/coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md": "870d0acfeba928d498266de3884b5c1ab62c103c93d7d18a3db907232fbdfd9e",
     "model/coherent_defect_wave/chiral_joint/interacting_charged_response/__init__.py": "a3434cf0009dc457efb5cbdea4ae876571448b16d713a48e14876ce48400d0ec",
     "model/coherent_defect_wave/chiral_joint/interacting_charged_response/local.py": "e58ae5e7348fb489d9a522bdfe397592c15d257bdb8e4923a4cb1b468b5cf3dd",
@@ -73,6 +77,7 @@
     "model/coherent_defect_wave/chiral_joint/interacting_charged_response/transfer.py": "5b660671a5ed688cfefbc833f1b4665de45447b46ce3d3f2ddb5313e7b8b73eb",
     "model/coherent_defect_wave/chiral_joint/interacting_charged_transport/__init__.py": "2ae68b2e7bd72857da2cf041b3bce92ba789657e4f6cbf6d2f6bce56de66328b",
     "model/coherent_defect_wave/chiral_joint/interacting_charged_transport/algebra.py": "1dd6bffe7ee0f39eb587f5b35d361390361b10ced4d10565d325a48c2fb69288",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_transport/transport.py": "a837960a6ecb1e51b80a002d2a150a10edf2965b8aca1e868d8859ed4eac8549",
     "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json": "7335d80394ab25ab949ca0e359e70a8eca55636256255b684c68086be2a8c7a6",
     "model/coherent_defect_wave/chiral_joint/local_reference/__init__.py": "95e2d485285a64b6cee19996e91f209498081fdccead105305323bab147f9d1a",
     "model/coherent_defect_wave/chiral_joint/local_reference/algebra.py": "52356e18a0f74db93a93e2535a171869af01da9ec58ba74ddfd35af75a9b0709",
@@ -87,7 +92,10 @@
     "model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/__init__.py": "2cce105f466e1f0a55f1809ae98e743a93f39d8237c52868b594640e90f27bc5",
     "model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/model.py": "4c2b0ba304c2909dcfd201180ddb367ab042bc017b086e891545366197c36096",
     "model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/symmetries.py": "e43371bfbb96ce0f27a14be31fddddf18c19b52639f034b9ba0df56b2b6a1a3f",
+    "model/coherent_defect_wave/chiral_joint/neutral_mobility/__init__.py": "113b4292c848354b99cc16987cf02024fdc789254b7cd5eed295e30b230f45be",
+    "model/coherent_defect_wave/chiral_joint/neutral_mobility/model.py": "b6e8dec34a0c583edafe5912541237f9f69b8062fc01d42c882ba67ac326f9d4",
     "model/coherent_defect_wave/chiral_joint/oriented_links/__init__.py": "b666baf115da5f4d32e2070bcc292f8fe4488d9baee408c0a1f75fcb63c7a569",
+    "model/coherent_defect_wave/chiral_joint/oriented_links/checks.py": "4e56385022efc658723856553eef5cfba20bf7a4a4847e208b1784bb47b195b5",
     "model/coherent_defect_wave/chiral_joint/oriented_links/model.py": "7d31394dce9405f0c709d0368175efe100af0a142c8cc68113677cc134f762ea",
     "model/coherent_defect_wave/chiral_joint/oriented_links/rotations.py": "acbc8f0917ffdeaea2a815c4c155bc41e8ffbe6019b204ee58e9416e349cac49",
     "model/coherent_defect_wave/chiral_joint/periodic_family/__init__.py": "f6553c6b152ec316cabd82e9f5ebb2d3804549224b10dd6431fe13b6dd83970e",
@@ -97,6 +105,7 @@
     "model/coherent_defect_wave/chiral_joint/periodic_spectrum/readout.py": "fd130794e5e812862e6b37f36efd7fe95a8b80dd346bfeab105492adeaed9712",
     "model/coherent_defect_wave/chiral_joint/periodic_spectrum/spectrum.py": "3ae43ceba8bc0fde1a63a613a2fa42a513195ab6646d62b8b16bd38800fc2673",
     "model/coherent_defect_wave/chiral_joint/peter_weyl_links/__init__.py": "a357adeacb1116b2d911e4ce396f0ab4f848ae4d8f110b9cbf8e6eaf423fc472",
+    "model/coherent_defect_wave/chiral_joint/peter_weyl_links/checks.py": "13725f0f0e93fd9129e4bf9e8927b15f3ab70b88da69056ed1acbcf154e49245",
     "model/coherent_defect_wave/chiral_joint/peter_weyl_links/clebsch.py": "05cb0ab454f5a4483859c2acfc3f4049fad6b57df5011336c4bf596352b1786a",
     "model/coherent_defect_wave/chiral_joint/peter_weyl_links/model.py": "da11fcaa17072d48747745916fb12eada02098409758bc263a7cef0fd4f847f0",
     "model/coherent_defect_wave/chiral_joint/two_cell/__init__.py": "eaab0cc807079840b291c81505de705e909c88c49c08def0793eff98735a39e6",
@@ -191,9 +200,21 @@
     "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
     "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
     "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/field_stress/__init__.py": "89e3ba97dfe717d1cc21ba86a406a7c58e74eb4db402daaa835d2703bc32bf34",
+    "model/field_stress/energy.py": "f44f67d25d9738230966dc4c9e64eecc2792f0bf07d33b4ca4ac5cb9db90cf72",
+    "model/field_symmetry/__init__.py": "5f2c249b87b7a2fca59ea8146cc5baa475ce58a2148a0dc8fec9d4ee4e49a122",
+    "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
+    "model/full_fock_field/__init__.py": "72004e140b0027d10517e53abc04bc56164e10b665fd5adf0f64294fe0e2515f",
+    "model/full_fock_field/bounds.py": "7a90b91236c7a27c62da7db222f7e7928b683f027a8b77af22d74bbd6224431c",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
     "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
     "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
     "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+    "model/interacting_defect_response/__init__.py": "b15325b6b5aeca3bd0e6b3f820147d300f61e8ead01373185d953b81e106aec3",
+    "model/interacting_defect_response/algebra.py": "4543993494c34a6ff5404110e547a417c019da4d3899ecf0f81774bb6d1e5d8c",
+    "model/interacting_field/__init__.py": "a6ae40bc514b34efa189518937850fd35173e0e9fb1aa590987e91d8c1af26cf",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/interacting_field/source.py": "39735bf7a86e3fa309b2a3d01c3e64b146be8d2f280445731c146b984f73e5be",
     "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
     "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
     "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
@@ -216,6 +237,8 @@
     "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
     "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
     "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_mass_channels/__init__.py": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e",
+    "model/native_mass_channels/algebra.py": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086",
     "model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
     "model/native_modular_reference/cap_local_clock.py": "ccc4bf54b67866a59adb7904d1e3c19a4325ce53dc8963ed68848b83065510e8",
     "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
@@ -231,6 +254,8 @@
     "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
     "model/native_modular_reference/reference_tomography.py": "77a30720a44155d0b11c1801448dd5f5d8b5960230d03079c11d55e0839a0b11",
     "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_quantum_gauss/__init__.py": "1b1b4fe7a8f3b86e70654f4b7ff0cce2c880180dbec633082acd083cd3a64ca3",
+    "model/native_quantum_gauss/algebra.py": "b201991787f2fcf1f79805ab2271e1aef0b8a389a2dd16bb79afa5787200361d",
     "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
     "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
     "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
@@ -260,20 +285,33 @@
     "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
     "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
     "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
-    "model/openwave_particle_readouts/MAGNETIC.md": "48868eef212243e64e5bd543791df3e4172c04630401d81172ae9b24236fd81e",
-    "model/openwave_particle_readouts/MOTION.md": "0a6fcc2a09724f8cd47a209bfec26c9a0c9dd486ab4a6c268590e43b12e1b378",
+    "model/openwave_current_coulomb/PROOF.md": "8b7e243fdd7698ff99e2d5a14033c46b9f1c8fc3a30d82623b32e1c831b496d9",
+    "model/openwave_current_coulomb/__init__.py": "58f451b88e8b2a13a2952b61a2192929e6037349c9843dd63b6b34a07e9151aa",
+    "model/openwave_current_coulomb/source.py": "d40fcb42bae529533985b9ac561ef7a138bfb6817e1f4be8499b16aa65b119cf",
+    "model/openwave_energy_resolved_transport/PROOF.md": "c14e87d257e42682564cfe2bbe7fda521f3a4e068b52b7592c290b85df157367",
+    "model/openwave_energy_resolved_transport/__init__.py": "74cd8f07ed80afb0698af55f897310569ceeae7fc74fe46a5474afad4ae62eb2",
+    "model/openwave_energy_resolved_transport/response.py": "a5235097b9fbccfefb34a80f112c60696b97b13324a90c42a68b2c20e17d36bc",
+    "model/openwave_native_charge_flux/PROOF.md": "55b32208fe4712d265f8450bbf3fcd95efac447707a54808e627cd249005c90f",
+    "model/openwave_native_charge_flux/__init__.py": "1659905982b2331efc6e39007cbb773c032f836a9d4719e165f14c15e393b54e",
+    "model/openwave_native_charge_flux/algebra.py": "b02c30c17d02bd7426cf9ae07ef3a3c92d823f991ea689ce814b011c72ade5bd",
+    "model/openwave_particle_readouts/MAGNETIC.md": "62070af6f90fee85db16afcdd8a0ef326b1fdf387d259b2dab2340efbdc95f79",
+    "model/openwave_particle_readouts/MOTION.md": "48871c1b4d8419ed6ae57671c7b2382bb89b4012a7a15703d95aa6763568dd8c",
     "model/openwave_particle_readouts/PROOF.md": "5c39daf400f2d29693813e5a68da5ea5e350fdc99c01ef3a1ac16a7c78b3273d",
-    "model/openwave_particle_readouts/README.md": "8b802fe86c4ebb7e6997ff6d7da9062613b9e71869f1a7cc1f5398ba0084c984",
+    "model/openwave_particle_readouts/README.md": "e80977976a731c0f7a57283c46d02e3fec332b5382cb5403b99b029310ff8ec8",
     "model/openwave_particle_readouts/__init__.py": "30cc8a8a845800687202f83e7a3858c9878e1d3d6e085409d1124f95d98cfd04",
     "model/openwave_particle_readouts/__main__.py": "6628408098745b403d9344f05c350bf30bd4df2615a99154424ae3e161367dea",
-    "model/openwave_particle_readouts/magnetic.py": "4da2ccf410a0e5b4af66229fd36dbf44f628b870d12f19dbe0a74bdc8a5bc3e7",
-    "model/openwave_particle_readouts/motion.py": "1aaaba78513a15bae79dea8fd3f44898580a63227c3d2ae25e0399c22cdf489e",
-    "model/openwave_particle_readouts/readouts.py": "c0029a8f6ee299e54d04e10503b23bde3a44f3b63a41e17122940adeab722ac0",
-    "model/openwave_particle_readouts/test_magnetic.py": "d83e90c97dbe8f8236254de71e862c26f65f074ccb499b9ec4cb113e51e334ec",
-    "model/openwave_particle_readouts/test_motion.py": "f2e6ddee3fcf89ce13778590b653bd3de340d8334bfab2fb899b0a87fbadeeeb",
+    "model/openwave_particle_readouts/magnetic.py": "8598b4db2fd030f49104696faaed7fc87d7586d52e556125ab380d4419e0f494",
+    "model/openwave_particle_readouts/motion.py": "36220dd363b455585aaf2a286957e5985828c60b0f7c9147ff5036962df0bb1b",
+    "model/openwave_particle_readouts/readouts.py": "6ece9688ced26e5868a90c5c85c2c6910bbe0549a569ce1d29fab8e27e3a4265",
+    "model/openwave_particle_readouts/test_magnetic.py": "f72eb52841ee4d6927de1494e7560f6d1b81ed09c2e6f0ac741b3f83ae036025",
+    "model/openwave_particle_readouts/test_motion.py": "f9b017a026b40adba3cfba43f1b555a9e95a02288a00366aaaa179a0b515b81f",
     "model/openwave_particle_readouts/test_readouts.py": "95aaef3e378ea7c54fce65b27a477bac8ddca63fef6d4d7a46a476216e283523",
+    "model/openwave_reference_binding/__init__.py": "210643b2ff0fb3b9fbd2647cc1b5cb0fc9eb5a7180ceef546c0944427d9b7e6e",
+    "model/openwave_reference_binding/strings.py": "1c93c4f202a1bee63627ced99e5c826b79046cde7c4a2d20df730e672a7fd7f5",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
     "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+    "model/particle_gauge_band/__init__.py": "0edf95fd5b7c9af3a2319638450907ced0dcf3c09bb21e2bb9f5bd03915cc1d8",
+    "model/particle_gauge_band/quantum_link_completion.py": "4b38c762f3ca01a28556f5fb75b4c67db51bfceef982cd9abec6872559b049e1",
     "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
     "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
     "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
@@ -289,6 +327,8 @@
     "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/radial_defect_gap/__init__.py": "84da3fbf852599f0a5a1c804a5bd412ee2490c52b9498f8cbbaa7d29bbbec97e",
+    "model/radial_defect_gap/bounds.py": "dd158af3d1751d5de190a5b2864887b2d11e35a4ec1eb6c6b58d71759839d793",
     "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
     "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
     "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
@@ -362,6 +402,12 @@
       "S0",
       "I-S0"
     ],
+    "energy_filter_measurement_order": {
+      "energy_resolved_transport_preparation": "P_I(H) B_ec P0 Psi, whose energy filter creates a positive time-zero tagged tail",
+      "same_atomic_ec_result_different_explicit_preparation": true,
+      "this_preparation": "S0 P_I(H) B_r Psi, with S0 after the full-H energy filter",
+      "time_zero_dressing_probability_or_preparation_error_bound_transferred": false
+    },
     "exact_cube_route_moment": "w^3/16+3w*c^2/64+c^2*(2w-c)*x/768",
     "exact_no_operation_arrival_probability": "0",
     "exact_two_spin_effect": "(w^3/16+3w*c^2/64)I+c^2*(2w-c) S0 dot R_axis Sy/16",
@@ -385,6 +431,10 @@
         ],
         "clock_records": [
           {
+            "joint_native_charge_flux_six_route_probability_from_original_input": [
+              "0",
+              "0"
+            ],
             "per_route_probability_from_original_input": [
               "0",
               "0"
@@ -405,6 +455,10 @@
             ]
           },
           {
+            "joint_native_charge_flux_six_route_probability_from_original_input": [
+              "52787774384124030088389228810281103/784637716923335095479473677900958302012794430558004314112",
+              "31932225257499146901494598304031517/392318858461667547739736838950479151006397215279002157056"
+            ],
             "per_route_probability_from_original_input": [
               "17595924794708010029463076270093701/1569275433846670190958947355801916604025588861116008628224",
               "10644075085833048967164866101343839/784637716923335095479473677900958302012794430558004314112"
@@ -425,6 +479,10 @@
             ]
           },
           {
+            "joint_native_charge_flux_six_route_probability_from_original_input": [
+              "873802225784934558139440479788070407/3138550867693340381917894711603833208051177722232017256448",
+              "2302164502579694367082442520094313103/6277101735386680763835789423207666416102355444464034512896"
+            ],
             "per_route_probability_from_original_input": [
               "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
               "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
@@ -445,6 +503,10 @@
             ]
           },
           {
+            "joint_native_charge_flux_six_route_probability_from_original_input": [
+              "22616416264451753451059615969179/6277101735386680763835789423207666416102355444464034512896",
+              "19693853454013697419941603981270389/784637716923335095479473677900958302012794430558004314112"
+            ],
             "per_route_probability_from_original_input": [
               "3769402710741958908509935994863/6277101735386680763835789423207666416102355444464034512896",
               "26258471272018263226588805308360519/6277101735386680763835789423207666416102355444464034512896"
@@ -474,18 +536,22 @@
           "records": [
             {
               "exact_probability": "1-q",
+              "joint_native_flux_refinement": "all central-Y cut-flux and charge outcomes retained; physical mismatches have zero probability",
               "record": "physical_preparation_failure"
             },
             {
               "exact_probability": "q p_failure",
+              "joint_native_flux_refinement": "all central-Y cut-flux and charge outcomes retained; physical mismatches have zero probability",
               "record": "native_pump_failure"
             },
             {
               "exact_probability": "q p_outside",
+              "joint_native_flux_refinement": "all central-Y cut-flux and charge outcomes retained; physical mismatches have zero probability",
               "record": "complete_energy_bin_complement"
             },
             {
               "exact_probability": "q(p_line-s)",
+              "joint_native_flux_refinement": "all central-Y cut-flux and charge outcomes retained; physical mismatches have zero probability",
               "probability_interval": [
                 "0",
                 "53519663878094012437251766681060822122609/1461501637330902918203684832716283019655932542976"
@@ -503,6 +569,20 @@
               "axis": 0,
               "edge": 0,
               "exact_probability": "q r_edge_0",
+              "joint_atom_probability_equals_actual_arrival_probability": true,
+              "joint_native_charge_flux_atom": {
+                "all_256_cut_fluxes": "1_(0 in S)-1_(4 in S)",
+                "arrival": 4,
+                "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+                "charge_flux_mismatch_probability": "0",
+                "edge": 0,
+                "reference_Y_and_Q": "1",
+                "three_half_cube_fluxes": [
+                  "-1",
+                  "0",
+                  "0"
+                ]
+              },
               "origin": 0,
               "probability_interval": [
                 "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
@@ -524,6 +604,20 @@
               "axis": 1,
               "edge": 1,
               "exact_probability": "q r_edge_1",
+              "joint_atom_probability_equals_actual_arrival_probability": true,
+              "joint_native_charge_flux_atom": {
+                "all_256_cut_fluxes": "1_(0 in S)-1_(2 in S)",
+                "arrival": 2,
+                "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+                "charge_flux_mismatch_probability": "0",
+                "edge": 1,
+                "reference_Y_and_Q": "1",
+                "three_half_cube_fluxes": [
+                  "0",
+                  "-1",
+                  "0"
+                ]
+              },
               "origin": 0,
               "probability_interval": [
                 "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
@@ -545,6 +639,20 @@
               "axis": 2,
               "edge": 2,
               "exact_probability": "q r_edge_2",
+              "joint_atom_probability_equals_actual_arrival_probability": true,
+              "joint_native_charge_flux_atom": {
+                "all_256_cut_fluxes": "1_(0 in S)-1_(1 in S)",
+                "arrival": 1,
+                "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+                "charge_flux_mismatch_probability": "0",
+                "edge": 2,
+                "reference_Y_and_Q": "1",
+                "three_half_cube_fluxes": [
+                  "0",
+                  "0",
+                  "-1"
+                ]
+              },
               "origin": 0,
               "probability_interval": [
                 "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
@@ -566,6 +674,20 @@
               "axis": 2,
               "edge": 5,
               "exact_probability": "q r_edge_5",
+              "joint_atom_probability_equals_actual_arrival_probability": true,
+              "joint_native_charge_flux_atom": {
+                "all_256_cut_fluxes": "1_(0 in S)-1_(1 in S)",
+                "arrival": 1,
+                "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+                "charge_flux_mismatch_probability": "0",
+                "edge": 5,
+                "reference_Y_and_Q": "1",
+                "three_half_cube_fluxes": [
+                  "0",
+                  "0",
+                  "-1"
+                ]
+              },
               "origin": 0,
               "probability_interval": [
                 "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
@@ -587,6 +709,20 @@
               "axis": 1,
               "edge": 7,
               "exact_probability": "q r_edge_7",
+              "joint_atom_probability_equals_actual_arrival_probability": true,
+              "joint_native_charge_flux_atom": {
+                "all_256_cut_fluxes": "1_(0 in S)-1_(2 in S)",
+                "arrival": 2,
+                "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+                "charge_flux_mismatch_probability": "0",
+                "edge": 7,
+                "reference_Y_and_Q": "1",
+                "three_half_cube_fluxes": [
+                  "0",
+                  "-1",
+                  "0"
+                ]
+              },
               "origin": 0,
               "probability_interval": [
                 "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
@@ -608,6 +744,20 @@
               "axis": 0,
               "edge": 12,
               "exact_probability": "q r_edge_12",
+              "joint_atom_probability_equals_actual_arrival_probability": true,
+              "joint_native_charge_flux_atom": {
+                "all_256_cut_fluxes": "1_(0 in S)-1_(4 in S)",
+                "arrival": 4,
+                "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+                "charge_flux_mismatch_probability": "0",
+                "edge": 12,
+                "reference_Y_and_Q": "1",
+                "three_half_cube_fluxes": [
+                  "-1",
+                  "0",
+                  "0"
+                ]
+              },
               "origin": 0,
               "probability_interval": [
                 "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
@@ -620,6 +770,7 @@
             },
             {
               "exact_probability": "q(s-sum_edge r_edge)",
+              "joint_native_flux_refinement": "all central-Y cut-flux and charge outcomes retained; physical mismatches have zero probability",
               "probability_interval": [
                 "306698689071774199019477179603176024531251017143/730750818665451459101842416358141509827966271488",
                 "614122376435379945980266439868350998136668857543/1461501637330902918203684832716283019655932542976"
@@ -649,6 +800,100 @@
           "trial_unit": "one independently prepared original physical input, including every preparation and measurement failure",
           "wrong_order_probability_upper": "1/20"
         },
+        "joint_native_charge_flux": {
+          "all_branch_charge_flux_mismatch_probability": "0 for k != l",
+          "all_preparation_failures_and_complete_nonarrival_refined": true,
+          "all_state_domain": "every joint-physical vector in each native ec arrival effect P_e; the atom-resolved A_e is a subeffect",
+          "arbitrary_nonarrival_Q_measurement_assumed": false,
+          "complete_refinement": "for every coarse record r, jointly measure the commuting central-Y cut-flux and total-charge projectors, retaining all outcomes; sum_(k,l) p(r,k,l)=p(r)",
+          "joint_probability": "p(r,k,l)=Tr[R_(S,l) Pi_(S,k) K_r rho_in K_r^dagger Pi_(S,k) R_(S,l)]",
+          "other_preparation_arrival_probability_transferred": false,
+          "provider": "model/openwave_native_charge_flux/algebra.py",
+          "regenerated_additive_factor_basis_Gauss_comparisons": 24840,
+          "regenerated_complete_endpoint_Ward_identities": 1416,
+          "regenerated_route_cut_identities": 1536,
+          "routes": [
+            {
+              "all_256_cut_fluxes": "1_(0 in S)-1_(4 in S)",
+              "arrival": 4,
+              "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+              "charge_flux_mismatch_probability": "0",
+              "edge": 0,
+              "reference_Y_and_Q": "1",
+              "three_half_cube_fluxes": [
+                "-1",
+                "0",
+                "0"
+              ]
+            },
+            {
+              "all_256_cut_fluxes": "1_(0 in S)-1_(2 in S)",
+              "arrival": 2,
+              "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+              "charge_flux_mismatch_probability": "0",
+              "edge": 1,
+              "reference_Y_and_Q": "1",
+              "three_half_cube_fluxes": [
+                "0",
+                "-1",
+                "0"
+              ]
+            },
+            {
+              "all_256_cut_fluxes": "1_(0 in S)-1_(1 in S)",
+              "arrival": 1,
+              "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+              "charge_flux_mismatch_probability": "0",
+              "edge": 2,
+              "reference_Y_and_Q": "1",
+              "three_half_cube_fluxes": [
+                "0",
+                "0",
+                "-1"
+              ]
+            },
+            {
+              "all_256_cut_fluxes": "1_(0 in S)-1_(1 in S)",
+              "arrival": 1,
+              "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+              "charge_flux_mismatch_probability": "0",
+              "edge": 5,
+              "reference_Y_and_Q": "1",
+              "three_half_cube_fluxes": [
+                "0",
+                "0",
+                "-1"
+              ]
+            },
+            {
+              "all_256_cut_fluxes": "1_(0 in S)-1_(2 in S)",
+              "arrival": 2,
+              "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+              "charge_flux_mismatch_probability": "0",
+              "edge": 7,
+              "reference_Y_and_Q": "1",
+              "three_half_cube_fluxes": [
+                "0",
+                "-1",
+                "0"
+              ]
+            },
+            {
+              "all_256_cut_fluxes": "1_(0 in S)-1_(4 in S)",
+              "arrival": 4,
+              "arrival_source_matter_plus_scalar_Y_and_Q": "-1",
+              "charge_flux_mismatch_probability": "0",
+              "edge": 12,
+              "reference_Y_and_Q": "1",
+              "three_half_cube_fluxes": [
+                "-1",
+                "0",
+                "0"
+              ]
+            }
+          ],
+          "unconditioned_mean_flux_or_origin_return_inferred": false
+        },
         "per_route_excursion_return_probability_contrast_lower": "1030454714281468973642524244883156409274464834473134554508507083079625849142291098981781068367724012739220620701618491933954387282546946175991928434483077549039164182183472812911722904572404499032510350698241964595734610629514205516165396254778071074356490904030563527207345667209008491778706578097775989692627410309751997728318720821979297975839931045246643469094866306943752056688515799267305728834469125470363310941675403102716865342083376706006912769232667294153145766413342579542622219738325554327048823376168510498891731609407850634891189845530803708820523058718309384676165147606420094122446699530124185178167873764929074733907350370811461939013073590868174120959869282481068561813015680753067139127179998548073259954264018942581288024401054389381160528303441049043824117106267517712090684381673408131209194126452904458362911445073782379214169354919142241349308641/24407739378883186731187747987951339531095765118104233686946612243742728860714664054287088873562986287800350090364228027325404153937234156401484122142098066502325156218163561795632225001715343088558165777863073012028645406135296655784767131052158220428071092800347890453789733413570911898013519079113438518571596211645820236299020720817841198421756230263261981663652100663790415389444489346261390938812910501387428349277257015937847511531206540532856252105699520261790256282368858922693249176189580815667109330817990076623423185962858303288091072334131898916490614872189346140811271867875667504373144716795074591577178490554501098099016542107926579122693541663522347333338873825631449989976873934367049167490307740164883038550943656819826340001828008629386812381948411956879246869595537815594025516669116036557764569632964364167223614517078914184625593167966523057536560372104822784000000000000",
         "per_route_probability_conditional_only_on_physical_preparation": [
           "568881690030614201733722089737945/12259964326927110866866776217202473468949912977468817408",
@@ -673,6 +918,12 @@
           "-177450600901805353893061419767/633825300114114700748351602688",
           "-354901201803610707786122839533/1267650600228229401496703205376"
         ],
+        "shared_ec_atomic_source": {
+          "all_three_ec_tagged_hop_contractions_regenerated": true,
+          "complete_native_pole_and_weight_regenerated_and_equal": true,
+          "preparation_or_timeline_probability_bound_transferred": false,
+          "provider": "model/openwave_energy_resolved_transport/response.py"
+        },
         "six_route_probability_from_original_input": [
           "873802225784934558139440479788070407/3138550867693340381917894711603833208051177722232017256448",
           "2302164502579694367082442520094313103/6277101735386680763835789423207666416102355444464034512896"
@@ -968,6 +1219,7 @@
           "trial_unit": "one independently prepared original physical input, including every preparation and measurement failure",
           "wrong_order_probability_upper": "1/20"
         },
+        "joint_native_charge_flux": null,
         "per_route_excursion_return_probability_contrast_lower": "23218857081286854927192346124314351306230213882934514529510573858122598744159161732613196205929533858834612208975798844255637180062464081613813017363615548975744299497486376378798613488366055738567652588655669848633397153619748594362210027541247212692282778879460991127557661655872634050366836961246307321928192767305485178195487786710782775395718649449037403616751733307578982139501061446999762768847796037762114610104448147299709210936214372437483116507833633578048200697748542270839191506589836449668850231040038976397342066621005581832995572591077605427907481203128759374947944015829516642132551107019039372648307620583283624648947484046645575144804668033188320462700758061154440850053965700866972188983054189220165459226094420087031892591551302866094252098604629729619700412672041804934429139083707020013463245407385695851663566476679510146102804815713941807317529/244077393788831867311877479879513395310957651181042336869466122437427288607146640542870888735629862878003500903642280273254041539372341564014841221420980665023251562181635617956322250017153430885581657778630730120286454061352966557847671310521582204280710928003478904537897334135709118980135190791134385185715962116458202362990207208178411984217562302632619816636521006637904153894444893462613909388129105013874283492772570159378475115312065405328562521056995202617902562823688589226932491761895808156671093308179900766234231859628583032880910723341318989164906148721893461408112718678756675043731447167950745915771784905545010980990165421079265791226935416635223473333388738256314499899768739343670491674903077401648830385509436568198263400018280086293868123819484119568792468695955378155940255166691160365577645696329643641672236145170789141846255931679665230575365603721048227840000000000",
         "per_route_probability_conditional_only_on_physical_preparation": [
           "159140743767192350287341012508898485/1569275433846670190958947355801916604025588861116008628224",
@@ -992,6 +1244,7 @@
           "814543331639415517848512274611/1267650600228229401496703205376",
           "203635832909853879462128068653/316912650057057350374175801344"
         ],
+        "shared_ec_atomic_source": null,
         "six_route_probability_from_original_input": [
           "477422203927133524621895790190015313/784637716923335095479473677900958302012794430558004314112",
           "1155233943015631099488736190469824819/1569275433846670190958947355801916604025588861116008628224"
@@ -1302,6 +1555,26 @@
       "nonzero_diamagnetic_entries": 15,
       "omitted_current_and_diamagnetic_derivatives_rejected": true
     },
+    "longitudinal_Coulomb_alternative": {
+      "Hamiltonian": "H_local+lambda T+4 N_ref+kappa rho^T G rho/2, with no unit-link penalty",
+      "actual_H_prime_entries_checked": 4252,
+      "actual_alternative_source": "openwave_current_coulomb.source.changed_column",
+      "all_119_link_labels_preserve_density_energy": true,
+      "arbitrary_positive_Coulomb_coefficient": true,
+      "complete_basis_and_reference_columns": 21,
+      "operator_identity": "[K_e,rho_x]=0, hence [K_e,rho^T G rho]=0",
+      "original_ground_preparation_energy_bins_or_transport_transferred": false,
+      "reference_occupations": [
+        0,
+        1,
+        30
+      ],
+      "removing_linear_link_penalty_removes_this_obstruction": false,
+      "same_link_conjugacy_for_every_real_background": true,
+      "same_static_current_Ward_and_spectral_invariance": true,
+      "tested_hopping_coefficient": "1/17179869184",
+      "tested_positive_Coulomb_coefficient": "1"
+    },
     "paired_record_transfer": {
       "all_original_preparation_failures_bin_complements_and_references_retained": true,
       "blank_link_atomic_projector": "V P0=P0, hence fixed P0-supported input and existing arrival effects have the same complete records",
@@ -1342,6 +1615,7 @@
       "complete_interacting_source_no_free_Clifford_substitution": true,
       "emergent_electromagnetic_direction_or_photon_identified": false,
       "free_envelope_g_two_transferred_to_prepared_line": false,
+      "intrinsic_positive_Wilson_kernel_and_Maxwell_field_transferred": false,
       "observed_electron_identified": false
     },
     "static_current_ward": {
