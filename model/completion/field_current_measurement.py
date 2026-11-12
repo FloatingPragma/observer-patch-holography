@@ -17,8 +17,8 @@ from tools import strict_json
 from . import native_measurement_parent_adapter as retained
 ROOT=Path(__file__).resolve().parents[2]
 REPLAY='model/completion/field_current_measurement_replay.json'
-REPLAY_SHA256='8f3e2e4b8b18c348e05be0ec3d57db14ed703b307655adae6a6894d97ca889e5'
-CURRENT_SHA256='e1170b12698d93bbea6fc5b7ed2b4e135dff075dbcc4da7ba90e7a5a36d3dbcd'
+REPLAY_SHA256='3c5e2b62ab5d4055e939bec9f84acde6518289491dd01dfb47d516e367bcc44b'
+CURRENT_SHA256='a48a46d4ff09075fdbc5d6ebcac17920be057ef11a8a67e88b61d78c98825b27'
 OWNED=('model/completion/field_current_measurement.py','model/completion/test_field_current_measurement.py',REPLAY)
 SOURCE_FILES=(*retained.SOURCE_FILES,*OWNED)
 SOURCES={'native_local_energy_clock': ('model/native_local_energy_clock/packet.py', '1bb8cda89d1b6f37be71578bed9cdfe7fd82c9ceeb71841f2c553523c4e91aa1'), 'native_fair_ground_readout': ('model/native_fair_ground_readout/packet.py', '147ba199056d7e9b7743a95c78d293adc1123b96006228af294a28427a85cfb1')}

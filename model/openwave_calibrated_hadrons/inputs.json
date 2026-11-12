@@ -1,0 +1,23 @@
+{
+  "electron_unit_GeV": "0.00051099895069",
+  "calibration_targets_GeV": {
+    "proton": "0.93827208943",
+    "neutron": "0.93956542194",
+    "charged_pion": "0.13957039"
+  },
+  "held_out_comparisons_GeV": {
+    "neutral_pion": "0.1349768",
+    "rho_vector": "0.77526",
+    "Delta_baryon": "1.232",
+    "deuteron_binding": "0.00222456640"
+  },
+  "sources": [
+    "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-phys-constants.pdf",
+    "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-plus-minus.pdf",
+    "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-zero.pdf",
+    "https://pdg.lbl.gov/2025/listings/rpp2025-list-rho-770.pdf",
+    "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-Delta.pdf",
+    "https://physics.nist.gov/cuu/pdf/RevModPhys.97.025002.pdf"
+  ],
+  "uncertainty_scope": "Central values only. Hadron targets calibrate three action coefficients and are not independent predictions. Comparison values neither fix those coefficients nor establish a physical species dictionary."
+}

@@ -43,7 +43,7 @@ def construction(zero_word=False,contact_resonance=True):
     ev,F=eigh(numeric(source()['y']));C=np.eye(3,dtype=complex)if zero_word else F.conj().T@numeric(word_unitary((2,3,10)))@F
     assert np.max(abs(C.conj().T@C-np.eye(3)))<2e-13
     hadron_labels=[(f,*qq[:2],qq[2],*aa[:2])for f in range(3)for qq,aa in oldlabels]
-    Hh=sp.block_diag([h+(mf-1)*np.eye(32)for mf in mass],format='csr')
+    Hh=sp.block_diag([sp.csr_matrix(h+(mf-1)*np.eye(32))for mf in mass],format='csr')
     full_diagonal=np.asarray(native['H'].diagonal()).real
     measured_hadron=np.asarray(abs(native['B'][:,active]).power(2).T@full_diagonal).ravel()
     measured_hadron=np.concatenate([measured_hadron+(mf-1)for mf in mass])
@@ -121,7 +121,13 @@ def construction(zero_word=False,contact_resonance=True):
     H=H0+G*V
     lookup={v:i for i,v in enumerate(keep)}
     hadron_initial=[i for i,(f,xq,sq,w,xa,sa)in enumerate(hadron_labels)if f==1 and w==1]
-    eh,Uh=eigh(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)])
+    # Preserve the orbital seed rule independently of projector roundoff.
+    _,seed_frame=eigh(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)])
+    seed_hadron=hadron_initial[int(np.argmax(abs(seed_frame[:,0])**2))]
+    # The scalar family energy changes eigenvalues, not the native eigenspace.
+    native_initial=np.array(hadron_initial)%32
+    eh,Uh=eigh(h[np.ix_(native_initial,native_initial)])
+    eh=eh+(mass[1]-1)
     assert eh[1]-eh[0]>1e-5
     initial=np.zeros(len(keep),complex)
     for i,z in zip(hadron_initial,Uh[:,0]):
@@ -143,7 +149,7 @@ def construction(zero_word=False,contact_resonance=True):
     vi=float(np.vdot(initial,V@initial).real);vf=float(np.vdot(target,V@target).real)
     assert abs(vi+3)<1e-12 and abs(vf-2.5)<1e-12
     assert abs(np.vdot(initial,H@initial).real-np.vdot(target,H@target).real)<1e-10 if contact_resonance else True
-    seed=int(np.argmax(abs(initial)**2));success=float(abs(initial[seed])**2)
+    seed=lookup[seed_hadron*49];success=float(abs(initial[seed])**2)
     rawseed=np.eye(len(keep),dtype=complex)[:,seed]
     failure=rawseed-initial*np.vdot(initial,rawseed)
     measurement_diagonal=np.repeat(measured_hadron,49)+np.tile(Hl.diagonal().real,96)
@@ -225,7 +231,18 @@ def momentum_readout(d):
 
 def complete_records(d,time,eigen=None):
     B,h,residual=spin_parity_reduction(d)
-    w,U=eigh(h)if eigen is None else eigen
+    if d['zero_word']:
+        # Exact invariant evolution, embedded in every original outcome below.
+        family=np.array([d['hadron_labels'][int(v)//49][0]==1 for v in d['keep']])
+        assert np.count_nonzero(d['H'][family][:,~family].data)==0
+        assert np.count_nonzero(d['H'][~family][:,family].data)==0
+        assert np.count_nonzero(d['initial'][~family])==0
+        columns=np.flatnonzero(np.any(B[family]!=0,axis=0))
+        assert np.count_nonzero(B[~family][:,columns])==0
+        B=B[:,columns];h=h[np.ix_(columns,columns)]
+        w,U=eigh(h)
+    else:
+        w,U=eigh(h)if eigen is None else eigen
     initial=B.conj().T@d['initial'];state=B@U@(np.exp(-1j*time*w)*(U.conj().T@initial))
     p=abs(state)**2;T=momentum_readout(d);out=T@state;pm=abs(out)**2;weight=d['success']
     assert abs(p.sum()-1)<3e-12 and abs(pm.sum()-1)<3e-12

@@ -51,9 +51,9 @@ def balanced_baryon():
  R=old['B']@sp.diags(np.sqrt(gram));R=sp.csr_matrix(R)
  assert np.max(abs(R.data.imag),initial=0)==0 and np.max(abs(R.data.real-np.rint(R.data.real)),initial=0)<1e-13
  R=sp.csr_matrix((np.rint(R.data.real).astype(np.int64),R.indices,R.indptr),shape=R.shape)
- assert (R.T@R-sp.diags(gram)).nnz==0
+ assert (R.T@R-sp.diags(gram,dtype=np.int64)).nnz==0
  A=(R.T@Hnum@R).toarray();L=lcm(*map(int,gram))
- assert (L*(Hnum@R)-R@sp.diags(L//gram)@sp.csr_matrix(A)).nnz==0
+ assert (L*(Hnum@R)-R@sp.diags(L//gram,dtype=np.int64)@sp.csr_matrix(A)).nnz==0
  h=A/(48*np.sqrt(np.outer(gram,gram)))
  B=R@sp.diags(1/np.sqrt(gram));assert np.max(abs((Hnum/48)@B-B@sp.csr_matrix(h)))<1e-12
  assert np.max(abs((old['H']*48+Inum-Hnum).data),initial=0)<1e-12

@@ -11,13 +11,30 @@
 ## Construction and observation domains
 
 The source determines several finite spectra and complete observation laws.
-The strongest common-source chain is the physical eight-cell quantum
-gauge/Higgs construction, its prepared interacting ground, and its neutral
-and charged detectors. Replicated blocks also support controlled collective
-field limits. **None of these constructions supplies a source-derived
-Standard Model mass in GeV.** A finite source energy, a continuum rest
-frequency, a measured particle identity and an absolute energy standard
-are separate statements.
+Common-source chains include the physical eight-cell quantum gauge/Higgs
+construction with its prepared interacting ground and neutral/charged
+detectors, and a positive native-current hadron action with explicit mass
+calibration and a complete weak-current experiment. Replicated blocks also
+support controlled collective field limits. **Calibrated GeV values retain
+their empirical inputs; a complete physical Standard Model mass spectrum
+is not identified.** A finite source energy, a continuum rest frequency,
+a measured particle identity and an absolute energy standard are separate
+statements.
+
+The [common hadron action](../../model/openwave_calibrated_hadrons/PROOF.md)
+fits proton, neutron and charged-pion energies to `0.93827208943`,
+`0.93956542194` and `0.13957039 GeV`, with the electron anchor unchanged.
+Three targets calibrate three common coefficients; these agreements are
+not independent predictions. The actual native current gives exact vector
+normalization and a certified axial interval near `5/3`, excluding the
+held-out measured magnitude near `1.2753`. Its
+[complete beta extension](../../model/openwave_baryon_beta/PROOF.md) retains
+all charge-allowed states, including virtual two-electron channels, and
+produces a finite proton/electron/neutral-hole conversion signal. The
+strong/free endpoint is `0.00078233355931 GeV`. The weak reference shifts
+neutron/proton preparation energies by about minus/plus `7.984 keV`, so
+strong calibration is not an interacting physical-pole identification.
+Held-out meson, Delta and nuclear failures are retained.
 
 The [localized charged construction](../../model/openwave_localized_rest_packet/PROOF.md)
 joins spatial concentration to the calibrated light free branch: its
@@ -54,6 +71,17 @@ isotropic gluing are architectural inputs. The static linearized curvature
 comparison does not close physical stress, nonlinear Einstein or measured
 Newton-strength premises. Counterexamples for the reciprocal scalar action
 retain their original source domain.
+
+The [fixed quantum geometry source](../../model/openwave_geometry_refinement/PROOF.md)
+retains all 80000 finite states and bounds nested compression errors on its
+stated input domain. The separate
+[clock/arrival experiment](../../model/openwave_relational_clock/PROOF.md)
+uses actual native Ramsey records on that full source. Its positive mean
+arrival difference lies in `[0.0013506,0.0013547]` native clock cycles.
+Complete failure records, finite-strength clock backreaction and independent
+phase-calibration preparations are retained. This is an operational
+observer-clock comparison, without a physical-second or Einstein proper-time
+identification.
 
 This guide owns the common dependency map and [source catalogue](#source-catalogue).
 The [native mass join](OPH_NATIVE_PARTICLE_MASS_JOIN.md) treats currents,
