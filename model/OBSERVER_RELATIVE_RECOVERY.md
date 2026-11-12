@@ -1170,3 +1170,27 @@ bounds replace much larger spectral calculations within their stated domains.
 The free charged spectrum and its rotation experiment share one source.
 The neutral, magnetic, pinned-force and thermal-colour members require their
 own composition proof before a joint interacting physical interpretation.
+
+
+## Localized particles and autonomous finite interactions
+
+The [localized dynamics derivation](../paper/tex_fragments/LOCALIZED_PARTICLE_DYNAMICS.tex)
+joins preparation, evolution and complete observations within each declared source.
+
+| Construction | Result and remaining condition |
+| --- | --- |
+| [Localized charged packet](openwave_localized_rest_packet/PROOF.md) | The electron-calibrated mean is within0.003014ppm above0.00051099895069GeV, with outside probability below1.103e-7 through source time10^9. Exact moments prove the huge finite-volume bound; only smaller carriers are enumerated. The physical-energy compiler budget retains every ancilla. |
+| Same packet phase | Prepared target-H phase visibility exceeds0.9997728 over about12000cycles. Complete quadratures and reference/drive controls retain all seven outcomes. Continuing compiler controls do not establish autonomous microscopic onset or frequency rigidity. |
+| [Angular torque](openwave_angular_torque/PROOF.md) | A distinct rotational regulator has an actual spatial-plus-spin generator and exact Maxwell torque balance. Axial Jz=1/2 is distinct from an unproved dressed full quantum Casimir. |
+| [Magnetic analytic limit](openwave_rotational_g_limit/PROOF.md) | Finite kinetic identities give static error below0.001832 and precession error below0.004863 from g=2 at declared m=16384. This is a supplied low-momentum family without physical mass or alpha calibration. |
+| [Autonomous Coulomb motion](openwave_autonomous_coulomb/PROOF.md) | All eighteen physical states, including circulation, obey exact continuity under actual native axial hopping and Green energy. The force contribution is-19sqrt(2)/5120 on the stated input. Other hopping and Yukawa coefficients are zero by declaration. |
+| [Exact neutral flatness](openwave_neutral_dispersion/PROOF.md) | Plane parity and link inversion pair all eight odd-sector momenta at every order. Dressed positions commute with H. This closes the former dispersion uncertainty as an exact obstruction on the periodic side-two member, not a moving mass. |
+| [Useful neutral preparation](openwave_neutral_preparation/PROOF.md) | Known local states and three degree10182 filter applications give success above0.99999999999639 and reduced stationarity error below4.000002e-16. Complete410624 factorized records retain all failures and recipes; local services remain declared. |
+| [Native-current radiation](openwave_radiative_pair/PROOF.md) | A full-CAR native-current Hamiltonian gives exact nonzero pair-to-two-transverse-quanta amplitudes and a positive full-evolution lower bound. Time50 probabilities0.03544/0.02865 at photon caps1/2 retain finite-cutoff differences, vacuum output and measurement work. Physical rates and outgoing scattering remain open. |
+| [Larger colour boxes](openwave_coupling_volume/PROOF.md) | Independent side10 histories extend the side6/8 calculation to2400 records, with common-block covariance, influence autocorrelation, hot/cold and split-history controls. Volume and sampling effects remain distinct from continuum running. |
+
+The new high-success neutral recipe changes the preparation, not the source or
+its exact flatness. The smaller spectral and symmetry arguments avoid full-carrier
+diagonalization while preserving complements and failure outcomes. The separate
+rotational, axial Coulomb, finite radiation and thermal-colour actions do not
+supply a common interacting physical universe without their composition proofs.

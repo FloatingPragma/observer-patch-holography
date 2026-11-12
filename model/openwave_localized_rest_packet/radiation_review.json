@@ -1,0 +1,53 @@
+{
+  "all_four_complete_two_photon_coefficients": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.2649110640673518
+    ],
+    [
+      0.0,
+      -1.2649110640673518
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "finite_total_sector_Taylor_probability_lower": "80089/1843200000000000000000000000000000000000000",
+  "independent_full_fermion_Fock_dimension": 4096,
+  "independent_photon_number_dephasing_work_identity": true,
+  "native_current_unitary_one_body_checks": 4,
+  "retained_source_sea_spin_variances": [
+    {
+      "pair_variance": 0.19999999999999993,
+      "vacuum_variance": 0.19999999999999998
+    },
+    {
+      "pair_variance": 0.19999999999999993,
+      "vacuum_variance": 0.19999999999999998
+    },
+    {
+      "pair_variance": 0.0,
+      "vacuum_variance": 0.0
+    }
+  ],
+  "scientific_scope": "Declared native-current coupling to finite transverse cochain modes converts a specified scalar particle-hole excitation to the free-source reference plus two quanta. The free reference is not the interacting ground; spatial scattering, physical particle identification, local Gauss QED and empirical coupling are not derived.",
+  "source_sha256": {
+    "model/openwave_radiative_pair/PAPER_RESULT.tex": "6435b4cd3e4d6bfce4cbdba101b4448779c77d4a9916f07216086fb5ebdabe3a",
+    "model/openwave_radiative_pair/PROOF.md": "604548bbccdb1b2ac82a185e2c1caedfd4bbc4646ade72778726d977f3f0b185",
+    "model/openwave_radiative_pair/README.md": "bd22cbb160070bb73b76d46614b9aeb39be329badff56c6b1e44b6e94f1ab838",
+    "model/openwave_radiative_pair/__init__.py": "8ec8278f6c18899af996cb91bf605e3b1a5fc4bbce7a4436cfa373adf570a3e1",
+    "model/openwave_radiative_pair/__main__.py": "5d6c2ea5d9c2619c63c0e8cb8d6566e6b136460c006d18e7c634f9b4822b3fd6",
+    "model/openwave_radiative_pair/exact.py": "898055ae2920a523908fda8c8a0c6a56be9e7e110b63fb982b8bbffccc9e2df7",
+    "model/openwave_radiative_pair/experiment.py": "6f46a267a71485f738a6348aff5348186f5620c6870ed4da3b47fce3c75f0e77",
+    "model/openwave_radiative_pair/radiation.py": "fb5ebc01507da3f745fb194799a4f594dacd75314bc5435690412ee3cc31b0bd",
+    "model/openwave_radiative_pair/results.json": "786d9165f1c39e0db282885d379ab3c3e2f81152fe538efd0425b3973d2a5ab4",
+    "model/openwave_radiative_pair/test_radiation.py": "414c3d7b5715651626be5220016500ba88254b68081311d84ab3fd46789fd1d8"
+  },
+  "spin_scalar_pair_generator_commutators": 3,
+  "verdict": "PASS"
+}

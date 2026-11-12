@@ -1,0 +1,361 @@
+\subsection{Localized near-rest charged packets}
+
+A particle rest edge and a localized detector signal concern different
+preparations. They can be joined on the native kinetic and pairing source
+by an explicit smooth compact packet, without introducing a spatial trap.
+Let $L\ge4$, let the periodic side be $N\ge L+5$, and define
+\[
+ g_j=\sqrt{\frac{8}{3(L+1)}}\sin^2\frac{\pi j}{L+1}
+ \quad(1\le j\le L),\qquad g_j=0\quad\hbox{otherwise}.
+\]
+The product $f(x)=g_{x_1}g_{x_2}g_{x_3}|\beta+,+z\rangle$
+is normalized and supported in a cube $C$. With the same native
+$h=K+m\beta$, $\{K,\beta\}=0$ and $E=\sqrt{m^2+K^2}$, source
+fermion addition on the filled reference succeeds with vector $P_+f$,
+where $P_+=(1+h/E)/2$. The charged reservoir, idle opposite reference
+and full failure branch are retained.
+
+Put $q=\pi/(L+1)$ and $D=(T-T^*)/(2i)$. Direct shifts, including both
+boundary collars, give
+\begin{align*}
+ d_2=\|Dg\|^2&=\frac{\sin^2(2q)}3+
+                    \frac{4\sin^4q}{3(L+1)},\\
+ d_4=\|D^2g\|^2&=\frac8{3(L+1)}
+ \left[\frac L8\sin^4(2q)-\frac12\sin^2(2q)\cos(2q)\sin^2q
+                                  +\frac14\sin^4q\right].
+\end{align*}
+Product structure gives $a_2=\langle K^2\rangle_f=3d_2$ and
+$a_4=\langle K^4\rangle_f=3d_4+6d_2^2$. Their exact finite formulas
+supply rational upper bounds by enclosing $\pi$ and the elementary
+trigonometric inequalities. No large spectral diagonalization is required.
+
+The success weight is $w=(1+m\langle E^{-1}\rangle_f)/2$ and
+$1-w\le\eta=a_2/(4m^2)$. For $\eta<1$, the conditional packet
+$\psi=P_+f/\sqrt w$ obeys
+\[
+ 0\le\langle E\rangle_\psi-m\le d=
+   \frac{a_2}{2m(1-\eta)},\qquad
+ \langle(E-m)^2\rangle_\psi\le b^2=
+   \frac{a_4}{4m^2(1-\eta)}.
+\]
+Although $P_+$ gives the compact seed a spatial tail, its complete
+outside-cube probability satisfies
+\[
+ \|(1-Q_C)e^{-iht}\psi\|^2\le
+ \left(\sqrt{\frac\eta{1-\eta}}+|t|b\right)^2.
+\]
+With $L=2^{30}$, $N=4(L+1)$ and the light native charged coefficient,
+the conditional mean energy is at most $3.014\,10^{-9}$ relatively above
+its rest edge. The electron anchor therefore gives a localized mean energy
+immediately above $0.00051099895069\,\mathrm{GeV}$, within about
+$0.003014$ parts per million. Through source time $10^9$, the conditional
+outside probability is below $1.103\,10^{-7}$. A preparation-vector error
+$\epsilon_0$ and a complete-source Hermitian perturbation of norm $\delta$
+add at most $\epsilon_0+|t|\delta$ to the amplitude bound. A per-site
+perturbation bound cannot replace this total norm condition.
+
+The exact local moments are unchanged when the volume doubles at fixed
+support. Complete smaller boxes execute all native position, energy and
+failure records. The large member is an analytic finite-carrier certificate,
+with every valley and massless spectator retained. Its full-volume evolution
+is not numerically enumerated. The inherited full-Fock compiler bounds
+complete output error, including references. To control energy as well as
+bounded record probabilities, use the full physical-energy norm
+$0\le H_{\rm phys}-E_G\le282N^3$ and require unhalved output trace error
+at most $d/(10^6\,282N^3)$, as well as at most $10^{-12}$.
+The additional conditional mean physical-energy error is then at most
+$10^{-6}d$, retaining every final ancillary output. A separate lower
+kinetic-moment bound exceeds that error, so the compiled mean also lies
+above the rest edge. This is the physical marginal energy, not the
+complete enlarged compiler Hamiltonian. The required cycle count exceeds
+$10^{52}$ for the stated volume and time. No efficient preparation,
+interacting electron or stationary soliton is inferred.
+
+\subsection{The same packet's autonomous phase and drive response}
+
+A single coherent preparation entangles the packet and its compensating
+reference with a pointer, relative to the source ground and reference
+vacuum. The idle reference Hamiltonian is zero by the declared source
+contract. The success and failure operators form a complete contraction
+instrument on the full carrier. Let
+$C(t)=\langle\psi,e^{-iht}\psi\rangle$. Two coherent return quadratures,
+their orthogonal complements and preparation failure have seven
+original-input probabilities
+\[
+ p_{a,\pm}=\frac w8(1+|C|^2\pm2c_a),\quad
+ p_{a,\perp}=\frac w4(1-|C|^2),\quad p_{\rm fail}=1-w,
+ \qquad c_X=\Re C,\quad c_Y=-\Im C.
+\]
+Since the same spectral law has $E-m\ge0$, it gives
+\[
+ |C(t)-e^{-imt}|\le |t|d,\qquad |C(t)|\ge1-|t|d,
+ \qquad
+ \left|-\partial_t\arg C(t)-m\right|\le\frac d{1-|t|d}
+\]
+when $|t|d<1$. The displayed packet preserves visibility above $0.9997728$
+for about twelve thousand rest cycles. Its phase and energy share one
+Hamiltonian, preparation, ground and reference.
+
+A nonzero reference cost $\mu$ multiplies the return by $e^{-i\mu t}$.
+Dephasing the initial arms removes their quadrature contrast. A differential
+native scalar drive $v(t)Q_{\rm source}$ multiplies it by
+$\exp(i\int v)$, whereas a common source/reference gauge change cancels.
+The actual full-generator inverse returns the complete state. These
+controls establish prepared autonomous phase coherence of the declared
+quadratic target Hamiltonian. Passive onset is not established, and the
+differential scalar drive shifts its frequency. The finite phase-cycle
+compiler uses continuing controls; its sampled complete-record bound
+does not establish an uncontrolled microscopic oscillation or
+instantaneous frequency rigidity between pulses.
+
+\subsection{Native-current conversion into transverse radiation}
+A declared finite quantum extension couples the actual charged Dirac current
+$-\tau_3\otimes\sigma_r$ to four transverse cochain radiation modes.
+All twelve source CAR coordinates and complete finite oscillator occupations
+are retained. Total charge and lattice momentum are conserved. For a scalar
+rest particle--hole pair on the filled free reference, both crossed-polarization
+two-photon matrix elements of $(H/m)^2$ have magnitude
+$2\sqrt{2/5}\,\eta^2$, with opposite phases. The source derivation sums
+all intermediate modes and both emission orders; no annihilation projector
+is inserted. A full-sector norm bound gives positive original radiation
+probability above $4.3451063\,10^{-38}$ at dimensionless time $10^{-8}$.
+
+At time fifty, complete sparse evolutions give approximately $0.03544$
+and $0.02865$ for caps one and two, retaining a material cutoff difference.
+Vacuum, zero-coupling and frequency-detuning controls and the interaction
+energy are retained. Number-readout work is distinguished from conserved
+premeasurement energy. The supplied box resonance, coupling and free
+preparation define this finite experiment; physical particle identity,
+continuum annihilation rates and asymptotic outgoing radiation are not
+inferred from the conversion probability.
+
+\subsection{Angular momentum and the localized field torque}
+
+A rotational regulator separates spatial angular momentum from an
+assigned spin label. Let $P_n$ retain every three-dimensional oscillator
+state of total excitation at most $n$, with $n\ge2$. It commutes with
+rotations, and its coordinate wavefunctions are localized Gaussian
+polynomials. Define
+\[
+ p_i=P_n(-i\partial_i)P_n,\qquad
+ L_i=P_n(-i\epsilon_{ijk}x_j\partial_k)P_n,\qquad
+ J_i=L_i+\Sigma_i/2.
+\]
+The differential $L_i$ obey the exact rotation algebra and rotate $p_i$ as
+a vector. Products of separately truncated coordinates and momenta have a
+different boundary term. The native sixteen-row Clifford representation
+retains four complete Dirac blocks, both signed branches and every spatial
+shell. A continuous nontrivial spatial rotation cannot act by permutations
+on a finite cubic site set, so exact cubic covariance alone does not
+supply this continuous generator.
+
+Retain the three real transverse field amplitudes $b$ in
+$A_b(x)=e^{-|x|^2/(2R^2)}(b\times x)/2$ and their conjugate momenta $\pi$.
+Gaussian integration of the actual Maxwell energy gives
+\[
+ c_0=\int |A_{\hat b}|^2=\frac{\pi^{3/2}R^5}{4},\qquad
+ c_1=\int |\nabla\times A_{\hat b}|^2=
+       \frac{5\pi^{3/2}R^3}{8},\qquad
+ H_f=\frac{\kappa|\pi|^2}{2c_0}+\frac{c_1|b|^2}{2\kappa}.
+\]
+For the declared positive kernel
+$K(b)=|\beta m+\alpha\cdot(p-qA_b)|+\Omega\mathcal N$,
+the oscillator energy trap is distinct from the cubic scalar mass well.
+Its actual current is $-\partial_b\langle K\rangle$, evaluated by the
+complete signed spectral derivative. Rotational covariance and the
+Maxwell mode equations give
+\[
+ \frac{d\langle J\rangle}{dt}
+       =b\times\partial_b\langle K\rangle,
+ \qquad
+ \frac{d(b\times\pi)}{dt}
+       =-b\times\partial_b\langle K\rangle.
+\]
+Thus $\langle J\rangle+b\times\pi$ and the total energy are conserved.
+The finite executable checks these identities, complete angular records
+and two integration tolerances. The tighter trajectory has angular drift
+below $4.9\,10^{-10}$ and energy drift below $3.9\,10^{-9}$; these are
+numerical diagnostics separate from the conservation theorem. This is a
+declared rotational source with semiclassical transverse fields, without
+longitudinal closure or a transfer of the cubic or interacting ground.
+
+\subsection{A common static and precession magnetic limit}
+
+Use the same complete-shell energy at $n=2$, $\Omega=1$, $q=-1$,
+$R=6/5$ and $\kappa=m^{-6}$, with quasistatic minimization of the field.
+The field treatment differs from evolving its canonical momenta, while
+the matter kernel, current and energy are identical. Write
+$D=\beta m+A$. The native anticommutation relation gives
+$|D|=\sqrt{m^2+A^2}$ on both signs. At zero probe its full forty-row
+kinetic square $T=A^2$ obeys
+\[
+ T(T-5I/2)=0.
+\]
+For the uniform magnetic probe derivative $E_B=\partial_B A$,
+$Q=E_B^2$ obeys $Q(Q-I/4)(Q-I/2)=0$. These exact finite identities give
+$\|A\|<8/5$, $\|E_B\|<4/5$ and $\|\partial_B T\|<3$.
+On the oscillator vacuum the two native spin states have
+$\langle\partial_B T\rangle=\pm1$. The magnetic coefficient follows
+from the squared coupled Dirac operator, without an inserted Pauli term.
+
+The number gap isolates the lowest axial eigenline. A positive Sylvester
+inverse bounds the magnetic derivative's difference from
+$(\partial_B T)/(2m)$, while the field-current Hessian makes the axial
+self-consistency map a contraction. The stationary branch has exact
+$J_z=1/2$ and field momentum zero. At zero self-field its representation
+also has $J^2=3/4$. The fixed axial self-field can mix different $j$
+values, so the dressed state's complete $J^2$ probabilities are retained
+without asserting that same Casimir. The separate canonical-spin
+expectation is not substituted for the angular generator.
+
+For $B=1/10$ prepare the equal superposition of the two actual lowest
+axial eigenlines and evolve through $T_{\rm obs}=64m$. All other modes
+remain in the source. A full complementary Schur bound controls their
+energy split; a uniform Duhamel estimate controls the state-dependent
+self-field and the observed angular phase. Static and precession
+normalizations use the same empty-vacuum-relative stationary energy,
+including its field cost. At $m=16384$ the rational bounds give
+\[
+ |g_{\rm static}-2|<0.001832,\qquad |g_{\rm precession}-2|<0.004863.
+\]
+The bounds tend to zero along the declared mass/coupling route.
+Numerical values near $1.99999999884$ and $2.00000000061$ are evaluations,
+not narrow spectral or physical uncertainty intervals. This finite
+low-momentum theorem supplies no physical electron mass, fine-structure
+constant, anomalous moment or cubic-source continuum limit. Its
+quasistatic dynamics is semiclassical, without a linear quantum-channel
+claim for arbitrary references.
+
+\subsection{Autonomous native-current attraction with flux circulations}
+
+An explicit specialization supplies a complete autonomous charge-pair
+experiment without position pinning. Retain the full native periodic
+cube carrier of side four, but enable only the electron-singlet nearest
+axial terms on the line $(0,0,z)$. Their literal kinetic coefficients are
+three $i\sqrt2/8$ entries and the periodic-boundary $-i\sqrt2/8$.
+Other hopping and Yukawa coefficients are zero by declaration. Add
+positive matter number energy $2N_{\rm matter}$, scalar excitation energy,
+reference energy $4N_{\rm ref}$ and the three-dimensional Green energy
+$(\kappa/2)\rho_Y^T G\rho_Y$ of the actual native current. The unit
+nonblank-link penalty is absent.
+
+The complete 119-state electron-singlet matrix coordinate and its adjoint
+preserve three states with outgoing hypercharges $0,-1,+1$. The selected
+reference fills all thirty modes except one electron-singlet mode, giving
+hypercharge $-1$ and number energy $116$. One active particle has charge
+$+1$. All 30 matter modes per cell, scalar factors, reference occupations
+and link complements remain in the defined source. Enumerating the native
+Gauss equation
+\[
+ \delta_{z,y}-\delta_{z,0}+f_z-f_{z-1}=0
+\]
+on the four-link ring gives nine position/circulation states for each
+spin. The full native column action closes this eighteen-dimensional
+physical sector exactly; its complement is retained. The interacting
+unit-Yukawa Hamiltonian does not preserve it, so no interacting ground
+or clock is transferred.
+
+With $J_z$ the actual link-phase derivative, the autonomous clock obeys
+\[
+ i[H,N_z]=J_{z-1}-J_z,\qquad
+ \left(\frac{dJ_z}{dt}\right)_{\rm electric}=i[V,J_z].
+\]
+Here $z$ labels a bond and $J_z$ is its charge current, distinct from the
+angular generator above. The Green energies at unit coupling are
+$0,21/128,31/160,21/128$ around the ring. A specified coherent input on
+positions one and two gives the exact inward electric contribution
+$-19\sqrt2/5120$ to the outward current acceleration. Complete
+position, spin, circulation and energy records follow from the same
+Hamiltonian. At time eight the origin probability is about $0.47953$,
+compared with $0.41818$ in the zero-electric-coupling control. Larger
+coupling need not increase arrival monotonically because interference
+and the finite flux cutoff are retained. Removing circulation states
+changes the time-twenty position law by total variation about $0.25986$.
+This is a finite quantum current response, without a classical trajectory,
+physical coupling, radiation field or far-field continuum inference.
+
+\subsection{Exact neutral momentum flatness and local preparation}
+\label{sec:exact-neutral-flatness}
+
+For the periodic side-two fermion/scalar/link source, let $Q_i$ be
+fermion parity on the coordinate-one plane and let $R_i$ exchange and
+invert the paired axis-$i$ links. For single-link inversion $\mathcal I$,
+the full native coordinate identity
+$\mathcal I U_{ab}\mathcal I=U_{ba}^\dagger$ and endpoint-current exchange
+give $[Q_iR_i,H]=0$. Translation satisfies
+\[
+ T_j(Q_iR_i)T_j^*=(-1)^{N_f\delta_{ij}}Q_iR_i.
+\]
+In every odd-fermion sector these symmetries exchange translation
+characters. Every energy is therefore unitarily identical at all eight
+momenta, to all orders in the hopping. This includes the isolated neutral
+band. Its dressed location projectors commute exactly with $H$. A local
+band preparation has zero probability at other atomic locations for
+every time, with at most $(v/d)^2$ in its retained virtual-profile
+complement. This is an exact periodic side-two obstruction to motion,
+without a transfer to larger or antiperiodic members or a moving-particle
+mass interpretation.
+
+The same neutral band has a useful preparation probability when its
+input is built from known local eigenspaces. A uniform choice of neutral
+cell and seven ground spins, with eight explicit local unitary services,
+blank links and ten retained classical bits, prepares the reduced atomic
+density $P/1024$. The local lines are algebraic projectors of actual
+sixteen-dimensional physical blocks. Supplied reservoirs and local
+services are declared inputs, rather than a free reset from an arbitrary
+state. The recipe archive and parity-balancing reference are retained.
+
+A finite degree-10182 polynomial $M(H)$ has $\|M-E\|\le10^{-16}$ for
+the actual interacting band projector $E$. With
+$\eta=\|E-P\|\le v/d$, put
+\[
+ A=PM^2P,\qquad q_0=(1-\eta^2)(1-10^{-16})^2,\qquad
+ L=\sqrt{q_0}\,MP\frac{3P-A}{2}.
+\]
+The positive inverse-square-root series proves
+$L^*L\le q_0P\le I$ and success probability above
+$0.99999999999639$, with failure square root retained. The conditional
+reduced source density is within $2.000001\,10^{-16}$ in unhalved trace
+norm of $E/1024$, giving an all-time stationarity defect below
+$4.000002\,10^{-16}$. It does not assert stationarity of individual
+recipes or source/archive correlations. Three polynomial evaluations
+require 30546 formal source-Hamiltonian applications; their finite
+Stinespring services are declared, without a primitive gate compiler.
+All eight momentum outcomes have probability one eighth. The complete
+factorized preparation, energy, position and local-profile instrument
+has 410624 records, including every failure and profile complement.
+This preparation does not remove the exact flatness of the same source.
+
+\subsection{Volume and sampling controls for the colour coupling}
+
+The same native-seam-derived pure-colour Wilson action at $\beta=6$
+is sampled on periodic four-dimensional sides $6,8,10$. Each volume
+retains independent hot and cold histories of four hundred records, with
+its declared warm-up, stride and final configuration. The two larger-box
+chains add eight hundred records; all twenty-four hundred original
+records enter the common analysis. The five rectangle means and finite
+Gaussian normalization define the same three coupling readouts at lattice
+lengths $1/2,3/2,5/2$.
+
+Common-block nonlinear jackknives retain cross-scale covariance. Block
+lengths $5,10,20,40,80$, split histories and hot/cold differences expose
+sampling dependence. The exact derivative of each logarithmic loop ratio
+gives its influence history; an initial-positive monotone covariance-pair
+sum supplies an autocorrelation diagnostic. Independent-box contrast
+covariances are sums of the two estimates. These finite histories do not
+certify mixing or rigorous confidence coverage. The receipt retains all
+volume contrasts, including effects visible at the shortest loop.
+
+At side ten the three estimates are $1.564128$, $2.759170$ and
+$4.163746$, with twenty-record-block standard errors $0.000337$,
+$0.003190$ and $0.026478$. The side-ten minus side-eight contrasts are
+$0.002268$, $0.023749$ and $0.027022$, with independent-box standard
+errors $0.000602$, $0.005469$ and $0.046618$. The first two contrasts
+remain visible relative to these sampling diagnostics; agreement of the
+longest-loop estimate does not certify the absence of volume bias. All
+three measured coupling values increase with the loop scale on side ten.
+
+The comparison changes volume at fixed bare action and spacing. It tests
+the finite-scale coupling trend without inserting perturbative running,
+while supplying no continuum beta function, matched step-scaling limit,
+particle-core radius or physical GeV conversion.

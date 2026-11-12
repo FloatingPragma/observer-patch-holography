@@ -1,0 +1,29 @@
+{
+  "all_four_native_continuity_identities": true,
+  "exact_potential_current_acceleration": "-19*sqrt(2)/5120",
+  "independent_PW119_reducing_projection": true,
+  "independent_complete_flux_spin_position_rows": 18,
+  "independent_exact_three_dimensional_Green_sum": true,
+  "independent_full_unitary_current_derivative_residuals": [
+    1.7789762718489754e-13,
+    2.301978052621223e-13,
+    1.3349876759605195e-12,
+    1.2316298154957384e-12
+  ],
+  "independent_reference_full_CAR_current_checks": 12,
+  "native_matrix_entries_compared": 324,
+  "scientific_scope": "Autonomous motion of the declared zero-Yukawa, selected-hop native source with positive number energy and longitudinal Green interaction. All circulation sectors and original source/reference factors are retained; no transfer of the unit-Yukawa interacting ground, physical alpha or transverse radiation is inferred.",
+  "source_sha256": {
+    "model/openwave_autonomous_coulomb/PAPER_RESULT.md": "7716e89dd87e28841980e572b8f450dbad7b5b83879aefa9156402a31d2fe156",
+    "model/openwave_autonomous_coulomb/PROOF.md": "4bab307757deb90256f68d0885c1c661fba3931251a56c494c85e27ea5a68e9d",
+    "model/openwave_autonomous_coulomb/README.md": "468d7e8253b220092f35e2b502b3660fa8b94f7c6024a3a8f9368e7e1b14c56b",
+    "model/openwave_autonomous_coulomb/__init__.py": "6fea9123a806b5dd8ec5fa03559732900f73798eb1e6f248414e4687a7996c68",
+    "model/openwave_autonomous_coulomb/__main__.py": "98cf2b3d62d208e6ff6874f66519165da30121479aeb7215d43d9bfc2e77f1dd",
+    "model/openwave_autonomous_coulomb/certificate.py": "d3b96ff64533c071e05b8470f2b23e9bdf6571a0188ddd4eed07a6f838961b0e",
+    "model/openwave_autonomous_coulomb/experiment.py": "13ef9afd6861d428d168ace93b10bc9d7a73084e80c304e6f352de2919ba1d9e",
+    "model/openwave_autonomous_coulomb/results.json": "7afb555a28dbc3d079ef2c73a36e571b3ba88faf7f61dd8ed39224c3e1958813",
+    "model/openwave_autonomous_coulomb/source.py": "41faa6cdd1d325bd14ac591276d941b85e0b9011eb0ed829239388889a96da49",
+    "model/openwave_autonomous_coulomb/test_pair.py": "f1b301a0fc7f0408ba2e8a4ab85f799c90b3cd94f6e7c36a2675c58951080602"
+  },
+  "verdict": "PASS"
+}

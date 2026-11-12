@@ -999,3 +999,33 @@ d=3 copies. Its centre balance is `1-w_2-w_6`, hence 3/5 for the tracial
 preparation and zero in the native d=6 preparation's limit. These are
 conditional inputs to the imported scale formula `v=E_cell*b*balance`;
 no free family weight or physical gauge coupling is selected.
+
+
+### Localized calibrated energy and the exact neutral obstruction
+
+The [compact charged packet](../../model/openwave_localized_rest_packet/PROOF.md)
+now puts localization, the native light rest branch and one electron calibration
+on the same declared free source. Its conditional mean energy lies just above
+`0.00051099895069 GeV`, with relative excess below`3.014e-9` (about`0.003014ppm`).
+Its outside-cube probability stays below`1.103e-7` through source time`10^9`.
+These are analytic finite-carrier bounds at support side`2^30`, supported by
+complete smaller-box executions. They add a localization certificate to the
+existing calibrated branches`0.1056594144959` and`1.7769849708134 GeV`;
+they do not change those coefficients or derive their empirical scale.
+
+The same prepared packet supplies complete phase observations with visibility
+above`0.9997728`. Its target Hamiltonian evolves autonomously after preparation;
+the analyzer compiler uses continuing controls. It transfers sampled records
+and a separately norm-bounded physical energy marginal, without establishing
+an uncontrolled microscopic clock or an interacting electron.
+
+For the periodic side-two neutral source, the
+[exact symmetry calculation](../../model/openwave_neutral_dispersion/PROOF.md)
+settles the old nearly-flat dispersion question: all eight odd-sector momentum
+spectra are exactly equal, and dressed position projectors commute with H.
+Its electron-calibrated`6.61638659224e-5 GeV` is an excitation energy, with no
+moving relativistic mass inference. A
+[new preparation](../../model/openwave_neutral_preparation/PROOF.md) succeeds
+above`0.99999999999639` using specified local states and finite filter services.
+That practical improvement does not remove the motion obstruction or identify
+an active neutrino, sterile neutrino or cosmological dark-matter particle.
