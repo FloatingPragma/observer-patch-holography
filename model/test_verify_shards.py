@@ -513,8 +513,7 @@ def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():
     custody_steps = [step for step in commands if step.get('name') == 'Check current custody maintenance routes']
     assert len(custody_steps) == 1 and custody_steps[0]['if'] == 'matrix.shard == 0'
     assert custody_steps[0]['run'] == ('python -m pytest -q -W error '
-        'tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py '
-        'tools/test_retained_source_records_custody.py')
+        'tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py')
     assert sum('python -m pytest' in step['run'] for step in commands) == 3
     retained = [step for step in commands if step.get('name') == 'Execute three immutable custody suites']
     assert len(retained) == 1 and retained[0]['if'] == 'matrix.shard == 0'

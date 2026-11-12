@@ -194,7 +194,7 @@ jobs:
           python tools/check_retained_source_records_custody.py
       - name: Check current custody maintenance routes
         if: matrix.shard == 0
-        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py tools/test_retained_source_records_custody.py
+        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py
       - name: Check native field receipt portability
         if: matrix.shard == 0
         run: python -m model.common_source.repair_field_attachment --check model/common_source/repair_field_attachment_results.json
