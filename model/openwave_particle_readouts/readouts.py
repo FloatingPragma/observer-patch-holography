@@ -165,6 +165,9 @@ def native_rotation_controls():
 
 
 def certificate():
+    from .motion import certificate as motion_certificate
+    from .magnetic import certificate as magnetic_certificate
+
     ec = inputs('ec')
     # This rational centre is a unit convention, not a second observed mass.
     anchor_native = sum(ec['atomic_gap'])/2
@@ -248,6 +251,8 @@ def certificate():
                 'electron_identification_or_GeV_mass_prediction_claimed':False,
                 'L_transition_identified_as_neutrino_or_muon_mass':False},
             'prepared_lines':families,
+            'prepared_line_motion':motion_certificate(),
+            'same_source_hypercharge_background':magnetic_certificate(ec['source']['neutral']['coupling']),
             'native_spin_rotation':native_rotation_controls(),
             'clock':{'measured_object':'Ramsey characteristic function of the actual prepared line under its same total Hamiltonian',
                 'native_atomic_phase':'a_selected+7 e_ground+4',
@@ -267,7 +272,7 @@ def certificate():
                 'fixed_compensator_binding_removed':False,
                 'source_spin_double_cover_on_actual_prepared_odd_state':True,
                 'relativistic_mass_shell_or_physical_electron_dictionary':False},
-            'verdict':'PASS_PREPARED_LINE_LOCALIZATION_PERSISTENCE_AND_NATIVE_SPIN_RECORDS'}
+            'verdict':'PASS_PREPARED_LINE_MOTION_SPIN_AND_STATIC_HYPERCHARGE_RESPONSE'}
 
 
 def validate_pins(value):

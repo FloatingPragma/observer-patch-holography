@@ -71,6 +71,8 @@
     "model/coherent_defect_wave/chiral_joint/interacting_charged_response/local.py": "e58ae5e7348fb489d9a522bdfe397592c15d257bdb8e4923a4cb1b468b5cf3dd",
     "model/coherent_defect_wave/chiral_joint/interacting_charged_response/model.py": "dc2aed1077188b3541821f33cfdcfec01bd238aaa81b0b286c13300c0ae09e2f",
     "model/coherent_defect_wave/chiral_joint/interacting_charged_response/transfer.py": "5b660671a5ed688cfefbc833f1b4665de45447b46ce3d3f2ddb5313e7b8b73eb",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_transport/__init__.py": "2ae68b2e7bd72857da2cf041b3bce92ba789657e4f6cbf6d2f6bce56de66328b",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_transport/algebra.py": "1dd6bffe7ee0f39eb587f5b35d361390361b10ced4d10565d325a48c2fb69288",
     "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json": "7335d80394ab25ab949ca0e359e70a8eca55636256255b684c68086be2a8c7a6",
     "model/coherent_defect_wave/chiral_joint/local_reference/__init__.py": "95e2d485285a64b6cee19996e91f209498081fdccead105305323bab147f9d1a",
     "model/coherent_defect_wave/chiral_joint/local_reference/algebra.py": "52356e18a0f74db93a93e2535a171869af01da9ec58ba74ddfd35af75a9b0709",
@@ -258,12 +260,18 @@
     "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
     "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
     "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
-    "model/openwave_particle_readouts/PROOF.md": "ba8671d6d047a23e8845cba973741230fb602c75249812a7a832cfa9b67d96f2",
-    "model/openwave_particle_readouts/README.md": "af0ff34c2b85e125c68dece1c7dbf06c6958b53f8b9ce163365875219eb792d7",
+    "model/openwave_particle_readouts/MAGNETIC.md": "48868eef212243e64e5bd543791df3e4172c04630401d81172ae9b24236fd81e",
+    "model/openwave_particle_readouts/MOTION.md": "0a6fcc2a09724f8cd47a209bfec26c9a0c9dd486ab4a6c268590e43b12e1b378",
+    "model/openwave_particle_readouts/PROOF.md": "5c39daf400f2d29693813e5a68da5ea5e350fdc99c01ef3a1ac16a7c78b3273d",
+    "model/openwave_particle_readouts/README.md": "8b802fe86c4ebb7e6997ff6d7da9062613b9e71869f1a7cc1f5398ba0084c984",
     "model/openwave_particle_readouts/__init__.py": "30cc8a8a845800687202f83e7a3858c9878e1d3d6e085409d1124f95d98cfd04",
     "model/openwave_particle_readouts/__main__.py": "6628408098745b403d9344f05c350bf30bd4df2615a99154424ae3e161367dea",
-    "model/openwave_particle_readouts/readouts.py": "f18f236b1a1ee2140afb38164242ce18489312eaf99f0c02ccf52f03537e506e",
-    "model/openwave_particle_readouts/test_readouts.py": "f6dfc170474916c582f0d06d34640ef9d3aad9851d9c4d45ab1b3cba14806053",
+    "model/openwave_particle_readouts/magnetic.py": "4da2ccf410a0e5b4af66229fd36dbf44f628b870d12f19dbe0a74bdc8a5bc3e7",
+    "model/openwave_particle_readouts/motion.py": "1aaaba78513a15bae79dea8fd3f44898580a63227c3d2ae25e0399c22cdf489e",
+    "model/openwave_particle_readouts/readouts.py": "c0029a8f6ee299e54d04e10503b23bde3a44f3b63a41e17122940adeab722ac0",
+    "model/openwave_particle_readouts/test_magnetic.py": "d83e90c97dbe8f8236254de71e862c26f65f074ccb499b9ec4cb113e51e334ec",
+    "model/openwave_particle_readouts/test_motion.py": "f2e6ddee3fcf89ce13778590b653bd3de340d8334bfab2fb899b0a87fbadeeeb",
+    "model/openwave_particle_readouts/test_readouts.py": "95aaef3e378ea7c54fce65b27a477bac8ddca63fef6d4d7a46a476216e283523",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
     "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
     "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
@@ -345,6 +353,681 @@
       "0",
       "1"
     ]
+  },
+  "prepared_line_motion": {
+    "actual_atomic_arrival_detuning": "1, the unchanged nonblank-link energy",
+    "complete_Dyson_second_order_norm_upper": "(lambda*tau*t)^2/2",
+    "complete_arrival_complement_retained": true,
+    "complete_position_effects": [
+      "S0",
+      "I-S0"
+    ],
+    "exact_cube_route_moment": "w^3/16+3w*c^2/64+c^2*(2w-c)*x/768",
+    "exact_no_operation_arrival_probability": "0",
+    "exact_two_spin_effect": "(w^3/16+3w*c^2/64)I+c^2*(2w-c) S0 dot R_axis Sy/16",
+    "exact_zero_hopping_kernel": "P_edge exp(-it H0) S0=0 for every input and all real t",
+    "full_hopping_norm_upper": "360",
+    "position_preparation": "S0=all links blank and true local ground at every cell except zero; identity on full origin CAR/scalar and reference",
+    "prepared_motion": [
+      {
+        "arrival_probability_after_position_success": [
+          "4158986892237856922525027752047088275/6277101735386680763835789423207666416102355444464034512896",
+          "685651976372125700722098071848965027/784637716923335095479473677900958302012794430558004314112"
+        ],
+        "atom_route_moment_decimal": "0.003968238139153038",
+        "atom_route_moment_interval": [
+          "1257584864736475255611510361/316912650057057350374175801344",
+          "2515169729472950511223020723/633825300114114700748351602688"
+        ],
+        "atom_weight_interval": [
+          "532351802705416061679184259299/1267650600228229401496703205376",
+          "133087950676354015419796064825/316912650057057350374175801344"
+        ],
+        "clock_records": [
+          {
+            "per_route_probability_from_original_input": [
+              "0",
+              "0"
+            ],
+            "six_route_probability_from_original_input": [
+              "0",
+              "0"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "0",
+              "0"
+            ],
+            "source_time": "0",
+            "strict_scaled_amplitude_margin": "0",
+            "unit_detuning_amplitude_interval": [
+              "0",
+              "0"
+            ]
+          },
+          {
+            "per_route_probability_from_original_input": [
+              "17595924794708010029463076270093701/1569275433846670190958947355801916604025588861116008628224",
+              "10644075085833048967164866101343839/784637716923335095479473677900958302012794430558004314112"
+            ],
+            "six_route_probability_from_original_input": [
+              "52787774384124030088389228810281103/784637716923335095479473677900958302012794430558004314112",
+              "31932225257499146901494598304031517/392318858461667547739736838950479151006397215279002157056"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "6.727662110242629e-23",
+              "8.139355161949005e-23"
+            ],
+            "source_time": "1",
+            "strict_scaled_amplitude_margin": "376539836970398431475332972550190541637753299581233269091/6545376075585937965663765675842880222204702835982991360000",
+            "unit_detuning_amplitude_interval": [
+              "14852769918650516344292465569/15490173887996030437294080000",
+              "249526534633328674584113421559201/260234921318333311346540544000000"
+            ]
+          },
+          {
+            "per_route_probability_from_original_input": [
+              "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+              "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+            ],
+            "six_route_probability_from_original_input": [
+              "873802225784934558139440479788070407/3138550867693340381917894711603833208051177722232017256448",
+              "2302164502579694367082442520094313103/6277101735386680763835789423207666416102355444464034512896"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "2.784094515655024e-22",
+              "3.667559647155977e-22"
+            ],
+            "source_time": "3",
+            "strict_scaled_amplitude_margin": "32689541220808120444446704402700756902617312311852927/279333226819701665963398016954123832070921626897612800",
+            "unit_detuning_amplitude_interval": [
+              "439606139569405147001031/220355062167296068812800",
+              "8792122791388102940034968907/4407101243345921376256000000"
+            ]
+          },
+          {
+            "per_route_probability_from_original_input": [
+              "3769402710741958908509935994863/6277101735386680763835789423207666416102355444464034512896",
+              "26258471272018263226588805308360519/6277101735386680763835789423207666416102355444464034512896"
+            ],
+            "six_route_probability_from_original_input": [
+              "22616416264451753451059615969179/6277101735386680763835789423207666416102355444464034512896",
+              "19693853454013697419941603981270389/784637716923335095479473677900958302012794430558004314112"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "3.603002980970252e-27",
+              "2.509929490929370e-23"
+            ],
+            "source_time": "6",
+            "strict_scaled_amplitude_margin": "50066959405021466880080487904268150569992327/118925412561085252235360663683978077373726720000",
+            "unit_detuning_amplitude_interval": [
+              "26478518885433231/93815608606720000",
+              "37069926439620872307/131341852049408000000"
+            ]
+          }
+        ],
+        "complete_records": {
+          "all_joint_source_reference_Gauss_constraints_preserved": true,
+          "all_source_copies_reference_Fock_space_and_preparation_environments_retained": true,
+          "coarse_record_count": 11,
+          "definitions": "q=physical preparation success; p_line,p_outside,p_failure are conditional on q; s=joint line/position success; r_edge=joint line/position/arrival, also conditional only on q",
+          "exact_completeness": "(1-q)+q(p_failure+p_outside+p_line-s)+q sum_edge r_edge+q(s-sum_edge r_edge)=1",
+          "records": [
+            {
+              "exact_probability": "1-q",
+              "record": "physical_preparation_failure"
+            },
+            {
+              "exact_probability": "q p_failure",
+              "record": "native_pump_failure"
+            },
+            {
+              "exact_probability": "q p_outside",
+              "record": "complete_energy_bin_complement"
+            },
+            {
+              "exact_probability": "q(p_line-s)",
+              "probability_interval": [
+                "0",
+                "53519663878094012437251766681060822122609/1461501637330902918203684832716283019655932542976"
+              ],
+              "record": "line_position_preparation_failure"
+            },
+            {
+              "actual_term_coefficient": "I/4",
+              "arrival": 4,
+              "arrival_cell": [
+                1,
+                0,
+                0
+              ],
+              "axis": 0,
+              "edge": 0,
+              "exact_probability": "q r_edge_0",
+              "origin": 0,
+              "probability_interval": [
+                "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+                "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "forward",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "I/4",
+              "arrival": 2,
+              "arrival_cell": [
+                0,
+                1,
+                0
+              ],
+              "axis": 1,
+              "edge": 1,
+              "exact_probability": "q r_edge_1",
+              "origin": 0,
+              "probability_interval": [
+                "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+                "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "forward",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "I/4",
+              "arrival": 1,
+              "arrival_cell": [
+                0,
+                0,
+                1
+              ],
+              "axis": 2,
+              "edge": 2,
+              "exact_probability": "q r_edge_2",
+              "origin": 0,
+              "probability_interval": [
+                "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+                "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "forward",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "-I/4",
+              "arrival": 1,
+              "arrival_cell": [
+                0,
+                0,
+                1
+              ],
+              "axis": 2,
+              "edge": 5,
+              "exact_probability": "q r_edge_5",
+              "origin": 0,
+              "probability_interval": [
+                "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+                "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "adjoint",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "-I/4",
+              "arrival": 2,
+              "arrival_cell": [
+                0,
+                1,
+                0
+              ],
+              "axis": 1,
+              "edge": 7,
+              "exact_probability": "q r_edge_7",
+              "origin": 0,
+              "probability_interval": [
+                "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+                "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "adjoint",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "-I/4",
+              "arrival": 4,
+              "arrival_cell": [
+                1,
+                0,
+                0
+              ],
+              "axis": 0,
+              "edge": 12,
+              "exact_probability": "q r_edge_12",
+              "origin": 0,
+              "probability_interval": [
+                "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+                "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "adjoint",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "exact_probability": "q(s-sum_edge r_edge)",
+              "probability_interval": [
+                "306698689071774199019477179603176024531251017143/730750818665451459101842416358141509827966271488",
+                "614122376435379945980266439868350998136668857543/1461501637330902918203684832716283019655932542976"
+              ],
+              "record": "position_prepared_complete_nonarrival"
+            }
+          ]
+        },
+        "energy_bin_loss_after_position_conditioned_on_position_success_upper": "58845492748627536443241879043424945562490613041987584/674437588387056722682090291617703186180419363820958926228001",
+        "energy_bin_loss_bound_preserved_at_every_source_clock_time": true,
+        "energy_bin_loss_upper_decimal": "8.725120568881515e-8",
+        "exact_atom_route_moment": "w^3(1/12+x/648)",
+        "exact_energy_bin_support_after_position_asserted": false,
+        "exact_spin_residue_divided_by_atom_weight": "-2/3",
+        "family": "ec",
+        "first_order_scaled_amplitude_error_upper": "10451481854537455800165/1208925819614629174706176",
+        "independent_complete_preparation_sampling": {
+          "comparison_total_original_input_trials": "244275811515551179540746",
+          "detection_no_arrival_probability_upper": "exp(-3)<1/20",
+          "event": "union of all six retained arrival routes",
+          "exact_exp_three_partial_sum_lower": "89641/4480",
+          "independent_source_apparatus_repetitions_explicitly_required": true,
+          "method": "variance bound for independent Bernoulli sample means and Chebyshev inequality",
+          "physical_preparation_rate_or_feasible_runtime_inferred": false,
+          "time_three_detection_trials": "10775496245299629171483",
+          "time_three_versus_six_trials_per_setting": "122137905757775589770373",
+          "trial_unit": "one independently prepared original physical input, including every preparation and measurement failure",
+          "wrong_order_probability_upper": "1/20"
+        },
+        "per_route_excursion_return_probability_contrast_lower": "1030454714281468973642524244883156409274464834473134554508507083079625849142291098981781068367724012739220620701618491933954387282546946175991928434483077549039164182183472812911722904572404499032510350698241964595734610629514205516165396254778071074356490904030563527207345667209008491778706578097775989692627410309751997728318720821979297975839931045246643469094866306943752056688515799267305728834469125470363310941675403102716865342083376706006912769232667294153145766413342579542622219738325554327048823376168510498891731609407850634891189845530803708820523058718309384676165147606420094122446699530124185178167873764929074733907350370811461939013073590868174120959869282481068561813015680753067139127179998548073259954264018942581288024401054389381160528303441049043824117106267517712090684381673408131209194126452904458362911445073782379214169354919142241349308641/24407739378883186731187747987951339531095765118104233686946612243742728860714664054287088873562986287800350090364228027325404153937234156401484122142098066502325156218163561795632225001715343088558165777863073012028645406135296655784767131052158220428071092800347890453789733413570911898013519079113438518571596211645820236299020720817841198421756230263261981663652100663790415389444489346261390938812910501387428349277257015937847511531206540532856252105699520261790256282368858922693249176189580815667109330817990076623423185962858303288091072334131898916490614872189346140811271867875667504373144716795074591577178490554501098099016542107926579122693541663522347333338873825631449989976873934367049167490307740164883038550943656819826340001828008629386812381948411956879246869595537815594025516669116036557764569632964364167223614517078914184625593167966523057536560372104822784000000000000",
+        "per_route_probability_conditional_only_on_physical_preparation": [
+          "568881690030614201733722089737945/12259964326927110866866776217202473468949912977468817408",
+          "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+        ],
+        "per_route_probability_from_original_input": [
+          "145633704297489093023240079964678401/3138550867693340381917894711603833208051177722232017256448",
+          "383694083763282394513740420015718851/6277101735386680763835789423207666416102355444464034512896"
+        ],
+        "position_failure_probability_before_line_renormalization_upper": "53519663878094012437251766681060822122609/1461501637330902918203684832716283019655932542976",
+        "position_success_probability_conditional_on_physical_preparation": [
+          "532037446490089725588283440293/1267650600228229401496703205376",
+          "532666251762559753487694842619/1267650600228229401496703205376"
+        ],
+        "prepared_line_to_atomic_atom_vector_error_upper": "231343173398512047897/1208925819614629174706176",
+        "selected_atomic_energy_interval": [
+          "-6370391455852488402790847/604462909807314587353088",
+          "-12740782911704976805581693/1208925819614629174706176"
+        ],
+        "selected_complete_target_factor": "x**4 - 2*x**3 - 212*x**2 + 213*x + 11114",
+        "selected_spin_residue_interval": [
+          "-177450600901805353893061419767/633825300114114700748351602688",
+          "-354901201803610707786122839533/1267650600228229401496703205376"
+        ],
+        "six_route_probability_from_original_input": [
+          "873802225784934558139440479788070407/3138550867693340381917894711603833208051177722232017256448",
+          "2302164502579694367082442520094313103/6277101735386680763835789423207666416102355444464034512896"
+        ],
+        "six_route_probability_from_original_input_decimal": [
+          "2.784094515655024e-22",
+          "3.667559647155977e-22"
+        ],
+        "strict_scaled_arrival_amplitude_margin": "32689541220808120444446704402700756902617312311852927/279333226819701665963398016954123832070921626897612800",
+        "time_three_arrival_lower_exceeds_time_six_upper": true,
+        "unit_detuning_amplitude_interval": [
+          "439606139569405147001031/220355062167296068812800",
+          "8792122791388102940034968907/4407101243345921376256000000"
+        ]
+      },
+      {
+        "arrival_probability_after_position_success": [
+          "5939977671057112388719863395137866303/3138550867693340381917894711603833208051177722232017256448",
+          "7196288922764490115060920438038579755/3138550867693340381917894711603833208051177722232017256448"
+        ],
+        "atom_route_moment_decimal": "0.008290751541897793",
+        "atom_route_moment_interval": [
+          "10509776168429855471633090191/1267650600228229401496703205376",
+          "656861010526865966977068137/79228162514264337593543950336"
+        ],
+        "atom_weight_interval": [
+          "407271665819707758924256137305/1267650600228229401496703205376",
+          "203635832909853879462128068653/633825300114114700748351602688"
+        ],
+        "clock_records": [
+          {
+            "per_route_probability_from_original_input": [
+              "0",
+              "0"
+            ],
+            "six_route_probability_from_original_input": [
+              "0",
+              "0"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "0",
+              "0"
+            ],
+            "source_time": "0",
+            "strict_scaled_amplitude_margin": "0",
+            "unit_detuning_amplitude_interval": [
+              "0",
+              "0"
+            ]
+          },
+          {
+            "per_route_probability_from_original_input": [
+              "151614428700583417045680366087264365/6277101735386680763835789423207666416102355444464034512896",
+              "172961319566135083126748366522610131/6277101735386680763835789423207666416102355444464034512896"
+            ],
+            "six_route_probability_from_original_input": [
+              "454843286101750251137041098261793097/3138550867693340381917894711603833208051177722232017256448",
+              "518883958698405249380245099567830391/3138550867693340381917894711603833208051177722232017256448"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "1.449214319843204e-22",
+              "1.653259674837630e-22"
+            ],
+            "source_time": "1",
+            "strict_scaled_amplitude_margin": "276321805059088449095177406462642350095128995413337885531/3272688037792968982831882837921440111102351417991495680000",
+            "unit_detuning_amplitude_interval": [
+              "14852769918650516344292465569/15490173887996030437294080000",
+              "249526534633328674584113421559201/260234921318333311346540544000000"
+            ]
+          },
+          {
+            "per_route_probability_from_original_input": [
+              "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+              "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+            ],
+            "six_route_probability_from_original_input": [
+              "477422203927133524621895790190015313/784637716923335095479473677900958302012794430558004314112",
+              "1155233943015631099488736190469824819/1569275433846670190958947355801916604025588861116008628224"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "6.084619610170756e-22",
+              "7.361575400335401e-22"
+            ],
+            "source_time": "3",
+            "strict_scaled_amplitude_margin": "24163150498365839183029149446804613456698479448987607/139666613409850832981699008477061916035460813448806400",
+            "unit_detuning_amplitude_interval": [
+              "439606139569405147001031/220355062167296068812800",
+              "8792122791388102940034968907/4407101243345921376256000000"
+            ]
+          },
+          {
+            "per_route_probability_from_original_input": [
+              "1479640334986292123526585565311339/6277101735386680763835789423207666416102355444464034512896",
+              "2464252936481369614127209077015535/392318858461667547739736838950479151006397215279002157056"
+            ],
+            "six_route_probability_from_original_input": [
+              "8877842009917752741159513391868037/6277101735386680763835789423207666416102355444464034512896",
+              "7392758809444108842381627231046605/196159429230833773869868419475239575503198607639501078528"
+            ],
+            "six_route_probability_from_original_input_decimal": [
+              "1.414321829431184e-24",
+              "3.768750163289148e-23"
+            ],
+            "source_time": "6",
+            "strict_scaled_amplitude_margin": "495978708228905244778923835052701127231807007/59462706280542626117680331841989038686863360000",
+            "unit_detuning_amplitude_interval": [
+              "26478518885433231/93815608606720000",
+              "37069926439620872307/131341852049408000000"
+            ]
+          }
+        ],
+        "complete_records": {
+          "all_joint_source_reference_Gauss_constraints_preserved": true,
+          "all_source_copies_reference_Fock_space_and_preparation_environments_retained": true,
+          "coarse_record_count": 11,
+          "definitions": "q=physical preparation success; p_line,p_outside,p_failure are conditional on q; s=joint line/position success; r_edge=joint line/position/arrival, also conditional only on q",
+          "exact_completeness": "(1-q)+q(p_failure+p_outside+p_line-s)+q sum_edge r_edge+q(s-sum_edge r_edge)=1",
+          "records": [
+            {
+              "exact_probability": "1-q",
+              "record": "physical_preparation_failure"
+            },
+            {
+              "exact_probability": "q p_failure",
+              "record": "native_pump_failure"
+            },
+            {
+              "exact_probability": "q p_outside",
+              "record": "complete_energy_bin_complement"
+            },
+            {
+              "exact_probability": "q(p_line-s)",
+              "probability_interval": [
+                "0",
+                "209049899152505317487798223926071290649/5708990770823839524233143877797980545530986496"
+              ],
+              "record": "line_position_preparation_failure"
+            },
+            {
+              "actual_term_coefficient": "I/4",
+              "arrival": 4,
+              "arrival_cell": [
+                1,
+                0,
+                0
+              ],
+              "axis": 0,
+              "edge": 0,
+              "exact_probability": "q r_edge_0",
+              "origin": 0,
+              "probability_interval": [
+                "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+                "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "forward",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "I/4",
+              "arrival": 2,
+              "arrival_cell": [
+                0,
+                1,
+                0
+              ],
+              "axis": 1,
+              "edge": 1,
+              "exact_probability": "q r_edge_1",
+              "origin": 0,
+              "probability_interval": [
+                "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+                "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "forward",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "I/4",
+              "arrival": 1,
+              "arrival_cell": [
+                0,
+                0,
+                1
+              ],
+              "axis": 2,
+              "edge": 2,
+              "exact_probability": "q r_edge_2",
+              "origin": 0,
+              "probability_interval": [
+                "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+                "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "forward",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "-I/4",
+              "arrival": 1,
+              "arrival_cell": [
+                0,
+                0,
+                1
+              ],
+              "axis": 2,
+              "edge": 5,
+              "exact_probability": "q r_edge_5",
+              "origin": 0,
+              "probability_interval": [
+                "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+                "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "adjoint",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "-I/4",
+              "arrival": 2,
+              "arrival_cell": [
+                0,
+                1,
+                0
+              ],
+              "axis": 1,
+              "edge": 7,
+              "exact_probability": "q r_edge_7",
+              "origin": 0,
+              "probability_interval": [
+                "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+                "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "adjoint",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "actual_term_coefficient": "-I/4",
+              "arrival": 4,
+              "arrival_cell": [
+                1,
+                0,
+                0
+              ],
+              "axis": 0,
+              "edge": 12,
+              "exact_probability": "q r_edge_12",
+              "origin": 0,
+              "probability_interval": [
+                "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+                "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+              ],
+              "record": "line_prepared_charged_arrival",
+              "refilling_branch": "adjoint",
+              "selected_edge_full_norm_upper": "15",
+              "static_reference_cell": 0
+            },
+            {
+              "exact_probability": "q(s-sum_edge r_edge)",
+              "probability_interval": [
+                "469235246258243486815565059781755794684149586831/1461501637330902918203684832716283019655932542976",
+                "469869357351474171710456541139752398312809000885/1461501637330902918203684832716283019655932542976"
+              ],
+              "record": "position_prepared_complete_nonarrival"
+            }
+          ]
+        },
+        "energy_bin_loss_after_position_conditioned_on_position_success_upper": "58842315495316419711873204277042276932122418551455744/515929639005655393865426696647876506346227708379015074600625",
+        "energy_bin_loss_bound_preserved_at_every_source_clock_time": true,
+        "energy_bin_loss_upper_decimal": "1.140510469774957e-7",
+        "exact_atom_route_moment": "w^3/4",
+        "exact_energy_bin_support_after_position_asserted": false,
+        "exact_spin_residue_divided_by_atom_weight": "2",
+        "family": "L",
+        "first_order_scaled_amplitude_error_upper": "653200050278874464865/75557863725914323419136",
+        "independent_complete_preparation_sampling": {
+          "comparison_total_original_input_trials": "95013416074707890004474",
+          "detection_no_arrival_probability_upper": "exp(-3)<1/20",
+          "event": "union of all six retained arrival routes",
+          "exact_exp_three_partial_sum_lower": "89641/4480",
+          "independent_source_apparatus_repetitions_explicitly_required": true,
+          "method": "variance bound for independent Bernoulli sample means and Chebyshev inequality",
+          "physical_preparation_rate_or_feasible_runtime_inferred": false,
+          "time_three_detection_trials": "4930464338288863591998",
+          "time_three_versus_six_trials_per_setting": "47506708037353945002237",
+          "trial_unit": "one independently prepared original physical input, including every preparation and measurement failure",
+          "wrong_order_probability_upper": "1/20"
+        },
+        "per_route_excursion_return_probability_contrast_lower": "23218857081286854927192346124314351306230213882934514529510573858122598744159161732613196205929533858834612208975798844255637180062464081613813017363615548975744299497486376378798613488366055738567652588655669848633397153619748594362210027541247212692282778879460991127557661655872634050366836961246307321928192767305485178195487786710782775395718649449037403616751733307578982139501061446999762768847796037762114610104448147299709210936214372437483116507833633578048200697748542270839191506589836449668850231040038976397342066621005581832995572591077605427907481203128759374947944015829516642132551107019039372648307620583283624648947484046645575144804668033188320462700758061154440850053965700866972188983054189220165459226094420087031892591551302866094252098604629729619700412672041804934429139083707020013463245407385695851663566476679510146102804815713941807317529/244077393788831867311877479879513395310957651181042336869466122437427288607146640542870888735629862878003500903642280273254041539372341564014841221420980665023251562181635617956322250017153430885581657778630730120286454061352966557847671310521582204280710928003478904537897334135709118980135190791134385185715962116458202362990207208178411984217562302632619816636521006637904153894444893462613909388129105013874283492772570159378475115312065405328562521056995202617902562823688589226932491761895808156671093308179900766234231859628583032880910723341318989164906148721893461408112718678756675043731447167950745915771784905545010980990165421079265791226935416635223473333388738256314499899768739343670491674903077401648830385509436568198263400018280086293868123819484119568792468695955378155940255166691160365577645696329643641672236145170789141846255931679665230575365603721048227840000000000",
+        "per_route_probability_conditional_only_on_physical_preparation": [
+          "159140743767192350287341012508898485/1569275433846670190958947355801916604025588861116008628224",
+          "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+        ],
+        "per_route_probability_from_original_input": [
+          "318281469284755683081263860126676875/3138550867693340381917894711603833208051177722232017256448",
+          "96269495251302591624061349205818735/784637716923335095479473677900958302012794430558004314112"
+        ],
+        "position_failure_probability_before_line_renormalization_upper": "209049899152505317487798223926071290649/5708990770823839524233143877797980545530986496",
+        "position_success_probability_conditional_on_physical_preparation": [
+          "406996722056351155104873225989/1267650600228229401496703205376",
+          "203773351209934448307500394629/633825300114114700748351602688"
+        ],
+        "prepared_line_to_atomic_atom_vector_error_upper": "14458557990079969157/75557863725914323419136",
+        "selected_atomic_energy_interval": [
+          "-6729906762437351889796663/604462909807314587353088",
+          "-13459813524874703779593325/1208925819614629174706176"
+        ],
+        "selected_complete_target_factor": "x**10 - 5*x**9 - 490*x**8 + 1990*x**7 + 95682*x**6 - 294032*x**5 - 9310567*x**4 + 19113519*x**3 + 451524798*x**2 - 461130896*x - 8729229568",
+        "selected_spin_residue_interval": [
+          "814543331639415517848512274611/1267650600228229401496703205376",
+          "203635832909853879462128068653/316912650057057350374175801344"
+        ],
+        "six_route_probability_from_original_input": [
+          "477422203927133524621895790190015313/784637716923335095479473677900958302012794430558004314112",
+          "1155233943015631099488736190469824819/1569275433846670190958947355801916604025588861116008628224"
+        ],
+        "six_route_probability_from_original_input_decimal": [
+          "6.084619610170756e-22",
+          "7.361575400335401e-22"
+        ],
+        "strict_scaled_arrival_amplitude_margin": "24163150498365839183029149446804613456698479448987607/139666613409850832981699008477061916035460813448806400",
+        "time_three_arrival_lower_exceeds_time_six_upper": true,
+        "unit_detuning_amplitude_interval": [
+          "439606139569405147001031/220355062167296068812800",
+          "8792122791388102940034968907/4407101243345921376256000000"
+        ]
+      }
+    ],
+    "scope": {
+      "arrival_claim_conditioned_on_a_final_energy_measurement": false,
+      "arrival_claim_for_unmeasured_original_line": false,
+      "charged_band_dispersion_velocity_or_continuum_limit": false,
+      "off_resonant_flux_excursion_and_finite_return_contrast": true,
+      "position_intervention_and_energy_disturbance_explicit": true,
+      "strict_positive_same_H_arrival_after_energy_then_position_preparation": true,
+      "unchanged_source_clock_and_fixed_quantum_compensator": true
+    },
+    "selected_arrival_effects": "one incident link excited, all other links blank; true local ground at every nonarrival cell, complete local spectral projector for the selected charged atom at arrival",
+    "selected_edge_norm_upper": "15",
+    "source": "same complete N2 H0+2^-34 T+4 N_ref with fixed reference at cell zero",
+    "source_clock_settings": [
+      "0",
+      "1",
+      "3",
+      "6"
+    ],
+    "source_time": "3",
+    "three_axis_native_spin_identities": 3
   },
   "prepared_lines": [
     {
@@ -588,6 +1271,94 @@
       }
     }
   ],
+  "same_source_hypercharge_background": {
+    "coordinate_covariance": {
+      "central_endpoint_commutators": 24,
+      "complete_link_dimension": 119,
+      "exact_coordinate_identity": "[K_e,U_ab]=Y_a U_ab, K_e=-G_e,left^Y",
+      "link_excitation_penalty_commutes": true,
+      "native_coordinate_matrices": 59,
+      "noncentral_weak_direction_transfer_rejected": true,
+      "nonzero_coordinate_entries": 1156,
+      "occupied_to_occupied_entries": 1038
+    },
+    "fixed_preparation_control": {
+      "all_fixed_preparation_magnetic_responses_inferred_zero": false,
+      "control_is_inherited_ec_or_L_prepared_line": false,
+      "fixed_state_energy_mean_change": "-1/51539607552",
+      "literal_affected_star_Gauss_checks": 24,
+      "paired_state_energy_mean_change": "0",
+      "physical_pair_plus_native_edge_image_state_norm_squared": "9/8"
+    },
+    "full_source_controls": {
+      "actual_full_H_entries_checked": 2478,
+      "actual_hopping_coefficient": "1/17179869184",
+      "background_hopping_executed_independently_of_link_conjugation": true,
+      "complete_240_mode_basis_columns": 15,
+      "current_column_norm_squared_sum": "223/255007790074960841539584",
+      "diamagnetic_column_norm_squared_sum": "6469/9180280442698590295425024",
+      "empty_full_mixed_Fock_and_occupied_links_retained": true,
+      "nonzero_current_entries": 15,
+      "nonzero_diamagnetic_entries": 15,
+      "omitted_current_and_diamagnetic_derivatives_rejected": true
+    },
+    "paired_record_transfer": {
+      "all_original_preparation_failures_bin_complements_and_references_retained": true,
+      "blank_link_atomic_projector": "V P0=P0, hence fixed P0-supported input and existing arrival effects have the same complete records",
+      "carrier": "same 240 CAR modes, 24 PW119 links, eight scalar-five cells, static CAR reference",
+      "families": [
+        "ec",
+        "L"
+      ],
+      "joint_record_probabilities_equal_for_paired_apparatus": true,
+      "native_pump_commutes_with_V": true,
+      "physical_preparation": "conjugate the complete source preparation instrument by V on each retained source copy",
+      "reference_cost": "4 N_ref, unchanged by link-only V",
+      "same_source_clock": "exp(-it H(A))=V exp(-it H(0)) V^dagger",
+      "source_spin_location_and_classical_failure_flags_commute_with_V": true,
+      "spectral_filter": "P_I(H(A))=V P_I(H(0)) V^dagger for the identical interval I",
+      "unchanged_fixed_preparation_records_inferred": false
+    },
+    "plaquette_control": {
+      "added_plaquette_conjugation_difference_on_blank_norm_squared": "8",
+      "bare_plaquette_term_present_in_actual_H": false,
+      "closed_loop_Gauss_checks": 48,
+      "comparison_plaquette_inserted_into_actual_H": false,
+      "ec_Wilson_phase": "-1",
+      "oriented_square_edges": [
+        0,
+        13,
+        6,
+        1
+      ],
+      "profile_is_a_zero_curl_site_gauge_transformation": false,
+      "signed_profile_circulation": 1,
+      "test_background_angle": "3*pi"
+    },
+    "schema": "oph.same_source_hypercharge_background.v1",
+    "scope": {
+      "all_magnetic_observables_vanish": false,
+      "central_hypercharge_background_only": true,
+      "complete_interacting_source_no_free_Clifford_substitution": true,
+      "emergent_electromagnetic_direction_or_photon_identified": false,
+      "free_envelope_g_two_transferred_to_prepared_line": false,
+      "observed_electron_identified": false
+    },
+    "static_current_ward": {
+      "all_real_angles_and_all_integer_profiles": true,
+      "arbitrary_real_link_angles_by_independent_commuting_generators": true,
+      "complete_H_identity": "H(A)=V(A) H(0) V(A)^dagger",
+      "current": "J_f=i[K_f,H]",
+      "diamagnetic_operator": "D_f=-[K_f,[K_f,H]]",
+      "every_energy_eigenvalue_independent_of_background": true,
+      "physical_electromagnetic_g_inferred": false,
+      "spectral_current_blocks": "P_E J_f P_E=0, including degenerate E",
+      "static_hypercharge_energy_splitting": "0",
+      "static_second_derivative": "P_E D_f P_E+2 P_E J_f (E-H)^(-1)_(1-P_E) J_f P_E=0",
+      "unitary": "V(A)=exp(i sum_e A_e K_e), K_e=-G_e,left^Y"
+    },
+    "verdict": "PASS_SAME_SOURCE_STATIC_HYPERCHARGE_RESPONSE_OBSTRUCTION"
+  },
   "schema": "oph.prepared_particle_readouts.v1",
   "scope": {
     "finite_horizon_localization_and_state_persistence": true,
@@ -607,5 +1378,5 @@
     "reference_cost_subtracted_from_gap": "4",
     "source_clock": "exp[-it(H_lambda+4 N_ref)]"
   },
-  "verdict": "PASS_PREPARED_LINE_LOCALIZATION_PERSISTENCE_AND_NATIVE_SPIN_RECORDS"
+  "verdict": "PASS_PREPARED_LINE_MOTION_SPIN_AND_STATIC_HYPERCHARGE_RESPONSE"
 }
