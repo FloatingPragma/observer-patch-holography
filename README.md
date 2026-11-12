@@ -10,15 +10,31 @@
 
 ## Mission
 
-The mission of Observer Patch Holography (OPH) is to create a consistent and
-complete, formal and rigorous theory of reality. That theory has no starting
-point: it is a closed loop, and it has to meet four conditions.
+The mission of Observer Patch Holography (OPH) is to construct an executable
+process whose native observers have experiences indistinguishable, in every
+physical regard, from those of observers in our Universe: the same effective
+three-dimensional continuum fields, gravity, particles, rest masses and
+other observable phenomena. Observers recover and realize the hardware and
+software of that same self-referential history. There is no independent
+background spacetime or external global clock. Computational events have a
+partial order; spacetime and mutually calibrated local clocks are effective
+descriptions of compatible observer records.
+
+The hardware and software may be reverse-engineered. They need neither a
+uniqueness proof nor an a priori derivation from observer or communication
+rules; different implementations could produce the same observable universe.
+The test is that one fully specified implementation runs and reproduces the
+complete observations, with mathematical consistency and explicit input ancestry.
+That closed-loop theory has to meet four conditions.
 
 1. **Consistent.** The loop closes. Its fixed point exists, constructed
    explicitly and machine-checked, and a theory with a model contains no
    contradiction.
-2. **Rigid.** Every dimensionless quantity is forced. One measured value sets
-   the units and nothing else.
+2. **Determinate.** Once the executable construction is fixed, its native
+   dynamics and readouts determine every claimed dimensionless observable.
+   Reverse-engineered design choices are permitted. Empirical calibration
+   and independent predictions are distinguished; a common measured value
+   can set the units.
 3. **Complete**, in the sense
    [Einstein, Podolsky and Rosen](https://doi.org/10.1103/PhysRev.47.777) gave
    the word in 1935. Every element of physical reality has a counterpart in

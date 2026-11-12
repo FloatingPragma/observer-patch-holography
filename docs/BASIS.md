@@ -26,8 +26,10 @@ construction and execution happen in emergent, mutually calibrated local
 times. Fixedness of the complete history permits changing states within it.
 
 The equation is schematic until a candidate specifies the history domain and
-the action of `T`. Existence, uniqueness and the identification of our
-Universe with such a fixed point are open questions of the programme. The
+the action of `T`. Existence and identification of our Universe with such a
+fixed point require evidence for the specified candidate. Different
+architectures may realize the same observable universe; architectural
+uniqueness is not a completion requirement. The
 [working terms](INTERPRETATION_AND_TERMS.md) distinguish complete history,
 instantaneous fixed state, stationary distribution and continuing regime.
 

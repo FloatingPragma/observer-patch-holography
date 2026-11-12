@@ -11,15 +11,31 @@
 ## Mission
 
 La mission de l’Holographie des parcelles d’observateur (OPH) est de
-construire une théorie de la réalité cohérente et complète, formelle et
-rigoureuse. Cette théorie n’a pas de point de départ : c’est une boucle
-fermée, et elle doit remplir quatre conditions.
+construire un processus exécutable dont les observateurs natifs vivent des
+expériences physiquement indiscernables de celles des observateurs de notre
+Univers : les mêmes champs continus effectifs en trois dimensions, la même
+gravité, les mêmes particules, masses au repos et autres phénomènes observables.
+Les observateurs retrouvent et réalisent le matériel et le logiciel de cette
+même histoire autoréférentielle. Il n’existe ni espace-temps de fond indépendant
+ni horloge globale extérieure. Les événements de calcul sont partiellement
+ordonnés ; l’espace-temps et les horloges locales mutuellement étalonnées sont
+des descriptions effectives des registres compatibles des observateurs.
+
+Le matériel et le logiciel peuvent être reconstruits par rétro-ingénierie.
+Leur unicité et une dérivation a priori de leurs choix de conception ne sont
+pas exigées. Des réalisations différentes pourraient produire le même univers
+observable. Le test est qu’une réalisation entièrement spécifiée fonctionne et
+reproduise toutes ces observations, avec cohérence mathématique et une origine
+explicite de ses paramètres. Cette théorie doit remplir quatre conditions.
 
 1. **Cohérente.** La boucle se referme. Son point fixe existe, construit
    explicitement et vérifié par machine, et une théorie qui possède un modèle
    ne contient aucune contradiction.
-2. **Rigide.** Toute grandeur sans dimension est imposée. Une seule valeur
-   mesurée fixe les unités, et rien d’autre.
+2. **Déterminée.** Une fois la construction exécutable fixée, sa dynamique
+   et ses lectures natives déterminent chaque observable sans dimension
+   revendiqué. Les choix de conception issus de la rétro-ingénierie sont
+   permis. L’étalonnage empirique est distingué des prédictions indépendantes ;
+   une valeur mesurée commune peut fixer les unités.
 3. **Complète**, au sens
    qu’[Einstein, Podolsky et Rosen](https://doi.org/10.1103/PhysRev.47.777)
    ont donné à ce mot en 1935. Chaque élément de la réalité physique a une
