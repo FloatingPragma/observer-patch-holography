@@ -1,0 +1,3 @@
+# Common spin forces and hadron masses
+
+A positive native electric-current square can fit the neutral scalar energy at 0.1349768 GeV while preserving the four proton, neutron, charged-pion and axial calibrations. This consumes a fifth datum and does not identify the neutral-pion wavefunction. A common total-spin square cannot fit the rho and Delta together: fitting the Delta gives a rho candidate near 0.3353 GeV; fitting the rho gives a Delta candidate near 1.8919 GeV. The [proof](PROOF.md) and [receipt](results.json) also test a positive native colour-spin force, with complete spectra and failed parameter searches retained.

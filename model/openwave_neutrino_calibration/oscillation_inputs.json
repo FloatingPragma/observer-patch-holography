@@ -1,0 +1,17 @@
+{
+  "dataset": "NuFIT 6.0, IC24 with SK atmospheric data, normal ordering, table 1",
+  "source": "https://arxiv.org/html/2410.05380v2#S2.T1",
+  "publication": "JHEP 12 (2024) 216; arXiv:2410.05380v2",
+  "sin2_theta12": "0.308",
+  "sin2_theta23": "0.470",
+  "sin2_theta13": "0.02215",
+  "delta_CP_degrees": "212",
+  "delta_m21_squared_eV2": "0.0000749",
+  "delta_m31_squared_eV2": "0.002513",
+  "solar_3sigma_eV2": ["0.0000692", "0.0000805"],
+  "normal_atmospheric_3sigma_eV2": ["0.002451", "0.002578"],
+  "inverted_atmospheric_absolute_3sigma_eV2": ["0.002421", "0.002547"],
+  "declared_lightest_mass_eV": "0.001",
+  "lightest_mass_is_measured": false,
+  "input_role": "Six empirical oscillation parameters calibrate the declared neutral family tensor. Reproducing those parameters is not an independent prediction. Normal ordering and the lightest mass are declared member choices."
+}

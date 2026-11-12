@@ -163,6 +163,7 @@ def test_new_class_clause_cannot_evade_the_semantic_pin(monkeypatch):
 @pytest.mark.parametrize('receipt_sha256', [
     '54101b232466509924b18f3a830ae1524dbb2d6cb0b2e516e92b2035d037fc11',
     '2dc68b49a67ee4d2f9cfed327910d18b374b6df4a2c4e71de12243b8d22f9342',
+    'bafb0a3a8401a065c867af690ff10a80cca9c1e2fdc61a8f39c971370fa70401',
     '0'*64,
 ])
 def test_changed_interpreter_member_receipt_needs_review(monkeypatch, receipt_sha256):

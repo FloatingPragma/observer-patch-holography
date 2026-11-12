@@ -1,0 +1,57 @@
+{
+  "schema": "oph.native_axial_state_inputs.v1",
+  "electron_unit_GeV": "0.00051099895069",
+  "mass_calibration_targets_GeV": {
+    "proton": "0.93827208943",
+    "neutron": "0.93956542194",
+    "charged_pion": "0.13957039"
+  },
+  "axial_calibration_target_magnitude": "1.2753",
+  "axial_quoted_uncertainty": "0.0013",
+  "axial_source": {
+    "axial_ratio_magnitude": "1.2753",
+    "quoted_uncertainty": "0.0013",
+    "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-n.pdf",
+    "location": "Page 11, neutron decay parameters, lambda = g_A/g_V",
+    "sign_convention": "PDG lists lambda=-1.2753. Compare its magnitude with the positive native Pauli-current reduced coefficient.",
+    "role": "Fourth empirical calibration input selecting U and the native baryon state."
+  },
+  "inherited_mass_input_ancestry": {
+    "electron_unit_GeV": "0.00051099895069",
+    "calibration_targets_GeV": {
+      "proton": "0.93827208943",
+      "neutron": "0.93956542194",
+      "charged_pion": "0.13957039"
+    },
+    "held_out_comparisons_GeV": {
+      "neutral_pion": "0.1349768",
+      "rho_vector": "0.77526",
+      "Delta_baryon": "1.232",
+      "deuteron_binding": "0.00222456640"
+    },
+    "sources": [
+      "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-phys-constants.pdf",
+      "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-plus-minus.pdf",
+      "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-zero.pdf",
+      "https://pdg.lbl.gov/2025/listings/rpp2025-list-rho-770.pdf",
+      "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-Delta.pdf",
+      "https://physics.nist.gov/cuu/pdf/RevModPhys.97.025002.pdf"
+    ],
+    "uncertainty_scope": "Central values only. Hadron targets calibrate three action coefficients and are not independent predictions. Comparison values neither fix those coefficients nor establish a physical species dictionary."
+  },
+  "calibrated_coefficients": [
+    "mbar",
+    "delta",
+    "A",
+    "U"
+  ],
+  "declared_unfitted_coefficients": [
+    "t=1/8",
+    "Js=1/4",
+    "Jw=1/4",
+    "eta=1",
+    "kappa_colour=1"
+  ],
+  "ancestry": "The axial datum selects the native split-site state through U. It is a calibration input, not a held-out prediction. No effective current factor is fitted.",
+  "colour_edge_choice": "Positive native edge-colour Casimir with coefficient1; an explicit architecture control of disconnected-copy coloured thresholds. It is identically zero on every two-cell global singlet, including spatially separated q+diquark states, and supplies no two-cell spatial binding or continuum confinement proof."
+}
