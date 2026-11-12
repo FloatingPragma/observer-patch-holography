@@ -1,0 +1,80 @@
+{
+  "independent_exterior_CAR_and_global_phase_control": {
+    "all_four_exact_pulse_factor_errors": [
+      1.1188630228279524e-16,
+      1.2412670766236366e-16,
+      1.1857187100668868e-16,
+      1.2571659638300646e-16
+    ],
+    "all_four_phase_source_factor_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "all_four_scalar_phase_errors": [
+      1.1188630228279524e-16,
+      1.1295700899707568e-16,
+      1.1857187100668868e-16,
+      1.3092278833360675e-16
+    ],
+    "even_interfactor_hopping_mutation_defect": 0.007995631993273626,
+    "fermionic_exterior_signs_explicitly_constructed": true,
+    "full_CAR_modes": 8,
+    "full_Fock_rows": 256,
+    "same_phase_reason": "second-order signed time is 1 and 4p+(1-4p)=1; scalar 2*kappa is subtracted only in both error operands"
+  },
+  "independent_position_space_Fourier_control": {
+    "complete_CAR_modes_one_character": 216,
+    "complete_Nambu_rows": 432,
+    "epsilon_pairing_max_error": 1.1994488542262915e-15,
+    "four_mode_factors_one_character": 54,
+    "no_physical_Fourier_or_helicity_control_added": true,
+    "position_space_to_factor_support_max_error": 1.087070834026818e-15,
+    "same_kappa_on_paired_modes_max_error": 1.3328588887798135e-15,
+    "side": 3,
+    "sites": 27,
+    "three_characters_factor_count": 162,
+    "zero_and_opposite_momenta_retained": true
+  },
+  "independent_state_energy_and_exact_resources": {
+    "arbitrary_reference_positive_energy_random_controls": 32,
+    "finite_resource_binary_search_minimality": [
+      {
+        "minimal_admissible_cycles": 43258,
+        "sites": 27
+      },
+      {
+        "minimal_admissible_cycles": 53675,
+        "sites": 64
+      },
+      {
+        "minimal_admissible_cycles": 151814,
+        "sites": 4096
+      }
+    ],
+    "localized_packet_trace_and_energy_inequalities_exactly_rechecked": true,
+    "maximum_observed_fraction_of_state_sensitive_bound": 0.16229122024451093,
+    "state_domain": "target physical excitation mean <= m_upper+d; complete ancilla/reference outputs retained; no ancillary energy guarantee",
+    "state_sensitive_integer_optimality_rechecked_without_producer_square_root": true
+  },
+  "numerical_diagnostics_are_not_interval_proofs": true,
+  "review_findings": [
+    "The homogeneous nearest-neighbor source has the stated 6*sites even four-CAR factors after a mathematical Fourier/SU(2) change of coordinates, including self-inverse momentum.",
+    "The centered norm estimate preserves the original scalar phase because actual and ideal products have identical signed duration.",
+    "The state-sensitive energy bound follows by expanding a purified vector and requires positivity, a target mean bound, and the unsaturated unitary error.",
+    "The disjoint-factor hypothesis excludes extra inter-factor interactions; no large-carrier execution, local hardware efficiency, or source clock is inferred."
+  ],
+  "reviewer_package": "openwave_quantum_rotational",
+  "schema": "oph.independent_factorized_compiler_review.v1",
+  "source_sha256": {
+    "model/openwave_factorized_compiler/PROOF.md": "7741917385a7632b9bf3fd3792b7c9b955d8497f8702c73308288a32d32e8e93",
+    "model/openwave_factorized_compiler/compiler.py": "96bd5fdd7c1a8ce58a86cf8f1b2ff7494d75629677498f7955692541953ac777",
+    "model/openwave_factorized_compiler/results.json": "426ef1d807f0f61ecb7940e131f29ad5839e6bccb58f5deeda707a56d51c12d4",
+    "model/openwave_kinetic_phase_cycle/PROOF.md": "970bdeccc93023ecaeb703ae6c3d7316d68a185edae512ac874bf6bf0b38376d",
+    "model/openwave_kinetic_phase_cycle/compiler.py": "d2dc227a64eaea8fef0cd0b0f6d4931a17040760ffe3e52bd69681f00a09e747",
+    "model/openwave_quantum_rotational/audits/factorized_compiler_review.py": "bd8f07d4058077cae82202b9574b706f080d5c520bd05d236afdb05af75572f1"
+  },
+  "target": "openwave_factorized_compiler",
+  "verdict": "PASS_INDEPENDENT_FACTOR_AND_STATE_ENERGY_REVIEW"
+}

@@ -1,0 +1,280 @@
+\subsection{Complete compiler bounds from commuting native factors}
+
+The homogeneous kinetic and analyzer source decomposes into $6s$ disjoint
+four-mode fermionic factors on $s$ sites. Fourier transformation pairs
+opposite momenta, and invariance of the native spin epsilon tensor gives
+two helicity pairings per momentum and character. Every complementary
+mode has identical free evolution in the actual and target laws. On each
+factor the rank-one pairing has norm one. Centering its kinetic number
+operator gives $\|H_r-2\kappa I\|\le 2|\kappa|+1\le4/a+1$.
+The identical scalar phases cancel in the unitary comparison without
+changing the recorded energy or reference.
+
+Even operators on disjoint fermionic factors commute. Applying the same
+exact fourth-order word to each factor and telescoping the tensor product
+gives the complete unhalved trace bound
+\[
+ \epsilon\le\min\left(2,\frac{6sR^5|t|^5}{10n^4}\right),
+ \qquad R=\frac73(4/a+1),\qquad n\ge R|t|.
+\]
+It includes all ancillary outputs and arbitrary quantum references.
+A coupling between factors invalidates the factorization and is retained
+as a failing control. The transformation proves an identity of the
+existing pulses; it adds no Fourier apparatus operation.
+
+For a nonnegative physical excitation observable with norm at most
+$E_{\max}$, a target mean at most $\mu$ and an isometry error $\delta$,
+purification gives
+\[
+ |\langle A\rangle_{\rm actual}-\langle A\rangle_{\rm target}|
+ \le2\sqrt{E_{\max}\mu}\,\delta+E_{\max}\delta^2.
+\]
+The compact near-rest packet has $E_{\max}=282s$ and
+$\mu\le m_{\rm upper}+d$. Retaining its energy error budget $d/10^6$
+and complete-record trace tolerance $10^{-12}$ requires at most
+$6.564\,10^{27}$ cycles under these bounds, a reduction by approximately
+$1.966\,10^{34}$ from the unseparated global-norm estimate.
+This is an analytic resource bound on the same huge carrier. Coherent
+control services, preparation costs and the physical-energy-marginal
+domain are explicit; an efficient local or autonomous implementation is
+not supplied.
+
+
+\subsection{All-channel native charged gap}
+
+
+\paragraph{Complete native Higgs action and the charged floor.}
+Retain the fifteen-coordinate matter module, all three family characters,
+all momenta and the full spin-epsilon pairing kernel.  With the unit
+neutral Higgs background, the three native invariant tensors define a
+rank-seven directed matrix $D$ satisfying
+\[
+ D^2=0,\qquad D^\dagger D+DD^\dagger=P_{\rm ch},\qquad
+ \operatorname{rank}P_{\rm ch}=14,\qquad Q(1-P_{\rm ch})=0.
+\]
+The declared common family choice $Y_u=Y_d=Y_e=\operatorname{diag}(e_k)$
+gives seven charged Dirac channels per character and valley, with
+energies $\sqrt{\sum_i\sin^2(ap_i)/a^2+e_k^2}$.  The remaining internal
+coordinate is neutral.  On the complete quasiparticle Fock space,
+\[
+ H-E_{\rm ground}\ \geq\ m_{\min}|Q|,\qquad m_{\min}=\min_k e_k>0.
+\]
+Indeed every charged occupation has energy at least $m_{\min}$ and
+charge magnitude at most one, and every zero-energy occupation is
+neutral.  The opposite-leg pairing ground has zero charge.  A charged
+lepton rest mode attains the charge-one floor.  The side-four census
+retains all $64$ momenta and $11520$ Nambu rows; its $48$ zero-energy
+CAR modes are neutral.  Removing either quark Higgs channel restores
+charged zero modes.
+
+The complete controlled implementation has $42s$ disjoint four-CAR
+factors and retains all $324000s$ enlarged CAR coordinates and all
+ancillary outcomes.  Its unhalved trace error obeys
+$\min\{2,42sR^5|t|^5/(10n^4)\}$ for
+$R=(7/3)(4/a+1)$ and $n\geq R|t|$.  Fixed native leg creation gives
+success probability $1/2$, with failed creation and all four occupation
+outcomes retained.  The source choice removes the massless charged
+counterexample of the charged-lepton-only action; it does not change
+that counterexample's validity for that earlier action.  Equal up,
+down and lepton family coefficients are explicit architecture and
+produce equal family spectra.  They do not reproduce unequal physical
+quark masses, determine the family selection, or identify interacting
+particles.
+
+
+\subsection{Neutral transport and weak-current records}
+
+
+\paragraph{Neutral spin-half transport on the complete finite source.}
+On the native antiperiodic four-cell torus, the normalized local
+$e^cLL$ gauge singlet $(2|10,11,24\rangle-|9,10,26\rangle+
+|9,11,25\rangle)/\sqrt6$ has spin Casimir $3/4$ and charge zero.
+The full Hamiltonian retains $1920$ matter modes, $192$ links of dimension
+$119$, and all five scalar states at each of $64$ sites. Between adjacent
+spin-up packets its first three moments vanish and its third moment is
+$-3i\sqrt2/64$. The two native antiperiodic paths each have oriented
+coefficient $-i\sqrt2/8$; mixed path assignments vanish by Haar integration.
+For $t=10^{-20}$, the full-source norm bound $\|H\|\le12937$ gives original
+arrival probability between $1.2181254471\times10^{-124}$ and
+$1.2232835274\times10^{-124}$. All other packet and complement outcomes are
+retained. This proves finite transport on its declared preparation and
+clock; no interacting-ground, relativistic-dispersion, or observed-neutrino
+identification is inferred. The exact columns and complete remainder are
+reproduced by \texttt{model/openwave\_neutral\_transfer}.
+
+
+\paragraph{A source-derived weak-current family instrument.}
+Let $Y$ be the positive native record-memory family matrix, $F$ its real
+ordered eigenframe, and $V=I+(-i-1)P_2$ one declared native port pulse.
+The symmetric neutral coefficient $M_\nu=V^*YV^\dagger$ has Takagi frame
+$VF$. Transforming the actual native charged current gives
+$C=F^TVF$, without imported neutrino angles or mass splittings. For momentum
+$p>0$, $E_i=\sqrt{p^2+\lambda_i^2}$ and
+$w_i=(E_i+p)/(2E_i)$ are the actual positive-band chirality weights.
+The contraction $K_p=\operatorname{diag}(\sqrt{w_i})C^\dagger$ and its
+adjoint return instrument give three family records plus preparation and
+return-complement records. Their total variation distance from the ideal
+unitary oscillation law is at most $2\max_i(1-w_i)$.
+All native internal components and failed quantum outputs are retained.
+The chosen neutral tensor and port pulse define this conditional model;
+no observed-neutrino identification or absolute mass calibration follows.
+Exact definitions and complete records are in
+\texttt{model/openwave\_neutrino\_oscillation}.
+
+
+\paragraph{A native-current three-body channel.}
+On the complete $270$-mode finite matter carrier, contract all three actual
+weak currents as
+$V=\sum_{a,\mu,p-r+q-u=0}\eta_\mu:j_a^\mu(p,r)j_a^\mu(q,u):$,
+with $j_a^\mu=c^\dagger(\bar\sigma^\mu\otimes T_a/2\otimes I_3)c$.
+The full contraction includes quark and lepton doublets and has $31464$
+canonical quartic words. Native analyzer masses are normalized to the
+middle charged branch. At the declared box momentum
+$q=(1-m_{\rm light})/2$, a middle charged rest excitation and the receiver
+containing a light charged excitation plus a neutral and antineutral have
+equal free energy and momentum. Their exact matrix element is
+$\langle f|V|i\rangle=-1$, including both charged chirality weights.
+For the declared coefficient $G=1/64$, the full clock at $t=10^{-14}$ has
+receiver probability in
+$[2.4413587178,2.4414537827]\times10^{-32}$; its complete complement is
+retained. Interacting energy expectations and measurement work are recorded
+separately from free resonance. This establishes a finite current-driven
+transition, without deriving a measured lifetime, the Fermi constant, or a
+continuum decay width. The construction and complete bound are reproduced
+by \texttt{model/openwave\_weak\_decay}.
+
+
+\subsection{Quantum angular momentum of a localized charged state}
+
+A complete oscillator-shell matter regulator can be coupled to a quantum
+Maxwell field while preserving exact rotations. Retain the three transverse
+modes $A_b(x)=e^{-|x|^2/5}(b\times x)/2$ and every field occupation of total
+number at most $C$. Their radius satisfies $R^2=5/2$, hence their electric
+and magnetic Maxwell metrics coincide. With $\kappa=c_0/32$, the field
+frequency is one and $b_i=(a_i+a_i^*)/8$. The projected field energy above
+vacuum is $N_f$. Its expression in truncated coordinates requires the exact
+boundary completion $(C+3)P_{\rm top}/2$.
+
+The native sixteen-row Clifford module decomposes into four complete Dirac
+blocks. The uniform source charge $q=-1$ is a declared assignment; it
+is not inherited from the separate chiral Higgs current. On each block let $D=\tau_3m+\tau_1B$, where $B$ is the actual
+minimally coupled spin/spatial operator and $m=16$. Then
+$|D|=\sqrt{m^2+B^2}$ on both signed branches. Complete matter shells through
+number two contain ten spatial modes. The ordered full fermion lift is
+\[
+ H=\sum_{ab}c_a^*K_{ab}c_b+d\Gamma(N_m)+N_f,
+ \qquad K=|D|.
+\]
+The blocks $K_{ab}$ are quantum field operators. If $K-mI=B_0^*B_0$, then
+$d_r=\sum_a(B_0)_{ra}c_a$ gives
+$\sum_{ab}c_a^*(K-mI)_{ab}c_b=\sum_r d_r^*d_r\ge0$.
+Consequently $H\ge mN_{\rm ferm}+d\Gamma(N_m)+N_f$ on every retained
+fermion sector. This is a linear quantum Hamiltonian with arbitrary
+external references; no state-dependent field substitution is used.
+
+The actual angular generator is
+$J=d\Gamma(L+\Sigma/2)-i\epsilon_{ijk}a_j^*a_k$.
+Complete shells make the spatial differential and Maxwell mode actions
+covariant, so $[H,J_i]=0$. The separate matter and field torques cancel
+as operators. Since
+\[
+ \|B\|\le\frac85+\frac35\sqrt C=a_C,\qquad
+ 0\le K-mI\le\frac{a_C^2}{2m}I,
+\]
+the two lowest levels of each reduced block are isolated below the number
+gap one. Projection onto the unperturbed oscillator/photon vacuum is an
+invertible rotation intertwiner. The full dressed band therefore carries
+exactly spin one half, with $J^2=3/4$, including its quantum field dressing.
+The full native multiplicity retains eight identical doublets, forming a
+sixteen-dimensional charged ground band. The preparation selects one
+$J_z=1/2$ line in one native copy.
+At cap two the up state has Maxwell angular expectation approximately
+$1.2056062\,10^{-5}$, with the matter contribution completing $J_z=1/2$.
+The Maxwell field alone has integer angular spectra.
+
+\subsection{Common energy, current and finite field-cap records}
+
+A specified compensated fermion pulse and complete ground-band filter
+prepare the dressed state. Radial position, photon number and total angular
+records include the filter failure and retained idle reference. The exact
+oscillator kernel bounds the outside-radius-five probability by
+$1.1\,10^{-7}$ for every state of this spatial carrier. This localization
+uses the declared trap and complete-shell regulator.
+
+A sixth-order square-root polynomial, exact algebraic matrix entries,
+normalized rational trial vectors and outward interval arithmetic enclose
+the ground energy. Its positive remainder is bounded by
+$(33/2048)a_C^{14}/m^{13}$. The complementary gap supplies a Temple bound;
+all ordered noncommuting terms of the polynomial derivative supply a
+current interval. The same current is the derivative of the joint source
+energy with respect to a uniform probe. At cap two the finite values obey
+\[
+ 16.04615746140468<E_2<16.04615746140603,\qquad
+ 1.9982753534<g_2<1.9982753546.
+\]
+The moment convention uses this same rest energy and total angular
+momentum. The intervals are finite-source bounds, without a physical
+magnetic-moment uncertainty interpretation.
+
+One empirical electron anchor, $0.00051099895069\,\mathrm{GeV}$, fixes the
+unit using the cap-two state. Caps one and three use that identical unit.
+Complete finite-cap comparisons retain field occupations, the Maxwell
+boundary term and photon-number readout work. They supply neither an
+infinite-photon or spatial-continuum theorem nor an observed electron,
+physical fine-structure constant or three-lepton-spectrum identification.
+
+
+\subsection{A native energy-lapse extension}
+Let $M_0$ be the complete native eight-level Hamiltonian at unit geometry,
+$E_0$ its actual ground energy and $K=M_0-E_0I\geq0$. Declare the finite
+geometry-controlled energy
+$H(q)=\kappa q^TLq/2+\sum_x e^{q_x}K_x$, with a positive Dirichlet graph
+Laplacian and a retained dyadic geometry register. The local response is
+exactly $\partial_{q_x}H_x=H_x\geq0$ on every native level and reference.
+This lapse coupling and its ground counterterm are architectural inputs;
+they are distinct from the reciprocal scalar derivative.
+
+For prepared native energy lines $E_x$, the geometry minimum of
+$F=\kappa q^TLq/2+\sum_x E_x(e^{q_x}-1)$ has positive Hessian
+$A=\kappa L+\operatorname{diag}(E_xe^{q_x})$. Inverse positivity gives
+\[
+ \partial_{E_x}\partial_{E_y}\min F
+ =-e^{q_x}(A^{-1})_{xy}e^{q_y}<0
+\]
+on the continuous extension. A dyadic witness and its rational residual
+bound enclose the finite minimum by
+\[
+ F(q)-\|\nabla F(q)\|^2/(2\mu)\leq\min F\leq F(q),
+\]
+where $\mu=12\kappa/(n+1)^2$. Two first-excited native sources on a
+31-cube at $\kappa=10^4$ have certified negative mutual energies and
+an attractive separation-six energy difference of about $1.53313\,10^{-7}$.
+The model Green coefficient is $1/(4\pi\kappa)$; no physical Newton
+strength or autonomous geometry-minimization controller is inferred.
+
+
+\subsection{Common native clock and wave observations}
+On the same prepared energy-lapse geometry, every native transition has
+frequency $\omega_k(x)=e^{q_x}(E_k-E_0)$. Complete eight-output Ramsey
+instruments at two sites give 64 joint records and the common ratio
+$\omega_k(a)/\omega_k(b)=e^{q_a-q_b}$ for all seven excited levels.
+The source reference and probe preparation work are retained. Geometry is
+fixed during the probes, without an autonomous backreaction assertion.
+
+Declare the scalar coefficient density
+$C=\operatorname{diag}(-e^{-4q},1,1,1)$. Its metric dictionary gives
+$g=\operatorname{diag}(-e^{2q},e^{-2q},e^{-2q},e^{-2q})$, with that same
+lapse. All vacuum and one-quantum modes of the finite field have
+$K_{\rm wave}=e^{2q}D^TD e^{2q}$; complete site-frame observations retain
+measurement work and independent evolution controls. The metric ray time
+$\sum_j e^{-2q_j}$ has a certified positive delay, distinct from a claimed
+lattice group-delay limit.
+
+Independent first-order curvature gives $G_{00}^{(1)}=2\Delta q$ and
+$G_{ij}^{(1)}=0$. Native energy stationarity therefore bounds
+$G_{00}^{(1)}-2\rho_q/\kappa$ by the actual geometry residual, with
+$\rho_q=e^qE$ defined from matter energy. This uses no installed Einstein
+source equation. The isotropic spatial gluing is a declared choice:
+a changed spatial metric can preserve the clock and force laws while
+violating the exterior curvature comparison. Physical units, full
+covariant stress and nonlinear Einstein dynamics are separate conditions.

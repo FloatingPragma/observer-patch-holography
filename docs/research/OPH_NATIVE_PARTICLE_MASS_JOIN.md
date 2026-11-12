@@ -1004,7 +1004,7 @@ no free family weight or physical gauge coupling is selected.
 ### Localized calibrated energy and the exact neutral obstruction
 
 The [compact charged packet](../../model/openwave_localized_rest_packet/PROOF.md)
-now puts localization, the native light rest branch and one electron calibration
+puts localization, the native light rest branch and one electron calibration
 on the same declared free source. Its conditional mean energy lies just above
 `0.00051099895069 GeV`, with relative excess below`3.014e-9` (about`0.003014ppm`).
 Its outside-cube probability stays below`1.103e-7` through source time`10^9`.
@@ -1021,11 +1021,53 @@ an uncontrolled microscopic clock or an interacting electron.
 
 For the periodic side-two neutral source, the
 [exact symmetry calculation](../../model/openwave_neutral_dispersion/PROOF.md)
-settles the old nearly-flat dispersion question: all eight odd-sector momentum
+establishes that all eight odd-sector momentum
 spectra are exactly equal, and dressed position projectors commute with H.
 Its electron-calibrated`6.61638659224e-5 GeV` is an excitation energy, with no
 moving relativistic mass inference. A
-[new preparation](../../model/openwave_neutral_preparation/PROOF.md) succeeds
+[complete preparation](../../model/openwave_neutral_preparation/PROOF.md) succeeds
 above`0.99999999999639` using specified local states and finite filter services.
 That practical improvement does not remove the motion obstruction or identify
 an active neutrino, sterile neutrino or cosmological dark-matter particle.
+
+
+### Charged floor, quantum spin and calibrated source energies
+
+The [all-channel Higgs action](../../model/openwave_full_higgs_floor/PROOF.md)
+uses all three actual invariant tensors. Its seven disjoint charged pairs
+satisfy an exact full-Fock floor `H−E_ground >= e_min abs(Q)`. The remaining
+zero modes are neutral. This closes the massless charged counterexample for
+this explicitly extended action. It does not select unequal family matrices:
+`Y_u=Y_d=Y_e` is a declared common choice and produces equal family spectra.
+Those quark values do not fit the observed spectrum.
+
+For the compact charged packet, the
+[factorized compiler](../../model/openwave_factorized_compiler/PROOF.md)
+retains the same mass coefficients, all ancillary outputs and arbitrary
+references. Exact commuting factors and a state-sensitive energy bound reduce
+the sufficient cycle count to about `6.564e27`, a factor of `1.966e34` below
+the global-norm estimate. The count remains an analytic apparatus bound,
+not an executed large-volume preparation.
+
+A separate [quantum rotational construction](../../model/openwave_quantum_rotational/PROOF.md)
+joins confined position, positive rest energy, current and Maxwell field
+observations on one source. The full 16-dimensional charged ground band
+contains eight identical spin-half doublets with exact `J²=3/4`. Preparation
+selects one spin-up line in one native copy; its nonzero Maxwell angular
+share is part of a conserved quantum generator. At photon cap two the energy is enclosed by
+`[16.046157461404682,16.046157461406022]` in its native units. A single
+`0.00051099895069 GeV` electron anchor calibrates that source and all compared
+photon caps. This is a different declared action with global charge `−1`;
+it does not inherit the three-lepton family spectrum or establish observed
+electron identity. The same-source static coefficient is enclosed by
+`[1.998275353408213,1.9982753545060563]`, with coupling and trap retained as
+inputs rather than fitted anomalous-moment outputs.
+
+On the literal larger antiperiodic native source,
+[neutral packet transfer](../../model/openwave_neutral_transfer/PROOF.md)
+is nonzero. Separate [three-flavour records](../../model/openwave_neutrino_oscillation/PROOF.md)
+and [weak charged conversion](../../model/openwave_weak_decay/PROOF.md)
+use declared native extensions and retain their full source clocks and
+failed records. They supply mechanisms rather than measured neutrino masses,
+PMNS parameters or a muon decay rate. No neutral energy from the flat
+side-two source is reassigned as a moving neutrino mass.
