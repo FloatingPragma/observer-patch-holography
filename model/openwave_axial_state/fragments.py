@@ -16,7 +16,7 @@ def fragment_controls():
   k=np.zeros((24,24),dtype=int)
   for i,(species,x,s,f,c)in enumerate(modes):k[i,i]=1;k[i,index[species,1-x,s,f,c]]=-1
   n0=np.array([sum((b>>i)&1 for i,m in enumerate(modes)if m[1]==0)for b in basis]);nu=np.array([sum((b>>i)&1 for i,m in enumerate(modes)if m[3]==0)for b in basis])
-  parts={'N':number*sp.eye(n,format='csr'),'D':sp.diags(number-2*nu),'K':integral(one_body(k,basis)),'C48':native_colour48(modes,basis),'Cg48':colour_global48(modes,basis),'S4':angular4(modes,basis,(0,),True)+angular4(modes,basis,(1,),True),'I4':angular4(modes,basis,(0,),False)+angular4(modes,basis,(1,),False),'Ig4':angular4(modes,basis,(0,1),False),'B9':sp.diags(n0*n0+(number-n0)**2)}
+  parts={'N':number*sp.eye(n,format='csr'),'D':sp.diags(number-2*nu,dtype=float),'K':integral(one_body(k,basis)),'C48':native_colour48(modes,basis),'Cg48':colour_global48(modes,basis),'S4':angular4(modes,basis,(0,),True)+angular4(modes,basis,(1,),True),'I4':angular4(modes,basis,(0,),False)+angular4(modes,basis,(1,),False),'Ig4':angular4(modes,basis,(0,1),False),'B9':sp.diags(n0*n0+(number-n0)**2,dtype=float)}
   for kappa in(0,1):
    H=sum(float(v)*parts[k]for k,v in weights({**p,'kappa_colour':kappa}).items()).toarray()
    for u in range(number+1):

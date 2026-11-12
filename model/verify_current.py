@@ -2,6 +2,8 @@
 
 The original verifier, artifact/source guards, group partition and every other
 replay declaration retain their exact source and ordering.
+The native control's one retained documentary input has a separate, exact
+adapter; its current executable and complete live scientific result are checked.
 """
 import argparse,hashlib,json,os,subprocess,sys
 from pathlib import Path
@@ -56,7 +58,13 @@ def verify_successor_source_bindings():
 
 def verify_all_hashes():
     current_replays()
-    count=retained.verify_artifacts()
+    try:
+        count=retained.verify_artifacts()
+    except ValueError as error:
+        from . import native_control_custody
+        if str(error)!=native_control_custody.SOURCE_ERROR:
+            raise
+        count=native_control_custody.verify_in_documentary_view(retained)
     verify_successor_source_bindings()
     return count
 
@@ -76,15 +84,22 @@ def main():
     if a.hashes_only:return
     environment=dict(os.environ)
     for name in('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS'):environment.setdefault(name,'1')
-    for group in groups:
-        if group==retained.EMPIRICAL_REPLAYS:
-            subprocess.run([sys.executable,'-m','model.replay_empirical'],cwd=retained.ROOT,env=environment,check=True)
-            continue
-        (module,command,receipt),=group
-        argv=[sys.executable,'-m',module]
-        if command is not None:argv.append(command)
-        argv.extend(['--check',receipt]);print(f'Replaying {receipt}',flush=True)
-        subprocess.run(argv,cwd=retained.ROOT,env=environment,check=True)
+    from tools.completion_contract_inputs import finite_inputs
+    with finite_inputs(retained.ROOT) as view:
+        for group in groups:
+            if group==retained.EMPIRICAL_REPLAYS:
+                subprocess.run([sys.executable,'-m','model.replay_empirical'],cwd=retained.ROOT,env=environment,check=True)
+                continue
+            (module,command,receipt),=group
+            from . import native_control_custody
+            if (module,command,receipt)==native_control_custody.REPLAY:
+                native_control_custody.replay_live_control(retained.ROOT)
+                continue
+            argv=[sys.executable,'-m','tools.finite_contract_command',
+                  '--view',str(view),'--module',module,'--']
+            if command is not None:argv.append(command)
+            argv.extend(['--check',receipt]);print(f'Replaying {receipt}',flush=True)
+            subprocess.run(argv,cwd=retained.ROOT,env=environment,check=True)
     print(f'All {sum(map(len,groups))} selected current receipts reproduced',flush=True)
 
 

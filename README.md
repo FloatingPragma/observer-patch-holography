@@ -98,14 +98,15 @@ proof shows that the whole class of laws cannot work.
   retrospective comparison has a muon residual of +9.83 ppm and a tau
   discrepancy of 0.61 standard deviations. A full fermion compiler realizes
   these coefficients; the interacting physical mass identification is separate.
-- **A concrete coherent flavour mechanism.** One phase pulse on a native
-  family projector produces an exact nonzero CP contrast, read with all
-  eighteen current outcomes retained. The source masses remain unchanged;
-  this is a declared coherent architecture, without a fitted CKM matrix or
-  physical quark mass splittings. A separate calibrated neutrino instrument
-  gives complete Majorana-phase mass envelopes with failures retained.
-  [Flavour transport](model/native_flavour_transport/PROOF.md),
-  [Neutrino mass readout](model/neutrino_mass_observables/PROOF.md).
+- **Calibrated neutrino masses and oscillations.** A declared Dirac tensor
+  uses six measured oscillation inputs and a chosen lightest mass of
+  0.001 eV. Its three masses are 0.001, 0.00871206 and 0.05013980 eV.
+  The actual native weak current and complete active/sterile readouts
+  reproduce the corresponding vacuum oscillation law within 4.1×10⁻⁹
+  total variation on the stated phase interval. These are calibrated
+  finite records, with no independent mass prediction or physical beam
+  identification.
+  [Native neutral records](model/openwave_neutrino_calibration/PROOF.md).
 - **Exact populations and thermal particle counts.** The native closed cell
   has complete class-absorption laws. A calibrated quantum source supplies
   complete particle-count records under a declared thermal preparation;
@@ -115,11 +116,12 @@ proof shows that the whole class of laws cannot work.
   their supplied inputs and do not constitute a shared cosmic cooling history.
   [Particle and cosmology results](model/particle_cosmology_results/README.md),
   [Interactive viewer](https://particles.floatingpragma.ai/).
-- **The gauge group and its couplings.** The oriented carrier supports
-  (SU(3)×SU(2)×U(1))/Z6. A conditional coupling chain gives the electroweak
-  scale 246.6 GeV and strong coupling 0.1183 with its declared matching
-  inputs. Dirac and Majorana neutral extensions have separate assumptions;
-  gauge symmetry alone does not select their masses or mixing.
+- **The gauge group and native currents.** Under the stated complete-current
+  premises, the oriented carrier supports (SU(3)×SU(2)×U(1))/Z6 and an
+  anomaly-free matter representation. Exact native charge, spin and Gauss
+  instruments retain their complete outputs. Empirical coupling values and
+  an interacting chiral continuum require the same-source physical mapping.
+  [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,
@@ -137,10 +139,23 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
-- **Energy readouts.** Complete interacting quantum sources give
-  gauge-constrained energy records, including preparation failures, and a
-  finite electric/magnetic field has a certified charged ground.
-  [Charged-field attachment](model/native_abelian_field_join/PROOF.md).
+- **Hadron masses and axial response on one source.** Four disclosed inputs
+  fit proton 0.93827208943 GeV, neutron 0.93956542194 GeV, charged pion
+  0.13957039 GeV and axial magnitude 1.2753 without rescaling the native
+  current. A positive common matter action joins those calibrated states
+  to six Dirac branches and proves complete nucleon energy-window bounds.
+  Graph dependence, an extra nuclear channel and physical pole identification
+  constrain the interpretation.
+  [Native axial state](model/openwave_axial_state/PROOF.md),
+  [Common mass source](model/openwave_common_mass_source/PROOF.md).
+- **Native emission and clocks.** Complete source calculations certify a
+  parity-odd beta momentum statistic and a finite meson emission window.
+  Two clock factors of the native eight-level source have a common
+  weak-probe limit. These results retain preparation failures, work and
+  source backreaction; finite records do not identify physical lifetimes
+  or Einstein proper time.
+  [Outgoing current](model/openwave_beta_outgoing/PROOF.md),
+  [Native clocks](model/openwave_joint_native_clocks/PROOF.md).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
   Its position observable is conjugate to the same spatial momentum, with complete

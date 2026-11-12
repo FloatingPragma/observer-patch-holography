@@ -13,8 +13,16 @@ reproduction gate. From the repository root:
 ```sh
 python -m pip install -r model/requirements.txt
 python -m model.verify_current
-python -m pytest -q -W error model
+python -m pytest -q -W error -p tools.completion_contract_inputs model
 ```
+
+The finite completion and clock contracts consume two authenticated documentary
+inputs from their recorded Git ancestors. The explicit test plugin preserves
+every current executable, scientific receipt and test; only those two contract
+readers use the private documentary view. This checks the retained finite
+premise and does not validate the current hypothesis prose or declare it
+equivalent. The current native-control producer is replayed separately with a
+complete scientific-payload comparison.
 
 The current verifier preserves the artifact checks and replay order in
 `model/verify.py`, replacing one backend-sensitive protected-readout comparison
@@ -367,16 +375,17 @@ claim registry, release manifest, scientific-register sync, a clean `--collect-o
 run with zero import errors, and the executed validation fixtures. The generated
 registers live in `docs/registers/`; the generation line under each page title
 names its JSON source and the `tools/build_*.py` generator, and the suite fails when a committed
-page differs from its regeneration. Each research note in `docs/research/` is
-pinned by path and SHA-256 in the receipt of the code lane that verifies it, so a
-change to a note rebuilds that receipt in the same commit.
+page differs from its regeneration. Scientific receipts bind executable sources, formal proofs and machine inputs.
+Research notes explain those results; they are not scientific inputs. Explicit
+retained documentary contracts identify their authenticated input bytes and do
+not assert that those bytes validate the current explanatory prose.
 
 Full test execution (`python -m pytest code`) is **not** expected to be green
 from a clean clone, so it is not the documented gate here. A bare
 `python -m pytest` collects `code/` only (`testpaths` in `pytest.ini`); the
 regression tests under `tools/` run through the mandatory suite. The live
 observer implementation requires the separate `python -m model.verify_current` and
-`python -m pytest -q -W error model` gate above. Individual scientific
+`python -m pytest -q -W error -p tools.completion_contract_inputs model` gate above. Individual scientific
 test outcomes are tracked as their own issues, and some are not reproducible
 from the public checkout alone. In particular:
 

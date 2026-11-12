@@ -25,7 +25,7 @@ def hadron():
     ev,F=eigh(numeric(source()['y']));C=F.conj().T@numeric(word_unitary((2,3,10)))@F
     assert np.max(abs(C.conj().T@C-np.eye(3)))<2e-13
     hadron_labels=[(f,*qq[:2],qq[2],*aa[:2])for f in range(3)for qq,aa in oldlabels]
-    Hh=sp.block_diag([h+(mf-1)*np.eye(32)for mf in mass],format='csr')
+    Hh=sp.block_diag([sp.csr_matrix(h+(mf-1)*np.eye(32))for mf in mass],format='csr')
     full_diagonal=np.asarray(native['H'].diagonal()).real
     measured_hadron=np.asarray(abs(native['B'][:,active]).power(2).T@full_diagonal).ravel()
     measured_hadron=np.concatenate([measured_hadron+(mf-1)for mf in mass])

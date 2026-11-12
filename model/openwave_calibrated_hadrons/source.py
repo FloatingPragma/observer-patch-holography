@@ -77,7 +77,7 @@ def components(kind):
     if kind=='baryon':
         ref=balanced_baryon();R=ref['Binteger'];gram=ref['Gram']
     else:gram=np.full(len(old['labels']),3,dtype=np.int64);R=integral(old['B']@sp.diags(np.sqrt(gram)))
-    assert (R.T@R-sp.diags(gram)).nnz==0
+    assert (R.T@R-sp.diags(gram,dtype=float)).nnz==0
     reduced={name:(R.T@a@R).toarray()for name,a in parts.items()}
     denominator=np.sqrt(np.outer(gram,gram))
     hparts={name:a/denominator for name,a in reduced.items()}

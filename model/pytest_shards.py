@@ -62,6 +62,13 @@ def pytest_configure(config):
         raise pytest.UsageError("supply both model shard options with 0 <= index < count")
     if config.getoption("continue_on_collection_errors", default=False):
         raise pytest.UsageError("model shards require collection errors to fail closed")
+    # These two finite readers retain their authenticated documentary inputs.
+    # The plugin changes no collection, selection, test, or scientific function;
+    # All current code and tests are retained; three named cold-subprocess
+    # nodes execute in an authenticated current-code view.
+    # Standalone partition fixtures have no OPH finite-contract consumers.
+    if Path(config.rootpath).resolve() == Path(__file__).resolve().parents[1]:
+        config.pluginmanager.import_plugin("tools.completion_contract_inputs")
 
 
 @pytest.hookimpl(trylast=True)

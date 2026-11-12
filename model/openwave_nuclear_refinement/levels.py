@@ -42,7 +42,7 @@ def local_census(number):
         Zi=np.array([2*sum(bool(b&(1<<i))for i in(0,1,2,6,7,8))-3 for b in src],dtype=np.int64)
         S4=sp.diags(Zs*Zs+2*Zs,dtype=np.int64)+4*(Sp.T@Sp);I4=sp.diags(Zi*Zi+2*Zi,dtype=np.int64)+4*(Ip.T@Ip)
         PN=exact_product(15*I-S4,exact_product(15*I-I4,P));dn=den*144
-        PN=exact_product(PN,sp.diags(((Zs==1)&(Zi==-1)).astype(np.int64),format='csr'))
+        PN=exact_product(PN,sp.diags(((Zs==1)&(Zi==-1)).astype(np.int64),dtype=float,format='csr'))
         factor=gcd(dn,*map(int,PN.data));PN.data//=factor;dn//=factor
         assert(PN-PN.T).nnz==0 and(exact_product(PN,PN)-dn*PN).nnz==0 and PN.diagonal().sum()==dn
         axial=F(int(exact_product(PN,exact_product(Ip.T,Jp)).diagonal().sum()),dn);assert axial==F(5,3)
