@@ -1,0 +1,92 @@
+{
+  "analytic_review": "polar bound 2R+120eta covers every64 native sector; exact rational witness uses partial-transpose operator norm<=1; finite wave gamma=-1 residual distinguishes the principal ray law",
+  "arithmetic_scope": "exact integer Gram and rational bound reconstruction, independent65-digit source/witness diagnostic, independent full961-mode dense wave diagnostic; source interval proofs retain their stated scope",
+  "planar_wave": [
+    {
+      "all_position_record_max_difference": 2.706168622523819e-16,
+      "dense_all961_modes": true,
+      "gamma": 1,
+      "independent_position_shift": -1.941733307830873e-05,
+      "independent_velocity_shift": -3.6701444060607824e-06,
+      "principal_ray_residual_retained": false,
+      "velocity_record_sum": 1.0
+    },
+    {
+      "all_position_record_max_difference": 5.204170427930421e-16,
+      "dense_all961_modes": true,
+      "gamma": 0,
+      "independent_position_shift": -9.576971429225978e-06,
+      "independent_velocity_shift": -1.7908183390959176e-06,
+      "principal_ray_residual_retained": false,
+      "velocity_record_sum": 1.0
+    },
+    {
+      "all_position_record_max_difference": 8.586881206085195e-17,
+      "dense_all961_modes": true,
+      "gamma": -1,
+      "independent_position_shift": 2.6350430459842755e-07,
+      "independent_velocity_shift": 8.852176920648436e-08,
+      "principal_ray_residual_retained": true,
+      "velocity_record_sum": 1.0
+    }
+  ],
+  "quantum_geometry": [
+    {
+      "all49_mutual_energies_strictly_negative": true,
+      "all9_complete_instruments_retained": true,
+      "all_native_blocks_reviewed": 64,
+      "cap": 1,
+      "certified_witness_interval": [
+        "-3059569785373415153000565012918586623859372214483455510810395420126509222541555505827590323438804428695511756622297414249035737960286219871625298401457284318361/56236422431789954785131731346074773235871213978773957913759444657647969758393598378988008576298635714374011382919011189040103325693678746112606439760814548189184",
+        "-3059562016126254350931935304469496525112028498333555012846712152834088221779407308668689844996703151367566499101623365784698248429989667745628307177757885332327/56236422431789954785131731346074773235871213978773957913759444657647969758393598378988008576298635714374011382919011189040103325693678746112606439760814548189184"
+      ],
+      "independent_high_precision_witness": "-0.054405415028404292460813630991936448",
+      "max_dense_polar_error_to_certificate_ratio": 0.06381084891153546,
+      "max_high_precision_residual_to_certificate_ratio": 0.4598753297737997
+    },
+    {
+      "all49_mutual_energies_strictly_negative": true,
+      "all9_complete_instruments_retained": true,
+      "all_native_blocks_reviewed": 64,
+      "cap": 2,
+      "certified_witness_interval": [
+        "-46682704147802256289122684477501897946448829057049771838274769708827302824741138265846951793350179321911350561766341834113753865967398338141584646236238881/858099707516326214372737599885174152158679412517913176174307932398192897924707006515319955082681819372162038923935107254640248499964580476571753536389382144",
+        "-46682444412063556863988061456660125411138617651924265175038977077822098338769652588576533780069160077358757174550926019743808198780484550615275113684700127/858099707516326214372737599885174152158679412517913176174307932398192897924707006515319955082681819372162038923935107254640248499964580476571753536389382144"
+      ],
+      "independent_high_precision_witness": "-0.054402272670757578469026698965976922",
+      "max_dense_polar_error_to_certificate_ratio": 0.028360377294015755,
+      "max_high_precision_residual_to_certificate_ratio": 0.4373551644771203
+    },
+    {
+      "all49_mutual_energies_strictly_negative": true,
+      "all9_complete_instruments_retained": true,
+      "all_native_blocks_reviewed": 64,
+      "cap": 4,
+      "certified_witness_interval": [
+        "-3208024508868028483569913360382307019178358357495112063093129321911001730806302214834451312395536244753454723505202608961151916245486157979490302973864328685105752697/58968162887836583628774290327941701420576894069006881693378223441337877537377325813845730080900918242835443359855685076558915384842574884883772410178635875682021801984",
+        "-3207979692157639183168940070768132932881050531317362267883384534653601442736127195111428727914516613540460407926377139459341135086632975665890512770558866919482676615/58968162887836583628774290327941701420576894069006881693378223441337877537377325813845730080900918242835443359855685076558915384842574884883772410178635875682021801984"
+      ],
+      "independent_high_precision_witness": "-0.054402273083201175176342385502755128",
+      "max_dense_polar_error_to_certificate_ratio": 0.010814591076686213,
+      "max_high_precision_residual_to_certificate_ratio": 0.5342756617594717
+    }
+  ],
+  "schema": "oph.independent_quantum_geometry_wave_review.v1",
+  "source_sha256": {
+    "model/openwave_neutral_flight/audits/geometry_review.py": "88c880b8010af4dd1ae17b022aaefef3e3b4917f60eb3697385d37b8fbe06227",
+    "model/openwave_quantum_geometry/PROOF.md": "15ac48eb20e31c90aff16c772057be5253e0e451c15b873b52eedf0d9665d74f",
+    "model/openwave_quantum_geometry/__init__.py": "c3bad44edda42e88638cee00d207ace4de41cf6a19e3e811a129b777412a7e0f",
+    "model/openwave_quantum_geometry/__main__.py": "66497b09ba30c01a470770745cf7e98da4b300f3ee40ca52d5e91412b5d297c3",
+    "model/openwave_quantum_geometry/certificate.py": "d2e096dccb2517728f7d3981621a360487dae491a0aa4895b243cfa615e20bc1",
+    "model/openwave_quantum_geometry/results.json": "6243dc6622ba8e6afe66aeeaf06422de6d994ccb5221a91c6f9ecbd9f23906c3",
+    "model/openwave_quantum_geometry/source.py": "53daec8836a29db11daee7e7a20ab6333538b15cde1773612f4649c12493b1d5",
+    "model/openwave_quantum_geometry/test_geometry.py": "13536bba326592ae4dcd3bea69e6123332166b6608b2865f6cd544f646790524",
+    "model/openwave_wave_deflection/PROOF.md": "40020c69075d34e2cafb9782fe1a021fe9684949d13d5836db5d96a286830edd",
+    "model/openwave_wave_deflection/__init__.py": "fdc563f6fa17638d835f296f691112fc66c1d59a44432b42d9d82f8b22dbbf43",
+    "model/openwave_wave_deflection/__main__.py": "c3b1a1986342586d479ecf28fd09802cea34fe0c67d51663c46fe0ebce4509ef",
+    "model/openwave_wave_deflection/results.json": "cb3fbbe2d72a8246390c014ca2ff5ac94bab9e4a0c0077314df9bd35a9c1e8d9",
+    "model/openwave_wave_deflection/test_waves.py": "15456e1002e80b5b256b11fe0aa89620f14d368d9d7819c8406844b584f56648",
+    "model/openwave_wave_deflection/waves.py": "40b160cfa7f535aee785b2f3b290fb3ffc1af650b08c0c3404caf97f920f2a6a"
+  },
+  "verdict": "PASS_INDEPENDENT_NATIVE_QUANTUM_GEOMETRY_AND_PLANAR_WAVE_REVIEW"
+}

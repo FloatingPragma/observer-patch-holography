@@ -744,3 +744,9 @@ adds explicit isotropic field gluing. Universal positive energy response and
 all seven clock ratios follow on that architecture. Physical Newton strength,
 dynamical geometry, covariant stress and nonlinear Einstein matching require
 their own source attachments.
+
+## Complete native-current composites and field extensions
+
+The [native charged quantum source](../../model/openwave_native_quantum_charge/PROOF.md) uses an exact full-module particle-hole transformation with zero actual reference charge. Its positive absolute-Dirac law, two conjugate native copies, oscillator trap and transverse Maxwell field are architectural inputs. A separate [infinite-field certificate](../../model/openwave_infinite_photon/PROOF.md) uses padded exact moments and a global square-root remainder at fixed matter shells, avoiding an extrapolation of finite photon caps.
+
+The [native composite action](../../model/openwave_native_composites/PROOF.md) instead uses positive graph kinetic energy, family number energies and native colour/spin current squares. It binds colour singlets while retaining every other occupation sector. Its [common-scale comparison](../../model/openwave_composite_scale/PROOF.md) rejects the proposed light physical hadron masses. The exact flavour degeneracy and cancellation of binding offsets identify which additional family-dependent action or changed dictionary must be tested; adding one common binding correction cannot evade those identities. These source choices are not a proof of one common interacting Standard Model action.
