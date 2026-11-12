@@ -1,6 +1,6 @@
 # OPH and the executable-model hypothesis
 
-This is the common research target for the README, flagship,
+28 October 2026. This is the common research target for the README, flagship,
 construction papers and ledgers. It states a hypothesis and its acceptance
 conditions, not an achieved physical derivation. The
 [machine-readable obligations](../claims/executable_model_hypothesis.json)
@@ -12,12 +12,7 @@ OPH's overall hypothesis is closure: one complete history is both a timeless
 self-referential structure and its actual internal computation. Observers
 recover and realize their world's specification inside that same history,
 including the realizing hardware. Space, time and matter are descriptions
-of the compatible observations. The physical target is indistinguishability
-of native observers' experiences from those in our Universe, including its
-fields, gravity, particle properties and masses. The implementing hardware
-and software may be reverse-engineered. Neither uniqueness nor an a priori
-derivation of architectural choices is required; success is a specified
-implementation that generates the complete matching observations. The [basis](BASIS.md) and
+of the compatible observations. The [basis](BASIS.md) and
 [interpretation contract](INTERPRETATION_AND_TERMS.md) state this proposal.
 
 **The executable-model hypothesis is that a simple, fully specified local

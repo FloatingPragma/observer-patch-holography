@@ -42,7 +42,7 @@ explained in the [assumption dictionary](../claims/assumption_dictionary.md).
 | Canonical premise IDs represented in this crosswalk | 84/84 |
 | Model criteria represented | 12/12 |
 | Registered claims | 400 |
-| Unique ordinary `assumptions` names | 937 |
+| Unique ordinary `assumptions` names | 938 |
 | Unique `imported_results` names | 1213 |
 | Workgroups | 27 |
 | Assumption names explicitly linked by optional group fields | 33 |
