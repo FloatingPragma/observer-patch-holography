@@ -1,0 +1,52 @@
+{
+  "candidate_tests_passed": 19,
+  "five_scientific_payloads_match_exactly": true,
+  "fresh_run_sha256": "ae68423e521ce2f31af172a3285d4b1a649b684b1cf3d1adb289faa63f8439f8",
+  "installed_package_location": "isolated_environment_site_packages",
+  "installed_source_hashes_match": true,
+  "jobs": [
+    {
+      "command_template": "git clone --depth 1 --filter=blob:none --sparse <public-RER> <clean-checkout>",
+      "exit_code": 0,
+      "wall_seconds": 3.7549043339677155
+    },
+    {
+      "command_template": "git -C <clean-checkout> sparse-checkout set code/openwave_candidate",
+      "exit_code": 0,
+      "wall_seconds": 0.8588749580085278
+    },
+    {
+      "command_template": "uv pip install --python <isolated-python> --reinstall-package oph-openwave-candidate <public-candidate>[test]",
+      "exit_code": 0,
+      "wall_seconds": 1.2526562921702862
+    },
+    {
+      "command_template": "python -I -c <assert imported package is inside isolated environment>",
+      "exit_code": 0,
+      "wall_seconds": 0.041221125051379204
+    },
+    {
+      "command_template": "python -I -m oph_openwave.runner all --output <fresh-result>",
+      "exit_code": 0,
+      "wall_seconds": 3.4590334580279887
+    },
+    {
+      "command_template": "python -I -m pytest -q <public-candidate>/tests",
+      "exit_code": 0,
+      "wall_seconds": 4.427805417217314
+    }
+  ],
+  "machine": "workstation",
+  "private_checkout_imported": false,
+  "public_repository": "https://github.com/FloatingPragma/observer-patch-holography",
+  "python_isolated_mode": true,
+  "revision": "a3cd7b9740bd8cf796a926c1ef0ab2d9d1bfff93",
+  "schema": "oph.openwave.clean_public_reproduction.v1",
+  "verdict": "PASS_PUBLIC_CLONE_INSTALL_RUN_TEST_AND_PAYLOAD_COMPARISON",
+  "versions": {
+    "mpmath": "1.3.0",
+    "numpy": "2.5.4",
+    "python": "3.12.6",
+    "sympy": "1.14.0"
+  }
+}

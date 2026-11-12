@@ -14,6 +14,9 @@ two independent implementations, full polynomial comparison and
 altered-input controls.
 
 The [run receipt](evidence/portable_run.json) records the five calculations.
+The [public-clone check](evidence/clean_public_reproduction.json) records
+installation from the pinned public revision, all 19 package tests and
+exact agreement of all five scientific outputs in an isolated environment.
 Supporting audits retain the exact charge lattice, full finite spin
 kernel, original repair branches, calibration ancestry, source parity and
 negative quark-splitting result. The export manifest authenticates the

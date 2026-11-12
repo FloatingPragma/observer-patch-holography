@@ -174,7 +174,7 @@ def run():
         'reviewer_implementation': 'Separate agent; Laurent-polynomial charge census, vector tensor spinor representation and permutation-inversion exterior products.',
         'claims': [
             {'claim': 'All 32 charge/centre weights and absence of half-unit electric weights', 'verdict': 'CONFIRMED', 'evidence': 'Independent generating-polynomial census matches every joint charge/centre multiplicity.'},
-            {'claim': 'Odd-centre modular no-halving proves electron indivisibility', 'verdict': 'REFUTED', 'origin': 'Initial WORK_ITEMS item 8 shortcut, not the corrected candidate claim', 'evidence': 'Electron-like singlet has k=0; 2j=0 admits j=0,3. Charge fractions and dynamical isolation require separate arguments.'},
+            {'claim': 'Odd-centre modular no-halving proves electron indivisibility', 'verdict': 'REFUTED', 'origin': 'Proposed application of the odd-centre modular obstruction to an electron-like singlet', 'evidence': 'Electron-like singlet has k=0; 2j=0 admits j=0,3. Charge fractions and dynamical isolation require separate arguments.'},
             {'claim': 'Full OpenWave charge/quark criteria', 'verdict': 'QUALIFIED', 'evidence': 'Electric generator and normalization declared; no topological integral or confinement/energetic-fractionation experiment.'},
             {'claim': 'Actual six-state kernel decomposes as spin 1/2 plus spin 3/2', 'verdict': 'CONFIRMED', 'evidence': 'Independent spin 1 tensor spin 1/2 Casimir and all 48 projected characters match.'},
             {'claim': 'Full turn minus identity and double turn identity', 'verdict': 'CONFIRMED', 'evidence': 'Independent vector tensor spinor rotations give the central sign; phase-erasure mutation fails.'},
