@@ -42,8 +42,11 @@ neutrino ancestry; they are not independent mass predictions.
 
 The [finite spectroscopy instrument](../../model/finite_particle_spectroscopy/PROOF.md)
 replaces an exact energy label with an executed 32-bin phase pointer.
-Its 8,010 complete records preserve unresolved family coherence and have
-ideal mass-confidence coverage at least 65/72. All seventeen types have
+Its 8,010 complete records preserve unresolved family coherence, with
+ideal mass-confidence coverage at least 65/72 on one-excitation inputs
+at the phase-detector entrance, after the original probe.
+Vacuum and many-excitation terminal outcomes carry no mass interval and
+retain their original weights. All seventeen types have
 conditional GeV precision budgets. Exact adaptive readout uses one reusable
 pointer qubit and retained classical bits, preserving the complete complex
 Kraus amplitudes. The unexecuted neutrino plans use up to 85 sequential

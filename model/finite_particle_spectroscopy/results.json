@@ -110,12 +110,12 @@
     "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
     "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
     "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
-    "model/finite_particle_spectroscopy/PROOF.md": "a499e886924454b629348c436f019f96e315bb9ba47a25f30229bc6de479c4bc",
-    "model/finite_particle_spectroscopy/README.md": "29c189fadd000345d11e6d4e7b37479cb387c447b39a42c969ceb9ecfd03dc95",
+    "model/finite_particle_spectroscopy/PROOF.md": "f1e1e1a4b23c42d47c72370b0cd2804c7540d0eee3e45e1ce3dff9d6c22bf154",
+    "model/finite_particle_spectroscopy/README.md": "13ec147a7739da86598bdefc566b977a2ecef9cd931a17f02a0e9f14e55a80db",
     "model/finite_particle_spectroscopy/__init__.py": "ff41cb57e66d6c8ccede21c53e649883ab85814373bf7ac988e1b71608921fad",
     "model/finite_particle_spectroscopy/__main__.py": "67fa1da8076134a5d876e17ba4b7024bdffbd655de9255558842faaa172eaf68",
-    "model/finite_particle_spectroscopy/spectroscopy.py": "e74f9de910c707357d2f5fbc845a66e93be0ac73d2b1815d32fc7887a1c15505",
-    "model/finite_particle_spectroscopy/test_spectroscopy.py": "c65c05d3a8c416ccbdc6767522e09928585e17e1e8c5713e79768e4f53dfe9eb",
+    "model/finite_particle_spectroscopy/spectroscopy.py": "92c487d4a379c387d73ceacdc9afe69c2ab69067bd1557bc37b521548bf915ce",
+    "model/finite_particle_spectroscopy/test_spectroscopy.py": "b656f891ba31a36089e7280ee919812525a796f6b5cdc6272f8fb8405158bc46",
     "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
     "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
     "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
@@ -103210,12 +103210,21 @@
   "zero_records": 6533,
   "probability_sum": 1.0,
   "uniform_confidence": {
+    "coverage_domain": "normalized one-excitation inputs at detector entrance",
+    "all_input_bad_phase_effect_bound": "F_bad <= (7/72) P_one",
+    "all_input_no_valid_mass_interval_effect_bound": "F_no_valid <= I - P_one + F_bad <= I - (65/72) P_one",
+    "complete_original_probe_bound": "sum A^dagger F_bad A <= (7/72) sum A^dagger P_one A",
+    "weighted_effect_bound_arbitrary_state_and_untouched_reference": true,
+    "vacuum_many_excitation_outcomes_supply_mass_interval": false,
+    "all_source_unconditional_65_over72_coverage_claimed": false,
+    "original_one_excitation_weight_exact": "57/58",
+    "original_terminal_no_mass_interval_weight_exact": "1/58",
+    "original_good_mass_interval_weight_lower_exact": "1235/1392",
     "half_width_bins": 6,
     "failure_upper_exact": "7/72",
     "coverage_lower_exact": "65/72",
     "failure_bound_proof": "|A_y|\u00b2<=1/(4 d\u00b2), d=circular lattice distance; two tails sum <=(1/K\u00b2+1/K)/2",
-    "arbitrary_state_and_untouched_reference": true,
-    "hardware_half_diamond_error_adds_to_failure_bound": true,
+    "hardware_half_diamond_error_adds_to_unconditional_weighted_failure_bound": true,
     "numerical_or_hardware_error_certified": false,
     "each_group_actual_ideal_failure": [
       {
@@ -103721,6 +103730,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "13493037704.515883035447440084",
         "ideal_energy_confidence_half_width_GeV": "3/1073741824",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -103778,6 +103788,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "51471.8479004920208764070303193",
         "ideal_energy_confidence_half_width_GeV": "3/4096",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -103835,6 +103846,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "100.524828991721841065885715915",
         "ideal_energy_confidence_half_width_GeV": "3/8",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -103892,6 +103904,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "3373259425.73780565795102150742",
         "ideal_energy_confidence_half_width_GeV": "3/268435456",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -103949,6 +103962,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "6588396.9239620603709042546887",
         "ideal_energy_confidence_half_width_GeV": "3/524288",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104006,6 +104020,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "6433.58905547019782821668581853",
         "ideal_energy_confidence_half_width_GeV": "3/512",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104063,6 +104078,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "107944301635.390753505394412882",
         "ideal_energy_confidence_half_width_GeV": "3/8589934592",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104120,6 +104136,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "1647098.54376712211995879275847",
         "ideal_energy_confidence_half_width_GeV": "3/131072",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104177,6 +104194,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "12867.1781109403956564333716371",
         "ideal_energy_confidence_half_width_GeV": "3/1024",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104233,6 +104251,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "7595904947272677161575980.79634",
         "ideal_energy_confidence_half_width_GeV": "3/604462909807314587353088",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104289,6 +104308,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "243068958312725669170431580.262",
         "ideal_energy_confidence_half_width_GeV": "3/19342813113834066795298816",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104345,6 +104365,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "7595904947272677161575980.79634",
         "ideal_energy_confidence_half_width_GeV": "3/604462909807314587353088",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104399,6 +104420,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "201.049657983443682131771431829",
         "ideal_energy_confidence_half_width_GeV": "3/16",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104454,6 +104476,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "201.049657983443682131771431829",
         "ideal_energy_confidence_half_width_GeV": "3/16",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104509,6 +104532,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "442139859501777.504963525160354",
         "ideal_energy_confidence_half_width_GeV": "3/35184372088832",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104564,6 +104588,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "201.05579390659522469669030418",
         "ideal_energy_confidence_half_width_GeV": "3/16",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true
@@ -104618,6 +104643,7 @@
         "ideal_maximum_coherent_exposure_GeV_inverse": "442139859501771.234050064283853",
         "ideal_energy_confidence_half_width_GeV": "3/35184372088832",
         "confidence_lower_exact": "65/72",
+        "confidence_domain": "normalized one-excitation inputs",
         "full_planned_pointer_executed": false,
         "mass_goals_hold_on_good_records": true,
         "hardware_clock_and_precision_supplied": true

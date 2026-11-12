@@ -132,11 +132,40 @@ nonwrapped |phi-y/M|<=K/M. Intersect [y/M-K/M,y/M+K/M] with the declared
 window [1/4,1/2]. An empty intersection is an explicit inconclusive outcome.
 Otherwise its affine energy interval is mapped monotonically to
 sqrt(E²-1). Rational outward square-root enclosures give the mass set.
-The coverage is at least 65/72 for every eigenstate and hence for every
-state and untouched reference, before any success conditioning. None of
-the inconclusive or unlikely outputs is discarded. An implementation
-error epsilon in half diamond norm adds at most epsilon to the failure
-bound; that physical error has not been certified here.
+The coverage is at least 65/72 for every normalized one-excitation
+input, including an arbitrary untouched reference. This normalized
+coverage statement does not apply to vacuum or many-excitation inputs:
+their original terminal outcomes supply no one-particle mass interval.
+
+There is a stronger weighted statement on the full input space. Let P_one
+be the complete one-excitation projector and F_bad the bad phase-record
+effect (the phase error exceeds K/M). The spectral tail bound proves
+
+    F_bad <= (7/72) P_one.
+
+Thus for every full source/reference state, without postselection,
+
+    Pr(bad phase record) <= (7/72) Tr[(P_one tensor I_R) rho].
+
+If terminal no-interval records are also counted as failures to obtain a
+valid mass interval, their full effect satisfies
+
+    F_no_valid <= I-P_one+F_bad <= I-(65/72)P_one,
+
+rather than a universal 7/72 bound on the identity. Composing the original
+complete probes A gives sum A†F_bad A <= (7/72)sum A†P_one A, with every
+original probe, vacuum and complement weight retained. No sector is
+renormalized into a success-conditioned law. For the displayed original
+probe preparation the one-excitation weight is 57/58, the retained terminal
+weight is 1/58, and the unconditional lower bound on correct mass-interval
+weight is (65/72)(57/58)=1235/1392.
+
+The ideal operator inequalities tensor with identity on arbitrary quantum
+references. An implementation error epsilon in half diamond norm adds at
+most epsilon to the unconditional weighted failure bound, compared with
+the ideal one-excitation effect. It does not establish the same normalized
+coverage after conditioning on rare outcomes. The physical implementation
+error has not been certified here.
 
 The confidence sets concern the unknown readout energy of this fixed
 calibrated source. They do not propagate uncertainty of the supplied

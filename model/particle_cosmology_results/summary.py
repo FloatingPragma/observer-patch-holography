@@ -76,6 +76,14 @@ def authenticate(name: str, root: Path = ROOT) -> tuple[dict, dict]:
                 or len(history) != 5 or any(len(row.get('complete_records', {})) != 8
                     or sum(map(Fraction, row['complete_records'].values())) != 1 for row in history)):
             raise ValueError(f'{name}: incomplete quantum sector certificate')
+    if name == 'finite_particle_spectroscopy':
+        confidence = result.get('uniform_confidence', {})
+        if (confidence.get('coverage_domain') != 'normalized one-excitation inputs at detector entrance'
+                or confidence.get('all_source_unconditional_65_over72_coverage_claimed') is not False
+                or confidence.get('vacuum_many_excitation_outcomes_supply_mass_interval') is not False
+                or confidence.get('all_input_bad_phase_effect_bound') != 'F_bad <= (7/72) P_one'
+                or not confidence.get('complete_original_probe_bound')):
+            raise ValueError(f'{name}: confidence domain or complete-probe pullback lost')
     if name == 'expanding_quadratic_particles':
         protocols = result.get('protocols', [])
         if len(protocols) != 7:
@@ -207,6 +215,11 @@ def certificate(root: Path = ROOT) -> dict:
             'equivalent_adaptive_pointer': adaptive,
             'complete_records': receipts['finite_particle_spectroscopy']['record_count'],
             'ideal_coverage_lower': receipts['finite_particle_spectroscopy']['uniform_confidence']['coverage_lower_exact'],
+            'coverage_domain': receipts['finite_particle_spectroscopy']['uniform_confidence']['coverage_domain'],
+            'all_input_bad_phase_effect_bound': receipts['finite_particle_spectroscopy']['uniform_confidence']['all_input_bad_phase_effect_bound'],
+            'complete_original_probe_bound': receipts['finite_particle_spectroscopy']['uniform_confidence']['complete_original_probe_bound'],
+            'vacuum_many_excitation_outcomes_supply_mass_interval': False,
+            'all_source_unconditional_65_over72_coverage_claimed': False,
             'conditional_targets_and_separate_precision_plans': receipts['finite_particle_spectroscopy']['conditional_GeV_menu']},
         'source_relations': [
             'Joint identity and finite Gibbs number records share the calibrated quadratic action; the detector consumer supplies the state and instrument transfer.',

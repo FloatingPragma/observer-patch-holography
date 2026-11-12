@@ -107,8 +107,26 @@ def planning(group,peers,width):
         'equivalent_adaptive_quantum_qubits':1,'adaptive_retained_classical_bits':bits,'adaptive_sequential_controlled_evolutions':bits,
         'ideal_maximum_coherent_exposure_GeV_inverse':mp.nstr(exposure,30),
         'ideal_energy_confidence_half_width_GeV':str(F(K)*width/size),
-        'confidence_lower_exact':str(1-TAIL),'full_planned_pointer_executed':False,
+        'confidence_lower_exact':str(1-TAIL),'confidence_domain':'normalized one-excitation inputs',
+        'full_planned_pointer_executed':False,
         'mass_goals_hold_on_good_records':True,'hardware_clock_and_precision_supplied':True}
+
+
+def confidence_domain(records):
+    """Unconditional bookkeeping; terminal sectors are not mass estimates."""
+    total=sum((F(row['probability_exact']) for row in records),F())
+    one=sum((F(row['probability_exact']) for row in records if row['projector_kind']=='one_excitation'),F())
+    if total!=1 or not 0<=one<=1:raise ValueError('complete original probe law required')
+    return {'coverage_domain':'normalized one-excitation inputs at detector entrance',
+        'all_input_bad_phase_effect_bound':'F_bad <= (7/72) P_one',
+        'all_input_no_valid_mass_interval_effect_bound':'F_no_valid <= I - P_one + F_bad <= I - (65/72) P_one',
+        'complete_original_probe_bound':'sum A^dagger F_bad A <= (7/72) sum A^dagger P_one A',
+        'weighted_effect_bound_arbitrary_state_and_untouched_reference':True,
+        'vacuum_many_excitation_outcomes_supply_mass_interval':False,
+        'all_source_unconditional_65_over72_coverage_claimed':False,
+        'original_one_excitation_weight_exact':str(one),
+        'original_terminal_no_mass_interval_weight_exact':str(1-one),
+        'original_good_mass_interval_weight_lower_exact':str((1-TAIL)*one)}
 
 
 def calculate():
@@ -204,9 +222,9 @@ def calculate():
         'coarse_classes':result_classes,
         'complete_records':all_records,'record_count':len(all_records),'positive_records':sum(r['probability']>0 for r in all_records),
         'zero_records':sum(r['probability']==0 for r in all_records),'probability_sum':total,
-        'uniform_confidence':{'half_width_bins':K,'failure_upper_exact':str(TAIL),'coverage_lower_exact':str(1-TAIL),
+        'uniform_confidence':{**confidence_domain(source['complete_records']),'half_width_bins':K,'failure_upper_exact':str(TAIL),'coverage_lower_exact':str(1-TAIL),
             'failure_bound_proof':'|A_y|²<=1/(4 d²), d=circular lattice distance; two tails sum <=(1/K²+1/K)/2',
-            'arbitrary_state_and_untouched_reference':True,'hardware_half_diamond_error_adds_to_failure_bound':True,
+            'hardware_half_diamond_error_adds_to_unconditional_weighted_failure_bound':True,
             'numerical_or_hardware_error_certified':False,'each_group_actual_ideal_failure':coverage},
         'conditional_GeV_menu':budget,'negative_exact_family_lookup_control':control,
         'same_source_replay_errors':{'fermion':f['errors'],'boson':b['errors']},

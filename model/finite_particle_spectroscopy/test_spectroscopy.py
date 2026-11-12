@@ -4,6 +4,20 @@ import mpmath as mp
 from . import spectroscopy as s
 
 class SpectroscopyTests(unittest.TestCase):
+    def test_confidence_domain_retains_terminal_weights(self):
+        records=[{'projector_kind':'one_excitation','probability_exact':'57/58'},
+                 {'projector_kind':'vacuum','probability_exact':'1/58'},
+                 {'projector_kind':'complete_many_excitation_complement','probability_exact':'0'}]
+        c=s.confidence_domain(records)
+        self.assertEqual(c['original_good_mass_interval_weight_lower_exact'],'1235/1392')
+        self.assertEqual(c['original_terminal_no_mass_interval_weight_exact'],'1/58')
+        self.assertFalse(c['all_source_unconditional_65_over72_coverage_claimed'])
+        vacuum=s.confidence_domain([{'projector_kind':'vacuum','probability_exact':'1'}])
+        self.assertEqual(vacuum['original_good_mass_interval_weight_lower_exact'],'0')
+        mixed=s.confidence_domain([{'projector_kind':'one_excitation','probability_exact':'1/4'},
+                                 {'projector_kind':'complete_many_excitation_complement','probability_exact':'3/4'}])
+        self.assertEqual(mixed['original_good_mass_interval_weight_lower_exact'],'65/288')
+
     def test_grid_pointer_and_non_grid_completeness(self):
         with mp.workdps(100):
             self.assertEqual(s.kernel(mp.mpf(1)/4),[mp.mpc(int(y==8)) for y in range(32)])

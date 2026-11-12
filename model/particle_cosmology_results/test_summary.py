@@ -96,3 +96,22 @@ def test_impossible_expansion_counts_rejected_even_with_success_flag(tmp_path: P
         target.write_text(json.dumps(bad))
         with pytest.raises(ValueError, match='invalid normalized (source|species) count law'):
             authenticate('expanding_quadratic_particles', tmp_path)
+
+
+def test_spectroscopy_confidence_cannot_promote_its_input_domain(tmp_path: Path):
+    original = json.loads((Path(__file__).parents[1] / 'finite_particle_spectroscopy' / 'results.json').read_text())
+    target = tmp_path / 'model' / 'finite_particle_spectroscopy' / 'results.json'
+    target.parent.mkdir(parents=True)
+    mutations = {
+        'coverage_domain': 'all original pre-probe source inputs',
+        'all_source_unconditional_65_over72_coverage_claimed': True,
+        'vacuum_many_excitation_outcomes_supply_mass_interval': True,
+        'all_input_bad_phase_effect_bound': 'F_bad <= (7/72) I',
+        'complete_original_probe_bound': '',
+    }
+    for key, value in mutations.items():
+        bad = json.loads(json.dumps(original))
+        bad['uniform_confidence'][key] = value
+        target.write_text(json.dumps(bad))
+        with pytest.raises(ValueError, match='confidence domain or complete-probe pullback lost'):
+            authenticate('finite_particle_spectroscopy', tmp_path)
