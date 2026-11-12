@@ -12,7 +12,7 @@ from model.native_flavour_transport.transport import source,word_unitary,numeric
 from model.common_source import calibrated_matter as internal
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.openwave_weak_decay.decay import mass_data
-from model.openwave_meson_weak_current.decay import BAR,ETA,G
+from model.openwave_meson_weak_current.decay import BAR,ETA,G,_shifted_eigensystem
 
 @lru_cache(None)
 def hadron():
@@ -54,6 +54,18 @@ def hadron():
             row.append((sp.csr_matrix(np.kron(C,plus)),sp.csr_matrix(np.kron(np.eye(3),zz))))
         qops.append(row)
     return dict(native=native,native_h=h,Hh=Hh,hadron_labels=hadron_labels,measured_hadron=measured_hadron,qops=qops,raising=raising,mass=mass,C=C,q_two=q)
+
+def hadron_eigensystem(d,family,weak,*,driver=None):
+ """Solve the complete native block and restore its known family energy.
+
+ The full hadron matrix is checked against the original native block plus
+ its scalar offset; no rounded subtraction or state projection is needed.
+ """
+ rows=[i for i,h in enumerate(d['hadron_labels'])if h[0]==family and h[3]==weak]
+ native_rows=np.array(rows)%32
+ H=d['Hh'].toarray()[np.ix_(rows,rows)];shift=d['mass'][family]-1
+ e,U=_shifted_eigensystem(H,shift,native=d['native_h'][np.ix_(native_rows,native_rows)],driver=driver)
+ return rows,e,U
 
 def li(L,weak,x,spin,f):return weak*(6*L)+x*6+spin*3+f
 
@@ -118,13 +130,11 @@ def construction(L,recenter=False):
  # Preserve the orbital seed rule independently of projector roundoff.
  _,seed_frame=eigh(d['Hh'].toarray()[np.ix_(parentrows,parentrows)])
  seed_hadron=parentrows[int(np.argmax(abs(seed_frame[:,0])**2))]
- # The scalar family energy changes eigenvalues, not the native eigenspace.
- native_rows=np.array(parentrows)%32
- e,U=eigh(d['native_h'][np.ix_(native_rows,native_rows)]);e=e+(mass[1]-1)
+ parentrows,e,U=hadron_eigensystem(d,1,1)
  for k,z in zip(parentrows,U[:,0]):
   if k*nlep in where:initial[where[k*nlep]]=z
   else:assert abs(z)<1e-12
- finalrows=[i for i,h in enumerate(d['hadron_labels'])if h[0]==0 and h[3]==0];ef,Fh=eigh(d['Hh'].toarray()[np.ix_(finalrows,finalrows)]);fh=np.zeros(96,complex);fh[finalrows]=Fh[:,0];fl=np.zeros(nlep,complex)
+ finalrows,ef,Fh=hadron_eigensystem(d,0,0);fh=np.zeros(96,complex);fh[finalrows]=Fh[:,0];fl=np.zeros(nlep,complex)
  for k,label in enumerate(lepton):
   if label is None:continue
   f,xe,se,xn,sn=label

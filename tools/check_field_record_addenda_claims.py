@@ -12,8 +12,8 @@ from tools import renew_canonical_live_receipts as renewal, strict_json
 
 # Declared supplement seal, preserved independently of live review hashes.
 # The parent Git blob binds this exact reviewed class.
-SEALED_PARENT = '355b3e598d7c95d60316a2ce6886f71b6d8d40e5'
-SEALED_CLASS_SHA256 = '611357b197f90e2d9198ad7f5e33e67cf4adbded157e8f65ab3b24eddd91bd95'
+SEALED_PARENT = '50a17bc07b9ad4b2fe93ad73736fbb433c01183a'
+SEALED_CLASS_SHA256 = '170e0e32b2ca1567bb55da948929611a1b93db6edb7f45529bf5c552041a3b81'
 ADOPTION_SEMANTICS = {
     'status': 'ADOPTED_AFTER_REVIEW', 'changes_current_registry': True,
     'independent_review': {

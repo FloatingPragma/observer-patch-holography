@@ -18,6 +18,15 @@ ETA=(1,-1,-1,-1)
 
 def _lepton_index(weak,x,spin,f):return weak*12+x*6+spin*3+f
 
+def _shifted_eigensystem(H,shift,*,native=None,driver=None):
+    """Solve the complete block, retaining its original native matrix when given."""
+    if native is None:
+        native=H-shift*np.eye(len(H))
+    else:
+        assert np.array_equal(H,native+shift*np.eye(len(H)))
+    e,U=eigh(native,driver=driver)
+    return e+shift,U
+
 def _restricted_current(a,masks):
     lookup={b:i for i,b in enumerate(masks)};out=np.zeros((len(masks),len(masks)),complex)
     for j,mask in enumerate(masks):
@@ -126,8 +135,8 @@ def construction(zero_word=False,contact_resonance=True):
     seed_hadron=hadron_initial[int(np.argmax(abs(seed_frame[:,0])**2))]
     # The scalar family energy changes eigenvalues, not the native eigenspace.
     native_initial=np.array(hadron_initial)%32
-    eh,Uh=eigh(h[np.ix_(native_initial,native_initial)])
-    eh=eh+(mass[1]-1)
+    eh,Uh=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)],
+                              mass[1]-1,native=h[np.ix_(native_initial,native_initial)])
     assert eh[1]-eh[0]>1e-5
     initial=np.zeros(len(keep),complex)
     for i,z in zip(hadron_initial,Uh[:,0]):
@@ -135,7 +144,9 @@ def construction(zero_word=False,contact_resonance=True):
         else:assert abs(z)<1e-12
     assert abs(np.vdot(initial,initial)-1)<1e-12
     hadron_final=[i for i,(f,xq,sq,w,xa,sa)in enumerate(hadron_labels)if f==0 and w==0]
-    ef,Uf=eigh(Hh.toarray()[np.ix_(hadron_final,hadron_final)])
+    native_final=np.array(hadron_final)%32
+    ef,Uf=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_final,hadron_final)],
+                              mass[0]-1,native=h[np.ix_(native_final,native_final)])
     final_h=np.zeros(96,complex);final_h[hadron_final]=Uf[:,0]
     final_l=np.zeros(49,complex)
     for k,label in enumerate(lepton_labels):

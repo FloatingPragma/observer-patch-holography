@@ -262,3 +262,110 @@ def test_fixed_owner_command_uses_original_cold_python_in_authenticated_view(tmp
     assert calls[1] == ("cwd", tmp_path.resolve())
     assert calls[2][1:3] == (command.sys.executable, [command.sys.executable, "-m", "model.replay_native_fixed", *arguments])
     assert calls[2][3]["PYTHONPATH"] == str(tmp_path.resolve())
+
+
+@pytest.mark.parametrize("raising_finalizer", [False, True])
+def test_cold_dispatch_preserves_parent_fixture_transition(tmp_path, raising_finalizer):
+    """Exercise ordinary A, cold A, ordinary B in a real pytest process."""
+    import json
+    import shutil
+    from tools import completion_contract_inputs as plugin
+
+    view = tmp_path / "view"
+    tools = view / "tools"
+    tools.mkdir(parents=True)
+    (tools / "__init__.py").write_text("")
+    for module in (current, plugin):
+        shutil.copyfile(Path(module.__file__), tools / Path(module.__file__).name)
+    (view / "pytest.ini").write_text("[pytest]\n")
+    (view / "conftest.py").write_text('''
+import os
+from pathlib import Path
+import pytest
+from tools import completion_contract_inputs as original
+
+def pytest_configure(config):
+    os.environ.setdefault("OPH_LIFECYCLE_FIXTURE_PARENT_PID", str(os.getpid()))
+    config._oph_finite_view = Path(__file__).parent
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_runtest_protocol(item, nextitem):
+    if os.getpid() == int(os.environ["OPH_LIFECYCLE_FIXTURE_PARENT_PID"]):
+        return original.pytest_runtest_protocol(item, nextitem)
+''')
+    first = view / "model/completion/test_defect_algebra.py"
+    first.parent.mkdir(parents=True)
+    first.write_text('''
+import json
+import os
+from pathlib import Path
+import pytest
+
+def emit(event):
+    with Path(os.environ["OPH_LIFECYCLE_FIXTURE_EVENTS"]).open("a") as stream:
+        stream.write(json.dumps([os.getpid(), event]) + "\\n")
+
+@pytest.fixture(scope="module", autouse=True)
+def module_scope():
+    emit("setup")
+    yield
+    emit("teardown")
+    if (os.getpid() == int(os.environ["OPH_LIFECYCLE_FIXTURE_PARENT_PID"])
+            and os.environ["OPH_LIFECYCLE_FIXTURE_RAISE"] == "1"):
+        raise RuntimeError("original parent module finalizer failed")
+
+def test_parent_before_cold():
+    emit("ordinary")
+
+def test_cli_rejects_scope_promotion_without_rewriting_input():
+    assert os.getpid() != int(os.environ["OPH_LIFECYCLE_FIXTURE_PARENT_PID"])
+    emit("cold")
+''')
+    second = first.with_name("test_field_current_measurement.py")
+    second.write_text('''
+import json
+import os
+from pathlib import Path
+
+def test_next_module():
+    events = Path(os.environ["OPH_LIFECYCLE_FIXTURE_EVENTS"])
+    rows = [json.loads(line) for line in events.read_text().splitlines()]
+    parent = int(os.environ["OPH_LIFECYCLE_FIXTURE_PARENT_PID"])
+    assert [event for pid, event in rows if pid == parent] == ["setup", "ordinary", "teardown"]
+    with events.open("a") as stream:
+        stream.write(json.dumps([os.getpid(), "next"]) + "\\n")
+''')
+    report = tmp_path / "parent-report.json"
+    events = tmp_path / "events.jsonl"
+    environment = current.environment(view)
+    environment.pop("OPH_LIFECYCLE_FIXTURE_PARENT_PID", None)
+    environment["OPH_LIFECYCLE_FIXTURE_EVENTS"] = str(events)
+    environment["OPH_LIFECYCLE_FIXTURE_RAISE"] = str(int(raising_finalizer))
+    result = subprocess.run(
+        [sys.executable, "-m", "pytest", "-q", "-W", "error", "-p",
+         "tools.check_completion_current_code", "--oph-execution-report", str(report),
+         str(first.relative_to(view)), str(second.relative_to(view))],
+        cwd=view, env=environment, capture_output=True, text=True)
+    assert result.returncode == int(raising_finalizer), result.stdout + result.stderr
+    nodes = (
+        "model/completion/test_defect_algebra.py::test_parent_before_cold",
+        "model/completion/test_defect_algebra.py::test_cli_rejects_scope_promotion_without_rewriting_input",
+        "model/completion/test_field_current_measurement.py::test_next_module",
+    )
+    value = json.loads(report.read_text())
+    assert value["collected"] == list(nodes)
+    if raising_finalizer:
+        phases = value["reports"][nodes[1]]
+        assert [(row["phase"], row["outcome"]) for row in phases] == [
+            ("setup", "passed"), ("call", "passed"), ("teardown", "passed"),
+            ("teardown", "failed")]
+        assert "original parent module finalizer failed" in result.stdout
+        assert [(row["phase"], row["outcome"]) for row in value["reports"][nodes[2]]] == [
+            (phase, "passed") for phase in ("setup", "call", "teardown")]
+    else:
+        current.verify_execution_report(report, nodes)
+    by_process = {}
+    for pid, event in map(json.loads, events.read_text().splitlines()):
+        by_process.setdefault(pid, []).append(event)
+    assert sorted(by_process.values()) == sorted([
+        ["setup", "ordinary", "teardown", "next"], ["setup", "cold", "teardown"]])
