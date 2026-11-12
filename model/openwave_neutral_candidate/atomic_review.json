@@ -1,0 +1,52 @@
+{
+  "complete_parity_dimensions": [
+    27,
+    18,
+    18,
+    12,
+    18,
+    12,
+    12,
+    8
+  ],
+  "complete_spectral_union_error": 7.993605777301127e-15,
+  "dense_source_dimension": 125,
+  "fixed_spacing_nested_comparisons": [
+    {
+      "large": 5,
+      "largest_ordered_eigenvalue_change": -0.21790812044969254,
+      "largest_restricted_quadratic_form_change": -0.1306663611118748,
+      "small": 3,
+      "spacing": 1.0
+    },
+    {
+      "large": 7,
+      "largest_ordered_eigenvalue_change": -0.0816023029475994,
+      "largest_restricted_quadratic_form_change": -0.04771300859951655,
+      "small": 5,
+      "spacing": 1.0
+    }
+  ],
+  "incorrect_reflection_plane_normalization_rejected": true,
+  "independent_positivity_ground_interval": [
+    -0.6486404798777016,
+    -0.6486404789167829
+  ],
+  "input_sha256": {
+    "model/openwave_atomic_refinement/PROOF.md": "c4aaa631095ec4dc72ec060b8666618232aa67c5ace12e78f0394b3fe5909cdd",
+    "model/openwave_atomic_refinement/__main__.py": "94cbad4c8b34bf51ed775bbc7ae588a950095e170496de259a529ea94ba2af49",
+    "model/openwave_atomic_refinement/refinement.py": "598404f6b36a9d29ae5b5973b23082ec0c3a30bbded8967052f7cf2865aa8787",
+    "model/openwave_atomic_refinement/results.json": "9528a504096278f4c851418802d7a31121911f93f42a4957eee53f202ac5a7c6",
+    "model/openwave_field_observables/orbitals.py": "634d4169e60d23e1acf6b28436c881a9beb06ca4085a9354248ee9143ccc16d2",
+    "model/openwave_neutral_candidate/audits/atomic_review.py": "71b24846ddd5e4db349cc58249373e16d152d2d7e834fed31d1ee56ddce614eb"
+  },
+  "largest_compressed_operator_error": 1.3322676295501878e-15,
+  "schema": "oph.independent_atomic_refinement_review.v1",
+  "scope": "Dense floating calculations independently verify the finite construction and theorem premises. Neither residuals nor successive-grid differences certify continuum error or an observed hydrogen spectrum.",
+  "verdict": "PASS_INDEPENDENT_ATOMIC_REFINEMENT_REVIEW",
+  "volume_and_spacing_grids_checked": true,
+  "wrong_index_small_residual_control": {
+    "index_is_ground": false,
+    "residual": 3.1441076983065966e-15
+  }
+}

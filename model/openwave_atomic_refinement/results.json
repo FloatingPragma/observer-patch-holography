@@ -1,0 +1,348 @@
+{
+  "continuum_spacing_error_certified": false,
+  "coupling_squared_input": "4*pi",
+  "hydrogen_reference_gap": 0.375,
+  "independent_nested_Green_control": {
+    "fixed_spacing": 1.0,
+    "large_grid": 11,
+    "maximum_nested_potential_change": -0.04254169756733443,
+    "small_grid": 7,
+    "strictly_more_attractive_in_larger_box": true
+  },
+  "mass_input": 1,
+  "physical_hydrogen_dictionary_derived": false,
+  "positive_vector_ratio_meaning": "Collatz bounds are exact for strictly positive trial vectors and exact matrices; displayed floating ratios are diagnostics, with no outward-rounded claim.",
+  "residual_meaning": "Every residual bounds distance to some eigenvalue of its numerical finite matrix. It does not alone certify eigenvalue index, floating error, volume error or continuum error.",
+  "schema": "oph.openwave.atomic_refinement.v1",
+  "scope": "Independent volume and spacing studies of the declared nonrelativistic Dirichlet Green atom; all parity/source conventions unchanged. No physical precision spectrum or spontaneous atom formation is claimed.",
+  "source_sha256": {
+    "model/openwave_atomic_refinement/PAPER_RESULT.md": "6951cdff81b352c5a4edfa90e01b6a3caaf20eb498597adbb4469fdf5d29012c",
+    "model/openwave_atomic_refinement/PROOF.md": "c4aaa631095ec4dc72ec060b8666618232aa67c5ace12e78f0394b3fe5909cdd",
+    "model/openwave_atomic_refinement/README.md": "6069f416bf5ff5561c00860bb46d8296dbae076d71e2ff15c317892ddadfa2c4",
+    "model/openwave_atomic_refinement/__init__.py": "bd4835314aa4db28a525b75e075cf7de0acf0eec7fb4a58582fe82fb3d560206",
+    "model/openwave_atomic_refinement/__main__.py": "94cbad4c8b34bf51ed775bbc7ae588a950095e170496de259a529ea94ba2af49",
+    "model/openwave_atomic_refinement/refinement.py": "598404f6b36a9d29ae5b5973b23082ec0c3a30bbded8967052f7cf2865aa8787",
+    "model/openwave_atomic_refinement/test_refinement.py": "bc79c6880eb8cfd6586dec87b96a1d543f3ec47252eefd06cb53e478de7ae414",
+    "model/openwave_field_observables/orbitals.py": "634d4169e60d23e1acf6b28436c881a9beb06ca4085a9354248ee9143ccc16d2"
+  },
+  "spacing_rows": [
+    {
+      "full_spatial_sites": 357911,
+      "grid": 71,
+      "ground_to_odd": 0.420953171076,
+      "length": 24.0,
+      "second_shell_splitting": 0.005500452345,
+      "sectors": [
+        {
+          "dimension": 46656,
+          "energies": [
+            -0.472951384255,
+            -0.057498665524
+          ],
+          "minimum_trial_component": 8.647391131175017e-12,
+          "parity": [
+            false,
+            false,
+            false
+          ],
+          "positive_vector_ratio_diagnostic": [
+            -0.47296078401842967,
+            -0.47294708603478114
+          ],
+          "residual_norms": [
+            5.555123241113558e-14,
+            4.242590150293772e-14
+          ]
+        },
+        {
+          "dimension": 45360,
+          "energies": [
+            -0.051998213179
+          ],
+          "parity": [
+            true,
+            false,
+            false
+          ],
+          "residual_norms": [
+            4.1252341789330494e-14
+          ]
+        }
+      ],
+      "spacing": 0.3333333333333333
+    },
+    {
+      "full_spatial_sites": 857375,
+      "grid": 95,
+      "ground_to_odd": 0.399138718909,
+      "length": 24.0,
+      "second_shell_splitting": 0.002552880286,
+      "sectors": [
+        {
+          "dimension": 110592,
+          "energies": [
+            -0.45095710392,
+            -0.054371265297
+          ],
+          "minimum_trial_component": 3.5732803669509895e-12,
+          "parity": [
+            false,
+            false,
+            false
+          ],
+          "positive_vector_ratio_diagnostic": [
+            -0.45098581320088055,
+            -0.4509183864557355
+          ],
+          "residual_norms": [
+            1.0703984632379754e-13,
+            1.246790876111314e-13
+          ]
+        },
+        {
+          "dimension": 108288,
+          "energies": [
+            -0.051818385011
+          ],
+          "parity": [
+            true,
+            false,
+            false
+          ],
+          "residual_norms": [
+            9.992906860174868e-14
+          ]
+        }
+      ],
+      "spacing": 0.25
+    },
+    {
+      "full_spatial_sites": 2048383,
+      "grid": 127,
+      "ground_to_odd": 0.388151976665,
+      "length": 24.0,
+      "second_shell_splitting": 0.001058579264,
+      "sectors": [
+        {
+          "dimension": 262144,
+          "energies": [
+            -0.439869596753,
+            -0.052776199352
+          ],
+          "minimum_trial_component": 1.2081644301237705e-12,
+          "parity": [
+            false,
+            false,
+            false
+          ],
+          "positive_vector_ratio_diagnostic": [
+            -0.44012280694063355,
+            -0.4390448177903517
+          ],
+          "residual_norms": [
+            3.5088245547452945e-13,
+            2.710821890977709e-13
+          ]
+        },
+        {
+          "dimension": 258048,
+          "energies": [
+            -0.051717620088
+          ],
+          "parity": [
+            true,
+            false,
+            false
+          ],
+          "residual_norms": [
+            2.9274933811558344e-13
+          ]
+        }
+      ],
+      "spacing": 0.1875
+    },
+    {
+      "full_spatial_sites": 4019679,
+      "grid": 159,
+      "ground_to_odd": 0.383407843476,
+      "length": 24.0,
+      "second_shell_splitting": 0.000410646363,
+      "sectors": [
+        {
+          "dimension": 512000,
+          "energies": [
+            -0.435078932877,
+            -0.052081735764
+          ],
+          "minimum_trial_component": 4.850029114613989e-13,
+          "parity": [
+            false,
+            false,
+            false
+          ],
+          "positive_vector_ratio_diagnostic": [
+            -0.435612646759815,
+            -0.43409152981571325
+          ],
+          "residual_norms": [
+            6.860762731420593e-13,
+            6.665028282669954e-13
+          ]
+        },
+        {
+          "dimension": 505600,
+          "energies": [
+            -0.051671089401
+          ],
+          "parity": [
+            true,
+            false,
+            false
+          ],
+          "residual_norms": [
+            4.62426425288993e-13
+          ]
+        }
+      ],
+      "spacing": 0.15
+    }
+  ],
+  "verdict": "PASS_SCOPED_ATOMIC_VOLUME_SPACING_CONTROL",
+  "volume_rows": [
+    {
+      "full_spatial_sites": 357911,
+      "grid": 71,
+      "ground_to_odd": 0.420953171076,
+      "length": 24.0,
+      "second_shell_splitting": 0.005500452345,
+      "sectors": [
+        {
+          "dimension": 46656,
+          "energies": [
+            -0.472951384255,
+            -0.057498665524
+          ],
+          "minimum_trial_component": 8.647391131175017e-12,
+          "parity": [
+            false,
+            false,
+            false
+          ],
+          "positive_vector_ratio_diagnostic": [
+            -0.47296078401842967,
+            -0.47294708603478114
+          ],
+          "residual_norms": [
+            5.555123241113558e-14,
+            4.242590150293772e-14
+          ]
+        },
+        {
+          "dimension": 45360,
+          "energies": [
+            -0.051998213179
+          ],
+          "parity": [
+            true,
+            false,
+            false
+          ],
+          "residual_norms": [
+            4.1252341789330494e-14
+          ]
+        }
+      ],
+      "spacing": 0.3333333333333333
+    },
+    {
+      "full_spatial_sites": 857375,
+      "grid": 95,
+      "ground_to_odd": 0.420395862457,
+      "length": 32.0,
+      "second_shell_splitting": 0.005840666026,
+      "sectors": [
+        {
+          "dimension": 110592,
+          "energies": [
+            -0.491162028374,
+            -0.076606831943
+          ],
+          "minimum_trial_component": 6.062292801300991e-15,
+          "parity": [
+            false,
+            false,
+            false
+          ],
+          "positive_vector_ratio_diagnostic": [
+            -0.5194454262135099,
+            -0.47781572594671085
+          ],
+          "residual_norms": [
+            5.222583303232382e-14,
+            6.208782760968344e-14
+          ]
+        },
+        {
+          "dimension": 108288,
+          "energies": [
+            -0.070766165917
+          ],
+          "parity": [
+            true,
+            false,
+            false
+          ],
+          "residual_norms": [
+            3.5531155754547994e-14
+          ]
+        }
+      ],
+      "spacing": 0.3333333333333333
+    },
+    {
+      "full_spatial_sites": 1685159,
+      "grid": 119,
+      "ground_to_odd": 0.420371341048,
+      "length": 40.0,
+      "second_shell_splitting": 0.005854158023,
+      "sectors": [
+        {
+          "dimension": 216000,
+          "energies": [
+            -0.502086754537,
+            -0.087569571512
+          ],
+          "minimum_trial_component": 7.579234521605416e-18,
+          "parity": [
+            false,
+            false,
+            false
+          ],
+          "positive_vector_ratio_diagnostic": [
+            -11.584178985350201,
+            9.352196181642265
+          ],
+          "residual_norms": [
+            4.4552874399993004e-14,
+            8.396460667894339e-14
+          ]
+        },
+        {
+          "dimension": 212400,
+          "energies": [
+            -0.081715413489
+          ],
+          "parity": [
+            true,
+            false,
+            false
+          ],
+          "residual_norms": [
+            6.565042636134062e-14
+          ]
+        }
+      ],
+      "spacing": 0.3333333333333333
+    }
+  ]
+}

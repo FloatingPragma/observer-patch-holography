@@ -1,0 +1,44 @@
+{
+  "exact_all_cut_operator_checks": 6144,
+  "full_boundary_tensor_dimensions_checked": [
+    "1",
+    "119",
+    "14161",
+    "1685159",
+    "200533921",
+    "23863536599",
+    "2839760855281",
+    "337931541778439",
+    "40213853471634241",
+    "4785448563124474679",
+    "569468379011812486801",
+    "67766737102405685929319",
+    "8064241715186276625588961",
+    "959644764107166918445086359",
+    "114197726928752863294965276721",
+    "13589529504521590732100867929799",
+    "1617154011038069297120003283646081",
+    "192441327313530246357280390753883639",
+    "22900517950310099316516366499712153041",
+    "2725161636086901818665447613465746211879",
+    "324294234694341316421188266002423799213601",
+    "38591013928626616654121403654288432106418519",
+    "4592330657506567381840447034860323420663803761",
+    "546487348243281518439013197148378487058992647559",
+    "65031994440950500694242570460657039960020125059521"
+  ],
+  "omitted_weak_gauge_current_control_rejected": true,
+  "oriented_unique_flux_indices": [
+    46,
+    105
+  ],
+  "random_complete_basis_states": 24,
+  "scope": "Exact original source identities and actual endpoint constraints; coarse positive probabilities and unevaluated failure-flux distributions retain the producer scope.",
+  "source_sha256": {
+    "model/openwave_native_charge_flux/PROOF.md": "55b32208fe4712d265f8450bbf3fcd95efac447707a54808e627cd249005c90f",
+    "model/openwave_native_charge_flux/algebra.py": "b02c30c17d02bd7426cf9ae07ef3a3c92d823f991ea689ce814b011c72ade5bd",
+    "model/openwave_native_charge_flux/audits/joint_flux_review.py": "4d047df22e67909597c0880de53ecd22d32ddbd0b8ef53f62f78e8fb092b6432",
+    "model/openwave_native_charge_flux/results.json": "74df38cbbbefd738f5dded740ec466abb5da1e02d1ec19a4e27176effe3b3464"
+  },
+  "verdict": "PASS_INDEPENDENT_NATIVE_GAUSS_FLUX_REVIEW"
+}

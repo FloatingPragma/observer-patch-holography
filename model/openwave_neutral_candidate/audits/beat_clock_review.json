@@ -1,0 +1,27 @@
+{
+  "finite_controls": {
+    "common_flag_and_arm_dephasing_distinguished": true,
+    "initial_energy_work_and_reference_cost_cancellation_checked": true,
+    "largest_observed_waveform_error": 0.00728886240163229,
+    "purified_finite_source_examples": 18,
+    "smallest_accepted_X_contrast": 0.9997723690091345,
+    "waveform_comparisons": 72
+  },
+  "input_sha256": {
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json": "e135f7b15460427068dd18541b0f7990a3d259d298467604283841c68f75ab34",
+    "model/openwave_native_beat_clock/PROOF.md": "4e6ab1936f27517a2c2f84b7ea2b198f9e722e458f2a84121729ae9e84765fbb",
+    "model/openwave_native_beat_clock/clock.py": "58cd947220365a27c409da8b989d6a985acccba54bbe204c29ad9be2cc09ea52",
+    "model/openwave_native_beat_clock/results.json": "bce23e3f5bc43be263fda4efd0a7c4a7f071709e4214b29e50a425badd1a2f59",
+    "model/openwave_neutral_candidate/audits/beat_clock_review.py": "0b749b1bc734c277dd5b08e54ce14e2e78df4f1958917c0e044c076213f19b5c"
+  },
+  "schema": "oph.independent_native_beat_review.v1",
+  "scope": "A declared one-time native-pole coherent service and one common full-H herald support the proved free beat. Native microscopic pulse compilation, passive self-starting, unique exact full-H frequency and a physical Compton dictionary are not inferred.",
+  "trigonometric_intervals": {
+    "floating_reference_is_diagnostic_only": true,
+    "high_precision_interval_checks": 32,
+    "ideal_Y_sign_checked": true,
+    "negative_and_trillion_scale_phase_reduction_checked": true,
+    "widest_saved_trig_interval": "2.0436564172823763506435125416660794951472410852709285952440622943336663321987363992782809465272244343290990112e-41"
+  },
+  "verdict": "PASS_INDEPENDENT_NATIVE_BEAT_REVIEW"
+}

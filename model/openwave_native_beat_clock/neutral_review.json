@@ -1,0 +1,15 @@
+{
+  "K2_transfer_reason": "Complete H0 preserves every nonblank edge support; cross-edge resolvent contractions vanish and equal-edge seam signs square to one.",
+  "actual_single_edge_PW_hop_support_and_seam_sign_checks": 24,
+  "all_pass": true,
+  "independent_actual_fermion_translation_comparisons": 1632,
+  "nonzero_zero_momentum_trial_reason": "Native charge patterns distinguish the eight translated localized vectors; their signed CAR orbit gives exactly1/8 projection success.",
+  "reviewed_sha256": {
+    "model/openwave_neutral_candidate/PROOF.md": "11a32acf08abe702b5405a119e3f3fc131ca0ddb10733149c7a770ac893c8754",
+    "model/openwave_neutral_candidate/results.json": "3fec0b6976a50b4c16c8057781f5f6c30a75d6f8e053868cf24b125ebe3d3fae",
+    "model/openwave_neutral_candidate/source.py": "e9900fabba34bfdeb2a4a88940be924db7974714e03e15a7c96396ea0feaee82",
+    "model/openwave_neutral_candidate/threshold.py": "6362a6fbc8347be55346a2499432c3d35ee3f319c4ec7a2dbeccbbf3beab1f68"
+  },
+  "schema": "oph.independent_neutral_candidate_review.v1",
+  "scope": "Original odd sector lacks zero source momentum. A separately declared periodic boundary has a protected positive zero-momentum threshold, not a known relativistic particle mass."
+}
