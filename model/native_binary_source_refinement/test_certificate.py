@@ -20,8 +20,8 @@ from tools import strict_json
 
 HAS_LAKE = shutil.which('lake') is not None
 # The receiving epoch rejects source modules loaded before its enrollment.
-# The plugins of model/conftest.py load tools.strict_json first, so a run
-# collected with that conftest has no accepting epoch for the kernel tests.
+# Other test modules collected in the same session can load tools.strict_json
+# first, so such a run has no accepting epoch for the kernel tests.
 ACCEPTING = cert._PYTHON_EPOCH._problem is None
 if os.environ.get('OPH_REQUIRE_KERNEL_TESTS') == '1' and not (HAS_LAKE and ACCEPTING):
     raise RuntimeError('The declared kernel test job must install Lean and run with --noconftest')

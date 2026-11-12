@@ -572,7 +572,12 @@ def validate(value: dict, *, verify_bindings: bool = True) -> dict:
             raise ValueError(f"stale reviewed source binding: {row['path']}")
     # Canonical statements/statuses are immutable under this inventory. Claim
     # prose and evidence may evolve without creating a circular hash dependency.
-    if read_json_bytes((ROOT / "tracking/premise_register.json").read_bytes()) != frozen("tracking/premise_register.json"):
+    # The generated model/theorem navigation (model_supply) follows the Lean and
+    # claim inventories through tools/build_model_theorem_map.py.
+    current = read_json_bytes((ROOT / "tracking/premise_register.json").read_bytes())
+    retained = frozen("tracking/premise_register.json")
+    if ({key: value for key, value in current.items() if key != "model_supply"}
+            != {key: value for key, value in retained.items() if key != "model_supply"}):
         raise ValueError("canonical register changed: inventory requires explicit review")
     return copy.deepcopy(value["coverage_counts"])
 

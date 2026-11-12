@@ -81,11 +81,11 @@ def boson_operators():
         creators.append(sparse.csr_matrix((values, (rows, columns)), shape=(len(states), len(states))))
     summed = sum((a.T@a+a@a.T for a in creators), sparse.csr_matrix((len(states), len(states))))
     expected = np.array([56 if len(x) == 0 else 58 if len(x) == 1 else 2 for x in states])
-    error = sparse.linalg.norm(summed-sparse.diags(expected))
+    error = sparse.linalg.norm(summed-sparse.diags(expected, dtype=float))
     if error > 2e-12:
         raise ArithmeticError('global-cap oscillator identity differs')
     no_operation_squared = 1-expected/58
-    completion = summed/58+sparse.diags(no_operation_squared)
+    completion = summed/58+sparse.diags(no_operation_squared, dtype=float)
     completion_error = sparse.linalg.norm(completion-sparse.eye(len(states)))
     if completion_error > 2e-12:
         raise ArithmeticError('complete boson instrument failed on an input column')

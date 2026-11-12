@@ -55,6 +55,6 @@ jobs:
         run: lake exe cache get
       - name: Check retained source receipt and kernel mutation controls
         # The verifier enrolls tools.strict_json itself and rejects source
-        # modules loaded before its enrollment. The plugins of
-        # model/conftest.py import that module, so they stay out of this run.
+        # modules loaded before its enrollment, so this package runs on its
+        # own, before any other test module can import it.
         run: python -m pytest -q -W error --noconftest --basetemp "$RUNNER_TEMP/native-source-tests" model/native_binary_source_refinement

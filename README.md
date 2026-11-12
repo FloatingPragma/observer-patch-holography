@@ -2,7 +2,7 @@
 
 **OPH develops an executable theory of a self-referential observer universe, combining proved finite constructions with quantitative tests of its physical interpretation.**
 
-[Main paper](https://philpapers.org/rec/MUEFOC) · [Book](https://oph-book.floatingpragma.ai/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Lean library](Lean/) · [Reproduce](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [Français](README_FR.md)
+[Main paper](https://philpapers.org/rec/MUEFOC) · [Book](https://oph-book.floatingpragma.ai/) · [Particles explainer](https://particles.floatingpragma.ai/?page=journey) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) · [Lean library](Lean/) · [Reproduce](REPRODUCE.md) · [Pragma Research](https://floatingpragma.ai/) · [Français](README_FR.md)
 
 [![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
 [![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)

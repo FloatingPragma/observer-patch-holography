@@ -37,7 +37,7 @@ The full assumption inventory covers the canonical premise register, the joint f
 
 A mathematically consistent finite construction requires an actual common realization of its premises. Physical completeness additionally requires the shared interacting spectrum, clocks, gravity, observation/intervention laws and appropriate independent tests. Public communication must state which of these contracts the evidence satisfies.
 
-First batch: [WQ-09](#work-wq-09), [WQ-20](#work-wq-20), [WQ-16](#work-wq-16).
+First batch: [WQ-03](#work-wq-03), [WQ-06](#work-wq-06), [WQ-19](#work-wq-19).
 
 | Task | Bounded result | Owner | Status | Prerequisites |
 | --- | --- | --- | --- | --- |
@@ -47,20 +47,20 @@ First batch: [WQ-09](#work-wq-09), [WQ-20](#work-wq-20), [WQ-16](#work-wq-16).
 | [WQ-07](#work-wq-07) | Audit shared-reference covariance in the electroweak temperature | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | completed: positive | none |
 | [WQ-21](#work-wq-21) | Calibrate native quark spectral bins and test the mass dictionary | CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | completed: negative | [WQ-01](#work-wq-01) |
 | [WQ-08](#work-wq-08) | Determine what the class census can say about species abundances | CP-05 / [#1141](https://github.com/FloatingPragma/observer-patch-holography/issues/1141) | completed: positive | none |
-| [WQ-09](#work-wq-09) | Test whether native population dynamics admits a thermal interpretation | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | ready | none |
+| [WQ-09](#work-wq-09) | Test whether native population dynamics admits a thermal interpretation | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | completed: negative | none |
 | [WQ-19](#work-wq-19) | Compress the retained lepton environment without erasure | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | ready | none |
-| [WQ-20](#work-wq-20) | Use retained time covariance in hadron correlator fits | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | ready | none |
-| [WQ-02](#work-wq-02) | Compile the lepton preparation and bounded service controller | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | ready | none |
+| [WQ-20](#work-wq-20) | Use retained time covariance in hadron correlator fits | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | completed: positive | none |
+| [WQ-02](#work-wq-02) | Compile the lepton preparation and bounded service controller | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | completed: positive | none |
 | [WQ-06](#work-wq-06) | Determine the sector measure consumed by the coupling chain | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | ready | none |
 | [WQ-17](#work-wq-17) | Instantiate operational observers and expose external resources | CP-12 / [#1148](https://github.com/FloatingPragma/observer-patch-holography/issues/1148) | ready | none |
-| [WQ-03](#work-wq-03) | Test a common phase and energy clock on one source | CP-04 / [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140) | blocked | [WQ-02](#work-wq-02) |
+| [WQ-03](#work-wq-03) | Test a common phase and energy clock on one source | CP-04 / [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140) | ready | [WQ-02](#work-wq-02) |
 | [WQ-10](#work-wq-10) | Test localization of one charged excitation on the primary source | CP-03 / [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | ready | [WQ-01](#work-wq-01) |
 | [WQ-11](#work-wq-11) | Calculate the missing odd spectral moment on one common source | CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | ready | [WQ-01](#work-wq-01) |
 | [WQ-12](#work-wq-12) | Resolve one concrete chirality-pairing premise | CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | ready | [WQ-01](#work-wq-01) |
 | [WQ-13](#work-wq-13) | Test a decisive uniform refinement-survival bound | CP-08 / [#1144](https://github.com/FloatingPragma/observer-patch-holography/issues/1144) | ready | [WQ-01](#work-wq-01) |
 | [WQ-14](#work-wq-14) | Derive an open-boundary metric variation of the primary action | CP-09 / [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | ready | [WQ-01](#work-wq-01) |
 | [WQ-15](#work-wq-15) | Validate source-premise admission to the Einstein composition | CP-10 / [#1146](https://github.com/FloatingPragma/observer-patch-holography/issues/1146) | blocked | [WQ-14](#work-wq-14) (positive/negative/inconclusive) |
-| [WQ-16](#work-wq-16) | Expose the source constraints on flavour and neutrino parameters | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | ready | [WQ-01](#work-wq-01) |
+| [WQ-16](#work-wq-16) | Expose the source constraints on flavour and neutrino parameters | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | completed: negative | [WQ-01](#work-wq-01) |
 | [WQ-18](#work-wq-18) | Issue one joint prediction and premise-closure verdict | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | blocked | [WQ-01](#work-wq-01) (positive/negative/inconclusive), [WQ-02](#work-wq-02) (positive/negative/inconclusive), [WQ-03](#work-wq-03) (positive/negative/inconclusive), [WQ-04](#work-wq-04) (positive/negative/inconclusive), [WQ-05](#work-wq-05) (positive/negative/inconclusive), [WQ-06](#work-wq-06) (positive/negative/inconclusive), [WQ-07](#work-wq-07) (positive/negative/inconclusive), [WQ-08](#work-wq-08) (positive/negative/inconclusive), [WQ-09](#work-wq-09) (positive/negative/inconclusive), [WQ-10](#work-wq-10) (positive/negative/inconclusive), [WQ-11](#work-wq-11) (positive/negative/inconclusive), [WQ-12](#work-wq-12) (positive/negative/inconclusive), [WQ-13](#work-wq-13) (positive/negative/inconclusive), [WQ-14](#work-wq-14) (positive/negative/inconclusive), [WQ-15](#work-wq-15) (positive/negative/inconclusive), [WQ-16](#work-wq-16) (positive/negative/inconclusive), [WQ-17](#work-wq-17) (positive/negative/inconclusive), [WQ-19](#work-wq-19) (positive/negative/inconclusive), [WQ-20](#work-wq-20) (positive/negative/inconclusive), [WQ-21](#work-wq-21) (positive/negative/inconclusive) |
 
 <a id="work-wq-01"></a>
@@ -372,7 +372,7 @@ Indistinguishable class-census controls produce different species fractions as c
 <a id="work-wq-09"></a>
 ### WQ-09: Test whether native population dynamics admits a thermal interpretation
 
-Owner: CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138). Status: `ready`.
+Owner: CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138). Status: `completed: negative`.
 
 Neither a finite Gibbs law nor its obstruction establishes expansion, freeze-out or a physical early-Universe mixture.
 
@@ -395,22 +395,33 @@ Canonical premise references: PR-07, PR-08, PR-15.
 
 **Bounded outputs**
 
-- `model/native_abundance_epochs/thermal_admission.py`: Exact stationarity and detailed-balance existence test.
-- `model/native_abundance_epochs/thermal_admission_results.json`: Thermal admission or obstruction and required extra services.
+- `model/native_thermal_admission/thermal.py`: Executable source calculation and complete retained controls.
+- `model/native_thermal_admission/PROOF.md`: Exact construction, accepted domain and mathematical boundary.
+- `model/native_thermal_admission/results.json`: Fresh reproducible result with source provenance.
 
 **Validation**
 
 ```sh
-python3 -m pytest -q model/native_abundance_epochs model/charge_conjugation_dynamics
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.native_thermal_admission.test_thermal
 ```
 
-Absorbing, reverse-edge and sector-weight countercontrols prevent a false Gibbs claim.
+All targeted positive and rejection controls pass.
+
+```sh
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.native_thermal_admission --check
+```
+
+Fresh execution matches the source-bound retained receipt.
 
 **Task closure**
 
 - Pass: A Gibbs-stationarity claim is proved on the stated sector with all temperature, support and detailed-balance assumptions explicit.
 - Fail: An exact drift or reverse-edge witness excludes the proposed full-support finite-temperature equilibrium; characterize exceptional sectors.
 - Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+**Bounded completion evidence**
+
+- [model/native_thermal_admission/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_thermal_admission/results.json): On the unchanged 1296-state closed-cell kernel, exact nonpositive cost drift and strict-descent edges exclude every full-support finite-temperature Gibbs stationary law and detailed balance in load sectors 1 through 14. Loads zero and fifteen have identity kernels. All stationary laws are mixtures of 46 closed-class uniform laws, with 66 recurrent and 1230 transient states and 45 free mixture dimensions. The generic stationary-Lyapunov obstruction is proved in Lean; restricted recurrent Gibbs weights are supplied choices. No bath, physical temperature or cosmic clock is inferred. Independent check: [model/native_thermal_admission/test_thermal.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_thermal_admission/test_thermal.py).
 
 <a id="work-wq-19"></a>
 ### WQ-19: Compress the retained lepton environment without erasure
@@ -456,7 +467,7 @@ Complete instruments and reference correlations survive compression; lossy contr
 <a id="work-wq-20"></a>
 ### WQ-20: Use retained time covariance in hadron correlator fits
 
-Owner: CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147). Status: `ready`.
+Owner: CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147). Status: `completed: positive`.
 
 Correlated fitting improves finite-ensemble inference; omitted sea quarks and the physical scale/refinement remain separate requirements. This task does not consume PR-14, the separate empirical hadronic vacuum-polarization transport payload.
 
@@ -478,16 +489,23 @@ Canonical premise references: PR-75.
 
 **Bounded outputs**
 
-- `model/quenched_hadron_binding/correlated_fits.py`: Covariance-aware fitting with fixed conditioning rules.
-- `model/quenched_hadron_binding/correlated_fit_results.json`: Paired replica propagation and diagonal-fit comparison.
+- `model/correlated_hadron_spectrum/fit.py`: Executable source calculation and complete retained controls.
+- `model/correlated_hadron_spectrum/PROOF.md`: Exact construction, accepted domain and mathematical boundary.
+- `model/correlated_hadron_spectrum/results.json`: Fresh reproducible result with source provenance.
 
 **Validation**
 
 ```sh
-python3 -m pytest -q model/quenched_hadron_binding
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.correlated_hadron_spectrum.test_fit
 ```
 
-Synthetic correlated inputs recover known parameters; singular inputs reject and empirical targets do not affect the fit rule.
+All targeted positive and rejection controls pass.
+
+```sh
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.correlated_hadron_spectrum --check
+```
+
+Fresh execution matches the source-bound retained receipt.
 
 **Task closure**
 
@@ -495,10 +513,14 @@ Synthetic correlated inputs recover known parameters; singular inputs reject and
 - Fail: Conditioning or fit windows are chosen to improve agreement with the measured spectrum, or a singular covariance silently falls back.
 - Inconclusive: Report rank limits and retain the stated diagonal control without a precision upgrade.
 
+**Bounded completion evidence**
+
+- [model/correlated_hadron_spectrum/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/correlated_hadron_spectrum/results.json): The retained 32 paired Wilson streams admit all 48 declared time-covariance fits and every reestimated 31-stream jackknife replica under fixed full-rank and 10^8 conditioning rules. Propagating paired hadron and potential scales gives rho-anchored nucleon 1.130525 +/- 0.030231 statistical +/- 0.053203 fit-sensitivity GeV; the pion 0.13799628 GeV is fixed by the supplied ratio and rho anchor. The conventional string anchor gives pion 0.106231 +/- 0.001401 +/- 0.011761 GeV, rho 0.596801 +/- 0.007873 +/- 0.066072 GeV and nucleon 0.870287 +/- 0.024191 +/- 0.076896 GeV. Diagonal-time controls and the unresolved lightest nucleon flag are retained. Chiral fits use diagonal mass-error weights; sea, volume, continuum, calibration and native-clock uncertainties are not bounded. Independent check: [model/correlated_hadron_spectrum/test_fit.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/correlated_hadron_spectrum/test_fit.py).
+
 <a id="work-wq-02"></a>
 ### WQ-02: Compile the lepton preparation and bounded service controller
 
-Owner: CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138). Status: `ready`.
+Owner: CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138). Status: `completed: positive`.
 
 Finite declared-service execution does not establish an autonomous apparatus, physical work unit or laboratory duration.
 
@@ -516,6 +538,7 @@ Compile the existing 60-address Householder preparation through the admitted fin
 - [model/lepton_register_round/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md)
 - [model/native_quantum_service_bridge/finite_compiler.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quantum_service_bridge/finite_compiler.py)
 - [model/native_quantum_service_bridge/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quantum_service_bridge/PROOF.md)
+- [model/observer/source_scalar/compiler.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer/source_scalar/compiler.py)
 - [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md): Whole proof. Reuse complete instruments, archive-preserving reset and arbitrary-reference composition bounds.
 - [model/native_quantum_service_bridge/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quantum_service_bridge/PROOF.md): Whole proof. Compile the actual preparation through the admitted elementary service contract.
 
@@ -523,17 +546,24 @@ Canonical premise references: PR-64, PR-65.
 
 **Bounded outputs**
 
-- `model/lepton_cycle/service_execution.py`: Bounded controller and complete record execution.
-- `model/lepton_cycle/service_execution_results.json`: Source-bound channel equality/error and resource receipt.
-- `model/lepton_cycle/test_service_execution.py`: Reference, failure, capacity and correlation controls.
+- `model/lepton_service_compiler/service.py`: Literal padded native pulse execution and complete bounded controller.
+- `model/lepton_service_compiler/PROOF.md`: Full-input word and quantum-archive identities with service boundaries.
+- `model/lepton_service_compiler/results.json`: Source-bound complete record factors, diagnostics and finite resources.
+- `model/lepton_service_compiler/test_service.py`: Padding, reference, failure and coherent-preparation countercontrols.
 
 **Validation**
 
 ```sh
-python3 -m pytest -q model/lepton_cycle
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.lepton_service_compiler.test_service
 ```
 
-Executed controller agrees with the full channel; unsafe reuse and missing failures fail.
+Exact source identities, padded native words and complete archive controls pass.
+
+```sh
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.lepton_service_compiler --check
+```
+
+Fresh source execution reproduces the retained complete service receipt.
 
 **Task closure**
 
@@ -541,6 +571,10 @@ Executed controller agrees with the full channel; unsafe reuse and missing failu
 - Pass: Any unsupported primitive is isolated as an explicit implementation obligation.
 - Fail: A marginal reset leaves hidden correlations, rejects are discarded, or the controller uses an undeclared operation.
 - Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+**Bounded completion evidence**
+
+- [model/lepton_service_compiler/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_service_compiler/results.json): An ideal real-angle recipe of native six-level response pulses implements the complete padded 64-state Householder preparation, phase and reflection words and the 4096-address analyzer, using declared coherent load/export, routing and blank services. Literal numerical replay supplies software diagnostics, not a certified error bound for the binary floating pulse word. An exact all-input conjugation identity permits a low-rank kick replay, with independent full-word columns and retained floating residuals. Up to three complete lepton cycles retain all four returns, every zero-weight proper-code failure and full source/family quantum archive factors. Three cycles use four fresh pairs including the active pair, thirty-six archived source qubits and six return bits. A uniform-histogram correlation control distinguishes the required pure coherent preparation. Exact ideal-word equality and numerical software diagnostics are separate from hardware accuracy, autonomous preparation and a physical energy clock. Independent check: [model/lepton_service_compiler/test_service.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_service_compiler/test_service.py).
 
 <a id="work-wq-06"></a>
 ### WQ-06: Determine the sector measure consumed by the coupling chain
@@ -641,7 +675,7 @@ The source-bound observer instance and overlap application compile without proof
 <a id="work-wq-03"></a>
 ### WQ-03: Test a common phase and energy clock on one source
 
-Owner: CP-04 / [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140). Status: `blocked`.
+Owner: CP-04 / [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140). Status: `ready`.
 
 An internal clock comparison does not supply an independently calibrated SI or GeV unit.
 
@@ -960,7 +994,7 @@ Existing finite implication compiles without proof holes.
 <a id="work-wq-16"></a>
 ### WQ-16: Expose the source constraints on flavour and neutrino parameters
 
-Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `ready`.
+Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `completed: negative`.
 
 Parameter identifiability narrows the spectrum task; it does not itself derive quark Yukawas, oscillations or all generations.
 
@@ -982,22 +1016,33 @@ Canonical premise references: PR-36, PR-47, PR-50, PR-55, PR-67, PR-69.
 
 **Bounded outputs**
 
-- `model/particle_joint_reconstruction/flavour_identifiability.py`: Parameter and source-constraint rank calculation.
-- `model/particle_joint_reconstruction/flavour_identifiability_results.json`: Remaining physical flavour freedom and one bounded discriminating relation.
+- `model/source_flavour_identifiability/flavour.py`: Exact family-orbit, native constraint and complete phase-readout calculation.
+- `model/source_flavour_identifiability/PROOF.md`: Parameter classification and a full-source counterexample to universal alignment.
+- `model/source_flavour_identifiability/results.json`: Source-bound invariant counts, parameter ancestry and eighteen-record phase contrast.
 
 **Validation**
 
 ```sh
-python3 -m pytest -q model/particle_joint_reconstruction
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m unittest model.source_flavour_identifiability.test_flavour
 ```
 
-Basis changes preserve observables; target substitutions cannot masquerade as source equations.
+All exact ranks, native Ward identities, conjugation controls and complete phase instruments pass.
+
+```sh
+VECLIB_MAXIMUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m model.source_flavour_identifiability --check
+```
+
+Fresh execution matches the bound parameter and readout receipt.
 
 **Task closure**
 
 - Pass: Every candidate flavour parameter has explicit ancestry and the tested source relation is proved across its stated parameter family.
 - Fail: A certified parameter-family counterexample excludes the proposed additional source relation.
 - Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+**Bounded completion evidence**
+
+- [model/source_flavour_identifiability/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/source_flavour_identifiability/results.json): The proposed universal alignment relation is refuted, so the existing negative closure criterion applies. Positive results comprise exact parameter classification and an unconditional phase readout. Exact full-source family-coordinate orbits leave 13 generic charged invariants, 22 with a generic symmetric neutral kernel and 20 on its rank-two stratum. The calibrated zero-lightest-mass packet has nineteen empirical flavour coordinates and one independent unmeasured Majorana phase. All 27 complex charged family coefficients satisfy the native gauge/Higgs identities, so these identities impose no additional linear family constraint. The common-feature trial is aligned, but an exact admitted counterexample has J=51840/830297. A complete eighteen-record instrument built from actual native weak-current family blocks reads J as an unconditional signed joint-path contrast. Coordinate equivalence transports all apparatus/reference frames; it does not derive physical Yukawas, native pulse control or a Standard Model family assignment. Independent check: [model/source_flavour_identifiability/test_flavour.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/source_flavour_identifiability/test_flavour.py).
 
 <a id="work-wq-18"></a>
 ### WQ-18: Issue one joint prediction and premise-closure verdict
@@ -1145,13 +1190,13 @@ Finalize quantitative comparisons together with the premises needed to interpret
 
 | Owner | Next concrete result | Why this comes next |
 | --- | --- | --- |
-| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) / CP-02: Execute the register and its continuing reference in one program | Compile or implement the declared preparation, independent fresh-source reset, kick and archive services on one continuing source. Bound controller memory, work, growing archive and implementation error using the existing complete-cycle certificate, then connect its retained reference and dimensionless clock to the source energy clock. Preserve all return failures, source environments and reference correlations. | The coherent lepton source has a complete four-outcome finite cycle, archive-preserving reset and repeated-cycle arbitrary-reference error budgets. A separate bounded native current-record observer has exact relaxation and memory costs. Their distinct preparations, schedules and clocks remain the next join. |
+| [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) / CP-02: Execute the register and its continuing reference in one program | Connect the compiled lepton sequence and its coherent load/export, fresh-source and routing services to one retained native-attempt timeline. Preserve waiting, failures and growing quantum archives; determine the phase/energy clock conversion or its exact rescaling freedom. Test the separate lepton-environment compression task on its own complete instrument. Any physical thermal source must implement its declared bath and temperature readout without identifying native absorption with equilibrium. | Native pulse words implement the full padded lepton preparation and bounded complete-cycle archives under declared coherent services. The unchanged closed-cell kernel has an exact Gibbs obstruction and complete terminal laws; a reversible bath extension has a different declared law. The calibrated quadratic action also has a same-source complete thermal number detector. Each construction has its explicit source, preparation, retained reference and clock. |
 | [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) / CP-06: Connect persistent excitations to one interacting field source | Choose one existing charged-source family and compute the same dressed probe's energy-resolved spatial law at increasing finite capacities. Retain original spectral weight, compensating charge, failures and common clock. Test protection and transport on that law with CP-03/04/05; seek a stable branch with a nonzero interaction record before extending the physical continuum claim. | Centre classes, finite charged transfer and complete field records exist. The immediate bottleneck is their common state, Hamiltonian and detector, followed by controlled changes of volume and capacity. |
-| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) / CP-07: Attach the lepton ratios and coupling chain to physical observables | Attach the register eigenvalues to the same source's canonically normalized mass or pole operator and an independently fixed unit. Resolve the collar sector measure, mixing mechanism, clock and running/matching prescription before using the declared electroweak chain to predict that unit. Compare the complete lepton ratios, including the muon residual, and carry statistical and fit-window uncertainties through lattice scale setting. | The complete register supplies dimensionless rates, full finite-round errors and an analytic sensitivity map: common normalization cancels, phase depends on the full preparation and the unchanged muon ratio retains a +9.833581 ppm residual against the frozen CODATA 2022 direct comparison value. Physical pole and unit identification are the remaining target. |
+| [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) / CP-07: Attach the lepton ratios and coupling chain to physical observables | Use the complete source instruments and measured quantum-number projectors to attach an interacting pole to the same state and clock. Derive a source flavour relation beyond gauge admissibility, using the complete signed current-loop contrast as one discriminating observable. Resolve the collar sector measure and running/matching map before predicting a common physical unit. Retain the correlated hadron fits, scale disagreement and calibration errors as separate finite-ensemble controls. | The lepton effect has a full-CAR free-mass compiler, exact active-mode compression and complete joint quantum-number readouts. A separate calibrated action supplies its full quadratic catalogue, and the literal finite control has a frequency-dependent amputated scalar/fermion response. Exact family-coordinate counts identify 13 charged and 20 rank-two-neutral invariants; native gauge identities do not select their values. The unchanged muon ratio retains its +9.833581 ppm residual against the frozen CODATA 2022 direct comparison. |
 
 Parallel starting work and the required joins:
 
-- **CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138):** The [complete finite lepton cycle](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md) supplies all outcomes, a faithful stationary register family and full-span arbitrary-reference bounds. The [bounded current-record observer](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/repair_sector_bridge/RECORD_OBSERVER.md) supplies a separate exact classical readout with 39-attempt relaxation and a 298-bit retained-register budget. Reuse each result with its declared source, preparation and clock. An expected read count is not automatically a physical phase or duration. Re-preparation, the shared kick and clock normalization are architecture inputs until implemented or independently constrained. A reduced stationary source is not a stationary full observer history. Starting evidence: [adaptive reference](../model/adaptive_reference/results.json), [native joint spin spectroscopy](../model/native_joint_spin_spectroscopy/results.json), [lepton complete cycle](../model/lepton_cycle/results.json), [bounded current record observer](../model/repair_sector_bridge/record_observer_results.json).
+- **CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138):** The [native lepton service](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_service_compiler/PROOF.md) provides exact pulse-word identities and complete bounded archives. The [stationary classification](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_thermal_admission/PROOF.md) excludes full-support native Gibbs equilibrium; the [reversible bath](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_thermal_completion/PROOF.md) declares the required reverse transitions. Reuse each source with its actual reference, operations and clock. An expected read count is not automatically a physical phase or duration. Re-preparation, the shared kick and clock normalization are architecture inputs until implemented or independently constrained. A reduced stationary source is not a stationary full observer history. Starting evidence: [adaptive reference](../model/adaptive_reference/results.json), [native joint spin spectroscopy](../model/native_joint_spin_spectroscopy/results.json), [lepton complete cycle](../model/lepton_cycle/results.json), [bounded current record observer](../model/repair_sector_bridge/record_observer_results.json).
 - **CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142):** Reuse [centre-class certificates](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/README.md) and [complete charged field records](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/field_record_addenda/README.md). A class match alone does not transfer a state between the coherent register, Wilson sources and classical lattice runs. The joint dependency graph supplies the shared acceptance list. Finite gaps, prepared positive excesses and class labels do not identify rest masses or Lorentz spin. Keep the actual source action and reference fixed across the comparison or prove the transfer. A volume-uniform physical chiral limit requires its own error estimates. Starting evidence: [local exchange charge](../model/local_exchange_charge/results.json), [native mass channels](../model/native_mass_channels/results.json), [retarded spatial locality](../model/retarded_spatial_locality/results.json), [spin canonical energy](../model/spin_canonical_energy/results.json).
 - **CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143):** Use the [complete register and sensitivity certificate](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md), [sector-law tests](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/seam_class_balance/PROOF.md) and [retained lattice estimators](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/PROOF.md). The double-load/native-pair rate factor 5/4 cancels from ratios but does not identify their source laws. Conditional calculations retain supplied parameters; the lattice packages are distinct experiments. No target-informed scale, phase or beta-function choice counts as an independent prediction. Preserve the hypercharge mismatch, source multiplicities, lepton residual, quenched and one-spacing limits. Quark Yukawas, mixing and neutrino obligations stay in this gate; they are not satisfied by a centre-class dictionary. Starting evidence: [particle mass table](../model/completion/particle_mass_table.json), [native mass channels](../model/native_mass_channels/results.json), [native joint spin spectroscopy](../model/native_joint_spin_spectroscopy/results.json), [lepton complete cycle](../model/lepton_cycle/results.json).
 
@@ -1711,6 +1756,38 @@ Retained starting evidence:
 - [capacity.py](../model/particle_primary_capacity/capacity.py)
 - [results.json](../model/particle_primary_capacity/results.json)
 - [test_capacity.py](../model/particle_primary_capacity/test_capacity.py)
+- [PROOF.md](../model/lepton_compiler_compression/PROOF.md)
+- [results.json](../model/lepton_compiler_compression/results.json)
+- [test_compression.py](../model/lepton_compiler_compression/test_compression.py)
+- [PROOF.md](../model/native_thermal_admission/PROOF.md)
+- [results.json](../model/native_thermal_admission/results.json)
+- [test_thermal.py](../model/native_thermal_admission/test_thermal.py)
+- [StationaryLyapunov.lean](../Lean/Dynamics/StationaryLyapunov.lean)
+- [PROOF.md](../model/native_freezeout_response/PROOF.md)
+- [results.json](../model/native_freezeout_response/results.json)
+- [test_response.py](../model/native_freezeout_response/test_response.py)
+- [PROOF.md](../model/particle_thermal_history/PROOF.md)
+- [results.json](../model/particle_thermal_history/results.json)
+- [test_thermodynamics.py](../model/particle_thermal_history/test_thermodynamics.py)
+- [PROOF.md](../model/source_flavour_identifiability/PROOF.md)
+- [results.json](../model/source_flavour_identifiability/results.json)
+- [test_flavour.py](../model/source_flavour_identifiability/test_flavour.py)
+- [PROOF.md](../model/native_thermal_completion/PROOF.md)
+- [results.json](../model/native_thermal_completion/results.json)
+- [test_bath.py](../model/native_thermal_completion/test_bath.py)
+- [PROOF.md](../model/particle_joint_mass_identity/PROOF.md)
+- [results.json](../model/particle_joint_mass_identity/results.json)
+- [test_joint.py](../model/particle_joint_mass_identity/test_joint.py)
+- [PROOF.md](../model/frequency_yukawa_vertex/PROOF.md)
+- [results.json](../model/frequency_yukawa_vertex/results.json)
+- [test_vertex.py](../model/frequency_yukawa_vertex/test_vertex.py)
+- [PROOF.md](../model/thermal_particle_records/PROOF.md)
+- [results.json](../model/thermal_particle_records/results.json)
+- [test_records.py](../model/thermal_particle_records/test_records.py)
+- [PROOF.md](../model/lepton_service_compiler/PROOF.md)
+- [results.json](../model/lepton_service_compiler/results.json)
+- [test_service.py](../model/lepton_service_compiler/test_service.py)
+- [PROOF.md](../model/particle_cosmology_results/PROOF.md)
 
 Reviewed acceptance evidence:
 
@@ -1879,6 +1956,29 @@ Retained starting evidence:
 - [results.json](../model/finite_current_readout_closure/results.json)
 - [PROOF.md](../model/observable_score_bridge/PROOF.md)
 - [results.json](../model/observable_score_bridge/results.json)
+- [PROOF.md](../model/lepton_compiler_compression/PROOF.md)
+- [results.json](../model/lepton_compiler_compression/results.json)
+- [test_compression.py](../model/lepton_compiler_compression/test_compression.py)
+- [PROOF.md](../model/native_thermal_admission/PROOF.md)
+- [results.json](../model/native_thermal_admission/results.json)
+- [test_thermal.py](../model/native_thermal_admission/test_thermal.py)
+- [StationaryLyapunov.lean](../Lean/Dynamics/StationaryLyapunov.lean)
+- [PROOF.md](../model/native_freezeout_response/PROOF.md)
+- [results.json](../model/native_freezeout_response/results.json)
+- [test_response.py](../model/native_freezeout_response/test_response.py)
+- [PROOF.md](../model/particle_thermal_history/PROOF.md)
+- [results.json](../model/particle_thermal_history/results.json)
+- [test_thermodynamics.py](../model/particle_thermal_history/test_thermodynamics.py)
+- [PROOF.md](../model/native_thermal_completion/PROOF.md)
+- [results.json](../model/native_thermal_completion/results.json)
+- [test_bath.py](../model/native_thermal_completion/test_bath.py)
+- [PROOF.md](../model/thermal_particle_records/PROOF.md)
+- [results.json](../model/thermal_particle_records/results.json)
+- [test_records.py](../model/thermal_particle_records/test_records.py)
+- [PROOF.md](../model/lepton_service_compiler/PROOF.md)
+- [results.json](../model/lepton_service_compiler/results.json)
+- [test_service.py](../model/lepton_service_compiler/test_service.py)
+- [PROOF.md](../model/particle_cosmology_results/PROOF.md)
 
 Current component progress (not gate acceptance):
 
@@ -2443,6 +2543,16 @@ Retained starting evidence:
 - [results.json](../model/finite_observable_closures/results.json)
 - [PROOF.md](../model/finite_current_readout_closure/PROOF.md)
 - [results.json](../model/finite_current_readout_closure/results.json)
+- [PROOF.md](../model/native_freezeout_response/PROOF.md)
+- [results.json](../model/native_freezeout_response/results.json)
+- [test_response.py](../model/native_freezeout_response/test_response.py)
+- [PROOF.md](../model/particle_joint_mass_identity/PROOF.md)
+- [results.json](../model/particle_joint_mass_identity/results.json)
+- [test_joint.py](../model/particle_joint_mass_identity/test_joint.py)
+- [PROOF.md](../model/thermal_particle_records/PROOF.md)
+- [results.json](../model/thermal_particle_records/results.json)
+- [test_records.py](../model/thermal_particle_records/test_records.py)
+- [PROOF.md](../model/particle_cosmology_results/PROOF.md)
 
 Current component progress (not gate acceptance):
 
@@ -2756,6 +2866,10 @@ Retained starting evidence:
 - [readout.py](../model/pion_mass_readout/readout.py)
 - [results.json](../model/pion_mass_readout/results.json)
 - [test_readout.py](../model/pion_mass_readout/test_readout.py)
+- [PROOF.md](../model/frequency_yukawa_vertex/PROOF.md)
+- [results.json](../model/frequency_yukawa_vertex/results.json)
+- [test_vertex.py](../model/frequency_yukawa_vertex/test_vertex.py)
+- [PROOF.md](../model/particle_cosmology_results/PROOF.md)
 
 Current component progress (not gate acceptance):
 
@@ -3187,6 +3301,28 @@ Retained starting evidence:
 - [readout.py](../model/pion_mass_readout/readout.py)
 - [results.json](../model/pion_mass_readout/results.json)
 - [test_readout.py](../model/pion_mass_readout/test_readout.py)
+- [PROOF.md](../model/lepton_compiler_compression/PROOF.md)
+- [results.json](../model/lepton_compiler_compression/results.json)
+- [test_compression.py](../model/lepton_compiler_compression/test_compression.py)
+- [PROOF.md](../model/particle_thermal_history/PROOF.md)
+- [results.json](../model/particle_thermal_history/results.json)
+- [test_thermodynamics.py](../model/particle_thermal_history/test_thermodynamics.py)
+- [PROOF.md](../model/correlated_hadron_spectrum/PROOF.md)
+- [results.json](../model/correlated_hadron_spectrum/results.json)
+- [test_fit.py](../model/correlated_hadron_spectrum/test_fit.py)
+- [PROOF.md](../model/source_flavour_identifiability/PROOF.md)
+- [results.json](../model/source_flavour_identifiability/results.json)
+- [test_flavour.py](../model/source_flavour_identifiability/test_flavour.py)
+- [PROOF.md](../model/particle_joint_mass_identity/PROOF.md)
+- [results.json](../model/particle_joint_mass_identity/results.json)
+- [test_joint.py](../model/particle_joint_mass_identity/test_joint.py)
+- [PROOF.md](../model/frequency_yukawa_vertex/PROOF.md)
+- [results.json](../model/frequency_yukawa_vertex/results.json)
+- [test_vertex.py](../model/frequency_yukawa_vertex/test_vertex.py)
+- [PROOF.md](../model/thermal_particle_records/PROOF.md)
+- [results.json](../model/thermal_particle_records/results.json)
+- [test_records.py](../model/thermal_particle_records/test_records.py)
+- [PROOF.md](../model/particle_cosmology_results/PROOF.md)
 
 Current component progress (not gate acceptance):
 
@@ -3613,6 +3749,13 @@ Retained starting evidence:
 - [test_electromagnetism.py](../model/particle_comparison/test_electromagnetism.py)
 - [dispersion.py](../model/particle_response/dispersion.py)
 - [test_dispersion.py](../model/particle_response/test_dispersion.py)
+- [PROOF.md](../model/particle_thermal_history/PROOF.md)
+- [results.json](../model/particle_thermal_history/results.json)
+- [test_thermodynamics.py](../model/particle_thermal_history/test_thermodynamics.py)
+- [PROOF.md](../model/correlated_hadron_spectrum/PROOF.md)
+- [results.json](../model/correlated_hadron_spectrum/results.json)
+- [test_fit.py](../model/correlated_hadron_spectrum/test_fit.py)
+- [PROOF.md](../model/particle_cosmology_results/PROOF.md)
 
 Current component progress (not gate acceptance):
 
@@ -3680,6 +3823,14 @@ Retained starting evidence:
 - [transfer.py](../model/particle_yang_mills_gap_contract/transfer.py)
 - [PROOF.md](../model/particle_yang_mills_gap_contract/PROOF.md)
 - [ElectricCutoffFloor.lean](../Lean/QFT/ElectricCutoffFloor.lean)
+- [PROOF.md](../model/native_thermal_admission/PROOF.md)
+- [results.json](../model/native_thermal_admission/results.json)
+- [test_thermal.py](../model/native_thermal_admission/test_thermal.py)
+- [StationaryLyapunov.lean](../Lean/Dynamics/StationaryLyapunov.lean)
+- [PROOF.md](../model/source_flavour_identifiability/PROOF.md)
+- [results.json](../model/source_flavour_identifiability/results.json)
+- [test_flavour.py](../model/source_flavour_identifiability/test_flavour.py)
+- [PROOF.md](../model/particle_cosmology_results/PROOF.md)
 
 Current component progress (not gate acceptance):
 

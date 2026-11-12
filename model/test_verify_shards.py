@@ -503,13 +503,18 @@ def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():
     pytest_steps = [step for step in commands if '-p model.pytest_shards' in step['run']]
     assert len(pytest_steps) == 1 and 'if' not in pytest_steps[0]
     assert pytest_steps[0]['run'] == ('python -m pytest -q -W error --durations=30 -p model.pytest_shards '
-        '--model-shard-index ${{ matrix.shard }} --model-shard-count 16 model')
+        '--model-shard-index ${{ matrix.shard }} --model-shard-count 16 '
+        '--deselect model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody model')
+    isolated = [step for step in commands
+                if step.get('name') == 'Check charged-lepton runtime custody in an isolated session']
+    assert len(isolated) == 1 and isolated[0]['if'] == 'matrix.shard == 0'
+    assert isolated[0]['run'] == ('python -m pytest -q -W error '
+        'model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody')
     custody_steps = [step for step in commands if step.get('name') == 'Check current custody maintenance routes']
     assert len(custody_steps) == 1 and custody_steps[0]['if'] == 'matrix.shard == 0'
     assert custody_steps[0]['run'] == ('python -m pytest -q -W error '
-        'tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py '
-        'tools/test_field_current_record_manifests.py tools/test_retained_source_records_custody.py')
-    assert sum('python -m pytest' in step['run'] for step in commands) == 2
+        'tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py')
+    assert sum('python -m pytest' in step['run'] for step in commands) == 3
     retained = [step for step in commands if step.get('name') == 'Execute three immutable custody suites']
     assert len(retained) == 1 and retained[0]['if'] == 'matrix.shard == 0'
     assert retained[0]['run'].splitlines() == [

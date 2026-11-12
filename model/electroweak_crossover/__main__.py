@@ -1,14 +1,27 @@
 """Regenerate or replay the electroweak crossover receipt from the production record."""
 import argparse
+from fractions import Fraction
 import json
 import math
 from pathlib import Path
+import re
 
 from .certificate import certificate
 
 
+RATIONAL = re.compile(r'-?[0-9]+(\.[0-9]+)?(/[0-9]+)?')
+
+
 def same(a, b, rel=1e-8) -> bool:
-    """Equality of two JSON values with a relative tolerance on numbers."""
+    """Equality of two JSON values with a relative tolerance on numbers.
+
+    Exact rational strings rounded from binary64 intermediates differ between
+    BLAS builds and runner CPUs in their last bits, so they take the same
+    tolerance as the floats they bound. Every other string is compared exactly.
+    """
+    if isinstance(a, str) and isinstance(b, str) and RATIONAL.fullmatch(a) and RATIONAL.fullmatch(b):
+        x, y = Fraction(a), Fraction(b)
+        return abs(x - y) <= max(Fraction(rel) * max(abs(x), abs(y)), Fraction(1, 10**12))
     if isinstance(a, bool) or isinstance(b, bool) or a is None or b is None or isinstance(a, str) or isinstance(b, str):
         return a == b
     if isinstance(a, (int, float)) and isinstance(b, (int, float)):
