@@ -1,0 +1,3 @@
+# Native axial response from a split-site baryon
+
+A positive native-current action fits the proton, neutron and charged-pion rest energies and the axial magnitude 1.2753 with four disclosed empirical inputs. The vector coefficient is exactly one. The current itself is unchanged: a certified baryon ground state has about 96.42% of its occupation weight split across two cells. That state escapes the co-located scalar-action constraint of 5/3. The [proof](PROOF.md) and [complete receipt](results.json) retain every colour-sector level, preparation failure and coloured-fragment control. Physical spatial binding and an outgoing weak-decay lifetime require further identification.

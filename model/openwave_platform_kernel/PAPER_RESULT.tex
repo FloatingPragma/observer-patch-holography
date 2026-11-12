@@ -1,0 +1,19 @@
+\paragraph{A complete native kinetic kernel in OpenWave.}
+The periodic native kinetic and analyzer-pairing source admits a portable
+Taichi implementation on all ninety canonical fermion modes per site.
+Its complete $180$-row doubled symbol has
+$H(p)=M+\sum_j\Gamma_j\sin p_j$, with the native Clifford relations and
+$\|H\|<2$. The fourth-order Taylor step is contractive for
+$2t/n\leq2$, and its exact-arithmetic evolution error is at most
+$2^5t^5/(120n^4)$. Complete charged-addition records include preparation
+failure $1/2$ and every source-coordinate outcome. Cubes of sides four
+and six retain $11520$ and $38880$ doubled coordinates. A dense native
+stencil and an independent Fourier solution test the Taichi action;
+a reversed kinetic sign is detected. At twenty steps to $t=1$,
+the largest recorded arrival-law discrepancy is below
+$6.85\times10^{-8}$, while the analytic operator bound is
+$1.667\times10^{-6}$. Floating norm drift is retained separately.
+The engine executes in the OpenWave namespace with its Taichi dependency;
+no upstream model award, physical clock or interacting continuum follows
+from this port. The complete replay is
+\path{model/openwave_platform_kernel}.

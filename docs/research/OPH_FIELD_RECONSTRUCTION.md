@@ -1524,3 +1524,9 @@ its reference, clock or physical interpretation to another construction.
 - [CKM conventions](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf)
 
 </details>
+
+### Joint native clocks and finite source execution
+
+The [joint-clock construction](../../model/openwave_joint_native_clocks/PROOF.md) factors the actual native eight-level source into three fermionic occupation bits and prepares two of them as clocks. Both read the same fixed80000-state geometry/wave source. Complete joint Ramsey and arrival records retain clock correlations, no-hit branches and source backreaction. The finite-strength normalized phase responses differ by31.37 to32.87 ppm. A rational Duhamel bound proves convergence to a common environment integral as the declared probe strength tends to zero, uniformly over passive quantum references. No physical seconds or Einstein proper-time calibration is inferred.
+
+The [portable full-source experiment](../../model/openwave_platform_kernel/PROOF.md) retains all native kinetic and mass coordinates, with exact Clifford and RK4 norm identities. Its numerical complete-record errors, norm drift and original preparation failures are explicit. The [independent sparse review](../../model/openwave_platform_review/README.md) recomputes every retained output without the portable Fourier evaluator. Finite source execution does not close continuum or interacting-field premises by itself.

@@ -1,0 +1,3 @@
+# Nuclear parity and spatial colour forces
+
+The complete six-quark singlet spectrum separates an even cell-parity spin-one channel from an odd cell-parity spin-zero channel. Both lie above the two-nucleon threshold on the fixed four-input action. Fitting deuteron binding through one additional weak-current coefficient also binds the extra odd channel, so the nuclear assignment fails to become unique. On a four-cell cycle the native edge-colour force produces a real adjacent-versus-opposite attraction and changes the complete spatial records. The [proof](PROOF.md) and [receipt](results.json) retain all channels and failed physical comparisons; no continuum length or nuclear graph limit is inferred.
