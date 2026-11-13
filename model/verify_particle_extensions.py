@@ -47,6 +47,11 @@ PACKAGES=(
     'openwave_cubic_haar_source', 'openwave_gauge_refinement_clock',
     'openwave_staggered_ward', 'openwave_replicated_geometry',
     'openwave_capacity_perturbations',
+    'openwave_full_strong_current', 'openwave_lambda_wavepacket',
+    'openwave_cluster_weyl_sequence', 'openwave_refined_haar_source',
+    'openwave_refined_haar_spectrum', 'openwave_haar_memory_closure',
+    'openwave_tensor_record_transport', 'openwave_collective_gravity_strength',
+    'openwave_capacity_transfer',
 )
 
 def source_bindings():

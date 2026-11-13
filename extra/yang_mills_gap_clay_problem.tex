@@ -1599,6 +1599,46 @@ factor, without a full-Hamiltonian renormalization or continuum claim.
 
 The exact source and complete records are specified in \path{model/openwave_gauge_refinement_clock}.
 
+\paragraph{Interior-resolved full-Haar refinement.}
+The actual refined cube has 27 vertices, 54 links and 36 faces.
+Arbitrary-valence Clebsch--Gordan fusion trees retain every Gauss
+intertwiner, including the two and five singlets of four and six
+fundamental legs. The vacuum, 36 four-cycles and 164 six-cycles give
+the complete 201-mode frame through electric energy $9/2$; every
+omitted state has electric energy at least $5$. All 7,236 face columns
+and their exterior fusion multiplicities enter the certificates.
+The coarse $(a,g^2)=(1,64)$ and fine $(1/2,16)$ sources have the same
+electric clock under edge subdivision. Their full-complement gap and
+Wilson-variance bounds retain interior modes and the eight-link boundary
+field. The exact first spectral moment for a loop of length $L$ is
+\[
+ m_1=\frac{\alpha L}{4}(1-\langle W^2\rangle),\qquad
+ v e^{-t m_1/v}\le C(t)\le v e^{-t\gamma}.
+\]
+Here $v$ is the connected variance and $\gamma$ a certified full-source
+gap. These are finite spatial-refinement comparisons, without an
+inferred running coupling or a physical continuum identification
+(\path{model/openwave_refined_haar_source},
+\path{model/openwave_refined_haar_spectrum}).
+
+\paragraph{Controlled memory of omitted gauge modes.}
+For this complete frame, $QHQ\ge80Q$. Full Wilson action computes the
+leading positive Schur correction
+\[
+ G=PHQ(16E_Q+9)^{-1}QHP,
+ \qquad \|K(t)\|\le\|QHP\|^2e^{-80t}.
+\]
+Its 3,260 nonzero entries include every output intertwiner. A Neumann
+ratio $9/89$ bounds the infinite-channel zero-energy self-energy error in source-energy units by
+$9\|QHP\|^2/(89\cdot80)\le0.00175460$.
+A separate exact control rejects autonomous boundary-only compression.
+At $t=1/1024$, retaining interior modes improves the Haar-vacuum
+semigroup-defect bound by a factor greater than $225$. This controls
+one specified probe and finite memory. Exact autonomy and a uniform
+continuum refinement are not inferred.
+
+The full calculation is specified in \path{model/openwave_haar_memory_closure}.
+
 \section{Physical scope}
 
 A Clay-level conclusion through the stated repair-transfer route requires
