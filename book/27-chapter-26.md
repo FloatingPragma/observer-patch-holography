@@ -62,7 +62,7 @@ One force, worked to the last digit, out of a wiring diagram with thirty entries
 
 The response matrices do more than commute or fail to. Matter sits on them. The weak block of three turns the port readings the way a rigid body turns, and a defect core that carries weak charge feels that block through its double cover: carry the core once around a full turn and it comes back with its sign reversed. That is the doublet, two weak slots where the ports themselves show three directions. The central dial, shared out evenly over the slots a core occupies, hands out relative charges in whole steps. The exterior construction of the next chapter turns those slots into the list of matter. A decoder that measures only charges and Casimirs recovers the whole list from a scrambled basis without being told the name of any field, so the response supplies the names.
 
-The native vector and the doublet share one infinitesimal rotation algebra and differ on the full turn. The first comes back unchanged. The second comes back as minus itself. Matter lives on the second, and chapter twenty-eight meets the same sign again under the name spin.
+The native vector and the doublet share one infinitesimal rotation algebra and differ on the full turn. The first comes back unchanged. The second comes back as minus itself. That sign belongs to weak charge, and chapter twenty-eight sets it beside the sign that carries the name spin.
 
 ## Dials
 

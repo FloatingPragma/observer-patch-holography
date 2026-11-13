@@ -96,7 +96,7 @@ Of 1,024 lists, exactly two survive.
 
 The two survivors are the even picks and the odd picks: the objects built from an even number of slots, and the objects built from an odd number. Charge conjugation, which swaps every particle for its antiparticle, carries each of the two onto the other, so they are one list and its mirror image, and a world taking either one gets the same physics with matter and antimatter labeled the other way round. The even one is the two-slot picks and the four-slot picks: ten plus five, and the roster above.
 
-The search asked each list for chirality and four vanishing sums. What came back divides by the number of slots a pick uses: all even, or all odd. The even list is the matter list. The minus sign two identical fermions pick up when they are exchanged has its own source, the double cover that every matter core is built on, and chapter twenty-eight follows it there.
+The search asked each list for chirality and four vanishing sums. What came back divides by the number of slots a pick uses: all even, or all odd. The even list is the matter list. The minus sign two identical fermions pick up when they are exchanged has its own source, the sign a full turn puts on every quantum of matter, and chapter twenty-eight follows it there.
 
 ## Four sums and a count
 

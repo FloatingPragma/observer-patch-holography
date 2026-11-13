@@ -74,7 +74,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Excess maintenance.** The work repair spends holding a defect's core inside settled surroundings, over and above what the same region costs without it. Read on the region's clock it is the particle's rest energy, and divided by the square of the speed of light it is the mass.
 
-**Exclusion principle.** Two identical matter particles cannot occupy the same state. Exchanging two identical cores is the same loop as turning one of them once, the turn returns a sign, and the sign makes the doubled amplitude vanish. Matter stacks into shells and solids because of it, while a laser piles any number of photons into one mode.
+**Exclusion principle.** Two identical matter particles cannot occupy the same state. Exchanging two identical particles is the same loop as turning one of them once, the turn returns a sign, and the sign makes the doubled amplitude vanish. Matter stacks into shells and solids because of it, while a laser piles any number of photons into one mode.
 
 **Exported harm.** The mismatch an actor leaves for other observers to carry, having declined to repair it. A cost written onto a seam the actor does not share never appears on the actor's own readings. It appears on the readings of whoever holds the other side.
 
@@ -164,7 +164,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Packet.** What appears at a port: one reading drawn from a finite list, available to whatever sits on the far side. It is what a patch's state looks like from outside at one interface rather than the state itself.
 
-**Particle.** A stable topological defect of the transport between carriers: a small core whose surrounding records have settled, with a loop around it carrying a twist no local repair can undo. Its charges are the twist, its spin comes from the double cover, and its mass is what the core costs to maintain. It is carried from seam to seam with its charge intact and read at a commit as one count at one place.
+**Particle.** A stable topological defect of the transport between carriers: a small core whose surrounding records have settled, with a loop around it carrying a twist no local repair can undo. Its charges are the twist and its mass is what the core costs to maintain. A particle of matter also holds a two-setting pointer that a full turn negates, which is its spin. It is carried from seam to seam with its charge intact and read at a commit as one count at one place.
 
 **Patch.** A bounded local system with its own state, its ports and a printed menu of moves: read, compare, choose, write, expose, verify. A patch carries no coordinates; positions come out of what patches record about each other.
 
@@ -208,7 +208,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Selector.** What settles an ambiguous fiber, where every record in existence is already satisfied and repair has nothing left to bite on. Which repair law gets run by the observers capable of running one is a selector.
 
-**Spin.** A two-outcome measurement with a direction attached. Aim the magnet however you like and the atom answers with one of exactly two deflections, and the aim is the only thing you choose. For matter it is the frame part of a particle's twist lifted to the double cover: a full turn returns the core with its sign reversed, and since exchanging two identical cores is the same loop as turning one of them once, identical fermions anticommute and exclude each other.
+**Spin.** A two-outcome measurement with a direction attached. Aim the magnet however you like and the atom answers with one of exactly two deflections, and the aim is the only thing you choose. Every quantum of matter holds one such direction, a pointer with two settings, and a full turn negates it. Gauss's law cancels the signs on its slots, its transport and the reference, so the world comes back with one minus sign for each quark and lepton, which is spin one half. A twist with no quantum in it, a ripple and the reference come back unchanged, with whole-number spin. Since exchanging two identical particles is the same loop as turning one of them once, identical fermions anticommute and exclude each other.
 
 **Static rule.** The repair, its record law and its memory law, which do not change anywhere in the history. What changes is the history. Every law of physics is a pattern the static rule cannot erase: conserved totals, the slow band, loop residues and settled records.
 
