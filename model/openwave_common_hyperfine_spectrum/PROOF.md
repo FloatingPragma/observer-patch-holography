@@ -38,6 +38,19 @@ of the complete baryon spin/isospin multiplets. No channel is deleted because
 its spectrum is inconvenient. These are finite-copy comparisons, without a
 continuum scattering interpretation.
 
+## Complete proof coordinates
+
+The pinned `spectral_witnesses.json` supplies all columns and ordered
+centres of the complete dyadic frames, together with integer coefficients
+for the axial and nuclear trials in their exact native bases. The source
+and every Gram matrix, residual, source-entry enclosure and spectral bound
+are recomputed. The complete-frame checker uses the unchanged six-quark
+residual theorem; no saved error or spectral interval is accepted as an
+input. Exact basis multiplication reconstructs every occupation coefficient
+of each trial, and its native energy, variance and current are recomputed.
+Thus trial membership follows from the exact basis, while its ground-line
+attachment follows from the independently verified residual and gap.
+
 ## Native ground and observer transfer
 
 The even spin/isospin-half block admits an integer native trial v. Exact
@@ -105,3 +118,11 @@ actual nuclear state. The empirical quadrupole comparison and illustrative
 1GeV/fm tension jointly select one conditional length and coupling. The
 receipt tests the whole resulting interval against this source's full-Fock
 bound. Neither attachment target is an independent prediction.
+
+The nuclear certificates use the same ordered native projector-column
+coordinates as `openwave_spin_gradient_nuclei`. Its exact Casimir/parity
+polynomial, trace rank, range identity and positive Gram checks are rebuilt
+for every nonzero channel, independently of floating pivoted QR. The source
+parameters, full channel spans, dyadic frames and integer trial coefficients
+are unchanged, so this coordinate declaration preserves every exact spectral
+interval and native preparation record.

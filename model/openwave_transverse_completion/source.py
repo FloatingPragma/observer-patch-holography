@@ -3,6 +3,7 @@ from fractions import Fraction as F
 from math import factorial, isqrt
 import numpy as np
 from scipy.linalg import eigh
+from .proof_frames import fixed_eigen
 from model.openwave_common_mass_source.source import lepton_source,ix,INPUTS
 from model.openwave_common_electromagnetism.source import exact_ward,certificate as matter_certificate
 
@@ -133,9 +134,11 @@ def tail_bound(cap,q,time):
 
 
 def field_floor(cap):
+    assert 32*2*ELECTRIC==4 and 32*MAGNETIC==4 and 32*(MAGNETIC/2)==2
     n=np.arange(-cap,cap+1,dtype=np.int64)
     A=np.diag(4*n*n+4)+np.diag(np.full(2*cap,-2,dtype=np.int64),1)+np.diag(np.full(2*cap,-2,dtype=np.int64),-1)
-    cert,lam,U=exact_cap_enclosure(A)
+    eigen=fixed_eigen(A,f'vacuum_{cap}') if cap in (18,24,48) else None
+    cert,lam,U=exact_cap_enclosure(A,eigen)
     low,high=map(F,cert['lowest_interval_exact']);outside=2*ELECTRIC*(cap+1)**2
     coupling=MAGNETIC/2
     assert outside>high
@@ -146,7 +149,10 @@ def field_floor(cap):
 
 
 def energy_certificate(cap=18,q=-3):
-    d=matrices(cap,q);cert,lam,U=exact_cap_enclosure(d['A'])
+    assert 32*HOP==2 and 32*(ELECTRIC/2)==1 and 32*MAGNETIC==4
+    d=matrices(cap,q)
+    eigen=fixed_eigen(d['A'],'charged_18_-3') if (cap,q)==(18,-3) else None
+    cert,lam,U=exact_cap_enclosure(d['A'],eigen)
     lo,hi=map(F,cert['lowest_interval_exact']);outside=2*ELECTRIC*(cap+1-abs(q))**2
     b=2*HOP+MAGNETIC/2;assert outside>hi
     low=lo-b*b/(outside-hi);vac=field_floor(cap)

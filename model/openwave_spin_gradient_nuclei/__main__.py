@@ -11,7 +11,7 @@ ROOT=HERE.parents[1]
 PARENTS=('openwave_axial_state','openwave_nuclear_distance')
 
 def pins():
-    files={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in('.py','.md','.tex')or p.name=='inputs.json'}
+    files={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in('.py','.md','.tex')or p.name in('inputs.json','calibration_realizations.json','spectral_witnesses.json')}
     for package in PARENTS:
         receipt=ROOT/'model'/package/'results.json';files.add(str(receipt.relative_to(ROOT)))
         files.update(json.loads(receipt.read_text())['source_sha256'])
