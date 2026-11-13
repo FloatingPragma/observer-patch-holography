@@ -10,7 +10,7 @@ if sys.argv[1]!='before':
  assert fresh.keys()==before.keys()|{'native_spatial_and_field_records'},('top-level keys changed',fresh.keys()-before.keys())
  sys.path.insert(0,str(ROOT))
  from tools.native_physical_results import collect
- assert fresh['native_spatial_and_field_records']==collect(ROOT),'new source collector differs'
+ assert json.dumps(fresh['native_spatial_and_field_records'],sort_keys=True)==json.dumps(collect(ROOT),sort_keys=True),'new source collector differs'
  changes=[];allowed=set(manifest['input_sha256'].values())
  def walk(a,b,path=''):
   assert type(a)is type(b),('type',path)

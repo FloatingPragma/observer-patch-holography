@@ -13,7 +13,6 @@ jobs:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
       PYTHONHASHSEED: '0'
-      AUDIT_OUTPUT: ${{ runner.temp }}/oph-publication-output
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
@@ -21,6 +20,11 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+      - name: Initialize external artifact directory
+        run: |
+          echo "AUDIT_OUTPUT=$RUNNER_TEMP/oph-publication-output" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/oph-publication-output"
+          cp .github/publication-replay-audit/manifest.json "$RUNNER_TEMP/oph-publication-output/manifest.json"
       - name: Install both retained reproduction environments
         run: |
           python -m venv "$RUNNER_TEMP/oph-publication-core"
@@ -37,6 +41,8 @@ jobs:
         run: |
           set -euo pipefail
           "$RUNNER_TEMP/oph-publication-core/bin/python" code/particles/scripts/build_postdiction_ledger.py 2>&1 | tee "$AUDIT_OUTPUT/original-write.log"
+          cp code/particles/runs/status/postdiction_ledger.json "$AUDIT_OUTPUT/postdiction_ledger.json"
+          cp docs/POSTDICTION_LEDGER.md "$AUDIT_OUTPUT/POSTDICTION_LEDGER.md"
           "$RUNNER_TEMP/oph-publication-core/bin/python" .github/publication-replay-audit/audit.py after-write
       - name: Independent original cold publication check
         shell: bash
@@ -55,8 +61,6 @@ jobs:
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: original-publication-replay
-          path: |
-            ${{ runner.temp }}/oph-publication-output/
-            .github/publication-replay-audit/manifest.json
+          path: ${{ runner.temp }}/oph-publication-output/
           include-hidden-files: true
           retention-days: 7
