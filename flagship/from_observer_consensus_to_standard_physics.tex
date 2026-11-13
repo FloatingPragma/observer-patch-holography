@@ -1752,60 +1752,70 @@ preserve that fit. Exact Schur elimination supplies the full complement
 memory, normalization metric and current vertices
 (\path{model/openwave_strong_step_scaling}).
 
-\paragraph{Calibrated spatial rest bands.}
-The complete native three-quark Gauss source admits an infinite-chain
-rest-band calculation through five compact cluster states per translation
-cell. The omitted relative configurations are retained by a lower spectral
-bound, and the exact squared compact-to-complement coupling norm is $5/64$.
-Two declared degree-dependent colour and number counterterms vanish on the
-entire calibrated two-cell operator. Using the inherited neutron and axial
-targets, the complete bulk neutron energy lies in
-$[0.939565387,0.939565457]$ GeV and its native axial magnitude lies in
-$[1.274757,1.275843]$; the vector matrix element is exactly one. The proton
-interval follows by the exact native isospin shift. These are calibrated
-one-dimensional source bands with complete spectral complements, without a
-three-dimensional scattering-pole or continuum identification. The fixed
-coefficient control has a disjoint axial interval
-$[1.291676,1.292715]$, so preservation of two-cell fits alone does not imply
-spatial refinement.
-The complete source and instruments are specified in \path{model/openwave_hadron_refinement_flow}.
+\paragraph{Calibrated interacting source poles.}
+The complete native three-quark Gauss source has five compact cluster
+fields per translation cell, with matrix spectral measure of zeroth moment
+$I_5$. Exact bounds retain every relative configuration outside this frame;
+the squared compact-to-complement coupling norm is $5/64$.
+Two declared counterterms vanish on the entire calibrated two-cell
+operator. With the inherited neutron and axial inputs, the neutron rest
+pole lies in $[0.939565387072,0.939565456806]$ GeV, and the native axial
+magnitude in $[1.274757,1.275843]$; native isospin gives the proton shift
+and vector amplitude one. The fixed-coefficient control has disjoint axial
+interval $[1.291676,1.292715]$, so preserving two-cell fits alone does not
+preserve spatial refinement.
+
+The pole residue is rank one in each tested momentum and spin/isospin
+fibre. If $q$ bounds complementary probability, $s$ bounds the compact-ground
+angle and $\tau$ the actual rational preparation's angle, its pole weight
+obeys
+\[
+ Z\ge(1-q)\bigl[1-(s+\tau)^2\bigr]>0.9999997
+\]
+at rest. The complete five-coordinate filter succeeds with probability
+$1/5$; its $4/5$ failure, other spectral outcomes and work are retained.
+This certifies observable poles of an interacting one-dimensional source,
+without identifying physical four-dimensional Lorentz particles
+(\path{model/openwave_hadron_refinement_flow},
+\path{model/openwave_baryon_poles}).
 
 \paragraph{Propagation with the same native rest operator.}
-A positive native correlated kinetic operator uses every colour-singlet
-triquark shape of occupied span at most one. With the common rule
-$J=\zeta M^{-1}$, where $M$ is the complete native compact rest matrix and
-$\zeta=(\hbar c/a)^2/(2u^2)$, the added action vanishes on the complete
-three-quark rest fibre. Rational five-band enclosures and the full infinite
-complement bound give a ground-band width between
-$0.1450650$ and $0.1450654\,\mathrm{GeV}$ and a neutron inertial mass in
-$[0.91037,0.97069]\,\mathrm{GeV}$. The electron unit, strong length and physical
-speed assignment are supplied. Positivity holds on the full Fock space;
-rest cancellation and the quoted spectrum apply to the three-quark domain.
-No higher-number spectrum or exact Lorentz dispersion is transferred.
-The complete construction and records are specified in \path{model/openwave_baryon_dispersion}.
+A positive correlated kinetic operator covers every colour-singlet
+triquark shape of occupied span at most one. Its common rule is
+$J=\zeta M^{-1}$ for the complete compact rest matrix $M$ and
+$\zeta=(\hbar c/a)^2/(2u^2)$; the action vanishes on the complete
+three-quark rest fibre. Exact five-band and infinite-complement bounds
+give width $[0.1450650,0.1450654]$ GeV and neutron inertial mass
+$[0.91037,0.97069]$ GeV. The electron unit, strong length and physical
+speed are supplied. Full Fock positivity supplies neither higher-number
+rest cancellation nor exact Lorentz dispersion
+(\path{model/openwave_baryon_dispersion}).
 
-\paragraph{Local strange families and an energy-conserving shell.}
-The complete two-cell native source uses two positive number/pair coefficients
-to calibrate charged kaon and Lambda energies to $0.493677$ and
-$1.115683\,\mathrm{GeV}$. Complete $816$- and $256$-state colour-singlet
-carriers retain the failed Sigma, Xi and neutral-kaon comparisons.
-The charge-conjugate strong action and nonzero native weak vertex are
-explicit. Its global number correction prevents separated-cluster
-additivity, and its full two-cell outgoing channel is closed even after
-the weak norm bound (\path{model/openwave_strange_composites}).
+\paragraph{Local strange families and native weak response.}
+Two positive number/pair coefficients calibrate the complete two-cell
+kaon and Lambda energies to $0.493677$ and $1.115683$ GeV. All $256$
+meson and $816$ baryon singlets retain the failed neutral-kaon, Sigma and
+Xi comparisons. The two-cell outgoing channel is closed; its global
+number correction is nonadditive (\path{model/openwave_strange_composites}).
 
-A finite-range extension of the complete native strange action restores
-additivity of separated colour-singlet clusters. With the same positive
-inverse-rest-operator propagation rule, full relative-position bounds give
-$m_\Lambda\in[1.11568462,1.11568488]\,\mathrm{GeV}$ and
-$m_{\pi^-}\in[0.13959620,0.13959623]\,\mathrm{GeV}$ in the supplied electron
-unit. These inherited-calibration bulk energies retain their shifts from
-the two-cell fits. The proton and pion ground-band energy sum crosses the
-Lambda rest interval between $\tan(k/2)=1/6$ and $1/5$, proving an open
-strong-sector energy shell. The unfiltered weak current requires an
-interacting scattering-state transfer; no strange lifetime follows from
-the shell crossing alone.
-The complete construction and records are specified in \path{model/openwave_cluster_bandwidth}.
+A finite-range extension preserves that complete two-cell operator and
+restores separated-cluster additivity. Full complementary bounds give the
+calibrated bulk Lambda pole $[1.115684628607,1.115684878081]$ GeV and
+pion band $[0.13959620,0.13959623]$ GeV. Exact native CAR contraction into
+all $1656$ nonzero five-body occupation outputs proves
+\[
+ 6c^2G\le W_P^\dagger W_P\le7c^2G,\qquad
+ c=\sin\theta\cos\theta,
+\]
+on every compact Lambda state. Its full-pole complementary probability
+bound $q$ gives $\|P_{\rm out}W\psi_\Lambda\|^2\ge6c^2(1-q)>0$,
+without a fitted eigenvector. The same source's proton/pion energy shell
+lies at opposite momenta $[0.096411559749,0.096415665292]$ GeV. This
+fixed-momentum-fibre current response is not an on-shell scattering
+amplitude: complete outgoing flux, wave-packet transfer and a lifetime
+require further identification. Inherited inputs, all probe failures
+and nonzero work are retained (\path{model/openwave_cluster_bandwidth},
+\path{model/openwave_strange_shell_current}).
 
 \paragraph{Nuclear isospin and native charge response.}
 An occupancy-gated three-cell spin interaction vanishes on every sector
@@ -1851,21 +1861,21 @@ an unassigned spin-three bound nuclear channel. A common total-spin-square
 control cannot fit both rho and Delta. These statements concern those
 specified actions, separately from the complete seven-input spectrum.
 
-The five-input strong member also admits complete operational spectroscopy
-with the full one-light-family weak contact and its filled massless-neutral
-reference. Its neutron-assigned preparation has principal energy lines
-near $0.9395478469$, $0.9395707312$ and $0.9395801015$ GeV, with conditional
-weights $0.53512$, $0.33840$ and $0.11574$. The dominant proton-assigned
-line is near $0.93827994174$ GeV with weight greater than $0.99997$.
-All smaller lines are retained. Exact charge/spin/parity reductions retain
-$199$ and $51$ prepared coordinates inside complete $1400$ and $360$
-charge carriers. A finite Fourier-register instrument executes
-$1024$, $4096$ and $16384$ pointer outcomes, reaching bin spacing
-$7.984359$ keV. Preparation failures $397/398$ and $101/102$, all pointer bins
-and certified instrument errors are explicit. The weak contact is added
-without refitting the strong coefficients. These finite spectral records
-are neither continuum nucleon poles nor transferred to the distinct
-three-massive-neutral reference (\path{model/openwave_rest_spectroscopy}).
+\paragraph{Native weak response on the same source poles.}
+Exact contraction gives vector matrix $I_5$ and compact axial matrix
+$5/3\oplus\bigl(\begin{smallmatrix}1&2/3\\2/3&1\end{smallmatrix}\bigr)^{\oplus2}$.
+The complete fixed-weight axial square $M$ obeys
+$(M-I)(M-4I)=0$, retaining all spin and isospin outputs outside the pole
+frame. Exact complementary and trial-vector bounds transfer the native
+currents to the interacting poles at six momenta: the rest vector amplitude
+is one, the calibrated rest axial interval is
+$[1.274757331914,1.275842668086]$, and the vector amplitude at phase $\pi$
+exceeds $0.994488237318$. A charge-conserving current instrument retains
+success, failure, complementary spectral outcomes and bounded source work.
+At rest its vector success probability is $1/9$, with $8/9$ failure and
+mean source work $-1.29333251/9$ MeV. These are complete source-current
+records, without an autonomous weak decay or physical lifetime
+(\path{model/openwave_pole_weak_current}).
 
 An open-chain colour source admits an exact attachment to this two-cell
 strong action. On every global colour singlet,
@@ -2374,6 +2384,17 @@ this compatibility condition, the source scaling relations and the inherited
 capacity law.
 The construction and complete records are specified in \path{model/openwave_gravity_unit_constraint}.
 
+For the complete native geometry source, the actual reference-normalized
+weak-clock log-lapse derivative is
+$-2\sinh(q)\tanh(qF)/\omega$, with profile error at most
+$2\sinh(q)(qF)^3/(3\omega)$. Commuting lattice derivatives give exact
+linearized Bianchi and gauge identities with every boundary halo retained.
+Their curvature Laplacian differs from the nearest-neighbour Poisson
+operator by $(a^2/4)\sum_i\Delta_i^2$. Zero spatial linearized stress
+forces $\gamma=1$ in the stated metric family; that stress premise and
+physical metric identification are distinct from the clock calculation
+(\path{model/openwave_source_ward}).
+
 
 \paragraph{Finite pure-gauge dynamics.}
 A distinct pure SU(2) source retains the full Haar Hilbert space on every
@@ -2394,39 +2415,47 @@ has normalized local perturbation norm $64/(g^2)^2$ and satisfies
 \href{https://arxiv.org/abs/math-ph/0412040}{Yarotsky's stability theorem}.
 The physical vacuum gap is uniform in volume at fixed spacing, with
 nonzero Wilson variance and existential constants
-(\path{model/openwave_su2_volume_gap}).
-
-For the full-Haar pure $SU(2)$ Hamiltonian, the electric Casimir is unbounded
-on each link, while a plaquette interaction has norm $\beta=2/(g^2a)$.
-Four plaquettes meet a link and at most sixteen overlap one plaquette.
-The interaction-picture commutator bound therefore gives, for disjoint
-unit-norm observables at link-graph distance $d$,
+(\path{model/openwave_su2_volume_gap}). For plaquette norm
+$\beta=2/(g^2a)$, the interaction-picture bound
 \[
  \|[\tau_t(A),B]\|\leq
  \min\left\{2,\;2|X|\sum_{n\geq d}
-                  \frac{(32\beta|t|)^n}{n!}\right\}.
+                  \frac{(32\beta|t|)^n}{n!}\right\}
 \]
-A polynomial boundary count and the same factorial tail prove norm
-convergence of local finite-volume dynamics at fixed spacing, with every
-Haar representation retained. At $g^2=32$, $a=t=1$, a four-link observable
-with buffer $32$ has a certified boundary error below $3.14\times10^{-20}$.
-This does not assign a numerical gap at that coupling. At fixed $g$, the
-Hamiltonian and its nonzero gaps scale as $1/a$; a finite physical mass needs
-a controlled changing-coupling or energy-unit trajectory. Scalar reference
-subtraction cannot change a gap. Infinite volume and continuous Hamiltonian
-time supply neither a four-dimensional spatial-continuum construction nor
-a Clay mass-gap result.
+gives norm-convergent infinite-volume local dynamics. At $g^2=32$,
+$a=t=1$, a four-link observable with buffer $32$ has boundary error below
+$3.14\times10^{-20}$. The same proof covers compact connected semisimple
+groups with first Casimir $c_G>0$ and local perturbation norm at most
+$48/[c_G(g^2)^2]$; for $SU(N)$, $c_G=(N^2-1)/(2N)$.
+These are fixed-spacing statements, without a numerical uniform-gap
+threshold (\path{model/openwave_su2_propagation}).
 
-The propagation bound is independent of the compact gauge group. For a
-compact connected semisimple group with first Casimir eigenvalue $c_G>0$,
-the same electric-star proof has local perturbation norm at most
-$48/[c_G(g^2)^2]$ and retains an existential fixed-spacing uniform gap.
-For $SU(N)$, positivity of the inverse Cartan matrix gives
-$c_G=(N^2-1)/(2N)$; nonzero fundamental Wilson variance supplies physical
-excitations in a sufficiently small perturbation interval. This extends the
-fixed-spacing argument across the gauge groups without supplying a
-spatial-continuum construction or a numerical coupling threshold.
-The construction and complete records are specified in \path{model/openwave_su2_propagation}.
+\paragraph{Interacting gauge correlations with complete Haar tails.}
+Two neighboring SU(2) plaquettes share one link. Their exact Gauss basis
+has all admissible $(j_1,j_2,J)$ and electric energy
+$\alpha[3j_1(j_1+1)+3j_2(j_2+1)+J(J+1)]$.
+The shared Casimir couples the loops. At declared $g^2=2$, $a=1$,
+complete spectral and infinite-tail bounds give
+\[
+ \begin{aligned}
+ E_1-E_0&\in[3.0919590200861,3.0919590200916],\\
+ \operatorname{Cov}(W_1,W_2)&\in
+ [0.00029712823194,0.00029712823335].
+ \end{aligned}
+\]
+The independent-loop control has exactly zero covariance. Four joint
+Wilson effects retain every outcome with nonselective ground work at most
+$\alpha/6$. The same source's centered Euclidean response satisfies
+$C(1/4)\in[0.1077022623741,0.1079898705277]$, with temporal reflection
+positivity and every representation retained. At fixed coupling and graph,
+$H(a)=H(1)/a$ makes $C_a(t)\to0$ for each $t>0$ while $C_a(0)>0$;
+this sequence fails the strongly continuous noncollapsed field limit.
+No GeV glueball or four-dimensional continuum follows. Separately, exact
+flat-vacuum dilation covariance and a nonzero finite-energy excitation
+exclude a positive gap; the Yang--Mills target does not assume that
+covariance (\path{model/openwave_coupled_haar_source},
+\path{model/openwave_coupled_haar_spectrum},
+\path{model/openwave_euclidean_refinement}).
 
 \section{The Einstein equation from a realized null balance}
 \label{sec:einstein}
@@ -2451,6 +2480,16 @@ $X_{ij}=\phi\delta_{ij}$ and $X_{00}=-\phi$. The determinant and decoder
 bound are exact calculations, and the design, injectivity and ambiguity are
 formalized in Lean \cite{ophrepo,ophEinstein}.
 \end{proof}
+
+The same decoder gives the sharp entrywise error bound
+$(2+\sqrt3)\epsilon$ for null-charge errors at most $\epsilon$.
+A Ward residual $w$ bounds the remaining metric coefficient by
+$|c(x+e_j)-c(x)|\le aw+8(2+\sqrt3)\epsilon$ for forward differences.
+Centered derivatives control only two-step differences; the exact
+checkerboard counterexample forbids substituting nearest-neighbour
+connectivity. These finite error inequalities are machine-checked and
+executed on native-profile curvature, retaining the undetermined vacuum
+metric term (\path{model/openwave_einstein_error}).
 
 \begin{theorem}[Tensor completion of a realized null balance]
 \label{thm:einstein}
@@ -2651,6 +2690,15 @@ the same observations. These are conditional capacity-history comparisons;
 neither the cosmic amplitude nor a physical register-to-horizon map is derived.
 The construction and complete records are specified in \path{model/openwave_horizon_capacity}.
 
+With conserved ideal radiation, this event-horizon branch obeys
+$d\Omega_x/d\log a=\Omega_x(1-\Omega_x)(1+r+2\sqrt{\Omega_x})$,
+where $r=\rho_r/(\rho_m+\rho_r)$. Outward Taylor integration reaches
+$z=10^6$. Its early radiation fraction scales as $a^2$, compared with
+$a^4$ for fixed capacity and a constant fraction for the Hubble-area
+control. Present amplitudes and radiation content are supplied; the
+calculation derives neither particle abundances nor an independent
+cosmic amplitude (\path{model/openwave_radiation_capacity}).
+
 The covariance and shared chronometer data are from
 \href{https://arxiv.org/abs/2003.07362}{Moresco et al.}; the supplied
 cosmological inputs are from \href{https://arxiv.org/abs/1807.06209}{Planck2018VI}.
@@ -2774,204 +2822,62 @@ independent physical tests \cite{ophalpha,ophvacuum}.
 \section{Realized results and physical obligations}
 \label{sec:scoreboard}
 
-Physical claims require one realization carrying compatible events, fields,
-action, states and readouts across refinement. The following results state
-their domains, premises and exclusion criteria. The target is equality of
-limiting observable laws; finite tests retain approximation and measurement
-errors.
-
-\subsection{Realized finite domains and physical extension}
-
-Table~\ref{tab:mission-coverage} pairs each constructed answer with its
-physical conditions. Existence and subjective experience are interpretive
-targets: public reports of experience have operational meaning, but do not
-derive the character of experience.
-The common specification gives these diverse questions a single testable
-setting. Its physical correctness depends on satisfying the conditions in
-the right column together, including the measured particle spectrum and
-responsive geometry, and on surviving independent prospective tests.
+The physical target is one realization whose limiting observable laws agree
+with measurement. Finite certificates establish their displayed domains;
+calibration and physical identification are separate statements.
+Table~\ref{tab:acceptance} collects the common-source requirements and the
+negative controls that delimit the constructions. Existence and phenomenal
+experience are interpretive questions: an implemented record interface does
+not derive why anything exists or the phenomenal character of a record.
+The construction and field papers give the detailed premise and artifact
+maps \cite{ophspine,ophcontinuum}.
 
 {\small
-\begin{longtable}{@{}L{0.23\linewidth}L{0.35\linewidth}L{0.34\linewidth}@{}}
-\caption{Explanatory scope and status of the proposed common specification.}
-\label{tab:mission-coverage}\\
+\begin{longtable}{@{}L{0.18\linewidth}L{0.36\linewidth}L{0.38\linewidth}@{}}
+\caption{Constructed domains and their physical extension. The stated failures
+apply to their tested member or identification.}
+\label{tab:mission-coverage}\label{tab:acceptance}\\
 \toprule
-\textbf{Question} & \textbf{Constructed result} & \textbf{Physical or interpretive condition}\\
+\textbf{Domain} & \textbf{Constructed result} & \textbf{Required extension and negative controls}\\
 \midrule
 \endfirsthead
 \multicolumn{3}{@{}l}{\small Table~\thetable\ continued}\\
 \toprule
-\textbf{Question} & \textbf{Constructed result} & \textbf{Physical or interpretive condition}\\
+\textbf{Domain} & \textbf{Constructed result} & \textbf{Required extension and negative controls}\\
 \midrule
 \endhead
-Why anything exists & An inhabited self-recovering history is the closure
-hypothesis; an exact finite consensus closure has fixed packets & A
-universe-level fixed point and its identification with our history are not
-established by the finite fixed-point theorem\\
-Why there are public facts & Protected overlap records have canonical
-normal forms under the displayed repair hypotheses & One source must
-realize the observer, scheduler and comparison contracts across the claimed
-domain\\
-Why experience occurs & The executable observer has defined access,
-memory, intervention and observer-relative record interfaces & These interfaces
-give no derivation of qualia or of why any record has phenomenal character\\
-Why space has three directions & The twelve-port response has an exact
-three-dimensional slow band and Euclidean completion & Physical position,
-length and a cofinal spatial refinement require the realization map (M1)\\
-Why observations are quantum & Completed records obey Born, conditioning
-and correlation identities in a finite complex algebra-state model; native
-histories reconstruct a positive functional on the full matrix algebra & The
-source must produce that algebra, its tomographic effects and its physical
-preparations; the reconstructed functional is a history ensemble and classical
-consensus alone does not imply them\\
-Why entropy increases & Fair-coin seam repair is exact conditional resampling
-with entropy production, complete-tape accounting and a native record-cost
-instance of the finite four-law core & Laboratory heat, temperature, physical
-energy exchange and a strain law need their own attachment\\
-Why these forces and particles & Complete-response premises force
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$; port phases give
-the global group; the protected defects carry exactly the six particle centre
-classes with fermionic quanta and bosonic fluxes; a generation register gives
-conditional charged-lepton ratios; a common positive matter source joins
-calibrated hadron/current data and six Dirac branches; complete outgoing
-and calibrated oscillation records have explicit error bounds & Physical
-species and interacting poles, common spatial/clock scales and a controlled
-chiral continuum; the displayed fitted inputs are not predictions\\
-Why fields propagate in $3+1$ dimensions & Controlled free fermion and
-conditional scalar limits, together with a finite interacting core, have
-explicit domains & Their states, clocks and interactions need one controlled
-relativistic continuum limit\\
-Why geometry responds to matter & Null tomography and tensor completion
-yield Einstein dynamics from the stated common null-balance and entropy
-premises & The same source must realize the geometry, conserved stress,
-clock and generalized-entropy response\\
-Why cosmological observables take their values & Finite capacity,
-response and data comparisons supply conditional relations and tests & A
-selected physical vacuum, calibrated scales and independent prospective
-comparisons are required\\*
-\bottomrule
-\end{longtable}
-}
-
-The physical extension requires autonomous localized excitations, a
-controlled chiral spatial limit, dynamical gauge fields and a common
-geometric stress and entropy response. The table summarizes those
-requirements without treating a finite certificate as empirical
-identification.
-
-\subsection{Results and obligations by layer}
-
-Table~\ref{tab:acceptance} gives the result and obligation of each layer. ``Established''
-means proved on its stated domain or executed with retained receipts;
-``conditional'' means that the conclusion depends on displayed
-antecedents beyond its realized finite instances; a physical obligation
-states the required common-source identification; and the stopping test
-is the result that would remove the
-layer, its branch or the tested law. Negative results are findings about
-the tested law, stated with their exact scope.
-
-{
-\footnotesize
-\begin{longtable}{@{}L{0.13\linewidth}L{0.27\linewidth}L{0.24\linewidth}L{0.26\linewidth}@{}}
-\caption{Established constructions, physical obligations and negative controls.}
-\label{tab:acceptance}\\
-\toprule
-\textbf{Layer} & \textbf{Established and conditional} &
-\textbf{Physical obligation} & \textbf{Negative results and stopping test}\\
-\midrule
-\endfirsthead
-\multicolumn{4}{@{}l}{\small Table~\thetable\ continued}\\
-\toprule
-\textbf{Layer} & \textbf{Established and conditional} &
-\textbf{Physical obligation} & \textbf{Negative results and stopping test}\\
-\midrule
-\endhead
-0. Closure and agreement & Established: on the finite consensus branch the
-closure map is an affine idempotent fixing exactly the packets on consensus
-normal forms; the record-closure equation is posed exactly. Interpretation
-and acceptance criterion, not a theorem &
-A history domain and closure operator for the executable model; interpretation
-maps fixed independently of validation outcomes, compatible across observers
-and refinement & The bounded completion class does not identify the
-solution $N$; no theorem selects a unique universe. A contradiction among
-indispensable premises stops the proposal\\
-1. Repair mathematics & Established: canonical observable normalizer;
-consensus normal form under the transactional diamond; adaptive-run,
-capacity and fixed-federation bounds; Born weights without continuity
-axiom, L\"uders selection, Tsirelson bound, no-copying; entropy laws of
-fair-coin repair; positive residual mismatch from fixed holonomy. Conditional: the finite algebra-state
-representation of completed records is an input & Native justification of
-the complex effect representation, equal-effect operational equivalence and
-disjoint coexistent refinement; an implemented scheduler within the specified
-process & Scheduler choices remain explicit inputs; deciding consistent
-extension is NP-complete for
-succinct Boolean systems; retained routing logs do not identify federation
-gluing. As theorems they are refuted only by a counterexample\\
-2. Carrier and repair law & Established: the seam rule from four
-requirements; the classified convex record-law family; the gap
-$(5-\sqrt5)/60$ for every admissible table; the rank-three slow-response
-completion; one seam per native repair event. Conditional: physical
-position consumes (M1) & One specified record law and federation gluing
-validated against the physical process; a physical length & At full-port energy scaling the
-refining screen loses the rank-three band. The C/E instrument test separates
-C, E and the current-only law; a resolved dispersion outside the band
-excludes the whole carrier class\\
-3. Executable observer & Established: native observer with record-caused
-feedback; electromagnetic and scalar detectors; one interacting process with
-certified infinite-occupation contrast; overlapping observers exact on
-$5{,}768$ output words; local event clocks; identification of the record law;
-coherent observers on matched screens; complete $O(1/d)$ error for the
-smooth four-read protocol; a continuing C/E finite-buffer observer with
-counted exports and an exact stationary source/complete-record marginal &
-One continuing autonomous observer with
-every service, memory, reset and resource accounted; the declared apparatus,
-schedules and preparations implemented on that same process & Outcome accuracy does not
-certify the output state; committed native records form a classical process,
-so correlations beyond $S=2$ need declared coherent preparation services\\
-4. Fields and clocks & Native screen operator with spectral dimension two;
-conditional smooth static $(1+3)$ scalar readouts; full native massive
-wave law; complete spatial execution; joint native clocks with a common
-weak-probe limit &
-Compatible physical clocks, state and energy normalization; an interacting
-chiral $3+1$ field with the observed massive and massless sectors &
-Passive repair has no wave sector; screen spectral growth excludes a direct
-elliptic three-manifold identification; a gapless spin field is not a proved
-relativistic interacting particle theory\\
-5. Gauge and matter & Exact centre-character dictionary and native
-current representations; conditional charged-lepton ratios; four-input
-hadron/axial calibration; positive common matter action, complete nucleon
-energy windows, calibrated rest bands with controlled propagation, an open strange energy shell, and triton energies,
-outgoing beta parity and calibrated neutral oscillations &
-Observed charges, spin, statistics, mixing and physical poles on one
-source, with compatible preparation, field, clock and spatial limits &
-The muon discrepancy is retained. Seven-input hyperfine calibration fits
-rho/Delta-assigned energies and excludes additional bound nuclear channels
-in its complete finite census. Neutral-pion and charge-radius comparisons
-fail, as do the unused strange and helium masses. Centre classes do not
-distinguish species, and finite energies are
-not physical resonance poles\\
-
-6. Gravity & Established: null tomography and the tensor completion from an
-explicit null-balance premise; physical energy continuity, boundary-completed
-spatial strain and polynomial-state modular work bounds; complete
-constitutive Maxwell bending, delay and native-clock records. Conditional: the Einstein equation up to
-$\Lambda$ under (G1) to (G6) & (G1) to (G6) realized on one refinement
-tower with the same matter, modular flow and clocks; defect maintenance
-energy in the same stress & The static radial product fails null balance
-for its own scalar excitation; stationary repair entropy is distinct from
-fixed-volume generalized entropy. Failure of (M4) removes the spacetime and
-Einstein conclusions together. The specified physical $G$ and speed
-attachment fails\\
-7. Cosmology and tests & Established: the deep-law uniqueness under two
-premises; $(w_0,w_a)=(-1,0)$ at fixed capacity; the de Sitter sign; the
-dispersion band; exact capacity-volume work and four conditional
-correlated fifteen-point expansion histories. Conditional capacity and pixel fixed points & A common
-physical response for $P$, capacity and scale calibration, and independently
-fixed observation maps & Minimal matter with the specified scale coefficient
-four has no pixel root; coefficient seven has a root whose response is not
-the measured coupling. Exclusion of the band, a C/E rejection, a charged-lepton
-average beyond three standard uncertainties from the balanced center, or
-exclusion of $(-1,0)$ fails its branch\\*
+Observers and records & Finite consensus normal forms, record-caused
+feedback, complete instruments, quantum identities and repair entropy laws &
+The declared preparations, algebra, scheduler and resource accounting must
+belong to the same process. Classical committed records alone supply no
+Bell violation; consensus does not select a unique physical history.\\
+Space and fields & Exact rank-three carrier response, causal event records,
+controlled free-field limits and specified interacting finite sources &
+Physical position, common clocks and an interacting chiral relativistic limit
+require realization. Full-port refinement loses the rank-three band; the
+screen spectral growth does not identify an elliptic three-manifold.\\
+Gauge and matter & Conditional Standard Model Lie type, a declared matter
+representation, centre characters and native current operators &
+Centre classes do not identify species. Charges, spin, statistics, mixing,
+and interacting particle poles must be recovered on one source and one
+compatible physical limit.\\
+Masses and decays & Conditional lepton ratios, calibrated hadron energies,
+propagating finite bands, complete weak records and calibrated neutral
+oscillations &
+The muon discrepancy, failed neutral-pion and charge-radius comparisons, and
+unused strange and helium masses are retained. Calibration targets are not
+independent predictions; an open energy shell supplies no physical decay
+amplitude by itself.\\
+Gravity & Null tomography and tensor completion, matter-energy identities,
+modular work bounds and shared photon/clock geometry records &
+The metric, conserved stress, generalized entropy and clocks must realize one
+refinement tower. The tested static scalar member fails its null balance;
+the specified physical $G$ and light-speed attachment fails.\\
+Cosmology & Capacity-work identities, conditional expansion histories,
+the deep-law implication and public-data comparisons &
+Vacuum, horizon and physical-scale selection are explicit. Shared-data
+alternatives are not independent confirmations; the tested minimal-matter
+pixel roots do not reproduce the measured coupling.\\*
 \bottomrule
 \end{longtable}
 }
@@ -2979,49 +2885,33 @@ exclusion of $(-1,0)$ fails its branch\\*
 \subsection{The realization maps}
 \label{sec:standing-maps}
 
-Five maps name what a physical realization must supply, and each boundary
-statement in this paper cites them by label.
-
+Five maps specify physical identification independently of whether the
+finite mathematical result uses them.
 \begin{description}[leftmargin=2.6em]
-\item[(M1) Position and scale.] An identification of the intrinsic carrier
-completion with physical position, with a physical length, cofinal overlap
-gluing between carriers, and a refinement limit
+\item[(M1) Position and scale.] A physical position and length for the carrier
+completion, compatible overlap gluing and a cofinal spatial refinement
 (Section~\ref{sec:three-directions}).
-\item[(M2) Clock and energy calibration.] A common comparison between
-internal evolution, laboratory duration and energy in measured units.
-The source-executed reference clock measures the same controlled
-intervals as the field, and the corresponding energy observables have
-complete detectors. Extending and validating that calibration across the
-physical process remains necessary. Native event counts are a different
-clock; the rejected direct count-to-optical-phase attachment in
-Section~\ref{sec:public-records} does not reject the calibrated reference
-clock.
-\item[(M3) Laboratory current.] An identification of the finite port response
-with a physical gauge current, with a physical matter action and a
-continuum operator limit.
-\item[(M4) One common physical tower.] A single physical refinement family
-realizing the event, modular, stress, entropy, continuum, vacuum, and scale
-premises together, rather than several independently declared islands.
-\item[(M5) An implemented and matched action.] A specified field and interaction
-law realized by the same native services, with its complete state space,
-relative normalizations and operational readouts. Parameters may be declared
-or calibrated; which predictions follow without consuming their measured
-targets must be stated. Physical identification requires compatible
-propagation, currents and interactions across refinement.
+\item[(M2) Clock and energy calibration.] One comparison between internal
+evolution, laboratory duration and measured energy. The calibrated reference
+clock and discrete native event counts are distinct; the rejected direct
+count-to-phase attachment does not reject the reference-clock construction.
+\item[(M3) Laboratory current.] A physical gauge current and matter action
+with a continuum operator limit for the finite port response.
+\item[(M4) One common physical tower.] One refinement family realizing the
+event, modular, stress, entropy, continuum, vacuum and scale premises together.
+\item[(M5) An implemented and matched action.] A field and interaction law
+implemented by the same native services with complete states, relative
+normalizations and readouts. Declared architecture and empirical calibration
+are distinguished; physical propagation, currents and interactions must have
+compatible limits.
 \end{description}
 
-The finite constructions realize restricted instances of these maps:
-a calibrated common clock, internal current operators, a full field action,
-energy readouts and compatible reference observations. A common physical extension and validation, with the requirements of
-Table~\ref{tab:acceptance}, is not established by those restricted maps.
-A theorem that consumes none of them stands on its own finite domain.
-Section~\ref{sec:public-records} tests two simple attachments of native
-records to published data. The construction paper gives the detailed premise
-map, including the retained negative controls that bound how the carrier,
-the response triplets, the feedback class and the kinetic term may be
-attached \cite{ophspine}.
+The finite sources realize restricted instances of these maps. Their
+composition into the required physical theory does not follow from separate
+successful instances. A failure of a tested attachment rejects that attachment;
+a framework-wide rejection additionally requires a proof that it is forced.
 
-%=====================================================================
+
 \section{Empirical meaning and falsifiability}
 \label{sec:empirical}
 
@@ -3381,141 +3271,40 @@ results retain their stated domains under all three.
 \section{Machine verification and reproducibility}
 \label{sec:verification}
 
-The results have different logical types, and Table~\ref{tab:claim-classes} gives the classes used throughout; each result throughout the paper carries one of them. Each step is identified by its artifact as a Lean theorem, exact executable certificate, conditional paper argument, numerical receipt, or explicit unproved premise.
+A finite theorem is a deduction from stated premises on a specified domain.
+An exhaustive certificate belongs to that proof only when its enumeration and
+soundness argument are supplied. Exact executable certificates recompute
+integer or rational identities and outward error bounds; numerical receipts
+retain their declared tolerances. A conditional analytic theorem consumes a
+specified continuum object, whereas a source limit theorem derives a limit
+from a declared execution family with explicit normalization and error control.
+Neither establishes its own physical identification. Reconstruction
+implications retain their geometric premises and unsupplied realization maps.
 
-\begin{table}[htbp]
-\centering
-\small
-\caption{Epistemic claim classes used in the manuscript.}
-\label{tab:claim-classes}
-\begin{tabular}{@{}L{0.28\linewidth}L{0.64\linewidth}@{}}
-\toprule
-\textbf{Finite theorem} & A deductive result proved from displayed premises
-on a stated finite domain. An exhaustive computation counts as part of the
-proof only with a specified domain and a soundness argument.\\
-\textbf{Certified finite computation} & An executable witness whose inputs,
-controls, and output are fixed by a reproducible certificate; execution alone
-does not promote its interpretation to a theorem.\\
-\textbf{Conditional analytic theorem} & A theorem whose hypotheses include a supplied continuum action, state space or limit; its conclusion holds on that supplied object.\\
-\textbf{Source limit theorem} & A theorem about the limit of a declared family
-of finite source executions along a stated subsequence, with its
-normalizations and order of limits displayed; the limit is derived, and its
-physical identification is a separate claim.\\
-\textbf{Reconstruction implication} & An exact implication whose antecedents include displayed geometric or physical premises.\\
-\textbf{Unsupplied realization map} & A required map from a finite object to a
-physical event, current, field, clock, scale, or continuum structure for which
-no construction is asserted.\\
-\textbf{Diagnostic} & A certified computation compared against measured
-values that it consumes; never counted as a prediction.\\
-\textbf{Prospectively fixed conditional test} & A diagnostic with a custody-bound
-target definition, kill band, precision floor, and decision rule fixed
-before comparison.\\
-\textbf{Frozen prospective branch prediction} & A source calculation and
-decision rule fixed before any eligible comparison, conditional on a named
-physical branch. Failure rejects that branch; its scope extends to the whole
-framework only if the branch is proved forced and exclusive.\\
-\bottomrule
-\end{tabular}
-\end{table}
+Calibration consumes comparison data. A prospective conditional test fixes its
+observable, precision, decision rule and source before an eligible comparison;
+a frozen branch prediction additionally identifies which physical branch the
+result can reject. These distinctions apply to each numerical comparison and
+prevent the same supplied target from being counted as independent evidence.
+
+The Lean dependency closures reported here contain no admitted propositions.
+The executable certificates bind their source, inputs and full outcomes,
+including failed preparation and complementary sectors. Independent replay
+checks canonical exact outputs and the stated numerical tolerances, while
+adversarial tests exercise the acceptance boundaries. For the nuclear source,
+exact Casimir/parity projectors and a positive full Gram matrix certify complete
+state coordinates; fixed trial vectors and residual bounds then certify the
+same complete spectra without a floating rank decision.
+
+The source, receipts and rebuild commands are public
+\cite{ophrepo,ophsim,ophmodel}. The construction paper gives the observer and
+resource contracts \cite{ophspine}; the source-limit paper states convergence
+constants and orders of limits \cite{ophcontinuum}. Public-data reducers bind
+their datasets, observation hypotheses and decision rules
+\cite{ophbell,ophpublicdata}. Exact finite certificates, analytic limit proofs
+and physical comparisons retain these distinct domains throughout the paper.
 
 
-
-Each result maps to an artifact class: a Lean library with no admitted
-propositions in the dependency closure reported here, including formal
-premise boundaries and countermodels; exact-arithmetic code receipts,
-integer and rational computations and outward-rounded interval
-certificates, each emitting a canonical hashed payload; executable observer
-receipts that replay every retained result and check its artifact hashes;
-simulation receipt bundles pinning the source revision, configuration, seed
-where stochastic, tolerances and output hashes; verifiers that recompute
-verdicts from clause vectors and reject receipts whose stored verdict
-disagrees; and adversarial negative controls, so that every certificate
-ships with mutations that must be detected. Machine-readable records classify
-every quantitative row as a source result, reconstruction implication,
-diagnostic, prospectively fixed test or rejected candidate, and reject any
-stronger classification unsupported by the recorded dependencies.
-
-Table~\ref{tab:artifact-map} names the artifact family behind each group of
-results. The repository, receipts, schemas and rebuild instructions are
-public \cite{ophrepo,ophsim,ophmodel}. The formal and executable stack checks
-the claims assigned to it and enforces their stated boundaries; analytic
-arguments in this manuscript retain their displayed proofs, and no part of
-the stack establishes physical realization.
-
-{
-\small
-\begin{longtable}{@{}L{0.30\linewidth}L{0.64\linewidth}@{}}
-\caption{Principal verification artifacts and their scope.}
-\label{tab:artifact-map}\\
-\toprule
-\textbf{Results} & \textbf{Principal artifacts}\\
-\midrule
-\endfirsthead
-\multicolumn{2}{@{}l}{\small Table~\thetable\ continued}\\
-\toprule
-\textbf{Results} & \textbf{Principal artifacts}\\
-\midrule
-\endhead
-Executable observer, detectors, interacting process and C/E instruments &
-The observer receipts with exhaustive path replays, seeded executions,
-feedback controls, exact and interval certificates, and a single
-verification entry point that replays every receipt and checks its hashes
-\cite{ophmodel,ophspine}\\
-Overlapping observers, local clocks, screens and the continuum operator &
-The model packages for the observer correspondence, the compiled clock
-history, joint and active clocks, repair identification, federated screens
-and the coherent screen observer, each with exact or interval receipts,
-independent oracles and replay; the analytic limit arguments with their
-constants and order of limits \cite{ophcorrespondence,ophcontinuum}\\
-Public-data comparisons & Hash-pinned public records (Bell trials, optical
-ratio traces, CMB posterior chains) with exact rational reducers, their
-stated readout hypotheses and replay checks \cite{ophbell,ophpublicdata}\\
-Normal forms, stability, refinement, complexity and the transactional
-diamond & The observable-normal-forms library and component-paper
-reductions; the local-diamond and Newman arguments of this manuscript; the
-finite transaction-model verifier\\
-Born weights, L\"uders selection, Tsirelson saturation, no-cloning & The
-event-algebra modules for the interface, conditioning, the bound and the
-public record algebra, with per-module axiom audits\\
-Native quantum functional, modular histories and entropy laws & The closed-history
-reconstruction and return-census packages; the conditional-resampling and memory-refresh
-packages with their Lean instances\\
-Charged spectra, conserved quadratics and the mass comparison & Exact integer and interval
-line tables with independent moment checks; the compiled composite instrument; the
-source-pinned multiloop replay with its reference tables\\
-Carrier selector and Maxwell selection & Exact sign-matrix enumeration and stability bounds; exact
-rational rank eliminations with countercontrols for each hypothesis\\
-Rank-three completion & The port-Gram repair band, covariance and
-frame-quotient modules with a source-pinned receipt and independent
-verifier\\
-Gauge Lie type, matrix witness, matter image and exterior selection & The
-screen modules for the carrier action, commutant and incidence response; the
-exact-arithmetic port current certificate; the trace-balanced kernel and
-exterior scan modules\\
-Causal precursor, count limit and proper-time readout & The provenance and
-geometry modules; the source-record family receipts with exact all-pairs
-counts through $q=89$ and the sampled $q=144$ level, the carrier realization
-receipts and event logs, and the public archive\\
-Null tomography, small-ball arithmetic and tensor completion & The
-Einstein-branch tensor module for null directions, design, decoder,
-injectivity and metric ambiguity; explicit null-balance, Ward, Bianchi and
-scale premises\\
-Angular-rank theorem, frozen branches and the dispersion band & The
-primitive-port prediction and carrier-class band modules with mutation
-tests; the custody-bound prediction register\\
-Exact federation and the closure loop & The level-six configuration, seeds,
-seam arrays, loads, per-schedule ledgers, quotient hashes, standalone
-verifier and public archive; the level-ten settlement receipts; the event
-logs and recovered specifications of the canonical and control sources\\
-Dark sector, vacuum coordinate and closure roots & The dark-sector,
-deep-profile, per-cut and fixed-capacity modules with the matched seen-data
-diagnostic; the capacity closure and nonidentifiability modules; the
-interval-certified grain root\\*
-\bottomrule
-\end{longtable}
-}
-
-%=====================================================================
 \section{Discussion and comparison}
 \label{sec:discussion}
 
@@ -3608,8 +3397,8 @@ A native action fits nucleon/pion energies and the axial magnitude
 without rescaling the current; the seven-input hyperfine member also
 fits nuclear binding and rho/Delta-assigned energies, retaining its
 failed neutral-pion and radius comparisons. Complete spatial complement
-bounds certify calibrated nucleon rest bands and a positive common kinetic
-rule. A local strange source has an energy-conserving proton/pion shell,
+bounds certify calibrated interacting nucleon source poles, their preparation
+weights and a positive common kinetic rule. A local strange source has an energy-conserving proton/pion shell,
 without an executed weak lifetime. Strange and triton calibrations retain
 failed unused strange and helium comparisons. The four-input
 common-Dirac semileptonic member proves positivity, an exact electron

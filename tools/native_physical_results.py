@@ -14,6 +14,9 @@ PACKAGES = (
     'dirac_field_connection', 'gravity_unit_constraint', 'horizon_capacity',
     'su2_propagation',
     'baryon_dispersion', 'cluster_bandwidth', 'nuclear_isospin',
+    'baryon_poles', 'pole_weak_current', 'strange_shell_current',
+    'coupled_haar_source', 'coupled_haar_spectrum', 'euclidean_refinement',
+    'source_ward', 'einstein_error', 'radiation_capacity',
 )
 
 
@@ -92,6 +95,7 @@ def collect(root):
         'cosmology_calibration_boundary':capacity['calibration_boundary'],
         'native_scale_and_structure': scale_and_structure(data),
         'propagation_and_nuclei': propagation_and_nuclei(data),
+        'pole_currents_and_full_field_records': pole_currents_and_full_fields(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -230,6 +234,7 @@ def render(value):
         'These sources are not pooled into one identified physical theory.', '']
     lines += render_propagation_and_nuclei(value['propagation_and_nuclei'])
     lines += render_scale_and_structure(value['native_scale_and_structure'])
+    lines += render_pole_currents_and_full_fields(value['pole_currents_and_full_field_records'])
     return lines
 
 
@@ -335,4 +340,149 @@ def render_scale_and_structure(value):
         'coupling threshold is existential. At fixed coupling all energy gaps scale as 1/a, so a '
         'finite physical continuum gap requires a further scaling construction. Neither a physical '
         'GeV glueball mass nor the four-dimensional Yang-Mills Clay theorem follows.', '']
+    return lines
+
+
+def pole_currents_and_full_fields(data):
+    """Typed source results; physical validation and calibration counts stay fixed."""
+    poles=data['baryon_poles']; weak=data['pole_weak_current']; strange=data['strange_shell_current']
+    source=data['coupled_haar_source']; spectrum=data['coupled_haar_spectrum']; euclidean=data['euclidean_refinement']
+    ward=data['source_ward']; error=data['einstein_error']; radiation=data['radiation_capacity']
+    forbidden=[
+        poles['physical_3plus1_Lorentz_particle_pole_identification'],poles['mass_refit_performed'],
+        weak['autonomous_weak_decay_or_neutron_lifetime_proved'],weak['physical_3plus1_current_or_particle_dictionary_proved'],
+        weak['new_empirical_current_or_mass_input'],strange['physical_on_shell_decay_amplitude_proved'],
+        strange['physical_Lambda_lifetime_proved'],strange['new_mass_or_current_calibration'],
+        strange['complete_component_probe']['normalizable_wave_packet_transfer_executed'],
+        source['scope']['four_dimensional_Yang_Mills_reconstruction'],source['scope']['physical_GeV_mass'],
+        spectrum['scope']['Clay_problem_solved'],spectrum['scope']['spatial_continuum_Yang_Mills'],
+        euclidean['scope']['four_dimensional_interacting_continuum_constructed'],euclidean['scope']['Clay_problem_solved'],
+        ward['scope']['physical_metric_assignment_derived'],ward['scope']['nonlinear_einstein_equation_derived'],
+        ward['scope']['physical_Newton_strength_matched'],error['scope']['continuum_or_nonlinear_einstein_theorem'],
+        error['scope']['cosmological_constant_fixed_by_null_records'],error['scope']['physical_stress_identification_proved'],
+        radiation['scope']['independent_observational_validation'],radiation['scope']['cosmological_amplitude_predicted'],
+        radiation['scope']['early_universe_abundances_calculated'],radiation['scope']['standard_model_thermal_history_derived'],
+    ]
+    if any(x is not False for x in forbidden):
+        raise ValueError('source result promoted to unproved physical validation')
+    if strange['complete_component_probe']['probabilities_are_fixed_total_momentum_fibre_quantities'] is not True:
+        raise ValueError('strange-current fixed-fibre domain omitted')
+    return {
+        'physical_comparison_count_added':0,
+        'baryon_poles':{'rest_records':[
+            {'assignment':r['assignment'],'source_pole_GeV_interval':r['source_pole_GeV_interval'],
+             'prepared_trial_pole_weight_lower':r['pole']['prepared_trial_pole_weight_lower'],
+             'original_input_pole_event_probability_lower':r['pole']['original_input_pole_event_probability_lower']}
+            for r in poles['rest_source_poles']],
+            'momentum_fibre_count':len(poles['momentum_fibre_records']),
+            'matrix_spectral_measure':poles['matrix_spectral_measure'],
+            'complete_observer_instrument':poles['complete_observer_instrument'],
+            'input_ancestry':poles['input_ancestry'],'scope':poles['scope']},
+        'pole_weak_current':{'momentum_records':[
+            {'cosine':r['cosine'],'sine':r['sine'],'currents':{
+                k:{name:v[name] for name in ('actual_source_pole_amplitude_magnitude_interval',
+                  'current_success_then_proton_pole_probability_interval','certificate')}
+                for k,v in r['currents'].items()}}for r in weak['momentum_records']],
+            'complete_native_instrument':weak['complete_native_instrument'],
+            'ancestry':weak['ancestry'],'scope':weak['scope']},
+        'strange_current':{'Lambda_source_pole_GeV_interval':strange['Lambda_source_pole']['full_ground_GeV_interval'],
+            'exact_native_vertex':strange['exact_native_vertex'],
+            'full_pole_to_complete_compact_N5_response':strange['full_pole_to_complete_compact_N5_response'],
+            'complete_component_probe':strange['complete_component_probe'],
+            'same_source_energy_shell':strange['same_source_energy_shell'],
+            'inherited_calibrations':strange['inherited_calibrations'],
+            'remaining_premise':strange['remaining_premise'],'scope':strange['scope']},
+        'coupled_Haar_source':{k:source[k]for k in ('graph','source','physical_basis','shared_electric_diagonal',
+            'magnetic_operator','diagnostic_caps','complete_source_properties','scope')},
+        'coupled_Haar_spectrum':{'source':spectrum['source'],'empirical_fit_inputs':spectrum['empirical_fit_inputs'],
+            'records':[{k:r[k]for k in ('g_squared_exact','spacing_exact','shared_edge',
+                'diagnostic_max_twice_loop_spin','retained_complete_dimension','full_Haar_gap_interval_exact',
+                'connected_Wilson_covariance_interval_exact','Wilson_variance_interval_exact',
+                'complete_joint_observer_instrument','scope')}for r in spectrum['records']],
+            'physical_interpretation':spectrum['physical_interpretation'],'scope':spectrum['scope']},
+        'Euclidean_response':{'representation_refinement_records':[
+            {k:r[k]for k in ('proof_coordinate_key','source_Haar_representations_truncated',
+                'vacuum_weight_retained','correlations','finite_positive_reflection_form_interval_exact')}
+            for r in euclidean['representation_refinement_records']],
+            'fixed_coupling_spacing_trajectory':euclidean['fixed_coupling_spacing_trajectory'],
+            'continuum_acceptance':euclidean['continuum_acceptance'],'scope':euclidean['scope']},
+        'native_lapse_and_Ward':{k:ward[k]for k in ('source_q_exact','source_stiffness_exact','source_sites',
+            'boundary_convention','symbolic','native_clock_response','finite_geometry','scope')},
+        'finite_Einstein_error':{k:error[k]for k in ('sharp_maximum_entry_error_constant',
+            'operator_norm_error_upper_constant','example_uniform_charge_error_exact',
+            'maximum_tensor_entry_error_bound_interval','ward_transport','scope')},
+        'radiation_capacity':{k:radiation[k]for k in ('inputs','conservation_identity','equation_of_state',
+            'integration_certificate','future_event_branch','fixed_capacity_branch','hubble_capacity_control',
+            'early_scaling','scope')},
+    }
+
+
+def render_pole_currents_and_full_fields(value):
+    poles=value['baryon_poles']; weak=value['pole_weak_current']; strange=value['strange_current']
+    lines=['### Native source poles and their current responses','',
+        'The [complete interacting baryon source](../model/openwave_baryon_poles/PROOF.md) '
+        'has isolated momentum-fibre poles, with the electron unit and inherited strong/axial '
+        'calibrations retained. The rational prepared trials have the following certified pole weights; '
+        'these weights are spectral residues, not percentage agreements with Nature.', '',
+        '| Source assignment | Pole energy / GeV | Prepared trial pole weight at least |',
+        '| --- | ---: | ---: |']
+    for row in poles['rest_records']:
+        lines.append(f"| {row['assignment']} | {interval(row['source_pole_GeV_interval'])} | {decimal(row['prepared_trial_pole_weight_lower'])} |")
+    rest=next(r for r in weak['momentum_records']if r['cosine']=='1'and r['sine']=='0')
+    lines += ['',
+        'The [same native CAR currents](../model/openwave_pole_weak_current/PROOF.md) give rest vector '
+        f"amplitude {interval(rest['currents']['vector']['actual_source_pole_amplitude_magnitude_interval'])} "
+        f"and axial amplitude {interval(rest['currents']['axial']['actual_source_pole_amplitude_magnitude_interval'])}. "
+        'Every tested momentum has positive certified response. Preparation failure, current-produced '
+        'channels, the charge reference and source work remain recorded. These fixed-spacing source '
+        'poles are not identified four-dimensional relativistic particles or an autonomous beta-decay lifetime.', '',
+        'The [native strange current](../model/openwave_strange_shell_current/PROOF.md) satisfies '
+        '6 c² G <= W*W <= 7 c² G on every compact Lambda state, with the inherited Cabibbo factor '
+        'c=sin(theta)cos(theta). Its complete compact five-body response norm squared is '
+        f"{interval(strange['full_pole_to_complete_compact_N5_response']['amplitude_norm_squared_interval'])}; "
+        'all noncompact outputs and probe failure are retained. The same strong source has an '
+        'opposite proton–pion shell at '
+        f"{interval(strange['same_source_energy_shell']['opposite_momentum_GeV_interval'])} GeV. "
+        'The compact-current probabilities are total-momentum-zero relative-fibre quantities; transfer '
+        'to a normalizable center-of-mass wave packet is not executed. A nonzero compact output is '
+        'not the interacting on-shell scattering projector, and no Lambda decay lifetime follows.', '',
+        '### Coupled full-Haar gauge records','',
+        'The [shared-link two-plaquette source](../model/openwave_coupled_haar_source/PROOF.md) retains '
+        'every admissible spin-network channel and the entire representation complement. Its '
+        '[exact spectral bounds](../model/openwave_coupled_haar_spectrum/PROOF.md) use declared '
+        'coupling and spacing, with no empirical fit:', '',
+        '| g² | spacing | maximum twice-spin proof coordinate | Gap / source unit | Connected Wilson covariance |',
+        '| ---: | ---: | ---: | ---: | ---: |']
+    for row in value['coupled_Haar_spectrum']['records']:
+        if row['shared_edge']:
+            lines.append(f"| {row['g_squared_exact']} | {row['spacing_exact']} | {row['diagnostic_max_twice_loop_spin']} | {interval(row['full_Haar_gap_interval_exact'])} | {interval(row['connected_Wilson_covariance_interval_exact'])} |")
+    e=value['Euclidean_response']; row=e['representation_refinement_records'][-1]
+    quarter=next(r for r in row['correlations']if r['Euclidean_time_exact']=='1/4')
+    lines += ['',
+        'The independent-loop control retains zero covariance. Complete joint Wilson instruments '
+        'retain all four outcomes and a nonzero apparatus-work budget. The '
+        '[same-source Euclidean response](../model/openwave_euclidean_refinement/PROOF.md) at time 1/4 is '
+        f"{interval(quarter['full_source_connected_correlation_interval_exact'])}. "
+        'A fixed-coupling shrinking-spacing sequence has gap proportional to 1/a and collapses '
+        'positive-time correlations in its unchanged clock. These are finite-graph full-Haar results, '
+        'without a physical GeV glueball, a four-dimensional Yang–Mills continuum or a Clay-prize claim.', '',
+        '### Native clock response, finite tensor error and radiation','',
+        'The [actual weak-probe log lapse](../model/openwave_source_ward/PROOF.md) has source-energy '
+        f"derivative {value['native_lapse_and_Ward']['native_clock_response']['formula']}, "
+        'normalized by the nonunit vacuum lapse cosh(qF). Commuting centered differences give an exact '
+        'linearized Bianchi identity. The metric/stress dictionary and physical Newton strength remain inputs or open identifications.', '',
+        'The [nine-null tensor decoder](../model/openwave_einstein_error/PROOF.md) has sharp entrywise '
+        f"error constant {value['finite_Einstein_error']['sharp_maximum_entry_error_constant']} "
+        f"and operator-norm upper constant {value['finite_Einstein_error']['operator_norm_error_upper_constant']}. "
+        'Ward errors propagate only on the actual difference graph; the retained centered-difference '
+        'checkerboard prevents a nearest-neighbour constancy claim. Null data leave the metric multiple undetermined.', '']
+    radiation=value['radiation_capacity']; last=radiation['future_event_branch'][-1]; inputs=radiation['inputs']
+    lines += ['The [ideal-radiation capacity branch](../model/openwave_radiation_capacity/PROOF.md) uses supplied '
+        f"H0={decimal(inputs['H0_km_s_Mpc'])}, Omega_m={decimal(inputs['Omega_m0'])} and "
+        f"Omega_r={decimal(inputs['Omega_r0'])}. Exact outward Taylor bounds reach z={last['redshift']}, "
+        f"where the event-area dark fraction lies in {interval(last['Omega_dark_interval'])}. "
+        'The radiation-era fraction scales as a² for event-area capacity and a⁴ for fixed capacity. '
+        'No cosmological amplitude, horizon selection, Standard Model thermal history, early abundance '
+        'or independent observational validation is added. These source-qualified records add zero '
+        'Nature-validation rows.', '']
     return lines
