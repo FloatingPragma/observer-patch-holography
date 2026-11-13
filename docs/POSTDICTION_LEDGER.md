@@ -397,6 +397,35 @@ neutral law and do not constitute a prospective FZ-03 verdict.
 
 - The frozen dispersion rows FZ-11 and FZ-12 share the quadratic coefficient delta_gamma2 = -a^2/20. With the natural scale a = sqrt(P) l_P it is -5.47 x 10^-58 eV^-2, 5.47 times the photon-only Pierre Auger 2022 bound delta_gamma2 > -1 x 10^-58 eV^-2. The bound is scenario- and interaction-dependent and predates both freezes, so this retrospective exposure decides nothing under the frozen rules (`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; [frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).
 
+## Source-qualified masses and decay widths
+
+[Exact unit transport and complete particle accounting](../model/openwave_mass_catalogue/PROOF.md) preserve every spectral weight and preparation failure. Each row retains its own source; these values do not constitute one fully identified interacting physical spectrum.
+
+| Assigned channel | Energy / GeV | Role |
+| --- | ---: | --- |
+| electron | 0.00051099895069 | electron anchor |
+| muon | 0.105659414496 | charged analyzer, retrospective phase 2/9 |
+| tau | 1.77698497081 | charged analyzer, retrospective phase 2/9 |
+| nu_1 | 1e-12 | oscillation calibration; declared lightest mass |
+| nu_2 | 8.71206060585e-12 | oscillation calibration; declared lightest mass |
+| nu_3 | 5.01398045469e-11 | oscillation calibration; declared lightest mass |
+| proton | 0.93827208943 | strong-sector calibration |
+| neutron | 0.93956542194 | strong-sector calibration |
+| charged_pion | 0.13957039 | strong-sector calibration |
+| deuteron-assigned channel | 1.87561294497 | fifth-input binding calibration |
+
+The nuclear preparation succeeds with probability 1/17000; all failures and the unassigned spin-three bound channel are retained. The supplied binding is not an independent prediction. Neutrino flavour labels are superpositions; right-chiral sterile coordinates and antiparticles share the corresponding Dirac masses.
+
+| Native transition | Partial width / GeV |
+| --- | ---: |
+| muon -> electron + neutrino + antineutrino | 3.0087626e-19 |
+| tau -> electron + neutrino + antineutrino | 4.0489895e-13 |
+| tau -> muon + neutrino + antineutrino | 3.93790076e-13 |
+
+The tau muon/electron partial-width ratio is 0.972563836, compared with the unused PDG 2025 value 0.9730 +/- 0.0022. GF is a supplied weak normalization with muon-lifetime ancestry. The muon normalization check gives 2.1876500 microseconds, a -0.4247% difference without radiative corrections. Inverse tau partial widths are not total tau lifetimes. The massive-source survival bounds are analytic finite-lifetime guarantees; the 64-bin comparison executions are separately labelled.
+
+The complete 17-species quadratic comparison also supplies running quark parameters, tree boson coefficients and an optional Weinberg neutral prescription. They keep their renormalization conventions and imported inputs; they are not identified native physical pole masses.
+
 ## Native calibrated masses and currents
 
 The [native split-site construction](../model/openwave_axial_state/PROOF.md) uses the following empirical inputs. Its native current is unchanged; the axial datum selects the state through a source coefficient. The displayed agreements are calibrations, not independent predictions.

@@ -45,7 +45,7 @@
       "status": "PROPOSED_NOT_ESTABLISHED"
     },
     "parents": {
-      "claims/claim_registry.yaml": "fb3fe58fb6171d61e353e41ef8c8cbdf0f4601d3458483894a39d907d7c97f01",
+      "claims/claim_registry.yaml": "4263c331929a8251ac6ac843d2ed614a03be07bd51e0c2d577c806b06a5146f0",
       "claims/completion_program.json": "087ed60ea3be30358c10772922b49134251d1d7b750e1b4c220df300d92c181d",
       "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
       "docs/OPH_EXECUTABLE_HYPOTHESIS.md": "2c9e5a3eee562f7de42da4a90569aa7cd566c74e91326e54a60790d83f03d5d5"
@@ -8943,6 +8943,722 @@
     "hand_typed_measured_values": false,
     "new_axiom_introduced": false,
     "public_promotion_allowed": false
+  },
+  "mass_and_decay_catalogue": {
+    "Dirac_masses": [
+      {
+        "antiparticle_same_mass": true,
+        "enclosure_role": "analyzer numerical enclosure; no experimental or model uncertainty included",
+        "input_ancestry": [
+          "electron mass anchor",
+          "retrospectively selected analyzer phase 2/9",
+          "declared Higgs-Wilson coefficient r=1"
+        ],
+        "mass_GeV": 0.00051099895069,
+        "mass_GeV_exact": "51099895069/100000000000000",
+        "numerical_enclosure_GeV": [
+          "51099895069/100000000000000",
+          "51099895069/100000000000000"
+        ],
+        "observable": "unique free colourless charged band minimum",
+        "openwave_rows": [
+          3,
+          11
+        ],
+        "particle": "electron",
+        "physical_interacting_pole_identified": false,
+        "source_member": "native Higgs-Wilson charged family",
+        "source_receipt": "model/openwave_single_valley_leptons/results.json"
+      },
+      {
+        "antiparticle_same_mass": true,
+        "enclosure_role": "analyzer numerical enclosure; no experimental or model uncertainty included",
+        "input_ancestry": [
+          "electron mass anchor",
+          "retrospectively selected analyzer phase 2/9",
+          "declared Higgs-Wilson coefficient r=1"
+        ],
+        "mass_GeV": 0.10565941449590446,
+        "mass_GeV_exact": "159283043972092611368697046588384439463344581107/1507513975276350682112296977458463100000000000000",
+        "numerical_enclosure_GeV": [
+          "79641521986046305684348523294192219706122343019/753756987638175341056148488729231600000000000000",
+          "9955190248255788210543565411774027469652779761/94219623454771917632018561091153937500000000000"
+        ],
+        "observable": "unique free colourless charged band minimum",
+        "openwave_rows": [
+          3,
+          11
+        ],
+        "particle": "muon",
+        "physical_interacting_pole_identified": false,
+        "source_member": "native Higgs-Wilson charged family",
+        "source_receipt": "model/openwave_single_valley_leptons/results.json"
+      },
+      {
+        "antiparticle_same_mass": true,
+        "enclosure_role": "analyzer numerical enclosure; no experimental or model uncertainty included",
+        "input_ancestry": [
+          "electron mass anchor",
+          "retrospectively selected analyzer phase 2/9",
+          "declared Higgs-Wilson coefficient r=1"
+        ],
+        "mass_GeV": 1.776984970813427,
+        "mass_GeV_exact": "133941483867863977585942999639613875805944774879/75375698763817534105614848872923155000000000000",
+        "numerical_enclosure_GeV": [
+          "1339414838678639775859429996396138758008347853721/753756987638175341056148488729231600000000000000",
+          "1339414838678639775859429996396138758110547643859/753756987638175341056148488729231500000000000000"
+        ],
+        "observable": "unique free colourless charged band minimum",
+        "openwave_rows": [
+          3,
+          11
+        ],
+        "particle": "tau",
+        "physical_interacting_pole_identified": false,
+        "source_member": "native Higgs-Wilson charged family",
+        "source_receipt": "model/openwave_single_valley_leptons/results.json"
+      },
+      {
+        "antiparticle_same_mass": true,
+        "enclosure_role": "numerical square-root enclosure at fixed supplied oscillation inputs",
+        "input_ancestry": [
+          "NuFIT 6.0 IC24/SK six oscillation inputs",
+          "normal ordering",
+          "declared m1=0.001 eV"
+        ],
+        "mass_GeV": 1.0000000000000002e-12,
+        "numerical_enclosure_GeV": [
+          "730750818665451459101842416358141509827966271/730750818665451459101842416358141509827966271488000000000",
+          "1461501637330902918203684832716283019655932543/1461501637330902918203684832716283019655932542976000000000"
+        ],
+        "observable": "Dirac mass eigenvalue; flavour states are superpositions",
+        "openwave_rows": [
+          9,
+          10
+        ],
+        "particle": "nu_1",
+        "physical_interacting_pole_identified": false,
+        "source_member": "calibrated native Dirac neutral family",
+        "source_receipt": "model/openwave_neutrino_calibration/results.json",
+        "sterile_right_chirality_is_same_mass_species": true
+      },
+      {
+        "antiparticle_same_mass": true,
+        "enclosure_role": "numerical square-root enclosure at fixed supplied oscillation inputs",
+        "input_ancestry": [
+          "NuFIT 6.0 IC24/SK six oscillation inputs",
+          "normal ordering",
+          "declared m1=0.001 eV"
+        ],
+        "mass_GeV": 8.712060605849802e-12,
+        "numerical_enclosure_GeV": [
+          "2546538167995108415384894001779342951170927659/292300327466180583640736966543256603931186508595200000000",
+          "1591586354996942759615558751112089344481829787/182687704666362864775460604089535377456991567872000000000"
+        ],
+        "observable": "Dirac mass eigenvalue; flavour states are superpositions",
+        "openwave_rows": [
+          9,
+          10
+        ],
+        "particle": "nu_2",
+        "physical_interacting_pole_identified": false,
+        "source_member": "calibrated native Dirac neutral family",
+        "source_receipt": "model/openwave_neutrino_calibration/results.json",
+        "sterile_right_chirality_is_same_mass_species": true
+      },
+      {
+        "antiparticle_same_mass": true,
+        "enclosure_role": "numerical square-root enclosure at fixed supplied oscillation inputs",
+        "input_ancestry": [
+          "NuFIT 6.0 IC24/SK six oscillation inputs",
+          "normal ordering",
+          "declared m1=0.001 eV"
+        ],
+        "mass_GeV": 5.0139804546886705e-11,
+        "numerical_enclosure_GeV": [
+          "18319851610181590024251424890361959731155723109/365375409332725729550921208179070754913983135744000000000",
+          "73279406440726360097005699561447838924622892437/1461501637330902918203684832716283019655932542976000000000"
+        ],
+        "observable": "Dirac mass eigenvalue; flavour states are superpositions",
+        "openwave_rows": [
+          9,
+          10
+        ],
+        "particle": "nu_3",
+        "physical_interacting_pole_identified": false,
+        "source_member": "calibrated native Dirac neutral family",
+        "source_receipt": "model/openwave_neutrino_calibration/results.json",
+        "sterile_right_chirality_is_same_mass_species": true
+      }
+    ],
+    "complete_calibrated_comparison_catalogue": [
+      {
+        "input_ancestry": [
+          "Yukawa_up",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.0012359411566124987,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "308985289153124705280522463867550162022371599219009584676010596503273349/250000000000000000000000000000000000000000000000000000000000000000000000000",
+          "12359411566124988211220898554702006480894863968760383387040423860130933961/10000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "up",
+        "physical_matching_required": "interacting selfenergy/pole matching and source-clock identification; confinement additionally applies to quarks",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_charm",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.6242499655172186,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "1560624913793046420859092998022551183584716228365915164283711520754396817267/2500000000000000000000000000000000000000000000000000000000000000000000000000",
+          "6242499655172185683436371992090204734338864913463660657134846083017587269069/10000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "charm",
+        "physical_matching_required": "interacting selfenergy/pole matching and source-clock identification; confinement additionally applies to quarks",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_top",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 169.88959799289776,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "1698895979928977539276292015375074665345136129463969880215793363506585504394401/10000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "849447989964488769638146007687537332672568064731984940107896681753292752197201/5000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "top",
+        "physical_matching_required": "interacting selfenergy/pole matching and source-clock identification; confinement additionally applies to quarks",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_down",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.0027017666465740547,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "27017666465740548520698408802524986230034097356701750267430596772419535611/10000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "6754416616435137130174602200631246557508524339175437566857649193104883903/2500000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "down",
+        "physical_matching_required": "interacting selfenergy/pole matching and source-clock identification; confinement additionally applies to quarks",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_strange",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.053747985146411374,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "537479851464113770792454049242843398528077985108560281272069454739775344159/10000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "3359249071650711067452837807767771240800487406928501757950434092123595901/62500000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "strange",
+        "physical_matching_required": "interacting selfenergy/pole matching and source-clock identification; confinement additionally applies to quarks",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_bottom",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 2.862404952855039,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "14312024764275194823215567720240580206573090895231900822637279491617955126793/5000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "28624049528550389646431135440481160413146181790463801645274558983235910253587/10000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "bottom",
+        "physical_matching_required": "interacting selfenergy/pole matching and source-clock identification; confinement additionally applies to quarks",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_electron",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.000487788762347831,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "4877887623478309671294406771503543889275262984907622816382145061878654653/10000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "2438943811739154835647203385751771944637631492453811408191072530939327327/5000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "electron",
+        "physical_matching_required": "interacting pole/width matching and source-clock identification",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_muon",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.10275975698370234,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "51379878491851170023650956717022569804322351588946616217309252745434771467/500000000000000000000000000000000000000000000000000000000000000000000000000",
+          "1027597569837023400473019134340451396086447031778932324346185054908695429341/10000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "muon",
+        "physical_matching_required": "interacting pole/width matching and source-clock identification",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "Yukawa_tau",
+          "v_SM"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 1.7455139422269061,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "13636827673647703906284984041624406827886035748954225764423786730616430807/7812500000000000000000000000000000000000000000000000000000000000000000000",
+          "17455139422269061000044779573279240739694125758661408978462447015189031432961/10000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "running pure MSbar action parameter at mu=91.1876 GeV",
+        "particle": "tau",
+        "physical_matching_required": "interacting pole/width matching and source-clock identification",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "oscillation mass-squared differences"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.0,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "0",
+          "0"
+        ],
+        "observable": "optional calibrated Weinberg tree prescription; low-energy normal-ordering targets at the chosen common background",
+        "particle": "neutrino_mass_eigenstate_1",
+        "physical_matching_required": "low-energy-to-MZ EFT running/loop matching, absolute-mass mechanism, and source-clock identification",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "oscillation mass-squared differences"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 8.681589716175258e-12,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "43407948580876290933894578832446338182502827964737018351065373371/5000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "86815897161752581867789157664892676365005655929474036702130746743/10000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "optional calibrated Weinberg tree prescription; low-energy normal-ordering targets at the chosen common background",
+        "particle": "neutrino_mass_eigenstate_2",
+        "physical_matching_required": "low-energy-to-MZ EFT running/loop matching, absolute-mass mechanism, and source-clock identification",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "oscillation mass-squared differences"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 5.01098792654702e-11,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "15659337270459436655961013028208420526339856374416790229911216647/312500000000000000000000000000000000000000000000000000000000000000000000000",
+          "100219758530940394598150483380533891368575080796267457471431786541/2000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "optional calibrated Weinberg tree prescription; low-energy normal-ordering targets at the chosen common background",
+        "particle": "neutrino_mass_eigenstate_3",
+        "physical_matching_required": "low-energy-to-MZ EFT running/loop matching, absolute-mass mechanism, and source-clock identification",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "matched gauge/scalar parameters and supplied running Higgs background"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 80.84800016627324,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "4042400008313661708696645403953/50000000000000000000000000000",
+          "4042400008313661708696645403953/50000000000000000000000000000"
+        ],
+        "observable": "tree comparison coefficient at the calibrated loop VEV, with separately chosen tree-stationary m2",
+        "particle": "W",
+        "physical_matching_required": "interacting gauge/scalar vacuum, loop pole/width matching and source-clock map; gluon physical states additionally require confinement",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "matched gauge/scalar parameters and supplied running Higgs background"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 92.22644763767904,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "922264476376790390201085868273684287051500182011197512579604251148264499235109/10000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "92226447637679039020108586827368428705150018201119751257960425114826449923511/1000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "tree comparison coefficient at the calibrated loop VEV, with separately chosen tree-stationary m2",
+        "particle": "Z",
+        "physical_matching_required": "interacting gauge/scalar vacuum, loop pole/width matching and source-clock map; gluon physical states additionally require confinement",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "matched gauge/scalar parameters and supplied running Higgs background"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 131.2798734485447,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "328199683621361754894961402460859287002036655235346545427385573381464357655151/2500000000000000000000000000000000000000000000000000000000000000000000000000",
+          "262559746897089403915969121968687429601629324188277236341908458705171486124121/2000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "observable": "tree comparison coefficient at the calibrated loop VEV, with separately chosen tree-stationary m2",
+        "particle": "Higgs",
+        "physical_matching_required": "interacting gauge/scalar vacuum, loop pole/width matching and source-clock map; gluon physical states additionally require confinement",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "matched gauge/scalar parameters and supplied running Higgs background"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.0,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "0",
+          "0"
+        ],
+        "observable": "tree comparison coefficient at the calibrated loop VEV, with separately chosen tree-stationary m2",
+        "particle": "photon",
+        "physical_matching_required": "interacting gauge/scalar vacuum, loop pole/width matching and source-clock map; gluon physical states additionally require confinement",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      },
+      {
+        "input_ancestry": [
+          "matched gauge/scalar parameters and supplied running Higgs background"
+        ],
+        "is_measured_pole_mass": false,
+        "mass_GeV": 0.0,
+        "native_prediction": false,
+        "numerical_enclosure_GeV": [
+          "0",
+          "0"
+        ],
+        "observable": "tree comparison coefficient at the calibrated loop VEV, with separately chosen tree-stationary m2",
+        "particle": "gluon",
+        "physical_matching_required": "interacting gauge/scalar vacuum, loop pole/width matching and source-clock map; gluon physical states additionally require confinement",
+        "source_member": "calibrated quadratic comparison",
+        "source_receipt": "model/particle_joint_mass_identity/results.json"
+      }
+    ],
+    "receipt_sha256": "96af3a356fca158c3b9930eee48c3d211ed09f1a718153ec72661ea2135b6e82",
+    "source_joins": {
+      "all_sources_identified_as_one_interacting_theory": false,
+      "charged_rest_numbers_equal_in_90_and_192_mode_members": true,
+      "unit_conversion_preserves_complete_instruments": true,
+      "unit_conversion_proves_physical_particle_identity": false
+    },
+    "source_receipt": "model/openwave_mass_catalogue/results.json",
+    "spectrum_accounting": {
+      "Standard_Model_comparison_species": 17,
+      "all_19_OpenWave_partials_validated": false,
+      "calibrated_Dirac_neutral_masses": 3,
+      "charged_native_families": 3,
+      "physical_quark_poles_supplied": false,
+      "transverse_photons_on_common_192_source_supplied": false,
+      "vectorlike_light_and_heavy_branches": 12,
+      "weak_vector_and_Higgs_interacting_poles_on_common_192_source_supplied": false
+    },
+    "strong_masses_and_weak_widths": {
+      "muon_lifetime_normalization_check": {
+        "PDG2025_seconds": 2.1969811e-06,
+        "hbar_over_tree_width_seconds": 2.1876500220991516e-06,
+        "independent_prediction": false,
+        "reason": "GF has muon-lifetime ancestry; native source has no radiative electromagnetic correction",
+        "relative_difference": -0.004247227206846893
+      },
+      "nuclear_mass_calibration": {
+        "binding_GeV_interval": [
+          "36961947459568227466717390275010370467193499361/16615349947311448411297588253504307200000000000000",
+          "36961950974548266619673122687329794236960395551/16615349947311448411297588253504307200000000000000"
+        ],
+        "complete_instrument_ground_error_upper": "46580681180070811981752723593919572436526666088448/41428878008537132010357350427381036071310305397573057393983",
+        "independent_prediction": false,
+        "input_binding_GeV": 0.0022245664,
+        "mass_GeV": 1.8756129449699999,
+        "mass_GeV_interval": [
+          "486936960076726895852825766996209884452221430073/259614842926741381426524816461004800000000000000",
+          "486936960122771751953968285204896335023120504519/259614842926741381426524816461004800000000000000"
+        ],
+        "observable": "finite spin-one isospin-zero ground energy",
+        "original_preparation_failure": "16999/17000",
+        "original_preparation_success": "1/17000",
+        "particle": "deuteron-assigned channel",
+        "physical_deuteron_identified": false,
+        "source_receipt": "model/openwave_spin_gradient_nuclei/results.json",
+        "unassigned_bound_channels": [
+          {
+            "binding_GeV_interval": [
+              "922769715718641385344955745496407956593400311/519229685853482762853049632922009600000000000000",
+              "922769756845862472320596900072935912880645641/519229685853482762853049632922009600000000000000"
+            ],
+            "cell_parity": 1,
+            "isospin": 0,
+            "spin": 3
+          }
+        ]
+      },
+      "physical_unit_dictionary": {
+        "GF_GeV_minus2": 1.1663785e-05,
+        "hbar_GeV_s": 6.582119569509066e-25,
+        "native_Weyl_G_GeV_minus2": 3.299016587120775e-05
+      },
+      "same_strong_member_mass_calibrations": [
+        {
+          "independent_prediction": false,
+          "input_target_GeV": 0.93827208943,
+          "mass_GeV": 0.9382720894300007,
+          "mass_GeV_interval": [
+            "31179438223065075669195168621215524570020118716577/33230699894622896822595176507008614400000000000000",
+            "31179438223633184917875003188271911157252344848223/33230699894622896822595176507008614400000000000000"
+          ],
+          "observable": "finite strong-sector ground-energy calibration",
+          "particle": "proton",
+          "physical_interacting_pole_identified": false,
+          "source_receipt": "model/openwave_spin_gradient_nuclei/results.json"
+        },
+        {
+          "independent_prediction": false,
+          "input_target_GeV": 0.93956542194,
+          "mass_GeV": 0.9395654219400007,
+          "mass_GeV_interval": [
+            "31222416567568845035846206665561227053873692860577/33230699894622896822595176507008614400000000000000",
+            "31222416568136954284526041232617613641105918992223/33230699894622896822595176507008614400000000000000"
+          ],
+          "observable": "finite strong-sector ground-energy calibration",
+          "particle": "neutron",
+          "physical_interacting_pole_identified": false,
+          "source_receipt": "model/openwave_spin_gradient_nuclei/results.json"
+        },
+        {
+          "independent_prediction": false,
+          "input_target_GeV": 0.13957039,
+          "mass_GeV": 0.13957038999999988,
+          "mass_GeV_interval": [
+            "1159505435937361267393211280462670748431532921987/8307674973655724205648794126752153600000000000000",
+            "1159505436195375067632674576983100691285117004669/8307674973655724205648794126752153600000000000000"
+          ],
+          "observable": "finite strong-sector ground-energy calibration",
+          "particle": "charged_pion",
+          "physical_interacting_pole_identified": false,
+          "source_receipt": "model/openwave_spin_gradient_nuclei/results.json"
+        }
+      ],
+      "tau_leptonic_width_ratio_comparison": {
+        "PDG2025_comparison": 0.973,
+        "PDG2025_uncertainty": 0.0022,
+        "difference": -0.0004361642206555105,
+        "difference_in_reported_uncertainties_diagnostic": -0.19825646393432295,
+        "native_ratio": 0.9725638357793445,
+        "scope": "tree-level inclusive native ratio; electromagnetic/radiative corrections and observed beam identification are not supplied",
+        "used_in_parameter_selection": false
+      },
+      "weak_partial_widths": [
+        {
+          "all_massive_neutral_pairs": 9,
+          "analytic_massive_relative_enclosure_display": [
+            3.0087625512188744e-19,
+            3.0087626005156056e-19
+          ],
+          "finite_survival_windows": [
+            {
+              "finite_bin_probability_error_upper_rational": "534017817582190352807830192943294073099963930670134034564323941293036809932163633065951779129532661403918583603677021877181837851497691410370380830552783542330974597689419169910252094268798828125/1880559433696339249814328175329698075115912595888214075408307636272297228718246226997911105499951559906569282695317587294548297224673657709307391946464677084791558496285358863633219478999224601951843278271807488",
+              "finite_energy_bin_probability_error_upper": 2.839675300942497e-16,
+              "lifetimes": 1,
+              "massive_exact_survival_additional_probability_error_upper": 1.2228634676526256e-07,
+              "massive_exact_survival_additional_probability_error_upper_rational": "1221925282920320568107309464133982594186359718224664609788004860511085647076324245279874663000015577222348146795226059204054962859860958276292552006206173535222564136682897779453239911905679626278741719785571047101147693192441529445571900845563271173806291601907577401391058469215522563899867236614227294921875/9992327968271831890302136650003273484191620677124854700601453109881261885339941938710848296855815444446042523648626283541055685830742082993742948071641112759378659436475401934924008925257321497069524972209587556197434783364822185407572194537697628322739214657367205301676218529814572651023314970589666738977414053888",
+              "massive_exact_survival_total_probability_error_upper": 1.2228645773504225e-07,
+              "massive_exact_survival_total_probability_error_upper_rational": "5846672966197166517154554060258583932243560373601325873346758934113627144877505384155194597040088408775970708541346185168827671834498894731640577684546007857331304667687832143360096014680307901657399908830812551938610636804277445069699088933331995999517687382200700311217580570831001798738913626435580054335268242779862578307920598448726710078508557489520476077068622522574178572094005455886348676695467218751545153044749604020273826778496537445623091788892090838865551434440362179533822681203865480011433/47811287320670772629873921898398496757799359007617045520058384109687849631712883901291259379976540833750646322607481201705713156692804047025506277296887387398691722431335926941052841287429701149597333581985990727386323216048312240562731756010737880905364584713805835875368578074361745496951726927243392250482529331605880403981156918409840588901180947215456179975200242791136100070884935239613761560002704999411854060212824983499140843750000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massive_rate_vs_massless_relative_error_upper_rational": "349465795107054267295922346909182668239873997875409405127871917858105701433344000/2444081486679168347100797070430270945471541829880376801031703424419009368585632719835652029611587",
+              "massless_Volterra_probability_error_upper_rational": "178643560257765095197652907933694500161170107108166288297294991928873879210335309760446597599419820225304054873923206612508675378669717429531136507670764869683179041949200075204100820103586567006155861899/1613969819523412506452599914057164786714098807690752730196168764368657225855619961382558819283744987622946564389210577968761329376523685031250000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massless_exact_survival_error_upper": 1.1068581214890164e-13,
+              "massless_reference_survival": 0.36787944117144233,
+              "seconds": 2.187650022099152e-06,
+              "source_time": 3.511723207334398e+17,
+              "source_time_upper_rational": "1291175855618730005162079931245731829371279046152602184156935011494925780684495969106047055426995990098357251511368462375009063501218948025000000000000000000000000000000000000000000000000000000000000000000000000000000000/3502814907015001866620645253601852944336668766826789966613627292723017239418339407067580345086663141672628526939670717892326968209210145677081107993544409209474098861749021082433349413795815039336389449"
+            },
+            {
+              "finite_bin_probability_error_upper_rational": "534017817582190352807830192943294073099963930670134034564323941293036809932163633065951779129532661403918583603677021877181837851497691410370380830552783542330974597689419169910252094268798828125/470139858424084812453582043832424518778978148972053518852076909068074307179561556749477776374987889976642320673829396823637074306168414427326847986616169271197889624071339715908304869749806150487960819567951872",
+              "finite_energy_bin_probability_error_upper": 1.1358701203769988e-15,
+              "lifetimes": 4,
+              "massive_exact_survival_additional_probability_error_upper": 4.891453870610502e-07,
+              "massive_exact_survival_additional_probability_error_upper_rational": "1221925282920320568107309464133982594186359718224664609788004860511085647076324245279874663000015577222348146795226059204054962859860958276292552006206173535222564136682897779453239911905679626278741719785571047101147693192441529445571900845563271173806291601907577401391058469215522563899867236614227294921875/2498081992067957972575534162500818371047905169281213675150363277470315471334985484677712074213953861111510630912156570885263921457685520748435737017910278189844664859118850483731002231314330374267381243052396889049358695841205546351893048634424407080684803664341801325419054632453643162755828742647416684744353513472",
+              "massive_exact_survival_total_probability_error_upper": 4.891458244292388e-07,
+              "massive_exact_survival_total_probability_error_upper_rational": "23386691553492715070210732063162067218041378898694000277750229981874778343516710446699211569679202445293329130002332818747283118286300706165290683273397749381576460992814741712954200500507883376638752831226607954063260194368467077800516069500673254542396861969431796370027574439041577977385387853346654051966484439687021823636133466608557394159567860737674282290314712997291695021805543230185218691975186270084387914852519493628409693943313203128539380123198890891993159428391668243964179132591900439603883/47811287320670772629873921898398496757799359007617045520058384109687849631712883901291259379976540833750646322607481201705713156692804047025506277296887387398691722431335926941052841287429701149597333581985990727386323216048312240562731756010737880905364584713805835875368578074361745496951726927243392250482529331605880403981156918409840588901180947215456179975200242791136100070884935239613761560002704999411854060212824983499140843750000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massive_rate_vs_massless_relative_error_upper_rational": "349465795107054267295922346909182668239873997875409405127871917858105701433344000/2444081486679168347100797070430270945471541829880376801031703424419009368585632719835652029611587",
+              "massless_Volterra_probability_error_upper_rational": "704065796310015375190749695973972441811670422132184783289339085837326465123086220820583649362419291476198333914873814296357720610051239281093302706702426251104293871211553237569103232172958822906614279249/1613969819523412506452599914057164786714098807690752730196168764368657225855619961382558819283744987622946564389210577968761329376523685031250000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massless_exact_survival_error_upper": 4.362323184692006e-13,
+              "massless_reference_survival": 0.01831563888873418,
+              "seconds": 8.750600088396608e-06,
+              "source_time": 1.4046892829337592e+18,
+              "source_time_upper_rational": "5164703422474920020648319724982927317485116184610408736627740045979703122737983876424188221707983960393429006045473849500036254004875792100000000000000000000000000000000000000000000000000000000000000000000000000000000000/3502814907015001866620645253601852944336668766826789966613627292723017239418339407067580345086663141672628526939670717892326968209210145677081107993544409209474098861749021082433349413795815039336389449"
+            }
+          ],
+          "hbar_over_partial_width_seconds": 2.1876500220991516e-06,
+          "includes_electromagnetic_radiative_correction": false,
+          "input_ancestry": "electron anchor, retrospective charged analyzer, calibrated neutral tensor, GF with muon-lifetime ancestry",
+          "massless_width_GeV": 3.0087626005156056e-19,
+          "observable": "tree inclusive partial width of the positive-frequency current source",
+          "prepared_parent_scope": "one selected parent source; tau daughter muon is a free output, with no subsequent muon cascade vertex",
+          "source_receipt": "model/openwave_lepton_widths/results.json",
+          "total_tau_lifetime_prediction": false,
+          "transition": "muon -> electron + neutrino + antineutrino",
+          "width_GeV": 3.0087626005156056e-19
+        },
+        {
+          "all_massive_neutral_pairs": 9,
+          "analytic_massive_relative_enclosure_display": [
+            4.0489894347721257e-13,
+            4.048989501112337e-13
+          ],
+          "finite_survival_windows": [
+            {
+              "finite_bin_probability_error_upper_rational": "854428508131504564492528308709270516959942289072214455302918306068858895891461812905522846607252258246269733765883235003490940562396306256592609328884453667729559356303070671856403350830078125/240718387746187495003317839133297502522499764891920393910745411977171786425882785062528865466842806940896654700032957236893152021747908525252249286278976954946988519532622825782363427844806638524676249163575328768",
+              "finite_energy_bin_probability_error_upper": 3.5494941459661604e-21,
+              "lifetimes": 1,
+              "massive_exact_survival_additional_probability_error_upper": 1.5285362795909206e-12,
+              "massive_exact_survival_additional_probability_error_upper_rational": "929019917797550687287670238265885982190918698403057336036100308814141677031156689317024912533368203127270148768635485166934035390661007704565604630098202410178305306224053193313377063357555340348598492161615504116847229430864349136434342857707354094913553101171228084005637715137027043965645134449005126953125/607784015467518140066583156831348682384406460148484699621062628744270742354548035466127768020948575253683742636647884923777830878555660962367038719362964133698535620027109553364178187259562170487435475193755334404850074041988111460919403708615918385415650998833379772943586108998407511989529286209825385666517329944510464",
+              "massive_exact_survival_total_probability_error_upper": 8.856642927194256e-09,
+              "massive_exact_survival_total_probability_error_upper_rational": "26281859617970224673211981955232005248112020568779191880238268813005035605810010051871739079019486565362092374019848783167178216611812733065342225326747633710875057264148827232083890790306912447889145758555109670020312258850812633048684076715703445608462921336195056495994376667378095183343886045651325542559690110467070575253396786785109314327710888768583392723525510696137335204070074014869578185771634105427838715972598533024316560745795873411783314142109122612474831004814469677536866233236666646223/2967474226297638966512009884112183043790067344619355259071480184885583915005980033120046305653200743161915659180639605716916814800219645892739268728278172944128333039819971242302612179645238276881186653046951303252155981405381236699559285045257664113581178662400643832208075404493759087407709337677138442817918188104299826664134951166648294991296425312825467452393581762809105677426423552287245285835347488162838675679479734559645273600000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massive_rate_vs_massless_relative_error_upper_rational": "2620993463302907004719417601818870011799054984065570538459039383935792760750080/5184752798109601918352198315848661260666535055718675042008718289593324565553068324976214955281249",
+              "massless_Volterra_probability_error_upper_rational": "89324296095987390764415684649416453820940572837483633261930779632790371453447893423355505647552368129150486418087390623124889339008538334658549237066674866235526966165080114405285965913827666116110694619/10087311372021328165328749462857279916963117548067204563726054777304107661597624758640992620523406172643416027432566112304758308603273031445312500000000000000000000000000000000000000000000000000000000000000000000",
+              "massless_exact_survival_error_upper": 8.855114390911115e-09,
+              "massless_reference_survival": 0.36787944117144233,
+              "seconds": 1.625620310376411e-12,
+              "source_time": 4388712221469.714,
+              "source_time_upper_rational": "8069849097617062532262999570285823933570494038453763650980843821843286129278099806912794096418724938114732821946052889843806646882618425156250000000000000000000000000000000000000000000000000000000000000000000000000/1751456786195831191459131071557185369038050447793796730626093718290007283400939086732460895050046433904911498393870404374997830176638006561932337981699507181088764042452551262848744429682895414041386169"
+            },
+            {
+              "finite_bin_probability_error_upper_rational": "854428508131504564492528308709270516959942289072214455302918306068858895891461812905522846607252258246269733765883235003490940562396306256592609328884453667729559356303070671856403350830078125/60179596936546873750829459783324375630624941222980098477686352994292946606470696265632216366710701735224163675008239309223288005436977131313062321569744238736747129883155706445590856961201659631169062290893832192",
+              "finite_energy_bin_probability_error_upper": 1.4197976583864642e-20,
+              "lifetimes": 4,
+              "massive_exact_survival_additional_probability_error_upper": 6.114145118363682e-12,
+              "massive_exact_survival_additional_probability_error_upper_rational": "929019917797550687287670238265885982190918698403057336036100308814141677031156689317024912533368203127270148768635485166934035390661007704565604630098202410178305306224053193313377063357555340348598492161615504116847229430864349136434342857707354094913553101171228084005637715137027043965645134449005126953125/151946003866879535016645789207837170596101615037121174905265657186067685588637008866531942005237143813420935659161971230944457719638915240591759679840741033424633905006777388341044546814890542621858868798438833601212518510497027865229850927153979596353912749708344943235896527249601877997382321552456346416629332486127616",
+              "massive_exact_survival_total_probability_error_upper": 3.490568262695872e-08,
+              "massive_exact_survival_total_probability_error_upper_rational": "25895428386706312251119245623308841052844235887211136472168487414245145811329617239229560482212460460818786558683025128170059640206983592218433140266508432868742130913319258662194259203609087217099805105934699155260762698625267450163494889048254323623514050813078865409407560859498116966119216758719824675745599901883738399058402268353389132340176218191280425654065964593807653108436553440331478917309412186338221523899783919915754268479154916464471478154659567786154263626262849111002123211055907847887/741868556574409741628002471028045760947516836154838814767870046221395978751495008280011576413300185790478914795159901429229203700054911473184817182069543236032083259954992810575653044911309569220296663261737825813038995351345309174889821261314416028395294665600160958052018851123439771851927334419284610704479547026074956666033737791662073747824106328206366863098395440702276419356605888071811321458836872040709668919869933639911318400000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massive_rate_vs_massless_relative_error_upper_rational": "2620993463302907004719417601818870011799054984065570538459039383935792760750080/5184752798109601918352198315848661260666535055718675042008718289593324565553068324976214955281249",
+              "massless_Volterra_probability_error_upper_rational": "352042814025362069483285345382994259176648140006553142855844837376291463963588756433224639905059333214887211177167951279374563865504239318948399934321600943398841572532962803832597630366261978222318619969/10087311372021328165328749462857279916963117548067204563726054777304107661597624758640992620523406172643416027432566112304758308603273031445312500000000000000000000000000000000000000000000000000000000000000000000",
+              "massless_exact_survival_error_upper": 3.489956848182616e-08,
+              "massless_reference_survival": 0.01831563888873418,
+              "seconds": 6.502481241505644e-12,
+              "source_time": 17554848885878.855,
+              "source_time_upper_rational": "32279396390468250129051998281143295734281976153815054603923375287373144517112399227651176385674899752458931287784211559375226587530473700625000000000000000000000000000000000000000000000000000000000000000000000000000/1751456786195831191459131071557185369038050447793796730626093718290007283400939086732460895050046433904911498393870404374997830176638006561932337981699507181088764042452551262848744429682895414041386169"
+            }
+          ],
+          "hbar_over_partial_width_seconds": 1.6256203103775578e-12,
+          "includes_electromagnetic_radiative_correction": false,
+          "input_ancestry": "electron anchor, retrospective charged analyzer, calibrated neutral tensor, GF with muon-lifetime ancestry",
+          "massless_width_GeV": 4.048989501112337e-13,
+          "observable": "tree inclusive partial width of the positive-frequency current source",
+          "prepared_parent_scope": "one selected parent source; tau daughter muon is a free output, with no subsequent muon cascade vertex",
+          "source_receipt": "model/openwave_lepton_widths/results.json",
+          "total_tau_lifetime_prediction": false,
+          "transition": "tau -> electron + neutrino + antineutrino",
+          "width_GeV": 4.04898950110948e-13
+        },
+        {
+          "all_massive_neutral_pairs": 9,
+          "analytic_massive_relative_enclosure_display": [
+            3.93790069570924e-13,
+            3.9379007602293305e-13
+          ],
+          "finite_survival_windows": [
+            {
+              "finite_bin_probability_error_upper_rational": "854428508131504564492528308709270516959942289072214455302918306068858895891461812905522846607252258246269733765883235003490940562396306256592609328884453667729559356303070671856403350830078125/240718387746187495003317839133297502522499764891920393910745411977171786425882785062528865466842806940896654700032957236893152021747908525252249286278976954946988519532622825782363427844806638524676249163575328768",
+              "finite_energy_bin_probability_error_upper": 3.5494941459661604e-21,
+              "lifetimes": 1,
+              "massive_exact_survival_additional_probability_error_upper": 1.5285362795909206e-12,
+              "massive_exact_survival_additional_probability_error_upper_rational": "929019917797550687287670238265885982190918698403057336036100308814141677031156689317024912533368203127270148768635485166934035390661007704565604630098202410178305306224053193313377063357555340348598492161615504116847229430864349136434342857707354094913553101171228084005637715137027043965645134449005126953125/607784015467518140066583156831348682384406460148484699621062628744270742354548035466127768020948575253683742636647884923777830878555660962367038719362964133698535620027109553364178187259562170487435475193755334404850074041988111460919403708615918385415650998833379772943586108998407511989529286209825385666517329944510464",
+              "massive_exact_survival_total_probability_error_upper": 8.856642927194256e-09,
+              "massive_exact_survival_total_probability_error_upper_rational": "26281859617970224673211981955232005248112020568779191880238268813005035605810010051871739079019486565362092374019848783167178216611812733065342225326747633710875057264148827232083890790306912447889145758555109670020312258850812633048684076715703445608462921336195056495994376667378095183343886045651325542559690110467070575253396786785109314327710888768583392723525510696137335204070074014869578185771634105427838715972598533024316560745795873411783314142109122612474831004814469677536866233236666646223/2967474226297638966512009884112183043790067344619355259071480184885583915005980033120046305653200743161915659180639605716916814800219645892739268728278172944128333039819971242302612179645238276881186653046951303252155981405381236699559285045257664113581178662400643832208075404493759087407709337677138442817918188104299826664134951166648294991296425312825467452393581762809105677426423552287245285835347488162838675679479734559645273600000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massive_rate_vs_massless_relative_error_upper_rational": "2620993463302907004719417601818870011799054984065570538459039383935792760750080/5184752798109601918352198315848661260666535055718675042008718289593324565553068324976214955281249",
+              "massless_Volterra_probability_error_upper_rational": "89324296095987390764415684649416453820940572837483633261930779632790371453447893423355505647552368129150486418087390623124889339008538334658549237066674866235526966165080114405285965913827666116110694619/10087311372021328165328749462857279916963117548067204563726054777304107661597624758640992620523406172643416027432566112304758308603273031445312500000000000000000000000000000000000000000000000000000000000000000000",
+              "massless_exact_survival_error_upper": 8.855114390911115e-09,
+              "massless_reference_survival": 0.36787944117144233,
+              "seconds": 1.671479290688307e-12,
+              "source_time": 4512518417833.215,
+              "source_time_upper_rational": "8069849097617062532262999570285823933570494038453763650980843821843286129278099806912794096418724938114732821946052889843806646882618425156250000000000000000000000000000000000000000000000000000000000000000000000000/1751456786195831191459131071557185369038050447793796730626093718290007283400939086732460895050046433904911498393870404374997830176638006561932337981699507181088764042452551262848744429682895414041386169"
+            },
+            {
+              "finite_bin_probability_error_upper_rational": "854428508131504564492528308709270516959942289072214455302918306068858895891461812905522846607252258246269733765883235003490940562396306256592609328884453667729559356303070671856403350830078125/60179596936546873750829459783324375630624941222980098477686352994292946606470696265632216366710701735224163675008239309223288005436977131313062321569744238736747129883155706445590856961201659631169062290893832192",
+              "finite_energy_bin_probability_error_upper": 1.4197976583864642e-20,
+              "lifetimes": 4,
+              "massive_exact_survival_additional_probability_error_upper": 6.114145118363682e-12,
+              "massive_exact_survival_additional_probability_error_upper_rational": "929019917797550687287670238265885982190918698403057336036100308814141677031156689317024912533368203127270148768635485166934035390661007704565604630098202410178305306224053193313377063357555340348598492161615504116847229430864349136434342857707354094913553101171228084005637715137027043965645134449005126953125/151946003866879535016645789207837170596101615037121174905265657186067685588637008866531942005237143813420935659161971230944457719638915240591759679840741033424633905006777388341044546814890542621858868798438833601212518510497027865229850927153979596353912749708344943235896527249601877997382321552456346416629332486127616",
+              "massive_exact_survival_total_probability_error_upper": 3.490568262695872e-08,
+              "massive_exact_survival_total_probability_error_upper_rational": "25895428386706312251119245623308841052844235887211136472168487414245145811329617239229560482212460460818786558683025128170059640206983592218433140266508432868742130913319258662194259203609087217099805105934699155260762698625267450163494889048254323623514050813078865409407560859498116966119216758719824675745599901883738399058402268353389132340176218191280425654065964593807653108436553440331478917309412186338221523899783919915754268479154916464471478154659567786154263626262849111002123211055907847887/741868556574409741628002471028045760947516836154838814767870046221395978751495008280011576413300185790478914795159901429229203700054911473184817182069543236032083259954992810575653044911309569220296663261737825813038995351345309174889821261314416028395294665600160958052018851123439771851927334419284610704479547026074956666033737791662073747824106328206366863098395440702276419356605888071811321458836872040709668919869933639911318400000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "massive_rate_vs_massless_relative_error_upper_rational": "2620993463302907004719417601818870011799054984065570538459039383935792760750080/5184752798109601918352198315848661260666535055718675042008718289593324565553068324976214955281249",
+              "massless_Volterra_probability_error_upper_rational": "352042814025362069483285345382994259176648140006553142855844837376291463963588756433224639905059333214887211177167951279374563865504239318948399934321600943398841572532962803832597630366261978222318619969/10087311372021328165328749462857279916963117548067204563726054777304107661597624758640992620523406172643416027432566112304758308603273031445312500000000000000000000000000000000000000000000000000000000000000000000",
+              "massless_exact_survival_error_upper": 3.489956848182616e-08,
+              "massless_reference_survival": 0.01831563888873418,
+              "seconds": 6.685917162753228e-12,
+              "source_time": 18050073671332.86,
+              "source_time_upper_rational": "32279396390468250129051998281143295734281976153815054603923375287373144517112399227651176385674899752458931287784211559375226587530473700625000000000000000000000000000000000000000000000000000000000000000000000000000/1751456786195831191459131071557185369038050447793796730626093718290007283400939086732460895050046433904911498393870404374997830176638006561932337981699507181088764042452551262848744429682895414041386169"
+            }
+          ],
+          "hbar_over_partial_width_seconds": 1.6714792906883071e-12,
+          "includes_electromagnetic_radiative_correction": false,
+          "input_ancestry": "electron anchor, retrospective charged analyzer, calibrated neutral tensor, GF with muon-lifetime ancestry",
+          "massless_width_GeV": 3.9379007602293305e-13,
+          "observable": "tree inclusive partial width of the positive-frequency current source",
+          "prepared_parent_scope": "one selected parent source; tau daughter muon is a free output, with no subsequent muon cascade vertex",
+          "source_receipt": "model/openwave_lepton_widths/results.json",
+          "total_tau_lifetime_prediction": false,
+          "transition": "tau -> muon + neutrino + antineutrino",
+          "width_GeV": 3.93790076022933e-13
+        }
+      ]
+    }
   },
   "native_current_comparisons": {
     "calibrated_neutrinos": {

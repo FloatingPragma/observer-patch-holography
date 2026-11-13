@@ -77,6 +77,17 @@ of dimensions 14, 45, 104 and 200 have separate exact algebraic spectral
 certificates from the native integer matrix elements. Their lowest bands
 have spin and isospin one half.
 
+The complete preparation program starts from the uniform full native
+three-quark carrier, before selecting the colour singlet. Its successful
+singlet branch admits the zero-boundary-flux Gauss realization. Coloured
+preparation failures are retained in the native kinematic extension; they
+are not asserted to be physical states of the zero-flux Gauss kernel.
+On success, native occupation effects are compressed to the singlet and
+then Gauss-dressed. Their square-root Kraus operators give a complete
+physical probe with the same listed probabilities. Only the uniform-input
+preparation has the stated zero-work identity; occupation-probe work is
+not asserted to vanish.
+
 The preparation is a uniform mixture on the complete isolated lowest
 spectral cluster. Consecutive levels separated by less than 1/10000 source
 units, or by an unresolved spectral error, belong to that cluster. This

@@ -1,4 +1,11 @@
-"""Additional live particle producers, independent of retained replay ordering."""
+"""Additional live particle producers, independent of retained replay ordering.
+
+Run ``python -m model.verify_particle_extensions --hashes-only`` for complete
+live inventories, or omit that flag for actual producer replays. The dedicated
+particle-extensions workflow composes this check with the retained observer
+workflow without changing the scientific contracts that bind that workflow.
+"""
+import argparse
 import importlib
 import json
 import os
@@ -46,3 +53,19 @@ def replay(index=None,count=None):
             argv+=['--openwave-root',upstream,'--python',python]
         subprocess.run(argv,cwd=ROOT,env=environment,check=True)
     return len(names)
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--hashes-only',action='store_true')
+    parser.add_argument('--shard-index',type=int)
+    parser.add_argument('--shard-count',type=int)
+    args=parser.parse_args()
+    selected(args.shard_index,args.shard_count)
+    count=source_bindings()
+    print(f'All {count} additional particle source inventories verified',flush=True)
+    if not args.hashes_only:
+        count=replay(args.shard_index,args.shard_count)
+        print(f'All {count} selected additional particle receipts reproduced',flush=True)
+
+if __name__=='__main__':
+    main()

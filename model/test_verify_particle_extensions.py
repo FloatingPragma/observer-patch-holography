@@ -22,3 +22,23 @@ def test_full_inventory_must_match_not_just_recorded_subset(tmp_path,monkeypatch
     with pytest.raises(ValueError,match='producer failed'):v.source_bindings()
     target.write_text(json.dumps({'source_sha256':{'a':'one','b':'two'},'verdict':'PASS'}))
     assert v.source_bindings()==1
+
+def test_cli_checks_all_inventories_before_selected_replay(monkeypatch):
+    calls=[]
+    monkeypatch.setattr(v.sys,'argv',['verify','--shard-index','1','--shard-count','3'])
+    monkeypatch.setattr(v,'source_bindings',lambda:calls.append('bindings') or 12)
+    monkeypatch.setattr(v,'replay',lambda i,n:calls.append((i,n)) or 4)
+    v.main()
+    assert calls==['bindings',(1,3)]
+
+def test_cli_hashes_only_does_not_claim_replay(monkeypatch,capsys):
+    monkeypatch.setattr(v.sys,'argv',['verify','--hashes-only'])
+    monkeypatch.setattr(v,'source_bindings',lambda:12)
+    monkeypatch.setattr(v,'replay',lambda *a:pytest.fail('unexpected replay'))
+    v.main()
+    assert 'inventories verified' in capsys.readouterr().out
+
+def test_cli_rejects_invalid_shard_before_work(monkeypatch):
+    monkeypatch.setattr(v.sys,'argv',['verify','--shard-index','1'])
+    monkeypatch.setattr(v,'source_bindings',lambda:pytest.fail('invalid shard accepted'))
+    with pytest.raises(ValueError,match='shard'):v.main()

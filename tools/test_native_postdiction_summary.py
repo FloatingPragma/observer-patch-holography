@@ -53,3 +53,16 @@ def test_stale_owner_source_aborts_projection(tmp_path, monkeypatch):
     monkeypatch.setattr(LEDGER, "REPO", tmp_path)
     with pytest.raises(ValueError, match="native comparison source drift"):
         LEDGER._native_current_comparisons()
+
+
+def test_mass_catalogue_projection_retains_calibration_and_failures():
+    value = LEDGER._mass_and_decay_catalogue()
+    assert len(value['Dirac_masses']) == 6
+    assert len(value['complete_calibrated_comparison_catalogue']) == 17
+    assert not value['source_joins']['all_sources_identified_as_one_interacting_theory']
+    more = value['strong_masses_and_weak_widths']
+    assert not more['tau_leptonic_width_ratio_comparison']['used_in_parameter_selection']
+    assert more['nuclear_mass_calibration']['original_preparation_success'] == '1/17000'
+    text = '\n'.join(LEDGER._render_mass_and_decay_catalogue(value))
+    assert 'not total tau lifetimes' in text
+    assert 'running quark parameters' in text

@@ -28,8 +28,8 @@ def chain(L):
     assert np.array_equal(P3,4*spans)
     up=counts[:,[j for j,o in enumerate(d['orbitals'])if o[2]==0]].sum(axis=1)
     spinup=counts[:,[j for j,o in enumerate(d['orbitals'])if o[1]==0]].sum(axis=1)
-    parts={'N':3*sp.eye(N),'D':sp.diags(3-2*up),'B9':sp.diags(np.sum(n*n,axis=1)),
-      'C3':sp.diags(C3),'P3':sp.diags(P3),'K':K,'S4':S,'I4':I,'EdgeI4':edgeI,'Gradient4':gradient}
+    parts={'N':3*sp.eye(N,dtype=np.int64),'D':sp.diags(3-2*up,dtype=np.int64),'B9':sp.diags(np.sum(n*n,axis=1),dtype=np.int64),
+      'C3':sp.diags(C3,dtype=np.int64),'P3':sp.diags(P3,dtype=np.int64),'K':K,'S4':S,'I4':I,'EdgeI4':edgeI,'Gradient4':gradient}
     weights={'N':p['mbar'],'D':p['delta']/2,'B9':p['A']/9,'C3':U/3,'P3':p['kappa_colour']/3,
       'K':p['t'],'S4':p['Js']/4,'I4':p['Jw']/4,'EdgeI4':p['eta']/4,'Gradient4':p['spin_gradient']/4}
     H=sum(float(weights[k])*a for k,a in parts.items()).tocsr();ids=np.flatnonzero((up==1)&(spinup==2))

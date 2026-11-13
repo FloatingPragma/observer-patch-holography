@@ -7390,6 +7390,66 @@ def _render_finite_spectrum_comparison(row: dict[str, Any]) -> list[str]:
     ]
 
 
+def _mass_and_decay_catalogue() -> dict[str, Any]:
+    relative = "model/openwave_mass_catalogue/results.json"
+    path = REPO / relative
+    data = json.loads(path.read_text())
+    if not data.get("verdict", "").startswith("PASS"):
+        raise ValueError("mass catalogue producer failed")
+    if not data.get("source_sha256"):
+        raise ValueError("mass catalogue is unbound")
+    for name, expected in data["source_sha256"].items():
+        target = (REPO / name).resolve()
+        if not target.is_relative_to(REPO.resolve()) or hashlib.sha256(target.read_bytes()).hexdigest() != expected:
+            raise ValueError("mass catalogue source drift: " + name)
+    if data["source_joins"]["all_sources_identified_as_one_interacting_theory"]:
+        raise ValueError("mass catalogue improperly merged source domains")
+    return {"source_receipt": relative, "receipt_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "Dirac_masses": data["native_and_calibrated_Dirac_masses"],
+            "strong_masses_and_weak_widths": data["strong_masses_and_weak_widths"],
+            "complete_calibrated_comparison_catalogue": data["complete_calibrated_comparison_catalogue"],
+            "spectrum_accounting": data["spectrum_accounting"],
+            "source_joins": data["source_joins"]}
+
+
+def _render_mass_and_decay_catalogue(data: dict[str, Any]) -> list[str]:
+    lines = ["## Source-qualified masses and decay widths", "",
+             "[Exact unit transport and complete particle accounting](../model/openwave_mass_catalogue/PROOF.md) "
+             "preserve every spectral weight and preparation failure. Each row retains its own source; "
+             "these values do not constitute one fully identified interacting physical spectrum.", "",
+             "| Assigned channel | Energy / GeV | Role |", "| --- | ---: | --- |"]
+    for row in data["Dirac_masses"]:
+        role = ("electron anchor" if row["particle"] == "electron" else
+                "charged analyzer, retrospective phase 2/9" if not row["particle"].startswith("nu_") else
+                "oscillation calibration; declared lightest mass")
+        lines.append(f"| {row['particle']} | {row['mass_GeV']:.12g} | {role} |")
+    strong = data["strong_masses_and_weak_widths"]
+    for row in strong["same_strong_member_mass_calibrations"]:
+        lines.append(f"| {row['particle']} | {row['mass_GeV']:.12g} | strong-sector calibration |")
+    nuclear = strong["nuclear_mass_calibration"]
+    lines += [f"| deuteron-assigned channel | {nuclear['mass_GeV']:.12g} | fifth-input binding calibration |", "",
+              "The nuclear preparation succeeds with probability " + nuclear["original_preparation_success"] +
+              "; all failures and the unassigned spin-three bound channel are retained. The supplied "
+              "binding is not an independent prediction. Neutrino flavour labels are superpositions; "
+              "right-chiral sterile coordinates and antiparticles share the corresponding Dirac masses.", "",
+              "| Native transition | Partial width / GeV |", "| --- | ---: |"]
+    for row in strong["weak_partial_widths"]:
+        lines.append(f"| {row['transition']} | {row['width_GeV']:.9g} |")
+    ratio = strong["tau_leptonic_width_ratio_comparison"]
+    mu = strong["muon_lifetime_normalization_check"]
+    lines += ["", f"The tau muon/electron partial-width ratio is {ratio['native_ratio']:.9f}, "
+              f"compared with the unused PDG 2025 value {ratio['PDG2025_comparison']:.4f} +/- {ratio['PDG2025_uncertainty']:.4f}. "
+              "GF is a supplied weak normalization with muon-lifetime ancestry. "
+              f"The muon normalization check gives {mu['hbar_over_tree_width_seconds']*1e6:.7f} microseconds, "
+              f"a {100*mu['relative_difference']:.4f}% difference without radiative corrections. "
+              "Inverse tau partial widths are not total tau lifetimes. The massive-source survival bounds "
+              "are analytic finite-lifetime guarantees; the 64-bin comparison executions are separately labelled.", "",
+              "The complete 17-species quadratic comparison also supplies running quark parameters, "
+              "tree boson coefficients and an optional Weinberg neutral prescription. They keep their "
+              "renormalization conventions and imported inputs; they are not identified native physical pole masses.", ""]
+    return lines
+
+
 def _native_current_comparisons() -> dict[str, Any]:
     """Project complete owner receipts without pooling their source domains."""
     names = (
@@ -7662,6 +7722,7 @@ def build(
         "finite_model_witnesses": _observer_particle_contracts(),
         "particle_reconstruction_decisions": _particle_reconstruction_decisions(),
         "native_current_comparisons": _native_current_comparisons(),
+        "mass_and_decay_catalogue": _mass_and_decay_catalogue(),
         "executable_completion_program": completion_program_view(REPO),
         "principal_results": _principal_results(sections),
         "retrospective_tilt_comparison": _retrospective_tilt_reference(),
@@ -8372,6 +8433,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
         "(`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; "
         "[frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).")
     add("")
+    lines.extend(_render_mass_and_decay_catalogue(ledger["mass_and_decay_catalogue"]))
     lines.extend(_render_native_current_comparisons(ledger["native_current_comparisons"]))
     return "\n".join(lines)
 

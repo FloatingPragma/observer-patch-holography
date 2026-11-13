@@ -4702,6 +4702,8 @@ One finite coupled matter/field source. The separate native Wilson-Maxwell archi
 
 Numerical evidence admission. The protected readout's cold original-owner replay and interval/binary64 certificate preserve raw scientific values and arrays under the two explicit current-parent bindings. The exact verifier successor replaces only its declared legacy replay route. This controls computational reproducibility and source custody without changing physical classifications. The completed ground cap family also controls the full finite preparation/clock/count experiment against its infinite-cap fixed-graph oscillator limit. Its uniform gap and convergence do not supply spatial continuum or ultraviolet closure.
 
+The finite-range native Higgs-Wilson dispersion has exactly one charged minimum per family, with three colourless charged Dirac families and all neutral valleys and charged corner modes retained. Its electron-anchored rest values are 0.00051099895069,0.10565941449590446,1.776984970813427GeV under the retrospective analyzer phase2/9. A positive spin gradient of5/2 and five disclosed empirical inputs fit nucleon,pion,axial and nuclear binding records while placing two unwanted odd nuclear channels above compatible two-nucleon thresholds; a spin-three bound channel is unassigned. Actual native baryon currents on that member give three-dimensional full-Fock parity bounds and point-contact angular coefficients with their precision mismatches retained. Complete weak-contact spectra are read by finite Fourier clock-register instruments with every failure and alias outcome. Native positive-frequency leptonic currents give all nine massive-neutral pair channels and widths3.00876260e-19,4.04898950e-13,3.93790076e-13GeV. Their tau muon/electron ratio0.972563836 is compared with the unused0.9730+/-0.0022datum. GF has muon-lifetime ancestry; the tree muon normalization differs by-0.4247percent without radiative corrections. A squared-neutral-mass spectral-amplitude bound transfers finite Volterra survival windows to the calibrated massive source. Native forward-current electron ports supply the calibrated matter potential and complete active/sterile/antineutral instruments, without unfiltered-scattering or beam-event identification. Compact longitudinal Gauss dressing of the complete192-mode source preserves lepton masses through a declared fixed self-energy subtraction and recalculates baryon windows; transverse photons are absent. Its exact one-particle reducing sector has executed Taichi records and controlled boost/refinement errors, retaining the regulator frame. Exact positive unit transport preserves complete instruments and keeps running quark/tree boson comparison coefficients distinct from physical poles.
+
 **Remaining input:** A full same-source interacting chiral field and an empirical particle dictionary require a justified physical phase, compatible charged or neutral dispersion/threshold readouts, complete scattering and decay records, and controlled capacity dependence. The paired neutral block limit is free. Its finite interactions and the original source charged energy bins do not identify Standard Model masses.
 
 **Closure condition:** Construct the selected interacting source family and its controlled observables/continuum, reusing the algebraic packets without treating supplied matter content as derived.
@@ -6205,6 +6207,18 @@ Sources:
 - [Finite field/current or numerical custody evidence: model/protected_readout_numerics/test_numerics.py](../model/protected_readout_numerics/test_numerics.py).
 - [Finite field/current or numerical custody evidence: model/test_verify_current.py](../model/test_verify_current.py).
 - [Finite field/current or numerical custody evidence: model/verify_current.py](../model/verify_current.py).
+- [Source-qualified particle construction: beta_angular](../model/openwave_beta_angular/PROOF.md).
+- [Source-qualified particle construction: lepton_widths](../model/openwave_lepton_widths/PROOF.md).
+- [Source-qualified particle construction: neutrino_matter](../model/openwave_neutrino_matter/PROOF.md).
+- [Source-qualified particle construction: spin_gradient_nuclei](../model/openwave_spin_gradient_nuclei/PROOF.md).
+- [Source-qualified particle construction: rest_spectroscopy](../model/openwave_rest_spectroscopy/PROOF.md).
+- [Source-qualified particle construction: colour_string](../model/openwave_colour_string/PROOF.md).
+- [Source-qualified particle construction: common_electromagnetism](../model/openwave_common_electromagnetism/PROOF.md).
+- [Source-qualified particle construction: boosted_records](../model/openwave_boosted_records/PROOF.md).
+- [Source-qualified particle construction: single_valley_leptons](../model/openwave_single_valley_leptons/PROOF.md).
+- [Source-qualified particle construction: mass_catalogue](../model/openwave_mass_catalogue/PROOF.md).
+- [Source-qualified particle construction: longitudinal_review](../model/openwave_longitudinal_review/__main__.py).
+- [Source-qualified particle construction: boost_review](../model/openwave_boost_review/__main__.py).
 
 <a id="re-20"></a>
 

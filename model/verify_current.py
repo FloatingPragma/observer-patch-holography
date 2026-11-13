@@ -66,8 +66,6 @@ def verify_all_hashes():
             raise
         count=native_control_custody.verify_in_documentary_view(retained)
     verify_successor_source_bindings()
-    from .verify_particle_extensions import source_bindings
-    source_bindings()
     return count
 
 
@@ -102,9 +100,7 @@ def main():
             if command is not None:argv.append(command)
             argv.extend(['--check',receipt]);print(f'Replaying {receipt}',flush=True)
             subprocess.run(argv,cwd=retained.ROOT,env=environment,check=True)
-    from .verify_particle_extensions import replay
-    additional=replay(a.shard_index,a.shard_count)
-    print(f'All {sum(map(len,groups))} retained and {additional} additional particle receipts reproduced',flush=True)
+    print(f'All {sum(map(len,groups))} selected current receipts reproduced',flush=True)
 
 
 if __name__=='__main__':main()

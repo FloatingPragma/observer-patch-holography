@@ -1,0 +1,62 @@
+name: Native particle extensions
+
+on:
+  pull_request:
+    paths: ['model/**', 'Lean/**', 'tools/**', 'requirements.txt', '.github/workflows/particle-extensions.yml']
+  push:
+    branches: [main]
+    tags: ['r*']
+    paths: ['model/**', 'Lean/**', 'tools/**', 'requirements.txt', '.github/workflows/particle-extensions.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '51 4 * * *'
+
+permissions:
+  contents: read
+
+# Compose with the retained observer workflow. Its complete hash/regression
+# and nightly replay checks remain unchanged, including their source contracts.
+jobs:
+  custody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - run: python -m model.verify_particle_extensions --hashes-only
+      - run: python -m pytest -q -W error model/test_verify_particle_extensions.py
+  replay:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Prepare the pinned OpenWave kernel runtime
+        if: matrix.shard == 1
+        run: |
+          python -m pip install taichi==1.7.4
+          git init "$RUNNER_TEMP/oph-openwave-kernel"
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" fetch --depth=1 https://github.com/openwave-labs/openwave.git ef55175d04737e73c92f33f9f9cf3d17c593da54
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" checkout --detach FETCH_HEAD
+          echo "OPH_OPENWAVE_ROOT=$RUNNER_TEMP/oph-openwave-kernel" >> "$GITHUB_ENV"
+          echo "OPH_TAICHI_PYTHON=$(command -v python)" >> "$GITHUB_ENV"
+      - run: python -m model.verify_particle_extensions --shard-index ${{ matrix.shard }} --shard-count 3
