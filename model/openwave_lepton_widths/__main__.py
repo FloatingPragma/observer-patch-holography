@@ -7,6 +7,7 @@ from .widths import certificate
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1]
 def pins():
     seeds=set(SOURCE_FILES)
+    seeds.add("model/lepton_cycle/experimental_inputs.json")
     for name in ('openwave_lepton_widths','openwave_inclusive_decay','openwave_neutrino_calibration'):
         seeds.update(str(p.relative_to(ROOT)) for p in (ROOT/'model'/name).iterdir() if p.suffix in ('.py','.md','.tex') or p.name in ('inputs.json','oscillation_inputs.json'))
     return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}
