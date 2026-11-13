@@ -68,37 +68,93 @@ target. The result concerns prescribed positions and does not identify the
 unpinned ground energy or a four-dimensional pure-gauge mass gap.
 The complete source and instruments are specified in \path{model/openwave_strong_step_scaling}.
 
-\paragraph{Calibrated spatial rest bands.}
-The complete native three-quark Gauss source admits an infinite-chain
-rest-band calculation through five compact cluster states per translation
-cell. The omitted relative configurations are retained by a lower spectral
-bound, and the exact squared compact-to-complement coupling norm is $5/64$.
-Two declared degree-dependent colour and number counterterms vanish on the
-entire calibrated two-cell operator. Using the inherited neutron and axial
-targets, the complete bulk neutron energy lies in
-$[0.939565387,0.939565457]$ GeV and its native axial magnitude lies in
-$[1.274757,1.275843]$; the vector matrix element is exactly one. The proton
-interval follows by the exact native isospin shift. These are calibrated
-one-dimensional source bands with complete spectral complements, without a
-three-dimensional scattering-pole or continuum identification. The fixed
-coefficient control has a disjoint axial interval
-$[1.291676,1.292715]$, so preservation of two-cell fits alone does not imply
-spatial refinement.
-The complete source and instruments are specified in \path{model/openwave_hadron_refinement_flow}.
+\paragraph{Calibrated interacting source poles.}
+The complete native three-quark Gauss source has five compact cluster
+fields per translation cell, with matrix spectral measure of zeroth moment
+$I_5$. Exact bounds retain every relative configuration outside this frame;
+the squared compact-to-complement coupling norm is $5/64$.
+Two declared counterterms vanish on the entire calibrated two-cell
+operator. With the inherited neutron and axial inputs, the neutron rest
+pole lies in $[0.939565387072,0.939565456806]$ GeV, and the native axial
+magnitude in $[1.274757,1.275843]$; native isospin gives the proton shift
+and vector amplitude one. The fixed-coefficient control has disjoint axial
+interval $[1.291676,1.292715]$, so preserving two-cell fits alone does not
+preserve spatial refinement.
+
+The pole residue is rank one in each tested momentum and spin/isospin
+fibre. If $q$ bounds complementary probability, $s$ bounds the compact-ground
+angle and $\tau$ the actual rational preparation's angle, its pole weight
+obeys
+\[
+ Z\ge(1-q)\bigl[1-(s+\tau)^2\bigr]>0.9999997
+\]
+at rest. The complete five-coordinate filter succeeds with probability
+$1/5$; its $4/5$ failure, other spectral outcomes and work are retained.
+This certifies observable poles of an interacting one-dimensional source,
+without identifying physical four-dimensional Lorentz particles
+(\path{model/openwave_hadron_refinement_flow},
+\path{model/openwave_baryon_poles}).
 
 \paragraph{Propagation with the same native rest operator.}
-A positive native correlated kinetic operator uses every colour-singlet
-triquark shape of occupied span at most one. With the common rule
-$J=\zeta M^{-1}$, where $M$ is the complete native compact rest matrix and
-$\zeta=(\hbar c/a)^2/(2u^2)$, the added action vanishes on the complete
-three-quark rest fibre. Rational five-band enclosures and the full infinite
-complement bound give a ground-band width between
-$0.1450650$ and $0.1450654\,\mathrm{GeV}$ and a neutron inertial mass in
-$[0.91037,0.97069]\,\mathrm{GeV}$. The electron unit, strong length and physical
-speed assignment are supplied. Positivity holds on the full Fock space;
-rest cancellation and the quoted spectrum apply to the three-quark domain.
-No higher-number spectrum or exact Lorentz dispersion is transferred.
-The complete construction and records are specified in \path{model/openwave_baryon_dispersion}.
+A positive correlated kinetic operator covers every colour-singlet
+triquark shape of occupied span at most one. Its common rule is
+$J=\zeta M^{-1}$ for the complete compact rest matrix $M$ and
+$\zeta=(\hbar c/a)^2/(2u^2)$; the action vanishes on the complete
+three-quark rest fibre. Exact five-band and infinite-complement bounds
+give width $[0.1450650,0.1450654]$ GeV and neutron inertial mass
+$[0.91037,0.97069]$ GeV. The electron unit, strong length and physical
+speed are supplied. Full Fock positivity supplies neither higher-number
+rest cancellation nor exact Lorentz dispersion
+(\path{model/openwave_baryon_dispersion}).
+
+\paragraph{Uniform native particle bands.}
+The complete interacting baryon source has an isolated simple ground pole
+at every momentum on its Brillouin circle. An exact finite shortcut splits
+its five compact triquark coordinates into three nearby light coordinates
+and two high coordinates, retaining the latter with the complete infinite
+relative-position tail. Subtracting the common scalar part of inverse-rest
+propagation reduces the remaining momentum derivative bound to less than
+$0.178$ source units. A rational interval cover then certifies a ground
+isolation gap above $0.127$ source units and high-complement probability
+below $2.7\times10^{-6}$ for both charges. These are unchanged calibrated
+one-dimensional source poles, with all spectral complements retained.
+They supply a uniform input for normalizable packets; no physical
+four-dimensional particle identification follows. Exact source records
+are in \path{model/openwave_uniform_pole_bands}.
+
+\paragraph{Normalizable source particles and complete records.}
+The explicit momentum amplitude
+$f(k)=\sqrt{15/(16\kappa)}[1-(k/\kappa)^2]$ on $|k|\leq\kappa=1/512$,
+zero outside, has unit norm on the infinite chain and finite position
+variance $5/(2\kappa^2)=655360$ cell$^2$. Uniform full-source projector
+bounds give neutron and proton band probabilities above $0.9999614$.
+After conditioning on the band outcome, more than $98.4025\%$ lies within
+$8192$ source cells of the origin. The same native weak-current packet
+response has vector amplitude above $0.983876558018$ and axial interval
+$[1.226387005970,1.324212994030]$. Preparation, band, current and position
+outcomes retain every failure, reference and work term. These are actual
+normalizable states, rather than fixed-momentum plane waves. The exact
+band filter remains a declared nonlocal spectral service; finite local
+compilation and physical four-dimensional particle identification are
+separate obligations. Exact records are in
+\path{model/openwave_normalizable_particle_records}.
+
+\paragraph{Native weak response on the same propagating poles.}
+Exact CAR contraction of the complete compact triquark source gives
+$V_P=I_5$ and
+$A_P=5/3\oplus\bigl(\begin{smallmatrix}1&2/3\\2/3&1\end{smallmatrix}\bigr)^{\oplus2}$.
+The full fixed-charge axial square satisfies $(M-I)(M-4I)=0$, retaining
+current-produced spin and isospin channels outside the pole frame.
+Complement and actual rational-preparation bounds transfer these currents
+to the isolated interacting source poles at six momenta. The rest vector
+amplitude is exactly one; the rest axial interval is
+$[1.274757331914,1.275842668086]$, with its strong axial calibration
+retained. At lattice phase $\pi$ the vector amplitude remains above
+$0.994488237318$. A complete charge-conserving current instrument records
+success, failure, every complementary spectral outcome and bounded source
+work. These source responses do not establish autonomous beta decay or a
+physical lifetime. Exact records are in
+\path{model/openwave_pole_weak_current}.
 
 \paragraph{Local strange families and an energy-conserving shell.}
 The complete two-cell native source uses two positive number/pair coefficients
@@ -122,6 +178,50 @@ strong-sector energy shell. The unfiltered weak current requires an
 interacting scattering-state transfer; no strange lifetime follows from
 the shell crossing alone.
 The complete construction and records are specified in \path{model/openwave_cluster_bandwidth}.
+
+\paragraph{A native current identity for the bulk strange source.}
+The complete compact $uds$ frame has 56 shapes and its
+$S=1/2$, $I=0$ Lambda sector has seven coordinates with Gram matrix $G$.
+Exact CAR contraction of the inherited strangeness-changing weak current
+into all 1,656 nonzero five-body occupation outputs gives
+\[
+6c^2G\ \leq\ W_P^\dagger W_P\ \leq\ 7c^2G,
+\qquad c=\sin\theta\cos\theta.
+\]
+Thus every compact Lambda state has nonzero response, independently of a
+fitted eigenvector. The current preserves occupied spatial span; a complete
+source-pole complementary probability bound $q$ therefore gives
+$\|P_{\rm out}W\psi_\Lambda\|^2\geq6c^2(1-q)>0$.
+At fixed total momentum, the calibrated bulk Lambda source pole lies in
+$[1.115684628607,1.115684878081]$ GeV. All current outputs and probe failure
+are retained. A separately enclosed proton--pion energy shell is present
+in the same source, but its interacting five-body scattering projector has
+not been identified with this compact current response. No physical
+Lambda lifetime follows. Exact records and the remaining transfer premise
+are specified in \path{model/openwave_strange_shell_current}.
+
+\paragraph{Native proton--pion field identification.}
+Literal CAR contraction projects the complete native weak output onto
+23 independent, antisymmetrized proton--pion composite fields. Relative
+to the seven-coordinate $\Lambda$ Gram matrix, the projected-current
+square has exact eigenvalues
+$6/5$, $241/150$ and $(277\pm\sqrt{54409})/200$
+with multiplicities $1,2,2,2$, before the inherited Cabibbo factor.
+Its strictly positive lower bound transfers to the complete bulk
+$k=0$ $\Lambda$ source pole after paying its full noncompact-weight
+bound. Other compact outputs, all noncompact outputs, preparation
+failure and probe failure remain explicit. These are source field
+identifications with inherited calibration. They are not an interacting
+on-shell decay or a normalizable $\Lambda$ packet: the full five-body
+outgoing wave operator and its weak-current spectral overlap remain open.
+
+A literal 96-word kinetic contraction also certifies a nonzero finite-time
+transition into two disjoint native composite supports from a specified
+localized Lambda field. The bound retains the entire infinite five-body
+kinetic carrier and all probe outcomes. It is a source kinetic substep,
+not a replacement for the full interacting scattering evolution.
+
+The exact fields and complete output bounds are specified in \path{model/openwave_scattering_current_support}.
 
 \paragraph{Nuclear isospin and native charge response.}
 An occupancy-gated three-cell spin interaction vanishes on every sector
@@ -227,6 +327,29 @@ the continuous group loop does not establish a localized classical texture
 or a quark rest mass.
 The construction and complete records are specified in \path{model/openwave_quotient_homotopy}.
 
+\paragraph{Full-Haar gauge records and spatial blocking.}
+An actual spatial cube retains all six plaquettes and every Haar
+representation. Complete native contractions and whole-complement
+spectral bounds give a positive source gap and strictly positive
+adjacent-face Wilson covariances at the declared coupling. All fifteen
+face pairs, all 64 joint outcomes and the apparatus-work bound remain.
+Separately, the exact bounded-Wilson identity for the shared-link source
+controls its coupling derivative without differentiating an unbounded
+truncated matrix. A fixed physical gap supplies only a necessary
+source-clock tangent, not a measured beta function.
+
+Subdividing the cube gives an isometric coarse Haar/Gauss embedding.
+Complete parity enumeration and independent Haar contraction certify a
+positive coarse Wilson coefficient and a uniform remainder for the
+blocked magnetic factor. Matching the electric term in the unchanged
+clock requires $g_f^2=g_c^2/4$ at half spacing; magnetic mismatch and
+induced operators remain. These are finite-source and spatial-blocking
+results, without a full-Hamiltonian renormalization, GeV glueball or
+four-dimensional continuum identification
+(\path{model/openwave_cubic_haar_source},
+\path{model/openwave_haar_coupling_flow},
+\path{model/openwave_gauge_refinement_clock}).
+
 \subsection{Positive energy response and common gravitational records}
 
 An autonomous two-state geometry register couples to both complete native
@@ -243,6 +366,19 @@ scalar source's opposite-charge control is not transferred to it.
 Its dimensionless Newton coefficient follows from the mode stiffness,
 while physical strength and Einstein dynamics require separate attachment.
 The complete construction is \path{model/openwave_universal_energy_geometry}.
+
+\paragraph{Native lapse and finite curvature.}
+For the complete two-state geometry source, the weak-source derivative of
+the actual reference-normalized clock lapse is
+$-2\sinh(q)\tanh(qF)/\omega$.
+Its linear-profile error is bounded by
+$2\sinh(q)(qF)^3/(3\omega)$.
+Commuting lattice derivatives give exact linearized Bianchi identities on
+the declared metric variation, including every boundary halo. Their
+curvature Laplacian differs from the nearest-neighbour Poisson Laplacian by
+$(a^2/4)\sum_i\Delta_i^2$; that correction is retained. This identifies a
+finite response and error budget, without deriving a physical metric assignment or nonlinear Einstein limit.
+The source and complete records are specified in \path{model/openwave_source_ward}.
 
 \paragraph{Joint transverse light and native clocks.}
 A complete three-dimensional Maxwell complex has $882$ directed edges and

@@ -1441,7 +1441,7 @@ This does not assign a numerical gap at that coupling. At fixed $g$, the
 Hamiltonian and its nonzero gaps scale as $1/a$; a finite physical mass needs
 a controlled changing-coupling or energy-unit trajectory. Scalar reference
 subtraction cannot change a gap. Infinite volume and continuous Hamiltonian
-time supply neither a four-dimensional spatial-continuum construction nor
+time supply neither a four-dimensional spacetime-continuum construction nor
 a Clay mass-gap result.
 
 The propagation bound is independent of the compact gauge group. For a
@@ -1454,6 +1454,150 @@ excitations in a sufficiently small perturbation interval. This extends the
 fixed-spacing argument across the gauge groups without supplying a
 spatial-continuum construction or a numerical coupling threshold.
 The construction and complete records are specified in \path{model/openwave_su2_propagation}.
+
+\paragraph{Two interacting gauge loops.}
+The full Haar Gauss quotient of two adjacent SU(2) plaquettes has one basis
+vector for each admissible spin triple $(j_1,j_2,J)$. Its electric energy is
+$\alpha[3j_1(j_1+1)+3j_2(j_2+1)+J(J+1)]$; the shared-link spin $J$ couples
+the two loops. Wilson multiplication has exact squared-$6j$ matrix
+coefficients, independently checked by Clebsch--Gordan Haar integrals.
+The source retains every representation. Finite proof coordinates carry
+a positive bound on their entire infinite complement. This construction
+concerns a finite interacting gauge graph and supplies no spatial
+continuum or physical particle identification.
+
+The complete source and records are specified in \path{model/openwave_coupled_haar_source}.
+
+\paragraph{A coupled gauge source with a certified full-Haar spectrum.}
+Two neighboring SU(2) plaquettes share a gauge link.  All spins and every
+admissible intermediate Gauss channel remain in the source Hilbert space.
+For declared squared coupling $g^2=2$ and spacing $a=1$, the positive
+Hamiltonian has the certified dimensionless gap
+\[
+  3.0919590200861 < E_1-E_0 < 3.0919590200916.
+\]
+The ground's connected Wilson covariance satisfies
+\[
+  0.00029712823194 <
+  \langle W_1W_2\rangle-\langle W_1\rangle\langle W_2\rangle
+  <0.00029712823335.
+\]
+Exact recoupling coefficients, complete dyadic spectral witnesses, a
+positive bound for the entire infinite complement, and native trial
+residuals establish these intervals.  Three representation resolutions
+give overlapping enclosures of the same untruncated source.  The separate
+independent-loop electric control has exactly zero connected covariance.
+At declared $g^2=4$ and $8$, the corresponding full-source gaps lie in
+$[6.0116008299245,6.0116008299596]$ and
+$[12.0014508439425,12.0014508439444]$.
+
+The four effects $(I+sW_1/2)(I+tW_2/2)/4$, $s,t=\pm1$, define a complete
+observer instrument on that same physical space.  Every outcome is
+retained with a certified probability interval.  Its nonselective
+ground-state energy cost is bounded by $\alpha/6$, where
+$\alpha=g^2/(2a)$; the readout is not assumed to be energy-free.
+These are finite-graph gauge and record results with full Haar spaces.
+They neither identify physical glueballs or GeV masses nor supply a
+four-dimensional continuum or a uniform-volume mass gap.
+
+The complete source and records are specified in \path{model/openwave_coupled_haar_spectrum}.
+
+\paragraph{A nonzero Euclidean response and a clock-sensitive limit test.}
+For the same full-Haar coupled source, let
+$v=(W_1-\langle W_1\rangle)\Omega$ and
+$C(t)=\langle v,e^{-t(H-E_0)}v\rangle$.
+All finite spectral weights and a rigorous infinite-representation
+remainder give
+\[
+  0.2355121412297 < C(0)<0.2355121412313,
+  \qquad
+  0.1077022623741<C(1/4)<0.1079898705277.
+\]
+The latter interval is a strictly positive full-source response, not a
+correlator of a cutoff-defined model.  Three representation resolutions
+overlap.  Temporal reflection positivity follows from the positive
+source spectral measure, with complete signed reflection forms also
+checked in the finite proof coordinates.
+
+At fixed coupling on this fixed graph, the declared physical clock gives
+$H(a)=H(1)/a$.  The variance stays positive but
+$C_a(t)\leq C(0)e^{-(E_1-E_0)t/a}$ tends to zero for every fixed $t>0$.
+This particular sequence fails the noncollapse condition for a strongly
+continuous field limit.  A viable four-dimensional Yang--Mills family
+must instead supply spatial refinement, controlled coupling flow, common
+noncollapsed local fields and the required physical gap scaling, together
+with its Euclidean and short-distance identification.  A finite-graph
+connected composite correlation does not establish a nonfree continuum.
+The separate Lean energy lemma excludes a positive gap only when the
+same flat-space vacuum and nonzero finite-energy excitation obey
+arbitrary positive dilation covariance; it makes no claim about compact
+spatial cylinders or vacua that break that covariance.
+
+The complete source and records are specified in \path{model/openwave_euclidean_refinement}.
+
+\paragraph{Certified coupling response in a common source clock.}
+The full-Haar shared-link gauge source has certified gaps at seven declared
+squared couplings $x=1,3/2,2,3,4,6,8$.  At $x=1$,
+$\Delta\in[2.1047137308361,2.1047137308942]$ and
+$\Delta'\in[0.1681692139908,0.1681692238994]$; at $x=2$,
+$\Delta'\in[1.3640209354770,1.3640209364640]$.
+All seven derivative lower bounds are positive.  The exact identity
+$H'(x)=H(x)/x-4(2-W_1-W_2)/x^2$ lets the same finite spectral theorem
+control the derivative through bounded Wilson expectations, retaining
+the entire representation complement.  Holding $\Delta(x(a))/a$ fixed
+requires $dx/d\log a=\Delta/\Delta'$, whose certified interval at $x=1$
+is $[12.5154512938,12.5154520317]$.  This is a necessary source-level
+tangent, without an inferred beta function, fitted mass or spatial
+continuum claim.
+
+The exact source and complete records are specified in \path{model/openwave_haar_coupling_flow}.
+
+\paragraph{Full-Haar records on an actual spatial cube.}
+An exact trivalent Gauss census and native Clebsch--Gordan contraction
+execute all six plaquettes of the three-dimensional cube.  The complete
+electric-energy-six sector has 32 states, including every eight-cycle
+and opposite-face pair; the next sector is at energy $13/2$.
+An independently integrated character basis verifies the full low-sector
+Gram and Wilson matrices.  The spectral certificate retains every
+representation outside the complete 86-state proof frame, while a
+785-state trial retains every native output in its residual.
+At declared $g^2=16$, $a=1$, the full source gap is enclosed by
+$[23.9864058073,24.0000418795]$, and every adjacent-face connected
+Wilson covariance lies in
+$[8.6032171751\times10^{-8},8.7909740854\times10^{-8}]$.
+At $g^2=8$, the adjacent covariance is also strictly positive, in
+$[1.1516265918\times10^{-6},1.6440415433\times10^{-6}]$.
+All six means, all fifteen covariance pairs and the complete 64-outcome
+Wilson instrument remain present.  Its nonselective ground-state work
+is bounded by $\alpha/2$.  These are finite-cube gauge records with full
+Haar spaces, without a GeV or four-dimensional continuum identification.
+
+The exact source and complete records are specified in \path{model/openwave_cubic_haar_source}.
+
+\paragraph{A coarse interaction generated by spatial Haar blocking.}
+Subdividing the spatial cube changes twelve links and six faces into
+54 links and 36 faces.  Ordered fine-link products embed the coarse
+Haar/Gauss space isometrically.  Exact conditional integration gives
+\[
+ \mathbb E\!\left[e^{\kappa\sum_{36}W_f}\mid U_{\rm coarse}\right]
+ =1+\frac92\kappa^2+\frac{321}{32}\kappa^4
+  +\frac{\kappa^4}{64}\sum_6W_c+R_\kappa,
+ \qquad
+ \|R_\kappa\|_\infty\leq
+ e^{36|\kappa|}\frac{(36|\kappa|)^6}{720}.
+\]
+Complete face-parity enumeration and an independent fundamental Haar
+contraction verify the four-face coefficient.  A central fine-link sign
+transformation fixes every coarse product and removes all odd orders.
+The resulting coarse Wilson coefficient is rigorously positive at
+declared $\kappa=10^{-5}$ and $10^{-6}$.
+The electric compression is twice the coarse Casimir sum; retaining the
+source clock at half spacing requires $g_f^2=g_c^2/4$ to match that term
+alone.  The magnetic mismatch and generated-operator remainder remain.
+This is a constructive spatial blocking result for the positive magnetic
+factor, without a full-Hamiltonian renormalization or continuum claim.
+
+The exact source and complete records are specified in \path{model/openwave_gauge_refinement_clock}.
 
 \section{Physical scope}
 

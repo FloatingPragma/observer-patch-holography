@@ -94,6 +94,47 @@ companion~\cite{ophcontracts}. A smooth Einstein interpretation also needs
 the common-stress and tensor-curvature or small-ball identification
 premises~\cite{ophEinstein}.
 
+\paragraph{Radiation-era capacity histories.}
+With conserved matter and ideal radiation, the gamma-one future-event
+branch obeys
+$d\Omega_x/d\log a=\Omega_x(1-\Omega_x)(1+r+2\sqrt{\Omega_x})$,
+where $r=\rho_r/(\rho_m+\rho_r)$.
+An outward Taylor enclosure controls the branch through $z=10^6$.
+Its early radiation-era fraction scales as $a^2$, whereas fixed capacity
+gives $a^4$ and the Hubble-area control retains a constant fraction.
+The present amplitudes and radiation content remain supplied; these are
+conditional expansion histories, not derived particle abundances.
+The defining source and outward enclosures are specified in \path{model/openwave_radiation_capacity}.
+
+\paragraph{Perturbations of a declared capacity background.}
+Put $x=\sqrt{\Omega_x}$ and
+$r=\rho_r/(\rho_m+\rho_r)$. The conserved event-area branch has
+\[
+ c_a^2=\frac{-2-3x+3x^2+2x^3+rx(1+x)}6.
+\]
+The supplied past-background enclosures imply $c_a^2<-1/5$, rejecting an
+adiabatic barotropic-fluid attachment. This instability is consistent
+with the \href{https://arxiv.org/abs/0706.3757}{holographic-fluid analysis
+of Myung}. The established
+\href{https://arxiv.org/abs/astro-ph/0604484}{holographic-quintessence
+reconstruction of Zhang} instead supplies a canonical scalar with
+\[
+ \frac{d\phi}{d\log a}=M_{\rm Pl}\sqrt{2\Omega_x(1-x)},\qquad
+ V=\frac{\rho_x(2+x)}3,\qquad c_s^2=1.
+\]
+For this radiation-inclusive past domain, exact positive Bernstein
+coefficients and the Lean certificate give
+\[
+ 2\le\frac{V''}{H^2}\le6.
+\]
+This is a stable local scalar completion of the declared background,
+not a source-derived particle mass or a cosmological likelihood fit.
+The supplied amplitudes and horizon choice remain, and native-source
+transfer and perturbation-data acceptance are unproved. The polynomial
+bounds are in \path{Lean/ObserverPatchHolography/CapacityScalarCurvature.lean};
+the complete background and controls are in
+\path{model/openwave_capacity_perturbations}.
+
 \section{Matter and States on a Supplied Spatial Domain}
 
 The Whitney construction on the fixed tetrahedral cone gives a controlled
