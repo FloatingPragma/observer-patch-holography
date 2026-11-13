@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def test_projection_preserves_calibrations_failed_comparisons_and_domains():
     result=summary.collect(ROOT)
-    assert len(result['receipts_sha256'])==10
+    assert len(result['receipts_sha256'])==len(summary.PACKAGES)
     assert not result['all_sources_identified_as_one_physical_theory']
     assert {r['name'] for r in result['strange_masses'] if r['comparison_role']=='calibration'}=={'Lambda','K+'}
     assert not result['nuclear_masses']['helion']['matches']
@@ -26,7 +26,7 @@ def test_projection_preserves_calibrations_failed_comparisons_and_domains():
     result['conditional_expansion_comparisons'][0]['anchors']['Omega_m']='0.3125'
     changed='\n'.join(summary.render(result))
     assert 'H0=68.125 and Omega_m=0.3125' in changed
-    assert 'H0=67.4' not in changed
+    assert 'H0=67.4' not in changed.split('### Resolved charge profiles')[0]
     for name in ('neutron','proton'):
         line=next(x for x in text.splitlines() if x.startswith(f'| {name} band |'))
         display=list(map(F,line.split('[',1)[1].split(']',1)[0].split(', ')))
@@ -69,3 +69,51 @@ def test_incomplete_custody_inventory_fails_before_projection(tmp_path,monkeypat
     p.write_text(json.dumps({'source_sha256':{'a':'one'},'verdict':'PASS'}))
     with pytest.raises(ValueError,match='inventory changed'):
         summary.collect(tmp_path)
+
+
+def test_scale_projection_keeps_member_choices_failures_and_exact_intervals():
+    value=summary.collect(ROOT)
+    scale=value['native_scale_and_structure']
+    assert scale['core']['selection']['selection_uses_resolution_outcome']
+    assert not scale['core']['selection']['selection_uses_empirical_radius_or_running_data']
+    assert not scale['core']['scope']['reference_bound_energies_are_observed_particle_poles']
+    assert not scale['unit_constraint']['scope']['physical_G_and_c_match']
+    assert not scale['capacity_histories']['same_data_alternatives_are_independent']
+    assert len(scale['capacity_histories']['comparisons'])==8
+    assert all(x['rows']==15 and x['fitted_chronometer_parameters']==0
+               for x in scale['capacity_histories']['comparisons'])
+    assert not scale['full_Haar_dynamics']['scope']['Clay_problem_solved']
+    text='\n'.join(summary.render_scale_and_structure(scale))
+    for row in scale['core']['members']:
+        line=next(x for x in text.splitlines() if x.startswith('| '+row['family']+' |'))
+        for display, key in zip(line.split('|')[2:5],
+                ('reference_bound_energy_GeV_interval','radius_cells_interval','maximum_suppression_interval')):
+            lo,hi=map(F,display.strip().strip('[]').split(', '))
+            actual_lo,actual_hi=map(F,row[key])
+            assert lo<=actual_lo<=actual_hi<=hi
+    scale['capacity_histories']['anchors']['H0_km_s_Mpc']='68.125'
+    assert 'H0=68.125' in '\n'.join(summary.render_scale_and_structure(scale))
+
+
+def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_members():
+    value=summary.collect(ROOT)
+    assert len(value['receipts_sha256'])==20
+    group=value['propagation_and_nuclei']
+    b=group['baryon']['positive_correlated_propagation']
+    assert b['k0_complete_N3_operator_change_exact']=='0'
+    assert not b['other_full_Fock_spectra_transferred']
+    assert not b['exact_Lorentz_dispersion_or_scattering_pole']
+    assert group['strange']['source']['complete_two_cell_operator_preserved']
+    assert not group['strange']['native_weak_scope']['new_on_shell_weak_matrix_element_certified']
+    rows=group['nuclei']['complete_finite_spectra']
+    assert [r['target_in_interval'] for r in rows]==[True,False,False]
+    assert not group['nuclei']['declared_electrostatic_member']['seven_parent_mass_calibrations_transferred']
+    text='\n'.join(summary.render_propagation_and_nuclei(group))
+    assert 'strange decay rate is not supplied' in text
+    for label,pair in [('Lambda',group['strange']['Lambda_rest_GeV_interval']),
+        ('charged pion',group['strange']['pion_rest']['full_ground_GeV_interval']),
+        ('charged kaon',group['strange']['kaon_rest']['full_ground_GeV_interval'])]:
+        line=next(x for x in text.splitlines() if x.startswith('| '+label+' |'))
+        lo,hi=map(F,line.split('|')[2].strip().strip('[]').split(', '))
+        a,b=map(F,pair)
+        assert lo<=a<=b<=hi
