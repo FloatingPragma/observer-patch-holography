@@ -175,13 +175,13 @@ def certificate():
     assert even['strictly_bound_in_this_native_channel'] and odd['above_this_channel_breakup_threshold']
     target=F(s.INPUTS['deuteron_binding_calibration_target_GeV']);assert F(even['binding_GeV_interval'][0])<=target<=F(even['binding_GeV_interval'][1])
     controls=[]
-    for gradient in(0,1,2,4):
+    for gradient in map(F,('0','1','2','9/4','5/2','3','4')):
         pp=s.parameters(F(gradient));threshold=sum(float(s.INPUTS['mass_calibration_targets_GeV'][k])for k in('proton','neutron'))
-        controls.append({'gradient':gradient,'parameters_rational':{k:str(v)for k,v in pp.items()},
+        controls.append({'gradient':str(gradient),'parameters_rational':{k:str(v)for k,v in pp.items()},
                          'even_energy_GeV':s.nuclear_energy(pp)*float(UNIT),'odd_energy_GeV':s.nuclear_energy(pp,0,0,-1)*float(UNIT),
                          'odd_binding_to_pn_GeV':threshold-s.nuclear_energy(pp,0,0,-1)*float(UNIT),
                          'scope':'Five targets are recalibrated for each distinct diagnostic source; the architecture menu is retrospective.'})
-    return {'schema':'oph.positive_native_spin_gradient_nuclei.v1','verdict':'PASS_COMPLETE_SPIN_GRADIENT_SOURCE_WITH_ODD_CHANNEL_ABOVE_BREAKUP',
+    return {'schema':'oph.positive_native_spin_gradient_nuclei.v1','verdict':'PASS_COMPLETE_SPIN_GRADIENT_SOURCE_WITH_ODD_NUCLEAR_CHANNELS_ABOVE_BREAKUP',
             'input_ancestry':s.INPUTS,'parameters_rational':{k:str(v)for k,v in p.items()},'positive_gradient_CAR_identity_exact':True,
             'three_hadron_mass_calibrations':fits,'native_axial_ground':a,'complete_baryon_multiplets':b,'complete_meson_charge_spectra':meson,
             'complete_nuclear_spectrum':n,'selected_nuclear_record':trial,'all_fragment_comparisons':fragments,'retrospective_gradient_controls':controls,

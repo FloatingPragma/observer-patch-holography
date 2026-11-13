@@ -19,7 +19,7 @@ from model.openwave_nuclear_distance import nuclear
 HERE=Path(__file__).resolve().parent
 INPUTS=json.loads((HERE/'inputs.json').read_text())
 DECLARED={'Js':F(1,4),'Jw':F(1,4),'t':F(1,8),'kappa_colour':F(4)}
-GRADIENT=F(4)
+GRADIENT=F(5,2)
 
 @lru_cache(None)
 def components(kind):
