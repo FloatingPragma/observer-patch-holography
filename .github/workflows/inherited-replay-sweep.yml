@@ -1,0 +1,51 @@
+name: Temporary complete inherited replay sweep
+on:
+  push:
+    branches: ['codex/oph-inherited-48-baseline-20261113']
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Install original pinned environment
+        run: |
+          python -m pip install -r model/requirements.txt
+          echo "AUDIT_OUTPUT=$RUNNER_TEMP/inherited-sweep" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/inherited-sweep"
+          python -m pip freeze > "$RUNNER_TEMP/inherited-sweep/environment.txt"
+      - name: Prepare pinned OpenWave kernel runtime
+        if: matrix.shard == 7
+        run: |
+          python -m pip install taichi==1.7.4
+          git init "$RUNNER_TEMP/oph-openwave-kernel"
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" fetch --depth=1 https://github.com/openwave-labs/openwave.git ef55175d04737e73c92f33f9f9cf3d17c593da54
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" checkout --detach FETCH_HEAD
+          echo "OPH_OPENWAVE_ROOT=$RUNNER_TEMP/oph-openwave-kernel" >> "$GITHUB_ENV"
+          echo "OPH_TAICHI_PYTHON=$(command -v python)" >> "$GITHUB_ENV"
+          python -m pip freeze > "$RUNNER_TEMP/inherited-sweep/environment.txt"
+      - name: Replay every scheduled package and capture all failures
+        run: python .github/inherited-replay-sweep/capture.py '${{ matrix.shard }}'
+      - name: Retain source and all computation evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: inherited-sweep-${{ matrix.shard }}
+          path: ${{ runner.temp }}/inherited-sweep/
+          include-hidden-files: true
+          retention-days: 7
