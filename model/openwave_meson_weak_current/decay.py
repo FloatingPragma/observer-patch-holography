@@ -18,9 +18,13 @@ ETA=(1,-1,-1,-1)
 
 def _lepton_index(weak,x,spin,f):return weak*12+x*6+spin*3+f
 
-def _shifted_eigensystem(H,shift,*,driver=None):
-    """Solve the complete block after removing its known scalar offset."""
-    e,U=eigh(H-shift*np.eye(len(H)),driver=driver)
+def _shifted_eigensystem(H,shift,*,native=None,driver=None):
+    """Solve the complete block, retaining its original native matrix when given."""
+    if native is None:
+        native=H-shift*np.eye(len(H))
+    else:
+        assert np.array_equal(H,native+shift*np.eye(len(H)))
+    e,U=eigh(native,driver=driver)
     return e+shift,U
 
 def _complete_eigensystem(H,*,driver=None):
@@ -139,7 +143,13 @@ def construction(zero_word=False,contact_resonance=True):
     H=H0+G*V
     lookup={v:i for i,v in enumerate(keep)}
     hadron_initial=[i for i,(f,xq,sq,w,xa,sa)in enumerate(hadron_labels)if f==1 and w==1]
-    eh,Uh=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)],mass[1]-1)
+    # Preserve the orbital seed rule independently of projector roundoff.
+    _,seed_frame=eigh(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)])
+    seed_hadron=hadron_initial[int(np.argmax(abs(seed_frame[:,0])**2))]
+    # The scalar family energy changes eigenvalues, not the native eigenspace.
+    native_initial=np.array(hadron_initial)%32
+    eh,Uh=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_initial,hadron_initial)],
+                              mass[1]-1,native=h[np.ix_(native_initial,native_initial)])
     assert eh[1]-eh[0]>1e-5
     initial=np.zeros(len(keep),complex)
     for i,z in zip(hadron_initial,Uh[:,0]):
@@ -147,7 +157,9 @@ def construction(zero_word=False,contact_resonance=True):
         else:assert abs(z)<1e-12
     assert abs(np.vdot(initial,initial)-1)<1e-12
     hadron_final=[i for i,(f,xq,sq,w,xa,sa)in enumerate(hadron_labels)if f==0 and w==0]
-    ef,Uf=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_final,hadron_final)],mass[0]-1)
+    native_final=np.array(hadron_final)%32
+    ef,Uf=_shifted_eigensystem(Hh.toarray()[np.ix_(hadron_final,hadron_final)],
+                              mass[0]-1,native=h[np.ix_(native_final,native_final)])
     final_h=np.zeros(96,complex);final_h[hadron_final]=Uf[:,0]
     final_l=np.zeros(49,complex)
     for k,label in enumerate(lepton_labels):
@@ -161,7 +173,7 @@ def construction(zero_word=False,contact_resonance=True):
     vi=float(np.vdot(initial,V@initial).real);vf=float(np.vdot(target,V@target).real)
     assert abs(vi+3)<1e-12 and abs(vf-2.5)<1e-12
     assert abs(np.vdot(initial,H@initial).real-np.vdot(target,H@target).real)<1e-10 if contact_resonance else True
-    seed=int(np.argmax(abs(initial)**2));success=float(abs(initial[seed])**2)
+    seed=lookup[seed_hadron*49];success=float(abs(initial[seed])**2)
     rawseed=np.eye(len(keep),dtype=complex)[:,seed]
     failure=rawseed-initial*np.vdot(initial,rawseed)
     measurement_diagonal=np.repeat(measured_hadron,49)+np.tile(Hl.diagonal().real,96)
@@ -243,6 +255,12 @@ def momentum_readout(d):
 
 def complete_records(d,time,eigen=None):
     B,h,residual=spin_parity_reduction(d)
+    if d['zero_word']:
+        # Validate the declared source and preparation before complete evolution.
+        family=np.array([d['hadron_labels'][int(v)//49][0]==1 for v in d['keep']])
+        assert np.count_nonzero(d['H'][family][:,~family].data)==0
+        assert np.count_nonzero(d['H'][~family][:,family].data)==0
+        assert np.count_nonzero(d['initial'][~family])==0
     w,U=_complete_eigensystem(h)if eigen is None else eigen
     initial=B.conj().T@d['initial'];state=B@U@(np.exp(-1j*time*w)*(U.conj().T@initial))
     p=abs(state)**2;T=momentum_readout(d);out=T@state;pm=abs(out)**2;weight=d['success']

@@ -160,6 +160,21 @@ def test_new_class_clause_cannot_evade_the_semantic_pin(monkeypatch):
         packet.class_contract_digest()
 
 
+@pytest.mark.parametrize('receipt_sha256', [
+    'abe4cc80e5dcc2a79b5231b0dbf832df5c826bb039d4fef52fe7dfd816db8de3',
+    '2dc68b49a67ee4d2f9cfed327910d18b374b6df4a2c4e71de12243b8d22f9342',
+    'bafb0a3a8401a065c867af690ff10a80cca9c1e2fdc61a8f39c971370fa70401',
+    '0'*64,
+])
+def test_changed_interpreter_member_receipt_needs_review(monkeypatch, receipt_sha256):
+    value = strict_json.load(packet.ROOT/'model/completion/program_class_v2.json')
+    value['interpreter_binding']['source_hashes'][
+        'model/native_program/results.json'] = receipt_sha256
+    monkeypatch.setattr(packet.strict_json, 'load', lambda _: value)
+    with pytest.raises(ValueError, match='fixed-number V2 class contract'):
+        packet.class_contract_digest()
+
+
 def test_independent_adoption_refresh_does_not_make_receipt_hash_recursive(monkeypatch):
     value = strict_json.load(packet.ROOT/'model/completion/program_class_v2.json')
     value['adoption']['independent_review']['sha256'] = 'f'*64

@@ -80,7 +80,7 @@ covariance is not reused on the ring.
 
 Prepare the exact strong neutron spin-up state. The terminal observable
 is +1 for an actual strong proton with a light electron of positive
-lattice velocity, -1 for negative Dirac momentum, and zero for zero Dirac momentum
+Dirac momentum, -1 for negative Dirac momentum, and zero for zero Dirac momentum
 and the entire source complement. All neutral masses and both helicities
 are summed. Spin is the fixed native spin label; this is a one-dimensional
 momentum-parity statistic, not the physical three-dimensional neutron coefficient.

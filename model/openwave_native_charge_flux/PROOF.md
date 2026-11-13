@@ -87,6 +87,15 @@ not assumed.
 
 ## Exact arrival charge and flux
 
+Let \(R_{e^c}\) project onto the one-particle \(e^c\) sector of the
+complete static reference Fock space. The specified pump on reference
+vacuum has range in this sector. The source clock with \(4N_{\rm ref}\),
+its spectral projectors and the source-only arrival effects commute with
+\(R_{e^c}\). The fixed charge and flux values below apply on the joint
+physical subspace in \(R_{e^c}\); the general Gauss identity (2) applies
+to every physical reference sector. The detector \(P_e\) itself is
+identity on the full reference and imposes no reference-sector filter.
+
 On \(P_e\), the origin source is a true local gauge singlet. All links
 except \(e\) are blank. The joint origin Gauss equation therefore gives
 
@@ -118,7 +127,7 @@ detector definition:
 In particular the total weak current vanishes at \(y\), so \(Q=Y\)
 on this attached sector. This is an operator consequence of the actual
 joint constraint and complete detector, without choosing a particle label.
-For every cut and every physical vector in the arrival effect,
+For every cut and every joint-physical vector in \(P_eR_{e^c}\),
 
 \[
 F_S=\mathbf1_{0\in S}-\mathbf1_{y\in S}.
@@ -191,7 +200,9 @@ evaluated here. The positive route signal is small because the declared
 hopping and observation time are small.
 
 A Gauss-preserving energy filter on the same source preserves (2)–(5)
-whenever an arrival clicks. This statement supplies no positive probability
+whenever an arrival clicks in the one-\(e^c\)-reference sector, provided
+the filter also preserves that sector, as the actual full-H spectral
+projector does. This statement supplies no positive probability
 for an energy-filtered arrival and assumes no commutation of energy and
 arrival projectors.
 

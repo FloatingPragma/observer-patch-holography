@@ -2,9 +2,9 @@ name: Complete finite field records
 on:
   push:
     branches: [main]
-    paths: ['model/**', 'Lean/**', 'claims/addenda/field_record_addenda.json', 'tools/check_field_record_addenda_claims.py', 'tools/build_finite_field_records_atlas.py', 'docs/research/OPH_FINITE_FIELD_RECORDS.svg', '.github/workflows/field-record-addenda.yml']
+    paths: ['model/**', 'Lean/**', 'claims/addenda/field_record_addenda.json', 'tools/check_field_record_addenda_claims.py', 'tools/test_field_record_addenda_claims.py', 'tools/build_finite_field_records_atlas.py', 'docs/research/OPH_FINITE_FIELD_RECORDS.svg', '.github/workflows/field-record-addenda.yml']
   pull_request:
-    paths: ['model/**', 'Lean/**', 'claims/addenda/field_record_addenda.json', 'tools/check_field_record_addenda_claims.py', 'tools/build_finite_field_records_atlas.py', 'docs/research/OPH_FINITE_FIELD_RECORDS.svg', '.github/workflows/field-record-addenda.yml']
+    paths: ['model/**', 'Lean/**', 'claims/addenda/field_record_addenda.json', 'tools/check_field_record_addenda_claims.py', 'tools/test_field_record_addenda_claims.py', 'tools/build_finite_field_records_atlas.py', 'docs/research/OPH_FINITE_FIELD_RECORDS.svg', '.github/workflows/field-record-addenda.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -28,5 +28,7 @@ jobs:
         run: python -B -m pytest -q model/field_record_addenda -W error
       - name: Check the separately scoped claim supplement
         run: python -B tools/check_field_record_addenda_claims.py
+      - name: Reject forged class and member custody
+        run: python -B -m pytest -q tools/test_field_record_addenda_claims.py -W error
       - name: Check the finite-record poster against exact receipts
         run: python -B tools/build_finite_field_records_atlas.py --check

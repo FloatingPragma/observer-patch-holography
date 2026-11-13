@@ -1,5 +1,12 @@
 # Prepared charged-line localization under the actual clock
 
+The [sequential motion theorem](MOTION.md) uses the preparation and error
+bound below to certify atom-resolved arrivals after a retained position
+intervention. The [static hypercharge theorem](MAGNETIC.md) derives the
+background conjugation identity for the same complete Hamiltonian, its
+currents and its paired observer records. Neither calculation changes the
+source reference or imports a free-particle clock.
+
 ## Source and preparation
 
 Fix the complete interacting side-two source of

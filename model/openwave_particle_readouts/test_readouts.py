@@ -1,10 +1,29 @@
 """Independent finite-matrix controls for the prepared-line bounds."""
 import numpy as np
+import json
 import pytest
 import sympy as s
 from scipy.linalg import expm
 
 from .readouts import prepared_line_bounds, native_rotation_controls, disturbance_bound
+
+
+def test_complete_current_receipt_and_tamper_controls():
+    from .readouts import HERE, certificate, validate_pins
+
+    saved = json.loads((HERE/'results.json').read_text(encoding='utf-8'))
+    validate_pins(saved)
+    actual = certificate()
+    assert actual == saved
+    assert actual['prepared_line_motion']['source_clock_settings'] == ['0', '1', '3', '6']
+    assert actual['same_source_hypercharge_background']['full_source_controls']['actual_hopping_coefficient'] == '1/17179869184'
+    # Fresh numerical replay and source binding are separate checks.
+    import copy
+    corrupted = copy.deepcopy(saved)
+    name = next(iter(corrupted['input_sha256']))
+    corrupted['input_sha256'][name] = '0'*64
+    with pytest.raises(ValueError, match='source pin mismatch'):
+        validate_pins(corrupted)
 
 
 @pytest.mark.parametrize('seed', [7, 13, 29, 41])

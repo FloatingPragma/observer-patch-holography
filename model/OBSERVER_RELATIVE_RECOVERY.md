@@ -1027,6 +1027,19 @@ carrier. A coherent reference reads the native full-turn spin sign. The
 fixed compensator, small hopping coefficient and one electron energy
 calibration remain explicit; no free physical electron is identified.
 
+The same charged energy line has a [complete transport experiment](openwave_particle_readouts/MOTION.md)
+after an explicit blank-link position measurement. Exact atom-resolved
+hopping and a full-source Dyson bound give positive original-input arrivals
+at source times one and three, with the time-three lower bound exceeding
+the time-six upper bound. The six flux routes retain the fixed compensator,
+all failure outcomes and the position intervention's energy disturbance.
+This is a finite off-resonant excursion, without a charged dispersion
+relation or a transport claim for the untouched energy-selected line.
+Original arrival probabilities are of order $10^{-22}$; the independent
+complete-preparation sampling budget and its failure guarantee are retained.
+The $e^c$ arrival events also retain the same native charge and all regional
+Gauss-flux records, with exactly those original probabilities.
+
 The [field calculation](openwave_field_observables/PROOF.md) reuses exact
 finite-occupation identities `[H,a_j] = -omega_j a_j` for transverse
 Heisenberg propagation, without assuming canonical coordinate commutators
@@ -1060,7 +1073,16 @@ The [magnetic response](openwave_magnetic_response/PROOF.md) derives the
 spin-curvature term from the native kinetic matrices under a declared
 Peierls extension. Finite energy and coherent phase responses approach
 `g=2` without an inserted Pauli coefficient. The external field, mass and
-physical electron interpretation remain separate inputs. The
+physical electron interpretation remain separate inputs. On the actual
+interacting charged source, [complete link conjugation](openwave_particle_readouts/MAGNETIC.md)
+absorbs every central hypercharge background in the hopping and proves
+zero static spectral splitting. The nonzero current and diamagnetic
+operators cancel in the full spectral response. Paired complete records
+and blank-link arrival laws retain this invariance; a fixed coherent-state
+quench is a different experiment. No electromagnetic magnetic moment is
+identified by that result. The same conjugation applies when the link
+penalty is replaced by the native longitudinal Coulomb energy, without
+transferring the original preparation or transport bounds. The
 [native scalar force](openwave_native_force/PROOF.md) uses the actual local
 geometry derivative and a declared positive spatial elastic action to
 certify attraction including the full nonlinear matter remainder. Opposite
@@ -1104,6 +1126,7 @@ checks; their architecture and physical interpretation are stated separately.
 | --- | --- |
 | [Native charge and flux](openwave_native_charge_flux/PROOF.md) | Six charged routes satisfy all 256 regional Gauss identities. The noncentral weak current is not silently substituted for central hypercharge. |
 | [Filtered arrival](openwave_energy_resolved_transport/PROOF.md) | Complete seventeen-output pole-tagged arrivals have positive probability at time zero. They measure virtual dressing rather than demonstrated propagation. |
+| [Prepared charged motion](openwave_particle_readouts/MOTION.md) | Energy selection followed by a retained blank-link position measurement has zero initial arrival and positive later arrivals. The time-three lower bound exceeds the time-six upper bound; original probabilities, energy disturbance and sampling costs are retained. |
 | [Reference binding](openwave_reference_binding/PROOF.md) | Exact singlet compression and native strings bound the constrained unscreened-charge separation cost. Screened clouds and noninvariance under hopping are retained. |
 | [Coherent lepton compiler](openwave_lepton_phase_cycle/PROOF.md) | Four-phase averaging and an exact fourth-order word identity give full-reference trace error at most (14s)^5|t|^5/(10n^4). At one rest site, 15229 cycles suffice for 10^-12 at t=1, using declared phase/parity services. |
 | [Native free beats](openwave_native_beat_clock/PROOF.md) | A single coherent preparation and common full-H herald give fixed-observable free oscillations. The ground beat includes the reference energy; the interchannel beat cancels it. No passive self-starting or physical Compton clock is inferred. |

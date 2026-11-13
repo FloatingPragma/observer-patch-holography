@@ -12,7 +12,7 @@ from model.native_flavour_transport.transport import source,word_unitary,numeric
 from model.common_source import calibrated_matter as internal
 from model.coherent_defect_wave.physical_attachment.chiral import representation
 from model.openwave_weak_decay.decay import mass_data
-from model.openwave_meson_weak_current.decay import BAR,ETA,G
+from model.openwave_meson_weak_current.decay import BAR,ETA,G,_shifted_eigensystem
 
 @lru_cache(None)
 def hadron():
@@ -53,18 +53,19 @@ def hadron():
             zz=(native['B'].conj().T@one_body(a3,native['basis'])@native['B']).toarray()[np.ix_(active,active)]
             row.append((sp.csr_matrix(np.kron(C,plus)),sp.csr_matrix(np.kron(np.eye(3),zz))))
         qops.append(row)
-    return dict(native=native,Hh=Hh,hadron_labels=hadron_labels,measured_hadron=measured_hadron,qops=qops,raising=raising,mass=mass,C=C,q_two=q)
+    return dict(native=native,native_h=h,Hh=Hh,hadron_labels=hadron_labels,measured_hadron=measured_hadron,qops=qops,raising=raising,mass=mass,C=C,q_two=q)
 
 def hadron_eigensystem(d,family,weak,*,driver=None):
- """Remove only the known family scalar before the complete block solve.
+ """Solve the complete native block and restore its known family energy.
 
- The scalar changes every eigenvalue equally. Removing it avoids amplifying
- its roundoff through the small reflection gap; no state is projected out.
+ The full hadron matrix is checked against the original native block plus
+ its scalar offset; no rounded subtraction or state projection is needed.
  """
  rows=[i for i,h in enumerate(d['hadron_labels'])if h[0]==family and h[3]==weak]
+ native_rows=np.array(rows)%32
  H=d['Hh'].toarray()[np.ix_(rows,rows)];shift=d['mass'][family]-1
- e,U=eigh(H-shift*np.eye(len(rows)),driver=driver)
- return rows,e+shift,U
+ e,U=_shifted_eigensystem(H,shift,native=d['native_h'][np.ix_(native_rows,native_rows)],driver=driver)
+ return rows,e,U
 
 def li(L,weak,x,spin,f):return weak*(6*L)+x*6+spin*3+f
 
@@ -125,6 +126,10 @@ def construction(L,recenter=False):
  assert norm(H0.tocsr()[keep][:,other])<3e-12 and norm(V[keep][:,other])<3e-12
  H0=H0.tocsr()[keep][:,keep];V=V[keep][:,keep];H=H0+G*V
  where={int(v):i for i,v in enumerate(keep)};initial=np.zeros(len(keep),complex)
+ parentrows=[i for i,h in enumerate(d['hadron_labels'])if h[0]==1 and h[3]==1]
+ # Preserve the orbital seed rule independently of projector roundoff.
+ _,seed_frame=eigh(d['Hh'].toarray()[np.ix_(parentrows,parentrows)])
+ seed_hadron=parentrows[int(np.argmax(abs(seed_frame[:,0])**2))]
  parentrows,e,U=hadron_eigensystem(d,1,1)
  for k,z in zip(parentrows,U[:,0]):
   if k*nlep in where:initial[where[k*nlep]]=z
@@ -135,7 +140,7 @@ def construction(L,recenter=False):
   f,xe,se,xn,sn=label
   if f==0 and se==sn:fl[k]=(-1)**(xe+xn+li(L,0,xn,sn,f)+6*L-1)/(L*np.sqrt(2))
  target=np.kron(fh,fl)[keep];assert abs(np.vdot(target,target)-1)<1e-12
- seed=int(np.argmax(abs(initial)**2));success=float(abs(initial[seed])**2)
+ seed=where[seed_hadron*nlep];success=float(abs(initial[seed])**2)
  measured=np.repeat(d['measured_hadron'],nlep)+np.tile(Hl.diagonal().real,96)
  out=dict(d,L=L,recenter=recenter,q=q,nlep=nlep,keep=keep,lepton_labels=lepton,H=H,H0=H0,V=V,initial=initial,target=target,success=success,measured_energy=measured[keep]+G*V.diagonal().real,parent_energy=float(e[0]))
  return out

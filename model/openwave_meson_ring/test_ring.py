@@ -38,6 +38,14 @@ def test_native_two_site_source_and_record_transfer():
  assert abs(sum(r['conditional_position_probabilities'])-1)<1e-12
  assert max(abs(x-1)for x in r['both_complete_original_probability_sums'])<1e-12
 
+
+def test_family_offset_is_retained_in_the_complete_hadron_matrix():
+ from scipy.linalg import block_diag
+ from .ring import hadron
+ d=hadron();h=d['native_h']
+ expected=block_diag(*(h+(mass-1)*np.eye(32)for mass in d['mass']))
+ assert np.array_equal(d['Hh'].toarray(),expected)
+
 def test_exact_native_spin_injection_identity():
  pauli=(s.Matrix([[0,1],[1,0]]),s.Matrix([[0,-s.I],[s.I,0]]),s.diag(1,-1));bars=(s.eye(2),*(-p for p in pauli));eta=(1,-1,-1,-1)
  T=s.zeros(8,2)

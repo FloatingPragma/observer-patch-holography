@@ -20,7 +20,7 @@ def common():
  q=(mass_only.parameters()['delta']-1)/2;K=np.array([[1,-1],[-1,1]],dtype=int);a=np.zeros((8,8),int)
  for w,s in product(range(2),repeat=2):
   ids=[lepton_index(w,x,s)for x in range(2)];a[np.ix_(ids,ids)]=(1 if w else -1)*K
- K2=one_body(a,masks)+4*sp.eye(70);Hl=sp.diags(ne,dtype=float)+float(q)/2*K2
+ K2=one_body(a,masks)+4*sp.eye(70);Hl=sp.diags(ne,dtype=np.int64)+float(q)/2*K2
  raising=np.array(internal.weak_raising_current(families=False)).astype(complex)[np.ix_([10,11],[10,11])];third=(raising@raising.conj().T-raising.conj().T@raising)/2
  V=sp.csr_matrix((8400,8400),dtype=complex)
  for x,mu in product(range(2),range(4)):
