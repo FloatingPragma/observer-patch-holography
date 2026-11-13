@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2310,
+  "surface_count": 2332,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -417,6 +417,11 @@
     },
     {
       "path": "paper/tex_fragments/FOUNDATIONAL_REFERENCES.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/FULL_SOURCE_FIELDS_AND_FINITE_RESOURCES.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -5781,6 +5786,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_admission_packet/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_admission_packet/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_angular_torque/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5956,6 +5971,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_capacity_normalization_transfer/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_capacity_normalization_transfer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_capacity_perturbations/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6027,6 +6052,16 @@
     },
     {
       "path": "model/openwave_cluster_weyl_sequence/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_collective_finite_strength/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_collective_finite_strength/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6271,6 +6306,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_energy_schur/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_energy_schur/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_euclidean_refinement/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6302,6 +6347,26 @@
     },
     {
       "path": "model/openwave_field_observables/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_finite_phase_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_finite_phase_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_fock_field_transport/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_fock_field_transport/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6357,6 +6422,16 @@
     },
     {
       "path": "model/openwave_gravity_capacity/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_gravity_noise_normalization/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_gravity_noise_normalization/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6486,6 +6561,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_lambda_spectral_measure/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_lambda_spectral_measure/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_lambda_wavepacket/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6572,6 +6657,16 @@
     },
     {
       "path": "model/openwave_local_gauss_quantum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_localized_quark_record/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_localized_quark_record/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6877,6 +6972,16 @@
     },
     {
       "path": "model/openwave_nuclear_distance/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_nuclear_em_transfer/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_nuclear_em_transfer/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -9022,6 +9127,11 @@
     },
     {
       "path": "model/protected_spin_limit/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/publication_dependency_roles/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

@@ -1621,23 +1621,40 @@ inferred running coupling or a physical continuum identification
 (\path{model/openwave_refined_haar_source},
 \path{model/openwave_refined_haar_spectrum}).
 
-\paragraph{Controlled memory of omitted gauge modes.}
-For this complete frame, $QHQ\ge80Q$. Full Wilson action computes the
-leading positive Schur correction
+\paragraph{Energy-dependent full-complement spectral certificates.}
+For the actual refined Haar source, let $P$ be the complete 201-mode
+frame, $T=QHP$ and $C=QHQ=D+B$, where $D=16E_Q+9$, $C\ge80Q$
+and $\|B\|\le9$. Every omitted representation and intertwiner remains.
+For real $z<80$, define
 \[
- G=PHQ(16E_Q+9)^{-1}QHP,
- \qquad \|K(t)\|\le\|QHP\|^2e^{-80t}.
+ \Sigma(z)=T^*(C-z)^{-1}T,\quad G(z)=T^*(D-z)^{-1}T,
+ \quad J(z)=T^*(D-z)^{-2}T.
 \]
-Its 3,260 nonzero entries include every output intertwiner. A Neumann
-ratio $9/89$ bounds the infinite-channel zero-energy self-energy error in source-energy units by
-$9\|QHP\|^2/(89\cdot80)\le0.00175460$.
-A separate exact control rejects autonomous boundary-only compression.
-At $t=1/1024$, retaining interior modes improves the Haar-vacuum
-semigroup-defect bound by a factor greater than $225$. This controls
-one specified probe and finite memory. Exact autonomy and a uniform
-continuum refinement are not inferred.
-
-The full calculation is specified in \path{model/openwave_haar_memory_closure}.
+Factoring the resolvent around $D-z$ gives
+\[
+ \|\Sigma(z)-G(z)\|\le\frac{9\|J(z)\|}{1-9/(89-z)}.
+\]
+All 8143 off-block rows evaluate these shifted Gram matrices; exact
+finite-frame inertia transfers to the full source. In the common electric
+clock, the coarse and refined gap intervals are
+\[
+ [96.00000060968,96.00000069820],\qquad
+ [47.99403921427,48.00529277681],
+\]
+with widths reduced by factors above 361 and 5.36. These are finite-source
+energies, with no GeV or continuum identification. A general finite-word
+Neumann remainder is bounded by
+$b_T^2M^{n+1}/[(d+M-z)^{n+1}(d-z)]$ when $\|T\|^2\le b_T^2$;
+only the zeroth matrix term is executed here. Conversely, plaquettes
+vertex-disjoint from a fixed probe give the exact volume obstruction
+\[
+ \|QHP\|^2\ge\frac{\beta^2N_{\rm far}}4,
+ \qquad N_{\rm far}\ge N_{\rm faces}-48.
+\]
+Orthogonal Haar output supports prevent cancellation. Local incidence and
+interaction-picture propagation estimates replace the unavailable global
+volume-uniform norm bound; they do not establish a continuum mass gap
+(\path{model/openwave_energy_schur}).
 
 \section{Physical scope}
 

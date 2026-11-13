@@ -1,0 +1,2034 @@
+{
+  "autonomous_source_quench": [
+    {
+      "arbitrary_initial_geometry_state": false,
+      "complete_Q_outcome_total_variation_upper_exact": "44441317955457864787773911132464479859632814764780622577/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+      "diagnostic": {
+        "lapse_error_per_profile_upper": 2.0494128116637245e-66,
+        "state_angle_sine_upper": 1.7776527182183146e-44
+      },
+      "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+      "normalized_lapse_error_per_profile_upper_exact": "10247064058318621993568847021647157/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+      "state_angle_sine_upper_exact": "44441317955457864787773911132464479859632814764780622577/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "time_exact": "1",
+      "total_energy_upper_exact": "7"
+    },
+    {
+      "arbitrary_initial_geometry_state": false,
+      "complete_Q_outcome_total_variation_upper_exact": "533295815465494377453286933589573758315593777177367470923/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+      "diagnostic": {
+        "lapse_error_per_profile_upper": 6.148238434991173e-66,
+        "state_angle_sine_upper": 5.332958154654944e-44
+      },
+      "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+      "normalized_lapse_error_per_profile_upper_exact": "61482384349911731961418453337154039/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+      "state_angle_sine_upper_exact": "533295815465494377453286933589573758315593777177367470923/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "time_exact": "3",
+      "total_energy_upper_exact": "7"
+    },
+    {
+      "arbitrary_initial_geometry_state": false,
+      "complete_Q_outcome_total_variation_upper_exact": "279233059720133486719641388531413988498577862681364973713/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+      "diagnostic": {
+        "lapse_error_per_profile_upper": 6.438420780005506e-66,
+        "state_angle_sine_upper": 5.584661194402669e-44
+      },
+      "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+      "normalized_lapse_error_per_profile_upper_exact": "64384207800055058543668690052694917/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+      "state_angle_sine_upper_exact": "279233059720133486719641388531413988498577862681364973713/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "time_exact": "355/113",
+      "total_energy_upper_exact": "7"
+    }
+  ],
+  "broader_declared_energy_domain_certificate": {
+    "complete_ground_source_and_probe_included": true,
+    "diagnostic": {
+      "angle_upper": 2.5395038831690208e-39,
+      "gap_lower": 1.0,
+      "lapse_remainder_per_profile": 2.927732588091035e-61,
+      "mutual_relative_error": 1.39857411946431e-16
+    },
+    "domain": "Es>=minimum_source, Ep>=0, Es+Ep<=total_energy; every F in[0,1]",
+    "full_geometry_sector_gap_lower_exact": "9999999999999999999999999999999999999985338167494442658773437283471644473990862005260913233452699327/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "ground_angle_upper_exact": "25395038831690208450156520647122822789395644830056956387273853/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "leading_mutual_energy": "-2*q^2*F*Es*Ep/(N*omega)",
+    "mutual_energy_relative_error_upper_exact": "174821764933038738376887498279751852314711247470208851406467288459506054147600925401/1250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "normalized_lapse_linear_remainder_per_profile_upper_exact": "365966573511379375938662125603427644217/1250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "positive_source_energy_lower_exact": "32357463610692264714526297323/40000000000000000000000000000",
+    "total_energy_upper_exact": "1000000"
+  },
+  "complete_native_force": {
+    "central_force_relative_error_upper_exact": "12820551366092144224195894469470591201875340476189614311657911606341960026922193/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "force_is_attractive_for_every_positive_native_pair": true,
+    "geometry_ground_preparation_required_for_equilibrium_force": true,
+    "positive_native_source_probe_pairs": 49,
+    "source_energy_factorization_holds_with_quantified_remainder": true,
+    "three_profile_values_exact": [
+      "80017404665/274877906944",
+      "58793543041/549755813888",
+      "10724866539/274877906944"
+    ]
+  },
+  "complete_small_carrier_controls": [
+    {
+      "Ep_exact": "0",
+      "Es_exact": "0",
+      "N": 1,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.4999999999999998,
+            0.4999999999999998
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 0.4999999999999998,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": 0.0,
+          "mean_lapse": 1.0019537608656672,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.4999999999999998,
+            0.4999999999999998
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "1",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 0.4999999999999998,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": 0.0,
+          "mean_lapse": 1.0019537608656672,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.4999999999999998,
+            0.4999999999999998
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "3",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 0.4999999999999998,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": 0.0,
+          "mean_lapse": 1.0019537608656672,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "274877906943/274877906944",
+        "274877906945/274877906944"
+      ],
+      "full_geometry_dimension": 2,
+      "full_ground_interval_exact": [
+        "0",
+        "1/274877906944"
+      ],
+      "independent_full_bit_matrix_gap": 1.0,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "2",
+      "Es_exact": "1",
+      "N": 1,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.4999999999999999,
+            0.5000000000000001
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 0.5000000000000004,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": 0.0,
+          "mean_lapse": 1.0019537608656677,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.6126851829268234,
+            0.3873148170731765
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "66395417171884354501699642254597297220634949125694235893329298988993569016409085147301171335641117/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0077233990896554035,
+              "state_angle_sine_upper": 0.02655816686875374
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "77233990896554037766827032678812143947792576668817377836651607353604898022749789414718471750383043/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "66395417171884354501699642254597297220634949125694235893329298988993569016409085147301171335641117/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 0.4435656441814886,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": -4.440892098500626e-16,
+          "mean_lapse": 0.9878589408649026,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.8958406965795496,
+            0.10415930342045035
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "796745006062612254020395707055167566647619389508330830719951587867922828196909021767614056027693403/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.02436907325147022,
+              "state_angle_sine_upper": 0.07967450060626123
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "30461341564337778050860171956232372268285556039855254153354319640726067439630905548688369708653667/1250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "796745006062612254020395707055167566647619389508330830719951587867922828196909021767614056027693403/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 0.30175730173216575,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": 4.440892098500626e-16,
+          "mean_lapse": 0.9524414539025657,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "12296920574347713088654644615680272031553508337715417509636007424911959747177525481540578079852893080740581928837/10995116277760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "6148460287196360616040777298844393388899873730425186691882775481671790575658936544329490765078953142439514712003/5497558138880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 2,
+      "full_ground_interval_exact": [
+        "32463421593054689830722014023428616204832983275284030289695773745250008027263308137973824669620845381523694180413/10995116277760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "12985368637230877560974187605773149431182441134740603290704218205786327491733392776613210557909340793437167171199/4398046511104000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 1.118398411052616,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "1",
+      "Es_exact": "20",
+      "N": 1,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.4999999999999999,
+            0.4999999999999998
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 0.5,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": -3.552713678800501e-15,
+          "mean_lapse": 1.0078226778257107,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.5365303354217698,
+            0.46346966457822975
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0624559255051159,
+              "state_angle_sine_upper": 0.1859071680812762
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "312279627525579521056295586022821415877447532434225471437359698465095602150416829460245049589621373/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 0.30771591052484837,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": -1.0658141036401503e-14,
+          "mean_lapse": 0.9986662926126078,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.6773059882140775,
+            0.3226940117859222
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.24611269965804425,
+              "state_angle_sine_upper": 0.5577215042438286
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "2461126996580442570551387119194633264107114391912457914751265208975272039893596907883695876023658349/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": -0.43328243796849364,
+          "coordinate_values": [
+            -0.125,
+            0.125
+          ],
+          "energy_conservation_residual": -7.105427357601002e-15,
+          "mean_lapse": 0.9633806569700678,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "117819951877327803856572567802815727338072608782549306986900087264065358625388466370554859201510765398682743066011/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "58909975938710220341086918147374095752917492420590720815659269374867642937965658184957647264678914154084684720037/10995116277760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 2,
+      "full_ground_interval_exact": [
+        "3339939972811599185531695884589574807975569063139954508240202612945635247819280521826940884482471420990054394807/175921860444160000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "834984993202992433208525239639326166161654641843620761704469104722078739205362980456095656448464918157000225075813/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 5.35783109978129,
+      "profile_exact": "1"
+    },
+    {
+      "Ep_exact": "0",
+      "Es_exact": "0",
+      "N": 2,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.25,
+            0.4999999999999993,
+            0.24999999999999978
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 0.9999999999999991,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": 2.588449845256445e-31,
+          "mean_lapse": 1.000976880432833,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.2499999999999994,
+            0.4999999999999996,
+            0.2500000000000001
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "1",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 0.9999999999999991,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": 1.3877787807816275e-17,
+          "mean_lapse": 1.000976880432833,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.249999999999998,
+            0.4999999999999993,
+            0.2500000000000018
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "3",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 0.9999999999999991,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": 7.543810936465166e-30,
+          "mean_lapse": 1.000976880432833,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "687194767358887285143915251126216462386114023674257948306829753017343848141872100047771674234193615178431056413/687194767360000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "687194767361905052096881619937218573291376146272470038151050938108814697814360515645849308032756599596340608379/687194767360000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 4,
+      "full_ground_interval_exact": [
+        "-99042155099608882929379459686271243340998307235086390769818244529076961702622783368776846846458099/171798691840000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "1112714856084748873783537613885976325742051693170246982656151858127899952228325765806384821568943587/687194767360000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 0.9999999999999982,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "2",
+      "Es_exact": "1",
+      "N": 2,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.24999999999999972,
+            0.49999999999999933,
+            0.2500000000000002
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 0.9999999999999982,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": -1.7763568394002505e-15,
+          "mean_lapse": 1.0009768804328332,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.30842617120754534,
+            0.4975333098128597,
+            0.1940405189795939
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "58685812152436462901170038066349404330834904222689830712306072293538351806206548144541770187960141/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.004858345159745669,
+              "state_angle_sine_upper": 0.023474324860974585
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "1943338063898267726573176106150952084427008914962507258121373241199491039577909189686036317111743/400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "58685812152436462901170038066349404330834904222689830712306072293538351806206548144541770187960141/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 0.9713859471512278,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": -3.1086244689504383e-15,
+          "mean_lapse": 0.9938279412180967,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.5381473850837352,
+            0.39021755322204554,
+            0.07163506169421838
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "70422974582923755481404045679619285197001885067227796854767286752246022167447857773450124225552169/1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.015511657340568266,
+              "state_angle_sine_upper": 0.07042297458292375
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "38779143351420666573715856211701942657792885575935663378228821527372067431304132491252154074376471/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "70422974582923755481404045679619285197001885067227796854767286752246022167447857773450124225552169/1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 0.8844697387107794,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": -3.1086244689504383e-15,
+          "mean_lapse": 0.9720153627263547,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "2253300763934415320127067925145084027162268315560524145050706408314972442896139359512845882038557495089277109217/2199023255552000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "4506601527895489123189010226887077758470623248062318152428829316608975885572311170363220882293519181143554283759/4398046511104000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 4,
+      "full_ground_interval_exact": [
+        "13085584516536510876810989773112922241529376751937681847571170683391024114427688829636779117706480818856445716241/4398046511104000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "6542792258273584679872932074854915972837731684439475854949293591685027557103860640487154117961442504910722890783/2199023255552000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 1.024682553149879,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "1",
+      "Es_exact": "20",
+      "N": 2,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.25,
+            0.4999999999999999,
+            0.25
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 1.0,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": 0.0,
+          "mean_lapse": 1.0039113389128553,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.6851296996173881,
+            0.2785206788375897,
+            0.036349621545021936
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.04703067338798485,
+              "state_angle_sine_upper": 0.1859071680812762
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "470306733879848488879308903546492836193552569046827987322746737395347753376453429211110173367639669/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": -0.671102402288895,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": -7.105427357601002e-15,
+          "mean_lapse": 0.9243350340419552,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.5089135609138778,
+            0.45312981847292244,
+            0.03795662061319974
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.19983694330665108,
+              "state_angle_sine_upper": 0.5577215042438286
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "999184716533255455425770156848591638711543452223794524047673615185370843560228109377778049294424559/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": -0.23178425969159022,
+          "coordinate_values": [
+            -0.125,
+            0.0,
+            0.125
+          ],
+          "energy_conservation_residual": 0.0,
+          "mean_lapse": 0.9452549455942083,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "58539791944020554821656856489897029905751384531163334512184293997676733314709269259959783227371725006380937703157/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "117079583888302030740162443372702557753749339082530197106294578442486927474721203168849243923367520672935054611833/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 4,
+      "full_ground_interval_exact": [
+        "850490648554737969259837556627297442246250660917469802893705421557513072525278796831150756076632479327064945388167/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "425245324277419445178343143510102970094248615468836665487815706002323266685290730740040216772628274993619062296843/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 2.662081530800741,
+      "profile_exact": "1"
+    },
+    {
+      "Ep_exact": "0",
+      "Es_exact": "0",
+      "N": 4,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.06249999999999996,
+            0.25000000000000006,
+            0.375,
+            0.24999999999999994,
+            0.06250000000000003
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 2.0,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": 3.122502256758264e-17,
+          "mean_lapse": 1.0004883806020701,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.06250000000000006,
+            0.2500000000000002,
+            0.37499999999999967,
+            0.2500000000000002,
+            0.062499999999999875
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "1",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 2.0,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": -2.0816681711720308e-17,
+          "mean_lapse": 1.0004883806020703,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.06250000000000036,
+            0.25000000000000067,
+            0.3750000000000001,
+            0.24999999999999944,
+            0.06249999999999961
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "3",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 2.0000000000000004,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": -3.4694469519515873e-18,
+          "mean_lapse": 1.0004883806020701,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "43980465110842752674449881287129921075238177784013570668330504224288777835720581241237379881433409828314561867/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "219902325555593559269362677674928519006073245476854232333915189172816966205503290357169825417782992914814665429/219902325555200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 16,
+      "full_ground_interval_exact": [
+        "-97220590168719730217581197205312675315275171699044319947393897556388638848187830258013943008402811/219902325555200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "148169339596978972355468904433966400769478581108072426434786153973450859160818793762489485903131309/54975581388800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 0.9999999999999986,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "2",
+      "Es_exact": "1",
+      "N": 4,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.0624999999999999,
+            0.24999999999999994,
+            0.3749999999999998,
+            0.25000000000000006,
+            0.06249999999999993
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 1.9999999999999991,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": -8.881784197001252e-16,
+          "mean_lapse": 1.0004883806020697,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.07728348540726838,
+            0.2787606361319912,
+            0.3740721544647203,
+            0.22124265762218553,
+            0.048641066373834245
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "136347852510733050441488495254057440543415668973466212052124367738282152793209856902782709353925743/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.001983944638748522,
+              "state_angle_sine_upper": 0.013634785251073304
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "2479930798435652394626500875653718787943375874530851863451670507641869874890455536530727784687911/1250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "136347852510733050441488495254057440543415668973466212052124367738282152793209856902782709353925743/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 1.9856459143831433,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": -8.881784197001252e-16,
+          "mean_lapse": 0.9969011422890294,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.1496102840942225,
+            0.3636220408696209,
+            0.3317248513379725,
+            0.13456958260908364,
+            0.020473241089100248
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "409043557532199151324465485762172321630247006920398636156373103214846458379629570708348128061777229/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.006267824887372626,
+              "state_angle_sine_upper": 0.04090435575321991
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "7834781109215782789646571862487154200063761044096299587470188875154100815314314976895516384685659/1250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "409043557532199151324465485762172321630247006920398636156373103214846458379629570708348128061777229/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 1.9395434883932658,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": 0.0,
+          "mean_lapse": 0.9853402047485369,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "22127332989584448409790746842898983539552117531158437233367525439641224859861789093231733153167157886590161630639/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "22127332989709231636742281296063727311917577376801661391603645675407862458994315047706063461532898841124422589061/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 16,
+      "full_ground_interval_exact": [
+        "65695017740364458849121090812821558628096436927635205072576462459269888507856568043681068543822397055860838316369/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "32847508870219228393701832178397009527918396939304739948159569700135081881670967429174309147329103724330689308119/10995116277760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 1.0062346059232095,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "1",
+      "Es_exact": "20",
+      "N": 4,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.06249999999999983,
+            0.24999999999999983,
+            0.3750000000000001,
+            0.24999999999999978,
+            0.06249999999999983
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 1.9999999999999964,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": -1.4210854715202004e-14,
+          "mean_lapse": 1.001954715161047,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.31721561698146844,
+            0.4407468361718283,
+            0.20348596242530237,
+            0.036451753015219746,
+            0.0020998314061807547
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.03612337301444933,
+              "state_angle_sine_upper": 0.1859071680812762
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "361233730144493308074096719610963479947649965543150895281285283313820471066341490387097181130115549/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 0.6706683279584951,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": -1.0658141036401503e-14,
+          "mean_lapse": 0.9386532069685948,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.2686465646730605,
+            0.4026974509607161,
+            0.24385621982590694,
+            0.07445560352697883,
+            0.010344161013337244
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.16711504218604453,
+              "state_angle_sine_upper": 0.5577215042438286
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "1671150421860445368435903761890595208685379093936557771970962868126159840190120402283517121876276759/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 0.9134507413814994,
+          "coordinate_values": [
+            -0.125,
+            -0.0625,
+            0.0,
+            0.0625,
+            0.125
+          ],
+          "energy_conservation_residual": -1.0658141036401503e-14,
+          "mean_lapse": 0.9502142742744519,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "34535735675807199213740879461582337743480890014234940116679418043595904303400689983459771927490361424402323392177/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "69071471351885127776797455909259498388595307365286059414707461719751579134613328223093646893470812871926731017107/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 16,
+      "full_ground_interval_exact": [
+        "174269358412138183883635373671109872853217658848663316896213827955591979052233273490410399556435681567168716789053/8796093022208000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "217836698015203136509658450102361443528836197032447009518775181166549619090763559164740394852639066983498075781007/10995116277760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 1.5705034309507013,
+      "profile_exact": "1"
+    },
+    {
+      "Ep_exact": "0",
+      "Es_exact": "0",
+      "N": 6,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.015625000000000007,
+            0.09374999999999999,
+            0.23437500000000014,
+            0.3125000000000001,
+            0.234375,
+            0.09375,
+            0.015624999999999976
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 3.000000000000001,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": 1.2143064331837995e-17,
+          "mean_lapse": 1.0003255679323648,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.015625000000000028,
+            0.09375000000000006,
+            0.2343750000000001,
+            0.31249999999999994,
+            0.234375,
+            0.09375000000000008,
+            0.015624999999999997
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "1",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 3.0000000000000004,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -6.938893903906499e-18,
+          "mean_lapse": 1.0003255679323646,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.015625,
+            0.09374999999999992,
+            0.23437500000000008,
+            0.31250000000000006,
+            0.23437500000000003,
+            0.09375000000000006,
+            0.01562499999999999
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "3",
+            "total_energy_upper_exact": "0"
+          },
+          "coordinate_measurement_work": 3.0000000000000004,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -8.673617379883399e-18,
+          "mean_lapse": 1.0003255679323648,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "10995116277731254316612508016278500877515911965542679482811510622018362333478871055451026953413061878084411892979/10995116277760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "10995116277775895332763885562149049804346029412881535587887718234579478473067909715789202954154684801819556864493/10995116277760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 64,
+      "full_ground_interval_exact": [
+        "-608996428055828115320097241594158261150131717389418235463855922938097405886572344486296344705124393/2199023255552000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "1204720370963102022417123575442995772729837121947294693952424386239302696228446165523748759002928987/687194767360000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 0.9999999999999979,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "2",
+      "Es_exact": "1",
+      "N": 6,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.015624999999999997,
+            0.09375000000000003,
+            0.234375,
+            0.31249999999999967,
+            0.23437499999999972,
+            0.0937500000000002,
+            0.01562499999999999
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 2.9999999999999982,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -1.7763568394002505e-15,
+          "mean_lapse": 1.000325567932364,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.019332153070364632,
+            0.10836686859874028,
+            0.2522288349205274,
+            0.31198524230796937,
+            0.21626500781588442,
+            0.07964788710405594,
+            0.012174006182457743
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "90324478879186444431515098601610781034487901692137458099969540127544603568417141700594488493903597/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0010677279752359763,
+              "state_angle_sine_upper": 0.009032447887918644
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "5338639876179881610863664865782333717865694372780952487034077687971955472729796849877183710567557/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "90324478879186444431515098601610781034487901692137458099969540127544603568417141700594488493903597/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 2.990425414079907,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -4.440892098500626e-16,
+          "mean_lapse": 0.9979325131100742,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.03887440019186981,
+            0.16746288324217679,
+            0.3006673929050451,
+            0.2879553259679919,
+            0.15513394715354015,
+            0.04457135059439895,
+            0.005334699944976953
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "270973436637559333294545295804832343103463705076412374299908620382633810705251425101783465481710791/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.003341855995732807,
+              "state_angle_sine_upper": 0.027097343663755935
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "33418559957328069877792958805795177910373263645649216777477230622111619907604750714165960793968873/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "270973436637559333294545295804832343103463705076412374299908620382633810705251425101783465481710791/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "3"
+          },
+          "coordinate_measurement_work": 2.959237683997986,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -8.881784197001252e-16,
+          "mean_lapse": 0.9901176522755766,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "4410295955199115985383387416979853568620431637619209964351140668867835851852471241740701165900578616727209731357/4398046511104000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "44102959552230101109895938608217914608511005525912431982499577601596567633286313112845653089260210407474063193439/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 64,
+      "full_ground_interval_exact": [
+        "131572141888029724599979537578628610521857650198371087533327989479636110209982144642646602173028009154076681987513/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "65786070944062007387854601326189111560882062108091877808804974121594981946650284785220678812408134106141244596183/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 1.0027852011277254,
+      "profile_exact": "1/2"
+    },
+    {
+      "Ep_exact": "1",
+      "Es_exact": "20",
+      "N": 6,
+      "complete_quench_records": [
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.015624999999999944,
+            0.093749999999999,
+            0.23437499999999944,
+            0.3125000000000005,
+            0.23437500000000017,
+            0.09375,
+            0.015624999999999972
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "0",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.0,
+              "state_angle_sine_upper": 0.0
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "0",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "0",
+            "time_exact": "0",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 2.9999999999999964,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -1.4210854715202004e-14,
+          "mean_lapse": 1.0013028371100257,
+          "time": 0.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.09731027201838813,
+            0.2888957261715742,
+            0.33921974156003065,
+            0.20095403926105232,
+            0.06310034559398854,
+            0.009914052390400316,
+            0.0006058230045655644
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.03129125959951189,
+              "state_angle_sine_upper": 0.1859071680812762
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "78228148998779727405016935460433586071454915055857322955433647003481158700477205788085175698674013/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "929535840406380963023794991564362161088889287759719302506610185845909966229727192062216398698975637/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "1",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 2.0328932144293006,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -7.105427357601002e-15,
+          "mean_lapse": 0.9552501330352305,
+          "time": 1.0
+        },
+        {
+          "all_N_plus_one_coordinate_probabilities": [
+            0.5718690960707332,
+            0.3499771795144768,
+            0.07210805296861407,
+            0.005878572348025495,
+            0.00016610204834088322,
+            9.829268199163274e-07,
+            1.4122988492141615e-08
+          ],
+          "certificate": {
+            "arbitrary_initial_geometry_state": false,
+            "complete_Q_outcome_total_variation_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "coordinate_probabilities": "binomial(N,k)*((1+m(t))/2)^k*((1-m(t))/2)^(N-k), every k=0,...,N",
+            "diagnostic": {
+              "lapse_error_per_profile_upper": 0.15261870194123223,
+              "state_angle_sine_upper": 0.5577215042438286
+            },
+            "initial_geometry": "complete Hg vacuum |+>^N; source/probe energy labels retained",
+            "normalized_lapse_error_per_profile_upper_exact": "1526187019412322173073816828582907801699888177977392961592310782226472331396822400579247686870018267/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "product_spin_mean": "-2*h*omega/(omega^2+4*h^2)*(1-cos(sqrt(omega^2+4*h^2)*t)); h=q*(Es+F*Ep)/N",
+            "state_angle_sine_upper_exact": "5577215042438285778142769949386172966533335726558315815039661115075459797378363152373298392193853821/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "time_exact": "3",
+            "total_energy_upper_exact": "21"
+          },
+          "coordinate_measurement_work": 0.9122330916011379,
+          "coordinate_values": [
+            -0.125,
+            -0.08333333333333333,
+            -0.041666666666666664,
+            0.0,
+            0.041666666666666664,
+            0.08333333333333333,
+            0.125
+          ],
+          "energy_conservation_residual": -3.552713678800501e-14,
+          "mean_lapse": 0.9018853652815074,
+          "time": 3.0
+        }
+      ],
+      "full_gap_interval_exact": [
+        "28317189848916560538171642487562338456944327829343132976325427027167835424197785210173570090498707236652328210801/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "56634379698079070252430272305318660735126857232235986205975167463956289879014452791671169537254417710075111645409/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "full_geometry_dimension": 64,
+      "full_ground_interval_exact": [
+        "883791082644030769166101189575901989242568366241024697392742764460245805192342285780375728835281474478884470443391/43980465111040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "441895541322086344012002606579787775631995488597167272123656815585518982361031606550206258082305891617920693380241/21990232555520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "independent_full_bit_matrix_gap": 1.2877167068380295,
+      "profile_exact": "1"
+    }
+  ],
+  "inherited_calibrated_registers": 6037937131139025702277901945694117645046855,
+  "native_finite_energy_certificate": {
+    "complete_ground_source_and_probe_included": true,
+    "diagnostic": {
+      "angle_upper": 1.7776527182183146e-44,
+      "gap_lower": 1.0,
+      "lapse_remainder_per_profile": 2.0494128116637245e-66,
+      "mutual_relative_error": 9.79001883625017e-22
+    },
+    "domain": "Es>=minimum_source, Ep>=0, Es+Ep<=total_energy; every F in[0,1]",
+    "full_geometry_sector_gap_lower_exact": "499999999999999999999999999999999999999999994868358623054930570703049215075619015537302661923487901/500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "ground_angle_upper_exact": "177765271821831459151095644529857919438530990390791975933/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "leading_mutual_energy": "-2*q^2*F*Es*Ep/(N*omega)",
+    "mutual_energy_relative_error_upper_exact": "9790018836250168840155546314536607043108270409625439959863924217190328289802743/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "normalized_lapse_linear_remainder_per_profile_upper_exact": "10247064058318621993572128420021903/5000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "positive_source_energy_lower_exact": "32357463610692264714526297323/40000000000000000000000000000",
+    "total_energy_upper_exact": "7"
+  },
+  "readout_resources": {
+    "complete_coordinate_measurement_work": "omega*N/2 - <Hg> before measurement",
+    "huge_carrier_enumerated": false,
+    "initial_energy": "Es*cosh(q/N)^N+Ep*cosh(F*q/N)^N",
+    "vacuum_readout_work_source_units_exact": "6037937131139025702277901945694117645046855/2"
+  },
+  "schema": "oph.collective_finite_strength.v1",
+  "scope": {
+    "N_inherited_from_observed_G_calibration": true,
+    "common_strong_and_geometry_source": false,
+    "finite_native_source_and_probe_energies_not_only_zero_derivatives": true,
+    "geometry_sector_gap_is_not_the_full_matter_spectrum_gap": true,
+    "independent_G_prediction": false,
+    "new_Nature_validation": false,
+    "physical_Einstein_or_quantum_continuum": false,
+    "static_force_and_autonomous_quench_distinguished": true
+  },
+  "source": {
+    "H": "(omega/2)sum(I-X)+Es exp(Q)+Ep exp(F Q)",
+    "Q": "q/N sum Z",
+    "full_dimension": "64*2^N for all eight source and eight probe energies",
+    "native_energy_intervals": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "32357463610692264714526297323/40000000000000000000000000000",
+        "808936590267306617863629807633/1000000000000000000000000000000"
+      ],
+      [
+        "255101520358162540411272701433/250000000000000000000000000000",
+        "1020406081432650161645500083207/1000000000000000000000000000000"
+      ],
+      [
+        "1211469491165343543781653500097/1000000000000000000000000000000",
+        "1211469491165343543782112369049/1000000000000000000000000000000"
+      ],
+      [
+        "182934267169995677950847851989/100000000000000000000000000000",
+        "914671335849978389754468694421/500000000000000000000000000000"
+      ],
+      [
+        "505101520358162540411272701433/250000000000000000000000000000",
+        "2020406081432650161645500083207/1000000000000000000000000000000"
+      ],
+      [
+        "1115937786298996852713480540653/500000000000000000000000000000",
+        "278984446574749213178429181983/125000000000000000000000000000"
+      ],
+      [
+        "380101520358162540411297701433/125000000000000000000000000000",
+        "1520406081432650161645400083207/500000000000000000000000000000"
+      ]
+    ],
+    "omega_exact": "1",
+    "q_exact": "1/8",
+    "vacuum_and_all_49_positive_native_pairs_retained": true
+  },
+  "source_sha256": {
+    "Lean/Geometry/SourceOrderEinsteinComposition.lean": "f11db09374643cabfcb12e6e983af737b044799094e73409f274f020438ecf9d",
+    "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean": "0f279f7592806346fefe1a707773ac7283c1046a82ce9b522688cdf0c019d9e1",
+    "Lean/ObserverPatchHolography/CapacityStress.lean": "393f7cc22f8e444e2cbec925145a3070fe4b802f1670b34f16ca2da325634294",
+    "Lean/ObserverPatchHolography/EinsteinBranch/FixedCapacityWLaw.lean": "af9370c79bd0a18f6c8a9eee5bb9e3fe5f94fe04c6bf377c2d12eb4fef1f5e00",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
+    "Lean/ObserverPatchHolography/SourceScaleCompatibility.lean": "7e9915f06f68fd554419a10e3c0957b33d432615a0b0f632e1ed4e0260346d4d",
+    "Lean/Screen/FermionSectorAssembly.lean": "b5b3fae51a8f8d40d7580eddb3bc28429b27f9fe63a655d469b58c880d8433a4",
+    "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/calibrated_measurement/__init__.py": "2d6202da14c69a38d3a5603f1cc90c3d2878f7637464d7bd3fd39ddc8efa0cec",
+    "model/calibrated_measurement/bounds.py": "fec098d950cff3ce03a0035ba25d847fd7623d7935f333f261ea796696422580",
+    "model/coherent_defect_wave/__init__.py": "15a75539d1ccf3de058e5c5a23a0cb9d656dca7ad9fcc25b4d6c46ab64afbf54",
+    "model/coherent_defect_wave/model.py": "51531e26722d3b09ce525ce22d5677de4a17a48f0ea4492908dee9a72e053f4d",
+    "model/coherent_defect_wave/physical_attachment/__init__.py": "00edb1860bb586f9696a329c93e2731c1b724022533bac164acbd612a3e4d98d",
+    "model/coherent_defect_wave/physical_attachment/chiral.py": "05d52fb0f8f7d65687a020d2864583546ed32f154b4cfb1e57849a0a0283b6ef",
+    "model/coherent_seam_repair/__init__.py": "c63891b72256135bc8ba4824a67b620f1faad917a504291f59231410d438bb4d",
+    "model/coherent_seam_repair/program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+    "model/coherent_seam_repair/protection.py": "1bf9afa27e8749e08514a56c65c65ff11b60656b68944f7db7cc0b54a9f2b715",
+    "model/coherent_seam_repair/session.py": "4e7bc7ee7eec0d1374f1e5194bcbd5db2be7365267bf5c9c2058b7cf0bccff00",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/calibrated_matter.py": "472eeba2ea6e3916a38a8cce1b933977c8f31f8bbb897fbe9dd2c508067cdf0e",
+    "model/common_source/chiral_candidate/__init__.py": "10a17df74de08c2eb6e84954e825d30997cfa3c1f7d22e1e144491621a09b977",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "model/common_source/chiral_candidate/gaussian_source.py": "d60733661c22d649741b3433db9330e3520d2b7c5d15fb6db79a07e82e49eade",
+    "model/common_source/chiral_candidate/kinetic.py": "ef6e5199ded96f6249076732603749809c9e623b1249f80efc97bc6b7d9fccb5",
+    "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
+    "model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
+    "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "model/common_source/encoded_observer.py": "3b187d8d2be3594b522f3b713ff3e9e54f1ab71ab7661d8421100cdc078b7fbe",
+    "model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/halfline.py": "c53d49de709edeebdbf81781bc1454e2c45ea6715b1d0fcc341fadb313aff126",
+    "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
+    "model/common_source/mass_response/__init__.py": "848f40bd5231002e7ac5e28ac9cab27481d47bab0f363c9f39c31f14b2656a7e",
+    "model/common_source/mass_response/history.py": "1046f4be64b2ad6498df83b1949ec316449d0ce0d9b57ce4763d96a0ed3a2abb",
+    "model/common_source/mass_response/model.py": "1ffdf1a680763d52d0841636aee3dc05a51a16487a5770b2e7208dcb3dbdaacf",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/occupation.py": "b9a42851ad8891a524c087ff1e3331323dbf9c8d3c38c3a5cf88b0128eb433b9",
+    "model/common_source/open_bounds.py": "3e3af0e789ae21c5393acf45abe5a83ae6ad11e1755567175e8a1e0f8d187538",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_native.py": "164a17f0392e16eda69babcffdef9da90a8f0afc26a2a678a9951816e41104f1",
+    "model/common_source/open_observer.py": "73efcb678b65bfcdfd35f2ba4321a66f661a42d6c08983a7dbd1e9ca9aba7a0c",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/operational.py": "d12e5bcf1f3f34e1f3076e7ad74e8eae0d324996d22d47c7f8d0983dd967e0c1",
+    "model/common_source/output_certificate.py": "175e6c7f105c5e9e2dbe6385993bf9745d1e276f4ebd8123fc0210fe90f48ff1",
+    "model/common_source/parameter_selection.py": "a9698bb9166d1eb5b8df44fdc6c7718899c781541cf98eecd40d153b873f68aa",
+    "model/common_source/particle_identification/__init__.py": "2c4e2f313c769ba55d203887a92ba14e65bbe7145287c89c95614dcf667a9683",
+    "model/common_source/particle_identification/family_attachment.py": "ce52592e0fc50d1d24e903e34e7baeb450089d4ef4f3146088b10fe1dd9b1ef0",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/quantum_native.py": "a15d8767c11cc62f3ea8fecb832e120fb998ca8a37142b61dd63a98206ecb594",
+    "model/common_source/record_code.py": "0359a77057cd38329bc696a1cc0566a1a8863f7cbf0a697312e4581cc5c10f7a",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/refinement.py": "40b81ca6aa10bc4aba900cd7f6ff3f536176c1be736a40c28922f1b404ef13f3",
+    "model/common_source/repair_field_attachment.py": "a6b04bbf4ce4aba3843e9fdbf0329db7e79ddd5152b0fab12fabb1c307c8d02c",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_history.py": "2f25d0781527f609c414c111132faf3189b20cf3581c2e2f2ffa9d821aeaa1fb",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/common_source/spatial.py": "873fa595f93ab8bc228d60bc46480acda2e5ea86fb0952db2d023670d1d36733",
+    "model/common_source/thermal_clock.py": "da6f53334510bea63fe2dc3ce641f0dcfb358439af3873b4ebdae94cdfabaa68",
+    "model/compiled_native_interface/__init__.py": "9b9bec2055ecd83075cd546f3f697519c7da32837c35dbd489bd79a09398b8a6",
+    "model/compiled_native_interface/construction.py": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+    "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+    "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/field_stress/__init__.py": "89e3ba97dfe717d1cc21ba86a406a7c58e74eb4db402daaa835d2703bc32bf34",
+    "model/field_stress/energy.py": "f44f67d25d9738230966dc4c9e64eecc2792f0bf07d33b4ca4ac5cb9db90cf72",
+    "model/field_symmetry/__init__.py": "5f2c249b87b7a2fca59ea8146cc5baa475ce58a2148a0dc8fec9d4ee4e49a122",
+    "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
+    "model/finite_area_response/__init__.py": "96012a28edb5774dc6991d611c3904b85bc2b478d61d6003a96ebbb059283d1d",
+    "model/finite_area_response/response.py": "cd22b60330adf104ca50e5b6dd92ad95b6d0b38dae0e7c1ff9b0c9bd14a328f4",
+    "model/finite_observer_readout_closure/PROOF.md": "d8b09ad646e8d96e70692c9096adde1316a6f58b7b3142f08fe16a4c4204aee5",
+    "model/full_fock_field/__init__.py": "72004e140b0027d10517e53abc04bc56164e10b665fd5adf0f64294fe0e2515f",
+    "model/full_fock_field/bounds.py": "7a90b91236c7a27c62da7db222f7e7928b683f027a8b77af22d74bbd6224431c",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+    "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+    "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+    "model/interacting_field/__init__.py": "a6ae40bc514b34efa189518937850fd35173e0e9fb1aa590987e91d8c1af26cf",
+    "model/interacting_field/lattice.py": "b6233c890898ecebd84fa19ee95a95f28bdce11d7dfcd0c72be2aaedfaad692e",
+    "model/interacting_field/source.py": "39735bf7a86e3fa309b2a3d01c3e64b146be8d2f280445731c146b984f73e5be",
+    "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
+    "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
+    "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+    "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+    "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+    "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+    "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+    "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+    "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "model/native_equilibration/common_variation.py": "22f132ba44430c63a3c35935b6fa0040e3579dfa80579e78d25dd62087500894",
+    "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_equilibration/history_entropy.py": "a92eab1867af2301ae1cd8c17a280c2e44cd86a50068c2f006d522ce95e02f2d",
+    "model/native_equilibration/reciprocal_vacuum.py": "c1b888c78b226289585854273dcd318231dc96722edab72bbae51535250aafbd",
+    "model/native_equilibration/vacuum_geometry.py": "f05a4bfed5e37170cf71bf42039ad0949eb2347d07459c1824d8cc9072e4af1f",
+    "model/native_equilibration/vacuum_repair.py": "cfd5072db7e69f42899d3cc428576535a97e76b5b3c8c8f2394edf3ce87fc11f",
+    "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
+    "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
+    "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_mass_channels/__init__.py": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e",
+    "model/native_mass_channels/algebra.py": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086",
+    "model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
+    "model/native_modular_reference/cap_local_clock.py": "ccc4bf54b67866a59adb7904d1e3c19a4325ce53dc8963ed68848b83065510e8",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/native_modular_reference/compatibility.py": "0f51fc085cc8dd7dcf6a85904e82a51dbd875d966e45efc92402f85160f35946",
+    "model/native_modular_reference/completed_clock.py": "0a681d1957a28b3de755be7c0b1cb68812925b495f144bd414116479101cee16",
+    "model/native_modular_reference/construction.py": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+    "model/native_modular_reference/full_flow.py": "1ce0c90ce278a518886a7c8a1e1e1c34efd9e760ad6ca1ff1b2da51318671ed6",
+    "model/native_modular_reference/learned_clock.py": "000a33a6e87100bb510b41c3c374bb801b70bb5ab5b5b2780e381806eebe4d03",
+    "model/native_modular_reference/local_history.py": "2bbaadda64786f29e299782df1a2414f382e82b4d28e1701f6ac06ac65554f1e",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "model/native_modular_reference/phase_inference.py": "908555cfc79c735d30d2fdda940c326d01e285f160858387b58957224156ac53",
+    "model/native_modular_reference/phase_readout.py": "92db9dd9208896992bdab212bc48b35c0fd3a6c0067139062e21435d470774ab",
+    "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "model/native_modular_reference/reference_tomography.py": "77a30720a44155d0b11c1801448dd5f5d8b5960230d03079c11d55e0839a0b11",
+    "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+    "model/observer/source_discrimination/__init__.py": "c94ec6992b410eddd212eeff1875744e8419e0819d8fa947411e0698bbfeae11",
+    "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_particles/__init__.py": "d4898cd7ac4037731af3851b8b4a9101c553ec0f95e471c8e63c494af3c9f4cc",
+    "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/observer_particles/spectral_response.py": "8f2681c903015abbe789c5c348169fd343128fc29f3c090ccb856585dc3fc477",
+    "model/observer_particles/unified_yukawa_action.py": "7e18b5b60f250657f23042a605e347ab0a870d53e7cfce961e33b0c0f9def0b9",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+    "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+    "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+    "model/openwave_angular_torque/__init__.py": "7a03c115f280cc76b7e9090a957df1eb965fe28f00c4ee50076169c797951409",
+    "model/openwave_angular_torque/source.py": "924c2955eef8b61cdb2eccba157f7aee61476693b895ad083e05cdd0c4e5afed",
+    "model/openwave_axial_state/PAPER_RESULT.tex": "92fe39c2c0cee27c17031196d2d56a33ae676cdc8c841d410aedfc9307809f60",
+    "model/openwave_axial_state/PROOF.md": "1fefe1d342e4ed08d549ce2c021707944831bbde9dd0ad5685d4ee5a3f2cabc5",
+    "model/openwave_axial_state/README.md": "e7ecb5901967a17a0ac4c1341f8f5c71dab7ad85ece81f18ba55597cccf5ba4f",
+    "model/openwave_axial_state/__init__.py": "b7044bcc205aaf979d0f2600e8ae2db2245c1ca5ca646100d1449463d6b20c04",
+    "model/openwave_axial_state/__main__.py": "a8639a915b021bdf2f517bf8988063ea39d34406e9db0bf08d288e028667d8a9",
+    "model/openwave_axial_state/certificate.py": "2c57576afcc8063b7757dcbae1da959ba0bfa20e9d138766bfa7faba7dc30dfa",
+    "model/openwave_axial_state/fragments.py": "0e2641bc6e1b5861aaa4d593f6cdc7ddb2a4c8ba2e1e292e8d76be87d403f41b",
+    "model/openwave_axial_state/inputs.json": "ad99d479e7b39274b65d67f7db792f881246efc1d0213c358786000117efe7ae",
+    "model/openwave_axial_state/results.json": "e83bf127a7ed9865369327df104bf8fea2bb73043e337ebd8af403114e19dacb",
+    "model/openwave_axial_state/source.py": "90d17bfefcf588487266fe4230c9957eff246c6d4cbc6cba2e403ddd83d48b0a",
+    "model/openwave_axial_state/test_source.py": "6a031bf02cdd7d93e588869036a07480bc9e1d997a19ff03b8c60aae257e0749",
+    "model/openwave_baryon_ordering/__init__.py": "b379e135213777ea5af32bd2bac01c11fdd28e0bfbfa53f44440c4d83b9d8a4a",
+    "model/openwave_baryon_ordering/source.py": "a215b75193a75355e9a68e686b818a98f6e780b6162526251db49963b282dfdf",
+    "model/openwave_baryon_weak_formfactors/PROOF.md": "25785ee250fa20e0ecaed0ad146cf6527045d0c5e522a63bd3750852c260eb1c",
+    "model/openwave_baryon_weak_formfactors/__init__.py": "c7a8e6da220fe46b51ff7e50c48ea5ece945ef6168276af7bec3b35950830a14",
+    "model/openwave_baryon_weak_formfactors/inputs.json": "ccbd9ff15901213ff1829c675a0c6a1cca07cc61c97a8f153a7c4ecf65e60a66",
+    "model/openwave_baryon_weak_formfactors/native.py": "57eaea89be3c1ca380d0a77764d1b6aa160ecb9cdc70d5d95bee814e0e9eded8",
+    "model/openwave_calibrated_hadrons/PROOF.md": "21b2bb57c601d151545dad0d532ed30dccc35da28704c32c274925d279fa42bb",
+    "model/openwave_calibrated_hadrons/__init__.py": "f4ca74d2e9ffcff1f45c06bc3fe70cd94a2c0fcc9c446eaf3f9e518c97ec77a1",
+    "model/openwave_calibrated_hadrons/inputs.json": "78114648129591309c547c1e05ffe6b2af0314694e47aedb1ef05abb1305e625",
+    "model/openwave_calibrated_hadrons/source.py": "fdf43ca8411e1ded3c4fe1f08a9e37504b036c5f06f8f55a5b3b1e990c93766c",
+    "model/openwave_capacity_stress/__init__.py": "ef4ac3ba10db5a230e72a104cf58b07a8dd14d7844197f8bef267e1a6db0ef48",
+    "model/openwave_capacity_stress/source.py": "1564c7130e3268bfb1e616d89d825c84d3cfb3aad69afa13318e0e8aab0327b2",
+    "model/openwave_collective_finite_strength/PAPER_RESULT.tex": "3ddafc7dd7161ecb30123725b0c2459bcdb6b1c3174257b05b2fee8a2ee83d10",
+    "model/openwave_collective_finite_strength/PROOF.md": "974d59e837c5445da76146d59f253f85c170b6b03caac8872fea998f29256655",
+    "model/openwave_collective_finite_strength/README.md": "fec1ef62fdbfdd9c6204bad8506985be8f7de5ab90911a67196d2af5d39149d1",
+    "model/openwave_collective_finite_strength/__init__.py": "05ec5039c82ac241d2f559b15340b7eaffd7b23f72a588d37c7f2e2f7788186e",
+    "model/openwave_collective_finite_strength/__main__.py": "b2404e55ce49af29546a70caf0cce0dd9489d16061ef3a58d2fe884a10df3d5d",
+    "model/openwave_collective_finite_strength/bounds.py": "e42781de5f74f3a04f721bbe0e5782d546895465483522ab246ffcc2f3581f2d",
+    "model/openwave_collective_finite_strength/source.py": "67e61781c42845f92885cb9925363d48b30198aa6c6b4befcbb630f76550c374",
+    "model/openwave_collective_finite_strength/test_source.py": "5bb2d883f58d5d826d7e9a7f39b67026917cce0e9b2e3a3fcb57d1e860744fec",
+    "model/openwave_collective_gravity_strength/PAPER_RESULT.tex": "2df221efdfa9f6f41af39c65a77f8190e92c1c843bbac7988d9a1823ca100a7b",
+    "model/openwave_collective_gravity_strength/PROOF.md": "7dc391057b5f891946f9cf05591661c21048f6412f3dc238948b00226367b271",
+    "model/openwave_collective_gravity_strength/README.md": "76cd752fe78ff6e110f47fd41f4d95075df409529f0594e8f07d73bdf7c427f2",
+    "model/openwave_collective_gravity_strength/__init__.py": "0b23896c64c5f89153953f7491187f8581518f8d76fb20979649aaab69eea5a9",
+    "model/openwave_collective_gravity_strength/__main__.py": "d29ca4f835894e40c150968bfaf71f4e69b3635170ef686990e64a0ad361c454",
+    "model/openwave_collective_gravity_strength/results.json": "9735a37ecf820aa550305efeffcea48466e6e6aa78988893f90114d59161940a",
+    "model/openwave_collective_gravity_strength/source.py": "5a7efdac0a792b2a39fe4f7ed750b3d0fd007aa77b0c4a12cea09e9a853fec33",
+    "model/openwave_collective_gravity_strength/test_source.py": "c40d96aa4f8e8e414f7537ee52c54e3ff5b5748807b5e4038a47c070d6f0220c",
+    "model/openwave_colour_string/PAPER_RESULT.tex": "82afdac0022401be0dc14b2c524e72aa30b32314e8accdf07a319330a2da1f9b",
+    "model/openwave_colour_string/PROOF.md": "3f42d1e4ebb1835c7c5d81c716a0aceb87fe40e6da16f4ddbe78375bb81da8bf",
+    "model/openwave_colour_string/README.md": "08c4658aa8a29f77041f6e8e170dc36343150712bb03924301c23ae4a052fd5c",
+    "model/openwave_colour_string/__init__.py": "965f44a54e47f4746fc6a3a157bf9f80f87850b885f38fccd2ead42a293e610e",
+    "model/openwave_colour_string/__main__.py": "f99a2a1dcf0f5e379c6a79e608887b70eeacf7db8f54002f11c04e57c3ff5039",
+    "model/openwave_colour_string/certificate.py": "e03c05cfb4d921f7e585b77bf13b54ed8360354632b435abcef3befbd6b68b73",
+    "model/openwave_colour_string/fixed_witness.py": "91d82148209a8981ced096f089a327d63aaa63769b6df4a4d1bedf01ce65ec54",
+    "model/openwave_colour_string/inputs.json": "182501b1a5f69b8cd5658c7f7e34fe884ceca9231acfbfc564fc0556767e4745",
+    "model/openwave_colour_string/results.json": "e19f8744430b23780a0c288128b1fd14bae8f72da8924e1057a4e6d123ffe753",
+    "model/openwave_colour_string/source.py": "3b88329a6e5a81dac01a621839741b769a139543968c92740f2fda5c1b274a92",
+    "model/openwave_colour_string/spectral_witnesses.json": "ddb9e9c0400f97a77279ec2d59310b2074b0ad87f397a91d38dc43574b15db03",
+    "model/openwave_colour_string/test_fixed_witness.py": "314bf1d7c214bad83a965e6eba34fca2dd4bc7cf7955a9749cd6d0d4ec98df12",
+    "model/openwave_colour_string/test_string.py": "f927a7e78b6f140c83b8d0b652f7e27667684b9ad2f55e6a9cf11579d1b95a54",
+    "model/openwave_common_gravity_records/PAPER_RESULT.tex": "a6c7d1720537a6257d5354c264396501ca07e9d717155ca98b1f7f6709be5920",
+    "model/openwave_common_gravity_records/PROOF.md": "c599c07845be72ce581633a5fd5807e1b36d5d625067ed6773f1ca748078661a",
+    "model/openwave_common_gravity_records/README.md": "13eb5b9c77b9074a1899044b8f1da2cfded272daf0940ad288e71a70c79806ff",
+    "model/openwave_common_gravity_records/__init__.py": "52f74b2ad576df29280fce52151c7c25a5f8943f42f743dc6e68cc2690c3491c",
+    "model/openwave_common_gravity_records/__main__.py": "6bd06e9af7b42602454930a3df2ff18ccb5e283821e0196143c04366842fce19",
+    "model/openwave_common_gravity_records/records.py": "2f68346dac0e83f09d348f5d9841ef18d457d4565a6b6a6398beefb78208a652",
+    "model/openwave_common_gravity_records/results.json": "100eb9e28901a7aa522dbc7f73e69e2aac84673863c34fa97d819a9632ed575b",
+    "model/openwave_common_gravity_records/test_records.py": "bf17f5bbad334a7ed98f0eaf48bb42c07b936a28e5d965320c4088df4cec0282",
+    "model/openwave_common_hyperfine_spectrum/PAPER_RESULT.tex": "b97046b8927716e195eb7299a0a6a6ce98e590761494847794cd8a6b96adea49",
+    "model/openwave_common_hyperfine_spectrum/PROOF.md": "8b74aa252c3cd0e7cbbeb3de69c180c0cc57f183ebb57643fe4e0cd0f582893f",
+    "model/openwave_common_hyperfine_spectrum/README.md": "df826c134a99dbfbe8d0ef9f465b32ea2e2e4b1451a47873363cc0f32cef2fa9",
+    "model/openwave_common_hyperfine_spectrum/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model/openwave_common_hyperfine_spectrum/__main__.py": "5ba8b5e99612df3c4fcd19af4cf4b38cd3f2b21ffaa0953b3c3452fdb9b1da30",
+    "model/openwave_common_hyperfine_spectrum/certificate.py": "882c4656222dc11c6e37c909ae51732d805f7b7fbb41314aabe8532f76cc68aa",
+    "model/openwave_common_hyperfine_spectrum/gauss.py": "b25d42cdb307b216cfe5eda122c75aa228058135942feda62ce884ac97db8c96",
+    "model/openwave_common_hyperfine_spectrum/inputs.json": "624b16990db141e8e6dae54990f88bbf4a80984477e20a62084e467164c2d4ab",
+    "model/openwave_common_hyperfine_spectrum/results.json": "5b0ea42653ebc3b7c7a5a32cd01cddb3b0e1b4b89ce1f778a05d6e61478d4b7d",
+    "model/openwave_common_hyperfine_spectrum/source.py": "d4e44d425f68f74ecf5d82ca6f458d1d2ac9ed678e86044c298746924893706a",
+    "model/openwave_common_hyperfine_spectrum/spectral_witnesses.json": "78b127546174317f8c23af90be4961c324ac86e6c94bfea2a11b99e0bc455447",
+    "model/openwave_common_hyperfine_spectrum/test_source.py": "76c2eecb05df8b33d4fc00b456c5656b2da30c86fb79a4c1d454886220b3c623",
+    "model/openwave_common_hyperfine_spectrum/test_witness.py": "1b2d56c89cafe100452e9e5051c9873e3771938f8f72279ef1dc9729c81fabb5",
+    "model/openwave_dynamic_wave/__init__.py": "6c0802a3cd9f1aef9652065924b071856b1b348fb09728475ece637bf6d19493",
+    "model/openwave_dynamic_wave/certificate.py": "27ddcebf2c130601125ab7fd69d6e146bb4f571d603b55d7a128127ae0463e42",
+    "model/openwave_dynamic_wave/source.py": "0db9992c1ea00168c729dfa5f3fb1ba8530682bda84ca695df5d75f60746a0d0",
+    "model/openwave_energy_lapse/PROOF.md": "cb456fd8aea7831fb8537f1646e754ba136ec146a836f2e6c3a2da14b865b766",
+    "model/openwave_energy_lapse/__init__.py": "ccdc9cb7d3f483e6914b4fca2ecc32ba1f00d979f3b2b5f73a51711c94cbc991",
+    "model/openwave_energy_lapse/source.py": "43a050f9f6fab9327065b3d2c2eddf34bacaa2c20d8c6447ba7bacd6ce6476a6",
+    "model/openwave_field_observables/__init__.py": "f4a705d7f939370cefc95baaba023ec00338658d145d191b07254a6290dae45c",
+    "model/openwave_field_observables/lattice.py": "36fcf1b1fa6347e4893ea0a5b991194cec49ae46851444fa6456d6aad5a9c592",
+    "model/openwave_geometry_refinement/__init__.py": "5029ab656e93c42170bb5c6e6591933c0cc2963dde7403cbfc0c9f4dcf4cb4a4",
+    "model/openwave_geometry_refinement/propagation.py": "d33ee5ecb4b89ad8a3829a19361780ad635bbb4e28a5b99f1074f502ecbf4369",
+    "model/openwave_geometry_refinement/source.py": "78e08c49b6e381b829fd2ed073cbc78724bb9752718d0377f2302b1c830fbba0",
+    "model/openwave_gravity_unit_constraint/PAPER_RESULT.tex": "50bf6971c7dc496c987ca5a07541777ad76069b30cc6fe1b79a0539bbfb02f35",
+    "model/openwave_gravity_unit_constraint/PROOF.md": "78f4addaf5da5225cd89468f293f8ba4d108efc4f04dde229af10dccafb70374",
+    "model/openwave_gravity_unit_constraint/README.md": "a59b041716e2406b57c80c6f418f77ae362ff67185a736e26fec57c88824420a",
+    "model/openwave_gravity_unit_constraint/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model/openwave_gravity_unit_constraint/__main__.py": "7bf091a10583fc14a8231946aca13c83935462943090556aed4e6115b22a7156",
+    "model/openwave_gravity_unit_constraint/results.json": "a6940c8bdf6a3d64ca333e4d9e15658ee596689eaaec41cf4ac98ea7b86dd9d9",
+    "model/openwave_gravity_unit_constraint/source.py": "5d5093adc1d7e2f5148033174823357b3f4e51afa60952bd0c25f48c7d654b6b",
+    "model/openwave_gravity_unit_constraint/test_source.py": "c8b991d0fc1eefdfd5fd9109eaff4035fb4ae6cb7549c9d7b69cd4922660004d",
+    "model/openwave_hadron_spin_constraints/__init__.py": "2a59927b7f5f407b785ec6da28efa29b3a90dafcea14adb9d7bba55a42dd1432",
+    "model/openwave_hadron_spin_constraints/constraints.py": "0a91111cc70e3c28f5b9e3dfa970cdab2ff49f9ebb90a6a7b0919922717ec809",
+    "model/openwave_hadron_spin_constraints/hyperfine.py": "03ed71df4466b4a5460d787c7c6428cde2e581b37a63456600188694e55bcb6d",
+    "model/openwave_intrinsic_magnetic/__init__.py": "0c73d9f2d798fc45c0a308166484b8512cd93c70377c47d4ef333171102509c2",
+    "model/openwave_intrinsic_magnetic/checks.py": "676b2d9a73c36ebffbfde637c5460daeed3a7c690792bbb5c703c6066324ee16",
+    "model/openwave_intrinsic_magnetic/solver.py": "a549ac66f63742e35a98af4c94ae18d6ca60f0834ba42ba7a17b55b0d33e282f",
+    "model/openwave_joint_native_clocks/PROOF.md": "2b2f08de904bd8acccdda0deef96be35623ba676e693974a520651a4792186f9",
+    "model/openwave_joint_native_clocks/__init__.py": "e9dbe7f402e6ab279eb2f3b9c1af674413abd7f85cc109954534f943f351c2aa",
+    "model/openwave_joint_native_clocks/clocks.py": "2a54b1914cf103bc00aea9c1796abe371f81218a7f3cd2de87a54eff4533b7f7",
+    "model/openwave_larmor_dynamics/__init__.py": "d790ba0e65397f5151fa2c18d3845b4b8ab327879e33fa3f7e9270097e9d3180",
+    "model/openwave_larmor_dynamics/certificate.py": "79d722f60f79c7358d37ef65a00d42c0bdf1640d7194a4eb8ab5d63f032dee8c",
+    "model/openwave_larmor_dynamics/dynamics.py": "892e8c46d7d28ad9d92c2fea963c15fd4ba5be3ddea4dd99b053acd5d7f0a338",
+    "model/openwave_larmor_dynamics/experiment.py": "d777b090d9bc6470cd9b702e2c668f7eb52938052f42c4d96170c4093d90fd7b",
+    "model/openwave_native_composites/PROOF.md": "f05c606f41931dcd4aa81fb759f0d2e5836fc91e516c699db2ae41c472816e40",
+    "model/openwave_native_composites/__init__.py": "9dec7a619d23799640da66bc01cdcefd89b55a7b266c931f100f70e0884e7b5e",
+    "model/openwave_native_composites/spectrum.py": "22697cfe240cd362271c492772321dd69ee05d770ab7854995a626e6a082b77c",
+    "model/openwave_native_force/PROOF.md": "4fb164b481444683057b7216aa25bb4c1fb0a078c93b5d4fe8830d4c1cf937e5",
+    "model/openwave_native_force/__init__.py": "8c1f4eb9e1e886149769cd359d10cc95353daf0785114bb71c755efd5c727401",
+    "model/openwave_native_force/force.py": "118e1cfeb8ce051608494162200faa81824e21004e41cb70751b58741a8c7003",
+    "model/openwave_native_force/results.json": "935867130efc1928e1286b9b2f61a7f00a6076d2d7db4b623171ab57d5aa4c26",
+    "model/openwave_nuclear_distance/PAPER_RESULT.tex": "aae31455267f9cac09dcfd684c42efdaa472b30747f78c5388130e8a157b5415",
+    "model/openwave_nuclear_distance/PROOF.md": "5c86d87c866c676228c0a6f4a4b145c2c3bfc23e9a696eeaf7a0c2cb5c34f901",
+    "model/openwave_nuclear_distance/README.md": "4dfec4bbe0441af3731fb65143922853fcb63ad78e78578a3c0e3691f032e013",
+    "model/openwave_nuclear_distance/__init__.py": "30e7044a3a4680b532c329a5adfd3fe563b5c94ec51c9ed38b6ea3ec8985ad69",
+    "model/openwave_nuclear_distance/__main__.py": "9933bf00f04175143b0d17a43b4bac8e4bad632c6515d2d7db2cc65e34b0e034",
+    "model/openwave_nuclear_distance/certificate.py": "da0f643eb41ae2a2b5b483ca179130c537a20b4c35919f92e12aa00a6bf2de95",
+    "model/openwave_nuclear_distance/nuclear.py": "088d7fe7364f90ceca16505fe4d49b627d9c6a15f7d47dfbd7619b084639b45d",
+    "model/openwave_nuclear_distance/results.json": "b0cf6b6ed5c5b51e31467433140db8543ad651f453cf1b200c57759d01c1e58f",
+    "model/openwave_nuclear_distance/spatial.py": "9496e8ba6269c1225b0fd9bd9583e04143ef1b16a03ab5dfcd366424a3fbbe4d",
+    "model/openwave_nuclear_distance/test_source.py": "8399867f4b857c13079030db8a212c9866df125fb00707c2899535f778086f85",
+    "model/openwave_nuclear_refinement/PROOF.md": "0d6b4e58b0b3bcb0eec37ec5b789ccabfa33a756ff1984d4f8463af84ce03e9c",
+    "model/openwave_pure_su2_source/__init__.py": "a14883ed7a07b449b6f6c726910ac722588f85c8494301f1a9fd053df872bb7e",
+    "model/openwave_pure_su2_source/custody.py": "514ad4f0d20fdc7956643ead12275abcc40c688c2e2604ef712a562c2e51c206",
+    "model/openwave_pure_su2_source/source.py": "cee741a4033ffe611166d5f6026b27cb513f4d55ea63624fab5fb33c53713c9c",
+    "model/openwave_quantum_geometry/__init__.py": "c3bad44edda42e88638cee00d207ace4de41cf6a19e3e811a129b777412a7e0f",
+    "model/openwave_quantum_geometry/certificate.py": "d2e096dccb2517728f7d3981621a360487dae491a0aa4895b243cfa615e20bc1",
+    "model/openwave_quantum_geometry/source.py": "53daec8836a29db11daee7e7a20ab6333538b15cde1773612f4649c12493b1d5",
+    "model/openwave_quantum_rotational/__init__.py": "2e3cc615111ee0638011ed408f3e2297408c9e1eeb454b9d210750a9fb9f34a2",
+    "model/openwave_quantum_rotational/enclosure.py": "6bddd25c17c69def9772bcfb5bb996548951ef7ca9ab750097bec6b2fe465aa6",
+    "model/openwave_quantum_rotational/source.py": "77b1bd4d3d1cae0959f6b0f4f89436d98500bd107ee2f69a80c80981e9381f82",
+    "model/openwave_relational_clock/__init__.py": "adc6350ac3ef0a5b4165cacb887c1abbcc402695e82907699de8a677714cb194",
+    "model/openwave_relational_clock/clock.py": "8ad12015b57bc82eb1f4779b66347119af45306b21604a04fdca3687899e5b63",
+    "model/openwave_replicated_geometry/PAPER_RESULT.tex": "5dd459eba825e6ae0522eb679bdb5520e1cd1b5ae353e137ad3a30a782033510",
+    "model/openwave_replicated_geometry/PROOF.md": "3ff03277519d9959245cec89ac09008f5320c736964e1372c7e1574541257ed3",
+    "model/openwave_replicated_geometry/README.md": "911c8385c86770235c7979979452e63b6209e6ebedd97aecc869ea992f24ec8f",
+    "model/openwave_replicated_geometry/__init__.py": "b2a887f01cef90795403ad666e8172e6efdebb4425f90599e782c45d043fb8f9",
+    "model/openwave_replicated_geometry/__main__.py": "fb936ffa71254dd80215b89145997870509d7980e361585cc68ab03e7127a985",
+    "model/openwave_replicated_geometry/results.json": "089e9f00437407449fdf1b8f123e521b4c0cb805e4de8217f15984913cd3d832",
+    "model/openwave_replicated_geometry/source.py": "e85e483c18d6afce7204b699df9e073e7c95b83d30911362f5934a4a0643a33b",
+    "model/openwave_replicated_geometry/test_source.py": "da913a4cd1a1a9ff4bb0e5d97f5435422269ad922201ab27a59354f1d2ede4d0",
+    "model/openwave_six_quark/PROOF.md": "1d6a583e376fe4ae051e49ae960aa763ae11b2e81bcfafb77814b1474f34758b",
+    "model/openwave_six_quark/__init__.py": "5c56898fa7c733daa469be5dc9f38ebd1e1d2d25ff8e66c23b5a858608c6b9a7",
+    "model/openwave_six_quark/certificate.py": "c259709666562965c03fe0e32008076689b03534fd40e2ba74bb1b1008f9d37d",
+    "model/openwave_six_quark/source.py": "fdcef93d0788ea26f9550c5839355259d0a3dee3477b3b6976eefad945d491a7",
+    "model/openwave_source_ward/PAPER_RESULT.tex": "e34b2d16d663da8466dd0bf67dbe50af6340b76e5cc1be0b23e312b6f7915231",
+    "model/openwave_source_ward/PROOF.md": "a89b590374d28357ba45b7a906f78a58f1b04110c1f938bd260843cf9a2d9385",
+    "model/openwave_source_ward/README.md": "2e883300bc25babea1172f21bf291d0d6dbec3c9200ed58f370870bbaad8093c",
+    "model/openwave_source_ward/__init__.py": "5d4370d290bdc0b069345935f4d02eca2be93ff253960298e9feac066e99da01",
+    "model/openwave_source_ward/__main__.py": "41d74f6499a9b6a93bd060258500dc4c247c0dafb077d72506733cfe9dab7092",
+    "model/openwave_source_ward/results.json": "711804ac21430fbdd493913931ed58d83466814614eb055385b34dba8e1ff843",
+    "model/openwave_source_ward/source.py": "f0f5cd8820e9831b5017d631cb6051c9b7c0ed24a275980e97176a474b7b658a",
+    "model/openwave_source_ward/test_source.py": "98927466966f98a6342bc7898d8b2af560dca1837663a47fa8151d19259b9aa3",
+    "model/openwave_spin_gradient_nuclei/PAPER_RESULT.tex": "66db40e0924bf73688fc1d003b4076d69015ec95b085548420a340f7761ec8f7",
+    "model/openwave_spin_gradient_nuclei/PROOF.md": "0f50f93566863dce13e1413c792d3ab0eb10a66d21975ff3b829193bdf536efb",
+    "model/openwave_spin_gradient_nuclei/README.md": "2dd6ef3016b7845a16c69b5bb6f553bbe731939b4bd0e544214e47fafc747c58",
+    "model/openwave_spin_gradient_nuclei/__init__.py": "96f2a48786c423cad57aa6fda657b801f89a1b3e73f57858ddcd06dd8ef5c2b0",
+    "model/openwave_spin_gradient_nuclei/__main__.py": "fd55940f865adfc2b08b22b41e32f4d5e46dd6e902e5c4d7d4af3a3037c4ce42",
+    "model/openwave_spin_gradient_nuclei/calibration_realizations.json": "a6c316e4f45f5b1ca0fafea618f409d660026e6aee50543c71d714f3953b882e",
+    "model/openwave_spin_gradient_nuclei/certificate.py": "0a4af2f8d8bafc7aace1079a55839947e9482603185c016c8824332530a97e81",
+    "model/openwave_spin_gradient_nuclei/fixed_nuclear_basis.py": "020780e2c606f6f467bc431cd86a74716631fdc46be447ea99f8dbc756151561",
+    "model/openwave_spin_gradient_nuclei/inputs.json": "bf126b157b9acfaa159df6a55b90b094d217f1b84574ff16780c3d7122561302",
+    "model/openwave_spin_gradient_nuclei/results.json": "75d374b881f114dc4151ca8dc371c72c60686c809dfc209b49c2279f859a56cd",
+    "model/openwave_spin_gradient_nuclei/source.py": "0339b69d1a490747c1b833fa4e41dae19897d75e469d991eee6685cd64f60571",
+    "model/openwave_spin_gradient_nuclei/spectral_witnesses.json": "68ff4d26bcf9050c2732efd4eb51d46e19e233ff1e312ea0143bbb124692010e",
+    "model/openwave_spin_gradient_nuclei/test_calibrations.py": "651f7978054e94e4f26cbbe5d9eac37fadfef274036fc3226810a42100048d8e",
+    "model/openwave_spin_gradient_nuclei/test_source.py": "eb597ae7b3d18036229862c81795c7bfde25bb580dcac65b0a57ffa818e1b33a",
+    "model/openwave_spin_gradient_nuclei/test_witness.py": "5b5632e92dd33218ce3367cf6f928f2cc634930c41bad56e989beef7e1a3b673",
+    "model/openwave_string_positive_cone/PAPER_RESULT.tex": "a4d8304080984fffca1b647f9d93f862a7e0ae9c51615a7fcdf8a47e24580c6a",
+    "model/openwave_string_positive_cone/PROOF.md": "0078e741be4f1253b455bc69eeaedacb67ae0a80418795d7de6c0fb1214305d7",
+    "model/openwave_string_positive_cone/README.md": "0f8f048d3c1b7376ea92a8586322186052db8c173b4b95b710eac9a6db33e219",
+    "model/openwave_string_positive_cone/__init__.py": "8c6a04c6f0c67f5df58c83b05a291dccd1384fca255a4b0b886914fd63677ad0",
+    "model/openwave_string_positive_cone/__main__.py": "207506676dea61090525eefa2b9c0bf6630551d0d918d084297be8b25ee4ce4c",
+    "model/openwave_string_positive_cone/certificate.py": "0348cfeb056cf9116957c2388f247f0ffc5bcc956298587009336db3d8ef5df8",
+    "model/openwave_string_positive_cone/inputs.json": "ebc7d1312c3081fb7a69cdc6d8c177f1aa0574f4cac995dea8e82272c0848474",
+    "model/openwave_string_positive_cone/results.json": "622a73fe05801a2ed4185ac43ce19ed49101c4f4685694e9dab2a71b98cb585b",
+    "model/openwave_string_positive_cone/source.py": "5bb52ca84e22a1abdcb6ffc359b985735bcd7ce80d3bcbfceb1a46eaf88b2b73",
+    "model/openwave_string_positive_cone/test_source.py": "8f767691b2b287d2329ab0b3d38627900cf575e116a50cc3c2468283be56998e",
+    "model/openwave_su2_spectral/__init__.py": "52360e6197d384060ac319037a10ecad3585b37550cc998f4b42c09a53ee6a45",
+    "model/openwave_su2_spectral/spectrum.py": "f84aa84b3de8529f1949ea0c2fbe77a54bd53bdef4247bb0147f7dc8308c527e",
+    "model/openwave_transverse_gravity/PAPER_RESULT.tex": "bd8269386a3e349ab9cfe4865b4ca8db800a97bd982b192f8b40409691b3552d",
+    "model/openwave_transverse_gravity/PROOF.md": "0ae98a17a5c67c4dc6e0cddfbc2338850def98fba7aa8cd285ea9df090978f4a",
+    "model/openwave_transverse_gravity/README.md": "39d26c30340679f3111265d98fe6708781fbe20e8efbaa36ce38b934387e4988",
+    "model/openwave_transverse_gravity/__init__.py": "b81c0178aacda17539fae01b5b2ff966739af5ea2b6388b76e656bb15241245f",
+    "model/openwave_transverse_gravity/__main__.py": "384932d83cd342ea70405fbd69c9b4708aa6349d5367f9df3ae14414c9f504c4",
+    "model/openwave_transverse_gravity/cochains.py": "e8485c048046c8cbda04679921ac824c103c0c128d598a9184ae3f2ec9da1f0a",
+    "model/openwave_transverse_gravity/field.py": "9692a659498f95b922f45d1ea08b4a3cb8ec72e1e23a3690540d8cf6bc6d24ae",
+    "model/openwave_transverse_gravity/inputs.json": "ee3e8fc209eb40d1fb06199da6885214f52bb826a6954d10a74e6bcb76523bce",
+    "model/openwave_transverse_gravity/records.py": "a79e6b98922e12859084c3093ce5bdd14e2eb8cb5908cdfb395c9a7bcb6a702e",
+    "model/openwave_transverse_gravity/results.json": "f15525dc50766af0d9811cf740622bef7bfaff797d797fffd76c3193e749e6a6",
+    "model/openwave_transverse_gravity/test_cochains.py": "6f47a349edd85bba76f2abb2864967bdbe022c5a7ce153dfd65210fa370de3be",
+    "model/openwave_transverse_gravity/test_records.py": "92d2b6fcfe5f71f755b88d9bd89cd4b1d757df79027775dbdee390b1366858c0",
+    "model/openwave_transverse_gravity/units.py": "c8dfba9cc9f78483721d08d11c6a040989f13b822748fdfec97afa57aa3c90d5",
+    "model/openwave_universal_energy_geometry/PAPER_RESULT.tex": "50627e4985b2855a16d3bb3e641222c5e5fc61f029cd1eae07300643b1adb634",
+    "model/openwave_universal_energy_geometry/PROOF.md": "bc16424123a795e0bc4cc71d0b4b07f30cf81f097cff2764d34bc708a5ed94f7",
+    "model/openwave_universal_energy_geometry/README.md": "59e8f29d1ca6553e7b9fc688c3e66de61e3fb7c8c4ae8cb7d49a071e41f1d109",
+    "model/openwave_universal_energy_geometry/__init__.py": "e57122990d640cdcfaaf4dc03a2afc7f70b12829da08f37d2a8955fd90ffaf36",
+    "model/openwave_universal_energy_geometry/__main__.py": "50d6cd9bb6057aec905d987a067897155afbdfdbfd66ec4e0f566a921667e65c",
+    "model/openwave_universal_energy_geometry/profile_fixture.json": "578776c047e327661f496a261986274f5e7e0f8f0498f4729c16d73ae269b2ff",
+    "model/openwave_universal_energy_geometry/results.json": "8092bafbdfdfb4390d6806cf2bf881dea9f9183c65d6a1881bf39f8fbb9f3252",
+    "model/openwave_universal_energy_geometry/source.py": "6f6dc9ed38714d81d629eb69a353c9f667ca080f92558e896eaf37cbdfcdf716",
+    "model/openwave_universal_energy_geometry/test_source.py": "3b97da19e5ead91b22ad6dcada391146bcb897d184ae3f4eea002ea118086d1f",
+    "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+    "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+    "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+    "model/physical_space_time/causal_placement.py": "41d1004dd8e7b1ba24e7a1fc3d149b45c75853b9012bf18cd33bec170df7ad61",
+    "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+    "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+    "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+    "model/physical_space_time/observation_process.py": "a84d701f3224d9b46e93d6f15fb0be2950ce39e7093652f0033f72c312c3b004",
+    "model/physical_space_time/occupation_field.py": "9e41bcb86957da607b3ce518aeb0fbff939b02c3d735bf686cb2b56e130b0f9f",
+    "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+    "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
+    "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "model/predictions/protocol.py": "65ebbd8169359011a2b83ead003243bc72a35b8ade5c511781b0cc944018bd3e",
+    "model/predictions/repair_response.py": "2dce01e471eece85ef67838f7d56bc5b23ca68f202f097f4eca3edbb1ca9f0e3",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+    "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+    "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+    "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+    "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/repair_identification/__init__.py": "8f437d05b775590a935367956f706e4e1d9bdcdcc224f8790a2a7ff6db1fafa8",
+    "model/repair_identification/core.py": "15b705391cde6a051d5ddeec98b6c0a7712088679be0ebfa88cf168c78205eeb",
+    "model/repair_scheduler/__init__.py": "7e241f87b902e72de6e154b3f307dfbef44f6dab3eefdb4905a1b849e82ac4c0",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "two_Jacobi_theorem": {
+    "N_equals_one": "only j=1/2 exists",
+    "certificate": "outward rational exponential bounds, diagonal ordering and exact Sturm inertia",
+    "diagonal": "omega*N/2+Es*exp(2q*m/N)+Ep*exp(2q*F*m/N)",
+    "full_gap_for_N_at_least_two": "min(E1(j=N/2),E0(j=N/2-1))-E0(j=N/2)",
+    "ground_block": "j=N/2 by connected-hypercube Perron positivity",
+    "no_complementary_spin_sector_dropped": true,
+    "offdiagonal_squared": "(omega^2/4)*(j-m)*(j+m+1)",
+    "spin_multiplicity": "binomial(N,N/2-j)-binomial(N,N/2-j-1)"
+  },
+  "two_time_coarse_record": {
+    "all_outcomes_and_both_contexts_retained": true,
+    "diagnostic_relative_error_upper": 3.0789924478895096e-13,
+    "exact_source_coupling_evolution_no_equilibrium_preparation": true,
+    "per_preparation_readout_work_interval_exact": [
+      "7547421413923782127847377432117647056308551249999999999999999999999999999999999999999977356711898355140231785900952655529140259401182980544307/2500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "6037937131139025702277901945694117645046855/2"
+    ],
+    "positive_source_energy_lower_exact": "32357463610692264714526297323/40000000000000000000000000000",
+    "readout_lapse_normalization": "the complete zero-matter geometry-vacuum expectation cosh(Fq/N)^N",
+    "relative_error_upper_exact": "615798489577901921891364375402787090601854216150669082071822006016174578710759994883891/2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "source_on_minus_off_normalized_lapse": "-2*q^2*F*Es/(N*omega) times (1+bounded relative error)",
+    "supplied_timing_and_blank_pointer_resources": true,
+    "timing_factor_error_upper_exact": "35581566283065687028574796767541920823188798392125357406688626874520829801405554709883/2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "total_source_probe_energy_upper_exact": "7",
+    "two_independent_vacuum_preparations": true,
+    "two_observation_delays_exact": [
+      "0",
+      "355/113"
+    ],
+    "weights_exact": [
+      "1/2",
+      "1/2"
+    ]
+  },
+  "verdict": "PASS_COMPLETE_FINITE_ENERGY_MUTUAL_FORCE_AND_AUTONOMOUS_QUENCH_BOUNDS"
+}

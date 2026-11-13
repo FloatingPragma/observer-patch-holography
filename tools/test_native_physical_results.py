@@ -105,7 +105,7 @@ def test_scale_projection_keeps_member_choices_failures_and_exact_intervals(auth
 
 def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_members(authenticated_result):
     value=deepcopy(authenticated_result)
-    assert len(value['receipts_sha256'])==47
+    assert len(value['receipts_sha256'])==56
     group=value['propagation_and_nuclei']
     b=group['baryon']['positive_correlated_propagation']
     assert b['k0_complete_N3_operator_change_exact']=='0'
@@ -136,7 +136,7 @@ def new_source_data():
 def test_pole_gauge_and_radiation_projection_keeps_exact_domains_and_no_score(authenticated_result):
     result=deepcopy(authenticated_result);group=result['pole_currents_and_full_field_records']
     assert group['physical_comparison_count_added']==0
-    assert len(result['receipts_sha256'])==47
+    assert len(result['receipts_sha256'])==56
     assert group['baryon_poles']['momentum_fibre_count']==12
     assert group['strange_current']['complete_component_probe']['probabilities_are_fixed_total_momentum_fibre_quantities']
     assert not group['strange_current']['complete_component_probe']['normalizable_wave_packet_transfer_executed']
@@ -192,7 +192,7 @@ def latest_source_data():
 
 def test_normalizable_spatial_projection_keeps_calibration_and_full_domains(authenticated_result):
     result=deepcopy(authenticated_result);group=result['normalizable_particles_and_spatial_fields']
-    assert len(result['receipts_sha256'])==47 and group['physical_comparison_count_added']==0
+    assert len(result['receipts_sha256'])==56 and group['physical_comparison_count_added']==0
     assert group['normalizable_packets']['normalizable_packet']['carrier_is_infinite_chain']
     assert not group['normalizable_packets']['complete_protocol']['finite_local_compilation_of_exact_band_filter_proved']
     assert group['strange_composite_current']['channel']['independent_composite_rank']==23

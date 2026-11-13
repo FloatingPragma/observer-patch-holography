@@ -11,13 +11,15 @@ from pathlib import Path
 import sympy as s
 
 ROOT = Path(__file__).resolve().parents[2]
+# The owning PROOF.md carries the complete computational criterion. The
+# editable paper is authenticated by the publication check, after science.
+PRESENTATION_INPUTS = ('extra/yang_mills_gap_clay_problem.tex',)
 SOURCE_INPUTS = (
     'model/particle_yang_mills_gap_contract/transfer.py',
     'model/particle_yang_mills_gap_contract/PROOF.md',
     'model/particle_common_contract/contract.py',
     'model/particle_common_contract/provenance.py',
     'model/particle_common_contract/PROOF.md',
-    'extra/yang_mills_gap_clay_problem.tex',
     'Lean/ObserverPatchHolography/RepairGapChain.lean',
     'Lean/Screen/KogutSusskindFiberRateComparison.lean',
     'model/physical_space_time/occupation_field_results.json',

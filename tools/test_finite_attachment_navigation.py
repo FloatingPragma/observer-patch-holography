@@ -37,3 +37,42 @@ def test_gate_statuses_and_finite_classifications_are_not_refreshable():
     with pytest.raises(ValueError,match='scientific contents changed'):owner.unchanged_science(changed)
     changed=documents();changed[owner.PROGRAM]['stages'][0]['status']='UNREVIEWED'
     with pytest.raises(ValueError,match='scientific contents changed'):owner.unchanged_science(changed)
+
+
+def _presentation_root(tmp_path):
+    for name in (owner.CANDIDATE,owner.PRESENTATION_PARENT):
+        path=tmp_path/name;path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_bytes((owner.ROOT/name).read_bytes())
+    return tmp_path
+
+
+def test_exact_inverse_and_operative_ast_control():
+    owner.candidate_presentation_custody(documents())
+    raw=(owner.ROOT/owner.CANDIDATE).read_bytes()
+    import hashlib
+    assert hashlib.sha256(raw.replace(owner.CANDIDATE_PRESENTATION_ADDITION,b'',1)).hexdigest()==owner.CANDIDATE_OLD_SHA256
+
+
+@pytest.mark.parametrize('target',('candidate','parent_scope','parent_physics'))
+def test_changed_source_or_presentation_scope_rejects(tmp_path,target):
+    root=_presentation_root(tmp_path)
+    if target=='candidate':
+        path=root/owner.CANDIDATE;path.write_bytes(path.read_bytes()+b'\nOPERATIVE_CHANGE = 1\n')
+    else:
+        path=root/owner.PRESENTATION_PARENT;raw=path.read_bytes()
+        if target=='parent_scope':
+            raw=raw.replace(b"('extra/yang_mills_gap_clay_problem.tex',)",b"('model/particle_yang_mills_gap_contract/PROOF.md',)")
+        else:raw=raw.replace(b"ratio='1/2'",b"ratio='1/3'",1)
+        path.write_bytes(raw)
+    with pytest.raises(ValueError,match='presentation.*changed'):
+        owner.unchanged_science(documents(),root)
+
+
+@pytest.mark.parametrize('mutation',('stale_hash','wrong_row','wrong_scope','physical_status'))
+def test_only_exact_current_row_hash_is_renewable(mutation):
+    changed=documents();stage=changed[owner.PROGRAM]['stages'][6];row=stage['progress_evidence'][38]
+    if mutation=='stale_hash':row['sha256']=owner.CANDIDATE_OLD_SHA256
+    elif mutation=='wrong_row':stage['progress_evidence'][37],stage['progress_evidence'][38]=row,stage['progress_evidence'][37]
+    elif mutation=='wrong_scope':row['scope']='All physical particle masses are proved.'
+    else:stage['status']='ACCEPTED'
+    with pytest.raises(ValueError):owner.unchanged_science(changed)

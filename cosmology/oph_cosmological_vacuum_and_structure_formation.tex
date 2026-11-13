@@ -195,6 +195,33 @@ The constraint identities are exact, while the numerical solutions have
 convergence diagnostics without interval error certificates
 (\path{model/openwave_capacity_transfer}).
 
+\paragraph{Regular metric transfer.}
+For the declared Einstein comparison with dust, radiation and a scalar,
+the regular adiabatic mode reduces exactly to
+$T=(3/2)(H/a)\int_0^a da'/H(a')$ and $\Phi=3/2-T$.
+The full evolution equations and Hamiltonian constraint vanish under this
+substitution. With $t=-\log a$ and $F=e^{-t}/(H/H_0)$, the background gives
+$-2\leq h\leq0$ and $0\leq h_N\leq33/8$, hence $|F_{tt}|\leq9F$.
+Outward background intervals, trapezoidal remainders and the complete
+improper-integral tail enclose the present normalized metric coefficient
+in $[0.734179279095,0.734257299186]$, compared with
+$[0.709108311479,0.709181069590]$ for the same-density constant-$\Lambda$
+control. These are conditional regular long-wavelength coefficients;
+the strict zero-wavenumber mode has zero comoving density and no measured
+growth or microwave-background comparison is implied. Exact rescalings
+$H_0\mapsto\lambda H_0$, $\rho_{i0}\mapsto\lambda^2\rho_{i0}$,
+$L\mapsto L/\lambda$ and $k\mapsto\lambda k$ preserve the dimensionless
+equations. Their homogeneous perturbations also admit arbitrary amplitude.
+An absolute cosmic density and primordial normalization therefore require
+additional native source relations.
+
+The ratio of the present metric coefficients is enclosed in
+$[1.035249403259,1.035465650732]$. The seven-equation small-nonzero-$k$
+trajectories are separate numerical diagnostics, without a certified
+finite-$k$ error bound. The exact pure-radiation and pure-dust controls give
+$\Phi=1$ and $\Phi=9/10$, respectively
+(\path{model/openwave_capacity_normalization_transfer}).
+
 \section{Matter and States on a Supplied Spatial Domain}
 
 The Whitney construction on the fixed tetrahedral cone gives a controlled

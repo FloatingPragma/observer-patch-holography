@@ -1,0 +1,25 @@
+{
+  "schema": "oph.openwave_prediction_admission_audit.v1",
+  "declared_architecture_is_allowed": true,
+  "architectural_uniqueness_required_by_OPH_mission": false,
+  "upstream_commit": "ef55175d04737e73c92f33f9f9cf3d17c593da54",
+  "input_roles": [
+    {"input": "native internal carrier, charged frame and finite action", "role": "declared construction with explicit finite attachment proofs", "independent_observation": false},
+    {"input": "analyzer phase 2/9", "role": "retrospective charged-lepton target exposure", "independent_observation": false},
+    {"input": "electron GeV anchor", "role": "empirical calibration", "independent_observation": false},
+    {"input": "kinetic coefficient, lattice spacing and source event parameter", "role": "declared units and kinetic architecture", "independent_observation": false},
+    {"input": "heralded positive-band preparation and phase-sensitive field comparison", "role": "specified apparatus, with one-half failure retained", "independent_observation": false}
+  ],
+  "tests": [
+    {"name": "stability", "row": 4, "derived_result": "complete finite free norm and spatial-mode persistence", "falsifier": "full-coordinate output exceeds the predeclared RK4 truncation gate plus stated roundoff allowance", "observational_falsifier": false, "physical_gap": "localized nonlinear stability"},
+    {"name": "rest_spectrum", "row": 11, "derived_result": "all three exported charged rest coefficients govern the actual native propagation", "falsifier": "measured finite-source phase differs from its declared source coefficient beyond the fixed integration gate", "observational_falsifier": false, "physical_gap": "independent spectrum prediction and interacting physical minima"},
+    {"name": "mass_shell", "row": 30, "derived_result": "complete source waves obey the finite sine mass shell on their stated blocks", "falsifier": "full-source finite plane wave differs from the independently assembled symbol", "observational_falsifier": false, "physical_gap": "a physical Lorentz-invariant interacting continuum"}
+  ],
+  "variant_ancestry": "One unchanged exported kinetic-plus-analyzer-pairing source is used by every test. Changing a preparation, unit, operator or mass requires a distinct declared variant and source hash.",
+  "unexposed_observational_target_in_packet": false,
+  "prospective_prediction_preregistration_established": false,
+  "author_historical_target_ignorance_claimed": false,
+  "genuine_prediction_admission_gate_met_by_packet": false,
+  "official_admission_or_awards": 0,
+  "external_submission_sent": false
+}

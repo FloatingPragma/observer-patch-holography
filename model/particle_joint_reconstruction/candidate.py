@@ -127,6 +127,8 @@ def _bindings(theorem):
     for section in ('theorem_chain', 'conditional_interfaces'):
         for row in theorem[section]:
             paths.update(ref['path'] for ref in row['references'])
+    # Exact presentation classification only; scientific proofs stay bound.
+    paths.difference_update(gap.PRESENTATION_INPUTS)
     return provenance.definition_hashes(provenance.definition_inputs(paths))
 
 

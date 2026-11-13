@@ -859,31 +859,6 @@ certificates and full instruments are in
 \path{model/openwave_relational_clock} and
 \path{model/openwave_joint_native_clocks}.
 
-\paragraph{A static classical limit on the complete geometry register.}
-A permutation-invariant register has
-\[
- Q_N=\frac qN\sum_{i=1}^N Z_i,\qquad
- H_g=\frac{\omega_N}{2N}\sum_{i=1}^N(I-X_i),\qquad
- \omega_N=\frac{\omega N\cosh(q/N)^N\tanh(q/N)}{\sinh q}.
-\]
-This normalization preserves the original weak far-field response; it
-does not repair its failed physical $G/c$ attachment. For $E,P\ge0$ and $0\le F\le1$, write
-$H_N=H_g+Ee^{Q_N}+Pe^{FQ_N}$. The mean-Bloch bound and spectral Jensen
-inequality imply
-\[
- \inf\operatorname{spec}H_N\ge\min_{-1\le z\le1}
- \left\{\frac{\omega_N}{2}(1-\sqrt{1-z^2})+Ee^{qz}+Pe^{qFz}\right\}.
-\]
-A spin-product trial bounds the difference above that minimum by
-$(Ee^q+Pe^{qF})(e^{q^2/(2N)}-1)$, retaining the entire register rather
-than discarding nonsymmetric sectors. The relative vacuum lapse variance
-is at most $e^{q^2F^2/N}-1$. At $q=1/8$, $N=256$ and $0\le F\le1$,
-this upper bound is below $6.103702\times10^{-5}$. The geometry gap
-closes as $1/N$: this is a static single-mode classical limit, without a
-uniform dynamical gap, spatial Einstein evolution, a physical gravitational
-normalization or a zero-cost preparation claim
-(\path{model/openwave_replicated_geometry}).
-
 \paragraph{Calibrated collective gravitational strength.}
 A distinct member fixes each register frequency,
 $H_g=(\omega/2)\sum_i(I-X_i)$, while retaining
@@ -901,6 +876,51 @@ is a calibration of the declared hardware to $G$, without an independent
 prediction of its value. Full coordinate readout costs $N\omega/2$
 source units. No common strong/geometry spatial theory or dressed-photon
 identification is proved (\path{model/openwave_collective_gravity_strength}).
+
+\paragraph{Finite-strength control on the full geometry register.}
+For the declared $H_g=(\omega/2)\sum_i(I-X_i)$ and
+$Q=(q/N)\sum_iZ_i$, Perron positivity orders all total-spin
+blocks. The complete geometry-sector spectral gap is determined by the two
+highest-spin Jacobi matrices, with exact rational Sturm inertia. This is not
+a gap across different matter sectors. For finite nonnegative energies,
+write $H=H_g+E_s e^Q+E_p e^{FQ}$. Convexity gives a product-comparison
+Hamiltonian and a positive remainder. For $M\ge E_s+E_p$, its ground gap
+is at least $d=\omega-Me^q\mu_2/2$ when $d>0$, and the ground-ray
+angle is at most $Me^q\sqrt{\mu_4}/(2d)$, where $\mu_2,\mu_4$ bound the second and fourth $Q$ moments
+of the comparison product ground uniformly over $E_s+E_p\le M$.
+Centered observable bounds control the finite lapse; Hellmann integration
+controls mutual force for all 49 positive native-energy pairs. A full
+Duhamel comparison bounds the complete quench records. Independently
+prepared contexts at times zero and $355/113$ recover the static normalized
+lapse coefficient with the stated finite error. They do not identify a
+single continuously operating observer or physical seconds
+(\path{model/openwave_collective_finite_strength}).
+
+\paragraph{Fluctuation--response normalization.}
+The same complete collective geometry gives
+$g_N=S\operatorname{Cov}(Q,e^Q)/(2\pi\omega)$ and
+$W\operatorname{Var}(Q)=q^2\omega u/2$, with
+$\operatorname{Var}(Q)=q^2/N$ and coordinate-readout work
+$W=N\omega u/2$. Thus an independently determined native covariance would
+fix the weak gravitational coefficient without fitting it again.
+For the continuous source parameter in $H_g+E_s e^Q$, at $E_s=0$,
+the complete coordinate measurement attains the geometry ground state's
+quantum Fisher information. Exact spectral sums imply
+$4v(1-q^2/(3N^2))^2/\omega^2\leq I\leq4v/[\omega^2(1-v)^2]$,
+where $v=q^2/N$. The zero-source quench information is at most $4I$ at every
+time. These bounds quantify the measurement resources of this specified
+geometry family; they do not bound all observer architectures.
+The inherited register count uses measured $G$, so its predicted fluctuations
+and response retain that calibration ancestry.
+
+For $q=1/8$ and $\omega=1$, the upper information bound satisfies
+$1/I_{\rm upper}=16N-1/2+1/(256N)$. The Cram\'er--Rao inequality
+therefore requires at least $16N$ independently prepared geometry copies
+for a locally unbiased estimate of the continuous source parameter with
+unit native variance. The finite ground-state preparation, coordinate
+readout cost and measured-$G$ ancestry are retained; this is a bound for
+the specified geometry family, not for every observer protocol
+(\path{model/openwave_gravity_noise_normalization}).
 
 \appendix
 

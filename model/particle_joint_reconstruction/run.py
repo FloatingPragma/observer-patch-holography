@@ -194,6 +194,9 @@ def build():
     paths.update(str(path.relative_to(ROOT)) for path in HERE.iterdir()
                  if path.suffix in ('.py', '.md') or path.name in
                  ('dependencies.json', 'candidate_results.json'))
+    # The editable paper is checked downstream by publication custody.
+    # The source criterion's PROOF.md, Lean and every operative input remain.
+    paths.difference_update(candidate.gap.PRESENTATION_INPUTS)
     pins = provenance.definition_hashes(provenance.definition_inputs(paths))
     common = contract.certificate()
     member = common['fixed_primary_member']

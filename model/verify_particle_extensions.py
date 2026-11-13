@@ -52,6 +52,15 @@ PACKAGES=(
     'openwave_refined_haar_spectrum', 'openwave_haar_memory_closure',
     'openwave_tensor_record_transport', 'openwave_collective_gravity_strength',
     'openwave_capacity_transfer',
+    'openwave_lambda_spectral_measure',
+    'openwave_finite_phase_clock',
+    'openwave_localized_quark_record',
+    'openwave_nuclear_em_transfer',
+    'openwave_fock_field_transport',
+    'openwave_energy_schur',
+    'openwave_collective_finite_strength',
+    'openwave_gravity_noise_normalization',
+    'openwave_capacity_normalization_transfer',
 )
 
 def source_bindings():

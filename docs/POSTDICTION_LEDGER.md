@@ -560,6 +560,39 @@ The [linear Einstein/fluid/scalar calculation](../model/openwave_capacity_transf
 
 These are numerical model differences with tolerance, initialization and Einstein–de Sitter controls, not observed matches or rigorous interval ODE certificates. Native scalar and primordial state, free-streaming species, recombination and a CMB likelihood are not supplied. These results add zero Nature-validation rows.
 
+### Native clocks, field transport and spectral resolution
+
+A [finite autonomous controller](../model/openwave_finite_phase_clock/PROOF.md) executes 6 mass/preparation controls on a 4096-dimensional reducing carrier with the native complement retained. The free coherence frequency is the source mass. Phase references, initial clock and complete terminal measurement work are explicit; the executed trajectories are numerical controls, not interval certificates or self-starting sustained particle clocks.
+
+The [actual Lambda current](../model/openwave_lambda_spectral_measure/PROOF.md) has successful-branch mean energy [2.418046697462, 2.418046697463] GeV. This probe-conditioned five-body energy is not its rest mass, decay energy or nonselective work. Broad-window positivity does not establish a nonzero shrinking-window density or decay lifetime.
+
+A [localized native string](../model/openwave_localized_quark_record/PROOF.md) gives a reference-supported fractional-charge coherence with complete flux and work records. The prepared endpoint is not an autonomous physical quark. The [full CAR transport](../model/openwave_fock_field_transport/PROOF.md) acts on all 192 native modes by local even implementers, retaining Hamiltonian, currents, state and work. Its separate integer-rotor E+A construction requires a different carrier; it supplies no additional particle pole.
+
+The [dynamical nuclear Gauss extension](../model/openwave_nuclear_em_transfer/PROOF.md) retains every integer cycle flux:
+
+| Nucleus | Full source interval / GeV | Target role; admitted |
+| --- | ---: | --- |
+| triton | [2.808919203020, 2.809127749492] | inherited calibration; True |
+| helion | [2.807625870510, 2.808017057294] | held-out comparison; False |
+| alpha | [3.739123982204, 3.739741842803] | held-out comparison; False |
+
+The helion and alpha comparisons fail. A positive field addition with only a common vacuum subtraction cannot lower the inherited alpha excess. No mass target is refitted.
+
+The [shifted full-Haar Schur certificate](../model/openwave_energy_schur/PROOF.md) sharpens complete-source gaps:
+
+| Source | Full gap / source units | Width improvement, diagnostic |
+| --- | ---: | ---: |
+| coarse | [96.000000609687, 96.000000698191] | 361.909 |
+| refined | [47.994039214271, 48.005292776804] | 5.363 |
+
+All omitted representations enter the remainder. The fixed global energy projector has an extensive off-block norm; local observable estimates are required for uniform-volume refinement. No physical GeV glueball or Clay result follows.
+
+The [finite-strength collective theorem](../model/openwave_collective_finite_strength/PROOF.md) controls all 49 positive native source/probe pairs, using two spin-sector Jacobi blocks and a complete complement bound. At the inherited Newton-calibrated register count, the mutual-energy relative remainder is below 1e-18. The [response/noise/work identities](../model/openwave_gravity_noise_normalization/PROOF.md) give g_N=S Cov(Q,exp(Q))/(2π ω) and W Var(Q)=q²ωu/2. An independent covariance would fix the weak strength; the present count uses observed G, so its fluctuations are conditional and are not observed metric noise.
+
+The [validated regular long-wavelength metric coefficient](../model/openwave_capacity_normalization_transfer/PROOF.md) is [0.734179279095, 0.734257299186], versus [0.709108311479, 0.709181069590] for the same-density Lambda control. The strict zero-wavenumber mode is a residual adiabatic coordinate mode with zero comoving density. The normalized metric ratio is not the finite-wavenumber matter growth ratio or a CMB observation. Absolute Hubble/density and primordial amplitude freedoms remain; the scalar and Einstein attachment are supplied.
+
+These operational and spectral results add zero independent Nature-validation rows.
+
 ## One calibrated hyperfine spectrum and its independent controls
 
 The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. The shared quadrupole/string attachment adds two dimensional comparison targets. The eigenenergies are calibrated finite records, not independent predictions or resonance poles.

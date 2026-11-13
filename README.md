@@ -127,12 +127,23 @@ proof shows that the whole class of laws cannot work.
   instruments retain their complete outputs. Empirical coupling values and
   an interacting chiral continuum require the same-source physical mapping.
   A refined SU(2) cube has 54 Haar links and 36 coupled plaquettes, certified
-  source gaps and complete control of omitted representations. Its computed
-  interior-state correction retains a bounded memory term in the same clock;
-  these finite graphs supply no four-dimensional Yang–Mills continuum.
+  source gaps and complete control of omitted representations. Energy-dependent
+  full-complement bounds enclose the coarse and refined gaps in
+  [96.00000060968, 96.00000069820] and [47.99403921427, 48.00529277681]
+  source units. Their enclosure widths improve by factors above 361 and 5.36.
+  Distant loops prevent a volume-uniform global-norm shortcut; these finite
+  graphs supply no four-dimensional Yang–Mills continuum or physical glueball mass.
   [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
   [Refined gauge source](model/openwave_refined_haar_source/PROOF.md),
-  [Computed memory](model/openwave_haar_memory_closure/PROOF.md).
+  [Full-complement spectral certificate](model/openwave_energy_schur/PROOF.md).
+- **Exact transport of the complete fermion source.** Twenty-four local even
+  pair transformations act on all 192 fermion modes while preserving every
+  Hamiltonian term, current, charge, reference and measurement work. The
+  proof replaces an enumeration of 2¹⁹² states with exact local identities.
+  An independent rotor extension retains its field-momentum connection and
+  every integer flux; it has a different carrier and supplies no additional
+  physical particle mass.
+  [Complete Fock and field transport](model/openwave_fock_field_transport/PROOF.md).
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,
@@ -181,6 +192,25 @@ proof shows that the whole class of laws cannot work.
   or Einstein proper time.
   [Outgoing current](model/openwave_beta_outgoing/PROOF.md),
   [Native clocks](model/openwave_joint_native_clocks/PROOF.md).
+- **Finite gravitational response and its measurement resources.** A complete
+  collective geometry controls all 49 positive native source/probe energy pairs.
+  Two spin-sector matrices determine its geometry-sector gap, and exact
+  fluctuation–response and readout-work identities connect the weak strength
+  to its covariance. The chosen register count uses measured Newton gravity;
+  its fluctuations are conditional, without a physical metric-noise match or
+  an Einstein continuum identification.
+  [Finite-strength bounds](model/openwave_collective_finite_strength/PROOF.md),
+  [Response, noise and work](model/openwave_gravity_noise_normalization/PROOF.md).
+- **Certified conditional cosmological transfer.** An exact adiabatic identity
+  reduces seven supplied Einstein/dust/radiation/scalar equations to one
+  positive integral. Outward bounds give the present normalized metric
+  coefficient [0.734179279095, 0.734257299186], compared with
+  [0.709108311479, 0.709181069590] for the same-density constant-Lambda control.
+  The strict zero-wavenumber mode has zero comoving density; this is not a
+  measured growth or microwave-background fit. Absolute density, primordial
+  amplitude and the native field-to-cosmology mapping remain inputs or open
+  requirements.
+  [Exact normalization and transfer](model/openwave_capacity_normalization_transfer/PROOF.md).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
   Its position observable is conjugate to the same spatial momentum, with complete

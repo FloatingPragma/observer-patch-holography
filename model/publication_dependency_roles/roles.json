@@ -1,0 +1,42 @@
+{
+  "edges": [
+    {
+      "legacy_map": "source_sha256",
+      "owner": "model/local_repair_family/record_clock_results.json",
+      "owner_sha256": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
+      "presentation_path": "docs/INTERPRETATION_AND_TERMS.md",
+      "presentation_sha256": "d7ced4cd1b1480b228037e960250c87f47bf57bc59232207b1050806aaa1f19f",
+      "provider": "model/native_modular_reference/construction.py",
+      "provider_sha256": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+      "role": "retained_presentation_provenance",
+      "scientific_input": false
+    },
+    {
+      "legacy_map": "source_sha256",
+      "owner": "model/local_repair_family/record_clock_results.json",
+      "owner_sha256": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
+      "presentation_path": "docs/research/COHERENT_SOURCE_CLOCKS.md",
+      "presentation_sha256": "3daa10fa2fe85979c55e72e8dee18649d80d276b85db4654fa2d5097c98b5557",
+      "provider": "model/compiled_native_interface/construction.py",
+      "provider_sha256": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+      "role": "retained_presentation_provenance",
+      "scientific_input": false
+    },
+    {
+      "legacy_map": "source_bindings",
+      "owner": "model/common_source/chiral_candidate/results.json",
+      "owner_sha256": "5594b66a30a5f9a0c76dc40c750b4409bb14a25c0b5ec4a2906bc6061ee8f999",
+      "presentation_path": "docs/research/OPH_PARTICLE_MASS_RESPONSE.md",
+      "presentation_sha256": "dbe5a66b9d9d28683e1d9d444ec931a61dd42756b3d7b284d2db70802b3a86a2",
+      "provider": "model/common_source/chiral_candidate/run.py",
+      "provider_sha256": "3a6746e9ef8e0bb893927bbeefc7e9a764e77c32bf3033c8283f746914a8598c",
+      "role": "retained_presentation_provenance",
+      "scientific_input": false
+    }
+  ],
+  "immutable_ancestry_root": "91f37bac83c4bd71ccefc5f2c76a4bf8961a708a",
+  "legacy_receipts_or_selection_goldens_mutated": false,
+  "raw_legacy_documentary_policy_findings_retained": 3,
+  "schema": "oph.exact_presentation_dependency_roles.v1",
+  "scope": "Exactly three immutable inherited edges. All other dependencies retain their original scientific and custody roles."
+}

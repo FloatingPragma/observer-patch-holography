@@ -23,6 +23,9 @@ PACKAGES = (
     'full_strong_current', 'lambda_wavepacket', 'cluster_weyl_sequence',
     'refined_haar_source', 'refined_haar_spectrum', 'haar_memory_closure',
     'tensor_record_transport', 'collective_gravity_strength', 'capacity_transfer',
+    'lambda_spectral_measure', 'finite_phase_clock', 'localized_quark_record',
+    'nuclear_em_transfer', 'fock_field_transport', 'energy_schur',
+    'collective_finite_strength', 'gravity_noise_normalization', 'capacity_normalization_transfer',
 )
 
 
@@ -104,6 +107,7 @@ def collect(root):
         'pole_currents_and_full_field_records': pole_currents_and_full_fields(data),
         'normalizable_particles_and_spatial_fields': normalizable_particles_and_spatial_fields(data),
         'complete_dynamics_and_constraints': complete_dynamics_and_constraints(data),
+        'operational_source_certificates': __import__('tools.native_operational_results',fromlist=['project']).project(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -243,6 +247,8 @@ def render(value):
     lines += render_propagation_and_nuclei(value['propagation_and_nuclei'])
     lines += render_scale_and_structure(value['native_scale_and_structure'])
     lines += render_complete_dynamics_and_constraints(value['complete_dynamics_and_constraints'])
+    from tools.native_operational_results import render as render_operational
+    lines += render_operational(value['operational_source_certificates'],interval,decimal)
     return lines
 
 
