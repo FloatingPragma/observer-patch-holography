@@ -1,0 +1,403 @@
+{
+  "declared_magnetic_steps": [
+    {
+      "coarse_Wilson_coefficient_interval_exact": [
+        "-6431070563791658934940110045/1427247692705959881058285969449495136382746624",
+        "2722804900874445890811813425/356811923176489970264571492362373784095686656"
+      ],
+      "conditional_operator_uniform_remainder_upper_exact": "4330572541822360624546840937/1427247692705959881058285969449495136382746624",
+      "fine_magnetic_step_exact": "1/10000",
+      "leading_coarse_Wilson_coefficient_exact": "1/640000000000000000",
+      "positive_coarse_Wilson_coefficient_certified": false,
+      "relative_coefficient_error_upper_exact": "5543132853532621599419956398169261478662268507/1427247692705959881058285969449495136382746624"
+    },
+    {
+      "coarse_Wilson_coefficient_interval_exact": [
+        "107187161800085964308201/713623846352979940529142984724747568191373312",
+        "231640580370440534214313/1427247692705959881058285969449495136382746624"
+      ],
+      "conditional_operator_uniform_remainder_upper_exact": "2158282096283575699739/713623846352979940529142984724747568191373312",
+      "fine_magnetic_step_exact": "1/100000",
+      "leading_coarse_Wilson_coefficient_exact": "1/6400000000000000000000",
+      "positive_coarse_Wilson_coefficient_certified": true,
+      "relative_coefficient_error_upper_exact": "55252021664859537913311746470650459351969851/1427247692705959881058285969449495136382746624"
+    },
+    {
+      "coarse_Wilson_coefficient_interval_exact": [
+        "11146057433412999457/713623846352979940529142984724747568191373312",
+        "22309375530235247369/1427247692705959881058285969449495136382746624"
+      ],
+      "conditional_operator_uniform_remainder_upper_exact": "2157582926156057/713623846352979940529142984724747568191373312",
+      "fine_magnetic_step_exact": "1/1000000",
+      "leading_coarse_Wilson_coefficient_exact": "1/64000000000000000000000000",
+      "positive_coarse_Wilson_coefficient_certified": true,
+      "relative_coefficient_error_upper_exact": "69042653636993818225134454161247841875885/178405961588244985132285746181186892047843328"
+    }
+  ],
+  "electric_compression": "J* sum_fine C\u00b2 J = 2 sum_coarse C\u00b2",
+  "embedding": "Each coarse holonomy is the ordered product of its two fine links; all remaining fine Haar variables are integrated.",
+  "exact_conditional_magnetic_expansion_through_order_four": "E[exp(kappa sum_36 Wfine)|coarse]=1+(9/2)kappa\u00b2+(321/32)kappa\u2074+(kappa\u2074/64)sum_6 Wcoarse+R",
+  "exact_fine_magnetic_moments": {
+    "fourth": "963/4",
+    "second": "9"
+  },
+  "first_magnetic_compression": "J* sum_36_fine W J = 0",
+  "full_Haar_spaces_and_all_Gauss_transformations_retained": true,
+  "geometry": {
+    "all_lower_degree_coarse_character_coefficients_zero": true,
+    "all_six_tiling_integrals": [
+      {
+        "coarse_boundary": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            2,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ],
+        "coarse_character_four_fine_Wilson_Haar_integral_exact": "1/128",
+        "unique_four_face_tiling": [
+          0,
+          7,
+          16,
+          23
+        ]
+      },
+      {
+        "coarse_boundary": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "coarse_character_four_fine_Wilson_Haar_integral_exact": "1/128",
+        "unique_four_face_tiling": [
+          1,
+          4,
+          17,
+          20
+        ]
+      },
+      {
+        "coarse_boundary": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            2
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "coarse_character_four_fine_Wilson_Haar_integral_exact": "1/128",
+        "unique_four_face_tiling": [
+          2,
+          5,
+          9,
+          12
+        ]
+      },
+      {
+        "coarse_boundary": [
+          [
+            0,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            2
+          ],
+          [
+            2,
+            1,
+            2
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "coarse_character_four_fine_Wilson_Haar_integral_exact": "1/128",
+        "unique_four_face_tiling": [
+          6,
+          13,
+          22,
+          29
+        ]
+      },
+      {
+        "coarse_boundary": [
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            2,
+            2,
+            0
+          ],
+          [
+            2,
+            2,
+            1
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        "coarse_character_four_fine_Wilson_Haar_integral_exact": "1/128",
+        "unique_four_face_tiling": [
+          14,
+          15,
+          30,
+          31
+        ]
+      },
+      {
+        "coarse_boundary": [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            2,
+            0
+          ],
+          [
+            2,
+            2,
+            1
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            2,
+            1,
+            2
+          ],
+          [
+            2,
+            0,
+            2
+          ],
+          [
+            2,
+            0,
+            1
+          ]
+        ],
+        "coarse_character_four_fine_Wilson_Haar_integral_exact": "1/128",
+        "unique_four_face_tiling": [
+          32,
+          33,
+          34,
+          35
+        ]
+      }
+    ],
+    "central_link_flip_fixes_coarse_links_and_reverses_all_fine_faces": true,
+    "closed_distinct_four_face_sets": 0,
+    "coarse_faces": 6,
+    "coarse_links": 12,
+    "coarse_vertices": 8,
+    "fine_faces": 36,
+    "fine_links": 54,
+    "fine_vertices": 27
+  },
+  "physical_clock": {
+    "coarse_electric_coefficient": "x_coarse/(2a_coarse)",
+    "compressed_fine_electric_coefficient": "2x_fine/a_coarse",
+    "electric_matching_requires": "x_fine=x_coarse/4",
+    "matching_electric_term_alone_matches_full_source": false,
+    "same_source_Hamiltonian_time_rescaled": false,
+    "spacing_ratio_fine_over_coarse_exact": "1/2"
+  },
+  "schema": "oph.exact_cubic_Haar_spatial_blocking.v1",
+  "scope": {
+    "autonomous_full_Hamiltonian_RG_derived": false,
+    "continuum_noncollapse_proved": false,
+    "four_dimensional_Yang_Mills_or_GeV_gap_proved": false,
+    "higher_coarse_operator_remainder_retained": true,
+    "positive_conditional_magnetic_weight": true,
+    "spatial_link_and_face_degrees_actually_added": true
+  },
+  "source_sha256": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/openwave_gauge_refinement_clock/PAPER_RESULT.tex": "469dbd8819973eceaf3e9d82d8f71ec0ea8bcbdb358e5ab609cb81616cf599da",
+    "model/openwave_gauge_refinement_clock/PROOF.md": "8e1264c29a6aaf75f4f1448d18951ad811ee245ca7f01aa7bdbeb5850b41b8b4",
+    "model/openwave_gauge_refinement_clock/README.md": "e3662a767906858264b3379d591906c85dbcd36f6cde3f58583447fdfac58910",
+    "model/openwave_gauge_refinement_clock/__init__.py": "598f3d51eda82ecb700e430ad6e9ccb0afa098d80306332f23c150f3b829a7ce",
+    "model/openwave_gauge_refinement_clock/__main__.py": "21c64924dc82eef38ad9b3336188593b824e1c4a8653a522df9118289c14b077",
+    "model/openwave_gauge_refinement_clock/blocking.py": "3375d1f8ea34599f509b17ca21c75b4ab07a9420f647302a7356fca60d4432f0",
+    "model/openwave_gauge_refinement_clock/test_blocking.py": "d6d251ab03bcdea203d3a06097ab3b945149a237654546081b2d32282a5cc383",
+    "model/openwave_pure_su2_source/PROOF.md": "e50bb8725b9b5512125188ecb56af2554c3cd7f6dd8a723ce5d14ce4baabb404",
+    "model/openwave_pure_su2_source/__init__.py": "a14883ed7a07b449b6f6c726910ac722588f85c8494301f1a9fd053df872bb7e",
+    "model/openwave_pure_su2_source/custody.py": "514ad4f0d20fdc7956643ead12275abcc40c688c2e2604ef712a562c2e51c206",
+    "model/openwave_pure_su2_source/source.py": "cee741a4033ffe611166d5f6026b27cb513f4d55ea63624fab5fb33c53713c9c",
+    "model/openwave_su2_spectral/__init__.py": "52360e6197d384060ac319037a10ecad3585b37550cc998f4b42c09a53ee6a45",
+    "model/openwave_su2_spectral/spectrum.py": "f84aa84b3de8529f1949ea0c2fbe77a54bd53bdef4247bb0147f7dc8308c527e",
+    "model/openwave_su2_transfer/PROOF.md": "fd621d148ef6a928ce4524d5960438bebbeabf106e26622af3d354f70468ae24",
+    "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723"
+  },
+  "uniform_remainder": "||R|| <= exp(36|kappa|)*(36|kappa|)^6/720",
+  "verdict": "PASS_NONZERO_COARSE_WILSON_FROM_ACTUAL_SPATIAL_HAAR_BLOCKING"
+}

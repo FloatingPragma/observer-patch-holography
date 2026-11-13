@@ -6,8 +6,14 @@ controlled local observations. A protected defect carries the centre class
 `6Y mod 6` of a Standard Model multiplet, exactly, by the
 [defect-class certificate](../../model/defect_particle_classes/README.md);
 the class carries no generation, weak isospin component or rest mass.
-These field constructions add charged-sector energies and complete records,
-and they produce no source-derived GeV mass. The [typed claim supplement](../../claims/addenda/field_record_addenda.json)
+These field constructions add charged-sector energies and complete records;
+the defect class alone supplies no mass scale. The calibrated strong source
+has [normalizable nucleon records](../../model/openwave_normalizable_particle_records/PROOF.md)
+and a [normalizable Lambda trial](../../model/openwave_lambda_wavepacket/PROOF.md)
+with explicit rest-pole and packet-energy intervals in GeV. Those intervals
+retain the electron and strong-sector calibration inputs; they do not
+identify the complete physical spectrum of a four-dimensional field theory.
+The [typed claim supplement](../../claims/addenda/field_record_addenda.json)
 states the scope of each result; the [executable index](../../model/field_record_addenda/README.md)
 links its proofs, exact receipts and replay commands.
 

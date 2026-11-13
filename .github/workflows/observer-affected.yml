@@ -1,0 +1,370 @@
+name: Observer affected checks
+
+# Operational replacement for observer-model.yml. The pinned old workflow stays
+# byte-identical; it is disabled only after this replacement is verified active.
+on:
+  pull_request:
+    paths:
+      - 'model/**'
+      - 'pytest.ini'
+      - 'tools/check_retained_completion_custody.py'
+      - 'tools/check_retained_field_custody.py'
+      - 'tools/test_retained_field_custody.py'
+      - 'tools/*source_record*'
+      - 'tools/*field_current*'
+      - 'claims/claim_registry.yaml'
+      - 'claims/assumption_dictionary.md'
+      - 'claims/completion_program.json'
+      - 'tracking/premise_register.json'
+      - 'paper/release_info.tex'
+      - 'paper/paper_release_manifest.json'
+      - 'tools/test_numeric_evidence_medium.py'
+      - 'tools/test_retained_custody_routing.py'
+      - 'code/P_derivation/**'
+      - 'code/capacity_readback/**'
+      - 'code/native_response/**'
+      - 'code/source_scalar_packet/**'
+      - 'code/source_scalar_time_refinement/**'
+      - 'paper/tex_fragments/SOURCE_SCALAR_TIME_REFINEMENT.tex'
+      - 'code/causal_refinement/source_net_causet.py'
+      - 'Lean/Screen/PrimitivePortFrameQuotient.lean'
+      - 'Lean/Screen/PortFrameGram.lean'
+      - 'Lean/Screen/SeamU1HolonomyClassification.lean'
+      - 'Lean/Screen/SeamCurrentCarrierQuotient.lean'
+      - 'evidence/native_geometric_source_20260925/spec.json'
+      - 'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py'
+      - 'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'
+      - 'paper/tex_fragments/SOURCE_COMMON_SCALAR_PACKET.tex'
+      - 'code/source_selection_model/response.json'
+      - 'code/m1_source_realization/**'
+      - 'paper/tex_fragments/SOURCE_RECORD_GLUING.tex'
+      - 'paper/tex_fragments/OBSERVERS_N_CLOSURE_PRO5.tex'
+      - '.github/workflows/observer-model.yml'
+      - '.github/workflows/observer-affected.yml'
+      - 'tools/ci_affected_model.py'
+      - 'tools/test_ci_affected_model.py'
+      - 'tools/audit_receipt_sources.py'
+      - 'tools/test_audit_receipt_sources.py'
+      - 'tools/immutable_custody_replay.py'
+      - 'tools/test_immutable_custody_replay.py'
+      - 'tools/CI.md'
+      - 'tools/immutable_custody_pytest.py'
+      - 'tools/test_immutable_custody_pytest.py'
+      - 'tools/exact_walsh.py'
+      - 'tools/test_exact_walsh.py'
+      - 'tools/immutable_walsh_replay.py'
+      - 'tools/test_immutable_walsh_replay.py'
+  push:
+    branches: [main]
+    # Tag pushes ignore path filters, so every release tag runs the full replay.
+    tags: ['r*']
+    paths:
+      - 'model/**'
+      - 'pytest.ini'
+      - 'tools/check_retained_completion_custody.py'
+      - 'tools/check_retained_field_custody.py'
+      - 'tools/test_retained_field_custody.py'
+      - 'tools/*source_record*'
+      - 'tools/*field_current*'
+      - 'claims/claim_registry.yaml'
+      - 'claims/assumption_dictionary.md'
+      - 'claims/completion_program.json'
+      - 'tracking/premise_register.json'
+      - 'paper/release_info.tex'
+      - 'paper/paper_release_manifest.json'
+      - 'tools/test_numeric_evidence_medium.py'
+      - 'tools/test_retained_custody_routing.py'
+      - 'code/P_derivation/**'
+      - 'code/capacity_readback/**'
+      - 'code/native_response/**'
+      - 'code/source_scalar_packet/**'
+      - 'code/source_scalar_time_refinement/**'
+      - 'paper/tex_fragments/SOURCE_SCALAR_TIME_REFINEMENT.tex'
+      - 'code/causal_refinement/source_net_causet.py'
+      - 'Lean/Screen/PrimitivePortFrameQuotient.lean'
+      - 'Lean/Screen/PortFrameGram.lean'
+      - 'Lean/Screen/SeamU1HolonomyClassification.lean'
+      - 'Lean/Screen/SeamCurrentCarrierQuotient.lean'
+      - 'evidence/native_geometric_source_20260925/spec.json'
+      - 'evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py'
+      - 'evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py'
+      - 'paper/tex_fragments/SOURCE_COMMON_SCALAR_PACKET.tex'
+      - 'code/source_selection_model/response.json'
+      - 'code/m1_source_realization/**'
+      - 'paper/tex_fragments/SOURCE_RECORD_GLUING.tex'
+      - 'paper/tex_fragments/OBSERVERS_N_CLOSURE_PRO5.tex'
+      - '.github/workflows/observer-model.yml'
+      - '.github/workflows/observer-affected.yml'
+      - 'tools/ci_affected_model.py'
+      - 'tools/test_ci_affected_model.py'
+      - 'tools/audit_receipt_sources.py'
+      - 'tools/test_audit_receipt_sources.py'
+      - 'tools/immutable_custody_replay.py'
+      - 'tools/test_immutable_custody_replay.py'
+      - 'tools/CI.md'
+      - 'tools/immutable_custody_pytest.py'
+      - 'tools/test_immutable_custody_pytest.py'
+      - 'tools/exact_walsh.py'
+      - 'tools/test_exact_walsh.py'
+      - 'tools/immutable_walsh_replay.py'
+      - 'tools/test_immutable_walsh_replay.py'
+  workflow_dispatch:
+  schedule:
+    # Nightly full replay of every registered model receipt.
+    - cron: "47 4 * * *"
+
+permissions:
+  contents: read
+
+# Cancel superseded routine work. Release, manual and scheduled runs have unique
+# groups, so neither their running nor pending coverage can be displaced.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}-${{ (github.event_name == 'pull_request' || (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/'))) && 'routine' || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && startsWith(github.ref, 'refs/heads/')) }}
+
+jobs:
+  infrastructure:
+    name: Observer CI infrastructure
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Validate CI selection, dependency preflight and metadata-only reuse
+        run: python -m pytest -q -W error tools/test_ci_affected_model.py tools/test_audit_receipt_sources.py tools/test_immutable_custody_replay.py tools/test_immutable_custody_pytest.py tools/test_exact_walsh.py tools/test_immutable_walsh_replay.py
+  scope:
+    name: Plan affected observer checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      shard_count: ${{ steps.plan.outputs.shard_count }}
+      plan_sha256: ${{ steps.plan.outputs.plan_sha256 }}
+      mode: ${{ steps.plan.outputs.mode }}
+      fast_identification: ${{ steps.plan.outputs.fast_identification }}
+      artifact_id: ${{ steps.selection.outputs.artifact-id }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Resolve conservative dependency scope
+        id: plan
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          FULL_RUN: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/') }}
+        run: |
+          arguments=(--base "$BASE_SHA")
+          if [ "$FULL_RUN" = true ]; then arguments+=(--full); else arguments+=(--fast-identification); fi
+          python tools/ci_affected_model.py "${arguments[@]}" --output "$RUNNER_TEMP/observer-selection.json" --github-output "$GITHUB_OUTPUT"
+      - name: Publish the one immutable selection plan
+        id: selection
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: observer-selection
+          path: ${{ runner.temp }}/observer-selection.json
+          if-no-files-found: error
+          retention-days: 7
+  hashes:
+    name: Observer artifact and source-binding custody
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Fail early on stale identification child owners
+        run: python tools/audit_receipt_sources.py --mode check --receipt model/particle_identification/completion_results.json --output "$RUNNER_TEMP/identification-source-preflight.json"
+      - run: python -m model.verify_current --hashes-only
+  observer:
+    name: Observer construction (${{ matrix.os }}, shard ${{ matrix.shard }})
+    needs: [hashes, infrastructure]
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        shard: [0, 1, 2, 3, 4, 5]
+    runs-on: ${{ matrix.os }}
+    # All shards check every artifact hash. The empirical shared-cache worker
+    # stays atomic on shard zero; all-case occupation transfer owns shard one.
+    # The other receipts are split across shards two through five.
+    # Every case and numerical acceptance gate is retained.
+    timeout-minutes: 90
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      # The runner pool mixes AVX2 and AVX-512 CPUs. One OpenBLAS kernel on
+      # every host keeps host-proposed binary64 words and roundoff-level
+      # diagnostics identical to the retained receipts.
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - name: Fetch the model's recorded base release
+        # A fork's origin need not carry the canonical release tags.
+        run: git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git refs/tags/r2053:refs/tags/r2053
+      - name: Verify the recorded base release commit
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          import subprocess
+          expected = json.loads(Path("model/common_source/mass_response/results.json").read_text(encoding="utf-8"))["base_release_commit"]
+          actual = subprocess.check_output(["git", "rev-parse", "r2053^{commit}"], text=True).strip()
+          if actual != expected:
+              raise SystemExit(f"Recorded base release mismatch: {actual} != {expected}")
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - run: python -m model.verify_current --shard-index ${{ matrix.shard }} --shard-count 6
+      - if: matrix.shard == 2
+        run: python code/source_scalar_time_refinement/verify_source_scalar_time_refinement.py
+  regression:
+    name: Observer regression (${{ matrix.os }}, shard ${{ matrix.shard }})
+    needs: [scope, hashes, infrastructure]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        shard: ${{ fromJSON(needs.scope.outputs.matrix) }}
+    runs-on: ${{ matrix.os }}
+    # Routine jobs collect the authenticated selected whole modules, then use
+    # the unchanged sharder. Full scheduled/manual/tag jobs collect all model
+    # tests. Collection failures remain fatal; no original comparison changes.
+    timeout-minutes: 90
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      # The runner pool mixes AVX2 and AVX-512 CPUs. One OpenBLAS kernel on
+      # every host keeps host-proposed binary64 words and roundoff-level
+      # diagnostics identical to the retained receipts.
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Execute three immutable custody suites
+        if: matrix.shard == 0
+        run: |
+          python tools/check_retained_completion_custody.py
+          python tools/check_retained_field_custody.py
+          python tools/check_retained_source_records_custody.py
+      - name: Check current custody maintenance routes
+        if: matrix.shard == 0
+        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py
+      - name: Check native field receipt portability
+        if: matrix.shard == 0
+        run: python -m model.common_source.repair_field_attachment --check model/common_source/repair_field_attachment_results.json
+      - name: Replay native count-derived fields, defects, entropy and particle response
+        if: matrix.shard == 0
+        shell: python
+        run: |
+          import subprocess
+          import sys
+          for package in ("native_modular_dynamics", "native_quantum_defects", "native_gravity_response",
+                          "particle_finite_response", "particle_memory_response", "particle_record_equivalence"):
+              subprocess.run([sys.executable, "-m", f"model.{package}.certificate", "--check"], check=True)
+      - name: Check source field, object, spectroscopy and vacuum receipts
+        if: matrix.shard == 0
+        shell: python
+        run: |
+          import subprocess
+          import sys
+          for package, name in (
+              ("common_source", "native_staggered_field"),
+              ("common_source", "native_field_history"),
+              ("common_source", "native_charged_spectrum"),
+              ("common_source", "native_code_transport"),
+              ("common_source", "native_charged_spectroscopy"),
+              ("native_equilibration", "wedge_modular"),
+          ):
+              subprocess.run([sys.executable, "-m", f"model.{package}.{name}",
+                              "--check", f"model/{package}/{name}_results.json"], check=True)
+      - name: Check charged-lepton runtime custody in an isolated session
+        if: matrix.shard == 0
+        # The check covers every repository module loaded in its process, so it
+        # runs without the shard plugin and the other packages' test modules.
+        run: python -m pytest -q -W error model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody
+      - name: Download the same-run selection artifact by immutable ID
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          artifact-ids: ${{ needs.scope.outputs.artifact_id }}
+          path: ${{ runner.temp }}/observer-scope
+          merge-multiple: true
+      - name: Run complete or affected regression without changing comparisons
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          EXPECTED_PLAN: ${{ needs.scope.outputs.plan_sha256 }}
+          SHARD_INDEX: ${{ matrix.shard }}
+        run: python tools/ci_affected_model.py --base "$BASE_SHA" --plan "$RUNNER_TEMP/observer-scope/observer-selection.json" --expect-plan-sha256 "$EXPECTED_PLAN" --run-shard "$SHARD_INDEX"
+      - if: matrix.shard == 0
+        run: python -B model/observer_particles/run.py --verify-only
+      - if: matrix.shard == 0
+        run: python -B model/observer_particles/run.py
+
+  exact-interface:
+    name: Exact particle interface tests
+    needs: [scope, hashes, infrastructure]
+    if: needs.scope.outputs.fast_identification == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+          filter: blob:none
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+        with:
+          artifact-ids: ${{ needs.scope.outputs.artifact_id }}
+          path: ${{ runner.temp }}/observer-scope
+          merge-multiple: true
+      - name: Execute every original interface test with exact Walsh arithmetic
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          EXPECTED_PLAN: ${{ needs.scope.outputs.plan_sha256 }}
+        run: python tools/ci_affected_model.py --base "$BASE_SHA" --plan "$RUNNER_TEMP/observer-scope/observer-selection.json" --expect-plan-sha256 "$EXPECTED_PLAN" --run-fast --audit "$RUNNER_TEMP/exact-interface-audit.json"
+      - name: Preserve exact test and input evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: exact-interface-audit
+          path: ${{ runner.temp }}/exact-interface-audit.json
+          if-no-files-found: error
+          retention-days: 7

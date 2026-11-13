@@ -9,8 +9,19 @@ The native-to-particle join concerns an actual operator, preparation and
 detector on one source. Its finite achievements include a full current/CAR
 embedding, interacting physical grounds, complete odd spectral measures,
 charged transport with retained flux, and neutral collective propagation.
-They supply source frequencies and conditional field roles; no source-derived
-Standard Model GeV mass is obtained. The [field guide](OPH_FIELD_RECONSTRUCTION.md)
+They supply source frequencies and conditional field roles. The calibrated
+infinite-chain strong source also has isolated nucleon poles, normalizable
+packet records and a Lambda-assigned rest pole in
+`[1.115684628607, 1.115684878081] GeV`. Its
+[Lambda current experiment](../../model/openwave_lambda_wavepacket/PROOF.md)
+uses a normalizable trial without an exact band filter. The
+[full strong-current response](../../model/openwave_full_strong_current/PROOF.md)
+is positive at a certified finite time, and a
+[cluster Weyl construction](../../model/openwave_cluster_weyl_sequence/PROOF.md)
+places the Lambda source energy in the full proton–pion breakup spectrum.
+These results retain their mass and unit calibration. They supply neither
+the weak on-shell spectral weight nor a complete physical four-dimensional
+particle dictionary. The [field guide](OPH_FIELD_RECONSTRUCTION.md)
 states the shared construction map and indexes the primary proofs.
 
 For a stationary ground g of H and a physical probe D, use the positive

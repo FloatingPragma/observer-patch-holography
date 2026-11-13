@@ -423,6 +423,51 @@ gives the stated decoder bound; its determinant and identities are also
 checked in the finite theorem library \cite{ophrepo}.
 \end{proof}
 
+\paragraph{Quantitative null reconstruction.}
+The explicit nine-direction inverse has sharp maximum entrywise error
+constant $2+\sqrt3$: a uniform null-charge error $\epsilon$ gives a
+trace-free tensor error at most $(2+\sqrt3)\epsilon$ in every entry.
+Ward residuals propagate the remaining metric coefficient along the actual
+difference graph. Centered differences require two-step connectivity;
+checkerboard coefficients supply an exact counterexample to replacing it
+with nearest-neighbour connectivity. A vacuum or trace input remains
+necessary to determine the metric coefficient.
+For a Ward residual bounded by $w$, spacing $a$ and null-charge error
+$\epsilon$, adjacent coefficients satisfy
+$|c(x+e_j)-c(x)|\leq aw+8(2+\sqrt3)\epsilon$ for forward differences.
+Centered differences instead control
+$|c(x+e_j)-c(x-e_j)|\leq2aw+8(2+\sqrt3)\epsilon$.
+The executable retains the exact alternating-sign counterexample and
+reconstructs the native-profile curvature at interior and halo sites.
+Finite decoder error bounds are machine-checked in
+\path{Lean/ObserverPatchHolography/EinsteinResidualBound.lean}; the
+source calculation is in \path{model/openwave_einstein_error}.
+
+\paragraph{A compatible finite curvature assignment.}
+Place scalar, vector and symmetric-tensor records at parities
+$0$, $e_b$ and $e_a+e_b$. Half-step derivatives then give the same
+linearized Ricci polynomial with exact Bianchi and pure-gauge identities,
+while its scalar Laplacian is the original nearest-neighbour operator.
+The actual derivative graph connects scalar neighbours, so the centered
+collocated checkerboard ambiguity is absent in this assignment. Complete
+boundary halos are retained. Physical curvature and stress acquisition
+require a quantum source instrument; the co-location of its classical
+tensor records has the explicit finite construction below
+(\path{model/openwave_staggered_ward}).
+
+The staggered tensor records also admit an explicit co-location map:
+keep diagonal entries and average the four surrounding off-diagonal
+entries. If $d_i(ab)$ bounds actual neighbouring record variation, then
+\[
+ \tau=\max_{a\ne b}\frac{d_a(ab)+d_b(ab)}2,\qquad
+ \delta=(2+\sqrt3)\epsilon+\tau
+\]
+bound transport and nine-null reconstruction errors. The metric-term
+variation along each connected edge is at most $aw+8\delta$.
+This implements finite record transport; physical curvature acquisition
+and nonlinear Einstein dynamics require their separate source transfer
+(\path{model/openwave_tensor_record_transport}).
+
 \begin{theorem}[Einstein equation from a common null balance]
 Let $(M,g)$ be a connected time-oriented $C^3$ Lorentzian four-manifold and
 $T$ a symmetric $C^1$ tensor with $\nabla^aT_{ab}=0$. Fix a single
@@ -813,6 +858,49 @@ certificates and full instruments are in
 \path{model/openwave_geometry_refinement},
 \path{model/openwave_relational_clock} and
 \path{model/openwave_joint_native_clocks}.
+
+\paragraph{A static classical limit on the complete geometry register.}
+A permutation-invariant register has
+\[
+ Q_N=\frac qN\sum_{i=1}^N Z_i,\qquad
+ H_g=\frac{\omega_N}{2N}\sum_{i=1}^N(I-X_i),\qquad
+ \omega_N=\frac{\omega N\cosh(q/N)^N\tanh(q/N)}{\sinh q}.
+\]
+This normalization preserves the original weak far-field response; it
+does not repair its failed physical $G/c$ attachment. For $E,P\ge0$ and $0\le F\le1$, write
+$H_N=H_g+Ee^{Q_N}+Pe^{FQ_N}$. The mean-Bloch bound and spectral Jensen
+inequality imply
+\[
+ \inf\operatorname{spec}H_N\ge\min_{-1\le z\le1}
+ \left\{\frac{\omega_N}{2}(1-\sqrt{1-z^2})+Ee^{qz}+Pe^{qFz}\right\}.
+\]
+A spin-product trial bounds the difference above that minimum by
+$(Ee^q+Pe^{qF})(e^{q^2/(2N)}-1)$, retaining the entire register rather
+than discarding nonsymmetric sectors. The relative vacuum lapse variance
+is at most $e^{q^2F^2/N}-1$. At $q=1/8$, $N=256$ and $0\le F\le1$,
+this upper bound is below $6.103702\times10^{-5}$. The geometry gap
+closes as $1/N$: this is a static single-mode classical limit, without a
+uniform dynamical gap, spatial Einstein evolution, a physical gravitational
+normalization or a zero-cost preparation claim
+(\path{model/openwave_replicated_geometry}).
+
+\paragraph{Calibrated collective gravitational strength.}
+A distinct member fixes each register frequency,
+$H_g=(\omega/2)\sum_i(I-X_i)$, while retaining
+$Q_N=(q/N)\sum_iZ_i$. Its weak response decreases as $1/N$ and its
+free register gap stays $\omega$. With the declared $q=1/8$, $\omega=1$ and
+$g_0=S q^2/(2\pi\omega)$,
+\[
+ \frac{g_0}{N}\left(1-\frac{q^2}{3N^2}\right)
+ \le g_N\le\frac{g_0/N}{1-q^2/(2N)}.
+\]
+Choosing the integer $N\simeq6.04\times10^{42}$ using the observed
+Newton coefficient makes weak gravity and the free-symbol light-speed
+unit equations compatible with the unchanged electron anchor. This
+is a calibration of the declared hardware to $G$, without an independent
+prediction of its value. Full coordinate readout costs $N\omega/2$
+source units. No common strong/geometry spatial theory or dressed-photon
+identification is proved (\path{model/openwave_collective_gravity_strength}).
 
 \appendix
 

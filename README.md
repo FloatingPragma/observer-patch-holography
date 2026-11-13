@@ -3,7 +3,7 @@
 **OPH develops an executable theory of a self-referential observer universe, combining proved finite constructions with quantitative tests of its physical interpretation.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Watch a universe make its own particles: 81,920 observers run one local repair rule, and the particle families of the Standard Model come out. Open the live simulation at particles.floatingpragma.ai." width="100%"></a>
+  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Explore the executable observers, flux defects and declared particle constructions. Open the live simulation and its checked results at particles.floatingpragma.ai." width="100%"></a>
 </p>
 <p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Open the live simulation</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">All matches with our universe</a> · <a href="https://particles.floatingpragma.ai/?page=journey">The journey from observers to particles</a></p>
 
@@ -126,7 +126,13 @@ proof shows that the whole class of laws cannot work.
   anomaly-free matter representation. Exact native charge, spin and Gauss
   instruments retain their complete outputs. Empirical coupling values and
   an interacting chiral continuum require the same-source physical mapping.
-  [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
+  A refined SU(2) cube has 54 Haar links and 36 coupled plaquettes, certified
+  source gaps and complete control of omitted representations. Its computed
+  interior-state correction retains a bounded memory term in the same clock;
+  these finite graphs supply no four-dimensional Yang–Mills continuum.
+  [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
+  [Refined gauge source](model/openwave_refined_haar_source/PROOF.md),
+  [Computed memory](model/openwave_haar_memory_closure/PROOF.md).
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,
@@ -150,9 +156,23 @@ proof shows that the whole class of laws cannot work.
   axial magnitude 1.2753. Complete spectra retain all breakup thresholds and
   no extra bound nuclear channel. A common calibrated length gives the
   quadrupole and linear string tension; unused neutral-pion and charge-radius
-  comparisons fail. Physical pole identification remains a separate test.
+  comparisons fail. The infinite-chain extension has isolated proton and neutron
+  source poles over the full momentum circle and normalizable packet records.
+  Its exact band filter is a declared nonlocal service; physical relativistic
+  particle identification and autonomous decay lifetimes require a transfer.
   [Common hyperfine source](model/openwave_common_hyperfine_spectrum/PROOF.md),
+  [Normalizable particle records](model/openwave_normalizable_particle_records/PROOF.md),
   [Native charge profiles](model/openwave_baryon_form_factors/PROOF.md).
+- **A normalizable Lambda and its breakup spectrum.** The calibrated source
+  has a Lambda-assigned rest pole between 1.115684628607 and 1.115684878081 GeV.
+  A localized packet has complete current records without an exact band filter.
+  Full interacting evolution gives a positive separated-field response, and
+  normalizable proton–pion states place the Lambda energy in the breakup
+  spectrum. Their outgoing weak overlap and physical lifetime require a
+  scattering calculation. These results retain the strong and mass inputs.
+  [Lambda packet](model/openwave_lambda_wavepacket/PROOF.md),
+  [Complete strong current](model/openwave_full_strong_current/PROOF.md),
+  [Breakup spectrum](model/openwave_cluster_weyl_sequence/PROOF.md).
 - **Native emission and clocks.** Complete source calculations certify a
   parity-odd beta momentum statistic and a finite meson emission window.
   Two clock factors of the native eight-level source have a common

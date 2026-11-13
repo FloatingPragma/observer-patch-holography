@@ -32,8 +32,14 @@ chiral source, collective block extensions, classical defect simulation,
 prepared Dirac viewer and primary Wilson family. This page states which
 choices carry the proofs. The [native join](OPH_NATIVE_PARTICLE_MASS_JOIN.md)
 defines the spectral observables; the [mass guide](OPH_PARTICLE_MASS_RESPONSE.md)
-specifies ratios, units and tested mass maps. None of these source programs
-provides a source-derived Standard Model GeV mass.
+specifies ratios, units and tested mass maps. Calibrated source masses and
+independent absolute-mass predictions have different input requirements.
+The [normalizable Lambda source](../../model/openwave_lambda_wavepacket/PROOF.md)
+has a complete local current experiment without a spectral band filter;
+its rest energy and packet mean retain the inherited electron, strong and
+Lambda calibrations. The [full interacting breakup spectrum](../../model/openwave_cluster_weyl_sequence/PROOF.md)
+is proved on that one-dimensional source. This does not identify all observed
+particles in a common four-dimensional interacting continuum.
 
 The [common defect source](../../model/defect_mass_join/PROOF.md) specifies
 all native unit vertices, the compact spatial hopping and a complete scalar
