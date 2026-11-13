@@ -1,0 +1,53 @@
+name: Temporary exact existing joint cold
+on:
+  push:
+    branches: ['codex/oph-r2067-original-joint-cold-20261113']
+permissions:
+  contents: read
+jobs:
+  original-cold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          sparse-checkout: .github/final-original-joint-cold
+          sparse-checkout-cone-mode: false
+      - name: Materialize immutable original source closure
+        run: git sparse-checkout set --no-cone --stdin < .github/final-original-joint-cold/sparse_paths.txt
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Install original pinned environment
+        run: |
+          python -m pip install -r model/requirements.txt
+          python .github/final-original-joint-cold/audit.py before
+          python -m pip freeze > audit-artifacts/environment.txt
+      - name: Original complete exact cold replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -W error -m model.particle_joint_reconstruction --check 2>&1 | tee audit-artifacts/original-cold.log
+          python .github/final-original-joint-cold/audit.py after-check
+      - name: Unchanged 65 scientific tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -W error -m pytest -q model/particle_yang_mills_gap_contract model/particle_joint_reconstruction 2>&1 | tee audit-artifacts/focused-tests.log
+          python .github/final-original-joint-cold/audit.py after-tests
+          git diff --exit-code
+      - name: Retain exact cold and source evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: final-existing-joint-cold
+          path: |
+            audit-artifacts/
+            .github/final-original-joint-cold/manifest.json
+          include-hidden-files: true
+          retention-days: 7
