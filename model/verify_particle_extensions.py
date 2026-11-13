@@ -37,6 +37,11 @@ PACKAGES=(
     'openwave_quotient_homotopy', 'openwave_resolved_core',
     'openwave_dirac_field_connection', 'openwave_gravity_unit_constraint',
     'openwave_horizon_capacity', 'openwave_su2_propagation',
+    'openwave_baryon_poles', 'openwave_pole_weak_current',
+    'openwave_strange_shell_current', 'openwave_coupled_haar_source',
+    'openwave_coupled_haar_spectrum', 'openwave_euclidean_refinement',
+    'openwave_source_ward', 'openwave_einstein_error',
+    'openwave_radiation_capacity',
 )
 
 def source_bindings():

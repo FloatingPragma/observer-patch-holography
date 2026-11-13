@@ -423,6 +423,26 @@ gives the stated decoder bound; its determinant and identities are also
 checked in the finite theorem library \cite{ophrepo}.
 \end{proof}
 
+\paragraph{Quantitative null reconstruction.}
+The explicit nine-direction inverse has sharp maximum entrywise error
+constant $2+\sqrt3$: a uniform null-charge error $\epsilon$ gives a
+trace-free tensor error at most $(2+\sqrt3)\epsilon$ in every entry.
+Ward residuals propagate the remaining metric coefficient along the actual
+difference graph. Centered differences require two-step connectivity;
+checkerboard coefficients supply an exact counterexample to replacing it
+with nearest-neighbour connectivity. A vacuum or trace input remains
+necessary to determine the metric coefficient.
+For a Ward residual bounded by $w$, spacing $a$ and null-charge error
+$\epsilon$, adjacent coefficients satisfy
+$|c(x+e_j)-c(x)|\leq aw+8(2+\sqrt3)\epsilon$ for forward differences.
+Centered differences instead control
+$|c(x+e_j)-c(x-e_j)|\leq2aw+8(2+\sqrt3)\epsilon$.
+The executable retains the exact alternating-sign counterexample and
+reconstructs the native-profile curvature at interior and halo sites.
+Finite decoder error bounds are machine-checked in
+\path{Lean/ObserverPatchHolography/EinsteinResidualBound.lean}; the
+source calculation is in \path{model/openwave_einstein_error}.
+
 \begin{theorem}[Einstein equation from a common null balance]
 Let $(M,g)$ be a connected time-oriented $C^3$ Lorentzian four-manifold and
 $T$ a symmetric $C^1$ tensor with $\nabla^aT_{ab}=0$. Fix a single
