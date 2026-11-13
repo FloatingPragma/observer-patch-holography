@@ -31,6 +31,37 @@ jobs:
           "$RUNNER_TEMP/oph-publication-core/bin/python" -m pip install -r requirements.txt
           python -m venv "$RUNNER_TEMP/oph-publication-model"
           "$RUNNER_TEMP/oph-publication-model/bin/python" -m pip install -r model/requirements.txt
+      - name: Install pinned Lean environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -sSfL -o elan.tar.gz "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz"
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz" | sha256sum -c -
+          tar xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore authenticated Lake build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: Lean/.lake/build
+          key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-
+            lean-core-v3-${{ runner.os }}-
+      - name: Verify pinned Lean and prebuild actual kernel dependencies
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fx 'leanprover/lean4:v4.29.1' lean-toolchain
+          grep -F 'v4.29.1' lakefile.lean
+          command -v lake
+          lean --version | tee "$AUDIT_OUTPUT/lean-version.txt"
+          lake --version | tee "$AUDIT_OUTPUT/lake-version.txt"
+          lake exe cache get 2>&1 | tee "$AUDIT_OUTPUT/mathlib-cache.log"
+          lake build WhitneySourceProblemCLI WhitneyCertificateCLI WhitneySourceGeometry WhitneySourceAssembly WhitneyCurlRow0 WhitneyCurlRow1 WhitneyCurlRow2 WhitneyCurlRow3 WhitneyCertifiedConsumers WhitneySourceNaturality WhitneyOmittedCellCounterexample 2>&1 | tee "$AUDIT_OUTPUT/whitney-targets.log"
+          git diff --exit-code -- lean-toolchain lakefile.lean lake-manifest.json
       - name: Authenticate full immutable source inventory
         run: |
           "$RUNNER_TEMP/oph-publication-core/bin/python" .github/publication-replay-audit/audit.py before
