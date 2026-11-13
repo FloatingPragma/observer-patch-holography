@@ -4,20 +4,23 @@ from fractions import Fraction as F
 from functools import lru_cache
 from itertools import combinations, product
 from math import comb
+import json
 import numpy as np
 import scipy.sparse as sp
 import sympy as sy
 from scipy.linalg import eigh
 from model.openwave_six_quark import source as native6
-from model.openwave_six_quark.certificate import spectral_enclosure
+from model.openwave_colour_string.fixed_witness import spectral_enclosure, integers
 from model.openwave_axial_state.certificate import exact_action, sqrt_upper, reduced_line
 from model.openwave_spin_gradient_nuclei.certificate import reduce_exact
+from model.openwave_spin_gradient_nuclei.fixed_nuclear_basis import channel as fixed_nuclear_channel
 from model.openwave_calibrated_hadrons.source import angular4
 from model.openwave_nuclear_distance import nuclear
 from model.openwave_string_positive_cone.source import sqrt_interval
 from . import source as s
 
 UNIT = F(s.INPUTS['electron_unit_GeV'])
+WITNESSES = json.loads((s.HERE / 'spectral_witnesses.json').read_text())
 
 
 @lru_cache(None)
@@ -46,7 +49,7 @@ def baryon_spectra():
     rows = []
     for S, I in product((1, 3), repeat=2):
         H, _, _ = baryon_exact(S, I)
-        spec = spectral_enclosure(H)
+        spec = spectral_enclosure(H, WITNESSES[f'baryon_{S}_{I}'])
         center = [[str(F(a) - s.parameters()['delta'] / 2), str(F(b) - s.parameters()['delta'] / 2)]
                   for a, b in spec['all_eigenvalue_intervals']]
         rows.append({'twice_spin': S, 'twice_isospin': I, 'fixed_Ms_half_Mi_minus_half_dimension': H.rows,
@@ -69,7 +72,7 @@ def threshold(S, I):
 
 @lru_cache(None)
 def nuclear_exact(S, I, parity):
-    d, c = nuclear.carrier(), nuclear.channel(S, I, parity)
+    d, c = nuclear.carrier(), fixed_nuclear_channel(S, I, parity)
     if not c['rank']:
         return None
     parts = {**d['parts'], 'G4': 2 * d['parts']['S4'] - 4 * d['Sg']}
@@ -84,7 +87,7 @@ def nuclear_spectra():
         data = nuclear_exact(S, I, parity)
         if data is None:
             continue
-        spec = spectral_enclosure(data[0])
+        spec = spectral_enclosure(data[0], WITNESSES[f'nuclear_{S}_{I}_{parity}'])
         lo, hi = map(F, spec['all_eigenvalue_intervals'][0])
         tl, th = threshold(S, I)
         rows.append({'spin': S, 'isospin': I, 'cell_parity': parity,
@@ -103,8 +106,7 @@ def nuclear_spectra():
 def axial_certificate():
     old, d = reduced_line(), s.components('baryon')
     H, T = reduce_exact(old['B'], old['Gram'], d['parts'], s.parameters())
-    _, U = eigh(np.asarray(H.evalf(18), float))
-    v = exact_action(old['B'], [round(float(x) * 2**45) for x in T @ U[:, 0]])
+    v = exact_action(old['B'], integers(WITNESSES['axial']['trial_basis_integer_coefficients'], old['B'].shape[1], 2**45))
     norm = sum(x * x for x in v)
     hv = [F(0) for _ in v]
     for k, coefficient in s.weights(s.parameters()).items():
@@ -112,7 +114,7 @@ def axial_certificate():
             hv[i] += coefficient * x
     mean = sum(x * y for x, y in zip(v, hv)) / norm
     variance = sum((x - mean * y)**2 for x, y in zip(hv, v)) / norm
-    spec = spectral_enclosure(H)
+    spec = spectral_enclosure(H, WITNESSES['axial'])
     gap = F(spec['all_eigenvalue_intervals'][1][0]) - mean
     assert gap > 0
     sine = sqrt_upper(variance) / gap
@@ -137,8 +139,7 @@ def axial_certificate():
 @lru_cache(None)
 def nuclear_trial():
     H, T, B, parts, d = nuclear_exact(1, 0, 1)
-    _, V = eigh(np.asarray(H.evalf(18), float))
-    v = exact_action(B, [round(float(x) * 2**45) for x in T @ V[:, 0]])
+    v = exact_action(B, integers(WITNESSES['nuclear_1_0_1']['trial_basis_integer_coefficients'], B.shape[1], 2**45))
     norm = sum(x * x for x in v)
     hv = [F(0) for _ in v]
     for k, c in s.native.weights(s.parameters()).items():
@@ -241,7 +242,7 @@ def calculate():
     mesons = []
     for charge in sorted(set(np.rint(np.diag(d['q']).real).astype(int))):
         ids = np.flatnonzero(np.rint(np.diag(d['q']).real).astype(int) == charge).tolist()
-        mesons.append({'charge': int(charge), 'complete_spectrum': spectral_enclosure(H.extract(ids, ids))})
+        mesons.append({'charge': int(charge), 'complete_spectrum': spectral_enclosure(H.extract(ids, ids), WITNESSES[f'meson_{charge}'])})
     from model.openwave_hadron_spin_constraints.constraints import block
     fitted = []
     for name, kind, charge, spin in (('proton','baryon',1,1), ('neutron','baryon',0,1), ('charged_pion','meson',1,0), ('neutral_vector','meson',0,2)):

@@ -11,6 +11,28 @@ from .source import chain,block,effective,complement_bounds
 UNIT=F(native.INPUTS['electron_unit_GeV'])
 
 
+def compatible_native_occupations(d, ids):
+    """Exact epsilon support of the complete conserved charge/spin block."""
+    labels={tuple(d['labels'][int(j)]) for j in ids}
+    support=[]
+    for i,mask in enumerate(d['full']):
+        occupied=[j for j in range(12*d['L']) if int(mask)>>j&1]
+        if sorted(j%3 for j in occupied)==[0,1,2] and tuple(sorted(j//3 for j in occupied)) in labels:
+            support.append(i)
+    # Every epsilon coefficient is a nonzero signed inverse square root.
+    # Sparse structure checks the actual isometry without thresholding it.
+    B=d['B'][:,ids].tocsr()
+    assert support==np.flatnonzero(np.diff(B.indptr)).tolist()
+    return support
+
+
+def complete_success_records(full, support, dimension):
+    """Keep zero and tiny probabilities on the exact, state-independent domain."""
+    outside=np.ones(len(full),dtype=bool);outside[support]=False
+    assert np.all(full[outside]==0)
+    return [[int(i),float(abs(full[i])**2/dimension)] for i in support]
+
+
 def one_chain(length):
     d=chain(length);n=block(d,1);p=block(d,2)
     h=n['H'];energies,U=eigh(h);energy=float(energies[0]);psi=U[:,0]
@@ -62,6 +84,8 @@ def one_chain(length):
             diagonal[i]=F(1,int(d['gram'][B.indices[row[0]]]))
     assert sum(diagonal.values())==len(d['labels'])
     physical_dimension=len(d['labels'])
+    support=compatible_native_occupations(d,n['ids'])
+    assert len(support)==9*length**3
     records=[]
     for t in (0.,1.,8.,32.):
         state=U@(np.exp(-1j*t*energies)*(U.T@initial))
@@ -73,7 +97,8 @@ def one_chain(length):
         assert all(abs(full[i])**2 <= float(diagonal.get(i,F(0)))+2e-12 for i in range(Dfull))
         records.append({'source_time':t,'coarse_probability':float(probs[n['P']].sum()),
                         'retained_complement_probability':float(probs[n['Q']].sum()),
-                        'nonzero_success_native_occupations':[[int(i),float(abs(full[i])**2/physical_dimension)] for i in np.flatnonzero(full)],
+                        'complete_compatible_success_native_occupations':complete_success_records(full,support,physical_dimension),
+                        'success_support_domain':'Exact native epsilon support of the complete conserved charge/spin block; all listed probabilities are retained, including exact zeros and arbitrarily small numerical values.',
                         'success_for_every_unlisted_native_occupation':'0',
                         'failure_for_every_native_occupation':'(BB*)_ii/d minus its listed success probability; each unlisted success is zero and the complete colour diagonal is supplied once for this chain',
                         'preparation_success':str(F(1,physical_dimension)),'outside_number_sector_probability':'0',

@@ -3,18 +3,21 @@ from fractions import Fraction as F
 from functools import lru_cache
 from itertools import product
 import hashlib
+import json
 import numpy as np
 import scipy.sparse as sp
 import sympy as sy
 from scipy.linalg import eigh
 from model.openwave_six_quark import source as native6
-from model.openwave_six_quark.certificate import spectral_enclosure
+from model.openwave_colour_string.fixed_witness import spectral_enclosure,integers
 from model.openwave_axial_state.certificate import exact_action,sqrt_upper,reduced_line
 from model.openwave_calibrated_hadrons.source import angular4
 from model.openwave_nuclear_distance import nuclear
 from . import source as s
+from .fixed_nuclear_basis import channel as fixed_nuclear_channel
 
 UNIT=F(s.INPUTS['electron_unit_GeV'])
+WITNESSES=json.loads((s.HERE/'spectral_witnesses.json').read_text())
 
 def reduce_exact(B,Gram,parts,p):
     L,D=Gram.LDLdecomposition(hermitian=True);diag=list(D.diagonal());assert all(x>0 for x in diag)
@@ -38,7 +41,7 @@ def baryon_multiplet(S2,I2):
     G=sy.Matrix(native6.exact_product(B.T,B).toarray().tolist());_,cols=G.rref();B=B[:,list(cols)].tocsr()
     Gram=sy.Matrix(native6.exact_product(B.T,B).toarray().tolist())
     assert (S4@B-S2*(S2+2)*B).nnz==0 and(I4@B-I2*(I2+2)*B).nnz==0
-    H,T=reduce_exact(B,Gram,d['parts'],s.parameters());cert=spectral_enclosure(H)
+    H,T=reduce_exact(B,Gram,d['parts'],s.parameters());cert=spectral_enclosure(H,WITNESSES[f'baryon_{S2}_{I2}'])
     delta=s.parameters()['delta'];center=[[str(F(a)-delta/2),str(F(b)-delta/2)]for a,b in cert['all_eigenvalue_intervals']]
     return {'twice_spin':S2,'twice_isospin':I2,'fixed_Ms_half_Mi_minus_half_dimension':B.shape[1],
             'full_magnetic_dimension':B.shape[1]*(S2+1)*(I2+1),'complete_reference_spectrum':cert,
@@ -65,7 +68,7 @@ def two_baryon_threshold(S,I):
 
 @lru_cache(None)
 def nuclear_exact(S,I,parity):
-    d=nuclear.carrier();c=nuclear.channel(S,I,parity)
+    d=nuclear.carrier();c=fixed_nuclear_channel(S,I,parity)
     if not c['rank']:return None
     G4=2*d['parts']['S4']-4*d['Sg'];parts={**d['parts'],'G4':G4}
     assert (native6.exact_product(G4,d['P'])-native6.exact_product(d['P'],G4)).nnz==0
@@ -76,9 +79,9 @@ def nuclear_exact(S,I,parity):
 def nuclear_spectra():
     rows=[];rank=0;full=0
     for S,I,parity in product(range(4),range(4),(-1,1)):
-        c=nuclear.channel(S,I,parity);rank+=c['rank'];full+=c['rank']*(2*S+1)*(2*I+1)
+        c=fixed_nuclear_channel(S,I,parity);rank+=c['rank'];full+=c['rank']*(2*S+1)*(2*I+1)
         if not c['rank']:continue
-        d=nuclear_exact(S,I,parity);spec=spectral_enclosure(d['H']);threshold=two_baryon_threshold(S,I)
+        d=nuclear_exact(S,I,parity);spec=spectral_enclosure(d['H'],WITNESSES[f'nuclear_{S}_{I}_{parity}']);threshold=two_baryon_threshold(S,I)
         lo,hi=map(F,spec['all_eigenvalue_intervals'][0]);tl,th=map(F,threshold['threshold_interval'])
         rows.append({'spin':S,'isospin':I,'cell_parity':parity,'fixed_Ms0_Mi0_dimension':c['rank'],
                      'full_magnetic_dimension':c['rank']*(2*S+1)*(2*I+1),'complete_spectrum':spec,
@@ -92,12 +95,12 @@ def nuclear_spectra():
 @lru_cache(None)
 def axial_ground():
     old=reduced_line();d=s.components('baryon');H,T=reduce_exact(old['B'],old['Gram'],d['parts'],s.parameters())
-    e,U=eigh(np.asarray(H.evalf(18),float));coef=T@U[:,0];integers=[round(float(x)*2**45)for x in coef]
-    v=exact_action(old['B'],integers);norm=sum(x*x for x in v);Hv=[F(0)for _ in v]
+    coeff=integers(WITNESSES['axial']['trial_basis_integer_coefficients'],old['B'].shape[1],2**45)
+    v=exact_action(old['B'],coeff);norm=sum(x*x for x in v);assert norm>0;Hv=[F(0)for _ in v]
     for k,c in s.weights(s.parameters()).items():
         for i,x in enumerate(exact_action(d['parts'][k],v)):Hv[i]+=c*x
     mean=sum(x*y for x,y in zip(v,Hv))/norm;variance=sum((x-mean*y)**2 for x,y in zip(Hv,v))/norm
-    spec=spectral_enclosure(H);gap=F(spec['all_eigenvalue_intervals'][1][0])-mean;assert gap>0
+    spec=spectral_enclosure(H,WITNESSES['axial']);gap=F(spec['all_eigenvalue_intervals'][1][0])-mean;assert gap>0
     sine=sqrt_upper(variance)/gap;current=F(sum(x*y for x,y in zip(v,exact_action(old['X'],v))),norm);error=12*sine
     assert abs(current-F(s.INPUTS['axial_calibration_target_magnitude']))+error<F(1,10**6)
     return {'exact_selected_dimension':H.rows,'complete_selected_spectrum':spec,'integer_native_trial':list(map(str,v)),
@@ -107,12 +110,13 @@ def axial_ground():
 
 @lru_cache(None)
 def deuteron_trial():
-    d=nuclear_exact(1,0,1);H=d['H'];e,U=eigh(np.asarray(H.evalf(18),float));a=d['transform']@U[:,0]
-    coeff=[round(float(x)*2**45)for x in a];v=exact_action(d['B'],coeff);norm=sum(x*x for x in v);hv=[F(0)for _ in v]
+    d=nuclear_exact(1,0,1);H=d['H']
+    coeff=integers(WITNESSES['nuclear_1_0_1']['trial_basis_integer_coefficients'],d['B'].shape[1],2**45)
+    v=exact_action(d['B'],coeff);norm=sum(x*x for x in v);assert norm>0;hv=[F(0)for _ in v]
     for k,c in s.weights(s.parameters()).items():
         for i,x in enumerate(exact_action(d['parts'][k],v)):hv[i]+=c*x
     mean=sum(x*y for x,y in zip(v,hv))/norm;var=sum((x-mean*y)**2 for x,y in zip(hv,v))/norm
-    spec=spectral_enclosure(H);gap=F(spec['all_eigenvalue_intervals'][1][0])-mean;assert gap>0
+    spec=spectral_enclosure(H,WITNESSES['nuclear_1_0_1']);gap=F(spec['all_eigenvalue_intervals'][1][0])-mean;assert gap>0
     sine=sqrt_upper(var)/gap;c=d['carrier'];N=len(c['src']);n0=c['n0'];quad=F(sum(x*x*int(n*(6-n))for x,n in zip(v,n0)),18*norm)
     nonzero=[{'full_input_index':int(c['keep'][i]),'native_mask':str(c['src'][int(c['keep'][i])]),'integer_amplitude':str(x)}for i,x in enumerate(v)if x]
     assert sum(int(x['integer_amplitude'])**2 for x in nonzero)==norm
@@ -164,7 +168,7 @@ def certificate():
     H=s.exact_matrix('meson');d=s.components('meson');q=np.rint(np.diag(d['q']).real).astype(int)
     for charge in sorted(set(q)):
         ids=np.flatnonzero(q==charge).tolist();other=np.flatnonzero(q!=charge).tolist();assert all(H[i,j]==0 for i in ids for j in other)
-        meson.append({'charge':int(charge),'complete_spectrum':spectral_enclosure(H.extract(ids,ids))})
+        meson.append({'charge':int(charge),'complete_spectrum':spectral_enclosure(H.extract(ids,ids),WITNESSES[f'meson_{charge}'])})
     pion=list(map(F,next(x for x in meson if x['charge']==1)['complete_spectrum']['all_eigenvalue_intervals'][0]))
     fits=[]
     for name,interval in(('proton',proton),('neutron',neutron),('charged_pion',pion)):

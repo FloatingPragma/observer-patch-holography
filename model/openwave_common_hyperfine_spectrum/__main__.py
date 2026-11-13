@@ -13,7 +13,7 @@ PARENTS = ('openwave_spin_gradient_nuclei', 'openwave_string_positive_cone')
 
 def pins():
     files = {str(p.relative_to(ROOT)) for p in HERE.iterdir()
-             if p.suffix in ('.py', '.md', '.tex') or p.name == 'inputs.json'}
+             if p.suffix in ('.py', '.md', '.tex') or p.name in ('inputs.json', 'spectral_witnesses.json')}
     for parent in PARENTS:
         receipt = ROOT / 'model' / parent / 'results.json'
         files.add(str(receipt.relative_to(ROOT)))
