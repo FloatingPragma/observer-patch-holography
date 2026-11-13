@@ -30,6 +30,9 @@ PACKAGES = (
     'nuclear_field_attraction', 'matter_flux_source', 'local_gauge_memory',
     'stress_curvature_instruments', 'geometry_covariance_protocol',
     'capacity_finite_wavelength', 'm10_review_gate',
+    'native_process','native_response','native_defect_records','native_event_clock',
+    'native_packet_propagation','native_interaction','native_rest_energy',
+    'native_geometry_readout','native_capacity_history','native_platform_gate',
 )
 
 
@@ -113,6 +116,7 @@ def collect(root):
         'complete_dynamics_and_constraints': complete_dynamics_and_constraints(data),
         'operational_source_certificates': __import__('tools.native_operational_results',fromlist=['project']).project(data),
         'source_record_attachment_certificates': __import__('tools.native_bridge_results',fromlist=['project']).project(data),
+        'native_execution_certificates': __import__('tools.native_execution_results',fromlist=['project']).project(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -256,6 +260,8 @@ def render(value):
     lines += render_operational(value['operational_source_certificates'],interval,decimal)
     from tools.native_bridge_results import render as render_bridge
     lines += render_bridge(value['source_record_attachment_certificates'],interval,decimal)
+    from tools.native_execution_results import render as render_execution
+    lines += render_execution(value['native_execution_certificates'])
     return lines
 
 

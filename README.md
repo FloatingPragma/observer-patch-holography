@@ -191,14 +191,24 @@ proof shows that the whole class of laws cannot work.
   [Lambda packet](model/openwave_lambda_wavepacket/PROOF.md),
   [Complete strong current](model/openwave_full_strong_current/PROOF.md),
   [Narrow spectral weight](model/openwave_lambda_narrow_weight/PROOF.md).
-- **Native emission and clocks.** Complete source calculations certify a
-  parity-odd beta momentum statistic and a finite meson emission window.
-  Two clock factors of the native eight-level source have a common
-  weak-probe limit. These results retain preparation failures, work and
-  source backreaction; finite records do not identify physical lifetimes
-  or Einstein proper time.
-  [Outgoing current](model/openwave_beta_outgoing/PROOF.md),
-  [Native clocks](model/openwave_joint_native_clocks/PROOF.md).
+- **An executed repair process and its interacting records.** The literal
+  C/E rule runs on finite federated carriers with complete memory histories
+  and quantum references. Its population response is exactly I−L/(2M).
+  Two-load exclusion produces correlations that independent walkers with
+  identical average occupations cannot reproduce. Recorded currents expose
+  relaxation modes; a certified uniformization method shortens long packet
+  propagation. These are consequences of the actual repair process, with
+  physical particle and clock identification kept separate.
+  [Complete native process](model/openwave_native_process/PROOF.md),
+  [Native interaction](model/openwave_native_interaction/PROOF.md),
+  [Packet propagation](model/openwave_native_packet_propagation/PROOF.md).
+- **An explicit quantum-readout connection.** Repair-only records cannot
+  distinguish phase twins. A declared coherent load into the existing
+  six-level response, followed by the actual native E readout, does distinguish
+  them. Every source-code complement and processor-abort outcome remains.
+  This finite apparatus connection does not identify a physical mass or
+  establish a full stress/geometry measurement.
+  [Complete phase readout](model/openwave_native_geometry_readout/PROOF.md).
 - **Finite gravitational response and its measurement resources.** A complete
   collective geometry controls all 49 positive native source/probe energy pairs.
   Two spin-sector matrices determine its geometry-sector gap, and exact

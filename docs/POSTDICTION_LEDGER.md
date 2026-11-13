@@ -615,6 +615,23 @@ For the [specified late cosmological preparation](../model/openwave_capacity_fin
 
 These calculations close their stated finite source obligations. They add zero independent Nature-validation rows and discharge no physical identification by combining incompatible sources.
 
+### Actual repair-process results
+
+One literal fair C/E repair process supplies complete source, memory and reference records. Disjoint event maps commute after record-coordinate relabeling; their enumeration order is not a fundamental global clock. The finite source identities below are distinguished from physical particle and continuum identifications.
+
+1. [Complete twelve-port process](../model/openwave_native_process/PROOF.md). The original interpreter executes both causal orders on 240- and 960-port carriers with all raw histories, timeout and resource-stop outcomes.
+2. [Exact native response](../model/openwave_native_response/PROOF.md). The full one-load response is derived from native branches: its population map is I−L/(2M), with an explicit offdiagonal channel. A natural cell projection has nonzero memory and does not inherit the separate cosine dispersion.
+3. [Conserved native charge and defect records](../model/openwave_native_defect_records/PROOF.md). Native accumulated current obeys the exact continuity equation. The minimal repair carrier has no inherited Z6 link register; additional protected charge requires an explicit architecture extension.
+4. [Clock modes from native currents](../model/openwave_native_event_clock/PROOF.md). Recorded currents expose exact finite relaxation modes. Relaxation per event is distinct from a physical rest-frequency measurement.
+5. [Certified native packet propagation](../model/openwave_native_packet_propagation/PROOF.md). Uniformization computes long finite propagation with a controlled full tail, keeping all carriers, arrival failures and packet-width controls.
+6. [Native exclusion interaction](../model/openwave_native_interaction/PROOF.md). Two native loads have interacting exclusion correlations that independent walkers with the same one-point means do not reproduce.
+7. [Rest-energy attachment test](../model/openwave_native_rest_energy/PROOF.md). The specified repair response does not supply a nonzero Hamiltonian rest phase or a physical GeV conversion. Existing calibrated masses retain their separate source and empirical ancestry.
+8. [Phase-sensitive geometry readout](../model/openwave_native_geometry_readout/PROOF.md). Repair-only records cannot distinguish phase twins. An explicit coherent load into the existing six-level response, followed by complete native E readout, does distinguish them; every code/complement outcome remains. This is a declared apparatus extension, not a complete gravity derivation.
+9. [Complete capacity histories](../model/openwave_native_capacity_history/PROOF.md). Exported archive plus FIFO has an exact complete-record intertwiner when capacity changes under export_oldest. Halt controls differ. Neither storage capacity nor dimensionless cosmological transfer fixes the physical clock, horizon or primordial amplitude.
+10. [Headless OpenWave native artifact](../model/openwave_native_platform_gate/PROOF.md). A fresh headless endpoint calculation agrees with an independent oracle on every matrix unit and rejects an altered rule. Running it from the pinned OpenWave layout is an author-side reproduction, not an official criterion award.
+
+These results add zero validated Nature comparisons. The common physical field, rest-mass dictionary, Einstein continuum and four-dimensional Yang–Mills construction are unproved.
+
 ## One calibrated hyperfine spectrum and its independent controls
 
 The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. The shared quadrupole/string attachment adds two dimensional comparison targets. The eigenenergies are calibrated finite records, not independent predictions or resonance poles.
