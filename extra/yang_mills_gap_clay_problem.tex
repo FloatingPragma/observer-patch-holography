@@ -52,28 +52,26 @@
 \end{center}
 
 \begin{abstract}
-A finite collar-repair generator built from orthogonal conditional
-expectations has a certified positive relaxation gap on a cofinal tower once
-a Dobrushin influence sum gives a uniform approximate-tensorization bound,
-and when the repair generator and the transfer Hamiltonian come from one
-ground-state transform the two gaps coincide. That transfer receipt is the
-load-bearing physical input, and the paper tests it on \(\mathbb Z_2\)
-lattice gauge theory: it holds exactly in the free limit and fails for the
-Wilson transfer matrix at every tested interacting coupling, with relative
-residuals of the best constant-rate approximant from \(0.038\) to \(0.24\) on
-the \(L=3\) torus, while the Kogut--Susskind Hamiltonian takes an exact
-fiber-dependent-rate form whose rates obey the machine-checked sharp bound
-\(c_l\ge2\lambda\). The subject is pure Yang--Mills theory with a compact
-simple gauge group. A positive repair relaxation gap or a finite level
-spacing does not by itself prove a physical mass gap, and the full theory
-with a massless photon has no positive global vacuum gap. The
-four-dimensional conclusion that the Clay Yang--Mills problem asks for also
-requires convergence of the Schwinger functions, reflection positivity,
-Euclidean locality, nontriviality and convergence of the transfer data;
-these continuum and cross-fiber premises contain the hard physical
-construction, so the paper states the resulting gap identification
-conditionally and keeps the finite repair theorem separate from the Clay
-claim.
+A finite collar-repair generator has a positive relaxation gap when local
+rates and approximate tensorization have uniform positive bounds.
+A common ground-state transform identifies that gap with the transfer
+Hamiltonian gap. On finite $\mathbb Z_2$ gauge systems, the free Wilson
+transfer satisfies the tested constant-rate identity; interacting tests
+fail it, while the Kogut--Susskind Hamiltonian has exact positive
+fiber-dependent rates. A separate full Haar-link SU(2) source on an
+eight-vertex cube has an interacting vacuum gap between $21/2$ and
+$1024/47$ in its declared units, with a nonzero finite-energy local
+curvature fluctuation. Its heat-kernel transfer is positive and time
+reflection positive. Exact one-plaquette character reduction gives
+infinite-representation spectral and correlation enclosures.
+These are finite-volume results. The cube bound deteriorates with volume
+and scales as the inverse spacing. A nontrivial four-dimensional
+Yang--Mills theory additionally requires the stated common-source
+Schwinger-function limit, covariance, locality, vacuum noncollapse and
+uniform physical gap. The continuum repair/Hamiltonian identification
+is conditional on those premises. A photon-containing matter theory
+is a different source and has no positive global vacuum gap under its
+massless-photon interpretation.
 \end{abstract}
 
 
@@ -1364,6 +1362,45 @@ large-\(N_{\mathrm{edge}}\) branch with remainder control is declared~\cite{pete
 That 2D result is a normalization and worldsheet-effective bridge. The spectral theorem above
 concerns the support-visible compact-gauge Hamiltonian and obtains its lower bound by identifying
 Euclidean transfer with the repair generator.
+
+\section{A full Haar-link finite Yang--Mills source}
+\label{sec:full-haar-finite-source}
+
+On the full gauge-invariant Haar link space of an open three-dimensional
+\(\mathrm{SU}(2)\) cube, the positive Hamiltonian
+\(H=\alpha\sum_l C_l+\beta\sum_p(1-\operatorname{Re}\operatorname{Tr}U_p/2)\)
+has a unique vacuum. The complete electric physical gap is \(3\alpha\).
+At \(g^2=8\), spacing one and eight vertices, min--max and the constant-state
+residual give an interacting vacuum gap between \(21/2\) and \(1024/47\)
+in source units. A local plaquette has vacuum variance at least \(47/256\)
+and unnormalized centered-vector energy form at most \(4\). Every link representation is
+retained. The lower bound deteriorates with volume and both energy bounds
+scale as the inverse spacing; no four-dimensional continuum mass gap follows.
+The source, domains and quantitative certificates are given in \path{model/openwave_pure_su2_source}.
+
+The same pure-gauge source admits
+\(T_h=e^{-hV/2}e^{-hE}e^{-hV/2}\) on the full compact-group link space.
+Every electric character coefficient is positive, and reflected cylinder
+histories are Gram forms of half-history vectors. Gauge projection
+commutes with the transfer. The strong product limit gives
+\((T_{t/n})^n\to e^{-tH}\) in the declared Hamiltonian clock.
+Complete character-space controls verify this construction at three time
+steps. This establishes finite-regulator reflection positivity; it supplies
+no joint spatial continuum limit or restoration of Euclidean covariance.
+The source, domains and quantitative certificates are given in \path{model/openwave_su2_transfer}.
+
+For a pure \(\mathrm{SU}(2)\) plaquette, exact Gauss reduction gives the
+full character basis \(\chi_n\), \(n\geq0\), and Jacobi entries
+\(H_{nn}=\alpha n(n+2)+\beta\),
+\(H_{n,n+1}=-\beta/2\). Rational Schur bounds on the infinite tail and
+Sturm counts enclose four complete-source energy levels to width below
+\(2^{-40}\), at four declared couplings. Local curvature has a certified
+positive variance and finite energy, with controlled Euclidean correlation
+records. The representation cutoff is removed in these bounds; spatial
+volume and lattice-spacing limits are separate requirements.
+The source, domains and quantitative certificates are given in \path{model/openwave_su2_spectral}.
+
+This construction instantiates the finite physical-vacuum and local-noncollapse interfaces without identifying its finite graph with the continuum branch. Uniform volume control, renormalized four-dimensional Schwinger functions, covariance, locality and the continuum transfer remain hypotheses of that branch.
 
 \section{Physical scope}
 

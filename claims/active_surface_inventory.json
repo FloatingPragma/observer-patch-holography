@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2179,
+  "surface_count": 2207,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -432,6 +432,11 @@
     },
     {
       "path": "paper/tex_fragments/HUBBARD_RELATIVISTIC_SECTOR.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/HYPERFINE_PROFILES_AND_GAUGE_RECORDS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -5841,6 +5846,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_baryon_form_factors/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_baryon_form_factors/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_baryon_ordering/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5937,6 +5952,26 @@
     },
     {
       "path": "model/openwave_common_electromagnetism/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_common_gravity_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_common_gravity_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_common_hyperfine_spectrum/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_common_hyperfine_spectrum/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6092,6 +6127,11 @@
     },
     {
       "path": "model/openwave_full_higgs_floor/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_gauge_completion_review/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6416,6 +6456,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_native_running_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_native_running_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_neutral_candidate/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6576,6 +6626,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_passive_clock_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_passive_clock_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_pinned_coulomb/PAPER_RESULT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6611,6 +6671,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_pure_su2_source/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_pure_su2_source/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_quantum_geometry/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6637,6 +6707,16 @@
     },
     {
       "path": "model/openwave_quantum_rotational/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_quark_flux_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_quark_flux_records/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6792,6 +6872,66 @@
     },
     {
       "path": "model/openwave_spin_gradient_nuclei/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_string_positive_cone/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_string_positive_cone/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_strong_step_scaling/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_strong_step_scaling/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_su2_spectral/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_su2_spectral/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_su2_transfer/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_su2_transfer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_transverse_completion/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_transverse_completion/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_universal_energy_geometry/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_universal_energy_geometry/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

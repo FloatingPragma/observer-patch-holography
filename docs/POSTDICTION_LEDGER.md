@@ -397,6 +397,29 @@ neutral law and do not constitute a prospective FZ-03 verdict.
 
 - The frozen dispersion rows FZ-11 and FZ-12 share the quadratic coefficient delta_gamma2 = -a^2/20. With the natural scale a = sqrt(P) l_P it is -5.47 x 10^-58 eV^-2, 5.47 times the photon-only Pierre Auger 2022 bound delta_gamma2 > -1 x 10^-58 eV^-2. The bound is scenario- and interaction-dependent and predates both freezes, so this retrospective exposure decides nothing under the frozen rules (`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; [frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).
 
+## One calibrated hyperfine spectrum and its independent controls
+
+The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. The shared quadrupole/string attachment adds two dimensional comparison targets. The eigenenergies are calibrated finite records, not independent predictions or resonance poles.
+
+| Native assignment | Energy / GeV | Input role |
+| --- | ---: | --- |
+| proton | 0.93827208943 | empirical calibration input |
+| neutron | 0.93956542194 | empirical calibration input |
+| charged_pion | 0.13957039 | empirical calibration input |
+| neutral_vector | 0.77526 | empirical calibration input |
+| Delta_plus | 1.232 | empirical calibration input; native S=I=3/2,Q=1 |
+
+The common length is 0.755908728746 fm per cell. It matches the supplied quadrupole and illustrative 1 GeV/fm tension on that same source. All 120 baryon, 64 meson and 2520 nuclear singlets, coloured preparation failures and every compatible two-baryon threshold are retained. No additional bound nuclear channel occurs in this finite census.
+
+The neutral spin-zero candidate is 0.13827705749 GeV, compared with the unused 0.1349768 GeV neutral-pion datum. The difference 3.30025749 MeV fails that comparison. The neutron has positive charge at graph radius 1/3 and negative charge at 2/3, with zero charge at radius zero. The calibrated neutron-proton energy gap is 1.29333251 MeV.
+
+| Native profile | Mean-square charge radius / fm² |
+| --- | ---: |
+| neutron | [-0.037311936942, -0.037311933918] |
+| proton | [0.111935849690, 0.111935852713] |
+
+[Complete occupation instruments](../model/openwave_baryon_form_factors/PROOF.md) retain the 1/120 preparation success and 119/120 failure on the physical singlet input. The observed proton and neutron charge-radius intervals cannot both be fitted by any common length on this source. The charge-density sign match does not remove that independent magnitude failure. Graph orientation averages are not identified with relativistic Sachs form factors.
+
 ## Source-qualified masses and decay widths
 
 [Exact unit transport and complete particle accounting](../model/openwave_mass_catalogue/PROOF.md) preserve every spectral weight and preparation failure. Each row retains its own source; these values do not constitute one fully identified interacting physical spectrum.
@@ -414,7 +437,7 @@ neutral law and do not constitute a prospective FZ-03 verdict.
 | charged_pion | 0.13957039 | strong-sector calibration |
 | deuteron-assigned channel | 1.87561294497 | fifth-input binding calibration |
 
-The nuclear preparation succeeds with probability 1/17000; all failures and the unassigned spin-three bound channel are retained. The supplied binding is not an independent prediction. Neutrino flavour labels are superpositions; right-chiral sterile coordinates and antiparticles share the corresponding Dirac masses.
+On this separate five-input member, the nuclear preparation succeeds with probability 1/17000; all failures and the unassigned spin-three bound channel are retained. The supplied binding is not an independent prediction. Neutrino flavour labels are superpositions; right-chiral sterile coordinates and antiparticles share the corresponding Dirac masses.
 
 | Native transition | Partial width / GeV |
 | --- | ---: |

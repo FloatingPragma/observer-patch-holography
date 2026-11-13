@@ -1,0 +1,36 @@
+{
+  "schema": "oph.common_hyperfine_inputs.v1",
+  "declared_rational_parameters": {
+    "Js": "282.46622940175854",
+    "Jw": "1/4",
+    "t": "1/8",
+    "kappa_colour": "4",
+    "U": "202.5260907034034",
+    "A": "1215.1386449224815",
+    "eta": "2.3126842365381792",
+    "spin_gradient": "5/2",
+    "mbar": "135.4802383522757",
+    "delta": "129333251000/51099895069",
+    "pair_triplet": "338.3060531034509"
+  },
+  "electron_unit_GeV": ".00051099895069",
+  "mass_calibration_targets_GeV": {
+    "proton": ".93827208943",
+    "neutron": ".93956542194",
+    "charged_pion": ".13957039",
+    "neutral_vector": ".77526",
+    "Delta_plus": "1.232"
+  },
+  "axial_calibration_target": "1.2753",
+  "deuteron_binding_calibration_target_GeV": ".00222456640",
+  "held_out_neutral_pion_GeV": ".1349768",
+  "rho_target_convention": "PDG2025 neutral-only e+e- Breit-Wigner mass average775.26\u00b1.23MeV; not its761\u2013765MeV T-matrix pole. Native charge-zero vector eigenenergy is calibrated to this real convention.",
+  "Delta_target_convention": "PDG2025 mixed-charge Breit-Wigner approximate1232MeV; not its1209\u20131211MeV real pole. The native Q=+1,S=I=3/2 energy is calibrated to this convention.",
+  "sources": [
+    "https://pdg.lbl.gov/2025/listings/rpp2025-list-rho-770.pdf",
+    "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-Delta.pdf",
+    "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-zero.pdf"
+  ],
+  "ancestry": "Seven inputs select seven coefficients: p,n,pi+,axial magnitude,deuteron binding,neutral-vector and Delta conventions. Js and the positive pair-triplet coefficient are additional calibrated current interactions. The spin-gradient5/2 and other fixed coefficients are inherited architecture choices. These agreements are fits, not independent predictions.",
+  "fit_recipe": "For each Js,eta choose D=8U/3-4A/9 to match the actual native axial current; choose A,mbar,delta to fit p,n,pi+. Solve Js,eta against the genuine S=I=3/2 Q1 Delta level and S1I0 even nuclear binding. Choose pair_triplet from the Q0 spin1 meson gap. Freeze the displayed rational coefficients, then independently certify their outputs."
+}

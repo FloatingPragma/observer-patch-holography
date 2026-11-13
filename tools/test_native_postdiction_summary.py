@@ -66,3 +66,34 @@ def test_mass_catalogue_projection_retains_calibration_and_failures():
     text = '\n'.join(LEDGER._render_mass_and_decay_catalogue(value))
     assert 'not total tau lifetimes' in text
     assert 'running quark parameters' in text
+
+
+def test_hyperfine_projection_keeps_unused_failures_and_full_preparations():
+    value = LEDGER._hyperfine_and_charge_profiles()
+    assert len(value['five_mass_calibrations']) == 5
+    assert value['all_unassigned_bound_nuclear_channels'] == []
+    assert value['radius_comparison']['no_single_length_matches_both_radii_in_comparison_box']
+    assert not value['radius_comparison']['physical_radius_target_used_to_fit_source_or_length']
+    instrument = value['profile_instrument']
+    assert Fraction(instrument['filter_success_exact']) + Fraction(instrument['filter_failure_exact']) == 1
+    assert instrument['filter_success_exact'] == '1/120'
+    text = '\n'.join(LEDGER._render_hyperfine_and_charge_profiles(value))
+    assert 'seven empirical inputs' in text
+    assert 'cannot both be fitted by any' in text
+    assert 'not independent predictions or resonance poles' in text
+    for row in value['profiles']:
+        line = next(line for line in text.splitlines()
+                    if line.startswith(f"| {row['assigned_channel']} | ["))
+        endpoints = line.split('[', 1)[1].split(']', 1)[0].split(', ')
+        lower, upper = map(Fraction, row['mean_square_charge_radius_fm2_interval'])
+        assert Fraction(endpoints[0]) <= lower <= upper <= Fraction(endpoints[1])
+
+
+def test_hyperfine_projection_rejects_changed_ancestor(tmp_path, monkeypatch):
+    target = tmp_path / 'model/openwave_common_hyperfine_spectrum/results.json'
+    target.parent.mkdir(parents=True)
+    target.write_text(json.dumps({'verdict': 'PASS', 'source_sha256': {'source.py': '0' * 64}}))
+    (tmp_path / 'source.py').write_text('different source')
+    monkeypatch.setattr(LEDGER, 'REPO', tmp_path)
+    with pytest.raises(ValueError, match='hyperfine source drift'):
+        LEDGER._hyperfine_and_charge_profiles()

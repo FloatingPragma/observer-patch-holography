@@ -11,6 +11,15 @@ from . import build
 from .canvas import Canvas, text_width
 
 
+def test_display_depth_ties_ignore_subpixel_roundoff_and_keep_native_order():
+    from .parts import _display_depth_order
+    original = [(0.0, 'first'), (0.0, 'second'), (-0.001, 'behind'), (0.001, 'front')]
+    perturbed = [(1e-13, 'first'), (-1e-13, 'second'), (-0.001, 'behind'), (0.001, 'front')]
+    expected = ['behind', 'first', 'second', 'front']
+    assert [row[1] for row in _display_depth_order(original)] == expected
+    assert [row[1] for row in _display_depth_order(perturbed)] == expected
+
+
 @pytest.fixture(scope='module')
 def data():
     return build.load()

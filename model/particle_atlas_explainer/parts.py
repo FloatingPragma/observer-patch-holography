@@ -269,6 +269,12 @@ def lcg(seed):
         yield state / 0x7fffffff
 
 
+def _display_depth_order(quads):
+    """Tie subnanopixel depths by construction index, below 0.01-pixel output."""
+    return [quad for _, quad in sorted(enumerate(quads),
+            key=lambda item: (round(item[1][0], 9), item[0]))]
+
+
 def mobius(c, cx, cy, R, half, segs=120, elev=math.radians(34), spin=math.pi / 2):
     """A Mobius band from its parametrization: shaded quads in depth order."""
     se, ce = math.sin(elev), math.cos(elev)
@@ -302,7 +308,7 @@ def mobius(c, cx, cy, R, half, segs=120, elev=math.radians(34), spin=math.pi / 2
             if j == strips - 1:
                 rim.append((pts[1], pts[2]))
             quads.append((z, [p[:2] for p in pts], shade, i / segs, rim))
-    for z, pts, shade, t, rim in sorted(quads, key=lambda q: q[0]):
+    for z, pts, shade, t, rim in _display_depth_order(quads):
         base = mix(TEAL, VIOLET, 0.5 - 0.5 * math.cos(2 * math.pi * t))
         col = mix('#0b1524', base, 0.22 + 0.74 * shade)
         c.poly(pts, col, col, 0.9)

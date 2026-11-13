@@ -19,6 +19,13 @@ PACKAGES=(
     'openwave_common_electromagnetism', 'openwave_boosted_records',
     'openwave_single_valley_leptons', 'openwave_mass_catalogue',
     'openwave_longitudinal_review', 'openwave_boost_review',
+    'openwave_string_positive_cone', 'openwave_common_hyperfine_spectrum',
+    'openwave_strong_step_scaling', 'openwave_transverse_completion',
+    'openwave_native_running_response', 'openwave_passive_clock_records',
+    'openwave_quark_flux_records', 'openwave_universal_energy_geometry',
+    'openwave_common_gravity_records', 'openwave_baryon_form_factors',
+    'openwave_pure_su2_source', 'openwave_su2_transfer', 'openwave_su2_spectral',
+    'openwave_gauge_completion_review',
 )
 
 def source_bindings():

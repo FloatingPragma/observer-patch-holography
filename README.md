@@ -139,15 +139,15 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
-- **Hadron masses and axial response on one source.** Four disclosed inputs
-  fit proton 0.93827208943 GeV, neutron 0.93956542194 GeV, charged pion
-  0.13957039 GeV and axial magnitude 1.2753 without rescaling the native
-  current. A positive common matter action joins those calibrated states
-  to six Dirac branches and proves complete nucleon energy-window bounds.
-  Graph dependence, an extra nuclear channel and physical pole identification
-  constrain the interpretation.
-  [Native axial state](model/openwave_axial_state/PROOF.md),
-  [Common mass source](model/openwave_common_mass_source/PROOF.md).
+- **Hadron masses and axial response on one source.** Seven disclosed inputs
+  fit proton 0.93827208943, neutron 0.93956542194, charged pion 0.13957039,
+  neutral rho 0.77526, Delta 1.232 and deuteron 1.87561294497 GeV, with native
+  axial magnitude 1.2753. Complete spectra retain all breakup thresholds and
+  no extra bound nuclear channel. A common calibrated length gives the
+  quadrupole and linear string tension; unused neutral-pion and charge-radius
+  comparisons fail. Physical pole identification remains a separate test.
+  [Common hyperfine source](model/openwave_common_hyperfine_spectrum/PROOF.md),
+  [Native charge profiles](model/openwave_baryon_form_factors/PROOF.md).
 - **Native emission and clocks.** Complete source calculations certify a
   parity-odd beta momentum statistic and a finite meson emission window.
   Two clock factors of the native eight-level source have a common

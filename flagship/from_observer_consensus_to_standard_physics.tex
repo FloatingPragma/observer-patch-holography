@@ -77,8 +77,8 @@ yield the Standard Model gauge Lie type; protected fluxes reproduce its
 centre classes without uniquely identifying species. A generation
 register gives charged-lepton ratios $206.7703$ and $3477.47$, with a
 retrospective muon discrepancy of $9.83$ parts per million. A positive
-native action fits nucleon, charged-pion, axial and nuclear-binding data
-with explicit inputs. A finite-range field has exactly three charged-lepton
+native action fits nucleon, pion, vector, Delta, axial and nuclear-binding
+data with seven explicit inputs. A finite-range field has exactly three charged-lepton
 minima. Native currents give three-dimensional beta parity and a tau
 leptonic-width ratio $0.972564$, compared with $0.9730\pm0.0022$.
 A calibrated neutral tensor supplies complete vacuum and matter records. Exact
@@ -1710,23 +1710,61 @@ This exact Gaussian reduction avoids a $2^{48}$ lepton-Fock enumeration
 without truncating the source. The windows are finite spectral records,
 with no identification of physical poles or resonance widths.
 
-A positive spin-gradient member adds
-$\lambda\sum_a(S_0^a-S_1^a)^2$ with the declared rational $\lambda=5/2$.
-The deuteron binding is its fifth empirical input, in addition to the
-three strong masses and axial magnitude. Its complete $2520$-state
-singlet census puts the even spin-one, isospin-zero ground energy near
-$1.87561294497$ GeV. Two unwanted odd channels lie approximately
-$0.33047$ and $0.16430$ MeV above their compatible two-nucleon thresholds.
-The coefficient selection is retrospective, and a spin-three, isospin-zero
-state is bound relative to its two-Delta threshold without a physical
-assignment. Complete native Casimir reductions and positive bounds cover
-every independent-copy quark-fragment partition of six. A graph quadrupole
-has no calibrated femtometre unit. This does not supply the complete
-observed nuclear spectrum (\path{model/openwave_spin_gradient_nuclei}).
-The common total-spin-square control cannot fit both rho and Delta:
-a Delta fit gives a rho candidate near $0.33530$ GeV, while a rho fit
-gives a Delta candidate near $1.89194$ GeV. These restrictions apply to
-the specified sources \cite{ophstrongcontrols}.
+A positive hyperfine member adds the native spin gradient
+$\lambda\sum_a(S_0^a-S_1^a)^2$, with $\lambda=5/2$, and the positive
+quark--antiquark pair interaction
+\[
+ h\left[\frac32 N_qN_{\bar q}+2\mathbf S_q\cdot\mathbf S_{\bar q}\right]
+ =h\sum_{i\in q,j\in\bar q}(\mathbf s_i+\mathbf s_j)^2.
+\]
+Seven disclosed inputs select its proton, neutron, charged-pion,
+axial, deuteron-binding, neutral-vector and Delta-assigned agreements.
+One unchanged electron unit gives
+\[
+ \begin{aligned}
+ (E_p,E_n,E_{\pi^+})&\simeq(0.93827208943,0.93956542194,0.13957039)\ \mathrm{GeV},\\
+ (E_{\rho^0},E_{\Delta^+},E_d)&\simeq(0.77526,1.232,1.87561294497)\ \mathrm{GeV}.
+ \end{aligned}
+\]
+The vector and Delta targets are real Breit--Wigner mass conventions,
+without a derived complex resonance pole or width. All $120$, $64$ and
+$2520$ baryon, meson and nuclear singlets are retained. Comparison with
+every compatible two-baryon threshold gives no additional bound nuclear
+channel. The neutral spin-zero candidate is $0.13827705749$ GeV, which
+misses its unused neutral-pion comparison by $3.30025749$ MeV
+(\path{model/openwave_common_hyperfine_spectrum}).
+
+Exact local SU(3) fusion gives
+$\sum_x C_x^2\leq(22/7)\sum_e E_e^2$ on this matter/Gauss carrier.
+The resulting full-source positivity permits a shared length
+$a\simeq0.75590872875$ fm, selected by the quadrupole and illustrative
+$1$ GeV/fm tension. Pinning a quark and diquark at nonadjacent interior
+sites leaves all $40$ internal states and gives the exact total-source
+identity $H_{\rm pin}(r+1)-H_{\rm pin}(r)=(4\kappa/3)I$.
+The unconstrained two- through five-cell calculations retain complete
+spectra and their native currents. Their axial response changes from the
+fitted $1.2753$ to about $1.66549$, so increasing graph size does not
+preserve that fit. Exact Schur elimination supplies the full complement
+memory, normalization metric and current vertices
+(\path{model/openwave_strong_step_scaling}).
+
+The literal native isospin current transports the neutron ground ray to
+the proton and gives the same $1.29333251$ MeV mass ordering.
+The neutron has positive radial charge at graph radius $1/3$, negative
+charge at $2/3$ and zero charge at the origin. Complete compressed
+occupation instruments retain the $1/120$ preparation probability and
+all failures. With the shared length, the proton radius is about
+$0.33456816$ fm and the neutron charge second moment about
+$-0.03731194$ fm$^2$. Their ratio excludes the experimental comparison
+box for every common length. The qualitative profile match therefore
+coexists with a failed quantitative radius test; no relativistic Sachs
+form-factor identification is assumed
+(\path{model/openwave_baryon_form_factors}).
+
+The five-input spin-gradient control omits the pair-triplet fit and has
+an unassigned spin-three bound nuclear channel. A common total-spin-square
+control cannot fit both rho and Delta. These statements concern those
+specified actions, separately from the complete seven-input spectrum.
 
 The five-input strong member also admits complete operational spectroscopy
 with the full one-light-family weak contact and its filled massless-neutral
@@ -1761,11 +1799,16 @@ No coefficient is refitted: the last two neutron-assigned ground energies
 are near $0.939664299718$ GeV, while their axial response differs from the
 two-cell fit. A physical length is a separate attachment. If the same
 length also matches the supplied deuteron quadrupole benchmark, the
-$\kappa=4$ tension is about $0.00360537$ GeV/fm. Every
-positivity-preserving $\kappa\leq2U$ gives tension below $0.428678$ GeV/fm,
-so this transfer family cannot simultaneously reach an illustrative
-$1$ GeV/fm benchmark. This exact unit-elimination test is scoped to the
-stated shared-length assignment (\path{model/openwave_colour_string}).
+$\kappa=4$ tension is about $0.00360537$ GeV/fm. The sufficient restriction
+$\kappa\leq2U$, which makes each local colour coefficient nonnegative,
+gives tension below $0.428678$ GeV/fm. Full-operator positivity has a
+larger domain: an exact local Fock decomposition gives $C_x^2\leq3N_x$,
+and Gauss incidence bounds $\sum_x C_x^2\leq4\sum_e E_e^2$.
+The positive number energy controls the negative local coefficient.
+This permits the common quadrupole/string attachment near
+$0.755908729$ fm per cell and $1$ GeV/fm on the five-input source.
+Both dimensional comparison values select that attachment; neither is
+an independent prediction (\path{model/openwave_string_positive_cone}).
 
 On the distinct four-input axial/common-Dirac member, a longitudinal
 electric extension dresses every charged hop and
@@ -1779,6 +1822,21 @@ neutron and proton assignments; their full-source spectral windows are
 recomputed without a mass refit. The action contains longitudinal
 flux coordinates, with no transverse photon or fine-structure-constant
 identification (\path{model/openwave_common_electromagnetism}).
+
+A compact transverse extension retains every integer rotor flux on a
+four-cycle and the complete native matter carrier. Exact Gauss reduction,
+full-Fock positivity and both numerical and infinite-tail bounds control
+its detector records. Its charged energy is reference-bound, rather than
+an isolated electron pole. On the separate Higgs--Wilson Gaussian source,
+complete current spectral sums and the diamagnetic Ward cancellation give
+a scale-dependent quadratic probe coefficient, with supplied infrared
+normalization. The common quark/lepton family masses prevent identifying
+that curve with observed QED or QCD running. Complete two-time native
+records also have rest frequency $m$, with first-measurement work $m/2$;
+stationary one-point onset and arbitrary-drive rigidity are excluded.
+The source domains are \path{model/openwave_transverse_completion},
+\path{model/openwave_native_running_response} and
+\path{model/openwave_passive_clock_records}.
 
 \subsection{Native outgoing currents and neutral mixing}
 \label{sec:outgoing-records}
@@ -2121,6 +2179,36 @@ clocks. This finite Duhamel theorem supplies a common
 operational weak-probe clock, with no external global time and no
 physical-second or Einstein proper-time calibration
 \cite{ophnativeclocks}.
+
+\paragraph{Positive energy and a shared three-dimensional observation.}
+A separate autonomous source couples the positive native ground-relative
+energy through $e^{FQ}K$ to a two-state geometry coordinate. Its exact
+ground-energy mixed derivative is negative for all positive source and
+probe energies; the complete $49$ pairs are tested at three separations.
+The $44032$-state matter, geometry and scalar-wave construction then gives
+native-clock redshifts, a delayed first arrival and inward three-dimensional
+bending with all vacuum and failure outcomes. The first dressed clock ratio
+is about $0.992838733622$; all seven ratios redshift but span about $288$
+parts per million at finite strength. A second-derivative bound proves their
+common weak-probe limit. The wave is a declared massless scalar comparator,
+and the spatial response coefficient is supplied. No identification with
+observed light, measured Newton strength or Einstein dynamics is inferred
+(\path{model/openwave_universal_energy_geometry},
+\path{model/openwave_common_gravity_records}).
+
+\paragraph{Finite pure-gauge dynamics.}
+A distinct pure SU(2) source retains the full Haar Hilbert space on every
+link of a finite three-dimensional cube. At $g^2=8$ and spacing one, its
+unique interacting vacuum has gap in $[21/2,1024/47]$ in source units.
+A plaquette has variance at least $47/256$ and unnormalized centered-vector energy form
+at most $4$. Positive heat-kernel transfer supplies time-reflection
+positivity and the strong Hamiltonian-clock product limit. On a single
+plaquette, exact character reduction and rational infinite-tail bounds
+certify four energies and local correlations without a representation
+cutoff. The cube gap bound deteriorates with volume and scales as $1/a$;
+these finite results do not establish a four-dimensional continuum
+Yang--Mills mass gap (\path{model/openwave_pure_su2_source},
+\path{model/openwave_su2_transfer}, \path{model/openwave_su2_spectral}).
 
 \section{The Einstein equation from a realized null balance}
 \label{sec:einstein}
@@ -2598,10 +2686,11 @@ hadron/axial calibration; positive common matter action, complete nucleon
 energy windows, outgoing beta parity and calibrated neutral oscillations &
 Observed charges, spin, statistics, mixing and physical poles on one
 source, with compatible preparation, field, clock and spatial limits &
-The muon discrepancy is retained. The common spin-square rho/Delta fit
-fails; the spin-gradient fit retains an unassigned spin-three bound
-channel, and graph changes require their own calibration checks. Centre classes do not distinguish
-species and finite windows are not physical poles\\
+The muon discrepancy is retained. Seven-input hyperfine calibration fits
+rho/Delta-assigned energies and excludes additional bound nuclear channels
+in its complete finite census. Neutral-pion and charge-radius comparisons
+fail. Centre classes do not distinguish species, and finite energies are
+not physical resonance poles\\
 
 6. Gravity & Established: null tomography and the tensor completion from an
 explicit null-balance premise; physical energy continuity, boundary-completed
@@ -3158,8 +3247,9 @@ dictionary does not distinguish every particle species.
 The charged register gives $Q=2/3$ and ratios $206.7703$ and $3477.47$,
 with its retrospective selection ancestry and muon discrepancy retained.
 A native action fits nucleon/pion energies and the axial magnitude
-without rescaling the current; a positive spin-gradient member also
-fits nuclear binding with a fifth empirical input. The four-input
+without rescaling the current; the seven-input hyperfine member also
+fits nuclear binding and rho/Delta-assigned energies, retaining its
+failed neutral-pion and radius comparisons. The four-input
 common-Dirac semileptonic member proves positivity, an exact electron
 threshold and complete nucleon energy-window bounds. Native currents give three-dimensional beta parity, controlled massive
 leptonic decay and a tau leptonic-width ratio compatible with its unused

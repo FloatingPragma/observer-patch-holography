@@ -1,0 +1,342 @@
+{
+  "complete_finite_character_execution": {
+    "character_cutoff_for_execution_only": 12,
+    "negative_transfer_control": {
+      "bond_reflection_quadratic_form_exact": "-1/2",
+      "operator": "diag(1,-1/2)",
+      "self_adjointness_alone_is_sufficient": false,
+      "test_vector": [
+        0,
+        1
+      ]
+    },
+    "rows": [
+      {
+        "complete_13_outcome_plaquette_probabilities": [
+          0.006789273279466817,
+          0.025892679166912243,
+          0.05373539251382327,
+          0.0850573784647972,
+          0.11385590408420959,
+          0.13450029578164016,
+          0.14282979181287977,
+          0.13702498944686073,
+          0.11806024273218808,
+          0.08960702504898381,
+          0.05736377456544492,
+          0.027917632090806648,
+          0.007365621011986398
+        ],
+        "complete_13_outcome_plaquette_values": [
+          -0.9749279121818243,
+          -0.9009688679024189,
+          -0.7818314824680291,
+          -0.6234898018587339,
+          -0.43388373911755773,
+          -0.22252093395631356,
+          2.220446049250313e-16,
+          0.22252093395631423,
+          0.43388373911755784,
+          0.6234898018587336,
+          0.7818314824680299,
+          0.900968867902419,
+          0.9749279121818236
+        ],
+        "complete_transfer_eigenvalues": [
+          2.7429014842074273e-05,
+          0.00013085687010939826,
+          0.0005509279792659118,
+          0.00204694565937069,
+          0.0067116759473042215,
+          0.019420876351847357,
+          0.04959293783519333,
+          0.11175938521392184,
+          0.22225999270105867,
+          0.3900781605059291,
+          0.6041639374331904,
+          0.8257903534924929,
+          0.9961216933712734
+        ],
+        "finite_core_contractivity_error_bound": 0.15276398479993655,
+        "five_history_reflection_Gram": [
+          [
+            1.0000000000000002,
+            0.0,
+            4.336808689942018e-18,
+            0.20719964157469403,
+            0.2071996415746942
+          ],
+          [
+            0.0,
+            0.2499387515736662,
+            0.2071996415746941,
+            -0.002279408807242125,
+            -0.001985200840041786
+          ],
+          [
+            4.336808689942018e-18,
+            0.2071996415746941,
+            0.17176906083356638,
+            -0.001985200840041786,
+            -0.0017036998623657122
+          ],
+          [
+            0.20719964157469403,
+            -0.002279408807242125,
+            -0.001985200840041786,
+            0.08589704796413176,
+            0.06899719575523934
+          ],
+          [
+            0.2071996415746942,
+            -0.001985200840041786,
+            -0.0017036998623657122,
+            0.06899719575523934,
+            0.058746174035230074
+          ]
+        ],
+        "reflection_Gram_minimum_numeric": -3.9016452952587085e-17,
+        "time_step_exact": "1/64",
+        "transfer_vacuum_is_its_own_preparation": true,
+        "unit_time_semigroup_operator_error": 2.531711716212293e-05
+      },
+      {
+        "complete_13_outcome_plaquette_probabilities": [
+          0.0067898804570798756,
+          0.025894823284616647,
+          0.053739267574537536,
+          0.08506229947885713,
+          0.11386053955858584,
+          0.13450318995028182,
+          0.14282996468160195,
+          0.13702235881764396,
+          0.11805567659121871,
+          0.08960198676272525,
+          0.05735970527825579,
+          0.027915341705875913,
+          0.00736496585871891
+        ],
+        "complete_13_outcome_plaquette_values": [
+          -0.9749279121818243,
+          -0.9009688679024189,
+          -0.7818314824680291,
+          -0.6234898018587339,
+          -0.43388373911755773,
+          -0.22252093395631356,
+          2.220446049250313e-16,
+          0.22252093395631423,
+          0.43388373911755784,
+          0.6234898018587336,
+          0.7818314824680299,
+          0.900968867902419,
+          0.9749279121818236
+        ],
+        "complete_transfer_eigenvalues": [
+          0.0052372726270757935,
+          0.011439268626561746,
+          0.023471854733802103,
+          0.04524318295566967,
+          0.08192481774356339,
+          0.13935880240521265,
+          0.2226947157564249,
+          0.3343043254250119,
+          0.4714445738756632,
+          0.6245623660303015,
+          0.7772798206479687,
+          0.9087300638678829,
+          0.9980589405824681
+        ],
+        "finite_core_contractivity_error_bound": 0.07638199239996828,
+        "five_history_reflection_Gram": [
+          [
+            0.9999999999999998,
+            1.734723475976807e-18,
+            1.214306433183765e-17,
+            0.2275681708669912,
+            0.22756817086699113
+          ],
+          [
+            1.734723475976807e-18,
+            0.24993892626671627,
+            0.2275681708669912,
+            -0.002440161446630218,
+            -0.0022841157497188605
+          ],
+          [
+            1.214306433183765e-17,
+            0.2275681708669912,
+            0.2071997824784042,
+            -0.002284115749718858,
+            -0.0021282429155077527
+          ],
+          [
+            0.2275681708669912,
+            -0.002440161446630218,
+            -0.002284115749718858,
+            0.10361252382628784,
+            0.09215258515990124
+          ],
+          [
+            0.22756817086699113,
+            -0.0022841157497188605,
+            -0.0021282429155077527,
+            0.09215258515990124,
+            0.08322736651711302
+          ]
+        ],
+        "reflection_Gram_minimum_numeric": 5.3394719612647735e-17,
+        "time_step_exact": "1/128",
+        "transfer_vacuum_is_its_own_preparation": true,
+        "unit_time_semigroup_operator_error": 6.332055525440459e-06
+      },
+      {
+        "complete_13_outcome_plaquette_probabilities": [
+          0.006790032332528382,
+          0.025895359601421947,
+          0.053740236862690804,
+          0.08506353040315047,
+          0.11386169906828361,
+          0.13450391390405939,
+          0.14283000794037143,
+          0.13702170081212134,
+          0.11805453443154465,
+          0.08960072649216418,
+          0.057358687386761364,
+          0.027914768787083398,
+          0.007364801977818533
+        ],
+        "complete_13_outcome_plaquette_values": [
+          -0.9749279121818243,
+          -0.9009688679024189,
+          -0.7818314824680291,
+          -0.6234898018587339,
+          -0.43388373911755773,
+          -0.22252093395631356,
+          2.220446049250313e-16,
+          0.22252093395631423,
+          0.43388373911755784,
+          0.6234898018587336,
+          0.7818314824680299,
+          0.900968867902419,
+          0.9749279121818236
+        ],
+        "complete_transfer_eigenvalues": [
+          0.07236900488399997,
+          0.10695451643297973,
+          0.15320526965120107,
+          0.21270444939205577,
+          0.28622511672516127,
+          0.37330791833833193,
+          0.4719054088868704,
+          0.5781905604474509,
+          0.6866182142428987,
+          0.7902925810816777,
+          0.8816347416922745,
+          0.9532733398588373,
+          0.99902899607907
+        ],
+        "finite_core_contractivity_error_bound": 0.03819099619998414,
+        "five_history_reflection_Gram": [
+          [
+            1.0000000000000002,
+            -8.673617379884035e-19,
+            6.938893903907228e-18,
+            0.23849142196565404,
+            0.2384914219656539
+          ],
+          [
+            -8.673617379884035e-19,
+            0.24993896976930566,
+            0.238491421965654,
+            -0.0025214715189917094,
+            -0.002441599457085988
+          ],
+          [
+            6.938893903907228e-18,
+            0.238491421965654,
+            0.227568209855639,
+            -0.002441599457085989,
+            -0.0023612008204033845
+          ],
+          [
+            0.23849142196565404,
+            -0.0025214715189917094,
+            -0.002441599457085989,
+            0.11379648838332702,
+            0.107110557172589
+          ],
+          [
+            0.2384914219656539,
+            -0.002441599457085988,
+            -0.0023612008204033845,
+            0.107110557172589,
+            0.1012101935767826
+          ]
+        ],
+        "reflection_Gram_minimum_numeric": -4.208162104670615e-17,
+        "time_step_exact": "1/256",
+        "transfer_vacuum_is_its_own_preparation": true,
+        "unit_time_semigroup_operator_error": 1.5831875682168349e-06
+      }
+    ],
+    "same_source_Hamiltonian_eigenvalues": [
+      0.2486980049560016,
+      12.250520743772682,
+      32.25022321532535,
+      60.25012400810278,
+      96.2500789141829,
+      140.2500546328807,
+      192.2500400641078,
+      252.2500306372572,
+      320.2500241873076,
+      396.2500195802013,
+      480.2500161749486,
+      572.2500135870741,
+      672.2501562498829
+    ]
+  },
+  "full_source_theorem": {
+    "Gauss_projection_commutes_with_transfer": true,
+    "all_bond_reflection_history_Gram_forms_nonnegative": true,
+    "every_character_coefficient_strictly_positive": true,
+    "fixed_graph_Peter_Weyl_cores_are_form_cores": true,
+    "injective_positive_self_adjoint_compact": true,
+    "operator": "T_h=exp(-h V/2) exp(-h E) exp(-h V/2)",
+    "reflection_positive_kernel_is_a_real_time_detector": false,
+    "same_clock_limit": "strong limit (T_(t/n))^n=exp(-t(E+V))",
+    "space": "full product Haar SU2 links and its Gauss-invariant range",
+    "temporal_kernel": "sum_{n>=0} (n+1) exp[-h alpha n(n+2)/4] chi_n(U V^-1)"
+  },
+  "schema": "oph.pure_SU2_positive_transfer_same_clock.v1",
+  "scope": {
+    "Clay_problem_solved": false,
+    "Y1_uniform_renormalized_spatial_continuum_Cauchy_proved": false,
+    "Y2_finite_regulator_positive_transfer_instantiated": true,
+    "Y3_full_Euclidean_covariance_restoration_proved": false,
+    "Y4_joint_spatial_infinite_volume_Mosco_proved": false,
+    "Y5_continuum_OS_identification_proved": false,
+    "Y6_uniform_continuum_noncollapse_proved": false,
+    "same_finite_graph_Hamiltonian_clock_identified": true
+  },
+  "source_sha256": {
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/openwave_pure_su2_source/PROOF.md": "e50bb8725b9b5512125188ecb56af2554c3cd7f6dd8a723ce5d14ce4baabb404",
+    "model/openwave_pure_su2_source/__init__.py": "a14883ed7a07b449b6f6c726910ac722588f85c8494301f1a9fd053df872bb7e",
+    "model/openwave_pure_su2_source/custody.py": "514ad4f0d20fdc7956643ead12275abcc40c688c2e2604ef712a562c2e51c206",
+    "model/openwave_pure_su2_source/results.json": "80ff063747d6a03650f528b08083a60254e87ff2ec51305367bc762648d397cc",
+    "model/openwave_pure_su2_source/source.py": "cee741a4033ffe611166d5f6026b27cb513f4d55ea63624fab5fb33c53713c9c",
+    "model/openwave_su2_spectral/__init__.py": "52360e6197d384060ac319037a10ecad3585b37550cc998f4b42c09a53ee6a45",
+    "model/openwave_su2_spectral/spectrum.py": "f84aa84b3de8529f1949ea0c2fbe77a54bd53bdef4247bb0147f7dc8308c527e",
+    "model/openwave_su2_transfer/PAPER_RESULT.tex": "70ee04536fa4f53a4962b55a6618e34b516369a7bf5964bf6147ccaf7ffbc43d",
+    "model/openwave_su2_transfer/PROOF.md": "fd621d148ef6a928ce4524d5960438bebbeabf106e26622af3d354f70468ae24",
+    "model/openwave_su2_transfer/README.md": "cb54917e921a2cd917b3532ec3f878ed6b5b12c554d1976a0fc6d147384b1c59",
+    "model/openwave_su2_transfer/__init__.py": "155f88bbafeef8056e89809c1fd22c43efba5c7af5fb8eb97658264ba75d94e7",
+    "model/openwave_su2_transfer/__main__.py": "4932dac671bfa7063b2fa040b0a7e2cfc8af7f3ac273c8093dac2ebb5ba1a0f5",
+    "model/openwave_su2_transfer/test_transfer.py": "f03f996a335e2ef1bb5d71ce545ad7c3084dd10843b7d882fa9a6cbb63cb486c",
+    "model/openwave_su2_transfer/transfer.py": "2cab6a56cddd61a7936e3168d9a503ef7a78ad401ca6ffea6ea8913d82df3d65",
+    "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+    "model/particle_yang_mills_gap_contract/PROOF.md": "f2984e894b6ef7ba87b85e76150eaa4369cd18f4530e4117f37d5b1d0db34884"
+  },
+  "verdict": "PASS_FULL_COMPACT_GAUGE_TRANSFER_POSITIVITY_AND_COMMON_CLOCK"
+}

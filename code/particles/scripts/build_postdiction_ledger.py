@@ -7390,6 +7390,75 @@ def _render_finite_spectrum_comparison(row: dict[str, Any]) -> list[str]:
     ]
 
 
+def _hyperfine_and_charge_profiles() -> dict[str, Any]:
+    """Authenticate the complete selected source before projecting its comparisons."""
+    data = {}
+    receipts = {}
+    for name in ("common_hyperfine_spectrum", "baryon_form_factors"):
+        relative = f"model/openwave_{name}/results.json"
+        path = REPO / relative
+        packet = json.loads(path.read_text())
+        if not packet.get("verdict", "").startswith("PASS") or not packet.get("source_sha256"):
+            raise ValueError("hyperfine producer failed or unbound: " + name)
+        for source, expected in packet["source_sha256"].items():
+            target = (REPO/source).resolve()
+            if not target.is_relative_to(REPO.resolve()) or hashlib.sha256(target.read_bytes()).hexdigest() != expected:
+                raise ValueError("hyperfine source drift: " + source)
+        receipts[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+        data[name] = packet
+    strong, profiles = data["common_hyperfine_spectrum"], data["baryon_form_factors"]
+    if not profiles["shared_length_comparison"]["no_single_length_matches_both_radii_in_comparison_box"]:
+        raise ValueError("independent radius failure omitted")
+    return {"receipts_sha256": receipts, "input_ancestry": strong["input_ancestry"],
+            "five_mass_calibrations": strong["five_mass_calibrations"],
+            "deuteron_binding_calibration": strong["deuteron_binding_calibration"],
+            "nuclear_ground_record": strong["nuclear_ground_record"],
+            "common_length_attachment": strong["common_length_attachment"],
+            "complete_preparation_and_spectral_records": strong["complete_preparation_and_spectral_records"],
+            "all_unassigned_bound_nuclear_channels": strong["all_unassigned_bound_nuclear_channels"],
+            "held_out_neutral_pion_control": strong["held_out_neutral_pion_control"],
+            "profiles": [{k: v for k, v in row.items() if k not in {"complete_native_records", "orientation_averaged_form_factors"}}
+                         for row in profiles["native_states"]],
+            "radius_comparison": profiles["shared_length_comparison"],
+            "profile_instrument": profiles["complete_physical_instrument"],
+            "scope": strong["boundaries"]}
+
+
+def _render_hyperfine_and_charge_profiles(data: dict[str, Any]) -> list[str]:
+    lines = ["## One calibrated hyperfine spectrum and its independent controls", "",
+             "The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) "
+             "uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. "
+             "The shared quadrupole/string attachment adds two dimensional comparison targets. "
+             "The eigenenergies are calibrated finite records, not independent predictions or resonance poles.", "",
+             "| Native assignment | Energy / GeV | Input role |", "| --- | ---: | --- |"]
+    for row in data["five_mass_calibrations"]:
+        value = row.get("energy_GeV")
+        if value is None:
+            value = float(sum(map(Fraction, row["energy_GeV_interval"]))/2)
+        lines.append(f"| {row['candidate']} | {value:.12g} | {row['role']} |")
+    length = float(Fraction(data["common_length_attachment"]["a_fm"]))
+    lines += ["", f"The common length is {length:.12g} fm per cell. It matches the supplied "
+              "quadrupole and illustrative 1 GeV/fm tension on that same source. All 120 baryon, 64 meson "
+              "and 2520 nuclear singlets, coloured preparation failures and every compatible two-baryon "
+              "threshold are retained. No additional bound nuclear channel occurs in this finite census.", "",
+              "The neutral spin-zero candidate is 0.13827705749 GeV, compared with the unused 0.1349768 GeV "
+              "neutral-pion datum. The difference 3.30025749 MeV fails that comparison. "
+              "The neutron has positive charge at graph radius 1/3 and negative charge at 2/3, with zero "
+              "charge at radius zero. The calibrated neutron-proton energy gap is 1.29333251 MeV.", "",
+              "| Native profile | Mean-square charge radius / fm² |", "| --- | ---: |"]
+    for row in data["profiles"]:
+        lo, hi = row["mean_square_charge_radius_fm2_interval"]
+        lines.append(f"| {row['assigned_channel']} | "
+                     f"[{_directed_decimal(lo, 12)}, {_directed_decimal(hi, 12, upper=True)}] |")
+    lines += ["", "[Complete occupation instruments](../model/openwave_baryon_form_factors/PROOF.md) "
+              "retain the 1/120 preparation success and 119/120 failure on the physical singlet input. "
+              "The observed proton and neutron charge-radius intervals cannot both be fitted by any "
+              "common length on this source. The charge-density sign match does not remove that "
+              "independent magnitude failure. Graph orientation averages are not identified with "
+              "relativistic Sachs form factors.", ""]
+    return lines
+
+
 def _mass_and_decay_catalogue() -> dict[str, Any]:
     relative = "model/openwave_mass_catalogue/results.json"
     path = REPO / relative
@@ -7428,7 +7497,7 @@ def _render_mass_and_decay_catalogue(data: dict[str, Any]) -> list[str]:
         lines.append(f"| {row['particle']} | {row['mass_GeV']:.12g} | strong-sector calibration |")
     nuclear = strong["nuclear_mass_calibration"]
     lines += [f"| deuteron-assigned channel | {nuclear['mass_GeV']:.12g} | fifth-input binding calibration |", "",
-              "The nuclear preparation succeeds with probability " + nuclear["original_preparation_success"] +
+              "On this separate five-input member, the nuclear preparation succeeds with probability " + nuclear["original_preparation_success"] +
               "; all failures and the unassigned spin-three bound channel are retained. The supplied "
               "binding is not an independent prediction. Neutrino flavour labels are superpositions; "
               "right-chiral sterile coordinates and antiparticles share the corresponding Dirac masses.", "",
@@ -7723,6 +7792,7 @@ def build(
         "particle_reconstruction_decisions": _particle_reconstruction_decisions(),
         "native_current_comparisons": _native_current_comparisons(),
         "mass_and_decay_catalogue": _mass_and_decay_catalogue(),
+        "hyperfine_and_charge_profiles": _hyperfine_and_charge_profiles(),
         "executable_completion_program": completion_program_view(REPO),
         "principal_results": _principal_results(sections),
         "retrospective_tilt_comparison": _retrospective_tilt_reference(),
@@ -8433,6 +8503,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
         "(`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; "
         "[frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).")
     add("")
+    lines.extend(_render_hyperfine_and_charge_profiles(ledger["hyperfine_and_charge_profiles"]))
     lines.extend(_render_mass_and_decay_catalogue(ledger["mass_and_decay_catalogue"]))
     lines.extend(_render_native_current_comparisons(ledger["native_current_comparisons"]))
     return "\n".join(lines)
