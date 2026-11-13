@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2159,
+  "surface_count": 2167,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -5861,6 +5861,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_beta_angular/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_beta_angular/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_beta_outgoing/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5897,6 +5907,16 @@
     },
     {
       "path": "model/openwave_charge_protection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_common_electromagnetism/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_common_electromagnetism/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6197,6 +6217,16 @@
     },
     {
       "path": "model/openwave_lepton_phase_cycle/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_lepton_widths/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_lepton_widths/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6657,6 +6687,16 @@
     },
     {
       "path": "model/openwave_scale_coupling/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_single_valley_leptons/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_single_valley_leptons/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
