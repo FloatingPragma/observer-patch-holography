@@ -131,6 +131,20 @@ state in the admitted projection. This is a uniform bound on relative
 separation, without fixing a centre, asserting a continuum limit, or
 introducing pair creation and string breaking.
 
+## Complete integer proof witness
+
+The pinned `spectral_witnesses.json` contains every column and ordered
+centre of a dyadic frame, with denominator `2^40`, for each full fixed
+projection. These are proof coordinates, not stored spectral conclusions.
+The checker rebuilds the exact native source and recomputes its entrywise
+rounding enclosure, complete Gram error and complete residual using
+integer arithmetic. It applies the unchanged six-quark bound
+`epsilon = 2 rho + 4 K eta`, where `eta < 1/2` certifies that the entire
+frame is invertible. Every eigenvalue interval follows from these
+recomputed quantities. Integer ranges, dimensions and ordering are checked;
+no supplied interval or error is trusted and no complementary column is
+discarded. Native floating diagnostics still diagonalize the actual source.
+
 ## One-length comparison
 
 The nuclear source provides an exact graph quadrupole interval q close to

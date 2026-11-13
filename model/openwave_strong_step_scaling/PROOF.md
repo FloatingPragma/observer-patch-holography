@@ -67,6 +67,19 @@ nonselectively, so its total mean source/reference work is zero. Raw
 coloured occupation poststates are not used as physical Gauss outputs. No irreversible
 relaxation or continuum QCD running is asserted.
 
+The occupation record domain is determined by the exact epsilon isometry,
+not by testing a floating amplitude for nonzero. A native occupation is
+compatible precisely when it has one quark of each colour and its sorted
+orbital label lies in the conserved charge/spin block. For Nu=1 and
+Nspin-up=2 this gives exactly `9 L^3` native labels: three choices for the
+up-flavour colour, three for the down-spin colour, and L positions for
+each colour. Each associated epsilon coefficient is nonzero. Every row
+outside this domain is identically zero for every vector in the block,
+and therefore for all source times. The records enumerate this entire
+fixed domain, including zero and arbitrarily small computed probabilities.
+The source evolution, amplitudes and success/failure formulas are unchanged;
+there is no numerical support threshold or removed outcome.
+
 ## A full-source linear inter-charge potential
 
 On an eight-cell chain pin a quark at cell2 and a diquark at cell2+r,

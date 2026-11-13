@@ -3,6 +3,8 @@ from fractions import Fraction as F
 from functools import lru_cache
 from itertools import product
 import json
+import hashlib
+import inspect
 from pathlib import Path
 import numpy as np
 import scipy.sparse as sp
@@ -85,7 +87,7 @@ def nuclear_energy(p,S=1,I=0,parity=1):
     return None if not len(H)else float(eigh(H,eigvals_only=True)[0])
 
 @lru_cache(None)
-def parameters(gradient=GRADIENT):
+def fit_parameters(gradient=GRADIENT):
     gradient=F(gradient);unit=float(INPUTS['electron_unit_GeV'])
     threshold=sum(float(INPUTS['mass_calibration_targets_GeV'][k])for k in('proton','neutron'))/unit
     binding=float(INPUTS['deuteron_binding_calibration_target_GeV'])/unit
@@ -97,6 +99,47 @@ def parameters(gradient=GRADIENT):
     assert p['mbar']>p['delta']/2>0 and all(p[k]>0 for k in('U','A','eta','Js','Jw','t','kappa_colour'))
     assert p['spin_gradient']>=0
     return p
+
+
+CALIBRATION_RECIPE_FUNCTIONS=('components','weights','matrix','energy','provisional',
+    'fitted_split_coefficient','floating_parameters','nuclear_matrix','nuclear_energy','fit_parameters')
+
+def validate_declared_calibrations(record):
+    """Authenticate the exact calibrated actions without rerunning a floating fit."""
+    assert record['schema']=='oph.declared_five_input_rational_calibrations.v1'
+    assert record['calibration_inputs_sha256']==hashlib.sha256((HERE/'inputs.json').read_bytes()).hexdigest()
+    assert record['declared_inputs']==INPUTS
+    assert record['binary_quantization_places']==44
+    assert record['selected_gradient']==str(GRADIENT)
+    assert set(record['recipe_functions_sha256'])==set(CALIBRATION_RECIPE_FUNCTIONS)
+    for name in CALIBRATION_RECIPE_FUNCTIONS:
+        assert record['recipe_functions_sha256'][name]==hashlib.sha256(inspect.getsource(globals()[name]).encode()).hexdigest()
+    menu=INPUTS['architecture_selection']['diagnostic_gradient_menu']
+    assert set(record['actions'])==set(menu)
+    exact_delta=(F(INPUTS['mass_calibration_targets_GeV']['neutron'])-F(INPUTS['mass_calibration_targets_GeV']['proton']))/F(INPUTS['electron_unit_GeV'])
+    result={}
+    for gradient,raw in record['actions'].items():
+        assert isinstance(raw,dict)
+        assert set(raw)==set(DECLARED)|{'U','A','eta','spin_gradient','mbar','delta'}
+        assert all(isinstance(v,str) and str(F(v))==v for v in raw.values())
+        p={k:F(v)for k,v in raw.items()}
+        assert all(p[k]==v for k,v in DECLARED.items())
+        assert p['spin_gradient']==F(gradient) and p['delta']==exact_delta
+        assert all((p[k]*2**44).denominator==1 for k in('U','A','eta','mbar'))
+        assert p['mbar']>p['delta']/2>0 and all(p[k]>0 for k in('U','A','eta'))
+        assert p['spin_gradient']>=0
+        result[gradient]=p
+    return result
+
+@lru_cache(None)
+def parameters(gradient=GRADIENT):
+    """Return an input-bound exact declared action; fit_parameters is the recipe."""
+    record=json.loads((HERE/'calibration_realizations.json').read_text())
+    actions=validate_declared_calibrations(record)
+    key=str(F(gradient))
+    if key not in actions:raise ValueError('Gradient is outside the declared calibration menu; use fit_parameters for a new exploratory fit')
+    return actions[key]
+
 
 @lru_cache(None)
 def sector(kind):
