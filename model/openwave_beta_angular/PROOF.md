@@ -106,6 +106,16 @@ outcomes plus the entire complementary quantum source form a complete
 terminal instrument. Record intervals are jointly dependent bounds on this
 one instrument, not independently normalizable postselections. The receipt
 also gives complete neutral-family totals and electron radial-energy bins.
+The distinct free-electron energy census uses exact squared energies rather
+than equality of floating trigonometric evaluations. For side four,
+4 sin²(2πn/L) cycles through (0,4,0,4), giving squared energies
+(1,5,9,13) with spatial multiplicities (8,24,24,8). For side eight the cycle
+is (0,2,4,2,0,2,4,2), giving (1,3,5,7,9,11,13) with multiplicities
+(8,48,120,160,120,48,8). These counts sum to all L³ spatial momenta.
+The displayed GeV values are square roots times the unchanged electron
+anchor. This census neither identifies a physical pole nor merges any spin,
+family, directional, radial-probability or complementary quantum record.
+
 Position and momentum are separate instruments. Group velocity is
 v_j=4 sin(k_j)cos(k_j)/E, which is not the momentum sign on every valley.
 

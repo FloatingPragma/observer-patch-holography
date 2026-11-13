@@ -30,8 +30,8 @@ def test_native_full_current_and_complete_time_records():
     assert sum(diagonal.values())==size
     for row in d['complete_finite_time_records']:
         assert abs(row['coarse_probability']+row['retained_complement_probability']-1)<2e-11
-        assert abs(sum(x[1] for x in row['nonzero_success_native_occupations'])-float(F(row['preparation_success'])))<2e-12
+        assert abs(sum(x[1] for x in row['complete_compatible_success_native_occupations'])-float(F(row['preparation_success'])))<2e-12
 
-        success=dict(row['nonzero_success_native_occupations'])
+        success=dict(row['complete_compatible_success_native_occupations'])
         assert all(float(v)/size-success.get(i,0)>=-2e-12 for i,v in diagonal.items())
         assert abs(sum(float(v)/size-success.get(i,0)for i,v in diagonal.items())+sum(success.values())-1)<2e-11

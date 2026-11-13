@@ -1,0 +1,200 @@
+{
+  "actions": {
+    "0": {
+      "A": "3144866464648161/2199023255552",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "4187835747134327/17592186044416",
+      "delta": "129333251000/51099895069",
+      "eta": "2282423187761/549755813888",
+      "kappa_colour": "4",
+      "mbar": "2371261553431019/17592186044416",
+      "spin_gradient": "0",
+      "t": "1/8"
+    },
+    "1": {
+      "A": "6281200763851759/4398046511104",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "1046793188720065/4398046511104",
+      "delta": "129333251000/51099895069",
+      "eta": "50519700008993/17592186044416",
+      "kappa_colour": "4",
+      "mbar": "1189852871345209/8796093022208",
+      "spin_gradient": "1",
+      "t": "1/8"
+    },
+    "2": {
+      "A": "6277212446226039/4398046511104",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "4184679432973889/17592186044416",
+      "delta": "129333251000/51099895069",
+      "eta": "22078880707689/8796093022208",
+      "kappa_colour": "4",
+      "mbar": "297761433526127/2199023255552",
+      "spin_gradient": "2",
+      "t": "1/8"
+    },
+    "3": {
+      "A": "3136657238569003/2199023255552",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "4182139868540053/17592186044416",
+      "delta": "129333251000/51099895069",
+      "eta": "9529265520759/4398046511104",
+      "kappa_colour": "4",
+      "mbar": "2384356729013425/17592186044416",
+      "spin_gradient": "3",
+      "t": "1/8"
+    },
+    "4": {
+      "A": "1567360179084635/1099511627776",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "2089793859612815/8796093022208",
+      "delta": "129333251000/51099895069",
+      "eta": "32162436680487/17592186044416",
+      "kappa_colour": "4",
+      "mbar": "596647428025457/4398046511104",
+      "spin_gradient": "4",
+      "t": "1/8"
+    },
+    "5/2": {
+      "A": "3137629345446457/2199023255552",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "4183412123069653/17592186044416",
+      "delta": "129333251000/51099895069",
+      "eta": "20560224470767/8796093022208",
+      "kappa_colour": "4",
+      "mbar": "595807614915777/4398046511104",
+      "spin_gradient": "5/2",
+      "t": "1/8"
+    },
+    "9/4": {
+      "A": "3138116997629597/2199023255552",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "4184046591419009/17592186044416",
+      "delta": "129333251000/51099895069",
+      "eta": "5329188902679/2199023255552",
+      "kappa_colour": "4",
+      "mbar": "595665765417423/4398046511104",
+      "spin_gradient": "9/4",
+      "t": "1/8"
+    }
+  },
+  "binary_quantization_places": 44,
+  "calibration_inputs_sha256": "bf126b157b9acfaa159df6a55b90b094d217f1b84574ff16780c3d7122561302",
+  "calibration_recipe": "Axial magnitude fixes D=8U/3-4A/9; pion plus nucleon-average energies fix A and mbar; neutron-proton difference fixes delta exactly; spin-one even deuteron binding fixes eta. Positive spin-gradient coefficient is declared, and every menu member uses the same five inputs.",
+  "declared_inputs": {
+    "ancestry": "Five empirical inputs select mbar,delta,A,U,eta: proton, neutron, charged pion, native axial magnitude and even spin-one nuclear binding. The spin-gradient coefficient5/2 is a disclosed retrospective architecture selection; global colour4 satisfies a finite-copy bound. Inherited axial-source and mass-source objects are ancestry only, not parameters or held-out roles of this selected source.",
+    "architecture_selection": {
+      "diagnostic_gradient_menu": [
+        "0",
+        "1",
+        "2",
+        "9/4",
+        "5/2",
+        "3",
+        "4"
+      ],
+      "fifth_empirical_calibration": "deuteron binding",
+      "global_colour_selection": "A positive coefficient chosen to satisfy the stated all-partition finite-copy bound; it vanishes exactly on every global singlet and uses no additional empirical mass target.",
+      "mass_and_axial_target_role": "All five displayed agreements are calibration inputs.",
+      "positive_global_colour_coefficient": "4",
+      "positive_native_spin_gradient_coefficient": "5/2",
+      "selection_scope": "Retrospective construction selection motivated by both known unwanted odd channels. The declared rational5/2 has a positive separation margin for each; the entire finite menu is retained. This is neither blind validation nor an independently predicted absence."
+    },
+    "axial_calibration_target_magnitude": "1.2753",
+    "axial_quoted_uncertainty": "0.0013",
+    "axial_source": {
+      "axial_ratio_magnitude": "1.2753",
+      "location": "Page 11, neutron decay parameters, lambda = g_A/g_V",
+      "quoted_uncertainty": "0.0013",
+      "role": "Fourth empirical calibration input selecting U and the native baryon state.",
+      "sign_convention": "PDG lists lambda=-1.2753. Compare its magnitude with the positive native Pauli-current reduced coefficient.",
+      "source": "https://pdg.lbl.gov/2025/listings/rpp2025-list-n.pdf"
+    },
+    "calibrated_coefficients": [
+      "mbar",
+      "delta",
+      "A",
+      "U",
+      "eta"
+    ],
+    "colour_edge_choice": "Global colour Casimir coefficient4, zero on every global singlet; selected to satisfy the explicit finite-copy fragmentation bound. This term supplies no two-cell spatial string potential.",
+    "declared_unfitted_coefficients": [
+      "t=1/8",
+      "Js=1/4",
+      "Jw=1/4",
+      "kappa_colour=4",
+      "spin_gradient=5/2"
+    ],
+    "deuteron_binding_calibration_target_GeV": "0.00222456640",
+    "electron_unit_GeV": "0.00051099895069",
+    "inherited_axial_source_architecture": {
+      "ancestry": "The axial datum selects the native split-site state through U. It is a calibration input, not a held-out prediction. No effective current factor is fitted.",
+      "calibrated_coefficients": [
+        "mbar",
+        "delta",
+        "A",
+        "U"
+      ],
+      "colour_edge_choice": "Positive native edge-colour Casimir with coefficient1; an explicit architecture control of disconnected-copy coloured thresholds. It is identically zero on every two-cell global singlet, including spatially separated q+diquark states, and supplies no two-cell spatial binding or continuum confinement proof.",
+      "declared_unfitted_coefficients": [
+        "t=1/8",
+        "Js=1/4",
+        "Jw=1/4",
+        "eta=1",
+        "kappa_colour=1"
+      ]
+    },
+    "inherited_mass_input_ancestry": {
+      "calibration_targets_GeV": {
+        "charged_pion": "0.13957039",
+        "neutron": "0.93956542194",
+        "proton": "0.93827208943"
+      },
+      "electron_unit_GeV": "0.00051099895069",
+      "held_out_comparisons_GeV": {
+        "Delta_baryon": "1.232",
+        "deuteron_binding": "0.00222456640",
+        "neutral_pion": "0.1349768",
+        "rho_vector": "0.77526"
+      },
+      "sources": [
+        "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-phys-constants.pdf",
+        "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-plus-minus.pdf",
+        "https://pdg.lbl.gov/2025/listings/rpp2025-list-pi-zero.pdf",
+        "https://pdg.lbl.gov/2025/listings/rpp2025-list-rho-770.pdf",
+        "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-Delta.pdf",
+        "https://physics.nist.gov/cuu/pdf/RevModPhys.97.025002.pdf"
+      ],
+      "uncertainty_scope": "Central values only. Hadron targets calibrate three action coefficients and are not independent predictions. Comparison values neither fix those coefficients nor establish a physical species dictionary."
+    },
+    "mass_calibration_targets_GeV": {
+      "charged_pion": "0.13957039",
+      "neutron": "0.93956542194",
+      "proton": "0.93827208943"
+    },
+    "schema": "oph.native_spin_gradient_nuclear_inputs.v1"
+  },
+  "recipe_functions_sha256": {
+    "components": "85a15fb78557fe37bbf4e0311c2ebc8225acc55fa8a7dcd58ea8b4eec9d4ccb5",
+    "energy": "0cdd247a52077ce9dceeeadc9d27a704198d7274ec76ecfcb9dd1bf5cca6f84d",
+    "fit_parameters": "9a9b744919aec649748f521b111c43bff641cb6573c7c9a1c25c404e67498da2",
+    "fitted_split_coefficient": "e3dc7fa131a3d3c066625fa3cabf1abbc489d3984695a4f28fa35f41887f9d64",
+    "floating_parameters": "f634837dd957547ae511383256c4508db07d2660cec8db3eeb3ed31f1ee3c01c",
+    "matrix": "846a78298553fddb2efca58131aa0e8d0e9bfcd9c6e3330909ed91dc7910ff20",
+    "nuclear_energy": "165e650d7f486e8eb7ddfbc0a97d0cf51b3caa38218b80435cc601dd3df19334",
+    "nuclear_matrix": "f88e4b0fa29e389e1bebc7d7213022c38d845e5eea09933a4aa40aa924240f5a",
+    "provisional": "b44c67fb4e77c6f36d30381b164d7a3ee3d64ced7913169540334d8ba786619b",
+    "weights": "847fc829e610fc5fa82f533cbb2db1b4547db2277b87b10e694d023adfe357f4"
+  },
+  "role": "Existing exact rational actions for the declared gradient menu; five empirical calibration inputs are retained, no additional physical datum.",
+  "scan_scope": "The complete declared diagnostic menu is retained; no gradient is selected by this file or consumer.",
+  "schema": "oph.declared_five_input_rational_calibrations.v1",
+  "selected_gradient": "5/2"
+}
