@@ -42,6 +42,11 @@ PACKAGES=(
     'openwave_coupled_haar_spectrum', 'openwave_euclidean_refinement',
     'openwave_source_ward', 'openwave_einstein_error',
     'openwave_radiation_capacity',
+    'openwave_uniform_pole_bands', 'openwave_normalizable_particle_records',
+    'openwave_scattering_current_support', 'openwave_haar_coupling_flow',
+    'openwave_cubic_haar_source', 'openwave_gauge_refinement_clock',
+    'openwave_staggered_ward', 'openwave_replicated_geometry',
+    'openwave_capacity_perturbations',
 )
 
 def source_bindings():

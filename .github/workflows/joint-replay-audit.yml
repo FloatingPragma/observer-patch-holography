@@ -1,0 +1,75 @@
+name: Temporary original joint reconstruction audit
+on:
+  push:
+    branches: ['codex/oph-fifteenth-joint-20261113']
+permissions:
+  contents: read
+jobs:
+  original-joint-producer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          sparse-checkout: .github/joint-replay-audit
+          sparse-checkout-cone-mode: false
+          fetch-depth: 1
+      - name: Materialize exact bounded input inventory
+        run: git sparse-checkout set --no-cone --stdin < .github/joint-replay-audit/sparse_paths.txt
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12.16'
+      - name: Install retained reproduction environment
+        run: python -m pip install -r model/requirements.txt
+      - name: Authenticate original source snapshot
+        run: |
+          python .github/joint-replay-audit/audit.py before
+          python -m pip freeze > audit-artifacts/pip-freeze.txt
+      - name: Execute original full producer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -W error -m model.particle_joint_reconstruction --write 2>&1 | tee audit-artifacts/original-write.log
+          cp model/particle_joint_reconstruction/results.json audit-artifacts/results.json
+          python .github/joint-replay-audit/audit.py after-write
+      - name: Publish authenticated original writer bytes
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: original-joint-writer
+          path: |
+            audit-artifacts/results.json
+            audit-artifacts/after-write-source-report.json
+            audit-artifacts/before-source-report.json
+            audit-artifacts/original-write.log
+            .github/joint-replay-audit/manifest.json
+          include-hidden-files: true
+          retention-days: 7
+      - name: Independent original cold replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -W error -m model.particle_joint_reconstruction --check 2>&1 | tee audit-artifacts/original-check.log
+          python .github/joint-replay-audit/audit.py after-check
+      - name: Unchanged focused scientific tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -W error -m pytest -q model/particle_yang_mills_gap_contract model/particle_joint_reconstruction 2>&1 | tee audit-artifacts/focused-tests.log
+          python .github/joint-replay-audit/audit.py after-tests
+      - name: Retain exact result and audit evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: original-joint-replay
+          path: |
+            audit-artifacts/
+            .github/joint-replay-audit/manifest.json
+            model/particle_joint_reconstruction/candidate_results.json
+            model/particle_yang_mills_gap_contract/results.json
+          include-hidden-files: true
+          retention-days: 7
