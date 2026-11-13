@@ -1,14 +1,18 @@
 """Complete chain records, exact colour-string laws and controlled spectra."""
 from fractions import Fraction as F
 from functools import lru_cache
+import json
+from pathlib import Path
 import numpy as np
 from scipy.linalg import eigh
 from .source import chain,native,native_transfer
-from model.openwave_six_quark.certificate import spectral_enclosure
+from .fixed_witness import spectral_enclosure
+
+WITNESSES=json.loads((Path(__file__).parent/'spectral_witnesses.json').read_text())
 
 @lru_cache(None)
 def execute(L):
-    d=chain(L);cert=spectral_enclosure(d['exact']);e,v=eigh(np.array(d['exact'].evalf(18),float));eps=F(cert['all_eigenvalue_error_upper']);rank=1
+    d=chain(L);cert=spectral_enclosure(d['exact'],WITNESSES[str(L)]);e,v=eigh(np.array(d['exact'].evalf(18),float));eps=F(cert['all_eigenvalue_error_upper']);rank=1
     while rank<len(e) and e[rank]-e[rank-1]<=max(1e-4,8*float(eps)):rank+=1
     state=np.zeros((len(d['labels']),rank));state[d['ids'],:]=v[:,:rank]
     prob=np.sum(abs(state)**2,axis=1)/rank;angular=d['angular'];S=angular(tuple(range(L)),True);I=angular(tuple(range(L)),False)

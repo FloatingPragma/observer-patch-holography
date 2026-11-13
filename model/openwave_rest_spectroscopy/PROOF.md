@@ -79,6 +79,19 @@ The bin spacing W/M is an apparatus resolution. It is neither a decay
 width nor a fundamental time scale. The register uses a declared controlled
 source action, without assuming an external physical global clock.
 
+## Complete integer proof witness
+
+The pinned `spectral_witnesses.json` specifies each complete `2^40` dyadic
+frame and the complete integer prepared state in the exact even basis.
+The preparation is normalized from its exact integer squared norm and
+independently checked against the rebuilt strong ground state. It is a
+declared preparation, not an inferred exact eigenstate of the contact
+action. The colour-string fixed-witness consumer rebuilds the exact source
+and recomputes all integer Gram and residual bounds by the unchanged
+six-quark complete-spectrum proof. It accepts neither stored intervals nor
+stored error bounds. Every spectral column and every preparation coefficient
+is retained, including zero coefficients and small-weight lines.
+
 ## Scope
 
 The outputs are complete finite-box interacting spectral and pointer
