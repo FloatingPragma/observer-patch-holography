@@ -37,6 +37,15 @@ PACKAGES = (
     'native_charge_readout','native_coherent_clock','native_calibrated_energy','native_euclidean_transfer',
 )
 
+from tools.joint_observer_results import NAMES as JOINT_PACKAGES
+PACKAGES = PACKAGES + JOINT_PACKAGES
+
+def package_module(name):
+    return name if name in JOINT_PACKAGES else 'openwave_'+name
+
+def receipt_path(name):
+    return 'model/'+package_module(name)+'/results.json'
+
 
 def decimal(value, upper=False, places=12):
     q = Fraction(value); scale = 10**places
@@ -63,9 +72,9 @@ def difference_with_error(value, error):
 def collect(root):
     root=Path(root).resolve(); data={}; receipts={}
     for name in PACKAGES:
-        relative=f'model/openwave_{name}/results.json'; path=root/relative
+        relative=receipt_path(name); path=root/relative
         value=json.loads(path.read_text())
-        owner=importlib.import_module(f'model.openwave_{name}.__main__')
+        owner=importlib.import_module('model.'+package_module(name)+'.__main__')
         expected=owner.pins()
         if not expected or value.get('source_sha256') != expected:
             raise ValueError('physical result inventory changed: '+name)
@@ -120,6 +129,7 @@ def collect(root):
         'source_record_attachment_certificates': __import__('tools.native_bridge_results',fromlist=['project']).project(data),
         'native_execution_certificates': __import__('tools.native_execution_results',fromlist=['project']).project(data),
         'coherent_integration_certificates': __import__('tools.coherent_integration_results',fromlist=['project']).project(data),
+        'joint_observer_certificates': __import__('tools.joint_observer_results',fromlist=['project']).project(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -267,7 +277,8 @@ def render(value):
     lines += render_execution(value['native_execution_certificates'])
     from tools.coherent_integration_results import render as render_coherent
     lines += render_coherent(value['coherent_integration_certificates'])
-    return lines
+    from tools.joint_observer_results import render as render_joint
+    return render_joint(value['joint_observer_certificates'])+lines
 
 
 def render_propagation_and_nuclei(value):

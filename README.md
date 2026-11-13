@@ -149,17 +149,22 @@ proof shows that the whole class of laws cannot work.
   while preserving the global vacuum. Physical masses and current dynamics
   require their compatible attachment.
   [Complete matter and field source](model/openwave_matter_flux_source/PROOF.md).
-- **Coherent motion, charge and clocks on shared hardware.** One native
-  event architecture supports coherent propagation, active protected memory
-  charge and repeated clock readouts. In the exact declared service contract,
-  inverse feedback restores the clock after charged transport; its generator also produces
-  a certified entangling interaction. The programs have different declared
-  schedules. Their common moving charged particle and physical energy scale
-  require a joint construction: the tested electron-anchored transition
-  ratios 1:3:12 fail the lepton hierarchy.
-  [Coherent source interfaces](claims/coherent_integration.json),
-  [Repeated clock and records](model/openwave_native_coherent_clock/PROOF.md),
-  [Propagation and complete spectrum](model/openwave_coherent_native_propagation/PROOF.md).
+- **Charge, electric fields and clocks in one observer program.** The charged
+  source and integer electric links evolve in one state. Every event preserves
+  Gauss charge; all 4,096 regional cuts have integer outcomes. An electric phase
+  changes the third-step position distribution by more than 0.08895 in total
+  variation. A complete reversible apparatus reads the clock on this same
+  field state, retaining every complement. Physical particle identity and a
+  shared stationary rest spectrum require further proofs.
+  [Joint construction](claims/joint_observer.json),
+  [Charged field records](model/native_gauss_walk/PROOF.md),
+  [Same-state clock](model/native_gauss_clock/PROOF.md).
+- **Three-dimensional spatial routing.** A declared cubic network of the same
+  twelve-port carriers has lowest scalar branch |k|²/8 with a controlled
+  quartic remainder. Its prepared wave records have a finite-speed scalar
+  limit. Transferring the complete charged-field and clock program to this
+  family requires a common interacting refinement theorem.
+  [Spatial refinement](model/native_spatial_refinement/PROOF.md).
 - **A Lorentzian scalar field from the observers' records.** On a declared
   radial extension of the refining screen, one action fixes correlations,
   response and a modular clock, and a smooth (1+3)-dimensional scalar field
