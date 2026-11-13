@@ -3,7 +3,7 @@
 **OPH développe une théorie exécutable d’un univers autoréférentiel d’observateurs, associant des constructions finies démontrées à des tests quantitatifs de leur interprétation physique.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Regardez un univers fabriquer ses propres particules : 81 920 observateurs, une seule règle locale de réparation, 71 accords avec notre univers. Ouvrir la simulation en direct sur particles.floatingpragma.ai." width="100%"></a>
+  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Regardez un univers fabriquer ses propres particules : 81 920 observateurs, une seule règle locale de réparation. Ouvrir la simulation en direct sur particles.floatingpragma.ai." width="100%"></a>
 </p>
 <p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Ouvrir la simulation en direct</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">Tous les accords avec notre univers</a> · <a href="https://particles.floatingpragma.ai/?page=journey">Des observateurs aux particules</a></p>
 

@@ -3,7 +3,7 @@
 **OPH develops an executable theory of a self-referential observer universe, combining proved finite constructions with quantitative tests of its physical interpretation.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Watch a universe make its own particles: 81,920 observers run one local repair rule, and the particle families of the Standard Model come out. 71 matches with our universe. Open the live simulation at particles.floatingpragma.ai." width="100%"></a>
+  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Watch a universe make its own particles: 81,920 observers run one local repair rule, and the particle families of the Standard Model come out. Open the live simulation at particles.floatingpragma.ai." width="100%"></a>
 </p>
 <p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Open the live simulation</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">All matches with our universe</a> · <a href="https://particles.floatingpragma.ai/?page=journey">The journey from observers to particles</a></p>
 
@@ -12,12 +12,6 @@
 [![Mandatory Suite](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/mandatory-suite.yml)
 [![Lean CI](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/lean-ci.yml)
 [![Runnable observer model](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml/badge.svg)](https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/observer-model.yml)
-
-## 71 matches with our universe
-
-<a href="https://particles.floatingpragma.ai/?page=matches"><img src="assets/matches-to-nature.jpg" alt="The matches page of the live simulation: 71 matches with our universe, 40 properties and laws that are the same and 31 numbers beside their measured values, among them the muon/electron mass ratio 206.770316 against 206.7682827 measured." width="100%"></a>
-
-One row per match: on the left what the simulation gives, on the right our universe. [Every row](https://particles.floatingpragma.ai/?page=matches) links to the code, proof and paper behind it.
 
 ## Mission
 
