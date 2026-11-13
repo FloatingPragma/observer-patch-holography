@@ -52,26 +52,24 @@
 \end{center}
 
 \begin{abstract}
-A finite collar-repair generator has a positive relaxation gap when local
-rates and approximate tensorization have uniform positive bounds.
-A common ground-state transform identifies that gap with the transfer
-Hamiltonian gap. On finite $\mathbb Z_2$ gauge systems, the free Wilson
-transfer satisfies the tested constant-rate identity; interacting tests
-fail it, while the Kogut--Susskind Hamiltonian has exact positive
-fiber-dependent rates. A separate full Haar-link SU(2) source on an
-eight-vertex cube has an interacting vacuum gap between $21/2$ and
-$1024/47$ in its declared units, with a nonzero finite-energy local
-curvature fluctuation. Its heat-kernel transfer is positive and time
-reflection positive. Exact one-plaquette character reduction gives
-infinite-representation spectral and correlation enclosures.
-These are finite-volume results. The cube bound deteriorates with volume
-and scales as the inverse spacing. A nontrivial four-dimensional
-Yang--Mills theory additionally requires the stated common-source
-Schwinger-function limit, covariance, locality, vacuum noncollapse and
-uniform physical gap. The continuum repair/Hamiltonian identification
-is conditional on those premises. A photon-containing matter theory
-is a different source and has no positive global vacuum gap under its
-massless-photon interpretation.
+Finite repair generators have positive relaxation gaps under stated rate and
+approximate-tensorization bounds. A common ground-state transform transfers
+such a gap only when its source and continuum premises hold. A distinct
+full-Haar lattice construction supplies an interacting finite-volume
+Yang--Mills vacuum, positive time-reflection transfer and exact
+infinite-representation spectral bounds. Local electric-star decomposition
+admits a uniform-volume gap at sufficiently strong coupling and fixed
+spacing. The same argument extends to compact connected semisimple gauge
+groups with their positive Casimir gaps; its coupling threshold is
+existential. A representation-independent propagation estimate gives
+explicit finite-box errors for infinite-volume local dynamics. These
+constructions retain nonzero physical Wilson excitations. At fixed coupling,
+the source gaps scale as inverse spacing. A nontrivial four-dimensional
+continuum additionally requires the stated common-source Schwinger-function
+limit, covariance, locality, noncollapse and uniform physical gap. The
+continuum repair/Hamiltonian identification is conditional on those
+premises. A photon-containing matter theory has a different source and no
+positive global vacuum gap under its massless-photon interpretation.
 \end{abstract}
 
 
@@ -1363,7 +1361,7 @@ That 2D result is a normalization and worldsheet-effective bridge. The spectral 
 concerns the support-visible compact-gauge Hamiltonian and obtains its lower bound by identifying
 Euclidean transfer with the repair generator.
 
-\section{A full Haar-link finite Yang--Mills source}
+\section{Full Haar-link Yang--Mills sources}
 \label{sec:full-haar-finite-source}
 
 On the full gauge-invariant Haar link space of an open three-dimensional
@@ -1424,16 +1422,43 @@ contains a non-vacuum local excitation. The interval, like the uniform gap,
 is existential here. The complete local decomposition and physical
 restriction are specified in \path{model/openwave_su2_volume_gap}.
 
-These sources instantiate finite physical-vacuum and local-noncollapse
-interfaces, and a periodic strongly coupled member has uniform volume
-control at fixed spatial spacing. Renormalized four-dimensional Schwinger
-functions, covariance, locality and a nontrivial spatial continuum limit
-are separate hypotheses of the continuum branch.
+\subsection{Local propagation and compact gauge groups}
+For the full-Haar pure $SU(2)$ Hamiltonian, the electric Casimir is unbounded
+on each link, while a plaquette interaction has norm $\beta=2/(g^2a)$.
+Four plaquettes meet a link and at most sixteen overlap one plaquette.
+The interaction-picture commutator bound therefore gives, for disjoint
+unit-norm observables at link-graph distance $d$,
+\[
+ \|[\tau_t(A),B]\|\leq
+ \min\left\{2,\;2|X|\sum_{n\geq d}
+                  \frac{(32\beta|t|)^n}{n!}\right\}.
+\]
+A polynomial boundary count and the same factorial tail prove norm
+convergence of local finite-volume dynamics at fixed spacing, with every
+Haar representation retained. At $g^2=32$, $a=t=1$, a four-link observable
+with buffer $32$ has a certified boundary error below $3.14\times10^{-20}$.
+This does not assign a numerical gap at that coupling. At fixed $g$, the
+Hamiltonian and its nonzero gaps scale as $1/a$; a finite physical mass needs
+a controlled changing-coupling or energy-unit trajectory. Scalar reference
+subtraction cannot change a gap. Infinite volume and continuous Hamiltonian
+time supply neither a four-dimensional spatial-continuum construction nor
+a Clay mass-gap result.
 
+The propagation bound is independent of the compact gauge group. For a
+compact connected semisimple group with first Casimir eigenvalue $c_G>0$,
+the same electric-star proof has local perturbation norm at most
+$48/[c_G(g^2)^2]$ and retains an existential fixed-spacing uniform gap.
+For $SU(N)$, positivity of the inverse Cartan matrix gives
+$c_G=(N^2-1)/(2N)$; nonzero fundamental Wilson variance supplies physical
+excitations in a sufficiently small perturbation interval. This extends the
+fixed-spacing argument across the gauge groups without supplying a
+spatial-continuum construction or a numerical coupling threshold.
+The construction and complete records are specified in \path{model/openwave_su2_propagation}.
 
 \section{Physical scope}
 
-A Clay-level conclusion requires the finite transfer receipt and a uniform
+A Clay-level conclusion through the stated repair-transfer route requires
+the finite transfer receipt and a uniform
 positive rate and approximate-tensorization floor, followed by the
 Schwinger-function, reflection-positivity, covariance, locality,
 nontriviality and transfer/intertwiner convergence requirements in
