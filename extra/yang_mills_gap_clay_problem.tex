@@ -1441,7 +1441,7 @@ This does not assign a numerical gap at that coupling. At fixed $g$, the
 Hamiltonian and its nonzero gaps scale as $1/a$; a finite physical mass needs
 a controlled changing-coupling or energy-unit trajectory. Scalar reference
 subtraction cannot change a gap. Infinite volume and continuous Hamiltonian
-time supply neither a four-dimensional spatial-continuum construction nor
+time supply neither a four-dimensional spacetime-continuum construction nor
 a Clay mass-gap result.
 
 The propagation bound is independent of the compact gauge group. For a
@@ -1454,6 +1454,86 @@ excitations in a sufficiently small perturbation interval. This extends the
 fixed-spacing argument across the gauge groups without supplying a
 spatial-continuum construction or a numerical coupling threshold.
 The construction and complete records are specified in \path{model/openwave_su2_propagation}.
+
+\paragraph{Two interacting gauge loops.}
+The full Haar Gauss quotient of two adjacent SU(2) plaquettes has one basis
+vector for each admissible spin triple $(j_1,j_2,J)$. Its electric energy is
+$\alpha[3j_1(j_1+1)+3j_2(j_2+1)+J(J+1)]$; the shared-link spin $J$ couples
+the two loops. Wilson multiplication has exact squared-$6j$ matrix
+coefficients, independently checked by Clebsch--Gordan Haar integrals.
+The source retains every representation. Finite proof coordinates carry
+a positive bound on their entire infinite complement. This construction
+concerns a finite interacting gauge graph and supplies no spatial
+continuum or physical particle identification.
+
+The complete source and records are specified in \path{model/openwave_coupled_haar_source}.
+
+\paragraph{A coupled gauge source with a certified full-Haar spectrum.}
+Two neighboring SU(2) plaquettes share a gauge link.  All spins and every
+admissible intermediate Gauss channel remain in the source Hilbert space.
+For declared squared coupling $g^2=2$ and spacing $a=1$, the positive
+Hamiltonian has the certified dimensionless gap
+\[
+  3.0919590200861 < E_1-E_0 < 3.0919590200916.
+\]
+The ground's connected Wilson covariance satisfies
+\[
+  0.00029712823194 <
+  \langle W_1W_2\rangle-\langle W_1\rangle\langle W_2\rangle
+  <0.00029712823335.
+\]
+Exact recoupling coefficients, complete dyadic spectral witnesses, a
+positive bound for the entire infinite complement, and native trial
+residuals establish these intervals.  Three representation resolutions
+give overlapping enclosures of the same untruncated source.  The separate
+independent-loop electric control has exactly zero connected covariance.
+At declared $g^2=4$ and $8$, the corresponding full-source gaps lie in
+$[6.0116008299245,6.0116008299596]$ and
+$[12.0014508439425,12.0014508439444]$.
+
+The four effects $(I+sW_1/2)(I+tW_2/2)/4$, $s,t=\pm1$, define a complete
+observer instrument on that same physical space.  Every outcome is
+retained with a certified probability interval.  Its nonselective
+ground-state energy cost is bounded by $\alpha/6$, where
+$\alpha=g^2/(2a)$; the readout is not assumed to be energy-free.
+These are finite-graph gauge and record results with full Haar spaces.
+They neither identify physical glueballs or GeV masses nor supply a
+four-dimensional continuum or a uniform-volume mass gap.
+
+The complete source and records are specified in \path{model/openwave_coupled_haar_spectrum}.
+
+\paragraph{A nonzero Euclidean response and a clock-sensitive limit test.}
+For the same full-Haar coupled source, let
+$v=(W_1-\langle W_1\rangle)\Omega$ and
+$C(t)=\langle v,e^{-t(H-E_0)}v\rangle$.
+All finite spectral weights and a rigorous infinite-representation
+remainder give
+\[
+  0.2355121412297 < C(0)<0.2355121412313,
+  \qquad
+  0.1077022623741<C(1/4)<0.1079898705277.
+\]
+The latter interval is a strictly positive full-source response, not a
+correlator of a cutoff-defined model.  Three representation resolutions
+overlap.  Temporal reflection positivity follows from the positive
+source spectral measure, with complete signed reflection forms also
+checked in the finite proof coordinates.
+
+At fixed coupling on this fixed graph, the declared physical clock gives
+$H(a)=H(1)/a$.  The variance stays positive but
+$C_a(t)\leq C(0)e^{-(E_1-E_0)t/a}$ tends to zero for every fixed $t>0$.
+This particular sequence fails the noncollapse condition for a strongly
+continuous field limit.  A viable four-dimensional Yang--Mills family
+must instead supply spatial refinement, controlled coupling flow, common
+noncollapsed local fields and the required physical gap scaling, together
+with its Euclidean and short-distance identification.  A finite-graph
+connected composite correlation does not establish a nonfree continuum.
+The separate Lean energy lemma excludes a positive gap only when the
+same flat-space vacuum and nonzero finite-energy excitation obey
+arbitrary positive dilation covariance; it makes no claim about compact
+spatial cylinders or vacua that break that covariance.
+
+The complete source and records are specified in \path{model/openwave_euclidean_refinement}.
 
 \section{Physical scope}
 
