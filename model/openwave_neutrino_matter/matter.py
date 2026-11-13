@@ -27,11 +27,14 @@ def native_forward():
     for i,s,j,r in product(range(6),range(2),range(6),range(2)):
         M[2*i+s,2*j+r]=sum((1 if mu==0 else -1)*((nu[i].conj()@a@nu[j])*(electron[s].conj()@a@electron[r])-(nu[i].conj()@a@electron[r])*(electron[s].conj()@a@nu[j])) for mu,a in J)
     exact=sy.Matrix(M).applyfunc(sy.nsimplify);x=sy.Symbol('x')
+    assert np.array_equal(M,np.array(exact).astype(complex))
     assert exact==exact.H and sy.factor(exact.charpoly(x).as_expr())==x**9*(x-1)*(x+1)**2
     mean=np.einsum('isjs->ij',M.reshape(6,2,6,2))/2
     expected=np.diag([F(1,4)]*2+[F(-1,4)]*4).astype(float)
     assert np.max(abs(mean-expected))<1e-14
-    return {'matrix':M,'mean':mean,'exact_polynomial':str(x**9*(x-1)*(x+1)**2),'exact_matrix':[[str(v) for v in row] for row in exact.tolist()]}
+    crossed=sy.Matrix(-M.reshape(6,2,6,2).transpose(2,1,0,3).reshape(12,12)).applyfunc(sy.nsimplify)
+    assert sy.factor(crossed.charpoly(x).as_expr())==(2*x-1)**7*(2*x+1)**5/4096
+    return {'crossed_exact_polynomial':str(sy.factor(crossed.charpoly(x).as_expr())),'matrix':M,'mean':mean,'exact_polynomial':str(x**9*(x-1)*(x+1)**2),'exact_matrix':[[str(v) for v in row] for row in exact.tolist()]}
 
 
 def source(momentum_eV,antineutrino=False):
@@ -41,7 +44,11 @@ def source(momentum_eV,antineutrino=False):
     v=np.column_stack((large,small)).reshape(6);R=c['R']
     Q=np.kron(R,np.eye(2))@np.diag(u);D=np.kron(Q,np.eye(2));M=D.conj().T@native_forward()['matrix']@D
     mean=np.einsum('isjs->ij',M.reshape(6,2,6,2))/2
-    if antineutrino:M=-M.conj();mean=-mean.conj();R=R.conj()
+    if antineutrino:
+        # CAR hole crossing transposes only the neutral indices; the electron
+        # medium is not charge conjugated. The helicity labels are dual.
+        M=-M.reshape(6,2,6,2).transpose(2,1,0,3).reshape(12,12)
+        mean=-mean.conj();R=R.conj()
     gaps=(m*m-m[0]**2)/(E+E[0]);free=np.repeat(gaps,2)
     assert np.linalg.norm(M-M.conj().T)<1e-14 and np.linalg.norm(mean-mean.conj().T)<1e-14
     assert np.linalg.norm(M,2)<=1+1e-14 and np.linalg.norm(mean,2)<=.25+1e-14
@@ -106,11 +113,14 @@ def run(momentum_GeV,length_km,rho_g_cm3=2.8,N=2**14,antineutrino=False):
     active_diff=max(abs(average[k]-stdprob[j]) for j,k in enumerate(('e','mu','tau')))
     chirality=(max(m)/(2*d['p']))**2;comparison=20*chirality*(1+max(abs(phase))+abs(alpha))
     assert active_diff<comparison+2e-14
-    dephased=sum(K@mean@K.conj().T for K in Ks)
-    return {'momentum_GeV':momentum_GeV,'antineutrino':antineutrino,'units':u,'collisions':N,'complete_finite_medium_records':records,'complete_coherent_mean_records':average,'complete_vacuum_records':vac,'finite_medium_vs_mean_TV_diagnostic':observed,'uniform_complete_channel_TV_bound':bound,'standard_active_matter_probabilities_diagnostic':stdprob.tolist(),'mean_vs_active_matter_max_error_diagnostic':active_diff,'relativistic_chirality_record_comparison_bound':comparison,'actual_native_forward_norm':float(np.linalg.norm(d['M'],2)),'full_hilbert_dimension_active_plus_sterile_helicities':6,'electron_spin_record_paths':'4^N Kraus words retained as a complete composed instrument; evaluation uses its36-dimensional superoperator','source_work':{'per_collision_external_switching_absolute_upper_eV':2*units()['native_Weyl_G_GeV_minus2']*1e-18*u['electron_density_eV3'],'mean_neutral_free_energy_change_eV':float(np.trace(np.diag(d['free'])@(rho-initial)).real),'mean_source_energy_is_conserved_between_switches':True}}
+    full_energies=np.repeat(np.hypot(d['p'],d['masses']),2)
+    detector_work=float(np.sum(full_energies*np.diag(rho).real*(d['v']**2-1)))
+    stable_gaps=np.repeat(d['masses']**2/(np.hypot(d['p'],d['masses'])+d['p']),2)
+    preparation_work=float(np.sum(stable_gaps*np.diag(initial).real))
+    return {'momentum_GeV':momentum_GeV,'antineutrino':antineutrino,'units':u,'collisions':N,'complete_finite_medium_records':records,'complete_coherent_mean_records':average,'complete_vacuum_records':vac,'finite_medium_vs_mean_TV_diagnostic':observed,'uniform_complete_channel_TV_bound':bound,'standard_active_matter_probabilities_diagnostic':stdprob.tolist(),'mean_vs_active_matter_max_error_diagnostic':active_diff,'relativistic_chirality_record_comparison_bound':comparison,'actual_native_forward_norm':float(np.linalg.norm(d['M'],2)),'full_hilbert_dimension_active_plus_sterile_helicities':6,'electron_spin_record_paths':'4^N Kraus words retained as a complete composed instrument; evaluation uses its36-dimensional superoperator','source_work':{'preparation_mean_work_eV':preparation_work,'detector_mean_work_eV':detector_work,'detector_reference':'active absorption transfers Dirac number to an explicit zero-energy reference port; sterile quantum outputs retain their free energy','per_collision_external_switching_absolute_upper_eV':2*units()['native_Weyl_G_GeV_minus2']*1e-18*u['electron_density_eV3'],'mean_neutral_free_energy_change_eV':float(np.trace(np.diag(d['free'])@(rho-initial)).real),'mean_source_energy_is_conserved_between_switches':True}}
 
 
 def certificate():
     native=native_forward();rows=[run(E,L,rho,N,anti) for E,L,rho in ((.6,295.,2.6),(2.,810.,2.8),(2.5,1300.,2.8)) for N in (2**10,2**14) for anti in (False,True)]
     u=unit_dictionary();c=calibration();dm=float(c['mass_squared_eV2_exact'][2]-c['mass_squared_eV2_exact'][0]);cos2=1-2*float(c['oscillation_inputs']['sin2_theta13']);resonance=dm*cos2/(2*u['charged_current_potential_eV'])/1e9
-    return {'schema':'oph.native_neutrino_electron_medium.v1','verdict':'PASS_NATIVE_MATTER_POTENTIAL_AND_COMPLETE_COLLISION_RECORDS','native_forward_current_exact_matrix':native['exact_matrix'],'native_forward_characteristic_polynomial':native['exact_polynomial'],'exact_forward_current_norm':'1','exact_unpolarized_mean':'(P_e/2-I/4) tensor I_spin, before massive active-band compression','physical_charged_current_potential':'G_Weyl*n_e/2=sqrt(2)*GF*n_e','same_mass_tensor':'all three calibrated Dirac masses, full family frame, both helicities and their sterile readout complements','finite_medium_executions':rows,'two_flavour_atmospheric_resonance_scale_GeV':resonance,'resonance_scope':'diagnostic two-flavour scale of the derived potential; full records use all three flavours and the calibrated CP phase','medium_source_contract':'Native positive-frequency forward-current port architecture. Exact number-conserving quartic forward terms retain the complete6x2 admitted sector and its Fock complement. This is not an unproved projection equivalence for the unfiltered momentum-changing contact source.','apparatus':'fresh unpolarized rest-electron spin ports; every spin/environment word retained. Density, composition, flight length and collision count are declared apparatus inputs.','empirical_ancestry':'six neutral oscillation inputs and chosen lightest mass; GF weak normalization with muon ancestry; no matter-oscillation probability or resonance is fitted','physical_beam_event_likelihood_or_autonomous_released_neutrino_claimed':False,'scope':'A derived same-current matter potential and controlled finite complete observer instruments, with physical unit dictionary; no measured matter-event fit or full unfiltered scattering theorem.'}
+    return {'schema':'oph.native_neutrino_electron_medium.v1','verdict':'PASS_NATIVE_MATTER_POTENTIAL_AND_COMPLETE_COLLISION_RECORDS','native_forward_current_exact_matrix':native['exact_matrix'],'native_forward_characteristic_polynomial':native['exact_polynomial'],'native_antineutral_crossed_characteristic_polynomial':native['crossed_exact_polynomial'],'exact_forward_current_norm':'1','exact_unpolarized_mean':'(P_e/2-I/4) tensor I_spin, before massive active-band compression','physical_charged_current_potential':'G_Weyl*n_e/2=sqrt(2)*GF*n_e','same_mass_tensor':'all three calibrated Dirac masses, full family frame, both helicities and their sterile readout complements','finite_medium_executions':rows,'two_flavour_atmospheric_resonance_scale_GeV':resonance,'resonance_scope':'diagnostic two-flavour scale of the derived potential; full records use all three flavours and the calibrated CP phase','medium_source_contract':'Native positive-frequency forward-current port architecture. Exact number-conserving quartic forward terms retain the complete6x2 admitted sector and its Fock complement. This is not an unproved projection equivalence for the unfiltered momentum-changing contact source.','apparatus':'fresh unpolarized rest-electron spin ports; every spin/environment word retained. Density, composition, flight length and collision count are declared apparatus inputs.','empirical_ancestry':'six neutral oscillation inputs and chosen lightest mass; GF weak normalization with muon ancestry; no matter-oscillation probability or resonance is fitted','physical_beam_event_likelihood_or_autonomous_released_neutrino_claimed':False,'scope':'A derived same-current matter potential and controlled finite complete observer instruments, with physical unit dictionary; no measured matter-event fit or full unfiltered scattering theorem.'}

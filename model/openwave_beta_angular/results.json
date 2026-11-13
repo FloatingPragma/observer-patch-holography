@@ -243,6 +243,243 @@
   "native_matrix_polynomial_max_error": 3.015365734881925e-13,
   "native_spin_polynomial": "-ax*bx*g**2/2 + ax*bx/2 - ay*by*g**2/2 + ay*by/2 - az*bz*g**2/2 + az*bz/2 - az*g**2 + az*g + bz*g**2 + bz*g + 3*g**2/2 + 1/2",
   "physical_weak_clock_or_lifetime_claimed": false,
+  "positive_spin_gradient_same_current_transfer": {
+    "actual_hadron_eigenstate_residual": 3.876840912266654e-12,
+    "actual_native_axial": 1.2752999999993588,
+    "actual_native_vector": 1.0000000000000004,
+    "actual_strong_parameters": {
+      "A": "3137629345446457/2199023255552",
+      "Js": "1/4",
+      "Jw": "1/4",
+      "U": "4183412123069653/17592186044416",
+      "delta": "129333251000/51099895069",
+      "eta": "20560224470767/8796093022208",
+      "kappa_colour": "4",
+      "mbar": "595807614915777/4398046511104",
+      "spin_gradient": "5/2",
+      "t": "1/8"
+    },
+    "certified_actual_axial_interval": [
+      "250782471742675371657534662944469837834671969752241952844536375488457191820153982812384815097/196645865090052927871155577891290507268502836746464536106259009924875048601320759889478931695",
+      "250782471755850353110943604447162521781826094372024779752264515671323036542840842791330146297/196645865090052927871155577891290507268502836746464536106259009924875048601320759889478931695"
+    ],
+    "coefficients": {
+      "A": -0.11943525153228766,
+      "B": 0.9871087098146402,
+      "a": -0.10654396134692783
+    },
+    "finite_cube_records": [
+      {
+        "complete_original_record_intervals": {
+          "e_z_-1_hole_z_-1": [
+            3.2091028853339776e-15,
+            3.845039169011349e-15
+          ],
+          "e_z_-1_hole_z_0": [
+            3.782350787380825e-15,
+            4.418287071058197e-15
+          ],
+          "e_z_-1_hole_z_1": [
+            2.4243100619455313e-16,
+            8.783672898719243e-16
+          ],
+          "e_z_0_hole_z_-1": [
+            6.2293026156408446e-15,
+            6.8652388993182164e-15
+          ],
+          "e_z_0_hole_z_0": [
+            7.290447523374101e-15,
+            7.926383807051473e-15
+          ],
+          "e_z_0_hole_z_1": [
+            7.103314389312596e-16,
+            1.3462677226086308e-15
+          ],
+          "e_z_1_hole_z_-1": [
+            2.691370225914315e-15,
+            3.3273065095916866e-15
+          ],
+          "e_z_1_hole_z_0": [
+            3.1612580671642596e-15,
+            3.797194350841631e-15
+          ],
+          "e_z_1_hole_z_1": [
+            1.3907094785027602e-16,
+            7.750072315276472e-16
+          ],
+          "failed_preparation": [
+            0.9916666666666667,
+            0.9916666666666667
+          ],
+          "prepared_full_quantum_complement": [
+            0.008333333333302698,
+            0.008333333333303335
+          ]
+        },
+        "cube_side": 4,
+        "electron_energy_GeV": [
+          0.00051099895069,
+          0.001142628390173903,
+          0.0015329968520699999,
+          0.0018424329184210894
+        ],
+        "exact_full_Fock_parity_upper": -2.688798050085703e-14,
+        "exact_full_Fock_parity_upper_rational": "-40331970751285549/1500000000000000000000000000000",
+        "exact_full_Fock_probability_error_upper": 4.4507299447059634e-14,
+        "first_order_joint_z_sign_probabilities": [
+          [
+            4.2324852326071957e-13,
+            4.920382715063413e-13,
+            6.724789776398865e-14
+          ],
+          [
+            7.856724908975436e-13,
+            9.130098798255345e-13,
+            1.2339594969239342e-13
+          ],
+          [
+            3.611206041303601e-13,
+            4.1750714508035343e-13,
+            5.48446907626754e-14
+          ]
+        ],
+        "first_order_selected_probability": 3.63808545291991e-12,
+        "full_current_Wick_column_squared_norm": 39.411637072122666,
+        "momentum_velocity_distinction": "p_j=2 sin(k_j), v_j=4 sin(k_j) cos(k_j)/E; the instrument records momentum, not velocity",
+        "native_CAR_coordinates": 1680,
+        "parity_odd_first_order_probability": -1.4906225255766039e-13,
+        "radial_momentum_source_weights": {
+          "0.0": 4.485450945109744e-13,
+          "2.0": 1.3616193813988104e-12,
+          "2.828427124746": 1.3694629675242658e-12,
+          "3.464101615138": 4.584580094858596e-13
+        },
+        "retained_hadron_state_count": 120,
+        "selected_hadron_state_count": 2,
+        "selected_probability_by_neutral_mass": [
+          2.461791287215312e-12,
+          1.0957105729224223e-12,
+          8.058359278217599e-14
+        ],
+        "source_time": "1/10000",
+        "spatial_sites": 64,
+        "unresolved_quantum_complement": "all other hadrons, all charged/neutral families, all helicities, every multipair sector, and no emission"
+      },
+      {
+        "complete_original_record_intervals": {
+          "e_z_-1_hole_z_-1": [
+            7.106313866445568e-15,
+            7.74225015012294e-15
+          ],
+          "e_z_-1_hole_z_0": [
+            2.7340743991368113e-15,
+            3.3700106828141824e-15
+          ],
+          "e_z_-1_hole_z_1": [
+            1.3821905275341143e-15,
+            2.0181268112114853e-15
+          ],
+          "e_z_0_hole_z_-1": [
+            4.325058981353095e-15,
+            4.960995265030467e-15
+          ],
+          "e_z_0_hole_z_0": [
+            1.5908512032449535e-15,
+            2.2267874869223244e-15
+          ],
+          "e_z_0_hole_z_1": [
+            7.396855288572528e-16,
+            1.3756218125346238e-15
+          ],
+          "e_z_1_hole_z_-1": [
+            6.161417617346498e-15,
+            6.79735390102387e-15
+          ],
+          "e_z_1_hole_z_0": [
+            2.334852346702226e-15,
+            2.9707886303795973e-15
+          ],
+          "e_z_1_hole_z_1": [
+            1.1294206222098773e-15,
+            1.7653569058872483e-15
+          ],
+          "failed_preparation": [
+            0.9916666666666667,
+            0.9916666666666667
+          ],
+          "prepared_full_quantum_complement": [
+            0.00833333333330265,
+            0.008333333333303286
+          ]
+        },
+        "cube_side": 8,
+        "electron_energy_GeV": [
+          0.00051099895069,
+          0.0008850761452094633,
+          0.0008850761452094634,
+          0.0008850761452094635,
+          0.0011426283901739029,
+          0.001142628390173903,
+          0.0011426283901739033,
+          0.0013519761437406973,
+          0.0013519761437406975,
+          0.0013519761437406977,
+          0.0015329968520699999,
+          0.00153299685207,
+          0.0016947917877040504,
+          0.0018424329184210894
+        ],
+        "exact_full_Fock_parity_upper": -2.688798050085703e-14,
+        "exact_full_Fock_parity_upper_rational": "-40331970751285549/1500000000000000000000000000000",
+        "exact_full_Fock_probability_error_upper": 4.4507299447059634e-14,
+        "first_order_joint_z_sign_probabilities": [
+          [
+            8.909138409941106e-13,
+            3.662451049170596e-13,
+            2.0401904032473599e-13
+          ],
+          [
+            5.571632547830136e-13,
+            2.2905832141003667e-13,
+            1.269184404835126e-13
+          ],
+          [
+            7.77526291102222e-13,
+            3.183384586249094e-13,
+            1.7368665168582754e-13
+          ]
+        ],
+        "first_order_selected_probability": 3.643869404325428e-12,
+        "full_current_Wick_column_squared_norm": 39.412393493336346,
+        "momentum_velocity_distinction": "p_j=2 sin(k_j), v_j=4 sin(k_j) cos(k_j)/E; the instrument records momentum, not velocity",
+        "native_CAR_coordinates": 12432,
+        "parity_odd_first_order_probability": -1.916265848229472e-13,
+        "radial_momentum_source_weights": {
+          "0.0": 5.6068136833418624e-14,
+          "1.414213562373": 3.391453171640437e-13,
+          "2.0": 8.516204559416697e-13,
+          "2.449489742783": 1.139277307314578e-12,
+          "2.828427124746": 8.568212180847762e-13,
+          "3.162277660168": 3.4355426221311315e-13,
+          "3.464101615138": 5.738270677382871e-14
+        },
+        "retained_hadron_state_count": 120,
+        "selected_hadron_state_count": 2,
+        "selected_probability_by_neutral_mass": [
+          2.4657051263375773e-12,
+          1.097452570682043e-12,
+          8.071170730580822e-14
+        ],
+        "source_time": "1/10000",
+        "spatial_sites": 512,
+        "unresolved_quantum_complement": "all other hadrons, all charged/neutral families, all helicities, every multipair sector, and no emission"
+      }
+    ],
+    "native_matrix_polynomial_error": 1.0080825063596421e-13,
+    "scope": "The same full native current, actual source quartet, certified axial interval, preparation and Gaussian lepton source satisfy the angular proof. The full coloured complement and calibrated source conditions come from the bound owning source; no label-only transfer.",
+    "source": "model/openwave_spin_gradient_nuclei/source.py",
+    "strong_free_channel_endpoint_GeV": 0.0007823335593095811
+  },
   "schema": "oph.native_3d_beta_angular.v1",
   "source_geometry": "two native internal hadron cells at spatial sites (0,0,0),(1,0,0); 3D periodic Weyl kinetic p=2sin(k), every valley retained",
   "source_sha256": {
@@ -368,6 +605,7 @@
     "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
     "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
     "model/lepton_cycle/__init__.py": "aaaf87869230232102ef73d973833229a1ea6307fe88d677be9fcb6284a808c3",
+    "model/lepton_cycle/experimental_inputs.json": "7062d3dbdb8ece9afcbb89334966c3f325fb5c3c28f1d02f1b01341e8b597ce3",
     "model/lepton_cycle/instrument.py": "18d6fceae8b68a8982a8b1505d97c2bd80a38cb0d50097768b05e7bc114a14b1",
     "model/lepton_mass_compiler/__init__.py": "fc6633a00aef73d8f3797ef92f97bbc4268891d13a5f9adb52039f6f7065a6f9",
     "model/lepton_mass_compiler/analyzer.py": "94b886507233c44a4c49b17093d3f8c509c863905d728655e85b983eb94fb6cd",
@@ -462,26 +700,27 @@
     "model/openwave_axial_state/__init__.py": "b7044bcc205aaf979d0f2600e8ae2db2245c1ca5ca646100d1449463d6b20c04",
     "model/openwave_axial_state/__main__.py": "a8639a915b021bdf2f517bf8988063ea39d34406e9db0bf08d288e028667d8a9",
     "model/openwave_axial_state/certificate.py": "2c57576afcc8063b7757dcbae1da959ba0bfa20e9d138766bfa7faba7dc30dfa",
-    "model/openwave_axial_state/fragments.py": "88bfc039358312477f9d77110e213569af9a9d6d4516a97277afb7c227857c49",
+    "model/openwave_axial_state/fragments.py": "0e2641bc6e1b5861aaa4d593f6cdc7ddb2a4c8ba2e1e292e8d76be87d403f41b",
     "model/openwave_axial_state/inputs.json": "ad99d479e7b39274b65d67f7db792f881246efc1d0213c358786000117efe7ae",
-    "model/openwave_axial_state/results.json": "895ad3bd2071bc446988a736bcc5a6b99ed2642303068912f1b5758d222cd48a",
+    "model/openwave_axial_state/results.json": "e83bf127a7ed9865369327df104bf8fea2bb73043e337ebd8af403114e19dacb",
     "model/openwave_axial_state/source.py": "90d17bfefcf588487266fe4230c9957eff246c6d4cbc6cba2e403ddd83d48b0a",
     "model/openwave_axial_state/test_source.py": "6a031bf02cdd7d93e588869036a07480bc9e1d997a19ff03b8c60aae257e0749",
     "model/openwave_baryon_ordering/__init__.py": "b379e135213777ea5af32bd2bac01c11fdd28e0bfbfa53f44440c4d83b9d8a4a",
-    "model/openwave_baryon_ordering/source.py": "bb723a36e30f9b23b92eb8c79bcb39b6d4cd9b87c95da07c5d8a80d30481ccb7",
+    "model/openwave_baryon_ordering/source.py": "a215b75193a75355e9a68e686b818a98f6e780b6162526251db49963b282dfdf",
     "model/openwave_baryon_weak_formfactors/__init__.py": "c7a8e6da220fe46b51ff7e50c48ea5ece945ef6168276af7bec3b35950830a14",
     "model/openwave_baryon_weak_formfactors/native.py": "57eaea89be3c1ca380d0a77764d1b6aa160ecb9cdc70d5d95bee814e0e9eded8",
-    "model/openwave_beta_angular/PAPER_RESULT.tex": "9728bfb032ca70f7864269dfb91f29029e95e82ee6010d0f3b1acf4648031bbe",
-    "model/openwave_beta_angular/PROOF.md": "7d0368a4cf96702a0add596ef63c2fbb013f2fda1745c7d4ede54deac378e3d1",
+    "model/openwave_beta_angular/PAPER_RESULT.tex": "8aaaee02f2b54ea8dcb316b139692e7ee6e74bd9dfe4c00f0ee125c59dda9959",
+    "model/openwave_beta_angular/PROOF.md": "23b7332bf3cd2d289c39424e31026072284b825355f7511e81c64ebfb2d53640",
     "model/openwave_beta_angular/README.md": "b3ae3648d717a4ff5990fc3682514ef181cead712a437576612e6a0051fd7c16",
     "model/openwave_beta_angular/__init__.py": "e13c3c405c17c383fd7daf004cef7cd34d78fbd2d75d260c1a4dc590afaf2181",
-    "model/openwave_beta_angular/__main__.py": "8f98658a92ad4974423c3e54317a0375351fb9f23f68258fbb1344f2334828c1",
-    "model/openwave_beta_angular/angular.py": "9f2cfc355a2d243249829b8e960d82436ef6056dd9c8c99ec71049c767e1135b",
-    "model/openwave_beta_angular/test_angular.py": "9d65cea3c659723e45f00094de580103daf83a08853d2e04ffab45c11351402c",
+    "model/openwave_beta_angular/__main__.py": "a27cde60f4b77817e47e25a3059a03caf6fd86554f7553358ecbc76a5b3b52c7",
+    "model/openwave_beta_angular/angular.py": "ab53860c20e8e6387a6703c0306802b8b002f43b390a8280b060ac3759202ab9",
+    "model/openwave_beta_angular/test_angular.py": "e5e927b9b7c0a59d9a57acd5f3818d07fb44f4f2f19ea70aa415df17b055d402",
+    "model/openwave_beta_angular/transfer.py": "658e74f4157d530324cc36e18f4919d8bef1734909aad124672106c753e0b4e4",
     "model/openwave_beta_outgoing/__init__.py": "b0385beb3416f46084733791982bc4ef5af362c71212b20d85e7b79aad0d1c63",
     "model/openwave_beta_outgoing/response.py": "a62a1b8f9137a137402348e43d6e59df63ebee854e74850b77ac35ca63bf60e8",
     "model/openwave_calibrated_hadrons/__init__.py": "f4ca74d2e9ffcff1f45c06bc3fe70cd94a2c0fcc9c446eaf3f9e518c97ec77a1",
-    "model/openwave_calibrated_hadrons/source.py": "2267fb297a73609badd886bdb6006740f095e816668ff35c8652b0f60712728e",
+    "model/openwave_calibrated_hadrons/source.py": "fdf43ca8411e1ded3c4fe1f08a9e37504b036c5f06f8f55a5b3b1e990c93766c",
     "model/openwave_common_mass_source/PAPER_RESULT.tex": "a310f90987c1986046e9dc7c3b1e06eecfe1e293a485f10ff90f058cfb398c41",
     "model/openwave_common_mass_source/PROOF.md": "f182b89bd677b68e5cc2d70774748ef90b51af3d1290fdcaa3795e37ada609d2",
     "model/openwave_common_mass_source/README.md": "4372d8ce922a9d03cf0c3eb649f03ee42f4e2909f959cc4ba038f41c254936f6",
@@ -495,6 +734,9 @@
     "model/openwave_dirac_neutral_current/neutral.py": "f3e2fb127b6997cf58d4e9988e617d64bfeaf6d5cb12ae3ab12c188538c2fffc",
     "model/openwave_field_observables/__init__.py": "f4a705d7f939370cefc95baaba023ec00338658d145d191b07254a6290dae45c",
     "model/openwave_field_observables/lattice.py": "36fcf1b1fa6347e4893ea0a5b991194cec49ae46851444fa6456d6aad5a9c592",
+    "model/openwave_hadron_spin_constraints/__init__.py": "2a59927b7f5f407b785ec6da28efa29b3a90dafcea14adb9d7bba55a42dd1432",
+    "model/openwave_hadron_spin_constraints/constraints.py": "0a91111cc70e3c28f5b9e3dfa970cdab2ff49f9ebb90a6a7b0919922717ec809",
+    "model/openwave_hadron_spin_constraints/hyperfine.py": "03ed71df4466b4a5460d787c7c6428cde2e581b37a63456600188694e55bcb6d",
     "model/openwave_intrinsic_magnetic/__init__.py": "0c73d9f2d798fc45c0a308166484b8512cd93c70377c47d4ef333171102509c2",
     "model/openwave_intrinsic_magnetic/checks.py": "676b2d9a73c36ebffbfde637c5460daeed3a7c690792bbb5c703c6066324ee16",
     "model/openwave_intrinsic_magnetic/solver.py": "a549ac66f63742e35a98af4c94ae18d6ca60f0834ba42ba7a17b55b0d33e282f",
@@ -514,12 +756,24 @@
     "model/openwave_neutrino_calibration/neutral.py": "fab9ca8468cdff55be106f9067ecc69ba72921b701abcc2a27789b7026f865dd",
     "model/openwave_neutrino_calibration/oscillation_inputs.json": "0e4c14910e567ba1bba4fad218b0c52867325b68dcf17da712daae0258a498ed",
     "model/openwave_neutrino_calibration/test_calibration.py": "7b9f3613805b279cc44c7ee6a49eddcfd69ba499f46b6641d5c8743d1234095a",
+    "model/openwave_nuclear_distance/__init__.py": "30e7044a3a4680b532c329a5adfd3fe563b5c94ec51c9ed38b6ea3ec8985ad69",
+    "model/openwave_nuclear_distance/nuclear.py": "088d7fe7364f90ceca16505fe4d49b627d9c6a15f7d47dfbd7619b084639b45d",
     "model/openwave_quantum_rotational/__init__.py": "2e3cc615111ee0638011ed408f3e2297408c9e1eeb454b9d210750a9fb9f34a2",
     "model/openwave_quantum_rotational/enclosure.py": "6bddd25c17c69def9772bcfb5bb996548951ef7ca9ab750097bec6b2fe465aa6",
     "model/openwave_quantum_rotational/source.py": "77b1bd4d3d1cae0959f6b0f4f89436d98500bd107ee2f69a80c80981e9381f82",
     "model/openwave_six_quark/__init__.py": "5c56898fa7c733daa469be5dc9f38ebd1e1d2d25ff8e66c23b5a858608c6b9a7",
     "model/openwave_six_quark/certificate.py": "c259709666562965c03fe0e32008076689b03534fd40e2ba74bb1b1008f9d37d",
     "model/openwave_six_quark/source.py": "fdcef93d0788ea26f9550c5839355259d0a3dee3477b3b6976eefad945d491a7",
+    "model/openwave_spin_gradient_nuclei/PAPER_RESULT.tex": "66db40e0924bf73688fc1d003b4076d69015ec95b085548420a340f7761ec8f7",
+    "model/openwave_spin_gradient_nuclei/PROOF.md": "28d666d540853407bb8935be4580252670f7790f85486bdc3e48871b0765777c",
+    "model/openwave_spin_gradient_nuclei/README.md": "ec4c8690df2609ed549ca430732f99e7df4b6c9793401c85fd95faa4b672e7ed",
+    "model/openwave_spin_gradient_nuclei/__init__.py": "96f2a48786c423cad57aa6fda657b801f89a1b3e73f57858ddcd06dd8ef5c2b0",
+    "model/openwave_spin_gradient_nuclei/__main__.py": "614c28f98ff8896e54d1c422614e1e47e407b0abeae9ae0cd6ab115be751065b",
+    "model/openwave_spin_gradient_nuclei/certificate.py": "a2e36a31b7189b8514fa43fb3508f19e306329b55f36af9995bde68c43f167d6",
+    "model/openwave_spin_gradient_nuclei/inputs.json": "bf126b157b9acfaa159df6a55b90b094d217f1b84574ff16780c3d7122561302",
+    "model/openwave_spin_gradient_nuclei/results.json": "24fc8be25e14fc1abb657a0c5ec8f8be69679a15e614b95f6755dbfe6a075b64",
+    "model/openwave_spin_gradient_nuclei/source.py": "5533c08f52efe7690524b6861bf8912d5e3da90145e0ddc6e79fd5e4eac4881f",
+    "model/openwave_spin_gradient_nuclei/test_source.py": "eb597ae7b3d18036229862c81795c7bfde25bb580dcac65b0a57ffa818e1b33a",
     "model/openwave_weak_decay/__init__.py": "dff7a5f6aa72480b5e64cd16665461d0bb9eece06e925b311bcd932c7b8d062a",
     "model/openwave_weak_decay/decay.py": "8537b7c2a512aef8bac0b299ff17731769723d33747d6ea5f3bcf9baec0d3247",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",

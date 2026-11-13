@@ -152,6 +152,15 @@ jobs:
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
+      - name: Prepare the pinned OpenWave runtime for the additional kernel replay
+        if: matrix.shard == 1
+        run: |
+          python -m pip install taichi==1.7.4
+          git init "$RUNNER_TEMP/oph-openwave-kernel"
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" fetch --depth=1 https://github.com/openwave-labs/openwave.git ef55175d04737e73c92f33f9f9cf3d17c593da54
+          git -C "$RUNNER_TEMP/oph-openwave-kernel" checkout --detach FETCH_HEAD
+          echo "OPH_OPENWAVE_ROOT=$RUNNER_TEMP/oph-openwave-kernel" >> "$GITHUB_ENV"
+          echo "OPH_TAICHI_PYTHON=$(command -v python)" >> "$GITHUB_ENV"
       - run: python -m model.verify_current --shard-index ${{ matrix.shard }} --shard-count 6
       - if: matrix.shard == 2
         run: python code/source_scalar_time_refinement/verify_source_scalar_time_refinement.py

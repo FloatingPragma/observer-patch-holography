@@ -14,3 +14,9 @@ See [the proof](PROOF.md) and [the results](results.json).
 
     python -m model.openwave_boosted_records --write --openwave-root /path/to/openwave --python /path/to/taichi/python
     python -m model.openwave_boosted_records --check --openwave-root /path/to/openwave --python /path/to/taichi/python
+
+The environment variables `OPH_OPENWAVE_ROOT` and `OPH_TAICHI_PYTHON`
+provide the same paths for the ordinary `--check` command. The runner
+requires the pinned OpenWave checkout and a Taichi interpreter; it has no
+substitute NumPy-only replay. The recorded execution uses Taichi 1.7.4 on
+Python 3.12.

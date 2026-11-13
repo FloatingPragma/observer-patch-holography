@@ -17,6 +17,10 @@ U_(beta,i)* U_(alpha,j). These are actual coefficients of the native weak
 raising matrix in the declared mass frame. The complete angular dark space
 and all free spectator sectors are retained. For the tau-like parent both
 charged daughter continua occur with the same coupling and parent amplitude.
+Each prepared-parent member is a declared source. The tau member omits a
+subsequent muon-daughter decay vertex; the separate muon member calculates
+that parent process. No simultaneous hierarchy or full cascade theorem is
+transferred from these reducing sectors.
 
 The conserved number combinations prove an exact parent-plus-three-daughter
 sector for each admitted parent input. The positive-frequency vertex is an

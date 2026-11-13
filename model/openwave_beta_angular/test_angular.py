@@ -20,3 +20,10 @@ def test_group_velocity_and_momentum_are_distinct_instruments():
     assert np.any(p*v<-.1)
     d,E=a.densities(p,.2,1);assert np.max(abs(np.trace(d,axis1=1,axis2=2)-1))<1e-14
     assert np.min(np.linalg.eigvalsh(d))>=-1e-14
+
+def test_actual_positive_spin_gradient_quartet_transfer():
+    from .transfer import certificate
+    r=certificate();assert abs(r['actual_native_vector']-1)<2e-10
+    assert abs(r['actual_native_axial']-1.2753)<1e-8
+    assert r['actual_strong_parameters']['spin_gradient']=='5/2'
+    assert all(x['exact_full_Fock_parity_upper']<0 for x in r['finite_cube_records'])

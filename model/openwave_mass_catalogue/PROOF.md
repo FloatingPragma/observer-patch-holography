@@ -67,3 +67,33 @@ windows are reported with their original preparation failure. A fitted mean
 is not substituted for a stationary eigenline, and a finite eigenline is not
 substituted for a continuum nucleon pole. Each row links the source that defines
 its preparation, reference, interaction and instrument.
+
+## Strong masses and weak partial widths
+
+The positive spin-gradient member supplies the strong-sector proton,
+neutron and charged-pion energy calibrations and a spin-one six-quark
+energy near 1.87561294497 GeV. The latter uses deuteron binding as its fifth
+calibration input. Its complete nuclear census retains an unassigned
+spin-three bound channel. The native integer preparation succeeds with
+probability 1/17000, and its complementary outcome is not renormalized away.
+These rows have a different strong member from the four-input spectral
+windows; equal nucleon targets do not identify the full actions.
+
+The positive-frequency weak member uses all nine massive-neutral pairs for
+each charged transition. Its widths and hbar-over-partial-width times retain
+the supplied GF normalization and its muon-lifetime ancestry. Its tau
+muon/electron partial-width ratio is an unused empirical comparison; the
+muon lifetime is a normalization check without electromagnetic radiative
+corrections. An inverse tau partial width is not the total tau lifetime.
+The complete massive-source survival bounds, including the finite-bin and
+comparison errors, are transported from the producing receipt without
+reinterpreting the 64-bin comparison execution as a massive lifetime run.
+
+The five-input full-contact spectroscopy member uses one light lepton family
+and a filled massless-neutral reference. Its complete 1400/360 charge carriers
+have exact prepared 199/51 even blocks. All finite spectral clusters and
+1024/4096/16384 Fourier-pointer bins are retained. The catalogue keeps their
+original preparation failures 397/398 and 101/102, their certified instrument
+errors and their electron-calibrated GeV bin widths. It does not transfer
+these lines to the three-massive-neutral reference or choose only a
+favourable neutron line as a physical rest mass.

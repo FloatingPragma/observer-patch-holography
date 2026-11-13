@@ -10,7 +10,8 @@ from scipy.linalg import expm
 ROOT = Path(__file__).resolve().parents[2]
 PARENTS = ('openwave_single_valley_leptons', 'openwave_neutrino_calibration',
            'particle_joint_mass_identity', 'openwave_vectorlike_flavour',
-           'openwave_common_mass_source')
+           'openwave_common_mass_source', 'openwave_spin_gradient_nuclei',
+           'openwave_lepton_widths','openwave_rest_spectroscopy')
 
 @dataclass(frozen=True)
 class UnitMap:
@@ -158,11 +159,91 @@ def base_catalogue(parents):
     return rows,reference,extra,baryon
 
 
+
+def strong_and_weak_catalogue(parents):
+    strong=parents['openwave_spin_gradient_nuclei'];weak=parents['openwave_lepton_widths']
+    assert strong['complete_nuclear_spectrum']['complete_singlet_dimension']==2520
+    fits=[]
+    for r in strong['three_hadron_mass_calibrations']:
+        lo,hi=map(F,r['energy_GeV_interval']);target=F(r['target_GeV'])
+        assert lo<=target<=hi and r['role']=='empirical calibration input'
+        fits.append({'particle':r['state'],'mass_GeV':float((lo+hi)/2),
+            'mass_GeV_interval':r['energy_GeV_interval'],'input_target_GeV':float(target),
+            'observable':'finite strong-sector ground-energy calibration',
+            'source_receipt':'model/openwave_spin_gradient_nuclei/results.json',
+            'independent_prediction':False,'physical_interacting_pole_identified':False})
+    selected=next(r for r in strong['complete_nuclear_spectrum']['channels']
+                  if (r['spin'],r['isospin'],r['cell_parity'])==(1,0,1))
+    trial=strong['selected_nuclear_record'];instrument=trial['complete_native_instrument']
+    nuclear={'particle':'deuteron-assigned channel','mass_GeV':float(sum(map(F,selected['ground_GeV_interval']))/2),
+        'mass_GeV_interval':selected['ground_GeV_interval'],'binding_GeV_interval':selected['binding_GeV_interval'],
+        'input_binding_GeV':float(F(strong['input_ancestry']['deuteron_binding_calibration_target_GeV'])),
+        'observable':'finite spin-one isospin-zero ground energy',
+        'source_receipt':'model/openwave_spin_gradient_nuclei/results.json',
+        'original_preparation_success':instrument['rank_one_filter_success'],
+        'original_preparation_failure':instrument['filter_failure'],
+        'complete_instrument_ground_error_upper':instrument['ground_complete_channel_half_trace_error_upper'],
+        'physical_deuteron_identified':False,'independent_prediction':False,
+        'unassigned_bound_channels':strong['unassigned_bound_native_channels']}
+    assert F(nuclear['original_preparation_success'])+F(nuclear['original_preparation_failure'])==1
+    labels=('electron','muon','tau');widths=[]
+    for r in weak['all_leptonic_channels']:
+        assert len(r['all9_massive_neutral_channels'])==9
+        widths.append({'transition':labels[r['parent_family']]+' -> '+labels[r['daughter_family']]+' + neutrino + antineutrino',
+            'width_GeV':r['massive_neutral_width_GeV_diagnostic'],
+            'massless_width_GeV':r['massless_neutral_width_GeV'],
+            'analytic_massive_relative_enclosure_display':r['massive_width_GeV_certified_relative_to_massless'],
+            'hbar_over_partial_width_seconds':r['hbar_over_width_seconds'],
+            'all_massive_neutral_pairs':9,
+            'finite_survival_windows':r['calibrated_massive_finite_lifetime_windows'],
+            'source_receipt':'model/openwave_lepton_widths/results.json',
+            'observable':'tree inclusive partial width of the positive-frequency current source',
+            'input_ancestry':'electron anchor, retrospective charged analyzer, calibrated neutral tensor, GF with muon-lifetime ancestry',
+            'includes_electromagnetic_radiative_correction':False,
+            'total_tau_lifetime_prediction':False,
+            'prepared_parent_scope':'one selected parent source; tau daughter muon is a free output, with no subsequent muon cascade vertex'})
+    return {'same_strong_member_mass_calibrations':fits,'nuclear_mass_calibration':nuclear,
+        'weak_partial_widths':widths,'tau_leptonic_width_ratio_comparison':weak['held_out_tau_mu_over_e'],
+        'muon_lifetime_normalization_check':weak['muon_normalization_comparison'],
+        'physical_unit_dictionary':weak['unit_dictionary']}
+
+
+
+def operational_spectroscopy(parent):
+    rows=[]
+    for member in parent['members']:
+        assert member['a_single_interacting_baryon_mass_inferred_from_the_expectation'] is False
+        records=member['complete_records'];pointers=member['operational_pointer_records']
+        assert {p['register_dimension']for p in pointers}=={1024,4096,16384}
+        for p in pointers:
+            assert len(p['all_conditional_pointer_probabilities'])==p['register_dimension']
+            assert abs(sum(p['all_conditional_pointer_probabilities'])-1)<1e-10
+            assert F(p['preparation_failure_probability'])==F(records['preparation_failure_probability'])
+        rows.append({'particle':'neutron-assigned preparation'if member['electric_charge']==0 else'proton-assigned preparation',
+            'source_member':'five-input spin-gradient strong action plus one-family filled-neutral contact source',
+            'source_receipt':'model/openwave_rest_spectroscopy/results.json',
+            'observable':'finite full-contact energy lines and finite Fourier energy instrument',
+            'complete_spectral_clusters':member['complete_spectral_clusters'],
+            'original_preparation_failure':records['preparation_failure_probability'],
+            'pointer_register_dimensions':[p['register_dimension']for p in pointers],
+            'pointer_bin_widths_GeV':[p['energy_bin_width_GeV']for p in pointers],
+            'pointer_complete_TV_upper':[p['exact_instrument_total_variation_error_upper']for p in pointers],
+            'all_Fock_and_alias_outcomes_retained':True,
+            'physical_interacting_nucleon_pole_identified':False,
+            'calibrated_three_massive_neutral_reference_transferred':False,
+            'source_not_refitted_after_weak_contact':True})
+    return {'members':rows,'significant_lines_for_display':parent['significant_native_lines'],
+        'all_small_weight_lines_retained_in_members':True,
+        'physical_clock_or_continuum_pole_inferred':False}
+
+
 def certificate():
     parents={name:read_parent(name)[0]for name in PARENTS}
     rows,reference,extra,baryon=base_catalogue(parents)
     return {'schema':'oph.openwave_mass_catalogue.v1','verdict':'PASS: exact GeV transport with source-qualified particle accounting',
         'unit_transport':exact_unit_execution(),'native_and_calibrated_Dirac_masses':rows,
+        'strong_masses_and_weak_widths':strong_and_weak_catalogue(parents),
+        'operational_baryon_spectroscopy':operational_spectroscopy(parents['openwave_rest_spectroscopy']),
         'interacting_baryon_energy_windows':baryon,'complete_calibrated_comparison_catalogue':reference,
         'vectorlike_branches_retained':extra,
         'regulator_modes':parents['openwave_single_valley_leptons']['former_corner_modes_retained'],

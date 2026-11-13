@@ -1,6 +1,6 @@
 import unittest
 from fractions import Fraction as F
-from .catalogue import UnitMap,anchored_interval,transport_complete_measure,exact_unit_execution,base_catalogue,read_parent,PARENTS
+from .catalogue import UnitMap,anchored_interval,transport_complete_measure,exact_unit_execution,base_catalogue,strong_and_weak_catalogue,read_parent,PARENTS
 class UnitTransportTests(unittest.TestCase):
     def test_anchor_uncertainty_contains_all_corners(self):
         got=list(map(F,anchored_interval(['2','3'],['4','5'],['6','7'])))
@@ -25,6 +25,10 @@ class UnitTransportTests(unittest.TestCase):
     def test_complete_catalogue_preserves_conventions(self):
         p={name:read_parent(name)[0]for name in PARENTS}
         rows,ref,extra,baryon=base_catalogue(p)
+        more=strong_and_weak_catalogue(p)
+        self.assertEqual(len(more['weak_partial_widths']),3)
+        self.assertFalse(more['tau_leptonic_width_ratio_comparison']['used_in_parameter_selection'])
+        self.assertFalse(more['nuclear_mass_calibration']['independent_prediction'])
         self.assertEqual(len(rows),6);self.assertEqual(len(ref),17);self.assertEqual(len(extra),6);self.assertEqual(len(baryon),2)
         self.assertTrue(all(not x['native_prediction']for x in ref))
         self.assertTrue(all(x['sterile_right_chirality_is_same_mass_species']for x in rows if x['particle'].startswith('nu_')))

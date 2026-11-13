@@ -12162,7 +12162,7 @@
     "complete_singlet_dimension": 2520
   },
   "input_ancestry": {
-    "ancestry": "The axial datum selects the native split-site state through U. It is a calibration input, not a held-out prediction. No effective current factor is fitted.",
+    "ancestry": "Five empirical inputs select mbar,delta,A,U,eta: proton, neutron, charged pion, native axial magnitude and even spin-one nuclear binding. The spin-gradient coefficient5/2 is a disclosed retrospective architecture selection; global colour4 satisfies a finite-copy bound. Inherited axial-source and mass-source objects are ancestry only, not parameters or held-out roles of this selected source.",
     "architecture_selection": {
       "diagnostic_gradient_menu": [
         "0",
@@ -12194,18 +12194,36 @@
       "mbar",
       "delta",
       "A",
-      "U"
+      "U",
+      "eta"
     ],
-    "colour_edge_choice": "Positive native edge-colour Casimir with coefficient1; an explicit architecture control of disconnected-copy coloured thresholds. It is identically zero on every two-cell global singlet, including spatially separated q+diquark states, and supplies no two-cell spatial binding or continuum confinement proof.",
+    "colour_edge_choice": "Global colour Casimir coefficient4, zero on every global singlet; selected to satisfy the explicit finite-copy fragmentation bound. This term supplies no two-cell spatial string potential.",
     "declared_unfitted_coefficients": [
       "t=1/8",
       "Js=1/4",
       "Jw=1/4",
-      "eta=1",
-      "kappa_colour=1"
+      "kappa_colour=4",
+      "spin_gradient=5/2"
     ],
     "deuteron_binding_calibration_target_GeV": "0.00222456640",
     "electron_unit_GeV": "0.00051099895069",
+    "inherited_axial_source_architecture": {
+      "ancestry": "The axial datum selects the native split-site state through U. It is a calibration input, not a held-out prediction. No effective current factor is fitted.",
+      "calibrated_coefficients": [
+        "mbar",
+        "delta",
+        "A",
+        "U"
+      ],
+      "colour_edge_choice": "Positive native edge-colour Casimir with coefficient1; an explicit architecture control of disconnected-copy coloured thresholds. It is identically zero on every two-cell global singlet, including spatially separated q+diquark states, and supplies no two-cell spatial binding or continuum confinement proof.",
+      "declared_unfitted_coefficients": [
+        "t=1/8",
+        "Js=1/4",
+        "Jw=1/4",
+        "eta=1",
+        "kappa_colour=1"
+      ]
+    },
     "inherited_mass_input_ancestry": {
       "calibration_targets_GeV": {
         "charged_pion": "0.13957039",
@@ -12234,7 +12252,7 @@
       "neutron": "0.93956542194",
       "proton": "0.93827208943"
     },
-    "schema": "oph.native_axial_state_inputs.v1"
+    "schema": "oph.native_spin_gradient_nuclear_inputs.v1"
   },
   "native_axial_ground": {
     "complete_selected_spectrum": {
@@ -26995,13 +27013,13 @@
     "model/openwave_axial_state/__init__.py": "b7044bcc205aaf979d0f2600e8ae2db2245c1ca5ca646100d1449463d6b20c04",
     "model/openwave_axial_state/__main__.py": "a8639a915b021bdf2f517bf8988063ea39d34406e9db0bf08d288e028667d8a9",
     "model/openwave_axial_state/certificate.py": "2c57576afcc8063b7757dcbae1da959ba0bfa20e9d138766bfa7faba7dc30dfa",
-    "model/openwave_axial_state/fragments.py": "88bfc039358312477f9d77110e213569af9a9d6d4516a97277afb7c227857c49",
+    "model/openwave_axial_state/fragments.py": "0e2641bc6e1b5861aaa4d593f6cdc7ddb2a4c8ba2e1e292e8d76be87d403f41b",
     "model/openwave_axial_state/inputs.json": "ad99d479e7b39274b65d67f7db792f881246efc1d0213c358786000117efe7ae",
-    "model/openwave_axial_state/results.json": "895ad3bd2071bc446988a736bcc5a6b99ed2642303068912f1b5758d222cd48a",
+    "model/openwave_axial_state/results.json": "e83bf127a7ed9865369327df104bf8fea2bb73043e337ebd8af403114e19dacb",
     "model/openwave_axial_state/source.py": "90d17bfefcf588487266fe4230c9957eff246c6d4cbc6cba2e403ddd83d48b0a",
     "model/openwave_axial_state/test_source.py": "6a031bf02cdd7d93e588869036a07480bc9e1d997a19ff03b8c60aae257e0749",
     "model/openwave_baryon_ordering/__init__.py": "b379e135213777ea5af32bd2bac01c11fdd28e0bfbfa53f44440c4d83b9d8a4a",
-    "model/openwave_baryon_ordering/source.py": "bb723a36e30f9b23b92eb8c79bcb39b6d4cd9b87c95da07c5d8a80d30481ccb7",
+    "model/openwave_baryon_ordering/source.py": "a215b75193a75355e9a68e686b818a98f6e780b6162526251db49963b282dfdf",
     "model/openwave_baryon_weak_formfactors/PROOF.md": "25785ee250fa20e0ecaed0ad146cf6527045d0c5e522a63bd3750852c260eb1c",
     "model/openwave_baryon_weak_formfactors/__init__.py": "c7a8e6da220fe46b51ff7e50c48ea5ece945ef6168276af7bec3b35950830a14",
     "model/openwave_baryon_weak_formfactors/inputs.json": "ccbd9ff15901213ff1829c675a0c6a1cca07cc61c97a8f153a7c4ecf65e60a66",
@@ -27009,7 +27027,7 @@
     "model/openwave_calibrated_hadrons/PROOF.md": "21b2bb57c601d151545dad0d532ed30dccc35da28704c32c274925d279fa42bb",
     "model/openwave_calibrated_hadrons/__init__.py": "f4ca74d2e9ffcff1f45c06bc3fe70cd94a2c0fcc9c446eaf3f9e518c97ec77a1",
     "model/openwave_calibrated_hadrons/inputs.json": "78114648129591309c547c1e05ffe6b2af0314694e47aedb1ef05abb1305e625",
-    "model/openwave_calibrated_hadrons/source.py": "2267fb297a73609badd886bdb6006740f095e816668ff35c8652b0f60712728e",
+    "model/openwave_calibrated_hadrons/source.py": "fdf43ca8411e1ded3c4fe1f08a9e37504b036c5f06f8f55a5b3b1e990c93766c",
     "model/openwave_field_observables/__init__.py": "f4a705d7f939370cefc95baaba023ec00338658d145d191b07254a6290dae45c",
     "model/openwave_field_observables/lattice.py": "36fcf1b1fa6347e4893ea0a5b991194cec49ae46851444fa6456d6aad5a9c592",
     "model/openwave_hadron_spin_constraints/__init__.py": "2a59927b7f5f407b785ec6da28efa29b3a90dafcea14adb9d7bba55a42dd1432",
@@ -27032,7 +27050,7 @@
     "model/openwave_nuclear_distance/__main__.py": "9933bf00f04175143b0d17a43b4bac8e4bad632c6515d2d7db2cc65e34b0e034",
     "model/openwave_nuclear_distance/certificate.py": "da0f643eb41ae2a2b5b483ca179130c537a20b4c35919f92e12aa00a6bf2de95",
     "model/openwave_nuclear_distance/nuclear.py": "088d7fe7364f90ceca16505fe4d49b627d9c6a15f7d47dfbd7619b084639b45d",
-    "model/openwave_nuclear_distance/results.json": "c824994f0655d765003877a6492e49206ee84ee4f8d1630a7ae4b409afd187a2",
+    "model/openwave_nuclear_distance/results.json": "b0cf6b6ed5c5b51e31467433140db8543ad651f453cf1b200c57759d01c1e58f",
     "model/openwave_nuclear_distance/spatial.py": "9496e8ba6269c1225b0fd9bd9583e04143ef1b16a03ab5dfcd366424a3fbbe4d",
     "model/openwave_nuclear_distance/test_source.py": "8399867f4b857c13079030db8a212c9866df125fb00707c2899535f778086f85",
     "model/openwave_nuclear_refinement/PROOF.md": "0d6b4e58b0b3bcb0eec37ec5b789ccabfa33a756ff1984d4f8463af84ce03e9c",
@@ -27049,7 +27067,7 @@
     "model/openwave_spin_gradient_nuclei/__init__.py": "96f2a48786c423cad57aa6fda657b801f89a1b3e73f57858ddcd06dd8ef5c2b0",
     "model/openwave_spin_gradient_nuclei/__main__.py": "614c28f98ff8896e54d1c422614e1e47e407b0abeae9ae0cd6ab115be751065b",
     "model/openwave_spin_gradient_nuclei/certificate.py": "a2e36a31b7189b8514fa43fb3508f19e306329b55f36af9995bde68c43f167d6",
-    "model/openwave_spin_gradient_nuclei/inputs.json": "7f0ed04fc6b2eebc63ff40a512510b0ccb5b5003ebb031c6dc000d3d9789e46d",
+    "model/openwave_spin_gradient_nuclei/inputs.json": "bf126b157b9acfaa159df6a55b90b094d217f1b84574ff16780c3d7122561302",
     "model/openwave_spin_gradient_nuclei/source.py": "5533c08f52efe7690524b6861bf8912d5e3da90145e0ddc6e79fd5e4eac4881f",
     "model/openwave_spin_gradient_nuclei/test_source.py": "eb597ae7b3d18036229862c81795c7bfde25bb580dcac65b0a57ffa818e1b33a",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",

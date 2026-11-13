@@ -33,3 +33,9 @@ def test_threshold_weighted_spectral_bound_and_actual_weak_lifetime_transfer():
     for row in w.channel(1,0)['calibrated_massive_finite_lifetime_windows']:
         assert row['massive_exact_survival_additional_probability_error_upper']<5e-7
         assert row['massive_exact_survival_total_probability_error_upper']<5e-7
+
+def test_common_tau_parent_retains_both_charged_continua():
+    r=w.combined_tau_records(bins=16)
+    assert set(r['daughter_family_per_bin'])=={0,1}
+    assert len(r['all_parent_and_emission_bin_probabilities'])==33
+    assert abs(sum(r['all_parent_and_emission_bin_probabilities'])-1)<2e-13

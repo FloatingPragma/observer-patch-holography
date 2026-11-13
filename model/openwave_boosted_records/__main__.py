@@ -56,8 +56,12 @@ def run(openwave,python):
 def main():
     p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True)
     g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true')
-    p.add_argument('--openwave-root',type=Path,required=True);p.add_argument('--python',required=True)
-    args=p.parse_args();packet=HERE/'source_packet.json'
+    p.add_argument('--openwave-root',type=Path,default=os.environ.get('OPH_OPENWAVE_ROOT'))
+    p.add_argument('--python',default=os.environ.get('OPH_TAICHI_PYTHON'))
+    args=p.parse_args()
+    if args.openwave_root is None or args.python is None:
+        p.error('provide --openwave-root/--python or OPH_OPENWAVE_ROOT/OPH_TAICHI_PYTHON; a genuine pinned OpenWave plus Taichi execution is required')
+    packet=HERE/'source_packet.json'
     if args.write:packet.write_text(json.dumps(source_packet(),sort_keys=True,indent=2)+'\n')
     result=run(args.openwave_root.resolve(),args.python);path=HERE/'results.json'
     if args.write:path.write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')

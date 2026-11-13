@@ -1,5 +1,5 @@
 {
-  "ancestry": "The axial datum selects the native split-site state through U. It is a calibration input, not a held-out prediction. No effective current factor is fitted.",
+  "ancestry": "Five empirical inputs select mbar,delta,A,U,eta: proton, neutron, charged pion, native axial magnitude and even spin-one nuclear binding. The spin-gradient coefficient5/2 is a disclosed retrospective architecture selection; global colour4 satisfies a finite-copy bound. Inherited axial-source and mass-source objects are ancestry only, not parameters or held-out roles of this selected source.",
   "architecture_selection": {
     "diagnostic_gradient_menu": [
       "0",
@@ -31,18 +31,36 @@
     "mbar",
     "delta",
     "A",
-    "U"
+    "U",
+    "eta"
   ],
-  "colour_edge_choice": "Positive native edge-colour Casimir with coefficient1; an explicit architecture control of disconnected-copy coloured thresholds. It is identically zero on every two-cell global singlet, including spatially separated q+diquark states, and supplies no two-cell spatial binding or continuum confinement proof.",
+  "colour_edge_choice": "Global colour Casimir coefficient4, zero on every global singlet; selected to satisfy the explicit finite-copy fragmentation bound. This term supplies no two-cell spatial string potential.",
   "declared_unfitted_coefficients": [
     "t=1/8",
     "Js=1/4",
     "Jw=1/4",
-    "eta=1",
-    "kappa_colour=1"
+    "kappa_colour=4",
+    "spin_gradient=5/2"
   ],
   "deuteron_binding_calibration_target_GeV": "0.00222456640",
   "electron_unit_GeV": "0.00051099895069",
+  "inherited_axial_source_architecture": {
+    "ancestry": "The axial datum selects the native split-site state through U. It is a calibration input, not a held-out prediction. No effective current factor is fitted.",
+    "calibrated_coefficients": [
+      "mbar",
+      "delta",
+      "A",
+      "U"
+    ],
+    "colour_edge_choice": "Positive native edge-colour Casimir with coefficient1; an explicit architecture control of disconnected-copy coloured thresholds. It is identically zero on every two-cell global singlet, including spatially separated q+diquark states, and supplies no two-cell spatial binding or continuum confinement proof.",
+    "declared_unfitted_coefficients": [
+      "t=1/8",
+      "Js=1/4",
+      "Jw=1/4",
+      "eta=1",
+      "kappa_colour=1"
+    ]
+  },
   "inherited_mass_input_ancestry": {
     "calibration_targets_GeV": {
       "charged_pion": "0.13957039",
@@ -71,5 +89,5 @@
     "neutron": "0.93956542194",
     "proton": "0.93827208943"
   },
-  "schema": "oph.native_axial_state_inputs.v1"
+  "schema": "oph.native_spin_gradient_nuclear_inputs.v1"
 }
