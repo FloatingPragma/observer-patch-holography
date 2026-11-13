@@ -517,6 +517,49 @@ Fixed capacity gives w=−1. Comoving area gives w=−1/3. A Hubble-area branch 
 
 The [full-Haar propagation bound](../model/openwave_su2_propagation/PROOF.md) retains unbounded onsite electric energy and every representation. Bounded plaquette interactions give local finite-volume dynamics converging in norm, with explicit boundary errors. This propagation argument applies to compact gauge groups. For compact connected semisimple groups, the electric Casimir gap also supplies the fixed-spacing strong-coupling stability map; its coupling threshold is existential. At fixed coupling all energy gaps scale as 1/a, so a finite physical continuum gap requires a further scaling construction. Neither a physical GeV glueball mass nor the four-dimensional Yang-Mills Clay theorem follows.
 
+### Normalizable Lambda records and the interacting breakup spectrum
+
+The [normalizable Lambda trial](../model/openwave_lambda_wavepacket/PROOF.md) uses the infinite-chain source and a complete local current experiment without an exact band filter. Its ground-band probability exceeds 0.999778156452. These are source spectral weights, not percentage agreements with Nature.
+
+| Quantity | Calibrated source interval / GeV |
+| --- | ---: |
+| Lambda rest pole | [1.115684628607, 1.115684878081] |
+| Lambda packet mean, including kinetic energy | [1.115684894736, 1.115684894737] |
+
+The electron, strong and Lambda calibration inputs retain their ancestry; these values are conditional, not independent mass predictions. Optional exact pole conditioning is a nonlocal service.
+
+The [complete autonomous five-body current](../model/openwave_full_strong_current/PROOF.md) has a certified positive separated-field response with every strong term and probe failure retained. The [normalizable cluster Weyl construction](../model/openwave_cluster_weyl_sequence/PROOF.md) places the Lambda-assigned source energy in the full interacting proton–pion essential spectrum. Its exact spectral-vector coefficients define mathematical source states; their finite observer preparation is not supplied. The outgoing wave operator, on-shell weak spectral weight and physical decay lifetime are not established.
+
+### Interior gauge modes and computed memory
+
+The [54-link, 36-face Haar source](../model/openwave_refined_haar_source/PROOF.md) has a complete 201-mode electric frame and retains every representation and intertwiner outside it. The [same-clock spectrum comparison](../model/openwave_refined_haar_spectrum/PROOF.md) gives:
+
+| Spatial source | Spacing | g² | Full source gap |
+| --- | ---: | ---: | ---: |
+| coarse | 1 | 64 | [95.999975609185, 96.000007639201] |
+| refined | 1/2 | 16 | [47.949194039487, 48.009545065612] |
+
+The [computed self-energy](../model/openwave_haar_memory_closure/PROOF.md) has 3260 nonzero matrix entries. Its all-complement operator error is at most 0.001754596465 source units. The 225-fold improvement at t=1/1024 concerns the specified Haar-vacuum defect bound. No exact autonomous compression, physical GeV glueball or four-dimensional continuum follows.
+
+### Finite tensor transport and conditional gravity strength
+
+The [four-corner classical record map](../model/openwave_tensor_record_transport/PROOF.md) joins the staggered table to the existing nine-null decoder with the explicit error δ=(2+√3)ε+τ and adjacent scalar bound aw+8δ. Lean checks the transport inequality. This map does not acquire a quantum stress or curvature field.
+
+A [fixed-frequency collective geometry](../model/openwave_collective_gravity_strength/PROOF.md) uses the observed Newton coefficient to select approximately 6.03794e+42 registers. It admits conditional G≈6.70883e-39 GeV⁻² with the unchanged electron anchor. This is an explicit calibration, with complete readout work about 1.54269e+39 GeV. The huge carrier is evaluated analytically, not simulated; no shared strong/geometry continuum or independent G prediction is claimed.
+
+### Constrained scalar, matter and radiation transfer
+
+The [linear Einstein/fluid/scalar calculation](../model/openwave_capacity_transfer/PROOF.md) proves C_N=−(3+2h)C and the spatial Einstein trace exactly, while evolving the metric and both fluids. For the inherited background and regular growing initial data:
+
+| k/H₀ | Present matter transfer / same-density Λ control |
+| ---: | ---: |
+| 0.1 | 0.97584721 |
+| 1 | 0.97001026 |
+| 10 | 0.91493669 |
+| 100 | 0.90821743 |
+
+These are numerical model differences with tolerance, initialization and Einstein–de Sitter controls, not observed matches or rigorous interval ODE certificates. Native scalar and primordial state, free-streaming species, recombination and a CMB likelihood are not supplied. These results add zero Nature-validation rows.
+
 ## One calibrated hyperfine spectrum and its independent controls
 
 The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. The shared quadrupole/string attachment adds two dimensional comparison targets. The eigenenergies are calibrated finite records, not independent predictions or resonance poles.

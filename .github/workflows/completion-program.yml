@@ -291,6 +291,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: completion-program-${{ (github.event_name == 'pull_request' && github.event.pull_request.number) || (github.event_name == 'push' && github.ref_type == 'branch' && github.ref) || github.run_id }}
+  cancel-in-progress: ${{ (github.event_name == 'push' && github.ref_type == 'branch') || github.event_name == 'pull_request' }}
+
 jobs:
   retained-custody:
     name: Retained 0194 custody regression
@@ -303,6 +307,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - name: Install the retained checkpoint requirements
         run: |
           git show 0194fc685be3f7ba5f732681713c9cfd04e5290f:model/requirements.txt > "$RUNNER_TEMP/oph-retained-requirements.txt"
@@ -323,6 +331,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - name: Install the field checkpoint requirements
         run: |
           git show c7b09261853f5a3c5a67e21294c3d9511ed59fc7:model/requirements.txt > "$RUNNER_TEMP/oph-retained-field-requirements.txt"
@@ -333,6 +345,10 @@ jobs:
   program-contract:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -343,28 +359,46 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
-      - run: python tools/build_completion_program_current.py --check
+      - if: matrix.shard == 0
+        run: python tools/build_completion_program_current.py --check
       - name: Run all 73 original source-record tests in their authenticated tree
+        if: matrix.shard == 0
         run: python tools/check_retained_source_records_custody.py
       - name: Check the current owner and routing contracts
+        if: matrix.shard == 0
         run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_retained_source_records_custody.py tools/test_diagnostic_parent_custody.py tools/test_numeric_evidence_medium.py
       # The old source-record CLIs belong to the separately executed 73-case
       # authority. Current science and current publication are checked separately.
       - name: Check the exact documentary input boundary and current-code execution
+        if: matrix.shard == 0
         run: python -m pytest -q -W error tools/test_completion_current_code.py
       - name: Run current completion code with authenticated finite-contract documentary inputs
-        run: python -m pytest -q --durations=10 -W error -p tools.completion_contract_inputs tools/test_completion_program.py model/completion model/clock_defect_energy
-      - run: python -m model.completion.acceptance_audit --check
-      - run: python -m model.completion.program_class_v2 --check
-      - run: python -m model.completion.independent_program_review
-      - run: python -m model.completion.finite_attachment_map --check
-      - run: python -m model.completion.dynamics_response_campaign --check
-      - run: python -m model.completion.spectrum_einstein_campaign --check
-      - run: python -m model.completion.defect_geometry_campaign --check
-      - run: python -m model.completion.radial_source_campaign --check
-      - run: python code/particles/derive_radial_excitation_catalogue.py --check
-      - run: python -m pytest -q -W error code/particles/test_radial_excitation_catalogue.py
+        run: python -m pytest -q --durations=10 -W error -p tools.completion_contract_inputs -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 4 tools/test_completion_program.py model/completion model/clock_defect_energy
+      - if: matrix.shard == 0
+        run: python -m model.completion.acceptance_audit --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.program_class_v2 --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.independent_program_review
+      - if: matrix.shard == 0
+        run: python -m model.completion.finite_attachment_map --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.dynamics_response_campaign --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.spectrum_einstein_campaign --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.defect_geometry_campaign --check
+      - if: matrix.shard == 0
+        run: python -m model.completion.radial_source_campaign --check
+      - if: matrix.shard == 0
+        run: python code/particles/derive_radial_excitation_catalogue.py --check
+      - if: matrix.shard == 0
+        run: python -m pytest -q -W error code/particles/test_radial_excitation_catalogue.py
 
   program-sectors:
     runs-on: ubuntu-latest
@@ -377,6 +411,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/exchange_sector model/particle_screening
 
@@ -391,6 +429,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/local_repair_family model/active_code_energy model/screened_recovery model/conserved_sector_action model/screened_transport
       - run: python tools/renew_diagnostic_parent_custody.py --check
@@ -406,6 +448,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/moving_defect model/record_action model/particle_obstruction model/interacting_field
       - run: python -m model.moving_defect.experiment --check
@@ -433,6 +479,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m pytest -q -W error model/band_clock model/native_localization model/native_program
       - run: python -m pytest -q -W error model/pair_cyclic_control model/recovery_elision model/biased_code_universality
@@ -458,6 +508,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/reference_recovery model/particle_response model/contact_scattering model/particle_comparison model/charged_dynamics model/particle_transport
       - run: python -m pytest -q --durations=10 -W error model/modular_flow model/full_fock_energy model/flux_response model/field_protocols model/dimer_family
@@ -479,6 +533,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/defect_protection model/defect_identity model/defect_energy
       - run: python -m model.defect_protection --check
@@ -496,6 +554,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/defect_field_bridge model/defect_field_benchmark
       - run: python -m model.defect_field_bridge.bridge --check
@@ -518,6 +580,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m model.defect_field_interactions.packet --check
       - run: python -m model.defect_field_clock --check
@@ -535,6 +601,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - run: python -m model.defect_field_modular --check
       - run: python -m model.defect_field_energy.packet --check
@@ -577,6 +647,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - name: Check composite poles, complete quadratic currents and finite entropy bounds
         run: python -m pytest -q -W error model/charged_composite_search model/quadratic_conservation model/prepared_regional_entropy model/completion/test_finite_observable_campaign.py
@@ -598,6 +672,10 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            model/requirements.txt
       - run: pip install -r requirements.txt
       - name: Check complete spatial, detector, intervention and modular domains
         run: python -m pytest -q -W error model/composite_spatial_response model/native_composite_probe model/interacting_observation_process model/native_regional_modular model/completion/test_native_observation_campaign.py

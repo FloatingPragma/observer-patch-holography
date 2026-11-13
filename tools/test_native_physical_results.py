@@ -1,4 +1,5 @@
 from fractions import Fraction as F
+from copy import deepcopy
 from pathlib import Path
 from types import SimpleNamespace
 import json
@@ -8,8 +9,15 @@ from tools import native_physical_results as summary
 ROOT=Path(__file__).resolve().parents[1]
 
 
-def test_projection_preserves_calibrations_failed_comparisons_and_domains():
-    result=summary.collect(ROOT)
+@pytest.fixture(scope="module")
+def authenticated_result():
+    # Authenticate the immutable receipt DAG once, then isolate every projection
+    # mutation with a deep copy. Separate custody mutations still call collect.
+    return summary.collect(ROOT)
+
+
+def test_projection_preserves_calibrations_failed_comparisons_and_domains(authenticated_result):
+    result=deepcopy(authenticated_result)
     assert len(result['receipts_sha256'])==len(summary.PACKAGES)
     assert not result['all_sources_identified_as_one_physical_theory']
     assert {r['name'] for r in result['strange_masses'] if r['comparison_role']=='calibration'}=={'Lambda','K+'}
@@ -71,8 +79,8 @@ def test_incomplete_custody_inventory_fails_before_projection(tmp_path,monkeypat
         summary.collect(tmp_path)
 
 
-def test_scale_projection_keeps_member_choices_failures_and_exact_intervals():
-    value=summary.collect(ROOT)
+def test_scale_projection_keeps_member_choices_failures_and_exact_intervals(authenticated_result):
+    value=deepcopy(authenticated_result)
     scale=value['native_scale_and_structure']
     assert scale['core']['selection']['selection_uses_resolution_outcome']
     assert not scale['core']['selection']['selection_uses_empirical_radius_or_running_data']
@@ -95,9 +103,9 @@ def test_scale_projection_keeps_member_choices_failures_and_exact_intervals():
     assert 'H0=68.125' in '\n'.join(summary.render_scale_and_structure(scale))
 
 
-def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_members():
-    value=summary.collect(ROOT)
-    assert len(value['receipts_sha256'])==20
+def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_members(authenticated_result):
+    value=deepcopy(authenticated_result)
+    assert len(value['receipts_sha256'])==47
     group=value['propagation_and_nuclei']
     b=group['baryon']['positive_correlated_propagation']
     assert b['k0_complete_N3_operator_change_exact']=='0'
@@ -117,3 +125,170 @@ def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_membe
         lo,hi=map(F,line.split('|')[2].strip().strip('[]').split(', '))
         a,b=map(F,pair)
         assert lo<=a<=b<=hi
+
+
+def new_source_data():
+    names=('baryon_poles','pole_weak_current','strange_shell_current','coupled_haar_source',
+           'coupled_haar_spectrum','euclidean_refinement','source_ward','einstein_error','radiation_capacity')
+    return {name:json.loads((ROOT/f'model/openwave_{name}/results.json').read_text())for name in names}
+
+
+def test_pole_gauge_and_radiation_projection_keeps_exact_domains_and_no_score(authenticated_result):
+    result=deepcopy(authenticated_result);group=result['pole_currents_and_full_field_records']
+    assert group['physical_comparison_count_added']==0
+    assert len(result['receipts_sha256'])==47
+    assert group['baryon_poles']['momentum_fibre_count']==12
+    assert group['strange_current']['complete_component_probe']['probabilities_are_fixed_total_momentum_fibre_quantities']
+    assert not group['strange_current']['complete_component_probe']['normalizable_wave_packet_transfer_executed']
+    assert len(group['coupled_Haar_source']['graph']['edges'])==7
+    assert len(group['coupled_Haar_spectrum']['records'])==6
+    assert not group['Euclidean_response']['continuum_acceptance']['fixed_graph_fixed_coupling_trajectory_admitted']
+    assert not group['radiation_capacity']['scope']['independent_observational_validation']
+    text='\n'.join(summary.render_pole_currents_and_full_fields(group))
+    for boundary in ('not percentage agreements with Nature','total-momentum-zero relative-fibre',
+                     'normalizable center-of-mass wave packet is not executed','no Lambda decay lifetime',
+                     'without a physical GeV glueball','zero Nature-validation rows'):
+        assert boundary in text
+    for row in group['coupled_Haar_spectrum']['records']:
+        if not row['shared_edge']:continue
+        line=next(x for x in text.splitlines()if x.startswith(f"| {row['g_squared_exact']} | {row['spacing_exact']} | {row['diagnostic_max_twice_loop_spin']} |"))
+        for shown,key in zip(line.split('|')[4:6],('full_Haar_gap_interval_exact','connected_Wilson_covariance_interval_exact')):
+            lo,hi=map(F,shown.strip().strip('[]').split(', '));a,b=map(F,row[key]);assert lo<=a<=b<=hi
+
+
+@pytest.mark.parametrize('package,path',[
+    ('baryon_poles',('physical_3plus1_Lorentz_particle_pole_identification',)),
+    ('pole_weak_current',('autonomous_weak_decay_or_neutron_lifetime_proved',)),
+    ('strange_shell_current',('physical_on_shell_decay_amplitude_proved',)),
+    ('strange_shell_current',('complete_component_probe','normalizable_wave_packet_transfer_executed')),
+    ('coupled_haar_source',('scope','physical_GeV_mass')),
+    ('coupled_haar_spectrum',('scope','Clay_problem_solved')),
+    ('euclidean_refinement',('scope','four_dimensional_interacting_continuum_constructed')),
+    ('source_ward',('scope','physical_Newton_strength_matched')),
+    ('einstein_error',('scope','cosmological_constant_fixed_by_null_records')),
+    ('radiation_capacity',('scope','independent_observational_validation')),
+])
+def test_unproved_physical_promotion_rejected(package,path):
+    data=new_source_data();row=data[package]
+    for key in path[:-1]:row=row[key]
+    row[path[-1]]=True
+    with pytest.raises(ValueError,match='unproved physical validation'):
+        summary.pole_currents_and_full_fields(data)
+
+
+def test_missing_fixed_fibre_caveat_rejected():
+    data=new_source_data();data['strange_shell_current']['complete_component_probe']['probabilities_are_fixed_total_momentum_fibre_quantities']=False
+    with pytest.raises(ValueError,match='fixed-fibre domain omitted'):
+        summary.pole_currents_and_full_fields(data)
+
+
+
+def latest_source_data():
+    names=('uniform_pole_bands','normalizable_particle_records','scattering_current_support',
+        'haar_coupling_flow','cubic_haar_source','gauge_refinement_clock','staggered_ward',
+        'replicated_geometry','capacity_perturbations')
+    return {name:json.loads((ROOT/f'model/openwave_{name}/results.json').read_text())for name in names}
+
+
+def test_normalizable_spatial_projection_keeps_calibration_and_full_domains(authenticated_result):
+    result=deepcopy(authenticated_result);group=result['normalizable_particles_and_spatial_fields']
+    assert len(result['receipts_sha256'])==47 and group['physical_comparison_count_added']==0
+    assert group['normalizable_packets']['normalizable_packet']['carrier_is_infinite_chain']
+    assert not group['normalizable_packets']['complete_protocol']['finite_local_compilation_of_exact_band_filter_proved']
+    assert group['strange_composite_current']['channel']['independent_composite_rank']==23
+    assert not group['strange_composite_current']['complete_Lambda_pole_transfer']['normalizable_Lambda_packet_executed']
+    assert not group['strange_composite_current']['actual_kinetic_substep']['complete_autonomous_strong_Hamiltonian_used']
+    assert group['spatial_Haar_blocking']['geometry']['fine_links']==54
+    assert not group['replicated_geometry']['scope']['physical_Newton_strength_matched']
+    text='\n'.join(summary.render_normalizable_particles_and_spatial_fields(group))
+    for boundary in ('not new rest masses','declared nonlocal spectral service','normalizable Lambda packet',
+                     'not the complete autonomous strong evolution','magnetic-factor blocking',
+                     'failed G/c strength is unchanged','established holographic-quintessence','zero Nature-validation rows'):
+        assert boundary in text
+    for row in group['cubic_Haar_source']['records']:
+        line=next(x for x in text.splitlines()if x.startswith('| '+row['g_squared_exact']+' |'))
+        lo,hi=map(F,line.split('|')[2].strip().strip('[]').split(', '))
+        a,b=map(F,row['full_source_gap_interval_exact']);assert lo<=a<=b<=hi
+    for row in group['normalizable_packets']['members']:
+        line=next(x for x in text.splitlines()if x.startswith('| '+row['assignment']+' |'))
+        lo,hi=map(F,line.split('|')[4].strip().strip('[]').split(', '))
+        a,b=map(F,row['complete_packet_trial_mean_energy_GeV_interval']);assert lo<=a<=b<=hi
+
+
+@pytest.mark.parametrize('package,path',[
+    ('uniform_pole_bands',('physical_four_dimensional_particle_dictionary_proved',)),
+    ('normalizable_particle_records',('complete_protocol','finite_local_compilation_of_exact_band_filter_proved')),
+    ('scattering_current_support',('complete_Lambda_pole_transfer','normalizable_Lambda_packet_executed')),
+    ('scattering_current_support',('actual_kinetic_substep','complete_autonomous_strong_Hamiltonian_used')),
+    ('scattering_current_support',('interacting_spectral_test','Moller_wave_operator_constructed')),
+    ('haar_coupling_flow',('Yang_Mills_continuum_constructed',)),
+    ('cubic_haar_source',('physical_gap_GeV_or_continuum_identification',)),
+    ('gauge_refinement_clock',('scope','autonomous_full_Hamiltonian_RG_derived')),
+    ('staggered_ward',('scope','physical_metric_or_stress_derived')),
+    ('replicated_geometry',('scope','physical_Newton_strength_matched')),
+    ('capacity_perturbations',('canonical_scalar_completion','source_scalar_transfer_proved')),
+])
+def test_latest_unproved_promotion_rejected(package,path):
+    data=latest_source_data();row=data[package]
+    for key in path[:-1]:row=row[key]
+    row[path[-1]]=True
+    with pytest.raises(ValueError,match='unproved spatial-field physical promotion'):
+        summary.normalizable_particles_and_spatial_fields(data)
+
+
+def test_latest_carrier_and_clock_boundary_rejected():
+    data=latest_source_data();data['gauge_refinement_clock']['scope']['higher_coarse_operator_remainder_retained']=False
+    with pytest.raises(ValueError,match='complete carrier or retained-clock domain omitted'):
+        summary.normalizable_particles_and_spatial_fields(data)
+
+
+def complete_source_data():
+    names=('full_strong_current','lambda_wavepacket','cluster_weyl_sequence',
+        'refined_haar_source','refined_haar_spectrum','haar_memory_closure',
+        'tensor_record_transport','collective_gravity_strength','capacity_transfer')
+    return {name:json.loads((ROOT/f'model/openwave_{name}/results.json').read_text())for name in names}
+
+
+def test_complete_source_projection_keeps_rest_energy_and_calibration_separate(authenticated_result):
+    group=deepcopy(authenticated_result['complete_dynamics_and_constraints'])
+    assert group['physical_comparison_count_added']==0
+    text='\n'.join(summary.render_complete_dynamics_and_constraints(group))
+    energy=group['source_packages']['lambda_wavepacket']['calibrated_energy']
+    for label,key in [('Lambda rest pole','source_rest_pole_GeV_interval'),
+                      ('Lambda packet mean, including kinetic energy','trial_packet_mean_GeV_interval')]:
+        line=next(x for x in text.splitlines()if x.startswith('| '+label+' |'))
+        lo,hi=map(F,line.split('|')[2].strip().strip('[]').split(', '))
+        a,b=map(F,energy[key]);assert lo<=a<=b<=hi
+    for boundary in ('not independent mass predictions','on-shell weak spectral weight',
+                     'specified Haar-vacuum defect bound','explicit calibration',
+                     'complete readout work','not observed matches','zero Nature-validation rows'):
+        assert boundary in text
+
+
+@pytest.mark.parametrize('package,path',[
+    ('full_strong_current',('physical_3plus1_decay_or_lifetime_proved',)),
+    ('lambda_wavepacket',('calibrated_energy','mean_energy_is_rest_mass')),
+    ('cluster_weyl_sequence',('nonzero_native_weak_on_shell_spectral_density_proved',)),
+    ('refined_haar_source',('uniform_repeated_refinement_or_4D_limit_proved',)),
+    ('refined_haar_spectrum',('derived_running_coupling_or_continuum_limit',)),
+    ('haar_memory_closure',('retained_201_modes_exactly_autonomous',)),
+    ('tensor_record_transport',('scope','quantum_curvature_acquisition_from_native_source_proved')),
+    ('capacity_transfer',('scope','CMB_large_scale_structure_likelihood')),
+])
+def test_complete_source_projection_rejects_unproved_physical_promotions(package,path):
+    data=complete_source_data();row=data[package]
+    for key in path[:-1]:row=row[key]
+    row[path[-1]]=True
+    with pytest.raises(ValueError,match='unproved complete-dynamics physical promotion'):
+        summary.complete_dynamics_and_constraints(data)
+
+
+def test_observed_G_selection_and_uncompiled_spectral_preparation_cannot_be_hidden():
+    data=complete_source_data()
+    data['collective_gravity_strength']['calibrated_member']['calibration_input']='no observed inputs'
+    with pytest.raises(ValueError,match='calibration or carrier boundary omitted'):
+        summary.complete_dynamics_and_constraints(data)
+    data=complete_source_data()
+    data['cluster_weyl_sequence']['constructive_Weyl_family']['finite_local_observer_preparation_of_exact_spectral_vectors_compiled']=True
+    with pytest.raises(ValueError,match='source domain or preparation boundary omitted'):
+        summary.complete_dynamics_and_constraints(data)

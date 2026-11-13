@@ -94,6 +94,107 @@ companion~\cite{ophcontracts}. A smooth Einstein interpretation also needs
 the common-stress and tensor-curvature or small-ball identification
 premises~\cite{ophEinstein}.
 
+\paragraph{Radiation-era capacity histories.}
+With conserved matter and ideal radiation, the gamma-one future-event
+branch obeys
+$d\Omega_x/d\log a=\Omega_x(1-\Omega_x)(1+r+2\sqrt{\Omega_x})$,
+where $r=\rho_r/(\rho_m+\rho_r)$.
+An outward Taylor enclosure controls the branch through $z=10^6$.
+Its early radiation-era fraction scales as $a^2$, whereas fixed capacity
+gives $a^4$ and the Hubble-area control retains a constant fraction.
+The present amplitudes and radiation content remain supplied; these are
+conditional expansion histories, not derived particle abundances.
+The defining source and outward enclosures are specified in \path{model/openwave_radiation_capacity}.
+
+\paragraph{Perturbations of a declared capacity background.}
+Put $x=\sqrt{\Omega_x}$ and
+$r=\rho_r/(\rho_m+\rho_r)$. The conserved event-area branch has
+\[
+ c_a^2=\frac{-2-3x+3x^2+2x^3+rx(1+x)}6.
+\]
+The supplied past-background enclosures imply $c_a^2<-1/5$, rejecting an
+adiabatic barotropic-fluid attachment. This instability is consistent
+with the \href{https://arxiv.org/abs/0706.3757}{holographic-fluid analysis
+of Myung}. The established
+\href{https://arxiv.org/abs/astro-ph/0604484}{holographic-quintessence
+reconstruction of Zhang} instead supplies a canonical scalar with
+\[
+ \frac{d\phi}{d\log a}=M_{\rm Pl}\sqrt{2\Omega_x(1-x)},\qquad
+ V=\frac{\rho_x(2+x)}3,\qquad c_s^2=1.
+\]
+For this radiation-inclusive past domain, exact positive Bernstein
+coefficients and the Lean certificate give
+\[
+ 2\le\frac{V''}{H^2}\le6.
+\]
+This is a stable local scalar completion of the declared background,
+not a source-derived particle mass or a cosmological likelihood fit.
+The supplied amplitudes and horizon choice remain, and native-source
+transfer and perturbation-data acceptance are unproved. The polynomial
+bounds are in \path{Lean/ObserverPatchHolography/CapacityScalarCurvature.lean};
+the complete background and controls are in
+\path{model/openwave_capacity_perturbations}.
+
+\paragraph{Constrained scalar, matter and radiation transfer.}
+The canonical capacity scalar has a declared linear attachment to
+Einstein gravity, ideal dust and ideal radiation. Put $N=\log a$ and $h=H_N/H$.
+In conformal Newtonian gauge, with zero anisotropic stress, write
+$ds^2=a^2[-(1+2\Phi)d\tau^2+(1-2\Phi)d\mathbf x^2]$ and use the reduced
+Planck mass $M_{\rm Pl}$. The perturbation conventions are those of
+\href{https://arxiv.org/abs/astro-ph/9506072}{Ma and Bertschinger}.
+Set $m=\Omega_m$, $r=\Omega_r$, $s=\phi_N/M_{\rm Pl}$,
+$A=V_\phi/(H^2M_{\rm Pl})$, $\mathcal M=V_{\phi\phi}/H^2$,
+$Q=k^2/(aH)^2$, $U_i=aH\theta_i/k^2$, $y=\delta\phi/M_{\rm Pl}$ and
+$z=y_N$. The background has
+$h=-(3m+4r+s^2)/2$ and $s_N+(3+h)s+A=0$.
+The full linear equations are
+\begin{align*}
+ P:=\Phi_N&=-\Phi+\tfrac12(3mU_m+4rU_r+sy),\\
+ \delta_{m,N}&=-QU_m+3P,& U_{m,N}&=hU_m+\Phi,\\
+ \delta_{r,N}&=-\tfrac43QU_r+4P,& U_{r,N}&=(1+h)U_r+\delta_r/4+\Phi,\\
+ y_N&=z,&z_N&=-(3+h)z-(Q+\mathcal M)y+4sP-2A\Phi.
+\end{align*}
+The first equation is the momentum constraint. With
+\[
+ C=Q\Phi+3(P+\Phi)
+   +\tfrac12(3m\delta_m+3r\delta_r+sz-s^2\Phi+Ay),
+\]
+exact substitution gives both $C_N=-(3+2h)C$ and
+\[
+ \Phi_{NN}+(4+h)\Phi_N+(3+2h)\Phi
+ =\tfrac12(r\delta_r+sz-s^2\Phi-Ay).
+\]
+Consequently $C(a)=C(a_0)(a_0/a)^3H(a_0)^2/H(a)^2$; numerical
+constraint projection is unnecessary. The regular zero-wave-number
+adiabatic mode uses
+$T=(3/2)(H/a)\int_0^a da'/H(a')$, $\Phi=3/2-T$, $U_m=U_r=T$,
+$y=sT$ and $z=s_NT+s(\Phi+hT)$, normalized to unit asymptotic
+radiation-era potential. At finite $k$, the supplied initial correction
+$\delta_r=-4T-2Q\Phi/(3r)$, with $\delta_m=-3T$, enforces $C=0$.
+Integrating $\Delta_m=\delta_m+3U_m$, $\Delta_r=\delta_r+4U_r$ and
+$U_r-U_m$ avoids subtraction of order-one superhorizon variables.
+This normalization defines a linear transfer coefficient, not a physical
+unit-amplitude fluctuation or a primordial-spectrum fit.
+
+
+Regular growing initial data, an earlier-start comparison,
+tolerance refinement and an independent Einstein--de Sitter solution
+check the numerical transfer. With the inherited background inputs,
+present comoving matter transfer relative to a same-density
+cosmological-constant control is
+\[
+\begin{array}{c|rrrr}
+k/H_0&0.1&1&10&100\\\hline
+T_m/T_{m,\Lambda}&0.97585&0.97001&0.91494&0.90822
+\end{array}
+\]
+These conditional differences supply no observed match or cosmic
+microwave background fit. Native scalar and primordial-state derivations
+are absent; free-streaming species and recombination are omitted.
+The constraint identities are exact, while the numerical solutions have
+convergence diagnostics without interval error certificates
+(\path{model/openwave_capacity_transfer}).
+
 \section{Matter and States on a Supplied Spatial Domain}
 
 The Whitney construction on the fixed tetrahedral cone gives a controlled
