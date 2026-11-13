@@ -7390,6 +7390,11 @@ def _render_finite_spectrum_comparison(row: dict[str, Any]) -> list[str]:
     ]
 
 
+def _native_spatial_and_field_records() -> dict[str, Any]:
+    from tools.native_physical_results import collect
+    return collect(REPO)
+
+
 def _hyperfine_and_charge_profiles() -> dict[str, Any]:
     """Authenticate the complete selected source before projecting its comparisons."""
     data = {}
@@ -7793,6 +7798,7 @@ def build(
         "native_current_comparisons": _native_current_comparisons(),
         "mass_and_decay_catalogue": _mass_and_decay_catalogue(),
         "hyperfine_and_charge_profiles": _hyperfine_and_charge_profiles(),
+        "native_spatial_and_field_records": _native_spatial_and_field_records(),
         "executable_completion_program": completion_program_view(REPO),
         "principal_results": _principal_results(sections),
         "retrospective_tilt_comparison": _retrospective_tilt_reference(),
@@ -8503,6 +8509,8 @@ def _render_md(ledger: dict[str, Any]) -> str:
         "(`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; "
         "[frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).")
     add("")
+    from tools.native_physical_results import render as render_native_physical
+    lines.extend(render_native_physical(ledger["native_spatial_and_field_records"]))
     lines.extend(_render_hyperfine_and_charge_profiles(ledger["hyperfine_and_charge_profiles"]))
     lines.extend(_render_mass_and_decay_catalogue(ledger["mass_and_decay_catalogue"]))
     lines.extend(_render_native_current_comparisons(ledger["native_current_comparisons"]))

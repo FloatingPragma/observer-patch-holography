@@ -1,0 +1,36 @@
+{
+  "repository": "https://gitlab.com/mmoresco/CCcovariance",
+  "commit": "881413330a7f1e1e5203607d6964db49b4c6c461",
+  "files": {
+    "README.md": {
+      "url": "https://gitlab.com/api/v4/projects/25252413/repository/files/README.md/raw?ref=881413330a7f1e1e5203607d6964db49b4c6c461",
+      "sha256": "7332d192b2a663e44e1d19a402152bc1d70d1c70628ad93353644caa7c7942d5"
+    },
+    "HzTable_MM_BC03.dat": {
+      "url": "https://gitlab.com/api/v4/projects/25252413/repository/files/data%2FHzTable_MM_BC03.dat/raw?ref=881413330a7f1e1e5203607d6964db49b4c6c461",
+      "sha256": "32ce92caf251cb60a7a837c71f1856bea2b44fa5c1041f85410d11cb8164da98"
+    },
+    "HzTable_MM_M11.dat": {
+      "url": "https://gitlab.com/api/v4/projects/25252413/repository/files/data%2FHzTable_MM_M11.dat/raw?ref=881413330a7f1e1e5203607d6964db49b4c6c461",
+      "sha256": "01171e09a416c7aed0e2cbd4a978981ffc0dffa28665ea2c6ee66b2e4fee44ba"
+    },
+    "data_MM20.dat": {
+      "url": "https://gitlab.com/api/v4/projects/25252413/repository/files/data%2Fdata_MM20.dat/raw?ref=881413330a7f1e1e5203607d6964db49b4c6c461",
+      "sha256": "577ac2f346e346fe7cf94daa7b7000c05d04ebc8a029cda31e0d8643b956a485"
+    },
+    "CC_covariance.ipynb": {
+      "url": "https://gitlab.com/api/v4/projects/25252413/repository/files/examples%2FCC_covariance.ipynb/raw?ref=881413330a7f1e1e5203607d6964db49b4c6c461",
+      "sha256": "bea181a885f76ce479c226a4504758bcec9901386fcb2c9ef4000e8ecc696e30"
+    },
+    "data_CC.dat": {
+      "url": "https://cluster.difa.unibo.it/astro/CC_data/data_CC.dat",
+      "sha256": "d3cd7c2f621f99958ead896a72dabae90665702dd51846ce52cdeec103390b92"
+    }
+  },
+  "retained_files": [
+    "HzTable_MM_BC03.dat",
+    "HzTable_MM_M11.dat",
+    "data_MM20.dat"
+  ],
+  "external_recipe": "Original notebook consulted for the covariance prescription; the implementation here is independent and uses exact rational arithmetic."
+}
