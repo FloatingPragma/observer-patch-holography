@@ -1,0 +1,1392 @@
+{
+  "anchors": {
+    "H0_km_s_Mpc": "67.4",
+    "Omega_m": "0.315"
+  },
+  "branch_consequences": {
+    "comoving_area": {
+      "acceleration": false,
+      "q_today_exact": "63/400",
+      "w_exact": "-1/3"
+    },
+    "fixed_capacity": {
+      "amplitude_selected": false,
+      "q_today_exact": "-211/400",
+      "w_exact": "-1"
+    },
+    "future_event_area": {
+      "H_future_km_s_Mpc_interval": [
+        "51.994180492103",
+        "51.994180492104"
+      ],
+      "Omega_at_z_100_interval": [
+        "0.001947550786",
+        "0.001947550787"
+      ],
+      "dOmega_dlog_a": "Omega*(1-Omega)*(1+2*sqrt(Omega)/gamma)",
+      "expansion_likelihood_executed": true,
+      "future_boundary_condition_proved_for_gamma_one": true,
+      "gamma_exact": "1",
+      "high_redshift_scope": "matter plus dark energy control; radiation omitted, no early-Universe data claim",
+      "initial_dark_fraction_supplied": true,
+      "w_today_interval": [
+        "-0.885098178575",
+        "-0.885098178574"
+      ]
+    },
+    "hubble_area_conserved": {
+      "acceleration": false,
+      "constant_dark_fraction_exact": "137/200",
+      "q_exact": "1/2",
+      "w_exact": "0"
+    },
+    "hubble_area_mechanical_pressure_with_exchange": {
+      "dark_fraction_at_all_epochs_exact": "137/200",
+      "matter_dominance_to_acceleration_transition": false,
+      "matter_scaling_exponent_exact": "189/200",
+      "mechanical_w_exact": "-1",
+      "q_exact": "-211/400",
+      "requires_energy_exchange": true,
+      "total_w_exact": "-137/200"
+    }
+  },
+  "capacity_law": "rho=epsilon/N, N proportional to horizon radius squared",
+  "comparisons": [
+    {
+      "branch": "fixed_capacity",
+      "chi_square_interval": [
+        "6.191340672071",
+        "6.191340672072"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "73.875188774712",
+            "73.875188774713"
+          ],
+          "observed_H": "7491/100",
+          "quoted_sigma": "19034631/5000000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "74.700609070298",
+            "74.700609070299"
+          ],
+          "observed_H": "1874/25",
+          "quoted_sigma": "6125169/1250000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "81.531577543291",
+            "81.531577543292"
+          ],
+          "observed_H": "4139/50",
+          "quoted_sigma": "1394843/100000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "82.910292080368",
+            "82.910292080369"
+          ],
+          "observed_H": "83",
+          "quoted_sigma": "677/50",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "83.915059645642",
+            "83.915059645643"
+          ],
+          "observed_H": "7697/100",
+          "quoted_sigma": "509/50",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "85.146269169498",
+            "85.146269169499"
+          ],
+          "observed_H": "2177/25",
+          "quoted_sigma": "281/25",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "86.438258285401",
+            "86.438258285402"
+          ],
+          "observed_H": "4639/50",
+          "quoted_sigma": "129/10",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "87.947306333708",
+            "87.947306333709"
+          ],
+          "observed_H": "8091/100",
+          "quoted_sigma": "2261/250",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "94.315211390320",
+            "94.315211390321"
+          ],
+          "observed_H": "519/5",
+          "quoted_sigma": "156219/12500",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "99.465002165981",
+            "99.465002165982"
+          ],
+          "observed_H": "458/5",
+          "quoted_sigma": "497617/62500",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "105.822663555841",
+            "105.822663555842"
+          ],
+          "observed_H": "209/2",
+          "quoted_sigma": "243903/20000",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "112.028962368045",
+            "112.028962368046"
+          ],
+          "observed_H": "1251/10",
+          "quoted_sigma": "334017/20000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "123.315541109564",
+            "123.315541109565"
+          ],
+          "observed_H": "1537/10",
+          "quoted_sigma": "12296/625",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "148.299154705294",
+            "148.299154705295"
+          ],
+          "observed_H": "160",
+          "quoted_sigma": "3263/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "201.025902315651",
+            "201.025902315652"
+          ],
+          "observed_H": "373/2",
+          "quoted_sigma": "2479/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_BC03.dat"
+    },
+    {
+      "branch": "comoving_area",
+      "chi_square_interval": [
+        "21.549028758321",
+        "21.549028758322"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "81.682331169325",
+            "81.682331169326"
+          ],
+          "observed_H": "7491/100",
+          "quoted_sigma": "19034631/5000000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "83.331522103241",
+            "83.331522103242"
+          ],
+          "observed_H": "1874/25",
+          "quoted_sigma": "6125169/1250000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "96.035517515863",
+            "96.035517515864"
+          ],
+          "observed_H": "4139/50",
+          "quoted_sigma": "1394843/100000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "98.438497471135",
+            "98.438497471136"
+          ],
+          "observed_H": "83",
+          "quoted_sigma": "677/50",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "100.162577416370",
+            "100.162577416371"
+          ],
+          "observed_H": "7697/100",
+          "quoted_sigma": "509/50",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "102.246349762266",
+            "102.246349762267"
+          ],
+          "observed_H": "2177/25",
+          "quoted_sigma": "281/25",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "104.401219600888",
+            "104.401219600889"
+          ],
+          "observed_H": "4639/50",
+          "quoted_sigma": "129/10",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "106.880094893159",
+            "106.880094893160"
+          ],
+          "observed_H": "8091/100",
+          "quoted_sigma": "2261/250",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "116.958152424416",
+            "116.958152424417"
+          ],
+          "observed_H": "519/5",
+          "quoted_sigma": "156219/12500",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "124.744047715532",
+            "124.744047715533"
+          ],
+          "observed_H": "458/5",
+          "quoted_sigma": "497617/62500",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "134.012465500469",
+            "134.012465500470"
+          ],
+          "observed_H": "209/2",
+          "quoted_sigma": "243903/20000",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "142.769936685467",
+            "142.769936685468"
+          ],
+          "observed_H": "1251/10",
+          "quoted_sigma": "334017/20000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "158.135699730566",
+            "158.135699730567"
+          ],
+          "observed_H": "1537/10",
+          "quoted_sigma": "12296/625",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "190.411051604354",
+            "190.411051604355"
+          ],
+          "observed_H": "160",
+          "quoted_sigma": "3263/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "254.275586951061",
+            "254.275586951062"
+          ],
+          "observed_H": "373/2",
+          "quoted_sigma": "2479/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_BC03.dat"
+    },
+    {
+      "branch": "hubble_area_conserved",
+      "chi_square_interval": [
+        "70.487053778996",
+        "70.487053778997"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "86.295044212014",
+            "86.295044212015"
+          ],
+          "observed_H": "7491/100",
+          "quoted_sigma": "19034631/5000000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "88.522087558024",
+            "88.522087558025"
+          ],
+          "observed_H": "1874/25",
+          "quoted_sigma": "6125169/1250000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "105.944093323560",
+            "105.944093323561"
+          ],
+          "observed_H": "4139/50",
+          "quoted_sigma": "1394843/100000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "109.288113948058",
+            "109.288113948059"
+          ],
+          "observed_H": "83",
+          "quoted_sigma": "677/50",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "111.696110337582",
+            "111.696110337583"
+          ],
+          "observed_H": "7697/100",
+          "quoted_sigma": "509/50",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "114.615943286729",
+            "114.615943286730"
+          ],
+          "observed_H": "2177/25",
+          "quoted_sigma": "281/25",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "117.645983551321",
+            "117.645983551322"
+          ],
+          "observed_H": "4639/50",
+          "quoted_sigma": "129/10",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "121.144516759159",
+            "121.144516759160"
+          ],
+          "observed_H": "8091/100",
+          "quoted_sigma": "2261/250",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "135.501051358902",
+            "135.501051358903"
+          ],
+          "observed_H": "519/5",
+          "quoted_sigma": "156219/12500",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "146.726135734407",
+            "146.726135734408"
+          ],
+          "observed_H": "458/5",
+          "quoted_sigma": "497617/62500",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "160.224500455453",
+            "160.224500455454"
+          ],
+          "observed_H": "209/2",
+          "quoted_sigma": "243903/20000",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "173.101473215567",
+            "173.101473215568"
+          ],
+          "observed_H": "1251/10",
+          "quoted_sigma": "334017/20000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "195.950528897123",
+            "195.950528897124"
+          ],
+          "observed_H": "1537/10",
+          "quoted_sigma": "12296/625",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "244.824839791116",
+            "244.824839791117"
+          ],
+          "observed_H": "160",
+          "quoted_sigma": "3263/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "344.109722266263",
+            "344.109722266264"
+          ],
+          "observed_H": "373/2",
+          "quoted_sigma": "2479/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_BC03.dat"
+    },
+    {
+      "branch": "fixed_capacity",
+      "chi_square_interval": [
+        "7.979522903794",
+        "7.979522903795"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "73.875188774712",
+            "73.875188774713"
+          ],
+          "observed_H": "2013/25",
+          "quoted_sigma": "11943129/2500000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "74.700609070298",
+            "74.700609070299"
+          ],
+          "observed_H": "8061/100",
+          "quoted_sigma": "29253369/5000000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "81.531577543291",
+            "81.531577543292"
+          ],
+          "observed_H": "2203/25",
+          "quoted_sigma": "2020151/125000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "82.910292080368",
+            "82.910292080369"
+          ],
+          "observed_H": "4467/50",
+          "quoted_sigma": "1409/100",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "83.915059645642",
+            "83.915059645643"
+          ],
+          "observed_H": "8283/100",
+          "quoted_sigma": "1057/100",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "85.146269169498",
+            "85.146269169499"
+          ],
+          "observed_H": "9369/100",
+          "quoted_sigma": "1167/100",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "86.438258285401",
+            "86.438258285402"
+          ],
+          "observed_H": "997/10",
+          "quoted_sigma": "1339/100",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "87.947306333708",
+            "87.947306333709"
+          ],
+          "observed_H": "8657/100",
+          "quoted_sigma": "8741/1000",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "94.315211390320",
+            "94.315211390321"
+          ],
+          "observed_H": "549/5",
+          "quoted_sigma": "73017/5000",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "99.465002165981",
+            "99.465002165982"
+          ],
+          "observed_H": "1963/20",
+          "quoted_sigma": "2059187/200000",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "105.822663555841",
+            "105.822663555842"
+          ],
+          "observed_H": "2201/25",
+          "quoted_sigma": "706521/62500",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "112.028962368045",
+            "112.028962368046"
+          ],
+          "observed_H": "1243/10",
+          "quoted_sigma": "841511/50000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "123.315541109564",
+            "123.315541109565"
+          ],
+          "observed_H": "113",
+          "quoted_sigma": "154019/10000",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "148.299154705294",
+            "148.299154705295"
+          ],
+          "observed_H": "1679/10",
+          "quoted_sigma": "3617/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "201.025902315651",
+            "201.025902315652"
+          ],
+          "observed_H": "1957/10",
+          "quoted_sigma": "2693/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_M11.dat"
+    },
+    {
+      "branch": "comoving_area",
+      "chi_square_interval": [
+        "30.190533236913",
+        "30.190533236914"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "81.682331169325",
+            "81.682331169326"
+          ],
+          "observed_H": "2013/25",
+          "quoted_sigma": "11943129/2500000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "83.331522103241",
+            "83.331522103242"
+          ],
+          "observed_H": "8061/100",
+          "quoted_sigma": "29253369/5000000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "96.035517515863",
+            "96.035517515864"
+          ],
+          "observed_H": "2203/25",
+          "quoted_sigma": "2020151/125000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "98.438497471135",
+            "98.438497471136"
+          ],
+          "observed_H": "4467/50",
+          "quoted_sigma": "1409/100",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "100.162577416370",
+            "100.162577416371"
+          ],
+          "observed_H": "8283/100",
+          "quoted_sigma": "1057/100",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "102.246349762266",
+            "102.246349762267"
+          ],
+          "observed_H": "9369/100",
+          "quoted_sigma": "1167/100",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "104.401219600888",
+            "104.401219600889"
+          ],
+          "observed_H": "997/10",
+          "quoted_sigma": "1339/100",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "106.880094893159",
+            "106.880094893160"
+          ],
+          "observed_H": "8657/100",
+          "quoted_sigma": "8741/1000",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "116.958152424416",
+            "116.958152424417"
+          ],
+          "observed_H": "549/5",
+          "quoted_sigma": "73017/5000",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "124.744047715532",
+            "124.744047715533"
+          ],
+          "observed_H": "1963/20",
+          "quoted_sigma": "2059187/200000",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "134.012465500469",
+            "134.012465500470"
+          ],
+          "observed_H": "2201/25",
+          "quoted_sigma": "706521/62500",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "142.769936685467",
+            "142.769936685468"
+          ],
+          "observed_H": "1243/10",
+          "quoted_sigma": "841511/50000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "158.135699730566",
+            "158.135699730567"
+          ],
+          "observed_H": "113",
+          "quoted_sigma": "154019/10000",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "190.411051604354",
+            "190.411051604355"
+          ],
+          "observed_H": "1679/10",
+          "quoted_sigma": "3617/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "254.275586951061",
+            "254.275586951062"
+          ],
+          "observed_H": "1957/10",
+          "quoted_sigma": "2693/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_M11.dat"
+    },
+    {
+      "branch": "hubble_area_conserved",
+      "chi_square_interval": [
+        "89.767053312288",
+        "89.767053312289"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "86.295044212014",
+            "86.295044212015"
+          ],
+          "observed_H": "2013/25",
+          "quoted_sigma": "11943129/2500000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "88.522087558024",
+            "88.522087558025"
+          ],
+          "observed_H": "8061/100",
+          "quoted_sigma": "29253369/5000000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "105.944093323560",
+            "105.944093323561"
+          ],
+          "observed_H": "2203/25",
+          "quoted_sigma": "2020151/125000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "109.288113948058",
+            "109.288113948059"
+          ],
+          "observed_H": "4467/50",
+          "quoted_sigma": "1409/100",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "111.696110337582",
+            "111.696110337583"
+          ],
+          "observed_H": "8283/100",
+          "quoted_sigma": "1057/100",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "114.615943286729",
+            "114.615943286730"
+          ],
+          "observed_H": "9369/100",
+          "quoted_sigma": "1167/100",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "117.645983551321",
+            "117.645983551322"
+          ],
+          "observed_H": "997/10",
+          "quoted_sigma": "1339/100",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "121.144516759159",
+            "121.144516759160"
+          ],
+          "observed_H": "8657/100",
+          "quoted_sigma": "8741/1000",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "135.501051358902",
+            "135.501051358903"
+          ],
+          "observed_H": "549/5",
+          "quoted_sigma": "73017/5000",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "146.726135734407",
+            "146.726135734408"
+          ],
+          "observed_H": "1963/20",
+          "quoted_sigma": "2059187/200000",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "160.224500455453",
+            "160.224500455454"
+          ],
+          "observed_H": "2201/25",
+          "quoted_sigma": "706521/62500",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "173.101473215567",
+            "173.101473215568"
+          ],
+          "observed_H": "1243/10",
+          "quoted_sigma": "841511/50000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "195.950528897123",
+            "195.950528897124"
+          ],
+          "observed_H": "113",
+          "quoted_sigma": "154019/10000",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "244.824839791116",
+            "244.824839791117"
+          ],
+          "observed_H": "1679/10",
+          "quoted_sigma": "3617/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "344.109722266263",
+            "344.109722266264"
+          ],
+          "observed_H": "1957/10",
+          "quoted_sigma": "2693/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_M11.dat"
+    },
+    {
+      "branch": "future_event_area_gamma_one",
+      "chi_square_interval": [
+        "6.577168897789",
+        "6.577168897790"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "75.314555688646",
+            "75.314555688647"
+          ],
+          "Omega_dark_interval": [
+            "0.586453425090",
+            "0.586453425091"
+          ],
+          "observed_H": "7491/100",
+          "quoted_sigma": "19034631/5000000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "76.301258020568",
+            "76.301258020569"
+          ],
+          "Omega_dark_interval": [
+            "0.576015040179",
+            "0.576015040180"
+          ],
+          "observed_H": "1874/25",
+          "quoted_sigma": "6125169/1250000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "84.318256267398",
+            "84.318256267399"
+          ],
+          "Omega_dark_interval": [
+            "0.502697299241",
+            "0.502697299242"
+          ],
+          "observed_H": "4139/50",
+          "quoted_sigma": "1394843/100000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "85.908684360183",
+            "85.908684360184"
+          ],
+          "Omega_dark_interval": [
+            "0.490220602337",
+            "0.490220602338"
+          ],
+          "observed_H": "83",
+          "quoted_sigma": "677/50",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "87.062705631769",
+            "87.062705631770"
+          ],
+          "Omega_dark_interval": [
+            "0.481531549537",
+            "0.481531549538"
+          ],
+          "observed_H": "7697/100",
+          "quoted_sigma": "509/50",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "88.471323552061",
+            "88.471323552062"
+          ],
+          "Omega_dark_interval": [
+            "0.471316725977",
+            "0.471316725978"
+          ],
+          "observed_H": "2177/25",
+          "quoted_sigma": "281/25",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "89.943316530736",
+            "89.943316530737"
+          ],
+          "Omega_dark_interval": [
+            "0.461076689930",
+            "0.461076689931"
+          ],
+          "observed_H": "4639/50",
+          "quoted_sigma": "129/10",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "91.655071242127",
+            "91.655071242128"
+          ],
+          "Omega_dark_interval": [
+            "0.449692947058",
+            "0.449692947059"
+          ],
+          "observed_H": "8091/100",
+          "quoted_sigma": "2261/250",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "98.799390648144",
+            "98.799390648145"
+          ],
+          "Omega_dark_interval": [
+            "0.407501368557",
+            "0.407501368558"
+          ],
+          "observed_H": "519/5",
+          "quoted_sigma": "156219/12500",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "104.498165911569",
+            "104.498165911570"
+          ],
+          "Omega_dark_interval": [
+            "0.378976295654",
+            "0.378976295655"
+          ],
+          "observed_H": "458/5",
+          "quoted_sigma": "497617/62500",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "111.455300608815",
+            "111.455300608816"
+          ],
+          "Omega_dark_interval": [
+            "0.349021041537",
+            "0.349021041538"
+          ],
+          "observed_H": "209/2",
+          "quoted_sigma": "243903/20000",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "118.178369869402",
+            "118.178369869403"
+          ],
+          "Omega_dark_interval": [
+            "0.324172138896",
+            "0.324172138897"
+          ],
+          "observed_H": "1251/10",
+          "quoted_sigma": "334017/20000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "130.268716311720",
+            "130.268716311721"
+          ],
+          "Omega_dark_interval": [
+            "0.287273073197",
+            "0.287273073198"
+          ],
+          "observed_H": "1537/10",
+          "quoted_sigma": "12296/625",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "156.600191706059",
+            "156.600191706060"
+          ],
+          "Omega_dark_interval": [
+            "0.230095367091",
+            "0.230095367092"
+          ],
+          "observed_H": "160",
+          "quoted_sigma": "3263/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "211.123053531085",
+            "211.123053531086"
+          ],
+          "Omega_dark_interval": [
+            "0.163177935344",
+            "0.163177935345"
+          ],
+          "observed_H": "373/2",
+          "quoted_sigma": "2479/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_BC03.dat"
+    },
+    {
+      "branch": "future_event_area_gamma_one",
+      "chi_square_interval": [
+        "9.759896302660",
+        "9.759896302661"
+      ],
+      "fitted_chronometer_parameters": 0,
+      "records": [
+        {
+          "H_interval": [
+            "75.314555688646",
+            "75.314555688647"
+          ],
+          "Omega_dark_interval": [
+            "0.586453425090",
+            "0.586453425091"
+          ],
+          "observed_H": "2013/25",
+          "quoted_sigma": "11943129/2500000",
+          "z": "1791/10000"
+        },
+        {
+          "H_interval": [
+            "76.301258020568",
+            "76.301258020569"
+          ],
+          "Omega_dark_interval": [
+            "0.576015040179",
+            "0.576015040180"
+          ],
+          "observed_H": "8061/100",
+          "quoted_sigma": "29253369/5000000",
+          "z": "1993/10000"
+        },
+        {
+          "H_interval": [
+            "84.318256267398",
+            "84.318256267399"
+          ],
+          "Omega_dark_interval": [
+            "0.502697299241",
+            "0.502697299242"
+          ],
+          "observed_H": "2203/25",
+          "quoted_sigma": "2020151/125000",
+          "z": "3519/10000"
+        },
+        {
+          "H_interval": [
+            "85.908684360183",
+            "85.908684360184"
+          ],
+          "Omega_dark_interval": [
+            "0.490220602337",
+            "0.490220602338"
+          ],
+          "observed_H": "4467/50",
+          "quoted_sigma": "1409/100",
+          "z": "1901/5000"
+        },
+        {
+          "H_interval": [
+            "87.062705631769",
+            "87.062705631770"
+          ],
+          "Omega_dark_interval": [
+            "0.481531549537",
+            "0.481531549538"
+          ],
+          "observed_H": "8283/100",
+          "quoted_sigma": "1057/100",
+          "z": "1001/2500"
+        },
+        {
+          "H_interval": [
+            "88.471323552061",
+            "88.471323552062"
+          ],
+          "Omega_dark_interval": [
+            "0.471316725977",
+            "0.471316725978"
+          ],
+          "observed_H": "9369/100",
+          "quoted_sigma": "1167/100",
+          "z": "4247/10000"
+        },
+        {
+          "H_interval": [
+            "89.943316530736",
+            "89.943316530737"
+          ],
+          "Omega_dark_interval": [
+            "0.461076689930",
+            "0.461076689931"
+          ],
+          "observed_H": "997/10",
+          "quoted_sigma": "1339/100",
+          "z": "4497/10000"
+        },
+        {
+          "H_interval": [
+            "91.655071242127",
+            "91.655071242128"
+          ],
+          "Omega_dark_interval": [
+            "0.449692947058",
+            "0.449692947059"
+          ],
+          "observed_H": "8657/100",
+          "quoted_sigma": "8741/1000",
+          "z": "4783/10000"
+        },
+        {
+          "H_interval": [
+            "98.799390648144",
+            "98.799390648145"
+          ],
+          "Omega_dark_interval": [
+            "0.407501368557",
+            "0.407501368558"
+          ],
+          "observed_H": "549/5",
+          "quoted_sigma": "73017/5000",
+          "z": "5929/10000"
+        },
+        {
+          "H_interval": [
+            "104.498165911569",
+            "104.498165911570"
+          ],
+          "Omega_dark_interval": [
+            "0.378976295654",
+            "0.378976295655"
+          ],
+          "observed_H": "1963/20",
+          "quoted_sigma": "2059187/200000",
+          "z": "6797/10000"
+        },
+        {
+          "H_interval": [
+            "111.455300608815",
+            "111.455300608816"
+          ],
+          "Omega_dark_interval": [
+            "0.349021041537",
+            "0.349021041538"
+          ],
+          "observed_H": "2201/25",
+          "quoted_sigma": "706521/62500",
+          "z": "1953/2500"
+        },
+        {
+          "H_interval": [
+            "118.178369869402",
+            "118.178369869403"
+          ],
+          "Omega_dark_interval": [
+            "0.324172138896",
+            "0.324172138897"
+          ],
+          "observed_H": "1243/10",
+          "quoted_sigma": "841511/50000",
+          "z": "4377/5000"
+        },
+        {
+          "H_interval": [
+            "130.268716311720",
+            "130.268716311721"
+          ],
+          "Omega_dark_interval": [
+            "0.287273073197",
+            "0.287273073198"
+          ],
+          "observed_H": "113",
+          "quoted_sigma": "154019/10000",
+          "z": "1037/1000"
+        },
+        {
+          "H_interval": [
+            "156.600191706059",
+            "156.600191706060"
+          ],
+          "Omega_dark_interval": [
+            "0.230095367091",
+            "0.230095367092"
+          ],
+          "observed_H": "1679/10",
+          "quoted_sigma": "3617/100",
+          "z": "1363/1000"
+        },
+        {
+          "H_interval": [
+            "211.123053531085",
+            "211.123053531086"
+          ],
+          "Omega_dark_interval": [
+            "0.163177935344",
+            "0.163177935345"
+          ],
+          "observed_H": "1957/10",
+          "quoted_sigma": "2693/50",
+          "z": "393/200"
+        }
+      ],
+      "rows": 15,
+      "table": "HzTable_MM_M11.dat"
+    }
+  ],
+  "physical_horizon_or_Lambda_amplitude_derived": false,
+  "references": [
+    "https://arxiv.org/abs/hep-th/0403052",
+    "https://arxiv.org/abs/hep-th/0403127"
+  ],
+  "same_data_alternatives_are_independent": false,
+  "schema": "oph.horizon_capacity_comparison.v1",
+  "source_sha256": {
+    "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean": "0f279f7592806346fefe1a707773ac7283c1046a82ce9b522688cdf0c019d9e1",
+    "Lean/ObserverPatchHolography/CapacityStress.lean": "393f7cc22f8e444e2cbec925145a3070fe4b802f1670b34f16ca2da325634294",
+    "Lean/ObserverPatchHolography/EinsteinBranch/FixedCapacityWLaw.lean": "af9370c79bd0a18f6c8a9eee5bb9e3fe5f94fe04c6bf377c2d12eb4fef1f5e00",
+    "Lean/ObserverPatchHolography/SourceScaleCompatibility.lean": "7e9915f06f68fd554419a10e3c0957b33d432615a0b0f632e1ed4e0260346d4d",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/openwave_capacity_stress/PAPER_RESULT.tex": "e3b22c7a77a57741342138024dda23c6188e80e7e377ca7b510923bbcf095435",
+    "model/openwave_capacity_stress/PROOF.md": "fdfa91ee64f9876ed4e7e8080986e33ba683856ca1f1402f70df45ddda4e0edd",
+    "model/openwave_capacity_stress/README.md": "5ea208b4501d71d0a4a5504079ee432bfbfbf235ecae268353ceecdffc2a87e3",
+    "model/openwave_capacity_stress/Transfer.lean": "4ed9aab1528eb14ea9943acce597ffb5f8ea716d31f9eafaf6230735db2fbc17",
+    "model/openwave_capacity_stress/__init__.py": "ef4ac3ba10db5a230e72a104cf58b07a8dd14d7844197f8bef267e1a6db0ef48",
+    "model/openwave_capacity_stress/__main__.py": "c4f0761bd0f2b11941bade74c47890e375333870c29241f645c2c7edcf128252",
+    "model/openwave_capacity_stress/comparison_protocol.json": "bfed50700c365086478f7073ea90cc1fbe600b80296d7bd306cb9af90632f265",
+    "model/openwave_capacity_stress/inputs/HzTable_MM_BC03.dat": "32ce92caf251cb60a7a837c71f1856bea2b44fa5c1041f85410d11cb8164da98",
+    "model/openwave_capacity_stress/inputs/HzTable_MM_M11.dat": "01171e09a416c7aed0e2cbd4a978981ffc0dffa28665ea2c6ee66b2e4fee44ba",
+    "model/openwave_capacity_stress/inputs/data_MM20.dat": "577ac2f346e346fe7cf94daa7b7000c05d04ebc8a029cda31e0d8643b956a485",
+    "model/openwave_capacity_stress/inputs/provenance.json": "2b944b344b7f0fadcdfd4abc403260a56f3c1f2512062bdd967ad90979d40f20",
+    "model/openwave_capacity_stress/results.json": "ac8c5a3950e7d5c25de42754363e0335eeabecb1b31ff49084125f6863176f62",
+    "model/openwave_capacity_stress/source.py": "1564c7130e3268bfb1e616d89d825c84d3cfb3aad69afa13318e0e8aab0327b2",
+    "model/openwave_capacity_stress/test_capacity.py": "14fe982755f0451c1074ae43de2c2492799e9e4489d6de1daaea6c134dcc3324",
+    "model/openwave_horizon_capacity/PAPER_RESULT.tex": "9706ffd493474da0b7a3c11dab84ed1c7fe88567fd1b7cf0164d072fb22e2c6e",
+    "model/openwave_horizon_capacity/PROOF.md": "d853655bcc51cf3211f924c5260577b49caba0fc5559b1645640b9418da3cc64",
+    "model/openwave_horizon_capacity/README.md": "7998eefe54ab6236b0c3cef1452c5c1dbc3df44a723c9a3bc29daaad3b8d1319",
+    "model/openwave_horizon_capacity/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "model/openwave_horizon_capacity/__main__.py": "026c5edb1fe3356afad6e211ef0d9f8c3f158703b73f299e3a281659975f070f",
+    "model/openwave_horizon_capacity/source.py": "fac006bbb6dd88c9a4461e2466578ec3d57a93b14a1b58ab960fb2834a842058",
+    "model/openwave_horizon_capacity/test_source.py": "2e70068e048ff72584e5fc64497bde2f3bffa9c3521f3ac24fef4d3ab8a2057c",
+    "model/openwave_pure_su2_source/__init__.py": "a14883ed7a07b449b6f6c726910ac722588f85c8494301f1a9fd053df872bb7e",
+    "model/openwave_pure_su2_source/custody.py": "514ad4f0d20fdc7956643ead12275abcc40c688c2e2604ef712a562c2e51c206",
+    "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723"
+  },
+  "verdict": "PASS_EXACT_CAPACITY_BRANCHES_AND_CORRELATED_COMPARISON"
+}

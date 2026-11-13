@@ -32,6 +32,11 @@ PACKAGES=(
     'openwave_autonomous_clock_channel', 'openwave_transverse_gravity',
     'openwave_su2_volume_gap', 'openwave_capacity_stress',
     'openwave_clock_string_review', 'openwave_quantum_observable_review',
+    'openwave_baryon_dispersion', 'openwave_cluster_bandwidth',
+    'openwave_nuclear_isospin', 'openwave_clock_phase_resource',
+    'openwave_quotient_homotopy', 'openwave_resolved_core',
+    'openwave_dirac_field_connection', 'openwave_gravity_unit_constraint',
+    'openwave_horizon_capacity', 'openwave_su2_propagation',
 )
 
 def source_bindings():

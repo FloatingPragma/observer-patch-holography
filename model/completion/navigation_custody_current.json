@@ -1,0 +1,36 @@
+{
+  "schema": "oph.finite_attachment_navigation_custody.v1",
+  "role": "CURRENT_NAVIGATION_ONLY_UNCHANGED_SCIENTIFIC_ACCEPTANCE",
+  "producer": {
+    "path": "tools/renew_finite_attachment_navigation.py",
+    "sha256": "af06e78825ed98646ba3576c50d79557526c36d35166774e4d0dcb08dcbcad5e"
+  },
+  "navigation": {
+    "claim_count": 400,
+    "lean_module_count": 693,
+    "contract_coverage_sha256": "3fb2f6e8c9be13706631f8bafd8f6685e4ee9e4f659a7c65656f5d45dc656692"
+  },
+  "finite_attachment_map_sha256": "ae8329d6d95b5d53e54150f2c610bf7927d5848835d952f763e2dfd7e815e04a",
+  "scientific_semantics_sha256": {
+    "model/completion/finite_attachment_map.json": "ae0273e71cd22e0d182a16f06c31385413c12a4d2a56aabc6d53d6859a914f52",
+    "model/completion/program_class_v2_review.json": "bd339fe9505fe964ad95429c389c49ac94106f43bbf3148aa58254345e62e0a6",
+    "model/completion/program_class_v2.json": "c367a61f93d30aa5e1cb91ac4f2e7e17f582a6b31278748d42148b4ac9ae3b9a",
+    "claims/completion_program.json": "0f84541bc77d3f5b8bfdbcae9412ffb629a455d3889d2d7c0238655581cc0153"
+  },
+  "original_map_validator_result": {
+    "canonical_premises": 84,
+    "finite_obligations_realized": 151,
+    "canonical_premises_discharged": 0,
+    "classifications": {
+      "alternative_branch": 49,
+      "realized_on_claimed_domain": 6,
+      "required_but_conditional": 25,
+      "irrelevant_to_target": 4
+    },
+    "full_gate_accepted": true,
+    "gate_acceptance_owner": "claims/completion_program.json"
+  },
+  "gate_statuses_changed": false,
+  "physical_premises_discharged": [],
+  "retained_authority_contracts_modified": false
+}

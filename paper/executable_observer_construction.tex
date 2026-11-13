@@ -4810,31 +4810,39 @@ requires coverage of every admitted realization.
 \input{tex_fragments/CALIBRATED_COMPOSITES_AND_RELATIONAL_RECORDS.tex}
 
 
-\subsection{Capacity work and a conditional expansion comparison}
-For a finite active register of capacity $k$ bits, the declared volume coupling
-$H(V,k)=\epsilon V/k$ gives the operator identities
-$\rho=\epsilon/k$ and $P=-\partial_VH=-\rho$.
-Complete geometry-phase and register-word records retain the preparation work.
-An increase of capacity costs the controller work
-$\epsilon V[(k+1)^{-1}-k^{-1}]$; the sum of all four volume and capacity
-strokes in a closed cycle is exactly zero. If capacity varies, its energy
-exchange is $Q=-\rho\dot{k}/k$. The separately conserved effective equation of
-state $w_{\rm eff}=-1+\tfrac13d\log k/d\log a$ absorbs this exchange and is
-distinct from mechanical pressure. A conditional flat Friedmann comparison
-uses the supplied Planck parameters $H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-and $\Omega_m=0.315$, all fifteen specified cosmic-chronometer measurements,
-and their correlated covariance. Exact rational inversion and outward
-square-root bounds enclose the statistic. This comparison does not derive
-the cosmological amplitude or identify a physical horizon.
-The primary correlated statistic is
-$\chi^2\in[6.191340672071,6.191340672072]$ for fifteen fixed-input residuals;
-the alternative stellar-population table gives
-$\chi^2\in[7.979522903794,7.979522903795]$.
-The tables are alternative reductions of shared measurements, so their
-likelihoods are not multiplied as independent data.
-
-The declared source and complete covariance calculation are specified in
+\subsection{Capacity work and horizon-dependent expansion}
+For the finite active-register coupling $H(V,k)=\epsilon V/k$,
+the operator pressure is $P=-\rho=-\epsilon/k$ at fixed capacity.
+Complete register/geometry observations retain preparation work and every
+capacity-change stroke; the four-stroke work cycle vanishes exactly.
+Capacity drift has exchange $Q=-\rho\dot{k}/k$, which distinguishes mechanical
+pressure from the separately conserved effective-fluid pressure.
+These identities and all finite records are specified in
 \path{model/openwave_capacity_stress}.
+
+The proved capacity drift law gives $w=-1+\tfrac13 d\log N/d\log a$.
+With an area capacity $N\propto R^2$, a comoving radius gives $w=-1/3$.
+A Hubble radius with separately conserved dust instead gives $w=0$ and
+$H^2/H_0^2=a^{-3}$. Retaining mechanical pressure $-\rho$ on that branch
+requires matter exchange and a constant dark fraction, with no transition
+from matter domination to acceleration.
+
+For the declared future-event-horizon member with coefficient one,
+$x=\sqrt{\Omega_{\mathrm{dark}}}$ obeys the exact algebraic equation
+\[
+ \frac{x^6(1+x)^3}{(1-x)(1+2x)^8}
+ =a^3\frac{x_0^6(1+x_0)^3}{(1-x_0)(1+2x_0)^8}.
+\]
+Monotonicity and rational bisection replace an ordinary differential equation
+solver. The future limit has positive finite $H$, and the event-horizon
+boundary condition follows. With the supplied $H_0=67.4\,\mathrm{km\,s^{-1}
+Mpc^{-1}}$ and $\Omega_m=0.315$, all fifteen correlated primary chronometer
+rows give $\chi^2\simeq6.57717$. The same comparison gives $6.19134$ for
+fixed capacity, $21.54903$ for comoving area and $70.48705$ for separately
+conserved Hubble area. The alternative stellar-population reductions use
+the same observations. These are conditional capacity-history comparisons;
+neither the cosmic amplitude nor a physical register-to-horizon map is derived.
+The construction and complete records are specified in \path{model/openwave_horizon_capacity}.
 
 \section{Reproducibility}
 \label{sec:repro}
