@@ -516,6 +516,28 @@ implementation of it. The full stress stencil, common physical clock,
 photon length and independent Newton normalization require their further
 source maps (\path{model/openwave_native_geometry_readout}).
 
+\paragraph{A shared coherent event and repeated clock interface.}
+The complete C/E event is implemented on 256 local source and record
+addresses, with a reversible record re-encoding and every padding outcome.
+Its coherent continuation transports source-port amplitudes under an exact
+full-carrier wave recurrence on three finite spatial sizes. The corrected
+512-address clock program uses the same native event hardware with a
+different declared selector, phase and recovery policy. Complete native E
+quadrature instruments produce two consecutive records without source
+re-preparation, with joint l1 error at most twice the inherited
+source/reference channel error. Active memory feedback changes a logical
+coherence by $85/96$. In the exact service contract, its compiled inverse
+before recovery transfers the clock channel on all source-memory inputs,
+with full failures; finite primitive implementation errors require their
+additional budget.
+This gives a concrete apparatus composition and a quantitative failed
+uncompensated control. The clock parameter is dimensionless; an identified
+photon length, stress instrument and independent Newton normalization are
+additional inputs to the spacetime interpretation
+(\path{model/openwave_coherent_native_architecture},
+\path{model/openwave_native_charge_readout},
+\path{model/openwave_native_coherent_clock}).
+
 \begin{theorem}[Einstein equation from a common null balance]
 Let $(M,g)$ be a connected time-oriented $C^3$ Lorentzian four-manifold and
 $T$ a symmetric $C^1$ tensor with $\nabla^aT_{ab}=0$. Fix a single

@@ -149,11 +149,17 @@ proof shows that the whole class of laws cannot work.
   while preserving the global vacuum. Physical masses and current dynamics
   require their compatible attachment.
   [Complete matter and field source](model/openwave_matter_flux_source/PROOF.md).
-- **An observer that runs.** A twelve-port observer keeps its records and
-  uses them to choose its next repair. Overlapping observers read a common
-  reference and its clock, a finite quantum process joins electric flux,
-  charged matter and a scalar field, and refining screens give Gaussian
-  field limits and waves of finite speed.
+- **Coherent motion, charge and clocks on shared hardware.** One native
+  event architecture supports coherent propagation, active protected memory
+  charge and repeated clock readouts. In the exact declared service contract,
+  inverse feedback restores the clock after charged transport; its generator also produces
+  a certified entangling interaction. The programs have different declared
+  schedules. Their common moving charged particle and physical energy scale
+  require a joint construction: the tested electron-anchored transition
+  ratios 1:3:12 fail the lepton hierarchy.
+  [Coherent source interfaces](claims/coherent_integration.json),
+  [Repeated clock and records](model/openwave_native_coherent_clock/PROOF.md),
+  [Propagation and complete spectrum](model/openwave_coherent_native_propagation/PROOF.md).
 - **A Lorentzian scalar field from the observers' records.** On a declared
   radial extension of the refining screen, one action fixes correlations,
   response and a modular clock, and a smooth (1+3)-dimensional scalar field

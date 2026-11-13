@@ -632,6 +632,20 @@ One literal fair C/E repair process supplies complete source, memory and referen
 
 These results add zero validated Nature comparisons. The common physical field, rest-mass dictionary, Einstein continuum and four-dimensional Yang–Mills construction are unproved.
 
+### Coherent construction and exact interfaces
+
+One declared native event architecture supports named committed, coherent-walk, active-charge and compensated-clock programs. Their exact interfaces are stated below; the programs are not treated as one interchangeable evolution.
+
+- [Complete coherent event architecture](../model/openwave_coherent_native_architecture/PROOF.md). The complete local coherent event reproduces the original C/E instrument when its original records are committed. Reversible record recoding changes the uncommitted observation policy and retains the inverse readout.
+- [Coherent native propagation](../model/openwave_coherent_native_propagation/PROOF.md). An exact cyclic reduction propagates complete quantum port probabilities on three source sizes. The finite dispersion follows cos(omega)=1-lambda/(2M), with a zero constant mode and declared reflection. Neither a massive physical dispersion nor a laboratory speed follows.
+- [Active protected memory charge](../model/openwave_active_native_charge/PROOF.md). A six-state active memory extends the source algebra and supplies protected character projectors. Its transport holonomy is nontrivial. Physical electric normalization, spatial quark winding and independent protected daughter charges are not established.
+- [Complete charge readout and compensated recovery](../model/openwave_native_charge_readout/PROOF.md). The actual compiled charge feedback and phase readout retain all source/memory/padding outcomes. Uncorrected charge character one damps a matching coherence by 85/96. In the exact declared service contract, inverse feedback before source recovery restores the complete original clock channel branchwise, with explicit added gates and retained failure complements. Stored primitive errors and physical implementation precision are additional requirements.
+- [Repeated coherent source clock](../model/openwave_native_coherent_clock/PROOF.md). All three signed gaps of the corrected 512-address source have consecutive complete quadrature records and finite-step probability bounds. These are one binary mode with three spectator values. Coherent preparation, phase and readout are declared; no self-starting physical oscillator is inferred.
+- [Same-source interaction and calibrated energies](../model/openwave_native_calibrated_energy/PROOF.md). The same compressed generator has a certified binary–spectator entangling interaction. Equating its smallest absolute transition gap to the electron anchor gives ratios 1:3:12, which fail the charged-lepton hierarchy. The calibrated transitions have no stable physical rest-pole identification.
+- [Finite Euclidean transfer and gap bounds](../model/openwave_native_euclidean_transfer/PROOF.md). The actual native population transfer gives a finite reflection-positive stationary path measure, a logarithmic transfer Hamiltonian and positive finite gap bounds. A nonzero occupation fourth cumulant does not supply a four-dimensional interacting field or the Clay construction.
+
+The common charged spatial particle, energy clock, field interactions, photon/metric observations and continuum limit require further interface proofs. These results add zero independent Nature validations and zero official OpenWave awards. Calibrated source values retain their empirical input ancestry.
+
 ## One calibrated hyperfine spectrum and its independent controls
 
 The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. The shared quadrupole/string attachment adds two dimensional comparison targets. The eigenenergies are calibrated finite records, not independent predictions or resonance poles.

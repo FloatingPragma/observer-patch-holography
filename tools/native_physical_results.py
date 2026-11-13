@@ -33,6 +33,8 @@ PACKAGES = (
     'native_process','native_response','native_defect_records','native_event_clock',
     'native_packet_propagation','native_interaction','native_rest_energy',
     'native_geometry_readout','native_capacity_history','native_platform_gate',
+    'coherent_native_architecture','coherent_native_propagation','active_native_charge',
+    'native_charge_readout','native_coherent_clock','native_calibrated_energy','native_euclidean_transfer',
 )
 
 
@@ -117,6 +119,7 @@ def collect(root):
         'operational_source_certificates': __import__('tools.native_operational_results',fromlist=['project']).project(data),
         'source_record_attachment_certificates': __import__('tools.native_bridge_results',fromlist=['project']).project(data),
         'native_execution_certificates': __import__('tools.native_execution_results',fromlist=['project']).project(data),
+        'coherent_integration_certificates': __import__('tools.coherent_integration_results',fromlist=['project']).project(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -262,6 +265,8 @@ def render(value):
     lines += render_bridge(value['source_record_attachment_certificates'],interval,decimal)
     from tools.native_execution_results import render as render_execution
     lines += render_execution(value['native_execution_certificates'])
+    from tools.coherent_integration_results import render as render_coherent
+    lines += render_coherent(value['coherent_integration_certificates'])
     return lines
 
 
