@@ -1,7 +1,7 @@
-name: Temporary inherited replay diagnostics
+name: Temporary spin-gradient replay diagnostics
 on:
   push:
-    branches: ['codex/oph-inherited-extension-diagnostics-20261113']
+    branches: ['codex/oph-inherited-spin-gradient-diagnostic-20261113']
 permissions:
   contents: read
 jobs:
@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [openwave_beta_angular, openwave_rest_spectroscopy, openwave_colour_string]
+        package: [openwave_spin_gradient_nuclei]
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
