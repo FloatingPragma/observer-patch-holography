@@ -131,19 +131,24 @@ proof shows that the whole class of laws cannot work.
   full-complement bounds enclose the coarse and refined gaps in
   [96.00000060968, 96.00000069820] and [47.99403921427, 48.00529277681]
   source units. Their enclosure widths improve by factors above 361 and 5.36.
-  Distant loops prevent a volume-uniform global-norm shortcut; these finite
+  Local Wilson-loop instruments retain every representation and all temporal
+  outcomes: two normalized correlations exceed0.97 on three refinements at
+  the specified common time. Their error grows with refinement, so these
   graphs supply no four-dimensional Yang–Mills continuum or physical glueball mass.
   [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-  [Refined gauge source](model/openwave_refined_haar_source/PROOF.md),
+  [Local gauge records](model/openwave_local_gauge_memory/PROOF.md),
   [Full-complement spectral certificate](model/openwave_energy_schur/PROOF.md).
 - **Exact transport of the complete fermion source.** Twenty-four local even
   pair transformations act on all 192 fermion modes while preserving every
   Hamiltonian term, current, charge, reference and measurement work. The
   proof replaces an enumeration of 2¹⁹² states with exact local identities.
-  An independent rotor extension retains its field-momentum connection and
-  every integer flux; it has a different carrier and supplies no additional
-  physical particle mass.
-  [Complete Fock and field transport](model/openwave_fock_field_transport/PROOF.md).
+  A full integer U(1) cycle and spatial hopping share a stable self-adjoint
+  source with those modes. Exact full-tail bounds quantify the charged
+  energy shift produced by this extension. One optional source-defined
+  subtraction restores all inherited charged one-lepton rest coefficients
+  while preserving the global vacuum. Physical masses and current dynamics
+  require their compatible attachment.
+  [Complete matter and field source](model/openwave_matter_flux_source/PROOF.md).
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,
@@ -179,11 +184,13 @@ proof shows that the whole class of laws cannot work.
   A localized packet has complete current records without an exact band filter.
   Full interacting evolution gives a positive separated-field response, and
   normalizable proton–pion states place the Lambda energy in the breakup
-  spectrum. Their outgoing weak overlap and physical lifetime require a
-  scattering calculation. These results retain the strong and mass inputs.
+  spectrum. A full-operator residual witness bounds the current spectral weight
+  within 1 MeV of the declared Lambda centre below 0.026622. Its lower bound
+  is zero, so no physical lifetime follows. These results retain the strong
+  and mass inputs.
   [Lambda packet](model/openwave_lambda_wavepacket/PROOF.md),
   [Complete strong current](model/openwave_full_strong_current/PROOF.md),
-  [Breakup spectrum](model/openwave_cluster_weyl_sequence/PROOF.md).
+  [Narrow spectral weight](model/openwave_lambda_narrow_weight/PROOF.md).
 - **Native emission and clocks.** Complete source calculations certify a
   parity-odd beta momentum statistic and a finite meson emission window.
   Two clock factors of the native eight-level source have a common
@@ -201,16 +208,15 @@ proof shows that the whole class of laws cannot work.
   an Einstein continuum identification.
   [Finite-strength bounds](model/openwave_collective_finite_strength/PROOF.md),
   [Response, noise and work](model/openwave_gravity_noise_normalization/PROOF.md).
-- **Certified conditional cosmological transfer.** An exact adiabatic identity
-  reduces seven supplied Einstein/dust/radiation/scalar equations to one
-  positive integral. Outward bounds give the present normalized metric
-  coefficient [0.734179279095, 0.734257299186], compared with
-  [0.709108311479, 0.709181069590] for the same-density constant-Lambda control.
-  The strict zero-wavenumber mode has zero comoving density; this is not a
-  measured growth or microwave-background fit. Absolute density, primordial
-  amplitude and the native field-to-cosmology mapping remain inputs or open
-  requirements.
-  [Exact normalization and transfer](model/openwave_capacity_normalization_transfer/PROOF.md).
+- **Certified conditional cosmological transfer.** An exact comoving reduction
+  and full finite-wavelength remainder control seven supplied
+  Einstein/dust/radiation/scalar equations. For the specified late preparation
+  and k/H0 = 0.01, the normalized metric coefficient lies in
+  [0.734178437082, 0.734256737081] and the comoving dust response in
+  [-0.000145594911, -0.000145454956]. These are conditional source responses;
+  the primordial history, absolute amplitude and native capacity-to-cosmology
+  mapping remain open. They supply no measured growth or CMB match.
+  [Finite-wavelength transfer](model/openwave_capacity_finite_wavelength/PROOF.md).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
   Its position observable is conjugate to the same spatial momentum, with complete

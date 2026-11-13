@@ -222,6 +222,47 @@ finite-$k$ error bound. The exact pure-radiation and pure-dust controls give
 $\Phi=1$ and $\Phi=9/10$, respectively
 (\path{model/openwave_capacity_normalization_transfer}).
 
+\paragraph{Certified finite wavelength from a specified late preparation.}
+A different, explicitly supplied preparation begins at $N=-1$ and evolves
+to $N=0$. Put $U=U_m$, $v=U_r-U_m$, $R=\Phi+U$,
+$w=y-sU$ and $j=w_N$. These comoving variables eliminate the exact
+zero-wave-number adiabatic mode. Its finite-$k$ initial correction is
+$\Delta_m=-2Q\Phi/(3\Omega_m)$, with other comoving corrections zero;
+the full Hamiltonian constraint then vanishes. This late preparation is
+not identified with the primordial continuation described above.
+
+For $\epsilon=(k/H_0)^2$ and
+$Y=(\Delta_m,\Delta_r,4v,2w,j,U,R)$, write
+$Y'=(A_0+\epsilon B)Y$ and $Y=Y_0+\epsilon Y_1+Z$.
+Appending $10T$ gives an eight-coordinate affine equation for $Y_1$.
+The exact background bounds imply $\mu_\infty(A_0)\le4$ and
+$\|B\|_\infty<6$. Outward interval Taylor transport and the full
+variation-of-constants equation
+\[
+ Z'=(A_0+\epsilon B)Z+\epsilon^2BY_1,
+ \qquad Z(-1)=0
+\]
+give a complete $k^4$ remainder. Independent 1024- and2048-step enclosures
+overlap; the refined coefficient intervals are
+\[
+ \Phi_1\in[-0.008281806997,-0.005759370982],\qquad
+ \Delta_{m,1}\in[-1.455879943233,-1.454618725225].
+\]
+The resulting full finite-wavelength records are
+\[
+\begin{array}{c|cc}
+k/H_0&\Phi(0)&\Delta_m(0)\\\hline
+1/100&[0.734178437082,0.734256737081]&[-0.000145594911,-0.000145454956]\\
+1/50&[0.734175744790,0.734255217019]&[-0.000582462769,-0.000581736699]
+\end{array}
+\]
+These intervals include the supplied initial quadrature uncertainty,
+background evolution and every finite-$k$ state correction. The source
+retains its Einstein/scalar attachment, density fractions, horizon choice
+and physical-scale freedom. It supplies no primordial-state selection,
+particle abundances, recombination or microwave-background fit
+(\path{model/openwave_capacity_finite_wavelength}).
+
 \section{Matter and States on a Supplied Spatial Domain}
 
 The Whitney construction on the fixed tetrahedral cone gives a controlled

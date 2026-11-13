@@ -26,6 +26,10 @@ PACKAGES = (
     'lambda_spectral_measure', 'finite_phase_clock', 'localized_quark_record',
     'nuclear_em_transfer', 'fock_field_transport', 'energy_schur',
     'collective_finite_strength', 'gravity_noise_normalization', 'capacity_normalization_transfer',
+    'lambda_narrow_weight', 'repeated_native_clock', 'quark_string_transport',
+    'nuclear_field_attraction', 'matter_flux_source', 'local_gauge_memory',
+    'stress_curvature_instruments', 'geometry_covariance_protocol',
+    'capacity_finite_wavelength', 'm10_review_gate',
 )
 
 
@@ -108,6 +112,7 @@ def collect(root):
         'normalizable_particles_and_spatial_fields': normalizable_particles_and_spatial_fields(data),
         'complete_dynamics_and_constraints': complete_dynamics_and_constraints(data),
         'operational_source_certificates': __import__('tools.native_operational_results',fromlist=['project']).project(data),
+        'source_record_attachment_certificates': __import__('tools.native_bridge_results',fromlist=['project']).project(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -249,6 +254,8 @@ def render(value):
     lines += render_complete_dynamics_and_constraints(value['complete_dynamics_and_constraints'])
     from tools.native_operational_results import render as render_operational
     lines += render_operational(value['operational_source_certificates'],interval,decimal)
+    from tools.native_bridge_results import render as render_bridge
+    lines += render_bridge(value['source_record_attachment_certificates'],interval,decimal)
     return lines
 
 

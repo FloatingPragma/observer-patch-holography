@@ -285,3 +285,13 @@ evidence and supplies no new hardware measurement. The older Stage 1 summaries
 remain archived, without a claim that their measured numbers survived a
 recalculation. Validation and exact reviewed heads are recorded in the
 [standing audit](https://github.com/FloatingPragma/observer-patch-holography/issues/1033).
+
+## Source-record implementation claims
+
+[native_process_bridge.json](native_process_bridge.json) binds ten complete
+source/review records to their exact producer receipts and the canonical
+premise, physical-identification and selection registers. It records no
+physical-premise closure or independent particle mass. The OpenWave M10
+column is admitted with 31 untested rows; its exact arithmetic certification
+awards no criterion cell. `python -m tools.build_native_process_bridge --check`
+verifies this claim surface through each original owner’s source inventory.

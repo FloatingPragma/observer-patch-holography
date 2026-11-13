@@ -1422,6 +1422,38 @@ contains a non-vacuum local excitation. The interval, like the uniform gap,
 is existential here. The complete local decomposition and physical
 restriction are specified in \path{model/openwave_su2_volume_gap}.
 
+\subsection{Local memory under three refinements}
+The full-Haar open cubes $L=1,2,3$ retain all representations and
+intertwiners with declared $\alpha=32/L$, $\beta=L^3/32$ and spacing
+$a=1/L$. A fixed unit-square perimeter has $4L$ links. On the constant
+Haar probe its normalized fundamental and spin-one characters have
+variances $1/4$ and $1/9$ and exact electric frequencies 96 and 256.
+The probe is not the interacting ground state.
+
+On-site electric evolution preserves loop support. Duhamel's identity
+therefore counts only faces touching the loop:
+\[
+ \|\tau_H^t(A)-\tau_E^t(A)\|\le\delta_L,
+ \quad\delta_L=\min\{2,2\beta N_{\rm inc}|t|\},\quad
+ N_{\rm inc}=\begin{cases}5,&L=1,\\8L-4,&L\ge2.\end{cases}
+\]
+The corresponding normalized real correlation errors are bounded by
+$2\delta_L$ and $3\delta_L$. Both normalized real correlations exceed 0.97 at $t=1/4096$ across all
+three refinements. No extensive $E<5$ projector enters this comparison.
+A complete three-outcome instrument has the exact temporal moment
+$\mathbb E[s_0s_t]=\eta^2\operatorname{Re}\langle A(t)A\rangle$,
+including backaction, all nine records and quantum references.
+For $\eta=1/2$, two readouts cost at most $32/3$ or $512/27$ source units.
+
+The local estimate grows as $L^4$ at fixed time. It gives a controlled
+window of order $L^{-4}$, not ultraviolet convergence at a fixed physical
+time. Fixed-spacing volume propagation and a continuum massive theory
+remain distinct requirements. An exact scale-invariant conformal theory
+cannot also possess a positive physical mass gap; the Clay target is a
+nontrivial four-dimensional quantum Yang--Mills theory with that gap.
+The complete source certificate is in
+\path{model/openwave_local_gauge_memory}.
+
 \subsection{Local propagation and compact gauge groups}
 For the full-Haar pure $SU(2)$ Hamiltonian, the electric Casimir is unbounded
 on each link, while a plaquette interaction has norm $\beta=2/(g^2a)$.
@@ -1488,8 +1520,8 @@ residuals establish these intervals.  Three representation resolutions
 give overlapping enclosures of the same untruncated source.  The separate
 independent-loop electric control has exactly zero connected covariance.
 At declared $g^2=4$ and $8$, the corresponding full-source gaps lie in
-$[6.0116008299245,6.0116008299596]$ and
-$[12.0014508439425,12.0014508439444]$.
+$[6.0116008299245,\allowbreak6.0116008299596]$ and
+$[12.0014508439425,\allowbreak12.0014508439444]$.
 
 The four effects $(I+sW_1/2)(I+tW_2/2)/4$, $s,t=\pm1$, define a complete
 observer instrument on that same physical space.  Every outcome is

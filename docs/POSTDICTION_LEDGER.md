@@ -593,6 +593,28 @@ The [validated regular long-wavelength metric coefficient](../model/openwave_cap
 
 These operational and spectral results add zero independent Nature-validation rows.
 
+### Complete source records and the native-process attachment
+
+OPH is admitted to OpenWave as M10, with 31 untested physics rows. The [upstream arithmetic certification](../model/openwave_m10_review_gate/PROOF.md) reproduces seven exact dispersion quantities and awards no criterion cell. A criterion claim requires its observable to execute on the native twelve-port repair/memory process in-platform. Declared source controls retain their mathematical domains.
+
+The [complete Lambda residual witness](../model/openwave_lambda_narrow_weight/PROOF.md) uses 32 full-source trial columns and exact translated-packet inner products. Its current spectral weight within 1 MeV of the declared Lambda centre is below 0.026622. The certified lower bound is zero; no shrinking-window density or lifetime follows.
+
+The [repeated clock experiment](../model/openwave_repeated_native_clock/PROOF.md) retains two readouts, reset and finite phase/battery resources. Its complete static controller has a resolved frequency bias, distinct from the ideal isolated source frequency. The [autonomous quark-string source](../model/openwave_quark_string_transport/PROOF.md) has a proved reducing Jacobi chain inside its full Gauss carrier, with every endpoint, failure and work record retained. Neither calculation establishes a self-starting physical clock or a physical quark rest mass.
+
+A [neutral dynamical field](../model/openwave_nuclear_field_attraction/PROOF.md) generates a signed four-site attraction by completing the oscillator square. It vanishes below 12 quarks and preserves the triton/electron input ancestry. The supplied coupling fails the held-out helion and alpha masses. The exact full-singlet Casimir trace replaces enormous identity-state enumeration for electromagnetic preparation work, independently checked on 2520 character weights.
+
+The [full 192-mode matter and U(1) cycle](../model/openwave_matter_flux_source/PROOF.md) has a stable self-adjoint Hamiltonian with all integer fluxes. Exact Gauss dressing transports references and currents. Full-tail spectral bounds find a positive common charged-lepton energy shift; calibrated rest values cannot be transferred unchanged to this spatial extension. An optional source-defined subtraction restores all inherited charged one-lepton rest coefficients with one common number and preserves the global vacuum. It is a separately declared generator: physical masses, currents and many-body decays do not follow from this rest-sector identity.
+
+The [local full-Haar memory bound](../model/openwave_local_gauge_memory/PROOF.md) uses no global electric cutoff. Fundamental and spin-one Wilson correlations exceed 0.97 on three refinements at the specified common time. Its error grows with refinement, so it supplies no fixed-time continuum limit. Complete temporal instruments retain backaction and uniform readout-work bounds.
+
+The [stress/curvature instrument](../model/openwave_stress_curvature_instruments/PROOF.md) reduces an entire 34-site tensor stencil to ten same-state quantum means. All 60 source coordinates and 30 outcome probabilities are retained; sampling and backaction errors enter the existing sharp null-inverse and staggered transport theorems. The measured Einstein residual is nonzero.
+
+The [geometry covariance protocol](../model/openwave_geometry_covariance_protocol/PROOF.md) retains complete paired measurements, finite-sample errors and their work. Independent register-count/stiffness information and a common rest/photon unit attachment are required for an unfitted Newton constant.
+
+For the [specified late cosmological preparation](../model/openwave_capacity_finite_wavelength/PROOF.md), the k² metric coefficient lies in ['-0.008281806997', '-0.005759370982'] and the comoving dust coefficient in ['-1.455879943233', '-1.454618725225']. A complete k^4 remainder certifies two nonzero wavelengths. These responses are conditional on the supplied Einstein/scalar/fluid equations and their normalization; they are not a primordial-history or CMB fit.
+
+These calculations close their stated finite source obligations. They add zero independent Nature-validation rows and discharge no physical identification by combining incompatible sources.
+
 ## One calibrated hyperfine spectrum and its independent controls
 
 The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. The shared quadrupole/string attachment adds two dimensional comparison targets. The eigenenergies are calibrated finite records, not independent predictions or resonance poles.
