@@ -397,6 +397,61 @@ neutral law and do not constitute a prospective FZ-03 verdict.
 
 - The frozen dispersion rows FZ-11 and FZ-12 share the quadratic coefficient delta_gamma2 = -a^2/20. With the natural scale a = sqrt(P) l_P it is -5.47 x 10^-58 eV^-2, 5.47 times the photon-only Pierre Auger 2022 bound delta_gamma2 > -1 x 10^-58 eV^-2. The bound is scenario- and interaction-dependent and predates both freezes, so this retrospective exposure decides nothing under the frozen rules (`code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json`; [frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md)).
 
+## Spatial spectra and common field records
+
+The [complete path refinement](../model/openwave_hadron_refinement_flow/PROOF.md) uses two degree-dependent coefficients selected with the inherited neutron and axial targets. They vanish on the complete two-cell action. Exact compact reduction and the full infinite relative-position complement give these one-dimensional calibrated rest bands:
+
+| Native assignment | Energy / GeV |
+| --- | ---: |
+| neutron band | [0.939565387072, 0.939565456806] |
+| proton band | [0.938272054562, 0.938272124296] |
+
+The native axial interval is [1.274757331914, 1.275842668086]; the vector matrix element is exactly one. These source bands are not identified three-dimensional scattering poles.
+
+[Strange-family spectra](../model/openwave_strange_composites/PROOF.md) retain the same electron unit and light two-cell calibration domains. Two additional masses select the strange coefficients; a separate supplied Cabibbo magnitude enters current interventions.
+
+| Native assignment | Computed / GeV | Compared / GeV | Role |
+| --- | ---: | ---: | --- |
+| Lambda | 1.115683 | 1.115683 | calibration |
+| Sigma+ | 1.11694749987 | 1.18937 | held_out |
+| Sigma0 | 1.11824083238 | 1.192642 | held_out |
+| Sigma- | 1.11953416489 | 1.197449 | held_out |
+| Xi0 | 1.29372874529 | 1.31486 | held_out |
+| Xi- | 1.2950220778 | 1.32171 | held_out |
+| Omega- | 1.76104866619 | 1.67245 | held_out |
+| K+ | 0.493677 | .493677 | calibration |
+| K- | 0.493677 | None | strong_C_consequence |
+| K0 | 0.49497033251 | .497611 | held_out |
+| Kbar0 | 0.49497033251 | None | strong_C_consequence |
+
+The full two-cell four-quark/one-antiquark channel has energy at least 1.208108251046 GeV, above the Lambda input by 92.425251046091 MeV. The actual channel gap above the Lambda ground is at least 92.349863922920 MeV; it survives the full weak norm bound. The actual nonzero native nonleptonic vertex is a virtual response, without an on-shell strange decay.
+
+The [finite nuclear source](../model/openwave_light_nuclear_curve/PROOF.md) adds one occupancy-gated triton calibration and preserves all operators with at most six quarks. Both unused helium comparisons fail.
+
+| Native assignment | Source interval / GeV | Compared / GeV | Role |
+| --- | ---: | ---: | --- |
+| alpha | [3.739123982204, 3.739139498495] | 3.7273794118 | held_out |
+| helion | [2.807625870510, 2.807629737834] | 2.80839161112 | held_out |
+| triton | [2.808919203020, 2.808923070344] | 70223028417/25000000000 | calibration |
+
+Complete finite-box native low nuclear spectra and original observer records on 3 and 4 cells, using one shared local action. The helium comparisons fail. No asymptotic breakup threshold, observed halo, complete binding curve or infinite-volume nuclear mass is inferred from these boxes.
+
+One [transverse Maxwell, clock and quantum-geometry source](../model/openwave_transverse_gravity/PROOF.md) retains all 540 divergence-free field coordinates, both polarization controls, the photon vacuum, and every detector failure and work record. The declared constitutive source gives:
+
+| Observable | Difference | Certified numerical error bound |
+| --- | ---: | ---: |
+| mean arrival parameter | 0.006353532955 | 0.000507647417 |
+| transverse position / cell | -0.003216312083 | 0.000048826202 |
+| Fourier direction / rad | -0.004595137618 | 0.000056112092 |
+
+These are finite source observables, without a physical lensing-angle or seconds attachment. The separate electron-energy/strong-length map gives G=79.293625 GeV^-2 (1.1819e+40 times observed) and photon speed 0.00195750508c. Both unit comparisons fail. No common strong/geometry Hamiltonian transfer is claimed.
+
+The [full-Haar pure SU(2) source](../model/openwave_su2_volume_gap/PROOF.md) has a gap uniform in periodic spatial volume for sufficiently strong coupling at fixed spacing, using Yarotsky's stability theorem and local norm 64/(g²)². The threshold is existential; this is not a numerical admission of g²=8 or a spatial-continuum Clay result.
+
+The [capacity-volume source](../model/openwave_capacity_stress/PROOF.md) derives mechanical w=-1 at fixed active capacity and accounts for every capacity-change work stroke. Its expansion comparison supplies H0=67.4 and Omega_m=0.315 plus the flat Friedmann branch. It does not derive Lambda's amplitude. The complete correlated fifteen-point BC03 statistic is [6.191340672071, 6.191340672072]; the alternative M11 reduction gives [7.979522903794, 7.979522903795]. These shared-data alternatives are not independent likelihoods.
+
+The [native centre-string](../model/openwave_native_centre_string/PROOF.md) identifies exact dual-electric phase jumps, with a separate continuous-texture interpretation boundary. [Complete pump/loss clocks](../model/openwave_autonomous_clock_channel/PROOF.md) retain exact native frequency, finite linewidth, batteries and the probe-created-phase control. The [Pauli/Maxwell refinement](../model/openwave_dirac_maxwell_refinement/PROOF.md) retains the magnetic commutator and all integer fluxes. Its [dressed current/core response](../model/openwave_dressed_core_response/PROOF.md) varies with scale, while the independent spatial core is unresolved below one cell. These sources are not pooled into one identified physical theory.
+
 ## One calibrated hyperfine spectrum and its independent controls
 
 The [complete positive hyperfine action](../model/openwave_common_hyperfine_spectrum/PROOF.md) uses seven empirical inputs: five assigned masses, the axial magnitude and deuteron binding. The shared quadrupole/string attachment adds two dimensional comparison targets. The eigenenergies are calibrated finite records, not independent predictions or resonance poles.

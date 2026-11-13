@@ -1,0 +1,31 @@
+{
+  "schema": "oph.strange_composite_inputs.v1",
+  "strange_number_coefficient": "95256235770501/274877906944",
+  "strange_pair_coefficient": "383016189244251/1099511627776",
+  "heavy_up_number_shift": "10000",
+  "Cabibbo_sine": "0.22431",
+  "Cabibbo_uncertainty": "0.00085",
+  "nonleptonic_weak_coefficient": "1/4096",
+  "mass_calibration_targets_GeV": {
+    "K+": ".493677",
+    "Lambda": "1.115683"
+  },
+  "held_out_masses_GeV": {
+    "K0": ".497611",
+    "Sigma+": "1.18937",
+    "Sigma0": "1.192642",
+    "Sigma-": "1.197449",
+    "Xi0": "1.31486",
+    "Xi-": "1.32171",
+    "Omega-": "1.67245"
+  },
+  "sources": [
+    "https://pdg.lbl.gov/2025/tables/rpp2025-tab-mesons-strange.pdf",
+    "https://pdg.lbl.gov/2025/listings/rpp2025-list-lambda.pdf",
+    "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-Sigma.pdf",
+    "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-Xi.pdf",
+    "https://pdg.lbl.gov/2025/tables/rpp2025-tab-baryons-Omega.pdf",
+    "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-ckm-matrix.pdf"
+  ],
+  "ancestry": "Two additional strong coefficients fit K+ and Lambda. The Cabibbo magnitude is a third empirical input used only by current interventions. Charge-conjugate masses follow the complete declared strong symmetry. The heavy-up gap and weak coefficient are architecture controls, not fitted charm or physical decay-width parameters. The seven light calibration domains and electron anchor are inherited."
+}

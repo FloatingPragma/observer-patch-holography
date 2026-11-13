@@ -659,7 +659,7 @@ def render(data: dict, counts: dict) -> str:
                 item += "; exact source anchor: " + _code(source["anchor"])
             lines.append(item + ".")
     lines.extend(render_contracts(data, counts))
-    return "\n".join(lines) + "\n"
+    return "\n".join(line.rstrip() for line in lines) + "\n"
 
 
 def _unique_object(pairs: list[tuple[str, object]]) -> dict:

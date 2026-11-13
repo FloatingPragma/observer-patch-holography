@@ -26,6 +26,12 @@ PACKAGES=(
     'openwave_common_gravity_records', 'openwave_baryon_form_factors',
     'openwave_pure_su2_source', 'openwave_su2_transfer', 'openwave_su2_spectral',
     'openwave_gauge_completion_review',
+    'openwave_hadron_refinement_flow', 'openwave_strange_composites',
+    'openwave_light_nuclear_curve', 'openwave_native_centre_string',
+    'openwave_dressed_core_response', 'openwave_dirac_maxwell_refinement',
+    'openwave_autonomous_clock_channel', 'openwave_transverse_gravity',
+    'openwave_su2_volume_gap', 'openwave_capacity_stress',
+    'openwave_clock_string_review', 'openwave_quantum_observable_review',
 )
 
 def source_bindings():

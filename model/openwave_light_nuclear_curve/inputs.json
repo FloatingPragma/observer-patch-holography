@@ -1,0 +1,18 @@
+{
+  "source": "https://physics.nist.gov/cuu/Constants/Table/allascii.txt",
+  "edition": "2022 CODATA adjustment",
+  "role": "Triton rest energy calibrates one range-three coefficient. Helion and alpha rest energies are independent held-out comparisons.",
+  "nuclear_rest_energy_GeV": {
+    "triton": "2.80892113668",
+    "helion": "2.80839161112",
+    "alpha": "3.7273794118"
+  },
+  "standard_uncertainty_GeV": {
+    "triton": ".00000000088",
+    "helion": ".00000000088",
+    "alpha": ".0000000012"
+  },
+  "three_body_coefficient": "865442239271/68719476736",
+  "triton_mass_is_calibration": true,
+  "remaining_masses_are_held_out": true
+}
