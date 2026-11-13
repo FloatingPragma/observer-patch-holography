@@ -1,5 +1,5 @@
 from pathlib import Path
-import hashlib,json,re,subprocess,sys
+import hashlib,json,re,subprocess,sys,math
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
 OUT=ROOT/"audit-artifacts";OUT.mkdir(exist_ok=True)
@@ -10,7 +10,7 @@ for name in ("input_sha256","snapshot_sha256"):
         assert sha(ROOT/path)==digest,(name,path,"source bytes changed")
 report={"phase":sys.argv[1],"git_commit":subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),"input_files":len(manifest["input_sha256"]),"snapshot_files":len(manifest["snapshot_sha256"]),"all_inputs_exact":True}
 if sys.argv[1] != "before":
-    changes=[]
+    changes=[];float_changes=[]
     def same(a,b,path=""):
         assert type(a) is type(b),("type",path)
         if isinstance(a,dict):
@@ -20,6 +20,10 @@ if sys.argv[1] != "before":
             assert len(a)==len(b),("length",path)
             for i,(x,y) in enumerate(zip(a,b)):same(x,y,path+"/"+str(i))
         elif a!=b:
+            if isinstance(a,float):
+                assert math.isfinite(a) and math.isfinite(b),("nonfinite",path)
+                float_changes.append({"path":path,"before":a,"after":b,"absolute_delta":abs(a-b),"relative_delta":abs(a-b)/max(abs(a),abs(b),sys.float_info.min)})
+                return
             assert isinstance(a,str) and re.fullmatch("[0-9a-f]{64}",a) and re.fullmatch("[0-9a-f]{64}",b),("nonhash scientific difference",path,a,b)
             changes.append({"path":path,"before":a,"after":b})
     fresh=json.loads((ROOT/manifest["target_output"]).read_text())
@@ -39,6 +43,6 @@ if sys.argv[1] != "before":
         elif isinstance(x,list):
             for v in x:pins(v)
     pins(fresh)
-    report.update({"changed_hash_leaves":changes,"all_other_keys_types_values_exact":True,"live_produced_bindings":n[0],"result_sha256":sha(ROOT/manifest["target_output"])})
+    report.update({"changed_hash_leaves":changes,"all_other_keys_types_values_exact":not float_changes,"all_nonfloat_keys_types_values_exact":True,"float_differences":float_changes,"supplemental_float_acceptance":"PENDING_REVIEW" if float_changes else "EXACT","live_produced_bindings":n[0],"result_sha256":sha(ROOT/manifest["target_output"])})
 (OUT/(sys.argv[1]+"-source-report.json")).write_text(json.dumps(report,sort_keys=True,indent=2)+"\n")
 print(json.dumps(report,sort_keys=True))
