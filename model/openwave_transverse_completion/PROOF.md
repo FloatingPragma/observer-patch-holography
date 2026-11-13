@@ -155,3 +155,19 @@ from every work difference. The receipt verifies this total mean-energy
 identity and reports the initial external preparation energy separately.
 The finite source time is declared; no autonomous observer-clock or
 relativistic continuum equivalence is supplied.
+
+
+The retained rest certificates use complete dyadic proof frames for the
+charged cap-18 compression (148 coordinates) and neutral vacuum caps
+18, 24, and 48 (37, 49, and 97 coordinates). Every replay checks their
+integer matrix identity, complete square shape, bounded integer entries,
+sorted centres and exact binary round trips before applying the unchanged
+`exact_cap_enclosure` consumer. That consumer recomputes the full integer
+Gram and residual matrices, verifies its integer-overflow bounds and
+proves the frame invertible from Gram error below 1/100. No stored error
+bound or spectral interval is trusted. The original infinite-flux Schur
+bounds and exact physical intervals are retained. Other exploratory caps
+continue to construct a fresh frame and apply the same proof. Finite-time
+probability records continue to use live propagation and independently
+verified outward numerical budgets. These proof coordinates carry no
+additional empirical calibration.

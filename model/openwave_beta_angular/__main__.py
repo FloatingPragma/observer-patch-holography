@@ -9,7 +9,7 @@ def pins():
     seeds=set(SOURCE_FILES)
     seeds.add("model/lepton_cycle/experimental_inputs.json")
     for name in ('openwave_beta_angular','openwave_axial_state','openwave_common_mass_source','openwave_neutrino_calibration','openwave_spin_gradient_nuclei'):
-        seeds.update(str(p.relative_to(ROOT)) for p in (ROOT/'model'/name).iterdir() if p.suffix in ('.py','.md','.tex') or p.name in ('inputs.json','oscillation_inputs.json'))
+        seeds.update(str(p.relative_to(ROOT)) for p in (ROOT/'model'/name).iterdir() if p.suffix in ('.py','.md','.tex') or p.name in ('inputs.json','oscillation_inputs.json','calibration_realizations.json','spectral_witnesses.json'))
     seeds.add('model/openwave_axial_state/results.json')
     seeds.add('model/openwave_spin_gradient_nuclei/results.json')
     return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(import_closure(seeds))}

@@ -1,13 +1,16 @@
 """Certified finite energy lines and complete Fourier-register records."""
 from fractions import Fraction as F
 from functools import lru_cache
+import json
+from pathlib import Path
 import numpy as np
 from .source import construction,exact_parity_matrix,parity_basis,G,gradient
-from model.openwave_six_quark.certificate import spectral_enclosure
+from model.openwave_colour_string.fixed_witness import spectral_enclosure,integers
+WITNESSES=json.loads((Path(__file__).parent/'spectral_witnesses.json').read_text())
 @lru_cache(None)
 def measure(charge):
- d=construction(charge);H,S=exact_parity_matrix(d);cert=spectral_enclosure(H);D=cert['dyadic_denominator'];O=np.array([[int(x)for x in row]for row in cert['dyadic_eigenframe']],dtype=object);E=[F(int(x),D)for x in cert['dyadic_eigenvalues']];epsilon=F(cert['all_eigenvalue_error_upper']);eta=F(cert['exact_Gram_error_upper'])
- B=parity_basis(d);a=np.asarray(B.T@d['initial']).ravel();v=np.array([int(round(float(x.real)*2**48))for x in a],dtype=object);N=sum(x*x for x in v);assert N>0
+ d=construction(charge);H,S=exact_parity_matrix(d);witness=WITNESSES[str(charge)];cert=spectral_enclosure(H,witness);D=cert['dyadic_denominator'];O=np.array([[int(x)for x in row]for row in cert['dyadic_eigenframe']],dtype=object);E=[F(int(x),D)for x in cert['dyadic_eigenvalues']];epsilon=F(cert['all_eigenvalue_error_upper']);eta=F(cert['exact_Gram_error_upper'])
+ B=parity_basis(d);v=np.array(integers(witness['preparation_integer_coefficients'],H.rows,2**48),dtype=object);N=sum(x*x for x in v);assert N>0
  vector=np.array(v,dtype=float)/np.sqrt(float(N));exact_state=B@vector;deviation=float(np.linalg.norm(exact_state-d['initial']));assert deviation<1e-11
  overlap=O.T@v;weights=[F(int(x*x),int(D*D*N))for x in overlap];assert abs(sum(weights)-1)<=eta
  groups=[];start=0

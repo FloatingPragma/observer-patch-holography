@@ -1,0 +1,145 @@
+name: Temporary exact publication replay
+on:
+  push:
+    branches: ['codex/oph-thirteenth-publication-basis-20261113']
+permissions:
+  contents: read
+jobs:
+  original-publication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Initialize external artifact directory
+        run: |
+          echo "AUDIT_OUTPUT=$RUNNER_TEMP/oph-publication-output" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/oph-publication-output"
+          cp .github/publication-replay-audit/manifest.json "$RUNNER_TEMP/oph-publication-output/manifest.json"
+      - name: Install both retained reproduction environments
+        run: |
+          python -m venv "$RUNNER_TEMP/oph-publication-core"
+          "$RUNNER_TEMP/oph-publication-core/bin/python" -m pip install -r requirements.txt
+          python -m venv "$RUNNER_TEMP/oph-publication-model"
+          "$RUNNER_TEMP/oph-publication-model/bin/python" -m pip install -r model/requirements.txt
+      - name: Install pinned Lean environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -sSfL -o elan.tar.gz "https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz"
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz" | sha256sum -c -
+          tar xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore authenticated Lake build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+        with:
+          path: Lean/.lake/build
+          key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-
+            lean-core-v3-${{ runner.os }}-
+      - name: Verify pinned Lean and prebuild actual kernel dependencies
+        working-directory: Lean
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fx 'leanprover/lean4:v4.29.1' lean-toolchain
+          grep -F 'v4.29.1' lakefile.lean
+          command -v lake
+          lean --version | tee "$AUDIT_OUTPUT/lean-version.txt"
+          lake --version | tee "$AUDIT_OUTPUT/lake-version.txt"
+          lake exe cache get 2>&1 | tee "$AUDIT_OUTPUT/mathlib-cache.log"
+          lake build WhitneySourceProblemCLI WhitneyCertificateCLI WhitneySourceGeometry WhitneySourceAssembly WhitneyCurlRow0 WhitneyCurlRow1 WhitneyCurlRow2 WhitneyCurlRow3 WhitneyCertifiedConsumers WhitneySourceNaturality WhitneyOmittedCellCounterexample 2>&1 | tee "$AUDIT_OUTPUT/whitney-targets.log"
+          git diff --exit-code -- lean-toolchain lakefile.lean lake-manifest.json
+      - name: Authenticate full immutable source inventory
+        run: |
+          "$RUNNER_TEMP/oph-publication-core/bin/python" .github/publication-replay-audit/audit.py before
+          "$RUNNER_TEMP/oph-publication-core/bin/python" -m pip freeze > "$AUDIT_OUTPUT/core-environment.txt"
+          "$RUNNER_TEMP/oph-publication-model/bin/python" -m pip freeze > "$AUDIT_OUTPUT/model-environment.txt"
+      - name: Original complete publication producer
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/oph-publication-core/bin/python" code/particles/scripts/build_postdiction_ledger.py 2>&1 | tee "$AUDIT_OUTPUT/original-write.log"
+          cp code/particles/runs/status/postdiction_ledger.json "$AUDIT_OUTPUT/postdiction_ledger.json"
+          cp docs/POSTDICTION_LEDGER.md "$AUDIT_OUTPUT/POSTDICTION_LEDGER.md"
+          "$RUNNER_TEMP/oph-publication-core/bin/python" .github/publication-replay-audit/audit.py after-write
+      - name: Independent original cold publication check
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/oph-publication-core/bin/python" code/particles/scripts/build_postdiction_ledger.py --check 2>&1 | tee "$AUDIT_OUTPUT/original-check.log"
+          "$RUNNER_TEMP/oph-publication-core/bin/python" .github/publication-replay-audit/audit.py after-check
+      - name: Original complete current artifact and source guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/oph-publication-model/bin/python" -m model.verify_current --hashes-only 2>&1 | tee "$AUDIT_OUTPUT/current-source-guard.log"
+          "$RUNNER_TEMP/oph-publication-core/bin/python" .github/publication-replay-audit/audit.py after-guard
+      - name: Retain actual outputs and source evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: original-publication-replay
+          path: ${{ runner.temp }}/oph-publication-output/
+          include-hidden-files: true
+          retention-days: 7
+
+  source-science:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONHASHSEED: '0'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Initialize science artifact directory
+        run: |
+          echo "AUDIT_OUTPUT=$RUNNER_TEMP/oph-science-output" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/oph-science-output"
+      - name: Install retained pinned model environment
+        run: |
+          python -m pip install -r model/requirements.txt
+          mkdir -p "$AUDIT_OUTPUT"
+          python -m pip freeze > "$AUDIT_OUTPUT/environment.txt"
+      - name: Authenticate exact immutable inputs
+        run: python .github/publication-replay-audit/audit.py before
+      - name: Reproduce every new complete scientific receipt
+        shell: bash
+        run: |
+          set -euo pipefail
+          for scientific_name in baryon_dispersion cluster_bandwidth nuclear_isospin clock_phase_resource quotient_homotopy resolved_core dirac_field_connection gravity_unit_constraint horizon_capacity su2_propagation; do
+            python -m "model.openwave_${scientific_name}" --check 2>&1 | tee "$AUDIT_OUTPUT/${scientific_name}.log"
+          done
+      - name: Scientific and public projection regression tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest -q -W error model/openwave_baryon_dispersion model/openwave_cluster_bandwidth model/openwave_nuclear_isospin model/openwave_clock_phase_resource model/openwave_quotient_homotopy model/openwave_resolved_core model/openwave_dirac_field_connection model/openwave_gravity_unit_constraint model/openwave_horizon_capacity model/openwave_su2_propagation tools/test_native_physical_results.py 2>&1 | tee "$AUDIT_OUTPUT/focused-tests.log"
+          python -m pytest -q -W error model/openwave_beta_angular model/openwave_colour_string model/openwave_rest_spectroscopy model/openwave_common_hyperfine_spectrum model/openwave_spin_gradient_nuclei model/openwave_strong_step_scaling model/openwave_transverse_completion 2>&1 | tee "$AUDIT_OUTPUT/portability-tests.log"
+          python .github/publication-replay-audit/audit.py before
+          git diff --exit-code
+      - name: Retain independent Linux proof and calculation evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: current-ten-scientific-replay
+          path: ${{ runner.temp }}/oph-science-output/
+          include-hidden-files: true
+          retention-days: 7

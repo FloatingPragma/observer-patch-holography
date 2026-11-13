@@ -50,8 +50,33 @@ and the bare mass, while the neutron-proton difference fixes delta. The
 binding equation selects eta. This reduction avoids an unconstrained
 multi-parameter fit and never rescales the native weak current.
 
-The selected coefficients are rationalized at 44 binary places. All
-reported certified intervals concern that exact rational action.
+The selected coefficients are rationalized at 44 binary places. The explicit
+`calibration_realizations.json` declares these exact actions for all seven
+members of the stated gradient menu. It retains the same five empirical
+inputs, their input-file digest and the exact calibration-recipe function
+digests. `parameters` authenticates this declaration and its canonical rational
+schema; `fit_parameters` retains the numerical calibration recipe for separate
+exploration. Production execution therefore uses the same declared rational
+Hamiltonian on every platform instead of selecting a nearby action through a
+new floating calibration search. No result receipt defines its own input.
+All reported certified intervals concern the declared exact rational action.
+
+Pinned complete dyadic frames and integer trial coefficients are proof
+coordinates. For all 31 nonzero nuclear channels, ordered native projector
+column indices fix their integer coordinate basis. Every replay reconstructs
+the unchanged integer colour, spin, isospin and cell-parity projector P,
+checks its exact symmetry and P squared equal to den times P, and derives its
+rank from the trace. The chosen columns satisfy P B = den B and have a
+positive exact Gram factorization with exactly that rank. They therefore
+span the whole native channel, including all 240 fixed-magnetic states and
+2,520 states with magnetic multiplicities. The ordered columns retain the
+same native trial vectors and dyadic proof frames. Floating pivoted QR is
+not used to choose certified coordinates; exploratory energy diagnostics
+may still use the inherited floating basis. These indices are proof
+coordinates, not new Hamiltonian coefficients or a subspace selection. Every exact native source, Gram error, residual, spectral
+interval, current and preparation probability is rebuilt; no stored result
+or error bound is accepted. Exact basis multiplication retains all occupations,
+and certified gaps attach the nonzero trials to the ground lines.
 The complete baryon spin/isospin multiplets retain 120 states; complete
 meson charge blocks retain 64. Integer projectors, positive exact Gram
 factorizations and the finite spectral enclosure theorem certify every

@@ -1,5 +1,6 @@
 """Complete native beta instruments on a three-dimensional finite kinetic source."""
 from fractions import Fraction as F
+from collections import Counter
 from itertools import product
 import numpy as np
 import sympy as sy
@@ -26,6 +27,22 @@ def grid(L):
     theta=np.array(list(product(2*np.pi*np.arange(L)/L,repeat=3)))
     p=2*np.sin(theta);p[np.abs(p)<1e-14]=0
     return theta,p
+
+
+
+def exact_free_electron_energy_census(L):
+    """Exact distinct free energies; all spatial momentum multiplicities retained."""
+    # For these executed cubes, 4 sin²(2πn/L) has an exact integer cycle.
+    if L==4:one=(0,4,0,4)
+    elif L==8:one=(0,2,4,2,0,2,4,2)
+    else:raise ValueError('Exact integer census is certified for sides4 and8 only')
+    counts=Counter(1+sum(p2)for p2 in product(one,repeat=3))
+    levels=sorted(counts)
+    assert sum(counts.values())==L**3
+    return {'squared_energy_source_units':levels,
+            'spatial_momentum_multiplicities':[counts[x]for x in levels],
+            'electron_energy_GeV':[float(np.sqrt(x)*.00051099895069)for x in levels],
+            'scope':'Distinct free-energy levels; multiplicities count spatial momenta only. All spin, family, direction and probability records are unchanged.'}
 
 
 def densities(p,m,sign):
@@ -76,6 +93,7 @@ def wick_column(L,d=None):
 
 def records(L,t=F(1,10000),d=None):
     d=source() if d is None else d;theta,p=grid(L);N=len(p);Ee=np.sqrt(1+(p*p).sum(axis=1));ae=p/Ee[:,None]
+    energy_census=exact_free_electron_energy_census(L)if L in(4,8)else None
     # Physical antineutral momentum is minus the canonical hole momentum.
     selected=np.zeros((N,N));neutral=[];g=d['ga']
     form=np.cos((theta[:,0,None]-theta[None,:,0])/2)**2
@@ -113,7 +131,7 @@ def records(L,t=F(1,10000),d=None):
     # Finite neutral masses preserve p_z reflection exactly, so no mass limit.
     exact_margin=lower-weight_error-F(str(safe_error));assert exact_margin>0
     assert odd<-float(lower-weight_error)
-    return {'cube_side':L,'spatial_sites':N,'native_CAR_coordinates':144+24*N,'source_time':str(t),'first_order_selected_probability':float(selected.sum()),'selected_probability_by_neutral_mass':neutral,'first_order_joint_z_sign_probabilities':angular.tolist(),'electron_energy_GeV':sorted(set((Ee*.00051099895069).tolist())),'radial_momentum_source_weights':radial,'parity_odd_first_order_probability':odd,'exact_full_Fock_parity_upper_rational':str(-exact_margin),'exact_full_Fock_parity_upper':-float(exact_margin),'exact_full_Fock_probability_error_upper':safe_error,'complete_original_record_intervals':intervals,'full_current_Wick_column_squared_norm':wick_column(L,d),'momentum_velocity_distinction':'p_j=2 sin(k_j), v_j=4 sin(k_j) cos(k_j)/E; the instrument records momentum, not velocity','selected_hadron_state_count':2,'retained_hadron_state_count':120,'unresolved_quantum_complement':'all other hadrons, all charged/neutral families, all helicities, every multipair sector, and no emission'}
+    return {'cube_side':L,'spatial_sites':N,'native_CAR_coordinates':144+24*N,'source_time':str(t),'first_order_selected_probability':float(selected.sum()),'selected_probability_by_neutral_mass':neutral,'first_order_joint_z_sign_probabilities':angular.tolist(),'electron_energy_GeV':energy_census['electron_energy_GeV']if energy_census is not None else sorted(set((Ee*.00051099895069).tolist())),'exact_free_electron_energy_census':energy_census,'radial_momentum_source_weights':radial,'parity_odd_first_order_probability':odd,'exact_full_Fock_parity_upper_rational':str(-exact_margin),'exact_full_Fock_parity_upper':-float(exact_margin),'exact_full_Fock_probability_error_upper':safe_error,'complete_original_record_intervals':intervals,'full_current_Wick_column_squared_norm':wick_column(L,d),'momentum_velocity_distinction':'p_j=2 sin(k_j), v_j=4 sin(k_j) cos(k_j)/E; the instrument records momentum, not velocity','selected_hadron_state_count':2,'retained_hadron_state_count':120,'unresolved_quantum_complement':'all other hadrons, all charged/neutral families, all helicities, every multipair sector, and no emission'}
 
 
 def certificate():

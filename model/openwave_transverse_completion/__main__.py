@@ -10,7 +10,7 @@ ROOT=HERE.parents[1]
 def pins():
     parent='model/openwave_common_electromagnetism/results.json'
     paths=set(json.loads((ROOT/parent).read_text())['source_sha256'])|{parent}
-    paths|={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in ('.py','.md','.tex')}
+    paths|={str(p.relative_to(ROOT))for p in HERE.iterdir()if p.suffix in ('.py','.md','.tex') or p.name=='complete_frames.json'}
     return {p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest()for p in sorted(import_closure(paths))}
 
 def main():
