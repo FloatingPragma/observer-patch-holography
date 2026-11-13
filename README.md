@@ -3,7 +3,7 @@
 **OPH develops an executable theory of a self-referential observer universe, combining proved finite constructions with quantitative tests of its physical interpretation.**
 
 <p align="center">
-  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Watch a universe make its own particles: 81,920 observers run one local repair rule, and the particle families of the Standard Model come out. Open the live simulation at particles.floatingpragma.ai." width="100%"></a>
+  <a href="https://particles.floatingpragma.ai/"><img src="assets/particles-banner.gif" alt="Explore the executable observers, flux defects and declared particle constructions. Open the live simulation and its checked results at particles.floatingpragma.ai." width="100%"></a>
 </p>
 <p align="center"><b>▶ <a href="https://particles.floatingpragma.ai/">Open the live simulation</a></b> · <a href="https://particles.floatingpragma.ai/?page=matches">All matches with our universe</a> · <a href="https://particles.floatingpragma.ai/?page=journey">The journey from observers to particles</a></p>
 
@@ -126,7 +126,12 @@ proof shows that the whole class of laws cannot work.
   anomaly-free matter representation. Exact native charge, spin and Gauss
   instruments retain their complete outputs. Empirical coupling values and
   an interacting chiral continuum require the same-source physical mapping.
-  [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf).
+  A complete SU(2) cube has twelve Haar links and six coupled plaquettes,
+  certified source gaps and strictly positive adjacent-face correlations.
+  Exact spatial blocking retains its clock mismatch and generated remainder;
+  no four-dimensional Yang–Mills continuum follows from these finite graphs.
+  [Gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
+  [Cubic gauge source](model/openwave_cubic_haar_source/PROOF.md).
 - **An observer that runs.** A twelve-port observer keeps its records and
   uses them to choose its next repair. Overlapping observers read a common
   reference and its clock, a finite quantum process joins electric flux,
@@ -150,8 +155,12 @@ proof shows that the whole class of laws cannot work.
   axial magnitude 1.2753. Complete spectra retain all breakup thresholds and
   no extra bound nuclear channel. A common calibrated length gives the
   quadrupole and linear string tension; unused neutral-pion and charge-radius
-  comparisons fail. Physical pole identification remains a separate test.
+  comparisons fail. The infinite-chain extension has isolated proton and neutron
+  source poles over the full momentum circle and normalizable packet records.
+  Its exact band filter is a declared nonlocal service; physical relativistic
+  particle identification and autonomous decay lifetimes require a transfer.
   [Common hyperfine source](model/openwave_common_hyperfine_spectrum/PROOF.md),
+  [Normalizable particle records](model/openwave_normalizable_particle_records/PROOF.md),
   [Native charge profiles](model/openwave_baryon_form_factors/PROOF.md).
 - **Native emission and clocks.** Complete source calculations certify a
   parity-odd beta momentum statistic and a finite meson emission window.

@@ -17,6 +17,9 @@ PACKAGES = (
     'baryon_poles', 'pole_weak_current', 'strange_shell_current',
     'coupled_haar_source', 'coupled_haar_spectrum', 'euclidean_refinement',
     'source_ward', 'einstein_error', 'radiation_capacity',
+    'uniform_pole_bands', 'normalizable_particle_records', 'scattering_current_support',
+    'haar_coupling_flow', 'cubic_haar_source', 'gauge_refinement_clock',
+    'staggered_ward', 'replicated_geometry', 'capacity_perturbations',
 )
 
 
@@ -96,6 +99,7 @@ def collect(root):
         'native_scale_and_structure': scale_and_structure(data),
         'propagation_and_nuclei': propagation_and_nuclei(data),
         'pole_currents_and_full_field_records': pole_currents_and_full_fields(data),
+        'normalizable_particles_and_spatial_fields': normalizable_particles_and_spatial_fields(data),
         'all_sources_identified_as_one_physical_theory':False,
     }
 
@@ -235,6 +239,7 @@ def render(value):
     lines += render_propagation_and_nuclei(value['propagation_and_nuclei'])
     lines += render_scale_and_structure(value['native_scale_and_structure'])
     lines += render_pole_currents_and_full_fields(value['pole_currents_and_full_field_records'])
+    lines += render_normalizable_particles_and_spatial_fields(value['normalizable_particles_and_spatial_fields'])
     return lines
 
 
@@ -485,4 +490,141 @@ def render_pole_currents_and_full_fields(value):
         'No cosmological amplitude, horizon selection, Standard Model thermal history, early abundance '
         'or independent observational validation is added. These source-qualified records add zero '
         'Nature-validation rows.', '']
+    return lines
+
+
+
+def normalizable_particles_and_spatial_fields(data):
+    """Project complete new source records without adding empirical score rows."""
+    bands=data['uniform_pole_bands']; packets=data['normalizable_particle_records']
+    strange=data['scattering_current_support']; flow=data['haar_coupling_flow']
+    cube=data['cubic_haar_source']; block=data['gauge_refinement_clock']
+    ward=data['staggered_ward']; geometry=data['replicated_geometry']; capacity=data['capacity_perturbations']
+    forbidden=(
+        bands['physical_four_dimensional_particle_dictionary_proved'],
+        packets['physical_four_dimensional_particle_identification'],
+        packets['autonomous_beta_decay_or_lifetime_proved'],
+        packets['complete_protocol']['finite_local_compilation_of_exact_band_filter_proved'],
+        strange['physical_Lambda_decay_amplitude_proved'],strange['physical_Lambda_lifetime_proved'],
+        strange['complete_Lambda_pole_transfer']['normalizable_Lambda_packet_executed'],
+        strange['interacting_spectral_test']['Moller_wave_operator_constructed'],
+        strange['interacting_spectral_test']['full_H5_on_shell_spectral_density_computed'],
+        strange['actual_kinetic_substep']['complete_autonomous_strong_Hamiltonian_used'],
+        flow['Yang_Mills_continuum_constructed'],cube['physical_gap_GeV_or_continuum_identification'],
+        cube['uniform_spatial_volume_or_refinement_limit_proved'],
+        block['scope']['autonomous_full_Hamiltonian_RG_derived'],block['scope']['continuum_noncollapse_proved'],
+        ward['scope']['co_located_nine_null_observer_instrument_derived'],ward['scope']['physical_metric_or_stress_derived'],
+        geometry['scope']['physical_Newton_strength_matched'],geometry['scope']['physical_Einstein_spacetime'],
+        capacity['canonical_scalar_completion']['source_scalar_transfer_proved'],
+        capacity['scope']['new_observational_match'],capacity['scope']['CMB_or_structure_likelihood_executed'],
+    )
+    if any(forbidden):raise ValueError('unproved spatial-field physical promotion')
+    if (bands['mass_or_current_parameter_refitted']or packets['new_empirical_parameter_or_mass_fit']
+            or strange['new_mass_or_current_calibration']or strange['new_independent_match_with_nature']
+            or flow['input_nature_data_used']or cube['new_empirical_fit_inputs']
+            or geometry['scope']['new_empirical_calibration']or capacity['scope']['new_empirical_fit']):
+        raise ValueError('new calibration or validation changed the scoped source result')
+    if (not packets['normalizable_packet']['carrier_is_infinite_chain']
+            or packets['normalizable_packet']['finite_ring_or_delta_momentum_substitution']
+            or not strange['actual_kinetic_substep']['full_infinite_N5_kinetic_carrier_retained']
+            or not block['scope']['higher_coarse_operator_remainder_retained']
+            or block['physical_clock']['same_source_Hamiltonian_time_rescaled']):
+        raise ValueError('complete carrier or retained-clock domain omitted')
+    pick=lambda row,keys:{k:row[k]for k in keys}
+    return {
+        'physical_comparison_count_added':0,
+        'uniform_poles':{**pick(bands,('circle_cover','finite_theorem_shortcut','ancestry','scope')),
+            'members':[{k:v for k,v in row.items()if k!='records'}for row in bands['members']]},
+        'normalizable_packets':pick(packets,('normalizable_packet','members','complete_protocol',
+            'uniform_native_weak_packet_records','ancestry','scope')),
+        'strange_composite_current':{**pick(strange,('complete_Lambda_pole_transfer','complete_probe_records',
+            'bare_separated_support_control','actual_kinetic_substep','same_source_open_energy_shell',
+            'interacting_spectral_test','inherited_inputs','scope')),
+            'channel':pick(strange['exact_CAR_channel'],('independent_composite_rank','raw_occupation_union_dimension',
+                'generalized_eigenvalues_exact','generalized_eigenvalue_bounds_exact','Gram_order_exact',
+                'complete_Pi_C_and_I_minus_Pi_C_instrument','fitted_mass_eigenvectors_used_to_define_channel'))},
+        'Haar_coupling_response':pick(flow,('declared_couplings_exact','records','finite_coupling_steps',
+            'exact_derivative_identity','physical_scope','spatial_refinement_performed')),
+        'cubic_Haar_source':{**pick(cube,('graph','exact_source_checks','source','cube_symmetry',
+            'representation_projection_is_source_cutoff','physical_gap_GeV_or_continuum_identification',
+            'uniform_spatial_volume_or_refinement_limit_proved')),
+            'records':[{k:v for k,v in row.items()if k!='complete_finite_spectrum'}for row in cube['records']]},
+        'spatial_Haar_blocking':pick(block,('geometry','embedding','electric_compression','first_magnetic_compression',
+            'exact_conditional_magnetic_expansion_through_order_four','uniform_remainder','declared_magnetic_steps',
+            'physical_clock','scope')),
+        'staggered_Ward':pick(ward,('construction','exact_identities','error_transport','complete_periodic_controls','scope')),
+        'replicated_geometry':pick(geometry,('architecture','uniform_theorems','complete_register_records',
+            'complete_ground_to_classical_limit','preserved_far_field_log_lapse_slope_interval','scope')),
+        'capacity_scalar':pick(capacity,('inputs','uniform_past_certificate','required_completion',
+            'canonical_scalar_completion','complete_finite_acoustic_control','scope')),
+    }
+
+
+def render_normalizable_particles_and_spatial_fields(value):
+    bands=value['uniform_poles']; packets=value['normalizable_packets']; strange=value['strange_composite_current']
+    lines=['### Normalizable source particles and composite currents','',
+        'The [complete momentum-circle certificate](../model/openwave_uniform_pole_bands/PROOF.md) '
+        'retains both high compact coordinates and every infinite relative configuration. '
+        'Its three-field pole residue is positive at every momentum. The '
+        '[normalizable infinite-chain packet](../model/openwave_normalizable_particle_records/PROOF.md) '
+        'uses an explicit L² amplitude, with separate complete position and native-current records. '
+        'Its energies below are packet mean energies including kinetic energy, not new rest masses. '
+        'The electron unit and strong/axial calibration remain inherited.', '',
+        '| Native assignment | All-momentum gap lower / source unit | Packet band-probability lower | Packet mean energy / GeV |',
+        '| --- | ---: | ---: | ---: |']
+    for b,p in zip(bands['members'],packets['members']):
+        assert b['assignment']==p['assignment']
+        lines.append(f"| {b['assignment']} | {decimal(b['all_momentum_gap_lower_source'])} | "
+                     f"{decimal(p['uniform_band_projector_probability_lower'])} | "
+                     f"{interval(p['complete_packet_trial_mean_energy_GeV_interval'])} |")
+    lines += ['', 'The exact band filter is a declared nonlocal spectral service; finite local compilation '
+        'and a physical four-dimensional particle dictionary remain open. Preparation, band, position '
+        'and current complements, reference charge and work are retained.', '',
+        'The [native proton–pion current](../model/openwave_scattering_current_support/PROOF.md) identifies '
+        f"{strange['channel']['independent_composite_rank']} independent antisymmetrized composite fields. "
+        'Its projected-current Gram eigenvalues are 6/5, 241/150 and (277±sqrt(54409))/200, '
+        'before the inherited Cabibbo factor. The positive lower bound transfers to the complete '
+        'k=0 Lambda source pole. A separate specified localized Lambda field has a rigorously '
+        'positive disjoint-composite event after one full native kinetic substep; its original-input '
+        'probability, including the probe success cost, is at least '
+        f"{decimal(strange['actual_kinetic_substep']['original_input_probe_then_kinetic_separated_probability_lower'],places=16)}. "
+        'This is not the complete autonomous strong evolution. A normalizable Lambda packet, the full '
+        'interacting outgoing wave operator, on-shell overlap and physical lifetime remain open.', '',
+        '### Complete cubic gauge records and actual spatial blocking','',
+        'The [three-dimensional spatial cube](../model/openwave_cubic_haar_source/PROOF.md) retains all '
+        'Haar representations and six plaquettes. Exact Gauss/Clebsch–Gordan contraction, a complete '
+        'spectral frame and every outside trial successor give these source intervals:', '',
+        '| Declared g² | Full source gap | Adjacent-face covariance envelope |', '| --- | ---: | ---: |']
+    for row in value['cubic_Haar_source']['records']:
+        adjacent=[tuple(map(Fraction,r['connected_covariance_interval_exact']))for r in row['all_fifteen_connected_covariances']if not r['opposite']]
+        envelope=(min(r[0]for r in adjacent),max(r[1]for r in adjacent))
+        lines.append(f"| {row['g_squared_exact']} | {interval(row['full_source_gap_interval_exact'])} | {interval(envelope)} |")
+    block=value['spatial_Haar_blocking']
+    lines += ['', 'All fifteen covariance pairs, 64 joint outcomes and the nonselective work budget remain. '
+        'These are finite-graph source gaps, without physical GeV glueball or continuum identification. '
+        'The [seven-coupling response](../model/openwave_haar_coupling_flow/PROOF.md) uses bounded magnetic '
+        'expectations in the exact Feynman–Hellmann identity; its fixed-gap tangent is not an RG beta function.', '',
+        'The [spatial Haar block](../model/openwave_gauge_refinement_clock/PROOF.md) adds '
+        f"{block['geometry']['fine_links']} fine links and {block['geometry']['fine_faces']} faces in total. "
+        'The conditional magnetic factor has exact expansion '
+        '1+(9/2)κ²+(321/32)κ⁴+(κ⁴/64)Σ₆W+R, with '
+        '‖R‖≤exp(36|κ|)(36|κ|)⁶/720. The induced Wilson coefficient is certified positive '
+        'at the declared small steps. Electric matching requires g_f²=g_c²/4 at half spacing in '
+        'the unchanged clock. This magnetic-factor blocking retains the full remainder and does '
+        'not derive a full-Hamiltonian RG or four-dimensional continuum.', '',
+        '### Finite tensor identities, a static classical register and scalar closure','',
+        'The [compatible staggered tensor architecture](../model/openwave_staggered_ward/PROOF.md) '
+        'removes the scalar checkerboard while retaining exact Bianchi/gauge identities and every halo. '
+        'A co-located nine-null instrument and physical curvature/stress map remain open. The '
+        '[replicated quantum geometry](../model/openwave_replicated_geometry/PROOF.md) has explicit '
+        'O(1/N) static ground-energy errors and vanishing lapse noise, with its closing geometry gap '
+        'retained. The failed G/c strength is unchanged; this is not an Einstein spacetime limit.', '',
+        'The [capacity perturbation test](../model/openwave_capacity_perturbations/PROOF.md) rejects '
+        'the adiabatic barotropic attachment. An established holographic-quintessence reconstruction '
+        'uses the same supplied background and has sound speed squared '
+        f"{value['capacity_scalar']['canonical_scalar_completion']['rest_frame_sound_speed_squared_exact']} "
+        'and Lean-certified Vʺ/H² bounds '
+        f"{interval(value['capacity_scalar']['canonical_scalar_completion']['V_second_derivative_over_H_squared_bounds_exact'])}. "
+        'Its native-source scalar transfer, quantum ultraviolet completion and cosmological perturbation '
+        'likelihood remain open. These source advances add zero Nature-validation rows.', '']
     return lines

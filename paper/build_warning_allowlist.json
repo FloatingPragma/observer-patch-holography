@@ -22,6 +22,17 @@
       "badness_max": 1281,
       "max_count": 1,
       "reason": "Layout-only microtype/hyphenation underfull at a fixed source location; the warning itself carries no semantic status. Anchored to source line-range + badness band so a new/unseen underfull (different location or badness) is reported, not absorbed."
+    },
+    {
+      "id": "underfull::yang_mills_gap_clay_problem::yang_mills_gap_clay_problem.tex::L1484--1493",
+      "log": "yang_mills_gap_clay_problem.log",
+      "source_file": "yang_mills_gap_clay_problem.tex",
+      "kind": "underfull_hbox",
+      "lines": "1484--1493",
+      "badness_min": 1062,
+      "badness_max": 1062,
+      "max_count": 1,
+      "reason": "Visually reviewed finite-Haar spectrum paragraph has a mildly loose justified line before two exact interval displays. No clipped text, overlap or missing glyphs; source and precise badness are fixed. This layout-only exception changes no scientific tolerance or receipt."
     }
   ]
 }

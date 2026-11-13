@@ -4810,6 +4810,43 @@ requires coverage of every admitted realization.
 \input{tex_fragments/CALIBRATED_COMPOSITES_AND_RELATIONAL_RECORDS.tex}
 
 
+\paragraph{A compatible finite curvature assignment.}
+Place scalar, vector and symmetric-tensor records at parities
+$0$, $e_b$ and $e_a+e_b$. Half-step derivatives then give the same
+linearized Ricci polynomial with exact Bianchi and pure-gauge identities,
+while its scalar Laplacian is the original nearest-neighbour operator.
+The actual derivative graph connects scalar neighbours, so the centered
+collocated checkerboard ambiguity is absent in this assignment. Complete
+boundary halos remain. Applying null tomography requires an
+implemented co-located tensor instrument; the physical curvature and
+stress identifications remain separate
+(\path{model/openwave_staggered_ward}).
+
+\paragraph{A static classical limit on the complete geometry register.}
+A permutation-invariant register has
+\[
+ Q_N=\frac qN\sum_{i=1}^N Z_i,\qquad
+ H_g=\frac{\omega_N}{2N}\sum_{i=1}^N(I-X_i),\qquad
+ \omega_N=\frac{\omega N\cosh(q/N)^N\tanh(q/N)}{\sinh q}.
+\]
+This normalization preserves the original weak far-field response; it
+does not repair its failed physical $G/c$ attachment. For $E,P\ge0$ and $0\le F\le1$, write
+$H_N=H_g+Ee^{Q_N}+Pe^{FQ_N}$. The mean-Bloch bound and spectral Jensen
+inequality imply
+\[
+ \inf\operatorname{spec}H_N\ge\min_{-1\le z\le1}
+ \left\{\frac{\omega_N}{2}(1-\sqrt{1-z^2})+Ee^{qz}+Pe^{qFz}\right\}.
+\]
+A spin-product trial bounds the difference above that minimum by
+$(Ee^q+Pe^{qF})(e^{q^2/(2N)}-1)$, retaining the entire register rather
+than discarding nonsymmetric sectors. The relative vacuum lapse variance
+is at most $e^{q^2F^2/N}-1$. At $q=1/8$, $N=256$ and $0\le F\le1$,
+this upper bound is below $6.103702\times10^{-5}$. The geometry gap
+closes as $1/N$: this is a static single-mode classical limit, without a
+uniform dynamical gap, spatial Einstein evolution, a physical gravitational
+normalization or a zero-cost preparation claim
+(\path{model/openwave_replicated_geometry}).
+
 \subsection{Capacity work and horizon-dependent expansion}
 For the finite active-register coupling $H(V,k)=\epsilon V/k$,
 the operator pressure is $P=-\rho=-\epsilon/k$ at fixed capacity.
@@ -4855,6 +4892,35 @@ gives $a^4$ and the Hubble-area control retains a constant fraction.
 The present amplitudes and radiation content remain supplied; these are
 conditional expansion histories, not derived particle abundances.
 The defining source and outward enclosures are specified in \path{model/openwave_radiation_capacity}.
+
+\paragraph{Perturbations of a declared capacity background.}
+Put $x=\sqrt{\Omega_x}$ and
+$r=\rho_r/(\rho_m+\rho_r)$. The conserved event-area branch has
+\[
+ c_a^2=\frac{-2-3x+3x^2+2x^3+rx(1+x)}6.
+\]
+The supplied past-background enclosures imply $c_a^2<-1/5$, rejecting an
+adiabatic barotropic-fluid attachment. This instability is consistent
+with the \href{https://arxiv.org/abs/0706.3757}{holographic-fluid analysis
+of Myung}. The established
+\href{https://arxiv.org/abs/astro-ph/0604484}{holographic-quintessence
+reconstruction of Zhang} instead supplies a canonical scalar with
+\[
+ \frac{d\phi}{d\log a}=M_{\rm Pl}\sqrt{2\Omega_x(1-x)},\qquad
+ V=\frac{\rho_x(2+x)}3,\qquad c_s^2=1.
+\]
+For this radiation-inclusive past domain, exact positive Bernstein
+coefficients and the Lean certificate give
+\[
+ 2\le\frac{V''}{H^2}\le6.
+\]
+This is a stable local scalar completion of the declared background,
+not a source-derived particle mass or a cosmological likelihood fit.
+The supplied amplitudes and horizon choice remain, and native-source
+transfer and perturbation-data acceptance are unproved. The polynomial
+bounds are in \path{Lean/ObserverPatchHolography/CapacityScalarCurvature.lean};
+the complete background and controls are in
+\path{model/openwave_capacity_perturbations}.
 
 \section{Reproducibility}
 \label{sec:repro}

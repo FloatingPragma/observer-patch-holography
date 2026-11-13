@@ -443,6 +443,18 @@ Finite decoder error bounds are machine-checked in
 \path{Lean/ObserverPatchHolography/EinsteinResidualBound.lean}; the
 source calculation is in \path{model/openwave_einstein_error}.
 
+\paragraph{A compatible finite curvature assignment.}
+Place scalar, vector and symmetric-tensor records at parities
+$0$, $e_b$ and $e_a+e_b$. Half-step derivatives then give the same
+linearized Ricci polynomial with exact Bianchi and pure-gauge identities,
+while its scalar Laplacian is the original nearest-neighbour operator.
+The actual derivative graph connects scalar neighbours, so the centered
+collocated checkerboard ambiguity is absent in this assignment. Complete
+boundary halos remain. Applying null tomography requires an
+implemented co-located tensor instrument; the physical curvature and
+stress identifications remain separate
+(\path{model/openwave_staggered_ward}).
+
 \begin{theorem}[Einstein equation from a common null balance]
 Let $(M,g)$ be a connected time-oriented $C^3$ Lorentzian four-manifold and
 $T$ a symmetric $C^1$ tensor with $\nabla^aT_{ab}=0$. Fix a single
@@ -833,6 +845,31 @@ certificates and full instruments are in
 \path{model/openwave_geometry_refinement},
 \path{model/openwave_relational_clock} and
 \path{model/openwave_joint_native_clocks}.
+
+\paragraph{A static classical limit on the complete geometry register.}
+A permutation-invariant register has
+\[
+ Q_N=\frac qN\sum_{i=1}^N Z_i,\qquad
+ H_g=\frac{\omega_N}{2N}\sum_{i=1}^N(I-X_i),\qquad
+ \omega_N=\frac{\omega N\cosh(q/N)^N\tanh(q/N)}{\sinh q}.
+\]
+This normalization preserves the original weak far-field response; it
+does not repair its failed physical $G/c$ attachment. For $E,P\ge0$ and $0\le F\le1$, write
+$H_N=H_g+Ee^{Q_N}+Pe^{FQ_N}$. The mean-Bloch bound and spectral Jensen
+inequality imply
+\[
+ \inf\operatorname{spec}H_N\ge\min_{-1\le z\le1}
+ \left\{\frac{\omega_N}{2}(1-\sqrt{1-z^2})+Ee^{qz}+Pe^{qFz}\right\}.
+\]
+A spin-product trial bounds the difference above that minimum by
+$(Ee^q+Pe^{qF})(e^{q^2/(2N)}-1)$, retaining the entire register rather
+than discarding nonsymmetric sectors. The relative vacuum lapse variance
+is at most $e^{q^2F^2/N}-1$. At $q=1/8$, $N=256$ and $0\le F\le1$,
+this upper bound is below $6.103702\times10^{-5}$. The geometry gap
+closes as $1/N$: this is a static single-mode classical limit, without a
+uniform dynamical gap, spatial Einstein evolution, a physical gravitational
+normalization or a zero-cost preparation claim
+(\path{model/openwave_replicated_geometry}).
 
 \appendix
 
