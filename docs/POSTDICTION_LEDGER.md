@@ -450,7 +450,72 @@ The [full-Haar pure SU(2) source](../model/openwave_su2_volume_gap/PROOF.md) has
 
 The [capacity-volume source](../model/openwave_capacity_stress/PROOF.md) derives mechanical w=-1 at fixed active capacity and accounts for every capacity-change work stroke. Its expansion comparison supplies H0=67.4 and Omega_m=0.315 plus the flat Friedmann branch. It does not derive Lambda's amplitude. The complete correlated fifteen-point BC03 statistic is [6.191340672071, 6.191340672072]; the alternative M11 reduction gives [7.979522903794, 7.979522903795]. These shared-data alternatives are not independent likelihoods.
 
-The [native centre-string](../model/openwave_native_centre_string/PROOF.md) identifies exact dual-electric phase jumps, with a separate continuous-texture interpretation boundary. [Complete pump/loss clocks](../model/openwave_autonomous_clock_channel/PROOF.md) retain exact native frequency, finite linewidth, batteries and the probe-created-phase control. The [Pauli/Maxwell refinement](../model/openwave_dirac_maxwell_refinement/PROOF.md) retains the magnetic commutator and all integer fluxes. Its [dressed current/core response](../model/openwave_dressed_core_response/PROOF.md) varies with scale, while the independent spatial core is unresolved below one cell. These sources are not pooled into one identified physical theory.
+The [native centre-string](../model/openwave_native_centre_string/PROOF.md) identifies exact dual-electric phase jumps, with a separate continuous-texture interpretation boundary. [Complete pump/loss clocks](../model/openwave_autonomous_clock_channel/PROOF.md) retain exact native frequency, finite linewidth, batteries and the probe-created-phase control. The [Pauli/Maxwell refinement](../model/openwave_dirac_maxwell_refinement/PROOF.md) retains the magnetic commutator and all integer fluxes. Its [dressed current/core response](../model/openwave_dressed_core_response/PROOF.md) at Wilson coefficient 1/16 varies with scale, while that member has an unresolved spatial core. These sources are not pooled into one identified physical theory.
+
+### Propagating rest bands and a local strange energy shell
+
+The [positive correlated kinetic source](../model/openwave_baryon_dispersion/PROOF.md) uses every native compact colour-singlet triquark channel, with one inverse-rest-operator rule J = zeta M^-1. The physical speed, electron unit and strong length are inputs. Its complete three-quark rest fibre is unchanged; the neutron inertial mass is enclosed by [0.910379739949, 0.970684532724] GeV and its ground-band width by [0.145065035755, 0.145065243797] GeV. Full-Fock positivity does not transfer the higher-number spectra or prove exact Lorentz dispersion.
+
+The [local strange extension](../model/openwave_cluster_bandwidth/PROOF.md) preserves the complete two-cell action and makes separated colour-singlet clusters additive. With the same positive kinetic rule, its complete bulk Lambda energy is [1.115684628607, 1.115684878081] GeV. The proton and pion bands cross that energy at opposite momenta within [0.086222816534, 0.103058658466] GeV. This establishes a strong-sector energy shell. The native weak current has no proved transfer to complete outgoing scattering states here; a strange decay rate is not supplied. The bulk rest shifts and inherited mass calibration are retained.
+
+| Local bulk assignment | Complete energy interval / GeV |
+| --- | ---: |
+| Lambda | [1.115684628607, 1.115684878081] |
+| charged pion | [0.139596209155, 0.139596220909] |
+| charged kaon | [0.493702817428, 0.493702830909] |
+
+### Nuclear charge breaking
+
+The [exact isospin identity](../model/openwave_nuclear_isospin/PROOF.md) proves that another isospin-scalar interaction cannot repair both mirror masses. The required charge-breaking gap is 0.763806950000 MeV. A declared collinear Coulomb pair member uses inherited electromagnetic and length inputs, with no additional nuclear mass fit. Complete spin and high-complement bounds give:
+
+| Assignment | Coulomb-member energy / GeV | Compared / GeV | Target contained |
+| --- | ---: | ---: | --- |
+| triton | [2.808918232397, 2.808923070344] | 2.80892113668 | True |
+| helion | [2.808843291539, 2.808848197896] | 2.80839161112 | False |
+| alpha | [3.740167683323, 3.740194209213] | 3.7273794118 | False |
+
+The helion and alpha comparisons fail. This finite electrostatic member has no asserted dynamical Gauss-field realization, infinite-volume breakup theorem or transfer of the correlated kinetic source to its nuclear spectra.
+
+### Resolved charge profiles and their energies
+
+The [full-rotor charge source](../model/openwave_resolved_core/PROOF.md) uses Wilson coefficient 1/2, selected from the complete displayed dyadic scan by a half-suppression resolution test. No measured radius or running-charge value selects it. The same static charge intervention and independent position instrument establish the scale join. All integer fluxes, opposite charges, spin partners and preparation failures are retained.
+
+| Native family | Vacuum-subtracted energy / GeV | Radius / cell | Maximum charge suppression |
+| --- | ---: | ---: | ---: |
+| electron | [0.000621903577, 0.000622007681] | [0.523002640867, 0.523002641250] | [0.547063524708, 0.547063525509] |
+| muon | [0.105769329377, 0.105769433481] | [0.522998675663, 0.522998676046] | [0.547055229490, 0.547055230291] |
+| tau | [1.777094881155, 1.777094985259] | [0.522998675566, 0.522998675949] | [0.547055229288, 0.547055230089] |
+
+These reference-bound energies subtract the true full-rotor vacuum and retain the compensating quantum reference. They are not observed particle poles. The resolved profile and static effective charge do not establish a universal renormalized QED or QCD charge. The changed regulator does not inherit the mass or response fits of a different action.
+
+The [conditional clock theorem](../model/openwave_clock_phase_resource/PROOF.md) proves that an energy-invariant source and battery, an energy-conserving joint unitary and energy-compatible recorded effects leave every conditional source state energy-invariant. Degenerate relational coherence is allowed; it has zero free native frequency. A separately declared interaction frequency is not thereby a rest mass.
+
+The [continuous quotient lift](../model/openwave_quotient_homotopy/PROOF.md) identifies (SU(3) × U(1))/Z3 with U(3), proves fundamental group Z and closes the native fractional-charge generator with its colour phase. The electric eigenstates have uniform conjugate angle density; this is not a measured localized classical texture or an additional mass fit.
+
+The [dynamical Dirac field member](../model/openwave_dirac_field_connection/PROOF.md) retains both signed bands and every integer rotor flux. Diagonalizing its matter matrix gives the connection A = −i U†∂U, and the field energy becomes α(E+A)². Omitting A changes the spectrum. This analytical comparison member has no asserted equivalence to the full native Fock action.
+
+### Common units and expansion histories
+
+The [exact unit elimination](../model/openwave_gravity_unit_constraint/PROOF.md) gives G/(c_model/c) = g/u². With unchanged electron energy unit u, length alone cannot match both light speed and Newton strength. Matching light gives G in [40507.493763499429, 40507.493763499430] GeV^-2. The required stiffness change is about 6.03794e+42; no such gravity calibration is made.
+
+The [capacity histories](../model/openwave_horizon_capacity/PROOF.md) compare the same fifteen chronometer rows using supplied H0=67.4 and Omega_m=0.315. No parameter is fitted to these chronometers. The covariance and alternative stellar-population reductions are shared data, not independent likelihoods.
+
+| Capacity branch | Data reduction | Correlated chi-square interval |
+| --- | --- | ---: |
+| fixed_capacity | HzTable_MM_BC03.dat | [6.191340672071, 6.191340672072] |
+| comoving_area | HzTable_MM_BC03.dat | [21.549028758321, 21.549028758322] |
+| hubble_area_conserved | HzTable_MM_BC03.dat | [70.487053778996, 70.487053778997] |
+| fixed_capacity | HzTable_MM_M11.dat | [7.979522903794, 7.979522903795] |
+| comoving_area | HzTable_MM_M11.dat | [30.190533236913, 30.190533236914] |
+| hubble_area_conserved | HzTable_MM_M11.dat | [89.767053312288, 89.767053312289] |
+| future_event_area_gamma_one | HzTable_MM_BC03.dat | [6.577168897789, 6.577168897790] |
+| future_event_area_gamma_one | HzTable_MM_M11.dat | [9.759896302660, 9.759896302661] |
+
+Fixed capacity gives w=−1. Comoving area gives w=−1/3. A Hubble-area branch with separately conserved dust gives w=0; retaining mechanical pressure instead requires energy exchange. For the future-event-area branch with gamma=1, a monotone rational equation replaces ODE integration and proves the future boundary condition. The physical horizon and cosmological amplitude are supplied choices, and the high-redshift dust control is not an early-Universe fit.
+
+### Complete gauge-field propagation
+
+The [full-Haar propagation bound](../model/openwave_su2_propagation/PROOF.md) retains unbounded onsite electric energy and every representation. Bounded plaquette interactions give local finite-volume dynamics converging in norm, with explicit boundary errors. This propagation argument applies to compact gauge groups. For compact connected semisimple groups, the electric Casimir gap also supplies the fixed-spacing strong-coupling stability map; its coupling threshold is existential. At fixed coupling all energy gaps scale as 1/a, so a finite physical continuum gap requires a further scaling construction. Neither a physical GeV glueball mass nor the four-dimensional Yang-Mills Clay theorem follows.
 
 ## One calibrated hyperfine spectrum and its independent controls
 
