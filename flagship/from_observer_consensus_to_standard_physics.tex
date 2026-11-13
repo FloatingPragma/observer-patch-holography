@@ -1766,41 +1766,68 @@ $[1.291676,1.292715]$, so preservation of two-cell fits alone does not imply
 spatial refinement.
 The complete source and instruments are specified in \path{model/openwave_hadron_refinement_flow}.
 
-\paragraph{Strange families and the complete decay threshold.}
-The native colour reduction extends to two quark families with $816$
-complete three-quark singlets and $256$ complete quark--antiquark singlets.
-Two positive number/pair coefficients calibrate a charged kaon to
-$0.493677\,\mathrm{GeV}$ and a Lambda state to $1.115683\,\mathrm{GeV}$.
-The full strong action has an explicit charge-conjugation map, which gives
-the charged-kaon partner the same energy. This completion includes a
-nonlocal total-quark/antiquark-number correction; no range-one locality
-is claimed for that term. The Sigma, Xi and neutral-kaon masses are
-retained failed comparisons. The native charged-current
-construction has a nonzero $\Lambda\to p+\pi^-$ vertex, including every
-native five-body output. Its complete two-cell strong final-channel floor
-is $1.208108251046\,\mathrm{GeV}$, $92.425251\,\mathrm{MeV}$ above the
-Lambda calibration target. An exact variational upper bound on the
-initial Lambda energy certifies an actual channel gap greater than
-$92.349863\,\mathrm{MeV}$. The full weak norm bound preserves this
-positive gap.
-Thus a nonzero finite vertex does not supply an energy-conserving strange
-decay. The quoted mass fits are strong-source eigenenergies, without an
-interacting-pole or lifetime identification.
-The complete source and instruments are specified in \path{model/openwave_strange_composites}.
+\paragraph{Propagation with the same native rest operator.}
+A positive native correlated kinetic operator uses every colour-singlet
+triquark shape of occupied span at most one. With the common rule
+$J=\zeta M^{-1}$, where $M$ is the complete native compact rest matrix and
+$\zeta=(\hbar c/a)^2/(2u^2)$, the added action vanishes on the complete
+three-quark rest fibre. Rational five-band enclosures and the full infinite
+complement bound give a ground-band width between
+$0.1450650$ and $0.1450654\,\mathrm{GeV}$ and a neutron inertial mass in
+$[0.91037,0.97069]\,\mathrm{GeV}$. The electron unit, strong length and physical
+speed assignment are supplied. Positivity holds on the full Fock space;
+rest cancellation and the quoted spectrum apply to the three-quark domain.
+No higher-number spectrum or exact Lorentz dispersion is transferred.
+The complete construction and records are specified in \path{model/openwave_baryon_dispersion}.
 
-\paragraph{Complete many-body nuclear reduction.}
+\paragraph{Local strange families and an energy-conserving shell.}
+The complete two-cell native source uses two positive number/pair coefficients
+to calibrate charged kaon and Lambda energies to $0.493677$ and
+$1.115683\,\mathrm{GeV}$. Complete $816$- and $256$-state colour-singlet
+carriers retain the failed Sigma, Xi and neutral-kaon comparisons.
+The charge-conjugate strong action and nonzero native weak vertex are
+explicit. Its global number correction prevents separated-cluster
+additivity, and its full two-cell outgoing channel is closed even after
+the weak norm bound (\path{model/openwave_strange_composites}).
+
+A finite-range extension of the complete native strange action restores
+additivity of separated colour-singlet clusters. With the same positive
+inverse-rest-operator propagation rule, full relative-position bounds give
+$m_\Lambda\in[1.11568462,1.11568488]\,\mathrm{GeV}$ and
+$m_{\pi^-}\in[0.13959620,0.13959623]\,\mathrm{GeV}$ in the supplied electron
+unit. These inherited-calibration bulk energies retain their shifts from
+the two-cell fits. The proton and pion ground-band energy sum crosses the
+Lambda rest interval between $\tan(k/2)=1/6$ and $1/5$, proving an open
+strong-sector energy shell. The unfiltered weak current requires an
+interacting scattering-state transfer; no strange lifetime follows from
+the shell crossing alone.
+The complete construction and records are specified in \path{model/openwave_cluster_bandwidth}.
+
+\paragraph{Nuclear isospin and native charge response.}
 An occupancy-gated three-cell spin interaction vanishes on every sector
-with at most six quarks, preserving all seven two-cell calibrations.
+with at most six quarks, preserving all seven two-cell calibration domains.
 One triton mass input fixes its coefficient. Exact colour exterior
 characters reduce complete $572572$- and $176729280$-singlet carriers to
-$64$ and $256$ low coordinates with certified full complements. The
+$64$ and $256$ low coordinates with full complement bounds. The
 triton-assigned interval $[2.8089192030,2.8089230704]$ GeV contains its
-$2.80892113668$ GeV input. The unused helion and alpha intervals,
-$[2.8076258705,2.8076297379]$ and $[3.7391239822,3.7391394985]$ GeV,
-exclude the respective $2.80839161112$ and $3.7273794118$ GeV comparisons.
-These complete finite-box bands do not supply asymptotic breakup
-thresholds or physical halo lifetimes
-(\path{model/openwave_light_nuclear_curve}).
+$2.80892113668$ GeV input (\path{model/openwave_light_nuclear_curve}).
+
+The native isospin intertwiner fixes the strong triton--helion separation
+at $1.29333251\,\mathrm{MeV}$; the supplied nuclear comparison is
+$0.52952556\,\mathrm{MeV}$. Thus an isospin-scalar nuclear interaction cannot
+repair both masses. A charge-breaking contribution of
+$0.76380695\,\mathrm{MeV}$ is required. A declared native-charge Coulomb
+pair kernel, using the inherited electromagnetic coupling and strong
+length with no nuclear fit, gives full-source helion and alpha intervals
+$[2.80884329,2.80884820]$ and $[3.74016768,3.74019421]\,\mathrm{GeV}$.
+Both held-out comparisons fail. The finite collinear pair kernel carries
+no asserted dynamical Gauss-field or physical halo transfer.
+The complete construction and records are specified in \path{model/openwave_nuclear_isospin}.
+
+The complete spin multiplets, preparation failures and high spectral
+complements are retained. The Coulomb comparison and the positive
+correlated-propagation source are distinct members: their higher-number
+spectra have no asserted transfer.
 
 The literal native isospin current transports the neutron ground ray to
 the proton and gives the same $1.29333251$ MeV mass ordering.
@@ -1887,40 +1914,68 @@ low-momentum refinement. This intraband source preserves excitation number;
 it supplies no pair-producing vacuum or interacting Lorentz theorem
 (\path{model/openwave_dirac_maxwell_refinement}).
 
-The actual dipole $D=Qx$, current $J=i[H,D]$ and contact
-$T=-[D,[D,H]]$ satisfy the static Ward identity on that source.
-Exact resolvent residuals certify its contact-inclusive imaginary-frequency
-response to absolute error below $10^{-9}$. A separate complete native
-charge-position measurement gives a regulated electron width about
-$0.12118$ cell. Its elastic form factor differs from unity by at most
-$0.02937$ across the first Brillouin interval. The putative core is thus
-below the resolution needed to show an order-one onset. Complete pointer
-and terminal position/flux work, preparation failures and both spin
-branches are retained. These reference-bound records do not supply an
-observed electron-core fit or all-orders QED running
-(\path{model/openwave_dressed_core_response}).
+\paragraph{The dynamical field connection.}
+A field-dependent signed-band transformation also transforms the quantum
+field momentum. For $E=-i\partial_\theta$ and a smooth periodic unitary
+$U(\theta)$, the exact identity is
+\[
+ U^* E U=E+\mathcal A,\qquad
+ \mathcal A=-iU^*\partial_\theta U,\qquad
+ U^* E^2U=(E+\mathcal A)^2.
+\]
+A complete compact-rotor diagnostic executes both bands and every integer
+flux. Exact blocks of dimension two certify the full ground and show
+nonzero field-induced band conversion. Omitting the connection changes the
+spectrum and measurement work even though the fixed-field matter square is
+scalar. The native charged mass parameters are inherited inputs to this
+diagnostic. The result identifies a required transfer term for a signed-Dirac
+completion; it supplies no equivalence to the full native fermion theory or
+interacting Lorentz-covariant continuum.
+The construction and complete records are specified in \path{model/openwave_dirac_field_connection}.
 
-Complete autonomous native collisions with an energy-conserving battery
-have coherence frequency equal to the constituent gap. Exact positive-matrix
-bounds give linewidths about $0.0333783$, $0.0139327$ and $0.00602053$ for
-arrays of four, eight and sixteen branches. The frequency is not the array's
-total energy. A single-branch control distinguishes occupation from phase
-onset: removing the pump leaves the first-probe-created oscillation and
-removes its linewidth. A vanishing ensemble mean alone does not exclude
-conditional oscillations; the explicit probe control limits this source's
-autonomous phase-onset claim
-(\path{model/openwave_autonomous_clock_channel}).
+\paragraph{A resolved core and its native charge response.}
+A declared Wilson coefficient $1/2$ resolves the charged core on the
+positive Pauli--Maxwell member. A retained scan over $1/16,1/4,1/2,1,2$
+selects this coefficient by finite spatial resolution, without empirical
+radius or running data. Full integer-flux ground and resolvent certificates
+give a radius of approximately $0.523$ cells for each charged family and
+prove a half-suppression crossing between $3\pi/4$ and $7\pi/8$ per cell.
+The literal native scalar-charge intervention gives a certified ground-energy
+derivative equal to the same form factor after separate reference subtraction.
+Executed positive and negative probes independently cross half coupling
+inside the spatial Brillouin interval. The same current satisfies the Ward identity and has four strictly ordered
+imaginary-frequency responses, each enclosed to absolute error $10^{-9}$.
+Both spin branches, preparation failure, the true field-vacuum subtraction
+and complete pointer/readout work are retained. The resulting GeV sector
+energies are reference dependent and are not observed particle poles; no
+physical running-coupling curve or interacting continuum is inferred.
+The construction and complete records are specified in \path{model/openwave_resolved_core}.
 
-On the complete native Fock representation,
-$\exp(2\pi iQ)Z_{\mathrm{SU}(3)}=I$. Quotient-Gauss tree links obey
-$n_e+t_e=0\pmod3$ for their electric integer and colour triality.
-The gauge-invariant dual-electric phase $\exp(2\pi i n_e/3)$ jumps at
-native up/down endpoints by the actual charges $2/3$ and $-1/3$ modulo
-one. A zero-U1-energy dilation preserves the full calibrated strong action;
-every hop, charged exchange, quantum reference and measurement failure is
-retained. This exact spatial discrete invariant does not identify a
-continuous conjugate-link texture winding
-(\path{model/openwave_native_centre_string}).
+\paragraph{Conditional phase and the clock resource.}
+The phase boundary admits a branchwise proof. An energy-invariant joint
+source and battery state, an energy-conserving unitary, and a battery
+readout commuting with battery energy give an energy-invariant conditional
+source state for every outcome. Exact execution retains all $4\times81$
+native input and battery-word records. A two-copy native exchange creates
+relative coherence in a degenerate energy block, whose free frequency is
+zero; its interaction-driven population frequency is $2\lambda$, with
+$\lambda$ a declared coefficient. An energy-mixing battery readout creates
+the missing phase and has explicit mean work $m(p-1/2)$. These results
+exclude the stated finite phase-free collision route without excluding
+other declared observer architectures.
+The construction and complete records are specified in \path{model/openwave_clock_phase_resource}.
+
+\paragraph{Continuous fractional quotient winding.}
+The native fractional charges admit a continuous quotient-group lift.
+For $G=(SU(3)\times U(1))/\mathbb Z_3$, the universal-cover kernel is
+$\{(e^{2\pi i k/3}I,2\pi k/3):k\in\mathbb Z\}$, so $\pi_1(G)=\mathbb Z$.
+An explicit generator has electromagnetic phase lifts $2\pi(2/3)$ and
+$2\pi(-1/3)$ on the actual quark coordinates, compensated by colour.
+Complete 120- and 364-state Gauss carriers satisfy the same endpoint
+identity. Their electric eigenstates have uniform conjugate-angle density;
+the continuous group loop does not establish a localized classical texture
+or a quark rest mass.
+The construction and complete records are specified in \path{model/openwave_quotient_homotopy}.
 
 \subsection{Native outgoing currents and neutral mixing}
 \label{sec:outgoing-records}
@@ -2296,6 +2351,26 @@ energy/length attachment; the strong and geometry sources are not
 identified by a common-Hamiltonian transfer
 (\path{model/openwave_transverse_gravity}).
 
+\paragraph{Common-unit compatibility.}
+For the positive native-energy geometry, write $u$ for the electron-anchored
+energy unit, $a$ for the edge length, and $g=1/(4\pi\kappa)$ for its weak-source
+coefficient. The two unit equations imply
+\[
+ \frac{G_{\mathrm{model}}}{c_{\mathrm{model}}/c}=\frac{g}{u^2}.
+\]
+Thus a change of length alone cannot match both physical constants.
+The speed-matched length is about $386.159\,\mathrm{fm}$.
+Exact rational stiffness and arctangent enclosures then give
+$G_{\mathrm{model}}\simeq4.05075\times10^4\,\mathrm{GeV}^{-2}$.
+Retaining the electron anchor would
+require a stiffness factor about $6.04\times10^{42}$; that adjustment would
+be a calibration to $G$. This rejects the specified unit attachment, without
+excluding other declared geometry sources. Six Lean identities establish
+this compatibility condition, the source scaling relations and the inherited
+capacity law.
+The construction and complete records are specified in \path{model/openwave_gravity_unit_constraint}.
+
+
 \paragraph{Finite pure-gauge dynamics.}
 A distinct pure SU(2) source retains the full Haar Hilbert space on every
 link of a finite three-dimensional cube. At $g^2=8$ and spacing one, its
@@ -2310,15 +2385,44 @@ these finite results do not establish a four-dimensional continuum
 Yang--Mills mass gap (\path{model/openwave_pure_su2_source},
 \path{model/openwave_su2_transfer}, \path{model/openwave_su2_spectral}).
 
-For periodic cubes at fixed spacing, a full-Haar electric-star decomposition
-has normalized local perturbation norm $64/(g^2)^2$. It satisfies the
-hypotheses of \href{https://arxiv.org/abs/math-ph/0412040}{Yarotsky's stability theorem}
-for sufficiently strong coupling. The vacuum gap is then independent of
-volume, including on the physical gauge-invariant cyclic space. Analyticity
-at the product-Haar state retains nonzero Wilson-loop variance in an
-existential neighborhood. Neither a numerical coupling threshold nor a
-nontrivial spatial continuum limit is supplied by this argument
+At sufficiently strong coupling, the full-Haar electric-star decomposition
+has normalized local perturbation norm $64/(g^2)^2$ and satisfies
+\href{https://arxiv.org/abs/math-ph/0412040}{Yarotsky's stability theorem}.
+The physical vacuum gap is uniform in volume at fixed spacing, with
+nonzero Wilson variance and existential constants
 (\path{model/openwave_su2_volume_gap}).
+
+For the full-Haar pure $SU(2)$ Hamiltonian, the electric Casimir is unbounded
+on each link, while a plaquette interaction has norm $\beta=2/(g^2a)$.
+Four plaquettes meet a link and at most sixteen overlap one plaquette.
+The interaction-picture commutator bound therefore gives, for disjoint
+unit-norm observables at link-graph distance $d$,
+\[
+ \|[\tau_t(A),B]\|\leq
+ \min\left\{2,\;2|X|\sum_{n\geq d}
+                  \frac{(32\beta|t|)^n}{n!}\right\}.
+\]
+A polynomial boundary count and the same factorial tail prove norm
+convergence of local finite-volume dynamics at fixed spacing, with every
+Haar representation retained. At $g^2=32$, $a=t=1$, a four-link observable
+with buffer $32$ has a certified boundary error below $3.14\times10^{-20}$.
+This does not assign a numerical gap at that coupling. At fixed $g$, the
+Hamiltonian and its nonzero gaps scale as $1/a$; a finite physical mass needs
+a controlled changing-coupling or energy-unit trajectory. Scalar reference
+subtraction cannot change a gap. Infinite volume and continuous Hamiltonian
+time supply neither a four-dimensional spatial-continuum construction nor
+a Clay mass-gap result.
+
+The propagation bound is independent of the compact gauge group. For a
+compact connected semisimple group with first Casimir eigenvalue $c_G>0$,
+the same electric-star proof has local perturbation norm at most
+$48/[c_G(g^2)^2]$ and retains an existential fixed-spacing uniform gap.
+For $SU(N)$, positivity of the inverse Cartan matrix gives
+$c_G=(N^2-1)/(2N)$; nonzero fundamental Wilson variance supplies physical
+excitations in a sufficiently small perturbation interval. This extends the
+fixed-spacing argument across the gauge groups without supplying a
+spatial-continuum construction or a numerical coupling threshold.
+The construction and complete records are specified in \path{model/openwave_su2_propagation}.
 
 \section{The Einstein equation from a realized null balance}
 \label{sec:einstein}
@@ -2509,35 +2613,43 @@ the chain's declared couplings as inputs. The baryon excess and the light-elemen
 abundances are not computed
 \cite{ophparticles,ophrepo}.
 
-\paragraph{Capacity work and a conditional expansion comparison.}
-For a finite active register of capacity $k$ bits, the declared volume coupling
-$H(V,k)=\epsilon V/k$ gives the operator identities
-$\rho=\epsilon/k$ and $P=-\partial_VH=-\rho$.
-Complete geometry-phase and register-word records retain the preparation work.
-An increase of capacity costs the controller work
-$\epsilon V[(k+1)^{-1}-k^{-1}]$; the sum of all four volume and capacity
-strokes in a closed cycle is exactly zero. If capacity varies, its energy
-exchange is $Q=-\rho\dot{k}/k$. The separately conserved effective equation of
-state $w_{\rm eff}=-1+\tfrac13d\log k/d\log a$ absorbs this exchange and is
-distinct from mechanical pressure. A conditional flat Friedmann comparison
-uses the supplied Planck parameters $H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-and $\Omega_m=0.315$, all fifteen specified cosmic-chronometer measurements,
-and their correlated covariance. Exact rational inversion and outward
-square-root bounds enclose the statistic. This comparison does not derive
-the cosmological amplitude or identify a physical horizon.
-The primary correlated statistic is
-$\chi^2\in[6.191340672071,6.191340672072]$ for fifteen fixed-input residuals;
-the alternative stellar-population table gives
-$\chi^2\in[7.979522903794,7.979522903795]$.
-The tables are alternative reductions of shared measurements, so their
-likelihoods are not multiplied as independent data.
+\paragraph{Capacity work and horizon-dependent expansion.}
+For the finite active-register coupling $H(V,k)=\epsilon V/k$,
+the operator pressure is $P=-\rho=-\epsilon/k$ at fixed capacity.
+Complete register/geometry observations retain preparation work and every
+capacity-change stroke; the four-stroke work cycle vanishes exactly.
+Capacity drift has exchange $Q=-\rho\dot{k}/k$, which distinguishes mechanical
+pressure from the separately conserved effective-fluid pressure.
+These identities and all finite records are specified in
+\path{model/openwave_capacity_stress}.
 
-The data and covariance are from
-\href{https://arxiv.org/abs/2003.07362}{Moresco et al.}; the supplied cosmological
-parameters are from \href{https://arxiv.org/abs/1807.06209}{Planck2018VI}.
-The exact work identities reuse the finite capacity and conservation
-lemmas, with all apparatus outcomes and covariance entries retained
-(\path{model/openwave_capacity_stress}).
+The proved capacity drift law gives $w=-1+\tfrac13 d\log N/d\log a$.
+With an area capacity $N\propto R^2$, a comoving radius gives $w=-1/3$.
+A Hubble radius with separately conserved dust instead gives $w=0$ and
+$H^2/H_0^2=a^{-3}$. Retaining mechanical pressure $-\rho$ on that branch
+requires matter exchange and a constant dark fraction, with no transition
+from matter domination to acceleration.
+
+For the declared future-event-horizon member with coefficient one,
+$x=\sqrt{\Omega_{\mathrm{dark}}}$ obeys the exact algebraic equation
+\[
+ \frac{x^6(1+x)^3}{(1-x)(1+2x)^8}
+ =a^3\frac{x_0^6(1+x_0)^3}{(1-x_0)(1+2x_0)^8}.
+\]
+Monotonicity and rational bisection replace an ordinary differential equation
+solver. The future limit has positive finite $H$, and the event-horizon
+boundary condition follows. With the supplied $H_0=67.4\,\mathrm{km\,s^{-1}
+Mpc^{-1}}$ and $\Omega_m=0.315$, all fifteen correlated primary chronometer
+rows give $\chi^2\simeq6.57717$. The same comparison gives $6.19134$ for
+fixed capacity, $21.54903$ for comoving area and $70.48705$ for separately
+conserved Hubble area. The alternative stellar-population reductions use
+the same observations. These are conditional capacity-history comparisons;
+neither the cosmic amplitude nor a physical register-to-horizon map is derived.
+The construction and complete records are specified in \path{model/openwave_horizon_capacity}.
+
+The covariance and shared chronometer data are from
+\href{https://arxiv.org/abs/2003.07362}{Moresco et al.}; the supplied
+cosmological inputs are from \href{https://arxiv.org/abs/1807.06209}{Planck2018VI}.
 
 \subsection{Pixel closure and the common particle response}
 \label{sec:closure-principle}
@@ -2824,7 +2936,7 @@ relativistic interacting particle theory\\
 5. Gauge and matter & Exact centre-character dictionary and native
 current representations; conditional charged-lepton ratios; four-input
 hadron/axial calibration; positive common matter action, complete nucleon
-energy windows, calibrated spatial rest bands, strange and triton energies,
+energy windows, calibrated rest bands with controlled propagation, an open strange energy shell, and triton energies,
 outgoing beta parity and calibrated neutral oscillations &
 Observed charges, spin, statistics, mixing and physical poles on one
 source, with compatible preparation, field, clock and spatial limits &
@@ -2848,8 +2960,8 @@ Einstein conclusions together. The specified physical $G$ and speed
 attachment fails\\
 7. Cosmology and tests & Established: the deep-law uniqueness under two
 premises; $(w_0,w_a)=(-1,0)$ at fixed capacity; the de Sitter sign; the
-dispersion band; exact capacity-volume work and a conditional correlated
-fifteen-point expansion comparison. Conditional capacity and pixel fixed points & A common
+dispersion band; exact capacity-volume work and four conditional
+correlated fifteen-point expansion histories. Conditional capacity and pixel fixed points & A common
 physical response for $P$, capacity and scale calibration, and independently
 fixed observation maps & Minimal matter with the specified scale coefficient
 four has no pixel root; coefficient seven has a root whose response is not
@@ -3396,8 +3508,10 @@ A native action fits nucleon/pion energies and the axial magnitude
 without rescaling the current; the seven-input hyperfine member also
 fits nuclear binding and rho/Delta-assigned energies, retaining its
 failed neutral-pion and radius comparisons. Complete spatial complement
-bounds certify calibrated nucleon bands; strange and triton calibrations
-retain failed unused strange and helium comparisons. The four-input
+bounds certify calibrated nucleon rest bands and a positive common kinetic
+rule. A local strange source has an energy-conserving proton/pion shell,
+without an executed weak lifetime. Strange and triton calibrations retain
+failed unused strange and helium comparisons. The four-input
 common-Dirac semileptonic member proves positivity, an exact electron
 threshold and complete nucleon energy-window bounds. Native currents give three-dimensional beta parity, controlled massive
 leptonic decay and a tau leptonic-width ratio compatible with its unused
@@ -3407,8 +3521,12 @@ kernel executes inside OpenWave, and two native clocks converge to a
 common weak-probe reading. A transverse Maxwell field shares finite
 bending, delay and redshift records with native clocks, while its tested
 physical-unit attachment fails. A full-Haar pure-gauge source admits a
-uniform-volume strong-coupling gap at fixed spacing, without a nontrivial
-spatial-continuum identification. These results use complete outputs and finite
+uniform-volume strong-coupling gap and local thermodynamic dynamics at
+fixed spacing. Its Casimir stability map extends to compact semisimple
+groups, without a nontrivial spatial-continuum identification. A resolved
+static charge probe joins the complete spatial core to its scale-dependent
+response; its vacuum-subtracted energies are reference-bound sector
+energies, without a physical-pole identification. These results use complete outputs and finite
 theorem reductions; their physical interpretations retain the fitted
 inputs, source distinctions and failed controls.
 

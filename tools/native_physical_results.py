@@ -10,6 +10,10 @@ PACKAGES = (
     'native_centre_string', 'dressed_core_response', 'dirac_maxwell_refinement',
     'autonomous_clock_channel', 'transverse_gravity', 'su2_volume_gap',
     'capacity_stress',
+    'clock_phase_resource', 'quotient_homotopy', 'resolved_core',
+    'dirac_field_connection', 'gravity_unit_constraint', 'horizon_capacity',
+    'su2_propagation',
+    'baryon_dispersion', 'cluster_bandwidth', 'nuclear_isospin',
 )
 
 
@@ -86,7 +90,69 @@ def collect(root):
             'max_radiation_shift_km_s_Mpc_upper','systematics_clamped_at_upper_endpoint_rows')}
             for r in capacity['comparisons']],
         'cosmology_calibration_boundary':capacity['calibration_boundary'],
+        'native_scale_and_structure': scale_and_structure(data),
+        'propagation_and_nuclei': propagation_and_nuclei(data),
         'all_sources_identified_as_one_physical_theory':False,
+    }
+
+
+def propagation_and_nuclei(data):
+    baryon=data['baryon_dispersion']; strange=data['cluster_bandwidth']; nuclear=data['nuclear_isospin']
+    if strange['native_weak_scope']['complete_outgoing_weak_decay_or_lifetime_proved']:
+        raise ValueError('energy shell promoted to an executed strange decay')
+    if nuclear['physical_nuclear_mass_spectrum_closed']:
+        raise ValueError('failed nuclear comparisons promoted to a closed physical spectrum')
+    return {
+        'baryon': {'unit_dictionary':baryon['unit_dictionary'],
+            'unmodified_relativistic_comparison':baryon['relativistic_comparison'],
+            'unmodified_zone_edge_energy_gain_GeV':baryon['zone_edge_energy_gain_GeV'],
+            'positive_correlated_propagation':{k:v for k,v in baryon['positive_correlated_propagation'].items()
+                if k not in ('phase_records','proton_repaired_phase_records','complete_native_correlated_rule')}},
+        'strange':{'source':strange['finite_range_source'],'bulk_energies_role':strange['bulk_energies_role'],
+            'Lambda_rest_GeV_interval':strange['Lambda_rest']['full_Lambda_ground_GeV_interval'],
+            'pion_rest':strange['pion_rest'],'kaon_rest':strange['kaon_rest'],
+            'energy_shell':{k:v for k,v in strange['energy_shell_bracket'].items() if k not in ('below','above')},
+            'locality_only_control':strange['locality_only_control'],'native_weak_scope':strange['native_weak_scope']},
+        'nuclei':{k:nuclear[k] for k in ('exact_isospin_obstruction','declared_electrostatic_member',
+            'complete_finite_spectra','infinite_volume_breakup_or_halo_proved','physical_nuclear_mass_spectrum_closed')},
+    }
+
+
+def scale_and_structure(data):
+    """Project qualified results without duplicating large complete record tapes."""
+    core=data['resolved_core']; gravity=data['gravity_unit_constraint']
+    horizon=data['horizon_capacity']; ym=data['su2_propagation']
+    if core['scope']['reference_bound_energies_are_observed_particle_poles']:
+        raise ValueError('reference-bound core promoted to physical particle pole')
+    if gravity['scope']['physical_G_and_c_match'] or horizon['physical_horizon_or_Lambda_amplitude_derived']:
+        raise ValueError('unsupported physical gravity/cosmology identification')
+    if ym['scope']['Clay_problem_solved'] or ym['scope']['physical_GeV_gap']:
+        raise ValueError('fixed-spacing gauge result promoted to continuum or GeV gap')
+    return {
+        'phase': {k:data['clock_phase_resource'][k] for k in ('general_theorem','scope')},
+        'quotient': {k:data['quotient_homotopy'][k] for k in ('continuous_native_lift','scope')},
+        'core': {'architecture':core['architecture'],'selection':core['regulator_selection'],
+            'scope':core['scope'],'members':[
+                {'family':m['family'],'energy_reference':m['energy_reference'],
+                 'reference_bound_energy_GeV_interval':m['reference_bound_energy_GeV_interval_exact'],
+                 'radius_cells_interval':m['complete_core_probe']['radius_x_cells_interval_exact'],
+                 'maximum_suppression_interval':m['complete_core_probe']['largest_first_Brillouin_zone_suppression_interval_exact'],
+                 'half_suppression_wavevector_over_pi_interval':m['complete_core_probe']['half_suppression_wavevector_over_pi_interval_exact'],
+                 'static_scalar_probe':{k:v for k,v in m['same_source_scalar_probe_coupling'].items()
+                                        if k!='complete_interventions'}} for m in core['members']]},
+        'dirac_field': {k:data['dirac_field_connection'][k] for k in
+            ('source','exact_connection','correct_transformed_field','all_flux_blocks_retained_analytically','scope')},
+        'unit_constraint': {k:gravity[k] for k in
+            ('formula','light_matched_G_interval','required_stiffness_ratio_interval_exact',
+             'energy_unit_required_if_electron_anchor_abandoned_GeV','diagnostic_float',
+             'external_reference_inputs','scope')},
+        'capacity_histories': {'anchors':horizon['anchors'],
+            'branch_consequences':horizon['branch_consequences'],
+            'comparisons':[{k:v for k,v in row.items() if k!='records'} for row in horizon['comparisons']],
+            'physical_horizon_or_Lambda_amplitude_derived':horizon['physical_horizon_or_Lambda_amplitude_derived'],
+            'same_data_alternatives_are_independent':horizon['same_data_alternatives_are_independent']},
+        'full_Haar_dynamics':{k:ym[k] for k in ('source','commutator_bound','infinite_volume_error',
+            'full_flux_propagation_bounds','SU_N_full_Haar_maps','proved','scope')},
     }
 
 
@@ -160,6 +226,113 @@ def render(value):
         'native frequency, finite linewidth, batteries and the probe-created-phase control. The '
         '[Pauli/Maxwell refinement](../model/openwave_dirac_maxwell_refinement/PROOF.md) retains the '
         'magnetic commutator and all integer fluxes. Its [dressed current/core response](../model/openwave_dressed_core_response/PROOF.md) '
-        'varies with scale, while the independent spatial core is unresolved below one cell. '
+        'at Wilson coefficient 1/16 varies with scale, while that member has an unresolved spatial core. '
         'These sources are not pooled into one identified physical theory.', '']
+    lines += render_propagation_and_nuclei(value['propagation_and_nuclei'])
+    lines += render_scale_and_structure(value['native_scale_and_structure'])
+    return lines
+
+
+def render_propagation_and_nuclei(value):
+    b=value['baryon']['positive_correlated_propagation']; s=value['strange']; n=value['nuclei']
+    lines=['### Propagating rest bands and a local strange energy shell','',
+        'The [positive correlated kinetic source](../model/openwave_baryon_dispersion/PROOF.md) uses '
+        'every native compact colour-singlet triquark channel, with one inverse-rest-operator rule '
+        'J = zeta M^-1. The physical speed, electron unit and strong length are inputs. Its complete '
+        'three-quark rest fibre is unchanged; the neutron inertial mass is enclosed by '
+        f"{interval(b['repaired_inertial_mass_GeV_interval'])} GeV and its ground-band width by "
+        f"{interval(b['available_ground_bandwidth_GeV_interval'])} GeV. "
+        'Full-Fock positivity does not transfer the higher-number spectra or prove exact Lorentz dispersion.', '',
+        'The [local strange extension](../model/openwave_cluster_bandwidth/PROOF.md) preserves the '
+        'complete two-cell action and makes separated colour-singlet clusters additive. With the same '
+        'positive kinetic rule, its complete bulk Lambda energy is '
+        f"{interval(s['Lambda_rest_GeV_interval'])} GeV. The proton and pion bands cross that energy "
+        'at opposite momenta within '
+        f"{interval(s['energy_shell']['opposite_momenta_GeV_interval'])} GeV. "
+        'This establishes a strong-sector energy shell. The native weak current has no proved transfer '
+        'to complete outgoing scattering states here; a strange decay rate is not supplied. The '
+        'bulk rest shifts and inherited mass calibration are retained.', '',
+        '| Local bulk assignment | Complete energy interval / GeV |',
+        '| --- | ---: |',
+        f"| Lambda | {interval(s['Lambda_rest_GeV_interval'])} |",
+        f"| charged pion | {interval(s['pion_rest']['full_ground_GeV_interval'])} |",
+        f"| charged kaon | {interval(s['kaon_rest']['full_ground_GeV_interval'])} |", '',
+        '### Nuclear charge breaking','',
+        'The [exact isospin identity](../model/openwave_nuclear_isospin/PROOF.md) proves that another '
+        'isospin-scalar interaction cannot repair both mirror masses. The required charge-breaking '
+        'gap is '
+        f"{decimal(Fraction(n['exact_isospin_obstruction']['additional_charge_breaking_gap_needed_GeV'])*1000)} MeV. "
+        'A declared collinear Coulomb pair member uses inherited electromagnetic and length inputs, '
+        'with no additional nuclear mass fit. Complete spin and high-complement bounds give:', '',
+        '| Assignment | Coulomb-member energy / GeV | Compared / GeV | Target contained |',
+        '| --- | ---: | ---: | --- |']
+    for row in n['complete_finite_spectra']:
+        lines.append(f"| {row['name']} | {interval(row['ground_GeV_interval'])} | {row['target_GeV']} | {row['target_in_interval']} |")
+    lines += ['', 'The helion and alpha comparisons fail. This finite electrostatic member has no '
+        'asserted dynamical Gauss-field realization, infinite-volume breakup theorem or transfer of '
+        'the correlated kinetic source to its nuclear spectra.', '']
+    return lines
+
+
+def render_scale_and_structure(value):
+    core=value['core']; units=value['unit_constraint']; histories=value['capacity_histories']
+    lines=['### Resolved charge profiles and their energies','',
+        'The [full-rotor charge source](../model/openwave_resolved_core/PROOF.md) uses Wilson coefficient '
+        f"{core['architecture']['Wilson_coefficient_exact']}, selected from the complete displayed dyadic scan "
+        'by a half-suppression resolution test. No measured radius or running-charge value selects it. '
+        'The same static charge intervention and independent position instrument establish the scale join. '
+        'All integer fluxes, opposite charges, spin partners and preparation failures are retained.', '',
+        '| Native family | Vacuum-subtracted energy / GeV | Radius / cell | Maximum charge suppression |',
+        '| --- | ---: | ---: | ---: |']
+    for row in core['members']:
+        lines.append(f"| {row['family']} | {interval(row['reference_bound_energy_GeV_interval'])} | "
+                     f"{interval(row['radius_cells_interval'])} | {interval(row['maximum_suppression_interval'])} |")
+    lines += ['',
+        'These reference-bound energies subtract the true full-rotor vacuum and retain the compensating '
+        'quantum reference. They are not observed particle poles. The resolved profile and static effective '
+        'charge do not establish a universal renormalized QED or QCD charge. The changed regulator does '
+        'not inherit the mass or response fits of a different action.', '',
+        'The [conditional clock theorem](../model/openwave_clock_phase_resource/PROOF.md) proves that '
+        'an energy-invariant source and battery, an energy-conserving joint unitary and energy-compatible '
+        'recorded effects leave every conditional source state energy-invariant. Degenerate relational '
+        'coherence is allowed; it has zero free native frequency. A separately declared interaction '
+        'frequency is not thereby a rest mass.', '',
+        'The [continuous quotient lift](../model/openwave_quotient_homotopy/PROOF.md) identifies '
+        '(SU(3) × U(1))/Z3 with U(3), proves fundamental group Z and closes the native fractional-charge '
+        'generator with its colour phase. The electric eigenstates have uniform conjugate angle density; '
+        'this is not a measured localized classical texture or an additional mass fit.', '',
+        'The [dynamical Dirac field member](../model/openwave_dirac_field_connection/PROOF.md) retains '
+        'both signed bands and every integer rotor flux. Diagonalizing its matter matrix gives the '
+        'connection A = −i U†∂U, and the field energy becomes α(E+A)². Omitting A changes the spectrum. '
+        'This analytical comparison member has no asserted equivalence to the full native Fock action.', '',
+        '### Common units and expansion histories','',
+        'The [exact unit elimination](../model/openwave_gravity_unit_constraint/PROOF.md) gives '
+        'G/(c_model/c) = g/u². With unchanged electron energy unit u, length alone cannot match '
+        'both light speed and Newton strength. Matching light gives G in '
+        f"{interval(units['light_matched_G_interval'])} GeV^-2. "
+        'The required stiffness change is about '
+        f"{units['diagnostic_float']['required_stiffness_ratio']:.6g}; no such gravity calibration is made.", '',
+        'The [capacity histories](../model/openwave_horizon_capacity/PROOF.md) compare the same fifteen '
+        f"chronometer rows using supplied H0={histories['anchors']['H0_km_s_Mpc']} and "
+        f"Omega_m={histories['anchors']['Omega_m']}. No parameter is fitted to these chronometers. "
+        'The covariance and alternative stellar-population reductions are shared data, not independent likelihoods.', '',
+        '| Capacity branch | Data reduction | Correlated chi-square interval |',
+        '| --- | --- | ---: |']
+    for row in histories['comparisons']:
+        lines.append(f"| {row['branch']} | {row['table']} | {interval(row['chi_square_interval'])} |")
+    lines += ['',
+        'Fixed capacity gives w=−1. Comoving area gives w=−1/3. A Hubble-area branch with separately '
+        'conserved dust gives w=0; retaining mechanical pressure instead requires energy exchange. '
+        'For the future-event-area branch with gamma=1, a monotone rational equation replaces ODE '
+        'integration and proves the future boundary condition. The physical horizon and cosmological '
+        'amplitude are supplied choices, and the high-redshift dust control is not an early-Universe fit.', '',
+        '### Complete gauge-field propagation','',
+        'The [full-Haar propagation bound](../model/openwave_su2_propagation/PROOF.md) retains unbounded '
+        'onsite electric energy and every representation. Bounded plaquette interactions give local '
+        'finite-volume dynamics converging in norm, with explicit boundary errors. This propagation '
+        'argument applies to compact gauge groups. For compact connected semisimple groups, the '
+        'electric Casimir gap also supplies the fixed-spacing strong-coupling stability map; its '
+        'coupling threshold is existential. At fixed coupling all energy gaps scale as 1/a, so a '
+        'finite physical continuum gap requires a further scaling construction. Neither a physical '
+        'GeV glueball mass nor the four-dimensional Yang-Mills Clay theorem follows.', '']
     return lines
