@@ -1,4 +1,5 @@
 from fractions import Fraction as F
+from copy import deepcopy
 from pathlib import Path
 from types import SimpleNamespace
 import json
@@ -8,8 +9,15 @@ from tools import native_physical_results as summary
 ROOT=Path(__file__).resolve().parents[1]
 
 
-def test_projection_preserves_calibrations_failed_comparisons_and_domains():
-    result=summary.collect(ROOT)
+@pytest.fixture(scope="module")
+def authenticated_result():
+    # Authenticate the immutable receipt DAG once, then isolate every projection
+    # mutation with a deep copy. Separate custody mutations still call collect.
+    return summary.collect(ROOT)
+
+
+def test_projection_preserves_calibrations_failed_comparisons_and_domains(authenticated_result):
+    result=deepcopy(authenticated_result)
     assert len(result['receipts_sha256'])==len(summary.PACKAGES)
     assert not result['all_sources_identified_as_one_physical_theory']
     assert {r['name'] for r in result['strange_masses'] if r['comparison_role']=='calibration'}=={'Lambda','K+'}
@@ -71,8 +79,8 @@ def test_incomplete_custody_inventory_fails_before_projection(tmp_path,monkeypat
         summary.collect(tmp_path)
 
 
-def test_scale_projection_keeps_member_choices_failures_and_exact_intervals():
-    value=summary.collect(ROOT)
+def test_scale_projection_keeps_member_choices_failures_and_exact_intervals(authenticated_result):
+    value=deepcopy(authenticated_result)
     scale=value['native_scale_and_structure']
     assert scale['core']['selection']['selection_uses_resolution_outcome']
     assert not scale['core']['selection']['selection_uses_empirical_radius_or_running_data']
@@ -95,9 +103,9 @@ def test_scale_projection_keeps_member_choices_failures_and_exact_intervals():
     assert 'H0=68.125' in '\n'.join(summary.render_scale_and_structure(scale))
 
 
-def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_members():
-    value=summary.collect(ROOT)
-    assert len(value['receipts_sha256'])==20
+def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_members(authenticated_result):
+    value=deepcopy(authenticated_result)
+    assert len(value['receipts_sha256'])==29
     group=value['propagation_and_nuclei']
     b=group['baryon']['positive_correlated_propagation']
     assert b['k0_complete_N3_operator_change_exact']=='0'
@@ -117,3 +125,58 @@ def test_propagation_projection_distinguishes_shell_from_decay_and_nuclear_membe
         lo,hi=map(F,line.split('|')[2].strip().strip('[]').split(', '))
         a,b=map(F,pair)
         assert lo<=a<=b<=hi
+
+
+def new_source_data():
+    names=('baryon_poles','pole_weak_current','strange_shell_current','coupled_haar_source',
+           'coupled_haar_spectrum','euclidean_refinement','source_ward','einstein_error','radiation_capacity')
+    return {name:json.loads((ROOT/f'model/openwave_{name}/results.json').read_text())for name in names}
+
+
+def test_pole_gauge_and_radiation_projection_keeps_exact_domains_and_no_score(authenticated_result):
+    result=deepcopy(authenticated_result);group=result['pole_currents_and_full_field_records']
+    assert group['physical_comparison_count_added']==0
+    assert len(result['receipts_sha256'])==29
+    assert group['baryon_poles']['momentum_fibre_count']==12
+    assert group['strange_current']['complete_component_probe']['probabilities_are_fixed_total_momentum_fibre_quantities']
+    assert not group['strange_current']['complete_component_probe']['normalizable_wave_packet_transfer_executed']
+    assert len(group['coupled_Haar_source']['graph']['edges'])==7
+    assert len(group['coupled_Haar_spectrum']['records'])==6
+    assert not group['Euclidean_response']['continuum_acceptance']['fixed_graph_fixed_coupling_trajectory_admitted']
+    assert not group['radiation_capacity']['scope']['independent_observational_validation']
+    text='\n'.join(summary.render_pole_currents_and_full_fields(group))
+    for boundary in ('not percentage agreements with Nature','total-momentum-zero relative-fibre',
+                     'normalizable center-of-mass wave packet is not executed','no Lambda decay lifetime',
+                     'without a physical GeV glueball','zero Nature-validation rows'):
+        assert boundary in text
+    for row in group['coupled_Haar_spectrum']['records']:
+        if not row['shared_edge']:continue
+        line=next(x for x in text.splitlines()if x.startswith(f"| {row['g_squared_exact']} | {row['spacing_exact']} | {row['diagnostic_max_twice_loop_spin']} |"))
+        for shown,key in zip(line.split('|')[4:6],('full_Haar_gap_interval_exact','connected_Wilson_covariance_interval_exact')):
+            lo,hi=map(F,shown.strip().strip('[]').split(', '));a,b=map(F,row[key]);assert lo<=a<=b<=hi
+
+
+@pytest.mark.parametrize('package,path',[
+    ('baryon_poles',('physical_3plus1_Lorentz_particle_pole_identification',)),
+    ('pole_weak_current',('autonomous_weak_decay_or_neutron_lifetime_proved',)),
+    ('strange_shell_current',('physical_on_shell_decay_amplitude_proved',)),
+    ('strange_shell_current',('complete_component_probe','normalizable_wave_packet_transfer_executed')),
+    ('coupled_haar_source',('scope','physical_GeV_mass')),
+    ('coupled_haar_spectrum',('scope','Clay_problem_solved')),
+    ('euclidean_refinement',('scope','four_dimensional_interacting_continuum_constructed')),
+    ('source_ward',('scope','physical_Newton_strength_matched')),
+    ('einstein_error',('scope','cosmological_constant_fixed_by_null_records')),
+    ('radiation_capacity',('scope','independent_observational_validation')),
+])
+def test_unproved_physical_promotion_rejected(package,path):
+    data=new_source_data();row=data[package]
+    for key in path[:-1]:row=row[key]
+    row[path[-1]]=True
+    with pytest.raises(ValueError,match='unproved physical validation'):
+        summary.pole_currents_and_full_fields(data)
+
+
+def test_missing_fixed_fibre_caveat_rejected():
+    data=new_source_data();data['strange_shell_current']['complete_component_probe']['probabilities_are_fixed_total_momentum_fibre_quantities']=False
+    with pytest.raises(ValueError,match='fixed-fibre domain omitted'):
+        summary.pole_currents_and_full_fields(data)
