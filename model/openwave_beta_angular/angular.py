@@ -37,9 +37,9 @@ def native_spin_weight(a,b,g):
     return (1+3*g*g+(1-g*g)*(a@b.T)+2*g*(1-g)*a[:,2,None]+2*g*(1+g)*b[None,:,2])/2
 
 
-def explicit_spin_weight(a,b):
+def explicit_spin_weight(a,b,d=None):
     """Independent native 120-state current contraction, without fitted spin weights."""
-    d=source();total=0j
+    d=source() if d is None else d;total=0j
     da=(PAULI[0]-sum(a[j]*PAULI[j+1] for j in range(3)))/2
     db=(PAULI[0]-sum(b[j]*PAULI[j+1] for j in range(3)))/2
     for sp in range(2):
@@ -49,8 +49,8 @@ def explicit_spin_weight(a,b):
     return float(total.real)
 
 
-def wick_column(L):
-    d=source();theta,p=grid(L);N=len(p);rho=np.zeros((24,24),complex)
+def wick_column(L,d=None):
+    d=source() if d is None else d;theta,p=grid(L);N=len(p);rho=np.zeros((24,24),complex)
     def ix(x,s,w,f):return ((2*x+s)*2+w)*3+f
     for w in range(2):
         masses=d['neutral'] if w==0 else d['charged']
@@ -74,8 +74,8 @@ def wick_column(L):
     return float(value.real)
 
 
-def records(L,t=F(1,10000)):
-    d=source();theta,p=grid(L);N=len(p);Ee=np.sqrt(1+(p*p).sum(axis=1));ae=p/Ee[:,None]
+def records(L,t=F(1,10000),d=None):
+    d=source() if d is None else d;theta,p=grid(L);N=len(p);Ee=np.sqrt(1+(p*p).sum(axis=1));ae=p/Ee[:,None]
     # Physical antineutral momentum is minus the canonical hole momentum.
     selected=np.zeros((N,N));neutral=[];g=d['ga']
     form=np.cos((theta[:,0,None]-theta[None,:,0])/2)**2
@@ -113,7 +113,7 @@ def records(L,t=F(1,10000)):
     # Finite neutral masses preserve p_z reflection exactly, so no mass limit.
     exact_margin=lower-weight_error-F(str(safe_error));assert exact_margin>0
     assert odd<-float(lower-weight_error)
-    return {'cube_side':L,'spatial_sites':N,'native_CAR_coordinates':144+24*N,'source_time':str(t),'first_order_selected_probability':float(selected.sum()),'selected_probability_by_neutral_mass':neutral,'first_order_joint_z_sign_probabilities':angular.tolist(),'electron_energy_GeV':sorted(set((Ee*.00051099895069).tolist())),'radial_momentum_source_weights':radial,'parity_odd_first_order_probability':odd,'exact_full_Fock_parity_upper_rational':str(-exact_margin),'exact_full_Fock_parity_upper':-float(exact_margin),'exact_full_Fock_probability_error_upper':safe_error,'complete_original_record_intervals':intervals,'full_current_Wick_column_squared_norm':wick_column(L),'momentum_velocity_distinction':'p_j=2 sin(k_j), v_j=4 sin(k_j) cos(k_j)/E; the instrument records momentum, not velocity','selected_hadron_state_count':2,'retained_hadron_state_count':120,'unresolved_quantum_complement':'all other hadrons, all charged/neutral families, all helicities, every multipair sector, and no emission'}
+    return {'cube_side':L,'spatial_sites':N,'native_CAR_coordinates':144+24*N,'source_time':str(t),'first_order_selected_probability':float(selected.sum()),'selected_probability_by_neutral_mass':neutral,'first_order_joint_z_sign_probabilities':angular.tolist(),'electron_energy_GeV':sorted(set((Ee*.00051099895069).tolist())),'radial_momentum_source_weights':radial,'parity_odd_first_order_probability':odd,'exact_full_Fock_parity_upper_rational':str(-exact_margin),'exact_full_Fock_parity_upper':-float(exact_margin),'exact_full_Fock_probability_error_upper':safe_error,'complete_original_record_intervals':intervals,'full_current_Wick_column_squared_norm':wick_column(L,d),'momentum_velocity_distinction':'p_j=2 sin(k_j), v_j=4 sin(k_j) cos(k_j)/E; the instrument records momentum, not velocity','selected_hadron_state_count':2,'retained_hadron_state_count':120,'unresolved_quantum_complement':'all other hadrons, all charged/neutral families, all helicities, every multipair sector, and no emission'}
 
 
 def certificate():
@@ -123,4 +123,5 @@ def certificate():
     for a,b in [(np.array([.2,.3,.4]),np.array([-.1,.6,-.2])),(np.array([0.,0.,.8]),np.array([.6,0.,-.8])),(np.zeros(3),np.zeros(3))]:
         errors.append(abs(explicit_spin_weight(a,b)-native_spin_weight(a[None,:],b[None,:],g)[0,0]))
     assert max(errors)<2e-11
-    return {'schema':'oph.native_3d_beta_angular.v1','verdict':'PASS_COMPLETE_3D_NATIVE_PARITY_INSTRUMENT','native_spin_polynomial':spin_polynomial(),'native_axial':g,'allowed_point_contact_angular_coefficients':coeff,'native_matrix_polynomial_max_error':max(errors),'PDG_2025_zero_recoil_comparators':{'source':'https://pdg.lbl.gov/2025/listings/rpp2025-list-n.pdf','a0':{'value':-.1044,'uncertainty':.0007,'native_minus_central':coeff['a']+.1044},'A':{'value':-.11958,'uncertainty':.00021,'native_minus_central':coeff['A']+.11958},'B':{'value':.9807,'uncertainty':.003,'native_minus_central':coeff['B']-.9807},'role':'Comparison-only values; the calibrated gA average shares experimental ancestry with angular data, so these are conditional consistency comparisons, not independent validation. A and a0 use zero recoil; no experiment-specific recoil or radiative model is installed.'},'finite_cube_records':[records(L) for L in (4,8)],'calibration_inputs':['p,n,charged-pion masses and |gA| from openwave_axial_state','six neutral oscillation inputs and declared lightest mass from openwave_neutrino_calibration','electron energy anchor 0.00051099895069 GeV'],'source_geometry':'two native internal hadron cells at spatial sites (0,0,0),(1,0,0); 3D periodic Weyl kinetic p=2sin(k), every valley retained','native_current':'unchanged full 120-state baryon current, full lepton Fock space, G=1/64','strong_free_channel_endpoint_GeV':(d['En']-d['Ep']-1)*.00051099895069,'full_interacting_pole_endpoint_claimed':False,'angular_scope':'a,A,B are exact native point-contact spin polynomials. The executed finite two-contact cubes retain their anisotropic form factor; no physical continuum angular fit is asserted. gA is an empirical input.','work':{'nonselective_preparation_mean':'0','autonomous_mean_energy':'conserved','terminal_readout_absolute_work_source_units':'2G||V||<=27/16'},'physical_weak_clock_or_lifetime_claimed':False}
+    from .transfer import certificate as transferred_certificate
+    return {'positive_spin_gradient_same_current_transfer':transferred_certificate(),'schema':'oph.native_3d_beta_angular.v1','verdict':'PASS_COMPLETE_3D_NATIVE_PARITY_INSTRUMENT','native_spin_polynomial':spin_polynomial(),'native_axial':g,'allowed_point_contact_angular_coefficients':coeff,'native_matrix_polynomial_max_error':max(errors),'PDG_2025_zero_recoil_comparators':{'source':'https://pdg.lbl.gov/2025/listings/rpp2025-list-n.pdf','a0':{'value':-.1044,'uncertainty':.0007,'native_minus_central':coeff['a']+.1044},'A':{'value':-.11958,'uncertainty':.00021,'native_minus_central':coeff['A']+.11958},'B':{'value':.9807,'uncertainty':.003,'native_minus_central':coeff['B']-.9807},'role':'Comparison-only values; the calibrated gA average shares experimental ancestry with angular data, so these are conditional consistency comparisons, not independent validation. A and a0 use zero recoil; no experiment-specific recoil or radiative model is installed.'},'finite_cube_records':[records(L) for L in (4,8)],'calibration_inputs':['p,n,charged-pion masses and |gA| from openwave_axial_state','six neutral oscillation inputs and declared lightest mass from openwave_neutrino_calibration','electron energy anchor 0.00051099895069 GeV'],'source_geometry':'two native internal hadron cells at spatial sites (0,0,0),(1,0,0); 3D periodic Weyl kinetic p=2sin(k), every valley retained','native_current':'unchanged full 120-state baryon current, full lepton Fock space, G=1/64','strong_free_channel_endpoint_GeV':(d['En']-d['Ep']-1)*.00051099895069,'full_interacting_pole_endpoint_claimed':False,'angular_scope':'a,A,B are exact native point-contact spin polynomials. The executed finite two-contact cubes retain their anisotropic form factor; no physical continuum angular fit is asserted. gA is an empirical input.','work':{'nonselective_preparation_mean':'0','autonomous_mean_energy':'conserved','terminal_readout_absolute_work_source_units':'2G||V||<=27/16'},'physical_weak_clock_or_lifetime_claimed':False}

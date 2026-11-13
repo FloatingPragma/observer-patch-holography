@@ -1,4 +1,5 @@
 """Standalone Taichi complete-sector propagation; no RER imports."""
+from fractions import Fraction as F
 import argparse
 import json
 from pathlib import Path
@@ -58,6 +59,8 @@ def execute(packet):
             probabilities=.5*abs(wave)**2;reference=.5*abs(continuum)**2
             tv=float(np.sum(abs(probabilities-reference))/2)
             P=max(abs(p[k%n]) for k in case['momenta_in_grid_units']);bound=min(1,.5*case['time']*a*a*P**4/(24*masses[j]))
+            m_exact=F(packet['charged_masses_exact'][j%3]);p_exact=F(3,4)*max(abs(k) for k in case['momenta_in_grid_units'])
+            exact_bound=min(F(1),F(1,2)*F(case['time'])*(F(8,3*n)*F(22,7))**2*p_exact**4/(24*m_exact))
             floating=float(np.linalg.norm(wave-independent));assert floating<3e-12
             assert tv<=bound+3e-12 and abs(float(np.sum(probabilities))-.5)<3e-12
             reverse=np.fft.ifft((initial*np.exp(+1j*case['time']*energy))@T.T,axis=0,norm='ortho')
@@ -69,9 +72,12 @@ def execute(packet):
                 'independent_full_sector_state_error':floating,
                 'same_input_continuum_complete_record_TV_diagnostic':tv,
                 'continuum_record_TV_upper_diagnostic':bound,
+                'continuum_record_TV_upper_exact':str(exact_bound),
                 'reversed_time_control_complete_record_TV':mutation,
                 'energy_mean_electron_units_diagnostic':float(np.sum(abs(initial)**2*energy)),
                 'success_preparation_work_electron_units_diagnostic':.5*float(np.sum(abs(initial)**2*energy)),
+                'absorbing_probe_source_energy_change_electron_units_diagnostic':-.5*float(np.sum(abs(initial)**2*energy)),
+                'probe_backaction':'Destructive native particle/hole POVM, with vacuum source output and explicit charge-taking apparatus; no autonomous zero-work detector claim',
                 'clock_parameter_electron_inverse_mass':case['time']})
     assert min(r['reversed_time_control_complete_record_TV'] for r in rows if r['case']=='electron_packet')>.05
     import openwave

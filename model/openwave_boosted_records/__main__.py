@@ -32,8 +32,10 @@ def run(openwave,python):
     assert all(p.name in ('__init__.py','engine.py','__pycache__') for p in overlay.iterdir())
     for name in ('__init__.py','engine.py'):
         target=overlay/name
-        if target.exists():assert target.read_bytes()==(HERE/name).read_bytes()
-        else:shutil.copy2(HERE/name,target)
+        if target.exists() and target.read_bytes()!=(HERE/name).read_bytes():
+            previous=json.loads((HERE/'results.json').read_text())['source_sha256']
+            assert hashlib.sha256(target.read_bytes()).hexdigest()==previous[str((HERE/name).relative_to(ROOT))], 'unrecognized existing overlay'
+        shutil.copy2(HERE/name,target)
     before=pins()
     with tempfile.TemporaryDirectory(prefix='oph-tenth-boost-') as temp:
         out=Path(temp)/'records.json'

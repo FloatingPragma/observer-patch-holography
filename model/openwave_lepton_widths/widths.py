@@ -49,7 +49,7 @@ def spectral_transfer_certificate():
             'inclusive_coupling_L2_difference_upper':'2*mu_max^2',
             'full_unitary_survival_transfer_error':'2*G*t*mu_max^2',
             'probability_transfer_error':'4*G*t*mu_max^2',
-            'scope':'Exact angular coarea of the massive and massless positive-frequency sources, common daughter-energy carrier with all dark complements retained. Parent survival and complete inclusive energy-bin records transfer; individual angular records are not identified.'}
+            'scope':'Exact angular coarea of the massive and massless positive-frequency sources, common daughter-energy carrier with all original dark complements retained and zero-amplitude auxiliary channels below the massive threshold. This is a survival-preserving dilation. Parent survival and complete inclusive energy-bin records transfer; individual angular records are not identified.'}
 
 def kernel_certificate():
     # Uniform massless-neutral continuum comparison for all three charged channels.

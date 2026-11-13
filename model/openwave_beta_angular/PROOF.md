@@ -116,3 +116,19 @@ its retained interaction-readout work obeys |W|<=2G||V||<=27/16.
 The electron anchor converts free energies to GeV. The displayed positive
 strong/free-channel endpoint is not a full interacting pole endpoint.
 Neither a physical weak clock nor a neutron lifetime is established here.
+
+## Transfer to the positive spin-gradient strong action
+
+The consumer also constructs the actual quartet of
+`openwave_spin_gradient_nuclei` on its complete native baryon matrix.
+It recontracts both local weak currents, verifies the vector identity and
+all three axial Pauli blocks, checks the eigenstate residuals, and consumes
+the owning source's certified axial interval. The current operators and
+lepton source are identical; the changed strong action and its five
+empirical calibration inputs are explicit. The source's native basis,
+colour reduction and prepared-sector conditions are inherited through its
+actual source bindings. Both finite cubes are executed with this quartet
+and its actual strong energies. The same proof applies because its only
+strong inputs are those verified current blocks, the interval on g, the
+selected energy bound and the spectral preparation. The axial-only action
+is retained as a separate control, without transferring its states by name.

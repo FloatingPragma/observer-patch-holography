@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 2167,
+  "surface_count": 2173,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -5881,6 +5881,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/openwave_boosted_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_boosted_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/openwave_calibrated_current_review/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -6277,6 +6287,16 @@
     },
     {
       "path": "model/openwave_magnetic_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_mass_catalogue/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_mass_catalogue/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6732,6 +6752,16 @@
     },
     {
       "path": "model/openwave_spin_frame_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_spin_gradient_nuclei/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/openwave_spin_gradient_nuclei/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

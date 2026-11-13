@@ -181,9 +181,13 @@ gives ||sqrt(rho0)-sqrt(rhom)||_2<=2 mu_max². Summing the nine normalized
 family weights preserves this bound. Each parent-spin block has the same
 bound by rotational covariance.
 
-The exact angular coarea theorem identifies the parent and all bright
-energy channels on a common direct-integral carrier; every angular and
-helicity dark complement is retained. This comparison does not identify
+The exact angular coarea theorem represents the parent and all bright
+energy channels on a common direct-integral carrier. On the interval
+[m,m+a+b), the massive source has no daughter states; its comparison
+representation adjoins uncoupled continuum channels of zero amplitude.
+This is a survival-preserving dilation, not an onto identification of the
+original free spectral fibres. Every original angular and helicity dark
+complement is retained. This comparison does not identify
 individual massive and massless angular records. The two full Friedrichs
 operators differ by an offdiagonal operator of norm at most 2G mu_max².
 Duhamel consequently bounds the complete unitary difference by

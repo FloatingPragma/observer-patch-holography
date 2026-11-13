@@ -180,6 +180,8 @@ def certificate():
         controls.append({'gradient':str(gradient),'parameters_rational':{k:str(v)for k,v in pp.items()},
                          'even_energy_GeV':s.nuclear_energy(pp)*float(UNIT),'odd_energy_GeV':s.nuclear_energy(pp,0,0,-1)*float(UNIT),
                          'odd_binding_to_pn_GeV':threshold-s.nuclear_energy(pp,0,0,-1)*float(UNIT),
+                         'odd_S1I1_energy_GeV':s.nuclear_energy(pp,1,1,-1)*float(UNIT),
+                         'odd_S1I1_binding_to_pn_GeV':threshold-s.nuclear_energy(pp,1,1,-1)*float(UNIT),
                          'scope':'Five targets are recalibrated for each distinct diagnostic source; the architecture menu is retrospective.'})
     return {'schema':'oph.positive_native_spin_gradient_nuclei.v1','verdict':'PASS_COMPLETE_SPIN_GRADIENT_SOURCE_WITH_ODD_NUCLEAR_CHANNELS_ABOVE_BREAKUP',
             'input_ancestry':s.INPUTS,'parameters_rational':{k:str(v)for k,v in p.items()},'positive_gradient_CAR_identity_exact':True,

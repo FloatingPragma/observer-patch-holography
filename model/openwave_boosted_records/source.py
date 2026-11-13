@@ -14,6 +14,7 @@ def source_packet():
         'masses_electron_units':l['E'].tolist(),
         'native_positive_frame_real':T.real.tolist(),'native_positive_frame_imag':T.imag.tolist(),
         'charges':l['charge'].tolist(),
+        'charged_masses_exact':[str(x/l['calibration']['charged_exact'][0]) for x in l['calibration']['charged_exact']],
         'electron_unit_GeV_exact':INPUTS['electron_unit_GeV'],
         'cases':[{'name':name,'mode':ix(0,0,c,f),'momenta_in_grid_units':ks,
                   'amplitudes_real':weights,'time':2.0,'preparation_success_exact':'1/2'}
@@ -50,6 +51,8 @@ def boost_checks():
             'continuum_boost_target_energy_GeV_exact':str(F(5,4)*unit),
             'continuum_beta_exact':str(beta),'continuum_gamma_exact':str(gamma),
             'lattice_group_velocity_diagnostic':float(v),
+            'boost_energy_shell_defect_upper_exact':str(gamma*(F(8,3*n)*F(22,7))**2*F(3,4)**4/24),
+            'group_velocity_error_upper_exact':str((F(8,3*n)*F(22,7))**2*(F(3,4)**3/6+F(3,4)**5/24)),
             'group_velocity_error_upper_diagnostic':velocity_bound,
             'boost_energy_shell_defect_electron_units_diagnostic':defect,
             'boost_energy_shell_defect_upper_diagnostic':float(gamma)*delta,

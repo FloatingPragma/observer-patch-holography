@@ -1,0 +1,28 @@
+\paragraph{Moving records on the longitudinal matter source.}
+Replicate the complete 192-mode longitudinal matter block and add the
+positive Dirac excitation kinetic energy
+$\sqrt{m_j^2+L_a}-m_j$, with
+$L_a(p)=4\sum_i\sin^2(ap_i/2)/a^2$.
+The entire operator is dressed by the product of the native Gauss
+isometries, including the quantum reference shifts between blocks.
+Full-Fock positivity and the exact one-electron threshold are preserved.
+In the exact colourful-vacuum, one-lepton reducing sector the dispersion
+is $E_a(p)=\sqrt{m^2+L_a(p)}$, with group speed at most one and one
+minimum per massive branch.
+
+A standalone Taichi kernel executes all 48 positive source coordinates
+and 96 native particle/hole probe rows on 16, 32 and 64-site periodic
+probes. Every position outcome and the one-half preparation failure are
+retained. On a common momentum ball $|p|\leq P$, the complete record
+variation from the same-input continuum positive-energy source is at most
+$\min\{1,s|t|a^2P^4/(24m)\}$. The finite electron packet variations are
+approximately $0.0069404$, $0.0017534$ and $0.0004396$ at the three
+spacings. An electron continuum four-vector $(E,p)=(5/4,3/4)$ supplies
+an explicit boost-to-rest comparison with a bounded regulator defect.
+
+The source retains a preferred frame and its square-root spatial kinetic
+is nonlocal. These results concern complete records of an exact reducing
+sector; they do not establish a unitary finite-grid Lorentz symmetry,
+interacting-object contraction, transverse photons or a common matter/light
+continuum. The source and portable executor are in
+\texttt{model/openwave\_boosted\_records}.
