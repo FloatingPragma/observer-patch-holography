@@ -814,6 +814,28 @@
       "validated_rows": [
         1
       ]
+    },
+    {
+      "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+      "ledger": "claims/openwave_wave_rows.json",
+      "ledger_sha256": "455dec525c3bae57779d7372dafb762ee2321d7f0a7aa308e89e66e2b25c707a",
+      "official_OpenWave_awards_added": 0,
+      "scope": "Controlled vacuum radiative Maxwell limit with native terminal first-moment and common-clock instruments; coefficients/spectral encoding declared, complete reset/failure composition retained; no interacting or empirical-coupling transfer.",
+      "transfer_to_this_canonical_source": false,
+      "validated_rows": [
+        29
+      ]
+    },
+    {
+      "candidate_id": "native-local12-mass-coin-rational-spectroscopy-v1",
+      "ledger": "claims/openwave_wave_rows.json",
+      "ledger_sha256": "455dec525c3bae57779d7372dafb762ee2321d7f0a7aa308e89e66e2b25c707a",
+      "official_OpenWave_awards_added": 0,
+      "scope": "Scalar LOCAL12 mass-coin source; declared mass/coherent-control architecture, full rank26 slow subspace, complete native preparation/clock/readout convergence. Scalar branch c=1/sqrt48 in carrier coordinates; no Dirac-source equality, observed mass or interacting pole claim.",
+      "transfer_to_this_canonical_source": false,
+      "validated_rows": [
+        30
+      ]
     }
   ],
   "source_sha256": {
@@ -1019,7 +1041,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "544832ae70aac0c48e853209732a18f9566ff9ba6817c8f4dc6a504882b4f8e5",
+    "tools/build_openwave_joint_claims.py": "d3df560b8b893ad4594c70e158d28543899555de493c558582560406d172c17c",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

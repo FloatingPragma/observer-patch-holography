@@ -1,0 +1,955 @@
+{
+  "schema": "oph.local12.native_quantum_cycle.v1",
+  "checks": {
+    "integer_amplitude_preparation_outward_certificate": true,
+    "actual_native_cosine_and_electric_words": true,
+    "same_clock_on_fresh_wire": true,
+    "both_native_pointer_laws": true,
+    "all32_joint_angle_clock_outcomes_retained": true,
+    "exact_full_field_cycle_encoder": true,
+    "factorized_full_source_error_and_correlated_resets": true,
+    "full_physical_word_streamed": true,
+    "source_bytes_unchanged": true
+  },
+  "experiments": [
+    {
+      "setting": "X",
+      "native_word_pulses": 4920,
+      "native_state_error": 9.342769544009687e-14,
+      "native_export_failure_probability": 1.7553617440542576e-29,
+      "compressed_native_error_exact": "266370871684120193175855972563634651/365375409332725729550921208179070754913983135744",
+      "native_pointer_laws": {
+        "C": {
+          "joint_angle_bin_clock_probabilities": [
+            0.20080016769011322,
+            0.21971138190928813,
+            0.1767915541160113,
+            0.09429186589160977,
+            0.03200183277202333,
+            0.008590155849446987,
+            0.0040483653558772295,
+            0.0031894353698725237,
+            0.002486934876503977,
+            0.0021646360771464587,
+            0.0027659963095641145,
+            0.0050282854243183135,
+            0.01034555517674713,
+            0.025619321892427823,
+            0.06873772134227722,
+            0.13952562356126258,
+            0.0007864228306740727,
+            0.0008604875627348698,
+            0.0006923944139417235,
+            0.00036928891512909984,
+            0.00012533342080756283,
+            3.364287369260935e-05,
+            1.5855200617583035e-05,
+            1.249124849187303e-05,
+            9.73994388441141e-06,
+            8.477678334390242e-06,
+            1.083287266352294e-05,
+            1.969300375750589e-05,
+            4.0517798767724265e-05,
+            0.00010033666741598388,
+            0.0002692075111984079,
+            0.0005464444432235306
+          ],
+          "fine_one_bit_effects": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.492842347337832e-62,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.063713722746458e-31
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.251653613518904e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.125826806759452e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ],
+          "complete_five_bit_fine_probability_rule": "v* (tensor in descending bit order of the five retained fine effects) v; first native export/reset failures are additional outcomes",
+          "success_normalization": false
+        },
+        "E": {
+          "joint_angle_bin_clock_probabilities": [
+            0.20080016769011322,
+            0.21971138190928813,
+            0.1767915541160113,
+            0.09429186589160977,
+            0.03200183277202333,
+            0.008590155849446987,
+            0.0040483653558772295,
+            0.0031894353698725237,
+            0.002486934876503977,
+            0.0021646360771464587,
+            0.0027659963095641145,
+            0.0050282854243183135,
+            0.01034555517674713,
+            0.025619321892427823,
+            0.06873772134227722,
+            0.13952562356126258,
+            0.0007864228306740727,
+            0.0008604875627348698,
+            0.0006923944139417235,
+            0.00036928891512909984,
+            0.00012533342080756283,
+            3.364287369260935e-05,
+            1.5855200617583035e-05,
+            1.249124849187303e-05,
+            9.73994388441141e-06,
+            8.477678334390242e-06,
+            1.083287266352294e-05,
+            1.969300375750589e-05,
+            4.0517798767724265e-05,
+            0.00010033666741598388,
+            0.0002692075111984079,
+            0.0005464444432235306
+          ],
+          "fine_one_bit_effects": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.492842347337832e-62,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.063713722746458e-31
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.125826806759452e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.1258268067594516e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.656027014860509e-62
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.492842347337832e-62,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.063713722746458e-31
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.125826806759452e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  3.1258268067594516e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.656027014860509e-62
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ],
+          "complete_five_bit_fine_probability_rule": "v* (tensor in descending bit order of the five retained fine effects) v; first native export/reset failures are additional outcomes",
+          "success_normalization": false
+        }
+      },
+      "full_physical_program_record_TV_bound_exact": "12829069770012566679813522505364967295799692285326746690819178109473446412715423327683476025650425862166156348975759583639691432446010725632746472137222495265328347481157091392512074545324671973301780762120045295165122613016937771/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "full_physical_program_record_TV_bound_upper": 1.6139442766443798e-05
+    },
+    {
+      "setting": "Y",
+      "native_word_pulses": 4921,
+      "native_state_error": 9.329029258508165e-14,
+      "native_export_failure_probability": 1.755406202506779e-29,
+      "compressed_native_error_exact": "133196130911558487814205658932769267/182687704666362864775460604089535377456991567872",
+      "native_pointer_laws": {
+        "C": {
+          "joint_angle_bin_clock_probabilities": [
+            0.11335967247400172,
+            0.12403580424536445,
+            0.09980585624654169,
+            0.05323150452210351,
+            0.018066306036172534,
+            0.004849484264857434,
+            0.0022854630853972506,
+            0.0018005629829140131,
+            0.001403973543984952,
+            0.0012220230667805833,
+            0.0015615148100890778,
+            0.002838666896365261,
+            0.005840476927328379,
+            0.01446312506677584,
+            0.03880517465500799,
+            0.07876775786883147,
+            0.08822691804678559,
+            0.09653606522665856,
+            0.07767809228341133,
+            0.041429650284635355,
+            0.014060860156658363,
+            0.0037743144582821644,
+            0.0017787574710975602,
+            0.0014013636354503838,
+            0.0010927012764034376,
+            0.0009510906887002654,
+            0.0012153143721385597,
+            0.0022093115317105595,
+            0.004545596048186473,
+            0.01125653349306797,
+            0.030201754198467653,
+            0.06130431013565459
+          ],
+          "fine_one_bit_effects": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.492842347337832e-62,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.063713722746458e-31
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.251653613518904e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.125826806759452e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ],
+          "complete_five_bit_fine_probability_rule": "v* (tensor in descending bit order of the five retained fine effects) v; first native export/reset failures are additional outcomes",
+          "success_normalization": false
+        },
+        "E": {
+          "joint_angle_bin_clock_probabilities": [
+            0.11335967247400172,
+            0.12403580424536445,
+            0.09980585624654169,
+            0.05323150452210351,
+            0.018066306036172534,
+            0.004849484264857434,
+            0.0022854630853972506,
+            0.0018005629829140131,
+            0.001403973543984952,
+            0.0012220230667805833,
+            0.0015615148100890778,
+            0.002838666896365261,
+            0.005840476927328379,
+            0.01446312506677584,
+            0.03880517465500799,
+            0.07876775786883147,
+            0.08822691804678559,
+            0.09653606522665856,
+            0.07767809228341133,
+            0.041429650284635355,
+            0.014060860156658363,
+            0.0037743144582821644,
+            0.0017787574710975602,
+            0.0014013636354503838,
+            0.0010927012764034376,
+            0.0009510906887002654,
+            0.0012153143721385597,
+            0.0022093115317105595,
+            0.004545596048186473,
+            0.01125653349306797,
+            0.030201754198467653,
+            0.06130431013565459
+          ],
+          "fine_one_bit_effects": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.492842347337832e-62,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.063713722746458e-31
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.125826806759452e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.1258268067594516e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.656027014860509e-62
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  6.492842347337832e-62,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.063713722746458e-31
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "effect_real": [
+                [
+                  3.125826806759452e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.4999999999999998
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  3.1258268067594516e-31,
+                  0.0
+                ],
+                [
+                  0.0,
+                  1.656027014860509e-62
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "effect_real": [
+                [
+                  0.4999999999999998,
+                  0.0
+                ],
+                [
+                  0.0,
+                  2.845903913249865e-32
+                ]
+              ],
+              "effect_imag": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0
+                ]
+              ]
+            }
+          ],
+          "complete_five_bit_fine_probability_rule": "v* (tensor in descending bit order of the five retained fine effects) v; first native export/reset failures are additional outcomes",
+          "success_normalization": false
+        }
+      },
+      "full_physical_program_record_TV_bound_exact": "12829069770059101808872124235740853714618819549405662999292908846660638323838846199931005505253835333639869665695177905796774495698915335202900661987862747850247314722333691591792643870206392989291482199470963729130719463279052075/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "full_physical_program_record_TV_bound_upper": 1.613944276650234e-05
+    }
+  ],
+  "full_resources": [
+    {
+      "setting": "X",
+      "full_word_pulses": 296440,
+      "max_wire": 3203
+    },
+    {
+      "setting": "Y",
+      "full_word_pulses": 296441,
+      "max_wire": 3203
+    }
+  ],
+  "maximum_numeric_state_error": 9.342769544009687e-14,
+  "full_initialization_reset_union_bound_exact": "12829033774519005983093025732728210889121496011817275137883346652921161272342974227564249946143318139196438371184285367676683020729869359642602070684883800151677281407079619073931570767590088483002936706410145671617966409240167723/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+  "input_domain": "arbitrary coherent/correlated total-two native carriers before reset; exact conclusive rank-one Kraus argument in vector_field/RESET_DOMAIN; arbitrary reference retained through initialized word",
+  "scope": "Exact pure-gauge one-face reducing code, with complete physical field encoder and native finite instrument. The numerical full-source execution is factorized through its proven16-dimensional cycle code, not a2^3204 matrix. No photon, matter vacuum, or Maxwell continuum claim.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/quantum_field/native_cycle.py": "69e3315aedb5968323af4e903457b327f10676e9a0cab3a3cbfd68c012b50cdb",
+    "openwave-tuning/common_dynamics/quantum_field/quantum_state.py": "7739ddaa78526ad377ea89d7a30f8473d66b62a4640df57b3a56e2dfb468c22d",
+    "openwave-tuning/common_dynamics/vector_field/native_field.py": "158144c7d9b7bcdfbcc8e60e56a9e957ee1e0ff51b08ba1a585d42bfd5b6446a",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/model/certified_reference/certificate.py": "5f40516d46d9d17ccb093727d4aec64ae455e6a549a615001a2c4d737da0a9e3",
+    "reverse-engineering-reality/model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "openwave-tuning/common_dynamics/clock/phase_clock.py": "31f37c4a6beed62e157343e9b50704b5b9010a57200f61c796fff4416276ec5a",
+    "openwave-tuning/common_dynamics/vector_field/RESET_DOMAIN.json": "4c3d77f22730e171e9181445468fa47473c0c2f0f3363f94b6c91012c9f0c063",
+    "openwave-tuning/common_dynamics/vector_field/MANIFEST.json": "aa4a18d89c1a8893ee86eb5e9151bc75e8a0b3a527640cee66aa25382ca55e76",
+    "openwave-tuning/auditor/common_walk_review/SOURCE_ERROR.json": "79432b4a01fa0f9234a8843d27d5a5eb20fd1483e9476c42e91a212f9df2573d"
+  },
+  "official_rows_changed": []
+}

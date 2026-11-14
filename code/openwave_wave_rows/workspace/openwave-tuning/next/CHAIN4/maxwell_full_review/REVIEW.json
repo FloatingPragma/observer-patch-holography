@@ -1,0 +1,43 @@
+{
+  "schema": "oph.openwave.independent_full_criterion_review.v1",
+  "row": 29,
+  "reviewer": "/root/kg_complete",
+  "producer_independent": true,
+  "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+  "criterion": "Maxwell recovered; transverse waves at c",
+  "criterion_sha256": "0c5d2a8e4212d05f5cfde6f163ca3e3c9cf32d09e97f8c23c347e5306daf980f",
+  "producer_manifest_sha256": "993744d14c2da8d66a93dc76422f81799074febad9914ae33bb60bf455cf00b6",
+  "size3_manifest_sha256": "90178885fcaaaba405b950a6f132fd47d519d21a130a4f982ec09423db129ec2",
+  "full_criterion_met": true,
+  "decision": "PASS: the literal complete Maxwell criterion is met on the declared free noncompact radiative construction, with finite native instrument errors.",
+  "review_file": "openwave-tuning/next/CHAIN4/maxwell_full_review/REVIEW.md",
+  "review_sha256": "7feacd3f93ebc0a6b0cbd64f95a7e91a73281cbe9783997a5cb664347861a3e6",
+  "scope": "Oriented vacuum Maxwell field dictionary and controlled radiative limit, two transverse polarizations, a=1/2 b=3 speed one in this source clock, spectral preparation, autonomous spectator reduction, complete terminal native field/clock instruments.",
+  "source_clock_distinction": "This v4 field uses c=1 under its h-time convention. No equality with scalar Klein-Gordon c=1/sqrt48 dynamics, clock conversion or mass coin is inferred. Same routed Dirac/field-source KG transfer remains a separate connection.",
+  "limitations": [
+    "Coefficients selected to match admitted Dirac speed; no independent empirical c or alpha prediction.",
+    "Free noncompact radiative source and first-moment POVMs; no compact-cosine, interacting Weyl, full continuous-field spectrum, or local old-edge encoder transfer.",
+    "Huge L values are finite theorem bounds; only their reduced terminal instruments were literally executed.",
+    "Native fixed precision leaves an explicit nonzero floor.",
+    "Component arrays are before reset success weights; complete instruments compose actual rank-one resets and retain first timeouts.",
+    "One source-specific full review does not establish inter-row unification or an official OpenWave award."
+  ],
+  "resolved_concerns": [
+    "Clock certificate includes its pointer; two source pointer terms yield three in total.",
+    "Visible vacuum scalar retained; spectator scalars cancel only under proved autonomous reduction.",
+    "All 646 fixed rational frame columns retained; no runtime eigensolver basis reselection.",
+    "Initial reviewer return-arity error corrected; original attempt log retained and corrected full command passed."
+  ],
+  "evidence_files": {
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/GEOMETRY.json": "79f69847480e45cc48b47c8306bcf9828233545147128c1ff08b3d4d24e5c613",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/NATIVE.json": "22720564a6458a52bef22253789d67e3e0f3cc8860fdff1361d0749cfd85f63e",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/BOUNDS.json": "d7017f2f6186324f56aeeb7189779b3f74001f7932fb4e5b0b0c6d1491dd42ac",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/SOURCE.json": "03a3d74d02e1064d8c97abf2db7348f1c47e5fa6b4b945f34f6ee64a11fb554f",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/FRAME.json": "b27cfb044861ce6990960ae5dba89ffa1e5b5d64b3493edc9518dc912636d196",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/SIZE3_NATIVE.json": "48361b364ebee9b6bdeec91bf8eb51e08959bbeab1a08c01ab9599c9a45abd5e",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/CHECKS.json": "55838cddfd6eedcdb950d882d689aebf1cdbae8aa1970b7e140c0b6e89c6cba4",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/SIZE3_CHECKS.json": "722a2dba001e1c37f2a0fd18b69fd623fb9cd2459850ca62e5eafcb9ee04e69e",
+    "openwave-tuning/next/CHAIN4/maxwell_full_review/IMPORTS.json": "018be8a7e4364c562bd6ca75ac8eeb395eb04012736f996e7df92c7a2d6a4e9a"
+  },
+  "official_rows_changed": []
+}

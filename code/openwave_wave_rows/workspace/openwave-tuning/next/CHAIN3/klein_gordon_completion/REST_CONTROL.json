@@ -1,0 +1,4519 @@
+{
+  "mass_is_input_not_empirical_prediction": true,
+  "provider_pins_unchanged": true,
+  "rows": [
+    {
+      "cases": [
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 4.244411198168254e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.6559391267220574e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202925e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.588460923759113e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "law": "C",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 4.683300037860864e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860866e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860868e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202892e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620288e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 4.276133888428395e-48,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.649281418881225e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 8.08856748905378e-17,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.4999999999999987,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 8.08856748905378e-17,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 4.276133888428395e-48,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.649281418881225e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.4999999999999987,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "X"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 4.244411198168254e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.6559391267220574e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202925e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.588460923759113e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "law": "E",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 4.683300037860864e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860866e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860868e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202892e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620288e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 4.276133888428395e-48,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 8.08856748905378e-17,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.649281418881225e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.4999999999999987,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 4.276133888428395e-48,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 8.08856748905378e-17,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.649281418881225e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.4999999999999987,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "X"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "analysis_export_failure",
+              "probability": 5.5822288526256466e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.4131942141686314e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620292e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 2.8312058363125375e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "law": "C",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 5.329928835309e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860866e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.1222000252405815e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620289e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 3.1222000252405746e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.321659828583755e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 4.824640709440617e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.24999999999999917,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2499999999999996,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.24999999999999917,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 1.321659828583755e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 4.824640709440617e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.2499999999999996,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "Y"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "analysis_export_failure",
+              "probability": 5.5822288526256466e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.4131942141686314e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620292e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 2.8312058363125375e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "law": "E",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 5.329928835309e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860866e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.1222000252405815e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620289e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 3.1222000252405746e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.321659828583755e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.24999999999999917,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 4.824640709440617e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2499999999999996,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.321659828583755e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.24999999999999917,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 4.824640709440617e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2499999999999996,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "Y"
+        }
+      ],
+      "mass_exact": "0",
+      "mode": [
+        0,
+        0,
+        0
+      ],
+      "return": [
+        0.9999999999999977,
+        4.930380657631324e-32
+      ],
+      "source_time_in_tau0_exact": "3/2",
+      "steps": 3
+    },
+    {
+      "cases": [
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 4.244411198168254e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.6559391267220574e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202925e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.588460923759113e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "law": "C",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 5.769313056236471e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860867e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.264439527673634e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202892e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.9799605228075227e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 3.5461604357133376e-33,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 8.354776612853826e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.06707778278154351,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.43292221721845536,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.06707778278154351,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 3.5461604357133376e-33,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 8.354776612853826e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.43292221721845536,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "X"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 4.244411198168254e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.6559391267220574e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202925e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.588460923759113e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "law": "E",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 5.769313056236471e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860867e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.264439527673634e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202892e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.9799605228075227e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 3.5461604357133376e-33,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.06707778278154351,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 8.354776612853826e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.43292221721845536,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 3.5461604357133376e-33,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.06707778278154351,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 8.354776612853826e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.43292221721845536,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "X"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "analysis_export_failure",
+              "probability": 5.5822288526256466e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.4131942141686314e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620292e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 2.8312058363125375e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "law": "C",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 3.6734643441847864e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860865e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 2.0580937483656678e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202882e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 4.186306302115486e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.2225543953122446e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.5359785986993952e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.4204096900058334,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.07959030999416526,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.4204096900058334,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 2.2225543953122446e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.5359785986993952e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.07959030999416526,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "Y"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "analysis_export_failure",
+              "probability": 5.5822288526256466e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.4131942141686314e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620292e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 2.8312058363125375e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "law": "E",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 3.6734643441847864e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860865e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 2.0580937483656678e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202882e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 4.186306302115486e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.2225543953122446e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.4204096900058334,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.5359785986993952e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.07959030999416526,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.2225543953122446e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.4204096900058334,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.5359785986993952e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.07959030999416526,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "Y"
+        }
+      ],
+      "mass_exact": "1/2",
+      "mode": [
+        0,
+        0,
+        0
+      ],
+      "return": [
+        0.7316888688738233,
+        -0.6816387600233375
+      ],
+      "source_time_in_tau0_exact": "3/2",
+      "steps": 3
+    },
+    {
+      "cases": [
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 4.244411198168254e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.6559391267220574e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202925e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.588460923759113e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "law": "C",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 5.434826291481338e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860866e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.2326278716567567e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202888e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 3.011772178824399e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.2281693107531238e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.165922292278528e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.23231569958307344,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.26768430041692537,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.23231569958307344,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 1.2281693107531238e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.165922292278528e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.26768430041692537,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "X"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 4.244411198168254e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 4.6559391267220574e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202925e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 1.588460923759113e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.3164318002236317e-34,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.004381671724686209,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 9.564721451767942e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.49561832827531366,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "law": "E",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 5.434826291481338e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860866e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.2326278716567567e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202888e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 3.011772178824399e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.2281693107531238e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.23231569958307344,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.165922292278528e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.26768430041692537,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.2281693107531238e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.23231569958307344,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.165922292278528e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.26768430041692537,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "X"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "analysis_export_failure",
+              "probability": 5.5822288526256466e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.4131942141686314e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620292e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 2.8312058363125375e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "law": "C",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 1.721179147129724e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860864e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5650105890643154e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202877e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 4.679389461416837e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.6400088815920245e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.2085789607776504e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.499373746651012,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.0006262533489865687,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.499373746651012,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 2.6400088815920245e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.2085789607776504e-34,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 1,
+              "outcome": "native_pointer",
+              "probability": 0.0006262533489865687,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "Y"
+        },
+        {
+          "clock": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 3,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 4,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "analysis_export_failure",
+              "probability": 5.5822288526256466e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860876e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 3.4131942141686314e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.561100012620292e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 2.8312058363125375e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.0752980793374886e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.20339917580943226,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 5.723969643373816e-32,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.2966008241905676,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "law": "E",
+          "matter": [
+            {
+              "index": 0,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 1,
+              "outcome": "analysis_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "analysis_export_failure",
+              "probability": 1.721179147129724e-34
+            },
+            {
+              "index": 0,
+              "outcome": "pointer_export_failure",
+              "probability": 4.683300037860864e-34
+            },
+            {
+              "index": 1,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 2,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5650105890643154e-34
+            },
+            {
+              "index": 3,
+              "outcome": "pointer_export_failure",
+              "probability": 1.5611000126202877e-34
+            },
+            {
+              "index": 4,
+              "outcome": "pointer_export_failure",
+              "probability": 0.0
+            },
+            {
+              "index": 5,
+              "outcome": "pointer_export_failure",
+              "probability": 4.679389461416837e-34
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.6400088815920245e-32,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.499373746651012,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.2085789607776504e-34,
+              "record": {
+                "bit": 1,
+                "coin": 0,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.0006262533489865687,
+              "record": {
+                "bit": 0,
+                "coin": 0,
+                "current": 1,
+                "label": 1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 2.6400088815920245e-32,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -2
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.499373746651012,
+              "record": {
+                "bit": 1,
+                "coin": 1,
+                "current": -1,
+                "label": -1
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 1.2085789607776504e-34,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 0
+              }
+            },
+            {
+              "environment": 0,
+              "outcome": "native_pointer",
+              "probability": 0.0006262533489865687,
+              "record": {
+                "bit": 0,
+                "coin": 1,
+                "current": 0,
+                "label": 1
+              }
+            }
+          ],
+          "preparation_export_failures": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860876e-34,
+            0.0,
+            3.122200025240585e-34,
+            0.0,
+            3.1222000252405845e-34,
+            0.0,
+            4.683300037860874e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.78716444289509e-34,
+            0.0,
+            4.746431101148233e-34,
+            0.0,
+            3.4270237636313072e-34,
+            0.0,
+            4.8988429703435895e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275164e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.683300037860878e-34,
+            0.0,
+            3.1222000252405866e-34,
+            0.0,
+            3.1222000252405853e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.7871644428950914e-34,
+            0.0,
+            4.746431101148231e-34,
+            0.0,
+            3.427023763631306e-34,
+            0.0,
+            4.89884297034359e-34,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            2.691114160275165e-34,
+            0.0,
+            5.634752573699733e-34,
+            0.0,
+            4.68330003786088e-34,
+            0.0,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.683300037860879e-34,
+            0.0,
+            4.6833000378608795e-34,
+            0.0,
+            4.683300037860877e-34,
+            0.0,
+            4.6833000378608855e-34
+          ],
+          "quadrature": "Y"
+        }
+      ],
+      "mass_exact": "1",
+      "mode": [
+        0,
+        0,
+        0
+      ],
+      "return": [
+        0.07073720166770288,
+        -0.9974949866040518
+      ],
+      "source_time_in_tau0_exact": "3/2",
+      "steps": 3
+    }
+  ],
+  "same_native_preparation_clock_readout": true
+}

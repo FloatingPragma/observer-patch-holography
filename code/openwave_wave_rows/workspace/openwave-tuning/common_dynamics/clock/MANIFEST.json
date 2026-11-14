@@ -1,0 +1,19 @@
+{
+  "schema": "oph.local12.clock.freeze.v1",
+  "candidate_id": "native-local12-current-v0-proposed",
+  "clock_attachment_id": "local12-completed-word-clock-v1-proposed",
+  "files_sha256": {
+    "clock_contract.py": "ee2899c4eeb765e011c2365154573a9e9e4afd6749b4f8b03be3be572c6f8dbc",
+    "CLOCK_CONTRACT.json": "56d66aaf2f438552943c6c9bbf125a243dad807564134c7e1c142f72e2e1b470",
+    "phase_clock.py": "31f37c4a6beed62e157343e9b50704b5b9010a57200f61c796fff4416276ec5a",
+    "PHASE_CLOCK.json": "6ce7b2b0639e4ea50b73f07854b6be25656561fecada96b89f806d9283f60b16",
+    "PROOF.md": "74ac01ce5f5c2da5ccc34c12ef758275c61d4cc158fb8c84ef62dc070561e6e5"
+  },
+  "checks": {
+    "all19_receipt_checks_pass": true,
+    "all_dependency_pins_unchanged": true,
+    "physical_seconds_not_inferred": true,
+    "source2_error_not_transferred_to_larger_members": true
+  },
+  "scope": "Bounded native completed-word clock, classical thinning and implementation-locality/timing audit. Independent opposing review is separate. No official row award."
+}

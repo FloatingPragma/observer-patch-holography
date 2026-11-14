@@ -1,0 +1,28 @@
+{
+  "schema": "oph.chain3.larger_walk_connection.manifest.v1",
+  "source_id": "chain3-larger-local12-mass-phase-v1",
+  "files_sha256": {
+    "larger_walk.py": "a4377b4049864e9e3cb6439df93aace69801540721b0c994bae65d31b29ddf51",
+    "native_word.py": "16875a49fb52f504b7910630b8eebcd95941d4755612c057b6e9888030f756a2",
+    "verify.py": "f6247456de80cc9369e53fbb1ff01a89420aad8c886e0e562839157291ca31b0",
+    "freeze.py": "8eb86f62b28406822494a429ba3d15b451cd35726edb4f8b98366c15a35d03d7",
+    "README.md": "a76a4070a717a97705a6ef2b51a37e91220f40fcfcdd682c48978d06ebb16020",
+    "PROOF.md": "20a8e0a070fa30c8a2aa27c92942cda7d3f3dfecb578862b4b09919fa3249a9a",
+    "SOURCES.json": "306464426f33323710bea4c650ae7d6e776830192b023a34023b00aa5936d454",
+    "RESULT.json": "6bed85eb9d24884247c76fe365a267c2f80235d73171b12a46bd65c7b9f47db9"
+  },
+  "upstream_source_file_count": 543,
+  "scalar_native_mass_phase_interface": true,
+  "matrix_free_arbitrary_size_target": true,
+  "executed_member_sizes": [
+    2,
+    3,
+    4
+  ],
+  "larger_member_resources_are_estimates": true,
+  "native_full_response_local_primitives_executed": true,
+  "entire_native_word_execution_claimed": false,
+  "gaussian_native_preparation_claimed": false,
+  "Dirac_source_transfer_claimed": false,
+  "official_rows_changed": []
+}

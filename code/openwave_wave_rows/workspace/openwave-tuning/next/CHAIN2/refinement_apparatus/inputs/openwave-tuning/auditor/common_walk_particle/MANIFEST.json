@@ -1,0 +1,51 @@
+{
+  "schema": "oph.common_walk.bounded_instrument_manifest.v1",
+  "model_id": "native-local12-current-v0-proposed",
+  "worker": "DYN02",
+  "state": "frozen bounded instrumentation; not complete platform validation",
+  "checks": {
+    "three_receipts_pass": true,
+    "all_receipt_source_pins_current": true,
+    "exact_provider_final_freeze_matches": true,
+    "official_rows_unchanged": true
+  },
+  "scope": [
+    "same-W exact complete phase records",
+    "two-time sharp position instruments with full backaction",
+    "native all-column primitive controls and C/E pointer instrument",
+    "outward controlled-source wrapper bound and added reset failures"
+  ],
+  "remaining_dependencies": [
+    "separate quantitative original common-W and preparation compiler bounds for a numerical end-to-end physical error budget",
+    "DYN03 frozen current-fiber intertwiner and coherent preparation before claiming the augmented-current experiment"
+  ],
+  "no_independent_H_or_calibration": true,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "openwave-tuning/auditor/common_walk_particle/INSTRUMENT_CONTRACT.json": "06f8f46a8576403612d0be262203ba29656b8dfbf40a76509802e530bba19046",
+    "openwave-tuning/auditor/common_walk_particle/METHOD.md": "f6e5b7d20b2cb7fddd44ab439ace8d0759e2a7497908612c0da245ccf2c3b504",
+    "openwave-tuning/auditor/common_walk_particle/NATIVE_PHASE_PROBE.json": "9f4855cb8699b920cb64b7b34fdadef5b4fb327a36a6c86ec8972220f6e3deda",
+    "openwave-tuning/auditor/common_walk_particle/SAME_WALK_RECORDS.json": "4de67ee8aa99dce100277e9a8358e44cdc47b096ef7380f9fc21c801a9bc02f7",
+    "openwave-tuning/auditor/common_walk_particle/freeze_manifest.py": "cef55231c947a2bc83fecafea599708a0777a5cadabbb5e1d064ffad7ce5952d",
+    "openwave-tuning/auditor/common_walk_particle/instrument_contract.py": "3e573ede6513cb3ee09ad819936436fe5f21501571825e2ed2bab2fbf946597c",
+    "openwave-tuning/auditor/common_walk_particle/native_phase_probe.py": "88ad96d5889363406c56545857d8a45a82e652a0acb7eaa4361c68ab93de4970",
+    "openwave-tuning/auditor/common_walk_particle/same_walk_records.py": "0c5d512428f9d372e1644d20162ccb68e83c21929b3e44058621c7e52e6811e2",
+    "openwave-tuning/auditor/common_walk_review/KINEMATIC_REVIEW.json": "a94e78e5de0aeda5f7cdaf7d41f6c15ceacf3a49dc19bcb63b99070b48acfbce",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_PROGRAM.json": "0439ac27c173d074871122cf893afd2617243003906f51865490cd6e4f73d7e7",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_RECEIPT.json": "39e2d7a6dace9ff549d8e68974239c11f03316550a36f1c708302dd562048052",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/auditor/native_walk_bridge/compile_walk.py": "26371a86d04d7853ab03dbccb46f89a65c809fb6d75480312b0ed61b0259ada2",
+    "reverse-engineering-reality/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "reverse-engineering-reality/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "reverse-engineering-reality/model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "reverse-engineering-reality/model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "reverse-engineering-reality/model/native_quantum_service_bridge/construction.py": "c0c9c22daf22ee7f9965a5b5f1da4ebb7fed3e7d04fcad66a2fc063d80234a2d",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/model/openwave_coherent_native_architecture/source.py": "27e179a5d827244423c02f7b30ee45c3ac441cc05aad835397a5d619f2d738ed",
+    "reverse-engineering-reality/model/openwave_native_process/source.py": "6e94e34872c27b5120b5f802b02484a9dbfc3828d4e77eb10b8522d1d69abfff",
+    "reverse-engineering-reality/model/reference_recovery/recovery.py": "dbb1cb54026558a16dea67ed8e2ceb9b5000033a92e65074327666c4e3d6d15b"
+  }
+}

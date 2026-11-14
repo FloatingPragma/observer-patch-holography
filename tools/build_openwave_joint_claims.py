@@ -29,6 +29,26 @@ def separately_validated_native_charge():
             'official_OpenWave_awards_added': 0}
 
 
+def separately_validated_wave_rows():
+    path = ROOT/'claims/openwave_wave_rows.json'
+    data = json.loads(path.read_text())
+    for relative, expected in data['source_sha256'].items():
+        if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest() != expected:
+            raise ValueError('stale wave validation input: '+relative)
+    if data['same_source_transfer_between_rows'] is not False:
+        raise ValueError('unproved wave source transfer')
+    records = []
+    for row in data['rows']:
+        if row['full_criterion_met'] is not True:
+            raise ValueError('incomplete wave criterion')
+        records.append({'candidate_id': row['candidate_id'],
+                        'validated_rows': [row['row']], 'ledger': str(path.relative_to(ROOT)),
+                        'ledger_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                        'scope': row['scope'], 'transfer_to_this_canonical_source': False,
+                        'official_OpenWave_awards_added': 0})
+    return records
+
+
 def observable_receipt(relative):
     path=BUNDLE/relative
     result=json.loads(path.read_text())
@@ -187,7 +207,7 @@ def generate():
                     and '.pytest_cache' not in p.parts)
     return {
       'schema':'oph.openwave_joint_model_claims.v1',
-      'separately_validated_candidates':[separately_validated_native_charge()],
+      'separately_validated_candidates':[separately_validated_native_charge(), *separately_validated_wave_rows()],
       'construction':'One declared all-number shared-record CAR source with periodic half-record electric energy, cyclic face term, recomputed interacting reference, complete native instrument and boundary-dressed charged reservoir. The canonical entry point binds one selected protocol and its continued grouped spectral apparatus. Earlier one-load, zero-field, bounded-integer, spatial and modular-time experiments retain their comparison domains.',
       'canonical_source':{'contract':'code/openwave_candidate/next/C10/CANONICAL_SOURCE_CONTRACT.json',
                           'receipt':'code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.json',

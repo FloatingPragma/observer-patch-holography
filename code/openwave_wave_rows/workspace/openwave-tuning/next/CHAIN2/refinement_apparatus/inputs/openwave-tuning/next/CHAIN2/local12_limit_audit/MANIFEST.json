@@ -1,0 +1,31 @@
+{
+  "schema": "oph.chain2.local12_limit_audit.manifest.v1",
+  "frozen_upstream_manifests": {
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992",
+    "openwave-tuning/common_dynamics/continuum/MANIFEST.json": "3067f7bdea43ca5137d6b115f7e1bd92b4d753ba99684ed198ba2da170240adf"
+  },
+  "files_sha256": {
+    "refinement_adapter.py": "acbed0199ae87965783b7ad36b36063feb89da12103b98562035b980b82ac17d",
+    "audit.py": "d8804d60313a3e11808928e11db1a7c39e656cc0216440afa963cabac10c548e",
+    "PROOF.md": "b8c8e7a3da43bd438d53bdf9ad595729668018a59c63631adc861a716dd153a5",
+    "CONTRACT.json": "e538bcf688c7f176763320d899f050e57720a5121a68ce7553791a7287d03341",
+    "AUDIT_RESULT.json": "5eec32aef2d4e025a186065b44b9789283ae9904f868c97696846dfa03c8022c"
+  },
+  "checks": {
+    "frozen_transitive_bytes_unchanged": true,
+    "all144_modes_and_complements_accounted": true,
+    "rank26_generator_and_native_flux_independently_reconstructed": true,
+    "uniform_continuum_bound_audited": true,
+    "norm_TD_and_controlled_phase_distinguished": true,
+    "readout_intervention_leakage_exact": true,
+    "finite_shot_clock_and_mean_bias_distinguished": true,
+    "clock_and_serial_native_cost_separated": true,
+    "arbitrary_member_native_dilation_adapter_constructed": true,
+    "rational_precision_scaling_certificate": true,
+    "all_export_and_reset_complements_retained": true,
+    "only_development_graphs234_executed": true,
+    "general_bandlimited_preparation_not_inferred": true,
+    "massive_and_common_field_transfer_not_inferred": true
+  },
+  "official_rows_changed": []
+}

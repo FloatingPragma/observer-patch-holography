@@ -1,0 +1,75 @@
+{
+  "schema": "oph.chain2.local12_limit_audit.contract.v1",
+  "construction_id": "native-local12-current-v0-proposed",
+  "adapter_id": "native-local12-rational-refinement-adapter-v1",
+  "owned_scope": "Independent frozen clock/continuum audit and additive finite native word/precision adapter",
+  "frozen_manifests": {
+    "openwave-tuning/common_dynamics/clock/MANIFEST.json": "6f80b0fe899cdeffd59d3742c318fe627817c19685d8f164abed69721f0b0992",
+    "openwave-tuning/common_dynamics/continuum/MANIFEST.json": "3067f7bdea43ca5137d6b115f7e1bd92b4d753ba99684ed198ba2da170240adf"
+  },
+  "source_interface": {
+    "ideal_word": "W_L=S_L R, same five internal matchings, external cubic routes and retained twelve event labels",
+    "native_operations": "Existing local C/E event and inverse record recoding, native M6 twelve-port response, declared proper-code load/export services",
+    "encoding": "d=8+ceil(log2(L^3)) data bits; cell then four port bits then four event bits; all padded addresses retained",
+    "registers": "d data,3 work-source,3 raw-record,1 law,d-3 scratch;2d+4 memory bits",
+    "clean_domain": "Arbitrary padded data/law state and spectator reference, with declared clean work/source/raw/scratch registers",
+    "dirty_extension": "Complete reversible gate word remains defined and unitary; no geometrical-W equivalence claimed for dirty initial work",
+    "serialization_amendment": "Exact rational twelve-port controls; not accepted as an unchanged frozen binary64 pulse tape"
+  },
+  "continuum_domain": {
+    "initial_sector_rank": 26,
+    "bandwidth": "|p|_infinity<=K; h>0; hK<=1/2; tau0>0",
+    "common_clock": "t=n*tau0*h",
+    "complete_terminal_TV": "min(1,(5/2)hK+(77/32)n*h^2*K^2)",
+    "reference_inputs": "Arbitrary unchanged reference entanglement admitted",
+    "outcomes": "Every internal/event, optical, stationary, padding, export and timeout output retained",
+    "additional_cell_integral_error": "3hK/4",
+    "signed_current_mean_error": "At most twice complete TV; velocity adds1/tau0",
+    "intermediate_instruments": "Require certified preservation of P0 and bandwidth, or a separately bounded leakage and re-preparation; arbitrary sharp source interventions are not admitted automatically"
+  },
+  "family_native_error": {
+    "api": "certificate(L,step_tolerance); pulse_stream(L,precision_bits)",
+    "precision": "Variable-precision outward rational pi,atan,sqrt intervals; exact control identities; full-six-level Duhamel bounds",
+    "choice": "delta_W(h)<=h^2, yielding n*delta_W(h)<=(t/tau0)h",
+    "complete_composition": "TV<=min(1,continuum_error+preparation_error+n*source_word_error+n*clock_tick_error+terminal_instrument_error+total_reset_timeout)",
+    "required_inputs": [
+      "Native preparation of the selected fixed-bandwidth initial state, with complete error",
+      "The actual complete terminal instrument, including any controlled-W wrapper, with its error",
+      "All source and apparatus reset counts and uniform failure certificates",
+      "One shared h and tau0 for every source, field and apparatus output"
+    ],
+    "complete_export": "All coherent proper-code export Kraus complements and first-failure records retained; no success normalization",
+    "reset_api": "reset_repetition_plan(registers,total_timeout)",
+    "reset_rule": "Uniform all78-input base failure q, repeated r times; union bound Q*q^r",
+    "clock_api": "clock_tick_pulse(L,h,precision_bits,clock_wire); fresh wire beyond source memory",
+    "clock_phase": "h/8 per completed full word; pulse angle-h/16"
+  },
+  "resource_scope": {
+    "api": "resource_upper_bound(L)",
+    "serial_native_pulses": "O(L^3 log^2 L), explicit bound in implementation",
+    "memory_qubits": "O(log L)",
+    "graph_locality": "Completed words only; intermediate address-encoded gates are not distributed graph-local operations",
+    "physical_seconds": false,
+    "hardware_refinement": "Requires separately supplied bandwidth, service-latency and noise scaling"
+  },
+  "executed_domain": {
+    "development_graphs": [2,3,4],
+    "reserved_configurations_run": false,
+    "larger_resource_bounds_enumerated": false,
+    "size2_clean_columns": "All data/law columns",
+    "size3_size4_columns": "Deterministic finite development columns; universal claim proved by gate construction"
+  },
+  "clock_statistics": {
+    "systematic_bias": "Mean-law bound only",
+    "finite_shots": "Independent fixed-phase complete repetitions with sqrt(2 log(4/alpha)/N) per contrast plus2*systematic_TV",
+    "failure_sign": 0,
+    "failure_counts_discarded": false
+  },
+  "row30": {
+    "literal": "emergent ω²=k²+m² for matter waves",
+    "frozen_result": "omega^2=|p|^2/(48*tau0^2), the m=0 case after common speed normalization",
+    "not_inferred": ["Nonzero matter mass", "Observed species masses", "Massive interacting common-field dispersion", "Pending producer mass_coin or massive_coupled acceptance"]
+  },
+  "field_boundary": "Modular finite-flux Gauss preservation does not imply exact integer U(1) algebra or a controlled no-boundary interacting limit",
+  "official_rows_changed": []
+}
