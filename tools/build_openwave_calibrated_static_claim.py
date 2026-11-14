@@ -20,6 +20,8 @@ EXPECTED={
  'openwave-tuning/row_completion/reviews/CALIBRATED_ANCHOR_ROOT/MANIFEST.json':'2c33c877d9eab6aa50aa4f45c13f4289f6fd27ba308e50103fb1ae7306ef3be0',
  'openwave-tuning/next/CHAIN6/calibrated_anchor_delta_review/MANIFEST.json':'537120c2336dd688b5529fe099311e6928e715672d72b448a3397186410c3c3e',
  'openwave-tuning/row_completion/ROW_20/VALIDATION.json':'e543f927753c04f664d45d24a974ccf203f6930f528b0124828e47c10d4bc728',
+ 'openwave-tuning/row_completion/ROW_02/CALIBRATED_VALIDATION.json':'af1dda68e4431f7c08fe3ed215ed9fae6b897f5c722168cc76bab0a51ca87a13',
+ 'openwave-tuning/row_completion/ROW_19/CALIBRATED_VALIDATION.json':'4fbd0c30da8bcf32c63d454c81876cebf0b0ee0e045f40f461b3907a6c8c1ad8',
 }
 
 
@@ -30,7 +32,7 @@ def read(p):return json.loads(p.read_text())
 def build():
     verified={};resolutions={};cache={}
     def digest(p):
-        stat=p.stat();key=(str(p),stat.st_mtime_ns,stat.st_size)
+        stat=p.stat();key=(stat.st_ino,stat.st_mtime_ns,stat.st_size)
         if key not in cache:cache[key]=sha(p)
         return cache[key]
     for name,expected in EXPECTED.items():
@@ -63,10 +65,25 @@ def build():
     assert native['common193_field_word_executed'] is False
     assert native['independent_alpha_prediction'] is False
     assert F(anchor['optical_rest_energy_GeV']['interval_exact'][0])>F(40,1000)
+    compositions=[]
+    for row in (2,19):
+        path=f'openwave-tuning/row_completion/ROW_{row:02d}/CALIBRATED_VALIDATION.json'
+        accepted=read(WORKSPACE/path)
+        assert accepted['row']==row and accepted['full_criterion_met']
+        assert accepted['candidate_manifest_sha256']=='606573167184e68200e186c34fa33269a92a31c290e5e0796017c65caa49a43e'
+        assert accepted['row_count_increment']==0 and accepted['official_rows_changed']==[]
+        assert not accepted['one_construction_all31_proved']
+        reviews=[r for r in accepted['independent_reviews'] if r['producer_independent'] and r['full_criterion_met']]
+        assert len(reviews)>=2 and len({r['reviewer'] for r in reviews})>=2
+        compositions.append({'row':row,'receipt_path':path,'receipt_sha256':EXPECTED[path],
+                             'literal_criterion':accepted['literal_criterion'],
+                             'candidate_id':accepted['candidate_id'],
+                             'full_source_specific_internal_criterion_met':True,
+                             'independent_full_reviews':reviews})
     audits=[dict(path=n,sha256=h) for n,h in EXPECTED.items() if 'review' in n.lower()]
     claim={
       'schema':'oph.openwave.calibrated_static.source_bound.v1',
-      'status':'audited_static_source_and_q0_native_reader_components',
+      'status':'audited_static_components_and_scoped_internal_compositions',
       'source_manifest_sha256':EXPECTED['openwave-tuning/common_dynamics/calibrated_charge/MANIFEST.json'],
       'calibrations':{'alpha_input_exact':'72973525643/10000000000000','isolated_energy_input_keV':'511',
                       'g_squared':'12*pi*alpha_input','independent_charge_strength_prediction':False},
@@ -83,6 +100,8 @@ def build():
       'finite_half_pairs_are_isolated_electron_energy':False,
       'stationary_moving_charged_particle_or_inertial_mass_proved':False,
       'full_calibrated_row2_award_by_this_export':False,
+      'accepted_internal_compositions':compositions,
+      'composition_scope':'Held calibrated field-energy anchor and neutral optical excitation in the declared source and preparation. No filled-reference moving charged pole, finite inertia or independent mass prediction is established.',
       'row20_accepted_receipt_sha256':EXPECTED['openwave-tuning/row_completion/ROW_20/VALIDATION.json'],
       'independent_audit_manifests':audits,
       'independence_scope':'Each new reader is opposed independently; unit-map and self-energy author roles remain disclosed in their separate reviews. Component flags are not rewritten as full-row awards.',

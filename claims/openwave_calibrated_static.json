@@ -1,4 +1,58 @@
 {
+  "accepted_internal_compositions": [
+    {
+      "candidate_id": "native-local12:g-cal-CODATA2022:held-sector:isolated-anchor-v1",
+      "full_source_specific_internal_criterion_met": true,
+      "independent_full_reviews": [
+        {
+          "full_criterion_met": true,
+          "independence_disclosure": "Independent of the physical source, calibrated unit-map and native-reader producers. Reviewer authored additive binding/scope objects, not their physical generators or computations.",
+          "producer_independent": true,
+          "review_file": "openwave-tuning/row_completion/reviews/CALIBRATED_COMPOSITION_ROOT/ROW_02_REVIEW.json",
+          "review_sha256": "f517494689d3af30067ed418f6866a6900d01cdbb8f97809e5246dc32907fea2",
+          "reviewer": "Auditor/root"
+        },
+        {
+          "full_criterion_met": true,
+          "independence_disclosure": "Reviewer authored ae204 source/clock review and public claim consumer, not66db source,004692 unit annex or ebbda3 native reader. Independent raw/unit/self-energy/optical components are reused with their recorded author disclosures; no extra whole-ancestry independent replay is claimed.",
+          "producer_independent": true,
+          "review_file": "openwave-tuning/next/CHAIN9/calibrated_full_adjudication/ROW_02_REVIEW.json",
+          "review_sha256": "6cae72e79d5151f0d7e005c96ac396f63b311fe1adc1f2c023b5236eb62c7dc7",
+          "reviewer": "Codex root"
+        }
+      ],
+      "literal_criterion": "localized state anchored to 511 keV",
+      "receipt_path": "openwave-tuning/row_completion/ROW_02/CALIBRATED_VALIDATION.json",
+      "receipt_sha256": "af1dda68e4431f7c08fe3ed215ed9fae6b897f5c722168cc76bab0a51ca87a13",
+      "row": 2
+    },
+    {
+      "candidate_id": "native-local12:g-cal-CODATA2022:neutral-optical:isolated-anchor-v1",
+      "full_source_specific_internal_criterion_met": true,
+      "independent_full_reviews": [
+        {
+          "full_criterion_met": true,
+          "independence_disclosure": "Independent of the physical source, calibrated unit-map and native-reader producers. Reviewer authored additive binding/scope objects, not their physical generators or computations.",
+          "producer_independent": true,
+          "review_file": "openwave-tuning/row_completion/reviews/CALIBRATED_COMPOSITION_ROOT/ROW_19_REVIEW.json",
+          "review_sha256": "36d377073378a01aad9f4b053d3a16dfe85fa4c10867b8e48a0abfbcb57e92f5",
+          "reviewer": "Auditor/root"
+        },
+        {
+          "full_criterion_met": true,
+          "independence_disclosure": "Reviewer authored ae204 source/clock review and public claim consumer, not66db source,004692 unit annex or ebbda3 native reader. Independent raw/unit/self-energy/optical components are reused with their recorded author disclosures; no extra whole-ancestry independent replay is claimed.",
+          "producer_independent": true,
+          "review_file": "openwave-tuning/next/CHAIN9/calibrated_full_adjudication/ROW_19_REVIEW.json",
+          "review_sha256": "bbd541ab0b8963e8104cebd54afb310f59557d618395783c9f05ecf93dba6e30",
+          "reviewer": "Codex root"
+        }
+      ],
+      "literal_criterion": "a stable neutral massive state",
+      "receipt_path": "openwave-tuning/row_completion/ROW_19/CALIBRATED_VALIDATION.json",
+      "receipt_sha256": "4fbd0c30da8bcf32c63d454c81876cebf0b0ee0e045f40f461b3907a6c8c1ad8",
+      "row": 19
+    }
+  ],
   "all31_complete": false,
   "calibrations": {
     "alpha_input_exact": "72973525643/10000000000000",
@@ -8,6 +62,7 @@
   },
   "cell_time": "T_g=hbar/U_g; tau0=T_g/h at the selected member",
   "complete_fine_C_E_records": 7644,
+  "composition_scope": "Held calibrated field-energy anchor and neutral optical excitation in the declared source and preparation. No filled-reference moving charged pole, finite inertia or independent mass prediction is established.",
   "executed_reader_spacing_h": "1/2",
   "expected_evidence": {
     "openwave-tuning/common_dynamics/calibrated_charge/MANIFEST.json": "66dbf120a4978101e9268c1a5ed841c6d2c87933a2d757666089ff2d65efc78c",
@@ -16,6 +71,8 @@
     "openwave-tuning/next/CHAIN6/calibrated_anchor_native_review/MANIFEST.json": "0ce008cefb6e4815fad307148bc493e0c3679434767dadedd39f7fbbec0c8716",
     "openwave-tuning/next/CHAIN6/calibrated_common_anchor/MANIFEST.json": "0046929344355b85501e1836a9145e03b86a6409b7054454de6d70278187d150",
     "openwave-tuning/next/CHAIN7/calibrated_anchor_connection_review/MANIFEST.json": "ae2045648586972c2059b339556d04214ddc258458be6205bda0725614e1496c",
+    "openwave-tuning/row_completion/ROW_02/CALIBRATED_VALIDATION.json": "af1dda68e4431f7c08fe3ed215ed9fae6b897f5c722168cc76bab0a51ca87a13",
+    "openwave-tuning/row_completion/ROW_19/CALIBRATED_VALIDATION.json": "4fbd0c30da8bcf32c63d454c81876cebf0b0ee0e045f40f461b3907a6c8c1ad8",
     "openwave-tuning/row_completion/ROW_20/VALIDATION.json": "e543f927753c04f664d45d24a974ccf203f6930f528b0124828e47c10d4bc728",
     "openwave-tuning/row_completion/reviews/CALIBRATED_ANCHOR_ROOT/MANIFEST.json": "2c33c877d9eab6aa50aa4f45c13f4289f6fd27ba308e50103fb1ae7306ef3be0"
   },
@@ -42,7 +99,7 @@
   "fresh_source_native_pulses": 282,
   "full_calibrated_row2_award_by_this_export": false,
   "full_spectator_field_words_executed": false,
-  "generator_sha256": "892f36de0b6632933d5608b1d8fd8f84b7ac67bc7989d03e1bf402f8512c251e",
+  "generator_sha256": "b3be2e2fa7d7b4cdb3bbcb64b71285d827c61d49f307f1f2b9d6501b6697d7f7",
   "independence_scope": "Each new reader is opposed independently; unit-map and self-energy author roles remain disclosed in their separate reviews. Component flags are not rewritten as full-row awards.",
   "independent_audit_manifests": [
     {
@@ -87,7 +144,7 @@
   "public_source_closure": "requires the sibling oph-meta OpenWave workspace and its pinned snapshots; not standalone RER replay",
   "row20_accepted_receipt_sha256": "e543f927753c04f664d45d24a974ccf203f6930f528b0124828e47c10d4bc728",
   "schema": "oph.openwave.calibrated_static.source_bound.v1",
-  "source_bindings_sha256": "8d409fc06abc51316118411621ba37a07f601b608a8123815e78ec0cd5915d48",
+  "source_bindings_sha256": "0d4d9439d3426c2a1c45fd73731a27aa68798c44dd71aa9672e0adaffc0bfdac",
   "source_first_export_maps": 1080,
   "source_identity": "J_g* H_g J_g = diag(g^2 C_1(q)) + H_T on the declared held Gauss fiber",
   "source_manifest_sha256": "66dbf120a4978101e9268c1a5ed841c6d2c87933a2d757666089ff2d65efc78c",
@@ -102,6 +159,6 @@
     ]
   },
   "stationary_moving_charged_particle_or_inertial_mass_proved": false,
-  "status": "audited_static_source_and_q0_native_reader_components",
-  "verified_manifest_leaf_references": 5483
+  "status": "audited_static_components_and_scoped_internal_compositions",
+  "verified_manifest_leaf_references": 25941
 }
