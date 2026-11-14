@@ -1,0 +1,85 @@
+{
+  "all_checks_pass": true,
+  "source_cases": [
+    {
+      "name": "L4_000",
+      "L": 4,
+      "mode_integer": [
+        0,
+        0,
+        0
+      ],
+      "h": "1/4",
+      "native_pulses": 988,
+      "native_all_controlled_columns": 32,
+      "source_operator_residual": 4.677645355269095e-14,
+      "native_word_error_exact": "3373032826748871363923651959422651/3138550867693340381917894711603833208051177722232017256448",
+      "complete_Gram_residual": 9.266048485546793e-14,
+      "first_export_failure_Gram_trace": 4.5958784371540705e-30
+    },
+    {
+      "name": "L4_100",
+      "L": 4,
+      "mode_integer": [
+        1,
+        0,
+        0
+      ],
+      "h": "1/4",
+      "native_pulses": 988,
+      "native_all_controlled_columns": 32,
+      "source_operator_residual": 4.762158807077934e-14,
+      "native_word_error_exact": "6748226894896911505398243219721269/6277101735386680763835789423207666416102355444464034512896",
+      "complete_Gram_residual": 9.408995248491534e-14,
+      "first_export_failure_Gram_trace": 4.5958784371540656e-30
+    },
+    {
+      "name": "L4_110",
+      "L": 4,
+      "mode_integer": [
+        1,
+        1,
+        0
+      ],
+      "h": "1/4",
+      "native_pulses": 988,
+      "native_all_controlled_columns": 32,
+      "source_operator_residual": 4.685888124943873e-14,
+      "native_word_error_exact": "1687597034074020070737295630149309/1569275433846670190958947355801916604025588861116008628224",
+      "complete_Gram_residual": 9.249373175151922e-14,
+      "first_export_failure_Gram_trace": 4.595878437154066e-30
+    },
+    {
+      "name": "L8_101",
+      "L": 8,
+      "mode_integer": [
+        1,
+        0,
+        1
+      ],
+      "h": "1/8",
+      "native_pulses": 988,
+      "native_all_controlled_columns": 32,
+      "source_operator_residual": 4.6730762689374894e-14,
+      "native_word_error_exact": "13496620039132220609069635616432997/12554203470773361527671578846415332832204710888928069025792",
+      "complete_Gram_residual": 9.2846855730114e-14,
+      "first_export_failure_Gram_trace": 4.595878437154068e-30
+    }
+  ],
+  "spin_preparations": 28,
+  "physical_flavors": 3,
+  "retained_flavor_padding": 1,
+  "native_controlled_columns_per_case": 32,
+  "tomography_component_records": 5376,
+  "fine_probabilities_evaluated": 908544,
+  "maximum_native_Gram_residual": 9.408995248491534e-14,
+  "maximum_tomographic_operator_error": 2.375983544426453e-13,
+  "pointer_all8column_Gram_residual": 1.3426564440196915e-15,
+  "scalar_control_error": 1.2412670766236366e-16,
+  "wrong_mass_source_separation": 0.052417381263717436,
+  "wrong_clock_source_separation": 0.015624841054765661,
+  "all_first_failures_retained": true,
+  "success_normalized": false,
+  "source_instrument": "New complete controlled reduced-factor apparatus; no per-pulse controlled-full-field failure tape is transferred.",
+  "maximum_complete_native_TV_bound": 2.656295326930003e-15
+}

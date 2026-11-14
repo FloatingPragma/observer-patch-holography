@@ -1,0 +1,41 @@
+{
+  "all31_complete": false,
+  "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+  "full_criterion_met": true,
+  "global_torus_bundle_claimed": false,
+  "independent_full_reviews": [
+    {
+      "full_criterion_met": true,
+      "producer_independent": true,
+      "review_file": "openwave-tuning/next/CHAIN5/common_charge_native_review/REVIEW.json",
+      "review_sha256": "e9ba5fabe3ec58086fe14e98c08d156cf7d7de61c2e24e508c851793207db774",
+      "reviewer": "/root/coulomb_finish"
+    },
+    {
+      "full_criterion_met": true,
+      "producer_independent": true,
+      "review_file": "openwave-tuning/next/CHAIN5/common_charge_terminal_review/REVIEW.json",
+      "review_sha256": "f8dc2876a831bda916dc4a31bb2f43343e7b8e6dae5b897fc9a28c161c879ba7",
+      "reviewer": "Codex root independent common-charge reviewer"
+    }
+  ],
+  "literal_criterion": "integer topological charge; a split e \u2192 e/2 + e/2 impossible",
+  "official_OpenWave_awards_added": 0,
+  "official_status": "untested",
+  "one_interacting_continuum_construction_established": false,
+  "original_huge_field_prefix_executed": false,
+  "public_replay": "python3 code/openwave_common_charge/replay.py --mode all",
+  "row": 1,
+  "schema": "oph.openwave.common_charge.full_criterion.v1",
+  "scope": "Local bounding-surface Chern and exact terminal regional-flux/clock effects on the one-charge size2 g1 source.",
+  "source_occupation_integer_ancestry_declared": true,
+  "source_sha256": {
+    "code/openwave_common_charge/PUBLIC_MANIFEST.json": "bd18cca0e4e347582f742d0b134ff3321ce44824d7f5d8a08abce86a6bac74a8",
+    "code/openwave_common_charge/RESULT.json": "918d53926221ed1410ac8d18cc279ce16f6bb9d1c707fbce2bb38850589cef8a",
+    "code/openwave_common_charge/SNAPSHOT_MANIFEST.json": "6dac0df3ef90048ab145532050dd794116190adc9ca678e77e62dd23d539c6ef",
+    "code/openwave_common_charge/VALIDATION.json": "19e713dfaddc5ab68fe0521a42897ea0d25bd8367afa6da9497d75b09f7b5eb3",
+    "tools/build_openwave_common_charge_claim.py": "473fdb07cf730200f71182488fac8e2f54c5a8f0ea6da50312012f2a87fd049f"
+  },
+  "terminal_annex_independent_reviews": 2,
+  "terminal_observable_program_executed": true
+}

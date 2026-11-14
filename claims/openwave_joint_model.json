@@ -817,6 +817,18 @@
     },
     {
       "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
+      "duplicates_existing_row_number": true,
+      "ledger": "claims/openwave_common_charge.json",
+      "ledger_sha256": "97c7ad100d3412b1a734053d7733bbcdf3c0ca30355ba432c275bb1dc942485b",
+      "official_OpenWave_awards_added": 0,
+      "scope": "Local bounding-surface Chern and exact terminal regional-flux/clock effects on the one-charge size2 g1 source.",
+      "transfer_to_this_canonical_source": false,
+      "validated_rows": [
+        1
+      ]
+    },
+    {
+      "candidate_id": "native-local12-dirac-noncompact-quadratic-v4-proposed",
       "ledger": "claims/openwave_wave_rows.json",
       "ledger_sha256": "455dec525c3bae57779d7372dafb762ee2321d7f0a7aa308e89e66e2b25c707a",
       "official_OpenWave_awards_added": 0,
@@ -1041,7 +1053,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "d3df560b8b893ad4594c70e158d28543899555de493c558582560406d172c17c",
+    "tools/build_openwave_joint_claims.py": "3d775271896e617b5921b8d3dffc87bddbd9e51714b76af6c1b1813af8593d13",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

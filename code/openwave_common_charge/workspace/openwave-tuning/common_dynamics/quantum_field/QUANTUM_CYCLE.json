@@ -1,0 +1,278 @@
+{
+  "schema": "oph.local12.quantum_field_cycle.v1",
+  "candidate": "pure-gauge reducing sector of native-local12-fermion-plaquette-v2-proposed",
+  "checks": {
+    "actual_face_cycle_and_Gauss": true,
+    "all_modular_cycle_columns": true,
+    "same_288edge_electric_and_plaquette_restriction": true,
+    "complete_electric_and_angle_outcomes": true,
+    "weak_angle_state_error_decreases": true,
+    "scalar_cosine_phase_retained": true,
+    "separate_substep_refinement": true,
+    "finite_energy_gaussian_shift_defect_computed": true,
+    "definite_F0_not_small_angle_gaussian": true,
+    "source_bytes_unchanged": true
+  },
+  "face": 0,
+  "face_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      -1
+    ],
+    [
+      6,
+      1
+    ]
+  ],
+  "cycle_norm_squared": 3,
+  "full_harmonic_rho": "2/3",
+  "common_parameter_family": "delta=1/N; alpha=delta*epsilon^2/rho; beta=delta/epsilon^2. Macro speed1 and charge-coupling-squared epsilon^2.",
+  "cycle_oscillator": "p=epsilon*z,q=theta/epsilon; H=(A*p^2+q^2)/2,A=9/2; physical cell-scale frequency=(3/sqrt2)/(tau0*h)",
+  "column_checks": [
+    {
+      "modulus": 16,
+      "all_cycle_columns": 16
+    },
+    {
+      "modulus": 32,
+      "all_cycle_columns": 32
+    },
+    {
+      "modulus": 64,
+      "all_cycle_columns": 64
+    }
+  ],
+  "experiments": [
+    {
+      "modulus": 16,
+      "epsilon_squared": "1/3",
+      "substeps": 8,
+      "alpha_exact": "1/16",
+      "beta_exact": "3/8",
+      "initial_support_cap": 7,
+      "numeric_state_error_cosine_quadratic": 0.2862348432276046,
+      "finite_state_Taylor_telescope": 0.3963141399688383,
+      "electric_TV": 0.14722774594041435,
+      "angle_TV": 0.15649724986296515,
+      "register_to_integer_rotor_norm_bound": 2.0,
+      "register_bound_exact": "2",
+      "analytic_oscillator": {
+        "nonlinear_periodized_state_norm_bound": 4.33295853703062,
+        "periodization_normalization_drift_bound": 1.5320608316879742e-06,
+        "compact_to_normalized_Floquet_Gaussian_bound": 2.0,
+        "squeeze_and_time_splitting_bound": 0.14528899610986915,
+        "periodization_norm_squared_deviation": 1.5320590712819783e-06,
+        "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+        "weak_coupling_parameter": 0.3333333333333333,
+        "scalar_phase_per_substep": 0.375,
+        "oscillator_Floquet_phase": 0.2659481037427716,
+        "oscillator_frequency": 2.1213203435596424,
+        "cell_time": 1,
+        "native_clock_phase": 0.125
+      }
+    },
+    {
+      "modulus": 128,
+      "epsilon_squared": "1/12",
+      "substeps": 8,
+      "alpha_exact": "1/64",
+      "beta_exact": "3/2",
+      "initial_support_cap": 21,
+      "numeric_state_error_cosine_quadratic": 0.06994494628480243,
+      "finite_state_Taylor_telescope": 0.09875561645773302,
+      "electric_TV": 0.011458873353050215,
+      "angle_TV": 0.04235222984614487,
+      "register_to_integer_rotor_norm_bound": 1.1560579457649163e-06,
+      "register_bound_exact": "9937105900423855516680192/8595681502667997809944919921875",
+      "analytic_oscillator": {
+        "nonlinear_periodized_state_norm_bound": 1.0821673986046365,
+        "periodization_normalization_drift_bound": 6.886714127693154e-25,
+        "compact_to_normalized_Floquet_Gaussian_bound": 1.0821673986046365,
+        "squeeze_and_time_splitting_bound": 0.14528899610986915,
+        "periodization_norm_squared_deviation": 6.886714127693154e-25,
+        "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+        "weak_coupling_parameter": 0.08333333333333333,
+        "scalar_phase_per_substep": 1.5,
+        "oscillator_Floquet_phase": 0.2659481037427716,
+        "oscillator_frequency": 2.1213203435596424,
+        "cell_time": 1,
+        "native_clock_phase": 0.125
+      }
+    },
+    {
+      "modulus": 512,
+      "epsilon_squared": "1/48",
+      "substeps": 8,
+      "alpha_exact": "1/256",
+      "beta_exact": "6",
+      "initial_support_cap": 42,
+      "numeric_state_error_cosine_quadratic": 0.01695447077876641,
+      "finite_state_Taylor_telescope": 0.024688904114433394,
+      "electric_TV": 0.002286172196325198,
+      "angle_TV": 0.010253133990414949,
+      "register_to_integer_rotor_norm_bound": 7.284210286290179e-48,
+      "register_bound_exact": "106634187489176000182700759278336188128853930164684030317087737121270123012702248195618574316431453434960861449149316121816800694500585188855168794045156631424953378351135272189092922961724724534410797565134759376347825103347972182934293430960914432/14639086915142368264052363099806235060075826431023573793969512475315123126292163591190747454601192805757895444252617453438508204089001577955997848372080680706539625155628920861808501432517804718851824021227186889106278805461048258202175288735494370170244680553661709154766867868602275848388671875",
+      "analytic_oscillator": {
+        "nonlinear_periodized_state_norm_bound": 0.2705418496508987,
+        "periodization_normalization_drift_bound": 2.8116304298835333e-98,
+        "compact_to_normalized_Floquet_Gaussian_bound": 0.2705418496508987,
+        "squeeze_and_time_splitting_bound": 0.14528899610986915,
+        "periodization_norm_squared_deviation": 2.8116304298835333e-98,
+        "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+        "weak_coupling_parameter": 0.020833333333333332,
+        "scalar_phase_per_substep": 6.0,
+        "oscillator_Floquet_phase": 0.2659481037427716,
+        "oscillator_frequency": 2.1213203435596424,
+        "cell_time": 1,
+        "native_clock_phase": 0.125
+      }
+    },
+    {
+      "modulus": 2048,
+      "epsilon_squared": "1/192",
+      "substeps": 8,
+      "alpha_exact": "1/1024",
+      "beta_exact": "24",
+      "initial_support_cap": 84,
+      "numeric_state_error_cosine_quadratic": 0.004202092008734995,
+      "finite_state_Taylor_telescope": 0.006172226028608428,
+      "electric_TV": 0.0005376857728048435,
+      "angle_TV": 0.002528402405896654,
+      "register_to_integer_rotor_norm_bound": 2.061726370518159e-242,
+      "register_bound_exact": "119468648550066224045549560207038408114898714246292172641283610027180770190505386048152163922166914408863963581361962313022743671408569471095543992481467649902483628376994706177997585802679054966278164767477867454585152199841873931501741175935376710862446312028704435666333991527293375020227388930712425718831558962887657049409017436968564416579104609919987242621789696659215681238299097936453506004661624994300875109112114087569065939318954430474237134844055017588332414632187898772358638622498231041464109045055262813210021661681433992206807084150788182602191678862706568196597965799049146633839024984733017348738637110244363426754984176443524439252567634461823231850149254989236070660919862769326707694974793652207631285484036842226650294880555576603912209111640620108864079478817934700351759402989908386705414121162670459904913469208201106765509830880561577335940057909622346031633339957939240301516600548126380679214438964198799007220319187067565279896836912958772794498046118828346369577920207228814932420171673774592427184038989908484182243341331735582454264406107041791550546445324668879932893997886101714337611501913316933073174688229816290777092468056818361888689587743324030127759136146078682993872422345730549678720112728071754880112079888821476478198811475048172908741759275363687458182032353248398233513051433841321325527349192338747011432705324548360127266908884631194342798471006919406983770230150072215915705142737329652979252473650362877151439501577180099746088105125156492712601431933013322326571159314690940821211998990516740746280199453841821411608966038215521340748674660985392874709662192775593688657840754034263172696768512/5794592835325719189291642087937416164699569154629106127189782983130368922918636635196242657623250881135234544790037972132186956440572946872759056361497088879030441432262732493747417575444987216525986420048896649355548217134709779602060007668035677653934653937068279686540175637177438176098676475152602274678067657908085700339558381379532405667708879761416992958178709022831229625791690502058057244959509225916396586166099736612065053167432044978314365742852383826747438120187205327006351593995113521100447473609888077202354959365327696772501966645323592045620432545302588285018081814334376390328963077486344787220549907193031688190485344610536195830007810660750078056157100186378219663489887749346978032408738971579044449098130555585997555045588283307498112559077187860742074923256153247878805249569674156820162058881948074973465142388324370346702242612972311266886626463829242241546540072913767624732272578728859209220706179450183686814891811199490708404707970999833092048741458733699325939096252784685106011683120126956039631701059871992091067442623664815573310419417387165355443191911205163451485941985173718911269303860423787229468937069015011677575287580732240928069550801262762176748469170806283067293105927069741809271330686605592914360685302580672178872058610811412326870848056519020351923821649668770460763824261980401440476684263520926871503059357654912503950514837551474337103488784478678886376885682669443942337474752708667067415194742917969184439417633770035440478035079604528397539886069336459413656563210406158763984162732316727579696830896990118064998565230614030595130866873002982713458458883036426470074947123917390305164713905857755842490592394750560965562429603739695731660097646318329205031589357790984855573711636916574462136074614126828848673828851666466277169346085701686039050415260819592916413998598912059178853514000164491581923442709012306295335292816162109375",
+      "analytic_oscillator": {
+        "nonlinear_periodized_state_norm_bound": 0.06763546241272468,
+        "periodization_normalization_drift_bound": 0.0,
+        "compact_to_normalized_Floquet_Gaussian_bound": 0.06763546241272468,
+        "squeeze_and_time_splitting_bound": 0.14528899610986915,
+        "periodization_norm_squared_deviation": 0.0,
+        "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+        "weak_coupling_parameter": 0.005208333333333333,
+        "scalar_phase_per_substep": 24.0,
+        "oscillator_Floquet_phase": 0.2659481037427716,
+        "oscillator_frequency": 2.1213203435596424,
+        "cell_time": 1,
+        "native_clock_phase": 0.125
+      }
+    }
+  ],
+  "substep_controls": [
+    {
+      "substeps": 8,
+      "nonlinear_periodized_state_norm_bound": 0.06763546241272468,
+      "periodization_normalization_drift_bound": 0.0,
+      "compact_to_normalized_Floquet_Gaussian_bound": 0.06763546241272468,
+      "squeeze_and_time_splitting_bound": 0.14528899610986915,
+      "periodization_norm_squared_deviation": 0.0,
+      "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+      "weak_coupling_parameter": 0.005208333333333333,
+      "scalar_phase_per_substep": 24.0,
+      "oscillator_Floquet_phase": 0.2659481037427716,
+      "oscillator_frequency": 2.1213203435596424,
+      "cell_time": 1,
+      "native_clock_phase": 0.125
+    },
+    {
+      "substeps": 16,
+      "nonlinear_periodized_state_norm_bound": 0.06485367504638763,
+      "periodization_normalization_drift_bound": 0.0,
+      "compact_to_normalized_Floquet_Gaussian_bound": 0.06485367504638763,
+      "squeeze_and_time_splitting_bound": 0.07034732775282558,
+      "periodization_norm_squared_deviation": 0.0,
+      "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+      "weak_coupling_parameter": 0.005208333333333333,
+      "scalar_phase_per_substep": 12.0,
+      "oscillator_Floquet_phase": 0.1326798203468472,
+      "oscillator_frequency": 2.1213203435596424,
+      "cell_time": 1,
+      "native_clock_phase": 0.125
+    },
+    {
+      "substeps": 32,
+      "nonlinear_periodized_state_norm_bound": 0.06369030648787799,
+      "periodization_normalization_drift_bound": 0.0,
+      "compact_to_normalized_Floquet_Gaussian_bound": 0.06369030648787799,
+      "squeeze_and_time_splitting_bound": 0.034654760884453795,
+      "periodization_norm_squared_deviation": 0.0,
+      "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+      "weak_coupling_parameter": 0.005208333333333333,
+      "scalar_phase_per_substep": 6.0,
+      "oscillator_Floquet_phase": 0.06630340503352405,
+      "oscillator_frequency": 2.1213203435596424,
+      "cell_time": 1,
+      "native_clock_phase": 0.125
+    },
+    {
+      "substeps": 64,
+      "nonlinear_periodized_state_norm_bound": 0.06315985351814003,
+      "periodization_normalization_drift_bound": 0.0,
+      "compact_to_normalized_Floquet_Gaussian_bound": 0.06315985351814003,
+      "squeeze_and_time_splitting_bound": 0.017203410625702194,
+      "periodization_norm_squared_deviation": 0.0,
+      "nonzero_reference_one_quantum_weight": 0.3032653298563167,
+      "weak_coupling_parameter": 0.005208333333333333,
+      "scalar_phase_per_substep": 3.0,
+      "oscillator_Floquet_phase": 0.03314714784222731,
+      "oscillator_frequency": 2.1213203435596424,
+      "cell_time": 1,
+      "native_clock_phase": 0.125
+    }
+  ],
+  "shift_overlaps": [
+    {
+      "modulus": 16,
+      "epsilon_squared": "1/3",
+      "one_cycle_translation_overlap_real": 0.5567042243281174,
+      "one_cycle_translation_overlap_imag": 0.624545653074539,
+      "one_axis_code_intertwiner_norm_defect": 0.9415899061394857,
+      "field_energy_expectation": 1.079512712468788,
+      "scaled_electric_kick_expectation": 0.06746954452929925
+    },
+    {
+      "modulus": 128,
+      "epsilon_squared": "1/12",
+      "one_cycle_translation_overlap_real": 0.8727303007421612,
+      "one_cycle_translation_overlap_imag": 0.391186362110719,
+      "one_axis_code_intertwiner_norm_defect": 0.5045189773593032,
+      "field_energy_expectation": 4.318216184580758,
+      "scaled_electric_kick_expectation": 0.06747212788407435
+    },
+    {
+      "modulus": 512,
+      "epsilon_squared": "1/48",
+      "one_cycle_translation_overlap_real": 0.9670465701052158,
+      "one_cycle_translation_overlap_imag": 0.20681804948639754,
+      "one_axis_code_intertwiner_norm_defect": 0.25672331368531337,
+      "field_energy_expectation": 17.27286473832322,
+      "scaled_electric_kick_expectation": 0.06747212788407508
+    },
+    {
+      "modulus": 2048,
+      "epsilon_squared": "1/192",
+      "one_cycle_translation_overlap_real": 0.9916888261756475,
+      "one_cycle_translation_overlap_imag": 0.1048584784671505,
+      "one_axis_code_intertwiner_norm_defect": 0.1289276837948515,
+      "field_energy_expectation": 69.09145895329145,
+      "scaled_electric_kick_expectation": 0.06747212788407368
+    }
+  ],
+  "F0_vs_Gaussian_angle_TV": 0.5918432736805779,
+  "dropped_scalar_phase_vector_defect": 0.37280659352453976,
+  "records_sha256": "029544b369a4e4d4d04e98d542a578d877586bcc85881071eb9a0c66cf5527a9",
+  "scope": "Actual prepared quantum one-face loop with controlled weak-angle oscillator comparison. The oscillator is optical. The weak-angle sequence sends the charge coupling to zero. Full transverse photon preparation, homogeneous ultraviolet state control, interacting continuum, matter vacuum and calibrated forces are not established.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/quantum_field/quantum_state.py": "7739ddaa78526ad377ea89d7a30f8473d66b62a4640df57b3a56e2dfb468c22d",
+    "openwave-tuning/common_dynamics/vector_field/autonomous.py": "b700b466092e256416d8d461f907d1713cbdd398f99bfb595d0cab51810b633a",
+    "openwave-tuning/common_dynamics/vector_field/cell_complex.py": "7e760f4cc0cc9df1343089a6e83bc57c4d6898e072a058336e2079a755d9360a",
+    "openwave-tuning/common_dynamics/vector_field/native_field.py": "158144c7d9b7bcdfbcc8e60e56a9e957ee1e0ff51b08ba1a585d42bfd5b6446a",
+    "openwave-tuning/auditor/field_cutoff/cutoff.py": "6ffc81a191e00db57d9baa262abec75a4ecbdc9cdd77cbecfb7f8921267c3eed",
+    "openwave-tuning/common_dynamics/vector_field/MANIFEST.json": "aa4a18d89c1a8893ee86eb5e9151bc75e8a0b3a527640cee66aa25382ca55e76",
+    "openwave-tuning/common_dynamics/spin/MANIFEST.json": "65075e0bc14f883c5cdb877171650b08ee57c8d1bdffce281e68937bb07eb401",
+    "openwave-tuning/common_dynamics/units/MANIFEST.json": "fd3abf81be6147577b31e36a00f339664ad8f287e44052ccbc3adafc07e3876f"
+  },
+  "official_rows_changed": []
+}

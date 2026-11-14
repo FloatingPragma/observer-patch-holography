@@ -49,6 +49,22 @@ def separately_validated_wave_rows():
     return records
 
 
+def separately_validated_common_charge():
+    path = ROOT/'claims/openwave_common_charge.json'
+    data = json.loads(path.read_text())
+    if data.get('full_criterion_met') is not True or data.get('row') != 1:
+        raise ValueError('common-source charge criterion receipt absent')
+    for relative, expected in data['source_sha256'].items():
+        if hashlib.sha256((ROOT/relative).read_bytes()).hexdigest() != expected:
+            raise ValueError('stale common-source charge input: '+relative)
+    return {'candidate_id': data['candidate_id'], 'validated_rows': [1],
+            'ledger': str(path.relative_to(ROOT)),
+            'ledger_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+            'scope': data['scope'], 'transfer_to_this_canonical_source': False,
+            'duplicates_existing_row_number': True,
+            'official_OpenWave_awards_added': 0}
+
+
 def observable_receipt(relative):
     path=BUNDLE/relative
     result=json.loads(path.read_text())
@@ -207,7 +223,7 @@ def generate():
                     and '.pytest_cache' not in p.parts)
     return {
       'schema':'oph.openwave_joint_model_claims.v1',
-      'separately_validated_candidates':[separately_validated_native_charge(), *separately_validated_wave_rows()],
+      'separately_validated_candidates':[separately_validated_native_charge(), separately_validated_common_charge(), *separately_validated_wave_rows()],
       'construction':'One declared all-number shared-record CAR source with periodic half-record electric energy, cyclic face term, recomputed interacting reference, complete native instrument and boundary-dressed charged reservoir. The canonical entry point binds one selected protocol and its continued grouped spectral apparatus. Earlier one-load, zero-field, bounded-integer, spatial and modular-time experiments retain their comparison domains.',
       'canonical_source':{'contract':'code/openwave_candidate/next/C10/CANONICAL_SOURCE_CONTRACT.json',
                           'receipt':'code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.json',

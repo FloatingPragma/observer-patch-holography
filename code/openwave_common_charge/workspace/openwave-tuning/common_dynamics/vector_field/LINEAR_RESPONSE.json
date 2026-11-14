@@ -1,0 +1,128 @@
+{
+  "schema": "oph.local12.transverse_field_harmonic.v1",
+  "checks": {
+    "actual_size3_local_face_symbol": true,
+    "integer_BA_zero": true,
+    "exact_three_harmonic_edge_coordinates": true,
+    "exact_isotropic_transverse_quadratic_coefficient": true,
+    "two_nonzero_transverse_branches": true,
+    "finite_Bloch_response_controls": true,
+    "uniform_all_refinement_curvature_bound": true,
+    "cosine_remainder_bound_explicit": true,
+    "source_bytes_unchanged": true
+  },
+  "zero_symbol_face_rank": 22,
+  "zero_symbol_incidence_rank": 11,
+  "harmonic_edge_rank": 3,
+  "coarse_cycle_projection_Gram": [
+    [
+      "2/3",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "2/3",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "2/3"
+    ]
+  ],
+  "transverse_quadratic_symbol": "(2/3)(|k|^2 I3-k k^T) in an orthonormal harmonic frame",
+  "linear_kick_equations": "For V_field=U_E U_B and canonical angle defined by U_e=exp(i theta_e): E_next=E-beta A A* theta; theta_next=theta+alpha E_next. On each curvature mode lambda: cos(omega)=1-alpha*beta*lambda/2.",
+  "linearized_speed_per_cell_step": "sqrt(2 alpha beta/3)",
+  "same_free_matter_speed_choice": {
+    "alpha": "1/8",
+    "beta": "1/4",
+    "product": "1/32",
+    "speed": "1/sqrt48",
+    "ancestry": "explicit dimensionless architecture choice, not a derived coupling or fine-structure constant"
+  },
+  "uniform_curvature_spectral_upper": 158,
+  "Dirac_speed_subcycle_adapter": {
+    "field_substeps_per_matter_macro": 8,
+    "alpha": "1/16",
+    "beta": "3/8",
+    "product": "3/128",
+    "harmonic_UV_stability_product_upper": "237/64",
+    "distance_below_four": "19/64",
+    "leading_speed_per_matter_macro": "1",
+    "scope": "A declared speed/stability adapter for a separate c=1 matter amendment. It is not a transfer of the base scalar/fermion dynamics or its finite records, and not a quantum field continuum theorem."
+  },
+  "numeric_Bloch_controls": [
+    {
+      "k": [
+        0.05,
+        0.0,
+        0.0
+      ],
+      "transverse_eigenvalues": [
+        0.0016624807540834268,
+        0.0016644447852868826
+      ],
+      "quadratic_prediction": 0.001666666666666667,
+      "relative_errors": [
+        0.0025115475499441066,
+        0.0013331288278706566
+      ]
+    },
+    {
+      "k": [
+        0.025,
+        0.0,
+        0.0
+      ],
+      "transverse_eigenvalues": [
+        0.0004164049153053203,
+        0.000416527732022829
+      ],
+      "quadratic_prediction": 0.00041666666666666675,
+      "relative_errors": [
+        0.0006282032672314755,
+        0.0003334431452106049
+      ]
+    },
+    {
+      "k": [
+        0.01,
+        0.02,
+        0.03
+      ],
+      "transverse_eigenvalues": [
+        0.000932648615275116,
+        0.0009326914240062548
+      ],
+      "quadratic_prediction": 0.0009333333333333333,
+      "relative_errors": [
+        0.0007336264909471135,
+        0.0006877599932983809
+      ]
+    }
+  ],
+  "one_step_quartic_bounds": [
+    {
+      "angle_cap": "1/2",
+      "one_face_beta_quartic_error_for_beta_1_4": "1/1536"
+    },
+    {
+      "angle_cap": "1/4",
+      "one_face_beta_quartic_error_for_beta_1_4": "1/24576"
+    },
+    {
+      "angle_cap": "1/8",
+      "one_face_beta_quartic_error_for_beta_1_4": "1/393216"
+    }
+  ],
+  "state_error_formula": "For plaquette-angle support |theta_f|<=r_f with leakage probability p, the cosine and quadratic field kicks differ on the state by at most sum_f |beta_f| r_f^4/24+2 sqrt(p). Sum along actual intermediate states for multiple steps. Cyclic electric-wrap errors are additional.",
+  "scope": "The homogeneous local field extension has two transverse harmonic-response branches derived from its actual face complex. A quantum Maxwell continuum theorem additionally requires field-state preparation, retained leakage/flux-cutoff bounds, clock/precision refinement and interacting matter control. Finite modular shifts do not satisfy the exact unbounded U1 electric commutator.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/vector_field/linear_response.py": "201b160811905ce56657b505b0395cd3ff7280c2b537a4f148a6ecea98aaeb0c",
+    "openwave-tuning/common_dynamics/vector_field/cell_complex.py": "7e760f4cc0cc9df1343089a6e83bc57c4d6898e072a058336e2079a755d9360a",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "openwave-tuning/common_dynamics/vector_field/CELL_COMPLEX.json": "bedeb0f30558b99154d4353df9d33933e244457d6ec65f96b85a44d2c0f3da05"
+  },
+  "official_rows_changed": []
+}

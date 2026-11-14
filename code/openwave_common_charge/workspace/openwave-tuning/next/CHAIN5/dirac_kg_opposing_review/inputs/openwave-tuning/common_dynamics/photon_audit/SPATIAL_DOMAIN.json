@@ -1,0 +1,29 @@
+{
+  "schema": "oph.photon_audit.size3_domain.v1",
+  "checks": {
+    "actual_size3_connected_graph": true,
+    "exact_mod101_rank_and_period_upper_bound": true,
+    "eight_bit_diagonal_compiler_rejects_size3_cap": true,
+    "ten_bit_Pauli_template_resource_count": true,
+    "producer_bytes_unchanged": true
+  },
+  "vertices": 324,
+  "edges": 972,
+  "faces": 702,
+  "incidence_rank": 323,
+  "coexact_rank": 646,
+  "harmonic_dimension": 3,
+  "cap1_physical_states": 647,
+  "spectral_bits": 10,
+  "padding_states": 377,
+  "clock_bits": 1,
+  "joint_outcomes_per_C_E_law": 2048,
+  "diagonal_template_pulses": 25606,
+  "proposed_reset_counts": {
+    "blank": 11,
+    "pointer_ready": 11
+  },
+  "cap1_vacuum_plus_excitation_error_factor": 324,
+  "scope": "Exact next-member geometry and compiler-domain/resource control only. No size3 spectrum, phase certificate, native experiment, harmonic discretization or interacting field word is supplied.",
+  "official_rows_changed": []
+}

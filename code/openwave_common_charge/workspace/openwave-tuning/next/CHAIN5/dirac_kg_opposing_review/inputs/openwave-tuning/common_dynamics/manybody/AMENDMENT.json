@@ -1,0 +1,53 @@
+{
+  "schema": "oph.common_dynamics.manybody_amendment.v1",
+  "worker": "DYN06",
+  "selection_status": "proposals awaiting common coordinator selection and opposing review",
+  "base_candidate": "native-local12-current-v0-proposed",
+  "alternatives": [
+    {
+      "candidate_id": "native-local12-collective-binary-v1-proposed",
+      "state": "96 binary port occupations and one padded16-slot shared event",
+      "update": "same reflection R; simultaneous controlled native binary exchange on selected perfect matching",
+      "exact_restriction": "original one-load walk on physical source positions, retaining complete event padding",
+      "native_scope": "actual binary C/E event under reversible original-coin recoding; entire matching scheduler and correlated coins declared",
+      "field": "one shared edge current, same finite affine Gauss fibres",
+      "physical_boundary": "long-range shared-event movement covariance1/4; distant outputs do not factor into independent particle laws",
+      "statistics": "binary occupation tensor basis, with no fermionic exchange phase"
+    },
+    {
+      "candidate_id": "native-local12-fermion-modes-v1-proposed",
+      "state": "2048 padded fermionic occupation modes;1152 physical modes on96 ports",
+      "update": "Gamma(W)=Gamma(S)Gamma(R), source-word generated from onsite mode rotations and adjacent mode transport",
+      "exact_restriction": "original full2048-dimensional one-particle W, including its scalar phase and all padding/flat sectors",
+      "native_scope": "native binary mode-pair population action with explicit added CAR phases; aggregate integer-port balancing differs",
+      "field": "one shared288-edge Z_m register; current on each seam is the corresponding transported-mode occupation difference",
+      "field_modulus": "m>=13 for known-reference physical local occupations0..12; m16 admits a simple native binary-ripple current compiler",
+      "vacuum": "empty Fock state, fixed with phase1; no ground-energy claim",
+      "statistics": "exterior algebra and spectator parity supplied as declared architecture",
+      "physical_boundary": "no spin, mass, particle species, positive-energy ground state or autonomous field inferred from the Fock lift",
+      "implementation_boundary": "even CAR geometry is local; encoded Jordan-Wigner strings and full state preparation require their own native resource/locality contract",
+      "hole_sector": {
+        "same_circuit": true,
+        "reference": "all1152 physical modes filled except one hole",
+        "Gauss_reference": "G=12*ones-delta_root",
+        "matter_total": 1151,
+        "propagation": "conjugate W, equal to ideal real W",
+        "current": "negative of corresponding one-particle current",
+        "scope": "separate supplied reference; no ground-state or observed-antiparticle claim; no simultaneous opposite-species pair inferred"
+      }
+    }
+  ],
+  "common_field_reference": {
+    "fixed_total_sector": "sum n=Q",
+    "implemented_reference": "G=Q delta0",
+    "general_reference": "any declared integer G with sum G=Q; particular flow is sum_x(n_x-G_x)P_x",
+    "finite_fibre": "m^193 configurations; no infinite uniform field state",
+    "local_gauss": "n+B F=G modulo m",
+    "closed_domain": "changing total charge needs a reference or reservoir boundary; it cannot occur at fixed G on the closed torus"
+  },
+  "shared_clock": "DYN04 supplies the source-specific operational clock; source pulse counts, field-update pulses and coherent steps are kept distinct",
+  "source_change_rule": "Selecting either proposal or changing modulus requires one common source version and review of every dependent instrument, preparation and clock",
+  "no_private_hamiltonian": true,
+  "no_official_status_change": true,
+  "reserved_acceptance_runs": false
+}

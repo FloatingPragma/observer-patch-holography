@@ -1,0 +1,4382 @@
+{
+  "schema": "oph.local12.native_phase_clock.v1",
+  "candidate_id": "native-local12-current-v0-proposed",
+  "clock_attachment_id": "local12-completed-word-clock-v1-proposed",
+  "checks": {
+    "native_phase_tick_and_XY_pointer_executed": true,
+    "all_native_C_and_E_fine_records": true,
+    "phase_lift_unique_on_declared_window": true,
+    "certified_clock_word_error": true,
+    "all_extra_reset_timeouts_counted": true,
+    "tick_rate_mutation_changes_clock": true,
+    "one_shared_time_conversion": true,
+    "full_source_wire_alias_rejected": true,
+    "source_pins_unchanged": true
+  },
+  "tick_word_global_address": [
+    {
+      "kind": "Z",
+      "targets": [
+        23
+      ],
+      "angle": -0.0625
+    }
+  ],
+  "clock_bit": 23,
+  "phase_window_radians": [
+    0,
+    1
+  ],
+  "tested_steps_and_spacings": [
+    [
+      0,
+      "1"
+    ],
+    [
+      1,
+      "1"
+    ],
+    [
+      2,
+      "1"
+    ],
+    [
+      3,
+      "1"
+    ],
+    [
+      4,
+      "1"
+    ],
+    [
+      5,
+      "1"
+    ],
+    [
+      6,
+      "1"
+    ],
+    [
+      7,
+      "1"
+    ],
+    [
+      8,
+      "1"
+    ],
+    [
+      16,
+      "1/16"
+    ],
+    [
+      32,
+      "1/32"
+    ],
+    [
+      64,
+      "1/64"
+    ],
+    [
+      256,
+      "1/64"
+    ],
+    [
+      512,
+      "1/64"
+    ]
+  ],
+  "maximum_tested_source_steps": 512,
+  "joint_error_source_member_size": 2,
+  "larger_member_native_error_transferred": false,
+  "wire_allocation": "The bare source has23 wires. Its clock default23 must be remapped when another instrument uses23. The full current-field construction has898 wires; a joint clock/probe can use fresh898/899 plus separate detector auxiliaries. clock_tick_word validates the declared full source_memory_bits.",
+  "augmented_source_boundary": "The tested bound and duration use bare W. An actual W_F clock attaches after the entire augmented current word, whose full preparation, resets, pulse error and timing must be supplied. A controlled-W probe must control the current-addition words too; controlling only bare W is not a physical controlled-W_F instrument.",
+  "phase_per_completed_W": "h/8; h=1 for the base member",
+  "native_configured_records": [
+    {
+      "completed_W_steps": 0,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "0",
+      "local_clock_pulses": 4,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.7466400302887e-33,
+      "word_and_pointer_error_upper_exact": "1538539846521238995175575190789657/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.668946000008164e-62
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 6.334431361377434e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4999999999999998
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.2086045546179824e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4999999999999998
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9999999999999996,
+            9.543035915995417e-31
+          ],
+          "contrast": 0.9999999999999996
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.668946000008164e-62
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.2086045546179824e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.125826806759451e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4999999999999998
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.668946000008164e-62
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.2086045546179824e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 3.125826806759451e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4999999999999998
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9999999999999996,
+            9.543035915995417e-31
+          ],
+          "contrast": 0.9999999999999996
+        }
+      }
+    },
+    {
+      "completed_W_steps": 0,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "0",
+      "local_clock_pulses": 5,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.005291549267954e-33,
+      "word_and_pointer_error_upper_exact": "1581320124514803900286265794597423/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 5.318568613732287e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.24999999999999978
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.25
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.24999999999999978
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.25
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5,
+            0.49999999999999956
+          ],
+          "contrast": 4.440892098500626e-16
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 5.318568613732287e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.24999999999999978
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 1.5629134033797265e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.25
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 5.318568613732287e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.24999999999999978
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 1.5629134033797265e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.25
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5,
+            0.49999999999999956
+          ],
+          "contrast": 4.440892098500626e-16
+        }
+      }
+    },
+    {
+      "completed_W_steps": 1,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 5,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.631668741261129e-33,
+      "word_and_pointer_error_upper_exact": "3083574908773820997381188058121297/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798547e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677393
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733206
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677393
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733206
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146641,
+            0.0039011663853354786
+          ],
+          "contrast": 0.9921976672293287
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798547e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677393
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.1136324362945404e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733206
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798547e-34
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677393
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 3.1136324362945404e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733206
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146641,
+            0.0039011663853354786
+          ],
+          "contrast": 0.9921976672293287
+        }
+      }
+    },
+    {
+      "completed_W_steps": 1,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 6,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.076253266474978e-33,
+      "word_and_pointer_error_upper_exact": "3169135464760950807602569265736829/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.655477489824175e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369288
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.28116868334630685
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369288
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.28116868334630685
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5623373666926137,
+            0.43766263330738575
+          ],
+          "contrast": 0.12467473338522794
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.655477489824175e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369288
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 1.7577692152502927e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.28116868334630685
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.655477489824175e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369288
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 1.7577692152502927e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.28116868334630685
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5623373666926137,
+            0.43766263330738575
+          ],
+          "contrast": 0.12467473338522794
+        }
+      }
+    },
+    {
+      "completed_W_steps": 2,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1/4",
+      "local_clock_pulses": 6,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.5087473633162795e-33,
+      "word_and_pointer_error_upper_exact": "193129382781572750275701608416455/91343852333181432387730302044767688728495783936",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.653414181667101e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.007771894572338805
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49222810542766104
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.007771894572338805
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49222810542766104
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9844562108553221,
+            0.01554378914467761
+          ],
+          "contrast": 0.9689124217106445
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.653414181667101e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.007771894572338805
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.077239613972402e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49222810542766104
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.653414181667101e-33
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.007771894572338805
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 3.077239613972402e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49222810542766104
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9844562108553221,
+            0.01554378914467761
+          ],
+          "contrast": 0.9689124217106445
+        }
+      }
+    },
+    {
+      "completed_W_steps": 2,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1/4",
+      "local_clock_pulses": 7,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.1323273019439066e-33,
+      "word_and_pointer_error_upper_exact": "793907670123073453658151735569703/365375409332725729550921208179070754913983135744",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.002733681128079e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.18814901018636904
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.3118509898136306
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.18814901018636904
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.3118509898136306
+            }
+          ],
+          "all_bit_probabilities": [
+            0.6237019796272611,
+            0.3762980203727381
+          ],
+          "contrast": 0.24740395925452308
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.002733681128079e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.18814901018636904
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 1.9495843673478317e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.3118509898136306
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.002733681128079e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.18814901018636904
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 1.9495843673478317e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.3118509898136306
+            }
+          ],
+          "all_bit_probabilities": [
+            0.6237019796272611,
+            0.3762980203727381
+          ],
+          "contrast": 0.24740395925452308
+        }
+      }
+    },
+    {
+      "completed_W_steps": 3,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "3/8",
+      "local_clock_pulses": 7,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.379794043444863e-33,
+      "word_and_pointer_error_upper_exact": "3096565340236507011441263411205263/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.695999809907829e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.01737309452192143
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4826269054780781
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.01737309452192143
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4826269054780781
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9652538109561563,
+            0.03474618904384286
+          ],
+          "contrast": 0.9305076219123134
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.695999809907829e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.01737309452192143
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.0172162376134745e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4826269054780781
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.695999809907829e-33
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.01737309452192143
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 3.0172162376134745e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4826269054780781
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9652538109561563,
+            0.03474618904384286
+          ],
+          "contrast": 0.9305076219123134
+        }
+      }
+    },
+    {
+      "completed_W_steps": 3,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "3/8",
+      "local_clock_pulses": 8,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.172638639105692e-33,
+      "word_and_pointer_error_upper_exact": "3182125896223636821662644618820795/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.3705230364628876e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.1584318677284879
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.3415681322715117
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.1584318677284879
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.3415681322715117
+            }
+          ],
+          "all_bit_probabilities": [
+            0.6831362645430235,
+            0.3168637354569758
+          ],
+          "contrast": 0.3662725290860476
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.3705230364628876e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.1584318677284879
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.1353656483780997e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.3415681322715117
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 3.3705230364628876e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.1584318677284879
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.1353656483780997e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.3415681322715117
+            }
+          ],
+          "all_bit_probabilities": [
+            0.6831362645430235,
+            0.3168637354569758
+          ],
+          "contrast": 0.3662725290860476
+        }
+      }
+    },
+    {
+      "completed_W_steps": 4,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1/2",
+      "local_clock_pulses": 8,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.246821055073918e-33,
+      "word_and_pointer_error_upper_exact": "1551530277983925009235650543873623/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.510855441033789e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.030604359527406807
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.46939564047259275
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.030604359527406807
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.46939564047259275
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9387912809451855,
+            0.061208719054813614
+          ],
+          "contrast": 0.8775825618903719
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.510855441033789e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.030604359527406807
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.9344989519305045e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.46939564047259275
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.510855441033789e-33
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.030604359527406807
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.9344989519305045e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.46939564047259275
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9387912809451855,
+            0.061208719054813614
+          ],
+          "contrast": 0.8775825618903719
+        }
+      }
+    },
+    {
+      "completed_W_steps": 4,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1/2",
+      "local_clock_pulses": 9,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.1965582330264004e-33,
+      "word_and_pointer_error_upper_exact": "1594310555977489914346341147681389/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.768710991490276e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.1301436153489491
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.36985638465105053
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.1301436153489491
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.36985638465105053
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7397127693021011,
+            0.2602872306978982
+          ],
+          "contrast": 0.47942553860420284
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.768710991490276e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.1301436153489491
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.3122140035867783e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.36985638465105053
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.768710991490276e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.1301436153489491
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.3122140035867783e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.36985638465105053
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7397127693021011,
+            0.2602872306978982
+          ],
+          "contrast": 0.47942553860420284
+        }
+      }
+    },
+    {
+      "completed_W_steps": 5,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "5/8",
+      "local_clock_pulses": 9,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.1119033972130064e-33,
+      "word_and_pointer_error_upper_exact": "3109555771699193025501338764289229/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.0054056194374097e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.047259220123695496
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.45274077987630396
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.047259220123695496
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.45274077987630396
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9054815597526079,
+            0.09451844024739099
+          ],
+          "contrast": 0.8109631195052169
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.0054056194374097e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.047259220123695496
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.8303785325010628e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.45274077987630396
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.0054056194374097e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.047259220123695496
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.8303785325010628e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.45274077987630396
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9054815597526079,
+            0.09451844024739099
+          ],
+          "contrast": 0.8109631195052169
+        }
+      }
+    },
+    {
+      "completed_W_steps": 5,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "5/8",
+      "local_clock_pulses": 10,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.203712826443019e-33,
+      "word_and_pointer_error_upper_exact": "3195116327686322835722719971904761/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.2066886218907907e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.10372568176488434
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.39627431823511516
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.10372568176488434
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.39627431823511516
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7925486364702303,
+            0.20745136352976867
+          ],
+          "contrast": 0.5850972729404617
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.2066886218907907e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.10372568176488434
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.477369773539299e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.39627431823511516
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.2066886218907907e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.10372568176488434
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.477369773539299e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.39627431823511516
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7925486364702303,
+            0.20745136352976867
+          ],
+          "contrast": 0.5850972729404617
+        }
+      }
+    },
+    {
+      "completed_W_steps": 6,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "3/4",
+      "local_clock_pulses": 10,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 2.9771464147886696e-33,
+      "word_and_pointer_error_upper_exact": "779012746857634008132844110207803/365375409332725729550921208179070754913983135744",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.4270311607227048e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.06707778278154472
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.43292221721845486
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.06707778278154472
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.43292221721845486
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8658444344369097,
+            0.13415556556308944
+          ],
+          "contrast": 0.7316888688738203
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.4270311607227048e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.06707778278154472
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.7064797436463687e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.43292221721845486
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.4270311607227048e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.06707778278154472
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.7064797436463687e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.43292221721845486
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8658444344369097,
+            0.13415556556308944
+          ],
+          "contrast": 0.7316888688738203
+        }
+      }
+    },
+    {
+      "completed_W_steps": 6,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "3/4",
+      "local_clock_pulses": 11,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.1939907743181913e-33,
+      "word_and_pointer_error_upper_exact": "400201442927208230344094706055843/182687704666362864775460604089535377456991567872",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.6932260987687875e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.07959030999416636
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4204096900058333
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.07959030999416636
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4204096900058333
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8408193800116666,
+            0.15918061998833272
+          ],
+          "contrast": 0.6816387600233338
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.6932260987687875e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.07959030999416636
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.62825575768333e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4204096900058333
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.6932260987687875e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.07959030999416636
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.62825575768333e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4204096900058333
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8408193800116666,
+            0.15918061998833272
+          ],
+          "contrast": 0.6816387600233338
+        }
+      }
+    },
+    {
+      "completed_W_steps": 7,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "7/8",
+      "local_clock_pulses": 11,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 2.8446529454409985e-33,
+      "word_and_pointer_error_upper_exact": "3122546203161879039561414117373195/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.9093828424038198e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.08975078545916863
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4102492145408307
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.08975078545916863
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4102492145408307
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8204984290816614,
+            0.17950157091833727
+          ],
+          "contrast": 0.6409968581633241
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.9093828424038198e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.08975078545916863
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.564735984527477e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.4102492145408307
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.9093828424038198e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.08975078545916863
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.564735984527477e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.4102492145408307
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8204984290816614,
+            0.17950157091833727
+          ],
+          "contrast": 0.6409968581633241
+        }
+      }
+    },
+    {
+      "completed_W_steps": 7,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "7/8",
+      "local_clock_pulses": 12,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.167543786023704e-33,
+      "word_and_pointer_error_upper_exact": "3208106759149008849782795324988727/1461501637330902918203684832716283019655932542976",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.2363358330655954e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.05811412444099314
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.44188587555900644
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.05811412444099314
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.44188587555900644
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8837717511180129,
+            0.11622824888198628
+          ],
+          "contrast": 0.7675435022360266
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.2363358330655954e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.05811412444099314
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.762517430701428e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.44188587555900644
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 1.2363358330655954e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.05811412444099314
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.762517430701428e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.44188587555900644
+            }
+          ],
+          "all_bit_probabilities": [
+            0.8837717511180129,
+            0.11622824888198628
+          ],
+          "contrast": 0.7675435022360266
+        }
+      }
+    },
+    {
+      "completed_W_steps": 8,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1",
+      "local_clock_pulses": 12,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 2.7164905054455757e-33,
+      "word_and_pointer_error_upper_exact": "1564520709446611023295725896957589/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.444933727814817e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.11492442353296496
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.38507557646703444
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.11492442353296496
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.38507557646703444
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7701511529340689,
+            0.22984884706592992
+          ],
+          "contrast": 0.540302305868139
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.444933727814817e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.11492442353296496
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.407359119098011e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.38507557646703444
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.444933727814817e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.11492442353296496
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.407359119098011e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.38507557646703444
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7701511529340689,
+            0.22984884706592992
+          ],
+          "contrast": 0.540302305868139
+        }
+      }
+    },
+    {
+      "completed_W_steps": 8,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1",
+      "clock_phase_exact_radians": "1",
+      "local_clock_pulses": 13,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.124784557966467e-33,
+      "word_and_pointer_error_upper_exact": "1607300987440175928406416500765355/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 8.431474445666094e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.039632253798025784
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.46036774620197357
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.039632253798025784
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.46036774620197357
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9207354924039471,
+            0.07926450759605157
+          ],
+          "contrast": 0.8414709848078956
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 8.431474445666094e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.039632253798025784
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.8780596840911228e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.46036774620197357
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 8.431474445666094e-33
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.039632253798025784
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.8780596840911228e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.46036774620197357
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9207354924039471,
+            0.07926450759605157
+          ],
+          "contrast": 0.8414709848078956
+        }
+      }
+    },
+    {
+      "completed_W_steps": 16,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1/16",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 20,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.631668741261126e-33,
+      "word_and_pointer_error_upper_exact": "1541787454386910498690594029060649/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798544e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677373
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733145
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677373
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733145
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146629,
+            0.0039011663853354746
+          ],
+          "contrast": 0.9921976672293275
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798544e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677373
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.1136324362945373e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733145
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798544e-34
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.0019505831926677373
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 3.1136324362945373e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733145
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146629,
+            0.0039011663853354746
+          ],
+          "contrast": 0.9921976672293275
+        }
+      }
+    },
+    {
+      "completed_W_steps": 16,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1/16",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 21,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.0762532664749755e-33,
+      "word_and_pointer_error_upper_exact": "1584567732380475403801284632868415/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241695e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369263
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.2811686833463065
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369263
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.2811686833463065
+            }
+          ],
+          "all_bit_probabilities": [
+            0.562337366692613,
+            0.43766263330738525
+          ],
+          "contrast": 0.12467473338522778
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241695e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369263
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 1.7577692152502907e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.2811686833463065
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241695e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369263
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 1.7577692152502907e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.2811686833463065
+            }
+          ],
+          "all_bit_probabilities": [
+            0.562337366692613,
+            0.43766263330738525
+          ],
+          "contrast": 0.12467473338522778
+        }
+      }
+    },
+    {
+      "completed_W_steps": 32,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1/32",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 36,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.631668741261123e-33,
+      "word_and_pointer_error_upper_exact": "1541787454386910498690594029060649/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798534e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.001950583192667733
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.001950583192667733
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146607,
+            0.003901166385335466
+          ],
+          "contrast": 0.9921976672293252
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798534e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.001950583192667733
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.1136324362945294e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.149724218798534e-34
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.001950583192667733
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 3.1136324362945294e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146607,
+            0.003901166385335466
+          ],
+          "contrast": 0.9921976672293252
+        }
+      }
+    },
+    {
+      "completed_W_steps": 32,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1/32",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 37,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.07625326647497e-33,
+      "word_and_pointer_error_upper_exact": "1584567732380475403801284632868415/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241563e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369202
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369202
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5623373666926118,
+            0.43766263330738403
+          ],
+          "contrast": 0.12467473338522778
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241563e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369202
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 1.7577692152502865e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241563e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369202
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 1.7577692152502865e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5623373666926118,
+            0.43766263330738403
+          ],
+          "contrast": 0.12467473338522778
+        }
+      }
+    },
+    {
+      "completed_W_steps": 64,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1/64",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 68,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.631668741261123e-33,
+      "word_and_pointer_error_upper_exact": "1541787454386910498690594029060665/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.1497242187985275e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.00195058319266773
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.00195058319266773
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146607,
+            0.00390116638533546
+          ],
+          "contrast": 0.9921976672293252
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.1497242187985275e-34
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.00195058319266773
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 3.1136324362945294e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.1497242187985275e-34
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.00195058319266773
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 3.1136324362945294e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.49804941680733034
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9960988336146607,
+            0.00390116638533546
+          ],
+          "contrast": 0.9921976672293252
+        }
+      }
+    },
+    {
+      "completed_W_steps": 64,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1/64",
+      "clock_phase_exact_radians": "1/8",
+      "local_clock_pulses": 69,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.076253266474971e-33,
+      "word_and_pointer_error_upper_exact": "1584567732380475403801284632868431/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241596e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369215
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369215
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5623373666926118,
+            0.4376626333073843
+          ],
+          "contrast": 0.1246747333852275
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241596e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.21883131665369215
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 1.7577692152502865e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 4.6554774898241596e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.21883131665369215
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 1.7577692152502865e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.2811686833463059
+            }
+          ],
+          "all_bit_probabilities": [
+            0.5623373666926118,
+            0.4376626333073843
+          ],
+          "contrast": 0.1246747333852275
+        }
+      }
+    },
+    {
+      "completed_W_steps": 256,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1/64",
+      "clock_phase_exact_radians": "1/2",
+      "local_clock_pulses": 260,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 3.2468210550738935e-33,
+      "word_and_pointer_error_upper_exact": "1551530277983925009235650543873689/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.510855441033687e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.03060435952740633
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.46939564047258453
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.03060435952740633
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.46939564047258453
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9387912809451691,
+            0.06120871905481266
+          ],
+          "contrast": 0.8775825618903564
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.510855441033687e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.03060435952740633
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.9344989519304537e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.46939564047258453
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 6.510855441033687e-33
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.03060435952740633
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.9344989519304537e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.46939564047258453
+            }
+          ],
+          "all_bit_probabilities": [
+            0.9387912809451691,
+            0.06120871905481266
+          ],
+          "contrast": 0.8775825618903564
+        }
+      }
+    },
+    {
+      "completed_W_steps": 256,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1/64",
+      "clock_phase_exact_radians": "1/2",
+      "local_clock_pulses": 261,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.1965582330263614e-33,
+      "word_and_pointer_error_upper_exact": "1594310555977489914346341147681455/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.7687109914902254e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.13014361534894672
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.3698563846510442
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.13014361534894672
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.3698563846510442
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7397127693020884,
+            0.26028723069789345
+          ],
+          "contrast": 0.47942553860419496
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.7687109914902254e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.13014361534894672
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.312214003586739e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.3698563846510442
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.7687109914902254e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.13014361534894672
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.312214003586739e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.3698563846510442
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7397127693020884,
+            0.26028723069789345
+          ],
+          "contrast": 0.47942553860419496
+        }
+      }
+    },
+    {
+      "completed_W_steps": 512,
+      "configured_setting": "X",
+      "cell_spacing_exact": "1/64",
+      "clock_phase_exact_radians": "1",
+      "local_clock_pulses": 516,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 2.7164905054455432e-33,
+      "word_and_pointer_error_upper_exact": "1564520709446611023295725896957721/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.4449337278147333e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.114924423532961
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.38507557646701995
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.114924423532961
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.38507557646701995
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7701511529340399,
+            0.229848847065922
+          ],
+          "contrast": 0.5403023058681179
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.4449337278147333e-32
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.114924423532961
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.407359119097921e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.38507557646701995
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 2.4449337278147333e-32
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.114924423532961
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.407359119097921e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.38507557646701995
+            }
+          ],
+          "all_bit_probabilities": [
+            0.7701511529340399,
+            0.229848847065922
+          ],
+          "contrast": 0.5403023058681179
+        }
+      }
+    },
+    {
+      "completed_W_steps": 512,
+      "configured_setting": "Y",
+      "cell_spacing_exact": "1/64",
+      "clock_phase_exact_radians": "1",
+      "local_clock_pulses": 517,
+      "native_pointer_pulses": 6,
+      "source_export_failure_gram_trace": 4.124784557966384e-33,
+      "word_and_pointer_error_upper_exact": "1607300987440175928406416500765487/730750818665451459101842416358141509827966271488",
+      "laws": {
+        "C": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 8.43147444566575e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.03963225379802416
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.460367746201957
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.03963225379802416
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.460367746201957
+            }
+          ],
+          "all_bit_probabilities": [
+            0.920735492403914,
+            0.07926450759604832
+          ],
+          "contrast": 0.8414709848078656
+        },
+        "E": {
+          "native_fine_probabilities": [
+            {
+              "record": {
+                "coin": 0,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 8.43147444566575e-33
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": -1,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 0.03963225379802416
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 0,
+                "current": 0,
+                "bit": 1
+              },
+              "probability": 2.878059684091019e-31
+            },
+            {
+              "record": {
+                "coin": 0,
+                "label": 1,
+                "current": 1,
+                "bit": 0
+              },
+              "probability": 0.460367746201957
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -2,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 8.43147444566575e-33
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": -1,
+                "current": -1,
+                "bit": 1
+              },
+              "probability": 0.03963225379802416
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 0,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 2.878059684091019e-31
+            },
+            {
+              "record": {
+                "coin": 1,
+                "label": 1,
+                "current": 0,
+                "bit": 0
+              },
+              "probability": 0.460367746201957
+            }
+          ],
+          "all_bit_probabilities": [
+            0.920735492403914,
+            0.07926450759604832
+          ],
+          "contrast": 0.8414709848078656
+        }
+      }
+    }
+  ],
+  "maximum_numeric_record_error": 3.808064974464287e-14,
+  "complete_clock_error_upper_exact": "23819767291766679882612150926640275567407/730750818665451459101842416358141509827966271488",
+  "extra_reset_uniform_bound_exact": "35/1073741824",
+  "common_source_23_blank_reset_bound_exact": "805/2147483648",
+  "complete_joint_source_and_clock_error_on_tested_cases_exact": "644576563722612678011698865888014869249111/1461501637330902918203684832716283019655932542976",
+  "complete_joint_source_and_clock_error_upper": 4.4103718207239493e-07,
+  "phase_error_upper_exact": "1933729691167838034035096597664044607747333/1461499703601211750365650797619685355611324795643",
+  "extra_reset_contract": {
+    "blank_carriers": 1,
+    "ready_carriers": 1,
+    "exact_success_factor": {
+      "p0": "185074577876545931263809533405119308547460588767301822440117881702172169081920791373408523892088919822333871415391654092885270754830517328667358210717973721328251387942856853344506216263873786819623273914261375087738037109375/185074578797901741880056797082722491652594329967104984657651428941017502866551504889831353286343393081484762513295539999743888383402206229143653783207080500031048652651411283677848015502881818392904162310804899782048803192832",
+      "exponent0": 1,
+      "p2": "794889259070828758016172523780192981918435703175176795905271686140920677707197520329185302183176967187020055354679978207082168273351010939093272314397036641712534246168786638402391656723358607754066627601582606860480082492828369140625/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "exponent2": 1
+    },
+    "timeout_upper_exact": "8144327291356456578057402685475139085747854252359612380502129219475420267462405654293200482473389272757005855395750745519720253048358091077494359032340570257195384762956957575641356979085044871070580543142610192685479274103919/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+    "timeout_upper": 1.024586400623379e-08,
+    "fine_failure_law": "first failure at reset k has product of preceding successes times(1-p_k); all native fine seam/coin/current/timeout records remain",
+    "conditioning": "fresh independent native carriers reset before common source preparation; no success normalization",
+    "native_reset_contracts": [
+      {
+        "target_code": 0,
+        "initial_carrier": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "target_carrier": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "success_probability_exact": "185074577876545931263809533405119308547460588767301822440117881702172169081920791373408523892088919822333871415391654092885270754830517328667358210717973721328251387942856853344506216263873786819623273914261375087738037109375/185074578797901741880056797082722491652594329967104984657651428941017502866551504889831353286343393081484762513295539999743888383402206229143653783207080500031048652651411283677848015502881818392904162310804899782048803192832",
+        "complete_reset_certificate": {
+          "seed_scans": 4,
+          "retries": 32,
+          "full_sector": true,
+          "mode": "reset",
+          "target": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "input_columns": 78,
+          "successful_seed_cases_checked": 600,
+          "native_attempts_max": 2678,
+          "terminal_swaps_max": 4,
+          "failure_upper": "35/2147483648",
+          "exact_max_failure": "62461464689816954676875890932702995471644590514163377433953186280190875346810691251894918929442201110343648152348202341180637688532511746199818344473587700033988334720824664253101448719423504520048224413255139017353721822223/12420144738405671481191835907700020442055088136933572889112416304208407621491015090647027270629171823603901845577048585649372640352918515131554298200329449113635639808166799244402122285052787558602103993549731750007142774830528462848",
+          "exact_tracial_success_probability": "88764607711745764542767167037867728845920693783274305286373814574680849125219244445729139802115872991965195856329540721034764128865847110976956170676305848867206745202164564076465321507804010557294857735717854782427576567037491040793792724609375/88764608130496620096550987038081383795591022786669369431194983990202863709828318136093305458002130718369882969819783296815671727619636987949796995768628009573618737698490561802260498142058068297191982294800922445580267237874886652707973535629312",
+          "success_table_sha256": "14807dcc0233cdbcc73a3de90ff417a7d9d56e98e5a6564ab679acb83148dd91"
+        }
+      },
+      {
+        "target_code": 2,
+        "initial_carrier": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        "target_carrier": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "success_probability_exact": "794889259070828758016172523780192981918435703175176795905271686140920677707197520329185302183176967187020055354679978207082168273351010939093272314397036641712534246168786638402391656723358607754066627601582606860480082492828369140625/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+        "complete_reset_certificate": {
+          "seed_scans": 4,
+          "retries": 32,
+          "full_sector": true,
+          "mode": "reset",
+          "target": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "input_columns": 78,
+          "successful_seed_cases_checked": 600,
+          "native_attempts_max": 2678,
+          "terminal_swaps_max": 4,
+          "failure_upper": "35/2147483648",
+          "exact_max_failure": "4187134216780104974312608326373089937588571868997922957328417410068227445472224443137090029523629662762251131274477680709235774029326202770424048101560146701553888513239344169520019795996468027985600225139977055096325452481647/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+          "exact_tracial_success_probability": "710116861544062756179976344107969197900795473934133388126926635670140029786133619008041444015950055163577971250499594295605104815619427914047248831921088566724068901515235265021674760758916586526153854754808125037071000362308545262288360595703125/710116865043972960772407896304651070364728182293354955449559871921622909678626545088746443664017045746959063758558266374525373820957095903598375966149024076588949901587924494418083985136464546377535858358407379564642137902999093221663788285034496",
+          "success_table_sha256": "2016a3cbfa5f688ffb916aa7f0fa95c88c5d850e8f8165af6b5db0d00cd3905f"
+        }
+      }
+    ]
+  },
+  "joint_program": "Prepare the common W source and a separately reset clock+. At each successful completed W append the one native Z tick. On any export or reset failure retain its complete failure record and the last completed-step count. Terminal X or Y is a configured intervention with an actual native C/E pointer; source/event/current registers are untouched by the clock read.",
+  "complete_instrument": "All successes, export branches and native reset timeouts remain. Failure can be assigned zero in a bounded contrast statistic; this is not renormalization of successful trials. The phase bound compares the complete instrument with its ideal reset-success experiment.",
+  "reference_contract": "Ideal joint macro map is W tensor exp(-i h Z/16). It preserves arbitrary external references. Product clock preparation is declared; a correlated clock/source input requires its joint state rather than this calibration.",
+  "time_interface": {
+    "function": "clock_contract.effective_time",
+    "formula": "t=n*tau0*h=8*tau0*unwrapped_phase",
+    "examples": {
+      "0": "0",
+      "1": "1/16",
+      "4": "1/4",
+      "8": "1/2"
+    }
+  },
+  "scope": "This is an additional native operational clock on completed common source words. The refinement-dependent phase increment, clock preparation and attachment schedule are declared architecture. The source selects no absolute duration; no mass clock or Lorentz proper time is inferred. The joint bound includes23 common blank resets, two extra apparatus resets, common source preparation, at most512 W words and the terminal clock pointer. It assumes the ideal declared coherent services and exact retained response of the source-error certificate. Strict implementation convergence as h tends to zero additionally requires n*W_error to tend to zero; the fixed compiler bound does not imply that.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/clock/phase_clock.py": "31f37c4a6beed62e157343e9b50704b5b9010a57200f61c796fff4416276ec5a",
+    "openwave-tuning/common_dynamics/clock/clock_contract.py": "ee2899c4eeb765e011c2365154573a9e9e4afd6749b4f8b03be3be572c6f8dbc",
+    "openwave-tuning/auditor/common_walk_particle/native_phase_probe.py": "88ad96d5889363406c56545857d8a45a82e652a0acb7eaa4361c68ab93de4970",
+    "openwave-tuning/auditor/common_walk_particle/instrument_contract.py": "3e573ede6513cb3ee09ad819936436fe5f21501571825e2ed2bab2fbf946597c",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_RECEIPT.json": "39e2d7a6dace9ff549d8e68974239c11f03316550a36f1c708302dd562048052",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_PROGRAM.json": "0439ac27c173d074871122cf893afd2617243003906f51865490cd6e4f73d7e7",
+    "reverse-engineering-reality/model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "reverse-engineering-reality/model/reference_recovery/recovery.py": "dbb1cb54026558a16dea67ed8e2ceb9b5000033a92e65074327666c4e3d6d15b",
+    "reverse-engineering-reality/model/certified_reference/certificate.py": "5f40516d46d9d17ccb093727d4aec64ae455e6a549a615001a2c4d737da0a9e3",
+    "openwave-tuning/auditor/common_walk_review/SOURCE_ERROR.json": "79432b4a01fa0f9234a8843d27d5a5eb20fd1483e9476c42e91a212f9df2573d"
+  },
+  "official_rows_changed": []
+}

@@ -1,0 +1,69 @@
+{
+  "topology": {
+    "script": "openwave-tuning/next/CHAIN5/common_charge_topology_review/audit.py",
+    "outputs": [
+      "openwave-tuning/next/CHAIN5/common_charge_topology_review/RESULT.json"
+    ]
+  },
+  "native": {
+    "script": "openwave-tuning/next/CHAIN5/common_charge_native_review/audit.py",
+    "outputs": [
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/FRESH_RESET_RECORDS.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/FRESH_CONTROL_PROGRAMS.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/EXACT_GEOMETRY_REVIEW.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/RESET_REVIEW.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/NATIVE_REPLAY_REVIEW.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/TERMINAL_ANNEX_PROGRAMS.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/TERMINAL_ANNEX_FAILURES.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/TERMINAL_ANNEX_RECORDS.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/TERMINAL_ANNEX_RESULT.json",
+      "openwave-tuning/next/CHAIN5/common_charge_native_review/RESULT.json"
+    ],
+    "alias_inputs": "openwave-tuning/next/CHAIN5/common_charge_native_review/INPUTS.json",
+    "alias_group": "copied_files",
+    "alias_directory": "openwave-tuning/next/CHAIN5/common_charge_native_review/inputs/"
+  },
+  "terminal": {
+    "script": "openwave-tuning/next/CHAIN5/common_charge_terminal_review/review.py",
+    "outputs": [
+      "openwave-tuning/next/CHAIN5/common_charge_terminal_review/RESULT.json",
+      "openwave-tuning/next/CHAIN5/common_charge_terminal_review/COMPILER_PINS.json"
+    ]
+  },
+  "terminal_opposing": {
+    "script": "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/audit.py",
+    "outputs": [
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/NATIVE_AUDIT.json",
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/SOURCE_PINS.json"
+    ],
+    "withheld_review_freezes": [
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/MANIFEST.json"
+    ],
+    "roundoff_diagnostics": {
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/NATIVE_AUDIT.json": [
+        "all_column_operator_error",
+        "Gram_residual",
+        "all_column_first_failure_difference",
+        "fine_probability_difference"
+      ]
+    }
+  },
+  "terminal_channel": {
+    "script": "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/channel.py",
+    "outputs": [
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/CHANNEL_AUDIT.json",
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/CHANNEL_SOURCE_PINS.json"
+    ],
+    "roundoff_diagnostics": {
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/CHANNEL_AUDIT.json": [
+        "maximum_reference_channel_error",
+        "retained_internal_state_equality_rejected_operator_gap"
+      ]
+    },
+    "identical_source_path_equivalences": {
+      "openwave-tuning/row_completion/reviews/CHARGE_TERMINAL_ANNEX/CHANNEL_AUDIT.json": {
+        "openwave-tuning/next/CHAIN5/dirac_kg_opposing_review/inputs/openwave-tuning/next/CHAIN3/native_field_connection/inputs/openwave-tuning/common_dynamics/interacting_gaussian/branches.py": "openwave-tuning/next/CHAIN5/dirac_kg_opposing_review/inputs/openwave-tuning/next/CHAIN3/species_reuse_connection/inputs/openwave-tuning/common_dynamics/interacting_gaussian/branches.py"
+      }
+    }
+  }
+}

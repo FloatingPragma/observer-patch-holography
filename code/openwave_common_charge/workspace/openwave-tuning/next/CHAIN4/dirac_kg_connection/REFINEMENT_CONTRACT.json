@@ -1,0 +1,43 @@
+{
+  "L": 262144,
+  "h": "1/262144",
+  "T": "1/4",
+  "macro_count": 65536,
+  "mode_integer": [
+    1,
+    2,
+    3
+  ],
+  "uniform_physical_flavor_source_error_exact": "5420878413625111654804543475439155303578904565702182933579545643/12845056000000000000000000000000000000000000000000000000000000000000",
+  "source_error": 0.0004220206135049245,
+  "mass_effect_coefficient_radius_exact": "1/2000000000000000000000000000000000000000000000000000000000000",
+  "coefficient_transfer_error_exact": "1/8000000000000000000000000000000000000000000000000000000000000",
+  "native_pulses_upper": 178026512664,
+  "control_template_max_factor": 38,
+  "per_primitive_control_pulses": {
+    "I": 2,
+    "X": 12,
+    "Y": 12,
+    "Z": 8,
+    "H": 10,
+    "J": 38
+  },
+  "precision_bits": 128,
+  "reduced_source_memory_bits": 76,
+  "reset_registers_including_pointer_work": 80,
+  "native_operator_error_upper_exact": "5767944986957100576453670758110432400416372672763213/452312848583266388373324160190187140051835877600158453279131187530910662656",
+  "reset_contract": {
+    "registers": 80,
+    "blocks_per_register": 2,
+    "base_uniform_failure_exact": "35/2147483648",
+    "complete_timeout_union_bound_exact": "6125/288230376151711744",
+    "protocol": "Each register executes up to r base reset blocks, stopping at its first heralded success; retain every fine letter and final timeout. A failed block remains in the native78-state domain.",
+    "conditioning_applied": false
+  },
+  "complete_observed_record_TV_bound_exact": "324510624877927744576506860785896104307609518531697338619916812228483648287017478082320011957029493184776353385749/768944962584868393569884204342939135972538541946844227829760000000000000000000000000000000000000000000000000000000000",
+  "complete_observed_record_TV_bound": 0.00042202061352617485,
+  "huge_native_word_executed": false,
+  "full_field_state_allocated": false,
+  "spatial_family": "Actual root-port routes with dyadic signed binary translations; all four spin and flavor code blocks, including padding, retained.",
+  "field_domain": "Observed free-factor instrument; arbitrary autonomous spectator reference. Full coupled-field failure tapes are distinct."
+}

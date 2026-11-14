@@ -1,0 +1,38 @@
+{
+  "schema": "oph.charge_terminal_annex.independent_review.v1",
+  "verdict": "PASS_SCOPED_TERMINAL_CHANNEL_AND_COMPLETE_NATIVE_INSTRUMENT",
+  "producer_manifest": "openwave-tuning/next/CHAIN5/common_charge_native_review/MANIFEST.json",
+  "producer_manifest_sha256": "7104fb54312af99ba577ed6e2a69c3bc6390954f2e4e329db3627285750a1a2b",
+  "reviewed_parts": [
+    "PROOF.md::New annex: exact terminal-observable execution",
+    "TERMINAL_ANNEX_PROGRAMS.json",
+    "TERMINAL_ANNEX_FAILURES.json",
+    "TERMINAL_ANNEX_RECORDS.json",
+    "TERMINAL_ANNEX_RESULT.json"
+  ],
+  "producer_independent": true,
+  "producer_or_prior_reviewer_executor_imported": false,
+  "first_independent_annex_review_read_before_decision": false,
+  "exact_source_block_permutation_supported": true,
+  "arbitrary_retained_reference_channel_supported": true,
+  "all36_native_programs_complete_all_column_replay": true,
+  "all_first_export_effects_and_fine_pointer_records_recomputed": true,
+  "all78_reset_probabilities_and_fine_tapes_rechecked": true,
+  "raw_native_pulses": 8000,
+  "fine_probabilities": 54756,
+  "complete_terminal_TV_upper_exact": "320137650835624685296664093320833758239487997/100433627766186892221372630771322662657637687111424552206336",
+  "complete_terminal_TV_display": 3.187554387469869e-15,
+  "output_domain": "L2 terminal regional charge/electric flux and source clock fine records with arbitrary quantum reference. Cell/internal outputs and private successful reset tapes are marginalized. Every first timeout/export remains a failure outcome.",
+  "not_approved": [
+    "Equality of full source unitaries or retained field states",
+    "Equality of private native tapes",
+    "Intermediate measurements",
+    "L>2 deterministic cell reduction",
+    "Execution of original huge full-field prefix",
+    "A new full-row award"
+  ],
+  "native_input_and_reset_scope": "All dirty logical input columns are checked for the word. Ideal blank preparation compares after marginalizing private successful reset records; first failures are never success-normalized.",
+  "initial_failed_runs": "Both preserved PATH_FAILURE logs concern nested snapshot resolution only; no mathematical gate or tolerance changed.",
+  "full_row_award": false,
+  "official_rows_changed": []
+}

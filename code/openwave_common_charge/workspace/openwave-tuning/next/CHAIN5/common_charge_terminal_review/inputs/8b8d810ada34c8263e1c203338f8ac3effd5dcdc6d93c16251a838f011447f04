@@ -1,0 +1,29 @@
+{
+  "schema": "oph.terminal_charge_heisenberg_annex.v1",
+  "producer_role": "New annex authored by this reviewer; separate root audit required.",
+  "complete_native_terminal_experiments": 36,
+  "native_pulse_count_range": [
+    135,
+    269
+  ],
+  "all_input_columns_including_dirty_probes_and_clock": true,
+  "max_all_column_ideal_operator_error": 2.2991535459369523e-14,
+  "max_coarse_record_error": 3.3084646133829665e-14,
+  "max_complete_terminal_TV_exact": "320137650835624685296664093320833758239487997/100433627766186892221372630771322662657637687111424552206336",
+  "max_complete_terminal_TV": 3.187554387469869e-15,
+  "numerical_roundoff_scope": "Binary64 diagnostic discrepancies are not the exact-rational pulse error bounds. Exact certificates, not the floating residual, certify the stated TV bound.",
+  "generic_entangled_reference_channel_diagnostic_error": 1.371209759014108e-16,
+  "original_source_g": 1,
+  "source_manifest": "719036fe46769e68202731f765045dc3d75ebc8fe6e901e85319ce435776779f",
+  "exact_ideal_terminal_effect_identity": "U_g1^dagger P_c U_g1 = P_(c xor7) on L2; after n, P_(c xor(7*(n mod2))). Source clock is unchanged h/8 per macro.",
+  "observable_domain": "Terminal regional charge/electric flux and source clock; discard cell, spin, coexact and harmonic fields; arbitrary retained quantum reference. No intermediate measurement.",
+  "not_claimed": [
+    "Equality of source unitaries",
+    "Equality of full native failure tapes",
+    "Any L>2 reduction",
+    "Any interacting dispersion/mass pole",
+    "Execution of huge original field prefix"
+  ],
+  "complete_reset_semantics": "All first reset timeouts and fine source words are retained. Displayed pulse/pointer components precede subnormalized reset-success weights; budget uses conditional uniform first-failure union bound.",
+  "ideal_reset_comparison": "Private reset fine records are marginalized for ideal blank-state comparison, and retained in reproducibility records."
+}

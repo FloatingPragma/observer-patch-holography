@@ -1,0 +1,13 @@
+SOURCE_PINS.json PASS
+SIZE3_ROUTES.json PASS
+Traceback (most recent call last):
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/dirac_kg_connection/geometry_checks.py", line 141, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/dirac_kg_connection/geometry_checks.py", line 138, in main
+    save('ROUTE_GEOMETRY.json',{'cases':routes(),'native_signed_shift':signed_native_permutations()})
+                                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/next/CHAIN4/dirac_kg_connection/geometry_checks.py", line 62, in signed_native_permutations
+    error=float(np.linalg.norm(M-target,2));assert error<2e-11
+                                                   ^^^^^^^^^^^
+AssertionError

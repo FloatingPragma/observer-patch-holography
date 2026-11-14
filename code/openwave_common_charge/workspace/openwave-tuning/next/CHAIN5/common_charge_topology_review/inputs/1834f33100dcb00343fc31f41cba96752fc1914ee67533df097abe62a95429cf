@@ -1,0 +1,166 @@
+# Opposing review of the native spectral field
+
+The reviewed producer is task 25, manifest
+`719036fe46769e68202731f765045dc3d75ebc8fe6e901e85319ce435776779f`.
+The reviewer did not author that producer. The reviewer authored its task 27
+Coulomb consumer; this review does not count as an independent review of
+task 27. Frozen producer bytes remain unchanged.
+
+The admitted experiment is the size-two, one-charge source with all 190
+coexact coordinates, three retained harmonic coordinates, initial coexact
+vacuum, harmonic Gaussian packets, and one or two completed routed macros.
+Arbitrary spectator references are admitted. The source constants are
+`a=1/2`, `b=3`. Native load, coherent export, finite blank-reset schedules,
+and the declared completed-word clock are architecture premises. An
+interacting spatial limit, physical seconds, empirical coupling agreement,
+and joint sharp-edge measurement are separate propositions.
+
+## Independent reconstruction and exact cutoff checks
+
+The audit reconstructs the actual integer incidence and face matrices from
+the frozen carrier-complex source. It checks `B A=0`, all 48 actual current
+vectors and their 190+3 coordinates, and the exact harmonic kernel and
+orthogonality. It evaluates the rounded frame Gram and curvature residual
+with direct arbitrary-precision integer products. This differs from the
+producer's split-limb implementation. The upstream geometric theorem
+`||A A^T|| <= 1504/17` is a consumed premise, not a newly proved result.
+
+Let `P` be the product of local number cuts `N_j<=R`. For a coherent branch
+with total occupation at most `L^2`, the complement of this box is contained
+in `N_total>R`. For `R+2>L^2`, positive Poisson series give
+
+    point = (L^2)^(R+1)/(R+1)!,
+    tail <= point (R+2)/(R+2-L^2).
+
+Each lowering boundary has norm `sqrt(R+1)`. Its local boundary probability
+is at most `point`; the remaining mode projectors only reduce the norm.
+The triangle inequality and Cauchy–Schwarz give the boundary source
+`sqrt(Bpath) sqrt(190) ||gamma|| sqrt(R+1) sqrt(point)`.
+The source is integrated over every current interval, including repeated
+or inverse intervals. The accumulated length is the sum of interval
+lengths, not the final displacement. Adding the terminal tail and squaring
+proves the producer's factor `2 Bpath [tail+190 L^2(R+1)point]`.
+
+The path weight `sqrt(Bpath)` remains valid with reference vectors. At each
+signed-axis split, the two spin spectral projectors form an orthogonal
+resolution. The sum of squared coefficient-vector norms over all fine
+histories stays one. Cauchy–Schwarz then bounds their sum of norms. Eight
+possible starting cells and three binary splits per macro give
+`Bpath=8*8^macros`. This is a state/preparation-dependent theorem, not a
+uniform operator approximation of an unbounded oscillator on arbitrary
+field inputs.
+
+For a harmonic coordinate, conjugation of the auxiliary annihilator gives
+`u c+v c†+alpha`, with `|u|+|v|<=1+aT` and
+`|alpha|<=(1+aT)S`. After `r` number-factor applications to vacuum the
+polynomial degree is at most `2r`. Bounding the annihilation/creation
+operators on the intermediate degrees up to `2k` proves
+
+    ||(N+1)^k psi|| <= [((1+aT)sqrt(2k)+(1+aT)S)^2+1]^k.
+
+The tail norm beyond `R` is at most this number divided by `(R+2)^k`.
+There are three harmonic tails. The kick crosses one boundary with
+coefficient `sqrt((R+1)/2)`. The compressed full `a p²/2` crosses the two
+orthogonal channels `R+1 -> R-1` and `R+2 -> R`; their larger coefficient
+is `a sqrt((R+1)(R+2))/4`. Orthogonality means the operator norm is this
+maximum, not their sum. Summing three mode/time contributions gives the
+producer's harmonic estimate. Finite direct matrices independently check
+both coefficients. Replacing compressed full `p²` by squared compressed
+`p` loses the top diagonal `(R+1)/8` for `a=1/2`; this mutation is rejected.
+
+## Spectral frame and strengthened vacuum estimate
+
+The physical coexact frame is `U=polar(K Q Lambda^-1)`. If
+`V=K Q Lambda^-1`, the producer checks
+`||V-Q||<=r/min(Lambda)` and `||V^T V-I||<=polar_error<1`.
+The singular-value formula for polar decomposition gives
+`||U-V||<=polar_error`, hence the stated `delta` bound for `||U-Q||`.
+Then
+
+    ||U^T K U-Lambda|| <= r+(||K||+max(Lambda))delta = eta_bound.
+
+No rounded eigenvector is treated as exact. Vacuum perturbation, every free
+interval, and every current-coordinate error remain separate. The fourth
+Gaussian moment is bounded by
+`v²[(4L²+190)²+16L²+380]`; this supplies the published quadratic Duhamel
+term. Its current term uses `delta ||J|| sqrt(v(4L²+1))`. The audit
+recomputes these exact rational upper bounds independently.
+
+The published vacuum estimate is valid but can be strengthened without
+changing any source, state preparation, or native word. Set
+
+    C = U^T K U, lambda0 = min(Lambda)-eta > 0,
+    W = sqrt((b/a) C), W0 = sqrt((b/a) Lambda),
+    rho = eta/(2 lambda0) < 1.
+
+The Sylvester equation for the difference of positive square roots, or its
+convergent positive-semigroup integral, gives
+
+    ||W-W0|| <= sqrt(b/a) eta/(2 sqrt(lambda0)).
+
+Consequently the symmetric positive matrix
+`R=W0^(-1/2) W W0^(-1/2)` obeys `||R-I||<=rho`. This does not require C and
+Lambda to commute. For eigenvalues `r_j` of R, direct Gaussian integration
+of the normalized positive real wavefunctions gives
+
+    overlap² = product_j 2 sqrt(r_j)/(1+r_j),
+    -log(overlap²) = sum_j log cosh(log(r_j)/2).
+
+Using `log cosh(x)<=x²/2`, `|log(r_j)|<=rho/(1-rho)`, and
+`2(1-exp(-x/2))<=x`, their norm difference satisfies
+
+    ||Omega_C-Omega_Lambda||
+       <= sqrt(190/8) rho/(1-rho).
+
+The audit evaluates a rational outward square root for this formula. It
+replaces only the old vacuum term in both one/two-macro complete-record
+and Fourier-edge budgets. The other terms, including native failure and
+reset probabilities, stay unchanged. `BOUNDS.json` contains both the
+published and improved exact bounds. This is an additive certificate, not
+a mutation of the frozen producer receipt.
+
+## Native word, resource and record checks
+
+The pair generator is extracted from the frozen producer and evaluated by
+an independent sparse Pauli action on every binary column. Every ordered
+pair on one, two and three field bits is tested, with both X/Y quadratures
+and both predicate values. False predicates and every unrelated/padding
+column must have zero generator. Exact dyadic real and imaginary sums are
+used in this finite check.
+
+The adjacent-pair translation product has commutators only between
+neighbors. `sqrt(n(n+1))<=n+1` proves the stated safe
+`gamma² R(R+1)/(4s)` bound. The harmonic diagonal/pair norm sum bounds its
+first-order product formula by `S_H²/(2s)`. The coefficient interval radius
+times `||a+a†||<=2 sqrt(R)` explains the width-times-`sqrt(R)` price. All
+190 free frequencies and all ladder square-root roundings are included.
+
+The audit independently recomputes the actual cap-dependent Pauli counts,
+the four-bit routed predicates, the `8k+1` native-pulse envelope, the field
+memory count, every additive complete-record budget, and reset union
+probabilities. The upstream rational universal-compiler theorem is a
+declared consumed theorem; this audit does not duplicate that entire
+compiler proof. Its use must cover full source response, including export
+complements, rather than a success-normalized logical map.
+
+The five frozen local words are replayed independently from the twelve
+literal six-level source generators using a direct scatter implementation.
+All input columns and accumulated first-export-complement Gram matrices
+are retained. Both quadratures, both predicates, padding, vacuum phase,
+and compressed harmonic free motion are compared with separately assembled
+target matrices. The eight-pulse READY-pointer word is replayed on all
+eight columns. Both C/E fine-effect families are positive and sum to the
+identity. Floating residuals corroborate the analytic certificates; they
+are not reported as rigorous bounds below machine precision.
+
+For one-edge `exp(i t E_edge)`, the control doubles the fine branch bound.
+Its extra coexact Weyl length uses `omega_max/(2a)` and its harmonic length
+is bounded by `|t|`. The physical U versus implemented Q measurement term,
+probe reset, pointer reset, native exports and every fine C/E effect remain
+in the complete record law. This does not supply a joint sharp-edge PVM.
+
+The huge full-field words remain finite unevaluated iterators. Local
+all-column executions and analytic composition bounds do not imply their
+execution. This audit can support the scoped finite-field component; it
+does not award a complete physical row or resolve the empirical coupling
+mismatch in the separate Coulomb application.

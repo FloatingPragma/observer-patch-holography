@@ -1,0 +1,85 @@
+{
+  "schema": "oph.local12.full_source_error.v1",
+  "candidate_id": "native-local12-current-v0-proposed",
+  "checks": {
+    "frozen_transitive_source_custody_verified": true,
+    "all_reversible_primitive_templates_consumed": true,
+    "uniform_three_component_rotations_certified": true,
+    "full_reflection_scalar_phase_certified": true,
+    "all_actual_swap_routine_uses_counted": true,
+    "integer_outward_Qsqrt5_response_bounds": true,
+    "global_sign_mutation_rejected": true,
+    "source_bytes_unchanged": true
+  },
+  "primitive_operator_errors_exact": {
+    "ccx": "8679288460106716545640080567031173/1461501637330902918203684832716283019655932542976",
+    "cx": "383614169009680905524756562450101/730750818665451459101842416358141509827966271488",
+    "flip": "667579833032522899382838194959367/1461501637330902918203684832716283019655932542976",
+    "hadamard": "771311508501877184126062065889455/1461501637330902918203684832716283019655932542976"
+  },
+  "uniform_preparation_operator_error_exact": "7735782973620501561074903560930725/1461501637330902918203684832716283019655932542976",
+  "reflection_operator_error_exact": "43122641012975575245879811881904545/1461501637330902918203684832716283019655932542976",
+  "swap_operator_error_exact": "23955236016256002359880492836931042379/365375409332725729550921208179070754913983135744",
+  "whole_W_operator_error_exact": "95864066706036985014767851159606074061/1461501637330902918203684832716283019655932542976",
+  "whole_W_operator_error_upper": 6.55928561812019e-11,
+  "whole_source_preparation_error_exact": "16242877455742880306275869187750905/1461501637330902918203684832716283019655932542976",
+  "whole_source_preparation_error_upper": 1.1113827751439791e-14,
+  "source_W_pulses": 432425,
+  "counts": {
+    "flip": 8712,
+    "ccx": 10370,
+    "cx": 1
+  },
+  "uniform_rotations": [
+    {
+      "plane": [
+        0,
+        1
+      ],
+      "normalized_squared_weights": [
+        1,
+        2
+      ],
+      "literal_ordered_plane_angle": "-8604727130812765/9007199254740992",
+      "trigonometric_error_upper_exact": "20254068652321313504935703578379/730750818665451459101842416358141509827966271488"
+    },
+    {
+      "plane": [
+        1,
+        3
+      ],
+      "normalized_squared_weights": [
+        1,
+        1
+      ],
+      "literal_ordered_plane_angle": "-884279719003555/1125899906842624",
+      "trigonometric_error_upper_exact": "31639904851119621750582126938225/730750818665451459101842416358141509827966271488"
+    },
+    {
+      "plane": [
+        3,
+        2
+      ],
+      "normalized_squared_weights": [
+        0,
+        1
+      ],
+      "literal_ordered_plane_angle": "-884279719003555/562949953421312",
+      "trigonometric_error_upper_exact": "89491165105295306356862099245815/1461501637330902918203684832716283019655932542976"
+    }
+  ],
+  "complete_channel_bound": "Retained source/export Stinespring norm error <= delta; diamond norm <=2delta and total variation <=delta for arbitrary reference inputs in the declared clean work sector. For n steps use n*whole_W_error; add source preparation, apparatus and explicit reset timeout separately.",
+  "physical_scope": "Exact retained Q(sqrt(5)) response evaluated at literal binary64 integrated controls, with declared ideal coherent load/export service. No uncontrolled laboratory noise or physical time calibration is bounded.",
+  "source_sha256": {
+    "openwave-tuning/auditor/common_walk_review/source_error.py": "611f6352a23e5b6c40006ec058886070a9efe38d9886972d21d67c5e55d7fb6c",
+    "reverse-engineering-reality/model/certified_reference/certificate.py": "5f40516d46d9d17ccb093727d4aec64ae455e6a549a615001a2c4d737da0a9e3",
+    "reverse-engineering-reality/model/certified_reference/interval.py": "9309359ad336ca95c478499fa12cb66389809ffb0104ff3e6ec64623cf032bb1",
+    "reverse-engineering-reality/model/certified_reference/source.py": "f01634916ee9a2cc82c29521f240ddf9ae889eadd67227202c2d7de3cb9078c4",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_SOURCE_CUSTODY.json": "4d1f9c213f2dba5416dd9085f34be8082d4d65e7c3e10b8649bed27d4bab563a",
+    "openwave-tuning/auditor/native_walk_bridge/compile_walk.py": "26371a86d04d7853ab03dbccb46f89a65c809fb6d75480312b0ed61b0259ada2",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_RECEIPT.json": "39e2d7a6dace9ff549d8e68974239c11f03316550a36f1c708302dd562048052",
+    "openwave-tuning/auditor/native_walk_bridge/COMMON_WALK_PROGRAM.json": "0439ac27c173d074871122cf893afd2617243003906f51865490cd6e4f73d7e7"
+  },
+  "official_rows_changed": []
+}

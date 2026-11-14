@@ -1,0 +1,31 @@
+{
+  "schema": "oph.row30.dirac_kg.opposing.full_review.v1",
+  "reviewer": "/root/coulomb_finish",
+  "producer_independent": true,
+  "full_criterion_met": true,
+  "candidate_id": "native-local12-dirac-noncompact-flavor-coupling-v1",
+  "source_member": {
+    "coupling_exact": "0",
+    "operation": "declared neutral/free intervention; not a neutral block in fixed g=1"
+  },
+  "criterion": "emergent ω² = k² + m² for matter waves",
+  "criterion_sha256": "85edfe6f1eb9c189c6c83ec00cfb45c5bb63b863ecd5c4fe6529bdbe3a77cea5",
+  "producer_manifest": "openwave-tuning/next/CHAIN4/dirac_kg_connection/MANIFEST.json",
+  "producer_manifest_sha256": "398482e1a7e05fcba687cabe6056b9f870c8e364fad47abd4f8244db4a2187f8",
+  "review_file": "openwave-tuning/next/CHAIN5/dirac_kg_opposing_review/PROOF.md",
+  "review_sha256": "727b5fa89059ea1301e810e1bdce7b1daf22595d8e327fb2e49c5090896bcec7",
+  "result_sha256": "55451951df8e79d4261ea2b0d0d6bda3191e664480ec8f305b1de3db6fab00b9",
+  "upstream_relationship": "Reviewer authored Coulomb consumer27 and previously reviewed field25. KG producer, independent execution/math/record audit and fresh cases are distinct; common primitive/compiler certificates are reused as source definitions.",
+  "scope": "Full literal free matter-wave KG criterion on g=0 with actual signed LOCAL12 geometry, common physical h clock and c=1, all spin/flavor/padding, native preparations, controlled tomography and complete failure/readout instruments. No interacting g=1 mass-pole/continuum or larger-L full coupled-field native award.",
+  "executed_checks": {
+    "input_files": 1321,
+    "native_pulses": 5485,
+    "distinct_pulse_certificates": 149,
+    "fresh_momentum_cases": 72,
+    "joint_CE_arrays": 21504,
+    "component_TV_budgets": 5376,
+    "fresh_size5_routes": 750
+  },
+  "material_repairs_required": [],
+  "official_rows_changed": []
+}
