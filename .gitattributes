@@ -33,3 +33,6 @@ code/source_routing_refinement/controls/*.tape -text -eol -diff
 # whitespace, so Zenodo's checksums verify on every checkout platform.
 model/anharmonic_observations/data/** -text -eol -diff
 model/anharmonic_transfer/data/** -text -eol -diff
+
+# Native observable CSV receipts are byte-hashed outputs of csv.DictWriter.
+code/openwave_candidate/validation/observables/modular_time/correlations.csv -text -eol
