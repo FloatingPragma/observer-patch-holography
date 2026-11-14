@@ -150,12 +150,36 @@ commutes with the declared field term, but no physical pulse duration or
 complete apparatus cost is derived. Fixed-number reference branches cannot
 detect a removed spectator-parity sign. A separate cross-number coherence
 control detects that mutation with conditional trace distance one; this
-control is an admitted mathematical state, not a physical preparation claim.
+control is a formal cross-parity mathematical state, not a physical
+preparation claim. On parity-block-diagonal source states the removed sign
+is constant within each branch and parity block, so this particular
+mutation has the same conditional state maps. The full operator convention
+and the admitted measurement algebra must be distinguished.
 The [receipt](reservoir_results.json) binds the target code before and after
 extraction and retains all outcomes, including unchanged source number.
 
 ```sh
 python3 code/openwave_audit/reservoir_audit.py --c10 ../openwave-tuning/next/C10 --output code/openwave_audit/reservoir_results.json
+```
+
+The [native pair record proof](PAIR_RECORD_PROOF.md) extends Fable LA_L02's
+cycle-martingale trace result to every finite connected simple graph and
+to the full covariance. With \(N\) vertices, \(M\) edges, a uniformly
+chosen oriented adjacent excess/deficit pair, and its compensating integer
+current record,
+
+\[
+\mathbb E[F_\tau F_\tau^T]=(N/M)P_{\rm cycle}.
+\]
+
+Each edge carries exactly \((N-1)/M\) expected nonzero transfers before
+annihilation. The [exact checks](pair_record_covariance.py) use rational
+arithmetic on six graphs and compare the full formula to Fable's saved
+carrier moment matrix. This can simplify a subsequent declared linear
+field readout; it derives no field propagation or energy from the native law.
+
+```sh
+python3 code/openwave_audit/pair_record_covariance.py --fable ../openwave-push --output code/openwave_audit/pair_record_covariance_results.json
 ```
 
 **Scope**: finite source arithmetic, complete modular records, specified

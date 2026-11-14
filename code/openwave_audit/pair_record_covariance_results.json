@@ -1,0 +1,335 @@
+{
+  "schema": "oph.audit.native_pair_covariance.v1",
+  "checks": {
+    "exact_per_edge_counts_all_six_graphs": true,
+    "exact_lifetimes_all_six_graphs": true,
+    "exact_cycle_projectors_all_six_graphs": true,
+    "actual_carrier_moment_matrix_matches": true,
+    "comparison_sources_unchanged": true,
+    "arbitrary_preparation_transfer_rejected": true
+  },
+  "exact_cases": {
+    "path4": {
+      "vertices": 4,
+      "edges": 3,
+      "per_edge_transfer_means": [
+        "1",
+        "1",
+        "1"
+      ],
+      "adjacent_mean_lifetime": "6",
+      "predicted_record_squared_norm": "0",
+      "expected_record_second_moment": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "every_edge_mean_exact": true,
+      "lifetime_exact": true,
+      "projector_exact": true,
+      "fixed_first_edge_changes_traversal_vector": true
+    },
+    "star5": {
+      "vertices": 5,
+      "edges": 4,
+      "per_edge_transfer_means": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "adjacent_mean_lifetime": "10",
+      "predicted_record_squared_norm": "0",
+      "expected_record_second_moment": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "every_edge_mean_exact": true,
+      "lifetime_exact": true,
+      "projector_exact": true,
+      "fixed_first_edge_changes_traversal_vector": true
+    },
+    "triangle_tail": {
+      "vertices": 4,
+      "edges": 4,
+      "per_edge_transfer_means": [
+        "3/4",
+        "3/4",
+        "3/4",
+        "3/4"
+      ],
+      "adjacent_mean_lifetime": "6",
+      "predicted_record_squared_norm": "1",
+      "expected_record_second_moment": [
+        [
+          "1/3",
+          "1/3",
+          "-1/3",
+          "0"
+        ],
+        [
+          "1/3",
+          "1/3",
+          "-1/3",
+          "0"
+        ],
+        [
+          "-1/3",
+          "-1/3",
+          "1/3",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "every_edge_mean_exact": true,
+      "lifetime_exact": true,
+      "projector_exact": true,
+      "fixed_first_edge_changes_traversal_vector": true
+    },
+    "diamond": {
+      "vertices": 4,
+      "edges": 5,
+      "per_edge_transfer_means": [
+        "3/5",
+        "3/5",
+        "3/5",
+        "3/5",
+        "3/5"
+      ],
+      "adjacent_mean_lifetime": "6",
+      "predicted_record_squared_norm": "8/5",
+      "expected_record_second_moment": [
+        [
+          "3/10",
+          "-3/10",
+          "1/5",
+          "1/10",
+          "-1/10"
+        ],
+        [
+          "-3/10",
+          "3/10",
+          "-1/5",
+          "-1/10",
+          "1/10"
+        ],
+        [
+          "1/5",
+          "-1/5",
+          "2/5",
+          "-1/5",
+          "1/5"
+        ],
+        [
+          "1/10",
+          "-1/10",
+          "-1/5",
+          "3/10",
+          "-3/10"
+        ],
+        [
+          "-1/10",
+          "1/10",
+          "1/5",
+          "-3/10",
+          "3/10"
+        ]
+      ],
+      "every_edge_mean_exact": true,
+      "lifetime_exact": true,
+      "projector_exact": true,
+      "fixed_first_edge_changes_traversal_vector": true
+    },
+    "house5": {
+      "vertices": 5,
+      "edges": 6,
+      "per_edge_transfer_means": [
+        "2/3",
+        "2/3",
+        "2/3",
+        "2/3",
+        "2/3",
+        "2/3"
+      ],
+      "adjacent_mean_lifetime": "10",
+      "predicted_record_squared_norm": "5/3",
+      "expected_record_second_moment": [
+        [
+          "5/22",
+          "5/33",
+          "5/22",
+          "-5/22",
+          "5/66",
+          "-5/66"
+        ],
+        [
+          "5/33",
+          "25/66",
+          "5/33",
+          "-5/33",
+          "-5/22",
+          "5/22"
+        ],
+        [
+          "5/22",
+          "5/33",
+          "5/22",
+          "-5/22",
+          "5/66",
+          "-5/66"
+        ],
+        [
+          "-5/22",
+          "-5/33",
+          "-5/22",
+          "5/22",
+          "-5/66",
+          "5/66"
+        ],
+        [
+          "5/66",
+          "-5/22",
+          "5/66",
+          "-5/66",
+          "10/33",
+          "-10/33"
+        ],
+        [
+          "-5/66",
+          "5/22",
+          "-5/66",
+          "5/66",
+          "-10/33",
+          "10/33"
+        ]
+      ],
+      "every_edge_mean_exact": true,
+      "lifetime_exact": true,
+      "projector_exact": true,
+      "fixed_first_edge_changes_traversal_vector": true
+    },
+    "K4": {
+      "vertices": 4,
+      "edges": 6,
+      "per_edge_transfer_means": [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2"
+      ],
+      "adjacent_mean_lifetime": "6",
+      "predicted_record_squared_norm": "2",
+      "expected_record_second_moment": [
+        [
+          "1/3",
+          "-1/6",
+          "-1/6",
+          "1/6",
+          "1/6",
+          "0"
+        ],
+        [
+          "-1/6",
+          "1/3",
+          "-1/6",
+          "-1/6",
+          "0",
+          "1/6"
+        ],
+        [
+          "-1/6",
+          "-1/6",
+          "1/3",
+          "0",
+          "-1/6",
+          "-1/6"
+        ],
+        [
+          "1/6",
+          "-1/6",
+          "0",
+          "1/3",
+          "-1/6",
+          "1/6"
+        ],
+        [
+          "1/6",
+          "0",
+          "-1/6",
+          "-1/6",
+          "1/3",
+          "-1/6"
+        ],
+        [
+          "0",
+          "1/6",
+          "-1/6",
+          "1/6",
+          "-1/6",
+          "1/3"
+        ]
+      ],
+      "every_edge_mean_exact": true,
+      "lifetime_exact": true,
+      "projector_exact": true,
+      "fixed_first_edge_changes_traversal_vector": true
+    }
+  },
+  "saved_carrier_comparison": {
+    "matrix_max_error": 1.5709655798445965e-14,
+    "trace_observed": 7.600000000000469,
+    "trace_predicted": 7.599999999999998,
+    "expected_trace_exact": "38/5",
+    "source_sha256": {
+      "../reverse-engineering-reality/evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+      "issues/LA_L02/carrier_record_second_moment.npy": "5e93c8150017143bf2b00c20babb744e622c3500f8360bc13ddc6b7d50ac3832",
+      "kernel/ophk.py": "5b7e10aa60af47fc67a90057469c2ed6fbf2706859ca41d8140c34fbf39f2be0",
+      "issues/LA_L02/audit.py": "f3994b99257b545a37ec59bf37f6a082aa3cd179d445243c8c2b18ebdd27242d"
+    },
+    "sources_unchanged": true
+  },
+  "theorem": "For a uniformly chosen oriented initial edge with one excess, one deficit and its compensating integer C record, E[F_tau F_tau^T]=(N/M)P_cycle on every finite connected simple graph. Mean nonzero transfers on each edge are (N-1)/M.",
+  "scope": "Uniform independent seam attempts, fair coins, classical integer current records and absorption of one signed pair only. No coherent Hamiltonian, modular representative energy, physical photon or in-platform row award.",
+  "reviewer_sha256": "e691f664cd69aa44544a60f059eeb834f23492bf7523dc01b8b22fc401802d63"
+}
