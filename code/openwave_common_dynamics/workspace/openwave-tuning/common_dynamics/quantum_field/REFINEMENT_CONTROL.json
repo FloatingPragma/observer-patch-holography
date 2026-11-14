@@ -1,0 +1,76 @@
+{
+  "schema": "oph.local12.quantum_gaussian_refinement_control.v1",
+  "checks": {
+    "actual_finite_cosine_source_executed": true,
+    "metaplectic_Gaussian_evolution_executed": true,
+    "every_scalar_phase_retained": true,
+    "no_output_phase_alignment": true,
+    "analytic_state_bound_controls_all_cases": true,
+    "complete_final_field_records": true,
+    "source_bytes_unchanged": true
+  },
+  "cases": [
+    {
+      "modulus": 16,
+      "epsilon_squared": "1/3",
+      "substeps": 8,
+      "initial_state_error": 7.992961381904439e-11,
+      "phase_sensitive_final_norm_error": 0.28640252443866593,
+      "analytic_norm_bound": 2.0000000000000004,
+      "phase_alignment_performed": false,
+      "electric_TV": 0.14744217904835152,
+      "angle_TV": 0.15786227025908628
+    },
+    {
+      "modulus": 128,
+      "epsilon_squared": "1/12",
+      "substeps": 8,
+      "initial_state_error": 4.693672332554149e-14,
+      "phase_sensitive_final_norm_error": 0.06994494628480573,
+      "analytic_norm_bound": 0.1564083195459793,
+      "phase_alignment_performed": false,
+      "electric_TV": 0.011458873352984424,
+      "angle_TV": 0.04235222984832355
+    },
+    {
+      "modulus": 512,
+      "epsilon_squared": "1/48",
+      "substeps": 8,
+      "initial_state_error": 4.8730745126453263e-14,
+      "phase_sensitive_final_norm_error": 0.016954470778771005,
+      "analytic_norm_bound": 0.03907796419379733,
+      "phase_alignment_performed": false,
+      "electric_TV": 0.0022861721963311297,
+      "angle_TV": 0.010253133990420587
+    },
+    {
+      "modulus": 2048,
+      "epsilon_squared": "1/192",
+      "substeps": 8,
+      "initial_state_error": 4.826151625849924e-14,
+      "phase_sensitive_final_norm_error": 0.004202092008734024,
+      "analytic_norm_bound": 0.009769491048776042,
+      "phase_alignment_performed": false,
+      "electric_TV": 0.0005376857728050847,
+      "angle_TV": 0.002528402405897804
+    },
+    {
+      "modulus": 2048,
+      "epsilon_squared": "1/192",
+      "substeps": 64,
+      "initial_state_error": 4.937017936781371e-14,
+      "phase_sensitive_final_norm_error": 0.00392768600289004,
+      "analytic_norm_bound": 0.009266399168211991,
+      "phase_alignment_performed": false,
+      "electric_TV": 0.00054708057231202,
+      "angle_TV": 0.0024120491020201643
+    }
+  ],
+  "scope": "Floating independent controls of the separately outward-certified theorem. The Gaussian reference is an optical cycle oscillator, not an interacting photon vacuum. Native q16 apparatus is supplied separately; larger alphabets are ideal source executions with no inherited native pulse precision.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/quantum_field/refinement_control.py": "5dd37e9b557fe77a6507fb8219d84b2295736cd9176cd3ea49d3041ba54e4b35",
+    "openwave-tuning/common_dynamics/quantum_field/quantum_state.py": "7739ddaa78526ad377ea89d7a30f8473d66b62a4640df57b3a56e2dfb468c22d",
+    "openwave-tuning/common_dynamics/quantum_field/GAUSSIAN_BOUNDS.json": "bf78b5b28631d715bb89a584e29e722a61f7dcb91944ebb1dfe8e0b2dc140b11"
+  },
+  "official_rows_changed": []
+}

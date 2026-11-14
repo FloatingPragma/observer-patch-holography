@@ -1,0 +1,35 @@
+{
+  "schema": "oph.two_charge.independent_source_matrix_audit.v1",
+  "status": "PASS_SCOPED_SOURCE_PULSE_AND_FACTORIZED_RECORD_LAW",
+  "column_operator_upper": 1.0010738619227018e-13,
+  "common_field_factor_error": 1.0074624958465079e-14,
+  "record_law": [
+    0.9945942875911937,
+    0.0018019041363051193,
+    0.0018019041363049686,
+    0.001801904136305041
+  ],
+  "connected_record_TV": 0.005405712408914715,
+  "all64_records_reproduced": true,
+  "reference_columns_retained": 4,
+  "mutation_controls": {
+    "omit_inverse_transport": true,
+    "independent_electric_fields": true,
+    "connected_phase_disappears_in_additive_control": true,
+    "nonzero_connected_phase_in_actual_source": true,
+    "dephase_prepared_qubits": true,
+    "drop_nonzero_plaquette_labels": true
+  },
+  "source_pins": {
+    "two_charge_response/EDGE_ECHO.json": "ff779e1d183216ca424bb88a003b28d4642c8473bd965de77cd5e342afff9896",
+    "two_charge_response/FULL_V_ECHO.json": "e2d48deca4cd630aeddec3c7313510c71c6e369507347e252147b975504dfc5a",
+    "two_charge_response/INPUT_SNAPSHOT.json": "fd7e0ca41714dd54ce5105937741e62b6fec9d76629480914022d9e8118f66e8",
+    "two_charge_response/IMPORT_ANNEX.json": "fbc9283976273d935ad9bffff3265de8f670b345d7b181cac29beaa0ef687b61",
+    "two_charge_response/inputs/reverse-engineering-reality/code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "two_charge_response/inputs/reverse-engineering-reality/code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "two_charge_response/inputs/openwave-tuning/common_dynamics/vector_field/FIELD_PROGRAM.json": "f04a9a3011d8f5f58156162cb7ac937455ab3c56a8aa82d3ecd669822ae9e456"
+  },
+  "scope": "Independent M6 matrix/bit-index pulse replay and 64-outcome factorized law. Full-source graph embedding and complete apparatus bound are separately audited dependencies; no independent 3203-qubit array execution.",
+  "official_rows_changed": [],
+  "force_or_Coulomb_claim": false
+}

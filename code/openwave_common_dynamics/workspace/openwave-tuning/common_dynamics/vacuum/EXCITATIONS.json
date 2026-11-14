@@ -1,0 +1,72 @@
+{
+  "schema": "oph.dirac.reference_excitation_audit.v1",
+  "checks": {
+    "all147456excitation_columns_keep_native_phase": true,
+    "full_fermionic_exchange_sign_control": true,
+    "positive_energy_pair_reference_domain": true,
+    "same_macro_different_logarithm_vacuum_rejected": true,
+    "source_bytes_unchanged": true
+  },
+  "complete_laws": [
+    {
+      "kind": "vacuum",
+      "complete_outcomes": 65536,
+      "translation_eigenvalue": 1,
+      "mass_beta_sum": 0,
+      "relative_energy_in_declared_lift": 0.0,
+      "actual_macro_eigenphase": [
+        1.0,
+        0.0
+      ],
+      "omitted_CAR_sign_wrong_columns": 32768
+    },
+    {
+      "kind": "particle",
+      "complete_outcomes": 32768,
+      "translation_eigenvalue": 1,
+      "mass_beta_sum": 1,
+      "relative_energy_in_declared_lift": 0.39999999999999997,
+      "actual_macro_eigenphase": [
+        0.9992001066609779,
+        -0.03998933418663416
+      ],
+      "omitted_CAR_sign_wrong_columns": 16384
+    },
+    {
+      "kind": "hole",
+      "complete_outcomes": 32768,
+      "translation_eigenvalue": 1,
+      "mass_beta_sum": 1,
+      "relative_energy_in_declared_lift": 0.39999999999999997,
+      "actual_macro_eigenphase": [
+        0.9992001066609779,
+        -0.03998933418663416
+      ],
+      "omitted_CAR_sign_wrong_columns": 16384
+    },
+    {
+      "kind": "neutral_pair",
+      "complete_outcomes": 16384,
+      "translation_eigenvalue": 1,
+      "mass_beta_sum": 2,
+      "relative_energy_in_declared_lift": 0.7999999999999999,
+      "actual_macro_eigenphase": [
+        0.9968017063026194,
+        -0.0799146939691727
+      ],
+      "omitted_CAR_sign_wrong_columns": 8192
+    }
+  ],
+  "logarithm_control": {
+    "negative_modes_principal": 16,
+    "negative_modes_shifted": 15,
+    "unitary_eigenvalue_difference": 6.106226635438361e-16
+  },
+  "scope": "Exact free CAR-lift excitation coefficients on the uniform Gauss fibre. A Gaussian or interacting field preparation does not inherit these exact eigenphases.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/vacuum/excitation_audit.py": "8f2829fb8a937f0395ef8ac10a10dc68aa58b8db0572d54268df1a439529e83c",
+    "openwave-tuning/common_dynamics/vacuum/reference.py": "38a79b8a9ecbdc66b51559466a546d88b8ab64b4ad288de39434a5214f409582",
+    "openwave-tuning/common_dynamics/vacuum/REFERENCE.json": "91852a559fc9cbb0e971f8762564267e303c014c2c2aed1a79f2f359df4ca5f4"
+  },
+  "official_rows_changed": []
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "oph.common_physical_dynamics.source_contract.v0",
+  "candidate_id": "native-local12-current-v0-proposed",
+  "status": "Base finite source frozen; typed field, mass and spin amendments have separate state/clock/instrument domains. No official physical criterion established.",
+  "source_dependencies": {
+    "reverse-engineering-reality/model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "reverse-engineering-reality/model/openwave_coherent_native_architecture/source.py": "27e179a5d827244423c02f7b30ee45c3ac441cc05aad835397a5d619f2d738ed",
+    "reverse-engineering-reality/model/native_spatial_refinement/source.py": "b4576a37b7610418f810ab7beebf5e52a7eeab80f66c7260ace149de9c733733",
+    "reverse-engineering-reality/model/CONSTRUCTION.md": "a6626361b53e3df65bc3be32361cad776e9dbae820878bb4c38ff5220a1d612f"
+  },
+  "geometry": "declared degree-six cubic routing of actual twelve-port icosahedral cells; existing development L=2,3,4 only",
+  "local_quantum_state": "position x and12 direction/recoded-coin slots, with full power-of-two padding and retained original-law/raw-record apparatus",
+  "update": "W=S R, R=2AA*-I; A|x>=|x> tensor uniform12; S is hold for coin0 and flip-flop neighbour/reverse-direction transport for coin1",
+  "population_compression": "A*S A = I-L_graph/12",
+  "source_amendment": "Local-addressed coherent continuation is a declared architecture, distinct from repeated committed native C/E and from global2M-event W. No uniqueness claim required.",
+  "global_comparison": "T_global=(1-6/M)I+(6/M)T_local at the one-load population level only; full original quantum records require separate recoding and cannot be transferred by this identity.",
+  "clock": "DYN04 supplies t=n*tau0*h with native relative-phase tick h/8. Physical service duration and finite-shot resolution are separately accounted. DYN08 attaches the tick to its complete field word.",
+  "current_field_extension": "DYN03 proposes S_F with actual signed current shifts and Gauss n+BF; all memory sectors and preparation complements retained",
+  "many_body_extension": "DYN06 proposed fermionic Gamma(W) amendment supplies CAR signs and mode-number occupations; it differs from aggregate native balancing. Binary shared-event extension is a separate comparison.",
+  "architecture_change_rule": "Any added state, generator, coefficient, scheduler or decoder changes this version and names dependent results needing recheck. No row worker may privately select a new Hamiltonian.",
+  "comparisons_only": [
+    "C10 384-state interacting CAR source until explicit transfer",
+    "192-CAR calibrated longitudinal detector/archive until explicit transfer",
+    "thermal Green-feedback scheduler until explicit transfer",
+    "global2M-event coherent walk until full source/clock transfer"
+  ],
+  "validation_requirements": [
+    "complete output laws including failure/hold/padding/reset",
+    "arbitrary-reference or explicitly classical domain",
+    "actual source and preparation hashes",
+    "controlled refinement error on the declared observable domain",
+    "one common clock/reference/units contract",
+    "falsifying controls"
+  ],
+  "reserved_acceptance_runs_allowed": false,
+  "official_rows_changed": [],
+  "field_geometry_proposal": {
+    "source": "common_dynamics/vector_field/cell_complex.py",
+    "receipt": "common_dynamics/vector_field/CELL_COMPLEX.json",
+    "status": "Exact local two-cell geometry; DYN08 field generator is an explicitly named amendment below.",
+    "size2_integral_homology": "193 graph cycles /190 primitive face boundaries = Z^3",
+    "changes_to_existing_W": false
+  },
+  "amendments": [
+    {
+      "candidate_id": "native-local12-fermion-modes-v1-proposed",
+      "source": "common_dynamics/manybody/MANIFEST.json",
+      "changes": [
+        "CAR Fock modes and signs",
+        "mode occupation transport",
+        "modular-current attachment"
+      ],
+      "transfer": "One-particle sector restricts to the original coherent walk; aggregate multi-load balancing does not."
+    },
+    {
+      "candidate_id": "native-local12-fermion-plaquette-v2-proposed",
+      "source": "common_dynamics/vector_field",
+      "changes": [
+        "Z16 field on all288edges",
+        "electric centered-square phase",
+        "208 declared face shifts with explicit coefficients"
+      ],
+      "update": "V=U_E U_B Gamma(W)_F",
+      "preparation": "Executed one particle at vertex0,F0 or separate one-hole preparation; uniform affine cycle code is a different state.",
+      "members": {
+        "executed": "three steps; alpha=.17,beta_face0=.41,207other beta0",
+        "harmonic_speed_adapter": "homogeneous alpha1/8,beta1/4 gives leading speed1/sqrt48; coefficients differ from the finite one-face experiment"
+      },
+      "transfer": "A same-family interaction and a homogeneous harmonic calculation; no claim that the executed sparse member is homogeneous Maxwell."
+    },
+    {
+      "candidate_id": "native-local12-mass-fermion-plaquette-v3-proposed",
+      "source": "common_dynamics/particles",
+      "changes": [
+        "mass coin R exp(-i h m R) applied through Fock Gaussian lift"
+      ],
+      "update": "V_m=U_E U_B Gamma(S)_F Gamma(R exp(-i h m R))",
+      "coefficient_ancestry": "m is a declared architectural input; no electron-mass prediction",
+      "transfer": "Free source dispersion and continuum bound are proved separately; the field-coupled member has direct complete finite readout, not an inherited free interacting pole."
+    },
+    {
+      "candidate_id": "native-local12-dirac-routed-v3-proposed",
+      "source": "common_dynamics/spin",
+      "changes": [
+        "four supplied spinor components",
+        "Clifford mass/axis rotations",
+        "signed transport along actual carrier routes"
+      ],
+      "relation": "Replacement of scalar walk, not its spin decomposition. All lattice doublers retained.",
+      "shared_field": "Same288edge Z16 current and local208face geometry; eight field substeps alpha1/16,beta3/8 match leading c1 with uniform harmonic stability bound.",
+      "transfer": "Finite spin, gauge and free-limit controls require their exact preparations. Full interacting field limit, manybody reference and calibrated species do not transfer by labels."
+    }
+  ],
+  "central_join_rule": "A complete criterion must bind one candidate, coefficient setting, preparation/reference, clock, source word and complete instrument. Alternative amendments are not mixed to fill rows; a transfer names its exact domain and error.",
+  "register_refinement": "auditor/field_cutoff provides state-dependent finite-time cyclic-to-integer-rotor transfer. It does not identify integer rotors with a Maxwell vacuum or transfer native word costs across moduli."
+}

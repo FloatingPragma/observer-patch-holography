@@ -1,0 +1,29 @@
+{
+  "schema": "oph.local12.same_source_holes.v1",
+  "candidate_id": "native-local12-fermion-modes-v1-proposed",
+  "checks": {
+    "active_W_determinant_one": true,
+    "every_hole_transport_complement_phase": true,
+    "opposite_current_from_same_occupations": true,
+    "attached_Gauss_reference": true,
+    "source_pins_unchanged": true
+  },
+  "hole_basis_atoms": 1152,
+  "filled_physical_modes": 1152,
+  "source_formula": "Gamma(W)c_j|filled>=sum_i conjugate(W_ij)c_i|filled>, because detW=1",
+  "same_real_W": "Ideal LOCAL12 R and S are real, so the one-hole matrix is the same real W on the physical sector.",
+  "native_current": "j_hole = -(delta_x(a)-delta_y(a)); obtained from actual occupied-mode difference, not an added negative species",
+  "reference": {
+    "G": "12 at every port except11 atroot0",
+    "matter_total": 1151,
+    "particular_field_for_hole_at_x": "-P_x"
+  },
+  "scope": "Supplied completely filled physical-mode reference and one-hole sector of the same proposed fermion circuit. No energy-ground, stability, spin or observed-antiparticle claim; filled-state and affine-field preparation/reset are not replayed.",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/manybody/hole_sector.py": "cd16a650e0a56ee836e45cdf3b837639016121fb28342b011ea919b9348de7b4",
+    "openwave-tuning/common_dynamics/manybody/manybody.py": "15e7463ed8c7087b79f8962f961216972a8c34876751360f89e6d84ef3f32fff",
+    "openwave-tuning/auditor/native_walk_bridge/common_walk.py": "4c8b6087aab6212ae12af126640ba19bbfec63215be5234be64f016cc604d75d",
+    "openwave-tuning/auditor/native_current_walk/current_walk.py": "3057fa13b0455c7d814ac96fd4c9cab82b3941cca2f7a8a0cbd2b600abe820a9"
+  },
+  "official_rows_changed": []
+}

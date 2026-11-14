@@ -1,0 +1,98 @@
+{
+  "schema": "oph.common_dynamics.public_contract.v1",
+  "main_candidate": "native-local12-mass-fermion-plaquette-v3-proposed",
+  "main_source": {
+    "h": "1/8",
+    "mass": [
+      "0",
+      "1"
+    ],
+    "electric_alpha": ".17",
+    "face0_beta": ".41",
+    "other_face_betas": "all zero",
+    "modulus": 16,
+    "steps": 3,
+    "preparation": "one particle at vertex 0; all fields zero",
+    "clock_preparation": "separate plus state",
+    "clock_wire": 3210,
+    "time_over_tau0": "3/8",
+    "phase": "3/64"
+  },
+  "main_complete_error": {
+    "X": {
+      "complete_TV_upper_exact": "2211715985484651161231563034262417859499382223364609751590376754333840726788560219590613488064436255679422307785202223546218180647827676052754675196567290006435186363814082375118085524639921940004230807294567070433009064224703495/99361157907245371849534687261600163536440705095468583112899330433667260971928120725176218165033374588831214764616388685194981122823348121052434385602635592909085118465334393955216978280422300468816831948397854000057142198644227702784",
+      "complete_TV_upper": 2.2259362029066835e-05,
+      "source_and_position_field_bound_exact": "17685543214245377728868420803664719400439054831931235151107863896076424173001433345671654597674032987921253220839675423672771569645648655616501881135827177458794178120337450602047762399711518799791635322577968143954869130163705865/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "additional_clock_native_word_and_pointer_error_exact": "1539757699470865808993707255141279/730750818665451459101842416358141509827966271488",
+      "additional_clock_reset_bound_exact": "8184667956928390073632665346066081647773825661904379113101421332000443467668108683258364841007930533824244613024762630544796586095406954527212422147869759503729141935372122681718512514039572317268686587588305952206963649103919/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "blank_native_resets": 3211,
+      "ready_native_resets": 1160,
+      "native_terminal_attempts": 1160,
+      "source_clock_tensor_rule": "V_m tensor exp(-i h Z/16), one tick after the complete mass/field macro",
+      "reference_domain": "arbitrary initialized source references; arbitrary coherent/correlated raw reset inputs through rank-one fine reset Kraus and conditional union bounds",
+      "clock_preparation": "declared separate plus state; source-correlated input is not a clock calibration",
+      "comparison_boundary": "private reset labels/tapes retained in the full instrument and marginalized only in comparison to the ideal source/clock law",
+      "not_included": [
+        "spectral controlled-V probe",
+        "physical seconds calibration",
+        "finite-shot phase confidence",
+        "two-particle position interpretation"
+      ]
+    },
+    "Y": {
+      "complete_TV_upper_exact": "2211715985490468052363888250559403661851773131374474290149593096482239715678988078621554673014862439613636472375129513815853563554440752249023948927897321579550057268961157400028156690250137067002943486963431874678708670507467783/99361157907245371849534687261600163536440705095468583112899330433667260971928120725176218165033374588831214764616388685194981122823348121052434385602635592909085118465334393955216978280422300468816831948397854000057142198644227702784",
+      "complete_TV_upper": 2.225936202912538e-05,
+      "source_and_position_field_bound_exact": "17685543214245377728868420803664719400439054831931235151107863896076424173001433345671654597674032987921253220839675423672771569645648655616501881135827177458794178120337450602047762399711518799791635322577968143954869130163705865/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "additional_clock_native_word_and_pointer_error_exact": "1582537977464430714104397858949045/730750818665451459101842416358141509827966271488",
+      "additional_clock_reset_bound_exact": "8184667956928390073632665346066081647773825661904379113101421332000443467668108683258364841007930533824244613024762630544796586095406954527212422147869759503729141935372122681718512514039572317268686587588305952206963649103919/794889263257962974796277498092801308291525640763748664903194643469338087775424965801409745320266996710649718116931109481559848982586784968419475084821084743272680947722675151641735826243378403750534655587182832000457137589153821622272",
+      "blank_native_resets": 3211,
+      "ready_native_resets": 1160,
+      "native_terminal_attempts": 1160,
+      "source_clock_tensor_rule": "V_m tensor exp(-i h Z/16), one tick after the complete mass/field macro",
+      "reference_domain": "arbitrary initialized source references; arbitrary coherent/correlated raw reset inputs through rank-one fine reset Kraus and conditional union bounds",
+      "clock_preparation": "declared separate plus state; source-correlated input is not a clock calibration",
+      "comparison_boundary": "private reset labels/tapes retained in the full instrument and marginalized only in comparison to the ideal source/clock law",
+      "not_included": [
+        "spectral controlled-V probe",
+        "physical seconds calibration",
+        "finite-shot phase confidence",
+        "two-particle position interpretation"
+      ]
+    }
+  },
+  "main_program_counts": {
+    "pulse": 4384181,
+    "native_configuration_reset": 4371,
+    "native_commit": 1160,
+    "macro_completed": 3
+  },
+  "executions": {
+    "integration": "unchanged frozen audit.py; exact regenerated INTEGRATION.json and BLOCK_PROGRAM.json",
+    "quantum": "actual compressed native cycle words and complete pointer laws; certified physical factors",
+    "reference": "actual Gaussian all-column execution, exact Slater and affine encoder factors; no clock",
+    "two_charge": "unchanged independent native source-matrix and complete 64-record audit; no clock"
+  },
+  "separate_domains": [
+    "scalar mass/field single-particle source",
+    "pure-gauge prepared quantum cycle",
+    "32-mode Slater/Gauss reference preparation",
+    "Dirac spin replacement and free limit",
+    "two-charge phase apparatus"
+  ],
+  "numerical_probability_tolerance": 2e-12,
+  "byte_equality_outputs": [
+    "openwave-tuning/common_dynamics/integration/INTEGRATION.json",
+    "openwave-tuning/common_dynamics/integration/BLOCK_PROGRAM.json",
+    "openwave-tuning/next/CHAIN2/two_charge_independent/RESULT.json"
+  ],
+  "not_established": [
+    "single interacting continuum construction",
+    "physical vacuum",
+    "physical seconds",
+    "observed particle dictionary",
+    "force or Coulomb law",
+    "all31 physical completion"
+  ],
+  "official_rows_changed": [],
+  "official_row_awards": 0
+}

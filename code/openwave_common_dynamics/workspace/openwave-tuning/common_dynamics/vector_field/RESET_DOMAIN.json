@@ -1,0 +1,37 @@
+{
+  "schema": "oph.local12.correlated_reset_domain.v1",
+  "checks": {
+    "both_actual_fine_source_laws_audited": true,
+    "all_78_input_columns_per_seam": true,
+    "exact_gram_and_partial_injections": true,
+    "signed_current_predecessor_verified": true,
+    "source_bytes_unchanged": true
+  },
+  "actual_native_source_audit": {
+    "C": {
+      "fine_branches": 180,
+      "columns_per_seam": 78,
+      "exact_gram": "I",
+      "current_inverse_verified": true
+    },
+    "E": {
+      "fine_branches": 300,
+      "columns_per_seam": 78,
+      "exact_gram": "I",
+      "current_inverse_verified": true
+    }
+  },
+  "proof": "RESET_DOMAIN.md",
+  "domain": "full native total-two sector and arbitrary quantum references",
+  "success_Kraus_form": "a_w |target><x(w)|, since a conclusive tape resolves its original column",
+  "success_effect": "diag(s_x); lambda_min=min(s_x)",
+  "bound": "conditional first-failure union bound; no initial independence premise",
+  "private_tape_boundary": "fine tapes remain in the complete instrument; marginalizing the ideal resolved label/tape gives blank tensor original reference marginal",
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/vector_field/reset_domain.py": "726b5f7559064ffadc9cece4e1bdd20b0b55a76f320d43f0d8dce8e06bb69dfe",
+    "openwave-tuning/common_dynamics/vector_field/RESET_DOMAIN.md": "05906953a86577bdb6bc26b1bd41404f8d0afaff1a46413f9a88bf6fba43ab81",
+    "openwave-tuning/common_dynamics/vector_field/COMPOSITION.json": "94679493e9d7fc6672350e4e83fd9b7249c55783793b4017c449ab2f9dd1b927",
+    "reverse-engineering-reality/model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9"
+  },
+  "official_rows_changed": []
+}

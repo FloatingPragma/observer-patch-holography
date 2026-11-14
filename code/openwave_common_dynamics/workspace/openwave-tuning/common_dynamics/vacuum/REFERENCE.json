@@ -1,0 +1,186 @@
+{
+  "schema": "oph.dirac.shared_gauss_reference.v1",
+  "checks": {
+    "actual_zero_character32mode_source": true,
+    "all_negative_and_positive_orbitals": true,
+    "full65536vacuum_occupation_coefficients": true,
+    "fermionic_spectator_signs": true,
+    "shared_reference_Gauss_dressing": true,
+    "all48route_cycle_corrections": true,
+    "finite_gaussian_preparations_and_translation_bounds": true,
+    "uniform_fibre_electric_kick_control": true,
+    "complete_excitation_occupation_laws": true,
+    "wrong_charged_reference_rejected": true,
+    "source_bytes_unchanged": true
+  },
+  "candidate": "explicit CAR lift of native-local12-dirac-routed-v3-proposed",
+  "energy_lift": "K=-(1/h) Arg(U) on the principal one-body branch; H_F=dGamma(K)-E_sea",
+  "parameters": {
+    "h": 0.1,
+    "m": 0.4,
+    "mu": 0.04,
+    "modulus": 16
+  },
+  "negative_onebody_energies": [
+    -31.01592653589793,
+    -0.39999999999999997,
+    -31.01592653589793,
+    -0.39999999999999997,
+    -31.01592653589793,
+    -0.39999999999999997,
+    -31.01592653589793,
+    -0.39999999999999997,
+    -31.01592653589793,
+    -0.39999999999999997,
+    -31.01592653589793,
+    -0.39999999999999997,
+    -31.01592653589793,
+    -0.39999999999999997,
+    -31.01592653589793,
+    -0.39999999999999997
+  ],
+  "positive_onebody_energies": [
+    0.39999999999999997,
+    31.01592653589793,
+    0.39999999999999997,
+    31.01592653589793,
+    0.39999999999999997,
+    31.01592653589793,
+    0.39999999999999997,
+    31.01592653589793,
+    0.39999999999999997,
+    31.01592653589793,
+    0.39999999999999997,
+    31.01592653589793,
+    0.39999999999999997,
+    31.01592653589793,
+    0.39999999999999997,
+    31.01592653589793
+  ],
+  "sea_energy": -251.32741228718342,
+  "vacuum_macro_eigenphase": "1; exp(i8pi)=1",
+  "positive_excitation_gap_in_declared_lift": 0.4,
+  "neutral_pair_threshold_in_declared_lift": 0.8,
+  "low_excitation_degeneracy_each_charge": 8,
+  "zero_and_pi_valleys_retained": true,
+  "occupation_laws": {
+    "vacuum": {
+      "outcomes": 65536,
+      "probability_each_exact": "1/65536",
+      "total_occupation": 16,
+      "reference_total": 16
+    },
+    "particle": {
+      "outcomes": 32768,
+      "probability_each_exact": "1/32768",
+      "total_occupation": 17,
+      "reference_total": 17
+    },
+    "hole": {
+      "outcomes": 32768,
+      "probability_each_exact": "1/32768",
+      "total_occupation": 15,
+      "reference_total": 15
+    },
+    "neutral_pair": {
+      "outcomes": 16384,
+      "probability_each_exact": "1/16384",
+      "total_occupation": 16,
+      "reference_total": 16
+    }
+  },
+  "vacuum_reference": "G=2 on all8root ports,0 elsewhere",
+  "gaussian_dressing": [
+    {
+      "base": 4,
+      "cycle_shift1_overlap_exact": "234321980842049320812406729539067895068222162042341902117008372393647833874432/270571755856171235347503486546222221198708193977699110895405505333703765031425",
+      "worst_route_overlap": 0.562499680478656,
+      "one_macro_free_transport_norm_bound": 2.0,
+      "energy_on_six_named_occupation_records": [
+        544.2788174487357,
+        539.141381332347,
+        532.7668306258471,
+        535.554958472185,
+        538.005242639204,
+        544.2788174487357
+      ]
+    },
+    {
+      "base": 8,
+      "cycle_shift1_overlap_exact": "126412671588675528187193938142574426595506714413266997026989254872632264876911603961080103363448095164633916096118784/135140829220586350284580274530869793268797366848263409549425724784262016783200658583929463979438237324184525356067841",
+      "worst_route_overlap": 0.7656250269319124,
+      "one_macro_free_transport_norm_bound": 1.787168562334851,
+      "energy_on_six_named_occupation_records": [
+        872.4768176577596,
+        870.0809581285453,
+        866.9712651955325,
+        869.0025007834005,
+        871.6742193293244,
+        872.4768176577596
+      ]
+    },
+    {
+      "base": 16,
+      "cycle_shift1_overlap_exact": "64043713471463200840836332402062331229935101208491795731598052356563845798634625549772257221600679073585509390367556990924436322181494425861813018747207680/66142396588397613309529363397487969012605409245778003611968543060655327499003729228400574862708167579305289574710712222226260597203210192971479157062481921",
+      "worst_route_overlap": 0.8789948193340853,
+      "one_macro_free_transport_norm_bound": 1.274785610343865,
+      "energy_on_six_named_occupation_records": [
+        1268.7973408150422,
+        1267.9570907711038,
+        1266.924836398851,
+        1267.7425914109865,
+        1268.7716520660078,
+        1268.7973408150422
+      ]
+    },
+    {
+      "base": 32,
+      "cycle_shift1_overlap_exact": "31455103193230776479656738203746496515938182117807434161619976154393300623826724181580017269077261153284096110234873603449340401286219308802907509237346077253196493793499134466340981052966699008/31938775015005346843896131921021968116730366004330247124062272670097413214654918195704595301145749496338736587998892360560078607831222372273775988547835516882408308519336883389282406048292859905",
+      "worst_route_overlap": 0.9407872796394341,
+      "one_macro_free_transport_norm_bound": 0.8884702971109663,
+      "energy_on_six_named_occupation_records": [
+        1725.5819728284414,
+        1725.422615088754,
+        1725.2497316492377,
+        1725.4089607102426,
+        1725.58192294482,
+        1725.5819728284414
+      ]
+    },
+    {
+      "base": 64,
+      "cycle_shift1_overlap_exact": "14705272679864860097988687671975100544436211594054600153055816698112106258797939524660238032682113755139860885672837734068302214171365034823095720618923735803106004979865078174628980964421468565918634714255243049446860728408423268352/14795501001553615760478322101405228622277723827965271137947524400272332936305822820126918185707369901980620058193688864004906635287642638916997758746841409863486226327095022560023778578831540896145395644941094080780075856348986466305",
+      "worst_route_overlap": 0.9758287861429044,
+      "one_macro_free_transport_norm_bound": 0.5665174473873993,
+      "energy_on_six_named_occupation_records": [
+        2206.5442182132597,
+        2206.5302206669858,
+        2206.516028868532,
+        2206.530026375659,
+        2206.544218210762,
+        2206.5442182132597
+      ]
+    }
+  ],
+  "uniform_fibre_electric_energy_exact": "3096",
+  "uniform_fibre_energy_formula": "288*(m_field^2+2)/24; every edge marginal is uniform since graph has no bridges",
+  "electric_phase_noninvariance_contrast": 0.09371567149626849,
+  "dressing_identity": "J_g|n>=|n> sum_z g(z)|P(n-G)+Cz>; distinct n remain orthogonal; BC=0 and BP=delta0\u2212I",
+  "translation_bound": "Each axis intertwining defect <= max_route sqrt(2\u22122 Re product_j <g_j,T_hj g_j>); sum the three axis bounds per macro and over macros. A full Fock bound must sum all transported rail currents, rather than reuse the one-particle bound.",
+  "scope": [
+    "Free Gamma(U) reference and its exact Gauss dressing at zero electric coefficient; homogeneous plaquette kicks act as a retained scalar on a uniform zero-character fibre.",
+    "Generic electric phases destroy uniform-fibre invariance. No interacting eigenstate, vacuum, pole or physical species is proved.",
+    "The additive Fock energy lift is declared; discrete-time Gamma(U) alone does not choose this logarithm or its vacuum.",
+    "Gaussian product cycles are finite-energy preparations with an explicit finite free-transfer error, not claimed ground states.",
+    "The new32mode Fock allocation differs from the encodedoneparticle Dirac allocation. Native preparation is provided separately; fullFock evolution/error is not inherited from that compiler."
+  ],
+  "source_sha256": {
+    "openwave-tuning/common_dynamics/vacuum/reference.py": "38a79b8a9ecbdc66b51559466a546d88b8ab64b4ad288de39434a5214f409582",
+    "openwave-tuning/common_dynamics/spin/dirac_proposal.py": "78b5b44bb0df1f87668e46bb063e1a1eea53487c37b5b7b5cbac387dbdeda42a",
+    "openwave-tuning/auditor/native_current_walk/current_walk.py": "3057fa13b0455c7d814ac96fd4c9cab82b3941cca2f7a8a0cbd2b600abe820a9",
+    "openwave-tuning/common_dynamics/spin/MANIFEST.json": "65075e0bc14f883c5cdb877171650b08ee57c8d1bdffce281e68937bb07eb401",
+    "openwave-tuning/common_dynamics/vector_field/MANIFEST.json": "aa4a18d89c1a8893ee86eb5e9151bc75e8a0b3a527640cee66aa25382ca55e76",
+    "openwave-tuning/common_dynamics/units/MANIFEST.json": "fd3abf81be6147577b31e36a00f339664ad8f287e44052ccbc3adafc07e3876f"
+  },
+  "official_rows_changed": []
+}
