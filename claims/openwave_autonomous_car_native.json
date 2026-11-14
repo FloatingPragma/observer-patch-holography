@@ -1,0 +1,30 @@
+{
+  "schema": "oph.openwave.autonomous_car_native.v1",
+  "claims": [
+    {
+      "id": "N16_native_implementation",
+      "status": "independently_reviewed_component",
+      "statement": "The specified N16 filled-reference, true coexact vacuum and compact harmonic p0 experiment at physical time1/512 has a complete native instrument implementation with total-variation error below3.922e-6.",
+      "source_domain": "h1/8,m1,a1/2,b3,N16,kappa0,all190coexact modes and three compact harmonic directions",
+      "full_program_executed": false,
+      "native_ground_preparation": false,
+      "full_OpenWave_criterion_met": false
+    }
+  ],
+  "proof": "code/openwave_audit/AUTONOMOUS_CAR_NATIVE_PROOF.md",
+  "code": "code/openwave_audit/autonomous_car_native_review.py",
+  "producer_manifest_sha256": "1f510cbd194afa43f4bb37fc1cc45792d582aff67bee201b06504141a6f892d7",
+  "review_manifest_sha256": "4f647b3cbef74a7c44d49132b733176da5b34e9cff80205715b9d0d93fd01697",
+  "proof_sha256": "885895d02a38a2f7caa8cccfeedbdc8dd9f31ecefe7ce0b293e315dea2ff890a",
+  "code_sha256": "a4e7716f399593cc3f8eb145c909c15c096a3423b39ffb7556bbf44712329e58",
+  "internal_rows_added": 0,
+  "official_OpenWave_awards_added": 0,
+  "public_source_closure": false,
+  "results": "code/openwave_audit/autonomous_car_native_results.json",
+  "results_sha256": "482491f6dadf9b41cbbf1175174a2e22def17c1c822b64b81cb26ee3d3801bf9",
+  "additional_independent_review": {
+    "manifest": "openwave-tuning/next/CHAIN6/autonomous_car_native_opposing_review/MANIFEST.json",
+    "sha256": "61f1b20fae49bb6c325609c4f5711fdb2de75c58ae059930eef0e9c21637bb33",
+    "scope": "Complete declared source component; no physical-row award or full giant-word execution."
+  }
+}
