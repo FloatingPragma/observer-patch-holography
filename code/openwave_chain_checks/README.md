@@ -24,7 +24,7 @@ state the complete outcome laws, numerical admission tolerances and field
 bounds. The original result includes 95 rejected malformed inputs and false
 joins. The useful field precision belongs to the larger register member;
 transferring it to the smaller particle calculation requires an additional
-proof. The newer shared LOCAL12 mass-and-field source is a separate candidate.
+proof. The shared LOCAL12 mass-and-field source is a separate candidate.
 
 [The row map](provenance/ALL31_GATE.json) preserves the scope of every
 criterion. These finite checks do not establish all 31 physical criteria or

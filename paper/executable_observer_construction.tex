@@ -1041,7 +1041,9 @@ success from pointer input $u$. The complete apparatus law is
 \]
 All discovery, routing and measurement failures retain their native tapes
 and assign no charge, including failures when $w=0$. The 132 source
-schedules retain 456 complete histories, 888 events and 564 holds. Joined
+schedules retain 456 complete histories, 888 events and 564 zero-current
+attempts. The latter comprise 324 incident holds and 240 nonincident
+attempts. Joined
 execution uses at most 627 native attempts, with worst bounded apparatus
 timeout $0.00013732049$. The source idles during its terminal pointer
 service; the event clock and retained $G$ specify the measured prefix.
@@ -1481,6 +1483,30 @@ preparation cost and an autonomous battery are separate resources.
 The selected native protocol uses time $0.37$ and a $0.29$ MIX commit,
 with its $0.71$ complement retained. The reference is coherently
 stationary; native monitoring deposits mean work $0.5161569571$.
+
+A complete marked clock on the same source has generator
+\[
+ \mathcal L(\rho)=-i[H,\rho]+\lambda(\Phi(\rho)-\rho),
+\]
+where $\Phi$ includes every native mark and its no-operation outcome.
+At $\lambda=0.8$ and $T=0.37$, the zero-, one- and multiple-attempt
+probabilities are $0.743787428$, $0.220161079$ and $0.036051493$.
+Coherent evolution continues on the zero-attempt branch, so attempt count
+alone does not determine the clock. Two native regional charge instruments
+and all $348$ grouped energy outcomes compose on this clock, retaining
+every reset, export and tail branch. Coarsening their complete native
+outcomes reproduces the archived grouped-energy poststates to
+$3.34\times10^{-16}$.
+
+The corresponding integer-register comparison lifts the actual charged
+preparation and bounds the complete clock instrument. Its total-variation
+bound is $4.185417\times10^{-6}$ at modulus $42$, while the bound at the
+executed modulus six is one. The larger-register precision therefore
+does not certify the modulus-six particle readout. A separately typed
+classical reciprocal source supplies finite force records and static
+three-dimensional field refinement; matching a field label does not join
+its dynamics to this Hamiltonian
+(\path{code/openwave_chain_checks/provenance/PROOF.md}).
 
 Joint number/energy readout uses complete degenerate projectors and stores
 $P_{N,E}\rho P_{N,E}$ through a full complex coefficient matrix in each
