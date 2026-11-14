@@ -1,0 +1,312 @@
+{
+  "schema": "oph.c9.car_uniform_fiber_independent_review.v1",
+  "checks": {
+    "producer_poststate_independently_reproduced": true,
+    "uniform_isometry": true,
+    "same_H_intertwines": true,
+    "every_C_E_MIX_K_intertwines": true,
+    "determinant_reference_normalized": true,
+    "filled_reference_is_uniform_code_ground": true,
+    "every_fixed_number_energy_reproduced": true,
+    "global_ground_transfer_rejected": true,
+    "positive_excitation_reference_within_uniform_code": true,
+    "complete_native_work": true,
+    "native_monitoring_heats_reference": true,
+    "full_and_reduced_outputs_agree": true
+  },
+  "full_dimension": 60,
+  "reduced_dimension": 20,
+  "fiber_cardinality": 3,
+  "producer_poststate_error": 0.0,
+  "H_error": 0.0,
+  "every_MIX_K_error": 5.551115123125783e-17,
+  "full_output_error": 4.163336342344337e-17,
+  "full_global_ground_energy": -4.010659107243598,
+  "full_reference_shifted_minimum": -0.2861491272893293,
+  "reference_energy": -3.724509979954269,
+  "reference_residual": 2.220130421919871e-15,
+  "fixed_number_excitation_gap": 0.45999999999999863,
+  "native_reference_work": 1.7169789282097048,
+  "complete_native_reference_outcomes": [
+    {
+      "seam": 0,
+      "law": "C",
+      "coin": 0,
+      "record_value": 0,
+      "probability": 0.06444859645152842,
+      "subnormalized_energy": -0.1923455815608269,
+      "subnormalized_excitation_energy": 0.04769385911693604
+    },
+    {
+      "seam": 0,
+      "law": "C",
+      "coin": 0,
+      "record_value": 1,
+      "probability": 0.01888473688180482,
+      "subnormalized_energy": -0.022642531868156315,
+      "subnormalized_excitation_energy": 0.0476938591169362
+    },
+    {
+      "seam": 0,
+      "law": "C",
+      "coin": 1,
+      "record_value": -1,
+      "probability": 0.018884736881804788,
+      "subnormalized_energy": -0.02264253186815628,
+      "subnormalized_excitation_energy": 0.04769385911693611
+    },
+    {
+      "seam": 0,
+      "law": "C",
+      "coin": 1,
+      "record_value": 0,
+      "probability": 0.06444859645152846,
+      "subnormalized_energy": -0.192345581560827,
+      "subnormalized_excitation_energy": 0.04769385911693605
+    },
+    {
+      "seam": 0,
+      "law": "E",
+      "coin": 0,
+      "record_value": -1,
+      "probability": 0.018884736881804788,
+      "subnormalized_energy": -0.02264253186815628,
+      "subnormalized_excitation_energy": 0.04769385911693611
+    },
+    {
+      "seam": 0,
+      "law": "E",
+      "coin": 0,
+      "record_value": 0,
+      "probability": 0.04556385956972364,
+      "subnormalized_energy": -0.07431533145879829,
+      "subnormalized_excitation_energy": 0.09538771823387227
+    },
+    {
+      "seam": 0,
+      "law": "E",
+      "coin": 0,
+      "record_value": 1,
+      "probability": 0.01888473688180482,
+      "subnormalized_energy": -0.022642531868156315,
+      "subnormalized_excitation_energy": 0.0476938591169362
+    },
+    {
+      "seam": 0,
+      "law": "E",
+      "coin": 1,
+      "record_value": -1,
+      "probability": 0.018884736881804788,
+      "subnormalized_energy": -0.02264253186815628,
+      "subnormalized_excitation_energy": 0.04769385911693611
+    },
+    {
+      "seam": 0,
+      "law": "E",
+      "coin": 1,
+      "record_value": 0,
+      "probability": 0.04556385956972364,
+      "subnormalized_energy": -0.07431533145879829,
+      "subnormalized_excitation_energy": 0.09538771823387227
+    },
+    {
+      "seam": 0,
+      "law": "E",
+      "coin": 1,
+      "record_value": 1,
+      "probability": 0.01888473688180482,
+      "subnormalized_energy": -0.022642531868156318,
+      "subnormalized_excitation_energy": 0.0476938591169362
+    },
+    {
+      "seam": 1,
+      "law": "C",
+      "coin": 0,
+      "record_value": 0,
+      "probability": 0.06444859645152846,
+      "subnormalized_energy": -0.192345581560827,
+      "subnormalized_excitation_energy": 0.047693859116936056
+    },
+    {
+      "seam": 1,
+      "law": "C",
+      "coin": 0,
+      "record_value": 1,
+      "probability": 0.018884736881804785,
+      "subnormalized_energy": -0.022642531868156273,
+      "subnormalized_excitation_energy": 0.04769385911693612
+    },
+    {
+      "seam": 1,
+      "law": "C",
+      "coin": 1,
+      "record_value": -1,
+      "probability": 0.01888473688180481,
+      "subnormalized_energy": -0.022642531868156304,
+      "subnormalized_excitation_energy": 0.04769385911693617
+    },
+    {
+      "seam": 1,
+      "law": "C",
+      "coin": 1,
+      "record_value": 0,
+      "probability": 0.06444859645152845,
+      "subnormalized_energy": -0.19234558156082693,
+      "subnormalized_excitation_energy": 0.04769385911693606
+    },
+    {
+      "seam": 1,
+      "law": "E",
+      "coin": 0,
+      "record_value": -1,
+      "probability": 0.01888473688180481,
+      "subnormalized_energy": -0.022642531868156304,
+      "subnormalized_excitation_energy": 0.04769385911693616
+    },
+    {
+      "seam": 1,
+      "law": "E",
+      "coin": 0,
+      "record_value": 0,
+      "probability": 0.045563859569723655,
+      "subnormalized_energy": -0.07431533145879832,
+      "subnormalized_excitation_energy": 0.09538771823387229
+    },
+    {
+      "seam": 1,
+      "law": "E",
+      "coin": 0,
+      "record_value": 1,
+      "probability": 0.018884736881804785,
+      "subnormalized_energy": -0.022642531868156273,
+      "subnormalized_excitation_energy": 0.04769385911693612
+    },
+    {
+      "seam": 1,
+      "law": "E",
+      "coin": 1,
+      "record_value": -1,
+      "probability": 0.01888473688180481,
+      "subnormalized_energy": -0.022642531868156304,
+      "subnormalized_excitation_energy": 0.04769385911693617
+    },
+    {
+      "seam": 1,
+      "law": "E",
+      "coin": 1,
+      "record_value": 0,
+      "probability": 0.045563859569723655,
+      "subnormalized_energy": -0.07431533145879832,
+      "subnormalized_excitation_energy": 0.09538771823387229
+    },
+    {
+      "seam": 1,
+      "law": "E",
+      "coin": 1,
+      "record_value": 1,
+      "probability": 0.018884736881804785,
+      "subnormalized_energy": -0.022642531868156273,
+      "subnormalized_excitation_energy": 0.04769385911693612
+    },
+    {
+      "seam": 2,
+      "law": "C",
+      "coin": 0,
+      "record_value": 0,
+      "probability": 0.06444859645152845,
+      "subnormalized_energy": -0.19234558156082696,
+      "subnormalized_excitation_energy": 0.04769385911693606
+    },
+    {
+      "seam": 2,
+      "law": "C",
+      "coin": 0,
+      "record_value": 1,
+      "probability": 0.018884736881804802,
+      "subnormalized_energy": -0.02264253186815629,
+      "subnormalized_excitation_energy": 0.047693859116936146
+    },
+    {
+      "seam": 2,
+      "law": "C",
+      "coin": 1,
+      "record_value": -1,
+      "probability": 0.01888473688180481,
+      "subnormalized_energy": -0.0226425318681563,
+      "subnormalized_excitation_energy": 0.04769385911693619
+    },
+    {
+      "seam": 2,
+      "law": "C",
+      "coin": 1,
+      "record_value": 0,
+      "probability": 0.06444859645152844,
+      "subnormalized_energy": -0.19234558156082693,
+      "subnormalized_excitation_energy": 0.04769385911693605
+    },
+    {
+      "seam": 2,
+      "law": "E",
+      "coin": 0,
+      "record_value": -1,
+      "probability": 0.01888473688180481,
+      "subnormalized_energy": -0.0226425318681563,
+      "subnormalized_excitation_energy": 0.04769385911693618
+    },
+    {
+      "seam": 2,
+      "law": "E",
+      "coin": 0,
+      "record_value": 0,
+      "probability": 0.04556385956972364,
+      "subnormalized_energy": -0.07431533145879825,
+      "subnormalized_excitation_energy": 0.09538771823387228
+    },
+    {
+      "seam": 2,
+      "law": "E",
+      "coin": 0,
+      "record_value": 1,
+      "probability": 0.018884736881804802,
+      "subnormalized_energy": -0.02264253186815629,
+      "subnormalized_excitation_energy": 0.047693859116936146
+    },
+    {
+      "seam": 2,
+      "law": "E",
+      "coin": 1,
+      "record_value": -1,
+      "probability": 0.01888473688180481,
+      "subnormalized_energy": -0.0226425318681563,
+      "subnormalized_excitation_energy": 0.04769385911693619
+    },
+    {
+      "seam": 2,
+      "law": "E",
+      "coin": 1,
+      "record_value": 0,
+      "probability": 0.04556385956972364,
+      "subnormalized_energy": -0.07431533145879825,
+      "subnormalized_excitation_energy": 0.09538771823387228
+    },
+    {
+      "seam": 2,
+      "law": "E",
+      "coin": 1,
+      "record_value": 1,
+      "probability": 0.018884736881804802,
+      "subnormalized_energy": -0.02264253186815629,
+      "subnormalized_excitation_energy": 0.04769385911693615
+    }
+  ],
+  "scope": "Declared fixedN3 CAR/uniformGauss-fiber preparation; exact same nativeinstrument. Positive reference ONLYwithin invariantuniformcode: fullsource has lowerenergyoutsidecode. Monitoringwork retained, reference notstationary. No globalvacuum or physicalspecies/spin/sea preparation inference.",
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C9/review_car_uniform_fiber.py": "c950c0167e665ecb95795a1f4d4a0cb70356054af46fc4bce25a9546f5887348",
+    "next/C9/fermionic_uniform_reference.py": "c409ba7b3396a73b5fb4c97d0f07aedc4e1921a4750d394a38d7cbbd570c3388",
+    "next/C9/FERMIONIC_UNIFORM_REFERENCE.json": "a76561e307fd5ec2f8493340c3805a7820c19a02cdac724c2b835b89f044d69b",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907"
+  },
+  "full_criterion_met": false
+}

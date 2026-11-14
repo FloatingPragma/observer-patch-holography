@@ -42,6 +42,22 @@ def c8_finite_claims():
       {'id':'continuing_record_apparatus','statement':'Individual half-record measurements retain every full poststate, including its code-complement coherence, for subsequent full native evolution. Whole-position closed-cut measurement branches intertwine with the reduced code.','domain':'Tiny complete modular apparatus controls. Code/complement weights are diagnostics rather than an extra dephasing measurement. Arbitrary terminal effects do not imply closed reduced continuation.'}]
 
 
+def c9_finite_claims():
+    return [
+      {'id':'shared_car_native_instrument',
+       'statement':'Direct full-occupation C/E/MIX Kraus maps on shared modular records form complete channels with CAR hopping and stated endpoint transport phases. Every one-load Hamiltonian and native Kraus map recovers the original model; complete work and external-reference controls are retained.',
+       'domain':'Declared fixed-number Pauli/CAR statistical extension. This is not the non-trace-preserving exterior lift of each one-load Kraus operator. Local gauge conservation is modular; no physical spin, species or derived statistics.'},
+      {'id':'car_all_character_transfer',
+       'statement':'Normalized Gauss-fiber character isometries decompose the entire finite shared-record CAR source and intertwine its Hamiltonian and every C/E/MIX Kraus map. Uniform fibers are the zero-character member, not the entire source.',
+       'domain':'Complete triangle sectors at the declared modulus and fixed number, with independent tree/cycle proofs and Fourier reconstructions. Character preparation is supplied. No unconditional global-ground inference from the zero-character Slater state.'},
+      {'id':'car_global_reference',
+       'statement':'The actual full fixed-number Hamiltonian has a positive excitation reference after subtracting its minimum and retaining the complete ground multiplet. Z3 has a ground doublet in nonzero characters; Z6 has a unique character-3 minimum on the tested triangle.',
+       'domain':'Finite declared CAR source, mass .23, no potential. The lowest positive one-load band edge minimizes character 0, a different energy selection. Native channels preserve character and can deposit work; energetic preference does not implement cooling, character selection or a physical vacuum.'},
+      {'id':'car_native_energy_response_support',
+       'statement':'A complete ground/native-letter/final-energy experiment retains every energy eigenspace and all zero outcomes. Its supported excitation threshold is distinguished from the full spectral gap between invariant character sectors.',
+       'domain':'Declared finite ground preparation, native instrument and energy PVM. Algebraic character exclusion and numerical within-sector support tolerance are separate. Neither spectral gap is a physical particle mass or GeV prediction.'}]
+
+
 def generate():
     receipt = BUNDLE/'integration/assessment.json'
     assessment = json.loads(receipt.read_text())
@@ -85,11 +101,24 @@ def generate():
     paths += sorted(p for p in bridge_root.rglob('*') if p.is_file() and '__pycache__' not in p.parts and '.pytest_cache' not in p.parts)
     paths += sorted(p for p in experiment_root.rglob('*') if p.is_file() and '__pycache__' not in p.parts
                     and '.pytest_cache' not in p.parts)
+    car_root=BUNDLE/'next/C9'
+    car_receipts={name:observable_receipt('next/C9/'+name+'.json') for name in
+                  ('FERMIONIC_SHARED_RECORDS','FERMIONIC_UNIFORM_REFERENCE','CHARACTER_REFERENCE','CHARACTER_MINIMA')}
+    for name,result in car_receipts.items():
+        if not result.get('checks') or not all(value is True for value in result['checks'].values()):
+            raise ValueError('CAR source or reference check failed: '+name)
+    paths += sorted(p for p in car_root.rglob('*') if p.is_file() and '__pycache__' not in p.parts
+                    and '.pytest_cache' not in p.parts)
     return {
       'schema':'oph.openwave_joint_model_claims.v1',
-      'construction':'Active canonical port/transit modular construction with supplied mass, local-coarse C/E instrument and per-seam rate; definite and uniform-fiber preparations are explicit. Bounded integer fully monitored and record-energy variants retain separate comparison domains.',
+      'construction':'Active canonical port/transit modular construction with supplied mass, local-coarse C/E instrument and per-seam rate; definite and uniform-fiber preparations are explicit. Bounded integer fully monitored and record-energy variants retain separate comparison domains. A declared shared-record CAR extension recovers the one-load construction exactly and retains all tested character sectors.',
       'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
       'assessment':str(receipt.relative_to(ROOT)),
+      'finite_extension_experiments':[
+        {'receipt':'code/openwave_candidate/next/C9/'+name+'.json',
+         'parameters':result['parameters'],'checks':result['checks'],
+         'scope':result['scope'],'physical_rows_promoted':0}
+        for name,result in car_receipts.items()],
       'observable_experiments':[
         {'id':'native_conditioned_modular_flow',
          'statement':'A declared two-port corner of the canonical native output is numerically faithful and has nontrivial modular observable correlations, checked with the standard finite GNS modular operator and a separate analytic reconstruction.',
@@ -124,7 +153,7 @@ def generate():
         {'id':'local_coarse_modular_instrument','statement':'The separately named modular local-coarse C/E Kraus instrument preserves trace, positivity, its Gauss residues and an external quantum reference. Its per-seam generator retains the local rate when an unoccupied remote component is added.', 'domain':'Complete finite reachable one-load modular sectors and supplied coarse grouping, transit policy and rates. Global monitoring changes the measured triangle evolution. No integer-regulator equality, many-load independence theorem, native-clock derivation or physical row award follows.'},
         {'id':'certified_canonical_native_window','statement':'A sparse local-coarse modular instrument runs on the canonical ring with explicit rejected boundary events. Exact rational Taylor arithmetic and an analytic projection bound enclose every position and classical-quantum outcome probability relative to the complete modular sector.', 'domain':'One coherent interval and Bernoulli event from the specified initial zero-record basis state, at the same modulus. The executed 55-state radius-4 ring window has combined probability-effect error below .006. The polynomial norm defect is retained. No repeated-channel, continuous per-seam scheduling, infinite-integer, or physical row transfer follows.'},
         {'id':'uniform_fiber_native_reduction','statement':'On a connected modular Gauss sector, normalized uniform record fibers define an isometry intertwining the Hamiltonian and every local-coarse C/E Kraus operator. The reduced canonical ring therefore reproduces complete native outcomes, repeated channels, external references and the per-seam generator on this preparation subspace.', 'domain':'Explicit uniform-fiber preparation, including composite modulus6; connected graph and fixed source sector. Native sector-preserving operations do not deterministically prepare it from definite records; conditional success is bounded by the initial zero-holonomy weight. Additional preparation resources are allowed but must be declared. Arbitrary terminal effects compress to V*EV; continued reduced evolution needs instrument-level preservation. Individual record measurements generally leave the code. Numerical continuous propagation is distinct from the exact operator identity. No physical charge identification follows.'},
-        {'id':'compact_native_persistence','statement':'A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions.', 'domain':'Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.'}]+c8_finite_claims(),
+        {'id':'compact_native_persistence','statement':'A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions.', 'domain':'Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.'}]+c8_finite_claims()+c9_finite_claims(),
       'row_assessment':[{'id':r['id'],'local_status':r['local_status'],'full_criterion_met':r['full_criterion_met'],'official_status':r['official_status'],'missing_prerequisites':r['missing_prerequisites']} for r in rows],
       'physical_premises_closed':[], 'official_OpenWave_awards_added':0,
       'comparison_domains':{

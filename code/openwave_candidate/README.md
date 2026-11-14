@@ -125,3 +125,31 @@ python code/openwave_candidate/validation/bridges/native_maxwell_source.py
 python code/openwave_candidate/validation/bridges/review_native_maxwell_source.py
 python -m pytest -q code/openwave_candidate/validation/bridges/test_native_maxwell_source.py code/openwave_candidate/validation/observables/energy_gev/test_independent_energy_gev.py code/openwave_candidate/validation/observables/energy_gev/test_spectral_apparatus.py
 ```
+
+
+## Complete shared-record fermionic extension
+
+The explicitly exported scientific files under `next/C9` connect the same
+one-load law to declared CAR statistics, shared records and complete native
+C/E/MIX measurements. Their character isometries cover the full tested source.
+The actual global ground reference is kept separate from the zero-character
+Slater reference, with every ground-state degeneracy retained. All energy
+outcomes and monitoring work are available. A gap between conserved character
+sectors is distinct from the excitation support of the native instrument.
+
+```sh
+python code/openwave_candidate/next/C9/fermionic_shared_records.py
+python code/openwave_candidate/next/C9/fermionic_uniform_reference.py
+python code/openwave_candidate/next/C9/character_reference.py
+python code/openwave_candidate/next/C9/character_minima.py
+python code/openwave_candidate/next/C9/review_character_energy.py
+python -m pytest -q code/openwave_candidate/next/C9
+```
+
+These commands use exact packaged copies of the existing CAR and Fable
+character APIs; their licenses and provenance accompany the providers. The
+export includes only the named scientific sources, receipts and reviews from
+this directory. Coordination plans and assumption-planning documents are
+excluded. CAR statistics, transport phases, finite regulator and preparation
+are declared; no physical spin, particle identity, cooling mechanism or OpenWave
+award follows from these finite experiments.

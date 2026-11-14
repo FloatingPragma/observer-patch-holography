@@ -1,0 +1,849 @@
+{
+  "schema": "oph.c9.car_character_independent_review.v1",
+  "checks": {
+    "producer_global_reference_or_energy_reproduced": true,
+    "producer_gap_reproduced": true,
+    "complete_character_unitary": true,
+    "all_H_intertwiners": true,
+    "every_C_E_MIX_K_intertwiner": true,
+    "entire_full_spectrum_reproduced": true,
+    "expected_global_ground_multiplicity": true,
+    "positive_gap_above_full_ground_multiplet": true,
+    "nonuniform_characters_contain_global_ground": true,
+    "uniform_ground_global_transfer_rejected": true
+  },
+  "producer_global_reference_error": 0.0,
+  "unitary_error": 4.442759918831088e-16,
+  "H_error": 8.473409486550037e-16,
+  "all_K_error": 5.89830202186336e-16,
+  "modulus": 3,
+  "minimizing_characters": [
+    1,
+    2
+  ],
+  "global_ground_energy": -4.010659107243598,
+  "global_ground_multiplicity": 2,
+  "gap_above_ground_multiplet": 0.2861491272893275,
+  "character_blocks": [
+    {
+      "character": 0,
+      "spectrum": [
+        -3.724509979954272,
+        -3.2645099799542723,
+        -1.7472549899771361,
+        -1.7472549899771355,
+        -1.747254989977135,
+        -1.7472549899771346,
+        -0.23000000000000007,
+        -0.22999999999999984,
+        -0.22999999999999965,
+        -0.22999999999999912,
+        0.22999999999999962,
+        0.23000000000000012,
+        0.23000000000000073,
+        0.23000000000000073,
+        1.7472549899771341,
+        1.7472549899771348,
+        1.747254989977135,
+        1.7472549899771364,
+        3.264509979954272,
+        3.7245099799542727
+      ],
+      "ground_energy": -3.724509979954272,
+      "complete_native_ground_outcomes": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.0644485964515285,
+          "subnormalized_energy": -0.19234558156082707
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01888473688180481,
+          "subnormalized_energy": -0.022642531868156294
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.01888473688180481,
+          "subnormalized_energy": -0.022642531868156294
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06444859645152849,
+          "subnormalized_energy": -0.1923455815608271
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.01888473688180481,
+          "subnormalized_energy": -0.022642531868156297
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04556385956972368,
+          "subnormalized_energy": -0.07431533145879833
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01888473688180481,
+          "subnormalized_energy": -0.022642531868156294
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.01888473688180481,
+          "subnormalized_energy": -0.022642531868156294
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04556385956972368,
+          "subnormalized_energy": -0.07431533145879833
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.01888473688180481,
+          "subnormalized_energy": -0.022642531868156294
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06444859645152848,
+          "subnormalized_energy": -0.19234558156082698
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01888473688180483,
+          "subnormalized_energy": -0.022642531868156332
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.018884736881804795,
+          "subnormalized_energy": -0.022642531868156283
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06444859645152852,
+          "subnormalized_energy": -0.19234558156082715
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.018884736881804795,
+          "subnormalized_energy": -0.022642531868156283
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04556385956972369,
+          "subnormalized_energy": -0.07431533145879837
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.01888473688180483,
+          "subnormalized_energy": -0.022642531868156332
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.018884736881804795,
+          "subnormalized_energy": -0.022642531868156283
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04556385956972369,
+          "subnormalized_energy": -0.07431533145879837
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.01888473688180483,
+          "subnormalized_energy": -0.022642531868156332
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.0644485964515285,
+          "subnormalized_energy": -0.19234558156082715
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.018884736881804795,
+          "subnormalized_energy": -0.02264253186815628
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.01888473688180483,
+          "subnormalized_energy": -0.022642531868156332
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06444859645152848,
+          "subnormalized_energy": -0.19234558156082704
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.01888473688180483,
+          "subnormalized_energy": -0.022642531868156332
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04556385956972369,
+          "subnormalized_energy": -0.07431533145879836
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.018884736881804795,
+          "subnormalized_energy": -0.02264253186815628
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.01888473688180483,
+          "subnormalized_energy": -0.022642531868156332
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04556385956972369,
+          "subnormalized_energy": -0.07431533145879836
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.018884736881804795,
+          "subnormalized_energy": -0.02264253186815628
+        }
+      ],
+      "ground_instrument_energy_after": -2.007531051744566,
+      "ground_instrument_work": 1.7169789282097039
+    },
+    {
+      "character": 1,
+      "spectrum": [
+        -4.0106591072435975,
+        -2.5673142229390247,
+        -1.982999052337599,
+        -1.982999052337599,
+        -1.3986838817361722,
+        -1.305987612753713,
+        -1.3059876127537122,
+        -0.7216724421522853,
+        -0.7216724421522849,
+        -0.0446610025683985,
+        0.04466100256839828,
+        0.7216724421522853,
+        0.7216724421522859,
+        1.3059876127537107,
+        1.3059876127537118,
+        1.3986838817361729,
+        1.9829990523375984,
+        1.9829990523375995,
+        2.5673142229390264,
+        4.0106591072435975
+      ],
+      "ground_energy": -4.0106591072435975,
+      "complete_native_ground_outcomes": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06328832852956391,
+          "subnormalized_energy": -0.20007548558475446
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769476,
+          "subnormalized_energy": -0.026641255456413892
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769487,
+          "subnormalized_energy": -0.02664125545641391
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06328832852956391,
+          "subnormalized_energy": -0.20007548558475444
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.020045004803769487,
+          "subnormalized_energy": -0.02664125545641391
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04324332372579443,
+          "subnormalized_energy": -0.06592937889920894
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769476,
+          "subnormalized_energy": -0.026641255456413892
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769487,
+          "subnormalized_energy": -0.02664125545641391
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04324332372579443,
+          "subnormalized_energy": -0.06592937889920894
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.020045004803769476,
+          "subnormalized_energy": -0.026641255456413892
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06328832852956393,
+          "subnormalized_energy": -0.20007548558475446
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769473,
+          "subnormalized_energy": -0.026641255456413885
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.02004500480376948,
+          "subnormalized_energy": -0.026641255456413895
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06328832852956391,
+          "subnormalized_energy": -0.20007548558475446
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.020045004803769476,
+          "subnormalized_energy": -0.026641255456413895
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.043243323725794446,
+          "subnormalized_energy": -0.06592937889920894
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769473,
+          "subnormalized_energy": -0.026641255456413885
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.02004500480376948,
+          "subnormalized_energy": -0.026641255456413895
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.043243323725794446,
+          "subnormalized_energy": -0.06592937889920894
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.020045004803769473,
+          "subnormalized_energy": -0.02664125545641388
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06328832852956391,
+          "subnormalized_energy": -0.2000754855847544
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769487,
+          "subnormalized_energy": -0.0266412554564139
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.02664125545641388
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06328832852956393,
+          "subnormalized_energy": -0.20007548558475446
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.020045004803769473,
+          "subnormalized_energy": -0.02664125545641388
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04324332372579444,
+          "subnormalized_energy": -0.06592937889920894
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769487,
+          "subnormalized_energy": -0.0266412554564139
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.02664125545641388
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04324332372579444,
+          "subnormalized_energy": -0.06592937889920894
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.020045004803769487,
+          "subnormalized_energy": -0.026641255456413902
+        }
+      ],
+      "ground_instrument_energy_after": -2.07557178511923,
+      "ground_instrument_work": 1.9350873221243696
+    },
+    {
+      "character": 2,
+      "spectrum": [
+        -4.0106591072435975,
+        -2.5673142229390256,
+        -1.9829990523375989,
+        -1.9829990523375984,
+        -1.398683881736173,
+        -1.3059876127537118,
+        -1.3059876127537111,
+        -0.721672442152286,
+        -0.7216724421522853,
+        -0.044661002568397674,
+        0.04466100256839848,
+        0.7216724421522857,
+        0.721672442152286,
+        1.3059876127537113,
+        1.3059876127537118,
+        1.3986838817361726,
+        1.9829990523375989,
+        1.9829990523375995,
+        2.5673142229390242,
+        4.010659107243598
+      ],
+      "ground_energy": -4.0106591072435975,
+      "complete_native_ground_outcomes": [
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06328832852956383,
+          "subnormalized_energy": -0.20007548558475421
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.02664125545641387
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 0,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06328832852956383,
+          "subnormalized_energy": -0.2000754855847542
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04324332372579437,
+          "subnormalized_energy": -0.06592937889920883
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.02664125545641387
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04324332372579437,
+          "subnormalized_energy": -0.06592937889920883
+        },
+        {
+          "seam": 0,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06328832852956384,
+          "subnormalized_energy": -0.20007548558475424
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.02004500480376946,
+          "subnormalized_energy": -0.02664125545641386
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 1,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06328832852956383,
+          "subnormalized_energy": -0.2000754855847542
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413878
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.043243323725794376,
+          "subnormalized_energy": -0.06592937889920883
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.02004500480376946,
+          "subnormalized_energy": -0.02664125545641386
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.043243323725794376,
+          "subnormalized_energy": -0.06592937889920883
+        },
+        {
+          "seam": 1,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.02004500480376946,
+          "subnormalized_energy": -0.02664125545641386
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.06328832852956384,
+          "subnormalized_energy": -0.2000754855847542
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.02004500480376946,
+          "subnormalized_energy": -0.02664125545641386
+        },
+        {
+          "seam": 2,
+          "law": "C",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.06328832852956384,
+          "subnormalized_energy": -0.20007548558475424
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": -1,
+          "probability": 0.02004500480376946,
+          "subnormalized_energy": -0.026641255456413868
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 0,
+          "probability": 0.04324332372579437,
+          "subnormalized_energy": -0.06592937889920883
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 0,
+          "record_value": 1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": -1,
+          "probability": 0.02004500480376946,
+          "subnormalized_energy": -0.02664125545641386
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 0,
+          "probability": 0.04324332372579437,
+          "subnormalized_energy": -0.06592937889920883
+        },
+        {
+          "seam": 2,
+          "law": "E",
+          "coin": 1,
+          "record_value": 1,
+          "probability": 0.020045004803769466,
+          "subnormalized_energy": -0.026641255456413875
+        }
+      ],
+      "ground_instrument_energy_after": -2.075571785119228,
+      "ground_instrument_work": 1.9350873221243674
+    }
+  ],
+  "scope": "All3holonomycharacters of actual60statefixedN3source, no characterselected asphysicalbackground. Nativeinstrument preservescharacters but depositswork. Positiveglobalreference from entiregroundmultiplet, no physicalspecies/spin/vacuumpreparation claim.",
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C9/review_car_characters.py": "c56b8d8b640684a7fe35a3e9f7483f08ca74abcfb07a725303a14649f7cb7f02",
+    "next/C9/character_reference.py": "2547ee2285b6c58323effab20f4aff419c3617003c6fd87f62e4dbe0ac6ec432",
+    "next/C9/CHARACTER_REFERENCE.json": "c4d056e154754cab9c7e3e8b4c1f01a8191335b2b99913500ecde7c7b1a77786",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907"
+  },
+  "full_criterion_met": false
+}

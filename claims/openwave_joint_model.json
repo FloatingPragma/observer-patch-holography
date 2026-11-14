@@ -9,7 +9,7 @@
     "regulator": "Two finite cutoff comparisons provide no cutoff-removal theorem.",
     "shared_register_native_programs": "The nine claims in claims/joint_observer.json retain their authenticated finite source domains. A shared event register does not implement independent additive loads. No transfer to the separate-copy generator is asserted."
   },
-  "construction": "Active canonical port/transit modular construction with supplied mass, local-coarse C/E instrument and per-seam rate; definite and uniform-fiber preparations are explicit. Bounded integer fully monitored and record-energy variants retain separate comparison domains.",
+  "construction": "Active canonical port/transit modular construction with supplied mass, local-coarse C/E instrument and per-seam rate; definite and uniform-fiber preparations are explicit. Bounded integer fully monitored and record-energy variants retain separate comparison domains. A declared shared-record CAR extension recovers the one-load construction exactly and retains all tested character sectors.",
   "finite_claims": [
     {
       "domain": "Product preparations; no interacting or exchange-statistics theorem.",
@@ -115,6 +115,125 @@
       "domain": "Tiny complete modular apparatus controls. Code/complement weights are diagnostics rather than an extra dephasing measurement. Arbitrary terminal effects do not imply closed reduced continuation.",
       "id": "continuing_record_apparatus",
       "statement": "Individual half-record measurements retain every full poststate, including its code-complement coherence, for subsequent full native evolution. Whole-position closed-cut measurement branches intertwine with the reduced code."
+    },
+    {
+      "domain": "Declared fixed-number Pauli/CAR statistical extension. This is not the non-trace-preserving exterior lift of each one-load Kraus operator. Local gauge conservation is modular; no physical spin, species or derived statistics.",
+      "id": "shared_car_native_instrument",
+      "statement": "Direct full-occupation C/E/MIX Kraus maps on shared modular records form complete channels with CAR hopping and stated endpoint transport phases. Every one-load Hamiltonian and native Kraus map recovers the original model; complete work and external-reference controls are retained."
+    },
+    {
+      "domain": "Complete triangle sectors at the declared modulus and fixed number, with independent tree/cycle proofs and Fourier reconstructions. Character preparation is supplied. No unconditional global-ground inference from the zero-character Slater state.",
+      "id": "car_all_character_transfer",
+      "statement": "Normalized Gauss-fiber character isometries decompose the entire finite shared-record CAR source and intertwine its Hamiltonian and every C/E/MIX Kraus map. Uniform fibers are the zero-character member, not the entire source."
+    },
+    {
+      "domain": "Finite declared CAR source, mass .23, no potential. The lowest positive one-load band edge minimizes character 0, a different energy selection. Native channels preserve character and can deposit work; energetic preference does not implement cooling, character selection or a physical vacuum.",
+      "id": "car_global_reference",
+      "statement": "The actual full fixed-number Hamiltonian has a positive excitation reference after subtracting its minimum and retaining the complete ground multiplet. Z3 has a ground doublet in nonzero characters; Z6 has a unique character-3 minimum on the tested triangle."
+    },
+    {
+      "domain": "Declared finite ground preparation, native instrument and energy PVM. Algebraic character exclusion and numerical within-sector support tolerance are separate. Neither spectral gap is a physical particle mass or GeV prediction.",
+      "id": "car_native_energy_response_support",
+      "statement": "A complete ground/native-letter/final-energy experiment retains every energy eigenspace and all zero outcomes. Its supported excitation threshold is distinguished from the full spectral gap between invariant character sectors."
+    }
+  ],
+  "finite_extension_experiments": [
+    {
+      "checks": {
+        "Hermitian_actual_H": true,
+        "all_event_probabilities_retained": true,
+        "complete_C_E_MIX": true,
+        "exact_every_one_load_MIX_K_recovery": true,
+        "exact_one_load_H_recovery": true,
+        "instrument_work_complete": true,
+        "nontrivial_CAR_transport_phases_retained": true,
+        "same_modular_Gauss": true
+      },
+      "parameters": {
+        "fixed_fermion_number": 3,
+        "graph": "triangle",
+        "initial_mask": 7,
+        "mass": 0.23,
+        "modulus": 3,
+        "native_phase": "direct CAR c_dst^dagger c_src on moving branch; identity phase on no move",
+        "position_order": "ports0,1,2 then transits3,4,5",
+        "preparation": "weights .7/.3 on lowest/highest actual shared-record eigenstates with relative i"
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C9/FERMIONIC_SHARED_RECORDS.json",
+      "scope": "Complete finite shared-record fermionic native statistical extension. Not wedge of single-particle channel. Ground and instruments belong to this actual many-body-record H, not silently to unrecorded dGamma(H). No physical spin, statistics derivation, sea preparation, species or energy conservation through monitoring claimed."
+    },
+    {
+      "checks": {
+        "H_intertwiner": true,
+        "actual_Slater_ground": true,
+        "all_complete_poststates_intertwine": true,
+        "every_C_E_MIX_K_intertwiner": true,
+        "global_holonomy_ground_transfer_rejected": true,
+        "isometry": true,
+        "monitoring_generates_positive_work": true,
+        "positive_excitation_spectrum": true
+      },
+      "parameters": {
+        "fiber_cardinality": 3,
+        "fixed_fermion_number": 3,
+        "full_dimension": 60,
+        "mass": 0.23,
+        "modulus": 3,
+        "native_phase": "direct CAR transport; same phase as full model",
+        "positions": 6,
+        "preparation": "uniform modular Gauss fiber on each occupation, negative-filled Slater occupation superposition",
+        "reduced_dimension": 20
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C9/FERMIONIC_UNIFORM_REFERENCE.json",
+      "scope": "Same actual shared-record CAR construction in an explicitly supplied uniform-fiber Slater preparation. Passive coherent code-ground is stable; native monitoring generally excites it. Other record-holonomy sectors have a lower global energy; no global-ground transfer. No physical species, vacuum preparation, spin or mass identification."
+    },
+    {
+      "checks": {
+        "H_and_every_K_preserve_character_projectors": true,
+        "all_H_character_intertwiners": true,
+        "all_character_direct_sum_unitary": true,
+        "all_global_excitation_energies_nonnegative": true,
+        "all_native_character_intertwiners": true,
+        "all_native_monitoring_work_positive": true,
+        "full_global_reference_passive": true,
+        "global_ground_degeneracy_retained": true
+      },
+      "parameters": {
+        "character_coordinates": "existing Fable spanningforest/chord labels; sign convention matches Gauged",
+        "character_isometry": "exp(+i sum theta_h F_h)/sqrt3 at fixedoccupation",
+        "characters": 3,
+        "fixed_CAR_number": 3,
+        "full_dimension": 60,
+        "global_reference": "normalized projector onto complete lowest-eigenvalue multiplet; no arbitrary unique-vector selection",
+        "graph": "triangle",
+        "mass": 0.23,
+        "modulus": 3,
+        "occupation_dimension_per_character": 20
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C9/CHARACTER_REFERENCE.json",
+      "scope": "Actual full60state fixednumber sharedrecord source, all modularcharacters retained. FiniteCAR statistics/phase/ideal preparation supplied. Global passive ground generally excited by native monitoring. No unique physical vacuum, species, spin, continuum or calibrated mass claim."
+    },
+    {
+      "checks": {
+        "all_CAR_sector_grounds_equal_negative_filled_sums": true,
+        "all_C_E_MIX_intertwiners": true,
+        "all_H_intertwiners": true,
+        "full_spectrum_is_character_union": true
+      },
+      "parameters": {
+        "fixed_CAR_number": 3,
+        "full_dimension": 120,
+        "graph": "triangle",
+        "mass": 0.23,
+        "modulus": 6,
+        "native_C_E_MIX": "same fulloccupation literalbalancing/directCARphase; no potential"
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C9/CHARACTER_MINIMA.json",
+      "scope": "Energetic comparison of allcharacters in declared fixednumberCAR source, no assumedresult; minimumpositiveone-loadbranch is distinct from global signed one-loadground. Native sectorinvariance does not prepare/cool/select a character. No binding, physicalspin/species, physicalvacuum or CARderivation."
     }
   ],
   "observable_experiments": [
@@ -527,18 +646,63 @@
     "code/openwave_candidate/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
     "code/openwave_candidate/integration/assess.py": "4b9345c17918a919142860b9565a0c8dc9d4056a3d1798f9ab5f5ab7ca8ca906",
     "code/openwave_candidate/integration/assessment.json": "63f356b86f1267262f6c25a2e6a80d461d445dfa445fab9f7776d41add91901c",
+    "code/openwave_candidate/next/C9/ANALYTIC_CHARACTER_ENERGY_REVIEW.json": "d52b06aa6a9ec9400ad7e6b7bf2fc4b286f49a36aa6dd7066a52c3c997cae472",
+    "code/openwave_candidate/next/C9/CAR_CHARACTERS_INDEPENDENT_PROOF.md": "18752ab153dfcd1b2db8e43b86ddfedf5cdd3bcb4284739d4938ec9a41953ed8",
+    "code/openwave_candidate/next/C9/CAR_CHARACTERS_INDEPENDENT_REVIEW.json": "3349ea8a9964ad5c054145fd24938b0db5edfa226ef0d343a5d8609dfb551bd7",
+    "code/openwave_candidate/next/C9/CAR_CHARACTERS_MOD6_INDEPENDENT_REVIEW.json": "ff46254f64514a737ed8ea90ccb528228a0d15f189ba88feca77bcc252a6a3d0",
+    "code/openwave_candidate/next/C9/CAR_NATIVE_ALGEBRA_REVIEW.json": "2ee39182dadf69432bca86c29a644a75da26a4f97eac242e08b6e616f5209516",
+    "code/openwave_candidate/next/C9/CAR_NATIVE_ENERGY_INDEPENDENT_REVIEW.json": "13b97c0c7824408193619ddbf9339b158011c66e30f4e03672331fbc516032cb",
+    "code/openwave_candidate/next/C9/CAR_NATIVE_INDEPENDENT_PROOF.md": "6996525c1ed8539b8ef883a76a50185d352ed881a5b7e09f88e2419412426453",
+    "code/openwave_candidate/next/C9/CAR_UNIFORM_FIBER_INDEPENDENT_PROOF.md": "2283fabcf882283cff9ed2e54023a3f25ad950926b53b3320668abd72e1e207b",
+    "code/openwave_candidate/next/C9/CAR_UNIFORM_FIBER_INDEPENDENT_REVIEW.json": "300116fb79f899a69aa25be4f3a0a94e9496cbdeb3c21d3358db0f5c88fce56f",
+    "code/openwave_candidate/next/C9/CHARACTER_MINIMA.json": "0ac4501d6780eae51f3c1ddbe35b2a3a012b4ef843591f2989658014ad505728",
+    "code/openwave_candidate/next/C9/CHARACTER_MINIMA.md": "10281a907dec0f5d01c0bcaf8d32634e582e1ffc00aff734dc4cc76e3c0385eb",
+    "code/openwave_candidate/next/C9/CHARACTER_REFERENCE.json": "c4d056e154754cab9c7e3e8b4c1f01a8191335b2b99913500ecde7c7b1a77786",
+    "code/openwave_candidate/next/C9/CHARACTER_REFERENCE.md": "8c4a6488c334be24075ccf3c9b1dcb5b6ba64848b0bfeebbf6e738c8d5a0a595",
+    "code/openwave_candidate/next/C9/FERMIONIC_SHARED_INDEPENDENT_REVIEW.json": "072086ac898716036d1c059c70dcb8c1be784d5b764caadbfaad75d252833472",
+    "code/openwave_candidate/next/C9/FERMIONIC_SHARED_RECORDS.json": "ee60b58d6cc73a85deaa4047906b842527024c84ae2f85a2ba33406614fb5eba",
+    "code/openwave_candidate/next/C9/FERMIONIC_SHARED_RECORDS.md": "7a11b8183cf844ed26c6c07ad00c54b448ae4e661b53bc0e1224a51285e15bb1",
+    "code/openwave_candidate/next/C9/FERMIONIC_UNIFORM_REFERENCE.json": "a76561e307fd5ec2f8493340c3805a7820c19a02cdac724c2b835b89f044d69b",
+    "code/openwave_candidate/next/C9/FERMIONIC_UNIFORM_REFERENCE.md": "9bdace61bcd4ddf0e05623c64c0ad8ab3fa278d094d6992e25c47e7a63dc7a77",
+    "code/openwave_candidate/next/C9/POSITIVE_REFERENCE_INDEPENDENT_REVIEW.json": "4420fad1abd3ebc102379723aa6285efdc2ec722df1e9b8a43af3285e39bf02a",
+    "code/openwave_candidate/next/C9/audit_car_native_algebra.py": "266d6e55bacad7143e07306f4a6a8db9719a3ce9e510e88edc8dc5e1625068c0",
+    "code/openwave_candidate/next/C9/character_minima.py": "5b13dc2cd2813077132bf3674ea420b95a66a199011862cf0e3a22e66a4e3d31",
+    "code/openwave_candidate/next/C9/character_reference.py": "2547ee2285b6c58323effab20f4aff419c3617003c6fd87f62e4dbe0ac6ec432",
+    "code/openwave_candidate/next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "code/openwave_candidate/next/C9/fermionic_uniform_reference.py": "c409ba7b3396a73b5fb4c97d0f07aedc4e1921a4750d394a38d7cbbd570c3388",
+    "code/openwave_candidate/next/C9/review_car_characters.py": "c56b8d8b640684a7fe35a3e9f7483f08ca74abcfb07a725303a14649f7cb7f02",
+    "code/openwave_candidate/next/C9/review_car_native_energy.py": "1d4d8e038d74c1b14850381cd652ec8be5d64bef7d82f91d93673af71dd83e28",
+    "code/openwave_candidate/next/C9/review_car_uniform_fiber.py": "c950c0167e665ecb95795a1f4d4a0cb70356054af46fc4bce25a9546f5887348",
+    "code/openwave_candidate/next/C9/review_character_energy.py": "df9a3bcd756389b04754a639cc95286d75413b658e2bfddd4d1edd70a17764e5",
+    "code/openwave_candidate/next/C9/review_fermionic_shared.py": "d677090f36a2861270628d5834880d60ec23213ee3dfeea9ab6ce4b9b989a22b",
+    "code/openwave_candidate/next/C9/review_positive_reference.py": "396bd0b1e2dc9abbccf32e0a926434711b8bcfc43660827ed3555627ea182b15",
+    "code/openwave_candidate/next/C9/test_car_characters_independent.py": "72c95125e3049d4b241086ddbe23133e92a29bfb6fb950c8f240b3d6c9e189ed",
+    "code/openwave_candidate/next/C9/test_car_native_independent.py": "d16a2b787a1aa21275428ffcae8e41a5f0ddd39b432404057dbc59b2d2f26c24",
+    "code/openwave_candidate/next/C9/test_car_uniform_independent.py": "aae8d9a8c68acc59ed90db0828b15feb2dd0b7c3f8b547493a5d86d1f0fbeb42",
+    "code/openwave_candidate/next/C9/test_character_minima.py": "724cec5971686c66a1b160057c2ae807a65bfff1cf622847ac855ee09ff17090",
+    "code/openwave_candidate/next/C9/test_character_reference.py": "5125dab0685b114b60c083f43c8d24569fd500f5ddad9fb2ee24dfeb126895b8",
+    "code/openwave_candidate/next/C9/test_fermionic_shared_records.py": "11eccccb79f20cad3619f04b0eb931f6dc199c25f20d9d362141f2fcfff26d3c",
+    "code/openwave_candidate/next/C9/test_fermionic_uniform_reference.py": "7d4d2a04d7651bb602d92237fe838caee99590d0bf5581f62fee72ea144a4278",
     "code/openwave_candidate/platform_packet/criteria_frozen.json": "d6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f",
     "code/openwave_candidate/platform_packet/packet.json": "9e0678f5efbbc5fdc1449a693fb880ced3509abe244f4e6b90597e20e6672d82",
     "code/openwave_candidate/validation/bridges/NATIVE_MAXWELL_SOURCE.json": "f90b605be95e925ec65e8c8ac7a8226f9041bad34cce2e31f5402c09c0dfa0ca",
     "code/openwave_candidate/validation/bridges/NATIVE_MAXWELL_SOURCE.md": "b6533cdbc4691657456e050bbd14639ad53fd4ecc0bba6e1429fa292e986355c",
     "code/openwave_candidate/validation/bridges/NATIVE_MAXWELL_SOURCE_INDEPENDENT_REVIEW.json": "13d2530b420a358f65cedbd43a0b17f6387d3a926ca8e00c386a63317b5c25c3",
+    "code/openwave_candidate/validation/bridges/POSITIVE_REFERENCE_ATTACHMENT.json": "5f1a14d0cb74f363bfc9e7d2908d773d17f60d6962e1a7ae32952aa164dd65c2",
+    "code/openwave_candidate/validation/bridges/POSITIVE_REFERENCE_ATTACHMENT.md": "26d6e3c37f210e44e3d5aeeabb2708b3ff2301504c63ce652654791696c461fa",
     "code/openwave_candidate/validation/bridges/native_maxwell_source.py": "735c83ee5e1cc8e984c595ecfb937d827b334c063754e8f38a93c51018320a5c",
+    "code/openwave_candidate/validation/bridges/positive_reference_attachment.py": "1e036902ea035a5d2eb07445f7b745c2fd38a3e1b1dbc78d755560193b9c8893",
+    "code/openwave_candidate/validation/bridges/providers/CAR_PROVENANCE.json": "1880c269a728d3c2f1098f3eea570007176a20ef14176e7e7dff32f3a5815544",
     "code/openwave_candidate/validation/bridges/providers/LICENSE": "57b567796eabf36f9b3c641d91196024fe0fd4a2dd22c4de98fc7ee21d9945ba",
     "code/openwave_candidate/validation/bridges/providers/LICENSING_NOTICE": "7c5428d9a5ad103cf9fa09bae0a9c27f132c53de6d8c7671066173206f79f735",
     "code/openwave_candidate/validation/bridges/providers/PROVENANCE.json": "390ac3aa6ca7cd8487a1ce3effa83f6221428204ac79bf0547eb10587b4da42e",
+    "code/openwave_candidate/validation/bridges/providers/fable_candidate.py": "8e093e5ba88160abf0a471d0da4745ce1d5cd8e5fa5048623d0be5ce6334529c",
+    "code/openwave_candidate/validation/bridges/providers/fock.py": "353f94ca4d09af9b3f7f33143f78a396cf3f489e8ae91b430ffb32e615ad44f9",
+    "code/openwave_candidate/validation/bridges/providers/mass_instrument_model.py": "e569d5c686db5106b9cac258a1ec0c58467336d70441ebd14ddde657e1d63749",
     "code/openwave_candidate/validation/bridges/providers/seam_maxwell_continuum.py": "c1963e2b1825fc74a05f5bab200bbc9fc56d6315fae9ce8d46eeb815a09cfd87",
     "code/openwave_candidate/validation/bridges/review_native_maxwell_source.py": "dff22cff991c83fe92b83e60d8eb706f56caa6c628a965460f1cdecdd16d8c7d",
     "code/openwave_candidate/validation/bridges/test_native_maxwell_source.py": "945cb7c67d73965830dc6800b8c45942f6afdf87200d4a8376d57e9aadac6112",
+    "code/openwave_candidate/validation/bridges/test_positive_reference_attachment.py": "48ffaf66dd67b6838f2fc97c4f5f17b01be6e7700e0a9165a48ed349af350461",
     "code/openwave_candidate/validation/observables/energy_gev/ENERGY_GEV.json": "ebacd40494d5dbf0a5c60133b99cf7f836d22a0abe8db503c39d4bddd0b90543",
     "code/openwave_candidate/validation/observables/energy_gev/INDEPENDENT_REVIEW.json": "2c930cdf721a857e15a321f563d5e55547ecbbb47c754ac9152b946edbd6ebb7",
     "code/openwave_candidate/validation/observables/energy_gev/INDEPENDENT_REVIEW.md": "3175f851df69abfb5d8a3284740b7dbac3c32b8011b78aaf1186c2b041492ff3",
@@ -577,7 +741,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "3e5d27ce6f5b890c7059e6332e07500333b231ab4f8a7729d78eac6000c4e1c0",
+    "tools/build_openwave_joint_claims.py": "15586294db39af23246368d9d44f93adc358f91a930fba7924f89d5dcb281675",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }
