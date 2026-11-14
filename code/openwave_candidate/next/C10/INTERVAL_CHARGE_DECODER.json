@@ -1,0 +1,33 @@
+{
+  "schema": "oph.c10.interval_charge_decoder.v1",
+  "checks": {
+    "all_complete_regional_charge_projectors_equal": true,
+    "Z3_zero_three_alias_retained": true,
+    "unsafe_interval_decoder_rejected": true
+  },
+  "reuse": "Existing modular Gauss/cut identity and complete regional occupation PVM; reduce residue on known [0,L] interval instead of arbitrary [-L,L] cut interval.",
+  "proof": "If two charges q,q_prime in [0,L] have the same residue and N>L, their difference is divisible by N and has absolute value at most L<N, hence it is zero. Therefore Q_R=(G_R-cut_F) mod N whenever this representative lies in [0,L]. Equality on every basis state gives equality of every diagonal charge-projector branch, for any density and external reference.",
+  "parameters": {
+    "fixed_nonnegative_total": 3,
+    "successful_modulus": 6,
+    "alias_control_modulus": 3,
+    "regions": 64,
+    "states": 120
+  },
+  "projector_basis_comparisons": 7680,
+  "alias_control": {
+    "cut_residue": 0,
+    "charges": [
+      0,
+      3
+    ]
+  },
+  "scope": "Fixed nonnegative occupation domain and known regional Gauss residue. No arbitrary signed charge, vacuum-subtracted quantum regional charge, all-N C10mod3 boundary recovery or physical electric-charge dictionary. N>2L remains a valid sufficient condition for the separate generic signed-cut decoder; it is not necessary for this known charge interval.",
+  "full_criterion_met": false,
+  "official_rows_changed": [],
+  "source_sha256": {
+    "next/C10/interval_charge_decoder.py": "3f0d26c485dc5b5b89cb462f4cabc784fcd591290cf1173f8fc98f571f12d295",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72",
+    "candidate/oph_openwave/construction.py": "4d537c2c580cfc8ae429000ba352718c8a154c5d9b2feea4758f37589815b907"
+  }
+}

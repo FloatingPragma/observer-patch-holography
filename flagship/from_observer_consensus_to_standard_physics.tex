@@ -1993,31 +1993,36 @@ work. Spectral access, preparation and a $511$ keV half-gap calibration are
 supplied apparatus inputs, not physical species or mass predictions
 (\path{code/openwave_candidate/candidate/methods/pinned_charge.md};
 \path{code/openwave_candidate/validation/observables/energy_gev/SPECTRAL_APPARATUS.md}).
-A declared CAR extension gives Pauli occupations and direct fermionic
-endpoint phases to the shared-record instrument. Each C/E outcome is an
-injective partial permutation with its phase retained; the complete
-law/coin weights establish trace preservation with quantum references.
-The full one-load generator and instrument are recovered. Complete
-Gauss-fiber Fourier characters intertwine both $H$ and every native
-Kraus operator. On the triangle, the three-fermion modulus-three source
-splits exactly as $60=3\times20$. Its uniform Slater energy
-$-3.724509980$ exceeds the full ground-doublet energy $-4.010659107$;
-the positive reference cannot be inherited from the uniform code alone.
+A declared CAR extension retains direct fermionic endpoint phases in every
+native C/E outcome. The interacting triangle instance contains all $64$
+occupations of six orbitals and six modular Gauss fibers per occupation:
+$384$ source states. The integer boundary record $B=3-N_{\rm source}$
+dresses a complete two-occupation reservoir, giving $768$ joint coordinates.
+One Hamiltonian joins CAR half-hopping to a periodic half-record potential
+and a cyclic face term, with supplied $m=0.23$, $\kappa=0.37$, $g=0.61$.
+Its recomputed all-number ground is unique in $N=3$, at
+$-2.7262233938630343$. This is the selected finite reference; bare
+character-sector spectra are zero-field controls, not imported gaps.
 
-For modulus six, all six characters of the 120-state source are retained.
-Its unique finite ground lies at character $3$ with energy
-$-4.065399874$ and gap $0.05474076634$. The positive one-load band
-edge is minimized at character $0$, demonstrating the dependence on
-the energy domain. Exact character preservation gives a different
-operational threshold: complete native-event and global-energy records
-first support excitation $2.052218312$ at numerical probability
-threshold $10^{-12}$. Monitoring deposits positive work, rather than
-preserving the passive ground. These finite results supply a compatible
-CAR instrument and full reference spectrum, conditional on declared
-statistics, phases and preparation. They select no physical spin,
-species, vacuum or holonomy background
-(\path{code/openwave_candidate/next/C9/FERMIONIC_SHARED_RECORDS.md};
-\path{code/openwave_candidate/next/C9/CHARACTER_MINIMA.md}).
+Every dressed reservoir addition, removal and no-change outcome retains
+its initial reservoir label, source-number/energy records and full
+poststate. Source charge plus reservoir charge is conserved. The pulse
+commutes with the record-field energy, so its unconditioned field energy
+is unchanged although conditional branches differ. Work uses this same
+interacting $H+0.23n_{\rm reservoir}$ with explicitly zero extra boundary
+energy. The selected native protocol evolves for $0.37$ hop units and
+commits MIX with probability $0.29$, retaining the $0.71$ no-commit outcome;
+its mean monitoring work is $0.5161569571$ source units.
+
+Grouped number/energy measurements retain complete degenerate eigenspaces
+and their full coefficient matrices for native continuation. Independent
+basis rotations preserve those poststates; resolving a fine basis and
+forgetting its label does not. Periodic field energy mixes the bare
+character sectors, so a uniform-code shortcut is invalid here. Statistics,
+field coefficients, spectral preparation, apparatus and the dimensionless
+clock are declared inputs. The triangle supplies no physical species,
+spin, vacuum, calibrated mass, distant radiation or gravity identification
+(\path{code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.md}).
 The executable-construction paper gives the proof \cite{ophspine}; the
 reduced operator and complete records are specified in
 \path{code/openwave_candidate/candidate/methods/uniform_native.md} and

@@ -1,0 +1,39 @@
+{
+  "schema": "oph.c10.charged_reservoir_independent_review.v1",
+  "checks": {
+    "allfourCARswapblocks_exact": true,
+    "complete_all192_source_domain": true,
+    "reservoir_boundary_integer_Gauss": true,
+    "all_source_modular_Gauss": true,
+    "complete_actual_ground_reference_poststates": true,
+    "allnumber_probabilities_not_postselected": true,
+    "outside234_actual_probability_zero": true,
+    "complete_global_energy_readout": true,
+    "same_initial_reference_work": true,
+    "unsigned_swap_phase_control_rejected": true
+  },
+  "Kraus_max_error": 0.0,
+  "poststate_max_error": 0.0,
+  "energy_ledger_error": 8.881784197001252e-16,
+  "actual_allN_probabilities": {
+    "0": 0.0,
+    "1": 0.0,
+    "2": 0.1990998322482388,
+    "3": 0.5000000000000002,
+    "4": 0.3009001677517614,
+    "5": 0.0,
+    "6": 0.0
+  },
+  "mean_source_reservoir_work": 1.2900582147495803,
+  "phase_omission_trace_distance": 0.5000000000000014,
+  "phase_control_domain": "CoherentallN mathematicallyadmittedinput, includingcrossfermionparity. No physicalisolatedparitysuperpositionclaim; fixedN3 signed/unsignedK differonlyoutcomeglobalphase.",
+  "scope": "Exact finite supplied reservoir pulse, fairinitialoccupationlabel retained. Sourcecharge exchanged withreservoir; totalcharge conserved includingexplicitboundary. Work uses unchangedsourceH plus.23nr, with no independentboundaryHamiltonian supplied. No physicalelectron/mass/vacuum or autonomousbattery.",
+  "source_sha256": {
+    "next/C10/review_charged_reservoir.py": "50ba81e3d5be14e1451356db8ed24574cab9c6328f00649137e3aa7a07e0e39a",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "next/C10/CHARGED_RESERVOIR.json": "784e2b537690c69662963bbb0fa7d5d87f7538e3d0b0ea003d21a55c3e78855b",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

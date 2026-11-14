@@ -1,15 +1,33 @@
 {
   "assessment": "code/openwave_candidate/integration/assessment.json",
+  "canonical_source": {
+    "construction_id": "triangle-CAR-allN-Z6-periodic-half-record-native-MIX-v1",
+    "contract": "code/openwave_candidate/next/C10/CANONICAL_SOURCE_CONTRACT.json",
+    "earlier_31_row_assessment_domain": "The earlier one-load assessment is preserved below. Its measured outcomes are not reassigned to this interacting all-number source.",
+    "receipt": "code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.json",
+    "scope": "One finite Hamiltonian/reference/hopclock/native instrument plus explicit boundarydressed reservoir apparatus. Occupation/record/current/energy readouts are declared complete mathematical apparatus. No physicalspecies, spin, vacuum, GeV mass, Maxwell radiation, Lorentz or gravity identification.",
+    "selected": {
+      "H": "JOINT_SOURCE.json parameters.source_H; joint_source_states.npz hamiltonian",
+      "boundary_energy": 0,
+      "clock": "dimensionless source hopparameter; no physicalclock conversion",
+      "event_probability": 0.29,
+      "event_rate_interpretation": "one supplied Bernoulli split-step; no derivedPoissonrate or uniquecontinuumgenerator",
+      "instrument": "MIX: uniform seam, fair C/E and faircoin; no individualFcollapse",
+      "reference": "JOINT_SOURCE.json references.global_allN; joint_source_states.npz global_allN_reference",
+      "reservoir_energy": 0.23,
+      "time": 0.37
+    }
+  },
   "comparison_domains": {
     "clock": "The port/transit probability oscillates at 2E; no physical electron rest clock or derived commit-rate calibration is identified.",
     "continuum": "No physical particle dictionary, common relativistic continuum or complete 31-row validation follows.",
-    "interaction": "No record-energy choice is selected by default. Explicit interacting variants do not inherit the free squared-generator identity.",
-    "local_native_candidate": "The modular local-coarse instrument is the active proposed construction. Complete-sector enumeration grows with cycle rank; the definite-record sparse certificate covers one interval, while uniform-fiber reduction gives an exact different-preparation simulation of the whole instrument. Neither supplies the physical species dictionary.",
+    "interaction": "The canonical all-number source selects periodic half-record energy and a cyclic face term. Earlier E2a/E2b, first-order and zero-field variants remain controls; their spectra and squared-generator identities do not transfer.",
+    "local_native_candidate": "The same configuration-level native CAR instrument acts on the full interacting carrier. Its coherent ground is generally excited by native monitoring. Earlier uniform-fiber reductions require their invariant zero-field domain; complete-sector enumeration grows with graph cycle rank.",
     "records": "C and E outcome payloads are retained; global position and register monitoring is supplied. Native coarse local measurements are a different instrument. Separate seam-offset dynamics are not implemented.",
     "regulator": "Two finite cutoff comparisons provide no cutoff-removal theorem.",
     "shared_register_native_programs": "The nine claims in claims/joint_observer.json retain their authenticated finite source domains. A shared event register does not implement independent additive loads. No transfer to the separate-copy generator is asserted."
   },
-  "construction": "Active canonical port/transit modular construction with supplied mass, local-coarse C/E instrument and per-seam rate; definite and uniform-fiber preparations are explicit. Bounded integer fully monitored and record-energy variants retain separate comparison domains. A declared shared-record CAR extension recovers the one-load construction exactly and retains all tested character sectors.",
+  "construction": "One declared all-number shared-record CAR source with periodic half-record electric energy, cyclic face term, recomputed interacting reference, complete native instrument and boundary-dressed charged reservoir. The canonical entry point binds one selected protocol and its continued grouped spectral apparatus. Earlier one-load, zero-field, bounded-integer, spatial and modular-time experiments retain their comparison domains.",
   "finite_claims": [
     {
       "domain": "Product preparations; no interacting or exchange-statistics theorem.",
@@ -135,6 +153,21 @@
       "domain": "Declared finite ground preparation, native instrument and energy PVM. Algebraic character exclusion and numerical within-sector support tolerance are separate. Neither spectral gap is a physical particle mass or GeV prediction.",
       "id": "car_native_energy_response_support",
       "statement": "A complete ground/native-letter/final-energy experiment retains every energy eigenspace and all zero outcomes. Its supported excitation threshold is distinguished from the full spectral gap between invariant character sectors."
+    },
+    {
+      "domain": "Declared six-orbital triangle, modulus6, mass .23, electric coefficient .37 and face coefficient .61. Full states are retained because the electric term mixes the zero-field character sectors. No zero-field gap, physical vacuum, particle species or continuum field result is transferred.",
+      "id": "one_interacting_all_number_source",
+      "statement": "One complete 384-state shared-record CAR source carries the native instrument, periodic electric and cyclic face terms, integer boundary reference and charged reservoir. Its all-number spectra and unique N=3 ground reference are recomputed from that interacting Hamiltonian."
+    },
+    {
+      "domain": "Fair reservoir occupation, energy .23 times its occupation, zero extra boundary energy and ideal pulse are supplied apparatus choices. The pulse preserves unconditioned field energy; Hamiltonian exchange and monitoring work remain distinct. No autonomous battery, pair radiation or charge-conjugation symmetry of the fixed Gauss background is inferred.",
+      "id": "same_source_complete_charged_response",
+      "statement": "The boundary-dressed CAR reservoir swap retains both initial settings, every addition/removal/no-change outcome, full subnormalized source states and complete source-number/energy probabilities. All native and reservoir work uses the same interacting Hamiltonian and reference."
+    },
+    {
+      "domain": "Ideal spectral apparatus and explicit grouping tolerance. Degenerate basis rotation preserves the reconstructed state; rank-one measurement followed by forgetting is rejected by a coherent doublet control. The apparatus is not claimed synthesized by native C/E, and measured energy labels have no physical species or GeV identification.",
+      "id": "continuing_degenerate_energy_instrument",
+      "statement": "A complete grouped number/energy L\u00fcders instrument retains within-eigenspace coherences as compact full coefficient matrices and every zero outcome. An actually populated degenerate branch continues under the same Hamiltonian and selected native instrument with its original subnormalization."
     }
   ],
   "finite_extension_experiments": [
@@ -234,6 +267,76 @@
       "physical_rows_promoted": 0,
       "receipt": "code/openwave_candidate/next/C9/CHARACTER_MINIMA.json",
       "scope": "Energetic comparison of allcharacters in declared fixednumberCAR source, no assumedresult; minimumpositiveone-loadbranch is distinct from global signed one-loadground. Native sectorinvariance does not prepare/cool/select a character. No binding, physicalspin/species, physicalvacuum or CARderivation."
+    },
+    {
+      "checks": {
+        "actual_interacting_references_stationary": true,
+        "all_native_C_E_MIX_complete": true,
+        "complete_energy_work_readout": true,
+        "complete_reservoir_responses": true,
+        "fixed_background_naive_charge_conjugation_rejected": true,
+        "full_reservoir_instrument_complete": true,
+        "reservoir_pulse_commutes_with_field": true,
+        "same_composed_interacting_H": true,
+        "source384_reservoir768_predeclared": true
+      },
+      "parameters": {
+        "boundary_B": "exact integer3\u2212Nsource; sourceG=(111000)mod6, reservoirGr=nr\u2212B",
+        "boundary_extra_energy": 0,
+        "clock": "same native source hopparameter; supplied reservoir apparatuspulse has no derivedduration",
+        "energy_group_tolerance": 1e-09,
+        "face_coefficient": 0.61,
+        "joint_source_reservoir_dimension": 768,
+        "kappa": 0.37,
+        "mass": 0.23,
+        "modulus": 6,
+        "one_development_case_only": true,
+        "reference_degeneracy_tolerance": 1e-10,
+        "reservoir_energy": 0.23,
+        "reservoir_initial_settings": "fair0/1, setting recorded",
+        "source_H": "CARHm + periodic_half_record_energy + g(2I\u2212W\u2212Wdagger), identical supplied coefficients in allnumber sectors",
+        "source_dimension": 384,
+        "source_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C10/JOINT_SOURCE.json",
+      "scope": "One actual interacting allnumber source, common nativeC/E/MIX and boundarydressed chargedreservoir instrument. Every reference and response recomputed from THIS H; no bareC9/fieldfree chargedgap transferred. FixedGaussbackground is not automatically chargeconjugation invariant. Zero boundaryextraenergy and pulsework budget are supplied apparatuschoices, not fullphysicalcost. No species, spin, calibratedmass, radiation, physicalvacuum or continuumclaim."
+    },
+    {
+      "checks": {
+        "canonical_global_reference_used": true,
+        "fixed_background_Gauss": true,
+        "grouped_Luders_instrument_and_continuation": true,
+        "reference_coherent_stationarity": true,
+        "same_joint_H_exact": true,
+        "selected_instrument_energy_work": true,
+        "selected_native_complete": true,
+        "selected_protocol_trace": true,
+        "whole_region_charge_PVM_complete": true,
+        "zero_field_is_exact_native_baseline": true
+      },
+      "parameters": {
+        "H": "JOINT_SOURCE.json parameters.source_H; joint_source_states.npz hamiltonian",
+        "boundary_energy": 0,
+        "clock": "dimensionless source hopparameter; no physicalclock conversion",
+        "event_probability": 0.29,
+        "event_rate_interpretation": "one supplied Bernoulli split-step; no derivedPoissonrate or uniquecontinuumgenerator",
+        "instrument": "MIX: uniform seam, fair C/E and faircoin; no individualFcollapse",
+        "reference": "JOINT_SOURCE.json references.global_allN; joint_source_states.npz global_allN_reference",
+        "reservoir_energy": 0.23,
+        "time": 0.37
+      },
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.json",
+      "scope": "One finite Hamiltonian/reference/hopclock/native instrument plus explicit boundarydressed reservoir apparatus. Occupation/record/current/energy readouts are declared complete mathematical apparatus. No physicalspecies, spin, vacuum, GeV mass, Maxwell radiation, Lorentz or gravity identification."
     }
   ],
   "observable_experiments": [
@@ -646,6 +749,50 @@
     "code/openwave_candidate/candidate/oph_openwave/uniform_native.py": "2416525dfd50cb7e7f38805a52c65858d51fda428b5875abc7295e52b03e3146",
     "code/openwave_candidate/integration/assess.py": "4b9345c17918a919142860b9565a0c8dc9d4056a3d1798f9ab5f5ab7ca8ca906",
     "code/openwave_candidate/integration/assessment.json": "63f356b86f1267262f6c25a2e6a80d461d445dfa445fab9f7776d41add91901c",
+    "code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
+    "code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.md": "bdfb72ef0e85730f648f19f3784fb8d03fa6da9b4c9469b7a802c2bd18ff48aa",
+    "code/openwave_candidate/next/C10/CANONICAL_SOURCE_CONTRACT.json": "18eb795d6591ef64450211a7e4279352008e8570056e5c87d9c51dc1c504c695",
+    "code/openwave_candidate/next/C10/CHARGED_RESERVOIR.json": "784e2b537690c69662963bbb0fa7d5d87f7538e3d0b0ea003d21a55c3e78855b",
+    "code/openwave_candidate/next/C10/CHARGED_RESERVOIR.md": "d587cc2a5e09366a1ff24c30371066027d15ea55190ee3e364502c9f3f1e259d",
+    "code/openwave_candidate/next/C10/CHARGED_RESERVOIR_INDEPENDENT_REVIEW.json": "08db5c0870541b5ebc0956ebbd06dbc1fcbb15724e6812ff4ff889683375905d",
+    "code/openwave_candidate/next/C10/CHARGED_RESERVOIR_INDEPENDENT_REVIEW.md": "3b759e6afc73f7e5fb710d64fe9fcde639d2a6412bf48e38043a4a03fb5a2f66",
+    "code/openwave_candidate/next/C10/INTERVAL_CHARGE_DECODER.json": "837f9194a541026d5d31ea83482a47c45dad3b04dd1fb8d4388af5eb065bcee0",
+    "code/openwave_candidate/next/C10/INTERVAL_CHARGE_INDEPENDENT_REVIEW.json": "6c8b528ecdf3e4a63d0423014811b3abad7d33deb14a2fa50c36dcb785039efb",
+    "code/openwave_candidate/next/C10/INTERVAL_CHARGE_REFERENCE_REVIEW.json": "a965cba35bdd52b43a16868270208f4e3b6c905b0671f7c2618029813fa56327",
+    "code/openwave_candidate/next/C10/JOINT_ASSUMPTIONS_ADVERSARIAL_REVIEW.json": "a008aa33ca5e2b7a27dbd244659561742b64bcaf533860b6db720132c03ba7e6",
+    "code/openwave_candidate/next/C10/JOINT_ASSUMPTIONS_ADVERSARIAL_REVIEW.md": "966b527a78e4557e8976ef433ced46984e94982782f77307f4d857944c548def",
+    "code/openwave_candidate/next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "code/openwave_candidate/next/C10/JOINT_SOURCE.md": "d1c0f15f86ca681f447aa8ae9d51f403978780354d948177be070051fc8c5595",
+    "code/openwave_candidate/next/C10/JOINT_SOURCE_INDEPENDENT_REVIEW.json": "d5f7772625a587606c261c7e8aa79e3f587fab66e0f065af690a483be0d55c61",
+    "code/openwave_candidate/next/C10/JOINT_SOURCE_INDEPENDENT_REVIEW.md": "56bc17a96f7e850062ad211d72ab112696dc430a700eb530f0555248661f3bd5",
+    "code/openwave_candidate/next/C10/JOINT_SPECTRAL_CONTINUATION_INDEPENDENT_REVIEW.json": "9468d3b9fac922ee47bd160b3c73119cd0808664693e4932b701abc4a5aff556",
+    "code/openwave_candidate/next/C10/JOINT_SPECTRAL_CONTINUATION_INDEPENDENT_REVIEW.md": "6f26411f15cf3fc9597d3f7ac9f23e3ee2fba2649b197a71b8d9bcb7a3454b0e",
+    "code/openwave_candidate/next/C10/LUDERS_CONTINUATION_INDEPENDENT_REVIEW.json": "b77ecc32834e3f9fa3f2fa2071bf3fc981dee430cab35d75c7de0ff19ec87870",
+    "code/openwave_candidate/next/C10/MODULAR_FIELD_ADAPTER.json": "4b45213c2b162b97f7b9a2a2c2a51274cfe70da0f96b3c05d21c379419b35268",
+    "code/openwave_candidate/next/C10/MODULAR_FIELD_ADAPTER.md": "cbd20c854ce71d3a856a714767aa783c0bfc9e06703a6d839533e78c85d83d3e",
+    "code/openwave_candidate/next/C10/MODULAR_FIELD_INDEPENDENT_REVIEW.json": "3d97a24e025f19970f62acb8dcf6401f16a1ebcd6f19538251763c7ee08b6605",
+    "code/openwave_candidate/next/C10/audit_joint_assumptions.py": "a9df074c2913aadf74cd40c0d45eb7a5e514425a8662905377d38064c2ab28e7",
+    "code/openwave_candidate/next/C10/canonical_construction.py": "130c65d30050e6ae7f52b9d4bd53528e4abbc2b2cb2638de1ebc305f47192902",
+    "code/openwave_candidate/next/C10/canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1",
+    "code/openwave_candidate/next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "code/openwave_candidate/next/C10/interval_charge_decoder.py": "3f0d26c485dc5b5b89cb462f4cabc784fcd591290cf1173f8fc98f571f12d295",
+    "code/openwave_candidate/next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "code/openwave_candidate/next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "code/openwave_candidate/next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "code/openwave_candidate/next/C10/review_charged_reservoir.py": "50ba81e3d5be14e1451356db8ed24574cab9c6328f00649137e3aa7a07e0e39a",
+    "code/openwave_candidate/next/C10/review_interval_charge.py": "9dec219b43eea54c9797111473d2b72ff38643e355ffdefee4e888732da3bbeb",
+    "code/openwave_candidate/next/C10/review_interval_charge_decoder.py": "51f18387dc7e92637c70b292db839b197a9b56d78e2b26eae6f8afd4b4507ef2",
+    "code/openwave_candidate/next/C10/review_joint_source.py": "32b8b8ea83a56a0db0ff939db58153cd79a3c1a292a493ac84e6e291af050f0b",
+    "code/openwave_candidate/next/C10/review_joint_spectral_continuation.py": "248570c283b5c098bc6ce487a1aa9cc9002a3b703a1d00e3cfb0947856478fbb",
+    "code/openwave_candidate/next/C10/review_luders_continuation.py": "44d18a6dd4b7ae12fcfaca199e6d00e07ec411e231fc7f8d3533b8df26233a49",
+    "code/openwave_candidate/next/C10/review_modular_field.py": "a1602a62a31b4e1474efb1bef654b9337065449a30ad2665e8f3d7be328f6fbe",
+    "code/openwave_candidate/next/C10/spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e",
+    "code/openwave_candidate/next/C10/test_canonical_construction.py": "bd4803d686321f90857f1e356131b73431cb37154ab9e43c250b5141b24883a4",
+    "code/openwave_candidate/next/C10/test_charged_reservoir.py": "30e52e88de22aa03440218f50a0e902e802969564b45cbf164012cc980cd78d0",
+    "code/openwave_candidate/next/C10/test_joint_source.py": "a697514e613ad9b4e98e9db1041b41c8ea78fa31518ee9fd42f60e536ba6aa28",
+    "code/openwave_candidate/next/C10/test_modular_field_adapter.py": "3c204e85935ea8f9a71f4d1970a67c4da206c3344c6013ea004647d0cb27f07c",
+    "code/openwave_candidate/next/C10/test_modular_field_independent.py": "ae3d38030e9a7aa6d46661cf3961dc54315ec969b2eb9e57e17849fab7ebcc1c",
+    "code/openwave_candidate/next/C10/test_spectral_readout.py": "6bc04a6e3c05fe6d4e98b2ee2168cd12ff588b97932d452694d5d46b068b6370",
     "code/openwave_candidate/next/C9/ANALYTIC_CHARACTER_ENERGY_REVIEW.json": "d52b06aa6a9ec9400ad7e6b7bf2fc4b286f49a36aa6dd7066a52c3c997cae472",
     "code/openwave_candidate/next/C9/CAR_CHARACTERS_INDEPENDENT_PROOF.md": "18752ab153dfcd1b2db8e43b86ddfedf5cdd3bcb4284739d4938ec9a41953ed8",
     "code/openwave_candidate/next/C9/CAR_CHARACTERS_INDEPENDENT_REVIEW.json": "3349ea8a9964ad5c054145fd24938b0db5edfa226ef0d343a5d8609dfb551bd7",
@@ -741,7 +888,7 @@
     "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
     "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
     "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
-    "tools/build_openwave_joint_claims.py": "15586294db39af23246368d9d44f93adc358f91a930fba7924f89d5dcb281675",
+    "tools/build_openwave_joint_claims.py": "416cef0c5e6d17ed2e1706e683b5401ff013e02e9fe3775cf2a6594680b32295",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

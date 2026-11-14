@@ -1,0 +1,50 @@
+{
+  "schema": "oph.c10.joint_assumptions_adversarial_review.v1",
+  "checks": {
+    "zero_field_reference_not_transferable": true,
+    "declared_field_positive_semidefinite": true,
+    "terminal_POVM_does_not_fix_continuing_instrument": true,
+    "boundary_zero_energy_choice_observable_in_work": true,
+    "supplied_pulse_not_closed_energy_conserving": true,
+    "fixed_background_conjugation_failure_retained": true
+  },
+  "zero_field_ground": -4.065399873582058,
+  "interacting_ground": -2.7262233938630343,
+  "wrong_reference_energy_shift": 1.3391764797190233,
+  "actual_degenerate_energy_group": {
+    "source_number": 3,
+    "indices": [
+      4,
+      5
+    ],
+    "energies": [
+      -0.7613052172833566,
+      -0.761305217283356
+    ],
+    "Luders_vs_fine_readout_trace_distance": 0.49999999999999967,
+    "subsequent_interference_probability_difference": 0.4999999999999991
+  },
+  "boundary_energy_sensitivity": "Adding supplied H_B=eta*B^2 changes mean pulsework by eta/2 on this reference; declaredmodelsets eta=0.",
+  "mean_boundary_squared_change": 0.4999999999999997,
+  "claims": [
+    "All probability and energy readouts are complete terminal effects; archived states precede the terminal energy PVM. Continuing degenerate measurement needs explicit instrument choice.",
+    "Source+reservoir charge changes cancel perbranch; fairreservoir settings mixinitial totalcharge sectors, not a neutralvacuum prep.",
+    "ZeroextraBenergy, reservoirlevel.23 and idealpulse are apparatuschoices. Pulse duration, rate andphysicalclock are not derived.",
+    "Periodic half-record energy differs from integerhardwallE2b; no certified regulator/continuum transfer follows.",
+    "Fullfieldmixescharacter/uniformcodes, so only full384state interactingreferences apply.",
+    "FixedG=(111000) background is not chargeconjugationinvariant; conjugated background is required.",
+    "Physicalspecies/spin/electricunit/radiation/Maxwell3D/calibratedmass/vacuum are not identified."
+  ],
+  "reviewer_identity": "Same Codex worker as numericreconstruction, distinctadversarialmethod; not a second independent reviewer or opposite-team pass.",
+  "source_sha256": {
+    "next/C10/audit_joint_assumptions.py": "a9df074c2913aadf74cd40c0d45eb7a5e514425a8662905377d38064c2ab28e7",
+    "next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "next/C10/JOINT_SOURCE_INDEPENDENT_REVIEW.json": "d5f7772625a587606c261c7e8aa79e3f587fab66e0f065af690a483be0d55c61",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

@@ -1380,7 +1380,7 @@ The direct endpoint phase is a declared instrument choice. Taking exterior
 powers of the one-particle Kraus operators fails completeness, including
 a control that corrects the law/coin weight.
 
-For a complete fixed-Gauss fiber, choose free cycle coordinates $c$ and
+For the zero-field source on a complete fixed-Gauss fiber, choose free cycle coordinates $c$ and
 characters $\chi\in\mathbb Z_N^\beta$. The isometries
 \[
  V_\chi|u\rangle=N^{-\beta/2}\sum_c
@@ -1397,31 +1397,55 @@ component to the complete Gauss fiber. Local gauge covariance is
 $\mathbb Z_N$; continuous phases formed from integer record
 representatives fail at modular wrapping.
 
-On the triangle with three fermions, $m=0.23$ and $N=3$, all 60 states
-split into three 20-dimensional character sectors. The uniform-code
-Slater reference has energy $-3.724509980$, whereas the full ground
-doublet has energy $-4.010659107$ in the two nonzero characters.
-The gap above the entire doublet is $0.2861491273$. At $N=6$, the
-120-state source has a unique finite ground in character $\chi=3$,
-with energy $-4.065399874$ and gap $0.05474076634$. The lowest
-positive one-load band edge instead occurs at $\chi=0$: minimizing
-that edge and minimizing the filled fixed-number energy are distinct
-questions. All character sectors are retained; no physical background
-selection follows from these finite comparisons.
-A complete native-event then global-energy PVM has first numerically
-supported excitation $2.052218312$ for C, E and their fair mixture,
-using declared support threshold $10^{-12}$. Character preservation
-excludes the lower inter-character spectral gap from this experiment.
-Mean monitoring work is respectively $1.31200504$, $2.62401008$ and
-$1.96800756$ source units. Thus the passive ground is a positive finite
-reference, with monitoring work retained. CAR statistics, uniform-fiber
-and spectral preparation are supplied resources; no physical spin,
-species, unique physical vacuum or mass identification is established
-(\path{code/openwave_candidate/next/C9/FERMIONIC_SHARED_RECORDS.md};
-\path{code/openwave_candidate/next/C9/CHARACTER_REFERENCE.md};
-\path{code/openwave_candidate/next/C9/CHARACTER_MINIMA.md}).
+An interacting all-number triangle instance retains every occupation of
+six CAR orbitals and six Gauss fibers per occupation, for $384$ states.
+The integer boundary record $B=3-N_{\rm source}$ gives
+\[
+ n+\partial F+B\delta_0=(1,1,1,0,0,0)\pmod6.
+\]
+Its one Hamiltonian is
+\[
+ H=H_{\mathrm{CAR},m}+\frac\kappa2\sum_h r_6(F_h)^2
+       +g(2I-W-W^*),\qquad r_6(f)=((f+3)\bmod6)-3,
+\]
+where $W$ translates the face records by $(1,-1,1,-1,1,-1)$.
+At supplied $m=0.23$, $\kappa=0.37$, $g=0.61$, the full all-number
+reference is a unique $N=3$ ground with energy
+$-2.7262233938630343$. Every number-sector spectrum is recomputed from
+this $H$. The periodic potential mixes the bare character sectors;
+the zero-field intertwining theorem does not supply a compressed
+interacting reference. Setting $\kappa=g=0$ recovers the exact same
+all-number native baseline.
 
-The complete sequential energy apparatus records $(i,r,j)$ with
+The complete seven-mode CAR reservoir swap, dressed by $B$, retains both
+initial reservoir settings and all four outcomes. Its exact conserved
+quantity $n_{\rm reservoir}-B$ accounts for source charge exchange.
+The pulse leaves $F$ unchanged and commutes with the field Hamiltonian:
+unconditioned field energy is unchanged, while conditional branches can
+differ. Work is evaluated with this interacting source plus
+$0.23n_{\rm reservoir}$ and explicitly zero extra boundary energy;
+preparation cost and an autonomous battery are separate resources.
+The selected native protocol uses time $0.37$ and a $0.29$ MIX commit,
+with its $0.71$ complement retained. The reference is coherently
+stationary; native monitoring deposits mean work $0.5161569571$.
+
+Joint number/energy readout uses complete degenerate projectors and stores
+$P_{N,E}\rho P_{N,E}$ through a full complex coefficient matrix in each
+archived eigenspace. These subnormalized states continue under the same
+$H$ and native instrument. Independent projector and complex-basis
+rotation controls preserve the state; fine-basis measurement followed by
+forgetting changes it. Source numbers are read from actual occupations,
+not inferred from insufficient modular residues. The separate fixed-three-load
+interval decoder admits $0\leq Q_R\leq3$ when the modulus exceeds three;
+it does not decode all $0,\ldots,6$ from modulus six.
+The fixed Gauss background is not automatically charge-conjugation
+invariant. No physical species, spin, vacuum, calibrated mass, continuum
+radiation or gravitational identification follows from this finite
+construction
+(\path{code/openwave_candidate/next/C10/CANONICAL_CONSTRUCTION.md};
+\path{code/openwave_candidate/next/C10/JOINT_SOURCE.md}).
+
+A separate one-load spectral-control apparatus records $(i,r,j)$ with
 probability $|\langle j|K_r|i\rangle|^2/d$ on $I/d$.
 The retained initial-energy reference label makes its measurement disturbance
 explicit. Supported battery-shell columns carry $E_i-E_j$, conserve total

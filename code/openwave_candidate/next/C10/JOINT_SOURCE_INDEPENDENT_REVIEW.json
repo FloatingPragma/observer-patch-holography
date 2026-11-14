@@ -1,0 +1,61 @@
+{
+  "schema": "oph.c10.joint_source_independent_review.v1",
+  "checks": {
+    "fixed_background_charge_conjugation_rejected": true,
+    "independent_interacting_H": true,
+    "allnumber_spectra_reproduced": true,
+    "allground_multiplets_recomputed": true,
+    "every_complete_reservoir_poststate": true,
+    "allnumber_energy_outcome_probabilities": true,
+    "same_reference_source_reservoir_work": true,
+    "all_native_C_E_MIX_work": true,
+    "dressed_Gauss_and_reservoir_integer_charge": true,
+    "reservoir_no_unconditional_field_work": true
+  },
+  "references": {
+    "global_allN": {
+      "energy": -2.7262233938630343,
+      "multiplicity": 1,
+      "native_work": {
+        "C": 1.199411401020254,
+        "E": 2.3602917513351716,
+        "MIX": 1.7798515761777123
+      },
+      "reservoir_work": 1.160880350314914
+    },
+    "fixed_N3": {
+      "energy": -2.7262233938630343,
+      "multiplicity": 1,
+      "native_work": {
+        "C": 1.199411401020254,
+        "E": 2.3602917513351716,
+        "MIX": 1.7798515761777123
+      },
+      "reservoir_work": 1.160880350314914
+    }
+  },
+  "globalenergy": -2.7262233938630343,
+  "errors": {
+    "H": 0.0,
+    "spectrum": 0.0,
+    "reference": 0.0,
+    "poststates": 1.3877787807814457e-17,
+    "complete_readout": 1.1102230246251565e-16,
+    "work": 1.1102230246251565e-16,
+    "native_work": 1.3322676295501878e-15,
+    "field_commutator": 0.0,
+    "reservoir_field_work": 0.0
+  },
+  "source_sha256": {
+    "next/C10/review_joint_source.py": "32b8b8ea83a56a0db0ff939db58153cd79a3c1a292a493ac84e6e291af050f0b",
+    "next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72"
+  },
+  "scope": "Onefull384state interacting source, completeGaussbackground/zeroextraBenergy, fairreservoirlabels andactualreferences. No baregap/species/physicalvacuum/spin/Maxwell claim.",
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

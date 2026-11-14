@@ -1,0 +1,40 @@
+{
+  "schema": "oph.c10.joint_spectral.second_independent_review.v1",
+  "reviewer": "Independent Codex worker distinct from producer and first reviewer; not opposite-team Fable audit",
+  "outcome": "PASS_WITH_FINITE_DECLARED_SCOPE",
+  "source_dimension": 384,
+  "recomputed_interacting_ground": -2.7262233938630365,
+  "spectral_rows_checked": 5916,
+  "errors": {
+    "reference": 9.194034422677078e-17,
+    "independent_projectors": 1.6900369992356445e-13,
+    "full_branch_coefficients": 1.797173521111972e-15,
+    "complete_probabilities": 9.596490269103697e-15,
+    "canonical_native_protocol": 1.3976124377645876e-16,
+    "native_completeness": 2.220446049250313e-16,
+    "actual_subnormalized_continuation": 3.5008903313758737e-16,
+    "all_native_joint_events": 1.339206523454095e-15,
+    "complex_basis_rotation": 4.2207643840401616e-17
+  },
+  "independent_complex_control": {
+    "preparation": "supplied faithful complex density within an actual N3 doublet; not substituted for canonical reference",
+    "fine_forget_trace_distance": 0.36055512754639935,
+    "after_native_channel_fine_forget_distance": 0.34260196907458934
+  },
+  "scope": "Archived actual interacting H/reference; independent SciPy EVR block projectors and direct occupation/parity native Kraus reconstruction. Complete grouped number/energy PVM, including zeros and unnormalized continuation. No full source reconstruction or producer rerun; floating checks without interval enclosure. No physical species/vacuum/mass/radiation or official criterion award.",
+  "source_sha256": {
+    "next/C10/review_joint_spectral_continuation.py": "248570c283b5c098bc6ce487a1aa9cc9002a3b703a1d00e3cfb0947856478fbb",
+    "next/C10/JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "next/C10/joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "next/C10/CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
+    "next/C10/canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1",
+    "next/C10/CANONICAL_SOURCE_CONTRACT.json": "18eb795d6591ef64450211a7e4279352008e8570056e5c87d9c51dc1c504c695",
+    "next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "next/C10/spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e",
+    "next/C10/canonical_construction.py": "130c65d30050e6ae7f52b9d4bd53528e4abbc2b2cb2638de1ebc305f47192902"
+  },
+  "full_criterion_met": false,
+  "official_rows_changed": []
+}

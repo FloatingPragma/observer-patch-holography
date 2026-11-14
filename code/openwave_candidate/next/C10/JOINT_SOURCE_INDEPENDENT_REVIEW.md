@@ -1,0 +1,13 @@
+# Independent unified interacting source audit
+
+The complete384-state source contains every source number0 through6 with the same periodic half-record energy and face Hamiltonian. The independent driver reconstructs CAR hopping signs, periodic electric energy and the face translation directly from occupations and record words, without importing the producer's joint or field builders. It reproduces the full Hamiltonian and every number-sector spectrum.
+
+Both the global all-number and N=3 reference are recomputed from that interacting Hamiltonian. They coincide: a unique N=3 ground with energy−2.7262233938630343. This reference differs from the field-free CAR source; its spectral or charged gaps are not inherited. Every reservoir poststate and every complete number/energy eigenspace probability is independently reproduced, including zero outcomes. All three native C/E/MIX mean works match1.1994114010,2.3602917513,1.7798515762, and the reservoir mean apparatus work matches1.1608803503.
+
+The direct seven-mode fermionic swap preserves the exact integer reservoir quantity nr−B with B=3−Nsource. The source dressed modular Gauss vector is fixed. Initial reservoir0/1 settings and their fair weights are retained; this is a mixture of initial total-number sectors, not a neutral-vacuum preparation. Source number changes are compensated by reservoir changes. No global charge creation is inferred.
+
+The work Hamiltonian is the interacting source plus.23nr, with zero additional boundary energy explicitly supplied. Each reservoir operator leaves F unchanged and commutes with both the electric term and face translation. Unconditional field energy therefore does not change in this charged pulse; conditional energy readings can differ. The independent full-matrix commutator and complete expectation ledger verify this. Native monitoring can change field energy and deposits the separately recorded positive work.
+
+The fixed Gauss background is not invariant under naive occupation complement/F reversal. Its conjugate state lies in a different background, and every such image is excluded from this source. This failure is retained. Regional modular flux decoding additionally needs its interval bound; an integer global B is not a universal regional integer lift.
+
+These results supply one internally consistent finite interacting source, passive reference and complete charged/native apparatus. They establish no physical species, spin, physical vacuum, mass, autonomous preparation, outgoing radiation or continuum field interpretation. Exact source and archive snapshots are recorded in the machine review.
