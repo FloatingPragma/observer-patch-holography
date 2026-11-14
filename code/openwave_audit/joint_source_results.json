@@ -1,0 +1,74 @@
+{
+  "schema": "oph.openwave.c10_external_audit.v1",
+  "checks": {
+    "complete_independently_enumerated_384_state_basis": true,
+    "Hamiltonian_from_equations": true,
+    "all_number_spectra": true,
+    "interacting_global_reference": true,
+    "unique_global_reference": true,
+    "every_native_poststate_record_and_work": true,
+    "mutations_rejected": true,
+    "audited_artifacts_unchanged_during_run": true
+  },
+  "mutations": {
+    "missing_basis_state_rejected": true,
+    "field_deleted_rejected": true,
+    "constant_energy_shift_rejected": true,
+    "unitary_stationary_as_native_stationary_rejected": true
+  },
+  "native_reference_response": {
+    "C": {
+      "complete_poststate_error": 2.7755575615628914e-16,
+      "outcome_probability_error": 2.220446049250313e-16,
+      "normalization_error": 4.440892098500626e-16,
+      "work": 1.1994114010202557,
+      "work_error": 4.440892098500626e-16,
+      "ground_survival": 0.6121422563269889
+    },
+    "E": {
+      "complete_poststate_error": 2.7755575615628914e-16,
+      "outcome_probability_error": 1.5265566588595902e-16,
+      "normalization_error": 4.440892098500626e-16,
+      "work": 2.3602917513351747,
+      "work_error": 2.6645352591003757e-15,
+      "ground_survival": 0.3638641360577378
+    },
+    "MIX": {
+      "complete_poststate_error": 2.220446049250313e-16,
+      "outcome_probability_error": 8.326672684688674e-17,
+      "normalization_error": 2.220446049250313e-16,
+      "work": 1.7798515761777154,
+      "work_error": 1.7763568394002505e-15,
+      "ground_survival": 0.4880031961923633
+    }
+  },
+  "errors": {
+    "Hamiltonian": 0.0,
+    "spectra": 2.4868995751603507e-14,
+    "reference": 2.5673907444456745e-16
+  },
+  "global_ground": -2.7262233938630382,
+  "source_sha256": {
+    "JOINT_SOURCE.json": "b9750a2e5823f15496f3915dc6a647af4cc0944dbff21d4b0fd48e27693b3546",
+    "joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32"
+  },
+  "producer_declared_source_sha256": {
+    "next/C10/joint_source.py": "bbedbeecff985014f60d761c4a165546383d393f8263ef46d681b346ecbc540f",
+    "next/C10/charged_reservoir.py": "1a616714892c22b93960ffcd042c15562c2959727d7a86d5710f68322f3cbb5e",
+    "next/C10/modular_field_adapter.py": "f964dd6225af37267af8293f3a380524520e3ab83f77e30198f9126fa4c9dc32",
+    "next/C9/fermionic_shared_records.py": "623b2f3a18f3c30530bc0cc222a3062cb9cb893c35a80076c9775cef9c487e72"
+  },
+  "producer_source_binding_mismatches": [],
+  "archived_values_reproduced": true,
+  "producer_receipt_bound_to_current_workspace": true,
+  "auditor_sha256": "206e2791d6446213c798d96abf18aeb947dd1b42a4667b90b433a88b458a1f9d",
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.3.5"
+  },
+  "scope": "One finite development source. Complete basis, H, spectra, reference and native records are independently reconstructed. Reservoir pulse, energy PVM continuation, cutoff removal, physical species and platform scoring are outside this check.",
+  "official_rows_changed": []
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "oph.openwave.independent_audit.v1",
+  "official_OpenWave_awards_added": 0,
+  "claims": [
+    {
+      "id": "uniform_record_measurement_scope",
+      "statement": "The finite modular uniform-fibre reduction holds for H and coarse native C/E; one half-record measurement leaves only 1/6 in the triangle code.",
+      "evidence": "code/openwave_audit/native_scope_results.json",
+      "domain": "One-load Z6 triangle, mass .23, native coarse record grouping; no hard-wall or infinite-integer transfer."
+    },
+    {
+      "id": "definite_record_native_nonidentity",
+      "statement": "The coherent definite-record triangle has transit probability .2379296315 at t=.37, while the native port-only source has no transit outcome.",
+      "evidence": "code/openwave_audit/native_scope_results.json",
+      "domain": "Comparison of complete outcome laws; a conditioned port/distance comparison is a separate observable."
+    },
+    {
+      "id": "independent_joint_source_reconstruction",
+      "statement": "All 384 source basis states, the interacting Hamiltonian, spectra, reference and native C/E/MIX records reproduce by an independent implementation.",
+      "evidence": "code/openwave_audit/joint_source_results.json",
+      "domain": "The precisely hashed C10 archive and declared finite CAR/periodic-field/zero-boundary-energy construction; no physical particle identification."
+    },
+    {
+      "id": "independent_serialized_spectral_instrument",
+      "statement": "All 5916 compact source-output energy branches, full coefficients and subsequent declared native continuation agree with independent reconstruction.",
+      "evidence": "code/openwave_audit/spectral_archive_results.json",
+      "domain": "17 fixed source inputs, all number/energy outcomes including zeros, finite grouped-Luders apparatus. No native synthesis of this additional apparatus is derived."
+    },
+    {
+      "id": "conditional_one_load_energy_range",
+      "statement": "With maximum degree6 and unit weights, the one-load Hm spectrum has diameter at most 2sqrt(m^2+12). Its stated electron anchor can exclude coverage of LEP beam energies under the same-source physical-energy interpretation.",
+      "evidence": "code/openwave_audit/energy_scale_results.json",
+      "domain": "The named free one-load source and explicit energy dictionary only; no general theory exclusion, no experimental electron-radius bound, no other interacting-source transfer."
+    },
+    {
+      "id": "independent_reservoir_instrument",
+      "statement": "The four actual reservoir operators agree exactly with independent seven-mode signed exchange on the complete 384-state source; eight archived branches and 2784 number/energy outcomes agree within 2.3e-16.",
+      "evidence": "code/openwave_audit/reservoir_results.json",
+      "domain": "The precisely hashed supplied fair reservoir pulse, mode ordering, zero extra boundary energy and .23 reservoir energy; no physical pulse duration or full apparatus cost. Cross-number coherence rejects omitted spectator parity, which fixed-number reference branches cannot detect."
+    }
+  ],
+  "source_sha256": {
+    "code/openwave_audit/README.md": "ae96667393e520c0334280e777a008a42d9ab6ac90c61923a53bc8ac926c59de",
+    "code/openwave_audit/energy_scale.py": "0e81c1b6320a9cd2082f17d074d8c792a033a3b498f61aff885d9ffa8db19ca0",
+    "code/openwave_audit/energy_scale_results.json": "17502c146a98f3cb42db079a594262393b7d89effe3815c8760ebab379eb1f45",
+    "code/openwave_audit/joint_source_audit.py": "206e2791d6446213c798d96abf18aeb947dd1b42a4667b90b433a88b458a1f9d",
+    "code/openwave_audit/joint_source_results.json": "bb6c7af25d98855993b841cdfd5ed973fc10039e8500d61554414ca5dea85700",
+    "code/openwave_audit/native_scope.py": "07f4b81da2c55686220fdf22095bc5d0bfe09e70f19650aa5676ae1c50516b31",
+    "code/openwave_audit/native_scope_results.json": "f0e14d81cff718561244fa2a4bab277c6edb98044f41ac1a79cd55b9da0590be",
+    "code/openwave_audit/reservoir_audit.py": "2bcf31fd4cd601ccd2ee723ce20f7a377673e01ab6fad3c1f5088fc002c323f5",
+    "code/openwave_audit/reservoir_results.json": "06f38ddef5146fcec48d0b11077f897ca5533a2f7b3800dd245d0c850ba8bcb2",
+    "code/openwave_audit/spectral_archive_audit.py": "c961e6b16722a09185f1d1aea09d5d2769849d20c54163e99993f0634bc62a0e",
+    "code/openwave_audit/spectral_archive_results.json": "0ca46ba815524919f6fbd5ae74d57471e7441a0f31e6b789630dfeac1e80ce5c"
+  },
+  "nonclaims": [
+    "No official criterion is validated by this audit ledger.",
+    "Local finite reconstruction is distinct from an in-platform physical criterion.",
+    "Mutated source files require reconciliation against the recorded artifact hashes."
+  ]
+}

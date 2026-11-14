@@ -1,0 +1,58 @@
+{
+  "schema": "oph.openwave.conditional_energy_range.v1",
+  "hypotheses": [
+    "unit-weight port graph of maximum degree at most 6",
+    "one-load Hm source, no added field or unbounded oscillator",
+    "physical energy differences equal J times source energy differences",
+    "one physical electron identified with this same one-load source at beam energies",
+    "declared anchor E0 J = 0.51099895 MeV"
+  ],
+  "rows": [
+    {
+      "anchor": "lowest_flat_level",
+      "mass_native": 0.0,
+      "anchor_native": 1.6625077511098136,
+      "J_MeV": 0.3073663564328531,
+      "absolute_energy_bound_MeV": 1.064748291758053,
+      "energy_diameter_bound_MeV": 2.129496583516106,
+      "cannot_span_104500_MeV_in_this_one_load_source": true
+    },
+    {
+      "anchor": "supplied_rest_0.23",
+      "mass_native": 0.23,
+      "anchor_native": 0.23,
+      "J_MeV": 2.221734565217391,
+      "absolute_energy_bound_MeV": 7.713259600602175,
+      "energy_diameter_bound_MeV": 15.42651920120435,
+      "cannot_span_104500_MeV_in_this_one_load_source": true
+    },
+    {
+      "anchor": "supplied_rest_1e-6",
+      "mass_native": 1e-06,
+      "anchor_native": 1e-06,
+      "J_MeV": 510998.94999999995,
+      "absolute_energy_bound_MeV": 1770152.2880287704,
+      "energy_diameter_bound_MeV": 3540304.5760575407,
+      "cannot_span_104500_MeV_in_this_one_load_source": false
+    }
+  ],
+  "bloch_momentum_comparison": {
+    "additional_hypothesis": "physical momentum equals hbar times crystal wavevector restricted to the first Brillouin zone",
+    "beam_momentum_GeV_c": 104.5,
+    "conditional_spacing_upper_bound_m": 4.566654565815348e-18,
+    "independent_experimental_radius_limit": false
+  },
+  "sources": {
+    "beam_energy": "https://cds.cern.ch/record/507409/files/mpph123.pdf",
+    "beam_energy_description": "Brown et al., Ultimate Performance of the LEP RF System, PAC 2001: beam energy up to 104.5 GeV.",
+    "candidate": "Fable L07 Hm source and its stated electron anchor; comparison data are inputs."
+  },
+  "checks": {
+    "flat_anchor_energy_range_insufficient": true,
+    "small_mass_case_not_excluded_by_this_bound": true,
+    "reported_4p6e18_scale_is_conditional_BZ_arithmetic": true
+  },
+  "scope": "Conditional obstruction for the named one-load energy identification. Passing this necessary bound does not validate a state, dispersion, electron, or row. No experimental compositeness limit or general OPH exclusion is asserted.",
+  "auditor_sha256": "0e81c1b6320a9cd2082f17d074d8c792a033a3b498f61aff885d9ffa8db19ca0",
+  "official_rows_changed": []
+}

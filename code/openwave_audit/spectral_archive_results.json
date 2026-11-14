@@ -1,0 +1,38 @@
+{
+  "schema": "oph.openwave.producer_spectral_archive_audit.v1",
+  "checks": {
+    "every_archived_input_and_zero_outcome_checked": true,
+    "projectors_coefficients_and_probabilities": true,
+    "selected_protocol_from_independent_native_map": true,
+    "actual_degenerate_branch_continuation": true,
+    "fine_forgetting_mutation_distinguished": true,
+    "both_producer_control_poststates": true,
+    "artifact_bytes_unchanged": true
+  },
+  "producer_compared": true,
+  "checked_compact_branches": 5916,
+  "errors": {
+    "projector": 0.0,
+    "coefficient": 2.026643074581342e-17,
+    "probability": 2.7755575615628914e-17,
+    "normalization": 9.992007221626409e-16,
+    "eigen_residual": 9.124645483638005e-15
+  },
+  "selected_protocol_error": 8.67125941000788e-17,
+  "continuing_poststate_error": 1.3225265598188807e-18,
+  "continuing_record_probability_error": 8.131516293641283e-20,
+  "fine_forget_trace_distance": 0.5000000000000002,
+  "control_poststates_error": 6.372941391436337e-17,
+  "source_sha256": {
+    "CANONICAL_CONSTRUCTION.json": "87e364830daaf96e16cbbf1ed7a12b4329d896a816fffcf9194f29fdeceb7217",
+    "canonical_states.npz": "27b18e957d2ececf5c0d54dcb0851d510ef307cef9a364372281966b3c7c96f1",
+    "joint_source_states.npz": "1d75017307742e96649ea7c7e74a4a648a6d9f468e35ccd9f6ea05d202d7708b",
+    "spectral_readout.py": "8bd12ab27ff979ae4b92e289ebb46efb376dd13696faf6752670f44c8049d83e"
+  },
+  "auditor_sha256": "c961e6b16722a09185f1d1aea09d5d2769849d20c54163e99993f0634bc62a0e",
+  "auditor_dependency_sha256": {
+    "joint_source_audit.py": "206e2791d6446213c798d96abf18aeb947dd1b42a4667b90b433a88b458a1f9d"
+  },
+  "scope": "Actual serialized producer projectors, full complex coefficients, 17 source inputs, zero outcomes and one subsequent native step. No synthesis from native C/E, physical energy apparatus or criterion award follows.",
+  "official_rows_changed": []
+}
