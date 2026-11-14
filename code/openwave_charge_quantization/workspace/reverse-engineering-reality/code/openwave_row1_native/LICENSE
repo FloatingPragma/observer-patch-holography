@@ -1,0 +1,79 @@
+Observer Patch Holography Licensing
+===================================
+
+Copyright (c) 2026 Bernhard Mueller and the Observer Patch Holography
+contributors
+
+This repository uses split licensing by artifact type.
+
+Software: Apache License 2.0
+----------------------------
+
+All software in this repository is licensed under the Apache License,
+Version 2.0. This covers the Lean library (Lean/), the certificate,
+simulation, particle, and experiment code (code/), the build and audit
+tooling (tools/), the runnable observer and repair-law software (model/),
+the machine-readable schemas that the tooling validates
+against (schemas/), and every other script, test suite, notebook, build
+file, and requirements file in the repository, regardless of directory.
+
+The full license text is at code/LICENSE, Lean/LICENSE, and tools/LICENSE
+(identical copies), and at:
+
+https://www.apache.org/licenses/LICENSE-2.0
+
+The Apache License 2.0 includes an express patent grant from each
+contributor covering their contributions.
+
+Papers, book, documentation, figures, and data: CC BY-NC-SA 4.0
+---------------------------------------------------------------
+
+The authored non-software material, including the papers (paper/, extra/,
+cosmology/, flagship/), the book (book/), the
+documentation (docs/, README files, claims/), the figures (assets/), the
+evidence data (evidence/), the generated ledgers and registers (tracking/),
+the contribution records (contributions/), and the packaged particle data
+(pdg_data/), is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License.
+
+The tabulated measurements in pdg_data/ are quoted from the Particle Data
+Group and carry the upstream Particle Data Group terms. The grant above
+applies to this repository's packaging of them: the file layout, the column
+selection, and the provenance notes.
+
+You are free to:
+
+Share -- copy and redistribute the material in any medium or format
+
+Adapt -- remix, transform, and build upon the material
+
+Under the following terms:
+
+Attribution -- You must give appropriate credit, provide a link to the
+license, and indicate if changes were made. You may do so in any
+reasonable manner, but not in any way that suggests the licensor
+endorses you or your use.
+
+NonCommercial -- You may not use the material for commercial purposes.
+
+ShareAlike -- If you remix, transform, or build upon the material,
+you must distribute your contributions under the same license as the
+original.
+
+No additional restrictions -- You may not apply legal terms or
+technological measures that legally restrict others from doing
+anything the license permits.
+
+Full license text available at:
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+No Warranty
+-----------
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE WORK
+OR THE USE OR OTHER DEALINGS IN THE WORK.

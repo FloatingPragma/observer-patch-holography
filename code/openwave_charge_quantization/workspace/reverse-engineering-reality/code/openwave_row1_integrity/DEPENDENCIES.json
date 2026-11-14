@@ -1,0 +1,57 @@
+{
+  "schema": "oph.row1.integrity.dependencies.v1",
+  "producer": "source_execute: known preparation G, native C/E prefix, frozen closing_sweep source events",
+  "observer_inputs": [
+    "known G",
+    "declared total and region",
+    "received source C/E records",
+    "received closing E records",
+    "native pointer records",
+    "retry policy"
+  ],
+  "flow": [
+    [
+      "native source events",
+      "C/E records"
+    ],
+    [
+      "received C/E records",
+      "source reconstruction and L0/L1 counters"
+    ],
+    [
+      "L1 counters",
+      "bounded mod6 winding command"
+    ],
+    [
+      "winding command",
+      "actual frozen native pointer"
+    ],
+    [
+      "actual pointer records",
+      "frozen AU5 pointer validation across unknown initial columns"
+    ],
+    [
+      "received records and validated pointer",
+      "L1 relative charge or retained timeout"
+    ]
+  ],
+  "excluded_from_admission": [
+    "source_before",
+    "source_after",
+    "source_L0",
+    "source_L1",
+    "executor audit dictionary"
+  ],
+  "two_load_AU5_schema_adapter": "final_n is reconstruct(G, received_records), never the executor terminal load",
+  "premises": [
+    "known true G",
+    "native conserved total one or two",
+    "faithful closing E reception",
+    "connected sweep",
+    "declared classical fair-coin source and pointer policies"
+  ],
+  "resources": "Complete emitted tape: prefix N + 30 sweep + actual pointer attempts <= N + 30 + (33 + 6L)R",
+  "boundary": "Charge reconstruction is certified. Historical prefix-tape completeness and clock after cancelling record loss need a separate schedule/attempt ledger.",
+  "reserved_configurations_executed": false,
+  "official_rows_changed": []
+}

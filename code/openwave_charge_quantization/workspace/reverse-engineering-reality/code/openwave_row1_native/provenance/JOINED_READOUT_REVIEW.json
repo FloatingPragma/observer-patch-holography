@@ -1,0 +1,147 @@
+{
+  "schema": "oph.row1.independent_joined_readout_review.v1",
+  "checks": {
+    "all456_source_histories_independently_replayed": true,
+    "full_joined_execution_native_records_and_combined_probability": true,
+    "all19008_unconditional_laws_reconstructed_with_separate_timeouts": true,
+    "no_terminal_load_oracle_dependency_mutation_passes": true,
+    "source_idle_and_global_attempt_clock_explicit": true,
+    "zero_and_all_failure_outputs_remain_distinct": true,
+    "maximum_attempt_bound627": true,
+    "reviewed_sources_unchanged": true
+  },
+  "complete_source_histories": 456,
+  "actual_joined_executor_runs": 1140,
+  "source_hold_events": 564,
+  "source_moving_events": 324,
+  "observed_joined_reasons": {
+    "complete_closed_pointer_word": 1140
+  },
+  "complete_joint_laws": 19008,
+  "complete_failure_and_zero_example_supports": [
+    {
+      "case": "positive_degree_actual_move",
+      "initial_pointer_support": [
+        5
+      ],
+      "reason": "complete_closed_pointer_word"
+    },
+    {
+      "case": "negative_degree_actual_move",
+      "initial_pointer_support": [
+        11
+      ],
+      "reason": "complete_closed_pointer_word"
+    },
+    {
+      "case": "zero_degree_actual_hold",
+      "initial_pointer_support": [
+        5
+      ],
+      "reason": "complete_closed_pointer_word"
+    },
+    {
+      "case": "zero_degree_empty_prefix",
+      "initial_pointer_support": [
+        11
+      ],
+      "reason": "complete_closed_pointer_word"
+    },
+    {
+      "case": "zero_degree_empty_region_after_move",
+      "initial_pointer_support": [
+        5
+      ],
+      "reason": "complete_closed_pointer_word"
+    },
+    {
+      "case": "zero_degree_full_region_after_move",
+      "initial_pointer_support": [
+        11
+      ],
+      "reason": "complete_closed_pointer_word"
+    },
+    {
+      "case": "discovery_failure",
+      "initial_pointer_support": [
+        0,
+        9
+      ],
+      "reason": "discovery_timeout"
+    },
+    {
+      "case": "routing_failure",
+      "initial_pointer_support": [
+        0
+      ],
+      "reason": "routing_timeout"
+    },
+    {
+      "case": "measurement_failure",
+      "initial_pointer_support": [
+        1
+      ],
+      "reason": "measurement_timeout"
+    },
+    {
+      "case": "full_region_zero_class_retains_reset_failure",
+      "initial_pointer_support": [
+        0,
+        9
+      ],
+      "reason": "discovery_timeout"
+    }
+  ],
+  "canonical_all_joint_laws_sha256": "871495e8308f0f66e860ff30256c4b45d92bb5d2caf4c8410f935e7470ed4f24",
+  "sample_joint_laws": [
+    {
+      "case": 0,
+      "vertex": 0,
+      "pointer_initial": 0,
+      "law": {
+        "-1": "0",
+        "0": "79226953588444722964369178625/158456325028528675187087900672",
+        "1": "6276431299278305807237038969661842027224501950926212890625/12554203470773361527671578846415332832204710888928069025792",
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "1208925819614629174706175/79228162514264337593543950336",
+        "measurement_timeout": "574655137070838545097864638997122240513129439899877375/12554203470773361527671578846415332832204710888928069025792"
+      }
+    },
+    {
+      "case": 0,
+      "vertex": 0,
+      "pointer_initial": 1,
+      "law": {
+        "-1": "0",
+        "0": "5192296857325901808634392177934335/10384593717069655257060992658440192",
+        "1": "411338478060802327666595459634113987853633361181040449147109375/822752278660603021077484591278675252491367932816789931674304512",
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "1208925819896099856318465/5192296858534827628530496329220096",
+        "measurement_timeout": "37661173718211545728037169680840542527703971258359162077185/822752278660603021077484591278675252491367932816789931674304512"
+      }
+    },
+    {
+      "case": 0,
+      "vertex": 0,
+      "pointer_initial": 2,
+      "law": {
+        "-1": "0",
+        "0": "79224535810591625584517709825/158456325028528675187087900672",
+        "1": "6276239760718452666780886359973898769730191136385412890625/12554203470773361527671578846415332832204710888928069025792",
+        "discovery_timeout": "1/1208925819614629174706176",
+        "routing_timeout": "3626703672712009026174975/79228162514264337593543950336",
+        "measurement_timeout": "574637600255390662531303438879706896306419496846360575/12554203470773361527671578846415332832204710888928069025792"
+      }
+    }
+  ],
+  "scope": "Primary one-load zero-tape spatial route, known initialG retained, unknown one-load auxiliary pointer. Source receives no scheduled events during terminal pointer service. Complete native event count is the protocol clock; no physical duration or electromagnetic unit is inferred.",
+  "source_sha256": {
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/joined_readout.py": "1bf9bda370c20a6a23c253654f5fe60160bca20fd5d24b0548bac5e98ba6b467",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/JOINED_READOUT.json": "f31f196e5baf5425f63806d41e854801688d24a70394230c7dcfdeaeccdaa0fe",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/native_cycle_meter.py": "4db8d707879c416ca5002b782a70e07aa71d4d9a7fe7111b76a64828c1a05329",
+    "openwave-tuning/next/ROW1_NATIVE/routes/auditor_bridge/NATIVE_CYCLE_METER.json": "66fedd579a900b478c6301c5583be9dd1e3fd7d7a79e882bc1313c41de4e72ef",
+    "openwave-tuning/next/ROW1_NATIVE/routes/spatial/NATIVE_DUAL_WINDING.json": "3e5f99ed88666485c124976df97585bbb7962dbb7df6583109238c4cd2d2927c"
+  },
+  "reviewer_sha256": "4304e54a522dc880b3d777a4971ee67d71c0df944fc80c206a7553dc3a13381f",
+  "official_rows_changed": []
+}
