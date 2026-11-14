@@ -1,0 +1,65 @@
+{
+  "schema": "oph.independent.stacked_wavepacket.review.v1",
+  "tests_passed": 10,
+  "independent_implementation": "independent Bloch incidence, positive eigenspinor and physical-coordinate Hessian; no producer imports in reference",
+  "physical_E_squared_quadratic_form": [
+    [
+      0.04261363621737082,
+      4.919329154430759e-09,
+      0.0
+    ],
+    [
+      4.9193291526960355e-09,
+      0.04261363047977293,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.999999666637455
+    ]
+  ],
+  "physical_E_squared_quadratic_form_without_z": [
+    [
+      0.04261363621737082,
+      4.919329154430759e-09,
+      0.0
+    ],
+    [
+      4.9193291526960355e-09,
+      0.04261363047977293,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "saved_apparatus_offset_bins": 7,
+  "complete_apparatus_norm_max_error": 3.9968028886505635e-15,
+  "saved_apparatus_centroid_reconstruction_max_error": 3.7192471324942744e-15,
+  "producer_reported_ray_max_distance": 0.0011758163742679845,
+  "producer_reported_edge_shell_probability": 0.00041001203126900243,
+  "finding_resolved": "Complete coarse spatial apparatus retained in seven offset-bin distributions; invalid inputs rejected and ray anchored to first sample.",
+  "remaining_scope": [
+    "vertical connectivity is an explicit supplied graph extension",
+    "anisotropy retained, no common isotropic light cone established",
+    "positive band and uniform record preparation supplied",
+    "zero commit rate selected; commits can mix bands",
+    "finite periodic centroid/ray comparison, no hidden trajectory or derived gravity",
+    "flat effective reference metric supplied; no modular-to-proper-time conversion",
+    "no certified infinite-volume/wrap bound",
+    "no automatic transfer of a 2D interaction kernel"
+  ],
+  "source_sha256": {
+    "stacked_wavepacket.py": "5a54aef32e47646a380c9f43aa142e044d481c3c2d881d5677ba2c992103ce9d",
+    "STACKED_WAVEPACKET.json": "7650f1c7a38203802cbcd0a1b396ef3533640cafddb757eebfad0de833e48fa4",
+    "position_distributions.npz": "499b77c59ad23f2bda615f4e5796c350308d92eebdf5f724289ea93f12ea88b6",
+    "independent_stacked_reference.py": "fc112149f2859600978c4ebcdbf200d7d5d6d2fa90cc5ef821a1b34c62c11667",
+    "test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
+    "INDEPENDENT_STACKED_REVIEW.md": "fbba719e19443c81a0d0b2edbcf1a35ce2fc0cc2728acaa8f2a8540e4e90af92",
+    "METHOD.md": "5a046e44176653ebfe527bdade22d5cfdc80ba04426cb457bd43bf6deb9ce912"
+  },
+  "official_rows_promoted": 0
+}

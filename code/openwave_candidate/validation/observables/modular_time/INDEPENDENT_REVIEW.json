@@ -1,0 +1,29 @@
+{
+  "schema": "oph.observer.modular_time.independent_review.v1",
+  "outcome": "PASS_WITH_SCOPE_NOTES",
+  "terminal_archive_max_identity_error": 0.0,
+  "terminal_nonselective_disturbance_frobenius": 0.2815897915020488,
+  "conditional_eigenvalues_analytic": [
+    0.013152356446865132,
+    0.9868476435531348
+  ],
+  "general_complex_KMS_minus_i_max_error": 7.153457808806092e-16,
+  "wrong_plus_i_min_error": 148.15868267746254,
+  "GNS_direct_vectorization_error": 1.6653345369377348e-16,
+  "GNS_cyclic_vector_error": 2.8865798640273953e-15,
+  "CSV_JSON_analytic_correlation_max_error": 3.6909697986596355e-15,
+  "conditioned_plus_complement_minus_native_trace": 0.0,
+  "scope_notes": [
+    "Input native propagation is numerically generated, without a certified enclosure; this tiny audit checks the supplied conditional state, not an independent full native propagation theorem.",
+    "Full native density and both terminal P/Q branches are archived and independently checked; this terminal instrument is distinct from sequential native monitoring.",
+    "Eigenframe sigma_x and full corner algebra are declared apparatus choices; complex correlations are algebraic, not raw C/E joint probabilities.",
+    "Modular parameter has no physical clock or subjective/experienced-duration identification.",
+    "METHOD wording corrected to declared native evolution parameter; no physical-time conversion is supplied."
+  ],
+  "source_sha256": {
+    "MODULAR_TIME.json": "314787c961f8b70d2070a980d3a1a14cc3754731a033f324c6c020344890d827",
+    "METHOD.md": "86175190d14b63bf1cb72482b3022b7755cb0678bef921aa970d7eb24d417927",
+    "correlations.csv": "a91de679cc217b662e4beb174fd5f6cf2e2b09a592250e0526253744b4a10026",
+    "review_modular_time.py": "10383f2f8ab6f927397f8677c46eabfef7789a68a7c7d91d7e5efd517a84c896"
+  }
+}

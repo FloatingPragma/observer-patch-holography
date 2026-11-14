@@ -77,7 +77,7 @@
       "statement": "A sparse local-coarse modular instrument runs on the canonical ring with explicit rejected boundary events. Exact rational Taylor arithmetic and an analytic projection bound enclose every position and classical-quantum outcome probability relative to the complete modular sector."
     },
     {
-      "domain": "Explicit uniform-fiber preparation, including composite modulus6; connected graph and fixed source sector. Individual record-resolving measurements generally leave the subspace. No definite-record substitution, efficient preparation of the enormous joint state, or physical charge identification is asserted. Numerical continuous propagation is distinct from the exact operator identity.",
+      "domain": "Explicit uniform-fiber preparation, including composite modulus6; connected graph and fixed source sector. Native sector-preserving operations do not deterministically prepare it from definite records; conditional success is bounded by the initial zero-holonomy weight. Additional preparation resources are allowed but must be declared. Arbitrary terminal effects compress to V*EV; continued reduced evolution needs instrument-level preservation. Individual record measurements generally leave the code. Numerical continuous propagation is distinct from the exact operator identity. No physical charge identification follows.",
       "id": "uniform_fiber_native_reduction",
       "statement": "On a connected modular Gauss sector, normalized uniform record fibers define an isometry intertwining the Hamiltonian and every local-coarse C/E Kraus operator. The reduced canonical ring therefore reproduces complete native outcomes, repeated channels, external references and the per-seam generator on this preparation subspace."
     },
@@ -85,6 +85,30 @@
       "domain": "Spatially compact, flat nonpropagating mode with globally coherent modular record fibers and supplied transit-as-elsewhere rule. The -m eigenvalue supplies no vacuum/positive-energy electron dictionary, physical rest clock, magnetic moment or full particle-stability criterion.",
       "id": "compact_native_persistence",
       "statement": "A closed three-seam transit cycle in the reduced canonical graph lifts through the uniform-fiber isometry to an eigenstate with energy -m. Every native local endpoint event preserves its density, including supplied per-seam continuous scheduling. Canonical1x1 and2x2 controls and an explicit complete modular triangle verify persistence and reject broken-cycle, definite-record and full-monitor substitutions."
+    }
+  ],
+  "observable_experiments": [
+    {
+      "domain": "Supplied uniform Gauss-fiber preparation, native duration/rate, terminal P/Q instrument, conditioning and state-dependent observable. Full native density and both terminal branches are archived. Native numerical propagation has no certified enclosure. No physical or subjective time conversion, consciousness interpretation or raw C/E realization of the complex correlation is inferred.",
+      "frequency_dimensionless": 4.31791472430015,
+      "id": "native_conditioned_modular_flow",
+      "inside_probability": 0.9035519258604874,
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/validation/observables/modular_time/MODULAR_TIME.json",
+      "statement": "A declared two-port corner of the canonical native output is numerically faithful and has nontrivial modular observable correlations, checked with the standard finite GNS modular operator and a separate analytic reconstruction."
+    },
+    {
+      "centroid_reference_max_distance": 0.0011758163742679845,
+      "domain": "Supplied vertical edges, unit spacing/weights, periodic lattice, positive acoustic preparation, finite-grid phase convention, coarse position apparatus and flat anisotropic metric. This is an extension of the two-dimensional screen. The broad ensemble centroid is not an observed individual trajectory. No physical length/time calibration, dynamical gravity, modular/proper-time identification or transfer of the two-dimensional force kernel is asserted.",
+      "id": "explicit_stacked_ring_wavepacket",
+      "physical_rows_promoted": 0,
+      "receipt": "code/openwave_candidate/validation/observables/spacetime/STACKED_WAVEPACKET.json",
+      "statement": "An explicitly augmented ring graph has rank-three acoustic propagation. A prepared positive-band packet evolves under its full H_m at zero commit rate; all bins of the declared coarse spatial apparatus are retained and compared with a constant-velocity reference geodesic.",
+      "weighted_group_velocity": [
+        0.058432378141542174,
+        0.007004124607561292,
+        0.24678606272157927
+      ]
     }
   ],
   "official_OpenWave_awards_added": 0,
@@ -467,7 +491,34 @@
     "code/openwave_candidate/integration/assessment.json": "ffadd9f40c9fc7073257793934e5d4695f84e9854c1dbedbe69dfa9b7685545a",
     "code/openwave_candidate/platform_packet/criteria_frozen.json": "d6e36d90bc253f5af641760de2e6efc50e181f16e17c8f5334c31d0d7928085f",
     "code/openwave_candidate/platform_packet/packet.json": "9e0678f5efbbc5fdc1449a693fb880ced3509abe244f4e6b90597e20e6672d82",
-    "tools/build_openwave_joint_claims.py": "d79ea5a04979a978f0cfd05afbec114ebf886c6f3e9336e2cc7f7336d2f1fff5",
+    "code/openwave_candidate/validation/observables/modular_time/INDEPENDENT_REVIEW.json": "d58b0ecc5124b75b712b174bf5e3baed5e3989faf5468dbdd1556f7c7e2e8fb5",
+    "code/openwave_candidate/validation/observables/modular_time/INDEPENDENT_REVIEW.md": "e1c1dc5277e9b8ed1a8d52d4e0dd4ee4fd47e81e925e90daf6f34543e2400ab8",
+    "code/openwave_candidate/validation/observables/modular_time/METHOD.md": "86175190d14b63bf1cb72482b3022b7755cb0678bef921aa970d7eb24d417927",
+    "code/openwave_candidate/validation/observables/modular_time/MODULAR_TIME.json": "314787c961f8b70d2070a980d3a1a14cc3754731a033f324c6c020344890d827",
+    "code/openwave_candidate/validation/observables/modular_time/PLOT_SOURCES.json": "ab07e2ac6393ffe95fdc0aaf04f28980d15b773a32c3ac0b8831ea08d78bfec0",
+    "code/openwave_candidate/validation/observables/modular_time/correlations.csv": "a91de679cc217b662e4beb174fd5f6cf2e2b09a592250e0526253744b4a10026",
+    "code/openwave_candidate/validation/observables/modular_time/modular_correlations.png": "78b443bb1d69a59d0904a45e13fb52eca9f4d97841ad8646af350fafef068b76",
+    "code/openwave_candidate/validation/observables/modular_time/modular_correlations.svg": "868b0042aeae9d97931b462ceb16c16d938d320f866c6348490a7cf0ea325652",
+    "code/openwave_candidate/validation/observables/modular_time/native_state.npz": "6c33a8caac5ee0dc8d63fdf2a574d7f9631bf2a3f31d70ffde3f4429572e09d1",
+    "code/openwave_candidate/validation/observables/modular_time/plot_modular_time.py": "573a4a4200d47bd10303c92722f8c89495181442e1c10bf07b50e94d5090a073",
+    "code/openwave_candidate/validation/observables/modular_time/review_modular_time.py": "10383f2f8ab6f927397f8677c46eabfef7789a68a7c7d91d7e5efd517a84c896",
+    "code/openwave_candidate/validation/observables/modular_time/run_modular_time.py": "25e8bede641aa4c915c2276a10f9ea1f40ec45bdbab1d73d0a1d4520f816b7b7",
+    "code/openwave_candidate/validation/observables/modular_time/test_modular_time.py": "2a6222ed5006004ee1e5f25456634181c1dbb3728c341e97bdf1a0982b75022a",
+    "code/openwave_candidate/validation/observables/spacetime/INDEPENDENT_STACKED_REVIEW.json": "4a565e924b741df2cf14198b44e0f95d2e939e289944090646740d9be1d34d67",
+    "code/openwave_candidate/validation/observables/spacetime/INDEPENDENT_STACKED_REVIEW.md": "fbba719e19443c81a0d0b2edbcf1a35ce2fc0cc2728acaa8f2a8540e4e90af92",
+    "code/openwave_candidate/validation/observables/spacetime/METHOD.md": "5a046e44176653ebfe527bdade22d5cfdc80ba04426cb457bd43bf6deb9ce912",
+    "code/openwave_candidate/validation/observables/spacetime/PHYSICAL_ASSUMPTION_REVIEW.json": "8cdddfffe3f0f66d04a2b14cfac3b0b2b9767c34e641e16920f4bd6445c20f30",
+    "code/openwave_candidate/validation/observables/spacetime/PHYSICAL_ASSUMPTION_REVIEW.md": "3027b1c92330035f31519e178cf96383b3f24d9f26c0eeb226d54c14d4a28a6f",
+    "code/openwave_candidate/validation/observables/spacetime/STACKED_WAVEPACKET.json": "7650f1c7a38203802cbcd0a1b396ef3533640cafddb757eebfad0de833e48fa4",
+    "code/openwave_candidate/validation/observables/spacetime/audit_stacked_assumptions.py": "c8eda6259b6d15dbaa59c8abb30d5dab5a17949cdc75dc1458b33fc09b57324f",
+    "code/openwave_candidate/validation/observables/spacetime/independent_stacked_reference.py": "fc112149f2859600978c4ebcdbf200d7d5d6d2fa90cc5ef821a1b34c62c11667",
+    "code/openwave_candidate/validation/observables/spacetime/position_distributions.npz": "499b77c59ad23f2bda615f4e5796c350308d92eebdf5f724289ea93f12ea88b6",
+    "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.png": "194c4bebe477bd07ffcac322ea23d23d0432061856288c7ff8d1af72a044a907",
+    "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.py": "5a54aef32e47646a380c9f43aa142e044d481c3c2d881d5677ba2c992103ce9d",
+    "code/openwave_candidate/validation/observables/spacetime/stacked_wavepacket.svg": "48a1f0bfe7697eb972218a68dcd6f0a7834d02eb1e09d13ece6399ea4a4f863f",
+    "code/openwave_candidate/validation/observables/spacetime/test_independent_stacked.py": "2acd9b945281c894b63d48e958c1455c99c27df1bc8654f2b9fd4b8ef7f99181",
+    "code/openwave_candidate/validation/observables/spacetime/test_stacked_assumptions.py": "73d3d148e3c88b82fd17b8f77345c40f345a5b11c7b93b7f7aec8dc9c9a24c74",
+    "tools/build_openwave_joint_claims.py": "11d3d7de1a266217098dabc305e705eb1962a12ddf413addd1234a0bc3f7d77d",
     "tools/check_openwave_assessment_replay.py": "765efb63988bb4f725426da9df1469523ec3cdd18d079684bf8f77f21416eeb9"
   }
 }

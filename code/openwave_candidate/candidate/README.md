@@ -17,8 +17,11 @@ The [uniform-fiber theorem](methods/uniform_native.md) applies to the entire
 local instrument, including per-seam continuous scheduling and external quantum
 references. The [compact preparation](methods/compact_native.md) persists under
 that same instrument. It is a flat transit mode, not an identified electron.
-Uniform and definite records are distinct inputs. The earlier bounded integer
-`JointRecords` instrument retains its own fully monitored comparison domain.
+Uniform and definite records are distinct inputs. Native holonomy-preserving
+operations cannot raise a definite record's initial zero-holonomy weight;
+the uniform resource requires a supplied preparation service or an explicitly
+accounted conditional protocol. The bounded integer `JointRecords` instrument
+retains its fully monitored comparison domain.
 
 The full 31-row dispatch and OpenWave task handoff live in `../integration/`
 and `../platform_packet/`. Only executed supporting observables receive local
@@ -159,10 +162,11 @@ expectations from sharp charge, integer circulation from complete-boundary
 current, and operational load units from physical electric charge.
 
 These commands share the same port/transit geometry and explicit record
-conventions. A full modular sector grows exponentially with cycle rank; the
-small exact runs do not constitute canonical-screen quantum evolution.
-The native candidate remains under audit rather than silently replacing the
-published hard-wall monitoring protocol or inheriting its results.
+conventions. Uniform-fiber reduction computes canonical-screen records on its
+supplied code; direct full-sector enumeration is limited to small controls.
+A terminal effect can be compressed even when measuring it leaves that code.
+Continuing the reduced instrument requires its actual outcome maps. Sparse
+definite-record certificates retain their separate preparation/error domain.
 
 `oph-openwave sparse_native` executes the canonical-ring local-coarse channel
 on a sparse modular path window. Its exact rational Taylor certificate retains

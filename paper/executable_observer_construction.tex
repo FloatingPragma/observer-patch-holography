@@ -1326,10 +1326,16 @@ transferring a bare eigenvector to an arbitrary record state.
 
 On the two- and eight-carrier flat screens, the fibers contain $6^{40}$
 and $6^{157}$ configurations. The compact state has $3d$ nonzero joint
-amplitudes. Reduced execution uses the exact isometry image; the huge
-record state is specified implicitly, with a supplied nonlocal preparation.
-A definite record, a record measurement or another regulator needs its own
-transfer. The mode is flat, entirely transit-supported and immobile; no
+amplitudes. Reduced execution uses the exact isometry image and a supplied initial
+record resource. The projector $P_0=VV^*$ reduces $H$ and every local Kraus
+map, so unconditioned native evolution preserves $\operatorname{Tr}(P_0\rho)$.
+A definite record has weight $1/d$; a successful native-only branch wholly
+in the code has probability at most $1/d$. This restricted-operation bound
+is not a gate-complexity lower bound for additional preparation services.
+Any terminal effect has probabilities computed by $V^*EV$, even
+when its actual measurement leaves the code. Subsequent reduced evolution
+requires the corresponding outcome maps or retained complementary state.
+A different preparation or regulator needs its own transfer. The mode is flat, entirely transit-supported and immobile; no
 physical electron identity, intrinsic clock or magnetic/spin theorem
 follows from this conditional persistence.
 
@@ -3038,6 +3044,17 @@ storage and record services are supplied. This is active protection of the
 stated qubit before readout, not arbitrary-carrier recovery, fault tolerance
 or an autonomous observer.
 
+The explicit stacked-ring extension supplies vertical seams with
+$L_3(k)=L_{\rm ring}(k_1,k_2)+2(1-\cos k_3)I_{24}$.
+The acoustic coefficients $(15/352,15/352,1)$ give genuine rank-three,
+anisotropic propagation in supplied lattice units. At zero commit rate a
+supplied positive-band packet evolves under this same extended incidence
+Hamiltonian. Its position distribution and centroid use a prescribed flat
+metric; they establish neither a measured particle trajectory nor derived
+gravity. The two-dimensional $L^{-1/2}$ force kernel has no automatic
+three-dimensional transfer
+(\texttt{code/openwave\_candidate/validation/observables/spacetime/}).
+
 \subsection{Observer readouts and the fixed-reference clock}
 \label{sec:readouts}
 
@@ -3045,6 +3062,19 @@ The readouts below extract observer representations, modular flow and
 regional structure from the same executed history \cite{csOBS}. The quantum
 algebra, state pairing and access choices are premises, and the Born readout of
 these instruments is a declared service (Section~\ref{sec:services}).
+
+A separate native uniform-fiber experiment conditions the canonical
+87-position state on a declared two-port $M_2$ corner. Its conditional
+probability is $0.9035519259$, with faithful numerical eigenvalues
+$0.01315235645$ and $0.98684764355$. Thus
+$\sigma_s(A)=\rho^{is}A\rho^{-is}$ has frequency
+$\log(0.98684764355/0.01315235645)=4.3179147243$.
+The full density and both terminal $P/Q$ branches are retained; conditioning
+is neither a partial trace nor a sequential native measurement history.
+The corner algebra and state-dependent apparatus are supplied, and $s$
+has no subjective-duration or native-clock identification
+(\texttt{code/openwave\_candidate/validation/observables/modular\_time/}).
+The following proposition concerns the distinct executed-history reference.
 
 \begin{proposition}[Observer representations of the executed history]
 \label{prop:gns}

@@ -1,0 +1,84 @@
+{
+  "schema": "oph.stacked_wavepacket.physical_assumption_review.v1",
+  "zero_links": {
+    "grid": 4,
+    "mass": 0.23,
+    "times": [
+      0.0,
+      0.37
+    ],
+    "zero_links_q3_energy_difference": 0.0,
+    "active_links_q3_energy_difference": 0.12899267440423284,
+    "zero_links_z_marginal_change": 5.551115123125783e-17,
+    "scope": "Executed finite no-vertical-coupling control; a three-coordinate plot alone creates no propagation."
+  },
+  "source_input_probes": [
+    {
+      "case": "zero_mass_formula",
+      "status": "input_rejected",
+      "exception": "ValueError",
+      "detail": "mass must be finite and strictly positive for this band formula"
+    },
+    {
+      "case": "negative_mass_at_zero_momentum",
+      "status": "input_rejected",
+      "exception": "ValueError",
+      "detail": "mass must be finite and strictly positive for this band formula"
+    },
+    {
+      "case": "zero_momentum_width",
+      "status": "input_rejected",
+      "exception": "ValueError",
+      "detail": "sigma must be finite and strictly positive"
+    },
+    {
+      "case": "empty_time_samples",
+      "status": "input_rejected",
+      "exception": "ValueError",
+      "detail": "times must be a nonempty one-dimensional finite array"
+    }
+  ],
+  "source_sha256": {
+    "audit_stacked_assumptions.py": "c8eda6259b6d15dbaa59c8abb30d5dab5a17949cdc75dc1458b33fc09b57324f",
+    "stacked_wavepacket.py": "5a54aef32e47646a380c9f43aa142e044d481c3c2d881d5677ba2c992103ce9d"
+  },
+  "large_grid_rerun": false,
+  "source_edited": false,
+  "official_rows_promoted": 0,
+  "spatial_archive": {
+    "fields": [
+      "probability.npy",
+      "spatial_probability.npy",
+      "internal_offsets.npy",
+      "component_to_offset_bin.npy",
+      "coordinates.npy",
+      "times.npy"
+    ],
+    "spatial_probability_shape": [
+      9,
+      32,
+      32,
+      32,
+      7
+    ],
+    "sha256": "499b77c59ad23f2bda615f4e5796c350308d92eebdf5f724289ea93f12ea88b6",
+    "inspection": "header only; no fullgrid probability tensor replay"
+  },
+  "published_snapshot": {
+    "sha256": "7650f1c7a38203802cbcd0a1b396ef3533640cafddb757eebfad0de833e48fa4",
+    "centroid_ray_error": 0.0011758163742679845,
+    "maximum_edge_shell_probability": 0.00041001203126900243,
+    "final_position_std": [
+      4.853940356697623,
+      3.768663453400707,
+      3.51714239718047
+    ],
+    "total_centroid_displacement": [
+      0.23372950103268056,
+      0.028016505079637655,
+      0.9883200672605097
+    ],
+    "central_vs_weighted_velocity_distance": 0.12846630344363794,
+    "proper_parameter_is_reference_interpretation": true
+  }
+}
