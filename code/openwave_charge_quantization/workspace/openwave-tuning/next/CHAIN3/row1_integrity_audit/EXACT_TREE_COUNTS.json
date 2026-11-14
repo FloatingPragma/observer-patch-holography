@@ -1,0 +1,610 @@
+{
+  "actual_leaf_tapes_reexecuted_in_this_count_check": false,
+  "all_frozen_tree_rows_equal": true,
+  "method": "Independent controller path-count recurrence; no producer tree helper called",
+  "quotient_leaves": 2970,
+  "rows": [
+    {
+      "actual_executor_records_replayed": 760,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 0,
+      "mass": "1",
+      "outcomes": 71,
+      "quotient_leaves": 71,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 325,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 0,
+      "mass": "1",
+      "outcomes": 41,
+      "quotient_leaves": 41,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 70,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 0,
+      "mass": "1",
+      "outcomes": 11,
+      "quotient_leaves": 11,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 325,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 0,
+      "mass": "1",
+      "outcomes": 41,
+      "quotient_leaves": 41,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 760,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 0,
+      "mass": "1",
+      "outcomes": 71,
+      "quotient_leaves": 71,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1016,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 1,
+      "mass": "1",
+      "outcomes": 71,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 479,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 1,
+      "mass": "1",
+      "outcomes": 41,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 122,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 1,
+      "mass": "1",
+      "outcomes": 11,
+      "quotient_leaves": 12,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 479,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 1,
+      "mass": "1",
+      "outcomes": 41,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1016,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 1,
+      "mass": "1",
+      "outcomes": 71,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1494,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 2,
+      "mass": "1",
+      "outcomes": 45,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 765,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 2,
+      "mass": "1",
+      "outcomes": 27,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 216,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 2,
+      "mass": "1",
+      "outcomes": 9,
+      "quotient_leaves": 15,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 765,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 2,
+      "mass": "1",
+      "outcomes": 27,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1494,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 2,
+      "mass": "1",
+      "outcomes": 45,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1765,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 3,
+      "mass": "1",
+      "outcomes": 73,
+      "quotient_leaves": 76,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 934,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 3,
+      "mass": "1",
+      "outcomes": 43,
+      "quotient_leaves": 46,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 283,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 3,
+      "mass": "1",
+      "outcomes": 13,
+      "quotient_leaves": 16,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 934,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 3,
+      "mass": "1",
+      "outcomes": 43,
+      "quotient_leaves": 46,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1765,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 3,
+      "mass": "1",
+      "outcomes": 73,
+      "quotient_leaves": 76,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1876,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 4,
+      "mass": "1",
+      "outcomes": 61,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 991,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 4,
+      "mass": "1",
+      "outcomes": 37,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 286,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 4,
+      "mass": "1",
+      "outcomes": 13,
+      "quotient_leaves": 15,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 991,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 4,
+      "mass": "1",
+      "outcomes": 37,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1876,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 4,
+      "mass": "1",
+      "outcomes": 61,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1613,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 5,
+      "mass": "1",
+      "outcomes": 58,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 830,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 5,
+      "mass": "1",
+      "outcomes": 34,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 227,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 5,
+      "mass": "1",
+      "outcomes": 10,
+      "quotient_leaves": 12,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 830,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 5,
+      "mass": "1",
+      "outcomes": 34,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1613,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 5,
+      "mass": "1",
+      "outcomes": 58,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2122,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 6,
+      "mass": "1",
+      "outcomes": 61,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1135,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 6,
+      "mass": "1",
+      "outcomes": 37,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 328,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 6,
+      "mass": "1",
+      "outcomes": 13,
+      "quotient_leaves": 15,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1135,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 6,
+      "mass": "1",
+      "outcomes": 37,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2122,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 6,
+      "mass": "1",
+      "outcomes": 61,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1860,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 7,
+      "mass": "1",
+      "outcomes": 58,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 975,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 7,
+      "mass": "1",
+      "outcomes": 34,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 270,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 7,
+      "mass": "1",
+      "outcomes": 10,
+      "quotient_leaves": 12,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 975,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 7,
+      "mass": "1",
+      "outcomes": 34,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1860,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 7,
+      "mass": "1",
+      "outcomes": 58,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2183,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 8,
+      "mass": "1",
+      "outcomes": 75,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1178,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 8,
+      "mass": "1",
+      "outcomes": 45,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 353,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 8,
+      "mass": "1",
+      "outcomes": 15,
+      "quotient_leaves": 15,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1178,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 8,
+      "mass": "1",
+      "outcomes": 45,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2183,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 8,
+      "mass": "1",
+      "outcomes": 75,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2068,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 9,
+      "mass": "1",
+      "outcomes": 74,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1111,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 9,
+      "mass": "1",
+      "outcomes": 44,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 334,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 9,
+      "mass": "1",
+      "outcomes": 14,
+      "quotient_leaves": 15,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1111,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 9,
+      "mass": "1",
+      "outcomes": 44,
+      "quotient_leaves": 45,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2068,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 9,
+      "mass": "1",
+      "outcomes": 74,
+      "quotient_leaves": 75,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2015,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 10,
+      "mass": "1",
+      "outcomes": 72,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1058,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 10,
+      "mass": "1",
+      "outcomes": 42,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 281,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 10,
+      "mass": "1",
+      "outcomes": 12,
+      "quotient_leaves": 12,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1058,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 10,
+      "mass": "1",
+      "outcomes": 42,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 2015,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 10,
+      "mass": "1",
+      "outcomes": 72,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1898,
+      "command": -2,
+      "exact_DP_equal": true,
+      "initial": 11,
+      "mass": "1",
+      "outcomes": 72,
+      "quotient_leaves": 72,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 989,
+      "command": -1,
+      "exact_DP_equal": true,
+      "initial": 11,
+      "mass": "1",
+      "outcomes": 42,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 260,
+      "command": 0,
+      "exact_DP_equal": true,
+      "initial": 11,
+      "mass": "1",
+      "outcomes": 12,
+      "quotient_leaves": 12,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 989,
+      "command": 1,
+      "exact_DP_equal": true,
+      "initial": 11,
+      "mass": "1",
+      "outcomes": 42,
+      "quotient_leaves": 42,
+      "retries": 1
+    },
+    {
+      "actual_executor_records_replayed": 1898,
+      "command": 2,
+      "exact_DP_equal": true,
+      "initial": 11,
+      "mass": "1",
+      "outcomes": 72,
+      "quotient_leaves": 72,
+      "retries": 1
+    }
+  ],
+  "summed_leaf_record_lengths": 65910,
+  "tree_count": 60
+}

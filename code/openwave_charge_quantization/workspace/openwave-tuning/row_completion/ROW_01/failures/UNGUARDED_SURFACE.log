@@ -1,0 +1,17 @@
+Exact geometry and all native closure branches passed 5400
+Signed source/topology/pointer examples passed 171
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/run.py", line 151, in main
+    controls['missing_spatial_edge']=rejected(lambda:topology.construct(it.EDGES[:-1]))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/run.py", line 35, in rejected
+    try:fn()
+        ^^^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/run.py", line 151, in <lambda>
+    controls['missing_spatial_edge']=rejected(lambda:topology.construct(it.EDGES[:-1]))
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/muellerberndt/Projects/oph-meta/openwave-tuning/row_completion/ROW_01/topology.py", line 48, in construct
+    for e,s in boundary(oriented[j]).items():A[e][j]=s
+                        ~~~~~~~~^^^
+KeyError: 18

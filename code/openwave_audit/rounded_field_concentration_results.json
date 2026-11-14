@@ -1,0 +1,70 @@
+{
+  "schema": "oph.rounded_field.concentration.v1",
+  "checks": {
+    "exact_complete_signed_halving_laws": true,
+    "exact_shadow_and_two_noise_map_identities": true,
+    "all1024_joint_coin_histories_and_inverse": true,
+    "conditional_mean_and_heating_identity": true,
+    "uniform_actual_face_positive_majorant": true,
+    "actual_L2_L3_L4_native_shear_Gauss_and_noise": true,
+    "source_bytes_unchanged": true
+  },
+  "controls": {
+    "deterministic_floor_not_unbiased": true,
+    "shared_coin_covariance_breaks_trace_bound": true,
+    "negative_shadow_cross_term_breaks_invariance": true,
+    "unstable_unit_shear_rejected": true,
+    "no_amplitude_gain_without_scaling": true,
+    "no_replica_gain_without_independence": true
+  },
+  "halving_input_round_pairs": 455,
+  "tetrahedron_complete_histories": 1024,
+  "tetrahedron_exact_Q_noise_expectation": "13/8",
+  "stability": {
+    "curvature_upper": "1504/17",
+    "Q_to_diagonal_norm": "6",
+    "transverse_speed_squared_cells_per_macro": "1/48"
+  },
+  "geometries": [
+    {
+      "size": 2,
+      "edges": 288,
+      "faces": 208,
+      "face_Frobenius_squared": 1024,
+      "trace_per_cell": "128",
+      "one_step_Q_variance_upper": "96",
+      "T400_R65536_Qerror_expectation_upper": "75/8388608",
+      "native_inverse_and_Gauss_tests": 8
+    },
+    {
+      "size": 3,
+      "edges": 972,
+      "faces": 702,
+      "face_Frobenius_squared": 3456,
+      "trace_per_cell": "128",
+      "one_step_Q_variance_upper": "324",
+      "T400_R65536_Qerror_expectation_upper": "2025/67108864",
+      "native_inverse_and_Gauss_tests": 8
+    },
+    {
+      "size": 4,
+      "edges": 2304,
+      "faces": 1664,
+      "face_Frobenius_squared": 8192,
+      "trace_per_cell": "128",
+      "one_step_Q_variance_upper": "768",
+      "T400_R65536_Qerror_expectation_upper": "75/1048576",
+      "native_inverse_and_Gauss_tests": 8
+    }
+  ],
+  "source_sha256": {
+    "openwave-tuning/auditor/rounded_field_limit/audit.py": "3cd67db230879e2f61b5ab8870486a5e84596e40837572cfa77d6ef44b8420c6",
+    "openwave-tuning/auditor/rounded_field_limit/bounds.py": "bf393658e9cf4b162248629c31b3f3d43d0d7398c8e7c2b2bfc20a3af1a5ef19",
+    "openwave-push/blockers/X3a_reversible_field/x3lib.py": "a34e248da4fc8534f859c5a6ef5ff6be731f5b9351154f3c80867254ca757880",
+    "openwave-push/blockers/X3a_reversible_field/routing_tables.json": "fc32dd3bdd15521190ee6c44d304c62f4036c93642574f696642a11a06d33224",
+    "openwave-push/blockers/X3a_reversible_field/FIELD_LAW.md": "435447c88a517af082a2eecdb055a86679b39292dd0075ad9059a6063811eab5",
+    "openwave-tuning/auditor/harmonic_stability/MANIFEST.json": "9b5723b1b9dfc48e3b38e3480ca308c5f1f33af61409142c9242065fb1b4da2e",
+    "openwave-tuning/auditor/harmonic_stability/STABILITY.json": "7eda3fd1b046e0a53e404b9538b9a9400a66d81d8fedef3d36fa735132f8317f"
+  },
+  "scope": "Finite-time classical field concentration for independent fair native rounding, synchronous declared shears. Conditional transfer to a separately controlled deterministic Maxwell limit. No unit-amplitude single-run noiseless field, matter force, quantum, asynchronous schedule or full row validation follows."
+}

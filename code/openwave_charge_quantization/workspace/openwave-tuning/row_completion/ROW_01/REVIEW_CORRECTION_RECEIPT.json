@@ -1,0 +1,320 @@
+{
+  "base_manifest_sha256": "c4f6db87b1d2c7ddd4caa4c8ac5a95f09c33679f060d50845aa0bf42f5e54d12",
+  "abstract_GL11_shear": [
+    [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "shear_determinant": 1,
+  "abstract_dictionary_uniqueness_claim": false,
+  "native_source_and_local_B_dictionary_changed": false,
+  "guarded_decoder_cases": [
+    {
+      "degree": 1,
+      "outcome": "complete_closed_pointer_word",
+      "admitted": true,
+      "raw_degree": 1
+    },
+    {
+      "degree": 1,
+      "outcome": "discovery_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": 1,
+      "outcome": "routing_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": 1,
+      "outcome": "measurement_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": -1,
+      "outcome": "complete_closed_pointer_word",
+      "admitted": true,
+      "raw_degree": -1
+    },
+    {
+      "degree": -1,
+      "outcome": "discovery_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": -1,
+      "outcome": "routing_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": -1,
+      "outcome": "measurement_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": 0,
+      "outcome": "complete_closed_pointer_word",
+      "admitted": true,
+      "raw_degree": 0
+    },
+    {
+      "degree": 0,
+      "outcome": "discovery_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": 0,
+      "outcome": "routing_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": 2,
+      "outcome": "complete_closed_pointer_word",
+      "admitted": true,
+      "raw_degree": 2
+    },
+    {
+      "degree": 2,
+      "outcome": "discovery_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": 2,
+      "outcome": "routing_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": 2,
+      "outcome": "measurement_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": -2,
+      "outcome": "complete_closed_pointer_word",
+      "admitted": true,
+      "raw_degree": -2
+    },
+    {
+      "degree": -2,
+      "outcome": "discovery_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": -2,
+      "outcome": "routing_timeout",
+      "admitted": true,
+      "raw_degree": null
+    },
+    {
+      "degree": -2,
+      "outcome": "measurement_timeout",
+      "admitted": true,
+      "raw_degree": null
+    }
+  ],
+  "genuine_zero_readout": {
+    "admitted": true,
+    "reasons": [],
+    "charge_read_at": "L1",
+    "readout": 0,
+    "outcome": "complete_closed_pointer_word",
+    "record_attempts": 41,
+    "compatible_pointer_initials": [
+      11
+    ],
+    "compatible_initial_indicator": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "fine_record_weight_conditional_on_compatible_initial": "1/2199023255552",
+    "pointer_initial_classical_effect": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2199023255552"
+    ],
+    "probability_interpretation": "Effect entries are complete emitted fine-record likelihoods conditional on each initial column; an explicit prior gives their weighted sum. No initial prior is assumed.",
+    "raw_spatial_pointer_degree": 0
+  },
+  "empty_success_rejected": {
+    "admitted": false,
+    "reasons": [
+      "I4: no record-only initial pointer column validates",
+      "R3: pointer tape ends after 0 attempts before the policy terminates",
+      "R4: success is claimed, the replayed tape gives 'incomplete'",
+      "R5: pointer fine-history probability 1/512 is not 2^-0"
+    ],
+    "compatible_pointer_initials": []
+  },
+  "base_and_provider_bytes_unchanged": true
+}

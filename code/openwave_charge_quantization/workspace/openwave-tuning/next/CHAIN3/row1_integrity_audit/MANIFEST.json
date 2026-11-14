@@ -1,0 +1,30 @@
+{
+  "files_sha256": {
+    "EXACT_TREE_COUNTS.json": "23cf4de0fc302e0e4586e7e93904e26da348a6c4470c26d9b5d147f06646142e",
+    "NATIVE_POINTER_RECORDS.json": "db4e8636b2b11cf9d183d60cac6c0390ec828ded7d68599742bac085aca81aec",
+    "PINNED_INPUTS.json": "9198ec59f2f5dd2f56ef8f0595256efd54c68345896026009afa83eb10dfeb96",
+    "PORTABILITY_CHECK.json": "4b3d9ec82e8977b83dfdc76d9ebd91fc1eccada61caecf47a0dda5f5d690977b",
+    "PROOF.md": "3989aa072764dbbc8acb4e361a31887fa377c31ab928ecc6a14e9c2e161ea56a",
+    "README.md": "b32585431da11e87d3aaef891b257fa54f1529e150b2bb34f57525c68f9883f8",
+    "RESULT.json": "8349e2aad14ff416f2402c0503981a788e7d3b3bde9076df4b821a6a6ac1fccb",
+    "SUMMARY.json": "b86214b6a45463ee62ea32f37178c43ccc300596a46b23fe8ca93112bf6805e1",
+    "audit.py": "d1cbb241a6d64ed96709d45d89f7cc9325ae6447e2efa766b55b741ca465b163",
+    "branch_tree_counts.py": "b415529ca65c21bd58c52c1f3b3ea336e71a64d8823b1b31f14fdb363183e226",
+    "observer_only.py": "5dfb8a239b04a7877965571bfe597f84140961ff7c0a5ab9ee1491192726ca31",
+    "run.log": "34da94ec1986a865f9dd4e1e116e634bc6b1b8be39ef2d43cc92ab368f038cf8",
+    "seal.py": "e429f6fc6c4ac94361ed77c4800d21571bd925f7ee55e054b9c41307f2aeda15",
+    "tree_counts.log": "07eb039dbbf3a034616b4c0cd2eb81f1da55f4f096a49ea747d0946897752fd1"
+  },
+  "official_rows_changed": [],
+  "producer_manifest_sha256": "1f8c91d4820fa2fe5f439f0a8e344645b4c29b11e3541ac32b7c52a71f1d73c4",
+  "reproduce": [
+    "python3 audit.py",
+    "python3 branch_tree_counts.py",
+    "python3 seal.py"
+  ],
+  "reserved_or_load_four_executed": false,
+  "runtime": "Python 3 standard library",
+  "schema": "oph.row1.integrity.independent.audit.manifest.v1",
+  "source_and_receipts_unchanged": true,
+  "verdict": "VALIDATED_WITH_RECORD_ONLY_FACADE"
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "oph.row1.public_execution_custody.v1",
+  "execution": "fresh isolated package copy; Python3 standard library; PYTHONPATH removed",
+  "files_sha256": {
+    "manifest.json": "d5e692b0597dbbeafabb88e6f7d417da8f7d7d1fd39a334c08fa73ffe40e8d90",
+    "PRIMARY_RESULT.json": "10b2bf5bfe1b295c18135138cf3c8a4f175a08ab5bb643f487dd56da8bc36187"
+  },
+  "additional_rejecting_mutation": {
+    "changed_valid_seam_schedule": "history changed declared seam schedule"
+  },
+  "source_files": 33,
+  "public_whitelist": [
+    "LICENSE",
+    "METHOD.md",
+    "joined_readout.py",
+    "native_charge_winding.py",
+    "native_cycle_meter.py",
+    "native_kernel.py",
+    "provenance/CYCLE_POINTER_REVIEW.json",
+    "provenance/CYCLE_POINTER_REVIEW.md",
+    "provenance/JOINED_LATTICE_INDEPENDENT_REVIEW.md",
+    "provenance/JOINED_METHOD.md",
+    "provenance/JOINED_PHASE_INDEPENDENT_REVIEW.md",
+    "provenance/JOINED_READOUT.json",
+    "provenance/JOINED_READOUT_INDEPENDENT_REVIEW.json",
+    "provenance/JOINED_READOUT_REVIEW.json",
+    "provenance/NATIVE_CYCLE_INDEPENDENT_REVIEW.json",
+    "provenance/NATIVE_CYCLE_INDEPENDENT_REVIEW.md",
+    "provenance/NATIVE_CYCLE_METER.json",
+    "provenance/NATIVE_CYCLE_METHOD.md",
+    "provenance/NATIVE_DUAL_WINDING.json",
+    "provenance/ORIGINS.json",
+    "provenance/SPATIAL_INDEPENDENT_REVIEW.json",
+    "provenance/SPATIAL_INDEPENDENT_REVIEW.md",
+    "provenance/SPATIAL_LIFT_AUDIT.json",
+    "provenance/SPATIAL_LIFT_PROOF.md",
+    "provenance/geometry.original.py",
+    "provenance/joined_readout.original.py",
+    "provenance/native.original.py",
+    "provenance/native_cycle_meter.original.py",
+    "provenance/native_dual_winding.original.py",
+    "provenance/review_native_cycle_independent.original.py",
+    "provenance/review_spatial_independent.original.py",
+    "run.py",
+    "source_packet.json",
+    "manifest.json",
+    "PRIMARY_RESULT.json",
+    "OUTPUTS.json"
+  ],
+  "complete_provenance_pinned_sources": 10,
+  "official_rows_changed": []
+}
